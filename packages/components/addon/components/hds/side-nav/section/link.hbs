@@ -1,32 +1,30 @@
-<li class="hds-side-nav__list-item">
-  <Hds::Interactive
-    class="hds-side-nav__item hds-side-nav__item--link"
-    @current-when={{@current-when}}
-    @models={{hds-link-to-models @model @models}}
-    @query={{hds-link-to-query @query}}
-    @replace={{@replace}}
-    @route={{@route}}
-    @isRouteExternal={{@isRouteExternal}}
-    @href={{@href}}
-    @isHrefExternal={{@isHrefExternal}}
-    ...attributes
-  >
-    {{#if @icon}}
-      <FlightIcon class="hds-side-nav__list-item-icon" @name={{@icon}} />
-    {{/if}}
+<Hds::Interactive
+  class="hds-side-nav__list-item-link"
+  @current-when={{@current-when}}
+  @models={{hds-link-to-models @model @models}}
+  @query={{hds-link-to-query @query}}
+  @replace={{@replace}}
+  @route={{@route}}
+  @isRouteExternal={{@isRouteExternal}}
+  @href={{@href}}
+  @isHrefExternal={{@isHrefExternal}}
+  ...attributes
+>
+  {{#if @icon}}
+    <FlightIcon class="hds-side-nav__list-item-icon" @name={{@icon}} />
+  {{/if}}
 
-    <span class="hds-side-nav__list-item-label hds-typography-body-200 hds-font-weight-medium">
-      {{@label}}
-    </span>
+  <span class="hds-side-nav__list-item-label hds-typography-body-200 hds-font-weight-medium">
+    {{@label}}
+  </span>
 
-    {{#if @count}}
-      <Hds::BadgeCount @text={{@count}} @type="inverted" @size="small" />
-    {{/if}}
+  {{#if @count}}
+    <Hds::BadgeCount @text={{@count}} @type="inverted" @size="small" />
+  {{/if}}
 
-    {{#if @badge}}
-      <Hds::Badge @text={{@badge}} @type="inverted" @size="small" />
-    {{/if}}
+  {{#if @badge}}
+    <Hds::Badge @text={{@badge}} @type="inverted" @size="small" />
+  {{/if}}
 
-    {{yield}}
-  </Hds::Interactive>
-</li>
+  {{yield}}
+</Hds::Interactive>

@@ -128,25 +128,23 @@
 }
 
 .hds-side-nav__list-item {
+  display: flex;
+  align-items: center;
+  min-height: 36px;
   list-style-type: none; // Q: Should ul have role="list" added for accessibility?
 
   & + & { margin-top: 4px; }
 }
 
-// generic item
-.hds-side-nav__item {
+.hds-side-nav__list-item-link {
   display: flex;
   align-items: center;
   width: 100%;
   min-height: 36px;
   padding: 0 var(--token-side-nav-item-padding-horizontal);
   color: var(--token-side-nav-foreground-primary);
-  background: var(--token-side-nav-surface);
-}
-
-// interactive "link" item
-.hds-side-nav__item--link {
   text-decoration: none;
+  background: var(--token-side-nav-surface);
   border-color: transparent;
   border-radius: 5px;
 
@@ -188,7 +186,10 @@
   }
 }
 
-.hds-side-nav__list-item-label { color: var(--token-side-nav-foreground-primary); }
+.hds-side-nav__list-item-label {
+  color: var(--token-side-nav-foreground-primary);
+  text-align: left;
+}
 
 .hds-side-nav__list-item-icon {
   margin-right: 8px;

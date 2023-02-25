@@ -149,9 +149,13 @@
     Containing a single Item with a nested Link:
   </Shw::Text::Body>
 
-  <Hds::SideNav::Section as |S|>
-    <S.Link @label="Dashboard" @icon="dashboard" @href="#" />
-  </Hds::SideNav::Section>
+  <div class="shw-component-side-nav-box">
+    <Hds::SideNav::Section as |S|>
+      <S.Item>
+        <S.Link @label="Dashboard" @icon="dashboard" @href="#" />
+      </S.Item>
+    </Hds::SideNav::Section>
+  </div>
 
   <Shw::Text::Body>
     Containing a Title and multiple Items with nested Links:
@@ -161,14 +165,30 @@
     <Hds::SideNav::Section as |S|>
       <S.Title>Services</S.Title>
 
-      <S.Link @label="Boundary" @icon="boundary" @href="#" />
-      <S.Link @label="Consul" @icon="consul" @href="#" />
-      <S.Link @label="Packer" @icon="packer" @href="#" />
-      <S.Link @label="Vault" @icon="vault" @href="#" />
-      <S.Link @label="Vault Secrets" @icon="lock" @badge="Alpha" @href="#" />
-      <S.Link @label="Terraform" @icon="terraform" @href="#" />
-      <S.Link @label="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
-      <S.Link @label="Waypoint" @icon="waypoint" @badge="Alpha" @href="#" />
+      <S.Item>
+        <S.Link @label="Boundary" @icon="boundary" @href="#" />
+      </S.Item>
+      <S.Item>
+        <S.Link @label="Consul" @icon="consul" @href="#" />
+      </S.Item>
+      <S.Item>
+        <S.Link @label="Packer" @icon="packer" @href="#" />
+      </S.Item>
+      <S.Item>
+        <S.Link @label="Vault" @icon="vault" @href="#" />
+      </S.Item>
+      <S.Item>
+        <S.Link @label="Vault Secrets" @icon="lock" @badge="Alpha" @href="#" />
+      </S.Item>
+      <S.Item>
+        <S.Link @label="Terraform" @icon="terraform" @href="#" />
+      </S.Item>
+      <S.Item>
+        <S.Link @label="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
+      </S.Item>
+      <S.Item>
+        <S.Link @label="Waypoint" @icon="waypoint" @badge="Alpha" @href="#" />
+      </S.Item>
     </Hds::SideNav::Section>
   </div>
 </section>
@@ -190,7 +210,9 @@
 <section data-test-percy>
   <Shw::Text::H3>Hds::SideNav::Section::List::Item</Shw::Text::H3>
 
-  <Hds::SideNav::Section::Item>Item with non-interactive content</Hds::SideNav::Section::Item>
+  <div class="shw-component-side-nav-box">
+    <Hds::SideNav::Section::Item>Item with non-interactive content</Hds::SideNav::Section::Item>
+  </div>
 </section>
 
 <section data-test-percy>
@@ -299,33 +321,59 @@
 
       <:body>
         <Hds::SideNav::Section as |S|>
-          <S.Link @icon="dashboard" @label="Dashboard" />
+          <S.Item>
+            <S.Link @icon="dashboard" @label="Dashboard" />
+          </S.Item>
         </Hds::SideNav::Section>
 
         <Hds::SideNav::Section as |S|>
           <S.Title>Services</S.Title>
 
-          <S.Link @label="Boundary" @icon="boundary" @href="#" />
-          <S.Link @label="Consul" @icon="consul" @href="#" />
-          <S.Link @label="Packer" @icon="packer" @href="#" />
-          <S.Link @label="Vault" @icon="vault" @href="#" />
-          <S.Link @label="Vault Secrets" @icon="lock" @href="#" />
-          <S.Link @label="Terraform" @icon="terraform" @href="#" />
-          <S.Link @label="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
+          <S.Item>
+            <S.Link @label="Boundary" @icon="boundary" @href="#" />
+          </S.Item>
+          <S.Item>
+            <S.Link @label="Consul" @icon="consul" @href="#" />
+          </S.Item>
+          <S.Item>
+            <S.Link @label="Packer" @icon="packer" @href="#" />
+          </S.Item>
+          <S.Item>
+            <S.Link @label="Vault" @icon="vault" @href="#" />
+          </S.Item>
+          <S.Item>
+            <S.Link @label="Vault Secrets" @icon="lock" @href="#" />
+          </S.Item>
+          <S.Item>
+            <S.Link @label="Terraform" @icon="terraform" @href="#" />
+          </S.Item>
+          <S.Item>
+            <S.Link @label="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
+          </S.Item>
           {{! should have nested links: }}
-          <S.Link @label="Waypoint" @icon="waypoint" @badge="Alpha" />
+          <S.Item>
+            <S.Link @label="Waypoint" @icon="waypoint" @badge="Alpha" />
+          </S.Item>
         </Hds::SideNav::Section>
 
         <Hds::SideNav::Section as |S|>
           <S.Title>Default Org</S.Title>
 
-          <S.Link @label="HashiCorp Virtual Networks" @icon="network" @href="#" />
+          <S.Item>
+            <S.Link @label="HashiCorp Virtual Networks" @icon="network" @href="#" />
+          </S.Item>
           {{! should have nested links: }}
-          <S.Link @label="Access control (IAM)" @icon="users" @href="#" />
+          <S.Item>
+            <S.Link @label="Access control (IAM)" @icon="users" @href="#" />
+          </S.Item>
           {{! should have nested links: }}
-          <S.Link @label="Billing" @icon="credit-card" @href="#" />
+          <S.Item>
+            <S.Link @label="Billing" @icon="credit-card" @href="#" />
+          </S.Item>
           {{! should have nested links: }}
-          <S.Link @label="Settings" @icon="settings" @href="#" />
+          <S.Item>
+            <S.Link @label="Settings" @icon="settings" @href="#" />
+          </S.Item>
         </Hds::SideNav::Section>
 
         <Hds::SideNav::Section as |S|>
