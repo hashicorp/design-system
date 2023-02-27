@@ -178,7 +178,7 @@
   }
 
   &:hover,
-  &.hover {
+  &.mock-hover {
     background: var(--token-side-nav-interactive-surface-hover);
     border-color: transparent;
 
@@ -189,7 +189,7 @@
   }
 
   &:active,
-  &.active {
+  &.mock-active {
     background: var(--token-side-nav-interactive-surface-active);
 
     .hds-side-nav__list-item-label,
@@ -211,6 +211,7 @@
 }
 
 .hds-side-nav__list-item-icon {
+  flex: none;
   margin-right: 8px;
 }
 
