@@ -50,19 +50,19 @@ The Table component itself is where most of the options will be applied. However
     If set to `true`, the `table-display`(CSS) property will be set to `fixed`. (See [https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) for more details.)
   </C.Property>
   <C.Property @name="density" @type="enum" @values={{array "short" "medium" "tall" }} @default="medium">
-    If set, determines the density (height) of the table’s rows.
+    If set, determines the density (height) of the table body’s rows.
   </C.Property>
   <C.Property @name="valign" @type="enum" @values={{array "top" "middle" }} @default="top">
     If set, determines the vertical alignment for cell (`td`) content in a table. Does not apply to table headers (`th`).
   </C.Property>
   <C.Property @name="caption" @type="string">
-    Adds a (non-visible) caption for users with assistive technology. If set on a sortable table, the provided table caption is paired with the automatically generated sorted message text. Note: it is best practice to provide a table caption for users with assistive technology.
+    Adds a (non-visible) caption for users with assistive technology. If set on a sortable table, the provided table caption is paired with the automatically generated sorted message text.
   </C.Property>
   <C.Property @name="identityKey" @type="string" @default="@identity">
     Option to pass a custom key.
   </C.Property>
-  <C.Property @name="sortedMessageText" @type="string">
-    Empty string on un-sorted column; once a sort is applied, the default message is “Sorted by (column label), (asc/desc)ing”. This is also customizable.
+  <C.Property @name="sortedMessageText" @type="string" @default="Sorted by (label), (asc/desc)ending">
+    Customizable text added to `caption` element when a sort is performed.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
