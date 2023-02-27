@@ -62,26 +62,33 @@
 
 // * Sub-component: Header
 // ---------------------------------------
-.hds-side-nav__header {
-  display: flex;
-  gap: 8px; // TODO: replace with margins
-  align-items: center;
-  padding: 12px;
 
-  .hds-side-nav__home-link {
-    margin-right: auto; // Q: Make more generic?
-  }
+.hds-side-nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hds-side-nav-header__logo {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+}
+
+.hds-side-nav-header__actions {
+  display: flex;
+  gap: 16px;
 }
 
 .hds-side-nav__home-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 48px;
-  height: 48px;
-  padding: 4px;
-  color: var(--token-side-nav-foreground-primary);
-  background: var(--token-side-nav-surface);
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 4px; // by design
+  // TODO discuss with Cristiano/Christian if this needs to become a component-level token
+  color: var(--token-color-foreground-high-contrast);
   border: 1px solid transparent;
   border-radius: 5px;
 
@@ -91,21 +98,14 @@
   }
 
   &:hover,
-  &.hover {
+  &.mock-hover {
     background: var(--token-side-nav-interactive-surface-hover);
-    border-color: transparent;
   }
 
   &:active,
-  &.active {
+  &.mock-active {
     background: var(--token-side-nav-interactive-surface-active);
-    border-color: transparent;
   }
-}
-
-.hds-side-nav__home-link-icon {
-  width: auto;
-  height: 40px;
 }
 
 // class name only, no component:

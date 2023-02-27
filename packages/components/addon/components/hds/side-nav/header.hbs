@@ -1,3 +1,8 @@
-<div class="hds-side-nav__header">
-  {{yield}}
+<div class="hds-side-nav-header">
+  <div class="hds-side-nav-header__logo">
+    {{yield to="logo"}}
+  </div>
+  <div class="hds-side-nav-header__actions">
+    {{yield to="actions"}}
+  </div>
 </div>
