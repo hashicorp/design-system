@@ -34,7 +34,7 @@
       <Doc::MetaRow @label="Don't use" @valueToShow="This token is now deprecated" />
       <Doc::MetaRow class="doc-tokens-list__item--is-deprecated" @label="CSS var" @valueToShow={{this.token.name}} />
     {{else}}
-      <Doc::MetaRow @label="CSS var" @valueToCopy={{this.token.name}} @copyable={{true}} />
+      <Doc::MetaRow @label="CSS var" @valueToCopy="--{{this.token.name}}" @copyable={{true}} />
       {{! we don't want developers to use directly HEX values, so we don't add a "copy" button on purpose }}
       <Doc::MetaRow @label="Value" @valueToShow={{this.token.value}} @isClipped={{not this.isExpanded}} />
     {{/if}}
