@@ -44,14 +44,8 @@ export default class HdsTableThSortComponent extends Component {
       case 'desc':
         return 'arrow-down';
       default:
-        // none is the default per the spec.
         return 'swap-vertical';
     }
-    // if (this.args.isSorted && this.args.sortOrder) {
-    //   return this.args.sortOrder === 'asc' ? 'arrow-up' : 'arrow-down';
-    // } else {
-    //   return 'swap-vertical';
-    // }
   }
 
   /**
