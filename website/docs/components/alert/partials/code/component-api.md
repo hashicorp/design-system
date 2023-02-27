@@ -8,7 +8,7 @@
     Sets the color scheme for `background`, `border`, `title`, and `description`, which **cannot** be overridden.<br/><br/>`color` results in a default `icon`, which **can** be overridden.
   </C.Property>
   <C.Property @name="icon" @type="string | false">
-    Override the default `icon` name, which is determined by the `color` argument.<br/><br/>accepts any [icon](/icons/library) name, or `false`, for no icon.
+    Override the default `icon` name, which is determined by the `color` argument.<br/><br/>Accepts any [icon](/icons/library) name, or `false`, for no icon.
   </C.Property>
   <C.Property @name="onDismiss" @type="function">
     The alert can be dismissed by the user. When a function is passed, the "dismiss" button is displayed.
