@@ -35,9 +35,28 @@
 .hds-side-nav__wrapper {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  height: 100%;
   color: var(--token-side-nav-foreground-primary); // Default color
   background: var(--token-side-nav-surface);
 }
+
+// TODO define exact padding for these containers
+
+.hds-side-nav__wrapper-header {
+  padding: 16px;
+}
+
+.hds-side-nav__wrapper-body {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.hds-side-nav__wrapper-footer {
+  padding: 16px;
+}
+
 
 // Child "wrapper" blocks & child components:
 
@@ -197,6 +216,5 @@
 
 // * Sub-component: Footer
 // ---------------------------------------
-.hds-side-nav__footer {
-  padding: 12px;
-}
+
+// TODO ?
