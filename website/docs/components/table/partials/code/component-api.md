@@ -62,6 +62,7 @@ The Table component itself is where most of the options will be applied. However
     Option to pass a custom key; Ember’s default value is used if not defined.
   </C.Property>
   <C.Property @name="sortedMessageText" @type="string">
+    Empty string on un-sorted column; once a sort is applied, the default message is "Sorted by (column label), (asc/desc)ing". This is also customizable.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
