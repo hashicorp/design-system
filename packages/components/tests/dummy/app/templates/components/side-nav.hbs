@@ -2,125 +2,143 @@
 
 <Shw::Text::H1>SideNav</Shw::Text::H1>
 
-<Shw::Text::H2>Standalone components:</Shw::Text::H2>
-
 <section data-test-percy>
-  <Shw::Text::H3>Hds::SideNav / Wrapper:</Shw::Text::H3>
+  <Shw::Text::H2>SideNav::Wrapper:</Shw::Text::H2>
 
-  <Shw::Text::Body>Contains named blocks for
-    <code>:header</code>,
-    <code>:body</code>, and
-    <code>:footer</code></Shw::Text::Body>
-
-  <Shw::Text::Body>No content:</Shw::Text::Body>
-  <div class="shw-component-side-nav-wrapper">
-    <Hds::SideNav>
-      <:header>
-      </:header>
-
-      <:body>
-      </:body>
-
-      <:footer>
-      </:footer>
-    </Hds::SideNav>
-  </div>
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Header + Body + Footer">
+      <div class="shw-component-sim-side-nav-wrapper">
+        <Hds::SideNav::Wrapper>
+          <:header>
+            <Shw::Placeholder @height="72px" @text="header" @background="#e4e4e4" />
+          </:header>
+          <:body>
+            <Shw::Placeholder @height="300px" @text="body" @background="#e4e4e4" />
+          </:body>
+          <:footer>
+            <Shw::Placeholder @height="36px" @text="footer" @background="#e4e4e4" />
+          </:footer>
+        </Hds::SideNav::Wrapper>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Header (with extra) + Body + Footer">
+      <div class="shw-component-sim-side-nav-wrapper">
+        <Hds::SideNav::Wrapper>
+          <:header>
+            <Shw::Placeholder @height="72px" @text="header" @background="#e4e4e4" />
+            <Shw::Placeholder @height="60px" @text="extra content" @background="#e4c5f3" />
+          </:header>
+          <:body>
+            <Shw::Placeholder @height="300px" @text="body" @background="#e4e4e4" />
+          </:body>
+          <:footer>
+            <Shw::Placeholder @height="36px" @text="footer" @background="#e4e4e4" />
+          </:footer>
+        </Hds::SideNav::Wrapper>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
 </section>
 
 <Shw::Divider />
 
 <section data-test-percy>
-  <Shw::Text::H3>Hds::SideNav::Header</Shw::Text::H3>
 
-  <Shw::Text::Body>Layout wrapper used within the
-    <code>:header</code>
-    named block. Provides layout for the HomeLink and other header content such as dropdowns.</Shw::Text::Body>
+  <Shw::Text::H2>SideNav::Header</Shw::Text::H2>
 
-  <div class="shw-component-side-nav-box">
-    <Hds::SideNav::Header>
-      <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Logo + Actions">
+      <div class="shw-component-sim-side-nav-header">
+        <Hds::SideNav::Header>
+          <:logo>
+            <Shw::Placeholder @width="48px" @height="48px" @text="logo" @background="#e4e4e4" />
+          </:logo>
+          <:actions>
+            <Shw::Placeholder @height="36px" @width="60px" @text="action" @background="#e4e4e4" />
+            <Shw::Placeholder @height="36px" @width="60px" @text="action" @background="#e4e4e4" />
+          </:actions>
+        </Hds::SideNav::Header>
+      </div>
+    </SF.Item>
+    <SF.Item @label="HomeLink + Dropdowns">
+      <div class="shw-component-sim-side-nav-header">
+        <Hds::SideNav::Header>
+          <:logo>
+            <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
+          </:logo>
+          <:actions>
+            <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
+              <dd.ToggleIcon @icon="help" @text="settings menu" />
+              <dd.Title @text="Signed In" />
+              <dd.Description @text="email@domain.com" />
+              <dd.Separator />
+              <dd.Interactive @href="#" @text="Settings and Preferences" />
+            </Hds::Dropdown>
+            <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
+              <dd.ToggleIcon @icon="user" @text="user menu" />
+              <dd.Title @text="Signed In" />
+              <dd.Description @text="email@domain.com" />
+              <dd.Interactive @href="#" @text="Account Settings" />
+            </Hds::Dropdown>
+          </:actions>
+        </Hds::SideNav::Header>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
 
-      <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
-        <dd.ToggleIcon @icon="help" @text="settings menu" />
-        <dd.Title @text="Signed In" />
-        <dd.Description @text="email@domain.com" />
-        <dd.Separator />
-        <dd.Interactive @href="#" @text="Settings and Preferences" />
-      </Hds::Dropdown>
-
-      <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
-        <dd.ToggleIcon @icon="user" @text="user menu" />
-        <dd.Title @text="Signed In" />
-        <dd.Description @text="email@domain.com" />
-        <dd.Interactive @href="#" @text="Account Settings" />
-      </Hds::Dropdown>
-    </Hds::SideNav::Header>
-  </div>
 </section>
 
+<Shw::Divider />
+
 <section data-test-percy>
-  <Shw::Text::H3>Hds::SideNav::HomeLink</Shw::Text::H3>
-  <Shw::Text::Body>
-    Used as the first child of the
-    <code>Hds::SideNav::Header</code>
-    layout component within the
-    <code>:header</code>
-    named block.
-  </Shw::Text::Body>
 
-  <Shw::Grid @columns={{4}} @label="States" as |SG|>
-    <SG.Item @label="default:">
-      <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
-    </SG.Item>
+  <Shw::Text::H2>SideNav::HomeLink</Shw::Text::H2>
 
-    <SG.Item @label="hover:">
-      <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" class="hover" />
-    </SG.Item>
+  <Shw::Text::H3>Content</Shw::Text::H3>
 
-    <SG.Item @label="active:">
-      <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" class="active" />
-    </SG.Item>
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Icon">
+      <div class="shw-component-side-nav-home-link-wrapper">
+        <Hds::SideNav::HomeLink @icon="hashicorp" @href="#" />
+      </div>
+    </SF.Item>
+    <SF.Item @label="Icon with custom color">
+      <div class="shw-component-side-nav-home-link-wrapper">
+        <Hds::SideNav::HomeLink @icon="boundary" @color="var(--token-color-boundary-brand)" @href="#" />
+      </div>
+    </SF.Item>
+  </Shw::Flex>
 
-    <SG.Item @label="focused:">
-      <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" class="mock-focus" />
-    </SG.Item>
-  </Shw::Grid>
+  <Shw::Text::H3>States</Shw::Text::H3>
 
-  <Shw::Text::Body>Hds::SideNav / Wrapper: with both "standard" content and extra generic content in the
-    <code>:header</code>
-    block.</Shw::Text::Body>
-  <div class="shw-component-side-nav-wrapper">
-    <Hds::SideNav>
-      <:header>
-        <Hds::SideNav::Header>
-          <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
+  <Shw::Flex as |SF|>
+    {{#let (array "default" "hover" "active" "focus") as |states|}}
+      {{#each states as |state|}}
+        <SF.Item @label={{state}}>
+          <div class="shw-component-side-nav-home-link-wrapper">
+            <Hds::SideNav::HomeLink @icon="hashicorp" @href="#" mock-state-value={{state}} />
+          </div>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Flex>
+  <Shw::Flex as |SF|>
+    {{#let (array "default" "hover" "active" "focus") as |states|}}
+      {{#each states as |state|}}
+        <SF.Item>
+          <div class="shw-component-side-nav-home-link-wrapper">
+            <Hds::SideNav::HomeLink
+              @icon="boundary"
+              @color="var(--token-color-boundary-brand)"
+              @href="#"
+              mock-state-value={{state}}
+            />
+          </div>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Flex>
 
-          <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
-            <dd.ToggleIcon @icon="help" @text="settings menu" />
-            <dd.Title @text="Signed In" />
-            <dd.Description @text="email@domain.com" />
-            <dd.Separator />
-            <dd.Interactive @href="#" @text="Settings and Preferences" />
-          </Hds::Dropdown>
-
-          <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
-            <dd.ToggleIcon @icon="user" @text="user menu" />
-            <dd.Title @text="Signed In" />
-            <dd.Description @text="email@domain.com" />
-            <dd.Interactive @href="#" @text="Account Settings" />
-          </Hds::Dropdown>
-        </Hds::SideNav::Header>
-
-        Extra generic content in header
-      </:header>
-
-      <:body>
-      </:body>
-
-      <:footer>
-      </:footer>
-    </Hds::SideNav>
-  </div>
 </section>
 
 <Shw::Divider />
@@ -194,8 +212,8 @@
 </section>
 
 <section data-test-percy>
-  <Shw::Text::H3>Hds::SideNav::BackButton</Shw::Text::H3>
-  <Shw::Text::Body>TODO: Create component</Shw::Text::Body>
+  <Shw::Text::H3>Hds::SideNav::BackLink</Shw::Text::H3>
+  <Hds::SideNav::BackLink @label="Back to parent page" @href="#" />
 </section>
 
 <section data-test-percy>
@@ -297,7 +315,7 @@
   <Shw::Text::H2>All together:</Shw::Text::H2>
 
   <div class="shw-component-side-nav-wrapper">
-    <Hds::SideNav>
+    <Hds::SideNav::Wrapper>
       <:header>
         <Hds::SideNav::Header>
           <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
@@ -388,6 +406,6 @@
       <:footer>
         OrgSelect / ContextSwitcher
       </:footer>
-    </Hds::SideNav>
+    </Hds::SideNav::Wrapper>
   </div>
 </section>

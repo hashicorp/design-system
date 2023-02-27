@@ -6,14 +6,26 @@
 // SIDE-NAV
 
 body.components-side-nav {
-  .shw-component-side-nav-box {
-    color: var(--token-side-nav-foreground-primary);
-    background: #0c0c0e;
-    border-radius: 5px;
+  $shw-component-side-nav-background: #0c0c0e;
+
+  // used to simulate a "SideNav::Wrapper" container
+  .shw-component-sim-side-nav-wrapper {
+    width: 280px;
+    height: 600px;
+    background: $shw-component-side-nav-background;
   }
 
-  .shw-component-side-nav-wrapper {
+  // used to simulate a "SideNav::Header" container
+  .shw-component-sim-side-nav-header {
     width: 280px;
-    // height: 100vh;
+    padding: 16px;
+    background: $shw-component-side-nav-background;
+  }
+
+  .shw-component-side-nav-home-link-wrapper {
+    width: 80px;
+    height: 80px;
+    padding: 16px;
+    background: $shw-component-side-nav-background;
   }
 }
