@@ -4,74 +4,75 @@ Spacing between sections, fields, text, and other elements of a form should foll
 
 ### Form
 
-_Rewrite this_
-
-- A form wraps the content, fields, and actions while simultaneously handling the logic for submitting and action actions performed by the form.
-- A form is generally comprised of multiple different sections of varying types.
+A form wraps the content, fields, and actions while simultaneously handling the logic for submitting and action actions performed by the form. At a fundamental level, a form also acts as a layout mechanism, adding consistent spacing between sections.
 
 ### Sections
 
-A **section** occupies the largest hierarchy within the form and is used as a descriptive term for organizing content within a form. A section consists of varying combinations of text, form elements (inputs, checkboxes, toggles, etc), and actions. Even in the most simplist of circumstances a form can consist of multiple sections with different content, each receiving a 32px vertical gap in between.
+A **section** occupies the largest hierarchy within the form and is used as a descriptive term for organizing combinations of text, form elements (inputs, checkboxes, toggles, etc), and actions. Even in the simplist of circumstances a form can consist of multiple sections with differing content, each receiving a 32px vertical gap in between.
 
-_Insert image example of a form with sections_
+![Example of multiple sections in a form](/assets/patterns/form-patterns/form-sections.png =450x*)
 
 ### Fields
 
-A **field** is a broad term used to describe an form control and label pairing within a form element for collecting user input, information, and data. This can include:
+A **field** is a broad term used to describe a form control and label pairing for collecting user input, information, and data. This can include:
 
 - [Text input](/components/text-input)
 - [Select](/components/select)
 - [Radio](/components/radio)
 - Any other Helios form component or custom form elements
 
-When combined within a section each fields should be spaced with a 24px gap between each field.
+When combined within a section there should be a 24px gap between each field.
 
-_Insert image about fields within a section_
+![Example of multiple fields in a section](/assets/patterns/form-patterns/section-fields.png =450x*)
 
 ### Groups
 
-Fields may be **grouped** together in a horizontal or vertical layout if they are collecting related information or information that is part of the same object. Within a group fields should use a 16px gap either horizontally (creating multiple columns), or vertically.
+Fields may be **grouped** together either horizontally or vertically if they are collecting related information or information that is part of the same object. Within a group there should bea  16px gap either horizontally (creating multiple columns), or vertically between each field.
+
+![Example of fields grouped together](/assets/patterns/form-patterns/field-groups.png =450x*)
 
 !!! Dont
 
 Don't group (either horizontally or vertically) input types that are related but not the same type, e.g., a text input and a toggle.
 
-_Insert example image_
+![Grouping different field types](/assets/patterns/form-patterns/different-field-type.png)
 !!!
 
 Common grouping of fields can include:
 
 - Credit card information; card number, expiration data, security code.
 - Multi-line address field
-- First and last name (as separate fields)
+- First and last name
 
 #### Alignment
 
 Fields organized in a horizontal group should be aligned to the baseline of each element to account for fields which have helper text.
 
-_Insert image example_
+![Baseline alignment within a group](/assets/patterns/form-patterns/baseline-alignment.png =500x*)
 
 #### Multi-column layout
 
 Grouping form elements horizontally creates a multi-column layout within the form. When grouping elements,
 
 - use a consistent number of columns throughout the form; e.g., don't organize a group of fields in two-columns and another group in three-columns.
-- the maximum number of fields in a horizontal group should be three, resulting in three columns.
+- don't exceed more than three fields in a horizontal group.
 - fields should stack vertically when the width of the viewport and form container shrinks.
 
-Multi-column layouts within a form are impacted by the width of the overall form, use grouping pragmatically based on the layout, width of the page, and overall UX strategy in the application.
+Multi-column layouts can be impacted by the width of the overall form. Use grouping logically based on the layout, width of the page, and overall UX strategy in the application.
 
 ### Text
 
 Sections consisting of text should use a 8px vertical gap between text elements.
 
-### Actions
+![Example of a text section](/assets/patterns/form-patterns/text-section.png =600x*)
 
-// TODO
+### Actions
 
 #### Button grouping
 
 Buttons should be grouped using the [ButtonSet](/components/button-set) guidlines, e.g., using a 16px horizontal gap between each button.
+
+![Action grouping](/assets/patterns/form-patterns/action-group.png =500x*)
 
 For more complex groupings of buttons, refer to the [Button alignment, grouping, and order](/patterns/button-alignment) pattern guidelines.
 
