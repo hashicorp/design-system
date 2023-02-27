@@ -15,7 +15,7 @@ The Table component itself is where most of the options will be applied. However
     The data model to be used by the table.
   </C.Property>
   <C.Property @name="columns" @type="array">
-    How the table columns are defined. Use a `hash` within the array to define each column with its list of key-value properties that describe the content and behavior of each column. Options:
+    Array `hash` that defines each column with key-value properties that describe each column. Options:
     <Doc::ComponentApi as |D|>
       <D.Property @name="label" @type="string" @required="true">
       The column’s label.
