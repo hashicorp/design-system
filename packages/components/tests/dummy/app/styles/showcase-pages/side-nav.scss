@@ -8,8 +8,8 @@
 body.components-side-nav {
   $shw-component-side-nav-background: #0c0c0e;
 
-  // used to simulate a "SideNav::Wrapper" container
-  .shw-component-sim-side-nav-wrapper {
+  // used to simulate a "root" container for the sidenav
+  .shw-component-sim-side-nav-root-container {
     width: 280px;
     height: 600px;
     background: $shw-component-side-nav-background;
@@ -22,9 +22,21 @@ body.components-side-nav {
     background: $shw-component-side-nav-background;
   }
 
+  // used to simulate a "SideNav::Header" container
+  .shw-component-sim-side-nav-body {
+    width: 280px;
+    padding: 16px;
+    background: $shw-component-side-nav-background;
+  }
+
   .shw-component-side-nav-home-link-wrapper {
     width: 80px;
     height: 80px;
+    padding: 16px;
+    background: $shw-component-side-nav-background;
+  }
+
+  .shw-component-sim-side-nav-section-link-wrapper {
     padding: 16px;
     background: $shw-component-side-nav-background;
   }
