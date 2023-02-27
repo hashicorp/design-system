@@ -6,7 +6,7 @@ Elements and content within a form is variable, but can be broken down into sect
 
 **Text:** titles, headlines, descriptions, and supporting content that describe the content of the form holistically or specific sections within a form. Semantically, text elements are wrapped in a `<legend>` element.
 
-**Fields:** an array of one or more fileds which can be any input type; text input, toggle, radio, textarea, or any other Form component published in the Helios Design System.
+**Fields:** an array of one or more fields which can be any input type; text input, toggle, radio, textarea, or any other Form component published in the Helios Design System.
 
 **Actions:** responsible for submitting the form or giving the user an escape hatch to cancel, clear the form, or "go back."
 

@@ -8,7 +8,7 @@ A form wraps the content, fields, and actions while simultaneously handling the 
 
 ### Sections
 
-A **section** occupies the largest hierarchy within the form and is used as a descriptive term for organizing combinations of text, form elements (inputs, checkboxes, toggles, etc), and actions. Even in the simplist of circumstances a form can consist of multiple sections with differing content, each receiving a 32px vertical gap in between.
+A **section** occupies the largest hierarchy within the form and is used as a descriptive term for organizing combinations of text, form elements (inputs, checkboxes, toggles, etc), and actions. Even in the simplest of circumstances a form can consist of multiple sections with differing content, each receiving a 32px vertical gap in between.
 
 ![Example of multiple sections in a form](/assets/patterns/form-patterns/form-sections.png =450x*)
 
@@ -70,7 +70,7 @@ Sections consisting of text should use a 8px vertical gap between text elements.
 
 #### Button grouping
 
-Buttons should be grouped using the [ButtonSet](/components/button-set) guidlines, e.g., using a 16px horizontal gap between each button.
+Buttons should be grouped using the [ButtonSet](/components/button-set) guidelines, e.g., using a 16px horizontal gap between each button.
 
 ![Action grouping](/assets/patterns/form-patterns/action-group.png =500x*)
 
@@ -78,7 +78,7 @@ For more complex groupings of buttons, refer to the [Button alignment, grouping,
 
 ### Order and organization
 
-Fields within a form generally fall into three categories that can help determine how to order and organize fields within a form. These categories don't exist in isolation but rather have a cummulative effect on how a user percieves a form and how likely they are to complete it.
+Fields within a form generally fall into three categories that can help determine how to order and organize fields within a form. These categories don't exist in isolation but rather have a cumulative effect on how a user perceives a form and how likely they are to complete it.
 
 #### Technical and application needs
 
