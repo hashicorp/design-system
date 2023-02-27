@@ -44,17 +44,17 @@
 // TODO define exact padding for these containers
 
 .hds-side-nav__wrapper-header {
-  padding: 16px;
+  padding: 12px var(--token-side-nav-item-padding-horizontal) 8px var(--token-side-nav-item-padding-horizontal);
 }
 
 .hds-side-nav__wrapper-body {
   flex: 1;
-  padding: 16px;
+  padding: 16px var(--token-side-nav-item-padding-horizontal);
   overflow-y: auto;
 }
 
 .hds-side-nav__wrapper-footer {
-  padding: 16px;
+  padding: 16px var(--token-side-nav-item-padding-horizontal);
 }
 
 
