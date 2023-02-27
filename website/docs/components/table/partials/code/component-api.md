@@ -62,7 +62,7 @@ The Table component itself is where most of the options will be applied. However
     Option to pass a custom key; Ember’s default value is used if not defined.
   </C.Property>
   <C.Property @name="sortedMessageText" @type="string">
-    Empty string on un-sorted column; once a sort is applied, the default message is "Sorted by (column label), (asc/desc)ing". This is also customizable.
+    Empty string on un-sorted column; once a sort is applied, the default message is “Sorted by (column label), (asc/desc)ing”. This is also customizable.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
@@ -88,7 +88,7 @@ This component can contain `Hds::Table::Th`, `Hds::Table::ThSort`, or `Hds::Tabl
 
 Note: This component is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it). Instead, an interactive element should be placed _inside_ of the `Th` element.
 
-If the `Th` component is passed as the first "cell" of a table body row, `scope="row"` is automatically applied for accessibility purposes.
+If the `Th` component is passed as the first cell of a table body row, `scope="row"` is automatically applied for accessibility purposes.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="align" @type="enum" @values={{array "left" "center" "right" }} @default="left">
@@ -107,25 +107,28 @@ If the `Th` component is passed as the first "cell" of a table body row, `scope=
 
 ### Table::ThSort
 
-This component is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it). Instead, an interactive element should be placed _inside_ of the `ThSort` element.
+Note: This component is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it). Instead, an interactive element should be placed _inside_ of the `ThSort` element.
 
-This is the component that supports the column sorting, and should be used instead of `Hds::Table::Th` if creating a custom implementation.
+This is the component that supports column sorting; use instead of `Hds::Table::Th` if creating a custom table implementation.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="isSorted" @type="boolean" @values={{array "false" "true" }} @default="false">
     Indicates if a column is sorted.
   </C.Property>
+  <C.Property @name="sortBy" type="string" @value="key to be sortedby">
+    Use to indicate that the column should be pre-sorted.
+  </C.Property>
   <C.Property @name="sortOrder" @type="string" @values={{array "asc" "desc" }} @default="asc">
     Use in conjunction with `sortBy`. If defined, indicates which direction the column should be pre-sorted in. If not defined, `asc` is applied by default.
   </C.Property>
   <C.Property @name="align" @type="enum" @values={{array "left" "center" "right" }} @default="left">
-    If set, determines the cell's text alignment.
+    If set, determines the cell’s text alignment.
   </C.Property>
   <C.Property @name="width" @type="string" @valueNote="Any valid CSS">
     If set, determines the column’s width.
   </C.Property>
   <C.Property @name="onClick" @type="function">
-    Callback function invoked (if provided) when the element is clicked.
+    Callback function invoked (if provided) when the sort button is clicked. By default, the sort is set by the column’s key.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports the use of `...attributes`.
@@ -134,7 +137,7 @@ This is the component that supports the column sorting, and should be used inste
 
 ### Table::Td
 
-This component is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it). Instead, an interactive element should be placed _inside_ of the `Td` element.
+Note: This component is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it). Instead, an interactive element should be placed _inside_ of the `Td` element.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="align" @type="enum" @values={{array "left" "center" "right" }} @default="left">
