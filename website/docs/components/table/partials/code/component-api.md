@@ -12,10 +12,10 @@ The Table component itself is where most of the options will be applied. However
     This is a named block where the content for the table body (`<tbody>`) is rendered.
   </C.Property>
   <C.Property @name="model" @type="array">
-    Indicates the data model to be used by the table.
+    The data model to be used by the table.
   </C.Property>
   <C.Property @name="columns" @type="array">
-    This is how the table columns are defined. Use a `hash` within the array to define each column with its list of key-value properties that describe the content and behavior of each column.
+    How the table columns are defined. Use a `hash` within the array to define each column with its list of key-value properties that describe the content and behavior of each column. Options:
     <Doc::ComponentApi as |D|>
       <D.Property @name="label" @type="string" @required="true">
       The column’s label.
@@ -38,7 +38,7 @@ The Table component itself is where most of the options will be applied. However
     </Doc::ComponentApi>
   </C.Property>
   <C.Property @name="sortBy" @type="string">
-    If defined, the value should be set to the key of the column that should be pre-sorted when the table is rendered.
+    If defined, the value should be set to the key of the column that should be pre-sorted.
   </C.Property>
   <C.Property @name="sortOrder" @type="string" @values={{array "asc" "desc" }} @default="asc">
     Use in conjunction with `sortBy`. If defined, indicates which direction the column should be pre-sorted in. If not defined, `asc` is applied by default.
@@ -53,13 +53,13 @@ The Table component itself is where most of the options will be applied. However
     If set, determines the density (height) of the table’s rows.
   </C.Property>
   <C.Property @name="valign" @type="enum" @values={{array "top" "middle" }} @default="top">
-    If set, determines the vertical alignment for all cell (`td`) content in a table. Does not apply to table headers (`th`).
+    If set, determines the vertical alignment for cell (`td`) content in a table. Does not apply to table headers (`th`).
   </C.Property>
   <C.Property @name="caption" @type="string">
     Adds a (non-visible) caption for users with assistive technology. If set on a sortable table, the provided table caption is paired with the automatically generated sorted message text. Note: it is best practice to provide a table caption for users with assistive technology.
   </C.Property>
   <C.Property @name="identityKey" @type="string" @default="@identity">
-    Option to pass a custom key; Ember’s default value is used if not defined.
+    Option to pass a custom key.
   </C.Property>
   <C.Property @name="sortedMessageText" @type="string">
     Empty string on un-sorted column; once a sort is applied, the default message is “Sorted by (column label), (asc/desc)ing”. This is also customizable.
@@ -80,7 +80,7 @@ This component can contain `Hds::Table::Th`, `Hds::Table::ThSort`, or `Hds::Tabl
 
 <Doc::ComponentApi as |C|>
     <C.Property @name="...attributes">
-    This component supports the use of `...attributes`.
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
 
@@ -101,7 +101,7 @@ If the `Th` component is passed as the first cell of a table body row, `scope="r
     If set, determines the column’s width.
   </C.Property>
   <C.Property @name="...attributes">
-    This component supports the use of `...attributes`.
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
 
@@ -115,8 +115,8 @@ This is the component that supports column sorting; use instead of `Hds::Table::
   <C.Property @name="isSorted" @type="boolean" @values={{array "false" "true" }} @default="false">
     Indicates if a column is sorted.
   </C.Property>
-  <C.Property @name="sortBy" type="string" @value="key to be sortedby">
-    Use to indicate that the column should be pre-sorted.
+  <C.Property @name="sortBy" type="string" @value="column key">
+    Use to indicate which column should be pre-sorted.
   </C.Property>
   <C.Property @name="sortOrder" @type="string" @values={{array "asc" "desc" }} @default="asc">
     Use in conjunction with `sortBy`. If defined, indicates which direction the column should be pre-sorted in. If not defined, `asc` is applied by default.
@@ -128,10 +128,10 @@ This is the component that supports column sorting; use instead of `Hds::Table::
     If set, determines the column’s width.
   </C.Property>
   <C.Property @name="onClick" @type="function">
-    Callback function invoked (if provided) when the sort button is clicked. By default, the sort is set by the column’s key.
+    Callback function invoked when the sort button is clicked. By default, the sort is set by the column’s key.
   </C.Property>
   <C.Property @name="...attributes">
-    This component supports the use of `...attributes`.
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
 
@@ -144,6 +144,6 @@ Note: This component is not eligible to receive interactions (e.g., it cannot ha
     If set, determines the text alignment.
   </C.Property>
   <C.Property @name="...attributes">
-    This component supports the use of `...attributes`.
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
