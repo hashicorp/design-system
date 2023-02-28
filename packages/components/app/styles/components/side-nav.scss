@@ -148,6 +148,9 @@
 .hds-side-nav__list {
   margin: 0;
   padding: 0;
+
+  // TODO: this doesn't work because Ember adds whitespace inside the ul
+  &:empty { display: none; }
 }
 
 .hds-side-nav__list-item {
@@ -224,6 +227,7 @@
 }
 
 .hds-side-nav__list-item-icon-chevron {
+  display: block;
   flex: none;
   margin-left: 8px;
 }
