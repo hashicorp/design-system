@@ -210,7 +210,7 @@ Whether a form exists at the page level (unconstrained), or inside of another el
 
 ### Responsive properties
 
-As the viewport shrinks, the width of the form should expand relative to the viewport width, eventually occupying the entire width of the viewport or page. Horizontally grouped fields that result in a multi-column layout should stack vertically as the viewport shrinks.
+As the viewport shrinks, the form width should expand relative to the viewport width, eventually occupying the entire width of the viewport or page. Horizontally grouped fields that result in a multi-column layout should stack vertically as the viewport shrinks.
 
 ## Progressive disclosure
 
