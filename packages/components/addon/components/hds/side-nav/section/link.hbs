@@ -1,36 +1,38 @@
-<Hds::Interactive
-  class="hds-side-nav__list-item-link"
-  @current-when={{@current-when}}
-  @models={{hds-link-to-models @model @models}}
-  @query={{hds-link-to-query @query}}
-  @replace={{@replace}}
-  @route={{@route}}
-  @isRouteExternal={{@isRouteExternal}}
-  @href={{@href}}
-  @isHrefExternal={{@isHrefExternal}}
-  ...attributes
->
-  {{#if @icon}}
-    <FlightIcon class="hds-side-nav__list-item-icon" @name={{@icon}} />
-  {{/if}}
+<Hds::SideNav::Section::Item>
+  <Hds::Interactive
+    class="hds-side-nav__list-item-link"
+    @current-when={{@current-when}}
+    @models={{hds-link-to-models @model @models}}
+    @query={{hds-link-to-query @query}}
+    @replace={{@replace}}
+    @route={{@route}}
+    @isRouteExternal={{@isRouteExternal}}
+    @href={{@href}}
+    @isHrefExternal={{@isHrefExternal}}
+    ...attributes
+  >
+    {{#if @icon}}
+      <FlightIcon class="hds-side-nav__list-item-icon" @name={{@icon}} />
+    {{/if}}
 
-  <span class="hds-side-nav__list-item-label hds-typography-body-200 hds-font-weight-medium">
-    {{@label}}
-  </span>
-
-  {{#if @count}}
-    <Hds::BadgeCount @text={{@count}} @type="inverted" @size="small" />
-  {{/if}}
-
-  {{#if @badge}}
-    <Hds::Badge @text={{@badge}} @type="inverted" @size="small" />
-  {{/if}}
-
-  {{yield}}
-
-  {{#if @hasSubItems}}
-    <span class="hds-side-nav__list-item-icon-chevron-wrapper">
-      <FlightIcon class="hds-side-nav__list-item-icon-chevron" @name="chevron-right" />
+    <span class="hds-side-nav__list-item-label hds-typography-body-200 hds-font-weight-medium">
+      {{@label}}
     </span>
-  {{/if}}
-</Hds::Interactive>
+
+    {{#if @count}}
+      <Hds::BadgeCount @text={{@count}} @type="inverted" @size="small" />
+    {{/if}}
+
+    {{#if @badge}}
+      <Hds::Badge @text={{@badge}} @type="inverted" @size="small" />
+    {{/if}}
+
+    {{yield}}
+
+    {{#if @hasSubItems}}
+      <span class="hds-side-nav__list-item-icon-chevron-wrapper">
+        <FlightIcon class="hds-side-nav__list-item-icon-chevron" @name="chevron-right" />
+      </span>
+    {{/if}}
+  </Hds::Interactive>
+</Hds::SideNav::Section::Item>
