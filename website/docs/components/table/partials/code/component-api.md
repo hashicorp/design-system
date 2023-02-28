@@ -115,11 +115,8 @@ This is the component that supports column sorting; use instead of `Hds::Table::
   <C.Property @name="isSorted" @type="boolean" @values={{array "false" "true" }} @default="false">
     Indicates if a column is sorted.
   </C.Property>
-  <C.Property @name="sortBy" type="string" @value="column key">
-    Use to indicate which column should be pre-sorted.
-  </C.Property>
-  <C.Property @name="sortOrder" @type="string" @values={{array "asc" "desc" }} @default="asc">
-    Use in conjunction with `sortBy`. If defined, indicates which direction the column should be pre-sorted in. If not defined, `asc` is applied by default.
+  <C.Property @name="sortOrder" @type="string" @values={{array "asc" "desc" }}>
+    If defined, indicates which direction the column should be sorted. Controls the sort icon indicator and the `aria-sort` value.
   </C.Property>
   <C.Property @name="align" @type="enum" @values={{array "left" "center" "right" }} @default="left">
     If set, determines the cell’s text alignment.
