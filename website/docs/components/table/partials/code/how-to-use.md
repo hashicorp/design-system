@@ -2,25 +2,23 @@ This component takes advantage of the `sort-by` helper provided in [ember-compos
 
 ## How to use this component
 
-### Non-sortable table
-
-If you don’t have or want to use a model, a basic invocation could look like:
+### Table with no model defined
 
 ```handlebars{data-execute=false}
 <!-- app/templates/components/table.hbs -->
-<Hds::Table 
-  @model={{this.model.data}}
-  @columns={{array
-    (hash key="artist" label="Artist")
-    (hash key="album" label="Album")
-    (hash key="year" label="Release Year")
-  }}
-  >
+<Hds::Table @caption="your custom, meaningful caption goes here">
+  <:head as |H|>
+    <H.Tr>
+      <H.Th>Column Header</H.Th>
+      <H.Th>Column Header</H.Th>
+      <H.Th>Column Header</H.Th>
+    </H.Tr>
+  </:head>
   <:body as |B|>
     <B.Tr>
-      <B.Td>{{B.data.artist}}</B.Td>
-      <B.Td>{{B.data.album}}</B.Td>
-      <B.Td>{{B.data.year}}</B.Td>
+      <B.Td>Cell Content</B.Td>
+      <B.Td>Cell Content</B.Td>
+      <B.Td>Cell Content</B.Td>
     </B.Tr>
   </:body>
 </Hds::Table>
@@ -59,7 +57,7 @@ export default class ComponentsTableRoute extends Route {
 }
 ```
 
-For documentation purposes, we‘re imitating fetching data from an API and working with that as data model. Depending on your context and needs, you may want to manipulate and adapt the structure of your data to better suit your needs in the template code.
+For documentation purposes, we’re imitating fetching data from an API and working with that as data model. Depending on your context and needs, you may want to manipulate and adapt the structure of your data to better suit your needs in the template code.
 
 You can insert your own content into the and `:body` block and the component will take care of looping over the `@model` provided:
 
@@ -98,8 +96,8 @@ Add `isSortable=true` to the hash for each column that should be sortable.
 <Hds::Table
   @model={{this.model.data}}
   @columns={{array
-    (hash key="artist" label="Artist" isSortable="true")
-    (hash key="album" label="Album" isSortable="true")
+    (hash key="artist" label="Artist" isSortable=true)
+    (hash key="album" label="Album" isSortable=true)
     (hash key="year" label="Release Year")
   }}
 >
@@ -122,8 +120,8 @@ You can optionally indicate that a specific column should be pre-sorted by addin
 <Hds::Table
   @model={{this.model.data}}
   @columns={{array
-    (hash key="artist" label="Artist" isSortable="true")
-    (hash key="album" label="Album" isSortable="true")
+    (hash key="artist" label="Artist" isSortable=true)
+    (hash key="album" label="Album" isSortable=true)
     (hash key="year" label="Release Year")
   }}
   @sortBy='artist'
@@ -147,8 +145,8 @@ You can optionally also indicate that the column defined in `@sortBy` should be 
 <Hds::Table
   @model={{this.model.data}}
   @columns={{array
-    (hash key="artist" label="Artist" isSortable="true")
-    (hash key="album" label="Album" isSortable="true")
+    (hash key="artist" label="Artist" isSortable=true)
+    (hash key="album" label="Album" isSortable=true)
     (hash key="year" label="Release Year")
   }}
   @sortBy='artist'
@@ -164,7 +162,70 @@ You can optionally also indicate that the column defined in `@sortBy` should be 
 </Hds::Table>
 ```
 
-#### More Examples: internationalized column headers, overflow menu dropdown
+#### Custom sort callback
+
+To implement a custom sort callback on a columns, (1) add a custom function as the value for `sortingFunction` in the column hash, and (2) include a custom `onSort` action in your table invocation to track the sorting order and use it in the custom sorting function. This is useful for cases where the key might not be A-Z or 0-9 sortable by default, i.e., status, and you’re otherwise unable to influence the shape of the data in the model. Here is an example, code truncated for clarity:
+
+```handlebars{data-execute=false}
+<!-- app/templates/components/table.hbs -->
+<Hds::Table
+  @model={{this.model.data}}
+  @columns={{array
+      (hash 
+        key='status'
+        label='Status'
+        isSortable=true
+        sortingFunction=this.myCustomSortingFunction
+      )
+      (hash key='album' label='Album')
+      (hash key='year' label='Year')
+    }}
+  @onSort={{this.myCustomOnSort}}
+>
+  <!-- <:body> here -->
+</Hds::Table>
+```
+
+Here’s an example of what a custom sort function could look like. In this example, we are indicating that we want to sort on a status, which takes its order based on the position in the array:
+
+```javascript
+// we use an array to declare the custom sorting order for the "status" column
+const customSortingCriteriaArray = [
+  'failing',
+  'active',
+  'establishing',
+  'pending',
+];
+
+// we track the sorting order, so it can be used in the custom sorting function
+@tracked customSortOrderForStatus = 'asc';
+
+
+// we define a "getter" that returns a custom sorting function ("s1" and "s2" are data records)
+get customSortingMethodForStatus() {
+  return (s1, s2) => {
+    const index1 = customSortingCriteriaArray.indexOf(s1['status']);
+    const index2 = customSortingCriteriaArray.indexOf(s2['status']);
+    if (index1 < index2) {
+      return this.customSortOrderForStatus === 'asc' ? -1 : 1;
+    } else if (index1 > index2) {
+      return this.customSortOrderForStatus === 'asc' ? 1 : -1;
+    } else {
+      return 0;
+    }
+  };
+}
+
+// we define a callback function that listens to the `onSort` event in the table, and updates the tracked sort order values accordingly
+@action
+customOnSort(_sortBy, sortOrder) {
+  this.customSortOrderForStatus = sortOrder;
+}
+```
+
+### More Examples
+
+#### Internationalized column headers, overflow menu dropdown
 
 Here’s a table implementation that uses an array hash with localized strings for the column headers, indicates which columns should be sortable, and adds an overflow menu.
 
@@ -174,9 +235,9 @@ Here’s a table implementation that uses an array hash with localized strings f
 <Hds::Table
   @model={{this.model.data}}
   @columns={{array
-      (hash key='artist' label=(t 'components.table.headers.artist') isSortable="true")
-      (hash key='album' label=(t 'components.table.headers.album') isSortable="true")
-      (hash key='year' label=(t 'components.table.headers.year') isSortable="true")
+      (hash key='artist' label=(t 'components.table.headers.artist') isSortable=true)
+      (hash key='album' label=(t 'components.table.headers.album') isSortable=true)
+      (hash key='year' label=(t 'components.table.headers.year') isSortable=true)
       (hash key='other' label=(t 'global.titles.other'))
     }}
 >
@@ -210,9 +271,9 @@ Here’s a table implementation that uses an array hash with localized strings f
 </Hds::Table>
 ```
 
-#### More Examples: replacing components as a pre-adoption step
+#### Replacing components as a pre-adoption step
 
-If you're not quite ready to replace your existing tables with this component, you can totally try out a pre-adoption spike with just the components themselves. It's a little more typing but it should give you an idea of what will work for you.
+If you’re not quite ready to replace your existing tables with this component, you can totally try out a pre-adoption spike with just the components themselves. It’s a little more typing but it should give you an idea of what will work for you.
 
 ```handlebars{data-execute=false}
 <!-- app/templates/components/table.hbs -->

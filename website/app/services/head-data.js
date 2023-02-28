@@ -5,8 +5,11 @@
 
 import HeadDataService from 'ember-meta/services/head-data';
 import config from 'ember-get-config';
+import { inject as service } from '@ember/service';
 
 export default class CustomHeadDataService extends HeadDataService {
+  @service router;
+
   get title() {
     return (
       this.currentRouteMeta?.title ??
@@ -27,5 +30,13 @@ export default class CustomHeadDataService extends HeadDataService {
       ? this.currentRouteMeta.frontmatter.previewImage
       : 'assets/logos/share-card.jpg';
     return `${config['ember-meta'].url}/${previewImage}`;
+  }
+
+  get url() {
+    const url =
+      this.router.currentURL === '/'
+        ? config['ember-meta'].url
+        : `${config['ember-meta'].url}/${this.router.currentURL}`;
+    return url;
   }
 }

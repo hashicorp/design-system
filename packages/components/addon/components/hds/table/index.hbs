@@ -14,8 +14,7 @@
         {{#each @columns as |column|}}
           {{#if column.isSortable}}
             <Hds::Table::ThSort
-              @isSorted={{eq column.key this.sortBy}}
-              @sortOrder={{this.sortOrder}}
+              @sortOrder={{if (eq column.key this.sortBy) this.sortOrder}}
               @onClick={{fn this.setSortBy column.key}}
               @align={{column.align}}
               @width={{column.width}}

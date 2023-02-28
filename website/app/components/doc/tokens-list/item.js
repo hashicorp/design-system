@@ -17,6 +17,7 @@ export default class DocTokenCardIndexComponent extends Component {
       name: token.name,
       type: token.type,
       value: token.value,
+      aliases: token.aliases,
       category: token.attributes.category,
       original_value: token.original.value,
       deprecated: token.deprecated,
