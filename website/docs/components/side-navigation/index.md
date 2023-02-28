@@ -8,6 +8,7 @@ links:
   github: {link to the "SideNavigation" component's folder in the GitHub repo}
 previewImage: assets/illustrations/components/side-navigation.jpg
 navigation:
+  hidden: false
   keywords: ['navigation', 'side navigation', 'sidenav', 'sidebar']
 ---
 
