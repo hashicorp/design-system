@@ -78,45 +78,49 @@ For more complex groupings of buttons, refer to the [Button alignment, grouping,
 
 ### Order and organization
 
-Fields within a form generally fall into three categories that can help determine how to order and organize fields within a form. These categories don't exist in isolation but rather have a cumulative effect on how a user perceives a form and how likely they are to complete it.
+Fields within a form generally fall into three categories that can be used determine order and organization within a form. These categories don't exist in isolation but rather have a cumulative effect on how a user perceives a form and how likely they are to complete it.
 
 #### Technical and application needs
 
-Fields in which the application or system may need prior to returning another piece of information or set of options within a form. This is often expressed through conditional logic which determines what is displayed to the user depending on what has been selected or input in previous fields.
+Sometimes the values or options for a given field are dependent on a prior field or piece of information provided to the application. These technical contraints within the application are often expressed three conditional logic within the form; determining what is displayed to the user depending on what has already been selected or input in previous fields.
+
+Fields that are dependencies for other fields generally benefit from being organized closer to the start of a the form; e.g., selecting a cluster tier, which reveals options for cluster size that are dependent on the tier.
+
+![Dependencies within forms example](/assets/patterns/form-patterns/cluster-tier-size-options.png)
 
 Read more about showing elements conditionally with [progressive disclosure](#progressive-disclosure).
 
 #### User needs
 
-Users benefit from logical grouping and progressive organization; organizing fields from easiest to hardest relatively. This can help increase form completion by:
+Users benefit from logical grouping and progressive organization; organizing fields from easiest to hardest. This can help increase form completion by:
 
 - giving the user a sense of accomplishment early on through "quick wins"
-- reducing the probability of abandoning a form when they've already completed the "easier" segments; an example of sunk cost fallacy.
+- reducing the probability of a user abandoning a form when they've already completed the "easier" segments.
 
 #### Business needs
 
+// TODO
+
 Organizing fields based on their importance (high to low) to successful completion of a form can help minimize abandonment; a crucial aspect to meeting business goals and metrics.
 
-// TODO
 
 #### Logical grouping
 
-Fields should be ordered "logically"; consider how a user will fill in information based on the context they are in:
+Fields should be ordered "logically"; consider how a user will fill in information based on the context they are in.
 
-- When filling out a payment form: organize and group the fields in teh same order that appears on a credit card or payment method.
+- When filling out a payment form: organize and group the fields in the same order as they appear on a credit card or payment method.
   - Name, card number, expiration date, security code
 - // TODO: add more examples
 
-!!! Info
-
-This is an intentionally vague definition as it's impossible to provide clear guidelines for every scenario.
-!!!
-
 #### Visual organization
 
-Once a logical organization or grouping has been established, categorize elements and fields into sections, introduce typographic elements to influence hierarchy, and if necessary use dividers to more clearly differentiate sections.
+Once a logical organization or grouping has been established,
 
-// TODO: add more here
+- categorize elements and fields into sections, 
+- introduce typographic elements to establish hierarchy,
+- and if necessary use dividers to more clearly differentiate sections.
+
+Each one of these methods will visually help the user to better parse and understand the relationships between each section and fields contained within.
 
 ## Sizing
 
