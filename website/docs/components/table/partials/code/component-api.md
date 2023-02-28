@@ -33,7 +33,7 @@ The Table component itself is where most of the options will be applied. However
         If set, determines the column’s width.
       </D.Property>
       <D.Property @name="sortingFunction" @type="function">
-        Callback function to provide support for a custom callback.
+        Callback function to provide support for custom sorting logic. It should implement a typical bubble-sorting algorithm using two elements and comparing them. For more details, see the example of custom sorting in the How To Use section.
       </D.Property>
     </Doc::ComponentApi>
   </C.Property>
