@@ -27,4 +27,10 @@
   {{/if}}
 
   {{yield}}
+
+  {{#if @hasSubItems}}
+    <span class="hds-side-nav__list-item-icon-chevron-wrapper">
+      <FlightIcon class="hds-side-nav__list-item-icon-chevron" @name="chevron-right" />
+    </span>
+  {{/if}}
 </Hds::Interactive>

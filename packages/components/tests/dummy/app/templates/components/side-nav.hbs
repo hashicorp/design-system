@@ -399,6 +399,45 @@
         @badge="Alpha"
       />
     </SG.Item>
+
+    <SG.Item @label="Text, hasSubItems">
+      <Hds::SideNav::Section::Link @label="Boundary" @href="#" @hasSubItems={{true}} />
+    </SG.Item>
+    <SG.Item @label="Icon + text, hasSubItems">
+      <Hds::SideNav::Section::Link @icon="boundary" @label="Boundary" @href="#" @hasSubItems={{true}} />
+    </SG.Item>
+    <SG.Item @label="Icon + text + badge, hasSubItems">
+      <Hds::SideNav::Section::Link @icon="boundary" @label="Boundary" @badge="Alpha" @hasSubItems={{true}} />
+    </SG.Item>
+    <SG.Item @label="Icon + text + count, hasSubItems">
+      <Hds::SideNav::Section::Link @icon="boundary" @label="Boundary" @count="3" @hasSubItems={{true}} />
+    </SG.Item>
+
+    <SG.Item @label="Icon + text + count + badge, hasSubItems">
+      <Hds::SideNav::Section::Link @icon="boundary" @label="Boundary" @count="3" @badge="Alpha" @hasSubItems={{true}} />
+    </SG.Item>
+    <SG.Item @label="Icon + text + yielded badgecount/badge, hasSubItems">
+      <Hds::SideNav::Section::Link @icon="boundary" @label="Boundary" @hasSubItems={{true}}>
+        <Hds::BadgeCount @type="inverted" @size="small" @color="neutral-dark-mode" @text="3" />
+        <Hds::Badge @type="inverted" @size="small" @color="success" @text="Beta" />
+      </Hds::SideNav::Section::Link>
+    </SG.Item>
+    <SG.Item @label="Icon + long text, hasSubItems">
+      <Hds::SideNav::Section::Link
+        @icon="boundary"
+        @label="This is a long text that should go on two lines"
+        @hasSubItems={{true}}
+      />
+    </SG.Item>
+    <SG.Item @label="Icon + long text + count + badge, hasSubItems">
+      <Hds::SideNav::Section::Link
+        @icon="boundary"
+        @label="This is a long text that should go on two lines"
+        @count="3"
+        @badge="Alpha"
+        @hasSubItems={{true}}
+      />
+    </SG.Item>
   </Shw::Grid>
 
   <Shw::Text::H4>States</Shw::Text::H4>

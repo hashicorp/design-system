@@ -7,7 +7,17 @@
 // WIP, naming, etc. will be refined... TODO: Add JSON for color tokens, etc.
 :root {
   /* Sizes: */
-  --token-side-nav-item-padding-horizontal: 12px;
+
+  // header, body, footer "wrappers":
+  --token-side-nav-wrapper-padding-horizontal: 16px;
+  --token-side-nav-wrapper-padding-vertical: 16px;
+
+  // Body sections
+  --token-side-nav-body-section-margin-vertical: 24px;
+
+  // Items/Links in body:
+  --token-side-nav-section-item-padding-horizontal: 8px;
+  --token-side-nav-section-item-padding-vertical: 4px;
 
   /* Colors: */
 
@@ -41,26 +51,21 @@
   background: var(--token-side-nav-surface);
 }
 
-// TODO define exact padding for these containers
-
 .hds-side-nav__wrapper-header {
-  padding: 12px var(--token-side-nav-item-padding-horizontal) 8px var(--token-side-nav-item-padding-horizontal);
+  padding: var(--token-side-nav-wrapper-padding-vertical) var(--token-side-nav-wrapper-padding-horizontal);
 }
 
 .hds-side-nav__wrapper-body {
   flex: 1;
-  padding: 16px var(--token-side-nav-item-padding-horizontal);
+  padding: var(--token-side-nav-wrapper-padding-vertical) var(--token-side-nav-wrapper-padding-horizontal);
   overflow-y: auto;
 }
 
 .hds-side-nav__wrapper-footer {
-  padding: 16px var(--token-side-nav-item-padding-horizontal);
+  padding: var(--token-side-nav-wrapper-padding-vertical) var(--token-side-nav-wrapper-padding-horizontal);
 }
 
-
-// Child "wrapper" blocks & child components:
-
-// * Sub-component: Header
+// * Header child elements
 // ---------------------------------------
 
 .hds-side-nav-header {
@@ -123,21 +128,20 @@
   }
 }
 
-// * Sub-component: Body
+// * Body child elements
 // ---------------------------------------
 .hds-side-nav__body {
   flex: 1;
-  padding: 12px;
   overflow-y: auto;
 }
 
 .hds-side-nav__section {
-  & + & { margin-top: 28px; }
+  & + & { margin-top: var(--token-side-nav-body-section-margin-vertical); }
 }
 
 .hds-side-nav__section-title {
-  margin-bottom: 12px;
-  padding: 0 var(--token-side-nav-item-padding-horizontal);
+  min-height: 34px;
+  padding: 0 var(--token-side-nav-section-item-padding-horizontal);
   color: var(--token-side-nav-foreground-faint);
 }
 
@@ -160,7 +164,7 @@
   align-items: center;
   width: 100%;
   min-height: 36px;
-  padding: 0 var(--token-side-nav-item-padding-horizontal);
+  padding: var(--token-side-nav-section-item-padding-vertical) var(--token-side-nav-section-item-padding-horizontal);
   color: var(--token-side-nav-foreground-primary);
   text-decoration: none;
   background: var(--token-side-nav-surface);
@@ -215,7 +219,16 @@
   margin-right: 8px;
 }
 
-// * Sub-component: Footer
+.hds-side-nav__list-item-icon-chevron-wrapper {
+  margin-left: auto;
+}
+
+.hds-side-nav__list-item-icon-chevron {
+  flex: none;
+  margin-left: 8px;
+}
+
+// * Footer child elements
 // ---------------------------------------
 
 // TODO ?
