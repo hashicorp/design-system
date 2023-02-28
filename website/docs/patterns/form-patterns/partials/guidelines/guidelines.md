@@ -14,16 +14,32 @@ A **section** occupies the largest hierarchy within the form and is used as a de
 
 ### Fields
 
-A **field** is a broad term used to describe a form control and label pairing for collecting user input, information, and data. This can include:
-
-- [Text input](/components/text-input)
-- [Select](/components/select)
-- [Radio](/components/radio)
-- Any other Helios form component or custom form elements
-
-When combined within a section there should be a 24px gap between each field.
+A **field** is a broad term used to describe a form control and label pairing. When combined within a section there should be a 24px gap between each field.
 
 ![Example of multiple fields in a section](/assets/patterns/form-patterns/section-fields.png =450x*)
+
+Fields can be further broken down into two types; text fields and data fields, each with it's own recommended usage and examples.
+
+#### Text fields
+
+// TODO
+
+| Form control | Usage | Examples |
+|--------------|-------|----------|
+| [Text input](/components/form/text-input) | lorem ipsum | Name, email, password, string and numerical data |
+| [Textarea](/components/form/textrea) | Lorem ipsum | Messages, longer-form content |
+
+#### Data fields
+
+// TODO
+
+| Form control | Usage | Examples |
+|--------------|-------|----------|
+| [Checkbox](/components/form/checkbox) | Lorem ipsum | Lorem ipsum |
+| [Radio](/components/form/radio) | Lorem ipsum | Lorem ipsum |
+| [Radio Card](/components/form/radio-card) | Lorem ipsum | Lorem ipsum |
+| [Select](/components/form/select) | Lorem ipsum | Lorem ipsum |
+| [Toggle](/components/form/toggle) | Lorem ipsum | Lorem ipsum |
 
 ### Groups
 
@@ -33,7 +49,7 @@ Fields may be **grouped** together either horizontally or vertically if they are
 
 !!! Dont
 
-Don't group (either horizontally or vertically) input types that are related but not the same type, e.g., a text input and a toggle.
+Don't group (either horizontally or vertically) field types that are related but not of the same type, e.g., a text input and a toggle.
 
 ![Grouping different field types](/assets/patterns/form-patterns/different-field-type.png)
 !!!
@@ -66,6 +82,10 @@ Sections consisting of text should use a 8px vertical gap between text elements.
 
 ![Example of a text section](/assets/patterns/form-patterns/text-section.png =600x*)
 
+Text elements within a form should use logical, step-based sizing to reinforce hierarchy within sections, as well as within the form itself. While specifics around type hierarchy should be determined at the application level, adhering to these guidelines will help establish consistency both at the page level, and when constrained within another element or component.
+
+// TODO
+
 ### Actions
 
 #### Button grouping
@@ -78,7 +98,7 @@ For more complex groupings of buttons, refer to the [Button alignment, grouping,
 
 ### Order and organization
 
-Fields within a form generally fall into three categories that can be used determine order and organization within a form. These categories don't exist in isolation but rather have a cumulative effect on how a user perceives a form and how likely they are to complete it.
+Fields within a form generally fall into three categories that can help determine order and organization within a form. These categories don't exist in isolation but rather have a cumulative effect on how a user perceives a form and how likely they are to complete it.
 
 #### Technical and application needs
 
@@ -126,11 +146,11 @@ Each one of these methods will visually help the user to better parse and unders
 
 ### Length
 
-The length of a form, determined by the number of fields their complexity, can have a significant impact on whether a user successfully completes a form or abandons the task altogether. If a feature or flow relies on a large number of fields, consider breaking up the form using these strategies:
+Determined by the number of fields and supporting elements (text, titles, etc). form length can have a significant impact on whether a user successfully completes a form or abandons the task prior to completion. If a feature or flow relies on a large number of fields, consider breaking up the form using one or more of the following strategies.
 
 #### Multiple sections
 
-Breaking up a form into multiple sections based on the relationship of the fields or the category the information corresponds with can make a long form seem less complex. Introducing typographic elements and dividers can further aid the hierarchy of the form and differentiate sections from one-another.
+Breaking up a form into multiple sections based on the relationship between fields and categories of sections can make a long form seem less complex. Introducing typographic elements and dividers can further aid the hierarchy of the form and differentiate sections from one-another.
 
 #### Multiple steps or pages
 
@@ -142,18 +162,17 @@ As a general note, special care should be taken to _reduce_ the number of fields
 
 - Long forms are more challenging for the user which can result in a lower completion rate.
 - If a field is optional, consider whether it should be included in the form at all. If the information isn't crucial to the experience or feature, why is it being collected at all?
-
 !!!
 
 #### Using dividers
 
-Dividers can help introduce more visual hierarchy and differentiation in a long, complex forms.
+Dividers introduce more visual hierarchy and differentiation in long, complex forms.
 
 Only use dividers between sections of a form, not between fields or other smaller elements within a section. A divider should be used to break up different types of content and categories within a form.
 
 When using a divider, increase the spacing between sections to 48px from 32px (24px on the top and bottom of the divider). This helps to separate the divider from surrounding form elements, otherwise it can appear "attached" to a specific section or field.
 
-_Insert image here_
+![Spacing using dividers](/assets/patterns/form-patterns/divider-spacing.png =500x*)
 
 !!! Dont
 
@@ -166,15 +185,13 @@ The width of a form and the fields it contains is largely dependent on the conte
 
 #### Form width
 
-The width of a form should hug the content and fields it contains, the form width should not determine the width of the fields contained within.
+A form should hug the content and the fields it contains.
 
-_Insert supporting image_
+![Form width](/assets/patterns/form-patterns/form-width-example.png)
 
 #### Field width
 
-The width of a field within a form should be wide enough to account for the estimated width of the content it accepts. This gives the user an accurate sense of the length and type of the content they should be inputting into the field and is important in setting expectations of the user.
-
-_Insert supporting image_
+The width of a field within a form should be wide enough to account for the estimated width of the content it accepts. This gives the user an accurate sense of the length and type of the content the field accepts and is important in setting user expectations.
 
 #### Single column layout
 
@@ -184,6 +201,12 @@ If a form uses a single-column layout, consider setting a maximum width on the f
 
 The web is a fluid medium; a relative width will adjust based on the viewport and container width. Designing and building a form with a recommended maximum and minimum width will help to conceptualize the graceful expansion and contraction of the viewport
 !!!
+
+### Constrained vs unconstrained
+
+Whether a form exists at the page level (unconstrained), or inside of another element (constrained) can implicitly determine it's width.
+
+// TODO
 
 ### Responsive properties
 
@@ -198,6 +221,8 @@ Users want power, but also want simplicity. Progressive disclosure refers only d
 
 _Insert supporting image_
 
+// TODO: Add more in-depth here
+
 ## Required vs. optional fields
 
 Displaying to the user what fields are required or optional can help users submit a form free of errors, but can also add visual weight the form.
@@ -211,4 +236,8 @@ When determining whether to mark fields as optional or required, consider which 
 
 ### Client-side validation
 
+// TODO?
+
 ### Server-side validation
+
+// TODO?
