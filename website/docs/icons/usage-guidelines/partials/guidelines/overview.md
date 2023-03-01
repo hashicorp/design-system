@@ -64,7 +64,7 @@ If an object can have multiple states, use a Contained icon for the overall pare
 
 ## Sizes
 
-icons are optimized for two icon sizes: `16px` and `24px`. 
+Icons are optimized for two icon sizes: `16px` and `24px`. 
 
 Use `16px` icons by default in product interfaces and `24px` icons for empty states.
 
