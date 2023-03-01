@@ -88,7 +88,8 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
     assert.dom('.hds-side-nav__section').exists({ count: 2 });
     assert
       .dom('.hds-side-nav__section:nth-child(2) .hds-side-nav__section-title')
-      .exists();
+      .exists()
+      .hasText('Services');
     assert
       .dom('.hds-side-nav__section:nth-child(2) .hds-side-nav__list-item')
       .exists({ count: 8 });
