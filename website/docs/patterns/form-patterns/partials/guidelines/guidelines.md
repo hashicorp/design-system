@@ -22,7 +22,7 @@ Fields can be further broken down into two types; text fields and data fields, e
 
 #### Text fields
 
-// TODO
+<!-- TODO -->
 
 | Form control | Usage | Examples |
 |--------------|-------|----------|
@@ -31,7 +31,7 @@ Fields can be further broken down into two types; text fields and data fields, e
 
 #### Data fields
 
-// TODO
+<!-- TODO -->
 
 | Form control | Usage | Examples |
 |--------------|-------|----------|
@@ -84,7 +84,7 @@ Sections consisting of text should use a 8px vertical gap between text elements.
 
 Text elements within a form should use logical, step-based sizing to reinforce hierarchy within sections, as well as within the form itself. While specifics around type hierarchy should be determined at the application level, adhering to these guidelines will help establish consistency both at the page level, and when constrained within another element or component.
 
-// TODO
+<!-- TODO -->
 
 ### Actions
 
@@ -119,7 +119,7 @@ Users benefit from logical grouping and progressive organization; organizing fie
 
 #### Business needs
 
-// TODO
+<!-- TODO -->
 
 Organizing fields based on their importance (high to low) to successful completion of a form can help minimize abandonment; a crucial aspect to meeting business goals and metrics.
 
@@ -130,7 +130,7 @@ Fields should be ordered "logically"; consider how a user will fill in informati
 
 - When filling out a payment form: organize and group the fields in the same order as they appear on a credit card or payment method.
   - Name, card number, expiration date, security code
-- // TODO: add more examples
+<!-- TODO: add more examples -->
 
 #### Visual organization
 
@@ -202,11 +202,7 @@ If a form uses a single-column layout, consider setting a maximum width on the f
 The web is a fluid medium; a relative width will adjust based on the viewport and container width. Designing and building a form with a recommended maximum and minimum width will help to conceptualize the graceful expansion and contraction of the viewport
 !!!
 
-### Constrained vs unconstrained
-
-Whether a form exists at the page level (unconstrained), or inside of another element (constrained) can implicitly determine it's width.
-
-// TODO
+<!-- Constrained vs unconstrained -->
 
 ### Responsive properties
 
@@ -219,10 +215,6 @@ Users want power, but also want simplicity. Progressive disclosure refers only d
 1. the input state of other fields
 2. if more complex settings are requested by the user.
 
-_Insert supporting image_
-
-// TODO: Add more in-depth here
-
 ## Required vs. optional fields
 
 Displaying to the user what fields are required or optional can help users submit a form free of errors, but can also add visual weight the form.
@@ -234,10 +226,4 @@ When determining whether to mark fields as optional or required, consider which 
 
 ![Comparison of forms using optional vs required](/assets/patterns/form-patterns/required-optional-comparison.png)
 
-### Client-side validation
-
-// TODO?
-
-### Server-side validation
-
-// TODO?
+<!-- Validation -->
