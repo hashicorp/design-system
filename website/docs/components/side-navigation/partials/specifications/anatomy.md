@@ -7,12 +7,11 @@
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|
 | **Header**       |                                                 |
-| Home link        | Required                                        |
-| Action content   | Required; either default or custom              |
-| Search bar       | Optional                                        |
+| Type             | Required; either default or custom              |
+| hasSearchBar     | Optional                                        |
+| hasHelpDropdown (needs revision)  | Optional                       |
 | **Body**         |                                                 |
-| Section          | Required; at least one                          |
-| List title       | Optional                                        |
-| List item        | Required; at least one                          |
+| hasBackButton    | Optional                                        |
+| Sections         | (needs revision; might be Figma only)           |
 | **Footer**       |                                                 |
-| Context switcher | Optional                                        |
+| Type             | Required; either default or custom              |
