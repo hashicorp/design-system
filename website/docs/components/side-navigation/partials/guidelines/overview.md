@@ -1,0 +1,1 @@
+The SideNav component should be used as the primary navigation of an application. It provides access to the main pages of the product.
