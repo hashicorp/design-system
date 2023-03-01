@@ -20,7 +20,7 @@ Color blind users, specifically those with [Achromatopsia](https://en.wikipedia.
 To provide a more accessible experience, we recommend:
 
 - Using strong, clear language for the text (e.g., “Delete...”, “Revoke...”, etc.).
-- Adding a relevant icon that indicates the action is destructive (e.g., Helios icon `trash`).
+- Adding a relevant icon that indicates the action is destructive (e.g., `trash`).
 - Moving the Critical ListItem to the bottom of the list or the section.
     - If at the bottom of a list, consider adding a separator above the Critical ListItem to help separate it from other ListItems.
 - Adding a second confirmation layer after the user clicks “Delete” (e.g., showing a confirmation [Modal](/components/modal) that requires the user to type “Delete” into a field before proceeding).

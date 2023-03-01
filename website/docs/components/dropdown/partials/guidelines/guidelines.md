@@ -82,7 +82,7 @@ ToggleButtons come in two sizes: **small** and **medium**. This allows for place
 
 ### Chevron usage
 
-Open Toggles use Helios icon `chevron-up`, while closed Toggles use `chevron-down`.
+Open Toggles use icon `chevron-up`, while closed Toggles use `chevron-down`.
 
 ToggleButtons require a visible chevron to indicate interactivity and provide distinction between Dropdowns and standard Buttons.
 

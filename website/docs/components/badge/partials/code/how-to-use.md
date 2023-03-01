@@ -37,7 +37,7 @@ A different size of Badge can be invoked using the `@size` argument.
 
 ### Icon
 
-Use the `@icon` argument to pass in the any Helios icon name. Icons always display in the leading (left) position.
+Use the `@icon` argument to pass in the any icon name. Icons always display in the leading (left) position.
 
 ```handlebars
 <Hds::Badge @text="Terraform" @icon="terraform" />
