@@ -1,7 +1,6 @@
 <div class="hds-side-nav__section" ...attributes>
   {{yield (hash Title=(component "hds/side-nav/section/title"))}}
 
-  {{! TODO: If there are no links or items, ul should not be rendered (should consumer add it themselves as a component?) }}
   <ul class="hds-side-nav__list">
     {{yield (hash Link=(component "hds/side-nav/section/link") Item=(component "hds/side-nav/section/item"))}}
   </ul>

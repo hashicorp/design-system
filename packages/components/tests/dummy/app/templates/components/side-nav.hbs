@@ -3,7 +3,72 @@
 <Shw::Text::H1>SideNav</Shw::Text::H1>
 
 <section data-test-percy>
-  <Shw::Text::H2>SideNav::Wrapper:</Shw::Text::H2>
+  <Shw::Text::H2>Examples</Shw::Text::H2>
+
+  <div class="shw-component-sim-side-nav-root-container">
+    <Hds::SideNav::Wrapper>
+      <:header>
+        <Hds::SideNav::Header>
+          <:logo>
+            <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
+          </:logo>
+          <:actions>
+            <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
+              <dd.ToggleIcon @icon="help" @text="settings menu" />
+              <dd.Title @text="Signed In" />
+              <dd.Description @text="email@domain.com" />
+              <dd.Separator />
+              <dd.Interactive @href="#" @text="Settings and Preferences" />
+            </Hds::Dropdown>
+            <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
+              <dd.ToggleIcon @icon="user" @text="user menu" />
+              <dd.Title @text="Signed In" />
+              <dd.Description @text="email@domain.com" />
+              <dd.Interactive @href="#" @text="Account Settings" />
+            </Hds::Dropdown>
+          </:actions>
+        </Hds::SideNav::Header>
+      </:header>
+
+      <:body>
+        <Hds::SideNav::Section as |S|>
+          <S.Link @icon="dashboard" @label="Dashboard" />
+        </Hds::SideNav::Section>
+
+        <Hds::SideNav::Section as |S|>
+          <S.Title>Services</S.Title>
+
+          <S.Link @label="Boundary" @icon="boundary" @href="#" />
+          <S.Link @label="Consul" @icon="consul" @href="#" />
+          <S.Link @label="Packer" @icon="packer" @href="#" />
+          <S.Link @label="Vault" @icon="vault" @href="#" />
+          <S.Link @label="Vault Secrets" @icon="lock" @href="#" />
+          <S.Link @label="Terraform" @icon="terraform" @href="#" />
+          <S.Link @label="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
+          <S.Link @label="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} />
+        </Hds::SideNav::Section>
+
+        <Hds::SideNav::Section as |S|>
+          <S.Title>Default Org</S.Title>
+
+          <S.Link @label="HashiCorp Virtual Networks" @icon="network" @href="#" />
+          <S.Link @label="Access control (IAM)" @icon="users" @href="#" @hasSubItems={{true}} />
+          <S.Link @label="Billing" @icon="credit-card" @href="#" @hasSubItems={{true}} />
+          <S.Link @label="Settings" @icon="settings" @href="#" @hasSubItems={{true}} />
+        </Hds::SideNav::Section>
+      </:body>
+
+      <:footer>
+        OrgSelect / ContextSwitcher
+      </:footer>
+    </Hds::SideNav::Wrapper>
+  </div>
+</section>
+
+<Shw::Divider />
+
+<section data-test-percy>
+  <Shw::Text::H2>SideNav::Wrapper</Shw::Text::H2>
 
   <Shw::Flex as |SF|>
     <SF.Item @label="Header + Body + Footer">
@@ -58,7 +123,6 @@
 <Shw::Divider />
 
 <section data-test-percy>
-
   <Shw::Text::H2>SideNav::Header</Shw::Text::H2>
 
   <Shw::Flex as |SF|>
@@ -416,7 +480,6 @@
         </span>
       </Hds::SideNav::Section::Link>
     </SG.Item>
-
   </Shw::Grid>
 
   <Shw::Text::H4>States</Shw::Text::H4>
@@ -464,71 +527,4 @@
       {{/each}}
     {{/let}}
   </Shw::Grid>
-
-</section>
-
-<Shw::Divider />
-
-<section data-test-percy>
-
-  <Shw::Text::H2>Examples</Shw::Text::H2>
-
-  <div class="shw-component-sim-side-nav-root-container">
-    <Hds::SideNav::Wrapper>
-      <:header>
-        <Hds::SideNav::Header>
-          <:logo>
-            <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
-          </:logo>
-          <:actions>
-            <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
-              <dd.ToggleIcon @icon="help" @text="settings menu" />
-              <dd.Title @text="Signed In" />
-              <dd.Description @text="email@domain.com" />
-              <dd.Separator />
-              <dd.Interactive @href="#" @text="Settings and Preferences" />
-            </Hds::Dropdown>
-            <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
-              <dd.ToggleIcon @icon="user" @text="user menu" />
-              <dd.Title @text="Signed In" />
-              <dd.Description @text="email@domain.com" />
-              <dd.Interactive @href="#" @text="Account Settings" />
-            </Hds::Dropdown>
-          </:actions>
-        </Hds::SideNav::Header>
-      </:header>
-
-      <:body>
-        <Hds::SideNav::Section as |S|>
-          <S.Link @icon="dashboard" @label="Dashboard" />
-        </Hds::SideNav::Section>
-
-        <Hds::SideNav::Section as |S|>
-          <S.Title>Services</S.Title>
-
-          <S.Link @label="Boundary" @icon="boundary" @href="#" />
-          <S.Link @label="Consul" @icon="consul" @href="#" />
-          <S.Link @label="Packer" @icon="packer" @href="#" />
-          <S.Link @label="Vault" @icon="vault" @href="#" />
-          <S.Link @label="Vault Secrets" @icon="lock" @href="#" />
-          <S.Link @label="Terraform" @icon="terraform" @href="#" />
-          <S.Link @label="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
-          <S.Link @label="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} />
-        </Hds::SideNav::Section>
-
-        <Hds::SideNav::Section as |S|>
-          <S.Title>Default Org</S.Title>
-
-          <S.Link @label="HashiCorp Virtual Networks" @icon="network" @href="#" />
-          <S.Link @label="Access control (IAM)" @icon="users" @href="#" @hasSubItems={{true}} />
-          <S.Link @label="Billing" @icon="credit-card" @href="#" @hasSubItems={{true}} />
-          <S.Link @label="Settings" @icon="settings" @href="#" @hasSubItems={{true}} />
-        </Hds::SideNav::Section>
-      </:body>
-
-      <:footer>
-        OrgSelect / ContextSwitcher
-      </:footer>
-    </Hds::SideNav::Wrapper>
-  </div>
 </section>
