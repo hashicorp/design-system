@@ -1,0 +1,32 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// BADGE / BADGE COUNT
+
+body.components-badge,
+body.components-badge-count {
+  [class*="shw-component-badge-sample-color"] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: flex-start;
+    min-width: fit-content;
+    margin: 0;
+    list-style: none;
+  }
+
+  .shw-component-badge-sample-color--neutral-dark-mode {
+    background: #0c0c0e;
+    outline: 2px solid #0c0c0e;
+  }
+
+  .shw-component-badge-group {
+    margin-bottom: -0.5rem;
+
+    .hds-badge {
+      margin: 0 0.5rem 0.5rem 0;
+    }
+  }
+}

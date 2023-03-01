@@ -1,0 +1,17 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// TYPOGRAPHY
+
+body.foundations-typography {
+  .shw-label {
+    color: #999;
+  }
+
+  p[class^="hds-"] {
+    margin: 0;
+    padding: 0;
+  }
+}

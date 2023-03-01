@@ -5,7 +5,7 @@
 
 import Route from '@ember/routing/route';
 
-const STATES = ['active', 'default', 'hover', 'focus'];
+const STATES = ['default', 'active', 'hover', 'focus'];
 
 export default class ComponentsTableRoute extends Route {
   async model() {

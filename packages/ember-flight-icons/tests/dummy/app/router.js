@@ -11,6 +11,4 @@ export default class Router extends EmberRouter {
   rootURL = config.rootURL;
 }
 
-Router.map(function () {
-  this.route('percy-test');
-});
+Router.map(function () {});

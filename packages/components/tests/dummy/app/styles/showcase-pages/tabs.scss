@@ -1,0 +1,15 @@
+// TAB
+
+body.components-tabs {
+  .shw-component-tabs-layout-highlight {
+    .hds-tabs__tab {
+      outline: 1px dashed #78909c;
+      outline-offset: -1px;
+    }
+  }
+
+  .shw-component-tabs-sample-ul-wrapper {
+    display: contents;
+    list-style: none;
+  }
+}

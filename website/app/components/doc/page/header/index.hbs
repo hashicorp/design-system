@@ -8,8 +8,8 @@
   <LinkTo @route="index" class="doc-page-header__logo" aria-label="home page">
     <Doc::Logo::DesignSystem />
   </LinkTo>
-  <nav class="doc-page-header__nav-menu" aria-label="primary navigation">
-    <ul role="list">
+  <nav class="doc-page-header__nav-menu" aria-label="primary navigation" id="primary-navigation">
+    <ul role="list" aria-labelledby="primary-navigation">
       <Doc::Page::Header::NavItem @label="About" @route="about" @currentTopRoute={{@currentTopRoute}} />
       <Doc::Page::Header::NavItem @label="Foundations" @route="foundations" @currentTopRoute={{@currentTopRoute}} />
       <Doc::Page::Header::NavItem @label="Components" @route="components" @currentTopRoute={{@currentTopRoute}} />

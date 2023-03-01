@@ -1,0 +1,22 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// ALERT
+
+body.components-alert {
+  // we outline the "compact" variant to make its bounding box visible
+  .hds-alert--type-compact {
+    outline: 1px dotted #d3d3d3;
+  }
+
+  .shw-component-alert-sample-custom-content-after-actions {
+    @include shw-font-family("system sans");
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    font-style: italic;
+  }
+}
+

@@ -1,0 +1,20 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// BREADCRUMB
+
+body.components-breadcrumb {
+  .shw-component-breadcrumb-sample-with-max-width {
+    max-width: 900px;
+    outline: 1px dotted lightgray;
+  }
+
+  .shw-component-breadcrumb-sample-truncation-dropdown {
+    width: fit-content;
+    min-height: 200px;
+    padding-right: 50px;
+    outline: 1px dotted lightgray;
+  }
+}
