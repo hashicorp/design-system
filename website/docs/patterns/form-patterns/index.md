@@ -12,15 +12,6 @@ navigation:
   @include "partials/guidelines/guidelines.md"
 </section>
 
-<section data-tab="Code">
-  @include "partials/code/usage.md"
-</section>
-
 <section data-tab="Specifications">
   @include "partials/specifications/anatomy.md"
-  @include "partials/specifications/examples.md"
-</section>
-
-<section data-tab="Accessibility">
-  @include "partials/accessibility/accessibility.md"
 </section>
