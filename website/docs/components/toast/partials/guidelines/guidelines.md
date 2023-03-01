@@ -57,7 +57,7 @@ Use color logically.
 
 All Toasts have icons by default that are intentionally tied to the Toast color.
 
-Icons within `neutral` and `highlight` Toasts can be replaced with other Helios icons. Change them only when the new icon provides the user with extra value; otherwise, use the default icon provided.
+Icons within `neutral` and `highlight` Toasts can be replaced with other icons. Change them only when the new icon provides the user with extra value; otherwise, use the default icon provided.
 
 <Doc::Layout @spacing="12px" @direction="vertical">
   <Hds::Toast @color="neutral" @icon="running" @onDismiss={{this.noop}} as |T|>
