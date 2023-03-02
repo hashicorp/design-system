@@ -31,19 +31,19 @@ export default class HdsDropdownIndexComponent extends Component {
   }
 
   /**
-   * Get the class names to apply to the "list"
-   * @method DropdownIndex#listClassNames
-   * @return {string} The "class" attribute to apply to the "list" element
+   * Get the class names to apply to the content
+   * @method classNames
+   * @return {string} The "class" attribute to apply to the disclosed content
    */
-  get listClassNames() {
-    let classes = ['hds-dropdown-list'];
+  get classNames() {
+    let classes = ['hds-dropdown__content'];
 
     // add a class based on the @listPosition argument
-    classes.push(`hds-dropdown-list--position-${this.listPosition}`);
+    classes.push(`hds-dropdown__content--position-${this.listPosition}`);
 
     // add a class based on the @width argument
     if (this.args.width) {
-      classes.push('hds-dropdown-list--fixed-width');
+      classes.push('hds-dropdown__content--fixed-width');
     }
 
     return classes.join(' ');

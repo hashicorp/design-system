@@ -115,37 +115,69 @@ $hds-dropdown-toggle-border-radius: 5px;
 // UL ELEMENT
 // GOES INSIDE HDS::DISCLOSURE's :content block
 
-.hds-dropdown-list {
+.hds-dropdown__content {
+  display: flex;
+  flex-direction: column;
   width: max-content; // notice: this is important because being in a position absolute means the layout algorithm assigns a width of 0 and this impacts on the flex algorithm of the children (in some cases they don't use the full width)
   min-width: 200px;
   max-width: 400px;
-  margin: 0;
-  padding: 4px 0;
-  list-style: none;
   background-color: var(--token-color-surface-primary);
   border-radius: 6px;
   box-shadow: var(--token-surface-high-box-shadow);
 }
 
-.hds-dropdown-list--fixed-width {
+.hds-dropdown__content--fixed-width {
   min-width: initial;
   max-width: initial;
 }
 
-.hds-dropdown-list--position-right {
+.hds-dropdown__content--position-right {
   position: absolute;
   top: calc(100% + 4px);
   right: 0;
   z-index: 2; // https://github.com/hashicorp/design-system/issues/114
 }
 
-.hds-dropdown-list--position-left {
+.hds-dropdown__content--position-left {
   position: absolute;
   top: calc(100% + 4px);
   left: 0;
   z-index: 2; // https://github.com/hashicorp/design-system/issues/114
 }
 
+.hds-dropdown__header {
+  flex: none;
+  padding: 6px 8px;
+}
+
+.hds-dropdown__list {
+  flex: 1 1 auto;
+  margin: 0;
+  padding: 4px 0;
+  overflow-y: auto;
+  list-style: none;
+  overscroll-behavior: contain;
+}
+
+.hds-dropdown__footer {
+  position: relative;
+  flex: none;
+  padding: 8px 8px 6px;
+
+  .hds-link-standalone {
+    width: initial;
+    padding: 5px 8px;
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 6px;
+    left: 6px;
+    border-top: 1px solid var(--token-color-border-primary);
+    content: "";
+  }
+}
 
 // LIST > LIST-ITEM
 // HDS::DROPDOWN::LIST-ITEM
