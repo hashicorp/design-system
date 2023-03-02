@@ -54,6 +54,13 @@ Don't group (either horizontally or vertically) field types that are related but
 ![Grouping different field types](/assets/patterns/form-patterns/different-field-type.png)
 !!!
 
+!!! Do
+
+Instead, stack the fields vertically. 
+
+![Grouping different field types](/assets/patterns/form-patterns/different-field-type-do.png =500x*)
+!!!
+
 Common grouping of fields can include:
 
 - Credit card information; card number, expiration data, security code.
@@ -78,7 +85,7 @@ Multi-column layouts can be impacted by the width of the overall form. Use group
 
 ### Text
 
-Sections consisting of text should use a 8px vertical gap between text elements.
+In sections consisting of multiple blocks of text, an 8px vertical gap between text elements should be used.
 
 ![Example of a text section](/assets/patterns/form-patterns/text-section.png =600x*)
 
@@ -102,7 +109,7 @@ Fields within a form generally fall into three categories that can help determin
 
 #### Technical and application needs
 
-Sometimes the values or options for a given field are dependent on a prior field or piece of information provided to the application. These technical contraints within the application are often expressed three conditional logic within the form; determining what is displayed to the user depending on what has already been selected or input in previous fields.
+Sometimes the values or options for a given field are dependent on a prior field or piece of information provided to the application. These technical contraints within the application are often expressed through conditional logic within the form to determine what is displayed to the user depending on what has already been selected or input in previous fields.
 
 Fields that are dependencies for other fields generally benefit from being organized closer to the start of a the form; e.g., selecting a cluster tier, which reveals options for cluster size that are dependent on the tier.
 
@@ -170,7 +177,7 @@ Dividers introduce more visual hierarchy and differentiation in long, complex fo
 
 Only use dividers between sections of a form, not between fields or other smaller elements within a section. A divider should be used to break up different types of content and categories within a form.
 
-When using a divider, increase the spacing between sections to 48px from 32px (24px on the top and bottom of the divider). This helps to separate the divider from surrounding form elements, otherwise it can appear "attached" to a specific section or field.
+When using a divider, include a 24px gap above and below to separate the divider from surrounding form elements, otherwise it can appear "attached" to a specific section or field.
 
 ![Spacing using dividers](/assets/patterns/form-patterns/divider-spacing.png =500x*)
 

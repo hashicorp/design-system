@@ -3,6 +3,7 @@ title: Form patterns
 description: Guidelines for designing, assembling, and delivering user-centric forms comprised of Helios form components and primitives.
 caption: Guidelines for designing, assembling, and delivering user-centric forms comprised of Helios form components and primitives.
 status: released
+previewImage: assets/illustrations/patterns/form-patterns.jpg
 navigation:
   keywords: ['form', 'patterns', 'patterns', 'fieldset']
 ---
