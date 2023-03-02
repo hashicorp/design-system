@@ -1,8 +1,12 @@
 <div class="hds-side-nav__section" ...attributes>
-  {{yield (hash Title=(component "hds/side-nav/section/title"))}}
-
   <ul class="hds-side-nav__list">
-    {{yield (hash Link=(component "hds/side-nav/section/link") Item=(component "hds/side-nav/section/item"))}}
+    {{yield
+      (hash
+        Title=(component "hds/side-nav/section/title")
+        Link=(component "hds/side-nav/section/link")
+        Item=(component "hds/side-nav/section/item")
+      )
+    }}
   </ul>
 
   {{yield (hash Generic=(component "hds/yield"))}}

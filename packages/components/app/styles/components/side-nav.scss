@@ -22,8 +22,7 @@
   --token-side-nav-body-section-margin-vertical: 24px;
   --token-side-nav-body-section-item-padding-horizontal: 8px;
   --token-side-nav-body-section-item-padding-vertical: 4px;
-  --token-side-nav-body-item-spacing: 4px;
-  --token-side-nav-body-section-item-content-spacing: 8px;
+  --token-side-nav-body-section-item-content-spacing-horizontal: 8px;
 
   /* Colors: */
 
@@ -162,10 +161,9 @@
 .hds-side-nav__list-item {
   display: flex;
   align-items: center;
-  min-height: 36px;
   list-style-type: none; // Q: Should ul have role="list" added for accessibility?
 
-  & + & { margin-top: var(--token-side-nav-body-item-spacing); }
+  &:last-child { margin-bottom: 0; }
 }
 
 .hds-side-nav__list-item-link {
@@ -182,7 +180,7 @@
 
   .hds-badge,
   .hds-badge-count {
-    margin-left: var(--token-side-nav-body-section-item-content-spacing);
+    margin-left: var(--token-side-nav-body-section-item-content-spacing-horizontal);
   }
 
   &:focus,
@@ -225,7 +223,7 @@
 
 .hds-side-nav__list-item-icon {
   flex: none;
-  margin-right: var(--token-side-nav-body-section-item-content-spacing);
+  margin-right: var(--token-side-nav-body-section-item-content-spacing-horizontal);
 }
 
 .hds-side-nav__list-item-icon-chevron-wrapper {
@@ -235,7 +233,7 @@
 .hds-side-nav__list-item-icon-chevron {
   display: block;
   flex: none;
-  margin-left: var(--token-side-nav-body-section-item-content-spacing);
+  margin-left: var(--token-side-nav-body-section-item-content-spacing-horizontal);
 }
 
 // * Footer child elements
