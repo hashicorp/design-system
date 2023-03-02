@@ -12,12 +12,18 @@
   --token-side-nav-wrapper-padding-horizontal: 16px;
   --token-side-nav-wrapper-padding-vertical: 16px;
 
-  // Body sections
-  --token-side-nav-body-section-margin-vertical: 24px;
+  // header content:
+  --token-side-nav-header-home-link-padding: 4px;
+  --token-side-nav-header-home-link-logo-width: 48px;
+  --token-side-nav-header-home-link-logo-height: 48px;
+  --token-side-nav-header-actions-spacing: 16px;
 
-  // Items/Links in body:
-  --token-side-nav-section-item-padding-horizontal: 8px;
-  --token-side-nav-section-item-padding-vertical: 4px;
+  // body content:
+  --token-side-nav-body-section-margin-vertical: 24px;
+  --token-side-nav-body-section-item-padding-horizontal: 8px;
+  --token-side-nav-body-section-item-padding-vertical: 4px;
+  --token-side-nav-body-item-spacing: 4px;
+  --token-side-nav-body-section-item-content-spacing: 8px;
 
   /* Colors: */
 
@@ -78,20 +84,20 @@
   display: block;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: var(--token-side-nav-header-home-link-logo-width);
+  height: var(--token-side-nav-header-home-link-logo-height);
 }
 
 .hds-side-nav-header__actions {
   display: flex;
-  gap: 16px;
+  gap: var(--token-side-nav-header-actions-spacing);
 }
 
 .hds-side-nav__home-link {
   display: block;
   width: 100%;
   height: 100%;
-  padding: 4px; // by design
+  padding: var(--token-side-nav-header-home-link-padding); // by design
   // TODO discuss with Cristiano/Christian if this needs to become a component-level token
   color: var(--token-color-foreground-high-contrast);
   border: 1px solid transparent;
@@ -141,7 +147,7 @@
 
 .hds-side-nav__section-title {
   min-height: 34px;
-  padding: 0 var(--token-side-nav-section-item-padding-horizontal);
+  padding: 0 var(--token-side-nav-body-section-item-padding-horizontal);
   color: var(--token-side-nav-foreground-faint);
 }
 
@@ -159,7 +165,7 @@
   min-height: 36px;
   list-style-type: none; // Q: Should ul have role="list" added for accessibility?
 
-  & + & { margin-top: 4px; }
+  & + & { margin-top: var(--token-side-nav-body-item-spacing); }
 }
 
 .hds-side-nav__list-item-link {
@@ -167,7 +173,7 @@
   align-items: center;
   width: 100%;
   min-height: 36px;
-  padding: var(--token-side-nav-section-item-padding-vertical) var(--token-side-nav-section-item-padding-horizontal);
+  padding: var(--token-side-nav-body-section-item-padding-vertical) var(--token-side-nav-body-section-item-padding-horizontal);
   color: var(--token-side-nav-foreground-primary);
   text-decoration: none;
   background: var(--token-side-nav-surface);
@@ -176,7 +182,7 @@
 
   .hds-badge,
   .hds-badge-count {
-    margin-left: 8px;
+    margin-left: var(--token-side-nav-body-section-item-content-spacing);
   }
 
   &:focus,
@@ -219,7 +225,7 @@
 
 .hds-side-nav__list-item-icon {
   flex: none;
-  margin-right: 8px;
+  margin-right: var(--token-side-nav-body-section-item-content-spacing);
 }
 
 .hds-side-nav__list-item-icon-chevron-wrapper {
@@ -229,7 +235,7 @@
 .hds-side-nav__list-item-icon-chevron {
   display: block;
   flex: none;
-  margin-left: 8px;
+  margin-left: var(--token-side-nav-body-section-item-content-spacing);
 }
 
 // * Footer child elements
