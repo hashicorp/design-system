@@ -178,12 +178,17 @@
   <Shw::Flex as |SF|>
     <SF.Item @label="Icon">
       <div class="shw-component-side-nav-home-link-wrapper">
-        <Hds::SideNav::HomeLink @icon="hashicorp" @href="#" />
+        <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
       </div>
     </SF.Item>
     <SF.Item @label="Icon with custom color">
       <div class="shw-component-side-nav-home-link-wrapper">
-        <Hds::SideNav::HomeLink @icon="boundary" @color="var(--token-color-boundary-brand)" @href="#" />
+        <Hds::SideNav::HomeLink
+          @icon="boundary"
+          @text="Boundary"
+          @color="var(--token-color-boundary-brand)"
+          @href="#"
+        />
       </div>
     </SF.Item>
   </Shw::Flex>
@@ -195,7 +200,7 @@
       {{#each states as |state|}}
         <SF.Item @label={{state}}>
           <div class="shw-component-side-nav-home-link-wrapper">
-            <Hds::SideNav::HomeLink @icon="hashicorp" @href="#" mock-state-value={{state}} />
+            <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" mock-state-value={{state}} />
           </div>
         </SF.Item>
       {{/each}}
