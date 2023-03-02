@@ -4,7 +4,7 @@ While these guidelines don’t cover every scenario, they are intended to aid in
 
 ## Constrained vs. unconstrained
 
-**Constrained** refers to a component or pattern that is wrapped within a container element, while **unconstrained** refers to components that exist at the page level.
+The term **constrained** refers to a component or pattern that is wrapped within a container element, while **unconstrained** refers to components that exist at the page level.
 
 - **Constrained**
     - Dialogs and modals

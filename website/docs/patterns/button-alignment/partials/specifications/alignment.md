@@ -20,6 +20,7 @@ In most scenarios, align buttons to the **left side** of a container or page.
 - This reinforces natural reading patterns and a conversational "dialog-like" messaging strategy.
 - When combined with a consistent ordering method, the primary button is prioritized in the reading direction.
 - When considering different contexts, opting for a single method helps to create consistency between constrained and unconstrained components and patterns.
-!!!
 
 ![Button alignment reading pattern](/assets/patterns/button-alignment/alignment-reading-pattern.png)
+!!!
+

@@ -5,9 +5,10 @@ When performing an action or function, users generally think from highest to low
 !!! Do
 
 Order buttons based on priority starting with the **highest** priority action (usually by using a primary button) to **lowest** priority (either secondary or tertiary actions).
-!!!
 
 ![Ordering from high priority](/assets/patterns/button-alignment/order-high-low-priority.png)
+!!!
+
 
 ### Destructive actions
 
