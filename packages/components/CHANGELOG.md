@@ -1,5 +1,11 @@
 # @hashicorp/design-system-components
 
+## 1.7.1
+
+### Patch Changes
+
+- [#1232](https://github.com/hashicorp/design-system/pull/1232) [`9d1a73da3`](https://github.com/hashicorp/design-system/commit/9d1a73da3621c1a1ad32736c79ac7b4af6162b05) Thanks [@alex-ju](https://github.com/alex-ju)! - Make `ember-body-class` a dev dependency
+
 ## 1.7.0
 
 ### Minor Changes
