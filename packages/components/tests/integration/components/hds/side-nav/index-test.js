@@ -91,7 +91,9 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
       .exists()
       .hasText('Services');
     assert
-      .dom('.hds-side-nav__section:nth-child(2) .hds-side-nav__list-item')
+      .dom(
+        '.hds-side-nav__section:nth-child(2) .hds-side-nav__list-item:has(.hds-side-nav__list-item-link) '
+      )
       .exists({ count: 8 });
   });
 
