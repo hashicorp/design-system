@@ -5,13 +5,14 @@ navigation:
   hidden: false
 ---
 
-<section data-tab="Overview">
-  @include "partials/overview/overview.md"
+<section data-tab="Guidelines">
+  @include "partials/guidelines/specifications.md"
+  @include "partials/guidelines/alignment.md"
+  @include "partials/guidelines/order.md"
+  @include "partials/guidelines/grouping.md"
 </section>
 
-<section data-tab="Specifications">
-  @include "partials/specifications/specifications.md"
-  @include "partials/specifications/alignment.md"
-  @include "partials/specifications/order.md"
-  @include "partials/specifications/grouping.md"
+<section data-tab="Research">
+  @include "partials/research/research.md"
 </section>
+

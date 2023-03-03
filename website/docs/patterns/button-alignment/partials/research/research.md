@@ -1,6 +1,7 @@
-While the alignment, order, and grouping of buttons might seem trivial, the impact on users is immediate and often occurs in experiences of high important and interruption.
+!!! Info
 
-While these guidelines don’t cover every scenario, they are intended to aid in the decision-making process when determining how to organize buttons and actions. Different methods of alignment and ordering will result in different outcomes with pros and cons for each. What is most important is **consistency** across an application in how actions are aligned, ordered, and grouped.
+This content is largely focused around the research and desicion-making process for button alignment. For detailed specifications regarding implementation, visit the [guidelines](/patterns/button-alignment?tab=guidelines).
+!!!
 
 ## Constrained vs. unconstrained
 
@@ -23,7 +24,6 @@ Unconstrained generally refers to a more "static" experience that isn’t trigge
 <!-- TODO 
 **Insert some supporting images here**
 -->
-
 
 ## Layout and reading patterns
 
