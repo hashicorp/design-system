@@ -9,6 +9,30 @@
 
 <section data-test-percy>
 
+  <Shw::Text::H2>Interaction status</Shw::Text::H2>
+  <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
+    <SF.Item @label="No option selected">
+      <div class="hds-power-select">
+        <PowerSelect @options={{@model.OPTIONS}} @onChange={{this.noop}} @renderInPlace={{true}} as |option|>
+          {{option}}
+        </PowerSelect>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Option selected">
+      <div class="hds-power-select">
+        <PowerSelect
+          @options={{@model.OPTIONS}}
+          @selected={{@model.SELECTED}}
+          @onChange={{this.noop}}
+          @renderInPlace={{true}}
+          as |option|
+        >
+          {{option}}
+        </PowerSelect>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
   <Shw::Text::H2>States</Shw::Text::H2>
 
   <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>

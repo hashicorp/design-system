@@ -18,13 +18,12 @@
   .ember-basic-dropdown-trigger,
   .ember-power-select-trigger {
     max-width: 100%;
-    min-height: 34px;
+    min-height: 36px;
     padding: calc(var(--token-form-control-padding) + 1px);
     padding-right: calc(var(--token-form-control-padding) + 24px); // extra space for the icon
-    padding-left: 44px;
     color: var(--token-form-control-base-foreground-value-color);
     background-color: var(--token-form-control-base-surface-color-default);
-    background-image: var(--token-form-select-background-image-data-url), url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' fill='%231060ff'/%3E%3C/svg%3E");
+    background-image: var(--token-form-select-background-image-data-url);
     background-repeat: no-repeat;
     background-position: right var(--token-form-select-background-image-position-right-x) center, top 8px left 20px;
     background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
@@ -53,10 +52,16 @@
     &[aria-disabled="true"] {
       color: var(--token-form-control-disabled-foreground-color);
       background-color: var(--token-form-control-disabled-surface-color);
-      background-image: var(--token-form-select-background-image-data-url-disabled), url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' fill='%238c909c'/%3E%3C/svg%3E");
+      background-image: var(--token-form-select-background-image-data-url-disabled);
       border-color: var(--token-form-control-disabled-border-color);
       box-shadow: none;
       cursor: not-allowed;
+      opacity: 0.7;
+
+      .ember-power-select-selected-item {
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' fill='%238c909c'/%3E%3C/svg%3E");
+        opacity: inherit;
+      }
     }
   }
 
@@ -142,7 +147,14 @@
   .ember-power-select-selected-item {
     display: block;
     margin-left: 0;
+    padding-left: 37px;
+    color: var(--token-color-foreground-strong);
     line-height: normal;
+    background-color: inherit;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' fill='%231060ff'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: top 0 left 13px;
+    background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
   }
 
   .ember-power-select-options {
