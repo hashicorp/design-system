@@ -1,5 +1,11 @@
 # @hashicorp/design-system-components
 
+## 1.7.2
+
+### Patch Changes
+
+- [#1234](https://github.com/hashicorp/design-system/pull/1234) [`2fa69aca7`](https://github.com/hashicorp/design-system/commit/2fa69aca75f2ea1245be04ccfad7966ec77ab12d) Thanks [@alex-ju](https://github.com/alex-ju)! - Fix checkmark and disabled state on `power-select` style overrides
+
 ## 1.7.1
 
 ### Patch Changes
