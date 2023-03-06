@@ -31,11 +31,11 @@
       </:header>
 
       <:body>
-        <Hds::SideNav::Section as |S|>
+        <Hds::SideNav::List as |S|>
           <S.Link @icon="dashboard" @label="Dashboard" />
-        </Hds::SideNav::Section>
+        </Hds::SideNav::List>
 
-        <Hds::SideNav::Section as |S|>
+        <Hds::SideNav::List as |S|>
           <S.Title>Services</S.Title>
 
           <S.Link @label="Boundary" @icon="boundary" @href="#" />
@@ -46,16 +46,16 @@
           <S.Link @label="Terraform" @icon="terraform" @href="#" />
           <S.Link @label="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
           <S.Link @label="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} />
-        </Hds::SideNav::Section>
+        </Hds::SideNav::List>
 
-        <Hds::SideNav::Section as |S|>
+        <Hds::SideNav::List as |S|>
           <S.Title>Default Org</S.Title>
 
           <S.Link @label="HashiCorp Virtual Networks" @icon="network" @href="#" />
           <S.Link @label="Access control (IAM)" @icon="users" @href="#" @hasSubItems={{true}} />
           <S.Link @label="Billing" @icon="credit-card" @href="#" @hasSubItems={{true}} />
           <S.Link @label="Settings" @icon="settings" @href="#" @hasSubItems={{true}} />
-        </Hds::SideNav::Section>
+        </Hds::SideNav::List>
       </:body>
 
       <:footer>
@@ -86,7 +86,7 @@
         </Hds::SideNav::Wrapper>
       </div>
     </SF.Item>
-    <SF.Item @label="Header (with extra) + Body + Footer">
+    <SF.Item @label="Header (with extra) + Body (with extra) + Footer">
       <div class="shw-component-sim-side-nav-root-container">
         <Hds::SideNav::Wrapper>
           <:header>
@@ -94,7 +94,8 @@
             <Shw::Placeholder @height="60px" @text="extra content" @background="#e4c5f3" />
           </:header>
           <:body>
-            <Shw::Placeholder @height="300px" @text="body" @background="#e4e4e4" />
+            <Shw::Placeholder @height="250px" @text="body" @background="#e4e4e4" />
+            <Shw::Placeholder @height="60px" @text="extra non “List” content" @background="#e4c5f3" />
           </:body>
           <:footer>
             <Shw::Placeholder @height="36px" @text="footer" @background="#e4e4e4" />
@@ -229,19 +230,19 @@
 
 <section data-test-percy>
 
-  <Shw::Text::H2>SideNav::Section::BackLink</Shw::Text::H2>
+  <Shw::Text::H2>SideNav::List::BackLink</Shw::Text::H2>
 
   <Shw::Text::H3>Content</Shw::Text::H3>
 
   <Shw::Flex as |SF|>
     <SF.Item @label="Base">
       <div class="shw-component-sim-side-nav-body">
-        <Hds::SideNav::Section::BackLink @label="Back to parent page" @href="#" />
+        <Hds::SideNav::List::BackLink @label="Back to parent page" @href="#" />
       </div>
     </SF.Item>
     <SF.Item @label="With very long text">
       <div class="shw-component-sim-side-nav-body">
-        <Hds::SideNav::Section::BackLink @label="This is a long text that should go on two lines" @href="#" />
+        <Hds::SideNav::List::BackLink @label="This is a long text that should go on two lines" @href="#" />
       </div>
     </SF.Item>
   </Shw::Flex>
@@ -255,12 +256,12 @@
           <Shw::Flex @direction="column" as |SF|>
             <SF.Item>
               <div class="shw-component-sim-side-nav-body">
-                <Hds::SideNav::Section::BackLink @label="Back to parent page" @href="#" mock-state-value={{state}} />
+                <Hds::SideNav::List::BackLink @label="Back to parent page" @href="#" mock-state-value={{state}} />
               </div>
             </SF.Item>
             <SF.Item>
               <div class="shw-component-sim-side-nav-body">
-                <Hds::SideNav::Section::BackLink
+                <Hds::SideNav::List::BackLink
                   @label="This is a long text that should go on two lines"
                   @href="#"
                   mock-state-value={{state}}
@@ -277,14 +278,14 @@
 <Shw::Divider />
 
 <section data-test-percy>
-  <Shw::Text::H2>Hds::SideNav::Section</Shw::Text::H2>
+  <Shw::Text::H2>Hds::SideNav::List</Shw::Text::H2>
 
   <Shw::Text::H3>Content</Shw::Text::H3>
 
   <Shw::Flex as |SF|>
     <SF.Item @label="Title with multiple items">
       <div class="shw-component-sim-side-nav-body">
-        <Hds::SideNav::Section as |S|>
+        <Hds::SideNav::List as |S|>
           <S.Title>Services</S.Title>
 
           <S.Link @label="Boundary" @icon="boundary" @href="#" />
@@ -295,12 +296,12 @@
           <S.Link @label="Terraform" @icon="terraform" @href="#" />
           <S.Link @label="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
           <S.Link @label="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} @href="#" />
-        </Hds::SideNav::Section>
+        </Hds::SideNav::List>
       </div>
     </SF.Item>
-    <SF.Item @label="With extra content">
+    {{!-- <SF.Item @label="With extra content">
       <div class="shw-component-sim-side-nav-body">
-        <Hds::SideNav::Section as |S|>
+        <Hds::SideNav::List as |S|>
           <S.Title>Services</S.Title>
 
           <S.Link @label="Boundary" @icon="boundary" @href="#" />
@@ -311,19 +312,15 @@
           <S.Link @label="Terraform" @icon="terraform" @href="#" />
           <S.Link @label="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
           <S.Link @label="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} @href="#" />
-
-          <S.Generic>
-            <Shw::Placeholder @height="36px" @text="extra content (generic)" @background="#e4e4e4" />
-          </S.Generic>
-        </Hds::SideNav::Section>
+        </Hds::SideNav::List>
       </div>
-    </SF.Item>
+    </SF.Item> --}}
     <SF.Item @label="Multiple groups">
       <div class="shw-component-sim-side-nav-body">
-        <Hds::SideNav::Section as |S|>
+        <Hds::SideNav::List as |S|>
           <S.Link @label="Dashboard" @icon="dashboard" @href="#" />
-        </Hds::SideNav::Section>
-        <Hds::SideNav::Section as |S|>
+        </Hds::SideNav::List>
+        <Hds::SideNav::List as |S|>
           <S.Title>Services</S.Title>
 
           <S.Link @label="Boundary" @icon="boundary" @href="#" />
@@ -334,79 +331,79 @@
           <S.Link @label="Terraform" @icon="terraform" @href="#" />
           <S.Link @label="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
           <S.Link @label="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} @href="#" />
-        </Hds::SideNav::Section>
-        <Hds::SideNav::Section as |S|>
+        </Hds::SideNav::List>
+        <Hds::SideNav::List as |S|>
           <S.Title>Default Org</S.Title>
 
           <S.Link @label="HashiCorp Virtual Networks" @icon="network" @href="#" />
           <S.Link @label="Access control (IAM)" @icon="users" @href="#" />
           <S.Link @label="Billing" @icon="credit-card" @href="#" />
           <S.Link @label="Settings" @icon="settings" @href="#" />
-        </Hds::SideNav::Section>
+        </Hds::SideNav::List>
       </div>
     </SF.Item>
   </Shw::Flex>
 
   <Shw::Divider @level={{2}} />
 
-  <Shw::Text::H3>SideNav::Section::Title</Shw::Text::H3>
+  <Shw::Text::H3>SideNav::List::Title</Shw::Text::H3>
 
   <Shw::Flex as |SF|>
     <SF.Item @label="Base">
       <div class="shw-component-sim-side-nav-body">
-        <Hds::SideNav::Section::Title>Group title</Hds::SideNav::Section::Title>
+        <Hds::SideNav::List::Title>Group title</Hds::SideNav::List::Title>
       </div>
     </SF.Item>
     <SF.Item @label="With very long text">
       <div class="shw-component-sim-side-nav-body">
-        <Hds::SideNav::Section::Title>This is a long text that should go on two lines</Hds::SideNav::Section::Title>
+        <Hds::SideNav::List::Title>This is a long text that should go on two lines</Hds::SideNav::List::Title>
       </div>
     </SF.Item>
   </Shw::Flex>
 
   <Shw::Divider @level={{2}} />
 
-  <Shw::Text::H3>SideNav::Section::Item</Shw::Text::H3>
+  <Shw::Text::H3>SideNav::List::Item</Shw::Text::H3>
 
   <div class="shw-component-sim-side-nav-body">
-    <Hds::SideNav::Section::Item>
+    <Hds::SideNav::List::Item>
       <Shw::Placeholder @height="36px" @text="item" @background="#e4e4e4" />
-    </Hds::SideNav::Section::Item>
+    </Hds::SideNav::List::Item>
   </div>
 
   <Shw::Divider @level={{2}} />
 
-  <Shw::Text::H3>SideNav::Section::Link</Shw::Text::H3>
+  <Shw::Text::H3>SideNav::List::Link</Shw::Text::H3>
 
   <Shw::Text::H4>Content</Shw::Text::H4>
 
   <Shw::Grid @columns={{4}} as |SG|>
     <SG.Item @label="Just text">
-      <Hds::SideNav::Section::Link @label="Boundary" @href="#" />
+      <Hds::SideNav::List::Link @label="Boundary" @href="#" />
     </SG.Item>
     <SG.Item @label="Icon + text">
-      <Hds::SideNav::Section::Link @icon="boundary" @label="Boundary" @href="#" />
+      <Hds::SideNav::List::Link @icon="boundary" @label="Boundary" @href="#" />
     </SG.Item>
     <SG.Item @label="Icon + text + badge">
-      <Hds::SideNav::Section::Link @icon="boundary" @label="Boundary" @badge="Alpha" />
+      <Hds::SideNav::List::Link @icon="boundary" @label="Boundary" @badge="Alpha" />
     </SG.Item>
     <SG.Item @label="Icon + text + count">
-      <Hds::SideNav::Section::Link @icon="boundary" @label="Boundary" @count="3" />
+      <Hds::SideNav::List::Link @icon="boundary" @label="Boundary" @count="3" />
     </SG.Item>
     <SG.Item @label="Icon + text + count + badge">
-      <Hds::SideNav::Section::Link @icon="boundary" @label="Boundary" @count="3" @badge="Alpha" />
+      <Hds::SideNav::List::Link @icon="boundary" @label="Boundary" @count="3" @badge="Alpha" />
     </SG.Item>
     <SG.Item @label="Icon + text + yielded badgecount/badge">
-      <Hds::SideNav::Section::Link @icon="boundary" @label="Boundary">
+      <Hds::SideNav::List::Link @icon="boundary" @label="Boundary">
         <Hds::BadgeCount @type="inverted" @size="small" @color="neutral-dark-mode" @text="3" />
         <Hds::Badge @type="inverted" @size="small" @color="success" @text="Beta" />
-      </Hds::SideNav::Section::Link>
+      </Hds::SideNav::List::Link>
     </SG.Item>
     <SG.Item @label="Icon + long text">
-      <Hds::SideNav::Section::Link @icon="boundary" @label="This is a long text that should go on two lines" />
+      <Hds::SideNav::List::Link @icon="boundary" @label="This is a long text that should go on two lines" />
     </SG.Item>
     <SG.Item @label="Icon + long text + count + badge">
-      <Hds::SideNav::Section::Link
+      <Hds::SideNav::List::Link
         @icon="boundary"
         @label="This is a long text that should go on two lines"
         @count="3"
@@ -415,35 +412,35 @@
     </SG.Item>
 
     <SG.Item @label="Text, hasSubItems">
-      <Hds::SideNav::Section::Link @label="Boundary" @href="#" @hasSubItems={{true}} />
+      <Hds::SideNav::List::Link @label="Boundary" @href="#" @hasSubItems={{true}} />
     </SG.Item>
     <SG.Item @label="Icon + text, hasSubItems">
-      <Hds::SideNav::Section::Link @icon="boundary" @label="Boundary" @href="#" @hasSubItems={{true}} />
+      <Hds::SideNav::List::Link @icon="boundary" @label="Boundary" @href="#" @hasSubItems={{true}} />
     </SG.Item>
     <SG.Item @label="Icon + text + badge, hasSubItems">
-      <Hds::SideNav::Section::Link @icon="boundary" @label="Boundary" @badge="Alpha" @hasSubItems={{true}} />
+      <Hds::SideNav::List::Link @icon="boundary" @label="Boundary" @badge="Alpha" @hasSubItems={{true}} />
     </SG.Item>
     <SG.Item @label="Icon + text + count, hasSubItems">
-      <Hds::SideNav::Section::Link @icon="boundary" @label="Boundary" @count="3" @hasSubItems={{true}} />
+      <Hds::SideNav::List::Link @icon="boundary" @label="Boundary" @count="3" @hasSubItems={{true}} />
     </SG.Item>
     <SG.Item @label="Icon + text + count + badge, hasSubItems">
-      <Hds::SideNav::Section::Link @icon="boundary" @label="Boundary" @count="3" @badge="Alpha" @hasSubItems={{true}} />
+      <Hds::SideNav::List::Link @icon="boundary" @label="Boundary" @count="3" @badge="Alpha" @hasSubItems={{true}} />
     </SG.Item>
     <SG.Item @label="Icon + text + yielded badgecount/badge, hasSubItems">
-      <Hds::SideNav::Section::Link @icon="boundary" @label="Boundary" @hasSubItems={{true}}>
+      <Hds::SideNav::List::Link @icon="boundary" @label="Boundary" @hasSubItems={{true}}>
         <Hds::BadgeCount @type="inverted" @size="small" @color="neutral-dark-mode" @text="3" />
         <Hds::Badge @type="inverted" @size="small" @color="success" @text="Beta" />
-      </Hds::SideNav::Section::Link>
+      </Hds::SideNav::List::Link>
     </SG.Item>
     <SG.Item @label="Icon + long text, hasSubItems">
-      <Hds::SideNav::Section::Link
+      <Hds::SideNav::List::Link
         @icon="boundary"
         @label="This is a long text that should go on two lines"
         @hasSubItems={{true}}
       />
     </SG.Item>
     <SG.Item @label="Icon + long text + count + badge, hasSubItems">
-      <Hds::SideNav::Section::Link
+      <Hds::SideNav::List::Link
         @icon="boundary"
         @label="This is a long text that should go on two lines"
         @count="3"
@@ -453,37 +450,37 @@
     </SG.Item>
 
     <SG.Item @label="Just yielded content">
-      <Hds::SideNav::Section::Link>
+      <Hds::SideNav::List::Link>
         <Shw::Placeholder @height="20px" @text="yielded content" @background="#e4e4e4" />
-      </Hds::SideNav::Section::Link>
+      </Hds::SideNav::List::Link>
     </SG.Item>
     <SG.Item @label="Icon + yielded content">
       {{! we've added an empty label on purpose, to test the layout in this case }}
-      <Hds::SideNav::Section::Link @icon="boundary" @label="">
+      <Hds::SideNav::List::Link @icon="boundary" @label="">
         <Shw::Placeholder @height="20px" @text="yielded content" @background="#e4e4e4" />
-      </Hds::SideNav::Section::Link>
+      </Hds::SideNav::List::Link>
     </SG.Item>
     <SG.Item @label="Icon + text + yielded content">
-      <Hds::SideNav::Section::Link @icon="boundary" @label="Boundary">
+      <Hds::SideNav::List::Link @icon="boundary" @label="Boundary">
         <Shw::Placeholder @height="20px" @text="yielded content" @background="#e4e4e4" />
-      </Hds::SideNav::Section::Link>
+      </Hds::SideNav::List::Link>
     </SG.Item>
     <SG.Item @label="With hasSubItems">
-      <Hds::SideNav::Section::Link @icon="boundary" @label="Boundary" @hasSubItems={{true}}>
+      <Hds::SideNav::List::Link @icon="boundary" @label="Boundary" @hasSubItems={{true}}>
         <Shw::Placeholder @height="20px" @text="yielded content" @background="#e4e4e4" />
-      </Hds::SideNav::Section::Link>
+      </Hds::SideNav::List::Link>
     </SG.Item>
     <SG.Item @label="Text with no style">
-      <Hds::SideNav::Section::Link>
+      <Hds::SideNav::List::Link>
         This text needs local styling
-      </Hds::SideNav::Section::Link>
+      </Hds::SideNav::List::Link>
     </SG.Item>
     <SG.Item @label="Text with local style">
-      <Hds::SideNav::Section::Link>
+      <Hds::SideNav::List::Link>
         <span class="hds-typography-body-200 hds-font-weight-medium">
           This text is locally styled
         </span>
-      </Hds::SideNav::Section::Link>
+      </Hds::SideNav::List::Link>
     </SG.Item>
   </Shw::Grid>
 
@@ -495,8 +492,8 @@
         <SG.Item @label={{state}}>
           <Shw::Flex as |SF|>
             <SF.Item @grow={{true}}>
-              <div class="shw-component-sim-side-nav-section-link-wrapper">
-                <Hds::SideNav::Section::Link
+              <div class="shw-component-sim-side-nav-list-link-wrapper">
+                <Hds::SideNav::List::Link
                   @label="Boundary"
                   @icon="boundary"
                   @badge="Alpha"
@@ -507,8 +504,8 @@
               </div>
             </SF.Item>
             <SF.Item @grow={{true}}>
-              <div class="shw-component-sim-side-nav-section-link-wrapper">
-                <Hds::SideNav::Section::Link
+              <div class="shw-component-sim-side-nav-list-link-wrapper">
+                <Hds::SideNav::List::Link
                   @label="This is a long text that should go on two lines"
                   @icon="boundary"
                   @href="#"
@@ -517,8 +514,8 @@
               </div>
             </SF.Item>
             <SF.Item @grow={{true}}>
-              <div class="shw-component-sim-side-nav-section-link-wrapper">
-                <Hds::SideNav::Section::Link
+              <div class="shw-component-sim-side-nav-list-link-wrapper">
+                <Hds::SideNav::List::Link
                   @label="Boundary"
                   @icon="boundary"
                   @href="#"

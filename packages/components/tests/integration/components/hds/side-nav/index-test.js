@@ -66,11 +66,11 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
     await render(hbs`
       <Hds::SideNav::Wrapper>
         <:body>
-          <Hds::SideNav::Section as |S|>
+          <Hds::SideNav::List as |S|>
             <S.Link @icon="dashboard" @label="Dashboard" />
-          </Hds::SideNav::Section>
+          </Hds::SideNav::List>
 
-          <Hds::SideNav::Section as |S|>
+          <Hds::SideNav::List as |S|>
             <S.Title>Services</S.Title>
             <S.Link @label="Boundary" @icon="boundary" @href="#" />
             <S.Link @label="Consul" @icon="consul" @href="#" />
@@ -80,19 +80,19 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
             <S.Link @label="Terraform" @icon="terraform" @href="#" />
             <S.Link @label="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
             <S.Link @label="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} />
-          </Hds::SideNav::Section>
+          </Hds::SideNav::List>
         </:body>
       </Hds::SideNav::Wrapper>
     `);
     assert.dom('.hds-side-nav__wrapper-body').exists();
-    assert.dom('.hds-side-nav__section').exists({ count: 2 });
+    assert.dom('.hds-side-nav__list-wrapper').exists({ count: 2 });
     assert
-      .dom('.hds-side-nav__section:nth-child(2) .hds-side-nav__section-title')
+      .dom('.hds-side-nav__list-wrapper:nth-child(2) .hds-side-nav__list-title')
       .exists()
       .hasText('Services');
     assert
       .dom(
-        '.hds-side-nav__section:nth-child(2) .hds-side-nav__list-item:has(.hds-side-nav__list-item-link) '
+        '.hds-side-nav__list-wrapper:nth-child(2) .hds-side-nav__list-item:has(.hds-side-nav__list-item-link) '
       )
       .exists({ count: 8 });
   });

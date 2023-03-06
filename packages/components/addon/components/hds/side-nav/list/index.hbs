@@ -1,0 +1,11 @@
+<nav class="hds-side-nav__list-wrapper" ...attributes>
+  <ul class="hds-side-nav__list">
+    {{yield
+      (hash
+        Title=(component "hds/side-nav/list/title")
+        Link=(component "hds/side-nav/list/link")
+        Item=(component "hds/side-nav/list/item")
+      )
+    }}
+  </ul>
+</nav>

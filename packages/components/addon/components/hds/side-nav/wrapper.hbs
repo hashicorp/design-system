@@ -5,6 +5,7 @@
 
   <div class="hds-side-nav__wrapper-body" aria-label="contents">
     {{yield to="body"}}
+    {{yield (hash Generic=(component "hds/yield"))}}
   </div>
 
   <div class="hds-side-nav__wrapper-footer">
