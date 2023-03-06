@@ -446,6 +446,7 @@ $hds-dropdown-toggle-border-radius: 5px;
 .hds-dropdown-list-item--checkbox,
 .hds-dropdown-list-item--radio {
   display: flex;
+  align-items: center;
   padding: 8px 16px;
 
   .hds-dropdown-list-item__control {
@@ -456,6 +457,12 @@ $hds-dropdown-toggle-border-radius: 5px;
 
   .hds-dropdown-list-item__label {
     flex-grow: 1;
+    color: var(--token-color-foreground-primary);
+  }
+
+  .hds-dropdown-list-item__icon {
+    margin-top: 2px;
+    margin-right: 4px;
     color: var(--token-color-foreground-primary);
   }
 }

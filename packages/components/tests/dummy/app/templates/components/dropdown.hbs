@@ -326,6 +326,24 @@
         {{/each}}
       </ul>
     </SF.Item>
+    <SF.Item @label="Icon">
+      <ul class="hds-dropdown-list" role="listbox">
+        {{#each @model.ITEM_STATES as |state|}}
+          <Hds::Dropdown::ListItem::Checkmark @icon="hexagon" mock-state-value={{state}}>
+            {{state}}
+          </Hds::Dropdown::ListItem::Checkmark>
+        {{/each}}
+      </ul>
+    </SF.Item>
+    <SF.Item @label="Icon, selected">
+      <ul class="hds-dropdown-list" role="listbox">
+        {{#each @model.ITEM_STATES as |state|}}
+          <Hds::Dropdown::ListItem::Checkmark @icon="hexagon" mock-state-value={{state}} @selected={{true}}>
+            {{state}}
+          </Hds::Dropdown::ListItem::Checkmark>
+        {{/each}}
+      </ul>
+    </SF.Item>
     <SF.Item @label="Result count">
       <ul class="hds-dropdown-list" role="listbox">
         {{#each @model.ITEM_STATES as |state|}}
@@ -385,7 +403,12 @@
     <SF.Item @label="Large content">
       <ul class="hds-dropdown-list" role="listbox">
         {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @selected={{true}} @resultCount="12">
+          <Hds::Dropdown::ListItem::Checkmark
+            mock-state-value={{state}}
+            @icon="hexagon"
+            @selected={{true}}
+            @resultCount="12"
+          >
             {{state}}
             with a longer text string that may wrap since max-width is defined on the container
             <Hds::Badge @text="badge" @size="small" />
@@ -418,6 +441,27 @@
         {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem::Checkbox
             mock-state-value={{state}}
+            checked
+          >{{state}}</Hds::Dropdown::ListItem::Checkbox>
+        {{/each}}
+      </ul>
+    </SF.Item>
+    <SF.Item @label="Icon">
+      <ul class="hds-dropdown-list">
+        {{#each @model.ITEM_STATES as |state|}}
+          <Hds::Dropdown::ListItem::Checkbox
+            mock-state-value={{state}}
+            @icon="hexagon"
+          >{{state}}</Hds::Dropdown::ListItem::Checkbox>
+        {{/each}}
+      </ul>
+    </SF.Item>
+    <SF.Item @label="Icon, checked">
+      <ul class="hds-dropdown-list">
+        {{#each @model.ITEM_STATES as |state|}}
+          <Hds::Dropdown::ListItem::Checkbox
+            mock-state-value={{state}}
+            @icon="hexagon"
             checked
           >{{state}}</Hds::Dropdown::ListItem::Checkbox>
         {{/each}}
@@ -485,7 +529,7 @@
     <SF.Item @label="Large content">
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} @resultCount="12">
+          <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} @resultCount="12" @icon="hexagon">
             {{state}}
             with a longer text string that may wrap since max-width is defined on the container
             <Hds::Badge @text="badge" @size="small" />
@@ -517,6 +561,27 @@
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} checked>{{state}}</Hds::Dropdown::ListItem::Radio>
+        {{/each}}
+      </ul>
+    </SF.Item>
+    <SF.Item @label="Icon">
+      <ul class="hds-dropdown-list">
+        {{#each @model.ITEM_STATES as |state|}}
+          <Hds::Dropdown::ListItem::Radio
+            mock-state-value={{state}}
+            @icon="hexagon"
+          >{{state}}</Hds::Dropdown::ListItem::Radio>
+        {{/each}}
+      </ul>
+    </SF.Item>
+    <SF.Item @label="Icon, checked">
+      <ul class="hds-dropdown-list">
+        {{#each @model.ITEM_STATES as |state|}}
+          <Hds::Dropdown::ListItem::Radio
+            mock-state-value={{state}}
+            checked
+            @icon="hexagon"
+          >{{state}}</Hds::Dropdown::ListItem::Radio>
         {{/each}}
       </ul>
     </SF.Item>
@@ -582,7 +647,7 @@
     <SF.Item @label="Large content">
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} @resultCount="12">
+          <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} @resultCount="12" @icon="hexagon">
             {{state}}
             with a longer text string that may wrap since max-width is defined on the container
             <Hds::Badge @text="badge" @size="small" />

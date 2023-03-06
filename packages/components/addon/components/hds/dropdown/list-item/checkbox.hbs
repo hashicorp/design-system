@@ -1,6 +1,13 @@
 <li class="hds-dropdown-list-item hds-dropdown-list-item--checkbox">
   <Hds::Form::Checkbox::Base class="hds-dropdown-list-item__control" id={{this.id}} @value={{@value}} ...attributes />
-  <label class="hds-dropdown-list-item__label hds-typography-body-200" for={{this.id}}>{{yield}}</label>
+  {{#if @icon}}
+    <div class="hds-dropdown-list-item__icon">
+      <FlightIcon @name={{@icon}} @isInlineBlock={{false}} />
+    </div>
+  {{/if}}
+  <label class="hds-dropdown-list-item__label hds-typography-body-200" for={{this.id}}>
+    {{yield}}
+  </label>
   {{#if @resultCount}}
     <span class="hds-dropdown-list-item__count hds-typography-body-100 hds-font-weight-medium">{{@resultCount}}</span>
   {{/if}}

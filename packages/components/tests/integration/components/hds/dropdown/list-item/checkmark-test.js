@@ -46,6 +46,15 @@ module(
       assert.dom('a.hds-dropdown-list-item__interactive').exists();
     });
 
+    // ICON
+
+    test('if an icon is declared the flight icon should render in the component', async function (assert) {
+      await render(
+        hbs`<Hds::Dropdown::ListItem::Checkmark @icon="hexagon">Checkmark item</Hds::Dropdown::ListItem::Checkmark>`
+      );
+      assert.dom('.flight-icon.flight-icon-hexagon').exists();
+    });
+
     // CONTENT
 
     test('it should render the content passed as block', async function (assert) {

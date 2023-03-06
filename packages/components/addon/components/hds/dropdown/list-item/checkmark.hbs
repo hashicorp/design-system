@@ -14,6 +14,11 @@
     role="option"
     aria-selected={{if @selected "true" "false"}}
   >
+    {{#if @icon}}
+      <div class="hds-dropdown-list-item__interactive-icon">
+        <FlightIcon @name={{@icon}} @isInlineBlock={{false}} />
+      </div>
+    {{/if}}
     <div class="hds-dropdown-list-item__interactive-text hds-typography-body-200 hds-font-weight-medium">
       {{yield}}
     </div>

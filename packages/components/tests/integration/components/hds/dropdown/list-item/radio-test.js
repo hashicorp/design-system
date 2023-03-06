@@ -58,6 +58,15 @@ module(
         .hasAttribute('for', controlId);
     });
 
+    // ICON
+
+    test('if an icon is declared the flight icon should render in the component', async function (assert) {
+      await render(
+        hbs`<Hds::Dropdown::ListItem::Radio @icon="hexagon">Radio item</Hds::Dropdown::ListItem::Radio>`
+      );
+      assert.dom('.flight-icon.flight-icon-hexagon').exists();
+    });
+
     // CONTENT
 
     test('it should render the content passed as block in a form label', async function (assert) {
