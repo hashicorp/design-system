@@ -229,19 +229,19 @@
 
 <section data-test-percy>
 
-  <Shw::Text::H2>SideNav::BackLink</Shw::Text::H2>
+  <Shw::Text::H2>SideNav::Section::BackLink</Shw::Text::H2>
 
   <Shw::Text::H3>Content</Shw::Text::H3>
 
   <Shw::Flex as |SF|>
     <SF.Item @label="Base">
       <div class="shw-component-sim-side-nav-body">
-        <Hds::SideNav::BackLink @label="Back to parent page" @href="#" />
+        <Hds::SideNav::Section::BackLink @label="Back to parent page" @href="#" />
       </div>
     </SF.Item>
     <SF.Item @label="With very long text">
       <div class="shw-component-sim-side-nav-body">
-        <Hds::SideNav::BackLink @label="This is a long text that should go on two lines" @href="#" />
+        <Hds::SideNav::Section::BackLink @label="This is a long text that should go on two lines" @href="#" />
       </div>
     </SF.Item>
   </Shw::Flex>
@@ -255,12 +255,12 @@
           <Shw::Flex @direction="column" as |SF|>
             <SF.Item>
               <div class="shw-component-sim-side-nav-body">
-                <Hds::SideNav::BackLink @label="Back to parent page" @href="#" mock-state-value={{state}} />
+                <Hds::SideNav::Section::BackLink @label="Back to parent page" @href="#" mock-state-value={{state}} />
               </div>
             </SF.Item>
             <SF.Item>
               <div class="shw-component-sim-side-nav-body">
-                <Hds::SideNav::BackLink
+                <Hds::SideNav::Section::BackLink
                   @label="This is a long text that should go on two lines"
                   @href="#"
                   mock-state-value={{state}}
