@@ -6,7 +6,7 @@
 
 // WIP, naming, etc. will be refined... TODO: Add JSON for color tokens, etc.
 :root {
-  /* Sizes: */
+  // Sizes:
 
   // header, body, footer "wrappers":
   --token-side-nav-wrapper-padding-horizontal: 16px;
@@ -22,6 +22,7 @@
   --token-side-nav-body-list-item-padding-horizontal: 8px;
   --token-side-nav-body-list-item-padding-vertical: 4px;
   --token-side-nav-body-list-item-content-spacing-horizontal: 8px;
+  --token-side-nav-body-list-item-border-radius: 5px;
 
   /* Colors: */
 
@@ -82,8 +83,8 @@
   display: block;
   align-items: center;
   justify-content: center;
-  width: var(--token-side-nav-header-home-link-logo-width);
-  height: var(--token-side-nav-header-home-link-logo-height);
+  width: var(--token-side-nav-header-home-link-logo-size);
+  height: var(--token-side-nav-header-home-link-logo-size);
 }
 
 .hds-side-nav-header__actions {
@@ -100,7 +101,7 @@
   // TODO discuss with Cristiano/Christian if this needs to become a component-level token
   color: var(--token-color-foreground-high-contrast);
   border: 1px solid transparent;
-  border-radius: 5px;
+  border-radius: var(--token-side-nav-body-list-item-border-radius);
 
   &:focus,
   &.mock-focus {
@@ -118,7 +119,7 @@
   }
 }
 
-// class name only, no component:
+// Apply class name to Hds::Dropdown component
 .hds-side-nav__dropdown {
   .hds-dropdown-toggle-icon {
     color: var(--token-side-nav-foreground-primary);
@@ -169,12 +170,7 @@
   text-decoration: none;
   background: var(--token-side-nav-surface);
   border-color: transparent;
-  border-radius: 5px;
-
-  .hds-badge,
-  .hds-badge-count {
-    margin-left: var(--token-side-nav-body-list-item-content-spacing-horizontal);
-  }
+  border-radius: var(--token-side-nav-body-list-item-border-radius);
 
   &:focus,
   &.mock-focus {
@@ -207,6 +203,11 @@
       background: var(--token-color-surface-strong);
     }
   }
+
+  .hds-badge,
+  .hds-badge-count {
+    margin-left: var(--token-side-nav-body-list-item-content-spacing-horizontal);
+  }
 }
 
 .hds-side-nav__list-item-label {
@@ -220,7 +221,7 @@
 }
 
 .hds-side-nav__list-item-chevron {
-  margin-left: auto;
   flex: none;
+  margin-left: auto;
   padding-left: var(--token-side-nav-body-list-item-content-spacing-horizontal);
 }
