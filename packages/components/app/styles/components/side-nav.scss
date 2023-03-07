@@ -14,9 +14,8 @@
 
   // header content:
   --token-side-nav-header-home-link-padding: 4px;
-  --token-side-nav-header-home-link-logo-width: 48px;
-  --token-side-nav-header-home-link-logo-height: 48px;
-  --token-side-nav-header-actions-spacing: 16px;
+  --token-side-nav-header-home-link-logo-size: 48px;
+  --token-side-nav-header-actions-spacing: 12px;
 
   // body content:
   --token-side-nav-body-list-margin-vertical: 24px;
@@ -136,10 +135,6 @@
 
 // * Body child elements
 // ---------------------------------------
-.hds-side-nav__body {
-  flex: 1;
-  overflow-y: auto;
-}
 
 .hds-side-nav__list-wrapper {
   & + & { margin-top: var(--token-side-nav-body-list-margin-vertical); }
@@ -154,9 +149,6 @@
 .hds-side-nav__list {
   margin: 0;
   padding: 0;
-
-  // TODO: this doesn't work because Ember adds whitespace inside the ul
-  &:empty { display: none; }
 }
 
 .hds-side-nav__list-item {
@@ -227,17 +219,8 @@
   margin-right: var(--token-side-nav-body-list-item-content-spacing-horizontal);
 }
 
-.hds-side-nav__list-item-icon-chevron-wrapper {
+.hds-side-nav__list-item-chevron {
   margin-left: auto;
-}
-
-.hds-side-nav__list-item-icon-chevron {
-  display: block;
   flex: none;
-  margin-left: var(--token-side-nav-body-list-item-content-spacing-horizontal);
+  padding-left: var(--token-side-nav-body-list-item-content-spacing-horizontal);
 }
-
-// * Footer child elements
-// ---------------------------------------
-
-// TODO ?

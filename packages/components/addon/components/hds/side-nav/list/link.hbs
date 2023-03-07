@@ -30,8 +30,8 @@
     {{yield}}
 
     {{#if @hasSubItems}}
-      <span class="hds-side-nav__list-item-icon-chevron-wrapper">
-        <FlightIcon class="hds-side-nav__list-item-icon-chevron" @name="chevron-right" />
+      <span class="hds-side-nav__list-item-chevron">
+        <FlightIcon @name="chevron-right" @isInlineBlock={{false}} />
       </span>
     {{/if}}
   </Hds::Interactive>
