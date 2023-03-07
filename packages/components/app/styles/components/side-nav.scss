@@ -154,8 +154,6 @@
 }
 
 .hds-side-nav__list-item {
-  display: flex;
-  align-items: center;
   list-style-type: none; // Q: Should ul have role="list" added for accessibility?
 
   &:last-child { margin-bottom: 0; }
