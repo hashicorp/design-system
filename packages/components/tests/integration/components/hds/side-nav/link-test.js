@@ -32,7 +32,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
     assert.dom('.hds-side-nav__list-item-label').hasText('Boundary');
     assert.dom('.hds-badge-count').hasText('3');
     assert.dom('.hds-badge').hasText('Alpha');
-    assert.dom('.hds-side-nav__list-item-icon-chevron-wrapper').exists();
+    assert.dom('.flight-icon-chevron-right').exists();
   });
 
   test('it renders the passed in custom content', async function (assert) {

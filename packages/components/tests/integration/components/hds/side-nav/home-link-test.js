@@ -26,7 +26,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
 
   test('it renders the passed in args', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="https://www.hashicorp.com/" />`
+      hbs`<Hds::SideNav::HomeLink @icon="hashicorp" aria-label="HashiCorp" @href="https://www.hashicorp.com/" />`
     );
     assert.dom('.flight-icon-hashicorp').exists();
     assert
