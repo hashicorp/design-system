@@ -433,8 +433,9 @@ $hds-dropdown-toggle-border-radius: 5px;
 .hds-dropdown-list-item__checkmark {
   display: flex;
   align-self: flex-start;
-  width: 20px;
+  width: 16px;
   height: 20px; // replicating the resulted height of the list item
+  margin-left: 8px;
 }
 
 .hds-dropdown-list-item__checkmark-icon {
@@ -470,7 +471,7 @@ $hds-dropdown-toggle-border-radius: 5px;
 // COUNT
 .hds-dropdown-list-item__count {
   align-self: flex-start;
-  padding: 0 0.5rem;
+  margin-left: 8px;
   color: var(--token-color-foreground-faint);
   line-height: 20px; // replicating the resulted height of the list item
 }
