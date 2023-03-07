@@ -136,16 +136,23 @@
 // * Body child elements
 // ---------------------------------------
 
-.hds-side-nav__list-wrapper {
-  & + & { margin-top: var(--token-side-nav-body-list-margin-vertical); }
-}
+// .hds-side-nav__list-wrapper {
+//   & + & { margin-top: var(--token-side-nav-body-list-margin-vertical); }
+// }
+//  & + & { margin-top: var(--token-side-nav-body-list-margin-vertical); }
 
 .hds-side-nav__list-title {
   display: flex;
   align-items: center;
   min-height: 34px;
+  margin-top: var(--token-side-nav-body-list-margin-vertical);
   padding: 0 var(--token-side-nav-body-list-item-padding-horizontal);
   color: var(--token-side-nav-foreground-faint);
+
+  // Remove margin from title at top of all list-items & lists
+  .hds-side-nav__list-wrapper:first-child .hds-side-nav__list-item:first-child > & {
+    margin-top: 0;
+  }
 }
 
 .hds-side-nav__list {
