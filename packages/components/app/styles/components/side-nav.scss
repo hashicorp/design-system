@@ -162,8 +162,6 @@
 
 .hds-side-nav__list-item {
   list-style-type: none; // Q: Should ul have role="list" added for accessibility?
-
-  &:last-child { margin-bottom: 0; }
 }
 
 .hds-side-nav__list-item-link {
