@@ -1,5 +1,1 @@
-## Overview
-
-Forms are combinations of multiple elements used to collect and display information of varying complexity and type. These guidelines outline common form examples and identify the patterns used to design, assemble, and implement a consistent, user-centric form.
-
-**Need to rewrite this**
+A form is a container housing various inputs and controls that display and collect data. These guidelines identify common patterns for designing and assembling a consistent, user-centric form.

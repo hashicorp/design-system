@@ -1,14 +1,14 @@
 ## Anatomy
 
-Elements and content within a form is variable, but can be broken down into sections that correspond with different types of content.
+Elements and content within a form are variable but can be broken down into sections that correspond with different types of content.
 
-**Form:** the exterior container that wraps other form elements and sections. The form (semantic `<form>`) handles the logic and submission actions for the data being collected.
+**Form:** the exterior container that wraps other form elements and sections. The form (`<form>`) handles the logic and submission actions for the collected data.
 
-**Text:** titles, headlines, descriptions, and supporting content that describe the content of the form holistically or specific sections within a form. Semantically, text elements are wrapped in a `<legend>` element.
+**Text:** titles, headlines, descriptions, and supporting content that further describe the content of the form or specific sections within a form. Typically text elements are wrapped in a `<legend>`.
 
-**Fields:** an array of one or more fields which can be any input type; text input, toggle, radio, textarea, or any other Form component published in the Helios Design System.
+**Fields:** an array of one or more fields which can be any input type; text input, toggle, radio, textarea, or any other Helios Form component.
 
-**Actions:** responsible for submitting the form or giving the user an escape hatch to cancel, clear the form, or "go back."
+**Actions:** responsible for submitting the form or giving the user a method to cancel, clear the form, or "go back."
 
 ### Sections
 

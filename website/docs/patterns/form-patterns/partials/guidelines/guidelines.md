@@ -1,6 +1,6 @@
 ## Spacing
 
-Spacing between sections, fields, text, and other elements of a form should follow a decreasing scale based off of the 8px grid. This creates a consistent vertical rhythm between elements and reinforces a natural hierarchy and association between elements.
+Spacing between sections, fields, text, and other form elements should follow a decreasing scale on an 8px grid. This creates a consistent vertical rhythm between elements and reinforces a natural hierarchy and association between elements.
 
 ### Form
 
@@ -8,17 +8,17 @@ A form wraps the content, fields, and actions while simultaneously handling the 
 
 ### Sections
 
-A **section** occupies the largest hierarchy within the form and is used as a descriptive term for organizing combinations of text, form elements (inputs, checkboxes, toggles, etc), and actions. Even in the simplest of circumstances a form can consist of multiple sections with differing content, each receiving a 32px vertical gap in between.
+A **section** occupies the largest hierarchy within the form. Sections organize text, fields (inputs, checkboxes, toggles, etc.), and actions into logical groups. There should be a 32px vertical gap between each section.
 
 ![Example of multiple sections in a form](/assets/patterns/form-patterns/form-sections.png =450x*)
 
 ### Fields
 
-A **field** is a broad term used to describe a form control and label pairing. When combined within a section there should be a 24px gap between each field.
+A **field** describes a form control and label pairing. When displaying multiple fields within a section, there should be a 24px gap between each field.
 
 ![Example of multiple fields in a section](/assets/patterns/form-patterns/section-fields.png =450x*)
 
-Fields can be further broken down into two types; text fields and data fields, each with it's own recommended usage and examples.
+Fields can be further divided into two types: **text fields** and **data fields**.
 
 #### Text fields
 
@@ -56,20 +56,20 @@ Don't group (either horizontally or vertically) field types that are related but
 
 !!! Do
 
-Instead, stack the fields vertically. 
+Do stack fields of different types vertically. 
 
 ![Grouping different field types](/assets/patterns/form-patterns/different-field-type-do.png =500x*)
 !!!
 
 Common grouping of fields can include:
 
-- Credit card information; card number, expiration data, security code.
+- Credit card information: card number, expiration data, security code
 - Multi-line address field
 - First and last name
 
 #### Alignment
 
-Fields organized in a horizontal group should be aligned to the baseline of each element to account for fields which have helper text.
+Fields organized in a horizontal group should be aligned to the baseline of each element to account for fields with helper text.
 
 ![Baseline alignment within a group](/assets/patterns/form-patterns/baseline-alignment.png =500x*)
 
