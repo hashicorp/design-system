@@ -89,7 +89,8 @@
 
 .hds-side-nav-header__actions {
   display: flex;
-  gap: var(--token-side-nav-header-actions-spacing);
+
+  > * + * { margin-left: var(--token-side-nav-header-actions-spacing); }
 }
 
 .hds-side-nav__home-link {
