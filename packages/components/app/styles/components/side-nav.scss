@@ -182,7 +182,7 @@
     background: var(--token-side-nav-interactive-surface-hover);
     border-color: transparent;
 
-    .hds-side-nav__list-item-label,
+    .hds-side-nav__list-item-text,
     .hds-side-nav__list-item-icon {
       color: var(--token-color-foreground-high-contrast);
     }
@@ -192,7 +192,7 @@
   &.mock-active {
     background: var(--token-side-nav-interactive-surface-active);
 
-    .hds-side-nav__list-item-label,
+    .hds-side-nav__list-item-text,
     .hds-side-nav__list-item-icon {
       color: var(--token-color-foreground-high-contrast);
     }
@@ -210,7 +210,7 @@
   }
 }
 
-.hds-side-nav__list-item-label {
+.hds-side-nav__list-item-text {
   color: var(--token-side-nav-foreground-primary);
   text-align: left;
 }

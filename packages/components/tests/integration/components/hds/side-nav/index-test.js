@@ -67,19 +67,19 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
       <Hds::SideNav::Wrapper>
         <:body>
           <Hds::SideNav::List as |S|>
-            <S.Link @icon="dashboard" @label="Dashboard" />
+            <S.Link @icon="dashboard" @text="Dashboard" />
           </Hds::SideNav::List>
 
           <Hds::SideNav::List as |S|>
             <S.Title>Services</S.Title>
-            <S.Link @label="Boundary" @icon="boundary" @href="#" />
-            <S.Link @label="Consul" @icon="consul" @href="#" />
-            <S.Link @label="Packer" @icon="packer" @href="#" />
-            <S.Link @label="Vault" @icon="vault" @href="#" />
-            <S.Link @label="Vault Secrets" @icon="lock" @href="#" />
-            <S.Link @label="Terraform" @icon="terraform" @href="#" />
-            <S.Link @label="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
-            <S.Link @label="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} />
+            <S.Link @text="Boundary" @icon="boundary" @href="#" />
+            <S.Link @text="Consul" @icon="consul" @href="#" />
+            <S.Link @text="Packer" @icon="packer" @href="#" />
+            <S.Link @text="Vault" @icon="vault" @href="#" />
+            <S.Link @text="Vault Secrets" @icon="lock" @href="#" />
+            <S.Link @text="Terraform" @icon="terraform" @href="#" />
+            <S.Link @text="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
+            <S.Link @text="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} />
           </Hds::SideNav::List>
         </:body>
       </Hds::SideNav::Wrapper>

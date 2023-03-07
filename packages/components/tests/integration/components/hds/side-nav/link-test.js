@@ -10,14 +10,14 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
 
   test('it renders the component', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::List::Link @label="Terraform" @icon="terraform" @href="#" />`
+      hbs`<Hds::SideNav::List::Link @text="Terraform" @icon="terraform" @href="#" />`
     );
     assert.dom(this.element).exists();
   });
 
   test('it should render with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::List::Link @label="Terraform" @icon="terraform" @href="#" />`
+      hbs`<Hds::SideNav::List::Link @text="Terraform" @icon="terraform" @href="#" />`
     );
     assert.dom('.hds-side-nav__list-item-link').exists();
   });
@@ -26,7 +26,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
 
   test('it renders the passed in args', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::List::Link @icon="boundary" @label="Boundary" @count="3" @badge="Alpha" @hasSubItems={{true}} />`
+      hbs`<Hds::SideNav::List::Link @icon="boundary" @text="Boundary" @count="3" @badge="Alpha" @hasSubItems={{true}} />`
     );
     assert.dom('.flight-icon-boundary').exists();
     assert.dom('.hds-side-nav__list-item-label').hasText('Boundary');
@@ -37,7 +37,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
 
   test('it renders the passed in custom content', async function (assert) {
     await render(hbs`
-      <Hds::SideNav::List::Link @label="Terraform" @hasSubItems={{true}}>
+      <Hds::SideNav::List::Link @text="Terraform" @hasSubItems={{true}}>
         <Hds::BadgeCount @type="inverted" @size="small" @color="neutral-dark-mode" @text="2" />
         <Hds::Badge @type="inverted" @size="small" @color="success" @text="Beta" />
       </Hds::SideNav::List::Link>
