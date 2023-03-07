@@ -64,11 +64,11 @@ module(
       assert.dom('.hds-dropdown-list-item').hasText('Checkmark item');
     });
 
-    // RESULT COUNT
+    // COUNT
 
     test('it should render with a result count badge', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Checkmark @resultCount="10">Checkmark item</Hds::Dropdown::ListItem::Checkmark>`
+        hbs`<Hds::Dropdown::ListItem::Checkmark @count="10">Checkmark item</Hds::Dropdown::ListItem::Checkmark>`
       );
       assert.dom('.hds-dropdown-list-item__count').hasText('10');
     });

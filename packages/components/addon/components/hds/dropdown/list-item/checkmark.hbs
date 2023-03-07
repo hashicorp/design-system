@@ -22,8 +22,8 @@
     <div class="hds-dropdown-list-item__interactive-text hds-typography-body-200 hds-font-weight-medium">
       {{yield}}
     </div>
-    {{#if @resultCount}}
-      <span class="hds-dropdown-list-item__count hds-typography-body-100 hds-font-weight-medium">{{@resultCount}}</span>
+    {{#if @count}}
+      <span class="hds-dropdown-list-item__count hds-typography-body-100 hds-font-weight-medium">{{@count}}</span>
     {{/if}}
     <span class="hds-dropdown-list-item__checkmark">
       {{#if @selected}}

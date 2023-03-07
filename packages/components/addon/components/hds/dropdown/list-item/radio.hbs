@@ -6,7 +6,7 @@
     </div>
   {{/if}}
   <label class="hds-dropdown-list-item__label hds-typography-body-200" for={{this.id}}>{{yield}}</label>
-  {{#if @resultCount}}
-    <span class="hds-dropdown-list-item__count hds-typography-body-100 hds-font-weight-medium">{{@resultCount}}</span>
+  {{#if @count}}
+    <span class="hds-dropdown-list-item__count hds-typography-body-100 hds-font-weight-medium">{{@count}}</span>
   {{/if}}
 </li>
