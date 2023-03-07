@@ -295,14 +295,14 @@
 
   <Shw::Flex as |SF|>
     <SF.Item @text="Base">
-      <div class="shw-component-sim-side-nav-body">
+      <ul class="shw-component-sim-side-nav-body">
         <Hds::SideNav::List::BackLink @text="Back to parent page" @href="#" />
-      </div>
+      </ul>
     </SF.Item>
     <SF.Item @text="With very long text">
-      <div class="shw-component-sim-side-nav-body">
+      <ul class="shw-component-sim-side-nav-body">
         <Hds::SideNav::List::BackLink @text="This is a long text that should go on two lines" @href="#" />
-      </div>
+      </ul>
     </SF.Item>
   </Shw::Flex>
 
@@ -314,18 +314,18 @@
         <SG.Item @text={{state}}>
           <Shw::Flex @direction="column" as |SF|>
             <SF.Item>
-              <div class="shw-component-sim-side-nav-body">
+              <ul class="shw-component-sim-side-nav-body">
                 <Hds::SideNav::List::BackLink @text="Back to parent page" @href="#" mock-state-value={{state}} />
-              </div>
+              </ul>
             </SF.Item>
             <SF.Item>
-              <div class="shw-component-sim-side-nav-body">
+              <ul class="shw-component-sim-side-nav-body">
                 <Hds::SideNav::List::BackLink
                   @text="This is a long text that should go on two lines"
                   @href="#"
                   mock-state-value={{state}}
                 />
-              </div>
+              </ul>
             </SF.Item>
           </Shw::Flex>
         </SG.Item>
@@ -409,14 +409,14 @@
 
   <Shw::Flex as |SF|>
     <SF.Item @text="Base">
-      <div class="shw-component-sim-side-nav-body">
+      <ul class="shw-component-sim-side-nav-body">
         <Hds::SideNav::List::Title>Group title</Hds::SideNav::List::Title>
-      </div>
+      </ul>
     </SF.Item>
     <SF.Item @text="With very long text">
-      <div class="shw-component-sim-side-nav-body">
+      <ul class="shw-component-sim-side-nav-body">
         <Hds::SideNav::List::Title>This is a long text that should go on two lines</Hds::SideNav::List::Title>
-      </div>
+      </ul>
     </SF.Item>
   </Shw::Flex>
 
@@ -424,11 +424,11 @@
 
   <Shw::Text::H3>SideNav::List::Item</Shw::Text::H3>
 
-  <div class="shw-component-sim-side-nav-body">
+  <ul class="shw-component-sim-side-nav-body">
     <Hds::SideNav::List::Item>
       <Shw::Placeholder @height="36px" @text="item" @background="#e4e4e4" />
     </Hds::SideNav::List::Item>
-  </div>
+  </ul>
 
   <Shw::Divider @level={{2}} />
 

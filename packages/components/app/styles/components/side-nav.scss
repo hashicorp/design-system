@@ -142,6 +142,8 @@
 }
 
 .hds-side-nav__list-title {
+  display: flex;
+  align-items: center;
   min-height: 34px;
   padding: 0 var(--token-side-nav-body-list-item-padding-horizontal);
   color: var(--token-side-nav-foreground-faint);

@@ -25,6 +25,7 @@ body.components-side-nav {
   // used to simulate a "SideNav::Header" container
   .shw-component-sim-side-nav-body {
     width: 280px;
+    margin: 0;
     padding: 16px;
     background: $shw-component-side-nav-background;
   }
