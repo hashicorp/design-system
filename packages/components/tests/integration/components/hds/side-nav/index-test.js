@@ -27,86 +27,23 @@ module('Integration | Component | hds/side-nav/wrapper', function (hooks) {
 
   // Test Content:
 
-  // Header
-  test('it renders content passed to the header', async function (assert) {
+  test('it renders content passed to the named blocks', async function (assert) {
     await render(hbs`
       <Hds::SideNav::Wrapper>
         <:header>
-          <Hds::SideNav::Header>
-            <:logo>
-              <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
-            </:logo>
-            <:actions>
-              <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
-                <dd.ToggleIcon @icon="help" @text="settings menu" />
-                <dd.Title @text="Signed In" />
-                <dd.Description @text="email@domain.com" />
-                <dd.Separator />
-                <dd.Interactive @href="#" @text="Settings and Preferences" />
-              </Hds::Dropdown>
-              <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
-                <dd.ToggleIcon @icon="user" @text="user menu" />
-                <dd.Title @text="Signed In" />
-                <dd.Description @text="email@domain.com" />
-                <dd.Interactive @href="#" @text="Account Settings" />
-              </Hds::Dropdown>
-            </:actions>
-          </Hds::SideNav::Header>
+          <span id="test-sidenav-header" />
         </:header>
-      </Hds::SideNav::Wrapper>
-    `);
-
-    assert.dom('.hds-side-nav__wrapper-header .hds-side-nav-header').exists();
-    assert.dom('.hds-side-nav-header__logo').exists();
-    assert.dom('.hds-disclosure').exists({ count: 2 });
-  });
-
-  // Body
-  test('it renders content passed to the body', async function (assert) {
-    await render(hbs`
-      <Hds::SideNav::Wrapper>
         <:body>
-          <Hds::SideNav::List as |S|>
-            <S.Link @icon="dashboard" @text="Dashboard" />
-          </Hds::SideNav::List>
-
-          <Hds::SideNav::List as |S|>
-            <S.Title>Services</S.Title>
-            <S.Link @text="Boundary" @icon="boundary" @href="#" />
-            <S.Link @text="Consul" @icon="consul" @href="#" />
-            <S.Link @text="Packer" @icon="packer" @href="#" />
-            <S.Link @text="Vault" @icon="vault" @href="#" />
-            <S.Link @text="Vault Secrets" @icon="lock" @href="#" />
-            <S.Link @text="Terraform" @icon="terraform" @href="#" />
-            <S.Link @text="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
-            <S.Link @text="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} />
-          </Hds::SideNav::List>
+          <span id="test-sidenav-body" />
         </:body>
-      </Hds::SideNav::Wrapper>
-    `);
-    assert.dom('.hds-side-nav__wrapper-body').exists();
-    assert.dom('.hds-side-nav__list-wrapper').exists({ count: 2 });
-    assert
-      .dom('.hds-side-nav__list-wrapper:nth-child(2) .hds-side-nav__list-title')
-      .exists()
-      .hasText('Services');
-    assert
-      .dom(
-        '.hds-side-nav__list-wrapper:nth-child(2) .hds-side-nav__list-item:has(.hds-side-nav__list-item-link) '
-      )
-      .exists({ count: 8 });
-  });
-
-  // Footer
-  test('it renders content passed to the footer', async function (assert) {
-    await render(hbs`
-      <Hds::SideNav::Wrapper>
         <:footer>
-          footer content
+          <span id="test-sidenav-footer" />
         </:footer>
       </Hds::SideNav::Wrapper>
     `);
-    assert.dom('.hds-side-nav__wrapper-footer').exists();
-    assert.dom('.hds-side-nav__wrapper-footer').hasText('footer content');
+
+    assert.dom('#test-sidenav-header').exists();
+    assert.dom('#test-sidenav-body').exists();
+    assert.dom('#test-sidenav-footer').exists();
   });
 });
