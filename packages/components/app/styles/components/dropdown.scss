@@ -249,7 +249,7 @@ $hds-dropdown-toggle-border-radius: 5px;
   a,
   button {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     padding: 7px 9px 7px 15px; // notice: we're subtracting 1px because of the transparent border
     text-decoration: none;
     border: 1px solid transparent; // because a border for the button is needed for a11y, we apply it to both the button and the link so they have the same height
@@ -343,6 +343,7 @@ $hds-dropdown-toggle-border-radius: 5px;
 }
 
 .hds-dropdown-list-item__interactive-icon {
+  margin-top: 2px;
   margin-right: 8px;
 }
 
@@ -432,7 +433,6 @@ $hds-dropdown-toggle-border-radius: 5px;
 
 .hds-dropdown-list-item__checkmark {
   display: flex;
-  align-self: flex-start;
   width: 16px;
   height: 20px; // replicating the resulted height of the list item
   margin-left: 8px;
@@ -447,7 +447,7 @@ $hds-dropdown-toggle-border-radius: 5px;
 .hds-dropdown-list-item--checkbox,
 .hds-dropdown-list-item--radio {
   display: flex;
-  align-items: center;
+  align-items: self-start;
   padding: 8px 16px;
 
   .hds-dropdown-list-item__control {
@@ -470,7 +470,6 @@ $hds-dropdown-toggle-border-radius: 5px;
 
 // COUNT
 .hds-dropdown-list-item__count {
-  align-self: flex-start;
   margin-left: 8px;
   color: var(--token-color-foreground-faint);
   line-height: 20px; // replicating the resulted height of the list item
