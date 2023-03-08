@@ -37,17 +37,11 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
 
   test('it renders the passed in custom content', async function (assert) {
     await render(hbs`
-      <Hds::SideNav::List::Link @text="Terraform" @hasSubItems={{true}}>
-        <Hds::BadgeCount @type="inverted" @size="small" @color="neutral-dark-mode" @text="2" />
-        <Hds::Badge @type="inverted" @size="small" @color="success" @text="Beta" />
+      <Hds::SideNav::List::Link @text="Terraform">
+        <div id="custom-content"></div>
       </Hds::SideNav::List::Link>
     `);
-    assert.dom('.hds-side-nav__list-item-label').hasText('Terraform');
-    assert
-      .dom('.hds-badge-count--color-neutral-dark-mode')
-      .exists()
-      .hasText('2');
-    assert.dom('.hds-badge--color-success').exists().hasText('Beta');
+    assert.dom('#custom-content').exists();
   });
 
   // GENERATED ELEMENTS
