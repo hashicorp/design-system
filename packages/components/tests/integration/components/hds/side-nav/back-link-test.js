@@ -43,7 +43,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
     );
     assert
       .dom('.hds-side-nav__list-item-link--back-link')
-      .hasAttribute('data-test1')
+      .hasClass('my-class')
       .hasAttribute('data-test1')
       .hasAttribute('data-test2', 'test');
   });

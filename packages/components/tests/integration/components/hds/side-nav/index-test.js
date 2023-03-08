@@ -55,7 +55,7 @@ module('Integration | Component | hds/side-nav/wrapper', function (hooks) {
     );
     assert
       .dom('#test-side-nav')
-      .hasAttribute('data-test1')
+      .hasClass('my-class')
       .hasAttribute('data-test1')
       .hasAttribute('data-test2', 'test');
   });
