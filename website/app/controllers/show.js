@@ -44,9 +44,9 @@ export default class ShowController extends Controller {
   @tracked tocs = A([]);
 
   get selectedTabIndex() {
-    // if no query param is set then default to the first tab
+    // if no query param is set then we mark it as null
     if (!this.selectedTab) {
-      return 0;
+      return null;
     }
 
     let tab = this.tabs.find((el) => {
@@ -147,6 +147,20 @@ export default class ShowController extends Controller {
 
   @action
   setCurrent(current) {
+    // update the query params if tabs exist and current is defined
+    if (this.tabs.length > 1 && current !== null) {
+      if (current == 0) {
+        // for the first tab we remove the query param
+        set(this, 'selectedTab', null);
+      } else {
+        // for the rest of the tabs we set the query param tab to a lowercase version of the tab label
+        set(this, 'selectedTab', this.tabs[current].label.toLowerCase());
+      }
+    } else {
+      // make the first tab current if not defined
+      current = 0;
+    }
+
     // TABS
     // ?? CAN WE EXPLICITLY SET FOCUS ON THE TAB WHEN IT IS SET TO CURRENT?
     this.tabs.forEach((tab) => {
@@ -164,12 +178,6 @@ export default class ShowController extends Controller {
     this.tocs.forEach((toc) => {
       set(toc, 'isCurrent', toc.index === current);
     });
-
-    // only attempt to update the query params if tabs exist
-    if (this.tabs.length > 1 && this.currentActiveTabIndex != 0) {
-      // for consistency we always set the query param tab to a lowercase version of the tab label
-      set(this, 'selectedTab', this.tabs[current].label.toLowerCase());
-    }
 
     // leave for debugging
     // console.log('show setCurrent', this.sections, this.tabs, this.tocs);
