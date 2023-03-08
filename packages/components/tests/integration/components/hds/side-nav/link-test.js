@@ -50,6 +50,33 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
     assert.dom('.hds-badge--color-success').exists().hasText('Beta');
   });
 
+  // GENERATED ELEMENTS
+
+  test('it should render a <button> if no @href or @route is passed (default)', async function (assert) {
+    await render(hbs`<Hds::SideNav::List::Link @text="Boundary" />`);
+    assert.dom('.hds-side-nav__list-item-link').hasTagName('button');
+  });
+
+  test('it should render a <a> link if @href is passed', async function (assert) {
+    await render(
+      hbs`<Hds::SideNav::List::Link @text="Boundary" @href="https://www.hashicorp.com/" />`
+    );
+    assert
+      .dom('.hds-side-nav__list-item-link')
+      .hasTagName('a')
+      .hasAttribute('href', 'https://www.hashicorp.com/');
+  });
+
+  test('it should render a <a> link if @route is passed', async function (assert) {
+    await render(
+      hbs`<Hds::SideNav::List::Link @text="Boundary" @route="utilities.interactive" />`
+    );
+    assert
+      .dom('.hds-side-nav__list-item-link')
+      .hasTagName('a')
+      .hasAttribute('href', '/utilities/interactive');
+  });
+
   // ATTRIBUTES
 
   test('it should spread all the attributes passed to the component on the element', async function (assert) {
