@@ -10,12 +10,12 @@ export default class HdsDropdownListItemCheckmarkComponent extends Component {
     let classes = [
       'hds-dropdown-list-item',
       'hds-dropdown-list-item--color-action',
-      'hds-dropdown-list-item--checkmark',
+      'hds-dropdown-list-item--variant-checkmark',
     ];
 
     // add a class based on the @selected argument
     if (this.args.selected) {
-      classes.push('hds-dropdown-list-item--checkmark-selected');
+      classes.push('hds-dropdown-list-item--variant-checkmark-selected');
     }
 
     return classes.join(' ');

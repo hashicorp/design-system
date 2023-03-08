@@ -26,7 +26,7 @@ module(
       assert.dom('#test-list-item-generic').hasClass('hds-dropdown-list-item');
       assert
         .dom('#test-list-item-generic')
-        .hasClass('hds-dropdown-list-item--generic');
+        .hasClass('hds-dropdown-list-item--variant-generic');
     });
 
     // CONTENT
@@ -35,8 +35,10 @@ module(
       await render(
         hbs`<Hds::Dropdown::ListItem::Generic><pre>test</pre></Hds::Dropdown::ListItem::Generic>`
       );
-      assert.dom('.hds-dropdown-list-item--generic > pre').exists();
-      assert.dom('.hds-dropdown-list-item--generic > pre').hasText('test');
+      assert.dom('.hds-dropdown-list-item--variant-generic > pre').exists();
+      assert
+        .dom('.hds-dropdown-list-item--variant-generic > pre')
+        .hasText('test');
     });
   }
 );

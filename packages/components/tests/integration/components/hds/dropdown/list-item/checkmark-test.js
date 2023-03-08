@@ -22,7 +22,7 @@ module(
       assert.dom('.hds-dropdown-list-item').hasTagName('li');
       assert
         .dom('.hds-dropdown-list-item')
-        .hasClass('hds-dropdown-list-item--checkmark');
+        .hasClass('hds-dropdown-list-item--variant-checkmark');
     });
 
     // ELEMENTS
@@ -81,7 +81,7 @@ module(
       );
       assert
         .dom('.hds-dropdown-list-item')
-        .hasClass('hds-dropdown-list-item--checkmark-selected');
+        .hasClass('hds-dropdown-list-item--variant-checkmark-selected');
       assert.dom('.hds-dropdown-list-item__checkmark').exists();
     });
 

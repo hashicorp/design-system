@@ -156,7 +156,7 @@ $hds-dropdown-toggle-border-radius: 5px;
   color: var(--token-color-foreground-faint);
 }
 
-.hds-dropdown-list-item--copy-item {
+.hds-dropdown-list-item--variant-copy-item {
   width: 100%;
   padding: 10px 16px 12px;
 
@@ -216,21 +216,21 @@ $hds-dropdown-toggle-border-radius: 5px;
 
 // HDS::DROPDOWN::LIST-ITEM::DESCRIPTION
 
-.hds-dropdown-list-item--description {
+.hds-dropdown-list-item--variant-description {
   padding: 2px 16px 4px;
   color: var(--token-color-foreground-faint);
 }
 
 // HDS::DROPDOWN::LIST-ITEM::GENERIC
 
-.hds-dropdown-list-item--generic {
+.hds-dropdown-list-item--variant-generic {
   padding-right: 16px;
   padding-left: 16px;
 }
 
 // HDS::DROPDOWN::LIST-ITEM::INTERACTIVE & HDS::DROPDOWN::LIST-ITEM::CHECKMARK
-.hds-dropdown-list-item--interactive,
-.hds-dropdown-list-item--checkmark {
+.hds-dropdown-list-item--variant-interactive,
+.hds-dropdown-list-item--variant-checkmark {
   position: relative;
   min-height: 36px;
   isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
@@ -401,7 +401,7 @@ $hds-dropdown-toggle-border-radius: 5px;
 
 // HDS::DROPDOWN::LIST-ITEM::SEPARATOR
 
-.hds-dropdown-list-item--separator {
+.hds-dropdown-list-item--variant-separator {
   position: relative;
   width: 100%;
   height: 4px;
@@ -418,14 +418,14 @@ $hds-dropdown-toggle-border-radius: 5px;
 
 // HDS::DROPDOWN::LIST-ITEM::TITLE
 
-.hds-dropdown-list-item--title {
+.hds-dropdown-list-item--variant-title {
   padding: 10px 16px 4px;
   color: var(--token-color-foreground-strong);
 }
 
 // HDS::DROPDOWN::LIST-ITEM::CHECKMARK
 
-.hds-dropdown-list-item--checkmark-selected {
+.hds-dropdown-list-item--variant-checkmark-selected {
   .hds-dropdown-list-item__interactive {
     color: var(--token-color-foreground-action);
   }
@@ -444,8 +444,8 @@ $hds-dropdown-toggle-border-radius: 5px;
 
 // HDS::DROPDOWN::LIST-ITEM::CHECKBOX & HDS::DROPDOWN::LIST-ITEM::RADIO
 
-.hds-dropdown-list-item--checkbox,
-.hds-dropdown-list-item--radio {
+.hds-dropdown-list-item--variant-checkbox,
+.hds-dropdown-list-item--variant-radio {
   display: flex;
   align-items: self-start;
   padding: 8px 16px;
@@ -476,9 +476,9 @@ $hds-dropdown-toggle-border-radius: 5px;
 }
 
 // BADGE INSIDE CHECKMARK, CHECKBOX OR RADIO
-.hds-dropdown-list-item--checkmark,
-.hds-dropdown-list-item--checkbox,
-.hds-dropdown-list-item--radio {
+.hds-dropdown-list-item--variant-checkmark,
+.hds-dropdown-list-item--variant-checkbox,
+.hds-dropdown-list-item--variant-radio {
   // align any `Hds::Badge` within a selectable list item to match baseline
   .hds-badge {
     vertical-align: bottom;

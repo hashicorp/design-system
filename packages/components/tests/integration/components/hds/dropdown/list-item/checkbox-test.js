@@ -22,7 +22,7 @@ module(
       assert.dom('.hds-dropdown-list-item').hasTagName('li');
       assert
         .dom('.hds-dropdown-list-item')
-        .hasClass('hds-dropdown-list-item--checkbox');
+        .hasClass('hds-dropdown-list-item--variant-checkbox');
     });
 
     // ELEMENTS
