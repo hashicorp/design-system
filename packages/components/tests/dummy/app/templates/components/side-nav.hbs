@@ -282,56 +282,6 @@
       {{/each}}
     {{/let}}
   </Shw::Flex>
-
-</section>
-
-<Shw::Divider />
-
-<section data-test-percy>
-
-  <Shw::Text::H2>SideNav::List::BackLink</Shw::Text::H2>
-
-  <Shw::Text::H3>Content</Shw::Text::H3>
-
-  <Shw::Flex as |SF|>
-    <SF.Item @text="Base">
-      <ul class="shw-component-sim-side-nav-body">
-        <Hds::SideNav::List::BackLink @text="Back to parent page" @href="#" />
-      </ul>
-    </SF.Item>
-    <SF.Item @text="With very long text">
-      <ul class="shw-component-sim-side-nav-body">
-        <Hds::SideNav::List::BackLink @text="This is a long text that should go on two lines" @href="#" />
-      </ul>
-    </SF.Item>
-  </Shw::Flex>
-
-  <Shw::Text::H3>States</Shw::Text::H3>
-
-  <Shw::Grid @columns={{4}} as |SG|>
-    {{#let (array "default" "hover" "active" "focus") as |states|}}
-      {{#each states as |state|}}
-        <SG.Item @text={{state}}>
-          <Shw::Flex @direction="column" as |SF|>
-            <SF.Item>
-              <ul class="shw-component-sim-side-nav-body">
-                <Hds::SideNav::List::BackLink @text="Back to parent page" @href="#" mock-state-value={{state}} />
-              </ul>
-            </SF.Item>
-            <SF.Item>
-              <ul class="shw-component-sim-side-nav-body">
-                <Hds::SideNav::List::BackLink
-                  @text="This is a long text that should go on two lines"
-                  @href="#"
-                  mock-state-value={{state}}
-                />
-              </ul>
-            </SF.Item>
-          </Shw::Flex>
-        </SG.Item>
-      {{/each}}
-    {{/let}}
-  </Shw::Grid>
 </section>
 
 <Shw::Divider />
@@ -574,6 +524,54 @@
                   mock-state-value={{state}}
                 />
               </div>
+            </SF.Item>
+          </Shw::Flex>
+        </SG.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Grid>
+</section>
+
+<Shw::Divider @level={{2}} />
+
+<section data-test-percy>
+  <Shw::Text::H2>SideNav::List::BackLink</Shw::Text::H2>
+
+  <Shw::Text::H3>Content</Shw::Text::H3>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @text="Base">
+      <ul class="shw-component-sim-side-nav-body">
+        <Hds::SideNav::List::BackLink @text="Back to parent page" @href="#" />
+      </ul>
+    </SF.Item>
+    <SF.Item @text="With very long text">
+      <ul class="shw-component-sim-side-nav-body">
+        <Hds::SideNav::List::BackLink @text="This is a long text that should go on two lines" @href="#" />
+      </ul>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H3>States</Shw::Text::H3>
+
+  <Shw::Grid @columns={{4}} as |SG|>
+    {{#let (array "default" "hover" "active" "focus") as |states|}}
+      {{#each states as |state|}}
+        <SG.Item @text={{state}}>
+          <Shw::Flex @direction="column" as |SF|>
+            <SF.Item>
+              <ul class="shw-component-sim-side-nav-body">
+                <Hds::SideNav::List::BackLink @text="Back to parent page" @href="#" mock-state-value={{state}} />
+              </ul>
+            </SF.Item>
+            <SF.Item>
+              <ul class="shw-component-sim-side-nav-body">
+                <Hds::SideNav::List::BackLink
+                  @text="This is a long text that should go on two lines"
+                  @href="#"
+                  mock-state-value={{state}}
+                />
+              </ul>
             </SF.Item>
           </Shw::Flex>
         </SG.Item>
