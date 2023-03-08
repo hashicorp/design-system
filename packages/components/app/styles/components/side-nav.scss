@@ -133,6 +133,38 @@
   }
 }
 
+// Apply class name to Hds::Button component
+.hds-side-nav__button {
+  min-width: 36px;
+  height: 36px;
+  min-height: 0;
+  padding: 1px;
+  color: var(--token-side-nav-foreground-primary);
+  background-color: transparent;
+  border-color: transparent;
+
+  &:hover {
+    background: var(--token-side-nav-interactive-surface-hover);
+    border-color: transparent;
+  }
+
+  &:active {
+    background: var(--token-side-nav-interactive-surface-active);
+    border-color: transparent;
+  }
+
+  &:focus {
+    background: transparent;
+
+    &::before {
+      top: -4px;
+      right: -4px;
+      bottom: -4px;
+      left: -4px;
+    }
+  }
+}
+
 // * Body child elements
 // ---------------------------------------
 

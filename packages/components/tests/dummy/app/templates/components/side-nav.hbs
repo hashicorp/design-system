@@ -60,6 +60,7 @@
         </Hds::SideNav::Wrapper>
       </div>
     </SF.Item>
+
     <SF.Item @text="With multiple 'list' (nav) containers">
       <div class="shw-component-sim-side-nav-root-container">
         <Hds::SideNav::Wrapper>
@@ -69,6 +70,13 @@
                 <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
               </:logo>
               <:actions>
+                <Hds::Button
+                  @text="Search"
+                  @icon="search"
+                  @isIconOnly={{true}}
+                  @size="large"
+                  class="hds-side-nav__button"
+                />
                 <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
                   <dd.ToggleIcon @icon="help" @text="settings menu" />
                   <dd.Title @text="Signed In" />
