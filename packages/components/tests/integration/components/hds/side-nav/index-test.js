@@ -46,4 +46,17 @@ module('Integration | Component | hds/side-nav/wrapper', function (hooks) {
     assert.dom('#test-sidenav-body').exists();
     assert.dom('#test-sidenav-footer').exists();
   });
+
+  // ATTRIBUTES
+
+  test('it should spread all the attributes passed to the component on the element', async function (assert) {
+    await render(
+      hbs`<Hds::SideNav::Wrapper id="test-side-nav" class="my-class" data-test1 data-test2="test" />`
+    );
+    assert
+      .dom('#test-side-nav')
+      .hasAttribute('data-test1')
+      .hasAttribute('data-test1')
+      .hasAttribute('data-test2', 'test');
+  });
 });
