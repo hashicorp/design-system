@@ -1,5 +1,11 @@
 # @hashicorp/design-system-components
 
+## 1.7.3
+
+### Patch Changes
+
+- [#1242](https://github.com/hashicorp/design-system/pull/1242) [`f1a947db2`](https://github.com/hashicorp/design-system/commit/f1a947db20bf19cf88b4c3a8091d3e7b51649364) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Revert ember-truth-helpers & ember-keyboard dependency updates
+
 ## 1.7.2
 
 ### Patch Changes
