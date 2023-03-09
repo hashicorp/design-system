@@ -215,7 +215,8 @@
     border-color: transparent;
 
     .hds-side-nav__list-item-text,
-    .hds-side-nav__list-item-icon {
+    .hds-side-nav__list-item-icon-leading,
+    .hds-side-nav__list-item-icon-trailing {
       color: var(--token-side-nav-foreground-primary-strong);
     }
   }
@@ -225,7 +226,8 @@
     background: var(--token-side-nav-interactive-surface-active);
 
     .hds-side-nav__list-item-text,
-    .hds-side-nav__list-item-icon {
+    .hds-side-nav__list-item-icon-leading,
+    .hds-side-nav__list-item-icon-trailing {
       color: var(--token-side-nav-foreground-primary-strong);
     }
 
@@ -247,12 +249,12 @@
   text-align: left;
 }
 
-.hds-side-nav__list-item-icon {
+.hds-side-nav__list-item-icon-leading {
   flex: none;
   margin-right: var(--token-side-nav-body-list-item-content-spacing-horizontal);
 }
 
-.hds-side-nav__list-item-chevron {
+.hds-side-nav__list-item-icon-trailing {
   flex: none;
   margin-left: auto;
   padding-left: var(--token-side-nav-body-list-item-content-spacing-horizontal);
