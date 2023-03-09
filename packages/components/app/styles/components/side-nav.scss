@@ -109,11 +109,13 @@
 
   &:hover,
   &.mock-hover {
+    color: var(--token-side-nav-foreground-primary-strong); // to avoid overrides by specificity (eg. `a:hover`)
     background: var(--token-side-nav-interactive-surface-hover);
   }
 
   &:active,
   &.mock-active {
+    color: var(--token-side-nav-foreground-primary-strong); // to avoid overrides by specificity (eg. `a:hover`)
     background: var(--token-side-nav-interactive-surface-active);
   }
 }
