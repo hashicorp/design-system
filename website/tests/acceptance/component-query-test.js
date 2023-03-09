@@ -51,7 +51,7 @@ module('Acceptance | Component Tabs', function (hooks) {
   test('specifying a component tab that does not exist defaults to the first tab', async function (assert) {
     await visit('/components/alert?tab=wubalubadubdub');
 
-    assert.strictEqual(currentURL(), '/components/alert?tab=wubalubadubdub');
+    assert.strictEqual(currentURL(), '/components/alert');
 
     assert.dom('.doc-page-tabs__tab--is-current').exists({ count: 1 });
     assert

@@ -48,7 +48,12 @@ export default class HdsTableIndexComponent extends Component {
    * this would be relevant for any table that would have data that could update or change, i.e., polling.
    */
   get identityKey() {
-    return this.args.identityKey ?? '@identity';
+    // we have to provide a way for the consumer to pass undefined because Ember tries to interpret undefined as missing an arg and therefore falls back to the default
+    if (this.args.identityKey === 'none') {
+      return undefined;
+    } else {
+      return this.args.identityKey ?? '@identity';
+    }
   }
 
   /**

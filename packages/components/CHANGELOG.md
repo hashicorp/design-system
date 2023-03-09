@@ -1,5 +1,45 @@
 # @hashicorp/design-system-components
 
+## 1.7.2
+
+### Patch Changes
+
+- [#1234](https://github.com/hashicorp/design-system/pull/1234) [`2fa69aca7`](https://github.com/hashicorp/design-system/commit/2fa69aca75f2ea1245be04ccfad7966ec77ab12d) Thanks [@alex-ju](https://github.com/alex-ju)! - Fix checkmark and disabled state on `power-select` style overrides
+
+## 1.7.1
+
+### Patch Changes
+
+- [#1232](https://github.com/hashicorp/design-system/pull/1232) [`9d1a73da3`](https://github.com/hashicorp/design-system/commit/9d1a73da3621c1a1ad32736c79ac7b4af6162b05) Thanks [@alex-ju](https://github.com/alex-ju)! - Make `ember-body-class` a dev dependency
+
+## 1.7.0
+
+### Minor Changes
+
+- [#1201](https://github.com/hashicorp/design-system/pull/1201) [`5b11fe34c`](https://github.com/hashicorp/design-system/commit/5b11fe34c5dec1f96b75ee20d77f83d92bc4e962) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - Add @label argument to Pagination::SizeSelector component and associated @sizeSelectorLabel argument to Pagination::Numbered component to make Pagination::SizeSelector label text customizeable.
+
+- [#1160](https://github.com/hashicorp/design-system/pull/1160) [`b71c0c07f`](https://github.com/hashicorp/design-system/commit/b71c0c07fa809819eef3e0bb090af51aec563918) Thanks [@MelSumner](https://github.com/MelSumner)! - Added new custom sort feature support to table component:
+
+  - Adds `sortingFunction` support in `@columns` declaration
+  - Adds `sortedMessageText` support for custom sorting message
+  - Updates the `aria-sort` to fallback to "none" instead of "null" (per spec)
+  - Adds support for the `{{each}}` loop's `key` to be defined with `identityKey` (optional; falls back to the Ember default if none is provided)
+
+### Patch Changes
+
+- [#1217](https://github.com/hashicorp/design-system/pull/1217) [`c021b0527`](https://github.com/hashicorp/design-system/commit/c021b052707d8dca7cb7375dfa84f1e9e9b8ec87) Thanks [@alex-ju](https://github.com/alex-ju)! - Update `ember-cli` to `4.10.0` alongside other patch and minor dependency updates
+
+- [#1208](https://github.com/hashicorp/design-system/pull/1208) [`583f7559d`](https://github.com/hashicorp/design-system/commit/583f7559d9d66fc5da3cb5e8174258b334c85058) Thanks [@MelSumner](https://github.com/MelSumner)! - Updates table styles to include scoped row support
+
+- [#1226](https://github.com/hashicorp/design-system/pull/1226) [`2b0a028b8`](https://github.com/hashicorp/design-system/commit/2b0a028b89835abfd419c2ed93a4a393f2852cd0) Thanks [@didoo](https://github.com/didoo)! - Changed inner logic for `ThSort` arguments
+
+- [#1181](https://github.com/hashicorp/design-system/pull/1181) [`2ef00f654`](https://github.com/hashicorp/design-system/commit/2ef00f6549f5c41332b8da66d862c40f64548af1) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - Add a style to prevent accidental display of hidden `Hds::Tabs::Panel`
+
+- [#1204](https://github.com/hashicorp/design-system/pull/1204) [`fcbaff90b`](https://github.com/hashicorp/design-system/commit/fcbaff90b514962c50363c8a985d88b520048636) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - \* Scope group layout styles to nested child components.
+  - Fix bug with --token-pagination-child-spacing-vertical value so that it adds "px" unit.
+- Updated dependencies [[`fcbaff90b`](https://github.com/hashicorp/design-system/commit/fcbaff90b514962c50363c8a985d88b520048636)]:
+  - @hashicorp/design-system-tokens@1.4.1
+
 ## 1.6.1
 
 ### Patch Changes
