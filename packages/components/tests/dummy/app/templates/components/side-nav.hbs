@@ -6,7 +6,7 @@
   <Shw::Text::H2>Examples</Shw::Text::H2>
 
   <Shw::Flex as |SF|>
-    <SF.Item @text="With single 'list' (nav) container">
+    <SF.Item @label="With single 'list' (nav) container">
       <div class="shw-component-sim-side-nav-root-container">
         <Hds::SideNav::Wrapper>
           <:header>
@@ -61,7 +61,7 @@
       </div>
     </SF.Item>
 
-    <SF.Item @text="With multiple 'list' (nav) containers">
+    <SF.Item @label="With multiple 'list' (nav) containers & button in header">
       <div class="shw-component-sim-side-nav-root-container">
         <Hds::SideNav::Wrapper>
           <:header>
@@ -138,7 +138,7 @@
   <Shw::Text::H2>SideNav::Wrapper</Shw::Text::H2>
 
   <Shw::Flex as |SF|>
-    <SF.Item @text="Header + Body + Footer">
+    <SF.Item @label="Header + Body + Footer">
       <div class="shw-component-sim-side-nav-root-container">
         <Hds::SideNav::Wrapper>
           <:header>
@@ -153,7 +153,7 @@
         </Hds::SideNav::Wrapper>
       </div>
     </SF.Item>
-    <SF.Item @text="Header (with extra) + Body (with extra) + Footer">
+    <SF.Item @label="Header (with extra) + Body (with extra) + Footer">
       <div class="shw-component-sim-side-nav-root-container">
         <Hds::SideNav::Wrapper>
           <:header>
@@ -170,7 +170,7 @@
         </Hds::SideNav::Wrapper>
       </div>
     </SF.Item>
-    <SF.Item @text="Header + Body (scrollable) + Footer">
+    <SF.Item @label="Header + Body (scrollable) + Footer">
       <div class="shw-component-sim-side-nav-root-container">
         <Hds::SideNav::Wrapper>
           <:header>
@@ -194,7 +194,7 @@
   <Shw::Text::H2>SideNav::Header</Shw::Text::H2>
 
   <Shw::Flex as |SF|>
-    <SF.Item @text="Logo + Actions">
+    <SF.Item @label="Logo + Actions">
       <div class="shw-component-sim-side-nav-header">
         <Hds::SideNav::Header>
           <:logo>
@@ -207,7 +207,7 @@
         </Hds::SideNav::Header>
       </div>
     </SF.Item>
-    <SF.Item @text="HomeLink + Dropdowns">
+    <SF.Item @label="HomeLink + Dropdowns">
       <div class="shw-component-sim-side-nav-header">
         <Hds::SideNav::Header>
           <:logo>
@@ -244,12 +244,12 @@
   <Shw::Text::H3>Content</Shw::Text::H3>
 
   <Shw::Flex as |SF|>
-    <SF.Item @text="Icon">
+    <SF.Item @label="Icon">
       <div class="shw-component-side-nav-home-link-wrapper">
         <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
       </div>
     </SF.Item>
-    <SF.Item @text="Icon with custom color">
+    <SF.Item @label="Icon with custom color">
       <div class="shw-component-side-nav-home-link-wrapper">
         <Hds::SideNav::HomeLink
           @icon="boundary"
@@ -266,7 +266,7 @@
   <Shw::Flex as |SF|>
     {{#let (array "default" "hover" "active" "focus") as |states|}}
       {{#each states as |state|}}
-        <SF.Item @text={{state}}>
+        <SF.Item @label={{state}}>
           <div class="shw-component-side-nav-home-link-wrapper">
             <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" mock-state-value={{state}} />
           </div>
@@ -300,7 +300,7 @@
   <Shw::Text::H3>Content</Shw::Text::H3>
 
   <Shw::Flex as |SF|>
-    <SF.Item @text="Title with multiple items">
+    <SF.Item @label="Title with multiple items">
       <div class="shw-component-sim-side-nav-body">
         <Hds::SideNav::List as |S|>
           <S.Title>Services</S.Title>
@@ -324,7 +324,7 @@
       </div>
     </SF.Item>
 
-    <SF.Item @text="Multiple groups">
+    <SF.Item @label="Multiple groups">
       <div class="shw-component-sim-side-nav-body">
         <Hds::SideNav::List as |S|>
           <S.Link @text="Dashboard" @icon="dashboard" @href="#" />
@@ -358,12 +358,12 @@
   <Shw::Text::H3>SideNav::List::Title</Shw::Text::H3>
 
   <Shw::Flex as |SF|>
-    <SF.Item @text="Base">
+    <SF.Item @label="Base">
       <ul class="shw-component-sim-side-nav-body">
         <Hds::SideNav::List::Title>Group title</Hds::SideNav::List::Title>
       </ul>
     </SF.Item>
-    <SF.Item @text="With very long text">
+    <SF.Item @label="With very long text">
       <ul class="shw-component-sim-side-nav-body">
         <Hds::SideNav::List::Title>This is a long text that should go on two lines</Hds::SideNav::List::Title>
       </ul>
@@ -387,31 +387,31 @@
   <Shw::Text::H4>Content</Shw::Text::H4>
 
   <Shw::Grid @columns={{4}} as |SG|>
-    <SG.Item @text="Just text">
+    <SG.Item @label="Just text">
       <Hds::SideNav::List::Link @text="Boundary" @href="#" />
     </SG.Item>
-    <SG.Item @text="Icon + text">
+    <SG.Item @label="Icon + text">
       <Hds::SideNav::List::Link @icon="boundary" @text="Boundary" @href="#" />
     </SG.Item>
-    <SG.Item @text="Icon + text + badge">
+    <SG.Item @label="Icon + text + badge">
       <Hds::SideNav::List::Link @icon="boundary" @text="Boundary" @badge="Alpha" />
     </SG.Item>
-    <SG.Item @text="Icon + text + count">
+    <SG.Item @label="Icon + text + count">
       <Hds::SideNav::List::Link @icon="boundary" @text="Boundary" @count="3" />
     </SG.Item>
-    <SG.Item @text="Icon + text + count + badge">
+    <SG.Item @label="Icon + text + count + badge">
       <Hds::SideNav::List::Link @icon="boundary" @text="Boundary" @count="3" @badge="Alpha" />
     </SG.Item>
-    <SG.Item @text="Icon + text + yielded badgecount/badge">
+    <SG.Item @label="Icon + text + yielded badgecount/badge">
       <Hds::SideNav::List::Link @icon="boundary" @text="Boundary">
         <Hds::BadgeCount @type="inverted" @size="small" @color="neutral-dark-mode" @text="3" />
         <Hds::Badge @type="inverted" @size="small" @color="success" @text="Beta" />
       </Hds::SideNav::List::Link>
     </SG.Item>
-    <SG.Item @text="Icon + long text">
+    <SG.Item @label="Icon + long text">
       <Hds::SideNav::List::Link @icon="boundary" @text="This is a long text that should go on two lines" />
     </SG.Item>
-    <SG.Item @text="Icon + long text + count + badge">
+    <SG.Item @label="Icon + long text + count + badge">
       <Hds::SideNav::List::Link
         @icon="boundary"
         @text="This is a long text that should go on two lines"
@@ -420,35 +420,35 @@
       />
     </SG.Item>
 
-    <SG.Item @text="Text, hasSubItems">
+    <SG.Item @label="Text, hasSubItems">
       <Hds::SideNav::List::Link @text="Boundary" @href="#" @hasSubItems={{true}} />
     </SG.Item>
-    <SG.Item @text="Icon + text, hasSubItems">
+    <SG.Item @label="Icon + text, hasSubItems">
       <Hds::SideNav::List::Link @icon="boundary" @text="Boundary" @href="#" @hasSubItems={{true}} />
     </SG.Item>
-    <SG.Item @text="Icon + text + badge, hasSubItems">
+    <SG.Item @label="Icon + text + badge, hasSubItems">
       <Hds::SideNav::List::Link @icon="boundary" @text="Boundary" @badge="Alpha" @hasSubItems={{true}} />
     </SG.Item>
-    <SG.Item @text="Icon + text + count, hasSubItems">
+    <SG.Item @label="Icon + text + count, hasSubItems">
       <Hds::SideNav::List::Link @icon="boundary" @text="Boundary" @count="3" @hasSubItems={{true}} />
     </SG.Item>
-    <SG.Item @text="Icon + text + count + badge, hasSubItems">
+    <SG.Item @label="Icon + text + count + badge, hasSubItems">
       <Hds::SideNav::List::Link @icon="boundary" @text="Boundary" @count="3" @badge="Alpha" @hasSubItems={{true}} />
     </SG.Item>
-    <SG.Item @text="Icon + text + yielded badgecount/badge, hasSubItems">
+    <SG.Item @label="Icon + text + yielded badgecount/badge, hasSubItems">
       <Hds::SideNav::List::Link @icon="boundary" @text="Boundary" @hasSubItems={{true}}>
         <Hds::BadgeCount @type="inverted" @size="small" @color="neutral-dark-mode" @text="3" />
         <Hds::Badge @type="inverted" @size="small" @color="success" @text="Beta" />
       </Hds::SideNav::List::Link>
     </SG.Item>
-    <SG.Item @text="Icon + long text, hasSubItems">
+    <SG.Item @label="Icon + long text, hasSubItems">
       <Hds::SideNav::List::Link
         @icon="boundary"
         @text="This is a long text that should go on two lines"
         @hasSubItems={{true}}
       />
     </SG.Item>
-    <SG.Item @text="Icon + long text + count + badge, hasSubItems">
+    <SG.Item @label="Icon + long text + count + badge, hasSubItems">
       <Hds::SideNav::List::Link
         @icon="boundary"
         @text="This is a long text that should go on two lines"
@@ -458,33 +458,33 @@
       />
     </SG.Item>
 
-    <SG.Item @text="Just yielded content">
+    <SG.Item @label="Just yielded content">
       <Hds::SideNav::List::Link>
         <Shw::Placeholder @height="20px" @text="yielded content" @background="#e4e4e4" />
       </Hds::SideNav::List::Link>
     </SG.Item>
-    <SG.Item @text="Icon + yielded content">
+    <SG.Item @label="Icon + yielded content">
       {{! we've added an empty label on purpose, to test the layout in this case }}
       <Hds::SideNav::List::Link @icon="boundary" @text="">
         <Shw::Placeholder @height="20px" @text="yielded content" @background="#e4e4e4" />
       </Hds::SideNav::List::Link>
     </SG.Item>
-    <SG.Item @text="Icon + text + yielded content">
+    <SG.Item @label="Icon + text + yielded content">
       <Hds::SideNav::List::Link @icon="boundary" @text="Boundary">
         <Shw::Placeholder @height="20px" @text="yielded content" @background="#e4e4e4" />
       </Hds::SideNav::List::Link>
     </SG.Item>
-    <SG.Item @text="With hasSubItems">
+    <SG.Item @label="With hasSubItems">
       <Hds::SideNav::List::Link @icon="boundary" @text="Boundary" @hasSubItems={{true}}>
         <Shw::Placeholder @height="20px" @text="yielded content" @background="#e4e4e4" />
       </Hds::SideNav::List::Link>
     </SG.Item>
-    <SG.Item @text="Text with no style">
+    <SG.Item @label="Text with no style">
       <Hds::SideNav::List::Link>
         This text needs local styling
       </Hds::SideNav::List::Link>
     </SG.Item>
-    <SG.Item @text="Text with local style">
+    <SG.Item @label="Text with local style">
       <Hds::SideNav::List::Link>
         <span class="hds-typography-body-200 hds-font-weight-medium">
           This text is locally styled
@@ -498,7 +498,7 @@
   <Shw::Grid @columns={{4}} as |SG|>
     {{#let (array "default" "hover" "active" "focus") as |states|}}
       {{#each states as |state|}}
-        <SG.Item @text={{state}}>
+        <SG.Item @label={{state}}>
           <Shw::Flex as |SF|>
             <SF.Item @grow={{true}}>
               <div class="shw-component-sim-side-nav-list-link-wrapper">
@@ -548,12 +548,12 @@
   <Shw::Text::H3>Content</Shw::Text::H3>
 
   <Shw::Flex as |SF|>
-    <SF.Item @text="Base">
+    <SF.Item @label="Base">
       <ul class="shw-component-sim-side-nav-body">
         <Hds::SideNav::List::BackLink @text="Back to parent page" @href="#" />
       </ul>
     </SF.Item>
-    <SF.Item @text="With very long text">
+    <SF.Item @label="With very long text">
       <ul class="shw-component-sim-side-nav-body">
         <Hds::SideNav::List::BackLink @text="This is a long text that should go on two lines" @href="#" />
       </ul>
@@ -565,7 +565,7 @@
   <Shw::Grid @columns={{4}} as |SG|>
     {{#let (array "default" "hover" "active" "focus") as |states|}}
       {{#each states as |state|}}
-        <SG.Item @text={{state}}>
+        <SG.Item @label={{state}}>
           <Shw::Flex @direction="column" as |SF|>
             <SF.Item>
               <ul class="shw-component-sim-side-nav-body">
