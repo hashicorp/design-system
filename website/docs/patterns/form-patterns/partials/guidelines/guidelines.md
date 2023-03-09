@@ -191,7 +191,12 @@ Each one of these methods will help the user better parse and understand the rel
 
 ### Length
 
-The complexity of the form can significantly impact whether a user successfully completes the form or abandons the task prior to completion. If the form includes a large number of fields, consider breaking it up by using sections and dividers and/or multiple steps or pages.
+Since longer forms can result in a lower completion rate, we recommend looking for ways to reduce the overall number of fields whenever possible.
+
+!!! Insight
+
+If a field is optional, consider whether it’s actually needed in the form. If the information isn’t critical to the experience or feature, can the field be removed?
+!!!
 
 #### Multiple sections
 
@@ -224,14 +229,6 @@ Consider breaking the form into multiple steps or pages for exceedingly long and
 #### Multiple steps or pages
 
 For exceedingly long, complex forms (e.g., creating a cluster), consider breaking the form into multiple steps or pages. A [Stepper](/components/stepper-indicator) can be used to annotate status and location in a multi-step form.
-
-!!! Info
-
-As a general note, special care should be taken to _reduce_ the number of fields whenever possible.
-
-- Long forms are more challenging for the user which can result in a lower completion rate.
-- If a field is optional, consider whether it should be included in the form at all. If the information isn't crucial to the experience or feature, why is it being collected at all?
-!!!
 
 ### Width
 
