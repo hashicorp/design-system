@@ -250,6 +250,20 @@
   }
 }
 
+// special override for the "back-link" element (no visible active state, by design)
+.hds-side-nav__list-item-link--back-link {
+  &:active,
+  &.mock-active {
+    background: var(--token-side-nav-surface);
+
+    .hds-side-nav__list-item-text,
+    .hds-side-nav__list-item-icon-leading,
+    .hds-side-nav__list-item-icon-trailing {
+      color: var(--token-side-nav-foreground-primary);
+    }
+  }
+}
+
 .hds-side-nav__list-item-text {
   color: var(--token-side-nav-foreground-primary);
   text-align: left;
