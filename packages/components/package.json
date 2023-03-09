@@ -47,10 +47,10 @@
     "ember-cli-sass": "^10.0.1",
     "ember-composable-helpers": "^4.5.0",
     "ember-focus-trap": "^1.0.1",
-    "ember-keyboard": "^8.2.0",
+    "ember-keyboard": "^8.1.0",
     "ember-named-blocks-polyfill": "^0.2.5",
     "ember-style-modifier": "^0.8.0",
-    "ember-truth-helpers": "^3.1.1",
+    "ember-truth-helpers": "^3.0.0",
     "sass": "^1.58.3"
   },
   "devDependencies": {
