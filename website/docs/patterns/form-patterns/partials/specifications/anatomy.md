@@ -2,7 +2,7 @@
 
 Elements and content within a form are variable but can be broken down into sections that correspond with different types of content.
 
-![Form pattern anatomy](/assets/patterns/form-patterns/form-anatomy.png =500x*)
+![Form pattern anatomy](/assets/patterns/form-patterns/form-anatomy.png =650x*)
 
 | Type | Description |
 |------|-------------|

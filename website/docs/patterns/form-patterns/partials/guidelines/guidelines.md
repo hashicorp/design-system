@@ -8,9 +8,11 @@ A **form** acts as a layout mechanism by wrapping the content, fields and action
 
 As a layout mechanism, a form consistenting of more than one section should use a 32px gap in between sections.
 
+![Form container](/assets/patterns/form-patterns/form-container.png =450x*)
+
 ### Sections
 
-A **section** occupies the largest hierarchy within the form. Sections organize text, fields (inputs, checkboxes, toggles, etc.), and actions into logical groups. There should be a 32px vertical gap between each section, enforced the form container.
+A **section** occupies the largest hierarchy within the form. Sections organize text, fields (inputs, checkboxes, toggles, etc.), and actions into logical groups. There should be a 32px vertical gap between each section within the form container.
 
 ![Example of multiple sections in a form](/assets/patterns/form-patterns/form-sections.png =450x*)
 
@@ -43,20 +45,20 @@ Fields can be further divided into two types: **text fields** and **data fields*
 
 ### Groups
 
-Fields may be **grouped** together either horizontally or vertically if they are collecting related information or information that is part of the same object. Within a group there should bea  16px gap either horizontally (creating multiple columns), or vertically between each field.
+Fields may be **grouped** together either horizontally or vertically if they are collecting related information or information that is part of the same object. Within a group there should bea 16px gap either horizontally (creating multiple columns), or vertically between each field.
 
 ![Example of fields grouped together](/assets/patterns/form-patterns/field-groups.png =450x*)
 
 !!! Dont
 
-Don't group (either horizontally or vertically) field types that are related but not of the same type, e.g., a text input and a toggle.
+Don't horizontally group field types that are related but not of the same type, e.g., a text input and a toggle.
 
 ![Grouping different field types](/assets/patterns/form-patterns/different-field-type.png)
 !!!
 
 !!! Do
 
-Do stack fields of different types vertically. 
+Do stack fields of different types vertically.
 
 ![Grouping different field types](/assets/patterns/form-patterns/different-field-type-do.png =500x*)
 !!!
@@ -142,9 +144,11 @@ For more complex groupings of buttons, refer to the [Button alignment, grouping,
 
 ## Order and organization
 
-Fields within a form generally fall into three categories that can determine order and organization within a form: **technical and application needs**, **user needs**, and **business needs**. These categories don't exist in isolation but have a cumulative effect on how a user perceives a form and how likely they are to complete it.
+Fields within a form generally fall into three need-based categories that can determine order and organization within a form: **technical and application needs**, **user needs**, and **business needs**. These categories don't exist in isolation but have a cumulative effect on how a user perceives a form and how likely they are to complete it.
 
-### Technical and application needs
+### Need-based organization
+
+#### Technical and application needs
 
 Sometimes the values or options for a given field depend on information or selection from a previous field.
 
@@ -154,7 +158,7 @@ Generally, fields that are dependencies for other fields benefit from being orga
 
 Read more about showing elements conditionally with [progressive disclosure](#progressive-disclosure).
 
-### User needs
+#### User needs
 
 Users benefit from logical grouping and progressive organization, organizing fields from easiest to hardest.
 
@@ -163,9 +167,9 @@ This can help increase form completion by:
 - giving the user a sense of accomplishment early on through “quick wins”
 - reducing the probability of the user abandoning a form when they’ve already completed the “easier” segments.
 
-### Business needs
+#### Business needs
 
-Organizing fields based on their importance (high to low) to complete the form can help minimize abandonment, a crucial aspect of meeting business goals and metrics.
+Organizing fields based on their importance (high to low) to completing the form can help minimize abandonment, a crucial aspect of meeting business goals and metrics.
 
 ### Logical grouping
 
@@ -177,9 +181,9 @@ For example, when filling out a payment form, organize and group the fields in t
 
 Once a logical organization or grouping has been established,
 
-- categorize elements and fields into sections, 
+- categorize elements and fields into sections,
 - introduce typographic elements to establish hierarchy,
-- and, if necessary, use dividers to differentiate sections clearly.
+- and, if necessary, [use dividers](#using-dividers) to differentiate sections clearly.
 
 Each one of these methods will help the user better parse and understand the relationships between each section and the fields contained within.
 
@@ -187,7 +191,7 @@ Each one of these methods will help the user better parse and understand the rel
 
 ### Length
 
-The complexity of the form can significantly impact whether a user successfully completes the form or abandons the task prior to completion. If the form includes a large number of fields, consider breaking it up by using sections and dividers and/or multiple steps or pages. 
+The complexity of the form can significantly impact whether a user successfully completes the form or abandons the task prior to completion. If the form includes a large number of fields, consider breaking it up by using sections and dividers and/or multiple steps or pages.
 
 #### Multiple sections
 
@@ -199,13 +203,18 @@ Dividers introduce more visual hierarchy and differentiation in longer, complex 
 
 Use dividers to break up different types of content and categories within a form. Only use dividers between sections, not between fields.
 
-When using a divider, include a 24px gap above and below to separate the divider from the surrounding form elements; otherwise, it can appear "attached" to a specific section or field.
+!!! Do
 
-![Spacing using dividers](/assets/patterns/form-patterns/divider-spacing.png =500x*)
+Include a 24px gap above and below to separate the divider from the surrounding form elements; otherwise, it can appear "attached" to a specific section or field.
+
+![Spacing using dividers](/assets/patterns/form-patterns/divider-spacing-do.png =500x*)
+!!!
 
 !!! Dont
 
-Don’t use dividers at the end of the last section between the fields and the button set or actions. Instead, use 32px of space. 
+Don’t use dividers at the end of the last section between the fields and the button set or actions. Instead, use 32px of space.
+
+![Spacing using dividers](/assets/patterns/form-patterns/divider-spacing-dont.png =500x*)
 !!!
 
 #### Multiple steps or pages
