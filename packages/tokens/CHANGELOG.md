@@ -1,5 +1,12 @@
 # @hashicorp/design-system-tokens
 
+## 1.4.1
+
+### Patch Changes
+
+- [#1204](https://github.com/hashicorp/design-system/pull/1204) [`fcbaff90b`](https://github.com/hashicorp/design-system/commit/fcbaff90b514962c50363c8a985d88b520048636) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - \* Scope group layout styles to nested child components.
+  - Fix bug with --token-pagination-child-spacing-vertical value so that it adds "px" unit.
+
 ## 1.4.0
 
 ### Minor Changes
