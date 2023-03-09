@@ -32,6 +32,13 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
     assert.dom('.flight-icon-external-link').exists();
   });
 
+  test('it renders the link as "active" if @isActive is true', async function (assert) {
+    await render(
+      hbs`<Hds::SideNav::List::Link @isActive={{true}} id="test-sidenav-link" />`
+    );
+    assert.dom('#test-sidenav-link').hasClass('active');
+  });
+
   test('it renders the passed in custom content', async function (assert) {
     await render(hbs`
       <Hds::SideNav::List::Link @text="Terraform">

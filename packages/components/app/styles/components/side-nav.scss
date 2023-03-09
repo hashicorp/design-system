@@ -223,6 +223,10 @@
     }
   }
 
+  // notice: this ".active" extra class is used to match the corresponding `active` class assigned automatically
+  // by the `<LinkTo>` Ember component (when the link is "current), so that consumers get it for free if they want
+  // otherwise they can use the `@isActive` argument to set this visual state directly
+  &.active,
   &:active,
   &.mock-active {
     background: var(--token-side-nav-interactive-surface-active);

@@ -1,6 +1,6 @@
 <Hds::SideNav::List::Item>
   <Hds::Interactive
-    class="hds-side-nav__list-item-link"
+    class="hds-side-nav__list-item-link {{if @isActive 'active'}}"
     @current-when={{@current-when}}
     @models={{hds-link-to-models @model @models}}
     @query={{hds-link-to-query @query}}
