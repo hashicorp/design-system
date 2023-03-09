@@ -9,16 +9,12 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
   // Basic
 
   test('it renders the component', async function (assert) {
-    await render(
-      hbs`<Hds::SideNav::List::BackLink @text="Back to parent page" @href="#" />`
-    );
+    await render(hbs`<Hds::SideNav::List::BackLink />`);
     assert.dom(this.element).exists();
   });
 
   test('it should render with a CSS class that matches the component name', async function (assert) {
-    await render(
-      hbs`<Hds::SideNav::List::BackLink @text="Back to parent page" @href="#" />`
-    );
+    await render(hbs`<Hds::SideNav::List::BackLink />`);
     assert.dom('.hds-side-nav__list-item-link--back-link').exists();
   });
 

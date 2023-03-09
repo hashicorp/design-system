@@ -24,15 +24,15 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
     await render(hbs`
       <Hds::SideNav::Header>
         <:logo>
-          <div id="test-yield1"></div>
+          <div id="test-sidenav-logo"></div>
         </:logo>
         <:actions>
-          <div id="test-yield2"></div>
+          <div id="test-sidenav-actions"></div>
         </:actions>
       </Hds::SideNav::Header>
     `);
-    assert.dom('#test-yield1').exists();
-    assert.dom('#test-yield2').exists();
+    assert.dom('#test-sidenav-logo').exists();
+    assert.dom('#test-sidenav-actions').exists();
   });
 
   // ATTRIBUTES

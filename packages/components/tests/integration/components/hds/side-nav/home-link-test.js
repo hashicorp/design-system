@@ -9,15 +9,13 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
   // Basic
 
   test('it renders the component', async function (assert) {
-    await render(
-      hbs`<Hds::SideNav::HomeLink @icon="hashicorp" aria-label="HashiCorp" @href="#" />`
-    );
+    await render(hbs`<Hds::SideNav::HomeLink @icon="hashicorp" />`);
     assert.dom(this.element).exists();
   });
 
   test('it should render with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::HomeLink @icon="hashicorp" aria-label="HashiCorp" @href="#" id="test-home-link" />`
+      hbs`<Hds::SideNav::HomeLink @icon="hashicorp" id="test-home-link" />`
     );
     assert.dom('#test-home-link').hasClass('hds-side-nav__home-link');
   });
@@ -26,7 +24,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
 
   test('it renders the passed in args', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::HomeLink @icon="hashicorp" aria-label="HashiCorp" id="test-home-link" @href="https://www.hashicorp.com/" />`
+      hbs`<Hds::SideNav::HomeLink @icon="hashicorp" @href="https://www.hashicorp.com/" id="test-home-link" />`
     );
     assert.dom('.flight-icon-hashicorp').exists();
     assert
