@@ -29,7 +29,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
       hbs`<Hds::SideNav::List::Link @icon="boundary" @text="Boundary" @count="3" @badge="Alpha" @hasSubItems={{true}} />`
     );
     assert.dom('.flight-icon-boundary').exists();
-    assert.dom('.hds-side-nav__list-item-label').hasText('Boundary');
+    assert.dom('.hds-side-nav__list-item-text').hasText('Boundary');
     assert.dom('.hds-badge-count').hasText('3');
     assert.dom('.hds-badge').hasText('Alpha');
     assert.dom('.flight-icon-chevron-right').exists();

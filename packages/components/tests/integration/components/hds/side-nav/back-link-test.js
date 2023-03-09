@@ -29,7 +29,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
       hbs`<Hds::SideNav::List::BackLink @text="Back to parent page" @href="#" />`
     );
     assert.dom('.flight-icon-chevron-left').exists();
-    assert.dom('.hds-side-nav__list-item-label').hasText('Back to parent page');
+    assert.dom('.hds-side-nav__list-item-text').hasText('Back to parent page');
   });
 
   // GENERATED ELEMENTS
