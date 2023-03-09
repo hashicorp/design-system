@@ -24,27 +24,15 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
     await render(hbs`
       <Hds::SideNav::Header>
         <:logo>
-          <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
+          <div id="test-yield1"></div>
         </:logo>
         <:actions>
-          <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
-            <dd.ToggleIcon @icon="help" @text="settings menu" />
-            <dd.Title @text="Signed In" />
-            <dd.Description @text="email@domain.com" />
-            <dd.Separator />
-            <dd.Interactive @href="#" @text="Settings and Preferences" />
-          </Hds::Dropdown>
-          <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
-            <dd.ToggleIcon @icon="user" @text="user menu" />
-            <dd.Title @text="Signed In" />
-            <dd.Description @text="email@domain.com" />
-            <dd.Interactive @href="#" @text="Account Settings" />
-          </Hds::Dropdown>
+          <div id="test-yield2"></div>
         </:actions>
       </Hds::SideNav::Header>
     `);
-    assert.dom('.hds-side-nav-header__logo').exists();
-    assert.dom('.hds-disclosure').exists({ count: 2 });
+    assert.dom('#test-yield1').exists();
+    assert.dom('#test-yield2').exists();
   });
 
   // ATTRIBUTES
