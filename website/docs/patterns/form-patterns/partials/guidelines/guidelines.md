@@ -4,11 +4,13 @@ Spacing between sections, fields, text, and other form elements should follow a 
 
 ### Form
 
-A form wraps the content, fields, and actions while simultaneously handling the logic for submitting and action actions performed by the form. At a fundamental level, a form also acts as a layout mechanism, adding consistent spacing between sections.
+A **form** acts as a layout mechanism by wrapping the content, fields and actions to apply consistent spacing while simultaneously handling the logic for submitting information and data collected by the fields.
+
+As a layout mechanism, a form consistenting of more than one section should use a 32px gap in between sections.
 
 ### Sections
 
-A **section** occupies the largest hierarchy within the form. Sections organize text, fields (inputs, checkboxes, toggles, etc.), and actions into logical groups. There should be a 32px vertical gap between each section.
+A **section** occupies the largest hierarchy within the form. Sections organize text, fields (inputs, checkboxes, toggles, etc.), and actions into logical groups. There should be a 32px vertical gap between each section, enforced the form container.
 
 ![Example of multiple sections in a form](/assets/patterns/form-patterns/form-sections.png =450x*)
 
@@ -20,19 +22,16 @@ A **field** describes a form control and label pairing. When displaying multiple
 
 Fields can be further divided into two types: **text fields** and **data fields**.
 
+<!-- TODO
 #### Text fields
-
-<!-- TODO -->
-
 | Form control | Usage | Examples |
 |--------------|-------|----------|
 | [Text input](/components/form/text-input) | lorem ipsum | Name, email, password, string and numerical data |
 | [Textarea](/components/form/textrea) | Lorem ipsum | Messages, longer-form content |
+-->
 
+<!-- TODO
 #### Data fields
-
-<!-- TODO -->
-
 | Form control | Usage | Examples |
 |--------------|-------|----------|
 | [Checkbox](/components/form/checkbox) | Lorem ipsum | Lorem ipsum |
@@ -40,6 +39,7 @@ Fields can be further divided into two types: **text fields** and **data fields*
 | [Radio Card](/components/form/radio-card) | Lorem ipsum | Lorem ipsum |
 | [Select](/components/form/select) | Lorem ipsum | Lorem ipsum |
 | [Toggle](/components/form/toggle) | Lorem ipsum | Lorem ipsum |
+-->
 
 ### Groups
 
@@ -67,97 +67,150 @@ Common grouping of fields can include:
 - Multi-line address field
 - First and last name
 
-#### Alignment
+## Alignment
 
 Fields organized in a horizontal group should be aligned to the baseline of each element to account for fields with helper text.
 
 ![Baseline alignment within a group](/assets/patterns/form-patterns/baseline-alignment.png =500x*)
 
-#### Multi-column layout
+## Layout
 
-Grouping form elements horizontally creates a multi-column layout within the form. When grouping elements,
+### Single-column
 
-- use a consistent number of columns throughout the form; e.g., don't organize a group of fields in two-columns and another group in three-columns.
-- don't exceed more than three fields in a horizontal group.
-- fields should stack vertically when the width of the viewport and form container shrinks.
+If a form uses a single-column layout, consider setting a maximum width on the form; this can generally be best achieved by using a size or unit that is **relative** the page, viewport, or container size. This can commonly be achieved by using a viewport width unit (`vw`), percentage width (e.g., `50%`), or a character unit (`ch`).
 
-Multi-column layouts can be impacted by the width of the overall form. Use grouping logically based on the layout, width of the page, and overall UX strategy in the application.
+We recommend _most_ forms use a single column layout as it makes the information within the form easier to parse for the user and reinforces the sequential nature of filling out a form.
 
-### Text
+!!! Info
 
-In sections consisting of multiple blocks of text, an 8px vertical gap between text elements should be used.
+The web is a fluid medium. A relative width will adjust based on the viewport and container width. Designing and building a form with a maximum and minimum width will ensure a graceful expansion and contraction within the viewport.
+!!!
+
+### Multi-column
+
+Grouping form elements horizontally creates a multi-column layout within the form.
+
+!!! Do
+
+Use a consistent number of columns through the form.
+
+![Consistent number of columns](/assets/patterns/form-patterns/multi-column-consistent-columns.png =500x*)
+!!!
+
+!!! Dont
+
+Don't organize a group of fields in two columns and another group in three columns.
+
+![Inconsistent number of columns](/assets/patterns/form-patterns/multi-column-inconsistent-columns.png =500x*)
+!!!
+
+!!! Dont
+
+Don't exceed more than three fields in a horizontal group. In most scenarios it's best to limit the number of columns in a form or section to two.
+
+![Three field maximum in a group](/assets/patterns/form-patterns/multi-column-three-fields-max.png =500x*)
+!!!
+
+!!! Do
+
+Stack fields vertically when the width of the viewport and form container shrinks.
+
+![Stack fields](/assets/patterns/form-patterns/multi-column-stacking.png =350x*)
+!!!
+
+The width of the overall form can impact multi-column layouts. Use grouping logically based on the layout, width of the page, and overall UX strategy in the application.
+
+## Text
+
+In sections consisting of multiple blocks of text, use an 8px vertical gap between elements.
 
 ![Example of a text section](/assets/patterns/form-patterns/text-section.png =600x*)
 
-Text elements within a form should use logical, step-based sizing to reinforce hierarchy within sections, as well as within the form itself. While specifics around type hierarchy should be determined at the application level, adhering to these guidelines will help establish consistency both at the page level, and when constrained within another element or component.
+Text elements within a form should use logical, step-based sizing to reinforce hierarchy within sections and the form itself. While specifics around type hierarchy should be determined at the application level, adhering to these guidelines will help establish consistency at the page level and when constrained within another element or component.
 
-<!-- TODO -->
+## Actions
 
-### Actions
+### Button grouping
 
-#### Button grouping
-
-Buttons should be grouped using the [ButtonSet](/components/button-set) guidelines, e.g., using a 16px horizontal gap between each button.
+Group buttons based on the [ButtonSet](/components/button-set) guidelines, e.g., using a 16px horizontal gap between buttons.
 
 ![Action grouping](/assets/patterns/form-patterns/action-group.png =500x*)
 
+<!-- Add this in when the docs are complete and approved
 For more complex groupings of buttons, refer to the [Button alignment, grouping, and order](/patterns/button-alignment) pattern guidelines.
+-->
 
-### Order and organization
+## Order and organization
 
-Fields within a form generally fall into three categories that can help determine order and organization within a form. These categories don't exist in isolation but rather have a cumulative effect on how a user perceives a form and how likely they are to complete it.
+Fields within a form generally fall into three categories that can determine order and organization within a form: **technical and application needs**, **user needs**, and **business needs**. These categories don't exist in isolation but have a cumulative effect on how a user perceives a form and how likely they are to complete it.
 
-#### Technical and application needs
+### Technical and application needs
 
-Sometimes the values or options for a given field are dependent on a prior field or piece of information provided to the application. These technical contraints within the application are often expressed through conditional logic within the form to determine what is displayed to the user depending on what has already been selected or input in previous fields.
+Sometimes the values or options for a given field depend on information or selection from a previous field.
 
-Fields that are dependencies for other fields generally benefit from being organized closer to the start of a the form; e.g., selecting a cluster tier, which reveals options for cluster size that are dependent on the tier.
+Generally, fields that are dependencies for other fields benefit from being organized closer to the start of a form. For example, selecting a cluster tier reveals options for cluster sizes that are only available for the previously selected tier.
 
 ![Dependencies within forms example](/assets/patterns/form-patterns/cluster-tier-size-options.png)
 
 Read more about showing elements conditionally with [progressive disclosure](#progressive-disclosure).
 
-#### User needs
+### User needs
 
-Users benefit from logical grouping and progressive organization; organizing fields from easiest to hardest. This can help increase form completion by:
+Users benefit from logical grouping and progressive organization, organizing fields from easiest to hardest.
 
-- giving the user a sense of accomplishment early on through "quick wins"
-- reducing the probability of a user abandoning a form when they've already completed the "easier" segments.
+This can help increase form completion by:
 
-#### Business needs
+- giving the user a sense of accomplishment early on through “quick wins”
+- reducing the probability of the user abandoning a form when they’ve already completed the “easier” segments.
 
-<!-- TODO -->
+### Business needs
 
-Organizing fields based on their importance (high to low) to successful completion of a form can help minimize abandonment; a crucial aspect to meeting business goals and metrics.
+Organizing fields based on their importance (high to low) to complete the form can help minimize abandonment, a crucial aspect of meeting business goals and metrics.
 
+### Logical grouping
 
-#### Logical grouping
+Organize fields logically; consider how users fill in information based on the context.
 
-Fields should be ordered "logically"; consider how a user will fill in information based on the context they are in.
+For example, when filling out a payment form, organize and group the fields in the same order as they appear on a credit card or payment method: name, card number, expiration date, security code.
 
-- When filling out a payment form: organize and group the fields in the same order as they appear on a credit card or payment method.
-  - Name, card number, expiration date, security code
-<!-- TODO: add more examples -->
-
-#### Visual organization
+### Visual organization
 
 Once a logical organization or grouping has been established,
 
 - categorize elements and fields into sections, 
 - introduce typographic elements to establish hierarchy,
-- and if necessary use dividers to more clearly differentiate sections.
+- and, if necessary, use dividers to differentiate sections clearly.
 
-Each one of these methods will visually help the user to better parse and understand the relationships between each section and fields contained within.
+Each one of these methods will help the user better parse and understand the relationships between each section and the fields contained within.
 
 ## Sizing
 
 ### Length
 
-Determined by the number of fields and supporting elements (text, titles, etc). form length can have a significant impact on whether a user successfully completes a form or abandons the task prior to completion. If a feature or flow relies on a large number of fields, consider breaking up the form using one or more of the following strategies.
+The complexity of the form can significantly impact whether a user successfully completes the form or abandons the task prior to completion. If the form includes a large number of fields, consider breaking it up by using sections and dividers and/or multiple steps or pages. 
 
 #### Multiple sections
 
-Breaking up a form into multiple sections based on the relationship between fields and categories of sections can make a long form seem less complex. Introducing typographic elements and dividers can further aid the hierarchy of the form and differentiate sections from one-another.
+Using sections based on the relationship between fields can make a longer form seem less complex. Introducing typographic elements and dividers can further aid the hierarchy of the form and differentiate sections from one another.
+
+##### Using dividers
+
+Dividers introduce more visual hierarchy and differentiation in longer, complex forms.
+
+Use dividers to break up different types of content and categories within a form. Only use dividers between sections, not between fields.
+
+When using a divider, include a 24px gap above and below to separate the divider from the surrounding form elements; otherwise, it can appear "attached" to a specific section or field.
+
+![Spacing using dividers](/assets/patterns/form-patterns/divider-spacing.png =500x*)
+
+!!! Dont
+
+Don’t use dividers at the end of the last section between the fields and the button set or actions. Instead, use 32px of space. 
+!!!
+
+#### Multiple steps or pages
+
+Consider breaking the form into multiple steps or pages for exceedingly long and complex forms (e.g., creating a cluster). For multi-step forms, use a [Stepper](/components/stepper-indicator) to indicate status and the user’s location within the form.
 
 #### Multiple steps or pages
 
@@ -171,66 +224,44 @@ As a general note, special care should be taken to _reduce_ the number of fields
 - If a field is optional, consider whether it should be included in the form at all. If the information isn't crucial to the experience or feature, why is it being collected at all?
 !!!
 
-#### Using dividers
+### Width
 
-Dividers introduce more visual hierarchy and differentiation in long, complex forms.
+The width of a form and the fields it contains is largely dependent on the context the form is in, but adhering to these high-level guidelines can make a complex form approachable and introduce consistency in the UX.\
 
-Only use dividers between sections of a form, not between fields or other smaller elements within a section. A divider should be used to break up different types of content and categories within a form.
+##### Field width
 
-When using a divider, include a 24px gap above and below to separate the divider from surrounding form elements, otherwise it can appear "attached" to a specific section or field.
+Generally, the width of a field should be wide enough to account for the estimated width of the content it accepts. This gives the user an accurate sense of the character length and type of content the field accepts and is important in setting user expectations.
 
-![Spacing using dividers](/assets/patterns/form-patterns/divider-spacing.png =500x*)
-
-!!! Dont
-
-Dividers should not be used trailing the last section of a form between the fields and the button set or actions. Instead, the section spacing of 32px should be used.
-!!!
-
-## Width
-
-The width of a form and the fields it contains is largely dependent on the context the form is in, but adhering to these high-level guidelines can make a complex form approachable and introduce consistency in the UX.
-
-#### Form width
-
-A form should hug the content and the fields it contains.
-
-![Form width](/assets/patterns/form-patterns/form-width-example.png)
-
-#### Field width
-
-The width of a field within a form should be wide enough to account for the estimated width of the content it accepts. This gives the user an accurate sense of the length and type of the content the field accepts and is important in setting user expectations.
-
-#### Single column layout
-
-If a form uses a single-column layout, consider setting a maximum width on the form; this can generally be best achieved by using a size or unit that is **relative** the page, viewport, or container size. This can commonly be achieved by using a viewport width unit (`vw`), percentage width (e.g., `50%`), or a character unit (`ch`).
-
-!!! Info
-
-The web is a fluid medium; a relative width will adjust based on the viewport and container width. Designing and building a form with a recommended maximum and minimum width will help to conceptualize the graceful expansion and contraction of the viewport
-!!!
-
-<!-- Constrained vs unconstrained -->
-
-### Responsive properties
+#### Responsive properties
 
 As the viewport shrinks, the form width should expand relative to the viewport width, eventually occupying the entire width of the viewport or page. Horizontally grouped fields that result in a multi-column layout should stack vertically as the viewport shrinks.
 
 ## Progressive disclosure
 
-Users want power, but also want simplicity. Progressive disclosure refers only displaying the most important information (or elements of a form) and conditionally showing additional fields depending on:
+Users want power but also simplicity. Progressive disclosure refers to only displaying the most important information (or elements of a form) and conditionally showing additional fields depending on:
 
 1. the input state of other fields
 2. if more complex settings are requested by the user.
 
-## Required vs. optional fields
+## Required optional
 
-Displaying to the user what fields are required or optional can help users submit a form free of errors, but can also add visual weight the form.
+Displaying what fields are required or optional can help users submit a form free of errors, but can also add visual weight the form.
 
 - For shorter forms fields should be interpreted as required by default. Fields that are not required should be marked as optional.
 - Don't mix required and optional labels, stick to one or the other. Using one method will imply that fields without a label are the inverse of whatever method you choose.
 
 When determining whether to mark fields as optional or required, consider which method occurs the least. This can help reduce visual weight since unmarked fields are implied as the inverse of marked fields.
 
-![Comparison of forms using optional vs required](/assets/patterns/form-patterns/required-optional-comparison.png)
+!!! Do
 
-<!-- Validation -->
+Do list the method that occurs the least.
+
+![Do list the method that occurs the least](/assets/patterns/form-patterns/do-required-fields.png =450x*)
+!!!
+
+!!! Dont
+
+Don't list the method that occurs the most.
+
+![Don't list the method that occurs the most](/assets/patterns/form-patterns/dont-optional-fields.png =450x*)
+!!!
