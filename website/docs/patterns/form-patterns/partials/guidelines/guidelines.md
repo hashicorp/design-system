@@ -228,7 +228,7 @@ As a general note, special care should be taken to _reduce_ the number of fields
 
 The width of a form and the fields it contains is largely dependent on the context the form is in, but adhering to these high-level guidelines can make a complex form approachable and introduce consistency in the UX.\
 
-##### Field width
+#### Field width
 
 Generally, the width of a field should be wide enough to account for the estimated width of the content it accepts. This gives the user an accurate sense of the character length and type of content the field accepts and is important in setting user expectations.
 
