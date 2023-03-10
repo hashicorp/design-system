@@ -3,7 +3,7 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | hds/side-nav/index', function (hooks) {
+module('Integration | Component | hds/side-nav/list/index', function (hooks) {
   setupRenderingTest(hooks);
 
   // Basic
@@ -20,13 +20,19 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
 
   // Test Content / Args
 
-  test('it renders passed in content', async function (assert) {
+  test('it renders passed in yielded content', async function (assert) {
     await render(hbs`
       <Hds::SideNav::List as |L|>
-        <L.Link @text="Dashboard" id="test-sidenav-list-content" />
+        <L.Item id="test-sidenav-list-content-item" />
+        <L.BackLink id="test-sidenav-list-content-backlink" />
+        <L.Title id="test-sidenav-list-content-title" />
+        <L.Link id="test-sidenav-list-content-link" />
       </Hds::SideNav::List>
     `);
-    assert.dom('#test-sidenav-list-content').exists();
+    assert.dom('#test-sidenav-list-content-item').exists();
+    assert.dom('#test-sidenav-list-content-backlink').exists();
+    assert.dom('#test-sidenav-list-content-title').exists();
+    assert.dom('#test-sidenav-list-content-link').exists();
   });
 
   // Accessibilty feature

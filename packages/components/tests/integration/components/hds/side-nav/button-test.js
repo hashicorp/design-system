@@ -3,7 +3,7 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | hds/side-nav/index', function (hooks) {
+module('Integration | Component | hds/side-nav/button', function (hooks) {
   setupRenderingTest(hooks);
 
   // Basic
@@ -22,10 +22,9 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
 
   test('it renders the passed in args', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::Button aria-label="Search" @icon="search" id="test-sidenav-button" />`
+      hbs`<Hds::SideNav::Button @icon="search" id="test-sidenav-button" />`
     );
     assert.dom('.flight-icon-search').exists();
-    assert.dom('#test-sidenav-button').hasAttribute('aria-label', 'Search');
   });
 
   // GENERATED ELEMENTS

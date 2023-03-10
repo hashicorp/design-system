@@ -3,7 +3,7 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | hds/side-nav/index', function (hooks) {
+module('Integration | Component | hds/side-nav/list/link', function (hooks) {
   setupRenderingTest(hooks);
 
   // Basic
@@ -41,7 +41,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
 
   test('it renders the passed in custom content', async function (assert) {
     await render(hbs`
-      <Hds::SideNav::List::Link @text="Terraform">
+      <Hds::SideNav::List::Link>
         <span id="test-custom-content" />
       </Hds::SideNav::List::Link>
     `);
@@ -51,13 +51,13 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
   // GENERATED ELEMENTS
 
   test('it should render a <button> if no @href or @route is passed (default)', async function (assert) {
-    await render(hbs`<Hds::SideNav::List::Link @text="Boundary" />`);
+    await render(hbs`<Hds::SideNav::List::Link />`);
     assert.dom('.hds-side-nav__list-item-link').hasTagName('button');
   });
 
   test('it should render a <a> link if @href is passed', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::List::Link @text="Boundary" @href="https://www.hashicorp.com/" />`
+      hbs`<Hds::SideNav::List::Link @href="https://www.hashicorp.com/" />`
     );
     assert
       .dom('.hds-side-nav__list-item-link')
@@ -67,7 +67,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
 
   test('it should render a <a> link if @route is passed', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::List::Link @text="Boundary" @route="utilities.interactive" />`
+      hbs`<Hds::SideNav::List::Link @route="utilities.interactive" />`
     );
     assert
       .dom('.hds-side-nav__list-item-link')

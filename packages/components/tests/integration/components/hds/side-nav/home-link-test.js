@@ -3,7 +3,7 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | hds/side-nav/index', function (hooks) {
+module('Integration | Component | hds/side-nav/home-link', function (hooks) {
   setupRenderingTest(hooks);
 
   // Basic
@@ -34,13 +34,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
 
   test('it renders the logo with a custom passed in color', async function (assert) {
     await render(
-      hbs`
-      <Hds::SideNav::HomeLink
-        @icon="boundary"
-        @color="var(--token-color-boundary-brand)"
-        @href="#"
-      />
-      `
+      hbs`<Hds::SideNav::HomeLink @icon="boundary" @color="var(--token-color-boundary-brand)" @href="#" />`
     );
     assert
       .dom('.flight-icon-boundary')
@@ -51,7 +45,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
 
   test('it should spread all the attributes passed to the component on the element', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::HomeLink id="test-sidenav-homelink" @icon="hashicorp" @href="https://www.hashicorp.com/" class="my-class" data-test1 data-test2="test" />`
+      hbs`<Hds::SideNav::HomeLink @icon="hashicorp" id="test-sidenav-homelink" class="my-class" data-test1 data-test2="test" />`
     );
     assert.dom('#test-sidenav-homelink').hasClass('my-class');
     assert.dom('#test-sidenav-homelink').hasAttribute('data-test1');

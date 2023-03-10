@@ -3,7 +3,7 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | hds/side-nav/index', function (hooks) {
+module('Integration | Component | hds/side-nav/header', function (hooks) {
   setupRenderingTest(hooks);
 
   // Basic
