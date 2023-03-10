@@ -23,7 +23,7 @@ module('Integration | Component | hds/side-nav/icon-button', function (hooks) {
     await render(
       hbs`<Hds::SideNav::IconButton @icon="search" @ariaLabel="Search" />`
     );
-    assert.dom('.hds-side-nav__button').exists();
+    assert.dom('.hds-side-nav__icon-button').exists();
   });
 
   // Test Content / Args

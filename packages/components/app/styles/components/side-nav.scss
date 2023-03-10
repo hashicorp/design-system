@@ -43,8 +43,7 @@
   --token-side-nav-interactive-selected-surface-active: #656a76;
 }
 
-
-@mixin hds-side-nav-button($show-border: false) {
+@mixin hds-side-nav-icon-button($show-border: false) {
   color: var(--token-side-nav-foreground-primary-strong);
   background-color: transparent;
   border-radius: var(--token-side-nav-body-list-item-border-radius);
@@ -130,7 +129,7 @@
 }
 
 .hds-side-nav__home-link {
-  @include hds-side-nav-button();
+  @include hds-side-nav-icon-button();
   display: block;
   width: 100%;
   height: 100%;
@@ -140,20 +139,12 @@
 // Apply class name to Hds::Dropdown component
 .hds-side-nav__dropdown {
   .hds-dropdown-toggle-icon {
-    color: var(--token-side-nav-foreground-primary);
-
-    &:hover {
-      background: var(--token-side-nav-interactive-surface-hover);
-    }
-
-    &:active {
-      background: var(--token-side-nav-interactive-surface-active);
-    }
+    @include hds-side-nav-icon-button($show-border: true);
   }
 }
 
-.hds-side-nav__button {
-  @include hds-side-nav-button($show-border: true);
+.hds-side-nav__icon-button {
+  @include hds-side-nav-icon-button($show-border: true);
   display: flex;
   align-items: center;
   justify-content: center;
