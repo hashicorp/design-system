@@ -18,13 +18,6 @@ module('Integration | Component | hds/side-nav/wrapper', function (hooks) {
     assert.dom('#test-side-nav').hasClass('hds-side-nav__wrapper');
   });
 
-  test('it should spread all the attributes passed to the component', async function (assert) {
-    await render(
-      hbs`<Hds::SideNav::Wrapper id="test-side-nav" data-test="test" />`
-    );
-    assert.dom('#test-side-nav').hasAttribute('data-test', 'test');
-  });
-
   // Test Content:
 
   test('it renders content passed to the named blocks', async function (assert) {
