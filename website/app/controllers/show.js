@@ -8,18 +8,33 @@ import { inject as service } from '@ember/service';
 
 import { showdownConfig } from '../shared/showdown-config';
 
-const getTOCs = (container) => {
+const getAnchoredHeadings = (container) => {
   let headings = [];
-  container.querySelectorAll(`:scope > h2, :scope > h3`).forEach((element) => {
-    // we need to add a class to avoid the element being hidden behind the fixed top header
-    element.classList.add('doc-page-sidecar-scroll-margin-top');
-    // we add it to the list of headings used as TOC in the sidecar
-    headings.push({
-      target: element.id,
-      text: element.innerText,
-      depth: element.tagName.replace(/h/i, ''),
+  container
+    .querySelectorAll(`:scope > h2, :scope > h3, :scope > h4, :scope > h5`)
+    .forEach((element) => {
+      // we add an anchor link to the heading
+      if (
+        element.id &&
+        // notice: we use the class name as a way to detect if the anchor is already been added
+        // reason: `didInsertContent` is run at each tab click (something we probably want to look into in a separate ticket)
+        !element.classList.contains('doc-page-heading-scroll-margin-top')
+      ) {
+        const anchor = document.createElement('a');
+        anchor.href = `#${element.id}`;
+        anchor.className = 'doc-page-heading-link';
+        anchor.setAttribute('aria-label', element.innerText);
+        element.prepend(anchor);
+      }
+      // we need to add a class to avoid the element being hidden behind the fixed top header
+      element.classList.add('doc-page-heading-scroll-margin-top');
+      // we add it to the list of headings (a subset will be used as TOC in the sidecar)
+      headings.push({
+        target: element.id,
+        text: element.innerText,
+        depth: element.tagName.replace(/h/i, ''),
+      });
     });
-  });
   return headings;
 };
 
@@ -119,7 +134,8 @@ export default class ShowController extends Controller {
         tocs.push({
           index,
           id: `toc-${name}`,
-          list: getTOCs(section),
+          // we show only the headings level 2 and 3 in the sidecar
+          list: getAnchoredHeadings(section).filter((item) => item.depth <= 3),
         });
       });
     } else {
@@ -127,7 +143,7 @@ export default class ShowController extends Controller {
       tocs.push({
         index: 0,
         id: 'toc-all',
-        list: getTOCs(container),
+        list: getAnchoredHeadings(container),
       });
     }
 
