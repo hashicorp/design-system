@@ -80,24 +80,22 @@
     transform: translateY(-50%);
     opacity: 0;
     content: "";
+
+    @include breakpoint.small () {
+      left: 0;
+    }
   }
 
   :hover > & {
     &::after {
       opacity: 1;
-
-      @include breakpoint.small () {
-        left: 0;
-      }
     }
   }
 
-  @include breakpoint.medium-and-above () {
-    &:focus-visible {
-      &::after {
-        border: 2px solid var(--doc-color-link-on-white);
-        opacity: 1;
-      }
+  &:focus-visible {
+    &::after {
+      border: 2px solid var(--doc-color-link-on-white);
+      opacity: 1;
     }
   }
 }
