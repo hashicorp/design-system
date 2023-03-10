@@ -44,6 +44,39 @@
 }
 
 
+@mixin hds-side-nav-button($show-border: false) {
+  color: var(--token-side-nav-foreground-primary-strong);
+  background-color: transparent;
+  border-radius: var(--token-side-nav-body-list-item-border-radius);
+  cursor: pointer;
+
+  @if ($show-border) {
+    border: 1px solid var(--token-color-palette-neutral-500);
+  }
+
+  &:focus,
+  &.mock-focus {
+    @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px);
+  }
+
+  &:hover,
+  &.mock-hover {
+    color: var(--token-side-nav-foreground-primary-strong); // to avoid overrides by specificity (eg. `a:hover`)
+    background: var(--token-side-nav-interactive-surface-hover);
+  }
+
+  &:active,
+  &.mock-active {
+    color: var(--token-side-nav-foreground-primary-strong); // to avoid overrides by specificity (eg. `a:hover`)
+    background: var(--token-side-nav-interactive-surface-active);
+
+    @if ($show-border) {
+      border: 1px solid var(--token-color-palette-neutral-400);
+    }
+  }
+}
+
+
 // * SideNav Parent (wrapper) component
 // -------------------------------------------------------------------
 
@@ -94,30 +127,11 @@
 }
 
 .hds-side-nav__home-link {
+  @include hds-side-nav-button();
   display: block;
   width: 100%;
   height: 100%;
   padding: var(--token-side-nav-header-home-link-padding); // by design
-  color: var(--token-side-nav-foreground-primary-strong);
-  border: 1px solid transparent;
-  border-radius: var(--token-side-nav-body-list-item-border-radius);
-
-  &:focus,
-  &.mock-focus {
-    @include hds-focus-ring-with-pseudo-element();
-  }
-
-  &:hover,
-  &.mock-hover {
-    color: var(--token-side-nav-foreground-primary-strong); // to avoid overrides by specificity (eg. `a:hover`)
-    background: var(--token-side-nav-interactive-surface-hover);
-  }
-
-  &:active,
-  &.mock-active {
-    color: var(--token-side-nav-foreground-primary-strong); // to avoid overrides by specificity (eg. `a:hover`)
-    background: var(--token-side-nav-interactive-surface-active);
-  }
 }
 
 // Apply class name to Hds::Dropdown component
@@ -136,32 +150,13 @@
 }
 
 .hds-side-nav__button {
-  @include hds-focus-ring-with-pseudo-element();
-  display: inline-flex;
+  @include hds-side-nav-button($show-border: true);
+  display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 36px;
+  width: 36px;
   height: 36px;
-  min-height: 0;
-  padding: 6px;
-  color: var(--token-side-nav-foreground-primary);
-  background-color: transparent;
-  border: 1px solid transparent;
-  border-radius: var(--token-side-nav-body-list-item-border-radius);
-  cursor: pointer;
-
-  &:hover,
-  &.mock-hover {
-    background: var(--token-side-nav-interactive-surface-hover);
-    border-color: transparent;
-  }
-
-  &:active,
-  &.mock-active {
-    color: var(--token-side-nav-foreground-primary-strong);
-    background: var(--token-side-nav-interactive-surface-active);
-    border-color: transparent;
-  }
+  padding: 5px; // we take in account the transparent border
 }
 
 // * Body child elements
