@@ -11,6 +11,7 @@
   // header, body, footer "wrappers":
   --token-side-nav-wrapper-padding-horizontal: 16px;
   --token-side-nav-wrapper-padding-vertical: 16px;
+  --token-side-nav-wrapper-header-padding-bottom: 8px;
 
   // header content:
   --token-side-nav-header-home-link-padding: 4px;
@@ -91,7 +92,7 @@
 .hds-side-nav__wrapper-header {
   padding-top: var(--token-side-nav-wrapper-padding-vertical);
   padding-right: var(--token-side-nav-wrapper-padding-horizontal);
-  padding-bottom: 8px; // by design
+  padding-bottom: var(--token-side-nav-wrapper-header-padding-bottom); // by design
   padding-left: var(--token-side-nav-wrapper-padding-horizontal);
 }
 
