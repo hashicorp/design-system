@@ -90,7 +90,10 @@
 }
 
 .hds-side-nav__wrapper-header {
-  padding: var(--token-side-nav-wrapper-padding-vertical) var(--token-side-nav-wrapper-padding-horizontal);
+  padding-top: var(--token-side-nav-wrapper-padding-vertical);
+  padding-right: var(--token-side-nav-wrapper-padding-horizontal);
+  padding-bottom: 8px; // by design
+  padding-left: var(--token-side-nav-wrapper-padding-horizontal);
 }
 
 .hds-side-nav__wrapper-body {
@@ -131,7 +134,7 @@
   display: block;
   width: 100%;
   height: 100%;
-  padding: var(--token-side-nav-header-home-link-padding); // by design
+  padding: calc(var(--token-side-nav-header-home-link-padding) - 1px); // by design -  we take in account the transparent border
 }
 
 // Apply class name to Hds::Dropdown component
