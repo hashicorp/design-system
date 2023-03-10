@@ -15,14 +15,14 @@
                 <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
               </:logo>
               <:actions>
-                <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
+                <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
                   <dd.ToggleIcon @icon="help" @text="settings menu" />
                   <dd.Title @text="Signed In" />
                   <dd.Description @text="email@domain.com" />
                   <dd.Separator />
                   <dd.Interactive @href="#" @text="Settings and Preferences" />
                 </Hds::Dropdown>
-                <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
+                <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
                   <dd.ToggleIcon @icon="user" @text="user menu" />
                   <dd.Title @text="Signed In" />
                   <dd.Description @text="email@domain.com" />
@@ -61,7 +61,7 @@
       </div>
     </SF.Item>
 
-    <SF.Item @label="With multiple 'list' (nav) containers & button in header">
+    <SF.Item @label="With multiple 'list' (nav) containers & extra button in header">
       <div class="shw-component-sim-side-nav-root-container">
         <Hds::SideNav::Wrapper>
           <:header>
@@ -70,21 +70,15 @@
                 <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
               </:logo>
               <:actions>
-                <Hds::Button
-                  @text="Search"
-                  @icon="search"
-                  @isIconOnly={{true}}
-                  @size="large"
-                  class="hds-side-nav__button"
-                />
-                <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
+                <Hds::SideNav::Button aria-label="Search" @icon="search" />
+                <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
                   <dd.ToggleIcon @icon="help" @text="settings menu" />
                   <dd.Title @text="Signed In" />
                   <dd.Description @text="email@domain.com" />
                   <dd.Separator />
                   <dd.Interactive @href="#" @text="Settings and Preferences" />
                 </Hds::Dropdown>
-                <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
+                <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
                   <dd.ToggleIcon @icon="user" @text="user menu" />
                   <dd.Title @text="Signed In" />
                   <dd.Description @text="email@domain.com" />
@@ -214,14 +208,14 @@
             <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
           </:logo>
           <:actions>
-            <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
+            <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
               <dd.ToggleIcon @icon="help" @text="settings menu" />
               <dd.Title @text="Signed In" />
               <dd.Description @text="email@domain.com" />
               <dd.Separator />
               <dd.Interactive @href="#" @text="Settings and Preferences" />
             </Hds::Dropdown>
-            <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
+            <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
               <dd.ToggleIcon @icon="user" @text="user menu" />
               <dd.Title @text="Signed In" />
               <dd.Description @text="email@domain.com" />
@@ -232,13 +226,11 @@
       </div>
     </SF.Item>
   </Shw::Flex>
-
 </section>
 
 <Shw::Divider />
 
 <section data-test-percy>
-
   <Shw::Text::H2>SideNav::HomeLink</Shw::Text::H2>
 
   <Shw::Text::H3>Content</Shw::Text::H3>
@@ -285,6 +277,25 @@
               @href="#"
               mock-state-value={{state}}
             />
+          </div>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Flex>
+</section>
+
+<Shw::Divider />
+
+<section data-test-percy>
+  <Shw::Text::H2>SideNav::Button</Shw::Text::H2>
+
+  <Shw::Text::H3>States</Shw::Text::H3>
+  <Shw::Flex as |SF|>
+    {{#let (array "default" "hover" "active" "focus") as |states|}}
+      {{#each states as |state|}}
+        <SF.Item @label={{state}}>
+          <div class="shw-component-sim-side-nav-elem-wrapper">
+            <Hds::SideNav::Button aria-label="Search" @icon="search" mock-state-value={{state}} />
           </div>
         </SF.Item>
       {{/each}}
@@ -542,7 +553,7 @@
     {{/let}}
   </Shw::Grid>
 
-  <Shw::Grid  @label="with @isActive=true (link is 'current')" @columns={{4}} as |SG|>
+  <Shw::Grid @label="with @isActive=true (link is 'current')" @columns={{4}} as |SG|>
     {{#let (array "default" "hover" "active" "focus") as |states|}}
       {{#each states as |state|}}
         <SG.Item>

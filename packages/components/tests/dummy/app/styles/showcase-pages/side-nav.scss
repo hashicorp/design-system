@@ -41,4 +41,10 @@ body.components-side-nav {
     padding: var(--token-side-nav-wrapper-padding-horizontal) var(--token-side-nav-wrapper-padding-vertical);
     background: $shw-component-side-nav-background;
   }
+
+  .shw-component-sim-side-nav-elem-wrapper {
+    width: fit-content;
+    padding: var(--token-side-nav-wrapper-padding-horizontal) var(--token-side-nav-wrapper-padding-vertical);
+    background: $shw-component-side-nav-background;
+  }
 }

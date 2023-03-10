@@ -1,0 +1,14 @@
+<Hds::Interactive
+  class="hds-side-nav__button"
+  @current-when={{@current-when}}
+  @models={{hds-link-to-models @model @models}}
+  @query={{hds-link-to-query @query}}
+  @replace={{@replace}}
+  @route={{@route}}
+  @isRouteExternal={{@isRouteExternal}}
+  @href={{@href}}
+  @isHrefExternal={{@isHrefExternal}}
+  ...attributes
+>
+  <FlightIcon @name={{@icon}} @color={{@color}} @stretched={{true}} />
+</Hds::Interactive>

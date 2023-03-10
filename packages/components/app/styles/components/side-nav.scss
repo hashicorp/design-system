@@ -135,35 +135,32 @@
   }
 }
 
-// Apply class name to Hds::Button component
 .hds-side-nav__button {
+  @include hds-focus-ring-with-pseudo-element();
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-width: 36px;
   height: 36px;
   min-height: 0;
-  padding: 1px;
+  padding: 6px;
   color: var(--token-side-nav-foreground-primary);
   background-color: transparent;
-  border-color: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--token-side-nav-body-list-item-border-radius);
+  cursor: pointer;
 
-  &:hover {
+  &:hover,
+  &.mock-hover {
     background: var(--token-side-nav-interactive-surface-hover);
     border-color: transparent;
   }
 
-  &:active {
+  &:active,
+  &.mock-active {
+    color: var(--token-side-nav-foreground-primary-strong);
     background: var(--token-side-nav-interactive-surface-active);
     border-color: transparent;
-  }
-
-  &:focus {
-    background: transparent;
-
-    &::before {
-      top: -4px;
-      right: -4px;
-      bottom: -4px;
-      left: -4px;
-    }
   }
 }
 

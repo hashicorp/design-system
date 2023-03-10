@@ -9,50 +9,50 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
   // Basic
 
   test('it renders the component', async function (assert) {
-    await render(hbs`<Hds::SideNav::List::BackLink />`);
+    await render(hbs`<Hds::SideNav::Button @icon="search" />`);
     assert.dom(this.element).exists();
   });
 
   test('it should render with a CSS class that matches the component name', async function (assert) {
-    await render(hbs`<Hds::SideNav::List::BackLink />`);
-    assert.dom('.hds-side-nav__list-item-link--back-link').exists();
+    await render(hbs`<Hds::SideNav::Button @icon="search" />`);
+    assert.dom('.hds-side-nav__button').exists();
   });
 
   // Test Content / Args
 
   test('it renders the passed in args', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::List::BackLink @text="Back to parent page" @href="#" />`
+      hbs`<Hds::SideNav::Button aria-label="Search" @icon="search" id="test-sidenav-button" />`
     );
-    assert.dom('.flight-icon-chevron-left').exists();
-    assert.dom('.hds-side-nav__list-item-text').hasText('Back to parent page');
+    assert.dom('.flight-icon-search').exists();
+    assert.dom('#test-sidenav-button').hasAttribute('aria-label', 'Search');
   });
 
   // GENERATED ELEMENTS
 
   test('it should render a <button> if no @href or @route is passed (default)', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::List::BackLink @text="Back to parent page" />`
+      hbs`<Hds::SideNav::Button @icon="search" id="test-sidenav-button" />`
     );
-    assert.dom('.hds-side-nav__list-item-link--back-link').hasTagName('button');
+    assert.dom('#test-sidenav-button').hasTagName('button');
   });
 
   test('it should render a <a> link if @href is passed', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::List::BackLink @text="Back to parent page" @href="https://www.hashicorp.com/" />`
+      hbs`<Hds::SideNav::Button @icon="search" @href="https://www.hashicorp.com/" id="test-sidenav-button" />`
     );
     assert
-      .dom('.hds-side-nav__list-item-link--back-link')
+      .dom('#test-sidenav-button')
       .hasTagName('a')
       .hasAttribute('href', 'https://www.hashicorp.com/');
   });
 
   test('it should render a <a> link if @route is passed', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::List::BackLink @text="Back to parent page" @route="utilities.interactive" />`
+      hbs`<Hds::SideNav::Button @icon="search" @route="utilities.interactive" id="test-sidenav-button" />`
     );
     assert
-      .dom('.hds-side-nav__list-item-link--back-link')
+      .dom('#test-sidenav-button')
       .hasTagName('a')
       .hasAttribute('href', '/utilities/interactive');
   });
@@ -61,10 +61,10 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
 
   test('it should spread all the attributes passed to the component on the element', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::List::BackLink id="test-sidenav-backlink" @text="Back to parent page" @href="https://www.hashicorp.com/" class="my-class" data-test1 data-test2="test" />`
+      hbs`<Hds::SideNav::Button @icon="search" id="test-sidenav-button" class="my-class" data-test1 data-test2="test" />`
     );
-    assert.dom('#test-sidenav-backlink').hasClass('my-class');
-    assert.dom('#test-sidenav-backlink').hasAttribute('data-test1');
-    assert.dom('#test-sidenav-backlink').hasAttribute('data-test2', 'test');
+    assert.dom('#test-sidenav-button').hasClass('my-class');
+    assert.dom('#test-sidenav-button').hasAttribute('data-test1');
+    assert.dom('#test-sidenav-button').hasAttribute('data-test2', 'test');
   });
 });
