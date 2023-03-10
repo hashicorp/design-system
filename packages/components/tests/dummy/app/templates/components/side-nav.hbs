@@ -70,7 +70,7 @@
                 <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
               </:logo>
               <:actions>
-                <Hds::SideNav::Button aria-label="Search" @icon="search" />
+                <Hds::SideNav::IconButton @icon="search" @ariaLabel="Search" />
                 <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
                   <dd.ToggleIcon @icon="help" @text="settings menu" />
                   <dd.Title @text="Signed In" />
@@ -287,7 +287,7 @@
 <Shw::Divider />
 
 <section data-test-percy>
-  <Shw::Text::H2>SideNav::Button</Shw::Text::H2>
+  <Shw::Text::H2>SideNav::IconButton</Shw::Text::H2>
 
   <Shw::Text::H3>States</Shw::Text::H3>
   <Shw::Flex as |SF|>
@@ -295,7 +295,7 @@
       {{#each states as |state|}}
         <SF.Item @label={{state}}>
           <div class="shw-component-sim-side-nav-elem-wrapper">
-            <Hds::SideNav::Button aria-label="Search" @icon="search" mock-state-value={{state}} />
+            <Hds::SideNav::IconButton @icon="search" @ariaLabel="Search" mock-state-value={{state}} />
           </div>
         </SF.Item>
       {{/each}}
