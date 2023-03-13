@@ -315,7 +315,7 @@ To create a column that has right-aligned content, set `@align` to `right` on bo
   @columns={{array
     (hash key="artist" label="Artist" isSortable=true)
     (hash key="album" label="Album" isSortable=true)
-    (hash key="year" label="Release Year" align=right)
+    (hash key="year" label="Release Year" align="right")
   }}
 >
   <:body as |B|>
