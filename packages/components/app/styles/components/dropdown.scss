@@ -24,8 +24,8 @@ $hds-dropdown-toggle-border-radius: 5px;
   min-width: $hds-dropdown-toggle-base-height;
   height: $hds-dropdown-toggle-base-height;
   padding: 1px;
-  background-color: transparent;
-  border: 1px solid transparent; // We need this to be transparent for a11y
+  background-color: var(--token-color-surface-faint);
+  border: 1px solid var(--token-color-border-strong);
   border-radius: $hds-dropdown-toggle-border-radius;
   outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
   outline-color: transparent; // We need this to be transparent for a11y
@@ -33,7 +33,6 @@ $hds-dropdown-toggle-border-radius: 5px;
   &:hover,
   &.mock-hover {
     background-color: var(--token-color-surface-interactive);
-    border-color: var(--token-color-border-strong);
     cursor: pointer;
   }
 
