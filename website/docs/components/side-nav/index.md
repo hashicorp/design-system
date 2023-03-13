@@ -1,11 +1,11 @@
 ---
-title: Side Navigation
+title: Side Nav
 description: Used as the primary navigation of an application.
 caption: A side navigation menu that provides access to the main pages of the product.
 status: released
 links:
-  figma: {link to the "SideNavigation" page in the components Figma library}
-  github: {link to the "SideNavigation" component's folder in the GitHub repo}
+  figma: {link to the "SideNav" page in the components Figma library}
+  github: {link to the "SideNav" component's folder in the GitHub repo}
 previewImage: assets/illustrations/components/side-navigation.jpg
 navigation:
   hidden: true
