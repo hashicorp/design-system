@@ -1,6 +1,6 @@
 ---
-title: Button alignment
-description: Guidelines for aligning, ordering, and grouping action buttons.
+title: Button organization
+description: Guidelines for aligning, ordering, and grouping buttons.
 navigation:
   hidden: false
 ---

@@ -39,7 +39,7 @@ The three most common reading patterns are:
 
 The Gutenberg diagram refers to a pattern the eyes follow when moving or scanning through **evenly distributed, homogenous content.** This pattern is most relevant in text-heavy scenarios like novels and newspapers, but is relevant in a UX context depending on the complexity of the content.
 
-![Visual example of a Gutenberg diagram](/assets/patterns/button-alignment/gutenberg-diagram.png)
+![Visual example of a Gutenberg diagram](/assets/patterns/button-organization/gutenberg-diagram.png)
 
 #### Characteristics
 
@@ -57,7 +57,7 @@ A Z-shaped pattern refers to a pattern that follows the shape of the letter Z:
 2. Upon reaching the end (or terminal) of the line, the eyes move diagonally to the next line
 3. The reader’s eyes end at the bottom right of the content
 
-![Visual example of a Z-shaped pattern](/assets/patterns/button-alignment/z-shaped-pattern.png)
+![Visual example of a Z-shaped pattern](/assets/patterns/button-organization/z-shaped-pattern.png)
 
 #### Characteristics
 
@@ -69,7 +69,7 @@ A Z-shaped pattern refers to a pattern that follows the shape of the letter Z:
 
 An F-shaped pattern loosely follows the shape of the letter F, first identified through eye-tracking and heatmap studies by the [Nielsen/Norman Group](https://www.nngroup.com/articles/f-shaped-pattern-reading-web-content-discovered/).
 
-![An example of eye tracking and heat maps from the NN/group](/assets/patterns/button-alignment/f-shaped-pattern-nn-group.jpeg)
+![An example of eye tracking and heat maps from the NN/group](/assets/patterns/button-organization/f-shaped-pattern-nn-group.jpeg)
 
 #### Characteristics
 
