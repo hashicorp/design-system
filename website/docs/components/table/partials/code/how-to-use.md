@@ -115,7 +115,7 @@ Add `isSortable=true` to the hash for each column that should be sortable.
 
 To indicate that a specific column should be pre-sorted, add `@sortBy`, where the value is the column's key.
 
-```handlebars{data-execute=false}
+```handlebars
 <Hds::Table
   @model={{this.model.data}}
   @columns={{array
@@ -123,7 +123,7 @@ To indicate that a specific column should be pre-sorted, add `@sortBy`, where th
     (hash key="album" label="Album" isSortable=true)
     (hash key="year" label="Release Year")
   }}
-  @sortBy='artist'
+  @sortBy="artist"
 >
   <:body as |B|>
     <B.Tr>
@@ -139,7 +139,7 @@ To indicate that a specific column should be pre-sorted, add `@sortBy`, where th
 
 By default, the sort order is set to ascending. To indicate that the column defined in `@sortBy` should be pre-sorted in descending order, pass in `@sortOrder='desc'`.
 
-```handlebars{data-execute=false}
+```handlebars
 <Hds::Table
   @model={{this.model.data}}
   @columns={{array
@@ -147,8 +147,8 @@ By default, the sort order is set to ascending. To indicate that the column defi
     (hash key="album" label="Album" isSortable=true)
     (hash key="year" label="Release Year")
   }}
-  @sortBy='artist'
-  @sortOrder='desc'
+  @sortBy="artist"
+  @sortOrder="desc"
 >
   <:body as |B|>
     <B.Tr>
