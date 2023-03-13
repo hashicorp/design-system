@@ -247,7 +247,7 @@ To create a condensed or spacious table, add `@density` to the table's invocatio
 
 ### Alignment
 
-#### Vertical Alignment
+#### Vertical alignment
 
 To indicate that the table's content should have a middle vertical-align, use `@valign` in the table's invocation.
 
@@ -279,7 +279,7 @@ If you have more than just text content in the table cell, you'll want to wrap t
 </Hds::Table>
 ```
 
-#### Vertical Alignment with additional cell content
+#### Vertical alignment with additional cell content
 
 ```handlebars{data-execute=false}
 <Hds::Table
@@ -305,9 +305,9 @@ If you have more than just text content in the table cell, you'll want to wrap t
 </Hds::Table>
 ```
 
-#### Text Alignment
+#### Horizontal alignment
 
-To create a column that has right-aligned content, set `@align` to `right` on both the column's header and cell.
+To create a column that has right-aligned content, set `@align` to `right` on both the column's header and cell (the cell's horizontal content alignment should be the same as the column's horizontal content alignment).
 
 ```handlebars{data-execute=false}
 <Hds::Table
