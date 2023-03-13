@@ -5,5 +5,5 @@
 
 <!-- This below is just an example of invocation, to get started -->
 ```handlebars
-<!-- <Hds::SideNavigation>This is the Hds::SideNavigation component </Hds::SideNavigation> -->
+ADD DEMO HERE
 ```
