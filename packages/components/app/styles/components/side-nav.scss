@@ -38,11 +38,6 @@
   // base:
   --token-side-nav-interactive-surface-hover: #3b3d45;
   --token-side-nav-interactive-surface-active: #656a76;
-
-  // Active / current:
-  --token-side-nav-interactive-active-surface-default: #656a76;
-  --token-side-nav-interactive-active-surface-hover: #3b3d45;
-  --token-side-nav-interactive-active-surface-active: #656a76;
 }
 
 @mixin hds-side-nav-icon-button($show-border: false) {
