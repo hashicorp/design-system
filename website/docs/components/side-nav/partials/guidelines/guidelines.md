@@ -24,7 +24,7 @@ For cloud products, the icon set should always be the HCP service icon. For stan
 
 The body consists of a group of sections with vertical lists of links or buttons.
 
-### Section
+### List
 
 #### With title
 
@@ -38,7 +38,7 @@ A title could help users scan the sections and provide context about the links i
 
 Titles should be meaningful and related to the content within the section.
 
-## List items
+### List items
 
 TBD...
 
