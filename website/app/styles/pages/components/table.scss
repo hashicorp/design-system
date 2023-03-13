@@ -1,0 +1,15 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// COMPONENTS > TABLE
+
+.table-demo-flexbox {
+  display: flex;
+  align-items: center;
+
+  svg {
+    margin-right: 5px;
+  }
+}

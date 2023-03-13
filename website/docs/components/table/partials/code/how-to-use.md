@@ -288,7 +288,7 @@ If you have more than just text content in the table cell, you'll want to wrap t
 
 !!!
 
-```handlebars{data-execute=false}
+```handlebars
 <Hds::Table
   @model={{this.model.data}}
   @columns={{array
@@ -301,7 +301,7 @@ If you have more than just text content in the table cell, you'll want to wrap t
   <:body as |B|>
     <B.Tr>
       <B.Td>
-        <div class="my-flexbox">
+        <div class="table-demo-flexbox">
           <FlightIcon @name="headphones" /> {{B.data.artist}}
         </div>
       </B.Td>
