@@ -1,0 +1,15 @@
+<div class="hds-application-state__header">
+  {{#if @iconName}}
+    <div class="hds-application-state__header__icon">
+      <FlightIcon @name={{@iconName}} @size={{@iconSize}} @stretched={{true}} />
+    </div>
+  {{/if}}
+  <div class="hds-application-state__header__title hds-typography-display-400">
+    {{@titleText}}
+  </div>
+  {{#if @errorCode}}
+    <div class="hds-application-state__header__errorCode">
+      Error {{@errorCode}}
+    </div>
+  {{/if}}
+</div>
