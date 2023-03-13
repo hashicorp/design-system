@@ -52,6 +52,7 @@ Router.map(function () {
     this.route('tag');
     this.route('toast');
     this.route('tabs');
+    this.route('application-state');
   });
   this.route('utilities', function () {
     this.route('disclosure');

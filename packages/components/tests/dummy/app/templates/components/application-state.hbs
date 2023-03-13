@@ -1,0 +1,31 @@
+{{page-title "Application State Component"}}
+
+<Shw::Text::H1>Application State</Shw::Text::H1>
+
+<section data-test-percy>
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="Default">
+      <Hds::ApplicationState as |A|>
+        <A.Header @iconName="alert-circle" @titleText="An Error Has Occurred" @errorCode="404" />
+        <A.Body @bodyText="A string of body text explaining the error" />
+        <A.Footer @iconName="arrow-left" @footerText="Go back" @href="/" />
+      </Hds::ApplicationState>  
+    </SF.Item>
+    <SF.Item @label="Title Only">
+      <Hds::ApplicationState as |A|>
+        <A.Header @titleText="An Error Has Occurred" />
+        <A.Body @bodyText="A string of body text explaining the error" />
+        <A.Footer @iconName="arrow-left" @footerText="Go back" @href="/" />
+      </Hds::ApplicationState>  
+    </SF.Item>
+    <SF.Item @label="Block Yield for Body">
+      <Hds::ApplicationState as |A|>
+        <A.Header @iconName="alert-circle" @titleText="An Error Has Occurred" @errorCode="404" />
+        <A.Body>
+          <Shw::Placeholder @text="components and other things" @height="150px" @background="#e1f5fe" />
+        </A.Body>
+        <A.Footer @iconName="arrow-left" @footerText="Go back" @href="/" />
+      </Hds::ApplicationState>  
+    </SF.Item>
+  </Shw::Flex>
+</section>
