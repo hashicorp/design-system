@@ -1,0 +1,52 @@
+{{page-title "Application State Component"}}
+
+<Shw::Text::H1>Application State</Shw::Text::H1>
+
+<section data-test-percy>
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="Error state">
+      <Hds::ApplicationState @errorCode="404" as |A|>
+        <A.Header @iconName="alert-circle" @titleText="An error has occurred" />
+        <A.Body
+          @bodyText="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+        />
+        <A.Footer @iconName="arrow-left" @footerText="Go back" @href="/" @helpHref="/components/alert" />
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="Error state, block yield body contents">
+      <Hds::ApplicationState @errorCode="404" as |A|>
+        <A.Header @iconName="alert-circle" @titleText="An error has occurred" />
+        <A.Body>
+          <Shw::Placeholder @text="components and other things" @height="150px" @background="#e1f5fe" />
+        </A.Body>
+        <A.Footer @iconName="arrow-left" @footerText="Go back" @href="/" @helpHref="/components/alert" />
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="Empty state with link">
+      <Hds::ApplicationState as |A|>
+        <A.Header @titleText="Empty state title text" />
+        <A.Body
+          @bodyText="Sorry, we couldn't find any results matching your search criteria. Please try again with different search terms or refine your filters."
+        />
+        <A.Footer @iconName="search" @footerText="Try a new search" @href="/" />
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="Empty state w/o link">
+      <Hds::ApplicationState as |A|>
+        <A.Header @titleText="Empty state title" />
+        <A.Body
+          @bodyText="Sorry, we couldn't find any results matching your search criteria. Please try again with different search terms or refine your filters."
+        />
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="Empty state, block yield body contents">
+      <Hds::ApplicationState as |A|>
+        <A.Header @titleText="Empty state title text" />
+        <A.Body>
+          <Shw::Placeholder @text="components and other things" @height="150px" @background="#e1f5fe" />
+        </A.Body>
+        <A.Footer @iconName="arrow-left" @footerText="Go back" @href="/" />
+      </Hds::ApplicationState>
+    </SF.Item>
+  </Shw::Flex>
+</section>
