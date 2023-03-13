@@ -118,7 +118,6 @@ export default class ShowController extends Controller {
         const id = section.id;
         const name = section.getAttribute('data-tab');
         section.setAttribute('role', 'tabpanel');
-        section.setAttribute('tabindex', '0');
         section.setAttribute('aria-labelledby', `tab-${id}`);
         section.setAttribute('hidden', true);
         sections.push(section);
