@@ -32,17 +32,17 @@
   --token-side-nav-foreground-primary: #dedfe3;
   --token-side-nav-foreground-primary-strong: #fff;
   --token-side-nav-foreground-faint: #8c909c;
-  --token-side-nav-surface: #0c0c0e;
+  --token-side-nav-surface-primary: #0c0c0e;
 
   // Interactive elements:
   // base:
   --token-side-nav-interactive-surface-hover: #3b3d45;
   --token-side-nav-interactive-surface-active: #656a76;
 
-  // selected / current:
-  --token-side-nav-interactive-selected-surface-default: #656a76;
-  --token-side-nav-interactive-selected-surface-hover: #3b3d45;
-  --token-side-nav-interactive-selected-surface-active: #656a76;
+  // Active / current:
+  --token-side-nav-interactive-active-surface-default: #656a76;
+  --token-side-nav-interactive-active-surface-hover: #3b3d45;
+  --token-side-nav-interactive-active-surface-active: #656a76;
 }
 
 @mixin hds-side-nav-icon-button($show-border: false) {
