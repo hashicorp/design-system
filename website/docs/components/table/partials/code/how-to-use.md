@@ -278,6 +278,28 @@ If you have more than just text content in the table cell, you'll want to wrap t
 </Hds::Table>
 ```
 
+#### Vertical Alignment with additional cell content
+
+```handlebars{data-execute=false}
+<Hds::Table
+  @model={{this.model.data}}
+  @columns={{array
+    (hash key="artist" label="Artist" isSortable=true)
+    (hash key="album" label="Album" isSortable=true)
+    (hash key="year" label="Release Year")
+  }}
+  @valign="middle"
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td><div class="my-flexbox"><FlightIcon @name="headphones" /> {{B.data.artist}}</div></B.Td>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td>{{B.data.year}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::Table>
+```
+
 #### Text Alignment
 
 To create a column that has right-aligned content, set `@align` to `right` on both the column's header and cell.
