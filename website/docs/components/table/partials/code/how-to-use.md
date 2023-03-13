@@ -2,7 +2,7 @@
 
 ### Table with no model defined
 
-```handlebars{data-execute=false}
+```handlebars
 <Hds::Table @caption="your custom, meaningful caption goes here">
   <:head as |H|>
     <H.Tr>
@@ -92,7 +92,7 @@ This component takes advantage of the `sort-by` helper provided by [ember-compos
 
 Add `isSortable=true` to the hash for each column that should be sortable.
 
-```handlebars{data-execute=false}
+```handlebars
 <Hds::Table
   @model={{this.model.data}}
   @columns={{array
@@ -232,7 +232,7 @@ customOnSort(_sortBy, sortOrder) {
 
 To create a condensed or spacious table, add `@density` to the table's invocation. Note that it only affects the table body, not the table header.
 
-```handlebars{data-execute=false}
+```handlebars
 <Hds::Table
   @model={{this.model.data}}
   @columns={{array
@@ -258,7 +258,7 @@ To create a condensed or spacious table, add `@density` to the table's invocatio
 
 To indicate that the table's content should have a middle vertical-align, use `@valign` in the table's invocation.
 
-```handlebars{data-execute=false}
+```handlebars
 <Hds::Table
   @model={{this.model.data}}
   @columns={{array
@@ -316,7 +316,7 @@ If you have more than just text content in the table cell, you'll want to wrap t
 
 To create a column that has right-aligned content, set `@align` to `right` on both the column's header and cell (the cell's horizontal content alignment should be the same as the column's horizontal content alignment).
 
-```handlebars{data-execute=false}
+```handlebars
 <Hds::Table
   @model={{this.model.data}}
   @columns={{array
