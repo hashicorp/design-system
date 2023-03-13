@@ -292,7 +292,11 @@ If you have more than just text content in the table cell, you'll want to wrap t
 >
   <:body as |B|>
     <B.Tr>
-      <B.Td><div class="my-flexbox"><FlightIcon @name="headphones" /> {{B.data.artist}}</div></B.Td>
+      <B.Td>
+        <div class="my-flexbox">
+          <FlightIcon @name="headphones" /> {{B.data.artist}}
+        </div>
+      </B.Td>
       <B.Td>{{B.data.album}}</B.Td>
       <B.Td>{{B.data.year}}</B.Td>
     </B.Tr>
