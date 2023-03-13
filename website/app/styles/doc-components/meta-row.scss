@@ -45,3 +45,9 @@
     -webkit-box-orient: vertical;
   }
 }
+
+.doc-meta-row__values-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}

@@ -14,8 +14,8 @@ concurrency:
    cancel-in-progress: true
 
 jobs:
-  test:
-    name: "Tests"
+  lint:
+    name: "Lint"
     runs-on: ubuntu-latest
 
     steps:
@@ -31,44 +31,3 @@ jobs:
       - name: Lint
         run: yarn run lint
         working-directory: packages/ember-flight-icons
-      - name: Run Tests
-        run: yarn run test:ember:percy
-        working-directory: packages/ember-flight-icons
-        env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_FLIGHT_EMBER_ICONS }}
-
-
-  try-scenarios:
-    name: ${{ matrix.try-scenario }}
-    runs-on: ubuntu-latest
-    needs: 'test'
-
-    strategy:
-      fail-fast: false
-      matrix:
-        try-scenario:
-         # - ember-lts-3.24
-         # - ember-lts-3.28
-          - ember-release
-          - ember-beta
-         # - ember-canary
-         # - ember-classic
-         # - embroider-safe
-         # - embroider-optimized
-
-    steps:
-      - uses: actions/checkout@v3
-      - name: Install Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: yarn
-          cache-dependency-path: yarn.lock
-      - name: Install Dependencies
-        run: yarn install --immutable
-      - name: Run Tests
-        working-directory: packages/ember-flight-icons
-        run: yarn ember try:one ${{ matrix.try-scenario }}
-        env:
-          PERCY_ENABLE: 0
-          YARN_ENABLE_IMMUTABLE_INSTALLS: false

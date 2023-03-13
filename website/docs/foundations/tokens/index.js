@@ -12,6 +12,14 @@ import TOKENS_RAW from '@hashicorp/design-system-tokens/dist/docs/products/token
 
 const DEBOUNCE_MS = 250;
 
+// get all the aliases of a given token
+const getAliases = (token, TOKENS_RAW) => {
+  const path = token.path.join('.');
+  return TOKENS_RAW.filter(
+    (item) => item.original.value === `{${path}.value}`
+  ).map((alias) => `{${alias.path.join('.')}}`);
+};
+
 export default class Index extends Component {
   @service router;
 
@@ -22,10 +30,16 @@ export default class Index extends Component {
   constructor() {
     super(...arguments);
     this.groupedTokens = {};
+    // prepare the tokens grouped by category
     TOKENS_RAW.forEach((token) => {
       const category = token.attributes.category;
       if (!this.groupedTokens[category]) {
         this.groupedTokens[category] = [];
+      }
+      // add an extra "aliases" attribute if other tokens are alias of it
+      const aliases = getAliases(token, TOKENS_RAW);
+      if (aliases.length > 0) {
+        token.aliases = aliases;
       }
       this.groupedTokens[category].push(token);
     });

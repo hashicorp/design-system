@@ -9,3 +9,7 @@ updates:
       interval: "weekly"
     allow: 
       - dependency-name: "@percy/*"
+    ignore:
+      # For Percy, ignore all patch updates
+      - dependency-name: "@percy/*"
+        update-types: ["version-update:semver-patch"]
