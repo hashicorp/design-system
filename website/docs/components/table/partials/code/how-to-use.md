@@ -213,7 +213,8 @@ get customSortingMethodForStatus() {
   };
 }
 
-// we define a callback function that listens to the `onSort` event in the table, and updates the tracked sort order values accordingly
+// we define a callback function that listens to the `onSort` event in the table,
+// and updates the tracked sort order values accordingly
 @action
 customOnSort(_sortBy, sortOrder) {
   this.customSortOrderForStatus = sortOrder;
