@@ -192,17 +192,17 @@ The size of the icon is determined by the size of the asset imported (each icon 
 
 ### Aligning icons
 
-By default, the `FlighIcon` component has a `inline-block` display value (this can be changed using the `@isInlineBlock` argument). This means that the icon behaves like an inline element, and that if you want to vertically align it in relation to other sibling elements, you have to use CSS to achieve the expected result.
+By default, the `FlightIcon` component has an `inline-block` display value (this can be changed using the `@isInlineBlock` argument). This means that the icon behaves like an inline element, and that if you want to vertically align it in relation to other sibling elements, you have to use CSS to achieve the expected result.
 
 For example, to visually center an icon with a generic text node, you will need to use a parent `flex` container with `align-items: center`.
 
 !!! Warning
 
-**Notice**
+**Note**
 
-Just setting `vertical-align: middle` in the parent container doesn't necessarily achieve a vertical alignment.
+Just setting `vertical-align: middle` in the parent container doesn’t necessarily achieve a vertical alignment.
 
-This is because, despite what one may think, the [`middle` alignment](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align#middle) is not calculated in relation to the whole text "block" but to its “x-height”. If you want to know more, you can read [this in-depth explanation](https://www.impressivewebs.com/css-vertical-align/) of how vertical align works in CSS.
+This is because, despite what one may think, the [`middle` alignment](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align#middle) is not calculated in relation to the whole text ”block” but to its “x-height”. If you want to know more, you can read [this in-depth explanation](https://www.impressivewebs.com/css-vertical-align/) of how vertical align works in CSS.
 !!!
 
 
