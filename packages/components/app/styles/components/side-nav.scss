@@ -117,6 +117,7 @@
 
 .hds-side-nav-header__logo {
   display: block;
+  flex: none;
   align-items: center;
   justify-content: center;
   width: var(--token-side-nav-header-home-link-logo-size);
