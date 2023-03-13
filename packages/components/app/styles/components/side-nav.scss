@@ -82,7 +82,7 @@
   width: 100%;
   height: 100%;
   color: var(--token-side-nav-foreground-primary); // Default color
-  background: var(--token-side-nav-surface);
+  background: var(--token-side-nav-surface-primary);
 }
 
 .hds-side-nav__wrapper-header {
@@ -189,7 +189,7 @@
   padding: var(--token-side-nav-body-list-item-padding-vertical) var(--token-side-nav-body-list-item-padding-horizontal);
   color: var(--token-side-nav-foreground-primary);
   text-decoration: none;
-  background: var(--token-side-nav-surface);
+  background: var(--token-side-nav-surface-primary);
   // "Link" could render as an HTML button element so this overrides the default border style in that case:
   border-color: transparent;
   border-radius: var(--token-side-nav-body-list-item-border-radius);
@@ -242,7 +242,7 @@
 .hds-side-nav__list-item-link--back-link {
   &:active,
   &.mock-active {
-    background: var(--token-side-nav-surface);
+    background: var(--token-side-nav-surface-primary);
 
     .hds-side-nav__list-item-text,
     .hds-side-nav__list-item-icon-leading,
