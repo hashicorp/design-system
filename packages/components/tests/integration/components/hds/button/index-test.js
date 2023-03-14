@@ -105,6 +105,53 @@ module('Integration | Component | hds/button/index', function (hooks) {
     assert.dom('#test-toggle-button').hasText('Copy to clipboard');
   });
 
+  // BADGE AND COUNT
+
+  test('it should render a small badge if @badge is defined', async function (assert) {
+    await render(
+      hbs`<Hds::Button @text="Lorem ipsum" @badge="Badge" id="test-button" />`
+    );
+    assert
+      .dom('#test-button .hds-button__badge')
+      .hasClass('hds-badge--size-small')
+      .hasText('Badge');
+  });
+  test('it should render a small, inverted badge if @badge is defined and @color is secondary', async function (assert) {
+    await render(
+      hbs`<Hds::Button @text="Lorem ipsum" @badge="Badge" @color="secondary" id="test-button" />`
+    );
+    assert
+      .dom('#test-button .hds-button__badge')
+      .hasClass('hds-badge--size-small')
+      .hasClass('hds-badge--type-inverted')
+      .hasText('Badge');
+  });
+  test('it should render a small, inverted badge if @badge is defined and @color is tertiary', async function (assert) {
+    await render(
+      hbs`<Hds::Button @text="Lorem ipsum" @badge="Badge" @color="tertiary" @icon="hexagon" id="test-button" />`
+    );
+    assert
+      .dom('#test-button .hds-button__badge')
+      .hasClass('hds-badge--size-small')
+      .hasClass('hds-badge--type-inverted')
+      .hasText('Badge');
+  });
+  test('it should render a badge with icon if @badgeIcon is defined', async function (assert) {
+    await render(
+      hbs`<Hds::Button @text="Lorem ipsum" @badge="Badge" @badgeIcon="hexagon" id="test-button" />`
+    );
+    assert.dom('#test-button .flight-icon-hexagon').exists();
+  });
+  test('it should render a badge count if @count is defined', async function (assert) {
+    await render(
+      hbs`<Hds::Button @text="Lorem ipsum" @count="3" id="test-button" />`
+    );
+    assert
+      .dom('#test-button .hds-badge-count')
+      .hasClass('hds-button__badge')
+      .hasText('3');
+  });
+
   // A11Y
 
   test('it should have aria-label on the button element if isIconOnly is set to true', async function (assert) {
@@ -201,6 +248,34 @@ module('Integration | Component | hds/button/index', function (hooks) {
     });
     await render(
       hbs`<Hds::Button @text="copy to clipboard" @color="tertiary" />`
+    );
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+  test('it should throw an assertion if @color is "critical" and @badge is provided', async function (assert) {
+    const errorMessage =
+      '@badge can not be rendered when the "Hds::Button" @color is "critical"';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(
+      hbs`<Hds::Button @text="Lorem ipsum" @color="critical" @badge="Badge" />`
+    );
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+  test('it should throw an assertion if @color is "critical" and @count is provided', async function (assert) {
+    const errorMessage =
+      '@count can not be rendered when the "Hds::Button" @color is "critical"';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(
+      hbs`<Hds::Button @text="Lorem ipsum" @color="critical" @count="3" />`
     );
     assert.throws(function () {
       throw new Error(errorMessage);

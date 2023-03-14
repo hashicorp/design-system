@@ -84,6 +84,36 @@ export default class HdsButtonIndexComponent extends Component {
   }
 
   /**
+   * @param badge
+   * @type {string}
+   * @default null
+   * @description The badge text
+   */
+  get badge() {
+    assert(
+      `@badge can not be rendered when the "Hds::Button" @color is "critical"`,
+      !(this.color === 'critical' && this.args.badge)
+    );
+
+    return this.args.badge ?? null;
+  }
+
+  /**
+   * @param count
+   * @type {string}
+   * @default null
+   * @description The count text
+   */
+  get count() {
+    assert(
+      `@count can not be rendered when the "Hds::Button" @color is "critical"`,
+      !(this.color === 'critical' && this.args.count)
+    );
+
+    return this.args.count ?? null;
+  }
+
+  /**
    * @param isIconOnly
    * @type {boolean}
    * @default false

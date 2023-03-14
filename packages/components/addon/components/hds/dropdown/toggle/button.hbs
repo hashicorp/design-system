@@ -23,6 +23,9 @@
   @iconPosition="trailing"
   @color={{this.color}}
   @size={{@size}}
+  @badge={{@badge}}
+  @badgeIcon={{@badgeIcon}}
+  @count={{@count}}
   ...attributes
   aria-expanded={{if @isOpen "true" "false"}}
   {{on "click" this.onClick}}

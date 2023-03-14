@@ -53,6 +53,49 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Text::H3>Badge</Shw::Text::H3>
+
+  {{#each @model.COLORS as |color|}}
+    {{#if (not-eq color "critical")}}
+      <Shw::Grid @columns={{5}} as |SG|>
+        {{#each @model.STATES as |state|}}
+          <SG.Item @label="{{capitalize color}} / {{capitalize state}}">
+            <Hds::Button
+              @icon={{if (eq color "tertiary") "arrow-right"}}
+              @iconPosition="trailing"
+              @badge="Badge"
+              @badgeIcon="hexagon"
+              @text={{capitalize state}}
+              @color={{color}}
+              mock-state-value={{state}}
+            />
+          </SG.Item>
+        {{/each}}
+      </Shw::Grid>
+    {{/if}}
+  {{/each}}
+
+  <Shw::Text::H3>Count</Shw::Text::H3>
+
+  {{#each @model.COLORS as |color|}}
+    {{#if (not-eq color "critical")}}
+      <Shw::Grid @columns={{5}} as |SG|>
+        {{#each @model.STATES as |state|}}
+          <SG.Item @label="{{capitalize color}} / {{capitalize state}}">
+            <Hds::Button
+              @icon={{if (eq color "tertiary") "arrow-right"}}
+              @iconPosition="trailing"
+              @count="3"
+              @text={{capitalize state}}
+              @color={{color}}
+              mock-state-value={{state}}
+            />
+          </SG.Item>
+        {{/each}}
+      </Shw::Grid>
+    {{/if}}
+  {{/each}}
+
   <Shw::Text::H2>Sizes</Shw::Text::H2>
 
   <Shw::Flex as |SF|>
@@ -64,6 +107,18 @@
     <SF.Item @label="Full width">
       <Shw::Outliner {{style width="300px"}}>
         <Hds::Button @icon="plus" @text="Lorem ipsum" @isFullWidth={{true}} />
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
+  <Shw::Flex as |SF|>
+    {{#each @model.SIZES as |size|}}
+      <SF.Item @label="{{capitalize size}} + badge">
+        <Hds::Button @badge="Badge" @text="Lorem ipsum" @size={{size}} />
+      </SF.Item>
+    {{/each}}
+    <SF.Item @label="Full width + badge">
+      <Shw::Outliner {{style width="300px"}}>
+        <Hds::Button @badge="Badge" @text="Lorem ipsum" @isFullWidth={{true}} />
       </Shw::Outliner>
     </SF.Item>
   </Shw::Flex>
@@ -86,14 +141,26 @@
       {{#each @model.SIZES as |size|}}
         {{#each @model.STATES as |state|}}
           <SG.Item @label="{{capitalize size}} / {{capitalize state}}">
-            <Hds::Button @icon="plus" @text="Lorem" @size={{size}} @color={{color}} mock-state-value={{state}} />
+            <Hds::Button
+              @icon="plus"
+              @text={{capitalize state}}
+              @size={{size}}
+              @color={{color}}
+              mock-state-value={{state}}
+            />
           </SG.Item>
         {{/each}}
       {{/each}}
       {{#if (not-eq color "tertiary")}}
         {{#each @model.STATES as |state|}}
           <SG.Item @label="Full width / {{capitalize state}}">
-            <Hds::Button @icon="plus" @text="Lorem" @color={{color}} @isFullWidth={{true}} mock-state-value={{state}} />
+            <Hds::Button
+              @icon="plus"
+              @text={{capitalize state}}
+              @color={{color}}
+              @isFullWidth={{true}}
+              mock-state-value={{state}}
+            />
           </SG.Item>
         {{/each}}
       {{/if}}

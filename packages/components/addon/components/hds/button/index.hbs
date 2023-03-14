@@ -20,25 +20,34 @@
       <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
     </div>
   {{else}}
-    {{#if this.icon}}
-      {{#if (eq this.iconPosition "leading")}}
-        <div class="hds-button__icon">
-          <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
-        </div>
-        <div class="hds-button__text">
-          {{this.text}}
-        </div>
-      {{else}}
-        <div class="hds-button__text">
-          {{this.text}}
-        </div>
-        <div class="hds-button__icon">
-          <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
-        </div>
-      {{/if}}
-    {{else}}
-      <div class="hds-button__text">
-        {{this.text}}
+    {{#if (and this.icon (eq this.iconPosition "leading"))}}
+      <div class="hds-button__icon">
+        <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
+      </div>
+    {{/if}}
+    <div class="hds-button__text">
+      {{this.text}}
+    </div>
+    {{#if this.badge}}
+      <Hds::Badge
+        class="hds-button__badge"
+        @text={{this.badge}}
+        @icon={{@badgeIcon}}
+        @size="small"
+        @type={{if (not-eq this.color "primary") "inverted"}}
+      />
+    {{/if}}
+    {{#if this.count}}
+      <Hds::BadgeCount
+        class="hds-button__badge"
+        @text={{this.count}}
+        @size="small"
+        @type={{if (not-eq this.color "primary") "inverted"}}
+      />
+    {{/if}}
+    {{#if (and this.icon (eq this.iconPosition "trailing"))}}
+      <div class="hds-button__icon">
+        <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
       </div>
     {{/if}}
   {{/if}}
