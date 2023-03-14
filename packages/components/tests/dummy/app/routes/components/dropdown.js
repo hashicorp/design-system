@@ -11,7 +11,7 @@ import { COLORS as ITEM_INTERACTIVE_COLORS } from '@hashicorp/design-system-comp
 export default class ComponentsDropdownRoute extends Route {
   model() {
     // these are used only for presentation purpose in the showcase
-    const TOGGLE_STATES = ['default', 'hover', 'active', 'focus'];
+    const TOGGLE_STATES = ['default', 'hover', 'active', 'focus', 'disabled'];
     const ITEM_STATES = ['default', 'hover', 'active', 'focus'];
     return {
       TOGGLE_BUTTON_COLORS,
