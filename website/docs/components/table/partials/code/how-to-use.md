@@ -335,7 +335,7 @@ To create a column that has right-aligned content, set `@align` to `right` on bo
 </Hds::Table>
 ```
 
-### More Examples
+### More examples
 
 #### Internationalized column headers, overflow menu dropdown
 
