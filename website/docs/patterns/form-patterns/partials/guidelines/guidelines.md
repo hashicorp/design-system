@@ -12,7 +12,7 @@ As a layout mechanism, a form consistenting of more than one section should use 
 
 ### Sections
 
-A **section** occupies the largest hierarchy within the form. Sections organize text, fields (inputs, checkboxes, toggles, etc.), and actions into logical groups. There should be a 32px vertical gap between each section within the form container.
+A **section** occupies the largest hierarchy within the form. Sections organize text, fields (inputs, checkboxes, toggles, etc.), and actions into logical sets. There should be a 32px vertical gap between each section within the form container.
 
 ![Example of multiple sections in a form](/assets/patterns/form-patterns/form-sections.png =450x*)
 
@@ -43,27 +43,27 @@ Fields can be further divided into two types: **text fields** and **data fields*
 | [Toggle](/components/form/toggle) | Lorem ipsum | Lorem ipsum |
 -->
 
-### Groups
+### Sets
 
-Fields may be **grouped** together either horizontally or vertically if they are collecting related information or information that is part of the same object. Within a group there should bea 16px gap either horizontally (creating multiple columns), or vertically between each field.
+Fields may be organized in a **set** either horizontally or vertically if they are collecting related information or information that is part of the same object. Within a set there should bea 16px gap either horizontally (creating multiple columns), or vertically between each field.
 
-![Example of fields grouped together](/assets/patterns/form-patterns/field-groups.png =450x*)
+![Example of fields organized in a set](/assets/patterns/form-patterns/field-set.png =450x*)
 
 !!! Dont
 
-Don't horizontally group field types that are related but not of the same type, e.g., a text input and a toggle.
+Don't horizontally organize field types in a set that are related but not of the same type, e.g., a text input and a toggle.
 
-![Grouping different field types](/assets/patterns/form-patterns/different-field-type.png)
+![Organizing different field types](/assets/patterns/form-patterns/different-field-type.png)
 !!!
 
 !!! Do
 
 Do stack fields of different types vertically.
 
-![Grouping different field types](/assets/patterns/form-patterns/different-field-type-do.png =500x*)
+![Organizing different field types](/assets/patterns/form-patterns/different-field-type-do.png =500x*)
 !!!
 
-Common grouping of fields can include:
+Common sets of fields can include:
 
 - Credit card information: card number, expiration data, security code
 - Multi-line address field
@@ -71,9 +71,9 @@ Common grouping of fields can include:
 
 ## Alignment
 
-Fields organized in a horizontal group should be aligned to the baseline of each element to account for fields with helper text.
+Fields organized in a horizontal set should be aligned to the baseline of each element to account for fields with helper text.
 
-![Baseline alignment within a group](/assets/patterns/form-patterns/baseline-alignment.png =500x*)
+![Baseline alignment within a set](/assets/patterns/form-patterns/baseline-alignment.png =500x*)
 
 ## Layout
 
@@ -90,7 +90,7 @@ The web is a fluid medium. A relative width will adjust based on the viewport an
 
 ### Multi-column
 
-Grouping form elements horizontally creates a multi-column layout within the form.
+Horizontal sets of form elements creates a multi-column layout within the form.
 
 !!! Do
 
@@ -101,16 +101,16 @@ Use a consistent number of columns through the form.
 
 !!! Dont
 
-Don't organize a group of fields in two columns and another group in three columns.
+Don't organize a set of fields in two columns and another set in three columns.
 
 ![Inconsistent number of columns](/assets/patterns/form-patterns/multi-column-inconsistent-columns.png =500x*)
 !!!
 
 !!! Dont
 
-Don't exceed more than three fields in a horizontal group. In most scenarios it's best to limit the number of columns in a form or section to two.
+Don't exceed more than three fields in a horizontal set. In most scenarios it's best to limit the number of columns in a form or section to two.
 
-![Three field maximum in a group](/assets/patterns/form-patterns/multi-column-three-fields-max.png =500x*)
+![Three field maximum in a set](/assets/patterns/form-patterns/multi-column-three-fields-max.png =500x*)
 !!!
 
 !!! Do
@@ -120,7 +120,7 @@ Stack fields vertically when the width of the viewport and form container shrink
 ![Stack fields](/assets/patterns/form-patterns/multi-column-stacking.png =350x*)
 !!!
 
-The width of the overall form can impact multi-column layouts. Use grouping logically based on the layout, width of the page, and overall UX strategy in the application.
+The width of the overall form can impact multi-column layouts. Use set organization logically based on the layout, width of the page, and overall UX strategy in the application.
 
 ## Text
 
@@ -132,15 +132,11 @@ Text elements within a form should use logical, step-based sizing to reinforce h
 
 ## Actions
 
-### Button grouping
+### Button sets
 
-Group buttons based on the [ButtonSet](/components/button-set) guidelines, e.g., using a 16px horizontal gap between buttons.
+Organize buttons based on the [ButtonSet](/components/button-set) guidelines, e.g., using a 16px horizontal gap between buttons.
 
-![Action grouping](/assets/patterns/form-patterns/action-group.png =500x*)
-
-<!-- Add this in when the docs are complete and approved
-For more complex groupings of buttons, refer to the [Button alignment, grouping, and order](/patterns/button-alignment) pattern guidelines.
--->
+![Button set](/assets/patterns/form-patterns/button-set.png =500x*)
 
 ## Order and organization
 
@@ -160,7 +156,7 @@ Read more about showing elements conditionally with [progressive disclosure](#pr
 
 #### User needs
 
-Users benefit from logical grouping and progressive organization, organizing fields from easiest to hardest.
+Users benefit from logical organization and progressive organization, organizing fields from easiest to hardest.
 
 This can help increase form completion by:
 
@@ -171,15 +167,15 @@ This can help increase form completion by:
 
 Organizing fields based on their importance (high to low) to completing the form can help minimize abandonment, a crucial aspect of meeting business goals and metrics.
 
-### Logical grouping
+### Logical organization
 
 Organize fields logically; consider how users fill in information based on the context.
 
-For example, when filling out a payment form, organize and group the fields in the same order as they appear on a credit card or payment method: name, card number, expiration date, security code.
+For example, when filling out a payment form, organize the fields in the same order as they appear on a credit card or payment method: name, card number, expiration date, security code.
 
 ### Visual organization
 
-Once a logical organization or grouping has been established,
+Once a logical organization has been established,
 
 - categorize elements and fields into sections,
 - introduce typographic elements to establish hierarchy,
@@ -240,7 +236,7 @@ Generally, the width of a field should be wide enough to account for the estimat
 
 #### Responsive properties
 
-As the viewport shrinks, the form width should expand relative to the viewport width, eventually occupying the entire width of the viewport or page. Horizontally grouped fields that result in a multi-column layout should stack vertically as the viewport shrinks.
+As the viewport shrinks, the form width should expand relative to the viewport width, eventually occupying the entire width of the viewport or page. Horizontal sets of fields that result in a multi-column layout should stack vertically as the viewport shrinks.
 
 ## Progressive disclosure
 
