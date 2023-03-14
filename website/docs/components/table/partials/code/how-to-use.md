@@ -137,7 +137,7 @@ To indicate that a specific column should be pre-sorted, add `@sortBy`, where th
 
 ##### Pre-sorting direction
 
-You can optionally also indicate that the column defined in `@sortBy` should be pre-sorted in a descending order, rather than the default ascending order by passing in `@sortOrder='desc'`.
+By default, the sort order is set to ascending. To indicate that the column defined in `@sortBy` should be pre-sorted in descending order, pass in `@sortOrder='desc'`.
 
 ```handlebars{data-execute=false}
 <Hds::Table
