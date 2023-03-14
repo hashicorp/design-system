@@ -37,10 +37,11 @@ An often-depicted alternative to this scenario is to **end** with the most impor
 
 ![Suboptimal grouping](/assets/patterns/button-organization/suboptimal-grouping.png)
 
-- User edits the settings of a cluster
-    - "Would you like to learn more about this action?" "No"
-    - "Would you like to cancel?" "No"
-    - "Would you like to save the changes to this cluster?" "Yes, finally, that’s what I was trying to do all along."
+User edits the settings of a cluster:
+
+- "Would you like to learn more about this action?" "No"
+- "Would you like to cancel?" "No"
+- "Would you like to save the changes to this cluster?" "Yes, finally, that’s what I was trying to do all along."
 !!!
 
 !!! Do
@@ -48,8 +49,9 @@ An often-depicted alternative to this scenario is to **end** with the most impor
 #### Natural conversation based on priority
 ![Optimal order](/assets/patterns/button-organization/optimal-ordering.png)
 
-- User edits the settings of a cluster
-    - "Would you like to save the changes to this cluster?" "Yes, thank you."
+User edits the settings of a cluster:
+
+"Would you like to save the changes to this cluster?" "Yes, thank you."
 !!!
 
 #### Exceptions
