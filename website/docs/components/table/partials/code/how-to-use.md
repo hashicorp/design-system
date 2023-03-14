@@ -162,7 +162,14 @@ By default, the sort order is set to ascending. To indicate that the column defi
 
 #### Custom sort callback
 
-To implement a custom sort callback on a columns, (1) add a custom function as the value for `sortingFunction` in the column hash, and (2) include a custom `onSort` action in your table invocation to track the sorting order and use it in the custom sorting function. This is useful for cases where the key might not be A-Z or 0-9 sortable by default, i.e., status, and you’re otherwise unable to influence the shape of the data in the model. Here is an example, code truncated for clarity:
+To implement a custom sort callback on a column:
+
+1. add a custom function as the value for `sortingFunction` in the column hash,
+2. include a custom `onSort` action in your table invocation to track the sorting order and use it in the custom sorting function. 
+
+This is useful for cases where the key might not be A-Z or 0-9 sortable by default, e.g., status, and you’re otherwise unable to influence the shape of the data in the model. 
+
+_The code has been truncated for clarity._
 
 ```handlebars{data-execute=false}
 <Hds::Table
