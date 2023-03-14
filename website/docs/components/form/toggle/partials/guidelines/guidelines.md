@@ -12,7 +12,7 @@
 
 ## Error validation
 
-For error validation recommendations, refer to the [Primitives](/components/form/primitives) documentation.
+For error validation recommendations, refer to the [Form patterns](/patterns/form-patterns) documentation.
 
 ## Content
 
