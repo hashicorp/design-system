@@ -1,8 +1,9 @@
 ## How to use this component
 
-SideNav does not exist as a single out of the box component. It instead consists of a number of lower-level building block components consumers can use to assemble into their own SideNav implementation.
+SideNav does not exist as a single out of the box HDS component. It instead consists of a number of lower-level building block components consumers can use to assemble into their own SideNav implementation. These SideNav building block components are used together with the Cloud-ui SideNav component.
 
-<!-- use the same heading order from Guidelines -->
+Note: The `Hds::SideNav::Wrapper` component which contains the child components is 100% width by default. Its max-width is constrained by a parent element in the Cloud-ui SideNav.
+
 ### Basic example using typical SideNav components:
 
 ```handlebars
@@ -57,19 +58,3 @@ SideNav does not exist as a single out of the box component. It instead consists
       </:footer>
     </Hds::SideNav::Wrapper>
 ```
-
----
-
-### SideNav::Wrapper
-
-The main wrapper for all the SideNav child components. Used to lay out the “Header”, “Body”, and “Footer” sections. Named blocks are used to pass content to the appropriate section.
-
-```handlebars
-ADD DEMO HERE
-```
-
-<!-- {invocation details}
-
-```handlebars
-ADD DEMO HERE
-``` -->
