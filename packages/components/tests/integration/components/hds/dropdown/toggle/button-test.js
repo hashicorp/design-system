@@ -42,6 +42,15 @@ module(
       assert.dom('.flight-icon.flight-icon-chevron-down').exists();
     });
 
+    // ICON
+
+    test('it should render an icon if @icon is defined', async function (assert) {
+      await render(
+        hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" @icon="hexagon" id="test-toggle-button" />`
+      );
+      assert.dom('.flight-icon.flight-icon-hexagon').exists();
+    });
+
     // COLOR
 
     test('it should render the primary color as the default if no color is declared', async function (assert) {

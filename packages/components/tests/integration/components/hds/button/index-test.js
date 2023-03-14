@@ -152,6 +152,17 @@ module('Integration | Component | hds/button/index', function (hooks) {
       .hasText('3');
   });
 
+  // CHEVRON
+
+  test('it should render a chevron "down" if @hasChevron is defined', async function (assert) {
+    await render(
+      hbs`<Hds::Button @text="Button" @hasChevron={{true}} id="test-button" />`
+    );
+    assert
+      .dom('.hds-button__chevron .flight-icon.flight-icon-chevron-down')
+      .exists();
+  });
+
   // A11Y
 
   test('it should have aria-label on the button element if isIconOnly is set to true', async function (assert) {

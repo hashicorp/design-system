@@ -58,6 +58,22 @@
       </SG.Item>
     {{/each}}
 
+    {{#each @model.TOGGLE_BUTTON_COLORS as |color|}}
+      {{#each @model.TOGGLE_STATES as |state|}}
+        <SG.Item @label="{{capitalize color}} / {{capitalize state}}">
+          <Hds::Dropdown::Toggle::Button
+            @icon="hexagon"
+            @text="Lorem ipsum"
+            @color={{color}}
+            mock-state-value={{state}}
+          />
+        </SG.Item>
+      {{/each}}
+      <SG.Item @label="{{color}} / Open">
+        <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem ipsum" @isOpen={{true}} @color={{color}} />
+      </SG.Item>
+    {{/each}}
+
     {{#each @model.TOGGLE_STATES as |state|}}
       <SG.Item @label="Icon / {{capitalize state}}">
         <Hds::Dropdown::Toggle::Icon

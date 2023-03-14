@@ -125,6 +125,11 @@ $hds-button-focus-border-width: 3px;
   }
 }
 
+.hds-button__chevron {
+  margin-right: -6px; // we apply a negative margin to counter the padding-right of the button and reduce the visual space between the icon and the right border
+  margin-left: 8px;
+}
+
 // SIZE
 
 // these values later may come from the design tokens
@@ -157,7 +162,8 @@ $size-props: (
     min-height: map-get($size-props, $size, "min-height");
     padding: map-get($size-props, $size, "padding");
 
-    .hds-button__icon {
+    .hds-button__icon,
+    .hds-button__chevron {
       width: map-get($size-props, $size, "icon-size");
       height: map-get($size-props, $size, "icon-size");
     }

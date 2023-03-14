@@ -50,5 +50,10 @@
         <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
       </div>
     {{/if}}
+    {{#if @hasChevron}}
+      <div class="hds-button__chevron">
+        <FlightIcon @name="chevron-down" @stretched={{true}} />
+      </div>
+    {{/if}}
   {{/if}}
 </Hds::Interactive>

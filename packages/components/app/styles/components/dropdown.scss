@@ -92,10 +92,7 @@ $hds-dropdown-toggle-border-radius: 5px;
 .hds-dropdown-toggle-button {
   box-shadow: none; // we override this to remove the elevation style
 
-  .hds-button__icon {
-    margin-right: -6px; // we apply a negative margin to counter the padding-right of the button and reduce the visual space between the icon and the right border
-    margin-left: 8px; // this overrides the rule `.hds-button__text + .hds-button__icon`
-
+  .hds-button__chevron {
     @media (prefers-reduced-motion: no-preference) {
       transition: transform 0.3s;
     }
@@ -104,7 +101,7 @@ $hds-dropdown-toggle-border-radius: 5px;
 
 
 .hds-dropdown-toggle-button--is-open {
-  .hds-button__icon {
+  .hds-button__chevron {
     transform: rotate(-180deg);
   }
 }
