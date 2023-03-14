@@ -29,7 +29,7 @@ This component takes advantage of the `sort-by` helper provided by [ember-compos
 
 ### Non-sortable table with model defined
 
-To use a table with a model, first of all you need to define the data model (in your route or model):
+To use a table with a model, first define the data model in your route or model:
 
 ```javascript
 import Route from '@ember/routing/route';
