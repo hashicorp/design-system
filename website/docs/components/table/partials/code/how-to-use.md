@@ -113,7 +113,7 @@ Add `isSortable=true` to the hash for each column that should be sortable.
 
 #### Pre-sorting columns
 
-You can optionally indicate that a specific column should be pre-sorted by adding `@sortBy` where the value is the key of the column.
+To indicate that a specific column should be pre-sorted, add `@sortBy`, where the value is the column's key.
 
 ```handlebars{data-execute=false}
 <Hds::Table
