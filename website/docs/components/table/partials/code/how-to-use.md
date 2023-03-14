@@ -60,7 +60,7 @@ export default class ComponentsTableRoute extends Route {
 
 For documentation purposes, we’re imitating fetching data from an API and working with that as data model. Depending on your context and needs, you may want to manipulate and adapt the structure of your data to better suit your needs in the template code.
 
-You can insert your own content into the and `:body` block and the component will take care of looping over the `@model` provided:
+You can insert your own content into the `:body` block and the component will take care of looping over the `@model` provided:
 
 ```handlebars{data-execute=false}
 <Hds::Table
