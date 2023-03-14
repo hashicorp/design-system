@@ -90,3 +90,4 @@ For general content recommendations, refer to the [Primitives](/components/form/
 
 - [Radio](/components/form/radio)
 - [Card](/components/card)
+- [Form patterns](/patterns/form-patterns)

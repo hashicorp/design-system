@@ -32,3 +32,7 @@ For error validation recommendations, refer to the [Form patterns](/patterns/for
 ## Content
 
 For general content recommendations, refer to the [Primitives](/components/form/primitives) documentation.
+
+## Related
+
+- [Form patterns](/patterns/form-patterns)

@@ -81,3 +81,4 @@ For general content recommendations, refer to the [Primitives](/components/form/
 
 - [Checkbox](/components/form/checkbox)
 - [Toggle](/components/form/toggle)
+- [Form patterns](/patterns/form-patterns)

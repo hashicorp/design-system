@@ -52,3 +52,7 @@ For general content recommendations, refer to the [Primitives](/components/form/
     - default or most commonly selected options first
     - alphabetically
     - numerically
+
+## Related
+
+- [Form patterns](/patterns/form-patterns)
