@@ -15,7 +15,6 @@ const DEBOUNCE_MS = 250;
 // get all the aliases of a given token
 const getAliases = (token, TOKENS_RAW) => {
   const path = token.path.join('.');
-  console.log(path);
   return TOKENS_RAW.filter(
     (item) => item.original.value === `{${path}.value}`
   ).map((alias) => `{${alias.path.join('.')}}`);
@@ -39,7 +38,6 @@ export default class Index extends Component {
       }
       // add an extra "aliases" attribute if other tokens are alias of it
       const aliases = getAliases(token, TOKENS_RAW);
-      console.log(token.name, aliases);
       if (aliases.length > 0) {
         token.aliases = aliases;
       }
