@@ -1,0 +1,50 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// SIDE-NAV
+
+body.components-side-nav {
+  $shw-component-side-nav-background: #0c0c0e;
+
+  // used to simulate a "root" container for the sidenav
+  .shw-component-sim-side-nav-root-container {
+    width: 280px;
+    height: 600px;
+    background: $shw-component-side-nav-background;
+  }
+
+  // used to simulate a "SideNav::Header" container
+  .shw-component-sim-side-nav-header {
+    width: 280px;
+    padding: var(--token-side-nav-wrapper-padding-horizontal) var(--token-side-nav-wrapper-padding-vertical);
+    background: $shw-component-side-nav-background;
+  }
+
+  // used to simulate a "SideNav::Header" container
+  .shw-component-sim-side-nav-body {
+    width: 280px;
+    margin: 0;
+    padding: var(--token-side-nav-wrapper-padding-horizontal) var(--token-side-nav-wrapper-padding-vertical);
+    background: $shw-component-side-nav-background;
+  }
+
+  .shw-component-side-nav-home-link-wrapper {
+    width: 80px;
+    height: 80px;
+    padding: var(--token-side-nav-wrapper-padding-horizontal) var(--token-side-nav-wrapper-padding-vertical);
+    background: $shw-component-side-nav-background;
+  }
+
+  .shw-component-sim-side-nav-list-link-wrapper {
+    padding: var(--token-side-nav-wrapper-padding-horizontal) var(--token-side-nav-wrapper-padding-vertical);
+    background: $shw-component-side-nav-background;
+  }
+
+  .shw-component-sim-side-nav-elem-wrapper {
+    width: fit-content;
+    padding: var(--token-side-nav-wrapper-padding-horizontal) var(--token-side-nav-wrapper-padding-vertical);
+    background: $shw-component-side-nav-background;
+  }
+}

@@ -1,0 +1,270 @@
+//
+// SIDE-NAV
+//
+
+@use "../mixins/focus-ring" as *;
+
+// WIP, naming, etc. will be refined... TODO: Add JSON for color tokens, etc.
+:root {
+  // Sizes:
+
+  // header, body, footer "wrappers":
+  --token-side-nav-wrapper-padding-horizontal: 16px;
+  --token-side-nav-wrapper-padding-vertical: 16px;
+  --token-side-nav-wrapper-header-padding-bottom: 8px;
+
+  // header content:
+  --token-side-nav-header-home-link-padding: 4px;
+  --token-side-nav-header-home-link-logo-size: 48px;
+  --token-side-nav-header-actions-spacing: 8px;
+
+  // body content:
+  --token-side-nav-body-list-margin-vertical: 16px;
+  --token-side-nav-body-list-item-padding-horizontal: 8px;
+  --token-side-nav-body-list-item-padding-vertical: 4px;
+  --token-side-nav-body-list-item-spacing-vertical: 2px;
+  --token-side-nav-body-list-item-content-spacing-horizontal: 8px;
+  --token-side-nav-body-list-item-border-radius: 5px;
+
+  // Colors:
+
+  // SideNav container:
+  --token-side-nav-foreground-primary: #dedfe3;
+  --token-side-nav-foreground-primary-strong: #fff;
+  --token-side-nav-foreground-faint: #8c909c;
+  --token-side-nav-surface-primary: #0c0c0e;
+
+  // Interactive elements:
+  // base:
+  --token-side-nav-interactive-surface-hover: #3b3d45;
+  --token-side-nav-interactive-surface-active: #656a76;
+}
+
+@mixin hds-side-nav-icon-button($add-visible-border: false) {
+  color: var(--token-side-nav-foreground-primary-strong);
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--token-side-nav-body-list-item-border-radius);
+  cursor: pointer;
+
+  @if ($add-visible-border) {
+    border-color: var(--token-color-palette-neutral-500);
+  }
+
+  &:focus,
+  &.mock-focus {
+    @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px);
+  }
+
+  &:hover,
+  &.mock-hover {
+    color: var(--token-side-nav-foreground-primary-strong); // to avoid overrides by specificity (eg. `a:hover`)
+    background: var(--token-side-nav-interactive-surface-hover);
+  }
+
+  &:active,
+  &.mock-active {
+    color: var(--token-side-nav-foreground-primary-strong); // to avoid overrides by specificity (eg. `a:hover`)
+    background: var(--token-side-nav-interactive-surface-active);
+
+    @if ($add-visible-border) {
+      border-color: var(--token-color-palette-neutral-400);
+    }
+  }
+}
+
+
+// * SideNav Parent (wrapper) component
+// -------------------------------------------------------------------
+
+.hds-side-nav__wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  color: var(--token-side-nav-foreground-primary); // Default color
+  background: var(--token-side-nav-surface-primary);
+}
+
+.hds-side-nav__wrapper-header {
+  padding-top: var(--token-side-nav-wrapper-padding-vertical);
+  padding-right: var(--token-side-nav-wrapper-padding-horizontal);
+  padding-bottom: var(--token-side-nav-wrapper-header-padding-bottom); // by design
+  padding-left: var(--token-side-nav-wrapper-padding-horizontal);
+}
+
+.hds-side-nav__wrapper-body {
+  flex: 1;
+  padding: var(--token-side-nav-wrapper-padding-vertical) var(--token-side-nav-wrapper-padding-horizontal);
+  overflow-y: auto;
+}
+
+.hds-side-nav__wrapper-footer {
+  padding: var(--token-side-nav-wrapper-padding-vertical) var(--token-side-nav-wrapper-padding-horizontal);
+}
+
+// * Header child elements
+// ---------------------------------------
+
+.hds-side-nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hds-side-nav-header__logo {
+  display: block;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--token-side-nav-header-home-link-logo-size);
+  height: var(--token-side-nav-header-home-link-logo-size);
+}
+
+.hds-side-nav-header__actions {
+  display: flex;
+
+  > * + * { margin-left: var(--token-side-nav-header-actions-spacing); }
+}
+
+.hds-side-nav__home-link {
+  @include hds-side-nav-icon-button();
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: calc(var(--token-side-nav-header-home-link-padding) - 1px); // by design -  we take in account the transparent border
+}
+
+// Apply class name to Hds::Dropdown component
+.hds-side-nav__dropdown {
+  .hds-dropdown-toggle-icon {
+    @include hds-side-nav-icon-button($add-visible-border: true);
+  }
+}
+
+.hds-side-nav__icon-button {
+  @include hds-side-nav-icon-button($add-visible-border: true);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 5px; // we take in account the transparent border
+}
+
+// * Body child elements
+// ---------------------------------------
+
+.hds-side-nav__list-title {
+  display: flex;
+  align-items: center;
+  min-height: 34px;
+  margin-top: var(--token-side-nav-body-list-margin-vertical);
+  padding: 0 var(--token-side-nav-body-list-item-padding-horizontal);
+  color: var(--token-side-nav-foreground-faint);
+
+  // Remove margin from title at top of all list-items & lists
+  .hds-side-nav__list-wrapper:first-child .hds-side-nav__list-item:first-child > & {
+    margin-top: 0;
+  }
+}
+
+.hds-side-nav__list {
+  margin: 0;
+  padding: 0;
+}
+
+.hds-side-nav__list-item {
+  list-style-type: none; // Q: Should ul have role="list" added for accessibility?
+
+  & + & {
+    margin-top: var(--token-side-nav-body-list-item-spacing-vertical);
+  }
+}
+
+.hds-side-nav__list-item-link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 36px;
+  padding: var(--token-side-nav-body-list-item-padding-vertical) var(--token-side-nav-body-list-item-padding-horizontal);
+  color: var(--token-side-nav-foreground-primary);
+  text-decoration: none;
+  background: var(--token-side-nav-surface-primary);
+  // "Link" could render as an HTML button element so this overrides the default border style in that case:
+  border-color: transparent;
+  border-radius: var(--token-side-nav-body-list-item-border-radius);
+
+  &:focus,
+  &.mock-focus {
+    @include hds-focus-ring-with-pseudo-element();
+  }
+
+  &:hover,
+  &.mock-hover {
+    background: var(--token-side-nav-interactive-surface-hover);
+    border-color: transparent;
+
+    .hds-side-nav__list-item-text,
+    .hds-side-nav__list-item-icon-leading,
+    .hds-side-nav__list-item-icon-trailing {
+      color: var(--token-side-nav-foreground-primary-strong);
+    }
+  }
+
+  // notice: this ".active" extra class is used to match the corresponding `active` class assigned automatically
+  // by the `<LinkTo>` Ember component (when the link is "current), so that consumers get it for free if they want
+  // otherwise they can use the `@isActive` argument to set this visual state directly
+  &.active,
+  &:active,
+  &.mock-active {
+    background: var(--token-side-nav-interactive-surface-active);
+
+    .hds-side-nav__list-item-text,
+    .hds-side-nav__list-item-icon-leading,
+    .hds-side-nav__list-item-icon-trailing {
+      color: var(--token-side-nav-foreground-primary-strong);
+    }
+
+    .hds-badge,
+    .hds-badge-count {
+      color: var(--token-color-foreground-primary);
+      background: var(--token-color-surface-strong);
+    }
+  }
+
+  .hds-badge,
+  .hds-badge-count {
+    margin-left: var(--token-side-nav-body-list-item-content-spacing-horizontal);
+  }
+}
+
+// special override for the "back-link" element (no visible active state, by design)
+.hds-side-nav__list-item-link--back-link {
+  &:active,
+  &.mock-active {
+    background: var(--token-side-nav-surface-primary);
+
+    .hds-side-nav__list-item-text,
+    .hds-side-nav__list-item-icon-leading,
+    .hds-side-nav__list-item-icon-trailing {
+      color: var(--token-side-nav-foreground-primary);
+    }
+  }
+}
+
+.hds-side-nav__list-item-text {
+  color: var(--token-side-nav-foreground-primary);
+  text-align: left;
+}
+
+.hds-side-nav__list-item-icon-leading {
+  flex: none;
+  margin-right: var(--token-side-nav-body-list-item-content-spacing-horizontal);
+}
+
+.hds-side-nav__list-item-icon-trailing {
+  flex: none;
+  margin-left: auto;
+  padding-left: var(--token-side-nav-body-list-item-content-spacing-horizontal);
+}
