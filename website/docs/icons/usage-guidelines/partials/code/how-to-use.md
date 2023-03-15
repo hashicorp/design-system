@@ -198,11 +198,11 @@ For example, to visually center an icon with a generic text node, you will need 
 
 !!! Warning
 
-**Note**
+**Avoid using `vertical-align: middle`**
 
 Just setting `vertical-align: middle` in the parent container doesn’t necessarily achieve a vertical alignment.
 
-This is because, despite what one may think, the [`middle` alignment](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align#middle) is not calculated in relation to the whole text ”block” but to its “x-height”. If you want to know more, you can read [this in-depth explanation](https://www.impressivewebs.com/css-vertical-align/) of how vertical align works in CSS.
+This is because the [`middle` alignment](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align#middle) is not calculated in relation to the whole text “block” but to its “x-height”. To learn more, read about [how `vertical-align` works in CSS](https://www.impressivewebs.com/css-vertical-align/).
 !!!
 
 
