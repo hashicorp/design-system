@@ -51,7 +51,7 @@ User edits the settings of a cluster:
 
 User edits the settings of a cluster:
 
-"Would you like to save the changes to this cluster?" "Yes, thank you."
+- "Would you like to save the changes to this cluster?" "Yes, thank you."
 !!!
 
 #### Exceptions
