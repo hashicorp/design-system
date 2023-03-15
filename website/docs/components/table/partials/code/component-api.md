@@ -27,7 +27,7 @@ The Table component itself is where most of the options will be applied. However
         If set to `true`, indicates that a column should be sortable.
       </D.Property>
       <D.Property @name="align" @type="enum" @values={{array "left" "center" "right" }} @default="left">
-        If set, determines the text alignment for the column.
+        Determines the horizontal content alignment (sometimes referred to as text alignment) for the column header.
       </D.Property>
       <D.Property @name="width" @type="string" @valueNote="Any valid CSS">
         If set, determines the column’s width.
@@ -53,7 +53,7 @@ The Table component itself is where most of the options will be applied. However
     If set, determines the density (height) of the table body’s rows.
   </C.Property>
   <C.Property @name="valign" @type="enum" @values={{array "top" "middle" }} @default="top">
-    If set, determines the vertical alignment for cell (`td`) content in a table. Does not apply to table headers (`th`).
+    Determines the vertical alignment for content in a table. Does not apply to table headers (`th`). See [MDN on vertical-align](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align) for more details.
   </C.Property>
   <C.Property @name="caption" @type="string">
     Adds a (non-visible) caption for users with assistive technology. If set on a sortable table, the provided table caption is paired with the automatically generated sorted message text.
@@ -92,7 +92,7 @@ If the `Th` component is passed as the first cell of a table body row, `scope="r
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="align" @type="enum" @values={{array "left" "center" "right" }} @default="left">
-    If set, determines the text alignment.
+    Determines the horizontal content alignment (sometimes referred to as text alignment) for the column header.
   </C.Property>
   <C.Property @name="scope" @type="string" @values={{array "col" "row" }} @default="col">
     If used as the first item in a table body’s row, `scope` should be set to `row` for accessibility purposes. Note: you only need to manually set this if you’re creating a custom table using the child components; if you use the standard invocation for the table, this scope is already provided for you.
@@ -119,7 +119,7 @@ This is the component that supports column sorting; use instead of `Hds::Table::
     If defined, indicates which direction the column should be sorted. Controls the sort icon indicator and the `aria-sort` value.
   </C.Property>
   <C.Property @name="align" @type="enum" @values={{array "left" "center" "right" }} @default="left">
-    If set, determines the cell’s text alignment.
+    Determines the horizontal content alignment (sometimes referred to as text alignment) for the column header.
   </C.Property>
   <C.Property @name="width" @type="string" @valueNote="Any valid CSS">
     If set, determines the column’s width.
@@ -138,7 +138,7 @@ Note: This component is not eligible to receive interactions (e.g., it cannot ha
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="align" @type="enum" @values={{array "left" "center" "right" }} @default="left">
-    If set, determines the text alignment.
+    Determines the horizontal content alignment (sometimes referred to as text alignment) for the cell (make sure it is also set for the column header).
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
