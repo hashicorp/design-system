@@ -6,6 +6,7 @@
 //
 // APPLICATION-STATE COMPONENT
 //
+$hds-application-state-padding: 16px;
 
 .hds-application-state {
   align-self: center;
@@ -15,14 +16,20 @@
   border: 1px solid gray;
 }
 
-.hds-application-state__header {
+.hds-application-state__header,
+.hds-application-state__body,
+.hds-application-state__footer {
   display: flex;
+  padding: $hds-application-state-padding;
+}
+
+.hds-application-state__header {
   align-items: center;
-  padding: 1rem;
+  background-color: aliceblue;
 }
 
 .hds-application-state__header__icon {
-  border: 1px solid purple;
+  // border: 1px solid purple;
 
   svg {
     width: 2rem;
@@ -31,22 +38,25 @@
 }
 
 .hds-application-state__header__title {
-  border: 1px solid green;
+  // border: 1px solid green;
 }
 
 .hds-application-state__header__errorCode {
   clear: left;
-  border: 1px solid yellow;
+  // border: 1px solid yellow;
 }
 
 .hds-application-state__body {
-  border: 1px solid red;
+  background-color: rgb(249, 197, 177);
 }
 
 .hds-application-state__body__text {
-  border: 1px solid blue;
+  // border: 1px solid blue;
 }
 
 .hds-application-state__footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: lightyellow;
   border-top: 1px solid gray;
 }

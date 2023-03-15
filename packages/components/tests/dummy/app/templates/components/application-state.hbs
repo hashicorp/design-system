@@ -4,28 +4,37 @@
 
 <section data-test-percy>
   <Shw::Flex @direction="column" as |SF|>
-    <SF.Item @label="Default">
-      <Hds::ApplicationState as |A|>
-        <A.Header @iconName="alert-circle" @titleText="An Error Has Occurred" @errorCode="404" />
+    <SF.Item @label="Error State">
+      <Hds::ApplicationState @errorCode="404" as |A|>
+        <A.Header @iconName="alert-circle" @titleText="An Error Has Occurred" />
         <A.Body @bodyText="A string of body text explaining the error" />
-        <A.Footer @iconName="arrow-left" @footerText="Go back" @href="/" />
-      </Hds::ApplicationState>  
+        <A.Footer @iconName="arrow-left" @footerText="Go back" @href="/" @helpHref="/components/alert" />
+      </Hds::ApplicationState>
     </SF.Item>
-    <SF.Item @label="Title Only">
-      <Hds::ApplicationState as |A|>
-        <A.Header @titleText="An Error Has Occurred" />
-        <A.Body @bodyText="A string of body text explaining the error" />
-        <A.Footer @iconName="arrow-left" @footerText="Go back" @href="/" />
-      </Hds::ApplicationState>  
+    <SF.Item @label="Error State Block Yield">
+      <Hds::ApplicationState @errorCode="404" as |A|>
+        <A.Header @iconName="alert-circle" @titleText="An Error Has Occurred" />
+        <A.Body>
+          <Shw::Placeholder @text="components and other things" @height="150px" @background="#e1f5fe" />
+        </A.Body>
+        <A.Footer @iconName="arrow-left" @footerText="Go back" @href="/" @helpHref="/components/alert" />
+      </Hds::ApplicationState>
     </SF.Item>
-    <SF.Item @label="Block Yield for Body">
+    <SF.Item @label="Empty State">
       <Hds::ApplicationState as |A|>
-        <A.Header @iconName="alert-circle" @titleText="An Error Has Occurred" @errorCode="404" />
+        <A.Header @titleText="Empty State Title" />
+        <A.Body @bodyText="Some string explaining the empty state" />
+        <A.Footer @iconName="arrow-left" @footerText="Go back" @href="/" />
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="Empty State Block Yield">
+      <Hds::ApplicationState as |A|>
+        <A.Header @titleText="Empty State Title" />
         <A.Body>
           <Shw::Placeholder @text="components and other things" @height="150px" @background="#e1f5fe" />
         </A.Body>
         <A.Footer @iconName="arrow-left" @footerText="Go back" @href="/" />
-      </Hds::ApplicationState>  
+      </Hds::ApplicationState>
     </SF.Item>
   </Shw::Flex>
 </section>
