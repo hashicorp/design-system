@@ -1,11 +1,5 @@
 ## How to use this component
 
-!!! Info
-
-This component takes advantage of the `sort-by` helper provided by [ember-composable-helpers](https://github.com/DockYard/ember-composable-helpers).
-
-!!!
-
 ### Table with no model defined
 
 ```handlebars{data-execute=false}
@@ -89,6 +83,12 @@ For clarity, there are a couple of important points to note here:
 !!!
 
 ### Sortable Table
+
+!!! Info
+
+This component takes advantage of the `sort-by` helper provided by [ember-composable-helpers](https://github.com/DockYard/ember-composable-helpers).
+
+!!!
 
 Add `isSortable=true` to the hash for each column that should be sortable.
 
@@ -258,14 +258,6 @@ To create a condensed or spacious table, add `@density` to the table's invocatio
 
 To indicate that the table's content should have a middle vertical-align, use `@valign` in the table's invocation.
 
-!!! Info
-
-Note that vertical-align only applies to inline, inline-block and table-cell elements: you can't use it to vertically align block-level elements ([see MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align)).
-
-If you have more than just text content in the table cell, you'll want to wrap that content in a flex box and style accordingly.
-
-!!!
-
 ```handlebars{data-execute=false}
 <Hds::Table
   @model={{this.model.data}}
@@ -287,6 +279,14 @@ If you have more than just text content in the table cell, you'll want to wrap t
 ```
 
 #### Vertical alignment with additional cell content
+
+!!! Info
+
+Note that vertical-align only applies to inline, inline-block and table-cell elements: you can't use it to vertically align block-level elements ([see MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align)).
+
+If you have more than just text content in the table cell, you'll want to wrap that content in a flex box and style accordingly.
+
+!!!
 
 ```handlebars{data-execute=false}
 <Hds::Table
