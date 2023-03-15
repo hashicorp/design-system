@@ -5,9 +5,9 @@
 <div class="hds-application-state" ...attributes>
   {{yield
     (hash
-      Header=(component "hds/application-state/header")
+      Header=(component "hds/application-state/header" errorCode=this.errorCode)
       Body=(component "hds/application-state/body")
-      Footer=(component "hds/application-state/footer")
+      Footer=(component "hds/application-state/footer" errorCode=this.errorCode)
     )
   }}
 </div>
