@@ -1,0 +1,5 @@
+// Width of the SideNav is controlled by wrapping Cloud-ui component,
+// the below is to make the SideNav display at the intended max-width within examples
+.doc-side-nav-width .hds-side-nav__wrapper {
+  max-width: 280px;
+}
