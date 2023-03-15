@@ -99,7 +99,7 @@
     "stylelint": "^14.16.1",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard-scss": "^5.0.0",
-    "webpack": "^5.75.0"
+    "webpack": "^5.76.0"
   },
   "engines": {
     "node": "12.* || 14.* || >= 16"
