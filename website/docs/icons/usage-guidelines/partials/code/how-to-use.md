@@ -190,7 +190,23 @@ The component exposes the following _props_:
 
 The size of the icon is determined by the size of the asset imported (each icon is exported in two sizes, _16_ and _24_). If you need a different size, use CSS to override its intrinsic size.
 
-#### Animated icons
+### Aligning icons
+
+By default, the `FlightIcon` component has an `inline-block` display value (this can be changed using the `@isInlineBlock` argument). This means that the icon behaves like an inline element, and that if you want to vertically align it in relation to other sibling elements, you have to use CSS to achieve the expected result.
+
+For example, to visually center an icon with a generic text node, you will need to use a parent `flex` container with `align-items: center`.
+
+!!! Warning
+
+**Avoid using `vertical-align: middle`**
+
+Just setting `vertical-align: middle` in the parent container doesn’t necessarily achieve a vertical alignment.
+
+This is because the [`middle` alignment](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align#middle) is not calculated in relation to the whole text “block” but to its “x-height”. To learn more, read about [how `vertical-align` works in CSS](https://www.impressivewebs.com/css-vertical-align/).
+!!!
+
+
+### Animated icons
 
 Some of the icons are meant to be animated (e.g., “loading” and “running”). To use them, import the CSS that controls the icons’ animation:
 
