@@ -60,32 +60,3 @@ SideNav does not exist as a single out of the box HDS component. It instead cons
       </Hds::SideNav::Wrapper>
   ```
 </div>
-
-### SideNav::Wrapper
-
-The main wrapper for all the SideNav child components. Used to lay out the “Header”, “Body”, and “Footer” sections. Named blocks are used to pass content to the appropriate section.
-
-<div class="doc-side-nav-width">
-  ```handlebars
-  <Hds::SideNav::Wrapper>
-    <:header>
-      “Header” content
-    </:header>
-
-    <:body>
-      “Body” content
-    </:body>
-
-    <:footer>
-      “Footer” content
-    </:footer>
-  </Hds::SideNav::Wrapper>
-  ```
-</div>
-
-<!-- 
-{invocation details}
-
-```handlebars
-ADD DEMO HERE
-``` -->
