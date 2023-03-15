@@ -22,9 +22,9 @@ A **field** describes a form control and label pairing. When displaying multiple
 
 ![Example of multiple fields in a section](/assets/patterns/form-patterns/section-fields.png =450x*)
 
+<!-- TODO
 Fields can be further divided into two types: **text fields** and **data fields**.
 
-<!-- TODO
 #### Text fields
 | Form control | Usage | Examples |
 |--------------|-------|----------|
@@ -69,7 +69,7 @@ Common sets of fields can include:
 - Multi-line address field
 - First and last name
 
-## Alignment
+#### Alignment
 
 Fields organized in a horizontal set should be aligned to the baseline of each element to account for fields with helper text.
 
@@ -79,9 +79,10 @@ Fields organized in a horizontal set should be aligned to the baseline of each e
 
 ### Single-column
 
-If a form uses a single-column layout, consider setting a maximum width on the form; this can generally be best achieved by using a size or unit that is **relative** the page, viewport, or container size. This can commonly be achieved by using a viewport width unit (`vw`), percentage width (e.g., `50%`), or a character unit (`ch`).
+We recommend _most_ forms use a single-column layout as it makes the information easier to parse and reinforces the sequential nature of filling out a form.
 
-We recommend _most_ forms use a single column layout as it makes the information within the form easier to parse for the user and reinforces the sequential nature of filling out a form.
+If a form uses a single-column layout, consider setting a maximum width on the form; this can be achieved by using a size or unit **relative** to the page, viewport, or container size, e.g., viewport width unit (`vw`), percentage width (`50%`), or a character unit (`ch`).
+
 
 !!! Info
 
@@ -130,9 +131,7 @@ In sections consisting of multiple blocks of text, use an 8px vertical gap betwe
 
 Text elements within a form should use logical, step-based sizing to reinforce hierarchy within sections and the form itself. While specifics around type hierarchy should be determined at the application level, adhering to these guidelines will help establish consistency at the page level and when constrained within another element or component.
 
-## Actions
-
-### Button sets
+## Button sets
 
 Organize buttons based on the [ButtonSet](/components/button-set) guidelines, e.g., using a 16px horizontal gap between buttons.
 
@@ -213,22 +212,25 @@ Include a 24px gap above and below to separate the divider from the surrounding 
 
 !!! Dont
 
-Don’t use dividers at the end of the last section between the fields and the button set or actions. Instead, use 32px of space.
+Don’t use dividers at the end of the last section between the fields and the button set or actions.
 
 ![Spacing using dividers](/assets/patterns/form-patterns/divider-spacing-dont.png =500x*)
+!!!
+
+!!! Do
+
+Instead, use the section spacing value of 32px.
+
+![Spacing between trailing actions](/assets/patterns/form-patterns/divider-spacing-actions-do.png =500x*)
 !!!
 
 #### Multiple steps or pages
 
 Consider breaking the form into multiple steps or pages for exceedingly long and complex forms (e.g., creating a cluster). For multi-step forms, use a [Stepper](/components/stepper-indicator) to indicate status and the user’s location within the form.
 
-#### Multiple steps or pages
-
-For exceedingly long, complex forms (e.g., creating a cluster), consider breaking the form into multiple steps or pages. A [Stepper](/components/stepper-indicator) can be used to annotate status and location in a multi-step form.
-
 ### Width
 
-The width of a form and the fields it contains is largely dependent on the context the form is in, but adhering to these high-level guidelines can make a complex form approachable and introduce consistency in the UX.\
+The width of a form and the fields it contains are largely dependent on the context the form is in, but adhering to these high-level guidelines can make a complex form approachable and introduce consistency in the UX.
 
 #### Field width
 
@@ -238,14 +240,7 @@ Generally, the width of a field should be wide enough to account for the estimat
 
 As the viewport shrinks, the form width should expand relative to the viewport width, eventually occupying the entire width of the viewport or page. Horizontal sets of fields that result in a multi-column layout should stack vertically as the viewport shrinks.
 
-## Progressive disclosure
-
-Users want power but also simplicity. Progressive disclosure refers to only displaying the most important information (or elements of a form) and conditionally showing additional fields depending on:
-
-1. the input state of other fields
-2. if more complex settings are requested by the user.
-
-## Required optional
+## Required and optional
 
 Displaying what fields are required or optional can help users submit a form free of errors, but can also add visual weight the form.
 

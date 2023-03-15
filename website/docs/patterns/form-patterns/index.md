@@ -5,7 +5,7 @@ caption: Guidelines for delivering user-centric forms comprised of Helios form c
 status: released
 previewImage: assets/illustrations/patterns/form-patterns.jpg
 navigation:
-  keywords: ['form', 'patterns', 'patterns', 'fieldset']
+  keywords: ['spacing', 'validation', 'legend', 'fieldset']
 ---
 
 <section data-tab="Guidelines">
