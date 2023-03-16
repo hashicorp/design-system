@@ -37,11 +37,6 @@ The `SideNav::HomeLink` component uses the generic `Hds::Interactive` component.
   <C.Property @name="icon" @type="string">
     Used to show an icon. Any [icon](/icons/library) name is accepted. Typically you would add the icon name for your product.
   </C.Property>
-  <!-- Implementing in new branch...
-  <C.Property @name="ariaLabel" @type="string" @required="true">
-    The value of the aria-label. If no text value is defined an error will be thrown.
-  </C.Property> 
-  -->
   <C.Property @name="color" @type="string">
     Used to specify an optional custom color provided as a [color token](/foundations/colors). If unspecified, it will use the SideNav’s default white text color.
   </C.Property>
