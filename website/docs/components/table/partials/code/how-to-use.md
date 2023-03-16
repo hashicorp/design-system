@@ -51,7 +51,7 @@ export default class ComponentsTableRoute extends Route {
     // ...
     let response = await fetch('/api/demo.json');
     let { data } = await response.json();
-    return { data: data };
+    return { myDemoData: data };
   }
 }
 ```
@@ -62,7 +62,7 @@ You can insert your own content into the `:body` block and the component will ta
 
 ```handlebars
 <Hds::Table
-  @model={{this.model.data}}
+  @model={{this.model.myDemoData}}
   @columns={{array (hash label="Artist") (hash label="Album") (hash label="Year")}}
 >
   <:body as |B|>
@@ -98,7 +98,7 @@ Add `isSortable=true` to the hash for each column that should be sortable.
 
 ```handlebars
 <Hds::Table
-  @model={{this.model.data}}
+  @model={{this.model.myDemoData}}
   @columns={{array
     (hash key="artist" label="Artist" isSortable=true)
     (hash key="album" label="Album" isSortable=true)
@@ -121,7 +121,7 @@ To indicate that a specific column should be pre-sorted, add `@sortBy`, where th
 
 ```handlebars
 <Hds::Table
-  @model={{this.model.data}}
+  @model={{this.model.myDemoData}}
   @columns={{array
     (hash key="artist" label="Artist" isSortable=true)
     (hash key="album" label="Album" isSortable=true)
@@ -145,7 +145,7 @@ By default, the sort order is set to ascending. To indicate that the column defi
 
 ```handlebars
 <Hds::Table
-  @model={{this.model.data}}
+  @model={{this.model.myDemoData}}
   @columns={{array
     (hash key="artist" label="Artist" isSortable=true)
     (hash key="album" label="Album" isSortable=true)
@@ -177,7 +177,7 @@ _The code has been truncated for clarity._
 
 ```handlebars{data-execute=false}
 <Hds::Table
-  @model={{this.model.data}}
+  @model={{this.model.myDemoData}}
   @columns={{array
       (hash 
         key='status'
@@ -238,7 +238,7 @@ To create a condensed or spacious table, add `@density` to the table's invocatio
 
 ```handlebars
 <Hds::Table
-  @model={{this.model.data}}
+  @model={{this.model.myDemoData}}
   @columns={{array
     (hash key="artist" label="Artist" isSortable=true)
     (hash key="album" label="Album" isSortable=true)
@@ -264,7 +264,7 @@ To indicate that the table's content should have a middle vertical-align, use `@
 
 ```handlebars
 <Hds::Table
-  @model={{this.model.data}}
+  @model={{this.model.myDemoData}}
   @columns={{array
     (hash key="artist" label="Artist" isSortable=true)
     (hash key="album" label="Album" isSortable=true)
@@ -294,7 +294,7 @@ If you have more than just text content in the table cell, you'll want to wrap t
 
 ```handlebars
 <Hds::Table
-  @model={{this.model.data}}
+  @model={{this.model.myDemoData}}
   @columns={{array
     (hash key="artist" label="Artist" isSortable=true)
     (hash key="album" label="Album" isSortable=true)
@@ -322,7 +322,7 @@ To create a column that has right-aligned content, set `@align` to `right` on bo
 
 ```handlebars
 <Hds::Table
-  @model={{this.model.data}}
+  @model={{this.model.myDemoData}}
   @columns={{array
     (hash key="artist" label="Artist" isSortable=true)
     (hash key="album" label="Album" isSortable=true)
@@ -347,7 +347,7 @@ Here’s a table implementation that uses an array hash with localized strings f
 
 ```handlebars{data-execute=false}
 <Hds::Table
-  @model={{this.model.data}}
+  @model={{this.model.myDemoData}}
   @columns={{array
       (hash key='artist' label=(t 'components.table.headers.artist') isSortable=true)
       (hash key='album' label=(t 'components.table.headers.album') isSortable=true)
