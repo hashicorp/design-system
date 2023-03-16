@@ -5,8 +5,10 @@
 
 // COMPONENTS > TABLE
 
-.table-demo-flexbox {
-  display: flex;
-  gap: 5px;
-  align-items: center;
+#show-content-components-table {
+  .doc-table-valign-demo {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
 }

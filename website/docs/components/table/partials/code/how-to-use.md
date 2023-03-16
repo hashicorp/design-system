@@ -305,7 +305,7 @@ If you have more than just text content in the table cell, you'll want to wrap t
   <:body as |B|>
     <B.Tr>
       <B.Td>
-        <div class="table-demo-flexbox">
+        <div class="doc-table-valign-demo">
           <FlightIcon @name="headphones" /> {{B.data.artist}}
         </div>
       </B.Td>
