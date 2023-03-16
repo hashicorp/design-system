@@ -31,23 +31,35 @@ import Route from '@ember/routing/route';
 export default class ComponentsTableRoute extends Route {
   async model() {
     // example of data retrieved:
-    // [
-    //   {
-    //     "id": 1,
-    //     "name": "Burnaby Kuscha",
-    //     "email": "1_bkuscha0@tiny.cc",
-    //     "role": "Owner"
-    //   },
-    //   {
-    //     "id": 2,
-    //     "name": "Barton Penley",
-    //     "email": "2_bpenley1@miibeian.gov.cn",
-    //     "role": "Admin"
-    //   },
-    //   ...
+    //[
+    //  {
+    //    id: '1',
+    //    attributes: {
+    //      artist: 'Nick Drake',
+    //      album: 'Pink Moon',
+    //      year: '1972'
+    //    },
+    //  },
+    //  {
+    //    id: '2',
+    //    attributes: {
+    //      artist: 'The Beatles',
+    //      album: 'Abbey Road',
+    //      year: '1969'
+    //    },
+    //  },
+    //  {
+    //    id: '3',
+    //    attributes: {
+    //      artist: 'Melanie',
+    //      album: 'Candles in the Rain',
+    //      year: '1971'
+    //    },
+    //  },
+    // ...
     let response = await fetch('/api/demo.json');
     let { data } = await response.json();
-    return { myDemoData: data };
+    return { data: data };
   }
 }
 ```
@@ -56,16 +68,16 @@ For documentation purposes, we’re imitating fetching data from an API and work
 
 You can insert your own content into the `:body` block and the component will take care of looping over the `@model` provided:
 
-```handlebars{data-execute=false}
+```handlebars
 <Hds::Table
-  @model={{this.model.myDemoData}}
-  @columns={{array (hash label="Name") (hash label="Email") (hash label="Role")}}
+  @model={{this.model.data}}
+  @columns={{array (hash label="Artist") (hash label="Album") (hash label="Year")}}
 >
   <:body as |B|>
     <B.Tr>
-      <B.Td>{{B.data.name}}</B.Td>
-      <B.Td>{{B.data.email}}</B.Td>
-      <B.Td>{{B.data.role}}</B.Td>
+      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td>{{B.data.year}}</B.Td>
     </B.Tr>
   </:body>
 </Hds::Table>
@@ -137,7 +149,7 @@ To indicate that a specific column should be pre-sorted, add `@sortBy`, where th
 
 ##### Pre-sorting direction
 
-By default, the sort order is set to ascending. To indicate that the column defined in `@sortBy` should be pre-sorted in descending order, pass in `@sortOrder='desc'`.
+By default, the sort order is set to ascending. To indicate that the column defined in `@sortBy` should be pre-sorted in descending order, pass in `@sortOrder="desc"`.
 
 ```handlebars
 <Hds::Table
@@ -165,9 +177,9 @@ By default, the sort order is set to ascending. To indicate that the column defi
 To implement a custom sort callback on a column:
 
 1. add a custom function as the value for `sortingFunction` in the column hash,
-2. include a custom `onSort` action in your table invocation to track the sorting order and use it in the custom sorting function. 
+2. include a custom `onSort` action in your table invocation to track the sorting order and use it in the custom sorting function.
 
-This is useful for cases where the key might not be A-Z or 0-9 sortable by default, e.g., status, and you’re otherwise unable to influence the shape of the data in the model. 
+This is useful for cases where the key might not be A-Z or 0-9 sortable by default, e.g., status, and you’re otherwise unable to influence the shape of the data in the model.
 
 _The code has been truncated for clarity._
 
