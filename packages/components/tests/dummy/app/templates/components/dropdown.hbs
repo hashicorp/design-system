@@ -315,6 +315,9 @@
             {{state}}
           </Hds::Dropdown::ListItem::Checkmark>
         {{/each}}
+        <Hds::Dropdown::ListItem::Checkmark mock-state-value="disabled" disabled>
+          disabled
+        </Hds::Dropdown::ListItem::Checkmark>
       </ul>
     </SF.Item>
     <SF.Item @label="Selected">
@@ -324,6 +327,9 @@
             {{state}}
           </Hds::Dropdown::ListItem::Checkmark>
         {{/each}}
+        <Hds::Dropdown::ListItem::Checkmark mock-state-value="disabled" @selected={{true}} disabled>
+          disabled
+        </Hds::Dropdown::ListItem::Checkmark>
       </ul>
     </SF.Item>
     <SF.Item @label="Icon">
@@ -333,6 +339,9 @@
             {{state}}
           </Hds::Dropdown::ListItem::Checkmark>
         {{/each}}
+        <Hds::Dropdown::ListItem::Checkmark @icon="hexagon" mock-state-value="disabled" disabled>
+          disabled
+        </Hds::Dropdown::ListItem::Checkmark>
       </ul>
     </SF.Item>
     <SF.Item @label="Icon, selected">
@@ -342,6 +351,9 @@
             {{state}}
           </Hds::Dropdown::ListItem::Checkmark>
         {{/each}}
+        <Hds::Dropdown::ListItem::Checkmark @icon="hexagon" mock-state-value="disabled" @selected={{true}} disabled>
+          disabled
+        </Hds::Dropdown::ListItem::Checkmark>
       </ul>
     </SF.Item>
     <SF.Item @label="Count">
@@ -427,39 +439,49 @@
     <SF.Item @label="Default">
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}}>{{state}}</Hds::Dropdown::ListItem::Checkbox>
+          <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}}>
+            {{state}}
+          </Hds::Dropdown::ListItem::Checkbox>
         {{/each}}
+        <Hds::Dropdown::ListItem::Checkbox mock-state-value="disabled" disabled>
+          disabled
+        </Hds::Dropdown::ListItem::Checkbox>
       </ul>
     </SF.Item>
     <SF.Item @label="Checked">
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Checkbox
-            mock-state-value={{state}}
-            checked
-          >{{state}}</Hds::Dropdown::ListItem::Checkbox>
+          <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} checked>
+            {{state}}
+          </Hds::Dropdown::ListItem::Checkbox>
         {{/each}}
+        <Hds::Dropdown::ListItem::Checkbox mock-state-value="disabled" disabled checked>
+          disabled
+        </Hds::Dropdown::ListItem::Checkbox>
       </ul>
     </SF.Item>
     <SF.Item @label="Icon">
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Checkbox
-            mock-state-value={{state}}
-            @icon="hexagon"
-          >{{state}}</Hds::Dropdown::ListItem::Checkbox>
+          <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} @icon="hexagon">
+            {{state}}
+          </Hds::Dropdown::ListItem::Checkbox>
         {{/each}}
+        <Hds::Dropdown::ListItem::Checkbox mock-state-value="disabled" @icon="hexagon" disabled>
+          disabled
+        </Hds::Dropdown::ListItem::Checkbox>
       </ul>
     </SF.Item>
     <SF.Item @label="Icon, checked">
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Checkbox
-            mock-state-value={{state}}
-            @icon="hexagon"
-            checked
-          >{{state}}</Hds::Dropdown::ListItem::Checkbox>
+          <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} @icon="hexagon" checked>
+            {{state}}
+          </Hds::Dropdown::ListItem::Checkbox>
         {{/each}}
+        <Hds::Dropdown::ListItem::Checkbox mock-state-value="disabled" @icon="hexagon" disabled checked>
+          disabled
+        </Hds::Dropdown::ListItem::Checkbox>
       </ul>
     </SF.Item>
     <SF.Item @label="Count">
@@ -548,36 +570,49 @@
     <SF.Item @label="Default">
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Radio mock-state-value={{state}}>{{state}}</Hds::Dropdown::ListItem::Radio>
+          <Hds::Dropdown::ListItem::Radio mock-state-value={{state}}>
+            {{state}}
+          </Hds::Dropdown::ListItem::Radio>
         {{/each}}
+        <Hds::Dropdown::ListItem::Radio mock-state-value="disabled" disabled>
+          disabled
+        </Hds::Dropdown::ListItem::Radio>
       </ul>
     </SF.Item>
     <SF.Item @label="Checked">
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} checked>{{state}}</Hds::Dropdown::ListItem::Radio>
+          <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} checked>
+            {{state}}
+          </Hds::Dropdown::ListItem::Radio>
         {{/each}}
+        <Hds::Dropdown::ListItem::Radio mock-state-value="disabled" checked disabled>
+          disabled
+        </Hds::Dropdown::ListItem::Radio>
       </ul>
     </SF.Item>
     <SF.Item @label="Icon">
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Radio
-            mock-state-value={{state}}
-            @icon="hexagon"
-          >{{state}}</Hds::Dropdown::ListItem::Radio>
+          <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} @icon="hexagon">
+            {{state}}
+          </Hds::Dropdown::ListItem::Radio>
         {{/each}}
+        <Hds::Dropdown::ListItem::Radio mock-state-value="disabled" @icon="hexagon" disabled>
+          disabled
+        </Hds::Dropdown::ListItem::Radio>
       </ul>
     </SF.Item>
     <SF.Item @label="Icon, checked">
       <ul class="hds-dropdown-list">
         {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Radio
-            mock-state-value={{state}}
-            checked
-            @icon="hexagon"
-          >{{state}}</Hds::Dropdown::ListItem::Radio>
+          <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} checked @icon="hexagon">
+            {{state}}
+          </Hds::Dropdown::ListItem::Radio>
         {{/each}}
+        <Hds::Dropdown::ListItem::Radio mock-state-value="disabled" @icon="hexagon" checked disabled>
+          disabled
+        </Hds::Dropdown::ListItem::Radio>
       </ul>
     </SF.Item>
     <SF.Item @label="Count">
