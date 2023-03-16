@@ -1,6 +1,5 @@
 ## Conformance rating
 
-<!-- Update conformance rating badge with correct status and remove the others -->
 <Doc::Badge @type="success">Conformant</Doc::Badge>
 
 When used as recommended, there should not be any WCAG conformance issues with this component.

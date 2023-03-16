@@ -1,5 +1,11 @@
 # @hashicorp/design-system-components
 
+## 1.8.0
+
+### Minor Changes
+
+- [#1163](https://github.com/hashicorp/design-system/pull/1163) [`992fde13f`](https://github.com/hashicorp/design-system/commit/992fde13f48b925563e85a7253f4c0aaeca50b9d) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - Add new `SideNav` components
+
 ## 1.7.3
 
 ### Patch Changes

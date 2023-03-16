@@ -40,14 +40,15 @@
   --token-side-nav-interactive-surface-active: #656a76;
 }
 
-@mixin hds-side-nav-icon-button($show-border: false) {
+@mixin hds-side-nav-icon-button($add-visible-border: false) {
   color: var(--token-side-nav-foreground-primary-strong);
   background-color: transparent;
+  border: 1px solid transparent;
   border-radius: var(--token-side-nav-body-list-item-border-radius);
   cursor: pointer;
 
-  @if ($show-border) {
-    border: 1px solid var(--token-color-palette-neutral-500);
+  @if ($add-visible-border) {
+    border-color: var(--token-color-palette-neutral-500);
   }
 
   &:focus,
@@ -66,8 +67,8 @@
     color: var(--token-side-nav-foreground-primary-strong); // to avoid overrides by specificity (eg. `a:hover`)
     background: var(--token-side-nav-interactive-surface-active);
 
-    @if ($show-border) {
-      border: 1px solid var(--token-color-palette-neutral-400);
+    @if ($add-visible-border) {
+      border-color: var(--token-color-palette-neutral-400);
     }
   }
 }
@@ -137,12 +138,12 @@
 // Apply class name to Hds::Dropdown component
 .hds-side-nav__dropdown {
   .hds-dropdown-toggle-icon {
-    @include hds-side-nav-icon-button($show-border: true);
+    @include hds-side-nav-icon-button($add-visible-border: true);
   }
 }
 
 .hds-side-nav__icon-button {
-  @include hds-side-nav-icon-button($show-border: true);
+  @include hds-side-nav-icon-button($add-visible-border: true);
   display: flex;
   align-items: center;
   justify-content: center;
