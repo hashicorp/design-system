@@ -242,23 +242,8 @@ As the viewport shrinks, the form width should expand relative to the viewport w
 
 ## Required and optional
 
-Displaying what fields are required or optional can help users submit a form free of errors, but can also add visual weight the form.
+For complex forms, indicate **required** fields. This is the most explicit and transparent method and ensures users don't have to make assumptions.
 
-- For shorter forms fields should be interpreted as required by default. Fields that are not required should be marked as optional.
-- Don't mix required and optional labels, stick to one or the other. Using one method will imply that fields without a label are the inverse of whatever method you choose.
+For shorter, simpler forms, indicate optional fields instead.
 
-When determining whether to mark fields as optional or required, consider which method occurs the least. This can help reduce visual weight since unmarked fields are implied as the inverse of marked fields.
-
-!!! Do
-
-Do list the method that occurs the least.
-
-![Do list the method that occurs the least](/assets/patterns/form-patterns/do-required-fields.png =450x*)
-!!!
-
-!!! Dont
-
-Don't list the method that occurs the most.
-
-![Don't list the method that occurs the most](/assets/patterns/form-patterns/dont-optional-fields.png =450x*)
-!!!
+Don't mix required and optional labels, stick to one or the other. Using one method can imply that fields without a label are the inverse of whatever method you choose, though expecting the user to carry this knowledge through a complex form can cause unnecessary validation errors when required fields aren't labeled.
