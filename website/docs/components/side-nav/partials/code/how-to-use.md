@@ -12,8 +12,9 @@ SideNav does not exist as a single out of the box HDS component. It instead cons
         <:header>
           <Hds::SideNav::Header>
             <:logo>
-              <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
+              <Hds::SideNav::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
             </:logo>
+
             <:actions>
               <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
                 <dd.ToggleIcon @icon="help" @text="settings menu" />
