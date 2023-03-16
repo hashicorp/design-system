@@ -48,14 +48,6 @@ export default class ComponentsTableRoute extends Route {
     //      year: '1969'
     //    },
     //  },
-    //  {
-    //    id: '3',
-    //    attributes: {
-    //      artist: 'Melanie',
-    //      album: 'Candles in the Rain',
-    //      year: '1971'
-    //    },
-    //  },
     // ...
     let response = await fetch('/api/demo.json');
     let { data } = await response.json();
