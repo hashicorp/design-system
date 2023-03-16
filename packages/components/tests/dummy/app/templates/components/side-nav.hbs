@@ -12,7 +12,7 @@
           <:header>
             <Hds::SideNav::Header>
               <:logo>
-                <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
+                <Hds::SideNav::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
               </:logo>
               <:actions>
                 <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
@@ -67,7 +67,7 @@
           <:header>
             <Hds::SideNav::Header>
               <:logo>
-                <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
+                <Hds::SideNav::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
               </:logo>
               <:actions>
                 <Hds::SideNav::IconButton @icon="search" @ariaLabel="Search" />
@@ -205,7 +205,7 @@
       <div class="shw-component-sim-side-nav-header">
         <Hds::SideNav::Header>
           <:logo>
-            <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
+            <Hds::SideNav::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
           </:logo>
           <:actions>
             <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
@@ -238,14 +238,14 @@
   <Shw::Flex as |SF|>
     <SF.Item @label="Icon">
       <div class="shw-component-side-nav-home-link-wrapper">
-        <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
+        <Hds::SideNav::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
       </div>
     </SF.Item>
     <SF.Item @label="Icon with custom color">
       <div class="shw-component-side-nav-home-link-wrapper">
         <Hds::SideNav::HomeLink
           @icon="boundary"
-          @text="Boundary"
+          @ariaLabel="Boundary"
           @color="var(--token-color-boundary-brand)"
           @href="#"
         />
@@ -260,7 +260,7 @@
       {{#each states as |state|}}
         <SF.Item @label={{state}}>
           <div class="shw-component-side-nav-home-link-wrapper">
-            <Hds::SideNav::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" mock-state-value={{state}} />
+            <Hds::SideNav::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" mock-state-value={{state}} />
           </div>
         </SF.Item>
       {{/each}}
@@ -273,6 +273,7 @@
           <div class="shw-component-side-nav-home-link-wrapper">
             <Hds::SideNav::HomeLink
               @icon="boundary"
+              @ariaLabel="Boundary"
               @color="var(--token-color-boundary-brand)"
               @href="#"
               mock-state-value={{state}}
