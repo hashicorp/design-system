@@ -7,9 +7,6 @@
 
 .table-demo-flexbox {
   display: flex;
+  gap: 5px;
   align-items: center;
-
-  svg {
-    margin-right: 5px;
-  }
 }
