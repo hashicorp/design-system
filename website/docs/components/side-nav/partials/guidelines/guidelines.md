@@ -20,6 +20,14 @@ For cloud products, the icon set should always be the HCP service icon. For stan
 
 (IMAGE)
 
+### Help menu
+
+TBD...
+
+### User menu
+
+TBD...
+
 ## Body
 
 The body consists of a group of sections with vertical lists of links or buttons.
@@ -38,7 +46,55 @@ A title could help users scan the sections and provide context about the links i
 
 Titles should be meaningful and related to the content within the section.
 
-## List items
+### List items
+
+#### Without icon
+
+(IMAGE)
+
+#### With icon
+
+(IMAGE)
+
+- Use icons to help users recognize and scan the links they are paired with.
+- We recommend only using icons in the main level of the navigation.
+- Avoid overwriting color styles in icons.
+
+(DON'T / DO BLOCK)
+
+#### With badge
+
+(IMAGE)
+
+#### With count
+
+(IMAGE)
+
+#### With nested items
+
+(IMAGE)
+
+- Set hasSubItems to show that a link has a nested level of navigation.
+
+#### External links
+
+(IMAGE)
+
+- Use isLinkExternal to show that the link is a hyperlink pointing to a page outside the product or platform.
+
+(ALERT/BANNER BLOCK)
+
+## Footer
+
+### Context switcher
+
+TBD...
+
+## Height
+
+TBD...
+
+## Collapsed / Responsive
 
 TBD...
 
