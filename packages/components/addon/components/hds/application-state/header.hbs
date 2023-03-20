@@ -2,7 +2,7 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<div class="hds-application-state__header">
+<div class="hds-application-state__header" ...attributes>
   {{#if @errorCode}}
     <div class="hds-application-state__header__icon">
       <FlightIcon @name={{if @iconName @iconName "alert-circle"}} @size="24" />
