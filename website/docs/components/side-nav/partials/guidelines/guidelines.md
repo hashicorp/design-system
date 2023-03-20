@@ -109,20 +109,6 @@ The side navigation should take the full height of the viewport to ensure that t
 
 ![Side-nav height](/assets/components/side-nav/sidenav-height.png)
 
-## Collapsed / Responsive
+## Positioning and responsive behaviour
 
-TBD...
-
-## Content
-
-- {description}
-- {description}
-- {description}
-- {description}
-- {description}
-
-## Related
-
-<!-- only include the 2 most similar/related components -->
-- {[component name](#)}
-- {[component name](#)}
+TBD... Collapsed / Responsive
