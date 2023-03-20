@@ -1,0 +1,14 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// COMPONENTS > TABLE
+
+#show-content-components-table {
+  .doc-table-valign-demo {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
+}
