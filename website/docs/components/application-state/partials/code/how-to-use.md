@@ -49,6 +49,19 @@ To indicate that the message is an error state, add the errorCode to the invocat
 </Hds::ApplicationState>
 ```
 
+#### Error state with customized help link
+
+```handlebars{data-execute=false}
+<Hds::ApplicationState @errorCode="404" as |A|>
+  <A.Header @titleText={{t error.text.title}} />
+  <A.Body
+    @bodyText={{t error.text.description}}
+  />
+  <A.Footer @iconName="arrow-left" @footerText={{t link.text.back}} @href="/" 
+  @helpIcon="support" @helpText={{t link.text.help}} @helpHref="/url/to/help" />
+</Hds::ApplicationState>
+```
+
 #### Error state with yielded body block
 
 ```handlebars
