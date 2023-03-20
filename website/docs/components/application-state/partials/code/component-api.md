@@ -18,18 +18,25 @@ The ApplicationState component has three child components:
 ### ApplicationState::Header
 
 <Doc::ComponentApi as |C|>
+  <C.Property @name="iconName" @type="string">
+    Is shown if `@errorCode` is defined when the component is invoked. Default icon is `alert-circle`, but any valid icon name is supported.
+  </C.Property>
   <C.Property @name="titleText" @type="string"  />
 </Doc::ComponentApi>
 
 ### ApplicationState::Body
 
+Supports block use.
+
 <Doc::ComponentApi as |C|>
   <C.Property @name="bodyText" @type="string" />
 </Doc::ComponentApi>
-
+  
 ### ApplicationState::Footer
 
-Up to one footer link is supported in the empty state; an additional "help" link is available in the error state.
+Up to one footer link ([Link::Standalone](../components/link/standalone)) is supported in the empty state; an additional "help" link is available in the error state.
+
+Supports block use.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="iconName" @type="string">
