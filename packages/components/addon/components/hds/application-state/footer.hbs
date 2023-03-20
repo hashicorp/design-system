@@ -1,11 +1,7 @@
-<div class="hds-application-state__footer">
-  <Hds::Link::Standalone @icon={{@iconName}} @text={{@footerText}} @href={{@href}} />
-  {{#if @errorCode}}
-    <Hds::Link::Standalone
-      @icon={{if @helpIcon @helpIcon "help"}}
-      @text={{if @helpText @helpText "Need Help"}}
-      @iconPosition="trailing"
-      @href={{@helpHref}}
-    />
-  {{/if}}
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<div class="hds-application-state__footer" ...attributes>
+  {{yield (hash Link=(component "hds/link/standalone"))}}
 </div>

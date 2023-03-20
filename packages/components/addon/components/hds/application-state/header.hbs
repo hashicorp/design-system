@@ -1,16 +1,19 @@
-<div class="hds-application-state__header">
-  {{#if @errorCode}}
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<div class="hds-application-state__header" ...attributes>
+  {{#if @subtitle}}
     <div class="hds-application-state__header__icon">
-      <FlightIcon @name="alert-circle" @size="24" />
+      <FlightIcon @name={{if @icon @icon "alert-circle"}} @size="24" />
     </div>
   {{/if}}
   <div class="hds-application-state__header__title hds-typography-display-400 hds-font-weight-semibold">
-    {{@titleText}}
+    {{@title}}
   </div>
-  {{#if @errorCode}}
+  {{#if @subtitle}}
     <div class="hds-application-state__header__errorCode hds-typography-body-100 hds-font-weight-medium">
-      Error
-      {{@errorCode}}
+      {{@subtitle}}
     </div>
   {{/if}}
 </div>

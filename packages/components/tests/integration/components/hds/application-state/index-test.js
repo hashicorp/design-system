@@ -3,24 +3,22 @@ import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | hds/application-state/index', function (hooks) {
-  setupRenderingTest(hooks);
+module(
+  'Integration | Component | hds/application-state/index',
+  function (hooks) {
+    setupRenderingTest(hooks);
 
-  test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
-    await render(hbs`<Hds::ApplicationState::Index />`);
-
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
+    test('it renders', async function (assert) {
+      // Set any properties with this.set('myProperty', 'value');
+      // Handle any actions with this.set('myAction', function(val) { ... });
+      // Template block usage:
+      await render(hbs`
       <Hds::ApplicationState::Index>
         template block text
       </Hds::ApplicationState::Index>
     `);
 
-    assert.dom(this.element).hasText('template block text');
-  });
-});
+      assert.dom(this.element).hasText('template block text');
+    });
+  }
+);
