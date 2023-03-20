@@ -33,9 +33,20 @@
       <Hds::ApplicationState @errorCode="404" as |A|>
         <A.Header @titleText="An error has occurred" />
         <A.Body>
-          <Shw::Placeholder @text="components and other things" @height="150px" @background="#e1f5fe" />
+          <Shw::Placeholder @text="block yield" @height="150px" @background="#e1f5fe" />
         </A.Body>
         <A.Footer @iconName="arrow-left" @footerText="Go back" @href="/" @helpHref="/components/alert" />
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="Error state, block yield footer">
+      <Hds::ApplicationState @errorCode="404" as |A|>
+        <A.Header @titleText="An error has occurred" />
+        <A.Body
+          @bodyText="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+        />
+        <A.Footer>
+          <Shw::Placeholder @text="block yield" @height="50px" @background="#e1f5fe" />
+        </A.Footer>
       </Hds::ApplicationState>
     </SF.Item>
     <SF.Item @label="Empty state with link">
