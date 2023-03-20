@@ -116,6 +116,6 @@ export default class Index extends Component {
     const columns = keys.map((key) => {
       return { key, label: capitalize(key) };
     });
-    return { data: dataResponse, columns };
+    return { myDemoData: dataResponse, columns };
   }
 }

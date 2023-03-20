@@ -1,0 +1,623 @@
+{{page-title "SideNav Component"}}
+
+<Shw::Text::H1>SideNav</Shw::Text::H1>
+
+<section data-test-percy>
+  <Shw::Text::H2>Examples</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="With single 'list' (nav) container">
+      <div class="shw-component-sim-side-nav-root-container">
+        <Hds::SideNav::Wrapper>
+          <:header>
+            <Hds::SideNav::Header>
+              <:logo>
+                <Hds::SideNav::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
+              </:logo>
+              <:actions>
+                <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
+                  <dd.ToggleIcon @icon="help" @text="settings menu" />
+                  <dd.Title @text="Signed In" />
+                  <dd.Description @text="email@domain.com" />
+                  <dd.Separator />
+                  <dd.Interactive @href="#" @text="Settings and Preferences" />
+                </Hds::Dropdown>
+                <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
+                  <dd.ToggleIcon @icon="user" @text="user menu" />
+                  <dd.Title @text="Signed In" />
+                  <dd.Description @text="email@domain.com" />
+                  <dd.Interactive @href="#" @text="Account Settings" />
+                </Hds::Dropdown>
+              </:actions>
+            </Hds::SideNav::Header>
+          </:header>
+
+          <:body>
+            <Hds::SideNav::List as |S|>
+              <S.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
+
+              <S.Title>Services</S.Title>
+              <S.Link @text="Boundary" @icon="boundary" @href="#" />
+              <S.Link @text="Consul" @icon="consul" @href="#" />
+              <S.Link @text="Packer" @icon="packer" @href="#" />
+              <S.Link @text="Vault" @icon="vault" @href="#" />
+              <S.Link @text="Vault Secrets" @icon="lock" @href="#" />
+              <S.Link @text="Terraform" @icon="terraform" @href="#" />
+              <S.Link @text="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
+              <S.Link @text="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} />
+
+              <S.Title>Default Org</S.Title>
+              <S.Link @text="HashiCorp Virtual Networks" @icon="network" @href="#" />
+              <S.Link @text="Access control (IAM)" @icon="users" @href="#" @hasSubItems={{true}} />
+              <S.Link @text="Billing" @icon="credit-card" @href="#" @hasSubItems={{true}} />
+              <S.Link @text="Settings" @icon="settings" @href="#" @hasSubItems={{true}} />
+            </Hds::SideNav::List>
+          </:body>
+
+          <:footer>
+            OrgSelect / ContextSwitcher
+          </:footer>
+        </Hds::SideNav::Wrapper>
+      </div>
+    </SF.Item>
+
+    <SF.Item @label="With multiple 'list' (nav) containers & extra button in header">
+      <div class="shw-component-sim-side-nav-root-container">
+        <Hds::SideNav::Wrapper>
+          <:header>
+            <Hds::SideNav::Header>
+              <:logo>
+                <Hds::SideNav::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
+              </:logo>
+              <:actions>
+                <Hds::SideNav::IconButton @icon="search" @ariaLabel="Search" />
+                <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
+                  <dd.ToggleIcon @icon="help" @text="settings menu" />
+                  <dd.Title @text="Signed In" />
+                  <dd.Description @text="email@domain.com" />
+                  <dd.Separator />
+                  <dd.Interactive @href="#" @text="Settings and Preferences" />
+                </Hds::Dropdown>
+                <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
+                  <dd.ToggleIcon @icon="user" @text="user menu" />
+                  <dd.Title @text="Signed In" />
+                  <dd.Description @text="email@domain.com" />
+                  <dd.Interactive @href="#" @text="Account Settings" />
+                </Hds::Dropdown>
+              </:actions>
+            </Hds::SideNav::Header>
+          </:header>
+
+          <:body>
+            <Hds::SideNav::List as |S|>
+              <S.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
+            </Hds::SideNav::List>
+
+            <Hds::SideNav::List as |S|>
+              <S.Title>Services</S.Title>
+
+              <S.Link @text="Boundary" @icon="boundary" @href="#" />
+              <S.Link @text="Consul" @icon="consul" @href="#" />
+              <S.Link @text="Packer" @icon="packer" @href="#" />
+              <S.Link @text="Vault" @icon="vault" @href="#" />
+              <S.Link @text="Vault Secrets" @icon="lock" @href="#" />
+              <S.Link @text="Terraform" @icon="terraform" @href="#" />
+              <S.Link @text="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
+              <S.Link @text="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} />
+            </Hds::SideNav::List>
+
+            <Hds::SideNav::List as |S|>
+              <S.Title>Default Org</S.Title>
+
+              <S.Link @text="HashiCorp Virtual Networks" @icon="network" @href="#" />
+              <S.Link @text="Access control (IAM)" @icon="users" @href="#" @hasSubItems={{true}} />
+              <S.Link @text="Billing" @icon="credit-card" @href="#" @hasSubItems={{true}} />
+              <S.Link @text="Settings" @icon="settings" @href="#" @hasSubItems={{true}} />
+            </Hds::SideNav::List>
+          </:body>
+
+          <:footer>
+            OrgSelect / ContextSwitcher
+          </:footer>
+        </Hds::SideNav::Wrapper>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+</section>
+
+<Shw::Divider />
+
+<section data-test-percy>
+  <Shw::Text::H2>SideNav::Wrapper</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Header + Body + Footer">
+      <div class="shw-component-sim-side-nav-root-container">
+        <Hds::SideNav::Wrapper>
+          <:header>
+            <Shw::Placeholder @height="72px" @text="header" @background="#e4e4e4" />
+          </:header>
+          <:body>
+            <Shw::Placeholder @height="300px" @text="body" @background="#e4e4e4" />
+          </:body>
+          <:footer>
+            <Shw::Placeholder @height="36px" @text="footer" @background="#e4e4e4" />
+          </:footer>
+        </Hds::SideNav::Wrapper>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Header (with extra) + Body (with extra) + Footer">
+      <div class="shw-component-sim-side-nav-root-container">
+        <Hds::SideNav::Wrapper>
+          <:header>
+            <Shw::Placeholder @height="72px" @text="header" @background="#e4e4e4" />
+            <Shw::Placeholder @height="60px" @text="extra content for 'header'" @background="#e4c5f3" />
+          </:header>
+          <:body>
+            <Shw::Placeholder @height="250px" @text="body" @background="#e4e4e4" />
+            <Shw::Placeholder @height="60px" @text="extra content for 'body'" @background="#e4c5f3" />
+          </:body>
+          <:footer>
+            <Shw::Placeholder @height="36px" @text="footer" @background="#e4e4e4" />
+          </:footer>
+        </Hds::SideNav::Wrapper>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Header + Body (scrollable) + Footer">
+      <div class="shw-component-sim-side-nav-root-container">
+        <Hds::SideNav::Wrapper>
+          <:header>
+            <Shw::Placeholder @height="72px" @text="header" @background="#e4e4e4" />
+          </:header>
+          <:body>
+            <Shw::Placeholder @height="500px" @text="body" @background="#d2f4ff" />
+          </:body>
+          <:footer>
+            <Shw::Placeholder @height="36px" @text="footer" @background="#e4e4e4" />
+          </:footer>
+        </Hds::SideNav::Wrapper>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+</section>
+
+<Shw::Divider />
+
+<section data-test-percy>
+  <Shw::Text::H2>SideNav::Header</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Logo + Actions">
+      <div class="shw-component-sim-side-nav-header">
+        <Hds::SideNav::Header>
+          <:logo>
+            <Shw::Placeholder @width="100%" @height="100%" @text="logo" @background="#e4e4e4" />
+          </:logo>
+          <:actions>
+            <Shw::Placeholder @height="36px" @width="60px" @text="action" @background="#e4e4e4" />
+            <Shw::Placeholder @height="36px" @width="60px" @text="action" @background="#e4e4e4" />
+          </:actions>
+        </Hds::SideNav::Header>
+      </div>
+    </SF.Item>
+    <SF.Item @label="HomeLink + Dropdowns">
+      <div class="shw-component-sim-side-nav-header">
+        <Hds::SideNav::Header>
+          <:logo>
+            <Hds::SideNav::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
+          </:logo>
+          <:actions>
+            <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
+              <dd.ToggleIcon @icon="help" @text="settings menu" />
+              <dd.Title @text="Signed In" />
+              <dd.Description @text="email@domain.com" />
+              <dd.Separator />
+              <dd.Interactive @href="#" @text="Settings and Preferences" />
+            </Hds::Dropdown>
+            <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
+              <dd.ToggleIcon @icon="user" @text="user menu" />
+              <dd.Title @text="Signed In" />
+              <dd.Description @text="email@domain.com" />
+              <dd.Interactive @href="#" @text="Account Settings" />
+            </Hds::Dropdown>
+          </:actions>
+        </Hds::SideNav::Header>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+</section>
+
+<Shw::Divider />
+
+<section data-test-percy>
+  <Shw::Text::H2>SideNav::HomeLink</Shw::Text::H2>
+
+  <Shw::Text::H3>Content</Shw::Text::H3>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Icon">
+      <div class="shw-component-side-nav-home-link-wrapper">
+        <Hds::SideNav::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
+      </div>
+    </SF.Item>
+    <SF.Item @label="Icon with custom color">
+      <div class="shw-component-side-nav-home-link-wrapper">
+        <Hds::SideNav::HomeLink
+          @icon="boundary"
+          @ariaLabel="Boundary"
+          @color="var(--token-color-boundary-brand)"
+          @href="#"
+        />
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H3>States</Shw::Text::H3>
+
+  <Shw::Flex as |SF|>
+    {{#let (array "default" "hover" "active" "focus") as |states|}}
+      {{#each states as |state|}}
+        <SF.Item @label={{state}}>
+          <div class="shw-component-side-nav-home-link-wrapper">
+            <Hds::SideNav::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" mock-state-value={{state}} />
+          </div>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Flex>
+  <Shw::Flex as |SF|>
+    {{#let (array "default" "hover" "active" "focus") as |states|}}
+      {{#each states as |state|}}
+        <SF.Item>
+          <div class="shw-component-side-nav-home-link-wrapper">
+            <Hds::SideNav::HomeLink
+              @icon="boundary"
+              @ariaLabel="Boundary"
+              @color="var(--token-color-boundary-brand)"
+              @href="#"
+              mock-state-value={{state}}
+            />
+          </div>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Flex>
+</section>
+
+<Shw::Divider />
+
+<section data-test-percy>
+  <Shw::Text::H2>SideNav::IconButton</Shw::Text::H2>
+
+  <Shw::Text::H3>States</Shw::Text::H3>
+  <Shw::Flex as |SF|>
+    {{#let (array "default" "hover" "active" "focus") as |states|}}
+      {{#each states as |state|}}
+        <SF.Item @label={{state}}>
+          <div class="shw-component-sim-side-nav-elem-wrapper">
+            <Hds::SideNav::IconButton @icon="search" @ariaLabel="Search" mock-state-value={{state}} />
+          </div>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Flex>
+</section>
+
+<Shw::Divider />
+
+<section data-test-percy>
+  <Shw::Text::H2>Hds::SideNav::List</Shw::Text::H2>
+
+  <Shw::Text::H3>Content</Shw::Text::H3>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Title with multiple items">
+      <div class="shw-component-sim-side-nav-body">
+        <Hds::SideNav::List as |S|>
+          <S.Title>Services</S.Title>
+
+          <S.Link @text="Boundary" @icon="boundary" @href="#" />
+          <S.Link @text="Consul" @icon="consul" @href="#" />
+          <S.Link @text="Packer" @icon="packer" @href="#" />
+          <S.Link @text="Vault" @icon="vault" @href="#" />
+          <S.Link @text="Vault Secrets" @icon="lock" @badge="Alpha" @href="#" />
+          <S.Link @text="Terraform" @icon="terraform" @href="#" />
+          <S.Link @text="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
+          <S.Link @text="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} @href="#" />
+
+          <S.Title>Default Org</S.Title>
+
+          <S.Link @text="HashiCorp Virtual Networks" @icon="network" @href="#" />
+          <S.Link @text="Access control (IAM)" @icon="users" @href="#" />
+          <S.Link @text="Billing" @icon="credit-card" @href="#" />
+          <S.Link @text="Settings" @icon="settings" @href="#" />
+        </Hds::SideNav::List>
+      </div>
+    </SF.Item>
+
+    <SF.Item @label="Multiple groups">
+      <div class="shw-component-sim-side-nav-body">
+        <Hds::SideNav::List as |S|>
+          <S.Link @text="Dashboard" @icon="dashboard" @href="#" />
+        </Hds::SideNav::List>
+        <Hds::SideNav::List as |S|>
+          <S.Title>Services</S.Title>
+
+          <S.Link @text="Boundary" @icon="boundary" @href="#" />
+          <S.Link @text="Consul" @icon="consul" @href="#" />
+          <S.Link @text="Packer" @icon="packer" @href="#" />
+          <S.Link @text="Vault" @icon="vault" @href="#" />
+          <S.Link @text="Vault Secrets" @icon="lock" @badge="Alpha" @href="#" />
+          <S.Link @text="Terraform" @icon="terraform" @href="#" />
+          <S.Link @text="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
+          <S.Link @text="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} @href="#" />
+        </Hds::SideNav::List>
+        <Hds::SideNav::List as |S|>
+          <S.Title>Default Org</S.Title>
+
+          <S.Link @text="HashiCorp Virtual Networks" @icon="network" @href="#" />
+          <S.Link @text="Access control (IAM)" @icon="users" @href="#" />
+          <S.Link @text="Billing" @icon="credit-card" @href="#" />
+          <S.Link @text="Settings" @icon="settings" @href="#" />
+        </Hds::SideNav::List>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>SideNav::List::Title</Shw::Text::H3>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Base">
+      <ul class="shw-component-sim-side-nav-body">
+        <Hds::SideNav::List::Title>Group title</Hds::SideNav::List::Title>
+      </ul>
+    </SF.Item>
+    <SF.Item @label="With very long text">
+      <ul class="shw-component-sim-side-nav-body">
+        <Hds::SideNav::List::Title>This is a long text that should go on two lines</Hds::SideNav::List::Title>
+      </ul>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>SideNav::List::Item</Shw::Text::H3>
+
+  <ul class="shw-component-sim-side-nav-body">
+    <Hds::SideNav::List::Item>
+      <Shw::Placeholder @height="36px" @text="item" @background="#e4e4e4" />
+    </Hds::SideNav::List::Item>
+  </ul>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>SideNav::List::Link</Shw::Text::H3>
+
+  <Shw::Text::H4>Content</Shw::Text::H4>
+
+  <Shw::Grid @columns={{4}} as |SG|>
+    <SG.Item @label="Just text">
+      <Hds::SideNav::List::Link @text="Boundary" @href="#" />
+    </SG.Item>
+    <SG.Item @label="Icon + text">
+      <Hds::SideNav::List::Link @icon="boundary" @text="Boundary" @href="#" />
+    </SG.Item>
+    <SG.Item @label="Icon + text + badge">
+      <Hds::SideNav::List::Link @icon="boundary" @text="Boundary" @badge="Alpha" />
+    </SG.Item>
+    <SG.Item @label="Icon + text + count">
+      <Hds::SideNav::List::Link @icon="boundary" @text="Boundary" @count="3" />
+    </SG.Item>
+    <SG.Item @label="Icon + text + count + badge">
+      <Hds::SideNav::List::Link @icon="boundary" @text="Boundary" @count="3" @badge="Alpha" />
+    </SG.Item>
+    <SG.Item @label="Icon + text + yielded badgecount/badge">
+      <Hds::SideNav::List::Link @icon="boundary" @text="Boundary">
+        <Hds::BadgeCount @type="inverted" @size="small" @color="neutral-dark-mode" @text="3" />
+        <Hds::Badge @type="inverted" @size="small" @color="success" @text="Beta" />
+      </Hds::SideNav::List::Link>
+    </SG.Item>
+    <SG.Item @label="Icon + long text">
+      <Hds::SideNav::List::Link @icon="boundary" @text="This is a long text that should go on two lines" />
+    </SG.Item>
+    <SG.Item @label="Icon + long text + count + badge">
+      <Hds::SideNav::List::Link
+        @icon="boundary"
+        @text="This is a long text that should go on two lines"
+        @count="3"
+        @badge="Alpha"
+      />
+    </SG.Item>
+
+    <SG.Item @label="Text, hasSubItems">
+      <Hds::SideNav::List::Link @text="Boundary" @href="#" @hasSubItems={{true}} />
+    </SG.Item>
+    <SG.Item @label="Icon + text, hasSubItems">
+      <Hds::SideNav::List::Link @icon="boundary" @text="Boundary" @href="#" @hasSubItems={{true}} />
+    </SG.Item>
+    <SG.Item @label="Icon + text + badge, hasSubItems">
+      <Hds::SideNav::List::Link @icon="boundary" @text="Boundary" @badge="Alpha" @hasSubItems={{true}} />
+    </SG.Item>
+    <SG.Item @label="Icon + text + count, hasSubItems">
+      <Hds::SideNav::List::Link @icon="boundary" @text="Boundary" @count="3" @hasSubItems={{true}} />
+    </SG.Item>
+    <SG.Item @label="Icon + text + count + badge, hasSubItems">
+      <Hds::SideNav::List::Link @icon="boundary" @text="Boundary" @count="3" @badge="Alpha" @hasSubItems={{true}} />
+    </SG.Item>
+    <SG.Item @label="Icon + text + yielded badgecount/badge, hasSubItems">
+      <Hds::SideNav::List::Link @icon="boundary" @text="Boundary" @hasSubItems={{true}}>
+        <Hds::BadgeCount @type="inverted" @size="small" @color="neutral-dark-mode" @text="3" />
+        <Hds::Badge @type="inverted" @size="small" @color="success" @text="Beta" />
+      </Hds::SideNav::List::Link>
+    </SG.Item>
+    <SG.Item @label="Icon + long text, hasSubItems">
+      <Hds::SideNav::List::Link
+        @icon="boundary"
+        @text="This is a long text that should go on two lines"
+        @hasSubItems={{true}}
+      />
+    </SG.Item>
+    <SG.Item @label="Icon + long text + count + badge, hasSubItems">
+      <Hds::SideNav::List::Link
+        @icon="boundary"
+        @text="This is a long text that should go on two lines"
+        @count="3"
+        @badge="Alpha"
+        @hasSubItems={{true}}
+      />
+    </SG.Item>
+
+    <SG.Item @label="Just yielded content">
+      <Hds::SideNav::List::Link>
+        <Shw::Placeholder @height="20px" @text="yielded content" @background="#e4e4e4" />
+      </Hds::SideNav::List::Link>
+    </SG.Item>
+    <SG.Item @label="Icon + yielded content">
+      {{! we've added an empty label on purpose, to test the layout in this case }}
+      <Hds::SideNav::List::Link @icon="boundary" @text="">
+        <Shw::Placeholder @height="20px" @text="yielded content" @background="#e4e4e4" />
+      </Hds::SideNav::List::Link>
+    </SG.Item>
+    <SG.Item @label="Icon + text + yielded content">
+      <Hds::SideNav::List::Link @icon="boundary" @text="Boundary">
+        <Shw::Placeholder @height="20px" @text="yielded content" @background="#e4e4e4" />
+      </Hds::SideNav::List::Link>
+    </SG.Item>
+    <SG.Item @label="With hasSubItems">
+      <Hds::SideNav::List::Link @icon="boundary" @text="Boundary" @hasSubItems={{true}}>
+        <Shw::Placeholder @height="20px" @text="yielded content" @background="#e4e4e4" />
+      </Hds::SideNav::List::Link>
+    </SG.Item>
+    <SG.Item @label="Text with no style">
+      <Hds::SideNav::List::Link>
+        This text needs local styling
+      </Hds::SideNav::List::Link>
+    </SG.Item>
+    <SG.Item @label="Text with local style">
+      <Hds::SideNav::List::Link>
+        <span class="hds-typography-body-200 hds-font-weight-medium">
+          This text is locally styled
+        </span>
+      </Hds::SideNav::List::Link>
+    </SG.Item>
+    <SG.Item @label="External link">
+      <Hds::SideNav::List::Link @icon="hashicorp" @text="HashiCorp Cloud Platform" @isHrefExternal={{true}} />
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Text::H4>States</Shw::Text::H4>
+
+  <Shw::Grid @columns={{4}} as |SG|>
+    {{#let (array "default" "hover" "active" "focus") as |states|}}
+      {{#each states as |state|}}
+        <SG.Item @label={{state}}>
+          <Shw::Flex as |SF|>
+            <SF.Item @grow={{true}}>
+              <div class="shw-component-sim-side-nav-list-link-wrapper">
+                <Hds::SideNav::List::Link
+                  @text="Boundary"
+                  @icon="boundary"
+                  @badge="Alpha"
+                  @count="3"
+                  @href="#"
+                  mock-state-value={{state}}
+                />
+              </div>
+            </SF.Item>
+            <SF.Item @grow={{true}}>
+              <div class="shw-component-sim-side-nav-list-link-wrapper">
+                <Hds::SideNav::List::Link
+                  @text="This is a long text that should go on two lines"
+                  @icon="boundary"
+                  @href="#"
+                  mock-state-value={{state}}
+                />
+              </div>
+            </SF.Item>
+            <SF.Item @grow={{true}}>
+              <div class="shw-component-sim-side-nav-list-link-wrapper">
+                <Hds::SideNav::List::Link
+                  @text="Boundary"
+                  @icon="boundary"
+                  @href="#"
+                  @hasSubItems={{true}}
+                  mock-state-value={{state}}
+                />
+              </div>
+            </SF.Item>
+          </Shw::Flex>
+        </SG.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Grid>
+
+  <Shw::Grid @label="with @isActive=true (link is 'current')" @columns={{4}} as |SG|>
+    {{#let (array "default" "hover" "active" "focus") as |states|}}
+      {{#each states as |state|}}
+        <SG.Item>
+          <div class="shw-component-sim-side-nav-list-link-wrapper">
+            <Hds::SideNav::List::Link
+              @text="Boundary"
+              @icon="boundary"
+              @href="#"
+              @hasSubItems={{true}}
+              @isActive={{true}}
+              mock-state-value={{state}}
+            />
+          </div>
+        </SG.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Grid>
+</section>
+
+<Shw::Divider @level={{2}} />
+
+<section data-test-percy>
+  <Shw::Text::H2>SideNav::List::BackLink</Shw::Text::H2>
+
+  <Shw::Text::H3>Content</Shw::Text::H3>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Base">
+      <ul class="shw-component-sim-side-nav-body">
+        <Hds::SideNav::List::BackLink @text="Back to parent page" @href="#" />
+      </ul>
+    </SF.Item>
+    <SF.Item @label="With very long text">
+      <ul class="shw-component-sim-side-nav-body">
+        <Hds::SideNav::List::BackLink @text="This is a long text that should go on two lines" @href="#" />
+      </ul>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H3>States</Shw::Text::H3>
+
+  <Shw::Grid @columns={{4}} as |SG|>
+    {{#let (array "default" "hover" "active" "focus") as |states|}}
+      {{#each states as |state|}}
+        <SG.Item @label={{state}}>
+          <Shw::Flex @direction="column" as |SF|>
+            <SF.Item>
+              <ul class="shw-component-sim-side-nav-body">
+                <Hds::SideNav::List::BackLink @text="Back to parent page" @href="#" mock-state-value={{state}} />
+              </ul>
+            </SF.Item>
+            <SF.Item>
+              <ul class="shw-component-sim-side-nav-body">
+                <Hds::SideNav::List::BackLink
+                  @text="This is a long text that should go on two lines"
+                  @href="#"
+                  mock-state-value={{state}}
+                />
+              </ul>
+            </SF.Item>
+          </Shw::Flex>
+        </SG.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Grid>
+</section>
