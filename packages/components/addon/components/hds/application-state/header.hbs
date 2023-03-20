@@ -4,11 +4,11 @@
       <FlightIcon @name={{@iconName}} @size={{@iconSize}} @stretched={{true}} />
     </div>
   {{/if}}
-  <div class="hds-application-state__header__title hds-typography-display-400">
+  <div class="hds-application-state__header__title hds-typography-display-400 hds-font-weight-semibold">
     {{@titleText}}
   </div>
   {{#if @errorCode}}
-    <div class="hds-application-state__header__errorCode">
+    <div class="hds-application-state__header__errorCode hds-typography-body-100 hds-font-weight-medium">
       Error
       {{@errorCode}}
     </div>
