@@ -20,6 +20,7 @@ Router.map(function () {
   });
   this.route('components', function () {
     this.route('alert');
+    this.route('application-state');
     this.route('avatar');
     this.route('badge');
     this.route('badge-count');
@@ -52,7 +53,6 @@ Router.map(function () {
     this.route('tag');
     this.route('toast');
     this.route('tabs');
-    this.route('application-state');
   });
   this.route('utilities', function () {
     this.route('disclosure');
