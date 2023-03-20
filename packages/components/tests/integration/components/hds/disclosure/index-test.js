@@ -93,7 +93,10 @@ module('Integration | Component | hds/disclosure/index', function (hooks) {
     await click('button#test-disclosure-button');
     assert.dom('.hds-disclosure__content').exists();
     assert.dom('a#test-disclosure-link').exists();
-    await triggerEvent('#test-disclosure', 'focusout');
+    // simulating the focus moves to the body element
+    await triggerEvent('#test-disclosure', 'focusout', {
+      relatedTarget: document.body,
+    });
     assert.dom('.hds-disclosure__content').doesNotExist();
     assert.dom('a#test-disclosure-link').doesNotExist();
   });

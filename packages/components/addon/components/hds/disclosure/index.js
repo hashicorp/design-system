@@ -30,10 +30,9 @@ export default class HdsDisclosureComponent extends Component {
 
   @action
   onFocusOut(event) {
-    if (
-      !event.relatedTarget || // click or tap a non-related target (e.g. outside the element)
-      !this.element.contains(event.relatedTarget) // move focus to a target outside the element
-    ) {
+    // due to inconsitent implementation of relatedTarget across browsers we use the activeElement as a fallback
+    // if the related target is not part of the disclosed content we close the disclosed container
+    if (!this.element.contains(event.relatedTarget || document.activeElement)) {
       this.close();
     }
   }
