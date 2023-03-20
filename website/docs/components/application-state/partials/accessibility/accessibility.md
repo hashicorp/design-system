@@ -2,7 +2,7 @@
 
 <Doc::Badge @type="success">Conformant</Doc::Badge>
 
-When used as directed, there should not be any conformance issues with this component.
+When used as directed, there should not be any conformance issues with this component. Consumers are responsible for the conformance of any content in a block yield.
 
 ## Applicable WCAG Success Criteria
 
