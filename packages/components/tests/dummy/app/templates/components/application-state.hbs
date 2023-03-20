@@ -6,16 +6,32 @@
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="Error state">
       <Hds::ApplicationState @errorCode="404" as |A|>
-        <A.Header @iconName="alert-circle" @titleText="An error has occurred" />
+        <A.Header @titleText="An error has occurred" />
         <A.Body
           @bodyText="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
         />
         <A.Footer @iconName="arrow-left" @footerText="Go back" @href="/" @helpHref="/components/alert" />
       </Hds::ApplicationState>
     </SF.Item>
+    <SF.Item @label="Error state, customized help">
+      <Hds::ApplicationState @errorCode="404" as |A|>
+        <A.Header @titleText="An error has occurred" />
+        <A.Body
+          @bodyText="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+        />
+        <A.Footer
+          @iconName="arrow-left"
+          @footerText="Go back"
+          @href="/"
+          @helpIcon="support"
+          @helpText="Get Support"
+          @helpHref="/components/alert"
+        />
+      </Hds::ApplicationState>
+    </SF.Item>
     <SF.Item @label="Error state, block yield body contents">
       <Hds::ApplicationState @errorCode="404" as |A|>
-        <A.Header @iconName="alert-circle" @titleText="An error has occurred" />
+        <A.Header @titleText="An error has occurred" />
         <A.Body>
           <Shw::Placeholder @text="components and other things" @height="150px" @background="#e1f5fe" />
         </A.Body>
