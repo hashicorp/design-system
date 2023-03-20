@@ -244,6 +244,6 @@ As the viewport shrinks, the form width should expand relative to the viewport w
 
 For complex forms, indicate **required** fields. This is the most explicit and transparent method and ensures users don't have to make assumptions.
 
-For shorter, simpler forms, indicate optional fields instead.
+For shorter, simpler forms, indicate **optional** fields instead.
 
 Don't mix required and optional labels, stick to one or the other. Using one method can imply that fields without a label are the inverse of whatever method you choose, though expecting the user to carry this knowledge through a complex form can cause unnecessary validation errors when required fields aren't labeled.
