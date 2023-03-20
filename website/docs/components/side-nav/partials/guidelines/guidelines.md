@@ -92,27 +92,26 @@ Use isLinkExternal to show that the link is a hyperlink pointing to a page outsi
 
 !!! Warning
 
-Use this property only
+Use external links sparingly. Avoid using this property to link pages that are irrelevant to the product's navigation.
 !!!
 
 ## Footer
 
 ### Context switcher
 
-TBD...
+The context switcher allows users to switch between different contexts within your product or application. For example, the side navigation can display different links and content based on a particular organization or workspace the user selects.
+
+![Context switcher](/assets/components/side-nav/footer-context-switcher.png)
 
 ## Height
 
-TBD...
+The side navigation should take the full height of the viewport to ensure that the navigation is always visible and accessible to the user.
+
+![Side-nav height](/assets/components/side-nav/sidenav-height.png)
 
 ## Collapsed / Responsive
 
 TBD...
-
-### Variant/property name
-
-<!-- don’t forget to include real examples and do/don’t blocks, as necessary -->
-{description}
 
 ## Content
 
