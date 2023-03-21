@@ -1,10 +1,11 @@
-While the alignment, order, and grouping of buttons might seem trivial, the impact on users is immediate and often occurs in experiences of high important and interruption.
+!!! Info
 
-While these guidelines don’t cover every scenario, they are intended to aid in the decision-making process when determining how to organize buttons and actions. Different methods of alignment and ordering will result in different outcomes with pros and cons for each. What is most important is **consistency** across an application in how actions are aligned, ordered, and grouped.
+This content is largely focused around the research and desicion-making process for button alignment. For detailed specifications regarding implementation, visit the [guidelines](/patterns/button-alignment?tab=guidelines).
+!!!
 
 ## Constrained vs. unconstrained
 
-**Constrained** refers to a component or pattern that is wrapped within a container element, while **unconstrained** refers to components that exist at the page level.
+The term **constrained** refers to a component or pattern that is wrapped within a container element, while **unconstrained** refers to components that exist at the page level.
 
 - **Constrained**
     - Dialogs and modals
@@ -24,7 +25,6 @@ Unconstrained generally refers to a more "static" experience that isn’t trigge
 **Insert some supporting images here**
 -->
 
-
 ## Layout and reading patterns
 
 When users read content, the pattern their eyes follow generally adheres to one or more reading patterns. By identifying and familiarizing ourselves with these patterns we can better understand how the layout within our application, pattern, or component impacts comprehension and interpretation of the content.
@@ -39,7 +39,7 @@ The three most common reading patterns are:
 
 The Gutenberg diagram refers to a pattern the eyes follow when moving or scanning through **evenly distributed, homogenous content.** This pattern is most relevant in text-heavy scenarios like novels and newspapers, but is relevant in a UX context depending on the complexity of the content.
 
-![Visual example of a Gutenberg diagram](/assets/patterns/button-alignment/gutenberg-diagram.png)
+![Visual example of a Gutenberg diagram](/assets/patterns/button-organization/gutenberg-diagram.png)
 
 #### Characteristics
 
@@ -57,7 +57,7 @@ A Z-shaped pattern refers to a pattern that follows the shape of the letter Z:
 2. Upon reaching the end (or terminal) of the line, the eyes move diagonally to the next line
 3. The reader’s eyes end at the bottom right of the content
 
-![Visual example of a Z-shaped pattern](/assets/patterns/button-alignment/z-shaped-pattern.png)
+![Visual example of a Z-shaped pattern](/assets/patterns/button-organization/z-shaped-pattern.png)
 
 #### Characteristics
 
@@ -69,7 +69,7 @@ A Z-shaped pattern refers to a pattern that follows the shape of the letter Z:
 
 An F-shaped pattern loosely follows the shape of the letter F, first identified through eye-tracking and heatmap studies by the [Nielsen/Norman Group](https://www.nngroup.com/articles/f-shaped-pattern-reading-web-content-discovered/).
 
-![An example of eye tracking and heat maps from the NN/group](/assets/patterns/button-alignment/f-shaped-pattern-nn-group.jpeg)
+![An example of eye tracking and heat maps from the NN/group](/assets/patterns/button-organization/f-shaped-pattern-nn-group.jpeg)
 
 #### Characteristics
 
