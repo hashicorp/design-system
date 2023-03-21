@@ -156,7 +156,7 @@ $hds-dropdown-toggle-border-radius: 5px;
   }
 }
 
-.hds-dropdown__header--separator {
+.hds-dropdown__header--with-separator {
   border-bottom: 1px solid var(--token-color-border-primary);
 }
 
@@ -180,7 +180,7 @@ $hds-dropdown-toggle-border-radius: 5px;
   }
 }
 
-.hds-dropdown__footer--separator {
+.hds-dropdown__footer--with-separator {
   border-top: 1px solid var(--token-color-border-primary);
 }
 

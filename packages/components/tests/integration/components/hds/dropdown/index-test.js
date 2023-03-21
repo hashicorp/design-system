@@ -77,10 +77,10 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     await click('button#test-toggle-button');
     assert
       .dom('#test-dropdown #test-header')
-      .hasClass('hds-dropdown__header--separator');
+      .hasClass('hds-dropdown__header--with-separator');
     assert
       .dom('#test-dropdown #test-footer')
-      .hasClass('hds-dropdown__footer--separator');
+      .hasClass('hds-dropdown__footer--with-separator');
   });
 
   // POSITION
