@@ -6,8 +6,8 @@ This component currently supports two states: empty state and error state.
 
 ```handlebars
 <Hds::ApplicationState as |A|>
-  <A.Header @titleText="Empty state title text" />
-  <A.Body @bodyText="The item you were looking for was not found." />
+  <A.Header @title="Empty state title text" />
+  <A.Body @text="The item you were looking for was not found." />
 </Hds::ApplicationState>
 ```
 
@@ -15,9 +15,11 @@ This component currently supports two states: empty state and error state.
 
 ```handlebars
 <Hds::ApplicationState as |A|>
-  <A.Header @titleText="Empty state title text" />
-  <A.Body @bodyText="The item you were looking for was not found." />
-  <A.Footer @iconName="search" @footerText="Try a different search" @href="/" />
+  <A.Header @title="Empty state title text" />
+  <A.Body @text="The item you were looking for was not found." />
+  <A.Footer as |F|>
+    <F.Link @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
+  </A.Footer>
 </Hds::ApplicationState>
 ```
 
@@ -25,11 +27,13 @@ This component currently supports two states: empty state and error state.
 
 ```handlebars
 <Hds::ApplicationState as |A|>
-  <A.Header @titleText="Empty state title text" />
+  <A.Header @title="Empty state title text" />
   <A.Body>
     <p>Your content here</p>
   </A.Body>
-  <A.Footer @iconName="search" @footerText="Try a different search" @href="/" />
+  <A.Footer as |F|>
+    <F.Link @icon="arrow-left" @text="Go back" @href="/" />
+  </A.Footer>
 </Hds::ApplicationState>
 ```
 
@@ -38,24 +42,26 @@ This component currently supports two states: empty state and error state.
 To indicate that the message is an error state, add the errorCode to the invocation.
 
 ```handlebars
-<Hds::ApplicationState @errorCode="404" as |A|>
-  <A.Header @titleText="An error has occurred" />
+<Hds::ApplicationState @subtitle="404" as |A|>
+  <A.Header @title="An error has occurred" />
   <A.Body
-    @bodyText="Sorry, an unexpected error has occurred.
+    @text="Sorry, an unexpected error has occurred.
     Please try again later or contact support for assistance."
   />
-  <A.Footer @iconName="arrow-left" @footerText="Go back" @href="/" 
-  @helpHref="/components/alert" />
+  <A.Footer as |F|>
+    <F.Link @icon="arrow-left" @text="Go back" @href="/" />
+    <F.Link @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
+  </A.Footer>
 </Hds::ApplicationState>
 ```
 
-#### Error state with customized help link
+#### Error state with customized header icon
 
 ```handlebars{data-execute=false}
-<Hds::ApplicationState @errorCode="404" as |A|>
-  <A.Header @titleText={{t error.text.title}} />
+<Hds::ApplicationState @subtitle="404" as |A|>
+  <A.Header @title={{t error.text.title}} @icon="help" />
   <A.Body
-    @bodyText={{t error.text.description}}
+    @text={{t error.text.description}}
   />
   <A.Footer @iconName="arrow-left" @footerText={{t link.text.back}} @href="/" 
   @helpIcon="support" @helpText={{t link.text.help}} @helpHref="/url/to/help" />
@@ -65,12 +71,14 @@ To indicate that the message is an error state, add the errorCode to the invocat
 #### Error state with yielded body block
 
 ```handlebars
-<Hds::ApplicationState @errorCode="404" as |A|>
-  <A.Header @titleText="An error has occurred" />
+<Hds::ApplicationState @subtitle="404" as |A|>
+  <A.Header @title="An error has occurred" />
   <A.Body>
     <p>Yielded content here</p>
   </A.Body>
-  <A.Footer @iconName="arrow-left" @footerText="Go back" @href="/" 
-  @helpHref="/components/alert" />
+  <A.Footer as |F|>
+          <F.Link @icon="arrow-left" @text="Go back" @href="/" />
+          <F.Link @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
+        </A.Footer>
 </Hds::ApplicationState>
 ```
