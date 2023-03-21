@@ -309,7 +309,7 @@
   <Shw::Text::H3>Checkmark</Shw::Text::H3>
   <Shw::Flex as |SF|>
     <SF.Item @label="Default">
-      <ul class="hds-dropdown-list" role="listbox">
+      <ul class="hds-dropdown-list" role="listbox" aria-label="Default">
         {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}}>
             {{state}}
@@ -318,7 +318,7 @@
       </ul>
     </SF.Item>
     <SF.Item @label="Selected">
-      <ul class="hds-dropdown-list" role="listbox">
+      <ul class="hds-dropdown-list" role="listbox" aria-label="Selected">
         {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @selected={{true}}>
             {{state}}
@@ -327,7 +327,7 @@
       </ul>
     </SF.Item>
     <SF.Item @label="Icon">
-      <ul class="hds-dropdown-list" role="listbox">
+      <ul class="hds-dropdown-list" role="listbox" aria-label="Icon">
         {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem::Checkmark @icon="hexagon" mock-state-value={{state}}>
             {{state}}
@@ -336,7 +336,7 @@
       </ul>
     </SF.Item>
     <SF.Item @label="Icon, selected">
-      <ul class="hds-dropdown-list" role="listbox">
+      <ul class="hds-dropdown-list" role="listbox" aria-label="Icon, selected">
         {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem::Checkmark @icon="hexagon" mock-state-value={{state}} @selected={{true}}>
             {{state}}
@@ -345,7 +345,7 @@
       </ul>
     </SF.Item>
     <SF.Item @label="Count">
-      <ul class="hds-dropdown-list" role="listbox">
+      <ul class="hds-dropdown-list" role="listbox" aria-label="Count">
         {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @count="12">
             {{state}}
@@ -354,7 +354,7 @@
       </ul>
     </SF.Item>
     <SF.Item @label="Count, selected">
-      <ul class="hds-dropdown-list" role="listbox">
+      <ul class="hds-dropdown-list" role="listbox" aria-label="Count, selected">
         {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @selected={{true}} @count="12">
             {{state}}
@@ -363,7 +363,7 @@
       </ul>
     </SF.Item>
     <SF.Item @label="Custom content">
-      <ul class="hds-dropdown-list" role="listbox">
+      <ul class="hds-dropdown-list" role="listbox" aria-label="Custom content">
         {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @count="12">
             <Shw::Placeholder @text="custom content" @width="123" @height="20" @background="#eee" />
@@ -372,7 +372,7 @@
       </ul>
     </SF.Item>
     <SF.Item @label="Custom content, selected">
-      <ul class="hds-dropdown-list" role="listbox">
+      <ul class="hds-dropdown-list" role="listbox" aria-label="Custom content, selected">
         {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @selected={{true}} @count="12">
             <Shw::Placeholder @text="custom content" @width="123" @height="20" @background="#eee" />
@@ -381,7 +381,7 @@
       </ul>
     </SF.Item>
     <SF.Item @label="Badge in content">
-      <ul class="hds-dropdown-list" role="listbox">
+      <ul class="hds-dropdown-list" role="listbox" aria-label="Badge in content">
         {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}}>
             {{state}}
@@ -391,7 +391,7 @@
       </ul>
     </SF.Item>
     <SF.Item @label="Badge in content, selected">
-      <ul class="hds-dropdown-list" role="listbox">
+      <ul class="hds-dropdown-list" role="listbox" aria-label="Badge in content, selected">
         {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @selected={{true}}>
             {{state}}
@@ -401,7 +401,7 @@
       </ul>
     </SF.Item>
     <SF.Item @label="Large content">
-      <ul class="hds-dropdown-list" role="listbox">
+      <ul class="hds-dropdown-list" role="listbox" aria-label="Large content">
         {{#each @model.ITEM_STATES as |state|}}
           <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @icon="hexagon" @selected={{true}} @count="12">
             {{state}}
