@@ -1,6 +1,6 @@
 ## Grouping
 
-How actions are grouped can influence what the user perceives as the primary action. Actions grouped correctly can alleviate decision fatigue and help users better understand the outcome of the action they take.
+How actions are grouped can influence what the user perceives as the primary action. Actions grouped correctly can alleviate decision fatigue and help users better understand the outcome of their actions.
 
 - Group buttons together that perform similar, related, and inverse functions. This generally refers to functions like "yes/no" or "ok/cancel." 
 - Inverse grouping generally helps users to make decisions quicker as their options are limited.
@@ -9,5 +9,5 @@ How actions are grouped can influence what the user perceives as the primary act
 
 !!! Do
 
-![Grouping inverse actions](/assets/patterns/button-alignment/grouping-inverse-actions.png)
+![Grouping inverse actions](/assets/patterns/button-organization/grouping-inverse-actions.png)
 !!!
