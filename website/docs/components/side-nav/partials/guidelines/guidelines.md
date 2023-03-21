@@ -24,9 +24,13 @@ For cloud products, the icon set should always be the HCP service icon. For stan
 
 TBD...
 
+[IMAGE]
+
 ### User menu
 
-TBD...
+Use the user dropdown to give users quick and easy access to their settings and preferences. The menu should contain links or actions related to the user's profile, settings, and/or preferences. 
+
+[IMAGE]
 
 ## Body
 
