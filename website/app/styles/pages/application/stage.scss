@@ -7,7 +7,6 @@
 
 @use "../../breakpoints" as breakpoint;
 
-
 .doc-page-stage {
   display: grid;
   grid-area: stage;
@@ -22,29 +21,19 @@
     padding-left: var(--doc-page-sidebar-width); // we need to compensate for the fixed position of the sidebar
   }
 
-  @include breakpoint.large () {
+  @include breakpoint.large() {
     --max-content-width: calc(var(--doc-page-content-max-width) + 2 * var(--doc-page-stage-gutter-large));
     grid-template-areas:
       "cover cover cover"
       "content sidecar _extra";
     grid-template-columns:
       // content
+
       minmax(auto, var(--max-content-width))
       // sidecar
       auto
       // extra space
       auto;
     margin: 0 auto 0 0;
-  }
-}
-
-// PATTERNS PAGE
-// This is temporary and will be removed as soon as a pattern page is added to the section
-
-body.application.patterns {
-  @include breakpoint.medium-and-above () {
-    .doc-page-stage {
-      padding-left: 0;
-    }
   }
 }

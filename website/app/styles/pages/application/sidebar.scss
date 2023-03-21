@@ -9,9 +9,7 @@
 
 $doc-page-sidebar-transition-duration: 0.25s;
 
-
 // ⚠️ ---  the sidebar "navigation" is different between the homepage and the other pages --- ⚠️
-
 
 // HOME PAGE
 // This is a special case: the sidebar is horizontal and is visible *only* on small viewports (when opened)
@@ -104,16 +102,13 @@ body.application:not(.index) {
   }
 }
 
-
 // ------------------------------------------
-
 
 // ANIMATION (for small viewports)
 
 // HOME PAGE
 
 body.application.index {
-
   // by default we remove the sidebar from the render tree, so its children can't receive focus
   .doc-page-sidebar {
     display: none;
@@ -136,10 +131,8 @@ body.application.index {
 // ALL THE OTHER PAGES
 
 body.application:not(.index) {
-
   // the sidebar is animated only on small viewports
   @include breakpoint.with-mobile-sidebar() {
-
     // by default we remove the sidebar from the render tree, so its children can't receive focus
     .doc-page-sidebar {
       display: none;
@@ -169,18 +162,7 @@ body.application:not(.index) {
 // also if you want to change this, change footer.scss too
 
 body.application.error {
-  @include breakpoint.with-fixed-sidebar () {
-    .doc-page-sidebar {
-      display: none;
-    }
-  }
-}
-
-// PATTERNS PAGE
-// This is temporary and will be removed as soon as a pattern page is added to the section
-
-body.application.patterns {
-  @include breakpoint.medium-and-above () {
+  @include breakpoint.with-fixed-sidebar() {
     .doc-page-sidebar {
       display: none;
     }
