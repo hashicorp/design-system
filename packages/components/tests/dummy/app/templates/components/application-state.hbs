@@ -21,6 +21,18 @@
         </A.Footer>
       </Hds::ApplicationState>
     </SF.Item>
+    <SF.Item @label="Error state, custom header icon">
+      <Hds::ApplicationState @errorCode="404" as |A|>
+        <A.Header @titleText="An error has occurred" @icon="help"/>
+        <A.Body
+          @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+        />
+        <A.Footer as |F|>
+          <F.Link @icon="arrow-left" @text="Go back" @href="/" />
+          <F.Link @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
+        </A.Footer>
+      </Hds::ApplicationState>
+    </SF.Item>
     <SF.Item @label="Error state, block yield body contents">
       <Hds::ApplicationState @errorCode="404" as |A|>
         <A.Header @titleText="An error has occurred" />
