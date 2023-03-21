@@ -2132,15 +2132,15 @@ __metadata:
   linkType: hard
 
 "@ember/render-modifiers@npm:^2.0.0":
-  version: 2.0.4
-  resolution: "@ember/render-modifiers@npm:2.0.4"
+  version: 2.0.5
+  resolution: "@ember/render-modifiers@npm:2.0.5"
   dependencies:
     "@embroider/macros": ^1.0.0
     ember-cli-babel: ^7.26.11
     ember-modifier-manager-polyfill: ^1.2.0
   peerDependencies:
-    ember-source: ^3.8 || 4
-  checksum: 6186a013349273f9eb0339a5b2ab7ccc7b9e6429d83b8cabba2842dfc35bd4b77b66979c2f2c25b062a7cdd359c6a500df27154880ac5f04a3ffa52ca6e343d6
+    ember-source: ^3.8 || ^4.0.0
+  checksum: ebeb4d573968f46490f8f5618b9d85f2c7ca39cee5b854bb497a3aee7dee3d710ab02b9677df30f1e2a484e712dd89171045118da563d9d9a6c316ccdccc2671
   languageName: node
   linkType: hard
 
