@@ -42,9 +42,9 @@ The body consists of a group of sections with vertical lists of links or buttons
 
 ![Side-nav section without a title](/assets/components/side-nav/section-without-title.png)
 
-A title could help users scan the sections and provide context about the links inside each section.
+- A title could help users scan the sections and provide context about the links inside each section.
 
-Titles should be meaningful and related to the content within the section.
+- Titles should be meaningful and related to the content within the section.
 
 ### List items
 
@@ -111,4 +111,8 @@ The side navigation should take the full height of the viewport to ensure that t
 
 ## Positioning and responsive behaviour
 
-TBD... Collapsed / Responsive
+The SideNav should always be positioned on the left side of the viewport, occupying 100% of the viewport height.
+
+On smaller viewports, the SideNav should collapse to maximize the real estate available on tablet and mobile devices. By tapping the menu icon, users can expand and access the full menu when needed.
+
+![Responsive side-nav](/assets/components/side-nav/sidenav-position-and-responsive.png)
