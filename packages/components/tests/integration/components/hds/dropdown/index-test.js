@@ -66,6 +66,23 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     assert.dom('#test-dropdown #test-footer').hasText('Footer');
   });
 
+  test('it renders the "header"/"footer" sub-components with separators', async function (assert) {
+    await render(hbs`
+      <Hds::Dropdown id="test-dropdown" as |dd|>
+        <dd.ToggleButton @text="toggle button" id="test-toggle-button" />
+        <dd.Header @hasSeparator={{true}} id="test-header">Header</dd.Header>
+        <dd.Footer @hasSeparator={{true}} id="test-footer">Footer</dd.Footer>
+      </Hds::Dropdown>
+    `);
+    await click('button#test-toggle-button');
+    assert
+      .dom('#test-dropdown #test-header')
+      .hasClass('hds-dropdown__header--separator');
+    assert
+      .dom('#test-dropdown #test-footer')
+      .hasClass('hds-dropdown__footer--separator');
+  });
+
   // POSITION
 
   test('it should render the content aligned on the right by default', async function (assert) {

@@ -146,8 +146,25 @@ $hds-dropdown-toggle-border-radius: 5px;
 }
 
 .hds-dropdown__header {
+  position: relative;
   flex: none;
   padding: 6px 8px;
+
+  .hds-link-standalone {
+    width: initial;
+    padding: 5px 8px;
+  }
+}
+
+.hds-dropdown__header--separator {
+  &::after {
+    position: absolute;
+    right: 6px;
+    bottom: 0;
+    left: 6px;
+    border-top: 1px solid var(--token-color-border-primary);
+    content: "";
+  }
 }
 
 .hds-dropdown__list {
@@ -168,7 +185,9 @@ $hds-dropdown-toggle-border-radius: 5px;
     width: initial;
     padding: 5px 8px;
   }
+}
 
+.hds-dropdown__footer--separator {
   &::after {
     position: absolute;
     top: 0;
