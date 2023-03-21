@@ -6,8 +6,8 @@
 import Component from '@glimmer/component';
 
 export default class HdsApplicationStateIndexComponent extends Component {
-  get errorCode() {
-    return this.args.errorCode || null;
+  get subtitle() {
+    return this.args.subtitle || null;
   }
 
   /**
@@ -18,8 +18,8 @@ export default class HdsApplicationStateIndexComponent extends Component {
   get classNames() {
     let classes = ['hds-application-state'];
 
-    // add a class based on the existence of @errorCode argument
-    if (this.errorCode !== null) {
+    // add a class based on the existence of @subtitle argument
+    if (this.subtitle !== null) {
       classes.push(`hds-application-state--error`);
     }
 
