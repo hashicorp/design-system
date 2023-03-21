@@ -5,9 +5,9 @@
 <div class={{this.classNames}} ...attributes>
   {{yield
     (hash
-      Header=(component "hds/application-state/header" errorCode=this.errorCode)
+      Header=(component "hds/application-state/header" subtitle=this.subtitle)
       Body=(component "hds/application-state/body")
-      Footer=(component "hds/application-state/footer" errorCode=this.errorCode)
+      Footer=(component "hds/application-state/footer" subtitle=this.subtitle)
     )
   }}
 </div>
