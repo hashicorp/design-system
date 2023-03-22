@@ -115,17 +115,17 @@ export default class HdsDropdownToggleButtonComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-dropdown-toggle-button hds-button'];
+    let classes = ['hds-dropdown-toggle-button'];
 
     // add a class based on the @size argument
-    classes.push(`hds-button--size-${this.size}`);
+    classes.push(`hds-dropdown-toggle-button--size-${this.size}`);
 
     // add a class based on the @color argument
-    classes.push(`hds-button--color-${this.color}`);
+    classes.push(`hds-dropdown-toggle-button--color-${this.color}`);
 
     // add a class based on the @isFullWidth argument
     if (this.isFullWidth) {
-      classes.push('hds-button--width-full');
+      classes.push('hds-dropdown-toggle-button--width-full');
     }
 
     // add a class based on the @isOpen argument

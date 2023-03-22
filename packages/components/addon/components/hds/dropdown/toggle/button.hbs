@@ -9,10 +9,10 @@
   aria-expanded={{if @isOpen "true" "false"}}
   {{on "click" this.onClick}}
 >
-  <div class="hds-button__text">
+  <div class="hds-dropdown-toggle-button__text">
     {{this.text}}
   </div>
-  <div class="hds-button__icon">
+  <div class="hds-dropdown-toggle-button__indicator">
     <FlightIcon @name="chevron-down" @size={{this.iconSize}} @stretched={{true}} />
   </div>
 </button>

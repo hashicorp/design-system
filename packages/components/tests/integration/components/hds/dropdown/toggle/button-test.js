@@ -48,13 +48,17 @@ module(
       await render(
         hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" id="test-toggle-button" />`
       );
-      assert.dom('#test-toggle-button').hasClass('hds-button--color-primary');
+      assert
+        .dom('#test-toggle-button')
+        .hasClass('hds-dropdown-toggle-button--color-primary');
     });
     test('it should render the correct CSS color class if the @color prop is declared', async function (assert) {
       await render(
         hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" @color="secondary" id="test-toggle-button" />`
       );
-      assert.dom('#test-toggle-button').hasClass('hds-button--color-secondary');
+      assert
+        .dom('#test-toggle-button')
+        .hasClass('hds-dropdown-toggle-button--color-secondary');
     });
 
     // SIZE
@@ -63,13 +67,17 @@ module(
       await render(
         hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" id="test-toggle-button" />`
       );
-      assert.dom('#test-toggle-button').hasClass('hds-button--size-medium');
+      assert
+        .dom('#test-toggle-button')
+        .hasClass('hds-dropdown-toggle-button--size-medium');
     });
     test('it should render the correct CSS size class if the @size prop is declared', async function (assert) {
       await render(
         hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" @size="small" id="test-toggle-button" />`
       );
-      assert.dom('#test-toggle-button').hasClass('hds-button--size-small');
+      assert
+        .dom('#test-toggle-button')
+        .hasClass('hds-dropdown-toggle-button--size-small');
     });
 
     // A11Y

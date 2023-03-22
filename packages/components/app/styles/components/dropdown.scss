@@ -3,30 +3,17 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-/* stylelint-disable selector-class-pattern */
-// >>>>>>>>>> WARNING <<<<<<<<<<<
-//
-// Notice: in this component we're using directly the `Hds::Button` component
-// (and adding a specialized class for the "toggle-button" variant, see below)
-// If you need to change the styling of the `Button` component, remember that this will impact also
-// this component too.
-// If instead you need to change only the styling of the `toggle-button` component, you can do it here using
-// the specialized class declared below.
-// This is NOT a standard approach that we use in the HDS design system implementation, but it's been
-// the least worst option we could find to solve the problem of sharing the exact same style of the
-// `Button (primary)` with other components.
-
 //
 // DROPDOWN COMPONENT
 //
 // notice: pseudo-classes for the states *must* follow the order link > visited > hover > focus > active
 //
 
+@use "../mixins/button" as *;
 @use "../mixins/focus-ring" as *;
 
 $hds-dropdown-toggle-base-height: 36px;
 $hds-dropdown-toggle-border-radius: 5px;
-
 
 // TOGGLE/ICON
 
@@ -91,9 +78,11 @@ $hds-dropdown-toggle-border-radius: 5px;
 // TOGGLE/BUTTON
 
 .hds-dropdown-toggle-button {
+  @include hds-button();
+
   box-shadow: none; // we override this to remove the elevation style
 
-  .hds-button__icon {
+  .hds-dropdown-toggle-button__indicator {
     margin-right: -6px; // we apply a negative margin to counter the padding-right of the button and reduce the visual space between the icon and the right border
     margin-left: 8px; // this overrides the rule `.hds-button__text + .hds-button__icon`
 
@@ -101,15 +90,61 @@ $hds-dropdown-toggle-border-radius: 5px;
       transition: transform 0.3s;
     }
   }
+
+  &:focus,
+  &.mock-focus {
+    @include hds-button-state-focus();
+  }
+
+  &:disabled,
+  &.mock-disabled,
+  &:disabled:focus,
+  &.mock-disabled:focus,
+  &:disabled:hover,
+  &.mock-disabled:hover {
+    @include hds-button-state-disabled();
+  }
 }
 
+@each $size in $hds-button-sizes {
+  .hds-dropdown-toggle-button--size-#{$size} {
+    min-height: map-get($size-props, $size, "min-height");
+    padding: map-get($size-props, $size, "padding");
+
+    .hds-dropdown-toggle-button__indicator {
+      width: map-get($size-props, $size, "icon-size");
+      height: map-get($size-props, $size, "icon-size");
+    }
+
+    .hds-dropdown-toggle-button__text {
+      font-size: map-get($size-props, $size, "font-size");
+      line-height: map-get($size-props, $size, "line-height");
+    }
+  }
+}
+
+.hds-dropdown-toggle-button--color-primary {
+  @include hds-button-color-primary();
+}
+
+.hds-dropdown-toggle-button--color-secondary {
+  @include hds-button-color-secondary();
+}
 
 .hds-dropdown-toggle-button--is-open {
-  .hds-button__icon {
+  .hds-dropdown-toggle-button__indicator {
     transform: rotate(-180deg);
   }
 }
 
+.hds-dropdown-toggle-button--width-full {
+  width: 100%;
+  max-width: 100%;
+
+  .hds-dropdown-toggle-button__text {
+    flex: 1 0 auto;
+  }
+}
 
 // LIST
 // UL ELEMENT
