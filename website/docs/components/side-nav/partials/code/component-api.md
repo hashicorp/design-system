@@ -21,7 +21,7 @@
     This is a named block where the main product logo linked to your app’s home page will be rendered. The `SideNav::HomeLink` component should be added here.
   </C.Property>
   <C.Property @name="<:actions>" @type="named block">
-    This is a named block where the header “action” components will be rendered. Typically `Hds::Dropdown` components and/or `SideNav::IconButton` components will be added here. Special SideNav coordinated styling can be applied to dropdowns by adding the “hds-side-nav__dropdown” class name.
+    This is a named block where the header “action” components will be rendered. Typically `Dropdown` components and/or `SideNav::IconButton` components will be added here. Special SideNav coordinated styling can be applied to dropdowns by adding the `hds-side-nav__dropdown` class name.
   </C.Property>
 </Doc::ComponentApi>
 
