@@ -6,7 +6,9 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
+export const DEFAULT_SIZE = 'medium';
 export const DEFAULT_COLOR = 'primary';
+export const SIZES = ['small', 'medium'];
 export const COLORS = ['primary', 'secondary'];
 
 const NOOP = () => {};
@@ -29,6 +31,25 @@ export default class HdsDropdownToggleButtonComponent extends Component {
   }
 
   /**
+   * @param size
+   * @type {string}
+   * @default medium
+   * @description The size of the button; acceptable values are `small`, `medium`, and `large`
+   */
+  get size() {
+    let { size = DEFAULT_SIZE } = this.args;
+
+    assert(
+      `@size for "Hds::Dropdown::Toggle::Button" must be one of the following: ${SIZES.join(
+        ', '
+      )}; received: ${size}`,
+      SIZES.includes(size)
+    );
+
+    return size;
+  }
+
+  /**
    * @param color
    * @type {string}
    * @default primary
@@ -45,6 +66,30 @@ export default class HdsDropdownToggleButtonComponent extends Component {
     );
 
     return color;
+  }
+
+  /**
+   * @param iconSize
+   * @type {string}
+   * @default 16
+   * @description ensures that the correct icon size is used. Automatically calculated.
+   */
+  get iconSize() {
+    if (this.args.size === 'large') {
+      return '24';
+    } else {
+      return '16';
+    }
+  }
+
+  /**
+   * @param isFullWidth
+   * @type {boolean}
+   * @default false
+   * @description Indicates that a button should take up the full width of the parent container. The default is false.
+   */
+  get isFullWidth() {
+    return this.args.isFullWidth ?? false;
   }
 
   /**
@@ -70,7 +115,18 @@ export default class HdsDropdownToggleButtonComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-dropdown-toggle-button'];
+    let classes = ['hds-dropdown-toggle-button hds-button'];
+
+    // add a class based on the @size argument
+    classes.push(`hds-button--size-${this.size}`);
+
+    // add a class based on the @color argument
+    classes.push(`hds-button--color-${this.color}`);
+
+    // add a class based on the @isFullWidth argument
+    if (this.isFullWidth) {
+      classes.push('hds-button--width-full');
+    }
 
     // add a class based on the @isOpen argument
     if (this.args.isOpen) {

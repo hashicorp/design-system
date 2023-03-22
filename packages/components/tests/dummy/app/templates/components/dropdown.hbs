@@ -46,22 +46,31 @@
 
   <Shw::Text::H2>Toggles</Shw::Text::H2>
 
-  <Shw::Text::H3>Button</Shw::Text::H3>
-
-  <Shw::Flex as |SF|>
-    <SF.Item @label="Primary">
-      <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" />
-    </SF.Item>
-    <SF.Item @label="Secondary">
-      <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @color="secondary" />
-    </SF.Item>
-  </Shw::Flex>
   <Shw::Flex as |SF|>
     <SF.Item @label="Primary small">
       <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @size="small" />
     </SF.Item>
+    <SF.Item @label="Primary medium">
+      <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" />
+    </SF.Item>
+    <SF.Item @label="Primary full width">
+      <Shw::Outliner {{style width="300px"}}>
+        <Hds::Dropdown::Toggle::Button @isFullWidth={{true}} @text="Lorem ipsum" />
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex as |SF|>
     <SF.Item @label="Secondary small">
-      <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @size="small" @color="secondary" />
+      <Hds::Dropdown::Toggle::Button @color="secondary" @text="Lorem ipsum" @size="small" />
+    </SF.Item>
+    <SF.Item @label="Secondary medium">
+      <Hds::Dropdown::Toggle::Button @color="secondary" @text="Lorem ipsum" />
+    </SF.Item>
+    <SF.Item @label="Secondary full width">
+      <Shw::Outliner {{style width="300px"}}>
+        <Hds::Dropdown::Toggle::Button @color="secondary" @isFullWidth={{true}} @text="Lorem ipsum" />
+      </Shw::Outliner>
     </SF.Item>
   </Shw::Flex>
 
