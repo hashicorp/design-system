@@ -33,11 +33,7 @@
 
 ### SideNav::HomeLink
 
-!!! Info
-
-The `SideNav::HomeLink` component uses the generic `Hds::Interactive` component. For more details about how this utility component works please refer to [its documentation page](/utilities/interactive).
-
-!!!
+The `SideNav::HomeLink` component uses the generic `Hds::Interactive` component. For more details about this utility component please refer to [its documentation page](/utilities/interactive).
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="icon" @type="string">
@@ -49,6 +45,18 @@ The `SideNav::HomeLink` component uses the generic `Hds::Interactive` component.
   <C.Property @name="color" @type="string">
     Used to specify an optional custom color provided as a [color token](/foundations/colors). If unspecified, it will use the SideNav’s default white text color.
   </C.Property>
+  <C.Property @name="href">
+    URL parameter that’s passed down to the `<a>` element.
+  </C.Property>
+  <C.Property @name="isHrefExternal" @type="boolean" @values={{array "false" "true" }} @default="false">
+    This controls if the `<a>` link is external. For security reasons, we add the `target="_blank"` and `rel="noopener noreferrer"` attributes to it by default.
+  </C.Property>
+  <C.Property @name="route models model query current-when replace">
+    Parameters that are passed down as arguments to the `<LinkTo>`/`<LinkToExternal>` components.
+  </C.Property>
+  <C.Property @name="isRouteExternal" @type="boolean" @values={{array "false" "true" }} @default="false">
+    This controls if the “LinkTo” is external to the Ember engine, in which case it will use a `<LinkToExternal>` for the `@route`.
+  </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
@@ -56,11 +64,7 @@ The `SideNav::HomeLink` component uses the generic `Hds::Interactive` component.
 
 ### SideNav::IconButton
 
-!!! Info
-
-The `SideNav::IconButton` component uses the generic `Hds::Interactive` component. For more details about how this utility component works please refer to [its documentation page](/utilities/interactive).
-
-!!!
+The `SideNav::IconButton` component uses the generic `Hds::Interactive` component. For more details about this utility component please refer to [its documentation page](/utilities/interactive).
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="icon" @type="string">
@@ -69,6 +73,18 @@ The `SideNav::IconButton` component uses the generic `Hds::Interactive` componen
   <C.Property @name="ariaLabel" @type="string" @required="true">
     The value of the `aria-label`. If no text value is defined an error will be thrown.
   </C.Property>
+  <C.Property @name="href">
+    URL parameter that’s passed down to the `<a>` element.
+  </C.Property>
+  <C.Property @name="isHrefExternal" @type="boolean" @values={{array "false" "true" }} @default="false">
+    This controls if the `<a>` link is external. For security reasons, we add the `target="_blank"` and `rel="noopener noreferrer"` attributes to it by default.
+  </C.Property>
+  <C.Property @name="route models model query current-when replace">
+    Parameters that are passed down as arguments to the `<LinkTo>`/`<LinkToExternal>` components.
+  </C.Property>
+  <C.Property @name="isRouteExternal" @type="boolean" @values={{array "false" "true" }} @default="false">
+    This controls if the “LinkTo” is external to the Ember engine, in which case it will use a `<LinkToExternal>` for the `@route`.
+  </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
@@ -76,11 +92,7 @@ The `SideNav::IconButton` component uses the generic `Hds::Interactive` componen
 
 ### SideNav::List::Link
 
-!!! Info
-
-The `SideNav::List::Link` component uses the generic `Hds::Interactive` component. For more details about how this utility component works please refer to [its documentation page](/utilities/interactive).
-
-!!!
+The `SideNav::List::Link` component uses the generic `Hds::Interactive` component. For more details about this utility component please refer to [its documentation page](/utilities/interactive).
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="text" @type="string">
@@ -98,8 +110,17 @@ The `SideNav::List::Link` component uses the generic `Hds::Interactive` componen
   <C.Property @name="hasSubItems" @type="boolean" @values={{array "false" "true" }} @default="false">
     Indicates the existence of sub-item links. If set to “true”, displays a right aligned “chevron-right” icon.
   </C.Property>
+  <C.Property @name="href">
+    URL parameter that’s passed down to the `<a>` element.
+  </C.Property>
   <C.Property @name="isHrefExternal" @type="boolean" @values={{array "false" "true" }} @default="false">
-    Inherited from the `Hds::Interactive` component. If set to “true”, displays a right aligned “external-link” icon.
+    This controls if the `<a>` link is external. For security reasons, we add the `target="_blank"` and `rel="noopener noreferrer"` attributes to it by default. If set to “true”, displays a right aligned “external-link” icon.
+  </C.Property>
+  <C.Property @name="route models model query current-when replace">
+    Parameters that are passed down as arguments to the `<LinkTo>`/`<LinkToExternal>` components.
+  </C.Property>
+  <C.Property @name="isRouteExternal" @type="boolean" @values={{array "false" "true" }} @default="false">
+    This controls if the “LinkTo” is external to the Ember engine, in which case it will use a `<LinkToExternal>` for the `@route`.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
@@ -108,15 +129,23 @@ The `SideNav::List::Link` component uses the generic `Hds::Interactive` componen
 
 ### SideNav::List::BackLink
 
-!!! Info
-
-The `SideNav::List::BackLink` component uses the generic `Hds::Interactive` component. For more details about how this utility component works please refer to [its documentation page](/utilities/interactive).
-
-!!!
+The `SideNav::List::BackLink` component uses the generic `Hds::Interactive` component. For more details about this utility component please refer to [its documentation page](/utilities/interactive).
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="text" @type="string">
     The text content for the `SideNav::List::BackLink` component.
+  </C.Property>
+  <C.Property @name="href">
+    URL parameter that’s passed down to the `<a>` element.
+  </C.Property>
+  <C.Property @name="isHrefExternal" @type="boolean" @values={{array "false" "true" }} @default="false">
+    This controls if the `<a>` link is external. For security reasons, we add the `target="_blank"` and `rel="noopener noreferrer"` attributes to it by default.
+  </C.Property>
+  <C.Property @name="route models model query current-when replace">
+    Parameters that are passed down as arguments to the `<LinkTo>`/`<LinkToExternal>` components.
+  </C.Property>
+  <C.Property @name="isRouteExternal" @type="boolean" @values={{array "false" "true" }} @default="false">
+    This controls if the “LinkTo” is external to the Ember engine, in which case it will use a `<LinkToExternal>` for the `@route`.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
