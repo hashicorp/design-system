@@ -95,11 +95,11 @@ The `SideNav::IconButton` component uses the generic `Hds::Interactive` componen
 The `SideNav::List::Link` component uses the generic `Hds::Interactive` component. For more details about this utility component please refer to [its documentation page](/utilities/interactive).
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="text" @type="string">
-    The text content for the `SideNav::List::Link` component.
-  </C.Property>
   <C.Property @name="icon" @type="string">
     Used to show an icon. Any [icon](/icons/library) name is accepted.
+  </C.Property>
+  <C.Property @name="text" @type="string">
+    The text content for the `SideNav::List::Link` component.
   </C.Property>
   <C.Property @name="badge" @type="string">
     Displays an optional `Badge`. Accepts the text value that should go in [Badge](/components/badge).
@@ -109,6 +109,9 @@ The `SideNav::List::Link` component uses the generic `Hds::Interactive` componen
   </C.Property>
   <C.Property @name="hasSubItems" @type="boolean" @values={{array "false" "true" }} @default="false">
     Indicates the existence of sub-item links. If set to “true”, displays a right aligned “chevron-right” icon.
+  </C.Property>
+  <C.Property @name="isActive" @values={{array "false" "true" }} @default="false">
+    If set to true, adds the class name of “active” to the rendered interactive element. Used to indicate the currently active page Link.
   </C.Property>
   <C.Property @name="href">
     URL parameter that’s passed down to the `<a>` element.
