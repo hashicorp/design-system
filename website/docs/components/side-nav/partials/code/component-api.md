@@ -105,10 +105,10 @@ The `SideNav::List::Link` component uses the generic `Hds::Interactive` componen
     Displays an optional `Badge`. Accepts the text value that should go in [Badge](/components/badge).
   </C.Property>
   <C.Property @name="count" @type="string">
-    Displays an optional `count` indicator. Accepts the text value that should go in [Badge Count](/components/badge-count).
+    Displays an optional `BadgeCount` indicator. Accepts the text value that should go in [Badge Count](/components/badge-count).
   </C.Property>
   <C.Property @name="hasSubItems" @type="boolean" @values={{array "false" "true" }} @default="false">
-    Indicates the existence of sub-item links. If set to “true”, displays a right aligned “chevron-right” icon.
+    Indicates the existence of sub-item links. If set to `true`, displays a right aligned `chevron-right` icon.
   </C.Property>
   <C.Property @name="isActive" @values={{array "false" "true" }} @default="false">
     If set to true, adds the class name of “active” to the rendered interactive element. Used to indicate the currently active page Link.
