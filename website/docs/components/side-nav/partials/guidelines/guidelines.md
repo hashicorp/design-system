@@ -24,13 +24,13 @@ For cloud products, the icon set should always be the HCP service icon. For stan
 
 TBD...
 
-[IMAGE]
+![Help dropdown menu in side-nav's header](/assets/components/side-nav/help-dropdown.png)
 
 ### User menu
 
 Use the user dropdown to give users quick and easy access to their settings and preferences. The menu should contain links or actions related to the user's profile, settings, and/or preferences. 
 
-[IMAGE]
+![User dropdown menu in side-nav's header](/assets/components/side-nav/user-dropdown.png)
 
 ## Body
 
