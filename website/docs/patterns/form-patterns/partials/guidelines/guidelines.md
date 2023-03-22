@@ -151,8 +151,6 @@ Generally, fields that are dependencies for other fields benefit from being orga
 
 ![Dependencies within forms example](/assets/patterns/form-patterns/cluster-tier-size-options.png)
 
-Read more about showing elements conditionally with [progressive disclosure](#progressive-disclosure).
-
 #### User needs
 
 Users benefit from logical organization and progressive organization, organizing fields from easiest to hardest.
