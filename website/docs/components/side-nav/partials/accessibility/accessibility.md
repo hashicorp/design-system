@@ -13,6 +13,14 @@ Explain how the component is conditionally conformant. For example, any componen
 
 The `Component Name` component is not WCAG-conformant on its own. (Explain how to use it in a conformant way)
 
+## Focus
+
+When the SideNav receives focus via keyboard, the home link should focus as the first interactive element in the [DOM (document object model)](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction). Then, focus will follow through with the rest of the elements according to their order in the DOM.
+
+Since the SideNav is a complex component that holds several nested components and can contain multiple types of content, nested elements must adhere to their individual accessibility criteria.
+
+![Focus order in navigation](/assets/components/side-nav/focus-order.png)
+
 ## Applicable WCAG Success Criteria
 
 This section is for reference only. This component intends to conform to the following WCAG Success Criteria:
