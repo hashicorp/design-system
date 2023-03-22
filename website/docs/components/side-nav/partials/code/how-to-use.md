@@ -18,10 +18,14 @@ SideNav does not exist as a single out of the box HDS component. It instead cons
           <:actions>
             <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
               <dd.ToggleIcon @icon="help" @text="settings menu" />
-              <dd.Title @text="Signed In" />
-              <dd.Description @text="email@domain.com" />
+              <dd.Title @text="Help & Support" />
+              <dd.Interactive @text="Documentation" @href="#" />
+              <dd.Interactive @text="Tutorials" @href="#" />
+              <dd.Interactive @text="Terraform Provider" @href="#" />
+              <dd.Interactive @text="Changelog" @href="#" />
               <dd.Separator />
-              <dd.Interactive @href="#" @text="Settings and Preferences" />
+              <dd.Interactive @text="Create support ticket" @href="#" />
+              <dd.Interactive @text="Give feedback" @href="#" />
             </Hds::Dropdown>
             <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
               <dd.ToggleIcon @icon="user" @text="user menu" />
