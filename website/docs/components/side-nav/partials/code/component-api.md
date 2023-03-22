@@ -43,7 +43,7 @@ The `SideNav::HomeLink` component uses the generic `Hds::Interactive` component.
     The value of the aria-label. If no text value is defined an error will be thrown.
   </C.Property>
   <C.Property @name="color" @type="string">
-    Used to specify an optional custom color provided as a [color token](/foundations/colors). If unspecified, it will use the SideNav’s default white text color.
+    Used to specify an optional custom color provided as any valid CSS color. For more details on acceptable values, see the [FlightIcon color argument](/icons/usage-guidelines?tab=code#fill). If unspecified, it will use the SideNav’s default white text color.
   </C.Property>
   <C.Property @name="href">
     URL parameter that’s passed down to the `<a>` element.
