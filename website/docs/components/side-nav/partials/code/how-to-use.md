@@ -2,7 +2,7 @@
 
 SideNav does not exist as a single out of the box HDS component. It instead consists of a number of lower-level building block components consumers can use to assemble into their own SideNav implementation. These SideNav building block components are used together with the Cloud-ui SideNav component.
 
-**Note:** The `Hds::SideNav::Wrapper` component which contains the child components, is 100% width by default. Its max-width is constrained by a parent element in the Cloud-ui SideNav.
+**Note:** The `Hds::SideNav::Wrapper` component, which contains the child components, doesn't have an intrinsic width (it's 100% of the parent). This responsibility is delegated to the wrapping element in the consumer's codebase.
 
 ### Basic example using typical SideNav components
 
