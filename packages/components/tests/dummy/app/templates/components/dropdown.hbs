@@ -94,7 +94,7 @@
 
   <Shw::Text::H3>States</Shw::Text::H3>
 
-  <Shw::Grid @columns="5" as |SG|>
+  <Shw::Grid @columns="6" as |SG|>
     {{#each @model.TOGGLE_BUTTON_COLORS as |color|}}
       {{#each @model.TOGGLE_STATES as |state|}}
         <SG.Item @label="{{capitalize color}} / {{capitalize state}}">

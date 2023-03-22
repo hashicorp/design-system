@@ -43,6 +43,11 @@ $hds-dropdown-toggle-border-radius: 5px;
     background-color: var(--token-color-surface-interactive-active);
     border-color: var(--token-color-border-strong);
   }
+
+  &:disabled,
+  &.mock-disabled {
+    @include hds-button-state-disabled();
+  }
 }
 
 .hds-dropdown-toggle-icon__wrapper {
