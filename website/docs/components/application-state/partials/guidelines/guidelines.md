@@ -2,7 +2,11 @@
 
 ### When to use
 
-Some text here.
+An empty state in a UI refers to the state of a page or component when there is no data to display or no action has been taken yet. It is an important part of the overall user experience as it helps users understand what the page or component is for and what they can do to get started.
+
+Here are some common elements of an effective empty state in UI design:
+
+- Bullet point
 
 !!! Do
 
