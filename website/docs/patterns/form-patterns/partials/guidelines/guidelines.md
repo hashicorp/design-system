@@ -133,7 +133,7 @@ Text elements within a form should use logical, step-based sizing to reinforce h
 
 ## Button sets
 
-Organize buttons based on the [ButtonSet](/components/button-set) guidelines, e.g., using a 16px horizontal gap between buttons.
+Organize buttons based on the [Button Set](/components/button-set) guidelines, e.g., using a 16px horizontal gap between buttons.
 
 ![Button set](/assets/patterns/form-patterns/button-set.png =500x*)
 
