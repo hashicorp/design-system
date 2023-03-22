@@ -90,6 +90,26 @@ The `SideNav::IconButton` component uses the generic `Hds::Interactive` componen
   </C.Property>
 </Doc::ComponentApi>
 
+### SideNav::List
+
+The `SideNav::List` component is used to wrap and contain the `SideNav::List::Title`, `SideNav::List::Link`, `SideNav::List::BackLink` and `SideNav::List::Item` components.
+
+<Doc::ComponentApi as |C|>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
+</Doc::ComponentApi>
+
+### SideNav::List::Title
+
+The `SideNav::List::Title` component is used to display a title for related `SideNav::List::Link` components.
+
+<Doc::ComponentApi as |C|>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
+</Doc::ComponentApi>
+
 ### SideNav::List::Link
 
 The `SideNav::List::Link` component uses the generic `Hds::Interactive` component. For more details about this utility component please refer to [its documentation page](/utilities/interactive).
@@ -150,6 +170,16 @@ The `SideNav::List::BackLink` component uses the generic `Hds::Interactive` comp
   <C.Property @name="isRouteExternal" @type="boolean" @values={{array "false" "true" }} @default="false">
     This controls if the “LinkTo” is external to the Ember engine, in which case it will use a `<LinkToExternal>` for the `@route`.
   </C.Property>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
+</Doc::ComponentApi>
+
+### SideNav::List::Item
+
+The `SideNav::List::Item` component can be used to contain non-interactive generic content.
+
+<Doc::ComponentApi as |C|>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
