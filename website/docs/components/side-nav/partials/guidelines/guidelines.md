@@ -20,15 +20,19 @@ For cloud products, the icon set should always be the HCP service icon. For stan
 
 ![Home link in side-nav's header](/assets/components/side-nav/header-logo.png)
 
-### Help menu
+### Help dropdown
 
-TBD...
+Use the help dropdown to provide users with access to support and helpful resources that can be easily accessible from anywhere within the application—for example, links to the help center, documentation, or tutorials.
+
+Avoid placing non-help related links or actions, such as user settings or navigation links.
 
 ![Help dropdown menu in side-nav's header](/assets/components/side-nav/help-dropdown.png)
 
-### User menu
+### User dropdown
 
 Use the user dropdown to give users quick and easy access to their settings and preferences. The menu should contain links or actions related to the user's profile, settings, and/or preferences. 
+
+Avoid placing links to unrelated pages or actions, such as support or navigation items.
 
 ![User dropdown menu in side-nav's header](/assets/components/side-nav/user-dropdown.png)
 
