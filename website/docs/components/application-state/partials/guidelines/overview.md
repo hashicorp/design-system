@@ -1,1 +1,1 @@
-The message to display if there is no content or an error.
+Use the Application State to provide more information about the current state of the application, such as an empty state or error state. Including actionable steps to help the user proceed is also helpful.
