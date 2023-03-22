@@ -12,6 +12,9 @@
   <C.Property @name="<:footer>" @type="named block">
     This is a named block where the content for the “footer” section of the SideNav is rendered.
   </C.Property>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
 </Doc::ComponentApi>
 
 ### SideNav::Header
@@ -22,6 +25,9 @@
   </C.Property>
   <C.Property @name="<:actions>" @type="named block">
     This is a named block where the header “action” components will be rendered. Typically `Dropdown` components and/or `SideNav::IconButton` components will be added here. Special SideNav coordinated styling can be applied to dropdowns by adding the `hds-side-nav__dropdown` class name.
+  </C.Property>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
 
@@ -43,6 +49,9 @@ The `SideNav::HomeLink` component uses the generic `Hds::Interactive` component.
   <C.Property @name="color" @type="string">
     Used to specify an optional custom color provided as a [color token](/foundations/colors). If unspecified, it will use the SideNav’s default white text color.
   </C.Property>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
 </Doc::ComponentApi>
 
 ### SideNav::IconButton
@@ -59,6 +68,9 @@ The `SideNav::IconButton` component uses the generic `Hds::Interactive` componen
   </C.Property>
   <C.Property @name="ariaLabel" @type="string" @required="true">
     The value of the aria-label. If no text value is defined an error will be thrown.
+  </C.Property>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
 
@@ -89,6 +101,9 @@ The `SideNav::List::Link` component uses the generic `Hds::Interactive` componen
   <C.Property @name="isHrefExternal" @type="boolean" @values={{array "false" "true" }} @default="false">
     Inherited from the `Hds::Interactive` component. If set to “true”, displays a right aligned “external-link” icon.
   </C.Property>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
 </Doc::ComponentApi>
 
 ### SideNav::List::BackLink
@@ -100,7 +115,10 @@ The `SideNav::List::BackLink` component uses the generic `Hds::Interactive` comp
 !!!
 
 <Doc::ComponentApi as |C|>
-<C.Property @name="text" @type="string">
+  <C.Property @name="text" @type="string">
     The text content for the `SideNav::List::BackLink` component.
+  </C.Property>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
