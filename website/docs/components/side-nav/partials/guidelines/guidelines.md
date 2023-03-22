@@ -2,7 +2,7 @@
 
 ### When to use
 
-- To display the primary navigation on a page.
+- To display the primary navigation of the application on a page.
 
 ### When not to use
 
@@ -14,7 +14,7 @@ The navigation header displays persistent UI elements that give users quick acce
 
 ### Home link
 
-The home link gives users consistent and quick access to your application's main page or section. Generally, the home or dashboard.
+The home link gives users consistent and quick access to the application's main page or section. Generally, the home or dashboard.
 
 For cloud products, the icon set should always be the HCP service icon. For standalone or open-source products, it should be the product’s service icon (e.g. terraform).
 
@@ -38,7 +38,7 @@ Avoid placing links to unrelated pages or actions, such as support or navigation
 
 ## Body
 
-The body consists of a group of sections with vertical lists of links or buttons.
+The body consists of a group of sections with vertical lists of links to the most important parts of the application.
 
 ### Section
 
@@ -65,7 +65,7 @@ The body consists of a group of sections with vertical lists of links or buttons
 ![List items with icons](/assets/components/side-nav/list-item-with-icon.png)
 
 - Use icons to help users recognize and scan the links they are paired with.
-- We recommend only using icons in the main level of the navigation.
+- We recommend only using icons in the main or top level navigation.
 - Avoid overwriting color styles in icons.
 
 !!! Do
@@ -88,19 +88,19 @@ The body consists of a group of sections with vertical lists of links or buttons
 
 #### With nested items
 
-Set hasSubItems to show that a link has a nested level of navigation.
+Set hasSubItems to show or signify that a link has a nested level of navigation.
 
 ![List item with sub-items](/assets/components/side-nav/list-item-with-nested-items.png)
 
 #### External links
 
-Use isLinkExternal to show that the link is a hyperlink pointing to a page outside the product or platform.
+Use isLinkExternal to show that the list item is a hyperlink pointing to a page outside the product or platform.
 
 ![List item with a external link](/assets/components/side-nav/list-item-with-external-link.png)
 
 !!! Warning
 
-Use external links sparingly. Avoid using this property to link pages that are irrelevant to the product's navigation.
+Use external links sparingly. Avoid using this property to link pages that are unrelated to the product's navigation.
 !!!
 
 ## Footer
