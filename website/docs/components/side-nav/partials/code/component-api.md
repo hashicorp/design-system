@@ -111,13 +111,13 @@ The `SideNav::List::Link` component uses the generic `Hds::Interactive` componen
     Indicates the existence of sub-item links. If set to `true`, displays a right aligned `chevron-right` icon.
   </C.Property>
   <C.Property @name="isActive" @values={{array "false" "true" }} @default="false">
-    If set to true, adds the class name of “active” to the rendered interactive element. Used to indicate the currently active page Link.
+    If set to `true`, adds the class name of “active” to the rendered interactive element. Used to indicate the currently active page Link.
   </C.Property>
   <C.Property @name="href">
     URL parameter that’s passed down to the `<a>` element.
   </C.Property>
   <C.Property @name="isHrefExternal" @type="boolean" @values={{array "false" "true" }} @default="false">
-    This controls if the `<a>` link is external. For security reasons, we add the `target="_blank"` and `rel="noopener noreferrer"` attributes to it by default. If set to “true”, displays a right aligned “external-link” icon.
+    This controls if the `<a>` link is external. For security reasons, we add the `target="_blank"` and `rel="noopener noreferrer"` attributes to it by default. If set to `true`, displays a right aligned “external-link” icon.
   </C.Property>
   <C.Property @name="route models model query current-when replace">
     Parameters that are passed down as arguments to the `<LinkTo>`/`<LinkToExternal>` components.
