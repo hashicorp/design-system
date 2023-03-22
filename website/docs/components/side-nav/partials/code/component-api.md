@@ -67,7 +67,7 @@ The `SideNav::IconButton` component uses the generic `Hds::Interactive` componen
     Used to show an icon. Any [icon](/icons/library) name is accepted.
   </C.Property>
   <C.Property @name="ariaLabel" @type="string" @required="true">
-    The value of the aria-label. If no text value is defined an error will be thrown.
+    The value of the `aria-label`. If no text value is defined an error will be thrown.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
