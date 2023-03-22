@@ -108,7 +108,7 @@ Controls the visibility of the total items in the informational text.
 <C.Property @name="direction" @required="true" @type="enum" @values={{array "prev" "next"}}>
 Sets the "direction" of the icon and label in the control.
 </C.Property>
-<C.Property @name="route/query/model/models/replace">
+<C.Property @name="route/models/model/query/replace">
 These are the parameters that are passed down as arguments to the `Hds::Interactive` component (used internally). For more details about how this low-level component works, please refer to [its documentation page](/utilities/interactive/).
 </C.Property>
 <C.Property @name="disabled" @type="boolean" @values={{array "true" "false" }} @default="false">
@@ -133,7 +133,7 @@ The value that should go in the control as page number.
 <C.Property @name="isSelected" @type="boolean" @values={{array "true" "false" }} @default="false">
 If the page has a "selected" visual state (usually used to highlight the current page).
 </C.Property>
-<C.Property @name="route/query/model/models/replace">
+<C.Property @name="route/models/model/query/replace">
 These are the parameters that are passed down as arguments to the `Hds::Interactive` component (used internally). For more details about how this low-level component works, please refer to [its documentation page](/utilities/interactive/).
 </C.Property>
 <C.Property @name="onClick" @type="function">
