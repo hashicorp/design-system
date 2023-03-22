@@ -9,6 +9,41 @@
 
 <section data-test-percy>
 
+  <Shw::Text::H2>Position</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Left">
+      <Hds::Dropdown @listPosition="left" as |dd|>
+        <dd.ToggleButton @color="secondary" @text="Menu" />
+        <dd.Interactive @href="#" @text="Create" />
+        <dd.Interactive @href="#" @text="Edit" />
+      </Hds::Dropdown>
+    </SF.Item>
+    <SF.Item @label="Right (default)">
+      <Hds::Dropdown as |dd|>
+        <dd.ToggleButton @color="secondary" @text="Menu" />
+        <dd.Interactive @href="#" @text="Create" />
+        <dd.Interactive @href="#" @text="Edit" />
+      </Hds::Dropdown>
+    </SF.Item>
+    <SF.Item @label="Top left">
+      <Hds::Dropdown @listPosition="top-left" as |dd|>
+        <dd.ToggleButton @color="secondary" @text="Menu" />
+        <dd.Interactive @href="#" @text="Create" />
+        <dd.Interactive @href="#" @text="Edit" />
+      </Hds::Dropdown>
+    </SF.Item>
+    <SF.Item @label="Top right">
+      <Hds::Dropdown @listPosition="top-right" as |dd|>
+        <dd.ToggleButton @color="secondary" @text="Menu" />
+        <dd.Interactive @href="#" @text="Create" />
+        <dd.Interactive @href="#" @text="Edit" />
+      </Hds::Dropdown>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
+
   <Shw::Text::H2>Toggles</Shw::Text::H2>
 
   <Shw::Text::H3>Button</Shw::Text::H3>

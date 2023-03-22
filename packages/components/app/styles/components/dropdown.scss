@@ -145,6 +145,21 @@ $hds-dropdown-toggle-border-radius: 5px;
   z-index: 2; // https://github.com/hashicorp/design-system/issues/114
 }
 
+.hds-dropdown__content--position-top-right {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 4px);
+  z-index: 2; // https://github.com/hashicorp/design-system/issues/114
+}
+
+.hds-dropdown__content--position-top-left {
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 0;
+  z-index: 2; // https://github.com/hashicorp/design-system/issues/114
+}
+
+
 .hds-dropdown__list {
   flex: 1 1 auto;
   margin: 0;
