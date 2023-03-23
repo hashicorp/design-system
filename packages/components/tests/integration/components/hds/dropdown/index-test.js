@@ -95,7 +95,7 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     await click('button#test-toggle-button');
     assert
       .dom('#test-dropdown .hds-dropdown__content')
-      .hasClass('hds-dropdown__content--position-right');
+      .hasClass('hds-dropdown__content--position-bottom-right');
   });
   test('it should render the content aligned on the left if the value of @listPosition is "left"', async function (assert) {
     await render(hbs`

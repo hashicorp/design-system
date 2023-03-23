@@ -7,14 +7,21 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 
-export const DEFAULT_POSITION = 'right';
-export const POSITIONS = ['right', 'left', 'top-left', 'top-right'];
+export const DEFAULT_POSITION = 'bottom-right';
+export const POSITIONS = [
+  'right',
+  'left',
+  'bottom-left',
+  'bottom-right',
+  'top-left',
+  'top-right',
+];
 
 export default class HdsDropdownIndexComponent extends Component {
   /**
    * @param listPosition
    * @type {string}
-   * @default primary
+   * @default bottom-right
    * @description Determines the position of the "list"
    */
   get listPosition() {

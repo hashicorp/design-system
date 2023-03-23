@@ -12,14 +12,14 @@
   <Shw::Text::H2>Position</Shw::Text::H2>
 
   <Shw::Flex as |SF|>
-    <SF.Item @label="Left">
-      <Hds::Dropdown @listPosition="left" as |dd|>
+    <SF.Item @label="Bottom left">
+      <Hds::Dropdown @listPosition="bottom-left" as |dd|>
         <dd.ToggleButton @color="secondary" @text="Menu" />
         <dd.Interactive @href="#" @text="Create" />
         <dd.Interactive @href="#" @text="Edit" />
       </Hds::Dropdown>
     </SF.Item>
-    <SF.Item @label="Right (default)">
+    <SF.Item @label="Bottom right (default)">
       <Hds::Dropdown as |dd|>
         <dd.ToggleButton @color="secondary" @text="Menu" />
         <dd.Interactive @href="#" @text="Create" />

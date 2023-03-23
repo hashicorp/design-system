@@ -131,6 +131,7 @@ $hds-dropdown-toggle-border-radius: 5px;
   max-width: initial;
 }
 
+.hds-dropdown__content--position-bottom-right,
 .hds-dropdown__content--position-right {
   position: absolute;
   top: calc(100% + 4px);
@@ -138,6 +139,7 @@ $hds-dropdown-toggle-border-radius: 5px;
   z-index: 2; // https://github.com/hashicorp/design-system/issues/114
 }
 
+.hds-dropdown__content--position-bottom-left,
 .hds-dropdown__content--position-left {
   position: absolute;
   top: calc(100% + 4px);
