@@ -1,1 +1,1 @@
-Use the Application State to provide more information about the current state of the application, such as an empty state or error state. Including actionable steps to help the user proceed is also helpful.
+Use footer actions to redirect or provide steps to solve errors/access, and include actionable steps for user guidance.
