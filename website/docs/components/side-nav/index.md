@@ -6,7 +6,7 @@ status: released
 links:
   figma: {link to the "SideNav" page in the components Figma library}
   github: {link to the "SideNav" component's folder in the GitHub repo}
-previewImage: assets/illustrations/components/side-navigation.jpg
+previewImage: assets/illustrations/components/side-nav.jpg
 navigation:
   hidden: false
   keywords: ['navigation', 'side navigation', 'sidenav', 'sidebar']
