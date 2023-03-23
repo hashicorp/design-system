@@ -7,7 +7,7 @@
   <C.Property @name="isHrefExternal" @type="boolean" @values={{array "false" "true" }} @default="false">
     This controls if the `<a>` link is external. For security reasons, we add the `target="_blank"` and `rel="noopener noreferrer"` attributes to it by default.
   </C.Property>
-  <C.Property @name="route models model query current-when replace">
+  <C.Property @name="route/models/model/query/current-when/replace">
     Parameters that are passed down as arguments to the `<LinkTo>`/`<LinkToExternal>` components.
   </C.Property>
   <C.Property @name="isRouteExternal" @type="boolean" @values={{array "false" "true" }} @default="false">

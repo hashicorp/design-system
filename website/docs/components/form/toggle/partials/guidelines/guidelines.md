@@ -12,7 +12,7 @@
 
 ## Error validation
 
-For error validation recommendations, refer to the [Primitives](/components/form/primitives) documentation.
+For error validation recommendations, refer to the [Form patterns](/patterns/form-patterns) documentation.
 
 ## Content
 
@@ -22,3 +22,4 @@ For general content recommendations, refer to the [Primitives](/components/form/
 
 - [Checkbox](/components/form/checkbox)
 - [Radio](/components/form/radio)
+- [Form patterns](/patterns/form-patterns)

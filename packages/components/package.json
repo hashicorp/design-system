@@ -1,6 +1,6 @@
 {
   "name": "@hashicorp/design-system-components",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "description": "Helios Design System Components",
   "keywords": [
     "hashicorp",
@@ -37,6 +37,7 @@
     "test:ember:percy": "percy exec ember test"
   },
   "dependencies": {
+    "@ember/render-modifiers": "^2.0.5",
     "@hashicorp/design-system-tokens": "^1.4.1",
     "@hashicorp/ember-flight-icons": "^3.0.2",
     "dialog-polyfill": "^0.5.6",

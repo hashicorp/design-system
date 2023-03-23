@@ -86,7 +86,7 @@ Hidden fields are not visible to the user but the value in the field **is** pass
 
 ## Error validation
 
-For error validation recommendations, refer to the [Primitives](/components/form/primitives) documentation.
+For error validation recommendations, refer to the [Form patterns](/patterns/form-patterns) documentation.
 
 ## Content
 
@@ -96,3 +96,4 @@ For content recommendations, refer to the [Primitives](/components/form/primitiv
 
 - [Select](/components/form/select)
 - [Textarea](/components/form/textarea)
+- [Form patterns](/patterns/form-patterns)

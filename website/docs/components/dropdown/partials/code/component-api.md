@@ -21,7 +21,7 @@ The Dropdown component is composed of different child components each with their
     By default, the Dropdown List has a `min-width` of `200px` and a `max-width` of `400px`, so it adapts to the content size. If a `@width` parameter is provided then the list will have a fixed width.
   </C.Property>
   <C.Property @name="close" @type="function">
-    Function to programmatically close the dropdown. 
+    Function to programmatically close the dropdown.
     <br/><br/>
     If this function is invoked using an `\{{on "click"}}` modifier applied to the `ListItem::Interactive` element, there is a quirky behavior of the Ember `<LinkTo>` component which requires a workaround to have the events executed in the right order (this happens only if it has a `@route` argument). Read more about the issue and a possible solution [in this GitHub comment](https://github.com/hashicorp/design-system/pull/399#issuecomment-1171186772).
   </C.Property>
@@ -85,7 +85,7 @@ The Dropdown component is composed of different child components each with their
   <C.Property @name="isHrefExternal" @type="boolean" @values={{array "false" "true" }} @default="false">
     Indicates whether or not the `<a>` link is external, in which case `target="_blank"` and `rel="noopener noreferrer"` attributes are added automatically.
   </C.Property>
-  <C.Property @name="route models model query current-when replace">
+  <C.Property @name="route/models/model/query/current-when/replace">
     Parameters passed as arguments to the `<LinkTo/LinkToExternal>` component.
   </C.Property>
   <C.Property @name="isRouteExternal" @type="boolean" @values={{array "false" "true" }} @default="false">
