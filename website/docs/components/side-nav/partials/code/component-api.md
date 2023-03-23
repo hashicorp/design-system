@@ -51,7 +51,7 @@ The `SideNav::HomeLink` component uses the generic `Hds::Interactive` component.
   <C.Property @name="isHrefExternal" @type="boolean" @values={{array "false" "true" }} @default="false">
     This controls if the `<a>` link is external. For security reasons, we add the `target="_blank"` and `rel="noopener noreferrer"` attributes to it by default.
   </C.Property>
-  <C.Property @name="route models model query current-when replace">
+  <C.Property @name="route/models/model/query/current-when/replace">
     Parameters that are passed down as arguments to the `<LinkTo>`/`<LinkToExternal>` components.
   </C.Property>
   <C.Property @name="isRouteExternal" @type="boolean" @values={{array "false" "true" }} @default="false">
@@ -79,7 +79,7 @@ The `SideNav::IconButton` component uses the generic `Hds::Interactive` componen
   <C.Property @name="isHrefExternal" @type="boolean" @values={{array "false" "true" }} @default="false">
     This controls if the `<a>` link is external. For security reasons, we add the `target="_blank"` and `rel="noopener noreferrer"` attributes to it by default.
   </C.Property>
-  <C.Property @name="route models model query current-when replace">
+  <C.Property @name="route/models/model/query/current-when/replace">
     Parameters that are passed down as arguments to the `<LinkTo>`/`<LinkToExternal>` components.
   </C.Property>
   <C.Property @name="isRouteExternal" @type="boolean" @values={{array "false" "true" }} @default="false">
@@ -139,7 +139,7 @@ The `SideNav::List::Link` component uses the generic `Hds::Interactive` componen
   <C.Property @name="isHrefExternal" @type="boolean" @values={{array "false" "true" }} @default="false">
     This controls if the `<a>` link is external. For security reasons, we add the `target="_blank"` and `rel="noopener noreferrer"` attributes to it by default. If set to `true`, displays a right aligned “external-link” icon.
   </C.Property>
-  <C.Property @name="route models model query current-when replace">
+  <C.Property @name="route/models/model/query/current-when/replace">
     Parameters that are passed down as arguments to the `<LinkTo>`/`<LinkToExternal>` components.
   </C.Property>
   <C.Property @name="isRouteExternal" @type="boolean" @values={{array "false" "true" }} @default="false">
@@ -164,7 +164,7 @@ The `SideNav::List::BackLink` component uses the generic `Hds::Interactive` comp
   <C.Property @name="isHrefExternal" @type="boolean" @values={{array "false" "true" }} @default="false">
     This controls if the `<a>` link is external. For security reasons, we add the `target="_blank"` and `rel="noopener noreferrer"` attributes to it by default.
   </C.Property>
-  <C.Property @name="route models model query current-when replace">
+  <C.Property @name="route/models/model/query/current-when/replace">
     Parameters that are passed down as arguments to the `<LinkTo>`/`<LinkToExternal>` components.
   </C.Property>
   <C.Property @name="isRouteExternal" @type="boolean" @values={{array "false" "true" }} @default="false">
