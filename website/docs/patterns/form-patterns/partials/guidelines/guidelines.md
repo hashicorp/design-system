@@ -133,7 +133,7 @@ Text elements within a form should use logical, step-based sizing to reinforce h
 
 ## Button sets
 
-Organize buttons based on the [ButtonSet](/components/button-set) guidelines, e.g., using a 16px horizontal gap between buttons.
+Organize buttons based on the [Button Set](/components/button-set) guidelines, e.g., using a 16px horizontal gap between buttons.
 
 ![Button set](/assets/patterns/form-patterns/button-set.png =500x*)
 
@@ -150,8 +150,6 @@ Sometimes the values or options for a given field depend on information or selec
 Generally, fields that are dependencies for other fields benefit from being organized closer to the start of a form. For example, selecting a cluster tier reveals options for cluster sizes that are only available for the previously selected tier.
 
 ![Dependencies within forms example](/assets/patterns/form-patterns/cluster-tier-size-options.png)
-
-Read more about showing elements conditionally with [progressive disclosure](#progressive-disclosure).
 
 #### User needs
 
