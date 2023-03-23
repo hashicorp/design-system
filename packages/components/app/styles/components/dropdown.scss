@@ -96,6 +96,11 @@ $hds-dropdown-toggle-border-radius: 5px;
   &:disabled:hover,
   &.mock-disabled:hover {
     @include hds-button-state-disabled();
+
+    .hds-dropdown-toggle-button__count {
+      color: var(--token-color-foreground-primary);
+      background-color: var(--token-color-surface-strong);
+    }
   }
 }
 
@@ -151,6 +156,10 @@ $hds-dropdown-toggle-border-radius: 5px;
   @media (prefers-reduced-motion: no-preference) {
     transition: transform 0.3s;
   }
+}
+
+.hds-dropdown-toggle-button__count {
+  margin: -3px 0 -3px 6px;
 }
 
 // LIST

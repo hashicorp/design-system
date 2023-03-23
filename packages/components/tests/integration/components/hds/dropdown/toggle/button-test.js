@@ -51,6 +51,17 @@ module(
       assert.dom('.flight-icon.flight-icon-hexagon').exists();
     });
 
+    // COUNT
+
+    test('it should render a badge count if @count is defined', async function (assert) {
+      await render(
+        hbs`<Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @count="3" id="test-toggle-button" />`
+      );
+      assert
+        .dom('#test-toggle-button .hds-dropdown-toggle-button__count')
+        .hasText('3');
+    });
+
     // COLOR
 
     test('it should render the primary color as the default if no color is declared', async function (assert) {

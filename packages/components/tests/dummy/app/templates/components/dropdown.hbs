@@ -75,6 +75,7 @@
   </Shw::Flex>
 
   <Shw::Text::H4>With icon</Shw::Text::H4>
+
   <Shw::Flex as |SF|>
     <SF.Item @label="Primary small">
       <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem ipsum" @size="small" />
@@ -101,6 +102,37 @@
       </Shw::Outliner>
     </SF.Item>
   </Shw::Flex>
+
+  <Shw::Text::H4>With count</Shw::Text::H4>
+
+  <Shw::Grid @columns="6" as |SG|>
+    {{#each @model.TOGGLE_BUTTON_COLORS as |color|}}
+      {{#each @model.TOGGLE_STATES as |state|}}
+        <SG.Item @label="{{capitalize color}} / {{capitalize state}}">
+          <Hds::Dropdown::Toggle::Button @count="12" @text="Lipsum" @color={{color}} mock-state-value={{state}} />
+        </SG.Item>
+      {{/each}}
+      <SG.Item @label="{{color}}/open">
+        <Hds::Dropdown::Toggle::Button @count="12" @text="Lipsum" @isOpen={{true}} @color={{color}} />
+      </SG.Item>
+    {{/each}}
+    {{#each @model.TOGGLE_BUTTON_COLORS as |color|}}
+      {{#each @model.TOGGLE_STATES as |state|}}
+        <SG.Item @label="{{capitalize color}} / {{capitalize state}}">
+          <Hds::Dropdown::Toggle::Button
+            @count="12"
+            @text="Lipsum"
+            @size="small"
+            @color={{color}}
+            mock-state-value={{state}}
+          />
+        </SG.Item>
+      {{/each}}
+      <SG.Item @label="{{color}}/open">
+        <Hds::Dropdown::Toggle::Button @count="12" @text="Lipsum" @size="small" @isOpen={{true}} @color={{color}} />
+      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
 
   <Shw::Divider @level={{2}} />
 

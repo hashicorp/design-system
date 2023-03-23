@@ -17,6 +17,14 @@
   <div class="hds-dropdown-toggle-button__text">
     {{this.text}}
   </div>
+  {{#if @count}}
+    <Hds::BadgeCount
+      @text={{@count}}
+      @size="small"
+      @type={{this.countType}}
+      class="hds-dropdown-toggle-button__count"
+    />
+  {{/if}}
   <div class="hds-dropdown-toggle-button__indicator">
     <FlightIcon @name="chevron-down" @size={{this.iconSize}} @stretched={{true}} />
   </div>

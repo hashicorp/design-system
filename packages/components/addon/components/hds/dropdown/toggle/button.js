@@ -110,6 +110,16 @@ export default class HdsDropdownToggleButtonComponent extends Component {
   }
 
   /**
+   * @param countType
+   * @type {string}
+   * @default 'filled'
+   * @description ensures that the correct countBadge type size is used to meet contrast requirements
+   */
+  get countType() {
+    return this.color !== 'primary' ? 'inverted' : 'filled';
+  }
+
+  /**
    * Get the class names to apply to the component.
    * @method ToggleButton#classNames
    * @return {string} The "class" attribute to apply to the component.
