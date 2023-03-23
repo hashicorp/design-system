@@ -40,7 +40,7 @@ Avoid placing links to unrelated pages or actions, such as support or navigation
 
 The body consists of a group of sections with vertical lists of links to the most important parts of the application.
 
-### Section
+### List
 
 #### With title
 
