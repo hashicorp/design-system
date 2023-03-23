@@ -1,5 +1,13 @@
 # @hashicorp/design-system-components
 
+## 1.8.1
+
+### Patch Changes
+
+- [#1260](https://github.com/hashicorp/design-system/pull/1260) [`8eb0d1ff6`](https://github.com/hashicorp/design-system/commit/8eb0d1ff63248fe049962192190480a7fe6fdef9) Thanks [@didoo](https://github.com/didoo)! - Added `@ember/render-modifiers` as explicit dependency
+
+- [#1256](https://github.com/hashicorp/design-system/pull/1256) [`451d98842`](https://github.com/hashicorp/design-system/commit/451d98842474dad2b3f3a6ad38c813e9d92d0f1d) Thanks [@alex-ju](https://github.com/alex-ju)! - Make the `Disclosure` mechanism more resilient
+
 ## 1.8.0
 
 ### Minor Changes
