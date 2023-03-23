@@ -110,12 +110,12 @@ export default class HdsDropdownToggleButtonComponent extends Component {
   }
 
   /**
-   * @param countType
+   * @param badgeType
    * @type {string}
    * @default 'filled'
-   * @description ensures that the correct countBadge type size is used to meet contrast requirements
+   * @description ensures that the correct Badge/badgeCount type is used to meet contrast requirements
    */
-  get countType() {
+  get badgeType() {
     return this.color !== 'primary' ? 'inverted' : 'filled';
   }
 

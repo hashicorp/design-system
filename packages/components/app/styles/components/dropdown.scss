@@ -97,6 +97,7 @@ $hds-dropdown-toggle-border-radius: 5px;
   &.mock-disabled:hover {
     @include hds-button-state-disabled();
 
+    .hds-dropdown-toggle-button__badge,
     .hds-dropdown-toggle-button__count {
       color: var(--token-color-foreground-primary);
       background-color: var(--token-color-surface-strong);
@@ -158,6 +159,7 @@ $hds-dropdown-toggle-border-radius: 5px;
   }
 }
 
+.hds-dropdown-toggle-button__badge,
 .hds-dropdown-toggle-button__count {
   margin: -3px 0 -3px 6px;
 }

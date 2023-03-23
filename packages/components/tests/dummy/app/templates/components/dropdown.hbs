@@ -105,16 +105,13 @@
 
   <Shw::Text::H4>With count</Shw::Text::H4>
 
-  <Shw::Grid @columns="6" as |SG|>
+  <Shw::Grid @columns="5" as |SG|>
     {{#each @model.TOGGLE_BUTTON_COLORS as |color|}}
       {{#each @model.TOGGLE_STATES as |state|}}
         <SG.Item @label="{{capitalize color}} / {{capitalize state}}">
           <Hds::Dropdown::Toggle::Button @count="12" @text="Lipsum" @color={{color}} mock-state-value={{state}} />
         </SG.Item>
       {{/each}}
-      <SG.Item @label="{{color}}/open">
-        <Hds::Dropdown::Toggle::Button @count="12" @text="Lipsum" @isOpen={{true}} @color={{color}} />
-      </SG.Item>
     {{/each}}
     {{#each @model.TOGGLE_BUTTON_COLORS as |color|}}
       {{#each @model.TOGGLE_STATES as |state|}}
@@ -128,9 +125,38 @@
           />
         </SG.Item>
       {{/each}}
-      <SG.Item @label="{{color}}/open">
-        <Hds::Dropdown::Toggle::Button @count="12" @text="Lipsum" @size="small" @isOpen={{true}} @color={{color}} />
-      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
+
+  <Shw::Text::H4>With badge</Shw::Text::H4>
+
+  <Shw::Grid @columns="5" as |SG|>
+    {{#each @model.TOGGLE_BUTTON_COLORS as |color|}}
+      {{#each @model.TOGGLE_STATES as |state|}}
+        <SG.Item @label="{{capitalize color}} / {{capitalize state}}">
+          <Hds::Dropdown::Toggle::Button
+            @badge="Badge"
+            @badgeIcon="hexagon"
+            @text="Lipsum"
+            @color={{color}}
+            mock-state-value={{state}}
+          />
+        </SG.Item>
+      {{/each}}
+    {{/each}}
+    {{#each @model.TOGGLE_BUTTON_COLORS as |color|}}
+      {{#each @model.TOGGLE_STATES as |state|}}
+        <SG.Item @label="{{capitalize color}} / {{capitalize state}}">
+          <Hds::Dropdown::Toggle::Button
+            @badge="Badge"
+            @badgeIcon="hexagon"
+            @text="Lipsum"
+            @size="small"
+            @color={{color}}
+            mock-state-value={{state}}
+          />
+        </SG.Item>
+      {{/each}}
     {{/each}}
   </Shw::Grid>
 

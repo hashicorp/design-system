@@ -51,6 +51,30 @@ module(
       assert.dom('.flight-icon.flight-icon-hexagon').exists();
     });
 
+    // BADGE
+
+    test('it should render a badge if @badge is defined', async function (assert) {
+      await render(
+        hbs`<Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @badge="badge" id="test-toggle-button" />`
+      );
+      assert
+        .dom('#test-toggle-button .hds-dropdown-toggle-button__badge')
+        .hasText('badge');
+    });
+    test('it should render a badge with icon if @badge and @badgeIcon is defined', async function (assert) {
+      await render(
+        hbs`<Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @badge="badge" @badgeIcon="hexagon" id="test-toggle-button" />`
+      );
+      assert
+        .dom('#test-toggle-button .hds-dropdown-toggle-button__badge')
+        .hasText('badge');
+      assert
+        .dom(
+          '.hds-dropdown-toggle-button__badge .flight-icon.flight-icon-hexagon'
+        )
+        .exists();
+    });
+
     // COUNT
 
     test('it should render a badge count if @count is defined', async function (assert) {

@@ -21,8 +21,17 @@
     <Hds::BadgeCount
       @text={{@count}}
       @size="small"
-      @type={{this.countType}}
+      @type={{this.badgeType}}
       class="hds-dropdown-toggle-button__count"
+    />
+  {{/if}}
+  {{#if @badge}}
+    <Hds::Badge
+      @text={{@badge}}
+      @icon={{@badgeIcon}}
+      @size="small"
+      @type={{this.badgeType}}
+      class="hds-dropdown-toggle-button__badge"
     />
   {{/if}}
   <div class="hds-dropdown-toggle-button__indicator">
