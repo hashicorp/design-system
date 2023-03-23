@@ -1,4 +1,4 @@
-import { module, test, skip } from 'qunit';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
@@ -8,22 +8,30 @@ module(
   function (hooks) {
     setupRenderingTest(hooks);
 
-    skip('it renders', async function (assert) {
-      // Set any properties with this.set('myProperty', 'value');
-      // Handle any actions with this.set('myAction', function(val) { ... });
+    test('it should render with a CSS class that matches the component name', async function (assert) {
+      await render(
+        hbs`<Hds::ApplicationState::Header @title="An error has occurred" id="test-application-state-header" />`
+      );
 
-      await render(hbs`<Hds::ApplicationState::Header />`);
+      assert
+        .dom('#test-application-state-header')
+        .hasClass('hds-application-state__header');
+    });
 
-      assert.dom(this.element).hasText('');
+    test('it should render a custom icon if @icon is defined', async function (assert) {
+      await render(
+        hbs`<Hds::ApplicationState::Header @title="An error has occurred" id="test-application-state-header" @icon="help" @errorCode="404" />`
+      );
 
-      // Template block usage:
-      await render(hbs`
-      <Hds::ApplicationState::Header>
-        template block text
-      </Hds::ApplicationState::Header>
-    `);
+      assert.dom('.flight-icon-help').exists();
+    });
 
-      assert.dom(this.element).hasText('template block text');
+    test('it should not render a custom icon if no @errorCode is defined', async function (assert) {
+      await render(
+        hbs`<Hds::ApplicationState::Header @title="An error has occurred" id="test-application-state-header" @icon="help" />`
+      );
+
+      assert.dom('.flight-icon-help').doesNotExist();
     });
   }
 );

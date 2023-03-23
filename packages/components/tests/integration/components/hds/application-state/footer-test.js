@@ -1,4 +1,4 @@
-import { module, test, skip } from 'qunit';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
@@ -8,22 +8,16 @@ module(
   function (hooks) {
     setupRenderingTest(hooks);
 
-    skip('it renders', async function (assert) {
-      // Set any properties with this.set('myProperty', 'value');
-      // Handle any actions with this.set('myAction', function(val) { ... });
-
-      await render(hbs`<Hds::ApplicationState::Footer />`);
-
-      assert.dom(this.element).hasText('');
-
-      // Template block usage:
+    test('it should render with a CSS class that matches the component name', async function (assert) {
       await render(hbs`
-      <Hds::ApplicationState::Footer>
+      <Hds::ApplicationState::Footer id="test-application-state-footer">
         template block text
       </Hds::ApplicationState::Footer>
     `);
 
-      assert.dom(this.element).hasText('template block text');
+      assert
+        .dom('#test-application-state-footer')
+        .hasClass('hds-application-state__footer');
     });
   }
 );

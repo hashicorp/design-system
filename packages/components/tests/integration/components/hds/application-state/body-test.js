@@ -1,4 +1,4 @@
-import { module, test, skip } from 'qunit';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
@@ -8,22 +8,24 @@ module(
   function (hooks) {
     setupRenderingTest(hooks);
 
-    skip('it renders', async function (assert) {
-      // Set any properties with this.set('myProperty', 'value');
-      // Handle any actions with this.set('myAction', function(val) { ... });
+    test('it should render with a CSS class that matches the component name', async function (assert) {
+      await render(
+        hbs`<Hds::ApplicationState::Body id="test-application-state-body" />`
+      );
 
-      await render(hbs`<Hds::ApplicationState::Body />`);
+      assert
+        .dom('#test-application-state-body')
+        .hasClass('hds-application-state__body');
+    });
 
-      assert.dom(this.element).hasText('');
-
-      // Template block usage:
-      await render(hbs`
-      <Hds::ApplicationState::Body>
-        template block text
-      </Hds::ApplicationState::Body>
-    `);
-
-      assert.dom(this.element).hasText('template block text');
+    test('it should render the yielded content', async function (assert) {
+      await render(
+        hbs`<Hds::ApplicationState::Body id="test-application-state-body">
+        <pre>test</pre>
+      </Hds::ApplicationState::Body>`
+      );
+      assert.dom('#test-application-state-body > pre').exists();
+      assert.dom('#test-application-state-body > pre').hasText('test');
     });
   }
 );
