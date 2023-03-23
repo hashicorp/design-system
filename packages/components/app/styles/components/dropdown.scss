@@ -84,17 +84,6 @@ $hds-dropdown-toggle-border-radius: 5px;
 .hds-dropdown-toggle-button {
   @include hds-button();
 
-  box-shadow: none; // we override this to remove the elevation style
-
-  .hds-dropdown-toggle-button__indicator {
-    margin-right: -6px; // we apply a negative margin to counter the padding-right of the button and reduce the visual space between the icon and the right border
-    margin-left: 8px; // this overrides the rule `.hds-button__text + .hds-button__icon`
-
-    @media (prefers-reduced-motion: no-preference) {
-      transition: transform 0.3s;
-    }
-  }
-
   &:focus,
   &.mock-focus {
     @include hds-button-state-focus();
@@ -115,6 +104,7 @@ $hds-dropdown-toggle-border-radius: 5px;
     min-height: map-get($size-props, $size, "min-height");
     padding: map-get($size-props, $size, "padding");
 
+    .hds-dropdown-toggle-button__icon,
     .hds-dropdown-toggle-button__indicator {
       width: map-get($size-props, $size, "icon-size");
       height: map-get($size-props, $size, "icon-size");
@@ -147,6 +137,19 @@ $hds-dropdown-toggle-border-radius: 5px;
 
   .hds-dropdown-toggle-button__text {
     flex: 1 0 auto;
+  }
+}
+
+.hds-dropdown-toggle-button__icon {
+  margin-right: 0.375rem;
+}
+
+.hds-dropdown-toggle-button__indicator {
+  margin-right: -6px; // we apply a negative margin to counter the padding-right of the button and reduce the visual space between the icon and the right border
+  margin-left: 8px;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: transform 0.3s;
   }
 }
 

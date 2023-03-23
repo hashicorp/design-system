@@ -74,6 +74,34 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Text::H4>With icon</Shw::Text::H4>
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Primary small">
+      <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem ipsum" @size="small" />
+    </SF.Item>
+    <SF.Item @label="Primary medium">
+      <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem ipsum" />
+    </SF.Item>
+    <SF.Item @label="Primary full width">
+      <Shw::Outliner {{style width="300px"}}>
+        <Hds::Dropdown::Toggle::Button @icon="hexagon" @isFullWidth={{true}} @text="Lorem ipsum" />
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Secondary small">
+      <Hds::Dropdown::Toggle::Button @color="secondary" @icon="hexagon" @text="Lorem ipsum" @size="small" />
+    </SF.Item>
+    <SF.Item @label="Secondary medium">
+      <Hds::Dropdown::Toggle::Button @color="secondary" @icon="hexagon" @text="Lorem ipsum" />
+    </SF.Item>
+    <SF.Item @label="Secondary full width">
+      <Shw::Outliner {{style width="300px"}}>
+        <Hds::Dropdown::Toggle::Button @color="secondary" @icon="hexagon" @isFullWidth={{true}} @text="Lorem ipsum" />
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
+
   <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Icon</Shw::Text::H3>
