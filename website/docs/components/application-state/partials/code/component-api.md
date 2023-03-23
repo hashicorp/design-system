@@ -1,60 +1,36 @@
 ## Component API
 
-The ApplicationState component has three child components:
-
-- Header
-- Body
-- Footer
-
 <Doc::ComponentApi as |C|>
   <C.Property @name="errorCode" @type="string">
-    Indicates that the component is being used for an error state.
+    The error code to be displayed.
+  </C.Property>
+  <C.Property @name="hasDivider" @type="boolean" @default="false" @values={{array "true" "false"}}>
+    Indicates if there should be a visible divider above the footer.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
 
-### ApplicationState::Header
+### Contextual Components
+
+#### [A].Header
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="iconName" @type="string">
-    Is shown if `@errorCode` is defined when the component is invoked. Default icon is `alert-circle`, but any valid icon name is supported.
+  <C.Property @name="icon" @type="string">
+    Shows an icon if `@errorCode` is defined when the component is invoked. Default icon is `alert-circle`, but any valid [icon](/icons/library) name is supported.
   </C.Property>
-  <C.Property @name="titleText" @type="string"  />
+  <C.Property @name="title" @type="string"  />
 </Doc::ComponentApi>
 
-### ApplicationState::Body
+#### [A].Body
 
 Supports block use.
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="bodyText" @type="string" />
+  <C.Property @name="text" @type="string" />
 </Doc::ComponentApi>
   
-### ApplicationState::Footer
+#### [A].Footer
 
-Up to one footer link ([Link::Standalone](../components/link/standalone)) is supported in the empty state; an additional "help" link is available in the error state.
-
-Supports block use.
-
-<Doc::ComponentApi as |C|>
-  <C.Property @name="iconName" @type="string">
-    The icon to be used with the standalone link.
-  </C.Property>
-  <C.Property @name="footerText" @type="string">
-    The link text.
-  </C.Property>
-  <C.Property @name="href" @type="string">
-    The URL to be linked.
-  </C.Property>
-  <C.Property @name="helpIcon" @type="string">
-    Default icon is `help`, but any valid icon name is supported.
-  </C.Property>
-  <C.Property @name="helpText" @type="string">
-    Default text is "Need Help", but it can be customized for localization/internationalization purposes.
-  </C.Property>
-  <C.Property @name="helpHref" @type="string">
-    The URL to the help page.
-  </C.Property>
-</Doc::ComponentApi>
+Supports block use; yields the [Link::Standalone](../components/link/standalone) component as `Link`.

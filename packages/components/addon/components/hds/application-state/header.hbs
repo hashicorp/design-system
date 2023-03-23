@@ -3,17 +3,18 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <div class="hds-application-state__header" ...attributes>
-  {{#if @subtitle}}
-    <div class="hds-application-state__header__icon">
+  {{#if @errorCode}}
+    <div class="hds-application-state__header-icon">
       <FlightIcon @name={{if @icon @icon "alert-circle"}} @size="24" />
     </div>
   {{/if}}
-  <div class="hds-application-state__header__title hds-typography-display-400 hds-font-weight-semibold">
+  <div class="hds-application-state__header-title hds-typography-display-400 hds-font-weight-semibold">
     {{@title}}
   </div>
-  {{#if @subtitle}}
-    <div class="hds-application-state__header__errorCode hds-typography-body-100 hds-font-weight-medium">
-      {{@subtitle}}
+  {{#if @errorCode}}
+    <div class="hds-application-state__header-errorCode hds-typography-body-100 hds-font-weight-medium">
+      Error
+      {{@errorCode}}
     </div>
   {{/if}}
 </div>

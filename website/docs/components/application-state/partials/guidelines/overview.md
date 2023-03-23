@@ -1,1 +1,1 @@
-The message to display if there is no content or an error.
+Use footer actions to redirect or guide users in solving errors/access issues with actionable steps.

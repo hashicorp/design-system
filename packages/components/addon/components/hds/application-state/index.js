@@ -6,8 +6,26 @@
 import Component from '@glimmer/component';
 
 export default class HdsApplicationStateIndexComponent extends Component {
-  get subtitle() {
-    return this.args.subtitle || null;
+  /**
+   * The error code to display in the footer.
+   *
+   * @param errorCode
+   * @type {string}
+   * @default null
+   */
+  get errorCode() {
+    return this.args.errorCode || null;
+  }
+
+  /**
+   * Indicate if the footer should have a top border or not.
+   *
+   * @param hasDivider
+   * @type {boolean}
+   * @default false
+   */
+  get hasDivider() {
+    return this.args.hasDivider || false;
   }
 
   /**
@@ -18,9 +36,14 @@ export default class HdsApplicationStateIndexComponent extends Component {
   get classNames() {
     let classes = ['hds-application-state'];
 
-    // add a class based on the existence of @subtitle argument
-    if (this.subtitle !== null) {
+    // add a class based on the existence of @errorCode argument
+    if (this.errorCode !== null) {
       classes.push(`hds-application-state--error`);
+    }
+
+    // add a class based on the existence of @hasDivider argument
+    if (this.hasDivider) {
+      classes.push(`hds-application-state--has-divider`);
     }
 
     return classes.join(' ');

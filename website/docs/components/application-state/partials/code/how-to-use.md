@@ -11,14 +11,28 @@ This component currently supports two states: empty state and error state.
 </Hds::ApplicationState>
 ```
 
-#### Empty state with link in footer
+#### Empty state with a footer link
 
 ```handlebars
 <Hds::ApplicationState as |A|>
   <A.Header @title="Empty state title text" />
   <A.Body @text="The item you were looking for was not found." />
   <A.Footer as |F|>
-    <F.Link @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
+    <F.Link @icon="help" @text="Need Help" @href="/components/alert"
+    @iconPosition="trailing" />
+  </A.Footer>
+</Hds::ApplicationState>
+```
+
+#### Empty state with a footer link and divider
+
+```handlebars
+<Hds::ApplicationState @hasDivider={{true}} as |A|>
+  <A.Header @title="Empty state title text" />
+  <A.Body @text="The item you were looking for was not found." />
+  <A.Footer as |F|>
+    <F.Link @icon="help" @text="Need Help" @href="/components/alert"
+    @iconPosition="trailing" />
   </A.Footer>
 </Hds::ApplicationState>
 ```
@@ -29,7 +43,7 @@ This component currently supports two states: empty state and error state.
 <Hds::ApplicationState as |A|>
   <A.Header @title="Empty state title text" />
   <A.Body>
-    <p>Your content here</p>
+    <Doc::Placeholder @text="block yield" @height="100" @background="#eee" />
   </A.Body>
   <A.Footer as |F|>
     <F.Link @icon="arrow-left" @text="Go back" @href="/" />
@@ -39,10 +53,10 @@ This component currently supports two states: empty state and error state.
 
 ### Error state
 
-To indicate that the message is an error state, add the errorCode to the invocation.
+To indicate that the message is an error state, add `@errorCode` to the invocation.
 
 ```handlebars
-<Hds::ApplicationState @subtitle="404" as |A|>
+<Hds::ApplicationState @errorCode="404" as |A|>
   <A.Header @title="An error has occurred" />
   <A.Body
     @text="Sorry, an unexpected error has occurred.
@@ -50,35 +64,58 @@ To indicate that the message is an error state, add the errorCode to the invocat
   />
   <A.Footer as |F|>
     <F.Link @icon="arrow-left" @text="Go back" @href="/" />
-    <F.Link @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
+    <F.Link @icon="help" @text="Need Help" @href="/components/alert" 
+      @iconPosition="trailing" />
   </A.Footer>
 </Hds::ApplicationState>
 ```
 
 #### Error state with customized header icon
 
-```handlebars{data-execute=false}
-<Hds::ApplicationState @subtitle="404" as |A|>
-  <A.Header @title={{t error.text.title}} @icon="help" />
+```handlebars
+<Hds::ApplicationState @errorCode="404" as |A|>
+  <A.Header @title="An error has occurred" @icon="help" />
   <A.Body
-    @text={{t error.text.description}}
+    @text="Sorry, an unexpected error has occurred.
+    Please try again later or contact support for assistance."
   />
-  <A.Footer @iconName="arrow-left" @footerText={{t link.text.back}} @href="/" 
-  @helpIcon="support" @helpText={{t link.text.help}} @helpHref="/url/to/help" />
+  <A.Footer as |F|>
+    <F.Link @icon="arrow-left" @text="Go back" @href="/" />
+    <F.Link @icon="help" @text="Need Help" @href="/components/alert" 
+      @iconPosition="trailing" />
+  </A.Footer>
 </Hds::ApplicationState>
 ```
 
 #### Error state with yielded body block
 
 ```handlebars
-<Hds::ApplicationState @subtitle="404" as |A|>
+<Hds::ApplicationState @errorCode="404" as |A|>
   <A.Header @title="An error has occurred" />
   <A.Body>
-    <p>Yielded content here</p>
+    <Doc::Placeholder @text="block yield" @height="100" @background="#eee" />
   </A.Body>
   <A.Footer as |F|>
-          <F.Link @icon="arrow-left" @text="Go back" @href="/" />
-          <F.Link @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
-        </A.Footer>
+    <F.Link @icon="arrow-left" @text="Go back" @href="/" />
+    <F.Link @icon="help" @text="Need Help" 
+      @href="/components/alert" @iconPosition="trailing" />
+  </A.Footer>
+</Hds::ApplicationState>
+```
+
+#### Error state with a footer divider
+
+```handlebars
+<Hds::ApplicationState @errorCode="404" @hasDivider={{true}} as |A|>
+  <A.Header @title="An error has occurred" />
+  <A.Body
+    @text="Sorry, an unexpected error has occurred.
+    Please try again later or contact support for assistance."
+  />
+  <A.Footer as |F|>
+    <F.Link @icon="arrow-left" @text="Go back" @href="/" />
+    <F.Link @icon="help" @text="Need Help" @href="/components/alert" 
+      @iconPosition="trailing" />
+  </A.Footer>
 </Hds::ApplicationState>
 ```

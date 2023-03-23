@@ -1,7 +1,7 @@
 ---
 title: Application State
-description: The message to display if there is no content or an error.
-caption: The message to display if there is no content or an error.
+description: Use the ApplicationState to provide information about the current state of the application.
+caption: Use the ApplicationState to provide information about the current state of the application.
 status: released
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/branch/2lNa9Qe4UuF4yN8gcR7Fkp/HDS-Product---Components?node-id=31113%3A50004&t=AgcOxZqO6FWFkdcD-1
@@ -28,4 +28,3 @@ navigation:
 <section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
 </section>
-
