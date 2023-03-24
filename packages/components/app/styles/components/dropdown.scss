@@ -145,21 +145,6 @@ $hds-dropdown-toggle-border-radius: 5px;
   z-index: 2; // https://github.com/hashicorp/design-system/issues/114
 }
 
-.hds-dropdown__header {
-  position: relative;
-  flex: none;
-  padding: 6px 8px;
-
-  .hds-link-standalone {
-    width: initial;
-    padding: 5px 8px;
-  }
-}
-
-.hds-dropdown__header--with-divider {
-  border-bottom: 1px solid var(--token-color-border-primary);
-}
-
 .hds-dropdown__list {
   flex: 1 1 auto;
   margin: 0;
@@ -169,15 +154,40 @@ $hds-dropdown-toggle-border-radius: 5px;
   overscroll-behavior: contain;
 }
 
+.hds-dropdown__header,
 .hds-dropdown__footer {
   position: relative;
   flex: none;
-  padding: 8px;
+  padding: 0 8px;
 
-  .hds-link-standalone {
+  > .hds-link-standalone {
     width: initial;
-    padding: 5px 8px;
+    margin: 4px 0;
+    padding: 7px 8px; // 7px=8px-1px(accounting for the transparent border)
+
+    // keep focus ring in sync with the padding
+    &::before {
+      top: 0;
+      bottom: 0;
+    }
   }
+
+  > .hds-button,
+  > .hds-form-text-input {
+    margin: 8px 0;
+  }
+
+  > .hds-button-set {
+    margin: 8px 0;
+
+    > * + * {
+      margin-left: 8px;
+    }
+  }
+}
+
+.hds-dropdown__header--with-divider {
+  border-bottom: 1px solid var(--token-color-border-primary);
 }
 
 .hds-dropdown__footer--with-divider {

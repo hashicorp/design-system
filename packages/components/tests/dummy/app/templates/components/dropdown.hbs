@@ -479,7 +479,12 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list" role="listbox" aria-label="Large content">
           {{#each @model.ITEM_STATES as |state|}}
-            <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @icon="hexagon" @selected={{true}} @count="12">
+            <Hds::Dropdown::ListItem::Checkmark
+              mock-state-value={{state}}
+              @icon="hexagon"
+              @selected={{true}}
+              @count="12"
+            >
               {{state}}
               with a longer text string that may wrap since max-width is defined on the container
               <Hds::Badge @text="badge" @size="small" />
@@ -842,7 +847,7 @@
         </ul>
       </div>
     </SF.Item>
-    <SF.Item @label="Generic header with separator">
+    <SF.Item @label="Generic header with divider">
       <div class="hds-dropdown__content">
         <Hds::Dropdown::Header @hasDivider={{true}}>
           <Shw::Placeholder @text="generic header content" @width="200" @height="36" @background="#e1f5fe" />
@@ -862,7 +867,7 @@
     </SF.Item>
     <SF.Item @label="Input type search">
       <div class="hds-dropdown__content">
-        <Hds::Dropdown::Header @hasSeparator={{true}}>
+        <Hds::Dropdown::Header @hasDivider={{true}}>
           <Hds::Form::TextInput::Base @type="search" placeholder="Narrow results" />
         </Hds::Dropdown::Header>
         <ul class="hds-dropdown__list">
@@ -907,7 +912,7 @@
         </Hds::Dropdown::Footer>
       </div>
     </SF.Item>
-    <SF.Item @label="Generic footer with separator">
+    <SF.Item @label="Generic footer with divider">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
           <Hds::Dropdown::ListItem::Generic>
@@ -958,7 +963,7 @@
   <Shw::Flex as |SF|>
     <SF.Item @label="Generic header and footer">
       <div class="hds-dropdown__content">
-        <Hds::Dropdown::Header @hasSeparator={{true}}>
+        <Hds::Dropdown::Header @hasDivider={{true}}>
           <Shw::Placeholder @text="generic header content" @width="200" @height="36" @background="#e1f5fe" />
         </Hds::Dropdown::Header>
         <ul class="hds-dropdown__list">
@@ -981,7 +986,7 @@
     <SF.Item @label="Generic, fixed height list">
       {{! template-lint-disable no-inline-styles }}
       <div class="hds-dropdown__content" style="max-height:195px">
-        <Hds::Dropdown::Header @hasSeparator={{true}}>
+        <Hds::Dropdown::Header @hasDivider={{true}}>
           <Shw::Placeholder @text="generic header content" @width="200" @height="36" @background="#e1f5fe" />
         </Hds::Dropdown::Header>
         <ul class="hds-dropdown__list">
@@ -1006,7 +1011,7 @@
     </SF.Item>
     <SF.Item @label="Input and Button Set">
       <div class="hds-dropdown__content">
-        <Hds::Dropdown::Header @hasSeparator={{true}}>
+        <Hds::Dropdown::Header @hasDivider={{true}}>
           <Hds::Form::TextInput::Base @type="search" placeholder="Narrow results" />
         </Hds::Dropdown::Header>
         <ul class="hds-dropdown__list">
@@ -1024,8 +1029,8 @@
     </SF.Item>
     <SF.Item @label="Input and Link, fixed height list">
       {{! template-lint-disable no-inline-styles }}
-      <div class="hds-dropdown__content" style="max-height:185px">
-        <Hds::Dropdown::Header @hasSeparator={{true}}>
+      <div class="hds-dropdown__content" style="max-height:190px">
+        <Hds::Dropdown::Header @hasDivider={{true}}>
           <Hds::Form::TextInput::Base @type="search" placeholder="Narrow results" />
         </Hds::Dropdown::Header>
         <ul class="hds-dropdown__list">
