@@ -70,17 +70,17 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     await render(hbs`
       <Hds::Dropdown id="test-dropdown" as |dd|>
         <dd.ToggleButton @text="toggle button" id="test-toggle-button" />
-        <dd.Header @hasSeparator={{true}} id="test-header">Header</dd.Header>
-        <dd.Footer @hasSeparator={{true}} id="test-footer">Footer</dd.Footer>
+        <dd.Header @hasDivider={{true}} id="test-header">Header</dd.Header>
+        <dd.Footer @hasDivider={{true}} id="test-footer">Footer</dd.Footer>
       </Hds::Dropdown>
     `);
     await click('button#test-toggle-button');
     assert
       .dom('#test-dropdown #test-header')
-      .hasClass('hds-dropdown__header--with-separator');
+      .hasClass('hds-dropdown__header--with-divider');
     assert
       .dom('#test-dropdown #test-footer')
-      .hasClass('hds-dropdown__footer--with-separator');
+      .hasClass('hds-dropdown__footer--with-divider');
   });
 
   // POSITION
