@@ -3,6 +3,7 @@
 The Dropdown component is composed of different child components each with their own APIs:
 
 - The Dropdown component
+    - Optional header and footer
 - Toggle components to open/close the dropdown
     - ToggleButton
     - ToggleIcon
@@ -31,6 +32,20 @@ The Dropdown component is composed of different child components each with their
   <C.Property @name="onClose" @type="function">
     Callback function invoked when the dropdown is closed, if provided.
   </C.Property>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
+</Doc::ComponentApi>
+
+#### Dropdown::Header and Dropdown::Footer
+
+If the dropdown content exceeds the height of the container, the header and footer remain fixed while the list of items adjusts its height.
+
+<Doc::ComponentApi as |C|>
+  <C.Property @name="yield">
+    Elements nested in this child component are yielded inside the dropdown header/footer.
+  </C.Property>
+  <C.Property @name="hasDivider" @type="boolean" @values={{array "false" "true" }} @default="false" />
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
