@@ -16,9 +16,12 @@ The Dropdown component is composed of different child components each with their
 ### Dropdown
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="listPosition" @type="string" @values={{array "left" "right" }} @default="right"/>
+  <C.Property @name="listPosition" @type="string" @values={{array "bottom-left" "bottom-right" "top-left" "top-right" }} @default="bottom-right"/>
   <C.Property @name="width" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
     By default, the Dropdown List has a `min-width` of `200px` and a `max-width` of `400px`, so it adapts to the content size. If a `@width` parameter is provided then the list will have a fixed width.
+  </C.Property>
+  <C.Property @name="height" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
+    If a `@height` parameter is provided then the list will have a fixed height.
   </C.Property>
   <C.Property @name="close" @type="function">
     Function to programmatically close the dropdown.
@@ -41,6 +44,18 @@ The Dropdown component is composed of different child components each with their
   </C.Property>
   <C.Property @name="color" @type="enum" @values={{array "primary" "secondary" }} @default="primary"/>
   <C.Property @name="size" @type="enum" @values={{array "medium" "small" }} @default="medium"/>
+  <C.Property @name="icon" @type="string">
+    Acceptable value: any [icon](/icons/library) name.
+  </C.Property>
+  <C.Property @name="count" @type="string">
+    Displays an optional count indicator using the [Badge Count](/components/badge-count) component.
+  </C.Property>
+  <C.Property @name="badge" @type="string">
+    Displays an optional badge indicator using the [Badge](/components/badge) component.
+  </C.Property>
+  <C.Property @name="badgeIcon" @type="string">
+    Appends an icon to the optional badge indicator. Acceptable value: any [icon](/icons/library) name.
+  </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
