@@ -116,11 +116,6 @@ Toasts can be sized between 360px and 500px wide. Anything wider than 500px will
 
 ## Placement
 
-!!! Warning 
-
-HCP’s notification service doesn’t currently support the recommended placement. Discuss possible solutions and alternatives with your product team before using the Toast.
-!!!
-
 Toasts should appear in the bottom right corner of the screen with a margin of 32px from the bottom and a 24px from the right side of the viewport. 
 
 ![Toast placement example](/assets/components/toast/toast-placement.png =600x*)
