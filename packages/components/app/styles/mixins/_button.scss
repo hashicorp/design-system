@@ -259,3 +259,22 @@ $size-props: (
     }
   }
 }
+
+@mixin hds-button-size-classes($blockName) {
+  @each $size in $hds-button-sizes {
+    .#{$blockName}--size-#{$size} {
+      min-height: map-get($size-props, $size, "min-height");
+      padding: map-get($size-props, $size, "padding");
+
+      .#{$blockName}__icon {
+        width: map-get($size-props, $size, "icon-size");
+        height: map-get($size-props, $size, "icon-size");
+      }
+
+      .#{$blockName}__text {
+        font-size: map-get($size-props, $size, "font-size");
+        line-height: map-get($size-props, $size, "line-height");
+      }
+    }
+  }
+}

@@ -67,18 +67,6 @@ $hds-dropdown-toggle-border-radius: 5px;
   }
 }
 
-.hds-dropdown-toggle-icon__chevron {
-  margin-left: 4px;
-
-  @media (prefers-reduced-motion: no-preference) {
-    transition: transform 0.3s;
-  }
-
-  .hds-dropdown-toggle-icon--is-open & {
-    transform: rotate(-180deg);
-  }
-}
-
 // TOGGLE/BUTTON
 
 .hds-dropdown-toggle-button {
@@ -105,22 +93,14 @@ $hds-dropdown-toggle-border-radius: 5px;
   }
 }
 
-@each $size in $hds-button-sizes {
-  .hds-dropdown-toggle-button--size-#{$size} {
-    min-height: map-get($size-props, $size, "min-height");
-    padding: map-get($size-props, $size, "padding");
+@include hds-button-size-classes("hds-dropdown-toggle-button");
 
-    .hds-dropdown-toggle-button__icon,
-    .hds-dropdown-toggle-button__indicator {
-      width: map-get($size-props, $size, "icon-size");
-      height: map-get($size-props, $size, "icon-size");
-    }
+.hds-dropdown-toggle-button--size-small {
+  padding-right: 0.375rem;
+}
 
-    .hds-dropdown-toggle-button__text {
-      font-size: map-get($size-props, $size, "font-size");
-      line-height: map-get($size-props, $size, "line-height");
-    }
-  }
+.hds-dropdown-toggle-button--size-medium {
+  padding-right: 0.5625rem;
 }
 
 .hds-dropdown-toggle-button--color-primary {
@@ -129,12 +109,6 @@ $hds-dropdown-toggle-border-radius: 5px;
 
 .hds-dropdown-toggle-button--color-secondary {
   @include hds-button-color-secondary();
-}
-
-.hds-dropdown-toggle-button--is-open {
-  .hds-dropdown-toggle-button__indicator {
-    transform: rotate(-180deg);
-  }
 }
 
 .hds-dropdown-toggle-button--width-full {
@@ -151,18 +125,24 @@ $hds-dropdown-toggle-border-radius: 5px;
   margin-right: 0.375rem;
 }
 
-.hds-dropdown-toggle-button__indicator {
-  margin-right: -6px; // we apply a negative margin to counter the padding-right of the button and reduce the visual space between the icon and the right border
+.hds-dropdown-toggle-button__badge,
+.hds-dropdown-toggle-button__count {
+  margin: -3px 0 -3px 6px;
+}
+
+// TOGGLE / CHEVRON
+
+.hds-dropdown-toggle-chevron {
   margin-left: 8px;
 
   @media (prefers-reduced-motion: no-preference) {
     transition: transform 0.3s;
   }
-}
 
-.hds-dropdown-toggle-button__badge,
-.hds-dropdown-toggle-button__count {
-  margin: -3px 0 -3px 6px;
+  .hds-dropdown-toggle-icon--is-open &,
+  .hds-dropdown-toggle-button--is-open & {
+    transform: rotate(-180deg);
+  }
 }
 
 // LIST

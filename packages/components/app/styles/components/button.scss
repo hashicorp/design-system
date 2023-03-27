@@ -76,25 +76,7 @@
 
 
 // SIZE
-// Note: the $size-props matrix is stored in the "../mixins/button"
-
-@each $size in $hds-button-sizes {
-  .hds-button--size-#{$size} {
-    min-height: map-get($size-props, $size, "min-height");
-    padding: map-get($size-props, $size, "padding");
-
-    .hds-button__icon {
-      width: map-get($size-props, $size, "icon-size");
-      height: map-get($size-props, $size, "icon-size");
-    }
-
-    .hds-button__text {
-      font-size: map-get($size-props, $size, "font-size");
-      line-height: map-get($size-props, $size, "line-height");
-    }
-  }
-}
-
+@include hds-button-size-classes("hds-button");
 
 // COLORS & STATES
 // Note: the order of the pseuo-selectors need to stay the way they are; it doesn't match the Figma file but it's the correct order for browsers to render the styles correctly.
