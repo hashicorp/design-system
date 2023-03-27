@@ -94,7 +94,7 @@ Set `hasSubItems` to show or signify that a link has a nested level of navigatio
 
 #### External links
 
-Use isLinkExternal to show that the list item is a hyperlink pointing to a page outside the product or platform.
+Use `isLinkExternal` to show that the list item is a hyperlink pointing to a page outside the product or platform.
 
 ![List item with a external link](/assets/components/side-nav/list-item-with-external-link.png)
 
