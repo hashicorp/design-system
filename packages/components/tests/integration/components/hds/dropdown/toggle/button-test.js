@@ -46,7 +46,7 @@ module(
 
     test('it should render an icon if @icon is defined', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" @icon="hexagon" id="test-toggle-button" />`
+        hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" @icon="hexagon" />`
       );
       assert.dom('.flight-icon.flight-icon-hexagon').exists();
     });
@@ -60,6 +60,9 @@ module(
       assert
         .dom('#test-toggle-button .hds-dropdown-toggle-button__badge')
         .hasText('badge');
+      assert
+        .dom('.hds-dropdown-toggle-button__badge .flight-icon')
+        .doesNotExist();
     });
     test('it should render a badge with icon if @badge and @badgeIcon is defined', async function (assert) {
       await render(
