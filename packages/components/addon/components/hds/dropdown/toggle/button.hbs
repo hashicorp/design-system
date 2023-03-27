@@ -4,8 +4,8 @@
 }}
 <button
   class={{this.classNames}}
-  type="button"
   ...attributes
+  type="button"
   aria-expanded={{if @isOpen "true" "false"}}
   {{on "click" this.onClick}}
 >
