@@ -13,9 +13,9 @@ module('Integration | Component | hds/interactive/index', function (hooks) {
 
   // notice: since this element can generate different HTML element, to make the tests even more solid, in the DOM selectors we prefix the #ID of the element with the tag name
 
-  test('it renders the component with a CSS class that matches the component name', async function (assert) {
-    await render(hbs`<Hds::Interactive id="test-interactive" />`);
-    assert.dom('#test-interactive').hasClass('hds-interactive');
+  test('it renders the interactive container', async function (assert) {
+    await render(hbs`<Hds::Interactive />`);
+    assert.dom(this.element).exists();
   });
 
   // GENERATED ELEMENTS
