@@ -13,7 +13,7 @@
 @use "../mixins/focus-ring" as *;
 
 $hds-dropdown-toggle-base-height: 36px;
-$hds-dropdown-toggle-border-radius: 5px;
+$hds-dropdown-toggle-border-radius: $hds-button-border-radius;
 
 // TOGGLE/ICON
 
