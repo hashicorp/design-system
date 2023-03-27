@@ -88,7 +88,7 @@ The body consists of a group of sections with vertical lists of links to the mos
 
 #### With nested items
 
-Set hasSubItems to show or signify that a link has a nested level of navigation.
+Set `hasSubItems` to show or signify that a link has a nested level of navigation.
 
 ![List item with sub-items](/assets/components/side-nav/list-item-with-nested-items.png)
 
