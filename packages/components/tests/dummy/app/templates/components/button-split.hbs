@@ -1,0 +1,31 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "Button (Split)"}}
+
+<Shw::Text::H1>Split-Button component</Shw::Text::H1>
+
+<section data-test-percy>
+
+  <Shw::Text::H2>Generated element</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    <SF.Item class="shw-component-button-split">
+      <Hds::Button-Split as |B|>
+        <B.Button @text="Lorem ipsum" @color="primary" />
+        <B.Dropdown as |dd|>
+          <dd.ToggleIcon @icon="chevron-down" @text="user menu" @hasChevron={{false}} @color="primary" />
+          <dd.Title @text="Signed In" />
+          <dd.Description @text="email@domain.com" />
+          <dd.Separator />
+          <dd.Interactive @route="components" @text="Settings and Preferences" />
+          <dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
+        </B.Dropdown>
+      </Hds::Button-Split> 
+    </SF.Item>
+    
+  </Shw::Flex>
+
+  </section>

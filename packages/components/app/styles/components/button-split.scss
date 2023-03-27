@@ -1,0 +1,21 @@
+.hds-button-split {
+  display: flex;
+
+  .hds-button,
+  .hds-dropdown-toggle-icon {
+    color: var(--token-color-foreground-high-contrast);
+    background-color: var(--token-color-palette-blue-200);
+    border-color: var(--token-color-palette-blue-300);
+    box-shadow: var(--token-elevation-low-box-shadow);
+  }
+
+  .hds-button {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .hds-dropdown-toggle-icon {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
