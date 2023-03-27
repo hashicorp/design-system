@@ -34,7 +34,7 @@ export default class HdsDropdownToggleButtonComponent extends Component {
    * @param size
    * @type {string}
    * @default medium
-   * @description The size of the button; acceptable values are `small`, `medium`, and `large`
+   * @description The size of the button; acceptable values are `small` and `medium`
    */
   get size() {
     let { size = DEFAULT_SIZE } = this.args;
@@ -69,20 +69,6 @@ export default class HdsDropdownToggleButtonComponent extends Component {
   }
 
   /**
-   * @param iconSize
-   * @type {string}
-   * @default 16
-   * @description ensures that the correct icon size is used. Automatically calculated.
-   */
-  get iconSize() {
-    if (this.args.size === 'large') {
-      return '24';
-    } else {
-      return '16';
-    }
-  }
-
-  /**
    * @param isFullWidth
    * @type {boolean}
    * @default false
@@ -113,7 +99,7 @@ export default class HdsDropdownToggleButtonComponent extends Component {
    * @param badgeType
    * @type {string}
    * @default 'filled'
-   * @description ensures that the correct Badge/badgeCount type is used to meet contrast requirements
+   * @description ensures that the correct Badge/BadgeCount type is used to meet contrast requirements
    */
   get badgeType() {
     return this.color !== 'primary' ? 'inverted' : 'filled';
