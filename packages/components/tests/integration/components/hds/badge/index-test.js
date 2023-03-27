@@ -11,12 +11,9 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | hds/badge/index', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders the default badge with text', async function (assert) {
-    await render(hbs`<Hds::Badge @text="text renders" />`);
-    assert.dom(this.element).hasText('text renders');
-  });
-  test('it should render with a CSS class that matches the component name', async function (assert) {
+  test('it renders the component with a CSS class that matches the component name', async function (assert) {
     await render(hbs`<Hds::Badge @text="text renders" id="test-badge" />`);
+    assert.dom('#test-badge').hasText('text renders');
     assert.dom('#test-badge').hasClass('hds-badge');
   });
 

@@ -14,12 +14,9 @@ module('Integration | Component | hds/tag/index', function (hooks) {
     resetOnerror();
   });
 
-  test('it renders the default tag with text', async function (assert) {
-    await render(hbs`<Hds::Tag @text="My tag" />`);
-    assert.dom(this.element).hasText('My tag');
-  });
-  test('it should render with a CSS class that matches the component name', async function (assert) {
+  test('it renders the component with a CSS class that matches the component name', async function (assert) {
     await render(hbs`<Hds::Tag @text="My tag" id="test-tag" />`);
+    assert.dom('#test-tag').hasText('My tag');
     assert.dom('#test-tag').hasClass('hds-tag');
   });
 
