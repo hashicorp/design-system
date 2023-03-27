@@ -13,7 +13,7 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
 
   test('it renders the component with a CSS class that matches the component name', async function (assert) {
     await render(hbs`<Hds::Breadcrumb::Item id="test-breadcrumb__item" />`);
-    assert.dom('#test-breadcrumb__item').exists();
+    assert.dom('#test-breadcrumb__item').hasClass('hds-breadcrumb__item');
   });
 
   test('it should render the correct style if the @maxWidth prop is declared', async function (assert) {

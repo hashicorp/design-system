@@ -17,7 +17,6 @@ module('Integration | Component | hds/alert/index', function (hooks) {
 
   test('it renders the component with a CSS class that matches the component name', async function (assert) {
     await render(hbs`<Hds::Alert @type="inline" id="test-alert" />`);
-    assert.dom('#test-alert').exists();
     assert.dom('#test-alert').hasClass('hds-alert');
   });
 
