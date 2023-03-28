@@ -105,60 +105,73 @@
 
   <Shw::Text::H4>With count</Shw::Text::H4>
 
-  <Shw::Grid @columns="5" as |SG|>
-    {{#each @model.TOGGLE_BUTTON_COLORS as |color|}}
-      {{#each @model.TOGGLE_STATES as |state|}}
-        <SG.Item @label="{{capitalize color}} / {{capitalize state}}">
-          <Hds::Dropdown::Toggle::Button @count="12" @text="Lipsum" @color={{color}} mock-state-value={{state}} />
-        </SG.Item>
-      {{/each}}
-    {{/each}}
-    {{#each @model.TOGGLE_BUTTON_COLORS as |color|}}
-      {{#each @model.TOGGLE_STATES as |state|}}
-        <SG.Item @label="{{capitalize color}} / {{capitalize state}}">
-          <Hds::Dropdown::Toggle::Button
-            @count="12"
-            @text="Lipsum"
-            @size="small"
-            @color={{color}}
-            mock-state-value={{state}}
-          />
-        </SG.Item>
-      {{/each}}
-    {{/each}}
-  </Shw::Grid>
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Primary small">
+      <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @count="12" @size="small" />
+    </SF.Item>
+    <SF.Item @label="Primary medium">
+      <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @count="12" />
+    </SF.Item>
+    <SF.Item @label="Primary full width">
+      <Shw::Outliner {{style width="300px"}}>
+        <Hds::Dropdown::Toggle::Button @isFullWidth={{true}} @text="Lorem ipsum" @count="12" />
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Secondary small">
+      <Hds::Dropdown::Toggle::Button @color="secondary" @text="Lorem ipsum" @count="12" @size="small" />
+    </SF.Item>
+    <SF.Item @label="Secondary medium">
+      <Hds::Dropdown::Toggle::Button @color="secondary" @text="Lorem ipsum" @count="12" />
+    </SF.Item>
+    <SF.Item @label="Secondary full width">
+      <Shw::Outliner {{style width="300px"}}>
+        <Hds::Dropdown::Toggle::Button @color="secondary" @isFullWidth={{true}} @text="Lorem ipsum" @count="12" />
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
 
   <Shw::Text::H4>With badge</Shw::Text::H4>
 
-  <Shw::Grid @columns="5" as |SG|>
-    {{#each @model.TOGGLE_BUTTON_COLORS as |color|}}
-      {{#each @model.TOGGLE_STATES as |state|}}
-        <SG.Item @label="{{capitalize color}} / {{capitalize state}}">
-          <Hds::Dropdown::Toggle::Button
-            @badge="Badge"
-            @badgeIcon="hexagon"
-            @text="Lipsum"
-            @color={{color}}
-            mock-state-value={{state}}
-          />
-        </SG.Item>
-      {{/each}}
-    {{/each}}
-    {{#each @model.TOGGLE_BUTTON_COLORS as |color|}}
-      {{#each @model.TOGGLE_STATES as |state|}}
-        <SG.Item @label="{{capitalize color}} / {{capitalize state}}">
-          <Hds::Dropdown::Toggle::Button
-            @badge="Badge"
-            @badgeIcon="hexagon"
-            @text="Lipsum"
-            @size="small"
-            @color={{color}}
-            mock-state-value={{state}}
-          />
-        </SG.Item>
-      {{/each}}
-    {{/each}}
-  </Shw::Grid>
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Primary small">
+      <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @badge="Badge" @badgeIcon="hexagon" @size="small" />
+    </SF.Item>
+    <SF.Item @label="Primary medium">
+      <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @badge="Badge" @badgeIcon="hexagon" />
+    </SF.Item>
+    <SF.Item @label="Primary full width">
+      <Shw::Outliner {{style width="300px"}}>
+        <Hds::Dropdown::Toggle::Button @isFullWidth={{true}} @text="Lorem ipsum" @badge="Badge" @badgeIcon="hexagon" />
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Secondary small">
+      <Hds::Dropdown::Toggle::Button
+        @color="secondary"
+        @text="Lorem ipsum"
+        @badge="Badge"
+        @badgeIcon="hexagon"
+        @size="small"
+      />
+    </SF.Item>
+    <SF.Item @label="Secondary medium">
+      <Hds::Dropdown::Toggle::Button @color="secondary" @text="Lorem ipsum" @badge="Badge" @badgeIcon="hexagon" />
+    </SF.Item>
+    <SF.Item @label="Secondary full width">
+      <Shw::Outliner {{style width="300px"}}>
+        <Hds::Dropdown::Toggle::Button
+          @color="secondary"
+          @isFullWidth={{true}}
+          @text="Lorem ipsum"
+          @badge="Badge"
+          @badgeIcon="hexagon"
+        />
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
 
   <Shw::Divider @level={{2}} />
 
@@ -180,20 +193,68 @@
 
   <Shw::Text::H3>States</Shw::Text::H3>
 
-  <Shw::Grid @columns="6" as |SG|>
+  <Shw::Grid @columns="6" class="shw-component-dropdown-states-matrix" as |SG|>
+
+    {{! Notice: we use a non-standard way to showcase the states to reduce the (visual) complexity of this matrix }}
+
+    {{#each @model.TOGGLE_STATES as |state|}}
+      <SG.Item>
+        <span class="shw-label">{{capitalize state}}</span>
+      </SG.Item>
+    {{/each}}
+    <SG.Item>
+      <span class="shw-label">Open</span>
+    </SG.Item>
+
     {{#each @model.TOGGLE_BUTTON_COLORS as |color|}}
       {{#each @model.TOGGLE_STATES as |state|}}
-        <SG.Item @label="{{capitalize color}} / {{capitalize state}}">
+        <SG.Item @label="{{capitalize color}}">
           <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @color={{color}} mock-state-value={{state}} />
         </SG.Item>
       {{/each}}
-      <SG.Item @label="{{color}}/open">
+      <SG.Item @label="{{capitalize color}}">
         <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @isOpen={{true}} @color={{color}} />
+      </SG.Item>
+      {{#each @model.TOGGLE_STATES as |state|}}
+        <SG.Item @label="With icon">
+          <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem" @color={{color}} mock-state-value={{state}} />
+        </SG.Item>
+      {{/each}}
+      <SG.Item @label="With icon">
+        <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem" @isOpen={{true}} @color={{color}} />
+      </SG.Item>
+      {{#each @model.TOGGLE_STATES as |state|}}
+        <SG.Item @label="With count">
+          <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @color={{color}} mock-state-value={{state}} />
+        </SG.Item>
+      {{/each}}
+      <SG.Item @label="With count">
+        <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @isOpen={{true}} @color={{color}} />
+      </SG.Item>
+      {{#each @model.TOGGLE_STATES as |state|}}
+        <SG.Item @label="With badge">
+          <Hds::Dropdown::Toggle::Button
+            @badge="Sit"
+            @badgeIcon="hexagon"
+            @text="Lorem"
+            @color={{color}}
+            mock-state-value={{state}}
+          />
+        </SG.Item>
+      {{/each}}
+      <SG.Item @label="With badge">
+        <Hds::Dropdown::Toggle::Button
+          @badge="Sit"
+          @badgeIcon="hexagon"
+          @text="Lorem"
+          @isOpen={{true}}
+          @color={{color}}
+        />
       </SG.Item>
     {{/each}}
 
     {{#each @model.TOGGLE_STATES as |state|}}
-      <SG.Item @label="Icon / {{capitalize state}}">
+      <SG.Item @label="Icon">
         <Hds::Dropdown::Toggle::Icon
           @icon="more-horizontal"
           @text="overflow menu"
@@ -202,7 +263,7 @@
         />
       </SG.Item>
     {{/each}}
-    <SG.Item @label="Icon/open">
+    <SG.Item @label="Icon">
       <Hds::Dropdown::Toggle::Icon
         @icon="more-horizontal"
         @text="overflow menu"
@@ -212,20 +273,20 @@
     </SG.Item>
 
     {{#each @model.TOGGLE_STATES as |state|}}
-      <SG.Item @label="Icon+chevron / {{capitalize state}}">
+      <SG.Item @label="Icon+chevron">
         <Hds::Dropdown::Toggle::Icon @icon="user" @text={{state}} mock-state-value={{state}} />
       </SG.Item>
     {{/each}}
-    <SG.Item @label="Icon+chevron/open">
+    <SG.Item @label="Icon+chevron">
       <Hds::Dropdown::Toggle::Icon @icon="user" @text="open" @isOpen={{true}} />
     </SG.Item>
 
     {{#each @model.TOGGLE_STATES as |state|}}
-      <SG.Item @label="Avatar+chevron / {{capitalize state}}">
+      <SG.Item @label="Avatar+chevron">
         <Hds::Dropdown::Toggle::Icon @text={{state}} @imageSrc="/assets/images/avatar.png" mock-state-value={{state}} />
       </SG.Item>
     {{/each}}
-    <SG.Item @label="Avatar+chevron/open">
+    <SG.Item @label="Avatar+chevron">
       <Hds::Dropdown::Toggle::Icon @text="open" @isOpen={{true}} @imageSrc="/assets/images/avatar.png" />
     </SG.Item>
   </Shw::Grid>
