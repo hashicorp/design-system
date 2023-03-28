@@ -1,1 +1,1 @@
-A dropdown displays a list of links or actions for the user to choose from. It should not to be confused with [Select](/components/form/select), which is used in forms as a way for the user to select an option from a list.
+A dropdown is a flexible component that displays a list of actions or options to the user. It should not to be confused with [Select](/components/form/select), which is used in forms as a way for the user to make a selection from a list.

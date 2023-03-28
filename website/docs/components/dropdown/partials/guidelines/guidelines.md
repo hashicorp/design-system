@@ -3,6 +3,8 @@
 ### When to use
 
 - To display a list of actions or links under a single button toggle.
+- To allow singular or multiple selection outside of a form, such as within filtering.
+- To provide the user with a way to easily switch context within the application. 
 
 ### When not to use
 
@@ -33,8 +35,22 @@ Toggles come in two variant types: **button** and **icon**.
 
 ### Size
 
-ToggleIcons come in one size: **medium**.
+ToggleIcons come in two sizes: **small** and **medium**. 
 
+!!! Info
+
+While we provide a small size variant, we recommend only using this for the Overflow menu within [Tables](/components/table) because the icons and images start to become unrecognizable in smaller sizes.
+!!!
+
+<!-- TODO: Update small example -->
+<Doc::Layout @spacing="48px">
+<Hds::Dropdown as |dd|>
+  <dd.ToggleIcon @icon="user" @size="small" @text="user menu" />
+  <dd.Interactive @text="Item One" />
+  <dd.Interactive @text="Item Two" />
+  <dd.Interactive @text="Item Three" />
+  <dd.Interactive @text="Item Four" />
+</Hds::Dropdown>
 <Hds::Dropdown as |dd|>
   <dd.ToggleIcon @icon="user" @text="user menu" />
   <dd.Interactive @text="Item One" />
@@ -42,6 +58,9 @@ ToggleIcons come in one size: **medium**.
   <dd.Interactive @text="Item Three" />
   <dd.Interactive @text="Item Four" />
 </Hds::Dropdown>
+</Doc::Layout>
+
+<!-- TODO: Add do/dont examples -->
 
 ToggleButtons come in two sizes: **small** and **medium**. This allows for placement in ButtonSets with buttons of the same size.
 
@@ -137,7 +156,7 @@ If you do not want the width of the List to expand automatically to accommodate 
 
 #### Height
 
-The height of the ListContainer is automatically determined based on the contents.
+The height of the ListContainer is automatically determined based on the contents, but the height can also be set manually. We recommend setting the height manually if you know the list will grow rather lengthy. 
 
 <Doc::ListContainer class="hds-dropdown-list">
   <Hds::Dropdown::ListItem::Title @text="Integrate with Terraform Cloud" />
