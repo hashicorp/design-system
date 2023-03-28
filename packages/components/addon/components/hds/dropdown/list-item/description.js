@@ -31,7 +31,7 @@ export default class HdsDropdownListItemDescriptionComponent extends Component {
   get classNames() {
     let classes = [
       'hds-dropdown-list-item',
-      'hds-dropdown-list-item--description',
+      'hds-dropdown-list-item--variant-description',
     ];
 
     // add classes for the typographic style

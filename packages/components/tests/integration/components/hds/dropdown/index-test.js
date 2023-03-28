@@ -53,6 +53,35 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     assert.dom('#test-dropdown #test-list-item-separator').exists();
     assert.dom('#test-dropdown #test-list-item-title').exists();
   });
+  test('it renders the "header"/"footer" sub-components', async function (assert) {
+    await render(hbs`
+      <Hds::Dropdown id="test-dropdown" as |dd|>
+        <dd.ToggleButton @text="toggle button" id="test-toggle-button" />
+        <dd.Header id="test-header">Header</dd.Header>
+        <dd.Footer id="test-footer">Footer</dd.Footer>
+      </Hds::Dropdown>
+    `);
+    await click('button#test-toggle-button');
+    assert.dom('#test-dropdown #test-header').hasText('Header');
+    assert.dom('#test-dropdown #test-footer').hasText('Footer');
+  });
+
+  test('it renders the "header"/"footer" sub-components with separators', async function (assert) {
+    await render(hbs`
+      <Hds::Dropdown id="test-dropdown" as |dd|>
+        <dd.ToggleButton @text="toggle button" id="test-toggle-button" />
+        <dd.Header @hasDivider={{true}} id="test-header">Header</dd.Header>
+        <dd.Footer @hasDivider={{true}} id="test-footer">Footer</dd.Footer>
+      </Hds::Dropdown>
+    `);
+    await click('button#test-toggle-button');
+    assert
+      .dom('#test-dropdown #test-header')
+      .hasClass('hds-dropdown__header--with-divider');
+    assert
+      .dom('#test-dropdown #test-footer')
+      .hasClass('hds-dropdown__footer--with-divider');
+  });
 
   // POSITION
 
@@ -65,8 +94,8 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     `);
     await click('button#test-toggle-button');
     assert
-      .dom('#test-dropdown ul')
-      .hasClass('hds-dropdown-list--position-right');
+      .dom('#test-dropdown .hds-dropdown__content')
+      .hasClass('hds-dropdown__content--position-bottom-right');
   });
   test('it should render the content aligned on the left if the value of @listPosition is "left"', async function (assert) {
     await render(hbs`
@@ -77,8 +106,8 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     `);
     await click('button#test-toggle-button');
     assert
-      .dom('#test-dropdown ul')
-      .hasClass('hds-dropdown-list--position-left');
+      .dom('#test-dropdown .hds-dropdown__content')
+      .hasClass('hds-dropdown__content--position-left');
   });
 
   // WIDTH
@@ -118,5 +147,28 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     assert.dom('#test-dropdown').hasClass('my-class');
     assert.dom('#test-dropdown').hasAttribute('data-test1');
     assert.dom('#test-dropdown').hasAttribute('data-test2', 'test');
+  });
+
+  // ACCESSIBILITY
+
+  test('it should render a list of items without a role if no selectable items are passed in', async function (assert) {
+    await render(hbs`
+      <Hds::Dropdown id="test-dropdown" as |dd|>
+        <dd.ToggleButton @text="toggle button" id="test-toggle-button" />
+        <dd.Interactive @text="interactive" id="test-list-item-interactive" {{on "click" dd.close}} />
+      </Hds::Dropdown>
+    `);
+    await click('button#test-toggle-button');
+    assert.dom('#test-dropdown ul').doesNotHaveAttribute('role');
+  });
+  test('it should render a list of items with a `listbox` role if selectable items are passed in', async function (assert) {
+    await render(hbs`
+      <Hds::Dropdown id="test-dropdown" as |dd|>
+        <dd.ToggleButton @text="toggle button" id="test-toggle-button" />
+        <dd.Checkmark>Checkmark</dd.Checkmark>
+      </Hds::Dropdown>
+    `);
+    await click('button#test-toggle-button');
+    assert.dom('#test-dropdown ul').hasAttribute('role', 'listbox');
   });
 });
