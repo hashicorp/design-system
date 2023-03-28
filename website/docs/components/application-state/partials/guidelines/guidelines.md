@@ -8,12 +8,10 @@
 - When the absence of content is expected and does not require an explanation to the user. 
 - When there is a clear and intuitive way to add or populate content. 
 
-<br/>
-<br/>
-
 ### Header 
 - The icon should be relevant and communicate the same purpose as the errorCode.
 - The title should be short to provide a clear and concise message.
+
 
 ### Body 
 - Focus on relevant information and avoid unnecessary details.
