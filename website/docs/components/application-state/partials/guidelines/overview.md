@@ -1,1 +1,1 @@
-Use footer actions to redirect or provide steps to solve errors/access, and include actionable steps for user guidance.
+Use footer actions to redirect or guide users in solving errors/access issues with actionable steps.

@@ -1,7 +1,7 @@
 ---
 title: Application State
-description: A step to help the user move forward.
-caption: A step to help the user move forward.
+description: Use the ApplicationState to provide information about the current state of the application.
+caption: Use the ApplicationState to provide information about the current state of the application.
 status: released
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/branch/2lNa9Qe4UuF4yN8gcR7Fkp/HDS-Product---Components?node-id=31113%3A50004&t=AgcOxZqO6FWFkdcD-1
