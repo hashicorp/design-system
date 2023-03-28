@@ -11,7 +11,7 @@ Elements and content within a form are variable but can be broken down into sect
 | Text | Titles, headlines, descriptions, and supporting content that further describe the content of the form or specific sections within a form. Typically text elements are wrapped in a `<legend>`. |
 | Fields | An array of one or more fields which can be any input type; text input, toggle, radio, textarea, or any other Helios Form component. |
 | Group | Layout mechanism to group like elements together |
-| Actions | Responsible for submitting the form or giving the user a method to cancel, clear the form, or "go back." |
+| Actions | Responsible for submitting the form or giving the user a method to cancel, clear the form, or "go back." Refer to the [button organization](patterns/button-organization) for more details. |
 
 !!! Info
 

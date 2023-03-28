@@ -75,6 +75,12 @@ Fields organized in a horizontal set should be aligned to the baseline of each e
 
 ![Baseline alignment within a set](/assets/patterns/form-patterns/baseline-alignment.png =500x*)
 
+### Button sets
+
+Organize buttons based on the [Button Set](/components/button-set) guidelines, e.g., using a 16px horizontal gap between buttons. More specifications and examples can be found in the documentation for [button organization](/patterns/button-organization).
+
+![Button set](/assets/patterns/form-patterns/button-set.png =500x*)
+
 ## Layout
 
 ### Single-column
@@ -123,6 +129,8 @@ Stack fields vertically when the width of the viewport and form container shrink
 
 The width of the overall form can impact multi-column layouts. Use set organization logically based on the layout, width of the page, and overall UX strategy in the application.
 
+Refer to the [button organization stacking guidelines](patterns/button-organization#stacking-order) when determining how buttons should stack as the viewport condenses.
+
 ## Text
 
 In sections consisting of multiple blocks of text, use an 8px vertical gap between elements.
@@ -130,12 +138,6 @@ In sections consisting of multiple blocks of text, use an 8px vertical gap betwe
 ![Example of a text section](/assets/patterns/form-patterns/text-section.png =600x*)
 
 Text elements within a form should use logical, step-based sizing to reinforce hierarchy within sections and the form itself. While specifics around type hierarchy should be determined at the application level, adhering to these guidelines will help establish consistency at the page level and when constrained within another element or component.
-
-## Button sets
-
-Organize buttons based on the [Button Set](/components/button-set) guidelines, e.g., using a 16px horizontal gap between buttons.
-
-![Button set](/assets/patterns/form-patterns/button-set.png =500x*)
 
 ## Order and organization
 
