@@ -137,13 +137,17 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   margin-left: auto;
   padding-left: 8px;
 
-  @media (prefers-reduced-motion: no-preference) {
-    transition: transform 0.3s;
+  .flight-icon-chevron-down {
+    @media (prefers-reduced-motion: no-preference) {
+      transition: transform 0.3s;
+    }
   }
 
   .hds-dropdown-toggle-icon--is-open &,
   .hds-dropdown-toggle-button--is-open & {
-    transform: rotate(-180deg);
+    .flight-icon-chevron-down {
+      transform: rotate(-180deg);
+    }
   }
 }
 
