@@ -42,19 +42,70 @@ module(
       assert.dom('.flight-icon.flight-icon-chevron-down').exists();
     });
 
+    // ICON
+
+    test('it should render an icon if @icon is defined', async function (assert) {
+      await render(
+        hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" @icon="hexagon" />`
+      );
+      assert.dom('.flight-icon.flight-icon-hexagon').exists();
+    });
+
+    // BADGE
+
+    test('it should render a badge if @badge is defined', async function (assert) {
+      await render(
+        hbs`<Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @badge="badge" id="test-toggle-button" />`
+      );
+      assert
+        .dom('#test-toggle-button .hds-dropdown-toggle-button__badge')
+        .hasText('badge');
+      assert
+        .dom('.hds-dropdown-toggle-button__badge .flight-icon')
+        .doesNotExist();
+    });
+    test('it should render a badge with icon if @badge and @badgeIcon is defined', async function (assert) {
+      await render(
+        hbs`<Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @badge="badge" @badgeIcon="hexagon" id="test-toggle-button" />`
+      );
+      assert
+        .dom('#test-toggle-button .hds-dropdown-toggle-button__badge')
+        .hasText('badge');
+      assert
+        .dom(
+          '.hds-dropdown-toggle-button__badge .flight-icon.flight-icon-hexagon'
+        )
+        .exists();
+    });
+
+    // COUNT
+
+    test('it should render a badge count if @count is defined', async function (assert) {
+      await render(
+        hbs`<Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @count="3" id="test-toggle-button" />`
+      );
+      assert
+        .dom('#test-toggle-button .hds-dropdown-toggle-button__count')
+        .hasText('3');
+    });
+
     // COLOR
 
     test('it should render the primary color as the default if no color is declared', async function (assert) {
       await render(
         hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" id="test-toggle-button" />`
       );
-      assert.dom('#test-toggle-button').hasClass('hds-button--color-primary');
+      assert
+        .dom('#test-toggle-button')
+        .hasClass('hds-dropdown-toggle-button--color-primary');
     });
     test('it should render the correct CSS color class if the @color prop is declared', async function (assert) {
       await render(
         hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" @color="secondary" id="test-toggle-button" />`
       );
-      assert.dom('#test-toggle-button').hasClass('hds-button--color-secondary');
+      assert
+        .dom('#test-toggle-button')
+        .hasClass('hds-dropdown-toggle-button--color-secondary');
     });
 
     // SIZE
@@ -63,13 +114,17 @@ module(
       await render(
         hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" id="test-toggle-button" />`
       );
-      assert.dom('#test-toggle-button').hasClass('hds-button--size-medium');
+      assert
+        .dom('#test-toggle-button')
+        .hasClass('hds-dropdown-toggle-button--size-medium');
     });
     test('it should render the correct CSS size class if the @size prop is declared', async function (assert) {
       await render(
         hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" @size="small" id="test-toggle-button" />`
       );
-      assert.dom('#test-toggle-button').hasClass('hds-button--size-small');
+      assert
+        .dom('#test-toggle-button')
+        .hasClass('hds-dropdown-toggle-button--size-small');
     });
 
     // A11Y
