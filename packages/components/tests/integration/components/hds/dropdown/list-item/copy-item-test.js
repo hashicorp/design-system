@@ -34,7 +34,7 @@ module(
         .hasClass('hds-dropdown-list-item');
       assert
         .dom('#test-list-item-copy-item')
-        .hasClass('hds-dropdown-list-item--copy-item');
+        .hasClass('hds-dropdown-list-item--variant-copy-item');
     });
 
     // ASSERTIONS

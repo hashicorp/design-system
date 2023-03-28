@@ -35,7 +35,7 @@ module(
       assert.dom('.hds-dropdown-list-item').hasTagName('li');
       assert
         .dom('.hds-dropdown-list-item')
-        .hasClass('hds-dropdown-list-item--interactive');
+        .hasClass('hds-dropdown-list-item--variant-interactive');
     });
 
     // ELEMENTS

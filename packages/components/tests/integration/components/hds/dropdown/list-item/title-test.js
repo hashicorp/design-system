@@ -30,7 +30,7 @@ module(
       assert.dom('#test-list-item-title').hasClass('hds-dropdown-list-item');
       assert
         .dom('#test-list-item-title')
-        .hasClass('hds-dropdown-list-item--title');
+        .hasClass('hds-dropdown-list-item--variant-title');
     });
 
     // ASSERTIONS

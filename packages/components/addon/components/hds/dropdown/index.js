@@ -4,6 +4,7 @@
  */
 
 import Component from '@glimmer/component';
+import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 
 export const DEFAULT_POSITION = 'right';
@@ -46,5 +47,13 @@ export default class HdsDropdownIndexComponent extends Component {
     }
 
     return classes.join(' ');
+  }
+
+  @action
+  didInsertList(element) {
+    let checkmarkItems = element.querySelectorAll(`[role="option"]`);
+    if (checkmarkItems.length) {
+      element.setAttribute('role', 'listbox');
+    }
   }
 }

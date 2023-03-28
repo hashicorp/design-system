@@ -150,12 +150,13 @@ $hds-dropdown-toggle-border-radius: 5px;
 // LIST > LIST-ITEM
 // HDS::DROPDOWN::LIST-ITEM
 
+// HDS::DROPDOWN::LIST-ITEM::COPY-ITEM
 .hds-dropdown-list-item__copy-item-title {
   padding: 2px 0 4px;
   color: var(--token-color-foreground-faint);
 }
 
-.hds-dropdown-list-item--copy-item {
+.hds-dropdown-list-item--variant-copy-item {
   width: 100%;
   padding: 10px 16px 12px;
 
@@ -213,18 +214,23 @@ $hds-dropdown-toggle-border-radius: 5px;
   color: var(--token-color-foreground-action);
 }
 
-.hds-dropdown-list-item--description {
+// HDS::DROPDOWN::LIST-ITEM::DESCRIPTION
+
+.hds-dropdown-list-item--variant-description {
   padding: 2px 16px 4px;
   color: var(--token-color-foreground-faint);
 }
 
-.hds-dropdown-list-item--generic {
+// HDS::DROPDOWN::LIST-ITEM::GENERIC
+
+.hds-dropdown-list-item--variant-generic {
   padding-right: 16px;
   padding-left: 16px;
 }
 
-
-.hds-dropdown-list-item--interactive {
+// HDS::DROPDOWN::LIST-ITEM::INTERACTIVE & HDS::DROPDOWN::LIST-ITEM::CHECKMARK
+.hds-dropdown-list-item--variant-interactive,
+.hds-dropdown-list-item--variant-checkmark {
   position: relative;
   min-height: 36px;
   isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
@@ -243,7 +249,7 @@ $hds-dropdown-toggle-border-radius: 5px;
   a,
   button {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     padding: 7px 9px 7px 15px; // notice: we're subtracting 1px because of the transparent border
     text-decoration: none;
     border: 1px solid transparent; // because a border for the button is needed for a11y, we apply it to both the button and the link so they have the same height
@@ -294,7 +300,6 @@ $hds-dropdown-toggle-border-radius: 5px;
 
       &::after {
         left: 4px;
-        background-color: var(--current-background-color);
         box-shadow: var(--current-focus-ring-box-shadow);
       }
     }
@@ -311,7 +316,6 @@ $hds-dropdown-toggle-border-radius: 5px;
 
       &::after {
         left: 4px;
-        background-color: var(--current-background-color);
         box-shadow: var(--current-focus-ring-box-shadow);
       }
     }
@@ -334,19 +338,17 @@ $hds-dropdown-toggle-border-radius: 5px;
       &::before {
         background-color: currentColor;
       }
-
-      &::after {
-        background-color: var(--current-background-color);
-      }
     }
   }
 }
 
 .hds-dropdown-list-item__interactive-icon {
+  margin-top: 2px;
   margin-right: 8px;
 }
 
 .hds-dropdown-list-item__interactive-text {
+  flex: 1;
   text-align: left; // the button element was centering text
 }
 
@@ -361,7 +363,6 @@ $hds-dropdown-toggle-border-radius: 5px;
     --current-color-active: var(--token-color-foreground-action-active);
 
     &::after {
-      --current-background-color: var(--token-color-surface-action);
       --current-focus-ring-box-shadow: var(--token-focus-ring-action-box-shadow);
     }
   }
@@ -398,7 +399,9 @@ $hds-dropdown-toggle-border-radius: 5px;
   }
 }
 
-.hds-dropdown-list-item--separator {
+// HDS::DROPDOWN::LIST-ITEM::SEPARATOR
+
+.hds-dropdown-list-item--variant-separator {
   position: relative;
   width: 100%;
   height: 4px;
@@ -413,8 +416,84 @@ $hds-dropdown-toggle-border-radius: 5px;
   }
 }
 
-.hds-dropdown-list-item--title {
+// HDS::DROPDOWN::LIST-ITEM::TITLE
+
+.hds-dropdown-list-item--variant-title {
   padding: 10px 16px 4px;
   color: var(--token-color-foreground-strong);
 }
 
+// HDS::DROPDOWN::LIST-ITEM::CHECKMARK
+
+.hds-dropdown-list-item--variant-checkmark-selected {
+  .hds-dropdown-list-item__interactive {
+    color: var(--token-color-foreground-action);
+  }
+}
+
+.hds-dropdown-list-item__checkmark {
+  display: flex;
+  width: 16px;
+  height: 20px; // replicating the resulted height of the list item
+  margin-left: 8px;
+}
+
+.hds-dropdown-list-item__checkmark-icon {
+  align-self: center;
+}
+
+.hds-dropdown-list-item__interactive[disabled],
+.hds-dropdown-list-item__interactive[disabled]:hover {
+  color: var(--token-color-foreground-disabled);
+  cursor: not-allowed;
+}
+
+
+// HDS::DROPDOWN::LIST-ITEM::CHECKBOX & HDS::DROPDOWN::LIST-ITEM::RADIO
+
+.hds-dropdown-list-item--variant-checkbox,
+.hds-dropdown-list-item--variant-radio {
+  display: flex;
+  align-items: self-start;
+  padding: 8px 16px;
+
+  .hds-dropdown-list-item__control {
+    flex-shrink: 0;
+    margin-top: 2px;
+    margin-right: 8px;
+
+    &[disabled] ~ .hds-dropdown-list-item__label,
+    &[disabled] ~ .hds-dropdown-list-item__icon,
+    &[disabled] ~ .hds-dropdown-list-item__count {
+      color: var(--token-color-foreground-disabled);
+    }
+  }
+
+  .hds-dropdown-list-item__label {
+    flex-grow: 1;
+    color: var(--token-color-foreground-primary);
+  }
+
+  .hds-dropdown-list-item__icon {
+    margin-top: 2px;
+    margin-right: 4px;
+    color: var(--token-color-foreground-primary);
+  }
+}
+
+// COUNT
+.hds-dropdown-list-item__count {
+  margin-left: 8px;
+  color: var(--token-color-foreground-faint);
+  line-height: 20px; // replicating the resulted height of the list item
+}
+
+// BADGE INSIDE CHECKMARK, CHECKBOX OR RADIO
+.hds-dropdown-list-item--variant-checkmark,
+.hds-dropdown-list-item--variant-checkbox,
+.hds-dropdown-list-item--variant-radio {
+  // align any `Hds::Badge` within a selectable list item to match baseline
+  .hds-badge {
+    vertical-align: bottom;
+  }
+}

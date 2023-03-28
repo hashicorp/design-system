@@ -12,14 +12,17 @@
     }}
   </:toggle>
   <:content as |c|>
-    <ul class={{this.listClassNames}} {{style width=@width}}>
+    <ul class={{this.listClassNames}} {{style width=@width}} {{did-insert this.didInsertList}}>
       {{yield
         (hash
           close=c.close
+          Checkbox=(component "hds/dropdown/list-item/checkbox")
+          Checkmark=(component "hds/dropdown/list-item/checkmark")
           CopyItem=(component "hds/dropdown/list-item/copy-item")
           Description=(component "hds/dropdown/list-item/description")
           Generic=(component "hds/dropdown/list-item/generic")
           Interactive=(component "hds/dropdown/list-item/interactive")
+          Radio=(component "hds/dropdown/list-item/radio")
           Separator=(component "hds/dropdown/list-item/separator")
           Title=(component "hds/dropdown/list-item/title")
         )
