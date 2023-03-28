@@ -131,19 +131,36 @@ $hds-dropdown-toggle-border-radius: 5px;
   max-width: initial;
 }
 
+.hds-dropdown__content--position-bottom-right,
 .hds-dropdown__content--position-right {
   position: absolute;
   top: calc(100% + 4px);
   right: 0;
-  z-index: 2; // https://github.com/hashicorp/design-system/issues/114
+  z-index: 2;
 }
 
+.hds-dropdown__content--position-bottom-left,
 .hds-dropdown__content--position-left {
   position: absolute;
   top: calc(100% + 4px);
   left: 0;
-  z-index: 2; // https://github.com/hashicorp/design-system/issues/114
+  z-index: 2;
 }
+
+.hds-dropdown__content--position-top-right {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 4px);
+  z-index: 2;
+}
+
+.hds-dropdown__content--position-top-left {
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 0;
+  z-index: 2;
+}
+
 
 .hds-dropdown__list {
   flex: 1 1 auto;

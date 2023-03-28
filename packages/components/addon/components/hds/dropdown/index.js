@@ -7,14 +7,22 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 
-export const DEFAULT_POSITION = 'right';
-export const POSITIONS = ['right', 'left'];
+export const DEFAULT_POSITION = 'bottom-right';
+// TODO: retire 'right' and 'left' in favor of `bottom-right` and `bottom-left` https://github.com/hashicorp/design-system/pull/1262
+export const POSITIONS = [
+  'right',
+  'left',
+  'bottom-left',
+  'bottom-right',
+  'top-left',
+  'top-right',
+];
 
 export default class HdsDropdownIndexComponent extends Component {
   /**
    * @param listPosition
    * @type {string}
-   * @default primary
+   * @default bottom-right
    * @description Determines the position of the "list"
    */
   get listPosition() {
