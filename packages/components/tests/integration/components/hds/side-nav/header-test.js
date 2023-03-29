@@ -13,7 +13,7 @@ module('Integration | Component | hds/side-nav/header', function (hooks) {
 
   // Basic
 
-  test('it renders the component with a CSS class that matches the component name', async function (assert) {
+  test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(hbs`<Hds::SideNav::Header id="test-side-nav-header"/>`);
     assert.dom('#test-side-nav-header').hasClass('hds-side-nav-header');
   });

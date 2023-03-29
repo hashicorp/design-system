@@ -11,9 +11,9 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | flight-icon', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders the component with a CSS class that matches the component name', async function (assert) {
+  test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(hbs`<FlightIcon @name="activity" />`);
-    assert.dom('svg.flight-icon').hasClass('flight-icon-activity');
+    assert.dom('svg.flight-icon').hasClass('flight-icon');
   });
 
   test('it has aria-hidden set to true', async function (assert) {

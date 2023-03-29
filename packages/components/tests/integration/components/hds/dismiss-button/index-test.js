@@ -11,7 +11,7 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | hds/dismiss-button/index', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders the component with a CSS class that matches the component name', async function (assert) {
+  test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(hbs`<Hds::DismissButton id="test-dismiss-button" />`);
     assert.dom('#test-dismiss-button').hasClass('hds-dismiss-button');
   });

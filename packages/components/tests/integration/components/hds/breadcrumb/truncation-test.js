@@ -11,12 +11,12 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | hds/breadcrumb/truncation', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders the breadcrumb truncation', async function (assert) {
+  test('it renders the breadcrumb truncation with an appropriate CSS class', async function (assert) {
     await render(
-      hbs`<Hds::Breadcrumb::Truncation id="test-breadcrumb__truncation" />`
+      hbs`<Hds::Breadcrumb::Truncation id="test-breadcrumb-truncation" />`
     );
     assert
-      .dom('#test-breadcrumb__truncation')
+      .dom('#test-breadcrumb-truncation')
       .hasClass('hds-breadcrumb__item--is-truncation');
   });
 

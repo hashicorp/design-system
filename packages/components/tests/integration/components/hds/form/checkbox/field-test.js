@@ -15,7 +15,7 @@ module('Integration | Component | hds/form/checkbox/field', function (hooks) {
     resetOnerror();
   });
 
-  test('it renders the component with a CSS class that matches the component name', async function (assert) {
+  test('it should render the component with the appropriate CSS class', async function (assert) {
     await render(hbs`<Hds::Form::Checkbox::Field />`);
     assert.dom('input').hasClass('hds-form-field__control');
   });

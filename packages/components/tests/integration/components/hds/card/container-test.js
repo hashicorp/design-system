@@ -15,7 +15,7 @@ module('Integration | Component | hds/card/container', function (hooks) {
     resetOnerror();
   });
 
-  test('it renders the component with a CSS class that matches the component name', async function (assert) {
+  test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(hbs`<Hds::Card::Container id="test-card-container" />`);
     assert.dom('#test-card-container').hasClass('hds-card__container');
   });

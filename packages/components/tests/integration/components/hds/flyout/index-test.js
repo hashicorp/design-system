@@ -21,7 +21,7 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
     resetOnerror();
   });
 
-  test('it renders the component with a CSS class that matches the component name', async function (assert) {
+  test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
       hbs`<Hds::Flyout id="test-flyout" as |F|><F.Header>Title</F.Header></Hds::Flyout>`
     );

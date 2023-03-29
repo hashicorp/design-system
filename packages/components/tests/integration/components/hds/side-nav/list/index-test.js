@@ -13,10 +13,10 @@ module('Integration | Component | hds/side-nav/list/index', function (hooks) {
 
   // Basic
 
-  test('it renders the component with a CSS class that matches the component name', async function (assert) {
-    await render(hbs`<Hds::SideNav::List id="test-side-nav__list-wrapper" />`);
+  test('it should render the component with a CSS class that matches the component name', async function (assert) {
+    await render(hbs`<Hds::SideNav::List id="test-side-nav-list-wrapper" />`);
     assert
-      .dom('#test-side-nav__list-wrapper')
+      .dom('#test-side-nav-list-wrapper')
       .hasClass('hds-side-nav__list-wrapper');
   });
 

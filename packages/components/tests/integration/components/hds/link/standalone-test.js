@@ -14,7 +14,7 @@ module('Integration | Component | hds/link/standalone', function (hooks) {
     resetOnerror();
   });
 
-  test('it renders the component with a CSS class that matches the component name', async function (assert) {
+  test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
       hbs`<Hds::Link::Standalone @text="watch video" @href="/" @icon="film" id="test-link" />`
     );

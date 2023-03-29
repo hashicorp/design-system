@@ -15,7 +15,7 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
     resetOnerror();
   });
 
-  test('it renders the component with a specific CSS class', async function (assert) {
+  test('it should render the component with a specific CSS class', async function (assert) {
     await render(hbs`<Hds::Form::TextInput::Field />`);
     assert.dom('input').hasClass('hds-form-field__control');
   });
