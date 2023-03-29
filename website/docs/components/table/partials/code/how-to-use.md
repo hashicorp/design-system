@@ -2,7 +2,7 @@
 
 ### Table with no model defined
 
-If you want to use the component but have no model defined (e.g., there are only a few pieces of data but it’s still tabular data), you can manually add each row, or use an `each` to loop over a data record (maybe defined in the route) to render the rows.
+If you want to use the component but have no model defined (e.g., there are only a few pieces of data but it’s still tabular data), you can manually add each row, or use an `each` to loop over the data (e.g., an array of objects defined in the route) to render the rows.
 
 #### Manual row implementation
 
@@ -36,17 +36,17 @@ If you want to use the component but have no model defined (e.g., there are only
 <Hds::Table @caption="Influential Folk Musicians">
   <:head as |H|>
     <H.Tr>
-      <H.Th>Artist</H.Th>
-      <H.Th>Album</H.Th>
-      <H.Th>Release Year</H.Th>
+      <H.Th>Product</H.Th>
+      <H.Th>Brand Color</H.Th>
+      <H.Th>Uses Helios</H.Th>
     </H.Tr>
   </:head>
   <:body as |B|>
     {{#each this.myDataItems as |item|}}
       <B.Tr>
-        <B.Td>{{item.artist}}</B.Td>
-        <B.Td>{{item.album}}</B.Td>
-        <B.Td>{{item.year}}</B.Td>
+        <B.Td>{{item.product}}</B.Td>
+        <B.Td>{{item.brandColor}}</B.Td>
+        <B.Td>{{item.usesHelios}}</B.Td>
       </B.Tr>
     {{/each}}
   </:body>

@@ -122,19 +122,19 @@ export default class Index extends Component {
   get myDataItems() {
     let myDataItems = [
       {
-        artist: 'Nick Drake',
-        album: 'Pink Moon',
-        year: '1972',
+        product: 'Terraform',
+        brandColor: 'purple',
+        usesHelios: true,
       },
       {
-        artist: 'Nick Drake',
-        album: 'Pink Moon',
-        year: '1972',
+        product: 'Nomad',
+        brandColor: 'green',
+        usesHelios: true,
       },
       {
-        artist: 'Nick Drake',
-        album: 'Pink Moon',
-        year: '1972',
+        product: 'Vault',
+        brandColor: 'yellow',
+        usesHelios: true,
       },
     ];
     return myDataItems;
