@@ -1,0 +1,17 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// COMPONENTS > DROPDOWN
+
+#show-content-components-dropdown {
+  .hds-dropdown__list {
+    margin: 0;
+    padding: 4px 0;
+  }
+
+  .hds-dropdown-list-item {
+    margin: 0;
+  }
+}

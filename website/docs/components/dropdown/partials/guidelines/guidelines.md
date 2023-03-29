@@ -76,14 +76,22 @@ ToggleIcons come in two sizes: **small** and **medium**.
 
 While we provide a small size variant, we recommend only using this for the Overflow menu within [Tables](/components/table) because the icons and images start to become unrecognizable in smaller sizes.
 
-<!-- TODO: Add small example -->
-<Hds::Dropdown as |dd|>
-  <dd.ToggleIcon @icon="user" @text="user menu" />
-  <dd.Interactive @text="Item One" />
-  <dd.Interactive @text="Item Two" />
-  <dd.Interactive @text="Item Three" />
-  <dd.Interactive @text="Item Four" />
-</Hds::Dropdown>
+  <Hds::ButtonSet>
+    <Hds::Dropdown as |dd|>
+      <dd.ToggleIcon @icon="user" @size="small" @text="user menu" />
+      <dd.Interactive @text="Item One" />
+      <dd.Interactive @text="Item Two" />
+      <dd.Interactive @text="Item Three" />
+      <dd.Interactive @text="Item Four" />
+    </Hds::Dropdown>
+    <Hds::Dropdown as |dd|>
+      <dd.ToggleIcon @icon="user" @text="user menu" />
+      <dd.Interactive @text="Item One" />
+      <dd.Interactive @text="Item Two" />
+      <dd.Interactive @text="Item Three" />
+      <dd.Interactive @text="Item Four" />
+    </Hds::Dropdown>
+  </Hds::ButtonSet>
 
 ### Chevron usage
 
@@ -111,16 +119,15 @@ Lists can be positioned to the left or right of the Toggle, and above or below t
 
 Lists have a minimum width of 200px and a maximum width of 400px. This means if there’s a long string in a ListItem the List will automatically expand up to 400px to accommodate that content before the content wraps.
 
-<!-- TODO: figure out how to fix the padding -->
 <div class="hds-dropdown__content">
-  <ul class="hds-dropdown__list">
+  <Doc::ListContainer class="hds-dropdown__list">
     <Hds::Dropdown::ListItem::Title @text="Signed in as" />
     <Hds::Dropdown::ListItem::Description @text="name@email.com" />
     <Hds::Dropdown::ListItem::Separator />
     <Hds::Dropdown::ListItem::Interactive @text="User settings" />
     <Hds::Dropdown::ListItem::Interactive @text="Admin" />
     <Hds::Dropdown::ListItem::Interactive @text="Sign out" />
-  </ul>
+  </Doc::ListContainer>
 </div>
 
 #### Fixed width
@@ -128,7 +135,7 @@ Lists have a minimum width of 200px and a maximum width of 400px. This means if 
 If you do not want the width of the List to expand automatically to accommodate the widest list item, you can indicate a specific width. As a best practice, we have set the maximum width to 400px.
 
 <div class="hds-dropdown__content" style="width: 400px">
-  <ul class="hds-dropdown__list">
+  <Doc::ListContainer class="hds-dropdown__list">
     <Hds::Dropdown::ListItem::Title @text="Consul version v1.10.6" />
     <Hds::Dropdown::ListItem::Separator />
     <Hds::Dropdown::ListItem::Interactive @text="Update Consul version" />
@@ -142,7 +149,7 @@ If you do not want the width of the List to expand automatically to accommodate 
     <Hds::Dropdown::ListItem::CopyItem @text="terraform import hcp_connect" />
     <Hds::Dropdown::ListItem::Separator />
     <Hds::Dropdown::ListItem::Interactive @text="Delete cluster" @color="critical" @icon="trash" />
-  </ul>
+  </Doc::ListContainer>
 </div>
 
 #### Height
@@ -150,7 +157,7 @@ If you do not want the width of the List to expand automatically to accommodate 
 The height of the ListContainer is automatically determined based on the contents, but the height can also be set manually. We recommend setting the height manually if you know the list will be long.  
 
 <div class="hds-dropdown__content">
-  <ul class="hds-dropdown__list">
+  <Doc::ListContainer class="hds-dropdown__list">
     <Hds::Dropdown::ListItem::Title @text="Integrate with Terraform Cloud" />
     <Hds::Dropdown::ListItem::Description @text="Create a new run task in Terraform using the URL and key below." />
     <Hds::Dropdown::ListItem::CopyItem @copyItemTitle="Endpoint URL" @text="https://api.cloud.hashicorp.com/" />
@@ -162,7 +169,7 @@ The height of the ListContainer is automatically determined based on the content
     <Hds::Dropdown::ListItem::Interactive @text="Integrating with Terraform Cloud" @color="action" @icon="external-link" />
     <Hds::Dropdown::ListItem::Interactive @text="About Terraform Cloud" @color="action" @icon="external-link" />
     <Hds::Dropdown::ListItem::Interactive @text="About Packer" @color="action" @icon="external-link" />
-  </ul>
+  </Doc::ListContainer>
 </div>
 
 ## ListItem
@@ -186,34 +193,40 @@ We don’t recommend mixing and matching icon use; that’s to say, if using an 
 
 !!! Do
 
-<Doc::ListContainer class="hds-dropdown-list">
-  <Hds::Dropdown::ListItem::Title @text="About" />
-  <Hds::Dropdown::ListItem::Interactive @text="About Consul" @color="action" @icon="play-circle" />
-  <Hds::Dropdown::ListItem::Interactive @text="Why Consul on HCP" @color="action" @icon="link" />
-  <Hds::Dropdown::ListItem::Interactive @text="Success story" @color="action" @icon="play-circle" />
-</Doc::ListContainer>
+<div class="hds-dropdown__content">
+  <Doc::ListContainer class="hds-dropdown__list">
+    <Hds::Dropdown::ListItem::Title @text="About" />
+    <Hds::Dropdown::ListItem::Interactive @text="About Consul" @color="action" @icon="play-circle" />
+    <Hds::Dropdown::ListItem::Interactive @text="Why Consul on HCP" @color="action" @icon="link" />
+    <Hds::Dropdown::ListItem::Interactive @text="Success story" @color="action" @icon="play-circle" />
+  </Doc::ListContainer>
+</div>
 !!!
 
 !!! Dont
 
-<Doc::ListContainer class="hds-dropdown-list">
-  <Hds::Dropdown::ListItem::Title @text="About" />
-  <Hds::Dropdown::ListItem::Interactive @text="About Consul" @color="action" @icon="play-circle" />
-  <Hds::Dropdown::ListItem::Interactive @text="Why Consul on HCP" @color="action" @icon="link" />
-  <Hds::Dropdown::ListItem::Interactive @text="Success story" @color="action" />
-</Doc::ListContainer>
+<div class="hds-dropdown__content">
+  <Doc::ListContainer class="hds-dropdown__list">
+    <Hds::Dropdown::ListItem::Title @text="About" />
+    <Hds::Dropdown::ListItem::Interactive @text="About Consul" @color="action" @icon="play-circle" />
+    <Hds::Dropdown::ListItem::Interactive @text="Why Consul on HCP" @color="action" @icon="link" />
+    <Hds::Dropdown::ListItem::Interactive @text="Success story" @color="action" />
+  </Doc::ListContainer>
+</div>
 !!!
 
 #### Icons in Critical ListItems
 
 While icons are optional, we recommend using a relevant icon for Critical ListItems. Using the correct icon provides a stronger and more immediate visual indication that the action is destructive. Read more about [how color blind users see critical actions](/components/dropdown?tab=accessibility) in our UIs.
 
-<Doc::ListContainer class="hds-dropdown-list">
-  <Hds::Dropdown::ListItem::Interactive @text="Rename" @color="action" />
-  <Hds::Dropdown::ListItem::Interactive @text="Restore" @color="action" />
-  <Hds::Dropdown::ListItem::Separator />
-  <Hds::Dropdown::ListItem::Interactive @text="Delete" @color="critical" @icon="trash" />
-</Doc::ListContainer>
+<div class="hds-dropdown__content">
+  <Doc::ListContainer class="hds-dropdown__list">
+    <Hds::Dropdown::ListItem::Interactive @text="Rename" @color="action" />
+    <Hds::Dropdown::ListItem::Interactive @text="Restore" @color="action" />
+    <Hds::Dropdown::ListItem::Separator />
+    <Hds::Dropdown::ListItem::Interactive @text="Delete" @color="critical" @icon="trash" />
+  </Doc::ListContainer>
+</div>
 
 ## Content
 
