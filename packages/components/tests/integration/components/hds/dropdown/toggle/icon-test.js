@@ -57,6 +57,25 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
     assert.dom('.flight-icon.flight-icon-chevron-down').doesNotExist();
   });
 
+  // SIZE
+
+  test('it should render the medium size as the default if no size is declared', async function (assert) {
+    await render(
+      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" id="test-toggle-icon" />`
+    );
+    assert
+      .dom('#test-toggle-icon')
+      .hasClass('hds-dropdown-toggle-icon--size-medium');
+  });
+  test('it should render the correct CSS size class if the @size prop is declared', async function (assert) {
+    await render(
+      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" @size="small" id="test-toggle-icon" />`
+    );
+    assert
+      .dom('#test-toggle-icon')
+      .hasClass('hds-dropdown-toggle-icon--size-small');
+  });
+
   // A11Y
 
   test('it should render with the correct aria attribute declared using the @text prop', async function (assert) {
@@ -101,6 +120,20 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(hbs`<Hds::Dropdown::Toggle::Icon @text="user menu" />`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+  test('it should throw an assertion if an incorrect value for @size is provided', async function (assert) {
+    const errorMessage =
+      '@size for "Hds::Dropdown::Toggle::Icon" must be one of the following: small, medium; received: foo';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(
+      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" @size="foo" />`
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
