@@ -118,4 +118,25 @@ export default class Index extends Component {
     });
     return { myDemoData: dataResponse, columns };
   }
+
+  get myDataItems() {
+    let myDataItems = [
+      {
+        artist: 'Nick Drake',
+        album: 'Pink Moon',
+        year: '1972',
+      },
+      {
+        artist: 'Nick Drake',
+        album: 'Pink Moon',
+        year: '1972',
+      },
+      {
+        artist: 'Nick Drake',
+        album: 'Pink Moon',
+        year: '1972',
+      },
+    ];
+    return myDataItems;
+  }
 }

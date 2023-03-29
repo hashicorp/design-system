@@ -2,21 +2,53 @@
 
 ### Table with no model defined
 
+If you want to use the component but have no model defined (e.g., there are only a few pieces of data but it’s still tabular data), you can manually add each row, or use an `each` to loop over a data record (maybe defined in the route) to render the rows.
+
+#### Manual row implementation
+
 ```handlebars
 <Hds::Table @caption="your custom, meaningful caption goes here">
   <:head as |H|>
     <H.Tr>
-      <H.Th>Column Header</H.Th>
-      <H.Th>Column Header</H.Th>
-      <H.Th>Column Header</H.Th>
+      <H.Th>Column Header One</H.Th>
+      <H.Th>Column Header Two</H.Th>
+      <H.Th>Column Header Three</H.Th>
     </H.Tr>
   </:head>
   <:body as |B|>
     <B.Tr>
-      <B.Td>Cell Content</B.Td>
-      <B.Td>Cell Content</B.Td>
-      <B.Td>Cell Content</B.Td>
+      <B.Td>Cell one A</B.Td>
+      <B.Td>Cell two A</B.Td>
+      <B.Td>Cell three A</B.Td>
     </B.Tr>
+    <B.Tr>
+      <B.Td>Cell one B</B.Td>
+      <B.Td>Cell two B</B.Td>
+      <B.Td>Cell three B</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::Table>
+```
+
+#### Using `each` to loop over records to create rows
+
+```handlebars
+<Hds::Table @caption="Influential Folk Musicians">
+  <:head as |H|>
+    <H.Tr>
+      <H.Th>Artist</H.Th>
+      <H.Th>Album</H.Th>
+      <H.Th>Release Year</H.Th>
+    </H.Tr>
+  </:head>
+  <:body as |B|>
+    {{#each this.myDataItems as |item|}}
+      <B.Tr>
+        <B.Td>{{item.artist}}</B.Td>
+        <B.Td>{{item.album}}</B.Td>
+        <B.Td>{{item.year}}</B.Td>
+      </B.Tr>
+    {{/each}}
   </:body>
 </Hds::Table>
 ```
