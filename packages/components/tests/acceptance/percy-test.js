@@ -110,6 +110,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/stepper');
     await percySnapshot('Stepper - Indicator');
 
+    await visit('/layouts/app-frame');
+    await percySnapshot('AppFrame');
+
     await visit('/overrides/power-select');
     await percySnapshot('PowerSelect');
 
