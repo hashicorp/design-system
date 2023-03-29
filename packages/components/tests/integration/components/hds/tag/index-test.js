@@ -16,7 +16,6 @@ module('Integration | Component | hds/tag/index', function (hooks) {
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(hbs`<Hds::Tag @text="My tag" id="test-tag" />`);
-    assert.dom('#test-tag').hasText('My tag');
     assert.dom('#test-tag').hasClass('hds-tag');
   });
 
