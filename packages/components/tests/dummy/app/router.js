@@ -54,6 +54,9 @@ Router.map(function () {
     this.route('tabs');
     this.route('side-nav');
   });
+  this.route('layouts', function () {
+    this.route('app-frame');
+  });
   this.route('utilities', function () {
     this.route('disclosure');
     this.route('dismiss-button');
