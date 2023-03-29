@@ -7,7 +7,7 @@ An Input Group is intentionally published as an agnostic container element that 
 The way in which these components are published and assembled together are fundamenally different between Figma and the Ember component.
 
 - In Figma, multiple components are published (`ButtonType` and `InputType`) that are intended to be assembled in an auto layout container, as well as a `Base` component for more simple pre-assembled instances.
-- The Ember component acts as a container to enforce consistent styling and grouping of nested Helios form components, but does not handle any logic and functionality out of the box. <!-- Consider if we want to say this -->
+- The Ember component acts as a container to enforce consistent styling and grouping of nested Helios form components, but does not handle any logic and functionality out of the box.
 !!!
 
 ### When to use
@@ -49,6 +49,8 @@ An Input Group accepts Helios form components and their variants including:
 If you need to use a custom component within an Input Group, ensure that the visual language and styling matches the subcomponents outlined above, or reach out the Helios team for [assistance](/about/support).
 
 ## Examples
+
+Since an Input Group is intended to be agnostic in relation to the inputs and actions it contains, the number of use cases and potential examples are broad. These examples should serve as inspiration for the different scenarios, contexts, and combinations of elements supported by the Input Group guidelines.
 
 ### Within a filter pattern
 

@@ -23,6 +23,6 @@ The subcomponents contained within an Input Group are extensions of Helios form 
 
 The Input Group doesn't have state intrinsically, rather the nested subcomponents maintain their own state as it corresponds with the individual component specifics.
 
-### Subcomponent state
+### Primitive component states
 
-<!-- Insert examples here -->
+![Primitive component states](/assets/components/form/input-group/input-group-states.png)
