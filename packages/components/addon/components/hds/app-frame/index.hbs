@@ -2,7 +2,18 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-{{! ADD YOUR TEMPLATE CONTENT HERE }}
-<div class={{this.classNames}} ...attributes>
-  {{yield}}
+<div class="hds-app-frame" ...attributes>
+  {{#if this.hasHeader}}
+    {{yield (hash Header=(component "hds/app-frame/parts/header"))}}
+  {{/if}}
+  {{#if this.hasSidebar}}
+    {{yield (hash Sidebar=(component "hds/app-frame/parts/sidebar"))}}
+  {{/if}}
+  {{yield (hash Main=(component "hds/app-frame/parts/main"))}}
+  {{#if this.hasFooter}}
+    {{yield (hash Footer=(component "hds/app-frame/parts/footer"))}}
+  {{/if}}
+  {{#if this.hasModals}}
+    {{yield (hash Modals=(component "hds/app-frame/parts/modals"))}}
+  {{/if}}
 </div>

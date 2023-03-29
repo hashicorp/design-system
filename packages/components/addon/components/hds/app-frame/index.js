@@ -6,23 +6,47 @@
 import Component from '@glimmer/component';
 
 export default class HdsAppFrameIndexComponent extends Component {
-  // UNCOMMENT THIS IF YOU NEED A CONSTRUCTOR
-  // constructor() {
-  //   super(...arguments);
-  //   // ADD YOUR ASSERTIONS HERE
-  // }
+  /**
+   * Indicates if the "header" container should be displayed
+   *
+   * @param hasHeader
+   * @type {boolean}
+   * @default true
+   */
+  get hasHeader() {
+    return this.args.hasHeader ?? true;
+  }
 
   /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
+   * Indicates if the "sidebar" container should be displayed
+   *
+   * @param hasSidebar
+   * @type {boolean}
+   * @default true
    */
-  get classNames() {
-    let classes = ['hds-app-frame'];
+  get hasSidebar() {
+    return this.args.hasSidebar ?? true;
+  }
 
-    // add a class based on the @xxx argument
-    // classes.push(`hds-app-frame--[variant]-${this.xxx}`);
+  /**
+   * Indicates if the "footer" container should be displayed
+   *
+   * @param hasFooter
+   * @type {boolean}
+   * @default true
+   */
+  get hasFooter() {
+    return this.args.hasFooter ?? true;
+  }
 
-    return classes.join(' ');
+  /**
+   * Indicates if the "modals" container should be displayed
+   *
+   * @param hasModals
+   * @type {boolean}
+   * @default true
+   */
+  get hasModals() {
+    return this.args.hasModals ?? true;
   }
 }
