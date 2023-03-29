@@ -83,7 +83,7 @@ Common examples include:
   </M.Body>
   <M.Footer>
     <Hds::ButtonSet>
-      <Hds::Button type="submit" @text="Confirm" @color="critical" />
+      <Hds::Button type="submit" @text="Delete" @color="critical" />
       <Hds::Button type="button" @text="Cancel" @color="secondary" />
     </Hds::ButtonSet>
   </M.Footer>
@@ -91,7 +91,7 @@ Common examples include:
 
 !!! Info
 
-In Figma, the `critical` Modal color is coupled with the `critical` Button color. However, in code, the Modal footer `yeilds` components passed to it and can accept any Button type or color. We recommend matching the `critical` colors for both the Modal and Button components to better communicate the severity of a destructive action.
+In Figma, the `critical` Modal color is coupled with the `critical` Button color. However, in code, the Modal footer `yields` components passed to it and can accept any Button type or color. We recommend matching the `critical` colors for both the Modal and Button components to better communicate the severity of a destructive action.
 !!!
 
 ## Size
