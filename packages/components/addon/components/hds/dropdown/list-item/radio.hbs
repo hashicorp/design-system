@@ -1,0 +1,12 @@
+<li class="hds-dropdown-list-item hds-dropdown-list-item--variant-radio">
+  <Hds::Form::Radio::Base class="hds-dropdown-list-item__control" id={{this.id}} @value={{@value}} ...attributes />
+  {{#if @icon}}
+    <div class="hds-dropdown-list-item__icon">
+      <FlightIcon @name={{@icon}} @isInlineBlock={{false}} />
+    </div>
+  {{/if}}
+  <label class="hds-dropdown-list-item__label hds-typography-body-200" for={{this.id}}>{{yield}}</label>
+  {{#if @count}}
+    <span class="hds-dropdown-list-item__count hds-typography-body-100 hds-font-weight-medium">{{@count}}</span>
+  {{/if}}
+</li>

@@ -4,10 +4,12 @@
 
 ![Dropdown anatomy](/assets/components/dropdown/dropdown-anatomy.png =374x*)
 
-| Element          | Usage                                           |
-|------------------|-------------------------------------------------|
-| Toggle           | Required                                        |
-| List             | Required (only visible when open)               |
+| Element          | Usage                  |
+|------------------|------------------------|
+| Toggle           | Required               |
+| Header           | Optional               |
+| List             | Required               |
+| Footer           | Optional               |
 
 ### Toggle
 

@@ -30,7 +30,7 @@ module(
         .hasClass('hds-dropdown-list-item');
       assert
         .dom('#test-list-item-separator')
-        .hasClass('hds-dropdown-list-item--separator');
+        .hasClass('hds-dropdown-list-item--variant-separator');
     });
 
     // A11Y

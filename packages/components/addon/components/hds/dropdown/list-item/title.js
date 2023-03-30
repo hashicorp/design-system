@@ -29,7 +29,10 @@ export default class HdsDropdownListItemTitleComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-dropdown-list-item', 'hds-dropdown-list-item--title'];
+    let classes = [
+      'hds-dropdown-list-item',
+      'hds-dropdown-list-item--variant-title',
+    ];
 
     // add classes for the typographic style
     classes.push('hds-typography-body-100');

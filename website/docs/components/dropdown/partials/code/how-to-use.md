@@ -120,7 +120,7 @@ If you add an event handler (no `@href` or `@route`), a `<button>` element will 
 
 ```handlebars
 {{!-- The Doc::ListContainer component is just to help the component render properly --}}
-<Doc::ListContainer class="hds-dropdown-list">
+<Doc::ListContainer class="hds-dropdown__list">
   <Hds::Dropdown::ListItem::Interactive {{on "click" this.myAction}} @text="Run command" />
 </Doc::ListContainer>
 ```
@@ -138,7 +138,7 @@ If you pass an `@href` argument, a link (`<a>` element) will be generated:
 
 ```handlebars
 {{!-- The Doc::ListContainer component is just to help the component render properly --}}
-<Doc::ListContainer class="hds-dropdown-list">
+<Doc::ListContainer class="hds-dropdown__list">
   <Hds::Dropdown::ListItem::Interactive @href="https://www.hashicorp.com/request-demo/terraform" @text="Request a demo" />
 </Doc::ListContainer>
 ```
@@ -149,7 +149,7 @@ Pass a `@route` to render Ember `<LinkTo>`. If the route is external to your cur
 
 ```handlebars
 {{!-- The Doc::ListContainer component is just to help the component render properly --}}
-<Doc::ListContainer class="hds-dropdown-list">
+<Doc::ListContainer class="hds-dropdown__list">
   <Hds::Dropdown::ListItem::Interactive @route="my.page.route" @model="my.page.model" @text="Activate cluster" />
 </Doc::ListContainer>
 ```
