@@ -4,13 +4,13 @@
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<:header>" @type="named block">
-    This is a named block where the content for the “header” area of the SideNav is rendered. The `SideNav::Header` component should be added here.
+    A named block where the content for the “header” area of the SideNav is rendered. The `SideNav::Header` component should be added here.
   </C.Property>
   <C.Property @name="<:body>" @type="named block">
-    This is a named block where the content for the “body” or main content of the SideNav is rendered. The `SideNav::List` component, if used, should be added here.
+    A named block where the content for the “body” or main content of the SideNav is rendered. The `SideNav::List` component, if used, should be added here.
   </C.Property>
   <C.Property @name="<:footer>" @type="named block">
-    This is a named block where the content for the “footer” section of the SideNav is rendered.
+    A named block where the content for the “footer” section of the SideNav is rendered.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
@@ -21,10 +21,10 @@
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<:logo>" @type="named block">
-    This is a named block where the main product logo linked to your app’s home page will be rendered. The `SideNav::HomeLink` component should be added here.
+    A named block where the main product logo linked to your app’s home page will be rendered. The `SideNav::HomeLink` component should be added here.
   </C.Property>
   <C.Property @name="<:actions>" @type="named block">
-    This is a named block where the header “action” components will be rendered. Typically `Dropdown` components and/or `SideNav::IconButton` components will be added here. Special SideNav coordinated styling can be applied to dropdowns by adding the `hds-side-nav__dropdown` class name.
+    A named block where the header “action” components will be rendered. Typically `Dropdown` components and/or `SideNav::IconButton` components will be added here. Special SideNav coordinated styling can be applied to dropdowns by adding the `hds-side-nav__dropdown` class name.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
