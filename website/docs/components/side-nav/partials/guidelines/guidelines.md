@@ -24,7 +24,7 @@ For cloud products, the icon set should always be the HCP service icon. For stan
 
 Use the help dropdown to provide users with access to support and helpful resources that can be easily accessible from anywhere within the application—for example, links to the help center, documentation, or tutorials.
 
-Avoid placing non-help related links or actions, such as user settings or navigation links.
+Avoid placing non-help related links or actions, such as user settings or navigation links within the menu.
 
 ![Help dropdown menu in side-nav's header](/assets/components/side-nav/help-dropdown.png)
 
@@ -32,13 +32,19 @@ Avoid placing non-help related links or actions, such as user settings or naviga
 
 Use the user dropdown to give users quick and easy access to their settings and preferences. The menu should contain links or actions related to the user's profile, settings, and/or preferences. 
 
-Avoid placing links to unrelated pages or actions, such as support or navigation items.
+Avoid placing links to unrelated pages or actions, such as support or navigation items within the menu.
 
 ![User dropdown menu in side-nav's header](/assets/components/side-nav/user-dropdown.png)
 
+### Custom content
+
+The `custom` type allows you to support any custom content, local components, or Helios components within the header via an instance swap property (customInstance) in Figma.
+
+![Generic container within the side-nav header](/assets/components/side-nav/custom-header.png)
+
 ## Body
 
-The body consists of a group of sections with vertical lists of links to the most important parts of the application.
+The body consists of a group of sections with vertical lists of links, typically to the most important parts of the application. Any custom content or component is also supported by an additional generic container.
 
 ### List
 
@@ -102,6 +108,12 @@ Use `isLinkExternal` to show that the list item is a hyperlink pointing to a pag
 
 Use external links sparingly. Avoid using this property to link pages that are unrelated to the product's navigation.
 !!!
+
+### Custom content
+
+Toggle `hasCustomContent` on to support any additional custom content, local components, or Helios components within the body container via an instance swap property (customInstance) in Figma.
+
+![Generic container within the side-nav body](/assets/components/side-nav/custom-content-body.png)
 
 ## Footer
 
