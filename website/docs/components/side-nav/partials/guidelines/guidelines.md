@@ -30,7 +30,7 @@ Avoid placing non-help related links or actions, such as user settings or naviga
 
 ### User dropdown
 
-Use the user dropdown to give users quick and easy access to their settings and preferences. The menu should contain links or actions related to the user's profile, settings, and/or preferences. 
+The user dropdown gives users quick and easy access to their settings and preferences. The menu should contain links or actions related to the user's profile, settings, and/or preferences.
 
 Avoid placing links to unrelated pages or actions, such as support or navigation items within the menu.
 
@@ -38,7 +38,7 @@ Avoid placing links to unrelated pages or actions, such as support or navigation
 
 ### Custom content
 
-The `custom` type allows you to support any custom content, local components, or Helios components within the header via an instance swap property (customInstance) in Figma.
+The `custom` type supports any custom content, local components, or Helios components within the header via an instance swap property (customInstance) in Figma.
 
 ![Generic container within the side-nav header](/assets/components/side-nav/custom-header.png)
 
@@ -56,8 +56,7 @@ The body consists of a group of sections with vertical lists of links, typically
 
 ![Side-nav section without a title](/assets/components/side-nav/section-without-title.png)
 
-- A title could help users scan the sections and provide context about the links inside each section.
-
+- A title can help users scan the sections and provide context about the links inside each section.
 - Titles should be meaningful and related to the content within the section.
 
 ### List items
@@ -94,7 +93,7 @@ The body consists of a group of sections with vertical lists of links, typically
 
 #### With nested items
 
-Set `hasSubItems` to show or signify that a link has a nested level of navigation.
+Use `hasSubItems` to show or signify that a link has a nested level of navigation.
 
 ![List item with sub-items](/assets/components/side-nav/list-item-with-nested-items.png)
 
@@ -125,7 +124,7 @@ The context switcher allows users to switch between different contexts within yo
 
 ## Height
 
-The side navigation should take the full height of the viewport to ensure that the navigation is always visible and accessible to the user.
+The SideNav should occupy the full height of the viewport to ensure that the navigation is always visible and accessible to the user.
 
 ![Side-nav height](/assets/components/side-nav/sidenav-height.png)
 
@@ -133,6 +132,6 @@ The side navigation should take the full height of the viewport to ensure that t
 
 The SideNav should always be positioned on the left side of the viewport, occupying 100% of the viewport height.
 
-On smaller viewports, the SideNav should collapse to maximize the real estate available on tablet and mobile devices. By tapping the menu icon, users can expand and access the full menu when needed.
+On smaller viewports, the SideNav should collapse to maximize the available real estate on tablet and mobile devices. By tapping the menu icon, users can expand and access the full menu when needed.
 
 ![Responsive side-nav](/assets/components/side-nav/sidenav-position-and-responsive.png)
