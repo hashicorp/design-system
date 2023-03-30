@@ -1,1 +1,0 @@
-Use footer actions to redirect or guide users in solving errors/access issues with actionable steps.

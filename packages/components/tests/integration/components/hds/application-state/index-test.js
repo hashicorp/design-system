@@ -17,21 +17,5 @@ module(
 
       assert.dom('#test-application-state').hasClass('hds-application-state');
     });
-
-    test('if @errorCode is defined, a class should be applied for error message styling', async function (assert) {
-      await render(hbs`
-      <Hds::ApplicationState @errorCode="404" id="test-application-state" />
-    `);
-
-      assert.dom('.hds-application-state--error').exists();
-    });
-
-    test('if @hasDivider is set to true, a class should be applied to render a visual divider', async function (assert) {
-      await render(hbs`
-      <Hds::ApplicationState @hasDivider={{true}} id="test-application-state" />
-    `);
-
-      assert.dom('.hds-application-state--has-divider').exists();
-    });
   }
 );

@@ -18,20 +18,20 @@ module(
         .hasClass('hds-application-state__header');
     });
 
-    test('it should render a custom icon if @icon is defined', async function (assert) {
+    test('it should render an icon if @icon is defined', async function (assert) {
       await render(
         hbs`<Hds::ApplicationState::Header @title="An error has occurred" id="test-application-state-header" @icon="help" @errorCode="404" />`
       );
 
-      assert.dom('.flight-icon-help').exists();
+      assert.dom('.flight-icon').exists();
     });
 
-    test('it should not render a custom icon if no @errorCode is defined', async function (assert) {
+    test('it should render an error code if @errorCode is defined', async function (assert) {
       await render(
-        hbs`<Hds::ApplicationState::Header @title="An error has occurred" id="test-application-state-header" @icon="help" />`
+        hbs`<Hds::ApplicationState::Header @title="An error has occurred" id="test-application-state-header" @icon="help" @errorCode="404" />`
       );
 
-      assert.dom('.flight-icon-help').doesNotExist();
+      assert.dom('.hds-application-state__error-code').exists();
     });
   }
 );

@@ -2,6 +2,6 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<div class="hds-application-state__footer" ...attributes>
-  {{yield (hash Link=(component "hds/link/standalone"))}}
+<div class={{this.classNames}} ...attributes>
+  {{yield (hash Link::Standalone=(component "hds/link/standalone"))}}
 </div>
