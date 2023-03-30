@@ -1,6 +1,6 @@
 ## How to use this component
 
-SideNav does not exist as a single out of the box HDS component. It instead consists of a number of lower-level building block components consumers can use to assemble into their own SideNav implementation.
+SideNav does not exist as a single out of the box HDS component. Instead, it consists of a number of lower-level building block components consumers can use to assemble their own SideNav implementation.
 
 **Note:** The `Hds::SideNav::Wrapper` component, which contains the child components, doesn't have an intrinsic width (it's 100% of the parent). This responsibility is delegated to the wrapping element in the consumer's codebase.
 
