@@ -4,10 +4,10 @@ An Input Group is intentionally published as an agnostic container element that 
 
 !!! Info
 
-The way in which these components are published and assembled together are fundamenally different between Figma and the Ember component.
+The way in which these components are published and assembled together are fundamenally different between the Figma Ember components.
 
-- In Figma, multiple components are published (`ButtonType` and `InputType`) that are intended to be assembled in an auto layout container, as well as a `Base` component for more simple pre-assembled instances.
-- The Ember component acts as a container to enforce consistent styling and grouping of nested Helios form components, but does not handle any logic and functionality out of the box.
+- In Figma, multiple primitive components are published (`ButtonType` and `InputType`) that are intended to be assembled in an auto layout container. A pre-assembled `Base` component is also available for more simple instances.
+- The Ember component acts as a container to enforce consistent styling and grouping of nested Helios form components. It does not handle any logic or functionality out of the box, this is left up to the nested form elements.
 !!!
 
 ### When to use
@@ -15,27 +15,27 @@ The way in which these components are published and assembled together are funda
 - When filtering complex data, searching within a set of filters, and creating complex filtering patterns.
 - When collecting information in a form that benefits from a "connected" visual representation, e.g., a key/value pair.
 - When an action performs a generative function rather than a submit function, e.g., generating API credentials.
-- As a complex data input, e.g., uploading a document or connecting to another external resource.
+- As a complex data input, e.g., uploading a document or connecting to an external resource.
 
 ### When not to use
 
 - To submit a form or set of inputs. An Input Group can exist within a form to collect multi-directional data, but should not submit that data via a form method. Use the guidelines in [Form patterns](/patterns/form-patterns) instead.
-- With a `readonly` or `disabled` input field. <!-- Add something else in here -->
+- To connect multiple fields that each require their own label.
 
-## Acceptable sub components
+## Primitive components
 
-The Input Group can consist of a variety of different components and subcomponents, however, we recommend limiting usage in both Figma and code to these subcomponents as they're styling and layout is handled out of the box in the component.
+An Input Group can consist of a multiple primitive subcomponents that vary in their properties and intended input value. We recommend limiting usage in both Figma and code to those defined in the `ButtonType` and `InputType` primitives to ensure consistent styling and grouping.
 
 ### Button types
-
-Buttons of different types within an Input Group will inform and impact the UX in different ways:
 
 - **Default**: a default button can perform a function or interaction within an Input Group, e.g., generating an object, string, or value in a field it is connected to. This is an extension of the Helios [Button](/components/button).
 - **Toggle**: a toggle button can be used to filter or narrow the available parameters when searching within a data set or group of objects. This is an extension of the Helios [Toggle Button](/components/toggle-button).
 
+Different types of buttons within an Input Group will function and impact the UX in different ways, e.g., a `ToggleButton` can act as a filtering mechanism, while a the `Default` button can perform a function.
+
 ### Input Types
 
-An Input Group accepts Helios form components and their variants including:
+An Input Type is an extension of Helios form components and their variants, including:
 
 - [Text Input](/components/form/text-input)
     - [Text](/components/form/text-input#text)
@@ -44,9 +44,17 @@ An Input Group accepts Helios form components and their variants including:
     - [Date and time](/components/form/text-input#date-and-time)
 - [Select](/components/form/select)
 
+Different Input Types can be combined within an Input Group to collect more complex data and support complex filtering patterns. Use the type that makes the most sense for the intended value or data.
+
 ### Custom elements
 
-If you need to use a custom component within an Input Group, ensure that the visual language and styling matches the subcomponents outlined above, or reach out the Helios team for [assistance](/about/support).
+If you need to use a custom component within an Input Group, ensure that the visual language and styling matches the primitives, or reach out the Helios team for [assistance](/about/support).
+
+## Base component
+
+In Figma, the `Base` component is a combination of a single button primitive and single input primitive to account for more simple use cases. The properties of each nested primitive are exposed in the component to support rapid customization.
+
+![Base component example](/assets/components/form/input-group/input-group-base-component.png =500x*)
 
 ## Examples
 
@@ -54,7 +62,7 @@ Since an Input Group is intended to be agnostic in relation to the inputs and ac
 
 ### Within a filter pattern
 
-An Input Group can be used in filter pattern as a means to reduce or limit the visible items in a dataset through the selection of specific parameters and values present in the dataset. Multiple Input Groups may be used within a filter pattern depending on the complexity of the dataset.
+An Input Group can be used in a filter pattern as a means to reduce or limit the visible items in a dataset through the selection of specific parameters and values present in the dataset. Multiple Input Groups may be used within a filter pattern depending on the complexity of the dataset.
 
 ![Filter pattern example](/assets/components/form/input-group/input-group-example-filter-pattern-01.png)
 
@@ -64,18 +72,18 @@ This example showcases a larger filter pattern that consists of two Input Groups
 
 ### Within a form
 
-While less common, an Input Group can be used within a form when collecting related data, generating values like API keys, as well as for filtering within a search field.
+While less common, an Input Group can be used within a form collect related data, perform generative functions like creating API keys, and for filtering within a search field.
 
 !!! Do
 
-Use an Input Group in to perform a generative function within a form.
+Use an Input Group to perform a generative function within a form.
 
 ![Input Group API key example](/assets/components/form/input-group/input-group-example-form-01.png =450x*)
 !!!
 
 !!! Do
 
-Use an Input Group to determine the intended function of request or connection.
+Use an Input Group to determine the intended method of request or connection.
 
 ![Input Group method example](/assets/components/form/input-group/input-group-example-form-02.png =450x*)
 !!!
@@ -86,10 +94,6 @@ Don't use an Input Group when fields are related, but aren't stored in the same 
 
 ![Input Group payment method exmaple](/assets/components/form/input-group/input-group-example-form-03.png =450x*)
 !!!
-
-#### Portability
-
-These examples could also be considered more "portable" in that they can exist outside of a form and help with updating high-level settings, uploading files, or in the generative nature of a key/value pair.
 
 #### Error validation
 

@@ -17,12 +17,10 @@ The Input Group `Base` component is only available in Figma.
 
 ### Subcomponent anatomy
 
-The subcomponents contained within an Input Group are extensions of Helios form components and therefore have same anatomy as the master components they map to.
+The subcomponents contained within an Input Group are extensions of Helios form components and have the same anatomy as the master components they map to.
 
 ## States
 
-The Input Group doesn't have state intrinsically, rather the nested subcomponents maintain their own state as it corresponds with the individual component specifics.
-
-### Primitive component states
+The Input Group doesn't have it's own state intrinsically, instead, the nested component primitives should maintain their own interactive state corresponding with the master component specs.
 
 ![Primitive component states](/assets/components/form/input-group/input-group-states.png)
