@@ -1,0 +1,35 @@
+{
+    "z-index": {
+        "footer": {
+            "value": 5
+        },
+        "sidebar": {
+            "value": 6
+        },
+        "header": {
+            "value": 7
+        },
+        "popup": {
+            "value": "??",
+            "comment": "used for both tooltips and popups"
+        },
+        "toast": {
+            "value": "??"
+        },
+        "overlay": {
+            "value": 40,
+            "TODO": "I have changed this from 50 to 40"
+        },
+        "flyout": {
+            "value": 45,
+            "comment": "modal has precedence on this"
+        },
+        "modal": {
+            "value": 50
+        },
+        "modals": {
+            "value": 100,
+            "TODO": "decide what to do here (see why 100 in Cloud UI)"
+        }
+    }
+}
