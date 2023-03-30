@@ -118,19 +118,13 @@ Toggle `hasCustomContent` on to support any additional custom content, local com
 
 ### Context switcher
 
-The context switcher allows users to switch between different contexts within your product or application. For example, the side navigation can display different links and content based on a particular organization or workspace the user selects.
+The context switcher allows users to switch between different contexts within your product or application. For example, the navigation or application can change based on a particular organization or workspace the user selects.
 
 ![Context switcher](/assets/components/side-nav/footer-context-switcher.png)
 
-## Height
+## Positioning, and responsive behaviour
 
-The SideNav should occupy the full height of the viewport to ensure that the navigation is always visible and accessible to the user.
-
-![Side-nav height](/assets/components/side-nav/sidenav-height.png)
-
-## Positioning and responsive behaviour
-
-The SideNav should always be positioned on the left side of the viewport, occupying 100% of the viewport height.
+The SideNav should always be positioned on the left side of the viewport, occupying 100% of the viewport height to ensure that the navigation is always visible and accessible to the user..
 
 On smaller viewports, the SideNav should collapse to maximize the available real estate on tablet and mobile devices. By tapping the menu icon, users can expand and access the full menu when needed.
 
