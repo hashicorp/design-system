@@ -54,11 +54,53 @@ Since an Input Group is intended to be agnostic in relation to the inputs and ac
 
 ### Within a filter pattern
 
+An Input Group can be used in filter pattern as a means to reduce or limit the visible items in a dataset through the selection of specific parameters and values present in the dataset. Multiple Input Groups may be used within a filter pattern depending on the complexity of the dataset.
+
+![Filter pattern example](/assets/components/form/input-group/input-group-example-filter-pattern-01.png)
+
+This example showcases a larger filter pattern that consists of two Input Groups; the first allowing the user to filter what parameters are included in a search query, the second grouping similar filter parameters relationally.
+
+![Open filter pattern example](/assets/components/form/input-group/input-group-example-filter-pattern-01-open.png)
+
 ### Within a form
+
+While less common, an Input Group can be used within a form when collecting related data, generating values like API keys, as well as for filtering within a search field.
+
+!!! Do
+
+Use an Input Group in to perform a generative function within a form.
+
+![Input Group API key example](/assets/components/form/input-group/input-group-example-form-01.png =450x*)
+!!!
+
+!!! Do
+
+Use an Input Group to determine the intended function of request or connection.
+
+![Input Group method example](/assets/components/form/input-group/input-group-example-form-02.png =450x*)
+!!!
+
+!!! Dont
+
+Don't use an Input Group when fields are related, but aren't stored in the same object upon submission. This example features a payment form with an Input Group and label, but uses a placeholder instead of a label to communicate what information the field collects.
+
+![Input Group payment method exmaple](/assets/components/form/input-group/input-group-example-form-03.png =450x*)
+!!!
+
+#### Portability
+
+These examples could also be considered more "portable" in that they can exist outside of a form and help with updating high-level settings, uploading files, or in the generative nature of a key/value pair.
 
 #### Error validation
 
+For error validation recommendations, refer to the [Form patterns](/patterns/form-patterns) documentation.
+
 ## Content
+
+The content with the Input Group is dependent on the context:
+
+- If used a within a form, the Input Group should be used within a [Form::Fieldset](/components/form/primitives) primitive and requires a single label.
+- If used within a filtering pattern, no label is required.
 
 ## Related
 
