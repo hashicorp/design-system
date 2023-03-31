@@ -2,4 +2,17 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<button type="button" class="hds-tooltip" {{hds-tooltip this.text options=this.options}}>{{~yield~}}</button>
+
+<Hds::Interactive
+  class="hds-tooltip"
+  {{hds-tooltip this.text options=this.options}}
+  @current-when={{@current-when}}
+  @models={{hds-link-to-models @model @models}}
+  @query={{hds-link-to-query @query}}
+  @replace={{@replace}}
+  @route={{@route}}
+  @isRouteExternal={{@isRouteExternal}}
+  @href={{@href}}
+  @isHrefExternal={{@isHrefExternal}}
+  ...attributes
+>{{~yield~}}</Hds::Interactive>
