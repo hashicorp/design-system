@@ -1,9 +1,126 @@
 ## How to use this component
 
-<!-- use the same heading order from Guidelines -->
-{basic invocation details}
+The `AppFrame` is a pure layout component that can be used to build the top-level “frame“ of an application. The frame's child containers (“header”, “sidebar“, “footer“, etc.) are agnostic of the content, and don‘t have intrinsic sizes (apart from the ones that are required to make it work as top-level application frame).
 
-<!-- This below is just an example of invocation, to get started -->
+### Basic use
+
+The most basic invocation of an application “frame” looks like this:
+
 ```handlebars
-<Hds::AppFrame>This is the Hds::AppFrame component </Hds::AppFrame>
+<div class="doc-app-frame-mock-viewport">
+  <Hds::AppFrame as |Frame|>
+    <Frame.Header>
+      {{! your "header" content goes here, this is just a mock placeholder }}
+      <Doc::Placeholder @height="60px" @text="header" @background="#e5ffd2" />
+    </Frame.Header>
+    <Frame.Sidebar>
+      {{! your "sidebar" content goes here, this is just a mock placeholder }}
+      <Doc::Placeholder @width="120px" @height="100%" @text="sidebar" @background="#e4c5f3" />
+    </Frame.Sidebar>
+    <Frame.Main>
+      {{! your "main" content goes here, this is just a mock placeholder }}
+      <Doc::Placeholder @height="100%" @text="main" @background="#d2f4ff" />
+    </Frame.Main>
+    <Frame.Footer>
+      {{! your "footer" content goes here, this is just a mock placeholder }}
+      <Doc::Placeholder @height="60px" @text="footer" @background="#fff8d2" />
+    </Frame.Footer>
+  </Hds::AppFrame>
+</div>
+```
+
+### Optional containers
+
+Depending on the UI implementation of the product where the component is used, it's possible to omit certain containers simply by not yielding them. For example, this would be the “frame” of an application that doesn't have an “header”:
+
+```handlebars
+<div class="doc-app-frame-mock-viewport">
+  <Hds::AppFrame as |Frame|>
+    <Frame.Sidebar>
+      <Doc::Placeholder @width="120px" @height="100%" @text="sidebar" @background="#e4c5f3" />
+    </Frame.Sidebar>
+    <Frame.Main>
+      <Doc::Placeholder @height="100%" @text="main" @background="#d2f4ff" />
+    </Frame.Main>
+    <Frame.Footer>
+      <Doc::Placeholder @height="60px" @text="footer" @background="#fff8d2" />
+    </Frame.Footer>
+  </Hds::AppFrame>
+</div>
+```
+
+#### Programmatic control of the containers‘ rendering
+
+Using the [exposed API of the component](#component-api), it's possible to programmatically control the rendering of some of the containers. An example of programmatic control of the rendering of the sidebar could be this:
+
+```handlebars
+<div class="doc-app-frame-mock-viewport">
+  <Hds::AppFrame as |Frame|>
+    {{! conditional control of the rendering of the "sidebar" }}
+    {{#if this.yourSidebarBooleanFlag}}
+      <Frame.Sidebar>
+        <Doc::Placeholder @width="120px" @height="100%" @text="sidebar" @background="#e4c5f3" />
+      </Frame.Sidebar>
+    {{/if}}
+    <Frame.Main>
+      <Doc::Placeholder @height="100%" @text="main" @background="#d2f4ff" />
+    </Frame.Main>
+    <Frame.Footer>
+      <Doc::Placeholder @height="60px" @text="footer" @background="#fff8d2" />
+    </Frame.Footer>
+  </Hds::AppFrame>
+</div>
+```
+
+If for some reason it's not possible to use conditional logic to control the yielding of the containers, we provide an alternative way using special `has[Container]` arguments to programmatically control the rendering (see the [component API](#component-api) specifications for details):
+
+```handlebars
+<div class="doc-app-frame-mock-viewport">
+  <Hds::AppFrame @hasSidebar={{false}} as |Frame|>
+    <Frame.Sidebar>
+      <Doc::Placeholder @width="120px" @height="100%" @text="sidebar" @background="#e4c5f3" />
+    </Frame.Sidebar>
+    <Frame.Main>
+      <Doc::Placeholder @height="100%" @text="main" @background="#d2f4ff" />
+    </Frame.Main>
+    <Frame.Footer>
+      <Doc::Placeholder @height="60px" @text="footer" @background="#fff8d2" />
+    </Frame.Footer>
+  </Hds::AppFrame>
+</div>
+```
+
+### Modals container
+
+We provide also an extra container that can be used to display content that sits on top of all the others elements of the page (typically modal elements):
+
+!!! Info
+
+If the “modal“ container is empty, a `display: none` style is applied to it.
+!!!
+
+```handlebars
+<div class="doc-app-frame-mock-viewport">
+  <Hds::AppFrame as |Frame|>
+    <Frame.Header>
+      <Doc::Placeholder @height="60px" @text="header" @background="#e5ffd2" />
+    </Frame.Header>
+    <Frame.Sidebar>
+      <Doc::Placeholder @width="120px" @height="100%" @text="sidebar" @background="#e4c5f3" />
+    </Frame.Sidebar>
+    <Frame.Main>
+      <Doc::Placeholder @height="100%" @text="main" @background="#d2f4ff" />
+    </Frame.Main>
+    <Frame.Footer>
+      <Doc::Placeholder @height="60px" @text="footer" @background="#fff8d2" />
+    </Frame.Footer>
+    <Frame.Modals>
+      {{! your "modal" content goes here, this is just a mock placeholder }}
+      <div class="doc-app-frame-fake-overlay" />
+      <div class="doc-app-frame-fake-modal">
+        <Doc::Placeholder @width="100%" @height="100%" @text="modal" @background="#ffffffb5" />
+      </div>
+    </Frame.Modals>
+  </Hds::AppFrame>
+</div>
 ```
