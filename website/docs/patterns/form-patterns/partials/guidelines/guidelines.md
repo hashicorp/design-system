@@ -129,7 +129,7 @@ Stack fields vertically when the width of the viewport and form container shrink
 
 The width of the overall form can impact multi-column layouts. Use set organization logically based on the layout, width of the page, and overall UX strategy in the application.
 
-Refer to the [button organization stacking guidelines](patterns/button-organization#stacking-order) when determining how buttons should stack as the viewport condenses.
+Refer to the [button organization stacking guidelines](/patterns/button-organization#stacking-order) when determining how buttons should stack as the viewport condenses.
 
 ## Text
 
