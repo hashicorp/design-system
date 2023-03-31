@@ -20,6 +20,10 @@ export default class HdsTooltipIndexComponent extends Component {
     return {
       // parse `content` strings as HTML
       allowHTML: true,
+      // takes string
+      placement: this.args.placement,
+      // takes array of 2 numbers (skidding, distance): array(0, 0)
+      offset: this.args.offset,
     };
   }
 
