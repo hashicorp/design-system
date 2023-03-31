@@ -1,6 +1,6 @@
 ## How to use this component
 
-To make the invocation more intuitive for developers, we’ve provided contextual components for Toggles and ListItems. For example, `<Hds::Dropdown::ListItem::Separator />` is yielded in a hash, using the key `<XX.Separator />` when invoked.
+To make the invocation more flexible and intuitive, we provide contextual components for Toggles, ListItems, Header and Footer. For example, `<Hds::Dropdown::ListItem::Separator />` would be contextually expressed as `<dd.Separator />`.
 
 ```handlebars
 <Hds::Dropdown as |dd|>
