@@ -53,6 +53,7 @@ Router.map(function () {
     this.route('toast');
     this.route('tabs');
     this.route('side-nav');
+    this.route('tooltip');
   });
   this.route('utilities', function () {
     this.route('disclosure');

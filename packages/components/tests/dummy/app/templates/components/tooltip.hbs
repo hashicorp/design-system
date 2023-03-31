@@ -1,0 +1,151 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "Tooltip Component"}}
+
+<Shw::Text::H1>Tooltip</Shw::Text::H1>
+
+<section data-test-percy>
+  <Shw::Text::H2>Used as a Modifier</Shw::Text::H2>
+
+  <Shw::Text::H3>On its own</Shw::Text::H3>
+  <Shw::Text::Body>(Consumer needs to add styling to opener element)</Shw::Text::Body>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Used on button tag">
+      <button type="button" {{hds-tooltip "hello!"}}><FlightIcon @name="alert-circle" /></button>
+    </SF.Item>
+
+    <SF.Item @label="Used on anchor tag">
+      <a href="#" {{hds-tooltip "hello!"}}><FlightIcon @name="alert-circle" /></a>
+    </SF.Item>
+
+    <SF.Item @label="Used on span tag (not accessible)">
+      <span {{hds-tooltip "hello!"}}><FlightIcon @name="alert-circle" /></span>
+    </SF.Item>
+
+    <SF.Item @label="Used on time tag (not accessible)">
+      <time {{hds-tooltip "hello!"}} datetime="2023-03-30T19:18:01.684Z">Mar 30, 2023</time>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H3>Used together with other text</Shw::Text::H3>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Used on button tag within a sentence">
+      <p>
+        Lorem ipsum dolor sit amet consectetur
+        <button type="button" {{hds-tooltip "hello!"}}><FlightIcon @name="alert-circle" /></button>
+        adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
+      </p>
+    </SF.Item>
+
+    <SF.Item @label="Used on anchor tag within a sentence">
+      <p>
+        Lorem ipsum dolor sit amet consectetur
+        <a href="#" {{hds-tooltip "hello!"}}><FlightIcon @name="alert-circle" /></a>
+        adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
+      </p>
+    </SF.Item>
+
+    <SF.Item @label="Used on button tag next to text">
+      <p>
+        <strong>Lorem ipsum dolor sit amet consectetur</strong>
+        <button type="button" {{hds-tooltip "hello!"}}><FlightIcon @name="alert-circle" /></button>
+      </p>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H3>Used on a non-interactive block-level trigger element (div tag as trigger)</Shw::Text::H3>
+  <Shw::Text::Body>Not accessible (consumer also needs to add custom styles)</Shw::Text::Body>
+  <div {{hds-tooltip "hello!"}}><FlightIcon @name="alert-circle" /></div>
+
+  <Shw::Text::H3>With different “placement” options</Shw::Text::H3>
+  <Shw::Text::Body>Default placement is “top”</Shw::Text::Body>
+  <Shw::Flex as |SF|>
+    {{#let
+      (array
+        "top"
+        "top-start"
+        "top-end"
+        "right"
+        "right-start"
+        "right-end"
+        "bottom"
+        "bottom-start"
+        "bottom-end"
+        "left"
+        "left-start"
+        "left-end"
+      )
+      as |placements|
+    }}
+      {{#each placements as |place|}}
+        <SF.Item @label={{place}}>
+          <button type="button" {{hds-tooltip "hello!" options=(hash placement=place)}}><FlightIcon
+              @name="alert-circle"
+            /></button>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Flex>
+
+  <Shw::Text::H3>With different “offset” options</Shw::Text::H3>
+  <Shw::Text::Body>Takes two numbers for offset, #1 “skidding” = tooltip displacement from center of opener element, #2
+    “distance” = tooltip distance from “opener”</Shw::Text::Body>
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Default offset (TODO: check values)">
+      <button type="button" {{hds-tooltip "hello!"}}><FlightIcon @name="alert-circle" /></button>
+    </SF.Item>
+
+    <SF.Item @label="Offset: 0 40">
+      <button type="button" {{hds-tooltip "hello!" options=(hash offset=(array 0 40))}}><FlightIcon
+          @name="alert-circle"
+        /></button>
+    </SF.Item>
+
+    <SF.Item @label="Offset: 20 0">
+      <button type="button" {{hds-tooltip "hello!" options=(hash offset=(array 20 0))}}><FlightIcon
+          @name="alert-circle"
+        /></button>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Used as a Component</Shw::Text::H2>
+  <Shw::Text::Body>
+    TODO: I am using a button component in the HBS template to serve as the trigger element. This could introduce
+    problems if the user tries to wrap some types of elements though...
+  </Shw::Text::Body>
+
+  <Shw::Text::H3>On its own</Shw::Text::H3>
+  <Shw::Flex as |SF|>
+    <SF.Item @label="With a FlightIcon as trigger content">
+      <Hds::Tooltip @text="<b>Hello</b> to <em>you</em>!">
+        <FlightIcon @name="alert-circle" />
+      </Hds::Tooltip>
+    </SF.Item>
+
+    <SF.Item @label="With text as trigger content">
+      <Hds::Tooltip @text="<b>Hello</b> to <em>you</em>!">
+        Hover me
+      </Hds::Tooltip>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H3>Used <em>incorrectly</em> to wrap a block-level element (trigger button wraps div tag)</Shw::Text::H3>
+  <Shw::Text::Body>(results in invalid HTML structure)</Shw::Text::Body>
+  <Hds::Tooltip @text="<b>Hello</b> to <em>you</em>!">
+    <div><FlightIcon @name="alert-circle" /></div>
+  </Hds::Tooltip>
+
+  <Shw::Text::H3>Used within a sentence (wrapped with p tag).</Shw::Text::H3>
+  <p>
+    Lorem ipsum dolor sit amet consectetur
+    <Hds::Tooltip @text="<b>Hello</b> to <em>you</em>!"><FlightIcon @name="alert-circle" /></Hds::Tooltip>
+    adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
+  </p>
+</section>

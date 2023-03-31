@@ -26,14 +26,15 @@
 
 // Notice: this list can be automatically edited by the Ember blueprint, please don't remove the start/end comments
 // START COMPONENT PAGES IMPORTS
+@import "./showcase-pages/tooltip";
 @import "./showcase-pages/alert";
 @import "./showcase-pages/badge";
 @import "./showcase-pages/breadcrumb";
 @import "./showcase-pages/button";
 @import "./showcase-pages/card";
 @import "./showcase-pages/disclosure";
-@import "./showcase-pages/dropdown";
 @import "./showcase-pages/dismiss-button";
+@import "./showcase-pages/dropdown";
 @import "./showcase-pages/flyout";
 @import "./showcase-pages/form/base-elements";
 @import "./showcase-pages/form/checkbox";
@@ -47,8 +48,8 @@
 @import "./showcase-pages/pagination";
 @import "./showcase-pages/power-select";
 @import "./showcase-pages/side-nav";
-@import "./showcase-pages/tabs";
 @import "./showcase-pages/table";
+@import "./showcase-pages/tabs";
 @import "./showcase-pages/tag";
 @import "./showcase-pages/typography";
 // END COMPONENT PAGES IMPORTS
