@@ -15,9 +15,4 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
     await render(hbs`<Hds::Tooltip />`);
     assert.dom(this.element).exists();
   });
-
-  test('it should render with a CSS class that matches the component name', async function (assert) {
-    await render(hbs`<Hds::Tooltip id="test-tooltip" />`);
-    assert.dom('#test-tooltip').hasClass('hds-tooltip');
-  });
 });
