@@ -130,7 +130,10 @@
 
   <Shw::Grid @columns={{2}} {{style gap="2rem"}} as |SG|>
     <SG.Item>
-      <div class="shw-layout-app-frame-wrapper shw-layout-app-frame-wrapper--with-3d {{if this.show3DVisualization "shw-is-3d" "shw-is-flat"}}">
+      <div
+        class="shw-layout-app-frame-wrapper shw-layout-app-frame-wrapper--with-3d
+          {{if this.show3DVisualization 'shw-is-3d' 'shw-is-flat'}}"
+      >
         <Hds::AppFrame as |Frame|>
           <Frame.Header>
             <Shw::Placeholder @height="60px" @text="header" @background="#e5ffd2" />
