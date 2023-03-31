@@ -13,11 +13,7 @@ module(
   function (hooks) {
     setupRenderingTest(hooks);
 
-    test('it renders the task indicator', async function (assert) {
-      await render(hbs`<Hds::Stepper::Task::Indicator @status="incomplete" />`);
-      assert.dom(this.element).exists();
-    });
-    test('it should render with a CSS class that matches the component name', async function (assert) {
+    test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
         hbs`<Hds::Stepper::Task::Indicator id="test-stepper-indicator-task" @status="incomplete" />`
       );

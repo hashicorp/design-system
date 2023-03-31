@@ -15,7 +15,7 @@ module('Integration | Component | hds/icon-tile/index', function (hooks) {
     resetOnerror();
   });
 
-  test('it should render with a CSS class that matches the component name', async function (assert) {
+  test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(hbs`<Hds::IconTile @icon="dashboard" id="test-icon-tile" />`);
     assert.dom('div#test-icon-tile').hasClass('hds-icon-tile');
   });

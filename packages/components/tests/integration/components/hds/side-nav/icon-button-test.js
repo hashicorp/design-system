@@ -17,18 +17,13 @@ module('Integration | Component | hds/side-nav/icon-button', function (hooks) {
 
   // Basic
 
-  test('it renders the component', async function (assert) {
+  test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::IconButton @icon="search" @ariaLabel="Search" />`
+      hbs`<Hds::SideNav::IconButton @icon="search" @ariaLabel="Search" id="test-side-nav-icon-button" />`
     );
-    assert.dom(this.element).exists();
-  });
-
-  test('it should render with a CSS class that matches the component name', async function (assert) {
-    await render(
-      hbs`<Hds::SideNav::IconButton @icon="search" @ariaLabel="Search" />`
-    );
-    assert.dom('.hds-side-nav__icon-button').exists();
+    assert
+      .dom('#test-side-nav-icon-button')
+      .hasClass('hds-side-nav__icon-button');
   });
 
   // Test Content / Args

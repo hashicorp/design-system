@@ -11,9 +11,9 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | hds/form/fieldset/index', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders the component', async function (assert) {
+  test('it should render the component with an appropriate CSS class', async function (assert) {
     await render(hbs`<Hds::Form::Fieldset id="test-form-fieldset" />`);
-    assert.dom('#test-form-fieldset').exists();
+    assert.dom('#test-form-fieldset').hasClass('hds-form-group');
   });
   test('it renders the element as <fieldset>', async function (assert) {
     await render(hbs`<Hds::Form::Fieldset id="test-form-fieldset" />`);

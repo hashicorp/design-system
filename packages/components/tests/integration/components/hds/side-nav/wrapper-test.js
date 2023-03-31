@@ -13,12 +13,7 @@ module('Integration | Component | hds/side-nav/wrapper', function (hooks) {
 
   // Basic:
 
-  test('it renders the component', async function (assert) {
-    await render(hbs`<Hds::SideNav::Wrapper />`);
-    assert.dom(this.element).exists();
-  });
-
-  test('it should render with a CSS class that matches the component name', async function (assert) {
+  test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(hbs`<Hds::SideNav::Wrapper id="test-side-nav" />`);
     assert.dom('#test-side-nav').hasClass('hds-side-nav__wrapper');
   });

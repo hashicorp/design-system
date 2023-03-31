@@ -15,13 +15,7 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
     resetOnerror();
   });
 
-  test('it renders the component', async function (assert) {
-    await render(
-      hbs`<Hds::Form::RadioCard::Group id="test-radio-card-group" />`
-    );
-    assert.dom('#test-radio-card-group').exists();
-  });
-  test('it should render with a CSS class that matches the component name', async function (assert) {
+  test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
       hbs`<Hds::Form::RadioCard::Group id="test-radio-card-group" />`
     );
