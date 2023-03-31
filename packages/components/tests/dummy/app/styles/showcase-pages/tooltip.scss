@@ -1,0 +1,14 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// TOOLTIP
+
+.components-tooltip {
+  // openers
+  div[tabindex="0"],
+  p[tabindex="0"] {
+    outline: 1px dashed #ccc;
+  }
+}
