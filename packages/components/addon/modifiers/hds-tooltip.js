@@ -43,6 +43,27 @@ export default class HdsTooltipModifier extends Modifier {
     registerDestructor(this, cleanup);
   }
 
+  hideOnEsc = {
+    name: 'hideOnEsc',
+    defaultValue: true,
+    fn({ hide }) {
+      function onKeyDown(event) {
+        if (event.keyCode === 27) {
+          hide();
+        }
+      }
+
+      return {
+        onShow() {
+          document.addEventListener('keydown', onKeyDown);
+        },
+        onHide() {
+          document.removeEventListener('keydown', onKeyDown);
+        },
+      };
+    },
+  };
+
   modify(element, positional, named) {
     assert('Tooltip must have an element', element);
 
@@ -117,9 +138,17 @@ export default class HdsTooltipModifier extends Modifier {
       theme: 'hcp',
       triggerTarget: $trigger,
       arrow: true,
+      // keeps tooltip itself open on hover:
+      interactive: true,
+      // fix accessibility features that get messed up with setting interactive: true
+      aria: {
+        content: 'describedby',
+        expanded: null,
+      },
       content: () => content,
       plugins: [
         typeof options.followCursor !== 'undefined' ? followCursor : undefined,
+        this.hideOnEsc,
       ].filter((item) => Boolean(item)),
       ...options,
     };
