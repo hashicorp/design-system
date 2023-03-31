@@ -165,5 +165,19 @@ module(
         throw new Error(errorMessage);
       });
     });
+    test('it should throw an assertion if an incorrect value for @size is provided', async function (assert) {
+      const errorMessage =
+        '@size for "Hds::Dropdown::Toggle::Button" must be one of the following: small, medium; received: foo';
+      assert.expect(2);
+      setupOnerror(function (error) {
+        assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+      });
+      await render(
+        hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" @size="foo" />`
+      );
+      assert.throws(function () {
+        throw new Error(errorMessage);
+      });
+    });
   }
 );

@@ -178,14 +178,29 @@
   <Shw::Text::H3>Icon</Shw::Text::H3>
 
   <Shw::Flex as |SF|>
-    <SF.Item @label="With icon + chevron">
+    <SF.Item @label="With icon + chevron, small">
+      <Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" @size="small" />
+    </SF.Item>
+    <SF.Item @label="With icon + chevron, medium">
       <Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" />
     </SF.Item>
-    <SF.Item @label="Icon only">
-      <Hds::Dropdown::Toggle::Icon @icon="more-horizontal" @hasChevron={{false}} @text="overflow menu" />
+  </Shw::Flex>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="With image (avatar), small">
+      <Hds::Dropdown::Toggle::Icon @imageSrc="/assets/images/avatar.png" @text="user menu" @size="small" />
     </SF.Item>
-    <SF.Item @label="With image (avatar)">
+    <SF.Item @label="With image (avatar), medium">
       <Hds::Dropdown::Toggle::Icon @imageSrc="/assets/images/avatar.png" @text="user menu" />
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Icon only, small">
+      <Hds::Dropdown::Toggle::Icon @icon="more-horizontal" @hasChevron={{false}} @text="overflow menu" @size="small" />
+    </SF.Item>
+    <SF.Item @label="Icon only, medium">
+      <Hds::Dropdown::Toggle::Icon @icon="more-horizontal" @hasChevron={{false}} @text="overflow menu" />
     </SF.Item>
   </Shw::Flex>
 

@@ -1,5 +1,49 @@
 # @hashicorp/design-system-components
 
+## 2.0.0
+
+### Major Changes
+
+- [#1185](https://github.com/hashicorp/design-system/pull/1185) [`a883e7fd7`](https://github.com/hashicorp/design-system/commit/a883e7fd763ae7a93ecc5ef3d49ed0230b48ea11) Thanks [@alex-ju](https://github.com/alex-ju)! - Add `Checkmark`, `Checkbox` and `Radio` as `Hds::Dropdown::ListItem`s
+
+  Rename `Hds::Dropdown::ListItem` internal CSS classes as follows:
+
+  - `hds-dropdown-list-item--copy-item` → `hds-dropdown-list-item--variant-copy-item`
+  - `hds-dropdown-list-item--description` → `hds-dropdown-list-item--variant-description`
+  - `hds-dropdown-list-item--generic` → `hds-dropdown-list-item--variant-generic`
+  - `hds-dropdown-list-item--interactive` → `hds-dropdown-list-item--variant-interactive`
+  - `hds-dropdown-list-item--separator` → `hds-dropdown-list-item--variant-separator`
+  - `hds-dropdown-list-item--title` → `hds-dropdown-list-item--variant-title`
+
+  **Note:** If test assertions are relying on these class names, tests will fail. If extensions/overrides have been applied to these classes, they will suffer visual changes.
+
+- [#1212](https://github.com/hashicorp/design-system/pull/1212) [`6e79216a8`](https://github.com/hashicorp/design-system/commit/6e79216a880ae140cce15f1dc6494f0aeca8e0b8) Thanks [@alex-ju](https://github.com/alex-ju)! - Add `Hds::Dropdown::Header` and `Hds::Dropdown::Footer` as generic blocks to `Hds::Dropdown`
+
+  Rename `Hds::Dropdown` internal CSS class `hds-dropdown-list` → `hds-dropdown__list`
+
+  The `hds-dropdown__list` element is now wrapped in a `hds-dropdown__content` element to accommodate the new header and footer elements. As a result, the following modifiers will be applied to the wrapper element.
+
+  - `hds-dropdown-list--fixed-width` → `hds-dropdown__content--fixed-width`
+  - `hds-dropdown-list--position-left` → `hds-dropdown__content--position-left`
+  - `hds-dropdown-list--position-right` → `hds-dropdown__content--position-right`
+
+  **Note:** If test assertions are relying on these class names, tests will fail. If extensions/overrides have been applied to these classes, they will suffer visual changes.
+
+### Minor Changes
+
+- [#1266](https://github.com/hashicorp/design-system/pull/1266) [`082842b59`](https://github.com/hashicorp/design-system/commit/082842b59321f843c4955e4cdaf2ce2674a8913d) Thanks [@alex-ju](https://github.com/alex-ju)! - Add `@icon`, `@count`, `@badge` and `@badgeCount` to `Dropdown::Toggle::Button`
+
+- [#1276](https://github.com/hashicorp/design-system/pull/1276) [`5ad29412d`](https://github.com/hashicorp/design-system/commit/5ad29412d2edc0cc4265d3c0bbbf388e821f1cc7) Thanks [@alex-ju](https://github.com/alex-ju)! - Allow small `@size` on `Dropdown::ToggleIcon`
+
+- [#1262](https://github.com/hashicorp/design-system/pull/1262) [`3eb78b8de`](https://github.com/hashicorp/design-system/commit/3eb78b8de7c678cff977c9d3a677c47a3216caad) Thanks [@alex-ju](https://github.com/alex-ju)! - Add new `@listPositions` for `Dropdown` as follows:
+
+  - `bottom-left`
+  - `bottom-right` (default)
+  - `top-left`
+  - `top-right`
+
+  **Note:** `left` and `right` are now deprecated and will be removed in a future major release
+
 ## 1.8.1
 
 ### Patch Changes
