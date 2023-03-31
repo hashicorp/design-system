@@ -9,57 +9,267 @@
 
 <section data-test-percy>
 
-  <Shw::Text::H2>Toggles</Shw::Text::H2>
-
-  <Shw::Text::H3>Button</Shw::Text::H3>
+  <Shw::Text::H2>Position</Shw::Text::H2>
 
   <Shw::Flex as |SF|>
-    <SF.Item @label="Primary">
-      <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" />
+    <SF.Item @label="Bottom left">
+      <Hds::Dropdown @listPosition="bottom-left" as |dd|>
+        <dd.ToggleButton @color="secondary" @text="Menu" />
+        <dd.Interactive @href="#" @text="Create" />
+        <dd.Interactive @href="#" @text="Edit" />
+      </Hds::Dropdown>
     </SF.Item>
-    <SF.Item @label="Secondary">
-      <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @color="secondary" />
+    <SF.Item @label="Bottom right (default)">
+      <Hds::Dropdown as |dd|>
+        <dd.ToggleButton @color="secondary" @text="Menu" />
+        <dd.Interactive @href="#" @text="Create" />
+        <dd.Interactive @href="#" @text="Edit" />
+      </Hds::Dropdown>
+    </SF.Item>
+    <SF.Item @label="Top left">
+      <Hds::Dropdown @listPosition="top-left" as |dd|>
+        <dd.ToggleButton @color="secondary" @text="Menu" />
+        <dd.Interactive @href="#" @text="Create" />
+        <dd.Interactive @href="#" @text="Edit" />
+      </Hds::Dropdown>
+    </SF.Item>
+    <SF.Item @label="Top right">
+      <Hds::Dropdown @listPosition="top-right" as |dd|>
+        <dd.ToggleButton @color="secondary" @text="Menu" />
+        <dd.Interactive @href="#" @text="Create" />
+        <dd.Interactive @href="#" @text="Edit" />
+      </Hds::Dropdown>
     </SF.Item>
   </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Toggles</Shw::Text::H2>
+
   <Shw::Flex as |SF|>
     <SF.Item @label="Primary small">
       <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @size="small" />
     </SF.Item>
-    <SF.Item @label="Secondary small">
-      <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @size="small" @color="secondary" />
+    <SF.Item @label="Primary medium">
+      <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" />
+    </SF.Item>
+    <SF.Item @label="Primary full width">
+      <Shw::Outliner {{style width="300px"}}>
+        <Hds::Dropdown::Toggle::Button @isFullWidth={{true}} @text="Lorem ipsum" />
+      </Shw::Outliner>
     </SF.Item>
   </Shw::Flex>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Secondary small">
+      <Hds::Dropdown::Toggle::Button @color="secondary" @text="Lorem ipsum" @size="small" />
+    </SF.Item>
+    <SF.Item @label="Secondary medium">
+      <Hds::Dropdown::Toggle::Button @color="secondary" @text="Lorem ipsum" />
+    </SF.Item>
+    <SF.Item @label="Secondary full width">
+      <Shw::Outliner {{style width="300px"}}>
+        <Hds::Dropdown::Toggle::Button @color="secondary" @isFullWidth={{true}} @text="Lorem ipsum" />
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H4>With icon</Shw::Text::H4>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Primary small">
+      <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem ipsum" @size="small" />
+    </SF.Item>
+    <SF.Item @label="Primary medium">
+      <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem ipsum" />
+    </SF.Item>
+    <SF.Item @label="Primary full width">
+      <Shw::Outliner {{style width="300px"}}>
+        <Hds::Dropdown::Toggle::Button @icon="hexagon" @isFullWidth={{true}} @text="Lorem ipsum" />
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Secondary small">
+      <Hds::Dropdown::Toggle::Button @color="secondary" @icon="hexagon" @text="Lorem ipsum" @size="small" />
+    </SF.Item>
+    <SF.Item @label="Secondary medium">
+      <Hds::Dropdown::Toggle::Button @color="secondary" @icon="hexagon" @text="Lorem ipsum" />
+    </SF.Item>
+    <SF.Item @label="Secondary full width">
+      <Shw::Outliner {{style width="300px"}}>
+        <Hds::Dropdown::Toggle::Button @color="secondary" @icon="hexagon" @isFullWidth={{true}} @text="Lorem ipsum" />
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H4>With count</Shw::Text::H4>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Primary small">
+      <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @count="12" @size="small" />
+    </SF.Item>
+    <SF.Item @label="Primary medium">
+      <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @count="12" />
+    </SF.Item>
+    <SF.Item @label="Primary full width">
+      <Shw::Outliner {{style width="300px"}}>
+        <Hds::Dropdown::Toggle::Button @isFullWidth={{true}} @text="Lorem ipsum" @count="12" />
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Secondary small">
+      <Hds::Dropdown::Toggle::Button @color="secondary" @text="Lorem ipsum" @count="12" @size="small" />
+    </SF.Item>
+    <SF.Item @label="Secondary medium">
+      <Hds::Dropdown::Toggle::Button @color="secondary" @text="Lorem ipsum" @count="12" />
+    </SF.Item>
+    <SF.Item @label="Secondary full width">
+      <Shw::Outliner {{style width="300px"}}>
+        <Hds::Dropdown::Toggle::Button @color="secondary" @isFullWidth={{true}} @text="Lorem ipsum" @count="12" />
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H4>With badge</Shw::Text::H4>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Primary small">
+      <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @badge="Badge" @badgeIcon="hexagon" @size="small" />
+    </SF.Item>
+    <SF.Item @label="Primary medium">
+      <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @badge="Badge" @badgeIcon="hexagon" />
+    </SF.Item>
+    <SF.Item @label="Primary full width">
+      <Shw::Outliner {{style width="300px"}}>
+        <Hds::Dropdown::Toggle::Button @isFullWidth={{true}} @text="Lorem ipsum" @badge="Badge" @badgeIcon="hexagon" />
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Secondary small">
+      <Hds::Dropdown::Toggle::Button
+        @color="secondary"
+        @text="Lorem ipsum"
+        @badge="Badge"
+        @badgeIcon="hexagon"
+        @size="small"
+      />
+    </SF.Item>
+    <SF.Item @label="Secondary medium">
+      <Hds::Dropdown::Toggle::Button @color="secondary" @text="Lorem ipsum" @badge="Badge" @badgeIcon="hexagon" />
+    </SF.Item>
+    <SF.Item @label="Secondary full width">
+      <Shw::Outliner {{style width="300px"}}>
+        <Hds::Dropdown::Toggle::Button
+          @color="secondary"
+          @isFullWidth={{true}}
+          @text="Lorem ipsum"
+          @badge="Badge"
+          @badgeIcon="hexagon"
+        />
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Icon</Shw::Text::H3>
 
   <Shw::Flex as |SF|>
-    <SF.Item @label="With icon + chevron">
+    <SF.Item @label="With icon + chevron, small">
+      <Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" @size="small" />
+    </SF.Item>
+    <SF.Item @label="With icon + chevron, medium">
       <Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" />
     </SF.Item>
-    <SF.Item @label="Icon only">
-      <Hds::Dropdown::Toggle::Icon @icon="more-horizontal" @hasChevron={{false}} @text="overflow menu" />
+  </Shw::Flex>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="With image (avatar), small">
+      <Hds::Dropdown::Toggle::Icon @imageSrc="/assets/images/avatar.png" @text="user menu" @size="small" />
     </SF.Item>
-    <SF.Item @label="With image (avatar)">
+    <SF.Item @label="With image (avatar), medium">
       <Hds::Dropdown::Toggle::Icon @imageSrc="/assets/images/avatar.png" @text="user menu" />
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Icon only, small">
+      <Hds::Dropdown::Toggle::Icon @icon="more-horizontal" @hasChevron={{false}} @text="overflow menu" @size="small" />
+    </SF.Item>
+    <SF.Item @label="Icon only, medium">
+      <Hds::Dropdown::Toggle::Icon @icon="more-horizontal" @hasChevron={{false}} @text="overflow menu" />
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>States</Shw::Text::H3>
 
-  <Shw::Grid @columns="5" as |SG|>
+  <Shw::Grid @columns="6" class="shw-component-dropdown-states-matrix" as |SG|>
+
+    {{! Notice: we use a non-standard way to showcase the states to reduce the (visual) complexity of this matrix }}
+
+    {{#each @model.TOGGLE_STATES as |state|}}
+      <SG.Item>
+        <span class="shw-label">{{capitalize state}}</span>
+      </SG.Item>
+    {{/each}}
+    <SG.Item>
+      <span class="shw-label">Open</span>
+    </SG.Item>
+
     {{#each @model.TOGGLE_BUTTON_COLORS as |color|}}
       {{#each @model.TOGGLE_STATES as |state|}}
-        <SG.Item @label="{{capitalize color}} / {{capitalize state}}">
+        <SG.Item @label="{{capitalize color}}">
           <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @color={{color}} mock-state-value={{state}} />
         </SG.Item>
       {{/each}}
-      <SG.Item @label="{{color}}/open">
+      <SG.Item @label="{{capitalize color}}">
         <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @isOpen={{true}} @color={{color}} />
+      </SG.Item>
+      {{#each @model.TOGGLE_STATES as |state|}}
+        <SG.Item @label="With icon">
+          <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem" @color={{color}} mock-state-value={{state}} />
+        </SG.Item>
+      {{/each}}
+      <SG.Item @label="With icon">
+        <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem" @isOpen={{true}} @color={{color}} />
+      </SG.Item>
+      {{#each @model.TOGGLE_STATES as |state|}}
+        <SG.Item @label="With count">
+          <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @color={{color}} mock-state-value={{state}} />
+        </SG.Item>
+      {{/each}}
+      <SG.Item @label="With count">
+        <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @isOpen={{true}} @color={{color}} />
+      </SG.Item>
+      {{#each @model.TOGGLE_STATES as |state|}}
+        <SG.Item @label="With badge">
+          <Hds::Dropdown::Toggle::Button
+            @badge="Sit"
+            @badgeIcon="hexagon"
+            @text="Lorem"
+            @color={{color}}
+            mock-state-value={{state}}
+          />
+        </SG.Item>
+      {{/each}}
+      <SG.Item @label="With badge">
+        <Hds::Dropdown::Toggle::Button
+          @badge="Sit"
+          @badgeIcon="hexagon"
+          @text="Lorem"
+          @isOpen={{true}}
+          @color={{color}}
+        />
       </SG.Item>
     {{/each}}
 
     {{#each @model.TOGGLE_STATES as |state|}}
-      <SG.Item @label="Icon / {{capitalize state}}">
+      <SG.Item @label="Icon">
         <Hds::Dropdown::Toggle::Icon
           @icon="more-horizontal"
           @text="overflow menu"
@@ -68,7 +278,7 @@
         />
       </SG.Item>
     {{/each}}
-    <SG.Item @label="Icon/open">
+    <SG.Item @label="Icon">
       <Hds::Dropdown::Toggle::Icon
         @icon="more-horizontal"
         @text="overflow menu"
@@ -78,20 +288,20 @@
     </SG.Item>
 
     {{#each @model.TOGGLE_STATES as |state|}}
-      <SG.Item @label="Icon+chevron / {{capitalize state}}">
+      <SG.Item @label="Icon+chevron">
         <Hds::Dropdown::Toggle::Icon @icon="user" @text={{state}} mock-state-value={{state}} />
       </SG.Item>
     {{/each}}
-    <SG.Item @label="Icon+chevron/open">
+    <SG.Item @label="Icon+chevron">
       <Hds::Dropdown::Toggle::Icon @icon="user" @text="open" @isOpen={{true}} />
     </SG.Item>
 
     {{#each @model.TOGGLE_STATES as |state|}}
-      <SG.Item @label="Avatar+chevron / {{capitalize state}}">
+      <SG.Item @label="Avatar+chevron">
         <Hds::Dropdown::Toggle::Icon @text={{state}} @imageSrc="/assets/images/avatar.png" mock-state-value={{state}} />
       </SG.Item>
     {{/each}}
-    <SG.Item @label="Avatar+chevron/open">
+    <SG.Item @label="Avatar+chevron">
       <Hds::Dropdown::Toggle::Icon @text="open" @isOpen={{true}} @imageSrc="/assets/images/avatar.png" />
     </SG.Item>
   </Shw::Grid>
@@ -104,46 +314,54 @@
 
   <Shw::Flex as |SF|>
     <SF.Item @label="Default (min width)">
-      <ul class="hds-dropdown-list">
-        <Hds::Dropdown::ListItem::Title @text="A simple title" />
-        <Hds::Dropdown::ListItem::Description @text="A description." />
-        <Hds::Dropdown::ListItem::Separator />
-        <Hds::Dropdown::ListItem::Interactive @route="index" @text="Item" />
-      </ul>
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Title @text="A simple title" />
+          <Hds::Dropdown::ListItem::Description @text="A description." />
+          <Hds::Dropdown::ListItem::Separator />
+          <Hds::Dropdown::ListItem::Interactive @route="index" @text="Item" />
+        </ul>
+      </div>
     </SF.Item>
     <SF.Item @label="Default (max width)">
-      <ul class="hds-dropdown-list">
-        <Hds::Dropdown::ListItem::Title
-          @text="A longer title that could span multiple lines if the characters surpass a certain length"
-        />
-        <Hds::Dropdown::ListItem::Description
-          @text="A longer description that could span on multiple lines if the number of characters require more width than the dropdown provides by default."
-        />
-        <Hds::Dropdown::ListItem::Separator />
-        <Hds::Dropdown::ListItem::Interactive
-          @route="index"
-          @text="A longer item that could span multiple lines if the characters surpass a certain length"
-        />
-      </ul>
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Title
+            @text="A longer title that could span multiple lines if the characters surpass a certain length"
+          />
+          <Hds::Dropdown::ListItem::Description
+            @text="A longer description that could span on multiple lines if the number of characters require more width than the dropdown provides by default."
+          />
+          <Hds::Dropdown::ListItem::Separator />
+          <Hds::Dropdown::ListItem::Interactive
+            @route="index"
+            @text="A longer item that could span multiple lines if the characters surpass a certain length"
+          />
+        </ul>
+      </div>
     </SF.Item>
     <SF.Item @label="Fixed width">
       {{! template-lint-disable no-inline-styles }}
-      <ul class="hds-dropdown-list" style="width: 250px">
-        <Hds::Dropdown::ListItem::Title
-          @text="A longer title that could span multiple lines if the characters surpass a certain length"
-        />
-        <Hds::Dropdown::ListItem::Description
-          @text="A longer description that could span on multiple lines if the number of characters require more width than the dropdown provides by default."
-        />
-        <Hds::Dropdown::ListItem::Separator />
-        <Hds::Dropdown::ListItem::Interactive
-          @route="index"
-          @text="A longer item that could span multiple lines if the characters surpass a certain length"
-        />
-      </ul>
+      <div class="hds-dropdown__content" style="width: 250px">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Title
+            @text="A longer title that could span multiple lines if the characters surpass a certain length"
+          />
+          <Hds::Dropdown::ListItem::Description
+            @text="A longer description that could span on multiple lines if the number of characters require more width than the dropdown provides by default."
+          />
+          <Hds::Dropdown::ListItem::Separator />
+          <Hds::Dropdown::ListItem::Interactive
+            @route="index"
+            @text="A longer item that could span multiple lines if the characters surpass a certain length"
+          />
+        </ul>
+      </div>
       {{! template-lint-enable no-inline-styles }}
     </SF.Item>
   </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Interactive</Shw::Text::H3>
 
@@ -152,18 +370,22 @@
   <Shw::Flex as |SF|>
     <SF.Item>
       <Shw::Label>Default ⇒ <code>&lt;button&gt;</code></Shw::Label>
-      <ul class="hds-dropdown-list">
-        <Hds::Dropdown::ListItem::Interactive @text="Lorem ipsum dolor" />
-      </ul>
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Interactive @text="Lorem ipsum dolor" />
+        </ul>
+      </div>
     </SF.Item>
     <SF.Item>
       <Shw::Label>With
         <code>@href</code>
         ⇒
         <code>&lt;a&gt;</code></Shw::Label>
-      <ul class="hds-dropdown-list">
-        <Hds::Dropdown::ListItem::Interactive @href="/" @text="Lorem ipsum dolor" />
-      </ul>
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Interactive @href="/" @text="Lorem ipsum dolor" />
+        </ul>
+      </div>
     </SF.Item>
     <SF.Item>
       <Shw::Label>With
@@ -172,9 +394,11 @@
         <code>&lt;LinkTo&gt;</code>
         ⇒
         <code>&lt;a&gt;</code></Shw::Label>
-      <ul class="hds-dropdown-list">
-        <Hds::Dropdown::ListItem::Interactive @route="components.dropdown" @text="Lorem ipsum dolor" />
-      </ul>
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Interactive @route="components.dropdown" @text="Lorem ipsum dolor" />
+        </ul>
+      </div>
     </SF.Item>
   </Shw::Flex>
 
@@ -182,14 +406,18 @@
 
   <Shw::Flex as |SF|>
     <SF.Item @label="Action (default)">
-      <ul class="hds-dropdown-list">
-        <Hds::Dropdown::ListItem::Interactive @icon="settings" @text="Lorem ipsum dolor" @color="action" />
-      </ul>
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Interactive @icon="settings" @text="Lorem ipsum dolor" @color="action" />
+        </ul>
+      </div>
     </SF.Item>
     <SF.Item @label="Critical">
-      <ul class="hds-dropdown-list">
-        <Hds::Dropdown::ListItem::Interactive @icon="trash" @text="Lorem ipsum dolor" @color="critical" />
-      </ul>
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Interactive @icon="trash" @text="Lorem ipsum dolor" @color="critical" />
+        </ul>
+      </div>
     </SF.Item>
   </Shw::Flex>
 
@@ -200,61 +428,73 @@
       <SF.Item @label={{capitalize color}}>
         <Shw::Flex as |SF|>
           <SF.Item>
-            <ul class="hds-dropdown-list">
-              {{#each @model.ITEM_STATES as |state|}}
-                <Hds::Dropdown::ListItem::Interactive @text={{state}} @color={{color}} mock-state-value={{state}} />
-              {{/each}}
-              <Hds::Dropdown::ListItem::Separator />
-              <Hds::Dropdown::ListItem::Interactive @text="loading" @color={{color}} @isLoading={{true}} />
-            </ul>
+            <div class="hds-dropdown__content">
+              <ul class="hds-dropdown__list">
+                {{#each @model.ITEM_STATES as |state|}}
+                  <Hds::Dropdown::ListItem::Interactive @text={{state}} @color={{color}} mock-state-value={{state}} />
+                {{/each}}
+                <Hds::Dropdown::ListItem::Separator />
+                <Hds::Dropdown::ListItem::Interactive @text="loading" @color={{color}} @isLoading={{true}} />
+              </ul>
+            </div>
           </SF.Item>
           <SF.Item>
-            <ul class="hds-dropdown-list">
-              {{#each @model.ITEM_STATES as |state|}}
+            <div class="hds-dropdown__content">
+              <ul class="hds-dropdown__list">
+                {{#each @model.ITEM_STATES as |state|}}
+                  <Hds::Dropdown::ListItem::Interactive
+                    @icon={{if (eq color "critical") "trash" "settings"}}
+                    @text="{{state}} with icon"
+                    @color={{color}}
+                    mock-state-value={{state}}
+                  />
+                {{/each}}
+                <Hds::Dropdown::ListItem::Separator />
                 <Hds::Dropdown::ListItem::Interactive
                   @icon={{if (eq color "critical") "trash" "settings"}}
-                  @text="{{state}} with icon"
+                  @text="loading with icon"
                   @color={{color}}
-                  mock-state-value={{state}}
+                  @isLoading={{true}}
                 />
-              {{/each}}
-              <Hds::Dropdown::ListItem::Separator />
-              <Hds::Dropdown::ListItem::Interactive
-                @icon={{if (eq color "critical") "trash" "settings"}}
-                @text="loading with icon"
-                @color={{color}}
-                @isLoading={{true}}
-              />
-            </ul>
+              </ul>
+            </div>
           </SF.Item>
           <SF.Item>
-            <ul class="hds-dropdown-list">
-              {{#each @model.ITEM_STATES as |state|}}
-                <Hds::Dropdown::ListItem::Interactive
-                  @icon={{if (eq color "critical") "trash" "settings"}}
-                  @text="{{state}} with a longer text string that may wrap since max-width is defined on the container"
-                  @color={{color}}
-                  mock-state-value={{state}}
-                />
-              {{/each}}
-            </ul>
+            <div class="hds-dropdown__content">
+              <ul class="hds-dropdown__list">
+                {{#each @model.ITEM_STATES as |state|}}
+                  <Hds::Dropdown::ListItem::Interactive
+                    @icon={{if (eq color "critical") "trash" "settings"}}
+                    @text="{{state}} with a longer text string that may wrap since max-width is defined on the container"
+                    @color={{color}}
+                    mock-state-value={{state}}
+                  />
+                {{/each}}
+              </ul>
+            </div>
           </SF.Item>
         </Shw::Flex>
       </SF.Item>
     </Shw::Flex>
   {{/each}}
 
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>Generic</Shw::Text::H3>
 
   <Shw::Flex as |SF|>
     <SF.Item>
-      <ul class="hds-dropdown-list">
-        <Hds::Dropdown::ListItem::Generic>
-          <Shw::Placeholder @text="some generic content here" @width="200" @height="40" @background="#e1f5fe" />
-        </Hds::Dropdown::ListItem::Generic>
-      </ul>
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Generic>
+            <Shw::Placeholder @text="some generic content here" @width="200" @height="40" @background="#e1f5fe" />
+          </Hds::Dropdown::ListItem::Generic>
+        </ul>
+      </div>
     </SF.Item>
   </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>CopyItem</Shw::Text::H3>
 
@@ -264,19 +504,23 @@
     <SF.Item @label="Base">
       {{! Notice: we want to emulate the case of a fixed width list }}
       {{! template-lint-disable no-inline-styles }}
-      <ul class="hds-dropdown-list" style="width: 250px">
-        <Hds::Dropdown::ListItem::CopyItem @text="91ee1e8ef65b337f0e70d793f456c71d" />
-      </ul>
+      <div class="hds-dropdown__content" style="width: 250px">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::CopyItem @text="91ee1e8ef65b337f0e70d793f456c71d" />
+        </ul>
+      </div>
       {{! template-lint-enable no-inline-styles }}
     </SF.Item>
     <SF.Item @label="With 'copyItemTitle'">
       {{! template-lint-disable no-inline-styles }}
-      <ul class="hds-dropdown-list" style="width: 250px">
-        <Hds::Dropdown::ListItem::CopyItem
-          @copyItemTitle="Lorem ipsum dolor"
-          @text="91ee1e8ef65b337f0e70d793f456c71d"
-        />
-      </ul>
+      <div class="hds-dropdown__content" style="width: 250px">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::CopyItem
+            @copyItemTitle="Lorem ipsum dolor"
+            @text="91ee1e8ef65b337f0e70d793f456c71d"
+          />
+        </ul>
+      </div>
       {{! template-lint-enable no-inline-styles }}
     </SF.Item>
   </Shw::Flex>
@@ -287,23 +531,724 @@
     <SF.Item>
       {{! Notice: we want to emulate the case of a fixed width list }}
       {{! template-lint-disable no-inline-styles }}
-      <ul class="hds-dropdown-list" style="width: 250px">
-        {{#each @model.ITEM_STATES as |state|}}
+      <div class="hds-dropdown__content" style="width: 250px">
+        <ul class="hds-dropdown__list">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::CopyItem
+              @text="{{state}}: 91ee1e8ef65b337f0e70d793f456c71d"
+              mock-state-value={{state}}
+              mock-state-selector="button"
+            />
+          {{/each}}
           <Hds::Dropdown::ListItem::CopyItem
-            @text="{{state}}: 91ee1e8ef65b337f0e70d793f456c71d"
-            mock-state-value={{state}}
+            @text="success: 91ee1e8ef65b337f0e70d793f456c71d91ee1e8ef65b337f0e70d793f456c71d91ee1e8ef65b337f0e70d793f456c71d"
+            @isSuccess={{true}}
+            mock-state-value="success"
             mock-state-selector="button"
           />
-        {{/each}}
-        <Hds::Dropdown::ListItem::CopyItem
-          @text="success: 91ee1e8ef65b337f0e70d793f456c71d91ee1e8ef65b337f0e70d793f456c71d91ee1e8ef65b337f0e70d793f456c71d"
-          @isSuccess={{true}}
-          mock-state-value="success"
-          mock-state-selector="button"
-        />
-      </ul>
+        </ul>
+      </div>
       {{! template-lint-enable no-inline-styles }}
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Checkmark</Shw::Text::H3>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Default">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list" role="listbox" aria-label="Default">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}}>
+              {{state}}
+            </Hds::Dropdown::ListItem::Checkmark>
+          {{/each}}
+          <Hds::Dropdown::ListItem::Checkmark mock-state-value="disabled" disabled>
+            disabled
+          </Hds::Dropdown::ListItem::Checkmark>
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Selected">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list" role="listbox" aria-label="Selected">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @selected={{true}}>
+              {{state}}
+            </Hds::Dropdown::ListItem::Checkmark>
+          {{/each}}
+          <Hds::Dropdown::ListItem::Checkmark mock-state-value="disabled" @selected={{true}} disabled>
+            disabled
+          </Hds::Dropdown::ListItem::Checkmark>
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Icon">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list" role="listbox" aria-label="Icon">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Checkmark @icon="hexagon" mock-state-value={{state}}>
+              {{state}}
+            </Hds::Dropdown::ListItem::Checkmark>
+          {{/each}}
+          <Hds::Dropdown::ListItem::Checkmark @icon="hexagon" mock-state-value="disabled" disabled>
+            disabled
+          </Hds::Dropdown::ListItem::Checkmark>
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Icon, selected">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list" role="listbox" aria-label="Icon, selected">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Checkmark @icon="hexagon" mock-state-value={{state}} @selected={{true}}>
+              {{state}}
+            </Hds::Dropdown::ListItem::Checkmark>
+          {{/each}}
+          <Hds::Dropdown::ListItem::Checkmark @icon="hexagon" mock-state-value="disabled" @selected={{true}} disabled>
+            disabled
+          </Hds::Dropdown::ListItem::Checkmark>
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Count">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list" role="listbox" aria-label="Count">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @count="12">
+              {{state}}
+            </Hds::Dropdown::ListItem::Checkmark>
+          {{/each}}
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Count, selected">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list" role="listbox" aria-label="Count, selected">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @selected={{true}} @count="12">
+              {{state}}
+            </Hds::Dropdown::ListItem::Checkmark>
+          {{/each}}
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Custom content">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list" role="listbox" aria-label="Custom content">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @count="12">
+              <Shw::Placeholder @text="custom content" @width="128" @height="20" @background="#eee" />
+            </Hds::Dropdown::ListItem::Checkmark>
+          {{/each}}
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Custom content, selected">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list" role="listbox" aria-label="Custom content, selected">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @selected={{true}} @count="12">
+              <Shw::Placeholder @text="custom content" @width="128" @height="20" @background="#eee" />
+            </Hds::Dropdown::ListItem::Checkmark>
+          {{/each}}
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Badge in content">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list" role="listbox" aria-label="Badge in content">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}}>
+              {{state}}
+              <Hds::Badge @icon="org" @text="Private" @size="small" />
+            </Hds::Dropdown::ListItem::Checkmark>
+          {{/each}}
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Badge in content, selected">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list" role="listbox" aria-label="Badge in content, selected">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @selected={{true}}>
+              {{state}}
+              <Hds::Badge @icon="globe" @text="Public" @size="small" @color="highlight" />
+            </Hds::Dropdown::ListItem::Checkmark>
+          {{/each}}
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Large content">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list" role="listbox" aria-label="Large content">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Checkmark
+              mock-state-value={{state}}
+              @icon="hexagon"
+              @selected={{true}}
+              @count="12"
+            >
+              {{state}}
+              with a longer text string that may wrap since max-width is defined on the container
+              <Hds::Badge @text="badge" @size="small" />
+            </Hds::Dropdown::ListItem::Checkmark>
+          {{/each}}
+        </ul>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Interactive">
+      <Hds::Dropdown @listPosition="left" as |dd|>
+        <dd.ToggleButton @text="Checkmark" @color="secondary" />
+        <dd.Checkmark @count="11">virtualbox</dd.Checkmark>
+        <dd.Checkmark @count="1" @selected={{true}}>vmware</dd.Checkmark>
+        <dd.Checkmark @count="10">docker</dd.Checkmark>
+        <dd.Checkmark @count="0">hyperv</dd.Checkmark>
+      </Hds::Dropdown>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Checkbox</Shw::Text::H3>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Default">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}}>
+              {{state}}
+            </Hds::Dropdown::ListItem::Checkbox>
+          {{/each}}
+          <Hds::Dropdown::ListItem::Checkbox mock-state-value="disabled" disabled>
+            disabled
+          </Hds::Dropdown::ListItem::Checkbox>
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Checked">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} checked>
+              {{state}}
+            </Hds::Dropdown::ListItem::Checkbox>
+          {{/each}}
+          <Hds::Dropdown::ListItem::Checkbox mock-state-value="disabled" disabled checked>
+            disabled
+          </Hds::Dropdown::ListItem::Checkbox>
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Icon">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} @icon="hexagon">
+              {{state}}
+            </Hds::Dropdown::ListItem::Checkbox>
+          {{/each}}
+          <Hds::Dropdown::ListItem::Checkbox mock-state-value="disabled" @icon="hexagon" disabled>
+            disabled
+          </Hds::Dropdown::ListItem::Checkbox>
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Icon, checked">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} @icon="hexagon" checked>
+              {{state}}
+            </Hds::Dropdown::ListItem::Checkbox>
+          {{/each}}
+          <Hds::Dropdown::ListItem::Checkbox mock-state-value="disabled" @icon="hexagon" disabled checked>
+            disabled
+          </Hds::Dropdown::ListItem::Checkbox>
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Count">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Checkbox
+              mock-state-value={{state}}
+              @count="12"
+            >{{state}}</Hds::Dropdown::ListItem::Checkbox>
+          {{/each}}
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Count, checked">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Checkbox
+              mock-state-value={{state}}
+              checked
+              @count="12"
+            >{{state}}</Hds::Dropdown::ListItem::Checkbox>
+          {{/each}}
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Custom content">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} @count="12">
+              <Shw::Placeholder @text="custom content" @width="122" @height="20" @background="#eee" />
+            </Hds::Dropdown::ListItem::Checkbox>
+          {{/each}}
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Custom content, checked">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} checked @count="12">
+              <Shw::Placeholder @text="custom content" @width="122" @height="20" @background="#eee" />
+            </Hds::Dropdown::ListItem::Checkbox>
+          {{/each}}
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Badge in label">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}}>
+              {{state}}
+              <Hds::Badge @icon="org" @text="Private" @size="small" />
+            </Hds::Dropdown::ListItem::Checkbox>
+          {{/each}}
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Badge in label, checked">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} checked>
+              {{state}}
+              <Hds::Badge @icon="globe" @text="Public" @size="small" @color="highlight" />
+            </Hds::Dropdown::ListItem::Checkbox>
+          {{/each}}
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Large content">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} @count="12" @icon="hexagon">
+              {{state}}
+              with a longer text string that may wrap since max-width is defined on the container
+              <Hds::Badge @text="badge" @size="small" />
+            </Hds::Dropdown::ListItem::Checkbox>
+          {{/each}}
+        </ul>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Interactive">
+      <Hds::Dropdown @listPosition="left" as |dd|>
+        <dd.ToggleButton @text="Checkbox" @color="secondary" />
+        <dd.Checkbox name="checkbox-item-dropdown" @count="11">virtualbox</dd.Checkbox>
+        <dd.Checkbox name="checkbox-item-dropdown" @count="1" checked>vmware</dd.Checkbox>
+        <dd.Checkbox name="checkbox-item-dropdown" @count="10">docker</dd.Checkbox>
+        <dd.Checkbox name="checkbox-item-dropdown" @count="0">hyperv</dd.Checkbox>
+      </Hds::Dropdown>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Radio</Shw::Text::H3>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Default">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Radio mock-state-value={{state}}>
+              {{state}}
+            </Hds::Dropdown::ListItem::Radio>
+          {{/each}}
+          <Hds::Dropdown::ListItem::Radio mock-state-value="disabled" disabled>
+            disabled
+          </Hds::Dropdown::ListItem::Radio>
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Checked">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} checked>
+              {{state}}
+            </Hds::Dropdown::ListItem::Radio>
+          {{/each}}
+          <Hds::Dropdown::ListItem::Radio mock-state-value="disabled" checked disabled>
+            disabled
+          </Hds::Dropdown::ListItem::Radio>
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Icon">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} @icon="hexagon">
+              {{state}}
+            </Hds::Dropdown::ListItem::Radio>
+          {{/each}}
+          <Hds::Dropdown::ListItem::Radio mock-state-value="disabled" @icon="hexagon" disabled>
+            disabled
+          </Hds::Dropdown::ListItem::Radio>
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Icon, checked">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} checked @icon="hexagon">
+              {{state}}
+            </Hds::Dropdown::ListItem::Radio>
+          {{/each}}
+          <Hds::Dropdown::ListItem::Radio mock-state-value="disabled" @icon="hexagon" checked disabled>
+            disabled
+          </Hds::Dropdown::ListItem::Radio>
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Count">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Radio
+              mock-state-value={{state}}
+              @count="12"
+            >{{state}}</Hds::Dropdown::ListItem::Radio>
+          {{/each}}
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Count, checked">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Radio
+              mock-state-value={{state}}
+              checked
+              @count="12"
+            >{{state}}</Hds::Dropdown::ListItem::Radio>
+          {{/each}}
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Custom content">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} @count="12">
+              <Shw::Placeholder @text="custom content" @width="122" @height="20" @background="#eee" />
+            </Hds::Dropdown::ListItem::Radio>
+          {{/each}}
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Custom content, checked">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} checked @count="12">
+              <Shw::Placeholder @text="custom content" @width="122" @height="20" @background="#eee" />
+            </Hds::Dropdown::ListItem::Radio>
+          {{/each}}
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Badge in label">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Radio mock-state-value={{state}}>
+              {{state}}
+              <Hds::Badge @icon="org" @text="Private" @size="small" />
+            </Hds::Dropdown::ListItem::Radio>
+          {{/each}}
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Badge in label, checked">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} checked>
+              {{state}}
+              <Hds::Badge @icon="globe" @text="Public" @size="small" @color="highlight" />
+            </Hds::Dropdown::ListItem::Radio>
+          {{/each}}
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Large content">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} @count="12" @icon="hexagon">
+              {{state}}
+              with a longer text string that may wrap since max-width is defined on the container
+              <Hds::Badge @text="badge" @size="small" />
+            </Hds::Dropdown::ListItem::Radio>
+          {{/each}}
+        </ul>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Interactive">
+      <Hds::Dropdown @listPosition="left" as |dd|>
+        <dd.ToggleButton @text="Radio" @color="secondary" />
+        <dd.Radio name="radio-item-dropdown" @count="11">virtualbox</dd.Radio>
+        <dd.Radio name="radio-item-dropdown" @count="1" checked>vmware</dd.Radio>
+        <dd.Radio name="radio-item-dropdown" @count="10">docker</dd.Radio>
+        <dd.Radio name="radio-item-dropdown" @count="0">hyperv</dd.Radio>
+      </Hds::Dropdown>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Header and footer</Shw::Text::H2>
+
+  <Shw::Text::H3>Header</Shw::Text::H3>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Generic header">
+      <div class="hds-dropdown__content">
+        <Hds::Dropdown::Header>
+          <Shw::Placeholder @text="generic header content" @width="200" @height="36" @background="#e1f5fe" />
+        </Hds::Dropdown::Header>
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Generic>
+            <Shw::Placeholder @text="generic item content" @height="36" @background="#e1f5fe" />
+          </Hds::Dropdown::ListItem::Generic>
+          <Hds::Dropdown::ListItem::Generic>
+            <Shw::Placeholder @text="generic item content" @height="36" @background="#e1f5fe" />
+          </Hds::Dropdown::ListItem::Generic>
+          <Hds::Dropdown::ListItem::Generic>
+            <Shw::Placeholder @text="generic item content" @height="36" @background="#e1f5fe" />
+          </Hds::Dropdown::ListItem::Generic>
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Generic header with divider">
+      <div class="hds-dropdown__content">
+        <Hds::Dropdown::Header @hasDivider={{true}}>
+          <Shw::Placeholder @text="generic header content" @width="200" @height="36" @background="#e1f5fe" />
+        </Hds::Dropdown::Header>
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Generic>
+            <Shw::Placeholder @text="generic item content" @height="36" @background="#e1f5fe" />
+          </Hds::Dropdown::ListItem::Generic>
+          <Hds::Dropdown::ListItem::Generic>
+            <Shw::Placeholder @text="generic item content" @height="36" @background="#e1f5fe" />
+          </Hds::Dropdown::ListItem::Generic>
+          <Hds::Dropdown::ListItem::Generic>
+            <Shw::Placeholder @text="generic item content" @height="36" @background="#e1f5fe" />
+          </Hds::Dropdown::ListItem::Generic>
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Input type search">
+      <div class="hds-dropdown__content">
+        <Hds::Dropdown::Header @hasDivider={{true}}>
+          <Hds::Form::TextInput::Base @type="search" placeholder="Narrow results" />
+        </Hds::Dropdown::Header>
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Create" />
+          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Edit" />
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Link secondary">
+      <div class="hds-dropdown__content">
+        <Hds::Dropdown::Header @hasDivider={{true}}>
+          <Hds::Link::Standalone @icon="list" @text="Organizations" @color="secondary" @href="#" />
+        </Hds::Dropdown::Header>
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Create" />
+          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Edit" />
+        </ul>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Footer</Shw::Text::H3>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Generic footer">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Generic>
+            <Shw::Placeholder @text="generic item content" @height="36" @background="#e1f5fe" />
+          </Hds::Dropdown::ListItem::Generic>
+          <Hds::Dropdown::ListItem::Generic>
+            <Shw::Placeholder @text="generic item content" @height="36" @background="#e1f5fe" />
+          </Hds::Dropdown::ListItem::Generic>
+          <Hds::Dropdown::ListItem::Generic>
+            <Shw::Placeholder @text="generic item content" @height="36" @background="#e1f5fe" />
+          </Hds::Dropdown::ListItem::Generic>
+        </ul>
+        <Hds::Dropdown::Footer>
+          <Shw::Placeholder @text="generic footer content" @width="200" @height="36" @background="#e1f5fe" />
+        </Hds::Dropdown::Footer>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Generic footer with divider">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Generic>
+            <Shw::Placeholder @text="generic item content" @height="36" @background="#e1f5fe" />
+          </Hds::Dropdown::ListItem::Generic>
+          <Hds::Dropdown::ListItem::Generic>
+            <Shw::Placeholder @text="generic item content" @height="36" @background="#e1f5fe" />
+          </Hds::Dropdown::ListItem::Generic>
+          <Hds::Dropdown::ListItem::Generic>
+            <Shw::Placeholder @text="generic item content" @height="36" @background="#e1f5fe" />
+          </Hds::Dropdown::ListItem::Generic>
+        </ul>
+        <Hds::Dropdown::Footer @hasDivider={{true}}>
+          <Shw::Placeholder @text="generic footer content" @width="200" @height="36" @background="#e1f5fe" />
+        </Hds::Dropdown::Footer>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Button">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Organization A" />
+          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Organization B" />
+          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Organization C" />
+        </ul>
+        <Hds::Dropdown::Footer @hasDivider={{true}}>
+          <Hds::Button @text="Apply filters" @isFullWidth={{true}} @size="small" />
+        </Hds::Dropdown::Footer>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Link">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Organization A" />
+          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Organization B" />
+          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Organization C" />
+        </ul>
+        <Hds::Dropdown::Footer @hasDivider={{true}}>
+          <Hds::Link::Standalone @icon="list" @text="Organizations" @color="secondary" @href="#" />
+        </Hds::Dropdown::Footer>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Header and footer</Shw::Text::H3>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Generic header and footer">
+      <div class="hds-dropdown__content">
+        <Hds::Dropdown::Header @hasDivider={{true}}>
+          <Shw::Placeholder @text="generic header content" @width="200" @height="36" @background="#e1f5fe" />
+        </Hds::Dropdown::Header>
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Generic>
+            <Shw::Placeholder @text="generic item content" @height="36" @background="#e1f5fe" />
+          </Hds::Dropdown::ListItem::Generic>
+          <Hds::Dropdown::ListItem::Generic>
+            <Shw::Placeholder @text="generic item content" @height="36" @background="#e1f5fe" />
+          </Hds::Dropdown::ListItem::Generic>
+          <Hds::Dropdown::ListItem::Generic>
+            <Shw::Placeholder @text="generic item content" @height="36" @background="#e1f5fe" />
+          </Hds::Dropdown::ListItem::Generic>
+        </ul>
+        <Hds::Dropdown::Footer @hasDivider={{true}}>
+          <Shw::Placeholder @text="generic footer content" @width="200" @height="36" @background="#e1f5fe" />
+        </Hds::Dropdown::Footer>
+      </div>
+    </SF.Item>
+
+    <SF.Item @label="Generic, fixed height list">
+      {{! template-lint-disable no-inline-styles }}
+      <div class="hds-dropdown__content" style="max-height:195px">
+        <Hds::Dropdown::Header @hasDivider={{true}}>
+          <Shw::Placeholder @text="generic header content" @width="200" @height="36" @background="#e1f5fe" />
+        </Hds::Dropdown::Header>
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Generic>
+            <Shw::Placeholder @text="generic item content" @height="36" @background="#e1f5fe" />
+          </Hds::Dropdown::ListItem::Generic>
+          <Hds::Dropdown::ListItem::Generic>
+            <Shw::Placeholder @text="generic item content" @height="36" @background="#e1f5fe" />
+          </Hds::Dropdown::ListItem::Generic>
+          <Hds::Dropdown::ListItem::Generic>
+            <Shw::Placeholder @text="generic item content" @height="36" @background="#e1f5fe" />
+          </Hds::Dropdown::ListItem::Generic>
+          <Hds::Dropdown::ListItem::Generic>
+            <Shw::Placeholder @text="generic item content" @height="36" @background="#e1f5fe" />
+          </Hds::Dropdown::ListItem::Generic>
+        </ul>
+        <Hds::Dropdown::Footer @hasDivider={{true}}>
+          <Shw::Placeholder @text="generic footer content" @width="200" @height="36" @background="#e1f5fe" />
+        </Hds::Dropdown::Footer>
+      </div>
+      {{! template-lint-enable no-inline-styles }}
+    </SF.Item>
+    <SF.Item @label="Input and Button Set">
+      <div class="hds-dropdown__content">
+        <Hds::Dropdown::Header @hasDivider={{true}}>
+          <Hds::Form::TextInput::Base @type="search" placeholder="Narrow results" />
+        </Hds::Dropdown::Header>
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Organization A" />
+          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Organization B" />
+          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Organization C" />
+        </ul>
+        <Hds::Dropdown::Footer @hasDivider={{true}}>
+          <Hds::ButtonSet>
+            <Hds::Button @text="Apply" @isFullWidth={{true}} @size="small" />
+            <Hds::Button @text="Cancel" @color="secondary" @isFullWidth={{true}} @size="small" />
+          </Hds::ButtonSet>
+        </Hds::Dropdown::Footer>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Input and Link, fixed height list">
+      {{! template-lint-disable no-inline-styles }}
+      <div class="hds-dropdown__content" style="max-height:190px">
+        <Hds::Dropdown::Header @hasDivider={{true}}>
+          <Hds::Form::TextInput::Base @type="search" placeholder="Narrow results" />
+        </Hds::Dropdown::Header>
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Organization A" />
+          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Organization B" />
+          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Organization C" />
+        </ul>
+        <Hds::Dropdown::Footer @hasDivider={{true}}>
+          <Hds::Link::Standalone @icon="plus" @text="Add organization" @href="#" />
+        </Hds::Dropdown::Footer>
+      </div>
+      {{! template-lint-enable no-inline-styles }}
+    </SF.Item>
+  </Shw::Flex>
 </section>

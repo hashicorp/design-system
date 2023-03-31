@@ -11,11 +11,7 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | hds/form/toggle/base', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders the component', async function (assert) {
-    await render(hbs`<Hds::Form::Toggle::Base id="test-form-toggle" />`);
-    assert.dom('#test-form-toggle').exists();
-  });
-  test('it should render with a CSS class that matches the component name', async function (assert) {
+  test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(hbs`<Hds::Form::Toggle::Base id="test-form-toggle" />`);
     // Notice: the "toggle" component has a slightly different DOM structure than the other form controls
     assert.dom('.hds-form-toggle').exists();

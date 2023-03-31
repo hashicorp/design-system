@@ -11,19 +11,7 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | hds/tabs/index', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders the component', async function (assert) {
-    await render(hbs`
-      <Hds::Tabs as |T|>
-        <T.Tab>One</T.Tab>
-        <T.Tab>Two</T.Tab>
-        <T.Panel>Content 1</T.Panel>
-        <T.Panel>Content 2</T.Panel>
-      </Hds::Tabs>
-  `);
-    assert.dom(this.element).exists();
-  });
-
-  test('it should render with a CSS class that matches the component names', async function (assert) {
+  test('it should render the component with a CSS class that matches the component names', async function (assert) {
     await render(hbs`
       <Hds::Tabs id="test-tabs" as |T|>
         <T.Tab data-test="tab">One</T.Tab>

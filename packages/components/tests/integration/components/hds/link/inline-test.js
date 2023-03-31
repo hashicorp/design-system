@@ -14,11 +14,7 @@ module('Integration | Component | hds/link/inline', function (hooks) {
     resetOnerror();
   });
 
-  test('it renders the component', async function (assert) {
-    await render(hbs`<Hds::Link::Inline @href="/" />`);
-    assert.dom(this.element).exists();
-  });
-  test('it should render with a CSS class that matches the component name', async function (assert) {
+  test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
       hbs`<Hds::Link::Inline @href="/" id="test-link">watch video</Hds::Link::Inline>`
     );

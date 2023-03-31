@@ -15,14 +15,13 @@ module(
 
     // Basic
 
-    test('it renders the component', async function (assert) {
-      await render(hbs`<Hds::SideNav::List::BackLink />`);
-      assert.dom(this.element).exists();
-    });
-
-    test('it should render with a CSS class that matches the component name', async function (assert) {
-      await render(hbs`<Hds::SideNav::List::BackLink />`);
-      assert.dom('.hds-side-nav__list-item-link--back-link').exists();
+    test('it should render the component with a CSS class that matches the component name', async function (assert) {
+      await render(
+        hbs`<Hds::SideNav::List::BackLink id="test-side-nav-list-item-link-back-link" />`
+      );
+      assert
+        .dom('#test-side-nav-list-item-link-back-link')
+        .hasClass('hds-side-nav__list-item-link--back-link');
     });
 
     // Test Content / Args

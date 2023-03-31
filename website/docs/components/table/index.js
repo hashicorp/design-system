@@ -118,4 +118,25 @@ export default class Index extends Component {
     });
     return { myDemoData: dataResponse, columns };
   }
+
+  get myDataItems() {
+    let myDataItems = [
+      {
+        product: 'Terraform',
+        brandColor: 'purple',
+        usesHelios: true,
+      },
+      {
+        product: 'Nomad',
+        brandColor: 'green',
+        usesHelios: true,
+      },
+      {
+        product: 'Vault',
+        brandColor: 'yellow',
+        usesHelios: true,
+      },
+    ];
+    return myDataItems;
+  }
 }

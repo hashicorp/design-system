@@ -1,0 +1,25 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// DROPDOWN
+
+body.components-dropdown {
+  .shw-component-dropdown-states-matrix {
+    .shw-grid__item {
+      // we hide all the labels (except for the first "row")
+      &:nth-child(n + 7) {
+        .shw-label {
+          visibility: hidden;
+        }
+      }
+      // we show the labels in the first "column"
+      &:nth-child(6n + 1) {
+        .shw-label {
+          visibility: visible;
+        }
+      }
+    }
+  }
+}
