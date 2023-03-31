@@ -27,7 +27,7 @@ module(
         .hasClass('hds-dropdown-list-item');
       assert
         .dom('#test-list-item-description')
-        .hasClass('hds-dropdown-list-item--description');
+        .hasClass('hds-dropdown-list-item--variant-description');
     });
 
     // ASSERTIONS

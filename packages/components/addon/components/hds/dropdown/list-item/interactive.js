@@ -53,7 +53,7 @@ export default class HdsDropdownListItemInteractiveComponent extends Component {
   get classNames() {
     let classes = [
       'hds-dropdown-list-item',
-      'hds-dropdown-list-item--interactive',
+      'hds-dropdown-list-item--variant-interactive',
     ];
 
     // add a class based on the @color argument

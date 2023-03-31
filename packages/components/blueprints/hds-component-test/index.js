@@ -64,7 +64,9 @@ const updateDummyAppCSS = (options) => {
     firstComponentImportIndex,
     lastComponentImportIndex + 1
   );
-  importLinesArray.push(`@import "./pages/${getDummyCSSFileName(name)}";`);
+  importLinesArray.push(
+    `@import "./showcase-pages/${getDummyCSSFileName(name)}";`
+  );
   const newImportLinesArray = importLinesArray
     .filter((line, index, self) => self.indexOf(line) === index)
     .sort();
@@ -126,6 +128,6 @@ const getRoutedModuleName = (name) => {
 
 const getDummyCSSFileName = (name) => {
   const parts = name.split('/');
-  const fileName = `db-${parts.pop()}`;
+  const fileName = `${parts.pop()}`;
   return `${parts.concat([fileName]).join('/')}`;
 };

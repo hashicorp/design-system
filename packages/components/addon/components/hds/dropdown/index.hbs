@@ -12,18 +12,25 @@
     }}
   </:toggle>
   <:content as |c|>
-    <ul class={{this.listClassNames}} {{style width=@width}}>
-      {{yield
-        (hash
-          close=c.close
-          CopyItem=(component "hds/dropdown/list-item/copy-item")
-          Description=(component "hds/dropdown/list-item/description")
-          Generic=(component "hds/dropdown/list-item/generic")
-          Interactive=(component "hds/dropdown/list-item/interactive")
-          Separator=(component "hds/dropdown/list-item/separator")
-          Title=(component "hds/dropdown/list-item/title")
-        )
-      }}
-    </ul>
+    <div class={{this.classNames}} {{style width=@width height=@height}}>
+      {{yield (hash Header=(component "hds/dropdown/header"))}}
+      <ul class="hds-dropdown__list" {{did-insert this.didInsertList}}>
+        {{yield
+          (hash
+            close=c.close
+            Checkbox=(component "hds/dropdown/list-item/checkbox")
+            Checkmark=(component "hds/dropdown/list-item/checkmark")
+            CopyItem=(component "hds/dropdown/list-item/copy-item")
+            Description=(component "hds/dropdown/list-item/description")
+            Generic=(component "hds/dropdown/list-item/generic")
+            Interactive=(component "hds/dropdown/list-item/interactive")
+            Radio=(component "hds/dropdown/list-item/radio")
+            Separator=(component "hds/dropdown/list-item/separator")
+            Title=(component "hds/dropdown/list-item/title")
+          )
+        }}
+      </ul>
+      {{yield (hash close=c.close Footer=(component "hds/dropdown/footer"))}}
+    </div>
   </:content>
 </Hds::Disclosure>
