@@ -1,0 +1,184 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// SIDE-NAV
+//
+
+.hds-side-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20; // needs to stay above the main content
+  height: 100vh;
+  min-height: 100vh;
+  isolation: isolate; // used to create a new stacking context (so we can set the overlay's z-index to -1)
+}
+
+
+// OVERLAY
+
+.hds-side-nav__overlay {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  background-color: var(--token-color-palette-neutral-700);
+  opacity: 0.2;
+  transition:
+    opacity var(--hds-app-sidenav-animation-duration)
+    var(--hds-app-sidenav-animation-easing)
+    var(--hds-app-sidenav-animation-delay);
+
+  // when we're minimized (mobile) we don't want the overlay to be visible/interactive
+  .hds-side-nav--is-minimized & {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  // when it's desktop we _never_ want the overlay to be visible
+  .hds-side-nav--is-desktop & {
+    display: none;
+  }
+}
+
+
+// MENU/TOGGLE BUTTON
+
+.hds-side-nav__menu-toggle-button {
+  position: absolute;
+  z-index: 1;
+  color: var(--token-color-foreground-high-contrast);
+  background: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition-timing-function: var(--hds-app-sidenav-animation-easing);
+  transition-duration: var(--hds-app-sidenav-animation-duration);
+  transition-property: width, height, padding, border-radius, transform;
+
+  &:hover {
+    background-color: var(--token-color-palette-neutral-600);
+    border-color: transparent;
+  }
+
+  &:active {
+    background-color: var(--token-color-palette-neutral-500);
+    border-color: transparent;
+  }
+
+  &:focus {
+    background-color: var(--token-color-palette-neutral-500);
+    border-color: var(--token-color-focus-action-internal);
+    outline: 3px solid var(--token-color-focus-action-external);
+  }
+
+  // by default it's styled as "close" button
+  .hds-side-nav--is-mobile & {
+    width: 24px;
+    height: 24px;
+    padding: 1px;
+    background-color: var(--token-color-foreground-primary);
+    border-radius: 3px;
+    transform:
+      translateX(calc(var(--hds-app-sidenav-width-expanded) + 8px))
+      translateY(24px);
+    // z-index: 15; // not needed anymore?
+  }
+
+  // when the sidenav is minimized it's styled as "menu" button
+  .hds-side-nav--is-mobile.hds-side-nav--is-minimized & {
+    width: 36px;
+    height: 36px;
+    padding: 5px;
+    border-radius: 5px;
+    transform: translateX(22px) translateY(var(--hds-app-sidenav-menu-button-y-shift));
+  }
+
+  // when it's desktop we _never_ want to show the menu/toggle button
+  .hds-side-nav--is-desktop & {
+    display: none;
+  }
+}
+
+
+// RESPONSIVE WRAPPER
+// this container element is used to control the width of the sidebar at different viewports (desktop/mobile) and states (minimized/expanded)
+
+.hds-side-nav__wrapper {
+  display: flex;
+  flex-direction: column;
+  // width: var(--hds-app-sidenav-width-expanded);
+  height: 100%;
+  color: var(--token-side-nav-foreground-primary); // we set a default color (in case generic content is added to the header/body/footer of the sidenav)
+  background: var(--token-side-nav-surface-primary);
+
+  // RESPONSIVENESS
+
+  .hds-side-nav--is-responsive & {
+    transition:
+      width var(--hds-app-sidenav-animation-duration)
+      var(--hds-app-sidenav-animation-easing);
+  }
+
+  // mobile
+  .hds-side-nav--is-mobile.hds-side-nav--is-minimized & {
+    width: var(--hds-app-sidenav-width-minimized);
+  }
+
+  .hds-side-nav--is-mobile.hds-side-nav--is-not-minimized & {
+    width: var(--hds-app-sidenav-width-expanded);
+  }
+
+  // desktop
+  .hds-side-nav--is-desktop & {
+    width: var(--hds-app-sidenav-width-expanded);
+  }
+}
+
+// wrapper's child "containers"
+
+.hds-side-nav__wrapper-header {
+  padding-top: var(--token-side-nav-wrapper-padding-vertical);
+  padding-right: var(--token-side-nav-wrapper-padding-horizontal);
+  padding-bottom: var(--token-side-nav-wrapper-header-padding-bottom); // by design
+  padding-left: var(--token-side-nav-wrapper-padding-horizontal);
+}
+
+.hds-side-nav__wrapper-body {
+  flex: 1;
+  padding:
+    var(--token-side-nav-wrapper-padding-vertical)
+    var(--token-side-nav-wrapper-padding-horizontal);
+  overflow-y: auto;
+}
+
+.hds-side-nav__wrapper-footer {
+  padding:
+    var(--token-side-nav-wrapper-padding-vertical)
+    var(--token-side-nav-wrapper-padding-horizontal);
+}
+
+
+// "HIDE-WHEN-MINIMIZED" SPECIAL CLASS
+// this is a special class that is used to control which elements of the sidenav need to be:
+// - hidden (immediately) when the sidenav is "minimized"
+// - shown (transitioning their opacity) when the sidenav is "expanded"
+
+.hds-side-nav-hide-when-minimized {
+  .hds-side-nav--is-mobile.hds-side-nav--is-minimized & {
+    visibility: hidden !important; // we need `!important` here to override the inline style applied to the single panels
+    opacity: 0;
+    transition: none;
+  }
+
+  .hds-side-nav--is-mobile.hds-side-nav--is-not-minimized &,
+  .hds-side-nav--is-desktop & {
+    visibility: visible;
+    opacity: 1;
+    transition:
+      opacity var(--hds-app-sidenav-animation-duration)
+      var(--hds-app-sidenav-animation-easing)
+      var(--hds-app-sidenav-animation-delay);
+  }
+}
+

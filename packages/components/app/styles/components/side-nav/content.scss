@@ -1,0 +1,156 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// SIDE-NAV > CONTENT (PORTALS + LISTS OF ITEMS/LINKS)
+//
+
+@use "../../mixins/focus-ring" as *;
+
+
+// PANELS (wrappers use in conjunction with the portal elements_
+
+.hds-side-nav__content {
+  // we use this trick (increasing the container size here, and reducing it at single panel level)
+  // to have the panels width match the sidebar extended width (it's used in the animated sliding of the panels)
+  margin: 0 calc(var(--token-side-nav-wrapper-padding-horizontal) * -1);
+}
+
+.hds-side-nav__content-panels {
+  // see https://codepen.io/didoo/pen/YzOeRPr
+  display: grid;
+  grid-template-columns: repeat(5, 100%);
+  width: 100%;
+}
+
+.hds-side-nav__content-panel {
+  padding: 0 var(--token-side-nav-wrapper-padding-horizontal);
+}
+
+// (LIST) TITLE
+
+.hds-side-nav__list-title {
+  display: flex;
+  align-items: center;
+  min-height: 34px;
+  margin-top: var(--token-side-nav-body-list-margin-vertical);
+  padding: 0 var(--token-side-nav-body-list-item-padding-horizontal);
+  color: var(--token-side-nav-foreground-faint);
+
+  // Remove margin from title at top of all list-items & lists
+  .hds-side-nav__list-wrapper:first-child .hds-side-nav__list-item:first-child > & {
+    margin-top: 0;
+  }
+}
+
+
+// LIST (root elements)
+
+.hds-side-nav__list-wrapper, // <nav> element
+.hds-side-nav__list {        // <ul> element
+  margin: 0;
+  padding: 0;
+}
+
+
+// ITEM (generic container)
+
+.hds-side-nav__list-item { // <li> element
+  list-style-type: none;
+
+  & + & {
+    margin-top: var(--token-side-nav-body-list-item-spacing-vertical);
+  }
+}
+
+.hds-side-nav__list-item-link { // <a>/<button> element (via Hds::Interactive)
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: var(--token-side-nav-body-list-item-height);
+  padding: var(--token-side-nav-body-list-item-padding-vertical) var(--token-side-nav-body-list-item-padding-horizontal);
+  color: var(--token-side-nav-foreground-primary);
+  text-decoration: none;
+  background: var(--token-side-nav-surface-primary);
+  // "Link" could render as an HTML button element so this overrides the default border style in that case:
+  border-color: transparent;
+  border-radius: var(--token-side-nav-body-list-item-border-radius);
+
+  &:focus,
+  &.mock-focus {
+    @include hds-focus-ring-with-pseudo-element();
+  }
+
+  &:hover,
+  &.mock-hover {
+    background: var(--token-side-nav-interactive-surface-hover);
+    border-color: transparent;
+
+    .hds-side-nav__list-item-text,
+    .hds-side-nav__list-item-icon-leading,
+    .hds-side-nav__list-item-icon-trailing {
+      color: var(--token-side-nav-foreground-primary-strong);
+    }
+  }
+
+  // notice: this ".active" extra class is used to match the corresponding `active` class assigned automatically
+  // by the `<LinkTo>` Ember component (when the link is "current), so that consumers get it for free if they want
+  // otherwise they can use the `@isActive` argument to set this visual state directly
+  &.active,
+  &:active,
+  &.mock-active {
+    background: var(--token-side-nav-interactive-surface-active);
+
+    .hds-side-nav__list-item-text,
+    .hds-side-nav__list-item-icon-leading,
+    .hds-side-nav__list-item-icon-trailing {
+      color: var(--token-side-nav-foreground-primary-strong);
+    }
+
+    .hds-badge,
+    .hds-badge-count {
+      color: var(--token-color-foreground-primary);
+      background: var(--token-color-surface-strong);
+    }
+  }
+
+  .hds-badge,
+  .hds-badge-count {
+    margin-left: var(--token-side-nav-body-list-item-content-spacing-horizontal);
+  }
+}
+
+// special override for the "back-link" element (no visible active state, by design)
+.hds-side-nav__list-item-link--back-link {
+  &:active,
+  &.mock-active {
+    background: var(--token-side-nav-surface-primary);
+
+    .hds-side-nav__list-item-text,
+    .hds-side-nav__list-item-icon-leading,
+    .hds-side-nav__list-item-icon-trailing {
+      color: var(--token-side-nav-foreground-primary);
+    }
+  }
+}
+
+
+// LIST ITEM > INNER ELEMENTS
+
+.hds-side-nav__list-item-text {
+  color: var(--token-side-nav-foreground-primary);
+  text-align: left;
+}
+
+.hds-side-nav__list-item-icon-leading {
+  flex: none;
+  margin-right: var(--token-side-nav-body-list-item-content-spacing-horizontal);
+}
+
+.hds-side-nav__list-item-icon-trailing {
+  flex: none;
+  margin-left: auto;
+  padding-left: var(--token-side-nav-body-list-item-content-spacing-horizontal);
+}
