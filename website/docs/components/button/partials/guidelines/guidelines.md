@@ -93,6 +93,8 @@ Buttons used for a Dropdown (with the chevron icon) can be found in [Dropdown](/
   <Hds::Button @color="secondary" @text="Cancel" />
 </Hds::ButtonSet>
 
+More detailed examples and guidance on button organization can be found in the [button organization](/patterns/button-organization) pattern documentation.
+
 ## Content
 
 - Text should be short and to the point (~25 characters). Buttons should not consist of full sentences, but should provide enough context to be useful.

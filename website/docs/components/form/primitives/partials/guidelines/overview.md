@@ -9,3 +9,8 @@ Form Primitives are used to compose form fields.
 - `Form::Fieldset` is the generic container to group multiple fields with label, helper text, and error messaging
 
 We use Form Primitives as the building blocks for the “field” and “group” controls. While we recommend using our pre-defined “field” and “group” controls because they provide built-in accessibility support, you can use the Form Primitives to implement custom layouts or controls as necessary.
+
+!!! Info
+
+More details on how to assemble form components in larger form patterns can be found in the [form pattern](/patterns/form-patterns) documentation.
+!!!
