@@ -13,4 +13,14 @@ Because disabled states completely remove the interactive function of an element
 
 ### ListItem
 
-![Example of dropdown listitem states](/assets/components/dropdown/dropdown-listitem-states.png =472x*)
+#### Interactive
+![Example of listitem interactive states](/assets/components/dropdown/dropdown-listitem-interactive-states.png =432x*)
+
+#### Checkbox
+![Example of listitem checkbox states](/assets/components/dropdown/dropdown-listitem-checkbox-states.png =432x*)
+
+#### Checkmark
+![Example of listitem checkmark states](/assets/components/dropdown/dropdown-listitem-checkmark-states.png =432x*)
+
+#### Radio
+![Example of listitem radio states](/assets/components/dropdown/dropdown-listitem-radio-states.png =432x*)

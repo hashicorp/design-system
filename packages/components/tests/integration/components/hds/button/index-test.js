@@ -15,11 +15,7 @@ module('Integration | Component | hds/button/index', function (hooks) {
     resetOnerror();
   });
 
-  test('it renders the button', async function (assert) {
-    await render(hbs`<Hds::Button @text="Copy to clipboard" />`);
-    assert.dom(this.element).exists();
-  });
-  test('it should render with a CSS class that matches the component name', async function (assert) {
+  test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
       hbs`<Hds::Button @text="Copy to clipboard" id="test-button" />`
     );

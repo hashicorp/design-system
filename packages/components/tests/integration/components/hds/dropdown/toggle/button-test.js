@@ -19,9 +19,11 @@ module(
 
     // notice: "toggle-button" is a wrapper around the "hds::button" so we test only very specific things
 
-    test('it renders the "toggle-button"', async function (assert) {
-      await render(hbs`<Hds::Dropdown::Toggle::Button @text="toggle text" />`);
-      assert.dom(this.element).exists();
+    test('it should render the component with a CSS class that matches the component name', async function (assert) {
+      await render(
+        hbs`<Hds::Dropdown::Toggle::Button @text="toggle text" id="test-toggle-button" />`
+      );
+      assert.dom('#test-toggle-button').hasClass('hds-dropdown-toggle-button');
     });
 
     // TEXT
@@ -160,6 +162,20 @@ module(
       });
       await render(
         hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" @color="foo" id="test-toggle-button" />`
+      );
+      assert.throws(function () {
+        throw new Error(errorMessage);
+      });
+    });
+    test('it should throw an assertion if an incorrect value for @size is provided', async function (assert) {
+      const errorMessage =
+        '@size for "Hds::Dropdown::Toggle::Button" must be one of the following: small, medium; received: foo';
+      assert.expect(2);
+      setupOnerror(function (error) {
+        assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+      });
+      await render(
+        hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" @size="foo" />`
       );
       assert.throws(function () {
         throw new Error(errorMessage);

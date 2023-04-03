@@ -17,14 +17,7 @@ module('Integration | Component | hds/side-nav/home-link', function (hooks) {
 
   // Basic
 
-  test('it renders the component', async function (assert) {
-    await render(
-      hbs`<Hds::SideNav::HomeLink @icon="hashicorp" @ariaLabel="Hashicorp" />`
-    );
-    assert.dom(this.element).exists();
-  });
-
-  test('it should render with a CSS class that matches the component name', async function (assert) {
+  test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
       hbs`<Hds::SideNav::HomeLink @icon="hashicorp" @ariaLabel="Hashicorp" id="test-home-link" />`
     );

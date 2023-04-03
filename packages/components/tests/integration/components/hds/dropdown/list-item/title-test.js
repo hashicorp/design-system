@@ -17,12 +17,7 @@ module(
       resetOnerror();
     });
 
-    test('it renders the "list-item/title"', async function (assert) {
-      await render(hbs`<Hds::Dropdown::ListItem::Title @text="title" />`);
-      assert.dom(this.element).exists();
-    });
-
-    test('it should render the "list-item/title" as a <li> element with a CSS class that matches the component name', async function (assert) {
+    test('it should render the component as a <li> element with a CSS class that matches the component name', async function (assert) {
       await render(
         hbs`<Hds::Dropdown::ListItem::Title @text="title" id="test-list-item-title" />`
       );

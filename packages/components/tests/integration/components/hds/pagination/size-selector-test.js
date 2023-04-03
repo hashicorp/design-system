@@ -21,14 +21,7 @@ module(
       resetOnerror();
     });
 
-    test('it renders the component', async function (assert) {
-      await render(hbs`
-      <Hds::Pagination::SizeSelector @pageSizes={{array 10 30 50}} />
-    `);
-      assert.dom(this.element).exists();
-    });
-
-    test('it should render with a CSS class that matches the component name', async function (assert) {
+    test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(hbs`
       <Hds::Pagination::SizeSelector @pageSizes={{array 10 30 50}} id="test-pagination-size-selector" />
     `);

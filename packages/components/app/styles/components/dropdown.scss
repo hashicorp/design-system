@@ -12,7 +12,6 @@
 @use "../mixins/button" as *;
 @use "../mixins/focus-ring" as *;
 
-$hds-dropdown-toggle-base-height: 36px;
 $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
 
 // TOGGLE/ICON
@@ -21,8 +20,6 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: $hds-dropdown-toggle-base-height;
-  height: $hds-dropdown-toggle-base-height;
   padding: 1px;
   background-color: var(--token-color-surface-faint);
   border: 1px solid var(--token-color-border-strong);
@@ -48,15 +45,16 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   &.mock-disabled {
     @include hds-button-state-disabled();
   }
+
+  .hds-dropdown-toggle-chevron {
+    padding-left: 4px;
+  }
 }
 
 .hds-dropdown-toggle-icon__wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
-  padding: 1px;
   border-radius: 3px; // $hds-dropdown-toggle-border-radius - 1px padding - 1px border
 
   img {
@@ -64,6 +62,20 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
     height: 100%;
     object-fit: cover; // this will make sure it's correct even if the item isn't square
     border-radius: inherit;
+  }
+}
+
+.hds-dropdown-toggle-icon--size-small {
+  .hds-dropdown-toggle-icon__wrapper {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.hds-dropdown-toggle-icon--size-medium {
+  .hds-dropdown-toggle-icon__wrapper {
+    width: 32px;
+    height: 32px;
   }
 }
 

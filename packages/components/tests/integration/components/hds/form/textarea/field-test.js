@@ -15,11 +15,7 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
     resetOnerror();
   });
 
-  test('it renders the component', async function (assert) {
-    await render(hbs`<Hds::Form::Textarea::Field />`);
-    assert.dom('textarea').exists();
-  });
-  test('it should render the input with a specific CSS class', async function (assert) {
+  test('it should render the component with a specific CSS class', async function (assert) {
     await render(hbs`<Hds::Form::Textarea::Field />`);
     assert.dom('textarea').hasClass('hds-form-field__control');
   });

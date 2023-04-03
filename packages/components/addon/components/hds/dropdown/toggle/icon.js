@@ -6,7 +6,11 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
+export const DEFAULT_SIZE = 'medium';
+export const SIZES = ['small', 'medium'];
+
 const NOOP = () => {};
+
 export default class HdsDropdownToggleIconComponent extends Component {
   constructor() {
     super(...arguments);
@@ -31,6 +35,39 @@ export default class HdsDropdownToggleIconComponent extends Component {
     );
 
     return text;
+  }
+
+  /**
+   * @param size
+   * @type {string}
+   * @default medium
+   * @description The size of the button; acceptable values are `small` and `medium`
+   */
+  get size() {
+    let { size = DEFAULT_SIZE } = this.args;
+
+    assert(
+      `@size for "Hds::Dropdown::Toggle::Icon" must be one of the following: ${SIZES.join(
+        ', '
+      )}; received: ${size}`,
+      SIZES.includes(size)
+    );
+
+    return size;
+  }
+
+  /**
+   * @param iconSize
+   * @type {string}
+   * @default 24
+   * @description ensures that the correct icon size is used
+   */
+  get iconSize() {
+    if (this.args.size === 'small') {
+      return '16';
+    } else {
+      return '24';
+    }
   }
 
   /**
@@ -68,6 +105,9 @@ export default class HdsDropdownToggleIconComponent extends Component {
    */
   get classNames() {
     let classes = ['hds-dropdown-toggle-icon'];
+
+    // add a class based on the @size argument
+    classes.push(`hds-dropdown-toggle-icon--size-${this.size}`);
 
     // add a class based on the @isOpen argument
     if (this.args.isOpen) {

@@ -21,14 +21,7 @@ module(
     // unlike other components, the `...attributes` spread is not applied to the top element, but to the `<button>/<a>` children,
     // so we can't use the DOM "id" to target the component but we have to rely on the class name
 
-    test('it renders the "list-item/interactive"', async function (assert) {
-      await render(
-        hbs`<Hds::Dropdown::ListItem::Interactive @text="interactive" />`
-      );
-      assert.dom(this.element).exists();
-    });
-
-    test('it should render the "list-item/interactive" as a <li> element with a CSS class that matches the component name', async function (assert) {
+    test('it should render the component as a <li> element with a CSS class that matches the component name', async function (assert) {
       await render(
         hbs`<Hds::Dropdown::ListItem::Interactive @text="interactive" />`
       );

@@ -17,11 +17,11 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
 
   // notice: by default the "toggle-icon" has "user" icon, "chevron-down", and an aria-label
 
-  test('it renders the "toggle-icon"', async function (assert) {
+  test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="toggle text" />`
+      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="toggle text" id="test-toggle-icon" />`
     );
-    assert.dom(this.element).exists();
+    assert.dom('#test-toggle-icon').hasClass('hds-dropdown-toggle-icon');
   });
 
   // ICON
@@ -55,6 +55,25 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
       hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" id="test-toggle-icon" @hasChevron={{false}} />`
     );
     assert.dom('.flight-icon.flight-icon-chevron-down').doesNotExist();
+  });
+
+  // SIZE
+
+  test('it should render the medium size as the default if no size is declared', async function (assert) {
+    await render(
+      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" id="test-toggle-icon" />`
+    );
+    assert
+      .dom('#test-toggle-icon')
+      .hasClass('hds-dropdown-toggle-icon--size-medium');
+  });
+  test('it should render the correct CSS size class if the @size prop is declared', async function (assert) {
+    await render(
+      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" @size="small" id="test-toggle-icon" />`
+    );
+    assert
+      .dom('#test-toggle-icon')
+      .hasClass('hds-dropdown-toggle-icon--size-small');
   });
 
   // A11Y
@@ -101,6 +120,20 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(hbs`<Hds::Dropdown::Toggle::Icon @text="user menu" />`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+  test('it should throw an assertion if an incorrect value for @size is provided', async function (assert) {
+    const errorMessage =
+      '@size for "Hds::Dropdown::Toggle::Icon" must be one of the following: small, medium; received: foo';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(
+      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" @size="foo" />`
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });

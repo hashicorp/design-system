@@ -13,14 +13,9 @@ module('Integration | Component | hds/side-nav/header', function (hooks) {
 
   // Basic
 
-  test('it renders the component', async function (assert) {
-    await render(hbs`<Hds::SideNav::Header />`);
-    assert.dom(this.element).exists();
-  });
-
-  test('it should render with a CSS class that matches the component name', async function (assert) {
-    await render(hbs`<Hds::SideNav::Header />`);
-    assert.dom('.hds-side-nav-header').exists();
+  test('it should render the component with a CSS class that matches the component name', async function (assert) {
+    await render(hbs`<Hds::SideNav::Header id="test-side-nav-header"/>`);
+    assert.dom('#test-side-nav-header').hasClass('hds-side-nav-header');
   });
 
   // Test Content / Args
