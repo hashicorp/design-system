@@ -1,6 +1,6 @@
 ## How to use this component
 
-To make the invocation more intuitive for developers, we’ve provided contextual components for Toggles and ListItems. For example, `<Hds::Dropdown::ListItem::Separator />` is yielded in a hash, using the key `<XX.Separator />` when invoked.
+To make the invocation more flexible and intuitive, we provide contextual components for Toggles, ListItems, Header and Footer. For example, `<Hds::Dropdown::ListItem::Separator />` would be contextually expressed as `<dd.Separator />`.
 
 ```handlebars
 <Hds::Dropdown as |dd|>
@@ -17,10 +17,10 @@ To make the invocation more intuitive for developers, we’ve provided contextua
 
 ### List position
 
-By default, the list is positioned to the right. To position the list on the left, pass `left` to `@listPosition` on the Dropdown component.
+By default, the list is positioned below the button, aligned to the right. To change the list position pass `bottom-left`, `top-left`, or `top-right` to `@listPosition` on the Dropdown component.
 
 ```handlebars
-<Hds::Dropdown @listPosition="left" as |dd|>
+<Hds::Dropdown @listPosition="bottom-left" as |dd|>
   <dd.ToggleButton @text="Text Toggle" />
   <dd.Interactive @route="components" @text="Item One" />
   <dd.Interactive @route="components" @text="Item Two" />
