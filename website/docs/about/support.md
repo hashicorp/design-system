@@ -17,7 +17,7 @@ Join the [#team-design-systems](https://hashicorp.slack.com/archives/C7KTUHNUS) 
 
 ## Office hours
 
-Office hours are a great way to get feedback on your project or help to get unstuck in a code migration. [Add an agenda item](https://docs.google.com/forms/d/e/1FAIpQLSf9T_M7gSAQ7zTM9z0gR11kvqpiTnbByrTsqDk305s3SxblRw/viewform) to the next office hours session.
+Office hours are a great way to get feedback on your project or help to get unstuck in a code migration. [Add an agenda item](https://docs.google.com/document/d/1LdyQznltt4VCbGGGDuDkARRRKXI4laCHxHhY8dJy4wE/edit?usp=sharing) to the next office hours session.
 
 ## Request a feature
 
