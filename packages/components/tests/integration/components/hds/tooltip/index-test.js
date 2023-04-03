@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { focus, render } from '@ember/test-helpers';
+import { focus, render, triggerKeyEvent } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/tooltip/index', function (hooks) {
@@ -20,7 +20,13 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
 
   // Test Content & accessibility features:
   test('it renders content passed into the tooltip', async function (assert) {
-    // const escapeKey = 27;
+    const escapeKey = 27;
+
+    function wait(timeout = 1000) {
+      return new Promise((resolve) => {
+        setTimeout(resolve, timeout);
+      });
+    }
 
     await render(
       hbs`<Hds::Tooltip @text="More info." id="test-tooltip">info</Hds::Tooltip>`
@@ -34,14 +40,10 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
     assert.dom('.tippy-box').exists();
 
     // Trigger escape key to close the tooltip:
-    // TODO: NOT WORKING
-    // await triggerKeyEvent(
-    //   '#test-tooltip',
-    //   'keyup',
-    //   escapeKey
-    // );
-    // // test that the tooltip is now gone:
-    // assert.dom('.tippy-box').doesNotExist();
+    await triggerKeyEvent('#test-tooltip', 'keydown', escapeKey);
+    await wait();
+    // test that the tooltip is now gone:
+    assert.dom('.tippy-box').doesNotExist();
   });
 
   // GENERATED ELEMENTS
