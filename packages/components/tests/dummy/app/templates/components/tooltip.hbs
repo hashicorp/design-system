@@ -122,17 +122,19 @@
   <Shw::Divider />
 
   <Shw::Text::H2>Used as a Component</Shw::Text::H2>
-  <Shw::Text::Body>
-    TODO: I am using a button component in the HBS template to serve as the trigger element. This could introduce
-    problems if the user tries to wrap some types of elements though...
-  </Shw::Text::Body>
 
   <Shw::Text::H3>Basic examples</Shw::Text::H3>
 
   <Shw::Text::H4>On its own</Shw::Text::H4>
   <Shw::Flex as |SF|>
-    <SF.Item @label="With a FlightIcon as trigger content">
+    <SF.Item @label="With a FlightIcon as trigger content inside a button">
       <Hds::Tooltip @text="<b>Hello</b> to <em>you</em>!">
+        <FlightIcon @name="alert-circle" />
+      </Hds::Tooltip>
+    </SF.Item>
+
+    <SF.Item @label="With a FlightIcon as trigger content inside a link">
+      <Hds::Tooltip @text="<b>Hello</b> to <em>you</em>!" @href="#">
         <FlightIcon @name="alert-circle" />
       </Hds::Tooltip>
     </SF.Item>

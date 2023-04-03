@@ -36,8 +36,6 @@
 .DISABLEcomponents-tooltip {
   // Tooltip trigger wrapper:
   .hds-tooltip {
-    // display: inline-block;
-    // min-width: 1em;
     outline: 2px solid red;
 
     > * {
@@ -54,19 +52,17 @@
   }
 }
 
-// This is just for rough testing:
-// (still determing if button should be in HBS template or provided by consumer or perhaps have diff DOM structure)
 .hds-tooltip {
-  @at-root button#{&} {
-    min-height: 1em; // used together with line-height: 0, maintains min-height of text-only content
-    margin: 0;
-    padding: 0;
-    line-height: 0; // this makes the button the same height as nested icons, may not be desireable though
-    background: transparent;
-    border: none;
+  display: inline-block;
+  min-height: 1em; // used together with line-height: 0, maintains min-height of text-only content
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  line-height: 0; // this makes the button the same height as nested icons, may not be desireable though
+  background: transparent;
+  border: none;
 
-    > svg { display: block; } // removes excess whitespace
-  }
+  > svg { display: block; } // removes excess whitespace
 }
 
 // From Cloud-ui:
