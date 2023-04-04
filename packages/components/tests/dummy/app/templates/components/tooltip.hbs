@@ -127,19 +127,23 @@
 
   <Shw::Text::H4>On its own</Shw::Text::H4>
   <Shw::Flex as |SF|>
-    <SF.Item @label="With a FlightIcon as trigger content inside a button">
+    <SF.Item @label="As a non-yielded component with required icon">
+      <Hds::Tooltip @icon="alert-triangle-fill" @text="<b>Alert</b>!" />
+    </SF.Item>
+
+    <SF.Item @label="As a yielded component with a FlightIcon inside a button">
       <Hds::Tooltip @text="<b>Hello</b> to <em>you</em>!">
         <FlightIcon @name="alert-circle" />
       </Hds::Tooltip>
     </SF.Item>
 
-    <SF.Item @label="With a FlightIcon as trigger content inside a link">
+    <SF.Item @label="As a yielded component with a FlightIcon inside a link">
       <Hds::Tooltip @text="<b>Hello</b> to <em>you</em>!" @href="#">
         <FlightIcon @name="alert-circle" />
       </Hds::Tooltip>
     </SF.Item>
 
-    <SF.Item @label="With text as trigger content">
+    <SF.Item @label="As a yielded component with text as trigger content">
       <Hds::Tooltip @text="<b>Hello</b> to <em>you</em>!">
         Hover me
       </Hds::Tooltip>

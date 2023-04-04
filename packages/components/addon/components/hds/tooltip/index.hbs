@@ -15,4 +15,10 @@
   @href={{@href}}
   @isHrefExternal={{@isHrefExternal}}
   ...attributes
->{{~yield~}}</Hds::Interactive>
+>
+  {{#if @icon}}
+    <FlightIcon class="hds-tooltip__icon" @name={{@icon}} />
+  {{else}}
+    {{~yield~}}
+  {{/if}}
+</Hds::Interactive>
