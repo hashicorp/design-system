@@ -30,7 +30,7 @@
   &:not(:checked, :indeterminate) {
     background-color: var(--token-form-control-base-surface-color-default);
     border-color: var(--token-form-control-base-border-color-default);
-    box-shadow: var(--hds-elevation-inset-box-shadow);
+    box-shadow: var(--token-elevation-inset-box-shadow);
   }
 
   &:checked {
