@@ -70,7 +70,7 @@ Animated icons are icons with an animated effect that show a transition between 
 
 Use animated icons to communicate activity happening in the background. For example, when an object is updated, the loading icon could appear after the save action is triggered, indicating that the changes are in progress.
 
-![Example of off icons](/assets/foundations/flight-icons/icon-best-practice-animated.png =660x*)
+![Example of off icons](/assets/foundations/flight-icons/icon-best-practices-animated.png =660x*)
 
 ## Sizes
 
