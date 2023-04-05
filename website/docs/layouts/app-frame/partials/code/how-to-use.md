@@ -92,7 +92,7 @@ If for some reason it's not possible to use conditional logic to control the yie
 
 ### Modals container
 
-We provide also an extra container that can be used to display content that sits on top of all the others elements of the page (typically modal elements):
+We also provide an extra container that can be used to display content that sits on top of all the other elements of the page (typically modal elements):
 
 !!! Info
 
