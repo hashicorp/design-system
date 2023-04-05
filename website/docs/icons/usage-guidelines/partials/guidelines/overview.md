@@ -66,11 +66,11 @@ If an object can have multiple states, use a Contained icon for the overall pare
 
 Animated icons are icons with an animated effect that show a transition between two states. 
 
-![Example of off icons](/assets/foundations/flight-icons/icon-animated.png =660x*)
+![Example of animated icons](/assets/foundations/flight-icons/icon-animated.png =660x*)
 
 Use animated icons to communicate activity happening in the background. For example, when an object is updated, the loading icon could appear after the save action is triggered, indicating that the changes are in progress.
 
-![Example of off icons](/assets/foundations/flight-icons/icon-best-practices-animated.png =660x*)
+![Example of best practice for animated icons](/assets/foundations/flight-icons/icon-best-practices-animated.png =660x*)
 
 ## Sizes
 
