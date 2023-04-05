@@ -7,7 +7,8 @@ import Modifier from 'ember-modifier';
 import { assert } from '@ember/debug';
 import { registerDestructor } from '@ember/destroyable';
 
-import tippy, { followCursor } from 'tippy.js';
+import tippy, { followCursor, roundArrow } from 'tippy.js';
+import 'tippy.js/dist/svg-arrow.css';
 
 function cleanup(instance) {
   const { interval, needsTabIndex, tooltip } = instance;
@@ -137,7 +138,9 @@ export default class HdsTooltipModifier extends Modifier {
     return {
       theme: 'hcp',
       triggerTarget: $trigger,
-      arrow: true,
+      // trigger: 'click', // TEMP for testing design
+      // arrow: true,
+      arrow: roundArrow,
       // keeps tooltip itself open on hover:
       interactive: true,
       // fix accessibility features that get messed up with setting interactive: true

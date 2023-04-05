@@ -69,18 +69,23 @@
 // ---------------------------------------------------------
 .tippy-box[data-theme~="hcp"] {
   // $tooltip-background-color: var(--token-color-palette-neutral-700);
-  $tooltip-width: 192px;
+  $tooltip-width: 280px;
   $arrow-border-size: 7.5px;
   $arrow-width: calc(#{$arrow-border-size} * 2); // 15 pixels
   $arrow-height: calc(#{$arrow-border-size} * 1.07); // 8 pixels
   $arrow-y-axis-distance: calc(0px - #{$arrow-border-size});
 
-  padding: 0.75rem;
-  color: var(--token-color-palette-neutral-0);
-  font-size: var(--token-typography-body-100-font-size);
+  padding: 8px 12px;
+  color: var(--token-color-foreground-high-contrast);
+  font-weight: var(--token-typography-font-weight-regular);
+  font-size: var(--token-typography-body-200-font-size);
+  font-family: var(--token-typography-body-200-font-family);
+  line-height: var(--token-typography-body-200-line-height);
   background-color: var(--token-tooltip-surface-primary);
   border-radius: 3px;
-  box-shadow: var(--token-surface-low-box-shadow);
+  // box-shadow: var(--token-surface-low-box-shadow);
+  box-shadow: var(--token-elevation-higher-box-shadow);
+  // filter: drop-shadow(0 2px 2px red); // just testing
   transition-property: transform, visibility, opacity;
 
   &[data-animation="fade"][data-state="hidden"] {
@@ -99,18 +104,23 @@
     max-width: $tooltip-width;
   }
 
-  .tippy-arrow {
-    width: $arrow-width;
-    height: $arrow-height;
-    color: var(--token-tooltip-surface-primary);
-
-    &::before {
-      position: absolute;
-      border-color: transparent;
-      border-style: solid;
-      content: "";
-    }
+  // works with Tippy's round arrow variation:
+  .tippy-svg-arrow {
+    fill: var(--token-tooltip-surface-primary);
   }
+
+  // .tippy-arrow {
+  //   width: $arrow-width;
+  //   height: $arrow-height;
+  //   color: var(--token-tooltip-surface-primary);
+
+  //   &::before {
+  //     position: absolute;
+  //     border-color: transparent;
+  //     border-style: solid;
+  //     content: "";
+  //   }
+  // }
 
   /***
   Because we are customizing the arrow size in our theme,
