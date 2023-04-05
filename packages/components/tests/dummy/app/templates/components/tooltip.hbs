@@ -127,39 +127,29 @@
 
   <Shw::Text::H4>On its own</Shw::Text::H4>
   <Shw::Flex as |SF|>
-    <SF.Item @label="As a non-yielded component with required icon">
-      <Hds::Tooltip @icon="alert-triangle-fill" @text="<b>Alert</b>!" />
-    </SF.Item>
-
-    <SF.Item @label="As a yielded component with a FlightIcon inside a button">
-      <Hds::Tooltip @text="<b>Hello</b> to <em>you</em>!">
+    <SF.Item @label="With a FlightIcon as content">
+      <Hds::TooltipButton @text="<b>Hello</b> to <em>you</em>!">
         <FlightIcon @name="alert-circle" />
-      </Hds::Tooltip>
+      </Hds::TooltipButton>
     </SF.Item>
 
-    <SF.Item @label="As a yielded component with a FlightIcon inside a link">
-      <Hds::Tooltip @text="<b>Hello</b> to <em>you</em>!" @href="#">
-        <FlightIcon @name="alert-circle" />
-      </Hds::Tooltip>
-    </SF.Item>
-
-    <SF.Item @label="As a yielded component with text as trigger content">
-      <Hds::Tooltip @text="<b>Hello</b> to <em>you</em>!">
+    <SF.Item @label="With text as content">
+      <Hds::TooltipButton @text="<b>Hello</b> to <em>you</em>!">
         Hover me
-      </Hds::Tooltip>
+      </Hds::TooltipButton>
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Text::H4>Used <em>incorrectly</em> to wrap a block-level element (trigger button wraps div tag)</Shw::Text::H4>
+  <Shw::Text::H4>Used <em>incorrectly</em> to wrap a block-level element (button wraps div tag)</Shw::Text::H4>
   <Shw::Text::Body>(results in invalid HTML structure)</Shw::Text::Body>
-  <Hds::Tooltip @text="<b>Hello</b> to <em>you</em>!">
+  <Hds::TooltipButton @text="<b>Hello</b> to <em>you</em>!">
     <div><FlightIcon @name="alert-circle" /></div>
-  </Hds::Tooltip>
+  </Hds::TooltipButton>
 
   <Shw::Text::H4>Used within a sentence (wrapped with p tag).</Shw::Text::H4>
   <p>
     Lorem ipsum dolor sit amet consectetur
-    <Hds::Tooltip @text="<b>Hello</b> to <em>you</em>!"><FlightIcon @name="alert-circle" /></Hds::Tooltip>
+    <Hds::TooltipButton @text="<b>Hello</b> to <em>you</em>!"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
     adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
   </p>
 
@@ -189,7 +179,9 @@
     }}
       {{#each placements as |place|}}
         <SF.Item @label={{place}}>
-          <Hds::Tooltip @text="Hello!" @placement={{place}}><FlightIcon @name="alert-circle" /></Hds::Tooltip>
+          <Hds::TooltipButton @text="Hello!" @placement={{place}}><FlightIcon
+              @name="alert-circle"
+            /></Hds::TooltipButton>
         </SF.Item>
       {{/each}}
     {{/let}}
@@ -200,15 +192,15 @@
     “distance” = tooltip distance from “opener”</Shw::Text::Body>
   <Shw::Flex as |SF|>
     <SF.Item @label="Default offset">
-      <Hds::Tooltip @text="Hello!"><FlightIcon @name="alert-circle" /></Hds::Tooltip>
+      <Hds::TooltipButton @text="Hello!"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
     </SF.Item>
 
     <SF.Item @label="Offset: 0 40">
-      <Hds::Tooltip @text="Hello!" @offset={{array 0 40}}><FlightIcon @name="alert-circle" /></Hds::Tooltip>
+      <Hds::TooltipButton @text="Hello!" @offset={{array 0 40}}><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
     </SF.Item>
 
     <SF.Item @label="Offset: 20 0">
-      <Hds::Tooltip @text="Hello!" @offset={{array 20 0}}><FlightIcon @name="alert-circle" /></Hds::Tooltip>
+      <Hds::TooltipButton @text="Hello!" @offset={{array 20 0}}><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
     </SF.Item>
   </Shw::Flex>
 </section>

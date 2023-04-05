@@ -4,7 +4,7 @@
  */
 
 //
-// TOOLTIP
+// TOOLTIP & TOOLTIP-BUTTON
 //
 
 :root {
@@ -35,7 +35,7 @@
 // ------------------------------
 .DISABLEcomponents-tooltip {
   // Tooltip trigger wrapper:
-  .hds-tooltip {
+  .hds-tooltip-button {
     outline: 2px solid red;
 
     > * {
@@ -52,7 +52,7 @@
   }
 }
 
-.hds-tooltip {
+.hds-tooltip-button {
   display: inline-block;
   min-height: 1em; // used together with line-height: 0, maintains min-height of text-only content
   margin: 0;
