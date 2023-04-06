@@ -7,9 +7,15 @@
 // TOOLTIP & TOOLTIP-BUTTON
 //
 
+@use "../mixins/focus-ring" as *;
+
 :root {
   // Dimensions:
   --token-tooltip-max-width: 280px;
+
+  // Focus highlight position
+  --token-tooltip-tab-focus-inset-vertical: -10px;
+  --token-tooltip-tab-focus-inset-horizontal: -16px;
 
   // $arrow-border-size: 7.5px;
   // --token-tooltip-arrow-border-size: 7.5px;
@@ -49,12 +55,18 @@
 }
 
 .hds-tooltip-button {
+  @include hds-focus-ring-with-pseudo-element(
+    $top: var(--token-tooltip-tab-focus-inset-vertical),
+    $right: var(--token-tooltip-tab-focus-inset-horizontal),
+    $bottom: var(--token-tooltip-tab-focus-inset-vertical),
+    $left: var(--token-tooltip-tab-focus-inset-horizontal),
+  );
   display: inline-block;
   min-height: 1em; // used together with line-height: 0, maintains min-height of text-only content
   margin: 0;
   padding: 0;
   color: inherit;
-  line-height: 0; // this makes the button the same height as nested icons, may not be desireable though
+  line-height: 0; // this makes the button the same height as nested icons
   background: transparent;
   border: none;
 
