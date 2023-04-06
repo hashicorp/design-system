@@ -5,10 +5,10 @@
 
 // TOOLTIP
 
-.components-tooltip {
-  // openers
+body.components-tooltip {
+  // block-level opener elements
   div[tabindex="0"],
   p[tabindex="0"] {
-    outline: 1px dashed skyblue;
+    outline: 1px dashed var(--token-color-border-strong);
   }
 }
