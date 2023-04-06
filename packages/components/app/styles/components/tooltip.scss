@@ -9,25 +9,21 @@
 
 :root {
   // Dimensions:
-
-  // $tooltip-width: 192px;
-  --token-tooltip-max-width: 192px;
+  --token-tooltip-max-width: 280px;
 
   // $arrow-border-size: 7.5px;
-  --token-tooltip-arrow-border-size: 7.5px;
+  // --token-tooltip-arrow-border-size: 7.5px;
 
-  // $arrow-width: calc(#{$arrow-border-size} * 2); // 15 pixels
-  --token-tooltip-arrow-width: calc(var(--token-tooltip-arrow-border-size) * 2); // 15 pixels
+  // // $arrow-width: calc(#{$arrow-border-size} * 2); // 15 pixels
+  // --token-tooltip-arrow-width: calc(var(--token-tooltip-arrow-border-size) * 2); // 15 pixels
 
-  // $arrow-height: calc(#{$arrow-border-size} * 1.07); // 8 pixels
-  --token-tooltip-arrow-height: calc(var(--token-tooltip-arrow-border-size) * 1.07); // 8 pixels
+  // // $arrow-height: calc(#{$arrow-border-size} * 1.07); // 8 pixels
+  // --token-tooltip-arrow-height: calc(var(--token-tooltip-arrow-border-size) * 1.07); // 8 pixels
 
-  // $arrow-y-axis-distance: calc(0px - #{$arrow-border-size});
-  --token-tooltip-arrowy-axis-distance: calc(0px - var(--token-tooltip-arrow-border-size));
+  // // $arrow-y-axis-distance: calc(0px - #{$arrow-border-size});
+  // --token-tooltip-arrowy-axis-distance: calc(0px - var(--token-tooltip-arrow-border-size));
 
   // Colors:
-
-  // $tooltip-background-color: var(--token-color-palette-neutral-700);
   --token-tooltip-surface-primary: var(--token-color-palette-neutral-700);
 }
 
@@ -68,12 +64,10 @@
 // From Cloud-ui:
 // ---------------------------------------------------------
 .tippy-box[data-theme~="hcp"] {
-  // $tooltip-background-color: var(--token-color-palette-neutral-700);
-  $tooltip-width: 280px;
-  $arrow-border-size: 7.5px;
-  $arrow-width: calc(#{$arrow-border-size} * 2); // 15 pixels
-  $arrow-height: calc(#{$arrow-border-size} * 1.07); // 8 pixels
-  $arrow-y-axis-distance: calc(0px - #{$arrow-border-size});
+  // $arrow-border-size: 7.5px;
+  // $arrow-width: calc(#{$arrow-border-size} * 2); // 15 pixels
+  // $arrow-height: calc(#{$arrow-border-size} * 1.07); // 8 pixels
+  // $arrow-y-axis-distance: calc(0px - #{$arrow-border-size});
 
   padding: 8px 12px;
   color: var(--token-color-foreground-high-contrast);
@@ -83,9 +77,7 @@
   line-height: var(--token-typography-body-200-line-height);
   background-color: var(--token-tooltip-surface-primary);
   border-radius: 3px;
-  // box-shadow: var(--token-surface-low-box-shadow);
   box-shadow: var(--token-elevation-higher-box-shadow);
-  // filter: drop-shadow(0 2px 2px red); // just testing
   transition-property: transform, visibility, opacity;
 
   &[data-animation="fade"][data-state="hidden"] {
@@ -101,7 +93,7 @@
     z-index: 1;
     // This needs to go here because Tippy generates a javascript
     // max-width on .tippy-box.
-    max-width: $tooltip-width;
+    max-width: var(--token-tooltip-max-width);
   }
 
   // works with Tippy's round arrow variation:
@@ -128,67 +120,67 @@
   **/
 
   // placement option: top
-  &[data-placement^="top"] > .tippy-arrow {
-    bottom: 0;
+  // &[data-placement^="top"] > .tippy-arrow {
+  //   bottom: 0;
 
-    &::before {
-      bottom: $arrow-y-axis-distance;
-      border-width: $arrow-border-size $arrow-border-size 0;
-      border-top-color: initial;
-      transform-origin: center top;
-    }
-  }
+  //   &::before {
+  //     bottom: $arrow-y-axis-distance;
+  //     border-width: $arrow-border-size $arrow-border-size 0;
+  //     border-top-color: initial;
+  //     transform-origin: center top;
+  //   }
+  // }
 
   // placement option: bottom
-  &[data-placement^="bottom"] > .tippy-arrow {
-    top: 0;
+  // &[data-placement^="bottom"] > .tippy-arrow {
+  //   top: 0;
 
-    &::before {
-      top: $arrow-y-axis-distance;
-      left: 0;
-      border-width: 0 $arrow-border-size $arrow-border-size;
-      border-bottom-color: initial;
-      transform-origin: center bottom;
-    }
-  }
+  //   &::before {
+  //     top: $arrow-y-axis-distance;
+  //     left: 0;
+  //     border-width: 0 $arrow-border-size $arrow-border-size;
+  //     border-bottom-color: initial;
+  //     transform-origin: center bottom;
+  //   }
+  // }
 
   // placement options: left, left-end, left-start
-  &[data-placement^="left"] > .tippy-arrow,
-  &[data-placement^="left-start"] > .tippy-arrow,
-  &[data-placement^="left-end"] > .tippy-arrow {
-    right: 0;
+  // &[data-placement^="left"] > .tippy-arrow,
+  // &[data-placement^="left-start"] > .tippy-arrow,
+  // &[data-placement^="left-end"] > .tippy-arrow {
+  //   right: 0;
 
-    &::before {
-      right: $arrow-y-axis-distance;
-      border-width: $arrow-border-size 0 $arrow-border-size $arrow-border-size;
-      border-left-color: initial;
-      transform-origin: center left;
-    }
-  }
+  //   &::before {
+  //     right: $arrow-y-axis-distance;
+  //     border-width: $arrow-border-size 0 $arrow-border-size $arrow-border-size;
+  //     border-left-color: initial;
+  //     transform-origin: center left;
+  //   }
+  // }
 
-  &[data-placement^="left-end"] > .tippy-arrow {
-    &::before {
-      top: $arrow-y-axis-distance;
-    }
-  }
+  // &[data-placement^="left-end"] > .tippy-arrow {
+  //   &::before {
+  //     top: $arrow-y-axis-distance;
+  //   }
+  // }
 
   // placement options: right, right-start, right-end
-  &[data-placement^="right"] > .tippy-arrow,
-  &[data-placement^="right-start"] > .tippy-arrow,
-  &[data-placement^="right-end"] > .tippy-arrow {
-    left: 0;
+  // &[data-placement^="right"] > .tippy-arrow,
+  // &[data-placement^="right-start"] > .tippy-arrow,
+  // &[data-placement^="right-end"] > .tippy-arrow {
+  //   left: 0;
 
-    &::before {
-      left: $arrow-y-axis-distance;
-      border-width: $arrow-border-size $arrow-border-size $arrow-border-size 0;
-      border-right-color: initial;
-      transform-origin: center right;
-    }
-  }
+  //   &::before {
+  //     left: $arrow-y-axis-distance;
+  //     border-width: $arrow-border-size $arrow-border-size $arrow-border-size 0;
+  //     border-right-color: initial;
+  //     transform-origin: center right;
+  //   }
+  // }
 
-  &[data-placement^="right-end"] > .tippy-arrow {
-    &::before {
-      top: $arrow-y-axis-distance;
-    }
-  }
+  // &[data-placement^="right-end"] > .tippy-arrow {
+  //   &::before {
+  //     top: $arrow-y-axis-distance;
+  //   }
+  // }
 }

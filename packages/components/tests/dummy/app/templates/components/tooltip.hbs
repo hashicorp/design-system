@@ -43,14 +43,14 @@
 
   <Shw::Text::H4>Used <em>incorrectly</em> to wrap a block-level element (button wraps div tag)</Shw::Text::H4>
   <Shw::Text::Body>(results in invalid HTML structure)</Shw::Text::Body>
-  <Hds::TooltipButton @text="<b>Hello</b> to <em>you</em>!">
+  <Hds::TooltipButton @text="Invalid usage">
     <div><FlightIcon @name="alert-circle" /></div>
   </Hds::TooltipButton>
 
   <Shw::Text::H4>Used within a sentence.</Shw::Text::H4>
   <p>
     Lorem ipsum dolor sit amet consectetur
-    <Hds::TooltipButton @text="<b>Hello</b> to <em>you</em>!"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+    <Hds::TooltipButton @text="Hello!"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
     adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
   </p>
 
@@ -118,11 +118,11 @@
 
   <Shw::Flex as |SF|>
     <SF.Item @label="Used on a button tag">
-      <button type="button" {{hds-tooltip "hello!"}}><FlightIcon @name="alert-circle" /></button>
+      <button type="button" {{hds-tooltip "Hello!"}}><FlightIcon @name="alert-circle" /></button>
     </SF.Item>
 
     <SF.Item @label="Used on an anchor tag">
-      <a href="#" {{hds-tooltip "hello!"}}><FlightIcon @name="alert-circle" /></a>
+      <a href="#" {{hds-tooltip "Hello!"}}><FlightIcon @name="alert-circle" /></a>
     </SF.Item>
 
     <SF.Item @label="Used on an HTML text input tag combined with HDS form components">
@@ -135,11 +135,11 @@
     </SF.Item>
 
     <SF.Item @label="Used on a span tag (not accessible)">
-      <span {{hds-tooltip "hello!"}}><FlightIcon @name="alert-circle" /></span>
+      <span {{hds-tooltip "Invalid usage"}}><FlightIcon @name="alert-circle" /></span>
     </SF.Item>
 
     <SF.Item @label="Used on a time tag (not accessible)">
-      <time {{hds-tooltip "hello!"}} datetime="2023-03-30T19:18:01.684Z">Mar 30, 2023</time>
+      <time {{hds-tooltip "Invalid usage"}} datetime="2023-03-30T19:18:01.684Z">Mar 30, 2023</time>
     </SF.Item>
   </Shw::Flex>
 
@@ -149,7 +149,7 @@
     <SF.Item @label="Used on a button tag within a sentence">
       <p>
         Lorem ipsum dolor sit amet consectetur
-        <button type="button" {{hds-tooltip "hello!"}}><FlightIcon @name="alert-circle" /></button>
+        <button type="button" {{hds-tooltip "Hello!"}}><FlightIcon @name="alert-circle" /></button>
         adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
       </p>
     </SF.Item>
@@ -157,7 +157,7 @@
     <SF.Item @label="Used on an anchor tag within a sentence">
       <p>
         Lorem ipsum dolor sit amet consectetur
-        <a href="#" {{hds-tooltip "hello!"}}><FlightIcon @name="alert-circle" /></a>
+        <a href="#" {{hds-tooltip "Hello!"}}><FlightIcon @name="alert-circle" /></a>
         adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
       </p>
     </SF.Item>
@@ -165,12 +165,12 @@
     <SF.Item @label="Used on a button tag next to text">
       <p>
         <strong>Lorem ipsum dolor sit amet consectetur</strong>
-        <button type="button" {{hds-tooltip "hello!"}}><FlightIcon @name="alert-circle" /></button>
+        <button type="button" {{hds-tooltip "Hello!"}}><FlightIcon @name="alert-circle" /></button>
       </p>
     </SF.Item>
   </Shw::Flex>
 
   <Shw::Text::H4>Used on a non-interactive block-level trigger element (div tag as trigger)</Shw::Text::H4>
   <Shw::Text::Body>Not accessible (consumer also needs to add custom styles)</Shw::Text::Body>
-  <div {{hds-tooltip "hello!"}}><FlightIcon @name="alert-circle" /></div>
+  <div {{hds-tooltip "Invalid usage"}}><FlightIcon @name="alert-circle" /></div>
 </section>
