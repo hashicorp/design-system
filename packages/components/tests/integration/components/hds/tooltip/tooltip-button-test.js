@@ -88,6 +88,16 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
     );
   });
 
+  // PLACEMENT
+
+  test('it should render the component with the passed in @placement', async function (assert) {
+    await render(
+      hbs`<Hds::TooltipButton @text="Hello" @placement="right" id="test-tooltip-button">info</Hds::TooltipButton>`
+    );
+    await focus('#test-tooltip-button');
+    assert.dom('.tippy-box').hasAttribute('data-placement', 'right');
+  });
+
   // ATTRIBUTES
 
   test('it should spread all the attributes passed to the component on the element', async function (assert) {

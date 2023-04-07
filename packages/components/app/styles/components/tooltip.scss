@@ -17,18 +17,6 @@
   --token-tooltip-tab-focus-inset-vertical: -10px;
   --token-tooltip-tab-focus-inset-horizontal: -16px;
 
-  // $arrow-border-size: 7.5px;
-  // --token-tooltip-arrow-border-size: 7.5px;
-
-  // // $arrow-width: calc(#{$arrow-border-size} * 2); // 15 pixels
-  // --token-tooltip-arrow-width: calc(var(--token-tooltip-arrow-border-size) * 2); // 15 pixels
-
-  // // $arrow-height: calc(#{$arrow-border-size} * 1.07); // 8 pixels
-  // --token-tooltip-arrow-height: calc(var(--token-tooltip-arrow-border-size) * 1.07); // 8 pixels
-
-  // // $arrow-y-axis-distance: calc(0px - #{$arrow-border-size});
-  // --token-tooltip-arrowy-axis-distance: calc(0px - var(--token-tooltip-arrow-border-size));
-
   // Colors:
   --token-tooltip-surface-primary: var(--token-color-palette-neutral-700);
 }
@@ -38,7 +26,7 @@
 .DISABLEcomponents-tooltip {
   // Tooltip trigger wrapper:
   .hds-tooltip-button {
-    outline: 2px solid red;
+    outline: 1px solid red;
 
     > * {
       background: yellow;
@@ -47,8 +35,6 @@
 
   // openers
   [tabindex="0"] {
-    margin: 0;
-    padding: 0;
     background: lime;
     outline: 1px dashed magenta;
   }
@@ -61,7 +47,9 @@
     $bottom: var(--token-tooltip-tab-focus-inset-vertical),
     $left: var(--token-tooltip-tab-focus-inset-horizontal),
   );
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-height: 1em; // used together with line-height: 0, maintains min-height of text-only content
   margin: 0;
   padding: 0;
@@ -75,12 +63,7 @@
 
 // From Cloud-ui:
 // ---------------------------------------------------------
-.tippy-box[data-theme~="hcp"] {
-  // $arrow-border-size: 7.5px;
-  // $arrow-width: calc(#{$arrow-border-size} * 2); // 15 pixels
-  // $arrow-height: calc(#{$arrow-border-size} * 1.07); // 8 pixels
-  // $arrow-y-axis-distance: calc(0px - #{$arrow-border-size});
-
+.tippy-box[data-theme~="hds"] {
   padding: 8px 12px;
   color: var(--token-color-foreground-high-contrast);
   font-weight: var(--token-typography-font-weight-regular);
@@ -108,91 +91,8 @@
     max-width: var(--token-tooltip-max-width);
   }
 
-  // works with Tippy's round arrow variation:
+  // works with Tippy's custom SVG arrow variation:
   .tippy-svg-arrow {
     fill: var(--token-tooltip-surface-primary);
   }
-
-  // .tippy-arrow {
-  //   width: $arrow-width;
-  //   height: $arrow-height;
-  //   color: var(--token-tooltip-surface-primary);
-
-  //   &::before {
-  //     position: absolute;
-  //     border-color: transparent;
-  //     border-style: solid;
-  //     content: "";
-  //   }
-  // }
-
-  /***
-  Because we are customizing the arrow size in our theme,
-  we need to customize the positioning of the .tippy-arrow for each placement option
-  **/
-
-  // placement option: top
-  // &[data-placement^="top"] > .tippy-arrow {
-  //   bottom: 0;
-
-  //   &::before {
-  //     bottom: $arrow-y-axis-distance;
-  //     border-width: $arrow-border-size $arrow-border-size 0;
-  //     border-top-color: initial;
-  //     transform-origin: center top;
-  //   }
-  // }
-
-  // placement option: bottom
-  // &[data-placement^="bottom"] > .tippy-arrow {
-  //   top: 0;
-
-  //   &::before {
-  //     top: $arrow-y-axis-distance;
-  //     left: 0;
-  //     border-width: 0 $arrow-border-size $arrow-border-size;
-  //     border-bottom-color: initial;
-  //     transform-origin: center bottom;
-  //   }
-  // }
-
-  // placement options: left, left-end, left-start
-  // &[data-placement^="left"] > .tippy-arrow,
-  // &[data-placement^="left-start"] > .tippy-arrow,
-  // &[data-placement^="left-end"] > .tippy-arrow {
-  //   right: 0;
-
-  //   &::before {
-  //     right: $arrow-y-axis-distance;
-  //     border-width: $arrow-border-size 0 $arrow-border-size $arrow-border-size;
-  //     border-left-color: initial;
-  //     transform-origin: center left;
-  //   }
-  // }
-
-  // &[data-placement^="left-end"] > .tippy-arrow {
-  //   &::before {
-  //     top: $arrow-y-axis-distance;
-  //   }
-  // }
-
-  // placement options: right, right-start, right-end
-  // &[data-placement^="right"] > .tippy-arrow,
-  // &[data-placement^="right-start"] > .tippy-arrow,
-  // &[data-placement^="right-end"] > .tippy-arrow {
-  //   left: 0;
-
-  //   &::before {
-  //     left: $arrow-y-axis-distance;
-  //     border-width: $arrow-border-size $arrow-border-size $arrow-border-size 0;
-  //     border-right-color: initial;
-  //     transform-origin: center right;
-  //   }
-  // }
-
-  // &[data-placement^="right-end"] > .tippy-arrow {
-  //   &::before {
-  //     top: $arrow-y-axis-distance;
-  //   }
-  // }
 }

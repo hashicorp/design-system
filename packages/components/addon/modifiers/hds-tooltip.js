@@ -7,7 +7,8 @@ import Modifier from 'ember-modifier';
 import { assert } from '@ember/debug';
 import { registerDestructor } from '@ember/destroyable';
 
-import tippy, { followCursor, roundArrow } from 'tippy.js';
+import tippy, { followCursor } from 'tippy.js';
+// used by custom SVG arrow:
 import 'tippy.js/dist/svg-arrow.css';
 
 function cleanup(instance) {
@@ -136,11 +137,13 @@ export default class HdsTooltipModifier extends Modifier {
     }
 
     return {
-      theme: 'hcp',
+      theme: 'hds',
       triggerTarget: $trigger,
       // trigger: 'click', // TEMP for testing design
-      // arrow: true,
-      arrow: roundArrow,
+      arrow: `
+        <svg width="16" height="7" viewBox="0 0 16 7" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z" />
+        </svg>`,
       // keeps tooltip itself open on hover:
       interactive: true,
       // fix accessibility features that get messed up with setting interactive: true
