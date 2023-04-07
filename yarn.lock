@@ -2574,7 +2574,7 @@ __metadata:
     ember-named-blocks-polyfill: ^0.2.5
     ember-page-title: ^7.0.0
     ember-power-select: ^6.0.0
-    ember-qunit: ^6.1.1
+    ember-qunit: ^6.2.0
     ember-resolver: ^10.0.0
     ember-source: ~4.10.0
     ember-source-channel-url: ^3.0.0
@@ -2657,7 +2657,7 @@ __metadata:
     ember-disable-prototype-extensions: ^1.1.3
     ember-load-initializers: ^2.1.2
     ember-page-title: ^7.0.0
-    ember-qunit: ^6.1.1
+    ember-qunit: ^6.2.0
     ember-resolver: ^8.1.0
     ember-source: ~4.8.4
     ember-source-channel-url: ^3.0.0
@@ -9003,7 +9003,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-auto-import@npm:^2.2.4, ember-auto-import@npm:^2.4.1, ember-auto-import@npm:^2.4.2, ember-auto-import@npm:^2.4.3, ember-auto-import@npm:^2.6.0":
+"ember-auto-import@npm:^2.2.4, ember-auto-import@npm:^2.4.1, ember-auto-import@npm:^2.4.2, ember-auto-import@npm:^2.6.0":
   version: 2.6.0
   resolution: "ember-auto-import@npm:2.6.0"
   dependencies:
@@ -10107,23 +10107,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-qunit@npm:^6.1.1":
-  version: 6.1.1
-  resolution: "ember-qunit@npm:6.1.1"
+"ember-qunit@npm:^6.2.0":
+  version: 6.2.0
+  resolution: "ember-qunit@npm:6.2.0"
   dependencies:
     broccoli-funnel: ^3.0.8
     broccoli-merge-trees: ^3.0.2
     common-tags: ^1.8.0
-    ember-auto-import: ^2.4.3
+    ember-auto-import: ^2.6.0
     ember-cli-babel: ^7.26.11
     ember-cli-test-loader: ^3.0.0
     resolve-package-path: ^4.0.3
     silent-error: ^1.1.1
-    validate-peer-dependencies: ^2.1.0
+    validate-peer-dependencies: ^2.2.0
   peerDependencies:
-    ember-source: ^3.28 || ^4.0
+    "@ember/test-helpers": ^2.9.3
+    ember-source: ">=3.28"
     qunit: ^2.13.0
-  checksum: c663cf9fa4c7923c4f0f07ff04409d701519bbcd7ab94f60752342a572f416703dc28898b6a80b3be0f36e39821988416892dc0e8e15f71933443fabffa7b2b8
+  checksum: c9058d02d78efe06887ee6993908d8f45592c4369e0f72a57045f5ae27df94ea7497866bdf484f12eaddfac23ae4051a259bae0280a70c0dd50a8260eae3126c
   languageName: node
   linkType: hard
 
@@ -20653,7 +20654,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"validate-peer-dependencies@npm:^2.0.0, validate-peer-dependencies@npm:^2.1.0":
+"validate-peer-dependencies@npm:^2.0.0, validate-peer-dependencies@npm:^2.2.0":
   version: 2.2.0
   resolution: "validate-peer-dependencies@npm:2.2.0"
   dependencies:
@@ -20934,7 +20935,7 @@ __metadata:
     ember-page-title: ^7.0.0
     ember-power-select: ^6.0.0
     ember-prism: ^0.13.0
-    ember-qunit: ^6.1.1
+    ember-qunit: ^6.2.0
     ember-resolver: ^8.1.0
     ember-router-scroll: ^4.1.2
     ember-source: ~4.8.4
