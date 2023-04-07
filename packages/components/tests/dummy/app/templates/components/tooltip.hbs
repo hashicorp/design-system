@@ -26,7 +26,7 @@
       </Hds::TooltipButton>
     </SF.Item>
 
-    <SF.Item @label="With an HTML <code>time</code> element as content">
+    <SF.Item @label="With an HTML time element as content">
       <Hds::TooltipButton @text="2023-03-30T19:18:01.684Z">
         <time datetime="2023-03-30T19:18:01.684Z">Apr 5, 2023</time>
       </Hds::TooltipButton>
@@ -46,6 +46,12 @@
   <Hds::TooltipButton @text="Invalid usage">
     <div><FlightIcon @name="alert-circle" /></div>
   </Hds::TooltipButton>
+
+  <Shw::Text::H4>Used next to text</Shw::Text::H4>
+  <p>
+    <strong>Lorem ipsum dolor sit amet consectetur</strong>
+    <Hds::TooltipButton @text="Hello!"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+  </p>
 
   <Shw::Text::H4>Used within a sentence.</Shw::Text::H4>
   <p>
@@ -140,33 +146,6 @@
 
     <SF.Item @label="Used on a time tag (not accessible)">
       <time {{hds-tooltip "Invalid usage"}} datetime="2023-03-30T19:18:01.684Z">Mar 30, 2023</time>
-    </SF.Item>
-  </Shw::Flex>
-
-  <Shw::Text::H4>Used together with other text</Shw::Text::H4>
-
-  <Shw::Flex as |SF|>
-    <SF.Item @label="Used on a button tag within a sentence">
-      <p>
-        Lorem ipsum dolor sit amet consectetur
-        <button type="button" {{hds-tooltip "Hello!"}}><FlightIcon @name="alert-circle" /></button>
-        adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
-      </p>
-    </SF.Item>
-
-    <SF.Item @label="Used on an anchor tag within a sentence">
-      <p>
-        Lorem ipsum dolor sit amet consectetur
-        <a href="#" {{hds-tooltip "Hello!"}}><FlightIcon @name="alert-circle" /></a>
-        adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
-      </p>
-    </SF.Item>
-
-    <SF.Item @label="Used on a button tag next to text">
-      <p>
-        <strong>Lorem ipsum dolor sit amet consectetur</strong>
-        <button type="button" {{hds-tooltip "Hello!"}}><FlightIcon @name="alert-circle" /></button>
-      </p>
     </SF.Item>
   </Shw::Flex>
 
