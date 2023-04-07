@@ -21,25 +21,6 @@
   --token-tooltip-surface-primary: var(--token-color-palette-neutral-700);
 }
 
-// TESTING ONLY:
-// ------------------------------
-.DISABLEcomponents-tooltip {
-  // Tooltip trigger wrapper:
-  .hds-tooltip-button {
-    outline: 1px solid red;
-
-    > * {
-      background: yellow;
-    }
-  }
-
-  // openers
-  [tabindex="0"] {
-    background: lime;
-    outline: 1px dashed magenta;
-  }
-}
-
 .hds-tooltip-button {
   @include hds-focus-ring-with-pseudo-element(
     $top: var(--token-tooltip-tab-focus-inset-vertical),
@@ -61,8 +42,6 @@
   > svg { display: block; } // removes excess whitespace
 }
 
-// From Cloud-ui:
-// ---------------------------------------------------------
 .tippy-box[data-theme~="hds"] {
   padding: 8px 12px;
   color: var(--token-color-foreground-high-contrast);
