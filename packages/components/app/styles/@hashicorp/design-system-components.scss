@@ -13,6 +13,7 @@
 // Notice: this list can be automatically edited by the Ember blueprint, please don't remove the start/end comments
 // START COMPONENTS CSS FILES IMPORTS
 @use "../components/alert";
+@use "../components/application-state";
 @use "../components/avatar";
 @use "../components/badge";
 @use "../components/badge-count";
@@ -23,7 +24,6 @@
 @use "../components/disclosure";
 @use "../components/dismiss-button";
 @use "../components/dropdown";
-@use "../components/empty-state";
 @use "../components/flyout";
 @use "../components/form"; // multiple components
 @use "../components/icon-tile";
