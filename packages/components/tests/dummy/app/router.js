@@ -20,6 +20,7 @@ Router.map(function () {
   });
   this.route('components', function () {
     this.route('alert');
+    this.route('application-state');
     this.route('avatar');
     this.route('badge');
     this.route('badge-count');
