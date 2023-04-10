@@ -17,7 +17,7 @@
 ## Actions
 
 - In the footer, you can include up to two stand-alone links. 
-- We don't recommend using buttons, as most actions will navigate the user away from this page. Learn more about [when to use a link vs. a button](https://helios.hashicorp.design/components/link/standalone#usage).
+- We don’t recommend using buttons, as most actions will navigate the user away from this page. Learn more about [when to use a link vs. a button](https://helios.hashicorp.design/components/link/standalone#usage).
 - For the standalone link, we recommend using the medium size.
 - Use footer actions to redirect or guide users in solving errors/access issues with actionable steps.
 
