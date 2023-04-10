@@ -11,17 +11,13 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | hds/form/legend/index', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders the component', async function (assert) {
+  test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(hbs`<Hds::Form::Legend id="test-form-legend" />`);
-    assert.dom('#test-form-legend').exists();
+    assert.dom('#test-form-legend').hasClass('hds-form-legend');
   });
   test('it renders the element as <legend>', async function (assert) {
     await render(hbs`<Hds::Form::Legend id="test-form-legend" />`);
     assert.dom('#test-form-legend').hasTagName('legend');
-  });
-  test('it should render with a CSS class that matches the component name', async function (assert) {
-    await render(hbs`<Hds::Form::Legend id="test-form-legend" />`);
-    assert.dom('#test-form-legend').hasClass('hds-form-legend');
   });
   test('it should render with a CSS class provided via the @contextualClass argument', async function (assert) {
     await render(

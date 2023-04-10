@@ -34,6 +34,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/alert');
     await percySnapshot('Alert');
 
+    await visit('/components/application-state');
+    await percySnapshot('ApplicationState');
+
     await visit('/components/badge');
     await percySnapshot('Badge');
 
@@ -95,6 +98,15 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/modal');
     await percySnapshot('Modal');
 
+    await visit('/components/pagination');
+    await percySnapshot('Pagination');
+
+    await visit('/components/side-nav');
+    await percySnapshot('SideNav');
+
+    await visit('/components/stepper');
+    await percySnapshot('Stepper');
+
     await visit('/components/table');
     await percySnapshot('Table');
 
@@ -107,8 +119,8 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/toast');
     await percySnapshot('Toast');
 
-    await visit('/components/stepper');
-    await percySnapshot('Stepper - Indicator');
+    await visit('/utilities/dismiss-button');
+    await percySnapshot('DismissButton');
 
     await visit('/overrides/power-select');
     await percySnapshot('PowerSelect');

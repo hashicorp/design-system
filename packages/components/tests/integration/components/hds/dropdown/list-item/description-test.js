@@ -17,14 +17,7 @@ module(
       resetOnerror();
     });
 
-    test('it renders the "list-item/description"', async function (assert) {
-      await render(
-        hbs`<Hds::Dropdown::ListItem::Description @text="description" />`
-      );
-      assert.dom(this.element).exists();
-    });
-
-    test('it should render the "list-item/description" as a <li> element with a CSS class that matches the component name', async function (assert) {
+    test('it should render the component as a <li> element with a CSS class that matches the component name', async function (assert) {
       await render(
         hbs`<Hds::Dropdown::ListItem::Description @text="description" id="test-list-item-description" />`
       );
@@ -34,7 +27,7 @@ module(
         .hasClass('hds-dropdown-list-item');
       assert
         .dom('#test-list-item-description')
-        .hasClass('hds-dropdown-list-item--description');
+        .hasClass('hds-dropdown-list-item--variant-description');
     });
 
     // ASSERTIONS

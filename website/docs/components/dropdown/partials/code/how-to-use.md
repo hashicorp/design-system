@@ -1,6 +1,6 @@
 ## How to use this component
 
-To make the invocation more intuitive for developers, we’ve provided contextual components for Toggles and ListItems. For example, `<Hds::Dropdown::ListItem::Separator />` is yielded in a hash, using the key `<XX.Separator />` when invoked.
+To make the invocation more flexible and intuitive, we provide contextual components for Toggles, ListItems, Header and Footer. For example, `<Hds::Dropdown::ListItem::Separator />` would be contextually expressed as `<dd.Separator />`.
 
 ```handlebars
 <Hds::Dropdown as |dd|>
@@ -17,10 +17,10 @@ To make the invocation more intuitive for developers, we’ve provided contextua
 
 ### List position
 
-By default, the list is positioned to the right. To position the list on the left, pass `left` to `@listPosition` on the Dropdown component.
+By default, the list is positioned below the button, aligned to the right. To change the list position pass `bottom-left`, `top-left`, or `top-right` to `@listPosition` on the Dropdown component.
 
 ```handlebars
-<Hds::Dropdown @listPosition="left" as |dd|>
+<Hds::Dropdown @listPosition="bottom-left" as |dd|>
   <dd.ToggleButton @text="Text Toggle" />
   <dd.Interactive @route="components" @text="Item One" />
   <dd.Interactive @route="components" @text="Item Two" />
@@ -120,7 +120,7 @@ If you add an event handler (no `@href` or `@route`), a `<button>` element will 
 
 ```handlebars
 {{!-- The Doc::ListContainer component is just to help the component render properly --}}
-<Doc::ListContainer class="hds-dropdown-list">
+<Doc::ListContainer class="hds-dropdown__list">
   <Hds::Dropdown::ListItem::Interactive {{on "click" this.myAction}} @text="Run command" />
 </Doc::ListContainer>
 ```
@@ -138,7 +138,7 @@ If you pass an `@href` argument, a link (`<a>` element) will be generated:
 
 ```handlebars
 {{!-- The Doc::ListContainer component is just to help the component render properly --}}
-<Doc::ListContainer class="hds-dropdown-list">
+<Doc::ListContainer class="hds-dropdown__list">
   <Hds::Dropdown::ListItem::Interactive @href="https://www.hashicorp.com/request-demo/terraform" @text="Request a demo" />
 </Doc::ListContainer>
 ```
@@ -149,7 +149,7 @@ Pass a `@route` to render Ember `<LinkTo>`. If the route is external to your cur
 
 ```handlebars
 {{!-- The Doc::ListContainer component is just to help the component render properly --}}
-<Doc::ListContainer class="hds-dropdown-list">
+<Doc::ListContainer class="hds-dropdown__list">
   <Hds::Dropdown::ListItem::Interactive @route="my.page.route" @model="my.page.model" @text="Activate cluster" />
 </Doc::ListContainer>
 ```

@@ -10,23 +10,18 @@ import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/table/th-sort', function (hooks) {
   setupRenderingTest(hooks);
-  test('it renders', async function (assert) {
-    await render(hbs`<Hds::Table::ThSort>Artist</Hds::Table::ThSort>`);
-
-    assert.dom(this.element).hasText('Artist');
-  });
-  test('it has the scope attribute, and it is set to column', async function (assert) {
-    await render(hbs`<Hds::Table::ThSort>Artist</Hds::Table::ThSort>`);
-
-    assert.dom('.hds-table__th-sort').hasAttribute('scope', 'col');
-  });
-
-  test('it should render the component with a CSS class that matches the component name', async function (assert) {
+  test('it renders with a CSS class that matches the component name', async function (assert) {
     await render(
       hbs`<Hds::Table::ThSort id="data-test-table-th-sort">Artist</Hds::Table::ThSort>`
     );
 
     assert.dom('#data-test-table-th-sort').hasClass('hds-table__th-sort');
+  });
+
+  test('it has the scope attribute, and it is set to column', async function (assert) {
+    await render(hbs`<Hds::Table::ThSort>Artist</Hds::Table::ThSort>`);
+
+    assert.dom('.hds-table__th-sort').hasAttribute('scope', 'col');
   });
 
   test('it should render with the appropriate `@align` CSS class', async function (assert) {

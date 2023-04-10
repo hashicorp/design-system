@@ -35,7 +35,7 @@ export default class HdsDropdownListItemCopyItemComponent extends Component {
   get classNames() {
     let classes = [
       'hds-dropdown-list-item',
-      'hds-dropdown-list-item--copy-item',
+      'hds-dropdown-list-item--variant-copy-item',
     ];
 
     return classes.join(' ');

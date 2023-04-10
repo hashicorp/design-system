@@ -1,0 +1,1 @@
+The SideNav provides users with access to the main pages of the product and should be used as the primary navigation in the application.
