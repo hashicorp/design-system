@@ -2,7 +2,7 @@
 
 ### When to use
 
-- When a user's action does not yield any results due to incorrect or incomplete input.
+- When a user’s action does not yield any results due to incorrect or incomplete input.
 - When an application encounters an issue or error during its operation.
 
 ### When not to use
