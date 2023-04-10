@@ -4,34 +4,35 @@ An Input Group is intentionally published as an agnostic container element that 
 
 !!! Info
 
-The way in which these components are published and assembled together are fundamenally different between the Figma Ember components.
+The way in which these components are published and assembled together is fundamentally different between the Figma and Ember components.
 
-- In Figma, multiple primitive components are published (`ButtonType` and `InputType`) that are intended to be assembled in an auto layout container. A pre-assembled `Base` component is also available for more simple instances.
+- In Figma, we publish multiple primitive components (`ButtonType` and `InputType`) that are intended to be assembled in an auto layout container. A pre-assembled `Base` component is also available for more simple instances.
 - The Ember component acts as a container to enforce consistent styling and grouping of nested Helios form components. It does not handle any logic or functionality out of the box, this is left up to the nested form elements.
 !!!
 
 ### When to use
 
 - When filtering complex data, searching within a set of filters, and creating complex filtering patterns.
-- When collecting information in a form that benefits from a "connected" visual representation, e.g., a key/value pair.
+- When collecting information in a way that benefits from a "connected" visual representation, e.g., a key/value pair.
 - When an action performs a generative function rather than a submit function, e.g., generating API credentials.
-- As a complex data input, e.g., uploading a document or connecting to an external resource.
+- As a complex data input, e.g., connecting to an external resource.
 
 ### When not to use
 
 - To submit a form or set of inputs. An Input Group can exist within a form to collect multi-directional data, but should not submit that data via a form method. Use the guidelines in [Form patterns](/patterns/form-patterns) instead.
 - To connect multiple fields that each require their own label.
+- When adding a prefix or suffix to an input field. This is not currently supported by Helios form components, instead consider using a simple text element preceeding or following the form element.
 
 ## Primitive components
 
-An Input Group can consist of a multiple primitive subcomponents that vary in their properties and intended input value. We recommend limiting usage in both Figma and code to those defined in the `ButtonType` and `InputType` primitives to ensure consistent styling and grouping.
+An Input Group can consist of multiple primitive subcomponents that vary in their properties and intended input value. We recommend limiting usage in both Figma and code to those defined in the `ButtonType` and `InputType` primitives to ensure consistent styling and grouping.
 
 ### Button types
 
 - **Default**: a default button can perform a function or interaction within an Input Group, e.g., generating an object, string, or value in a field it is connected to. This is an extension of the Helios [Button](/components/button).
 - **Toggle**: a toggle button can be used to filter or narrow the available parameters when searching within a data set or group of objects. This is an extension of the Helios [Toggle Button](/components/toggle-button).
 
-Different types of buttons within an Input Group will function and impact the UX in different ways, e.g., a `ToggleButton` can act as a filtering mechanism, while a the `Default` button can perform a function.
+Different types of buttons within an Input Group will function and impact the UX in different ways, e.g., a `ToggleButton` can act as a filtering mechanism, while a `Button` can perform a function.
 
 ### Input Types
 
@@ -48,7 +49,7 @@ Different Input Types can be combined within an Input Group to collect more comp
 
 ### Custom elements
 
-If you need to use a custom component within an Input Group, ensure that the visual language and styling matches the primitives, or reach out the Helios team for [assistance](/about/support).
+If you need to use a custom component within an Input Group, ensure that the visual language and styling match the primitives, or contact the Design Systems Team for [assistance](/about/support).
 
 ## Base component
 
@@ -72,7 +73,7 @@ This example showcases a larger filter pattern that consists of two Input Groups
 
 ### Within a form
 
-While less common, an Input Group can be used within a form collect related data, perform generative functions like creating API keys, and for filtering within a search field.
+While less common, an Input Group can be used within a form to collect related data, perform generative functions like creating API keys, and for filtering within a search field.
 
 !!! Do
 
@@ -101,9 +102,9 @@ For error validation recommendations, refer to the [Form patterns](/patterns/for
 
 ## Content
 
-The content with the Input Group is dependent on the context:
+The content within the Input Group is dependent on the context:
 
-- If used a within a form, the Input Group should be used within a [Form::Fieldset](/components/form/primitives) primitive and requires a single label.
+- If used in a form, the Input Group should be used within a [Form::Fieldset](/components/form/primitives) primitive and requires a single label.
 - If used within a filtering pattern, no label is required.
 
 ## Related
