@@ -9947,7 +9947,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-in-element-polyfill@npm:^1.0.0, ember-in-element-polyfill@npm:^1.0.1":
+"ember-in-element-polyfill@npm:^1.0.0":
   version: 1.0.1
   resolution: "ember-in-element-polyfill@npm:1.0.1"
   dependencies:
@@ -9998,14 +9998,13 @@ __metadata:
   linkType: hard
 
 "ember-maybe-in-element@npm:^2.0.3":
-  version: 2.0.3
-  resolution: "ember-maybe-in-element@npm:2.0.3"
+  version: 2.1.0
+  resolution: "ember-maybe-in-element@npm:2.1.0"
   dependencies:
-    ember-cli-babel: ^7.21.0
-    ember-cli-htmlbars: ^5.2.0
-    ember-cli-version-checker: ^5.1.1
-    ember-in-element-polyfill: ^1.0.1
-  checksum: 4bd0e66f748eac053dc2fed2b19a227bd159eb84cb1084bea2941af454a1135969a6efb36c298a9c06c36a7697e34819e9ff0ef1dcb18fa64d11dce09b75b523
+    ember-cli-babel: ^7.26.11
+    ember-cli-htmlbars: ^6.1.1
+    ember-cli-version-checker: ^5.1.2
+  checksum: fbe6282329048c3b811c6f6df9acb821dcc085de96f5cf28135ed3e46186b72f0ce198a53ed3c3a451308eb3f77983c68db97ee1d0d406deda77faef1a89d777
   languageName: node
   linkType: hard
 
