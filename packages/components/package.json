@@ -38,6 +38,9 @@
   },
   "dependencies": {
     "@ember/render-modifiers": "^2.0.5",
+    "@embroider/compat": "^2.1.1",
+    "@embroider/core": "^2.1.1",
+    "@embroider/webpack": "^2.1.1",
     "@hashicorp/design-system-tokens": "^1.4.1",
     "@hashicorp/ember-flight-icons": "^3.0.2",
     "dialog-polyfill": "^0.5.6",
@@ -100,7 +103,7 @@
     "stylelint": "^14.16.1",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard-scss": "^5.0.0",
-    "webpack": "^5.76.0"
+    "webpack": "^5.78.0"
   },
   "engines": {
     "node": "12.* || 14.* || >= 16"
@@ -109,6 +112,9 @@
     "edition": "octane"
   },
   "ember-addon": {
-    "configPath": "tests/dummy/config"
+    "configPath": "tests/dummy/config",
+    "versionCompatibility": {
+      "ember": ">3.28.0 < 4.10.0"
+    }
   }
 }
