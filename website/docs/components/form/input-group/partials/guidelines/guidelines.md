@@ -30,7 +30,7 @@ An Input Group can consist of multiple primitive subcomponents that vary in thei
 ### Button types
 
 - **Default**: a default button can perform a function or interaction within an Input Group, e.g., generating an object, string, or value in a field it is connected to. This is an extension of the Helios [Button](/components/button).
-- **Toggle**: a toggle button can be used to filter or narrow the available parameters when searching within a data set or group of objects. This is an extension of the Helios [Toggle Button](/components/toggle-button).
+- **Toggle**: a toggle button can be used to filter or narrow the available parameters when searching within a data set or group of objects. This is an extension of the Helios [Toggle Button](/components/dropdown#toggle).
 
 Different types of buttons within an Input Group will function and impact the UX in different ways, e.g., a `ToggleButton` can act as a filtering mechanism, while a `Button` can perform a function.
 
