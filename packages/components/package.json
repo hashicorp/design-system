@@ -112,6 +112,9 @@
     "edition": "octane"
   },
   "ember-addon": {
-    "configPath": "tests/dummy/config"
+    "configPath": "tests/dummy/config",
+    "versionCompatibility": {
+      "ember": ">3.28.0 < 4.10.0"
+    }
   }
 }
