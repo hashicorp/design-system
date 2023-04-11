@@ -29,12 +29,14 @@ module.exports = function (defaults) {
     behave. You most likely want to be modifying `./index.js` or app's build file
   */
 
-  const { maybeEmbroider } = require('@embroider/test-setup');
-  return maybeEmbroider(app, {
-    skipBabel: [
-      {
-        package: 'qunit',
-      },
-    ],
-  });
+  // const { maybeEmbroider } = require('@embroider/test-setup');
+  // return maybeEmbroider(app, {
+  //   skipBabel: [
+  //     {
+  //       package: 'qunit',
+  //     },
+  //   ],
+  // });
+  const { Webpack } = require('@embroider/webpack');
+  return require('@embroider/compat').compatBuild(app, Webpack);
 };
