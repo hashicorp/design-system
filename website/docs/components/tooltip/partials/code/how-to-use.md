@@ -12,7 +12,7 @@ The HDS tooltip is provided both as a `TooltipButton` component and as a `toolti
   </Hds::TooltipButton>
 ```
 
-#### With text content with bold and em tags to format tooltip text
+#### With text content and tooltip text formatted with bold and em tags
 ```handlebars
   <Hds::TooltipButton @text="<b>Hello</b> <em>there</em>! Here is more info.">
     More information
