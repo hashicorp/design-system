@@ -1,6 +1,6 @@
 ## How to use this component
 
-The HDS tooltip is provided both as a `TooltipButton` component and as a `tooltip` Ember modifier/helper. The component is intended to handle the majority of use cases and should be used vs. the helper whenever feasible. The helper is available if you need to apply a tooltip to a custom element other than an HTML button although should still only be used with interactive elements such as anchor links and form inputs to ensure accessibility.
+The HDS tooltip is provided both as a `TooltipButton` component and as a `tooltip` Ember modifier. The component is intended to handle the majority of use cases and should be used vs. the modifier whenever feasible. The modifier is available if you need to apply a tooltip to a custom element other than an HTML button although should still only be used with interactive elements such as anchor links and form inputs to ensure accessibility.
 
 <!-- use the same heading order from Guidelines -->
 ### Basic examples 
@@ -55,11 +55,11 @@ You can change the offset of the tooltip in relation to the opener element conte
   </Hds::TooltipButton>
 ```
 
-### Ember modifier/helper
+### Ember modifier
 
 If you use the modifier instead of the component you will need to add your own styling for the element you are atttaching the toolip to
 
-#### Helper used on an anchor tag
+#### Modifier used on an anchor tag
 
 ```handlebars
   <a href="#" {{hds-tooltip "This link takes you to more information"}}>More information</a>
@@ -70,7 +70,7 @@ If you use the modifier instead of the component you will need to add your own s
   <a href="#" {{hds-tooltip "This link takes you to more information" options=(hash placement="right" offset=(array 15 60))}}>More information</a>
 ```
 
-#### Helper used on an HTML text input tag combined with HDS form components
+#### Modifier used on an HTML text input tag combined with HDS form components
 
 ```handlebars
   <Hds::Form::Field @layout="vertical" as |F|>
