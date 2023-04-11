@@ -6,7 +6,7 @@ An Input Group is intentionally published as an agnostic container element that 
 
 The way in which these components are published and assembled together is fundamentally different between the Figma and Ember components.
 
-- In Figma, we publish multiple primitive components (`ButtonType` and `InputType`) that are intended to be assembled in an auto layout container. A pre-assembled `Base` component is also available for more simple instances.
+- In Figma, we publish multiple primitive components (`Segmented Button` and `Segmented Input`) that are intended to be assembled in an auto layout container. A pre-assembled `Base` component is also available for more simple instances.
 - The Ember component acts as a container to enforce consistent styling and grouping of nested Helios form components. It does not handle any logic or functionality out of the box, this is left up to the nested form elements.
 !!!
 
@@ -25,18 +25,18 @@ The way in which these components are published and assembled together is fundam
 
 ## Primitive components
 
-An Input Group can consist of multiple primitive subcomponents that vary in their properties and intended input value. We recommend limiting usage in both Figma and code to those defined in the `ButtonType` and `InputType` primitives to ensure consistent styling and grouping.
+An Input Group can consist of multiple primitive subcomponents that vary in their properties and intended input value. We recommend limiting usage in both Figma and code to those defined in the `Segmented Button` and `Segmented Input` primitives to ensure consistent styling and grouping.
 
-### Button types
+### Segmented Button
 
-- **Default**: a default button can perform a function or interaction within an Input Group, e.g., generating an object, string, or value in a field it is connected to. This is an extension of the Helios [Button](/components/button).
+- **Default**: a default button can perform a function or interaction within an Input Group, e.g., generating an object, string, or value in a field it is connected to. It is an extension of the Helios [Button](/components/button).
 - **Toggle**: a toggle button can be used to filter or narrow the available parameters when searching within a data set or group of objects. This is an extension of the Helios [Toggle Button](/components/dropdown#toggle).
 
-Different types of buttons within an Input Group will function and impact the UX in different ways, e.g., a `ToggleButton` can act as a filtering mechanism, while a `Button` can perform a function.
+Different types of Segmented Button types within an Input Group will function and impact the UX in different ways, e.g., a `Toggle` can act as a filtering mechanism, while a `Button` can perform a function.
 
-### Input Types
+### Segmented Input
 
-An Input Type is an extension of Helios form components and their variants, including:
+A `Segmented Input` is an extension of Helios form components and their variants, including:
 
 - [Text Input](/components/form/text-input)
     - [Text](/components/form/text-input#text)
@@ -45,7 +45,7 @@ An Input Type is an extension of Helios form components and their variants, incl
     - [Date and time](/components/form/text-input#date-and-time)
 - [Select](/components/form/select)
 
-Different Input Types can be combined within an Input Group to collect more complex data and support complex filtering patterns. Use the type that makes the most sense for the intended value or data.
+Different Segmented Input types can be combined within an Input Group to collect more complex data and support complex filtering patterns. Use the type that makes the most sense for the intended value or data.
 
 ### Custom elements
 
@@ -53,17 +53,17 @@ If you need to use a custom component within an Input Group, ensure that the vis
 
 ## Base component
 
-In Figma, the `Base` component is a combination of a single button primitive and single input primitive to account for more simple use cases. The properties of each nested primitive are exposed in the component to support rapid customization.
+In Figma, the `Base` component is a combination of a Segmented Button and Segmented Input and is intended for more simple use cases. The properties of each nested primitive are exposed in the component to support rapid customization.
 
 ![Base component example](/assets/components/form/input-group/input-group-base-component.png =500x*)
 
 ## Examples
 
-Since an Input Group is intended to be agnostic in relation to the inputs and actions it contains, the number of use cases and potential examples are broad. These examples should serve as inspiration for the different scenarios, contexts, and combinations of elements supported by the Input Group guidelines.
+Since an Input Group is intended to be agnostic in relation to the inputs and actions it contains, the number of potential use cases and examples are broad. These examples should serve as inspiration for the different scenarios, contexts, and combinations of elements supported by the Input Group guidelines.
 
 ### Within a filter pattern
 
-An Input Group can be used in a filter pattern as a means to reduce or limit the visible items in a dataset through the selection of specific parameters and values present in the dataset. Multiple Input Groups may be used within a filter pattern depending on the complexity of the dataset.
+An Input Group can be used in a filter pattern as a means to reduce or limit the returned items in a dataset through the selection of specific parameters and values that are present in the dataset. Multiple Input Groups may be used within a filter pattern depending on the complexity of the dataset.
 
 ![Filter pattern example](/assets/components/form/input-group/input-group-example-filter-pattern-01.png)
 

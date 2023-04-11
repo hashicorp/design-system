@@ -6,13 +6,13 @@
 
 | Element | Usage |
 |---------|-------|
-| Input | Required; can be one of many types extended via the [Text Input](/components/form/text-input) component. |
-| Button | Required; can be either default or toggle which are extensions of the Helios [Button](/components/button) and [Toggle Button](/components/dropdown#toggle) components. |
+| Segmented Input | Required; can be one of many types extended via the [Text Input](/components/form/text-input) component. |
+| Segmented Button | Required; can be either default or toggle which are extensions of the Helios [Button](/components/button) and [Toggle Button](/components/dropdown#toggle) components. |
 | Container | Wraps the subcomponents in an auto layout container. |
 
 !!! Info
 
-The Input Group `Base` component is only available in Figma.
+The Input Group `Base` component is only available in Figma and is best used in less complex scenarios which don't perform complex filtering or functions.
 !!!
 
 ### Subcomponent anatomy
