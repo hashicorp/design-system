@@ -26,7 +26,6 @@
 
 // Notice: this list can be automatically edited by the Ember blueprint, please don't remove the start/end comments
 // START COMPONENT PAGES IMPORTS
-@import "./showcase-pages/tooltip";
 @import "./showcase-pages/alert";
 @import "./showcase-pages/badge";
 @import "./showcase-pages/breadcrumb";
@@ -51,5 +50,6 @@
 @import "./showcase-pages/table";
 @import "./showcase-pages/tabs";
 @import "./showcase-pages/tag";
+@import "./showcase-pages/tooltip";
 @import "./showcase-pages/typography";
 // END COMPONENT PAGES IMPORTS

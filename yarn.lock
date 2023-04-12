@@ -2598,7 +2598,7 @@ __metadata:
     stylelint: ^14.16.1
     stylelint-config-rational-order: ^0.1.2
     stylelint-config-standard-scss: ^5.0.0
-    tippy.js: ^6.3.1
+    tippy.js: ^6.3.7
     webpack: ^5.76.0
   languageName: unknown
   linkType: soft
@@ -19796,7 +19796,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tippy.js@npm:^6.3.1":
+"tippy.js@npm:^6.3.7":
   version: 6.3.7
   resolution: "tippy.js@npm:6.3.7"
   dependencies:

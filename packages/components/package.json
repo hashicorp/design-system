@@ -53,7 +53,7 @@
     "ember-style-modifier": "^0.8.0",
     "ember-truth-helpers": "^3.0.0",
     "sass": "^1.58.3",
-    "tippy.js": "^6.3.1"
+    "tippy.js": "^6.3.7"
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
