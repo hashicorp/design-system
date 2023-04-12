@@ -62,6 +62,61 @@
 
   <Shw::Divider @level={{2}} />
 
+  <Shw::Text::H3>States</Shw::Text::H3>
+
+  <Shw::Text::Body>
+    The button which serves as the opener for the tooltip has no special styles of its own other than for the focus
+    state.
+  </Shw::Text::Body>
+
+  <Shw::Flex as |SF|>
+    {{#let (array "default" "hover" "focus") as |states|}}
+      {{#each states as |state|}}
+        <SF.Item @label={{state}}>
+          <div class="shw-component-side-nav-home-link-wrapper">
+            <Hds::TooltipButton @text="Hello!" mock-state-value={{state}}><FlightIcon
+                @name="alert-circle"
+              /></Hds::TooltipButton>
+          </div>
+
+          {{#if (eq state "hover")}}
+            {{! template-lint-disable no-inline-styles }}
+            <div
+              data-tippy-root=""
+              id="tippy-9"
+              style="z-index: 9999; visibility: visible; position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(481.5px, 539.5px, 0px);"
+            >
+              <div
+                class="tippy-box"
+                data-state="visible"
+                tabindex="-1"
+                data-theme="hds"
+                data-animation="fade"
+                role="tooltip"
+                data-placement="top"
+                style="max-width: 350px; transition-duration: 300ms;"
+              ><div class="tippy-content" data-state="visible" style="transition-duration: 300ms;">Hello!</div><div
+                  class="tippy-svg-arrow"
+                  style="position: absolute; left: 0px; transform: translate3d(22.5px, 0px, 0px);"
+                >
+                  <svg
+                    class="hds-tooltip-pointer"
+                    width="16"
+                    height="7"
+                    viewBox="0 0 16 7"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z"></path>
+                  </svg></div></div></div>
+            {{! template-lint-enable no-inline-styles }}
+          {{/if}}
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>With different options</Shw::Text::H3>
 
   <Shw::Text::H4>“Placement” options</Shw::Text::H4>
