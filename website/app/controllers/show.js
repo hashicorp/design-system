@@ -142,7 +142,8 @@ export default class ShowController extends Controller {
       tocs.push({
         index: 0,
         id: 'toc-all',
-        list: getAnchoredHeadings(container),
+        // we show only the headings level 2 and 3 in the sidecar
+        list: getAnchoredHeadings(container).filter((item) => item.depth <= 3),
       });
     }
 
