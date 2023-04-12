@@ -39,7 +39,7 @@
   background: transparent;
   border: none;
 
-  > svg { display: block; } // removes excess whitespace
+  > .flight-icon { display: block; } // removes excess whitespace
 }
 
 .tippy-box[data-theme~="hds"] {
