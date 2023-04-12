@@ -29,11 +29,22 @@
 
   **Note:** If test assertions are relying on these class names, tests will fail. If extensions/overrides have been applied to these classes, they will suffer visual changes.
 
-### Minor Changes
-
 - [#1266](https://github.com/hashicorp/design-system/pull/1266) [`082842b59`](https://github.com/hashicorp/design-system/commit/082842b59321f843c4955e4cdaf2ce2674a8913d) Thanks [@alex-ju](https://github.com/alex-ju)! - Add `@icon`, `@count`, `@badge` and `@badgeCount` to `Dropdown::Toggle::Button`
 
-- [#1276](https://github.com/hashicorp/design-system/pull/1276) [`5ad29412d`](https://github.com/hashicorp/design-system/commit/5ad29412d2edc0cc4265d3c0bbbf388e821f1cc7) Thanks [@alex-ju](https://github.com/alex-ju)! - Allow small `@size` on `Dropdown::ToggleIcon`
+  `Hds::Dropdown::Toggle::Button` and `Hds::Dropdown::Toggle::Icon` now share the chevron element. As a result, we renamed internal CSS classes as follows:
+
+  - `hds-button__text` → `hds-dropdown-toggle-button__text`
+  - `hds-button__icon` → `hds-dropdown-toggle-chevron`
+  
+  The icon element within `Hds::Dropdown::Toggle::Icon` no longer has the `hds-dropdown-toggle-icon__chevron` class and it's currently wrapped in the `hds-dropdown-toggle-chevron` container, similar to `Hds::Dropdown::Toggle::Button`.
+
+  The `Hds::Dropdown::Toggle::Icon` now has a solid border, for consistency with `Hds::Dropdown::Toggle::Button` and the secondary style of `Hds::Button`.
+
+  **Note:** If test assertions are relying on these class names, tests will fail. If extensions/overrides have been applied to these classes, they will suffer visual changes.
+
+### Minor Changes
+
+- [#1276](https://github.com/hashicorp/design-system/pull/1276) [`5ad29412d`](https://github.com/hashicorp/design-system/commit/5ad29412d2edc0cc4265d3c0bbbf388e821f1cc7) Thanks [@alex-ju](https://github.com/alex-ju)! - Allow small `@size` on `Dropdown::Toggle::Icon`
 
 - [#1262](https://github.com/hashicorp/design-system/pull/1262) [`3eb78b8de`](https://github.com/hashicorp/design-system/commit/3eb78b8de7c678cff977c9d3a677c47a3216caad) Thanks [@alex-ju](https://github.com/alex-ju)! - Add new `@listPositions` for `Dropdown` as follows:
 
@@ -426,32 +437,34 @@ This release signifies the first major release of the HashiCorp Design System. M
 
 ### Minor Changes (Some Breaking)
 
-- [#217](https://github.com/hashicorp/design-system/pull/217) [`210edd17`](https://github.com/hashicorp/design-system/commit/210edd17431e6e3097260aed0df5a8902f93b7f7) Thanks [@didoo](https://github.com/didoo)! - # Interactive
+- [#217](https://github.com/hashicorp/design-system/pull/217) [`210edd17`](https://github.com/hashicorp/design-system/commit/210edd17431e6e3097260aed0df5a8902f93b7f7) Thanks [@didoo](https://github.com/didoo)!
 
-  - Introduced `<Hds::Interactive>` (a generic, "utility" component used internally by all the interactive elements like buttons and links)
+#### Interactive
 
-  # Button
+- Introduced `<Hds::Interactive>` (a generic, "utility" component used internally by all the interactive elements like buttons and links)
 
-  - updated the button API to handle also links as `<a>`/`<LinkTo/LinkToExternal>`
-    - it can be used in place of the `<Hds::Link/LinkTo::CTA>` component (see below)
-    - when the button is a link - the text is underlined for differentiation with a normal button - ⚠️ **Visual change!** - the button responds to `space` key event
-  - removed the `@type` argument from the API in favour of the `type` native attribute - 🚨 **Breaking change!**
+#### Button
 
-  # Link/LinkTo::CTA
+- updated the button API to handle also links as `<a>`/`<LinkTo/LinkToExternal>`
+   - it can be used in place of the `<Hds::Link/LinkTo::CTA>` component (see below)
+   - when the button is a link - the text is underlined for differentiation with a normal button - ⚠️ **Visual change!** - the button responds to `space` key event
+- removed the `@type` argument from the API in favour of the `type` native attribute - 🚨 **Breaking change!**
 
-  - removed the `<Hds::Link/LinkTo::CTA>` component, in favour of `<Hds::Button>` component (see above) - 🚨 **Breaking change!**
+#### Link/LinkTo::CTA
 
-  # Link::Inline
+- removed the `<Hds::Link/LinkTo::CTA>` component, in favour of `<Hds::Button>` component (see above) - 🚨 **Breaking change!**
 
-  - added the `<Hds::Link::Inline>` component (with API very similar to the `<Hds::Link::Standalone>`)
+#### Link::Inline
 
-  # Dropdown
+- added the `<Hds::Link::Inline>` component (with API very similar to the `<Hds::Link::Standalone>`)
 
-  - Updated the `Dropdown::ListItem::Interactive` to use the new `<Hds::Interactive>` component
+#### Dropdown
 
-  # Alert/Toast components
+- Updated the `Dropdown::ListItem::Interactive` to use the new `<Hds::Interactive>` component
 
-  - Removed the `<LinkTo::Standalone>` action (now you can use directly `<Link::Standalone>`)
+#### Alert/Toast components
+
+- Removed the `<LinkTo::Standalone>` action (now you can use directly `<Link::Standalone>`)
 
 ## 0.11.2
 
@@ -471,9 +484,11 @@ This release signifies the first major release of the HashiCorp Design System. M
 
 ### Minor Changes (Some Breaking)
 
-- [#245](https://github.com/hashicorp/design-system/pull/245) [`c6de1018`](https://github.com/hashicorp/design-system/commit/c6de101880ec1c21971e3775e1a21b6cb9e69757) Thanks [@didoo](https://github.com/didoo)! - - Added `Alert` component
+- [#245](https://github.com/hashicorp/design-system/pull/245) [`c6de1018`](https://github.com/hashicorp/design-system/commit/c6de101880ec1c21971e3775e1a21b6cb9e69757) Thanks [@didoo](https://github.com/didoo)!
+  - Added `Alert` component
   - Added `Toast` component
-- [#259](https://github.com/hashicorp/design-system/pull/259) [`478b3069`](https://github.com/hashicorp/design-system/commit/478b3069e800cf2ccefba9b5475c72b024e25d16) Thanks [@didoo](https://github.com/didoo)! - - removed autofocus on first item for `Disclosure` component (and as a result also for `Breadcrumb` and `Dropdown` components) (🚨 Breaking)
+- [#259](https://github.com/hashicorp/design-system/pull/259) [`478b3069`](https://github.com/hashicorp/design-system/commit/478b3069e800cf2ccefba9b5475c72b024e25d16) Thanks [@didoo](https://github.com/didoo)!
+  - removed autofocus on first item for `Disclosure` component (and as a result also for `Breadcrumb` and `Dropdown` components) (🚨 Breaking)
   - updated focus state treatment for `Dropdown` component (🚨 Breaking)
 
 ### Patch Changes
