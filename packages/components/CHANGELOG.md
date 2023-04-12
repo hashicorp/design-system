@@ -1,5 +1,15 @@
 # @hashicorp/design-system-components
 
+## 2.1.0
+
+### Minor Changes
+
+- [#1258](https://github.com/hashicorp/design-system/pull/1258) [`3466d2279`](https://github.com/hashicorp/design-system/commit/3466d2279191504442029976a4e18d3ca99015bf) Thanks [@MelSumner](https://github.com/MelSumner)! - Adds Hds::ApplicationState component
+
+### Patch Changes
+
+- [#1291](https://github.com/hashicorp/design-system/pull/1291) [`b2c21a86e`](https://github.com/hashicorp/design-system/commit/b2c21a86ee681d53e728fa5c52192b9003762ea9) Thanks [@didoo](https://github.com/didoo)! - Fixed missing inset shadow for `TextInput`, `Textarea`, `Checkbox`, `Radio`, `PowerSelect` overrides
+
 ## 2.0.0
 
 ### Major Changes
@@ -35,7 +45,7 @@
 
   - `hds-button__text` → `hds-dropdown-toggle-button__text`
   - `hds-button__icon` → `hds-dropdown-toggle-chevron`
-  
+
   The icon element within `Hds::Dropdown::Toggle::Icon` no longer has the `hds-dropdown-toggle-icon__chevron` class and it's currently wrapped in the `hds-dropdown-toggle-chevron` container, similar to `Hds::Dropdown::Toggle::Button`.
 
   The `Hds::Dropdown::Toggle::Icon` now has a solid border, for consistency with `Hds::Dropdown::Toggle::Button` and the secondary style of `Hds::Button`.
@@ -446,8 +456,8 @@ This release signifies the first major release of the HashiCorp Design System. M
 #### Button
 
 - updated the button API to handle also links as `<a>`/`<LinkTo/LinkToExternal>`
-   - it can be used in place of the `<Hds::Link/LinkTo::CTA>` component (see below)
-   - when the button is a link - the text is underlined for differentiation with a normal button - ⚠️ **Visual change!** - the button responds to `space` key event
+  - it can be used in place of the `<Hds::Link/LinkTo::CTA>` component (see below)
+  - when the button is a link - the text is underlined for differentiation with a normal button - ⚠️ **Visual change!** - the button responds to `space` key event
 - removed the `@type` argument from the API in favour of the `type` native attribute - 🚨 **Breaking change!**
 
 #### Link/LinkTo::CTA
