@@ -1,8 +1,17 @@
 # How to test a component in Cloud UI
 
-To test a new component (or a component that has been modified) using your local environment as source for the `@hashicorp/design-system-components` package, you have to follow a few steps.
+To test a component that is under development (or because it’s new or has been modified) you have a few options:
 
-## Prepare the Cloud UI project
+- you can use your local environment as source for the `@hashicorp/design-system-components` package
+- you can install the `@hashicorp/design-system-components` package using a branch available on GitHub
+
+This is the case when the component has not yet been released as an npm package, of course. 
+
+## Using your local environment (via symlink)
+
+This approach is the preferable one, if there is an ongoing development of the component and you want to see the changes reflected immediately in the application (automatically rebuilt/refreshed whenever you save the HDS files).
+
+### Prepare the Cloud UI project
 
 For simplicity, you will need three CLI/terminal windows/tabs opened.
 
@@ -13,7 +22,7 @@ In in the first terminal window go the folder containing your local version of t
 - run `rm -fr node_modules/` to start from a blank slate
 - run `yarn` to make sure all the packages are installed
 
-## Replace the installed `@hashicorp/design-system-components` package in Cloud UI with the local one
+### Replace the installed `@hashicorp/design-system-components` package in Cloud UI with the local one
 
 In the second terminal window:
 
@@ -52,3 +61,17 @@ Everything should work and you should be able to do whatever you need to do in t
 - run `rm design-system-components` (no need for the `-fr` option, it's a symlink file not a folder)
 - go to the root of the Cloud UI project
 - run `yarn` to reinstall all the missing packages (including `@hashicorp/design-system-components` from NPM)
+
+## Using a remote branch (via GitHub)
+
+This approach is more suitable for one-off testing before releasing a package, less so for ongoing development.
+
+### Install the remote package via `yarn`
+
+You can install the "remote" package directly via `yarn` using the following command:
+
+```
+yarn add '@hashicorp/design-system-components@https://github.com/hashicorp/design-system#head=BRANCH-NAME&workspace=@hashicorp/design-system-components'
+```
+
+**IMPORTANT**: the way in which yarn works in this case is that it resolves in a hash referencing a commit in `yarn.lock`; so if you make changes to the branch, they’re not reflected in the local `node_modules` unless you change the hash manually in the `yarn.lock` to point to another commit, and re-run the `yarn install` command.
