@@ -1,11 +1,11 @@
 # How to test a component in Cloud UI
 
-To test a component that is under development (or because it's new, or because it has been modified) you have a few options:
+To test a component that is under development (or because it’s new or has been modified) you have a few options:
 
 - you can use your local environment as source for the `@hashicorp/design-system-components` package
 - you can install the `@hashicorp/design-system-components` package using a branch available on GitHub
 
-This is the case when the component has not yet been released as npm package, of course. 
+This is the case when the component has not yet been released as an npm package, of course. 
 
 ## Using your local environment (via symlink)
 
