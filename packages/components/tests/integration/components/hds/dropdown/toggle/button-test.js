@@ -19,9 +19,11 @@ module(
 
     // notice: "toggle-button" is a wrapper around the "hds::button" so we test only very specific things
 
-    test('it renders the "toggle-button"', async function (assert) {
-      await render(hbs`<Hds::Dropdown::Toggle::Button @text="toggle text" />`);
-      assert.dom(this.element).exists();
+    test('it should render the component with a CSS class that matches the component name', async function (assert) {
+      await render(
+        hbs`<Hds::Dropdown::Toggle::Button @text="toggle text" id="test-toggle-button" />`
+      );
+      assert.dom('#test-toggle-button').hasClass('hds-dropdown-toggle-button');
     });
 
     // TEXT

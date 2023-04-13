@@ -15,9 +15,9 @@ module('Integration | Component | hds/form/checkbox/group', function (hooks) {
     resetOnerror();
   });
 
-  test('it renders the component', async function (assert) {
+  test('it should render the component with an appropriate CSS class', async function (assert) {
     await render(hbs`<Hds::Form::Checkbox::Group id="test-form-checkbox" />`);
-    assert.dom('#test-form-checkbox').exists();
+    assert.dom('#test-form-checkbox').hasClass('hds-form-group');
   });
 
   // YIELDED (CONTEXTUAL) COMPONENTS

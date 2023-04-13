@@ -21,7 +21,7 @@ module('Integration | Component | hds/disclosure/index', function (hooks) {
     resetOnerror();
   });
 
-  test('it should render with a CSS class that matches the component name', async function (assert) {
+  test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(hbs`<Hds::Disclosure id="test-disclosure" />`);
     assert.dom('div#test-disclosure').hasClass('hds-disclosure');
   });

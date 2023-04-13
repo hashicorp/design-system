@@ -1,0 +1,130 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "Application State Component"}}
+
+<Shw::Text::H1>Application State</Shw::Text::H1>
+
+<section data-test-percy>
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="Error state (ideal)">
+      <Hds::ApplicationState as |A|>
+        <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
+        <A.Body
+          @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+        />
+        <A.Footer @hasDivider={{true}} as |F|>
+          <F.Link::Standalone @icon="arrow-left" @text="Go back" @href="/" />
+          <F.Link::Standalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
+        </A.Footer>
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="Error state with no header icon">
+      <Hds::ApplicationState as |A|>
+        <A.Header @title="An error has occurred" @errorCode="404" />
+        <A.Body
+          @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+        />
+        <A.Footer @hasDivider={{true}} as |F|>
+          <F.Link::Standalone @icon="arrow-left" @text="Go back" @href="/" />
+          <F.Link::Standalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
+        </A.Footer>
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="Error state with a long title">
+      <Hds::ApplicationState as |A|>
+        <A.Header @title="An error has occurred and maybe has a long title" @icon="alert-circle" @errorCode="404" />
+        <A.Body
+          @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+        />
+        <A.Footer @hasDivider={{true}} as |F|>
+          <F.Link::Standalone @icon="arrow-left" @text="Go back" @href="/" />
+          <F.Link::Standalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
+        </A.Footer>
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="Error state, block yield body">
+      <Hds::ApplicationState as |A|>
+        <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
+        <A.Body>
+          <Shw::Placeholder @text="block yield" @height="150px" @background="#e1f5fe" />
+        </A.Body>
+        <A.Footer @hasDivider={{true}} as |F|>
+          <F.Link::Standalone @icon="arrow-left" @text="Go to previous page" @href="/" />
+          <F.Link::Standalone
+            @icon="help"
+            @text="Need Help contact us"
+            @href="/components/alert"
+            @iconPosition="trailing"
+          />
+        </A.Footer>
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="Error state with no footer divider">
+      <Hds::ApplicationState as |A|>
+        <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
+        <A.Body
+          @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+        />
+        <A.Footer as |F|>
+          <F.Link::Standalone @icon="arrow-left" @text="Go to previous page" @href="/" />
+          <F.Link::Standalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
+        </A.Footer>
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="Empty state with link">
+      <Hds::ApplicationState as |A|>
+        <A.Header @title="Empty state title text" />
+        <A.Body
+          @text="Sorry, we couldn't find any results matching your search criteria. Please try again with different search terms or refine your filters."
+        />
+        <A.Footer as |F|>
+          <F.Link::Standalone @icon="arrow-left" @text="Go back" @href="/" />
+        </A.Footer>
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="Empty state with link and footer divider">
+      <Hds::ApplicationState as |A|>
+        <A.Header @title="Empty state title text" />
+        <A.Body
+          @text="Sorry, we couldn't find any results matching your search criteria. Please try again with different search terms or refine your filters."
+        />
+        <A.Footer @hasDivider={{true}} as |F|>
+          <F.Link::Standalone @icon="arrow-left" @text="Go back" @href="/" />
+        </A.Footer>
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="Empty state w/o link">
+      <Hds::ApplicationState as |A|>
+        <A.Header @title="Empty state title" />
+        <A.Body
+          @text="Sorry, we couldn't find any results matching your search criteria. Please try again with different search terms or refine your filters."
+        />
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="Empty state, block yield body contents">
+      <Hds::ApplicationState as |A|>
+        <A.Header @title="Empty state title text" />
+        <A.Body>
+          <Shw::Placeholder @text="components and other things" @height="150px" @background="#e1f5fe" />
+        </A.Body>
+        <A.Footer as |F|>
+          <F.Link::Standalone @icon="arrow-left" @text="Go back" @href="/" />
+        </A.Footer>
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="Empty state, icon in header">
+      <Hds::ApplicationState as |A|>
+        <A.Header @title="Empty state title text" @icon="help" />
+        <A.Body>
+          <Shw::Placeholder @text="components and other things" @height="150px" @background="#e1f5fe" />
+        </A.Body>
+        <A.Footer as |F|>
+          <F.Link::Standalone @icon="arrow-left" @text="Go back" @href="/" />
+        </A.Footer>
+      </Hds::ApplicationState>
+    </SF.Item>
+  </Shw::Flex>
+</section>

@@ -1,6 +1,6 @@
 {
   "name": "@hashicorp/design-system-components",
-  "version": "1.8.1",
+  "version": "2.1.0",
   "description": "Helios Design System Components",
   "keywords": [
     "hashicorp",
@@ -79,7 +79,7 @@
     "ember-load-initializers": "^2.1.2",
     "ember-page-title": "^7.0.0",
     "ember-power-select": "^6.0.0",
-    "ember-qunit": "^6.1.1",
+    "ember-qunit": "^6.2.0",
     "ember-resolver": "^10.0.0",
     "ember-source": "~4.10.0",
     "ember-source-channel-url": "^3.0.0",

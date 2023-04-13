@@ -17,14 +17,7 @@ module(
       resetOnerror();
     });
 
-    test('it renders the "list-item/copy-item"', async function (assert) {
-      await render(
-        hbs`<Hds::Dropdown::ListItem::CopyItem @text="copy-item" />`
-      );
-      assert.dom(this.element).exists();
-    });
-
-    test('it should render the "list-item/copy-item" as a <li> element with a CSS class that matches the component name', async function (assert) {
+    test('it should render the component as a <li> element with a CSS class that matches the component name', async function (assert) {
       await render(
         hbs`<Hds::Dropdown::ListItem::CopyItem @text="copy-item" id="test-list-item-copy-item" />`
       );

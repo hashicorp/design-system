@@ -17,11 +17,11 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
 
   // notice: by default the "toggle-icon" has "user" icon, "chevron-down", and an aria-label
 
-  test('it renders the "toggle-icon"', async function (assert) {
+  test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="toggle text" />`
+      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="toggle text" id="test-toggle-icon" />`
     );
-    assert.dom(this.element).exists();
+    assert.dom('#test-toggle-icon').hasClass('hds-dropdown-toggle-icon');
   });
 
   // ICON

@@ -15,11 +15,7 @@ module('Integration | Component | hds/form/toggle/field', function (hooks) {
     resetOnerror();
   });
 
-  test('it renders the component', async function (assert) {
-    await render(hbs`<Hds::Form::Toggle::Field />`);
-    assert.dom('input').exists();
-  });
-  test('it should render the input with a specific CSS class', async function (assert) {
+  test('it should render the component with a specific CSS class', async function (assert) {
     await render(hbs`<Hds::Form::Toggle::Field />`);
     // Notice: the "toggle" component has a slightly different DOM structure than the other form controls
     assert.dom('input').hasClass('hds-form-toggle__control');

@@ -11,11 +11,7 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | hds/form/field/index', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders the component', async function (assert) {
-    await render(hbs`<Hds::Form::Field id="test-form-field" />`);
-    assert.dom('#test-form-field').exists();
-  });
-  test('it should render with a CSS class provided via the @contextualClass argument', async function (assert) {
+  test('it should render the component with a CSS class provided via the @contextualClass argument', async function (assert) {
     await render(
       hbs`<Hds::Form::Field @contextualClass="my-class" id="test-form-field" />`
     );

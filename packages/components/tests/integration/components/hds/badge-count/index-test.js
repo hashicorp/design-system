@@ -11,11 +11,7 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | hds/badge-count/index', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders the default badge-count with text', async function (assert) {
-    await render(hbs`<Hds::BadgeCount @text="text renders" />`);
-    assert.dom(this.element).hasText('text renders');
-  });
-  test('it should render with a CSS class that matches the component name', async function (assert) {
+  test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
       hbs`<Hds::BadgeCount @text="text renders" id="test-badge-count" />`
     );
