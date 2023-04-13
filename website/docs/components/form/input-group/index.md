@@ -8,6 +8,7 @@ links:
 previewImage: assets/illustrations/components/form/input-group.jpg
 navigation:
   keywords: [ 'filter', 'connected', 'fields', 'set' ]
+hidden: false
 ---
 
 <section data-tab="Guidelines">
