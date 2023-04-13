@@ -19,7 +19,7 @@ The way in which these components are published and assembled together is fundam
 
 ### When not to use
 
-- To submit a form or set of inputs. An Input Group can exist within a form to collect multi-directional data, but should not submit that data via a form method. Use the guidelines in [Form patterns](/patterns/form-patterns) instead.
+- To submit a form or set of inputs. An Input Group can exist within a form to collect complex data, but should not submit that data via a form method. Use the guidelines in [Form patterns](/patterns/form-patterns) instead.
 - To connect multiple fields that each require their own label.
 - When adding a prefix or suffix to an input field. This is not currently supported by Helios form components, instead consider using a simple text element preceeding or following the form element.
 
