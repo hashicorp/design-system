@@ -39,8 +39,6 @@ module('Integration | Component | hds/app-frame/index', function (hooks) {
         </Hds::AppFrame>
     `);
 
-    // await pauseTest();
-
     assert.dom('#test-app-frame[data-test-app-frame]').exists();
 
     assert.dom('#test-app-frame-header[data-test-app-frame-header]').exists();
