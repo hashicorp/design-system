@@ -38,9 +38,9 @@ module('Integration | Component | hds/side-nav/list/link', function (hooks) {
 
   test('it renders the link as "active" if @isActive is true', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::List::Link @isActive={{true}} id="test-sidenav-link" />`
+      hbs`<Hds::SideNav::List::Link @isActive={{true}} id="test-side-nav-link" />`
     );
-    assert.dom('#test-sidenav-link').hasClass('active');
+    assert.dom('#test-side-nav-link').hasClass('active');
   });
 
   test('it renders the passed in custom content', async function (assert) {
@@ -83,10 +83,10 @@ module('Integration | Component | hds/side-nav/list/link', function (hooks) {
 
   test('it should spread all the attributes passed to the component on the element', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::List::Link id="test-sidenav-link" class="my-class" data-test1 data-test2="test" />`
+      hbs`<Hds::SideNav::List::Link id="test-side-nav-link" class="my-class" data-test1 data-test2="test" />`
     );
-    assert.dom('#test-sidenav-link').hasClass('my-class');
-    assert.dom('#test-sidenav-link').hasAttribute('data-test1');
-    assert.dom('#test-sidenav-link').hasAttribute('data-test2', 'test');
+    assert.dom('#test-side-nav-link').hasClass('my-class');
+    assert.dom('#test-side-nav-link').hasAttribute('data-test1');
+    assert.dom('#test-side-nav-link').hasAttribute('data-test2', 'test');
   });
 });
