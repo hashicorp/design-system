@@ -119,11 +119,14 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/toast');
     await percySnapshot('Toast');
 
-    await visit('/utilities/dismiss-button');
-    await percySnapshot('DismissButton');
+    await visit('/layouts/app-frame');
+    await percySnapshot('AppFrame');
 
     await visit('/overrides/power-select');
     await percySnapshot('PowerSelect');
+
+    await visit('/utilities/dismiss-button');
+    await percySnapshot('DismissButton');
 
     assert.ok(true);
   });
