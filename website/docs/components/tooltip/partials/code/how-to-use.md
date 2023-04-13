@@ -2,6 +2,8 @@
 
 The HDS tooltip is provided both as a `TooltipButton` component and as a `tooltip` Ember modifier. The component is intended to handle the majority of use cases and should be used vs. the modifier whenever feasible. The modifier is available if you need to apply a tooltip to a custom element other than an HTML button although should still only be used with interactive elements such as anchor links and form inputs to ensure accessibility.
 
+Currently the tooltip uses [https://atomiks.github.io/tippyjs/](Tippy.js) under the hood for the majority of its functionality.
+
 <!-- use the same heading order from Guidelines -->
 ### Basic examples 
 
