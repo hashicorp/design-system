@@ -76,7 +76,7 @@ yarn add '@hashicorp/design-system-components@https://github.com/hashicorp/desig
 
 Now, for how things work and are wired up in Cloud UI, this should be done for every engine (there are multiple `package.json` files declaring `@hashicorp/design-system-components` as dependency). So you have to find a way to replace them all at once. One option is to follow these steps:
 
-- run the command above in the roof of the repo; this will add a new entry in the `dependency` block of the `/package.json` file (you will remove it later)
+- run the command above in the root of the repo; this will add a new entry in the `dependency` block of the `/package.json` file (you will remove it later)
 - copy the line just added (eg. "@hashicorp/design-system-components": "https://github.com/hashicorp/design-system#head=app-sidenav-component&workspace=@hashicorp/design-system-components"`)
 - find & replace in **all** the `package.json` files of the repository the row declaring the `@hashicorp/design-system-components` dependency (eg. `"@hashicorp/design-system-components": "^2.0.0"`) with the line you've just copied, and save all the changes
 - undo the changes in the root `/package.json` file (they were meant only for copying the right string)
