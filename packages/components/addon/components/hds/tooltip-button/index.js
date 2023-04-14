@@ -47,6 +47,7 @@ export default class HdsTooltipIndexComponent extends Component {
     );
 
     return {
+      ...this.args.extraTippyOptions,
       // parse `content` strings as HTML
       allowHTML: true,
       // takes string

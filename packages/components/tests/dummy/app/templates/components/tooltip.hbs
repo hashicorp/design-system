@@ -62,46 +62,24 @@
     state.
   </Shw::Text::Body>
 
-  <Shw::Flex as |SF|>
-    {{#let (array "default" "focus") as |states|}}
+  <Shw::Flex {{style gap="3rem"}} as |SF|>
+    {{#let (array "default" "hover" "focus") as |states|}}
       {{#each states as |state|}}
         <SF.Item @label={{state}}>
-          <div class="shw-component-side-nav-home-link-wrapper">
+          {{#if (or (eq state "hover") (eq state "focus"))}}
+            <Hds::TooltipButton
+              @text="Hello!"
+              mock-state-value={{state}}
+              @extraTippyOptions={{hash showOnCreate=true}}
+            ><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+          {{else}}
             <Hds::TooltipButton @text="Hello!" mock-state-value={{state}}><FlightIcon
                 @name="alert-circle"
               /></Hds::TooltipButton>
-          </div>
+          {{/if}}
         </SF.Item>
       {{/each}}
     {{/let}}
-
-    <SF.Item @label="Tooltip which appears on hover or focus">
-      {{! template-lint-disable no-inline-styles }}
-      <div data-tippy-root="" id="tippy-9" style="position: relative;">
-        <div
-          class="tippy-box"
-          data-state="visible"
-          tabindex="-1"
-          data-theme="hds"
-          data-animation="fade"
-          role="tooltip"
-          data-placement="top"
-          style="width: min-content;"
-        ><div class="tippy-content" data-state="visible">Hello!</div><div
-            class="tippy-svg-arrow"
-            style="position: absolute; left: 0px; transform: translate3d(22.5px, 0px, 0px);"
-          >
-            <svg
-              class="hds-tooltip-pointer"
-              width="16"
-              height="7"
-              viewBox="0 0 16 7"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z"></path>
-            </svg></div></div></div>
-      {{! template-lint-enable no-inline-styles }}
-    </SF.Item>
   </Shw::Flex>
 
   <Shw::Divider @level={{2}} />
