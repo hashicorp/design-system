@@ -2,7 +2,8 @@
 
 ### When to use
 
-When displaying additional information, context, or details about an object or element present on the main page.
+- When displaying additional information, context, or details about an object or element present on the main page.
+- When accounting for regularly occurring settings changes in a "portable" and reusable fashion, e.g., adding or changing the role of a user.
 
 ### When not to use
 
@@ -18,26 +19,6 @@ Use a Flyout for detail more detailed information about an object on the main pa
 ![Flyout with custom content](/assets/components/flyout/flyout-custom-content.png)
 !!!
 
-#### Flyout complexity
-
-!!! Dont
-
-Don’t use a flyout for overly complex nested content, like objects within a table or nested routes.
-
-![Flyout with a table](/assets/components/flyout/flyout-with-complex-content.png)
-!!!
-
-#### Functions within a Flyout
-
-Given that a Flyout is intended to provide more detail on a specific item, don’t use a Flyout in a functional capacity; e.g., performing a CRUD (create, read, update, delete) function or submitting form data.
-
-This type of content is often too complex and is better organized in its own page.
-
-!!! Dont
-
-![Flyout with actions](/assets/components/flyout/flyout-with-form.png)
-!!!
-
 #### Code snippets and examples
 
 While code snippets and terminal scripts are usually detailed, they are well suited content within a Flyout due to their contextual relevancy to the content on the page, while maybe not being complex enough to exist on their own page.
@@ -46,6 +27,37 @@ While code snippets and terminal scripts are usually detailed, they are well sui
 
 ![Flyout with code snippet](/assets/components/flyout/flyout-with-code-snippet.png)
 !!!
+
+### Flyout vs Modal
+
+While similar in functionality and interaction, the Flyout and [Modal](/components/modal) are meant to be used in different scenarios and to express different types of content. There is a fair amount of overlap in their usage but they differtiate in these ways:
+
+#### Complexity
+
+Flyouts are useful for more complex content given the space it occupies in the viewport, while Modals are useful for less complex contentthat can be interacted with relatively quickly.
+
+!!! Info
+
+**Note:** Complexity of content is relative, use your own judgement to determine if the content or function is overly complex and consider moving it to its own page.
+!!!
+
+#### Status and messaging
+
+Flyouts are useful when displaying detail content that relates to the page, while Modals are useful for messaging status; e.g., confirming a destructive action or warning about the effects of a change.
+
+#### Speed and regularity
+
+Modals are better suited for quick interactions that occur infrequently, while Flyouts, due to their support for more complex content, can occupy more of the users time and be recalled more frequently.
+
+#### Experience hierarchy
+
+While each of these components is triggered by a user action, where they exist in the flow is fundamentally different:
+
+- A Modal blocks the user from progressing further in a feature (Fig 1.0), forcing them to take action or make a decision.
+- A Flyout extends or "branches" off from the main flow to add detail and highlight secondary features and functions (Fig 1.1).
+- Rather than blocking the user from continuing down a certain path, a Flyout enhances and adds and detail to the primary path to aid in the completion of a function.
+
+![Flyout vs Modal](/assets/components/flyout/flyout-vs-modal.png)
 
 ## Size
 
@@ -151,8 +163,6 @@ A Flyout should slide out from the right side of the viewport on top of the main
 - A Flyout should overlay all content and block/disable interaction on the main page.
 
 ![Flyout in a desktop viewport](/assets/components/flyout/flyout-sizing.png)
-
-<!-- ![Flyout in a mobile viewport](/assets/components/flyout/flyout-sizing-mobile.png =300x*) -->
 
 !!! Info
 
