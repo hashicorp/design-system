@@ -19,6 +19,6 @@ text, placement, offset
   </C.Property>
 </Doc::ComponentApi>
 
-### Tooltip modifier/helper
+### `hds-tooltip` modifier
 
-The helper offers the same options as the component See the “How to use” section for syntax examples.
+The modifier offers the same options as the component. See the “How to use” section for syntax examples.

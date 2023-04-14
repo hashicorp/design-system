@@ -8,9 +8,9 @@
 <Shw::Text::H1>Tooltip</Shw::Text::H1>
 
 <section data-test-percy>
-  <Shw::Text::H2>Used as a Component (TooltipButton)</Shw::Text::H2>
+  <Shw::Text::H2>TooltipButton</Shw::Text::H2>
 
-  <Shw::Text::H3>Basic examples</Shw::Text::H3>
+  <Shw::Text::H3>Content</Shw::Text::H3>
 
   <Shw::Text::H4>On its own</Shw::Text::H4>
   <Shw::Flex as |SF|>
@@ -53,7 +53,6 @@
     <Hds::TooltipButton @text="Hello!"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
   </p>
 
-  <Shw::Text::H4>Used within a sentence.</Shw::Text::H4>
   <p>
     Lorem ipsum dolor sit amet consectetur
     <Hds::TooltipButton @text="Hello!"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
@@ -113,10 +112,9 @@
 
   <Shw::Divider @level={{2}} />
 
-  <Shw::Text::H3>With different options</Shw::Text::H3>
+  <Shw::Text::H3>Options</Shw::Text::H3>
 
-  <Shw::Text::H4>“Placement” options</Shw::Text::H4>
-  <Shw::Text::Body>The default placement is “top”.</Shw::Text::Body>
+  <Shw::Text::H4>Placement</Shw::Text::H4>
   <Shw::Flex as |SF|>
     {{#let
       (array
@@ -145,9 +143,7 @@
     {{/let}}
   </Shw::Flex>
 
-  <Shw::Text::H4>“Offset” options</Shw::Text::H4>
-  <Shw::Text::Body>Takes two numbers for offset, #1 “skidding” = tooltip displacement from center of opener element, #2
-    “distance” = tooltip distance from “opener”</Shw::Text::Body>
+  <Shw::Text::H4>Offset</Shw::Text::H4>
   <Shw::Flex as |SF|>
     <SF.Item @label="Default offset">
       <Hds::TooltipButton @text="Hello!"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
@@ -166,23 +162,22 @@
 <Shw::Divider />
 
 <section data-test-percy>
-  <Shw::Text::H2>Used as a Modifier</Shw::Text::H2>
+  <Shw::Text::H2>`hds-tooltip` modifier</Shw::Text::H2>
 
-  <Shw::Text::H3>Basic examples</Shw::Text::H3>
+  <Shw::Text::H3>Content</Shw::Text::H3>
 
   <Shw::Text::H4>On its own</Shw::Text::H4>
-  <Shw::Text::Body>(Consumer needs to add styling to opener element)</Shw::Text::Body>
 
   <Shw::Flex as |SF|>
-    <SF.Item @label="Used on a button tag">
+    <SF.Item @label="On a button">
       <button type="button" {{hds-tooltip "Hello!"}}><FlightIcon @name="alert-circle" /></button>
     </SF.Item>
 
-    <SF.Item @label="Used on an anchor tag">
+    <SF.Item @label="On an anchor">
       <a href="#" {{hds-tooltip "Hello!"}}><FlightIcon @name="alert-circle" /></a>
     </SF.Item>
 
-    <SF.Item @label="Used on an HTML text input tag combined with HDS form components">
+    <SF.Item @label="On an input">
       <Hds::Form::Field @layout="vertical" as |F|>
         <F.Label @controlId="tooltip-example-control-id">First Name</F.Label>
         <F.Control>
@@ -191,16 +186,18 @@
       </Hds::Form::Field>
     </SF.Item>
 
-    <SF.Item @label="Used on a span tag (not accessible)">
+    <SF.Item @label="On a span (not accessible)">
       <span {{hds-tooltip "Invalid usage"}}><FlightIcon @name="alert-circle" /></span>
     </SF.Item>
 
-    <SF.Item @label="Used on a time tag (not accessible)">
+    <SF.Item @label="On a 'time' tag (not accessible)">
       <time {{hds-tooltip "Invalid usage"}} datetime="2023-03-30T19:18:01.684Z">Mar 30, 2023</time>
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Text::H4>Used on a non-interactive block-level trigger element (div tag as trigger)</Shw::Text::H4>
-  <Shw::Text::Body>Not accessible (consumer also needs to add custom styles)</Shw::Text::Body>
-  <div {{hds-tooltip "Invalid usage"}}><FlightIcon @name="alert-circle" /></div>
+  <Shw::Flex as |SF|>
+    <SF.Item @label="On a non-interactive block-level element ('div' tag)">
+      <div {{hds-tooltip "Invalid usage"}}><FlightIcon @name="alert-circle" /></div>
+    </SF.Item>
+  </Shw::Flex>
 </section>
