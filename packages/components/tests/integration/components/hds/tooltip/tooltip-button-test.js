@@ -5,7 +5,12 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { focus, render, triggerKeyEvent } from '@ember/test-helpers';
+import {
+  focus,
+  render,
+  triggerKeyEvent,
+  setupOnerror,
+} from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/tooltip/index', function (hooks) {
@@ -18,7 +23,26 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
     assert.dom('#test-tooltip-button').hasClass('hds-tooltip-button');
   });
 
-  // Test Content & accessibility features
+  // CONTENT
+
+  test('it renders plain text content passed into the tooltip', async function (assert) {
+    await render(
+      hbs`<Hds::TooltipButton @text="More info." id="test-tooltip-button">info</Hds::TooltipButton>`
+    );
+    await focus('#test-tooltip-button');
+    assert.dom('.tippy-content').hasText('More info.');
+  });
+
+  test('it renders rich HTML and text content passed into the tooltip', async function (assert) {
+    await render(
+      hbs`<Hds::TooltipButton @text="<em>em</em> <strong>strong</strong>" id="test-tooltip-button">info</Hds::TooltipButton>`
+    );
+    await focus('#test-tooltip-button');
+    assert.dom('.tippy-content em').exists().hasText('em');
+    assert.dom('.tippy-content strong').exists().hasText('strong');
+  });
+
+  // A11Y
 
   test('it displays the tooltip when focused and dismisses it if Escape key is triggered', async function (assert) {
     const escapeKey = 27;
@@ -53,23 +77,6 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
     );
     await focus('#test-tooltip-button');
     assert.dom('.tippy-box').hasAttribute('role', 'tooltip');
-  });
-
-  test('it renders plain text content passed into the tooltip', async function (assert) {
-    await render(
-      hbs`<Hds::TooltipButton @text="More info." id="test-tooltip-button">info</Hds::TooltipButton>`
-    );
-    await focus('#test-tooltip-button');
-    assert.dom('.tippy-content').hasText('More info.');
-  });
-
-  test('it renders rich HTML and text content passed into the tooltip', async function (assert) {
-    await render(
-      hbs`<Hds::TooltipButton @text="<em>em</em> <strong>strong</strong>" id="test-tooltip-button">info</Hds::TooltipButton>`
-    );
-    await focus('#test-tooltip-button');
-    assert.dom('.tippy-content em').exists().hasText('em');
-    assert.dom('.tippy-content strong').exists().hasText('strong');
   });
 
   test('the button has an aria-describedby attribute with a value matching the tooltip id', async function (assert) {
@@ -109,5 +116,35 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
     assert.dom('#test-tooltip-button').hasClass('my-class');
     assert.dom('#test-tooltip-button').hasAttribute('data-test1');
     assert.dom('#test-tooltip-button').hasAttribute('data-test2', 'test');
+  });
+
+  // ASSERTIONS
+
+  test('it should throw an assertion if @text is missing/has no value', async function (assert) {
+    const errorMessage =
+      '@text for "Hds::TooltipButton" must have a valid value';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::TooltipButton>info</Hds::TooltipButton>`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+
+  test('it should throw an assertion if the value passed to @placement is invalid', async function (assert) {
+    const errorMessage =
+      '@placement for "Hds::TooltipButton" must have a valid value';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(
+      hbs`<Hds::TooltipButton @text="More info." @placement="invalid">info</Hds::TooltipButton>`
+    );
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
   });
 });

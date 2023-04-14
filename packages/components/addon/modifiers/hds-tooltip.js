@@ -3,6 +3,9 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+// Note: the majority of this code is a porting of the existing tooltip implementation in Cloud UI
+// (which was initially implemented in Structure)
+
 import Modifier from 'ember-modifier';
 import { assert } from '@ember/debug';
 import { registerDestructor } from '@ember/destroyable';

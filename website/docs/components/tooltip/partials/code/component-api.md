@@ -2,8 +2,6 @@
 
 ### TooltipButton
 
-text, placement, offset
-
 <Doc::ComponentApi as |C|>
   <C.Property @name="text" @type="string">
     Text string which will appear in the tooltip. May contain basic HTML tags for formatting text such as `strong` and `em` tags. Not intended for multi-paragraph text or other more complex content. May not contain interactive content such as links or buttons.

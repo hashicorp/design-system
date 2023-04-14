@@ -13,19 +13,19 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
 
   test('it attaches a tooltip to the element it is invoked on', async function (assert) {
     await render(
-      hbs`<a href="#" {{hds-tooltip "More info."}} data-test-tooltip-helper>Info</a>`
+      hbs`<a href="#" {{hds-tooltip "More info."}}  id="test-tooltip-modifier">Info</a>`
     );
     // activate the tooltip:
-    await focus('[data-test-tooltip-helper]');
+    await focus('#test-tooltip-modifier');
     // test that the tooltip exists and has the passed in content:
     assert.dom('.tippy-content').hasText('More info.');
 
     // test the expected accessibility related attributes:
-    assert.dom('[data-test-tooltip-helper]').hasAttribute('aria-describedby');
+    assert.dom('#test-tooltip-modifier').hasAttribute('aria-describedby');
     assert.dom('[data-tippy-root]').hasAttribute('id');
     assert.strictEqual(
       this.element
-        .querySelector('[data-test-tooltip-helper]')
+        .querySelector('#test-tooltip-modifier')
         .getAttribute('aria-describedby'),
       this.element.querySelector('[data-tippy-root]').getAttribute('id')
     );

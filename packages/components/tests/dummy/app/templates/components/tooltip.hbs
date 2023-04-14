@@ -41,12 +41,6 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Text::H4>Used <em>incorrectly</em> to wrap a block-level element (button wraps div tag)</Shw::Text::H4>
-  <Shw::Text::Body>(results in invalid HTML structure)</Shw::Text::Body>
-  <Hds::TooltipButton @text="Invalid usage">
-    <div><FlightIcon @name="alert-circle" /></div>
-  </Hds::TooltipButton>
-
   <Shw::Text::H4>Used next to text</Shw::Text::H4>
   <p>
     <strong>Lorem ipsum dolor sit amet consectetur</strong>
@@ -162,7 +156,7 @@
 <Shw::Divider />
 
 <section data-test-percy>
-  <Shw::Text::H2>`hds-tooltip` modifier</Shw::Text::H2>
+  <Shw::Text::H2><code>hds-tooltip</code> modifier</Shw::Text::H2>
 
   <Shw::Text::H3>Content</Shw::Text::H3>
 
@@ -192,12 +186,6 @@
 
     <SF.Item @label="On a 'time' tag (not accessible)">
       <time {{hds-tooltip "Invalid usage"}} datetime="2023-03-30T19:18:01.684Z">Mar 30, 2023</time>
-    </SF.Item>
-  </Shw::Flex>
-
-  <Shw::Flex as |SF|>
-    <SF.Item @label="On a non-interactive block-level element ('div' tag)">
-      <div {{hds-tooltip "Invalid usage"}}><FlightIcon @name="alert-circle" /></div>
     </SF.Item>
   </Shw::Flex>
 </section>

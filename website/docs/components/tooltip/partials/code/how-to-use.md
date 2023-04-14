@@ -35,7 +35,7 @@ Currently, the tooltip uses [Tippy.js](https://atomiks.github.io/tippyjs/) under
 
 The tooltip appears at the “top” centered above the opener button content by default. If the tooltip is near any of the edges of the screen, its position will automatically adjust to prevent the tooltip content from being cut off so it remains readable.
 
-Use the `placement` argument if you would like to use a different starting position for the tooltip vs. the default.
+Use the `@placement` argument if you would like to use a different starting position for the tooltip vs. the default.
 
 
 ```handlebars
@@ -65,9 +65,14 @@ If you use the modifier instead of the component you will need to add your own s
   <a href="#" {{hds-tooltip "This link takes you to more information"}}>More information</a>
 ```
 
-#### With different placement and offset options
+#### Placement option
 ```handlebars
-  <a href="#" {{hds-tooltip "This link takes you to more information" options=(hash placement="right" offset=(array 15 60))}}>More information</a>
+  <a href="#" {{hds-tooltip "This link takes you to more information" options=(hash placement="right")}}>More information</a>
+```
+
+#### Offset option
+```handlebars
+  <a href="#" {{hds-tooltip "This link takes you to more information" options=(hash offset=(array 60 60))}}>More information</a>
 ```
 
 #### Modifier used on an input element

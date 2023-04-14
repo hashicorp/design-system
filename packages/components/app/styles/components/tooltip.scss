@@ -31,15 +31,11 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 1em; // used together with line-height: 0, maintains min-height of text-only content
   margin: 0;
   padding: 0;
   color: inherit;
-  line-height: 0; // this makes the button the same height as nested icons
   background: transparent;
   border: none;
-
-  > .flight-icon { display: block; } // removes excess whitespace
 }
 
 .tippy-box[data-theme~="hds"] {
