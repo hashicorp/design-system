@@ -28,14 +28,13 @@
     $bottom: var(--token-tooltip-tab-focus-inset-vertical),
     $left: var(--token-tooltip-tab-focus-inset-horizontal),
   );
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   margin: 0;
   padding: 0;
   color: inherit;
   background: transparent;
   border: none;
+
+  > .flight-icon { display: block; }
 }
 
 .tippy-box[data-theme~="hds"] {
