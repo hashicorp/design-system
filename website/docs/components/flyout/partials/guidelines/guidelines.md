@@ -57,7 +57,13 @@ While each of these components is triggered by a user action, where they exist i
 - A Flyout extends or "branches" off from the main flow to add detail and highlight secondary features and functions (Fig 1.1).
 - Rather than blocking the user from continuing down a certain path, a Flyout enhances and adds and detail to the primary path to aid in the completion of a function.
 
-![Flyout vs Modal](/assets/components/flyout/flyout-vs-modal.png)
+**Fig. 1.0:** Hierarchy representation of a Modal blocking the user progression through a flow.
+
+![Modal Hierarchy in the user flow](/assets/components/flyout/flyout-vs-modal-01.png)
+
+**Fig. 1.1:** Hierarchy representation of the Flyout relative to the user flow.
+
+![Flyout hierarchy in the user flow](/assets/components/flyout/flyout-vs-modal-02.png)
 
 ## Size
 
