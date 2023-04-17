@@ -23,10 +23,10 @@
 
 .hds-tooltip-button {
   @include hds-focus-ring-with-pseudo-element(
-    $top: var(--token-tooltip-tab-focus-inset-vertical),
-    $right: var(--token-tooltip-tab-focus-inset-horizontal),
-    $bottom: var(--token-tooltip-tab-focus-inset-vertical),
-    $left: var(--token-tooltip-tab-focus-inset-horizontal),
+    // $top: var(--token-tooltip-tab-focus-inset-vertical),
+    // $right: var(--token-tooltip-tab-focus-inset-horizontal),
+    // $bottom: var(--token-tooltip-tab-focus-inset-vertical),
+    // $left: var(--token-tooltip-tab-focus-inset-horizontal),
   );
   margin: 0;
   padding: 0;

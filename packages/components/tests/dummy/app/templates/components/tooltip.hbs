@@ -47,6 +47,82 @@
     adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
   </p>
 
+  <Shw::Text::H4>Used within various components</Shw::Text::H4>
+
+  <Shw::Text::Body>
+    <strong>Used within a <code>TabPanel</code></strong><br />
+    <em>(Using within a <code>Tab</code> would result with a button nested inside a button and won't function.)</em>
+  </Shw::Text::Body>
+
+  <Hds::Tabs as |T|>
+    <T.Tab>One</T.Tab>
+    <T.Tab>Two</T.Tab>
+    <T.Tab>Three</T.Tab>
+
+    <T.Panel>
+      <p>
+        Content 1
+        <Hds::TooltipButton @text="Hello!"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+      </p>
+    </T.Panel>
+    <T.Panel>Content 2</T.Panel>
+    <T.Panel>Content 3</T.Panel>
+  </Hds::Tabs>
+
+  <Shw::Text::Body><strong>Used within an alert</strong></Shw::Text::Body>
+
+  <Hds::Alert @type="inline" @color="warning" @onDismiss={{this.noop}} as |A|>
+    <A.Title>Warning</A.Title>
+    <A.Description>
+      Caution is advised.
+      <Hds::TooltipButton @text="Hello!"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+    </A.Description>
+  </Hds::Alert>
+
+  <!-- Tooltips work within first card but all subsequant uses become broken
+  <Shw::Text::Body><strong>Used within a RadioCard</strong>
+    (Only working within first card for some reason)</Shw::Text::Body>
+
+  <Hds::Form::RadioCard::Group @name="radio-card-basic-example" @alignment="center" as |G|>
+    <G.Legend>Create a connection</G.Legend>
+    <G.RadioCard @checked={{true}} {{on "change" this.onChange}} as |R|>
+      <Hds::TooltipButton @text="Amazon Web Services"><R.Icon @name="aws-color" /></Hds::TooltipButton>
+      <R.Label>
+        Quick peering with Quick Links
+        <Hds::TooltipButton @text="Hello!"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+      </R.Label>
+      <R.Description>
+        Works within description text.
+        <Hds::TooltipButton @text="Hello!"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+      </R.Description>
+    </G.RadioCard>
+
+    <G.RadioCard {{on "change" this.onChange}} as |R|>
+      <Hds::TooltipButton @text="Amazon Web Services"><R.Icon @name="aws-color" /></Hds::TooltipButton>
+      <R.Label>
+        Quick peering with Quick Links
+        <Hds::TooltipButton @text="Hello!"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+      </R.Label>
+      <R.Description>
+        Works within description text.
+        <Hds::TooltipButton @text="Hello!"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+      </R.Description>
+    </G.RadioCard>
+
+    <G.RadioCard {{on "change" this.onChange}} as |R|>
+      <Hds::TooltipButton @text="Amazon Web Services"><R.Icon @name="aws-color" /></Hds::TooltipButton>
+      <R.Label>
+        Manual peering using AWS CLI
+        <Hds::TooltipButton @text="Hello!"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+      </R.Label>
+      <R.Description>
+        Provide you AWS CLI template to apply connection settings.
+        <Hds::TooltipButton @text="Hello!"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+      </R.Description>
+    </G.RadioCard>
+  </Hds::Form::RadioCard::Group>
+  -->
+
   <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>States</Shw::Text::H3>
@@ -57,29 +133,48 @@
   </Shw::Text::Body>
 
   <Shw::Text::Body>
-    Note: There is a bug with the position of the tooltips below which are set to show on page load for example purposes.
-    If you scroll the page a bit they will snap back to showing as centered. (Tooltips displayed on hover or focus do
-    not have this bug.)
+    <strong>Note:</strong>
+    There is a bug with the position of the tooltips below which are set to show on page load for example purposes. If
+    you scroll the page a bit they will snap back to showing as centered. (Tooltips displayed on hover or focus do not
+    have this bug.)
   </Shw::Text::Body>
 
+  <Shw::Text::H4>With icon as opener content</Shw::Text::H4>
+
   <Shw::Flex {{style gap="4rem"}} as |SF|>
-    {{#let (array "default" "hover" "focus") as |states|}}
-      {{#each states as |state|}}
-        <SF.Item @label={{state}}>
-          {{#if (or (eq state "hover") (eq state "focus"))}}
-            <Hds::TooltipButton
-              @text="Hello!"
-              mock-state-value={{state}}
-              @extraTippyOptions={{hash showOnCreate=true}}
-            ><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
-          {{else}}
-            <Hds::TooltipButton @text="Hello!" mock-state-value={{state}}><FlightIcon
-                @name="alert-circle"
-              /></Hds::TooltipButton>
-          {{/if}}
-        </SF.Item>
-      {{/each}}
-    {{/let}}
+    {{#each @model.STATES as |state|}}
+      <SF.Item @label={{state}}>
+        {{#if (or (eq state "hover") (eq state "focus"))}}
+          <Hds::TooltipButton
+            @text="Hello!"
+            mock-state-value={{state}}
+            @extraTippyOptions={{hash showOnCreate=true}}
+          ><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+        {{else}}
+          <Hds::TooltipButton @text="Hello!" mock-state-value={{state}}><FlightIcon
+              @name="alert-circle"
+            /></Hds::TooltipButton>
+        {{/if}}
+      </SF.Item>
+    {{/each}}
+  </Shw::Flex>
+
+  <Shw::Text::H4>With text as opener content</Shw::Text::H4>
+
+  <Shw::Flex {{style gap="4rem"}} as |SF|>
+    {{#each @model.STATES as |state|}}
+      <SF.Item @label={{state}}>
+        {{#if (or (eq state "hover") (eq state "focus"))}}
+          <Hds::TooltipButton
+            @text="Hello!"
+            mock-state-value={{state}}
+            @extraTippyOptions={{hash showOnCreate=true}}
+          >More info</Hds::TooltipButton>
+        {{else}}
+          <Hds::TooltipButton @text="Hello!" mock-state-value={{state}}>More info</Hds::TooltipButton>
+        {{/if}}
+      </SF.Item>
+    {{/each}}
   </Shw::Flex>
 
   <Shw::Divider @level={{2}} />
@@ -125,7 +220,7 @@
       <button type="button" {{hds-tooltip "Hello!"}}><FlightIcon @name="alert-circle" /></button>
     </SF.Item>
 
-    <SF.Item @label="On an anchor">
+    <SF.Item @label="On a link">
       <a href="#" {{hds-tooltip "Hello!"}}><FlightIcon @name="alert-circle" /></a>
     </SF.Item>
 

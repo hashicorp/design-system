@@ -9,6 +9,8 @@ import { PLACEMENTS } from '@hashicorp/design-system-components/components/hds/t
 
 export default class ComponentsTooltipRoute extends Route {
   model() {
-    return { PLACEMENTS };
+    // these are used only for presentation purpose in the showcase
+    const STATES = ['default', 'hover', 'focus'];
+    return { PLACEMENTS, STATES };
   }
 }
