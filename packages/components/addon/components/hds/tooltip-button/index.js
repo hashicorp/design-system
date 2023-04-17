@@ -43,7 +43,7 @@ export default class HdsTooltipIndexComponent extends Component {
 
     assert(
       '@placement for "Hds::TooltipButton" must have a valid value',
-      placement == undefined || PLACEMENTS.includes(placement)
+      placement === undefined || PLACEMENTS.includes(placement)
     );
 
     return {
