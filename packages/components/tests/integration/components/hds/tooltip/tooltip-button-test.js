@@ -33,9 +33,15 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
     assert.dom('.tippy-content').hasText('More info.');
   });
 
-  test('it renders rich HTML and text content passed into the tooltip', async function (assert) {
+  test('when allowHTML to true is passed in as an extraTippyOption, it renders rich HTML and text content passed into the tooltip', async function (assert) {
     await render(
-      hbs`<Hds::TooltipButton @text="<em>em</em> <strong>strong</strong>" id="test-tooltip-button">info</Hds::TooltipButton>`
+      hbs`
+        <Hds::TooltipButton 
+          @extraTippyOptions={{hash allowHTML=true}}
+          @text="<em>em</em> <strong>strong</strong>" 
+          id="test-tooltip-button"
+        >info</Hds::TooltipButton>
+      `
     );
     await focus('#test-tooltip-button');
     assert.dom('.tippy-content em').exists().hasText('em');
