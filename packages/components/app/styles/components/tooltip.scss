@@ -12,10 +12,11 @@
 :root {
   // Dimensions:
   --token-tooltip-max-width: 280px;
+  --token-tooltip-button-padding: 2px;
 
   // Focus highlight position
-  --token-tooltip-tab-focus-inset-vertical: -10px;
-  --token-tooltip-tab-focus-inset-horizontal: -16px;
+  // --token-tooltip-focus-inset-vertical: -10px;
+  // --token-tooltip-focus-inset-horizontal: -16px;
 
   // Colors:
   --token-tooltip-surface-primary: var(--token-color-palette-neutral-700);
@@ -23,13 +24,13 @@
 
 .hds-tooltip-button {
   @include hds-focus-ring-with-pseudo-element(
-    // $top: var(--token-tooltip-tab-focus-inset-vertical),
-    // $right: var(--token-tooltip-tab-focus-inset-horizontal),
-    // $bottom: var(--token-tooltip-tab-focus-inset-vertical),
-    // $left: var(--token-tooltip-tab-focus-inset-horizontal),
+    // $top: var(--token-tooltip-focus-inset-vertical),
+    // $right: var(--token-tooltip-focus-inset-horizontal),
+    // $bottom: var(--token-tooltip-focus-inset-vertical),
+    // $left: var(--token-tooltip-focus-inset-horizontal),
   );
   margin: 0;
-  padding: 0;
+  padding: var(--token-tooltip-button-padding);
   color: inherit;
   background: transparent;
   border: none;
