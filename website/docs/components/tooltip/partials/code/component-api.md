@@ -12,6 +12,9 @@
   <C.Property @name="offset" @type="array">
     Takes two numbers. The first number controls “skidding” or the tooltip displacement from the center of the opener element. The second number controls the “distance” from the opener element.
   </C.Property>
+  <C.Property @name="extraTippyOptions" @type="hash">
+    You can enable [Tippy.js options](https://atomiks.github.io/tippyjs/v6/all-props/) by passing a hash of the options you wish to use.
+  </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>

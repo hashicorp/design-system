@@ -43,13 +43,11 @@ export default class HdsTooltipIndexComponent extends Component {
 
     assert(
       '@placement for "Hds::TooltipButton" must have a valid value',
-      placement === undefined || PLACEMENTS.includes(placement)
+      placement == undefined || PLACEMENTS.includes(placement)
     );
 
     return {
       ...this.args.extraTippyOptions,
-      // parse `content` strings as HTML
-      allowHTML: true,
       // takes string
       placement: placement,
       // takes array of 2 numbers (skidding, distance): array(0, 0)

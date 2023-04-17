@@ -14,13 +14,6 @@ Currently, the tooltip uses [Tippy.js](https://atomiks.github.io/tippyjs/) under
   </Hds::TooltipButton>
 ```
 
-#### Rich tooltip text (bold and emphasized)
-```handlebars
-  <Hds::TooltipButton @text="<b>Hello</b> <em>there</em>! Here is more info.">
-    More information
-  </Hds::TooltipButton>
-```
-
 #### Inline with text
 ```handlebars
   <p>
@@ -55,9 +48,24 @@ You can change the offset of the tooltip in relation to the opener element conte
   </Hds::TooltipButton>
 ```
 
+#### Extra Tippy Options
+
+Using `@extraTippyOptions` to enable rich tooltip text.
+
+Be sure to sanitize your data if enabling this option. To maintain accessibility, do not include interactive content such as links or buttons. We recommend using only basic inline-level text formatting tags such as `strong` or `em`. Using block-level tags such as `div` or `p` will make the HTML syntax invalid.
+
+```handlebars
+  <Hds::TooltipButton 
+    @extraTippyOptions={{hash allowHTML=true}}
+    @text="<b>Hello</b> <em>there</em>! Here is more info."
+  >
+    More information
+  </Hds::TooltipButton>
+```
+
 ### Ember modifier
 
-If you use the modifier instead of the component you will need to add your own styling for the element you are attaching the toolip to.
+An Ember modifier is available if your use case requires attaching a tooltip to an element other than a button. To be accessible, tooltips should only be attached to interactive elements. You will need to add your own styling for the element you are attaching the toolip to.
 
 #### Modifier used on a link
 
