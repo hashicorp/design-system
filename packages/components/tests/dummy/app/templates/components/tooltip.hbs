@@ -88,31 +88,11 @@
 
   <Shw::Text::H4>Placement</Shw::Text::H4>
   <Shw::Flex as |SF|>
-    {{#let
-      (array
-        "top"
-        "top-start"
-        "top-end"
-        "right"
-        "right-start"
-        "right-end"
-        "bottom"
-        "bottom-start"
-        "bottom-end"
-        "left"
-        "left-start"
-        "left-end"
-      )
-      as |placements|
-    }}
-      {{#each placements as |place|}}
-        <SF.Item @label={{place}}>
-          <Hds::TooltipButton @text="Hello!" @placement={{place}}><FlightIcon
-              @name="alert-circle"
-            /></Hds::TooltipButton>
-        </SF.Item>
-      {{/each}}
-    {{/let}}
+    {{#each @model.PLACEMENTS as |place|}}
+      <SF.Item @label={{place}}>
+        <Hds::TooltipButton @text="Hello!" @placement={{place}}><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+      </SF.Item>
+    {{/each}}
   </Shw::Flex>
 
   <Shw::Text::H4>Offset</Shw::Text::H4>
