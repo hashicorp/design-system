@@ -36,7 +36,7 @@ Actions are aligned to the right of the container or page. This alignment method
 
 Actions are aligned in the middle of the container or page. This alignment method is _not_ recommended in the majority of scenarios.
 
-- Can cause buttons to needlessly fill the horiztonal space of the container
+- Can cause buttons to needlessly fill the horizontal space of the container
 - Can cause buttons to appear detached from the content they are paired with, especially if a user has increased zoom settings within their browser
 
 !!! Dont
