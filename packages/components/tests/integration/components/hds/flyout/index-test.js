@@ -53,6 +53,25 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
     assert.dom('.hds-flyout__overlay').isVisible();
   });
 
+  // CONTEXTUAL COMPONENTS
+
+  test('it renders the contextual components', async function (assert) {
+    await render(
+      hbs`<Hds::Flyout id="test-flyout" as |F|>
+            <F.Header>Title</F.Header>
+            <F.Body>Body</F.Body>
+            <F.Footer>Footer</F.Footer>
+          </Hds::Flyout>`
+    );
+    assert.dom('.hds-flyout').exists();
+    assert.dom('.hds-flyout__header').exists();
+    assert.dom('.hds-flyout__header').hasText('Title');
+    assert.dom('.hds-flyout__body').exists();
+    assert.dom('.hds-flyout__body').hasText('Body');
+    assert.dom('.hds-flyout__footer').exists();
+    assert.dom('.hds-flyout__footer').hasText('Footer');
+  });
+
   // TITLE (ICON, TAGLINE & DESCRIPTION)
 
   test('it renders the title without icon, tagline, and description', async function (assert) {
