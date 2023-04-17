@@ -56,6 +56,12 @@
     state.
   </Shw::Text::Body>
 
+  <Shw::Text::Body>
+    Note: There is a bug with the position of the tooltips below which are set to show on page low for example purposes.
+    If you scroll the page a bit ther will snap back to showing as centered. (Tooltips displayed on hover or focus do
+    not have this bug.)
+  </Shw::Text::Body>
+
   <Shw::Flex {{style gap="4rem"}} as |SF|>
     {{#let (array "default" "hover" "focus") as |states|}}
       {{#each states as |state|}}
