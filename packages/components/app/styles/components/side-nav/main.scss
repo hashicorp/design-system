@@ -14,6 +14,24 @@
   height: 100vh;
   min-height: 100vh;
   isolation: isolate; // used to create a new stacking context (so we can set the overlay's z-index to -1)
+
+  // RESPONSIVENESS - This controls the width of the top-level container ("sidebar") in the grid, and impacts the available space for the "main" grid area
+
+  &.hds-side-nav--is-responsive {
+    transition:
+      width var(--hds-app-sidenav-animation-duration)
+      var(--hds-app-sidenav-animation-easing);
+  }
+
+  // mobile
+  &.hds-side-nav--is-mobile {
+    width: var(--hds-app-sidenav-width-minimized);
+  }
+
+  // desktop
+  &.hds-side-nav--is-desktop {
+    width: var(--hds-app-sidenav-width-expanded);
+  }
 }
 
 
@@ -107,12 +125,11 @@
 .hds-side-nav__wrapper {
   display: flex;
   flex-direction: column;
-  // width: var(--hds-app-sidenav-width-expanded);
   height: 100%;
   color: var(--token-side-nav-foreground-primary); // we set a default color (in case generic content is added to the header/body/footer of the sidenav)
   background: var(--token-side-nav-surface-primary);
 
-  // RESPONSIVENESS
+  // RESPONSIVENESS - This controls the width of the "sidenav" container, and is independent (bur related) from the parent "sidebar" grid area
 
   .hds-side-nav--is-responsive & {
     transition:
