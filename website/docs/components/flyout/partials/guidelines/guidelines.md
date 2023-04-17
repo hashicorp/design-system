@@ -30,11 +30,11 @@ While code snippets and terminal scripts are usually detailed, they are well sui
 
 ### Flyout vs Modal
 
-While similar in functionality and interaction, the Flyout and [Modal](/components/modal) are meant to be used in different scenarios and to express different types of content. There is a fair amount of overlap in their usage but they differtiate in these ways:
+While similar in functionality and interaction, the Flyout and [Modal](/components/modal) are meant to be used in different scenarios and to express different types of content. There is a fair amount of overlap in their usage but they differentiate in these ways:
 
 #### Complexity
 
-Flyouts are useful for more complex content given the space it occupies in the viewport, while Modals are useful for less complex contentthat can be interacted with relatively quickly.
+Flyouts are useful for more complex content given the space it occupies in the viewport, while Modals are useful for less complex content that can be interacted with relatively quickly.
 
 !!! Info
 
@@ -142,6 +142,36 @@ A **description** provides additional information about the Flyout.
 ## Flyout body
 
 The body of the Flyout supports any custom content, local components, or Helios components via an **instance swap property** (customInstance) in Figma. In code, `yield` is supported.
+
+## Flyout footer
+
+The Flyout footer adds functional support to Flyout with support for action and custom content. A functional Flyout should not block the user flow and instead add "enhancements" to the functionality of the main page, e.g., changing the settings of an object on the page.
+
+The Ember and Figma components account for the footer in slightly different ways, though both can achieve the same results:
+
+- The Ember component is a generic container that yields elements passed to it.
+- The Figma component consists of a variant for the number of actions, as well as a `slot` for custom content.
+
+The footer is **optional** and should be used sparingly or in scenarios where "portable" functionality is desired for repetitive actions, e.g., changing a users role or permissions.
+
+<Hds::Flyout::Footer>
+  <Hds::ButtonSet>
+    <Hds::Button @color="primary" @text="Primary" />
+    <Hds::Button @color="secondary" @text="Secondary" />
+  </Hds::ButtonSet>
+</Hds::Flyout::Footer>
+
+!!! Info
+
+More details on how to organize buttons within the footer of a Flyout can be found in the [Button organization](/patterns/button-organization) pattern documentation.
+!!!
+
+!!! Do
+
+While the footer supports any custom elements, we recommend limiting it's use to actions and simple declarative content.
+
+![Complex footer example](/assets/components/flyout/flyout-complex-footer.png)
+!!!
 
 ## Dismissal
 
