@@ -3,12 +3,12 @@
 The HDS tooltip is provided as both a `TooltipButton` component and as an `hds-tooltip` Ember modifier. To be accessible, the element which triggers a tooltip needs to be an interactive element which can receive focus. This means that:
 
 * if the tooltip needs to be applied to a non-interactive element, the `TooltipButton` component should be used as it wraps the opener element with a `button` element.
-* if the tooltip needs to be applied to an element which is already interactive, the `hds-tooltip` mmodifier should be used.
+* if the tooltip needs to be applied to an element which is already interactive, the `hds-tooltip` modifier should be used.
 
 Currently, the tooltip uses [Tippy.js](https://atomiks.github.io/tippyjs/) under the hood for its main functionality.
 
 <!-- use the same heading order from Guidelines -->
-### Content
+### TooltipButton
 
 #### Icon
 ```handlebars
@@ -53,7 +53,7 @@ You can change the offset of the tooltip in relation to the opener element conte
 
 #### Extra Tippy Options
 
-Using `@extraTippyOptions` to enable rich tooltip text.
+You can use `@extraTippyOptions` to enable rich tooltip text.
 
 Be sure to sanitize your data if enabling this option. To maintain accessibility, do not include interactive content such as links or buttons. We recommend using only basic inline-level text formatting tags such as `strong` or `em`. Using block-level tags such as `div` or `p` will make the HTML syntax invalid.
 
@@ -68,20 +68,20 @@ Be sure to sanitize your data if enabling this option. To maintain accessibility
 
 ### Ember modifier
 
-An Ember modifier is available if your use case requires attaching a tooltip to an element other than a button. To be accessible, tooltips should only be attached to interactive elements. You will need to add your own styling for the element you are attaching the toolip to.
+An Ember modifier is available if your use case requires attaching a tooltip to an element than is already interactive (to be accessible, tooltips should only be attached to interactive elements, like buttons, links, inputs, etc). 
 
 #### Modifier used on a link
 
 ```handlebars
-  <a href="#" {{hds-tooltip "This link takes you to more information"}}>More information</a>
+  <a href="#" {{hds-tooltip "Hello"}}>More information</a>
 ```
 
-#### Placement option
+#### Placement
 ```handlebars
   <a href="#" {{hds-tooltip "This link takes you to more information" options=(hash placement="right")}}>More information</a>
 ```
 
-#### Offset option
+#### Offset
 ```handlebars
   <a href="#" {{hds-tooltip "This link takes you to more information" options=(hash offset=(array 60 60))}}>More information</a>
 ```
