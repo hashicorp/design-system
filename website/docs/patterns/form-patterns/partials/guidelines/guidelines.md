@@ -6,7 +6,7 @@ Spacing between sections, fields, text, and other form elements should follow a 
 
 A **form** acts as a layout mechanism by wrapping the content, fields and actions to apply consistent spacing while simultaneously handling the logic for submitting information and data collected by the fields.
 
-As a layout mechanism, a form consistenting of more than one section should use a 32px gap in between sections.
+As a layout mechanism, a form consisting of more than one section should use a 32px gap in between sections.
 
 ![Form container](/assets/patterns/form-patterns/form-container.png =450x*)
 
