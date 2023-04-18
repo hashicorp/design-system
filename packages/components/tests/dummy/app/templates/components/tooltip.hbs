@@ -141,7 +141,7 @@
 
   <Shw::Text::H4>With icon as opener content</Shw::Text::H4>
 
-  <Shw::Flex {{style gap="4rem"}} as |SF|>
+  <Shw::Flex {{style gap="5rem"}} as |SF|>
     {{#each @model.STATES as |state|}}
       <SF.Item @label={{state}}>
         {{#if (or (eq state "hover") (eq state "focus"))}}
@@ -161,7 +161,7 @@
 
   <Shw::Text::H4>With text as opener content</Shw::Text::H4>
 
-  <Shw::Flex {{style gap="4rem"}} as |SF|>
+  <Shw::Flex {{style gap="5rem"}} as |SF|>
     {{#each @model.STATES as |state|}}
       <SF.Item @label={{state}}>
         {{#if (or (eq state "hover") (eq state "focus"))}}
@@ -182,26 +182,40 @@
   <Shw::Text::H3>Options</Shw::Text::H3>
 
   <Shw::Text::H4>Placement</Shw::Text::H4>
-  <Shw::Flex as |SF|>
+  <Shw::Flex {{style gap="5rem"}} as |SF|>
     {{#each @model.PLACEMENTS as |place|}}
       <SF.Item @label={{place}}>
-        <Hds::TooltipButton @text="Hello!" @placement={{place}}><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+        <Hds::TooltipButton
+          @text="Hello!"
+          @placement={{place}}
+          @extraTippyOptions={{hash showOnCreate=true}}
+        ><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
       </SF.Item>
     {{/each}}
   </Shw::Flex>
 
   <Shw::Text::H4>Offset</Shw::Text::H4>
-  <Shw::Flex as |SF|>
+  <Shw::Flex {{style gap="5rem"}} as |SF|>
     <SF.Item @label="Default offset">
-      <Hds::TooltipButton @text="Hello!"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+      <Hds::TooltipButton @text="Hello!" @extraTippyOptions={{hash showOnCreate=true}}><FlightIcon
+          @name="alert-circle"
+        /></Hds::TooltipButton>
     </SF.Item>
 
     <SF.Item @label="Offset: 0 40">
-      <Hds::TooltipButton @text="Hello!" @offset={{array 0 40}}><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+      <Hds::TooltipButton
+        @text="Hello!"
+        @offset={{array 0 40}}
+        @extraTippyOptions={{hash showOnCreate=true}}
+      ><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
     </SF.Item>
 
     <SF.Item @label="Offset: 20 0">
-      <Hds::TooltipButton @text="Hello!" @offset={{array 20 0}}><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+      <Hds::TooltipButton
+        @text="Hello!"
+        @offset={{array 20 0}}
+        @extraTippyOptions={{hash showOnCreate=true}}
+      ><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
     </SF.Item>
   </Shw::Flex>
 </section>

@@ -1,6 +1,6 @@
 ## How to use this component
 
-The HDS tooltip is provided as both a `TooltipButton` component and as an `hds-tooltip` Ember modifier. To be accessible, the element which triggers a tooltip needs to be an interactive element which can receive focus. This means that:
+The HDS tooltip is provided as both a `TooltipButton` component and as an `hds-tooltip` Ember [modifier](/components/tooltip?tab=code#ember-modifier). To be accessible, the element which triggers a tooltip needs to be an interactive element which can receive focus. This means that:
 
 * if the tooltip needs to be applied to a non-interactive element, the `TooltipButton` component should be used as it wraps the opener element with a `button` element.
 * if the tooltip needs to be applied to an element which is already interactive, the `hds-tooltip` modifier should be used.
@@ -9,6 +9,11 @@ Currently, the tooltip uses [Tippy.js](https://atomiks.github.io/tippyjs/) under
 
 <!-- use the same heading order from Guidelines -->
 ### TooltipButton
+
+!!! Warning
+
+As the `TooltipButton` component wraps its content with an HTML button element, there may be possible layout changes when using it to wrap an existing non-interactive element in your application’s UI.
+!!!
 
 #### Icon
 ```handlebars
@@ -43,7 +48,6 @@ Use the `@placement` argument if you would like to use a different starting posi
 #### Offset
 
 You can change the offset of the tooltip in relation to the opener element content if needed.
-
 
 ```handlebars
   <Hds::TooltipButton @text="Here is more information" @offset={{array 50 30}}>
@@ -84,6 +88,18 @@ An Ember modifier is available if your use case requires attaching a tooltip to 
 #### Offset
 ```handlebars
   <a href="#" {{hds-tooltip "This link takes you to more information" options=(hash offset=(array 60 60))}}>More information</a>
+```
+
+#### Extra Tippy Options
+
+You can enable extra [Tippy.js options](https://atomiks.github.io/tippyjs/v6/all-props/) by passing a hash of the options you wish to use similarly to how the `TooltipButton` component works.
+
+Enabling rich text option for the Modifier
+
+```handlebars
+  <a href="#" {{hds-tooltip "This <em>link</em> takes you to <strong>more</strong> information" options=(hash allowHTML=true)}}>
+    More information
+  </a>
 ```
 
 #### Modifier used on an input element
