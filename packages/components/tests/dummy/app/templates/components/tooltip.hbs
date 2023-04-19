@@ -37,13 +37,13 @@
 
   <Shw::Text::H4>Used next to text</Shw::Text::H4>
   <p>
-    <strong>Lorem ipsum dolor sit amet consectetur</strong>
-    <Hds::TooltipButton @text="Hello!"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+    <span class="hds-typography-display-300">Lorem ipsum dolor sit amet consectetur</span>
+    <Hds::TooltipButton @text="Here is more info"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
   </p>
 
-  <p>
+  <p class="hds-typography-body-300">
     Lorem ipsum dolor sit amet consectetur
-    <Hds::TooltipButton @text="Hello!"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+    <Hds::TooltipButton @text="Here is more info"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
     adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
   </p>
 
@@ -57,13 +57,19 @@
         <T.Tab>Two</T.Tab>
         <T.Tab>Three</T.Tab>
         <T.Panel>
-          <p>
+          <p class="hds-typography-body-300">
             Content 1
-            <Hds::TooltipButton @text="Hello!"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+            <Hds::TooltipButton @text="Here is more info"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
           </p>
         </T.Panel>
-        <T.Panel>Content 2</T.Panel>
-        <T.Panel>Content 3</T.Panel>
+        <T.Panel><p class="hds-typography-body-300">
+            Content 2
+            <Hds::TooltipButton @text="Here is more info"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+          </p></T.Panel>
+        <T.Panel><p class="hds-typography-body-300">
+            Content 3
+            <Hds::TooltipButton @text="Here is more info"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+          </p></T.Panel>
       </Hds::Tabs>
     </SF.Item>
     <SF.Item @label="Used within an alert">
@@ -71,7 +77,7 @@
         <A.Title>Warning</A.Title>
         <A.Description>
           Caution is advised.
-          <Hds::TooltipButton @text="Hello!"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+          <Hds::TooltipButton @text="Be careful with this"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
         </A.Description>
       </Hds::Alert>
     </SF.Item>
@@ -81,7 +87,7 @@
           <H.Tr>
             <H.Th>Lorem</H.Th>
             <H.Th>Ipsum
-              <Hds::TooltipButton @text="Hello!"><FlightIcon @name="info" /></Hds::TooltipButton></H.Th>
+              <Hds::TooltipButton @text="Here is more info"><FlightIcon @name="info" /></Hds::TooltipButton></H.Th>
             <H.Th>Dolor</H.Th>
             <H.Th>Sit amet</H.Th>
           </H.Tr>
@@ -126,11 +132,11 @@
       <Hds::TooltipButton @text="Amazon Web Services"><R.Icon @name="aws-color" /></Hds::TooltipButton>
       <R.Label>
         Quick peering with Quick Links
-        <Hds::TooltipButton @text="Hello!"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+        <Hds::TooltipButton @text="More info"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
       </R.Label>
       <R.Description>
         Works within description text.
-        <Hds::TooltipButton @text="Hello!"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+        <Hds::TooltipButton @text="More info"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
       </R.Description>
     </G.RadioCard>
 
@@ -138,11 +144,11 @@
       <Hds::TooltipButton @text="Amazon Web Services"><R.Icon @name="aws-color" /></Hds::TooltipButton>
       <R.Label>
         Quick peering with Quick Links
-        <Hds::TooltipButton @text="Hello!"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+        <Hds::TooltipButton @text="More info"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
       </R.Label>
       <R.Description>
         Works within description text.
-        <Hds::TooltipButton @text="Hello!"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+        <Hds::TooltipButton @text="More info"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
       </R.Description>
     </G.RadioCard>
 
@@ -150,11 +156,11 @@
       <Hds::TooltipButton @text="Amazon Web Services"><R.Icon @name="aws-color" /></Hds::TooltipButton>
       <R.Label>
         Manual peering using AWS CLI
-        <Hds::TooltipButton @text="Hello!"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+        <Hds::TooltipButton @text="More info"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
       </R.Label>
       <R.Description>
         Provide you AWS CLI template to apply connection settings.
-        <Hds::TooltipButton @text="Hello!"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+        <Hds::TooltipButton @text="More info"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
       </R.Description>
     </G.RadioCard>
   </Hds::Form::RadioCard::Group>
@@ -183,12 +189,12 @@
       <SF.Item @label={{state}}>
         {{#if (or (eq state "hover") (eq state "focus"))}}
           <Hds::TooltipButton
-            @text="Hello!"
+            @text="More info"
             mock-state-value={{state}}
             @extraTippyOptions={{hash showOnCreate=true}}
           ><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
         {{else}}
-          <Hds::TooltipButton @text="Hello!" mock-state-value={{state}}><FlightIcon
+          <Hds::TooltipButton @text="More info" mock-state-value={{state}}><FlightIcon
               @name="alert-circle"
             /></Hds::TooltipButton>
         {{/if}}
@@ -203,12 +209,12 @@
       <SF.Item @label={{state}}>
         {{#if (or (eq state "hover") (eq state "focus"))}}
           <Hds::TooltipButton
-            @text="Hello!"
+            @text="More info"
             mock-state-value={{state}}
             @extraTippyOptions={{hash showOnCreate=true}}
-          >More info</Hds::TooltipButton>
+          >Text</Hds::TooltipButton>
         {{else}}
-          <Hds::TooltipButton @text="Hello!" mock-state-value={{state}}>More info</Hds::TooltipButton>
+          <Hds::TooltipButton @text="More info" mock-state-value={{state}}>Text</Hds::TooltipButton>
         {{/if}}
       </SF.Item>
     {{/each}}
@@ -222,7 +228,7 @@
   <Shw::Grid class="shw-component-tooltip-placement-grid" @columns={{5}} as |SG|>
     {{#each @model.PLACEMENTS as |place|}}
       <SG.Item class="shw-component-tooltip-placement-grid__item--{{place}}">
-        <Hds::TooltipButton @text="Hello!" @placement={{place}} @extraTippyOptions={{hash showOnCreate=true}}>
+        <Hds::TooltipButton @text="More info" @placement={{place}} @extraTippyOptions={{hash showOnCreate=true}}>
           <div class="shw-component-tooltip-placement-grid__target">{{place}}</div>
         </Hds::TooltipButton>
       </SG.Item>
@@ -230,27 +236,32 @@
   </Shw::Grid>
 
   <Shw::Text::H4>Offset</Shw::Text::H4>
-  <Shw::Flex {{style gap="5rem"}} as |SF|>
-    <SF.Item @label="Default offset">
-      <Hds::TooltipButton @text="Hello!" @extraTippyOptions={{hash showOnCreate=true}}><FlightIcon
-          @name="alert-circle"
-        /></Hds::TooltipButton>
+
+  <Shw::Flex {{style gap="5rem" margin-top="4rem"}} as |SF|>
+    <SF.Item>
+      <Hds::TooltipButton
+        @text="More info"
+        @extraTippyOptions={{hash showOnCreate=true}}
+        class="shw-component-tooltip-outline"
+      >Default offset</Hds::TooltipButton>
     </SF.Item>
 
-    <SF.Item @label="Offset: 0 40">
+    <SF.Item>
       <Hds::TooltipButton
-        @text="Hello!"
+        @text="More info"
         @offset={{array 0 40}}
         @extraTippyOptions={{hash showOnCreate=true}}
-      ><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+        class="shw-component-tooltip-outline"
+      >Offset: 0 40</Hds::TooltipButton>
     </SF.Item>
 
-    <SF.Item @label="Offset: 20 0">
+    <SF.Item>
       <Hds::TooltipButton
-        @text="Hello!"
+        @text="More info"
         @offset={{array 20 0}}
         @extraTippyOptions={{hash showOnCreate=true}}
-      ><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+        class="shw-component-tooltip-outline"
+      >Offset: 20 0</Hds::TooltipButton>
     </SF.Item>
   </Shw::Flex>
 </section>
@@ -266,28 +277,36 @@
 
   <Shw::Flex as |SF|>
     <SF.Item @label="On a button">
-      <button type="button" {{hds-tooltip "Hello!"}}><FlightIcon @name="alert-circle" /></button>
+      <Hds::Button @text="Submit" {{hds-tooltip "Submit all your data"}} />
     </SF.Item>
 
     <SF.Item @label="On a link">
-      <a href="#" {{hds-tooltip "Hello!"}}><FlightIcon @name="alert-circle" /></a>
+      <p class="hds-typography-body-300">
+        <a href="#" {{hds-tooltip "This link takes you to a 3rd party site"}}>Acme Corp</a>
+      </p>
     </SF.Item>
 
     <SF.Item @label="On an input">
       <Hds::Form::Field @layout="vertical" as |F|>
         <F.Label @controlId="tooltip-example-control-id">First Name</F.Label>
         <F.Control>
-          <input type="text" value="Jane" id="tooltip-example-control-id" {{hds-tooltip "Hello!"}} />
+          <input
+            type="text"
+            value="Jane"
+            id="tooltip-example-control-id"
+            {{hds-tooltip "Enter only your first name"}}
+          />
         </F.Control>
       </Hds::Form::Field>
     </SF.Item>
 
-    <SF.Item @label="On a span (not accessible)">
+    <SF.Item @label="On span wrapping icon (not accessible)">
       <span {{hds-tooltip "Invalid usage"}}><FlightIcon @name="alert-circle" /></span>
     </SF.Item>
 
     <SF.Item @label="On a 'time' tag (not accessible)">
-      <time {{hds-tooltip "Invalid usage"}} datetime="2023-03-30T19:18:01.684Z">Mar 30, 2023</time>
+      <time class="hds-typography-body-100" {{hds-tooltip "Invalid usage"}} datetime="2023-03-30T19:18:01.684Z">Mar 30,
+        2023</time>
     </SF.Item>
   </Shw::Flex>
 </section>

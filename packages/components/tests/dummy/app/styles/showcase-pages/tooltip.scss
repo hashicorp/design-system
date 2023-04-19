@@ -45,9 +45,7 @@ body.components-tooltip {
     }
   }
 
-  // block-level opener elements
-  div[tabindex="0"],
-  p[tabindex="0"] {
-    outline: 1px dashed var(--token-color-border-strong);
+  .shw-component-tooltip-outline {
+    outline: 1px dotted #d3d3d3;
   }
 }

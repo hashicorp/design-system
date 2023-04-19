@@ -86,12 +86,12 @@ An Ember modifier is available if your use case requires attaching a tooltip to 
 #### Modifier used on a link
 
 ```handlebars
-  <Hds::Link::Standalone {{hds-tooltip "Hello"}} @href="#" @icon="collections" @text="Read tutorial" />
+  <Hds::Link::Standalone {{hds-tooltip "Here is more information"}} @href="#" @icon="collections" @text="Read tutorial" />
 ```
 
 #### Placement
 ```handlebars
-  <Hds::Button {{hds-tooltip "Hello" options=(hash placement="right")}} @icon="external-link" @text="Visit website" @href="https://hashicorp.com" />
+  <Hds::Button {{hds-tooltip "Here is more information" options=(hash placement="right")}} @icon="external-link" @text="Visit website" @href="https://hashicorp.com" />
 ```
 
 #### Offset
@@ -99,7 +99,7 @@ An Ember modifier is available if your use case requires attaching a tooltip to 
   <Hds::Form::Field @layout="vertical" as |F|>
     <F.Label @controlId="tooltip-example-control-id">First Name</F.Label>
     <F.Control>
-      <Hds::Form::TextInput::Base {{hds-tooltip "Hello" options=(hash placement="top" offset=(array 0 30))}} @type="text" @value="Jane" id="tooltip-example-control-id" @width="200px" />
+      <Hds::Form::TextInput::Base {{hds-tooltip "Here is more information" options=(hash placement="top" offset=(array 0 30))}} @type="text" @value="Jane" id="tooltip-example-control-id" @width="200px" />
     </F.Control>
   </Hds::Form::Field>
 ```
@@ -111,9 +111,11 @@ You can enable extra [Tippy.js options](https://atomiks.github.io/tippyjs/v6/all
 For example, this is how to enable rich text in the case of the modifier:
 
 ```handlebars
-  <a href="#" {{hds-tooltip "This <em>link</em> takes you to <strong>more</strong> information" options=(hash allowHTML=true)}}>
-    More information
-  </a>
+  <p class="hds-typography-body-300">
+    <a href="#" {{hds-tooltip "This <em>link</em> takes you to <strong>more</strong> information" options=(hash allowHTML=true)}}>
+      More information
+    </a>
+  </p>
 ```
 
 !!! Warning
