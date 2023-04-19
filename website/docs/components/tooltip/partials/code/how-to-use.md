@@ -62,7 +62,7 @@ You can use `@extraTippyOptions` to provide more specific options to [Tippy.js](
 For example, you can use the `allowHTML` option to enable rich tooltip text:
 
 ```handlebars
-  <Hds::TooltipButton 
+  <Hds::TooltipButton
     @extraTippyOptions={{hash allowHTML=true}}
     @text="<b>Hello</b> <em>there</em>! Here is more info."
   >
@@ -81,7 +81,7 @@ If you enable the `allowHTML` option:
 
 ### Ember modifier
 
-An Ember modifier is available if your use case requires attaching a tooltip to an element than is already interactive (to be accessible, tooltips should only be attached to interactive elements, like buttons, links, inputs, etc). 
+An Ember modifier is available if your use case requires attaching a tooltip to an element than is already interactive (to be accessible, tooltips should only be attached to interactive elements, like buttons, links, inputs, etc).
 
 #### Modifier used on a link
 
@@ -99,7 +99,7 @@ An Ember modifier is available if your use case requires attaching a tooltip to 
   <Hds::Form::Field @layout="vertical" as |F|>
     <F.Label @controlId="tooltip-example-control-id">First Name</F.Label>
     <F.Control>
-      <Hds::Form::TextInput::Base {{hds-tooltip "Hello" options=(hash showOnCreate=true placement="top" offset=(array 0 30))}} @type="text" @value="Jane" id="tooltip-example-control-id" @width="200px" />
+      <Hds::Form::TextInput::Base {{hds-tooltip "Hello" options=(hash placement="top" offset=(array 0 30))}} @type="text" @value="Jane" id="tooltip-example-control-id" @width="200px" />
     </F.Control>
   </Hds::Form::Field>
 ```
@@ -124,30 +124,3 @@ If you enable the `allowHTML` option:
 - we recommend using only basic inline-level text formatting tags such as `strong` or `em`; using block-level tags such as `div` or `p` will make the HTML syntax invalid
 
 !!!
-
-  <Shw::Text::H4>Used within various interactive components</Shw::Text::H4>
-
-  <Shw::Flex @direction="column" as |SF|>
-    <SF.Item @label="Used within a breadcrumb">
-      <Hds::Breadcrumb>
-        <Hds::Breadcrumb::Item @text="Level one" @icon="org" />
-        <Hds::Breadcrumb::Item @text="Level two (with tooltip)" @icon="folder" {{hds-tooltip "Hello!"}} />
-        <Hds::Breadcrumb::Item @text="Level three" />
-        <Hds::Breadcrumb::Item @text="Level four" />
-        <Hds::Breadcrumb::Item @text="Level five" />
-        <Hds::Breadcrumb::Item @text="Current" @current={{true}} />
-      </Hds::Breadcrumb>
-    </SF.Item>
-    <SF.Item @label="Used within a dropdown">
-      <Hds::Dropdown as |dd|>
-        <dd.ToggleButton @text="Menu" {{hds-tooltip "Hello!"}} />
-        <dd.Title @text="Title Text" />
-        <dd.Description @text="Descriptive text goes here." />
-        <dd.Interactive @href="#" @text="Add" />
-        <dd.Interactive @href="#" @text="Add More" />
-        <dd.Interactive @href="#" @text="Add Another Thing Too" />
-        <dd.Separator />
-        <dd.Interactive @route="components" @icon="trash" @text="Delete" @color="critical" />
-      </Hds::Dropdown>
-    </SF.Item>
-  </Shw::Flex>
