@@ -4,6 +4,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { DEBUG } from '@glimmer/env';
 import Ember from 'ember';
+import { debounce } from '@ember/runloop';
 
 export default class SidenavPortalTarget extends Component {
   @service router;
@@ -28,6 +29,11 @@ export default class SidenavPortalTarget extends Component {
   @action
   panelsChanged(portalCount) {
     this.numSubnavs = portalCount;
+  }
+
+  @action
+  didUpdateSubnav(element, [count]) {
+    debounce(this, 'animateSubnav', element, [count], 100);
   }
 
   @action
@@ -118,7 +124,10 @@ export default class SidenavPortalTarget extends Component {
       }
       // Notice: we don't add the styles by default because it writes a `style` attribute to the element and it causes an additional re-render
       if (DEBUG) {
-        anim.commitStyles();
+        // Check the visibility of the element before attempting to commitStyles.
+        if (targetElement.offsetParent !== null) {
+          anim.commitStyles();
+        }
       }
     });
 
