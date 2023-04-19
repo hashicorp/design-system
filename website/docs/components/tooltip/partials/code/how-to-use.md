@@ -12,7 +12,7 @@ Currently, the tooltip uses [Tippy.js](https://atomiks.github.io/tippyjs/) under
 
 !!! Warning
 
-As the `TooltipButton` component wraps its content with an HTML button element, there may be possible layout changes when using it to wrap an existing non-interactive element in your application’s UI.
+As the `TooltipButton` component wraps its content with an HTML `<button>` element, there may be possible layout changes when using it to wrap an existing non-interactive element in your application’s UI.
 !!!
 
 #### Icon
@@ -24,12 +24,12 @@ As the `TooltipButton` component wraps its content with an HTML button element, 
 
 #### Inline with text
 ```handlebars
-  <p>
-    <strong>Header text</strong>
+  <h4 class="hds-typography-display-100">
+    Header text
     <Hds::TooltipButton @text="Here is more information">
       <FlightIcon @name="alert-circle" aria-label="More information" />
     </Hds::TooltipButton>
-  </p>
+  </h4>
 ```
 
 #### Placement
@@ -40,8 +40,8 @@ Use the `@placement` argument if you would like to use a different starting posi
 
 
 ```handlebars
-  <Hds::TooltipButton @text="Here is more information" @placement="bottom">
-    <FlightIcon @name="alert-circle" aria-label="More information" />
+  <Hds::TooltipButton @text="Here is more information" @placement="right">
+    <Hds::Badge @text="Some tests failed" @icon="alert-triangle" @color="warning" />
   </Hds::TooltipButton>
 ```
 
@@ -51,15 +51,15 @@ You can change the offset of the tooltip in relation to the opener element conte
 
 ```handlebars
   <Hds::TooltipButton @text="Here is more information" @offset={{array 50 30}}>
-    <FlightIcon @name="alert-circle" aria-label="More information" />
+    <Hds::Stepper::Step::Indicator @text="1" @status="incomplete" />
   </Hds::TooltipButton>
 ```
 
 #### Extra Tippy Options
 
-You can use `@extraTippyOptions` to enable rich tooltip text.
+You can use `@extraTippyOptions` to provide more specific options to [Tippy.js](https://atomiks.github.io/tippyjs/). For a full list of available options refer to the [Tippy.js API documentation](https://atomiks.github.io/tippyjs/v6/all-props/).
 
-Be sure to sanitize your data if enabling this option. To maintain accessibility, do not include interactive content such as links or buttons. We recommend using only basic inline-level text formatting tags such as `strong` or `em`. Using block-level tags such as `div` or `p` will make the HTML syntax invalid.
+For example, you can use the `allowHTML` option to enable rich tooltip text:
 
 ```handlebars
   <Hds::TooltipButton 
@@ -70,6 +70,15 @@ Be sure to sanitize your data if enabling this option. To maintain accessibility
   </Hds::TooltipButton>
 ```
 
+!!! Warning
+
+If you enable the `allowHTML` option:
+- be sure to sanitize your data
+- to maintain accessibility, do not include interactive content such as links or buttons
+- we recommend using only basic inline-level text formatting tags such as `strong` or `em`; using block-level tags such as `div` or `p` will make the HTML syntax invalid
+
+!!!
+
 ### Ember modifier
 
 An Ember modifier is available if your use case requires attaching a tooltip to an element than is already interactive (to be accessible, tooltips should only be attached to interactive elements, like buttons, links, inputs, etc). 
@@ -77,24 +86,29 @@ An Ember modifier is available if your use case requires attaching a tooltip to 
 #### Modifier used on a link
 
 ```handlebars
-  <a href="#" {{hds-tooltip "Hello"}}>More information</a>
+  <Hds::Link::Standalone {{hds-tooltip "Hello"}} @href="#" @icon="collections" @text="Read tutorial" />
 ```
 
 #### Placement
 ```handlebars
-  <a href="#" {{hds-tooltip "This link takes you to more information" options=(hash placement="right")}}>More information</a>
+  <Hds::Button {{hds-tooltip "Hello" options=(hash placement="right")}} @icon="external-link" @text="Visit website" @href="https://hashicorp.com" />
 ```
 
 #### Offset
 ```handlebars
-  <a href="#" {{hds-tooltip "This link takes you to more information" options=(hash offset=(array 60 60))}}>More information</a>
+  <Hds::Form::Field @layout="vertical" as |F|>
+    <F.Label @controlId="tooltip-example-control-id">First Name</F.Label>
+    <F.Control>
+      <Hds::Form::TextInput::Base {{hds-tooltip "Hello" options=(hash showOnCreate=true placement="top" offset=(array 0 30))}} @type="text" @value="Jane" id="tooltip-example-control-id" @width="200px" />
+    </F.Control>
+  </Hds::Form::Field>
 ```
 
 #### Extra Tippy Options
 
 You can enable extra [Tippy.js options](https://atomiks.github.io/tippyjs/v6/all-props/) by passing a hash of the options you wish to use similarly to how the `TooltipButton` component works.
 
-Enabling rich text option for the Modifier
+For example, this is how to enable rich text in the case of the modifier:
 
 ```handlebars
   <a href="#" {{hds-tooltip "This <em>link</em> takes you to <strong>more</strong> information" options=(hash allowHTML=true)}}>
@@ -102,13 +116,38 @@ Enabling rich text option for the Modifier
   </a>
 ```
 
-#### Modifier used on an input element
+!!! Warning
 
-```handlebars
-  <Hds::Form::Field @layout="vertical" as |F|>
-    <F.Label @controlId="tooltip-example-control-id">First Name</F.Label>
-    <F.Control>
-      <input type="text" value="Jane" id="tooltip-example-control-id" {{hds-tooltip "Here is more information"}} />
-    </F.Control>
-  </Hds::Form::Field>
-```
+If you enable the `allowHTML` option:
+- be sure to sanitize your data
+- to maintain accessibility, do not include interactive content such as links or buttons
+- we recommend using only basic inline-level text formatting tags such as `strong` or `em`; using block-level tags such as `div` or `p` will make the HTML syntax invalid
+
+!!!
+
+  <Shw::Text::H4>Used within various interactive components</Shw::Text::H4>
+
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="Used within a breadcrumb">
+      <Hds::Breadcrumb>
+        <Hds::Breadcrumb::Item @text="Level one" @icon="org" />
+        <Hds::Breadcrumb::Item @text="Level two (with tooltip)" @icon="folder" {{hds-tooltip "Hello!"}} />
+        <Hds::Breadcrumb::Item @text="Level three" />
+        <Hds::Breadcrumb::Item @text="Level four" />
+        <Hds::Breadcrumb::Item @text="Level five" />
+        <Hds::Breadcrumb::Item @text="Current" @current={{true}} />
+      </Hds::Breadcrumb>
+    </SF.Item>
+    <SF.Item @label="Used within a dropdown">
+      <Hds::Dropdown as |dd|>
+        <dd.ToggleButton @text="Menu" {{hds-tooltip "Hello!"}} />
+        <dd.Title @text="Title Text" />
+        <dd.Description @text="Descriptive text goes here." />
+        <dd.Interactive @href="#" @text="Add" />
+        <dd.Interactive @href="#" @text="Add More" />
+        <dd.Interactive @href="#" @text="Add Another Thing Too" />
+        <dd.Separator />
+        <dd.Interactive @route="components" @icon="trash" @text="Delete" @color="critical" />
+      </Hds::Dropdown>
+    </SF.Item>
+  </Shw::Flex>

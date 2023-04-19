@@ -47,37 +47,74 @@
     adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
   </p>
 
-  <Shw::Text::H4>Used within various components</Shw::Text::H4>
+  <Shw::Text::H4>Used within various non-interactive components</Shw::Text::H4>
 
-  <Shw::Text::Body>
-    <strong>Used within a <code>TabPanel</code></strong><br />
-    <em>(Using within a <code>Tab</code> would result with a button nested inside a button and won't function.)</em>
-  </Shw::Text::Body>
-
-  <Hds::Tabs as |T|>
-    <T.Tab>One</T.Tab>
-    <T.Tab>Two</T.Tab>
-    <T.Tab>Three</T.Tab>
-
-    <T.Panel>
-      <p>
-        Content 1
-        <Hds::TooltipButton @text="Hello!"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
-      </p>
-    </T.Panel>
-    <T.Panel>Content 2</T.Panel>
-    <T.Panel>Content 3</T.Panel>
-  </Hds::Tabs>
-
-  <Shw::Text::Body><strong>Used within an alert</strong></Shw::Text::Body>
-
-  <Hds::Alert @type="inline" @color="warning" @onDismiss={{this.noop}} as |A|>
-    <A.Title>Warning</A.Title>
-    <A.Description>
-      Caution is advised.
-      <Hds::TooltipButton @text="Hello!"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
-    </A.Description>
-  </Hds::Alert>
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="Used within a tab panel">
+      {{! Using within a `T.Tab` would result with a button nested inside a button and won't function. }}
+      <Hds::Tabs as |T|>
+        <T.Tab>One</T.Tab>
+        <T.Tab>Two</T.Tab>
+        <T.Tab>Three</T.Tab>
+        <T.Panel>
+          <p>
+            Content 1
+            <Hds::TooltipButton @text="Hello!"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+          </p>
+        </T.Panel>
+        <T.Panel>Content 2</T.Panel>
+        <T.Panel>Content 3</T.Panel>
+      </Hds::Tabs>
+    </SF.Item>
+    <SF.Item @label="Used within an alert">
+      <Hds::Alert @type="inline" @color="warning" @onDismiss={{this.noop}} as |A|>
+        <A.Title>Warning</A.Title>
+        <A.Description>
+          Caution is advised.
+          <Hds::TooltipButton @text="Hello!"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+        </A.Description>
+      </Hds::Alert>
+    </SF.Item>
+    <SF.Item @label="Used within a table heading">
+      <Hds::Table>
+        <:head as |H|>
+          <H.Tr>
+            <H.Th>Lorem</H.Th>
+            <H.Th>Ipsum
+              <Hds::TooltipButton @text="Hello!"><FlightIcon @name="info" /></Hds::TooltipButton></H.Th>
+            <H.Th>Dolor</H.Th>
+            <H.Th>Sit amet</H.Th>
+          </H.Tr>
+        </:head>
+        <:body as |B|>
+          <B.Tr>
+            <B.Th>Scope Row</B.Th>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+          </B.Tr>
+          <B.Tr>
+            <B.Th>Scope Row</B.Th>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+          </B.Tr>
+          <B.Tr>
+            <B.Th>Scope Row</B.Th>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+          </B.Tr>
+          <B.Tr>
+            <B.Th>Scope Row</B.Th>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+    </SF.Item>
+  </Shw::Flex>
 
   <!-- Tooltips work within first card but all subsequant uses become broken
   <Shw::Text::Body><strong>Used within a RadioCard</strong>
@@ -182,8 +219,6 @@
   <Shw::Text::H3>Options</Shw::Text::H3>
 
   <Shw::Text::H4>Placement</Shw::Text::H4>
-  <Shw::Text::Body>(Note: We only document and recommend "top", "bottom", "right", and "left" placement positions on the
-    Website.)</Shw::Text::Body>
   <Shw::Grid class="shw-component-tooltip-placement-grid" @columns={{5}} as |SG|>
     {{#each @model.PLACEMENTS as |place|}}
       <SG.Item class="shw-component-tooltip-placement-grid__item--{{place}}">
