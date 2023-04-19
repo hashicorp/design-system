@@ -184,17 +184,15 @@
   <Shw::Text::H4>Placement</Shw::Text::H4>
   <Shw::Text::Body>(Note: We only document and recommend "top", "bottom", "right", and "left" placement positions on the
     Website.)</Shw::Text::Body>
-  <Shw::Flex {{style gap="5rem"}} as |SF|>
+  <Shw::Grid class="shw-component-tooltip-placement-grid" @columns={{5}} as |SG|>
     {{#each @model.PLACEMENTS as |place|}}
-      <SF.Item @label={{place}}>
-        <Hds::TooltipButton
-          @text="Hello!"
-          @placement={{place}}
-          @extraTippyOptions={{hash showOnCreate=true}}
-        ><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
-      </SF.Item>
+      <SG.Item class="shw-component-tooltip-placement-grid__item--{{place}}">
+        <Hds::TooltipButton @text="Hello!" @placement={{place}} @extraTippyOptions={{hash showOnCreate=true}}>
+          <div class="shw-component-tooltip-placement-grid__target">{{place}}</div>
+        </Hds::TooltipButton>
+      </SG.Item>
     {{/each}}
-  </Shw::Flex>
+  </Shw::Grid>
 
   <Shw::Text::H4>Offset</Shw::Text::H4>
   <Shw::Flex {{style gap="5rem"}} as |SF|>
