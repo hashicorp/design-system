@@ -2,7 +2,7 @@
 
 SideNav does not exist as a single out of the box HDS component. Instead, it consists of a number of lower-level building block components consumers can use to assemble their own SideNav implementation.
 
-**Note:** The `Hds::SideNav` component, which contains the child components, doesn't have an intrinsic width (it's 100% of the parent). This responsibility is delegated to the wrapping element in the consumer's codebase.
+**Note:** The `Hds::SideNav` component, which contains the child components, doesn’t have an intrinsic width (it’s 100% of the parent). This responsibility is delegated to the wrapping element in the consumer’s codebase.
 
 ### Basic example using typical SideNav components
 

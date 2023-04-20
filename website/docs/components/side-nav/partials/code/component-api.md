@@ -245,7 +245,7 @@ The `SideNav::List::Link` component uses the generic `Hds::Interactive` componen
   <C.Property @name="isRouteExternal" @type="boolean" @values={{array "false" "true" }} @default="false">
     This controls if the “LinkTo” is external to the Ember engine, in which case it will use a `<LinkToExternal>` for the `@route`.
   </C.Property>
-    <C.Property @name="yield">
+  <C.Property @name="yield">
     Elements passed as children of this component are yielded inside the element (after the leading icon/text/badge/count block, before the trailing icon).
   </C.Property>
   <C.Property @name="...attributes">

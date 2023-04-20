@@ -125,7 +125,7 @@ If the “modal“ container is empty, a `display: none` style is applied to it.
 </div>
 ```
 
-If the content is injected dynamically –eg. via JavaScript or via Ember "portals"– you can assign an ID to the HTML element so that it can be targeted in the DOM by the code:
+If the content is injected dynamically—eg. via JavaScript or via Ember "portals"—you can assign an ID to the HTML element so that it can be targeted in the DOM by the code:
 
 ```handlebars{data-execute=false}
 <div class="doc-app-frame-mock-viewport">
