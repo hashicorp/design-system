@@ -1,0 +1,106 @@
+{
+  "side-nav": {
+    "wrapper": {
+      "padding": {
+        "horizontal": {
+          "value": "16",
+          "type": "size"
+        },
+        "vertical": {
+          "value": "16",
+          "type": "size"
+        }
+      }
+    },
+    "header": {
+      "home-link": {
+        "padding": {
+          "value": "4",
+          "type": "size"
+        },
+        "logo-size": {
+          "value": "48",
+          "type": "size"
+        }
+      },
+      "actions": {
+        "spacing": {
+          "value": "8",
+          "type": "size"
+        }
+      }
+    },
+    "body": {
+      "list": {
+        "margin-vertical": {
+          "value": "24",
+          "type": "size"
+        }
+      },
+      "list-item": {
+        "height": {
+          "value": "36",
+          "type": "size"
+        },
+        "padding": {
+          "horizontal": {
+            "value": "8",
+            "type": "size"
+          },
+          "vertical": {
+            "value": "4",
+            "type": "size"
+          }
+        },
+        "spacing-vertical": {
+          "value": "2",
+          "type": "size"
+        },
+        "content-spacing-horizontal": {
+          "value": "8",
+          "type": "size"
+        },
+        "border-radius": {
+          "value": "5",
+          "type": "size"
+        }
+      }
+    },
+    "color": {
+      "foreground": {
+        "primary": {
+          "value": "#dedfe3",
+          "type": "color",
+          "group": "components"
+        },
+        "strong": {
+          "value": "#fff",
+          "type": "color",
+          "group": "components"
+        },
+        "faint": {
+          "value": "#8c909c",
+          "type": "color",
+          "group": "components"
+        }
+      },
+      "surface": {
+        "primary": {
+          "value": "#0c0c0e",
+          "type": "color",
+          "group": "components"
+        },
+        "interactive-hover": {
+          "value": "#3b3d45",
+          "type": "color",
+          "group": "semantic"
+        },
+        "interactive-active": {
+          "value": "#656a76",
+          "type": "color",
+          "group": "semantic"
+        }
+      }
+    }
+  }
+}
