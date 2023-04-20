@@ -1,6 +1,6 @@
 ---
 title: Tooltip
-description: The Tooltip is a display UI element that provides additional information to users in a concise and unobtrusive way.
+description: The Tooltip is a display component that provides additional information to users in a concise and unobtrusive way.
 caption: Provides additional information or context for a UI element.
 status: released
 links:
