@@ -120,51 +120,38 @@
         </:body>
       </Hds::Table>
     </SF.Item>
+    <SF.Item @label="Used within a RadioCard">
+      <Hds::Form::RadioCard::Group @name="radio-card-basic-example" @alignment="center" as |G|>
+        <G.Legend>
+          Create a connection
+          <Hds::TooltipButton @text="More info"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+        </G.Legend>
+        <G.RadioCard @checked={{true}} as |R|>
+          <Hds::TooltipButton @text="HashiCorp"><R.Icon @name="hashicorp" /></Hds::TooltipButton>
+          <R.Label>
+            Label text
+            <Hds::TooltipButton @text="More info"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+          </R.Label>
+          <R.Description>
+            Description text.
+            <Hds::TooltipButton @text="More info"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+          </R.Description>
+        </G.RadioCard>
+
+        <G.RadioCard as |R|>
+          <Hds::TooltipButton @text="HashiCorp"><R.Icon @name="hashicorp" /></Hds::TooltipButton>
+          <R.Label>
+            Label text
+            <Hds::TooltipButton @text="More info"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+          </R.Label>
+          <R.Description>
+            Description text.
+            <Hds::TooltipButton @text="More info"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
+          </R.Description>
+        </G.RadioCard>
+      </Hds::Form::RadioCard::Group>
+    </SF.Item>
   </Shw::Flex>
-
-  <!-- Tooltips work within first card but all subsequant uses become broken
-  <Shw::Text::Body><strong>Used within a RadioCard</strong>
-    (Only working within first card for some reason)</Shw::Text::Body>
-
-  <Hds::Form::RadioCard::Group @name="radio-card-basic-example" @alignment="center" as |G|>
-    <G.Legend>Create a connection</G.Legend>
-    <G.RadioCard @checked={{true}} {{on "change" this.onChange}} as |R|>
-      <Hds::TooltipButton @text="Amazon Web Services"><R.Icon @name="aws-color" /></Hds::TooltipButton>
-      <R.Label>
-        Quick peering with Quick Links
-        <Hds::TooltipButton @text="More info"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
-      </R.Label>
-      <R.Description>
-        Works within description text.
-        <Hds::TooltipButton @text="More info"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
-      </R.Description>
-    </G.RadioCard>
-
-    <G.RadioCard {{on "change" this.onChange}} as |R|>
-      <Hds::TooltipButton @text="Amazon Web Services"><R.Icon @name="aws-color" /></Hds::TooltipButton>
-      <R.Label>
-        Quick peering with Quick Links
-        <Hds::TooltipButton @text="More info"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
-      </R.Label>
-      <R.Description>
-        Works within description text.
-        <Hds::TooltipButton @text="More info"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
-      </R.Description>
-    </G.RadioCard>
-
-    <G.RadioCard {{on "change" this.onChange}} as |R|>
-      <Hds::TooltipButton @text="Amazon Web Services"><R.Icon @name="aws-color" /></Hds::TooltipButton>
-      <R.Label>
-        Manual peering using AWS CLI
-        <Hds::TooltipButton @text="More info"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
-      </R.Label>
-      <R.Description>
-        Provide you AWS CLI template to apply connection settings.
-        <Hds::TooltipButton @text="More info"><FlightIcon @name="alert-circle" /></Hds::TooltipButton>
-      </R.Description>
-    </G.RadioCard>
-  </Hds::Form::RadioCard::Group>
-  -->
 
   <Shw::Divider @level={{2}} />
 
