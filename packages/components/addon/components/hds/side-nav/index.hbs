@@ -1,0 +1,38 @@
+<div class={{this.classNames}} ...attributes {{focus-trap isActive=this.shouldTrapFocus}}>
+  {{#if this.hasA11yRefocus}}
+    <NavigationNarrator
+      @routeChangeValidator={{@a11yRefocusRouteChangeValidator}}
+      @skipTo="#{{@a11yRefocusSkipTo}}"
+      @skipText={{@a11yRefocusSkipText}}
+      @navigationText={{@a11yRefocusNavigationText}}
+    />
+  {{/if}}
+
+  {{#if this.isResponsive}}
+    {{! template-lint-disable no-invalid-interactive}}
+    <div class="hds-side-nav__overlay" {{on "click" this.toggleMinimizedStatus}} />
+  {{/if}}
+
+  <div class="hds-side-nav__wrapper">
+    {{#if this.isResponsive}}
+      <button
+        class="hds-side-nav__menu-toggle-button"
+        type="button"
+        {{on "click" this.toggleMinimizedStatus}}
+        {{! To be localized - see: https://hashicorp.atlassian.net/browse/HDS-567 }}
+        aria-label={{if this.isMinimized "Open menu" "Close menu"}}
+      >
+        <FlightIcon @name={{if this.isMinimized "menu" "x"}} @size="24" @stretched={{true}} />
+      </button>
+    {{/if}}
+    <div class="hds-side-nav__wrapper-header">
+      {{yield (hash isMinimized=this.isMinimized) to="header"}}
+    </div>
+    <div class="hds-side-nav__wrapper-body">
+      {{yield (hash isMinimized=this.isMinimized) to="body"}}
+    </div>
+    <div class="hds-side-nav__wrapper-footer">
+      {{yield (hash isMinimized=this.isMinimized) to="footer"}}
+    </div>
+  </div>
+</div>

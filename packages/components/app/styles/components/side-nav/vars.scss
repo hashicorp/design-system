@@ -1,0 +1,76 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// SIDE-NAV - VARS
+//
+
+
+// LOCAL VARIABLES
+// we use `hds-app` as prefix to distinguish them from the normal tokens
+// notice: they may be overwritten at consumer-level side if needed by re-defining the variables in a container element
+
+:root {
+  // breakpoint
+  --hds-app-desktop-breakpoint: 1088px; // this is used only to read its value via JS and set the `hds-side-nav--is-desktop` class
+  // widths
+  --hds-app-sidenav-width-minimized: 80px;
+  --hds-app-sidenav-width-expanded: 280px;
+  // sidebar menu
+  --hds-app-sidenav-menu-button-y-shift: 84px;
+  // animation
+  --hds-app-sidenav-animation-duration: 250ms;
+  --hds-app-sidenav-animation-delay: var(--hds-app-sidenav-animation-duration);
+  --hds-app-sidenav-animation-easing: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+// reduced motion
+
+@media (prefers-reduced-motion) {
+  :root {
+    --hds-app-sidenav-animation-duration: 0;
+  }
+}
+
+
+// DESIGN TOKENS
+// will be converted to JSON format in the future
+// notice: overriding them should be considered an anti-pattern, and not promoted/publicized
+
+:root {
+  // Sizes:
+
+  // header, body, footer "wrappers":
+  --token-side-nav-wrapper-padding-horizontal: 16px;
+  --token-side-nav-wrapper-padding-vertical: 16px;
+  --token-side-nav-wrapper-header-padding-bottom: 8px;
+
+  // header content:
+  --token-side-nav-header-home-link-padding: 4px;
+  --token-side-nav-header-home-link-logo-size: 48px;
+  --token-side-nav-header-actions-spacing: 8px;
+
+  // body content:
+  --token-side-nav-body-list-margin-vertical: 24px;
+  --token-side-nav-body-list-item-height: 36px;
+  --token-side-nav-body-list-item-padding-horizontal: 8px;
+  --token-side-nav-body-list-item-padding-vertical: 4px;
+  --token-side-nav-body-list-item-spacing-vertical: 2px;
+  --token-side-nav-body-list-item-content-spacing-horizontal: 8px;
+  --token-side-nav-body-list-item-border-radius: 5px;
+
+  // Colors:
+
+  // SideNav container:
+  --token-side-nav-foreground-primary: #dedfe3;
+  --token-side-nav-foreground-primary-strong: #fff;
+  --token-side-nav-foreground-faint: #8c909c;
+  --token-side-nav-surface-primary: #0c0c0e;
+
+  // Interactive elements:
+  // base:
+  --token-side-nav-interactive-surface-hover: #3b3d45;
+  --token-side-nav-interactive-surface-active: #656a76;
+}
