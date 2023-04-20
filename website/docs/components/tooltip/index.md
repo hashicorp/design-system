@@ -1,15 +1,15 @@
 ---
 title: Tooltip
-description: {Optional long description that appears in the cover}
-caption: {Short description that appears in the cards}
+description: The Tooltip is a display UI element that provides additional information to users in a concise and unobtrusive way.
+caption: Provides additional information or context for a UI element.
 status: released
 links:
-  figma: {link to the "Tooltip" page in the components Figma library}
+  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=32036%3A51885&t=hyPMnP9pSH15dgcy-1
   github: {link to the "Tooltip" component's folder in the GitHub repo}
 previewImage: assets/illustrations/components/tooltip.jpg
 navigation:
   hidden: false
-  keywords: ['add', 'alternate', 'keywords', 'here']
+  keywords: ['tooltip', 'display']
 ---
 
 <section data-tab="Guidelines">
