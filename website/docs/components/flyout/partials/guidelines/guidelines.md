@@ -3,11 +3,11 @@
 ### When to use
 
 - When displaying additional information, context, or details about an object or element present on the main page.
-- When accounting for regularly occurring settings changes in a "portable" and reusable fashion, e.g., adding or changing the role of a user.
+- To enhance or extend the content or functionality within a user flow through non-blocking means.
 
 ### When not to use
 
-- When requesting the user for information or feedback, use a [Modal](/components/modal).
+- When requesting information or feedback from the user, use a [Modal](/components/modal).
 - When displaying overly complex information, consider moving the content to its own page.
 
 A Flyout is best used in scenarios when there are more details about a specific item or object that benefit from being easily accessible in the same page context, but may not be suited for a separate page. This is a conscious decision to limit the recommended usage to reduce the confusion between the Flyout and Modal, which have very similar interaction patterns.
@@ -28,13 +28,31 @@ While code snippets and terminal scripts are usually detailed, they are well sui
 ![Flyout with code snippet](/assets/components/flyout/flyout-with-code-snippet.png)
 !!!
 
+#### Forms
+
+Refrain from using a form or form elements in a Flyout, this type of content often complex and is more appropriate in its own page.
+
+!!! Dont
+
+![Form within a Flyout](/assets/components/flyout/form-in-flyout.png)
+!!!
+
+#### Actions
+
+While a Flyout can support actions within the footer, it's not recommended to use the Flyout for most functional scenarios; e.g., editing user settings, batch editing, etc. These functions are better performed at the page level or within a Modal if simple enough.
+
+!!! Dont
+
+Actions within a modal image goes here.
+!!!
+
 ### Flyout vs Modal
 
 While similar in functionality and interaction, the Flyout and [Modal](/components/modal) are meant to be used in different scenarios and to express different types of content. There is a fair amount of overlap in their usage but they differentiate in these ways:
 
 #### Complexity
 
-Flyouts are useful for more complex content given the space it occupies in the viewport, while Modals are useful for less complex content that can be interacted with relatively quickly.
+A Flyout is useful for more complex content given the space it occupies in the viewport, while Modals are useful for less complex content that can be interacted with relatively quickly.
 
 !!! Info
 
@@ -55,7 +73,7 @@ While each of these components is triggered by a user action, where they exist i
 
 - A Modal blocks the user from progressing further in a feature (Fig 1.0), forcing them to take action or make a decision.
 - A Flyout extends or "branches" off from the main flow to add detail and highlight secondary features and functions (Fig 1.1).
-- Rather than blocking the user from continuing down a certain path, a Flyout enhances and adds and detail to the primary path to aid in the completion of a function.
+- Rather than blocking the user from continuing down a certain path, a Flyout enhances and adds detail to the primary path to aid in the completion of a function.
 
 **Fig. 1.0:** Hierarchy representation of a Modal blocking the user progression through a flow.
 
@@ -151,14 +169,17 @@ The body of the Flyout supports any custom content, local components, or Helios 
 
 ## Flyout footer
 
-The Flyout footer adds functional support to Flyout with support for action and custom content. A functional Flyout should not block the user flow and instead add "enhancements" to the functionality of the main page, e.g., changing the settings of an object on the page.
+The Flyout footer is a persistent content area at the bottom of the Flyout, and supports additional descriptive content, links, actions, and any other custom content or Helios components. 
 
 The Ember and Figma components account for the footer in slightly different ways, though both can achieve the same results:
 
 - The Ember component is a generic container that yields elements passed to it.
 - The Figma component consists of a variant for the number of actions, as well as a `slot` for custom content.
 
-The footer is **optional** and should be used sparingly or in scenarios where "portable" functionality is desired for repetitive actions, e.g., changing a users role or permissions.
+!!! Info
+
+The footer is **optional** and should be used sparingly as it increases the complexity of the Flyout.
+!!!
 
 <Hds::Flyout::Footer>
   <Hds::ButtonSet>
@@ -167,14 +188,9 @@ The footer is **optional** and should be used sparingly or in scenarios where "p
   </Hds::ButtonSet>
 </Hds::Flyout::Footer>
 
-!!! Info
-
-More details on how to organize buttons within the footer of a Flyout can be found in the [Button organization](/patterns/button-organization) pattern documentation.
-!!!
-
 !!! Do
 
-While the footer supports any custom elements, we recommend limiting it's use to actions and simple declarative content.
+While the footer supports any custom elements, we recommend limiting it's use to simple declarative content like text and links.
 
 ![Complex footer example](/assets/components/flyout/flyout-complex-footer.png)
 !!!
