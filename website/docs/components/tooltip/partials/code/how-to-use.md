@@ -64,7 +64,7 @@ For example, you can use the `allowHTML` option to enable rich tooltip text:
 ```handlebars
   <Hds::TooltipButton
     @extraTippyOptions={{hash allowHTML=true}}
-    @text="<b>Hello</b> <em>there</em>! Here is more info."
+    @text="<b>Hello</b> <em>there</em>!"
   >
     More information
   </Hds::TooltipButton>
