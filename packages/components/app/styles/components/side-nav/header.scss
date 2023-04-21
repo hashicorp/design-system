@@ -10,7 +10,7 @@
 @use "../../mixins/focus-ring" as *;
 
 @mixin hds-side-nav-icon-button($add-visible-border: false) {
-  color: var(--token-side-nav-foreground-primary-strong);
+  color: var(--token-side-nav-color-foreground-strong);
   background-color: transparent;
   border: 1px solid transparent;
   border-radius: var(--token-side-nav-body-list-item-border-radius);
@@ -27,14 +27,14 @@
 
   &:hover,
   &.mock-hover {
-    color: var(--token-side-nav-foreground-primary-strong); // to avoid overrides by specificity (eg. `a:hover`)
-    background: var(--token-side-nav-interactive-surface-hover);
+    color: var(--token-side-nav-color-foreground-strong); // to avoid overrides by specificity (eg. `a:hover`)
+    background: var(--token-side-nav-color-surface-interactive-hover);
   }
 
   &:active,
   &.mock-active {
-    color: var(--token-side-nav-foreground-primary-strong); // to avoid overrides by specificity (eg. `a:hover`)
-    background: var(--token-side-nav-interactive-surface-active);
+    color: var(--token-side-nav-color-foreground-strong); // to avoid overrides by specificity (eg. `a:hover`)
+    background: var(--token-side-nav-color-surface-interactive-active);
 
     @if ($add-visible-border) {
       border-color: var(--token-color-palette-neutral-400);
