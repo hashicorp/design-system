@@ -54,7 +54,9 @@ This component supports use of [`...attributes`](https://guides.emberjs.com/rele
 A container that yields its content as the footer of the Flyout component. We recommend using it exclusively for declarative content or actions using the [ButtonSet](/components/button-set) component. If a tertiary action is presented, it will always be aligned at the end of the row.
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="close" @type="function"/>
+  <C.Property @name="close" @type="function">
+    Function to programmatically close the Flyout. If an `onClose` callback function is provided it will be invoked when the Flyout is closed.
+  </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
