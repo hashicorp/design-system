@@ -39,11 +39,27 @@ export default class HdsDropdownIndexComponent extends Component {
   }
 
   /**
-   * Get the class names to apply to the content
+   * Get the class names to apply to the element
    * @method classNames
-   * @return {string} The "class" attribute to apply to the disclosed content
+   * @return {string} The "class" attribute to apply to the root element
    */
   get classNames() {
+    let classes = ['hds-dropdown'];
+
+    // add a class based on the @isInlineBlock argument
+    if (this.args.isInlineBlock) {
+      classes.push('hds-dropdown--is-inline');
+    }
+
+    return classes.join(' ');
+  }
+
+  /**
+   * Get the class names to apply to the content
+   * @method classNamesContent
+   * @return {string} The "class" attribute to apply to the disclosed content
+   */
+  get classNamesContent() {
     let classes = ['hds-dropdown__content'];
 
     // add a class based on the @listPosition argument
