@@ -5,7 +5,7 @@ To test a component that is under development (or because it’s new or has been
 - you can use your local environment as source for the `@hashicorp/design-system-components` package
 - you can install the `@hashicorp/design-system-components` package using a branch available on GitHub
 
-This is the case when the component has not yet been released as an npm package, of course. 
+This is the case when the component has not yet been released as an npm package, of course.
 
 ## Using your local environment (via symlink)
 
@@ -66,20 +66,14 @@ Everything should work and you should be able to do whatever you need to do in t
 
 This approach is more suitable for one-off testing before releasing a package, less so for ongoing development.
 
-### Install the remote package via `yarn`
+### Override the package resolution in the `package.json` file in the root
 
-You can install the "remote" package directly via `yarn` using the following command:
+You can override every dependency declared in the engines' `package.json` files with a single entry in the `package.json` file in the root of the project folder, by adding this line to the `"resolutions"` block:
 
 ```
-yarn add '@hashicorp/design-system-components@https://github.com/hashicorp/design-system#head=BRANCH-NAME&workspace=@hashicorp/design-system-components'
+"@hashicorp/design-system-components": "https://github.com/hashicorp/design-system#head=BRANCH-NAME&workspace=@hashicorp/design-system-components"
 ```
 
-Now, for how things work and are wired up in Cloud UI, this should be done for every engine (there are multiple `package.json` files declaring `@hashicorp/design-system-components` as dependency). So you have to find a way to replace them all at once. One option is to follow these steps:
-
-- run the command above in the root of the repo; this will add a new entry in the `dependency` block of the `/package.json` file (you will remove it later)
-- copy the line just added (eg. "@hashicorp/design-system-components": "https://github.com/hashicorp/design-system#head=app-sidenav-component&workspace=@hashicorp/design-system-components"`)
-- find & replace in **all** the `package.json` files of the repository the row declaring the `@hashicorp/design-system-components` dependency (eg. `"@hashicorp/design-system-components": "^2.0.0"`) with the line you've just copied, and save all the changes
-- undo the changes in the root `/package.json` file (they were meant only for copying the right string)
-- run `yarn install` to update the `node_modules` and use the "remote" version of the package
+Once done run `yarn install` to use the "remote" version of the package, update the `node_modules` and the `yarn.lock` file.
 
 **IMPORTANT**: the way in which yarn works in this case is that it resolves in a hash referencing a commit in `yarn.lock`; so if you make changes to the branch, they’re not reflected in the local `node_modules` unless you change the hash manually in the `yarn.lock` to point to another commit, and re-run the `yarn install` command.
