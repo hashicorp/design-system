@@ -1,0 +1,15 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<div class={{this.classNames}} ...attributes>
+  {{yield
+    (hash
+      Button=(component "hds/button" contextualClass="hds-button--segmented")
+      Dropdown=(component "hds/dropdown" contextualClass="hds-dropdown--segmented")
+      Generic=(component "hds/yield")
+      Select=(component "hds/form/select/base" contextualClass="hds-form-select--segmented")
+      TextInput=(component "hds/form/text-input/base" contextualClass="hds-form-text-input--segmented")
+    )
+  }}
+</div>

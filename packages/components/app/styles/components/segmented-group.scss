@@ -1,0 +1,93 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// SEGMENTED-GROUP
+//
+
+.hds-segmented-group {
+  display: inline-flex;
+}
+
+.hds-form-text-input--segmented,
+.hds-form-select--segmented,
+.hds-button--segmented {
+  &:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+
+    &::before {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  &:last-child {
+    margin-left: -1px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    &::before {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  &:not(:first-child, :last-child) {
+    margin-left: -1px;
+    border-radius: 0;
+
+    &::before {
+      border-radius: 0;
+    }
+  }
+
+  &:focus,
+  &.mock-focus {
+    z-index: 1;
+  }
+}
+
+.hds-dropdown--segmented {
+  &:first-child {
+    .hds-dropdown-toggle-button {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+
+      &::before {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+  }
+
+  &:last-child {
+    .hds-dropdown-toggle-button {
+      margin-left: -1px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+
+      &::before {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+
+  &:not(:first-child, :last-child) {
+    .hds-dropdown-toggle-button {
+      margin-left: -1px;
+      border-radius: 0;
+
+      &::before {
+        border-radius: 0;
+      }
+    }
+  }
+
+  .hds-dropdown-toggle-button:focus {
+    z-index: 1;
+  }
+}
