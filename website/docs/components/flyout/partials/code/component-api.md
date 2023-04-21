@@ -51,7 +51,7 @@ This component supports use of [`...attributes`](https://guides.emberjs.com/rele
 
 #### Flyout::Footer
 
-A container that yields its content as the footer of the Flyout component. We recommend using it exclusively for actions using the [ButtonSet](/components/button-set) component. If a tertiary action is presented, it will always be aligned at the end of the row.
+A container that yields its content as the footer of the Flyout component. We recommend using it exclusively for declarative content or actions using the [ButtonSet](/components/button-set) component. If a tertiary action is presented, it will always be aligned at the end of the row.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="close" @type="function"/>

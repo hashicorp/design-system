@@ -2,21 +2,26 @@
 
 ### When to use
 
-- When displaying additional information, context, or details about an object or element present on the main page.
-- To enhance or extend the content or functionality within a user flow through non-blocking means.
+- When displaying additional information, context, or details that extend or enhance an object or element on the main page.
+- To present functions that are secondary to the main page or user flow.
+- To preview content without navigating or routing to a new page.
 
 ### When not to use
 
-- When requesting information or feedback from the user, use a [Modal](/components/modal).
+- When requesting information or feedback from the user through a form. Instead, use a [Modal](/components/modal) or consider moving the content to its own page.
 - When displaying overly complex information, consider moving the content to its own page.
 
-A Flyout is best used in scenarios when there are more details about a specific item or object that benefit from being easily accessible in the same page context, but may not be suited for a separate page. This is a conscious decision to limit the recommended usage to reduce the confusion between the Flyout and Modal, which have very similar interaction patterns.
+A Flyout is best used in scenarios where secondary information or functions benefit from being accessible or previewed in the same page, but aren't suited for their own page. This is a conscious recommendation to reduce the confusion between the Flyout and Modal, which have very similar interaction patterns.
+
+#### Preview content
+
+Previewing read-only content is an ideal use case for a Flyout as it keeps the user in the context of the current flow while detailing additional secondary information.
 
 !!! Do
 
-Use a Flyout for detail more detailed information about an object on the main page.
+Use a Flyout as a detailed preview of an object on the main page.
 
-![Flyout with custom content](/assets/components/flyout/flyout-custom-content.png)
+![Flyout with preview content](/assets/components/flyout/flyout-custom-content.png)
 !!!
 
 #### Code snippets and examples
@@ -30,7 +35,7 @@ While code snippets and terminal scripts are usually detailed, they are well sui
 
 #### Forms
 
-Refrain from using a form or form elements in a Flyout, this type of content often complex and is more appropriate in its own page.
+Don't use a form or form elements in a Flyout, this type of content is often complex and more appropriate on its own page.
 
 !!! Dont
 
@@ -39,11 +44,30 @@ Refrain from using a form or form elements in a Flyout, this type of content oft
 
 #### Actions
 
-While a Flyout can support actions within the footer, it's not recommended to use the Flyout for most functional scenarios; e.g., editing user settings, batch editing, etc. These functions are better performed at the page level or within a Modal if simple enough.
+A Flyout supports actions within the footer allowing for basic functions to be performed. This usage should be limited to performing secondary functions that are related to the main page to help the user maintain context in the primary flow. Some examples of this are:
+
+- Batch updating and determining the settings of an object
+- Linking to external resources using a link that appears as a button
+
+!!! Do
+
+Use a Flyout for simple declarative content like text and links that enhance the main page.
+
+![Complex footer example](/assets/components/flyout/flyout-complex-footer.png)
+!!!
+
+!!! Do
+
+Use a Flyout for actions, like batch selection that are secondary to the main page.
+
+![Simple actions within a Flyout](/assets/components/flyout/flyout-simple-actions.png)
+!!!
 
 !!! Dont
 
-Actions within a modal image goes here.
+Use a Flyout for editing or creating objects. These are generally considered primary functions and should be handled on their own page or within a Modal in simple scenarios.
+
+![Complex actions within a Flyout](/assets/components/flyout/flyout-complex-actions.png)
 !!!
 
 ### Flyout vs Modal
@@ -181,6 +205,16 @@ The Ember and Figma components account for the footer in slightly different ways
 The footer is **optional** and should be used sparingly as it increases the complexity of the Flyout.
 !!!
 
+**With one action**
+
+<Hds::Flyout::Footer>
+  <Hds::ButtonSet>
+    <Hds::Button @color="primary" @text="Primary" />
+  </Hds::ButtonSet>
+</Hds::Flyout::Footer>
+
+**With two actions**
+
 <Hds::Flyout::Footer>
   <Hds::ButtonSet>
     <Hds::Button @color="primary" @text="Primary" />
@@ -188,12 +222,7 @@ The footer is **optional** and should be used sparingly as it increases the comp
   </Hds::ButtonSet>
 </Hds::Flyout::Footer>
 
-!!! Do
-
-While the footer supports any custom elements, we recommend limiting it's use to simple declarative content like text and links.
-
-![Complex footer example](/assets/components/flyout/flyout-complex-footer.png)
-!!!
+For more guidance and details around organizing buttons and actions, refer to the [Button organization](/patterns/button-organization) pattern documentation.
 
 ## Dismissal
 
