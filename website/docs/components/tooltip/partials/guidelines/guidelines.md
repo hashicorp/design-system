@@ -2,13 +2,12 @@
 
 ### When to use
 
-- {description}
+When displaying additional context or information that is not critical to the user's task or decision-making process.
 
 ### When not to use
 
-- {description}, consider {[component](#)}.
-- {description}, consider {[component](#)}.
-- {description}, consider {[component](#)}.
+- When the content is too lengthy or complex.
+- When the information provided is critical to the user's task or decision-making process, consider moving the content to the page or an [alert](https://helios.hashicorp.design/components/alert).
 
 ### Variant/property name
 
