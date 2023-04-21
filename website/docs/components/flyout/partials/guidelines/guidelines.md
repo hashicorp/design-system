@@ -11,7 +11,7 @@
 - When requesting information or feedback from the user through a form. Instead, use a [Modal](/components/modal) or consider moving the content to its own page.
 - When displaying overly complex information, consider moving the content to its own page.
 
-A Flyout is best used in scenarios where secondary information or functions benefit from being accessible or previewed in the same page, but aren't suited for their own page. This is a conscious recommendation to reduce the confusion between the Flyout and Modal, which have very similar interaction patterns.
+A Flyout is best used in scenarios where secondary information or functions benefit from being accessed or previewed in the same page. This limited recommendation is a conscious one to reduce the confusion between the Flyout and Modal, which have very similar interaction patterns.
 
 #### Preview content
 
@@ -46,8 +46,15 @@ Don't use a form or form elements in a Flyout, this type of content is often com
 
 A Flyout supports actions within the footer allowing for basic functions to be performed. This usage should be limited to performing secondary functions that are related to the main page to help the user maintain context in the primary flow. Some examples of this are:
 
-- Batch updating and determining the settings of an object
+- Batch updating and creating relationships between one or more objects
 - Linking to external resources using a link that appears as a button
+
+!!! Do
+
+Use a Flyout for actions like batch selection that are secondary to the main page.
+
+![Simple actions within a Flyout](/assets/components/flyout/flyout-simple-actions.png)
+!!!
 
 !!! Do
 
@@ -56,16 +63,9 @@ Use a Flyout for simple declarative content like text and links that enhance the
 ![Complex footer example](/assets/components/flyout/flyout-complex-footer.png)
 !!!
 
-!!! Do
-
-Use a Flyout for actions, like batch selection that are secondary to the main page.
-
-![Simple actions within a Flyout](/assets/components/flyout/flyout-simple-actions.png)
-!!!
-
 !!! Dont
 
-Use a Flyout for editing or creating objects. These are generally considered primary functions and should be handled on their own page or within a Modal in simple scenarios.
+Don't use a Flyout for editing or creating objects. These are generally considered primary functions and should be handled on their own page or within a Modal in simple scenarios.
 
 ![Complex actions within a Flyout](/assets/components/flyout/flyout-complex-actions.png)
 !!!
