@@ -18,7 +18,7 @@ As the `TooltipButton` component wraps its content with an HTML `<button>` eleme
 #### Icon
 ```handlebars
   <Hds::TooltipButton @text="Hello!">
-    <FlightIcon @name="alert-circle" aria-label="More information" />
+    <FlightIcon @name="info" aria-label="More information" />
   </Hds::TooltipButton>
 ```
 
@@ -27,7 +27,7 @@ As the `TooltipButton` component wraps its content with an HTML `<button>` eleme
   <h4 class="hds-typography-display-100">
     Header text
     <Hds::TooltipButton @text="Hello!">
-      <FlightIcon @name="alert-circle" aria-label="More information" />
+      <FlightIcon @name="info" aria-label="More information" />
     </Hds::TooltipButton>
   </h4>
 ```
