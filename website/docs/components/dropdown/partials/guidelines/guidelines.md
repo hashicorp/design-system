@@ -215,7 +215,7 @@ We don’t recommend mixing and matching icon use; that’s to say, if using an 
 </div>
 !!!
 
-#### Icons in Critical ListItems
+#### Critical ListItems
 
 While icons are optional, we recommend using a relevant icon for Critical ListItems. Using the correct icon provides a stronger and more immediate visual indication that the action is destructive. Read more about [how color blind users see critical actions](/components/dropdown?tab=accessibility) in our UIs.
 
@@ -227,6 +227,22 @@ While icons are optional, we recommend using a relevant icon for Critical ListIt
     <Hds::Dropdown::ListItem::Interactive @text="Delete" @color="critical" @icon="trash" />
   </Doc::ListContainer>
 </div>
+
+### Critical action patterns
+Adding a second confirmation layer after the user clicks “Delete” (e.g., showing a confirmation Modal that requires the user to type “Delete” into a field before proceeding).
+
+!!! Do
+
+![example of how to use a second confirmation layer](/assets/components/dropdown/dropdown-example-do.png =420x*)
+
+!!!
+
+!!! Dont
+
+![example of how not to use a second confirmation layer](/assets/components/dropdown/dropdown-example-dont.png =420x*)
+
+!!!
+
 
 ## Content
 
