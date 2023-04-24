@@ -231,7 +231,7 @@ While icons are optional, we recommend using a relevant icon for Critical ListIt
 </div>
 
 #### Critical action patterns
-Adding a second confirmation layer after the user clicks “Delete” (e.g., showing a confirmation Modal that requires the user to type “Delete” into a field before proceeding).
+We recommend adding a second confirmation layer after the user clicks “Delete” (e.g., showing a confirmation Modal that requires the user to type “Delete” into a field before proceeding). This safeguards against accidental clicks by requiring users to confirm the destructive action.
 
 !!! Do
 
