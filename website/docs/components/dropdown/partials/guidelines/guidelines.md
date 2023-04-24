@@ -230,7 +230,7 @@ While icons are optional, we recommend using a relevant icon for Critical ListIt
   </Doc::ListContainer>
 </div>
 
-### Critical action patterns
+#### Critical action patterns
 Adding a second confirmation layer after the user clicks “Delete” (e.g., showing a confirmation Modal that requires the user to type “Delete” into a field before proceeding).
 
 !!! Do
