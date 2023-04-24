@@ -16,7 +16,7 @@ The navigation header displays persistent UI elements that give users quick acce
 
 The home link gives users consistent and quick access to the application's main page or section. Generally, the home or dashboard.
 
-For cloud products, the icon set should always be the HCP service icon. For standalone or open-source products, it should be the product’s service icon (e.g. terraform).
+For cloud products, the icon set should always be the HCP service icon. For standalone or open-source products, it should be the product’s service icon (e.g. Terraform).
 
 ![Home link in side-nav's header](/assets/components/side-nav/header-logo.png)
 
