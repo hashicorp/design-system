@@ -21,11 +21,11 @@ The way in which these components are published and assembled together is fundam
 
 - To submit a form or set of inputs. A Segmented Group can exist within a form to collect complex data, but should not submit that data via a form method. Use the guidelines in [Form patterns](/patterns/form-patterns) instead.
 - To connect multiple fields that each require their own label.
-- When adding a prefix or suffix to an input field. This is not currently supported by Helios form components, instead consider using a simple text element preceeding or following the form element.
+- When adding a prefix or suffix to an input field. This is not currently supported by Helios form components, instead consider using a simple text element preceding or following the form element.
 
 ## Primitive components
 
-A Segmented Group can consist of multiple primitive subcomponents that vary in their properties and intended input value. We recommend limiting usage in Figma to the defined `Segmented Button`, `Segmented Toggle` and `Segmented Input` primitives to ensure consistent styling and grouping. The Ember component supports a generic element in either the leading or trailing position if a custom solution is required.
+A Segmented Group can consist of multiple primitive sub-components that vary in their properties and intended input value. We recommend limiting usage in Figma to the defined `Segmented Button`, `Segmented Toggle` and `Segmented Input` primitives to ensure consistent styling and grouping. The Ember component supports a generic element in either the leading or trailing position if a custom solution is required.
 
 ### Segmented Button
 
@@ -94,7 +94,7 @@ Use a Segmented Group to determine the intended method of a request or connectio
 
 Don't use a Segmented Group when fields are related, but aren't stored in the same object upon submission. This example features a payment form with a Segmented Group and label, but uses a placeholder instead of a label to communicate what information the field collects.
 
-![Segmented Group payment method exmaple](/assets/components/form/segmented-group/segmented-group-example-form-03.png =450x*)
+![Segmented Group payment method example](/assets/components/form/segmented-group/segmented-group-example-form-03.png =450x*)
 !!!
 
 #### Error validation
