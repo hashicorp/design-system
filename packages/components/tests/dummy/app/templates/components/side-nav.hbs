@@ -93,6 +93,35 @@
 <Shw::Divider />
 
 <section data-test-percy>
+
+  <Shw::Text::H2>SideNav::Base</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Header + Body + Footer">
+      <div class="shw-component-sim-side-nav-root-container">
+        <Hds::SideNav::Base>
+          <:root>
+            <Shw::Placeholder @height="72px" @text="root" @background="#e4e4e4" />
+          </:root>
+          <:header>
+            <Shw::Placeholder @height="72px" @text="header" @background="#e4e4e4" />
+          </:header>
+          <:body>
+            <Shw::Placeholder @height="250px" @text="body" @background="#e4e4e4" />
+          </:body>
+          <:footer>
+            <Shw::Placeholder @height="36px" @text="footer" @background="#e4e4e4" />
+          </:footer>
+        </Hds::SideNav::Base>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+</section>
+
+<Shw::Divider />
+
+<section data-test-percy>
   <Shw::Text::H2>SideNav::Header</Shw::Text::H2>
 
   <Shw::Flex as |SF|>
