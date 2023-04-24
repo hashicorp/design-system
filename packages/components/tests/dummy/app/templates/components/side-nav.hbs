@@ -90,6 +90,149 @@
 
 </section>
 
+<Shw::Divider @level={{2}} />
+
+<section data-test-percy>
+  <Shw::Text::H2>Examples of sidebar navigation</Shw::Text::H2>
+
+  <Shw::Grid @columns={{2}} as |SG|>
+
+    <SG.Item>
+      <Shw::Text::H3>Using content injected via portal</Shw::Text::H3>
+      <Shw::Flex as |SF|>
+        <SF.Item @label="With PortalTarget + Portal with “nav” items">
+          <div class="shw-component-sim-side-nav-root-container" {{style height="auto"}}>
+            <Hds::SideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
+              <:header>
+                <Hds::SideNav::Header>
+                  <:logo>
+                    <Hds::SideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
+                  </:logo>
+                  <:actions>
+                    <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
+                      <dd.ToggleIcon @icon="help" @text="help menu" />
+                      <dd.Title @text="Help & Support" />
+                      <dd.Interactive @text="Documentation" @href="#" />
+                      <dd.Interactive @text="Tutorials" @href="#" />
+                      <dd.Interactive @text="Terraform Provider" @href="#" />
+                      <dd.Interactive @text="Changelog" @href="#" />
+                      <dd.Separator />
+                      <dd.Interactive @text="Create support ticket" @href="#" />
+                      <dd.Interactive @text="Give feedback" @href="#" />
+                    </Hds::Dropdown>
+                    <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
+                      <dd.ToggleIcon @icon="user" @text="user menu" />
+                      <dd.Title @text="Signed In" />
+                      <dd.Description @text="email@domain.com" />
+                      <dd.Interactive @href="#" @text="Account Settings" />
+                    </Hds::Dropdown>
+                  </:actions>
+                </Hds::SideNav::Header>
+              </:header>
+              <:body>
+                <Hds::SideNav::Portal::Target @targetName="sidenav-portal-demo-2" />
+              </:body>
+              <:footer>
+                OrgSelect / ContextSwitcher
+              </:footer>
+            </Hds::SideNav>
+          </div>
+        </SF.Item>
+      </Shw::Flex>
+      <Hds::SideNav::Portal @targetName="sidenav-portal-demo-2" as |Nav|>
+        <Nav.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
+        <Nav.Title>Services</Nav.Title>
+        <Nav.Link @text="Boundary" @icon="boundary" @href="#" />
+        <Nav.Link @text="Consul" @icon="consul" @href="#" />
+        <Nav.Link @text="Packer" @icon="packer" @href="#" />
+        <Nav.Link @text="Vault" @icon="vault" @href="#" />
+        <Nav.Link @text="Vault Secrets" @icon="lock" @href="#" />
+        <Nav.Link @text="Terraform" @icon="terraform" @href="#" />
+        <Nav.Link @text="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
+        <Nav.Link @text="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} />
+        <Nav.Title>Default Org</Nav.Title>
+        <Nav.Link @text="HashiCorp Virtual Networks" @icon="network" @href="#" />
+        <Nav.Link @text="Access control (IAM)" @icon="users" @href="#" @hasSubItems={{true}} />
+        <Nav.Link @text="Billing" @icon="credit-card" @href="#" @hasSubItems={{true}} />
+        <Nav.Link @text="Settings" @icon="settings" @href="#" @hasSubItems={{true}} />
+        <Nav.Link @href="#" @isHrefExternal="true" @icon="guide" @text="Documentation" />
+      </Hds::SideNav::Portal>
+
+    </SG.Item>
+    <SG.Item>
+      <Shw::Text::H3>Using yielded content</Shw::Text::H3>
+
+      <Shw::Flex as |SF|>
+        <SF.Item @label="With multiple 'list' (nav) containers & extra button in header">
+          <div class="shw-component-sim-side-nav-root-container" {{style height="auto"}}>
+            <Hds::SideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
+              <:header>
+                <Hds::SideNav::Header>
+                  <:logo>
+                    <Hds::SideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
+                  </:logo>
+                  <:actions>
+                    <Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" />
+                    <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
+                      <dd.ToggleIcon @icon="help" @text="help menu" />
+                      <dd.Title @text="Help & Support" />
+                      <dd.Interactive @text="Documentation" @href="#" />
+                      <dd.Interactive @text="Tutorials" @href="#" />
+                      <dd.Interactive @text="Terraform Provider" @href="#" />
+                      <dd.Interactive @text="Changelog" @href="#" />
+                      <dd.Separator />
+                      <dd.Interactive @text="Create support ticket" @href="#" />
+                      <dd.Interactive @text="Give feedback" @href="#" />
+                    </Hds::Dropdown>
+                    <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
+                      <dd.ToggleIcon @icon="user" @text="user menu" />
+                      <dd.Title @text="Signed In" />
+                      <dd.Description @text="email@domain.com" />
+                      <dd.Interactive @href="#" @text="Account Settings" />
+                    </Hds::Dropdown>
+                  </:actions>
+                </Hds::SideNav::Header>
+              </:header>
+
+              <:body>
+                <Hds::SideNav::List as |SNL|>
+                  <SNL.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
+                </Hds::SideNav::List>
+
+                <Hds::SideNav::List as |SNL|>
+                  <SNL.Title>Services</SNL.Title>
+                  <SNL.Link @text="Boundary" @icon="boundary" @href="#" />
+                  <SNL.Link @text="Consul" @icon="consul" @href="#" />
+                  <SNL.Link @text="Packer" @icon="packer" @href="#" />
+                  <SNL.Link @text="Vault" @icon="vault" @href="#" />
+                  <SNL.Link @text="Vault Secrets" @icon="lock" @href="#" />
+                  <SNL.Link @text="Terraform" @icon="terraform" @href="#" />
+                  <SNL.Link @text="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
+                  <SNL.Link @text="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} />
+                </Hds::SideNav::List>
+
+                <Hds::SideNav::List as |SNL|>
+                  <SNL.Title>Default Org</SNL.Title>
+                  <SNL.Link @text="HashiCorp Virtual Networks" @icon="network" @href="#" />
+                  <SNL.Link @text="Access control (IAM)" @icon="users" @href="#" @hasSubItems={{true}} />
+                  <SNL.Link @text="Billing" @icon="credit-card" @href="#" @hasSubItems={{true}} />
+                  <SNL.Link @text="Settings" @icon="settings" @href="#" @hasSubItems={{true}} />
+                  <SNL.Link @href="#" @isHrefExternal="true" @icon="guide" @text="Documentation" />
+                </Hds::SideNav::List>
+              </:body>
+
+              <:footer>
+                OrgSelect / ContextSwitcher
+              </:footer>
+            </Hds::SideNav>
+          </div>
+        </SF.Item>
+      </Shw::Flex>
+    </SG.Item>
+  </Shw::Grid>
+
+</section>
+
 <Shw::Divider />
 
 <section data-test-percy>
@@ -637,148 +780,5 @@
       </div>
     </SF.Item>
   </Shw::Flex>
-
-</section>
-
-<Shw::Divider />
-
-<section data-test-percy>
-  <Shw::Text::H2>Examples of sidebar navigation</Shw::Text::H2>
-
-  <Shw::Grid @columns={{2}} as |SG|>
-
-    <SG.Item>
-      <Shw::Text::H3>Using content injected via portal</Shw::Text::H3>
-      <Shw::Flex as |SF|>
-        <SF.Item @label="With PortalTarget + Portal with “nav” items">
-          <div class="shw-component-sim-side-nav-root-container" {{style height="auto"}}>
-            <Hds::SideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
-              <:header>
-                <Hds::SideNav::Header>
-                  <:logo>
-                    <Hds::SideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
-                  </:logo>
-                  <:actions>
-                    <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
-                      <dd.ToggleIcon @icon="help" @text="help menu" />
-                      <dd.Title @text="Help & Support" />
-                      <dd.Interactive @text="Documentation" @href="#" />
-                      <dd.Interactive @text="Tutorials" @href="#" />
-                      <dd.Interactive @text="Terraform Provider" @href="#" />
-                      <dd.Interactive @text="Changelog" @href="#" />
-                      <dd.Separator />
-                      <dd.Interactive @text="Create support ticket" @href="#" />
-                      <dd.Interactive @text="Give feedback" @href="#" />
-                    </Hds::Dropdown>
-                    <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
-                      <dd.ToggleIcon @icon="user" @text="user menu" />
-                      <dd.Title @text="Signed In" />
-                      <dd.Description @text="email@domain.com" />
-                      <dd.Interactive @href="#" @text="Account Settings" />
-                    </Hds::Dropdown>
-                  </:actions>
-                </Hds::SideNav::Header>
-              </:header>
-              <:body>
-                <Hds::SideNav::Portal::Target @targetName="sidenav-portal-demo-2" />
-              </:body>
-              <:footer>
-                OrgSelect / ContextSwitcher
-              </:footer>
-            </Hds::SideNav>
-          </div>
-        </SF.Item>
-      </Shw::Flex>
-      <Hds::SideNav::Portal @targetName="sidenav-portal-demo-2" as |Nav|>
-        <Nav.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
-        <Nav.Title>Services</Nav.Title>
-        <Nav.Link @text="Boundary" @icon="boundary" @href="#" />
-        <Nav.Link @text="Consul" @icon="consul" @href="#" />
-        <Nav.Link @text="Packer" @icon="packer" @href="#" />
-        <Nav.Link @text="Vault" @icon="vault" @href="#" />
-        <Nav.Link @text="Vault Secrets" @icon="lock" @href="#" />
-        <Nav.Link @text="Terraform" @icon="terraform" @href="#" />
-        <Nav.Link @text="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
-        <Nav.Link @text="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} />
-        <Nav.Title>Default Org</Nav.Title>
-        <Nav.Link @text="HashiCorp Virtual Networks" @icon="network" @href="#" />
-        <Nav.Link @text="Access control (IAM)" @icon="users" @href="#" @hasSubItems={{true}} />
-        <Nav.Link @text="Billing" @icon="credit-card" @href="#" @hasSubItems={{true}} />
-        <Nav.Link @text="Settings" @icon="settings" @href="#" @hasSubItems={{true}} />
-        <Nav.Link @href="#" @isHrefExternal="true" @icon="guide" @text="Documentation" />
-      </Hds::SideNav::Portal>
-
-    </SG.Item>
-    <SG.Item>
-      <Shw::Text::H3>Using yielded content</Shw::Text::H3>
-
-      <Shw::Flex as |SF|>
-        <SF.Item @label="With multiple 'list' (nav) containers & extra button in header">
-          <div class="shw-component-sim-side-nav-root-container" {{style height="auto"}}>
-            <Hds::SideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
-              <:header>
-                <Hds::SideNav::Header>
-                  <:logo>
-                    <Hds::SideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
-                  </:logo>
-                  <:actions>
-                    <Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" />
-                    <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
-                      <dd.ToggleIcon @icon="help" @text="help menu" />
-                      <dd.Title @text="Help & Support" />
-                      <dd.Interactive @text="Documentation" @href="#" />
-                      <dd.Interactive @text="Tutorials" @href="#" />
-                      <dd.Interactive @text="Terraform Provider" @href="#" />
-                      <dd.Interactive @text="Changelog" @href="#" />
-                      <dd.Separator />
-                      <dd.Interactive @text="Create support ticket" @href="#" />
-                      <dd.Interactive @text="Give feedback" @href="#" />
-                    </Hds::Dropdown>
-                    <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
-                      <dd.ToggleIcon @icon="user" @text="user menu" />
-                      <dd.Title @text="Signed In" />
-                      <dd.Description @text="email@domain.com" />
-                      <dd.Interactive @href="#" @text="Account Settings" />
-                    </Hds::Dropdown>
-                  </:actions>
-                </Hds::SideNav::Header>
-              </:header>
-
-              <:body>
-                <Hds::SideNav::List as |SNL|>
-                  <SNL.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
-                </Hds::SideNav::List>
-
-                <Hds::SideNav::List as |SNL|>
-                  <SNL.Title>Services</SNL.Title>
-                  <SNL.Link @text="Boundary" @icon="boundary" @href="#" />
-                  <SNL.Link @text="Consul" @icon="consul" @href="#" />
-                  <SNL.Link @text="Packer" @icon="packer" @href="#" />
-                  <SNL.Link @text="Vault" @icon="vault" @href="#" />
-                  <SNL.Link @text="Vault Secrets" @icon="lock" @href="#" />
-                  <SNL.Link @text="Terraform" @icon="terraform" @href="#" />
-                  <SNL.Link @text="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
-                  <SNL.Link @text="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} />
-                </Hds::SideNav::List>
-
-                <Hds::SideNav::List as |SNL|>
-                  <SNL.Title>Default Org</SNL.Title>
-                  <SNL.Link @text="HashiCorp Virtual Networks" @icon="network" @href="#" />
-                  <SNL.Link @text="Access control (IAM)" @icon="users" @href="#" @hasSubItems={{true}} />
-                  <SNL.Link @text="Billing" @icon="credit-card" @href="#" @hasSubItems={{true}} />
-                  <SNL.Link @text="Settings" @icon="settings" @href="#" @hasSubItems={{true}} />
-                  <SNL.Link @href="#" @isHrefExternal="true" @icon="guide" @text="Documentation" />
-                </Hds::SideNav::List>
-              </:body>
-
-              <:footer>
-                OrgSelect / ContextSwitcher
-              </:footer>
-            </Hds::SideNav>
-          </div>
-        </SF.Item>
-      </Shw::Flex>
-    </SG.Item>
-  </Shw::Grid>
 
 </section>
