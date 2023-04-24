@@ -47,6 +47,15 @@
     adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
   </p>
 
+  <Shw::Text::H4>Displayed as flex (isInlineBlock = false)</Shw::Text::H4>
+  <p class="hds-typography-body-300">
+    Lorem ipsum dolor sit amet consectetur
+    <Hds::TooltipButton @text="Here is more info" @isInlineBlock={{false}}><FlightIcon
+        @name="info"
+      /></Hds::TooltipButton>
+    adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
+  </p>
+
   <Shw::Text::H4>Used within various non-interactive components</Shw::Text::H4>
 
   <Shw::Flex @direction="column" as |SF|>

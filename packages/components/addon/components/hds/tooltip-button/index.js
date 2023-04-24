@@ -54,4 +54,33 @@ export default class HdsTooltipIndexComponent extends Component {
       offset: this.args.offset,
     };
   }
+
+  /**
+   * @param isInlineBlock
+   * @type {boolean}
+   * @default true
+   * @description sets display for the button
+   */
+  get isInlineBlock() {
+    let { isInlineBlock = true } = this.args;
+    return isInlineBlock;
+  }
+
+  /**
+   * Get the class names to apply to the component.
+   * @method classNames
+   * @return {string} The "class" attribute to apply to the component.
+   */
+  get classNames() {
+    let classes = ['hds-tooltip-button'];
+
+    // add a class based on the @isInlineBlock argument
+    if (this.isInlineBlock) {
+      classes.push('hds-tooltip-button--is-inline-block');
+    } else {
+      classes.push('hds-tooltip-button--is-flex');
+    }
+
+    return classes.join(' ');
+  }
 }

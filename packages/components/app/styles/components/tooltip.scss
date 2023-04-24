@@ -36,6 +36,15 @@
   > .flight-icon { display: block; }
 }
 
+// this is the default html button display
+.hds-tooltip-button--is-inline-block {
+  display: inline-block;
+}
+
+.hds-tooltip-button--is-flex {
+  display: flex;
+}
+
 .tippy-box[data-theme~="hds"] {
   padding: 8px 12px;
   color: var(--token-color-foreground-high-contrast);

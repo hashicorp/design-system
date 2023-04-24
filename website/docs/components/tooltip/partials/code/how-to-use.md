@@ -17,19 +17,19 @@ As the `TooltipButton` component wraps its content with an HTML `<button>` eleme
 
 #### Icon
 ```handlebars
-  <Hds::TooltipButton @text="Hello!">
-    <FlightIcon @name="info" aria-label="More information" />
-  </Hds::TooltipButton>
+<Hds::TooltipButton @text="Hello!">
+  <FlightIcon @name="info" aria-label="More information" />
+</Hds::TooltipButton>
 ```
 
 #### Inline with text
 ```handlebars
-  <h4 class="hds-typography-display-100">
-    Header text
-    <Hds::TooltipButton @text="Hello!">
-      <FlightIcon @name="info" aria-label="More information" />
-    </Hds::TooltipButton>
-  </h4>
+<h4 class="hds-typography-display-100">
+  Header text
+  <Hds::TooltipButton @text="Hello!">
+    <FlightIcon @name="info" aria-label="More information" />
+  </Hds::TooltipButton>
+</h4>
 ```
 
 #### Placement
@@ -40,9 +40,9 @@ Use the `@placement` argument if you would like to use a different starting posi
 
 
 ```handlebars
-  <Hds::TooltipButton @text="Hello!" @placement="right">
-    <Hds::Badge @text="Some tests failed" @icon="alert-triangle" @color="warning" />
-  </Hds::TooltipButton>
+<Hds::TooltipButton @text="Hello!" @placement="right">
+  <Hds::Badge @text="Some tests failed" @icon="alert-triangle" @color="warning" />
+</Hds::TooltipButton>
 ```
 
 #### Offset
@@ -50,9 +50,23 @@ Use the `@placement` argument if you would like to use a different starting posi
 You can change the offset of the tooltip in relation to the opener element content if needed.
 
 ```handlebars
-  <Hds::TooltipButton @text="Hello!" @offset={{array 50 30}}>
-    <Hds::Stepper::Step::Indicator @text="1" @status="incomplete" />
+<Hds::TooltipButton @text="Hello!" @offset={{array 50 30}}>
+  <Hds::Stepper::Step::Indicator @text="1" @status="incomplete" />
+</Hds::TooltipButton>
+```
+
+### isInlineBlock
+
+You can change the default inline-block display to use `flex` display if needed.
+
+```handlebars
+<p>
+  Text before
+  <Hds::TooltipButton @text="Hello!" @isInlineBlock={{false}}>
+    <FlightIcon @name="hashicorp" aria-label="HashiCorp" />
   </Hds::TooltipButton>
+  Text after
+</p>
 ```
 
 #### Extra Tippy Options
@@ -62,12 +76,12 @@ You can use `@extraTippyOptions` to provide more specific options to [Tippy.js](
 For example, you can use the `allowHTML` option to enable rich tooltip text:
 
 ```handlebars
-  <Hds::TooltipButton
-    @extraTippyOptions={{hash allowHTML=true}}
-    @text="<b>Hello</b> <em>there</em>!"
-  >
-    More information
-  </Hds::TooltipButton>
+<Hds::TooltipButton
+  @extraTippyOptions={{hash allowHTML=true}}
+  @text="<b>Hello</b> <em>there</em>!"
+>
+  More information
+</Hds::TooltipButton>
 ```
 
 !!! Warning
@@ -86,41 +100,41 @@ An Ember modifier is available if your use case requires attaching a tooltip to 
 #### Modifier used on a link
 
 ```handlebars
-  <Hds::Link::Standalone 
-    {{hds-tooltip "Hello!"}} 
-    @href="#" 
-    @icon="collections" 
-    @text="Read tutorial" 
-  />
+<Hds::Link::Standalone 
+  {{hds-tooltip "Hello!"}} 
+  @href="#" 
+  @icon="collections" 
+  @text="Read tutorial" 
+/>
 ```
 
 #### Placement
 ```handlebars
-  <Hds::Button 
-    {{hds-tooltip "Hello!" 
-    options=(hash placement="right")}} 
-    @icon="external-link" 
-    @text="Visit website" 
-    @href="https://hashicorp.com" 
-  />
+<Hds::Button 
+  {{hds-tooltip "Hello!" 
+  options=(hash placement="right")}} 
+  @icon="external-link" 
+  @text="Visit website" 
+  @href="https://hashicorp.com" 
+/>
 ```
 
 #### Offset
 ```handlebars
-  <Hds::Form::Field @layout="vertical" as |F|>
-    <F.Label @controlId="tooltip-example-control-id">First Name</F.Label>
-    <F.Control>
-      <Hds::Form::TextInput::Base 
-        {{hds-tooltip "Hello!" 
-        options=(hash placement="top" 
-        offset=(array 0 30))}} 
-        @type="text" 
-        @value="Jane" 
-        id="tooltip-example-control-id"
-        @width="200px" 
-      />
-    </F.Control>
-  </Hds::Form::Field>
+<Hds::Form::Field @layout="vertical" as |F|>
+  <F.Label @controlId="tooltip-example-control-id">First Name</F.Label>
+  <F.Control>
+    <Hds::Form::TextInput::Base 
+      {{hds-tooltip "Hello!" 
+      options=(hash placement="top" 
+      offset=(array 0 30))}} 
+      @type="text" 
+      @value="Jane" 
+      id="tooltip-example-control-id"
+      @width="200px" 
+    />
+  </F.Control>
+</Hds::Form::Field>
 ```
 
 #### Extra Tippy Options
@@ -130,11 +144,14 @@ You can enable extra [Tippy.js options](https://atomiks.github.io/tippyjs/v6/all
 For example, this is how to enable rich text in the case of the modifier:
 
 ```handlebars
-  <p class="hds-typography-body-300">
-    <a href="#" {{hds-tooltip "This <em>link</em> takes you to <strong>more</strong> information" options=(hash allowHTML=true)}}>
-      More information
-    </a>
-  </p>
+<p class="hds-typography-body-300">
+  <a 
+    href="#" 
+    {{hds-tooltip "<b>Hello</b>!" options=(hash allowHTML=true)}}
+  >
+    More information
+  </a>
+</p>
 ```
 
 !!! Warning

@@ -5,7 +5,7 @@
 
 <button
   type="button"
-  class="hds-tooltip-button"
+  class={{this.classNames}}
   {{hds-tooltip this.text options=this.options}}
   ...attributes
 >{{~yield~}}</button>

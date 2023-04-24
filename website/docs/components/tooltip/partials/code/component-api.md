@@ -12,6 +12,9 @@
   <C.Property @name="offset" @type="array">
     Takes two numbers. The first number controls “skidding” or the tooltip displacement from the center of the opener element. The second number controls the “distance” from the opener element.
   </C.Property>
+  <C.Property @name="isInlineBlock" @type="boolean" @values={{array "true" "false" }} @default="true">
+    Sets the display for the HTML button element which wraps `TooltipButton` content. If set to `false` it sets the button display to `flex`;
+  </C.Property>
   <C.Property @name="extraTippyOptions" @type="hash">
     You can enable [Tippy.js options](https://atomiks.github.io/tippyjs/v6/all-props/) by passing a hash of the options you wish to use.
   </C.Property>
