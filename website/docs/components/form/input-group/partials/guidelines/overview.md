@@ -1,1 +1,0 @@
-An Input Group combines one or more input fields, buttons, toggles, and other form controls into a single component to handle multi-directional data, search, and fine-grained filtering within an object or dataset.
