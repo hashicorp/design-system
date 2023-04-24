@@ -16,10 +16,7 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
 
 // DROPDOWN
 
-// TODO: which one of these?
-// .hds-dropdown--display-inline { // same as flight-icon
-// .hds-dropdown--is-inline-block {
-.hds-dropdown--is-inline {
+.hds-dropdown--is-inline-block {
   display: inline-block;
 
   .hds-dropdown-toggle-icon,

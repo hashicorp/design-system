@@ -48,7 +48,7 @@ export default class HdsDropdownIndexComponent extends Component {
 
     // add a class based on the @isInlineBlock argument
     if (this.args.isInlineBlock) {
-      classes.push('hds-dropdown--is-inline');
+      classes.push('hds-dropdown--is-inline-block');
     }
 
     return classes.join(' ');
