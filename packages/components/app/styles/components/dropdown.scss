@@ -14,6 +14,17 @@
 
 $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
 
+// DROPDOWN
+
+.hds-dropdown--is-inline-block {
+  display: inline-block;
+
+  .hds-dropdown-toggle-icon,
+  .hds-dropdown-toggle-button {
+    display: inline-flex;
+  }
+}
+
 // TOGGLE/ICON
 
 .hds-dropdown-toggle-icon {

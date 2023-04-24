@@ -263,7 +263,7 @@
       (hash label="Status" isSortable="true" key="status-sort-order")
       (hash label="Imported services")
       (hash label="Exported services")
-      (hash label="Actions")
+      (hash label="Actions" align="right")
     }}
     @sortBy="status-sort-order"
     @sortOrder="asc"
@@ -286,7 +286,7 @@
         <B.Td>{{B.data.services.imported}}</B.Td>
         <B.Td>{{B.data.services.exported}}</B.Td>
         <B.Td @align="right">
-          <Hds::Dropdown as |dd|>
+          <Hds::Dropdown @isInlineBlock={{true}} as |dd|>
             <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
             <dd.Interactive @route="components.table" @text="Create" />
             <dd.Interactive @route="components.table" @text="Read" />
@@ -309,7 +309,7 @@
       (hash label="Status" isSortable="true" key="status" sortingFunction=this.customSortingMethodForClusterStatus)
       (hash label="Imported services")
       (hash label="Exported services")
-      (hash label="Actions")
+      (hash label="Actions" align="right")
     }}
     @sortBy="status"
     @sortOrder="asc"
@@ -333,7 +333,7 @@
         <B.Td>{{B.data.services.imported}}</B.Td>
         <B.Td>{{B.data.services.exported}}</B.Td>
         <B.Td @align="right">
-          <Hds::Dropdown as |dd|>
+          <Hds::Dropdown @isInlineBlock={{true}} as |dd|>
             <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
             <dd.Interactive @route="components.table" @text="Create" />
             <dd.Interactive @route="components.table" @text="Read" />
@@ -358,7 +358,7 @@
       (hash key="artist" label="Artist" isSortable="true")
       (hash key="album" label="Album" isSortable="true")
       (hash key="year" label="Release Year" isSortable="true")
-      (hash key="other" label="Other" width="55px")
+      (hash key="other" label="Other" width="55px" align="right")
     }}
     @valign="middle"
   >
@@ -367,8 +367,8 @@
         <B.Td>{{B.data.artist}}</B.Td>
         <B.Td>{{B.data.album}}</B.Td>
         <B.Td>{{B.data.year}}</B.Td>
-        <B.Td>
-          <Hds::Dropdown as |dd|>
+        <B.Td @align="right">
+          <Hds::Dropdown @isInlineBlock={{true}} as |dd|>
             <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
             <dd.Interactive @route="components.table" @text="Create" />
             <dd.Interactive @route="components.table" @text="Read" />
@@ -631,12 +631,10 @@
               </div>
             </B.Td>
             <B.Td @align="right">
-              <div {{style display="inline-block"}}>
-                <Hds::Dropdown as |dd|>
-                  <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
-                  <dd.Interactive @route="components.table" @text="Dropdown" />
-                </Hds::Dropdown>
-              </div>
+              <Hds::Dropdown @isInlineBlock={{true}} as |dd|>
+                <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
+                <dd.Interactive @route="components.table" @text="Dropdown" />
+              </Hds::Dropdown>
             </B.Td>
           </B.Tr>
         </:body>
