@@ -215,7 +215,9 @@ We don’t recommend mixing and matching icon use; that’s to say, if using an 
 </div>
 !!!
 
-#### Critical ListItems
+### Critical ListItems
+
+#### Icons in Critical ListItems
 
 While icons are optional, we recommend using a relevant icon for Critical ListItems. Using the correct icon provides a stronger and more immediate visual indication that the action is destructive. Read more about [how color blind users see critical actions](/components/dropdown?tab=accessibility) in our UIs.
 
