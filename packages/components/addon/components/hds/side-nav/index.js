@@ -56,7 +56,7 @@ export default class HdsSideNavComponent extends Component {
   }
 
   get classNames() {
-    let classes = ['hds-side-nav'];
+    let classes = []; // `hds-side-nav` is already set by the "Hds::SideNav::Base" component
 
     // add specific class names for the different possible states
     if (this.isDesktop) {
