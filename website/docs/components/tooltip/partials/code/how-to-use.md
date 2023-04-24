@@ -17,8 +17,8 @@ As the `TooltipButton` component wraps its content with an HTML `<button>` eleme
 
 #### Icon
 ```handlebars
-<Hds::TooltipButton @text="Hello!">
-  <FlightIcon @name="info" aria-label="More information" />
+<Hds::TooltipButton @text="Hello!" aria-label="More information">
+  <FlightIcon @name="info" />
 </Hds::TooltipButton>
 ```
 
@@ -26,8 +26,8 @@ As the `TooltipButton` component wraps its content with an HTML `<button>` eleme
 ```handlebars
 <h4 class="hds-typography-display-100">
   Header text
-  <Hds::TooltipButton @text="Hello!">
-    <FlightIcon @name="info" aria-label="More information" />
+  <Hds::TooltipButton @text="Hello!" aria-label="More information">
+    <FlightIcon @name="info" />
   </Hds::TooltipButton>
 </h4>
 ```
@@ -62,8 +62,12 @@ You can change the default inline-block display to use `flex` display if needed.
 ```handlebars
 <p>
   Text before
-  <Hds::TooltipButton @text="Hello!" @isInlineBlock={{false}}>
-    <FlightIcon @name="hashicorp" aria-label="HashiCorp" />
+  <Hds::TooltipButton 
+    @text="Hello!" 
+    aria-label="HashiCorp" 
+    @isInlineBlock={{false}}
+  >
+    <FlightIcon @name="hashicorp" />
   </Hds::TooltipButton>
   Text after
 </p>
