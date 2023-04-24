@@ -235,7 +235,7 @@ We recommend adding a second confirmation layer after the user clicks â€œDeleteâ
 
 !!! Do
 
-![example of how to use a second confirmation layer](/assets/components/dropdown/dropdown-example-do.png =420x*)
+![example of how to use a second confirmation layer](/assets/components/dropdown/dropdown-example-do.png =780x*)
 
 !!!
 
