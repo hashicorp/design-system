@@ -11,7 +11,7 @@
 - When requesting information or feedback from the user through a form. Instead, use a [Modal](/components/modal) or consider moving the content to its own page.
 - When displaying overly complex information, consider moving the content to its own page.
 
-A Flyout is best used in scenarios where secondary information or functions benefit from being accessed or previewed in the same page. This limited recommendation is a conscious one to reduce the confusion between the Flyout and Modal, which have very similar interaction patterns.
+### Usage examples
 
 #### Preview content
 
@@ -35,7 +35,7 @@ While code snippets and terminal scripts are usually detailed, they are well sui
 
 #### Forms
 
-Don't use a form or form elements in a Flyout, this type of content is often complex and more appropriate on its own page.
+Don't use a form in a Flyout, whether the function is creating an object, or updating an existing one. This type of content is often complex and more appropriate on its own page, or in the case of a simple form, within a [Modal](/components/modal).
 
 !!! Dont
 
@@ -72,11 +72,11 @@ Don't use a Flyout for editing or creating objects. These are generally consider
 
 ### Flyout vs Modal
 
-While similar in functionality and interaction, the Flyout and [Modal](/components/modal) are meant to be used in different scenarios and to express different types of content. There is a fair amount of overlap in their usage but they differentiate in these ways:
+While similar in functionality and interaction, the Flyout and [Modal](/components/modal) are meant to be used in different scenarios and to express different types of content. There is a fair amount of overlap in their usage but they differ in complexity, status and messaging, speed and regularity, and experience hierarchy.
 
 #### Complexity
 
-A Flyout is useful for more complex content given the space it occupies in the viewport, while Modals are useful for less complex content that can be interacted with relatively quickly.
+A Flyout is useful for more complex content, given the space it occupies in the viewport, while Modals are useful for less complex content that can be interacted with quickly.
 
 !!! Info
 
@@ -85,7 +85,7 @@ A Flyout is useful for more complex content given the space it occupies in the v
 
 #### Status and messaging
 
-Flyouts are useful when displaying detail content that relates to the page, while Modals are useful for messaging status; e.g., confirming a destructive action or warning about the effects of a change.
+Flyouts are useful when displaying detailed content that relates to the page, while Modals are useful for messaging status, e.g., confirming a destructive action or warning about the effects of a change.
 
 #### Speed and regularity
 
@@ -95,9 +95,9 @@ Modals are better suited for quick interactions that occur infrequently, while F
 
 While each of these components is triggered by a user action, where they exist in the flow is fundamentally different:
 
-- A Modal blocks the user from progressing further in a feature (Fig 1.0), forcing them to take action or make a decision.
+- A Modal blocks the user from progressing further in the main flow (Fig 1.0), forcing them to take action or make a decision.
 - A Flyout extends or "branches" off from the main flow to add detail and highlight secondary features and functions (Fig 1.1).
-- Rather than blocking the user from continuing down a certain path, a Flyout enhances and adds detail to the primary path to aid in the completion of a function.
+- Rather than blocking the user from continuing in the main flow, a Flyout enhances and adds detail to the flow to aid in the completion of a function.
 
 **Fig. 1.0:** Hierarchy representation of a Modal blocking the user progression through a flow.
 
@@ -198,7 +198,7 @@ The Flyout footer is a persistent content area at the bottom of the Flyout, and 
 The Ember and Figma components account for the footer in slightly different ways, though both can achieve the same results:
 
 - The Ember component is a generic container that yields elements passed to it.
-- The Figma component consists of a variant for the number of actions, as well as a `slot` for custom content.
+- The Figma component consists of a variant for the number of actions, as well as support for custom content with `instance swap`.
 
 !!! Info
 
