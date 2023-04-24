@@ -80,7 +80,7 @@ A Flyout is useful for more complex content given the space it occupies in the v
 
 !!! Info
 
-**Note:** Complexity of content is relative, use your own judgement to determine if the content or function is overly complex and consider moving it to its own page.
+**Note:** Complexity of content is relative, use your own judgment to determine if the content or function is overly complex and consider moving it to its own page.
 !!!
 
 #### Status and messaging
@@ -89,7 +89,7 @@ Flyouts are useful when displaying detail content that relates to the page, whil
 
 #### Speed and regularity
 
-Modals are better suited for quick interactions that occur infrequently, while Flyouts, due to their support for more complex content, can occupy more of the users time and be recalled more frequently.
+Modals are better suited for quick interactions that occur infrequently, while Flyouts, due to their support for more complex content, can occupy more of the users’ time and be recalled more frequently.
 
 #### Experience hierarchy
 
