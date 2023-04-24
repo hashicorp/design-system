@@ -30,6 +30,6 @@ The Segments contained within a Segmented Group are extensions of Helios form co
 
 ## States
 
-The Segmented Group doesn't have its own state intrinsically; instead, the nested Segments should maintain their own interactive state corresponding with the main component specs.
+The Segmented Group doesn’t have its own state intrinsically; instead, the nested Segments should maintain their own interactive state corresponding with the main component specs.
 
 ![Primitive component states](/assets/components/form/segmented-group/segmented-group-states.png)

@@ -92,7 +92,7 @@ Use a Segmented Group to determine the method of a request or connection.
 
 !!! Dont
 
-Don't use a Segmented Group when fields are related, but aren't stored in the same object or value upon submission. This example features a payment form with a Segmented Group and label, but uses a placeholder instead of a label to communicate what information the field collects.
+Don’t use a Segmented Group when fields are related, but aren't stored in the same object or value upon submission. This example features a payment form with a Segmented Group and label, but uses a placeholder instead of a label to communicate what information the field collects.
 
 ![Segmented Group payment method example](/assets/components/form/segmented-group/segmented-group-example-form-03.png =450x*)
 !!!
