@@ -1,1 +1,1 @@
-A Segmented Group combines two or more input fields, buttons, toggles, and other form controls into a single component to account for complex data, search, and fine-grained filtering within an object or dataset.
+A Segmented Group combines two or more elements (`Segments`) into a single component to manage complex data, search, and fine-grained filtering within an object or dataset.

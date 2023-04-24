@@ -6,21 +6,30 @@
 
 | Element | Usage |
 |---------|-------|
-| Segmented Input | Required; can be one of many types extended via the [Text Input](/components/form/text-input) component. |
+| Segmented Input | Required; can be one of many types which extend the [Text Input](/components/form/text-input) component. |
 | Segmented Button | Required; can be either `button` or `toggle` which are extensions of the Helios [Button](/components/button) and [Toggle Button](/components/dropdown#toggle) components. |
-| Container | Wraps the sub-components in an auto layout container. |
+| Container | Wraps the primitives in an auto layout container. |
 
 !!! Info
 
-The Segmented Group `Base` component is only available in Figma and is best used in less complex scenarios which don't perform complex filtering or functions.
+The Segmented Group `Base` component is only available in Figma and is suited for less complex scenarios which don't perform complex filtering or functions.
 !!!
 
-### Sub-component anatomy
+### Segment anatomy
 
-The sub-components contained within a Segmented Group are extensions of Helios form components and have the same anatomy as the main components they map to.
+The Segments contained within a Segmented Group are extensions of Helios form components and have the same anatomy as the main components they extend. For more information on the specifications of each Segment, refer to their respective documentation:
+
+- [Button](/components/button)
+- [Toggle](/components/dropdown#toggle)
+- [Text Input](/components/form/text-input)
+    - [Text](/components/form/text-input#text)
+    - [Password](/components/form/text-input#password)
+    - [Search](/components/form/text-input#search)
+    - [Date and time](/components/form/text-input#date-and-time)
+- [Select](/components/form/select)
 
 ## States
 
-The Segmented Group doesn't have its own state intrinsically; instead, the nested component primitives should maintain their own interactive state corresponding with the main component specs.
+The Segmented Group doesn't have its own state intrinsically; instead, the nested Segments should maintain their own interactive state corresponding with the main component specs.
 
 ![Primitive component states](/assets/components/form/segmented-group/segmented-group-states.png)
