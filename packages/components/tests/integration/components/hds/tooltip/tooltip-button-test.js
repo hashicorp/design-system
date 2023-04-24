@@ -111,22 +111,22 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
     assert.dom('.tippy-box').hasAttribute('data-placement', 'right');
   });
 
-  // isInlineBlock
+  // isInline
 
-  test('it should render the component with isInlineBlock as true by default', async function (assert) {
+  test('it should render the component with isInline as true by default', async function (assert) {
     await render(
       hbs`<Hds::TooltipButton @text="More info." id="test-tooltip-button">info</Hds::TooltipButton>`
     );
     assert
       .dom('#test-tooltip-button')
-      .hasClass('hds-tooltip-button--is-inline-block');
+      .hasClass('hds-tooltip-button--is-inline');
   });
 
-  test('it should render the component with the correct class if isInlineBlock is set to false', async function (assert) {
+  test('it should render the component with the correct class if isInline is set to false', async function (assert) {
     await render(
-      hbs`<Hds::TooltipButton @text="More info." @isInlineBlock={{false}} id="test-tooltip-button">info</Hds::TooltipButton>`
+      hbs`<Hds::TooltipButton @text="More info." @isInline={{false}} id="test-tooltip-button">info</Hds::TooltipButton>`
     );
-    assert.dom('#test-tooltip-button').hasClass('hds-tooltip-button--is-flex');
+    assert.dom('#test-tooltip-button').hasClass('hds-tooltip-button--is-block');
   });
 
   // ATTRIBUTES

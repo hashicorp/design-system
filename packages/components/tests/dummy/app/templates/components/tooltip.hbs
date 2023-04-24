@@ -50,10 +50,10 @@
     adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
   </p>
 
-  <Shw::Text::H4>Displayed as flex (isInlineBlock = false)</Shw::Text::H4>
+  <Shw::Text::H4>Displayed as flex (isInline = false)</Shw::Text::H4>
   <p class="hds-typography-body-300">
     Lorem ipsum dolor sit amet consectetur
-    <Hds::TooltipButton @text="Here is more info" @isInlineBlock={{false}} aria-label="Information"><FlightIcon
+    <Hds::TooltipButton @text="Here is more info" @isInline={{false}} aria-label="Information"><FlightIcon
         @name="info"
       /></Hds::TooltipButton>
     adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
@@ -141,47 +141,6 @@
           </B.Tr>
         </:body>
       </Hds::Table>
-    </SF.Item>
-    <SF.Item @label="Used within a RadioCard">
-      <Hds::Form::RadioCard::Group @name="radio-card-basic-example" @alignment="center" as |G|>
-        <G.Legend>
-          Create a connection
-          <Hds::TooltipButton @text="More info" aria-label="Information"><FlightIcon
-              @name="info"
-            /></Hds::TooltipButton>
-        </G.Legend>
-        <G.RadioCard @checked={{true}} as |R|>
-          <Hds::TooltipButton @text="HashiCorp"><R.Icon @name="hashicorp" /></Hds::TooltipButton>
-          <R.Label>
-            Label text
-            <Hds::TooltipButton @text="More info" aria-label="Information"><FlightIcon
-                @name="info"
-              /></Hds::TooltipButton>
-          </R.Label>
-          <R.Description>
-            Description text.
-            <Hds::TooltipButton @text="More info" aria-label="Information"><FlightIcon
-                @name="info"
-              /></Hds::TooltipButton>
-          </R.Description>
-        </G.RadioCard>
-
-        <G.RadioCard as |R|>
-          <Hds::TooltipButton @text="HashiCorp" aria-label="HashiCorp"><R.Icon @name="hashicorp" /></Hds::TooltipButton>
-          <R.Label>
-            Label text
-            <Hds::TooltipButton @text="More info" aria-label="Information"><FlightIcon
-                @name="info"
-              /></Hds::TooltipButton>
-          </R.Label>
-          <R.Description>
-            Description text.
-            <Hds::TooltipButton @text="More info" aria-label="Information"><FlightIcon
-                @name="info"
-              /></Hds::TooltipButton>
-          </R.Description>
-        </G.RadioCard>
-      </Hds::Form::RadioCard::Group>
     </SF.Item>
   </Shw::Flex>
 

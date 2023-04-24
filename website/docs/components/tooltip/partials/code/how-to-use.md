@@ -55,9 +55,9 @@ You can change the offset of the tooltip in relation to the opener element conte
 </Hds::TooltipButton>
 ```
 
-### isInlineBlock
+### isInline
 
-You can change the default inline-block display to use `flex` display if needed.
+You can change the default `inline-block` display to use `flex` display if needed.
 
 ```handlebars
 <p>
@@ -65,7 +65,7 @@ You can change the default inline-block display to use `flex` display if needed.
   <Hds::TooltipButton 
     @text="Hello!" 
     aria-label="HashiCorp" 
-    @isInlineBlock={{false}}
+    @isInline={{false}}
   >
     <FlightIcon @name="hashicorp" />
   </Hds::TooltipButton>
