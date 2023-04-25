@@ -286,7 +286,7 @@
         <B.Td>{{B.data.services.imported}}</B.Td>
         <B.Td>{{B.data.services.exported}}</B.Td>
         <B.Td @align="right">
-          <Hds::Dropdown @isInlineBlock={{true}} as |dd|>
+          <Hds::Dropdown @isInline={{true}} as |dd|>
             <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
             <dd.Interactive @route="components.table" @text="Create" />
             <dd.Interactive @route="components.table" @text="Read" />
@@ -333,7 +333,7 @@
         <B.Td>{{B.data.services.imported}}</B.Td>
         <B.Td>{{B.data.services.exported}}</B.Td>
         <B.Td @align="right">
-          <Hds::Dropdown @isInlineBlock={{true}} as |dd|>
+          <Hds::Dropdown @isInline={{true}} as |dd|>
             <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
             <dd.Interactive @route="components.table" @text="Create" />
             <dd.Interactive @route="components.table" @text="Read" />
@@ -368,7 +368,7 @@
         <B.Td>{{B.data.album}}</B.Td>
         <B.Td>{{B.data.year}}</B.Td>
         <B.Td @align="right">
-          <Hds::Dropdown @isInlineBlock={{true}} as |dd|>
+          <Hds::Dropdown @isInline={{true}} as |dd|>
             <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
             <dd.Interactive @route="components.table" @text="Create" />
             <dd.Interactive @route="components.table" @text="Read" />
@@ -631,7 +631,7 @@
               </div>
             </B.Td>
             <B.Td @align="right">
-              <Hds::Dropdown @isInlineBlock={{true}} as |dd|>
+              <Hds::Dropdown @isInline={{true}} as |dd|>
                 <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
                 <dd.Interactive @route="components.table" @text="Dropdown" />
               </Hds::Dropdown>

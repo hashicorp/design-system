@@ -24,8 +24,8 @@ The Dropdown component is composed of different child components each with their
   <C.Property @name="height" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
     If a `@height` parameter is provided then the list will have a fixed height.
   </C.Property>
-  <C.Property @name="isInlineBlock" @type="boolean" @values={{array "true" "false" }} @default="false">
-    If a `@isInlineBlock` parameter is provided then the element will be displayed as `inline-block` (useful to achieve specific layouts like in a container with right alignment).
+  <C.Property @name="isInline" @type="boolean" @values={{array "true" "false" }} @default="false">
+    If a `@isInline` parameter is provided then the element will be displayed as `inline-block` (useful to achieve specific layouts like in a container with right alignment). Otherwise it will be have a `block` layout.
   </C.Property>
   <C.Property @name="close" @type="function">
     Function to programmatically close the dropdown.
