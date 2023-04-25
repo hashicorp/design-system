@@ -45,7 +45,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 50;
+  z-index: 49;
   background: var(--token-color-palette-neutral-700);
   opacity: 0.5;
 }
@@ -89,6 +89,20 @@
   overflow-y: auto;
   overscroll-behavior: contain;
   border-top: 1px solid var(--token-color-border-primary);
+}
+
+.hds-flyout__footer {
+  flex: none;
+  padding: 16px 24px;
+  background: var(--token-color-surface-faint);
+  border-top: 1px solid var(--token-color-border-primary);
+
+  // Tertiary buttons must always be placed/aligned at the end of the row
+  .hds-button-set {
+    .hds-button--color-tertiary {
+      margin-left: auto;
+    }
+  }
 }
 
 .hds-flyout--size-medium {
