@@ -17,7 +17,7 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
 
   test('it should render the component with a specific CSS class', async function (assert) {
     await render(hbs`<Hds::Form::TextInput::Field />`);
-    assert.dom('input').hasClass('hds-form-field__control');
+    assert.dom('.hds-form-field__control').exists();
   });
 
   // TYPE
@@ -89,14 +89,14 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
         </Hds::Form::TextInput::Field>`
     );
     // the control ID is dynamically generated
-    let control = this.element.querySelector('.hds-form-field__control');
+    let control = this.element.querySelector('.hds-form-field__control input');
     let controlId = control.id;
     assert.dom('.hds-form-field__label').hasAttribute('for', controlId);
     assert
       .dom('.hds-form-field__helper-text')
       .hasAttribute('id', `helper-text-${controlId}`);
     assert
-      .dom('.hds-form-field__control')
+      .dom('.hds-form-field__control input')
       .hasAttribute(
         'aria-describedby',
         `helper-text-${controlId} error-${controlId} extra`
