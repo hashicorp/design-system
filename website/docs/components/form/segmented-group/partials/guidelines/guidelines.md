@@ -4,7 +4,7 @@ A Segmented Group is an agnostic container that wraps two or more `Segments`, ma
 
 !!! Info
 
-The way in which these components are published and assembled is fundamentally different between the Figma and Ember components.
+How these components are published and assembled is fundamentally different between the Figma and Ember components.
 
 - In Figma, we publish multiple primitive `Segment` components (`Segmented Button`, `Segmented Toggle`, and `Segmented Input`) that are intended to be assembled in an auto layout container. A pre-assembled `Base` component is also made available for more simple instances.
 - The Ember component is a container that enforces consistent styling and grouping of nested Helios form components. It does not manage any logic or functionality out of the box, these are left up to the consumer to implement based on the nested components.
@@ -19,7 +19,7 @@ The way in which these components are published and assembled is fundamentally d
 
 ### When not to use
 
-- To submit a form or set of inputs. A Segmented Group can be used within a form to collect complex data, but should not submit that data via a form method. Use the guidelines in [Form patterns](/patterns/form-patterns) instead.
+- To submit a form or set of inputs. A Segmented Group can be used within a form to collect complex data, but an action within the group should not submit that data via a form method. Use the guidelines in [Form patterns](/patterns/form-patterns) instead.
 - To connect multiple fields that each require their own label.
 - When adding a prefix or suffix to an input field. This is not currently supported by Helios form components, instead consider using a simple text element preceding or following the form element.
 
