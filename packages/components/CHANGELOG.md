@@ -1,5 +1,32 @@
 # @hashicorp/design-system-components
 
+## 2.2.0
+
+### Minor Changes
+
+- [#1284](https://github.com/hashicorp/design-system/pull/1284) [`050a2afa5`](https://github.com/hashicorp/design-system/commit/050a2afa5bd539e15ff21728bb6ac27ac2b90dc6) Thanks [@didoo](https://github.com/didoo)! - Added `AppFrame` component
+
+- [#1321](https://github.com/hashicorp/design-system/pull/1321) [`6cb5f55b1`](https://github.com/hashicorp/design-system/commit/6cb5f55b1a47d9718960e17c68c7ad3b8bcad04c) Thanks [@didoo](https://github.com/didoo)! - Extracted `Hds::SideNav::Base` from the `Hds::SideNav` component
+
+- [#1304](https://github.com/hashicorp/design-system/pull/1304) [`038d8306a`](https://github.com/hashicorp/design-system/commit/038d8306aee38711ba846e4d7272d237b93733e5) Thanks [@didoo](https://github.com/didoo)! - Extended the `Hds::SideNav` component to support responsiveness (animation/transition) and content portaling by adapting existing implementation for Cloud UI
+
+- [#1315](https://github.com/hashicorp/design-system/pull/1315) [`e900dbcca`](https://github.com/hashicorp/design-system/commit/e900dbcca7df1592559245e2b2031d0b2a9ec617) Thanks [@didoo](https://github.com/didoo)! - Added a `@isInline` argument to the `Hds::Dropdown` component
+
+- [#1309](https://github.com/hashicorp/design-system/pull/1309) [`ef7eeff66`](https://github.com/hashicorp/design-system/commit/ef7eeff66d1d9b81b53cf082085eb1fa636263ef) Thanks [@jorytindall](https://github.com/jorytindall)! - Add `Hds::Flyout::Footer` as generic block to `Hds::Flyout`
+
+- [#1317](https://github.com/hashicorp/design-system/pull/1317) [`fa3a328a1`](https://github.com/hashicorp/design-system/commit/fa3a328a1806af8482bcedee002c8bc3232f3968) Thanks [@didoo](https://github.com/didoo)! - Changed order of "modal" container element in the DOM for the `AppFrame` component
+
+### Patch Changes
+
+- [#1312](https://github.com/hashicorp/design-system/pull/1312) [`cd1527ef5`](https://github.com/hashicorp/design-system/commit/cd1527ef5de743e1fdf9b982bff7aa1bbc18ac54) Thanks [@alex-ju](https://github.com/alex-ju)! - Add `min-height` to `Hds::Textarea`
+
+- [#1313](https://github.com/hashicorp/design-system/pull/1313) [`5a2f5778d`](https://github.com/hashicorp/design-system/commit/5a2f5778d5e1d57a7d0d080f01319492e1a5a8b7) Thanks [@didoo](https://github.com/didoo)! - Added design tokens for `SideNav` component
+
+- [#1306](https://github.com/hashicorp/design-system/pull/1306) [`e993f6c42`](https://github.com/hashicorp/design-system/commit/e993f6c42a502f4d43cce2e1e7b1a7a8cfd90cdd) Thanks [@alex-ju](https://github.com/alex-ju)! - Fix `PowerSelectMultiple` style overrides when search is enabled
+
+- Updated dependencies [[`5a2f5778d`](https://github.com/hashicorp/design-system/commit/5a2f5778d5e1d57a7d0d080f01319492e1a5a8b7)]:
+  - @hashicorp/design-system-tokens@1.4.2
+
 ## 2.1.0
 
 ### Minor Changes
