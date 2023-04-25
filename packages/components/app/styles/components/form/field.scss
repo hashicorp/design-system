@@ -31,9 +31,7 @@
     }
   }
 
-  // ensure appropriate spacing when a form control or a Segmented Group is used in a field
-  .hds-form-field__control,
-  .hds-segmented-group {
+  .hds-form-field__control {
     &:not(:first-child) {
       margin-top: 8px;
     }
