@@ -1,9 +1,13 @@
 ## Conformance rating
 
-<!-- Update conformance rating badge with correct status and remove the others -->
-<Doc::Badge @type="success">Conformant</Doc::Badge>
+<Doc::Badge @type="warning">Conditionally Conformant</Doc::Badge>
 
-When used as recommended, there should not be any WCAG conformance issues with this component.
+When used on an interactive element, there should be no conformance issues with this component.
+
+The issue with tooltips, in general, is that of persistence and perceivability. When used on inline text, how does the user know that the text has some sort of tooltip attached to it? If the user cannot perceive that the text has any kind of interactivity, then the tooltip would, in this case, not be conformant.
+
+Consumers should proceed with caution in this case, and consider designs that make it clear to the user what options are available to them.
+
 
 ## Applicable WCAG Success Criteria
 

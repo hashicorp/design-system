@@ -143,7 +143,7 @@ An Ember modifier is available if your use case requires attaching a tooltip to 
 
 #### Extra Tippy Options
 
-You can enable extra [Tippy.js options](https://atomiks.github.io/tippyjs/v6/all-props/) by passing a hash of the options you wish to use similarly to how the `TooltipButton` component works.
+You can enable extra [Tippy.js options](https://atomiks.github.io/tippyjs/v6/all-props/) by passing a hash of the options you wish to use similarly to how the `TooltipButton` component works. You should make sure that any additional options chosen will still result in a WCAG-conformant outcome.
 
 For example, this is how to enable rich text in the case of the modifier:
 
