@@ -25,7 +25,7 @@ This is the basic component (layout only).
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<:root>" @type="named block">
-    A named block that can be used to render content that needs to be rendered outside of the "header/body/footer" containers of the SideNav.
+    A named block for rendering content outside of the "header/body/footer" containers of the SideNav.
   </C.Property>
   <C.Property @name="<:header>" @type="named block">
     A named block where the content for the “header” area of the SideNav is rendered. The `SideNav::Header` component should be added here.
