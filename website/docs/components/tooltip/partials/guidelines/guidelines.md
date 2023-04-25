@@ -29,7 +29,7 @@ tooltip-when-to-use
 Tooltips can be placed in various positions relative to the UI element they are associated with. Choose the placement based on the context and available space around the tooltip trigger.
 
 <Doc::Layout @spacing="80px">
-  <Hds::TooltipButton @text="Top" @placement="top">
+  <Hds::TooltipButton @text="Top" @placement="top" @extraTippyOptions={{hash showOnCreate=true}}>
     <FlightIcon @name="info" aria-label="top placement" />
   </Hds::TooltipButton>
   <Hds::TooltipButton @text="Bottom" @placement="bottom">
@@ -82,6 +82,20 @@ The default and recommended distance between the trigger and the tooltip's point
 !!! Info
 
  In some cases, an offset may be necessary to adjust the position of the tooltip. The offset should be used sparingly when it's necessary to make sure that the tooltip does not obscure or cover the trigger or important information.
+!!!
+
+!!! Do
+
+Adjust the offset when the tooltip needs to be positioned in a way that it doesn't obstruct the view of the UI element or information it is associated with.
+
+![Tooltip with adjusted offset](/assets/components/tooltip/tooltip-offset-do.png)
+!!!
+
+!!! Dont
+
+Don't add extra offset if the tooltip blocks important information or appears disjointed from the element it is meant to provide information for, and can cause confusion for the user. 
+
+![Tooltip with adjusted offset](/assets/components/tooltip/tooltip-offset-dont.png)
 !!!
 
 ## Content
