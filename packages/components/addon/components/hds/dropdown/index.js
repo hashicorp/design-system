@@ -46,9 +46,9 @@ export default class HdsDropdownIndexComponent extends Component {
   get classNames() {
     let classes = ['hds-dropdown'];
 
-    // add a class based on the @isInlineBlock argument
-    if (this.args.isInlineBlock) {
-      classes.push('hds-dropdown--is-inline-block');
+    // add a class based on the @isInline argument
+    if (this.args.isInline) {
+      classes.push('hds-dropdown--is-inline');
     }
 
     return classes.join(' ');

@@ -2,4 +2,4 @@
 "@hashicorp/design-system-components": minor
 ---
 
-Added a `@isInlineBlock` argument to the `Hds::Dropdown` component
+Added a `@isInline` argument to the `Hds::Dropdown` component
