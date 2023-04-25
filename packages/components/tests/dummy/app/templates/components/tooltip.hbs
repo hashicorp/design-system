@@ -31,7 +31,7 @@
         aria-label="Information"
         @text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
       >
-        <FlightIcon @name="info" />
+        <Hds::Badge @icon="activity" @text="Lorem ipsum" />
       </Hds::TooltipButton>
     </SF.Item>
   </Shw::Flex>
@@ -260,9 +260,13 @@
     </SF.Item>
 
     <SF.Item @label="On a link">
-      <p class="hds-typography-body-300">
-        <a href="#" {{hds-tooltip "This link takes you to a 3rd party site"}}>Acme Corp</a>
-      </p>
+      <Hds::Link::Standalone
+        @icon="external-link"
+        @iconPosition="trailing"
+        @text="Acme Corp"
+        @href="#"
+        {{hds-tooltip "This link takes you to a 3rd party site"}}
+      />
     </SF.Item>
 
     <SF.Item @label="On an input">
