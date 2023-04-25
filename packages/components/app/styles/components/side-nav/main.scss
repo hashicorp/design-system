@@ -11,6 +11,7 @@
   position: sticky;
   top: 0;
   z-index: 20; // needs to stay above the main content
+  width: var(--hds-app-sidenav-width-fixed); // "default" width used by the `SideNav::Base` subcomponent (that is not responsive)
   height: 100vh;
   min-height: 100vh;
   isolation: isolate; // used to create a new stacking context (so we can set the overlay's z-index to -1)

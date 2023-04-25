@@ -2,7 +2,31 @@
 
 ### SideNav
 
+This is the full-fledged component (responsive and animated).
+
 <Doc::ComponentApi as |C|>
+  <C.Property @name="<:header>" @type="named block">
+    A named block where the content for the “header” area of the SideNav is rendered. The `SideNav::Header` component should be added here. It yields the value of `isMinimized` too.
+  </C.Property>
+  <C.Property @name="<:body>" @type="named block">
+    A named block where the content for the “body” or main content of the SideNav is rendered. The `SideNav::List` and `SideNav::PortalTarget` components should be added here when used. It yields the value of `isMinimized` too.
+  </C.Property>
+  <C.Property @name="<:footer>" @type="named block">
+    A named block where the content for the “footer” section of the SideNav is rendered. It yields the value of `isMinimized` too.
+  </C.Property>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
+</Doc::ComponentApi>
+
+### SideNav::Base
+
+This is the basic component (layout only).
+
+<Doc::ComponentApi as |C|>
+  <C.Property @name="<:root>" @type="named block">
+    A named block for rendering content outside of the "header/body/footer" containers of the SideNav.
+  </C.Property>
   <C.Property @name="<:header>" @type="named block">
     A named block where the content for the “header” area of the SideNav is rendered. The `SideNav::Header` component should be added here.
   </C.Property>
