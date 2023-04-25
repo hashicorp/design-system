@@ -12,7 +12,7 @@
 
 !!! Info
 
-The Segmented Group `Base` component is only available in Figma and is suited for less complex scenarios which don't perform complex filtering or functions.
+The Segmented Group `Base` component is only available in Figma and is suited for less complex scenarios which don’t perform complex filtering or functions.
 !!!
 
 ### Segment anatomy
