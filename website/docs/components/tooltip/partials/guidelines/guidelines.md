@@ -28,50 +28,9 @@ tooltip-when-to-use
 
 Tooltips can be placed in various positions relative to the UI element they are associated with. Choose the placement based on the context and available space around the tooltip trigger.
 
-<Doc::Layout @spacing="80px">
-  <Hds::TooltipButton @text="Top" @placement="top" @extraTippyOptions={{hash showOnCreate=true}}>
-    <FlightIcon @name="info" aria-label="top placement" />
-  </Hds::TooltipButton>
-  <Hds::TooltipButton @text="Bottom" @placement="bottom">
-    <FlightIcon @name="info" aria-label="bottom placement" />
-  </Hds::TooltipButton>
-  <Hds::TooltipButton @text="Left" @placement="left">
-    <FlightIcon @name="info" aria-label="left placement" />
-  </Hds::TooltipButton>
-  <Hds::TooltipButton @text="Right" @placement="right">
-    <FlightIcon @name="info" aria-label="right placement" />
-  </Hds::TooltipButton>
-</Doc::Layout>
+There are twelve placement options: `top`, `bottom`, `left`, `right`, `top-start`, `top-end`, `bottom-start`, `bottom-end`, `left-start`, `left-end`, `right-start`, `right-end`.
 
-<Doc::Layout @spacing="80px">
-  <Hds::TooltipButton @text="Top-start" @placement="top-start">
-    <FlightIcon @name="info" aria-label="top-start placement" />
-  </Hds::TooltipButton>
-  <Hds::TooltipButton @text="Bottom-start" @placement="bottom-start">
-    <FlightIcon @name="info" aria-label="bottom-start placement" />
-  </Hds::TooltipButton>
-  <Hds::TooltipButton @text="Left-start" @placement="left-start">
-    <FlightIcon @name="info" aria-label="left-start placement" />
-  </Hds::TooltipButton>
-  <Hds::TooltipButton @text="Right-start" @placement="right-start">
-    <FlightIcon @name="info" aria-label="right-start placement" />
-  </Hds::TooltipButton>
-</Doc::Layout>
-
-<Doc::Layout @spacing="80px">
-  <Hds::TooltipButton @text="Top-end" @placement="top-end">
-    <FlightIcon @name="info" aria-label="top-end placement" />
-  </Hds::TooltipButton>
-  <Hds::TooltipButton @text="Bottom-end" @placement="bottom-end">
-    <FlightIcon @name="info" aria-label="bottom-end placement" />
-  </Hds::TooltipButton>
-  <Hds::TooltipButton @text="Left-end" @placement="left-end">
-    <FlightIcon @name="info" aria-label="left-end placement" />
-  </Hds::TooltipButton>
-  <Hds::TooltipButton @text="Right-end" @placement="right-end">
-    <FlightIcon @name="info" aria-label="right-end placement" />
-  </Hds::TooltipButton>
-</Doc::Layout>
+![Tooltip with wrapped text](/assets/components/tooltip/tooltip-placement.png)
 
 ## Offset
 
