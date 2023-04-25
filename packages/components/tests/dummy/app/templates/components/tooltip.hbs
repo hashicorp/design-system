@@ -36,6 +36,16 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Text::H4>With allowHTML=true</Shw::Text::H4>
+  <Hds::TooltipButton
+    @extraTippyOptions={{hash allowHTML=true showOnCreate=true}}
+    @placement="right"
+    @text="<b>Hello</b> <em>there</em>!"
+    aria-label="Information"
+  >
+    <FlightIcon @name="info" />
+  </Hds::TooltipButton>
+
   <Shw::Text::H4>Used next to text</Shw::Text::H4>
   <p>
     <span class="hds-typography-display-300">Lorem ipsum dolor sit amet consectetur</span>
