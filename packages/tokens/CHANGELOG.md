@@ -1,5 +1,11 @@
 # @hashicorp/design-system-tokens
 
+## 1.4.2
+
+### Patch Changes
+
+- [#1313](https://github.com/hashicorp/design-system/pull/1313) [`5a2f5778d`](https://github.com/hashicorp/design-system/commit/5a2f5778d5e1d57a7d0d080f01319492e1a5a8b7) Thanks [@didoo](https://github.com/didoo)! - Added design tokens for `SideNav` component
+
 ## 1.4.1
 
 ### Patch Changes
