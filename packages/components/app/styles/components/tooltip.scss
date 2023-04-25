@@ -25,8 +25,8 @@
   --token-tooltip-tab-focus-offset: -2px;
 
   // Colors:
-  --token-tooltip-color-background-primary: var(--token-color-palette-neutral-700);
-  --token-tooltip-color-foreground-primary: var(--token-color-foreground-high-contrast); // not sure on best naming for this token
+  --token-tooltip-color-surface-primary: var(--token-color-palette-neutral-700);
+  --token-tooltip-color-foreground-primary: var(--token-color-foreground-high-contrast);
 }
 
 .hds-tooltip-button {
@@ -58,7 +58,7 @@
   font-size: var(--token-typography-body-200-font-size);
   font-family: var(--token-typography-body-200-font-family);
   line-height: var(--token-typography-body-200-line-height);
-  background-color: var(--token-tooltip-color-background-primary);
+  background-color: var(--token-tooltip-color-surface-primary);
   border-radius: var(--token-tooltip-border-radius);
   box-shadow: var(--token-elevation-higher-box-shadow);
   transition-property: transform, visibility, opacity;
@@ -81,6 +81,6 @@
 
   // works with Tippy's custom SVG arrow variation:
   .tippy-svg-arrow {
-    fill: var(--token-tooltip-color-background-primary);
+    fill: var(--token-tooltip-color-surface-primary);
   }
 }
