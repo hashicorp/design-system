@@ -11,65 +11,6 @@
 - When requesting information or feedback from the user through a form. Instead, use a [Modal](/components/modal) or consider moving the content to its own page.
 - When displaying overly complex information, consider moving the content to its own page.
 
-### Usage examples
-
-#### Preview content
-
-Previewing read-only content is an ideal use case for a Flyout as it keeps the user in the context of the current flow while detailing additional secondary information.
-
-!!! Do
-
-Use a Flyout as a detailed preview of an object on the main page.
-
-![Flyout with preview content](/assets/components/flyout/flyout-custom-content.png)
-!!!
-
-#### Code snippets and examples
-
-While code snippets and terminal scripts are usually detailed, they are well suited content within a Flyout due to their contextual relevancy to the content on the page, while maybe not being complex enough to exist on their own page.
-
-!!! Do
-
-![Flyout with code snippet](/assets/components/flyout/flyout-with-code-snippet.png)
-!!!
-
-#### Forms
-
-Don't use a form in a Flyout, whether the function is creating an object, or updating an existing one. This type of content is often complex and more appropriate on its own page, or in the case of a simple form, within a [Modal](/components/modal).
-
-!!! Dont
-
-![Form within a Flyout](/assets/components/flyout/form-in-flyout.png)
-!!!
-
-#### Actions
-
-A Flyout supports actions within the footer allowing for basic functions to be performed. This usage should be limited to performing secondary functions that are related to the main page to help the user maintain context in the primary flow. Some examples of this are:
-
-- Batch updating and creating relationships between one or more objects
-- Linking to external resources using a link that appears as a button
-
-!!! Do
-
-Use a Flyout for actions like batch selection that are secondary to the main page.
-
-![Simple actions within a Flyout](/assets/components/flyout/flyout-simple-actions.png)
-!!!
-
-!!! Do
-
-Use a Flyout for simple declarative content like text and links that enhance the main page.
-
-![Complex footer example](/assets/components/flyout/flyout-complex-footer.png)
-!!!
-
-!!! Dont
-
-Don't use a Flyout for editing or creating objects. These are generally considered primary functions and should be handled on their own page or within a Modal in simple scenarios.
-
-![Complex actions within a Flyout](/assets/components/flyout/flyout-complex-actions.png)
-!!!
-
 ### Flyout vs Modal
 
 While similar in functionality and interaction, the Flyout and [Modal](/components/modal) are meant to be used in different scenarios and to express different types of content. There is a fair amount of overlap in their usage but they differ in complexity, status and messaging, speed and regularity, and experience hierarchy.
@@ -106,6 +47,37 @@ While each of these components is triggered by a user action, where they exist i
 **Fig. 1.1:** Hierarchy representation of the Flyout relative to the user flow.
 
 ![Flyout hierarchy in the user flow](/assets/components/flyout/flyout-vs-modal-02.png)
+
+### Usage examples
+
+#### Preview content
+
+Previewing read-only content is an ideal use case for a Flyout as it keeps the user in the context of the current flow while detailing additional secondary information.
+
+!!! Do
+
+Use a Flyout as a detailed preview of an object on the main page.
+
+![Flyout with preview content](/assets/components/flyout/flyout-custom-content.png)
+!!!
+
+#### Code snippets and examples
+
+While code snippets and terminal scripts are usually detailed, they are well suited content within a Flyout due to their contextual relevancy to the content on the page, while maybe not being complex enough to exist on their own page.
+
+!!! Do
+
+![Flyout with code snippet](/assets/components/flyout/flyout-with-code-snippet.png)
+!!!
+
+#### Forms
+
+Don't use a form in a Flyout, whether the function is creating an object, or updating an existing one. This type of content is often complex and more appropriate on its own page, or in the case of a simple form, within a [Modal](/components/modal).
+
+!!! Dont
+
+![Form within a Flyout](/assets/components/flyout/form-in-flyout.png)
+!!!
 
 ## Size
 
@@ -223,6 +195,34 @@ The footer is **optional** and should be used sparingly as it increases the comp
 </Hds::Flyout::Footer>
 
 For more guidance and details around organizing buttons and actions, refer to the [Button organization](/patterns/button-organization) pattern documentation.
+
+### Actions
+
+A Flyout supports actions within the footer allowing for basic functions to be performed. This usage should be limited to performing secondary functions that are related to the main page to help the user maintain context in the primary flow. Some examples of this are:
+
+- Batch updating and creating relationships between one or more objects
+- Linking to external resources using a link that appears as a button
+
+!!! Do
+
+Use a Flyout for actions like batch selection that are secondary to the main page.
+
+![Simple actions within a Flyout](/assets/components/flyout/flyout-simple-actions.png)
+!!!
+
+!!! Do
+
+Use a Flyout for simple declarative content like text and links that enhance the main page.
+
+![Complex footer example](/assets/components/flyout/flyout-complex-footer.png)
+!!!
+
+!!! Dont
+
+Don't use a Flyout for editing or creating objects. These are generally considered primary functions and should be handled on their own page or within a Modal in simple scenarios.
+
+![Complex actions within a Flyout](/assets/components/flyout/flyout-complex-actions.png)
+!!!
 
 ## Dismissal
 
