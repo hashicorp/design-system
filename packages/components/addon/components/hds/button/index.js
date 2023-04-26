@@ -158,13 +158,6 @@ export default class HdsButtonIndexComponent extends Component {
       classes.push('hds-button--width-full');
     }
 
-    // add a class based on the @contextualClass argument
-    // notice: this will *not* be documented for public use
-    // the reason for this is that the contextual component declarations don't pass attributes to the component
-    if (this.args.contextualClass) {
-      classes.push(this.args.contextualClass);
-    }
-
     return classes.join(' ');
   }
 }
