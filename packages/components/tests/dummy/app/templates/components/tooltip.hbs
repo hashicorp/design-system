@@ -139,14 +139,17 @@
 
   <Shw::Text::H3>Display</Shw::Text::H3>
 
-  <Shw::Text::H4>Displayed as flex (isInline = false)</Shw::Text::H4>
-  <p class="hds-typography-body-300">
-    Lorem ipsum dolor sit amet consectetur
-    <Hds::TooltipButton @text="Here is more info" @isInline={{false}} aria-label="Information"><FlightIcon
-        @name="info"
-      /></Hds::TooltipButton>
-    adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
-  </p>
+  <Shw::Flex as |SF|>
+    <SF.Item @label="With isInline=false">
+      <p class="hds-typography-body-300">
+        Lorem ipsum dolor sit amet consectetur
+        <Hds::TooltipButton @text="Here is more info" @isInline={{false}} aria-label="Information"><FlightIcon
+            @name="info"
+          /></Hds::TooltipButton>
+        adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
+      </p>
+    </SF.Item>
+  </Shw::Flex>
 
   <Shw::Divider @level={{2}} />
 
