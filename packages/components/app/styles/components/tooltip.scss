@@ -9,26 +9,6 @@
 
 @use "../mixins/focus-ring" as *;
 
-:root {
-  // Dimensions:
-  --token-tooltip-max-width: 280px;
-  --token-tooltip-padding-horizontal: 12px;
-  --token-tooltip-padding-vertical: 8px;
-
-  // Radius:
-  --token-tooltip-border-radius: 5px;
-
-  // Animation:
-  --token-tooltip-transition-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
-
-  // Focus highlight position:
-  --token-tooltip-focus-offset: -2px;
-
-  // Colors:
-  --token-tooltip-color-surface-primary: var(--token-color-palette-neutral-700);
-  --token-tooltip-color-foreground-primary: var(--token-color-foreground-high-contrast);
-}
-
 .hds-tooltip-button {
   @include hds-focus-ring-with-pseudo-element(
     $top: var(--token-tooltip-focus-offset),
