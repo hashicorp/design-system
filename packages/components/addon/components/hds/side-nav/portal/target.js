@@ -112,10 +112,7 @@ export default class SidenavPortalTarget extends Component {
         fill: 'forwards',
       }
     );
-    // Notice: we don't add the styles by default because it writes a `style` attribute to the element and it causes an additional re-render
-    if (DEBUG) {
-      anim.commitStyles();
-    }
+
     anim.finished.then(() => {
       // uncomment this if we need/want to scroll the element to the top
       // targetElement.scrollIntoView(true);
