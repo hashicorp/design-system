@@ -22,7 +22,7 @@
   --token-tooltip-transition-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
 
   // Focus highlight position:
-  --token-tooltip-tab-focus-offset: -2px;
+  --token-tooltip-focus-offset: -2px;
 
   // Colors:
   --token-tooltip-color-surface-primary: var(--token-color-palette-neutral-700);
@@ -31,10 +31,10 @@
 
 .hds-tooltip-button {
   @include hds-focus-ring-with-pseudo-element(
-    $top: var(--token-tooltip-tab-focus-offset),
-    $right: var(--token-tooltip-tab-focus-offset),
-    $bottom: var(--token-tooltip-tab-focus-offset),
-    $left: var(--token-tooltip-tab-focus-offset),
+    $top: var(--token-tooltip-focus-offset),
+    $right: var(--token-tooltip-focus-offset),
+    $bottom: var(--token-tooltip-focus-offset),
+    $left: var(--token-tooltip-focus-offset),
   );
   margin: 0;
   padding: 0;
