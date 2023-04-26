@@ -99,7 +99,7 @@ If you enable the `allowHTML` option:
 
 ### Ember modifier
 
-An Ember modifier is available if your use case requires attaching a tooltip to an element than is already interactive (to be accessible, tooltips should only be attached to interactive elements, like buttons, links, inputs, etc).
+An Ember modifier is available if your use case requires attaching a tooltip to an element that is already interactive (to be accessible, tooltips should only be attached to interactive elements, like buttons, links, inputs, etc).
 
 #### Modifier used on a link
 
