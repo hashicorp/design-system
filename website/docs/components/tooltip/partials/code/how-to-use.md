@@ -55,7 +55,7 @@ You can change the offset of the tooltip in relation to the opener element conte
 </Hds::TooltipButton>
 ```
 
-### isInline
+#### isInline
 
 You can change the default `inline-block` display to use `flex` display if needed.
 
