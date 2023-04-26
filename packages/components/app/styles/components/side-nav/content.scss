@@ -114,6 +114,16 @@
       color: var(--token-color-foreground-primary);
       background: var(--token-color-surface-strong);
     }
+
+    // NOTICE: this is necessary to mitigate the flickering of the link when clicked (expecially noticeable with a badge)
+    // For details see: https://github.com/hashicorp/design-system/pull/1328
+    &,
+    & .hds-badge,
+    & .hds-badge-count {
+      transition-timing-function: ease-in;
+      transition-duration: 0.25s;
+      transition-property: color, background-color;
+    }
   }
 
   .hds-badge,
