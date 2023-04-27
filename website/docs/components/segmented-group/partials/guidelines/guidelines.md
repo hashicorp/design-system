@@ -1,13 +1,13 @@
 ## Usage
 
-A Segmented Group is an agnostic container that wraps two or more `Segments`, making the relevant use cases broad.
+A Segmented Group is an agnostic container that wraps two or more Segments, making the relevant use cases broad.
 
 !!! Info
 
 How these components are published and assembled is fundamentally different between the Figma and Ember components.
 
-- In Figma, we publish multiple primitive `Segment` components (`Segmented Button`, `Segmented Toggle`, and `Segmented Input`) that are intended to be assembled in an auto layout container. A pre-assembled `Base` component is also made available for more simple instances.
-- The Ember component is a container that enforces consistent styling and grouping of nested Helios form components. It does not manage any logic or functionality out of the box, these are left up to the consumer to implement based on the nested components.
+- In Figma, we publish multiple primitive `Segment` components (`Segmented Button`, `Segmented Dropdown`, and `Segmented Input`) that are intended to be assembled in an auto layout container. A pre-assembled `Base` component is also made available for more simple instances.
+- The Ember component is a container that enforces consistent styling and grouping of nested Helios input fields and action components. It does not manage any logic or functionality out of the box, these are left up to the consumer to implement based on the nested components.
 !!!
 
 ### When to use
@@ -25,15 +25,15 @@ How these components are published and assembled is fundamentally different betw
 
 ## Segment components
 
-A Segmented Group can consist of multiple primitive Segments that vary in their properties and intended input value. We recommend limiting usage in Figma to the defined `Segmented Button`, `Segmented Toggle` and `Segmented Input` primitives to ensure consistent styling and grouping. The Ember component supports a generic element in either the leading or trailing position if a custom solution is required.
+A Segmented Group can consist of multiple primitive Segments that vary in their properties and intended input value. We recommend limiting usage in Figma to the defined `Segmented Button`, `Segmented Dropdown` and `Segmented Input` primitives to ensure consistent styling and grouping. If a custom solution is required, the Ember component yields any component that is passed to it.
 
 ### Segmented Button
 
 A `Segmented Button` can perform a function or interaction within a Segmented Group, e.g., generating an object, string, or value in a field it is connected to. It is an extension of the Helios [Button](/components/button).
 
-### Segmented Toggle
+### Segmented Dropdown
 
-A `Segmented Toggle` can be used to filter or narrow the available parameters when searching within a dataset or group of objects. This is an extension of the Helios [Toggle Button](/components/dropdown#toggle) and is often used in the context of a [Dropdown](/components/dropdown).
+A `Segmented Dropdown` can be used to filter or narrow the available parameters when searching within a dataset or group of objects. It is an extension of the Helios [Dropdown](/components/dropdown).
 
 ### Segmented Input
 
@@ -54,7 +54,7 @@ If a custom component within a Segmented Group is necessary, ensure that the vis
 
 ## Base component
 
-In Figma, the `Base` component is a combination of a button (either a default button or toggle) and a Segmented Input and is intended for less complex use cases. The properties of each nested Segment are exposed in the component to support rapid customization.
+In Figma, the `Base` component is a combination of a button (either a default button or dropdown) and a Segmented Input and is intended for less complex use cases. The properties of each nested Segment are exposed in the component to support rapid customization.
 
 ![Base component example](/assets/components/form/segmented-group/segmented-group-base-component.png =500x*)
 
@@ -111,6 +111,6 @@ The content within a Segmented Group is dependent on the context:
 ## Related
 
 - [Button](/components/button)
-- [Toggle Button](/components/toggle-button)
+- [Dropdown Button](/components/dropdown-button)
 - [Text Input](/components/form/text-input)
 - [Select](/components/form/select)
