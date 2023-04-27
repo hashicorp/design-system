@@ -2,17 +2,17 @@
 
 SideNav does not exist as a single out of the box HDS component. Instead, it consists of a number of lower-level building block components consumers can use to assemble their own SideNav implementation.
 
-**Note:** The `Hds::SideNav::Wrapper` component, which contains the child components, doesn't have an intrinsic width (it's 100% of the parent). This responsibility is delegated to the wrapping element in the consumer's codebase.
+**Note:** The `Hds::SideNav` component, which contains the child components, doesn’t have an intrinsic width (it’s 100% of the parent). This responsibility is delegated to the wrapping element in the consumer’s codebase.
 
 ### Basic example using typical SideNav components
 
 ```handlebars
   <div class="doc-sidenav-demo">
-    <Hds::SideNav::Wrapper>
+    <Hds::SideNav>
       <:header>
         <Hds::SideNav::Header>
           <:logo>
-            <Hds::SideNav::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
+            <Hds::SideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
           </:logo>
 
           <:actions>
@@ -62,6 +62,6 @@ SideNav does not exist as a single out of the box HDS component. Instead, it con
       <:footer>
         <Doc::Placeholder @height="30px" @text="footer content (eg: OrgSelect/ContextSwitcher)" @background="#e4e4e4" />
       </:footer>
-    </Hds::SideNav::Wrapper>
+    </Hds::SideNav>
   </div>
 ```

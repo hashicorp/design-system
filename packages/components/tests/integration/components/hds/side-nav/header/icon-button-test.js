@@ -15,22 +15,20 @@ module('Integration | Component | hds/side-nav/icon-button', function (hooks) {
     resetOnerror();
   });
 
-  // Basic
-
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::IconButton @icon="search" @ariaLabel="Search" id="test-side-nav-icon-button" />`
+      hbs`<Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" id="test-side-nav-icon-button" />`
     );
     assert
       .dom('#test-side-nav-icon-button')
       .hasClass('hds-side-nav__icon-button');
   });
 
-  // Test Content / Args
+  // CONTENT
 
   test('it renders the passed in args', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::IconButton @icon="search" @ariaLabel="Search" id="test-sidenav-button" />`
+      hbs`<Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" id="test-side-nav-button" />`
     );
     assert.dom('.flight-icon-search').exists();
   });
@@ -39,27 +37,27 @@ module('Integration | Component | hds/side-nav/icon-button', function (hooks) {
 
   test('it should render a <button> if no @href or @route is passed (default)', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::IconButton @icon="search" @ariaLabel="Search" id="test-sidenav-button" />`
+      hbs`<Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" id="test-side-nav-button" />`
     );
-    assert.dom('#test-sidenav-button').hasTagName('button');
+    assert.dom('#test-side-nav-button').hasTagName('button');
   });
 
   test('it should render a <a> link if @href is passed', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::IconButton @icon="search" @ariaLabel="Search" @href="https://www.hashicorp.com/" id="test-sidenav-button" />`
+      hbs`<Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" @href="https://www.hashicorp.com/" id="test-side-nav-button" />`
     );
     assert
-      .dom('#test-sidenav-button')
+      .dom('#test-side-nav-button')
       .hasTagName('a')
       .hasAttribute('href', 'https://www.hashicorp.com/');
   });
 
   test('it should render a <a> link if @route is passed', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::IconButton @icon="search" @ariaLabel="Search" @route="utilities.interactive" id="test-sidenav-button" />`
+      hbs`<Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" @route="utilities.interactive" id="test-side-nav-button" />`
     );
     assert
-      .dom('#test-sidenav-button')
+      .dom('#test-side-nav-button')
       .hasTagName('a')
       .hasAttribute('href', '/utilities/interactive');
   });
@@ -68,23 +66,23 @@ module('Integration | Component | hds/side-nav/icon-button', function (hooks) {
 
   test('it should spread all the attributes passed to the component on the element', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::IconButton @icon="search" @ariaLabel="Search" id="test-sidenav-button" class="my-class" data-test1 data-test2="test" />`
+      hbs`<Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" id="test-side-nav-button" class="my-class" data-test1 data-test2="test" />`
     );
-    assert.dom('#test-sidenav-button').hasClass('my-class');
-    assert.dom('#test-sidenav-button').hasAttribute('data-test1');
-    assert.dom('#test-sidenav-button').hasAttribute('data-test2', 'test');
+    assert.dom('#test-side-nav-button').hasClass('my-class');
+    assert.dom('#test-side-nav-button').hasAttribute('data-test1');
+    assert.dom('#test-side-nav-button').hasAttribute('data-test2', 'test');
   });
 
   // ASSERTIONS
 
   test('it should throw an assertion if @ariaLabel is missing/has no value', async function (assert) {
     const errorMessage =
-      '@ariaLabel for "Hds::SideNav::IconButton" must have a valid value';
+      '@ariaLabel for "Hds::SideNav::Header::IconButton" must have a valid value';
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(hbs`<Hds::SideNav::IconButton @icon="search" />`);
+    await render(hbs`<Hds::SideNav::Header::IconButton @icon="search" />`);
     assert.throws(function () {
       throw new Error(errorMessage);
     });

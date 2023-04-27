@@ -105,6 +105,16 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
       .dom('#test-dropdown .hds-dropdown__content')
       .hasClass('hds-dropdown__content--position-left');
   });
+  test('it should render the element as `inline` if the value of @isInline is "true"', async function (assert) {
+    await render(hbs`
+      <Hds::Dropdown id="test-dropdown" @isInline={{true}} as |dd|>
+        <dd.ToggleButton @text="toggle button" id="test-toggle-button" />
+        <dd.Interactive @route="components.dropdown" @text="interactive" />
+      </Hds::Dropdown>
+    `);
+    await click('button#test-toggle-button');
+    assert.dom('#test-dropdown').hasClass('hds-dropdown--is-inline');
+  });
 
   // WIDTH
 

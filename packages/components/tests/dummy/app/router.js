@@ -54,6 +54,7 @@ Router.map(function () {
     this.route('toast');
     this.route('tabs');
     this.route('side-nav');
+    this.route('segmented-group');
   });
   this.route('layouts', function () {
     this.route('app-frame');

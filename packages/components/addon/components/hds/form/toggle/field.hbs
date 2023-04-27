@@ -13,8 +13,6 @@
   {{yield (hash Label=F.Label HelperText=F.HelperText Error=F.Error)}}
   <F.Control>
     <Hds::Form::Toggle::Base
-      {{! template-lint-disable no-capital-arguments }}
-      @_wrapperClass="hds-form-field__control"
       @value={{@value}}
       required={{@isRequired}}
       ...attributes

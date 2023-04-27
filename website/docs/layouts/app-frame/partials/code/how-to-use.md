@@ -124,3 +124,20 @@ If the “modal“ container is empty, a `display: none` style is applied to it.
   </Hds::AppFrame>
 </div>
 ```
+
+If the content is injected dynamically—eg. via JavaScript or via Ember "portals"—you can assign an ID to the HTML element so that it can be targeted in the DOM by the code:
+
+```handlebars{data-execute=false}
+<div class="doc-app-frame-mock-viewport">
+  <Hds::AppFrame as |Frame|>
+    <Frame.Sidebar>
+      ...
+    </Frame.Sidebar>
+    <Frame.Main>
+      ...
+    </Frame.Main>
+    {{! assign an ID to the element to target it in the DOM }}
+    <Frame.Modals id="app-frame-modals" data-test-modals-container />
+  </Hds::AppFrame>
+</div>
+```

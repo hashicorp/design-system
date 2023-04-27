@@ -2,4 +2,4 @@
 "@hashicorp/design-system-components": minor
 ---
 
-Added `AppFrame` component
+Add `SegmentedGroup` component

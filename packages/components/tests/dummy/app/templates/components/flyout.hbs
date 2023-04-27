@@ -100,6 +100,68 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Text::H2>Footer</Shw::Text::H2>
+
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="One action" class="shw-component-flyout-sample-item">
+      <Hds::Flyout open id="flyout-example-one-action" as |F|>
+        <F.Header>Title</F.Header>
+        <F.Body>
+          <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
+        </F.Body>
+        <F.Footer>
+          <Hds::Button type="submit" @text="Primary" />
+        </F.Footer>
+      </Hds::Flyout>
+    </SF.Item>
+    <SF.Item @label="Two actions" class="shw-component-flyout-sample-item">
+      <Hds::Flyout open id="flyout-example-two-actions" as |F|>
+        <F.Header>Title</F.Header>
+        <F.Body>
+          <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
+        </F.Body>
+        <F.Footer>
+          <Hds::ButtonSet>
+            <Hds::Button type="submit" @text="Primary" />
+            <Hds::Button type="button" @text="Secondary" @color="secondary" />
+          </Hds::ButtonSet>
+        </F.Footer>
+      </Hds::Flyout>
+    </SF.Item>
+    <SF.Item @label="Three actions" class="shw-component-flyout-sample-item">
+      <Hds::Flyout open id="flyout-example-three-action" as |F|>
+        <F.Header>Title</F.Header>
+        <F.Body>
+          <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
+        </F.Body>
+        <F.Footer>
+          <Hds::ButtonSet>
+            <Hds::Button type="submit" @text="Primary" />
+            <Hds::Button type="button" @text="Secondary" @color="secondary" />
+            <Hds::Button
+              type="button"
+              @text="Tertiary"
+              @color="tertiary"
+              @icon="arrow-right"
+              @iconPosition="trailing"
+            />
+          </Hds::ButtonSet>
+        </F.Footer>
+      </Hds::Flyout>
+    </SF.Item>
+    <SF.Item @label="Generic footer content" class="shw-component-flyout-sample-item">
+      <Hds::Flyout open id="flyout-example-footer-generic" as |F|>
+        <F.Header>Title</F.Header>
+        <F.Body>
+          <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
+        </F.Body>
+        <F.Footer>
+          <Shw::Placeholder @text="some generic content" @height="50" @background="#eee" />
+        </F.Footer>
+      </Hds::Flyout>
+    </SF.Item>
+  </Shw::Flex>
+
 </section>
 
 <Shw::Divider />
@@ -142,6 +204,9 @@
           adipiscing elit.
         </p>
       </F.Body>
+      <F.Footer as |FF|>
+        <Hds::Button type="button" @text="Primary" {{on "click" FF.close}} />
+      </F.Footer>
     </Hds::Flyout>
   {{/if}}
 
@@ -170,6 +235,12 @@
           porttitor ipsum, sed ultricies est fermentum at. In dignissim luctus ex vel condimentum.
         </p>
       </F.Body>
+      <F.Footer as |FF|>
+        <Hds::ButtonSet>
+          <Hds::Button type="submit" @text="Primary" {{on "click" FF.close}} />
+          <Hds::Button type="button" @text="Secondary" @color="secondary" {{on "click" FF.close}} />
+        </Hds::ButtonSet>
+      </F.Footer>
     </Hds::Flyout>
   {{/if}}
 </section>
