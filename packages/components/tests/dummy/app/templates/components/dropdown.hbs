@@ -42,6 +42,29 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Text::H2>Display</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Block">
+      <div class="shw-component-dropdown-display-sample">
+        <Hds::Dropdown @listPosition="bottom-left" as |dd|>
+          <dd.ToggleButton @color="secondary" @text="Menu" />
+          <dd.Interactive @href="#" @text="Create" />
+          <dd.Interactive @href="#" @text="Edit" />
+        </Hds::Dropdown>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Inline">
+      <div class="shw-component-dropdown-display-sample">
+        <Hds::Dropdown @listPosition="bottom-left" @isInline={{true}} as |dd|>
+          <dd.ToggleButton @color="secondary" @text="Menu" />
+          <dd.Interactive @href="#" @text="Create" />
+          <dd.Interactive @href="#" @text="Edit" />
+        </Hds::Dropdown>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
   <Shw::Divider />
 
   <Shw::Text::H2>Toggles</Shw::Text::H2>

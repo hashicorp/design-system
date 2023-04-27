@@ -9,7 +9,7 @@ export default class ComponentsController extends Controller {
   get cards() {
     // we want to use a flat tree here...
     const tocTree = this.model.toc.flat;
-    const sections = ['components', 'overrides', 'utilities'];
+    const sections = ['components', 'layouts', 'overrides', 'utilities'];
     const cards = {};
     sections.forEach((section) => {
       cards[section] = tocTree

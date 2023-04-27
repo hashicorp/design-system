@@ -1,0 +1,91 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// APP-FRAME
+
+@mixin shw-apply-transform($stack) {
+  $tx: 0;
+  $ty: ($stack - 1) * 5px;
+  $tz: ($stack * 20px);
+  transform:
+    rotateY(30deg)
+    translate3d($tx, $ty, $tz) !important;
+}
+
+body.layouts-app-frame {
+  .shw-layout-app-frame-wrapper {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+
+    .hds-app-frame {
+      position: relative;
+      height: 100% !important;
+      min-height: 100% !important;
+    }
+
+    .hds-app-frame__modals {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .shw-layout-app-frame-wrapper--with-3d {
+    .hds-app-frame {
+      perspective: 2000px;
+      perspective-origin: 50% 50%;
+    }
+
+    .hds-app-frame__header,
+    .hds-app-frame__sidebar,
+    .hds-app-frame__main,
+    .hds-app-frame__footer,
+    .hds-app-frame__modals {
+      transform-style: preserve-3d;
+      transition: transform 400ms ease-in-out;
+    }
+
+    &.shw-is-3d {
+      outline: 1px dotted #ccc;
+
+      .hds-app-frame__header {
+        @include shw-apply-transform(3);
+      }
+
+      .hds-app-frame__sidebar {
+        @include shw-apply-transform(2);
+      }
+
+      .hds-app-frame__main {
+        @include shw-apply-transform(0);
+      }
+
+      .hds-app-frame__footer {
+        @include shw-apply-transform(1);
+      }
+
+      .hds-app-frame__modals {
+        @include shw-apply-transform(4);
+      }
+    }
+  }
+
+  .shw-layout-app-frame-fake-overlay {
+    position: absolute;
+    z-index: 50; // same as HDS overlay
+    inset: 0;
+    background: var(--token-color-palette-neutral-700);
+    opacity: 0.25;
+  }
+
+  .shw-layout-app-frame-fake-modal {
+    position: absolute;
+    z-index: 50; // same as HDS modal
+    width: 200px;
+    height: 160px;
+    margin: auto;
+    inset: 0;
+  }
+}

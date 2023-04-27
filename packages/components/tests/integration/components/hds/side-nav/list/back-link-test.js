@@ -69,11 +69,11 @@ module(
 
     test('it should spread all the attributes passed to the component on the element', async function (assert) {
       await render(
-        hbs`<Hds::SideNav::List::BackLink id="test-sidenav-backlink" class="my-class" data-test1 data-test2="test" />`
+        hbs`<Hds::SideNav::List::BackLink id="test-side-nav-backlink" class="my-class" data-test1 data-test2="test" />`
       );
-      assert.dom('#test-sidenav-backlink').hasClass('my-class');
-      assert.dom('#test-sidenav-backlink').hasAttribute('data-test1');
-      assert.dom('#test-sidenav-backlink').hasAttribute('data-test2', 'test');
+      assert.dom('#test-side-nav-backlink').hasClass('my-class');
+      assert.dom('#test-side-nav-backlink').hasAttribute('data-test1');
+      assert.dom('#test-side-nav-backlink').hasAttribute('data-test2', 'test');
     });
   }
 );

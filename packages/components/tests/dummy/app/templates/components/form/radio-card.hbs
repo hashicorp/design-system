@@ -16,7 +16,7 @@
   <Shw::Grid @columns={{4}} as |SG|>
     {{#each @model.STATES as |state|}}
       <SG.Item @label={{capitalize state}} mock-state-value={{state}} mock-state-selector="label">
-        <Hds::Form::RadioCard {{on "change" this.onChange}} @disabled={{eq state "disabled"}} as |R|>
+        <Hds::Form::RadioCard @disabled={{eq state "disabled"}} as |R|>
           <R.Icon @name="hexagon" />
           <R.Label>Label</R.Label>
           <R.Description>Description</R.Description>
@@ -25,7 +25,7 @@
     {{/each}}
     {{#each @model.STATES as |state|}}
       <SG.Item @label="{{capitalize state}} selected" mock-state-value={{state}} mock-state-selector="label">
-        <Hds::Form::RadioCard {{on "change" this.onChange}} @checked={{true}} @disabled={{eq state "disabled"}} as |R|>
+        <Hds::Form::RadioCard @checked={{true}} @disabled={{eq state "disabled"}} as |R|>
           <R.Icon @name="hexagon" />
           <R.Label>Label</R.Label>
           <R.Description>Description</R.Description>

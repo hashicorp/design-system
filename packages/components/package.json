@@ -1,6 +1,6 @@
 {
   "name": "@hashicorp/design-system-components",
-  "version": "2.0.0",
+  "version": "2.2.0",
   "description": "Helios Design System Components",
   "keywords": [
     "hashicorp",
@@ -38,9 +38,10 @@
   },
   "dependencies": {
     "@ember/render-modifiers": "^2.0.5",
-    "@hashicorp/design-system-tokens": "^1.4.1",
+    "@hashicorp/design-system-tokens": "^1.4.2",
     "@hashicorp/ember-flight-icons": "^3.0.2",
     "dialog-polyfill": "^0.5.6",
+    "ember-a11y-refocus": "^3.0.2",
     "ember-auto-import": "^2.6.0",
     "ember-cached-decorator-polyfill": "^0.1.4",
     "ember-cli-babel": "^7.26.11",
@@ -50,6 +51,7 @@
     "ember-focus-trap": "^1.0.1",
     "ember-keyboard": "^8.1.0",
     "ember-named-blocks-polyfill": "^0.2.5",
+    "ember-stargate": "^0.4.3",
     "ember-style-modifier": "^0.8.0",
     "ember-truth-helpers": "^3.0.0",
     "sass": "^1.58.3",
@@ -62,7 +64,7 @@
     "@embroider/test-setup": "^2.0.2",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
-    "@percy/cli": "^1.21.0",
+    "@percy/cli": "^1.24.0",
     "@percy/ember": "^4.2.0",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",

@@ -9,16 +9,18 @@
 
 <section data-test-percy>
 
-  <Shw::Text::H2>Interaction status</Shw::Text::H2>
+  <Shw::Text::H2>Single selection</Shw::Text::H2>
+
+  <Shw::Text::H3>Interaction</Shw::Text::H3>
   <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
-    <SF.Item @label="No option selected">
+    <SF.Item @label="Default">
       <div class="hds-power-select">
         <PowerSelect @options={{@model.OPTIONS}} @onChange={{this.noop}} @renderInPlace={{true}} as |option|>
           {{option}}
         </PowerSelect>
       </div>
     </SF.Item>
-    <SF.Item @label="Option selected">
+    <SF.Item @label="Selected">
       <div class="hds-power-select">
         <PowerSelect
           @options={{@model.OPTIONS}}
@@ -31,9 +33,23 @@
         </PowerSelect>
       </div>
     </SF.Item>
+    <SF.Item @label="Search enabled">
+      <div class="hds-power-select">
+        <PowerSelect
+          @options={{@model.OPTIONS}}
+          @selected={{@model.SELECTED}}
+          @onChange={{this.noop}}
+          @renderInPlace={{true}}
+          @searchEnabled={{true}}
+          as |option|
+        >
+          {{option}}
+        </PowerSelect>
+      </div>
+    </SF.Item>
   </Shw::Flex>
 
-  <Shw::Text::H2>States</Shw::Text::H2>
+  <Shw::Text::H3>States</Shw::Text::H3>
 
   <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
     <SF.Item @label="Default">
@@ -75,6 +91,94 @@
         >
           {{option}}
         </PowerSelect>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H2>Multiple selection</Shw::Text::H2>
+
+  <Shw::Text::H3>Interaction</Shw::Text::H3>
+
+  <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
+    <SF.Item @label="Default">
+      <div class="hds-power-select">
+        <PowerSelectMultiple @options={{@model.OPTIONS}} @onChange={{this.noop}} @renderInPlace={{true}} as |option|>
+          {{option}}
+        </PowerSelectMultiple>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Selected">
+      <div class="hds-power-select">
+        <PowerSelectMultiple
+          @options={{@model.OPTIONS}}
+          @selected={{@model.SELECTEDMULTIPLE}}
+          @onChange={{this.noop}}
+          @renderInPlace={{true}}
+          as |option|
+        >
+          {{option}}
+        </PowerSelectMultiple>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Search enabled">
+      <div class="hds-power-select">
+        <PowerSelectMultiple
+          @options={{@model.OPTIONS}}
+          @selected={{@model.SELECTEDMULTIPLE}}
+          @onChange={{this.noop}}
+          @renderInPlace={{true}}
+          @searchEnabled={{true}}
+          as |option|
+        >
+          {{option}}
+        </PowerSelectMultiple>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H3>States</Shw::Text::H3>
+
+  <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
+    <SF.Item @label="Default">
+      <div class="hds-power-select">
+        <PowerSelectMultiple
+          @options={{@model.OPTIONS}}
+          @selected={{@model.SELECTEDMULTIPLE}}
+          @onChange={{this.noop}}
+          @renderInPlace={{true}}
+          @searchEnabled={{true}}
+          as |option|
+        >
+          {{option}}
+        </PowerSelectMultiple>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Focus">
+      <div class="hds-power-select">
+        <PowerSelectMultiple
+          class="mock-focus"
+          @options={{@model.OPTIONS}}
+          @selected={{@model.SELECTEDMULTIPLE}}
+          @onChange={{this.noop}}
+          @renderInPlace={{true}}
+          as |option|
+        >
+          {{option}}
+        </PowerSelectMultiple>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Disabled">
+      <div class="hds-power-select">
+        <PowerSelectMultiple
+          @options={{@model.OPTIONS}}
+          @selected={{@model.SELECTEDMULTIPLE}}
+          @onChange={{this.noop}}
+          @renderInPlace={{true}}
+          @disabled={{true}}
+          as |option|
+        >
+          {{option}}
+        </PowerSelectMultiple>
       </div>
     </SF.Item>
   </Shw::Flex>

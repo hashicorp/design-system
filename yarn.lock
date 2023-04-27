@@ -1337,7 +1337,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.14.0, @babel/runtime@npm:^7.20.1, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.4":
+"@babel/runtime@npm:^7.14.0, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.20.1, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.4":
   version: 7.21.0
   resolution: "@babel/runtime@npm:7.21.0"
   dependencies:
@@ -2193,6 +2193,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@embroider/addon-shim@npm:^1.2.0":
+  version: 1.8.4
+  resolution: "@embroider/addon-shim@npm:1.8.4"
+  dependencies:
+    "@embroider/shared-internals": ^2.0.0
+    broccoli-funnel: ^3.0.8
+    semver: ^7.3.8
+  checksum: 107220e97bbd46ead81dfbbfc6cf7daa61731096a6e81b989659a9a0b29b48b3c97ebdd446b6dc0636c4be369f3744e514b7f5e5c0fdc54c1c0e026f54404cc2
+  languageName: node
+  linkType: hard
+
 "@embroider/macros@npm:^0.50.0 || ^1.0.0, @embroider/macros@npm:^1.0.0, @embroider/macros@npm:^1.10.0, @embroider/macros@npm:^1.2.0, @embroider/macros@npm:^1.8.1":
   version: 1.10.0
   resolution: "@embroider/macros@npm:1.10.0"
@@ -2461,7 +2472,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/tracking@npm:^1.0.4, @glimmer/tracking@npm:^1.1.2":
+"@glimmer/tracking@npm:^1.0.0, @glimmer/tracking@npm:^1.0.4, @glimmer/tracking@npm:^1.1.2":
   version: 1.1.2
   resolution: "@glimmer/tracking@npm:1.1.2"
   dependencies:
@@ -2544,13 +2555,14 @@ __metadata:
     "@embroider/test-setup": ^2.0.2
     "@glimmer/component": ^1.1.2
     "@glimmer/tracking": ^1.1.2
-    "@hashicorp/design-system-tokens": ^1.4.1
+    "@hashicorp/design-system-tokens": ^1.4.2
     "@hashicorp/ember-flight-icons": ^3.0.2
-    "@percy/cli": ^1.21.0
+    "@percy/cli": ^1.24.0
     "@percy/ember": ^4.2.0
     babel-eslint: ^10.1.0
     broccoli-asset-rev: ^3.0.0
     dialog-polyfill: ^0.5.6
+    ember-a11y-refocus: ^3.0.2
     ember-a11y-testing: ^5.2.0
     ember-auto-import: ^2.6.0
     ember-body-class: ^3.0.0
@@ -2578,6 +2590,7 @@ __metadata:
     ember-resolver: ^10.0.0
     ember-source: ~4.10.0
     ember-source-channel-url: ^3.0.0
+    ember-stargate: ^0.4.3
     ember-style-modifier: ^0.8.0
     ember-template-lint: ^4.18.2
     ember-template-lint-plugin-prettier: ^4.1.0
@@ -2603,7 +2616,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/design-system-tokens@^1.4.1, @hashicorp/design-system-tokens@workspace:^, @hashicorp/design-system-tokens@workspace:packages/tokens":
+"@hashicorp/design-system-tokens@^1.4.2, @hashicorp/design-system-tokens@workspace:^, @hashicorp/design-system-tokens@workspace:packages/tokens":
   version: 0.0.0-use.local
   resolution: "@hashicorp/design-system-tokens@workspace:packages/tokens"
   dependencies:
@@ -3038,128 +3051,128 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@percy/cli-app@npm:1.21.0":
-  version: 1.21.0
-  resolution: "@percy/cli-app@npm:1.21.0"
+"@percy/cli-app@npm:1.24.0":
+  version: 1.24.0
+  resolution: "@percy/cli-app@npm:1.24.0"
   dependencies:
-    "@percy/cli-command": 1.21.0
-    "@percy/cli-exec": 1.21.0
-  checksum: 1e7a3898af4a52e36055bd216afa54afc4502c81a1ce72d92515b8a45f98e1493dee51590af2bcfe68d420987de1529980e408ff0b79910eb9867206a88bf074
+    "@percy/cli-command": 1.24.0
+    "@percy/cli-exec": 1.24.0
+  checksum: 77664fb2042ddce3e5d8aee6dfa77c1d49209512fe6cbd100cc4db85ec2183cc4269388d06296408b11839ffe53d8271ee43b7fc03ecf71b4624afecb67ba9c9
   languageName: node
   linkType: hard
 
-"@percy/cli-build@npm:1.21.0":
-  version: 1.21.0
-  resolution: "@percy/cli-build@npm:1.21.0"
+"@percy/cli-build@npm:1.24.0":
+  version: 1.24.0
+  resolution: "@percy/cli-build@npm:1.24.0"
   dependencies:
-    "@percy/cli-command": 1.21.0
-  checksum: 20e1a8b14f8682c0de49a4600204b03b97e0b8129eb9c0ded39cd0016bcf5d3f6e0c2623bccbd594f7c6f5a05df5587dddef78bdd83db1dd94de470fd891a3a8
+    "@percy/cli-command": 1.24.0
+  checksum: 51ab465270e70bc09fb3b320f9ed7769e011273e4a626441e7bdb2a540de4b7d7fa53f9fe6dca98a132ccb6cb4f622bfdbe85ba8235be4d17f81d36a96e1b4a6
   languageName: node
   linkType: hard
 
-"@percy/cli-command@npm:1.21.0":
-  version: 1.21.0
-  resolution: "@percy/cli-command@npm:1.21.0"
+"@percy/cli-command@npm:1.24.0":
+  version: 1.24.0
+  resolution: "@percy/cli-command@npm:1.24.0"
   dependencies:
-    "@percy/config": 1.21.0
-    "@percy/core": 1.21.0
-    "@percy/logger": 1.21.0
+    "@percy/config": 1.24.0
+    "@percy/core": 1.24.0
+    "@percy/logger": 1.24.0
   bin:
     percy-cli-readme: bin/readme.js
-  checksum: 4e4e6c06300e52033d234093a60621052db1c21f2ed49e2fd01f356f1ab3be9a6fdbe7cdf06b53b951c96caf744b6cda0107f8ae2d6e6a49f2d535893934c6bb
+  checksum: 19a09fb9a7dd20f35c45924516f51a9974f904c5a9874faee0a47fa82b12f4e87e284e1d84ccb59409a93376420a0fc11c347ff83785ea750341802757aace73
   languageName: node
   linkType: hard
 
-"@percy/cli-config@npm:1.21.0":
-  version: 1.21.0
-  resolution: "@percy/cli-config@npm:1.21.0"
+"@percy/cli-config@npm:1.24.0":
+  version: 1.24.0
+  resolution: "@percy/cli-config@npm:1.24.0"
   dependencies:
-    "@percy/cli-command": 1.21.0
-  checksum: 4da00486f327f68878720e7eaab37d6ff6b29832a44d19e621761890b6b8a1d381bfa4ebffed8fd5cb2cbac5881e5cfb7ed6967b1001012c9edffdbb05016efc
+    "@percy/cli-command": 1.24.0
+  checksum: c60dd1d7bb53ea9f0215f08a525a5b92fb7e53054431907bee10d03f190b6359ee3a1023c154d08e4a6c03ec98ea563d2d54322449bedd8ded05439546f10c8a
   languageName: node
   linkType: hard
 
-"@percy/cli-exec@npm:1.21.0":
-  version: 1.21.0
-  resolution: "@percy/cli-exec@npm:1.21.0"
+"@percy/cli-exec@npm:1.24.0":
+  version: 1.24.0
+  resolution: "@percy/cli-exec@npm:1.24.0"
   dependencies:
-    "@percy/cli-command": 1.21.0
+    "@percy/cli-command": 1.24.0
     cross-spawn: ^7.0.3
     which: ^2.0.2
-  checksum: 6040a97d0cb5499fcf4524c787f74c4c24e2f7351f2c753f8aef06f0d9741a71e95d6577814013746125b478f0be8ddb960eacd4eae1bd3f6938cd7f090f21f5
+  checksum: 4078e42f97e79858ab8f875d05acb96971c45e17ec919bb50f2bcf9ed8af7b07e52231b4e5ffb39fa81870eab2e898a48757492d46be131110878fee53bde085
   languageName: node
   linkType: hard
 
-"@percy/cli-snapshot@npm:1.21.0":
-  version: 1.21.0
-  resolution: "@percy/cli-snapshot@npm:1.21.0"
+"@percy/cli-snapshot@npm:1.24.0":
+  version: 1.24.0
+  resolution: "@percy/cli-snapshot@npm:1.24.0"
   dependencies:
-    "@percy/cli-command": 1.21.0
+    "@percy/cli-command": 1.24.0
     yaml: ^2.0.0
-  checksum: f1321395992bab4c89ab285758e5d2b57a65f7eaf4e01bdd1830ea1af7e2ed81f0ce17025ee82229d4ffebd873000d63266ffe0c7153976670d21c29a9f73372
+  checksum: ea97813503232e667bff5e5ea7a4a815c6d21b666fb16bb137bb6481edb2d45d06ae6d029b717d4dd7f4354e2b0745a90c8e6bb17363fc6a5eb2408fe4358df8
   languageName: node
   linkType: hard
 
-"@percy/cli-upload@npm:1.21.0":
-  version: 1.21.0
-  resolution: "@percy/cli-upload@npm:1.21.0"
+"@percy/cli-upload@npm:1.24.0":
+  version: 1.24.0
+  resolution: "@percy/cli-upload@npm:1.24.0"
   dependencies:
-    "@percy/cli-command": 1.21.0
+    "@percy/cli-command": 1.24.0
     fast-glob: ^3.2.11
     image-size: ^1.0.0
-  checksum: 8fd473b0498ead78d38977a93ce0c46f628f18ed28d735804eb6840cc6d20ab88045efe2ed588b48e77f65b8ec7960b3305c9c8389fded11878bdaabb13c5ec9
+  checksum: 19e9b1b9f45b4f4271973865784e89089beaed4de596183a08e3d42f75d4f6c567d12f806c356cf240596d3822b63e05de3b97dabb14225e840d70010712fed3
   languageName: node
   linkType: hard
 
-"@percy/cli@npm:^1.21.0":
-  version: 1.21.0
-  resolution: "@percy/cli@npm:1.21.0"
+"@percy/cli@npm:^1.24.0":
+  version: 1.24.0
+  resolution: "@percy/cli@npm:1.24.0"
   dependencies:
-    "@percy/cli-app": 1.21.0
-    "@percy/cli-build": 1.21.0
-    "@percy/cli-command": 1.21.0
-    "@percy/cli-config": 1.21.0
-    "@percy/cli-exec": 1.21.0
-    "@percy/cli-snapshot": 1.21.0
-    "@percy/cli-upload": 1.21.0
-    "@percy/client": 1.21.0
-    "@percy/logger": 1.21.0
+    "@percy/cli-app": 1.24.0
+    "@percy/cli-build": 1.24.0
+    "@percy/cli-command": 1.24.0
+    "@percy/cli-config": 1.24.0
+    "@percy/cli-exec": 1.24.0
+    "@percy/cli-snapshot": 1.24.0
+    "@percy/cli-upload": 1.24.0
+    "@percy/client": 1.24.0
+    "@percy/logger": 1.24.0
   bin:
     percy: bin/run.cjs
-  checksum: b11bd87dffd82c37bd8edccaae651ed33c8ce0476af9f17134eb78c474719c81d7c6832f00203e37f4fa2d737aea201062b450ff48cc465baa664055679fe312
+  checksum: b36317bd2448f30945d67c4882e529e09a8a36c8531a35fd23c958fae3a8b49accf899f2d96ae98a32df442eaabe2614cb1c803c919272c1996727dce41b2967
   languageName: node
   linkType: hard
 
-"@percy/client@npm:1.21.0":
-  version: 1.21.0
-  resolution: "@percy/client@npm:1.21.0"
+"@percy/client@npm:1.24.0":
+  version: 1.24.0
+  resolution: "@percy/client@npm:1.24.0"
   dependencies:
-    "@percy/env": 1.21.0
-    "@percy/logger": 1.21.0
-  checksum: 56179e65971cc2aac4af27e0bdd3bb9e6b9acda1ce7a0435edc122dd39bb9c4af1e09a1ff76632f05ceec37b572aa2473350ac1afda84bf73c5c11c70eced4c9
+    "@percy/env": 1.24.0
+    "@percy/logger": 1.24.0
+  checksum: a975bce76f150c2b278c2c56d7611490dd906992ec8a9cc822c3dea5424e16d6cdf7f2a94ef9f60ea0916c0be080ebade6d7674688c6253efd8272e1b19aaa66
   languageName: node
   linkType: hard
 
-"@percy/config@npm:1.21.0":
-  version: 1.21.0
-  resolution: "@percy/config@npm:1.21.0"
+"@percy/config@npm:1.24.0":
+  version: 1.24.0
+  resolution: "@percy/config@npm:1.24.0"
   dependencies:
-    "@percy/logger": 1.21.0
+    "@percy/logger": 1.24.0
     ajv: ^8.6.2
     cosmiconfig: ^7.0.0
     yaml: ^2.0.0
-  checksum: 56d6033095ea819ca66a5506cf239b2aeef8a827eec320152fe159c10ad4c70af15e7827692bc65b168325ed002a50a703aeb5e1b287d6043f0b6114c0b9990c
+  checksum: 7bfca2a8e8d603e33c8b5d7b10f061c84cbae45a97739138e95ae02b4b34f5d3949a427bfaf93b5b434292c481a735706a4a8aea6537b250f8e76af71fd36a20
   languageName: node
   linkType: hard
 
-"@percy/core@npm:1.21.0":
-  version: 1.21.0
-  resolution: "@percy/core@npm:1.21.0"
+"@percy/core@npm:1.24.0":
+  version: 1.24.0
+  resolution: "@percy/core@npm:1.24.0"
   dependencies:
-    "@percy/client": 1.21.0
-    "@percy/config": 1.21.0
-    "@percy/dom": 1.21.0
-    "@percy/logger": 1.21.0
+    "@percy/client": 1.24.0
+    "@percy/config": 1.24.0
+    "@percy/dom": 1.24.0
+    "@percy/logger": 1.24.0
     content-disposition: ^0.5.4
     cross-spawn: ^7.0.3
     extract-zip: ^2.0.1
@@ -3169,14 +3182,14 @@ __metadata:
     path-to-regexp: ^6.2.0
     rimraf: ^3.0.2
     ws: ^8.0.0
-  checksum: f18b41b0914131a5a7eaa46ef2cbde02b63d5e995855fda0735e9ba80da78974ee8a2ccef3513c824c0903b0916e765cf70cbf5b5432b09f202dc49b55e7aed7
+  checksum: 561ac73130206d1ddee7f796aa296a11a5f4b296433fce55ef03778bb0cc0518045927cfa1e67372fc856206e186b3e20010f3ce6151eb1d8415c369a2643b41
   languageName: node
   linkType: hard
 
-"@percy/dom@npm:1.21.0":
-  version: 1.21.0
-  resolution: "@percy/dom@npm:1.21.0"
-  checksum: 6d30b9ec0e48a35a353cfdbac9a079f68c228e7ce7b41bd46599a9fd9f0417e1991089aa1a44448bd2105c0094ead562bbb9fbc87c735460927f966819be4a04
+"@percy/dom@npm:1.24.0":
+  version: 1.24.0
+  resolution: "@percy/dom@npm:1.24.0"
+  checksum: 9b6122d9212cc6ce5bd179f21f03a58d8de2f5d10e2e6111c24348a486eb7dd29fa6d620a65e2d1a4f5fddd6cf5f9b61bda75ad98217c976e44a407f508c4571
   languageName: node
   linkType: hard
 
@@ -3190,17 +3203,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@percy/env@npm:1.21.0":
-  version: 1.21.0
-  resolution: "@percy/env@npm:1.21.0"
-  checksum: 9c367bf16d506b6fa7ed4b9874bb6bb1e47767de1d6ded529be06b4f5c6b297bfcb8bd93db290a876717798f7b616f5d769494c9b4d4ef70c45351c16252a5f6
+"@percy/env@npm:1.24.0":
+  version: 1.24.0
+  resolution: "@percy/env@npm:1.24.0"
+  checksum: 31e9d8335c998fe59d32bb0aafa7ff8a87642805fa1e8386d788accfc37635a0d4246cd46f62089628adc63f7d2d4cd3235f785a3a52575a6995ddd403ee8989
   languageName: node
   linkType: hard
 
-"@percy/logger@npm:1.21.0":
-  version: 1.21.0
-  resolution: "@percy/logger@npm:1.21.0"
-  checksum: 46493160658043e8ef13c9038ba2bf8a52401a8ae1040073830b6c9ff8b4db481bb45ad4ce7d5db3b01b9f14e6bba29e5dd993b5fe9be7bebaeb0803acd0be1b
+"@percy/logger@npm:1.24.0":
+  version: 1.24.0
+  resolution: "@percy/logger@npm:1.24.0"
+  checksum: 851f4413bb505935d5f99426a22347b9b782b6ff9ff23ab92929a892b023a8609c65fa2e12b5a0b09c344e4ceed27e9a2f8efa96667110c3d96c40389be286fb
   languageName: node
   linkType: hard
 
@@ -10156,6 +10169,31 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ember-resources@npm:^5.0.1":
+  version: 5.6.4
+  resolution: "ember-resources@npm:5.6.4"
+  dependencies:
+    "@babel/runtime": ^7.17.8
+    "@embroider/addon-shim": ^1.2.0
+    "@embroider/macros": ^1.2.0
+  peerDependencies:
+    "@ember/test-waiters": ^3.0.0
+    "@glimmer/component": ^1.1.2
+    "@glimmer/tracking": ^1.1.2
+    "@glint/template": ">= 0.8.3"
+    ember-concurrency: ^2.0.0
+    ember-source: ">= 3.28.0"
+  peerDependenciesMeta:
+    "@ember/test-waiters":
+      optional: true
+    "@glimmer/component":
+      optional: true
+    ember-concurrency:
+      optional: true
+  checksum: 9edb126ee307251080380d421aba42f330f76c6e295046ae59b48c3162d27e83223732e398f8373f933d120f38831e791e0fd31e63c70315982166db399d2b33
+  languageName: node
+  linkType: hard
+
 "ember-rfc176-data@npm:^0.3.13, ember-rfc176-data@npm:^0.3.15, ember-rfc176-data@npm:^0.3.17":
   version: 0.3.17
   resolution: "ember-rfc176-data@npm:0.3.17"
@@ -10268,6 +10306,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ember-stargate@npm:^0.4.3":
+  version: 0.4.3
+  resolution: "ember-stargate@npm:0.4.3"
+  dependencies:
+    "@ember/render-modifiers": ^2.0.0
+    "@embroider/addon-shim": ^1.0.0
+    "@glimmer/component": ^1.1.2
+    ember-resources: ^5.0.1
+    tracked-maps-and-sets: ^3.0.1
+  checksum: b41c0dd65c59e298d0a9f9b31fd5035b7824d8ebc0a92b47d52dc559b553ade3e9126bc4f647521138f09b34f80ed297300b6d428583b9a294de5071d5890bf6
+  languageName: node
+  linkType: hard
+
 "ember-style-modifier@npm:^0.8.0":
   version: 0.8.0
   resolution: "ember-style-modifier@npm:0.8.0"
@@ -10373,6 +10424,16 @@ __metadata:
     ember-cli-babel: ^7.19.0
     ember-cli-htmlbars: ^4.3.1
   checksum: 27991766045bba77515ecf6e9609f580ee38b2e53026206d18155cbeac87e57979e613a73ca2fae51ed79e00ab6bf71aff7ce07e1e7a15851e2f013ff8c06c97
+  languageName: node
+  linkType: hard
+
+"ember-tracked-storage-polyfill@npm:1.0.0":
+  version: 1.0.0
+  resolution: "ember-tracked-storage-polyfill@npm:1.0.0"
+  dependencies:
+    ember-cli-babel: ^7.26.3
+    ember-cli-htmlbars: ^5.7.1
+  checksum: f0e1df126b17cd58a78e81cf73e6a3fa8b7052e3e7058537cce9f658463b0e7f5c3fa1baebff85e19617f5eab1fa762a9dd1f17738b7baca50ef5481dc20d672
   languageName: node
   linkType: hard
 
@@ -19941,6 +20002,18 @@ __metadata:
   version: 0.0.3
   resolution: "tr46@npm:0.0.3"
   checksum: 726321c5eaf41b5002e17ffbd1fb7245999a073e8979085dacd47c4b4e8068ff5777142fc6726d6ca1fd2ff16921b48788b87225cbc57c72636f6efa8efbffe3
+  languageName: node
+  linkType: hard
+
+"tracked-maps-and-sets@npm:^3.0.1":
+  version: 3.0.2
+  resolution: "tracked-maps-and-sets@npm:3.0.2"
+  dependencies:
+    "@glimmer/tracking": ^1.0.0
+    ember-cli-babel: ^7.26.6
+    ember-cli-typescript: ^4.2.1
+    ember-tracked-storage-polyfill: 1.0.0
+  checksum: 3bcd53d27c751d4d7355457d7639fb6c9cf93f8d3b9a955b04805809b628b2fdb62b1899313c2bc7a92b64817a26d2fc648452d5f662de967767351439b70f11
   languageName: node
   linkType: hard
 

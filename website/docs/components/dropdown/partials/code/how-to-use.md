@@ -31,9 +31,22 @@ By default, the list is positioned below the button, aligned to the right. To ch
 </Hds::Dropdown>
 ```
 
+In contexts where the dropdown needs to be _inline_, to inherit the alignment from a parent, you can use the `@isInline` argument (and set the `@listPosition` accordingly to your needs):
+
+```handlebars
+<div class="doc-dropdown-mock-text-align-right">
+  <Hds::Dropdown @isInline={{true}} @listPosition="bottom-right" as |dd|>
+    <dd.ToggleButton @text="Text Toggle" @color="secondary" />
+    <dd.Interactive @route="components" @text="Item One" />
+    <dd.Interactive @route="components" @text="Item Two" />
+    <dd.Interactive @route="components" @text="Item Three" />
+  </Hds::Dropdown>
+</div>
+```
+
 ### ToggleButton
 
-The basic invocation of ToggleButton requires `@text` to be passed. By default, it renders a primary button with a chevron icon. 
+The basic invocation of ToggleButton requires `@text` to be passed. By default, it renders a primary button with a chevron icon.
 
 ```handlebars
 <Hds::Dropdown as |dd|>
@@ -47,7 +60,7 @@ The basic invocation of ToggleButton requires `@text` to be passed. By default, 
 </Hds::Dropdown>
 ```
 
-Alternatively, pass `secondary` to `@color` to display a secondary button with a chevron icon. 
+Alternatively, pass `secondary` to `@color` to display a secondary button with a chevron icon.
 
 ```handlebars
 <Hds::Dropdown as |dd|>

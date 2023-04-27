@@ -53,8 +53,12 @@ Router.map(function () {
     this.route('tag');
     this.route('toast');
     this.route('tabs');
-    this.route('side-nav');
     this.route('tooltip');
+    this.route('side-nav');
+    this.route('segmented-group');
+  });
+  this.route('layouts', function () {
+    this.route('app-frame');
   });
   this.route('utilities', function () {
     this.route('disclosure');

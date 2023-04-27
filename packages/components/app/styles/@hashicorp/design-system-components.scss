@@ -13,6 +13,7 @@
 // Notice: this list can be automatically edited by the Ember blueprint, please don't remove the start/end comments
 // START COMPONENTS CSS FILES IMPORTS
 @use "../components/alert";
+@use "../components/app-frame";
 @use "../components/application-state";
 @use "../components/avatar";
 @use "../components/badge";
@@ -30,6 +31,7 @@
 @use "../components/link"; // multiple components
 @use "../components/modal";
 @use "../components/pagination";
+@use "../components/segmented-group";
 @use "../components/side-nav";
 @use "../components/stepper";
 @use "../components/table";
