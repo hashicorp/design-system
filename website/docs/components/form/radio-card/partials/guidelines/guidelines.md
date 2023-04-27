@@ -57,7 +57,7 @@ In most cases, we recommend using the bottom position. Still, we offer Radio Car
 
 ## Nested badge
 
-Use nested badges in radio cards to display multiple levels of information to provide additional context and information about the card's content. For proper usage of the badge component, refer to the [usage guidelines.](/components/badge) 
+Use nested badges in radio cards to display additional information and context. To ensure proper usage of the badge component, refer to the [guidelines.](/components/badge) 
 
 <Hds::Form::RadioCard::Group @name="radio-card-custom-example" as |G|>
   <G.Legend>Cluster type</G.Legend>
