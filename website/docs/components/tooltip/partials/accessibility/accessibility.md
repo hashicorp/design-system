@@ -9,6 +9,13 @@ The issue with tooltips, in general, is that of persistence and perceivability. 
 Consumers should proceed with caution in this case, and consider designs that make it clear to the user what options are available to them.
 
 
+## Focus
+
+- When the trigger receives focus via keyboard, the tooltip shows.
+- When the user presses the ESC key, the tooltip dismisses and gets removed from the screen.
+
+![Focus order within a simple Flyout](/assets/components/tooltip/tooltip-focus.png)
+
 ## Applicable WCAG Success Criteria
 
 This section is for reference only. This component intends to conform to the following WCAG Success Criteria:
