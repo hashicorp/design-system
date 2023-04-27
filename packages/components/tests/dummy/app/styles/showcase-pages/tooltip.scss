@@ -49,3 +49,11 @@ body.components-tooltip {
     outline: 1px dotted #d3d3d3;
   }
 }
+
+// we need to leave this out of the main selector to keep the specificity low
+
+.shw-component-tooltip-font-style {
+  font-weight: 900;
+  font-size: 18px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

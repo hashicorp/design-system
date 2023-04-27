@@ -18,9 +18,22 @@
   );
   margin: 0;
   padding: 0;
-  color: inherit;
   background: transparent;
   border: none;
+}
+
+// Prevent accidental override of hds classes ( :where() has a specificity of 0 )
+
+:where(.hds-tooltip-button:not([class*="hds-typography"])) {
+  font: inherit;
+}
+
+:where(.hds-tooltip-button:not([class*="hds-foreground"])) {
+  color: inherit;
+}
+
+:where(.hds-tooltip-button:not([class*="hds-surface"])) {
+  background-color: inherit;
 }
 
 .hds-tooltip-button--is-inline {

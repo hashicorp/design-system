@@ -162,6 +162,70 @@
 
   <Shw::Divider @level={{2}} />
 
+  <Shw::Text::H3>Font inheritance</Shw::Text::H3>
+
+  <Shw::Text::Body>No extra font class added</Shw::Text::Body>
+
+  <Shw::Flex {{style gap="2rem"}} as |SF|>
+    <SF.Item @label="TooltipButton">
+      <Hds::TooltipButton @text="Here is more info" @isInline={{false}} aria-label="Information">
+        Lorem ipsum dolor
+      </Hds::TooltipButton>
+    </SF.Item>
+
+    <SF.Item @label="Plain text (Not using TooltipButton)">Lorem ipsum dolor</SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::Body>HDS typographic class</Shw::Text::Body>
+
+  <Shw::Flex {{style gap="2rem"}} as |SF|>
+    <SF.Item @label="Applied to parent">
+      <div class="hds-typography-display-400">
+        <Hds::TooltipButton @text="Here is more info" @isInline={{false}} aria-label="Information">
+          Lorem ipsum dolor
+        </Hds::TooltipButton>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Applied to the button">
+      <Hds::TooltipButton class="hds-typography-display-400" @text="Here is more info">
+        Lorem ipsum dolor
+      </Hds::TooltipButton>
+    </SF.Item>
+    <SF.Item @label="Applied to children">
+      <Hds::TooltipButton @text="Here is more info" @isInline={{false}} aria-label="Information">
+        <div class="hds-typography-display-400">
+          Lorem ipsum dolor
+        </div>
+      </Hds::TooltipButton>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::Body>Using a custom class</Shw::Text::Body>
+
+  <Shw::Flex {{style gap="2rem"}} as |SF|>
+    <SF.Item @label="Applied to parent">
+      <div class="shw-component-tooltip-font-style">
+        <Hds::TooltipButton @text="Here is more info" @isInline={{false}} aria-label="Information">
+          Lorem ipsum dolor
+        </Hds::TooltipButton>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Applied to the button">
+      <Hds::TooltipButton class="shw-component-tooltip-font-style" @text="Here is more info">
+        Lorem ipsum dolor
+      </Hds::TooltipButton>
+    </SF.Item>
+    <SF.Item @label="Applied to children">
+      <Hds::TooltipButton @text="Here is more info" @isInline={{false}} aria-label="Information">
+        <div class="shw-component-tooltip-font-style">
+          Lorem ipsum dolor
+        </div>
+      </Hds::TooltipButton>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>States</Shw::Text::H3>
 
   <Shw::Text::Body>
