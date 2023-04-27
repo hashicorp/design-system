@@ -24,7 +24,9 @@
       )
     )
   }}
-  {{yield (hash Control=(component "hds/yield") id=this.id ariaDescribedBy=this.ariaDescribedBy)}}
+  <div class="hds-form-field__control">
+    {{yield (hash Control=(component "hds/yield") id=this.id ariaDescribedBy=this.ariaDescribedBy)}}
+  </div>
   {{yield
     (hash
       Error=(component
