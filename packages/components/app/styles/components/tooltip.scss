@@ -38,6 +38,7 @@
   font-size: var(--token-typography-body-200-font-size);
   font-family: var(--token-typography-body-200-font-family);
   line-height: var(--token-typography-body-200-line-height);
+  overflow-wrap: break-word;
   background-color: var(--token-tooltip-color-surface-primary);
   border-radius: var(--token-tooltip-border-radius);
   box-shadow: var(--token-elevation-higher-box-shadow);
