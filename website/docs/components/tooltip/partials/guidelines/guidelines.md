@@ -19,7 +19,7 @@ Use tooltips to provide additional context or supplementary non-critical informa
 
 !!! Dont
 
-Avoid using tooltips to place crucial information related to the user's task.
+Avoid using tooltips to place crucial information related to the user’s task.
 
 ![Incorrect use of a tooltip](/assets/components/tooltip/tooltip-when-not-to-use.png)
 
@@ -38,7 +38,7 @@ The tooltip supports additional placement options: `top-start`, `top-end`, `bott
 
 ## Offset
 
-The default and recommended distance between the trigger and the tooltip's pointer is 4px.
+The default and recommended distance between the trigger and the tooltip’s pointer is 4px.
 
 ![Default offset of the tooltip](/assets/components/tooltip/tooltip-spacing.png)
 
