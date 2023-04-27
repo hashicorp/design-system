@@ -8,7 +8,7 @@ When used as recommended, there should not be any WCAG conformance issues with t
 ## Focus
 
 - When the trigger receives focus via keyboard, the tooltip shows.
-- When the user presses the ESC key, the tooltip dismisses and get removed from the screen.
+- When the user presses the ESC key, the tooltip dismisses and gets removed from the screen.
 
 ![Focus order within a simple Flyout](/assets/components/tooltip/tooltip-focus.png)
 
