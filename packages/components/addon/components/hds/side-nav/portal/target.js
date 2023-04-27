@@ -139,7 +139,8 @@ export default class SidenavPortalTarget extends Component {
       nextPanelEl.ariaHidden = 'false';
       nextPanelEl.style.setProperty('visibility', 'visible');
       // this eliminates a flicker if there's only 1 subnav rendering
-      if (activeIndex === 0) {
+      // see: https://github.com/hashicorp/cloud-ui/pull/5771#issuecomment-1525254757
+      if (activeIndex <= 1) {
         fadeDelay = 0;
         fadeDuration = 0;
       }
