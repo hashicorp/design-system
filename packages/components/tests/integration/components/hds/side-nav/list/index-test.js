@@ -25,16 +25,16 @@ module('Integration | Component | hds/side-nav/list/index', function (hooks) {
   test('it renders passed in yielded content', async function (assert) {
     await render(hbs`
       <Hds::SideNav::List as |L|>
-        <L.Item id="test-sidenav-list-content-item" />
-        <L.BackLink id="test-sidenav-list-content-backlink" />
-        <L.Title id="test-sidenav-list-content-title" />
-        <L.Link id="test-sidenav-list-content-link" />
+        <L.Item id="test-side-nav-list-content-item" />
+        <L.BackLink id="test-side-nav-list-content-backlink" />
+        <L.Title id="test-side-nav-list-content-title" />
+        <L.Link id="test-side-nav-list-content-link" />
       </Hds::SideNav::List>
     `);
-    assert.dom('#test-sidenav-list-content-item').exists();
-    assert.dom('#test-sidenav-list-content-backlink').exists();
-    assert.dom('#test-sidenav-list-content-title').exists();
-    assert.dom('#test-sidenav-list-content-link').exists();
+    assert.dom('#test-side-nav-list-content-item').exists();
+    assert.dom('#test-side-nav-list-content-backlink').exists();
+    assert.dom('#test-side-nav-list-content-title').exists();
+    assert.dom('#test-side-nav-list-content-link').exists();
   });
 
   // Accessibilty feature
@@ -49,12 +49,10 @@ module('Integration | Component | hds/side-nav/list/index', function (hooks) {
 
   test('it should spread all the attributes passed to the component on the element', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::List id="test-sidenav-list" class="my-class" data-test1 data-test2="test" />`
+      hbs`<Hds::SideNav::List id="test-side-nav-list" class="my-class" data-test1 data-test2="test" />`
     );
-    assert.dom('#test-sidenav-list').hasClass('my-class');
-    assert.dom('#test-sidenav-list').hasAttribute('data-test1');
-    assert.dom('#test-sidenav-list').hasAttribute('data-test2', 'test');
+    assert.dom('#test-side-nav-list').hasClass('my-class');
+    assert.dom('#test-side-nav-list').hasAttribute('data-test1');
+    assert.dom('#test-side-nav-list').hasAttribute('data-test2', 'test');
   });
-
-  //role="list"
 });

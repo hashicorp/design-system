@@ -10,19 +10,23 @@ body.components-side-nav {
 
   // used to simulate a "root" container for the sidenav
   .shw-component-sim-side-nav-root-container {
-    width: 280px;
     height: 600px;
-    background: $shw-component-side-nav-background;
+
+    .hds-side-nav {
+      position: relative;
+      height: 100% !important;
+      min-height: 100% !important;
+    }
   }
 
-  // used to simulate a "SideNav::Header" container
+  // used to simulate an "header" container for the sidenav
   .shw-component-sim-side-nav-header {
     width: 280px;
     padding: var(--token-side-nav-wrapper-padding-horizontal) var(--token-side-nav-wrapper-padding-vertical);
     background: $shw-component-side-nav-background;
   }
 
-  // used to simulate a "SideNav::Header" container
+  // used to simulate a "body" container for the sidenav
   .shw-component-sim-side-nav-body {
     width: 280px;
     margin: 0;
@@ -46,5 +50,25 @@ body.components-side-nav {
     width: fit-content;
     padding: var(--token-side-nav-wrapper-padding-horizontal) var(--token-side-nav-wrapper-padding-vertical);
     background: $shw-component-side-nav-background;
+  }
+
+  // these are used to showcase the non-componentized elements
+
+  .shw-component-sim-other-elements {
+    width: fit-content;
+    padding: var(--token-side-nav-wrapper-padding-horizontal) var(--token-side-nav-wrapper-padding-vertical);
+    background: $shw-component-side-nav-background;
+
+    .hds-side-nav {
+      position: static;
+      height: auto !important;
+      min-height: auto !important;
+    }
+
+    .hds-side-nav__menu-toggle-button,
+    .ember-a11y-refocus-skip-link {
+      position: static !important;
+      transform: none !important;
+    }
   }
 }

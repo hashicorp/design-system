@@ -35,10 +35,10 @@ module('Integration | Component | hds/side-nav/list/item', function (hooks) {
 
   test('it should spread all the attributes passed to the component on the element', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::List::Item id="test-sidenav-item" class="my-class" data-test1 data-test2="test" />`
+      hbs`<Hds::SideNav::List::Item id="test-side-nav-item" class="my-class" data-test1 data-test2="test" />`
     );
-    assert.dom('#test-sidenav-item').hasClass('my-class');
-    assert.dom('#test-sidenav-item').hasAttribute('data-test1');
-    assert.dom('#test-sidenav-item').hasAttribute('data-test2', 'test');
+    assert.dom('#test-side-nav-item').hasClass('my-class');
+    assert.dom('#test-side-nav-item').hasAttribute('data-test1');
+    assert.dom('#test-side-nav-item').hasAttribute('data-test2', 'test');
   });
 });

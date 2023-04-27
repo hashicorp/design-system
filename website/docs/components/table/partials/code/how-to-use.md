@@ -211,7 +211,7 @@ _The code has been truncated for clarity._
 <Hds::Table
   @model={{this.model.myDemoData}}
   @columns={{array
-      (hash 
+      (hash
         key='status'
         label='Status'
         isSortable=true
@@ -358,14 +358,23 @@ To create a column that has right-aligned content, set `@align` to `right` on bo
   @columns={{array
     (hash key="artist" label="Artist" isSortable=true)
     (hash key="album" label="Album" isSortable=true)
-    (hash key="year" label="Release Year" align="right")
+    (hash label="Actions" align="right")
   }}
 >
   <:body as |B|>
     <B.Tr>
       <B.Td>{{B.data.artist}}</B.Td>
       <B.Td>{{B.data.album}}</B.Td>
-      <B.Td @align="right">{{B.data.year}}</B.Td>
+      <B.Td @align="right">
+        <Hds::Dropdown @isInlineBlock={{true}} as |dd|>
+          <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
+          <dd.Interactive @route="components" @text="Create" />
+          <dd.Interactive @route="components" @text="Read" />
+          <dd.Interactive @route="components" @text="Update" />
+          <dd.Separator />
+          <dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
+        </Hds::Dropdown>
+      </B.Td>
     </B.Tr>
   </:body>
 </Hds::Table>

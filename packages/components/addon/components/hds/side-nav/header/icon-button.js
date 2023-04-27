@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-export default class HdsSideNavIconButtonComponent extends Component {
+export default class HdsSideNavHeaderIconButtonComponent extends Component {
   /**
    * @param ariaLabel
    * @type {string}
@@ -16,7 +16,7 @@ export default class HdsSideNavIconButtonComponent extends Component {
     let { ariaLabel } = this.args;
 
     assert(
-      '@ariaLabel for "Hds::SideNav::IconButton" must have a valid value',
+      '@ariaLabel for "Hds::SideNav::Header::IconButton" must have a valid value',
       ariaLabel !== undefined
     );
 

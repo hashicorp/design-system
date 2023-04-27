@@ -6,6 +6,13 @@
 // DROPDOWN
 
 body.components-dropdown {
+  .shw-component-dropdown-display-sample {
+    min-width: 200px;
+    padding: 4px;
+    text-align: right;
+    outline: 1px dashed #d3d3d3;
+  }
+
   .shw-component-dropdown-states-matrix {
     .shw-grid__item {
       // we hide all the labels (except for the first "row")

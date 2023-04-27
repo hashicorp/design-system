@@ -13,6 +13,7 @@
 .hds-form-textarea {
   width: 100%;
   max-width: 100%;
+  min-height: 36px;
   padding: var(--token-form-control-padding);
   color: var(--token-form-control-base-foreground-value-color);
   background-color: var(--token-form-control-base-surface-color-default);
