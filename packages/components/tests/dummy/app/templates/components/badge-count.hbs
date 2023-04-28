@@ -48,7 +48,8 @@
     {{/each}}
   </Shw::Flex>
 
-  <Shw::Text::H2>Color:</Shw::Text::H2>
+  <Shw::Text::H2>Color</Shw::Text::H2>
+
   {{#each @model.BADGE_COUNT_COLORS as |color|}}
     <Shw::Grid @label={{capitalize color}} @columns={{3}} {{style width="fit-content"}} as |SG|>
       {{#each @model.BADGE_COUNT_SIZES as |size|}}

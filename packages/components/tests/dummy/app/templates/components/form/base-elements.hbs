@@ -294,10 +294,9 @@
       {{/let}}
     </Shw::Grid>
 
-    <br />
-
     {{#let (array "vertical" "flag") as |layouts|}}
       {{#each layouts as |layout|}}
+        <Shw::Divider @level={{2}} />
         <Shw::Text::H3>Content / "{{layout}}" layout</Shw::Text::H3>
         <Shw::Grid @columns={{3}} as |SG|>
 
@@ -400,6 +399,7 @@
 
     {{#let (array "vertical" "flag") as |layouts|}}
       {{#each layouts as |layout|}}
+        <Shw::Divider @level={{2}} />
         <Shw::Text::H3>Containers / "{{layout}}" layout</Shw::Text::H3>
         <Shw::Grid @columns={{3}} as |SG|>
           {{#let (array "block" "flex" "grid") as |displays|}}
@@ -504,8 +504,10 @@
         {{/each}}
       {{/let}}
     </Shw::Flex>
+
     {{#let (array "vertical" "horizontal") as |layouts|}}
       {{#each layouts as |layout|}}
+        <Shw::Divider @level={{2}} />
         <Shw::Text::H3>Containers / "{{layout}}" layout</Shw::Text::H3>
         <Shw::Grid @columns={{3}} as |SG|>
           {{#let (array "block" "flex" "grid") as |displays|}}
