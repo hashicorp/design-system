@@ -59,7 +59,7 @@ In most cases, we recommend using the bottom position. Still, we offer Radio Car
 
 Badges can be used in radio cards to display additional information and context. To ensure proper usage of the badge component, refer to the [guidelines](/components/badge).
 
-<Hds::Form::RadioCard::Group @name="radio-card-custom-example" as |G|>
+<Hds::Form::RadioCard::Group @name="radio-card-nested-badge" as |G|>
   <G.Legend>Cluster type</G.Legend>
   <G.RadioCard @checked={{true}} {{on "change" this.onChange}} as |R|>
     <R.Label>HCP-managed Consul</R.Label>
