@@ -7,7 +7,7 @@
 | Element | Usage |
 |---------|-------|
 | Segmented Input | Required; can be one of many types which extend the [Text Input](/components/form/text-input) component. |
-| Segmented Button | Required; can be either `button` or `toggle` which are extensions of the Helios [Button](/components/button) and [Toggle Button](/components/dropdown#toggle) components. |
+| Segmented Button | Required; can be either `Button` or `Dropdown` which are extensions of the Helios [Button](/components/button) and [Toggle Button](/components/dropdown) components. |
 | Container | Wraps the primitives in an auto layout container. |
 
 !!! Info
@@ -20,7 +20,7 @@ The Segmented Group `Base` component is only available in Figma and is suited fo
 The Segments contained within a Segmented Group are extensions of Helios form components and have the same anatomy as the main components they extend. For more information on the specifications of each Segment, refer to their respective documentation:
 
 - [Button](/components/button)
-- [Toggle](/components/dropdown#toggle)
+- [Dropdown](/components/dropdown)
 - [Text Input](/components/form/text-input)
     - [Text](/components/form/text-input#text)
     - [Password](/components/form/text-input#password)
