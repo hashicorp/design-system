@@ -111,6 +111,6 @@ The content within a Segmented Group is dependent on the context:
 ## Related
 
 - [Button](/components/button)
-- [Dropdown](/components/dropdown-button)
+- [Dropdown](/components/dropdown)
 - [Text Input](/components/form/text-input)
 - [Select](/components/form/select)
