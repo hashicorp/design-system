@@ -5,7 +5,7 @@ caption: Provides additional information or context for a UI element.
 status: released
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=32036%3A51885&t=hyPMnP9pSH15dgcy-1
-  github: {link to the "Tooltip" component's folder in the GitHub repo}
+  github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/tooltip-button
 previewImage: assets/illustrations/components/tooltip.jpg
 navigation:
   hidden: false
