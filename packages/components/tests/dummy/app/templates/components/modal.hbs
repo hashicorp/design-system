@@ -32,6 +32,8 @@
     {{/each}}
   </Shw::Flex>
 
+  <Shw::Divider />
+
   <Shw::Text::H2>Color</Shw::Text::H2>
 
   <Shw::Flex @direction="column" as |SF|>
@@ -57,7 +59,11 @@
     {{/each}}
   </Shw::Flex>
 
-  <Shw::Text::H2>Title</Shw::Text::H2>
+  <Shw::Divider />
+
+  <Shw::Text::H2>Content</Shw::Text::H2>
+
+  <Shw::Text::H3>Header</Shw::Text::H3>
 
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="With icon" class="shw-component-modal-sample-item">
@@ -110,7 +116,9 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Text::H2>Content</Shw::Text::H2>
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H2>Body</Shw::Text::H2>
 
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="With basic style" class="shw-component-modal-sample-item">
@@ -153,7 +161,9 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Text::H2>Actions</Shw::Text::H2>
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H2>Footer</Shw::Text::H2>
 
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="One action" class="shw-component-modal-sample-item">
