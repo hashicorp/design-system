@@ -1,0 +1,1 @@
+A Segmented Group combines two or more elements (Segments) into a single component to manage complex data, search, and fine-grained filtering within an object or dataset.
