@@ -84,7 +84,8 @@
 // dropdown overrides
 
 .hds-side-nav__dropdown { // ⬅︎ add this class name to the `Hds::Dropdown` component to apply the style overrides
-  .hds-dropdown-toggle-icon {
+  .hds-dropdown-toggle-icon,
+  .hds-dropdown-toggle-button {
     @include hds-side-nav-icon-button($add-visible-border: true);
   }
 }
