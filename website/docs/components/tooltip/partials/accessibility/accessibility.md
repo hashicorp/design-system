@@ -14,7 +14,7 @@ Consumers should proceed with caution in this case, and consider designs that ma
 - When the trigger receives focus via keyboard, the tooltip shows.
 - When the user presses the ESC key, the tooltip dismisses and gets removed from the screen.
 
-![Focus order within a simple Flyout](/assets/components/tooltip/tooltip-focus.png)
+![Focus order within a simple Flyout](/assets/components/tooltip/tooltip-focus.png =600x*)
 
 ## Applicable WCAG Success Criteria
 
