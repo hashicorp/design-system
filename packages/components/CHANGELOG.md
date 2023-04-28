@@ -1,5 +1,13 @@
 # @hashicorp/design-system-components
 
+## 2.3.1
+
+### Patch Changes
+
+- [#1338](https://github.com/hashicorp/design-system/pull/1338) [`2bc23fd20`](https://github.com/hashicorp/design-system/commit/2bc23fd20bafdedda65126f606c345ea5eb6fa1e) Thanks [@didoo](https://github.com/didoo)! - `SideNav` - Fix issue with links being clickable even if not visible
+
+- [#1339](https://github.com/hashicorp/design-system/pull/1339) [`ea8edb9bf`](https://github.com/hashicorp/design-system/commit/ea8edb9bf0567b5dc97ded9efbfeb5c6f27f52d5) Thanks [@didoo](https://github.com/didoo)! - `SideNav` - Updated CSS declaration that was causing an horizontal scrollbar to appear in some conditions
+
 ## 2.3.0
 
 ### Minor Changes
