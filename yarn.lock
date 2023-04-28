@@ -2611,6 +2611,7 @@ __metadata:
     stylelint: ^14.16.1
     stylelint-config-rational-order: ^0.1.2
     stylelint-config-standard-scss: ^5.0.0
+    tippy.js: ^6.3.7
     webpack: ^5.76.0
   languageName: unknown
   linkType: soft
@@ -3220,6 +3221,13 @@ __metadata:
   version: 1.18.0
   resolution: "@percy/sdk-utils@npm:1.18.0"
   checksum: 097697bbf2a24c999f2ee407f55b4103b98d0b0a246edbd9075a38b86250753ab4cd56c9ad45d82bc5cbf5cb4a6701c4f3cc7fe832271f6cbcc6a067e80e151b
+  languageName: node
+  linkType: hard
+
+"@popperjs/core@npm:^2.9.0":
+  version: 2.11.7
+  resolution: "@popperjs/core@npm:2.11.7"
+  checksum: 5b6553747899683452a1d28898c1b39173a4efd780e74360bfcda8eb42f1c5e819602769c81a10920fc68c881d07fb40429604517d499567eac079cfa6470f19
   languageName: node
   linkType: hard
 
@@ -19846,6 +19854,15 @@ __metadata:
   version: 1.4.2
   resolution: "tinycolor2@npm:1.4.2"
   checksum: 57ed262e08815a4ab0ed933edafdbc6555a17081781766149813b44a080ecbe58b3ee281e81c0e75b42e4d41679f138cfa98eabf043f829e0683c04adb12c031
+  languageName: node
+  linkType: hard
+
+"tippy.js@npm:^6.3.7":
+  version: 6.3.7
+  resolution: "tippy.js@npm:6.3.7"
+  dependencies:
+    "@popperjs/core": ^2.9.0
+  checksum: cac955318a65288e8d2dca05059878b003c6e66f92c94f7810f5bc5448eb6646abdf7dacc9bd00020e2611592598d0aae3a28ec9a45349a159603c3fdddce5fb
   languageName: node
   linkType: hard
 

@@ -1,0 +1,1 @@
+Tooltips are used to provide additional information or context for a UI element, clarify the purpose or function of a UI element, or indicate the meaning of an icon or symbol.
