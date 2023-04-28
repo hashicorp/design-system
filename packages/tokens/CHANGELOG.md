@@ -1,5 +1,12 @@
 # @hashicorp/design-system-tokens
 
+## 1.5.0
+
+### Minor Changes
+
+- [#1283](https://github.com/hashicorp/design-system/pull/1283) [`d0ae66503`](https://github.com/hashicorp/design-system/commit/d0ae665033e6b83a65c2dcde8630985f76872901) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - - Add new `TooltipButton` component and `hds-tooltip` modifier
+  - Add design tokens for `Tooltip`
+
 ## 1.4.2
 
 ### Patch Changes
