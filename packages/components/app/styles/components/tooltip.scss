@@ -16,33 +16,37 @@
     $bottom: var(--token-tooltip-focus-offset),
     $left: var(--token-tooltip-focus-offset),
   );
+}
+
+// The special declarations below are used to allow the button to inherit styles from the parent element
+// without preventing the consumers from applying these styles via HDS or custom classes if they want
+//
+// Since the `:where()` selector has a specificity of `0` (see https://developer.mozilla.org/en-US/docs/Web/CSS/:where)
+// the styles declared below are applied to the `<button>` element, but are overwritten by any other style applied via classname
+//
+// If you want to see the effect of this selector, try to comment it and look at the "Inheritance" demo in the showcase:
+// https://hds-showcase.vercel.app/components/tooltip
+
+:where(.hds-tooltip-button) {
   margin: 0;
   padding: 0;
-  background: transparent;
+  color: inherit;
+  font: inherit;
+  background-color: inherit;
   border: none;
 }
 
-// Prevent accidental override of hds classes ( :where() has a specificity of 0 )
-
-:where(.hds-tooltip-button:not([class*="hds-typography"])) {
-  font: inherit;
-}
-
-:where(.hds-tooltip-button:not([class*="hds-foreground"])) {
-  color: inherit;
-}
-
-:where(.hds-tooltip-button:not([class*="hds-surface"])) {
-  background-color: inherit;
-}
-
-.hds-tooltip-button--is-inline {
+:where(.hds-tooltip-button--is-inline) {
   display: inline-flex;
 }
 
-.hds-tooltip-button--is-block {
+:where(.hds-tooltip-button--is-block) {
   display: flex;
 }
+
+
+// Tippy.js styling
+// https://atomiks.github.io/tippyjs/
 
 .tippy-box[data-theme~="hds"] {
   padding: var(--token-tooltip-padding-vertical) var(--token-tooltip-padding-horizontal);
