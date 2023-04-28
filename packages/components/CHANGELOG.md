@@ -1,5 +1,26 @@
 # @hashicorp/design-system-components
 
+## 2.3.0
+
+### Minor Changes
+
+- [#1283](https://github.com/hashicorp/design-system/pull/1283) [`d0ae66503`](https://github.com/hashicorp/design-system/commit/d0ae665033e6b83a65c2dcde8630985f76872901) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - - Add new `TooltipButton` component and `hds-tooltip` modifier
+
+  - Add design tokens for `Tooltip`
+
+- [#1316](https://github.com/hashicorp/design-system/pull/1316) [`5763ffbca`](https://github.com/hashicorp/design-system/commit/5763ffbca564d3a23b8a497393acc43729d92de8) Thanks [@alex-ju](https://github.com/alex-ju)! - Add `SegmentedGroup` component
+
+### Patch Changes
+
+- [#1329](https://github.com/hashicorp/design-system/pull/1329) [`216ce51a8`](https://github.com/hashicorp/design-system/commit/216ce51a81383f2e8a5d1f989c5148edf74268f6) Thanks [@didoo](https://github.com/didoo)! - `SideNav::Portal::Target` - Removed extra call to `commitStyles`
+
+- [#1328](https://github.com/hashicorp/design-system/pull/1328) [`095caf4d4`](https://github.com/hashicorp/design-system/commit/095caf4d430d459d848647ed3c1dba3155c358cf) Thanks [@didoo](https://github.com/didoo)! - `SideNav::Portal::Target` - Made the `:hover:focus` state (the one the links finds itself once clicked) identical to the `:active/.active` state
+
+- [#1334](https://github.com/hashicorp/design-system/pull/1334) [`f6fa1e15e`](https://github.com/hashicorp/design-system/commit/f6fa1e15ee52bc8962fc244a73640dd57d62769a) Thanks [@didoo](https://github.com/didoo)! - `SideNav` - added missing override of `Dropdown::ToggleButton`
+
+- Updated dependencies [[`d0ae66503`](https://github.com/hashicorp/design-system/commit/d0ae665033e6b83a65c2dcde8630985f76872901)]:
+  - @hashicorp/design-system-tokens@1.5.0
+
 ## 2.2.0
 
 ### Minor Changes
