@@ -80,9 +80,30 @@
         </Hds::SideNav>
       </div>
     </SF.Item>
+    <SF.Item @label="Header + Body with Portal in 'loading' state + Footer">
+      <div class="shw-component-sim-side-nav-root-container">
+        <Hds::SideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
+          <:header>
+            <Shw::Placeholder @height="72px" @text="header" @background="#e4e4e4" />
+          </:header>
+          <:body>
+            <Hds::SideNav::Portal::Target @targetName="sidenav-portal-demo-1-loading" />
+          </:body>
+          <:footer>
+            <Shw::Placeholder @height="36px" @text="footer" @background="#e4e4e4" />
+          </:footer>
+        </Hds::SideNav>
+      </div>
+    </SF.Item>
   </Shw::Flex>
 
   <Hds::SideNav::Portal @targetName="sidenav-portal-demo-1" as |Nav|>
+    <Nav.extraBefore><Shw::Placeholder @height="72px" @text="extraBefore" @background="#f3d9c5" /></Nav.extraBefore>
+    <Nav.Item><Shw::Placeholder @height="200px" @text="portaled content" @background="#e4e4e4" /></Nav.Item>
+    <Nav.extraAfter><Shw::Placeholder @height="72px" @text="extraAfter" @background="#f3d9c5" /></Nav.extraAfter>
+  </Hds::SideNav::Portal>
+
+  <Hds::SideNav::Portal @targetName="sidenav-portal-demo-1-loading" @isLoading={{true}} as |Nav|>
     <Nav.extraBefore><Shw::Placeholder @height="72px" @text="extraBefore" @background="#f3d9c5" /></Nav.extraBefore>
     <Nav.Item><Shw::Placeholder @height="200px" @text="portaled content" @background="#e4e4e4" /></Nav.Item>
     <Nav.extraAfter><Shw::Placeholder @height="72px" @text="extraAfter" @background="#f3d9c5" /></Nav.extraAfter>

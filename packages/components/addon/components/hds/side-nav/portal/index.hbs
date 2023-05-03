@@ -5,8 +5,14 @@
 
 <Portal @target={{if @targetName @targetName "hds-side-nav-portal-target"}}>
   <div class="hds-side-nav__content-panel hds-side-nav-hide-when-minimized" ...attributes>
-    <Hds::SideNav::List aria-label={{@ariaLabel}} as |ListElements|>
-      {{yield ListElements}}
-    </Hds::SideNav::List>
+    {{#if @isLoading}}
+      <div class="hds-side-nav__loading-wrapper">
+        <FlightIcon @name="loading" @size="24" />
+      </div>
+    {{else}}
+      <Hds::SideNav::List aria-label={{@ariaLabel}} as |ListElements|>
+        {{yield ListElements}}
+      </Hds::SideNav::List>
+    {{/if}}
   </div>
 </Portal>

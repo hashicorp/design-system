@@ -29,6 +29,13 @@
   padding: 0 var(--token-side-nav-wrapper-padding-horizontal);
 }
 
+.hds-side-nav__loading-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px var(--token-side-nav-body-list-item-padding-horizontal);
+}
+
 // (LIST) TITLE
 
 .hds-side-nav__list-title {
