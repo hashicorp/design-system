@@ -9,12 +9,12 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { DEBUG } from '@glimmer/env';
 import Ember from 'ember';
-import { debounce } from '@ember/runloop';
 
 export default class SidenavPortalTarget extends Component {
   @service router;
 
   @tracked numSubnavs = 0;
+  @tracked lastPanelEl = null;
 
   static get prefersReducedMotionOverride() {
     return Ember.testing;
@@ -38,7 +38,7 @@ export default class SidenavPortalTarget extends Component {
 
   @action
   didUpdateSubnav(element, [count]) {
-    debounce(this, 'animateSubnav', element, [count], 100);
+    this.animateSubnav(element, [count]);
   }
 
   @action
@@ -135,14 +135,23 @@ export default class SidenavPortalTarget extends Component {
 
     // fade in next panel
     let nextPanelEl = targetElement.children[activeIndex];
+
+    // get reference to last child panel
+    let lastPanelEl = targetElement.children[targetElement.children.length - 1];
+
     if (nextPanelEl) {
       nextPanelEl.ariaHidden = 'false';
       nextPanelEl.style.setProperty('visibility', 'visible');
-      // this eliminates a flicker if there's only 1 subnav rendering
-      if (activeIndex === 0) {
+      // this eliminates a flicker if there's only one subnav rendering or if we
+      // already just rendered this panel.
+      if (activeIndex === 0 || nextPanelEl.isSameNode(this.lastPanelEl)) {
         fadeDelay = 0;
         fadeDuration = 0;
       }
+
+      // remember the last panel
+      this.lastPanelEl = lastPanelEl;
+
       nextPanelEl.animate([{ opacity: '0' }, { opacity: '1' }], {
         delay: fadeDelay,
         duration: fadeDuration,
