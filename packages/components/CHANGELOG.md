@@ -1,5 +1,11 @@
 # @hashicorp/design-system-components
 
+## 2.3.2
+
+### Patch Changes
+
+- [#1344](https://github.com/hashicorp/design-system/pull/1344) [`6d6cf3ea8`](https://github.com/hashicorp/design-system/commit/6d6cf3ea81bf5bd1f631c99fc53cc88318d7d52f) Thanks [@cbfx](https://github.com/cbfx)! - `SideNav::Portal::Target` - Fixed a possible source of flickering when a panel has already been rendered
+
 ## 2.3.1
 
 ### Patch Changes
