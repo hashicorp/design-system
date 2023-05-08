@@ -167,6 +167,10 @@
   padding:
     var(--token-side-nav-wrapper-padding-vertical)
     var(--token-side-nav-wrapper-padding-horizontal);
+  // this is necessary, otherwise when the sidenav is minimized an horizontal scrollbar may appear
+  // (if there are words longer than the width of the available space for the list "item" content)
+  overflow-x: hidden;
+  // we want the content to vertically scroll if needed
   overflow-y: auto;
 }
 

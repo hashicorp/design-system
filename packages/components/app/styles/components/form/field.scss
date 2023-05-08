@@ -32,6 +32,9 @@
   }
 
   .hds-form-field__control {
+    display: flex; // to avoid extra whitespace when the content is an <input>, <select>, or <textarea> (inline elements)
+    justify-self: stretch; // allows <input> and <textarea> to go full-width
+
     &:not(:first-child) {
       margin-top: 8px;
     }
@@ -50,7 +53,6 @@
 .hds-form-field--layout-flag {
   display: grid;
   grid-auto-flow: row;
-  // stylelint-disable-next-line declaration-colon-space-after
   grid-template-areas:
     "control label"
     "control helper-text"
@@ -70,6 +72,7 @@
   }
 
   .hds-form-field__control {
+    display: flex; // to avoid extra whitespace when the content is an <input>, <select>, or <textarea> (inline elements)
     grid-area: control;
 
     &:not(:only-child) {

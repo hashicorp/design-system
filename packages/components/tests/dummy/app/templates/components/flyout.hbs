@@ -24,7 +24,11 @@
     {{/each}}
   </Shw::Flex>
 
-  <Shw::Text::H2>Header</Shw::Text::H2>
+  <Shw::Divider />
+
+  <Shw::Text::H2>Content</Shw::Text::H2>
+
+  <Shw::Text::H3>Header</Shw::Text::H3>
 
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="Title with icon" class="shw-component-flyout-sample-item">
@@ -68,7 +72,9 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Text::H2>Body</Shw::Text::H2>
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Body</Shw::Text::H3>
 
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="With basic style" class="shw-component-flyout-sample-item">
@@ -100,7 +106,9 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Text::H2>Footer</Shw::Text::H2>
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Footer</Shw::Text::H3>
 
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="One action" class="shw-component-flyout-sample-item">

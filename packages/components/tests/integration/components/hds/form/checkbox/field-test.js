@@ -17,7 +17,7 @@ module('Integration | Component | hds/form/checkbox/field', function (hooks) {
 
   test('it should render the component with the appropriate CSS class', async function (assert) {
     await render(hbs`<Hds::Form::Checkbox::Field />`);
-    assert.dom('input').hasClass('hds-form-field__control');
+    assert.dom('.hds-form-field__control').exists();
   });
 
   // VALUE
@@ -47,7 +47,7 @@ module('Integration | Component | hds/form/checkbox/field', function (hooks) {
     assert.dom('.hds-form-field__label').exists();
     assert.dom('.hds-form-field__helper-text').exists();
     assert.dom('.hds-form-field__control').exists();
-    assert.dom('.hds-form-field__control').isChecked();
+    assert.dom('.hds-form-field__control input').isChecked();
     assert.dom('.hds-form-field__error').exists();
   });
   test('it does not render the yielded contextual components if not provided', async function (assert) {
@@ -65,14 +65,14 @@ module('Integration | Component | hds/form/checkbox/field', function (hooks) {
         </Hds::Form::Checkbox::Field>`
     );
     // the control ID is dynamically generated
-    let control = this.element.querySelector('.hds-form-field__control');
+    let control = this.element.querySelector('.hds-form-field__control input');
     let controlId = control.id;
     assert.dom('.hds-form-field__label').hasAttribute('for', controlId);
     assert
       .dom('.hds-form-field__helper-text')
       .hasAttribute('id', `helper-text-${controlId}`);
     assert
-      .dom('.hds-form-field__control')
+      .dom('.hds-form-field__control input')
       .hasAttribute(
         'aria-describedby',
         `helper-text-${controlId} error-${controlId} extra`

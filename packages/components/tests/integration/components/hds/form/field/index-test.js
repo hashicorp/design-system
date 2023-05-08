@@ -34,7 +34,7 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
       hbs`<Hds::Form::Field @layout="vertical" id="test-form-field" as |F|>
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
-          <F.Control><pre class="hds-form-field__control">This is a mock control</pre></F.Control>
+          <F.Control>This is a mock control</F.Control>
           <F.Error>This is the error</F.Error>
         </Hds::Form::Field>`
     );
@@ -54,13 +54,13 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
       hbs`<Hds::Form::Field @layout="vertical" id="test-form-field" as |F|>
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
-          <F.Control><pre class="hds-form-field__control" id={{F.id}} aria-describedby={{F.ariaDescribedBy}}>This is a mock control</pre></F.Control>
+          <F.Control><pre id={{F.id}} aria-describedby={{F.ariaDescribedBy}}>This is a mock control</pre></F.Control>
           <F.Error>This is the error</F.Error>
         </Hds::Form::Field>`
     );
     // the control ID is dynamically generated
     let control = this.element.querySelector(
-      '#test-form-field .hds-form-field__control'
+      '#test-form-field .hds-form-field__control pre'
     );
     let controlId = control.id;
     assert.dom('.hds-form-field__label').hasAttribute('for', controlId);
@@ -68,7 +68,7 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
       .dom('.hds-form-field__helper-text')
       .hasAttribute('id', `helper-text-${controlId}`);
     assert
-      .dom('.hds-form-field__control')
+      .dom('.hds-form-field__control pre')
       .hasAttribute(
         'aria-describedby',
         `helper-text-${controlId} error-${controlId}`
@@ -82,7 +82,7 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
       hbs`<Hds::Form::Field @layout="vertical" id="test-form-field" @id="my-custom-id" as |F|>
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
-          <F.Control><pre class="hds-form-field__control" id={{F.id}} aria-describedby={{F.ariaDescribedBy}}>This is a mock control</pre></F.Control>
+          <F.Control><pre id={{F.id}} aria-describedby={{F.ariaDescribedBy}}>This is a mock control</pre></F.Control>
           <F.Error>This is the error</F.Error>
         </Hds::Form::Field>`
     );
@@ -92,7 +92,7 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
       .dom('.hds-form-field__helper-text')
       .hasAttribute('id', `helper-text-${controlId}`);
     assert
-      .dom('.hds-form-field__control')
+      .dom('.hds-form-field__control pre')
       .hasAttribute(
         'aria-describedby',
         `helper-text-${controlId} error-${controlId}`
@@ -106,13 +106,13 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
       hbs`<Hds::Form::Field @layout="vertical" id="test-form-field" @extraAriaDescribedBy="extra" as |F|>
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
-          <F.Control><pre class="hds-form-field__control" id={{F.id}} aria-describedby={{F.ariaDescribedBy}}>This is a mock control</pre></F.Control>
+          <F.Control><pre id={{F.id}} aria-describedby={{F.ariaDescribedBy}}>This is a mock control</pre></F.Control>
           <F.Error>This is the error</F.Error>
         </Hds::Form::Field>`
     );
     // the control ID is dynamically generated
     let control = this.element.querySelector(
-      '#test-form-field .hds-form-field__control'
+      '#test-form-field .hds-form-field__control pre'
     );
     let controlId = control.id;
     assert.dom('.hds-form-field__label').hasAttribute('for', controlId);
@@ -120,7 +120,7 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
       .dom('.hds-form-field__helper-text')
       .hasAttribute('id', `helper-text-${controlId}`);
     assert
-      .dom('.hds-form-field__control')
+      .dom('.hds-form-field__control pre')
       .hasAttribute(
         'aria-describedby',
         `helper-text-${controlId} error-${controlId} extra`
