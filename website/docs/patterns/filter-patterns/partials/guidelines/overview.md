@@ -1,1 +1,3 @@
 Filtering is used to limit the items in a dataset or set of objects based on one or more user-defined parameters. Filtering is commonly used in tandem with a [Table](/components/table) but for the purpose of this documentation the types of items being filtered will be referred to in an agnostic manner.
+
+When faced with a large dataset, filtering can help the user find a specific item or array of items that they are looking for and functions in a reductive manner; remove items from a dataset based on the supplied parameters.

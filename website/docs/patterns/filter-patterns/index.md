@@ -1,7 +1,7 @@
 ---
 title: Filter patterns
-description: Description goes here
-caption: Description goes here
+description: Guidelines and best-practices for filtering a dataset using Helios components.
+caption: Guidelines and best-practices for filtering a dataset using Helios components.
 status: experimental
 previewImage: assets/illustrations/patterns/filter-patterns.jpg
 navigation:
