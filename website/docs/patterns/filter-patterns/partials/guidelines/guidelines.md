@@ -1,46 +1,38 @@
-## Core concepts
-
-### Identifier, conditional, and value
-
-Filtering a dataset requires the presence of three paramaters; an **identifier**, a **conditional**, and a value.
-
-- **Identifier** refers to the specific property or category that is being filtered on.
-- **Conditional** refers to the relationship between the identifier and the value.
-- **Value** refers to the specific value, amount, or metadata attribute being included in the filter.
-
-The combination of these results in a **criteria**. **Add more here**
-
-### What does the dataset consist of?
-
-### Mirroring of identifiers
-
 ## Structure
 
-A filtering pattern consists of a number of elements and Helios components that contribute holistically.
-
-**Insert structural diagram here**
+A filtering pattern consists of a number of elements and Helios components that contribute to a holistic experience. These elements are variable depending on the content within the dataset and the context within the application and can be combined in different ways to achieve an experience that most beneifts the end-user.
 
 For more specifications on the details of these elements, refer to the [specifications](/patterns/filter-patterns?tab=specifications).
 
 ### Filter bar
 
-The filter bar is responsible for performing the functional aspect of filtering a dataset and for displaying the identifiers which a user can filter on. It often consists of numerous filterable identifiers that mirror the columns of a table or a piece a metadata contained within the dataset.
+The filter bar is responsible for performing the functional aspect of filtering a dataset and for displaying the identifiers which a user can filter on. It often consists of numerous filterable identifiers that mirror the columns of a table or metadata contained within the dataset.
 
-A filter bar consists of one or more dropdowns, buttons, or input components used to select a value from a set of identifiers. This often best handled by the [Segmented Group](/components/segmented-group) component which can be used to group like identifiers and supports complex filtering.
+The most common example of a filter bar consists of or more dropdowns, buttons, or input components that is oriented horizontally and used to select a value from a set of identifiers. This is often best handled by the [Segmented Group](/components/segmented-group) component which can be used to group similar identifiers to supports complex filtering.
 
 ![Filter bar example](/assets/patterns/filter-patterns/filter-bar-segmented-group.png)
 
-#### Orientation
+#### Horizontal orientation
 
-The filter bar can either be oriented either horizontally or vertically. Each orientation has it's advantages and disadvantages and which one to use is dependent on the available space, the complexity of the dataset, and the type of data it contains.
-
-##### Horizontal orientation
+##### Ex 1.0
 
 ![Horizontal orientation of the filter bar](/assets/patterns/filter-patterns/layout-horizontal-orientation.png)
 
-##### Vertical orientation
+#### Vertical orientation
+
+If space permits, the filter bar can be oriented vertically on either side of the dataset.
+
+##### Ex 1.1
+
+Showcasing filters used with a dataset that is represented by a grid of objects.
 
 ![Vertical orientation of the filter bar](/assets/patterns/filter-patterns/layout-vertical-orientation.png)
+
+##### Ex 1.2
+
+Showcasing filters in a simple dataset represented by a table.
+
+![Vertical orientation of the filter bar on the right](/assets/patterns/filter-patterns/layout-vertical-orientation-right.png)
 
 ### Applied filters
 
