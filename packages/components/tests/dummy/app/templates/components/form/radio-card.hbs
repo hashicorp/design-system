@@ -259,4 +259,15 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Text::H3>Edge cases</Shw::Text::H3>
+
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="Long string in label">
+      <Hds::Form::RadioCard @maxWidth="300px" as |R|>
+        <R.Icon @name="hexagon" />
+        <R.Label>Label12345678901231241231314324123454654654756767657657657657</R.Label>
+        <R.Description>Description</R.Description>
+      </Hds::Form::RadioCard>
+    </SF.Item>
+  </Shw::Flex>
 </section>
