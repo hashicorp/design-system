@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { getElementId } from '@hashicorp/design-system-components/helpers/hds-get-element-id';
-import { setAriaDescribedBy } from '../../../../helpers/hds-set-aria-described-by';
+import { setAriaDescribedBy } from '@hashicorp/design-system-components/helpers/hds-set-aria-described-by';
 
 export default class HdsFormFieldsetIndexComponent extends Component {
   @tracked ariaDescribedBy = this.args.extraAriaDescribedBy;
