@@ -4,7 +4,7 @@
  */
 
 import Component from '@glimmer/component';
-import { getElementId } from '../../form/utils/getElementId';
+import { getElementId } from '@hashicorp/design-system-components/helpers/hds-get-element-id';
 
 export default class HdsDropdownListItemRadioComponent extends Component {
   /**
