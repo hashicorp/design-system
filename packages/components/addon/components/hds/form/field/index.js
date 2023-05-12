@@ -7,9 +7,9 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
 import { action } from '@ember/object';
+import { schedule } from '@ember/runloop';
 import { getElementId } from '@hashicorp/design-system-components/helpers/hds-get-element-id';
 import { setAriaDescribedBy } from '@hashicorp/design-system-components/helpers/hds-set-aria-described-by';
-import { schedule } from '@ember/runloop';
 
 export const LAYOUT_TYPES = ['vertical', 'flag'];
 
