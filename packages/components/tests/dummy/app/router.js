@@ -47,6 +47,7 @@ Router.map(function () {
       this.route('standalone');
     });
     this.route('modal');
+    this.route('pagetitle');
     this.route('pagination');
     this.route('stepper');
     this.route('table');
