@@ -17,6 +17,22 @@ export default class HdsPagetitleIndexComponent extends Component {
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
+
+  get title() {
+    let { title } = this.args;
+    return title;
+  }
+
+  get subtitle() {
+    let { subtitle } = this.args;
+    return subtitle;
+  }
+
+  get description() {
+    let { description } = this.args;
+    return description;
+  }
+
   get classNames() {
     let classes = ['hds-pagetitle'];
 

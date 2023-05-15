@@ -8,5 +8,28 @@
 //
 
 .hds-pagetitle {
-  // add the component styles here
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hds-pagetitle-title__wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: start;
+}
+
+.hds-pagetitle-main__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: start;
+}
+
+.hds-pagetitle-title__content {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
 }

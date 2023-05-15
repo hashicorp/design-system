@@ -1,6 +1,6 @@
 {{!
-  Copyright (c) HashiCorp, Inc.
-  SPDX-License-Identifier: MPL-2.0
+Copyright (c) HashiCorp, Inc.
+SPDX-License-Identifier: MPL-2.0
 }}
 
 {{page-title "Pagetitle Component"}}
@@ -12,6 +12,21 @@
   {{! ADD YOUR CONTENT HERE }}
 
   {{! This below is just an example of invocation, to get started }}
-  <Hds::Pagetitle>This is the Hds::Pagetitle component </Hds::Pagetitle>
+  <Hds::Pagetitle
+    @title="Page title"
+    @subtitle="Subtitle"
+    @description="An optional page description goes here. Use it to explain the concept indicated the title"
+    as |T|
+  >
+    <T.Breadcrumb>
+      <Hds::Breadcrumb::Item @text="Item 1" @icon="org" />
+      <Hds::Breadcrumb::Item @text="Item 2" />
+      <Hds::Breadcrumb::Item @text="Item 3" />
+    </T.Breadcrumb>
+    <T.Badges>
+      <Hds::Badge @text="Active" @icon="check" @color="success" />
+      <Hds::Badge @text="Failing" @icon="x" @color="critical" />
+    </T.Badges>
+  </Hds::Pagetitle>
 
 </section>
