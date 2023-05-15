@@ -1,5 +1,13 @@
 # @hashicorp/design-system-components
 
+## 2.3.3
+
+### Patch Changes
+
+- [#1350](https://github.com/hashicorp/design-system/pull/1350) [`be5c5aad8`](https://github.com/hashicorp/design-system/commit/be5c5aad8fb9d59ecc57be5f78a45619bf18ce10) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - `RadioCard` - Update CSS to enable wrapping of long strings in label which were overflowing the container
+
+- [#1353](https://github.com/hashicorp/design-system/pull/1353) [`0ed127294`](https://github.com/hashicorp/design-system/commit/0ed127294e66fa7d7412f40eb82ed4c3a89e3763) Thanks [@didoo](https://github.com/didoo)! - removed `z-index` value from `AppFrame::Footer`
+
 ## 2.3.2
 
 ### Patch Changes
