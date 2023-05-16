@@ -9,3 +9,5 @@
 ## What does the data set consist of?
 
 ## Mirroring of identifiers
+
+### Annotating filter values
