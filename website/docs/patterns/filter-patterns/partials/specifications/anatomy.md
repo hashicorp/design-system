@@ -1,37 +1,24 @@
-## Filter anatomy
-
-### Identifier
-
-**Identifier** refers to the specific property or category that is being filtered on.
-
-### Conditional
-
-**Conditional** refers to the relationship between the identifier and the value.
-
-### Value
-
-**Value** refers to the specific value, amount, or metadata attribute being included in the filter.
-
 ## Pattern layout
 
-### Horizontal orientation
+![Generic pattern layout with filter bar](/assets/patterns/filter-patterns/pattern-anatomy-generic-filter-bar.png)
 
-![Filter pattern anatomy horizontal orientation](/assets/patterns/filter-patterns/pattern-anatomy-generic-horizontal.png)
+![Specific pattern layout with filter bar](/assets/patterns/filter-patterns/pattern-anatomy-specific-filter-bar.png)
 
-![Filter pattern anatomy horizontal orientation, specific](/assets/patterns/filter-patterns/pattern-anatomy-specific-horizontal.png)
+![Generic pattern layout with a sidebar](/assets/patterns/filter-patterns/pattern-anatomy-generic-sidebar.png)
 
-### Vertical orientation
+![Specific pattern layout with a sidebar](/assets/patterns/filter-patterns/pattern-anatomy-specific-sidebar.png)
 
-![Filter pattern anatomy vertical orientation](/assets/patterns/filter-patterns/pattern-anatomy-generic-vertical.png)
+## Filtering functions
 
-| Structural area | Consists of |
-| --------------- | ------------|
-| Filter bar      | Varying combinations of [Segmented Groups](/components/segmented-group), [Search Inputs](/components/form/text-input#search), [Dropdowns](/components/dropdown), [Buttons](/components/button), [Radios](/components/form/radio), and [Checkboxes](/components/form/checkbox) |
-| Applied filters | Consists of numerous [Tags](/components/tag) components and often a [Button](/components/button) to bulk reset or clear all filters. |
-| data set | Generally represented using a [Table](/components/table) component, but can use other components and patterns to represent structured data. |
-| Pagination      | Uses the Helios [Pagination](/components/pagination) to segment the data set into easy-to-parse pages. |
+### Filter bar
 
-## Filter bar
+![Simple filter bar anatomy](/assets/patterns/filter-patterns/filter-bar-anatomy-01.png)
+
+![Multiple groups in a filter bar](/assets/patterns/filter-patterns/filter-bar-anatomy-02.png)
+
+![Functions within a filter bar](/assets/patterns/filter-patterns/filter-bar-anatomy-03.png)
+
+### Filter sidebar
 
 ## Applied filters
 
