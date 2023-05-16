@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
-import { getElementId } from '@hashicorp/design-system-components/helpers/hds-get-element-id';
+import { getElementId } from '@hashicorp/design-system-components/utils/hds-get-element-id';
 
 export const DEFAULT_SIZE = 'medium';
 export const DEFAULT_COLOR = 'neutral';
