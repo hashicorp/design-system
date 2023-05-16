@@ -12,11 +12,3 @@ navigation:
   @include "partials/guidelines/overview.md"
   @include "partials/guidelines/guidelines.md"
 </section>
-
-<section data-tab="Core concepts">
-  @include "partials/core-concepts/core-concepts.md"
-</section>
-
-<section data-tab="Specifications">
-  @include "partials/specifications/anatomy.md"
-</section>
