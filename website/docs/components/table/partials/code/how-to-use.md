@@ -366,7 +366,7 @@ To create a column that has right-aligned content, set `@align` to `right` on bo
       <B.Td>{{B.data.artist}}</B.Td>
       <B.Td>{{B.data.album}}</B.Td>
       <B.Td @align="right">
-        <Hds::Dropdown @isInlineBlock={{true}} as |dd|>
+        <Hds::Dropdown @isInline={{true}} as |dd|>
           <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
           <dd.Interactive @route="components" @text="Create" />
           <dd.Interactive @route="components" @text="Read" />
