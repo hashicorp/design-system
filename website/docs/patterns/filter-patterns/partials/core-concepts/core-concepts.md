@@ -1,15 +1,11 @@
-## Core concepts
+## Data fetching
 
-### Identifier, conditional, and value
+### Live filtering
 
-Filtering a dataset requires the presence of three paramaters; an **identifier**, a **conditional**, and a value.
+### Per filter
 
-- **Identifier** refers to the specific property or category that is being filtered on.
-- **Conditional** refers to the relationship between the identifier and the value.
-- **Value** refers to the specific value, amount, or metadata attribute being included in the filter.
+### Batching filtering
 
-The combination of these results in a **criteria**. **Add more here**
+## What does the data set consist of?
 
-### What does the dataset consist of?
-
-### Mirroring of identifiers
+## Mirroring of identifiers
