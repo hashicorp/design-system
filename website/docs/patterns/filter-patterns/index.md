@@ -5,7 +5,7 @@ caption: Guidelines and best practices for filtering a data set using Helios com
 status: experimental
 previewImage: assets/illustrations/patterns/filter-patterns.jpg
 navigation:
-  keywords: ['data set']
+  keywords: ['data set', 'sidebar', 'bar']
 ---
 
 <section data-tab="Guidelines">
