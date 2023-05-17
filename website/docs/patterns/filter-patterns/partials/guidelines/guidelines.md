@@ -83,19 +83,15 @@ Depending on the complexity of the data set or filterable parameters, it may be 
 
 ### Filter bar overflow
 
-If the number of filterable parameters exceeds the available space, consider prioritizing the most commonly used filters in the filter bar and moving less important or more complex filters to a [Flyout](/components/flyout) or [Modal](/components/modal). Either one of these interaction patterns can be triggered by an action within the filter bar.
+If the number of filterable parameters exceeds the available space, consider prioritizing the most commonly used filters in the filter bar and moving less important or more complex filters to a [Flyout](/components/flyout) that can be triggered via an action in the filter bar.
 
-**Ex 3.0: Hiding additional filters behind an action; in this scenario a tertiary button**
+**Ex 3.0: Hiding additional filters behind an action; in this scenario a secondary button**
 
 ![More filters trigger](/assets/patterns/filter-patterns/overflow-filter-bar.png)
 
 **Ex 3.1: Triggering a Flyout with additional filter parameters**
 
 ![Flyout triggered by more filters](/assets/patterns/filter-patterns/overflow-filter-bar-flyout.png)
-
-**Ex 3.1: Triggering a Modal with additional filter parameters**
-
-![Modal triggered by more filters](/assets/patterns/filter-patterns/overflow-filter-bar-modal.png)
 
 !!! Dont
 
@@ -107,7 +103,7 @@ Don't stack multiple filter bars on top of a data set. This can result in unnece
 
 ### Filter sidebar overflow
 
-Similar to the guidelines for overflow within a filter bar, an action to view more filters within a [Flyout](/components/flyout) or [Modal](/components/modal) can also be used.
+Similar to the guidelines for the filter bar, an action to view more filters within a [Flyout](/components/flyout) can also be used triggered within the sidebar orientation.
 
 **Ex 3.2: Hiding additional filters behind an action in a sidebar orientation**
 
@@ -115,7 +111,7 @@ Similar to the guidelines for overflow within a filter bar, an action to view mo
 
 !!! Info
 
-Consider each one of these scenarios carefully as moving additional filters to an interstitial component like a Modal or Flyout adds extra steps in the filtering process that might not be necessary. 
+Consider each one of these scenarios carefully as moving additional filters to an interstitial component like a Flyout adds extra steps in the filtering process that might not be necessary. 
 
 !!!
 
@@ -132,9 +128,5 @@ Depending on the context of the filtering pattern, it may be helpful to display 
 **Ex 3.5: Applied filters within a Flyout**
 
 ![Applied filters within a Flyout](/assets/patterns/filter-patterns/overflow-applied-filters-flyout.png)
-
-**Ex 3.6: Applied filters within a Modal**
-
-![Applied filters within a Modal](/assets/patterns/filter-patterns/overflow-applied-filters-modal.png)
 
 
