@@ -74,24 +74,27 @@ ToggleButtons come in two sizes: **small** and **medium**. This allows for place
 
 ToggleIcons come in two sizes: **small** and **medium**. 
 
-While we provide a small size variant, we recommend only using this for the Overflow menu within [Tables](/components/table) because the icons and images start to become unrecognizable in smaller sizes.
+!!! Info
 
-  <Hds::ButtonSet>
-    <Hds::Dropdown as |dd|>
-      <dd.ToggleIcon @icon="user" @size="small" @text="user menu" />
-      <dd.Interactive @text="Item One" />
-      <dd.Interactive @text="Item Two" />
-      <dd.Interactive @text="Item Three" />
-      <dd.Interactive @text="Item Four" />
-    </Hds::Dropdown>
-    <Hds::Dropdown as |dd|>
-      <dd.ToggleIcon @icon="user" @text="user menu" />
-      <dd.Interactive @text="Item One" />
-      <dd.Interactive @text="Item Two" />
-      <dd.Interactive @text="Item Three" />
-      <dd.Interactive @text="Item Four" />
-    </Hds::Dropdown>
-  </Hds::ButtonSet>
+While we provide a small size variant, we recommend only using this for the Overflow menu within [Tables](/components/table) because the icons and images start to become unrecognizable in smaller sizes.
+!!!
+
+<Doc::Layout @spacing="24px">
+  <Hds::Dropdown as |dd|>
+    <dd.ToggleIcon @icon="more-horizontal" @size="small" @text="Overflow Options" @hasChevron={{false}} />
+    <dd.Interactive @text="Item One" />
+    <dd.Interactive @text="Item Two" />
+    <dd.Interactive @text="Item Three" />
+    <dd.Interactive @text="Item Four" />
+  </Hds::Dropdown>  
+  <Hds::Dropdown as |dd|>
+    <dd.ToggleIcon @icon="user" @text="user menu" />
+    <dd.Interactive @text="Item One" />
+    <dd.Interactive @text="Item Two" />
+    <dd.Interactive @text="Item Three" />
+    <dd.Interactive @text="Item Four" />
+  </Hds::Dropdown>
+</Doc::Layout>
 
 ### Chevron usage
 
@@ -138,13 +141,13 @@ If you do not want the width of the List to expand automatically to accommodate 
   <Doc::ListContainer class="hds-dropdown__list">
     <Hds::Dropdown::ListItem::Title @text="Consul version v1.10.6" />
     <Hds::Dropdown::ListItem::Separator />
-    <Hds::Dropdown::ListItem::Interactive @text="Update Consul version" />
-    <Hds::Dropdown::ListItem::Interactive @text="Edit cluster" />
+    <Hds::Dropdown::ListItem::Interactive @text="Update Consul version" @icon="sync" />
+    <Hds::Dropdown::ListItem::Interactive @text="Edit cluster" @icon="edit" />
     <Hds::Dropdown::ListItem::Separator />
     <Hds::Dropdown::ListItem::Title @text="Import to Terraform" />
     <Hds::Dropdown::ListItem::Description @text="Copy and run this command in Terraform to import and manage this resource via our Terraform Provider" />
     <Hds::Dropdown::ListItem::Generic>
-      <Hds::Link::Standalone @color="primary" @text="Docs: Import usage" @icon="docs-link" @iconPosition="leading" @href="#" />
+      <Hds::Link::Standalone @color="primary" @text="Docs: Import usage" @icon="docs-link" @iconPosition="trailing" @href="#" />
     </Hds::Dropdown::ListItem::Generic>
     <Hds::Dropdown::ListItem::CopyItem @text="terraform import hcp_connect" />
     <Hds::Dropdown::ListItem::Separator />
@@ -187,18 +190,20 @@ Users may not understand why something is taking additional time to load. If pos
 
 ### Icon usage
 
-Icons in ListItems are optional, and we recommend letting the text speak for itself unless an icon provides additional value.
+Icons in ListItems are optional. Generally we recommend letting the text speak for itself, but icons can add value in the following situations:
 
-We don’t recommend mixing and matching icon use; that’s to say, if using an icon in one ListItem, use an icon in all ListItems. Doing so keeps the text aligned so the eye can scan the list of options more easily.
+- When they reinforce the content, e.g., `edit` for an edit or rename action. 
+- In Critical ListItems; read more about [how color blind users see critical actions](/components/dropdown?tab=accessibility) in our UIs.
+- To avoid mixing and matching icon use in the same List, e.g., if using an icon in one ListItem, try using an icon in all ListItems. Doing so keeps the text aligned so the eye can scan the list of options more easily.
 
 !!! Do
 
 <div class="hds-dropdown__content">
   <Doc::ListContainer class="hds-dropdown__list">
-    <Hds::Dropdown::ListItem::Title @text="About" />
-    <Hds::Dropdown::ListItem::Interactive @text="About Consul" @color="action" @icon="play-circle" />
-    <Hds::Dropdown::ListItem::Interactive @text="Why Consul on HCP" @color="action" @icon="link" />
-    <Hds::Dropdown::ListItem::Interactive @text="Success story" @color="action" @icon="play-circle" />
+    <Hds::Dropdown::ListItem::Interactive @text="Rename cluster" @color="action" @icon="edit" />
+    <Hds::Dropdown::ListItem::Interactive @text="Restore cluster" @color="action" @icon="reload" />
+    <Hds::Dropdown::ListItem::Separator />
+    <Hds::Dropdown::ListItem::Interactive @text="Delete cluster" @color="critical" @icon="trash" />
   </Doc::ListContainer>
 </div>
 !!!
@@ -207,42 +212,26 @@ We don’t recommend mixing and matching icon use; that’s to say, if using an 
 
 <div class="hds-dropdown__content">
   <Doc::ListContainer class="hds-dropdown__list">
-    <Hds::Dropdown::ListItem::Title @text="About" />
-    <Hds::Dropdown::ListItem::Interactive @text="About Consul" @color="action" @icon="play-circle" />
-    <Hds::Dropdown::ListItem::Interactive @text="Why Consul on HCP" @color="action" @icon="link" />
-    <Hds::Dropdown::ListItem::Interactive @text="Success story" @color="action" />
+    <Hds::Dropdown::ListItem::Interactive @text="Rename cluster" @color="action" />
+    <Hds::Dropdown::ListItem::Interactive @text="Restore cluster" @color="action" @icon="reload" />
+    <Hds::Dropdown::ListItem::Separator />
+    <Hds::Dropdown::ListItem::Interactive @text="Delete cluster" @color="critical" @icon="trash" />
   </Doc::ListContainer>
 </div>
 !!!
 
-### Critical ListItems
+### Critical action patterns
 
-#### Icons in Critical ListItems
-
-While icons are optional, we recommend using a relevant icon for Critical ListItems. Using the correct icon provides a stronger and more immediate visual indication that the action is destructive. Read more about [how color blind users see critical actions](/components/dropdown?tab=accessibility) in our UIs.
-
-<div class="hds-dropdown__content">
-  <Doc::ListContainer class="hds-dropdown__list">
-    <Hds::Dropdown::ListItem::Interactive @text="Rename" @color="action" />
-    <Hds::Dropdown::ListItem::Interactive @text="Restore" @color="action" />
-    <Hds::Dropdown::ListItem::Separator />
-    <Hds::Dropdown::ListItem::Interactive @text="Delete" @color="critical" @icon="trash" />
-  </Doc::ListContainer>
-</div>
-
-#### Critical action patterns
-We recommend adding a second confirmation layer after the user clicks “Delete” (e.g., showing a confirmation Modal that requires the user to type “Delete” into a field before proceeding). This safeguards against accidental clicks by requiring users to confirm the destructive action.
+We recommend adding a second confirmation layer after the user clicks “Delete” (e.g., showing a confirmation Modal that requires the user to take another action before proceeding). This safeguards against accidental clicks by requiring users to confirm the destructive action.
 
 !!! Do
 
 ![example of how to use a second confirmation layer](/assets/components/dropdown/dropdown-example-do.png =780x*)
-
 !!!
 
 !!! Dont
 
 ![example of how not to use a second confirmation layer](/assets/components/dropdown/dropdown-example-dont.png =507x*)
-
 !!!
 
 
