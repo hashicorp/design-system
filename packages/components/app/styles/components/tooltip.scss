@@ -75,6 +75,9 @@
     // This needs to go here because Tippy generates a javascript
     // max-width on .tippy-box.
     max-width: var(--token-tooltip-max-width);
+    // prevent the this container from potentially inheriting other values
+    // such as `white-space: nowrap` that would cause content overflow
+    white-space: normal;
   }
 
   // works with Tippy's custom SVG arrow variation:
