@@ -1,24 +1,24 @@
 ## Structure
 
-A filtering pattern consists of a number of elements and Helios components that work together functionally and enforce a consistent layout. These elements are variable depending on the content the data set contains and the context within the application, and can be combined in different ways to achieve an experience that benefits the end-user.
+A filtering pattern consists of a number of elements and Helios components that work together functionally and enforce a consistent layout. These elements are variable depending on the content of the data set and the context within the application, and can be combined in different ways to achieve an experience that benefits the end-user.
 
 ### Data set
 
-A data set is a broad term for an array items, objects, or related information presented as separate but related records. A data set is commonly represented via a [Table](/components/table) but may be expressed in other formats depending on the type of information.
+A data set is a broad term for an array of items, objects, or related information presented as separate but related records. A data set is commonly represented via a [Table](/components/table) but may be expressed in other formats depending on the type of information.
 
 **Dataset represented by a table**
 
 ![Tabular data set](/assets/patterns/filter-patterns/example-data-set-tabular-data.png)
 
-**Dataset represented by grid**
+**Dataset represented by a grid**
 
 ![Non-tabular data set](/assets/patterns/filter-patterns/example-data-set-non-tabular-data.png)
 
 ### Filter positioning
 
-Filters are responsible for the functional aspect of limiting a data set and for displaying the [parameters](/patterns/filter-patterns?tab=core%20concepts#parameter) which a user can filter upon. They often consists of numerous parameters that mirror the columns of a table or metadata contained within the data set.
+Filters are responsible for the functional aspect of limiting a data set and for displaying the [parameters](/patterns/filter-patterns?tab=core%20concepts#parameter) which a user can filter upon. They often consist of numerous parameters that mirror the columns of a table or metadata contained within the data set.
 
-Filter positioning is largely dependent on the complexity of the data set and the scope for which the filters are being applied (are the filters applied at the page-level, or only to the data set they are paired with).
+Filter positioning is largely dependent on the complexity of the data set and the scope for which the filters are being applied (are the filters applied at the page level, or only to the data set they are paired with).
 
 #### Filter bar
 
@@ -37,11 +37,11 @@ If space permits, filters can be positioned vertically in a **sidebar**, either 
 - **Page-level sidebar:** can be used for more complex data sets and if filtering contents of the entire page is required.
 - **In-line sidebars:** can be used when the number of filterable parameters is minimal and if space permits.
 
-**Ex 1.1 Page-level filter sidebar**
+**Ex 1.1: Page-level filter sidebar**
 
 ![Vertical orientation of the filter bar](/assets/patterns/filter-patterns/layout-sidebar-left-page-level.png)
 
-**Ex 1.2 In-line filter sidebar**
+**Ex 1.2: In-line filter sidebar**
 
 ![Vertical orientation of the filter bar on the left](/assets/patterns/filter-patterns/layout-sidebar-left-inline.png)
 
@@ -77,6 +77,8 @@ With this method, the filter values being applied to the dataset are already dis
 
 Use pagination to break down the filtered data set into pages. For more details refer to the [Pagination](/components/pagination) guidelines.
 
+![Pagination example](/assets/patterns/filter-patterns/pagination-layout.png)
+
 ## Overflow
 
 Depending on the complexity of the data set or filterable parameters, it may be necessary to account for overflow of elements within the filter bar or in the applied tags.
@@ -103,7 +105,7 @@ Don't stack multiple filter bars on top of a data set. This can result in unnece
 
 ### Filter sidebar overflow
 
-Similar to the guidelines for the filter bar, an action to view more filters within a [Flyout](/components/flyout) can also be used triggered within the sidebar orientation.
+Similar to the guidelines for the filter bar, an action to view more filters within a [Flyout](/components/flyout) can be triggered within the sidebar orientation.
 
 **Ex 3.2: Hiding additional filters behind an action in a sidebar orientation**
 
