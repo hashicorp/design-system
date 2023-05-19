@@ -152,9 +152,9 @@
     <SF.Item @label="With isInline=false">
       <p class="hds-typography-body-300">
         Lorem ipsum dolor sit amet consectetur
-        <Hds::TooltipButton @text="Here is more info" @isInline={{false}} aria-label="Information"><FlightIcon
-            @name="info"
-          /></Hds::TooltipButton>
+        <Hds::TooltipButton @text="Here is more info" @isInline={{false}} aria-label="Information">
+          <FlightIcon @name="info" />
+        </Hds::TooltipButton>
         adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
       </p>
     </SF.Item>
@@ -212,6 +212,20 @@
           Lorem ipsum dolor
         </div>
       </Hds::TooltipButton>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::Body>Style interference</Shw::Text::Body>
+
+  <Shw::Flex {{style gap="2rem"}} as |SF|>
+    <SF.Item @label="Parent has `white-space: nowrap`">
+      <div {{style whiteSpace="nowrap"}}>
+        <Hds::TooltipButton
+          @text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        >
+          <FlightIcon @name="info" />
+        </Hds::TooltipButton>
+      </div>
     </SF.Item>
   </Shw::Flex>
 
