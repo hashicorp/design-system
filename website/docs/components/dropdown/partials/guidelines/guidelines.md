@@ -175,18 +175,78 @@ The height of the ListContainer is automatically determined based on the content
   </Doc::ListContainer>
 </div>
 
+### Header
+
+<div class="hds-dropdown__content">
+  <Doc::ListContainer class="hds-dropdown__list">
+    <Hds::Dropdown::Header @hasDivider={{true}}>
+      <Hds::Form::TextInput::Base @type="search" placeholder="Search" />
+    </Hds::Dropdown::Header>
+    <Hds::Dropdown::ListItem::Checkbox @value="Planned">Planned</Hds::Dropdown::ListItem::Checkbox>
+    <Hds::Dropdown::ListItem::Checkbox @value="Policy override">Policy override</Hds::Dropdown::ListItem::Checkbox>
+    <Hds::Dropdown::ListItem::Checkbox @value="Policy checked">Policy checked</Hds::Dropdown::ListItem::Checkbox>
+    <Hds::Dropdown::ListItem::Checkbox @value="Cost estimated">Cost estimated</Hds::Dropdown::ListItem::Checkbox>
+    <Hds::Dropdown::ListItem::Checkbox @value="Errored">Errored</Hds::Dropdown::ListItem::Checkbox>
+    <Hds::Dropdown::ListItem::Checkbox @value="Fetched">Fetched</Hds::Dropdown::ListItem::Checkbox>
+  </Doc::ListContainer>
+</div>
+
+### Footer
+
+<div class="hds-dropdown__content">
+  <Doc::ListContainer class="hds-dropdown__list">
+    <Hds::Dropdown::ListItem::Checkbox @value="Planned">Planned</Hds::Dropdown::ListItem::Checkbox>
+    <Hds::Dropdown::ListItem::Checkbox @value="Policy override">Policy override</Hds::Dropdown::ListItem::Checkbox>
+    <Hds::Dropdown::ListItem::Checkbox @value="Policy checked">Policy checked</Hds::Dropdown::ListItem::Checkbox>
+    <Hds::Dropdown::ListItem::Checkbox @value="Cost estimated">Cost estimated</Hds::Dropdown::ListItem::Checkbox>
+    <Hds::Dropdown::ListItem::Checkbox @value="Errored">Errored</Hds::Dropdown::ListItem::Checkbox>
+    <Hds::Dropdown::ListItem::Checkbox @value="Fetched">Fetched</Hds::Dropdown::ListItem::Checkbox>
+    <Hds::Dropdown::Footer @hasDivider={{true}}>
+      <Hds::ButtonSet>
+        <Hds::Button @text="Apply filters" type="submit" />
+        <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
+      </Hds::ButtonSet>
+    </Hds::Dropdown::Footer>
+  </Doc::ListContainer>
+</div>
+
 ## ListItem
 
 ### Types
 
-![Dropdown ListItem types](/assets/components/dropdown/dropdown-listitem-types.png =449x*)
+#### Interactive
 
-!!! Info
+Interactive ListItems allow the user to interact with the Dropdown. Types include: `Checkbox`, `Checkmark`, `Interactive - Action`, `Interactive - Critical`, and `Radio`.
 
-**A note on Loading**
+![Interactive ListItem types](/assets/components/dropdown/dropdown-listitem-types-interactive.png =449x*)
+
+##### Understanding the difference between `Checkbox`, `Checkmark`, and `Radio`
+
+- Checkbox: Multi-selection
+- Checkmark: Single selection typically found outside of a form
+- Radio: Single selection typically found inside a form
+
+
+#### Non-interactive
+
+Non-interactive ListItems help provide structure and context to a Dropdown. Types include: `Description`, `Loading`, `Separator`, and `Title`.
+
+![Non-interactive ListItem types](/assets/components/dropdown/dropdown-listitem-types-noninteractive.png =449x*)
+
+##### Loading states within Dropdowns
 
 Users may not understand why something is taking additional time to load. If possible, determine what should be displayed prior to the user opening the dropdown (e.g., on page load). If that is not possible, provide an informative loading message.
+
+#### Generic
+
+The Generic ListItem allows you to add custom content in place of a ListItem. It includes predefined left and right padding to ensure proper alignment with other ListItems in the List. 
+
+!!! Warning
+
+Be careful not to misuse or overuse this type of ListItem. Relying on this escape hatch too often could result in an overly complex Dropdown.
 !!!
+
+![Generic ListItem type](/assets/components/dropdown/dropdown-listitem-types-generic.png =449x*)
 
 ### Icon usage
 
@@ -233,7 +293,6 @@ We recommend adding a second confirmation layer after the user clicks â€œDeleteâ
 
 ![example of how not to use a second confirmation layer](/assets/components/dropdown/dropdown-example-dont.png =507x*)
 !!!
-
 
 ## Content
 
