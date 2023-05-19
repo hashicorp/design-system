@@ -269,45 +269,47 @@ Below is an example (inspired by the Cloud UI navigation) of how the two kinds o
 for demo purposes we set `@isResponsive` and `@hasA11yRefocus` to `false`
 but in your app they will probably need to be set to `true` (or omitted to rely on defaults)
 --}}
-<Hds::SideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
-  <:header>
-    <Hds::SideNav::Header>
-      <:logo>
-        <Hds::SideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
-      </:logo>
-      <:actions>
-        <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
-          <dd.ToggleIcon @icon="help" @text="help menu" />
-          <dd.Title @text="Help & Support" />
-          <dd.Interactive @text="Documentation" @href="#" />
-          <dd.Interactive @text="Tutorials" @href="#" />
-          <dd.Interactive @text="Terraform Provider" @href="#" />
-          <dd.Interactive @text="Changelog" @href="#" />
-          <dd.Separator />
-          <dd.Interactive @text="Create support ticket" @href="#" />
-          <dd.Interactive @text="Give feedback" @href="#" />
-        </Hds::Dropdown>
-        <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
-          <dd.ToggleIcon @icon="user" @text="user menu" />
-          <dd.Title @text="Signed In" />
-          <dd.Description @text="email@domain.com" />
-          <dd.Interactive @href="#" @text="Account Settings" />
-        </Hds::Dropdown>
-      </:actions>
-    </Hds::SideNav::Header>
-  </:header>
-  <:body>
-    {{!--
-    this portal "target" needs to be added in the position where you want
-    the content declared in the "portal(s)" to be injected
-    (typically the `:body` of the `Hds::SideNav`)
-    --}}
-    <Hds::SideNav::Portal::Target />
-  </:body>
-  <:footer>
-    <Doc::Placeholder @height="36px" @text="Org/Project Select (“context switcher”)" @background="#e4e4e4" />
-  </:footer>
-</Hds::SideNav>
+<div class="doc-sidenav-demo--cloud-ui">
+  <Hds::SideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
+    <:header>
+      <Hds::SideNav::Header>
+        <:logo>
+          <Hds::SideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
+        </:logo>
+        <:actions>
+          <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
+            <dd.ToggleIcon @icon="help" @text="help menu" />
+            <dd.Title @text="Help & Support" />
+            <dd.Interactive @text="Documentation" @href="#" />
+            <dd.Interactive @text="Tutorials" @href="#" />
+            <dd.Interactive @text="Terraform Provider" @href="#" />
+            <dd.Interactive @text="Changelog" @href="#" />
+            <dd.Separator />
+            <dd.Interactive @text="Create support ticket" @href="#" />
+            <dd.Interactive @text="Give feedback" @href="#" />
+          </Hds::Dropdown>
+          <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
+            <dd.ToggleIcon @icon="user" @text="user menu" />
+            <dd.Title @text="Signed In" />
+            <dd.Description @text="email@domain.com" />
+            <dd.Interactive @href="#" @text="Account Settings" />
+          </Hds::Dropdown>
+        </:actions>
+      </Hds::SideNav::Header>
+    </:header>
+    <:body>
+      {{!--
+      this portal "target" needs to be added in the position where you want
+      the content declared in the "portal(s)" to be injected
+      (typically the `:body` of the `Hds::SideNav`)
+      --}}
+      <Hds::SideNav::Portal::Target />
+    </:body>
+    <:footer>
+      <Doc::Placeholder @height="36px" @text="Org/Project Select (“context switcher”)" @background="#e4e4e4" />
+    </:footer>
+  </Hds::SideNav>
+</div>
 
 {{!--
 this "portal" can be declared in any part of the application, and its content
