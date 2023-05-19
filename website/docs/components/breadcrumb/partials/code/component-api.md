@@ -12,8 +12,8 @@ The Breadcrumb component is composed of three different parts, each with their o
   <C.Property @name="itemsCanWrap" @type="boolean" @values={{array "false" "true" }} @default="true">
     This controls if the Breadcrumb Items can wrap if they don’t fit within the container.
   </C.Property>
-  <C.Property @name="ariaLabel" @type="string">
-    Accepts a localized string; the fallback is set to `breadcrumbs`.
+  <C.Property @name="ariaLabel" @type="string" @default="&quot;breadcrumbs&quot;">
+    Accepts a localized string.
   </C.Property>
   <C.Property @name="didInsert" @type="function">
     This hook method is called when the component is inserted in the DOM. Internally we use the `did-insert` modifier from `@ember/render-modifiers`.
