@@ -35,6 +35,16 @@
         {{@valueNote}}
       {{/if}}
     </dd>
+  {{else if @default}}
+    <dt class="doc-component-api__term doc-component-api__term--values">Default</dt>
+    <dd class="doc-component-api__description doc-component-api__description--values">
+      <ul class="doc-component-api__property-values" role="list">
+        <li class="doc-component-api__property-value--default">
+          {{@default}}
+          <span class="doc-sr-only">(default)</span>
+        </li>
+      </ul>
+    </dd>
   {{/if}}
   {{#if (has-block)}}
     <dt class="doc-component-api__term doc-component-api__term--description">Description</dt>
