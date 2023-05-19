@@ -1,9 +1,9 @@
 
-This section provides in-depth instructions on how consumers can use the **full-featured `Hds::SideNav`** component to build a "standard" sidebar navigation with responsive behaviour, animations/transitions, support for portals, etc.
+This section provides in-depth instructions on how consumers can use the **full-featured `Hds::SideNav`** component to build a "standard" sidebar navigation with responsive behavior, animations/transitions, support for portals, etc.
 
-It also provides generic guidance on how to use the **layout-only `Hds::SideNav::Base`** component to build a customised sidebar navigation (if that would be necessary).
+It also provides generic guidance on how to use the **layout-only `Hds::SideNav::Base`** component to build a customized sidebar navigation (if that would be necessary).
 
-Given the complexity that and level of customization that an application's navigation may require, it is not possible to cover all the possible use cases in this documentation. For this reason, if you need to implement a navigation element using this component, we suggest to contact the Design Systems Team for [guidance and support](/about/support).
+Given the complexity and level of customization that an application's navigation may require, it is not possible to cover all the possible use cases in this documentation. For this reason, if you need to implement a navigation element using this component, we suggest contacting the Design Systems Team for [guidance and support](/about/support).
 
 !!! Insight
 
@@ -313,7 +313,7 @@ but in your app they will probably need to be set to `true` (or omitted to rely 
 this "portal" can be declared in any part of the application, and its content
 will be injected automatically in the "target" portal declared above;
 if multiple portals are declared, multiple "panels" will be rendered
-based on the nesting of the page route within the application global routing
+based on the nesting of the page route within the application’s global routing
 --}}
 <Hds::SideNav::Portal as |Nav|>
   <Nav.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
@@ -354,7 +354,7 @@ When the SideNav is used in conjunction with portals, the nesting of navigation/
 
 This area usually contains the "context switchers" (eg. organization or project selectors), but technically it can contain anything (it depends on the context/application where the SideNav is used).
 
-If you want (and you probably do) that the content automatically fades in/out when the SideNav changes its "minimization" state, you have to apply the specific class `hds-side-nav-hide-when-minimized` to the top-level elements of your content.
+If you want (and you probably do) the content automatically fades in/out when the SideNav changes its "minimization" state, you have to apply the specific class `hds-side-nav-hide-when-minimized` to the top-level elements of your content.
 
 ```handlebars{data-execute=false}
 <Hds::SideNav>
@@ -400,7 +400,7 @@ As mentioned above, the full-fledged `Hds::SideNav` component is "responsive" by
     - a toggle button is added to the SideNav, used to expand/minimize its width
     - an overlay is automatically added to the main content area so that the user can't interact with it while the SideNav is opened (if the user clicks on the overlay, the SideNav closes and returns to its minimized state; the same happens if the user presses the `esc` key)
 
-This "responsive" behaviour can be programmatically turned off passing a value `false` to the argument `@isResponsive` in the `Hds::SideNav` component.
+This "responsive" behavior can be programmatically turned off passing a value `false` to the argument `@isResponsive` in the `Hds::SideNav` component.
 
 _Notice that even if the `@isResponsive` parameter is set to `false`, some JavaScript is executed anyway in the background, and events listeners are attached to some DOM elements (even if these functionality are not used)._
 
@@ -438,11 +438,11 @@ See the code snippet for the `<:footer>` above for examples of both approaches.
 
 #### Advanced customization
 
-Some aspects of the responsiveness/animation/transition of the SideNav are parameterized in code via CSS custom properties. It means that _in theory_ they could be customised/overwritten. This though is **something that we don't recommend**.
+Some aspects of the responsiveness/animation/transition of the SideNav are parameterized in code via CSS custom properties. It means that _in theory_ they could be customized/overwritten. This though is **something that we don't recommend**.
 
 Navigation is a cardinal element of the UI of an application, and its standardization across the different HashiCorp products is an important end goal. Also, the implementation of this component has required considerable efforts and investments, and we should preserve it as much as possible as a unifying element across products.
 
-If you find yourself in the situation of wanting/needing to customize or change the aspect or the behaviour of the SideNav component, contact the Design Systems Team for [guidance](/about/support).
+If you find yourself in the situation of wanting/needing to customize or change the aspect or the behavior of the SideNav component, contact the Design Systems Team for [guidance](/about/support).
 
 ### Accessibility
 
