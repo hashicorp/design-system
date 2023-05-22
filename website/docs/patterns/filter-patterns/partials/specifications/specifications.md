@@ -98,7 +98,7 @@ Spacing within a filter sidebar extends the guidelines for spacing within a [for
 
 If its necessary for filters to overflow into a [Flyout](/components/flyout), use the same organizational method and spacing guidelines as the filter sidebar.
 
-![Filters within a Flyout](/assets/patterns/filter-patterns/flyout-filter-spacing.png)
+![Filters within a Flyout](/assets/patterns/filter-patterns/flyout-filter-spacing.png =450x*)
 
 ## Applied filters
 
@@ -136,4 +136,4 @@ Use a `12px` gap between each row in this orientation.
 
 ## Pagination
 
-Refer to the [Pagination](/components/pagination) guidelines for more information on how to use Pagination in relation to a data set.
+Refer to the [Pagination](/components/pagination?tab=specifications) guidelines for more information on how to use Pagination in relation to a data set.
