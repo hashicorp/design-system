@@ -125,7 +125,7 @@ The component is implemented to support [multiple portals](https://github.com/si
 !!!
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="targetName" @type="string" @values={{array "hds-side-nav-portal-target" "string" }} @default="hds-side-nav-portal-target">
+  <C.Property @name="targetName" @type="string" @default="hds-side-nav-portal-target">
     The unique name used by [`ember-stargate`](https://github.com/simonihmig/ember-stargate#usage) to identify the portal. If provided, the same name must be used in the `SideNav::Portal` to point to the correct target.
   </C.Property>
   <C.Property @name="...attributes">
@@ -143,7 +143,7 @@ The content yielded in the component is injected inside a `Hds::SideNav::List` e
   <C.Property @name="<[P].extraBefore/Item/BackLink/Title/Link/extraAfter>" @type="yielded component">
     Sub-components yielded from `Hds::SideNav::List` (see below).
   </C.Property>
-  <C.Property @name="targetName" @type="string" @values={{array "hds-side-nav-portal-target" "string" }} @default="hds-side-nav-portal-target">
+  <C.Property @name="targetName" @type="string" @default="hds-side-nav-portal-target">
     The unique name used by [`ember-stargate`](https://github.com/simonihmig/ember-stargate#usage) to identify the target portal. If provided, the same name must be used in the `SideNav::PortalTarget` to identify it.
   </C.Property>
   <C.Property @name="ariaLabel" @type="string">
