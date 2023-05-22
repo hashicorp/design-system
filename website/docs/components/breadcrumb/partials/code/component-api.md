@@ -12,12 +12,14 @@ The Breadcrumb component is composed of three different parts, each with their o
   <C.Property @name="itemsCanWrap" @type="boolean" @values={{array "false" "true" }} @default="true">
     This controls if the Breadcrumb Items can wrap if they don’t fit within the container.
   </C.Property>
+  <C.Property @name="ariaLabel" @type="string">
+    Accepts a localized string; the fallback is set to `breadcrumbs`.
+  </C.Property>
   <C.Property @name="didInsert" @type="function">
     This hook method is called when the component is inserted in the DOM. Internally we use the `did-insert` modifier from `@ember/render-modifiers`.
   </C.Property>
   <C.Property @name="...attributes">
-    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).<br/><br/>
-    By default, an attribute `aria-label="breadcrumbs"` is assigned to the component. However, if you want to localize it, override it by passing the same attribute with a different value.
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).<br/>
   </C.Property>
 </Doc::ComponentApi>
 

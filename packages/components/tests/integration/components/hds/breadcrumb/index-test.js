@@ -34,10 +34,21 @@ module('Integration | Component | hds/breadcrumb/index', function (hooks) {
 
   // A11Y
 
-  test('it should render with the correct semantic tags and aria attributes', async function (assert) {
+  test('it should render with the correct semantic tags', async function (assert) {
     await render(hbs`<Hds::Breadcrumb id="test-breadcrumb" />`);
     assert.dom('#test-breadcrumb').hasTagName('nav');
     assert.dom('#test-breadcrumb').hasAria('label', 'breadcrumbs');
     assert.dom('#test-breadcrumb > ol').exists();
+  });
+  test('it should support a custom aria-label attribute', async function (assert) {
+    await render(
+      hbs`<Hds::Breadcrumb id="test-breadcrumb" aria-label="my aria label" />`
+    );
+    assert.dom('#test-breadcrumb').hasAria('label', 'my aria label');
+    assert.dom('#test-breadcrumb > ol').exists();
+  });
+  test('it should have a fallback aria-label if no custom aria-label is provided', async function (assert) {
+    await render(hbs`<Hds::Breadcrumb id="test-breadcrumb" />`);
+    assert.dom('#test-breadcrumb').hasAria('label', 'breadcrumbs');
   });
 });
