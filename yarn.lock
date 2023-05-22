@@ -6546,15 +6546,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"broccoli-multifilter@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "broccoli-multifilter@npm:2.0.0"
+"broccoli-multifilter@git+https://github.com/broccolijs/broccoli-multifilter.git#3ae609df0cfb1dae0da04ae041eb75c7115c9838":
+  version: 2.1.0
+  resolution: "broccoli-multifilter@https://github.com/broccolijs/broccoli-multifilter.git#commit=3ae609df0cfb1dae0da04ae041eb75c7115c9838"
   dependencies:
     broccoli-plugin: ^1.0.0
     merge-trees: ^2.0.0
     mkdirp: ^0.5.1
     promise-map-series: ^0.2.1
-  checksum: 60df415ed26aa00eb9fb5dd6a696639960c1bc3d8167a144f960ddbf44ae301a4fa18cb8d0135a54eab658a7b05c506b7a82daacb5c09c37b8e9229fb0dd4db3
+  checksum: caa97387683d498e1ad5746d9f739e046de8c94eb61d3223683e2617ad18b1efe40b38c2d66415767b4035d032b4348e09644998b59898056151ccde4cecd78e
   languageName: node
   linkType: hard
 
@@ -20980,7 +20980,7 @@ __metadata:
     broccoli-asset-rev: ^3.0.0
     broccoli-funnel: ^3.0.8
     broccoli-merge-trees: ^4.2.0
-    broccoli-multifilter: ^2.0.0
+    broccoli-multifilter: "git+https://github.com/broccolijs/broccoli-multifilter.git#3ae609df0cfb1dae0da04ae041eb75c7115c9838"
     cspell: ^6.26.3
     ember-a11y-refocus: ^3.0.2
     ember-a11y-testing: ^5.2.0

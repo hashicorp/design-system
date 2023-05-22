@@ -4,7 +4,7 @@
  */
 
 import Component from '@glimmer/component';
-import { getElementId } from '../../form/utils/getElementId';
+import { getElementId } from '@hashicorp/design-system-components/utils/hds-get-element-id';
 
 export default class HdsDropdownListItemCheckboxComponent extends Component {
   /**

@@ -7,8 +7,8 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
-import { setAriaDescribedBy } from '../utils/setAriaDescribedBy';
 import { schedule } from '@ember/runloop';
+import { setAriaDescribedBy } from '@hashicorp/design-system-components/utils/hds-set-aria-described-by';
 
 export const DEFAULT_CONTROL_POSITION = 'bottom';
 export const DEFAULT_ALIGNMENT = 'left';

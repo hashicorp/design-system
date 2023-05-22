@@ -69,23 +69,23 @@
       </Hds::Form::RadioCard::Group>
     </SF.Item>
     <SF.Item @label="With different content height">
-      <Hds::Form::RadioCard::Group @name="radio-card-group-custom" as |G|>
+      <Hds::Form::RadioCard::Group @name="radio-card-group-custom" @layout="fixed" as |G|>
         <G.Legend>Group legend</G.Legend>
-        <G.RadioCard @checked={{true}} {{on "change" this.onChange}} as |R|>
+        <G.RadioCard @maxWidth="330px" @checked={{true}} {{on "change" this.onChange}} as |R|>
           <R.Icon @name="hexagon" />
           <R.Label>Radio card with normal label</R.Label>
           <R.Badge @text="Badge" />
           <R.Description>This is the radio card description text.</R.Description>
         </G.RadioCard>
-        <G.RadioCard {{on "change" this.onChange}} as |R|>
+        <G.RadioCard @maxWidth="330px" {{on "change" this.onChange}} as |R|>
           <R.Icon @name="hexagon" />
           <R.Label>Radio card with long label that spans multiple lines</R.Label>
           <R.Badge @text="Badge" />
           <R.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque erat elit, lacinia at
             magna eget, porttitor lobortis nulla.</R.Description>
         </G.RadioCard>
-        <G.RadioCard {{on "change" this.onChange}} as |R|>
-          <R.Label>Radio card without icon</R.Label>
+        <G.RadioCard @maxWidth="330px" {{on "change" this.onChange}} as |R|>
+          <R.Label>37230f8be8ccf24075cf73805bbfa77537ea17ad</R.Label>
           <R.Description>This is the radio card description text.</R.Description>
         </G.RadioCard>
       </Hds::Form::RadioCard::Group>
@@ -258,5 +258,4 @@
       </Hds::Form::RadioCard::Group>
     </SF.Item>
   </Shw::Flex>
-
 </section>

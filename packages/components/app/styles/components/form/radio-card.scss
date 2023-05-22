@@ -140,6 +140,7 @@
   display: block;
   margin: 8px 0;
   color: var(--token-form-label-color);
+  overflow-wrap: break-word;
 
   &:first-child {
     margin-top: 0;

@@ -4,10 +4,10 @@
  */
 
 import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
-import { getElementId } from '../form/utils/getElementId';
-import { tracked } from '@glimmer/tracking';
+import { getElementId } from '@hashicorp/design-system-components/utils/hds-get-element-id';
 
 export const DEFAULT_SIZE = 'medium';
 export const DEFAULT_HAS_OVERLAY = true;
