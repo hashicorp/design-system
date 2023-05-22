@@ -5,19 +5,19 @@ This component is intended only for internal Helios use. If you need to use it, 
 
 ## How to use this component
 
-The `disclosure` component renders an interactive element that triggers a custom event handler provided by the `:toggle` block (passed via `hash` by Ember). To comply with accessibility best practices, this element is usually a button or a component that renders a button.
+The `MenuPrimitive` component renders an interactive element that triggers a custom event handler provided by the `:toggle` block (passed via `hash` by Ember). To comply with accessibility best practices, this element is usually a button or a component that renders a button.
 
 When the content is disclosed, the container can be closed in various way; toggling via the button (`click` or `enter/return`), clicking outside of the content, or via the `esc` key.
 
 ```handlebars
-<Hds::Disclosure>
+<Hds::MenuPrimitive>
   <:toggle as |t|>
     <button type="button" {{on "click" t.onClickToggle}}>Click me</button>
   </:toggle>
   <:content>
     your content here
   </:content>
-</Hds::Disclosure>
+</Hds::MenuPrimitive>
 ```
 
 ### Content positioning

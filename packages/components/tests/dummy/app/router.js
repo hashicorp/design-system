@@ -61,7 +61,7 @@ Router.map(function () {
     this.route('app-frame');
   });
   this.route('utilities', function () {
-    this.route('disclosure');
+    this.route('menu-primitive');
     this.route('dismiss-button');
     this.route('interactive');
   });

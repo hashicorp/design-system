@@ -3,16 +3,16 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-// DISCLOSURE
+// MenuPrimitive
 
-body.utilities-disclosure {
-  .shw-utility-disclosure-container {
+body.utilities-menu-primitive {
+  .shw-utility-menu-primitive-container {
     min-height: 120px;
     padding: 20px;
     outline: 1px dotted #d3d3d3;
   }
 
-  .shw-utility-disclosure-content-list-of-links {
+  .shw-utility-menu-primitive-content-list-of-links {
     width: fit-content;
     margin: 4px 0 0 0;
     padding: 10px;
@@ -34,7 +34,7 @@ body.utilities-disclosure {
     }
   }
 
-  .shw-utility-disclosure-button-wrapper {
+  .shw-utility-menu-primitive-button-wrapper {
     padding: 20px;
     outline: 1px dotted #ccc;
   }

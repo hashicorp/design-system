@@ -4,17 +4,17 @@
 }}
 {{! template-lint-disable no-invalid-interactive }}
 <div
-  class="hds-disclosure"
+  class="hds-menu-primitive"
   ...attributes
   {{did-insert this.didInsert}}
   {{on "focusout" this.onFocusOut}}
   {{on "keyup" this.onKeyUp}}
 >
-  <div class="hds-disclosure__toggle" tabindex="-1">
+  <div class="hds-menu-primitive__toggle" tabindex="-1">
     {{yield (hash onClickToggle=this.onClickToggle isOpen=this.isOpen) to="toggle"}}
   </div>
   {{#if this.isOpen}}
-    <div class="hds-disclosure__content" tabindex="-1">
+    <div class="hds-menu-primitive__content" tabindex="-1">
       {{yield (hash close=this.close) to="content"}}
     </div>
   {{/if}}
