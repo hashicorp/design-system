@@ -7,7 +7,7 @@ This component is intended only for internal Helios use. If you need to use it, 
 
 The `DisclosurePrimitive` component renders an interactive element that triggers a custom event handler provided by the `:toggle` block (passed via `hash` by Ember). To comply with accessibility best practices, this element is usually a button or a component that renders a button.
 
-When the content is disclosed, the container can be closed in various way; toggling via the button (`click` or `enter/return`), clicking outside of the content, or via the `esc` key.
+When the content is disclosed, the container can be closed by toggling the button (`click` or `enter/return`).
 
 ```handlebars
 <Hds::DisclosurePrimitive>
@@ -22,4 +22,4 @@ When the content is disclosed, the container can be closed in various way; toggl
 
 ### Content positioning
 
-The `:content` block is **not** positioned in relation to the `:toggle` block. We recommend applying `position: absolute` to a wrapper around the content that is then passed to the `:content` block.
+The `:content` block is **not** positioned in relation to the `:toggle` block.
