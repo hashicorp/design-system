@@ -1,0 +1,15 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+{{! template-lint-disable no-invalid-interactive }}
+<div class="hds-disclosure-primitive" ...attributes {{did-insert this.didInsert}}>
+  <div class="hds-disclosure-primitive__toggle" tabindex="-1">
+    {{yield (hash onClickToggle=this.onClickToggle isOpen=this.isOpen) to="toggle"}}
+  </div>
+  {{#if this.isOpen}}
+    <div class="hds-disclosure-primitive__content" tabindex="-1">
+      {{yield (hash close=this.close) to="content"}}
+    </div>
+  {{/if}}
+</div>

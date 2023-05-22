@@ -61,9 +61,10 @@ Router.map(function () {
     this.route('app-frame');
   });
   this.route('utilities', function () {
-    this.route('menu-primitive');
+    this.route('disclosure-primitive');
     this.route('dismiss-button');
     this.route('interactive');
+    this.route('menu-primitive');
   });
   this.route('overrides', function () {
     this.route('power-select');
