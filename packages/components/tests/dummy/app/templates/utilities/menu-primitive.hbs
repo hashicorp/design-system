@@ -3,17 +3,17 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-{{page-title "Disclosure"}}
+{{page-title "MenuPrimitive"}}
 
-<Shw::Text::H1>Disclosure</Shw::Text::H1>
+<Shw::Text::H1>MenuPrimitive</Shw::Text::H1>
 
 <section data-test-percy>
 
   <Shw::Flex as |SF|>
     <SF.Label>With generic HTML <code>&lt;button&gt;</code> and generic content (placeholder)</SF.Label>
     <SF.Item @grow={{true}}>
-      <div class="shw-utility-disclosure-container">
-        <Hds::Disclosure>
+      <div class="shw-utility-menu-primitive-container">
+        <Hds::MenuPrimitive>
           <:toggle as |t|>
             <button type="button" {{on "click" t.onClickToggle}}>
               Click me
@@ -23,7 +23,7 @@
           <:content>
             <Shw::Placeholder @text="some generic content here" @width="200" @height="90" @background="#FAFAFA" />
           </:content>
-        </Hds::Disclosure>
+        </Hds::MenuPrimitive>
       </div>
     </SF.Item>
   </Shw::Flex>
@@ -31,13 +31,13 @@
   <Shw::Flex as |SF|>
     <SF.Label>With generic HTML <code>&lt;button&gt;</code> and generic list of <code>&lt;a&gt;</code> links</SF.Label>
     <SF.Item @grow={{true}}>
-      <div class="shw-utility-disclosure-container">
-        <Hds::Disclosure>
+      <div class="shw-utility-menu-primitive-container">
+        <Hds::MenuPrimitive>
           <:toggle as |t|>
             <button type="button" {{on "click" t.onClickToggle}}>Click me</button>
           </:toggle>
           <:content as |c|>
-            <ul class="shw-utility-disclosure-content-list-of-links">
+            <ul class="shw-utility-menu-primitive-content-list-of-links">
               <li>
                 <a href="https://google.com">Link to Google</a>
               </li>
@@ -46,7 +46,7 @@
               </li>
             </ul>
           </:content>
-        </Hds::Disclosure>
+        </Hds::MenuPrimitive>
       </div>
     </SF.Item>
   </Shw::Flex>
@@ -58,20 +58,20 @@
       <code>&lt;input type="date"&gt;</code>
     </SF.Label>
     <SF.Item @grow={{true}}>
-      <div class="shw-utility-disclosure-container">
-        <Hds::Disclosure>
+      <div class="shw-utility-menu-primitive-container">
+        <Hds::MenuPrimitive>
           <:toggle as |t|>
             <button type="button" {{on "click" t.onClickToggle}}>Click me</button>
           </:toggle>
           <:content>
-            <ul class="shw-utility-disclosure-content-list-of-links">
+            <ul class="shw-utility-menu-primitive-content-list-of-links">
               <li>
                 <label for="date-input">Select date</label>
                 <input id="date-input" type="date" />
               </li>
             </ul>
           </:content>
-        </Hds::Disclosure>
+        </Hds::MenuPrimitive>
       </div>
     </SF.Item>
   </Shw::Flex>
@@ -79,8 +79,8 @@
   <Shw::Flex as |SF|>
     <SF.Label>With <code>&lt;Hds::Button&gt;</code> and generic list of <code>&lt;a&gt;</code> links</SF.Label>
     <SF.Item @grow={{true}}>
-      <div class="shw-utility-disclosure-container">
-        <Hds::Disclosure>
+      <div class="shw-utility-menu-primitive-container">
+        <Hds::MenuPrimitive>
           <:toggle as |t|>
             <Hds::Button
               @icon="chevron-down"
@@ -90,7 +90,7 @@
             />
           </:toggle>
           <:content as |c|>
-            <ul class="shw-utility-disclosure-content-list-of-links">
+            <ul class="shw-utility-menu-primitive-content-list-of-links">
               <li>
                 <a href="https://google.com">Link to Google</a>
               </li>
@@ -99,7 +99,7 @@
               </li>
             </ul>
           </:content>
-        </Hds::Disclosure>
+        </Hds::MenuPrimitive>
       </div>
     </SF.Item>
   </Shw::Flex>
@@ -111,10 +111,10 @@
       <code>&lt;a&gt;</code>
       links</SF.Label>
     <SF.Item @grow={{true}}>
-      <div class="shw-utility-disclosure-container">
-        <Hds::Disclosure>
+      <div class="shw-utility-menu-primitive-container">
+        <Hds::MenuPrimitive>
           <:toggle as |t|>
-            <div class="shw-utility-disclosure-button-wrapper">
+            <div class="shw-utility-menu-primitive-button-wrapper">
               <Hds::Button
                 @icon="chevron-down"
                 @iconPosition="trailing"
@@ -124,7 +124,7 @@
             </div>
           </:toggle>
           <:content as |c|>
-            <ul class="shw-utility-disclosure-content-list-of-links">
+            <ul class="shw-utility-menu-primitive-content-list-of-links">
               <li>
                 <a href="https://google.com">Link to Google</a>
               </li>
@@ -133,7 +133,7 @@
               </li>
             </ul>
           </:content>
-        </Hds::Disclosure>
+        </Hds::MenuPrimitive>
       </div>
     </SF.Item>
   </Shw::Flex>
