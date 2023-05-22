@@ -13,7 +13,7 @@
   <C.Property @name="onClose" @type="function">
     Callback function invoked when the modal is closed.
   </C.Property>
-  <C.Property @name="isDismissDisabled" @type="boolean" @values={{array "false" "true" }} @default="false">
+  <C.Property @name="isDismissDisabled" @type="boolean" @default="false">
     Set this boolean to `true` if you want to prevent the modal from being closed (for instance, to avoid accidental data loss in a form that hasn't been submitted). Make sure you communicate to users the reason why the modal is still open, and what they need to do to resolve the problem that is preventing the modal from being closed.
   </C.Property>
   <C.Property @name="...attributes">

@@ -1,16 +1,16 @@
 ## Component API
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="hasHeader" @type="boolean" @values={{array "true" "false" }} @default="true">
+  <C.Property @name="hasHeader" @type="boolean" @default="true">
     Controls the rendering of the `header` container.
   </C.Property>
-  <C.Property @name="hasSidebar" @type="boolean" @values={{array "true" "false" }} @default="true">
+  <C.Property @name="hasSidebar" @type="boolean" @default="true">
     Controls the rendering of the `sidebar` container.
   </C.Property>
-  <C.Property @name="hasFooter" @type="boolean" @values={{array "true" "false" }} @default="true">
+  <C.Property @name="hasFooter" @type="boolean" @default="true">
     Controls the rendering of the `footer` container.
   </C.Property>
-  <C.Property @name="hasModals" @type="boolean" @values={{array "true" "false" }} @default="true">
+  <C.Property @name="hasModals" @type="boolean" @default="true">
     Controls the rendering of the `modals` container.
   </C.Property>
   <C.Property @name="...attributes">

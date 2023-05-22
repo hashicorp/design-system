@@ -37,10 +37,10 @@ Set a custom initial selected page.
 <C.Property @name="sizeSelectorLabel" @type="string" @values={{array "Items per page" "Custom string" }} @default="Items per page">
   Add a custom string for the label text overriding the default value.
 </C.Property>
-<C.Property @name="isTruncated" @type="boolean" @values={{array "true" "false" }} @default="true">
+<C.Property @name="isTruncated" @type="boolean" @default="true">
 Used to to limit the number of page numbers displayed (to save space, it will display an ellipsis for some numbers).
 </C.Property>
-<C.Property @name="showLabels" @type="boolean" @values={{array "true" "false" }} @default="false">
+<C.Property @name="showLabels" @type="boolean" @default="false">
 Used to control the visibility of the "prev/next" text labels.
 </C.Property>
 <C.Property @name="route/model/models/replace">
@@ -69,10 +69,10 @@ These are the parameters that are passed down as arguments to the `Hds::Paginati
 <C.Property @name="queryFunction" @type="function">
 A function that returns an object that can be provided as `query` argument for the routing, and that is passed down to the to the child components together with the other routing parameters. The function receives as argument one of two possible values: `prev` / `next`.
 </C.Property>
-<C.Property @name="isDisabledPrev/isDisabledNext" @type="boolean" @values={{array "true" "false" }} @default="false">
+<C.Property @name="isDisabledPrev/isDisabledNext" @type="boolean" @default="false">
 Used to disable the "prev" or "next" controls. Notice: when the control is disabled, it’s always rendered as an HTML `<button>` element.
 </C.Property>
-<C.Property @name="showLabels" @type="boolean" @values={{array "true" "false" }} @default="true">
+<C.Property @name="showLabels" @type="boolean" @default="true">
 Used to control the visibility of the "prev/next" text labels.
 </C.Property>
 <C.Property @name="onPageChange" @type="function">
@@ -97,7 +97,7 @@ The "end" value of the range in the informational text.
 <C.Property @name="totalItems" @required="true" @type="string|number">
 The "out of" total items in the informational text. Not required if `showTotalItems` is set to `false`.
 </C.Property>
-<C.Property @name="showTotalItems" @type="boolean" @values={{array "true" "false" }} @default="true">
+<C.Property @name="showTotalItems" @type="boolean" @default="true">
 Controls the visibility of the total items in the informational text.
 </C.Property>
 </Doc::ComponentApi>
@@ -111,10 +111,10 @@ Sets the "direction" of the icon and label in the control.
 <C.Property @name="route/models/model/query/replace">
 These are the parameters that are passed down as arguments to the `Hds::Interactive` component (used internally). For more details about how this low-level component works, please refer to [its documentation page](/utilities/interactive/).
 </C.Property>
-<C.Property @name="disabled" @type="boolean" @values={{array "true" "false" }} @default="false">
+<C.Property @name="disabled" @type="boolean" @default="false">
 Sets the control as disabled. Notice: when the control is disabled, it’s always rendered as an HTML `Button` element.
 </C.Property>
-<C.Property @name="showLabel" @type="boolean" @values={{array "true" "false" }} @default="true">
+<C.Property @name="showLabel" @type="boolean" @default="true">
 Used to control the visibility of the text label in the control.
 </C.Property>
 <C.Property @name="onClick" @type="function">
@@ -130,7 +130,7 @@ This component supports use of [`...attributes`](https://guides.emberjs.com/rele
 <C.Property @name="page" @required="true" @type="number">
 The value that should go in the control as page number.
 </C.Property>
-<C.Property @name="isSelected" @type="boolean" @values={{array "true" "false" }} @default="false">
+<C.Property @name="isSelected" @type="boolean" @default="false">
 If the page has a "selected" visual state (usually used to highlight the current page).
 </C.Property>
 <C.Property @name="route/models/model/query/replace">

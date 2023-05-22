@@ -24,7 +24,7 @@ The Tabs component is composed of different parts, with their own APIs:
   <C.Property @name="icon">
     Displays an optional icon in the tab. Accepts any [icon](/icons/library) name.
   </C.Property>
-  <C.Property @name="isSelected" @type="boolean" @values={{array "false" "true" }} @default="false">
+  <C.Property @name="isSelected" @type="boolean" @default="false">
     Customizes the initial tab to display when the page is loaded. The first tab is selected on page load by default.
   </C.Property>
   <C.Property @name="yield">

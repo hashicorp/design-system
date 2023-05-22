@@ -1,4 +1,4 @@
-## Component API 
+## Component API
 
 The Checkbox component has three different variants with their own APIs:
 
@@ -15,10 +15,10 @@ The Checkbox component has three different variants with their own APIs:
   <C.Property @name="name" @type="string">
     Sets the `name` attribute for each form control within the group.
   </C.Property>
-  <C.Property @name="isRequired" @type="boolean" @values={{array "false" "true" }} @default="false">
+  <C.Property @name="isRequired" @type="boolean" @default="false">
     Appends a `Required` indicator next to the legend text and sets the `required` attribute on the control when user input is required.
   </C.Property>
-  <C.Property @name="isOptional" @type="boolean" @values={{array "false" "true" }} @default="false">
+  <C.Property @name="isOptional" @type="boolean" @default="false">
     Appends an `Optional` indicator next to the legend text when user input is optional.
   </C.Property>
 </Doc::ComponentApi>
