@@ -102,7 +102,7 @@
     "yaml-front-matter": "^4.1.1"
   },
   "engines": {
-    "node": "12.* || 14.* || 16.*"
+    "node": "16.* || 18.*"
   },
   "ember": {
     "edition": "octane"
