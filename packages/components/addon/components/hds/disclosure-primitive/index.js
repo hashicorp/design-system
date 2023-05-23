@@ -10,16 +10,6 @@ import { schedule } from '@ember/runloop';
 
 export default class HdsDisclosurePrimitiveComponent extends Component {
   @tracked isOpen; // notice: if in the future we need to add a "@isOpen" prop to control the status from outside (eg to have the DisclosurePrimitive opened on render) just add  "this.args.isOpen" here to initalize the variable
-  @tracked toggleRef;
-
-  @action
-  onClickToggle(event) {
-    // we store a reference to the DOM node that has the "onClickToggle" event associated with it
-    if (!this.toggleRef) {
-      this.toggleRef = event.currentTarget;
-    }
-    this.isOpen = !this.isOpen;
-  }
 
   @action
   close() {
