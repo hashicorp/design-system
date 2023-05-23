@@ -3,4 +3,6 @@
 "website": minor
 ---
 
-Refactor Hds::Disclosure internal utility component into two new components: - Rename the original Hds::Disclosure component to Hds::MenuPrimitive, - Add a new Hds::DisclosurePrimitive stripped of the “click outside/unfocus/esc to close” functionality
+Refactor `Hds::Disclosure` internal utility component into two new components: 
+- Rename the original `Hds::Disclosure` component to `Hds::MenuPrimitive`
+- Add a new `Hds::DisclosurePrimitive` component stripped of the “click outside/unfocus/esc to close” functionality
