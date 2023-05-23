@@ -43,7 +43,7 @@
     "broccoli-asset-rev": "^3.0.0",
     "broccoli-funnel": "^3.0.8",
     "broccoli-merge-trees": "^4.2.0",
-    "broccoli-multifilter": "^2.0.0",
+    "broccoli-multifilter": "git+https://github.com/broccolijs/broccoli-multifilter.git#3ae609df0cfb1dae0da04ae041eb75c7115c9838",
     "cspell": "^6.26.3",
     "ember-a11y-refocus": "^3.0.2",
     "ember-a11y-testing": "^5.2.0",
@@ -102,7 +102,7 @@
     "yaml-front-matter": "^4.1.1"
   },
   "engines": {
-    "node": "12.* || 14.* || 16.*"
+    "node": "16.* || 18.*"
   },
   "ember": {
     "edition": "octane"
