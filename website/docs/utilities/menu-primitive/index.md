@@ -1,8 +1,8 @@
 ---
-title: Disclosure
+title: MenuPrimitive
 description: An internal utility component that provides show/hide functionality.
 caption: An internal utility component that provides show/hide functionality.
-previewImage: assets/illustrations/utilities/disclosure.jpg
+previewImage: assets/illustrations/utilities/menu-primitive.jpg
 navigation:
   keywords: ['show', 'hide', 'accordion', 'dropdown', 'reveal']
 ---
@@ -12,4 +12,3 @@ navigation:
   @include "partials/code/component-api.md"
   <!-- @include "partials/code/showcase.md" -->
 </section>
-
