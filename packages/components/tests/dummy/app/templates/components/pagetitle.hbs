@@ -11,16 +11,23 @@ SPDX-License-Identifier: MPL-2.0
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item as |SFI|>
       <SFI.Label>Simple example</SFI.Label>
-      <Hds::Pagetitle @title="Page title" @subtitle="Subtitle" />
+      <Hds::Pagetitle @title="Page title" as |PT|>
+        <PT.Metadata as |M|>
+          <M.Subtitle>Subtitle</M.Subtitle>
+        </PT.Metadata>
+      </Hds::Pagetitle>
     </SF.Item>
     <SF.Item as |SFI|>
       <SFI.Label>Simple + Breadcrumb</SFI.Label>
-      <Hds::Pagetitle @title="Page title" @subtitle="Subtitle" as |PT|>
+      <Hds::Pagetitle @title="Page title" as |PT|>
         <PT.Breadcrumb>
           <Hds::Breadcrumb::Item @text="Level 1" @icon="org" />
           <Hds::Breadcrumb::Item @text="Level 2" />
           <Hds::Breadcrumb::Item @text="Current" />
         </PT.Breadcrumb>
+        <PT.Metadata as |M|>
+          <M.Subtitle>Subtitle</M.Subtitle>
+        </PT.Metadata>
       </Hds::Pagetitle>
     </SF.Item>
     <SF.Item as |SFI|>
@@ -82,7 +89,7 @@ SPDX-License-Identifier: MPL-2.0
     </SF.Item>
     <SF.Item as |SFI|>
       <SFI.Label>With subtitle</SFI.Label>
-      <Hds::Pagetitle @title="example-reactjs" @subtitle="1 application" as |PT|>
+      <Hds::Pagetitle @title="example-reactjs" as |PT|>
         <PT.Breadcrumb>
           <Hds::Breadcrumb::Item @text="HCP Sandbox" @icon="org" />
           <Hds::Breadcrumb::Item @text="jane-doe-project" @icon="folder" />
@@ -91,6 +98,9 @@ SPDX-License-Identifier: MPL-2.0
           <Hds::Breadcrumb::Item @text="example-reactjs" />
         </PT.Breadcrumb>
         <PT.IconTile @icon="folder" @color="waypoint" />
+        <PT.Metadata as |M|>
+          <M.Subtitle>1 application</M.Subtitle>
+        </PT.Metadata>
       </Hds::Pagetitle>
     </SF.Item>
     <SF.Item as |SFI|>
@@ -100,11 +110,14 @@ SPDX-License-Identifier: MPL-2.0
         <PT.Badges>
           <Hds::Badge @text="Beta" @color="highlight" />
         </PT.Badges>
+        <PT.Metadata as |M|>
+          <M.Subtitle>Over the past 24 hours, refreshes every 5 seconds.</M.Subtitle>
+        </PT.Metadata>
       </Hds::Pagetitle>
     </SF.Item>
     <SF.Item as |SFI|>
       <SFI.Label>With multiple badges</SFI.Label>
-      <Hds::Pagetitle @title="Services" @subtitle="1000 services | Data updates every 15 seconds." as |PT|>
+      <Hds::Pagetitle @title="Services" as |PT|>
         <PT.IconTile @logo="consul" />
         <PT.Breadcrumb>
           <Hds::Breadcrumb::Item @text="HCP Sandbox" @icon="org" />
@@ -116,11 +129,14 @@ SPDX-License-Identifier: MPL-2.0
           <Hds::Badge @text="Lookin' good" @color="success" @icon="award" />
           <Hds::Badge @text="Massive error" @color="critical" @icon="x" />
         </PT.Badges>
+        <PT.Metadata as |M|>
+          <M.Subtitle>1000 services | Data updates every 15 seconds.</M.Subtitle>
+        </PT.Metadata>
       </Hds::Pagetitle>
     </SF.Item>
     <SF.Item as |SFI|>
       <SFI.Label>With metadata</SFI.Label>
-      <Hds::Pagetitle @title="Observe the meta" @subtitle="This is the subtitle, which is very meta." as |PT|>
+      <Hds::Pagetitle @title="Observe the meta" as |PT|>
         <PT.IconTile @icon="facebook" @color="packer" />
         <PT.Breadcrumb>
           <Hds::Breadcrumb::Item @text="HCP Sandbox" @icon="org" />
@@ -138,11 +154,12 @@ SPDX-License-Identifier: MPL-2.0
           </Hds::Dropdown>
           <Hds::Button @text="Open Admin UI" @color="primary" @icon="external-link" @iconPosition="trailing" />
         </PT.Actions>
-        <PT.Metadata>
+        <PT.Metadata as |M|>
+          <M.Subtitle>This is the subtitle, which is very meta.</M.Subtitle>
           <Shw::Placeholder @text="yield this content" @height="50" @background="#eee" />
-          <p class="hds-typography-body-200">
-            This is a description, or some type of metadata object. Lorem ipsum dolar sit amet.
-          </p>
+          <M.Description>
+            This is a description, or some type of metadata object. Lorem ipsum dolar sit amet. <Hds::Link::Inline @href="#" @icon="external-link">More details</Hds::Link::Inline>
+          </M.Description>
         </PT.Metadata>
       </Hds::Pagetitle>
     </SF.Item>

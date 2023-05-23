@@ -4,20 +4,15 @@
 }}
 <div class={{this.classNames}} ...attributes>
   {{yield (hash Breadcrumb=(component "hds/breadcrumb"))}}
-  <div class="hds-pagetitle-main">
+  <div class="hds-pagetitle-wrapper">
     {{yield (hash IconTile=(component "hds/icon-tile"))}}
-    <div class="hds-pagetitle-title__wrapper">
-      <div class="hds-pagetitle-title__content">
+    <div class="hds-pagetitle-main">
+      <div class="hds-pagetitle-content">
         <div class="hds-pagetitle-heading">
-          <h1 class="hds-pagetitle-title hds-typography-display-500">{{this.title}}</h1>
-          <div class="hds-pagetitle-badge__wrapper">
-            {{yield (hash Badges=(component "hds/yield"))}}
-          </div>
+          <h1 class="hds-pagetitle-heading__content hds-typography-display-500">{{this.title}}</h1>
+          {{yield (hash Badges=(component "hds/pagetitle/badges"))}}
         </div>
-        <p class="hds-pagetitle-subtitle hds-typography-body-200">{{this.subtitle}}</p>
-        <div class="hds-pagetitle-metadata">
-          {{yield (hash Metadata=(component "hds/yield"))}}
-        </div>
+        {{yield (hash Metadata=(component "hds/pagetitle/metadata"))}}
       </div>
       {{yield (hash Actions=(component "hds/button-set"))}}
     </div>

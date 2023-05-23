@@ -2,4 +2,12 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<div class="hds-pagetitle-metadata" ...attributes>{{yield}}</div>
+<div class="hds-pagetitle-metadata" ...attributes>
+  {{yield
+    (hash
+      Subtitle=(component "hds/pagetitle/subtitle")
+      Description=(component "hds/pagetitle/description")
+      Generic=(component "hds/yield")
+    )
+  }}
+</div>
