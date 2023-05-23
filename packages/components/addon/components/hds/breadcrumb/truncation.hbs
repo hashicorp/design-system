@@ -8,7 +8,7 @@
       <button
         type="button"
         class="hds-breadcrumb__truncation-toggle"
-        aria-label="show more"
+        aria-label={{if @ariaLabel @ariaLabel "show more"}}
         aria-expanded={{if t.isOpen "true" "false"}}
         {{on "click" t.onClickToggle}}
       >
