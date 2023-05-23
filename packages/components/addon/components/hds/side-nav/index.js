@@ -62,9 +62,9 @@ export default class HdsSideNavComponent extends Component {
    */
   get ariaLabel() {
     if (this.isMinimized) {
-      return this.args.ariaLabel ?? 'open menu';
+      return this.args.ariaLabel ?? 'Open menu';
     }
-    return this.args.ariaLabel ?? 'close menu';
+    return this.args.ariaLabel ?? 'Close menu';
   }
 
   get classNames() {
