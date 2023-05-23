@@ -34,6 +34,16 @@ module('Integration | Component | hds/tag/index', function (hooks) {
       .hasAttribute('aria-label', 'Dismiss My tag');
   });
 
+  test('it should render a customized label for the dismiss button if custom @ariaLabel text is defined', async function (assert) {
+    this.set('NOOP', () => {});
+    await render(
+      hbs`<Hds::Tag @text="My tag" @onDismiss={{this.NOOP}} @ariaLabel="Please dismiss" />`
+    );
+    assert.dom('button.hds-tag__dismiss').exists();
+    assert
+      .dom('button.hds-tag__dismiss')
+      .hasAttribute('aria-label', 'Please dismiss My tag');
+  });
   // COLOR
 
   test('it should render the primary color as the default if no @color prop is declared when the text is a link', async function (assert) {
