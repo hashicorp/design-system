@@ -2,20 +2,24 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-{{! ADD YOUR TEMPLATE CONTENT HERE }}
 <div class={{this.classNames}} ...attributes>
   {{yield (hash Breadcrumb=(component "hds/breadcrumb"))}}
-  <div class="hds-pagetitle-title__wrapper">
-    <Hds::IconTile @logo="waypoint" @size="medium" />
-    <div class="hds-pagetitle-main__content">
+  <div class="hds-pagetitle-main">
+    {{yield (hash IconTile=(component "hds/icon-tile"))}}
+    <div class="hds-pagetitle-title__wrapper">
       <div class="hds-pagetitle-title__content">
-        <h1 class="hds-typography-display-500">{{this.title}}</h1>
-        <div class="hds-pagetitle-badge__wrapper">
-          {{yield (hash Badges=(component "hds/yield"))}}
+        <div class="hds-pagetitle-heading">
+          <h1 class="hds-pagetitle-title hds-typography-display-500">{{this.title}}</h1>
+          <div class="hds-pagetitle-badge__wrapper">
+            {{yield (hash Badges=(component "hds/yield"))}}
+          </div>
+        </div>
+        <p class="hds-pagetitle-subtitle hds-typography-body-200">{{this.subtitle}}</p>
+        <div class="hds-pagetitle-metadata">
+          {{yield (hash Metadata=(component "hds/yield"))}}
         </div>
       </div>
-      <p class="hds-typography-body-200">{{this.subtitle}}</p>
-      <p class="hds-typography-body-200">{{this.description}}</p>
+      {{yield (hash Actions=(component "hds/button-set"))}}
     </div>
   </div>
 </div>

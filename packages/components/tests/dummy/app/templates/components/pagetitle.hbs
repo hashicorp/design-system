@@ -3,30 +3,148 @@ Copyright (c) HashiCorp, Inc.
 SPDX-License-Identifier: MPL-2.0
 }}
 
-{{page-title "Pagetitle Component"}}
+{{page-title "PageTitle Component"}}
 
-<Shw::Text::H1>Pagetitle</Shw::Text::H1>
+<Shw::Text::H1>PageTitle</Shw::Text::H1>
 
 <section data-test-percy>
-
-  {{! ADD YOUR CONTENT HERE }}
-
-  {{! This below is just an example of invocation, to get started }}
-  <Hds::Pagetitle
-    @title="Page title"
-    @subtitle="Subtitle"
-    @description="An optional page description goes here. Use it to explain the concept indicated the title"
-    as |T|
-  >
-    <T.Breadcrumb>
-      <Hds::Breadcrumb::Item @text="Item 1" @icon="org" />
-      <Hds::Breadcrumb::Item @text="Item 2" />
-      <Hds::Breadcrumb::Item @text="Item 3" />
-    </T.Breadcrumb>
-    <T.Badges>
-      <Hds::Badge @text="Active" @icon="check" @color="success" />
-      <Hds::Badge @text="Failing" @icon="x" @color="critical" />
-    </T.Badges>
-  </Hds::Pagetitle>
-
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item as |SFI|>
+      <SFI.Label>Simple example</SFI.Label>
+      <Hds::Pagetitle @title="Page title" @subtitle="Subtitle" />
+    </SF.Item>
+    <SF.Item as |SFI|>
+      <SFI.Label>Simple + Breadcrumb</SFI.Label>
+      <Hds::Pagetitle @title="Page title" @subtitle="Subtitle" as |PT|>
+        <PT.Breadcrumb>
+          <Hds::Breadcrumb::Item @text="Level 1" @icon="org" />
+          <Hds::Breadcrumb::Item @text="Level 2" />
+          <Hds::Breadcrumb::Item @text="Current" />
+        </PT.Breadcrumb>
+      </Hds::Pagetitle>
+    </SF.Item>
+    <SF.Item as |SFI|>
+      <SFI.Label>With <code>IconTile</code></SFI.Label>
+      <Hds::Pagetitle @title="Dashboard Overview" as |PT|>
+        <PT.Breadcrumb>
+          <Hds::Breadcrumb::Item @text="Level 1" @icon="org" />
+          <Hds::Breadcrumb::Item @text="Level 2" />
+          <Hds::Breadcrumb::Item @text="Current" />
+        </PT.Breadcrumb>
+        <PT.IconTile @icon="dashboard" />
+      </Hds::Pagetitle>
+    </SF.Item>
+    <SF.Item as |SFI|>
+      <SFI.Label>With actions</SFI.Label>
+      <Hds::Pagetitle @title="Projects" as |PT|>
+        <PT.Breadcrumb>
+          <Hds::Breadcrumb::Item @text="Organization" />
+          <Hds::Breadcrumb::Item @text="Foo bar org" @icon="org" />
+          <Hds::Breadcrumb::Item @text="Projects" />
+        </PT.Breadcrumb>
+        <PT.Actions>
+          <Hds::Button @text="Manage organization" @color="secondary" />
+          <Hds::Button @text="Create new project" @color="primary" />
+        </PT.Actions>
+      </Hds::Pagetitle>
+    </SF.Item>
+    <SF.Item as |SFI|>
+      <SFI.Label>Product landing page</SFI.Label>
+      <Hds::Pagetitle @title="Boundary clusters" as |PT|>
+        <PT.Breadcrumb>
+          <Hds::Breadcrumb::Item @text="HCP Sandbox" @icon="org" />
+          <Hds::Breadcrumb::Item @text="Boundary clusters" />
+        </PT.Breadcrumb>
+        <PT.IconTile @logo="boundary" />
+      </Hds::Pagetitle>
+    </SF.Item>
+    <SF.Item as |SFI|>
+      <SFI.Label>Overview sub-page</SFI.Label>
+      <Hds::Pagetitle @title="boundary-cluster overview" as |PT|>
+        <PT.Breadcrumb>
+          <Hds::Breadcrumb::Item @text="HCP Sandbox" @icon="org" />
+          <Hds::Breadcrumb::Item @text="Boundary clusters" />
+          <Hds::Breadcrumb::Item @text="boundary-cluster overview" />
+        </PT.Breadcrumb>
+        <PT.IconTile @icon="server-cluster" @color="boundary" />
+        <PT.Actions>
+          <Hds::Dropdown as |DD|>
+            <DD.ToggleButton @text="Manage" @color="secondary" />
+            <DD.Interactive @href="#" @text="Manage clusters" />
+            <DD.Interactive @href="#" @text="Lauch Boundary locally" />
+            <DD.Interactive @href="#" @text="API keys" />
+            <DD.Separator />
+            <DD.Interactive @href="#" @text="Delete" @color="critical" @icon="trash" />
+          </Hds::Dropdown>
+          <Hds::Button @text="Open Admin UI" @color="primary" @icon="external-link" @iconPosition="trailing" />
+        </PT.Actions>
+      </Hds::Pagetitle>
+    </SF.Item>
+    <SF.Item as |SFI|>
+      <SFI.Label>With subtitle</SFI.Label>
+      <Hds::Pagetitle @title="example-reactjs" @subtitle="1 application" as |PT|>
+        <PT.Breadcrumb>
+          <Hds::Breadcrumb::Item @text="HCP Sandbox" @icon="org" />
+          <Hds::Breadcrumb::Item @text="jane-doe-project" @icon="folder" />
+          <Hds::Breadcrumb::Item @text="Waypoint" @icon="waypoint" />
+          <Hds::Breadcrumb::Item @text="Projects" />
+          <Hds::Breadcrumb::Item @text="example-reactjs" />
+        </PT.Breadcrumb>
+        <PT.IconTile @icon="folder" @color="waypoint" />
+      </Hds::Pagetitle>
+    </SF.Item>
+    <SF.Item as |SFI|>
+      <SFI.Label>With badge</SFI.Label>
+      <Hds::Pagetitle @title="Observability" @subtitle="Over the past 24 hours, refreshes every 5 seconds." as |PT|>
+        <PT.IconTile @icon="server-cluster" @color="consul" />
+        <PT.Badges>
+          <Hds::Badge @text="Beta" @color="highlight" />
+        </PT.Badges>
+      </Hds::Pagetitle>
+    </SF.Item>
+    <SF.Item as |SFI|>
+      <SFI.Label>With multiple badges</SFI.Label>
+      <Hds::Pagetitle @title="Services" @subtitle="1000 services | Data updates every 15 seconds." as |PT|>
+        <PT.IconTile @logo="consul" />
+        <PT.Breadcrumb>
+          <Hds::Breadcrumb::Item @text="HCP Sandbox" @icon="org" />
+          <Hds::Breadcrumb::Item @text="Boundary clusters" />
+          <Hds::Breadcrumb::Item @text="boundary-cluster overview" />
+        </PT.Breadcrumb>
+        <PT.Badges>
+          <Hds::Badge @text="Tech preview" @color="highlight" />
+          <Hds::Badge @text="Lookin' good" @color="success" @icon="award" />
+          <Hds::Badge @text="Massive error" @color="critical" @icon="x" />
+        </PT.Badges>
+      </Hds::Pagetitle>
+    </SF.Item>
+    <SF.Item as |SFI|>
+      <SFI.Label>With metadata</SFI.Label>
+      <Hds::Pagetitle @title="Observe the meta" @subtitle="This is the subtitle, which is very meta." as |PT|>
+        <PT.IconTile @icon="facebook" @color="packer" />
+        <PT.Breadcrumb>
+          <Hds::Breadcrumb::Item @text="HCP Sandbox" @icon="org" />
+          <Hds::Breadcrumb::Item @text="Boundary clusters" />
+          <Hds::Breadcrumb::Item @text="boundary-cluster overview" />
+        </PT.Breadcrumb>
+        <PT.Actions>
+          <Hds::Dropdown as |DD|>
+            <DD.ToggleButton @text="Manage" @color="secondary" />
+            <DD.Interactive @href="#" @text="Manage clusters" />
+            <DD.Interactive @href="#" @text="Lauch Boundary locally" />
+            <DD.Interactive @href="#" @text="API keys" />
+            <DD.Separator />
+            <DD.Interactive @href="#" @text="Delete" @color="critical" @icon="trash" />
+          </Hds::Dropdown>
+          <Hds::Button @text="Open Admin UI" @color="primary" @icon="external-link" @iconPosition="trailing" />
+        </PT.Actions>
+        <PT.Metadata>
+          <Shw::Placeholder @text="yield this content" @height="50" @background="#eee" />
+          <p class="hds-typography-body-200">
+            This is a description, or some type of metadata object. Lorem ipsum dolar sit amet.
+          </p>
+        </PT.Metadata>
+      </Hds::Pagetitle>
+    </SF.Item>
+  </Shw::Flex>
 </section>

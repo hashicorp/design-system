@@ -28,11 +28,6 @@ export default class HdsPagetitleIndexComponent extends Component {
     return subtitle;
   }
 
-  get description() {
-    let { description } = this.args;
-    return description;
-  }
-
   get classNames() {
     let classes = ['hds-pagetitle'];
 

@@ -13,23 +13,43 @@
   gap: 8px;
 }
 
-.hds-pagetitle-title__wrapper {
+.hds-pagetitle-main {
   display: flex;
   flex-direction: row;
   gap: 16px;
-  align-items: start;
 }
 
-.hds-pagetitle-main__content {
+.hds-pagetitle-title__wrapper {
   display: flex;
-  flex-direction: column;
-  gap: 0;
+  gap: 16px;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: start;
+  width: 100%;
 }
 
 .hds-pagetitle-title__content {
   display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hds-pagetitle-heading {
+  display: flex;
   flex-direction: row;
   gap: 8px;
   align-items: center;
+}
+
+.hds-pagetitle-badge__wrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.hds-pagetitle-title {
+  color: var(--token-color-foreground-strong);
+}
+
+.hds-pagetitle-subtitle {
+  color: var(--token-color-foreground-faint);
 }
