@@ -24,7 +24,7 @@ export default class HdsMenuPrimitiveComponent extends Component {
       this.toggleRef = event.currentTarget;
     }
     this.isOpen = !this.isOpen;
-    // we explicitly apply a focus state to the toggle element to overcome a bug in WebKit (see b8abfcf)
+    // we explicitly apply a focus state to the toggle element to overcome a bug in WebKit (see https://github.com/hashicorp/design-system/commit/40cd7f6b3cb15c45f9a1235fafd0fb3ed58e6e62)
     this.toggleRef.focus();
   }
 
