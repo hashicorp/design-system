@@ -13,11 +13,6 @@ export default class HdsDisclosurePrimitiveComponent extends Component {
   @tracked toggleRef;
 
   @action
-  didInsert(element) {
-    this.element = element;
-  }
-
-  @action
   onClickToggle(event) {
     // we store a reference to the DOM node that has the "onClickToggle" event associated with it
     if (!this.toggleRef) {
