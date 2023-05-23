@@ -9,6 +9,8 @@ The `MenuPrimitive` component renders an interactive element that triggers a cus
 
 When the content is disclosed, the container can be closed in various way; toggling via the button (`click` or `enter/return`), clicking outside of the content, or via the `esc` key.
 
+**Note:** [DisclosurePrimitive](/components/disclosure-primitive), another variant of this primitive, excludes the functionality to close the content panel by either clicking outside of the content, or via the `esc` key.
+
 ```handlebars
 <Hds::MenuPrimitive>
   <:toggle as |t|>
