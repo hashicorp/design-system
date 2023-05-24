@@ -10,7 +10,7 @@
   <C.Property @name="icon" @type="string">
     Use this parameter to show an icon. Any [icon](/icons/library) name is acceptable.
   </C.Property>
-  <C.Property @name="isIconOnly" @type="boolean" @values={{array "false" "true" }} @default="false">
+  <C.Property @name="isIconOnly" @type="boolean" @default="false">
     This indicates if the button will only contain an icon. An internal check is in place to ensure that accessible text is still applied to the component.
   </C.Property>
   <C.Property @name="...attributes">

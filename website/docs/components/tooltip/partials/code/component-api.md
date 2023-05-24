@@ -12,7 +12,7 @@
   <C.Property @name="offset" @type="array">
     Takes two numbers. The first number controls “skidding” or the tooltip displacement from the center of the opener element. The second number controls the “distance” from the opener element.
   </C.Property>
-  <C.Property @name="isInline" @type="boolean" @values={{array "true" "false" }} @default="true">
+  <C.Property @name="isInline" @type="boolean" @default="true">
     Sets the display for the HTML button element which wraps `TooltipButton` content. If set to `false` it sets the button display to `flex`;
   </C.Property>
   <C.Property @name="extraTippyOptions" @type="hash">

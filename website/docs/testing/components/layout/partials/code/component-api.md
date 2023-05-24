@@ -1,7 +1,7 @@
 ## Component API
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="spacing" @type="string" @values={{array "16px" "2rem" "2%" ".8em" }}>
+  <C.Property @name="spacing" @type="string">
     Add spaces in between child elements. Accepts a custom css unit spacing size. Supported units:`px`, `rem`, `em`, and `%`.
   </C.Property>
   <C.Property @name="direction" @type="string" @values={{array "horizontal" "vertical" }} @default="horizontal">

@@ -1,4 +1,4 @@
-## Component API 
+## Component API
 
 ### Form::RadioCard
 
@@ -9,10 +9,10 @@
   <C.Property @name="value" @type="string">
     The `value` attribute of the input control.
   </C.Property>
-  <C.Property @name="checked" @type="boolean" @values={{array "false" "true" }} @default="false">
+  <C.Property @name="checked" @type="boolean" @default="false">
     The `checked` attribute of the input control.
   </C.Property>
-  <C.Property @name="disabled" @type="boolean" @values={{array "false" "true" }} @default="false">
+  <C.Property @name="disabled" @type="boolean" @default="false">
     The `disabled` attribute of the input control.
   </C.Property>
   <C.Property @name="controlPosition" @type="enum" @values={{array "bottom" "left" }} @default="bottom">
@@ -81,7 +81,7 @@
   <C.Property @name="name" @type="string">
     Sets the `name` attribute for each form control within the group.
   </C.Property>
-  <C.Property @name="isRequired" @type="boolean" @values={{array "false" "true" }} @default="false">
+  <C.Property @name="isRequired" @type="boolean" @default="false">
     Appends a `Required` indicator next to the legend text and sets the `required` attribute on the controls when user input is required.
   </C.Property>
   <C.Property @name="layout" @type="string" @values={{array "fluid" "fixed" }} @default="fluid">
