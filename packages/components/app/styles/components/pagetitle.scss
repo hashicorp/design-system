@@ -22,18 +22,18 @@
 
 .hds-pagetitle-main {
   display: flex;
-  gap: 16px;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: start;
   flex-wrap: wrap;
+  gap: 16px;
+  align-items: start;
+  justify-content: space-between;
   width: 100%;
 }
 
 .hds-pagetitle-content {
   display: flex;
   flex-direction: column;
-  gap: 0px;
+  gap: 0;
 }
 
 .hds-pagetitle-heading {
