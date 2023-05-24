@@ -66,8 +66,8 @@ This component supports use of [`...attributes`](https://guides.emberjs.com/rele
 ### Pagination::Compact
 
 <Doc::ComponentApi as |C|>
-<C.Property @name="ariaLabel" @type="string">
-    Accepts a localized string; the fallback is set to `Pagination navigation`.
+<C.Property @name="ariaLabel" @type="string" @default="Pagination navigation">
+    Accepts a localized string.
 </C.Property>
 <C.Property @name="route/model/models/replace">
 These are the parameters that are passed down as arguments to the `Hds::Pagination::Arrow` child components, and from them to the `Hds::Interactive` component (used internally). For more details about how this low-level component works, please refer to [its documentation page](/utilities/interactive/).
