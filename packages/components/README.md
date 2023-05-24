@@ -53,7 +53,7 @@ Finally, add this line to the top of your app's style file (`app.scss` or simila
 Usage
 ------------------------------------------------------------------------------
 
-See the dedicated components website: https://design-system-components-hashicorp.vercel.app/
+See the dedicated components website: https://helios.hashicorp.design/components
 
 
 Contributing
