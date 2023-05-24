@@ -1,6 +1,5 @@
 ---
 "@hashicorp/design-system-components": minor
-"website": minor
 ---
 
 Refactor `Hds::Disclosure` internal utility component into two new components: 
