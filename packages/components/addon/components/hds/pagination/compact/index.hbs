@@ -3,7 +3,7 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <div class="hds-pagination" ...attributes>
-  <nav class="hds-pagination-nav" aria-label="Pagination navigation">
+  <nav class="hds-pagination-nav" aria-label={{this.ariaLabel}}>
     <Hds::Pagination::Nav::Arrow
       @direction="prev"
       @showLabel={{this.showLabels}}

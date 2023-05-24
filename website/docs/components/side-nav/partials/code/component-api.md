@@ -14,6 +14,9 @@ This is the full-fledged component (responsive and animated).
   <C.Property @name="<:footer>" @type="named block">
     A named block where the content for the “footer” section of the SideNav is rendered. It yields the value of `isMinimized` too.
   </C.Property>
+  <C.Property @name="ariaLabel" @type="string">
+    Accepts a localized string; the fallback is set to `Open menu` if the menu is closed, and `Close menu` if the menu is open.
+  </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>

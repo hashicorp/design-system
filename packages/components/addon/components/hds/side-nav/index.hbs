@@ -21,8 +21,7 @@
         class="hds-side-nav__menu-toggle-button"
         type="button"
         {{on "click" this.toggleMinimizedStatus}}
-        {{! To be localized - see: https://hashicorp.atlassian.net/browse/HDS-567 }}
-        aria-label={{if this.isMinimized "Open menu" "Close menu"}}
+        aria-label={{this.ariaLabel}}
       >
         <FlightIcon @name={{if this.isMinimized "menu" "x"}} @size="24" @stretched={{true}} />
       </button>

@@ -55,6 +55,18 @@ export default class HdsSideNavComponent extends Component {
     return this.isResponsive && !this.isDesktop && !this.isMinimized;
   }
 
+  /**
+   * @param ariaLabel
+   * @type {string}
+   * @default 'close menu'
+   */
+  get ariaLabel() {
+    if (this.isMinimized) {
+      return this.args.ariaLabel ?? 'Open menu';
+    }
+    return this.args.ariaLabel ?? 'Close menu';
+  }
+
   get classNames() {
     let classes = []; // `hds-side-nav` is already set by the "Hds::SideNav::Base" component
 

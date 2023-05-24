@@ -46,6 +46,9 @@ The Breadcrumb component is composed of three different parts, each with their o
 ### Breadcrumb::Truncation
 
 <Doc::ComponentApi as |C|>
+  <C.Property @name="ariaLabel" @type="string" @default="show more">
+    Set on the truncation toggle button. Accepts a localized string.
+  </C.Property>
   <C.Property @name="yield">
     Elements passed as children of this child component are yielded to the content of the [MenuPrimitive](/utilities/menu-primitive) component (used to show/hide the yielded Breadcrumb Items via a "toggle" button).
   </C.Property>

@@ -39,6 +39,16 @@ export default class HdsTagIndexComponent extends Component {
   }
 
   /**
+   * @param ariaLabel
+   * @type {string}
+   * @default 'Dismiss'
+   */
+  get ariaLabel() {
+    let tagAriaLabel = this.args.ariaLabel ?? 'Dismiss';
+    return tagAriaLabel + ' ' + this.args.text;
+  }
+
+  /**
    * @param color
    * @type {string}
    * @default primary
