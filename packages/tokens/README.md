@@ -32,7 +32,7 @@ Then import one of those files in your app's style file (`app.scss` or similar):
 
 ## Usage
 
-See the dedicated page on the components website: https://design-system-components-hashicorp.vercel.app/foundations/tokens
+See the dedicated page on the components website: https://helios.hashicorp.design/foundations/tokens
 
 ## Contributing
 

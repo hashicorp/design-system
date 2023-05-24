@@ -22,7 +22,7 @@ Goals:
 
 ## Installation and Usage
 
-See [https://flight-hashicorp.vercel.app/](https://flight-hashicorp.vercel.app/) for installation and usage instructions.
+See [https://helios.hashicorp.design/icons/usage-guidelines?tab=code](https://helios.hashicorp.design/icons/usage-guidelines?tab=code) for installation and usage instructions.
 
 ## Contributing
 
