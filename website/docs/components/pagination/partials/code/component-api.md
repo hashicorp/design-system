@@ -22,8 +22,8 @@ These pagination sub-elements may be used directly if you need to cover a very s
 ### Pagination::Numbered
 
 <Doc::ComponentApi as |C|>
-<C.Property @name="ariaLabel" @type="string">
-    Accepts a localized string; the fallback is set to `Pagination navigation`.
+<C.Property @name="ariaLabel" @type="string" @default="Pagination navigation">
+    Accepts a localized string.
 </C.Property>
 <C.Property @name="totalItems" @required="true" @type="number">
 Pass the total number of items to be paginated. If no value is defined an error will be thrown.
