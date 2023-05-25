@@ -1,20 +1,29 @@
 {{!
-  Copyright (c) HashiCorp, Inc.
-  SPDX-License-Identifier: MPL-2.0
+Copyright (c) HashiCorp, Inc.
+SPDX-License-Identifier: MPL-2.0
 }}
-<div class={{this.classNames}} ...attributes>
+<header class={{this.classNames}} ...attributes>
   {{yield (hash Breadcrumb=(component "hds/breadcrumb"))}}
-  <div class="hds-pagetitle-wrapper">
+  <div class="hds-page-header__wrapper">
     {{yield (hash IconTile=(component "hds/icon-tile"))}}
-    <div class="hds-pagetitle-main">
-      <div class="hds-pagetitle-content">
-        <div class="hds-pagetitle-heading">
-          <h1 class="hds-pagetitle-heading__content hds-typography-display-500">{{this.title}}</h1>
+    <div class="hds-page-header__main">
+      <div class="hds-page-header__content">
+        <div class="hds-page-header__heading">
+          <h1 class="hds-page-header__heading--content hds-typography-display-500">
+            {{this.title}}</h1>
           {{yield (hash Badges=(component "hds/pagetitle/badges"))}}
         </div>
-        {{yield (hash Metadata=(component "hds/pagetitle/metadata"))}}
+        <div class="hds-page-header__metadata">
+          {{yield
+            (hash
+              Subtitle=(component "hds/pagetitle/subtitle")
+              Description=(component "hds/pagetitle/description")
+              Generic=(component "hds/yield")
+            )
+          }}
+        </div>
       </div>
       {{yield (hash Actions=(component "hds/button-set"))}}
     </div>
   </div>
-</div>
+</header>

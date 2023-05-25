@@ -7,20 +7,20 @@
 // PAGETITLE
 //
 
-.hds-pagetitle {
+.hds-page-header {
   display: flex;
   flex-direction: column;
   gap: 16px;
   padding: 24px 40px;
 }
 
-.hds-pagetitle-wrapper {
+.hds-page-header__wrapper {
   display: flex;
   flex-direction: row;
   gap: 16px;
 }
 
-.hds-pagetitle-main {
+.hds-page-header__main {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -30,13 +30,13 @@
   width: 100%;
 }
 
-.hds-pagetitle-content {
+.hds-page-header__content {
   display: flex;
   flex-direction: column;
   gap: 0;
 }
 
-.hds-pagetitle-heading {
+.hds-page-header__heading {
   display: flex;
   flex-direction: row;
   gap: 16px;
@@ -47,25 +47,25 @@
   }
 }
 
-.hds-pagetitle-badges {
+.hds-page-header__badges {
   display: flex;
   gap: 8px;
 }
 
-.hds-pagetitle-title {
+.hds-page-header__title {
   color: var(--token-color-foreground-strong);
 }
 
-.hds-pagetitle-metadata {
+.hds-page-header__metadata {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-.hds-pagetitle-subtitle {
+.hds-page-header__subtitle {
   color: var(--token-color-foreground-faint);
 }
 
-.hds-pagetitle-description {
+.hds-page-header__description {
   color: var(--token-color-foreground-primary);
 }

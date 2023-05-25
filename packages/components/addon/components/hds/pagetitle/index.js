@@ -24,7 +24,7 @@ export default class HdsPagetitleIndexComponent extends Component {
   }
 
   get classNames() {
-    let classes = ['hds-pagetitle'];
+    let classes = ['hds-page-header'];
 
     // add a class based on the @xxx argument
     // classes.push(`hds-pagetitle--[variant]-${this.xxx}`);
