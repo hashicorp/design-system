@@ -1,0 +1,14 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+<Hds::Button
+  @text={{this.text}}
+  @color="tertiary"
+  @icon="chevron-down"
+  aria-expanded={{if @isOpen "true" "false"}}
+  {{on "click" this.onClick}}
+  class={{this.classNames}}
+  ...attributes
+/>

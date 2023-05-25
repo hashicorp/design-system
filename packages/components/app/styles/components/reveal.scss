@@ -1,0 +1,40 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// REVEAL COMPONENT
+//
+
+@use "../mixins/button" as *;
+
+.hds-reveal {
+  display: inline-block; // discuss if desired
+  // outline: 1px solid limegreen;
+  // outline-offset: -1px;
+}
+
+.hds-reveal__button {
+  position: relative;
+  left: -0.9375rem;
+  margin-right: (-0.9375rem * 2); // not sure if this is a good idea (trying to account for space to left and right of button)
+  // outline: 1px solid red;
+
+  .flight-icon-chevron-down {
+    @media (prefers-reduced-motion: no-preference) {
+      transition: transform 0.3s;
+    }
+  }
+}
+
+.hds-reveal__button--is-open {
+  .flight-icon-chevron-down {
+    transform: rotate(-180deg);
+  }
+}
+
+.hds-reveal__content {
+  margin-top: 4px;
+  // outline: 1px dashed violet;
+}
