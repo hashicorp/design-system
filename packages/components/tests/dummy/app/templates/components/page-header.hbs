@@ -9,149 +9,213 @@ SPDX-License-Identifier: MPL-2.0
 
 <section data-test-percy>
   <Shw::Flex @direction="column" as |SF|>
-    <SF.Item as |SFI|>
-      <SFI.Label>Simple example</SFI.Label>
-      <Hds::PageHeader @title="Page title" as |PH|>
-        <PH.Subtitle>Subtitle</PH.Subtitle>
-      </Hds::PageHeader>
-    </SF.Item>
-    <SF.Item as |SFI|>
-      <SFI.Label>Simple + Breadcrumb</SFI.Label>
+    <SF.Item>
+      <Shw::Text::H2>Simple example</Shw::Text::H2>
       <Hds::PageHeader @title="Page title" as |PH|>
         <PH.Breadcrumb>
-          <Hds::Breadcrumb::Item @text="Level 1" @icon="org" />
-          <Hds::Breadcrumb::Item @text="Level 2" />
-          <Hds::Breadcrumb::Item @text="Current" />
+          <Hds::Breadcrumb::Item @icon="org" @text="Organization" />
+          <Hds::Breadcrumb::Item @icon="folder" @text="Project" />
+          <Hds::Breadcrumb::Item @icon="users" @text="Users" />
+          <Hds::Breadcrumb::Item @text="Project user" />
         </PH.Breadcrumb>
+        <PH.IconTile @icon="server-cluster" @color="waypoint" />
+        <PH.Badges>
+          <Hds::Badge @icon="check" @text="Active" @color="success" />
+        </PH.Badges>
         <PH.Subtitle>Subtitle</PH.Subtitle>
-      </Hds::PageHeader>
-    </SF.Item>
-    <SF.Item as |SFI|>
-      <SFI.Label>With <code>IconTile</code></SFI.Label>
-      <Hds::PageHeader @title="Dashboard Overview" as |PH|>
-        <PH.Breadcrumb>
-          <Hds::Breadcrumb::Item @text="Level 1" @icon="org" />
-          <Hds::Breadcrumb::Item @text="Level 2" />
-          <Hds::Breadcrumb::Item @text="Current" />
-        </PH.Breadcrumb>
-        <PH.IconTile @icon="dashboard" />
-      </Hds::PageHeader>
-    </SF.Item>
-    <SF.Item as |SFI|>
-      <SFI.Label>With actions</SFI.Label>
-      <Hds::PageHeader @title="Projects" as |PH|>
-        <PH.Breadcrumb>
-          <Hds::Breadcrumb::Item @text="Organization" />
-          <Hds::Breadcrumb::Item @text="Foo bar org" @icon="org" />
-          <Hds::Breadcrumb::Item @text="Projects" />
-        </PH.Breadcrumb>
-        <PH.Actions>
-          <Hds::Button @text="Manage organization" @color="secondary" />
-          <Hds::Button @text="Create new project" @color="primary" />
-        </PH.Actions>
-      </Hds::PageHeader>
-    </SF.Item>
-    <SF.Item as |SFI|>
-      <SFI.Label>Product landing page</SFI.Label>
-      <Hds::PageHeader @title="Boundary clusters" as |PH|>
-        <PH.Breadcrumb>
-          <Hds::Breadcrumb::Item @text="HCP Sandbox" @icon="org" />
-          <Hds::Breadcrumb::Item @text="Boundary clusters" />
-        </PH.Breadcrumb>
-        <PH.IconTile @logo="boundary" />
-      </Hds::PageHeader>
-    </SF.Item>
-    <SF.Item as |SFI|>
-      <SFI.Label>Overview sub-page</SFI.Label>
-      <Hds::PageHeader @title="boundary-cluster overview" as |PH|>
-        <PH.Breadcrumb>
-          <Hds::Breadcrumb::Item @text="HCP Sandbox" @icon="org" />
-          <Hds::Breadcrumb::Item @text="Boundary clusters" />
-          <Hds::Breadcrumb::Item @text="boundary-cluster overview" />
-        </PH.Breadcrumb>
-        <PH.IconTile @icon="server-cluster" @color="boundary" />
+        <PH.Description>Description lorem ipsum dolar sit amet.</PH.Description>
         <PH.Actions>
           <Hds::Dropdown as |DD|>
-            <DD.ToggleButton @text="Manage" @color="secondary" />
-            <DD.Interactive @href="#" @text="Manage clusters" />
-            <DD.Interactive @href="#" @text="Lauch Boundary locally" />
-            <DD.Interactive @href="#" @text="API keys" />
-            <DD.Separator />
-            <DD.Interactive @href="#" @text="Delete" @color="critical" @icon="trash" />
+            <DD.ToggleButton @color="secondary" @text="Manage" />
+            <DD.Interactive @text="Manage cluster externally" />
+            <DD.Interactive @text="Launch desktop" />
+            <DD.Interactive @text="Delete" @color="critical" @icon="trash" />
           </Hds::Dropdown>
-          <Hds::Button @text="Open Admin UI" @color="primary" @icon="external-link" @iconPosition="trailing" />
+          <Hds::Button @color="primary" @text="Create" @icon="plus" @iconPosition="leading" />
         </PH.Actions>
       </Hds::PageHeader>
     </SF.Item>
-    <SF.Item as |SFI|>
-      <SFI.Label>With subtitle</SFI.Label>
-      <Hds::PageHeader @title="example-reactjs" as |PH|>
+    <Shw::Divider @level={{2}} />
+    <SF.Item>
+      <Shw::Text::H2>Long content</Shw::Text::H2>
+      <Shw::Text::H3>Long title</Shw::Text::H3>
+      <Hds::PageHeader @title="Page title lorem ipsum dolar sit amet consectetur adipiscing elit" as |PH|>
         <PH.Breadcrumb>
-          <Hds::Breadcrumb::Item @text="HCP Sandbox" @icon="org" />
-          <Hds::Breadcrumb::Item @text="jane-doe-project" @icon="folder" />
-          <Hds::Breadcrumb::Item @text="Waypoint" @icon="waypoint" />
-          <Hds::Breadcrumb::Item @text="Projects" />
-          <Hds::Breadcrumb::Item @text="example-reactjs" />
+          <Hds::Breadcrumb::Item @icon="org" @text="Organization" />
+          <Hds::Breadcrumb::Item @icon="folder" @text="Project" />
+          <Hds::Breadcrumb::Item @icon="users" @text="Users" />
         </PH.Breadcrumb>
-        <PH.IconTile @icon="folder" @color="waypoint" />
-        <PH.Subtitle>1 application</PH.Subtitle>
-      </Hds::PageHeader>
-    </SF.Item>
-    <SF.Item as |SFI|>
-      <SFI.Label>With badge</SFI.Label>
-      <Hds::PageHeader @title="Observability" @subtitle="Over the past 24 hours, refreshes every 5 seconds." as |PH|>
-        <PH.IconTile @icon="server-cluster" @color="consul" />
-        <PH.Badges>
-          <Hds::Badge @text="Beta" @color="highlight" />
-        </PH.Badges>
-        <PH.Subtitle>Over the past 24 hours, refreshes every 5 seconds.</PH.Subtitle>
-      </Hds::PageHeader>
-    </SF.Item>
-    <SF.Item as |SFI|>
-      <SFI.Label>With multiple badges</SFI.Label>
-      <Hds::PageHeader @title="Services" as |PH|>
-        <PH.IconTile @logo="consul" />
-        <PH.Breadcrumb>
-          <Hds::Breadcrumb::Item @text="HCP Sandbox" @icon="org" />
-          <Hds::Breadcrumb::Item @text="Boundary clusters" />
-          <Hds::Breadcrumb::Item @text="boundary-cluster overview" />
-        </PH.Breadcrumb>
-        <PH.Badges>
-          <Hds::Badge @text="Tech preview" @color="highlight" />
-          <Hds::Badge @text="Lookin' good" @color="success" @icon="award" />
-          <Hds::Badge @text="Massive error" @color="critical" @icon="x" />
-        </PH.Badges>
-        <PH.Subtitle>1000 services | Data updates every 15 seconds.</PH.Subtitle>
-      </Hds::PageHeader>
-    </SF.Item>
-    <SF.Item as |SFI|>
-      <SFI.Label>With metadata</SFI.Label>
-      <Hds::PageHeader @title="Observe the meta" as |PH|>
-        <PH.IconTile @icon="facebook" @color="packer" />
-        <PH.Breadcrumb>
-          <Hds::Breadcrumb::Item @text="HCP Sandbox" @icon="org" />
-          <Hds::Breadcrumb::Item @text="Boundary clusters" />
-          <Hds::Breadcrumb::Item @text="boundary-cluster overview" />
-        </PH.Breadcrumb>
+        <PH.IconTile @icon="folder" @color="boundary" />
+        <PH.Subtitle>Subtitle</PH.Subtitle>
+        <PH.Description>Description lorem ipsum dolar sit amet.</PH.Description>
         <PH.Actions>
           <Hds::Dropdown as |DD|>
-            <DD.ToggleButton @text="Manage" @color="secondary" />
-            <DD.Interactive @href="#" @text="Manage clusters" />
-            <DD.Interactive @href="#" @text="Lauch Boundary locally" />
-            <DD.Interactive @href="#" @text="API keys" />
-            <DD.Separator />
-            <DD.Interactive @href="#" @text="Delete" @color="critical" @icon="trash" />
+            <DD.ToggleButton @color="secondary" @text="Manage" />
+            <DD.Interactive @text="Manage cluster externally" />
+            <DD.Interactive @text="Launch desktop" />
+            <DD.Interactive @text="Delete" @color="critical" @icon="trash" />
           </Hds::Dropdown>
-          <Hds::Button @text="Open Admin UI" @color="primary" @icon="external-link" @iconPosition="trailing" />
+          <Hds::Button @color="primary" @text="Create" @icon="plus" @iconPosition="leading" />
         </PH.Actions>
-        <PH.Subtitle>This is the subtitle, which is very meta.</PH.Subtitle>
-        <PH.Generic>
-          <Shw::Placeholder @text="yield this content" @height="50" @background="#eee" />
-        </PH.Generic>
-        <PH.DescriPHion>
-          This is a descriPHion, or some type of metadata object. Lorem ipsum dolar sit amet.
-          <Hds::Link::Inline @href="#" @icon="external-link">More details</Hds::Link::Inline>
-        </PH.DescriPHion>
+      </Hds::PageHeader>
+      <Shw::Text::H3>Long breadcrumbs</Shw::Text::H3>
+      <Hds::PageHeader @title="Page title" as |PH|>
+        <PH.Breadcrumb>
+          <Hds::Breadcrumb::Item @icon="org" @text="Organization" />
+          <Hds::Breadcrumb::Item @icon="folder" @text="Project" />
+          <Hds::Breadcrumb::Item @icon="users" @text="Users" />
+          <Hds::Breadcrumb::Item @text="Another one" />
+          <Hds::Breadcrumb::Item @text="Another one" />
+          <Hds::Breadcrumb::Item @text="Another one" />
+          <Hds::Breadcrumb::Item @text="Another one" />
+          <Hds::Breadcrumb::Item @text="Another one" />
+          <Hds::Breadcrumb::Item @text="Another one" />
+        </PH.Breadcrumb>
+        <PH.IconTile @icon="user" @color="vault" />
+        <PH.Subtitle>Subtitle</PH.Subtitle>
+        <PH.Description>Description lorem ipsum dolar sit amet.</PH.Description>
+        <PH.Actions>
+          <Hds::Dropdown as |DD|>
+            <DD.ToggleButton @color="secondary" @text="Manage" />
+            <DD.Interactive @text="Manage cluster externally" />
+            <DD.Interactive @text="Launch desktop" />
+            <DD.Interactive @text="Delete" @color="critical" @icon="trash" />
+          </Hds::Dropdown>
+          <Hds::Button @color="primary" @text="Create" @icon="plus" @iconPosition="leading" />
+        </PH.Actions>
+      </Hds::PageHeader>
+      <Shw::Text::H3>Long metadata</Shw::Text::H3>
+      <Hds::PageHeader @title="Page title" as |PH|>
+        <PH.Breadcrumb>
+          <Hds::Breadcrumb::Item @icon="org" @text="Organization" />
+          <Hds::Breadcrumb::Item @icon="folder" @text="Project" />
+          <Hds::Breadcrumb::Item @icon="users" @text="Users" />
+        </PH.Breadcrumb>
+        <PH.IconTile @icon="globe" @color="packer" />
+        <PH.Subtitle>
+          Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore <Hds::Link::Inline @href="#" @icon="external-link">link</Hds::Link::Inline> et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </PH.Subtitle>
+        <PH.Description>
+          Description lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut <Hds::Link::Inline @href="#" @icon="external-link">link</Hds::Link::Inline> et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </PH.Description>
+        <PH.Actions>
+          <Hds::Dropdown as |DD|>
+            <DD.ToggleButton @color="secondary" @text="Manage" />
+            <DD.Interactive @text="Manage cluster externally" />
+            <DD.Interactive @text="Launch desktop" />
+            <DD.Interactive @text="Delete" @color="critical" @icon="trash" />
+          </Hds::Dropdown>
+          <Hds::Button @color="primary" @text="Create" @icon="plus" @iconPosition="leading" />
+        </PH.Actions>
+      </Hds::PageHeader>
+      <Shw::Text::H3>Long button text</Shw::Text::H3>
+      <Hds::PageHeader @title="Page title" as |PH|>
+        <PH.Breadcrumb>
+          <Hds::Breadcrumb::Item @icon="org" @text="Organization" />
+          <Hds::Breadcrumb::Item @icon="folder" @text="Project" />
+          <Hds::Breadcrumb::Item @icon="users" @text="Users" />
+        </PH.Breadcrumb>
+        <PH.IconTile @icon="figma-color" />
+        <PH.Subtitle>Subtitle</PH.Subtitle>
+        <PH.Description>Description lorem ipsum dolar sit amet.</PH.Description>
+        <PH.Actions>
+          <Hds::Dropdown as |DD|>
+            <DD.ToggleButton @color="secondary" @text="Manage the user in your organization" />
+            <DD.Interactive @text="Manage cluster externally" />
+            <DD.Interactive @text="Launch desktop" />
+            <DD.Interactive @text="Delete" @color="critical" @icon="trash" />
+          </Hds::Dropdown>
+          <Hds::Button
+            @color="primary"
+            @text="Add a new user to your organization"
+            @icon="plus"
+            @iconPosition="leading"
+          />
+        </PH.Actions>
+      </Hds::PageHeader>
+      <Shw::Text::H3>Long button + Badges</Shw::Text::H3>
+      <Hds::PageHeader @title="Page title" as |PH|>
+        <PH.Breadcrumb>
+          <Hds::Breadcrumb::Item @icon="org" @text="Organization" />
+          <Hds::Breadcrumb::Item @icon="folder" @text="Project" />
+          <Hds::Breadcrumb::Item @icon="users" @text="Users" />
+        </PH.Breadcrumb>
+        <PH.IconTile @icon="kubernetes-color" />
+        <PH.Badges>
+          <Hds::Badge @text="Active" @color="success" @icon="check" />
+          <Hds::Badge @text="Beta" @color="highlight" @icon="info" />
+        </PH.Badges>
+        <PH.Actions>
+          <Hds::Dropdown as |DD|>
+            <DD.ToggleButton @color="secondary" @text="Manage the user in your organization" />
+            <DD.Interactive @text="Manage cluster externally" />
+            <DD.Interactive @text="Launch desktop" />
+            <DD.Interactive @text="Delete" @color="critical" @icon="trash" />
+          </Hds::Dropdown>
+          <Hds::Button
+            @color="primary"
+            @text="Add a new user to your organization"
+            @icon="plus"
+            @iconPosition="leading"
+          />
+        </PH.Actions>
+      </Hds::PageHeader>
+      <Shw::Text::H3>Many badges</Shw::Text::H3>
+      <Hds::PageHeader @title="Page title lorem ipsum dolar" as |PH|>
+        <PH.Badges>
+          <Hds::Badge @text="Active" @color="success" @icon="check" />
+          <Hds::Badge @text="Beta" @color="highlight" @icon="info" />
+        </PH.Badges>
+        <PH.IconTile @icon="twitch-color" @color="terraform" />
+        <PH.Actions>
+          <Hds::Dropdown as |DD|>
+            <DD.ToggleButton @color="secondary" @text="Manage the user in your organization" />
+            <DD.Interactive @text="Manage" />
+            <DD.Interactive @text="Launch desktop" />
+            <DD.Interactive @text="Delete" @color="critical" @icon="trash" />
+          </Hds::Dropdown>
+          <Hds::Button
+            @color="primary"
+            @text="Create new user"
+            @icon="plus"
+            @iconPosition="leading"
+          />
+        </PH.Actions>
+      </Hds::PageHeader>
+      <Shw::Text::H3>Kitchen sink</Shw::Text::H3>
+      <Hds::PageHeader @title="Page title that is very long and multiple words" as |PH|>
+        <PH.Breadcrumb>
+          <Hds::Breadcrumb::Item @icon="org" @text="Organization" />
+          <Hds::Breadcrumb::Item @icon="folder" @text="Project" />
+          <Hds::Breadcrumb::Item @icon="users" @text="Users" />
+          <Hds::Breadcrumb::Item @text="Another one" />
+          <Hds::Breadcrumb::Item @text="Another one" />
+          <Hds::Breadcrumb::Item @text="Another one" />
+          <Hds::Breadcrumb::Item @text="Another one" />
+          <Hds::Breadcrumb::Item @text="Another one" />
+          <Hds::Breadcrumb::Item @text="Another one" />
+        </PH.Breadcrumb>
+        <PH.IconTile @icon="alert-circle" @color="nomad" />
+        <PH.Actions>
+          <Hds::Dropdown as |DD|>
+            <DD.ToggleButton @color="secondary" @text="Manage the user in your organization" />
+            <DD.Interactive @text="Manage cluster externally" />
+            <DD.Interactive @text="Launch desktop" />
+            <DD.Interactive @text="Delete" @color="critical" @icon="trash" />
+          </Hds::Dropdown>
+          <Hds::Button
+            @color="primary"
+            @text="Add a new user to your organization"
+            @icon="plus"
+            @iconPosition="leading"
+          />
+        </PH.Actions>
+        <PH.Subtitle>
+          Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore <Hds::Link::Inline @href="#" @icon="external-link">link</Hds::Link::Inline> et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </PH.Subtitle>
+        <PH.Description>
+          Description lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut <Hds::Link::Inline @href="#" @icon="external-link">link</Hds::Link::Inline> et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </PH.Description>
       </Hds::PageHeader>
     </SF.Item>
   </Shw::Flex>

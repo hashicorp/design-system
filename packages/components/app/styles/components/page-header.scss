@@ -23,7 +23,6 @@
 .hds-page-header__main {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   gap: 16px;
   align-items: start;
   justify-content: space-between;
@@ -68,4 +67,11 @@
 
 .hds-page-header__description {
   color: var(--token-color-foreground-primary);
+}
+
+// This is replacing the ButtonSet
+.hds-page-header__actions {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
 }
