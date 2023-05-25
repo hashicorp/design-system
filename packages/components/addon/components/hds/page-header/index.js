@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 
-export default class HdsPageheaderIndexComponent extends Component {
+export default class HdsPageHeaderIndexComponent extends Component {
   // UNCOMMENT THIS IF YOU NEED A CONSTRUCTOR
   // constructor() {
   //   super(...arguments);
