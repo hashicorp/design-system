@@ -94,9 +94,9 @@ Spacing within a filter sidebar extends the guidelines for spacing within a [for
 
 ![Sidebar spacing without a divider](/assets/patterns/filter-patterns/sidebar-spacing-no-divider.png =350x*)
 
-### Filters within a Flyout
+### Overflow filters
 
-If its necessary for filters to overflow into a [Flyout](/components/flyout), use the same organizational method and spacing guidelines as the filter sidebar.
+If it's necessary for filters to overflow into a [Flyout](/components/flyout), use the same organizational method and spacing guidelines as the filter sidebar.
 
 ![Filters within a Flyout](/assets/patterns/filter-patterns/flyout-filter-spacing.png =450x*)
 
