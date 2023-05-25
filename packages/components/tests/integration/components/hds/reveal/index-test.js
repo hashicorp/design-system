@@ -12,7 +12,9 @@ module('Integration | Component | hds/reveal/index', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(hbs`<Hds::Reveal id="test-reveal" />`);
+    await render(hbs`
+      <Hds::Reveal @text="More options" id="test-reveal">Additional content</Hds::Reveal>
+    `);
     assert.dom('#test-reveal').hasClass('hds-reveal');
   });
 });
