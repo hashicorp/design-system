@@ -52,7 +52,7 @@ export default class HdsDropdownToggleButtonComponent extends Component {
 
     // add a class based on the @isOpen argument
     if (this.args.isOpen) {
-      classes.push('hds-reveal__togle-button--is-open');
+      classes.push('hds-reveal__toggle-button--is-open');
     }
 
     return classes.join(' ');
