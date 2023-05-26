@@ -7,7 +7,10 @@
 // REVEAL COMPONENT
 //
 
-@use "../mixins/button" as *;
+:root {
+  // Spacing
+  --token-reveal-content-margin-top: 4px;
+}
 
 .hds-reveal {
   display: inline-block; // discuss if desired
@@ -35,7 +38,7 @@
 }
 
 .hds-reveal__content {
-  margin-top: 4px;
+  margin-top: var(--token-reveal-content-margin-top);
   // outline: 1px dashed violet;
 
   img { max-width: 100%; }
