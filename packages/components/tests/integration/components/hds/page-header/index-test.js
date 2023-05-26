@@ -15,7 +15,7 @@ module('Integration | Component | hds/page-header/index', function (hooks) {
     await render(
       hbs`<Hds::PageHeader id="test-page-header" @title="Page title" />`
     );
-    assert.dom('#test-pagetitle').hasClass('hds-pagetitle');
+    assert.dom('#test-page-header').hasClass('hds-page-header');
   });
 
   // CONTEXTUAL COMPONENTS
@@ -45,8 +45,8 @@ module('Integration | Component | hds/page-header/index', function (hooks) {
               This is a description, or some type of metadata object. Lorem ipsum dolar sit amet.
               <Hds::Link::Inline @href="#" @icon="external-link">More details</Hds::Link::Inline>
             </PH.Description>
-            <PH.Generic class="custom">
-              <p>This is custom content</p>
+            <PH.Generic>
+              <p class="custom">This is custom content</p>
             </PH.Generic>
           </Hds::PageHeader>`
     );
