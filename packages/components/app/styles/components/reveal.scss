@@ -15,7 +15,7 @@
   // outline-offset: -1px;
 }
 
-.hds-reveal__button {
+.hds-reveal__toggle-button {
   position: relative;
   left: -0.9375rem;
   margin-right: (-0.9375rem * 2); // not sure if this is a good idea (trying to account for space to left and right of button)
@@ -28,7 +28,7 @@
   }
 }
 
-.hds-reveal__button--is-open {
+.hds-reveal__toggle-button--is-open {
   .flight-icon-chevron-down {
     transform: rotate(-180deg);
   }

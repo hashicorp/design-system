@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { click, render, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/reveal/index', function (hooks) {
@@ -16,5 +16,113 @@ module('Integration | Component | hds/reveal/index', function (hooks) {
       <Hds::Reveal @text="More options" id="test-reveal">Additional content</Hds::Reveal>
     `);
     assert.dom('#test-reveal').hasClass('hds-reveal');
+  });
+
+  // CONTENT
+
+  test('it renders passed in @text content in the toggle button', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Reveal @text="More options">
+          Additional content
+        </Hds::Reveal>`
+    );
+    assert.dom('.hds-reveal__toggle-button').hasText('More options');
+  });
+
+  test('it shows and hides passed in content when the toggle is triggered', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Reveal @text="More options">
+          Additional content
+        </Hds::Reveal>`
+    );
+    // Test content is not shown before toggle is triggered
+    assert.dom('.hds-reveal__content').doesNotExist();
+    // Test that content is displayed after the toggle is triggered
+    await click('.hds-reveal__toggle-button');
+    assert.dom('.hds-reveal__content').exists().hasText('Additional content');
+    // Test that content is hidden after the toggle is triggered again
+    await click('.hds-reveal__toggle-button');
+    assert.dom('.hds-reveal__content').doesNotExist();
+  });
+
+  // A11Y
+
+  test('it displays the correct value for aria-expanded when closed vs.open', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Reveal @text="More options">
+          Additional content
+        </Hds::Reveal>
+      `
+    );
+    assert
+      .dom('.hds-reveal__toggle-button')
+      .hasAttribute('aria-expanded', 'false');
+    await click('.hds-reveal__toggle-button');
+    assert
+      .dom('.hds-reveal__toggle-button')
+      .hasAttribute('aria-expanded', 'true');
+  });
+
+  // OPTIONS
+
+  // isOpen
+
+  test('it displays content initially when @isOpen is set to true, ', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Reveal @text="More options" @isOpen={{true}}>
+          Additional content
+        </Hds::Reveal>`
+    );
+    // Test content is displayed
+    assert.dom('.hds-reveal__content').exists().hasText('Additional content');
+    // Test that content is hidden after the toggle is triggered
+    await click('.hds-reveal__toggle-button');
+    assert.dom('.hds-reveal__content').doesNotExist();
+  });
+
+  // textWhenOpen
+
+  test('it displays different passed in text when open', async function (assert) {
+    await render(
+      hbs`
+      <Hds::Reveal @text="Open me" @textWhenOpen="Close me">
+        Additional content
+      </Hds::Reveal>`
+    );
+    await click('.hds-reveal__toggle-button');
+    assert.dom('.hds-reveal__toggle-button').hasText('Close me');
+  });
+
+  // ATTRIBUTES
+
+  test('it should spread all the attributes passed to the component on the element', async function (assert) {
+    await render(
+      hbs`
+      <Hds::Reveal @text="More options" id="test-reveal" class="my-class" data-test1 data-test2="test" id="test-reveal">
+        Additional content
+      </Hds::Reveal>`
+    );
+    assert.dom('#test-reveal').hasClass('my-class');
+    assert.dom('#test-reveal').hasAttribute('data-test1');
+    assert.dom('#test-reveal').hasAttribute('data-test2', 'test');
+  });
+
+  // ASSERTIONS
+
+  test('it should throw an assertion if @text is missing/has no value', async function (assert) {
+    const errorMessage =
+      '@text for "Hds::Reveal::Toggle::Button" must have a valid value';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::Reveal>Additional content</Hds::Reveal>`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
   });
 });

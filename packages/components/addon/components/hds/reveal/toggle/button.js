@@ -18,7 +18,7 @@ export default class HdsDropdownToggleButtonComponent extends Component {
     let { text } = this.args;
 
     assert(
-      '@text for "Hds::Dropdown::Toggle::Button" must have a valid value',
+      '@text for "Hds::Reveal::Toggle::Button" must have a valid value',
       text !== undefined
     );
 
@@ -48,11 +48,11 @@ export default class HdsDropdownToggleButtonComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-reveal__button'];
+    let classes = ['hds-reveal__toggle-button'];
 
     // add a class based on the @isOpen argument
     if (this.args.isOpen) {
-      classes.push('hds-reveal__button--is-open');
+      classes.push('hds-reveal__togle-button--is-open');
     }
 
     return classes.join(' ');
