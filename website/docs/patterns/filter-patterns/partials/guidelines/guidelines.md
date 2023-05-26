@@ -24,7 +24,7 @@ Filters often consist of numerous parameters that mirror the columns of a table 
 
 Organizing filters in a **filter bar** is a common positioning method and consists of one or more dropdowns, buttons, or input components that are used to select values from a set of parameters. A [Segmented Group](/components/segmented-group) can be used within a filter bar to group similar parameters and support complex filtering.
 
-![Filter bar example](/assets/patterns/filter-patterns/filter-bar-segmented-group.png =728x*)
+![Filter bar example](/assets/patterns/filter-patterns/filter-bar-segmented-group.png =728x\*)
 
 **Example of a horizontal filter bar paired with a data set expressed as a table.**
 
@@ -50,11 +50,11 @@ In-line sidebars can be used when the number of filterable parameters is minimal
 
 Display **applied filters** and provide the user with a method to reset all filters at once. Applied filters should be represented using a [Tag](/components/tag) component, which allows for the individual dismissal of a filter value.
 
-![Applied filters](/assets/patterns/filter-patterns/applied-filters.png =600x*)
+![Applied filters](/assets/patterns/filter-patterns/applied-filters.png =600x\*)
 
 #### Positioning in filter bars
 
-Applied filters should be positioned as close as possible relative to the data set to help the user understand what has been filtered upon. In practice this is most often directly above the data set.
+Applied filters should be positioned as close as possible to the data set to help the user understand what has been filtered upon. In practice, this is most often directly above the data set.
 
 When positioned above the data set use `16px` gap between the applied filters and the data set.
 
@@ -68,7 +68,7 @@ If the filters are positioned in a page-level sidebar, displaying the applied fi
 
 ### Pagination
 
-Use pagination to break down the filtered data set into pages. For more details refer to the [Pagination](/components/pagination) guidelines.
+Use pagination to break down the filtered data set into pages. For more details, refer to the [Pagination](/components/pagination) guidelines.
 
 ![Pagination example](/assets/patterns/filter-patterns/pagination-layout.png)
 
@@ -112,7 +112,7 @@ Consider each one of these scenarios carefully as moving additional filters to a
 
 ### Applied filters overflow
 
-If the number of filterable parameters is large, there's a likelihood that the number of applied filters may also extend to multiple lines. In this scenario the same methods apply as the filter bar and sidebar.
+If the number of filterable parameters is large, there’s a likelihood that the number of applied filters may also extend to multiple lines. In this scenario the same methods apply as the filter bar and sidebar.
 
 Depending on the context of the filtering pattern, it may be helpful to display the applied filters to the user at all times. This can assist in easy dismissal of specific filters and help the user better parse how a data set is being filtered.
 
