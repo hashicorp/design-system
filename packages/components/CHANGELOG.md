@@ -1,5 +1,11 @@
 # @hashicorp/design-system-components
 
+## 2.4.2
+
+### Patch Changes
+
+- [#1380](https://github.com/hashicorp/design-system/pull/1380) [`cd16ccc19`](https://github.com/hashicorp/design-system/commit/cd16ccc19e0992be2bed5d567880d2d0d36f1880) Thanks [@MelSumner](https://github.com/MelSumner)! - A11y Fix: removes `aria-label` from stepper/indicator and from task/indicator, which was causing an accessibility test error.
+
 ## 2.4.1
 
 ### Patch Changes
