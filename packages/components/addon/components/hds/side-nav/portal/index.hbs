@@ -4,7 +4,7 @@
 }}
 
 <Portal @target={{if @targetName @targetName "hds-side-nav-portal-target"}}>
-  <div class="hds-side-nav__content-panel hds-side-nav-hide-when-minimized" ...attributes>
+  <div class="hds-side-nav__content-panel" ...attributes>
     <Hds::SideNav::List aria-label={{@ariaLabel}} as |ListElements|>
       {{yield ListElements}}
     </Hds::SideNav::List>
