@@ -24,9 +24,11 @@ module('Integration | Component | hds/page-header/index', function (hooks) {
     await render(
       hbs`<Hds::PageHeader id="test-page-geader" @title="Page title" as |PH|>
             <PH.Breadcrumb>
-              <Hds::Breadcrumb::Item @text="HCP Sandbox" @icon="org" />
-              <Hds::Breadcrumb::Item @text="Boundary clusters" />
-              <Hds::Breadcrumb::Item @text="boundary-cluster overview" />
+              <Hds::Breadcrumb>
+                <Hds::Breadcrumb::Item @text="HCP Sandbox" @icon="org" />
+                <Hds::Breadcrumb::Item @text="Boundary clusters" />
+                <Hds::Breadcrumb::Item @text="boundary-cluster overview" />
+              </Hds::Breadcrumb>
             </PH.Breadcrumb>
             <PH.IconTile @icon="server-cluster" @color="boundary" />
             <PH.Actions>

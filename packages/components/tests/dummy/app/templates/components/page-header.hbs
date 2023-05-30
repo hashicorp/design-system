@@ -13,10 +13,12 @@ SPDX-License-Identifier: MPL-2.0
       <Shw::Text::H2>Simple example</Shw::Text::H2>
       <Hds::PageHeader @title="Page title" as |PH|>
         <PH.Breadcrumb>
-          <Hds::Breadcrumb::Item @icon="org" @text="Organization" />
-          <Hds::Breadcrumb::Item @icon="folder" @text="Project" />
-          <Hds::Breadcrumb::Item @icon="users" @text="Users" />
-          <Hds::Breadcrumb::Item @text="Project user" />
+          <Hds::Breadcrumb>
+            <Hds::Breadcrumb::Item @icon="org" @text="Organization" />
+            <Hds::Breadcrumb::Item @icon="folder" @text="Project" />
+            <Hds::Breadcrumb::Item @icon="users" @text="Users" />
+            <Hds::Breadcrumb::Item @text="Project user" />
+          </Hds::Breadcrumb>
         </PH.Breadcrumb>
         <PH.IconTile @icon="server-cluster" @color="waypoint" />
         <PH.Badges>
@@ -40,17 +42,21 @@ SPDX-License-Identifier: MPL-2.0
       <Hds::PageHeader @title="Boundary clusters" as |PH|>
         <PH.IconTile @icon="boundary-color" @color="boundary" />
         <PH.Breadcrumb>
-          <Hds::Breadcrumb::Item @text="Cloud sandbox" @icon="org" />
-          <Hds::Breadcrumb::Item @text="Boundary clusters" @icon="boundary" />
+          <Hds::Breadcrumb>
+            <Hds::Breadcrumb::Item @text="Cloud sandbox" @icon="org" />
+            <Hds::Breadcrumb::Item @text="Boundary clusters" @icon="boundary" />
+          </Hds::Breadcrumb>
         </PH.Breadcrumb>
       </Hds::PageHeader>
       <Shw::Text::H3>Overview page</Shw::Text::H3>
       <Hds::PageHeader @title="boundary-cluster overview" as |PH|>
         <PH.IconTile @icon="server-cluster" @color="boundary" />
         <PH.Breadcrumb>
-          <Hds::Breadcrumb::Item @text="Cloud sandbox" @icon="org" />
-          <Hds::Breadcrumb::Item @text="Boundary clusters" @icon="boundary" />
-          <Hds::Breadcrumb::Item @text="boundary-cluster overview" />
+          <Hds::Breadcrumb>
+            <Hds::Breadcrumb::Item @text="Cloud sandbox" @icon="org" />
+            <Hds::Breadcrumb::Item @text="Boundary clusters" @icon="boundary" />
+            <Hds::Breadcrumb::Item @text="boundary-cluster overview" />
+          </Hds::Breadcrumb>
         </PH.Breadcrumb>
         <PH.Actions>
           <Hds::Dropdown as |DD|>
@@ -79,9 +85,11 @@ SPDX-License-Identifier: MPL-2.0
           <Hds::Button @href="#" @text="Deploy Consul" @color="primary" />
         </PH.Actions>
         <PH.Breadcrumb>
-          <Hds::Breadcrumb::Item @text="Brand" @icon="org" />
-          <Hds::Breadcrumb::Item @text="Consul" />
-          <Hds::Breadcrumb::Item @text="Services" />
+          <Hds::Breadcrumb>
+            <Hds::Breadcrumb::Item @text="Brand" @icon="org" />
+            <Hds::Breadcrumb::Item @text="Consul" />
+            <Hds::Breadcrumb::Item @text="Services" />
+          </Hds::Breadcrumb>
         </PH.Breadcrumb>
       </Hds::PageHeader>
     </SF.Item>
@@ -91,9 +99,12 @@ SPDX-License-Identifier: MPL-2.0
       <Shw::Text::H3>Long title</Shw::Text::H3>
       <Hds::PageHeader @title="Page title lorem ipsum dolar sit amet consectetur adipiscing elit" as |PH|>
         <PH.Breadcrumb>
-          <Hds::Breadcrumb::Item @icon="org" @text="Organization" />
-          <Hds::Breadcrumb::Item @icon="folder" @text="Project" />
-          <Hds::Breadcrumb::Item @icon="users" @text="Users" />
+          <Hds::Breadcrumb>
+            <Hds::Breadcrumb::Item @icon="org" @text="Organization" />
+            <Hds::Breadcrumb::Item @icon="folder" @text="Project" />
+            <Hds::Breadcrumb::Item @icon="users" @text="Users" />
+          </Hds::Breadcrumb>
+
         </PH.Breadcrumb>
         <PH.IconTile @icon="folder" @color="boundary" />
         <PH.Subtitle>Subtitle</PH.Subtitle>
@@ -111,15 +122,17 @@ SPDX-License-Identifier: MPL-2.0
       <Shw::Text::H3>Long breadcrumbs</Shw::Text::H3>
       <Hds::PageHeader @title="Page title" as |PH|>
         <PH.Breadcrumb>
-          <Hds::Breadcrumb::Item @icon="org" @text="Organization" />
-          <Hds::Breadcrumb::Item @icon="folder" @text="Project" />
-          <Hds::Breadcrumb::Item @icon="users" @text="Users" />
-          <Hds::Breadcrumb::Item @text="Another one" />
-          <Hds::Breadcrumb::Item @text="Another one" />
-          <Hds::Breadcrumb::Item @text="Another one" />
-          <Hds::Breadcrumb::Item @text="Another one" />
-          <Hds::Breadcrumb::Item @text="Another one" />
-          <Hds::Breadcrumb::Item @text="Another one" />
+          <Hds::Breadcrumb>
+            <Hds::Breadcrumb::Item @icon="org" @text="Organization" />
+            <Hds::Breadcrumb::Item @icon="folder" @text="Project" />
+            <Hds::Breadcrumb::Item @icon="users" @text="Users" />
+            <Hds::Breadcrumb::Item @text="Another one" />
+            <Hds::Breadcrumb::Item @text="Another one" />
+            <Hds::Breadcrumb::Item @text="Another one" />
+            <Hds::Breadcrumb::Item @text="Another one" />
+            <Hds::Breadcrumb::Item @text="Another one" />
+            <Hds::Breadcrumb::Item @text="Another one" />
+          </Hds::Breadcrumb>
         </PH.Breadcrumb>
         <PH.IconTile @icon="user" @color="vault" />
         <PH.Subtitle>Subtitle</PH.Subtitle>

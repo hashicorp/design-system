@@ -3,7 +3,7 @@ Copyright (c) HashiCorp, Inc.
 SPDX-License-Identifier: MPL-2.0
 }}
 <div class={{this.classNames}} ...attributes>
-  {{yield (hash Breadcrumb=(component "hds/breadcrumb"))}}
+  {{yield (hash Breadcrumb=(component "hds/yield"))}}
   <header class="hds-page-header__wrapper">
     {{yield (hash IconTile=(component "hds/icon-tile" size="medium"))}}
     <div class="hds-page-header__main">
