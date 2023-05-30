@@ -4,8 +4,16 @@
  */
 
 import Component from '@glimmer/component';
+import { guidFor } from '@ember/object/internals';
 
 export default class HdsRevealIndexComponent extends Component {
+  /**
+   * Generates a unique ID for the Content
+   *
+   * @param contentId
+   */
+  contentId = 'content-' + guidFor(this);
+
   /**
    * Get the class names to apply to the component.
    * @method classNames
