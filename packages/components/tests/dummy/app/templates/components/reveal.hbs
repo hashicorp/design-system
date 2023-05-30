@@ -68,7 +68,7 @@
 
   <Shw::Text::H3>Used next to other content</Shw::Text::H3>
 
-  <Shw::Flex @direction="column" {{style gap="2rem"}} as |SF|>
+  <Shw::Flex @direction="column" {{style gap="1rem"}} as |SF|>
     <SF.Item @label="Used beneath a form input">
       <Hds::Form::TextInput::Field as |F|>
         <F.Label>Private subnet 1</F.Label>
@@ -100,8 +100,12 @@
         adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
       </p>
     </SF.Item>
+  </Shw::Flex>
 
-    <SF.Item @label="Used inline with text (edge case)">
+  <Shw::Text::H4>Edge case</Shw::Text::H4>
+
+  <Shw::Flex @direction="column" {{style gap="1rem"}} as |SF|>
+    <SF.Item @label="Used inline with text">
       <p class="hds-typography-body-300">
         Lorem ipsum dolor sit amet consectetur
         <Hds::Reveal @text="More options">
@@ -129,22 +133,6 @@
 
   <Shw::Text::H2>Options</Shw::Text::H2>
 
-  <Shw::Text::H3>isOpen</Shw::Text::H3>
-
-  <Shw::Flex {{style gap="5rem"}} as |SF|>
-    <SF.Item @label="Default, isOpen=false">
-      <Hds::Reveal @text="More options">
-        Additional content
-      </Hds::Reveal>
-    </SF.Item>
-
-    <SF.Item @label="isOpen=true">
-      <Hds::Reveal @text="More options" @isOpen={{true}}>
-        Additional content
-      </Hds::Reveal>
-    </SF.Item>
-  </Shw::Flex>
-
   <Shw::Text::H3>textWhenOpen</Shw::Text::H3>
 
   <Shw::Flex {{style gap="5rem"}} as |SF|>
@@ -156,6 +144,22 @@
 
     <SF.Item @label="Using optional @textWhenOpen">
       <Hds::Reveal @text="Open me" @textWhenOpen="Close me">
+        Additional content
+      </Hds::Reveal>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H3>isOpen</Shw::Text::H3>
+
+  <Shw::Flex {{style gap="5rem"}} as |SF|>
+    <SF.Item @label="Default, isOpen=false">
+      <Hds::Reveal @text="More options">
+        Additional content
+      </Hds::Reveal>
+    </SF.Item>
+
+    <SF.Item @label="isOpen=true">
+      <Hds::Reveal @text="More options" @isOpen={{true}}>
         Additional content
       </Hds::Reveal>
     </SF.Item>
