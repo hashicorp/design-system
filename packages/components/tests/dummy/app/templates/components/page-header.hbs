@@ -150,9 +150,11 @@ SPDX-License-Identifier: MPL-2.0
       <Shw::Text::H3>Long metadata</Shw::Text::H3>
       <Hds::PageHeader @title="Page title" as |PH|>
         <PH.Breadcrumb>
-          <Hds::Breadcrumb::Item @icon="org" @text="Organization" />
-          <Hds::Breadcrumb::Item @icon="folder" @text="Project" />
-          <Hds::Breadcrumb::Item @icon="users" @text="Users" />
+          <Hds::Breadcrumb>
+            <Hds::Breadcrumb::Item @icon="org" @text="Organization" />
+            <Hds::Breadcrumb::Item @icon="folder" @text="Project" />
+            <Hds::Breadcrumb::Item @icon="users" @text="Users" />
+          </Hds::Breadcrumb>
         </PH.Breadcrumb>
         <PH.IconTile @icon="globe" @color="packer" />
         <PH.Subtitle>
@@ -180,9 +182,11 @@ SPDX-License-Identifier: MPL-2.0
       <Shw::Text::H3>Long button text</Shw::Text::H3>
       <Hds::PageHeader @title="Page title" as |PH|>
         <PH.Breadcrumb>
-          <Hds::Breadcrumb::Item @icon="org" @text="Organization" />
-          <Hds::Breadcrumb::Item @icon="folder" @text="Project" />
-          <Hds::Breadcrumb::Item @icon="users" @text="Users" />
+          <Hds::Breadcrumb>
+            <Hds::Breadcrumb::Item @icon="org" @text="Organization" />
+            <Hds::Breadcrumb::Item @icon="folder" @text="Project" />
+            <Hds::Breadcrumb::Item @icon="users" @text="Users" />
+          </Hds::Breadcrumb>
         </PH.Breadcrumb>
         <PH.IconTile @icon="figma-color" />
         <PH.Subtitle>Subtitle</PH.Subtitle>
@@ -205,9 +209,11 @@ SPDX-License-Identifier: MPL-2.0
       <Shw::Text::H3>Long button + Badges</Shw::Text::H3>
       <Hds::PageHeader @title="Page title" as |PH|>
         <PH.Breadcrumb>
-          <Hds::Breadcrumb::Item @icon="org" @text="Organization" />
-          <Hds::Breadcrumb::Item @icon="folder" @text="Project" />
-          <Hds::Breadcrumb::Item @icon="users" @text="Users" />
+          <Hds::Breadcrumb>
+            <Hds::Breadcrumb::Item @icon="org" @text="Organization" />
+            <Hds::Breadcrumb::Item @icon="folder" @text="Project" />
+            <Hds::Breadcrumb::Item @icon="users" @text="Users" />
+          </Hds::Breadcrumb>
         </PH.Breadcrumb>
         <PH.IconTile @icon="kubernetes-color" />
         <PH.Badges>
@@ -249,15 +255,17 @@ SPDX-License-Identifier: MPL-2.0
       <Shw::Text::H3>Kitchen sink</Shw::Text::H3>
       <Hds::PageHeader @title="Page title that is very long and multiple words" as |PH|>
         <PH.Breadcrumb>
-          <Hds::Breadcrumb::Item @icon="org" @text="Organization" />
-          <Hds::Breadcrumb::Item @icon="folder" @text="Project" />
-          <Hds::Breadcrumb::Item @icon="users" @text="Users" />
-          <Hds::Breadcrumb::Item @text="Another one" />
-          <Hds::Breadcrumb::Item @text="Another one" />
-          <Hds::Breadcrumb::Item @text="Another one" />
-          <Hds::Breadcrumb::Item @text="Another one" />
-          <Hds::Breadcrumb::Item @text="Another one" />
-          <Hds::Breadcrumb::Item @text="Another one" />
+          <Hds::Breadcrumb>
+            <Hds::Breadcrumb::Item @icon="org" @text="Organization" />
+            <Hds::Breadcrumb::Item @icon="folder" @text="Project" />
+            <Hds::Breadcrumb::Item @icon="users" @text="Users" />
+            <Hds::Breadcrumb::Item @text="Another one" />
+            <Hds::Breadcrumb::Item @text="Another one" />
+            <Hds::Breadcrumb::Item @text="Another one" />
+            <Hds::Breadcrumb::Item @text="Another one" />
+            <Hds::Breadcrumb::Item @text="Another one" />
+            <Hds::Breadcrumb::Item @text="Another one" />
+          </Hds::Breadcrumb>
         </PH.Breadcrumb>
         <PH.IconTile @icon="alert-circle" @color="nomad" />
         <PH.Actions>
@@ -294,10 +302,12 @@ SPDX-License-Identifier: MPL-2.0
       <Shw::Text::H3>Toggle button in actions</Shw::Text::H3>
       <Hds::PageHeader @title="Looker" as |PH|>
         <PH.Breadcrumb>
-          <Hds::Breadcrumb::Item @icon="org" @text="Organization" />
-          <Hds::Breadcrumb::Item @icon="packer" @text="Packer" />
-          <Hds::Breadcrumb::Item @text="webhooks" />
-          <Hds::Breadcrumb::Item @text="Looker" />
+          <Hds::Breadcrumb>
+            <Hds::Breadcrumb::Item @icon="org" @text="Organization" />
+            <Hds::Breadcrumb::Item @icon="packer" @text="Packer" />
+            <Hds::Breadcrumb::Item @text="webhooks" />
+            <Hds::Breadcrumb::Item @text="Looker" />
+          </Hds::Breadcrumb>
         </PH.Breadcrumb>
         <PH.Description>URL:
           <Hds::Link::Inline
