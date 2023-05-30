@@ -14,15 +14,13 @@
 
 .hds-reveal {
   display: inline-block; // discuss if desired
-  // outline: 1px solid limegreen;
-  // outline-offset: -1px;
 }
 
 .hds-reveal__toggle-button {
   position: relative;
   left: -0.9375rem;
-  margin-right: (-0.9375rem * 2); // not sure if this is a good idea (trying to account for space to left and right of button)
-  // outline: 1px solid red;
+  // Accounting for space to left and right of button:
+  margin-right: (-0.9375rem * 2);
 
   .flight-icon-chevron-down {
     @media (prefers-reduced-motion: no-preference) {
@@ -39,7 +37,6 @@
 
 .hds-reveal__content {
   margin-top: var(--token-reveal-content-margin-top);
-  // outline: 1px dashed violet;
 
   img { max-width: 100%; }
 }
