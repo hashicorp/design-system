@@ -11,14 +11,23 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  // Removing the padding so that the component inherits the page layout
-  // padding: 24px 40px;
+  container-type: inline-size;
 }
 
 .hds-page-header__wrapper {
   display: flex;
   flex-direction: row;
   gap: 1rem;
+  container-type: inline-size;
+
+  .hds-icon-tile {
+    flex-shrink: 0;
+  }
+
+  @container (max-width: 400px) {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
 
 .hds-page-header__main {
@@ -28,6 +37,11 @@
   align-items: start;
   justify-content: space-between;
   width: 100%;
+
+  @container (max-width: 700px) {
+    flex-direction: column;
+    justify-content: start;
+  }
 }
 
 .hds-page-header__content {
@@ -41,10 +55,11 @@
   flex-direction: row;
   gap: 1rem;
   align-items: center;
+  flex-wrap: wrap;
+}
 
-  &-content {
-    color: var(--token-color-foreground-strong);
-  }
+.hds-page-header__header-content {
+  color: var(--token-color-foreground-strong);
 }
 
 .hds-page-header__badges {
@@ -79,4 +94,6 @@
   flex-direction: row;
   gap: 16px;
   align-items: center;
+  flex-shrink: 0;
+  flex-wrap: wrap;
 }
