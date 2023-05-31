@@ -1,0 +1,82 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// PAGEHEADER
+//
+
+.hds-page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  // Removing the padding so that the component inherits the page layout
+  // padding: 24px 40px;
+}
+
+.hds-page-header__wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.hds-page-header__main {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: start;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.hds-page-header__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hds-page-header__heading {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+
+  &-content {
+    color: var(--token-color-foreground-strong);
+  }
+}
+
+.hds-page-header__badges {
+  display: flex;
+  gap: 8px;
+}
+
+.hds-page-header__title {
+  color: var(--token-color-foreground-strong);
+}
+
+.hds-page-header__metadata {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  &:empty {
+    display: none;
+  }
+}
+
+.hds-page-header__subtitle {
+  color: var(--token-color-foreground-faint);
+}
+
+.hds-page-header__description {
+  color: var(--token-color-foreground-primary);
+}
+
+.hds-page-header__actions {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+}
