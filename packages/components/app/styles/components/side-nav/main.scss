@@ -202,5 +202,10 @@
       var(--hds-app-sidenav-animation-easing)
       var(--hds-app-sidenav-animation-delay);
   }
-}
 
+  // we want to avoid accidental interactions with the navigation elements while the sidenav is animating its width
+  // (elements with `visibility: visible` can already be interacted with, while their opacity is transitioning)
+  .hds-side-nav--is-animating & {
+    pointer-events: none;
+  }
+}

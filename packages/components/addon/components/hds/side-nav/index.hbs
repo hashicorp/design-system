@@ -3,7 +3,13 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<Hds::SideNav::Base class={{this.classNames}} ...attributes {{focus-trap isActive=this.shouldTrapFocus}}>
+<Hds::SideNav::Base
+  class={{this.classNames}}
+  ...attributes
+  {{on "transitionstart" (fn this.setTransition "start")}}
+  {{on "transitionend" (fn this.setTransition "end")}}
+  {{focus-trap isActive=this.shouldTrapFocus}}
+>
   <:root>
     {{#if this.hasA11yRefocus}}
       <NavigationNarrator
