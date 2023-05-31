@@ -12,15 +12,9 @@
   --token-reveal-content-margin-top: 4px;
 }
 
-.hds-reveal {
-  display: inline-block; // discuss if desired
-}
-
 .hds-reveal__toggle-button {
-  position: relative;
-  left: -0.9375rem;
-  // Accounting for space to left and right of button:
-  margin-right: (-0.9375rem * 2);
+  // Accounting for space to left of button:
+  margin-left: -0.9375rem;
 
   .flight-icon-chevron-down {
     @media (prefers-reduced-motion: no-preference) {
@@ -37,6 +31,4 @@
 
 .hds-reveal__content {
   margin-top: var(--token-reveal-content-margin-top);
-
-  img { max-width: 100%; }
 }

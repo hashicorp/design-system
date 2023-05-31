@@ -9,7 +9,7 @@ import { action } from '@ember/object';
 import { schedule } from '@ember/runloop';
 
 export default class HdsDisclosurePrimitiveComponent extends Component {
-  @tracked isOpen = this.args.isOpen;
+  @tracked isOpen = this.args.isOpen ?? false;
 
   /**
    * Indicates if content is displayed on page load

@@ -94,23 +94,9 @@
         Lorem ipsum dolor sit amet consectetur
       </p>
       <Hds::Reveal @text="More options">
-        Additional content
+        <Shw::Placeholder @text="generic content" @height="40" @width="200" @background="#eee" />
       </Hds::Reveal>
       <p class="hds-typography-body-300">
-        adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
-      </p>
-    </SF.Item>
-  </Shw::Flex>
-
-  <Shw::Text::H4>Edge case</Shw::Text::H4>
-
-  <Shw::Flex @direction="column" {{style gap="1rem"}} as |SF|>
-    <SF.Item @label="Used inline with text">
-      <p class="hds-typography-body-300">
-        Lorem ipsum dolor sit amet consectetur
-        <Hds::Reveal @text="More options">
-          Additional content
-        </Hds::Reveal>
         adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
       </p>
     </SF.Item>
@@ -138,13 +124,13 @@
   <Shw::Flex {{style gap="5rem"}} as |SF|>
     <SF.Item @label="Only using required @text">
       <Hds::Reveal @text="Same text label for open and closed">
-        Additional content
+        <Shw::Placeholder @text="generic content" @height="40" @width="200" @background="#eee" />
       </Hds::Reveal>
     </SF.Item>
 
     <SF.Item @label="Using optional @textWhenOpen">
       <Hds::Reveal @text="Open me" @textWhenOpen="Close me">
-        Additional content
+        <Shw::Placeholder @text="generic content" @height="40" @width="200" @background="#eee" />
       </Hds::Reveal>
     </SF.Item>
   </Shw::Flex>
@@ -154,13 +140,13 @@
   <Shw::Flex {{style gap="5rem"}} as |SF|>
     <SF.Item @label="Default, isOpen=false">
       <Hds::Reveal @text="More options">
-        Additional content
+        <Shw::Placeholder @text="generic content" @height="40" @width="200" @background="#eee" />
       </Hds::Reveal>
     </SF.Item>
 
     <SF.Item @label="isOpen=true">
       <Hds::Reveal @text="More options" @isOpen={{true}}>
-        Additional content
+        <Shw::Placeholder @text="generic content" @height="40" @width="200" @background="#eee" />
       </Hds::Reveal>
     </SF.Item>
   </Shw::Flex>
