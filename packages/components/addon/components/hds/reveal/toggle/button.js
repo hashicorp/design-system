@@ -4,27 +4,10 @@
  */
 
 import Component from '@glimmer/component';
-import { assert } from '@ember/debug';
 
 const NOOP = () => {};
 
 export default class HdsDropdownToggleButtonComponent extends Component {
-  /**
-   * @param text
-   * @type {string}
-   * @description The text of the button. If no text value is defined an error will be thrown.
-   */
-  get text() {
-    let { text } = this.args;
-
-    assert(
-      '@text for "Hds::Reveal::Toggle::Button" must have a valid value',
-      text !== undefined
-    );
-
-    return text;
-  }
-
   /**
    * @param onClick
    * @type {function}

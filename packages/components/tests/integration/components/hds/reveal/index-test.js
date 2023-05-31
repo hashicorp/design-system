@@ -114,8 +114,7 @@ module('Integration | Component | hds/reveal/index', function (hooks) {
   // ASSERTIONS
 
   test('it should throw an assertion if @text is missing/has no value', async function (assert) {
-    const errorMessage =
-      '@text for "Hds::Reveal::Toggle::Button" must have a valid value';
+    const errorMessage = '@text for "Hds::Reveal" must have a valid value';
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);

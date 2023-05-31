@@ -11,17 +11,6 @@ import { schedule } from '@ember/runloop';
 export default class HdsDisclosurePrimitiveComponent extends Component {
   @tracked isOpen = this.args.isOpen ?? false;
 
-  /**
-   * Indicates if content is displayed on page load
-   *
-   * @param hasHeader
-   * @type {boolean}
-   * @default false
-   */
-  get isOpen() {
-    return this.args.isOpen ?? false;
-  }
-
   @action
   onClickToggle() {
     this.isOpen = !this.isOpen;
