@@ -1,5 +1,11 @@
 # @hashicorp/design-system-components
 
+## 2.4.3
+
+### Patch Changes
+
+- [#1388](https://github.com/hashicorp/design-system/pull/1388) [`56a6b94df`](https://github.com/hashicorp/design-system/commit/56a6b94dfa337a887153e39393ed2a2bb1b93774) Thanks [@didoo](https://github.com/didoo)! - Fixed `SideNav` issue with content resizing when transitioning its `width`
+
 ## 2.4.2
 
 ### Patch Changes
