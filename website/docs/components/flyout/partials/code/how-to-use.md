@@ -4,7 +4,7 @@ The `Hds::Flyout` component leverages the `<dialog>` element which is [currently
 
 ## Page scroll
 
-When an `Hds::Flyout` component is open, the rest of the page is disabled (via `inert`). However, scrolling at the page level is still available. To make it clear to the user that the underlying elements are not interactive and to avoid confusion, we recommend disabling the page scroll `onOpen` and enabling it back `onClose` (for example, by setting `overflow: hidden;` and `overflow: auto;` respectively) by applying it to the `<body>` element.
+When an `Hds::Flyout` component is open, the rest of the page is disabled (via `inert`). The page scrolling is also disabled by applying `overflow: hidden` to the `<body>` element, to make it clear to the user that the underlying elements are not interactive and to avoid confusion.
 
 ## Positioning
 

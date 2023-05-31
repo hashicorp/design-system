@@ -24,12 +24,10 @@ export default class Index extends Component {
   @action
   activateFlyout(flyout) {
     this[flyout] = true;
-    document.body.style.overflow = 'hidden';
   }
 
   @action
   deactivateFlyout(flyout) {
     this[flyout] = false;
-    document.body.style.overflow = 'auto';
   }
 }
