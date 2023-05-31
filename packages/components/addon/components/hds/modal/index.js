@@ -86,8 +86,14 @@ export default class HdsModalIndexComponent extends Component {
 
   @action
   didInsert(element) {
-    // Store a reference of the `<dialog>` element
+    // Store references of `<dialog>` and `<body>` elements
     this.element = element;
+    this.body = document.body;
+
+    if (this.body) {
+      // Store the initial `overflow` value of `<body>` so we can reset to it
+      this.bodyInitialOverflowValue = this.body.style.overflow;
+    }
 
     // Register `<dialog>` element for polyfilling if no native support is available
     if (!element.showModal) {
@@ -135,6 +141,9 @@ export default class HdsModalIndexComponent extends Component {
     this.element.showModal();
     this.isOpen = true;
 
+    // Prevent page from scrolling when the dialog is open
+    if (this.body) this.body.style.overflow = 'hidden';
+
     // Call "onOpen" callback function
     if (this.args.onOpen && typeof this.args.onOpen === 'function') {
       this.args.onOpen();
@@ -145,5 +154,8 @@ export default class HdsModalIndexComponent extends Component {
   onDismiss() {
     // Make modal dialog invisible using the native `close` method
     this.element.close();
+
+    // Reset page `overflow` property
+    if (this.body) this.body.style.overflow = this.bodyInitialOverflowValue;
   }
 }
