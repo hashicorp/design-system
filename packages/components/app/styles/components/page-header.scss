@@ -53,9 +53,9 @@
 .hds-page-header__heading {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 1rem;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .hds-page-header__header-content {
@@ -92,8 +92,8 @@
 .hds-page-header__actions {
   display: flex;
   flex-direction: row;
-  gap: 16px;
-  align-items: center;
   flex-shrink: 0;
   flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
 }
