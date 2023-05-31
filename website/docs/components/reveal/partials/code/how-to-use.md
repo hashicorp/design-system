@@ -1,6 +1,6 @@
 ## How to use this component
 
-The `Reveal` component renders a button which triggers the display of additional content. The additional content can consist of either plain text or HTML and can include interactive elements such as links.
+The Reveal component renders a button which triggers the display of additional content. The additional content can consist of either plain text or HTML and can include interactive elements such as links.
 
 ```handlebars
 <Hds::Reveal @text="Toggle me">
