@@ -20,7 +20,7 @@ You can display different text on the toggle button when the `Reveal` is open.
 
 ### isOpen
 
-Use `isOpen` to display the content on page load instead of initially hiding it.
+Set `isOpen` to true in order to display the content on page load instead of initially hiding it.
 
 ```handlebars
 <Hds::Reveal @text="Toggle me" @isOpen={{true}}>
