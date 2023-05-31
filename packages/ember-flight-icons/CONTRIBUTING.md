@@ -64,4 +64,4 @@ module.exports = {
 
 * When associated when Ember, refer to the npm package as "Ember addon" instead of just "addon".
   * Use "package" for other frameworks.
-* Refer to [HashiCorp Voice, Style & Language Guidelines](https://docs.google.com/document/d/1MRvGd6tS5JkIwl_GssbyExkMJqOXKeUE00kSEtFi8m8/edit). _Note: This link is internal only._
+* Refer to [HashiCorp Voice, Style & Language Guidelines](https://docs.google.com/document/d/1MRvGd6tS5JkIwl_GssbyExkMJqOXKeUE00kSEtFi8m8/edit).
