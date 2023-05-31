@@ -66,7 +66,8 @@ export default class HdsFlyoutIndexComponent extends Component {
 
     if (this.body) {
       // Store the initial `overflow` value of `<body>` so we can reset to it
-      this.bodyInitialOverflowValue = this.body.style.overflow;
+      this.bodyInitialOverflowValue =
+        this.body.style.getPropertyValue('overflow');
     }
 
     // Register `<dialog>` element for polyfilling if no native support is available
@@ -105,7 +106,7 @@ export default class HdsFlyoutIndexComponent extends Component {
     this.isOpen = true;
 
     // Prevent page from scrolling when the dialog is open
-    if (this.body) this.body.style.overflow = 'hidden';
+    if (this.body) this.body.style.setProperty('overflow', 'hidden');
 
     // Call "onOpen" callback function
     if (this.args.onOpen && typeof this.args.onOpen === 'function') {
@@ -119,6 +120,8 @@ export default class HdsFlyoutIndexComponent extends Component {
     this.element.close();
 
     // Reset page `overflow` property
-    if (this.body) this.body.style.overflow = this.bodyInitialOverflowValue;
+    if (this.body) {
+      this.body.style.setProperty('overflow', this.bodyInitialOverflowValue);
+    }
   }
 }
