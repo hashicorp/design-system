@@ -85,7 +85,7 @@
     "ember-resolver": "^10.1.0",
     "ember-source": "~4.12.0",
     "ember-source-channel-url": "^3.0.0",
-    "ember-template-lint": "^5.10.0",
+    "ember-template-lint": "^4.18.2",
     "ember-template-lint-plugin-prettier": "^4.1.0",
     "ember-try": "^2.0.0",
     "eslint": "^8.41.0",
