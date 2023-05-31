@@ -10,20 +10,21 @@
 .hds-page-header {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 24px 40px;
+  gap: 1rem;
+  // Removing the padding so that the component inherits the page layout
+  // padding: 24px 40px;
 }
 
 .hds-page-header__wrapper {
   display: flex;
   flex-direction: row;
-  gap: 16px;
+  gap: 1rem;
 }
 
 .hds-page-header__main {
   display: flex;
   flex-direction: row;
-  gap: 16px;
+  gap: 1rem;
   align-items: start;
   justify-content: space-between;
   width: 100%;
@@ -32,13 +33,13 @@
 .hds-page-header__content {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 0.5rem;
 }
 
 .hds-page-header__heading {
   display: flex;
   flex-direction: row;
-  gap: 16px;
+  gap: 1rem;
   align-items: center;
 
   &-content {
@@ -58,7 +59,7 @@
 .hds-page-header__metadata {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0.25rem;
 
   &:empty {
     display: none;
@@ -73,7 +74,6 @@
   color: var(--token-color-foreground-primary);
 }
 
-// This is replacing the ButtonSet
 .hds-page-header__actions {
   display: flex;
   flex-direction: row;
