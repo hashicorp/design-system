@@ -1,5 +1,11 @@
 # @hashicorp/design-system-components
 
+## 2.5.0
+
+### Minor Changes
+
+- [#1391](https://github.com/hashicorp/design-system/pull/1391) [`0a7c53886`](https://github.com/hashicorp/design-system/commit/0a7c5388643f95891082dde2b27b66716372b514) Thanks [@alex-ju](https://github.com/alex-ju)! - Embed page scroll management into the `Modal` and `Flyout` components
+
 ## 2.4.3
 
 ### Patch Changes
