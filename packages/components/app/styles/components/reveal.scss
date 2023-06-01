@@ -8,9 +8,8 @@
 //
 
 .hds-reveal__toggle-button {
-  padding: 6px 4px;
-  // Accounting for space to left of button:
-  // margin-left: -0.9375rem;
+  min-height: 0; // Override default so padding difference will be visible
+  padding: 6px 4px; // As per design
 
   .flight-icon-chevron-down {
     @media (prefers-reduced-motion: no-preference) {
