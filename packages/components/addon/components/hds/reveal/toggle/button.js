@@ -5,26 +5,7 @@
 
 import Component from '@glimmer/component';
 
-const NOOP = () => {};
-
 export default class HdsDropdownToggleButtonComponent extends Component {
-  /**
-   * @param onClick
-   * @type {function}
-   * @default () => {}
-   */
-  get onClick() {
-    let { onClick } = this.args;
-
-    // notice: this is a guard used in case the toggle is used as standalone element (eg. in the showcase)
-    // in reality it's always used inside the Reveal main component as yielded component, so the onClick handler is always defined
-    if (typeof onClick === 'function') {
-      return onClick;
-    } else {
-      return NOOP;
-    }
-  }
-
   /**
    * Get the class names to apply to the component.
    * @method ToggleButton#classNames
