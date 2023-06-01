@@ -1,6 +1,6 @@
 ## How to use this component
 
-A simple invocation of the component requires an `@title` argument which renders the title of the page in an `<h1>`.
+A simple invocation of the component requires an `@title` argument that renders the title of the page in a semantic `<h1>`.
 
 ```handlebars
 <Hds::PageHeader @title="Page title" />
@@ -8,7 +8,7 @@ A simple invocation of the component requires an `@title` argument which renders
 
 ### Contextual components
 
-The `PageHeader` uses a variety of contextual components that either yield their content or render a specific Helios component. 
+The Page Header uses a variety of contextual components that either yield their content or render a specific Helios component.
 
 ```handlebars
 <Hds::PageHeader @title="Page title" as |PH|>
@@ -21,13 +21,13 @@ The `PageHeader` uses a variety of contextual components that either yield their
   </PH.Breadcrumb>
   <PH.IconTile @icon="server-cluster" @color="consul" />
   <PH.Badges>
-    <Hds::Badge @text="Active" @icon="check" @color="success" />
+    <Hds::Badge @text="Status badge" @icon="award" @color="highlight" />
   </PH.Badges>
-  <PH.Subtitle>Subtitle</PH.Subtitle>
-  <PH.Description>This is the description of the page</PH.Description>
+  <PH.Subtitle>Page subtitle</PH.Subtitle>
+  <PH.Description>Description of the page</PH.Description>
   <PH.Actions>
     <Hds::Button
-      @text="Create cluster"
+      @text="Create"
       @icon="plus"
       @iconPosition="leading"
       @color="primary"
@@ -38,7 +38,7 @@ The `PageHeader` uses a variety of contextual components that either yield their
 
 ### Custom content
 
-Pass custom metadata to the component with a 
+Pass custom metadata to the component with a `generic` contextual component that yields its contents.
 
 ```handlebars
 <Hds::PageHeader @title="Page title" as |PH|>
@@ -50,7 +50,12 @@ Pass custom metadata to the component with a
       <DD.Interactive @route="components" @text="Item Two" />
       <DD.Interactive @route="components" @text="Item Three" />
       <DD.Separator />
-      <DD.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
+      <DD.Interactive
+        @route="components"
+        @text="Delete"
+        @color="critical"
+        @icon="trash"
+      />
     </Hds::Dropdown>
   </PH.Actions>
   <PH.Generic>

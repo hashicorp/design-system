@@ -1,14 +1,12 @@
 ## Component API
 
-### PageHeader
-
 <Doc::ComponentApi as |C|>
-  <C.Property @name="Title" @type="string">
+  <C.Property @name="title" @type="string">
     The title or header of the page.
   </C.Property>
 </Doc::ComponentApi>
 
-#### Contextual components
+### Contextual components
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<[PH].Breadcrumb>" @type="yielded component">
@@ -19,12 +17,18 @@
   </C.Property>
   <C.Property @name="<[PH].Badges>" @type="yielded component">
     A container that yields its content inside of the `PageHeader`, intended to indicate status via a [Badge](/components/badge).
+    <br/><br/>
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
   <C.Property @name="<[PH].Subtitle>" @type="yielded component">
     A container that yields its content inside of the `PageHeader` metadata. The content can be a simple string or a more complex/structured one, in which case it inherits the text style.
+    <br/><br/>
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
   <C.Property @name="<[PH].Description>" @type="yielded component">
     A container that yields its content inside of the `PageHeader` metadata. The content can be a simple string or a more complex/structured one, in which case it inherits the text style.
+    <br/><br/>
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
   <C.Property @name="<[PH].Generic>" @type="yielded component">
     A container that yields its content inside of the `PageHeader` metadata. The content does not inherit any styles and can be customized as desired.
@@ -33,5 +37,7 @@
   </C.Property>
   <C.Property @name="<[PH].Actions>" @type="yielded component">
     A container that yields its content inside of the `PageHeader`, intended for actions and buttons pertaining to the main page.
+    <br/><br/>
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
