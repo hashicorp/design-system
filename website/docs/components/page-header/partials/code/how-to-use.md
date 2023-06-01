@@ -1,6 +1,6 @@
 ## How to use this component
 
-A simple invocation of the component requires an `@title` argument that renders the title of the page in a semantic `<h1>`.
+A simple invocation of the component requires an `@title` argument that renders in a semantic `<h1>`.
 
 ```handlebars
 <Hds::PageHeader @title="Page title" />
@@ -62,6 +62,7 @@ Pass custom metadata to the component with a `generic` contextual component that
     <Doc::Placeholder
       @text="generic metadata"
       @height="36"
+      @width="350"
       @background="#eee"
     />
   </PH.Generic>

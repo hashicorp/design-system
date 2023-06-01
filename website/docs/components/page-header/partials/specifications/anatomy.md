@@ -1,15 +1,14 @@
 ## Anatomy
 
-<!-- image then table -->
-![Anatomy of pageHeader](/assets/components/alert/page-header-anatomy-inline.png)
+![Anatomy of pageHeader](/assets/components/page-header/page-header-anatomy.png)
 
-<!-- this is just an example, refer to other components to see how to fill this table -->
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|
-| Icon             | Optional, but recommended                       |
-| Title            | Required, if no description Optional, otherwise |
-| Description      | Required, if no title Optional, otherwise       |
-| Actions          | Optional                                        |
-| Dismiss button   | Optional                                        |
-| Content          | Required                                        |
-| Container        | Required                                        |
+| Title | Required, renders the page title or header. |
+| Breadcumb | Optional  |
+| IconTile | Optional |
+| Badges | Optional |
+| Subtitle | Optional |
+| Description | Optional |
+| Custom metadata | Optional |
+| Actions | Optional, renders either one, two, or three actions |

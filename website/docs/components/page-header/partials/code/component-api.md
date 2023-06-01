@@ -1,7 +1,7 @@
 ## Component API
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="title" @type="string">
+  <C.Property @name="title" @type="string" @required="true">
     The title or header of the page.
   </C.Property>
 </Doc::ComponentApi>
