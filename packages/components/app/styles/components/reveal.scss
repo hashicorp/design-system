@@ -8,8 +8,8 @@
 //
 
 .hds-reveal__toggle-button {
-  min-height: 0; // Override default so padding difference will be visible
-  padding: 6px 4px; // As per design
+  min-height: 1.75rem; // 28px, Override default so padding difference will be visible
+  padding: 0.313rem 0.188rem; // 6px 4px, taking into account the 1px border
 
   .flight-icon-chevron-down {
     @media (prefers-reduced-motion: no-preference) {
