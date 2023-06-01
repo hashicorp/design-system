@@ -57,6 +57,7 @@ Router.map(function () {
     this.route('side-nav');
     this.route('segmented-group');
     this.route('reveal');
+    this.route('separator');
   });
   this.route('layouts', function () {
     this.route('app-frame');
