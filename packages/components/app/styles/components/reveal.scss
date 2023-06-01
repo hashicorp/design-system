@@ -7,11 +7,6 @@
 // REVEAL COMPONENT
 //
 
-:root {
-  // Spacing
-  --token-reveal-content-margin-top: 4px;
-}
-
 .hds-reveal__toggle-button {
   // Accounting for space to left of button:
   margin-left: -0.9375rem;
@@ -30,5 +25,5 @@
 }
 
 .hds-reveal__content {
-  margin-top: var(--token-reveal-content-margin-top);
+  margin-top: 4px;
 }
