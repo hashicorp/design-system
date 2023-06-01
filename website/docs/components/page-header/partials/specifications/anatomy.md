@@ -2,8 +2,8 @@
 
 ![Anatomy of pageHeader](/assets/components/page-header/page-header-anatomy.png)
 
-| Element          | Usage                                           |
-|------------------|-------------------------------------------------|
+| Element | Usage |
+|---------|-------|
 | Title | Required, renders the page title or header. |
 | Breadcumb | Optional  |
 | IconTile | Optional |
