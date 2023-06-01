@@ -1,0 +1,23 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "Separator Component"}}
+
+<Shw::Text::H1>Separator</Shw::Text::H1>
+
+<section data-test-percy>
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="Default">
+      <Shw::Outliner class="shw-component-separator-container">
+        <Hds::Separator />
+      </Shw::Outliner>
+    </SF.Item>
+    <SF.Item @label="No spacing">
+      <Shw::Outliner class="shw-component-separator-container">
+        <Hds::Separator @spacing="none" />
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
+</section>
