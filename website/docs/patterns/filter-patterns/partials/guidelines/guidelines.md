@@ -26,7 +26,7 @@ Organizing filters in a **filter bar** is a common positioning method and consis
 
 A filter bar should be positioned directly above the data set with a a `16px` gap in between.
 
-![Filter bar example](/assets/patterns/filter-patterns/filter-bar-segmented-group.png =728x*)
+![Filter bar example](/assets/patterns/filter-patterns/filter-bar-segmented-group.png =728x\*)
 
 **Example of a horizontal filter bar paired with a data set expressed as a table.**
 
@@ -52,7 +52,7 @@ In-line sidebars can be used when the number of filterable parameters is minimal
 
 Display **applied filters** and provide the user with a method to clear all filters at once. Applied filters should be represented using a [Tag](/components/tag) component, which allows for the individual dismissal of a filter value.
 
-![Applied filters](/assets/patterns/filter-patterns/applied-filters.png =600x*)
+![Applied filters](/assets/patterns/filter-patterns/applied-filters.png =600x\*)
 
 #### Positioning in filter bars
 
@@ -94,6 +94,28 @@ Use the Helios [Application State](/components/application-state) component to c
 If no filters have been applied, it can be helpful to communicate this in the applied filters area. Use a [Tooltip](/components/tooltip) coupled with the applied filters label to guide the user to the filter functions.
 
 ![Empty state in applied filters](/assets/patterns/filter-patterns/applied-filters-empty-state.png)
+
+## Filtering methods
+
+Depending on the fetching strategy, size, and rendering method of the data set, how filters are applied and the impact on the user experience varies.
+
+### Live filtering
+
+Live filtering refers to updating the records within a data set immediately after a user makes a selection. This method results in a responsive user experience, but may not be possible with large data sets or complex filtering methods.
+
+![Live filtering prototype](/assets/patterns/filter-patterns/filter-patterns-live-filtering.gif)
+
+### Per-filter
+
+Applying filters one at a time lets the user to "finalize" their decision before applying, avoiding the distraction of the data set constantly updating in the background. This method is useful when the user may want to select multiple values in a single dropdown.
+
+![Filtering per-filter](/assets/patterns/filter-patterns/filter-patterns-per-filter.gif)
+
+### Batch filtering
+
+Batch filtering supports the user making multiple selections across different parameters and only updating the results of the data set when the user interacts with a global "Apply" function. This method is useful when the data set is very large or when the filter parameters are complex.
+
+![Filtering per-filter](/assets/patterns/filter-patterns/filter-patterns-batch-filtering.gif)
 
 ## Displaying selected filters
 
