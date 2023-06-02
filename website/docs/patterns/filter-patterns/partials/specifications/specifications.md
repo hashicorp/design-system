@@ -8,11 +8,11 @@ Helios does not currently publish any components that account for layout of the 
 
 Adhering to the spacing, layout, and specifications outlined for the individual structural elements of a filter pattern makes assembling them together into a pattern relatively simple.
 
-**Ex 1.0: Pattern anatomy with a filter bar**
+**Pattern anatomy with a filter bar**
 
 ![Pattern anatomy with filter bar](/assets/patterns/filter-patterns/pattern-anatomy-specific-filter-bar.png)
 
-**Ex 1.1: Pattern anatomy with a filter sidebar**
+**Pattern anatomy with a filter sidebar**
 
 ![Pattern anatomy with a sidebar](/assets/patterns/filter-patterns/pattern-anatomy-specific-sidebar.png)
 
@@ -27,17 +27,17 @@ Adhering to the spacing, layout, and specifications outlined for the individual 
 
 Use a `16px` vertical gap between each of the structural elements within a filter pattern.
 
-**Ex 2.0: Filter pattern spacing using a filter bar**
+**Filter pattern spacing using a filter bar**
 
 ![Pattern spacing with a filter bar](/assets/patterns/filter-patterns/pattern-anatomy-filter-bar-spacing.png)
 
-**Ex 2.1: Filter pattern spacing using a sidebar**
+**Filter pattern spacing using a sidebar**
 
 ![Pattern spacing with a sidebar](/assets/patterns/filter-patterns/pattern-anatomy-sidebar-spacing.png)
 
 If the filters are positioned in an in-line sidebar use a `24px` between the sidebar and the dataset.
 
-**Ex 2.2: Filter pattern spacing using an in-line sidebar**
+**Filter pattern spacing using an in-line sidebar**
 
 ![Pattern spacing with an inline sidebar](/assets/patterns/filter-patterns/pattern-anatomy-inline-sidebar-spacing.png)
 
@@ -81,18 +81,11 @@ With more real estate in a filter sidebar, the list that was responsible for dis
 
 ### Spacing
 
-Spacing within a filter sidebar extends the guidelines for spacing within a [form pattern](/patterns/form-patterns).
+Spacing within a filter sidebar extends the guidelines for spacing within a [form pattern](/patterns/form-patterns). Separate groups within a sidebar using a divider with a vertical gap of `24px` on the top and bottom of the divider.
 
-- If a divider separates the groups use a `24px` vertical gap on the top and bottom of the divider.
-- If no divider is used, groups should receive a `32px` gap between them.
-
-**Ex 3.0: Spacing in a sidebar that uses dividers**
+**Spacing in a sidebar with dividers**
 
 ![Sidebar spacing](/assets/patterns/filter-patterns/sidebar-spacing-divider.png =350x*)
-
-**Ex 3.1: Spacing in a sidebar that doesn't use dividers**
-
-![Sidebar spacing without a divider](/assets/patterns/filter-patterns/sidebar-spacing-no-divider.png =350x*)
 
 ### Overflow filters
 
@@ -117,12 +110,6 @@ If it's necessary for filters to overflow into a [Flyout](/components/flyout), u
 - Adhere to the spacing guidelines for the [Tag](/components/tag#spacing) between multiple filters.
 
 ![Applied filters spacing](/assets/patterns/filter-patterns/applied-filters-spacing.png)
-
-### Empty state
-
-If no filters are applied, indicate this to the user by changing the text in the label and optionally providing details on filtering via a [Tooltip](/components/tooltip).
-
-![Applied filters empty state](/assets/patterns/filter-patterns/applied-filters-empty-state.png)
 
 ### Layout
 
