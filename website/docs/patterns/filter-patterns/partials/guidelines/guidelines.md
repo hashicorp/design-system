@@ -76,11 +76,24 @@ Use pagination to break down the filtered data set into pages. For more details,
 
 ## Empty state
 
+Empty state within a filter pattern is expressed in two different ways:
+
+1. Applied filters have resulted in no records being returned in the data set.
+2. No filters have been applied resulting in no tags in the applied filters area.
+
+### Within a data set
+
 Depending on the applied filters, there may not be any records returned from a data set that match parameters and values selected. In this case, communicate the empty state to the user and highlight instructions to adjust the filters or provide a method to clear all filters.
 
 Use the Helios [Application State](/components/application-state) component to communicate the lack of results and steps the user can take to remedy the situation.
 
 ![Empty state example](/assets/patterns/filter-patterns/filter-patterns-empty-state.png)
+
+### Within applied filters
+
+If no filters have been applied, it can be helpful to communicate this in the applied filters area. Use a [Tooltip](/components/tooltip) coupled with the applied filters label to guide the user to the filter functions.
+
+![Empty state in applied filters](/assets/patterns/filter-patterns/applied-filters-empty-state.png)
 
 ## Displaying selected filters
 
