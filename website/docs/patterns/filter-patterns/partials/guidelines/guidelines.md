@@ -24,7 +24,7 @@ Filters often consist of numerous parameters that mirror the columns of a table 
 
 Organizing filters in a **filter bar** is a common positioning method and consists of one or more dropdowns, buttons, or input components that are used to select values from a set of parameters. A [Segmented Group](/components/segmented-group) can be used within a filter bar to group similar parameters and support complex filtering.
 
-![Filter bar example](/assets/patterns/filter-patterns/filter-bar-segmented-group.png =728x\*)
+![Filter bar example](/assets/patterns/filter-patterns/filter-bar-segmented-group.png =728x*)
 
 **Example of a horizontal filter bar paired with a data set expressed as a table.**
 
@@ -48,15 +48,13 @@ In-line sidebars can be used when the number of filterable parameters is minimal
 
 ### Applied filters
 
-Display **applied filters** and provide the user with a method to reset all filters at once. Applied filters should be represented using a [Tag](/components/tag) component, which allows for the individual dismissal of a filter value.
+Display **applied filters** and provide the user with a method to clear all filters at once. Applied filters should be represented using a [Tag](/components/tag) component, which allows for the individual dismissal of a filter value.
 
-![Applied filters](/assets/patterns/filter-patterns/applied-filters.png =600x\*)
+![Applied filters](/assets/patterns/filter-patterns/applied-filters.png =600x*)
 
 #### Positioning in filter bars
 
-Applied filters should be positioned as close as possible to the data set to help the user understand what has been filtered upon. In practice, this is most often directly above the data set.
-
-When positioned above the data set use `16px` gap between the applied filters and the data set.
+Applied filters should be positioned above the data set with a `16px` gap between the two elements.
 
 ![Applied filters with filter bar positioning](/assets/patterns/filter-patterns/applied-filters-positioning-filter-bar.png)
 
@@ -71,6 +69,28 @@ If the filters are positioned in a page-level sidebar, displaying the applied fi
 Use pagination to break down the filtered data set into pages. For more details, refer to the [Pagination](/components/pagination) guidelines.
 
 ![Pagination example](/assets/patterns/filter-patterns/pagination-layout.png)
+
+## Empty state
+
+Depending on the applied filters, there may not be any records returned from a data set that match parameters and values selected. In this case, communicate the empty state to the user and highlight instructions to adjust the filters or provide a method to clear all filters.
+
+Use the Helios [Application State](/components/application-state) component to communicate the lack of results and steps the user can take to remedy the situation.
+
+![Empty state example](/assets/patterns/filter-patterns/filter-patterns-empty-state.png)
+
+## Displaying selected filters
+
+Communicate that values corresponding with a filter parameter have been applied within the [Dropdown](/components/dropdown) by adding a `BadgeCount` within the filter. This can more easily communicate to the user what filters and values have been applied.
+
+**Communicating that two values within a parameter have been applied in the Dropdown**
+
+![Filter dropdown with count](/assets/patterns/filter-patterns/filter-bar-dropdown-count.png)
+
+This, when combined with the applied filters provides detailed snapshot of what specific filter values are applied to the data set and the relevant parameters that they correspond with.
+
+**Communicating that multiple filter parameters have been applied**
+
+![Filter dropdown with multiple counts](/assets/patterns/filter-patterns/filter-bar-dropdown-count-multiple.png)
 
 ## Overflow
 
