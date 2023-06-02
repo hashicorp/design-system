@@ -8,6 +8,7 @@
 //
 
 .hds-reveal__toggle-button {
+  // overriding some styles of the tertiary button, per design specs
   min-height: 1.75rem; // 28px, Override default so padding difference will be visible
   padding: 0.313rem 0.313rem 0.313rem 0.188rem; // 6px 6px 6px 4px, taking into account the 1px border & icon spacing
 
@@ -26,5 +27,4 @@
 
 .hds-reveal__content {
   margin-top: 4px;
-  color: var(--token-color-foreground-primary);
 }
