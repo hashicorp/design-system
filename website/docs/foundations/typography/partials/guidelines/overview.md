@@ -1,7 +1,7 @@
 
 ## Font stack
 
-Helios intentionally uses default system fonts from each operating system, benefiting from their reliability, versatility, and a broad array of styles to cater to diverse needs, including internationalization, code rendering, tabular data, data visualization, and more, ensuring a consistent cross-platform experience, optimizing performance by minimizing additional resource loading, and facilitating smooth and efficient user interactions within HashiCorp's extensive applications.
+Helios relies on the standard fonts provided by each operating system. We choose these fonts because they are reliable and offer a range of styles that support different needs, such as internationalization, code readability, tabular data, and data visualization. Using system fonts helps optimize performance by reducing the number of resources that need to be loaded, and this is particularly beneficial for large applications like those developed by HashiCorp.```
 
 While the text might display differently across each OS, contextually to a user of that OS, it won’t seem out of place.
 
