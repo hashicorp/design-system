@@ -49,7 +49,7 @@ module('Integration | Component | hds/reveal/index', function (hooks) {
 
   // A11Y
 
-  test('it displays the correct value for aria-expanded when closed vs.open', async function (assert) {
+  test('it displays the correct value for aria-expanded when closed vs open', async function (assert) {
     await render(
       hbs`
         <Hds::Reveal @text="More options">
