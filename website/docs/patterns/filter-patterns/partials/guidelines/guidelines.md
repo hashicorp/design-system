@@ -24,6 +24,8 @@ Filters often consist of numerous parameters that mirror the columns of a table 
 
 Organizing filters in a **filter bar** is a common positioning method and consists of one or more dropdowns, buttons, or input components that are used to select values from a set of parameters. A [Segmented Group](/components/segmented-group) can be used within a filter bar to group similar parameters and support complex filtering.
 
+A filter bar should be positioned directly above the data set with a a `16px` gap in between.
+
 ![Filter bar example](/assets/patterns/filter-patterns/filter-bar-segmented-group.png =728x*)
 
 **Example of a horizontal filter bar paired with a data set expressed as a table.**
@@ -36,7 +38,7 @@ If space permits, filters can be positioned vertically in a **sidebar** at the p
 
 ##### Page-level sidebar
 
-Page-level sidebars can be used for more complex data sets and if filtering content of the entire page is required.
+Page-level sidebars can be used for more complex data sets and if filtering content of the entire page is required and can be oriented on the left side of the viewport.
 
 ![Vertical orientation of the filter bar](/assets/patterns/filter-patterns/layout-sidebar-left-page-level.png)
 
@@ -54,13 +56,15 @@ Display **applied filters** and provide the user with a method to clear all filt
 
 #### Positioning in filter bars
 
-Applied filters should be positioned above the data set with a `16px` gap between the two elements.
+Applied filters should be positioned between the data set and the filter bar with a `16px` gap between elements.
 
 ![Applied filters with filter bar positioning](/assets/patterns/filter-patterns/applied-filters-positioning-filter-bar.png)
 
+In the case of a filter sidebar, the applied filters should be positioned directly above the dataset with a `16px` gap.
+
 ![Applied filters with filter sidebar](/assets/patterns/filter-patterns/applied-filters-positioning-sidebar.png)
 
-If the filters are positioned in a page-level sidebar, displaying the applied filters isn't necessary because they are implied in the sidebar. An action to clear all of the filters should be included within the sidebar itself.
+If the filters are positioned in a page-level sidebar, sometimes displaying the applied filters isn't necessary because they are implied in the sidebar. An action to clear all of the filters should be included within the sidebar itself.
 
 ![Applied filters with clear all in the sidebar](/assets/patterns/filter-patterns/applied-filters-positioning-sidebar-clear-all.png)
 
