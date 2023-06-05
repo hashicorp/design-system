@@ -13,7 +13,9 @@ module('Integration | Component | hds/page-header/index', function (hooks) {
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::PageHeader id="test-page-header" @title="Page title" />`
+      hbs`<Hds::PageHeader id="test-page-header" as |PH|>
+            <PH.Title>Page title</PH.Title>
+          </Hds::PageHeader>`
     );
     assert.dom('#test-page-header').hasClass('hds-page-header');
   });
@@ -22,7 +24,8 @@ module('Integration | Component | hds/page-header/index', function (hooks) {
 
   test('it should render contextual components', async function (assert) {
     await render(
-      hbs`<Hds::PageHeader id="test-page-header" @title="Page title" as |PH|>
+      hbs`<Hds::PageHeader id="test-page-header" as |PH|>
+            <PH.Title>Page title</PH.Title>
             <PH.Breadcrumb>
               <Hds::Breadcrumb>
                 <Hds::Breadcrumb::Item @text="Breadcrumb" />
@@ -36,6 +39,8 @@ module('Integration | Component | hds/page-header/index', function (hooks) {
           </Hds::PageHeader>`
     );
     assert.dom('.hds-page-header').exists();
+    assert.dom('.hds-page-header__title').exists();
+    assert.dom('.hds-page-header__title').hasText('Page title');
     assert.dom('.hds-breadcrumb').exists();
     assert.dom('.hds-icon-tile').exists();
     assert.dom('.hds-page-header__actions').exists();
@@ -48,8 +53,9 @@ module('Integration | Component | hds/page-header/index', function (hooks) {
     assert.dom('.custom').hasText('Generic');
   });
   test('it should not render the contextual components if not provided', async function (assert) {
-    await render(hbs`<Hds::PageHeader @title="Page title" />`);
+    await render(hbs`<Hds::PageHeader />`);
     assert.dom('.hds-breadcrumb').doesNotExist();
+    assert.dom('.hds-page-header__title').doesNotExist();
     assert.dom('.hds-page-header__actions').doesNotExist();
     assert.dom('.hds-page-header__subtitle').doesNotExist();
     assert.dom('.hds-page-header__description').doesNotExist();
