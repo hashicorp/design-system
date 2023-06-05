@@ -9,14 +9,14 @@
 
 <section data-test-percy>
   <Shw::Flex @direction="column" as |SF|>
-    <SF.Item @label="Default">
+    <SF.Item @label="Default (24px)">
       <Shw::Outliner class="shw-component-separator-container">
         <Hds::Separator />
       </Shw::Outliner>
     </SF.Item>
-    <SF.Item @label="No spacing">
+    <SF.Item @label="No spacing (0px)">
       <Shw::Outliner class="shw-component-separator-container">
-        <Hds::Separator @spacing="none" />
+        <Hds::Separator @spacing="0" />
       </Shw::Outliner>
     </SF.Item>
   </Shw::Flex>
