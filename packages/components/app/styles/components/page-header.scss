@@ -14,7 +14,7 @@
   container-type: inline-size;
 }
 
-.hds-page-header__wrapper {
+.hds-page-header__body {
   display: flex;
   flex-direction: row;
   gap: 1rem;
@@ -50,7 +50,7 @@
   gap: 0.5rem;
 }
 
-.hds-page-header__heading {
+.hds-page-header__title {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

@@ -2,13 +2,13 @@
 Copyright (c) HashiCorp, Inc.
 SPDX-License-Identifier: MPL-2.0
 }}
-<div class="hds-page-header" ...attributes>
+<header class="hds-page-header" ...attributes>
   {{yield (hash Breadcrumb=(component "hds/yield"))}}
-  <header class="hds-page-header__wrapper">
+  <div class="hds-page-header__body">
     {{yield (hash IconTile=(component "hds/icon-tile" size="medium"))}}
     <div class="hds-page-header__main">
       <div class="hds-page-header__content">
-        <div class="hds-page-header__heading">
+        <div class="hds-page-header__title">
           <h1 class="hds-foreground-strong hds-typography-display-500">
             {{this.title}}
           </h1>
@@ -26,5 +26,5 @@ SPDX-License-Identifier: MPL-2.0
       </div>
       {{yield (hash Actions=(component "hds/page-header/actions"))}}
     </div>
-  </header>
-</div>
+  </div>
+</header>
