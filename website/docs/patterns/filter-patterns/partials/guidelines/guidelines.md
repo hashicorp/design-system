@@ -103,19 +103,34 @@ Depending on the fetching strategy, size, and rendering method of the data set, 
 
 Live filtering refers to updating the records within a data set immediately after a user makes a selection. This method results in a responsive user experience, but may not be possible with large data sets or complex filtering methods.
 
-![Live filtering prototype](/assets/patterns/filter-patterns/filter-patterns-live-filtering.gif)
+<video width="100%" controls loop>
+  <source
+    src="/assets/patterns/filter-patterns/live-filtering.mp4"
+    type="video/mp4"
+  />
+</video>
 
 ### Per-filter
 
 Applying filters one at a time lets the user to "finalize" their decision before applying, avoiding the distraction of the data set constantly updating in the background. This method is useful when the user may want to select multiple values in a single dropdown.
 
-![Filtering per-filter](/assets/patterns/filter-patterns/filter-patterns-per-filter.gif)
+<video width="100%" controls loop>
+  <source
+    src="/assets/patterns/filter-patterns/per-filter.mp4"
+    type="video/mp4"
+  />
+</video>
 
 ### Batch filtering
 
 Batch filtering supports the user making multiple selections across different parameters and only updating the results of the data set when the user interacts with a global "Apply" function. This method is useful when the data set is very large or when the filter parameters are complex.
 
-![Filtering per-filter](/assets/patterns/filter-patterns/filter-patterns-batch-filtering.gif)
+<video width="100%" controls loop>
+  <source
+    src="/assets/patterns/filter-patterns/batch-filtering.mp4"
+    type="video/mp4"
+  />
+</video>
 
 ## Displaying selected filters
 
