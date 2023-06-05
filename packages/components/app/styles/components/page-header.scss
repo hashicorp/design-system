@@ -61,6 +61,7 @@
 .hds-page-header__badges {
   display: flex;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 .hds-page-header__metadata {

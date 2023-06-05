@@ -1,6 +1,6 @@
 {{!
-Copyright (c) HashiCorp, Inc.
-SPDX-License-Identifier: MPL-2.0
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
 }}
 <header class="hds-page-header" ...attributes>
   {{yield (hash Breadcrumb=(component "hds/yield"))}}
@@ -9,9 +9,7 @@ SPDX-License-Identifier: MPL-2.0
     <div class="hds-page-header__main">
       <div class="hds-page-header__content">
         <div class="hds-page-header__title">
-          <h1 class="hds-foreground-strong hds-typography-display-500">
-            {{this.title}}
-          </h1>
+          {{yield (hash Title=(component "hds/page-header/title"))}}
           {{yield (hash Badges=(component "hds/page-header/badges"))}}
         </div>
         <div class="hds-page-header__metadata">

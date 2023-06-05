@@ -5,15 +5,11 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/page-header/index', function (hooks) {
   setupRenderingTest(hooks);
-
-  hooks.afterEach(() => {
-    resetOnerror();
-  });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
@@ -58,19 +54,5 @@ module('Integration | Component | hds/page-header/index', function (hooks) {
     assert.dom('.hds-page-header__subtitle').doesNotExist();
     assert.dom('.hds-page-header__description').doesNotExist();
     assert.dom('.hds-icon-tile').doesNotExist();
-  });
-
-  // ASSERTIONS
-
-  test('it should throw an assertion if a @title is missing/has no value', async function (assert) {
-    const errorMessage = '@title for "Hds::PageHeader" must have a valid value';
-    assert.expect(2);
-    setupOnerror(function (error) {
-      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
-    });
-    await render(hbs`<Hds::PageHeader/>`);
-    assert.throws(function () {
-      throw new Error(errorMessage);
-    });
   });
 });

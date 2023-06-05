@@ -17,13 +17,16 @@ SPDX-License-Identifier: MPL-2.0
 
       <Shw::Text::H3>Only title</Shw::Text::H3>
 
-      <Hds::PageHeader @title="Page title" />
+      <Hds::PageHeader as |PH|>
+        <PH.Title>Page title</PH.Title>
+      </Hds::PageHeader>
 
       <Shw::Divider @level={{2}} />
 
       <Shw::Text::H3>Badge</Shw::Text::H3>
 
-      <Hds::PageHeader @title="Page title" as |PH|>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>Page title</PH.Title>
         <PH.Badges>
           <Hds::Badge @text="Badge" @icon="beaker" @color="highlight" />
         </PH.Badges>
@@ -33,7 +36,8 @@ SPDX-License-Identifier: MPL-2.0
 
       <Shw::Text::H3>IconTile</Shw::Text::H3>
 
-      <Hds::PageHeader @title="Page title" as |PH|>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>Page title</PH.Title>
         <PH.IconTile @icon="server-cluster" />
       </Hds::PageHeader>
 
@@ -41,7 +45,8 @@ SPDX-License-Identifier: MPL-2.0
 
       <Shw::Text::H3>Breadcrumb</Shw::Text::H3>
 
-      <Hds::PageHeader @title="Page title" as |PH|>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>Page title</PH.Title>
         <PH.Breadcrumb>
           <Hds::Breadcrumb>
             <Hds::Breadcrumb::Item @text="Organization" @icon="org" />
@@ -55,7 +60,8 @@ SPDX-License-Identifier: MPL-2.0
 
       <Shw::Text::H3>Subtitle + description</Shw::Text::H3>
 
-      <Hds::PageHeader @title="Page title" as |PH|>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>Page title</PH.Title>
         <PH.Subtitle>Subtitle lorem ipsum</PH.Subtitle>
         <PH.Description>Description lorem ipsum dolor sit amet.</PH.Description>
       </Hds::PageHeader>
@@ -64,7 +70,8 @@ SPDX-License-Identifier: MPL-2.0
 
       <Shw::Text::H3>Single Action</Shw::Text::H3>
 
-      <Hds::PageHeader @title="Page title" as |PH|>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>Page title</PH.Title>
         <PH.Actions>
           <Hds::Button @text="Create registry" @icon="plus" @iconPosition="leading" @color="primary" />
         </PH.Actions>
@@ -74,7 +81,8 @@ SPDX-License-Identifier: MPL-2.0
 
       <Shw::Text::H3>Two Actions</Shw::Text::H3>
 
-      <Hds::PageHeader @title="Page title" as |PH|>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>Page title</PH.Title>
         <PH.Actions>
           <Hds::Dropdown as |DD|>
             <DD.ToggleButton @text="Manage" @color="secondary" />
@@ -90,7 +98,8 @@ SPDX-License-Identifier: MPL-2.0
 
       <Shw::Text::H3>Three actions</Shw::Text::H3>
 
-      <Hds::PageHeader @title="Page title" as |PH|>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>Page title</PH.Title>
         <PH.Actions>
           <Hds::Button @color="tertiary" @text="Migrate instructions" @icon="migrate" @iconPosition="leading" />
           <Hds::Button @color="secondary" @text="Edit cluster" />
@@ -102,7 +111,8 @@ SPDX-License-Identifier: MPL-2.0
 
       <Shw::Text::H3>Custom metadata</Shw::Text::H3>
 
-      <Hds::PageHeader @title="Page title" as |PH|>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>Page title</PH.Title>
         <PH.Generic>
           <Shw::Placeholder @text="generic content" @width="500" @height="36" @background="#e1f5fe" />
         </PH.Generic>
@@ -120,7 +130,8 @@ SPDX-License-Identifier: MPL-2.0
 
       <Shw::Text::H2>Complex examples</Shw::Text::H2>
 
-      <Hds::PageHeader @title="HCP Packer" as |PH|>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>HCP Packer</PH.Title>
         <PH.Breadcrumb>
           <Hds::Breadcrumb>
             <Hds::Breadcrumb::Item @text="Sandbox" @icon="org" />
@@ -137,7 +148,8 @@ SPDX-License-Identifier: MPL-2.0
 
       <Shw::Divider @level={{2}} />
 
-      <Hds::PageHeader @title="Boundary clusters" as |PH|>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>Boundary clusters</PH.Title>
         <PH.IconTile @icon="boundary-color" @color="boundary" />
         <PH.Breadcrumb>
           <Hds::Breadcrumb>
@@ -153,7 +165,8 @@ SPDX-License-Identifier: MPL-2.0
 
       <Shw::Divider @level={{2}} />
 
-      <Hds::PageHeader @title="Multiple badges" as |PH|>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>Multiple badges</PH.Title>
         <PH.Badges>
           <Hds::Badge @text="Active" @icon="check" @color="success" />
           <Hds::Badge @text="Deployed to AWS west-2" @color="highlight" @icon="rocket" />
@@ -168,7 +181,8 @@ SPDX-License-Identifier: MPL-2.0
 
       <Shw::Divider @level={{2}} />
 
-      <Hds::PageHeader @title="Users" as |PH|>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>Users</PH.Title>
         <PH.Subtitle>Access control (IAM)</PH.Subtitle>
         <PH.Description>Manage organization users, roles, and access control.</PH.Description>
         <PH.Breadcrumb>
@@ -192,7 +206,8 @@ SPDX-License-Identifier: MPL-2.0
 
       <Shw::Divider @level={{2}} />
 
-      <Hds::PageHeader @title="Custom metadata" as |PH|>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>Custom metadata</PH.Title>
         <PH.Subtitle>clusters / beta-feature</PH.Subtitle>
         <PH.Generic>
           <Hds::Alert @type="compact" @color="warning" as |A|>
@@ -232,7 +247,8 @@ SPDX-License-Identifier: MPL-2.0
 
       <Shw::Text::Body @tag="p">Recommended title length is less than four words and not exceed 50 characters.</Shw::Text::Body>
 
-      <Hds::PageHeader @title="Boundary cluster access control and clusters" as |PH|>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>Boundary cluster access control and clusters</PH.Title>
         <PH.IconTile @icon="boundary-color" @color="boundary" />
         <PH.Actions>
           <Hds::Dropdown as |DD|>
@@ -253,7 +269,8 @@ SPDX-License-Identifier: MPL-2.0
         In the case of a badge, the title and badge will wrap if the available space is exceeded.
       </Shw::Text::Body>
 
-      <Hds::PageHeader @title="Long page title with a badge ipsum dolor sit amet" as |PH|>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>Long page title with a badge ipsum dolor sit amet</PH.Title>
         <PH.IconTile @icon="boundary-color" @color="boundary" />
         <PH.Badges>
           <Hds::Badge @text="Wrapping badge" @icon="mic" @color="critical" />
@@ -279,7 +296,8 @@ SPDX-License-Identifier: MPL-2.0
       <Shw::Grid @columns={{3}} as |SG|>
 
         <SG.Item>
-          <Hds::PageHeader @title="Title of the page" as |PH|>
+          <Hds::PageHeader as |PH|>
+            <PH.Title>Title of the page</PH.Title>
             <PH.IconTile @icon="smartphone" />
             <PH.Breadcrumb>
               <Hds::Breadcrumb>
@@ -312,7 +330,8 @@ SPDX-License-Identifier: MPL-2.0
         the actions stack at smaller viewports the dropdown may extend outside of the viewport anyways.
       </Shw::Text::Body>
 
-      <Hds::PageHeader @title="Dropdown position" as |PH|>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>Dropdown position</PH.Title>
         <PH.IconTile @icon="droplet" @color="vagrant" />
         <PH.Breadcrumb>
           <Hds::Breadcrumb>
