@@ -1,15 +1,14 @@
 ---
 title: Separator
-description: {Optional long description that appears in the cover}
-caption: {Short description that appears in the cards}
+description: Creates visual breaks between different sections of content
+caption: Creates visual breaks between different sections of content
 status: released
 links:
   figma: {link to the "Separator" page in the components Figma library}
   github: {link to the "Separator" component's folder in the GitHub repo}
 previewImage: assets/illustrations/components/separator.jpg
 navigation:
-  hidden: true
-  keywords: ['add', 'alternate', 'keywords', 'here']
+  keywords: ['horizontal', 'rule', 'line' , 'hr', 'section', 'divider', 'break']
 ---
 
 <section data-tab="Guidelines">
