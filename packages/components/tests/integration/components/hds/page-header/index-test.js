@@ -29,40 +29,27 @@ module('Integration | Component | hds/page-header/index', function (hooks) {
       hbs`<Hds::PageHeader id="test-page-geader" @title="Page title" as |PH|>
             <PH.Breadcrumb>
               <Hds::Breadcrumb>
-                <Hds::Breadcrumb::Item @text="HCP Sandbox" @icon="org" />
-                <Hds::Breadcrumb::Item @text="Boundary clusters" />
-                <Hds::Breadcrumb::Item @text="boundary-cluster overview" />
+                <Hds::Breadcrumb::Item @text="Breadcrumb" />
               </Hds::Breadcrumb>
             </PH.Breadcrumb>
-            <PH.IconTile @icon="server-cluster" @color="boundary" />
-            <PH.Actions>
-              <Hds::Dropdown as |DD|>
-                <DD.ToggleButton @text="Manage" @color="secondary" />
-                <DD.Interactive @href="#" @text="Manage clusters" />
-                <DD.Interactive @href="#" @text="Lauch Boundary locally" />
-                <DD.Interactive @href="#" @text="API keys" />
-                <DD.Separator />
-                <DD.Interactive @href="#" @text="Delete" @color="critical" @icon="trash" />
-              </Hds::Dropdown>
-              <Hds::Button @text="Open Admin UI" @color="primary" @icon="external-link" @iconPosition="trailing" />
-            </PH.Actions>
-            <PH.Subtitle>This is the subtitle, which is very meta.</PH.Subtitle>
-            <PH.Description>
-              This is a description, or some type of metadata object. Lorem ipsum dolar sit amet.
-              <Hds::Link::Inline @href="#" @icon="external-link">More details</Hds::Link::Inline>
-            </PH.Description>
-            <PH.Generic>
-              <p class="custom">This is custom content</p>
-            </PH.Generic>
+            <PH.IconTile @icon="server-cluster" />
+            <PH.Actions>Actions</PH.Actions>
+            <PH.Subtitle>Subtitle</PH.Subtitle>
+            <PH.Description>Description</PH.Description>
+            <PH.Generic><p class="custom">Generic</p></PH.Generic>
           </Hds::PageHeader>`
     );
     assert.dom('.hds-page-header').exists();
     assert.dom('.hds-breadcrumb').exists();
     assert.dom('.hds-icon-tile').exists();
     assert.dom('.hds-page-header__actions').exists();
+    assert.dom('.hds-page-header__actions').hasText('Actions');
     assert.dom('.hds-page-header__subtitle').exists();
+    assert.dom('.hds-page-header__subtitle').hasText('Subtitle');
     assert.dom('.hds-page-header__description').exists();
+    assert.dom('.hds-page-header__description').hasText('Description');
     assert.dom('.custom').exists();
+    assert.dom('.custom').hasText('Generic');
   });
   test('it should not render the contextual components if not provided', async function (assert) {
     await render(hbs`<Hds::PageHeader @title="Page title" />`);
