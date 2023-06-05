@@ -98,6 +98,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/modal');
     await percySnapshot('Modal');
 
+    await visit('/components/page-header');
+    await percySnapshot('PageHeader');
+
     await visit('/components/pagination');
     await percySnapshot('Pagination');
 
