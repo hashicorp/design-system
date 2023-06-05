@@ -101,6 +101,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/pagination');
     await percySnapshot('Pagination');
 
+    await visit('/components/segmented-group');
+    await percySnapshot('Segmented Group');
+
     await visit('/components/side-nav');
     await percySnapshot('SideNav');
 
