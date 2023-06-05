@@ -6,8 +6,8 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-export const DEFAULT_SPACING = 'default';
-export const SPACING = ['default', 'none'];
+export const DEFAULT_SPACING = '24';
+export const SPACING = ['24', '0'];
 
 export default class HdsSeparatorIndexComponent extends Component {
   /**
