@@ -26,7 +26,7 @@ Organizing filters in a **filter bar** is a common positioning method and consis
 
 A filter bar should be positioned directly above the data set with a a `16px` gap in between.
 
-![Filter bar example](/assets/patterns/filter-patterns/filter-bar-segmented-group.png =728x\*)
+![Filter bar example](/assets/patterns/filter-patterns/filter-bar-segmented-group.png =728x*)
 
 **Example of a horizontal filter bar paired with a data set expressed as a table.**
 
@@ -52,7 +52,7 @@ In-line sidebars can be used when the number of filterable parameters is minimal
 
 Display **applied filters** and provide the user with a method to clear all filters at once. Applied filters should be represented using a [Tag](/components/tag) component, which allows for the individual dismissal of a filter value.
 
-![Applied filters](/assets/patterns/filter-patterns/applied-filters.png =600x\*)
+![Applied filters](/assets/patterns/filter-patterns/applied-filters.png =600x*)
 
 #### Positioning in filter bars
 
