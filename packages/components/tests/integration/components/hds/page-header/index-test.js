@@ -26,7 +26,7 @@ module('Integration | Component | hds/page-header/index', function (hooks) {
 
   test('it should render contextual components', async function (assert) {
     await render(
-      hbs`<Hds::PageHeader id="test-page-geader" @title="Page title" as |PH|>
+      hbs`<Hds::PageHeader id="test-page-header" @title="Page title" as |PH|>
             <PH.Breadcrumb>
               <Hds::Breadcrumb>
                 <Hds::Breadcrumb::Item @text="Breadcrumb" />
