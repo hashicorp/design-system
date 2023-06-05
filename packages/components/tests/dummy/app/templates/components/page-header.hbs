@@ -271,12 +271,12 @@ SPDX-License-Identifier: MPL-2.0
 
       <Hds::PageHeader as |PH|>
         <PH.Title>Long page title with a badge ipsum dolor sit amet</PH.Title>
-        <PH.IconTile @icon="boundary-color" @color="boundary" />
+        <PH.IconTile @logo="vagrant" />
         <PH.Badges>
           <Hds::Badge @text="Wrapping badge" @icon="mic" @color="critical" />
         </PH.Badges>
         <PH.Actions>
-          <Hds::Button @text="Server clusters" @icon="server-cluster" @iconPosition="trailing" />
+          <Hds::Button @text="Get started" @icon="terminal-screen" @iconPosition="trailing" />
         </PH.Actions>
       </Hds::PageHeader>
 
@@ -288,9 +288,7 @@ SPDX-License-Identifier: MPL-2.0
         <code>700px</code>
         and
         <code>400px</code>
-        which stack the content in a single column. As such, the buttons do not re-order at smaller viewports as is the
-        recommendation in our documentation. Could this be addressed with some JavaScript wizadry, or is it something
-        that we want to revise in the pattern documentation?
+        which stack the content in a single column.
       </Shw::Text::Body>
 
       <Shw::Grid @columns={{3}} as |SG|>
@@ -318,38 +316,8 @@ SPDX-License-Identifier: MPL-2.0
 
       </Shw::Grid>
 
-      <Shw::Divider @level={{2}} />
-
-      <Shw::Text::H3>Dropdown viewport collision</Shw::Text::H3>
-
-      <Shw::Text::Body @tag="p">
-        The Dropdown runs the risk of extending outside of the viewport width if
-        <code>@listPosition</code>
-        is set to anything except for
-        <code>bottom-right</code>. The catch with this is since the Dropdown does not support collision avoidance, when
-        the actions stack at smaller viewports the dropdown may extend outside of the viewport anyways.
-      </Shw::Text::Body>
-
-      <Hds::PageHeader as |PH|>
-        <PH.Title>Dropdown position</PH.Title>
-        <PH.IconTile @icon="droplet" @color="vagrant" />
-        <PH.Breadcrumb>
-          <Hds::Breadcrumb>
-            <Hds::Breadcrumb::Item @text="Organization" />
-            <Hds::Breadcrumb::Item @text="User" />
-          </Hds::Breadcrumb>
-        </PH.Breadcrumb>
-        <PH.Actions>
-          <Hds::Dropdown @listPosition="bottom-left" as |DD|>
-            <DD.ToggleButton @text="Bottom left" @color="secondary" />
-            <DD.Interactive @text="Assign roles" @icon="user" />
-            <DD.Interactive @text="Batch edit" @icon="edit" />
-            <DD.Interactive @text="Delete user" @icon="trash" />
-          </Hds::Dropdown>
-        </PH.Actions>
-      </Hds::PageHeader>
-
     </SF.Item>
+
   </Shw::Flex>
 
 </section>
