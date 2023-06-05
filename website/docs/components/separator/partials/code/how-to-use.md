@@ -1,9 +1,15 @@
 ## How to use this component
 
-<!-- use the same heading order from Guidelines -->
-{basic invocation details}
+The Separator renders a thematic break element (also known as horizontal rule, or `<hr/>` tag) and comes by default with equal top and bottom margins to create space between sections.
 
-<!-- This below is just an example of invocation, to get started -->
 ```handlebars
-<Hds::Separator>This is the Hds::Separator component </Hds::Separator>
+<Hds::Separator/>
+```
+
+### Spacing
+
+The default spacing value is `24` pixels. If you need to use the Separator without margins set `@spacing` to `0`.
+
+```handlebars
+<Hds::Separator @spacing="0"/>
 ```

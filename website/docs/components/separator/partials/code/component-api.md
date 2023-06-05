@@ -1,5 +1,8 @@
 ## Component API
 
 <Doc::ComponentApi as |C|>
-  {look at other components for examples of how to describe the APIs using the "Doc::ComponentApi" syntax}
+  <C.Property @name="spacing" @type="string" @values={{array "0" "24" }} @default="24"/>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
 </Doc::ComponentApi>
