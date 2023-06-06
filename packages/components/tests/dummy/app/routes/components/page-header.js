@@ -5,4 +5,4 @@
 
 import Route from '@ember/routing/route';
 
-export default class ComponentsPagetitleRoute extends Route {}
+export default class ComponentsPageHeaderRoute extends Route {}

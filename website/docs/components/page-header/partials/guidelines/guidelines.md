@@ -20,7 +20,7 @@ Size only pertains to the Figma component, and accounts for the stacking of elem
 
 #### Small
 
-![Small Page Header variant](/assets/components/page-header/page-header-size-small.png =400x*)
+![Small Page Header variant](/assets/components/page-header/page-header-size-small.png =300x*)
 
 ### Breadcrumb
 

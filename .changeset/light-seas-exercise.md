@@ -2,4 +2,4 @@
 "@hashicorp/design-system-components": minor
 ---
 
-Adds PageHeader component
+Adds `PageHeader` component
