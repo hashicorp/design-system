@@ -6,7 +6,7 @@ The layout of the card itself, and its content, is left to the consumer of the c
 
 !!!
 
-## Usage
+## How to use this component
 
 ```handlebars
 <Hds::Card::Container @level="mid" @hasBorder={{true}}>
