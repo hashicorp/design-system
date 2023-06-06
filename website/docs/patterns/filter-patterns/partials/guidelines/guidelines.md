@@ -52,7 +52,7 @@ In-line sidebars can be used when the number of filterable parameters is minimal
 
 Display **applied filters** and provide the user with a method to clear all filters at once. Applied filters should be represented using a [Tag](/components/tag) component, which allows for the individual dismissal of a filter value.
 
-![Applied filters](/assets/patterns/filter-patterns/applied-filters.png =600x*)
+![Applied filters](/assets/patterns/filter-patterns/applied-filters.png =450x*)
 
 #### Positioning in filter bars
 
@@ -93,7 +93,7 @@ Use the Helios [Application State](/components/application-state) component to c
 
 If no filters have been applied, it can be helpful to communicate this in the applied filters area. Use a [Tooltip](/components/tooltip) coupled with the applied filters label to guide the user to the filter functions.
 
-![Empty state in applied filters](/assets/patterns/filter-patterns/applied-filters-empty-state.png)
+![Empty state in applied filters](/assets/patterns/filter-patterns/applied-filters-empty-state.png =450x*)
 
 ## Filtering methods
 
