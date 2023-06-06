@@ -118,9 +118,9 @@ Lists can be positioned to the left or right of the Toggle, and above or below t
 
 ### Size
 
-#### Default width
+#### Width
 
-Lists have a minimum width of 200px and a maximum width of 400px. This means if there’s a long string in a ListItem the List will automatically expand up to 400px to accommodate that content before the content wraps.
+By default, Lists have a minimum width of 200px and a maximum width of 400px. This means if there’s a long string in a ListItem the List will automatically expand up to 400px to accommodate the content before it wraps.
 
 <div class="hds-dropdown__content">
   <Doc::ListContainer class="hds-dropdown__list">
@@ -133,14 +133,11 @@ Lists have a minimum width of 200px and a maximum width of 400px. This means if 
   </Doc::ListContainer>
 </div>
 
-#### Fixed width
+If you do not want the width of the List to expand automatically to accommodate the widest ListItem, you can indicate a specific width between 200px - 400px.
 
-If you do not want the width of the List to expand automatically to accommodate the widest list item, you can indicate a specific width. As a best practice, we have set the maximum width to 400px.
-
-<div class="hds-dropdown__content" style="width: 400px">
+<div class="hds-dropdown__content" style="width: 320px">
   <Doc::ListContainer class="hds-dropdown__list">
     <Hds::Dropdown::ListItem::Title @text="Consul version v1.10.6" />
-    <Hds::Dropdown::ListItem::Separator />
     <Hds::Dropdown::ListItem::Interactive @text="Update Consul version" @icon="sync" />
     <Hds::Dropdown::ListItem::Interactive @text="Edit cluster" @icon="edit" />
     <Hds::Dropdown::ListItem::Separator />
@@ -159,23 +156,29 @@ If you do not want the width of the List to expand automatically to accommodate 
 
 The height of the ListContainer is automatically determined based on the contents, but the height can also be set manually. We recommend setting the height manually if you know the list will be long.  
 
-<div class="hds-dropdown__content">
+<div class="hds-dropdown__content" style="height: 275px">
   <Doc::ListContainer class="hds-dropdown__list">
-    <Hds::Dropdown::ListItem::Title @text="Integrate with Terraform Cloud" />
-    <Hds::Dropdown::ListItem::Description @text="Create a new run task in Terraform using the URL and key below." />
-    <Hds::Dropdown::ListItem::CopyItem @copyItemTitle="Endpoint URL" @text="https://api.cloud.hashicorp.com/" />
-    <Hds::Dropdown::ListItem::CopyItem @copyItemTitle="HMAC Key" @text="91ee1e8ef65b337f0e70d793f456c71d" />
-    <Hds::Dropdown::ListItem::Separator />
-    <Hds::Dropdown::ListItem::Title @text="Manage" />
-    <Hds::Dropdown::ListItem::Interactive @text="Regenerate HMAC key" @color="action" @icon="reload" />
-    <Hds::Dropdown::ListItem::Separator />
-    <Hds::Dropdown::ListItem::Interactive @text="Integrating with Terraform Cloud" @color="action" @icon="external-link" />
-    <Hds::Dropdown::ListItem::Interactive @text="About Terraform Cloud" @color="action" @icon="external-link" />
-    <Hds::Dropdown::ListItem::Interactive @text="About Packer" @color="action" @icon="external-link" />
+    <Hds::Dropdown::ListItem::Checkbox @value="Planned">Planned</Hds::Dropdown::ListItem::Checkbox>
+    <Hds::Dropdown::ListItem::Checkbox @value="Policy override">Policy override</Hds::Dropdown::ListItem::Checkbox>
+    <Hds::Dropdown::ListItem::Checkbox @value="Policy checked">Policy checked</Hds::Dropdown::ListItem::Checkbox>
+    <Hds::Dropdown::ListItem::Checkbox @value="Cost estimated">Cost estimated</Hds::Dropdown::ListItem::Checkbox>
+    <Hds::Dropdown::ListItem::Checkbox @value="Errored">Errored</Hds::Dropdown::ListItem::Checkbox>
+    <Hds::Dropdown::ListItem::Checkbox @value="Fetched">Fetched</Hds::Dropdown::ListItem::Checkbox>
+    <Hds::Dropdown::ListItem::Checkbox @value="Planning">Planning</Hds::Dropdown::ListItem::Checkbox>
+    <Hds::Dropdown::ListItem::Checkbox @value="Planned">Planned</Hds::Dropdown::ListItem::Checkbox>
+    <Hds::Dropdown::ListItem::Checkbox @value="Policy override">Policy override</Hds::Dropdown::ListItem::Checkbox>
+    <Hds::Dropdown::ListItem::Checkbox @value="Policy checked">Policy checked</Hds::Dropdown::ListItem::Checkbox>
+    <Hds::Dropdown::ListItem::Checkbox @value="Cost estimated">Cost estimated</Hds::Dropdown::ListItem::Checkbox>
+    <Hds::Dropdown::ListItem::Checkbox @value="Errored">Errored</Hds::Dropdown::ListItem::Checkbox>
+    <Hds::Dropdown::ListItem::Checkbox @value="Fetched">Fetched</Hds::Dropdown::ListItem::Checkbox>
+    <Hds::Dropdown::ListItem::Checkbox @value="Planning">Planning</Hds::Dropdown::ListItem::Checkbox>
   </Doc::ListContainer>
 </div>
 
+
 ### Header
+
+A Header provides a fixed space at the top of the List. Typically Headers house a search feature that allows the user to search/filter through the available options in the list. This is great for really long lists when filtering on complex datasets. 
 
 <div class="hds-dropdown__content">
   <Doc::ListContainer class="hds-dropdown__list">
@@ -192,6 +195,8 @@ The height of the ListContainer is automatically determined based on the content
 </div>
 
 ### Footer
+
+A Footer provides a fixed space at the bottom of the List. Typically Footers house actions related to the ListItems, e.g., when found in a filtering pattern an "Apply" Button can be used to submit the selections. 
 
 <div class="hds-dropdown__content">
   <Doc::ListContainer class="hds-dropdown__list">
@@ -294,8 +299,6 @@ We recommend adding a second confirmation layer after the user clicks “Delete�
 ![example of how not to use a second confirmation layer](/assets/components/dropdown/dropdown-example-dont.png =507x*)
 !!!
 
-## Content
+### Content
 
-There is no character limit for ListItems, but we recommend keeping them short and concise (~36 characters).
-
-Take care to use dropdowns correctly. A crowded or overly complex dropdown can lead to a frustrating user experience, especially for assistive technology users. Contact the [Design Systems Team](/about/support) to discuss alternative options if a dropdown feels too complex.
+While there are no character limits for ListItems, we recommend keeping them short and concise so the List is easy to scan.
