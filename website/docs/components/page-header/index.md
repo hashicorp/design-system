@@ -2,13 +2,12 @@
 title: Page Header
 description: An informational element that displays the title of the page, relevant metadata, and page-level actions.
 caption: Displays the title of the page, metadata, and page-level actions.
-status: in-progress
+status: complete
 links:
   figma:
-  github:
+  github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/page-header
 previewImage: assets/illustrations/components/page-header.jpg
 navigation:
-  hidden: false
   keywords:
     ['title', 'action bar', 'breadcrumb', 'landmark', 'header', 'banner']
 ---

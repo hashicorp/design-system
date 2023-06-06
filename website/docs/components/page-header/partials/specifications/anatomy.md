@@ -4,11 +4,11 @@
 
 | Element | Usage |
 |---------|-------|
-| Title | Required, renders the page title or header. |
-| Breadcumb | Optional  |
+| Title | Required |
+| Breadcumb | Optional, but recommended for any page not at the top level of the hierarchy  |
 | IconTile | Optional |
 | Badges | Optional |
 | Subtitle | Optional |
 | Description | Optional |
 | Custom metadata | Optional |
-| Actions | Optional, renders either one, two, or three actions |
+| Actions | Optional, supports either one, two, or three actions |

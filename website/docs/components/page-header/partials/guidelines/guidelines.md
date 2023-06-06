@@ -173,7 +173,7 @@ Instead, link to more complex content using an [Inline Link](/components/link/in
 
 ## Custom metadata
 
-If necessary to include metadata like key/value pairs, multiple page-level statuses, or other non-string-based content, use the `customMetadata` property in Figma to expose a placeholder. In the Ember component we expose a `generic` container that yields it's content.
+If necessary to include metadata like key/value pairs, multiple page-level statuses, or other non-string-based content, custom metadata can be passed to the component via the `customMetadata` property in Figma, or the `<[PH].Generic>` contextual component in Ember.
 
 <Hds::PageHeader as |PH|>
   <PH.Title>Terraform Workspace</PH.Title>
@@ -192,11 +192,13 @@ If necessary to include metadata like key/value pairs, multiple page-level statu
 
 ### Key/value pairs as custom metadata
 
+Representing metadata with a set of key/value pairs is common in HashiCorp products and can be useful when communicating relational information between products and versioning among other more complex data types.
+
 ![Custom metadata key/value pairs](/assets/components/page-header/page-header-custom-metadata.png =600x*)
 
 !!! Dont
 
-Don't exceed more than four metadata objects or key/value pairs, this can result in unnecessarily complex content with the Page Header. Instead, move this content into the page.
+We recommend not exceeding more than four metadata objects or key/value pairs, this can result in unnecessarily complex content with the Page Header. Instead, move this content into the page.
 
 ![Complex metadata dont](/assets/components/page-header/page-header-custom-metadata-dont.png)
 
@@ -204,7 +206,7 @@ Don't exceed more than four metadata objects or key/value pairs, this can result
 
 ## Actions
 
-Use actions in the Page Header to highlight page-level functions and actions that impact the page as a whole. Common components used to perform actions within the Page Header are [Buttons](/components/button) and [Dropdowns](/components/dropdown) and can include:
+Use [Buttons](/components/button) and [Dropdowns](/components/dropdown) in the Page Header to highlight page-level functions and actions that impact the page as a holistcally.
 
 - Creating new objects that are contained within the page
 - Surfacing management details like connecting to an API
@@ -241,7 +243,33 @@ Use actions in the Page Header to highlight page-level functions and actions tha
 
 ### Action usage
 
-While the Page Header supports up to three actions in Figma, we recommend limiting the number actions to one or two for most scenarios. These actions should generally consist of a primary action (using the `@color="primary"` property) and a secondary action or management function (using the `@color="secondary"` property). This more easily highlights the primary action on the page visually and establishes and implied inverse relationship between each action.
+#### Primary button
+
+Use a primary [Button](/components/button) in the Page Header to trigger the primary flow on the page. Examples of this include:
+
+- A flow that creates an object that is related to the page, e.g., creating a new cluster or adding a new user.
+- Launching or deploying a specific product instance
+
+#### Secondary button
+
+Use a secondary [Button](/components/button) in the Page Header when a secondary action is needed, e.g., editing the content on a page, managing access, etc.
+
+#### Dropdowns
+
+Use a [Dropdown](/components/dropdown) in the Page Header to collect additional secondary functions and tasks, or elements that assist the user in managing the information or objects on the page.
+
+Common examples of this include:
+
+- Copying API credentials to manage the object remotely
+- Editing or changing settings
+- Deleting or deactivating an object
+- Linking to documentation
+
+When used in these scenarios and paired with a primary "create" action, use secondary [Dropdown](/components/dropdown) variant.
+
+### Action color and pairing
+
+While the Page Header supports up to three actions in Figma, we recommend limiting the number actions to no more than two for most pages. These actions should generally consist of a primary action (using the `@color="primary"` property) and a secondary action or management function (using the `@color="secondary"` property). This highlights the relationship between the actions and the page content, while visually guiding the user to a primary action.
 
 For more details on how to combine, order, and organize Buttons, refer to the [Button order, organization, and alignment](/patterns/button-organization) pattern documentation.
 
@@ -261,12 +289,12 @@ Don't pair two primary actions in a Page Header. For guidance on how to pair act
 
 ## Responsiveness
 
-The Page Header component in Figma supports two sizes; `large` which accounts for the majority of desktop sizes and large tablets, and `small` which accounts for smaller tablet and mobile devices. The core difference between each variant is the stacking of elements.
+The Page Header component in Figma supports two sizes; `large` which accounts for the majority of desktop sizes and large tablets, and `small` which accounts for smaller tablet and mobile devices. The core difference between each variant is the vertical stacking of elements.
 
 The Ember component uses a variety of different methods to ensure fluidity and responsiveness:
 
-- By default, the component will fill the page layout it is used within. It does not have any padding or margin applied explicitly to adapt to different layout and spacing methods.
-- The component has breakpoints by means of a container query, one at `700px` and one at `400px`, that account for the majority of content within the component and stack elements in columns as the container shrinks.
+- By default, the component will fill the page layout it is used within. It does not have any padding or margin explicitly applied to adapt to different layout and spacing methods.
+- The component has breakpoints by means of container queries (at `700px` and one at `400px`) that account for the majority of content within the component and stack elements in a single column as the container shrinks.
 - Elements displayed inline with each other (e.g., title and badges) have `flex-wrap: wrap;` set to wrap elements when the available space reduces. 
 
 !!! Info
