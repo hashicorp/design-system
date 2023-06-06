@@ -9,7 +9,7 @@ env:
   NODE_VERSION: '16.x'
 
 concurrency:
-   group: ci-components-${{ github.head_ref || github.ref }}
+   group: ci-components-nightly-${{ github.head_ref || github.ref }}
    cancel-in-progress: true
 
 jobs:

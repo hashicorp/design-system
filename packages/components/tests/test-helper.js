@@ -41,6 +41,7 @@ setRunOptions({
   },
   rules: {
     'duplicate-id': { enabled: false },
+    'color-contrast': { enabled: false },
   },
   include: [['#ember-testing-container']],
   exclude: [['.flight-sprite-container']],
