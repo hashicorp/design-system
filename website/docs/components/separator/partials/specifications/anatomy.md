@@ -1,5 +1,5 @@
 ## Anatomy
-
+ 
 <!-- image then table -->
 ![Anatomy of separator](/assets/components/alert/separator-anatomy-inline.png)
 
