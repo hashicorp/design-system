@@ -1,0 +1,1 @@
+The Page Header is a presentational component that displays the title or top-level heading of a page, location within the application, page metadata, and page-level actions.
