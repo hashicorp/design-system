@@ -1,5 +1,11 @@
 # @hashicorp/ember-flight-icons
 
+## 3.0.3
+
+### Patch Changes
+
+- [#1375](https://github.com/hashicorp/design-system/pull/1375) [`2c7d70868`](https://github.com/hashicorp/design-system/commit/2c7d70868b0fa000618214589e2422e07db68b22) Thanks [@alex-ju](https://github.com/alex-ju)! - Fix error message for mismatched icon `@name`
+
 ## 3.0.2
 
 ### Patch Changes

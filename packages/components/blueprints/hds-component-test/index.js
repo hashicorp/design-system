@@ -35,6 +35,7 @@ module.exports = {
     updateDummyAppRouter.call(this, options);
     updateDummyAppCSS.call(this, options);
     updateDummyAppIndexHBS.call(this, options);
+    updatePercyTest.call(this, options);
   },
 };
 
@@ -92,6 +93,23 @@ const updateDummyAppIndexHBS = (options) => {
   newListItemHTML += '  </LinkTo>\n';
   newListItemHTML += '</li>\n';
   fs.appendFileSync(hbsFilePath, `\n\n${newListItemHTML}\n`);
+};
+
+const updatePercyTest = (options) => {
+  const name = options.entity.name;
+  const percyTestFilePath = `${options.project.root}/tests/acceptance/percy-test.js`;
+
+  let newSnapshot = `    await visit('/components/${getKebabizedModuleName(
+    name
+  )}');\n`;
+  newSnapshot += `    await percySnapshot('${stringUtil.classify(name)}');\n`;
+
+  let source = fs.readFileSync(percyTestFilePath, 'utf-8');
+  source = source.replace(
+    '    // DO NOT REMOVE – PERCY SNAPSHOTS END',
+    `    // MOVE THIS BLOCK IN THE RIGHT POSITION\n${newSnapshot}\n    // DO NOT REMOVE – PERCY SNAPSHOTS END`
+  );
+  fs.writeFileSync(percyTestFilePath, source);
 };
 
 const getColumnizedModuleName = (name) => {

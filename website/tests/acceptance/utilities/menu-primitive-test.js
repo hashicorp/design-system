@@ -8,17 +8,17 @@ import { visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'website/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 
-module('Acceptance | utilities/disclosure', function (hooks) {
+module('Acceptance | utilities/menu-primitive', function (hooks) {
   setupApplicationTest(hooks);
 
-  test('visiting /utilities/disclosure', async function (assert) {
-    await visit('/utilities/disclosure');
+  test('visiting /utilities/menu-primitive', async function (assert) {
+    await visit('/utilities/menu-primitive');
 
-    assert.strictEqual(currentURL(), '/utilities/disclosure');
+    assert.strictEqual(currentURL(), '/utilities/menu-primitive');
   });
 
-  test('utilities/disclosure passes a11y automated checks', async function (assert) {
-    await visit('/utilities/disclosure');
+  test('utilities/menu-primitive passes a11y automated checks', async function (assert) {
+    await visit('/utilities/menu-primitive');
     await a11yAudit();
     assert.ok(true, 'a11y automation audit passed');
   });

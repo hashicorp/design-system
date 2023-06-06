@@ -47,6 +47,15 @@ export default class HdsPaginationCompactIndexComponent extends Component {
     return showLabels;
   }
 
+  /**
+   * @param ariaLabel
+   * @type {string}
+   * @default 'Pagination navigation'
+   */
+  get ariaLabel() {
+    return this.args.ariaLabel ?? 'Pagination navigation';
+  }
+
   get routeQueryParams() {
     return this.router.currentRoute?.queryParams || {};
   }

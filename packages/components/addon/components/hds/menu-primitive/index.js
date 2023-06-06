@@ -8,8 +8,8 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { schedule } from '@ember/runloop';
 
-export default class HdsDisclosureComponent extends Component {
-  @tracked isOpen; // notice: if in the future we need to add a "@isOpen" prop to control the status from outside (eg to have the Disclosure opened on render) just add  "this.args.isOpen" here to initalize the variable
+export default class HdsMenuPrimitiveComponent extends Component {
+  @tracked isOpen; // notice: if in the future we need to add a "@isOpen" prop to control the status from outside (eg to have the MenuPrimitive opened on render) just add  "this.args.isOpen" here to initalize the variable
   @tracked toggleRef;
 
   @action
@@ -24,7 +24,7 @@ export default class HdsDisclosureComponent extends Component {
       this.toggleRef = event.currentTarget;
     }
     this.isOpen = !this.isOpen;
-    // we explicitly apply a focus state to the toggle element to overcome a bug in WebKit (see b8abfcf)
+    // we explicitly apply a focus state to the toggle element to overcome a bug in WebKit (see https://github.com/hashicorp/design-system/commit/40cd7f6b3cb15c45f9a1235fafd0fb3ed58e6e62)
     this.toggleRef.focus();
   }
 

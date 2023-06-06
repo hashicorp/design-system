@@ -33,6 +33,15 @@ export default class HdsBreadcrumbComponent extends Component {
   }
 
   /**
+   * @param ariaLabel
+   * @type {string}
+   * @default 'breadcrumbs'
+   */
+  get ariaLabel() {
+    return this.args.ariaLabel ?? 'breadcrumbs';
+  }
+
+  /**
    * Get the class names to apply to the component.
    * @method Breadcrumb#classNames
    * @return {string} The "class" attribute to apply to the component.

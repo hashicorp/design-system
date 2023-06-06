@@ -10,7 +10,6 @@ Compatibility
 ------------------------------------------------------------------------------
 
 * Ember.js v3.28 or above
-  * Note: The library _should_ work with earlier versions of Ember, but we only test with Ember 3.28 and newer
 * Ember CLI v3.28 or above
 * Node.js v12 or above
 
@@ -53,7 +52,7 @@ Finally, add this line to the top of your app's style file (`app.scss` or simila
 Usage
 ------------------------------------------------------------------------------
 
-See the dedicated components website: https://design-system-components-hashicorp.vercel.app/
+See the dedicated components website: https://helios.hashicorp.design/components
 
 
 Contributing

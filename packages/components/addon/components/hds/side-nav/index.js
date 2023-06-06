@@ -12,6 +12,7 @@ import { registerDestructor } from '@ember/destroyable';
 export default class HdsSideNavComponent extends Component {
   @tracked isResponsive = this.args.isResponsive ?? true;
   @tracked isMinimized = this.isResponsive; // we set it minimized by default so that if we switch viewport from desktop to mobile its already minimized
+  @tracked isAnimating = false;
   @tracked isDesktop = true;
   hasA11yRefocus = this.args.hasA11yRefocus ?? true;
 
@@ -55,6 +56,18 @@ export default class HdsSideNavComponent extends Component {
     return this.isResponsive && !this.isDesktop && !this.isMinimized;
   }
 
+  /**
+   * @param ariaLabel
+   * @type {string}
+   * @default 'close menu'
+   */
+  get ariaLabel() {
+    if (this.isMinimized) {
+      return this.args.ariaLabel ?? 'Open menu';
+    }
+    return this.args.ariaLabel ?? 'Close menu';
+  }
+
   get classNames() {
     let classes = []; // `hds-side-nav` is already set by the "Hds::SideNav::Base" component
 
@@ -71,6 +84,9 @@ export default class HdsSideNavComponent extends Component {
       classes.push('hds-side-nav--is-minimized');
     } else {
       classes.push('hds-side-nav--is-not-minimized');
+    }
+    if (this.isAnimating) {
+      classes.push('hds-side-nav--is-animating');
     }
 
     return classes.join(' ');
@@ -91,6 +107,19 @@ export default class HdsSideNavComponent extends Component {
 
     if (typeof onToggleMinimizedStatus === 'function') {
       onToggleMinimizedStatus(this.isMinimized);
+    }
+  }
+
+  @action
+  setTransition(phase, event) {
+    // we only want to respond to `width` animation/transitions
+    if (event.propertyName !== 'width') {
+      return;
+    }
+    if (phase === 'start') {
+      this.isAnimating = true;
+    } else {
+      this.isAnimating = false;
     }
   }
 

@@ -24,7 +24,7 @@ The Dropdown component is composed of different child components each with their
   <C.Property @name="height" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
     If a `@height` parameter is provided then the list will have a fixed height.
   </C.Property>
-  <C.Property @name="isInline" @type="boolean" @values={{array "true" "false" }} @default="false">
+  <C.Property @name="isInline" @type="boolean" @default="false">
     If a `@isInline` parameter is provided then the element will be displayed as `inline-block` (useful to achieve specific layouts like in a container with right alignment). Otherwise it will be have a `block` layout.
   </C.Property>
   <C.Property @name="close" @type="function">
@@ -48,7 +48,7 @@ If the dropdown content exceeds the height of the container, the header and foot
   <C.Property @name="yield">
     Elements nested in this child component are yielded inside the dropdown header/footer.
   </C.Property>
-  <C.Property @name="hasDivider" @type="boolean" @values={{array "false" "true" }} @default="false" />
+  <C.Property @name="hasDivider" @type="boolean" @default="false" />
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
@@ -88,7 +88,7 @@ If the dropdown content exceeds the height of the container, the header and foot
   <C.Property @name="icon" @type="string">
     Acceptable value: any [icon](/icons/library) name.
   </C.Property>
-  <C.Property @name="hasChevron" @type="boolean" @values={{array "false" "true" }} @default="true">
+  <C.Property @name="hasChevron" @type="boolean" @default="true">
     Per design, `false` is only currently allowed when the "more-horizontal" icon is used; it is set to `true` by default.
   </C.Property>
   <C.Property @name="imageSrc" @type="string"/>
@@ -109,19 +109,19 @@ If the dropdown content exceeds the height of the container, the header and foot
   <C.Property @name="icon" @type="string">
     Acceptable value: any [icon](/icons/library) name.
   </C.Property>
-  <C.Property @name="isLoading" @type="boolean" @values={{array "false" "true" }} @default="false">
+  <C.Property @name="isLoading" @type="boolean" @default="false">
     Controls if the item is in “loading” state. When in this state, the item is not actually interactive, but you can pass the other expected arguments for the item (they’re simply ignored).
   </C.Property>
   <C.Property @name="href">
     URL passed to the `<a>` element.
   </C.Property>
-  <C.Property @name="isHrefExternal" @type="boolean" @values={{array "false" "true" }} @default="false">
+  <C.Property @name="isHrefExternal" @type="boolean" @default="false">
     Indicates whether or not the `<a>` link is external, in which case `target="_blank"` and `rel="noopener noreferrer"` attributes are added automatically.
   </C.Property>
   <C.Property @name="route/models/model/query/current-when/replace">
     Parameters passed as arguments to the `<LinkTo/LinkToExternal>` component.
   </C.Property>
-  <C.Property @name="isRouteExternal" @type="boolean" @values={{array "false" "true" }} @default="false">
+  <C.Property @name="isRouteExternal" @type="boolean" @default="false">
     Controls if the “LinkTo” is external to the Ember engine ([more details here](https://ember-engines.com/docs/link-to-external)) in which case it will use a `<LinkToExternal>` instead of a simple `<LinkTo>` for the @route.
   </C.Property>
   <C.Property @name="...attributes">
@@ -176,7 +176,7 @@ If the dropdown content exceeds the height of the container, the header and foot
   <C.Property @name="yield">
     Content to be used in the item.
   </C.Property>
-  <C.Property @name="selected" @type="boolean" @values={{array "false" "true" }} @default="false">
+  <C.Property @name="selected" @type="boolean" @default="false">
     Displays a checkmark symbol indicating the current selection.
   </C.Property>
   <C.Property @name="icon" @type="string">
@@ -188,13 +188,13 @@ If the dropdown content exceeds the height of the container, the header and foot
   <C.Property @name="href">
     URL passed to the `<a>` element.
   </C.Property>
-  <C.Property @name="isHrefExternal" @type="boolean" @values={{array "false" "true" }} @default="false">
+  <C.Property @name="isHrefExternal" @type="boolean" @default="false">
     Indicates whether or not the `<a>` link is external, in which case `target="_blank"` and `rel="noopener noreferrer"` attributes are added automatically.
   </C.Property>
   <C.Property @name="route/models/model/query/current-when/replace">
     Parameters passed as arguments to the `<LinkTo/LinkToExternal>` component.
   </C.Property>
-  <C.Property @name="isRouteExternal" @type="boolean" @values={{array "false" "true" }} @default="false">
+  <C.Property @name="isRouteExternal" @type="boolean" @default="false">
     Controls if the “LinkTo” is external to the Ember engine ([more details here](https://ember-engines.com/docs/link-to-external)) in which case it will use a `<LinkToExternal>` instead of a simple `<LinkTo>` for the @route.
   </C.Property>
   <C.Property @name="...attributes">

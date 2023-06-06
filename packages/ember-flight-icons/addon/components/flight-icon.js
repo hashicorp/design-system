@@ -17,7 +17,7 @@ export default class FlightIconComponent extends Component {
       assert('Please provide to <FlightIcon> a value for @name');
     } else if (!iconNames.includes(this.args.name)) {
       assert(
-        `The icon @name "${this.args.name}" provided to <FlightIcon> is not correct. Please verify it exists on https://flight-hashicorp.vercel.app/`
+        `The icon @name "${this.args.name}" provided to <FlightIcon> is not correct. Please verify it exists on https://helios.hashicorp.design/icons/library`
       );
     }
   }

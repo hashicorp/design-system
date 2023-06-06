@@ -14,12 +14,10 @@ export default class FlyoutController extends Controller {
   @action
   activateFlyout(Flyout) {
     this[Flyout] = true;
-    document.body.style.overflow = 'hidden';
   }
 
   @action
   deactivateFlyout(Flyout) {
     this[Flyout] = false;
-    document.body.style.overflow = 'auto';
   }
 }

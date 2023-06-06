@@ -23,7 +23,7 @@ The Table component itself is where most of the options will be applied. However
       <D.Property @name="key" @type="string">
       The column’s key (one of the keys in the model's records); required if the column is sortable.
       </D.Property>
-      <D.Property @name="isSortable" @type="boolean" @values={{array "false" "true" }} @default="false">
+      <D.Property @name="isSortable" @type="boolean" @default="false">
         If set to `true`, indicates that a column should be sortable.
       </D.Property>
       <D.Property @name="align" @type="enum" @values={{array "left" "center" "right" }} @default="left">
@@ -43,10 +43,10 @@ The Table component itself is where most of the options will be applied. However
   <C.Property @name="sortOrder" @type="string" @values={{array "asc" "desc" }} @default="asc">
     Use in conjunction with `sortBy`. If defined, indicates which direction the column should be pre-sorted in. If not defined, `asc` is applied by default.
   </C.Property>
-  <C.Property @name="isStriped" @type="boolean" @values={{array "false" "true" }} @default="false">
+  <C.Property @name="isStriped" @type="boolean" @default="false">
     Define on the table invocation. If set to `true`, even-numbered rows will have a different background color from odd-numbered rows.
   </C.Property>
-  <C.Property @name="isFixedLayout" @type="boolean" @values={{array "false" "true" }} @default="false">
+  <C.Property @name="isFixedLayout" @type="boolean" @default="false">
     If set to `true`, the `table-display`(CSS) property will be set to `fixed`. (See [https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) for more details.)
   </C.Property>
   <C.Property @name="density" @type="enum" @values={{array "short" "medium" "tall" }} @default="medium">
@@ -112,7 +112,7 @@ Note: This component is not eligible to receive interactions (e.g., it cannot ha
 This is the component that supports column sorting; use instead of `Hds::Table::Th` if creating a custom table implementation.
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="isSorted" @type="boolean" @values={{array "false" "true" }} @default="false">
+  <C.Property @name="isSorted" @type="boolean" @default="false">
     Indicates if a column is sorted.
   </C.Property>
   <C.Property @name="sortOrder" @type="string" @values={{array "asc" "desc" }}>
