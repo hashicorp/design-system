@@ -1,14 +1,15 @@
 ## Component API
 
-<Doc::ComponentApi as |C|>
-  <C.Property @name="title" @type="string" @required="true">
-    The title or header of the page.
-  </C.Property>
-</Doc::ComponentApi>
+The Page Header is a flexible component that exposes a number of contextual components to support many different composition methods. 
 
 ### Contextual components
 
 <Doc::ComponentApi as |C|>
+  <C.Property @name="<[PH].Title>" @type="yielded component">
+    Yields text and structured content within an `<h1>`
+    <br/><br/>
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
   <C.Property @name="<[PH].Breadcrumb>" @type="yielded component">
     A container that yields a Helios [Breadcrumb](/components/breadcrumb) component.
   </C.Property>

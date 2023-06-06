@@ -10,23 +10,30 @@
 
 - To communicate page level information anywhere other than the top of the page.
 
-### Size
+## Title
+
+Renders the title or topmost heading of the page. This should generally be limited to no more than four words  and not exceed 50 characters.
+
+## Size
 
 Size only pertains to the Figma component, and accounts for the stacking of elements on smaller viewports. The Ember component supports a basic level of fluidity and responsiveness out of the box.
 
-#### Large
+Refer to [responsiveness](#responsiveness) for more information on how the component adapts to different viewport and container sizes.
+
+### Large
 
 ![Large Page Header variant](/assets/components/page-header/page-header-size-large.png)
 
-#### Small
+### Small
 
 ![Small Page Header variant](/assets/components/page-header/page-header-size-small.png =300x*)
 
-### Breadcrumb
+## Breadcrumb
 
 Displays a Helios [Breadcrumb](/components/breadcrumb) to communicate the application hierarchy and location to the user.
 
-<Hds::PageHeader @title="Manage users" as |PH|>
+<Hds::PageHeader as |PH|>
+  <PH.Title>Manage users</PH.Title>
   <PH.Breadcrumb>
     <Hds::Breadcrumb>
       <Hds::Breadcrumb::Item @text="Organization" @icon="org" />
@@ -36,31 +43,64 @@ Displays a Helios [Breadcrumb](/components/breadcrumb) to communicate the applic
   </PH.Breadcrumb>
 </Hds::PageHeader>
 
-### Icon Tile
+## Icon Tile
 
 Displays a Helios [IconTile](/components/icon-tile) component that is used as a visual indicator for the content of the page, the feature within the application, and product branding.
 
-<Hds::PageHeader @title="Provision Terraform provider" as |PH|>
+<Hds::PageHeader as |PH|>
+  <PH.Title>Provision Terraform provider</PH.Title>
   <PH.IconTile @icon="terraform-color" @color="terraform" />
 </Hds::PageHeader>
 
-### Badges
+## Badges
 
 Displays Helios [Badges](/components/badge) that should be used to communicate the status of the page and other high-priority metadata pertaining to the page. We recommend using a maximum of two Badges within the Page Header (this is the number supported in the Figma component) and prioritizing the most contextually relevant metadata.
 
 Badges are especially useful when conveying metadata that is subject to change or variable depending on the status of the page.
 
-<Hds::PageHeader @title="Boundary cluster" as |PH|>
+<Hds::PageHeader as |PH|>
+  <PH.Title>Boundary cluster</PH.Title>
   <PH.Badges>
     <Hds::Badge @text="Running" @icon="running" color="highlight" />
   </PH.Badges>
 </Hds::PageHeader>
 
-### Subtitle
+!!! Dont
+
+Don't use more than three badges within the Page Header, instead explore ways to express additional metadata in the `customMetadata` area or move the content to the main page.
+
+<Hds::PageHeader as |PH|>
+  <PH.Title>Boundary cluster</PH.Title>
+  <PH.Badges>
+    <Hds::Badge @text="Active" @icon="check" @color="success" />
+    <Hds::Badge @text="v1" @color="neutral" />
+    <Hds::Badge @text="Out of date" @icon="alert-triangle" @color="warning" />
+    <Hds::Badge @text="Beta feature" @icon="beaker" @color="highlight" />
+  </PH.Badges>
+</Hds::PageHeader>
+
+!!!
+
+!!! Do
+
+Use badges to express similar or related metadata as it relates to the page content.
+
+<Hds::PageHeader as |PH|>
+  <PH.Title>boundary-cluster-4827</PH.Title>
+  <PH.Badges>
+    <Hds::Badge @text="Starting up" @icon="running" @color="highlight" />
+    <Hds::Badge @text="Version 1.4" @color="neutral" />
+  </PH.Badges>
+</Hds::PageHeader>
+
+!!!
+
+## Subtitle
 
 Displays a subtitle beneath the title to communicate metadata that does not change frequently or is not subject to changes within the application. Common examples of this are organization name, project name, unique identifiers, resource names, etc.
 
-<Hds::PageHeader @title="Packer Buckets" as |PH|>
+<Hds::PageHeader as |PH|>
+  <PH.Title>Packer Buckets</PH.Title>
   <PH.IconTile @icon="packer-color" @color="packer" />
   <PH.Breadcrumb>
     <Hds::Breadcrumb>
@@ -73,9 +113,10 @@ Displays a subtitle beneath the title to communicate metadata that does not chan
 
 !!! Dont
 
-Generally, the subtitle should not be used to convey information that requires a full sentence, or other detailed information. Use a [description](#description) instead.
+Don't use full sentences in the subtitle, use a [description](#description) instead.
 
-<Hds::PageHeader @title="Packer Buckets" as |PH|>
+<Hds::PageHeader as |PH|>
+  <PH.Title>Packer Buckets</PH.Title>
   <PH.IconTile @icon="packer-color" @color="packer" />
   <PH.Breadcrumb>
     <Hds::Breadcrumb>
@@ -88,13 +129,14 @@ Generally, the subtitle should not be used to convey information that requires a
 
 !!!
 
-### Description
+## Description
 
 Displays a description beneath the title and subtitle to communicate more detailed information about the page, link out to external documentation and resources, and capture more generic information about the page.
 
 Not all pages need a description, especially if the title is explicit enough. We recommend keeping a Page Header description to 1-2 sentences, if a longer description is required, consider linking to external documentation or moving more detailed content to an interstitial component like a [Flyout](/components/flyout)
 
-<Hds::PageHeader @title="HCP Packer Dashboard" as |PH|>
+<Hds::PageHeader as |PH|>
+  <PH.Title>HCP Packer Dashboard</PH.Title>
   <PH.IconTile @icon="packer-color" @color="packer" />
   <PH.Description>
     Channel created and managed automatically for you by Packer.
@@ -105,7 +147,8 @@ Not all pages need a description, especially if the title is explicit enough. We
 
 Don't include overly complex details, long-form content, or instructions in the description. This can add too much visual weight to the Page Header and has the potential to detract from the content on the main page.
 
-<Hds::PageHeader @title="HCP Packer Dashboard" as |PH|>
+<Hds::PageHeader as |PH|>
+  <PH.Title>HCP Packer Dashboard</PH.Title>
   <PH.IconTile @icon="packer-color" @color="packer" />
   <PH.Description>
     Channel created and managed automatically for you by Packer. With this channel you can manage your Packer registries, create new registries, and view analytics for all of your Packer resources. To get started, create a new registry or select an already existing registry.
@@ -118,7 +161,8 @@ Don't include overly complex details, long-form content, or instructions in the 
 
 Instead, link to more complex content using an [Inline Link](/components/link/inline) with an optional icon to indicate the scope of the link (internal resource, external resource, etc).
 
-<Hds::PageHeader @title="HCP Packer Dashboard" as |PH|>
+<Hds::PageHeader as |PH|>
+  <PH.Title>HCP Packer Dashboard</PH.Title>
   <PH.IconTile @icon="packer-color" @color="packer" />
   <PH.Description>
     Channel created and managed automatically for you by Packer. For more information on how this channel is managed refer to the Packer <Hds::Link::Inline @icon="external-link" @href="#">documentation</Hds::Link::Inline>.
@@ -127,11 +171,12 @@ Instead, link to more complex content using an [Inline Link](/components/link/in
 
 !!!
 
-### Custom metadata
+## Custom metadata
 
 If necessary to include metadata like key/value pairs, multiple page-level statuses, or other non-string-based content, use the `customMetadata` property in Figma to expose a placeholder. In the Ember component we expose a `generic` container that yields it's content.
 
-<Hds::PageHeader @title="Terraform Workspace" as |PH|>
+<Hds::PageHeader as |PH|>
+  <PH.Title>Terraform Workspace</PH.Title>
   <PH.IconTile @icon="terraform-color" @color="terraform" />
   <PH.Subtitle><strong>ID:</strong> wkdj293hfiw2liej234fklds</PH.Subtitle>
   <PH.Description>Terraform enables you to safely and predictably create, change, and improve...[<Hds::Link::Inline @href="#" @icon="external-link">read more</Hds::Link::Inline>]</PH.Description>
@@ -145,28 +190,29 @@ If necessary to include metadata like key/value pairs, multiple page-level statu
   </PH.Generic>
 </Hds::PageHeader>
 
-#### Key/value pairs as custom metadata
+### Key/value pairs as custom metadata
 
 ![Custom metadata key/value pairs](/assets/components/page-header/page-header-custom-metadata.png =600x*)
 
 !!! Dont
 
-Don't exceed more than three metadata objects, this can result in unnecessarily complex content with the Page Header. Instead, move this content into the page itself.
+Don't exceed more than four metadata objects or key/value pairs, this can result in unnecessarily complex content with the Page Header. Instead, move this content into the page.
 
 ![Complex metadata dont](/assets/components/page-header/page-header-custom-metadata-dont.png)
 
 !!!
 
-### Actions
+## Actions
 
-Use actions in the Page Header to facilitate page-level functions and actions that impact the page as a whole. Common components used to perform actions within the Page Header are [Buttons](/components/button) and [Dropdowns](/components/dropdown) and can include:
+Use actions in the Page Header to highlight page-level functions and actions that impact the page as a whole. Common components used to perform actions within the Page Header are [Buttons](/components/button) and [Dropdowns](/components/dropdown) and can include:
 
 - Creating new objects that are contained within the page
 - Surfacing management details like connecting to an API
 - Deleting the object that the page represents
 - Pausing or refreshing a service pertaining the page.
 
-<Hds::PageHeader @title="Consul clusters" as |PH|>
+<Hds::PageHeader as |PH|>
+  <PH.Title>Consul clusters</PH.Title>
   <PH.Breadcrumb>
     <Hds::Breadcrumb>
       <Hds::Breadcrumb::Item @text="Organization" @icon="org" />
@@ -193,7 +239,7 @@ Use actions in the Page Header to facilitate page-level functions and actions th
   </PH.Actions>
 </Hds::PageHeader>
 
-#### Action usage
+### Action usage
 
 While the Page Header supports up to three actions in Figma, we recommend limiting the number actions to one or two for most scenarios. These actions should generally consist of a primary action (using the `@color="primary"` property) and a secondary action or management function (using the `@color="secondary"` property). This more easily highlights the primary action on the page visually and establishes and implied inverse relationship between each action.
 
@@ -201,9 +247,10 @@ For more details on how to combine, order, and organize Buttons, refer to the [B
 
 !!! Dont
 
-Don't pair two primary actions in a Page Header.
+Don't pair two primary actions in a Page Header. For guidance on how to pair actions and buttons refer to the [button organization](/patterns/button-organization) guidelines.
 
-<Hds::PageHeader @title="Two actions" as |PH|>
+<Hds::PageHeader as |PH|>
+  <PH.Title>Two actions</PH.Title>
   <PH.Actions>
     <Hds::Button @text="Create object" @icon="plus" @iconPosition="leading" />
     <Hds::Button @text="Open Admin UI" @href="#" @icon="external-link" @iconPosition="leading" />
@@ -214,7 +261,19 @@ Don't pair two primary actions in a Page Header.
 
 ## Responsiveness
 
-## Content
+The Page Header component in Figma supports two sizes; `large` which accounts for the majority of desktop sizes and large tablets, and `small` which accounts for smaller tablet and mobile devices. The core difference between each variant is the stacking of elements.
+
+The Ember component uses a variety of different methods to ensure fluidity and responsiveness:
+
+- By default, the component will fill the page layout it is used within. It does not have any padding or margin applied explicitly to adapt to different layout and spacing methods.
+- The component has breakpoints by means of a container query, one at `700px` and one at `400px`, that account for the majority of content within the component and stack elements in columns as the container shrinks.
+- Elements displayed inline with each other (e.g., title and badges) have `flex-wrap: wrap;` set to wrap elements when the available space reduces. 
+
+!!! Info
+
+Additional responsive characteristics are the responsibility of the consumer and dependent on the layout and spacing methods defined at the application level.
+
+!!!
 
 ## Related
 

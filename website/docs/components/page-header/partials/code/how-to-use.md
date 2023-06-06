@@ -3,7 +3,9 @@
 A simple invocation of the component requires an `@title` argument that renders in a semantic `<h1>`.
 
 ```handlebars
-<Hds::PageHeader @title="Page title" />
+<Hds::PageHeader as |PH|>
+  <PH.Title>Page title</PH.Title>
+</Hds::PageHeader>
 ```
 
 ### Contextual components
@@ -11,7 +13,8 @@ A simple invocation of the component requires an `@title` argument that renders 
 The Page Header uses a variety of contextual components that either yield their content or render a specific Helios component.
 
 ```handlebars
-<Hds::PageHeader @title="Page title" as |PH|>
+<Hds::PageHeader as |PH|>
+  <PH.Title>Page title</PH.Title>
   <PH.Breadcrumb>
     <Hds::Breadcrumb>
       <Hds::Breadcrumb::Item @text="Organization" @icon="org" />
@@ -41,7 +44,8 @@ The Page Header uses a variety of contextual components that either yield their 
 Pass custom metadata to the component with a `generic` contextual component that yields its contents.
 
 ```handlebars
-<Hds::PageHeader @title="Page title" as |PH|>
+<Hds::PageHeader as |PH|>
+  <PH.Title>Page title</PH.Title>
   <PH.IconTile @icon="folder" />
   <PH.Actions>
     <Hds::Dropdown as |DD|>
