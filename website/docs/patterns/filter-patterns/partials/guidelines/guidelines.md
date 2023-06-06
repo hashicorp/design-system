@@ -24,13 +24,17 @@ Filters often consist of numerous parameters that mirror the columns of a table 
 
 Organizing filters in a **filter bar** is a common positioning method and consists of one or more dropdowns, buttons, or input components that are used to select values from a set of parameters. A [Segmented Group](/components/segmented-group) can be used within a filter bar to group similar parameters and support complex filtering.
 
-A filter bar should be positioned directly above the data set with a a `16px` gap in between.
-
 ![Filter bar example](/assets/patterns/filter-patterns/filter-bar-segmented-group.png =728x*)
 
 **Example of a horizontal filter bar paired with a data set expressed as a table.**
 
 ![Horizontal orientation of the filter bar](/assets/patterns/filter-patterns/layout-filter-bar.png)
+
+Depending on the filter type and how they are related, multiple [Segmented Groups](/components/segmented-group) can be used to group similar filters together. For example; a [Search Input](/components/form/text-input#search) grouped with a [Dropdown](/components/dropdown) to limit the filter parameters that are included in the search.
+
+**Limiting the returned search results to a specific parameter**
+
+![Searching across a specific parameter](/assets/patterns/filter-patterns/filter-bar-similar-filters.png)
 
 #### Sidebar
 
@@ -54,7 +58,7 @@ Display **applied filters** and provide the user with a method to clear all filt
 
 ![Applied filters](/assets/patterns/filter-patterns/applied-filters.png =450x*)
 
-#### Positioning in filter bars
+#### Positioning with filter bars
 
 Applied filters should be positioned between the data set and the filter bar with a `16px` gap between elements.
 
@@ -67,6 +71,23 @@ In the case of a filter sidebar, the applied filters should be positioned direct
 If the filters are positioned in a page-level sidebar, sometimes displaying the applied filters isn't necessary because they are implied in the sidebar. An action to clear all of the filters should be included within the sidebar itself.
 
 ![Applied filters with clear all in the sidebar](/assets/patterns/filter-patterns/applied-filters-positioning-sidebar-clear-all.png)
+
+### Global filter functions
+
+Depending on the fetching method and complexity of the data set, global filter functions can be used to expose methods that effect the entire data set. Global functions should be differentiated from the primary filters and aligned to the end of the data set. Examples include:
+
+- Manually refreshing the data set
+- Triggering a [Flyout](/components/flyout) with more complex filters
+
+**Multiple global functions within the filter bar**
+
+![Multiple global functions](/assets/patterns/filter-patterns/global-filter-functions.png)
+
+**Single function within the filter bar**
+
+![Single function](/assets/patterns/filter-patterns/global-filter-functions-single.png)
+
+In the case a multiple filter functions, use the [Segmented Group](/components/segmented-group). If only a single function is necessary, use the secondary [Button](/components/button#secondary).
 
 ### Pagination
 
