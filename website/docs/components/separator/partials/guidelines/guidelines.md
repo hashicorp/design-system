@@ -2,8 +2,23 @@
 
 ### When to use
 
-- Use to separate content within the UI
+- Use to visually separate different parts or sections on a page.
+- Use it to create a clear break between paragraphs, blocks, or sections.
 
 ### When not to use
 
-- Separating text, i.e. headings and bodies of text 
+- Don't use to separate headings and body text. Instead, use our foundations to emphasize hierarchy. 
+
+### Header 3
+
+!!! Do
+
+![Example of a leading icon in the tag](/assets/components/separator/separator-do.png)
+
+!!!
+
+!!! Dont
+
+![Example of a leading icon in the tag](/assets/components/separator/separator-dont.png)
+
+!!!
