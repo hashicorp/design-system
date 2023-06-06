@@ -16,7 +16,7 @@ Renders the title or topmost heading of the page. This should generally be limit
 
 ## Size
 
-Size only pertains to the Figma component, and accounts for the stacking of elements on smaller viewports. The Ember component supports a basic level of fluidity and responsiveness out of the box.
+Size only pertains to the Figma component and accounts for the stacking of elements on smaller viewports. The Ember component supports a basic level of fluidity and responsiveness out of the box.
 
 Refer to [responsiveness](#responsiveness) for more information on how the component adapts to different viewport and container sizes.
 
@@ -45,25 +45,46 @@ Displays a Helios [Breadcrumb](/components/breadcrumb) to communicate the applic
 
 ## Icon Tile
 
-Displays a Helios [IconTile](/components/icon-tile) component that is used as a visual indicator for the content of the page, the feature within the application, and product branding.
+Displays a Helios [IconTile](/components/icon-tile) as a visual indicator for the content of the page, the feature within the application, and product branding.
 
 <Hds::PageHeader as |PH|>
   <PH.Title>Provision Terraform provider</PH.Title>
   <PH.IconTile @icon="terraform-color" @color="terraform" />
 </Hds::PageHeader>
 
+!!! Info
+
+Only the `medium` size of the [IconTile](/components/icon-tile) is supported in the Page Header.
+
+!!!
+
 ## Badges
 
-Displays Helios [Badges](/components/badge) that should be used to communicate the status of the page and other high-priority metadata pertaining to the page. We recommend using a maximum of two Badges within the Page Header (this is the number supported in the Figma component) and prioritizing the most contextually relevant metadata.
+Displays Helios [Badges](/components/badge) to communicate the status of the page and other high-priority metadata pertaining to the page. We recommend using a maximum of three Badges within the Page Header (this is the number supported in the Figma component) and prioritizing the most contextually relevant metadata.
 
 Badges are especially useful when conveying metadata that is subject to change or variable depending on the status of the page.
 
 <Hds::PageHeader as |PH|>
   <PH.Title>Boundary cluster</PH.Title>
+  <PH.IconTile @logo="boundary" />
   <PH.Badges>
     <Hds::Badge @text="Running" @icon="running" color="highlight" />
   </PH.Badges>
 </Hds::PageHeader>
+
+!!! Do
+
+Use badges to express similar or related metadata pertaining to the page content.
+
+<Hds::PageHeader as |PH|>
+  <PH.Title>boundary-cluster-4827</PH.Title>
+  <PH.Badges>
+    <Hds::Badge @text="Starting up" @icon="running" @color="highlight" />
+    <Hds::Badge @text="Version 1.4" @color="neutral" />
+  </PH.Badges>
+</Hds::PageHeader>
+
+!!!
 
 !!! Dont
 
@@ -76,20 +97,6 @@ Don't use more than three badges within the Page Header, instead explore ways to
     <Hds::Badge @text="v1" @color="neutral" />
     <Hds::Badge @text="Out of date" @icon="alert-triangle" @color="warning" />
     <Hds::Badge @text="Beta feature" @icon="beaker" @color="highlight" />
-  </PH.Badges>
-</Hds::PageHeader>
-
-!!!
-
-!!! Do
-
-Use badges to express similar or related metadata as it relates to the page content.
-
-<Hds::PageHeader as |PH|>
-  <PH.Title>boundary-cluster-4827</PH.Title>
-  <PH.Badges>
-    <Hds::Badge @text="Starting up" @icon="running" @color="highlight" />
-    <Hds::Badge @text="Version 1.4" @color="neutral" />
   </PH.Badges>
 </Hds::PageHeader>
 
@@ -131,9 +138,9 @@ Don't use full sentences in the subtitle, use a [description](#description) inst
 
 ## Description
 
-Displays a description beneath the title and subtitle to communicate more detailed information about the page, link out to external documentation and resources, and capture more generic information about the page.
+Displays a description beneath the title and subtitle to communicate more detailed information about the page, link out to external documentation and resources, and capture more generic information about the page. Not all pages need a description, especially if the title is explicit enough.
 
-Not all pages need a description, especially if the title is explicit enough. We recommend keeping a Page Header description to 1-2 sentences, if a longer description is required, consider linking to external documentation or moving more detailed content to an interstitial component like a [Flyout](/components/flyout)
+We recommend keeping a Page Header description to 1-2 sentences, if a longer description is required, consider linking to external documentation or moving more detailed content to an interstitial component like a [Flyout](/components/flyout)
 
 <Hds::PageHeader as |PH|>
   <PH.Title>HCP Packer Dashboard</PH.Title>
@@ -145,7 +152,7 @@ Not all pages need a description, especially if the title is explicit enough. We
 
 !!! Dont
 
-Don't include overly complex details, long-form content, or instructions in the description. This can add too much visual weight to the Page Header and has the potential to detract from the content on the main page.
+Don't include overly complex details, long-form content, or instructions in the description. This can add too much visual weight to the Page Header and can detract from the content on the main page.
 
 <Hds::PageHeader as |PH|>
   <PH.Title>HCP Packer Dashboard</PH.Title>
@@ -173,13 +180,13 @@ Instead, link to more complex content using an [Inline Link](/components/link/in
 
 ## Custom metadata
 
-If necessary to include metadata like key/value pairs, multiple page-level statuses, or other non-string-based content, custom metadata can be passed to the component via the `customMetadata` property in Figma, or the `<[PH].Generic>` contextual component in Ember.
+If necessary to include metadata like key/value pairs, multiple page-level statuses, or other structured content, custom metadata can be passed to the component via the `customMetadata` property in Figma, or the `<[PH].Generic>` contextual component in Ember.
 
 <Hds::PageHeader as |PH|>
   <PH.Title>Terraform Workspace</PH.Title>
   <PH.IconTile @icon="terraform-color" @color="terraform" />
   <PH.Subtitle><strong>ID:</strong> wkdj293hfiw2liej234fklds</PH.Subtitle>
-  <PH.Description>Terraform enables you to safely and predictably create, change, and improve...[<Hds::Link::Inline @href="#" @icon="external-link">read more</Hds::Link::Inline>]</PH.Description>
+  <PH.Description>Terraform enables you to safely and predictably create, change, and improve your application infrastructure. <Hds::Link::Inline @href="#" @icon="external-link">Read more</Hds::Link::Inline>.</PH.Description>
   <PH.Generic>
     <Doc::Placeholder
       @text="generic metadata"
@@ -192,7 +199,7 @@ If necessary to include metadata like key/value pairs, multiple page-level statu
 
 ### Key/value pairs as custom metadata
 
-Representing metadata with a set of key/value pairs is common in HashiCorp products and can be useful when communicating relational information between products and versioning among other more complex data types.
+Representing metadata with a set of key/value pairs is common in HashiCorp products and can be useful when communicating relational information between products, versioning, and other complex structured data.
 
 ![Custom metadata key/value pairs](/assets/components/page-header/page-header-custom-metadata.png =600x*)
 
@@ -206,12 +213,12 @@ We recommend not exceeding more than four metadata objects or key/value pairs, t
 
 ## Actions
 
-Use [Buttons](/components/button) and [Dropdowns](/components/dropdown) in the Page Header to highlight page-level functions and actions that impact the page as a holistcally.
+Use [Buttons](/components/button) and [Dropdowns](/components/dropdown) in the Page Header to highlight page-level functions and actions that impact the page holistcally. Examples of this include:
 
-- Creating new objects that are contained within the page
+- Creating new objects that are listed within the page
 - Surfacing management details like connecting to an API
-- Deleting the object that the page represents
-- Pausing or refreshing a service pertaining the page.
+- Deleting or deactivating an object
+- Pausing or refreshing a service pertaining the page
 
 <Hds::PageHeader as |PH|>
   <PH.Title>Consul clusters</PH.Title>
@@ -241,41 +248,113 @@ Use [Buttons](/components/button) and [Dropdowns](/components/dropdown) in the P
   </PH.Actions>
 </Hds::PageHeader>
 
-### Action usage
+### Primary button
 
-#### Primary button
-
-Use a primary [Button](/components/button) in the Page Header to trigger the primary flow on the page. Examples of this include:
+Use a primary [Button](/components/button) in the Page Header to trigger the most important flow or action on the page. Examples of this include:
 
 - A flow that creates an object that is related to the page, e.g., creating a new cluster or adding a new user.
 - Launching or deploying a specific product instance
 
-#### Secondary button
+### Secondary button
 
-Use a secondary [Button](/components/button) in the Page Header when a secondary action is needed, e.g., editing the content on a page, managing access, etc.
+Use a secondary [Button](/components/button) in the Page Header when needed to highlight actions such as editing the content on a page, managing access, etc.
 
-#### Dropdowns
+### Tertiary button
 
-Use a [Dropdown](/components/dropdown) in the Page Header to collect additional secondary functions and tasks, or elements that assist the user in managing the information or objects on the page.
+Tertiary [Buttons](/components/button) can be useful when linking to external documentation or highlighting other low-priority actions.
 
-Common examples of this include:
+<Hds::PageHeader as |PH|>
+  <PH.Title>Page title</PH.Title>
+  <PH.IconTile @logo="vault" />
+  <PH.Actions>
+    <Hds::Button
+      @text="Vault documentation"
+      @color="tertiary"
+      @icon="external-link"
+      @iconPosition="leading"
+    />
+    <Hds::Button
+      @text="Create cluster"
+      @color="primary"
+      @icon="plus"
+      @iconPosition="leading"
+    />
+  </PH.Actions>
+</Hds::PageHeader>
+
+### Dropdowns
+
+Use a [Dropdown](/components/dropdown) in the Page Header to combine additional secondary functions, tasks, or elements that assist the user in managing the information or objects on the page. Examples of this include:
 
 - Copying API credentials to manage the object remotely
 - Editing or changing settings
 - Deleting or deactivating an object
 - Linking to documentation
 
-When used in these scenarios and paired with a primary "create" action, use secondary [Dropdown](/components/dropdown) variant.
+When used in these scenarios and paired with a primary "create" action, use the secondary [Dropdown](/components/dropdown) variant.
+
+!!! Do
+
+Use a primary [Dropdown](/components/dropdown) when the same action can be done in multiple different contexts. For example, taking the same action through a different interface or path; GUI, CLI, or API call.
+
+<Hds::PageHeader as |PH|>
+  <PH.Title>Consul clusters</PH.Title>
+  <PH.Breadcrumb>
+    <Hds::Breadcrumb>
+      <Hds::Breadcrumb::Item @text="Organization" @icon="org" />
+      <Hds::Breadcrumb::Item @text="Consul clusters" @icon="consul-color" />
+    </Hds::Breadcrumb>
+  </PH.Breadcrumb>
+  <PH.IconTile @icon="consul-color" @color="consul" />
+  <PH.Description>Create and manage your remote Consul clusters</PH.Description>
+  <PH.Actions>
+    <Hds::Dropdown as |DD|>
+      <DD.ToggleButton @text="Manage" @color="primary" />
+      <DD.Description @text="Access via" />
+      <DD.Interactive @route="components" @text="GUI" @icon="dashboard" />
+      <DD.Interactive @route="components" @text="CLI" @icon="terminal-screen" />
+      <DD.Interactive @route="components" @text="API" @icon="api" />
+    </Hds::Dropdown>
+  </PH.Actions>
+</Hds::PageHeader>
+
+!!!
+
+!!! Dont
+
+Don't use a primary [Dropdown](/components/dropdown) when combining different, unrelated actions.
+
+<Hds::PageHeader as |PH|>
+  <PH.Title>Consul clusters</PH.Title>
+  <PH.Breadcrumb>
+    <Hds::Breadcrumb>
+      <Hds::Breadcrumb::Item @text="Organization" @icon="org" />
+      <Hds::Breadcrumb::Item @text="Consul clusters" @icon="consul-color" />
+    </Hds::Breadcrumb>
+  </PH.Breadcrumb>
+  <PH.IconTile @icon="consul-color" @color="consul" />
+  <PH.Description>Create and manage your remote Consul clusters</PH.Description>
+  <PH.Actions>
+    <Hds::Dropdown as |DD|>
+      <DD.ToggleButton @text="Manage" @color="primary" />
+      <DD.Interactive @route="components" @text="Edit settings" @icon="edit" />
+      <DD.Interactive @route="components" @text="Access via CLI" @icon="terminal-screen" />
+      <DD.Interactive @route="components" @text="Delete cluster" @icon="trash" @color="critical" />
+    </Hds::Dropdown>
+  </PH.Actions>
+</Hds::PageHeader>
+
+!!!
 
 ### Action color and pairing
 
-While the Page Header supports up to three actions in Figma, we recommend limiting the number actions to no more than two for most pages. These actions should generally consist of a primary action (using the `@color="primary"` property) and a secondary action or management function (using the `@color="secondary"` property). This highlights the relationship between the actions and the page content, while visually guiding the user to a primary action.
+While the Page Header supports up to three actions in Figma, we recommend limiting the number actions to two for most pages. These actions should generally consist of a primary action (using the `@color="primary"` property) and a secondary action or management function (using the `@color="secondary"` property).
 
 For more details on how to combine, order, and organize Buttons, refer to the [Button order, organization, and alignment](/patterns/button-organization) pattern documentation.
 
 !!! Dont
 
-Don't pair two primary actions in a Page Header. For guidance on how to pair actions and buttons refer to the [button organization](/patterns/button-organization) guidelines.
+Don't pair two primary actions in a Page Header. Instead, communicate the highest priority action for the user with a primary Button and other actions with a secondary Button or within a Dropdown.
 
 <Hds::PageHeader as |PH|>
   <PH.Title>Two actions</PH.Title>

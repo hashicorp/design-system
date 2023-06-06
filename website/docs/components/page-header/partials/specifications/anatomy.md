@@ -5,7 +5,7 @@
 | Element | Usage |
 |---------|-------|
 | Title | Required |
-| Breadcumb | Optional, but recommended for any page not at the top level of the hierarchy  |
+| Breadcumb | Optional, but recommended for any page except top-level landing pages |
 | IconTile | Optional |
 | Badges | Optional |
 | Subtitle | Optional |
