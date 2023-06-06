@@ -1,8 +1,8 @@
 ## Conformance rating
 
-<Doc::Badge @type="success">Conformant</Doc::Badge>
+<Doc::Badge @type="warning">Conditionally conformant</Doc::Badge>
 
-When used as recommended, there should not be any WCAG conformance issues with this component.
+Reveal is conformant if the text does not change when the user interacts with the toggle button. In cases where the button text does change upon interaction, the toggle button is not conformant.
 
 ## Applicable WCAG Success Criteria
 
