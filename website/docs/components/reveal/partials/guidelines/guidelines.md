@@ -27,7 +27,7 @@ Don't use vague or unrelated text to describe the content.
 
 !!! Do
 
-Use meaningful text related to the content inside the Reveal.
+Use meaningful text that relates to the content inside.
 
 ![Reveal example with a form](/assets/components/reveal/toggle-text-do.png)
 !!!
