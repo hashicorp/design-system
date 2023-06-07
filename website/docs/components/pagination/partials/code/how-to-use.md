@@ -1,14 +1,14 @@
-## "Compact" vs "Numbered" pagination
+## “Compact” vs “Numbered” Pagination
 
 There are two different variants of the `Pagination` component (with different ways to invoke them) built to cover different use cases, contexts, and designs you may need them for.
 
-This differentiation is necessary to cover both use cases of a pagination for a list with a known number of elements (**"numbered"**) and one in which this information is not available or is [cursor-based](https://jsonapi.org/profiles/ethanresnick/cursor-pagination/) (**"compact"**).
+This differentiation is necessary to cover both use cases of pagination for a list with a known number of elements (**"numbered"**) and one in which this information is not available or is [cursor-based](https://jsonapi.org/profiles/ethanresnick/cursor-pagination/) (**"compact"**).
 
 In the first one, the user is presented with a list of navigation controls ("prev/next" and "page numbers" to go directly to a specific page) and other optional UI elements; in the second, much simpler one, the user is presented with only the "prev/next" controls.
 
 When pagination is invoked directly using one of these two components, it will **automatically**:
 
-- provide the correct responsive layout for the entire pagination and its sub-parts
+- provide the correct responsive layout for the entire Pagination and its sub-parts.
 - manage the "current page" status across the different sub-components it’s made of (based on the arguments provided to it and its children).
 - when one of the "navigation controls" is clicked, a callback function (if provided) is called, and a route (if provided) update is triggered.
 - when the "page size" is changed via the provided selector, it will automatically recalculate the total number of pages to display to the user.
@@ -16,7 +16,7 @@ When pagination is invoked directly using one of these two components, it will *
 
 ## Pagination sub-components
 
-If you need more control on the specific pagination parts, and/or you need to cover a very specific use case, you can use the pagination sub-elements directly (`Pagination::Info/Nav(*)/SizeSelector`).
+If you need more control on the specific Pagination parts, and/or you need to cover a very specific use case, you can use the Pagination sub-elements directly (`Pagination::Info/Nav(*)/SizeSelector`).
 
 In this case, you will have to take care of different things **yourself**
 
@@ -33,19 +33,19 @@ This means that if you need to update the URL when the user changes the "page" i
 
 If instead you need to update the URL directly when the user clicks on one of the "navigation control" elements, you have to provide routing parameters (`route/query/model/etc`) to the component; refer to the "Component API" section below for specifications about these parameters (the APIs are slightly different for the two components).
 
-## How to use the "Numbered" pagination
+## How to use the "Numbered" Pagination
 
-The basic invocation of the "numbered" pagination requires the `@totalItems` argument to be provided (plus the event/routing handlers, see below):
+The basic invocation of the Numbered Pagination requires the `@totalItems` argument to be provided (plus the event/routing handlers, see below):
 
 ```handlebars
 <Hds::Pagination::Numbered @totalItems={{40}} />
 ```
 
-By default the "Info" and "SizeSelector" sub-components are displayed, and the component takes care of updating the values and the states of the different elements, according to the user interactions with the component.
+By default the Info and SizeSelector sub-components are displayed, and the component takes care of updating the values and the states of the different elements, according to the user interactions with the component.
 
 ### Extra arguments
 
-It’s possible to customize the "Info", "Controls", and "SizeSelector" components by providing additional arguments to them. For more details about these parameters, refer to the "Component API" section.
+It’s possible to customize the Info, Controls, and SizeSelector components by providing additional arguments to them. For more details about these parameters, refer to the "Component API" section.
 
 Below is an example of some of these extra arguments:
 
@@ -105,7 +105,7 @@ The second `onPageSizeChange` function is invoked when a user interacts with the
 
 ### Routing/URL updates
 
-If you want the pagination to change the URL of the page directly (eg. updating the query parameters) you need to pass the routing parameters to the component:
+If you want the Pagination to change the URL of the page directly (eg. updating the query parameters) you need to pass the routing parameters to the component:
 
 ```handlebars
 <Hds::Pagination::Numbered
@@ -138,7 +138,7 @@ In this case, the component doesn’t update its internal "state" but the value 
 
 The reason for using a consumer-side function to determine the `query` argument is because it’s dynamic (it depends on the value of the `page` variable) and gives consumers the ability to specify their own query parameters (which will likely differ case by case).
 
-Even if the pagination is based on routing, the `onPageChange/onPageSizeChange` callbacks are still available and can be used to respond to the users’ actions (eg. for logging, tracking, etc.).
+Even if the Pagination is based on routing, the `onPageChange/onPageSizeChange` callbacks are still available and can be used to respond to the users’ actions (eg. for logging, tracking, etc.).
 
 Below you can find an example of an integration between the sortable [`Table`](/components/table) component and the `Pagination::Numbered` component that uses query parameters in the URL to preserve the UI state:
 
@@ -177,11 +177,11 @@ Below you can find an example of an integration between the sortable [`Table`](/
 </div>
 ```
 
-## How to use the "Compact" pagination
+## How to use the "Compact" Pagination
 
-By default, the basic use of the pagination provides:
+By default, the basic use of the Pagination provides:
 
-The basic invocation of the "compact" pagination doesn’t require any arguments (apart from the event/routing handlers, see below):
+The basic invocation of the Compact Pagination doesn’t require any arguments (apart from the event/routing handlers, see below):
 
 ```handlebars
 <Hds::Pagination::Compact />
@@ -199,7 +199,7 @@ If necessary, it’s possible to hide the control labels:
 <Hds::Pagination::Compact @showLabels={{false}} />
 ```
 
-### Events handling
+### Event handling
 
 The component exposes a callback function that can be used to respond to page changes:
 
@@ -213,7 +213,7 @@ The `onPageChange` function is invoked when a user interacts with a "prev" or "n
 
 ### Routing/URL updates
 
-If you want the pagination to change the URL of the page directly (eg. updating the query parameters) you need to pass the routing parameters to the component:
+If you want the Pagination to change the URL of the page directly (eg. updating the query parameters) you need to pass the routing parameters to the component:
 
 ```handlebars
 <Hds::Pagination::Compact
@@ -243,7 +243,7 @@ In this case, the component doesn’t update its internal "state" but the value 
 
 The reason for using a consumer-side function to determine the `query` argument is because it’s dynamic (it depends on the value of the `page/cursor` variable) and gives consumers the ability to specify their own query parameters (which will likely differ case by case).
 
-Even if the pagination is based on routing, the `onPageChange/onPageSizeChange` callbacks are still available and can be used to respond to the users' actions (eg. for logging, tracking, etc.).
+Even if the Pagination is based on routing, the `onPageChange/onPageSizeChange` callbacks are still available and can be used to respond to the users' actions (eg. for logging, tracking, etc.).
 
 Below you can find an example of an integration between the [`Table`](/components/table) component and the `Pagination::Compact` component that uses query parameters in the URL to preserve the UI state:
 

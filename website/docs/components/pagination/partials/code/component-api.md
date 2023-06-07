@@ -17,7 +17,7 @@ There is also a set of **low-level sub-components**, used to build the "numbered
 - `Pagination::Nav::Ellipsis` - used to display an ellipsis instead of a set of page numbers
 - `Pagination::SizeSelector` - used to allow users to change the number of items displayed per page
 
-These pagination sub-elements may be used directly if you need to cover a very specific use case that is not covered by the "numbered" or "compact" pagination components. In that case, refer to their specific APIs below.
+These Pagination sub-elements may be used directly if you need to cover a very specific use case that is not covered by the Numbered or Compact Pagination components. In that case, refer to their specific APIs below.
 
 ### Pagination::Numbered
 
