@@ -16,31 +16,31 @@
 
 .hds-page-header__body {
   display: flex;
-  flex-direction: row;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.5rem 1rem;
   container-type: inline-size;
 
   .hds-icon-tile {
     flex-shrink: 0;
   }
 
-  @container (max-width: 400px) {
-    flex-direction: column;
-    gap: 0.5rem;
+  @container (min-width: 400px) {
+    flex-direction: row;
+    // gap: 0.5rem;
   }
 }
 
 .hds-page-header__main {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 1rem;
   align-items: start;
-  justify-content: space-between;
+  justify-content: start;
   width: 100%;
 
-  @container (max-width: 700px) {
-    flex-direction: column;
-    justify-content: start;
+  @container (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
 
