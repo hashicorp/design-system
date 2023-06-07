@@ -9,7 +9,7 @@ There are two main **high-level “container” components**, which control the 
 
 For more details on when and how to use these two components, refer to the "How to use" section below.
 
-There is also a set of **low-level sub-components**, used to build the "numbered" and "compact" variants:
+There is also a set of **low-level sub-components**, used to build the Numbered and Compact variants:
 
 - `Pagination::Info` - used to display the current range of items shown and the total number of items
 - `Pagination::Nav::Arrow` - used to provide "prev/next" navigation controls

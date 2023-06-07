@@ -1,8 +1,8 @@
-## “Compact” vs “Numbered” Pagination
+## Compact vs Numbered Pagination
 
 There are two different variants of the `Pagination` component (with different ways to invoke them) built to cover different use cases, contexts, and designs you may need them for.
 
-This differentiation is necessary to cover both use cases of pagination for a list with a known number of elements (**"numbered"**) and one in which this information is not available or is [cursor-based](https://jsonapi.org/profiles/ethanresnick/cursor-pagination/) (**"compact"**).
+This differentiation is necessary to cover both use cases of pagination for a list with a known number of elements (i.e., "numbered") and one in which this information is not available or is [cursor-based](https://jsonapi.org/profiles/ethanresnick/cursor-pagination/) (i.e., "compact").
 
 In the first one, the user is presented with a list of navigation controls ("prev/next" and "page numbers" to go directly to a specific page) and other optional UI elements; in the second, much simpler one, the user is presented with only the "prev/next" controls.
 
@@ -22,7 +22,7 @@ In this case, you will have to take care of different things **yourself**
 
 - the organization/layout of the elements on the page.
 - the logic to handle the "current page" status.
-- the logic connecting the different parts (if using "numbered").
+- the logic connecting the different parts (if using Numbered Pagination).
 
 
 ## Events handling and routing
@@ -33,9 +33,9 @@ This means that if you need to update the URL when the user changes the "page" i
 
 If instead you need to update the URL directly when the user clicks on one of the "navigation control" elements, you have to provide routing parameters (`route/query/model/etc`) to the component; refer to the "Component API" section below for specifications about these parameters (the APIs are slightly different for the two components).
 
-## How to use the "Numbered" Pagination
+## How to use Numbered Pagination
 
-The basic invocation of the Numbered Pagination requires the `@totalItems` argument to be provided (plus the event/routing handlers, see below):
+The basic invocation of Numbered Pagination requires the `@totalItems` argument to be provided (plus the event/routing handlers, see below):
 
 ```handlebars
 <Hds::Pagination::Numbered @totalItems={{40}} />
@@ -177,7 +177,7 @@ Below you can find an example of an integration between the sortable [`Table`](/
 </div>
 ```
 
-## How to use the "Compact" Pagination
+## How to use Compact Pagination
 
 By default, the basic use of the Pagination provides:
 
