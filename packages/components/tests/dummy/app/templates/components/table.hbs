@@ -503,6 +503,177 @@
 
   <Shw::Divider />
 
+  <Shw::Text::H2>Layout</Shw::Text::H2>
+
+  <Shw::Text::H3>Interaction between table layout and columns width</Shw::Text::H3>
+
+  <Shw::Text::H4>Width in <code>px</code> + Table-layout = 'auto'</Shw::Text::H4>
+
+  <Hds::Table
+    @model={{this.model.manycolumns}}
+    @columns={{array
+      (hash key="first_name" label="First Name" isSortable="true" width="200px")
+      (hash key="last_name" label="Last Name" isSortable="true" width="200px")
+      (hash key="age" label="Age" isSortable="true")
+      (hash key="email" label="Email")
+      (hash key="bio" label="Biography" width="350px")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.first_name}}</B.Td>
+        <B.Td>{{B.data.last_name}}</B.Td>
+        <B.Td>{{B.data.age}}</B.Td>
+        <B.Td>{{B.data.email}}</B.Td>
+        <B.Td>{{B.data.bio}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
+  <Shw::Text::H4>Width in <code>px</code> + Table-layout = 'fixed'</Shw::Text::H4>
+
+  <Hds::Table
+    @model={{this.model.manycolumns}}
+    @columns={{array
+      (hash key="first_name" label="First Name" isSortable="true" width="200px")
+      (hash key="last_name" label="Last Name" isSortable="true" width="200px")
+      (hash key="age" label="Age" isSortable="true")
+      (hash key="email" label="Email")
+      (hash key="bio" label="Biography" width="350px")
+    }}
+    @isFixedLayout={{true}}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.first_name}}</B.Td>
+        <B.Td>{{B.data.last_name}}</B.Td>
+        <B.Td>{{B.data.age}}</B.Td>
+        <B.Td>{{B.data.email}}</B.Td>
+        <B.Td>{{B.data.bio}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
+  <Shw::Text::H4>Width in <code>%</code> + Table-layout = 'auto'</Shw::Text::H4>
+
+  <Hds::Table
+    @model={{this.model.manycolumns}}
+    @columns={{array
+      (hash key="first_name" label="First Name" isSortable="true" width="20%")
+      (hash key="last_name" label="Last Name" isSortable="true" width="20%")
+      (hash key="age" label="Age" isSortable="true")
+      (hash key="email" label="Email")
+      (hash key="bio" label="Biography" width="35%")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.first_name}}</B.Td>
+        <B.Td>{{B.data.last_name}}</B.Td>
+        <B.Td>{{B.data.age}}</B.Td>
+        <B.Td>{{B.data.email}}</B.Td>
+        <B.Td>{{B.data.bio}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
+  <Shw::Text::H4>Width in <code>%</code> + Table-layout = 'fixed'</Shw::Text::H4>
+
+  <Hds::Table
+    @model={{this.model.manycolumns}}
+    @columns={{array
+      (hash key="first_name" label="First Name" isSortable="true" width="20%")
+      (hash key="last_name" label="Last Name" isSortable="true" width="20%")
+      (hash key="age" label="Age" isSortable="true")
+      (hash key="email" label="Email")
+      (hash key="bio" label="Biography" width="35%")
+    }}
+    @isFixedLayout={{true}}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.first_name}}</B.Td>
+        <B.Td>{{B.data.last_name}}</B.Td>
+        <B.Td>{{B.data.age}}</B.Td>
+        <B.Td>{{B.data.email}}</B.Td>
+        <B.Td>{{B.data.bio}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Large table with overflowing container</Shw::Text::H3>
+
+  <Shw::Text::H4>Container with overflow = 'auto' + Table-layout = 'auto' + Columns width (in
+    <code>px</code>)</Shw::Text::H4>
+
+  <div class="shw-component-table-scrollable-wrapper">
+    <Hds::Table
+      @model={{this.model.manycolumns}}
+      @columns={{array
+        (hash key="first_name" label="First Name" isSortable="true" width="200px")
+        (hash key="last_name" label="Last Name" isSortable="true" width="200px")
+        (hash key="age" label="Age" isSortable="true")
+        (hash key="email" label="Email" isSortable="true")
+        (hash key="phone" label="Phone" isSortable="true")
+        (hash key="bio" label="Biography" width="350px")
+        (hash key="education" label="Education Degree" isSortable="true")
+        (hash key="occupation" label="Occupation" isSortable="true")
+      }}
+    >
+      <:body as |B|>
+        <B.Tr>
+          <B.Td>{{B.data.first_name}}</B.Td>
+          <B.Td>{{B.data.last_name}}</B.Td>
+          <B.Td>{{B.data.age}}</B.Td>
+          <B.Td>{{B.data.email}}</B.Td>
+          <B.Td>{{B.data.phone}}</B.Td>
+          <B.Td>{{B.data.bio}}</B.Td>
+          <B.Td>{{B.data.education}}</B.Td>
+          <B.Td>{{B.data.occupation}}</B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::Table>
+  </div>
+
+  <Shw::Text::H4>Container with overflow = 'auto' + Sub-container with 'max-content' width + Table-layout = 'auto' +
+    Columns width (in
+    <code>px</code>)</Shw::Text::H4>
+
+  <div class="shw-component-table-scrollable-wrapper">
+    <div class="shw-component-table-max-content-width">
+      <Hds::Table
+        @model={{this.model.manycolumns}}
+        @columns={{array
+          (hash key="first_name" label="First Name" isSortable="true" width="200px")
+          (hash key="last_name" label="Last Name" isSortable="true" width="200px")
+          (hash key="age" label="Age" isSortable="true")
+          (hash key="email" label="Email" isSortable="true")
+          (hash key="phone" label="Phone" isSortable="true")
+          (hash key="bio" label="Biography" width="350px")
+          (hash key="education" label="Education Degree" isSortable="true")
+          (hash key="occupation" label="Occupation" isSortable="true")
+        }}
+      >
+        <:body as |B|>
+          <B.Tr>
+            <B.Td>{{B.data.first_name}}</B.Td>
+            <B.Td>{{B.data.last_name}}</B.Td>
+            <B.Td>{{B.data.age}}</B.Td>
+            <B.Td>{{B.data.email}}</B.Td>
+            <B.Td>{{B.data.phone}}</B.Td>
+            <B.Td>{{B.data.bio}}</B.Td>
+            <B.Td>{{B.data.education}}</B.Td>
+            <B.Td>{{B.data.occupation}}</B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+    </div>
+  </div>
+
+  <Shw::Divider />
+
   <Shw::Text::H2>Base elements</Shw::Text::H2>
 
   <Shw::Text::H3>ThSort</Shw::Text::H3>
