@@ -8,7 +8,6 @@
 
 - To hide information critical to the user's task.
 - To contain complex content.
-- {description}, consider {[component](#)}.
 
 ## Toggle text
 
@@ -32,13 +31,19 @@ Use meaningful text that relates to the content inside.
 ![Reveal example with a form](/assets/components/reveal/toggle-text-do.png)
 !!!
 
-<!-- don’t forget to include real examples and do/don’t blocks, as necessary -->
-{description}
+## Content type
 
-### Variant/property name
+The Reveal component should be used for hiding and showing simple content. For complex content and advanced functionality, consider using an Accordion (coming soon).
 
-<!-- don’t forget to include real examples and do/don’t blocks, as necessary -->
-{description}
+!!! Dont
+
+![Reveal example with complex content](/assets/components/reveal/content-type-dont.png)
+!!!
+
+!!! Do
+
+![Reveal example with simple content](/assets/components/reveal/content-type-do.png)
+!!!
 
 ## Content
 
