@@ -7,7 +7,7 @@
 ### When not to use
 
 - To hide information critical to the user's task.
-- To contain complex content.
+- To contain complex or advanced content.
 
 ## Toggle text
 
@@ -45,16 +45,17 @@ The Reveal component should be used for hiding and showing simple content. For c
 ![Reveal example with simple content](/assets/components/reveal/content-type-do.png)
 !!!
 
-## Content
+## Spacing
 
-- {description}
-- {description}
-- {description}
-- {description}
-- {description}
+- We recommend 8px between the Reveal and the element or section it relates to.
+
+- We recommend at least 24px below the Reveal.
+
+In cases where surrounding elements already have margin or padding added, you may want to reduce or remove the spacing entirely.
+
+![Reveal example within a form](/assets/components/reveal/spacing-guidance.png)
 
 ## Related
 
 <!-- only include the 2 most similar/related components -->
-- {[component name](#)}
 - {[component name](#)}
