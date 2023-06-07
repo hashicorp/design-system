@@ -55,7 +55,7 @@ There are four available colors for the Button: `primary`, `secondary`, `tertiar
 
 ### Size
 
-There are three sizes available for Buttons: `small`, `medium`, and `large`. The default is `medium`. To use a different size, declare a value for `@size`:
+There are three sizes available for the Button: `small`, `medium`, and `large`. The default is `medium`. To use a different size, declare a value for `@size`:
 
 ```handlebars
 <Hds::Button @text="Small button" @size="small" />
@@ -67,7 +67,7 @@ There are three sizes available for Buttons: `small`, `medium`, and `large`. The
 
 ### Full-width
 
-This indicates that a Button should take up the full-width of the parent container. It’s set to `false` by default.
+This indicates that the Button should take up the full-width of the parent container. It’s set to `false` by default.
 
 ```handlebars
 <Hds::Button @text="Copy to clipboard" @isFullWidth={{true}} />
@@ -104,7 +104,7 @@ The `Hds::Button` component uses the generic `Hds::Interactive` component. For m
 
 #### With @href
 
-If you pass an `@href` argument, a `<a>` link will be generated.
+If you pass an `@href` argument, an `<a>` link will be generated.
 
 `target=“_blank”` and `rel=“noopener noreferrer”` attributes are applied by default. This is the most common case, as internal links are generally handled using a `@route` argument but can be overridden. If the `href` points to an internal link, or uses a different protocol (e.g., "mailto" of "ftp"), pass `@isHrefExternal={{true}}` and it will not add the `target` and `rel` attributes.
 
@@ -114,7 +114,7 @@ If you pass an `@href` argument, a `<a>` link will be generated.
 
 #### With @route
 
-If you pass a `@route` argument, a `<a>` link will be generated using a `<LinkTo>` Ember component. All of the standard arguments for the `<LinkTo/LinkToExternal>` components are supported (eg. `models/model/query/current-when/replace`).
+If you pass a `@route` argument, an `<a>` link will be generated using a `<LinkTo>` Ember component. All of the standard arguments for the `<LinkTo/LinkToExternal>` components are supported (eg. `models/model/query/current-when/replace`).
 
 If the route is external to your current engine, you have to pass `@isRouteExternal={{true}}` so it will use `<LinkToExternal>` instead of `<LinkTo>` for the `@route`. For more details, see the [Hds::Interactive component](/utilities/interactive).
 
