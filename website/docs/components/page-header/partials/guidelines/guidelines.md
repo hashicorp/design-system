@@ -14,7 +14,7 @@
 
 Displays the title or topmost heading of the page. This should be limited to no more than four words and not exceed 50 characters.
 
-### Multiple `<h1>` elements per page
+### Multiple `<h1>` elements
 
 Since the Page Header renders the title in an `<h1>` element, ensure that this is the only `<h1>` on the page. More than one `<h1>` can confuse screen readers and impact the semantic hierarchy of the page.
 
@@ -26,7 +26,7 @@ Refer to [responsiveness](#responsiveness) for more information on how the compo
 
 ### Large
 
-![Large Page Header variant](/assets/components/page-header/page-header-size-large.png)
+![Large Page Header variant](/assets/components/page-header/page-header-size-large.png =945x*)
 
 ### Small
 
@@ -40,11 +40,11 @@ Displays a Helios [Breadcrumb](/components/breadcrumb) to communicate the applic
 
 ### Multiple Breadcrumb components
 
-Since the [Breadcrumb](/components/breadcrumb) uses landmark `<nav>` element, ensure that there is only one Breadcrumb on the page, or differentiate between Breadcrumbs by passing different `ariaLabel` arguments. Refer to the [Breadcrumb API](/components/breadcrumb?tab=code#component-api) for more details.
+Since the [Breadcrumb](/components/breadcrumb) uses a landmark `<nav>` element, ensure that there is only one Breadcrumb on the page, or differentiate between Breadcrumbs by passing them different `ariaLabel` arguments. Refer to the [Breadcrumb API](/components/breadcrumb?tab=code#component-api) for more details.
 
 ## Icon Tile
 
-Displays a Helios [IconTile](/components/icon-tile) as a visual indicator for the content of the page, the feature within the application, and product branding.
+Displays a Helios [IconTile](/components/icon-tile) as a visual indicator for the content of the page, object, or product branding.
 
 ![Page Header Icon Tile](/assets/components/page-header/page-header-icon-tile.png =700x*)
 
@@ -56,7 +56,7 @@ Only the `medium` size of the [IconTile](/components/icon-tile) is supported in 
 
 ## Badges
 
-Displays Helios [Badges](/components/badge) to communicate high-priority metadata like the status of the page and metadata that is subject to change. We recommend using a maximum of three Badges within the Page Header (this is the number supported in the Figma component) and prioritizing the most contextually relevant metadata.
+Displays Helios [Badges](/components/badge) to communicate high-priority metadata like the status of the page and metadata that is subject to change. We recommend using a maximum of three Badges within the Page Header and prioritizing the most contextually relevant metadata.
 
 ![Page Header Badges](/assets/components/page-header/page-header-badges.png =700x*)
 
@@ -78,7 +78,7 @@ Don't use more than three badges within the Page Header, instead explore ways to
 
 ## Subtitle
 
-Displays a subtitle beneath the title to communicate metadata that does not change frequently or is not subject to changes within the application. Common examples of this are organization name, project name, unique identifiers, resource names, etc.
+Displays a subtitle beneath the title to communicate metadata that does not change frequently or is not subject to changes within the application. Common examples of this are organization name, project name, unique IDs, resource names, etc.
 
 ![Page Header Subtitle](/assets/components/page-header/page-header-subtitle.png =700x*)
 
@@ -94,7 +94,7 @@ Don't use full sentences in the subtitle, use a [description](#description) inst
 
 Displays a description beneath the title and subtitle to communicate more detailed information about the page, link out to external documentation and resources, and capture more generic information about the page. Not all pages need a description, especially if the title is explicit enough.
 
-We recommend keeping a Page Header description to 1-2 sentences, if a longer description is required, consider linking to external documentation or moving more detailed content to an interstitial component like a [Flyout](/components/flyout)
+We recommend limiting the Page Header description to 1-2 sentences. If a longer description is required, consider linking to external documentation or moving more detailed content to an interstitial component like a [Flyout](/components/flyout).
 
 ![Page Header Description](/assets/components/page-header/page-header-description.png =700x*)
 
@@ -122,38 +122,25 @@ Instead, link to more complex content using an [Inline Link](/components/link/in
 
 !!! Insight
 
-**Hand-off note:** Nesting a [Link Inline](/components/link/inline) with an icon inside a block of text is not supported in the Figma component. Instead, override the description text with the correct link style and color and ensure that this detail is accounted for in the engineering hand-off. 
+**Hand-off note:** Nesting a [Link Inline](/components/link/inline) with an icon inside of the description is not supported in the Figma component. Instead, override the description text with the correct text style and color, and ensure that this detail is accounted for in the engineering hand-off. 
 
 !!!
 
 ## Custom metadata
 
-If necessary to include metadata like key/value pairs, multiple page level statuses, or other structured content, custom metadata can be passed to the component via the `customMetadata` property in Figma, or the `<[PH].Generic>` contextual component in Ember.
+If necessary to include metadata like key/value pairs, multiple page level statuses, or other structured content, custom metadata can be passed to the component via the `customMetadata` property in Figma.
 
-<Hds::PageHeader as |PH|>
-  <PH.Title>Terraform Workspace</PH.Title>
-  <PH.IconTile @icon="terraform-color" @color="terraform" />
-  <PH.Subtitle><strong>ID:</strong> wkdj293hfiw2liej234fklds</PH.Subtitle>
-  <PH.Description>Terraform enables you to safely and predictably create, change, and improve your application infrastructure. <Hds::Link::Inline @href="#" @icon="external-link">Read more</Hds::Link::Inline>.</PH.Description>
-  <PH.Generic>
-    <Doc::Placeholder
-      @text="generic metadata"
-      @height="36"
-      @width="350"
-      @background="#eee"
-    />
-  </PH.Generic>
-</Hds::PageHeader>
+![Page Header custom metadata](/assets/components/page-header/page-header-custom-metadata-example.png =700x*)
 
 ### Key/value pairs as custom metadata
 
-Representing metadata with a set of key/value pairs is common in HashiCorp products and can be useful when communicating relational information between products, versioning, and other complex structured data.
+Representing metadata with a set of key/value pairs is common in HashiCorp products and can be useful when communicating relational information between products, versioning, and other structured data.
 
 ![Custom metadata key/value pairs](/assets/components/page-header/page-header-custom-metadata.png =600x*)
 
 !!! Dont
 
-We recommend not exceeding more than four metadata objects or key/value pairs, this can result in unnecessarily complex content with the Page Header. Instead, move this content into the page.
+We recommend not exceeding more than four key/value pairs, this can result in unnecessarily complex content with the Page Header. Instead, move this content into the page.
 
 ![Complex metadata dont](/assets/components/page-header/page-header-custom-metadata-dont.png)
 
@@ -161,7 +148,7 @@ We recommend not exceeding more than four metadata objects or key/value pairs, t
 
 ## Actions
 
-Use [Buttons](/components/button) and [Dropdowns](/components/dropdown) in the Page Header to highlight page level functions and actions that impact the page holistcally. Examples of this include:
+Use [Buttons](/components/button) and [Dropdowns](/components/dropdown) in the Page Header to highlight functions and actions that impact the page as a whole. Examples of this include:
 
 - Creating new objects that are listed within the page
 - Surfacing management details like connecting to an API
@@ -172,31 +159,31 @@ Use [Buttons](/components/button) and [Dropdowns](/components/dropdown) in the P
 
 ### Primary button
 
-Use a primary [Button](/components/button) in the Page Header to trigger the most important flow or action on the page. Examples of this include:
+Use a `primary` [Button](/components/button) in the Page Header to highlight the most important flow or action on the page. Examples of this include:
 
 - A flow that creates an object that is related to the page, e.g., creating a new cluster or adding a new user.
-- Launching or deploying a specific product instance
+- Launching or deploying a specific product instance.
 
 ### Secondary button
 
-Use a secondary [Button](/components/button) in the Page Header when needed to highlight actions such as editing the content on a page, managing access, etc.
+Use a `secondary` [Button](/components/button) in the Page Header when highlighting actions that are less important than the primary action, such editing the content on a page, managing access, etc.
 
 ### Tertiary button
 
-Tertiary [Buttons](/components/button) can be useful when linking to external documentation or highlighting other low-priority actions.
+Use a `tertiary` [Button](/components/button) when highlighting low-priority actions like linking to external documentation.
 
 ![Page Header Actions Tertiary Button](/assets/components/page-header/page-header-actions-tertiary-button.png =700x*)
 
 ### Dropdowns
 
-Use a [Dropdown](/components/dropdown) in the Page Header to combine additional secondary functions, tasks, or elements that assist the user in managing the information or objects on the page. Examples of this include:
+Use a [Dropdown](/components/dropdown) in the Page Header to combine multiple secondary functions, tasks, or elements that assist the user in managing the information or objects on the page. Examples of this include:
 
 - Copying API credentials to manage the object remotely
 - Editing or changing settings
 - Deleting or deactivating an object
 - Linking to documentation
 
-When used in these scenarios and paired with a primary "create" action, use the `secondary` [Dropdown](/components/dropdown) color.
+When used in these scenarios and paired with a `primary` button, use a `secondary` [Dropdown](/components/dropdown).
 
 !!! Do
 
@@ -216,13 +203,13 @@ Don't use a `primary` [Dropdown](/components/dropdown) when combining different,
 
 ### Action color and pairing
 
-While the Page Header supports up to three actions in Figma, we recommend limiting the number actions to two for most pages. These actions should generally consist of a primary action (using the `@color="primary"` property) and a secondary action or management function (using the `@color="secondary"` property).
+While the Page Header supports up to three actions in Figma, we recommend limiting the number actions to two for most pages. These actions should generally consist of a primary action (e.g. "Create" or "Deply") and a secondary action (e.g., "Manage")..
 
-For more details on how to combine, order, and organize Buttons, refer to the [Button order, organization, and alignment](/patterns/button-organization) pattern documentation.
+For more details on how to combine, order, and organize buttons, refer to the [Button order, organization, and alignment](/patterns/button-organization) pattern documentation.
 
 !!! Dont
 
-Don't pair two primary actions in a Page Header. Instead, communicate the highest priority action for the user with a primary Button and other actions with a secondary Button or within a Dropdown.
+Don't pair two primary actions in a Page Header. Instead, communicate the highest priority action for the user with a primary Button or Dropdown and other actions with a secondary Button or Dropdown.
 
 ![Page Header two primary actions](/assets/components/page-header/page-header-dont-two-actions.png =700x*)
 
@@ -234,9 +221,9 @@ The Page Header component in Figma supports two sizes; `large` which accounts fo
 
 The Ember component uses a variety of different methods to ensure fluidity and responsiveness:
 
-- By default, the component will fill the page layout it is used within. It does not have any padding or margin explicitly applied to adapt to different layout and spacing methods.
-- The component has breakpoints by means of container queries (at `700px` and one at `400px`) that account for the majority of content within the component and stack elements in a single column as the container shrinks.
-- Elements displayed inline with each other (e.g., title and badges) have `flex-wrap: wrap;` set to wrap elements when the available space reduces. 
+- By default, the component will fill the page layout it is used within. It does not have any padding or margin explicitly applied, allowing it to adapt to different layout and spacing methods.
+- The component has breakpoints by means of container queries (at `7680px` and one at `400px`) that account for the majority of content within the component and stack elements in a single column as the container shrinks.
+- Elements displayed inline with each other (e.g., title and badges) have `flex-wrap: wrap;` set to wrap elements when the available space is reduced. 
 
 !!! Info
 

@@ -9,7 +9,7 @@ links:
 previewImage: assets/illustrations/components/page-header.jpg
 navigation:
   keywords:
-    ['title', 'action bar', 'breadcrumb', 'landmark', 'header', 'banner']
+    ['title', 'action bar', 'breadcrumb', 'landmark', 'banner']
 ---
 
 <section data-tab="Guidelines">

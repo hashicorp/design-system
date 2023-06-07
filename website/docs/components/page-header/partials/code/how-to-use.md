@@ -1,6 +1,6 @@
 ## How to use this component
 
-A simple invocation of the component requires an `@title` argument that renders in a semantic `<h1>`.
+A simple invocation of the component accepts a contextual `<PH.Title>` which yields it's content within an `<h1>`.
 
 ```handlebars
 <Hds::PageHeader as |PH|>
@@ -10,7 +10,7 @@ A simple invocation of the component requires an `@title` argument that renders 
 
 ### Contextual components
 
-The Page Header uses a variety of contextual components that either yield their content or render a specific Helios component.
+The Page Header uses a number of contextual components that either yield their content or render a specific Helios component.
 
 ```handlebars
 <Hds::PageHeader as |PH|>

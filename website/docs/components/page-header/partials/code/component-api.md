@@ -1,6 +1,6 @@
 ## Component API
 
-The Page Header is a flexible component that exposes a number of contextual components to support many different composition methods. 
+The Page Header is flexible and exposes a number of contextual components to support many different composition methods. 
 
 ### Contextual components
 
