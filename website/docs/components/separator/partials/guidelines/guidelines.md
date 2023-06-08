@@ -9,7 +9,7 @@
 
 - Don't use to separate headings and body text. Instead, use our foundations to emphasize hierarchy. 
 
-### Header 3
+### Placement Examples
 
 !!! Do
 
