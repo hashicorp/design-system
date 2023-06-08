@@ -19,14 +19,14 @@
 
 Don’t use vague or unrelated text to describe the content.
 
-![Reveal example with a form](/assets/components/reveal/toggle-text-dont.png)
+![Reveal example with a form](/assets/components/reveal/toggle-text-dont.png =591x*)
 !!!
 
 !!! Do
 
 Use meaningful text that relates to the content inside.
 
-![Reveal example with a form](/assets/components/reveal/toggle-text-do.png)
+![Reveal example with a form](/assets/components/reveal/toggle-text-do.png =591x*)
 !!!
 
 ## Content type
@@ -35,12 +35,12 @@ The Reveal component should be used for hiding and showing simple content. For c
 
 !!! Dont
 
-![Reveal example with complex content](/assets/components/reveal/content-type-dont.png)
+![Reveal example with complex content](/assets/components/reveal/content-type-dont.png =725x*)
 !!!
 
 !!! Do
 
-![Reveal example with simple content](/assets/components/reveal/content-type-do.png)
+![Reveal example with simple content](/assets/components/reveal/content-type-do.png =604x*)
 !!!
 
 ## Spacing
