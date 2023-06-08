@@ -6,9 +6,9 @@ When used as recommended, there should not be any WCAG conformance issues with t
 
 ## Applicable WCAG Success Criteria
 
-This section is for reference only. This component intends to conform to the following WCAG Success Criteria:
+All of the success criteria that applied to the components used in building this component will still apply and should be listed on the component’s accessibility documentation. Additionally, a few specifically relevant (potential) additions:
 
-<Doc::WcagList @criteriaList={{array "..." }} />
+<Doc::WcagList @criteriaList={{array "1.3.2" }} />
 
 ---
 
