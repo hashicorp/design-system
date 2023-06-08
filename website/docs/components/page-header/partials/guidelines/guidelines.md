@@ -4,11 +4,11 @@
 
 - To display the title or topmost heading within a page.
 - To communicate metadata pertaining to the page; e.g., status, description, subtitle, etc.
-- To highlight page level actions and functions.
+- To highlight page-level actions and functions.
 
 ### When not to use
 
-- To communicate page level information anywhere other than the top of the page.
+- To communicate page-level information anywhere other than the top of the page.
 
 ## Title
 
@@ -128,7 +128,7 @@ Instead, link to more complex content using an [Inline Link](/components/link/in
 
 ## Custom metadata
 
-If necessary to include metadata like key/value pairs, multiple page level statuses, or other structured content, custom metadata can be passed to the component via the `customMetadata` property in Figma.
+If necessary to include metadata like key/value pairs, multiple page-level statuses, or other structured content, custom metadata can be passed to the component via the `customMetadata` property in Figma.
 
 ![Page Header custom metadata](/assets/components/page-header/page-header-custom-metadata-example.png =700x*)
 
@@ -153,7 +153,7 @@ Use [Buttons](/components/button) and [Dropdowns](/components/dropdown) in the P
 - Creating new objects that are listed within the page
 - Surfacing management details like connecting to an API
 - Deleting or deactivating an object
-- Pausing or refreshing a service pertaining the page
+- Pausing or refreshing a service pertaining to the page
 
 ![Page Header Actions](/assets/components/page-header/page-header-actions.png =853x*)
 
@@ -166,7 +166,7 @@ Use a `primary` [Button](/components/button) in the Page Header to highlight the
 
 ### Secondary button
 
-Use a `secondary` [Button](/components/button) in the Page Header when highlighting actions that are less important than the primary action, such editing the content on a page, managing access, etc.
+Use a `secondary` [Button](/components/button) in the Page Header when highlighting actions that are less important than the primary action, such as editing the content on a page, managing access, etc.
 
 ### Tertiary button
 
@@ -203,7 +203,7 @@ Don't use a `primary` [Dropdown](/components/dropdown) when combining different,
 
 ### Action color and pairing
 
-While the Page Header supports up to three actions in Figma, we recommend limiting the number actions to two for most pages. These actions should generally consist of a primary action (e.g. "Create" or "Deply") and a secondary action (e.g., "Manage")..
+While the Page Header supports up to three actions in Figma, we recommend limiting the number of actions to two for most pages. These actions should generally consist of a primary action (e.g. "Create" or "Deploy") and a secondary action (e.g., "Manage").
 
 For more details on how to combine, order, and organize buttons, refer to the [Button order, organization, and alignment](/patterns/button-organization) pattern documentation.
 
