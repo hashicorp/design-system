@@ -11,6 +11,8 @@
 
 ### Placement Examples
 
+We recommend using meaningful spacing between content elements, allowing users to scan and understand information quickly. Use separators sparingly and purposefully to avoid cluttering the UI and distracting users from the main content.
+
 !!! Do
 
 ![Example of a leading icon in the tag](/assets/components/separator/separator-do.png)
