@@ -34,7 +34,8 @@
     "test": "npm-run-all lint test:*",
     "test:ember": "ember test",
     "test:ember-compatibility": "ember try:each",
-    "test:ember:percy": "percy exec ember test"
+    "test:ember:percy": "percy exec ember test",
+    "test:ember:a11y": "ENABLE_A11Y_AUDIT=true ember test"
   },
   "dependencies": {
     "@ember/render-modifiers": "^2.0.5",
@@ -68,7 +69,7 @@
     "@percy/ember": "^4.2.0",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
-    "ember-a11y-testing": "^5.2.0",
+    "ember-a11y-testing": "^5.2.1",
     "ember-body-class": "^3.0.0",
     "ember-cli": "~4.10.0",
     "ember-cli-clipboard": "^1.0.0",

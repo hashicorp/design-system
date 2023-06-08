@@ -2563,7 +2563,7 @@ __metadata:
     broccoli-asset-rev: ^3.0.0
     dialog-polyfill: ^0.5.6
     ember-a11y-refocus: ^3.0.2
-    ember-a11y-testing: ^5.2.0
+    ember-a11y-testing: ^5.2.1
     ember-auto-import: ^2.6.0
     ember-body-class: ^3.0.0
     ember-cached-decorator-polyfill: ^0.1.4
@@ -8974,6 +8974,32 @@ __metadata:
     qunit:
       optional: true
   checksum: 93457b4ee798e38631d6b9a041bb90673c004eca12cc0ffc12753556d2c31a7fcbd43d885a0bd91e930582b7dc321831ec0a327194a143607ee5e8ece775f248
+  languageName: node
+  linkType: hard
+
+"ember-a11y-testing@npm:^5.2.1":
+  version: 5.2.1
+  resolution: "ember-a11y-testing@npm:5.2.1"
+  dependencies:
+    "@ember/test-waiters": ^2.4.3 || ^3.0.0
+    "@scalvert/ember-setup-middleware-reporter": ^0.1.1
+    axe-core: ^4.6.3
+    body-parser: ^1.19.1
+    broccoli-persistent-filter: ^3.1.2
+    ember-auto-import: ^2.2.4
+    ember-cli-babel: ^7.26.11
+    ember-cli-typescript: ^4.2.1
+    ember-cli-version-checker: ^5.1.2
+    ember-destroyable-polyfill: ^2.0.1
+    fs-extra: ^10.0.0
+    validate-peer-dependencies: ^2.0.0
+  peerDependencies:
+    "@ember/test-helpers": ^2.0.0
+    qunit: ">= 2"
+  peerDependenciesMeta:
+    qunit:
+      optional: true
+  checksum: 4c8a2c1a04751c995679f537af3c93036c648dc7e289a2bfa044b8cab189662a8c451507ae6a7777d1b77e0589c0e2304f0c5c76e2ee53e75cf2c3c0845d23da
   languageName: node
   linkType: hard
 
