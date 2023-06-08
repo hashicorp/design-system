@@ -1,4 +1,10 @@
-## Accessibility
+## Conformance rating
+
+<Doc::Badge @type="success">Conformant</Doc::Badge>
+
+When used as recommended, there should not be any accessibility issues with this component.
+
+## Browser accessibility support
 
 Accessibility support for SVGs is inconsistent across browsers and assistive technology. Currently, the best practice is to set the `aria-hidden` attribute to `true` on the SVG itself (as we do by default for the `FlightIcon` component). This means that the icon (both the singular icon and the icon component) will need to be used _in context_. The icons themselves are for presentation purposes only and should never be used on their own.
 
@@ -17,7 +23,3 @@ However, as a _temporary_ bridge, while we work to provide the accessible compon
     Activity report <FlightIcon @name="activity" />
 </h2>
 ```
-
-Some additional best practices include:
-
-- Use icons at 16px or 24px. Use at other sizes sparingly.
