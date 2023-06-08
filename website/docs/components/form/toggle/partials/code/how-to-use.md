@@ -63,7 +63,7 @@ Pass a `@value` argument.
 
 #### Checked
 
-Pass the standard HTML `checked` attribute to set the toggle to “checked”.
+Pass the standard HTML `checked` attribute to set the Toggle to “checked”.
 
 ```handlebars
 <Hds::Form::Toggle::Field @value="enable" checked as |F|>

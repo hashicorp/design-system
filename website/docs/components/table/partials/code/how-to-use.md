@@ -53,9 +53,9 @@ If you want to use the component but have no model defined (e.g., there are only
 </Hds::Table>
 ```
 
-### Non-sortable table with model defined
+### Non-sortable Table with model defined
 
-To use a table with a model, first define the data model in your route or model:
+To use a Table with a model, first define the data model in your route or model:
 
 ```javascript
 import Route from '@ember/routing/route';
@@ -201,7 +201,7 @@ By default, the sort order is set to ascending. To indicate that the column defi
 To implement a custom sort callback on a column:
 
 1. add a custom function as the value for `sortingFunction` in the column hash,
-2. include a custom `onSort` action in your table invocation to track the sorting order and use it in the custom sorting function.
+2. include a custom `onSort` action in your Table invocation to track the sorting order and use it in the custom sorting function.
 
 This is useful for cases where the key might not be A-Z or 0-9 sortable by default, e.g., status, and you’re otherwise unable to influence the shape of the data in the model.
 
@@ -266,7 +266,7 @@ customOnSort(_sortBy, sortOrder) {
 
 ### Density
 
-To create a condensed or spacious table, add `@density` to the table's invocation. Note that it only affects the table body, not the table header.
+To create a condensed or spacious Table, add `@density` to the Table's invocation. Note that it only affects the Table body, not the Table header.
 
 ```handlebars
 <Hds::Table
@@ -384,7 +384,7 @@ To create a column that has right-aligned content, set `@align` to `right` on bo
 
 #### Internationalized column headers, overflow menu dropdown
 
-Here’s a table implementation that uses an array hash with localized strings for the column headers, indicates which columns should be sortable, and adds an overflow menu.
+Here’s a Table implementation that uses an array hash with localized strings for the column headers, indicates which columns should be sortable, and adds an overflow menu.
 
 ```handlebars{data-execute=false}
 <Hds::Table

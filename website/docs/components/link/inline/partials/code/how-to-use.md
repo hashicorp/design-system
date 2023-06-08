@@ -20,7 +20,7 @@ There are two available colors for a Inline Link: `primary` and `secondary`. The
 
 ### Icon
 
-To add an icon to your inline link, give the `@icon` argument any [icon](/icons/library) name.
+To add an icon to your Inline Link, give the `@icon` argument any [icon](/icons/library) name.
 
 `Hds::Link::Inline` does not have an intrinsic size. Instead, the size of the icon is calculated proportionally (via `em`) in relation to the font-size of the text.
 

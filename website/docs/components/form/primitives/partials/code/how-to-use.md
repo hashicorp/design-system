@@ -95,7 +95,7 @@ If no `isRequired/isOptional` argument is provided, the component will not rende
 
 #### Required
 
-Pass an `isRequired` argument, to render a `Required` indicator.
+Pass an `isRequired` argument, to render a `Required` Indicator.
 
 ```handlebars
 <Hds::Form::Indicator @isRequired={{true}} />
@@ -103,7 +103,7 @@ Pass an `isRequired` argument, to render a `Required` indicator.
 
 #### Optional
 
-Pass an `isOptional` argument, to render an `Optional` indicator.
+Pass an `isOptional` argument, to render an `Optional` Indicator.
 
 ```handlebars
 <Hds::Form::Indicator @isOptional={{true}} />
