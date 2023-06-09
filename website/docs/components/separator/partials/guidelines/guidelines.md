@@ -17,7 +17,7 @@ Use to create a clear break between paragraphs, blocks, or sections.
 
 !!!
 
-### Spacing
+## Spacing
 
 ##### 0px Spacing:
    - This option works well when you want adjacent components to flow together smoothly without any interruptions in the visual presentation.
