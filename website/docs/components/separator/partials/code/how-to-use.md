@@ -1,6 +1,6 @@
 ## How to use this component
 
-The Separator renders a thematic break element (also known as horizontal rule, or `<hr/>` tag) and comes by default with equal top and bottom margins to create space between sections.
+The Separator renders a thematic break element (also known as horizontal rule, or `<hr/>` element) with equal top and bottom margins to create space between sections.
 
 ```handlebars
 <Hds::Separator/>
