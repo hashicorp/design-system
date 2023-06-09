@@ -4,7 +4,7 @@ description: A toggle that reveals additional information or details about an el
 caption: A toggle that reveals additional content to the user when triggered.
 status: released
 links:
-  figma: {link to the "Reveal" page in the components Figma library}
+  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=35103%3A70091&t=PdXIqxQkqpsXUQki-1
   github: {link to the "Reveal" component's folder in the GitHub repo}
 previewImage: assets/illustrations/components/reveal.jpg
 navigation:

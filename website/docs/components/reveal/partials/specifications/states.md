@@ -1,2 +1,7 @@
-<!-- populate with examples and documentation of interactive states -->
-<!-- this can usually be found in the design guidelines -->
+## States
+
+![Example of reveal states](/assets/components/reveal/reveal-states.png)
+
+### isOpen
+
+![Example of reveal states when is open](/assets/components/reveal/reveal-states-open.png)
