@@ -13,7 +13,7 @@
 
 - Ensure that the text clearly describes the content that will be revealed when the toggle is triggered.
 - Keep the text short, clear, and concise. Avoid long sentences.
-- Use action-oriented language when possible to convey that there is additional content to be shown. e.g. Show more options.
+- Use action-oriented language, when possible, to convey that there is additional content to be shown, e.g., “Show more options”.
 
 !!! Dont
 
