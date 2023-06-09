@@ -1,7 +1,7 @@
 
 ## Placement
 
-We recommend using meaningful spacing between content elements, allowing users to scan and understand information quickly. Use separators sparingly and purposefully to avoid cluttering the UI and distracting users from the main content.
+Use separators to distinguish between sections on a page visually. Use them sparingly and purposefully to avoid cluttering the UI and distracting users from the main content.
 
 !!! Do
 
