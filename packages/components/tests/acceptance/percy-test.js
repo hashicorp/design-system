@@ -104,6 +104,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/reveal');
     await percySnapshot('Reveal');
 
+    await visit('/components/segmented-group');
+    await percySnapshot('Segmented Group');
+
     await visit('/components/side-nav');
     await percySnapshot('SideNav');
 
@@ -130,6 +133,8 @@ module('Acceptance | Percy test', function (hooks) {
 
     await visit('/utilities/dismiss-button');
     await percySnapshot('DismissButton');
+
+    // DO NOT REMOVE – PERCY SNAPSHOTS END
 
     assert.ok(true);
   });

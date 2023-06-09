@@ -2,19 +2,19 @@
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="size" @type="enum" @values={{array "small" "medium" "large" }} @default="medium">
-    Sets the width of the modal.
+    Sets the width of the Modal.
   </C.Property>
   <C.Property @name="color" @type="enum" @values={{array "neutral" "warning" "critical" }} @default="neutral">
-    Sets the color scheme for the modal header elements: icon, tagline, and title.
+    Sets the color scheme for the Modal Header elements: icon, tagline, and title.
   </C.Property>
   <C.Property @name="onOpen" @type="function">
-    Callback function invoked when the modal is opened.
+    Callback function invoked when the Modal is opened.
   </C.Property>
   <C.Property @name="onClose" @type="function">
-    Callback function invoked when the modal is closed.
+    Callback function invoked when the Modal is closed.
   </C.Property>
-  <C.Property @name="isDismissDisabled" @type="boolean" @values={{array "false" "true" }} @default="false">
-    Set this boolean to `true` if you want to prevent the modal from being closed (for instance, to avoid accidental data loss in a form that hasn't been submitted). Make sure you communicate to users the reason why the modal is still open, and what they need to do to resolve the problem that is preventing the modal from being closed.
+  <C.Property @name="isDismissDisabled" @type="boolean" @default="false">
+    Set this boolean to `true` if you want to prevent the Modal from being closed (for instance, to avoid accidental data loss in a form that hasn't been submitted). Make sure you communicate to users the reason why the Modal is still open, and what they need to do to resolve the problem that is preventing the Modal from being closed.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
@@ -23,7 +23,7 @@
 
 ### Contextual components
 
-The title, the content of the modal dialog, and the actions are passed into the modal as yielded components, using the `Header`, `Body`, `Footer` keys.
+The title, the content of the Modal dialog, and the actions are passed into the Modal as yielded components, using the `Header`, `Body`, `Footer` keys.
 
 #### Modal::Header
 
@@ -34,7 +34,7 @@ A container that yields its content as the title of the Modal.
     Accepts any [icon](/icons/library) name.
   </C.Property>
   <C.Property @name="tagline" @type="string">
-    String that helps the user maintain context when a modal dialog is open.
+    String that helps the user maintain context when a Modal dialog is open.
     <br/><br/>
      This is **not** the title text, but a small piece of text above the title text.
   </C.Property>

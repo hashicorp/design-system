@@ -3,7 +3,7 @@ The Stepper Indicator indicates the relational step value, helping users maintai
 There are two types of indicators: `Step::Indicator` and `Task::Indicator`, which can be used in conjunction, or separately depending on hierarchical needs or requirements.
 
 
-## Stepper::Step::Indicator
+## How to use the Stepper::Step::Indicator
 
 Although not required, the basic invocation should include `text` and `status` arguments.
 
@@ -29,7 +29,7 @@ To change the status of the Step Indicator, set the `@status` argument to `incom
 <Hds::Stepper::Step::Indicator @text="1" @status="complete" @isInteractive={{true}} />
 ```
 
-## Stepper::Task::Indicator
+## How to use the Stepper::Task::Indicator
 
 Although not required, the basic invocation should include a `status` argument.
 

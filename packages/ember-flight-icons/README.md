@@ -16,13 +16,12 @@ Goals:
 ## Compatibility
 
 * Ember.js v3.28 or above
-  * Note: The library _should_ work with earlier versions of Ember, but we only test with Ember 3.28 and newer
 * Ember CLI v3.28 or above
 * Node.js v12 or above
 
 ## Installation and Usage
 
-See [https://flight-hashicorp.vercel.app/](https://flight-hashicorp.vercel.app/) for installation and usage instructions.
+See [https://helios.hashicorp.design/icons/usage-guidelines?tab=code](https://helios.hashicorp.design/icons/usage-guidelines?tab=code) for installation and usage instructions.
 
 ## Contributing
 

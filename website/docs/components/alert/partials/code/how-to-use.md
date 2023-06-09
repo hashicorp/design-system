@@ -1,6 +1,6 @@
 ## How to use this component
 
-The most basic invocation requires the `type` argument to be passed, along with the `title` and/or `description` content. By default, a `neutral` alert is generated.
+The most basic invocation requires the `type` argument to be passed, along with the `title` and/or `description` content. By default, a `neutral` Alert is generated.
 
 ```handlebars
 <Hds::Alert @type="inline" as |A|>
@@ -11,7 +11,7 @@ The most basic invocation requires the `type` argument to be passed, along with 
 
 ### Type
 
-A different type of alert can be invoked using the `type` argument.
+A different type of Alert can be invoked using the `type` argument.
 
 ```handlebars
 <Hds::Alert @type="page" as |A|>
@@ -45,7 +45,7 @@ Optionally, you can pass only `title` or only `description`.
 
 ### Color
 
-A different color can be applied to the alert using the `color` argument. This will determine the default icon used in the alert, unless overwritten.
+A different color can be applied to the Alert using the `color` argument. This will determine the default icon used in the Alert, unless overwritten.
 
 ```handlebars
 <Hds::Alert @type="inline" @color="success" as |A|>
@@ -56,7 +56,7 @@ A different color can be applied to the alert using the `color` argument. This w
 
 ### Icons
 
-A different icon can be used in the alert using the `icon` argument. This accepts any [icon](/icons/library) name.
+A different icon can be used in the Alert using the `icon` argument. This accepts any [icon](/icons/library) name.
 
 ```handlebars
 <Hds::Alert @type="inline" @color="success" @icon="bulb" as |A|>
@@ -65,7 +65,7 @@ A different icon can be used in the alert using the `icon` argument. This accept
 </Hds::Alert>
 ```
 
-If you need to hide the icon, pass `false` to the `icon` argument. This is only an option on page and inline alerts as compact alerts require an icon.
+If you need to hide the icon, pass `false` to the `icon` argument. This is only an option on page and inline Alerts as compact Alerts require an icon.
 
 ```handlebars
 <Hds::Alert @type="inline" @color="success" @icon={{false}} as |A|>
@@ -76,7 +76,7 @@ If you need to hide the icon, pass `false` to the `icon` argument. This is only 
 
 ### Dismissal
 
-To enable dismissibility, pass a callback function to the `onDismiss` argument. This will add a dismiss button to the alert. When that button is clicked, the callback function will be executed. 
+To enable dismissibility, pass a callback function to the `onDismiss` argument. This will add a dismiss button to the Alert. When that button is clicked, the callback function will be executed. 
 
 Given the variety of use cases and contexts in which alerts are used across products, application teams will need to implement the callback function.
 

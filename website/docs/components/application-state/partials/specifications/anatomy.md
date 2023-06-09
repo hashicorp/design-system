@@ -8,6 +8,6 @@
 | Icon             | Optional, but recommended with errorCode.        |
 | errorCode        | Optional, but recommended when in errorState.        |
 | Body             | Required.        |
-| Divider          | Optional, but recommended when dividing actions from content.        |
+| Separator        | Optional, but recommended when separating actions from content.        |
 | Footer           | Optional.        |
 | Action           | Required, if no footer; optional.        |

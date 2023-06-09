@@ -1,4 +1,4 @@
-## Component API 
+## Component API
 
 The Text Input component has two different variants with their own APIs:
 
@@ -14,7 +14,7 @@ The Text Input component has two different variants with their own APIs:
   <C.Property @name="value" @type="string|number|date">
     Input control’s value.
   </C.Property>
-  <C.Property @name="isInvalid" @type="boolean" @values={{array "false" "true" }} @default="false">
+  <C.Property @name="isInvalid" @type="boolean" @default="false">
     Applies an “invalid” appearance to the control but doesn’t modify its logical validity.
   </C.Property>
   <C.Property @name="width" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
@@ -38,13 +38,13 @@ The Text Input component has two different variants with their own APIs:
   <C.Property @name="value" @type="string|number|date">
     Input control’s value.
   </C.Property>
-  <C.Property @name="isInvalid" @type="boolean" @values={{array "false" "true" }} @default="false">
+  <C.Property @name="isInvalid" @type="boolean" @default="false">
     Applies an “invalid” appearance to the control but doesn’t modify its logical validity.
   </C.Property>
-  <C.Property @name="isRequired" @type="boolean" @values={{array "false" "true" }} @default="false">
+  <C.Property @name="isRequired" @type="boolean" @default="false">
     Appends a `Required` indicator next to the label text and sets the `required` attribute on the control when user input is required.
   </C.Property>
-  <C.Property @name="isOptional" @type="boolean" @values={{array "false" "true" }} @default="false">
+  <C.Property @name="isOptional" @type="boolean" @default="false">
     Appends an `Optional` indicator next to the label text when user input is optional.
   </C.Property>
   <C.Property @name="width" @type="string" @valueNote="any valid CSS width (px, rem, etc)">

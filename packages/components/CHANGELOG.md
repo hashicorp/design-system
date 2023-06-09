@@ -1,5 +1,44 @@
 # @hashicorp/design-system-components
 
+## 2.5.0
+
+### Minor Changes
+
+- [#1391](https://github.com/hashicorp/design-system/pull/1391) [`0a7c53886`](https://github.com/hashicorp/design-system/commit/0a7c5388643f95891082dde2b27b66716372b514) Thanks [@alex-ju](https://github.com/alex-ju)! - Embed page scroll management into the `Modal` and `Flyout` components
+
+## 2.4.3
+
+### Patch Changes
+
+- [#1388](https://github.com/hashicorp/design-system/pull/1388) [`56a6b94df`](https://github.com/hashicorp/design-system/commit/56a6b94dfa337a887153e39393ed2a2bb1b93774) Thanks [@didoo](https://github.com/didoo)! - Fixed `SideNav` issue with content resizing when transitioning its `width`
+
+## 2.4.2
+
+### Patch Changes
+
+- [#1380](https://github.com/hashicorp/design-system/pull/1380) [`cd16ccc19`](https://github.com/hashicorp/design-system/commit/cd16ccc19e0992be2bed5d567880d2d0d36f1880) Thanks [@MelSumner](https://github.com/MelSumner)! - A11y Fix: removes `aria-label` from stepper/indicator and from task/indicator, which was causing an accessibility test error.
+
+## 2.4.1
+
+### Patch Changes
+
+- Updated dependencies [[`2c7d70868`](https://github.com/hashicorp/design-system/commit/2c7d70868b0fa000618214589e2422e07db68b22)]:
+  - @hashicorp/ember-flight-icons@3.0.3
+
+## 2.4.0
+
+### Minor Changes
+
+- [#1371](https://github.com/hashicorp/design-system/pull/1371) [`aa2be65cf`](https://github.com/hashicorp/design-system/commit/aa2be65cf3df7742c09d772b4f14b2b56f549b53) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - Refactor `Hds::Disclosure` internal utility component into two new components:
+  - Rename the original `Hds::Disclosure` component to `Hds::MenuPrimitive`
+  - Add a new `Hds::DisclosurePrimitive` component stripped of the “click outside/unfocus/esc to close” functionality
+
+### Patch Changes
+
+- [#1373](https://github.com/hashicorp/design-system/pull/1373) [`b2949f208`](https://github.com/hashicorp/design-system/commit/b2949f2087b0e52574a927bb095dc748a6aa81c3) Thanks [@MelSumner](https://github.com/MelSumner)! - Updates aria-label support for consistency. Consumers can now see in the component API docs where `@ariaLabel` is supported for a custom value, and what the fallback value is.
+
+- [#1364](https://github.com/hashicorp/design-system/pull/1364) [`3e1543077`](https://github.com/hashicorp/design-system/commit/3e1543077960d682c9e16d335a894186cf2ef6ad) Thanks [@alex-ju](https://github.com/alex-ju)! - Prevent `Tooltip` content from overflowing
+
 ## 2.3.3
 
 ### Patch Changes

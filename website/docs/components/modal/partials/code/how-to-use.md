@@ -4,7 +4,7 @@ The Modal component leverages the `<dialog>` element which is currently supporte
 
 ## Page scroll
 
-When a Modal is open, the rest of the page is disabled (via `inert`). However, scrolling at the page level is still available. To make it clear to the user that the underlying elements are not interactive and to avoid confusion, we recommend disabling the page scroll `onOpen` and enabling it back `onClose` (for example, by setting `overflow: hidden;` and `overflow: auto;` respectively) by applying it to the `<body>` element.
+When a Modal is open, the rest of the page is disabled (via `inert`). The page scrolling is also disabled by applying `overflow: hidden` to the `<body>` element, to make it clear to the user that the underlying elements are not interactive and to avoid confusion.
 
 ## Positioning
 
@@ -14,7 +14,7 @@ As an overlaying component, the `Hds::Modal` requires a high value on the z-axis
 
 This component uses [`ember-focus-trap`](https://github.com/josemarluedke/ember-focus-trap) to prevent the focus from going outside the Modal and to dismiss the Modal when clicking outside the Modal. This Ember modifier requires at least one interactive element to be present within the Modal, which is by default achieved by the dismiss button in the header.
 
-When a modal is opened with the keyboard, the focus is automatically set to the first focusable element inside the modal, which is the “Dismiss” button. The action of this button has no effect on the system, so focusing on it helps prevent users from accidentally confirming the modal.
+When a Modal is opened with the keyboard, the focus is automatically set to the first focusable element inside the Modal, which is the “Dismiss” button. The action of this button has no effect on the system, so focusing on it helps prevent users from accidentally confirming the Modal.
 
 ## How to use this component
 
@@ -40,11 +40,11 @@ When a modal is opened with the keyboard, the focus is automatically set to the 
 {{/if}}
 ```
 
-### Form within a modal dialog
+### Form within a Modal dialog
 
-If a modal dialog contains interactive elements, such as a form, the initial focus should be set on the first input, which is the first focusable element within the form. This can be achieved by setting the `autofocus` property on the first form element.
+If a Modal dialog contains interactive elements, such as a form, the initial focus should be set on the first input, which is the first focusable element within the form. This can be achieved by setting the `autofocus` property on the first form element.
 
-When the modal dialog contains information that might be lost on close, use a confirmation message before discarding it.
+When the Modal dialog contains information that might be lost on close, use a confirmation message before discarding it.
 
 ```handlebars
 <Hds::Button

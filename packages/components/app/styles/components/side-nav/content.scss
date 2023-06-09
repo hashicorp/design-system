@@ -21,7 +21,7 @@
 .hds-side-nav__content-panels {
   // see https://codepen.io/didoo/pen/YzOeRPr
   display: grid;
-  grid-template-columns: repeat(5, 100%);
+  grid-template-columns: repeat(5, var(--hds-app-sidenav-width-expanded));
   width: 100%;
 }
 

@@ -33,14 +33,12 @@ export default class Index extends Component {
   activateModal(modal) {
     this.isModalDismissDisabled = false;
     this[modal] = true;
-    document.body.style.overflow = 'hidden';
   }
 
   @action
   deactivateModal(modal) {
     this.isModalDismissDisabled = false;
     this[modal] = false;
-    document.body.style.overflow = 'auto';
   }
 
   @action markFormAsChanged() {

@@ -127,6 +127,15 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
     );
   }
 
+  /**
+   * @param ariaLabel
+   * @type {string}
+   * @default 'Pagination navigation'
+   */
+  get ariaLabel() {
+    return this.args.ariaLabel ?? 'Pagination navigation';
+  }
+
   // This very specific `get/set` pattern is used to handle the two different use cases of the component
   // being "controlled" (when it has routing, meaning it needs to support links as controls)
   // vs being "uncontrolled" (see comments above for details).
@@ -258,7 +267,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
         this.currentPage + 1,
         this.currentPageSize
       );
-      // IMPORTANT: here we neeed to use an object and not an array
+      // IMPORTANT: here we need to use an object and not an array
       // otherwise the {{get object page}} will be shifted by one
       // (the pages are 1-based while the array would be zero-based)
       routing.queryPages = {};

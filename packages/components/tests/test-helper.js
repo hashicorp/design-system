@@ -18,7 +18,13 @@ import {
 setApplication(Application.create(config.APP));
 
 setupGlobalA11yHooks(() => true, {
-  helpers: [...DEFAULT_A11Y_TEST_HELPER_NAMES, 'render', 'tab'],
+  helpers: [
+    ...DEFAULT_A11Y_TEST_HELPER_NAMES,
+    'render',
+    'tab',
+    'focus',
+    'select',
+  ],
 });
 
 setRunOptions({
@@ -29,10 +35,12 @@ setRunOptions({
       'wcag2aa',
       'wcag21a',
       'wcag21aa',
+      'wcag22aa',
       'best-practice',
-      'ACT',
     ],
   },
+  include: [['#ember-testing-container']],
+  exclude: [['.flight-sprite-container']],
 });
 
 setup(QUnit.assert);

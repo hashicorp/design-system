@@ -9,7 +9,7 @@ There are two main **high-level “container” components**, which control the 
 
 For more details on when and how to use these two components, refer to the "How to use" section below.
 
-There is also a set of **low-level sub-components**, used to build the "numbered" and "compact" variants:
+There is also a set of **low-level sub-components**, used to build the Numbered and Compact variants:
 
 - `Pagination::Info` - used to display the current range of items shown and the total number of items
 - `Pagination::Nav::Arrow` - used to provide "prev/next" navigation controls
@@ -17,11 +17,14 @@ There is also a set of **low-level sub-components**, used to build the "numbered
 - `Pagination::Nav::Ellipsis` - used to display an ellipsis instead of a set of page numbers
 - `Pagination::SizeSelector` - used to allow users to change the number of items displayed per page
 
-These pagination sub-elements may be used directly if you need to cover a very specific use case that is not covered by the "numbered" or "compact" pagination components. In that case, refer to their specific APIs below.
+These Pagination sub-elements may be used directly if you need to cover a very specific use case that is not covered by the Numbered or Compact Pagination components. In that case, refer to their specific APIs below.
 
 ### Pagination::Numbered
 
 <Doc::ComponentApi as |C|>
+<C.Property @name="ariaLabel" @type="string" @default="Pagination navigation">
+    Accepts a localized string.
+</C.Property>
 <C.Property @name="totalItems" @required="true" @type="number">
 Pass the total number of items to be paginated. If no value is defined an error will be thrown.
 </C.Property>
@@ -34,13 +37,13 @@ Set the page sizes users can select from. Example: `@pageSizes=\{{array 5 20 30}
 <C.Property @name="currentPage" @type="integer" @values={{array 1 "integer" }} @default={{1}}>
 Set a custom initial selected page.
 </C.Property>
-<C.Property @name="sizeSelectorLabel" @type="string" @values={{array "Items per page" "Custom string" }} @default="Items per page">
+<C.Property @name="sizeSelectorLabel" @type="string" @default="Items per page">
   Add a custom string for the label text overriding the default value.
 </C.Property>
-<C.Property @name="isTruncated" @type="boolean" @values={{array "true" "false" }} @default="true">
+<C.Property @name="isTruncated" @type="boolean" @default="true">
 Used to to limit the number of page numbers displayed (to save space, it will display an ellipsis for some numbers).
 </C.Property>
-<C.Property @name="showLabels" @type="boolean" @values={{array "true" "false" }} @default="false">
+<C.Property @name="showLabels" @type="boolean" @default="false">
 Used to control the visibility of the "prev/next" text labels.
 </C.Property>
 <C.Property @name="route/model/models/replace">
@@ -63,16 +66,19 @@ This component supports use of [`...attributes`](https://guides.emberjs.com/rele
 ### Pagination::Compact
 
 <Doc::ComponentApi as |C|>
+<C.Property @name="ariaLabel" @type="string" @default="Pagination navigation">
+    Accepts a localized string.
+</C.Property>
 <C.Property @name="route/model/models/replace">
 These are the parameters that are passed down as arguments to the `Hds::Pagination::Arrow` child components, and from them to the `Hds::Interactive` component (used internally). For more details about how this low-level component works, please refer to [its documentation page](/utilities/interactive/).
 </C.Property>
 <C.Property @name="queryFunction" @type="function">
 A function that returns an object that can be provided as `query` argument for the routing, and that is passed down to the to the child components together with the other routing parameters. The function receives as argument one of two possible values: `prev` / `next`.
 </C.Property>
-<C.Property @name="isDisabledPrev/isDisabledNext" @type="boolean" @values={{array "true" "false" }} @default="false">
+<C.Property @name="isDisabledPrev/isDisabledNext" @type="boolean" @default="false">
 Used to disable the "prev" or "next" controls. Notice: when the control is disabled, it’s always rendered as an HTML `<button>` element.
 </C.Property>
-<C.Property @name="showLabels" @type="boolean" @values={{array "true" "false" }} @default="true">
+<C.Property @name="showLabels" @type="boolean" @default="true">
 Used to control the visibility of the "prev/next" text labels.
 </C.Property>
 <C.Property @name="onPageChange" @type="function">
@@ -97,7 +103,7 @@ The "end" value of the range in the informational text.
 <C.Property @name="totalItems" @required="true" @type="string|number">
 The "out of" total items in the informational text. Not required if `showTotalItems` is set to `false`.
 </C.Property>
-<C.Property @name="showTotalItems" @type="boolean" @values={{array "true" "false" }} @default="true">
+<C.Property @name="showTotalItems" @type="boolean" @default="true">
 Controls the visibility of the total items in the informational text.
 </C.Property>
 </Doc::ComponentApi>
@@ -111,10 +117,10 @@ Sets the "direction" of the icon and label in the control.
 <C.Property @name="route/models/model/query/replace">
 These are the parameters that are passed down as arguments to the `Hds::Interactive` component (used internally). For more details about how this low-level component works, please refer to [its documentation page](/utilities/interactive/).
 </C.Property>
-<C.Property @name="disabled" @type="boolean" @values={{array "true" "false" }} @default="false">
+<C.Property @name="disabled" @type="boolean" @default="false">
 Sets the control as disabled. Notice: when the control is disabled, it’s always rendered as an HTML `Button` element.
 </C.Property>
-<C.Property @name="showLabel" @type="boolean" @values={{array "true" "false" }} @default="true">
+<C.Property @name="showLabel" @type="boolean" @default="true">
 Used to control the visibility of the text label in the control.
 </C.Property>
 <C.Property @name="onClick" @type="function">
@@ -130,7 +136,7 @@ This component supports use of [`...attributes`](https://guides.emberjs.com/rele
 <C.Property @name="page" @required="true" @type="number">
 The value that should go in the control as page number.
 </C.Property>
-<C.Property @name="isSelected" @type="boolean" @values={{array "true" "false" }} @default="false">
+<C.Property @name="isSelected" @type="boolean" @default="false">
 If the page has a "selected" visual state (usually used to highlight the current page).
 </C.Property>
 <C.Property @name="route/models/model/query/replace">
@@ -161,7 +167,7 @@ Set the page sizes users can select from. If no value is defined an error will b
 <C.Property @name="selectedSize" @type="integer">
 Used to indicate which of the provided `sizes` options is pre-selected. Normally this value is passed automatically by the Pagination wrapper component but can be provided as argument to the `Pagination::SizeSelector` component itself when used as a stand alone component.
 </C.Property>
-<C.Property @name="label" @type="string" @values={{array "Items per page" "Custom string" }} @default="Items per page">
+<C.Property @name="label" @type="string" @default="Items per page">
   Add a custom string for the label text overriding the default value.
 </C.Property>
 <C.Property @name="onChange" @type="function">

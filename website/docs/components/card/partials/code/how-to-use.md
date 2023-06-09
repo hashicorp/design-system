@@ -2,11 +2,11 @@
 
 **Just a container**
 
-The layout of the card itself, and its content, is left to the consumer of the component. The `Hds::Card::Container` is nothing more than a block container—a `<div>`—that provides styling for the `elevation`, `border`, and `background`. Sizing of the card, internal padding, and content alignment are all the consumer’s responsibility.
+The layout of the Card itself, and its content, is left to the consumer of the component. The `Hds::Card::Container` is nothing more than a block container—a `<div>`—that provides styling for the `elevation`, `border`, and `background`. Sizing of the card, internal padding, and content alignment are all the consumer’s responsibility.
 
 !!!
 
-## Usage
+## How to use this component
 
 ```handlebars
 <Hds::Card::Container @level="mid" @hasBorder={{true}}>
@@ -14,13 +14,13 @@ The layout of the card itself, and its content, is left to the consumer of the c
 </Hds::Card::Container>
 ```
 
-To style the cards, you can add an external element that wraps the card, with a custom class that controls the width of the wrapper itself and an internal element that wraps the content and applies padding around it (resulting in visual internal padding for the card) and aligns the text to the center.
+To style the Cards, you can add an external element that wraps the Card, with a custom class that controls the width of the wrapper itself and an internal element that wraps the content and applies padding around it (resulting in visual internal padding for the Card) and aligns the text to the center.
 
-Alternatively, you could use the card containers in a CSS `flex` or `grid` container.
+Alternatively, you could use the Card Containers in a CSS `flex` or `grid` container.
 
 ### Interactive states
 
-At the moment, we do not recommend using the card component as an interactive element, although we may add this feature in the future. Despite this, some products have implemented designs that provide visual feedback to the user interacting with a card by changing the elevation style (on `:hover` or `:active`).
+At the moment, we do not recommend using the Card component as an interactive element, although we may add this feature in the future. Despite this, some products have implemented designs that provide visual feedback to the user interacting with a Card by changing the elevation style (on `:hover` or `:active`).
 
 As a stopgap, we have introduced two specific arguments `@levelHover` and `@levelActive` to allow users to declare the specific "level" they want to use for each of these interactive states.
 
@@ -31,7 +31,7 @@ As a stopgap, we have introduced two specific arguments `@levelHover` and `@leve
 This is only an example and not a recommendation. If you have any doubt about which level to use for the different states, please speak with your product designer or contact the Design Systems Team.
 !!!
 
-In the following example, the card transitions between these elevations _mid → high → mid_ depending on these iteration states _rest → hover → active_:
+In the following example, the Card transitions between these elevations _mid → high → mid_ depending on these iteration states _rest → hover → active_:
 
 ```handlebars
 <div class="my-custom-class-to-set-the-card-layout">
