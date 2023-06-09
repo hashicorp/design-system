@@ -1,6 +1,6 @@
 docs-website:
   - website/docs/**/*
-packages/compoents:
+packages/components:
   - packages/components/**/*
 packages/ember-flight-icons:
   - packages/ember-flight-icons/**/*
