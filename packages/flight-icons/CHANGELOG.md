@@ -1,5 +1,11 @@
 # @hashicorp/flight-icons
 
+## 2.13.0
+
+### Minor Changes
+
+- [#1412](https://github.com/hashicorp/design-system/pull/1412) [`37d06ef1a`](https://github.com/hashicorp/design-system/commit/37d06ef1ae9f1f5c4a30796e3c42e62ccbe860c9) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Added Ampersand icon
+
 ## 2.12.0
 
 ### Minor Changes
