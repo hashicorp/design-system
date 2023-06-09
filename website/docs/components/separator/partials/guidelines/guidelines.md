@@ -1,13 +1,3 @@
-## Usage
-
-### When to use
-
-- Use to visually separate different parts or sections on a page.
-- Use it to create a clear break between paragraphs, blocks, or sections.
-
-### When not to use
-
-- Don’t use to separate headings and body text. Instead, use the proper [Display token](https://github.com/hashicorp/design-system/issues/262) to emphasize hierarchy. 
 
 ## Placement
 
