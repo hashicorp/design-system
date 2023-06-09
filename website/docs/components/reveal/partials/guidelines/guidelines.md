@@ -45,13 +45,20 @@ The Reveal component should be used for hiding and showing simple content. For c
 
 ## Spacing
 
-- We recommend 8px between the Reveal and the element or section it relates to.
+- When using the Reveal to contain information related to a single element within a group or section, we recommend to leave 8px between the Reveal and the element it relates to.
 
-- We recommend at least 24px below the Reveal.
+![Reveal example within a section](/assets/components/reveal/spacing-guidance-single-element.png)
+
+- When used to show and hide information not directly associated to a single element but an entire section or group, we recommend to leave 24px between the Reveal and the section it relates to.
+
+![Reveal example within a section](/assets/components/reveal/spacing-guidance-section.png)
+
+- If you need to adjust the spacing, always ensure it is slightly tighter compared to the spacing between other elements and components in the group, section, or page.
+
+!!! Info
 
 In cases where surrounding elements already have margin or padding added, you may want to reduce or remove the spacing entirely.
-
-![Reveal example within a form](/assets/components/reveal/spacing-guidance.png)
+!!!
 
 ## Related
 
