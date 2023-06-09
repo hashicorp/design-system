@@ -1,0 +1,10 @@
+docs-website:
+  - website/docs/**/*
+packages/components:
+  - packages/components/**/*
+packages/ember-flight-icons:
+  - packages/ember-flight-icons/**/*
+packages/flight-icons:
+  - packages/flight-icons/**/*
+packages/tokens:
+  - packages/tokens/**/*
