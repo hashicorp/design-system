@@ -23,7 +23,7 @@ We recommend using meaningful spacing between content elements, allowing users t
 
 ### 0px spacing
    - Use the `0px` spacing option for a tightly integrated layout without any visible gaps between elements.
-   - Avoid using the 0px spacing option when the content sections need clear visual separation or when visual clutter is possible.
+   - Avoid using the `0px` spacing option when the content sections need clear visual separation or when visual clutter is possible.
 
 ### 24px spacing
    - This option assists in visually distinguishing between different sections, making it simpler for users to navigate and understand the content.
