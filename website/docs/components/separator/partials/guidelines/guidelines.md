@@ -34,5 +34,4 @@ We recommend using meaningful spacing between content elements, allowing users t
 
 ##### 24px Spacing:
    - This option assists in visually distinguishing between different sections, making it simpler for users to navigate and understand the content.
-   - Use the 24px spacing option to create a clear visual distinction and breathing space between content sections.
    - Similarly, avoid using the 24px spacing option when you require a tightly integrated layout or when limited vertical space is available.
