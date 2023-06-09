@@ -4,8 +4,8 @@ description: Creates visual breaks between different sections of content
 caption: Creates visual breaks between different sections of content
 status: released
 links:
-  figma: {link to the "Separator" page in the components Figma library}
-  github: {link to the "Separator" component's folder in the GitHub repo}
+  figma: https://www.figma.com/file/9QeyvUQ8kuyIity6knrznO/Separator-Component?node-id=36433-70314&t=PXCxiaccZSis4g9x-4
+  github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/separator
 previewImage: assets/illustrations/components/separator.jpg
 navigation:
   keywords: ['horizontal', 'rule', 'line' , 'hr', 'section', 'divider', 'break']
