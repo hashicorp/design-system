@@ -19,6 +19,8 @@ Use to create a clear break between paragraphs, blocks, or sections.
 
 ## Spacing
 
+We recommend using meaningful spacing between content elements, allowing users to scan and understand information quickly.
+
 ##### 0px Spacing:
    - This option works well when you want adjacent components to flow together smoothly without any interruptions in the visual presentation.
    - Use the 0px spacing option for a tightly integrated layout without any visible gaps between elements.
