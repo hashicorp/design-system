@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2022-11-10T06:50:51.994Z",
+  "lastRunTimeISO": "2023-06-09T17:27:18.560Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -2545,6 +2545,24 @@
       "fileName": "align-right-16",
       "iconName": "align-right",
       "description": "align, text, right",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "3954:66",
+      "fileName": "ampersand-24",
+      "iconName": "ampersand",
+      "description": "and, or, conditional",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "3954:68",
+      "fileName": "ampersand-16",
+      "iconName": "ampersand",
+      "description": "and, or, conditional",
       "size": "16",
       "width": 16,
       "height": 16
