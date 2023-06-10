@@ -33,7 +33,7 @@ If you want to use the component but have no model defined (e.g., there are only
 #### Using `each` to loop over records to create rows
 
 ```handlebars
-<Hds::Table @caption="Influential Folk Musicians">
+<Hds::Table @caption="Products that use Helios">
   <:head as |H|>
     <H.Tr>
       <H.Th>Product</H.Th>
@@ -118,7 +118,7 @@ For clarity, there are a couple of important points to note here:
 
 !!!
 
-### Sortable Table
+### Sortable table
 
 !!! Info
 
@@ -378,6 +378,95 @@ To create a column that has right-aligned content, set `@align` to `right` on bo
     </B.Tr>
   </:body>
 </Hds::Table>
+```
+
+### Scrollable table
+
+As a general principle, tables should contain as little information as possible. Consuming large amount of data in a tabular format leads to an intense congnitive load for the user. Functionalities like [pagination](/components/pagination), [sorting](/components/table?tab=code#sortable-table) and [filtering](/patterns/filter-patterns) are used exactly to reduce this load.
+
+That said, there may be cases in which it's necessary to show a table with a large number of columns, and allow the user to scroll horizontally. In this case the consumer can use different approaches, depending on their context, needs and design specs.
+
+Below we show a couple of examples of how a scrollable table could be implemented: use them as starting point (your mileage may vary).
+
+#### Using a container with `overflow: auto`
+
+In most of the cases, wrapping the table with a container that has `overflow: auto` does the trick.
+
+The table layout is `auto` (default) which means the browser will try to optimize the columns width to fit their different content. In some cases this will mean the content may wrap (see the `Phone` column as an example) in which case you may want to apply a `width` to suggest to the browser to apply a specific width to a column (see the `Biography` column).
+
+
+```handlebars
+<!-- this is an element with "overflow: auto" -->
+<div class="doc-table-scrollable-wrapper">
+  <Hds::Table
+    @model={{this.modelWithLargeNumberOfColumns}}
+    @columns={{array
+      (hash key="first_name" label="First Name" isSortable="true")
+      (hash key="last_name" label="Last Name" isSortable="true")
+      (hash key="age" label="Age" isSortable="true")
+      (hash key="email" label="Email")
+      (hash key="phone" label="Phone")
+      (hash key="bio" label="Biography" width="350px")
+      (hash key="education" label="Education Degree")
+      (hash key="occupation" label="Occupation")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.first_name}}</B.Td>
+        <B.Td>{{B.data.last_name}}</B.Td>
+        <B.Td>{{B.data.age}}</B.Td>
+        <B.Td>{{B.data.email}}</B.Td>
+        <B.Td>{{B.data.phone}}</B.Td>
+        <B.Td>{{B.data.bio}}</B.Td>
+        <B.Td>{{B.data.education}}</B.Td>
+        <B.Td>{{B.data.occupation}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+</div>
+```
+
+#### Using a container with `overflow: auto` and a sub-container with `width: max-content`
+
+If you want to specify the column width of some of the columns, and leave some others adapt automtically to their content, but at the same time avoid the wrapping of the content within the cells, you have to introduce a second wrapping element around the table, that has its `width` set to ` max-content`.
+
+In this case the table layout is still set to `auto` (default). If instead you want to set it to `fixed` (using the `@isFixedLayout` argument) you will have to specify the width for **every** column or the table will explode horizontally.
+
+
+```handlebars
+<!-- this is an element with "overflow: auto" -->
+<div class="doc-table-scrollable-wrapper">
+  <!-- this is an element with "width: max-content" -->
+  <div class="doc-table-max-content-width">
+    <Hds::Table
+      @model={{this.modelWithLargeNumberOfColumns}}
+      @columns={{array
+        (hash key="first_name" label="First Name" isSortable="true" width="200px")
+        (hash key="last_name" label="Last Name" isSortable="true" width="200px")
+        (hash key="age" label="Age" isSortable="true")
+        (hash key="email" label="Email")
+        (hash key="phone" label="Phone")
+        (hash key="bio" label="Biography" width="350px")
+        (hash key="education" label="Education Degree")
+        (hash key="occupation" label="Occupation")
+      }}
+    >
+      <:body as |B|>
+        <B.Tr>
+          <B.Td>{{B.data.first_name}}</B.Td>
+          <B.Td>{{B.data.last_name}}</B.Td>
+          <B.Td>{{B.data.age}}</B.Td>
+          <B.Td>{{B.data.email}}</B.Td>
+          <B.Td>{{B.data.phone}}</B.Td>
+          <B.Td>{{B.data.bio}}</B.Td>
+          <B.Td>{{B.data.education}}</B.Td>
+          <B.Td>{{B.data.occupation}}</B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::Table>
+  </div>
+</div>
 ```
 
 ### More examples
