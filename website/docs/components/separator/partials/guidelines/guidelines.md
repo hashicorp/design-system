@@ -13,6 +13,8 @@ Use to create a clear break between paragraphs, blocks, or sections.
 
 !!! Dont
 
+Don’t use to separate headings and body text. Instead, emphasize hierarchy by using the proper [Display font style](https://helios.hashicorp.design/foundations/typography?tab=code#font-styles). 
+
 ![Example of a leading icon in the tag](/assets/components/separator/separator-dont.png)
 
 !!!
