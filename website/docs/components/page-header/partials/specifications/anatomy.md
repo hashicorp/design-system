@@ -1,6 +1,6 @@
 ## Anatomy
 
-![Anatomy of pageHeader](/assets/components/page-header/page-header-anatomy.png)
+![Anatomy of pageHeader](/assets/components/page-header/page-header-anatomy.png =751x*)
 
 | Element | Usage |
 |---------|-------|

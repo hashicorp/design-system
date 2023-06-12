@@ -12,25 +12,13 @@
 
 ## Title
 
-Displays the title or topmost heading of the page. This should be limited to no more than four words and not exceed 50 characters.
+Displays the title or topmost heading of the page, not to exceed 50 characters.
 
-### Multiple `<h1>` elements
+!!! Warning
 
-Since the Page Header renders the title in an `<h1>` element, ensure that this is the only `<h1>` on the page. More than one `<h1>` can confuse screen readers and impact the semantic hierarchy of the page.
+The Page Header renders the title as an `<h1>` element. Ensure this is the only `<h1>` on the page, as more than one `<h1>` can confuse screen readers and impact the semantic hierarchy of the page.
 
-## Size
-
-Size only pertains to the Figma component and accounts for smaller viewports by stacking elements. The Ember component supports a basic level of fluidity and responsiveness out of the box.
-
-Refer to [responsiveness](#responsiveness) for more information on how the component adapts to different viewport and container sizes.
-
-### Large
-
-![Large Page Header variant](/assets/components/page-header/page-header-size-large.png =945x*)
-
-### Small
-
-![Small Page Header variant](/assets/components/page-header/page-header-size-small.png =300x*)
+!!!
 
 ## Breadcrumb
 
@@ -40,7 +28,7 @@ Displays a Helios [Breadcrumb](/components/breadcrumb) to communicate the applic
 
 ### Multiple Breadcrumb components
 
-Since the [Breadcrumb](/components/breadcrumb) uses a landmark `<nav>` element, ensure that there is only one Breadcrumb on the page, or differentiate between Breadcrumbs by passing them different `ariaLabel` arguments. Refer to the [Breadcrumb API](/components/breadcrumb?tab=code#component-api) for more details.
+The [Breadcrumb](/components/breadcrumb) uses a landmark `<nav>` element. Ensure that there is only one Breadcrumb on the page, or differentiate between Breadcrumbs by passing them different `ariaLabel` arguments. Refer to the [Breadcrumb API](/components/breadcrumb?tab=code#component-api) for more details.
 
 ## Icon Tile
 
@@ -50,7 +38,7 @@ Displays a Helios [IconTile](/components/icon-tile) as a visual indicator for th
 
 !!! Info
 
-Only the `medium` size of the [IconTile](/components/icon-tile) is supported in the Page Header.
+For consistency and to avoid competing visually with the title, only the `medium` size of the [IconTile](/components/icon-tile) is supported in the Page Header.
 
 !!!
 
@@ -111,18 +99,18 @@ Don't include overly complex details, long-form content, or instructions in the 
 Instead, link to more complex content using an [Inline Link](/components/link/inline) with an optional icon to indicate the scope of the link (internal resource, external resource, etc).
 
 <Hds::PageHeader as |PH|>
-  <PH.Title>HCP Packer Dashboard</PH.Title>
-  <PH.IconTile @icon="packer-color" @color="packer" />
-  <PH.Description>
-    Channel created and managed automatically for you by Packer. For more information on how this channel is managed refer to the Packer <Hds::Link::Inline @icon="external-link" @href="#">documentation</Hds::Link::Inline>.
-  </PH.Description>
+<PH.Title>HCP Packer Dashboard</PH.Title>
+<PH.IconTile @icon="packer-color" @color="packer" />
+<PH.Description>
+Channel created and managed automatically for you by Packer. For more information on how this channel is managed refer to the Packer <Hds::Link::Inline @icon="external-link" @href="#">documentation</Hds::Link::Inline>.
+</PH.Description>
 </Hds::PageHeader>
 
 !!!
 
 !!! Insight
 
-**Hand-off note:** Nesting a [Link Inline](/components/link/inline) with an icon inside of the description is not supported in the Figma component. Instead, override the description text with the correct text style and color, and ensure that this detail is accounted for in the engineering hand-off. 
+**Hand-off note:** Nesting a [Link Inline](/components/link/inline) with an icon inside of the description is not supported in the Figma component. Instead, override the description text with the correct text style and color, and ensure that this detail is accounted for in the engineering hand-off.
 
 !!!
 
@@ -140,7 +128,7 @@ Representing metadata with a set of key/value pairs is common in HashiCorp produ
 
 !!! Dont
 
-We recommend not exceeding more than four key/value pairs, this can result in unnecessarily complex content with the Page Header. Instead, move this content into the page.
+We recommend not exceeding more than four key/value pairs; this can result in unnecessarily complex content within the Page Header. Instead, move this content to the page.
 
 ![Complex metadata dont](/assets/components/page-header/page-header-custom-metadata-dont.png)
 
@@ -152,7 +140,6 @@ Use [Buttons](/components/button) and [Dropdowns](/components/dropdown) in the P
 
 - Creating new objects that are listed within the page
 - Surfacing management details like connecting to an API
-- Deleting or deactivating an object
 - Pausing or refreshing a service pertaining to the page
 
 ![Page Header Actions](/assets/components/page-header/page-header-actions.png =853x*)
@@ -195,7 +182,7 @@ Use a primary [Dropdown](/components/dropdown) when the same action can be done 
 
 !!! Dont
 
-Don't use a `primary` [Dropdown](/components/dropdown) when combining different, unrelated actions. Instead, use the `secondary` color.
+Don't use a `primary` color [Dropdown](/components/dropdown) when combining different, unrelated actions. Instead, use the `secondary` color.
 
 ![Page Header primary dropdown](/assets/components/page-header/page-header-actions-dont-primary-dropdown.png =853x*)
 
@@ -215,15 +202,27 @@ Don't pair two primary actions in a Page Header. Instead, communicate the highes
 
 !!!
 
-## Responsiveness
+## Size
+
+Size only pertains to the Figma component and accounts for smaller viewports by stacking elements. The Ember component supports a basic level of fluidity and responsiveness out of the box.
+
+### Large
+
+![Large Page Header variant](/assets/components/page-header/page-header-size-large.png =945x*)
+
+### Small
+
+![Small Page Header variant](/assets/components/page-header/page-header-size-small.png =300x*)
+
+### Responsiveness
 
 The Page Header component in Figma supports two sizes; `large` which accounts for the majority of desktop sizes and large tablets, and `small` which accounts for smaller tablet and mobile devices. The core difference between each variant is the vertical stacking of elements.
 
 The Ember component uses a variety of different methods to ensure fluidity and responsiveness:
 
 - By default, the component will fill the page layout it is used within. It does not have any padding or margin explicitly applied, allowing it to adapt to different layout and spacing methods.
-- The component has breakpoints by means of container queries (at `7680px` and one at `400px`) that account for the majority of content within the component and stack elements in a single column as the container shrinks.
-- Elements displayed inline with each other (e.g., title and badges) have `flex-wrap: wrap;` set to wrap elements when the available space is reduced. 
+- The component has breakpoints by means of container queries (at `768px` and one at `400px`) that account for the majority of content within the component and stack elements in a single column as the container shrinks.
+- Elements displayed inline with each other (e.g., title and badges) have `flex-wrap: wrap;` set to wrap elements when the available space is reduced.
 
 !!! Info
 
