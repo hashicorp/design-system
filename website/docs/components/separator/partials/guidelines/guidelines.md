@@ -7,7 +7,7 @@ Use separators to distinguish between sections on a page visually. Use them spar
 
 Use to create a clear break between paragraphs, blocks, or sections.
 
-![Example of a leading icon in the tag](/assets/components/separator/separator-do.png)
+![Example of the separator component used correctly between content sections (/assets/components/separator/separator-do.png)
 
 !!!
 
