@@ -23,8 +23,8 @@ The layout of this component is reponsive and adjusts based on the width of it's
   <PH.Title>Page title</PH.Title>
   <PH.Breadcrumb>
     <Hds::Breadcrumb>
-      <Hds::Breadcrumb::Item @text="Organization" @icon="org" />
-      <Hds::Breadcrumb::Item @text="Project" @icon="folder" />
+      <Hds::Breadcrumb::Item @text="Organization" @icon="dashboard" />
+      <Hds::Breadcrumb::Item @text="Project" @icon="file-text" />
       <Hds::Breadcrumb::Item @text="Clusters" @icon="server-cluster" />
     </Hds::Breadcrumb>
   </PH.Breadcrumb>
