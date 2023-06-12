@@ -9,13 +9,11 @@ SPDX-License-Identifier: MPL-2.0
 
 <section data-test-percy>
 
+  <Shw::Text::H2>Basic examples</Shw::Text::H2>
+
   <Shw::Flex @direction="column" as |SF|>
 
-    <SF.Item>
-
-      <Shw::Text::H2>Basic examples</Shw::Text::H2>
-
-      <Shw::Text::H3>Only title</Shw::Text::H3>
+    <SF.Item @label="Only title">
 
       <Hds::PageHeader as |PH|>
         <PH.Title>Page title</PH.Title>
@@ -23,7 +21,9 @@ SPDX-License-Identifier: MPL-2.0
 
       <Shw::Divider @level={{2}} />
 
-      <Shw::Text::H3>Badge</Shw::Text::H3>
+    </SF.Item>
+
+    <SF.Item @label="Badge">
 
       <Hds::PageHeader as |PH|>
         <PH.Title>Page title</PH.Title>
@@ -34,7 +34,9 @@ SPDX-License-Identifier: MPL-2.0
 
       <Shw::Divider @level={{2}} />
 
-      <Shw::Text::H3>IconTile</Shw::Text::H3>
+    </SF.Item>
+
+    <SF.Item @label="IconTile">
 
       <Hds::PageHeader as |PH|>
         <PH.Title>Page title</PH.Title>
@@ -43,7 +45,9 @@ SPDX-License-Identifier: MPL-2.0
 
       <Shw::Divider @level={{2}} />
 
-      <Shw::Text::H3>Breadcrumb</Shw::Text::H3>
+    </SF.Item>
+
+    <SF.Item @label="Breadcrumb">
 
       <Hds::PageHeader as |PH|>
         <PH.Title>Page title</PH.Title>
@@ -58,7 +62,9 @@ SPDX-License-Identifier: MPL-2.0
 
       <Shw::Divider @level={{2}} />
 
-      <Shw::Text::H3>Subtitle + description</Shw::Text::H3>
+    </SF.Item>
+
+    <SF.Item @label="Subtitle + description">
 
       <Hds::PageHeader as |PH|>
         <PH.Title>Page title</PH.Title>
@@ -68,7 +74,9 @@ SPDX-License-Identifier: MPL-2.0
 
       <Shw::Divider @level={{2}} />
 
-      <Shw::Text::H3>Single Action</Shw::Text::H3>
+    </SF.Item>
+
+    <SF.Item @label="Single action">
 
       <Hds::PageHeader as |PH|>
         <PH.Title>Page title</PH.Title>
@@ -79,7 +87,9 @@ SPDX-License-Identifier: MPL-2.0
 
       <Shw::Divider @level={{2}} />
 
-      <Shw::Text::H3>Two Actions</Shw::Text::H3>
+    </SF.Item>
+
+    <SF.Item @label="Two actions">
 
       <Hds::PageHeader as |PH|>
         <PH.Title>Page title</PH.Title>
@@ -96,7 +106,9 @@ SPDX-License-Identifier: MPL-2.0
 
       <Shw::Divider @level={{2}} />
 
-      <Shw::Text::H3>Three actions</Shw::Text::H3>
+    </SF.Item>
+
+    <SF.Item @label="Three actions">
 
       <Hds::PageHeader as |PH|>
         <PH.Title>Page title</PH.Title>
@@ -109,7 +121,9 @@ SPDX-License-Identifier: MPL-2.0
 
       <Shw::Divider @level={{2}} />
 
-      <Shw::Text::H3>Custom metadata</Shw::Text::H3>
+    </SF.Item>
+
+    <SF.Item @label="Custom metadata">
 
       <Hds::PageHeader as |PH|>
         <PH.Title>Page title</PH.Title>
@@ -124,11 +138,11 @@ SPDX-License-Identifier: MPL-2.0
 
   <Shw::Divider @level={{3}} />
 
+  <Shw::Text::H2>Complex examples</Shw::Text::H2>
+
   <Shw::Flex @direction="column" as |SF|>
 
-    <SF.Item>
-
-      <Shw::Text::H2>Complex examples</Shw::Text::H2>
+    <SF.Item @label="Product landing page">
 
       <Hds::PageHeader as |PH|>
         <PH.Title>HCP Packer</PH.Title>
@@ -149,6 +163,10 @@ SPDX-License-Identifier: MPL-2.0
 
       <Shw::Divider @level={{2}} />
 
+    </SF.Item>
+
+    <SF.Item @label="Item page">
+
       <Hds::PageHeader as |PH|>
         <PH.Title>Boundary clusters</PH.Title>
         <PH.IconTile @icon="boundary-color" @color="boundary" />
@@ -161,13 +179,17 @@ SPDX-License-Identifier: MPL-2.0
         <PH.Badges>
           <Hds::Badge @text="Active" @icon="check" @color="success" />
         </PH.Badges>
-        <PH.Subtitle>username / cluster-name</PH.Subtitle>
+        <PH.Subtitle>boundary-cluster-name</PH.Subtitle>
       </Hds::PageHeader>
 
       <Shw::Divider @level={{2}} />
 
+    </SF.Item>
+
+    <SF.Item @label="Multiple badges">
+
       <Hds::PageHeader as |PH|>
-        <PH.Title>Multiple badges</PH.Title>
+        <PH.Title>Consul cluster</PH.Title>
         <PH.Badges>
           <Hds::Badge @text="Active" @icon="check" @color="success" />
           <Hds::Badge @text="Deployed to AWS west-2" @color="highlight" @icon="rocket" />
@@ -181,6 +203,10 @@ SPDX-License-Identifier: MPL-2.0
       </Hds::PageHeader>
 
       <Shw::Divider @level={{2}} />
+
+    </SF.Item>
+
+    <SF.Item @label="Kitchen sink example">
 
       <Hds::PageHeader as |PH|>
         <PH.Title>Users</PH.Title>
@@ -208,9 +234,13 @@ SPDX-License-Identifier: MPL-2.0
 
       <Shw::Divider @level={{2}} />
 
+    </SF.Item>
+
+    <SF.Item @label="With custom metadata">
+
       <Hds::PageHeader as |PH|>
         <PH.Title>Custom metadata</PH.Title>
-        <PH.Subtitle>clusters / beta-feature</PH.Subtitle>
+        <PH.Subtitle>beta-feature-cluster</PH.Subtitle>
         <PH.Generic>
           <Hds::Alert @type="compact" @color="warning" as |A|>
             <A.Title>Beta feature</A.Title>
@@ -235,20 +265,16 @@ SPDX-License-Identifier: MPL-2.0
 
   <Shw::Divider @level={{3}} />
 
+  <Shw::Text::H2>Overflow examples and edge cases</Shw::Text::H2>
+
+  <Shw::Text::Body @tag="p">
+    These examples are meant to showcase the flexiblity, responsiveness, and potential gotchas related to the layout and
+    fluidity of the component.
+  </Shw::Text::Body>
+
   <Shw::Flex @direction="column" as |SF|>
 
-    <SF.Item>
-
-      <Shw::Text::H2>Overflow examples and edge cases</Shw::Text::H2>
-
-      <Shw::Text::Body @tag="p">
-        These examples are meant to showcase the flexiblity, responsiveness, and potential gotchas related to the layout
-        and fluidity of the component.
-      </Shw::Text::Body>
-
-      <Shw::Text::H3>Long title</Shw::Text::H3>
-
-      <Shw::Text::Body @tag="p">Recommended title length is less than four words and not exceed 50 characters.</Shw::Text::Body>
+    <SF.Item @label="Long title">
 
       <Hds::PageHeader as |PH|>
         <PH.Title>Boundary cluster access control and clusters</PH.Title>
@@ -266,11 +292,9 @@ SPDX-License-Identifier: MPL-2.0
 
       <Shw::Divider @level={{2}} />
 
-      <Shw::Text::H3>Long title + badge</Shw::Text::H3>
+    </SF.Item>
 
-      <Shw::Text::Body @tag="p">
-        In the case of a badge, the title and badge will wrap if the available space is exceeded.
-      </Shw::Text::Body>
+    <SF.Item @label="Long title + badge">
 
       <Hds::PageHeader as |PH|>
         <PH.Title>Long page title with a badge ipsum dolor sit amet</PH.Title>
@@ -283,54 +307,52 @@ SPDX-License-Identifier: MPL-2.0
         </PH.Actions>
       </Hds::PageHeader>
 
-      <Shw::Divider @level={{2}} />
-
-      <Shw::Text::H3>Component wrapping</Shw::Text::H3>
-
-      <Shw::Text::Body @tag="p">The component uses container queries to determine two breakpoints at
-        <code>768px</code>
-        and
-        <code>400px</code>
-        which stack the content in a single column.
+      <Shw::Text::Body @tag="p">
+        In the case of a badge, the title and badge will wrap if the available space is exceeded.
       </Shw::Text::Body>
-
-      <Shw::Flex @direction="column" as |SF|>
-
-        {{#let (array "399px" "767px" "100%") as |widths|}}
-
-          {{#each widths as |width|}}
-
-            <SF.Item @label="Container width = {{width}}">
-              <Shw::Outliner {{style width=width}}>
-                <Hds::PageHeader as |PH|>
-                  <PH.Title>Title of the page</PH.Title>
-                  <PH.IconTile @icon="smartphone" />
-                  <PH.Breadcrumb>
-                    <Hds::Breadcrumb>
-                      <Hds::Breadcrumb::Item @text="Organization" />
-                      <Hds::Breadcrumb::Item @text="User" />
-                    </Hds::Breadcrumb>
-                  </PH.Breadcrumb>
-                  <PH.Badges>
-                    <Hds::Badge @text="Small viewport" @icon="tablet" />
-                  </PH.Badges>
-                  <PH.Subtitle>Forced small viewport</PH.Subtitle>
-                  <PH.Actions>
-                    <Hds::Button @text="Edit" @color="secondary" />
-                    <Hds::Button @text="Create" @color="primary" />
-                  </PH.Actions>
-                </Hds::PageHeader>
-              </Shw::Outliner>
-            </SF.Item>
-
-          {{/each}}
-
-        {{/let}}
-
-      </Shw::Flex>
 
     </SF.Item>
 
+  </Shw::Flex>
+
+  <Shw::Divider @level={{3}} />
+
+  <Shw::Text::H2>Component wrapping</Shw::Text::H2>
+
+  <Shw::Text::Body @tag="p">The component uses container queries to determine two breakpoints at
+    <code>768px</code>
+    and
+    <code>400px</code>
+    which stack the content in a single column.
+  </Shw::Text::Body>
+
+  <Shw::Flex @direction="column" as |SF|>
+    {{#let (array "399px" "767px" "100%") as |widths|}}
+      {{#each widths as |width|}}
+        <SF.Item @label="Container width = {{width}}">
+          <Shw::Outliner {{style width=width}}>
+            <Hds::PageHeader as |PH|>
+              <PH.Title>Title of the page</PH.Title>
+              <PH.IconTile @icon="smartphone" />
+              <PH.Breadcrumb>
+                <Hds::Breadcrumb>
+                  <Hds::Breadcrumb::Item @text="Organization" />
+                  <Hds::Breadcrumb::Item @text="User" />
+                </Hds::Breadcrumb>
+              </PH.Breadcrumb>
+              <PH.Badges>
+                <Hds::Badge @text="Small viewport" @icon="tablet" />
+              </PH.Badges>
+              <PH.Subtitle>Forced small viewport</PH.Subtitle>
+              <PH.Actions>
+                <Hds::Button @text="Edit" @color="secondary" />
+                <Hds::Button @text="Create" @color="primary" />
+              </PH.Actions>
+            </Hds::PageHeader>
+          </Shw::Outliner>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
   </Shw::Flex>
 
 </section>
