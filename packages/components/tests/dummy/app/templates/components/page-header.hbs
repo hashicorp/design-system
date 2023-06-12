@@ -73,7 +73,8 @@ SPDX-License-Identifier: MPL-2.0
       <Hds::PageHeader as |PH|>
         <PH.Title>Page title</PH.Title>
         <PH.Actions>
-          <Hds::Button @text="Create registry" @icon="plus" @iconPosition="leading" @color="primary" />
+          <Hds::Button @text="Create registry" @icon="plus"
+            @iconPosition="leading" @color="primary" />
         </PH.Actions>
       </Hds::PageHeader>
 
@@ -90,7 +91,8 @@ SPDX-License-Identifier: MPL-2.0
             <DD.Interactive @text="Launch desktop" />
             <DD.Interactive @text="Delete" @color="critical" @icon="trash" />
           </Hds::Dropdown>
-          <Hds::Button @text="Create" @icon="plus" @iconPosition="leading" @color="primary" />
+          <Hds::Button @text="Create" @icon="plus" @iconPosition="leading"
+            @color="primary" />
         </PH.Actions>
       </Hds::PageHeader>
 
@@ -101,9 +103,11 @@ SPDX-License-Identifier: MPL-2.0
       <Hds::PageHeader as |PH|>
         <PH.Title>Page title</PH.Title>
         <PH.Actions>
-          <Hds::Button @color="tertiary" @text="Migrate instructions" @icon="migrate" @iconPosition="leading" />
+          <Hds::Button @color="tertiary" @text="Migrate instructions"
+            @icon="migrate" @iconPosition="leading" />
           <Hds::Button @color="secondary" @text="Edit cluster" />
-          <Hds::Button @color="primary" @text="Create cluster" @icon="plus" @iconPosition="leading" />
+          <Hds::Button @color="primary" @text="Create cluster" @icon="plus"
+            @iconPosition="leading" />
         </PH.Actions>
       </Hds::PageHeader>
 
@@ -114,7 +118,8 @@ SPDX-License-Identifier: MPL-2.0
       <Hds::PageHeader as |PH|>
         <PH.Title>Page title</PH.Title>
         <PH.Generic>
-          <Shw::Placeholder @text="generic content" @width="500" @height="36" @background="#e1f5fe" />
+          <Shw::Placeholder @text="generic content" @width="500" @height="36"
+            @background="#e1f5fe" />
         </PH.Generic>
       </Hds::PageHeader>
 
@@ -140,9 +145,11 @@ SPDX-License-Identifier: MPL-2.0
           </Hds::Breadcrumb>
         </PH.Breadcrumb>
         <PH.IconTile @icon="packer-color" @color="packer" />
-        <PH.Description>Create and view Packer registries in HCP.</PH.Description>
+        <PH.Description>Create and view Packer registries in HCP.
+        </PH.Description>
         <PH.Actions>
-          <Hds::Button @text="Create Packer registery" @icon="plus" @iconPosition="leading" />
+          <Hds::Button @text="Create Packer registery" @icon="plus"
+            @iconPosition="leading" />
         </PH.Actions>
       </Hds::PageHeader>
 
@@ -169,12 +176,15 @@ SPDX-License-Identifier: MPL-2.0
         <PH.Title>Multiple badges</PH.Title>
         <PH.Badges>
           <Hds::Badge @text="Active" @icon="check" @color="success" />
-          <Hds::Badge @text="Deployed to AWS west-2" @color="highlight" @icon="rocket" />
+          <Hds::Badge @text="Deployed to AWS west-2" @color="highlight"
+            @icon="rocket" />
           <Hds::BadgeCount @text="v1.5" @color="neutral" />
-          <Hds::Badge @text="Locked by jane-doe" @color="warning" @icon="lock" />
+          <Hds::Badge @text="Locked by jane-doe" @color="warning"
+            @icon="lock" />
         </PH.Badges>
         <PH.Description>
-          While this is supported by the contextual component, this many badges being used to represent metadata can be
+          While this is supported by the contextual component, this many badges
+          being used to represent metadata can be
           problemantic.
         </PH.Description>
       </Hds::PageHeader>
@@ -184,7 +194,8 @@ SPDX-License-Identifier: MPL-2.0
       <Hds::PageHeader as |PH|>
         <PH.Title>Users</PH.Title>
         <PH.Subtitle>Access control (IAM)</PH.Subtitle>
-        <PH.Description>Manage organization users, roles, and access control.</PH.Description>
+        <PH.Description>Manage organization users, roles, and access control.
+        </PH.Description>
         <PH.Breadcrumb>
           <Hds::Breadcrumb>
             <Hds::Breadcrumb::Item @text="Cloud sandbox" @icon="org" />
@@ -214,12 +225,15 @@ SPDX-License-Identifier: MPL-2.0
             <A.Title>Beta feature</A.Title>
             <A.Description>
               This feature is in beta and is subject to change. Refer to the
-              <Hds::Link::Inline @href="#" @icon="external-link">HCP documentation</Hds::Link::Inline>
-              for more information and roadmap.</A.Description>
+              <Hds::Link::Inline @href="#" @icon="external-link">HCP
+                documentation</Hds::Link::Inline>
+              for more information and roadmap.
+            </A.Description>
           </Hds::Alert>
         </PH.Generic>
         <PH.Actions>
-          <Hds::Button @text="Get started" @icon="beaker" @iconPosition="leading" />
+          <Hds::Button @text="Get started" @icon="beaker"
+            @iconPosition="leading" />
         </PH.Actions>
         <PH.Badges>
           <Hds::Badge @text="Beta feature" @icon="wand" @color="highlight" />
@@ -239,13 +253,15 @@ SPDX-License-Identifier: MPL-2.0
       <Shw::Text::H2>Overflow examples and edge cases</Shw::Text::H2>
 
       <Shw::Text::Body @tag="p">
-        These examples are meant to showcase the flexiblity, responsiveness, and potential gotchas related to the layout
+        These examples are meant to showcase the flexiblity, responsiveness, and
+        potential gotchas related to the layout
         and fluidity of the component.
       </Shw::Text::Body>
 
       <Shw::Text::H3>Long title</Shw::Text::H3>
 
-      <Shw::Text::Body @tag="p">Recommended title length is less than four words and not exceed 50 characters.</Shw::Text::Body>
+      <Shw::Text::Body @tag="p">Recommended title length is less than four words
+        and not exceed 50 characters.</Shw::Text::Body>
 
       <Hds::PageHeader as |PH|>
         <PH.Title>Boundary cluster access control and clusters</PH.Title>
@@ -266,7 +282,8 @@ SPDX-License-Identifier: MPL-2.0
       <Shw::Text::H3>Long title + badge</Shw::Text::H3>
 
       <Shw::Text::Body @tag="p">
-        In the case of a badge, the title and badge will wrap if the available space is exceeded.
+        In the case of a badge, the title and badge will wrap if the available
+        space is exceeded.
       </Shw::Text::Body>
 
       <Hds::PageHeader as |PH|>
@@ -276,7 +293,8 @@ SPDX-License-Identifier: MPL-2.0
           <Hds::Badge @text="Wrapping badge" @icon="mic" @color="critical" />
         </PH.Badges>
         <PH.Actions>
-          <Hds::Button @text="Get started" @icon="terminal-screen" @iconPosition="trailing" />
+          <Hds::Button @text="Get started" @icon="terminal-screen"
+            @iconPosition="trailing" />
         </PH.Actions>
       </Hds::PageHeader>
 
@@ -284,37 +302,48 @@ SPDX-License-Identifier: MPL-2.0
 
       <Shw::Text::H3>Component wrapping</Shw::Text::H3>
 
-      <Shw::Text::Body @tag="p">The component uses container queries to determine two breakpoints at
-        <code>700px</code>
+      <Shw::Text::Body @tag="p">The component uses container queries to
+        determine two breakpoints at
+        <code>768px</code>
         and
         <code>400px</code>
         which stack the content in a single column.
       </Shw::Text::Body>
 
-      <Shw::Grid @columns={{3}} as |SG|>
+      <Shw::Flex @direction="column" as |SF|>
 
-        <SG.Item>
-          <Hds::PageHeader as |PH|>
-            <PH.Title>Title of the page</PH.Title>
-            <PH.IconTile @icon="smartphone" />
-            <PH.Breadcrumb>
-              <Hds::Breadcrumb>
-                <Hds::Breadcrumb::Item @text="Organization" />
-                <Hds::Breadcrumb::Item @text="User" />
-              </Hds::Breadcrumb>
-            </PH.Breadcrumb>
-            <PH.Badges>
-              <Hds::Badge @text="Small viewport" @icon="tablet" />
-            </PH.Badges>
-            <PH.Subtitle>Forced small viewport</PH.Subtitle>
-            <PH.Actions>
-              <Hds::Button @text="Edit" @color="secondary" />
-              <Hds::Button @text="Create" @color="primary" />
-            </PH.Actions>
-          </Hds::PageHeader>
-        </SG.Item>
+        {{#let (array "399px" "767px" "100%") as |widths|}}
 
-      </Shw::Grid>
+          {{#each widths as |width|}}
+
+            <SF.Item @label="Container width = {{width}}">
+              <Shw::Outliner {{style width=width}}>
+                <Hds::PageHeader as |PH|>
+                  <PH.Title>Title of the page</PH.Title>
+                  <PH.IconTile @icon="smartphone" />
+                  <PH.Breadcrumb>
+                    <Hds::Breadcrumb>
+                      <Hds::Breadcrumb::Item @text="Organization" />
+                      <Hds::Breadcrumb::Item @text="User" />
+                    </Hds::Breadcrumb>
+                  </PH.Breadcrumb>
+                  <PH.Badges>
+                    <Hds::Badge @text="Small viewport" @icon="tablet" />
+                  </PH.Badges>
+                  <PH.Subtitle>Forced small viewport</PH.Subtitle>
+                  <PH.Actions>
+                    <Hds::Button @text="Edit" @color="secondary" />
+                    <Hds::Button @text="Create" @color="primary" />
+                  </PH.Actions>
+                </Hds::PageHeader>
+              </Shw::Outliner>
+            </SF.Item>
+
+          {{/each}}
+
+        {{/let}}
+
+      </Shw::Flex>
 
     </SF.Item>
 

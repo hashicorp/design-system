@@ -10,15 +10,14 @@
 .hds-page-header {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 16px;
   container-type: inline-size;
 }
 
 .hds-page-header__body {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem 1rem;
-  container-type: inline-size;
+  gap: 8px 16px;
 
   .hds-icon-tile {
     flex-shrink: 0;
@@ -32,10 +31,10 @@
 .hds-page-header__main {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  flex-grow: 1;
+  gap: 16px;
   align-items: start;
   justify-content: start;
-  width: 100%;
 
   @container (min-width: 768px) {
     flex-direction: row;
@@ -46,14 +45,15 @@
 .hds-page-header__content {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  flex-grow: 1;
+  gap: 8px;
 }
 
 .hds-page-header__title-main {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 0.5rem 1rem;
+  gap: 8px 16px;
   align-items: center;
 }
 
@@ -66,7 +66,7 @@
 .hds-page-header__metadata {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 4px;
 }
 
 .hds-page-header__actions {

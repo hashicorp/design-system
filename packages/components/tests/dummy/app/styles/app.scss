@@ -3,53 +3,53 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-@import '@hashicorp/design-system-components';
-@import '@hashicorp/design-system-power-select-overrides';
+@import "@hashicorp/design-system-components";
+@import "@hashicorp/design-system-power-select-overrides";
 
 // global declarations
 
-@import './tokens';
-@import './layout';
-@import './typography';
-@import './colors';
-@import './globals';
+@import "./tokens";
+@import "./layout";
+@import "./typography";
+@import "./colors";
+@import "./globals";
 
 // local components
 
-@import './showcase-components/divider';
-@import './showcase-components/flex';
-@import './showcase-components/grid';
-@import './showcase-components/label';
-@import './showcase-components/outliner';
-@import './showcase-components/placeholder';
+@import "./showcase-components/divider";
+@import "./showcase-components/flex";
+@import "./showcase-components/grid";
+@import "./showcase-components/label";
+@import "./showcase-components/outliner";
+@import "./showcase-components/placeholder";
 
 // Notice: this list can be automatically edited by the Ember blueprint, please don't remove the start/end comments
 // START COMPONENT PAGES IMPORTS
-@import './showcase-pages/alert';
-@import './showcase-pages/app-frame';
-@import './showcase-pages/badge';
-@import './showcase-pages/breadcrumb';
-@import './showcase-pages/button';
-@import './showcase-pages/card';
-@import './showcase-pages/disclosure';
-@import './showcase-pages/dismiss-button';
-@import './showcase-pages/dropdown';
-@import './showcase-pages/flyout';
-@import './showcase-pages/form/base-elements';
-@import './showcase-pages/form/checkbox';
-@import './showcase-pages/form/radio';
-@import './showcase-pages/form/select';
-@import './showcase-pages/form/text-input';
-@import './showcase-pages/form/textarea';
-@import './showcase-pages/form/toggle';
-@import './showcase-pages/link-inline';
-@import './showcase-pages/modal';
-@import './showcase-pages/pagination';
-@import './showcase-pages/power-select';
-@import './showcase-pages/side-nav';
-@import './showcase-pages/table';
-@import './showcase-pages/tabs';
-@import './showcase-pages/tag';
-@import './showcase-pages/tooltip';
-@import './showcase-pages/typography';
+@import "./showcase-pages/alert";
+@import "./showcase-pages/app-frame";
+@import "./showcase-pages/badge";
+@import "./showcase-pages/breadcrumb";
+@import "./showcase-pages/button";
+@import "./showcase-pages/card";
+@import "./showcase-pages/disclosure";
+@import "./showcase-pages/dismiss-button";
+@import "./showcase-pages/dropdown";
+@import "./showcase-pages/flyout";
+@import "./showcase-pages/form/base-elements";
+@import "./showcase-pages/form/checkbox";
+@import "./showcase-pages/form/radio";
+@import "./showcase-pages/form/select";
+@import "./showcase-pages/form/text-input";
+@import "./showcase-pages/form/textarea";
+@import "./showcase-pages/form/toggle";
+@import "./showcase-pages/link-inline";
+@import "./showcase-pages/modal";
+@import "./showcase-pages/pagination";
+@import "./showcase-pages/power-select";
+@import "./showcase-pages/side-nav";
+@import "./showcase-pages/table";
+@import "./showcase-pages/tabs";
+@import "./showcase-pages/tag";
+@import "./showcase-pages/tooltip";
+@import "./showcase-pages/typography";
 // END COMPONENT PAGES IMPORTS
