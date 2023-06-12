@@ -12,7 +12,9 @@ module('Integration | Component | hds/table/th', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render with a CSS class that matches the component name', async function (assert) {
-    await render(hbs`<Hds::Table::Th id="data-test-table-th" />`);
+    await render(
+      hbs`<Hds::Table::Th id="data-test-table-th">Artist</Hds::Table::Th>`
+    );
     assert.dom('#data-test-table-th').hasClass('hds-table__th');
   });
 
@@ -31,17 +33,23 @@ module('Integration | Component | hds/table/th', function (hooks) {
   });
 
   test('it should render with the appropriate `@align` CSS class', async function (assert) {
-    await render(hbs`<Hds::Table::Th id="data-test-table-th" @align="right"/>`);
+    await render(
+      hbs`<Hds::Table::Th id="data-test-table-th" @align="right">Artist</Hds::Table::Th>`
+    );
     assert.dom('#data-test-table-th').hasClass('hds-table__th--text-right');
   });
 
   test('it should add inline styles if `@width` is declared', async function (assert) {
-    await render(hbs`<Hds::Table::Th id="data-test-table-th" @width="10%" />`);
+    await render(
+      hbs`<Hds::Table::Th id="data-test-table-th" @width="10%">Artist</Hds::Table::Th>`
+    );
     assert.dom('#data-test-table-th').hasAttribute('style');
   });
 
   test('it should support splattributes', async function (assert) {
-    await render(hbs`<Hds::Table::Th id="data-test-table-th" lang="es" />`);
+    await render(
+      hbs`<Hds::Table::Th id="data-test-table-th" lang="es">Artist</Hds::Table::Th>`
+    );
     assert.dom('#data-test-table-th').hasAttribute('lang', 'es');
   });
 });

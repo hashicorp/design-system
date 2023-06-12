@@ -5,7 +5,7 @@
   <C.Property @name="type" @type="enum" @values={{array "filled" "inverted" "outlined" }} @default="filled"/>
   <C.Property @name="size" @type="enum" @values={{array "small" "medium" "large" }} @default="medium"/>
   <C.Property @name="text" @type="string">
-    The text of the badge or value of the screen-reader only element if `isIconOnly` is set to `true`. If no text value is defined an error will be thrown.
+    The text of the Badge or value of the screen-reader only element if `isIconOnly` is set to `true`. If no text value is defined an error will be thrown.
   </C.Property>
   <C.Property @name="icon" @type="string">
     Use this parameter to show an icon. Any [icon](/icons/library) name is acceptable.

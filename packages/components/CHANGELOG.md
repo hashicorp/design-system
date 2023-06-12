@@ -1,5 +1,16 @@
 # @hashicorp/design-system-components
 
+## 2.6.0
+
+### Minor Changes
+
+- [#1381](https://github.com/hashicorp/design-system/pull/1381) [`02cdeacd5`](https://github.com/hashicorp/design-system/commit/02cdeacd51d29ed3d19e66cc09b95589becd770b) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - Add new `Reveal` component
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @hashicorp/ember-flight-icons@3.0.4
+
 ## 2.5.0
 
 ### Minor Changes

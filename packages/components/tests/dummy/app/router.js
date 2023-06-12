@@ -19,6 +19,7 @@ Router.map(function () {
     this.route('focus-ring');
   });
   this.route('components', function () {
+    this.route('accordion');
     this.route('alert');
     this.route('application-state');
     this.route('avatar');
@@ -56,7 +57,7 @@ Router.map(function () {
     this.route('tooltip');
     this.route('side-nav');
     this.route('segmented-group');
-    this.route('accordion');
+    this.route('reveal');
   });
   this.route('layouts', function () {
     this.route('app-frame');

@@ -60,6 +60,18 @@ This component intends to replace a few different simple error and empty/zero st
 </Hds::ApplicationState>
 ```
 
+#### Empty state with body text
+
+```handlebars
+<Hds::ApplicationState as |A|>
+  <A.Header @title="Empty state title text" />
+  <A.Body @text="Some sentence that conveys a good message to the user" />
+  <A.Footer as |F|>
+    <F.Link::Standalone @icon="arrow-left" @text="Go back" @href="/" />
+  </A.Footer>
+</Hds::ApplicationState>
+```
+
 ### As an error state
 
 To indicate that the message is an error state, add `@errorCode` to the `[A].Header` component invocation.

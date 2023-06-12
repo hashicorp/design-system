@@ -22,10 +22,12 @@
 
 #### [A].Body
 
-Supports block invocation for custom use.
+Supports block invocation for custom content (see [Block Content](https://guides.emberjs.com/release/components/block-content/) in Ember docs).
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="text" @type="string" />
+  <C.Property @name="text" @type="string">
+    Note: use `@text` for an inline invocation only. This component does not support `@text` on the component invocation if it is used as a block.
+  </C.Property>
 </Doc::ComponentApi>
   
 #### [A].Footer
