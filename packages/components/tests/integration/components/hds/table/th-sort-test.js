@@ -50,13 +50,13 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
 
   test('if sorted, and `@sortOrder` is set, the correct icon should be displayed', async function (assert) {
     await render(
-      hbs`<Hds::Table::ThSort @isSorted={{true}} @sortOrder='asc'>Artist</Hds::Table::ThSort>`
+      hbs`<Hds::Table::ThSort @sortOrder='asc'>Artist</Hds::Table::ThSort>`
     );
 
     assert.dom('[data-test-icon="arrow-up"]').exists();
 
     await render(
-      hbs`<Hds::Table::ThSort @isSorted={{true}} @sortOrder='desc'>Artist</Hds::Table::ThSort>`
+      hbs`<Hds::Table::ThSort @sortOrder='desc'>Artist</Hds::Table::ThSort>`
     );
 
     assert.dom('[data-test-icon="arrow-down"]').exists();
@@ -70,7 +70,7 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
   });
   test('if sorted, the aria-sort attribute value should reflect the direction', async function (assert) {
     await render(
-      hbs`<Hds::Table::ThSort @sortBy='artist' @sortOrder="desc" @isSorted={{true}} id="data-test-table-th-sort">Artist</Hds::Table::ThSort>`
+      hbs`<Hds::Table::ThSort @sortBy='artist' @sortOrder="desc" id="data-test-table-th-sort">Artist</Hds::Table::ThSort>`
     );
 
     assert
