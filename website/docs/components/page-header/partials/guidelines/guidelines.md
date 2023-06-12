@@ -157,7 +157,7 @@ Use a `secondary` [Button](/components/button) in the Page Header when highlight
 
 ### Tertiary button
 
-Use a `tertiary` [Button](/components/button) when highlighting low-priority actions like linking to external documentation.
+Use a `tertiary` [Button](/components/button) when highlighting low-priority actions like integration and terminal instructions.
 
 ![Page Header Actions Tertiary Button](/assets/components/page-header/page-header-actions-tertiary-button.png =700x*)
 
