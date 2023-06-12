@@ -74,12 +74,15 @@ The Table component itself is where most of the options will be applied. However
 
 ### Table::Tr
 
-Note: This component is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it). Instead, an interactive element should be placed _inside_ of the `Th`, `ThSort`, or `Td` elements.
+Note: This component is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it). Instead, an interactive element should be placed _inside_ of the `Th`, `Td` elements.
 
 This component can contain `Hds::Table::Th`, `Hds::Table::ThSort`, or `Hds::Table::Td` components.
 
 <Doc::ComponentApi as |C|>
-    <C.Property @name="...attributes">
+  <C.Property @name="yield">
+    Elements passed as children of this component are yielded inside the `<tr>` element.
+  </C.Property>
+  <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
@@ -100,14 +103,15 @@ If the `Th` component is passed as the first cell of a table body row, `scope="r
   <C.Property @name="width" @type="string" @valueNote="Any valid CSS">
     If set, determines the column’s width.
   </C.Property>
+  <C.Property @name="yield">
+    Elements passed as children of this component are yielded inside the `<th>` element.
+  </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
 
 ### Table::ThSort
-
-Note: This component is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it). Instead, an interactive element should be placed _inside_ of the `ThSort` element.
 
 This is the component that supports column sorting; use instead of `Hds::Table::Th` if creating a custom table implementation.
 
@@ -124,6 +128,9 @@ This is the component that supports column sorting; use instead of `Hds::Table::
   <C.Property @name="onClick" @type="function">
     Callback function invoked when the sort button is clicked. By default, the sort is set by the column’s key.
   </C.Property>
+  <C.Property @name="yield">
+    Elements passed as children of this component are yielded inside a `<button>` nested in a `<th>` element. For this reason, you should avoid providing interactive elements as children (interactive controls should never be nested for accessibility reasons).
+  </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
@@ -136,6 +143,9 @@ Note: This component is not eligible to receive interactions (e.g., it cannot ha
 <Doc::ComponentApi as |C|>
   <C.Property @name="align" @type="enum" @values={{array "left" "center" "right" }} @default="left">
     Determines the horizontal content alignment (sometimes referred to as text alignment) for the cell (make sure it is also set for the column header).
+  </C.Property>
+  <C.Property @name="yield">
+    Elements passed as children of this component are yielded inside the `<td>` element.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
