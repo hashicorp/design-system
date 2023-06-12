@@ -23,7 +23,7 @@ Don’t use to separate headings and body text. Instead, emphasize hierarchy by 
 
 We recommend using meaningful spacing between content elements, allowing users to scan and understand information quickly.
 
-### 0px spacing
+### `0px` spacing
    - Use the `0px` spacing option for a tightly integrated layout without any visible gaps between elements.
    - Avoid using the `0px` spacing option when the content sections need clear visual separation or when visual clutter is possible.
 
