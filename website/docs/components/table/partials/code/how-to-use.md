@@ -382,7 +382,7 @@ To create a column that has right-aligned content, set `@align` to `right` on bo
 
 ### Scrollable table
 
-As a general principle, tables should contain as little information as possible. Consuming large amount of data in a tabular format leads to an intense congnitive load for the user. Functionalities like [pagination](/components/pagination), [sorting](/components/table?tab=code#sortable-table) and [filtering](/patterns/filter-patterns) are used exactly to reduce this load.
+As a general principle, tables should contain as little information as possible. Consuming a large amount of data in a tabular format leads to an intense cognitive load for the user. We recommend using functionalities like [pagination](/components/pagination), [sorting](/components/table?tab=code#sortable-table), and [filtering](/patterns/filter-patterns) to reduce this load.
 
 That said, there may be cases in which it's necessary to show a table with a large number of columns, and allow the user to scroll horizontally. In this case the consumer can use different approaches, depending on their context, needs and design specs.
 
@@ -390,9 +390,9 @@ Below we show a couple of examples of how a scrollable table could be implemente
 
 #### Using a container with `overflow: auto`
 
-In most of the cases, wrapping the table with a container that has `overflow: auto` does the trick.
+In most cases, wrapping the table with a container that has `overflow: auto` does the trick.
 
-The table layout is `auto` (default) which means the browser will try to optimize the columns width to fit their different content. In some cases this will mean the content may wrap (see the `Phone` column as an example) in which case you may want to apply a `width` to suggest to the browser to apply a specific width to a column (see the `Biography` column).
+The table layout is `auto` (default) which means the browser will try to optimize the width of the columns to fit their different content. In some cases, this will mean the content may wrap (see the `Phone` column as an example) in which case you may want to apply a `width` to suggest to the browser to apply a specific width to a column (see the `Biography` column).
 
 
 ```handlebars
@@ -429,7 +429,7 @@ The table layout is `auto` (default) which means the browser will try to optimiz
 
 #### Using a container with `overflow: auto` and a sub-container with `width: max-content`
 
-If you want to specify the column width of some of the columns, and leave some others adapt automtically to their content, but at the same time avoid the wrapping of the content within the cells, you have to introduce a second wrapping element around the table, that has its `width` set to ` max-content`.
+If you want to specify the column width of some of the columns and leave some others adapt automatically to their content, but at the same time avoid the wrapping of the content within the cells, you have to introduce a second wrapping element around the table, that has its `width` set to ` max-content`.
 
 In this case the table layout is still set to `auto` (default). If instead you want to set it to `fixed` (using the `@isFixedLayout` argument) you will have to specify the width for **every** column or the table will explode horizontally.
 
