@@ -112,9 +112,6 @@ Note: This component is not eligible to receive interactions (e.g., it cannot ha
 This is the component that supports column sorting; use instead of `Hds::Table::Th` if creating a custom table implementation.
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="isSorted" @type="boolean" @default="false">
-    Indicates if a column is sorted.
-  </C.Property>
   <C.Property @name="sortOrder" @type="string" @values={{array "asc" "desc" }}>
     If defined, indicates which direction the column should be sorted. Controls the sort icon indicator and the `aria-sort` value.
   </C.Property>
