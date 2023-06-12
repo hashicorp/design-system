@@ -60,7 +60,7 @@ Use badges to express similar or related metadata pertaining to the page content
 
 Don't use more than three badges within the Page Header, instead explore ways to express additional metadata in the `customMetadata` area or move the content to the main page.
 
-![Page Header Badges Metadata](/assets/components/page-header/page-header-badges-dont-many-badges.png =724x*)
+![Page Header Badges Metadata](/assets/components/page-header/page-header-badges-dont-many-badges.png =700x*)
 
 !!!
 
