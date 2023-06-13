@@ -14,7 +14,7 @@ The Page Header is flexible and exposes a number of contextual components to sup
     A container that yields a Helios [Breadcrumb](/components/breadcrumb) component.
   </C.Property>
   <C.Property @name="<[PH].IconTile>">
-    Yields an `medium` IconTile in line with the page title. For details about its API check the [IconTile](/components/icon-tile?tab=code) component.
+    Yields a `medium` IconTile in line with the page title. For details about its API check the [IconTile](/components/icon-tile?tab=code) component.
   </C.Property>
   <C.Property @name="<[PH].Badges>" @type="yielded component">
     A container that yields its content inside of the `PageHeader`, intended to indicate status via a [Badge](/components/badge).

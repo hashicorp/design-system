@@ -1,6 +1,6 @@
 ## How to use this component
 
-A simple invocation of the component requires a contextual `<PH.Title>` which yields it's content within an `<h1>`.
+A simple invocation of the component requires a contextual `<PH.Title>` which yields its content within an `<h1>`.
 
 ```handlebars
 <Hds::PageHeader as |PH|>
@@ -14,7 +14,7 @@ The Page Header uses a number of contextual components that either yield their c
 
 !!! Info
 
-The layout of this component is reponsive and adjusts based on the width of it's bounding container. The examples captured here may not be indicative of how the component will render within a specific application or layout.
+The layout of this component is responsive and adjusts based on the width of its bounding container. The examples captured here may not be indicative of how the component will render within a specific application or layout.
 
 !!!
 

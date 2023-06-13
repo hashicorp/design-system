@@ -58,7 +58,7 @@ Use badges to express similar or related metadata pertaining to the page content
 
 !!! Dont
 
-Don't use more than three badges within the Page Header, instead explore ways to express additional metadata in the `customMetadata` area or move the content to the main page.
+Don’t use more than three badges within the Page Header, instead explore ways to express additional metadata in the `customMetadata` area or move the content to the main page.
 
 ![Page Header Badges Metadata](/assets/components/page-header/page-header-badges-dont-many-badges.png =700x*)
 
@@ -72,7 +72,7 @@ Displays a subtitle beneath the title to communicate metadata that does not chan
 
 !!! Dont
 
-Don't use full sentences in the subtitle, use a [description](#description) instead.
+Don’t use full sentences in the subtitle, use a [description](#description) instead.
 
 ![Page Header Full Sentence Subtitle](/assets/components/page-header/page-header-subtitle-dont-full-sentence.png =700x*)
 
@@ -82,13 +82,13 @@ Don't use full sentences in the subtitle, use a [description](#description) inst
 
 Displays a description beneath the title and subtitle to communicate more detailed information about the page, link out to external documentation and resources, and capture more generic information about the page. Not all pages need a description, especially if the title is explicit enough.
 
-We recommend limiting the Page Header description to 1-2 sentences. If a longer description is required, consider linking to external documentation or moving more detailed content to an interstitial component like a [Flyout](/components/flyout).
+We recommend limiting the Page Header description to 1–2 sentences. If a longer description is required, consider linking to external documentation or moving more detailed content to an interstitial component like a [Flyout](/components/flyout).
 
 ![Page Header Description](/assets/components/page-header/page-header-description.png =700x*)
 
 !!! Dont
 
-Don't include overly complex details, long-form content, or instructions in the description. This can add too much visual weight to the Page Header and can detract from the content on the main page.
+Don’t include overly complex details, long-form content, or instructions in the description. This can add too much visual weight to the Page Header and can detract from the content on the main page.
 
 ![Page Header Long Form Description](/assets/components/page-header/page-header-description-dont-long-form.png =700x*)
 
@@ -99,11 +99,11 @@ Don't include overly complex details, long-form content, or instructions in the 
 Instead, link to more complex content using an [Inline Link](/components/link/inline) with an optional icon to indicate the scope of the link (internal resource, external resource, etc).
 
 <Hds::PageHeader as |PH|>
-<PH.Title>HCP Packer Dashboard</PH.Title>
-<PH.IconTile @icon="packer-color" @color="packer" />
-<PH.Description>
-Channel created and managed automatically for you by Packer. For more information on how this channel is managed refer to the Packer <Hds::Link::Inline @icon="external-link" @href="#">documentation</Hds::Link::Inline>.
-</PH.Description>
+  <PH.Title>HCP Packer Dashboard</PH.Title>
+  <PH.IconTile @icon="packer-color" @color="packer" />
+  <PH.Description>
+    Channel created and managed automatically for you by Packer. For more information on how this channel is managed refer to the Packer <Hds::Link::Inline @icon="external-link" @href="#">documentation</Hds::Link::Inline>.
+  </PH.Description>
 </Hds::PageHeader>
 
 !!!
@@ -138,9 +138,9 @@ We recommend not exceeding more than four key/value pairs; this can result in un
 
 Use [Buttons](/components/button) and [Dropdowns](/components/dropdown) in the Page Header to highlight functions and actions that impact the page as a whole. Examples of this include:
 
-- Creating new objects that are listed within the page
-- Surfacing management details like connecting to an API
-- Pausing or refreshing a service pertaining to the page
+- Creating new objects that are listed within the page.
+- Surfacing management details like connecting to an API.
+- Pausing or refreshing a service pertaining to the page.
 
 ![Page Header Actions](/assets/components/page-header/page-header-actions.png =853x*)
 
@@ -157,7 +157,9 @@ Use a `secondary` [Button](/components/button) in the Page Header when highlight
 
 ### Tertiary button
 
-Use a `tertiary` [Button](/components/button) when highlighting low-priority actions like integration and terminal instructions.
+A `tertiary` [Button](/components/button) should be used sparingly in the Page Header, but can be used to highlight low-priority actions like terminal instructions or to trigger a component like a [Flyout](/components/flyout) to enhance the content on the main page.
+
+Depending on the intended function, consider consolidating a `tertiary` Button into a [Dropdown](/components/dropdown).
 
 ![Page Header Actions Tertiary Button](/assets/components/page-header/page-header-actions-tertiary-button.png =700x*)
 
@@ -165,10 +167,10 @@ Use a `tertiary` [Button](/components/button) when highlighting low-priority act
 
 Use a [Dropdown](/components/dropdown) in the Page Header to combine multiple secondary functions, tasks, or elements that assist the user in managing the information or objects on the page. Examples of this include:
 
-- Copying API credentials to manage the object remotely
-- Editing or changing settings
-- Deleting or deactivating an object
-- Linking to documentation
+- Copying API credentials to manage the object remotely.
+- Editing or changing settings.
+- Deleting or deactivating an object.
+- Linking to documentation.
 
 When used in these scenarios and paired with a `primary` button, use a `secondary` [Dropdown](/components/dropdown).
 
@@ -182,7 +184,7 @@ Use a primary [Dropdown](/components/dropdown) when the same action can be done 
 
 !!! Dont
 
-Don't use a `primary` color [Dropdown](/components/dropdown) when combining different, unrelated actions. Instead, use the `secondary` color.
+Don’t use a `primary` color [Dropdown](/components/dropdown) when combining different, unrelated actions. Instead, use the `secondary` color.
 
 ![Page Header primary dropdown](/assets/components/page-header/page-header-actions-dont-primary-dropdown.png =853x*)
 
@@ -196,7 +198,7 @@ For more details on how to combine, order, and organize buttons, refer to the [B
 
 !!! Dont
 
-Don't pair two primary actions in a Page Header. Instead, communicate the highest priority action for the user with a primary Button or Dropdown and other actions with a secondary Button or Dropdown.
+Don’t pair two primary actions in a Page Header. Instead, communicate the highest priority action for the user with a primary Button or Dropdown and other actions with a secondary Button or Dropdown.
 
 ![Page Header two primary actions](/assets/components/page-header/page-header-dont-two-actions.png =700x*)
 
