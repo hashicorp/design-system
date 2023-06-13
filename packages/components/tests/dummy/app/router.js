@@ -48,15 +48,16 @@ Router.map(function () {
     });
     this.route('modal');
     this.route('pagination');
+    this.route('reveal');
+    this.route('segmented-group');
+    this.route('separator');
+    this.route('side-nav');
     this.route('stepper');
     this.route('table');
     this.route('tag');
     this.route('toast');
     this.route('tabs');
     this.route('tooltip');
-    this.route('side-nav');
-    this.route('segmented-group');
-    this.route('reveal');
   });
   this.route('layouts', function () {
     this.route('app-frame');
