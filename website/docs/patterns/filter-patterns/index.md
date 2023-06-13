@@ -16,7 +16,3 @@ navigation:
 <section data-tab="Specifications">
   @include "partials/specifications/specifications.md"
 </section>
-
-<section data-tab="Specifications 2">
-  @include "partials/specifications/specifications-2.md"
-</section>
