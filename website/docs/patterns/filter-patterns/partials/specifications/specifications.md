@@ -134,7 +134,7 @@ When spacing elements vertically within the pattern, use a `16px` gap.
 
 ![Pattern anatomy](/assets/patterns/filter-patterns/pattern-anatomy-filter-bar-spacing.png =809x*)
 
-### Horiztonal spacing
+### Horizontal spacing
 
 When spacing elements horizontally within the pattern, use a `24px` gap. 
 
