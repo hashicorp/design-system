@@ -28,7 +28,14 @@
       </Hds::Table::Tr>
     {{else}}
       {{yield
-        (hash Tr=(component "hds/table/tr") Th=(component "hds/table/th") ThSort=(component "hds/table/th-sort"))
+        (hash
+          Tr=(component "hds/table/tr")
+          Th=(component "hds/table/th")
+          ThSort=(component "hds/table/th-sort")
+          sortBy=this.sortBy
+          sortOrder=this.sortOrder
+          setSortBy=this.setSortBy
+        )
         to="head"
       }}
     {{/if}}
@@ -57,6 +64,8 @@
           Tr=(component "hds/table/tr")
           Th=(component "hds/table/th" scope="row")
           Td=(component "hds/table/td" align=@align)
+          sortBy=this.sortBy
+          sortOrder=this.sortOrder
         )
         to="body"
       }}
