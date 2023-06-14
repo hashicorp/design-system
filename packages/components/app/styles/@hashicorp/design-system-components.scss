@@ -31,6 +31,7 @@
 @use "../components/link"; // multiple components
 @use "../components/menu-primitive";
 @use "../components/modal";
+@use "../components/page-header";
 @use "../components/pagination";
 @use "../components/reveal";
 @use "../components/segmented-group";
@@ -52,8 +53,8 @@
   margin: -1px !important;
   padding: 0 !important;
   overflow: hidden !important;
-  white-space: nowrap !important;            /* 3 */
+  white-space: nowrap !important; /* 3 */
   border: 0 !important;
   clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
-  clip-path: inset(50%) !important;  /* 2 */
+  clip-path: inset(50%) !important; /* 2 */
 }
