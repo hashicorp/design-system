@@ -240,7 +240,6 @@ const customSortingCriteriaArray = [
 // we track the sorting order, so it can be used in the custom sorting function
 @tracked customSortOrderForStatus = 'asc';
 
-
 // we define a "getter" that returns a custom sorting function ("s1" and "s2" are data records)
 get customSortingMethodForStatus() {
   return (s1, s2) => {
@@ -262,6 +261,81 @@ get customSortingMethodForStatus() {
 customOnSort(_sortBy, sortOrder) {
   this.customSortOrderForStatus = sortOrder;
 }
+```
+
+#### Custom sorting using the yielded sorting arguments/functions
+
+!!! Warning
+
+This is a pretty advanced example, intended to cover some edge cases that we encountered. We strongly suggest using one of the sorting methods described above, or speaking with the [Design Systems Team](/about/support) before using this approach to make sure there are no better alternatives.
+
+!!!
+
+
+The `Hds::Table` exposes (via yielding) some of its internal properties and methods, to allow extremely customized sorting functionalities:
+
+- `setSortBy` is the internal function used to set the `sortBy` and `sortOrder` tracked values
+- `sortBy` is the "key" of the column used for sorting (when the table is sorted)
+- `sortOrder` is the sorting direction (ascending or descending)
+
+For more details about these properties refer to the [Component API](#component-api) section below.
+
+Below you can see an example of a Table that renders a list of clusters, in which the sorting is based on a custom function that depends on the sorting column (`sortBy`) and direction (`sortOrder`):
+
+_The code has been simplified for clarity._
+
+```handlebars{data-execute=false}
+<Hds::Table>
+  <:head as |H|>
+    <H.Tr>
+      <H.ThSort onClick={{fn H.setSortBy "peer-name"}} @sortOrder={{if (eq "peer-name" H.sortBy) H.sortOrder}}>Peer Name</H.ThSort>
+      <H.ThSort onClick={{fn H.setSortBy "status"}} @sortOrder={{if (eq "status" H.sortBy) H.sortOrder}}>Status</H.ThSort>
+      <H.ThSort onClick={{fn H.setSortBy "partition"}} @sortOrder={{if (eq "partition" H.sortBy) H.sortOrder}}>Partition</H.ThSort>
+      <H.Th>Description</H.Th>
+    </H.Tr>
+  </:head>
+  <:body as |B|>
+    {{#each (call (fn this.myDemoCustomSortingFunction B.sortBy B.sortOrder)) as |cluster|}}
+      <B.Tr>
+        <B.Td>{{cluster.peer-name}}</B.Td>
+        <B.Td><ClusterStatusBadge @status={{cluster.status}} /></B.Td>
+        <B.Td>{{cluster.cluster-partition}}</B.Td>
+        <B.Td>{{cluster.description}}</B.Td>
+      </B.Tr>
+    {{/each}}
+  </:body>
+</Hds::Table>
+```
+
+In the `<:head>` the `setSortBy` function is invoked when the `<ThSort>` element is clicked to set the values of `sortBy` and `sortOrder` in the table; in turn these values are then used by the `<ThSort>` element to assign the sorting icon via the `@sortOrder` argument.
+
+In the `<:body>` the values of `sortBy` and `sortOrder` are provided instead as arguments to a consumer-side function that takes care of custom sorting the model/data.
+
+_Notice: in this case for the example we're using the [`call` helper](https://github.com/DockYard/ember-composable-helpers#call) from [ember-composable-helpers](https://github.com/DockYard/ember-composable-helpers)._
+
+The sorting function in the backing class code will look something like this (the actual implementation will depend on the consumer-side/business-logic context):
+
+_The code has been simplified for clarity._
+
+```javascript
+myDemoCustomSortingFunction = (sortBy, sortOrder) => {
+  // here goes the logic for the custom sorting of the `model` or `data` array
+  // based on the `sortBy/sortOrder` arguments
+  if (sortBy === 'peer-name') {
+    myDemoDataArray.sort((s1, s2) => {
+      // logic for sorting by `peer-name` goes here
+    });
+  } else if (sortBy === 'status') {
+    myDemoDataArray.sort((s1, s2) => {
+      // logic for sorting by `status` goes here
+    });
+  //
+  // same for all the other conditions/columns
+  // ...
+  }
+  return myDemoDataArray;
+};
+
 ```
 
 ### Density

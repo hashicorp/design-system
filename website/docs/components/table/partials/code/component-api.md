@@ -6,10 +6,31 @@ The Table component itself is where most of the options will be applied. However
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<:head>" @type="named block">
-    This is a named block where the content for the table head (`<thead>`) is rendered. Note: most consumers are unlikely to need to use this named block directly.
+    This is a named block where the content for the table head (`<thead>`) is rendered. Note: most consumers are unlikely to need to use this named block directly.<br />
+    It yields these internal properties:
+    <Doc::ComponentApi as |D|>
+      <D.Property @name="H.setSortBy" @type="yielded function">
+      The function used internally by the table to set the `sortBy` and `sortOrder` tracked values.
+      </D.Property>
+      <D.Property @name="H.sortBy" @type="yielded value">
+        The value of the internal `sortBy` tracked variable.
+      </D.Property>
+      <D.Property @name="H.sortOrder" @type="yielded value">
+        The value of the internal `sortOrder` tracked variable.
+      </D.Property>
+    </Doc::ComponentApi>
   </C.Property>
   <C.Property @name="<:body>" @type="named block">
-    This is a named block where the content for the table body (`<tbody>`) is rendered.
+    This is a named block where the content for the table body (`<tbody>`) is rendered.<br />
+    It yields these internal properties:
+    <Doc::ComponentApi as |D|>
+      <D.Property @name="B.sortBy" @type="yielded value">
+        The value of the internal `sortBy` tracked variable.
+      </D.Property>
+      <D.Property @name="B.sortOrder" @type="yielded value">
+        The value of the internal `sortOrder` tracked variable.
+      </D.Property>
+    </Doc::ComponentApi>
   </C.Property>
   <C.Property @name="model" @type="array">
     The data model to be used by the table.
