@@ -14,38 +14,38 @@
 
   <Shw::Flex {{style gap="1.5rem"}} @direction="column" as |SF|>
     <SF.Item @label="One row">
-      <Hds::Accordion>
-        <Hds::Accordion::Row>
+      <Hds::Accordion as |A|>
+        <A.Row>
           <:toggle>Item one</:toggle>
           <:content>
             <Shw::Placeholder @text="generic content" @height="40" @background="#eee" />
           </:content>
-        </Hds::Accordion::Row>
+        </A.Row>
       </Hds::Accordion>
     </SF.Item>
 
     <SF.Item @label="Multiple rows">
-      <Hds::Accordion>
-        <Hds::Accordion::Row>
+      <Hds::Accordion as |A|>
+        <A.Row>
           <:toggle>Item one</:toggle>
           <:content>
             <Shw::Placeholder @text="generic content" @height="40" @background="#eee" />
           </:content>
-        </Hds::Accordion::Row>
+        </A.Row>
 
-        <Hds::Accordion::Row>
+        <A.Row>
           <:toggle>Another item two</:toggle>
           <:content>
             <Shw::Placeholder @text="generic content" @height="40" @background="#eee" />
           </:content>
-        </Hds::Accordion::Row>
+        </A.Row>
 
-        <Hds::Accordion::Row>
+        <A.Row>
           <:toggle>Third item</:toggle>
           <:content>
             <Shw::Placeholder @text="generic content" @height="40" @background="#eee" />
           </:content>
-        </Hds::Accordion::Row>
+        </A.Row>
       </Hds::Accordion>
     </SF.Item>
   </Shw::Flex>
@@ -54,8 +54,8 @@
 
   <Shw::Flex {{style gap="1.5rem"}} @direction="column" as |SF|>
     <SF.Item @label="With nested Accordions">
-      <Hds::Accordion>
-        <Hds::Accordion::Row>
+      <Hds::Accordion as |A|>
+        <A.Row>
           <:toggle>Item one</:toggle>
           <:content>
             <Hds::Accordion>
@@ -67,9 +67,9 @@
               </Hds::Accordion::Row>
             </Hds::Accordion>
           </:content>
-        </Hds::Accordion::Row>
+        </A.Row>
 
-        <Hds::Accordion::Row>
+        <A.Row>
           <:toggle>Another item two</:toggle>
           <:content>
             <Hds::Accordion>
@@ -87,26 +87,26 @@
               </Hds::Accordion::Row>
             </Hds::Accordion>
           </:content>
-        </Hds::Accordion::Row>
+        </A.Row>
       </Hds::Accordion>
     </SF.Item>
 
     <SF.Item @label="With rich content in toggle (HTML header tag)">
-      <Hds::Accordion>
-        <Hds::Accordion::Row>
+      <Hds::Accordion as |A|>
+        <A.Row>
           <:toggle>
             <h4 class="hds-typography-display-300">Header tag example</h4>
           </:toggle>
           <:content>
             <Shw::Placeholder @text="generic content" @height="40" @background="#eee" />
           </:content>
-        </Hds::Accordion::Row>
+        </A.Row>
       </Hds::Accordion>
     </SF.Item>
 
     <SF.Item @label="With rich content in toggle and containing a table">
-      <Hds::Accordion>
-        <Hds::Accordion::Row>
+      <Hds::Accordion as |A|>
+        <A.Row>
           <:toggle>
             <Hds::Alert @type="compact" @color="success" as |A|>
               <A.Title>Title</A.Title>
@@ -142,7 +142,7 @@
               </:body>
             </Hds::Table>
           </:content>
-        </Hds::Accordion::Row>
+        </A.Row>
       </Hds::Accordion>
     </SF.Item>
   </Shw::Flex>
@@ -161,24 +161,24 @@
 
   <Shw::Flex {{style gap="1.5rem"}} @direction="column" as |SF|>
     <SF.Item @label="Default, isOpen=false">
-      <Hds::Accordion>
-        <Hds::Accordion::Row>
+      <Hds::Accordion as |A|>
+        <A.Row>
           <:toggle>Item one</:toggle>
           <:content>
             <Shw::Placeholder @text="generic content" @height="40" @background="#eee" />
           </:content>
-        </Hds::Accordion::Row>
+        </A.Row>
       </Hds::Accordion>
     </SF.Item>
 
     <SF.Item @label="isOpen=true">
-      <Hds::Accordion>
-        <Hds::Accordion::Row @isOpen={{true}}>
+      <Hds::Accordion as |A|>
+        <A.Row @isOpen={{true}}>
           <:toggle>Item one</:toggle>
           <:content>
             <Shw::Placeholder @text="generic content" @height="40" @background="#eee" />
           </:content>
-        </Hds::Accordion::Row>
+        </A.Row>
       </Hds::Accordion>
     </SF.Item>
   </Shw::Flex>
