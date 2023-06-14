@@ -4,11 +4,19 @@
  */
 
 import Component from '@glimmer/component';
+import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class HdsAccordionRowIndexComponent extends Component {
   @tracked isOpen = this.args.isOpen ?? false;
+
+  /**
+   * Generates a unique ID for the Content
+   *
+   * @param contentId
+   */
+  contentId = 'content-' + guidFor(this);
 
   @action
   toggle() {

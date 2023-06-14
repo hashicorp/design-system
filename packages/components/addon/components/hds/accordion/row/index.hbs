@@ -9,6 +9,8 @@
         type="button"
         {{on "click" t.onClickToggle}}
         aria-label="Toggle display"
+        aria-expanded={{if this.isOpen "true" "false"}}
+        aria-controls={{this.contentId}}
       >
         <FlightIcon @name="chevron-down" />
       </button>
