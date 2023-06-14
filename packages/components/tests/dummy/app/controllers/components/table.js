@@ -107,4 +107,39 @@ export default class ComponentsTableController extends Controller {
     }
     return clonedModelClusters;
   }
+
+  // CUSTOM SORTING DEMO #4
+  // Sortable table with custom sorting using yielded `<ThSort>` + `sortBy/sortOrder/setSortBy` properties
+
+  sortModelClusters__demo4 = (sortBy, sortOrder) => {
+    // here goes the logic for the custom sorting of the `model` array based on `sortBy/sortOrder`
+    console.log(`sort by column: ${sortBy} / direction: ${sortOrder}`);
+    const clonedModelClusters = Array.from(this.model.clusters);
+    if (sortBy === 'peer-name') {
+      clonedModelClusters.sort((s1, s2) => {
+        const name1 = s1['peer-name'].toLowerCase();
+        const name2 = s2['peer-name'].toLowerCase();
+        if (name1 < name2) {
+          return sortOrder === 'asc' ? -1 : 1;
+        }
+        if (name1 > name2) {
+          return sortOrder === 'asc' ? 1 : -1;
+        }
+        return 0;
+      });
+    } else if (sortBy === 'status') {
+      clonedModelClusters.sort((s1, s2) => {
+        const index1 = customSortingCriteriaArray.indexOf(s1['status']);
+        const index2 = customSortingCriteriaArray.indexOf(s2['status']);
+        if (index1 < index2) {
+          return sortOrder === 'asc' ? -1 : 1;
+        } else if (index1 > index2) {
+          return sortOrder === 'asc' ? 1 : -1;
+        } else {
+          return 0;
+        }
+      });
+    }
+    return clonedModelClusters;
+  };
 }

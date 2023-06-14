@@ -248,6 +248,10 @@
 
   <Shw::Text::H3>Custom sorting</Shw::Text::H3>
 
+  {{! ============================================== }}
+  {{! ===== DEMO #1 - EXTRA KEY ADDED TO MODEL ===== }}
+  {{! ============================================== }}
+
   <Shw::Text::H4>Sortable table with custom sorting done via extra key added to the data model</Shw::Text::H4>
 
   <Hds::Table
@@ -293,6 +297,10 @@
       </B.Tr>
     </:body>
   </Hds::Table>
+
+  {{! ============================================= }}
+  {{! ===== DEMO #2 - CUSTOM SORTING FUNCTION ===== }}
+  {{! ============================================= }}
 
   <Shw::Text::H4>Sortable table with custom <code>sortingFunction</code> declared in the column hash</Shw::Text::H4>
 
@@ -341,11 +349,16 @@
     </:body>
   </Hds::Table>
 
+  {{! =========================================== }}
+  {{! ===== DEMO #3 - YIELDED PROPS TO HEAD ===== }}
+  {{! =========================================== }}
+
   <Shw::Text::H4>Sortable table with custom sorting using yielded
     <code>&lt;ThSort&gt;</code>
     +
     <code>sortBy/sortOrder/setSortBy</code>
-    properties</Shw::Text::H4>
+    properties (<code>&lt;:head&gt;</code>
+    only)</Shw::Text::H4>
 
   <Hds::Table>
     <:head as |H|>
@@ -366,6 +379,66 @@
     </:head>
     <:body as |B|>
       {{#each this.sortedModelClusters__demo3 as |item|}}
+        <B.Tr>
+          <B.Td>{{item.peer-name}}</B.Td>
+          <B.Td>{{item.cluster-partition}}</B.Td>
+          <B.Td>
+            {{#if (eq item.status "failing")}}
+              <Hds::Badge @text="Failing" @color="critical" @icon="x" />
+            {{else if (eq item.status "active")}}
+              <Hds::Badge @text="Active" @color="success" @icon="check" />
+            {{else if (eq item.status "pending")}}
+              <Hds::Badge @text="Pending" @color="neutral" @icon="loading" />
+            {{else if (eq item.status "establishing")}}
+              <Hds::Badge @text="Establishing" @color="highlight" @icon="loading" />
+            {{/if}}
+          </B.Td>
+          <B.Td>{{item.services.imported}}</B.Td>
+          <B.Td>{{item.services.exported}}</B.Td>
+          <B.Td @align="right">
+            <Hds::Dropdown @isInline={{true}} as |dd|>
+              <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
+              <dd.Interactive @route="components.table" @text="Create" />
+              <dd.Interactive @route="components.table" @text="Read" />
+              <dd.Interactive @route="components.table" @text="Update" />
+              <dd.Separator />
+              <dd.Interactive @route="components.table" @text="Delete" @color="critical" @icon="trash" />
+            </Hds::Dropdown>
+          </B.Td>
+        </B.Tr>
+      {{/each}}
+    </:body>
+  </Hds::Table>
+
+  {{! ================================================== }}
+  {{! ===== DEMO #4 - YIELDED PROPS TO HEAD + BODY ===== }}
+  {{! ================================================== }}
+
+  <Shw::Text::H4>Sortable table with custom sorting using yielded
+    <code>&lt;ThSort&gt;</code>
+    +
+    <code>sortBy/sortOrder/setSortBy</code>
+    properties (<code>&lt;:head&gt;</code>
+    +
+    <code>&lt;:body&gt;</code>)</Shw::Text::H4>
+
+  <Hds::Table>
+    <:head as |H|>
+      <H.Tr>
+        <H.ThSort onClick={{fn H.setSortBy "peer-name"}} @sortOrder={{if (eq "peer-name" H.sortBy) H.sortOrder}}>Peer
+          name</H.ThSort>
+        <H.Th>Cluster partition</H.Th>
+        <H.ThSort
+          onClick={{fn H.setSortBy "status"}}
+          @sortOrder={{if (eq "status" H.sortBy) H.sortOrder}}
+        >Status</H.ThSort>
+        <H.Th>Imported services</H.Th>
+        <H.Th>Exported services</H.Th>
+        <H.Th @align="right">Actions</H.Th>
+      </H.Tr>
+    </:head>
+    <:body as |B|>
+      {{#each (call (fn this.sortModelClusters__demo4 B.sortBy B.sortOrder)) as |item|}}
         <B.Tr>
           <B.Td>{{item.peer-name}}</B.Td>
           <B.Td>{{item.cluster-partition}}</B.Td>
