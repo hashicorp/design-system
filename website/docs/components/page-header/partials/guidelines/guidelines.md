@@ -22,13 +22,17 @@ The Page Header renders the title as an `<h1>` element. Ensure this is the only 
 
 ## Breadcrumb
 
-Displays a Helios [Breadcrumb](/components/breadcrumb) to communicate the application hierarchy and location to the user.
+Displays a [Breadcrumb](/components/breadcrumb) to communicate the application hierarchy and location to the user.
 
 ![Page Header Breadcrumb](/assets/components/page-header/page-header-breadcrumb.png =700x*)
 
-### Multiple Breadcrumb components
+!!! Warning
+
+**Multiple Breadcrumb components**
 
 The [Breadcrumb](/components/breadcrumb) uses a landmark `<nav>` element. Ensure that there is only one Breadcrumb on the page, or differentiate between Breadcrumbs by passing them different `ariaLabel` arguments. Refer to the [Breadcrumb API](/components/breadcrumb?tab=code#component-api) for more details.
+
+!!!
 
 ## Icon Tile
 
@@ -235,4 +239,6 @@ Additional responsive characteristics are the responsibility of the consumer and
 ## Related
 
 - [Breadcrumb](/components/breadcrumb)
+- [Button](/component/button)
+- [Dropdown](/component/dropdown)
 - [IconTile](/components/icon-tile)

@@ -1,6 +1,12 @@
 ## Component API
 
-The Page Header is flexible and exposes a number of contextual components to support many different composition methods. 
+The Page Header is flexible and exposes a number of contextual components to support many different composition methods.
+
+<Doc::ComponentApi as |C|>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
+</Doc::ComponentApi>
 
 ### Contextual components
 
@@ -11,33 +17,33 @@ The Page Header is flexible and exposes a number of contextual components to sup
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
   <C.Property @name="<[PH].Breadcrumb>" @type="yielded component">
-    A container that yields a Helios [Breadcrumb](/components/breadcrumb) component.
+    A container that yields its content inside the "breadcrumb" block. Conventionally used to add a [Breadcrumb](/components/breadcrumb) component.
   </C.Property>
-  <C.Property @name="<[PH].IconTile>">
-    Yields a `medium` IconTile in line with the page title. For details about its API check the [IconTile](/components/icon-tile?tab=code) component.
+  <C.Property @name="<[PH].IconTile>" @type="yielded component">
+    A yielded `HDS::IconTile` component. It exposes the same API of the [IconTile component](/components/icon-tile?tab=code#component-api), apart from the `@size` argument, which is pre-defined to be `medium`.
   </C.Property>
   <C.Property @name="<[PH].Badges>" @type="yielded component">
-    A container that yields its content inside of the `PageHeader`, intended to indicate status via a [Badge](/components/badge).
+    A container that yields its content inside the "badges" block. Intended to indicate status via one or more [Badge](/components/badge) components.
     <br/><br/>
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
   <C.Property @name="<[PH].Subtitle>" @type="yielded component">
-    A container that yields its content inside of the `PageHeader` metadata. The content can be a simple string or a more complex/structured one, in which case it inherits the text style.
+    A container that yields its content inside of the "metadata" block. The content can be a simple string or a more complex/structured one. The content inherits the text style.
     <br/><br/>
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
   <C.Property @name="<[PH].Description>" @type="yielded component">
-    A container that yields its content inside of the `PageHeader` metadata. The content can be a simple string or a more complex/structured one, in which case it inherits the text style.
+    A container that yields its content inside of the "metadata" block. The content can be a simple string or a more complex/structured one. The content inherits the text style.
     <br/><br/>
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
   <C.Property @name="<[PH].Generic>" @type="yielded component">
-    A container that yields its content inside of the `PageHeader` metadata. The content does not inherit any styles and can be customized as desired.
+    A container that yields its content inside of the "metadata" block. The content can be a simple string or a more complex/structured one. The content does not inherit any text style.
     <br/><br/>
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
   <C.Property @name="<[PH].Actions>" @type="yielded component">
-    A container that yields its content inside of the `PageHeader`, intended for actions and buttons pertaining to the main page.
+    A container that yields its content inside of the "actions" block. Intended for actions and buttons pertaining to the main page.
     <br/><br/>
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
