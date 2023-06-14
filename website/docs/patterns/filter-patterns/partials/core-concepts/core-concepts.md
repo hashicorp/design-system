@@ -1,6 +1,6 @@
-## Filter concepts and terminology
+## Concepts and terminology
 
-A filter consists of several conceptual foundations that when combined determine what is included or removed from the data set.
+A filter consists of several conceptual foundations that when combined determine what is included or excluded from the data set.
 
 | Concept | Usage |
 |---------|-------|
@@ -8,30 +8,39 @@ A filter consists of several conceptual foundations that when combined determine
 | Conditional | Refers to the relationship between the parameter and the value. |
 | Value | Refers to the specific value or property within a parameter that is referenced in the filter; e.g., a specific string, numerical amount, date, etc. |
 
-**Ex 1.0: Concepts of a filter in practice within a horiztonal filter bar**
+### Filter concepts in practice
 
-![Filter concept anatomy](/assets/patterns/filter-patterns/filter-concept-filter-bar-parameter.png)
+The way in which these concepts materialize in practice establishes a visual connection with the conceptual methods.
 
-**Ex 1.1: Concepts of a filter in practice within a vertical filter sidebar**
+#### In the context of a filter bar
 
-![Filter concept anatomy](/assets/patterns/filter-patterns/filter-concept-filter-sidebar-parameter.png =400x*)
+![Filter concept anatomy](/assets/patterns/filter-patterns/filter-concept-filter-bar-parameter.png =612x*)
 
-### Using conditionals
+#### In the context of a filter sidebar
 
-The most common conditional within a filter is the `equality` conditional which signifies a parameter is the same or equivalent to a value or array of values. 
+![Filter concept anatomy](/assets/patterns/filter-patterns/filter-concept-filter-sidebar-parameter.png =344x*)
 
-While the `equality` conditional is the most common for string and related types of values, there are many other types of conditionals that account for different value types (booleans, strings, ranges, etc). Which conditional to use depends on the type of parameter and the values it contains.
+## Conditionals
 
-#### Text and string conditionals
+Conditionals are used to express the relationship between a filter parameter and filter value. The most common within a filter pattern is the `equality` conditional which signifies a parameter is the same or equivalent to a value or array of values.
+
+This example showcases a simple equality filter and would return records in a data set where the `Status` parameter is equal to `Active` and `Pending`.
+
+![Filter concept equality example](/assets/patterns/filter-patterns/filter-concept-conditional-example-equality.png =612x*)
+
+Other types of conditionals can be used to account for different value types (booleans, strings, ranges, etc). Which conditional to use depends on the type of parameter and the values it contains.
+
+
+### Text and string conditionals
 
 - Equals (`=`)
 - Does not equal (`≠`)
 - Contains
-- Does not contain ()
+- Does not contain
 - Starts with
 - Ends with
 
-#### Numerical conditionals
+### Numerical conditionals
 
 - Equals (`=`)
 - Does not equal (`≠`)
@@ -42,43 +51,37 @@ While the `equality` conditional is the most common for string and related types
 
 ### Applied filters in context
 
-Communicating the conditional relationship between the parameter and value can be communicated via the content within a tag. While how explicit this communication is depends on the level of complexity, more explicitness often benefits the user, especially when parameters might have similar labels and associated values.
+The conditional relationship between the parameter and the value should be communicated by the content within the tag. How explicit this communication is depends on the level of complexity, but more explicitness often benefits the user, especially when parameters might have similar labels and associated values.
 
-**Ex 2.0: Explicit communication of an applied tag.** In this example the conditional creates an explicit relationship between parameter and value.
+#### Explicit communication of an applied filter
 
-![filter concept value](/assets/patterns/filter-patterns/filter-concept-filter-value.png =400x*)
+![filter concept value](/assets/patterns/filter-patterns/filter-concept-filter-value.png =265x*)
 
-**Ex 2.1: Implied communication of an applied tag.** In this example the equals conditional may be implied by the absence of the parameter.
+#### Implied communication of an applied filter
 
-![Filter concept implied value](/assets/patterns/filter-patterns/filter-concept-filter-value-implied.png =300x*)
+![Filter concept implied value](/assets/patterns/filter-patterns/filter-concept-filter-value-implied.png =202x*)
 
 ### Mirroring of parameters
 
-In most use-cases the filterable parameters should mirror 
+Filterable parameters should mirror the columns in a table or other visible label in the data set. This is the most explicit method to communicate what parameters are available to filter on and how the results within a data set change based on the filtering outcome.
 
-**Ex 3.0: Mirroring parameters of the data set within the filter bar**
+#### Mirroring parameters in a filter bar
 
-![Mirror the columns of a table in the available parameters](/assets/patterns/filter-patterns/filter-concept-mirror-parameters.png)
+This example showcases a 1:1 relationship with the columns of a data set and the available filter parameters in the filter bar.
 
-**Ex 3.1: Parameter and value relationship within a data set**
+![Mirroring the columns of a table in the available parameters](/assets/patterns/filter-patterns/filter-concept-mirror-parameters.png =1059x*)
 
-![Parameters within a data set](/assets/patterns/filter-patterns/filter-concept-data-set-parameters.png)
+While it's not always necessary to mirror all parameters in a data set, including a parameter in the available filters that is not visually reflected in the data set can be confusing and cause uncertainty about the returned results.
 
-**Ex 3.2: Parameter and value relationship when the data set is expressed in a grid**
+#### Parameter and value relationship within a data set
 
-![Grid data set parameter and value relationship](/assets/patterns/filter-patterns/filter-concept-data-set-parameters-grid.png)
+![Parameters within a data set](/assets/patterns/filter-patterns/filter-concept-data-set-parameters.png =636x*)
 
-## Data fetching
+#### Parameter and value relationship as a grid
 
-### Live filtering
-
-### Per filter
-
-### Batch filtering
+![Grid data set parameter and value relationship](/assets/patterns/filter-patterns/filter-concept-data-set-parameters-grid.png =913x*)
 
 ## Default filters
 
 ## Saving filters
-
-## What does the data set consist of?
 
