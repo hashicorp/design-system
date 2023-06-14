@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 
-export default class HdsAccordionIndexComponent extends Component {
+export default class HdsAccordionRowIndexComponent extends Component {
   // UNCOMMENT THIS IF YOU NEED A CONSTRUCTOR
   // constructor() {
   //   super(...arguments);
@@ -18,9 +18,16 @@ export default class HdsAccordionIndexComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-accordion'];
+    let classes = ['hds-accordion-row'];
+
     // add a class based on the @xxx argument
-    // classes.push(`hds-accordion--[variant]-${this.xxx}`);
+    // classes.push(`hds-accordion-row--[variant]-${this.xxx}`);
+
+    // add a class based on the @isOpen argument
+    // if (this.args.isOpen) {
+    //   classes.push('hds-accordion-row--is-open');
+    // }
+
     return classes.join(' ');
   }
 }

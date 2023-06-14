@@ -1,0 +1,31 @@
+<Hds::DisclosurePrimitive class={{this.classNames}} @isOpen={{@isOpen}} ...attributes>
+  <:toggle as |t|>
+    <div class="hds-accordion-row__toggle">
+      <div class="hds-accordion-row__toggle-content hds-typography-body-200 hds-foreground-primary">
+        {{yield to="toggle"}}
+      </div>
+      <button
+        class="hds-accordion-row__toggle-button"
+        type="button"
+        {{on "click" t.onClickToggle}}
+        aria-label="Toggle display"
+      >
+        <FlightIcon @name="chevron-down" />
+      </button>
+    </div>
+  </:toggle>
+
+  <:content>
+    <div class="hds-accordion-row__content hds-typography-body-200 hds-foreground-primary" id={{this.contentId}}>
+      {{yield to="content"}}
+    </div>
+  </:content>
+</Hds::DisclosurePrimitive>
+
+{{!--
+  <Hds::Reveal @text="More options" @isOpen={{true}}>
+    <Shw::Placeholder @text="generic content" @height="40" @width="200" @background="#eee" />
+  </Hds::Reveal>
+
+  <Hds::Accordion::Row::Toggle::Button />
+--}}

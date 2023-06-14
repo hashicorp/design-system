@@ -7,6 +7,66 @@
 // ACCORDION
 //
 
+// NOTE: Styles are temporary, no approved designs yet available
+
 .hds-accordion {
-  outline: 1px dotted red;
+  display: block;
+  border: 1px solid blue;
+  border-radius: 4px;
+}
+
+.hds-accordion-row {
+  width: auto !important; // temporary!
+
+  &:first-child { border-radius: 4px 4px 0 0; }
+  &:last-child { border-radius: 0 0 4px 4px; }
+
+  + .hds-accordion-row {
+    border-top: 1px solid blue;
+  }
+}
+
+// .hds-accordion-row--is-open {
+//   background: lime !important;
+
+//   .hds-accordion-row__toggle-button {
+//     .flight-icon-chevron-down {
+//       transform: rotate(-180deg);
+//     }
+//   }
+// }
+
+.hds-accordion-row__toggle {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+.hds-accordion-row__toggle-button {
+  background: transparent;
+  border: 0;
+  outline: 1px solid red;
+
+  &::before {
+    position: absolute;
+    display: block;
+    content: "";
+    inset: 0;
+  }
+
+  .flight-icon-chevron-down {
+    @media (prefers-reduced-motion: no-preference) {
+      transition: transform 0.3s;
+    }
+  }
+}
+
+.hds-accordion-row__toggle-content {
+  flex: 1;
+}
+
+.hds-accordion-row__content {
+  padding: 0 8px 8px 8px;
 }
