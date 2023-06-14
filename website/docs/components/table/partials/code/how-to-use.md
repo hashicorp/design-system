@@ -267,14 +267,14 @@ customOnSort(_sortBy, sortOrder) {
 
 !!! Warning
 
-This is a pretty advanced example, intended to cover some edge cases that we encountered. We strongly suggest to use one of the sorting method described above, or speak with the [Design Systems Team](/about/support) before using this approach to make sure there's no better alternatives.
+This is a pretty advanced example, intended to cover some edge cases that we encountered. We strongly suggest using one of the sorting methods described above, or speaking with the [Design Systems Team](/about/support) before using this approach to make sure there are no better alternatives.
 
 !!!
 
 
 The `Hds::Table` exposes (via yielding) some of its internal properties and methods, to allow extremely customized sorting functionalities:
 
-- `setSortBy` is the internal function uset to set the `sortBy` and `sortOrder` tracked values
+- `setSortBy` is the internal function used to set the `sortBy` and `sortOrder` tracked values
 - `sortBy` is the "key" of the column used for sorting (when the table is sorted)
 - `sortOrder` is the sorting direction (ascending or descending)
 
