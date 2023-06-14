@@ -11,8 +11,8 @@
 
   <Shw::Text::H2>Density</Shw::Text::H2>
 
-  <Shw::Flex @label="Default" as |SF|>
-    <SF.Item @grow={{true}}>
+  <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
+    <SF.Item @label="Default">
       <Hds::Table>
         <:head as |H|>
           <H.Tr>
@@ -50,9 +50,7 @@
         </:body>
       </Hds::Table>
     </SF.Item>
-  </Shw::Flex>
-  <Shw::Flex @label="Short" as |SF|>
-    <SF.Item @grow={{true}}>
+    <SF.Item @label="Short">
       <Hds::Table @density="short">
         <:head as |H|>
           <H.Tr>
@@ -90,9 +88,7 @@
         </:body>
       </Hds::Table>
     </SF.Item>
-  </Shw::Flex>
-  <Shw::Flex @label="Tall" as |SF|>
-    <SF.Item @grow={{true}}>
+    <SF.Item @label="Tall">
       <Hds::Table @density="tall">
         <:head as |H|>
           <H.Tr>
@@ -132,68 +128,65 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Divider @level={{2}} />
+  <Shw::Divider />
 
   <Shw::Text::H2>Data model</Shw::Text::H2>
 
-  <Shw::Flex @label="Table with model" as |SF|>
-    <SF.Item @grow={{true}}>
-      <Hds::Table
-        @model={{this.model.music}}
-        @columns={{array
-          (hash key="artist" label="Artist")
-          (hash key="album" label="Album")
-          (hash key="year" label="Release Year")
-        }}
-      >
-        <:body as |B|>
-          <B.Tr>
-            <B.Td>{{B.data.artist}}</B.Td>
-            <B.Td>{{B.data.album}}</B.Td>
-            <B.Td>{{B.data.year}}</B.Td>
-          </B.Tr>
-        </:body>
-      </Hds::Table>
-    </SF.Item>
-  </Shw::Flex>
-  <Shw::Flex @label="Table with no model defined" as |SF|>
-    <SF.Item @grow={{true}}>
-      <Hds::Table @caption="a custom table with no model defined">
-        <:head as |H|>
-          <H.Tr>
-            <H.Th>Cell Header</H.Th>
-            <H.Th>Cell Header</H.Th>
-            <H.Th @width="20%">Custom Width</H.Th>
-          </H.Tr>
-        </:head>
-        <:body as |B|>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-          <B.Tr>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-          <B.Tr>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-        </:body>
-      </Hds::Table>
-    </SF.Item>
-  </Shw::Flex>
+  <Shw::Text::H4 @tag="h3">Table with model</Shw::Text::H4>
 
-  <Shw::Divider @level={{2}} />
+  <Hds::Table
+    @model={{this.model.music}}
+    @columns={{array
+      (hash key="artist" label="Artist")
+      (hash key="album" label="Album")
+      (hash key="year" label="Release Year")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td>{{B.data.year}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
+  <Shw::Text::H4 @tag="h3">Table with no model defined</Shw::Text::H4>
+
+  <Hds::Table @caption="a custom table with no model defined">
+    <:head as |H|>
+      <H.Tr>
+        <H.Th>Cell Header</H.Th>
+        <H.Th>Cell Header</H.Th>
+        <H.Th @width="20%">Custom Width</H.Th>
+      </H.Tr>
+    </:head>
+    <:body as |B|>
+      <B.Tr>
+        <B.Th>Scope Row</B.Th>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+      </B.Tr>
+      <B.Tr>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+      </B.Tr>
+      <B.Tr>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
+  <Shw::Divider />
 
   <Shw::Text::H2>Sorting</Shw::Text::H2>
 
   <Shw::Text::H3>Basic sorting</Shw::Text::H3>
 
-  <Shw::Text::Body>Sortable table (all columns sortable)</Shw::Text::Body>
+  <Shw::Text::H4>Sortable table (all columns sortable)</Shw::Text::H4>
 
   <Hds::Table
     @model={{this.model.music}}
@@ -212,7 +205,7 @@
     </:body>
   </Hds::Table>
 
-  <Shw::Text::Body>Sortable table (only some columns sortable)</Shw::Text::Body>
+  <Shw::Text::H4>Sortable table (only some columns sortable)</Shw::Text::H4>
 
   <Hds::Table
     @model={{this.model.music}}
@@ -231,7 +224,7 @@
     </:body>
   </Hds::Table>
 
-  <Shw::Text::Body>Sortable table, some columns sortable, artist column pre-sorted.</Shw::Text::Body>
+  <Shw::Text::H4>Sortable table, some columns sortable, artist column pre-sorted.</Shw::Text::H4>
 
   <Hds::Table
     @model={{this.model.music}}
@@ -251,9 +244,11 @@
     </:body>
   </Hds::Table>
 
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>Custom sorting</Shw::Text::H3>
 
-  <Shw::Text::Body>Sortable table with custom sorting done via extra key added to the data model</Shw::Text::Body>
+  <Shw::Text::H4>Sortable table with custom sorting done via extra key added to the data model</Shw::Text::H4>
 
   <Hds::Table
     @model={{this.clustersWithExtraData}}
@@ -299,7 +294,7 @@
     </:body>
   </Hds::Table>
 
-  <Shw::Text::Body>Sortable table with custom `sortingFunction` declared in the column hash</Shw::Text::Body>
+  <Shw::Text::H4>Sortable table with custom <code>sortingFunction</code> declared in the column hash</Shw::Text::H4>
 
   <Hds::Table
     @model={{this.model.clusters}}
@@ -350,7 +345,7 @@
 
   <Shw::Text::H2>Customization</Shw::Text::H2>
 
-  <Shw::Text::Body>Sortable table, last column not sortable and has custom width.</Shw::Text::Body>
+  <Shw::Text::H4 @tag="h3">Sortable table, last column not sortable and has custom width.</Shw::Text::H4>
 
   <Hds::Table
     @model={{this.model.music}}
@@ -381,7 +376,7 @@
     </:body>
   </Hds::Table>
 
-  <Shw::Text::Body>Table where last column has right-aligned text</Shw::Text::Body>
+  <Shw::Text::H4 @tag="h3">Table where last column has right-aligned text</Shw::Text::H4>
 
   <Hds::Table
     @model={{this.model.music}}
@@ -402,7 +397,7 @@
     </:body>
   </Hds::Table>
 
-  <Shw::Text::Body>Table with various cell content</Shw::Text::Body>
+  <Shw::Text::H4 @tag="h3">Table with various cell content</Shw::Text::H4>
 
   <Hds::Table
     @model={{this.model.music}}
@@ -436,7 +431,7 @@
     </:body>
   </Hds::Table>
 
-  <Shw::Text::Body>Table with multi-line content</Shw::Text::Body>
+  <Shw::Text::H4 @tag="h3">Table with multi-line content</Shw::Text::H4>
 
   <Hds::Table
     @model={{this.model.music}}
