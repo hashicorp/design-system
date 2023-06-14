@@ -12,43 +12,32 @@ SPDX-License-Identifier: MPL-2.0
   <Shw::Text::H2>Basic examples</Shw::Text::H2>
 
   <Shw::Flex @direction="column" as |SF|>
-
     <SF.Item @label="Only title">
-
       <Hds::PageHeader as |PH|>
         <PH.Title>Page title</PH.Title>
       </Hds::PageHeader>
-
       <Shw::Divider @level={{2}} />
-
     </SF.Item>
 
     <SF.Item @label="Badge">
-
       <Hds::PageHeader as |PH|>
         <PH.Title>Page title</PH.Title>
         <PH.Badges>
           <Hds::Badge @text="Badge" @icon="beaker" @color="highlight" />
         </PH.Badges>
       </Hds::PageHeader>
-
       <Shw::Divider @level={{2}} />
-
     </SF.Item>
 
     <SF.Item @label="IconTile">
-
       <Hds::PageHeader as |PH|>
         <PH.Title>Page title</PH.Title>
         <PH.IconTile @icon="server-cluster" />
       </Hds::PageHeader>
-
       <Shw::Divider @level={{2}} />
-
     </SF.Item>
 
     <SF.Item @label="Breadcrumb">
-
       <Hds::PageHeader as |PH|>
         <PH.Title>Page title</PH.Title>
         <PH.Breadcrumb>
@@ -59,38 +48,29 @@ SPDX-License-Identifier: MPL-2.0
           </Hds::Breadcrumb>
         </PH.Breadcrumb>
       </Hds::PageHeader>
-
       <Shw::Divider @level={{2}} />
-
     </SF.Item>
 
     <SF.Item @label="Subtitle + description">
-
       <Hds::PageHeader as |PH|>
         <PH.Title>Page title</PH.Title>
         <PH.Subtitle>Subtitle lorem ipsum</PH.Subtitle>
         <PH.Description>Description lorem ipsum dolor sit amet.</PH.Description>
       </Hds::PageHeader>
-
       <Shw::Divider @level={{2}} />
-
     </SF.Item>
 
     <SF.Item @label="Single action">
-
       <Hds::PageHeader as |PH|>
         <PH.Title>Page title</PH.Title>
         <PH.Actions>
           <Hds::Button @text="Create registry" @icon="plus" @iconPosition="leading" @color="primary" />
         </PH.Actions>
       </Hds::PageHeader>
-
       <Shw::Divider @level={{2}} />
-
     </SF.Item>
 
     <SF.Item @label="Two actions">
-
       <Hds::PageHeader as |PH|>
         <PH.Title>Page title</PH.Title>
         <PH.Actions>
@@ -103,13 +83,10 @@ SPDX-License-Identifier: MPL-2.0
           <Hds::Button @text="Create" @icon="plus" @iconPosition="leading" @color="primary" />
         </PH.Actions>
       </Hds::PageHeader>
-
       <Shw::Divider @level={{2}} />
-
     </SF.Item>
 
     <SF.Item @label="Three actions">
-
       <Hds::PageHeader as |PH|>
         <PH.Title>Page title</PH.Title>
         <PH.Actions>
@@ -118,22 +95,17 @@ SPDX-License-Identifier: MPL-2.0
           <Hds::Button @color="primary" @text="Create cluster" @icon="plus" @iconPosition="leading" />
         </PH.Actions>
       </Hds::PageHeader>
-
       <Shw::Divider @level={{2}} />
-
     </SF.Item>
 
     <SF.Item @label="Custom metadata">
-
       <Hds::PageHeader as |PH|>
         <PH.Title>Page title</PH.Title>
         <PH.Generic>
           <Shw::Placeholder @text="generic content" @width="500" @height="36" @background="#e1f5fe" />
         </PH.Generic>
       </Hds::PageHeader>
-
     </SF.Item>
-
   </Shw::Flex>
 
   <Shw::Divider @level={{3}} />
@@ -141,9 +113,7 @@ SPDX-License-Identifier: MPL-2.0
   <Shw::Text::H2>Complex examples</Shw::Text::H2>
 
   <Shw::Flex @direction="column" as |SF|>
-
     <SF.Item @label="Product landing page">
-
       <Hds::PageHeader as |PH|>
         <PH.Title>HCP Packer</PH.Title>
         <PH.Breadcrumb>
@@ -160,13 +130,10 @@ SPDX-License-Identifier: MPL-2.0
           <Hds::Button @text="Create Packer registery" @icon="plus" @iconPosition="leading" />
         </PH.Actions>
       </Hds::PageHeader>
-
       <Shw::Divider @level={{2}} />
-
     </SF.Item>
 
     <SF.Item @label="Item page">
-
       <Hds::PageHeader as |PH|>
         <PH.Title>Boundary clusters</PH.Title>
         <PH.IconTile @icon="boundary-color" @color="boundary" />
@@ -181,13 +148,10 @@ SPDX-License-Identifier: MPL-2.0
         </PH.Badges>
         <PH.Subtitle>boundary-cluster-name</PH.Subtitle>
       </Hds::PageHeader>
-
       <Shw::Divider @level={{2}} />
-
     </SF.Item>
 
     <SF.Item @label="Multiple badges">
-
       <Hds::PageHeader as |PH|>
         <PH.Title>Consul cluster</PH.Title>
         <PH.Badges>
@@ -201,13 +165,10 @@ SPDX-License-Identifier: MPL-2.0
           problemantic.
         </PH.Description>
       </Hds::PageHeader>
-
       <Shw::Divider @level={{2}} />
-
     </SF.Item>
 
     <SF.Item @label="Kitchen sink example">
-
       <Hds::PageHeader as |PH|>
         <PH.Title>Users</PH.Title>
         <PH.Subtitle>Access control (IAM)</PH.Subtitle>
@@ -232,13 +193,10 @@ SPDX-License-Identifier: MPL-2.0
           <Hds::Button @text="Add user" @icon="plus" @iconPosition="leading" />
         </PH.Actions>
       </Hds::PageHeader>
-
       <Shw::Divider @level={{2}} />
-
     </SF.Item>
 
     <SF.Item @label="With custom metadata">
-
       <Hds::PageHeader as |PH|>
         <PH.Title>Custom metadata</PH.Title>
         <PH.Subtitle>beta-feature-cluster</PH.Subtitle>
@@ -259,9 +217,7 @@ SPDX-License-Identifier: MPL-2.0
           <Hds::Badge @text="Beta feature" @icon="wand" @color="highlight" />
         </PH.Badges>
       </Hds::PageHeader>
-
     </SF.Item>
-
   </Shw::Flex>
 
   <Shw::Divider @level={{3}} />
@@ -274,9 +230,7 @@ SPDX-License-Identifier: MPL-2.0
   </Shw::Text::Body>
 
   <Shw::Flex @direction="column" as |SF|>
-
     <SF.Item @label="Long title">
-
       <Hds::PageHeader as |PH|>
         <PH.Title>Boundary cluster access control and clusters</PH.Title>
         <PH.IconTile @icon="boundary-color" @color="boundary" />
@@ -290,13 +244,10 @@ SPDX-License-Identifier: MPL-2.0
           <Hds::Button @text="Add user" @icon="plus" @iconPosition="leading" />
         </PH.Actions>
       </Hds::PageHeader>
-
       <Shw::Divider @level={{2}} />
-
     </SF.Item>
 
     <SF.Item @label="Long title + badge">
-
       <Hds::PageHeader as |PH|>
         <PH.Title>
           Page title with a very very very very long string that can span multiple lines
@@ -313,9 +264,7 @@ SPDX-License-Identifier: MPL-2.0
       <Shw::Text::Body @tag="p">
         In the case of a badge, the title and badge will wrap if the available space is exceeded.
       </Shw::Text::Body>
-
     </SF.Item>
-
   </Shw::Flex>
 
   <Shw::Divider @level={{3}} />
@@ -357,5 +306,4 @@ SPDX-License-Identifier: MPL-2.0
       {{/each}}
     {{/let}}
   </Shw::Flex>
-
 </section>
