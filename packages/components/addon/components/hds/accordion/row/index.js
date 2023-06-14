@@ -4,13 +4,16 @@
  */
 
 import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 
 export default class HdsAccordionRowIndexComponent extends Component {
-  // UNCOMMENT THIS IF YOU NEED A CONSTRUCTOR
-  // constructor() {
-  //   super(...arguments);
-  //   // ADD YOUR ASSERTIONS HERE
-  // }
+  @tracked isOpen = this.args.isOpen ?? false;
+
+  @action
+  toggle() {
+    this.isOpen = !this.isOpen;
+  }
 
   /**
    * Get the class names to apply to the component.
@@ -20,13 +23,10 @@ export default class HdsAccordionRowIndexComponent extends Component {
   get classNames() {
     let classes = ['hds-accordion-row'];
 
-    // add a class based on the @xxx argument
-    // classes.push(`hds-accordion-row--[variant]-${this.xxx}`);
-
     // add a class based on the @isOpen argument
-    // if (this.args.isOpen) {
-    //   classes.push('hds-accordion-row--is-open');
-    // }
+    if (this.isOpen) {
+      classes.push('hds-accordion-row--is-open');
+    }
 
     return classes.join(' ');
   }

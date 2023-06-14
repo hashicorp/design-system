@@ -26,15 +26,13 @@
   }
 }
 
-// .hds-accordion-row--is-open {
-//   background: lime !important;
-
-//   .hds-accordion-row__toggle-button {
-//     .flight-icon-chevron-down {
-//       transform: rotate(-180deg);
-//     }
-//   }
-// }
+.hds-accordion-row--is-open {
+  .hds-accordion-row__toggle-button {
+    .flight-icon-chevron-down {
+      transform: rotate(-180deg);
+    }
+  }
+}
 
 .hds-accordion-row__toggle {
   position: relative;

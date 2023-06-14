@@ -14,6 +14,10 @@ export default class HdsDisclosurePrimitiveComponent extends Component {
   @action
   onClickToggle() {
     this.isOpen = !this.isOpen;
+
+    if (this.args.toggle && typeof this.args.toggle === 'function') {
+      this.args.toggle();
+    }
   }
 
   @action

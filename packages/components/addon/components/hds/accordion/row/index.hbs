@@ -1,4 +1,4 @@
-<Hds::DisclosurePrimitive class={{this.classNames}} @isOpen={{@isOpen}} ...attributes>
+<Hds::DisclosurePrimitive class={{this.classNames}} @isOpen={{@isOpen}} @toggle={{this.toggle}} ...attributes>
   <:toggle as |t|>
     <div class="hds-accordion-row__toggle">
       <div class="hds-accordion-row__toggle-content hds-typography-body-200 hds-foreground-primary">
@@ -21,11 +21,3 @@
     </div>
   </:content>
 </Hds::DisclosurePrimitive>
-
-{{!--
-  <Hds::Reveal @text="More options" @isOpen={{true}}>
-    <Shw::Placeholder @text="generic content" @height="40" @width="200" @background="#eee" />
-  </Hds::Reveal>
-
-  <Hds::Accordion::Row::Toggle::Button />
---}}
