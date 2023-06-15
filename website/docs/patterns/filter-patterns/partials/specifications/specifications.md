@@ -1,6 +1,6 @@
 !!! Info
 
-Helios does not publish any components that account for the layout of filter elements; these are the consumer's responsibility. Instead, use these guidelines to combine Helios components and best support your application structure.
+Helios does not publish any components that account for the layout of filter elements; these are the consumer’s responsibility. Instead, use these guidelines to combine Helios components and best support your application structure.
 
 !!!
 
@@ -39,7 +39,7 @@ Within a filter pattern, stack the filter bar on top of the data set and applied
 | Element | Usage |
 |---------|-------|
 | Container | Required; wraps the filter elements and occupies the height of either the page or the data set depending on the scope of the filters. |
-| Filters | Required; dictates what parameters are available to filter upon and the values that correspond with them. Can be represented by a [Checkbox group](/components/form/checkbox) or [Radio group](/components/form/radio) |
+| Filters | Required; dictates what parameters are available to filter upon and the corresponding values. Can be represented by a [Checkbox group](/components/form/checkbox) or [Radio group](/components/form/radio) |
 | Separator | Required to separate multiple filter parameters within a sidebar. |
 
 ### Spacing
@@ -126,7 +126,7 @@ The core anatomy of a filter pattern remains largely the same regardless of the 
 | Filters | Required; can be represented by a filter bar or a filter sidebar. |
 | Applied filters | Required |
 | Data set | Required |
-| Pagination | Optional, but recommended for larger data sets. |
+| Pagination | Optional; recommended for larger data sets. |
 
 ### Vertical spacing
 
