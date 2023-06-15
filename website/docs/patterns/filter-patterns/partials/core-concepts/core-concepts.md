@@ -1,4 +1,4 @@
-Filtering consists of several conceptual foundations that contribute the larger pattern, filtering method, and communication of filters to the user.
+Filtering consists of several conceptual foundations that contribute to the larger pattern, filtering method, and communication of filters to the user.
 
 ## Concepts and terminology
 
@@ -64,7 +64,7 @@ Filterable parameters should mirror the columns in a table or other visible labe
 
 #### Mirroring parameters in a filter bar
 
-This example showcases a 1:1 relationship with the columns of a data set and the available filter parameters in the filter bar.
+This example showcases a 1:1 relationship between the columns of a data set and the available filter parameters in the filter bar.
 
 ![Mirroring the columns of a table in the available parameters](/assets/patterns/filter-patterns/filter-concept-mirror-parameters.png =1059x*)
 
