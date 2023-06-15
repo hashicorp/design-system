@@ -24,7 +24,7 @@ Filters often consist of numerous parameters that mirror the columns of a table 
 
 Organizing filters in a **filter bar** is a common positioning method and consists of one or more dropdowns, buttons, or input components that are used to select values from a set of parameters. A [Segmented Group](/components/segmented-group) can be used within a filter bar to group similar parameters and support complex filtering.
 
-![Filter bar example](/assets/patterns/filter-patterns/filter-bar-segmented-group.png =728x*)
+![Filters represented by a filter bar](/assets/patterns/filter-patterns/filter-bar-segmented-group.png =728x*)
 
 **Example of a horizontal filter bar paired with a data set expressed as a table.**
 
