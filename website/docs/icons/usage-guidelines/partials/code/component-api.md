@@ -7,7 +7,7 @@
   <C.Property @name="color" @type="string" @default="currentColor">
     The `@color` argument can be used to change the color. It works by setting the value of the icon SVG’s `fill` property.
   </C.Property>
-  <C.Property @name="size" @type="number" @default="16" @values={{array 16 24}}>
+  <C.Property @name="size" @type="number" @default="16" @values={{array "16" "24"}}>
     Sets the size of the icon in pixels. Only two sizes are supported. (Setting a non-standard size will cause the SVG to render at the specified size but it will be invisible.)
   </C.Property>
   <C.Property @name="stretched" @type="boolean" @default="false">

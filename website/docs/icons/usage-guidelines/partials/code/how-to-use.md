@@ -1,5 +1,7 @@
 ## Installation
 
+Icons can be used in many ways. The package can be installed as an [Ember addon](#using-icons-in-ember-apps) for the convenience of using a component with strong defaults. It can also be [consumed in React applications](#using-icons-in-react-apps) via direct import of the SVG file or as a standalone React/SVG icon component.
+
 ### Using icons in Ember apps
 
 Install the `ember-flight-icons` addon.
@@ -64,8 +66,6 @@ import { IconArrowRight24 } from '@hashicorp/flight-icons/svg-react/arrow-right-
 ```
 
 ## How to use icons
-
-Icons can be used in many ways. The package can be installed as an [Ember addon](#using-icons-in-ember-apps) for the convenience of using a component with strong defaults. It can also be [consumed in React applications](#using-icons-in-react-apps) via direct import of the SVG file or as a standalone React/SVG icon component.
 
 The most basic invocation requires only the `@name` property to be passed with a value matching an existing name in [the Icon library](icons/library).
 
