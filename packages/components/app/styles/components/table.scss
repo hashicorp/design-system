@@ -51,7 +51,7 @@ $hds-table-cell-padding-tall: 20px 16px;
 
   .hds-table__th,
   .hds-table__th-sort {
-    height: $hds-table-header-height;
+    min-height: $hds-table-header-height;
   }
 }
 
