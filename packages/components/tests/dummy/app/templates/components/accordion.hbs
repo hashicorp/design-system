@@ -171,7 +171,30 @@
 
   <Shw::Text::H2>States</Shw::Text::H2>
 
-  ???
+  <Shw::Flex {{style gap="1.5rem"}} @direction="column" as |SF|>
+    {{#each @model.STATES as |state|}}
+      <SF.Item @label={{state}}>
+        <Hds::Accordion as |A|>
+          <A.Row mock-state-value={{state}}>
+            <:toggle>Item one</:toggle>
+            <:content>
+              <Shw::Placeholder @text="generic content" @height="40" @background="#eee" />
+            </:content>
+          </A.Row>
+        </Hds::Accordion>
+      </SF.Item>
+    {{/each}}
+    <SF.Item @label="focus & isOpen=true">
+        <Hds::Accordion as |A|>
+          <A.Row mock-state-value="focus" @isOpen={{true}}>
+            <:toggle>Item one</:toggle>
+            <:content>
+              <Shw::Placeholder @text="generic content" @height="40" @background="#eee" />
+            </:content>
+          </A.Row>
+        </Hds::Accordion>
+      </SF.Item>
+  </Shw::Flex>
 
   <Shw::Divider @level={{2}} />
 

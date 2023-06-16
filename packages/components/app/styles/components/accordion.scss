@@ -7,7 +7,9 @@
 // ACCORDION
 //
 
-// NOTE: Styles are temporary, no approved designs yet available
+// NOTE: Styles are still rough, designs not yet approved
+
+@use "../mixins/focus-ring" as *;
 
 :root {
   --token-accordion-row-padding: 16px;
@@ -22,13 +24,16 @@
 .hds-accordion-row {
   width: auto !important; // temporary!
   border-radius: 6px;
-  box-shadow:
-    0 8px 16px -10px #656a7633,
-    0 2px 3px 0 #656a761a,
-    0 0 0 1px #656a7626;
+  box-shadow: var(--token-surface-mid-box-shadow);
 
   // &:first-child { border-radius: 4px 4px 0 0; }
   // &:last-child { border-radius: 0 0 4px 4px; }
+
+  // &:has(.hds-accordion-row__toggle-button:hover), // works well but browser support not quite there yet...
+  &:hover,
+  &.mock-hover {
+    box-shadow: var(--token-surface-high-box-shadow);
+  }
 
   + .hds-accordion-row {
     // border-top: 1px solid blue;
@@ -51,17 +56,24 @@
   justify-content: space-between;
   padding: var(--token-accordion-row-padding) 12px var(--token-accordion-row-padding) var(--token-accordion-row-padding);
 
-  // > * { outline: 1px dotted red; }
+  .mock-focus & {
+    @include hds-focus-ring-with-pseudo-element();
+
+    &::before {
+      box-shadow: var(--token-focus-ring-action-box-shadow);
+    }
+  }
 }
 
 .hds-accordion-row__toggle-button {
+  @include hds-focus-ring-with-pseudo-element();
+  position: static;
   flex-shrink: none;
   padding: 0;
   background: transparent;
   border: 0;
-  // outline: 1px solid red;
 
-  &::before {
+  &::after {
     position: absolute;
     display: block;
     content: "";
