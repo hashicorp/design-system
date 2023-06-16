@@ -179,7 +179,7 @@ Animated icons (e.g., "loading" and "running") are animated by default, meaning 
 
 #### In React apps
 
-To use the icons which meant to be animated (e.g., “loading” and “running”), import the CSS that controls the icons’ animation:
+To use the icons which are meant to be animated (e.g., “loading” and “running”), import the CSS that controls the icons’ animation:
 
 ```scss
 // the path here depends if you’re using 'svg-react' or 'svg' icons 
