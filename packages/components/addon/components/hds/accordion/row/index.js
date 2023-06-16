@@ -12,6 +12,15 @@ export default class HdsAccordionRowIndexComponent extends Component {
   @tracked isOpen = this.args.isOpen ?? false;
 
   /**
+   * @param ariaLabel
+   * @type {string}
+   * @default 'Toggle display'
+   */
+  get ariaLabel() {
+    return this.args.ariaLabel ?? 'Toggle display';
+  }
+
+  /**
    * Generates a unique ID for the Content
    *
    * @param contentId
