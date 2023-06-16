@@ -9,20 +9,30 @@
 
 // NOTE: Styles are temporary, no approved designs yet available
 
+:root {
+  --token-accordion-row-padding: 16px;
+}
+
 .hds-accordion {
   display: block;
-  border: 1px solid blue;
+  // border: 1px solid blue;
   border-radius: 4px;
 }
 
 .hds-accordion-row {
   width: auto !important; // temporary!
+  border-radius: 6px;
+  box-shadow:
+    0 8px 16px -10px #656a7633,
+    0 2px 3px 0 #656a761a,
+    0 0 0 1px #656a7626;
 
-  &:first-child { border-radius: 4px 4px 0 0; }
-  &:last-child { border-radius: 0 0 4px 4px; }
+  // &:first-child { border-radius: 4px 4px 0 0; }
+  // &:last-child { border-radius: 0 0 4px 4px; }
 
   + .hds-accordion-row {
-    border-top: 1px solid blue;
+    // border-top: 1px solid blue;
+    margin-top: 12px;
   }
 }
 
@@ -37,15 +47,19 @@
 .hds-accordion-row__toggle {
   position: relative;
   display: flex;
-  gap: 8px;
+  gap: 12px;
   justify-content: space-between;
-  padding: 8px;
+  padding: var(--token-accordion-row-padding) 12px var(--token-accordion-row-padding) var(--token-accordion-row-padding);
+
+  // > * { outline: 1px dotted red; }
 }
 
 .hds-accordion-row__toggle-button {
+  flex-shrink: none;
+  padding: 0;
   background: transparent;
   border: 0;
-  outline: 1px solid red;
+  // outline: 1px solid red;
 
   &::before {
     position: absolute;
@@ -66,5 +80,5 @@
 }
 
 .hds-accordion-row__content {
-  padding: 0 8px 8px 8px;
+  padding: 4px var(--token-accordion-row-padding) var(--token-accordion-row-padding) var(--token-accordion-row-padding);
 }
