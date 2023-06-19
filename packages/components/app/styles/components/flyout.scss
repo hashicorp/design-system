@@ -53,6 +53,7 @@
 .hds-flyout__header {
   display: flex;
   flex: none;
+  gap: 16px;
   align-items: flex-start;
   padding: 16px 24px;
   color: var(--token-color-foreground-strong);
@@ -61,7 +62,6 @@
 .hds-flyout__icon {
   flex: none;
   align-self: center;
-  margin-right: 16px;
 }
 
 .hds-flyout__title {
@@ -75,7 +75,6 @@
 
 .hds-flyout__dismiss {
   align-self: center;
-  margin-left: 16px;
 }
 
 .hds-flyout__description {
