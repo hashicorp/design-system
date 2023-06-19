@@ -129,3 +129,14 @@ Import CSS helper classes by adding any of the following lines to the main Sass 
 ```
 
 For more examples and guidelines read [the tokens documentation](/foundations/tokens).
+
+## Browser support
+
+The code of our styles, components and icons supports the following browsers:
+
+| Browser        | Version         |
+|----------------|-----------------|
+| Chrome         | last 2 versions |
+| Safari         | last 2 versions |
+| Firefox        | last 2 versions |
+| Microsoft Edge | last 2 versions |
