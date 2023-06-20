@@ -10,7 +10,7 @@ The most basic invocation requires some content to be passed as children and eit
 
 ### Color
 
-There are two available colors for a Inline Link: `primary` and `secondary`. The default is `primary`. To use a different color, set `@color` to `secondary`.
+There are two available colors for an Inline Link: `primary` and `secondary`. The default is `primary`. To use a different color, set `@color` to `secondary`.
 
 ```handlebars
 <div class="hds-typography-body-300">
@@ -26,7 +26,7 @@ There are two available colors for a Inline Link: `primary` and `secondary`. The
 
 ### Icon
 
-To add an icon to your Inline Link, give the `@icon` argument any [icon](/icons/library) name.
+To add an icon to the Inline Link, give the `@icon` argument any [icon](/icons/library) name.
 
 `Hds::Link::Inline` does not have an intrinsic size. Instead, the size of the icon is calculated proportionally (via `em`) in relation to the font-size of the text.
 
@@ -38,7 +38,7 @@ To add an icon to your Inline Link, give the `@icon` argument any [icon](/icons/
 
 ### Icon position
 
-By default, if you define an icon, it‘s placed in the trailing (right) position. If you would like to position the icon in the leading (left) position, define `@iconPosition`.
+By default, if you define an icon, it‘s placed in the trailing (end) position. If you would like to position the icon in the leading (start) position, define `@iconPosition`.
 
 ```handlebars
 <div class="hds-typography-body-300">
