@@ -56,7 +56,7 @@ In-line sidebars can be used when the number of filterable parameters is minimal
 
 Display **applied filters** and provide the user with a method to clear all filters at once. Applied filters should be represented using a [Tag](/components/tag) component, which allows for the individual dismissal of a filter value.
 
-![Applied filters](/assets/patterns/filter-patterns/applied-filters.png =450x*)
+![Applied filters](/assets/patterns/filter-patterns/applied-filters.png =547x*)
 
 #### Positioning with filter bars
 
@@ -94,27 +94,6 @@ In the case a multiple filter functions, use the [Segmented Group](/components/s
 Use pagination to break down the filtered data set into pages. For more details, refer to the [Pagination](/components/pagination) guidelines.
 
 ![Pagination example](/assets/patterns/filter-patterns/pagination-layout.png =559x*)
-
-## Empty state
-
-Empty state within a filter pattern is expressed in two different ways:
-
-1. Applied filters have resulted in no records being returned in the data set.
-2. No filters have been applied resulting in no tags in the applied filters area.
-
-### Within a data set
-
-Depending on the applied filters, there may not be any records returned from a data set that match parameters and values selected. In this case, communicate the empty state to the user and highlight instructions to adjust the filters or provide a method to clear all filters.
-
-Use the Helios [Application State](/components/application-state) component to communicate the lack of results and steps the user can take to remedy the situation.
-
-![Empty state example](/assets/patterns/filter-patterns/filter-patterns-empty-state.png =559x*)
-
-### Within applied filters
-
-If no filters have been applied, it can be helpful to communicate this in the applied filters area. Use a [Tooltip](/components/tooltip) coupled with the applied filters label to guide the user to the filter functions.
-
-![Empty state in applied filters](/assets/patterns/filter-patterns/applied-filters-empty-state.png =450x*)
 
 ## Filtering methods
 
@@ -165,7 +144,28 @@ This, when combined with the applied filters provides detailed snapshot of what 
 
 **Communicating that multiple filter parameters have been applied**
 
-![Filter dropdown with multiple counts](/assets/patterns/filter-patterns/filter-bar-dropdown-count-multiple.png =683x*)
+![Filter dropdown with multiple counts](/assets/patterns/filter-patterns/filter-bar-dropdown-count-multiple.png =728x*)
+
+## Empty state
+
+Empty state within a filter pattern is expressed in two different ways:
+
+1. Applied filters have resulted in no records being returned in the data set.
+2. No filters have been applied resulting in no tags in the applied filters area.
+
+### Within a data set
+
+Depending on the applied filters, there may not be any records returned from a data set that match parameters and values selected. In this case, communicate the empty state to the user and highlight instructions to adjust the filters or provide a method to clear all filters.
+
+Use the Helios [Application State](/components/application-state) component to communicate the lack of results and steps the user can take to remedy the situation.
+
+![Empty state example](/assets/patterns/filter-patterns/filter-patterns-empty-state.png =559x*)
+
+### Within applied filters
+
+If no filters have been applied, it can be helpful to communicate this in the applied filters area. Use a [Tooltip](/components/tooltip) coupled with the applied filters label to guide the user to the filter functions.
+
+![Empty state in applied filters](/assets/patterns/filter-patterns/applied-filters-empty-state.png =450x*)
 
 ## Overflow
 
