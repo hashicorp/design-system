@@ -191,30 +191,8 @@ Don't stack multiple filter bars on top of a data set. This can result in unnece
 
 !!!
 
-### Filter sidebar overflow
+### Sidebar overflow
 
-Similar to the guidelines for the filter bar, an action to view more filters within a [Flyout](/components/flyout) can be triggered within the sidebar orientation.
+Given that the page-level sidebar occupies the height of the viewport, take filters within a sidebar should not overflow into an interstitial component like a [Flyout](/components/flyout). Instead, utilize the height of the viewport and the consider introducing a scrollable area within the sidebar if many filters are necessary.
 
-**Hiding additional filters behind an action in a sidebar orientation**
-
-![More filters trigger in a sidebar](/assets/patterns/filter-patterns/overflow-sidebar-more-filters.png =559x*)
-
-!!! Info
-
-Consider each one of these scenarios carefully as moving additional filters to an interstitial component like a Flyout adds extra steps in the filtering process that might not be necessary.
-
-!!!
-
-### Applied filters overflow
-
-If the number of filterable parameters is large, there’s a likelihood that the number of applied filters may also extend to multiple lines. In this scenario the same methods apply as the filter bar and sidebar.
-
-Depending on the context of the filtering pattern, it may be helpful to display the applied filters to the user at all times. This can assist in easy dismissal of specific filters and help the user better parse how a data set is being filtered.
-
-**Extreme example of many applied filters**
-
-![Many filters applied](/assets/patterns/filter-patterns/overflow-applied-filters.png =559x*)
-
-**Applied filters within a Flyout**
-
-![Applied filters within a Flyout](/assets/patterns/filter-patterns/overflow-applied-filters-flyout.png =559x*)
+![Filter sidebar with scroll](/assets/patterns/filter-patterns/filter-sidebar-scrollbar.png =559x*)
