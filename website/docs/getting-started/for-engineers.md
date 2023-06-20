@@ -132,7 +132,7 @@ For more examples and guidelines read [the tokens documentation](/foundations/to
 
 ## Browser support
 
-The code of our styles, components and icons supports the following browsers:
+Our styles, components and icons are supported by the following browsers:
 
 | Browser        | Version         |
 |----------------|-----------------|
