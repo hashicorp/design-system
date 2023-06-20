@@ -68,7 +68,6 @@ export default class HdsFlyoutIndexComponent extends Component {
       // Store the initial `overflow` value of `<body>` so we can reset to it
       this.bodyInitialOverflowValue =
         this.body.style.getPropertyValue('overflow');
-      this.bodyNoInlineStyles = this.body.style.length;
     }
 
     // Register `<dialog>` element for polyfilling if no native support is available
@@ -122,11 +121,12 @@ export default class HdsFlyoutIndexComponent extends Component {
 
     // Reset page `overflow` property
     if (this.body) {
-      if (this.bodyNoInlineStyles === 0) {
-        // If <body> doesn't have any inline style declarations we remove the attribute
-        this.body.removeAttribute('style');
-      } else if (this.bodyInitialOverflowValue) {
-        // Otherwise we reset the property to initial value
+      this.body.style.removeProperty('overflow');
+      if (this.bodyInitialOverflowValue === '') {
+        if (this.body.style.length === 0) {
+          this.body.removeAttribute('style');
+        }
+      } else {
         this.body.style.setProperty('overflow', this.bodyInitialOverflowValue);
       }
     }
