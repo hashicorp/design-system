@@ -53,4 +53,102 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
       .exists()
       .hasText('Content one');
   });
+
+  // A11Y
+
+  test('it displays the correct value for aria-expanded on the AccordionRow when closed vs open', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Accordion as |A|>
+          <A.Row>
+            <:toggle>Item one</:toggle>
+            <:content>Additional content</:content> 
+          </A.Row>
+        </Hds::Accordion>
+      `
+    );
+    assert
+      .dom('.hds-accordion-row__toggle-button')
+      .hasAttribute('aria-expanded', 'false');
+    await click('.hds-accordion-row__toggle-button');
+    assert
+      .dom('.hds-accordion-row__toggle-button')
+      .hasAttribute('aria-expanded', 'true');
+  });
+
+  test('the AccordionRow toggle button has an aria-controls attribute with a value matching the content id', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Accordion as |A|>
+          <A.Row>
+            <:toggle>Item one</:toggle>
+            <:content>Additional content</:content> 
+          </A.Row>
+        </Hds::Accordion>
+      `
+    );
+    await click('.hds-accordion-row__toggle-button');
+    assert
+      .dom('.hds-accordion-row__toggle-button')
+      .hasAttribute('aria-controls');
+    assert.dom('.hds-accordion-row__content').hasAttribute('id');
+
+    assert.strictEqual(
+      this.element
+        .querySelector('.hds-accordion-row__toggle-button')
+        .getAttribute('aria-controls'),
+      this.element
+        .querySelector('.hds-accordion-row__content')
+        .getAttribute('id')
+    );
+  });
+
+  // OPTIONS
+
+  // isOpen
+
+  test('it displays content initially when @isOpen is set to true, ', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Accordion as |A|>
+          <A.Row @isOpen={{true}}>
+            <:toggle>Item one</:toggle>
+            <:content>Additional content</:content> 
+          </A.Row>
+        </Hds::Accordion>
+      `
+    );
+    // Test content is displayed
+    assert
+      .dom('.hds-accordion-row__content')
+      .exists()
+      .hasText('Additional content');
+    // Test that content is hidden after the toggle is triggered
+    await click('.hds-accordion-row__toggle-button');
+    assert.dom('.hds-accordion-row__content').doesNotExist();
+  });
+
+  // ATTRIBUTES
+
+  test('it should spread all the attributes passed to the component on the element', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Accordion id="test-accordion" class="my-class" data-test1 data-test2="test" as |A|>
+          <A.Row id="test-accordion-row" class="my-class" data-test1 data-test2="test">
+            <:toggle>Item one</:toggle>
+            <:content>Additional content</:content> 
+          </A.Row>
+        </Hds::Accordion>
+      `
+    );
+    // Accordion:
+    assert.dom('#test-accordion').hasClass('my-class');
+    assert.dom('#test-accordion').hasAttribute('data-test1');
+    assert.dom('#test-accordion').hasAttribute('data-test2', 'test');
+
+    // AccordionRow:
+    assert.dom('#test-accordion-row').hasClass('my-class');
+    assert.dom('#test-accordion-row').hasAttribute('data-test1');
+    assert.dom('#test-accordion-row').hasAttribute('data-test2', 'test');
+  });
 });
