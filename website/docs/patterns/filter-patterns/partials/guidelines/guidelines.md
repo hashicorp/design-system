@@ -1,6 +1,6 @@
 ## Structure
 
-A filtering pattern consists of a number of Helios components that work together functionally and enforce a consistent layout. These elements are variable depending on the data set's content and the context within the application. They can be combined in different ways to achieve an experience that benefits the end user.
+A filtering pattern consists of a number of Helios components that work together functionally and enforce a consistent layout. These elements are variable depending on the data set's content and the context within the application and can be combined in different ways to achieve an experience that benefits the end user.
 
 ### Data set
 
@@ -14,7 +14,7 @@ A data set is a broad term for an array of items, objects, or related informatio
 
 ![Non-tabular data set](/assets/patterns/filter-patterns/example-data-set-non-tabular-data.png =878x*)
 
-### Filter positioning
+### Filters
 
 Filters are responsible for the functional aspect of limiting a data set and for displaying the [parameters](/patterns/filter-patterns?tab=core%20concepts#parameter) which a user can filter upon. Filter positioning is largely dependent on the complexity of the data set and the scope to which the filters are being applied. For example, are the filters applied at the page level or only to the data set they are paired with?
 
@@ -42,7 +42,7 @@ If space permits, filters can be positioned vertically in a **sidebar** at the p
 
 ##### Page-level sidebar
 
-Page-level sidebars can be used for more complex data sets and if filtering content of the entire page is required and can be oriented on the left side of the viewport.
+Page-level sidebars can be used to filter a data set presented in a non-tabular fashion and if filtering the content of the entire page is required. A sidebar should be oriented on the left (start) side of the viewport.
 
 ![Vertical orientation of the filter bar](/assets/patterns/filter-patterns/layout-sidebar-left-page-level.png =559x*)
 
@@ -54,7 +54,7 @@ In-line sidebars can be used when the number of filterable parameters is minimal
 
 ### Applied filters
 
-Display **applied filters** and provide the user with a method to clear all filters at once. Applied filters should be represented using a [Tag](/components/tag) component, which allows for the individual dismissal of a filter value.
+Display the **applied filters** and provide the user with a method to clear all filters at once. Applied filters should be represented using a [Tag](/components/tag) component, which allows for the individual dismissal of a filter value.
 
 ![Applied filters](/assets/patterns/filter-patterns/applied-filters.png =547x*)
 
@@ -64,20 +64,17 @@ Applied filters should be positioned between the data set and the filter bar wit
 
 ![Applied filters with filter bar positioning](/assets/patterns/filter-patterns/applied-filters-positioning-filter-bar.png =559x*)
 
-In the case of a filter sidebar, the applied filters should be positioned directly above the dataset with a `16px` gap.
+If the filters are positioned in a page-level sidebar, the applied filters should be positioned directly above the dataset with a `16px` gap.
 
 ![Applied filters with filter sidebar](/assets/patterns/filter-patterns/applied-filters-positioning-sidebar.png =559x*)
 
-If the filters are positioned in a page-level sidebar, sometimes displaying the applied filters isn't necessary because they are implied in the sidebar. An action to clear all of the filters should be included within the sidebar itself.
-
-![Applied filters with clear all in the sidebar](/assets/patterns/filter-patterns/applied-filters-positioning-sidebar-clear-all.png =559x*)
 
 ### Global filter functions
 
 Depending on the fetching method and complexity of the data set, global filter functions can be used to expose methods that effect the entire data set. Global functions should be differentiated from the primary filters and aligned to the end of the data set. Examples include:
 
-- Manually refreshing the data set
-- Triggering a [Flyout](/components/flyout) with more complex filters
+- Manually refreshing the data set.
+- Triggering a [Flyout](/components/flyout) with more complex filters.
 
 #### Multiple global filter functions
 
@@ -112,7 +109,7 @@ Live filtering refers to updating the records within a data set immediately afte
 
 ### Per-filter
 
-Applying filters one at a time lets the user to "finalize" their decision before applying, avoiding the distraction of the data set constantly updating in the background. This method is useful when the user may want to select multiple values in a single dropdown.
+Applying filters one at a time lets the user to "finalize" their decision before applying, avoiding the distraction of the data set constantly updating in the background. This method is useful when the user may want to select multiple values in a single dropdown, but requires an extra step to apply the filters.
 
 <video width="100%" controls loop>
   <source
@@ -123,7 +120,7 @@ Applying filters one at a time lets the user to "finalize" their decision before
 
 ### Batch filtering
 
-Batch filtering supports the user making multiple selections across different parameters and only updating the results of the data set when the user interacts with a global "Apply" function. This method is useful when the data set is very large or when the filter parameters are complex.
+Batch filtering supports the user making multiple selections across different parameters and only updating the results of the data set when the user interacts with a global "apply" function. This method is useful when the data set is very large or when the filter parameters are complex.
 
 <video width="100%" controls loop>
   <source
@@ -134,13 +131,13 @@ Batch filtering supports the user making multiple selections across different pa
 
 ## Displaying selected filters
 
-Communicate that values corresponding with a filter parameter have been applied within the [Dropdown](/components/dropdown) by adding a `BadgeCount` within the filter. This can more easily communicate to the user what filters and values have been applied.
+Communicate that values corresponding with a filter parameter have been applied within the [Dropdown](/components/dropdown) by adding a `BadgeCount` within the filter.
 
 **Communicating that two values within a parameter have been applied in the Dropdown**
 
 ![Filter dropdown with count](/assets/patterns/filter-patterns/filter-bar-dropdown-count.png =661x*)
 
-This, when combined with the applied filters provides detailed snapshot of what specific filter values are applied to the data set and the relevant parameters that they correspond with.
+This, when combined with the applied filters provides a detailed snapshot of what specific filter values are applied to the data set and the relevant parameters that they correspond with.
 
 **Communicating that multiple filter parameters have been applied**
 
@@ -163,19 +160,19 @@ Use the Helios [Application State](/components/application-state) component to c
 
 ### Within applied filters
 
-If no filters have been applied, use a [Tooltip](/components/tooltip) coupled with the applied filters label to guide the user to the filter functions.
+If no filters have been applied, use a [Tooltip](/components/tooltip) coupled with the applied filters label to guide the user to the filter functions. Not only does this provide context and direct the user to the filters, but it prevents unncessary layout shift upon applying filters.
 
 ![Empty state in applied filters](/assets/patterns/filter-patterns/applied-filters-empty-state.png =450x*)
 
 ## Overflow
 
-Depending on the complexity of the data set, it may be necessary to account for the overflow of elements within the filter bar or in the applied tags.
+Depending on the complexity of the data set, it may be necessary to account for the overflow of elements within the filters.
 
 ### Filter bar overflow
 
 If the number of filterable parameters exceeds the available space, consider prioritizing the most commonly used filters in the filter bar and moving less important or more complex filters to a [Flyout](/components/flyout) that can be triggered via an action in the filter bar.
 
-**Hiding additional filters behind an action; in this scenario a secondary button**
+**Hiding additional filters behind an action**
 
 ![More filters trigger](/assets/patterns/filter-patterns/overflow-filter-bar.png =559x*)
 
