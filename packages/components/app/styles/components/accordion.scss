@@ -104,6 +104,9 @@
 
 // Temporary
 .hds-accordion-item--is--not-clickable {
+  border: 1px solid var(--token-color-border-primary);
+  box-shadow: none;
+
   // Hovering chevron button
   &[mock-state-value="hover"] .hds-accordion-item__toggle-button,
   .hds-accordion-item__toggle-button:hover {
