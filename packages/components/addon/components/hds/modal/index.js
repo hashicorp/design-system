@@ -158,7 +158,14 @@ export default class HdsModalIndexComponent extends Component {
 
     // Reset page `overflow` property
     if (this.body) {
-      this.body.style.setProperty('overflow', this.bodyInitialOverflowValue);
+      this.body.style.removeProperty('overflow');
+      if (this.bodyInitialOverflowValue === '') {
+        if (this.body.style.length === 0) {
+          this.body.removeAttribute('style');
+        }
+      } else {
+        this.body.style.setProperty('overflow', this.bodyInitialOverflowValue);
+      }
     }
   }
 }
