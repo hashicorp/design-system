@@ -7,78 +7,93 @@
 // ACCORDION
 //
 
-// NOTE: Styles are still rough, designs not yet approved
+// NOTE: Styles are still rough, designs not yet finalized
 
 @use "../mixins/focus-ring" as *;
 
 :root {
-  --token-accordion-row-padding: 16px;
+  --token-accordion-item-padding: 16px;
 }
 
 .hds-accordion {
   display: block;
-  // border: 1px solid blue;
   border-radius: 4px;
 }
 
-.hds-accordion-row {
+.hds-accordion-item {
   width: auto !important; // temporary!
   border-radius: 6px;
   box-shadow: var(--token-surface-mid-box-shadow);
 
-  // &:first-child { border-radius: 4px 4px 0 0; }
-  // &:last-child { border-radius: 0 0 4px 4px; }
-
-  // &:has(.hds-accordion-row__toggle-button:hover), // works well but browser support not quite there yet...
-  &:hover,
-  &.mock-hover {
-    box-shadow: var(--token-surface-high-box-shadow);
+  &.hds-accordion-item--is-clickable {
+    &:hover,
+    &.mock-hover {
+      box-shadow: var(--token-surface-high-box-shadow);
+    }
   }
 
-  + .hds-accordion-row {
-    // border-top: 1px solid blue;
-    margin-top: 12px;
-  }
+  + .hds-accordion-item { margin-top: 12px; }
 }
 
-.hds-accordion-row--is-open {
-  .hds-accordion-row__toggle-button {
+.hds-accordion-item--is-open {
+  .hds-accordion-item__toggle-button {
     .flight-icon-chevron-down {
       transform: rotate(-180deg);
     }
   }
 }
 
-.hds-accordion-row__toggle {
+.hds-accordion-item__toggle {
   position: relative;
   display: flex;
   gap: 12px;
   justify-content: space-between;
-  padding: var(--token-accordion-row-padding) 12px var(--token-accordion-row-padding) var(--token-accordion-row-padding);
+  padding: var(--token-accordion-item-padding) var(--token-accordion-item-padding) var(--token-accordion-item-padding) 12px;
 
-  .mock-focus & {
-    @include hds-focus-ring-with-pseudo-element();
+  // .mock-focus & {
+  //   @include hds-focus-ring-with-pseudo-element();
 
-    &::before {
-      box-shadow: var(--token-focus-ring-action-box-shadow);
+  //   &::before {
+  //     box-shadow: var(--token-focus-ring-action-box-shadow);
+  //   }
+  // }
+}
+
+.hds-accordion-item--is-clickable {
+  &.mock-focus {
+    .hds-accordion-item__toggle {
+      @include hds-focus-ring-with-pseudo-element();
+
+      &::before {
+        box-shadow: var(--token-focus-ring-action-box-shadow);
+      }
     }
   }
 }
 
-.hds-accordion-row__toggle-button {
+.hds-accordion-item__toggle-button {
   @include hds-focus-ring-with-pseudo-element();
   position: static;
   flex-shrink: none;
   padding: 0;
+  // TODO: refactor button styles (perhaps use HdsButton)
   background: transparent;
   border: 0;
+  // border: 1px solid transparent;
+  border-radius: 5px;
 
-  &::after {
-    position: absolute;
-    display: block;
-    content: "";
-    inset: 0;
+  .hds-accordion-item--is--not-clickable & {
+    position: relative;
+    // border-color: var(--token-color-border-strong);
+    box-shadow: var(--token-surface-mid-box-shadow);
   }
+
+  // &::after {
+  //   position: absolute;
+  //   display: block;
+  //   content: "";
+  //   inset: 0;
+  // }
 
   .flight-icon-chevron-down {
     @media (prefers-reduced-motion: no-preference) {
@@ -87,10 +102,45 @@
   }
 }
 
-.hds-accordion-row__toggle-content {
+// Temporary
+.hds-accordion-item--is--not-clickable {
+  // Hovering chevron button
+  &[mock-state-value="hover"] .hds-accordion-item__toggle-button,
+  .hds-accordion-item__toggle-button:hover {
+    // background: red !important;
+    box-shadow: var(--token-surface-high-box-shadow) !important;
+  }
+
+  // Focusing chevron button
+  &[mock-state-value="focus"] .hds-accordion-item__toggle-button,
+  .hds-accordion-item__toggle-button:focus {
+    @include hds-focus-ring-with-pseudo-element();
+
+    &::before {
+      box-shadow: var(--token-focus-ring-action-box-shadow);
+    }
+  }
+}
+
+.hds-accordion-item--is-clickable {
+  .hds-accordion-item__toggle-button {
+    &::after {
+      position: absolute;
+      display: block;
+      content: "";
+      inset: 0;
+    }
+  }
+}
+
+.hds-accordion-item__toggle-content {
   flex: 1;
 }
 
-.hds-accordion-row__content {
-  padding: 4px var(--token-accordion-row-padding) var(--token-accordion-row-padding) var(--token-accordion-row-padding);
+.hds-accordion-item__content {
+  padding: 4px var(--token-accordion-item-padding) var(--token-accordion-item-padding) var(--token-accordion-item-padding);
 }
+
+// .hds-accordion-item--is-clickable {
+//   background: lime;
+// }

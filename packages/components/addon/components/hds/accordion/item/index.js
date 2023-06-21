@@ -8,7 +8,7 @@ import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
-export default class HdsAccordionRowIndexComponent extends Component {
+export default class HdsAccordionItemIndexComponent extends Component {
   @tracked isOpen = this.args.isOpen ?? false;
 
   /**
@@ -18,6 +18,15 @@ export default class HdsAccordionRowIndexComponent extends Component {
    */
   get ariaLabel() {
     return this.args.ariaLabel ?? 'Toggle display';
+  }
+
+  /**
+   * @param isClickable
+   * @type {boolean}
+   * @default true
+   */
+  get isClickable() {
+    return this.args.isClickable ?? true;
   }
 
   /**
@@ -38,11 +47,19 @@ export default class HdsAccordionRowIndexComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-accordion-row'];
+    let classes = ['hds-accordion-item'];
 
     // add a class based on the @isOpen argument
     if (this.isOpen) {
-      classes.push('hds-accordion-row--is-open');
+      classes.push('hds-accordion-item--is-open');
+    }
+
+    if (this.isClickable) {
+      // Entire accordion item including the chevron is clickable:
+      classes.push('hds-accordion-item--is-clickable');
+    } else {
+      // Only chevron is clickable:
+      classes.push('hds-accordion-item--is--not-clickable');
     }
 
     return classes.join(' ');

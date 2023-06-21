@@ -18,87 +18,87 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
 
   // CONTENT
 
-  test('it renders the passed in Accordion Rows', async function (assert) {
+  test('it renders the passed in Accordion Items', async function (assert) {
     await render(hbs`
       <Hds::Accordion as |A|>
-        <A.Row>
+        <A.Item>
           <:toggle>Item one</:toggle>
           <:content>Content one</:content>
-        </A.Row>
-        <A.Row>
+        </A.Item>
+        <A.Item>
           <:toggle>Item two</:toggle>
           <:content>Content two</:content>
-        </A.Row>
+        </A.Item>
       </Hds::Accordion>
     `);
-    assert.dom('.hds-accordion .hds-accordion-row').exists({ count: 2 });
+    assert.dom('.hds-accordion .hds-accordion-item').exists({ count: 2 });
   });
 
-  test('it renders the passed in content in the Accordion Row', async function (assert) {
+  test('it renders the passed in content in the Accordion Item', async function (assert) {
     await render(hbs`
       <Hds::Accordion as |A|>
-        <A.Row>
+        <A.Item>
           <:toggle><strong>Item one</strong></:toggle>
           <:content><em>Content one</em></:content>
-        </A.Row>
+        </A.Item>
       </Hds::Accordion>
     `);
-    await click('.hds-accordion-row__toggle-button');
+    await click('.hds-accordion-item__toggle-button');
     assert
-      .dom('.hds-accordion-row__toggle-content strong')
+      .dom('.hds-accordion-item__toggle-content strong')
       .exists()
       .hasText('Item one');
     assert
-      .dom('.hds-accordion-row__content em')
+      .dom('.hds-accordion-item__content em')
       .exists()
       .hasText('Content one');
   });
 
   // A11Y
 
-  test('it displays the correct value for aria-expanded on the AccordionRow when closed vs open', async function (assert) {
+  test('it displays the correct value for aria-expanded on the AccordionItem when closed vs open', async function (assert) {
     await render(
       hbs`
         <Hds::Accordion as |A|>
-          <A.Row>
+          <A.Item>
             <:toggle>Item one</:toggle>
             <:content>Additional content</:content> 
-          </A.Row>
+          </A.Item>
         </Hds::Accordion>
       `
     );
     assert
-      .dom('.hds-accordion-row__toggle-button')
+      .dom('.hds-accordion-item__toggle-button')
       .hasAttribute('aria-expanded', 'false');
-    await click('.hds-accordion-row__toggle-button');
+    await click('.hds-accordion-item__toggle-button');
     assert
-      .dom('.hds-accordion-row__toggle-button')
+      .dom('.hds-accordion-item__toggle-button')
       .hasAttribute('aria-expanded', 'true');
   });
 
-  test('the AccordionRow toggle button has an aria-controls attribute with a value matching the content id', async function (assert) {
+  test('the AccordionItem toggle button has an aria-controls attribute with a value matching the content id', async function (assert) {
     await render(
       hbs`
         <Hds::Accordion as |A|>
-          <A.Row>
+          <A.Item>
             <:toggle>Item one</:toggle>
             <:content>Additional content</:content> 
-          </A.Row>
+          </A.Item>
         </Hds::Accordion>
       `
     );
-    await click('.hds-accordion-row__toggle-button');
+    await click('.hds-accordion-item__toggle-button');
     assert
-      .dom('.hds-accordion-row__toggle-button')
+      .dom('.hds-accordion-item__toggle-button')
       .hasAttribute('aria-controls');
-    assert.dom('.hds-accordion-row__content').hasAttribute('id');
+    assert.dom('.hds-accordion-item__content').hasAttribute('id');
 
     assert.strictEqual(
       this.element
-        .querySelector('.hds-accordion-row__toggle-button')
+        .querySelector('.hds-accordion-item__toggle-button')
         .getAttribute('aria-controls'),
       this.element
-        .querySelector('.hds-accordion-row__content')
+        .querySelector('.hds-accordion-item__content')
         .getAttribute('id')
     );
   });
@@ -111,21 +111,21 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     await render(
       hbs`
         <Hds::Accordion as |A|>
-          <A.Row @isOpen={{true}}>
+          <A.Item @isOpen={{true}}>
             <:toggle>Item one</:toggle>
             <:content>Additional content</:content> 
-          </A.Row>
+          </A.Item>
         </Hds::Accordion>
       `
     );
     // Test content is displayed
     assert
-      .dom('.hds-accordion-row__content')
+      .dom('.hds-accordion-item__content')
       .exists()
       .hasText('Additional content');
     // Test that content is hidden after the toggle is triggered
-    await click('.hds-accordion-row__toggle-button');
-    assert.dom('.hds-accordion-row__content').doesNotExist();
+    await click('.hds-accordion-item__toggle-button');
+    assert.dom('.hds-accordion-item__content').doesNotExist();
   });
 
   // ATTRIBUTES
@@ -134,10 +134,10 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     await render(
       hbs`
         <Hds::Accordion id="test-accordion" class="my-class" data-test1 data-test2="test" as |A|>
-          <A.Row id="test-accordion-row" class="my-class" data-test1 data-test2="test">
+          <A.Item id="test-accordion-item" class="my-class" data-test1 data-test2="test">
             <:toggle>Item one</:toggle>
             <:content>Additional content</:content> 
-          </A.Row>
+          </A.Item>
         </Hds::Accordion>
       `
     );
@@ -146,9 +146,9 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     assert.dom('#test-accordion').hasAttribute('data-test1');
     assert.dom('#test-accordion').hasAttribute('data-test2', 'test');
 
-    // AccordionRow:
-    assert.dom('#test-accordion-row').hasClass('my-class');
-    assert.dom('#test-accordion-row').hasAttribute('data-test1');
-    assert.dom('#test-accordion-row').hasAttribute('data-test2', 'test');
+    // AccordionItem:
+    assert.dom('#test-accordion-item').hasClass('my-class');
+    assert.dom('#test-accordion-item').hasAttribute('data-test1');
+    assert.dom('#test-accordion-item').hasAttribute('data-test2', 'test');
   });
 });
