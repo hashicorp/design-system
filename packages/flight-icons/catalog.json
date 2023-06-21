@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2023-06-13T22:37:55.483Z",
+  "lastRunTimeISO": "2023-06-16T23:42:57.742Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -7585,6 +7585,24 @@
       "fileName": "rewind-16",
       "iconName": "rewind",
       "description": "rewind, back, previous",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "4008:66",
+      "fileName": "robot-24",
+      "iconName": "robot",
+      "description": "service, principal, computer, user",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "4008:76",
+      "fileName": "robot-16",
+      "iconName": "robot",
+      "description": "service, principal, computer, user",
       "size": "16",
       "width": 16,
       "height": 16
