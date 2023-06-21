@@ -185,15 +185,15 @@
       </SF.Item>
     {{/each}}
     <SF.Item @label="focus & isOpen=true">
-        <Hds::Accordion as |A|>
-          <A.Row mock-state-value="focus" @isOpen={{true}}>
-            <:toggle>Item one</:toggle>
-            <:content>
-              <Shw::Placeholder @text="generic content" @height="40" @background="#eee" />
-            </:content>
-          </A.Row>
-        </Hds::Accordion>
-      </SF.Item>
+      <Hds::Accordion as |A|>
+        <A.Row mock-state-value="focus" @isOpen={{true}}>
+          <:toggle>Item one</:toggle>
+          <:content>
+            <Shw::Placeholder @text="generic content" @height="40" @background="#eee" />
+          </:content>
+        </A.Row>
+      </Hds::Accordion>
+    </SF.Item>
   </Shw::Flex>
 
   <Shw::Divider @level={{2}} />
