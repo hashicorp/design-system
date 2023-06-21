@@ -914,26 +914,40 @@
           <B.Tr>
             <B.Th>Dropdown (with inline container)</B.Th>
             <B.Td @align="left">
-              <div {{style display="inline-block"}}>
-                <Hds::Dropdown @listPosition="right" as |dd|>
-                  <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
-                  <dd.Interactive @route="components.table" @text="Dropdown" />
-                </Hds::Dropdown>
-              </div>
+              <Hds::Dropdown @isInline={{true}} @listPosition="right" as |dd|>
+                <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
+                <dd.Interactive @route="components.table" @text="Dropdown" />
+              </Hds::Dropdown>
             </B.Td>
             <B.Td @align="center">
-              <div {{style display="inline-block"}}>
-                <Hds::Dropdown as |dd|>
-                  <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
-                  <dd.Interactive @route="components.table" @text="Dropdown" />
-                </Hds::Dropdown>
-              </div>
+              <Hds::Dropdown @isInline={{true}} as |dd|>
+                <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
+                <dd.Interactive @route="components.table" @text="Dropdown" />
+              </Hds::Dropdown>
             </B.Td>
             <B.Td @align="right">
               <Hds::Dropdown @isInline={{true}} as |dd|>
                 <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
                 <dd.Interactive @route="components.table" @text="Dropdown" />
               </Hds::Dropdown>
+            </B.Td>
+          </B.Tr>
+          <B.Tr>
+            <B.Th>Tooltip(Button)</B.Th>
+            <B.Td @align="left">
+              <Hds::TooltipButton @text="Hello!">
+                December 15, 2022,<br />16:40:09 PM
+              </Hds::TooltipButton>
+            </B.Td>
+            <B.Td @align="center">
+              <Hds::TooltipButton @text="Hello!">
+                December 15, 2022,<br />16:40:09 PM
+              </Hds::TooltipButton>
+            </B.Td>
+            <B.Td @align="right">
+              <Hds::TooltipButton @text="Hello!">
+                December 15, 2022,<br />16:40:09 PM
+              </Hds::TooltipButton>
             </B.Td>
           </B.Tr>
         </:body>
@@ -953,6 +967,7 @@
             <H.Th>Icon + Text (with flex container)</H.Th>
             <H.Th>Badge</H.Th>
             <H.Th>Dropdown</H.Th>
+            <H.Th>Tooltip(Button)</H.Th>
           </H.Tr>
         </:head>
         <:body as |B|>
@@ -974,6 +989,11 @@
                 <dd.Interactive @route="components.table" @text="Dropdown" />
               </Hds::Dropdown>
             </B.Td>
+            <B.Td>
+              <Hds::TooltipButton @text="Hello!">
+                December 15, 2022,<br />16:40:09 PM
+              </Hds::TooltipButton>
+            </B.Td>
           </B.Tr>
         </:body>
       </Hds::Table>
@@ -989,6 +1009,7 @@
             <H.Th>Icon + Text (with flex container)</H.Th>
             <H.Th>Badge</H.Th>
             <H.Th>Dropdown</H.Th>
+            <H.Th>Tooltip(Button)</H.Th>
           </H.Tr>
         </:head>
         <:body as |B|>
@@ -1009,6 +1030,11 @@
                 <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
                 <dd.Interactive @route="components.table" @text="Dropdown" />
               </Hds::Dropdown>
+            </B.Td>
+            <B.Td>
+              <Hds::TooltipButton @text="Hello!">
+                December 15, 2022,<br />16:40:09 PM
+              </Hds::TooltipButton>
             </B.Td>
           </B.Tr>
         </:body>
