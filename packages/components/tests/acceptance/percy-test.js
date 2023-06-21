@@ -131,6 +131,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/toast');
     await percySnapshot('Toast');
 
+    await visit('/components/tooltip');
+    await percySnapshot('Tooltip');
+
     await visit('/layouts/app-frame');
     await percySnapshot('AppFrame');
 
