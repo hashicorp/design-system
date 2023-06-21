@@ -8,7 +8,7 @@ Filtering consists of several conceptual foundations that contribute to the larg
 | Value | Refers to the specific value within a parameter that is referenced in the filter; e.g., a specific string, status, numerical range, etc. |
 | Conditional | Refers to the relationship between the parameter and the value. |
 
-The combination of the `Parameter`, `Conditional`, and `Value` results `Variable` and determines the specific records being included or excluded from a data set.
+The combination of the `parameter`, `conditional`, and `value` results in a `variable` and determines the specific records being included or excluded from a data set.
 
 ![Parameter + Conditional + Value = Variable](/assets/patterns/filter-patterns/filter-concept-variable.png =847x*)
 
@@ -19,6 +19,10 @@ The combination of the `Parameter`, `Conditional`, and `Value` results `Variable
 ### In the context of a filter sidebar
 
 ![Filter concept anatomy](/assets/patterns/filter-patterns/filter-concept-filter-sidebar-parameter.png =344x*)
+
+### In the context of an applied filter
+
+![Applied filter conceptual terminology](/assets/patterns/filter-patterns/filter-concept-filter-value.png =265x*)
 
 ## Conditionals
 
@@ -48,7 +52,7 @@ Other types of conditionals can be used to account for different value types (bo
 
 ### Applied filters in context
 
-The `Variable` should be communicated by the content within the tag. How explicit this communication is depends on the level of complexity, but more explicitness often benefits the user, especially when parameters might have similar labels and associated values.
+The `variable` determined by the combination of the `parameter`, `conditional`, and `value` should be communicated by the content within the tag. How explicit this communication is depends on the level of complexity, but more explicitness often benefits the user, especially when parameters might have similar labels and associated values.
 
 #### Explicit communication of an applied filter
 
@@ -68,7 +72,17 @@ This example showcases a 1:1 relationship between the columns of a data set and 
 
 ![Mirroring the columns of a table in the available parameters](/assets/patterns/filter-patterns/filter-concept-mirror-parameters.png =1059x*)
 
-While not always necessary to mirror _all_ parameters in a data set, including a parameter in the available filters that is not visually reflected in the data set can be confusing and cause uncertainty about the returned results.
+It's not always necessary to mirror _all_ of the parameters in a data set, there may be parameters that aren't relevant to filter upon. 
+
+!!! Dont
+
+Dont include a parameter in the available filters that is not visually reflected in the data set.
+
+![Displaying an unrepresented parameter](/assets/patterns/filter-patterns/filter-concept-displaying-unrepresented-parameters.png =1059x*)
+
+Filtering on an unrepresented parameter will return results that correspond with the filter, but the specific value is not displayed to the user and corresponding result.
+
+!!!
 
 #### Parameter and value relationship within a data set
 
