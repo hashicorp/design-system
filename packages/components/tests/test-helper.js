@@ -39,11 +39,8 @@ setRunOptions({
       'best-practice',
     ],
   },
-  rules: {
-    'duplicate-id': { enabled: false },
-  },
-  include: [['#ember-testing-container']],
-  exclude: [['.flight-sprite-container']],
+  include: ['#ember-testing-container'],
+  exclude: ['.flight-sprite-container', '.shw-page-main'],
 });
 
 setup(QUnit.assert);
