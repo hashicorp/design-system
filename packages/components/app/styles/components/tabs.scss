@@ -66,10 +66,10 @@
 
 .hds-tabs__tab-button {
   @include hds-focus-ring-with-pseudo-element(
-    $top: var(--token-tabs-tab-focus-inset),
-    $right: var(--token-tabs-tab-focus-inset),
-    $bottom: var(--token-tabs-tab-focus-inset),
-    $left: var(--token-tabs-tab-focus-inset),
+    $top: -2px,
+    $right: -6px,
+    $bottom: -2px,
+    $left: -6px,
   );
   position: static;
   display: flex;
