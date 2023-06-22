@@ -104,6 +104,8 @@ Avoid using critical Buttons in Toasts. We handle the prominence and importance 
 
 Use [Standalone Links](/components/link/standalone) when an action takes the user to a new destination (URL). Follow the Standalone Link [usage guidelines](https://helios.hashicorp.design/components/link/standalone) to determine what variant to use.
 
+We recommend using the secondary standalone link to maintain visual hierarchy and avoid competing prominence when used with the secondary button.
+
 <Hds::Toast @color="neutral" @onDismiss={{this.noop}} as |T|>
   <T.Title>Links in Toasts</T.Title>
   <T.Description>Lorem ipsum dolar sit amet, consecteu adipiscig elit null dignissim felis.</T.Description>
