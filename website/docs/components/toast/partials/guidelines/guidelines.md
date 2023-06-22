@@ -106,11 +106,11 @@ Use [Standalone Links](/components/link/standalone) when an action takes the use
 
 We recommend using the secondary standalone link to maintain visual hierarchy and avoid competing prominence when used with the secondary button.
 
-<Hds::Toast @color="neutral" @onDismiss={{this.noop}} as |T|>
+<Hds::Toast @color="success" @onDismiss={{this.noop}} as |T|>
   <T.Title>Links in Toasts</T.Title>
   <T.Description>Lorem ipsum dolar sit amet, consecteu adipiscig elit null dignissim felis.</T.Description>
   <T.Button @text="Button" @color="secondary" />
-  <T.Link::Standalone @color="secondary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+  <T.Link::Standalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="Standalone link" @href="#" />
 </Hds::Toast>
 
 ## Size
