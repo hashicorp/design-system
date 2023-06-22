@@ -17,31 +17,31 @@
     <T.Title>Neutral toast title</T.Title>
     <T.Description>Lorem ipsum dolar sit amet, consecteu adipiscig elit null dignissim felis.</T.Description>
     <T.Button @text="Button" @color="secondary" />
-    <T.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+    <T.Link::Standalone @color="secondary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
   </Hds::Toast>
   <Hds::Toast @color="highlight" @onDismiss={{this.noop}} as |T|>
     <T.Title>Highlight toast title</T.Title>
     <T.Description>Lorem ipsum dolar sit amet, consecteu adipiscig elit null dignissim felis.</T.Description>
     <T.Button @text="Button" @color="secondary" />
-    <T.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+    <T.Link::Standalone @color="secondary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
   </Hds::Toast>
   <Hds::Toast @color="success" @onDismiss={{this.noop}} as |T|>
     <T.Title>Success toast title</T.Title>
     <T.Description>Lorem ipsum dolar sit amet, consecteu adipiscig elit null dignissim felis.</T.Description>
     <T.Button @text="Button" @color="secondary" />
-    <T.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+    <T.Link::Standalone @color="secondary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
   </Hds::Toast>
   <Hds::Toast @color="warning" @onDismiss={{this.noop}} as |T|>
     <T.Title>Warning toast title</T.Title>
     <T.Description>Lorem ipsum dolar sit amet, consecteu adipiscig elit null dignissim felis.</T.Description>
     <T.Button @text="Button" @color="secondary" />
-    <T.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+    <T.Link::Standalone @color="secondary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
   </Hds::Toast>
   <Hds::Toast @color="critical" @onDismiss={{this.noop}} as |T|>
     <T.Title>Critical toast title</T.Title>
     <T.Description>Lorem ipsum dolar sit amet, consecteu adipiscig elit null dignissim felis.</T.Description>
     <T.Button @text="Button" @color="secondary" />
-    <T.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+    <T.Link::Standalone @color="secondary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
   </Hds::Toast>
 </Doc::Layout>
 
@@ -63,12 +63,12 @@ Icons within `neutral` and `highlight` Toasts can be replaced with other icons. 
   <Hds::Toast @color="neutral" @icon="running" @onDismiss={{this.noop}} as |T|>
     <T.Title>Plan running</T.Title>
     <T.Button @text="Button" @color="secondary" />
-    <T.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+    <T.Link::Standalone @color="secondary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
   </Hds::Toast>
   <Hds::Toast @color="success" @icon="check-circle" @onDismiss={{this.noop}} as |T|>
     <T.Title>Plan finished</T.Title>
     <T.Button @text="Button" @color="secondary" />
-    <T.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+    <T.Link::Standalone @color="secondary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
   </Hds::Toast>
 </Doc::Layout>
 
@@ -84,7 +84,7 @@ We recommend using the `secondary` Button variant for primary actions and the `t
   <T.Title>Recommended button usage</T.Title>
   <T.Description>Lorem ipsum dolar sit amet, consecteu adipiscig elit null dignissim felis.</T.Description>
   <T.Button @text="Button" @color="secondary" />
-  <T.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+  <T.Link::Standalone @color="secondary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
 </Hds::Toast>
 
 #### Usage of critical Buttons
@@ -102,12 +102,13 @@ Avoid using critical Buttons in Toasts. We handle the prominence and importance 
 
 ### Links
 
-Use [Standalone Links](/components/link/standalone) when an action takes the user to a new destination (URL). Follow the Standalone Link [usage guidelines](/components/link/standalone#usage) to determine what variant to use.
+Use [Standalone Links](/components/link/standalone) when an action takes the user to a new destination (URL). Follow the Standalone Link [usage guidelines](https://helios.hashicorp.design/components/link/standalone) to determine what variant to use.
 
 <Hds::Toast @color="neutral" @onDismiss={{this.noop}} as |T|>
   <T.Title>Links in Toasts</T.Title>
   <T.Description>Lorem ipsum dolar sit amet, consecteu adipiscig elit null dignissim felis.</T.Description>
-  <T.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+  <T.Button @text="Button" @color="secondary" />
+  <T.Link::Standalone @color="secondary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
 </Hds::Toast>
 
 ## Size
@@ -157,7 +158,7 @@ The title or description should contain the Toast color type, e.g., â€œWarning,â
   <T.Title>Toast with actions</T.Title>
   <T.Description>Lorem ipsum dolar sit amet, consectetur adi.</T.Description>
   <T.Button @text="Button" @color="secondary" />
-  <T.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+  <T.Link::Standalone @color="secondary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
 </Hds::Toast>
 
 ### With generic content
@@ -187,7 +188,7 @@ The title or description should contain the Toast color type, e.g., â€œWarning,â
     <T.Title>Cost estimation enabled</T.Title>
     <T.Description>Future runs will now include this step. You can manage this preference in <Hds::Link::Inline @href="#">Organization settings</Hds::Link::Inline>.</T.Description>
     <T.Button @text="Button" @color="secondary" />
-    <T.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+    <T.Link::Standalone @color="secondary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
   </Hds::Toast>
   <Hds::Toast @color="critical" @icon="alert-diamond" @onDismiss={{this.noop}} as |T|>
     <T.Title>Placement failures</T.Title>
@@ -195,6 +196,6 @@ The title or description should contain the Toast color type, e.g., â€œWarning,â
     <T.Description>Resources exhausted on 5 modes</T.Description>
     <T.Description>Missing driver "java" on 5 nodes</T.Description>
     <T.Button @text="Button" @color="secondary" />
-    <T.Link::Standalone @color="primary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+    <T.Link::Standalone @color="secondary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
   </Hds::Toast>
 </Doc::Layout>
