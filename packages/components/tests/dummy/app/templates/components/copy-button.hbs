@@ -1,0 +1,122 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "CopyButton Component"}}
+
+<Shw::Text::H1>CopyButton</Shw::Text::H1>
+
+<section data-test-percy>
+
+  <Shw::Text::H2>Generated element</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Default">
+      <Hds::CopyButton @text="Copy" />
+    </SF.Item>
+    <SF.Item @label="&#64;isIconOnly">
+      <Hds::CopyButton @text="Copy" @isIconOnly={{true}} />
+      <br />
+      <Hds::CopyButton @text="Copy" @isIconOnly={{true}} @color="primary" />
+    </SF.Item>
+    <SF.Item @label="&#64;color">
+      <Hds::CopyButton @text="Copy" @color="primary" />
+      <br />
+      <Hds::CopyButton @text="Copy" />
+      <br />
+      <Hds::CopyButton @text="Copy" @color="tertiary" />
+    </SF.Item>
+  </Shw::Flex>
+  <Shw::Flex as |SF|>
+    <SF.Item @label="&#64;isFullWidth">
+      <Shw::Outliner {{style width="300px"}}>
+        <Hds::CopyButton @text="Copy" @isFullWidth={{true}} />
+      </Shw::Outliner>
+      <br />
+      <Shw::Outliner {{style width="300px"}}>
+        <Hds::CopyButton @text="Copy" @isFullWidth={{true}} @color="primary" />
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
+  <Shw::Flex as |SF|>
+    <SF.Item @label="&#64;size">
+      <Hds::CopyButton @text="Copy" @size="small" />
+      <br />
+      <Hds::CopyButton @text="Copy" />
+      <br />
+      <Hds::CopyButton @text="Copy" @size="large" />
+    </SF.Item>
+  </Shw::Flex>
+  <Shw::Flex as |SF|>
+    <SF.Item @label="&#64;isCode">
+      <Hds::CopyButton @text="sdfkjweh245fg" @size="small" @isCode={{true}} />
+      <br />
+      <Hds::CopyButton @text="1w3efg56hjjk5" @isCode={{true}} />
+      <br />
+      <Hds::CopyButton @text="91ee1e8ef65b337f0e70d793f456c71d" @size="large" @isCode={{true}} />
+    </SF.Item>
+  </Shw::Flex>
+  <Shw::Flex as |SF|>
+    <SF.Item @label="long text">
+      <Shw::Outliner {{style width="300px" border="2px solid red" padding="5px"}}>
+        <Hds::CopyButton @text="horse-apple-cube-12354g-3t5dsfg-345sf3-sdfwerdg-qedvr" />
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
+  <Shw::Text::H2>States</Shw::Text::H2>
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Default">
+      <Hds::CopyButton @text="Copy" />
+      <br />
+      <Hds::CopyButton @text="Copy" class="mock-hover" />
+      <br />
+      <Hds::CopyButton @text="Copy" class="mock-active" />
+      <br />
+      <Hds::CopyButton @text="Copy" class="mock-focus" />
+      <br />
+      <Hds::CopyButton @text="Copy" class="is-success" />
+    </SF.Item>
+    <SF.Item @label="Primary">
+      <Hds::CopyButton @text="Copy" @color="primary" />
+      <br />
+      <Hds::CopyButton @text="Copy" @color="primary" class="mock-hover" />
+      <br />
+      <Hds::CopyButton @text="Copy" @color="primary" class="mock-active" />
+      <br />
+      <Hds::CopyButton @text="Copy" @color="primary" class="mock-focus" />
+      <br />
+      <Hds::CopyButton @text="Copy" @color="primary" class="is-success" />
+    </SF.Item>
+    <SF.Item @label="Tertiary">
+      <Hds::CopyButton @text="Copy" @color="tertiary" />
+      <br />
+      <Hds::CopyButton @text="Copy" @color="tertiary" class="mock-hover" />
+      <br />
+      <Hds::CopyButton @text="Copy" @color="tertiary" class="mock-active" />
+      <br />
+      <Hds::CopyButton @text="Copy" @color="tertiary" class="mock-focus" />
+      <br />
+      <Hds::CopyButton @text="Copy" @color="tertiary" class="is-success" />
+    </SF.Item>
+  </Shw::Flex>
+  <Shw::Text::H2>Attached to another element</Shw::Text::H2>
+  <Shw::Flex as |SF|>
+    <SF.Item>
+      <div class="shw-card">
+        <div class="shw-card__header">
+          <span class="shw-text-h3">Quote</span>
+        </div>
+        <div class="shw-card__body">
+          {{! prettier-ignore }}
+          <p class="shw-text-body" id="cliptext">Philanthropy is commendable, but it must not cause the philanthropist to overlook the circumstances of economic injustice which make philanthropy necessary.</p>
+        </div>
+        <div class="shw-card__footer">
+          <Hds::CopyButton @text="Copy this text" @clipboardText="#cliptext" />
+        </div>
+
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+</section>

@@ -1,0 +1,36 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// COPY-BUTTON
+
+.shw-card {
+  display: flex;
+  flex-flow: row wrap;
+  width: 40em;
+  max-width: 95%;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.shw-card__header,
+.shw-card__body,
+.shw-card__footer {
+  width: 100%;
+  padding: 1rem;
+}
+
+.shw-card__header {
+  background-color: aliceblue;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.shw-card__body {
+}
+
+.shw-card__footer {
+  display: flex;
+  justify-content: flex-end;
+}

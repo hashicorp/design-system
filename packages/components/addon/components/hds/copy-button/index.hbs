@@ -1,0 +1,24 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+<button
+  type="button"
+  class="{{this.classNames}} {{if this.isSuccess 'is-success'}}"
+  {{on "click" this.copyCode}}
+  ...attributes
+  aria-label={{if this.isIconOnly this.text null}}
+>
+  {{#if this.isIconOnly}}
+    <FlightIcon @name="{{if this.isSuccess 'clipboard-checked' 'clipboard-copy'}}" class="hds-copy-button__icon" />
+  {{else}}
+    <div
+      class="hds-copy-button__text
+        {{if this.isCode 'hds-typography-code-100' 'hds-typography-body-100 hds-font-weight-semibold'}}"
+    >
+      {{this.text}}
+    </div>
+    <FlightIcon @name="{{if this.isSuccess 'clipboard-checked' 'clipboard-copy'}}" class="hds-copy-button__icon" />
+  {{/if}}
+</button>

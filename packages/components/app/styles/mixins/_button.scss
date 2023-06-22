@@ -12,7 +12,7 @@ $hds-button-focus-border-width: 3px;
 $size-props: (
   "small": (
     "font-size": 0.8125rem, // 13px;
-    "line-height": 0.875rem, // 14px - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)
+    "line-height": 0.875rem, // 14px - we need to make it even (so we set it slightly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)
     "min-height": 1.75rem,  // 28px
     "padding": 0.375rem 0.6875rem, // 6px 11px - here we're taking into account the 1px border
     "icon-size": 0.75rem, // 12px
