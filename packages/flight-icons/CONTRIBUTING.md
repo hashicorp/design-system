@@ -19,15 +19,22 @@ See below for more details about what these scripts do.
 
 # Updating the icons in `flight-icons`
 
-Whenever there is an update to the Flight Icons library in Figma (e.g. a new icon is added), these changes need to be transfered also to the code. This means updating the `flight-icons` package and then releasing it to the npm registry, so that can be used by other tools and projects.
+Whenever there is an update to the Flight Icons library in Figma (e.g. a new icon is added), these changes need to be transferred to code. This means updating the `flight-icons` package and then releasing it to the npm registry, which other tools and projects can use.
 
-We have developed a set of custom Node.js scripts, to create a single pipeline for this purpose. The pipeline can be run manually on your local machine.
+We have developed a set of custom Node.js scripts to create a single pipeline for this purpose. The pipeline can be run manually on your local machine or via a GitHub Action.
 
-Additionally, you can run the [Sync & Build Icons action](https://github.com/hashicorp/design-system/actions/workflows/open-pull-request-for-icon-update.yml) on the [Actions tab in GitHub](https://github.com/hashicorp/design-system/actions) to create a PR with the updated icons automatically.
+With either approach, it will be necessary to add a commit creating a changeset entry either [via the instructions in our readme](https://github.com/hashicorp/design-system/blob/main/README.md#changesets) or by clicking the link provided by `changeset-bot` on the PR.
 
-With either approach it will be necessary to add a commit creating a changeset entry either [via the instructions in our readme](https://github.com/hashicorp/design-system/blob/main/README.md#changesets) or by clicking the link provided by `changeset-bot` on the PR.
+## Automated process
 
-## Before you run the scripts
+Run the [Sync & Build Icons action](https://github.com/hashicorp/design-system/actions/workflows/open-pull-request-for-icon-update.yml) on the [Actions tab in GitHub](https://github.com/hashicorp/design-system/actions) to create a PR with the updated icons automatically.
+
+<img width="1164" alt="flight-icons-auto-action" src="https://github.com/hashicorp/design-system/assets/8553306/2bb88829-cdc3-40f2-aef8-80624b3c13a6">
+
+
+## Manual process
+
+### Before you run the scripts
 
 * Make sure you have:
   * done the initial setup of the project (see details above)
@@ -35,7 +42,7 @@ With either approach it will be necessary to add a commit creating a changeset e
 * Make sure your local `main` branch is up to date
 * Create a custom branch from `main`.
 
-## Sync
+### Sync
 
 The "sync" step exports the assets from Figma and saves them in the project.
 You can find the code that relates to this step in the file `/scripts/sync.ts`.
@@ -54,7 +61,7 @@ This action will:
 
 *🚨 **Notice**: it's not uncommon that when doing a `sync` you will find that some SVGs of the icons appear as "modified" in the codebase even if they have not been really changed by the designers. The reasons can be different: Figma has slightly changed the algorithm that generates the SVGs in output, or the designer changed the order of the icons in the frame, or maybe just Figma changing by a sub-pixel the internal path of an SVG element. In these cases it's hard to detect if this change is OK or not. You have to try to understand if it's expected or not, and if you want to be 100% sure you have to compare the SVGs (old and new) importing them in Figma and overlaying one on top of the other and eyeball if there are differences.*
 
-## Build
+### Build
 
 The "build" step takes the assets exported from Figma, optimize and process them, and saves the final SVG files in the bundles that will be published as npm package.
 You can find the code that relates to this step in the file `/scripts/build.ts`.
@@ -71,7 +78,7 @@ This action will:
 * Process the optimized SVG files and save then in the `svg` folder as standalone SVG files
 * Process the optimized SVG files and save then in the `svg-sprite` folder as SVG sprite within a JavaScript module
 
-## After you have run the scripts
+### After you have run the scripts
 
 * Check the git diff:
   * if you see only the `lastRunTimeISO` value changed in the `catalog.json` file it means there are no updated to the icons, so there's no need to commit the changes.
@@ -79,11 +86,11 @@ This action will:
 * Commit and push the changes, then submit a pull request in GitHub.
 * Once approved and merged to the `main` branch, you can proceed to the release phase.
 
-## Releasing a new npm version of the package
+### Releasing a new npm version of the package
 
 Follow the instructions for Changesets in the root [README](../../README.md).
 
-### Figma Token
+#### Figma Token
 
 To access the Figma file via REST API is necessary to have [a special authentication token](https://www.figma.com/developers/api#access-tokens). This token is personal, should not be shared or committed to the repo.
 
