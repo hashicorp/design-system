@@ -126,6 +126,30 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     assert.dom('.hds-accordion-item__content').doesNotExist();
   });
 
+  // isClickable
+  test('it displays the correct variant when isClickable is set to false vs. true', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Accordion as |A|>
+          <A.Item id="test-is-clickable-true">
+            <:toggle>Item one</:toggle>
+            <:content>Additional content</:content> 
+          </A.Item>
+          <A.Item @isClickable={{false}} id="test-is-clickable-false">
+            <:toggle>Item one</:toggle>
+            <:content>Additional content</:content> 
+          </A.Item>
+        </Hds::Accordion>
+      `
+    );
+    assert
+      .dom('#test-is-clickable-true')
+      .hasClass('hds-accordion-item--is-clickable');
+    assert
+      .dom('#test-is-clickable-false')
+      .hasClass('hds-accordion-item--is--not-clickable');
+  });
+
   // ATTRIBUTES
 
   test('it should spread all the attributes passed to the component on the element', async function (assert) {
