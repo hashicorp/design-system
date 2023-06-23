@@ -34,5 +34,13 @@ module(
       );
       assert.dom('#test-list-item-separator').hasAttribute('role', 'separator');
     });
+    test('it should render the "list-item/separator" with the aria-hidden attribute', async function (assert) {
+      await render(
+        hbs`<Hds::Dropdown::ListItem::Separator id="test-list-item-separator" />`
+      );
+      assert
+        .dom('#test-list-item-separator')
+        .hasAttribute('aria-hidden', 'true');
+    });
   }
 );
