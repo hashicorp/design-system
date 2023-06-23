@@ -60,7 +60,7 @@
   <Shw::Flex as |SF|>
     <SF.Item @label="long text">
       <Shw::Outliner {{style width="300px" border="2px solid red" padding="5px"}}>
-        <Hds::CopyButton @text="horse-apple-cube-12354g-3t5dsfg-345sf3-sdfwerdg-qedvr" />
+        <Hds::CopyButton @text="horse-apple-cube-12354g-3t5dsfg-345sf3-sdfwerdg-qedvr" @isCode={{true}} />
       </Shw::Outliner>
     </SF.Item>
   </Shw::Flex>
@@ -112,7 +112,7 @@
           <p class="shw-text-body" id="cliptext">Philanthropy is commendable, but it must not cause the philanthropist to overlook the circumstances of economic injustice which make philanthropy necessary.</p>
         </div>
         <div class="shw-card__footer">
-          <Hds::CopyButton @text="Copy this text" @clipboardText="#cliptext" />
+          <Hds::CopyButton @text="Copy this text" @clipboardText="#cliptext" @color="primary" />
         </div>
 
       </div>
