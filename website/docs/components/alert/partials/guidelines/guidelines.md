@@ -44,13 +44,6 @@ Use color logically.
 - **Warning** to help users avoid an issue. Provide guidance and actions, if possible.
 - **Critical** to indicate critical errors that need immediate action.
 
-!!! Insight
-
-**Structure migration tip**
-
-Use `neutral` or `highlight` (depending on the level of prominence needed) in place of Structure’s `information` banner.
-!!!
-
 ### Icons
 
 All alerts have icons by default that are intentionally tied to the alert type.
@@ -189,7 +182,7 @@ The title or description should contain the alert type, e.g., “Warning,” if 
   <A.Title>Alert with actions</A.Title>
   <A.Description>Lorem ipsum dolar sit amet.</A.Description>
   <A.Button @text="Your action" @color="secondary" @onClick={{this.noop}} />
-  <A.Link::Standalone @icon="arrow-right" @iconPosition="trailing" @text="Learn more" @href="#" />
+  <A.Link::Standalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="Learn more" @href="#" />
 </Hds::Alert>
 
 #### With generic content
