@@ -34,6 +34,6 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: a11y-test-report
-          path: packages/components/test-output/a11y-test-results.json
+          path: packages/components/test-output/a11y-test-results.txt
 
   
