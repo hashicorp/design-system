@@ -3,8 +3,8 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-{{! template-lint-disable require-context-role require-presentational-children }}
-<li class={{this.classNames}}>
+{{! template-lint-disable no-invalid-role require-context-role require-presentational-children }}
+<li class={{this.classNames}} role="none">
   <Hds::Interactive
     @current-when={{@current-when}}
     @models={{hds-link-to-models @model @models}}
@@ -37,4 +37,4 @@
     </span>
   </Hds::Interactive>
 </li>
-{{! template-lint-enable require-context-role require-presentational-children }}
+{{! template-lint-enable no-invalid-role require-context-role require-presentational-children }}
