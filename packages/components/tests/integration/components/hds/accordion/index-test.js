@@ -43,7 +43,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
         </A.Item>
       </Hds::Accordion>
     `);
-    await click('.hds-accordion-item__toggle-button');
+    await click('.hds-accordion-item__button');
     assert
       .dom('.hds-accordion-item__toggle-content strong')
       .exists()
@@ -68,11 +68,11 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
       `
     );
     assert
-      .dom('.hds-accordion-item__toggle-button')
+      .dom('.hds-accordion-item__button')
       .hasAttribute('aria-expanded', 'false');
-    await click('.hds-accordion-item__toggle-button');
+    await click('.hds-accordion-item__button');
     assert
-      .dom('.hds-accordion-item__toggle-button')
+      .dom('.hds-accordion-item__button')
       .hasAttribute('aria-expanded', 'true');
   });
 
@@ -87,15 +87,13 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
         </Hds::Accordion>
       `
     );
-    await click('.hds-accordion-item__toggle-button');
-    assert
-      .dom('.hds-accordion-item__toggle-button')
-      .hasAttribute('aria-controls');
+    await click('.hds-accordion-item__button');
+    assert.dom('.hds-accordion-item__button').hasAttribute('aria-controls');
     assert.dom('.hds-accordion-item__content').hasAttribute('id');
 
     assert.strictEqual(
       this.element
-        .querySelector('.hds-accordion-item__toggle-button')
+        .querySelector('.hds-accordion-item__button')
         .getAttribute('aria-controls'),
       this.element
         .querySelector('.hds-accordion-item__content')
@@ -124,7 +122,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
       .exists()
       .hasText('Additional content');
     // Test that content is hidden after the toggle is triggered
-    await click('.hds-accordion-item__toggle-button');
+    await click('.hds-accordion-item__button');
     assert.dom('.hds-accordion-item__content').doesNotExist();
   });
 

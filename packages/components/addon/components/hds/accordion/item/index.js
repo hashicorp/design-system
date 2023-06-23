@@ -12,6 +12,13 @@ export default class HdsAccordionItemIndexComponent extends Component {
   @tracked isOpen = this.args.isOpen ?? false;
 
   /**
+   * Generates a unique ID for the Content
+   *
+   * @param contentId
+   */
+  contentId = 'content-' + guidFor(this);
+
+  /**
    * @param ariaLabel
    * @type {string}
    * @default 'Toggle display'
@@ -28,13 +35,6 @@ export default class HdsAccordionItemIndexComponent extends Component {
   get isClickable() {
     return this.args.isClickable ?? true;
   }
-
-  /**
-   * Generates a unique ID for the Content
-   *
-   * @param contentId
-   */
-  contentId = 'content-' + guidFor(this);
 
   @action
   toggle() {

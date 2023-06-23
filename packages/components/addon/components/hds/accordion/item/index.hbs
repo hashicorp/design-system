@@ -4,9 +4,8 @@
       <Hds::Accordion::Item::Button
         @isOpen={{t.isOpen}}
         @onClickToggle={{t.onClickToggle}}
-        aria-controls={{this.contentId}}
-        aria-expanded={{if this.isOpen "true" "false"}}
-        aria-label={{this.ariaLabel}}
+        @contentId={{this.contentId}}
+        @ariaLabel={{this.ariaLabel}}
         @isClickable={{@isClickable}}
       />
 
