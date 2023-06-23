@@ -110,7 +110,7 @@ We recommend using the `secondary` button variant for primary actions and the `t
   <A.Title>Recommended button usage</A.Title>
   <A.Description>Lorem ipsum dolar sit amet.</A.Description>
   <A.Button @text="Your action" @color="secondary" @onClick={{this.noop}} />
-  <A.Link::Standalone @icon="arrow-right" @iconPosition="trailing" @color="secondary" @text="Another action" @href="#" />
+  <A.Button @color="tertiary" @icon="arrow-right" @iconPosition="trailing" @text="Tertiary" />
 </Hds::Alert>
 
 ##### Usage of critical buttons
@@ -127,7 +127,7 @@ Avoid using critical buttons in alerts. We handle the prominence and importance 
 
 #### Links
 
-Use [standalone links](/components/link/standalone) when an action takes the user to a new destination (URL). Follow the standalone link [usage guidelines](https://helios.hashicorp.design/components/link/standalone) to determine what variant “type” to use.
+Use [Standalone Link](/components/link/standalone) when an action takes the user to a new destination (URL).
 
 We recommend using the secondary standalone link to maintain visual hierarchy and avoid competing prominence when used with the secondary button.
 

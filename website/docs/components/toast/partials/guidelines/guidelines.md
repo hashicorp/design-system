@@ -84,7 +84,7 @@ We recommend using the `secondary` Button variant for primary actions and the `t
   <T.Title>Recommended button usage</T.Title>
   <T.Description>Lorem ipsum dolar sit amet, consecteu adipiscig elit null dignissim felis.</T.Description>
   <T.Button @text="Button" @color="secondary" />
-  <T.Link::Standalone @color="secondary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+  <T.Button @color="tertiary" @icon="arrow-right" @iconPosition="trailing" @text="Tertiary" />
 </Hds::Toast>
 
 #### Usage of critical Buttons
@@ -102,7 +102,7 @@ Avoid using critical Buttons in Toasts. We handle the prominence and importance 
 
 ### Links
 
-Use [Standalone Links](/components/link/standalone) when an action takes the user to a new destination (URL). Follow the Standalone Link [usage guidelines](https://helios.hashicorp.design/components/link/standalone) to determine what variant to use.
+Use [Standalone Link](/components/link/standalone) when an action takes the user to a new destination (URL).
 
 We recommend using the secondary standalone link to maintain visual hierarchy and avoid competing prominence when used with the secondary button.
 
