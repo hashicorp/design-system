@@ -2,8 +2,7 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-{{! ADD YOUR TEMPLATE CONTENT HERE }}
 
-<div class={{this.classNames}} ...attributes>
+<div class="hds-accordion" ...attributes>
   {{yield (hash Item=(component "hds/accordion/item"))}}
 </div>

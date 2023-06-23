@@ -7,13 +7,15 @@
 // ACCORDION
 //
 
+@use "../mixins/button" as *;
 @use "../mixins/focus-ring" as *;
 
 :root {
   --token-accordion-item-padding: 16px;
 }
 
-// Accordion - wrapper component
+// ACCORDION COMPONENT (wrapper)
+
 .hds-accordion {
   display: flex;
   flex-direction: column;
@@ -23,12 +25,69 @@
   .hds-accordion-item { width: 100%; }
 }
 
-// AccordionItem - Nested child comonent
+// ACCORDION ITEM COMPONENT (nested child)
+
 .hds-accordion-item {
   border-radius: 6px;
+
+  // isClickable=true, Entire AccordionItem is clickable:
+  &.hds-accordion-item--is-clickable {
+    box-shadow: var(--token-surface-mid-box-shadow);
+
+    &:hover,
+    &.mock-hover {
+      box-shadow: var(--token-surface-high-box-shadow);
+    }
+
+    &.mock-focus {
+      > .hds-disclosure-primitive__toggle .hds-accordion-item__toggle {
+        @include hds-focus-ring-with-pseudo-element();
+
+        &::before {
+          box-shadow: var(--token-focus-ring-action-box-shadow);
+        }
+      }
+    }
+  }
+
+  // isClickable=false, Only nested Chevron button is clickable:
+  &.hds-accordion-item--is--not-clickable {
+    border: 1px solid var(--token-color-border-primary);
+
+    &.mock-hover {
+      // TODO: Refactor to avoid repeating button styles here?
+      .hds-accordion-item__button {
+        color: var(--token-color-foreground-primary);
+        background-color: var(--token-color-surface-primary);
+        border-color: var(--token-color-border-strong);
+      }
+    }
+
+    &.mock-focus {
+      // TODO: Refactor to avoid repeating button styles here?
+      .hds-accordion-item__button {
+        color: var(--token-color-foreground-primary);
+        background-color: var(--token-color-surface-faint);
+        border-color: var(--token-color-focus-action-internal);
+
+        &::before {
+          position: absolute;
+          top: -4px;
+          right: -4px;
+          bottom: -4px;
+          left: -4px;
+          z-index: -1;
+          border: 3px solid var(--token-color-focus-action-external);
+          border-radius: 8px;
+          content: "";
+        }
+      }
+    }
+  }
 }
 
-// Toggle block
+// TOGGLE BLOCK
+
 .hds-accordion-item__toggle {
   position: relative;
   display: flex;
@@ -37,98 +96,44 @@
   padding: var(--token-accordion-item-padding) var(--token-accordion-item-padding) var(--token-accordion-item-padding) 12px;
 }
 
-.hds-accordion-item__toggle-button {
+.hds-accordion-item__button {
+  @include hds-focus-ring-with-pseudo-element();
+  position: static;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  outline: none;
+
   &:hover { cursor: pointer; }
+
+  // expand button target to cover entire AccordionItem Toggle block
+  &::after {
+    position: absolute;
+    display: block;
+    content: "";
+    inset: 0;
+  }
 
   // animate chevron icon
   .flight-icon-chevron-down {
     @media (prefers-reduced-motion: no-preference) {
       transition: transform 0.3s;
     }
+  }
 
-    .hds-accordion-item--is-open & {
+  &.hds-accordion-item__button--is-open {
+    .flight-icon-chevron-down {
       transform: rotate(-180deg);
     }
   }
+
+  &.hds-accordion-item__button--is-clickable {
+    @include hds-button();
+    @include hds-button-color-secondary();
+  }
 }
 
-// Content block
+// CONTENT BLOCK
 .hds-accordion-item__content {
   padding: 4px var(--token-accordion-item-padding) var(--token-accordion-item-padding) var(--token-accordion-item-padding);
-}
-
-// Entire AccordionItem is clickable:
-.hds-accordion-item--is-clickable {
-  box-shadow: var(--token-surface-mid-box-shadow);
-
-  &:hover,
-  &.mock-hover {
-    box-shadow: var(--token-surface-high-box-shadow);
-  }
-
-  &:focus-within,
-  &.mock-focus {
-    .hds-accordion-item__toggle {
-      @include hds-focus-ring-with-pseudo-element();
-
-      &::before {
-        box-shadow: var(--token-focus-ring-action-box-shadow);
-      }
-    }
-  }
-
-  .hds-accordion-item__toggle-button {
-    padding: 0 !important;
-    background: transparent;
-    border: 0;
-    outline: none;
-
-    // expand button target to cover entire AccordionItem Toggle block
-    &::after {
-      position: absolute;
-      display: block;
-      content: "";
-      inset: 0;
-    }
-  }
-}
-
-// Only nested Chevron button is clickable:
-.hds-accordion-item--is--not-clickable {
-  border: 1px solid var(--token-color-border-primary);
-
-  &.mock-hover {
-    // TODO: Refactor to avoid repeating button styles here?
-    .hds-accordion-item__toggle-button {
-      color: var(--token-color-foreground-primary);
-      background-color: var(--token-color-surface-primary);
-      border-color: var(--token-color-border-strong);
-    }
-  }
-
-  &.mock-focus {
-    // TODO: Refactor to avoid repeating button styles here?
-    .hds-accordion-item__toggle-button {
-      color: var(--token-color-foreground-primary);
-      background-color: var(--token-color-surface-faint);
-      border-color: var(--token-color-focus-action-internal);
-
-      &::before {
-        position: absolute;
-        top: -4px;
-        right: -4px;
-        bottom: -4px;
-        left: -4px;
-        z-index: -1;
-        border: 3px solid var(--token-color-focus-action-external);
-        border-radius: 8px;
-        content: "";
-      }
-    }
-  }
-
-  .hds-accordion-item__toggle-button {
-    min-height: 0;
-    padding: 0;
-  }
 }

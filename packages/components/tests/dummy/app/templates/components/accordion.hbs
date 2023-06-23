@@ -91,6 +91,42 @@
       </Hds::Accordion>
     </SF.Item>
 
+    <SF.Item @label="Nested Accordion with isClickable=false nested in isClickable=true">
+      <Hds::Accordion as |A|>
+        <A.Item @isOpen={{true}}>
+          <:toggle>Item with isClickable=true (the default)</:toggle>
+          <:content>
+            <Hds::Accordion>
+              <Hds::Accordion::Item @isClickable={{false}}>
+                <:toggle>Nested item with isClickable=false</:toggle>
+                <:content>
+                  <Shw::Placeholder @text="generic content" @height="40" @background="#eee" />
+                </:content>
+              </Hds::Accordion::Item>
+            </Hds::Accordion>
+          </:content>
+        </A.Item>
+      </Hds::Accordion>
+    </SF.Item>
+
+    <SF.Item @label="Nested Accordion with isClickable=true nested in isClickable=false">
+      <Hds::Accordion as |A|>
+        <A.Item @isOpen={{true}} @isClickable={{false}}>
+          <:toggle>Item with isClickable=false</:toggle>
+          <:content>
+            <Hds::Accordion>
+              <Hds::Accordion::Item>
+                <:toggle>Nested item with isClickable=true (the default)</:toggle>
+                <:content>
+                  <Shw::Placeholder @text="generic content" @height="40" @background="#eee" />
+                </:content>
+              </Hds::Accordion::Item>
+            </Hds::Accordion>
+          </:content>
+        </A.Item>
+      </Hds::Accordion>
+    </SF.Item>
+
     <SF.Item @label="With rich content in toggle (HTML header tag)">
       <Hds::Accordion as |A|>
         <A.Item>
