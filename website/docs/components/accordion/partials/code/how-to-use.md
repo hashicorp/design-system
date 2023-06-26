@@ -40,13 +40,13 @@ Set `isOpen` to `true` on an AccordionItem to display its associated content on 
   </Hds::Accordion>
 ```
 
-### isClickable
+### isInteractive
 
-By default, the `isClickable` property of the AccordionItem is set to `true`, meaning that the entire AccordionItem toggle block can be clicked to hide and show the associated content. If set to `false` only the chevron button of the AccordionItem is clickable vs. the entire block. This allows you to add other interactive content inside the toggle block if desired.
+By default, the `isInteractive` property of the AccordionItem is set to `true`, meaning that the entire AccordionItem toggle block can be clicked to hide and show the associated content. If set to `false` only the chevron button of the AccordionItem is clickable vs. the entire block. This allows you to add other interactive content inside the toggle block if desired.
 
 ```handlebars
   <Hds::Accordion as |A|>
-    <A.Item @isClickable={{false}}>
+    <A.Item @isInteractive={{false}}>
       <:toggle>
         Item one
         <a href="https://www.hashicorp.com/">link</a>
