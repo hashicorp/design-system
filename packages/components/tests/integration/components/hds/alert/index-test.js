@@ -7,6 +7,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import { a11yAudit, shouldForceAudit } from 'ember-a11y-testing/test-support';
 
 module('Integration | Component | hds/alert/index', function (hooks) {
   setupRenderingTest(hooks);
@@ -18,6 +19,11 @@ module('Integration | Component | hds/alert/index', function (hooks) {
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(hbs`<Hds::Alert @type="inline" id="test-alert" />`);
     assert.dom('#test-alert').hasClass('hds-alert');
+
+    if (shouldForceAudit()) {
+      await a11yAudit();
+    }
+    assert.ok(true, 'no a11y errors found in default component invocation');
   });
 
   // TYPE
