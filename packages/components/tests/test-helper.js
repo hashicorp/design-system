@@ -41,14 +41,7 @@ setRunOptions({
     ],
   },
   include: ['#ember-testing-container'],
-  exclude: [
-    '.flight-sprite-container',
-    // trying to exclude SVGs in flight icons
-    '.flight-icon',
-    '.shw-page-main',
-    // This is because we allow role=separator on an LI element in the HDS dropdown
-    '.hds-dropdown__list',
-  ],
+  exclude: ['.flight-sprite-container', '.shw-page-main'],
 });
 
 // uncomment this next line to turn the tests on globally
