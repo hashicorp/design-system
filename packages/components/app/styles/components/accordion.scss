@@ -54,36 +54,6 @@
   // isClickable=false, Only nested Chevron button is clickable:
   &.hds-accordion-item--is--not-clickable {
     border: 1px solid var(--token-color-border-primary);
-
-    &.mock-hover {
-      // TODO: Refactor to avoid repeating button styles here?
-      .hds-accordion-item__button {
-        color: var(--token-color-foreground-primary);
-        background-color: var(--token-color-surface-primary);
-        border-color: var(--token-color-border-strong);
-      }
-    }
-
-    &.mock-focus {
-      // TODO: Refactor to avoid repeating button styles here?
-      .hds-accordion-item__button {
-        color: var(--token-color-foreground-primary);
-        background-color: var(--token-color-surface-faint);
-        border-color: var(--token-color-focus-action-internal);
-
-        &::before {
-          position: absolute;
-          top: -4px;
-          right: -4px;
-          bottom: -4px;
-          left: -4px;
-          z-index: -1;
-          border: 3px solid var(--token-color-focus-action-external);
-          border-radius: 8px;
-          content: "";
-        }
-      }
-    }
   }
 }
 
@@ -95,6 +65,10 @@
   gap: 12px;
   align-items: center;
   padding: var(--token-accordion-item-padding) var(--token-accordion-item-padding) var(--token-accordion-item-padding) 12px;
+}
+
+.mock-focus {
+  .hds-accordion-item__button { opacity: 0.2; }
 }
 
 .hds-accordion-item__button {
@@ -131,6 +105,8 @@
   &.hds-accordion-item__button--is-clickable {
     @include hds-button();
     @include hds-button-color-secondary();
+
+    &:focus { border-color: var(--token-color-border-strong); }
   }
 }
 

@@ -240,7 +240,11 @@
         {{#each @model.STATES as |state|}}
           <SF.Item @label={{state}}>
             <Hds::Accordion as |A|>
-              <A.Item @isClickable={{false}} mock-state-value={{state}}>
+              <A.Item
+                @isClickable={{false}}
+                mock-state-value={{state}}
+                mock-state-selector=".hds-accordion-item__button"
+              >
                 <:toggle>Item one <a href="https://www.hashicorp.com/">HashiCorp</a></:toggle>
                 <:content>
                   <Shw::Placeholder @text="generic content" @height="40" @background="#eee" />
@@ -251,7 +255,12 @@
         {{/each}}
         <SF.Item @label="focus & isOpen=true">
           <Hds::Accordion as |A|>
-            <A.Item @isClickable={{false}} mock-state-value="focus" @isOpen={{true}}>
+            <A.Item
+              @isClickable={{false}}
+              mock-state-value="focus"
+              @isOpen={{true}}
+              mock-state-selector=".hds-accordion-item__button"
+            >
               <:toggle>Item one <a href="https://www.hashicorp.com/">HashiCorp</a></:toggle>
               <:content>
                 <Shw::Placeholder @text="generic content" @height="40" @background="#eee" />
