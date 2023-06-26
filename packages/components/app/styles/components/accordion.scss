@@ -28,6 +28,7 @@
 // ACCORDION ITEM COMPONENT (nested child)
 
 .hds-accordion-item {
+  background: var(--token-color-surface-primary);
   border-radius: 6px;
 
   // isClickable=true, Entire AccordionItem is clickable:
