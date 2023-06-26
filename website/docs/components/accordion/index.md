@@ -1,7 +1,7 @@
 ---
 title: Accordion
-description: {Optional long description that appears in the cover}
-caption: {Short description that appears in the cards}
+description: An accordion allow users to expand or collapse multiple sections of content in a stack.
+caption: Allow users to display multiple sections of content in a stack.
 status: released
 links:
   figma: {link to the "Accordion" page in the components Figma library}
@@ -9,7 +9,7 @@ links:
 previewImage: assets/illustrations/components/accordion.jpg
 navigation:
   hidden: false
-  keywords: ['add', 'alternate', 'keywords', 'here']
+  keywords: ['toggle', 'details', 'reveal', 'expand', 'collapse']
 ---
 
 <section data-tab="Guidelines">
