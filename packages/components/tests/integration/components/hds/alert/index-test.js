@@ -21,6 +21,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
     assert.dom('#test-alert').hasClass('hds-alert');
 
     if (shouldForceAudit()) {
+      // `&enableA11yAudit` set in the URL
       await a11yAudit();
     }
     assert.ok(true, 'no a11y errors found in default component invocation');
