@@ -2,11 +2,12 @@
 
 ### When to use
 
-- {description}
+- To reveal content as needed while keeping the UI organized and visually manageable.
+- To hide long pieces of content with a similar structure.
 
 ### When not to use
 
-- {description}, consider {[component](#)}.
+- To hide basic non-critical information to users. Instead, consider using a [Reveal](/components/reveal).
 - {description}, consider {[component](#)}.
 - {description}, consider {[component](#)}.
 
