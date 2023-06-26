@@ -27,7 +27,7 @@ setupGlobalA11yHooks(() => true, {
   ],
 });
 
-// uncomment this line to turn the tests on globally
+// uncomment this next line to turn the tests on globally
 // setEnableA11yAudit(true);
 
 setRunOptions({
