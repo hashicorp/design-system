@@ -91,14 +91,14 @@
       </Hds::Accordion>
     </SF.Item>
 
-    <SF.Item @label="Nested Accordion with isClickable=false nested in isClickable=true">
+    <SF.Item @label="Nested Accordion with isInteractive=false nested in isInteractive=true">
       <Hds::Accordion as |A|>
         <A.Item @isOpen={{true}}>
-          <:toggle>Item with isClickable=true (the default)</:toggle>
+          <:toggle>Item with isInteractive=true (the default)</:toggle>
           <:content>
             <Hds::Accordion>
-              <Hds::Accordion::Item @isClickable={{false}}>
-                <:toggle>Nested item with isClickable=false</:toggle>
+              <Hds::Accordion::Item @isInteractive={{false}}>
+                <:toggle>Nested item with isInteractive=false</:toggle>
                 <:content>
                   <Shw::Placeholder @text="generic content" @height="40" @background="#eee" />
                 </:content>
@@ -109,14 +109,14 @@
       </Hds::Accordion>
     </SF.Item>
 
-    <SF.Item @label="Nested Accordion with isClickable=true nested in isClickable=false">
+    <SF.Item @label="Nested Accordion with isInteractive=true nested in isInteractive=false">
       <Hds::Accordion as |A|>
-        <A.Item @isOpen={{true}} @isClickable={{false}}>
-          <:toggle>Item with isClickable=false</:toggle>
+        <A.Item @isOpen={{true}} @isInteractive={{false}}>
+          <:toggle>Item with isInteractive=false</:toggle>
           <:content>
             <Hds::Accordion>
               <Hds::Accordion::Item>
-                <:toggle>Nested item with isClickable=true (the default)</:toggle>
+                <:toggle>Nested item with isInteractive=true (the default)</:toggle>
                 <:content>
                   <Shw::Placeholder @text="generic content" @height="40" @background="#eee" />
                 </:content>
@@ -208,7 +208,7 @@
   <Shw::Text::H2>States</Shw::Text::H2>
 
   <Shw::Flex {{style gap="2rem"}} @direction="item" as |SF|>
-    <SF.Item {{style gap="1.5rem" width="calc(50% - 1rem)"}} @label="AccordionItem @isClickable=true">
+    <SF.Item {{style gap="1.5rem" width="calc(50% - 1rem)"}} @label="AccordionItem @isInteractive=true">
       <Shw::Flex {{style gap="1.5rem"}} @direction="column" as |SF|>
         {{#each @model.STATES as |state|}}
           <SF.Item @label={{state}}>
@@ -235,13 +235,13 @@
       </Shw::Flex>
     </SF.Item>
 
-    <SF.Item {{style gap="1.5rem" width="calc(50% - 1rem)"}} @label="AccordionItem @isClickable=false">
+    <SF.Item {{style gap="1.5rem" width="calc(50% - 1rem)"}} @label="AccordionItem @isInteractive=false">
       <Shw::Flex {{style gap="1.5rem"}} @direction="column" as |SF|>
         {{#each @model.STATES as |state|}}
           <SF.Item @label={{state}}>
             <Hds::Accordion as |A|>
               <A.Item
-                @isClickable={{false}}
+                @isInteractive={{false}}
                 mock-state-value={{state}}
                 mock-state-selector=".hds-accordion-item__button"
               >
@@ -256,7 +256,7 @@
         <SF.Item @label="focus & isOpen=true">
           <Hds::Accordion as |A|>
             <A.Item
-              @isClickable={{false}}
+              @isInteractive={{false}}
               mock-state-value="focus"
               @isOpen={{true}}
               mock-state-selector=".hds-accordion-item__button"
@@ -302,7 +302,7 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Text::H3>AccordionItem @isClickable</Shw::Text::H3>
+  <Shw::Text::H3>AccordionItem @isInteractive</Shw::Text::H3>
 
   <Shw::Flex {{style gap="1.5rem"}} @direction="column" as |SF|>
     <SF.Item @label="Default, toggleContainsInteractive=true">
@@ -316,9 +316,9 @@
       </Hds::Accordion>
     </SF.Item>
 
-    <SF.Item @label="isClickable=false (See “States”)">
+    <SF.Item @label="isInteractive=false (See “States”)">
       <Hds::Accordion as |A|>
-        <A.Item @isClickable={{false}}>
+        <A.Item @isInteractive={{false}}>
           <:toggle>Item one</:toggle>
           <:content>
             <Shw::Placeholder @text="generic content" @height="40" @background="#eee" />

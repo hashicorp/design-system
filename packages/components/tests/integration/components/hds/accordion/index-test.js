@@ -126,8 +126,8 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     assert.dom('.hds-accordion-item__content').doesNotExist();
   });
 
-  // isClickable
-  test('it displays the correct variant when isClickable is set to false vs. true', async function (assert) {
+  // isInteractive
+  test('it displays the correct variant when isInteractive is set to false vs. true', async function (assert) {
     await render(
       hbs`
         <Hds::Accordion as |A|>
@@ -135,7 +135,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
             <:toggle>Item one</:toggle>
             <:content>Additional content</:content> 
           </A.Item>
-          <A.Item @isClickable={{false}} id="test-is-clickable-false">
+          <A.Item @isInteractive={{false}} id="test-is-clickable-false">
             <:toggle>Item one</:toggle>
             <:content>Additional content</:content> 
           </A.Item>
