@@ -1,5 +1,11 @@
 # @hashicorp/flight-icons
 
+## 2.14.0
+
+### Minor Changes
+
+- [#1428](https://github.com/hashicorp/design-system/pull/1428) [`24bb5ff62`](https://github.com/hashicorp/design-system/commit/24bb5ff628c2166314854c1295d9998bbd5e2aba) Thanks [@jorytindall](https://github.com/jorytindall)! - Added robot icon for Service Principals
+
 ## 2.13.1
 
 ### Patch Changes
