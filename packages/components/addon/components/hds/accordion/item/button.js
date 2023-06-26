@@ -20,7 +20,7 @@ export default class HdsAccordionItemButtonComponent extends Component {
     }
 
     // if toggle is NOT clickable, then button IS
-    if (this.args.isClickable === false) {
+    if (this.args.isInteractive === false) {
       classes.push('hds-accordion-item__button--is-clickable');
     }
     return classes.join(' ');

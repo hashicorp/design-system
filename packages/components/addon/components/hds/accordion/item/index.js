@@ -28,12 +28,12 @@ export default class HdsAccordionItemIndexComponent extends Component {
   }
 
   /**
-   * @param isClickable
+   * @param isInteractive
    * @type {boolean}
    * @default true
    */
-  get isClickable() {
-    return this.args.isClickable ?? true;
+  get isInteractive() {
+    return this.args.isInteractive ?? true;
   }
 
   @action
@@ -54,7 +54,7 @@ export default class HdsAccordionItemIndexComponent extends Component {
       classes.push('hds-accordion-item--is-open');
     }
 
-    if (this.isClickable) {
+    if (this.isInteractive) {
       // Entire accordion item including the chevron is clickable:
       classes.push('hds-accordion-item--is-clickable');
     } else {
