@@ -1,5 +1,26 @@
 # @hashicorp/ember-flight-icons
 
+## 3.0.6
+
+### Patch Changes
+
+- [#1395](https://github.com/hashicorp/design-system/pull/1395) [`e6e0c22c5`](https://github.com/hashicorp/design-system/commit/e6e0c22c538e381f4a97428dc35cf1295ce6ae21) Thanks [@alex-ju](https://github.com/alex-ju)! - Upgraded Ember.js to latest stable release 4.12, including upgrades to:
+
+  - `ember-auto-import` from `2.6.0` to `2.6.3`
+  - `ember-cli-htmlbars` from `6.1.0` to `6.2.0`
+
+  Upgraded the following dependencies:
+
+  - `ember-focus-trap` from `1.0.1` to `1.0.2`
+  - `ember-keyboard"` from `8.1.0` to `8.2.0`
+  - `ember-truth-helpers` from `3.0.0` to `3.1.1`
+  - `sass` from `1.58.3` to `1.62.1`
+
+  Shifted our supported version of Node.js from `12.* || 14.* || >= 16` to `14.* || 16.* || >= 18`
+
+- Updated dependencies [[`24bb5ff62`](https://github.com/hashicorp/design-system/commit/24bb5ff628c2166314854c1295d9998bbd5e2aba)]:
+  - @hashicorp/flight-icons@2.14.0
+
 ## 3.0.5
 
 ### Patch Changes
