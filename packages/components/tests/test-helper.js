@@ -13,6 +13,7 @@ import {
   DEFAULT_A11Y_TEST_HELPER_NAMES,
   setRunOptions,
   setupGlobalA11yHooks,
+  setEnableA11yAudit,
 } from 'ember-a11y-testing/test-support';
 
 setApplication(Application.create(config.APP));
@@ -27,9 +28,6 @@ setupGlobalA11yHooks(() => true, {
   ],
 });
 
-// uncomment this next line to turn the tests on globally
-// setEnableA11yAudit(true);
-
 setRunOptions({
   runOnly: {
     type: 'tag',
@@ -43,8 +41,18 @@ setRunOptions({
     ],
   },
   include: ['#ember-testing-container'],
-  exclude: ['.flight-sprite-container', '.shw-page-main'],
+  exclude: [
+    '.flight-sprite-container',
+    // trying to exclude SVGs in flight icons
+    '.flight-icon',
+    '.shw-page-main',
+    // This is because we allow role=separator on an LI element in the HDS dropdown
+    '.hds-dropdown__list',
+  ],
 });
+
+// uncomment this next line to turn the tests on globally
+setEnableA11yAudit(true);
 
 setup(QUnit.assert);
 
