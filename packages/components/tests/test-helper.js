@@ -13,7 +13,7 @@ import {
   DEFAULT_A11Y_TEST_HELPER_NAMES,
   setRunOptions,
   setupGlobalA11yHooks,
-  setEnableA11yAudit,
+  // setEnableA11yAudit,
 } from 'ember-a11y-testing/test-support';
 
 setApplication(Application.create(config.APP));
@@ -52,7 +52,7 @@ setRunOptions({
 });
 
 // uncomment this next line to turn the tests on globally
-setEnableA11yAudit(true);
+//setEnableA11yAudit(true);
 
 setup(QUnit.assert);
 
