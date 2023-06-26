@@ -1,0 +1,39 @@
+name: CI - Components - Nightly
+    
+on:
+  schedule:
+    # Runs at 00:00 UTC
+    - cron:  '0 0 * * *'
+
+env:
+  NODE_VERSION: '16.x'
+
+concurrency:
+   group: ci-components-nightly-${{ github.head_ref || github.ref }}
+   cancel-in-progress: true
+
+jobs:
+  test:
+    name: "A11y Nightly Tests"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
+      - name: Install Node
+        uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3.6.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: yarn
+          cache-dependency-path: yarn.lock
+      - name: Install Dependencies
+        run: yarn install --immutable
+      - name: Run Tests
+        run: yarn run test:a11y
+        working-directory: packages/components
+      - name: Archive a11y test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: a11y-test-report
+          path: packages/components/test-output/a11y-test-results.txt
+
+  
