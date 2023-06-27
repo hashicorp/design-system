@@ -25,15 +25,26 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: yarn
           cache-dependency-path: yarn.lock
+
       - name: Install Dependencies
         run: yarn install --immutable
+        
+      - name: Set up date variable
+        run: echo "DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+
+      - name: Create directory for test results if one does not already exist
+        working-directory: packages/components
+        run: mkdir -p test-output
+
       - name: Run Tests
         run: yarn run test:a11y
         working-directory: packages/components
+        continue-on-error: true
+      
       - name: Archive a11y test results
         uses: actions/upload-artifact@v3
         with:
-          name: a11y-test-report
-          path: packages/components/test-output/a11y-test-results.txt
+          name: a11y-test-results
+          path: packages/components/test-output/a11y-test-results-${{ env.DATE }}.txt
 
   
