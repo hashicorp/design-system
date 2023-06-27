@@ -132,11 +132,13 @@
     <SF.Item @label="Icon Only">
       <div class="shw-card">
         <div class="shw-card__header">
-          <span class="shw-text-h3">Your Key</span>
+          <span class="shw-text-h3">Your key</span>
         </div>
         <div class="shw-card__body">
           {{! prettier-ignore }}
-          <p class="shw-text-body"><code class="hds-typography-code-100" id="cliptext3">91ee1e8ef65b337f0e70d793f456c71d</code></p>
+          <p class="shw-text-body">Copy this key somewhere safe, you will never see it again:
+            <br/>
+            <code class="hds-typography-code-100" id="cliptext3">91ee1e8ef65b337f0e70d793f456c71d</code></p>
         </div>
         <div class="shw-card__footer">
           <Hds::CopyButton @isIconOnly={{true}} @clipboardText="#cliptext3" />

@@ -25,11 +25,12 @@ export default class HdsDropdownListItemCopyItemComponent extends Component {
   get text() {
     // this doesn't do what I want really, it just returns the ID value which isn't the same as the target id's text value. But we'll use it for the assertion for now, until I figure out how to do the right thing.
     let validText = this.args.clipboardText ?? this.args.text;
-    // for now this still is what's returned.
+    // for now this still is what's returned, necessary for the use case where we have an icon-only button and need the text value for the aria-label
+    // ideally, this would be either the text arg or the value of the clipboardText but even more ideally, something unique in case there were multiple icon-only copy buttons on the same page
     let text = this.args.text ?? 'give me an accessible name';
 
     assert(
-      '@text for "Hds::CopyButton" must have a valid value',
+      'Either @clipboardText or @text for "Hds::CopyButton" must have a valid value',
       validText !== undefined
     );
 
@@ -129,19 +130,21 @@ export default class HdsDropdownListItemCopyItemComponent extends Component {
   async copyCode() {
     let textToCopy;
 
+    // this could probably be made more elegant.
     if (this.args.clipboardText) {
       let clipboardTextContent = document
         .querySelector(this.args.clipboardText)
         .innerHTML.trim();
       textToCopy = clipboardTextContent;
       // leaving this in while dev mode
-      console.log(`textToCopy is clipboardText arg value: ${textToCopy}`);
+      console.log(`textToCopy is @clipboardText arg value: ${textToCopy}`);
     } else if (this.args.text) {
       textToCopy = this.args.text;
       // leaving this in while dev mode
-      console.log(`textToCopy is text arg value: ${textToCopy}`);
+      console.log(`textToCopy is @text arg value: ${textToCopy}`);
     } else {
-      console.log(`something else`);
+      this.isError = true;
+      console.log(`something went wrong, @isError is ${this.isError}`);
     }
     // https://developer.mozilla.org/en-US/docs/Web/API/Clipboard
     await navigator.clipboard.writeText(textToCopy);
@@ -154,6 +157,9 @@ export default class HdsDropdownListItemCopyItemComponent extends Component {
       }
     } else {
       this.isError = true;
+      window.alert(
+        'the copy was not successful, the browser requires your permission'
+      );
     }
 
     // make it fade back to the default state
