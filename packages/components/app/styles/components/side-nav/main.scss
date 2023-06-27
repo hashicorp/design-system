@@ -208,25 +208,63 @@
 // THIS IS FOR TESTING
 
 $visual-refresh-props: (
-  '10' rgba(255, 255, 255, 0.1) 0%,
-  '15' rgba(255, 255, 255, 0.15) 0%,
-  '20' rgba(255, 255, 255, 0.2) 0%,
-  '25' rgba(255, 255, 255, 0.25) 0%,
-  '30' rgba(255, 255, 255, 0.3) 0%
+  '10' rgba(255, 255, 255, 0.1),
+  '15' rgba(255, 255, 255, 0.15),
+  '20' rgba(255, 255, 255, 0.2),
+  '25' rgba(255, 255, 255, 0.25),
+  '30' rgba(255, 255, 255, 0.3)
 );
 
-$visual-refresh-dark-props: ();
+$visual-refresh-dark-props: (
+  '10' rgba(255, 255, 255, 0.1),
+  '15' rgba(255, 255, 255, 0.15),
+  '20' rgba(255, 255, 255, 0.2),
+  '25' rgba(255, 255, 255, 0.25),
+  '30' rgba(255, 255, 255, 0.3)
+);
+
+$explore-01-props: (
+  '10' rgba(132, 79, 186, 0.04) rgba(62, 118, 255, 0.04) rgba(132, 79, 186, 0.1),
+  '15' rgba(132, 79, 186, 0.04) rgba(62, 118, 255, 0.04) rgba(132, 79, 186, 0.1),
+  '20' rgba(132, 79, 186, 0.06) rgba(62, 118, 255, 0.06)
+    rgba(132, 79, 186, 0.16),
+  '25' rgba(132, 79, 186, 0.06) rgba(62, 118, 255, 0.06)
+    rgba(132, 79, 186, 0.16),
+  '30' rgba(132, 79, 186, 0.08) rgba(62, 118, 255, 0.08) rgba(132, 79, 186, 0.2)
+);
+
+$explore-02-props: (
+  '10' rgba(63, 63, 74, 0.1),
+  '15' rgba(63, 63, 74, 0.15),
+  '20' rgba(63, 63, 74, 0.2),
+  '25' rgba(63, 63, 74, 0.25),
+  '30' rgba(63, 63, 74, 0.3)
+);
 
 @each $opacity, $value in $visual-refresh-props {
   .hds-side-nav-polish_visual-refresh--#{$opacity} {
-    background: linear-gradient(225deg, $value, rgba(255, 255, 255, 0) 100%),
+    background: linear-gradient(225deg, $value 0%, rgba(255, 255, 255, 0) 100%),
       #111214;
   }
 }
 
 @each $opacity, $value in $visual-refresh-dark-props {
-  .hds-side-nav-polish_visual-refresh--#{$opacity} {
-    background: linear-gradient(225deg, $value, rgba(255, 255, 255, 0) 100%),
+  .hds-side-nav-polish_visual-refresh-dark--#{$opacity} {
+    background: linear-gradient(225deg, $value 0%, rgba(255, 255, 255, 0) 100%),
+      var(--token-color-palette-neutral-700);
+  }
+}
+
+@each $opacity, $stop-1, $stop-2, $stop-3 in $explore-01-props {
+  .hds-side-nav-polish_explore-01--#{$opacity} {
+    background: linear-gradient(45deg, $stop-1 0%, $stop-2 72.22%, $stop-3 100%),
+      #0c0c0e;
+  }
+}
+
+@each $opacity, $value in $explore-02-props {
+  .hds-side-nav-polish_explore-02--#{$opacity} {
+    background: linear-gradient(225deg, $value 0%, rgba(255, 255, 255, 0) 100%),
       var(--token-color-palette-neutral-700);
   }
 }
