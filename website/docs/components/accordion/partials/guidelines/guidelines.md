@@ -20,21 +20,36 @@ The toggle can take on many different types of content, from text-based content 
 
 ![Example of toggle content](/assets/components/accordion/toggle-content-custom.png =690x*)
 
-### Variant/property name
+### Interactive content
 
-<!-- don’t forget to include real examples and do/don’t blocks, as necessary -->
-{description}
+Use `isInteractive` when nesting interactive content on the toggle.
 
-## Content
+![Example of toggle content](/assets/components/accordion/toggle-content-interactive.png =690x*)
 
-- {description}
-- {description}
-- {description}
-- {description}
-- {description}
+## Content type
+
+!!! Info
+
+The content type property is only relevant within Figma and doesn’t exist as a property within the code.
+!!!
+
+The `content` supports any custom content, local components, or Helios components via an `instance swap` property (customInstance) in Figma. In code, `yield` is supported.
+
+### Default
+
+![Example of content in accordion item](/assets/components/accordion/content-text.png =800x*)
+
+### Custom
+
+![Example of content in accordion item](/assets/components/accordion/content-custom.png =800x*)
+
+## isOpen
+
+The Accordion supports displaying one of the items by default on page load. In code, all accordion items are collapsed by default.
+
+![Example of content in accordion item](/assets/components/accordion/accordion-item-open.png =800x*)
 
 ## Related
 
 <!-- only include the 2 most similar/related components -->
-- {[component name](#)}
-- {[component name](#)}
+- [Reveal](/components/reveal)
