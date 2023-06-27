@@ -1,0 +1,87 @@
+{{page-title "SideNav Polish Exploration"}}
+
+<Shw::Text::H1>SideNav Polish Exploration</Shw::Text::H1>
+
+<section data-test-percy>
+
+  <Shw::Text::H2>Gradient</Shw::Text::H2>
+
+  {{#each @model.GRADIENT_TESTS as |category|}}
+
+  <Shw::Text::H3>{{capitalize category}}</Shw::Text::H3>
+
+  <Shw::Flex as |SF|>
+  {{#each @model.OPACITY_STOPS as |opacity|}}
+    <SF.Item @label="{{opacity}}% opacity">
+      <div class="shw-component-sim-side-nav-root-container" {{style height="auto"}}>
+        <Hds::SideNav
+          @isResponsive={{false}}
+          @hasA11yRefocus={{false}}
+          class="hds-side-nav-polish_visual-refresh--{{opacity}}"
+        >
+          <:header>
+            <Hds::SideNav::Header>
+              <:logo>
+                <Hds::SideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
+              </:logo>
+              <:actions>
+                <Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" />
+                <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
+                  <dd.ToggleIcon @icon="help" @text="help menu" />
+                  <dd.Title @text="Help & Support" />
+                  <dd.Interactive @text="Documentation" @href="#" />
+                  <dd.Interactive @text="Tutorials" @href="#" />
+                  <dd.Interactive @text="Terraform Provider" @href="#" />
+                  <dd.Interactive @text="Changelog" @href="#" />
+                  <dd.Separator />
+                  <dd.Interactive @text="Create support ticket" @href="#" />
+                  <dd.Interactive @text="Give feedback" @href="#" />
+                </Hds::Dropdown>
+                <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
+                  <dd.ToggleIcon @icon="user" @text="user menu" />
+                  <dd.Title @text="Signed In" />
+                  <dd.Description @text="email@domain.com" />
+                  <dd.Interactive @href="#" @text="Account Settings" />
+                </Hds::Dropdown>
+              </:actions>
+            </Hds::SideNav::Header>
+          </:header>
+
+          <:body>
+            <Hds::SideNav::List as |SNL|>
+              <SNL.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
+            </Hds::SideNav::List>
+
+            <Hds::SideNav::List as |SNL|>
+              <SNL.Title>Services</SNL.Title>
+              <SNL.Link @text="Boundary" @icon="boundary" @href="#" />
+              <SNL.Link @text="Consul" @icon="consul" @href="#" />
+              <SNL.Link @text="Packer" @icon="packer" @href="#" />
+              <SNL.Link @text="Vault" @icon="vault" @href="#" />
+              <SNL.Link @text="Vault Secrets" @icon="lock" @href="#" />
+              <SNL.Link @text="Terraform" @icon="terraform" @href="#" />
+              <SNL.Link @text="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
+              <SNL.Link @text="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} />
+            </Hds::SideNav::List>
+
+            <Hds::SideNav::List as |SNL|>
+              <SNL.Title>Default Org</SNL.Title>
+              <SNL.Link @text="HashiCorp Virtual Networks" @icon="network" @href="#" />
+              <SNL.Link @text="Access control (IAM)" @icon="users" @href="#" @hasSubItems={{true}} />
+              <SNL.Link @text="Billing" @icon="credit-card" @href="#" @hasSubItems={{true}} />
+              <SNL.Link @text="Settings" @icon="settings" @href="#" @hasSubItems={{true}} />
+              <SNL.Link @href="#" @isHrefExternal="true" @icon="guide" @text="Documentation" />
+            </Hds::SideNav::List>
+          </:body>
+
+          <:footer>
+            OrgSelect / ContextSwitcher
+          </:footer>
+        </Hds::SideNav>
+      </div>
+    </SF.Item>
+  {{/each}}
+</Shw::Flex>
+  {{/each}}
+
+</section>

@@ -53,6 +53,7 @@ Router.map(function () {
     this.route('segmented-group');
     this.route('separator');
     this.route('side-nav');
+    this.route('side-nav-polish');
     this.route('stepper');
     this.route('table');
     this.route('tag');

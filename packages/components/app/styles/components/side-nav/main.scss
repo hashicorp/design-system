@@ -11,7 +11,9 @@
   position: sticky;
   top: 0;
   z-index: 20; // needs to stay above the main content
-  width: var(--hds-app-sidenav-width-fixed); // "default" width used by the `SideNav::Base` subcomponent (that is not responsive)
+  width: var(
+    --hds-app-sidenav-width-fixed
+  ); // "default" width used by the `SideNav::Base` subcomponent (that is not responsive)
   height: 100vh;
   min-height: 100vh;
   isolation: isolate; // used to create a new stacking context (so we can set the overlay's z-index to -1)
@@ -19,8 +21,7 @@
   // RESPONSIVENESS - This controls the width of the top-level container ("sidebar") in the grid, and impacts the available space for the "main" grid area
 
   &.hds-side-nav--is-responsive {
-    transition:
-      width var(--hds-app-sidenav-animation-duration)
+    transition: width var(--hds-app-sidenav-animation-duration)
       var(--hds-app-sidenav-animation-easing);
   }
 
@@ -35,7 +36,6 @@
   }
 }
 
-
 // OVERLAY
 
 .hds-side-nav__overlay {
@@ -44,8 +44,7 @@
   inset: 0;
   background-color: var(--token-color-palette-neutral-700);
   opacity: 0.2;
-  transition:
-    opacity var(--hds-app-sidenav-animation-duration)
+  transition: opacity var(--hds-app-sidenav-animation-duration)
     var(--hds-app-sidenav-animation-easing)
     var(--hds-app-sidenav-animation-delay);
 
@@ -60,7 +59,6 @@
     display: none;
   }
 }
-
 
 // MENU/TOGGLE BUTTON
 
@@ -98,8 +96,7 @@
     padding: 1px;
     background-color: var(--token-color-foreground-primary);
     border-radius: 3px;
-    transform:
-      translateX(calc(var(--hds-app-sidenav-width-expanded) + 8px))
+    transform: translateX(calc(var(--hds-app-sidenav-width-expanded) + 8px))
       translateY(24px);
     // z-index: 15; // not needed anymore?
   }
@@ -110,7 +107,8 @@
     height: 36px;
     padding: 5px;
     border-radius: 5px;
-    transform: translateX(22px) translateY(var(--hds-app-sidenav-menu-button-y-shift));
+    transform: translateX(22px)
+      translateY(var(--hds-app-sidenav-menu-button-y-shift));
   }
 
   // when it's desktop we _never_ want to show the menu/toggle button
@@ -119,7 +117,6 @@
   }
 }
 
-
 // RESPONSIVE WRAPPER
 // this container element is used to control the width of the sidebar at different viewports (desktop/mobile) and states (minimized/expanded)
 
@@ -127,14 +124,16 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  color: var(--token-side-nav-color-foreground-primary); // we set a default color (in case generic content is added to the header/body/footer of the sidenav)
-  background: var(--token-side-nav-color-surface-primary);
+  color: var(
+    --token-side-nav-color-foreground-primary
+  ); // we set a default color (in case generic content is added to the header/body/footer of the sidenav)
+
+  // background: var(--token-side-nav-color-surface-primary);
 
   // RESPONSIVENESS - This controls the width of the "sidenav" container, and is independent (bur related) from the parent "sidebar" grid area
 
   .hds-side-nav--is-responsive & {
-    transition:
-      width var(--hds-app-sidenav-animation-duration)
+    transition: width var(--hds-app-sidenav-animation-duration)
       var(--hds-app-sidenav-animation-easing);
   }
 
@@ -164,8 +163,7 @@
 
 .hds-side-nav__wrapper-body {
   flex: 1;
-  padding:
-    var(--token-side-nav-wrapper-padding-vertical)
+  padding: var(--token-side-nav-wrapper-padding-vertical)
     var(--token-side-nav-wrapper-padding-horizontal);
   // this is necessary, otherwise when the sidenav is minimized an horizontal scrollbar may appear
   // (if there are words longer than the width of the available space for the list "item" content)
@@ -175,11 +173,9 @@
 }
 
 .hds-side-nav__wrapper-footer {
-  padding:
-    var(--token-side-nav-wrapper-padding-vertical)
+  padding: var(--token-side-nav-wrapper-padding-vertical)
     var(--token-side-nav-wrapper-padding-horizontal);
 }
-
 
 // "HIDE-WHEN-MINIMIZED" SPECIAL CLASS
 // this is a special class that is used to control which elements of the sidenav need to be:
@@ -197,8 +193,7 @@
   .hds-side-nav--is-desktop & {
     visibility: visible;
     opacity: 1;
-    transition:
-      opacity var(--hds-app-sidenav-animation-duration)
+    transition: opacity var(--hds-app-sidenav-animation-duration)
       var(--hds-app-sidenav-animation-easing)
       var(--hds-app-sidenav-animation-delay);
   }
@@ -207,5 +202,31 @@
   // (elements with `visibility: visible` can already be interacted with, while their opacity is transitioning)
   .hds-side-nav--is-animating & {
     pointer-events: none;
+  }
+}
+
+// THIS IS FOR TESTING
+
+$visual-refresh-props: (
+  '10' rgba(255, 255, 255, 0.1) 0%,
+  '15' rgba(255, 255, 255, 0.15) 0%,
+  '20' rgba(255, 255, 255, 0.2) 0%,
+  '25' rgba(255, 255, 255, 0.25) 0%,
+  '30' rgba(255, 255, 255, 0.3) 0%
+);
+
+$visual-refresh-dark-props: ();
+
+@each $opacity, $value in $visual-refresh-props {
+  .hds-side-nav-polish_visual-refresh--#{$opacity} {
+    background: linear-gradient(225deg, $value, rgba(255, 255, 255, 0) 100%),
+      #111214;
+  }
+}
+
+@each $opacity, $value in $visual-refresh-dark-props {
+  .hds-side-nav-polish_visual-refresh--#{$opacity} {
+    background: linear-gradient(225deg, $value, rgba(255, 255, 255, 0) 100%),
+      var(--token-color-palette-neutral-700);
   }
 }
