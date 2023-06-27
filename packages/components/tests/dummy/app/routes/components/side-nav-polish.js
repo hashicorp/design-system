@@ -11,6 +11,9 @@ export const GRADIENT_TESTS = [
   'visual-refresh-dark',
   'explore-01',
   'explore-02',
+  'explore-03',
+  'explore-04',
+  'explore-05',
 ];
 
 export default class ComponentsSideNavPolishRoute extends Route {

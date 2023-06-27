@@ -224,10 +224,11 @@ $visual-refresh-dark-props: (
 );
 
 $explore-01-props: (
-  '10' rgba(132, 79, 186, 0.04) rgba(62, 118, 255, 0.04) rgba(132, 79, 186, 0.1),
+  '10' rgba(132, 79, 186, 0.03) rgba(62, 118, 255, 0.03)
+    rgba(132, 79, 186, 0.06),
   '15' rgba(132, 79, 186, 0.04) rgba(62, 118, 255, 0.04) rgba(132, 79, 186, 0.1),
-  '20' rgba(132, 79, 186, 0.06) rgba(62, 118, 255, 0.06)
-    rgba(132, 79, 186, 0.16),
+  '20' rgba(132, 79, 186, 0.05) rgba(62, 118, 255, 0.05)
+    rgba(132, 79, 186, 0.13),
   '25' rgba(132, 79, 186, 0.06) rgba(62, 118, 255, 0.06)
     rgba(132, 79, 186, 0.16),
   '30' rgba(132, 79, 186, 0.08) rgba(62, 118, 255, 0.08) rgba(132, 79, 186, 0.2)
@@ -239,6 +240,30 @@ $explore-02-props: (
   '20' rgba(63, 63, 74, 0.2),
   '25' rgba(63, 63, 74, 0.25),
   '30' rgba(63, 63, 74, 0.3)
+);
+
+$explore-03-props: (
+  '10' rgba(109, 109, 128, 0.1),
+  '15' rgba(109, 109, 128, 0.15),
+  '20' rgba(109, 109, 128, 0.2),
+  '25' rgba(109, 109, 128, 0.25),
+  '30' rgba(109, 109, 128, 0.3)
+);
+
+$explore-04-props: (
+  '10' rgba(142, 142, 166, 0.1),
+  '15' rgba(142, 142, 166, 0.15),
+  '20' rgba(142, 142, 166, 0.2),
+  '25' rgba(142, 142, 166, 0.25),
+  '30' rgba(142, 142, 166, 0.3)
+);
+
+$explore-05-props: (
+  '10' rgba(164, 164, 191, 0.1),
+  '15' rgba(164, 164, 191, 0.15),
+  '20' rgba(164, 164, 191, 0.2),
+  '25' rgba(164, 164, 191, 0.25),
+  '30' rgba(164, 164, 191, 0.3)
 );
 
 @each $opacity, $value in $visual-refresh-props {
@@ -258,13 +283,34 @@ $explore-02-props: (
 @each $opacity, $stop-1, $stop-2, $stop-3 in $explore-01-props {
   .hds-side-nav-polish_explore-01--#{$opacity} {
     background: linear-gradient(45deg, $stop-1 0%, $stop-2 72.22%, $stop-3 100%),
-      #0c0c0e;
+      var(--token-color-palette-neutral-700);
   }
 }
 
 @each $opacity, $value in $explore-02-props {
   .hds-side-nav-polish_explore-02--#{$opacity} {
-    background: linear-gradient(225deg, $value 0%, rgba(255, 255, 255, 0) 100%),
+    background: linear-gradient(225deg, $value 0%, rgba(63, 63, 74, 0) 100%),
+      var(--token-color-palette-neutral-700);
+  }
+}
+
+@each $opacity, $value in $explore-03-props {
+  .hds-side-nav-polish_explore-03--#{$opacity} {
+    background: linear-gradient(225deg, $value 0%, rgba(109, 109, 128, 0) 100%),
+      var(--token-color-palette-neutral-700);
+  }
+}
+
+@each $opacity, $value in $explore-04-props {
+  .hds-side-nav-polish_explore-04--#{$opacity} {
+    background: linear-gradient(225deg, $value 0%, rgba(142, 142, 166, 0) 100%),
+      var(--token-color-palette-neutral-700);
+  }
+}
+
+@each $opacity, $value in $explore-05-props {
+  .hds-side-nav-polish_explore-05--#{$opacity} {
+    background: linear-gradient(225deg, $value 0%, rgba(164, 164, 191, 0) 100%),
       var(--token-color-palette-neutral-700);
   }
 }
