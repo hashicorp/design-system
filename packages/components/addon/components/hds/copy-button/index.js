@@ -10,11 +10,12 @@ import { action } from '@ember/object';
 
 export const DEFAULT_SIZE = 'medium';
 export const DEFAULT_COLOR = 'secondary';
-export const SIZES = ['small', 'medium', 'large'];
-export const COLORS = ['primary', 'secondary', 'tertiary'];
+export const SIZES = ['small', 'medium'];
+export const COLORS = ['secondary', 'tertiary'];
 
 export default class HdsDropdownListItemCopyItemComponent extends Component {
   @tracked isSuccess = false;
+  @tracked isError = false;
 
   /**
    * @param text
@@ -54,7 +55,7 @@ export default class HdsDropdownListItemCopyItemComponent extends Component {
    * @param color
    * @type {string}
    * @default secondary
-   * @description Determines the color of button to be used; acceptable values are `primary`, `secondary`, and `critical`
+   * @description Determines the color of button to be used; acceptable values are `secondary`, `tertiary`
    */
   get color() {
     let { color = DEFAULT_COLOR } = this.args;
@@ -123,16 +124,21 @@ export default class HdsDropdownListItemCopyItemComponent extends Component {
 
   @action
   async copyCode() {
-    let clipboardTextContent = document
-      .querySelector(this.args.clipboardText)
-      .innerHTML.trim();
-
     let textToCopy;
 
     if (this.args.clipboardText) {
+      let clipboardTextContent = document
+        .querySelector(this.args.clipboardText)
+        .innerHTML.trim();
       textToCopy = clipboardTextContent;
-    } else {
+      // leaving this in while dev mode
+      console.log(`textToCopy is clipboardText arg value: ${textToCopy}`);
+    } else if (this.args.text) {
       textToCopy = this.args.text;
+      // leaving this in while dev mode
+      console.log(`textToCopy is text arg value: ${textToCopy}`);
+    } else {
+      console.log(`something else`);
     }
     // https://developer.mozilla.org/en-US/docs/Web/API/Clipboard
     await navigator.clipboard.writeText(textToCopy);
@@ -144,11 +150,7 @@ export default class HdsDropdownListItemCopyItemComponent extends Component {
         this.isSuccess = true;
       }
     } else {
-      // assume that it works so Firefox can show the success state
-      // doesn't confirm that you'll get the correct pasted text
-      // but we accept this as a reasonable tradeoff
-      // since users can always copy/paste manually.
-      this.isSuccess = true;
+      this.isError = true;
     }
 
     // make it fade back to the default state
