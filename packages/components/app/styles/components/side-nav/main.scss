@@ -11,9 +11,8 @@
   position: sticky;
   top: 0;
   z-index: 20; // needs to stay above the main content
-  width: var(
-    --hds-app-sidenav-width-fixed
-  ); // "default" width used by the `SideNav::Base` subcomponent (that is not responsive)
+  width:
+ var(--hds-app-sidenav-width-fixed); // "default" width used by the `SideNav::Base` subcomponent (that is not responsive)
   height: 100vh;
   min-height: 100vh;
   isolation: isolate; // used to create a new stacking context (so we can set the overlay's z-index to -1)
@@ -21,7 +20,8 @@
   // RESPONSIVENESS - This controls the width of the top-level container ("sidebar") in the grid, and impacts the available space for the "main" grid area
 
   &.hds-side-nav--is-responsive {
-    transition: width var(--hds-app-sidenav-animation-duration)
+    transition:
+      width var(--hds-app-sidenav-animation-duration)
       var(--hds-app-sidenav-animation-easing);
   }
 
@@ -44,7 +44,8 @@
   inset: 0;
   background-color: var(--token-color-palette-neutral-700);
   opacity: 0.2;
-  transition: opacity var(--hds-app-sidenav-animation-duration)
+  transition:
+    opacity var(--hds-app-sidenav-animation-duration)
     var(--hds-app-sidenav-animation-easing)
     var(--hds-app-sidenav-animation-delay);
 
@@ -96,7 +97,8 @@
     padding: 1px;
     background-color: var(--token-color-foreground-primary);
     border-radius: 3px;
-    transform: translateX(calc(var(--hds-app-sidenav-width-expanded) + 8px))
+    transform:
+      translateX(calc(var(--hds-app-sidenav-width-expanded) + 8px))
       translateY(24px);
     // z-index: 15; // not needed anymore?
   }
@@ -107,7 +109,8 @@
     height: 36px;
     padding: 5px;
     border-radius: 5px;
-    transform: translateX(22px)
+    transform:
+      translateX(22px)
       translateY(var(--hds-app-sidenav-menu-button-y-shift));
   }
 
@@ -124,16 +127,16 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  color: var(
-    --token-side-nav-color-foreground-primary
-  ); // we set a default color (in case generic content is added to the header/body/footer of the sidenav)
+  color:
+ var(--token-side-nav-color-foreground-primary); // we set a default color (in case generic content is added to the header/body/footer of the sidenav)
 
   // background: var(--token-side-nav-color-surface-primary);
 
   // RESPONSIVENESS - This controls the width of the "sidenav" container, and is independent (bur related) from the parent "sidebar" grid area
 
   .hds-side-nav--is-responsive & {
-    transition: width var(--hds-app-sidenav-animation-duration)
+    transition:
+      width var(--hds-app-sidenav-animation-duration)
       var(--hds-app-sidenav-animation-easing);
   }
 
@@ -163,7 +166,8 @@
 
 .hds-side-nav__wrapper-body {
   flex: 1;
-  padding: var(--token-side-nav-wrapper-padding-vertical)
+  padding:
+    var(--token-side-nav-wrapper-padding-vertical)
     var(--token-side-nav-wrapper-padding-horizontal);
   // this is necessary, otherwise when the sidenav is minimized an horizontal scrollbar may appear
   // (if there are words longer than the width of the available space for the list "item" content)
@@ -173,7 +177,8 @@
 }
 
 .hds-side-nav__wrapper-footer {
-  padding: var(--token-side-nav-wrapper-padding-vertical)
+  padding:
+    var(--token-side-nav-wrapper-padding-vertical)
     var(--token-side-nav-wrapper-padding-horizontal);
 }
 
@@ -193,7 +198,8 @@
   .hds-side-nav--is-desktop & {
     visibility: visible;
     opacity: 1;
-    transition: opacity var(--hds-app-sidenav-animation-duration)
+    transition:
+      opacity var(--hds-app-sidenav-animation-duration)
       var(--hds-app-sidenav-animation-easing)
       var(--hds-app-sidenav-animation-delay);
   }
@@ -208,109 +214,110 @@
 // THIS IS FOR TESTING
 
 $visual-refresh-props: (
-  '10' rgba(255, 255, 255, 0.1),
-  '15' rgba(255, 255, 255, 0.15),
-  '20' rgba(255, 255, 255, 0.2),
-  '25' rgba(255, 255, 255, 0.25),
-  '30' rgba(255, 255, 255, 0.3)
+  "10" rgba(255, 255, 255, 10%),
+  "15" rgba(255, 255, 255, 15%),
+  "20" rgba(255, 255, 255, 20%),
+  "25" rgba(255, 255, 255, 25%),
+  "30" rgba(255, 255, 255, 30%)
 );
-
 $visual-refresh-dark-props: (
-  '10' rgba(255, 255, 255, 0.1),
-  '15' rgba(255, 255, 255, 0.15),
-  '20' rgba(255, 255, 255, 0.2),
-  '25' rgba(255, 255, 255, 0.25),
-  '30' rgba(255, 255, 255, 0.3)
+  "10" rgba(255, 255, 255, 10%),
+  "15" rgba(255, 255, 255, 15%),
+  "20" rgba(255, 255, 255, 20%),
+  "25" rgba(255, 255, 255, 25%),
+  "30" rgba(255, 255, 255, 30%)
 );
-
 $explore-01-props: (
-  '10' rgba(132, 79, 186, 0.03) rgba(62, 118, 255, 0.03)
-    rgba(132, 79, 186, 0.06),
-  '15' rgba(132, 79, 186, 0.04) rgba(62, 118, 255, 0.04) rgba(132, 79, 186, 0.1),
-  '20' rgba(132, 79, 186, 0.05) rgba(62, 118, 255, 0.05)
-    rgba(132, 79, 186, 0.13),
-  '25' rgba(132, 79, 186, 0.06) rgba(62, 118, 255, 0.06)
-    rgba(132, 79, 186, 0.16),
-  '30' rgba(132, 79, 186, 0.08) rgba(62, 118, 255, 0.08) rgba(132, 79, 186, 0.2)
+  "10" rgba(132, 79, 186, 3%) rgba(62, 118, 255, 3%)
+  rgba(132, 79, 186, 6%),
+  "15" rgba(132, 79, 186, 4%) rgba(62, 118, 255, 4%) rgba(132, 79, 186, 10%),
+  "20" rgba(132, 79, 186, 5%) rgba(62, 118, 255, 5%)
+  rgba(132, 79, 186, 13%),
+  "25" rgba(132, 79, 186, 6%) rgba(62, 118, 255, 6%)
+  rgba(132, 79, 186, 16%),
+  "30" rgba(132, 79, 186, 8%) rgba(62, 118, 255, 8%) rgba(132, 79, 186, 20%)
 );
-
 $explore-02-props: (
-  '10' rgba(63, 63, 74, 0.1),
-  '15' rgba(63, 63, 74, 0.15),
-  '20' rgba(63, 63, 74, 0.2),
-  '25' rgba(63, 63, 74, 0.25),
-  '30' rgba(63, 63, 74, 0.3)
+  "10" rgba(63, 63, 74, 10%),
+  "15" rgba(63, 63, 74, 15%),
+  "20" rgba(63, 63, 74, 20%),
+  "25" rgba(63, 63, 74, 25%),
+  "30" rgba(63, 63, 74, 30%)
 );
-
 $explore-03-props: (
-  '10' rgba(109, 109, 128, 0.1),
-  '15' rgba(109, 109, 128, 0.15),
-  '20' rgba(109, 109, 128, 0.2),
-  '25' rgba(109, 109, 128, 0.25),
-  '30' rgba(109, 109, 128, 0.3)
+  "10" rgba(109, 109, 128, 10%),
+  "15" rgba(109, 109, 128, 15%),
+  "20" rgba(109, 109, 128, 20%),
+  "25" rgba(109, 109, 128, 25%),
+  "30" rgba(109, 109, 128, 30%)
 );
-
 $explore-04-props: (
-  '10' rgba(142, 142, 166, 0.1),
-  '15' rgba(142, 142, 166, 0.15),
-  '20' rgba(142, 142, 166, 0.2),
-  '25' rgba(142, 142, 166, 0.25),
-  '30' rgba(142, 142, 166, 0.3)
+  "10" rgba(142, 142, 166, 10%),
+  "15" rgba(142, 142, 166, 15%),
+  "20" rgba(142, 142, 166, 20%),
+  "25" rgba(142, 142, 166, 25%),
+  "30" rgba(142, 142, 166, 30%)
 );
-
 $explore-05-props: (
-  '10' rgba(164, 164, 191, 0.1),
-  '15' rgba(164, 164, 191, 0.15),
-  '20' rgba(164, 164, 191, 0.2),
-  '25' rgba(164, 164, 191, 0.25),
-  '30' rgba(164, 164, 191, 0.3)
+  "10" rgba(164, 164, 191, 10%),
+  "15" rgba(164, 164, 191, 15%),
+  "20" rgba(164, 164, 191, 20%),
+  "25" rgba(164, 164, 191, 25%),
+  "30" rgba(164, 164, 191, 30%)
 );
 
 @each $opacity, $value in $visual-refresh-props {
   .hds-side-nav-polish_visual-refresh--#{$opacity} {
-    background: linear-gradient(225deg, $value 0%, rgba(255, 255, 255, 0) 100%),
+    background:
+      linear-gradient(225deg, $value 0%, rgba(255, 255, 255, 0%) 100%),
       #111214;
   }
 }
 
 @each $opacity, $value in $visual-refresh-dark-props {
   .hds-side-nav-polish_visual-refresh-dark--#{$opacity} {
-    background: linear-gradient(225deg, $value 0%, rgba(255, 255, 255, 0) 100%),
+    background:
+      linear-gradient(225deg, $value 0%, rgba(255, 255, 255, 0%) 100%),
       var(--token-color-palette-neutral-700);
   }
 }
 
 @each $opacity, $stop-1, $stop-2, $stop-3 in $explore-01-props {
   .hds-side-nav-polish_explore-01--#{$opacity} {
-    background: linear-gradient(45deg, $stop-1 0%, $stop-2 72.22%, $stop-3 100%),
+    background:
+      linear-gradient(45deg, $stop-1 0%, $stop-2 72.22%, $stop-3 100%),
       var(--token-color-palette-neutral-700);
   }
 }
 
 @each $opacity, $value in $explore-02-props {
   .hds-side-nav-polish_explore-02--#{$opacity} {
-    background: linear-gradient(225deg, $value 0%, rgba(63, 63, 74, 0) 100%),
+    background:
+      linear-gradient(225deg, $value 0%, rgba(63, 63, 74, 0%) 100%),
       var(--token-color-palette-neutral-700);
   }
 }
 
 @each $opacity, $value in $explore-03-props {
   .hds-side-nav-polish_explore-03--#{$opacity} {
-    background: linear-gradient(225deg, $value 0%, rgba(109, 109, 128, 0) 100%),
+    background:
+      linear-gradient(225deg, $value 0%, rgba(109, 109, 128, 0%) 100%),
       var(--token-color-palette-neutral-700);
   }
 }
 
 @each $opacity, $value in $explore-04-props {
   .hds-side-nav-polish_explore-04--#{$opacity} {
-    background: linear-gradient(225deg, $value 0%, rgba(142, 142, 166, 0) 100%),
+    background:
+      linear-gradient(225deg, $value 0%, rgba(142, 142, 166, 0%) 100%),
       var(--token-color-palette-neutral-700);
   }
 }
 
 @each $opacity, $value in $explore-05-props {
   .hds-side-nav-polish_explore-05--#{$opacity} {
-    background: linear-gradient(225deg, $value 0%, rgba(164, 164, 191, 0) 100%),
+    background:
+      linear-gradient(225deg, $value 0%, rgba(164, 164, 191, 0%) 100%),
       var(--token-color-palette-neutral-700);
   }
 }

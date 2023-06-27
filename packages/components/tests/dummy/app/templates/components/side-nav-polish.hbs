@@ -12,8 +12,8 @@
 
     <Shw::Grid @columns={{3}} as |SG|>
       {{#each @model.OPACITY_STOPS as |opacity|}}
-      <SG.Item>
-        <Shw::Flex as |SF|>
+        <SG.Item>
+          <Shw::Flex as |SF|>
             <SF.Item @label="{{opacity}}% opacity">
               <div class="shw-component-sim-side-nav-root-container" {{style height="auto"}}>
                 <Hds::SideNav
@@ -82,9 +82,9 @@
                 </Hds::SideNav>
               </div>
             </SF.Item>
-        </Shw::Flex>
-      </SG.Item>
-          {{/each}}
+          </Shw::Flex>
+        </SG.Item>
+      {{/each}}
     </Shw::Grid>
   {{/each}}
 

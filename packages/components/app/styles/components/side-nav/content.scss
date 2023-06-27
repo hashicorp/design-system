@@ -7,7 +7,7 @@
 // SIDE-NAV > CONTENT (PORTALS + LISTS OF ITEMS/LINKS)
 //
 
-@use '../../mixins/focus-ring' as *;
+@use "../../mixins/focus-ring" as *;
 
 // PANELS (wrappers used in conjunction with the portal elements)
 
@@ -39,9 +39,7 @@
   color: var(--token-side-nav-color-foreground-faint);
 
   // Remove margin from title at top of all list-items & lists
-  .hds-side-nav__list-wrapper:first-child
-    .hds-side-nav__list-item:first-child
-    > & {
+  .hds-side-nav__list-wrapper:first-child .hds-side-nav__list-item:first-child > & {
     margin-top: 0;
   }
 }
@@ -73,7 +71,8 @@
   align-items: center;
   width: 100%;
   min-height: var(--token-side-nav-body-list-item-height);
-  padding: var(--token-side-nav-body-list-item-padding-vertical)
+  padding:
+    var(--token-side-nav-body-list-item-padding-vertical)
     var(--token-side-nav-body-list-item-padding-horizontal);
   color: var(--token-side-nav-color-foreground-primary);
   text-decoration: none;
