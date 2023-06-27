@@ -15,4 +15,10 @@ module('Integration | Component | hds/copy-button/index', function (hooks) {
     await render(hbs`<Hds::CopyButton id="test-copy-button" @text="Copy" />`);
     assert.dom('#test-copy-button').hasClass('hds-copy-button');
   });
+  test('an icon-only button should have an aria-label', async function (assert) {
+    await render(
+      hbs`<Hds::CopyButton id="test-copy-button" @text="Copy" @isIconOnly={{true}} />`
+    );
+    assert.dom('#test-copy-button').hasAria('label', 'Copy');
+  });
 });
