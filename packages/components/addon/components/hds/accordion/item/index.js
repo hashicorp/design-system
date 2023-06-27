@@ -58,7 +58,7 @@ export default class HdsAccordionItemIndexComponent extends Component {
       // Entire accordion item including the chevron is interactive:
       classes.push('hds-accordion-item--is-interactive');
     } else {
-      // Only chevron is clickable:
+      // Only chevron is interactive:
       classes.push('hds-accordion-item--is--not-interactive');
     }
 

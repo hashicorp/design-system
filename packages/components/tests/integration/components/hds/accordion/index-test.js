@@ -131,11 +131,11 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     await render(
       hbs`
         <Hds::Accordion as |A|>
-          <A.Item id="test-is-clickable-true">
+          <A.Item id="test-is-interactive-true">
             <:toggle>Item one</:toggle>
             <:content>Additional content</:content> 
           </A.Item>
-          <A.Item @isInteractive={{false}} id="test-is-clickable-false">
+          <A.Item @isInteractive={{false}} id="test-is-interactive-false">
             <:toggle>Item one</:toggle>
             <:content>Additional content</:content> 
           </A.Item>
@@ -143,11 +143,11 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
       `
     );
     assert
-      .dom('#test-is-clickable-true')
-      .hasClass('hds-accordion-item--is-clickable');
+      .dom('#test-is-interactive-true')
+      .hasClass('hds-accordion-item--is-interactive');
     assert
-      .dom('#test-is-clickable-false')
-      .hasClass('hds-accordion-item--is--not-clickable');
+      .dom('#test-is-interactive-false')
+      .hasClass('hds-accordion-item--is--not-interactive');
   });
 
   // ATTRIBUTES
