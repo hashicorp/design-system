@@ -26,7 +26,7 @@ jobs:
         run: yarn
 
       - name: Create Release Pull Request
-        uses: changesets/action@2bb9bcbd6bf4996a55ce459a630a0aa699457f59 # v1.4.5
+        uses: changesets/action@f13b1baaa620fde937751f5d2c3572b9da32af23 # v1.4.5
         with:
           version: yarn version
           publish: yarn release
