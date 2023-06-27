@@ -1,2 +1,7 @@
-<!-- populate with examples and documentation of interactive states -->
-<!-- this can usually be found in the design guidelines -->
+## States
+
+![Example of accordion states](/assets/components/accordion/accordion-states.png =800x*)
+
+### isOpen
+
+![Example of accordion states when is open](/assets/components/accordion/accordion-states-open.png =800x*)
