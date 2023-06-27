@@ -12,6 +12,7 @@
 
 :root {
   --token-accordion-item-padding: 16px;
+  --token-accordion-item-padding-right: 12px;
 }
 
 // ACCORDION COMPONENT (wrapper)
@@ -29,21 +30,17 @@
 
 .hds-accordion-item {
   background: var(--token-color-surface-primary);
+  border: 1px solid;
   border-radius: 6px;
 
-  // isInteractive=true, Entire AccordionItem is clickable:
-  &.hds-accordion-item--is-clickable {
-    box-shadow: var(--token-surface-mid-box-shadow);
-
-    &:hover,
-    &.mock-hover {
-      box-shadow: var(--token-surface-high-box-shadow);
-    }
+  // isInteractive=true, Entire AccordionItem is interactive:
+  &.hds-accordion-item--is-interactive {
+    border-color: transparent;
   }
 
-  // isInteractive=false, Only nested Chevron button is clickable:
-  &.hds-accordion-item--is--not-clickable {
-    border: 1px solid var(--token-color-border-primary);
+  // isInteractive=false, Only nested Chevron button is interactive:
+  &.hds-accordion-item--is--not-interactive {
+    border-color: var(--token-color-border-primary);
   }
 }
 
@@ -54,16 +51,13 @@
   display: flex;
   gap: 12px;
   align-items: center;
-  padding: var(--token-accordion-item-padding) var(--token-accordion-item-padding) var(--token-accordion-item-padding) 12px;
+  padding: var(--token-accordion-item-padding) var(--token-accordion-item-padding) var(--token-accordion-item-padding) var(--token-accordion-item-padding-right);
 }
 
 .hds-accordion-item__button {
   @include hds-focus-ring-with-pseudo-element();
-  position: static;
+  margin: -1px; // offset border size
   padding: 0;
-  background: transparent;
-  border: 0;
-  outline: none;
 
   &:hover { cursor: pointer; }
 
@@ -71,28 +65,48 @@
   &::after {
     position: absolute;
     display: block;
+    border-radius: 6px;
     content: "";
     inset: 0;
   }
 
-  // animate chevron icon
-  .flight-icon-chevron-down {
-    @media (prefers-reduced-motion: no-preference) {
-      transition: transform 0.3s;
+  // entire toggle area is interactive
+  &.hds-accordion-item__button--is-not-interactive {
+    position: static;
+    background: transparent;
+    border: 1px solid transparent;
+
+    &::after {
+      box-shadow: var(--token-surface-mid-box-shadow);
+    }
+
+    &:hover,
+    &.mock-hover {
+      &::after {
+        box-shadow: var(--token-surface-high-box-shadow);
+      }
     }
   }
 
+  // only chevron button area is interactive
+  &.hds-accordion-item__button--is-interactive {
+    @include hds-button();
+    @include hds-button-color-secondary();
+
+    &:focus { border-color: var(--token-color-border-strong); }
+  }
+
+  // animate chevron icon
   &.hds-accordion-item__button--is-open {
     .flight-icon-chevron-down {
       transform: rotate(-180deg);
     }
   }
 
-  &.hds-accordion-item__button--is-clickable {
-    @include hds-button();
-    @include hds-button-color-secondary();
-
-    &:focus { border-color: var(--token-color-border-strong); }
+  .flight-icon-chevron-down {
+    @media (prefers-reduced-motion: no-preference) {
+      transition: transform 0.3s;
+    }
   }
 }
 
