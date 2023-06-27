@@ -53,6 +53,17 @@ module('Integration | Component | hds/form/text-input/base', function (hooks) {
       .hasClass('hds-form-text-input--is-invalid');
   });
 
+  // IS LOADING
+
+  test('it should render the correct CSS class if the @isLoading prop is declared', async function (assert) {
+    await render(
+      hbs`<Hds::Form::TextInput::Base id="test-form-text-input" @type="search" @isLoading={{true}} />`
+    );
+    assert
+      .dom('#test-form-text-input')
+      .hasClass('hds-form-text-input--is-loading');
+  });
+
   // WIDTH
 
   test('it should render the input with a fixed width if a @width value is passed', async function (assert) {
@@ -77,7 +88,7 @@ module('Integration | Component | hds/form/text-input/base', function (hooks) {
 
   test('it should throw an assertion if an incorrect value for @type is provided', async function (assert) {
     const errorMessage =
-      '@type for "Hds::Form::TextInput" must be one of the following: text, email, password, url, search, date, time; received: foo';
+      '@type for "Hds::Form::TextInput" must be one of the following: text, email, password, url, date, time, search; received: foo';
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);

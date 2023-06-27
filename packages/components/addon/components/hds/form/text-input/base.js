@@ -14,9 +14,9 @@ export const TYPES = [
   'email',
   'password',
   'url',
-  'search',
   'date',
   'time',
+  'search',
 ];
 
 export default class HdsFormTextInputBaseComponent extends Component {
@@ -54,6 +54,11 @@ export default class HdsFormTextInputBaseComponent extends Component {
     // add a class based on the @isInvalid argument
     if (this.args.isInvalid) {
       classes.push(`hds-form-text-input--is-invalid`);
+    }
+
+    // add a class based on the @isLoading argument
+    if (this.args.isLoading) {
+      classes.push(`hds-form-text-input--is-loading`);
     }
 
     return classes.join(' ');
