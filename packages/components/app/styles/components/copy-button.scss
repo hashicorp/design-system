@@ -41,10 +41,6 @@ $hds-copy-button-border-radius: $hds-button-border-radius;
 }
 
 // COLOR
-.hds-copy-button--color-primary {
-  @include hds-button-color-primary();
-}
-
 .hds-copy-button--color-secondary {
   @include hds-button-color-secondary();
 }
@@ -71,30 +67,6 @@ $hds-copy-button-border-radius: $hds-button-border-radius;
 
 // Colors + States
 // I don't like this at all.
-.hds-copy-button--color-primary {
-  .hds-copy-button__icon {
-    color: var(--token-color-surface-action);
-  }
-
-  &:hover,
-  &.mock-hover {
-    background-color: var(--token-color-palette-blue-300);
-  }
-
-  &:active,
-  &.mock-active {
-    background-color: var(--token-color-palette-blue-400);
-  }
-
-  &.is-success {
-    background-color: var(--token-color-foreground-success-on-surface);
-    border-color: var(--token-color-border-success);
-
-    .hds-copy-button__icon {
-      color: var(--token-color-surface-success);
-    }
-  }
-}
 
 .hds-copy-button--color-secondary,
 .hds-copy-button--color-tertiary {
@@ -113,7 +85,6 @@ $hds-copy-button-border-radius: $hds-button-border-radius;
   }
 
   &.is-success {
-    background-color: var(--token-color-surface-success);
     border-color: var(--token-color-border-success);
 
     .hds-copy-button__icon {
