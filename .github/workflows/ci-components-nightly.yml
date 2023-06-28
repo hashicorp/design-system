@@ -29,9 +29,6 @@ jobs:
 
       - name: Install Dependencies
         run: yarn install --immutable
-        
-      - name: Set up date variable
-        run: echo "DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
 
       - name: Create directory for test results if one does not already exist
         working-directory: packages/components
