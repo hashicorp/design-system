@@ -99,9 +99,13 @@
   }
 }
 
+// Consumer added content that apperas next to the chevron button:
+.hds-accordion-item__toggle-content {
+  flex: 1;
+}
+
 // CONTENT BLOCK
 
 .hds-accordion-item__content {
-  width: 100%;
   padding: 4px var(--token-accordion-item-padding) var(--token-accordion-item-padding) var(--token-accordion-item-padding);
 }
