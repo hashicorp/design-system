@@ -46,6 +46,6 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: a11y-test-results
-          path: packages/components/ember-a11y-testing/figure-out-date-format-in-name.json
+          path: packages/components/ember-a11y-testing/*.json
           
 
