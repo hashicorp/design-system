@@ -38,7 +38,7 @@ jobs:
         run: mkdir -p test-output
 
       - name: Run Tests
-        run: yarn run test:a11y
+        run: yarn run test:a11y > test-output/a11y-test-results-${{ env.DATE }}.txt
         working-directory: packages/components
         continue-on-error: true
       
