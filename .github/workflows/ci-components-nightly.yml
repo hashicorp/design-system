@@ -4,6 +4,7 @@ on:
   schedule:
     # Runs at 00:00 UTC
     - cron:  '0 0 * * *'
+  workflow_dispatch:
 
 env:
   NODE_VERSION: '16.x'
@@ -25,15 +26,26 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: yarn
           cache-dependency-path: yarn.lock
+
       - name: Install Dependencies
         run: yarn install --immutable
-      - name: Run Tests
-        run: yarn run test:a11y
+        
+      - name: Set up date variable
+        run: echo "DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+
+      - name: Create directory for test results if one does not already exist
         working-directory: packages/components
+        run: mkdir -p test-output
+
+      - name: Run Tests
+        run: yarn run test:a11y > test-output/a11y-test-results-${{ env.DATE }}.txt
+        working-directory: packages/components
+        continue-on-error: true
+      
       - name: Archive a11y test results
         uses: actions/upload-artifact@v3
         with:
-          name: a11y-test-report
-          path: packages/components/test-output/a11y-test-results.txt
+          name: a11y-test-results
+          path: packages/components/test-output/a11y-test-results-${{ env.DATE }}.txt
 
   
