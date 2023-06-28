@@ -142,17 +142,24 @@
 
     <SF.Item @label="With interactive content in toggle and in toggled content">
       <Hds::Accordion as |A|>
-        <A.Item @isInteractive={{false}}>
+        <A.Item @isInteractive={{false}} @isOpen={{true}}>
           <:toggle>
-            Related text
-            <a href="https://www.hashicorp.com/">A link</a>
-            <Hds::Button @text="HDS Button" @size="small" />
+            <div class="shw-example-layout shw-example-layout--justify">
+              <span>
+                Related text
+                <a href="https://www.hashicorp.com/">A link</a>
+              </span>
+
+              <Hds::Button @text="Details" @color="secondary" @size="small" />
+            </div>
           </:toggle>
           <:content>
-            Text content with a link:
-            <a href="https://www.hashicorp.com/">A link</a>
-            and an HDS button:
-            <Hds::Button @text="HDS Button" />
+            <Hds::Form::TextInput::Field @type="email" as |F|>
+              <F.Label>Email</F.Label>
+            </Hds::Form::TextInput::Field>
+            <p>
+              <Hds::Button @text="Submit" />
+            </p>
           </:content>
         </A.Item>
       </Hds::Accordion>
