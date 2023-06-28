@@ -67,20 +67,20 @@
 
   &:hover { cursor: pointer; }
 
-  // expand button target to cover entire AccordionItem Toggle block
-  &::after {
-    position: absolute;
-    display: block;
-    border-radius: 6px;
-    content: "";
-    inset: 0;
-  }
-
   // entire toggle area is interactive
   &.hds-accordion-item__button--is-not-interactive {
     position: static;
     background: transparent;
     border: 1px solid transparent;
+
+    // expand button target to cover entire AccordionItem Toggle block (depending on the `@isInteractive` argument)
+    &::after {
+      position: absolute;
+      display: block;
+      border-radius: 6px;
+      content: "";
+      inset: 0;
+    }
   }
 
   // only chevron button area is interactive
@@ -106,6 +106,7 @@
 }
 
 // CONTENT BLOCK
+
 .hds-accordion-item__content {
   padding: 4px var(--token-accordion-item-padding) var(--token-accordion-item-padding) var(--token-accordion-item-padding);
 }

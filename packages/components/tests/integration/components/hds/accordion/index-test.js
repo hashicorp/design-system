@@ -38,20 +38,14 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     await render(hbs`
       <Hds::Accordion as |A|>
         <A.Item>
-          <:toggle><strong>Item one</strong></:toggle>
-          <:content><em>Content one</em></:content>
+          <:toggle><strong id="test-strong">Item one</strong></:toggle>
+          <:content><em id="test-em">Content one</em></:content>
         </A.Item>
       </Hds::Accordion>
     `);
     await click('.hds-accordion-item__button');
-    assert
-      .dom('.hds-accordion-item__toggle-content strong')
-      .exists()
-      .hasText('Item one');
-    assert
-      .dom('.hds-accordion-item__content em')
-      .exists()
-      .hasText('Content one');
+    assert.dom('#test-strong').exists().hasText('Item one');
+    assert.dom('#test-em').exists().hasText('Content one');
   });
 
   // A11Y
