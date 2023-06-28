@@ -32,7 +32,7 @@ jobs:
 
       - name: Create directory for test results if one does not already exist
         working-directory: packages/components
-        run: mkdir -p ember-a11y-testing
+        run: mkdir -p ember-a11y-report
 
       - name: Run Tests
         run: yarn run test:a11y-report
@@ -43,6 +43,6 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: a11y-test-results
-          path: packages/components/ember-a11y-testing/*.json
+          path: packages/components/ember-a11y-report/*.json
           
 
