@@ -35,10 +35,10 @@ jobs:
 
       - name: Create directory for test results if one does not already exist
         working-directory: packages/components
-        run: mkdir -p test-output
+        run: mkdir -p ember-a11y-testing
 
       - name: Run Tests
-        run: yarn run test:a11y > test-output/a11y-test-results-${{ env.DATE }}.txt
+        run: yarn run test:a11y-report
         working-directory: packages/components
         continue-on-error: true
       
@@ -46,6 +46,6 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: a11y-test-results
-          path: packages/components/test-output/a11y-test-results-${{ env.DATE }}.txt
+          path: packages/components/ember-a11y-testing/figure-out-date-format-in-name.json
+          
 
-  
