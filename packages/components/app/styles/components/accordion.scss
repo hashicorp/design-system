@@ -30,23 +30,12 @@
 
 .hds-accordion-item {
   background: var(--token-color-surface-primary);
-  border: 1px solid;
   border-radius: 6px;
+  box-shadow: var(--token-surface-mid-box-shadow);
 
-  // isInteractive=true, Entire AccordionItem is interactive:
-  &.hds-accordion-item--is-interactive {
-    border-color: transparent;
-    box-shadow: var(--token-surface-mid-box-shadow);
-
-    &:hover,
-    &.mock-hover {
-      box-shadow: var(--token-surface-high-box-shadow);
-    }
-  }
-
-  // isInteractive=false, Only nested Chevron button is interactive:
-  &.hds-accordion-item--is--not-interactive {
-    border-color: var(--token-color-border-primary);
+  &:hover,
+  &.mock-hover {
+    box-shadow: var(--token-surface-high-box-shadow);
   }
 }
 
@@ -57,7 +46,11 @@
   display: flex;
   gap: 12px;
   align-items: center;
-  padding: var(--token-accordion-item-padding) var(--token-accordion-item-padding) var(--token-accordion-item-padding) var(--token-accordion-item-padding-right);
+  padding:
+    var(--token-accordion-item-padding)
+    var(--token-accordion-item-padding)
+    var(--token-accordion-item-padding)
+    var(--token-accordion-item-padding-right);
 }
 
 .hds-accordion-item__button {
@@ -88,6 +81,7 @@
     @include hds-button();
     @include hds-button-color-secondary();
 
+    // when button is focused by clicking (vs. tabbing), border turns blue w/o this:
     &:focus { border-color: var(--token-color-border-strong); }
   }
 
