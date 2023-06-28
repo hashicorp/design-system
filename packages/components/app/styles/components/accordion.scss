@@ -36,6 +36,12 @@
   // isInteractive=true, Entire AccordionItem is interactive:
   &.hds-accordion-item--is-interactive {
     border-color: transparent;
+    box-shadow: var(--token-surface-mid-box-shadow);
+
+    &:hover,
+    &.mock-hover {
+      box-shadow: var(--token-surface-high-box-shadow);
+    }
   }
 
   // isInteractive=false, Only nested Chevron button is interactive:
@@ -75,17 +81,6 @@
     position: static;
     background: transparent;
     border: 1px solid transparent;
-
-    &::after {
-      box-shadow: var(--token-surface-mid-box-shadow);
-    }
-
-    &:hover,
-    &.mock-hover {
-      &::after {
-        box-shadow: var(--token-surface-high-box-shadow);
-      }
-    }
   }
 
   // only chevron button area is interactive
