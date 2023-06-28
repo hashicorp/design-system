@@ -2,4 +2,4 @@
 "@hashicorp/design-system-components": minor
 ---
 
-Add loading state on search input
+`Form::TextInput` - Add loading state on "search" type
