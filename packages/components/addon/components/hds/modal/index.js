@@ -113,9 +113,9 @@ export default class HdsModalIndexComponent extends Component {
     // Register "onClose" callback function to be called when a native 'close' event is dispatched
     this.element.addEventListener('close', () => {
       if (
+        !this.isDismissDisabled &&
         this.args.onClose &&
-        typeof this.args.onClose === 'function' &&
-        !this.isDismissDisabled
+        typeof this.args.onClose === 'function'
       ) {
         this.args.onClose();
       }
