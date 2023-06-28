@@ -15,6 +15,7 @@ module('Integration | Component | hds/copy-button/index', function (hooks) {
     await render(hbs`<Hds::CopyButton id="test-copy-button" @text="Copy" />`);
     assert.dom('#test-copy-button').hasClass('hds-copy-button');
   });
+
   test('it should have an aria-label attribute if isIconOnly is set to true', async function (assert) {
     await render(
       hbs`<Hds::CopyButton id="test-copy-button" @text="Copy" @isIconOnly={{true}} />`
