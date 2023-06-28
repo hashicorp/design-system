@@ -4,3 +4,10 @@
  */
 
 // ACCORDION
+
+body.components-accordion {
+  .shw-empty-accordion-example {
+    min-height: 2rem;
+    outline: 1px dashed #78909c;
+  }
+}
