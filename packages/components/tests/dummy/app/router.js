@@ -58,6 +58,7 @@ Router.map(function () {
     this.route('stepper');
     this.route('table');
     this.route('tag');
+    this.route('text');
     this.route('toast');
     this.route('tabs');
     this.route('tooltip');
