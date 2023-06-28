@@ -12,6 +12,7 @@
 
 :root {
   --token-accordion-item-padding: 16px;
+  --token-accordion-item-padding-right: 12px;
 }
 
 // ACCORDION COMPONENT (wrapper)
@@ -30,30 +31,11 @@
 .hds-accordion-item {
   background: var(--token-color-surface-primary);
   border-radius: 6px;
+  box-shadow: var(--token-surface-mid-box-shadow);
 
-  // isInteractive=true, Entire AccordionItem is clickable:
-  &.hds-accordion-item--is-clickable {
-    box-shadow: var(--token-surface-mid-box-shadow);
-
-    &:hover,
-    &.mock-hover {
-      box-shadow: var(--token-surface-high-box-shadow);
-    }
-
-    &.mock-focus {
-      > .hds-disclosure-primitive__toggle .hds-accordion-item__toggle {
-        @include hds-focus-ring-with-pseudo-element();
-
-        &::before {
-          box-shadow: var(--token-focus-ring-action-box-shadow);
-        }
-      }
-    }
-  }
-
-  // isInteractive=false, Only nested Chevron button is clickable:
-  &.hds-accordion-item--is--not-clickable {
-    border: 1px solid var(--token-color-border-primary);
+  &:hover,
+  &.mock-hover {
+    box-shadow: var(--token-surface-high-box-shadow);
   }
 }
 
@@ -64,53 +46,66 @@
   display: flex;
   gap: 12px;
   align-items: center;
-  padding: var(--token-accordion-item-padding) var(--token-accordion-item-padding) var(--token-accordion-item-padding) 12px;
-}
-
-.mock-focus {
-  .hds-accordion-item__button { opacity: 0.2; }
+  padding:
+    var(--token-accordion-item-padding)
+    var(--token-accordion-item-padding)
+    var(--token-accordion-item-padding)
+    var(--token-accordion-item-padding-right);
 }
 
 .hds-accordion-item__button {
   @include hds-focus-ring-with-pseudo-element();
-  position: static;
+  margin: -1px; // offset border size
   padding: 0;
-  background: transparent;
-  border: 0;
-  outline: none;
 
   &:hover { cursor: pointer; }
 
-  // expand button target to cover entire AccordionItem Toggle block
-  &::after {
-    position: absolute;
-    display: block;
-    content: "";
-    inset: 0;
-  }
+  // entire toggle area is interactive
+  &.hds-accordion-item__button--is-not-interactive {
+    position: static;
+    background: transparent;
+    border: 1px solid transparent;
 
-  // animate chevron icon
-  .flight-icon-chevron-down {
-    @media (prefers-reduced-motion: no-preference) {
-      transition: transform 0.3s;
+    // expand button target to cover entire AccordionItem Toggle block (depending on the `@isInteractive` argument)
+    &::after {
+      position: absolute;
+      display: block;
+      border-radius: 6px;
+      content: "";
+      inset: 0;
     }
   }
 
+  // only chevron button area is interactive
+  &.hds-accordion-item__button--is-interactive {
+    @include hds-button();
+    @include hds-button-color-secondary();
+
+    // when button is focused by clicking (vs. tabbing), border turns blue w/o this:
+    &:focus { border-color: var(--token-color-border-strong); }
+  }
+
+  // animate chevron icon
   &.hds-accordion-item__button--is-open {
     .flight-icon-chevron-down {
       transform: rotate(-180deg);
     }
   }
 
-  &.hds-accordion-item__button--is-clickable {
-    @include hds-button();
-    @include hds-button-color-secondary();
-
-    &:focus { border-color: var(--token-color-border-strong); }
+  .flight-icon-chevron-down {
+    @media (prefers-reduced-motion: no-preference) {
+      transition: transform 0.3s;
+    }
   }
 }
 
+// Consumer added content that apperas next to the chevron button:
+.hds-accordion-item__toggle-content {
+  flex: 1;
+}
+
 // CONTENT BLOCK
+
 .hds-accordion-item__content {
   padding: 4px var(--token-accordion-item-padding) var(--token-accordion-item-padding) var(--token-accordion-item-padding);
 }

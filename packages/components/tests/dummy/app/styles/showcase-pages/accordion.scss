@@ -4,3 +4,19 @@
  */
 
 // ACCORDION
+
+body.components-accordion {
+  .shw-example-layout {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .shw-example-layout--justify {
+    justify-content: space-between;
+  }
+
+  .shw-empty-accordion-example {
+    min-height: 2rem;
+    outline: 1px dashed #78909c;
+  }
+}

@@ -1,10 +1,11 @@
 <button
   class={{this.classNames}}
   type="button"
-  {{on "click" @onClickToggle}}
+  {{on "click" this.onClickToggle}}
   aria-controls={{@contentId}}
   aria-expanded={{if @isOpen "true" "false"}}
   aria-label={{@ariaLabel}}
+  ...attributes
 >
   <FlightIcon @name="chevron-down" @size="24" @isInlineBlock={{false}} />
 </button>

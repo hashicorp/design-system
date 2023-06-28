@@ -140,6 +140,31 @@
       </Hds::Accordion>
     </SF.Item>
 
+    <SF.Item @label="With interactive content in toggle and in toggled content">
+      <Hds::Accordion as |A|>
+        <A.Item @isInteractive={{false}} @isOpen={{true}}>
+          <:toggle>
+            <div class="shw-example-layout shw-example-layout--justify">
+              <span>
+                Related text
+                <a href="https://www.hashicorp.com/">A link</a>
+              </span>
+
+              <Hds::Button @text="Details" @color="secondary" @size="small" />
+            </div>
+          </:toggle>
+          <:content>
+            <Hds::Form::TextInput::Field @type="email" as |F|>
+              <F.Label>Email</F.Label>
+            </Hds::Form::TextInput::Field>
+            <p>
+              <Hds::Button @text="Submit" />
+            </p>
+          </:content>
+        </A.Item>
+      </Hds::Accordion>
+    </SF.Item>
+
     <SF.Item @label="With rich content in toggle (Alert) and containing a table">
       <Hds::Accordion as |A|>
         <A.Item @isOpen={{true}}>
@@ -207,13 +232,16 @@
 
   <Shw::Text::H2>States</Shw::Text::H2>
 
-  <Shw::Flex {{style gap="2rem"}} @direction="item" as |SF|>
+  <Shw::Flex {{style gap="2rem"}} as |SF|>
     <SF.Item {{style gap="1.5rem" width="calc(50% - 1rem)"}} @label="AccordionItem @isInteractive=true">
       <Shw::Flex {{style gap="1.5rem"}} @direction="column" as |SF|>
         {{#each @model.STATES as |state|}}
           <SF.Item @label={{state}}>
             <Hds::Accordion as |A|>
-              <A.Item mock-state-value={{state}}>
+              <A.Item
+                mock-state-value={{state}}
+                mock-state-selector="{{if (not-eq state 'hover') '.hds-accordion-item__button'}}"
+              >
                 <:toggle>Item one</:toggle>
                 <:content>
                   <Shw::Placeholder @text="generic content" @height="40" @background="#eee" />
@@ -222,9 +250,10 @@
             </Hds::Accordion>
           </SF.Item>
         {{/each}}
+
         <SF.Item @label="focus & isOpen=true">
           <Hds::Accordion as |A|>
-            <A.Item mock-state-value="focus" @isOpen={{true}}>
+            <A.Item mock-state-value="focus" mock-state-selector=".hds-accordion-item__button" @isOpen={{true}}>
               <:toggle>Item one</:toggle>
               <:content>
                 <Shw::Placeholder @text="generic content" @height="40" @background="#eee" />
@@ -274,6 +303,67 @@
 
   <Shw::Divider @level={{2}} />
 
+  <Shw::Text::H2>Base elements</Shw::Text::H2>
+
+  <Shw::Text::H3>Accordion</Shw::Text::H3>
+
+  <Hds::Accordion class="shw-empty-accordion-example" />
+
+  <Shw::Text::H3>Accordion::Item</Shw::Text::H3>
+
+  <Shw::Flex {{style gap="2rem"}} as |SF|>
+    {{#each @model.STATES as |state|}}
+      <SF.Item @label={{state}} {{style flex="1"}}>
+        <Hds::Accordion::Item
+          mock-state-value={{state}}
+          mock-state-selector="{{if (not-eq state 'hover') '.hds-accordion-item__button'}}"
+        >
+          <:toggle>Item one</:toggle>
+          <:content>
+            <Shw::Placeholder @text="generic content" @height="40" @background="#eee" />
+          </:content>
+        </Hds::Accordion::Item>
+      </SF.Item>
+    {{/each}}
+
+    <SF.Item @label="focus & isOpen=true" {{style flex="1"}}>
+      <Hds::Accordion::Item mock-state-value="focus" mock-state-selector=".hds-accordion-item__button" @isOpen={{true}}>
+        <:toggle>Item one</:toggle>
+        <:content>
+          <Shw::Placeholder @text="generic content" @height="40" @background="#eee" />
+        </:content>
+      </Hds::Accordion::Item>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H3>Accordion::Item::Button</Shw::Text::H3>
+
+  <Shw::Flex {{style gap="2rem"}} @label="isInteractive=true" as |SF|>
+    {{#each @model.STATES as |state|}}
+      <SF.Item @label={{state}} {{style flex="1"}}>
+        <Hds::Accordion::Item::Button @isInteractive={{true}} mock-state-value={{state}} />
+      </SF.Item>
+    {{/each}}
+
+    <SF.Item @label="focus & isOpen=true" {{style flex="1"}}>
+      <Hds::Accordion::Item::Button @isInteractive={{true}} @isOpen={{true}} mock-state-value="focus" />
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex {{style gap="2rem"}} @label="isInteractive=false" as |SF|>
+    {{#each @model.STATES as |state|}}
+      <SF.Item @label={{state}} {{style flex="1"}}>
+        <Hds::Accordion::Item::Button @isInteractive={{false}} mock-state-value={{state}} />
+      </SF.Item>
+    {{/each}}
+
+    <SF.Item @label="focus & isOpen=true" {{style flex="1"}}>
+      <Hds::Accordion::Item::Button @isInteractive={{false}} @isOpen={{true}} mock-state-value="focus" />
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H2>Options</Shw::Text::H2>
 
   <Shw::Text::H3>isOpen</Shw::Text::H3>
@@ -302,10 +392,10 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Text::H3>AccordionItem @isInteractive</Shw::Text::H3>
+  <Shw::Text::H3>isInteractive</Shw::Text::H3>
 
   <Shw::Flex {{style gap="1.5rem"}} @direction="column" as |SF|>
-    <SF.Item @label="Default, toggleContainsInteractive=true">
+    <SF.Item @label="Default, isInteractive=true">
       <Hds::Accordion as |A|>
         <A.Item>
           <:toggle>Item one</:toggle>
