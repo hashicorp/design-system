@@ -6,10 +6,6 @@
 import Component from '@glimmer/component';
 
 export default class HdsAccordionItemButtonComponent extends Component {
-  get onClickToggle() {
-    return this.args.onClickToggle ?? function () {};
-  }
-
   /**
    * Get the class names to apply to the component.
    * @method ItemButton#classNames

@@ -21,14 +21,12 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-
-  // override default .hds-disclosure-primitive style (Q: Should primitive be refactored?)
-  .hds-accordion-item { width: 100%; }
 }
 
 // ACCORDION ITEM COMPONENT (nested child)
 
 .hds-accordion-item {
+  width: 100%;
   background: var(--token-color-surface-primary);
   border-radius: 6px;
   box-shadow: var(--token-surface-mid-box-shadow);
