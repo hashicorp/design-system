@@ -17,3 +17,7 @@ navigation:
 <section data-tab="Specifications">
   @include "partials/specifications/anatomy.md"
 </section>
+
+<section data-tab="Validation">
+  @include "partials/validation/validation.md"
+</section>
