@@ -338,15 +338,13 @@
 
   <Shw::Text::H3>Accordion::Item::Button</Shw::Text::H3>
 
-  <Shw::Flex {{style gap="2rem"}} @label="isInteractive=true" as |SF|>
-    {{#each @model.STATES as |state|}}
-      <SF.Item @label={{state}} {{style flex="1"}}>
-        <Hds::Accordion::Item::Button @isInteractive={{true}} mock-state-value={{state}} />
-      </SF.Item>
-    {{/each}}
+  <Shw::Flex {{style gap="2rem" justifyContent="space-between"}} @label="isInteractive=true" as |SF|>
+    <SF.Item @label="default">
+      <Hds::Accordion::Item::Button @isInteractive={{true}} />
+    </SF.Item>
 
-    <SF.Item @label="focus & isOpen=true" {{style flex="1"}}>
-      <Hds::Accordion::Item::Button @isInteractive={{true}} @isOpen={{true}} mock-state-value="focus" />
+    <SF.Item @label="isOpen=true" {{style width="calc(20% - 1.5rem)"}}>
+      <Hds::Accordion::Item::Button @isInteractive={{true}} @isOpen={{true}} />
     </SF.Item>
   </Shw::Flex>
 
