@@ -1,9 +1,9 @@
 name: CI - Components - Nightly
     
 on:
-  schedule:
+  # schedule:
     # Runs at 00:00 UTC
-    - cron:  '0 0 * * *'
+    # - cron:  '0 0 * * *'
   workflow_dispatch:
 
 env:
