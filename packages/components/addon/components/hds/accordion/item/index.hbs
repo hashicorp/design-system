@@ -1,30 +1,14 @@
-<Hds::DisclosurePrimitive class={{this.classNames}} @isOpen={{@isOpen}} @toggle={{this.toggle}} ...attributes>
+<Hds::DisclosurePrimitive class={{this.classNames}} @isOpen={{@isOpen}} ...attributes>
   <:toggle as |t|>
     <div class="hds-accordion-item__toggle">
-      {{#if this.isClickable}}
-        <button
-          class="hds-accordion-item__toggle-button"
-          type="button"
-          {{on "click" t.onClickToggle}}
-          aria-label={{this.ariaLabel}}
-          aria-expanded={{if this.isOpen "true" "false"}}
-          aria-controls={{this.contentId}}
-        >
-          <FlightIcon @name="chevron-down" @size="24" @isInlineBlock={{false}} />
-        </button>
-      {{else}}
-        <Hds::Button
-          class="hds-accordion-item__toggle-button"
-          @text={{this.ariaLabel}}
-          @isIconOnly={{true}}
-          @icon="chevron-down"
-          @color="secondary"
-          @size="large"
-          {{on "click" t.onClickToggle}}
-          aria-expanded={{if this.isOpen "true" "false"}}
-          aria-controls={{this.contentId}}
-        />
-      {{/if}}
+      <Hds::Accordion::Item::Button
+        @isOpen={{t.isOpen}}
+        @onClickToggle={{t.onClickToggle}}
+        @contentId={{this.contentId}}
+        @ariaLabel={{this.ariaLabel}}
+        @isInteractive={{@isInteractive}}
+      />
+
       <div
         class="hds-accordion-item__toggle-content hds-typography-display-200 hds-foreground-strong hds-font-weight-semibold"
       >

@@ -1,15 +1,15 @@
 ---
 title: Accordion
-description: An accordion allow users to expand or collapse multiple sections of content in a stack.
-caption: Allow users to display multiple sections of content in a stack.
+description: (CV -) An accordion allow users to expand or collapse multiple sections of content in a stack. (KB -) An accordion is a vertically stacked list of container-like toggles that reveal or hide associated sections of content.
+caption: (CV -) Allow users to display multiple sections of content in a stack. (KB -) A list of toggles that reveal or hide associated sections of content.
 status: released
 links:
-  figma: {link to the "Accordion" page in the components Figma library}
-  github: {link to the "Accordion" component's folder in the GitHub repo}
+  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/branch/nGGr1ZOkVEPvzmq4HkASFn/HDS-Product---Components?type=design&node-id=36870-71031&t=JByoqnVP07zC5rEL-0
+  github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/accordion
 previewImage: assets/illustrations/components/accordion.jpg
 navigation:
   hidden: false
-  keywords: ['toggle', 'details', 'reveal', 'expand', 'collapse']
+  keywords: ['toggle', 'disclosure', 'details', 'reveal', 'summary', 'expand', 'collapse']
 ---
 
 <section data-tab="Guidelines">

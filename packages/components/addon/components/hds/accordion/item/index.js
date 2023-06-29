@@ -5,11 +5,14 @@
 
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
-import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 
 export default class HdsAccordionItemIndexComponent extends Component {
-  @tracked isOpen = this.args.isOpen ?? false;
+  /**
+   * Generates a unique ID for the Content
+   *
+   * @param contentId
+   */
+  contentId = 'content-' + guidFor(this);
 
   /**
    * @param ariaLabel
@@ -21,24 +24,12 @@ export default class HdsAccordionItemIndexComponent extends Component {
   }
 
   /**
-   * @param isClickable
+   * @param isInteractive
    * @type {boolean}
    * @default true
    */
-  get isClickable() {
-    return this.args.isClickable ?? true;
-  }
-
-  /**
-   * Generates a unique ID for the Content
-   *
-   * @param contentId
-   */
-  contentId = 'content-' + guidFor(this);
-
-  @action
-  toggle() {
-    this.isOpen = !this.isOpen;
+  get isInteractive() {
+    return this.args.isInteractive ?? true;
   }
 
   /**
@@ -50,16 +41,16 @@ export default class HdsAccordionItemIndexComponent extends Component {
     let classes = ['hds-accordion-item'];
 
     // add a class based on the @isOpen argument
-    if (this.isOpen) {
+    if (this.args.isOpen) {
       classes.push('hds-accordion-item--is-open');
     }
 
-    if (this.isClickable) {
-      // Entire accordion item including the chevron is clickable:
-      classes.push('hds-accordion-item--is-clickable');
+    if (this.isInteractive) {
+      // Entire accordion item including the chevron is interactive:
+      classes.push('hds-accordion-item--is-interactive');
     } else {
-      // Only chevron is clickable:
-      classes.push('hds-accordion-item--is--not-clickable');
+      // Only chevron is interactive:
+      classes.push('hds-accordion-item--is--not-interactive');
     }
 
     return classes.join(' ');
