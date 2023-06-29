@@ -33,9 +33,11 @@
   border-radius: 6px;
   box-shadow: var(--token-surface-mid-box-shadow);
 
-  &:hover,
-  &.mock-hover {
-    box-shadow: var(--token-surface-high-box-shadow);
+  &.hds-accordion-item--is-interactive {
+    &:hover,
+    &.mock-hover {
+      box-shadow: var(--token-surface-high-box-shadow);
+    }
   }
 }
 

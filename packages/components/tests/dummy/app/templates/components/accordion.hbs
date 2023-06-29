@@ -339,11 +339,11 @@
   <Shw::Text::H3>Accordion::Item::Button</Shw::Text::H3>
 
   <Shw::Flex {{style gap="2rem" justifyContent="space-between"}} @label="isInteractive=true" as |SF|>
-    <SF.Item @label="default">
+    <SF.Item @label="default" {{style position="relative"}}>
       <Hds::Accordion::Item::Button @isInteractive={{true}} />
     </SF.Item>
 
-    <SF.Item @label="isOpen=true" {{style width="calc(20% - 1.5rem)"}}>
+    <SF.Item @label="isOpen=true" {{style width="calc(20% - 1.5rem)" position="relative"}}>
       <Hds::Accordion::Item::Button @isInteractive={{true}} @isOpen={{true}} />
     </SF.Item>
   </Shw::Flex>
