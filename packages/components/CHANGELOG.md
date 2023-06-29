@@ -16,7 +16,7 @@
   Upgraded the following dependencies:
 
   - `ember-focus-trap` from `1.0.1` to `1.0.2`
-  - `ember-keyboard"` from `8.1.0` to `8.2.0`
+  - `ember-keyboard` from `8.1.0` to `8.2.0`
   - `ember-truth-helpers` from `3.0.0` to `3.1.1`
   - `sass` from `1.58.3` to `1.62.1`
 
