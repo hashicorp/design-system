@@ -54,15 +54,16 @@
 }
 
 .hds-accordion-item__button {
-  @include hds-focus-ring-with-pseudo-element();
-  margin: -1px; // offset border size
   padding: 0;
 
   &:hover { cursor: pointer; }
 
   // entire toggle area is interactive
   &.hds-accordion-item__button--is-not-interactive {
+    @include hds-focus-ring-with-pseudo-element();
+
     position: static;
+    margin: -1px; // offset border size
     background: transparent;
     border: 1px solid transparent;
 
@@ -79,10 +80,14 @@
   // only chevron button area is interactive
   &.hds-accordion-item__button--is-interactive {
     @include hds-button();
-    @include hds-button-color-secondary();
 
-    // when button is focused by clicking (vs. tabbing), border turns blue w/o this:
-    &:focus { border-color: var(--token-color-border-strong); }
+    &:focus,
+    &.mock-focus {
+      @include hds-button-state-focus();
+    }
+
+    // `hds-button-color-secondary` determines the focus color and needs to be placed after `hds-button-state-focus`
+    @include hds-button-color-secondary();
   }
 
   // animate chevron icon
