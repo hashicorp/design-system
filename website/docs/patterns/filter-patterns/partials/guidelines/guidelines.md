@@ -8,11 +8,11 @@ A data set is a broad term for an array of items, objects, or related informatio
 
 **Data set represented by a table**
 
-![Tabular data set](/assets/patterns/filter-patterns/example-data-set-tabular-data.png =1048x\*)
+![Tabular data set](/assets/patterns/filter-patterns/example-data-set-tabular-data.png =1048x*)
 
 **Data set represented by a grid**
 
-![Non-tabular data set](/assets/patterns/filter-patterns/example-data-set-non-tabular-data.png =878x\*)
+![Non-tabular data set](/assets/patterns/filter-patterns/example-data-set-non-tabular-data.png =878x*)
 
 ### Filters
 
@@ -24,17 +24,17 @@ Filters often consist of numerous parameters that mirror the columns of a table 
 
 Organizing filters in a **filter bar** is a common positioning method and consists of one or more dropdowns, buttons, or input components that are used to select values from a set of parameters. A [Segmented Group](/components/segmented-group) can be used within a filter bar to group similar parameters and support complex filtering.
 
-![Filters represented by a filter bar](/assets/patterns/filter-patterns/filter-bar-segmented-group.png =724x\*)
+![Filters represented by a filter bar](/assets/patterns/filter-patterns/filter-bar-segmented-group.png =724x*)
 
 **Example of a horizontal filter bar paired with a data set expressed as a table.**
 
-![Horizontal orientation of the filter bar](/assets/patterns/filter-patterns/layout-filter-bar.png =559x\*)
+![Horizontal orientation of the filter bar](/assets/patterns/filter-patterns/layout-filter-bar.png =559x*)
 
 Depending on the filter type and how they are related, multiple [Segmented Groups](/components/segmented-group) can be used to group similar filters together. For example; a [Search Input](/components/form/text-input#search) grouped with a [Dropdown](/components/dropdown) to limit the filter parameters that are included in the search.
 
 **Limiting the returned search results to a specific parameter**
 
-![Searching across a specific parameter](/assets/patterns/filter-patterns/filter-bar-similar-filters.png =718x\*)
+![Searching across a specific parameter](/assets/patterns/filter-patterns/filter-bar-similar-filters.png =718x*)
 
 #### Sidebar
 
@@ -44,29 +44,29 @@ If space permits, filters can be positioned vertically in a **sidebar** at the p
 
 Page-level sidebars can be used to filter a data set presented in a non-tabular fashion and if filtering the content of the entire page is required. A sidebar should be oriented on the left (start) side of the viewport.
 
-![Vertical orientation of the filter bar](/assets/patterns/filter-patterns/layout-sidebar-left-page-level.png =559x\*)
+![Vertical orientation of the filter bar](/assets/patterns/filter-patterns/layout-sidebar-left-page-level.png =559x*)
 
 ##### In-line sidebar
 
 In-line sidebars can be used when the number of filterable parameters is minimal and if space permits.
 
-![Vertical orientation of the filter bar on the left](/assets/patterns/filter-patterns/layout-sidebar-left-inline.png =559x\*)
+![Vertical orientation of the filter bar on the left](/assets/patterns/filter-patterns/layout-sidebar-left-inline.png =559x*)
 
 ### Applied filters
 
 Display the **applied filters** and provide the user with a method to clear all filters at once. Applied filters should be represented using a [Tag](/components/tag) component, which allows for the individual dismissal of a filter value.
 
-![Applied filters](/assets/patterns/filter-patterns/applied-filters.png =547x\*)
+![Applied filters](/assets/patterns/filter-patterns/applied-filters.png =547x*)
 
 #### Positioning with filter bars
 
 Applied filters should be positioned between the data set and the filter bar with a `16px` gap between elements.
 
-![Applied filters with filter bar positioning](/assets/patterns/filter-patterns/applied-filters-positioning-filter-bar.png =559x\*)
+![Applied filters with filter bar positioning](/assets/patterns/filter-patterns/applied-filters-positioning-filter-bar.png =559x*)
 
 If the filters are positioned in a page-level sidebar, the applied filters should be positioned directly above the dataset with a `16px` gap.
 
-![Applied filters with filter sidebar](/assets/patterns/filter-patterns/applied-filters-positioning-sidebar.png =559x\*)
+![Applied filters with filter sidebar](/assets/patterns/filter-patterns/applied-filters-positioning-sidebar.png =559x*)
 
 ### Global filter functions
 
@@ -77,11 +77,11 @@ Depending on the fetching method and complexity of the data set, global filter f
 
 #### Multiple global filter functions
 
-![Multiple global functions](/assets/patterns/filter-patterns/global-filter-functions.png =874x\*)
+![Multiple global functions](/assets/patterns/filter-patterns/global-filter-functions.png =874x*)
 
 #### Single global function
 
-![Single function](/assets/patterns/filter-patterns/global-filter-functions-single.png =874x\*)
+![Single function](/assets/patterns/filter-patterns/global-filter-functions-single.png =874x*)
 
 In the case a multiple filter functions, use the [Segmented Group](/components/segmented-group). If only a single function is necessary, use the secondary [Button](/components/button#secondary).
 
@@ -89,7 +89,7 @@ In the case a multiple filter functions, use the [Segmented Group](/components/s
 
 Use pagination to break down the filtered data set into pages. For more details, refer to the [Pagination](/components/pagination) guidelines.
 
-![Pagination example](/assets/patterns/filter-patterns/pagination-layout.png =559x\*)
+![Pagination example](/assets/patterns/filter-patterns/pagination-layout.png =559x*)
 
 ## Filtering methods
 
@@ -134,13 +134,13 @@ Communicate that values corresponding with a filter parameter have been applied 
 
 **Communicating that two values within a parameter have been applied in the Dropdown**
 
-![Filter dropdown with count](/assets/patterns/filter-patterns/filter-bar-dropdown-count.png =661x\*)
+![Filter dropdown with count](/assets/patterns/filter-patterns/filter-bar-dropdown-count.png =661x*)
 
 This, when combined with the applied filters provides a detailed snapshot of what specific filter values are applied to the data set and the relevant parameters that they correspond with.
 
 **Communicating that multiple filter parameters have been applied**
 
-![Filter dropdown with multiple counts](/assets/patterns/filter-patterns/filter-bar-dropdown-count-multiple.png =728x\*)
+![Filter dropdown with multiple counts](/assets/patterns/filter-patterns/filter-bar-dropdown-count-multiple.png =728x*)
 
 ## Empty state
 
@@ -155,13 +155,13 @@ Depending on the applied filters, there may not be any records returned from a d
 
 Use the Helios [Application State](/components/application-state) component to communicate the lack of results and steps the user can take to remedy the situation.
 
-![Empty state example](/assets/patterns/filter-patterns/filter-patterns-empty-state.png =559x\*)
+![Empty state example](/assets/patterns/filter-patterns/filter-patterns-empty-state.png =559x*)
 
 ### Within applied filters
 
 If no filters have been applied, use a [Tooltip](/components/tooltip) coupled with the applied filters label to guide the user to the filter functions. Not only does this provide context and direct the user to the filters, but it prevents unncessary layout shift upon applying filters.
 
-![Empty state in applied filters](/assets/patterns/filter-patterns/applied-filters-empty-state.png =450x\*)
+![Empty state in applied filters](/assets/patterns/filter-patterns/applied-filters-empty-state.png =450x*)
 
 ## Overflow
 
@@ -173,17 +173,17 @@ If the number of filterable parameters exceeds the available space, consider pri
 
 **Hiding additional filters behind an action**
 
-![More filters trigger](/assets/patterns/filter-patterns/overflow-filter-bar.png =559x\*)
+![More filters trigger](/assets/patterns/filter-patterns/overflow-filter-bar.png =559x*)
 
 **Triggering a Flyout with additional filter parameters**
 
-![Flyout triggered by more filters](/assets/patterns/filter-patterns/overflow-filter-bar-flyout.png =559x\*)
+![Flyout triggered by more filters](/assets/patterns/filter-patterns/overflow-filter-bar-flyout.png =559x*)
 
 !!! Dont
 
 Don't stack multiple filter bars on top of a data set. This can result in unnecessary complexity in the UI.
 
-![Multiple filter bar rows](/assets/patterns/filter-patterns/overflow-filter-bar-multiple-rows.png =559x\*)
+![Multiple filter bar rows](/assets/patterns/filter-patterns/overflow-filter-bar-multiple-rows.png =559x*)
 
 !!!
 
@@ -191,4 +191,4 @@ Don't stack multiple filter bars on top of a data set. This can result in unnece
 
 Given that the page-level sidebar occupies the height of the viewport, take filters within a sidebar should not overflow into an interstitial component like a [Flyout](/components/flyout). Instead, utilize the height of the viewport and the consider introducing a scrollable area within the sidebar if many filters are necessary.
 
-![Filter sidebar with scroll](/assets/patterns/filter-patterns/filter-sidebar-scrollbar.png =559x\*)
+![Filter sidebar with scroll](/assets/patterns/filter-patterns/filter-sidebar-scrollbar.png =559x*)
