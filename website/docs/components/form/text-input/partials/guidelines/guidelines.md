@@ -31,6 +31,12 @@ Text Input accepts [all native HTML types](https://developer.mozilla.org/en-US/d
   <F.Label>Search</F.Label>
 </Hds::Form::TextInput::Field>
 
+#### Loading
+
+<Hds::Form::TextInput::Field @type="search" placeholder="Search" @width="300px" @isLoading="true" as |F|>
+  <F.Label>Search</F.Label>
+</Hds::Form::TextInput::Field>
+
 ### Date and time
 
 !!! Info
