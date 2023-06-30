@@ -17,15 +17,15 @@ Join the [#team-design-systems](https://hashicorp.slack.com/archives/C7KTUHNUS) 
 
 ## File an issue
 
-Find a bug? Want to report a security issue? [File an issue in our backlog]().
+Find a bug? Want to report a security issue? [File an issue in our backlog](https://go.hashi.co/hds-support).
 
 ## Request a feature
 
-Looking for a new component? Want to propose a new pattern? [Submit a request]() to let us know your team or project needs.
+Looking for a new component? Want to propose a new pattern? [Submit a request](https://go.hashi.co/hds-support) to let us know your team or project needs.
 
 ## Request an icon
 
-Looking for a new icon? [Submit a request]() to let us know your team or project needs.
+Looking for a new icon? [Submit a request](https://go.hashi.co/hds-support) to let us know your team or project needs.
 
 ## Office hours
 
