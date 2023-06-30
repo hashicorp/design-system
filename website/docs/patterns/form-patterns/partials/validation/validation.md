@@ -44,7 +44,9 @@ Delayed validation is immediate in the sense that it encourages displaying error
 
 This method should be used **whenever possible** to resolve an error while the user is still in the context of the erroring field. This can help limit the amount of context switching necessary when filling out a form and reduce the cognitive load on the user.
 
-<!--Jory add video here-->
+<video controls loop width="100%">
+  <source src="/assets/patterns/form-patterns/delayed-validation-example.mp4" />
+</video>
 
 ### Validation on submit
 
