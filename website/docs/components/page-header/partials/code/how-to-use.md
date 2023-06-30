@@ -16,6 +16,8 @@ The Page Header uses a number of contextual components that either yield their c
 
 The layout of this component is responsive and adjusts based on the width of its bounding container. The examples captured here may not be indicative of how the component will render within a specific application or layout.
 
+The responsive layout is achieved using [container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_container_queries), which creates a new [stacking context](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context). We recommend setting the appropriate `z-index` value to the Page Header (or its parent container) to make sure its content–for example a Dropdown–is not obscured by other elements on the page.
+
 !!!
 
 ```handlebars

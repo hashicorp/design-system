@@ -8,6 +8,9 @@
 //
 
 .hds-page-header {
+  // `container-type: inline-size` creates a new stacking context; to control the position of Page Header content on the z-axis
+  // we set this element to `relative` to allow consumers to define the `z-index` value that works in their context
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 16px;
