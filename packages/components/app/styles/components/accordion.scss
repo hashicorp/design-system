@@ -29,7 +29,7 @@ $accordion-gap: 12px;
   border-radius: $accordion-item-medium-border-radius;
   box-shadow: var(--token-surface-mid-box-shadow);
 
-  &.hds-accordion-item--contains-interactive {
+  &.hds-accordion-item--does-not-contain-interactive {
     &:hover,
     &.mock-hover {
       box-shadow: var(--token-surface-high-box-shadow);
