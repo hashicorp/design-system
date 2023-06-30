@@ -1,7 +1,7 @@
 <button
   class={{this.classNames}}
   type="button"
-  {{on "click" this.onClickToggle}}
+  {{on "click" @onClickToggle}}
   aria-controls={{@contentId}}
   aria-expanded={{if @isOpen "true" "false"}}
   aria-label={{@ariaLabel}}
