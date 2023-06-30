@@ -24,12 +24,12 @@ export default class HdsAccordionItemIndexComponent extends Component {
   }
 
   /**
-   * @param isInteractive
+   * @param containsInteractive
    * @type {boolean}
    * @default true
    */
-  get isInteractive() {
-    return this.args.isInteractive ?? true;
+  get containsInteractive() {
+    return this.args.containsInteractive ?? false;
   }
 
   /**
@@ -45,12 +45,12 @@ export default class HdsAccordionItemIndexComponent extends Component {
       classes.push('hds-accordion-item--is-open');
     }
 
-    if (this.isInteractive) {
+    if (this.containsInteractive) {
       // Entire accordion item including the chevron is interactive:
-      classes.push('hds-accordion-item--is-interactive');
+      classes.push('hds-accordion-item--contains-interactive');
     } else {
       // Only chevron is interactive:
-      classes.push('hds-accordion-item--is--not-interactive');
+      classes.push('hds-accordion-item--does-not-contain-interactive');
     }
 
     return classes.join(' ');

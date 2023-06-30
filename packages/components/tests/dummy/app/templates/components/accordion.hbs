@@ -56,8 +56,8 @@
 
   <Shw::Text::H4>With nested Accordions</Shw::Text::H4>
 
-  <Shw::Flex {{style gap="2rem"}} as |SF|>
-    <SF.Item {{style flex="1"}}>
+  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+    <SG.Item {{style flex="1"}}>
       <Hds::Accordion as |A|>
         <A.Item @isOpen={{true}}>
           <:toggle>Item one</:toggle>
@@ -72,9 +72,13 @@
             </Hds::Accordion>
           </:content>
         </A.Item>
+      </Hds::Accordion>
+    </SG.Item>
 
+    <SG.Item {{style flex="1"}}>
+      <Hds::Accordion as |A|>
         <A.Item @isOpen={{true}}>
-          <:toggle>Item two</:toggle>
+          <:toggle>Item one</:toggle>
           <:content>
             <Hds::Accordion>
               <Hds::Accordion::Item>
@@ -93,20 +97,20 @@
           </:content>
         </A.Item>
       </Hds::Accordion>
-    </SF.Item>
-  </Shw::Flex>
+    </SG.Item>
+  </Shw::Grid>
 
   <Shw::Text::H4>With different Accordion variants nested</Shw::Text::H4>
 
   <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
-    <SG.Item @label="Nested Accordion with isInteractive=false nested in isInteractive=true">
+    <SG.Item @label="Nested Accordion with containsInteractive=true nested in containsInteractive=false">
       <Hds::Accordion as |A|>
         <A.Item @isOpen={{true}}>
-          <:toggle>Item with isInteractive=true (the default)</:toggle>
+          <:toggle>Item with containsInteractive=false (the default)</:toggle>
           <:content>
             <Hds::Accordion>
-              <Hds::Accordion::Item @isInteractive={{false}}>
-                <:toggle>Nested item with isInteractive=false</:toggle>
+              <Hds::Accordion::Item @containsInteractive={{true}}>
+                <:toggle>Nested item with containsInteractive=true</:toggle>
                 <:content>
                   <Shw::Placeholder @text="generic content" @height="40" @background="#eee" />
                 </:content>
@@ -117,14 +121,14 @@
       </Hds::Accordion>
     </SG.Item>
 
-    <SG.Item @label="Nested Accordion with isInteractive=true nested in isInteractive=false">
+    <SG.Item @label="Nested Accordion with containsInteractive=false nested in containsInteractive=true">
       <Hds::Accordion as |A|>
-        <A.Item @isOpen={{true}} @isInteractive={{false}}>
-          <:toggle>Item with isInteractive=false</:toggle>
+        <A.Item @isOpen={{true}} @containsInteractive={{true}}>
+          <:toggle>Item with containsInteractive=true</:toggle>
           <:content>
             <Hds::Accordion>
               <Hds::Accordion::Item>
-                <:toggle>Nested item with isInteractive=true (the default)</:toggle>
+                <:toggle>Nested item with containsInteractive=false (the default)</:toggle>
                 <:content>
                   <Shw::Placeholder @text="generic content" @height="40" @background="#eee" />
                 </:content>
@@ -156,7 +160,7 @@
   <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
     <SG.Item @label="With interactive content in toggle and in toggled content">
       <Hds::Accordion as |A|>
-        <A.Item @isInteractive={{false}} @isOpen={{true}}>
+        <A.Item @containsInteractive={{true}} @isOpen={{true}}>
           <:toggle>
             <div class="shw-component-accordion-layout shw-component-accordion-layout--justify">
               <span>
@@ -224,7 +228,7 @@
 
   <Shw::Text::H3>Edge cases</Shw::Text::H3>
 
-  <Shw::Flex {{style gap="1.5rem"}} @direction="column" as |SF|>
+  <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
     <SF.Item @label="With long content in toggle which wraps">
       <Hds::Accordion as |A|>
         <A.Item>
@@ -247,16 +251,16 @@
 
   <Shw::Text::H3>Accordion::Item</Shw::Text::H3>
 
-  {{#let (array true false) as |booleans|}}
-    <Shw::Grid {{style gap="1.5rem"}} @columns={{2}} as |SG|>
+  {{#let (array false true) as |booleans|}}
+    <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
       {{#each booleans as |bool|}}
         <SG.Item>
-          <Shw::Text::H4>isInteractive={{bool}}</Shw::Text::H4>
+          <Shw::Text::H4>containsInteractive={{bool}}</Shw::Text::H4>
           <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
             {{#each @model.STATES as |state|}}
               <SF.Item @label={{state}} {{style flex="1"}}>
                 <Hds::Accordion::Item
-                  @isInteractive={{bool}}
+                  @containsInteractive={{bool}}
                   mock-state-value={{state}}
                   mock-state-selector="{{if (not-eq state 'hover') '.hds-accordion-item__button'}}"
                 >
@@ -269,7 +273,7 @@
             {{/each}}
 
             <SF.Item @label="isOpen=true" {{style flex="1"}}>
-              <Hds::Accordion::Item @isInteractive={{bool}} @isOpen={{true}}>
+              <Hds::Accordion::Item @containsInteractive={{bool}} @isOpen={{true}}>
                 <:toggle>Item one</:toggle>
                 <:content>
                   <Shw::Placeholder @text="generic content" @height="40" @background="#eee" />
@@ -278,7 +282,7 @@
             </SF.Item>
             <SF.Item @label="focus & isOpen=true" {{style flex="1"}}>
               <Hds::Accordion::Item
-                @isInteractive={{bool}}
+                @containsInteractive={{bool}}
                 mock-state-value="focus"
                 mock-state-selector=".hds-accordion-item__button"
                 @isOpen={{true}}
@@ -295,52 +299,11 @@
     </Shw::Grid>
   {{/let}}
 
-  <Shw::Divider @level={{2}} />
+  <Shw::Text::H4>AccordionItem Options</Shw::Text::H4>
 
-  <Shw::Text::H3>Accordion::Item::Button</Shw::Text::H3>
+  <Shw::Text::Body><strong>isOpen</strong></Shw::Text::Body>
 
-  {{#let (array true false) as |booleans|}}
-    {{#each booleans as |bool|}}
-      <Shw::Flex {{style gap="2rem" justifyContent="space-between"}} @label="isInteractive={{bool}}" as |SF|>
-        {{#each @model.STATES as |state|}}
-          <SF.Item @label={{state}}>
-            <div class="shw-component-accordion-standalone-button">
-              <Hds::Accordion::Item::Button
-                @isInteractive={{bool}}
-                mock-state-value={{state}}
-                @onClickToggle={{this.noop}}
-              />
-            </div>
-          </SF.Item>
-        {{/each}}
-
-        <SF.Item @label="isOpen=true">
-          <div class="shw-component-accordion-standalone-button">
-            <Hds::Accordion::Item::Button @isInteractive={{bool}} @isOpen={{true}} @onClickToggle={{this.noop}} />
-          </div>
-        </SF.Item>
-
-        <SF.Item @label="focus & isOpen=true" {{style width="calc(20% - 1.5rem)" position="relative"}}>
-          <div class="shw-component-accordion-standalone-button">
-            <Hds::Accordion::Item::Button
-              @isInteractive={{bool}}
-              @isOpen={{true}}
-              @onClickToggle={{this.noop}}
-              mock-state-value="focus"
-            />
-          </div>
-        </SF.Item>
-      </Shw::Flex>
-    {{/each}}
-  {{/let}}
-
-  <Shw::Divider />
-
-  <Shw::Text::H2>Options</Shw::Text::H2>
-
-  <Shw::Text::H3>isOpen</Shw::Text::H3>
-
-  <Shw::Flex {{style gap="1.5rem"}} @direction="column" as |SF|>
+  <Shw::Flex {{style gap="2rem" marginBottom="2rem"}} @direction="column" as |SF|>
     <SF.Item @label="Default, isOpen=false">
       <Hds::Accordion::Item>
         <:toggle>Item one</:toggle>
@@ -362,12 +325,10 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Divider @level={{2}} />
+  <Shw::Text::Body><strong>containsInteractive</strong></Shw::Text::Body>
 
-  <Shw::Text::H3>isInteractive</Shw::Text::H3>
-
-  <Shw::Flex {{style gap="1.5rem"}} @direction="column" as |SF|>
-    <SF.Item @label="Default, isInteractive=true">
+  <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
+    <SF.Item @label="containsInteractive=false (See “States”)">
       <Hds::Accordion as |A|>
         <A.Item>
           <:toggle>Item one</:toggle>
@@ -378,9 +339,9 @@
       </Hds::Accordion>
     </SF.Item>
 
-    <SF.Item @label="isInteractive=false (See “States”)">
+    <SF.Item @label="Default, containsInteractive=true">
       <Hds::Accordion as |A|>
-        <A.Item @isInteractive={{false}}>
+        <A.Item @containsInteractive={{true}}>
           <:toggle>Item one</:toggle>
           <:content>
             <Shw::Placeholder @text="generic content" @height="40" @background="#eee" />
@@ -389,4 +350,51 @@
       </Hds::Accordion>
     </SF.Item>
   </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Accordion::Item::Button</Shw::Text::H3>
+
+  {{#let (array false true) as |booleans|}}
+    {{#each booleans as |bool|}}
+      <Shw::Flex
+        {{style gap="2rem" justifyContent="space-between"}}
+        @label="parentContainsInteractive={{bool}}"
+        as |SF|
+      >
+        {{#each @model.STATES as |state|}}
+          <SF.Item @label={{state}}>
+            <div class="shw-component-accordion-standalone-button">
+              <Hds::Accordion::Item::Button
+                @parentContainsInteractive={{bool}}
+                mock-state-value={{state}}
+                @onClickToggle={{this.noop}}
+              />
+            </div>
+          </SF.Item>
+        {{/each}}
+
+        <SF.Item @label="isOpen=true">
+          <div class="shw-component-accordion-standalone-button">
+            <Hds::Accordion::Item::Button
+              @parentContainsInteractive={{bool}}
+              @isOpen={{true}}
+              @onClickToggle={{this.noop}}
+            />
+          </div>
+        </SF.Item>
+
+        <SF.Item @label="focus & isOpen=true" {{style width="calc(20% - 2rem)" position="relative"}}>
+          <div class="shw-component-accordion-standalone-button">
+            <Hds::Accordion::Item::Button
+              @parentContainsInteractive={{bool}}
+              @isOpen={{true}}
+              @onClickToggle={{this.noop}}
+              mock-state-value="focus"
+            />
+          </div>
+        </SF.Item>
+      </Shw::Flex>
+    {{/each}}
+  {{/let}}
 </section>

@@ -29,7 +29,7 @@ $accordion-gap: 12px;
   border-radius: $accordion-item-medium-border-radius;
   box-shadow: var(--token-surface-mid-box-shadow);
 
-  &.hds-accordion-item--is-interactive {
+  &.hds-accordion-item--contains-interactive {
     &:hover,
     &.mock-hover {
       box-shadow: var(--token-surface-high-box-shadow);
@@ -65,7 +65,7 @@ $accordion-gap: 12px;
     background: transparent;
     border: 1px solid transparent;
 
-    // expand button target to cover entire AccordionItem Toggle block (depending on the `@isInteractive` argument)
+    // expand button target to cover entire AccordionItem Toggle block (depending on the `@containsInteractive` argument)
     &::after {
       position: absolute;
       display: block;
