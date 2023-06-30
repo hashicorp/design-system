@@ -16,8 +16,8 @@ The base Accordion component serves only as a wrapper to group together one or m
   <C.Property @name="isOpen" @default="false" @type="boolean">
     Toggles the visibility of the content when the toggle is interacted with. To display content on page load, set the value to true.
   </C.Property>
-  <C.Property @name="isInteractive" @default="true" @type="boolean">
-    Controls whether the entire toggle block is interactive for toggling the content display or whether only the chevron button itself is interactive.
+  <C.Property @name="containsInteractive" @default="false" @type="boolean">
+    Controls whether the entire toggle block is interactive for toggling the content display or whether only the chevron button itself is interactive which allows for adding other interactive content in the toggle area.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
