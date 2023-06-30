@@ -38,18 +38,22 @@ The best user experience is often a combination of different methods depending o
 
 ### Delayed validation
 
-Delayed validation occurs on the client and refers to validating a field upon completion. This can generally be assessed by the field losing focus or the user `tabing` to subsequent fields.
+Delayed validation occurs on the client and refers to validating a field upon its completion, which can generally be assessed by the field losing focus via an [`onblur`](https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event) event.
 
-Delayed validation is immediate enough by displaying errors directly after a field has been filled out, while not interrupting the user while they are in the process of filling out a field.
+Delayed validation is immediate in the sense that it encourages displaying errors directly after a field has been filled out, while not interrupting the user while they are in the process of filling out a field.
 
-This method should be used **whenever possible** to resolve an error while the user is still in the context of the erroring field.
+This method should be used **whenever possible** to resolve an error while the user is still in the context of the erroring field. This can help limit the amount of context switching necessary when filling out a form and reduce the cognitive load on the user.
+
+<!--Jory add video here-->
 
 ### Validation on submit
 
-Validating a form on submission generally occurs on the client and can be used to display errors after interacting with the primary submit button in the form. This method can manifest in many use cases and can include:
+Validating a form on submission generally occurs on the client and can be used to display errors after interacting with the primary submit button in the form. This method can manifest in many use cases including:
 
 - Validating that each required field in a form is filled.
-- Validating that the formatting of data in the form matches the expectations of the application and the server.
+- Validating that the input data matches the formatting expectations of the application and the server.
+
+<!--Jory add video here-->
 
 ## Displaying validation
 
@@ -57,12 +61,18 @@ Where validation is displayed to the user impacts the cognitive load on the user
 
 ### Inline validation
 
-Display client-side errors within a specific field inline with the field using the built-in [invalid input state](/components/form/text-input?tab=code#validation) and the accompanying `Error` contextual component.
+Display client-side validation errors within a specific field inline with the field using the built-in [invalid input state](/components/form/text-input?tab=code#validation) and the accompanying `Error` contextual component.
+
+<!--jory add image here-->
 
 ### Form-level validation
 
 Display server-side errors using a Critical Inline [Alert](/components/alert) above the form listing **all** errors with links to each invalid field.
 
+<!--jory add image here-->
+
 ## Validation interaction
 
-If a validation error occurs in a field outside of the viewport, scroll the user to the error.
+If a validation error occurs in a field outside of the viewport, scroll the user to the error. This commonly occurs in long, complex forms when a form-level error occurs.
+
+<!--Jory add video here-->
