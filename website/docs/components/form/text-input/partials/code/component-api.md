@@ -17,6 +17,9 @@ The Text Input component has two different variants with their own APIs:
   <C.Property @name="isInvalid" @type="boolean" @default="false">
     Applies an “invalid” appearance to the control but doesn’t modify its logical validity.
   </C.Property>
+  <C.Property @name="isLoading" @type="boolean" @default="false">
+    When true, it shows a loading indicator instead of a magnifying glass; only applicable when `@type="search"`.
+  </C.Property>
   <C.Property @name="width" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
     By default, the `<input>` fills the parent container. If a `@width` parameter is provided, the control will have a fixed width.
   </C.Property>
@@ -40,6 +43,9 @@ The Text Input component has two different variants with their own APIs:
   </C.Property>
   <C.Property @name="isInvalid" @type="boolean" @default="false">
     Applies an “invalid” appearance to the control but doesn’t modify its logical validity.
+  </C.Property>
+  <C.Property @name="isLoading" @type="boolean" @default="false">
+    When true, it shows a loading indicator instead of a magnifying glass; only applicable when `@type="search"`.
   </C.Property>
   <C.Property @name="isRequired" @type="boolean" @default="false">
     Appends a `Required` indicator next to the label text and sets the `required` attribute on the control when user input is required.

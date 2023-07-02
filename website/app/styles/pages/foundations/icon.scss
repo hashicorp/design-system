@@ -1,0 +1,11 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+#show-content-icons-usage-guidelines {
+  // make "stretched" icon display at a more reasonable max-width within examples
+  .doc-icon-demo--constrain-max-width {
+    max-width: 200px;
+  }
+}

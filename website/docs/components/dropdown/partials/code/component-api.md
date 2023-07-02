@@ -4,10 +4,10 @@ The Dropdown component is composed of different child components each with their
 
 - The Dropdown component
     - Optional header and footer
-- Toggle components to open/close the dropdown
+- Toggle components to open/close the Dropdown
     - ToggleButton
     - ToggleIcon
-- ListItem components, to build the dropdown’s list items
+- ListItem components, to build the Dropdown’s list items
     - Description
     - Generic
     - Interactive
@@ -28,12 +28,12 @@ The Dropdown component is composed of different child components each with their
     If a `@isInline` parameter is provided then the element will be displayed as `inline-block` (useful to achieve specific layouts like in a container with right alignment). Otherwise it will be have a `block` layout.
   </C.Property>
   <C.Property @name="close" @type="function">
-    Function to programmatically close the dropdown.
+    Function to programmatically close the Dropdown.
     <br/><br/>
     If this function is invoked using an `\{{on "click"}}` modifier applied to the `ListItem::Interactive` element, there is a quirky behavior of the Ember `<LinkTo>` component which requires a workaround to have the events executed in the right order (this happens only if it has a `@route` argument). Read more about the issue and a possible solution [in this GitHub comment](https://github.com/hashicorp/design-system/pull/399#issuecomment-1171186772).
   </C.Property>
   <C.Property @name="onClose" @type="function">
-    Callback function invoked when the dropdown is closed, if provided.
+    Callback function invoked when the Dropdown is closed, if provided.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
@@ -42,11 +42,11 @@ The Dropdown component is composed of different child components each with their
 
 #### Dropdown::Header and Dropdown::Footer
 
-If the dropdown content exceeds the height of the container, the header and footer remain fixed while the list of items adjusts its height.
+If the Dropdown content exceeds the height of the container, the header and footer remain fixed while the list of items adjusts its height.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">
-    Elements nested in this child component are yielded inside the dropdown header/footer.
+    Elements nested in this child component are yielded inside the Dropdown header/footer.
   </C.Property>
   <C.Property @name="hasDivider" @type="boolean" @default="false" />
   <C.Property @name="...attributes">

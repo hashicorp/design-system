@@ -9,8 +9,5 @@
 
 .hds-button-set {
   display: flex;
-
-  > * + * {
-    margin-left: 16px;
-  }
+  gap: 16px;
 }

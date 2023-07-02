@@ -23,7 +23,7 @@ module(
         .hasClass('hds-application-state__body');
     });
 
-    test('it should render the yielded content', async function (assert) {
+    test('it should render the yielded content when used in block form', async function (assert) {
       await render(
         hbs`<Hds::ApplicationState::Body id="test-application-state-body">
         <pre>test</pre>
@@ -31,6 +31,28 @@ module(
       );
       assert.dom('#test-application-state-body > pre').exists();
       assert.dom('#test-application-state-body > pre').hasText('test');
+    });
+
+    test('it should render the text if defined', async function (assert) {
+      await render(
+        hbs`<Hds::ApplicationState::Body id="test-application-state-body" @text="I am the only thing that should exist"/>`
+      );
+      assert.dom('#test-application-state-body').exists();
+      assert
+        .dom('#test-application-state-body')
+        .hasText('I am the only thing that should exist');
+    });
+
+    test('it should not render defined text if used in block form', async function (assert) {
+      await render(
+        hbs`<Hds::ApplicationState::Body id="test-application-state-body" @text="I should not exist">
+        <pre>test should only exist</pre>
+      </Hds::ApplicationState::Body>`
+      );
+      assert.dom('#test-application-state-body > pre').exists();
+      assert
+        .dom('#test-application-state-body > pre')
+        .hasText('test should only exist');
     });
   }
 );

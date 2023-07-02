@@ -1,5 +1,23 @@
 # @hashicorp/flight-icons
 
+## 2.14.0
+
+### Minor Changes
+
+- [#1428](https://github.com/hashicorp/design-system/pull/1428) [`24bb5ff62`](https://github.com/hashicorp/design-system/commit/24bb5ff628c2166314854c1295d9998bbd5e2aba) Thanks [@jorytindall](https://github.com/jorytindall)! - Added robot icon for Service Principals
+
+## 2.13.1
+
+### Patch Changes
+
+- [#1420](https://github.com/hashicorp/design-system/pull/1420) [`8233493c0`](https://github.com/hashicorp/design-system/commit/8233493c05c422f06f1e61bb17e9c5c2e5385090) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Fix color for `connection-gateway` icon
+
+## 2.13.0
+
+### Minor Changes
+
+- [#1412](https://github.com/hashicorp/design-system/pull/1412) [`37d06ef1a`](https://github.com/hashicorp/design-system/commit/37d06ef1ae9f1f5c4a30796e3c42e62ccbe860c9) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Added Ampersand icon
+
 ## 2.12.0
 
 ### Minor Changes

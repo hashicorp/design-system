@@ -8,7 +8,7 @@
 
 !!! Warning
 
-The `<Hds::Form::RadioCard::Group>` component does not provide the logic for handling the mutually exclusive nature of radio controls (when a radio card is checked, any other radio cards with the same name that were previously checked become unchecked). You can implement this yourself in an `\{{on "change" this.onChange}}` function or manage the `checked` state of radio cards by updating the underlying data.
+The `<Hds::Form::RadioCard::Group>` component does not provide the logic for handling the mutually exclusive nature of radio controls (when a Radio Card is checked, any other Radio Cards with the same name that were previously checked become unchecked). You can implement this yourself in an `\{{on "change" this.onChange}}` function or manage the `checked` state of Radio Cards by updating the underlying data.
 !!!
 
 The `@name` argument offers an easy way to provide the same name for all the radio controls with a single declaration.

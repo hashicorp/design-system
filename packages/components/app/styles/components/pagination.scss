@@ -120,8 +120,9 @@ $pagination-layout-breakpoint: 1000px;
   }
 }
 
-// only the "Previous" & "Next" (`Arrow`) controls can be disabled
 .hds-pagination-nav__arrow {
+  gap: var(--token-pagination-nav-control-icon-spacing);
+  // only the "Previous" & "Next" (`Arrow`) controls can be disabled
   // notice: when `@disabled={{true}}` is applied, the code always renders a `<button>` element
   // so no need to add the [disabled] selector here (elsewhere it's done to cover the `a[disabled]` case)
   &:disabled,
@@ -134,19 +135,11 @@ $pagination-layout-breakpoint: 1000px;
 .hds-pagination-nav__arrow--direction-prev {
   flex-direction: row;
   justify-content: flex-start;
-
-  .hds-pagination-nav__arrow-label {
-    margin-left: var(--token-pagination-nav-control-icon-spacing);
-  }
 }
 
 .hds-pagination-nav__arrow--direction-next {
   flex-direction: row-reverse;
   justify-content: flex-end;
-
-  .hds-pagination-nav__arrow-label {
-    margin-right: 6px;
-  }
 }
 
 .hds-pagination-nav__number--is-selected {

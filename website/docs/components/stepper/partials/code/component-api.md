@@ -1,9 +1,9 @@
 ## Component API
 
-We provide two separate but related `Stepper Indicator` components that serve different hierarchical purposes:
+We provide two separate but related Stepper Indicator components that serve different hierarchical purposes:
 
 1.  `Stepper::Step::Indicator`: used for step-based flows containing multiple steps a user must complete sequentially.
-2.  `Stepper::Task::Indicator`: used either on its own to denote smaller task-oriented flows or combined with the `Step` indicator to list multiple tasks within a step.
+2.  `Stepper::Task::Indicator`: used either on its own to denote smaller task-oriented flows or combined with the Step Indicator to list multiple tasks within a step.
 
 ### Stepper::Step::Indicator
 

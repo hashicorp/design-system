@@ -6,10 +6,31 @@ The Table component itself is where most of the options will be applied. However
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<:head>" @type="named block">
-    This is a named block where the content for the table head (`<thead>`) is rendered. Note: most consumers are unlikely to need to use this named block directly.
+    This is a named block where the content for the table head (`<thead>`) is rendered. Note: most consumers are unlikely to need to use this named block directly.<br />
+    It yields these internal properties:
+    <Doc::ComponentApi as |D|>
+      <D.Property @name="H.setSortBy" @type="yielded function">
+      The function used internally by the table to set the `sortBy` and `sortOrder` tracked values.
+      </D.Property>
+      <D.Property @name="H.sortBy" @type="yielded value">
+        The value of the internal `sortBy` tracked variable.
+      </D.Property>
+      <D.Property @name="H.sortOrder" @type="yielded value">
+        The value of the internal `sortOrder` tracked variable.
+      </D.Property>
+    </Doc::ComponentApi>
   </C.Property>
   <C.Property @name="<:body>" @type="named block">
-    This is a named block where the content for the table body (`<tbody>`) is rendered.
+    This is a named block where the content for the table body (`<tbody>`) is rendered.<br />
+    It yields these internal properties:
+    <Doc::ComponentApi as |D|>
+      <D.Property @name="B.sortBy" @type="yielded value">
+        The value of the internal `sortBy` tracked variable.
+      </D.Property>
+      <D.Property @name="B.sortOrder" @type="yielded value">
+        The value of the internal `sortOrder` tracked variable.
+      </D.Property>
+    </Doc::ComponentApi>
   </C.Property>
   <C.Property @name="model" @type="array">
     The data model to be used by the table.
@@ -47,13 +68,13 @@ The Table component itself is where most of the options will be applied. However
     Define on the table invocation. If set to `true`, even-numbered rows will have a different background color from odd-numbered rows.
   </C.Property>
   <C.Property @name="isFixedLayout" @type="boolean" @default="false">
-    If set to `true`, the `table-display`(CSS) property will be set to `fixed`. (See [https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) for more details.)
+    If set to `true`, the `table-display`(CSS) property will be set to `fixed`. See [MDN reference on table-layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) for more details.
   </C.Property>
   <C.Property @name="density" @type="enum" @values={{array "short" "medium" "tall" }} @default="medium">
     If set, determines the density (height) of the table body’s rows.
   </C.Property>
   <C.Property @name="valign" @type="enum" @values={{array "top" "middle" }} @default="top">
-    Determines the vertical alignment for content in a table. Does not apply to table headers (`th`). See [MDN on vertical-align](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align) for more details.
+    Determines the vertical alignment for content in a table. Does not apply to table headers (`th`). See [MDN reference on vertical-align](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align) for more details.
   </C.Property>
   <C.Property @name="caption" @type="string">
     Adds a (non-visible) caption for users with assistive technology. If set on a sortable table, the provided table caption is paired with the automatically generated sorted message text.
@@ -74,12 +95,15 @@ The Table component itself is where most of the options will be applied. However
 
 ### Table::Tr
 
-Note: This component is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it). Instead, an interactive element should be placed _inside_ of the `Th`, `ThSort`, or `Td` elements.
+Note: This component is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it). Instead, an interactive element should be placed _inside_ of the `Th`, `Td` elements.
 
 This component can contain `Hds::Table::Th`, `Hds::Table::ThSort`, or `Hds::Table::Td` components.
 
 <Doc::ComponentApi as |C|>
-    <C.Property @name="...attributes">
+  <C.Property @name="yield">
+    Elements passed as children of this component are yielded inside the `<tr>` element.
+  </C.Property>
+  <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
@@ -100,6 +124,9 @@ If the `Th` component is passed as the first cell of a table body row, `scope="r
   <C.Property @name="width" @type="string" @valueNote="Any valid CSS">
     If set, determines the column’s width.
   </C.Property>
+  <C.Property @name="yield">
+    Elements passed as children of this component are yielded inside the `<th>` element.
+  </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
@@ -107,14 +134,9 @@ If the `Th` component is passed as the first cell of a table body row, `scope="r
 
 ### Table::ThSort
 
-Note: This component is not eligible to receive interactions (e.g., it cannot have an `onClick` event handler attached directly to it). Instead, an interactive element should be placed _inside_ of the `ThSort` element.
-
 This is the component that supports column sorting; use instead of `Hds::Table::Th` if creating a custom table implementation.
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="isSorted" @type="boolean" @default="false">
-    Indicates if a column is sorted.
-  </C.Property>
   <C.Property @name="sortOrder" @type="string" @values={{array "asc" "desc" }}>
     If defined, indicates which direction the column should be sorted. Controls the sort icon indicator and the `aria-sort` value.
   </C.Property>
@@ -126,6 +148,9 @@ This is the component that supports column sorting; use instead of `Hds::Table::
   </C.Property>
   <C.Property @name="onClick" @type="function">
     Callback function invoked when the sort button is clicked. By default, the sort is set by the column’s key.
+  </C.Property>
+  <C.Property @name="yield">
+    Elements passed as children of this component are yielded inside a `<button>` nested in a `<th>` element. For this reason, you should avoid providing interactive elements as children (interactive controls should never be nested for accessibility reasons).
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
@@ -139,6 +164,9 @@ Note: This component is not eligible to receive interactions (e.g., it cannot ha
 <Doc::ComponentApi as |C|>
   <C.Property @name="align" @type="enum" @values={{array "left" "center" "right" }} @default="left">
     Determines the horizontal content alignment (sometimes referred to as text alignment) for the cell (make sure it is also set for the column header).
+  </C.Property>
+  <C.Property @name="yield">
+    Elements passed as children of this component are yielded inside the `<td>` element.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).

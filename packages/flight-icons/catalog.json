@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2022-11-10T06:50:51.994Z",
+  "lastRunTimeISO": "2023-06-16T23:42:57.742Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -2550,6 +2550,24 @@
       "height": 16
     },
     {
+      "id": "3954:66",
+      "fileName": "ampersand-24",
+      "iconName": "ampersand",
+      "description": "and, or, conditional",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "3954:68",
+      "fileName": "ampersand-16",
+      "iconName": "ampersand",
+      "description": "and, or, conditional",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
       "id": "2052:66",
       "fileName": "api-24",
       "iconName": "api",
@@ -3309,7 +3327,7 @@
       "id": "350:609",
       "fileName": "caret-24",
       "iconName": "caret",
-      "description": "caret, open, dropdown",
+      "description": "caret, open, dropdown, double arrow, chevron",
       "size": "24",
       "width": 24,
       "height": 24
@@ -3318,7 +3336,7 @@
       "id": "350:612",
       "fileName": "caret-16",
       "iconName": "caret",
-      "description": "caret, open, dropdown",
+      "description": "caret, open, dropdown, double arrow, chevron",
       "size": "16",
       "width": 16,
       "height": 16
@@ -7567,6 +7585,24 @@
       "fileName": "rewind-16",
       "iconName": "rewind",
       "description": "rewind, back, previous",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "4008:66",
+      "fileName": "robot-24",
+      "iconName": "robot",
+      "description": "service, principal, computer, user",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "4008:76",
+      "fileName": "robot-16",
+      "iconName": "robot",
+      "description": "service, principal, computer, user",
       "size": "16",
       "width": 16,
       "height": 16

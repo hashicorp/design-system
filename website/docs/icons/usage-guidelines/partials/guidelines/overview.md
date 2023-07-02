@@ -119,6 +119,12 @@ Some icons represent common actions within our products.
 
 ### Help actions
 
+- Use `learn-link` when linking to tutorials.
+
+- Use `docs-link` when linking to documentation pages and installation guides.
+
+- Use `support` when referencing HashiCorp support.
+
 ![Examples of common help icons](/assets/foundations/flight-icons/help-actions.png =660x*)
 
 

@@ -31,7 +31,7 @@ By default, the list is positioned below the button, aligned to the right. To ch
 </Hds::Dropdown>
 ```
 
-In contexts where the dropdown needs to be _inline_, to inherit the alignment from a parent, you can use the `@isInline` argument (and set the `@listPosition` accordingly to your needs):
+In contexts where the Dropdown needs to be _inline_, to inherit the alignment from a parent, you can use the `@isInline` argument (and set the `@listPosition` accordingly to your needs):
 
 ```handlebars
 <div class="doc-dropdown-mock-text-align-right">

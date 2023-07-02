@@ -141,5 +141,10 @@
       // stylelint-disable-next-line property-no-vendor-prefix
       -webkit-appearance: none;
     }
+
+    // IS LOADING
+    &.hds-form-text-input--is-loading {
+      background-image: var(--token-form-text-input-background-image-data-url-search-loading);
+    }
   }
 }

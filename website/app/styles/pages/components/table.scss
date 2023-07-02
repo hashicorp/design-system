@@ -11,4 +11,12 @@
     gap: 5px;
     align-items: center;
   }
+
+  .doc-table-scrollable-wrapper {
+    overflow-x: auto;
+  }
+
+  .doc-table-max-content-width {
+    width: max-content;
+  }
 }
