@@ -178,7 +178,7 @@ The height of the ListContainer is automatically determined based on the content
 
 ### Header
 
-A Header provides a fixed space at the top of the List. Typically Headers house a search feature that allows the user to search/filter through the available options in the list. This is great for really long lists when filtering on complex datasets. 
+A Header provides a fixed space at the top of the List. Typically, Headers house a search feature that allows the user to search/filter through the available options in the list. This is great for really long lists when filtering on complex datasets. 
 
 <div class="hds-dropdown__content">
   <Doc::ListContainer class="hds-dropdown__list">
