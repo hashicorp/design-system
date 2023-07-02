@@ -209,7 +209,7 @@ A Footer provides a fixed space at the bottom of the List. Typically Footers hou
     <Hds::Dropdown::Footer @hasDivider={{true}}>
       <Hds::ButtonSet>
         <Hds::Button @text="Apply filters" type="submit" />
-        <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
+        <Hds::Button @text="Cancel" @color="secondary" />
       </Hds::ButtonSet>
     </Hds::Dropdown::Footer>
   </Doc::ListContainer>
@@ -219,18 +219,48 @@ A Footer provides a fixed space at the bottom of the List. Typically Footers hou
 
 ### Types
 
-#### Interactive
+For maximum flexibility, we offer a variety of ListItems options. 
 
-Interactive ListItems allow the user to interact with the Dropdown. Types include: `Checkbox`, `Checkmark`, `Interactive - Action`, `Interactive - Critical`, and `Radio`.
+#### Interactive ListItems
+
+Use Interactive ListItems for actions (buttons) or links.
+
+- Use `Interactive - Critical` for destructive actions. 
+- Use `Interactive - Action` for everything else.
 
 ![Interactive ListItem types](/assets/components/dropdown/dropdown-listitem-types-interactive.png =449x*)
 
-##### Understanding the difference between `Checkbox`, `Checkmark`, and `Radio`
+#### Selection ListItems
 
-- Checkbox: Multi-selection
-- Checkmark: Single selection typically found outside of a form
-- Radio: Single selection typically found inside a form
+Selection ListItems allow the user to select one or more options within a Dropdown.
 
+- Use `Checkmark` for switching context, e.g., organization switchers, project switchers, etc. Use for single selection only, as it doesn't provide enough indication that multi-selection is possible. For multi-selection, use `Checkbox`. 
+- Use `Checkbox` for multi-selection within a form or larger filter pattern.
+- Use `Radio` for single selection within a form or larger filter pattern.
+
+![Selection ListItem types](/assets/components/dropdown/dropdown-listitem-types-selection.png =449x*)
+
+!!! Do
+
+Use `Checkmark` for context switching. 
+
+![Example of proper checkmark list items](/assets/components/dropdown/dropdown-interactive-contextswitcher-do.png =280x*)
+!!!
+
+!!! Do
+
+Use `Checkbox` and `Radio` for filtering.
+
+![Example of proper checkbox and radio list items](/assets/components/dropdown/dropdown-interactive-filter-do.png =768x*)
+
+!!!
+
+!!! Dont
+
+Don't use `Checkmark` instead of `Radio` in larger filter patterns.  
+
+![Example of incorrect checkmark list items](/assets/components/dropdown/dropdown-interactive-filter-dont.png =768x*)
+!!!
 
 #### Non-interactive
 
@@ -240,7 +270,12 @@ Non-interactive ListItems help provide structure and context to a Dropdown. Type
 
 ##### Loading states within Dropdowns
 
+!!! Do
+
 Users may not understand why something is taking additional time to load. If possible, determine what should be displayed prior to the user opening the dropdown (e.g., on page load). If that is not possible, provide an informative loading message.
+
+![Example of loading list item](/assets/components/dropdown/dropdown-loading-do.png =248x*)
+!!!
 
 #### Generic
 
@@ -248,7 +283,7 @@ The Generic ListItem allows you to add custom content in place of a ListItem. It
 
 !!! Warning
 
-Be careful not to misuse or overuse this type of ListItem. Relying on this escape hatch too often could result in an overly complex Dropdown.
+Be careful not to misuse or overuse the Generic ListItem. Relying on this escape hatch too often could result in an overly complex Dropdown.
 !!!
 
 ![Generic ListItem type](/assets/components/dropdown/dropdown-listitem-types-generic.png =449x*)
@@ -285,7 +320,11 @@ Icons in ListItems are optional. Generally we recommend letting the text speak f
 </div>
 !!!
 
-### Critical action patterns
+### Content
+
+While there are no character limits for ListItems, we recommend keeping them short and concise so the List is easy to scan.
+
+## Critical action patterns
 
 We recommend adding a second confirmation layer after the user clicks “Delete” (e.g., showing a confirmation Modal that requires the user to take another action before proceeding). This safeguards against accidental clicks by requiring users to confirm the destructive action.
 
@@ -298,7 +337,3 @@ We recommend adding a second confirmation layer after the user clicks “Delete�
 
 ![example of how not to use a second confirmation layer](/assets/components/dropdown/dropdown-example-dont.png =507x*)
 !!!
-
-### Content
-
-While there are no character limits for ListItems, we recommend keeping them short and concise so the List is easy to scan.
