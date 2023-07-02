@@ -196,7 +196,7 @@ A Header provides a fixed space at the top of the List. Typically, Headers house
 
 ### Footer
 
-A Footer provides a fixed space at the bottom of the List. Typically Footers house actions related to the ListItems, e.g., when found in a filtering pattern an "Apply" Button can be used to submit the selections. 
+A Footer provides a fixed space at the bottom of the List. Typically, Footers house actions related to the ListItems, e.g., when found in a filtering pattern an "Apply" Button can be used to submit the selections.
 
 <div class="hds-dropdown__content">
   <Doc::ListContainer class="hds-dropdown__list">
