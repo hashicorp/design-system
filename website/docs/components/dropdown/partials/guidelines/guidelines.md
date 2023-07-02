@@ -133,7 +133,7 @@ By default, Lists have a minimum width of 200px and a maximum width of 400px. Th
   </Doc::ListContainer>
 </div>
 
-If you do not want the width of the List to expand automatically to accommodate the widest ListItem, you can indicate a specific width between 200px - 400px.
+If you do not want the width of the List to expand automatically to accommodate the widest ListItem, you can indicate a specific width between 200px–400px.
 
 <div class="hds-dropdown__content" style="width: 320px">
   <Doc::ListContainer class="hds-dropdown__list">
