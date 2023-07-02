@@ -268,8 +268,6 @@ Non-interactive ListItems help provide structure and context to a Dropdown. Type
 
 ![Non-interactive ListItem types](/assets/components/dropdown/dropdown-listitem-types-noninteractive.png =449x*)
 
-##### Loading states within Dropdowns
-
 !!! Do
 
 Users may not understand why something is taking additional time to load. If possible, determine what should be displayed prior to the user opening the dropdown (e.g., on page load). If that is not possible, provide an informative loading message.
@@ -293,10 +291,12 @@ Be careful not to misuse or overuse the Generic ListItem. Relying on this escape
 Icons in ListItems are optional. Generally we recommend letting the text speak for itself, but icons can add value in the following situations:
 
 - When they reinforce the content, e.g., `edit` for an edit or rename action. 
-- In Critical ListItems; read more about [how color blind users see critical actions](/components/dropdown?tab=accessibility) in our UIs.
-- To avoid mixing and matching icon use in the same List, e.g., if using an icon in one ListItem, try using an icon in all ListItems. Doing so keeps the text aligned so the eye can scan the list of options more easily.
+- When using Critical ListItems; read more about [how color blind users see critical actions](/components/dropdown?tab=accessibility) in our UIs.
+- To avoid inconsistent icon use within the same List. Instead use icons in all ListItems. Doing so keeps the text aligned so the eye can scan the list of options more easily.
 
 !!! Do
+
+Use icons consistently and when they reinforce the content.
 
 <div class="hds-dropdown__content">
   <Doc::ListContainer class="hds-dropdown__list">
@@ -309,6 +309,8 @@ Icons in ListItems are optional. Generally we recommend letting the text speak f
 !!!
 
 !!! Dont
+
+Avoid inconsistent icon use.
 
 <div class="hds-dropdown__content">
   <Doc::ListContainer class="hds-dropdown__list">
