@@ -120,7 +120,7 @@ Lists can be positioned to the left or right of the Toggle, and above or below t
 
 #### Width
 
-By default, Lists have a minimum width of 200px and a maximum width of 400px. This means if there’s a long string in a ListItem the List will automatically expand up to 400px to accommodate the content before it wraps.
+By default, Lists have a minimum width of 200px and a maximum width of 400px. This means if there’s a long string in a ListItem, the List will automatically expand up to 400px to accommodate the content before it wraps.
 
 <div class="hds-dropdown__content">
   <Doc::ListContainer class="hds-dropdown__list">
