@@ -288,7 +288,7 @@ Be careful not to misuse or overuse the Generic ListItem. Relying on this escape
 
 ### Icon usage
 
-Icons in ListItems are optional. Generally we recommend letting the text speak for itself, but icons can add value in the following situations:
+Icons in ListItems are optional. Generally, we recommend letting the text speak for itself, but icons can add value in the following situations:
 
 - When they reinforce the content, e.g., `edit` for an edit or rename action. 
 - When using Critical ListItems; read more about [how color blind users see critical actions](/components/dropdown?tab=accessibility) in our UIs.
