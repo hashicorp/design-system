@@ -1,0 +1,43 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// SENSITIVE-INPUT
+//
+
+$hds-form-sensitive-input-button-size: 24px;
+
+.hds-form-sensitive-input {
+  position: relative;
+
+  .hds-form-sensitive-input__control {
+    padding-right: calc(var(--token-form-control-padding) + $hds-form-sensitive-input-button-size);
+  }
+}
+
+.hds-form-sensitive-input--obfuscated {
+  .hds-form-sensitive-input__control {
+    -webkit-text-security: disc;
+  }
+}
+
+.hds-form-sensitive-input--not-obfuscated {
+  .hds-form-sensitive-input__control {
+    -webkit-text-security: none;
+  }
+}
+
+.hds-form-sensitive-input__toggle-button {
+  position: absolute;
+  top: calc(var(--token-form-control-padding) - 1px);
+  right: var(--token-form-control-padding);
+  width: $hds-form-sensitive-input-button-size;
+  height: $hds-form-sensitive-input-button-size;
+  padding: 2px;
+  color: var(--token-color-foreground-primary);
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
+}

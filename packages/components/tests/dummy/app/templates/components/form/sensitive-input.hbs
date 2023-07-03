@@ -1,0 +1,57 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "SensitiveInput Component"}}
+
+<Shw::Text::H1>SensitiveInput</Shw::Text::H1>
+
+<section data-test-percy>
+
+  <Shw::Text::H2>"Base" control</Shw::Text::H2>
+
+  <Shw::Text::H3>Interaction status</Shw::Text::H3>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Default">
+      <Hds::Form::SensitiveInput::Base />
+    </SF.Item>
+    <SF.Item @label="With placeholder">
+      <Hds::Form::SensitiveInput::Base placeholder="Lorem ipsum dolor" />
+    </SF.Item>
+    <SF.Item @label="With value">
+      <Hds::Form::SensitiveInput::Base @value="Lorem ipsum dolor" />
+    </SF.Item>
+    <SF.Item @label="With obfuscated value">
+      <Hds::Form::SensitiveInput::Base @isObfuscated={{false}} @value="Lorem ipsum dolor" />
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H3>States</Shw::Text::H3>
+
+  {{#let (array "base" "invalid" "readonly") as |variants|}}
+    {{#each variants as |variant|}}
+      <Shw::Grid @columns={{3}} as |SG|>
+        {{#each @model.STATES as |state|}}
+          <SG.Item
+            @label="{{capitalize variant}} / {{capitalize state}}"
+            mock-state-value={{state}}
+            mock-state-selector="input"
+          >
+            <Shw::Flex @direction="column" as |SF|>
+              <SF.Item>
+                <Hds::Form::SensitiveInput::Base
+                  disabled={{if (eq variant "disabled") "disabled"}}
+                  readonly={{if (eq variant "readonly") "readonly"}}
+                  @value="Lorem ipsum dolor"
+                  @isInvalid={{if (eq variant "invalid") true}}
+                />
+              </SF.Item>
+            </Shw::Flex>
+          </SG.Item>
+        {{/each}}
+      </Shw::Grid>
+    {{/each}}
+  {{/let}}
+</section>

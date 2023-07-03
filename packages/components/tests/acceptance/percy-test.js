@@ -80,6 +80,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/form/select');
     await percySnapshot('Form - Select');
 
+    await visit('/components/form/sensitive-input');
+    await percySnapshot('Form - SensitiveInput');
+
     await visit('/components/form/text-input');
     await percySnapshot('Form - TextInput');
 

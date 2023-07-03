@@ -1,0 +1,23 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<div class={{this.classNames}}>
+  <Hds::Form::TextInput::Base
+    class="hds-form-sensitive-input__control"
+    @value={{@value}}
+    @isInvalid={{@isInvalid}}
+    @width={{@width}}
+    id={{this.id}}
+    ...attributes
+  />
+  <button
+    class="hds-form-sensitive-input__toggle-button"
+    type="button"
+    aria-label={{this.ariaLabel}}
+    aria-controls={{this.id}}
+    {{on "click" this.onClickToggle}}
+  >
+    <FlightIcon @name={{if this.isObfuscated "eye" "eye-off"}} @size="16" @isInlineBlock={{false}} />
+  </button>
+</div>
