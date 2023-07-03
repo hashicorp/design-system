@@ -5,6 +5,27 @@
 
 When used as recommended, there should not be any WCAG conformance issues with this component.
 
+## Keyboard navigation
+
+<Doc::Badge @type="neutral">Tab</Doc::Badge>
+
+Focus on a toggle.
+
+![Keyboard accordion navigation example](/assets/components/accordion/accordion-focus.png =800x*)
+
+<Doc::Badge @type="neutral">Spacebar</Doc::Badge>
+<Doc::Badge @type="neutral">Enter</Doc::Badge>
+
+Expand container to display hidden content.
+
+![Keyboard accordion navigation example](/assets/components/accordion/accordion-spacebar-enter.png =800x*)
+
+<Doc::Badge @type="neutral">Tab</Doc::Badge>
+
+Move to interactive elements within the toggle or content area.
+
+![Keyboard accordion navigation example](/assets/components/accordion/accordion-focus-to-content.png =800x*)
+
 ## Applicable WCAG Success Criteria
 
 This section is for reference only. This component intends to conform to the following WCAG Success Criteria:
