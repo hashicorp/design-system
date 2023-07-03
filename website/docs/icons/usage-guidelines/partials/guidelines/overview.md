@@ -147,5 +147,5 @@ When migrating icons from Structure, reference our [mapping of icon names betwee
 
 - [Figma library](https://www.figma.com/file/TLnoT5AYQfy3tZ0H68BgOr/Flight-Icons?node-id=164%3A0&t=bWFdjHgfV6aLQjep-1) (Internal only)
 - [SVG assets (ZIP file)](/assets/zip/flight-icons-svg.zip)
-- [Request an icon](../about/support#request-an-icon)
+- [Request an icon](../about/support#file-an-issue)
 - [Report an issue](../about/support#file-an-issue)

@@ -15,7 +15,7 @@ While we don’t accept direct contributions of new components or patterns, we d
 
 * [Reporting](support#file-an-issue) or fixing an issue or bug (see [Code contributions](#code-contributions))
 * [Providing general feedback](https://docs.google.com/forms/d/e/1FAIpQLSdPShbSiUYgimppZeqWT99bVi6zLbKDThQUQTirH3RCj2okdg/viewform)
-* [Proposing new components or patterns](support#request-a-feature)
+* [Proposing new components or patterns](support#file-an-issue)
 * Adding an icon (see [Icon contributions](#icon-contributions))
 * Improving our documentation
 * Participating in discussions or coming to Office Hours
@@ -31,4 +31,4 @@ For contributions to the individual code packages, consult the `CONTRIBUTING.md`
 
 ## Icon contributions
 
-Contributing is not required to get new icons added to the library, but HashiCorp employees are welcome and encouraged to contribute to the icon library. [File an icon request](support#request-an-icon) and if you’d like to design the icon yourself, start by reading through the  [contribution workflow](https://www.figma.com/file/MYiw4kiVpunIMMw0sBkE1t/%E2%9C%8F%EF%B8%8F-Flight-Development?node-id=566%3A1129&t=Bbflj3UUaWVyhamn-4) for creating a new icon.
+Contributing is not required to get new icons added to the library, but HashiCorp employees are welcome and encouraged to contribute to the icon library. [File an icon request](support#file-an-issue) and if you’d like to design the icon yourself, start by reading through the  [contribution workflow](https://www.figma.com/file/MYiw4kiVpunIMMw0sBkE1t/%E2%9C%8F%EF%B8%8F-Flight-Development?node-id=566%3A1129&t=Bbflj3UUaWVyhamn-4) for creating a new icon.
