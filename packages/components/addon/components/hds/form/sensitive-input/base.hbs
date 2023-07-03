@@ -2,12 +2,11 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<div class={{this.classNames}}>
+<div class={{this.classNames}} {{style width=@width}}>
   <Hds::Form::TextInput::Base
     class="hds-form-sensitive-input__control"
     @value={{@value}}
     @isInvalid={{@isInvalid}}
-    @width={{@width}}
     id={{this.id}}
     ...attributes
   />

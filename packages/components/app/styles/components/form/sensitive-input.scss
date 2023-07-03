@@ -11,6 +11,7 @@ $hds-form-sensitive-input-button-size: 24px;
 
 .hds-form-sensitive-input {
   position: relative;
+  width: 100%;
 
   .hds-form-sensitive-input__control {
     padding-right: calc(var(--token-form-control-padding) + $hds-form-sensitive-input-button-size);

@@ -13,7 +13,7 @@ module(
   function (hooks) {
     setupRenderingTest(hooks);
 
-    test('it should render the component with a CSS class that matches the component name', async function (assert) {
+    test('it should render the component with a specific CSS class', async function (assert) {
       await render(
         hbs`<Hds::Form::SensitiveInput::Base id="test-form-sensitive-input" />`
       );

@@ -54,4 +54,96 @@
       </Shw::Grid>
     {{/each}}
   {{/let}}
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>"Field" control</Shw::Text::H2>
+
+  <Shw::Text::H3>Content</Shw::Text::H3>
+
+  <Shw::Grid @columns="3" as |SG|>
+    <SG.Item @label="Only label">
+      <Hds::Form::SensitiveInput::Field @value="Lorem ipsum dolor" as |F|>
+        <F.Label>This is the label text</F.Label>
+      </Hds::Form::SensitiveInput::Field>
+    </SG.Item>
+    <SG.Item @label="Label + Helper text">
+      <Hds::Form::SensitiveInput::Field @value="Lorem ipsum dolor" as |F|>
+        <F.Label>This is the label text</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+      </Hds::Form::SensitiveInput::Field>
+    </SG.Item>
+    {{! left empty on purpose }}
+    <SG.Item />
+    <SG.Item @label="Label + Error">
+      <Hds::Form::SensitiveInput::Field @value="Lorem ipsum dolor" @isInvalid={{true}} as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.Error>This is the error</F.Error>
+      </Hds::Form::SensitiveInput::Field>
+    </SG.Item>
+    <SG.Item @label="Label + Helper text + Error">
+      <Hds::Form::SensitiveInput::Field @value="Lorem ipsum dolor" @isInvalid={{true}} as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        <F.Error>This is the error</F.Error>
+      </Hds::Form::SensitiveInput::Field>
+    </SG.Item>
+    <SG.Item @label="Label + Helper text + Errors">
+      <Hds::Form::SensitiveInput::Field @value="Lorem ipsum dolor" @isInvalid={{true}} as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        <F.Error as |E|>
+          <E.Message>First error message</E.Message>
+          <E.Message>Second error message</E.Message>
+        </F.Error>
+      </Hds::Form::SensitiveInput::Field>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Text::H3>Required and optional</Shw::Text::H3>
+
+  <Shw::Grid @columns={{3}} as |SG|>
+    <SG.Item @label="Label + Required">
+      <Hds::Form::SensitiveInput::Field @value="Lorem ipsum dolor" @isRequired={{true}} as |F|>
+        <F.Label>This is the label text</F.Label>
+      </Hds::Form::SensitiveInput::Field>
+    </SG.Item>
+    <SG.Item @label="Label + Optional">
+      <br />
+      <Hds::Form::SensitiveInput::Field @value="Lorem ipsum dolor" @isOptional={{true}} as |F|>
+        <F.Label>This is the label text</F.Label>
+      </Hds::Form::SensitiveInput::Field>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Text::H3>Containers</Shw::Text::H3>
+
+  <Shw::Grid @columns={{3}} as |SG|>
+    {{#let (array "block" "flex" "grid") as |displays|}}
+      {{#each displays as |display|}}
+        <SG.Item>
+          <Shw::Label>Parent with <code>display: {{display}}</code></Shw::Label>
+          <Shw::Flex as |SF|>
+            <SF.Item @grow={{true}} {{style display=display}}>
+              <Hds::Form::SensitiveInput::Field @value="Default width" as |F|>
+                <F.Label>This is the label</F.Label>
+                <F.HelperText>This is the helper text</F.HelperText>
+              </Hds::Form::SensitiveInput::Field>
+            </SF.Item>
+            <SF.Item @grow={{true}} {{style display=display}}>
+              <Hds::Form::SensitiveInput::Field @value="Custom width" @width="120px" @isInvalid={{true}} as |F|>
+                <F.Label>This is the label text that should go on multiple lines</F.Label>
+                <F.HelperText>This is the helper text that should go on multiple lines</F.HelperText>
+                <F.Error as |E|>
+                  <E.Message>This is the first error text</E.Message>
+                  <E.Message>This is the second error text that should go on multiple lines</E.Message>
+                </F.Error>
+              </Hds::Form::SensitiveInput::Field>
+            </SF.Item>
+          </Shw::Flex>
+        </SG.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Grid>
+
 </section>
