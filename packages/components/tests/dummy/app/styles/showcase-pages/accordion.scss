@@ -6,17 +6,19 @@
 // ACCORDION
 
 body.components-accordion {
-  .shw-example-layout {
+  // layout example content
+  .shw-component-accordion-layout {
     display: flex;
     gap: 1rem;
   }
 
-  .shw-example-layout--justify {
+  .shw-component-accordion-layout--justify {
     justify-content: space-between;
   }
 
-  .shw-empty-accordion-example {
-    min-height: 2rem;
-    outline: 1px dashed #78909c;
+  .shw-component-accordion-standalone-button {
+    position: relative;
+    display: flex;
+    width: fit-content;
   }
 }

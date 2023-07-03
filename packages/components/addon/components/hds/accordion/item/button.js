@@ -6,10 +6,6 @@
 import Component from '@glimmer/component';
 
 export default class HdsAccordionItemButtonComponent extends Component {
-  get onClickToggle() {
-    return this.args.onClickToggle ?? function () {};
-  }
-
   /**
    * Get the class names to apply to the component.
    * @method ItemButton#classNames
@@ -23,11 +19,12 @@ export default class HdsAccordionItemButtonComponent extends Component {
       classes.push('hds-accordion-item__button--is-open');
     }
 
-    // if toggle is NOT interactive, then button IS
-    if (this.args.isInteractive === false) {
-      classes.push('hds-accordion-item__button--is-interactive');
+    if (this.args.parentContainsInteractive === false) {
+      classes.push(
+        'hds-accordion-item__button--parent-does-not-contain-interactive'
+      );
     } else {
-      classes.push('hds-accordion-item__button--is-not-interactive');
+      classes.push('hds-accordion-item__button--parent-contains-interactive');
     }
     return classes.join(' ');
   }

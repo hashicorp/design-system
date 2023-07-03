@@ -120,16 +120,16 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     assert.dom('.hds-accordion-item__content').doesNotExist();
   });
 
-  // isInteractive
-  test('it displays the correct variant when isInteractive is set to false vs. true', async function (assert) {
+  // containsInteractive
+  test('it displays the correct variant when containsInteractive is set to false vs. true', async function (assert) {
     await render(
       hbs`
         <Hds::Accordion as |A|>
-          <A.Item id="test-is-interactive-true">
+          <A.Item id="test-contains-interactive--false">
             <:toggle>Item one</:toggle>
             <:content>Additional content</:content> 
           </A.Item>
-          <A.Item @isInteractive={{false}} id="test-is-interactive-false">
+          <A.Item @containsInteractive={{true}} id="test-contains-interactive--true">
             <:toggle>Item one</:toggle>
             <:content>Additional content</:content> 
           </A.Item>
@@ -137,11 +137,11 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
       `
     );
     assert
-      .dom('#test-is-interactive-true')
-      .hasClass('hds-accordion-item--is-interactive');
+      .dom('#test-contains-interactive--false')
+      .hasClass('hds-accordion-item--does-not-contain-interactive');
     assert
-      .dom('#test-is-interactive-false')
-      .hasClass('hds-accordion-item--is--not-interactive');
+      .dom('#test-contains-interactive--true')
+      .hasClass('hds-accordion-item--contains-interactive');
   });
 
   // ATTRIBUTES
