@@ -2,7 +2,7 @@
 
 ### When to use
 
-- To reveal content as needed while keeping the UI organized and visually manageable.
+- To show content as needed while keeping the UI organized and visually manageable.
 - To hide long pieces of content with a similar structure.
 
 ### When not to use
@@ -12,7 +12,7 @@
 
 ## Toggle content
 
-The toggle can take on many different types of content, from text-based content to nested HDS components or custom content.
+The toggle accepts many different types of content, from text-based content to nested HDS components or custom content.
 
 ![Example of toggle content](/assets/components/accordion/toggle-content-text.png =690x*)
 

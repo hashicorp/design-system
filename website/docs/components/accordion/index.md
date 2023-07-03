@@ -9,7 +9,7 @@ links:
 previewImage: assets/illustrations/components/accordion.jpg
 navigation:
   hidden: false
-  keywords: ['toggle', 'disclosure', 'details', 'reveal', 'summary', 'expand', 'collapse']
+  keywords: ['toggle', 'disclosure', 'details', 'reveal', 'list', 'summary', 'expand', 'collapse']
 ---
 
 <section data-tab="Guidelines">
