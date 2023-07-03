@@ -24,6 +24,8 @@ Join the [#team-design-systems](https://hashicorp.slack.com/archives/C7KTUHNUS) 
 
 [File an issue in our backlog](https://go.hashi.co/hds-support) and we'll get back to you ASAP.
 
+Users external to HashiCorp can [file issues in GitHub](https://github.com/hashicorp/design-system/issues/new/choose).
+
 ## Office hours
 
 Office hours are a great way to get feedback on your project or help to get unstuck in a code migration. [Add yourself to the agenda](https://docs.google.com/document/d/1LdyQznltt4VCbGGGDuDkARRRKXI4laCHxHhY8dJy4wE/edit?usp=sharing) to the next office hours session.
