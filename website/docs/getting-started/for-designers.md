@@ -138,7 +138,7 @@ Our Figma components are tightly coupled with their code counterparts to maintai
 
 When you detach a component, it no longer receives updates from the library, which can cause designs and production applications to drift out of sync quickly.
 
-Contact us for [support or to request a new component](/about/support) if a component doesn’t meet your needs.
+Contact us for [support or to request a new component](https://go.hashi.co/hds-support) if a component doesn’t meet your needs.
 
 #### Overriding component styles
 
