@@ -27,13 +27,18 @@ $accordion-gap: 12px;
 .hds-accordion-item {
   background: var(--token-color-surface-primary);
   border-radius: $accordion-item-medium-border-radius;
-  box-shadow: var(--token-surface-mid-box-shadow);
 
   &.hds-accordion-item--does-not-contain-interactive {
+    box-shadow: var(--token-surface-mid-box-shadow);
+
     &:hover,
     &.mock-hover {
       box-shadow: var(--token-surface-high-box-shadow);
     }
+  }
+
+  &.hds-accordion-item--contains-interactive {
+    border: 1px solid var(--token-color-border-primary);
   }
 }
 
@@ -56,12 +61,13 @@ $accordion-gap: 12px;
 
   &:hover { cursor: pointer; }
 
+  .flight-icon-chevron-down { color: var(--token-color-foreground-primary); }
+
   // entire toggle area is interactive
   &.hds-accordion-item__button--is-not-interactive {
     @include hds-focus-ring-with-pseudo-element();
-
     position: static;
-    margin: -1px; // offset border size
+    margin: -1px 0;
     background: transparent;
     border: 1px solid transparent;
 
@@ -78,6 +84,8 @@ $accordion-gap: 12px;
   // only chevron button area is interactive
   &.hds-accordion-item__button--is-interactive {
     @include hds-button();
+    width: 24px;
+    height: 24px;
 
     &:focus,
     &.mock-focus {
