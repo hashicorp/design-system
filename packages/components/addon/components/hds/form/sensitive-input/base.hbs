@@ -3,13 +3,25 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <div class={{this.classNames}} {{style width=@width}}>
-  <Hds::Form::TextInput::Base
-    class="hds-form-sensitive-input__control"
-    @value={{@value}}
-    @isInvalid={{@isInvalid}}
-    id={{this.id}}
-    ...attributes
-  />
+  {{#if @isMultiline}}
+    <Hds::Form::Textarea::Base
+      class="hds-form-sensitive-input__control"
+      @value={{@value}}
+      @isInvalid={{@isInvalid}}
+      @height={{@height}}
+      required={{@isRequired}}
+      id={{this.id}}
+      ...attributes
+    />
+  {{else}}
+    <Hds::Form::TextInput::Base
+      class="hds-form-sensitive-input__control"
+      @value={{@value}}
+      @isInvalid={{@isInvalid}}
+      id={{this.id}}
+      ...attributes
+    />
+  {{/if}}
   <button
     class="hds-form-sensitive-input__toggle-button"
     type="button"

@@ -63,6 +63,22 @@ module(
         .hasAttribute('aria-controls', 'test-form-sensitive-input');
     });
 
+    // MULTILINE
+
+    test('it should render an `<input>` element by default', async function (assert) {
+      await render(
+        hbs`<Hds::Form::SensitiveInput::Base id="test-form-sensitive-input" />`
+      );
+      assert.dom('input#test-form-sensitive-input').exists();
+    });
+
+    test('it should render a `<textarea>` element when `@isMultiline` is true', async function (assert) {
+      await render(
+        hbs`<Hds::Form::SensitiveInput::Base @isMultiline={{true}} id="test-form-sensitive-input" />`
+      );
+      assert.dom('textarea#test-form-sensitive-input').exists();
+    });
+
     // ATTRIBUTES
 
     test('it should spread all the attributes passed to the component on the input', async function (assert) {
