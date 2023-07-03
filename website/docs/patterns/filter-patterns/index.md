@@ -2,10 +2,10 @@
 title: Filter patterns
 description: Guidelines and best practices for filtering a data set using Helios components.
 caption: Guidelines and best practices for filtering a data set using Helios components.
-status: experimental
+status: released
 previewImage: assets/illustrations/patterns/filter-patterns.jpg
 navigation:
-  keywords: ['data set']
+  keywords: ['filter', 'segmented group', 'tag', 'dropdown', 'input', 'data set', 'sidebar', 'bar']
 ---
 
 <section data-tab="Guidelines">
@@ -15,4 +15,8 @@ navigation:
 
 <section data-tab="Specifications">
   @include "partials/specifications/specifications.md"
+</section>
+
+<section data-tab="Core concepts">
+  @include "partials/core-concepts/core-concepts.md"
 </section>
