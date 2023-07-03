@@ -13,9 +13,10 @@ At this time we are not accepting external contributions from non-HashiCorp empl
 
 While we don’t accept direct contributions of new components or patterns, we do welcome contributions in the following forms:
 
-* [Reporting](support#file-an-issue) or [fixing](#code-contributions) bugs and [giving feedback](https://docs.google.com/forms/d/e/1FAIpQLSdPShbSiUYgimppZeqWT99bVi6zLbKDThQUQTirH3RCj2okdg/viewform)
-* [Proposing new components or patterns](about/support#request-a-feature)
-* [Adding an icon](#icon-contributions)
+* [Reporting](support#file-an-issue) or fixing an issue or bug (see [Code contributions](#code-contributions))
+* [Providing general feedback](https://docs.google.com/forms/d/e/1FAIpQLSdPShbSiUYgimppZeqWT99bVi6zLbKDThQUQTirH3RCj2okdg/viewform)
+* [Proposing new components or patterns](support#request-a-feature)
+* Adding an icon (see [Icon contributions](#icon-contributions))
 * Improving our documentation
 * Participating in discussions or coming to Office Hours
 
