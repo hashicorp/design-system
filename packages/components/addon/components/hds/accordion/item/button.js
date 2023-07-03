@@ -19,12 +19,10 @@ export default class HdsAccordionItemButtonComponent extends Component {
       classes.push('hds-accordion-item__button--is-open');
     }
 
-    // if parentContainsInteractive is true, then the button itself is "interactive", otherwise the whole toggle block is interactive (not the button)
-    // (In truth the button is always interactive, the visual styling and behavior is the only real difference)
     if (this.args.parentContainsInteractive === false) {
-      classes.push('hds-accordion-item__button--is-not-interactive');
+      classes.push('hds-accordion-item__button--parent-does-not-contain-interactive');
     } else {
-      classes.push('hds-accordion-item__button--is-interactive');
+      classes.push('hds-accordion-item__button--parent-contains-interactive');
     }
     return classes.join(' ');
   }

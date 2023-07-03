@@ -26,7 +26,7 @@ export default class HdsAccordionItemIndexComponent extends Component {
   /**
    * @param containsInteractive
    * @type {boolean}
-   * @default true
+   * @default false
    */
   get containsInteractive() {
     return this.args.containsInteractive ?? false;

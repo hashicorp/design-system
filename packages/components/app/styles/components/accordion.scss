@@ -11,22 +11,21 @@
 @use "../mixins/focus-ring" as *;
 
 $accordion-item-padding: 16px;
-$accordion-item-medium-border-radius: 6px;
-$accordion-gap: 12px;
+$accordion-item-border-radius: 6px;
 
 // ACCORDION COMPONENT (wrapper)
 
 .hds-accordion {
   display: flex;
   flex-direction: column;
-  gap: $accordion-gap;
+  gap: 12px;
 }
 
 // ACCORDION ITEM COMPONENT (nested child)
 
 .hds-accordion-item {
   background: var(--token-color-surface-primary);
-  border-radius: $accordion-item-medium-border-radius;
+  border-radius: $accordion-item-border-radius;
 
   &.hds-accordion-item--does-not-contain-interactive {
     box-shadow: var(--token-surface-mid-box-shadow);
@@ -47,13 +46,13 @@ $accordion-gap: 12px;
 .hds-accordion-item__toggle {
   position: relative;
   display: flex;
-  gap: $accordion-gap;
+  gap: 12px;
   align-items: center;
   padding:
     $accordion-item-padding
     $accordion-item-padding
     $accordion-item-padding
-    12px;
+    12px; // by design
 }
 
 .hds-accordion-item__button {
@@ -61,28 +60,27 @@ $accordion-gap: 12px;
 
   &:hover { cursor: pointer; }
 
-  .flight-icon-chevron-down { color: var(--token-color-foreground-primary); }
-
   // entire toggle area is interactive
-  &.hds-accordion-item__button--is-not-interactive {
+  &.hds-accordion-item__button--parent-does-not-contain-interactive {
     @include hds-focus-ring-with-pseudo-element();
     position: static;
     margin: -1px 0;
+    color: var(--token-color-foreground-primary);
     background: transparent;
     border: 1px solid transparent;
 
-    // expand button target to cover entire AccordionItem Toggle block (depending on the `@containsInteractive` argument)
+    // expand button target to cover entire AccordionItem Toggle block (depending on the `@containsInteractive/@parentContainsInteractive` argument)
     &::after {
       position: absolute;
       display: block;
-      border-radius: $accordion-item-medium-border-radius;
+      border-radius: $accordion-item-border-radius;
       content: "";
       inset: 0;
     }
   }
 
   // only chevron button area is interactive
-  &.hds-accordion-item__button--is-interactive {
+  &.hds-accordion-item__button--parent-contains-interactive {
     @include hds-button();
     width: 24px;
     height: 24px;
@@ -110,7 +108,7 @@ $accordion-gap: 12px;
   }
 }
 
-// Consumer added content that apperas next to the chevron button:
+// Consumer added content that appears next to the chevron button:
 .hds-accordion-item__toggle-content {
   flex: 1;
 }
