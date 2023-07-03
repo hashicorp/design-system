@@ -20,7 +20,9 @@ export default class HdsAccordionItemButtonComponent extends Component {
     }
 
     if (this.args.parentContainsInteractive === false) {
-      classes.push('hds-accordion-item__button--parent-does-not-contain-interactive');
+      classes.push(
+        'hds-accordion-item__button--parent-does-not-contain-interactive'
+      );
     } else {
       classes.push('hds-accordion-item__button--parent-contains-interactive');
     }
