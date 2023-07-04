@@ -45,6 +45,17 @@ module(
       assert.dom('.hds-form-sensitive-input').hasStyle({ width: '248px' });
     });
 
+    // HEIGHT
+
+    test('it should render the input with a fixed height if a @height value is passed and `@isMultiline` is true', async function (assert) {
+      await render(
+        hbs`<Hds::Form::SensitiveInput::Field @isMultiline={{true}} @height="248px" />`
+      );
+      assert
+        .dom('.hds-form-sensitive-input__control')
+        .hasStyle({ height: '248px' });
+    });
+
     // ID
 
     test('it should render the input with a custom @id', async function (assert) {
