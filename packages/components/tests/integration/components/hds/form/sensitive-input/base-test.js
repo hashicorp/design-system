@@ -63,6 +63,33 @@ module(
         .hasAttribute('aria-controls', 'test-form-sensitive-input');
     });
 
+    test('it updates the button label on toggle', async function (assert) {
+      await render(
+        hbs`<Hds::Form::SensitiveInput::Base @id="test-form-sensitive-input" />`
+      );
+      assert
+        .dom('.hds-form-sensitive-input__toggle-button')
+        .hasAttribute('aria-label', 'Show sensitive content');
+      await click('.hds-form-sensitive-input__toggle-button');
+      assert
+        .dom('.hds-form-sensitive-input__toggle-button')
+        .hasAttribute('aria-label', 'Hide sensitive content');
+    });
+
+    test('it informs the user about visibility change on toggle', async function (assert) {
+      await render(
+        hbs`<Hds::Form::SensitiveInput::Base @id="test-form-sensitive-input" />`
+      );
+      await click('.hds-form-sensitive-input__toggle-button');
+      assert
+        .dom('.hds-form-sensitive-input__toggle-button')
+        .hasText('Input content is now visible');
+      await click('.hds-form-sensitive-input__toggle-button');
+      assert
+        .dom('.hds-form-sensitive-input__toggle-button')
+        .hasText('Input content is now hidden');
+    });
+
     // MULTILINE
 
     test('it should render an `<input>` element by default', async function (assert) {

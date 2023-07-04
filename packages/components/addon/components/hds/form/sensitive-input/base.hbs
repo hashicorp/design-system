@@ -29,5 +29,6 @@
     {{on "click" this.onClickToggle}}
   >
     <FlightIcon @name={{if this.isObfuscated "eye" "eye-off"}} @size="16" @isInlineBlock={{false}} />
+    <span class="sr-only" aria-live="polite">{{this.ariaMessageText}}</span>
   </button>
 </div>

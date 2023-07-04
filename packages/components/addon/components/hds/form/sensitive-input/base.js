@@ -29,7 +29,28 @@ export default class HdsFormSensitiveInputBaseComponent extends Component {
    * @default 'Show sensitive content'
    */
   get ariaLabel() {
-    return this.args.ariaLabel ?? 'Show sensitive content';
+    if (this.args.ariaLabel) {
+      return this.args.ariaLabel;
+    } else if (this.isObfuscated) {
+      return 'Show sensitive content';
+    } else {
+      return 'Hide sensitive content';
+    }
+  }
+
+  /**
+   * @param ariaMessageText
+   * @type {string}
+   * @default ''
+   */
+  get ariaMessageText() {
+    if (this.args.ariaMessageText) {
+      return this.args.ariaMessageText;
+    } else if (this.isObfuscated) {
+      return 'Input content is now hidden';
+    } else {
+      return 'Input content is now visible';
+    }
   }
 
   /**
