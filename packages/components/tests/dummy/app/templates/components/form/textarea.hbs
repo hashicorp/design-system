@@ -101,7 +101,7 @@
               <Hds::Form::Textarea::Base @value="Default width" />
             </SF.Item>
             <SF.Item @grow={{true}} {{style display=display}}>
-              <Hds::Form::Textarea::Base @value="Custom width" @width="248px" />
+              <Hds::Form::Textarea::Base @value="Custom width and height" @width="248px" @height="150px" />
             </SF.Item>
           </Shw::Flex>
         </SG.Item>
@@ -201,7 +201,13 @@
               </Hds::Form::Textarea::Field>
             </SF.Item>
             <SF.Item @grow={{true}} {{style display=display}}>
-              <Hds::Form::Textarea::Field @value="Custom width" @width="248px" @isInvalid={{true}} as |F|>
+              <Hds::Form::Textarea::Field
+                @value="Custom width and height"
+                @width="248px"
+                @height="150px"
+                @isInvalid={{true}}
+                as |F|
+              >
                 <F.Label>This is the label</F.Label>
                 <F.HelperText>This is the helper text</F.HelperText>
                 <F.Error>This is the error</F.Error>
