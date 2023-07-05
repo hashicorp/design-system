@@ -48,9 +48,9 @@
   // READONLY
 
   &:read-only {
-    color: var(--token-form-control-disabled-foreground-color);
+    color: var(--token-form-control-readonly-foreground-color);
     background-color: var(--token-form-control-readonly-surface-color);
-    border-color: var(--token-form-control-disabled-border-color);
+    border-color: var(--token-form-control-readonly-border-color);
     box-shadow: none;
   }
 
