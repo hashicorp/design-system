@@ -19,7 +19,7 @@ module(
 
     test('it should render the component as a <li> element with a CSS class that matches the component name', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Description @text="description" id="test-list-item-description" />`
+        hbs`<ul><Hds::Dropdown::ListItem::Description @text="description" id="test-list-item-description" /></ul>`
       );
       assert.dom('#test-list-item-description').hasTagName('li');
       assert
@@ -39,7 +39,9 @@ module(
       setupOnerror(function (error) {
         assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
       });
-      await render(hbs`<Hds::Dropdown::ListItem::Description />`);
+      await render(
+        hbs`<Hds::Dropdown::ListItem::Description id="test-valid-failure" />`
+      );
       assert.throws(function () {
         throw new Error(errorMessage);
       });
