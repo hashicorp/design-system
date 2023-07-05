@@ -120,7 +120,9 @@ module('Integration | Component | hds/link/standalone', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(hbs`<Hds::Link::Standalone @icon="film" @href="/" />`);
+    await render(
+      hbs`<Hds::Link::Standalone @icon="film" @href="/" id="test-valid-failure" />`
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -132,7 +134,9 @@ module('Integration | Component | hds/link/standalone', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(hbs`<Hds::Link::Standalone @href="/" @text="watch video" />`);
+    await render(
+      hbs`<Hds::Link::Standalone @href="/" @text="watch video" id="test-valid-failure" />`
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -173,7 +177,7 @@ module('Integration | Component | hds/link/standalone', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      hbs`<Hds::Link::Standalone @icon="film" @text="watch video" @href="/" @color="foo" />`
+      hbs`<Hds::Link::Standalone @icon="film" @text="watch video" @href="/" @color="foo" id="test-valid-failure" />`
     );
     assert.throws(function () {
       throw new Error(errorMessage);

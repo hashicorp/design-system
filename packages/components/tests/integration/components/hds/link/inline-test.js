@@ -65,20 +65,22 @@ module('Integration | Component | hds/link/inline', function (hooks) {
   // TARGET/REL ATTRIBUTES
 
   test('it should render a <a> link with the right "target" and "rel" attributes if @href is passed', async function (assert) {
-    await render(hbs`<Hds::Link::Inline @href="/" id="test-link" />`);
+    await render(
+      hbs`<Hds::Link::Inline @href="/" id="test-link">Link text</Hds::Link::Inline>`
+    );
     assert.dom('#test-link').hasAttribute('target', '_blank');
     assert.dom('#test-link').hasAttribute('rel', 'noopener noreferrer');
   });
   test('it should render a <a> link with custom "target" and "rel" attributes if they are passed as attributes', async function (assert) {
     await render(
-      hbs`<Hds::Link::Inline @href="/" id="test-link" target="test-target" rel="test-rel" />`
+      hbs`<Hds::Link::Inline @href="/" id="test-link" target="test-target" rel="test-rel">Link text</Hds::Link::Inline>`
     );
     assert.dom('#test-link').hasAttribute('target', 'test-target');
     assert.dom('#test-link').hasAttribute('rel', 'test-rel');
   });
   test('it should render a <a> link withhout "target" and "rel" attributes if @isHrefExternal is false', async function (assert) {
     await render(
-      hbs`<Hds::Link::Inline @href="/" @isHrefExternal={{false}} id="test-link" />`
+      hbs`<Hds::Link::Inline @href="/" @isHrefExternal={{false}} id="test-link">Link text</Hds::Link::Inline>`
     );
     assert.dom('#test-link').doesNotHaveAttribute('target');
     assert.dom('#test-link').doesNotHaveAttribute('rel');
