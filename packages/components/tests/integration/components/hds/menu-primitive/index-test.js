@@ -32,7 +32,7 @@ module('Integration | Component | hds/menu-primitive/index', function (hooks) {
     await render(hbs`
       <Hds::MenuPrimitive>
         <:toggle>
-          <button type="button" id="test-menu-primitive-button" />
+          <Hds::Button type="button" id="test-menu-primitive-button" @text="Toggle button" />
         </:toggle>
       </Hds::MenuPrimitive>
     `);
@@ -44,10 +44,10 @@ module('Integration | Component | hds/menu-primitive/index', function (hooks) {
     await render(hbs`
       <Hds::MenuPrimitive>
         <:toggle as |t|>
-          <button type="button" id="test-menu-primitive-button" {{on "click" t.onClickToggle}} />
+          <Hds::Button type="button" id="test-menu-primitive-button" {{on "click" t.onClickToggle}} @text="Toggle button" />
         </:toggle>
         <:content>
-          <a id="test-menu-primitive-link" href="#">test</a>
+          <Hds::Link::Standalone id="test-menu-primitive-link" @icon="plus" @href="/" @text="Test interactive" />
         </:content>
       </Hds::MenuPrimitive>
     `);
@@ -62,10 +62,10 @@ module('Integration | Component | hds/menu-primitive/index', function (hooks) {
     await render(hbs`
       <Hds::MenuPrimitive id="test-menu-primitive">
         <:toggle as |t|>
-          <button type="button" id="test-menu-primitive-button" {{on "click" t.onClickToggle}} />
+          <Hds::Button type="button" id="test-menu-primitive-button" {{on "click" t.onClickToggle}} @text="Toggle button" />
         </:toggle>
         <:content>
-          <a id="test-menu-primitive-link" href="#">test</a>
+          <Hds::Link::Standalone id="test-menu-primitive-link"  @icon="plus" @href="/" @text="Test interactive" />
         </:content>
       </Hds::MenuPrimitive>
     `);
@@ -83,10 +83,10 @@ module('Integration | Component | hds/menu-primitive/index', function (hooks) {
     await render(hbs`
       <Hds::MenuPrimitive id="test-menu-primitive">
         <:toggle as |t|>
-          <button type="button" id="test-menu-primitive-button" {{on "click" t.onClickToggle}} />
+          <Hds::Button type="button" id="test-menu-primitive-button" {{on "click" t.onClickToggle}} @text="Toggle button" />
         </:toggle>
         <:content>
-          <a id="test-menu-primitive-link" href="#">test</a>
+          <Hds::Link::Standalone id="test-menu-primitive-link" @icon="plus" @href="/" @text="Test interactive" />
         </:content>
       </Hds::MenuPrimitive>
     `);
@@ -107,10 +107,10 @@ module('Integration | Component | hds/menu-primitive/index', function (hooks) {
     await render(hbs`
       <Hds::MenuPrimitive id="test-menu-primitive">
         <:toggle as |t|>
-          <button type="button" id="test-toggle-button" {{on "click" t.onClickToggle}} />
+          <Hds::Button type="button" id="test-toggle-button" {{on "click" t.onClickToggle}} @text="Toggle button" />
         </:toggle>
         <:content as |c|>
-          <button id="test-content-button" {{on "click" c.close}}>test</button>
+          <Hds::Button id="test-content-button" {{on "click" c.close}} @text="Interactive content element" />
         </:content>
       </Hds::MenuPrimitive>
     `);
