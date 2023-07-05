@@ -10,6 +10,55 @@
 - To hide basic non-critical information to users. Instead, consider using a [Reveal](/components/reveal).
 - To allow users switch between different content within the same context. Instead, consider using [Tabs](/components/tabs).
 
+### Accordion vs Reveal
+
+While similar in functionality and interaction, the Accordion and Reveal are meant to be used in different scenarios and use cases.
+
+#### How to know which to use
+
+The general recommendation is to use the Accordion when:
+
+- You have multiple sections of content that can be expanded or collapsed.
+
+- Each section of content has its own toggle content, giving users the ability to access specific sections.
+
+- Users need to navigate through different sections of content and selectively expand or collapse sections
+
+- There is a sequential or hierarchical relationship between the different sections.
+
+Use the Reveal when:
+
+- You have a single piece of content that can be expanded to collapsed to reveal additional details or information.
+
+- The content within the toggle is plain text.
+
+- The content within the reveal is relatively short and simple.
+
+- There is no need for multiple independent sections or hierarchical relationship between different sections.
+
+### Usage examples
+
+!!! Do
+
+Use the Accordion when you need to display content in different sections that have sequential or hierarchical relationship between them.
+
+![Accordion with basic content](/assets/components/accordion/usage-do.png)
+!!!
+
+!!! Dont
+
+Don;t use the Accordion when you need to display a single piece of content that can expand and collapse.
+
+![Accordion with basic content](/assets/components/accordion/usage-do-not.png)
+!!!
+
+!!! Do
+
+Use the Accordion when the toggle or the content is relatively complex.
+
+![Accordion with complex content](/assets/components/accordion/usage-do-complex.png)
+!!!
+
 ## Toggle content
 
 The toggle accepts many different types of content, from text-based content to nested HDS components or custom content.
