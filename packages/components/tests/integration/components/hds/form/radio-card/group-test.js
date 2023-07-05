@@ -31,8 +31,8 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
       hbs`<Hds::Form::RadioCard::Group as |G|>
             <G.Legend>This is the legend</G.Legend>
             <G.HelperText>This is the group helper text</G.HelperText>
-            <G.RadioCard/>
-            <G.RadioCard/>
+            <G.RadioCard aria-label="test label one" />
+            <G.RadioCard aria-label="test label two" />
             <G.Error>This is the group error</G.Error>
           </Hds::Form::RadioCard::Group>`
     );
@@ -61,8 +61,8 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
       hbs`<Hds::Form::RadioCard::Group as |G|>
             <G.Legend>This is the legend</G.Legend>
             <G.HelperText>This is the group helper text</G.HelperText>
-            <G.RadioCard/>
-            <G.RadioCard/>
+            <G.RadioCard aria-label="test label one" />
+            <G.RadioCard aria-label="test label two" />
             <G.Error>This is the group error</G.Error>
           </Hds::Form::RadioCard::Group>`
     );
@@ -85,8 +85,8 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
       hbs`<Hds::Form::RadioCard::Group @name="test-name" @alignment="center" @controlPosition="left" @layout="fixed" as |G|>
             <G.Legend>This is the legend</G.Legend>
             <G.HelperText>This is the group helper text</G.HelperText>
-            <G.RadioCard @maxWidth="50%" data-test="first-control"/>
-            <G.RadioCard @maxWidth="50%" data-test="second-control"/>
+            <G.RadioCard @maxWidth="50%" data-test="first-control" aria-label="test label one" />
+            <G.RadioCard @maxWidth="50%" data-test="second-control" aria-label="test label two" />
             <G.Error>This is the group error</G.Error>
           </Hds::Form::RadioCard::Group>`
     );
@@ -111,7 +111,7 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
     await render(
       hbs`<Hds::Form::RadioCard::Group @isRequired={{true}} as |G|>
             <G.Legend>This is the legend</G.Legend>
-            <G.RadioCard/>
+            <G.RadioCard aria-label="test label" />
           </Hds::Form::RadioCard::Group>`
     );
     assert.dom('legend .hds-form-indicator').exists();
@@ -121,7 +121,7 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
     await render(
       hbs`<Hds::Form::RadioCard::Group @isOptional={{true}} as |G|>
             <G.Legend>This is the legend</G.Legend>
-            <G.RadioCard/>
+            <G.RadioCard aria-label="test label" />
           </Hds::Form::RadioCard::Group>`
     );
     assert.dom('legend .hds-form-indicator').exists();

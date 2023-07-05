@@ -16,32 +16,38 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
   });
 
   test('it should render the component with a specific CSS class', async function (assert) {
-    await render(hbs`<Hds::Form::TextInput::Field />`);
+    await render(hbs`<Hds::Form::TextInput::Field aria-label="test label" />`);
     assert.dom('.hds-form-field__control').exists();
   });
 
   // TYPE
 
   test('it should render the "text" type if no type is declared', async function (assert) {
-    await render(hbs`<Hds::Form::TextInput::Field />`);
+    await render(hbs`<Hds::Form::TextInput::Field aria-label="test label" />`);
     assert.dom('input').hasAttribute('type', 'text');
   });
   test('it should render the correct type depending on the @type prop', async function (assert) {
-    await render(hbs`<Hds::Form::TextInput::Field @type="email" />`);
+    await render(
+      hbs`<Hds::Form::TextInput::Field @type="email" aria-label="test label" />`
+    );
     assert.dom('input').hasAttribute('type', 'email');
   });
 
   // VALUE
 
   test('it should render the input with the value provided via @value argument', async function (assert) {
-    await render(hbs`<Hds::Form::TextInput::Field @value="abc123" />`);
+    await render(
+      hbs`<Hds::Form::TextInput::Field @value="abc123" aria-label="test label" />`
+    );
     assert.dom('input').hasValue('abc123');
   });
 
   // INVALID
 
   test('it should render the correct CSS class if the @isInvalid prop is declared', async function (assert) {
-    await render(hbs`<Hds::Form::TextInput::Field @isInvalid={{true}} />`);
+    await render(
+      hbs`<Hds::Form::TextInput::Field @isInvalid={{true}} aria-label="test label" />`
+    );
     assert.dom('input').hasClass('hds-form-text-input--is-invalid');
   });
 
@@ -49,7 +55,7 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
 
   test('it should render the correct CSS class if the @isLoading prop is declared', async function (assert) {
     await render(
-      hbs`<Hds::Form::TextInput::Field @type="search" @isLoading={{true}} />`
+      hbs`<Hds::Form::TextInput::Field @type="search" @isLoading={{true}} aria-label="test label" />`
     );
     assert.dom('input').hasClass('hds-form-text-input--is-loading');
   });
@@ -57,14 +63,18 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
   // WIDTH
 
   test('it should render the input with a fixed width if a @width value is passed', async function (assert) {
-    await render(hbs`<Hds::Form::TextInput::Field @width="248px" />`);
+    await render(
+      hbs`<Hds::Form::TextInput::Field @width="248px" aria-label="test label" />`
+    );
     assert.dom('input').hasStyle({ width: '248px' });
   });
 
   // ID
 
   test('it should render the input with a custom @id', async function (assert) {
-    await render(hbs`<Hds::Form::TextInput::Field @id="my-input" />`);
+    await render(
+      hbs`<Hds::Form::TextInput::Field @id="my-input" aria-label="test label" />`
+    );
     assert.dom('input').hasAttribute('id', 'my-input');
   });
 
@@ -84,7 +94,7 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
     assert.dom('.hds-form-field__error').exists();
   });
   test('it does not render the yielded contextual components if not provided', async function (assert) {
-    await render(hbs`<Hds::Form::TextInput::Field />`);
+    await render(hbs`<Hds::Form::TextInput::Field data-test-valid-failure />`);
     assert.dom('.hds-form-field__label').doesNotExist();
     assert.dom('.hds-form-field__helper-text').doesNotExist();
     assert.dom('.hds-form-field__error').doesNotExist();
@@ -150,7 +160,7 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
 
   test('it should spread all the attributes passed to the component on the input', async function (assert) {
     await render(
-      hbs`<Hds::Form::TextInput::Field class="my-class" data-test1 data-test2="test" />`
+      hbs`<Hds::Form::TextInput::Field class="my-class" data-test1 data-test2="test" aria-label="test label" />`
     );
     assert.dom('input').hasClass('my-class');
     assert.dom('input').hasAttribute('data-test1');

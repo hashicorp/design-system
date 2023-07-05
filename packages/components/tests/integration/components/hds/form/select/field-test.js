@@ -16,7 +16,7 @@ module('Integration | Component | hds/form/select/field', function (hooks) {
   });
 
   test('it should render the component with a specific CSS class', async function (assert) {
-    await render(hbs`<Hds::Form::Select::Field />`);
+    await render(hbs`<Hds::Form::Select::Field aria-label="test label" />`);
     assert.dom('.hds-form-field__control').exists();
   });
 
@@ -24,7 +24,7 @@ module('Integration | Component | hds/form/select/field', function (hooks) {
 
   test('it should render the options passed via contextual component', async function (assert) {
     await render(
-      hbs`<Hds::Form::Select::Field id="test-form-select" as |F|><F.Options><option value="abc123">This is the option</option></F.Options></Hds::Form::Select::Field>`
+      hbs`<Hds::Form::Select::Field id="test-form-select" aria-label="test label" as |F|><F.Options><option value="abc123">This is the option</option></F.Options></Hds::Form::Select::Field>`
     );
     assert.dom('select option').exists();
     assert.dom('select option').hasText('This is the option');
@@ -34,21 +34,27 @@ module('Integration | Component | hds/form/select/field', function (hooks) {
   // WIDTH
 
   test('it should render the input with a fixed width if a @width value is passed', async function (assert) {
-    await render(hbs`<Hds::Form::Select::Field @width="248px" />`);
+    await render(
+      hbs`<Hds::Form::Select::Field aria-label="test label" @width="248px" />`
+    );
     assert.dom('select').hasStyle({ width: '248px' });
   });
 
   // INVALID
 
   test('it should render the correct CSS class if the @isInvalid prop is declared', async function (assert) {
-    await render(hbs`<Hds::Form::Select::Field @isInvalid={{true}} />`);
+    await render(
+      hbs`<Hds::Form::Select::Field aria-label="test label" @isInvalid={{true}} />`
+    );
     assert.dom('select').hasClass('hds-form-select--is-invalid');
   });
 
   // ID
 
   test('it should render the select control with a custom @id', async function (assert) {
-    await render(hbs`<Hds::Form::Select::Field @id="my-input" />`);
+    await render(
+      hbs`<Hds::Form::Select::Field aria-label="test label" @id="my-input" />`
+    );
     assert.dom('select').hasAttribute('id', 'my-input');
   });
 
@@ -68,7 +74,7 @@ module('Integration | Component | hds/form/select/field', function (hooks) {
     assert.dom('.hds-form-field__error').exists();
   });
   test('it does not render the yielded contextual components if not provided', async function (assert) {
-    await render(hbs`<Hds::Form::Select::Field />`);
+    await render(hbs`<Hds::Form::Select::Field data-test-valid-failure />`);
     assert.dom('.hds-form-field__label').doesNotExist();
     assert.dom('.hds-form-field__helper-text').doesNotExist();
     assert.dom('.hds-form-field__error').doesNotExist();
@@ -134,7 +140,7 @@ module('Integration | Component | hds/form/select/field', function (hooks) {
 
   test('it should spread all the attributes passed to the component on the input', async function (assert) {
     await render(
-      hbs`<Hds::Form::Select::Field class="my-class" data-test1 data-test2="test" />`
+      hbs`<Hds::Form::Select::Field aria-label="test label" class="my-class" data-test1 data-test2="test" />`
     );
     assert.dom('select').hasClass('my-class');
     assert.dom('select').hasAttribute('data-test1');

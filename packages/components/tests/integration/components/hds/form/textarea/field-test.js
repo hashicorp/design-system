@@ -16,21 +16,25 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
   });
 
   test('it should render the component with a specific CSS class', async function (assert) {
-    await render(hbs`<Hds::Form::Textarea::Field />`);
+    await render(hbs`<Hds::Form::Textarea::Field aria-label="test label" />`);
     assert.dom('.hds-form-field__control').exists();
   });
 
   // VALUE
 
   test('it should render the input with the value provided via @value argument', async function (assert) {
-    await render(hbs`<Hds::Form::Textarea::Field @value="abc123" />`);
+    await render(
+      hbs`<Hds::Form::Textarea::Field @value="abc123" aria-label="test label" />`
+    );
     assert.dom('textarea').hasValue('abc123');
   });
 
   // INVALID
 
   test('it should render the correct CSS class if the @isInvalid prop is declared', async function (assert) {
-    await render(hbs`<Hds::Form::Textarea::Field @isInvalid={{true}} />`);
+    await render(
+      hbs`<Hds::Form::Textarea::Field @isInvalid={{true}} aria-label="test label" />`
+    );
     assert.dom('textarea').hasClass('hds-form-textarea--is-invalid');
   });
 
@@ -38,13 +42,13 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
 
   test('it should render the textarea control with a fixed width if a @width value is passed', async function (assert) {
     await render(hbs`
-      <Hds::Form::Textarea::Field @width="248px" />
+      <Hds::Form::Textarea::Field @width="248px" aria-label="test label" />
     `);
     assert.dom('textarea').hasStyle({ width: '248px' });
   });
   test('it should render the textarea control with a fixed height if a @height value is passed', async function (assert) {
     await render(hbs`
-      <Hds::Form::Textarea::Field @height="248px" />
+      <Hds::Form::Textarea::Field @height="248px" aria-label="test label" />
     `);
     assert.dom('textarea').hasStyle({ height: '248px' });
   });
@@ -52,7 +56,9 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
   // ID
 
   test('it should render the textarea control with a custom @id', async function (assert) {
-    await render(hbs`<Hds::Form::Textarea::Field @id="my-textarea" />`);
+    await render(
+      hbs`<Hds::Form::Textarea::Field @id="my-textarea" aria-label="test label" />`
+    );
     assert.dom('textarea').hasAttribute('id', 'my-textarea');
   });
 
@@ -72,7 +78,7 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
     assert.dom('.hds-form-field__error').exists();
   });
   test('it does not render the yielded contextual components if not provided', async function (assert) {
-    await render(hbs`<Hds::Form::Textarea::Field />`);
+    await render(hbs`<Hds::Form::Textarea::Field data-test-valid-failure />`);
     assert.dom('.hds-form-field__label').doesNotExist();
     assert.dom('.hds-form-field__helper-text').doesNotExist();
     assert.dom('.hds-form-field__error').doesNotExist();
@@ -140,7 +146,7 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
 
   test('it should spread all the attributes passed to the component on the input', async function (assert) {
     await render(
-      hbs`<Hds::Form::Textarea::Field class="my-class" data-test1 data-test2="test" />`
+      hbs`<Hds::Form::Textarea::Field class="my-class" data-test1 data-test2="test" aria-label="test label" />`
     );
     assert.dom('textarea').hasClass('my-class');
     assert.dom('textarea').hasAttribute('data-test1');

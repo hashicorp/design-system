@@ -12,18 +12,20 @@ module('Integration | Component | hds/form/radio-card/index', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(hbs`<Hds::Form::RadioCard/>`);
+    await render(hbs`<Hds::Form::RadioCard aria-label="test label" />`);
     assert.dom('label').hasClass('hds-form-radio-card');
   });
   test('it should render the input with a specific CSS class', async function (assert) {
-    await render(hbs`<Hds::Form::RadioCard />`);
+    await render(hbs`<Hds::Form::RadioCard aria-label="test label" />`);
     assert.dom('input').hasClass('hds-form-radio-card__control');
   });
 
   // NAME, VALUE
 
   test('it should render the input with the arguments provided', async function (assert) {
-    await render(hbs`<Hds::Form::RadioCard @name="name" @value="value" />`);
+    await render(
+      hbs`<Hds::Form::RadioCard @name="name" @value="value" aria-label="test label" />`
+    );
     assert.dom('input').hasValue('value');
     assert.dom('input').hasAttribute('name', 'name');
   });
@@ -32,7 +34,7 @@ module('Integration | Component | hds/form/radio-card/index', function (hooks) {
 
   test('it should render the component with CSS classes that reflect the arguments provided', async function (assert) {
     await render(
-      hbs`<Hds::Form::RadioCard @checked="checked" @disabled="disabled" />`
+      hbs`<Hds::Form::RadioCard @checked="checked" @disabled="disabled" aria-label="test label" />`
     );
     assert.dom('label').hasClass('hds-form-radio-card--checked');
     assert.dom('label').hasClass('hds-form-radio-card--disabled');
@@ -57,7 +59,7 @@ module('Integration | Component | hds/form/radio-card/index', function (hooks) {
     assert.dom('.custom').exists();
   });
   test('it does not render the contextual components if not provided', async function (assert) {
-    await render(hbs`<Hds::Form::RadioCard />`);
+    await render(hbs`<Hds::Form::RadioCard aria-label="test label" />`);
     assert.dom('.flight-icon').doesNotExist();
     assert.dom('.hds-form-radio-card__label').doesNotExist();
     assert.dom('.hds-badge').doesNotExist();
@@ -69,7 +71,7 @@ module('Integration | Component | hds/form/radio-card/index', function (hooks) {
 
   test('it should spread all the attributes passed to the component on the input', async function (assert) {
     await render(
-      hbs`<Hds::Form::RadioCard id="my-id" name="my-name" class="my-class" data-test1 data-test2="test" />`
+      hbs`<Hds::Form::RadioCard id="my-id" name="my-name" class="my-class" data-test1 data-test2="test" aria-label="test label" />`
     );
     assert.dom('input').hasAttribute('id', 'my-id');
     assert.dom('input').hasAttribute('name', 'my-name');
@@ -87,7 +89,9 @@ module('Integration | Component | hds/form/radio-card/index', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(hbs`<Hds::Form::RadioCard @alignment="foo" />`);
+    await render(
+      hbs`<Hds::Form::RadioCard @alignment="foo" aria-label="test label" />`
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -100,7 +104,9 @@ module('Integration | Component | hds/form/radio-card/index', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(hbs`<Hds::Form::RadioCard @controlPosition="foo" />`);
+    await render(
+      hbs`<Hds::Form::RadioCard @controlPosition="foo" aria-label="test label" />`
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -113,7 +119,9 @@ module('Integration | Component | hds/form/radio-card/index', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(hbs`<Hds::Form::RadioCard @layout="foo" />`);
+    await render(
+      hbs`<Hds::Form::RadioCard @layout="foo" aria-label="test label" />`
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -126,7 +134,9 @@ module('Integration | Component | hds/form/radio-card/index', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(hbs`<Hds::Form::RadioCard @layout="fixed" />`);
+    await render(
+      hbs`<Hds::Form::RadioCard @layout="fixed" aria-label="test label" />`
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });

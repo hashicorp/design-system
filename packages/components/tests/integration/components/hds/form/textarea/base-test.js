@@ -12,7 +12,9 @@ module('Integration | Component | hds/form/textarea/base', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(hbs`<Hds::Form::Textarea::Base id="test-form-textarea" />`);
+    await render(
+      hbs`<Hds::Form::Textarea::Base id="test-form-textarea" aria-label="test label" />`
+    );
     assert.dom('#test-form-textarea').hasClass('hds-form-textarea');
   });
 
@@ -20,7 +22,7 @@ module('Integration | Component | hds/form/textarea/base', function (hooks) {
 
   test('it should render the input with the value provided via @value argument', async function (assert) {
     await render(
-      hbs`<Hds::Form::Textarea::Base @value="abc123" id="test-form-textarea" />`
+      hbs`<Hds::Form::Textarea::Base @value="abc123" id="test-form-textarea" aria-label="test label" />`
     );
     assert.dom('#test-form-textarea').hasValue('abc123');
   });
@@ -28,11 +30,13 @@ module('Integration | Component | hds/form/textarea/base', function (hooks) {
   // ROWS
 
   test('it should render the textarea with the default number of rows', async function (assert) {
-    await render(hbs`<Hds::Form::Textarea::Base />`);
+    await render(hbs`<Hds::Form::Textarea::Base aria-label="test label" />`);
     assert.dom('textarea').hasAttribute('rows', '4');
   });
   test('it should render the textarea with a custom number of rows', async function (assert) {
-    await render(hbs`<Hds::Form::Textarea::Base rows="2" />`);
+    await render(
+      hbs`<Hds::Form::Textarea::Base rows="2" aria-label="test label" />`
+    );
     assert.dom('textarea').hasAttribute('rows', '2');
   });
 
@@ -40,7 +44,7 @@ module('Integration | Component | hds/form/textarea/base', function (hooks) {
 
   test('it should render the correct CSS class if the @isInvalid prop is declared', async function (assert) {
     await render(
-      hbs`<Hds::Form::Textarea::Base id="test-form-textarea" @isInvalid={{true}} />`
+      hbs`<Hds::Form::Textarea::Base id="test-form-textarea" @isInvalid={{true}} aria-label="test label" />`
     );
     assert.dom('#test-form-textarea').hasClass('hds-form-textarea--is-invalid');
   });
@@ -49,7 +53,7 @@ module('Integration | Component | hds/form/textarea/base', function (hooks) {
 
   test('it should spread all the attributes passed to the component', async function (assert) {
     await render(
-      hbs`<Hds::Form::Textarea::Base id="test-form-textarea" class="my-class" data-test1 data-test2="test" />`
+      hbs`<Hds::Form::Textarea::Base id="test-form-textarea" class="my-class" data-test1 data-test2="test" aria-label="test label" />`
     );
     assert.dom('#test-form-textarea').hasClass('my-class');
     assert.dom('#test-form-textarea').hasAttribute('data-test1');

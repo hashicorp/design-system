@@ -12,7 +12,9 @@ module('Integration | Component | hds/form/toggle/base', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(hbs`<Hds::Form::Toggle::Base id="test-form-toggle" />`);
+    await render(
+      hbs`<Hds::Form::Toggle::Base id="test-form-toggle" aria-label="test label" />`
+    );
     // Notice: the "toggle" component has a slightly different DOM structure than the other form controls
     assert.dom('.hds-form-toggle').exists();
     assert.dom('.hds-form-toggle > #test-form-toggle').exists();
@@ -23,7 +25,7 @@ module('Integration | Component | hds/form/toggle/base', function (hooks) {
 
   test('it should spread all the attributes passed to the component', async function (assert) {
     await render(
-      hbs`<Hds::Form::Toggle::Base id="test-form-toggle" class="my-class" data-test1 data-test2="test" />`
+      hbs`<Hds::Form::Toggle::Base id="test-form-toggle" class="my-class" data-test1 data-test2="test" aria-label="test label" />`
     );
     assert.dom('#test-form-toggle').hasClass('my-class');
     assert.dom('#test-form-toggle').hasAttribute('data-test1');
@@ -33,7 +35,9 @@ module('Integration | Component | hds/form/toggle/base', function (hooks) {
   // ACCESSIBILITY
 
   test('it should render with the correct role', async function (assert) {
-    await render(hbs`<Hds::Form::Toggle::Base id="test-form-toggle" />`);
+    await render(
+      hbs`<Hds::Form::Toggle::Base id="test-form-toggle" aria-label="test label" />`
+    );
     assert.dom('#test-form-toggle').hasAttribute('role', 'switch');
   });
   // role="switch"

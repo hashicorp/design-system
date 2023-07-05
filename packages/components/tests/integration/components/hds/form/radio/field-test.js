@@ -16,21 +16,25 @@ module('Integration | Component | hds/form/radio/field', function (hooks) {
   });
 
   test('it should render the component with a specific CSS class', async function (assert) {
-    await render(hbs`<Hds::Form::Radio::Field />`);
+    await render(hbs`<Hds::Form::Radio::Field aria-label="test label" />`);
     assert.dom('.hds-form-field__control').exists();
   });
 
   // VALUE
 
   test('it should render the input with the value provided via @value argument', async function (assert) {
-    await render(hbs`<Hds::Form::Radio::Field @value="abc123" />`);
+    await render(
+      hbs`<Hds::Form::Radio::Field @value="abc123" aria-label="test label" />`
+    );
     assert.dom('input').hasValue('abc123');
   });
 
   // ID
 
   test('it should render the input with a custom @id', async function (assert) {
-    await render(hbs`<Hds::Form::Radio::Field @id="my-input" />`);
+    await render(
+      hbs`<Hds::Form::Radio::Field @id="my-input" aria-label="test label" />`
+    );
     assert.dom('input').hasAttribute('id', 'my-input');
   });
 
@@ -50,7 +54,7 @@ module('Integration | Component | hds/form/radio/field', function (hooks) {
     assert.dom('.hds-form-field__error').exists();
   });
   test('it does not render the yielded contextual components if not provided', async function (assert) {
-    await render(hbs`<Hds::Form::Radio::Field />`);
+    await render(hbs`<Hds::Form::Radio::Field data-test-valid-failure />`);
     assert.dom('.hds-form-field__label').doesNotExist();
     assert.dom('.hds-form-field__helper-text').doesNotExist();
     assert.dom('.hds-form-field__error').doesNotExist();
@@ -84,9 +88,9 @@ module('Integration | Component | hds/form/radio/field', function (hooks) {
   // ATTRIBUTES
 
   // we have added an extra assertion for the "name" attribute here, even if not strictly necessary, to make sure is not overwritten in any way
-  test('it should spread all the attributes (includind "name") passed to the component on the input', async function (assert) {
+  test('it should spread all the attributes (including "name") passed to the component on the input', async function (assert) {
     await render(
-      hbs`<Hds::Form::Radio::Field checked="checked" class="my-class" data-test1 data-test2="test" name="test-name" />`
+      hbs`<Hds::Form::Radio::Field checked="checked" class="my-class" data-test1 data-test2="test" name="test-name" aria-label="test label" />`
     );
     assert.dom('input').hasClass('my-class');
     assert.dom('input').hasAttribute('data-test1');
