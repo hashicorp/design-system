@@ -135,7 +135,9 @@ module('Integration | Component | hds/reveal/index', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(hbs`<Hds::Reveal>Additional content</Hds::Reveal>`);
+    await render(
+      hbs`<Hds::Reveal id="test-valid-failure">Additional content</Hds::Reveal>`
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
