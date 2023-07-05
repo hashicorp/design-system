@@ -35,7 +35,7 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
 
   test('it should add inline styles if `@width` is declared', async function (assert) {
     await render(
-      hbs`<Hds::Table::ThSort id="data-test-table-th-sort" @width="10%" />`
+      hbs`<Hds::Table::ThSort id="data-test-table-th-sort" @width="10%">Artist</Hds::Table::ThSort>`
     );
     assert
       .dom('#data-test-table-th-sort')
