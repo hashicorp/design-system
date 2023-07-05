@@ -43,13 +43,15 @@ setRunOptions({
       'best-practice',
     ],
   },
-  include: ['#ember-testing-container'],
-  exclude: ['.flight-sprite-container', '.shw-page-main'],
+  include: [['#ember-testing-container']],
+  exclude: [['.flight-sprite-container'], ['.shw-page-main']],
 });
 
-// This might not be needed since using the ENABLE_A11Y_AUDIT environment variable is used in the script that runs the audit 🤔
-// Also if `enableA11yAudit` is specified in the query param it will also force the audit already
-// So, think about whether or not there are valid use cases for this conditional.
+// This will be used by developers to run the tests locally
+// Either with the `enableA11yAudit` as a query param in the URL
+// or `yarn test:a11y` in the CLI
+// Note: if you want to filter what test is run from the start, use the --filter flag: `yarn test:a11y --filter="alert"`
+// Docs: https://guides.emberjs.com/release/testing/#toc_how-to-filter-tests
 if (shouldForceAudit()) {
   setEnableA11yAudit(true);
 }
