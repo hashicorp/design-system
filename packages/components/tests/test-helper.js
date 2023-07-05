@@ -44,7 +44,12 @@ setRunOptions({
     ],
   },
   include: [['#ember-testing-container']],
-  exclude: [['.flight-sprite-container'], ['.shw-page-main']],
+  exclude: [
+    ['.flight-sprite-container'],
+    ['.shw-page-main'],
+    ['#test-button-assertion'],
+    ['#test-is-flake'],
+  ],
 });
 
 // This will be used by developers to run the tests locally

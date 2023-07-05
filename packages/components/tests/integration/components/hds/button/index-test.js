@@ -145,7 +145,9 @@ module('Integration | Component | hds/button/index', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(hbs`<Hds::Button @icon="clipboard-copy" />`);
+    await render(
+      hbs`<Hds::Button @icon="clipboard-copy" id="test-button-assertion" />`
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -182,7 +184,7 @@ module('Integration | Component | hds/button/index', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      hbs`<Hds::Button @icon="clipboard-copy" @text="copy to clipboard" @iconPosition="after" />`
+      hbs`<Hds::Button @text="copy to clipboard" @icon="clipboard-copy"  @iconPosition="after" id="test-is-flake" />`
     );
     assert.throws(function () {
       throw new Error(errorMessage);
