@@ -49,6 +49,7 @@ setRunOptions({
     ['.shw-page-main'],
     ['#test-button-assertion'],
     ['#test-is-flake'],
+    ['#test-valid-failure'],
   ],
 });
 
