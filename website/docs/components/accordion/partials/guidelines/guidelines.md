@@ -47,7 +47,7 @@ Use the Accordion when you need to display content in different sections that ha
 
 !!! Dont
 
-Don;t use the Accordion when you need to display a single piece of content that can expand and collapse.
+Don’t use the Accordion when you need to display a single piece of content that can expand and collapse.
 
 ![Accordion with basic content](/assets/components/accordion/usage-do-not.png)
 !!!
