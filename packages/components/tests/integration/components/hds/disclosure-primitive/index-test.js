@@ -32,7 +32,7 @@ module(
       await render(hbs`
       <Hds::DisclosurePrimitive>
         <:toggle>
-          <button type="button" id="test-disclosure-primitive-button" />
+          <button type="button" id="test-disclosure-primitive-button">Click me</button>
         </:toggle>
       </Hds::DisclosurePrimitive>
     `);
@@ -44,10 +44,10 @@ module(
       await render(hbs`
       <Hds::DisclosurePrimitive>
         <:toggle as |t|>
-          <button type="button" id="test-disclosure-primitive-button" {{on "click" t.onClickToggle}} />
+          <button type="button" id="test-disclosure-primitive-button" style="padding:1rem;" {{on "click" t.onClickToggle}}>Click me</button>
         </:toggle>
         <:content>
-          <a id="test-disclosure-primitive-link" href="#">test</a>
+          <a id="test-disclosure-primitive-link" href="#" style="padding:1rem;">test</a>
         </:content>
       </Hds::DisclosurePrimitive>
     `);
@@ -57,15 +57,16 @@ module(
     });
 
     // CLOSE DISCLOSED CONTENT ON CLICK
+    // INLINE STYLE ADDED FOR A11YAUDIT
 
     test('it should hide the "content" when an interactive element triggers `close`', async function (assert) {
       await render(hbs`
       <Hds::DisclosurePrimitive id="test-disclosure-primitive">
         <:toggle as |t|>
-          <button type="button" id="test-toggle-button" {{on "click" t.onClickToggle}} />
+          <button type="button" id="test-toggle-button" {{on "click" t.onClickToggle}} style="padding:1rem;">Toggle</button>
         </:toggle>
         <:content as |c|>
-          <button id="test-content-button" {{on "click" c.close}}>test</button>
+          <button id="test-content-button" {{on "click" c.close}} style="padding:1rem;">test</button>
         </:content>
       </Hds::DisclosurePrimitive>
     `);
