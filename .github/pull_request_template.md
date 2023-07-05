@@ -24,5 +24,6 @@ Figma file: [if it applies]
 
 - [ ] +1 Percy if applicable
 - [ ] Confirm that PR has a changelog update via [Changesets](https://github.com/changesets/changesets) if needed
+- [ ] Confirm that A11y tests have been run locally for this component
 
 :speech_balloon: Please consider using [conventional comments](https://conventionalcomments.org/) when reviewing this PR.
