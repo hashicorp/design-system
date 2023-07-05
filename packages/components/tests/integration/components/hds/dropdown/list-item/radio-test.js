@@ -15,14 +15,14 @@ module(
 
     test('it renders the "list-item/radio"', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Radio>Radio item</Hds::Dropdown::ListItem::Radio>`
+        hbs`<ul><Hds::Dropdown::ListItem::Radio>Radio item</Hds::Dropdown::ListItem::Radio></ul>`
       );
       assert.dom(this.element).exists();
     });
 
     test('it should render the "list-item/radio" as a <li> element with a CSS class that matches the component name', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Radio>Radio item</Hds::Dropdown::ListItem::Radio>`
+        hbs`<ul><Hds::Dropdown::ListItem::Radio>Radio item</Hds::Dropdown::ListItem::Radio></ul>`
       );
       assert.dom('.hds-dropdown-list-item').hasTagName('li');
       assert
@@ -34,7 +34,7 @@ module(
 
     test('it should render the "list-item" with a radio control', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Radio>Radio item</Hds::Dropdown::ListItem::Radio>`
+        hbs`<ul><Hds::Dropdown::ListItem::Radio>Radio item</Hds::Dropdown::ListItem::Radio></ul>`
       );
       assert.dom('.hds-form-radio').exists();
     });
@@ -43,7 +43,7 @@ module(
 
     test('it should forward the `id` and `value` arguments to the input control', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Radio @id="id" @value="value">Radio item</Hds::Dropdown::ListItem::Radio>`
+        hbs`<ul><Hds::Dropdown::ListItem::Radio @id="id" @value="value">Radio item</Hds::Dropdown::ListItem::Radio></ul>`
       );
       assert.dom('.hds-form-radio').hasAttribute('id', 'id');
       assert.dom('.hds-form-radio').hasValue('value');
@@ -52,7 +52,7 @@ module(
     // CONTROL-LABEL ASSOCIATION
     test('it automatically creates the control-label relationship via generated id', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Radio @value="value">Checkbox item</Hds::Dropdown::ListItem::Radio>`
+        hbs`<ul><Hds::Dropdown::ListItem::Radio @value="value">Checkbox item</Hds::Dropdown::ListItem::Radio></ul>`
       );
       let control = this.element.querySelector(
         '.hds-dropdown-list-item__control'
@@ -67,7 +67,7 @@ module(
 
     test('if an icon is declared the flight icon should render in the component', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Radio @icon="hexagon">Radio item</Hds::Dropdown::ListItem::Radio>`
+        hbs`<ul><Hds::Dropdown::ListItem::Radio @icon="hexagon">Radio item</Hds::Dropdown::ListItem::Radio></ul>`
       );
       assert.dom('.flight-icon.flight-icon-hexagon').exists();
     });
@@ -76,7 +76,7 @@ module(
 
     test('it should render the content passed as block in a form label', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Radio>Radio item</Hds::Dropdown::ListItem::Radio>`
+        hbs`<ul><Hds::Dropdown::ListItem::Radio>Radio item</Hds::Dropdown::ListItem::Radio></ul>`
       );
       assert.dom('.hds-dropdown-list-item__control').exists();
       assert.dom('.hds-dropdown-list-item__label').hasText('Radio item');
@@ -86,7 +86,7 @@ module(
 
     test('it should render with a result count badge', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Radio @count="10">Radio item</Hds::Dropdown::ListItem::Radio>`
+        hbs`<ul><Hds::Dropdown::ListItem::Radio @count="10">Radio item</Hds::Dropdown::ListItem::Radio></ul>`
       );
       assert.dom('.hds-dropdown-list-item__count').hasText('10');
     });
@@ -95,7 +95,7 @@ module(
 
     test('it should render as checked if `checked` is true', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Radio checked={{true}}>Radio</Hds::Dropdown::ListItem::Radio>`
+        hbs`<ul><Hds::Dropdown::ListItem::Radio checked={{true}}>Radio</Hds::Dropdown::ListItem::Radio></ul>`
       );
       assert.dom('.hds-form-radio').isChecked();
     });

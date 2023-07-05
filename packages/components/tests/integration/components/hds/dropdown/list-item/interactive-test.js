@@ -23,7 +23,7 @@ module(
 
     test('it should render the component as a <li> element with a CSS class that matches the component name', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Interactive @text="interactive" />`
+        hbs`<ul><Hds::Dropdown::ListItem::Interactive @text="interactive" /></ul>`
       );
       assert.dom('.hds-dropdown-list-item').hasTagName('li');
       assert
@@ -35,19 +35,19 @@ module(
 
     test('it should render the "list-item" with a button by default"', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Interactive @text="interactive" />`
+        hbs`<ul><Hds::Dropdown::ListItem::Interactive @text="interactive" /></ul>`
       );
       assert.dom('.hds-dropdown-list-item > button').exists();
     });
     test('it should render the "list-item" with a link if it has a @route parameter"', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Interactive @text="interactive" @route="index" />`
+        hbs`<ul><Hds::Dropdown::ListItem::Interactive @text="interactive" @route="index" /></ul>`
       );
       assert.dom('.hds-dropdown-list-item > a').exists();
     });
     test('it should render the "list-item" with a link if it has a @href argument"', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Interactive @text="interactive" @href="#" />`
+        hbs`<ul><Hds::Dropdown::ListItem::Interactive @text="interactive" @href="#" /></ul>`
       );
       assert.dom('.hds-dropdown-list-item > a').exists();
     });
@@ -56,7 +56,7 @@ module(
 
     test('it should render the "action" color as the default if no color is declared"', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Interactive @text="interactive" />`
+        hbs`<ul><Hds::Dropdown::ListItem::Interactive @text="interactive" /></ul>`
       );
       assert
         .dom('.hds-dropdown-list-item')
@@ -64,7 +64,7 @@ module(
     });
     test('it should render the correct CSS color class if the @color prop is declared', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Interactive @color="critical" @text="interactive" @icon="trash" />`
+        hbs`<ul><Hds::Dropdown::ListItem::Interactive @color="critical" @text="interactive" @icon="trash" /></ul>`
       );
       assert
         .dom('.hds-dropdown-list-item')
@@ -75,7 +75,7 @@ module(
 
     test('if an icon is declared the flight icon should render in the component', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Interactive @icon="clipboard-copy" @text="interactive" />`
+        hbs`<ul><Hds::Dropdown::ListItem::Interactive @icon="clipboard-copy" @text="interactive" /></ul>`
       );
       assert.dom('.flight-icon.flight-icon-clipboard-copy').exists();
     });
@@ -84,7 +84,7 @@ module(
 
     test('it should render the text passed as @text prop', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Interactive @text="interactive text" />`
+        hbs`<ul><Hds::Dropdown::ListItem::Interactive @text="interactive text" /></ul>`
       );
       assert.dom('.hds-dropdown-list-item').hasText('interactive text');
     });
@@ -98,7 +98,9 @@ module(
       setupOnerror(function (error) {
         assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
       });
-      await render(hbs`<Hds::Dropdown::ListItem::Interactive />`);
+      await render(
+        hbs`<ul><Hds::Dropdown::ListItem::Interactive id="test-valid-failure" /></ul>`
+      );
       assert.throws(function () {
         throw new Error(errorMessage);
       });
@@ -111,7 +113,7 @@ module(
         assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
       });
       await render(
-        hbs`<Hds::Dropdown::ListItem::Interactive @text="interactive text" @color="foo" />`
+        hbs`<ul><Hds::Dropdown::ListItem::Interactive @text="interactive text" @color="foo" /></ul>`
       );
       assert.throws(function () {
         throw new Error(errorMessage);
