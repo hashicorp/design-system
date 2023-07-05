@@ -108,6 +108,7 @@ The engineering checklist has six parts: creating the feature branch, component 
   - [ ] try not to repeat tests (i.e., don't have to test all sizes, all colors, etc.)
   - [ ] test all accessibility attributes
   - [ ] test assertions
+  - [ ] run the accessibility automation tests (`yarn test:a11y --filter="COMPONENT-NAME"`)
 - [ ] **documentation**
   - create component page `ember generate route components/COMPONENT_NAME --dummy`
   - add link to `templates/index.hbs` page
