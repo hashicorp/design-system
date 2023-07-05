@@ -11,7 +11,6 @@ navigation:
 <section data-tab="Guidelines">
   @include "partials/guidelines/overview.md"
   @include "partials/guidelines/guidelines.md"
-  @include "partials/guidelines/validation.md"
 </section>
 
 <section data-tab="Specifications">
