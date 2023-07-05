@@ -12,7 +12,9 @@ module('Integration | Component | hds/segmented-group/index', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(hbs`<Hds::SegmentedGroup id="test-segmented-group" />`);
+    await render(
+      hbs`<Hds::SegmentedGroup id="test-segmented-group" data-test-valid-failure />`
+    );
     assert.dom('#test-segmented-group').hasClass('hds-segmented-group');
   });
 
@@ -26,8 +28,8 @@ module('Integration | Component | hds/segmented-group/index', function (hooks) {
               <DD.ToggleButton @color="secondary" @text="Toggle" />
               <DD.Interactive @href="#" @text="Dropdown Item" />
             </S.Dropdown>
-            <S.Select id="segmented-select"/>
-            <S.TextInput id="segmented-input" />
+            <S.Select id="segmented-select" aria-label="text select" />
+            <S.TextInput id="segmented-input" aria-label="test text input" />
             <S.Generic><span id="segmented-generic"></span></S.Generic/>
           </Hds::SegmentedGroup>`
     );

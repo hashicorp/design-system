@@ -50,6 +50,7 @@ setRunOptions({
     ['#test-button-assertion'],
     ['#test-is-flake'],
     ['#test-valid-failure'],
+    ['[data-test-valid-failure]'],
   ],
 });
 
