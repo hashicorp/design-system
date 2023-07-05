@@ -12,13 +12,15 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(hbs`<Hds::Breadcrumb::Item id="test-breadcrumb-item" />`);
+    await render(
+      hbs`<ul><Hds::Breadcrumb::Item id="test-breadcrumb-item" @text="test" /></ul>`
+    );
     assert.dom('#test-breadcrumb-item').hasClass('hds-breadcrumb__item');
   });
 
   test('it should render the correct style if the @maxWidth prop is declared', async function (assert) {
     await render(
-      hbs`<Hds::Breadcrumb::Item @maxWidth="200px" @text="test" id="test-breadcrumb-item" />`
+      hbs`<ul><Hds::Breadcrumb::Item @maxWidth="200px" @text="test" id="test-breadcrumb-item" /></ul>`
     );
     assert.dom('#test-breadcrumb-item').hasStyle({ 'max-width': '200px' });
   });
@@ -27,20 +29,20 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
 
   test('it should render a link by default', async function (assert) {
     await render(
-      hbs`<Hds::Breadcrumb::Item id="test-breadcrumb-item" @text="text renders" />`
+      hbs`<ul><Hds::Breadcrumb::Item id="test-breadcrumb-item" @text="text renders" /></ul>`
     );
     assert.dom('#test-breadcrumb-item > a').exists();
   });
   test('it should not render a if @current is true', async function (assert) {
     await render(
-      hbs`<Hds::Breadcrumb::Item id="test-breadcrumb-item" @text="text renders" @current={{true}} />`
+      hbs`<ul><Hds::Breadcrumb::Item id="test-breadcrumb-item" @text="text renders" @current={{true}} /></ul>`
     );
     assert.dom('#test-breadcrumb-item > a').doesNotExist();
     assert.dom('#test-breadcrumb-item .hds-breadcrumb__current').exists();
   });
   test('it should render the item with icon and text if @icon and @text are provided', async function (assert) {
     await render(
-      hbs`<Hds::Breadcrumb::Item id="test-breadcrumb-item" @text="text renders" @icon="activity" />`
+      hbs`<ul><Hds::Breadcrumb::Item id="test-breadcrumb-item" @text="text renders" @icon="activity" /></ul>`
     );
     assert.dom('.flight-icon.flight-icon-activity').exists();
     assert.dom('.hds-breadcrumb__text').hasText('text renders');
@@ -55,7 +57,7 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      hbs`<Hds::Breadcrumb::Item @maxWidth="123" id="test-breadcrumb-item" />`
+      hbs`<ul><Hds::Breadcrumb::Item @maxWidth="123" id="test-breadcrumb-item" /></ul>`
     );
     assert.throws(function () {
       throw new Error(errorMessage);
