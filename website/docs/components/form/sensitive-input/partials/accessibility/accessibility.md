@@ -1,23 +1,26 @@
 ## Conformance rating
 
-<!-- Update conformance rating badge with correct status and remove the others -->
+### Form::SensitiveInput::Field
+
 <Doc::Badge @type="success">Conformant</Doc::Badge>
 
-When used as recommended, there should not be any WCAG conformance issues with this component.
+`Form::SensitiveInput::Field` is conformant when used as directed. For this reason, we recommend using `Form::SensitiveInput::Field` by default.
+
+### Form::SensitiveInput::Base
 
 <Doc::Badge @type="warning">Conditionally conformant</Doc::Badge>
 
-Explain how the component is conditionally conformant. For example, any component that offers text truncation is conditionally conformant- it is conformant as long as the text truncation feature is not used.
+`Form::SensitiveInput::Base` is not conformant until it has an accessible name.
 
-<Doc::Badge @type="critical">Not conformant</Doc::Badge>
+## Known issues
 
-The `Component Name` component is not WCAG-conformant on its own. (Explain how to use it in a conformant way)
+If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. As such, care should be used when considering this feature.
 
 ## Applicable WCAG Success Criteria
 
-This section is for reference only. This component intends to conform to the following WCAG Success Criteria:
+This section is for reference only, some descriptions have been truncated for brevity. This component intends to conform to the following WCAG Success Criteria:
 
-<Doc::WcagList @criteriaList={{array "..." }} />
+<Doc::WcagList @criteriaList={{array "1.3.1" "1.3.2" "1.3.4" "1.3.5" "1.4.1" "1.4.3" "1.4.4" "1.4.10" "1.4.11" "1.4.12" "2.4.6" "2.4.7" "3.2.1" "3.2.2" "3.2.4" "3.3.1" "3.3.2" "4.1.1" "4.1.2" }} />
 
 ---
 
