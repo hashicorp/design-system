@@ -37,7 +37,7 @@ $accordion-item-border-radius: 6px;
   }
 
   &.hds-accordion-item--contains-interactive {
-    border: 1px solid var(--token-color-border-primary);
+    box-shadow: var(--token-surface-base-box-shadow);
   }
 }
 
