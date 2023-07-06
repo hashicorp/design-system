@@ -158,7 +158,7 @@ This component supports use of `...attributes`. This means you can use all the s
 
 #### Events handling
 
-Because this component supports use of `...attributes`, you can use all the usual Ember techniques for event handling (e.g., `input`, `blue`, `change`), validation, etc.
+Because this component supports use of `...attributes`, you can use all the usual Ember techniques for event handling (e.g., `input`, `blur`, `change`), validation, etc.
 
 ```handlebars
 <Hds::Form::TextInput::Field @type="email" placeholder="eg. name.surname@email.com" {{on "blur" this.yourOnBlurFunction}} as |F|>
