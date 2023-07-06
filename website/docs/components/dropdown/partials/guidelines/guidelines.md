@@ -238,21 +238,13 @@ Selection ListItems allow the user to select one or more options within a Dropdo
 - Use `Checkbox` for multi-selection within a form or larger filter pattern.
 - Use `Radio` for single selection within a form or larger filter pattern.
 
-![Selection ListItem types](/assets/components/dropdown/dropdown-listitem-types-selection.png =449x*)
+![Selection ListItem types](/assets/components/dropdown/dropdown-listitem-types-selection.png =396x*)
 
 !!! Do
 
 Use `Checkmark` for context switching. 
 
 ![Example of proper checkmark list items](/assets/components/dropdown/dropdown-interactive-contextswitcher-do.png =280x*)
-!!!
-
-!!! Do
-
-Use `Checkbox` and `Radio` for filtering.
-
-![Example of proper checkbox and radio list items](/assets/components/dropdown/dropdown-interactive-filter-do.png =768x*)
-
 !!!
 
 !!! Dont
