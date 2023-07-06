@@ -14,9 +14,7 @@
 
 While similar in functionality and interaction, the Accordion and Reveal are meant to be used in different scenarios and use cases.
 
-#### How to know which to use
-
-The general recommendation is to use the Accordion when:
+#### When to use the Accordion
 
 - You have multiple sections of content that can be expanded or collapsed.
 
@@ -26,7 +24,7 @@ The general recommendation is to use the Accordion when:
 
 - There is a sequential or hierarchical relationship between the different sections.
 
-Use the Reveal when:
+#### When to use the Reveal
 
 - You have a single piece of content that can be expanded to collapsed to reveal additional details or information.
 
@@ -40,14 +38,14 @@ Use the Reveal when:
 
 !!! Do
 
-Use the Accordion when you need to display content in different sections that have sequential or hierarchical relationship between them.
+Use the Accordion when you need to display content in different sections that have a sequential or hierarchical relationship between them.
 
 ![Accordion with basic content](/assets/components/accordion/usage-do.png)
 !!!
 
 !!! Dont
 
-Don’t use the Accordion when you need to display a single piece of content that can expand and collapse.
+Don’t use the Accordion when you need to display a single piece of content that can expand and collapse. Use the [Reveal](/components/reveal) instead.
 
 ![Accordion with basic content](/assets/components/accordion/usage-do-not.png)
 !!!
@@ -79,7 +77,7 @@ Use `isInteractive` when nesting interactive content on the toggle.
 
 !!! Info
 
-The content type property is only relevant within Figma and doesn’t exist as a property within the code.
+The content type property is only relevant within Figma and doesn’t exist as a property in the code.
 !!!
 
 The `content` supports any custom content, local components, or Helios components via an `instance swap` property (customInstance) in Figma. In code, `yield` is supported.
