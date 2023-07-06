@@ -21,6 +21,9 @@ The `Accordion` component is used to wrap and group together one or more `Accord
 ```
 
 ### Complex HTML content in toggle and content blocks
+
+With an Alert component in the toggle block and an HTML table in the content block.
+
 ```handlebars
   <Hds::Accordion as |A|>
     <A.Item @isOpen={{true}}>
@@ -60,8 +63,14 @@ The `Accordion` component is used to wrap and group together one or more `Accord
         </Hds::Table>
       </:content>
     </A.Item>
+  </Hds::Accordion>
+```
 
-    <A.Item @containsInteractive={{false}} @isOpen={{true}}>
+With a link in the toggle block and a form in the content.
+
+```handlebars
+  <Hds::Accordion as |A|>
+    <A.Item @containsInteractive={{true}} @isOpen={{true}}>
       <:toggle>
         <div class="hds-typography-body-300">
           Text inside a nested div with <a href="https://www.hashicorp.com/">a link</a>.
@@ -79,6 +88,20 @@ The `Accordion` component is used to wrap and group together one or more `Accord
   </Hds::Accordion>
 ```
 
+### ariaLabel
+
+The `ariaLabel` value is applied to the HTML button which controls visibility of the content block. The text does not display in the UI. The default value is "Toggle display" but you can set a custom value which is useful for translated text for example.
+
+```handlebars
+  <Hds::Accordion as |A|>
+    <A.Item @ariaLabel="Mostrar u ocultar">
+      <:toggle>Elemento uno</:toggle>
+      <:content>
+        Contenido adicional para el elemento uno
+      </:content>
+    </A.Item>
+  </Hds::Accordion>
+```
 ### isOpen
 
 Set `isOpen` to `true` on an `AccordionItem` to display its associated content on page load instead of initially hiding it.

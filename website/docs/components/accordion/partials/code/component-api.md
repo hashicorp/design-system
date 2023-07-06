@@ -21,6 +21,9 @@ The base `Accordion` component serves only as a wrapper to group together one or
   <C.Property @name="<:content>" @type="named block">
     A named block for the content that is shown/hidden upon toggling.
   </C.Property>
+  <C.Property @name="ariaLabel" @type="string" @default="&quot;Toggle display&quot;">
+    Accepts a localized string. The `ariaLabel` value is applied to the HTML button which actually controls visibility of the content block content.
+  </C.Property>
   <C.Property @name="isOpen" @default="false" @type="boolean">
     Toggles the visibility of the content when the toggle is interacted with. To display content on page load, set the value to `true`.
   </C.Property>
