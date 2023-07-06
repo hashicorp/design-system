@@ -1,14 +1,13 @@
 ---
 title: Sensitive Input
-description: {Optional long description that appears in the cover}
-caption: {Short description that appears in the cards}
-status: released
+description: A form input that visually obfuscates characters to protect sensitive information by replacing them with a shape.
+caption: A form input that obfuscates sensitive information.
 links:
   figma: {link to the "Form::SensitiveInput" page in the components Figma library}
   github: {link to the "Form::SensitiveInput" component's folder in the GitHub repo}
 previewImage: assets/illustrations/components/form-sensitive-input.jpg
 navigation:
-  keywords: ['add', 'alternate', 'keywords', 'here']
+  keywords: ['sensitive', 'obscured', 'obfuscated', 'secret', 'masked', 'form']
 ---
 
 <section data-tab="Guidelines">
