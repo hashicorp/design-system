@@ -4,6 +4,8 @@ description: Specifications for delivering user-centric forms comprised of Helio
 caption: Specifications for delivering user-centric forms comprised of Helios form components and primitives.
 status: released
 previewImage: assets/illustrations/patterns/form-patterns.jpg
+navigation:
+  order: 3
 ---
 
 <section data-tab="Anatomy">
