@@ -5,5 +5,5 @@
 | Element | Usage |
 |---------|-------|
 | Leading Icon | Optional |
-| Text | Required; the component yields text passed to.  |
+| Text | Not a property, but required; the component yields text passed to it. |
 | Trailing Icon | Optional |

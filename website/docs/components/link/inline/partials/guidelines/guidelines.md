@@ -25,13 +25,17 @@ The Inline Link is only published as a component in Ember, there is no correspon
 
 We recommend using the `primary` variant as the default and for more important links.
 
-Lorem ipsum <Hds::Link::Inline @color="primary" @href="...">dolor</Hds::Link::Inline> sit amet, consectetur adipiscing elit.
+#### Primary example
+
+<span class="hds-typography-body-300">Lorem ipsum <Hds::Link::Inline @color="primary" @href="...">dolor</Hds::Link::Inline> sit amet, consectetur adipiscing elit.</span>
 
 ### Secondary
 
 Use the secondary variant for less important links, when the primary link can't be used, or when there are multiple links in a block of text.
 
-Lorem ipsum <Hds::Link::Inline @color="secondary" @href="...">dolor</Hds::Link::Inline> sit amet, consectetur adipiscing elit, sed do <Hds::Link::Inline @color="secondary" @href="...">eiusmod</Hds::Link::Inline> tempor incididunt ut <Hds::Link::Inline @color="secondary" @href="...">labore</Hds::Link::Inline> et dolore magna aliqua.
+#### Secondary example
+
+<span class="hds-typography-body-300">Lorem ipsum <Hds::Link::Inline @color="secondary" @href="...">dolor</Hds::Link::Inline> sit amet, consectetur adipiscing elit, sed do <Hds::Link::Inline @color="secondary" @href="...">eiusmod</Hds::Link::Inline> tempor incididunt ut <Hds::Link::Inline @color="secondary" @href="...">labore</Hds::Link::Inline> et dolore magna aliqua.</span>
 
 ## Icon position
 
@@ -45,13 +49,15 @@ There is no straight-forward method to add an icon within a block of text in Fig
 
 ### Trailing
 
-In most cases, use trailing icons as this breaks up the text block less and has a smaller impact on the readability of the link within a block of text.
+In most cases, use trailing icons as this breaks up the text less and has a smaller impact on the readability of the link within a block of text.
 
-Lorem ipsum <Hds::Link::Inline @color="primary" @icon="external-link" @iconPosition="trailing" @href="...">dolor</Hds::Link::Inline> sit amet.
+<span class="hds-typography-body-300">Lorem ipsum <Hds::Link::Inline @color="primary" @icon="external-link" @iconPosition="trailing" @href="...">dolor</Hds::Link::Inline> sit amet.</span>
 
 ### Leading
 
-Lorem ipsum <Hds::Link::Inline @color="primary" @icon="external-link" @iconPosition="leading" @href="...">dolor</Hds::Link::Inline> sit amet.
+Use a leading icon when using service icons (e.g., GitHub).
+
+<span class="hds-typography-body-300">Edit this page on <Hds::Link::Inline @color="primary" @icon="github" @iconPosition="leading" @href="...">GitHub</Hds::Link::Inline>.</span>
 
 ## Content
 
@@ -59,7 +65,7 @@ Lorem ipsum <Hds::Link::Inline @color="primary" @icon="external-link" @iconPosit
 
 Highlight the most relevant word or short phrase as it relates to the target of the link. For example:
 
-Learn more about deploying a Vault Cluster on HCP in the HashiCorp Developer <Hds::Link::Inline @color="primary" @icon="external-link" @iconPosition="trailing" @href="...">tutorial library</Hds::Link::Inline>.
+<span class="hds-typography-body-300">Learn more about deploying a Vault Cluster on HCP in the HashiCorp Developer <Hds::Link::Inline @color="primary" @icon="external-link" @iconPosition="trailing" @href="...">tutorial library</Hds::Link::Inline>.</span>
 
 !!!
 
@@ -67,6 +73,6 @@ Learn more about deploying a Vault Cluster on HCP in the HashiCorp Developer <Hd
 
 Don't wrap an entire sentence or text block in a link.
 
-<Hds::Link::Inline @color="primary" @icon="external-link" @iconPosition="trailing" @href="...">Learn more about deploying a Vault Cluster on HCP in the HashiCorp Developer tutorial library</Hds::Link::Inline>.
+<span class="hds-typography-body-300"><Hds::Link::Inline @color="primary" @icon="external-link" @iconPosition="trailing" @href="...">Learn more about deploying a Vault Cluster on HCP in the HashiCorp Developer tutorial library</Hds::Link::Inline>.</span>
 
 !!!
