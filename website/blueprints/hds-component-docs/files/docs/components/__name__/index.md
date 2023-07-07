@@ -2,7 +2,6 @@
 title: <%= columnizedModuleName %>
 description: {Optional long description that appears in the cover}
 caption: {Short description that appears in the cards}
-status: released
 links:
   figma: {link to the "<%= columnizedModuleName %>" page in the components Figma library}
   github: {link to the "<%= columnizedModuleName %>" component's folder in the GitHub repo}
