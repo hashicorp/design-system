@@ -26,7 +26,7 @@ Move to the first interactive element within the content area.
 
 ![Keyboard accordion navigation example](/assets/components/accordion/accordion-focus-to-content.png =800x*)
 
-When `containsInteractive`, the focus will first move to the toggle button, then to the nested interactive elements on the toggle.
+When `containsInteractive`, the focus will first move to the toggle button, then to the nested interactive elements in the toggle area.
 
 ![Keyboard accordion navigation example](/assets/components/accordion/contains-interactive-focus.png =800x*)
 
