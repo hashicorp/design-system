@@ -138,11 +138,5 @@ By default, the `containsInteractive` property of the `AccordionItem` is set to 
         Additional content for item one
       </:content>
     </A.Item>
-    <A.Item>
-      <:toggle>Item two</:toggle>
-      <:content>
-        Additional content for item two
-      </:content>
-    </A.Item>
   </Hds::Accordion>
 ```
