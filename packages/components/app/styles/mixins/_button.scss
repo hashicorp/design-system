@@ -36,9 +36,16 @@ $size-props: (
 @mixin hds-button() {
   position: relative;
   display: flex;
+  gap: 0.375rem;
   align-items: center;
   justify-content: center;
   width: auto;
+  // notice: we set the font-weight of the button text to "regular" (on purpose)
+  // because of the antialising of the browser that renders the text quite different
+  // from what it looks like in Figma, so we prefer to have them visually similar
+  // even if they differ in their internal implementation (in Figma the font-weight is medium/500)
+  // for more context about this decision: https://hashicorp.atlassian.net/browse/HDS-2099
+  font-weight: var(--token-typography-font-weight-regular);
   font-family: var(--token-typography-font-stack-text);
   text-decoration: none;
   border: $hds-button-border-width solid transparent; // We need this to be transparent for a11y

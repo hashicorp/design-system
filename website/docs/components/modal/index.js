@@ -15,7 +15,6 @@ import {
 export default class Index extends Component {
   @tracked basicModalActive = false;
   @tracked formModalActive = false;
-  @tracked isModalDismissDisabled = false;
 
   get SIZES() {
     return SIZES;
@@ -31,32 +30,11 @@ export default class Index extends Component {
 
   @action
   activateModal(modal) {
-    this.isModalDismissDisabled = false;
     this[modal] = true;
   }
 
   @action
   deactivateModal(modal) {
-    this.isModalDismissDisabled = false;
     this[modal] = false;
-  }
-
-  @action markFormAsChanged() {
-    this.isModalDismissDisabled = true;
-  }
-
-  @action saveFormAndClose(modal) {
-    this.isModalDismissDisabled = false;
-    this.deactivateModal(modal);
-  }
-
-  @action checkBeforeDeactivate(modal) {
-    if (this.isModalDismissDisabled) {
-      if (window.confirm('Changes that you made may not be saved')) {
-        this.deactivateModal(modal);
-      }
-    } else {
-      this.deactivateModal(modal);
-    }
   }
 }

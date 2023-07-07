@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 26 Apr 2023 20:11:40 GMT
+ * Generated on Wed, 28 Jun 2023 07:32:09 GMT
  */
 
 :root {
@@ -232,6 +232,7 @@
   --token-form-text-input-background-image-data-url-time: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='%233B3D45'%3e%3cpath d='M8.5 3.75a.75.75 0 00-1.5 0V8c0 .284.16.544.415.67l2.5 1.25a.75.75 0 10.67-1.34L8.5 7.535V3.75z'/%3e%3cpath d='M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z' fill-rule='evenodd' clip-rule='evenodd'/%3e%3c/g%3e%3c/svg%3e"); /* notice: the icon color is hardcoded here! */
   --token-form-text-input-background-image-data-url-search: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='%23656A76'%3e%3cpath d='M7.25 2a5.25 5.25 0 103.144 9.455l2.326 2.325a.75.75 0 101.06-1.06l-2.325-2.326A5.25 5.25 0 007.25 2zM3.5 7.25a3.75 3.75 0 117.5 0 3.75 3.75 0 01-7.5 0z' fill-rule='evenodd' clip-rule='evenodd'/%3e%3c/g%3e%3c/svg%3e"); /* notice: the icon color is hardcoded here! */
   --token-form-text-input-background-image-data-url-search-cancel: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.78 4.28a.75.75 0 00-1.06-1.06L8 6.94 4.28 3.22a.75.75 0 00-1.06 1.06L6.94 8l-3.72 3.72a.75.75 0 101.06 1.06L8 9.06l3.72 3.72a.75.75 0 101.06-1.06L9.06 8l3.72-3.72z'/%3e%3c/svg%3e"); /* notice: the icon color is hardcoded here! */
+  --token-form-text-input-background-image-data-url-search-loading: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg' %3e%3cg fill='%23656A76' fill-rule='evenodd' clip-rule='evenodd'%3e%3canimateTransform attributeName='transform' type='rotate' dur='0.9s' from='0 8 8' to='360 8 8' repeatCount='indefinite'/%3e%3cpath d='M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z' opacity='.2'/%3e%3cpath d='M7.25.75A.75.75 0 018 0a8 8 0 018 8 .75.75 0 01-1.5 0A6.5 6.5 0 008 1.5a.75.75 0 01-.75-.75z'/%3e%3c/g%3e%3c/svg%3e"); /* notice: the icon color and animation are hardcoded here! */
   --token-form-toggle-width: 32px;
   --token-form-toggle-height: 16px;
   --token-form-toggle-base-surface-color-default: #f1f2f3; /* the toggle has a different base surface color, compared to the other controls */

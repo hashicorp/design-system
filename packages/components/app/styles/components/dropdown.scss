@@ -29,6 +29,7 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
 
 .hds-dropdown-toggle-icon {
   display: flex;
+  gap: 2px;
   align-items: center;
   justify-content: center;
   padding: 1px;
@@ -55,10 +56,6 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   &:disabled,
   &.mock-disabled {
     @include hds-button-state-disabled();
-  }
-
-  .hds-dropdown-toggle-chevron {
-    padding-left: 4px;
   }
 }
 
@@ -146,19 +143,18 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
 
 .hds-dropdown-toggle-button__icon {
   flex: none;
-  margin-right: 0.375rem;
 }
 
 .hds-dropdown-toggle-button__badge,
 .hds-dropdown-toggle-button__count {
-  margin: -3px 0 -3px 6px;
+  margin: -3px 0 -3px 0;
 }
 
 // TOGGLE / CHEVRON
 
 .hds-dropdown-toggle-chevron {
   margin-left: auto;
-  padding-left: 8px;
+  padding-left: 2px;
 
   .flight-icon-chevron-down {
     @media (prefers-reduced-motion: no-preference) {
@@ -258,11 +254,8 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   }
 
   > .hds-button-set {
+    gap: 8px;
     margin: 8px 0;
-
-    > * + * {
-      margin-left: 8px;
-    }
   }
 }
 

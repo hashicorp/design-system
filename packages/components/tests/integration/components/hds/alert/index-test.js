@@ -85,7 +85,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
 
   test('it should render an Hds::Button component yielded to the "actions" container', async function (assert) {
     await render(
-      hbs`<Hds::Alert @type="inline" id="test-alert" as |A|><A.Button @text="I am a button" @size="small" @color="secondary" /></Hds::Alert>`
+      hbs`<Hds::Alert @type="inline" aria-labelledby="test-alert-button" id="test-alert" as |A|><A.Button @text="I am a button" @size="small" @color="secondary" id="test-alert-button"/></Hds::Alert>`
     );
     assert
       .dom('#test-alert .hds-alert__actions button')
@@ -97,7 +97,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
   });
   test('it should render an Hds::Link::Standalone component yielded to the "actions" container', async function (assert) {
     await render(
-      hbs`<Hds::Alert @type="inline" id="test-alert" as |A|><A.Link::Standalone @icon="plus" @text="I am a link" @href="#" @size="small" @color="secondary" /></Hds::Alert>`
+      hbs`<Hds::Alert @type="inline" aria-labelledby="test-alert-link" id="test-alert" as |A|><A.Link::Standalone @icon="plus" @text="I am a link" @href="#" @size="small" @color="secondary" id="test-alert-link" /></Hds::Alert>`
     );
     assert
       .dom('#test-alert .hds-alert__actions a')

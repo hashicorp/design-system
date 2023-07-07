@@ -20,6 +20,12 @@ module.exports = function (defaults) {
     'ember-power-select': {
       theme: false,
     },
+    // we need to add this or Ember Sass compilation will mess up the generated CSS
+    minifyCSS: {
+      options: {
+        advanced: false,
+      },
+    },
   });
 
   /*

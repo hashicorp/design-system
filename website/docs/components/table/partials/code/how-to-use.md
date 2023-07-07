@@ -33,7 +33,7 @@ If you want to use the component but have no model defined (e.g., there are only
 #### Using `each` to loop over records to create rows
 
 ```handlebars
-<Hds::Table @caption="Influential Folk Musicians">
+<Hds::Table @caption="Products that use Helios">
   <:head as |H|>
     <H.Tr>
       <H.Th>Product</H.Th>
@@ -118,7 +118,7 @@ For clarity, there are a couple of important points to note here:
 
 !!!
 
-### Sortable Table
+### Sortable table
 
 !!! Info
 
@@ -240,7 +240,6 @@ const customSortingCriteriaArray = [
 // we track the sorting order, so it can be used in the custom sorting function
 @tracked customSortOrderForStatus = 'asc';
 
-
 // we define a "getter" that returns a custom sorting function ("s1" and "s2" are data records)
 get customSortingMethodForStatus() {
   return (s1, s2) => {
@@ -262,6 +261,81 @@ get customSortingMethodForStatus() {
 customOnSort(_sortBy, sortOrder) {
   this.customSortOrderForStatus = sortOrder;
 }
+```
+
+#### Custom sorting using the yielded sorting arguments/functions
+
+!!! Warning
+
+This is a pretty advanced example, intended to cover some edge cases that we encountered. We strongly suggest using one of the sorting methods described above, or speaking with the [Design Systems Team](/about/support) before using this approach to make sure there are no better alternatives.
+
+!!!
+
+
+The `Hds::Table` exposes (via yielding) some of its internal properties and methods, to allow extremely customized sorting functionalities:
+
+- `setSortBy` is the internal function used to set the `sortBy` and `sortOrder` tracked values
+- `sortBy` is the "key" of the column used for sorting (when the table is sorted)
+- `sortOrder` is the sorting direction (ascending or descending)
+
+For more details about these properties refer to the [Component API](#component-api) section below.
+
+Below you can see an example of a Table that renders a list of clusters, in which the sorting is based on a custom function that depends on the sorting column (`sortBy`) and direction (`sortOrder`):
+
+_The code has been simplified for clarity._
+
+```handlebars{data-execute=false}
+<Hds::Table>
+  <:head as |H|>
+    <H.Tr>
+      <H.ThSort onClick={{fn H.setSortBy "peer-name"}} @sortOrder={{if (eq "peer-name" H.sortBy) H.sortOrder}}>Peer Name</H.ThSort>
+      <H.ThSort onClick={{fn H.setSortBy "status"}} @sortOrder={{if (eq "status" H.sortBy) H.sortOrder}}>Status</H.ThSort>
+      <H.ThSort onClick={{fn H.setSortBy "partition"}} @sortOrder={{if (eq "partition" H.sortBy) H.sortOrder}}>Partition</H.ThSort>
+      <H.Th>Description</H.Th>
+    </H.Tr>
+  </:head>
+  <:body as |B|>
+    {{#each (call (fn this.myDemoCustomSortingFunction B.sortBy B.sortOrder)) as |cluster|}}
+      <B.Tr>
+        <B.Td>{{cluster.peer-name}}</B.Td>
+        <B.Td><ClusterStatusBadge @status={{cluster.status}} /></B.Td>
+        <B.Td>{{cluster.cluster-partition}}</B.Td>
+        <B.Td>{{cluster.description}}</B.Td>
+      </B.Tr>
+    {{/each}}
+  </:body>
+</Hds::Table>
+```
+
+In the `<:head>` the `setSortBy` function is invoked when the `<ThSort>` element is clicked to set the values of `sortBy` and `sortOrder` in the table; in turn these values are then used by the `<ThSort>` element to assign the sorting icon via the `@sortOrder` argument.
+
+In the `<:body>` the values of `sortBy` and `sortOrder` are provided instead as arguments to a consumer-side function that takes care of custom sorting the model/data.
+
+_Notice: in this case for the example we're using the [`call` helper](https://github.com/DockYard/ember-composable-helpers#call) from [ember-composable-helpers](https://github.com/DockYard/ember-composable-helpers)._
+
+The sorting function in the backing class code will look something like this (the actual implementation will depend on the consumer-side/business-logic context):
+
+_The code has been simplified for clarity._
+
+```javascript
+myDemoCustomSortingFunction = (sortBy, sortOrder) => {
+  // here goes the logic for the custom sorting of the `model` or `data` array
+  // based on the `sortBy/sortOrder` arguments
+  if (sortBy === 'peer-name') {
+    myDemoDataArray.sort((s1, s2) => {
+      // logic for sorting by `peer-name` goes here
+    });
+  } else if (sortBy === 'status') {
+    myDemoDataArray.sort((s1, s2) => {
+      // logic for sorting by `status` goes here
+    });
+  //
+  // same for all the other conditions/columns
+  // ...
+  }
+  return myDemoDataArray;
+};
+
 ```
 
 ### Density
@@ -378,6 +452,97 @@ To create a column that has right-aligned content, set `@align` to `right` on bo
     </B.Tr>
   </:body>
 </Hds::Table>
+```
+
+### Scrollable table
+
+Consuming a large amount of data in a tabular format can lead to an intense cognitive load for the user. As a general principle, care should be taken to simplify the information within a table as much as possible.
+
+We recommend using functionalities like [pagination](/components/pagination), [sorting](/components/table?tab=code#sortable-table), and [filtering](/patterns/filter-patterns) to reduce this load.
+
+That said, there may be cases when it's necessary to show a table with a large number of columns and allow the user to scroll horizontally. In this case the consumer can use different approaches, depending on their context, needs and design specs.
+
+Below we show a couple of examples of how a scrollable table could be implemented: use them as starting point (your mileage may vary).
+
+#### Using a container with `overflow: auto`
+
+In most cases, wrapping the table with a container that has `overflow: auto` does the trick.
+
+The default table layout is `auto` which means the browser will try to optimize the width of the columns to fit their different content. In some cases, this will mean the content may wrap (see the `Phone` column as an example) in which case you may want to apply a `width` to [suggest to the browser](https://www.w3.org/TR/WD-CSS2-971104/tables.html#h-17.2) to apply a specific width to a column (see the `Biography` column).
+
+
+```handlebars
+<!-- this is an element with "overflow: auto" -->
+<div class="doc-table-scrollable-wrapper">
+  <Hds::Table
+    @model={{this.modelWithLargeNumberOfColumns}}
+    @columns={{array
+      (hash key="first_name" label="First Name" isSortable="true")
+      (hash key="last_name" label="Last Name" isSortable="true")
+      (hash key="age" label="Age" isSortable="true")
+      (hash key="email" label="Email")
+      (hash key="phone" label="Phone")
+      (hash key="bio" label="Biography" width="350px")
+      (hash key="education" label="Education Degree")
+      (hash key="occupation" label="Occupation")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.first_name}}</B.Td>
+        <B.Td>{{B.data.last_name}}</B.Td>
+        <B.Td>{{B.data.age}}</B.Td>
+        <B.Td>{{B.data.email}}</B.Td>
+        <B.Td>{{B.data.phone}}</B.Td>
+        <B.Td>{{B.data.bio}}</B.Td>
+        <B.Td>{{B.data.education}}</B.Td>
+        <B.Td>{{B.data.occupation}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+</div>
+```
+
+#### Using a container with `overflow: auto` and a sub-container with `width: max-content`
+
+If you have specified the width of some of the columns, leaving the others to adapt to their content automatically, and you want to avoid the wrapping of content within the cells, you need to introduce a secondary wrapping element around the table with its `width` set to ` max-content`.
+
+In this case the table layout is still set to `auto` (default). If instead you want to set it to `fixed` (using the `@isFixedLayout` argument) you will have to specify the width for **every** column or the table will explode horizontally.
+
+
+```handlebars
+<!-- this is an element with "overflow: auto" -->
+<div class="doc-table-scrollable-wrapper">
+  <!-- this is an element with "width: max-content" -->
+  <div class="doc-table-max-content-width">
+    <Hds::Table
+      @model={{this.modelWithLargeNumberOfColumns}}
+      @columns={{array
+        (hash key="first_name" label="First Name" isSortable="true" width="200px")
+        (hash key="last_name" label="Last Name" isSortable="true" width="200px")
+        (hash key="age" label="Age" isSortable="true")
+        (hash key="email" label="Email")
+        (hash key="phone" label="Phone")
+        (hash key="bio" label="Biography" width="350px")
+        (hash key="education" label="Education Degree")
+        (hash key="occupation" label="Occupation")
+      }}
+    >
+      <:body as |B|>
+        <B.Tr>
+          <B.Td>{{B.data.first_name}}</B.Td>
+          <B.Td>{{B.data.last_name}}</B.Td>
+          <B.Td>{{B.data.age}}</B.Td>
+          <B.Td>{{B.data.email}}</B.Td>
+          <B.Td>{{B.data.phone}}</B.Td>
+          <B.Td>{{B.data.bio}}</B.Td>
+          <B.Td>{{B.data.education}}</B.Td>
+          <B.Td>{{B.data.occupation}}</B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::Table>
+  </div>
+</div>
 ```
 
 ### More examples

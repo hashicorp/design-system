@@ -67,6 +67,7 @@
 
 .hds-side-nav__list-item-link { // <a>/<button> element (via Hds::Interactive)
   display: flex;
+  gap: var(--token-side-nav-body-list-item-content-spacing-horizontal);
   align-items: center;
   width: 100%;
   min-height: var(--token-side-nav-body-list-item-height);
@@ -118,11 +119,6 @@
       background: var(--token-color-surface-strong);
     }
   }
-
-  .hds-badge,
-  .hds-badge-count {
-    margin-left: var(--token-side-nav-body-list-item-content-spacing-horizontal);
-  }
 }
 
 // special override for the "back-link" element (no visible active state, by design)
@@ -149,11 +145,9 @@
 
 .hds-side-nav__list-item-icon-leading {
   flex: none;
-  margin-right: var(--token-side-nav-body-list-item-content-spacing-horizontal);
 }
 
 .hds-side-nav__list-item-icon-trailing {
   flex: none;
   margin-left: auto;
-  padding-left: var(--token-side-nav-body-list-item-content-spacing-horizontal);
 }

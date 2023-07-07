@@ -43,7 +43,9 @@ module('Integration | Component | hds/table/th', function (hooks) {
     await render(
       hbs`<Hds::Table::Th id="data-test-table-th" @width="10%">Artist</Hds::Table::Th>`
     );
-    assert.dom('#data-test-table-th').hasAttribute('style');
+    assert
+      .dom('#data-test-table-th')
+      .hasAttribute('style', 'width: 10%; min-width: 10%;');
   });
 
   test('it should support splattributes', async function (assert) {

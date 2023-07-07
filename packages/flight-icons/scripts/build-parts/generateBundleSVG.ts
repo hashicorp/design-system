@@ -51,5 +51,7 @@ export async function generateBundleSVG({ config, catalog } : { config: ConfigDa
     await fs.writeFile(`${config.mainFolder}/svg/animation.css`, getCssForIconAnimation());
 
     // generate an "index.js" file
-    await fs.writeFile(`${config.mainFolder}/svg/index.js`, `export const iconNames = [ ${uniq(allIcons).join(', ')} ];`);
+    let svgModuleContent = '/**\n * Copyright (c) HashiCorp, Inc.\n * SPDX-License-Identifier: MPL-2.0\n */\n\n';
+    svgModuleContent += `export const iconNames = [ ${uniq(allIcons).join(', ')} ];`;
+    await fs.writeFile(`${config.mainFolder}/svg/index.js`, svgModuleContent);
 }

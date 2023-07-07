@@ -1,0 +1,1 @@
+Filtering is used to limit the objects in a data set based on one or more parameters. It is commonly used in tandem with a [Table](/components/table), but the core concepts have a wide range of relevant use cases depending on the type of data set and the context within the application.

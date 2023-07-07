@@ -31,7 +31,7 @@ For error validation recommendations, refer to the [Form patterns](/patterns/for
 
 ## Content
 
-For general content recommendations, refer to the [Primitives](/components/form/primitives) documentation.
+For general content recommendations, refer to the [Primitives](/components/form/primitives?tab=validation) documentation.
 
 ## Related
 

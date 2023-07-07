@@ -1,5 +1,59 @@
 # @hashicorp/design-system-components
 
+## 2.7.1
+
+### Patch Changes
+
+- [#1438](https://github.com/hashicorp/design-system/pull/1438) [`ae852e7f8`](https://github.com/hashicorp/design-system/commit/ae852e7f83da72c62ee7791f89ac5c4a9e6bc7c6) Thanks [@didoo](https://github.com/didoo)! - `TooltipButton` - added `text-align: inherit` to the "button" element
+
+- [#1444](https://github.com/hashicorp/design-system/pull/1444) [`5a4d036e1`](https://github.com/hashicorp/design-system/commit/5a4d036e1dd349dfde1b1f8e278d332fac7abe7e) Thanks [@MelSumner](https://github.com/MelSumner)! - Internal accessibility tweaks for dropdown component
+
+- [#1395](https://github.com/hashicorp/design-system/pull/1395) [`e6e0c22c5`](https://github.com/hashicorp/design-system/commit/e6e0c22c538e381f4a97428dc35cf1295ce6ae21) Thanks [@alex-ju](https://github.com/alex-ju)! - Upgraded Ember.js to latest stable release 4.12, including upgrades to:
+
+  - `ember-auto-import` from `2.6.0` to `2.6.3`
+  - `ember-cli-htmlbars` from `6.1.0` to `6.2.0`
+
+  Upgraded the following dependencies:
+
+  - `ember-focus-trap` from `1.0.1` to `1.0.2`
+  - `ember-keyboard` from `8.1.0` to `8.2.0`
+  - `ember-truth-helpers` from `3.0.0` to `3.1.1`
+  - `sass` from `1.58.3` to `1.62.1`
+
+  Shifted our supported version of Node.js from `12.* || 14.* || >= 16` to `14.* || 16.* || >= 18`
+
+- [#1425](https://github.com/hashicorp/design-system/pull/1425) [`921aa03b9`](https://github.com/hashicorp/design-system/commit/921aa03b95f56da21e794ee62ecc96019f5c4bb7) Thanks [@didoo](https://github.com/didoo)! - `Table` - Set `min-height` instead of `height` for the table head cells + Updated the cells' internal padding to align with the design specs in Figma
+
+- [#1433](https://github.com/hashicorp/design-system/pull/1433) [`9aa5291d1`](https://github.com/hashicorp/design-system/commit/9aa5291d187bc867baf7c069c9dd17856cb5f79f) Thanks [@didoo](https://github.com/didoo)! - - Updated CSS code of components to use flex `gap`
+
+  - Fixed an issue with `Hds::Sidenav::Link` that was generating an empty node
+
+  This will lead to a minimal visual impact on some edge cases of `Alert/Toast` (multiple description items) and `SideNav` (text + generic content)
+
+- [#1426](https://github.com/hashicorp/design-system/pull/1426) [`1f8886a2d`](https://github.com/hashicorp/design-system/commit/1f8886a2d5117d74a0dddd4bca4a09d9fcedc8da) Thanks [@MelSumner](https://github.com/MelSumner)! - Style tweaks to standalone link
+
+- [#1434](https://github.com/hashicorp/design-system/pull/1434) [`eadefc4bd`](https://github.com/hashicorp/design-system/commit/eadefc4bdb4e5fd6c110a7be1d7d9aa720695678) Thanks [@alex-ju](https://github.com/alex-ju)! - Fix scroll management on `Modal` and `Flyout` resulting in stray `style` attribute on `<body>` element
+
+- Updated dependencies [[`e6e0c22c5`](https://github.com/hashicorp/design-system/commit/e6e0c22c538e381f4a97428dc35cf1295ce6ae21)]:
+  - @hashicorp/ember-flight-icons@3.0.6
+
+## 2.7.0
+
+### Minor Changes
+
+- [#1421](https://github.com/hashicorp/design-system/pull/1421) [`b8a45d6e7`](https://github.com/hashicorp/design-system/commit/b8a45d6e7ade6e973b2a860444d80d9216e3ab5c) Thanks [@didoo](https://github.com/didoo)! - `Table` - Exposed the internal sorting properties and methods `setSortBy`, `sortBy` and `sortOrder`
+
+- [#1377](https://github.com/hashicorp/design-system/pull/1377) [`437c253dd`](https://github.com/hashicorp/design-system/commit/437c253dd6106d616ed8f83c060adb12ac83acac) Thanks [@jorytindall](https://github.com/jorytindall)! - Adds `PageHeader` component
+
+- [#1393](https://github.com/hashicorp/design-system/pull/1393) [`38fb21e60`](https://github.com/hashicorp/design-system/commit/38fb21e6091c739f621e967e23d4c8b2794c9575) Thanks [@alex-ju](https://github.com/alex-ju)! - Add `Separator` component
+
+### Patch Changes
+
+- [#1415](https://github.com/hashicorp/design-system/pull/1415) [`555c86d3f`](https://github.com/hashicorp/design-system/commit/555c86d3fde07109775a61523f7b26444fc9ee62) Thanks [@didoo](https://github.com/didoo)! - `Hds::Table` - Changed the way in which the column `@width` defined by the user is applied
+
+- Updated dependencies []:
+  - @hashicorp/ember-flight-icons@3.0.5
+
 ## 2.6.0
 
 ### Minor Changes

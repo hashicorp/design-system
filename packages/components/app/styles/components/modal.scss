@@ -42,6 +42,7 @@
 .hds-modal__header {
   display: flex;
   flex: none;
+  gap: 16px;
   align-items: flex-start;
   padding: 16px 24px;
   border-top-left-radius: inherit;
@@ -51,7 +52,6 @@
 .hds-modal__icon {
   flex: none;
   align-self: center;
-  margin-right: 16px;
 }
 
 .hds-modal__title {
@@ -64,7 +64,6 @@
 
 .hds-modal__dismiss {
   align-self: center;
-  margin-left: 16px;
 }
 
 .hds-modal__body {

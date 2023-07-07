@@ -31,6 +31,12 @@ Text Input accepts [all native HTML types](https://developer.mozilla.org/en-US/d
   <F.Label>Search</F.Label>
 </Hds::Form::TextInput::Field>
 
+#### Loading
+
+<Hds::Form::TextInput::Field @type="search" placeholder="Search" @width="300px" @isLoading="true" as |F|>
+  <F.Label>Search</F.Label>
+</Hds::Form::TextInput::Field>
+
 ### Date and time
 
 !!! Info
@@ -86,7 +92,7 @@ Hidden fields are not visible to the user but the value in the field **is** pass
 
 ## Error validation
 
-For error validation recommendations, refer to the [Form patterns](/patterns/form-patterns) documentation.
+For error validation recommendations, refer to the [Form patterns](/patterns/form-patterns?tab=validation) documentation.
 
 ## Content
 

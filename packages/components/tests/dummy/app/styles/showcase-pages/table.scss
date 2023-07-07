@@ -16,4 +16,12 @@ body.components-table {
       margin-right: 5px;
     }
   }
+
+  .shw-component-table-scrollable-wrapper {
+    overflow-x: auto;
+  }
+
+  .shw-component-table-max-content-width {
+    width: max-content;
+  }
 }

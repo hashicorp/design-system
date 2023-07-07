@@ -11,8 +11,8 @@
 
   <Shw::Text::H2>Density</Shw::Text::H2>
 
-  <Shw::Flex @label="Default" as |SF|>
-    <SF.Item @grow={{true}}>
+  <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
+    <SF.Item @label="Default">
       <Hds::Table>
         <:head as |H|>
           <H.Tr>
@@ -50,9 +50,7 @@
         </:body>
       </Hds::Table>
     </SF.Item>
-  </Shw::Flex>
-  <Shw::Flex @label="Short" as |SF|>
-    <SF.Item @grow={{true}}>
+    <SF.Item @label="Short">
       <Hds::Table @density="short">
         <:head as |H|>
           <H.Tr>
@@ -90,9 +88,7 @@
         </:body>
       </Hds::Table>
     </SF.Item>
-  </Shw::Flex>
-  <Shw::Flex @label="Tall" as |SF|>
-    <SF.Item @grow={{true}}>
+    <SF.Item @label="Tall">
       <Hds::Table @density="tall">
         <:head as |H|>
           <H.Tr>
@@ -132,68 +128,65 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Divider @level={{2}} />
+  <Shw::Divider />
 
   <Shw::Text::H2>Data model</Shw::Text::H2>
 
-  <Shw::Flex @label="Table with model" as |SF|>
-    <SF.Item @grow={{true}}>
-      <Hds::Table
-        @model={{this.model.music}}
-        @columns={{array
-          (hash key="artist" label="Artist")
-          (hash key="album" label="Album")
-          (hash key="year" label="Release Year")
-        }}
-      >
-        <:body as |B|>
-          <B.Tr>
-            <B.Td>{{B.data.artist}}</B.Td>
-            <B.Td>{{B.data.album}}</B.Td>
-            <B.Td>{{B.data.year}}</B.Td>
-          </B.Tr>
-        </:body>
-      </Hds::Table>
-    </SF.Item>
-  </Shw::Flex>
-  <Shw::Flex @label="Table with no model defined" as |SF|>
-    <SF.Item @grow={{true}}>
-      <Hds::Table @caption="a custom table with no model defined">
-        <:head as |H|>
-          <H.Tr>
-            <H.Th>Cell Header</H.Th>
-            <H.Th>Cell Header</H.Th>
-            <H.Th @width="20%">Custom Width</H.Th>
-          </H.Tr>
-        </:head>
-        <:body as |B|>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-          <B.Tr>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-          <B.Tr>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-        </:body>
-      </Hds::Table>
-    </SF.Item>
-  </Shw::Flex>
+  <Shw::Text::H4 @tag="h3">Table with model</Shw::Text::H4>
 
-  <Shw::Divider @level={{2}} />
+  <Hds::Table
+    @model={{this.model.music}}
+    @columns={{array
+      (hash key="artist" label="Artist")
+      (hash key="album" label="Album")
+      (hash key="year" label="Release Year")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td>{{B.data.year}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
+  <Shw::Text::H4 @tag="h3">Table with no model defined</Shw::Text::H4>
+
+  <Hds::Table @caption="a custom table with no model defined">
+    <:head as |H|>
+      <H.Tr>
+        <H.Th>Cell Header</H.Th>
+        <H.Th>Cell Header</H.Th>
+        <H.Th @width="20%">Custom Width</H.Th>
+      </H.Tr>
+    </:head>
+    <:body as |B|>
+      <B.Tr>
+        <B.Th>Scope Row</B.Th>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+      </B.Tr>
+      <B.Tr>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+      </B.Tr>
+      <B.Tr>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
+  <Shw::Divider />
 
   <Shw::Text::H2>Sorting</Shw::Text::H2>
 
   <Shw::Text::H3>Basic sorting</Shw::Text::H3>
 
-  <Shw::Text::Body>Sortable table (all columns sortable)</Shw::Text::Body>
+  <Shw::Text::H4>Sortable table (all columns sortable)</Shw::Text::H4>
 
   <Hds::Table
     @model={{this.model.music}}
@@ -212,7 +205,7 @@
     </:body>
   </Hds::Table>
 
-  <Shw::Text::Body>Sortable table (only some columns sortable)</Shw::Text::Body>
+  <Shw::Text::H4>Sortable table (only some columns sortable)</Shw::Text::H4>
 
   <Hds::Table
     @model={{this.model.music}}
@@ -231,7 +224,7 @@
     </:body>
   </Hds::Table>
 
-  <Shw::Text::Body>Sortable table, some columns sortable, artist column pre-sorted.</Shw::Text::Body>
+  <Shw::Text::H4>Sortable table, some columns sortable, artist column pre-sorted.</Shw::Text::H4>
 
   <Hds::Table
     @model={{this.model.music}}
@@ -251,12 +244,18 @@
     </:body>
   </Hds::Table>
 
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>Custom sorting</Shw::Text::H3>
 
-  <Shw::Text::Body>Sortable table with custom sorting done via extra key added to the data model</Shw::Text::Body>
+  {{! ============================================== }}
+  {{! ===== DEMO #1 - EXTRA KEY ADDED TO MODEL ===== }}
+  {{! ============================================== }}
+
+  <Shw::Text::H4>Sortable table with custom sorting done via extra key added to the data model</Shw::Text::H4>
 
   <Hds::Table
-    @model={{this.clustersWithExtraData}}
+    @model={{this.clustersWithExtraData_demo1}}
     @columns={{array
       (hash label="Peer name" isSortable="true" key="peer-name")
       (hash label="Cluster partition")
@@ -299,21 +298,25 @@
     </:body>
   </Hds::Table>
 
-  <Shw::Text::Body>Sortable table with custom `sortingFunction` declared in the column hash</Shw::Text::Body>
+  {{! ============================================= }}
+  {{! ===== DEMO #2 - CUSTOM SORTING FUNCTION ===== }}
+  {{! ============================================= }}
+
+  <Shw::Text::H4>Sortable table with custom <code>sortingFunction</code> declared in the column hash</Shw::Text::H4>
 
   <Hds::Table
     @model={{this.model.clusters}}
     @columns={{array
       (hash label="Peer name" isSortable="true" key="peer-name")
       (hash label="Cluster partition")
-      (hash label="Status" isSortable="true" key="status" sortingFunction=this.customSortingMethodForClusterStatus)
+      (hash label="Status" isSortable="true" key="status" sortingFunction=this.customSortingFunction_demo2)
       (hash label="Imported services")
       (hash label="Exported services")
       (hash label="Actions" align="right")
     }}
     @sortBy="status"
     @sortOrder="asc"
-    @onSort={{this.customOnSort}}
+    @onSort={{this.customOnSort_demo2}}
   >
     <:body as |B|>
       <B.Tr>
@@ -346,11 +349,132 @@
     </:body>
   </Hds::Table>
 
+  {{! =========================================== }}
+  {{! ===== DEMO #3 - YIELDED PROPS TO HEAD ===== }}
+  {{! =========================================== }}
+
+  <Shw::Text::H4>Sortable table with custom sorting using yielded
+    <code>&lt;ThSort&gt;</code>
+    +
+    <code>sortBy/sortOrder/setSortBy</code>
+    properties (<code>&lt;:head&gt;</code>
+    only)</Shw::Text::H4>
+
+  <Hds::Table @onSort={{this.extraOnSortCallback_demo3}}>
+    <:head as |H|>
+      <H.Tr>
+        <H.ThSort
+          onClick={{fn this.onClickThSort__demo3 "peer-name" H.setSortBy}}
+          @sortOrder={{if (eq "peer-name" H.sortBy) H.sortOrder}}
+        >Peer name</H.ThSort>
+        <H.Th>Cluster partition</H.Th>
+        <H.ThSort
+          onClick={{fn this.onClickThSort__demo3 "status" H.setSortBy}}
+          @sortOrder={{if (eq "status" H.sortBy) H.sortOrder}}
+        >Status</H.ThSort>
+        <H.Th>Imported services</H.Th>
+        <H.Th>Exported services</H.Th>
+        <H.Th @align="right">Actions</H.Th>
+      </H.Tr>
+    </:head>
+    <:body as |B|>
+      {{#each this.sortedModelClusters__demo3 as |item|}}
+        <B.Tr>
+          <B.Td>{{item.peer-name}}</B.Td>
+          <B.Td>{{item.cluster-partition}}</B.Td>
+          <B.Td>
+            {{#if (eq item.status "failing")}}
+              <Hds::Badge @text="Failing" @color="critical" @icon="x" />
+            {{else if (eq item.status "active")}}
+              <Hds::Badge @text="Active" @color="success" @icon="check" />
+            {{else if (eq item.status "pending")}}
+              <Hds::Badge @text="Pending" @color="neutral" @icon="loading" />
+            {{else if (eq item.status "establishing")}}
+              <Hds::Badge @text="Establishing" @color="highlight" @icon="loading" />
+            {{/if}}
+          </B.Td>
+          <B.Td>{{item.services.imported}}</B.Td>
+          <B.Td>{{item.services.exported}}</B.Td>
+          <B.Td @align="right">
+            <Hds::Dropdown @isInline={{true}} as |dd|>
+              <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
+              <dd.Interactive @route="components.table" @text="Create" />
+              <dd.Interactive @route="components.table" @text="Read" />
+              <dd.Interactive @route="components.table" @text="Update" />
+              <dd.Separator />
+              <dd.Interactive @route="components.table" @text="Delete" @color="critical" @icon="trash" />
+            </Hds::Dropdown>
+          </B.Td>
+        </B.Tr>
+      {{/each}}
+    </:body>
+  </Hds::Table>
+
+  {{! ================================================== }}
+  {{! ===== DEMO #4 - YIELDED PROPS TO HEAD + BODY ===== }}
+  {{! ================================================== }}
+
+  <Shw::Text::H4>Sortable table with custom sorting using yielded
+    <code>&lt;ThSort&gt;</code>
+    +
+    <code>sortBy/sortOrder/setSortBy</code>
+    properties (<code>&lt;:head&gt;</code>
+    +
+    <code>&lt;:body&gt;</code>)</Shw::Text::H4>
+
+  <Hds::Table>
+    <:head as |H|>
+      <H.Tr>
+        <H.ThSort onClick={{fn H.setSortBy "peer-name"}} @sortOrder={{if (eq "peer-name" H.sortBy) H.sortOrder}}>Peer
+          name</H.ThSort>
+        <H.Th>Cluster partition</H.Th>
+        <H.ThSort
+          onClick={{fn H.setSortBy "status"}}
+          @sortOrder={{if (eq "status" H.sortBy) H.sortOrder}}
+        >Status</H.ThSort>
+        <H.Th>Imported services</H.Th>
+        <H.Th>Exported services</H.Th>
+        <H.Th @align="right">Actions</H.Th>
+      </H.Tr>
+    </:head>
+    <:body as |B|>
+      {{#each (call (fn this.sortModelClusters__demo4 B.sortBy B.sortOrder)) as |item|}}
+        <B.Tr>
+          <B.Td>{{item.peer-name}}</B.Td>
+          <B.Td>{{item.cluster-partition}}</B.Td>
+          <B.Td>
+            {{#if (eq item.status "failing")}}
+              <Hds::Badge @text="Failing" @color="critical" @icon="x" />
+            {{else if (eq item.status "active")}}
+              <Hds::Badge @text="Active" @color="success" @icon="check" />
+            {{else if (eq item.status "pending")}}
+              <Hds::Badge @text="Pending" @color="neutral" @icon="loading" />
+            {{else if (eq item.status "establishing")}}
+              <Hds::Badge @text="Establishing" @color="highlight" @icon="loading" />
+            {{/if}}
+          </B.Td>
+          <B.Td>{{item.services.imported}}</B.Td>
+          <B.Td>{{item.services.exported}}</B.Td>
+          <B.Td @align="right">
+            <Hds::Dropdown @isInline={{true}} as |dd|>
+              <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
+              <dd.Interactive @route="components.table" @text="Create" />
+              <dd.Interactive @route="components.table" @text="Read" />
+              <dd.Interactive @route="components.table" @text="Update" />
+              <dd.Separator />
+              <dd.Interactive @route="components.table" @text="Delete" @color="critical" @icon="trash" />
+            </Hds::Dropdown>
+          </B.Td>
+        </B.Tr>
+      {{/each}}
+    </:body>
+  </Hds::Table>
+
   <Shw::Divider />
 
   <Shw::Text::H2>Customization</Shw::Text::H2>
 
-  <Shw::Text::Body>Sortable table, last column not sortable and has custom width.</Shw::Text::Body>
+  <Shw::Text::H4 @tag="h3">Sortable table, last column not sortable and has custom width.</Shw::Text::H4>
 
   <Hds::Table
     @model={{this.model.music}}
@@ -381,7 +505,7 @@
     </:body>
   </Hds::Table>
 
-  <Shw::Text::Body>Table where last column has right-aligned text</Shw::Text::Body>
+  <Shw::Text::H4 @tag="h3">Table where last column has right-aligned text</Shw::Text::H4>
 
   <Hds::Table
     @model={{this.model.music}}
@@ -402,7 +526,7 @@
     </:body>
   </Hds::Table>
 
-  <Shw::Text::Body>Table with various cell content</Shw::Text::Body>
+  <Shw::Text::H4 @tag="h3">Table with various cell content</Shw::Text::H4>
 
   <Hds::Table
     @model={{this.model.music}}
@@ -436,7 +560,7 @@
     </:body>
   </Hds::Table>
 
-  <Shw::Text::Body>Table with multi-line content</Shw::Text::Body>
+  <Shw::Text::H4 @tag="h3">Table with multi-line content</Shw::Text::H4>
 
   <Hds::Table
     @model={{this.model.music}}
@@ -500,6 +624,181 @@
       </Hds::Table>
     </SF.Item>
   </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Layout</Shw::Text::H2>
+
+  <Shw::Text::H3>Interaction between table layout and columns width</Shw::Text::H3>
+
+  <Shw::Text::H4>Width in <code>px</code> + Table-layout = 'auto'</Shw::Text::H4>
+
+  <Hds::Table
+    @model={{this.model.manycolumns}}
+    @columns={{array
+      (hash key="first_name" label="First Name" isSortable="true" width="200px")
+      (hash key="last_name" label="Last Name" isSortable="true" width="200px")
+      (hash key="age" label="Age" isSortable="true")
+      (hash key="email" label="Email")
+      (hash key="bio" label="Biography" width="350px")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.first_name}}</B.Td>
+        <B.Td>{{B.data.last_name}}</B.Td>
+        <B.Td>{{B.data.age}}</B.Td>
+        <B.Td>{{B.data.email}}</B.Td>
+        <B.Td>{{B.data.bio}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
+  <Shw::Text::H4>Width in <code>px</code> + Table-layout = 'fixed'</Shw::Text::H4>
+
+  <Shw::Text::Body>⚠️
+    <em>Notice: this example looks broken but we’ve left it on purpose to show what happens when a fixed layout is
+      applied to the table, with only some columns having a width declared.</em></Shw::Text::Body>
+
+  <Hds::Table
+    @model={{this.model.manycolumns}}
+    @columns={{array
+      (hash key="first_name" label="First Name" isSortable="true" width="200px")
+      (hash key="last_name" label="Last Name" isSortable="true" width="200px")
+      (hash key="age" label="Age" isSortable="true")
+      (hash key="email" label="Email")
+      (hash key="bio" label="Biography" width="350px")
+    }}
+    @isFixedLayout={{true}}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.first_name}}</B.Td>
+        <B.Td>{{B.data.last_name}}</B.Td>
+        <B.Td>{{B.data.age}}</B.Td>
+        <B.Td>{{B.data.email}}</B.Td>
+        <B.Td>{{B.data.bio}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
+  <Shw::Text::H4>Width in <code>%</code> + Table-layout = 'auto'</Shw::Text::H4>
+
+  <Hds::Table
+    @model={{this.model.manycolumns}}
+    @columns={{array
+      (hash key="first_name" label="First Name" isSortable="true" width="20%")
+      (hash key="last_name" label="Last Name" isSortable="true" width="20%")
+      (hash key="age" label="Age" isSortable="true")
+      (hash key="email" label="Email")
+      (hash key="bio" label="Biography" width="35%")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.first_name}}</B.Td>
+        <B.Td>{{B.data.last_name}}</B.Td>
+        <B.Td>{{B.data.age}}</B.Td>
+        <B.Td>{{B.data.email}}</B.Td>
+        <B.Td>{{B.data.bio}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
+  <Shw::Text::H4>Width in <code>%</code> + Table-layout = 'fixed'</Shw::Text::H4>
+
+  <Hds::Table
+    @model={{this.model.manycolumns}}
+    @columns={{array
+      (hash key="first_name" label="First Name" isSortable="true" width="20%")
+      (hash key="last_name" label="Last Name" isSortable="true" width="20%")
+      (hash key="age" label="Age" isSortable="true")
+      (hash key="email" label="Email")
+      (hash key="bio" label="Biography" width="35%")
+    }}
+    @isFixedLayout={{true}}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.first_name}}</B.Td>
+        <B.Td>{{B.data.last_name}}</B.Td>
+        <B.Td>{{B.data.age}}</B.Td>
+        <B.Td>{{B.data.email}}</B.Td>
+        <B.Td>{{B.data.bio}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Large table with overflowing container</Shw::Text::H3>
+
+  <Shw::Text::H4>Container with overflow = 'auto' + Table-layout = 'auto' + Columns width (in
+    <code>px</code>)</Shw::Text::H4>
+
+  <div class="shw-component-table-scrollable-wrapper">
+    <Hds::Table
+      @model={{this.model.manycolumns}}
+      @columns={{array
+        (hash key="first_name" label="First Name" isSortable="true" width="200px")
+        (hash key="last_name" label="Last Name" isSortable="true" width="200px")
+        (hash key="age" label="Age" isSortable="true")
+        (hash key="email" label="Email" isSortable="true")
+        (hash key="phone" label="Phone" isSortable="true")
+        (hash key="bio" label="Biography" width="350px")
+        (hash key="education" label="Education Degree" isSortable="true")
+        (hash key="occupation" label="Occupation" isSortable="true")
+      }}
+    >
+      <:body as |B|>
+        <B.Tr>
+          <B.Td>{{B.data.first_name}}</B.Td>
+          <B.Td>{{B.data.last_name}}</B.Td>
+          <B.Td>{{B.data.age}}</B.Td>
+          <B.Td>{{B.data.email}}</B.Td>
+          <B.Td>{{B.data.phone}}</B.Td>
+          <B.Td>{{B.data.bio}}</B.Td>
+          <B.Td>{{B.data.education}}</B.Td>
+          <B.Td>{{B.data.occupation}}</B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::Table>
+  </div>
+
+  <Shw::Text::H4>Container with overflow = 'auto' + Sub-container with 'max-content' width + Table-layout = 'auto' +
+    Columns width (in
+    <code>px</code>)</Shw::Text::H4>
+
+  <div class="shw-component-table-scrollable-wrapper">
+    <div class="shw-component-table-max-content-width">
+      <Hds::Table
+        @model={{this.model.manycolumns}}
+        @columns={{array
+          (hash key="first_name" label="First Name" isSortable="true" width="200px")
+          (hash key="last_name" label="Last Name" isSortable="true" width="200px")
+          (hash key="age" label="Age" isSortable="true")
+          (hash key="email" label="Email" isSortable="true")
+          (hash key="phone" label="Phone" isSortable="true")
+          (hash key="bio" label="Biography" width="350px")
+          (hash key="education" label="Education Degree" isSortable="true")
+          (hash key="occupation" label="Occupation" isSortable="true")
+        }}
+      >
+        <:body as |B|>
+          <B.Tr>
+            <B.Td>{{B.data.first_name}}</B.Td>
+            <B.Td>{{B.data.last_name}}</B.Td>
+            <B.Td>{{B.data.age}}</B.Td>
+            <B.Td>{{B.data.email}}</B.Td>
+            <B.Td>{{B.data.phone}}</B.Td>
+            <B.Td>{{B.data.bio}}</B.Td>
+            <B.Td>{{B.data.education}}</B.Td>
+            <B.Td>{{B.data.occupation}}</B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+    </div>
+  </div>
 
   <Shw::Divider />
 
@@ -615,26 +914,40 @@
           <B.Tr>
             <B.Th>Dropdown (with inline container)</B.Th>
             <B.Td @align="left">
-              <div {{style display="inline-block"}}>
-                <Hds::Dropdown @listPosition="right" as |dd|>
-                  <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
-                  <dd.Interactive @route="components.table" @text="Dropdown" />
-                </Hds::Dropdown>
-              </div>
+              <Hds::Dropdown @isInline={{true}} @listPosition="right" as |dd|>
+                <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
+                <dd.Interactive @route="components.table" @text="Dropdown" />
+              </Hds::Dropdown>
             </B.Td>
             <B.Td @align="center">
-              <div {{style display="inline-block"}}>
-                <Hds::Dropdown as |dd|>
-                  <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
-                  <dd.Interactive @route="components.table" @text="Dropdown" />
-                </Hds::Dropdown>
-              </div>
+              <Hds::Dropdown @isInline={{true}} as |dd|>
+                <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
+                <dd.Interactive @route="components.table" @text="Dropdown" />
+              </Hds::Dropdown>
             </B.Td>
             <B.Td @align="right">
               <Hds::Dropdown @isInline={{true}} as |dd|>
                 <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
                 <dd.Interactive @route="components.table" @text="Dropdown" />
               </Hds::Dropdown>
+            </B.Td>
+          </B.Tr>
+          <B.Tr>
+            <B.Th>Tooltip(Button)</B.Th>
+            <B.Td @align="left">
+              <Hds::TooltipButton @text="Hello!">
+                December 15, 2022,<br />16:40:09 PM
+              </Hds::TooltipButton>
+            </B.Td>
+            <B.Td @align="center">
+              <Hds::TooltipButton @text="Hello!">
+                December 15, 2022,<br />16:40:09 PM
+              </Hds::TooltipButton>
+            </B.Td>
+            <B.Td @align="right">
+              <Hds::TooltipButton @text="Hello!">
+                December 15, 2022,<br />16:40:09 PM
+              </Hds::TooltipButton>
             </B.Td>
           </B.Tr>
         </:body>
@@ -654,6 +967,7 @@
             <H.Th>Icon + Text (with flex container)</H.Th>
             <H.Th>Badge</H.Th>
             <H.Th>Dropdown</H.Th>
+            <H.Th>Tooltip(Button)</H.Th>
           </H.Tr>
         </:head>
         <:body as |B|>
@@ -675,6 +989,11 @@
                 <dd.Interactive @route="components.table" @text="Dropdown" />
               </Hds::Dropdown>
             </B.Td>
+            <B.Td>
+              <Hds::TooltipButton @text="Hello!">
+                December 15, 2022,<br />16:40:09 PM
+              </Hds::TooltipButton>
+            </B.Td>
           </B.Tr>
         </:body>
       </Hds::Table>
@@ -690,6 +1009,7 @@
             <H.Th>Icon + Text (with flex container)</H.Th>
             <H.Th>Badge</H.Th>
             <H.Th>Dropdown</H.Th>
+            <H.Th>Tooltip(Button)</H.Th>
           </H.Tr>
         </:head>
         <:body as |B|>
@@ -710,6 +1030,11 @@
                 <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
                 <dd.Interactive @route="components.table" @text="Dropdown" />
               </Hds::Dropdown>
+            </B.Td>
+            <B.Td>
+              <Hds::TooltipButton @text="Hello!">
+                December 15, 2022,<br />16:40:09 PM
+              </Hds::TooltipButton>
             </B.Td>
           </B.Tr>
         </:body>

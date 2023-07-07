@@ -1,96 +1,6 @@
-## How to use icons
+## Installation
 
 Icons can be used in many ways. The package can be installed as an [Ember addon](#using-icons-in-ember-apps) for the convenience of using a component with strong defaults. It can also be [consumed in React applications](#using-icons-in-react-apps) via direct import of the SVG file or as a standalone React/SVG icon component.
-
-The most basic invocation requires only the `@name` property to be passed with a value matching an existing name in [the Icon library](icons/library).
-
-```markup
-<FlightIcon @name="alert-circle" />
-```
-
-It renders to this (where the `id` will be unique each time):
-
-```markup
-<svg
-    id="icon-ember115"
-    class="flight-icon icon-alert-circle display-inline"
-    width="16"
-    height="16"
-    viewBox="0 0 16 16"
-    xmlns="http://www.w3.org/2000/svg"
-    fill="currentColor"
-    aria-hidden="true"
-    data-test-icon="alert-circle"
->
-    <use href="/@hashicorp/ember-flight-icons/icons/sprite.svg#alert-circle-16"></use>
-</svg>
-```
-
-### Color
-
-The default value is `currentColor` which uses the inherited text color as the icon color. When setting a custom value, we recommend using one of the pre-defined variables to ensure consistency with our design language:
-
-```handlebars
-<FlightIcon @name="zap" @color="var(--brand)" />
-```
-
-Other accepted values include named colors and color values themselves (e.g., hex, rgb, etc).
-
-```handlebars
-<FlightIcon @name="zap" @color="rebeccapurple" />
-```
-
-```handlebars
-<FlightIcon @name="zap" @color="rgb(46, 113, 229)" />
-```
-
-### Size
-
-The default size is 16px. To use the alternative 24px icon size, set the `@size` value:
-
-```handlebars
-<FlightIcon @name="zap" @size="24" />
-```
-
-### Stretched
-
-To have the icon fill the parent container (width: 100%, height: 100%, display: block), set the `@stretched` attribute to true:
-
-```handlebars
-<FlightIcon @name="zap" @size="24" @stretched={{true}} />
-```
-
-<!-- ##### CSS classes
-
-To append additional classes to the component, add `class` with value(s):
-
-```markup
-<FlightIcon @name="triangle-fill" class="ds-rotate-90" />
-``` -->
-
-### isInlineBlock
-
-To change the default display from `inline-block` to `block`, set `@isInlineBlock` to false:
-
-```handlebars
-<FlightIcon @name="triangle" @isInlineBlock={{false}} />
-<FlightIcon @name="triangle-fill" @isInlineBlock={{false}} />
-```
-
-### Animated icons
-
-Animated icons (e.g., "loading" and "running") are animated by default, meaning no additional properties are needed. 
-
-!!! Information
-
-**Note on accessibility**
-
-A `prefers-reduced-motion` media query will automatically disable the animation if users set this preference in their environment.
-!!!
-
-```handlebars
-<FlightIcon @name="loading" @size="24" />
-```
 
 ### Using icons in Ember apps
 
@@ -155,19 +65,88 @@ import { IconArrowRight24 } from '@hashicorp/flight-icons/svg-react/arrow-right-
 <IconArrowRight24 />
 ```
 
-<!-- #### Customizable properties
+## How to use icons
 
-The component exposes the following _props_:
+The most basic invocation requires only the `@name` property to be passed with a value matching an existing name in [the Icon library](icons/library).
 
-1.  `color`—the color (applied as _fill_) to the SVG—by default is `currentColor` but any valid HTML/CSS color is accepted.
-2.  `title`—the title of the SVG—by default, the icon has an _aria-hidden_ attribute applied to it because it is expected to be used in context (check out [Accessibility](/icons/usage-guidelines?tab=accessibility)); if instead you need to use it without text associated to it, you have to pass a _title_ attribute to make it accessible.
-3.  `...props` - any other _prop_ passed to the component will be applied via spread.
+```markup
+<FlightIcon @name="alert-circle" />
+```
 
-The size of the icon is determined by the size of the asset imported (each icon is exported in two sizes, _16_ and _24_). If you need a different size, use CSS to override its intrinsic size. -->
+It renders to this (where the `id` will be unique each time):
+
+```markup
+<svg
+    id="icon-ember115"
+    class="flight-icon icon-alert-circle display-inline"
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
+    aria-hidden="true"
+    data-test-icon="alert-circle"
+>
+    <use href="/@hashicorp/ember-flight-icons/icons/sprite.svg#alert-circle-16"></use>
+</svg>
+```
+
+### Color
+
+The default value is `currentColor` which uses the inherited text color as the icon color. When setting a custom value, we recommend using one of the pre-defined variables to ensure consistency with our design language:
+
+```handlebars
+<FlightIcon @name="zap" @color="var(--brand)" />
+```
+
+Other accepted values include named colors and color values themselves (e.g., hex, rgb, etc).
+
+```handlebars
+<FlightIcon @name="zap" @color="rebeccapurple" />
+```
+
+```handlebars
+<FlightIcon @name="zap" @color="rgb(46, 113, 229)" />
+```
+
+### Size
+
+The default size is 16px. To use the alternative 24px icon size, set the `@size` value:
+
+```handlebars
+<FlightIcon @name="zap" @size="24" />
+```
+
+### Stretched
+
+To have the icon fill the parent container (width: 100%, height: 100%, display: block), set the `@stretched` attribute to true:
+
+```handlebars
+<div class="doc-icon-demo--constrain-max-width">
+    <FlightIcon @name="zap" @size="24" @stretched={{true}} />
+</div>
+```
+
+<!-- ##### CSS classes
+
+To append additional classes to the component, add `class` with value(s):
+
+```markup
+<FlightIcon @name="triangle-fill" class="ds-rotate-90" />
+``` -->
+
+### isInlineBlock
+
+To change the default display from `inline-block` to `block`, set `@isInlineBlock` to false:
+
+```handlebars
+<FlightIcon @name="triangle" @isInlineBlock={{false}} />
+<FlightIcon @name="triangle-fill" @isInlineBlock={{false}} />
+```
 
 ### Aligning icons
 
-By default, the `FlightIcon` component has an `inline-block` display value (this can be changed using the `@isInlineBlock` argument). This means that the icon behaves like an inline element, and that if you want to vertically align it in relation to other sibling elements, you have to use CSS to achieve the expected result.
+Since the `FlightIcon` component has an `inline-block` display value by default (changeable using the `@isInlineBlock` argument), this means that the icon behaves like an inline element. So, if you want to vertically align it in relation to other sibling elements, you will have to use CSS to achieve the expected result.
 
 For example, to visually center an icon with a generic text node, you will need to use a parent `flex` container with `align-items: center`.
 
@@ -180,10 +159,27 @@ Just setting `vertical-align: middle` in the parent container doesn’t necessar
 This is because the [`middle` alignment](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align#middle) is not calculated in relation to the whole text “block” but to its “x-height”. To learn more, read about [how `vertical-align` works in CSS](https://www.impressivewebs.com/css-vertical-align/).
 !!!
 
-
 ### Animated icons
 
-Some of the icons are meant to be animated (e.g., “loading” and “running”). To use them, import the CSS that controls the icons’ animation:
+!!! Information
+
+**Note on accessibility**
+
+A `prefers-reduced-motion` media query will automatically disable the animation if users set this preference in their environment.
+
+!!!
+
+#### In Ember apps
+
+Animated icons (e.g., "loading" and "running") are animated by default, meaning no additional properties are needed. 
+
+```handlebars
+<FlightIcon @name="loading" @size="24" />
+```
+
+#### In React apps
+
+To use the icons which are meant to be animated (e.g., “loading” and “running”), import the CSS that controls the icons’ animation:
 
 ```scss
 // the path here depends if you’re using 'svg-react' or 'svg' icons 
@@ -201,18 +197,3 @@ import { IconLoading16 } from '@hashicorp/flight-icons/svg-react/loading-16'
 import svgLoading16 from '@hashicorp/flight-icons/svg/loading-16.svg?include'
 <InlineSvg src={svgLoading16} />
 ```
-
-!!! Information
-
-**Note on accessibility**
-
-A `prefers-reduced-motion` media query will automatically disable the animation if users set this preference in their environment.
-!!!
-
-## Migrating from Structure
-
-### Choosing the correct icon
-
-When migrating icons from Structure, reference our [mapping of icon names between Structure and Helios](https://github.com/hashicorp/design-system/blob/main/packages/flight-icons/structure-mappings.json).
-
-It’s possible to write codemods to automate this migration. If you’re interested in learning more, contact [#team-design-systems](https://hashicorp.slack.com/archives/C7KTUHNUS) (Internal only).

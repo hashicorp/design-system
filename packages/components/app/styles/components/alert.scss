@@ -37,6 +37,7 @@
 .hds-alert__text {
   display: flex;
   flex-direction: column;
+  gap: 4px;
   justify-content: center;
   color: var(--token-color-foreground-warning-on-surface);
   font-size: var(--token-typography-body-200-font-size);
@@ -58,10 +59,6 @@
   color: var(--token-color-foreground-primary);
   font-weight: var(--token-typography-font-weight-regular);
   word-break: break-word;
-
-  .hds-alert__title + & {
-    margin-top: 4px;
-  }
 
   // we add very basic styling for elements that may be injected via the "description" string
 
@@ -106,14 +103,11 @@
 
 .hds-alert__actions {
   display: flex;
+  gap: 16px;
   align-items: center;
 
   > * {
     margin-top: 16px;
-  }
-
-  > * + * {
-    margin-left: 8px;
   }
 }
 

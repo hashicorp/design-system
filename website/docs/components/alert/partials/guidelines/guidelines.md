@@ -44,13 +44,6 @@ Use color logically.
 - **Warning** to help users avoid an issue. Provide guidance and actions, if possible.
 - **Critical** to indicate critical errors that need immediate action.
 
-!!! Insight
-
-**Structure migration tip**
-
-Use `neutral` or `highlight` (depending on the level of prominence needed) in place of Structure’s `information` banner.
-!!!
-
 ### Icons
 
 All alerts have icons by default that are intentionally tied to the alert type.
@@ -110,7 +103,7 @@ We recommend using the `secondary` button variant for primary actions and the `t
   <A.Title>Recommended button usage</A.Title>
   <A.Description>Lorem ipsum dolar sit amet.</A.Description>
   <A.Button @text="Your action" @color="secondary" @onClick={{this.noop}} />
-  <A.Link::Standalone @icon="arrow-right" @iconPosition="trailing" @text="Another action" @href="#" />
+  <A.Button @color="tertiary" @icon="arrow-right" @iconPosition="trailing" @text="Tertiary" />
 </Hds::Alert>
 
 ##### Usage of critical buttons
@@ -127,12 +120,15 @@ Avoid using critical buttons in alerts. We handle the prominence and importance 
 
 #### Links
 
-Use [standalone links](/components/link/standalone) when an action takes the user to a new destination (URL). Follow the standalone link [usage guidelines](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=2522%3A8014&t=s1vlvHztHFnd5T9i-1) to determine what variant “type” to use.
+Use [Standalone Link](/components/link/standalone) when an action takes the user to a new destination (URL).
 
-<Hds::Alert @type="inline" as |A|>
+We recommend using the secondary standalone link to maintain visual hierarchy and avoid competing prominence when used with the secondary button.
+
+<Hds::Alert @type="inline" @color="highlight" as |A|>
   <A.Title>Links in alerts</A.Title>
   <A.Description>Lorem ipsum dolar sit amet.</A.Description>
-  <A.Link::Standalone @icon="arrow-right" @iconPosition="trailing" @text="Another action" @href="#" />
+  <A.Button @text="Your action" @color="secondary" @onClick={{this.noop}} />
+  <A.Link::Standalone @icon="arrow-right" @iconPosition="trailing" @color="secondary" @text="Standalone link" @href="#" />
 </Hds::Alert>
 
 ### Placement
@@ -186,7 +182,7 @@ The title or description should contain the alert type, e.g., “Warning,” if 
   <A.Title>Alert with actions</A.Title>
   <A.Description>Lorem ipsum dolar sit amet.</A.Description>
   <A.Button @text="Your action" @color="secondary" @onClick={{this.noop}} />
-  <A.Link::Standalone @icon="arrow-right" @iconPosition="trailing" @text="Learn more" @href="#" />
+  <A.Link::Standalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="Learn more" @href="#" />
 </Hds::Alert>
 
 #### With generic content

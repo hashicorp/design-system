@@ -45,6 +45,15 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
     assert.dom('input').hasClass('hds-form-text-input--is-invalid');
   });
 
+  // IS LOADING
+
+  test('it should render the correct CSS class if the @isLoading prop is declared', async function (assert) {
+    await render(
+      hbs`<Hds::Form::TextInput::Field @type="search" @isLoading={{true}} />`
+    );
+    assert.dom('input').hasClass('hds-form-text-input--is-loading');
+  });
+
   // WIDTH
 
   test('it should render the input with a fixed width if a @width value is passed', async function (assert) {
