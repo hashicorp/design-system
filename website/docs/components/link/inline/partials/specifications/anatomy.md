@@ -1,6 +1,6 @@
 ## Anatomy
 
-![Anatomy of the Inline Link](/assets/components/link/inline/link-inline-anatomy.png =512x*)
+![Anatomy of the Inline Link](/assets/components/link/inline/link-inline-anatomy.png =500x*)
 
 | Element | Usage |
 |---------|-------|
