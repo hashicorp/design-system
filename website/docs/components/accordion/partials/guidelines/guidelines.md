@@ -75,7 +75,7 @@ Use `isInteractive` when nesting interactive content on the toggle. This lets us
 
 - When using this property, it should be applied to all items. Avoid mixing with default containers.
 
-![Example of toggle content](/assets/components/accordion/toggle-content-interactive.png =690x*)
+![Example of toggle content](/assets/components/accordion/toggle-content-interactive.png =800x*)
 
 ## Content type
 
