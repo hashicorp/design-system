@@ -96,5 +96,4 @@ The `content` supports any custom content, local components, or Helios component
 
 ## Related
 
-<!-- only include the 2 most similar/related components -->
 - [Reveal](/components/reveal)
