@@ -94,12 +94,6 @@ The `content` supports any custom content, local components, or Helios component
 
 ![Example of content in accordion item](/assets/components/accordion/content-custom.png =690x*)
 
-## isOpen
-
-In code, all accordion items are collapsed by default. Pass `isOpen` to display a single item open on page load.
-
-![Example of content in accordion item](/assets/components/accordion/accordion-item-open.png =800x*)
-
 ## Related
 
 <!-- only include the 2 most similar/related components -->
