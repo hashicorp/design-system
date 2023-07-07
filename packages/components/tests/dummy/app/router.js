@@ -42,6 +42,7 @@ Router.map(function () {
       this.route('textarea');
       this.route('toggle');
       this.route('radio-card');
+      this.route('file-input');
     });
     this.route('icon-tile');
     this.route('link', function () {

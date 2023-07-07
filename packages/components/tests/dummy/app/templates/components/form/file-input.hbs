@@ -1,0 +1,21 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "Form::FileInput Component"}}
+
+<Shw::Text::H1>Form::FileInput</Shw::Text::H1>
+
+<section data-test-percy>
+
+  <Shw::Text::Body><code>Hds::Button[@color=secondary]</code> (used as visual reference)</Shw::Text::Body>
+  <Hds::Button @icon="upload" @text="Choose file" @color="secondary" />
+
+  <Shw::Text::Body><code>Input[type=file]</code>
+    (styled via
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::file-selector-button"><code
+      >::file-selector-button</code></a>)</Shw::Text::Body>
+  <Hds::Form::FileInput />
+
+</section>
