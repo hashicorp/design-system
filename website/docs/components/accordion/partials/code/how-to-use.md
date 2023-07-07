@@ -1,8 +1,8 @@
 ## How to use this component
 
-The `Accordion` component is used to wrap and group together one or more `AccordionItem` child components. `AccordionItems` consist of “toggle” and “content” named blocks which can contain either plain text or HTML content.
+The `Accordion` component is used to wrap and group together one or more `AccordionItem` child components. The Accordion items consist of “toggle” and “content” named blocks which can contain either plain text or HTML content.
 
-### Plain text content in toggle and content blocks
+### Plain text content
 ```handlebars
   <Hds::Accordion as |A|>
     <A.Item>
@@ -20,7 +20,7 @@ The `Accordion` component is used to wrap and group together one or more `Accord
   </Hds::Accordion>
 ```
 
-### Complex HTML content in toggle and content blocks
+### Complex HTML content
 
 With an Alert component in the toggle block and an HTML table in the content block.
 
@@ -128,15 +128,31 @@ Set `isOpen` to `true` on an `AccordionItem` to display its associated content o
 By default, the `containsInteractive` property of the `AccordionItem` is set to `false`, meaning that the entire `AccordionItem` toggle block can be clicked to hide and show the associated content. If set to `true` only the chevron button of the `AccordionItem` is clickable vs. the entire block. This allows you to add other interactive content inside the toggle block if desired.
 
 ```handlebars
-  <Hds::Accordion as |A|>
-    <A.Item @containsInteractive={{true}}>
-      <:toggle>
-        Item one
-        <a href="https://www.hashicorp.com/">link</a>
-      </:toggle>
-      <:content>
-        Additional content for item one
-      </:content>
-    </A.Item>
-  </Hds::Accordion>
+<Hds::Accordion as |A|>
+  <A.Item @containsInteractive={{true}}>
+    <:toggle>
+      <div class="doc-accordion-item-toggle-content-flex-layout">
+        <Hds::Alert @type="compact" @color="success" as |A|>
+          <A.Title>Title</A.Title>
+          <A.Description>Plan finished <small>22 days ago</small></A.Description>
+        </Hds::Alert>
+        <Hds::Button @text="Details" @color="secondary" @size="small" />
+      </div>
+    </:toggle>
+    <:content>
+      Additional content for item one
+    </:content>
+  </A.Item>
+  <A.Item @containsInteractive={{true}}>
+    <:toggle>
+      <div class="doc-accordion-item-toggle-content-flex-layout">
+        <span>Peering connection log results</span>
+        <Hds::Link::Standalone @icon="external-link" @iconPosition="trailing" @text="Details" @href="https://www.hashicorp.com/" />
+      </div>
+    </:toggle>
+    <:content>
+      Additional content for item two
+    </:content>
+  </A.Item>
+</Hds::Accordion>
 ```
