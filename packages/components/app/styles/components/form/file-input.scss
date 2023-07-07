@@ -1,0 +1,73 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// FORM > FILE-INPUT
+//
+
+@use "../../mixins/button" as *;
+
+.hds-form-file-input { // this can work as container ??
+  margin: -1px;
+  font-family: var(--token-typography-font-stack-text);
+  border: 1px solid transparent;
+  border-radius: calc($hds-button-border-radius + 1px);
+  // font-size: 1.875rem; // we may want to use this to tweak the size of the text that contains the name of the file?
+
+  &:focus,
+  &:focus-visible {
+    border-color: var(--token-color-focus-action-internal);
+    outline: 3px solid var(--token-color-focus-action-external);
+    outline-offset: 0;
+  }
+}
+
+// https://developer.mozilla.org/en-US/docs/Web/CSS/::file-selector-button
+// https://caniuse.com/?search=file-selector-button
+
+.hds-form-file-input::file-selector-button {
+  min-height: 2.25rem;
+  margin-inline-end: 16px;
+  margin-right: 16px;
+  padding: 0.5625rem 0.9375rem;
+  padding-left: 38px; // override for the icon
+  color: var(--token-color-foreground-primary);
+  font-size: 0.875rem;
+  font-family: var(--token-typography-font-stack-text);
+  line-height: 1rem;
+  text-decoration: none;
+  background-color: var(--token-color-surface-faint);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3E%3Cg fill='%233b3d45'%3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 16px 50%;
+  background-size: var(--token-form-text-input-background-image-size);
+  border: $hds-button-border-width solid transparent;
+  border-color: var(--token-color-border-strong);
+  border-radius: $hds-button-border-radius;
+  // box-shadow: var(--token-elevation-low-box-shadow); // the overflow is not visible so better to remove it
+  cursor: pointer;
+}
+
+.hds-form-file-input::file-selector-button:hover,
+.hds-form-file-input.mock-hover::file-selector-button {
+  color: var(--token-color-foreground-primary);
+  background-color: var(--token-color-surface-primary);
+  border-color: var(--token-color-border-strong);
+}
+
+.hds-form-file-input::file-selector-button:focus,
+.hds-form-file-input.mock-focus::file-selector-button {
+  color: var(--token-color-foreground-primary);
+  background-color: var(--token-color-surface-faint);
+  border-color: var(--token-color-focus-action-internal);
+}
+
+.hds-form-file-input::file-selector-button:active,
+.hds-form-file-input.mock-active::file-selector-button {
+  color: var(--token-color-foreground-primary);
+  background-color: var(--token-color-surface-interactive-active);
+  border-color: var(--token-color-border-strong);
+  // box-shadow: none;
+}
