@@ -77,8 +77,7 @@
 
 .hds-side-nav-header__actions-container {
   display: flex;
-
-  > * + * { margin-left: var(--token-side-nav-header-actions-spacing); }
+  gap: var(--token-side-nav-header-actions-spacing);
 }
 
 // dropdown overrides

@@ -840,6 +840,8 @@ export { IconReplicationPerf24 } from './replication-perf-24';
 export { IconReplicationPerf16 } from './replication-perf-16';
 export { IconRewind24 } from './rewind-24';
 export { IconRewind16 } from './rewind-16';
+export { IconRobot24 } from './robot-24';
+export { IconRobot16 } from './robot-16';
 export { IconRocket24 } from './rocket-24';
 export { IconRocket16 } from './rocket-16';
 export { IconRotateCw24 } from './rotate-cw-24';

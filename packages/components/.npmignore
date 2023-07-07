@@ -25,9 +25,11 @@
 /bower.json
 /config/ember-try.js
 /CONTRIBUTING.md
+/ember-a11y-report*
 /ember-cli-build.js
 /testem.js
 /tests/
+*test-output*
 /yarn-error.log
 /yarn.lock
 .gitkeep

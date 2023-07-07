@@ -101,6 +101,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/modal');
     await percySnapshot('Modal');
 
+    await visit('/components/page-header');
+    await percySnapshot('PageHeader');
+
     await visit('/components/pagination');
     await percySnapshot('Pagination');
 
@@ -109,6 +112,9 @@ module('Acceptance | Percy test', function (hooks) {
 
     await visit('/components/segmented-group');
     await percySnapshot('Segmented Group');
+
+    await visit('/components/separator');
+    await percySnapshot('Separator');
 
     await visit('/components/side-nav');
     await percySnapshot('SideNav');
@@ -127,6 +133,9 @@ module('Acceptance | Percy test', function (hooks) {
 
     await visit('/components/toast');
     await percySnapshot('Toast');
+
+    await visit('/components/tooltip');
+    await percySnapshot('Tooltip');
 
     await visit('/layouts/app-frame');
     await percySnapshot('AppFrame');

@@ -37,7 +37,9 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
     await render(
       hbs`<Hds::Table::ThSort id="data-test-table-th-sort" @width="10%" />`
     );
-    assert.dom('#data-test-table-th-sort').hasAttribute('style');
+    assert
+      .dom('#data-test-table-th-sort')
+      .hasAttribute('style', 'width: 10%; min-width: 10%;');
   });
 
   test('if @sortOrder is not defined, the swap-vertical icon should be displayed', async function (assert) {

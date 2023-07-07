@@ -56,15 +56,14 @@ When the Modal dialog contains information that might be lost on close, use a co
 {{#if this.formModalActive}}
   <Hds::Modal
     id="form-modal"
-    @isDismissDisabled={{this.isModalDismissDisabled}}
-    @onClose={{fn this.checkBeforeDeactivate "formModalActive"}}
+    @onClose={{fn this.deactivateModal "formModalActive"}}
     as |M|
   >
     <M.Header>
       Why do you want to leave the beta?
     </M.Header>
     <M.Body>
-      <form {{on "change" this.markFormAsChanged}} name="leaving-beta-form">
+      <form name="leaving-beta-form">
         <Hds::Form::Select::Field autofocus @width="100%" as |F|>
           <F.Label>Select the primary reason</F.Label>
           <F.Options>
@@ -79,9 +78,11 @@ When the Modal dialog contains information that might be lost on close, use a co
     <M.Footer as |F|>
       <Hds::ButtonSet>
         <Hds::Button type="submit" @text="Leave Beta"
-          {{on "click" (fn this.saveFormAndClose "formModalActive")}}
+          {{on "click" (fn this.deactivateModal "formModalActive")}}
         />
-        <Hds::Button type="button" @text="Cancel" @color="secondary" {{on "click" F.close}} />
+        <Hds::Button type="button" @text="Cancel" @color="secondary"
+          {{on "click" F.close}}
+        />
       </Hds::ButtonSet>
     </M.Footer>
   </Hds::Modal>

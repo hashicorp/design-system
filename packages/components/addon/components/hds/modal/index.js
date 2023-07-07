@@ -112,7 +112,11 @@ export default class HdsModalIndexComponent extends Component {
 
     // Register "onClose" callback function to be called when a native 'close' event is dispatched
     this.element.addEventListener('close', () => {
-      if (this.args.onClose && typeof this.args.onClose === 'function') {
+      if (
+        !this.isDismissDisabled &&
+        this.args.onClose &&
+        typeof this.args.onClose === 'function'
+      ) {
         this.args.onClose();
       }
 
@@ -158,7 +162,14 @@ export default class HdsModalIndexComponent extends Component {
 
     // Reset page `overflow` property
     if (this.body) {
-      this.body.style.setProperty('overflow', this.bodyInitialOverflowValue);
+      this.body.style.removeProperty('overflow');
+      if (this.bodyInitialOverflowValue === '') {
+        if (this.body.style.length === 0) {
+          this.body.removeAttribute('style');
+        }
+      } else {
+        this.body.style.setProperty('overflow', this.bodyInitialOverflowValue);
+      }
     }
   }
 }

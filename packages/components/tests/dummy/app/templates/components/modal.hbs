@@ -243,17 +243,12 @@
 
   {{! template-lint-disable no-autofocus-attribute }}
   {{#if this.formModalActive}}
-    <Hds::Modal
-      id="form-modal"
-      @isDismissDisabled={{this.isModalDismissDisabled}}
-      @onClose={{fn this.checkBeforeDeactivate "formModalActive"}}
-      as |M|
-    >
+    <Hds::Modal id="form-modal" @onClose={{fn this.deactivateModal "formModalActive"}} as |M|>
       <M.Header>
         Why do you want to leave the beta?
       </M.Header>
       <M.Body>
-        <form {{on "change" this.markFormAsChanged}} name="leaving-beta-form">
+        <form name="leaving-beta-form">
           <Hds::Form::Select::Field autofocus @width="100%" as |F|>
             <F.Label>Select the primary reason</F.Label>
             <F.Options>
@@ -267,7 +262,7 @@
       </M.Body>
       <M.Footer as |F|>
         <Hds::ButtonSet>
-          <Hds::Button type="submit" @text="Leave Beta" {{on "click" (fn this.saveFormAndClose "formModalActive")}} />
+          <Hds::Button type="submit" @text="Leave Beta" {{on "click" (fn this.deactivateModal "formModalActive")}} />
           <Hds::Button type="button" @text="Cancel" @color="secondary" {{on "click" F.close}} />
         </Hds::ButtonSet>
       </M.Footer>

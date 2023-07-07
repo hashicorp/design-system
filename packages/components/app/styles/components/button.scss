@@ -64,14 +64,6 @@
 
 .hds-button__text {
   flex: 1 0 0;
-
-  .hds-button__icon + & {
-    margin-left: 0.375rem;
-  }
-
-  & + .hds-button__icon {
-    margin-left: 0.375rem;
-  }
 }
 
 

@@ -210,7 +210,7 @@ Similarly, you can pass HTML attributes to the `<option/optgroup>` elements.
 
 #### Event handling
 
-Because this component supports use of `...attributes`, you can use all the usual Ember techniques for event handling (e.g., `blue`, `change`), validation, etc.
+Because this component supports use of `...attributes`, you can use all the usual Ember techniques for event handling (e.g., `blur`, `change`), validation, etc.
 
 ```handlebars
 <Hds::Form::Select::Field {{on "blur" this.yourOnBlurFunction}} as |F|>

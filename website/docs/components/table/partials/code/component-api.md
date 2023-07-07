@@ -6,10 +6,31 @@ The Table component itself is where most of the options will be applied. However
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<:head>" @type="named block">
-    This is a named block where the content for the table head (`<thead>`) is rendered. Note: most consumers are unlikely to need to use this named block directly.
+    This is a named block where the content for the table head (`<thead>`) is rendered. Note: most consumers are unlikely to need to use this named block directly.<br />
+    It yields these internal properties:
+    <Doc::ComponentApi as |D|>
+      <D.Property @name="H.setSortBy" @type="yielded function">
+      The function used internally by the table to set the `sortBy` and `sortOrder` tracked values.
+      </D.Property>
+      <D.Property @name="H.sortBy" @type="yielded value">
+        The value of the internal `sortBy` tracked variable.
+      </D.Property>
+      <D.Property @name="H.sortOrder" @type="yielded value">
+        The value of the internal `sortOrder` tracked variable.
+      </D.Property>
+    </Doc::ComponentApi>
   </C.Property>
   <C.Property @name="<:body>" @type="named block">
-    This is a named block where the content for the table body (`<tbody>`) is rendered.
+    This is a named block where the content for the table body (`<tbody>`) is rendered.<br />
+    It yields these internal properties:
+    <Doc::ComponentApi as |D|>
+      <D.Property @name="B.sortBy" @type="yielded value">
+        The value of the internal `sortBy` tracked variable.
+      </D.Property>
+      <D.Property @name="B.sortOrder" @type="yielded value">
+        The value of the internal `sortOrder` tracked variable.
+      </D.Property>
+    </Doc::ComponentApi>
   </C.Property>
   <C.Property @name="model" @type="array">
     The data model to be used by the table.
@@ -47,13 +68,13 @@ The Table component itself is where most of the options will be applied. However
     Define on the table invocation. If set to `true`, even-numbered rows will have a different background color from odd-numbered rows.
   </C.Property>
   <C.Property @name="isFixedLayout" @type="boolean" @default="false">
-    If set to `true`, the `table-display`(CSS) property will be set to `fixed`. (See [https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) for more details.)
+    If set to `true`, the `table-display`(CSS) property will be set to `fixed`. See [MDN reference on table-layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) for more details.
   </C.Property>
   <C.Property @name="density" @type="enum" @values={{array "short" "medium" "tall" }} @default="medium">
     If set, determines the density (height) of the table body’s rows.
   </C.Property>
   <C.Property @name="valign" @type="enum" @values={{array "top" "middle" }} @default="top">
-    Determines the vertical alignment for content in a table. Does not apply to table headers (`th`). See [MDN on vertical-align](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align) for more details.
+    Determines the vertical alignment for content in a table. Does not apply to table headers (`th`). See [MDN reference on vertical-align](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align) for more details.
   </C.Property>
   <C.Property @name="caption" @type="string">
     Adds a (non-visible) caption for users with assistive technology. If set on a sortable table, the provided table caption is paired with the automatically generated sorted message text.

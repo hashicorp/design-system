@@ -33,23 +33,17 @@ $hds-application-state-padding: 12px 0;
 }
 
 .hds-application-state__body {
-  display: flex;
   padding: $hds-application-state-padding;
   color: var(--token-color-foreground-faint);
 }
 
 .hds-application-state__footer {
   display: flex;
+  gap: 8px;
   justify-content: space-between;
 
   &.hds-application-state__footer--has-divider {
     padding: $hds-application-state-padding;
     border-top: 1px solid var(--token-color-border-strong);
   }
-
-  // in case users do something outside design guidelines
-  .hds-link-standalone + .hds-link-standalone {
-    margin-left: 8px;
-  }
 }
-
