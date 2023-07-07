@@ -40,21 +40,21 @@ While similar in functionality and interaction, the Accordion and Reveal are mea
 
 Use the Accordion when you need to display content in different sections that have a sequential or hierarchical relationship between them.
 
-![Accordion with basic content](/assets/components/accordion/usage-do.png)
+![Accordion with basic content](/assets/components/accordion/usage-do.png =770x*)
 !!!
 
 !!! Dont
 
 Don’t use the Accordion when you need to display a single piece of content that can expand and collapse. Use the [Reveal](/components/reveal) instead.
 
-![Accordion with basic content](/assets/components/accordion/usage-do-not.png)
+![Accordion with basic content](/assets/components/accordion/usage-do-not.png =770x*)
 !!!
 
 !!! Do
 
 Use the Accordion when the toggle or the content is relatively complex.
 
-![Accordion with complex content](/assets/components/accordion/usage-do-complex.png)
+![Accordion with complex content](/assets/components/accordion/usage-do-complex.png =770x*)
 !!!
 
 ## Toggle content
