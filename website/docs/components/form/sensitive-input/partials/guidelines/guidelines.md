@@ -7,7 +7,7 @@
 
 ### When not to use
 
-- To define a password field, use the `TextInput` [Password](/components/form/text-input#password) type instead.
+- To define a password field, use the [Password](/components/form/text-input#password) field instead.
 - For general textual input, use the [TextInput](/components/form/text-input) or [Textarea](/components/form/textarea).
 
 ### Usage examples
@@ -21,12 +21,15 @@ The sensitive input is a text field designed to protect sensitive or confidentia
 
 ## Multiline
 
+Use `isMultiline` to display multiline textual content that requires a larger area. e.g., A Terraform variable. This property replaces the `TextInput` with a `Textarea` field.
+
 ## Required and optional
+
+For complex forms, indicate required fields. This is the most explicit and transparent method and ensures users don’t have to make assumptions. Read more about best practices for [marking required fields in forms](https://www.nngroup.com/articles/required-fields/).
 
 ## Error validation
 
-<!-- don’t forget to include real examples and do/don’t blocks, as necessary -->
-{description}
+For error validation recommendations, refer to the [Form patterns](/patterns/form-patterns) documentation.
 
 ## Related
 
