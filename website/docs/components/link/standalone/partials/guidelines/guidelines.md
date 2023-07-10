@@ -90,7 +90,7 @@ Always use the leading position for product or service icons (e.g., GitHub).
 
 ### Trailing
 
-Consider trailing icons when there's no other meaningful icon or when guiding the user forward through the product. 
+Consider trailing icons when there’s no other meaningful icon or when guiding the user forward through the product. 
 
 - Use `arrow-right` for internal links.
 - Use `learn-link` for links to tutorials.
