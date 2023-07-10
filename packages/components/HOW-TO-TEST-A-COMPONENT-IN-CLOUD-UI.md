@@ -90,11 +90,11 @@ Package: @hashicorp/design-system-components
 Run `yarn` to install missing dependencies.
 ```
 
-Running again `yarn install` will not solve the problem, because the issue is with the version of the `@hashicorp/design-system-components` package declared in the `package.json` files in Cloud UI that differs from the one in the overriding package.
+Running `yarn install` again will not solve the problem because the issue is with the version of the `@hashicorp/design-system-components` package declared in the `package.json` files in Cloud UI that differs from the one in the overriding package.
 
 In this case you have two options:
 
 - you can rebase your branch on `main` so that your branch uses the latest version of `@hashicorp/design-system-components` (which is likely the one used in Cloud UI too)
-- if the one in Cloud UI is not the latest, you have to "trick" Cloud UI and replace the existing version with the one used in your branch (use a find&replace in all the `package.json` files)
+- if the one in Cloud UI is not the latest, you have to "trick" Cloud UI and replace the existing version with the one used in your branch (use a find & replace in all the `package.json` files)
 
-In both cases you will have to re-run the `yarn install` command.
+With both options, you will have to re-run the `yarn install` command.
