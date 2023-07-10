@@ -31,6 +31,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/foundations/focus-ring');
     await percySnapshot('FocusRing');
 
+    await visit('/components/accordion');
+    await percySnapshot('Accordion');
+
     await visit('/components/alert');
     await percySnapshot('Alert');
 

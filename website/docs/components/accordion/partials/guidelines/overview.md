@@ -1,0 +1,1 @@
+The accordion is used to show and hide multiple sections of content in a stacked manner. Each section is represented by a toggle.

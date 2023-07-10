@@ -19,6 +19,7 @@ Router.map(function () {
     this.route('focus-ring');
   });
   this.route('components', function () {
+    this.route('accordion');
     this.route('alert');
     this.route('application-state');
     this.route('avatar');
