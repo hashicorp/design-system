@@ -1,7 +1,7 @@
 import { forwardRef, useMemo } from 'react';
 import { IconProps } from './types';
 
-export const IconStar24 = forwardRef<SVGSVGElement, IconProps>(
+export const IconVenafiColor16 = forwardRef<SVGSVGElement, IconProps>(
     ({ color = 'currentColor', title, ...props }, svgRef) => {
         const titleId = useMemo(
             () =>
@@ -13,10 +13,10 @@ export const IconStar24 = forwardRef<SVGSVGElement, IconProps>(
         return (
             <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
+                width={16}
+                height={16}
                 fill="none"
-                viewBox="0 0 24 24"
+                viewBox="0 0 16 16"
                 aria-hidden={!title}
                 ref={svgRef}
                 aria-labelledby={titleId}
@@ -24,9 +24,9 @@ export const IconStar24 = forwardRef<SVGSVGElement, IconProps>(
             >
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
-                    fill={color}
+                    fill="#FF6333"
                     fillRule="evenodd"
-                    d="M12 1a.75.75 0 01.673.418l2.992 6.065 6.694.978a.75.75 0 01.414 1.28l-4.842 4.717 1.143 6.665a.75.75 0 01-1.089.79L12 18.766l-5.985 3.149a.75.75 0 01-1.089-.79l1.143-6.666-4.842-4.717a.75.75 0 01.414-1.28l6.693-.978 2.993-6.065A.75.75 0 0112 1zm0 2.445L9.505 8.5a.75.75 0 01-.564.41l-5.58.816 4.037 3.933a.75.75 0 01.216.664l-.952 5.556 4.989-2.625a.75.75 0 01.698 0l4.99 2.625-.953-5.556a.75.75 0 01.216-.664l4.037-3.933-5.58-.816a.75.75 0 01-.564-.41L12 3.445z"
+                    d="M10.524 2.137A9.69 9.69 0 0110.572 2H15c-1.434 3.88-3.479 7.427-6.104 10.537L8 13.597l-.896-1.06C4.479 9.427 2.434 5.88 1 2h4.333l.048.137c.103.296.339.972.479 1.286H3.256a23.942 23.942 0 004.154 7.174l.611.722.612-.722a23.941 23.941 0 004.153-7.174h-2.74c.14-.314.375-.99.478-1.286zM8 7.614a13.78 13.78 0 001.855-3.268h1.44A16.613 16.613 0 018.421 9.3L8 9.801l-.422-.5a16.548 16.548 0 01-2.872-4.955h1.439A13.781 13.781 0 008 7.614z"
                     clipRule="evenodd"
                 />
             </svg>
