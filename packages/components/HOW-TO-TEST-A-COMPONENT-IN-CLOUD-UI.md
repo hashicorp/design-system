@@ -77,3 +77,24 @@ You can override every dependency declared in the engines' `package.json` files 
 Once done run `yarn install` to use the "remote" version of the package, update the `node_modules` and the `yarn.lock` file.
 
 **IMPORTANT**: the way in which yarn works in this case is that it resolves in a hash referencing a commit in `yarn.lock`; so if you make changes to the branch, they’re not reflected in the local `node_modules` unless you change the hash manually in the `yarn.lock` to point to another commit, and re-run the `yarn install` command.
+
+#### What to do if `yarn start ***` in Cloud UI complains about the different version number
+
+There are cases in which the "start" command in Cloud UI will fail with an error similar to this:
+```
+Missing yarn packages: 
+Package: @hashicorp/design-system-components
+  * Specified: ^2.7.1
+  * Installed: 2.6.0
+
+Run `yarn` to install missing dependencies.
+```
+
+Running `yarn install` again will not solve the problem because the issue is with the version of the `@hashicorp/design-system-components` package declared in the `package.json` files in Cloud UI that differs from the one in the overriding package.
+
+In this case you have two options:
+
+- you can rebase your branch on `main` so that your branch uses the latest version of `@hashicorp/design-system-components` (which is likely the one used in Cloud UI too)
+- if the one in Cloud UI is not the latest, you have to "trick" Cloud UI and replace the existing version with the one used in your branch (use a find & replace in all the `package.json` files)
+
+With both options, you will have to re-run the `yarn install` command.
