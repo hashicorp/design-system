@@ -2,7 +2,6 @@
 title: Application State
 description: An informational element that displays the current state of the application.
 caption: An informational element that displays the current state of the application.
-status: released
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=31113-50004
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/application-state

@@ -1,0 +1,120 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// ACCORDION
+//
+
+@use "../mixins/button" as *;
+@use "../mixins/focus-ring" as *;
+
+$accordion-item-padding: 16px;
+$accordion-item-border-radius: 6px;
+
+// ACCORDION COMPONENT (wrapper)
+
+.hds-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+// ACCORDION ITEM COMPONENT (nested child)
+
+.hds-accordion-item {
+  background: var(--token-color-surface-primary);
+  border-radius: $accordion-item-border-radius;
+
+  &.hds-accordion-item--does-not-contain-interactive {
+    box-shadow: var(--token-surface-mid-box-shadow);
+
+    &:hover,
+    &.mock-hover {
+      box-shadow: var(--token-surface-high-box-shadow);
+    }
+  }
+
+  &.hds-accordion-item--contains-interactive {
+    box-shadow: var(--token-surface-base-box-shadow);
+  }
+}
+
+// TOGGLE BLOCK
+
+.hds-accordion-item__toggle {
+  position: relative;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding:
+    $accordion-item-padding
+    $accordion-item-padding
+    $accordion-item-padding
+    12px; // by design
+}
+
+.hds-accordion-item__button {
+  padding: 0;
+
+  &:hover { cursor: pointer; }
+
+  // entire toggle area is interactive
+  &.hds-accordion-item__button--parent-does-not-contain-interactive {
+    @include hds-focus-ring-with-pseudo-element();
+    position: static;
+    margin: -1px 0;
+    color: var(--token-color-foreground-primary);
+    background: transparent;
+    border: 1px solid transparent;
+
+    // expand button target to cover entire AccordionItem Toggle block (depending on the `@containsInteractive/@parentContainsInteractive` argument)
+    &::after {
+      position: absolute;
+      display: block;
+      border-radius: $accordion-item-border-radius;
+      content: "";
+      inset: 0;
+    }
+  }
+
+  // only chevron button area is interactive
+  &.hds-accordion-item__button--parent-contains-interactive {
+    @include hds-button();
+    width: 24px;
+    height: 24px;
+
+    &:focus,
+    &.mock-focus {
+      @include hds-button-state-focus();
+    }
+
+    // `hds-button-color-secondary` determines the focus color and needs to be placed after `hds-button-state-focus`
+    @include hds-button-color-secondary();
+  }
+
+  // animate chevron icon
+  &.hds-accordion-item__button--is-open {
+    .flight-icon-chevron-down {
+      transform: rotate(-180deg);
+    }
+  }
+
+  .flight-icon-chevron-down {
+    @media (prefers-reduced-motion: no-preference) {
+      transition: transform 0.3s;
+    }
+  }
+}
+
+// Consumer added content that appears next to the chevron button:
+.hds-accordion-item__toggle-content {
+  flex: 1;
+}
+
+// CONTENT BLOCK
+
+.hds-accordion-item__content {
+  padding: 4px $accordion-item-padding $accordion-item-padding $accordion-item-padding;
+}

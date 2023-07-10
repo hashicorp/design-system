@@ -85,7 +85,6 @@ export default class ShowRoute extends Route {
           'title',
           'description',
           'caption',
-          'status',
           'links',
           'layout',
           'previewImage', // this is needed by the `head-data` to generate the `og:image` in the page <head>

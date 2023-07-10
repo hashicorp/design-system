@@ -6,6 +6,10 @@
 // COMPONENTS > DROPDOWN
 
 #show-content-components-dropdown {
+  .hds-dropdown__content {
+    margin-bottom: 16px;
+  }
+
   .hds-dropdown__list {
     margin: 0;
     padding: 4px 0;

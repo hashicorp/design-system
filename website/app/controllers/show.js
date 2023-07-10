@@ -80,8 +80,8 @@ export default class ShowController extends Controller {
   }
 
   get extra() {
-    let { status, links } = this.model.frontmatter;
-    return { status, links };
+    let { links } = this.model.frontmatter;
+    return { links };
   }
 
   get currentActiveTabIndex() {

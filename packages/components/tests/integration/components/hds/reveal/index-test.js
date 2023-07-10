@@ -118,7 +118,7 @@ module('Integration | Component | hds/reveal/index', function (hooks) {
   test('it should spread all the attributes passed to the component on the element', async function (assert) {
     await render(
       hbs`
-      <Hds::Reveal @text="More options" id="test-reveal" class="my-class" data-test1 data-test2="test" id="test-reveal">
+      <Hds::Reveal @text="More options" id="test-reveal" class="my-class" data-test1 data-test2="test">
         Additional content
       </Hds::Reveal>`
     );

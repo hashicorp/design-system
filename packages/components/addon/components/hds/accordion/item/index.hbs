@@ -1,0 +1,25 @@
+<Hds::DisclosurePrimitive class={{this.classNames}} @isOpen={{@isOpen}} ...attributes>
+  <:toggle as |t|>
+    <div class="hds-accordion-item__toggle">
+      <Hds::Accordion::Item::Button
+        @isOpen={{t.isOpen}}
+        @onClickToggle={{t.onClickToggle}}
+        @contentId={{this.contentId}}
+        @ariaLabel={{this.ariaLabel}}
+        @parentContainsInteractive={{this.containsInteractive}}
+      />
+
+      <div
+        class="hds-accordion-item__toggle-content hds-typography-display-200 hds-foreground-strong hds-font-weight-semibold"
+      >
+        {{yield to="toggle"}}
+      </div>
+    </div>
+  </:toggle>
+
+  <:content>
+    <div class="hds-accordion-item__content hds-typography-body-200 hds-foreground-primary" id={{this.contentId}}>
+      {{yield to="content"}}
+    </div>
+  </:content>
+</Hds::DisclosurePrimitive>
