@@ -69,9 +69,9 @@ The toggle accepts many different types of content, from text-based content to n
 
 ### Interactive content
 
-Use `isInteractive` when nesting interactive content in the toggle. This lets users using assistive technology, access and interact with the nested element.
+Use `containsInteractive` when nesting interactive content in the toggle. This lets users using assistive technology, access and interact with the nested element.
 
-When using this property, it should be applied to all items. Avoid mixing with default containers.
+When using this property, it should be applied to all items. Avoid mixing with default toggles.
 
 !!! Warning
 
