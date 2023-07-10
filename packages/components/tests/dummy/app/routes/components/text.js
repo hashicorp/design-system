@@ -12,6 +12,9 @@ import {
   AVAILABLE_SIZES as CODE_AVAILABLE_SIZES,
   AVAILABLE_WEIGHTS_PER_SIZE as CODE_AVAILABLE_WEIGHTS_PER_SIZE,
 } from '@hashicorp/design-system-components/components/hds/text/code';
+import {
+  AVAILABLE_ALIGNS,
+} from '@hashicorp/design-system-components/components/hds/text/index';
 
 export default class ComponentsTextRoute extends Route {
   model() {
@@ -22,6 +25,7 @@ export default class ComponentsTextRoute extends Route {
       BODY_AVAILABLE_WEIGHTS_PER_SIZE,
       CODE_AVAILABLE_SIZES,
       CODE_AVAILABLE_WEIGHTS_PER_SIZE,
+      AVAILABLE_ALIGNS,
     };
   }
 }

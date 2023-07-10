@@ -1,4 +1,7 @@
 import Component from '@glimmer/component';
+import { assert } from '@ember/debug';
+
+export const AVAILABLE_ALIGNS = ['left', 'center', 'right'];
 
 export default class HdsTextIndexComponent extends Component {
   /**
@@ -30,6 +33,28 @@ export default class HdsTextIndexComponent extends Component {
   }
 
   /**
+   * Sets the alignment of the text
+   * Accepted values: see AVAILABLE_ALIGNS
+   *
+   * @param align
+   * @type {string}
+   */
+  get align() {
+    let { align } = this.args;
+
+    if (align) {
+      assert(
+        `@align for "Hds::Text" must be one of the following: ${AVAILABLE_ALIGNS.join(
+          ', '
+        )}; received: ${align}`,
+        AVAILABLE_ALIGNS.includes(align)
+      );
+    }
+
+    return align;
+  }
+
+  /**
    * Get the class names to apply to the component.
    * @method #classNames
    * @return {string} The "class" attribute to apply to the component.
@@ -43,6 +68,12 @@ export default class HdsTextIndexComponent extends Component {
     // add a (helper) class based on the @weight argument
     if (this.args.weight) {
       classes.push(`hds-font-weight-${this.args.weight}`);
+    }
+
+    // add a class based on the @align argument
+    if (this.align) {
+      classes.push(`hds-text--align-${this.align}`);
+    }
     }
 
     return classes.join(' ');

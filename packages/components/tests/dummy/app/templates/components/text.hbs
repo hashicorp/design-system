@@ -57,4 +57,26 @@
     {{/each}}
   </Shw::Flex>
 
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H2>Alignment</Shw::Text::H2>
+  <Shw::Grid @columns={{3}} as |SG|>
+    {{#each this.model.AVAILABLE_ALIGNS as |alignment|}}
+      <SG.Item>
+        <Shw::Flex @direction="column" as |SF|>
+          <SF.Item @label="parent with text-align={{alignment}}">
+            <Shw::Outliner {{style text-align=alignment}}>
+              <Hds::Text::Body @size="200" @tag="p">The fox jumped over the lazy dog</Hds::Text::Body>
+            </Shw::Outliner>
+          </SF.Item>
+          <SF.Item @label="with @align={{alignment}}">
+            <Shw::Outliner>
+              <Hds::Text::Body @size="200" @tag="p" @align={{alignment}}>The fox jumped over the lazy dog</Hds::Text::Body>
+            </Shw::Outliner>
+          </SF.Item>
+        </Shw::Flex>
+      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
+
 </section>

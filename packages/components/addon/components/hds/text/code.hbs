@@ -3,4 +3,11 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<Hds::Text @group="code" @size={{this.size}} @weight={{this.weight}} @tag={{@tag}} ...attributes>{{yield}}</Hds::Text>
+<Hds::Text
+  @group="code"
+  @size={{this.size}}
+  @weight={{this.weight}}
+  @align={{@align}}
+  @tag={{@tag}}
+  ...attributes
+>{{yield}}</Hds::Text>
