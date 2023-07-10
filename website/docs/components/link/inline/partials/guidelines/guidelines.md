@@ -3,7 +3,7 @@
 ### When to use
 
 - To navigate to a new destination, either internally or externally.
-- Wihtin a block of body text or other text element.
+- Within a block of body text or other text element.
 
 ### When not to use
 
@@ -12,12 +12,19 @@
 
 ## Usage in Figma
 
-The Inline Link is only published as a component in Ember, there is no corresponding component in Figma. To achieve the same results apply **text** and **color** styles from the [Foundations library](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?type=design&node-id=2130%3A2&t=6XBReWOxMRTiW1Iv-1) to your text.
+The Inline Link is only published as a component in Ember, there is no corresponding component in Figma. To achieve the same results, apply **text** and **color** styles from the [Foundations library](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?type=design&node-id=2130%3A2&t=6XBReWOxMRTiW1Iv-1) to your text.
 
-- Text styles can be found under text styles `Body` or `Code`.
+- Text styles can be found under text styles `Body`, `Code`, or `Display`.
 - Color styles:
     - `Components / Link inline / Foreground / Primary`
     - `Components / Link inline / Foreground / Secondary`
+
+!!! Warning
+
+Use links within `Display` sizes rarely as these are generally meant for titles and headlines. Instead, highlight actions using the [Standalone Link](/components/link/standalone) and associate it with the headline in the layout.
+
+<span class="hds-typography-display-400 hds-font-family-sans-display hds-font-weight-bold">Headline <Hds::Link::Inline @href="..." @color="primary">containing a link</Hds::Link::Inline></span>
+!!!
 
 ## Color
 
@@ -31,7 +38,7 @@ We recommend using the `primary` variant as the default and for more important l
 
 ### Secondary
 
-Use the secondary variant for less important links, when the primary link can't be used, or when there are multiple links in a block of text.
+Use the secondary variant for less important links, when the primary link can’t be used, or when there are multiple links in a block of text.
 
 #### Secondary example
 
@@ -71,7 +78,7 @@ Highlight the most relevant word or short phrase as it relates to the target of 
 
 !!! Dont
 
-Don't wrap an entire sentence or text block in a link.
+Don’t wrap an entire sentence or text block in a link.
 
 <span class="hds-typography-body-300"><Hds::Link::Inline @color="primary" @icon="external-link" @iconPosition="trailing" @href="...">Learn more about deploying a Vault Cluster on HCP in the HashiCorp Developer tutorial library</Hds::Link::Inline>.</span>
 
