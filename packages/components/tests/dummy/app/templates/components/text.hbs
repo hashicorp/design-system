@@ -1,0 +1,60 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "Text component"}}
+
+<Shw::Text::H1>Text</Shw::Text::H1>
+
+<section data-test-percy>
+
+  <Shw::Text::H2>Variants</Shw::Text::H2>
+  <Shw::Text::Body><em>Notice: we are showing only the combinations of
+      <code>font-size</code>
+      ("style") and
+      <code>font-weight</code>
+      that the design system
+      <strong>suggests</strong>
+      to use.</em></Shw::Text::Body>
+
+  <Shw::Text::H4 @tag="h3">Text::Display</Shw::Text::H4>
+  <Shw::Flex @direction="column" as |SF|>
+    {{#each this.model.DISPLAY_AVAILABLE_SIZES as |size|}}
+      <SF.Item @label="size={{size}}">
+        {{#let (get this.model.DISPLAY_AVAILABLE_WEIGHTS_PER_SIZE size) as |weights|}}
+          {{#each weights as |weight|}}
+            <Hds::Text::Display @size={{size}} @tag="p" @weight={{weight}}>The fox jumped over the lazy dog ({{weight}})</Hds::Text::Display>
+          {{/each}}
+        {{/let}}
+      </SF.Item>
+    {{/each}}
+  </Shw::Flex>
+
+  <Shw::Text::H4 @tag="h3">Text::Body</Shw::Text::H4>
+  <Shw::Flex @direction="column" as |SF|>
+    {{#each this.model.BODY_AVAILABLE_SIZES as |size|}}
+      <SF.Item @label="size={{size}}">
+        {{#let (get this.model.BODY_AVAILABLE_WEIGHTS_PER_SIZE size) as |weights|}}
+          {{#each weights as |weight|}}
+            <Hds::Text::Body @size={{size}} @tag="p" @weight={{weight}}>The fox jumped over the lazy dog ({{weight}})</Hds::Text::Body>
+          {{/each}}
+        {{/let}}
+      </SF.Item>
+    {{/each}}
+  </Shw::Flex>
+
+  <Shw::Text::H4 @tag="h3">Text::Code</Shw::Text::H4>
+  <Shw::Flex @direction="column" as |SF|>
+    {{#each this.model.CODE_AVAILABLE_SIZES as |size|}}
+      <SF.Item @label="size={{size}}">
+        {{#let (get this.model.CODE_AVAILABLE_WEIGHTS_PER_SIZE size) as |weights|}}
+          {{#each weights as |weight|}}
+            <Hds::Text::Code @size={{size}} @tag="p" @weight={{weight}}>The fox jumped over the lazy dog ({{weight}})</Hds::Text::Code>
+          {{/each}}
+        {{/let}}
+      </SF.Item>
+    {{/each}}
+  </Shw::Flex>
+
+</section>
