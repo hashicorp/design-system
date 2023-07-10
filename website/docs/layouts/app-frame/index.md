@@ -2,7 +2,6 @@
 title: AppFrame
 description: A layout component used as top-level “frame“ for the application.
 caption: A layout component used as top-level “frame“ for the application.
-status: released
 links:
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/app-frame
 previewImage: assets/illustrations/layouts/app-frame.jpg

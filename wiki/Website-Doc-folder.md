@@ -100,7 +100,6 @@ This is an example:
 title: Alert
 description: Displays a brief message without interrupting a user’s task.
 caption: Displays a brief message without interrupting a user’s task.
-status: released
 links:
   figma: https://...
   github: https://github.com/hashicorp/...

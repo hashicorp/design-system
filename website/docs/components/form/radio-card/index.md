@@ -2,7 +2,6 @@
 title: Radio Card
 description: A type of radio input represented as a card.
 caption: A type of radio input represented as a card.
-status: released
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=17482%3A56258&t=pDgL7LJUJXZUN7Xq-3
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/form/radio-card
