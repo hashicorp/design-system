@@ -15,7 +15,7 @@ The Masked Input component has two different variants with their own APIs:
     Set this argument to `false` to make the input content visible by default or bind it to a variable to control the masking from outside the component.
   </C.Property>
   <C.Property @name="isMultiline" @type="boolean" @default="false">
-    By default the component renders an `<input>`, if set to `true` it renders a `<textarea>`.
+    By default the component renders an `<input>`. If set to `true` it renders a `<textarea>`.
   </C.Property>
   <C.Property @name="isInvalid" @type="boolean" @default="false">
     Applies an “invalid” appearance to the control but doesn’t modify its logical validity.
@@ -45,7 +45,7 @@ The Masked Input component has two different variants with their own APIs:
     Set this argument to `false` to make the input content visible by default or bind it to a variable to control the masking from outside the component.
   </C.Property>
   <C.Property @name="isMultiline" @type="boolean" @default="false">
-    By default the component renders an `<input>`, if set to `true` it renders a `<textarea>`.
+    By default the component renders an `<input>`. If set to `true` it renders a `<textarea>`.
   </C.Property>
   <C.Property @name="isInvalid" @type="boolean" @default="false">
     Applies an “invalid” appearance to the control but doesn’t modify its logical validity.

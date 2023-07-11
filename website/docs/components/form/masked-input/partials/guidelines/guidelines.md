@@ -44,7 +44,7 @@ Don't use a MaskedInput when...
 
 ## Multiline
 
-Use `isMultiline` to display multiline textual content that requires a larger area. e.g., A Terraform variable. This property replaces the `TextInput` with a `Textarea` field.
+Use `isMultiline` to display multiline textual content that requires a larger area. e.g., a Terraform variable. This property replaces the `TextInput` with a `Textarea` field.
 
 ## Required and optional
 

@@ -65,6 +65,19 @@ v/Ow5T0q5gIJAiEAyS4RaI9YG8EWx/2w0T67ZUVAw8eOMB6BIUg0Xcu+3okCIBOs
 </Hds::Form::MaskedInput::Field>
 ```
 
+!!! Info
+
+**Important to know**
+
+When the multiline input is masked, the browser converts newline characters to masked characters: this means that the multiline text will appear as a single long string of characters, even if it's inside a `<textarea>` element.
+
+Instead, when the text is not masked it will respect the newline characters: this means it may occupy more lines that when it's masked (try the example above).
+
+Something to keep in mind when designing and implementing a functionality that requires to use this component.
+
+!!!
+
+
 #### Helper text
 
 You can add extra information to the field using helper text. When helper text is added, the component automatically adds an `aria-describedby` attribute to the input control, associating it with the automatically generated `ID` of the helper text element.
@@ -226,3 +239,15 @@ v/Ow5T0q5gIJAiEAyS4RaI9YG8EWx/2w0T67ZUVAw8eOMB6BIUg0Xcu+3okCIBOs
   aria-label="Private key"
 />
 ```
+
+!!! Info
+
+**Important to know**
+
+When the multiline input is masked, the browser converts newline characters to masked characters: this means that the multiline text will appear as a single long string of characters, even if it's inside a `<textarea>` element.
+
+Instead, when the text is not masked it will respect the newline characters: this means it may occupy more lines that when it's masked (try the example above).
+
+Something to keep in mind when designing and implementing a functionality that requires to use this component.
+
+!!!
