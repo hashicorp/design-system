@@ -46,7 +46,7 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Text::H2>Colors</Shw::Text::H2>
+  <Shw::Text::H2>Color</Shw::Text::H2>
 
   <Shw::Flex as |SF|>
     {{#each @model.COLORS as |color|}}
@@ -64,7 +64,7 @@
       {{#each @model.SIZES as |size|}}
         {{#each @model.STATES as |state|}}
           <SG.Item @label="{{capitalize size}} / {{capitalize state}}">
-            <Hds::Copy::Button @text="Lorem" @size={{size}} @color={{color}} mock-state-value={{state}} />
+            <Hds::Copy::Button @text="Copy" @size={{size}} @color={{color}} mock-state-value={{state}} />
           </SG.Item>
         {{/each}}
       {{/each}}
@@ -72,8 +72,7 @@
         {{#each @model.STATES as |state|}}
           <SG.Item @label="Full width / {{capitalize state}}">
             <Hds::Copy::Button
-              @icon="plus"
-              @text="Lorem"
+              @text="Copy"
               @color={{color}}
               @isFullWidth={{true}}
               mock-state-value={{state}}
