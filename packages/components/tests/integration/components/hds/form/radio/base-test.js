@@ -12,7 +12,9 @@ module('Integration | Component | hds/form/radio/base', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(hbs`<Hds::Form::Radio::Base id="test-form-radio" />`);
+    await render(
+      hbs`<Hds::Form::Radio::Base id="test-form-radio" aria-label="test label" />`
+    );
     assert.dom('#test-form-radio').hasClass('hds-form-radio');
   });
 
@@ -20,7 +22,7 @@ module('Integration | Component | hds/form/radio/base', function (hooks) {
 
   test('it should spread all the attributes passed to the component', async function (assert) {
     await render(
-      hbs`<Hds::Form::Radio::Base id="test-form-radio" class="my-class" data-test1 data-test2="test" />`
+      hbs`<Hds::Form::Radio::Base id="test-form-radio" class="my-class" data-test1 data-test2="test" aria-label="test label" />`
     );
     assert.dom('#test-form-radio').hasClass('my-class');
     assert.dom('#test-form-radio').hasAttribute('data-test1');

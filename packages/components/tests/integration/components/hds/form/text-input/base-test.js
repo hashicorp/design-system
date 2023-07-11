@@ -16,19 +16,23 @@ module('Integration | Component | hds/form/text-input/base', function (hooks) {
   });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(hbs`<Hds::Form::TextInput::Base id="test-form-text-input" />`);
+    await render(
+      hbs`<Hds::Form::TextInput::Base id="test-form-text-input" aria-label="test label" />`
+    );
     assert.dom('#test-form-text-input').hasClass('hds-form-text-input');
   });
 
   // TYPE
 
   test('it should render the "text" type if no type is declared', async function (assert) {
-    await render(hbs`<Hds::Form::TextInput::Base id="test-form-text-input" />`);
+    await render(
+      hbs`<Hds::Form::TextInput::Base id="test-form-text-input" aria-label="test label" />`
+    );
     assert.dom('#test-form-text-input').hasAttribute('type', 'text');
   });
   test('it should render the correct type depending on the @type prop', async function (assert) {
     await render(
-      hbs`<Hds::Form::TextInput::Base @type="email" id="test-form-text-input" />`
+      hbs`<Hds::Form::TextInput::Base @type="email" id="test-form-text-input" aria-label="test label" />`
     );
     assert.dom('#test-form-text-input').hasAttribute('type', 'email');
   });
@@ -37,7 +41,7 @@ module('Integration | Component | hds/form/text-input/base', function (hooks) {
 
   test('it should render the input with the value provided via @value argument', async function (assert) {
     await render(
-      hbs`<Hds::Form::TextInput::Base @value="abc123" id="test-form-text-input" />`
+      hbs`<Hds::Form::TextInput::Base @value="abc123" id="test-form-text-input" aria-label="test label" />`
     );
     assert.dom('#test-form-text-input').hasValue('abc123');
   });
@@ -46,7 +50,7 @@ module('Integration | Component | hds/form/text-input/base', function (hooks) {
 
   test('it should render the correct CSS class if the @isInvalid prop is declared', async function (assert) {
     await render(
-      hbs`<Hds::Form::TextInput::Base id="test-form-text-input" @isInvalid={{true}} />`
+      hbs`<Hds::Form::TextInput::Base id="test-form-text-input" @isInvalid={{true}} aria-label="test label" />`
     );
     assert
       .dom('#test-form-text-input')
@@ -57,7 +61,7 @@ module('Integration | Component | hds/form/text-input/base', function (hooks) {
 
   test('it should render the correct CSS class if the @isLoading prop is declared', async function (assert) {
     await render(
-      hbs`<Hds::Form::TextInput::Base id="test-form-text-input" @type="search" @isLoading={{true}} />`
+      hbs`<Hds::Form::TextInput::Base id="test-form-text-input" @type="search" @isLoading={{true}} aria-label="test label" />`
     );
     assert
       .dom('#test-form-text-input')
@@ -68,7 +72,7 @@ module('Integration | Component | hds/form/text-input/base', function (hooks) {
 
   test('it should render the input with a fixed width if a @width value is passed', async function (assert) {
     await render(
-      hbs`<Hds::Form::TextInput::Base @width="248px" id="test-form-text-input" />`
+      hbs`<Hds::Form::TextInput::Base @width="248px" id="test-form-text-input" aria-label="test label" />`
     );
     assert.dom('#test-form-text-input').hasStyle({ width: '248px' });
   });
@@ -77,7 +81,7 @@ module('Integration | Component | hds/form/text-input/base', function (hooks) {
 
   test('it should spread all the attributes passed to the component', async function (assert) {
     await render(
-      hbs`<Hds::Form::TextInput::Base id="test-form-text-input" class="my-class" data-test1 data-test2="test" />`
+      hbs`<Hds::Form::TextInput::Base id="test-form-text-input" class="my-class" data-test1 data-test2="test" aria-label="test label" />`
     );
     assert.dom('#test-form-text-input').hasClass('my-class');
     assert.dom('#test-form-text-input').hasAttribute('data-test1');
@@ -93,7 +97,9 @@ module('Integration | Component | hds/form/text-input/base', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(hbs`<Hds::Form::TextInput::Base @type="foo" />`);
+    await render(
+      hbs`<Hds::Form::TextInput::Base @type="foo" aria-label="test label" />`
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });

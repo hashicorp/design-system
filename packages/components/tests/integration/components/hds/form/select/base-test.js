@@ -12,7 +12,9 @@ module('Integration | Component | hds/form/select/base', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(hbs`<Hds::Form::Select::Base id="test-form-select" />`);
+    await render(
+      hbs`<Hds::Form::Select::Base id="test-form-select" aria-label="test label" />`
+    );
     assert.dom('#test-form-select').hasClass('hds-form-select');
   });
 
@@ -20,7 +22,7 @@ module('Integration | Component | hds/form/select/base', function (hooks) {
 
   test('it should render the options passed via contextual component', async function (assert) {
     await render(
-      hbs`<Hds::Form::Select::Base id="test-form-select" as |C|><C.Options><option value="abc123">This is the option</option></C.Options></Hds::Form::Select::Base>`
+      hbs`<Hds::Form::Select::Base id="test-form-select" aria-label="test label" as |C|><C.Options><option value="abc123">This is the option</option></C.Options></Hds::Form::Select::Base>`
     );
     assert.dom('#test-form-select option').exists();
     assert.dom('#test-form-select option').hasText('This is the option');
@@ -31,7 +33,7 @@ module('Integration | Component | hds/form/select/base', function (hooks) {
 
   test('it should render the select with a fixed width if a @width value is passed', async function (assert) {
     await render(
-      hbs`<Hds::Form::Select::Base @width="248px" id="test-form-select" />`
+      hbs`<Hds::Form::Select::Base @width="248px" id="test-form-select" aria-label="test label" />`
     );
     assert.dom('#test-form-select').hasStyle({ width: '248px' });
   });
@@ -40,7 +42,7 @@ module('Integration | Component | hds/form/select/base', function (hooks) {
 
   test('it should render the correct CSS class if the @isInvalid prop is declared', async function (assert) {
     await render(
-      hbs`<Hds::Form::Select::Base id="test-form-select" @isInvalid={{true}} />`
+      hbs`<Hds::Form::Select::Base id="test-form-select" @isInvalid={{true}} aria-label="test label" />`
     );
     assert.dom('#test-form-select').hasClass('hds-form-select--is-invalid');
   });
@@ -49,7 +51,7 @@ module('Integration | Component | hds/form/select/base', function (hooks) {
 
   test('it should spread all the attributes passed to the component', async function (assert) {
     await render(
-      hbs`<Hds::Form::Select::Base id="test-form-select" class="my-class" data-test1 data-test2="test" />`
+      hbs`<Hds::Form::Select::Base id="test-form-select" class="my-class" data-test1 data-test2="test" aria-label="test label" />`
     );
     assert.dom('#test-form-select').hasClass('my-class');
     assert.dom('#test-form-select').hasAttribute('data-test1');

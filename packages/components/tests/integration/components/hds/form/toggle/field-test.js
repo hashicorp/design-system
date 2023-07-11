@@ -16,7 +16,7 @@ module('Integration | Component | hds/form/toggle/field', function (hooks) {
   });
 
   test('it should render the component with a specific CSS class', async function (assert) {
-    await render(hbs`<Hds::Form::Toggle::Field />`);
+    await render(hbs`<Hds::Form::Toggle::Field aria-label="test label" />`);
     // Notice: the "toggle" component has a slightly different DOM structure than the other form controls
     assert.dom('input').hasClass('hds-form-toggle__control');
   });
@@ -24,14 +24,18 @@ module('Integration | Component | hds/form/toggle/field', function (hooks) {
   // VALUE
 
   test('it should render the input with the value provided via @value argument', async function (assert) {
-    await render(hbs`<Hds::Form::Toggle::Field @value="abc123" />`);
+    await render(
+      hbs`<Hds::Form::Toggle::Field @value="abc123" aria-label="test label" />`
+    );
     assert.dom('input').hasValue('abc123');
   });
 
   // ID
 
   test('it should render the input with a custom @id', async function (assert) {
-    await render(hbs`<Hds::Form::Toggle::Field @id="my-input" />`);
+    await render(
+      hbs`<Hds::Form::Toggle::Field @id="my-input" aria-label="test label" />`
+    );
     assert.dom('input').hasAttribute('id', 'my-input');
   });
 
@@ -51,7 +55,7 @@ module('Integration | Component | hds/form/toggle/field', function (hooks) {
     assert.dom('.hds-form-field__error').exists();
   });
   test('it does not render the yielded contextual components if not provided', async function (assert) {
-    await render(hbs`<Hds::Form::Toggle::Field />`);
+    await render(hbs`<Hds::Form::Toggle::Field data-test-valid-failure />`);
     assert.dom('.hds-form-field__label').doesNotExist();
     assert.dom('.hds-form-field__helper-text').doesNotExist();
     assert.dom('.hds-form-field__error').doesNotExist();
@@ -87,7 +91,7 @@ module('Integration | Component | hds/form/toggle/field', function (hooks) {
 
   test('it should spread all the attributes passed to the component on the input', async function (assert) {
     await render(
-      hbs`<Hds::Form::Toggle::Field checked="checked" class="my-class" data-test1 data-test2="test" />`
+      hbs`<Hds::Form::Toggle::Field checked="checked" class="my-class" data-test1 data-test2="test" aria-label="test label" />`
     );
     assert.dom('input').hasClass('my-class');
     assert.dom('input').hasAttribute('data-test1');

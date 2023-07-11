@@ -16,7 +16,9 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
   });
 
   test('it should render the component', async function (assert) {
-    await render(hbs`<Hds::Form::Radio::Group id="test-form-radio" />`);
+    await render(
+      hbs`<Hds::Form::Radio::Group id="test-form-radio" aria-label="test label" />`
+    );
     assert.dom('#test-form-radio').hasClass('hds-form-group');
   });
 
