@@ -4,38 +4,38 @@
  */
 
 //
-// SENSITIVE-INPUT
+// MASKED-INPUT
 //
 
-$hds-form-sensitive-input-button-size: 24px;
+$hds-form-masked-input-button-size: 24px;
 
-.hds-form-sensitive-input {
+.hds-form-masked-input {
   position: relative;
   width: 100%;
 
-  .hds-form-sensitive-input__control {
-    padding-right: calc(var(--token-form-control-padding) + $hds-form-sensitive-input-button-size);
+  .hds-form-masked-input__control {
+    padding-right: calc(var(--token-form-control-padding) + $hds-form-masked-input-button-size);
   }
 }
 
-.hds-form-sensitive-input--obfuscated {
-  .hds-form-sensitive-input__control {
+.hds-form-masked-input--obfuscated {
+  .hds-form-masked-input__control {
     -webkit-text-security: disc;
   }
 }
 
-.hds-form-sensitive-input--not-obfuscated {
-  .hds-form-sensitive-input__control {
+.hds-form-masked-input--not-obfuscated {
+  .hds-form-masked-input__control {
     -webkit-text-security: none;
   }
 }
 
-.hds-form-sensitive-input__toggle-button {
+.hds-form-masked-input__toggle-button {
   position: absolute;
   top: calc(var(--token-form-control-padding) - var(--token-form-control-border-width));
   right: calc(var(--token-form-control-padding) - var(--token-form-control-border-width));
-  width: $hds-form-sensitive-input-button-size;
-  height: $hds-form-sensitive-input-button-size;
+  width: $hds-form-masked-input-button-size;
+  height: $hds-form-masked-input-button-size;
   padding: 2px;
   color: var(--token-color-foreground-primary);
   background-color: transparent;

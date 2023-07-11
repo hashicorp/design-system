@@ -14,8 +14,9 @@
   {{yield (hash Label=F.Label isRequired=F.isRequired isOptional=F.isOptional)}}
   {{yield (hash HelperText=F.HelperText Error=F.Error)}}
   <F.Control>
-    <Hds::Form::SensitiveInput::Base
+    <Hds::Form::MaskedInput::Base
       @isMultiline={{@isMultiline}}
+      @isObfuscated={{@isObfuscated}}
       @value={{@value}}
       @isInvalid={{@isInvalid}}
       @width={{@width}}

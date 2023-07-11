@@ -9,7 +9,7 @@ import { render, resetOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module(
-  'Integration | Component | hds/form/sensitive-input/field',
+  'Integration | Component | hds/form/masked-input/field',
   function (hooks) {
     setupRenderingTest(hooks);
 
@@ -18,14 +18,14 @@ module(
     });
 
     test('it should render the component with a specific CSS class', async function (assert) {
-      await render(hbs`<Hds::Form::SensitiveInput::Field />`);
+      await render(hbs`<Hds::Form::MaskedInput::Field />`);
       assert.dom('.hds-form-field__control').exists();
     });
 
     // VALUE
 
     test('it should render the input with the value provided via @value argument', async function (assert) {
-      await render(hbs`<Hds::Form::SensitiveInput::Field @value="abc123" />`);
+      await render(hbs`<Hds::Form::MaskedInput::Field @value="abc123" />`);
       assert.dom('input').hasValue('abc123');
     });
 
@@ -33,7 +33,7 @@ module(
 
     test('it should render the correct CSS class if the @isInvalid prop is declared', async function (assert) {
       await render(
-        hbs`<Hds::Form::SensitiveInput::Field @isInvalid={{true}} />`
+        hbs`<Hds::Form::MaskedInput::Field @isInvalid={{true}} />`
       );
       assert.dom('input').hasClass('hds-form-text-input--is-invalid');
     });
@@ -41,25 +41,25 @@ module(
     // WIDTH
 
     test('it should render the input with a fixed width if a @width value is passed', async function (assert) {
-      await render(hbs`<Hds::Form::SensitiveInput::Field @width="248px" />`);
-      assert.dom('.hds-form-sensitive-input').hasStyle({ width: '248px' });
+      await render(hbs`<Hds::Form::MaskedInput::Field @width="248px" />`);
+      assert.dom('.hds-form-masked-input').hasStyle({ width: '248px' });
     });
 
     // HEIGHT
 
     test('it should render the input with a fixed height if a @height value is passed and `@isMultiline` is true', async function (assert) {
       await render(
-        hbs`<Hds::Form::SensitiveInput::Field @isMultiline={{true}} @height="248px" />`
+        hbs`<Hds::Form::MaskedInput::Field @isMultiline={{true}} @height="248px" />`
       );
       assert
-        .dom('.hds-form-sensitive-input__control')
+        .dom('.hds-form-masked-input__control')
         .hasStyle({ height: '248px' });
     });
 
     // ID
 
     test('it should render the input with a custom @id', async function (assert) {
-      await render(hbs`<Hds::Form::SensitiveInput::Field @id="my-input" />`);
+      await render(hbs`<Hds::Form::MaskedInput::Field @id="my-input" />`);
       assert.dom('input').hasAttribute('id', 'my-input');
     });
 
@@ -67,11 +67,11 @@ module(
 
     test('it renders the yielded contextual components', async function (assert) {
       await render(
-        hbs`<Hds::Form::SensitiveInput::Field as |F|>
+        hbs`<Hds::Form::MaskedInput::Field as |F|>
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
           <F.Error>This is the error</F.Error>
-        </Hds::Form::SensitiveInput::Field>`
+        </Hds::Form::MaskedInput::Field>`
       );
       assert.dom('.hds-form-field__label').exists();
       assert.dom('.hds-form-field__helper-text').exists();
@@ -79,18 +79,18 @@ module(
       assert.dom('.hds-form-field__error').exists();
     });
     test('it does not render the yielded contextual components if not provided', async function (assert) {
-      await render(hbs`<Hds::Form::SensitiveInput::Field />`);
+      await render(hbs`<Hds::Form::MaskedInput::Field />`);
       assert.dom('.hds-form-field__label').doesNotExist();
       assert.dom('.hds-form-field__helper-text').doesNotExist();
       assert.dom('.hds-form-field__error').doesNotExist();
     });
     test('it automatically provides all the ID relations between the elements', async function (assert) {
       await render(
-        hbs`<Hds::Form::SensitiveInput::Field @extraAriaDescribedBy="extra" as |F|>
+        hbs`<Hds::Form::MaskedInput::Field @extraAriaDescribedBy="extra" as |F|>
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
           <F.Error>This is the error</F.Error>
-        </Hds::Form::SensitiveInput::Field>`
+        </Hds::Form::MaskedInput::Field>`
       );
       // the control ID is dynamically generated
       let control = this.element.querySelector(
@@ -116,9 +116,9 @@ module(
 
     test('it should append an indicator to the label text and set the required attribute when user input is required', async function (assert) {
       await render(
-        hbs`<Hds::Form::SensitiveInput::Field @isRequired={{true}} as |F|>
+        hbs`<Hds::Form::MaskedInput::Field @isRequired={{true}} as |F|>
             <F.Label>This is the label</F.Label>
-          </Hds::Form::SensitiveInput::Field>`
+          </Hds::Form::MaskedInput::Field>`
       );
       assert.dom('label .hds-form-indicator').exists();
       assert.dom('label .hds-form-indicator').hasText('Required');
@@ -126,18 +126,18 @@ module(
     });
     test('it should append an indicator to the label text when user input is optional', async function (assert) {
       await render(
-        hbs`<Hds::Form::SensitiveInput::Field @isOptional={{true}} as |F|>
+        hbs`<Hds::Form::MaskedInput::Field @isOptional={{true}} as |F|>
             <F.Label>This is the label</F.Label>
-          </Hds::Form::SensitiveInput::Field>`
+          </Hds::Form::MaskedInput::Field>`
       );
       assert.dom('label .hds-form-indicator').exists();
       assert.dom('label .hds-form-indicator').hasText('(Optional)');
     });
     test('it should not append an indicator to the label text when the required attribute is set', async function (assert) {
       await render(
-        hbs`<Hds::Form::SensitiveInput::Field required as |F|>
+        hbs`<Hds::Form::MaskedInput::Field required as |F|>
             <F.Label>This is the label</F.Label>
-          </Hds::Form::SensitiveInput::Field>`
+          </Hds::Form::MaskedInput::Field>`
       );
       assert.dom('input').hasAttribute('required');
       assert.dom('label .hds-form-indicator').doesNotExist();
@@ -147,7 +147,7 @@ module(
 
     test('it should spread all the attributes passed to the component on the input', async function (assert) {
       await render(
-        hbs`<Hds::Form::SensitiveInput::Field class="my-class" data-test1 data-test2="test" />`
+        hbs`<Hds::Form::MaskedInput::Field class="my-class" data-test1 data-test2="test" />`
       );
       assert.dom('input').hasClass('my-class');
       assert.dom('input').hasAttribute('data-test1');

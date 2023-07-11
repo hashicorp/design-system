@@ -35,9 +35,9 @@ Router.map(function () {
     this.route('form', function () {
       this.route('base-elements');
       this.route('checkbox');
+      this.route('masked-input');
       this.route('radio');
       this.route('select');
-      this.route('sensitive-input');
       this.route('text-input');
       this.route('textarea');
       this.route('toggle');

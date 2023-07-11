@@ -3,9 +3,9 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-{{page-title "SensitiveInput Component"}}
+{{page-title "MaskedInput Component"}}
 
-<Shw::Text::H1>SensitiveInput</Shw::Text::H1>
+<Shw::Text::H1>MaskedInput</Shw::Text::H1>
 
 <section data-test-percy>
 
@@ -17,16 +17,16 @@
 
   <Shw::Flex as |SF|>
     <SF.Item @label="Default">
-      <Hds::Form::SensitiveInput::Base />
+      <Hds::Form::MaskedInput::Base />
     </SF.Item>
     <SF.Item @label="With placeholder">
-      <Hds::Form::SensitiveInput::Base placeholder="Lorem ipsum dolor" />
+      <Hds::Form::MaskedInput::Base placeholder="Lorem ipsum dolor" />
     </SF.Item>
     <SF.Item @label="With value">
-      <Hds::Form::SensitiveInput::Base @value="Lorem ipsum dolor" />
+      <Hds::Form::MaskedInput::Base @value="Lorem ipsum dolor" />
     </SF.Item>
     <SF.Item @label="With obfuscated value">
-      <Hds::Form::SensitiveInput::Base @isObfuscated={{false}} @value="Lorem ipsum dolor" />
+      <Hds::Form::MaskedInput::Base @isObfuscated={{false}} @value="Lorem ipsum dolor" />
     </SF.Item>
   </Shw::Flex>
 
@@ -34,16 +34,16 @@
 
   <Shw::Flex as |SF|>
     <SF.Item @label="Default">
-      <Hds::Form::SensitiveInput::Base @isMultiline={{true}} />
+      <Hds::Form::MaskedInput::Base @isMultiline={{true}} />
     </SF.Item>
     <SF.Item @label="With placeholder">
-      <Hds::Form::SensitiveInput::Base @isMultiline={{true}} placeholder="Lorem ipsum dolor" />
+      <Hds::Form::MaskedInput::Base @isMultiline={{true}} placeholder="Lorem ipsum dolor" />
     </SF.Item>
     <SF.Item @label="With value">
-      <Hds::Form::SensitiveInput::Base @isMultiline={{true}} @value="Lorem ipsum dolor" />
+      <Hds::Form::MaskedInput::Base @isMultiline={{true}} @value="Lorem ipsum dolor" />
     </SF.Item>
     <SF.Item @label="With obfuscated value">
-      <Hds::Form::SensitiveInput::Base @isMultiline={{true}} @isObfuscated={{false}} @value="Lorem ipsum dolor" />
+      <Hds::Form::MaskedInput::Base @isMultiline={{true}} @isObfuscated={{false}} @value="Lorem ipsum dolor" />
     </SF.Item>
   </Shw::Flex>
 
@@ -64,7 +64,7 @@
           >
             <Shw::Flex @direction="column" as |SF|>
               <SF.Item>
-                <Hds::Form::SensitiveInput::Base
+                <Hds::Form::MaskedInput::Base
                   disabled={{if (eq variant "disabled") "disabled"}}
                   readonly={{if (eq variant "readonly") "readonly"}}
                   @value="Lorem ipsum dolor"
@@ -91,7 +91,7 @@
           >
             <Shw::Flex @direction="column" as |SF|>
               <SF.Item>
-                <Hds::Form::SensitiveInput::Base
+                <Hds::Form::MaskedInput::Base
                   disabled={{if (eq variant "disabled") "disabled"}}
                   readonly={{if (eq variant "readonly") "readonly"}}
                   @isMultiline={{true}}
@@ -116,40 +116,40 @@
 
   <Shw::Grid @columns="3" as |SG|>
     <SG.Item @label="Only label">
-      <Hds::Form::SensitiveInput::Field @value="Lorem ipsum dolor" as |F|>
+      <Hds::Form::MaskedInput::Field @value="Lorem ipsum dolor" as |F|>
         <F.Label>This is the label text</F.Label>
-      </Hds::Form::SensitiveInput::Field>
+      </Hds::Form::MaskedInput::Field>
     </SG.Item>
     <SG.Item @label="Label + Helper text">
-      <Hds::Form::SensitiveInput::Field @value="Lorem ipsum dolor" as |F|>
+      <Hds::Form::MaskedInput::Field @value="Lorem ipsum dolor" as |F|>
         <F.Label>This is the label text</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
-      </Hds::Form::SensitiveInput::Field>
+      </Hds::Form::MaskedInput::Field>
     </SG.Item>
     {{! left empty on purpose }}
     <SG.Item />
     <SG.Item @label="Label + Error">
-      <Hds::Form::SensitiveInput::Field @value="Lorem ipsum dolor" @isInvalid={{true}} as |F|>
+      <Hds::Form::MaskedInput::Field @value="Lorem ipsum dolor" @isInvalid={{true}} as |F|>
         <F.Label>This is the label</F.Label>
         <F.Error>This is the error</F.Error>
-      </Hds::Form::SensitiveInput::Field>
+      </Hds::Form::MaskedInput::Field>
     </SG.Item>
     <SG.Item @label="Label + Helper text + Error">
-      <Hds::Form::SensitiveInput::Field @value="Lorem ipsum dolor" @isInvalid={{true}} as |F|>
+      <Hds::Form::MaskedInput::Field @value="Lorem ipsum dolor" @isInvalid={{true}} as |F|>
         <F.Label>This is the label</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
         <F.Error>This is the error</F.Error>
-      </Hds::Form::SensitiveInput::Field>
+      </Hds::Form::MaskedInput::Field>
     </SG.Item>
     <SG.Item @label="Label + Helper text + Errors">
-      <Hds::Form::SensitiveInput::Field @value="Lorem ipsum dolor" @isInvalid={{true}} as |F|>
+      <Hds::Form::MaskedInput::Field @value="Lorem ipsum dolor" @isInvalid={{true}} as |F|>
         <F.Label>This is the label</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
         <F.Error as |E|>
           <E.Message>First error message</E.Message>
           <E.Message>Second error message</E.Message>
         </F.Error>
-      </Hds::Form::SensitiveInput::Field>
+      </Hds::Form::MaskedInput::Field>
     </SG.Item>
   </Shw::Grid>
 
@@ -157,40 +157,40 @@
 
   <Shw::Grid @columns="3" as |SG|>
     <SG.Item @label="Only label">
-      <Hds::Form::SensitiveInput::Field @isMultiline={{true}} @value="Lorem ipsum dolor" as |F|>
+      <Hds::Form::MaskedInput::Field @isMultiline={{true}} @value="Lorem ipsum dolor" as |F|>
         <F.Label>This is the label text</F.Label>
-      </Hds::Form::SensitiveInput::Field>
+      </Hds::Form::MaskedInput::Field>
     </SG.Item>
     <SG.Item @label="Label + Helper text">
-      <Hds::Form::SensitiveInput::Field @isMultiline={{true}} @value="Lorem ipsum dolor" as |F|>
+      <Hds::Form::MaskedInput::Field @isMultiline={{true}} @value="Lorem ipsum dolor" as |F|>
         <F.Label>This is the label text</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
-      </Hds::Form::SensitiveInput::Field>
+      </Hds::Form::MaskedInput::Field>
     </SG.Item>
     {{! left empty on purpose }}
     <SG.Item />
     <SG.Item @label="Label + Error">
-      <Hds::Form::SensitiveInput::Field @isMultiline={{true}} @value="Lorem ipsum dolor" @isInvalid={{true}} as |F|>
+      <Hds::Form::MaskedInput::Field @isMultiline={{true}} @value="Lorem ipsum dolor" @isInvalid={{true}} as |F|>
         <F.Label>This is the label</F.Label>
         <F.Error>This is the error</F.Error>
-      </Hds::Form::SensitiveInput::Field>
+      </Hds::Form::MaskedInput::Field>
     </SG.Item>
     <SG.Item @label="Label + Helper text + Error">
-      <Hds::Form::SensitiveInput::Field @isMultiline={{true}} @value="Lorem ipsum dolor" @isInvalid={{true}} as |F|>
+      <Hds::Form::MaskedInput::Field @isMultiline={{true}} @value="Lorem ipsum dolor" @isInvalid={{true}} as |F|>
         <F.Label>This is the label</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
         <F.Error>This is the error</F.Error>
-      </Hds::Form::SensitiveInput::Field>
+      </Hds::Form::MaskedInput::Field>
     </SG.Item>
     <SG.Item @label="Label + Helper text + Errors">
-      <Hds::Form::SensitiveInput::Field @isMultiline={{true}} @value="Lorem ipsum dolor" @isInvalid={{true}} as |F|>
+      <Hds::Form::MaskedInput::Field @isMultiline={{true}} @value="Lorem ipsum dolor" @isInvalid={{true}} as |F|>
         <F.Label>This is the label</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
         <F.Error as |E|>
           <E.Message>First error message</E.Message>
           <E.Message>Second error message</E.Message>
         </F.Error>
-      </Hds::Form::SensitiveInput::Field>
+      </Hds::Form::MaskedInput::Field>
     </SG.Item>
   </Shw::Grid>
 
@@ -202,15 +202,15 @@
 
   <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Label + Required">
-      <Hds::Form::SensitiveInput::Field @value="Lorem ipsum dolor" @isRequired={{true}} as |F|>
+      <Hds::Form::MaskedInput::Field @value="Lorem ipsum dolor" @isRequired={{true}} as |F|>
         <F.Label>This is the label text</F.Label>
-      </Hds::Form::SensitiveInput::Field>
+      </Hds::Form::MaskedInput::Field>
     </SG.Item>
     <SG.Item @label="Label + Optional">
       <br />
-      <Hds::Form::SensitiveInput::Field @value="Lorem ipsum dolor" @isOptional={{true}} as |F|>
+      <Hds::Form::MaskedInput::Field @value="Lorem ipsum dolor" @isOptional={{true}} as |F|>
         <F.Label>This is the label text</F.Label>
-      </Hds::Form::SensitiveInput::Field>
+      </Hds::Form::MaskedInput::Field>
     </SG.Item>
   </Shw::Grid>
 
@@ -218,15 +218,15 @@
 
   <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Label + Required">
-      <Hds::Form::SensitiveInput::Field @isMultiline={{true}} @value="Lorem ipsum dolor" @isRequired={{true}} as |F|>
+      <Hds::Form::MaskedInput::Field @isMultiline={{true}} @value="Lorem ipsum dolor" @isRequired={{true}} as |F|>
         <F.Label>This is the label text</F.Label>
-      </Hds::Form::SensitiveInput::Field>
+      </Hds::Form::MaskedInput::Field>
     </SG.Item>
     <SG.Item @label="Label + Optional">
       <br />
-      <Hds::Form::SensitiveInput::Field @isMultiline={{true}} @value="Lorem ipsum dolor" @isOptional={{true}} as |F|>
+      <Hds::Form::MaskedInput::Field @isMultiline={{true}} @value="Lorem ipsum dolor" @isOptional={{true}} as |F|>
         <F.Label>This is the label text</F.Label>
-      </Hds::Form::SensitiveInput::Field>
+      </Hds::Form::MaskedInput::Field>
     </SG.Item>
   </Shw::Grid>
 
@@ -243,20 +243,20 @@
           <Shw::Label>Parent with <code>display: {{display}}</code></Shw::Label>
           <Shw::Flex as |SF|>
             <SF.Item @grow={{true}} {{style display=display}}>
-              <Hds::Form::SensitiveInput::Field @value="Default width" as |F|>
+              <Hds::Form::MaskedInput::Field @value="Default width" as |F|>
                 <F.Label>This is the label</F.Label>
                 <F.HelperText>This is the helper text</F.HelperText>
-              </Hds::Form::SensitiveInput::Field>
+              </Hds::Form::MaskedInput::Field>
             </SF.Item>
             <SF.Item @grow={{true}} {{style display=display}}>
-              <Hds::Form::SensitiveInput::Field @value="Custom width" @width="120px" @isInvalid={{true}} as |F|>
+              <Hds::Form::MaskedInput::Field @value="Custom width" @width="120px" @isInvalid={{true}} as |F|>
                 <F.Label>This is the label text that should go on multiple lines</F.Label>
                 <F.HelperText>This is the helper text that should go on multiple lines</F.HelperText>
                 <F.Error as |E|>
                   <E.Message>This is the first error text</E.Message>
                   <E.Message>This is the second error text that should go on multiple lines</E.Message>
                 </F.Error>
-              </Hds::Form::SensitiveInput::Field>
+              </Hds::Form::MaskedInput::Field>
             </SF.Item>
           </Shw::Flex>
         </SG.Item>
@@ -273,13 +273,13 @@
           <Shw::Label>Parent with <code>display: {{display}}</code></Shw::Label>
           <Shw::Flex as |SF|>
             <SF.Item @grow={{true}} {{style display=display}}>
-              <Hds::Form::SensitiveInput::Field @isMultiline={{true}} @value="Default width" as |F|>
+              <Hds::Form::MaskedInput::Field @isMultiline={{true}} @value="Default width" as |F|>
                 <F.Label>This is the label</F.Label>
                 <F.HelperText>This is the helper text</F.HelperText>
-              </Hds::Form::SensitiveInput::Field>
+              </Hds::Form::MaskedInput::Field>
             </SF.Item>
             <SF.Item @grow={{true}} {{style display=display}}>
-              <Hds::Form::SensitiveInput::Field
+              <Hds::Form::MaskedInput::Field
                 @isMultiline={{true}}
                 @value="Custom width"
                 @width="120px"
@@ -293,7 +293,7 @@
                   <E.Message>This is the first error text</E.Message>
                   <E.Message>This is the second error text that should go on multiple lines</E.Message>
                 </F.Error>
-              </Hds::Form::SensitiveInput::Field>
+              </Hds::Form::MaskedInput::Field>
             </SF.Item>
           </Shw::Flex>
         </SG.Item>

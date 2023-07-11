@@ -8,7 +8,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { getElementId } from '@hashicorp/design-system-components/utils/hds-get-element-id';
 
-export default class HdsFormSensitiveInputBaseComponent extends Component {
+export default class HdsFormMaskedInputBaseComponent extends Component {
   @tracked isObfuscated = this.args.isObfuscated ?? true;
 
   @action
@@ -26,15 +26,15 @@ export default class HdsFormSensitiveInputBaseComponent extends Component {
   /**
    * @param ariaLabel
    * @type {string}
-   * @default 'Show sensitive content'
+   * @default 'Show masked content'
    */
   get ariaLabel() {
     if (this.args.ariaLabel) {
       return this.args.ariaLabel;
     } else if (this.isObfuscated) {
-      return 'Show sensitive content';
+      return 'Show masked content';
     } else {
-      return 'Hide sensitive content';
+      return 'Hide masked content';
     }
   }
 
@@ -59,12 +59,12 @@ export default class HdsFormSensitiveInputBaseComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-form-sensitive-input'];
+    let classes = ['hds-form-masked-input'];
 
     if (this.isObfuscated) {
-      classes.push(`hds-form-sensitive-input--obfuscated`);
+      classes.push(`hds-form-masked-input--obfuscated`);
     } else {
-      classes.push(`hds-form-sensitive-input--not-obfuscated`);
+      classes.push(`hds-form-masked-input--not-obfuscated`);
     }
 
     return classes.join(' ');

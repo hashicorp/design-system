@@ -9,46 +9,46 @@ import { click, render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module(
-  'Integration | Component | hds/form/sensitive-input/base',
+  'Integration | Component | hds/form/masked-input/base',
   function (hooks) {
     setupRenderingTest(hooks);
 
     test('it should render the component with a specific CSS class', async function (assert) {
       await render(
-        hbs`<Hds::Form::SensitiveInput::Base id="test-form-sensitive-input" />`
+        hbs`<Hds::Form::MaskedInput::Base id="test-form-masked-input" />`
       );
       assert
-        .dom('#test-form-sensitive-input')
-        .hasClass('hds-form-sensitive-input__control');
+        .dom('#test-form-masked-input')
+        .hasClass('hds-form-masked-input__control');
     });
 
     // OBFUSCATION
 
     test('it should render a button with the "eye" icon by default', async function (assert) {
       await render(
-        hbs`<Hds::Form::SensitiveInput::Base id="test-form-sensitive-input" />`
+        hbs`<Hds::Form::MaskedInput::Base id="test-form-masked-input" />`
       );
       assert
-        .dom('.hds-form-sensitive-input__toggle-button .flight-icon-eye')
+        .dom('.hds-form-masked-input__toggle-button .flight-icon-eye')
         .exists();
     });
 
     test('it should render a button with the "eye-off" icon when `isObfuscated` is false', async function (assert) {
       await render(
-        hbs`<Hds::Form::SensitiveInput::Base id="test-form-sensitive-input" @isObfuscated={{false}} />`
+        hbs`<Hds::Form::MaskedInput::Base id="test-form-masked-input" @isObfuscated={{false}} />`
       );
       assert
-        .dom('.hds-form-sensitive-input__toggle-button .flight-icon-eye-off')
+        .dom('.hds-form-masked-input__toggle-button .flight-icon-eye-off')
         .exists();
     });
 
     test('it should toggle the "eye" icon when button is pressed', async function (assert) {
       await render(
-        hbs`<Hds::Form::SensitiveInput::Base id="test-form-sensitive-input" />`
+        hbs`<Hds::Form::MaskedInput::Base id="test-form-masked-input" />`
       );
-      await click('.hds-form-sensitive-input__toggle-button');
+      await click('.hds-form-masked-input__toggle-button');
       assert
-        .dom('.hds-form-sensitive-input__toggle-button .flight-icon-eye-off')
+        .dom('.hds-form-masked-input__toggle-button .flight-icon-eye-off')
         .exists();
     });
 
@@ -56,37 +56,37 @@ module(
 
     test('it automatically provides the ID relations between the elements', async function (assert) {
       await render(
-        hbs`<Hds::Form::SensitiveInput::Base @id="test-form-sensitive-input" />`
+        hbs`<Hds::Form::MaskedInput::Base @id="test-form-masked-input" />`
       );
       assert
-        .dom('.hds-form-sensitive-input__toggle-button')
-        .hasAttribute('aria-controls', 'test-form-sensitive-input');
+        .dom('.hds-form-masked-input__toggle-button')
+        .hasAttribute('aria-controls', 'test-form-masked-input');
     });
 
     test('it updates the button label on toggle', async function (assert) {
       await render(
-        hbs`<Hds::Form::SensitiveInput::Base @id="test-form-sensitive-input" />`
+        hbs`<Hds::Form::MaskedInput::Base @id="test-form-masked-input" />`
       );
       assert
-        .dom('.hds-form-sensitive-input__toggle-button')
-        .hasAttribute('aria-label', 'Show sensitive content');
-      await click('.hds-form-sensitive-input__toggle-button');
+        .dom('.hds-form-masked-input__toggle-button')
+        .hasAttribute('aria-label', 'Show masked content');
+      await click('.hds-form-masked-input__toggle-button');
       assert
-        .dom('.hds-form-sensitive-input__toggle-button')
-        .hasAttribute('aria-label', 'Hide sensitive content');
+        .dom('.hds-form-masked-input__toggle-button')
+        .hasAttribute('aria-label', 'Hide masked content');
     });
 
     test('it informs the user about visibility change on toggle', async function (assert) {
       await render(
-        hbs`<Hds::Form::SensitiveInput::Base @id="test-form-sensitive-input" />`
+        hbs`<Hds::Form::MaskedInput::Base @id="test-form-masked-input" />`
       );
-      await click('.hds-form-sensitive-input__toggle-button');
+      await click('.hds-form-masked-input__toggle-button');
       assert
-        .dom('.hds-form-sensitive-input__toggle-button')
+        .dom('.hds-form-masked-input__toggle-button')
         .hasText('Input content is now visible');
-      await click('.hds-form-sensitive-input__toggle-button');
+      await click('.hds-form-masked-input__toggle-button');
       assert
-        .dom('.hds-form-sensitive-input__toggle-button')
+        .dom('.hds-form-masked-input__toggle-button')
         .hasText('Input content is now hidden');
     });
 
@@ -94,23 +94,23 @@ module(
 
     test('it should render an `<input>` element by default', async function (assert) {
       await render(
-        hbs`<Hds::Form::SensitiveInput::Base id="test-form-sensitive-input" />`
+        hbs`<Hds::Form::MaskedInput::Base id="test-form-masked-input" />`
       );
-      assert.dom('input#test-form-sensitive-input').exists();
+      assert.dom('input#test-form-masked-input').exists();
     });
 
     test('it should render a `<textarea>` element when `@isMultiline` is true', async function (assert) {
       await render(
-        hbs`<Hds::Form::SensitiveInput::Base @isMultiline={{true}} id="test-form-sensitive-input" />`
+        hbs`<Hds::Form::MaskedInput::Base @isMultiline={{true}} id="test-form-masked-input" />`
       );
-      assert.dom('textarea#test-form-sensitive-input').exists();
+      assert.dom('textarea#test-form-masked-input').exists();
     });
 
     // ATTRIBUTES
 
     test('it should spread all the attributes passed to the component on the input', async function (assert) {
       await render(
-        hbs`<Hds::Form::SensitiveInput::Base class="my-class" data-test1 data-test2="test" />`
+        hbs`<Hds::Form::MaskedInput::Base class="my-class" data-test1 data-test2="test" />`
       );
       assert.dom('input').hasClass('my-class');
       assert.dom('input').hasAttribute('data-test1');
