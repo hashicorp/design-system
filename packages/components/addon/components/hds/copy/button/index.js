@@ -9,34 +9,31 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export const DEFAULT_SIZE = 'medium';
-export const DEFAULT_COLOR = 'secondary';
 export const SIZES = ['small', 'medium'];
-export const COLORS = ['secondary'];
+export const DEFAULT_ICON = 'clipboard-copy';
+export const SUCCESS_ICON = 'clipboard-checked';
+export const ERROR_ICON = 'clipboard';
+export const DEFAULT_STATUS = 'idle';
 
 export default class HdsCopyButtonComponent extends Component {
-  @tracked isSuccess = false;
-  @tracked isError = false;
+  @tracked status = DEFAULT_STATUS;
+  @tracked timer;
 
-  /**
-   * @param text
-   * @type {string}
-   * @description The text to be used for the accessible name of the button. If no text value is defined an error will be thrown
-   */
-  get text() {
-    let { text } = this.args;
-
-    assert(
-      '@text for "Hds::Copy::Button" must have a valid value',
-      text !== undefined
-    );
-
-    return text;
+  get icon() {
+    let icon = DEFAULT_ICON;
+    if (this.status === 'success') {
+      icon = SUCCESS_ICON;
+    } else if (this.status === 'error') {
+      icon = ERROR_ICON;
+    }
+    return icon;
   }
+
   /**
    * @param size
    * @type {string}
    * @default medium
-   * @description The size of the button; acceptable values are `small`, `medium`, and `large`
+   * @description The size of the copy/button; acceptable values are `small` and `medium`
    */
   get size() {
     let { size = DEFAULT_SIZE } = this.args;
@@ -51,116 +48,49 @@ export default class HdsCopyButtonComponent extends Component {
     return size;
   }
 
-  /**
-   * @param color
-   * @type {string}
-   * @default secondary
-   * @description Determines the color of button to be used; acceptable values are `secondary`, `tertiary`
-   */
-  get color() {
-    let { color = DEFAULT_COLOR } = this.args;
-
-    assert(
-      `@color for "Hds::Copy::Button" must be one of the following: ${COLORS.join(
-        ', '
-      )}; received: ${color}`,
-      COLORS.includes(color)
-    );
-
-    return color;
+  get textToCopy() {
+    return this.args.encoded
+      ? decodeURI(this.args.textToCopy)
+      : this.args.textToCopy;
   }
 
-  /**
-   * @param isIconOnly
-   * @type {boolean}
-   * @default false
-   * @description Indicates if the button will only contain an icon; component will also ensure that accessible text is still applied to the component.
-   */
-  get isIconOnly() {
-    return this.args.isIconOnly ?? false;
-  }
-
-  /**
-   * @param isCode
-   * @type {boolean}
-   * @default false
-   * @description Indicates if the button text should be formatted as code or regular text.
-   */
-  get isCode() {
-    return this.args.isCode ?? false;
-  }
-
-  /**
-   * @param isFullWidth
-   * @type {boolean}
-   * @default false
-   * @description Indicates that a button should take up the full width of the parent container. The default is false.
-   */
-  get isFullWidth() {
-    return this.args.isFullWidth ?? false;
+  get targetToCopy() {
+    return this.args.targetToCopy;
   }
 
   /**
    * Get the class names to apply to the component.
-   * @method classNames
+   * @method CopyButton#classNames
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
     let classes = ['hds-copy-button'];
 
     // add a class based on the @size argument
-    classes.push(`hds-copy-button--size-${this.size}`);
+    classes.push(`hds-button--size-${this.size}`);
 
-    // add a class based on the @color argument
-    classes.push(`hds-copy-button--color-${this.color}`);
-
-    // add a class based on the @isFullWidth argument
-    if (this.isFullWidth) {
-      classes.push('hds-copy-button--width-full');
-    }
+    classes.push(`hds-copy-button--${this.status}`);
 
     return classes.join(' ');
   }
 
   @action
-  async copyCode() {
-    let textToCopy;
+  onSuccess() {
+    this.status = 'success';
+    this.resetStatusDelayed();
+  }
 
-    // this could probably be made more elegant.
-    if (this.args.clipboardText) {
-      let clipboardTextContent = document
-        .querySelector(this.args.clipboardText)
-        .innerHTML.trim();
-      textToCopy = clipboardTextContent;
-      // leaving this in while dev mode
-      console.log(`textToCopy is @clipboardText arg value: ${textToCopy}`);
-    } else if (this.args.text) {
-      textToCopy = this.args.text;
-      // leaving this in while dev mode
-      console.log(`textToCopy is @text arg value: ${textToCopy}`);
-    } else {
-      this.isError = true;
-      console.log(`something went wrong, @isError is ${this.isError}`);
-    }
-    // https://developer.mozilla.org/en-US/docs/Web/API/Clipboard
-    await navigator.clipboard.writeText(textToCopy);
+  @action
+  onError() {
+    this.status = 'error';
+    this.resetStatusDelayed();
+  }
 
-    if (navigator.clipboard.readText) {
-      const result = await navigator.clipboard.readText();
-
-      if (result === textToCopy) {
-        this.isSuccess = true;
-      }
-    } else {
-      this.isError = true;
-      window.alert(
-        'the copy was not successful, the browser requires your permission'
-      );
-    }
-
+  resetStatusDelayed() {
+    clearTimeout(this.timer);
     // make it fade back to the default state
-    setTimeout(() => {
-      this.isSuccess = false;
+    this.timer = setTimeout(() => {
+      this.status = DEFAULT_STATUS;
     }, 1500);
   }
 }

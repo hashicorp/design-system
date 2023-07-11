@@ -2,14 +2,22 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<button
-  type="button"
-  class="{{this.classNames}} {{if this.isSuccess 'is-success'}}"
-  {{on "click" this.copyCode}}
+<Hds::Button
+  class={{this.classNames}}
+  @isFullWidth={{@isFullWidth}}
+  @text={{@textToCopy}}
+  @icon={{this.icon}}
+  @color={{this.color}}
+  @size="small"
+  @iconPosition="trailing"
+  {{clipboard
+    text=this.textToCopy
+    target=this.targetToCopy
+    action=this.action
+    delegateClickEvent=this.delegateClickEvent
+    container=this.container
+    onError=this.onError
+    onSuccess=this.onSuccess
+  }}
   ...attributes
->
-  <div class="hds-copy-snippet__text hds-typography-code-100">
-    {{this.text}}
-  </div>
-  <FlightIcon @name="{{if this.isSuccess 'clipboard-checked' 'clipboard-copy'}}" class="hds-copy-snippet__icon" />
-</button>
+/>

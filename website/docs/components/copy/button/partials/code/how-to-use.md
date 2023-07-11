@@ -1,9 +1,33 @@
 ## How to use this component
 
-<!-- use the same heading order from Guidelines -->
-<!-- {basic invocation details} -->
+The basic invocation requires text and clipboardTarget to be passed:
 
-<!-- This below is just an example of invocation, to get started -->
 ```handlebars
-<Hds::Copy::Button @text="Copy" />
+<p id="clipboardTarget">
+  This is the text that the button will copy.
+</p>
+<Hds::Copy::Button @text="Copy" @clipboardTarget="#clipboardTarget" />
 ```
+
+### Icon-only
+
+```handlebars
+<p id="clipboardTarget2">
+  This is the text that the button will copy.
+</p>
+<Hds::Copy::Button @text="Copy" @isIconOnly={{true}}
+@clipboardTarget="#clipboardTarget2" />
+```
+
+### Sizes
+
+The component supports small and medium sizes (medium is the default):
+
+```handlebars
+<p id="clipboardTarget">
+  This is the text that the button will copy.
+</p>
+<Hds::Copy::Button @text="Copy" @size="small" 
+@clipboardTarget="#clipboardTarget" />
+```
+

@@ -7,78 +7,24 @@
 // COPY > BUTTON
 //
 
-@use "../../mixins/button" as *;
-@use "../../mixins/focus-ring" as *;
-
-$hds-copy-button-border-radius: $hds-button-border-radius;
-
+// mostly the hds-button but with a few style tweaks
+// so the CSS is scoped to the component class (we're not changing any of the other class names)
 .hds-copy-button {
-  @include hds-button();
-  padding: 12px 8px;
+  &.hds-button--color-secondary {
+    .hds-button__icon {
+      color: var(--token-color-foreground-action);
+    }
 
-  &:focus,
-  &.mock-focus {
-    @include hds-button-state-focus();
-  }
+    &.hds-copy-button--success {
+      .hds-button__icon {
+        color: var(--token-color-foreground-success);
+      }
+    }
 
-  &:hover,
-  &.mock-hover {
-    cursor: pointer;
-  }
-}
-
-// SIZE
-@include hds-button-size-classes("hds-copy-button");
-
-.hds-copy-button--width-full {
-  justify-content: space-between;
-  width: 100%;
-  max-width: 100%;
-}
-
-// COLOR
-.hds-copy-button--color-secondary {
-  @include hds-button-color-secondary();
-}
-
-// TEXT INSIDE
-.hds-copy-button__text {
-  overflow: hidden;
-  white-space: wrap;
-  text-align: left;
-}
-
-// ICON INSIDE
-.hds-copy-button__icon {
-  flex: none;
-
-  .hds-copy-button__text + & {
-    margin-left: 8px;
-  }
-}
-
-// Colors + States
-
-.hds-copy-button--color-secondary {
-  .hds-copy-button__icon {
-    color: var(--token-color-foreground-action);
-  }
-
-  &:hover,
-  &.mock-hover {
-    background-color: var(--token-color-surface-interactive-hover);
-  }
-
-  &:active,
-  &.mock-active {
-    background-color: var(--token-color-surface-interactive-active);
-  }
-
-  &.is-success {
-    border-color: var(--token-color-border-success);
-
-    .hds-copy-button__icon {
-      color: var(--token-color-foreground-success);
+    &.hds-copy-button--error {
+      .hds-button__icon {
+        color: var(--token-color-foreground-critical-on-surface);
+      }
     }
   }
 }

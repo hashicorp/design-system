@@ -58,6 +58,12 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/card');
     await percySnapshot('Card');
 
+    await visit('/components/copy/button');
+    await percySnapshot('Copy/button');
+
+    await visit('/components/copy/snippet');
+    await percySnapshot('Copy/snippet');
+
     await visit('/components/dropdown');
     await percySnapshot('Dropdown');
 
@@ -145,18 +151,6 @@ module('Acceptance | Percy test', function (hooks) {
 
     await visit('/utilities/dismiss-button');
     await percySnapshot('DismissButton');
-
-    // MOVE THIS BLOCK IN THE RIGHT POSITION
-    await visit('/components/copy');
-    await percySnapshot('Copy');
-
-    // MOVE THIS BLOCK IN THE RIGHT POSITION
-    await visit('/components/copy-button');
-    await percySnapshot('Copy/button');
-
-    // MOVE THIS BLOCK IN THE RIGHT POSITION
-    await visit('/components/copy-snippet');
-    await percySnapshot('Copy/snippet');
 
     // DO NOT REMOVE – PERCY SNAPSHOTS END
 
