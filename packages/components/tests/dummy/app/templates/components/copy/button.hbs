@@ -8,7 +8,79 @@
 <Shw::Text::H1>Copy::Button</Shw::Text::H1>
 
 <section data-test-percy>
-  <Hds::Copy::Button @text="Copy" />
-  <Hds::Copy::Button @text="Copy" @isIconOnly={{true}} />
+  <Shw::Text::H2>Generated element</Shw::Text::H2>
 
+  <Shw::Flex as |SF|>
+    <SF.Item class="shw-component-button-generated">
+      <Shw::Label>Default</Shw::Label>
+      <Hds::Copy::Button @text="Copy" />
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H2>Content</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Default">
+      <Hds::Copy::Button @text="Copy" />
+    </SF.Item>
+    <SF.Item @label="Icon only">
+      <Hds::Copy::Button @isIconOnly={{true}} @text="Copy" />
+    </SF.Item>
+    <SF.Item {{style width="200px"}} @label="Long text">
+      <Hds::Copy::Button @text="This is a very long text that should go on multiple lines" />
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H2>Sizes</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    {{#each @model.SIZES as |size|}}
+      <SF.Item @label={{capitalize size}}>
+        <Hds::Copy::Button @text="Copy" @size={{size}} />
+      </SF.Item>
+    {{/each}}
+    <SF.Item @label="Full width">
+      <Shw::Outliner {{style width="300px"}}>
+        <Hds::Copy::Button @text="Copy" @isFullWidth={{true}} />
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H2>Colors</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    {{#each @model.COLORS as |color|}}
+      <SF.Item @label={{capitalize color}}>
+        <Hds::Copy::Button @text="Copy" @color={{color}} />
+      </SF.Item>
+    {{/each}}
+  </Shw::Flex>
+
+  <Shw::Text::H2>States</Shw::Text::H2>
+
+  {{#each @model.COLORS as |color|}}
+    <Shw::Text::H3>{{capitalize color}}</Shw::Text::H3>
+    <Shw::Grid @columns={{5}} as |SG|>
+      {{#each @model.SIZES as |size|}}
+        {{#each @model.STATES as |state|}}
+          <SG.Item @label="{{capitalize size}} / {{capitalize state}}">
+            <Hds::Copy::Button @text="Lorem" @size={{size}} @color={{color}} mock-state-value={{state}} />
+          </SG.Item>
+        {{/each}}
+      {{/each}}
+      {{#if (not-eq color "tertiary")}}
+        {{#each @model.STATES as |state|}}
+          <SG.Item @label="Full width / {{capitalize state}}">
+            <Hds::Copy::Button
+              @icon="plus"
+              @text="Lorem"
+              @color={{color}}
+              @isFullWidth={{true}}
+              mock-state-value={{state}}
+            />
+          </SG.Item>
+        {{/each}}
+      {{/if}}
+    </Shw::Grid>
+  {{/each}}
 </section>
