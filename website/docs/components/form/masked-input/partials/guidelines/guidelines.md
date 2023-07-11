@@ -23,21 +23,21 @@ A password field is a specific type of form control designed for secure entry of
 
 !!! Do
 
-Use the MaskedInput for...
+Use the MaskedInput to protect sensitive values like secret keys or tokens.
 
 ![Form with a masked input](/assets/components/form/masked-input/usage-do.png =770x*)
 !!!
 
 !!! Do
 
-Use the MaskedInput for...
+Use the MaskedInput to protect sensitive values like variables and certificates from unexpected exposure.
 
 ![Form with a multiline masked input](/assets/components/form/masked-input/usage-do-multiline.png =770x*)
 !!!
 
 !!! Dont
 
-Don't use a MaskedInput when...
+Don't use a MaskedInput for password input. Use the [Password](/components/form/text-input#password) field.
 
 ![Form with a masked input](/assets/components/form/masked-input/usage-dont.png =770x*)
 !!!
