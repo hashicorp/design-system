@@ -5,7 +5,7 @@ caption: A form input that obfuscates sensitive information.
 links:
   figma: {link to the "Form::MaskedInput" page in the components Figma library}
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/form/masked-input
-previewImage: assets/illustrations/components/form-masked-input.jpg
+previewImage: assets/illustrations/components/form/masked-input.jpg
 navigation:
   keywords: ['masked' ,'sensitive', 'obscured', 'obfuscated', 'secret', 'form', 'input', 'textarea']
 ---
