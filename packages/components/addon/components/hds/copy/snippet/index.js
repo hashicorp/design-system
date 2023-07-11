@@ -23,15 +23,11 @@ export default class HdsCopySnippetIndexComponent extends Component {
    * @description The text of the button. If no text value is defined an error will be thrown
    */
   get text() {
-    // this doesn't do what I want really, it just returns the ID value which isn't the same as the target id's text value. But we'll use it for the assertion for now, until I figure out how to do the right thing.
-    let validText = this.args.clipboardText ?? this.args.text;
-    // for now this still is what's returned, necessary for the use case where we have an icon-only button and need the text value for the aria-label
-    // ideally, this would be either the text arg or the value of the clipboardText but even more ideally, something unique in case there were multiple icon-only copy buttons on the same page
-    let text = this.args.text ?? 'give me an accessible name';
+    let { text } = this.args;
 
     assert(
-      'Either @clipboardText or @text for "Hds::CopySnippet" must have a valid value',
-      validText !== undefined
+      '@text for "Hds::Copy::Snippet" must have a valid value',
+      text !== undefined
     );
 
     return text;
@@ -40,7 +36,7 @@ export default class HdsCopySnippetIndexComponent extends Component {
    * @param size
    * @type {string}
    * @default medium
-   * @description The size of the button; acceptable values are `small`, `medium`, and `large`
+   * @description The size of the button; acceptable values are `small` and `medium`
    */
   get size() {
     let { size = DEFAULT_SIZE } = this.args;
@@ -58,14 +54,14 @@ export default class HdsCopySnippetIndexComponent extends Component {
   /**
    * @param color
    * @type {string}
-   * @default secondary
-   * @description Determines the color of button to be used; acceptable values are `secondary`, `tertiary`
+   * @default tertiary
+   * @description Determines the color of button to be used; the only acceptable value is `tertiary`
    */
   get color() {
     let { color = DEFAULT_COLOR } = this.args;
 
     assert(
-      `@color for "Hds::CopySnippet" must be one of the following: ${COLORS.join(
+      `@color for "Hds::Copy::Snippet" must be one of the following: ${COLORS.join(
         ', '
       )}; received: ${color}`,
       COLORS.includes(color)
@@ -108,43 +104,28 @@ export default class HdsCopySnippetIndexComponent extends Component {
 
   @action
   async copyCode() {
-    let textToCopy;
+    if (this.args.text) {
+      // https://developer.mozilla.org/en-US/docs/Web/API/Clipboard
+      await navigator.clipboard.writeText(this.args.text);
 
-    // this could probably be made more elegant.
-    if (this.args.clipboardText) {
-      let clipboardTextContent = document
-        .querySelector(this.args.clipboardText)
-        .innerHTML.trim();
-      textToCopy = clipboardTextContent;
-      // leaving this in while dev mode
-      console.log(`textToCopy is @clipboardText arg value: ${textToCopy}`);
-    } else if (this.args.text) {
-      textToCopy = this.args.text;
-      // leaving this in while dev mode
-      console.log(`textToCopy is @text arg value: ${textToCopy}`);
-    } else {
-      this.isError = true;
-      console.log(`something went wrong, @isError is ${this.isError}`);
-    }
-    // https://developer.mozilla.org/en-US/docs/Web/API/Clipboard
-    await navigator.clipboard.writeText(textToCopy);
+      if (navigator.clipboard.readText) {
+        const result = await navigator.clipboard.readText();
 
-    if (navigator.clipboard.readText) {
-      const result = await navigator.clipboard.readText();
-
-      if (result === textToCopy) {
-        this.isSuccess = true;
+        if (result === this.args.text) {
+          this.isSuccess = true;
+        }
+      } else {
+        // idk if we ever hit this, need to test it
+        this.isError = true;
+        window.alert(
+          'the copy was not successful, the browser requires your permission'
+        );
       }
-    } else {
-      this.isError = true;
-      window.alert(
-        'the copy was not successful, the browser requires your permission'
-      );
-    }
 
-    // make it fade back to the default state
-    setTimeout(() => {
-      this.isSuccess = false;
-    }, 1500);
+      // make it fade back to the default state
+      setTimeout(() => {
+        this.isSuccess = false;
+      }, 1500);
+    }
   }
 }

@@ -36,7 +36,7 @@ export default class HdsCopyButtonComponent extends Component {
    * @param size
    * @type {string}
    * @default medium
-   * @description The size of the button; acceptable values are `small`, `medium`, and `large`
+   * @description The size of the copy/button; acceptable values are `small` and `medium`
    */
   get size() {
     let { size = DEFAULT_SIZE } = this.args;
@@ -55,7 +55,7 @@ export default class HdsCopyButtonComponent extends Component {
    * @param color
    * @type {string}
    * @default secondary
-   * @description Determines the color of button to be used; acceptable values are `secondary`, `tertiary`
+   * @description Determines the color of copy/button to be used; the only acceptable value is `secondary`
    */
   get color() {
     let { color = DEFAULT_COLOR } = this.args;
@@ -78,16 +78,6 @@ export default class HdsCopyButtonComponent extends Component {
    */
   get isIconOnly() {
     return this.args.isIconOnly ?? false;
-  }
-
-  /**
-   * @param isCode
-   * @type {boolean}
-   * @default false
-   * @description Indicates if the button text should be formatted as code or regular text.
-   */
-  get isCode() {
-    return this.args.isCode ?? false;
   }
 
   /**
@@ -152,6 +142,7 @@ export default class HdsCopyButtonComponent extends Component {
         this.isSuccess = true;
       }
     } else {
+      // I don't think it ever gets here...
       this.isError = true;
       window.alert(
         'the copy was not successful, the browser requires your permission'
