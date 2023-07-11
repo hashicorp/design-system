@@ -1,3 +1,25 @@
+
+## Keyboard navigation
+
+<Doc::Badge @type="neutral">Tab</Doc::Badge>
+
+Focus on the input
+
+![Keyboard sensitive input focus example](/assets/components/form/sensitive-input/sensitive-input-focus.png =836x*)
+
+<Doc::Badge @type="neutral">Tab</Doc::Badge>
+
+Move focus to the toggle button
+
+![Keyboard sensitive input toggle focus example](/assets/components/form/sensitive-input/sensitive-input-toggle-focus.png =836x*)
+
+<Doc::Badge @type="neutral">Spacebar</Doc::Badge>
+<Doc::Badge @type="neutral">Enter</Doc::Badge>
+
+Activates toggle to show/hide the input value
+
+![Keyboard sensitive input toggle focus example](/assets/components/form/sensitive-input/sensitive-input-toggle-activated.png =836x*)
+
 ## Conformance rating
 
 ### Form::SensitiveInput::Field
