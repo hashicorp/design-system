@@ -32,9 +32,7 @@ module(
     // INVALID
 
     test('it should render the correct CSS class if the @isInvalid prop is declared', async function (assert) {
-      await render(
-        hbs`<Hds::Form::MaskedInput::Field @isInvalid={{true}} />`
-      );
+      await render(hbs`<Hds::Form::MaskedInput::Field @isInvalid={{true}} />`);
       assert.dom('input').hasClass('hds-form-text-input--is-invalid');
     });
 

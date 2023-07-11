@@ -22,11 +22,11 @@
     <SF.Item @label="With placeholder">
       <Hds::Form::MaskedInput::Base placeholder="Lorem ipsum dolor" />
     </SF.Item>
-    <SF.Item @label="With value">
+    <SF.Item @label="With value (masked)">
       <Hds::Form::MaskedInput::Base @value="Lorem ipsum dolor" />
     </SF.Item>
-    <SF.Item @label="With obfuscated value">
-      <Hds::Form::MaskedInput::Base @isObfuscated={{false}} @value="Lorem ipsum dolor" />
+    <SF.Item @label="With value (in clear)">
+      <Hds::Form::MaskedInput::Base @isMasked={{false}} @value="Lorem ipsum dolor" />
     </SF.Item>
   </Shw::Flex>
 
@@ -39,11 +39,11 @@
     <SF.Item @label="With placeholder">
       <Hds::Form::MaskedInput::Base @isMultiline={{true}} placeholder="Lorem ipsum dolor" />
     </SF.Item>
-    <SF.Item @label="With value">
+    <SF.Item @label="With value (masked)">
       <Hds::Form::MaskedInput::Base @isMultiline={{true}} @value="Lorem ipsum dolor" />
     </SF.Item>
-    <SF.Item @label="With obfuscated value">
-      <Hds::Form::MaskedInput::Base @isMultiline={{true}} @isObfuscated={{false}} @value="Lorem ipsum dolor" />
+    <SF.Item @label="With value (in clear)">
+      <Hds::Form::MaskedInput::Base @isMultiline={{true}} @isMasked={{false}} @value="Lorem ipsum dolor" />
     </SF.Item>
   </Shw::Flex>
 

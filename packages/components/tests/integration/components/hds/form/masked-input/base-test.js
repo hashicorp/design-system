@@ -22,7 +22,7 @@ module(
         .hasClass('hds-form-masked-input__control');
     });
 
-    // OBFUSCATION
+    // MASKING
 
     test('it should render a button with the "eye" icon by default', async function (assert) {
       await render(
@@ -33,9 +33,9 @@ module(
         .exists();
     });
 
-    test('it should render a button with the "eye-off" icon when `isObfuscated` is false', async function (assert) {
+    test('it should render a button with the "eye-off" icon when `isMasked` is false', async function (assert) {
       await render(
-        hbs`<Hds::Form::MaskedInput::Base id="test-form-masked-input" @isObfuscated={{false}} />`
+        hbs`<Hds::Form::MaskedInput::Base id="test-form-masked-input" @isMasked={{false}} />`
       );
       assert
         .dom('.hds-form-masked-input__toggle-button .flight-icon-eye-off')

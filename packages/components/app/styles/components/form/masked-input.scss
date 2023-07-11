@@ -18,13 +18,13 @@ $hds-form-masked-input-button-size: 24px;
   }
 }
 
-.hds-form-masked-input--obfuscated {
+.hds-form-masked-input--is-masked {
   .hds-form-masked-input__control {
     -webkit-text-security: disc;
   }
 }
 
-.hds-form-masked-input--not-obfuscated {
+.hds-form-masked-input--is-not-masked {
   .hds-form-masked-input__control {
     -webkit-text-security: none;
   }

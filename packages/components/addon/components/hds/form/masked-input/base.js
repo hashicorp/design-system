@@ -9,11 +9,11 @@ import { action } from '@ember/object';
 import { getElementId } from '@hashicorp/design-system-components/utils/hds-get-element-id';
 
 export default class HdsFormMaskedInputBaseComponent extends Component {
-  @tracked isObfuscated = this.args.isObfuscated ?? true;
+  @tracked isMasked = this.args.isMasked ?? true;
 
   @action
   onClickToggle() {
-    this.isObfuscated = !this.isObfuscated;
+    this.isMasked = !this.isMasked;
   }
 
   /**
@@ -31,7 +31,7 @@ export default class HdsFormMaskedInputBaseComponent extends Component {
   get ariaLabel() {
     if (this.args.ariaLabel) {
       return this.args.ariaLabel;
-    } else if (this.isObfuscated) {
+    } else if (this.isMasked) {
       return 'Show masked content';
     } else {
       return 'Hide masked content';
@@ -46,7 +46,7 @@ export default class HdsFormMaskedInputBaseComponent extends Component {
   get ariaMessageText() {
     if (this.args.ariaMessageText) {
       return this.args.ariaMessageText;
-    } else if (this.isObfuscated) {
+    } else if (this.isMasked) {
       return 'Input content is now hidden';
     } else {
       return 'Input content is now visible';
@@ -61,10 +61,10 @@ export default class HdsFormMaskedInputBaseComponent extends Component {
   get classNames() {
     let classes = ['hds-form-masked-input'];
 
-    if (this.isObfuscated) {
-      classes.push(`hds-form-masked-input--obfuscated`);
+    if (this.isMasked) {
+      classes.push(`hds-form-masked-input--is-masked`);
     } else {
-      classes.push(`hds-form-masked-input--not-obfuscated`);
+      classes.push(`hds-form-masked-input--is-not-masked`);
     }
 
     return classes.join(' ');
