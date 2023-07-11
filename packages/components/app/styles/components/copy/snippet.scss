@@ -74,7 +74,8 @@ $hds-copy-snippet-border-radius: $hds-button-border-radius;
     background-color: var(--token-color-surface-interactive-active);
   }
 
-  &.is-success {
+  &.is-success,
+  &.mock-success {
     border-color: var(--token-color-border-success);
 
     .hds-copy-snippet__icon {
