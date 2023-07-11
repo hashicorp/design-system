@@ -32,6 +32,17 @@ export default class HdsCopyButtonComponent extends Component {
 
     return text;
   }
+
+  /**
+   * @param clipboardText
+   * @type {string}
+   * @description The ID of the element containing the text to be copied. If no clipboardText value is defined `isError` will be set to true.
+   */
+  get clipboardText() {
+    let { clipboardText } = this.args;
+    return clipboardText;
+  }
+
   /**
    * @param size
    * @type {string}
@@ -115,22 +126,19 @@ export default class HdsCopyButtonComponent extends Component {
   @action
   async copyCode() {
     let textToCopy;
-
-    // this could probably be made more elegant.
     if (this.args.clipboardText) {
       let clipboardTextContent = document
         .querySelector(this.args.clipboardText)
         .innerHTML.trim();
       textToCopy = clipboardTextContent;
-      // leaving this in while dev mode
-      console.log(`textToCopy is @clipboardText arg value: ${textToCopy}`);
-    } else if (this.args.text) {
-      textToCopy = this.args.text;
-      // leaving this in while dev mode
-      console.log(`textToCopy is @text arg value: ${textToCopy}`);
+      // leaving this in while development
+      window.alert(`${textToCopy} is copied to the clipboard`);
     } else {
       this.isError = true;
-      console.log(`something went wrong, @isError is ${this.isError}`);
+      // leaving this in while in development
+      window.alert(
+        `something went wrong, nothing was copied to the keyboard. isError is ${this.isError}, isSuccess is ${this.isSuccess}.`
+      );
     }
     // https://developer.mozilla.org/en-US/docs/Web/API/Clipboard
     await navigator.clipboard.writeText(textToCopy);

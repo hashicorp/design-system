@@ -13,7 +13,8 @@
   <Shw::Flex as |SF|>
     <SF.Item class="shw-component-button-generated">
       <Shw::Label>Default</Shw::Label>
-      <Hds::Copy::Button @text="Copy" />
+      <p id="clipboardText">"This is the text that these buttons will copy."</p>
+      <Hds::Copy::Button @text="Copy" @clipboardText="#clipboardText" />
     </SF.Item>
   </Shw::Flex>
 
@@ -21,13 +22,15 @@
 
   <Shw::Flex as |SF|>
     <SF.Item @label="Default">
-      <Hds::Copy::Button @text="Copy" />
+      <Hds::Copy::Button @text="Copy" @clipboardText="#clipboardText" />
     </SF.Item>
     <SF.Item @label="Icon only">
-      <Hds::Copy::Button @isIconOnly={{true}} @text="Copy" />
+      <Hds::Copy::Button @isIconOnly={{true}} @text="Copy" @clipboardText="#clipboardText" />
     </SF.Item>
     <SF.Item {{style width="200px"}} @label="Long text">
-      <Hds::Copy::Button @text="This is a very long text that should go on multiple lines" />
+      <Hds::Copy::Button
+        @text="This will throw an error because no clipboardText arg was declared."
+      />
     </SF.Item>
   </Shw::Flex>
 
@@ -36,12 +39,12 @@
   <Shw::Flex as |SF|>
     {{#each @model.SIZES as |size|}}
       <SF.Item @label={{capitalize size}}>
-        <Hds::Copy::Button @text="Copy" @size={{size}} />
+        <Hds::Copy::Button @text="Copy" @size={{size}} @clipboardText="#clipboardText" />
       </SF.Item>
     {{/each}}
     <SF.Item @label="Full width">
       <Shw::Outliner {{style width="300px"}}>
-        <Hds::Copy::Button @text="Copy" @isFullWidth={{true}} />
+        <Hds::Copy::Button @text="Copy" @isFullWidth={{true}} @clipboardText="#clipboardText" />
       </Shw::Outliner>
     </SF.Item>
   </Shw::Flex>
@@ -51,7 +54,7 @@
   <Shw::Flex as |SF|>
     {{#each @model.COLORS as |color|}}
       <SF.Item @label={{capitalize color}}>
-        <Hds::Copy::Button @text="Copy" @color={{color}} />
+        <Hds::Copy::Button @text="Copy" @color={{color}} @clipboardText="#clipboardText" />
       </SF.Item>
     {{/each}}
   </Shw::Flex>
@@ -64,14 +67,26 @@
       {{#each @model.SIZES as |size|}}
         {{#each @model.STATES as |state|}}
           <SG.Item @label="{{capitalize size}} / {{capitalize state}}">
-            <Hds::Copy::Button @text="Copy" @size={{size}} @color={{color}} mock-state-value={{state}} />
+            <Hds::Copy::Button
+              @text="Copy"
+              @size={{size}}
+              @color={{color}}
+              mock-state-value={{state}}
+              @clipboardText="#clipboardText"
+            />
           </SG.Item>
         {{/each}}
       {{/each}}
       {{#if (not-eq color "tertiary")}}
         {{#each @model.STATES as |state|}}
           <SG.Item @label="Full width / {{capitalize state}}">
-            <Hds::Copy::Button @text="Copy" @color={{color}} @isFullWidth={{true}} mock-state-value={{state}} />
+            <Hds::Copy::Button
+              @text="Copy"
+              @color={{color}}
+              @isFullWidth={{true}}
+              mock-state-value={{state}}
+              @clipboardText="#clipboardText"
+            />
           </SG.Item>
         {{/each}}
       {{/if}}

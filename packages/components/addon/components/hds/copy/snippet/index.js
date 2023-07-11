@@ -117,9 +117,11 @@ export default class HdsCopySnippetIndexComponent extends Component {
       } else {
         // idk if we ever hit this, need to test it
         this.isError = true;
-        window.alert(
-          'the copy was not successful, the browser requires your permission'
-        );
+        if (this.isError) {
+          window.alert(
+            'the copy was not successful, the browser requires your permission'
+          );
+        }
       }
 
       // make it fade back to the default state
