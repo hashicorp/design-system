@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2023-06-16T23:42:57.742Z",
+  "lastRunTimeISO": "2023-07-10T23:48:59.674Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -1879,6 +1879,42 @@
       "fileName": "vantage-color-16",
       "iconName": "vantage-color",
       "description": "vantage",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "4160:80",
+      "fileName": "venafi-24",
+      "iconName": "venafi",
+      "description": "venafi, identity",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "4160:82",
+      "fileName": "venafi-16",
+      "iconName": "venafi",
+      "description": "venafi, identity",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "4160:87",
+      "fileName": "venafi-color-24",
+      "iconName": "venafi-color",
+      "description": "venafi, identity",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "4160:89",
+      "fileName": "venafi-color-16",
+      "iconName": "venafi-color",
+      "description": "venafi, identity",
       "size": "16",
       "width": 16,
       "height": 16
