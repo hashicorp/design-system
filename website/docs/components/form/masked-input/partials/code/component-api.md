@@ -1,18 +1,18 @@
 ## Component API
 
-The Sensitive Input component has two different variants with their own APIs:
+The Masked Input component has two different variants with their own APIs:
 
-- `Form::SensitiveInput::Base` - the base component: the input control
-- `Form::SensitiveInput::Field` - the field parent component: the input control, with label, helper text, and error messaging (in a wrapping container)
+- `Form::MaskedInput::Base` - the base component: the input control
+- `Form::MaskedInput::Field` - the field parent component: the input control, with label, helper text, and error messaging (in a wrapping container)
 
-### Form::SensitiveInput::Base
+### Form::MaskedInput::Base
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="value" @type="string|number|date">
     Input control’s value.
   </C.Property>
-  <C.Property @name="isObfuscated" @type="boolean" @default="true">
-    Set this argument to `false` to make the input content visible by default or bind it to a variable to control the obfuscation from outside the component.
+  <C.Property @name="isMasked" @type="boolean" @default="true">
+    Set this argument to `false` to make the input content visible by default or bind it to a variable to control the masking from outside the component.
   </C.Property>
   <C.Property @name="isMultiline" @type="boolean" @default="false">
     By default the component renders an `<input>`, if set to `true` it renders a `<textarea>`.
@@ -35,14 +35,14 @@ The Sensitive Input component has two different variants with their own APIs:
   </C.Property>
 </Doc::ComponentApi>
 
-### Form::SensitiveInput::Field
+### Form::MaskedInput::Field
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="value" @type="string|number|date">
     Input control’s value.
   </C.Property>
-  <C.Property @name="isObfuscated" @type="boolean" @default="true">
-    Set this argument to `false` to make the input content visible by default or bind it to a variable to control the obfuscation from outside the component.
+  <C.Property @name="isMasked" @type="boolean" @default="true">
+    Set this argument to `false` to make the input content visible by default or bind it to a variable to control the masking from outside the component.
   </C.Property>
   <C.Property @name="isMultiline" @type="boolean" @default="false">
     By default the component renders an `<input>`, if set to `true` it renders a `<textarea>`.

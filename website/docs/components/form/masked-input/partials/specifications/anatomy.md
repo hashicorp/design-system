@@ -1,7 +1,7 @@
 ## Anatomy
 
 <!-- image then table -->
-![Anatomy of form SensitiveInput](/assets/components/form/sensitive-input/sensitive-input-anatomy.png =836x*)
+![Anatomy of form MaskedInput](/assets/components/form/masked-input/masked-input-anatomy.png =836x*)
 
 <!-- this is just an example, refer to other components to see how to fill this table -->
 | Element          | Usage                                           |

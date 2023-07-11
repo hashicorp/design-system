@@ -1,0 +1,1 @@
+A masked input field is a special input that visually obfuscates characters to protect sensitive information by masking them with a circular shape.

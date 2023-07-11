@@ -7,16 +7,16 @@
 We omit the `name` and `ID` attributes in the examples since processing of the data is the responsibility of the product teams.
 !!!
 
-There are two ways to use the Sensitive Input component:
+There are two ways to use the Masked Input component:
 
-- `Form::SensitiveInput::Base` - the base component: the input control with a toggle button.
-- `Form::SensitiveInput::Field` - the field component: the input control with a toggle button, a label, helper text, and error messaging (in a wrapping container).
+- `Form::MaskedInput::Base` - the base component: the input control with a toggle button.
+- `Form::MaskedInput::Field` - the field component: the input control with a toggle button, a label, helper text, and error messaging (in a wrapping container).
 
 We recommend using the Field component as it provides built-in accessibility functionality. Use the Base component if needing to achieve custom layouts or for special use cases not covered by the Field component.
 
 {{! ================= }} {{! ===== FIELD ===== }} {{! ================= }}
 
-### Form::SensitiveInput::Field
+### Form::MaskedInput::Field
 
 The basic invocation requires a `Label`. This creates:
 
@@ -24,27 +24,27 @@ The basic invocation requires a `Label`. This creates:
 - a `<input type="text">` or a `<textarea>` control with an automatically generated `ID` attribute.
 
 ```handlebars
-<Hds::Form::SensitiveInput::Field as |F|>
+<Hds::Form::MaskedInput::Field as |F|>
   <F.Label>Terraform Cloud team token</F.Label>
-</Hds::Form::SensitiveInput::Field>
+</Hds::Form::MaskedInput::Field>
 ```
 
 #### Input value
 
-Pass a `@value` argument to pre-populate the input. By default, the content is visually obfuscated and users can make it visible using the associated toggle button.
+Pass a `@value` argument to pre-populate the input. By default, the content is visually obfuscated ("masked") and users can make it visible using the associated toggle button.
 
 ```handlebars
-<Hds::Form::SensitiveInput::Field @value="036215df4996ca649928d8864b4df9e42cba0d6d" as |F|>
+<Hds::Form::MaskedInput::Field @value="036215df4996ca649928d8864b4df9e42cba0d6d" as |F|>
   <F.Label>Terraform Cloud team token</F.Label>
-</Hds::Form::SensitiveInput::Field>
+</Hds::Form::MaskedInput::Field>
 ```
 
-If you need to make the content visible by default or control the obfuscation from outside the component use the `@isObfuscated` argument.
+If you need to make the content visible by default or control the masking from outside the component use the `@isMasked` argument.
 
 ```handlebars
-<Hds::Form::SensitiveInput::Field @isObfuscated={{false}} @value="036215df4996ca649928d8864b4df9e42cba0d6d" as |F|>
+<Hds::Form::MaskedInput::Field @isMasked={{false}} @value="036215df4996ca649928d8864b4df9e42cba0d6d" as |F|>
   <F.Label>Terraform Cloud team token</F.Label>
-</Hds::Form::SensitiveInput::Field>
+</Hds::Form::MaskedInput::Field>
 ```
 
 #### Multiline
@@ -52,7 +52,7 @@ If you need to make the content visible by default or control the obfuscation fr
 Set `@isMultiline` argument to `true` to render a `<textarea>`
 
 ```handlebars
-<Hds::Form::SensitiveInput::Field @isMultiline={{true}} @value="-----BEGIN RSA PRIVATE KEY-----
+<Hds::Form::MaskedInput::Field @isMultiline={{true}} @value="-----BEGIN RSA PRIVATE KEY-----
 MIIBOgIBAAJBAKj34GkxFhD90vcNLYLInFEX6Ppy1tPf9Cnzj4p4WGeKLs1Pt8Qu
 KUpRKfFLfRYC9AIKjbJTWit+CqvjWYzvQwECAwEAAQJAIJLixBy2qpFoS4DSmoEm
 o3qGy0t6z09AIJtH+5OeRV1be+N4cDYJKffGzDa88vQENZiRm0GRq6a+HPGQMd2k
@@ -62,7 +62,7 @@ v/Ow5T0q5gIJAiEAyS4RaI9YG8EWx/2w0T67ZUVAw8eOMB6BIUg0Xcu+3okCIBOs
 /5OiPgoTdSy7bcF9IGpSE8ZgGKzgYQVZeN97YE00
 -----END RSA PRIVATE KEY-----" as |F|>
   <F.Label>Private key</F.Label>
-</Hds::Form::SensitiveInput::Field>
+</Hds::Form::MaskedInput::Field>
 ```
 
 #### Helper text
@@ -70,10 +70,10 @@ v/Ow5T0q5gIJAiEAyS4RaI9YG8EWx/2w0T67ZUVAw8eOMB6BIUg0Xcu+3okCIBOs
 You can add extra information to the field using helper text. When helper text is added, the component automatically adds an `aria-describedby` attribute to the input control, associating it with the automatically generated `ID` of the helper text element.
 
 ```handlebars
-<Hds::Form::SensitiveInput::Field @value="036215df4996ca649928d8864b4df9e42cba0d6d" as |F|>
+<Hds::Form::MaskedInput::Field @value="036215df4996ca649928d8864b4df9e42cba0d6d" as |F|>
   <F.Label>Terraform Cloud team token</F.Label>
   <F.HelperText>The token must include permissions to manage workspaces and projects.</F.HelperText>
-</Hds::Form::SensitiveInput::Field>
+</Hds::Form::MaskedInput::Field>
 ```
 
 #### Extra content in label and helper text
@@ -86,10 +86,10 @@ If a link is used within a label, helper text, or error text, it will not be pre
 The `Label` and `HelperText` contextual components used in the Field component yield their content. This means you can also pass structured content.
 
 ```handlebars
-<Hds::Form::SensitiveInput::Field as |F|>
+<Hds::Form::MaskedInput::Field as |F|>
   <F.Label>Terraform Cloud team token <Hds::Badge @size="small" @text="Beta" /></F.Label>
   <F.HelperText>The token must include <Hds::Link::Inline @href="#">permissions to manage workspaces and projects</Hds::Link::Inline>.</F.HelperText>
-</Hds::Form::SensitiveInput::Field>
+</Hds::Form::MaskedInput::Field>
 ```
 
 #### Required vs. optional
@@ -97,15 +97,15 @@ The `Label` and `HelperText` contextual components used in the Field component y
 Use the `@isRequired` and `@isOptional` arguments to add a visual indication that the field is "required" or "optional".
 
 ```handlebars
-<Hds::Form::SensitiveInput::Field @isRequired={{true}} as |F|>
+<Hds::Form::MaskedInput::Field @isRequired={{true}} as |F|>
   <F.Label>Terraform Cloud team token</F.Label>
   <F.HelperText>The token must include permissions to manage workspaces and projects.</F.HelperText>
-</Hds::Form::SensitiveInput::Field>
+</Hds::Form::MaskedInput::Field>
 <br />
-<Hds::Form::SensitiveInput::Field @isOptional={{true}} as |F|>
+<Hds::Form::MaskedInput::Field @isOptional={{true}} as |F|>
   <F.Label>Terraform Cloud team token</F.Label>
   <F.HelperText>The token must include permissions to manage workspaces and projects.</F.HelperText>
-</Hds::Form::SensitiveInput::Field>
+</Hds::Form::MaskedInput::Field>
 ```
 
 #### Validation
@@ -113,22 +113,22 @@ Use the `@isRequired` and `@isOptional` arguments to add a visual indication tha
 To indicate a field is invalid, declare that it’s invalid by using the `@isInvalid` argument and provide an error message using the `Error` contextual component.
 
 ```handlebars
-<Hds::Form::SensitiveInput::Field @isInvalid={{true}} @value="036215df4996ca649928d8864b4df9e42cba0d6d" as |F|>
+<Hds::Form::MaskedInput::Field @isInvalid={{true}} @value="036215df4996ca649928d8864b4df9e42cba0d6d" as |F|>
   <F.Label>Terraform Cloud team token</F.Label>
   <F.Error>The provided token is not valid</F.Error>
-</Hds::Form::SensitiveInput::Field>
+</Hds::Form::MaskedInput::Field>
 ```
 
 Add more than one error message using the more specific `Message` contextual component.
 
 ```handlebars
-<Hds::Form::SensitiveInput::Field @isInvalid={{true}} @value="036215df4996c649928d8864b4" as |F|>
+<Hds::Form::MaskedInput::Field @isInvalid={{true}} @value="036215df4996c649928d8864b4" as |F|>
   <F.Label>Terraform Cloud team token</F.Label>
   <F.Error as |E|>
     <E.Message>Length should be at least 40 characters</E.Message>
     <E.Message>Should not container special characters or spaces</E.Message>
   </F.Error>
-</Hds::Form::SensitiveInput::Field>
+</Hds::Form::MaskedInput::Field>
 ```
 
 #### Custom control ID
@@ -141,9 +141,9 @@ In this case all the internal references (`id/for/aria-describedby`) between the
 !!!
 
 ```handlebars
-<Hds::Form::SensitiveInput::Field @id="tfc-token" as |F|>
+<Hds::Form::MaskedInput::Field @id="tfc-token" as |F|>
   <F.Label>Terraform Cloud team token</F.Label>
-</Hds::Form::SensitiveInput::Field>
+</Hds::Form::MaskedInput::Field>
 ```
 
 #### Additional `aria-describedby`
@@ -151,9 +151,9 @@ In this case all the internal references (`id/for/aria-describedby`) between the
 Pass an `@extraAriaDescribedBy` argument to the field to connect one or more extra elements describing the field to the control. This provides extra ID values to the `aria-describedby` attribute of the control, in addition to those automatically generated by the component.
 
 ```handlebars
-<Hds::Form::SensitiveInput::Field @extraAriaDescribedBy="my-extra-element-ID" as |F|>
+<Hds::Form::MaskedInput::Field @extraAriaDescribedBy="my-extra-element-ID" as |F|>
   <F.Label>Terraform Cloud team token</F.Label>
-</Hds::Form::SensitiveInput::Field>
+</Hds::Form::MaskedInput::Field>
 ```
 
 #### HTML native attributes
@@ -161,9 +161,9 @@ Pass an `@extraAriaDescribedBy` argument to the field to connect one or more ext
 This component supports use of `...attributes`. This means you can use all the standard HTML attributes of the input control element. This can be useful in case you want to add specific native behaviors to the field, that are not exposed directly by the component (e.g., providing a `name` for the control, or adding `min`, `max`, `minlength`, `maxlength`, or `pattern` attributes to it).
 
 ```handlebars
-<Hds::Form::SensitiveInput::Field name="tfc-token" minlength="40" maxlength="40" as |F|>
+<Hds::Form::MaskedInput::Field name="tfc-token" minlength="40" maxlength="40" as |F|>
   <F.Label>Terraform Cloud team token</F.Label>
-</Hds::Form::SensitiveInput::Field>
+</Hds::Form::MaskedInput::Field>
 ```
 
 #### Events handling
@@ -171,38 +171,38 @@ This component supports use of `...attributes`. This means you can use all the s
 Because this component supports use of `...attributes`, you can use all the usual Ember techniques for event handling (e.g., `input`, `blur`, `change`), validation, etc.
 
 ```handlebars
-<Hds::Form::SensitiveInput::Field {{on "blur" this.yourOnBlurFunction}} as |F|>
+<Hds::Form::MaskedInput::Field {{on "blur" this.yourOnBlurFunction}} as |F|>
   <F.Label>Terraform Cloud team token</F.Label>
-</Hds::Form::SensitiveInput::Field>
+</Hds::Form::MaskedInput::Field>
 ```
 
 #### Custom width
 
-By default, the input control width is set to fill the parent container. 
+By default, the input control width is set to fill the parent container.
 
 Pass a custom width for the control using the `@width` argument.
 
 ```handlebars
-<Hds::Form::SensitiveInput::Field @width="250px" as |F|>
+<Hds::Form::MaskedInput::Field @width="250px" as |F|>
   <F.Label>Terraform Cloud team token</F.Label>
-</Hds::Form::SensitiveInput::Field>
+</Hds::Form::MaskedInput::Field>
 ```
 
 {{! ================= }} {{! ===== BASE ===== }} {{! ================= }}
 
-### Form::SensitiveInput::Base
+### Form::MaskedInput::Base
 
 The Base component is intended for rare cases where the Field component can’t be used and a custom implementation is needed. Most of the details for the Field component also apply to the Base component, but see the [Component API](#component-api) for more details.
 
 !!! Warning
 
-`Form::SensitiveInput::Base` does not come with built-in accessibility functionality. It is the responsibility of the product team to ensure the implementation is conformant.
+`Form::MaskedInput::Base` does not come with built-in accessibility functionality. It is the responsibility of the product team to ensure the implementation is conformant.
 !!!
 
 The default invocation creates a `<input type="text">` or a `<textarea>` control with an automatically generated `ID` attribute.
 
 ```handlebars
-<Hds::Form::SensitiveInput::Base
+<Hds::Form::MaskedInput::Base
   @value="036215df4996ca649928d8864b4df9e42cba0d6d"
   aria-label="Terraform Cloud team token"
 />
@@ -211,7 +211,7 @@ The default invocation creates a `<input type="text">` or a `<textarea>` control
 When `@isMultiline` argument is set to `true` it creates a `<textarea>` control with an automatically generated `ID` attribute. You can also adjust the height of `<textarea>` either by using the `rows` attribute or setting a custom `@height` value.
 
 ```handlebars
-<Hds::Form::SensitiveInput::Base
+<Hds::Form::MaskedInput::Base
   @value="-----BEGIN RSA PRIVATE KEY-----
 MIIBOgIBAAJBAKj34GkxFhD90vcNLYLInFEX6Ppy1tPf9Cnzj4p4WGeKLs1Pt8Qu
 KUpRKfFLfRYC9AIKjbJTWit+CqvjWYzvQwECAwEAAQJAIJLixBy2qpFoS4DSmoEm

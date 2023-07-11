@@ -5,34 +5,34 @@
 
 Focus on the input
 
-![Keyboard sensitive input focus example](/assets/components/form/sensitive-input/sensitive-input-focus.png =836x*)
+![Keyboard masked input focus example](/assets/components/form/masked-input/masked-input-focus.png =836x*)
 
 <Doc::Badge @type="neutral">Tab</Doc::Badge>
 
 Move focus to the toggle button
 
-![Keyboard sensitive input toggle focus example](/assets/components/form/sensitive-input/sensitive-input-toggle-focus.png =836x*)
+![Keyboard masked input toggle focus example](/assets/components/form/masked-input/masked-input-toggle-focus.png =836x*)
 
 <Doc::Badge @type="neutral">Spacebar</Doc::Badge>
 <Doc::Badge @type="neutral">Enter</Doc::Badge>
 
 Activates toggle to show/hide the input value
 
-![Keyboard sensitive input toggle focus example](/assets/components/form/sensitive-input/sensitive-input-toggle-activated.png =836x*)
+![Keyboard masked input toggle focus example](/assets/components/form/masked-input/masked-input-toggle-activated.png =836x*)
 
 ## Conformance rating
 
-### Form::SensitiveInput::Field
+### Form::MaskedInput::Field
 
 <Doc::Badge @type="success">Conformant</Doc::Badge>
 
-`Form::SensitiveInput::Field` is conformant when used as directed. For this reason, we recommend using `Form::SensitiveInput::Field` by default.
+`Form::MaskedInput::Field` is conformant when used as directed. For this reason, we recommend using `Form::MaskedInput::Field` by default.
 
-### Form::SensitiveInput::Base
+### Form::MaskedInput::Base
 
 <Doc::Badge @type="warning">Conditionally conformant</Doc::Badge>
 
-`Form::SensitiveInput::Base` is not conformant until it has an accessible name.
+`Form::MaskedInput::Base` is not conformant until it has an accessible name.
 
 ## Known issues
 
