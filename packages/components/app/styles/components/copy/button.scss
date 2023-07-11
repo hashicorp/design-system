@@ -76,8 +76,6 @@ $hds-copy-button-border-radius: $hds-button-border-radius;
 
   &.is-success,
   &.mock-success {
-    border-color: var(--token-color-border-success);
-
     .hds-copy-button__icon {
       color: var(--token-color-foreground-success);
     }
