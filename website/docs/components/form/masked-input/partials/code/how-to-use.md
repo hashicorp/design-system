@@ -39,7 +39,7 @@ Pass a `@value` argument to pre-populate the input. By default, the content is v
 </Hds::Form::MaskedInput::Field>
 ```
 
-If you need to make the content visible by default or control the masking from outside the component use the `@isMasked` argument.
+If you need to make the content visible by default or control the masking from outside the component, use the `@isMasked` argument.
 
 ```handlebars
 <Hds::Form::MaskedInput::Field @isMasked={{false}} @value="036215df4996ca649928d8864b4df9e42cba0d6d" as |F|>
@@ -69,11 +69,11 @@ v/Ow5T0q5gIJAiEAyS4RaI9YG8EWx/2w0T67ZUVAw8eOMB6BIUg0Xcu+3okCIBOs
 
 **Important to know**
 
-When the multiline input is masked, the browser converts newline characters to masked characters: this means that the multiline text will appear as a single long string of characters, even if it's inside a `<textarea>` element.
+When the multiline input is masked, the browser converts newline characters to masked characters: this means that the multiline text will appear as a single long string of characters, even if it’s inside a `<textarea>` element.
 
-Instead, when the text is not masked it will respect the newline characters: this means it may occupy more lines that when it's masked (try the example above).
+Instead, when the text is not masked it will respect the newline characters: this means it may occupy more lines that when it’s masked (try the example above).
 
-Something to keep in mind when designing and implementing a functionality that requires to use this component.
+Something to keep in mind when designing and implementing functionality that makes use of this component.
 
 !!!
 
@@ -246,8 +246,8 @@ v/Ow5T0q5gIJAiEAyS4RaI9YG8EWx/2w0T67ZUVAw8eOMB6BIUg0Xcu+3okCIBOs
 
 When the multiline input is masked, the browser converts newline characters to masked characters: this means that the multiline text will appear as a single long string of characters, even if it's inside a `<textarea>` element.
 
-Instead, when the text is not masked it will respect the newline characters: this means it may occupy more lines that when it's masked (try the example above).
+Instead, when the text is not masked it will respect the newline characters: this means it may occupy more lines that when it’s masked (try the example above).
 
-Something to keep in mind when designing and implementing a functionality that requires to use this component.
+Something to keep in mind when designing and implementing functionality that requires this component.
 
 !!!

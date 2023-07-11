@@ -37,7 +37,7 @@ Use the MaskedInput to protect sensitive values like variables and certificates 
 
 !!! Dont
 
-Don't use a MaskedInput for password input. Use the [Password](/components/form/text-input#password) field.
+Don’t use a MaskedInput for password input. Use the [Password](/components/form/text-input#password) field.
 
 ![Form with a masked input](/assets/components/form/masked-input/usage-dont.png =770x*)
 !!!
