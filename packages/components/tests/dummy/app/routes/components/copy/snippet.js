@@ -4,5 +4,15 @@
  */
 
 import Route from '@ember/routing/route';
+import {
+  SIZES,
+  COLORS,
+} from '@hashicorp/design-system-components/components/hds/copy/snippet';
 
-export default class ComponentsCopySnippetRoute extends Route {}
+export default class ComponentsCopySnippetRoute extends Route {
+  model() {
+    // these are used only for presentation purpose in the showcase
+    const STATES = ['default', 'hover', 'active', 'focus', 'success'];
+    return { SIZES, COLORS, STATES };
+  }
+}
