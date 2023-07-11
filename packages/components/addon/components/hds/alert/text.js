@@ -8,7 +8,7 @@ import Component from '@glimmer/component';
 export default class HdsAlertTextComponent extends Component {
   /**
    * Get the class names to apply to the component.
-   * @method Alert#classNames
+   * @method AlertText#classNames
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
