@@ -61,7 +61,12 @@
       {{#each @model.SIZES as |size|}}
         {{#each @model.STATES as |state|}}
           <SG.Item @label="{{capitalize size}} / {{capitalize state}}">
-            <Hds::Copy::Snippet @text="fbrct1ed-fgr35h-tyng89-wed4r" @size={{size}} @color={{color}} mock-state-value={{state}} />
+            <Hds::Copy::Snippet
+              @text="fbrct1ed-fgr35h-tyng89-wed4r"
+              @size={{size}}
+              @color={{color}}
+              mock-state-value={{state}}
+            />
           </SG.Item>
         {{/each}}
       {{/each}}
