@@ -9,5 +9,5 @@ How actions are grouped can influence what the user perceives as the primary act
 
 !!! Do
 
-![Grouping inverse actions](/assets/patterns/button-organization/grouping-inverse-actions.png =650x*)
+![Grouping inverse actions](/assets/patterns/button-organization/grouping-inverse-actions.png =770x*)
 !!!
