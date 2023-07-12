@@ -7,10 +7,10 @@
   @size={{this.size}}
   @isFullWidth={{@isFullWidth}}
   @text={{@text}}
-  @icon="{{if this.isSuccess 'clipboard-checked' 'clipboard-copy'}}"
   {{on "click" this.copyCode}}
   ...attributes
   @color="secondary"
+  @icon={{this.icon}}
   @iconPosition="trailing"
   @clipboardText={{@clipboardText}}
 />

@@ -53,7 +53,13 @@
     {{#each @model.SIZES as |size|}}
       {{#each @model.STATES as |state|}}
         <SG.Item @label="{{capitalize size}} / {{capitalize state}}">
-          <Hds::Copy::Button @text="Copy" @size={{size}} mock-state-value={{state}} @clipboardText="#clipboardText" />
+          <Hds::Copy::Button
+            @text="Copy"
+            @size={{size}}
+            @icon={{this.icon}}
+            mock-state-value={{state}}
+            @clipboardText="#clipboardText"
+          />
         </SG.Item>
       {{/each}}
     {{/each}}

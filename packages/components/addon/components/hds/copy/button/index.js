@@ -10,10 +10,12 @@ import { action } from '@ember/object';
 
 export const DEFAULT_SIZE = 'medium';
 export const SIZES = ['small', 'medium'];
+export const DEFAULT_ICON = 'clipboard-copy';
 
 export default class HdsCopyButtonComponent extends Component {
   @tracked isSuccess = false;
   @tracked isError = false;
+  @tracked icon = DEFAULT_ICON;
 
   /**
    * @param clipboardText
@@ -53,11 +55,11 @@ export default class HdsCopyButtonComponent extends Component {
         .innerHTML.trim();
       textToCopy = clipboardTextContent;
       // leaving this in while development
-      window.alert(`${textToCopy} is copied to the clipboard`);
+      console.log(`${textToCopy} is copied to the clipboard`);
     } else {
       this.isError = true;
       // leaving this in while in development
-      window.alert(
+      console.log(
         `something went wrong, nothing was copied to the keyboard. isError is ${this.isError}, isSuccess is ${this.isSuccess}.`
       );
     }
@@ -69,11 +71,12 @@ export default class HdsCopyButtonComponent extends Component {
 
       if (result === textToCopy) {
         this.isSuccess = true;
+        this.icon = 'clipboard-checked';
       }
     } else {
       // I don't think it ever gets here...
       this.isError = true;
-      window.alert(
+      console.log(
         'the copy was not successful, the browser requires your permission'
       );
     }
@@ -81,6 +84,7 @@ export default class HdsCopyButtonComponent extends Component {
     // make it fade back to the default state
     setTimeout(() => {
       this.isSuccess = false;
+      this.icon = DEFAULT_ICON;
     }, 1500);
   }
 }
