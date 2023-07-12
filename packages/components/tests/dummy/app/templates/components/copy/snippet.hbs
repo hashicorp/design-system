@@ -17,32 +17,6 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Text::H2>Content</Shw::Text::H2>
-
-  <Shw::Flex as |SF|>
-    <SF.Item @label="Default">
-      <Hds::Copy::Snippet @text="fbrct1ed-fgr35h-tyng89-wed4r" />
-    </SF.Item>
-    <SF.Item {{style width="200px"}} @label="Long text">
-      <Hds::Copy::Snippet @text="This is a very long text that should go on multiple lines" />
-    </SF.Item>
-  </Shw::Flex>
-
-  <Shw::Text::H2>Sizes</Shw::Text::H2>
-
-  <Shw::Flex as |SF|>
-    {{#each @model.SIZES as |size|}}
-      <SF.Item @label={{capitalize size}}>
-        <Hds::Copy::Snippet @text="fbrct1ed-fgr35h-tyng89-wed4r" @size={{size}} />
-      </SF.Item>
-    {{/each}}
-    <SF.Item @label="Full width">
-      <Shw::Outliner {{style width="300px"}}>
-        <Hds::Copy::Snippet @text="fbrct1ed-fgr35h-tyng89-wed4r" @isFullWidth={{true}} />
-      </Shw::Outliner>
-    </SF.Item>
-  </Shw::Flex>
-
   <Shw::Text::H2>Color</Shw::Text::H2>
 
   <Shw::Flex as |SF|>
@@ -55,33 +29,14 @@
 
   <Shw::Text::H2>States</Shw::Text::H2>
 
-  {{#each @model.COLORS as |color|}}
-    <Shw::Text::H3>{{capitalize color}}</Shw::Text::H3>
-    <Shw::Grid @columns={{5}} as |SG|>
-      {{#each @model.SIZES as |size|}}
-        {{#each @model.STATES as |state|}}
-          <SG.Item @label="{{capitalize size}} / {{capitalize state}}">
-            <Hds::Copy::Snippet
-              @text="fbrct1ed-fgr35h-tyng89-wed4r"
-              @size={{size}}
-              @color={{color}}
-              mock-state-value={{state}}
-            />
-          </SG.Item>
-        {{/each}}
+  <Shw::Grid @columns={{4}} as |SG|>
+    {{#each @model.COLORS as |color|}}
+      {{#each @model.STATES as |state|}}
+        <SG.Item @label="{{capitalize color}} / {{capitalize state}}">
+          <Hds::Copy::Snippet @text="fbrct1ed-fgr35h-tyng89-wed4r" @color={{color}} mock-state-value={{state}} />
+        </SG.Item>
       {{/each}}
-      {{#if (not-eq color "tertiary")}}
-        {{#each @model.STATES as |state|}}
-          <SG.Item @label="Full width / {{capitalize state}}">
-            <Hds::Copy::Snippet
-              @text="fbrct1ed-fgr35h-tyng89-wed4r"
-              @color={{color}}
-              @isFullWidth={{true}}
-              mock-state-value={{state}}
-            />
-          </SG.Item>
-        {{/each}}
-      {{/if}}
-    </Shw::Grid>
-  {{/each}}
+    {{/each}}
+  </Shw::Grid>
+
 </section>

@@ -8,54 +8,21 @@ import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
-export const DEFAULT_SIZE = 'medium';
 export const DEFAULT_COLOR = 'tertiary';
-export const SIZES = ['small', 'medium'];
-export const COLORS = ['tertiary'];
+export const COLORS = ['tertiary', 'secondary'];
+export const DEFAULT_ICON = 'clipboard-copy';
+export const SUCCESS_ICON = 'clipboard-checked';
 
 export default class HdsCopySnippetIndexComponent extends Component {
   @tracked isSuccess = false;
   @tracked isError = false;
-
-  /**
-   * @param text
-   * @type {string}
-   * @description The text of the button. If no text value is defined an error will be thrown
-   */
-  get text() {
-    let { text } = this.args;
-
-    assert(
-      '@text for "Hds::Copy::Snippet" must have a valid value',
-      text !== undefined
-    );
-
-    return text;
-  }
-  /**
-   * @param size
-   * @type {string}
-   * @default medium
-   * @description The size of the button; acceptable values are `small` and `medium`
-   */
-  get size() {
-    let { size = DEFAULT_SIZE } = this.args;
-
-    assert(
-      `@size for "Hds::CopySnippet" must be one of the following: ${SIZES.join(
-        ', '
-      )}; received: ${size}`,
-      SIZES.includes(size)
-    );
-
-    return size;
-  }
+  @tracked icon = DEFAULT_ICON;
 
   /**
    * @param color
    * @type {string}
    * @default tertiary
-   * @description Determines the color of button to be used; the only acceptable value is `tertiary`
+   * @description Determines the color of button to be used; acceptable values are `secondary` and `tertiary`
    */
   get color() {
     let { color = DEFAULT_COLOR } = this.args;
@@ -71,33 +38,18 @@ export default class HdsCopySnippetIndexComponent extends Component {
   }
 
   /**
-   * @param isFullWidth
-   * @type {boolean}
-   * @default false
-   * @description Indicates that a button should take up the full width of the parent container. The default is false.
-   */
-  get isFullWidth() {
-    return this.args.isFullWidth ?? false;
-  }
-
-  /**
    * Get the class names to apply to the component.
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-copy-snippet'];
+    let classes = ['hds-copy-snippet hds-typography-code-100'];
 
     // add a class based on the @size argument
-    classes.push(`hds-copy-snippet--size-${this.size}`);
+    classes.push(`hds-copy-snippet--size-small`);
 
     // add a class based on the @color argument
     classes.push(`hds-copy-snippet--color-${this.color}`);
-
-    // add a class based on the @isFullWidth argument
-    if (this.isFullWidth) {
-      classes.push('hds-copy-snippet--width-full');
-    }
 
     return classes.join(' ');
   }
@@ -113,6 +65,7 @@ export default class HdsCopySnippetIndexComponent extends Component {
 
         if (result === this.args.text) {
           this.isSuccess = true;
+          this.icon = SUCCESS_ICON;
         }
       } else {
         // idk if we ever hit this, need to test it
@@ -127,6 +80,7 @@ export default class HdsCopySnippetIndexComponent extends Component {
       // make it fade back to the default state
       setTimeout(() => {
         this.isSuccess = false;
+        this.icon = DEFAULT_ICON;
       }, 1500);
     }
   }
