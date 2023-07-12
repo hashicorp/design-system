@@ -28,9 +28,7 @@
       <Hds::Copy::Button @isIconOnly={{true}} @text="Copy" @clipboardText="#clipboardText" />
     </SF.Item>
     <SF.Item {{style width="200px"}} @label="Long text">
-      <Hds::Copy::Button
-        @text="This will throw an error because no clipboardText arg was declared."
-      />
+      <Hds::Copy::Button @text="This will throw an error because no clipboardText arg was declared." />
     </SF.Item>
   </Shw::Flex>
 
@@ -49,47 +47,15 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Text::H2>Color</Shw::Text::H2>
-
-  <Shw::Flex as |SF|>
-    {{#each @model.COLORS as |color|}}
-      <SF.Item @label={{capitalize color}}>
-        <Hds::Copy::Button @text="Copy" @color={{color}} @clipboardText="#clipboardText" />
-      </SF.Item>
-    {{/each}}
-  </Shw::Flex>
-
   <Shw::Text::H2>States</Shw::Text::H2>
 
-  {{#each @model.COLORS as |color|}}
-    <Shw::Text::H3>{{capitalize color}}</Shw::Text::H3>
-    <Shw::Grid @columns={{5}} as |SG|>
-      {{#each @model.SIZES as |size|}}
-        {{#each @model.STATES as |state|}}
-          <SG.Item @label="{{capitalize size}} / {{capitalize state}}">
-            <Hds::Copy::Button
-              @text="Copy"
-              @size={{size}}
-              @color={{color}}
-              mock-state-value={{state}}
-              @clipboardText="#clipboardText"
-            />
-          </SG.Item>
-        {{/each}}
+  <Shw::Grid @columns={{5}} as |SG|>
+    {{#each @model.SIZES as |size|}}
+      {{#each @model.STATES as |state|}}
+        <SG.Item @label="{{capitalize size}} / {{capitalize state}}">
+          <Hds::Copy::Button @text="Copy" @size={{size}} mock-state-value={{state}} @clipboardText="#clipboardText" />
+        </SG.Item>
       {{/each}}
-      {{#if (not-eq color "tertiary")}}
-        {{#each @model.STATES as |state|}}
-          <SG.Item @label="Full width / {{capitalize state}}">
-            <Hds::Copy::Button
-              @text="Copy"
-              @color={{color}}
-              @isFullWidth={{true}}
-              mock-state-value={{state}}
-              @clipboardText="#clipboardText"
-            />
-          </SG.Item>
-        {{/each}}
-      {{/if}}
-    </Shw::Grid>
-  {{/each}}
+    {{/each}}
+  </Shw::Grid>
 </section>
