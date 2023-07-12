@@ -26,7 +26,7 @@ Activates toggle to show/hide the input value
 
 <Doc::Badge @type="success">Conformant</Doc::Badge>
 
-`Form::MaskedInput::Field` is conformant when used as directed. For this reason, we recommend using `Form::MaskedInput::Field` by default.
+`Form::MaskedInput::Field` is conformant when used as directed. For this reason, we recommend using `Form::MaskedInput::Field` when possible.
 
 ### Form::MaskedInput::Base
 

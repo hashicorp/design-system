@@ -12,7 +12,7 @@ There are two ways to use the Masked Input component:
 - `Form::MaskedInput::Base` - the base component: the input control with a toggle button.
 - `Form::MaskedInput::Field` - the field component: the input control with a toggle button, a label, helper text, and error messaging (in a wrapping container).
 
-We recommend using the Field component as it provides built-in accessibility functionality. Use the Base component if needing to achieve custom layouts or for special use cases not covered by the Field component.
+We recommend using the Field component as it provides built-in accessibility functionality. Use the Base component to achieve custom layouts or for special use cases not covered by the Field component.
 
 {{! ================= }} {{! ===== FIELD ===== }} {{! ================= }}
 
@@ -71,7 +71,7 @@ v/Ow5T0q5gIJAiEAyS4RaI9YG8EWx/2w0T67ZUVAw8eOMB6BIUg0Xcu+3okCIBOs
 
 When the multiline input is masked, the browser converts newline characters to masked characters: this means that the multiline text will appear as a single long string of characters, even if it’s inside a `<textarea>` element.
 
-Instead, when the text is not masked it will respect the newline characters: this means it may occupy more lines that when it’s masked (try the example above).
+When the text is not masked, the newline characters will be respected. This means it may occupy more lines than when it’s masked (see the example above).
 
 Something to keep in mind when designing and implementing functionality that makes use of this component.
 
@@ -123,7 +123,7 @@ Use the `@isRequired` and `@isOptional` arguments to add a visual indication tha
 
 #### Validation
 
-To indicate a field is invalid, declare that it’s invalid by using the `@isInvalid` argument and provide an error message using the `Error` contextual component.
+To indicate a field is invalid, use the `@isInvalid` argument and provide an error message using the `Error` contextual component.
 
 ```handlebars
 <Hds::Form::MaskedInput::Field @isInvalid={{true}} @value="036215df4996ca649928d8864b4df9e42cba0d6d" as |F|>
@@ -150,7 +150,7 @@ If needing a custom ID for the control instead of the one automatically generate
 
 !!! Info
 
-In this case all the internal references (`id/for/aria-describedby`) between the different parts of the field are still automatically generated and will use the custom ID provided.
+In this case, all the internal references (`id/for/aria-describedby`) between the different parts of the field are still automatically generated and will use the custom ID provided.
 !!!
 
 ```handlebars
@@ -181,7 +181,7 @@ This component supports use of `...attributes`. This means you can use all the s
 
 #### Events handling
 
-Because this component supports use of `...attributes`, you can use all the usual Ember techniques for event handling (e.g., `input`, `blur`, `change`), validation, etc.
+This component supports the use of `...attributes`, which allows you to use all the usual Ember techniques for event handling (e.g., `input`, `blur`, `change`), validation, etc.
 
 ```handlebars
 <Hds::Form::MaskedInput::Field {{on "blur" this.yourOnBlurFunction}} as |F|>
@@ -221,7 +221,7 @@ The default invocation creates a `<input type="text">` or a `<textarea>` control
 />
 ```
 
-When `@isMultiline` argument is set to `true` it creates a `<textarea>` control with an automatically generated `ID` attribute. You can also adjust the height of `<textarea>` either by using the `rows` attribute or setting a custom `@height` value.
+When the `@isMultiline` argument is set to `true`, it creates a `<textarea>` control with an automatically generated `ID` attribute. You can also adjust the height of `<textarea>` either by using the `rows` attribute or by setting a custom `@height` value.
 
 ```handlebars
 <Hds::Form::MaskedInput::Base
@@ -244,7 +244,7 @@ v/Ow5T0q5gIJAiEAyS4RaI9YG8EWx/2w0T67ZUVAw8eOMB6BIUg0Xcu+3okCIBOs
 
 **Important to know**
 
-When the multiline input is masked, the browser converts newline characters to masked characters: this means that the multiline text will appear as a single long string of characters, even if it's inside a `<textarea>` element.
+When the multiline input is masked, the browser converts newline characters to masked characters: this means that the multiline text will appear as a single long string of characters, even though it’s inside a `<textarea>` element.
 
 Instead, when the text is not masked it will respect the newline characters: this means it may occupy more lines that when it’s masked (try the example above).
 

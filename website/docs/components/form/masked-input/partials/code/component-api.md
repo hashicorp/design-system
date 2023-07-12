@@ -3,7 +3,7 @@
 The Masked Input component has two different variants with their own APIs:
 
 - `Form::MaskedInput::Base` - the base component: the input control
-- `Form::MaskedInput::Field` - the field parent component: the input control, with label, helper text, and error messaging (in a wrapping container)
+- `Form::MaskedInput::Field` - the field parent component: the input control with label, helper text, and error messaging (in a wrapping container)
 
 ### Form::MaskedInput::Base
 
@@ -24,14 +24,14 @@ The Masked Input component has two different variants with their own APIs:
     By default, the input fills the parent container. If a `@width` parameter is provided, the control will have a fixed width.
   </C.Property>
   <C.Property @name="height" @type="string" @valueNote="any valid CSS height (px, rem, etc)">
-    Only available if `@IsMultiline` is `true`. By default, the `<textarea>` has a `height` determined by the browser to accommodate 4 lines of text. If a custom `@height` value is provided, the control will have a fixed height.
+    Only available if `@isMultiline` is `true`. By default, the `<textarea>` has a `height` determined by the browser to accommodate 4 lines of text. If a custom `@height` value is provided, the control will have a fixed height.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
     <br/><br/>
-    The attributes will be applied to the input control element. This means you can use all the standard HTML attributes of the input control element and all the usual Ember techniques for event handling, validation, etc.
+    The attributes will be applied to the input control element. This means you can use all the standard HTML input attributes and all the usual Ember techniques for event handling, validation, etc.
     <br/><br/>
-    Examples of HTML attributes: `id`, `name`, `value`, `placeholder`, `disabled`, `readonly`, `required`. See [the whole list of HTML attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attributes). Examples of Ember modifiers: `\{{on "input" [do something]}}`, `\{{on "change" [do something]}}`, `\{{on "blur" [do something]}}`.
+    Examples of HTML input attributes: `id`, `name`, `value`, `placeholder`, `disabled`, `readonly`, `required`. See [the whole list of attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attributes). Examples of Ember modifiers: `\{{on "input" [do something]}}`, `\{{on "change" [do something]}}`, `\{{on "blur" [do something]}}`.
   </C.Property>
 </Doc::ComponentApi>
 
@@ -60,7 +60,7 @@ The Masked Input component has two different variants with their own APIs:
     By default, the input fills the parent container. If a `@width` parameter is provided, the control will have a fixed width. This width will only be applied to the control, not the other elements of the field.
   </C.Property>
   <C.Property @name="height" @type="string" @valueNote="any valid CSS height (px, rem, etc)">
-    Only available if `@IsMultiline` is `true`. By default, the `<textarea>` has a `height` determined by the browser to accommodate 4 lines of text. If a custom `@height` value is provided, the control will have a fixed height.
+    Only available if `@isMultiline` is `true`. By default, the `<textarea>` has a `height` determined by the browser to accommodate 4 lines of text. If a custom `@height` value is provided, the control will have a fixed height.
   </C.Property>
   <C.Property @name="id" @type="string">
     Input control’s ID attribute.

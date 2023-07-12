@@ -4,7 +4,7 @@
 
 - To give users a way to show and hide sensitive information.
 
-- When needing a form input with the ability to mask its value temporarily.
+- When a form input with the ability to mask its value temporarily is needed.
 
 ### When not to use
 
@@ -17,7 +17,7 @@
 
 The MaskedInput is a text field designed to protect sensitive or confidential information while still giving users the ability to show or hide the input value as needed.
 
-A password field is a specific type of form control designed for secure entry of passwords. The value is always masked or hidden to prevent others from easily reading the entered characters. Unlike the masked input, the password field has specific attributes to enhance security and confidentiality of passwords.
+A password field is a specific type of form control designed for secure entry of passwords. The value is always masked or hidden to prevent others from easily reading the entered characters. Unlike the masked input, the password field has specific attributes to enhance the security and confidentiality of passwords.
 
 ### Usage examples
 
@@ -30,7 +30,7 @@ Use the MaskedInput to protect sensitive values like secret keys or tokens.
 
 !!! Do
 
-Use the MaskedInput to protect sensitive values like variables and certificates from unexpected exposure.
+Use the MaskedInput to protect sensitive values like variables and certificates from unintended exposure.
 
 ![Form with a multiline masked input](/assets/components/form/masked-input/usage-do-multiline.png =770x*)
 !!!
@@ -44,7 +44,7 @@ Don’t use a MaskedInput for password input. Use the [Password](/components/for
 
 ## Multiline
 
-Use `isMultiline` to display multiline textual content that requires a larger area. e.g., a Terraform variable. This property replaces the `TextInput` with a `Textarea` field.
+Use `isMultiline` to display multiline textual content. e.g., a Terraform variable. This property replaces the `TextInput` with a `Textarea` field.
 
 ## Required and optional
 
