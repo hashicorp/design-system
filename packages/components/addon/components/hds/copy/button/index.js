@@ -11,6 +11,7 @@ import { action } from '@ember/object';
 export const DEFAULT_SIZE = 'medium';
 export const SIZES = ['small', 'medium'];
 export const DEFAULT_ICON = 'clipboard-copy';
+export const SUCCESS_ICON = 'clipboard-checked';
 
 export default class HdsCopyButtonComponent extends Component {
   @tracked isSuccess = false;
@@ -71,7 +72,7 @@ export default class HdsCopyButtonComponent extends Component {
 
       if (result === textToCopy) {
         this.isSuccess = true;
-        this.icon = 'clipboard-checked';
+        this.icon = SUCCESS_ICON;
       }
     } else {
       // I don't think it ever gets here...
