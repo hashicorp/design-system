@@ -24,29 +24,38 @@ module(
 
     // MASKING
 
-    test('it should render a button with the "eye" icon by default', async function (assert) {
+    test('it should render the text masked by default', async function (assert) {
       await render(
         hbs`<Hds::Form::MaskedInput::Base id="test-form-masked-input" />`
       );
+      assert
+        .dom('.hds-form-masked-input__control')
+        .hasStyle({ '-webkit-text-security': 'disc' });
       assert
         .dom('.hds-form-masked-input__toggle-button .flight-icon-eye')
         .exists();
     });
 
-    test('it should render a button with the "eye-off" icon when `isMasked` is false', async function (assert) {
+    test('it should render readable text when `isMasked` is false', async function (assert) {
       await render(
         hbs`<Hds::Form::MaskedInput::Base id="test-form-masked-input" @isMasked={{false}} />`
       );
+      assert
+        .dom('.hds-form-masked-input__control')
+        .hasStyle({ '-webkit-text-security': 'none' });
       assert
         .dom('.hds-form-masked-input__toggle-button .flight-icon-eye-off')
         .exists();
     });
 
-    test('it should toggle the "eye" icon when button is pressed', async function (assert) {
+    test('it should toggle the masking when button is pressed', async function (assert) {
       await render(
         hbs`<Hds::Form::MaskedInput::Base id="test-form-masked-input" />`
       );
       await click('.hds-form-masked-input__toggle-button');
+      assert
+        .dom('.hds-form-masked-input__control')
+        .hasStyle({ '-webkit-text-security': 'none' });
       assert
         .dom('.hds-form-masked-input__toggle-button .flight-icon-eye-off')
         .exists();
