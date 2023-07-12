@@ -7,24 +7,11 @@
 // COPY > BUTTON
 //
 
-@use "../../mixins/button" as *;
-@use "../../mixins/focus-ring" as *;
-
 // Colors + States
 
 .hds-button--color-secondary {
   .hds-button__icon {
     color: var(--token-color-foreground-action);
-  }
-
-  &:hover,
-  &.mock-hover {
-    background-color: var(--token-color-surface-interactive-hover);
-  }
-
-  &:active,
-  &.mock-active {
-    background-color: var(--token-color-surface-interactive-active);
   }
 
   &.is-success,
