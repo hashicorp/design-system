@@ -3,7 +3,7 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <Hds::Button
-  @classNames={{this.classNames}}
+  class="{{if this.isSuccess 'is-success'}}"
   @size={{this.size}}
   @isFullWidth={{@isFullWidth}}
   @text={{@text}}

@@ -44,20 +44,6 @@ export default class HdsCopyButtonComponent extends Component {
     return size;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
-  get classNames() {
-    let classes = ['hds-copy-button'];
-
-    // add a class based on the @size argument
-    classes.push(`hds-copy-button--size-${this.size}`);
-
-    return classes.join(' ');
-  }
-
   @action
   async copyCode() {
     let textToCopy;
