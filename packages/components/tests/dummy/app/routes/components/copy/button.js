@@ -9,7 +9,7 @@ import { SIZES } from '@hashicorp/design-system-components/components/hds/copy/b
 export default class ComponentsCopyButtonRoute extends Route {
   model() {
     // these are used only for presentation purpose in the showcase
-    const STATES = ['default', 'hover', 'active', 'focus', 'success'];
+    const STATES = ['default', 'hover', 'active', 'focus'];
     return { SIZES, STATES };
   }
 }

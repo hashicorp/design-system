@@ -3,15 +3,15 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <Hds::Button
-  class="{{if this.isSuccess 'is-success'}}"
+  class="{{this.classNames}} {{if this.isSuccess 'is-success'}}"
   @size={{this.size}}
   @isFullWidth={{@isFullWidth}}
   @text={{@text}}
+  @icon={{this.icon}}
   @isIconOnly={{@isIconOnly}}
   {{on "click" this.copyCode}}
   ...attributes
   @color="secondary"
-  @icon={{this.icon}}
   @iconPosition="trailing"
   @clipboardText={{@clipboardText}}
 />

@@ -49,7 +49,7 @@
 
   <Shw::Text::H2>States</Shw::Text::H2>
 
-  <Shw::Grid @columns={{5}} as |SG|>
+  <Shw::Grid @columns={{4}} as |SG|>
     {{#each @model.SIZES as |size|}}
       {{#each @model.STATES as |state|}}
         <SG.Item @label="{{capitalize size}} / {{capitalize state}}">
@@ -64,4 +64,16 @@
       {{/each}}
     {{/each}}
   </Shw::Grid>
+  <Shw::Flex as |SF|>
+    <SF.Item class="shw-component-button-generated">
+      <Shw::Label>Success</Shw::Label>
+      <Hds::Copy::Button
+        @text="Copy"
+        @clipboardText="#clipboardText"
+        mock-state-value="success"
+        {{!-- @icon="clipboard-checked" --}}
+        {{!-- @isSuccess={{true}} --}}
+      />
+    </SF.Item>
+  </Shw::Flex>
 </section>
