@@ -64,19 +64,19 @@ module('Integration | Component | hds/card/container', function (hooks) {
 
   // OVERFLOW
 
-  test('it should have the overflow hidden if no @overflow prop is declared', async function (assert) {
+  test('it should have the overflow visible if no @overflow prop is declared', async function (assert) {
     await render(hbs`<Hds::Card::Container id="test-card-container" />`);
     assert
       .dom('#test-card-container')
-      .hasClass('hds-card__container--overflow-hidden');
+      .hasClass('hds-card__container--overflow-visible');
   });
-  test('it should have the overflow visible if the @overflow prop is declared as "visible"', async function (assert) {
+  test('it should have the overflow hidden if the @overflow prop is declared as "hidden"', async function (assert) {
     await render(
-      hbs`<Hds::Card::Container id="test-card-container" @overflow="visible" />`
+      hbs`<Hds::Card::Container id="test-card-container" @overflow="hidden" />`
     );
     assert
       .dom('#test-card-container')
-      .hasClass('hds-card__container--overflow-visible');
+      .hasClass('hds-card__container--overflow-hidden');
   });
 
   // ASSERTIONS
