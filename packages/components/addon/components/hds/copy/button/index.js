@@ -16,16 +16,22 @@ export const SUCCESS_ICON = 'clipboard-checked';
 export default class HdsCopyButtonComponent extends Component {
   @tracked isSuccess = false;
   @tracked isError = false;
-  @tracked icon = DEFAULT_ICON;
 
+  get icon() {
+    let icon = DEFAULT_ICON;
+    if (this.isSuccess) {
+      icon = SUCCESS_ICON;
+    }
+    return icon;
+  }
   /**
-   * @param clipboardText
+   * @param clipboardTarget
    * @type {string}
-   * @description The ID of the element containing the text to be copied. If no clipboardText value is defined `isError` will be set to true.
+   * @description The ID of the element containing the text to be copied. If no clipboardTarget value is defined `isError` will be set to true.
    */
-  get clipboardText() {
-    let { clipboardText } = this.args;
-    return clipboardText;
+  get clipboardTarget() {
+    let { clipboardTarget } = this.args;
+    return clipboardTarget;
   }
 
   /**
@@ -64,11 +70,11 @@ export default class HdsCopyButtonComponent extends Component {
   @action
   async copyCode() {
     let textToCopy;
-    if (this.args.clipboardText) {
-      let clipboardTextContent = document
-        .querySelector(this.args.clipboardText)
+    if (this.args.clipboardTarget) {
+      let clipboardTargetContent = document
+        .querySelector(this.args.clipboardTarget)
         .innerHTML.trim();
-      textToCopy = clipboardTextContent;
+      textToCopy = clipboardTargetContent;
       // leaving this in while development
       console.log(`${textToCopy} is copied to the clipboard`);
     } else {
@@ -86,7 +92,6 @@ export default class HdsCopyButtonComponent extends Component {
 
       if (result === textToCopy) {
         this.isSuccess = true;
-        this.icon = SUCCESS_ICON;
       }
     } else {
       // I don't think it ever gets here...
@@ -99,7 +104,6 @@ export default class HdsCopyButtonComponent extends Component {
     // make it fade back to the default state
     setTimeout(() => {
       this.isSuccess = false;
-      this.icon = DEFAULT_ICON;
     }, 1500);
   }
 }

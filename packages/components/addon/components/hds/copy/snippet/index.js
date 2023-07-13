@@ -16,7 +16,15 @@ export const SUCCESS_ICON = 'clipboard-checked';
 export default class HdsCopySnippetIndexComponent extends Component {
   @tracked isSuccess = false;
   @tracked isError = false;
-  @tracked icon = DEFAULT_ICON;
+  // @tracked icon = DEFAULT_ICON;
+
+  get icon() {
+    let icon = DEFAULT_ICON;
+    if (this.isSuccess) {
+      icon = SUCCESS_ICON;
+    }
+    return icon;
+  }
 
   /**
    * @param color
@@ -48,7 +56,7 @@ export default class HdsCopySnippetIndexComponent extends Component {
 
         if (result === this.args.text) {
           this.isSuccess = true;
-          this.icon = SUCCESS_ICON;
+          // this.icon = SUCCESS_ICON;
         }
       } else {
         // idk if we ever hit this, need to test it
@@ -63,7 +71,7 @@ export default class HdsCopySnippetIndexComponent extends Component {
       // make it fade back to the default state
       setTimeout(() => {
         this.isSuccess = false;
-        this.icon = DEFAULT_ICON;
+        // this.icon = DEFAULT_ICON;
       }, 1500);
     }
   }

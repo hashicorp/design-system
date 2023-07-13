@@ -13,8 +13,8 @@
   <Shw::Flex as |SF|>
     <SF.Item class="shw-component-button-generated">
       <Shw::Label>Default</Shw::Label>
-      <p class="shw-text shw-text-body" id="clipboardText">"This is the text that these buttons will copy."</p>
-      <Hds::Copy::Button @text="Copy" @clipboardText="#clipboardText" />
+      <p class="shw-text shw-text-body" id="clipboardTarget">"This is the text that these buttons will copy."</p>
+      <Hds::Copy::Button @text="Copy" @clipboardTarget="#clipboardTarget" />
     </SF.Item>
   </Shw::Flex>
 
@@ -22,13 +22,13 @@
 
   <Shw::Flex as |SF|>
     <SF.Item @label="Default">
-      <Hds::Copy::Button @text="Copy" @clipboardText="#clipboardText" />
+      <Hds::Copy::Button @text="Copy" @clipboardTarget="#clipboardTarget" />
     </SF.Item>
     <SF.Item @label="Icon only">
-      <Hds::Copy::Button @isIconOnly={{true}} @text="Copy" @clipboardText="#clipboardText" />
+      <Hds::Copy::Button @isIconOnly={{true}} @text="Copy" @clipboardTarget="#clipboardTarget" />
     </SF.Item>
     <SF.Item {{style width="200px"}} @label="Long text">
-      <Hds::Copy::Button @text="This will throw an error because no clipboardText arg was declared." />
+      <Hds::Copy::Button @text="This will throw an error because no clipboardTarget arg was declared." />
     </SF.Item>
   </Shw::Flex>
 
@@ -37,12 +37,12 @@
   <Shw::Flex as |SF|>
     {{#each @model.SIZES as |size|}}
       <SF.Item @label={{capitalize size}}>
-        <Hds::Copy::Button @text="Copy" @size={{size}} @clipboardText="#clipboardText" />
+        <Hds::Copy::Button @text="Copy" @size={{size}} @clipboardTarget="#clipboardTarget" />
       </SF.Item>
     {{/each}}
     <SF.Item @label="Full width">
       <Shw::Outliner {{style width="300px"}}>
-        <Hds::Copy::Button @text="Copy" @isFullWidth={{true}} @clipboardText="#clipboardText" />
+        <Hds::Copy::Button @text="Copy" @isFullWidth={{true}} @clipboardTarget="#clipboardTarget" />
       </Shw::Outliner>
     </SF.Item>
   </Shw::Flex>
@@ -58,7 +58,7 @@
             @size={{size}}
             @icon={{this.icon}}
             mock-state-value={{state}}
-            @clipboardText="#clipboardText"
+            @clipboardTarget="#clipboardTarget"
           />
         </SG.Item>
       {{/each}}
