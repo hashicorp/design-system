@@ -9,9 +9,8 @@
   @text={{@text}}
   @icon={{this.icon}}
   @isIconOnly={{@isIconOnly}}
-  {{on "click" this.copyCode}}
-  ...attributes
   @color="secondary"
   @iconPosition="trailing"
-  @clipboardTarget={{@clipboardTarget}}
+  @clipboardTarget={{this.clipboardTarget}}
+  {{on "click" this.copyCode}}
 />

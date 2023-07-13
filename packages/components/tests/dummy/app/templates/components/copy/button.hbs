@@ -75,4 +75,19 @@
       <Hds::Copy::Button @text="Copy this code snippet" @clipboardTarget="#clipboardTarget3" />
     </SF.Item>
   </Shw::Flex>
+
+  {{!-- <Shw::Flex as |SF|>
+    <SF.Item class="shw-component-button-generated">
+      <Shw::Label>Missing @text, fails as expected</Shw::Label>
+      <p class="shw-text shw-text-body" id="clipboardTarget4">Text to be copied</p>
+      <Hds::Copy::Button @isIconOnly={{true}} @clipboardTarget="#clipboardTarget4" />
+    </SF.Item>
+  </Shw::Flex> --}}
+  {{!-- <Shw::Flex as |SF|>
+    <SF.Item class="shw-component-button-generated">
+      <Shw::Label>Try to use size="large", fails as expected</Shw::Label>
+      <p class="shw-text shw-text-body" id="clipboardTarget4">Text to be copied</p>
+      <Hds::Copy::Button @text="Copy" @size="large" @clipboardTarget="#clipboardTarget4" />
+    </SF.Item>
+  </Shw::Flex> --}}
 </section>

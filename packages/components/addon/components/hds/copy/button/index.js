@@ -27,10 +27,14 @@ export default class HdsCopyButtonComponent extends Component {
   /**
    * @param clipboardTarget
    * @type {string}
-   * @description The ID of the element containing the text to be copied. If no clipboardTarget value is defined `isError` will be set to true.
+   * @description The ID of the element containing the text to be copied.
    */
   get clipboardTarget() {
     let { clipboardTarget } = this.args;
+    assert(
+      '@clipboardTarget for "Hds::Copy::Button" must have a valid value',
+      clipboardTarget !== undefined
+    );
     return clipboardTarget;
   }
 
