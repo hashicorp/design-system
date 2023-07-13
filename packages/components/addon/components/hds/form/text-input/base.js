@@ -16,6 +16,7 @@ export const TYPES = [
   'url',
   'date',
   'time',
+  'datetime-local',
   'search',
 ];
 

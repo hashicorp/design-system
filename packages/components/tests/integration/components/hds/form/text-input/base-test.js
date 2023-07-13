@@ -27,10 +27,13 @@ module('Integration | Component | hds/form/text-input/base', function (hooks) {
     assert.dom('#test-form-text-input').hasAttribute('type', 'text');
   });
   test('it should render the correct type depending on the @type prop', async function (assert) {
+    this.set('type', 'email');
     await render(
-      hbs`<Hds::Form::TextInput::Base @type="email" id="test-form-text-input" />`
+      hbs`<Hds::Form::TextInput::Base @type={{this.type}} id="test-form-text-input" />`
     );
     assert.dom('#test-form-text-input').hasAttribute('type', 'email');
+    this.set('type', 'datetime-local');
+    assert.dom('#test-form-text-input').hasAttribute('type', 'datetime-local');
   });
 
   // VALUE
@@ -88,7 +91,7 @@ module('Integration | Component | hds/form/text-input/base', function (hooks) {
 
   test('it should throw an assertion if an incorrect value for @type is provided', async function (assert) {
     const errorMessage =
-      '@type for "Hds::Form::TextInput" must be one of the following: text, email, password, url, date, time, search; received: foo';
+      '@type for "Hds::Form::TextInput" must be one of the following: text, email, password, url, date, time, datetime-local, search; received: foo';
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
