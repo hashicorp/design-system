@@ -74,9 +74,9 @@ export default class HdsCopyButtonComponent extends Component {
   @action
   async copyCode() {
     let textToCopy;
-    if (this.args.clipboardTarget) {
+    if (this.clipboardTarget) {
       let clipboardTargetContent = document
-        .querySelector(this.args.clipboardTarget)
+        .querySelector(this.clipboardTarget)
         .innerHTML.trim();
       textToCopy = clipboardTargetContent;
       // leaving this in while development
