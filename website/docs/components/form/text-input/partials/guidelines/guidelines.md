@@ -52,6 +52,10 @@ Date and time fields use the native browser functionality for the popovers. Some
   <F.Label>Time</F.Label>
 </Hds::Form::TextInput::Field>
 
+<Hds::Form::TextInput::Field @type="datetime-local" placeholder="mm/dd/yyT--:-- --" @width="150px" as |F|>
+  <F.Label>Datetime</F.Label>
+</Hds::Form::TextInput::Field>
+
 ## Required and optional
 
 For complex forms, indicate **required** fields. This is the most explicit and transparent method and ensures users don’t have to make assumptions. Read more about best practices for [marking required fields in forms](https://www.nngroup.com/articles/required-fields/).

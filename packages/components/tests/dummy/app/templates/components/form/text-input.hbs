@@ -111,6 +111,15 @@
                     @isInvalid={{if (eq variant "invalid") true}}
                   />
                 </SF.Item>
+                <SF.Item>
+                  <Hds::Form::TextInput::Base
+                    @type="datetime-local"
+                    @value="Lorem ipsum dolor"
+                    disabled={{if (eq variant "disabled") "disabled"}}
+                    readonly={{if (eq variant "readonly") "readonly"}}
+                    @isInvalid={{if (eq variant "invalid") true}}
+                  />
+                </SF.Item>
               </Shw::Flex>
             </SG.Item>
           {{/unless}}
@@ -151,6 +160,9 @@
             </SF.Item>
             <SF.Item {{style display=display}}>
               <Hds::Form::TextInput::Base @type="time" />
+            </SF.Item>
+            <SF.Item {{style display=display}}>
+              <Hds::Form::TextInput::Base @type="datetime-local" />
             </SF.Item>
           </Shw::Flex>
         </SG.Item>
