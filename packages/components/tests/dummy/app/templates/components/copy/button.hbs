@@ -61,6 +61,19 @@
       {{/each}}
     {{/each}}
   </Shw::Grid>
+  {{!-- <Shw::Text::H2>Status</Shw::Text::H2>
+  <Shw::Flex as |SF|>
+    {{#each @model.STATUS as |status|}}
+      <SF.Item @label="{{capitalize status}}">
+        <Hds::Copy::Button
+          @text="Copy"
+          @icon={{this.icon}}
+          @targetToCopy="#targetToCopy"
+          @status={{status}}
+        />
+      </SF.Item>
+    {{/each}}
+  </Shw::Flex> --}}
 
   <Shw::Text::H2>Some use cases for demo purposes</Shw::Text::H2>
   <Shw::Flex as |SF|>

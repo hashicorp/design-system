@@ -10,6 +10,7 @@ export default class ComponentsCopySnippetRoute extends Route {
   model() {
     // these are used only for presentation purpose in the showcase
     const STATES = ['default', 'hover', 'active', 'focus'];
-    return { COLORS, STATES };
+    const STATUS = ['idle', 'success', 'error'];
+    return { COLORS, STATES, STATUS };
   }
 }

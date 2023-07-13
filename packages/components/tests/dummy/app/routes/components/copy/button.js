@@ -10,6 +10,7 @@ export default class ComponentsCopyButtonRoute extends Route {
   model() {
     // these are used only for presentation purpose in the showcase
     const STATES = ['default', 'hover', 'active', 'focus'];
-    return { SIZES, STATES };
+    const STATUS = ['idle', 'success', 'error'];
+    return { SIZES, STATES, STATUS };
   }
 }
