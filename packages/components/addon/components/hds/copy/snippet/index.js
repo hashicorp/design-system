@@ -12,21 +12,25 @@ export const DEFAULT_COLOR = 'tertiary';
 export const COLORS = ['tertiary', 'secondary'];
 export const DEFAULT_ICON = 'clipboard-copy';
 export const SUCCESS_ICON = 'clipboard-checked';
+export const ERROR_ICON = 'clipboard';
+export const DEFAULT_STATUS = 'idle';
 
 export default class HdsCopySnippetIndexComponent extends Component {
-  @tracked isSuccess = false;
-  @tracked isError = false;
+  @tracked status = DEFAULT_STATUS;
+  @tracked timer;
 
   /**
    * @param icon
    * @type {string}
    * @default DEFAULT_ICON
-   * @description Determines the icon to be used, based on the success state. Note that this is auto-tracked because it depends on a tracked property (isSuccess).
+   * @description Determines the icon to be used, based on the success state. Note that this is auto-tracked because it depends on a tracked property (status).
    */
   get icon() {
     let icon = DEFAULT_ICON;
-    if (this.isSuccess) {
+    if (this.status === 'success') {
       icon = SUCCESS_ICON;
+    } else if (this.status === 'error') {
+      icon = ERROR_ICON;
     }
     return icon;
   }
@@ -50,32 +54,49 @@ export default class HdsCopySnippetIndexComponent extends Component {
     return color;
   }
 
+  get textToCopy() {
+    return this.args.encoded
+      ? decodeURI(this.args.textToCopy)
+      : this.args.textToCopy;
+  }
+
+  get targetToCopy() {
+    return this.args.targetToCopy;
+  }
+
+  /**
+   * Get the class names to apply to the component.
+   * @method CopySnippet#classNames
+   * @return {string} The "class" attribute to apply to the component.
+   */
+  get classNames() {
+    let classes = ['hds-copy-snippet'];
+
+    // add a class based on the @color argument
+    classes.push(`hds-button--color-${this.color}`);
+
+    classes.push(`hds-copy-snippet--${this.status}`);
+
+    return classes.join(' ');
+  }
+
   @action
-  async copyCode() {
-    if (this.args.text) {
-      // https://developer.mozilla.org/en-US/docs/Web/API/Clipboard
-      await navigator.clipboard.writeText(this.args.text);
+  onSuccess() {
+    this.status = 'success';
+    this.resetStatusDelayed();
+  }
 
-      if (navigator.clipboard.readText) {
-        const result = await navigator.clipboard.readText();
+  @action
+  onError() {
+    this.status = 'error';
+    this.resetStatusDelayed();
+  }
 
-        if (result === this.args.text) {
-          this.isSuccess = true;
-        }
-      } else {
-        // idk if we ever hit this, need to test it
-        this.isError = true;
-        if (this.isError) {
-          window.alert(
-            'the copy was not successful, the browser requires your permission'
-          );
-        }
-      }
-
-      // make it fade back to the default state
-      setTimeout(() => {
-        this.isSuccess = false;
-      }, 1500);
-    }
+  resetStatusDelayed() {
+    clearTimeout(this.timer);
+    // make it fade back to the default state
+    this.timer = setTimeout(() => {
+      this.status = DEFAULT_STATUS;
+    }, 1500);
   }
 }

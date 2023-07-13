@@ -16,8 +16,6 @@ export const ERROR_ICON = 'clipboard';
 export const DEFAULT_STATUS = 'idle';
 
 export default class HdsCopyButtonComponent extends Component {
-  @tracked isSuccess = false;
-  @tracked isError = false;
   @tracked status = DEFAULT_STATUS;
   @tracked timer;
 

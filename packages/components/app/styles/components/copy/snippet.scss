@@ -39,4 +39,10 @@
       color: var(--token-color-foreground-success);
     }
   }
+
+  &.hds-copy-snippet--error {
+    .hds-button__icon {
+      color: var(--token-color-foreground-critical);
+    }
+  }
 }
