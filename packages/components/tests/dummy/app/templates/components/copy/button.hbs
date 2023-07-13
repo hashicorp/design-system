@@ -64,13 +64,21 @@
 
   <Shw::Text::H2>Some use cases for demo purposes</Shw::Text::H2>
   <Shw::Flex as |SF|>
-    <SF.Item class="shw-component-button-generated">
+    <SF.Item>
       <Shw::Label>A code block</Shw::Label>
       {{!-- prettier-ignore --}}
       <pre><code id="targetToCopy3">&lt;h1&gt;A page header example&lt;/h1&gt;
 &lt;p&gt;Some paragraph text also&lt;/p&gt;
       </code></pre>
       <Hds::Copy::Button @text="Copy this code block" @targetToCopy="#targetToCopy3" />
+    </SF.Item>
+  </Shw::Flex>
+  <Shw::Flex as |SF|>
+    <SF.Item>
+      <Shw::Label>Use textToCopy instead of targetToCopy</Shw::Label>
+      <label for="input-readonly">Some input</label>
+      <input type="text" name="input-readonly" value="readonly input" id="input-readonly" />
+      <Hds::Copy::Button @text="Copy the readonly input" @textToCopy="readonly input" />
     </SF.Item>
   </Shw::Flex>
 </section>
