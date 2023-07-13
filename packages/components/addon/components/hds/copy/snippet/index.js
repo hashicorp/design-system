@@ -16,8 +16,13 @@ export const SUCCESS_ICON = 'clipboard-checked';
 export default class HdsCopySnippetIndexComponent extends Component {
   @tracked isSuccess = false;
   @tracked isError = false;
-  // @tracked icon = DEFAULT_ICON;
 
+  /**
+   * @param icon
+   * @type {string}
+   * @default DEFAULT_ICON
+   * @description Determines the icon to be used, based on the success state. Note that this is auto-tracked because it depends on a tracked property (isSuccess).
+   */
   get icon() {
     let icon = DEFAULT_ICON;
     if (this.isSuccess) {
@@ -56,7 +61,6 @@ export default class HdsCopySnippetIndexComponent extends Component {
 
         if (result === this.args.text) {
           this.isSuccess = true;
-          // this.icon = SUCCESS_ICON;
         }
       } else {
         // idk if we ever hit this, need to test it
@@ -71,7 +75,6 @@ export default class HdsCopySnippetIndexComponent extends Component {
       // make it fade back to the default state
       setTimeout(() => {
         this.isSuccess = false;
-        // this.icon = DEFAULT_ICON;
       }, 1500);
     }
   }
