@@ -7,24 +7,17 @@
 
 ### When not to use
 
-- As a standalone element, consider [Standalone Link](/components/link/standalone)
-- To trigger an action or event, like a form submission, consider [Button](/components/button)
+- As a standalone element, consider [Standalone Link](/components/link/standalone).
+- To trigger an action or event, like a form submission, consider [Button](/components/button).
 
 ## Usage in Figma
 
 The Inline Link is only published as a component in Ember, there is no corresponding component in Figma. To achieve the same results, apply **text** and **color** styles from the [Foundations library](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?type=design&node-id=2130%3A2&t=6XBReWOxMRTiW1Iv-1) to your text.
 
-- Text styles can be found under text styles `Body`, `Code`, or `Display`.
+- Text styles can be found under text styles `Body` or `Code`.
 - Color styles:
     - `Components / Link inline / Foreground / Primary`
     - `Components / Link inline / Foreground / Secondary`
-
-!!! Warning
-
-Use links within `Display` sizes rarely as these are generally meant for titles and headlines. Instead, highlight actions using the [Standalone Link](/components/link/standalone) and associate it with the headline in the layout.
-
-<span class="hds-typography-display-400 hds-font-family-sans-display hds-font-weight-bold">Headline <Hds::Link::Inline @href="..." @color="primary">containing a link</Hds::Link::Inline></span>
-!!!
 
 ## Color
 
@@ -82,4 +75,21 @@ Don’t wrap an entire sentence or text block in a link.
 
 <span class="hds-typography-body-300"><Hds::Link::Inline @color="primary" @icon="external-link" @iconPosition="trailing" @href="...">Learn more about deploying a Vault Cluster on HCP in the HashiCorp Developer tutorial library</Hds::Link::Inline>.</span>
 
+!!!
+
+!!! Dont
+
+Use links within `Display` sizes rarely as these are generally meant for titles and headlines.
+
+<span class="hds-typography-display-400 hds-font-family-sans-display hds-font-weight-bold">Headline <Hds::Link::Inline @href="..." @color="primary">containing a link</Hds::Link::Inline></span>
+!!!
+
+!!! Do
+
+Highlight actions paired with a `Display` headline using the [Standalone Link](/components/link/standalone) and associate it with the headline in the layout.
+
+<Doc::Layout @direction="vertical" @spacing="1rem">
+    <span class="hds-typography-display-400 hds-font-family-sans-display hds-font-weight-bold">Headline</span>
+    <Hds::Link::Standalone @icon="arrow-right" @iconPosition="trailing" @href="..." @color="primary" @text="Link to relevant content" />
+</Doc::Layout>
 !!!

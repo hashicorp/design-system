@@ -10,7 +10,7 @@ The most basic invocation requires some content to be passed as children and eit
 
 ### Color
 
-There are two available colors for a Inline Link: `primary` and `secondary`. The default is `primary`.
+There are two available colors for an Inline Link: `primary` and `secondary`. The default is `primary`.
 
 ```handlebars
 <span class="hds-typography-body-300">

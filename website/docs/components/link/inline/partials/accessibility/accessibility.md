@@ -7,10 +7,6 @@ Include annotations of the non-visual experience in your handoff notes. For exam
 
 ![Annotation of focus order of the link](/assets/components/link/standalone/link-annotation.png =440x*)
 
-### Interactive transitions
-
-Animations or transitions will not take place if the user has `prefers-reduced-motion` enabled in their browser.
-
 ## Applicable WCAG Success Criteria
 
 This section is for reference only. This component intends to conform to the following WCAG Success Criteria:
