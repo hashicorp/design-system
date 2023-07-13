@@ -8,36 +8,36 @@
 
 ### When not to use
 
-- To define a password field, use the [Password](/components/form/text-input#password) field instead.
+- For passwords, use the [Password](/components/form/text-input#password) input instead.
 
 - For general textual input, use the [TextInput](/components/form/text-input) or [Textarea](/components/form/textarea).
 
 
 ## Masked input vs Password input
 
-The MaskedInput is a text field designed to protect sensitive or confidential information while still giving users the ability to show or hide the input value as needed.
+The Masked Input is a text field designed to protect sensitive or confidential information while allowing users to show or hide the input value as needed.
 
-A password field is a specific type of form control designed for secure entry of passwords. The value is always masked or hidden to prevent others from easily reading the entered characters. Unlike the masked input, the password field has specific attributes to enhance the security and confidentiality of passwords.
+The password input is a specific type of form control designed for the secure entry of passwords. The value is always masked or hidden to prevent others from reading the entered characters easily. Unlike the Masked Input, the password input has specific attributes to enhance the security and confidentiality of passwords.
 
 ### Usage examples
 
 !!! Do
 
-Use the MaskedInput to protect sensitive values like secret keys or tokens.
+Use the Masked Input to protect sensitive values like secret keys or tokens.
 
 ![Form with a masked input](/assets/components/form/masked-input/usage-do.png =770x*)
 !!!
 
 !!! Do
 
-Use the MaskedInput to protect sensitive values like variables and certificates from unintended exposure.
+Use the Masked Input to protect sensitive values like variables and certificates from unintended exposure.
 
 ![Form with a multiline masked input](/assets/components/form/masked-input/usage-do-multiline.png =770x*)
 !!!
 
 !!! Dont
 
-Don’t use a MaskedInput for password input. Use the [Password](/components/form/text-input#password) field.
+Don’t use a Masked Input for password input. Use the [Password](/components/form/text-input#password) input.
 
 ![Form with a masked input](/assets/components/form/masked-input/usage-dont.png =770x*)
 !!!
