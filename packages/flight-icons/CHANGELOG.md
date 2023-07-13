@@ -1,5 +1,11 @@
 # @hashicorp/flight-icons
 
+## 2.15.0
+
+### Minor Changes
+
+- [#1487](https://github.com/hashicorp/design-system/pull/1487) [`4960a4a2c`](https://github.com/hashicorp/design-system/commit/4960a4a2cf368b47c22ac12186f9f2b48d406519) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Added Venafi service icon
+
 ## 2.14.0
 
 ### Minor Changes
