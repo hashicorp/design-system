@@ -14,7 +14,7 @@
 
 The Inline Link is only published as a component in Ember, there is no corresponding component in Figma. To achieve the same results, apply **text** and **color** styles from the [Foundations library](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?type=design&node-id=2130%3A2&t=6XBReWOxMRTiW1Iv-1) to your text.
 
-Ensure that the text style of the Inline Link is the same as the body text around it as the Ember component inherits the font weight and styling of the text it is contained within.
+The Ember component inherits the styles of the text around it, ensure that the font weight defined in Figma is the same as the body text it is contained within.
 
 - Text styles can be found under text styles `Body` or `Code`.
 - Color styles:
