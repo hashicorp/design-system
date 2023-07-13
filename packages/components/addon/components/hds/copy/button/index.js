@@ -56,10 +56,7 @@ export default class HdsCopyButtonComponent extends Component {
     let classes = ['hds-copy-button'];
 
     // add a class based on the @size argument
-    classes.push(`hds-copy-button--size-${this.size}`);
-
-    // add a class based on the @color argument
-    classes.push(`hds-copy-button--color-secondary`);
+    classes.push(`hds-button--size-${this.size}`);
 
     return classes.join(' ');
   }

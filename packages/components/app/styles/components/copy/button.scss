@@ -7,17 +7,19 @@
 // COPY > BUTTON
 //
 
-// Colors + States
+// mostly the hds-button but with a few style tweaks
+// so the CSS is scoped to the component class (we're not changing any of the other class names)
 
-.hds-copy-button--color-secondary {
-  .hds-button__icon {
-    color: var(--token-color-foreground-action);
-  }
-
-  &.is-success,
-  &.mock-success {
+.hds-copy-button {
+  &.hds-button--color-secondary {
     .hds-button__icon {
-      color: var(--token-color-foreground-success);
+      color: var(--token-color-foreground-action);
+    }
+
+    &.hds-copy-button__success {
+      .hds-button__icon {
+        color: var(--token-color-foreground-success);
+      }
     }
   }
 }
