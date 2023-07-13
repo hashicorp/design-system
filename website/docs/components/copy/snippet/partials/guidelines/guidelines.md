@@ -2,13 +2,11 @@
 
 ### When to use
 
-- {description}
+- Use the `CopySnippet` when users need to copy specific items like URLs, IDs, tokens, or other strings.
 
 ### When not to use
 
-- {description}, consider {[component](#)}.
-- {description}, consider {[component](#)}.
-- {description}, consider {[component](#)}.
+- Do not use for copying text outside of the `CopySnippet` button. 
 
 ### Variant/property name
 
