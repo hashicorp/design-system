@@ -37,23 +37,6 @@ export default class HdsCopySnippetIndexComponent extends Component {
     return color;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
-  get classNames() {
-    let classes = ['hds-copy-snippet hds-typography-code-100'];
-
-    // add a class based on the @size argument
-    classes.push(`hds-copy-snippet--size-small`);
-
-    // add a class based on the @color argument
-    classes.push(`hds-copy-snippet--color-${this.color}`);
-
-    return classes.join(' ');
-  }
-
   @action
   async copyCode() {
     if (this.args.text) {

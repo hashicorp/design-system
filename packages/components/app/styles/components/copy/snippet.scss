@@ -7,76 +7,36 @@
 // COPY > SNIPPET
 //
 
-@use "../../mixins/button" as *;
-@use "../../mixins/focus-ring" as *;
-
-$hds-copy-snippet-border-radius: $hds-button-border-radius;
 
 .hds-copy-snippet {
-  @include hds-button();
-  padding: 12px 8px;
+  padding: 12px 8px; //still need to fix this
 
-  &:focus,
-  &.mock-focus {
-    @include hds-button-state-focus();
+  // TEXT INSIDE
+  // scoping it to the component name since we're using the hds-button
+  .hds-button__text {
+    font-size: var(--token-typography-code-100-font-size);
+    font-family: var(--token-typography-code-100-font-family);
+    line-height: var(--token-typography-code-100-line-height);
   }
 
-  &:hover,
-  &.mock-hover {
-    cursor: pointer;
-  }
-}
+  // ICON INSIDE
+  .hds-button__icon {
+    width: 16px;
+    height: 16px;
 
-// SIZE
-@include hds-button-size-classes("hds-copy-snippet");
-
-.hds-copy-snippet--width-full {
-  justify-content: space-between;
-  width: 100%;
-  max-width: 100%;
-}
-
-// COLOR
-.hds-copy-snippet--color-tertiary {
-  @include hds-button-color-tertiary();
-}
-
-// TEXT INSIDE
-.hds-copy-snippet__text {
-  overflow: hidden;
-  white-space: wrap;
-  text-align: left;
-}
-
-// ICON INSIDE
-.hds-copy-snippet__icon {
-  flex: none;
-
-  .hds-copy-snippet__text + & {
-    margin-left: 8px;
-  }
-}
-
-// Colors + States
-
-.hds-copy-snippet--color-tertiary {
-  .hds-copy-snippet__icon {
-    color: var(--token-color-foreground-action);
+    .hds-button__text + & {
+      margin-left: 8px;
+    }
   }
 
-  &:hover,
-  &.mock-hover {
-    background-color: var(--token-color-surface-interactive-hover);
+  &.hds-button--color-secondary {
+    .hds-button__icon {
+      color: var(--token-color-foreground-action);
+    }
   }
 
-  &:active,
-  &.mock-active {
-    background-color: var(--token-color-surface-interactive-active);
-  }
-
-  &.is-success,
-  &.mock-success {
-    .hds-copy-snippet__icon {
+  &.hds-copy-snippet__success {
+    .hds-button__icon {
       color: var(--token-color-foreground-success);
     }
   }
