@@ -20,5 +20,11 @@
         color: var(--token-color-foreground-success);
       }
     }
+
+    &.hds-copy-button--error {
+      .hds-button__icon {
+        color: var(--token-color-foreground-critical);
+      }
+    }
   }
 }

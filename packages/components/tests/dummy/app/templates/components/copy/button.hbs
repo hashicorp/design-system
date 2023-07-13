@@ -13,8 +13,8 @@
   <Shw::Flex as |SF|>
     <SF.Item class="shw-component-button-generated">
       <Shw::Label>Default</Shw::Label>
-      <p class="shw-text shw-text-body" id="clipboardTarget">"This is the text that these buttons will copy."</p>
-      <Hds::Copy::Button @text="Copy" @clipboardTarget="#clipboardTarget" />
+      <p class="shw-text shw-text-body" id="targetToCopy">"This is the text that these buttons will copy."</p>
+      <Hds::Copy::Button @text="Copy" @targetToCopy="#targetToCopy" />
     </SF.Item>
   </Shw::Flex>
 
@@ -22,13 +22,10 @@
 
   <Shw::Flex as |SF|>
     <SF.Item @label="Default">
-      <Hds::Copy::Button @text="Copy" @clipboardTarget="#clipboardTarget" />
+      <Hds::Copy::Button @text="Copy" @targetToCopy="#targetToCopy" />
     </SF.Item>
     <SF.Item @label="Icon only">
-      <Hds::Copy::Button @isIconOnly={{true}} @text="Copy" @clipboardTarget="#clipboardTarget" />
-    </SF.Item>
-    <SF.Item {{style width="200px"}} @label="Long text">
-      <Hds::Copy::Button @text="This should error, clipboardTarget is missing" />
+      <Hds::Copy::Button @isIconOnly={{true}} @text="Copy" @targetToCopy="#targetToCopy" />
     </SF.Item>
   </Shw::Flex>
 
@@ -37,12 +34,12 @@
   <Shw::Flex as |SF|>
     {{#each @model.SIZES as |size|}}
       <SF.Item @label={{capitalize size}}>
-        <Hds::Copy::Button @text="Copy" @size={{size}} @clipboardTarget="#clipboardTarget" />
+        <Hds::Copy::Button @text="Copy" @size={{size}} @targetToCopy="#targetToCopy" />
       </SF.Item>
     {{/each}}
     <SF.Item @label="Full width">
       <Shw::Outliner {{style width="300px"}}>
-        <Hds::Copy::Button @text="Copy" @isFullWidth={{true}} @clipboardTarget="#clipboardTarget" />
+        <Hds::Copy::Button @text="Copy" @isFullWidth={{true}} @targetToCopy="#targetToCopy" />
       </Shw::Outliner>
     </SF.Item>
   </Shw::Flex>
@@ -58,7 +55,7 @@
             @size={{size}}
             @icon={{this.icon}}
             mock-state-value={{state}}
-            @clipboardTarget="#clipboardTarget"
+            @targetToCopy="#targetToCopy"
           />
         </SG.Item>
       {{/each}}
@@ -69,26 +66,11 @@
   <Shw::Flex as |SF|>
     <SF.Item class="shw-component-button-generated">
       <Shw::Label>A code block</Shw::Label>
-
-      <pre><code id="clipboardTarget3">&lt;h1&gt;A page header example&lt;/h1&gt;
+      {{!-- prettier-ignore --}}
+      <pre><code id="targetToCopy3">&lt;h1&gt;A page header example&lt;/h1&gt;
 &lt;p&gt;Some paragraph text also&lt;/p&gt;
       </code></pre>
-      <Hds::Copy::Button @text="Copy this code block" @clipboardTarget="#clipboardTarget3" />
+      <Hds::Copy::Button @text="Copy this code block" @targetToCopy="#targetToCopy3" />
     </SF.Item>
   </Shw::Flex>
-
-  {{!-- <Shw::Flex as |SF|>
-    <SF.Item class="shw-component-button-generated">
-      <Shw::Label>Missing @text, fails as expected</Shw::Label>
-      <p class="shw-text shw-text-body" id="clipboardTarget4">Text to be copied</p>
-      <Hds::Copy::Button @isIconOnly={{true}} @clipboardTarget="#clipboardTarget4" />
-    </SF.Item>
-  </Shw::Flex> --}}
-  {{!-- <Shw::Flex as |SF|>
-    <SF.Item class="shw-component-button-generated">
-      <Shw::Label>Try to use size="large", fails as expected</Shw::Label>
-      <p class="shw-text shw-text-body" id="clipboardTarget4">Text to be copied</p>
-      <Hds::Copy::Button @text="Copy" @size="large" @clipboardTarget="#clipboardTarget4" />
-    </SF.Item>
-  </Shw::Flex> --}}
 </section>

@@ -3,7 +3,7 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <Hds::Button
-  class="{{this.classNames}} {{if this.isSuccess 'hds-copy-button--success'}}"
+  class="{{this.classNames}}"
   @size={{this.size}}
   @isFullWidth={{@isFullWidth}}
   @text={{@text}}
@@ -11,6 +11,13 @@
   @isIconOnly={{@isIconOnly}}
   @color="secondary"
   @iconPosition="trailing"
-  @clipboardTarget={{@clipboardTarget}}
-  {{on "click" this.copyCode}}
+  {{clipboard
+    text=this.textToCopy
+    target=this.targetToCopy
+    action=this.action
+    delegateClickEvent=this.delegateClickEvent
+    container=this.container
+    onError=this.onError
+    onSuccess=this.onSuccess
+  }}
 />

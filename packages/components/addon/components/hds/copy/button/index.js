@@ -12,30 +12,23 @@ export const DEFAULT_SIZE = 'medium';
 export const SIZES = ['small', 'medium'];
 export const DEFAULT_ICON = 'clipboard-copy';
 export const SUCCESS_ICON = 'clipboard-checked';
+export const ERROR_ICON = 'clipboard';
+export const DEFAULT_STATUS = 'idle';
 
 export default class HdsCopyButtonComponent extends Component {
   @tracked isSuccess = false;
   @tracked isError = false;
+  @tracked status = DEFAULT_STATUS;
+  @tracked timer;
 
   get icon() {
     let icon = DEFAULT_ICON;
-    if (this.isSuccess) {
+    if (this.status === 'success') {
       icon = SUCCESS_ICON;
+    } else if (this.status === 'error') {
+      icon = ERROR_ICON;
     }
     return icon;
-  }
-  /**
-   * @param clipboardTarget
-   * @type {string}
-   * @description The ID of the element containing the text to be copied.
-   */
-  get clipboardTarget() {
-    let { clipboardTarget } = this.args;
-    assert(
-      '@clipboardTarget for "Hds::Copy::Button" must have a valid value',
-      clipboardTarget !== undefined
-    );
-    return clipboardTarget;
   }
 
   /**
@@ -57,6 +50,16 @@ export default class HdsCopyButtonComponent extends Component {
     return size;
   }
 
+  get textToCopy() {
+    return this.args.encoded
+      ? decodeURI(this.args.textToCopy)
+      : this.args.textToCopy;
+  }
+
+  get targetToCopy() {
+    return this.args.targetToCopy;
+  }
+
   /**
    * Get the class names to apply to the component.
    * @method CopyButton#classNames
@@ -68,46 +71,28 @@ export default class HdsCopyButtonComponent extends Component {
     // add a class based on the @size argument
     classes.push(`hds-button--size-${this.size}`);
 
+    classes.push(`hds-copy-button--${this.status}`);
+
     return classes.join(' ');
   }
 
   @action
-  async copyCode() {
-    let textToCopy;
-    if (this.clipboardTarget) {
-      let clipboardTargetContent = document
-        .querySelector(this.clipboardTarget)
-        .innerHTML.trim();
-      textToCopy = clipboardTargetContent;
-      // leaving this in while development
-      console.log(`${textToCopy} is copied to the clipboard`);
-    } else {
-      this.isError = true;
-      // leaving this in while in development
-      console.log(
-        `something went wrong, nothing was copied to the keyboard. isError is ${this.isError}, isSuccess is ${this.isSuccess}.`
-      );
-    }
-    // https://developer.mozilla.org/en-US/docs/Web/API/Clipboard
-    await navigator.clipboard.writeText(textToCopy);
+  onSuccess() {
+    this.status = 'success';
+    this.resetStatusDelayed();
+  }
 
-    if (navigator.clipboard.readText) {
-      const result = await navigator.clipboard.readText();
+  @action
+  onError() {
+    this.status = 'error';
+    this.resetStatusDelayed();
+  }
 
-      if (result === textToCopy) {
-        this.isSuccess = true;
-      }
-    } else {
-      // I don't think it ever gets here...
-      this.isError = true;
-      console.log(
-        'the copy was not successful, the browser requires your permission'
-      );
-    }
-
+  resetStatusDelayed() {
+    clearTimeout(this.timer);
     // make it fade back to the default state
-    setTimeout(() => {
-      this.isSuccess = false;
+    this.timer = setTimeout(() => {
+      this.status = DEFAULT_STATUS;
     }, 1500);
   }
 }
