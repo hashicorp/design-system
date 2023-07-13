@@ -1,0 +1,30 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<Hds::Form::Field
+  @layout="vertical"
+  @extraAriaDescribedBy={{@extraAriaDescribedBy}}
+  @isRequired={{@isRequired}}
+  @isOptional={{@isOptional}}
+  @id={{@id}}
+  as |F|
+>
+  {{! Notice: the order of the elements is not relevant here, because is controlled at "Hds::Form::Field" component level }}
+  {{yield (hash Label=F.Label isRequired=F.isRequired isOptional=F.isOptional)}}
+  {{yield (hash HelperText=F.HelperText Error=F.Error)}}
+  <F.Control>
+    <Hds::Form::MaskedInput::Base
+      @isMultiline={{@isMultiline}}
+      @isMasked={{@isMasked}}
+      @value={{@value}}
+      @isInvalid={{@isInvalid}}
+      @width={{@width}}
+      @height={{@height}}
+      @id={{F.id}}
+      required={{@isRequired}}
+      ...attributes
+      aria-describedby={{F.ariaDescribedBy}}
+    />
+  </F.Control>
+</Hds::Form::Field>
