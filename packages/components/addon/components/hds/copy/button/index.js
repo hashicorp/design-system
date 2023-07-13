@@ -35,7 +35,6 @@ export default class HdsCopyButtonComponent extends Component {
       '@clipboardTarget for "Hds::Copy::Button" must have a valid value',
       clipboardTarget !== undefined
     );
-    console.log(`clipboard target is ${clipboardTarget}`);
     return clipboardTarget;
   }
 
