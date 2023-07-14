@@ -21,11 +21,6 @@ The Ember component inherits the styles of the text around it, ensure that the f
     - `Components / Link inline / Foreground / Primary`
     - `Components / Link inline / Foreground / Secondary`
 
-!!! Info
-
-In Figma we publish links with a font-weight of `Medium`. Depending on the surrounding text the link style may need to be overriden to match.
-!!!
-
 ## Color
 
 ### Primary
@@ -84,11 +79,12 @@ Don’t wrap an entire sentence or text block in a link.
 
 !!!
 
-### Display sizes
+!!! Dont
 
-We don't recommend using links within `Display` sizes as these are generally reserved for titles and headlines.
+Use links within `Display` sizes rarely as these are generally meant for titles and headlines.
 
-If an Inline Link inside of a `Display` text is required, the Ember component will inherit the font size and weight. The style in Figma will need to be overriden with an underline as we do not publish link styles for `Display` sizes at this time.
+<span class="hds-typography-display-400 hds-font-family-sans-display hds-font-weight-bold">Headline <Hds::Link::Inline @href="..." @color="primary">containing a link</Hds::Link::Inline></span>
+!!!
 
 !!! Do
 
