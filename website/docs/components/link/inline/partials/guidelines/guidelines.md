@@ -23,7 +23,7 @@ The Ember component inherits the styles of the text around it, ensure that the f
 
 !!! Info
 
-In Figma we publish links with a font-weight of `Medium`. Depending on the surrounding text the link style may need to be overridden to match.
+In Figma we publish links with a font-weight of `Medium`. Depending on the surrounding text the link style may need to be overriden to match.
 !!!
 
 ## Color

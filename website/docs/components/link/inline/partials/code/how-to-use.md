@@ -3,9 +3,7 @@
 The most basic invocation requires some content to be passed as children and either an `@href` or `@route` argument.
 
 ```handlebars
-<span class="hds-typography-body-300">
-  Lorem <Hds::Link::Inline @href="...">ipsum dolor</Hds::Link::Inline> sit amet consectetur adipiscing elit.
-</span>
+Lorem <Hds::Link::Inline @href="...">ipsum dolor</Hds::Link::Inline> sit amet consectetur adipiscing elit.
 ```
 
 ### Color
@@ -13,9 +11,7 @@ The most basic invocation requires some content to be passed as children and eit
 There are two available colors for an Inline Link: `primary` and `secondary`. The default is `primary`.
 
 ```handlebars
-<span class="hds-typography-body-300">
-  Lorem <Hds::Link::Inline @color="secondary" @href="...">ipsum dolor</Hds::Link::Inline> sit amet consectetur adipiscing elit.
-</span>
+Lorem <Hds::Link::Inline @color="secondary" @href="...">ipsum dolor</Hds::Link::Inline> sit amet consectetur adipiscing elit.
 ```
 
 ### Icon
@@ -63,9 +59,7 @@ All the standard arguments for the `<LinkTo/LinkToExternal>` components are supp
 To generate an `<a>` link using a `<LinkTo>` Ember component, pass a `@route` argument. 
 
 ```handlebars
-<span class="hds-typography-body-300">
-  Lorem <Hds::Link::Inline @route="my.page.route" @model="my.page.model">ipsum dolor</Hds::Link::Inline> sit amet consectetur adipiscing elit.
-</span>
+Lorem <Hds::Link::Inline @route="my.page.route" @model="my.page.model">ipsum dolor</Hds::Link::Inline> sit amet consectetur adipiscing elit.
 ```
 
 ##### For `<LinkToExternal>`
