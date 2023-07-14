@@ -4,19 +4,19 @@ The basic invocation requires text and clipboardTarget to be passed:
 
 ```handlebars
 <p id="clipboardTarget">
-  This is the text that the button will copy.
+  The button will copy the text in this paragraph element.
 </p>
-<Hds::Copy::Button @text="Copy" @clipboardTarget="#clipboardTarget" />
+<Hds::Copy::Button @text="Copy" @targetToCopy="#clipboardTarget" />
 ```
 
 ### Icon-only
 
 ```handlebars
 <p id="clipboardTarget2">
-  This is the text that the button will copy.
+  The button will copy the text in this paragraph element.
 </p>
 <Hds::Copy::Button @text="Copy" @isIconOnly={{true}}
-@clipboardTarget="#clipboardTarget2" />
+@targetToCopy="#clipboardTarget2" />
 ```
 
 ### Sizes
@@ -24,10 +24,31 @@ The basic invocation requires text and clipboardTarget to be passed:
 The component supports small and medium sizes (medium is the default):
 
 ```handlebars
-<p id="clipboardTarget">
-  This is the text that the button will copy.
+<p id="clipboardTarget3">
+  The button will copy the text in this paragraph element.
 </p>
 <Hds::Copy::Button @text="Copy" @size="small" 
-@clipboardTarget="#clipboardTarget" />
+@targetToCopy="#clipboardTarget3" />
 ```
 
+### Full-width
+
+This indicates that the component should take up the full-width of the parent container. It’s set to `false` by default.
+
+```handlebars
+<p id="clipboardTarget4">
+  The button will copy the text in this paragraph element.
+</p>
+<Hds::Copy::Button @text="Copy"
+@targetToCopy="#clipboardTarget4"
+@isFullWidth={{true}} />
+```
+
+### Text to Copy
+
+The consumer can also indicate a text of string to be copied instead of indicating a target element:
+
+```handlebars
+<Hds::Copy::Button @text="Copy your secret key"
+@textToCopy="someSecretThingGoesHere" />
+```

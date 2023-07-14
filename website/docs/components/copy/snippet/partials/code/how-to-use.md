@@ -1,9 +1,24 @@
 ## How to use this component
 
-<!-- use the same heading order from Guidelines -->
-<!-- {basic invocation details} -->
+The basic invocation requires `textToCopy` to be passed:
 
-<!-- This below is just an example of invocation, to get started -->
 ```handlebars
-<Hds::Copy::Snippet @text="e4rt-yg80-39kt"/>
+<Hds::Copy::Snippet @textToCopy="e4rt-yg80-39kt" />
+```
+
+### Color
+
+There are two available colors for the component: `secondary` and `tertiary`. The default is `tertiary`. To use a different color, declare another value for `@color`:
+
+```handlebars
+<Hds::Copy::Snippet @textToCopy="e4rt-yg80-39kt"
+@color="secondary" />
+```
+
+### Full-width
+
+This indicates that the component should take up the full-width of the parent container. It’s set to `false` by default.
+
+```handlebars
+<Hds::Copy::Snippet @textToCopy="e4rt-yg80-39kt" @isFullWidth={{true}} />
 ```
