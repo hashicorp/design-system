@@ -17,10 +17,10 @@ Cursor navigation allows users to navigate to the next or previous set of record
 
 Offset or page-based pagination allows you to divide datasets into pages, letting users navigate to any particular page. If your product supports it, you can use either numbered or compact pagination. In most cases, the numbered pagination provides a better user experience. It allows users to jump between pages and always return to the first page or go to the last page without navigating through the pages manually.
 
-![Numbered pagination example](/assets/components/pagination/pagination-offset-example.png =50%x50%)
+![Numbered pagination example](/assets/components/pagination/pagination-offset-example.png =836x*)
 - Supported by offset (page-based) pagination.
 
-![Compact pagination example](/assets/components/pagination/pagination-cursor-example.png =25%x25%)
+![Compact pagination example](/assets/components/pagination/pagination-cursor-example.png =836x*)
 - Supported by offset and cursor based pagination.
 
 !!! Warning 
