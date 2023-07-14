@@ -39,6 +39,10 @@ When pairing the pagination or pagination bar with your content, we recommend le
 
 If your product uses a significantly higher or lower spacing scale, increase or decrease the spacing accordingly.
 
+#### Spacing examples
+
 ![Spacing for pagination paired with tables](/assets/components/pagination/pagination-spacing-tables.png)
+
+---
 
 ![Spacing for pagination paired with not contained content](/assets/components/pagination/pagination-spacing-not-contained.png)
