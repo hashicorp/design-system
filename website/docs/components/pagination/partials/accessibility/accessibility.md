@@ -17,13 +17,13 @@ Focus and move between pagination controls.
 
 `tab`
 
-![Keyboard navigation](/assets/components/pagination/pagination-keyboard-navigation-01.png =50%x50%)
+![Keyboard navigation](/assets/components/pagination/pagination-keyboard-navigation-01.png =836x*)
 
 Trigger button to navigate to another page.
 
 `enter`
 
-![Keyboard navigation](/assets/components/pagination/pagination-keyboard-navigation-02.png =50%x50%)
+![Keyboard navigation](/assets/components/pagination/pagination-keyboard-navigation-02.png =836x*)
 
 ## Applicable WCAG Success Criteria
 

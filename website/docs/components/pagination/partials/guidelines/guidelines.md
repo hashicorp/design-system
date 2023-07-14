@@ -17,10 +17,10 @@ Cursor navigation allows users to navigate to the next or previous set of record
 
 Offset or page-based pagination allows you to divide datasets into pages, letting users navigate to any particular page. If your product supports it, you can use either numbered or compact pagination. In most cases, the numbered pagination provides a better user experience. It allows users to jump between pages and always return to the first page or go to the last page without navigating through the pages manually.
 
-![Numbered pagination example](/assets/components/pagination/pagination-offset-example.png =50%x50%)
+![Numbered pagination example](/assets/components/pagination/pagination-offset-example.png)
 - Supported by offset (page-based) pagination.
 
-![Compact pagination example](/assets/components/pagination/pagination-cursor-example.png =25%x25%)
+![Compact pagination example](/assets/components/pagination/pagination-cursor-example.png)
 - Supported by offset and cursor based pagination.
 
 !!! Warning 
@@ -35,12 +35,14 @@ We strongly suggest that you talk to your engineering team to see which paginati
 - When using the pagination, the component should be center aligned with the content it relates to.
 - Make sure there’s enough distance and breathing room between the pagination and unrelated content (e.g. another section below it), so it’s clear what content the pagination is paired with.
 
-When pairing the pagination or pagination bar with tables, we recommend:
-- 16px between the pagination or pagination bar and the content it relates to.
+When pairing the pagination or pagination bar with your content, we recommend leaving 16px of margin between the pagination and the content it relates to.
+
+If your product uses a significantly higher or lower spacing scale, increase or decrease the spacing accordingly.
+
+#### Spacing examples
 
 ![Spacing for pagination paired with tables](/assets/components/pagination/pagination-spacing-tables.png)
 
-When pairing with content which is not contained (e.g. cards, lists), we recommend:
-- At least 16px for consistency. If your product uses a scale where the spacing between elements tends to be higher or lower, or the paginated content looks optically loose or tight to the component, increase or decrease the spacing accordingly.
+---
 
 ![Spacing for pagination paired with not contained content](/assets/components/pagination/pagination-spacing-not-contained.png)
