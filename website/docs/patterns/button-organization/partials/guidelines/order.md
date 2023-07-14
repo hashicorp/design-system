@@ -6,7 +6,7 @@ Users generally think from highest to lowest priority and positive to negative w
 
 Order buttons based on priority, from the **highest** priority action (usually a primary button) to the **lowest** priority (secondary or tertiary buttons).
 
-![Ordering from high priority](/assets/patterns/button-organization/order-high-low-priority.png =770x*)
+![Ordering from high priority](/assets/patterns/button-organization/order-high-low-priority.png)
 !!!
 
 
@@ -16,14 +16,14 @@ In the case of a destructive action, replace the primary button with a critical 
 
 !!! Do
 
-![Destructive action order](/assets/patterns/button-organization/order-destructive-action.png =770x*)
+![Destructive action order](/assets/patterns/button-organization/order-destructive-action.png)
 !!!
 
 ### Conversational messaging
 
 Users often expect to communicate with machines and applications as if they were humans. These guidelines can reinforce this paradigm by encouraging users through a human-like conversational style.
 
-![Button order through conversational style](/assets/patterns/button-organization/order-conversational-example.png =836x*)
+![Button order through conversational style](/assets/patterns/button-organization/order-conversational-example.png)
 
 Consider the following scenario:
 
@@ -35,7 +35,7 @@ An often-depicted alternative to this scenario is to **end** with the most impor
 
 #### Non-natural conversation based on priority
 
-![Suboptimal grouping](/assets/patterns/button-organization/suboptimal-grouping.png =770x*)
+![Suboptimal grouping](/assets/patterns/button-organization/suboptimal-grouping.png)
 
 User edits the settings of a cluster:
 
@@ -47,7 +47,7 @@ User edits the settings of a cluster:
 !!! Do
 
 #### Natural conversation based on priority
-![Optimal order](/assets/patterns/button-organization/optimal-ordering.png =836x*)
+![Optimal order](/assets/patterns/button-organization/optimal-ordering.png)
 
 User edits the settings of a cluster:
 
@@ -61,7 +61,7 @@ A possible exception to this ordering method is in multi-step and progressive fl
 - The **directionality** and positive outcome of the overall flow are reinforced by the button order and grouping
 - In a multi-step flow, this type of pattern would persist on the page; the repetitiveness acts as a form of consistency scoped to the feature the pattern is used in.
 
-![Multi-step progressive flow](/assets/patterns/button-organization/multi-step-progressive-flow.png =836x*)
+![Multi-step progressive flow](/assets/patterns/button-organization/multi-step-progressive-flow.png)
 
 ### Stacking order
 
@@ -73,7 +73,7 @@ As the viewport size shrinks, buttons should stack vertically in accordance with
 
 !!! Do
 
-![Stacked order](/assets/patterns/button-organization/stacked-ordering.png =770x*)
+![Stacked order](/assets/patterns/button-organization/stacked-ordering.png)
 !!!
 
 
