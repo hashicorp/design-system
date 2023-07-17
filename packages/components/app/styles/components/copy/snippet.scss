@@ -24,7 +24,7 @@
 
 .hds-copy-snippet--color-primary {
   color: var(--token-color-foreground-action);
-  background-color: var(--token);
+  background-color: transparent;
 
   &:hover,
   &.mock-hover {
@@ -34,18 +34,20 @@
 
   &:active,
   &.mock-active {
-    color: var(--token-color-foreground-action);
-    background-color: var(--token-color-surface-interactive-active, #dedfe3);
+    color: var(--token-color-foreground-action-active);
+    background-color: var(--token-color-surface-interactive-active);
     border-color: var(--token-color-border-strong);
-    border-radius: 0.3125rem;
   }
 
-  @include hds-focus-ring-with-pseudo-element();
+  &:focus,
+  &.mock-focus {
+    @include hds-focus-ring-with-pseudo-element();
+  }
 }
 
 .hds-copy-snippet--color-secondary {
   color: var(--token-color-foreground-primary);
-  background-color: var(--token-color-surface-interactive);
+  background-color: transparent;
 
   &:hover,
   &.mock-hover {
@@ -65,24 +67,36 @@
   &:focus,
   &.mock-focus {
     @include hds-focus-ring-with-pseudo-element();
-    color: var(--token-color-foreground-primary) !important; // it didn't work without the important
   }
 
-  .hds-copy-snippet__icon,
-  &:hover,
-  &:active,
-  &:focus {
+  .hds-copy-snippet__icon {
     color: var(--token-color-foreground-action);
+
+    &:hover {
+      color: var(--token-color-foreground-action-hover);
+    }
+
+    &:active {
+      color: var(--token-color-foreground-action-active);
+    }
+
+    &:focus {
+      color: var(--token-color-foreground-action);
+    }
   }
 }
 
 .hds-copy-snippet--success {
+  background-color: var(--token-color-surface-interactive);
+
   .hds-copy-snippet__icon {
     color: var(--token-color-foreground-success);
   }
 }
 
 .hds-copy-snippet--error {
+  background-color: var(--token-color-surface-interactive);
+
   .hds-copy-snippet__icon {
     color: var(--token-color-foreground-critical-on-surface);
   }
