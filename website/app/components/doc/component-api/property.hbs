@@ -3,30 +3,25 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<dl class="doc-component-api__property">
-  <dt class="doc-component-api__term doc-component-api__term--name">Name</dt>
-  <dd class="doc-component-api__description doc-component-api__description--name">
+<div class="doc-component-api__property">
+  <div class="doc-component-api__property-info">
     <code class="doc-component-api__property-name">{{@name}}</code>
-  </dd>
-  {{#if @type}}
-    <dt class="doc-component-api__term doc-component-api__term--type">Type</dt>
-    <dd class="doc-component-api__description doc-component-api__description--type">
+    {{#if @type}}
       <code class="doc-component-api__property-type">{{@type}}</code>
-    </dd>
-  {{/if}}
-  {{#if @required}}
-    <dt class="doc-component-api__term doc-component-api__term--required">Required</dt>
-    <dd class="doc-component-api__description doc-component-api__description--required">
-      <Doc::Badge @type="outlined">Required</Doc::Badge>
-    </dd>
-  {{/if}}
+    {{/if}}
+    {{#if @required}}
+      <code class="doc-component-api__property-required">required</code>
+    {{/if}}
+  </div>
   {{#if (or @values @valueNote)}}
-    <dt class="doc-component-api__term doc-component-api__term--values">Values</dt>
-    <dd class="doc-component-api__description doc-component-api__description--values">
+    <div class="doc-component-api__property-values">
       {{#if @values}}
         <ul class="doc-component-api__property-values" role="list">
           {{#each @values as |value|}}
-            <li class="doc-component-api__property-value{{if (eq @default value) '--default'}}">
+            <li
+              class="doc-component-api__property-value
+                {{if (eq @default value) 'doc-component-api__property-value--default'}}"
+            >
               {{value}}{{#if (eq @default value)}} <span class="doc-sr-only">(default)</span>{{/if}}
             </li>
           {{/each}}
@@ -34,22 +29,20 @@
       {{else if @valueNote}}
         {{@valueNote}}
       {{/if}}
-    </dd>
+    </div>
   {{else if @default}}
-    <dt class="doc-component-api__term doc-component-api__term--values">Default</dt>
-    <dd class="doc-component-api__description doc-component-api__description--values">
+    <div class="doc-component-api__property-values">
       <ul class="doc-component-api__property-values" role="list">
-        <li class="doc-component-api__property-value--default">
+        <li class="doc-component-api__property-value doc-component-api__property-value--default">
           {{@default}}
           <span class="doc-sr-only">(default)</span>
         </li>
       </ul>
-    </dd>
+    </div>
   {{/if}}
   {{#if (has-block)}}
-    <dt class="doc-component-api__term doc-component-api__term--description">Description</dt>
-    <dd class="doc-component-api__description doc-component-api__description--description">
+    <div class="doc-component-api__property-description">
       {{yield}}
-    </dd>
+    </div>
   {{/if}}
-</dl>
+</div>
