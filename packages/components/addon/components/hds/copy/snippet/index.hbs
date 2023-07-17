@@ -2,14 +2,12 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<Hds::Button
+<button
+  type="button"
   class={{this.classNames}}
-  @isFullWidth={{@isFullWidth}}
-  @text={{@textToCopy}}
-  @icon={{this.icon}}
-  @color={{this.color}}
-  @size="small"
-  @iconPosition="trailing"
-  {{clipboard text=this.textToCopy target=this.targetToCopy onError=this.onError onSuccess=this.onSuccess}}
+  {{clipboard text=this.textToCopy onError=this.onError onSuccess=this.onSuccess}}
   ...attributes
-/>
+>
+  {{@textToCopy}}
+  <FlightIcon @name={{this.icon}} class="hds-copy-snippet__icon" />
+</button>
