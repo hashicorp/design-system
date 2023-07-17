@@ -51,4 +51,11 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
     );
     assert.dom('#test-copy-button').hasText('Copy your secret key');
   });
+
+  test('it should have the correct CSS class to support full-width button size if @isFullWidth prop is true', async function (assert) {
+    await render(
+      hbs`<Hds::Copy::Button id="test-copy-button" @text="copy" @clipboardText="#clipboardText" @isFullWidth={{true}} />`
+    );
+    assert.dom('#test-copy-button').hasClass('hds-button--width-full');
+  });
 });

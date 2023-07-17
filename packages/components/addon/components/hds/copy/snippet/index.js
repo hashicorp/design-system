@@ -54,6 +54,16 @@ export default class HdsCopySnippetIndexComponent extends Component {
     return color;
   }
 
+  /**
+   * @param isFullWidth
+   * @type {boolean}
+   * @default false
+   * @description Indicates that the component should take up the full width of the parent container. The default is false.
+   */
+  get isFullWidth() {
+    return this.args.isFullWidth ?? false;
+  }
+
   get textToCopy() {
     return this.args.encoded
       ? decodeURI(this.args.textToCopy)
@@ -71,7 +81,13 @@ export default class HdsCopySnippetIndexComponent extends Component {
     // add a class based on the @color argument
     classes.push(`hds-copy-snippet--color-${this.color}`);
 
+    // add a class based on the tracked status (idle/success/error)
     classes.push(`hds-copy-snippet--${this.status}`);
+
+    // add a class based on the @isFullWidth argument
+    if (this.isFullWidth) {
+      classes.push('hds-copy-snippet--width-full');
+    }
 
     return classes.join(' ');
   }

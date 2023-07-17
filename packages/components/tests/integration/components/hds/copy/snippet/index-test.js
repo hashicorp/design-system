@@ -26,4 +26,11 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
       .dom('#test-copy-snippet')
       .hasClass('hds-copy-snippet--color-secondary');
   });
+
+  test('it should have the correct CSS class to support full-width button size if @isFullWidth prop is true', async function (assert) {
+    await render(
+      hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="3423g-234525-h345346-f34rtf4" @isFullWidth={{true}} />`
+    );
+    assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet--width-full');
+  });
 });
