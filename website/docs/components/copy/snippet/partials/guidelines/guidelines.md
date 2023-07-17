@@ -2,29 +2,34 @@
 
 ### When to use
 
-- Use the `CopySnippet` when users need to copy specific items like URLs, IDs, tokens, or other strings.
+- Use the `CopySnippet` component when you want users to be able to copy code snippets or text, such as URLs, tokens, or IDs.
+
+- Use when users need to extract and use specific information like API keys, configuration settings, or unique identifiers.
 
 ### When not to use
 
-- Do not use for copying text outside of the `CopySnippet` button. 
+- Don’t use a `CopySnippet` in a code block. Instead, use a `CopyButton.` 
 
-### Variant/property name
+- Avoid using the `CopySnippet` component for secure or sensitive information to maintain security. Instead, use, the component name, and paired with the `CopyButton`
 
-<!-- don’t forget to include real examples and do/don’t blocks, as necessary -->
-{description}
+- Take precautions to prevent accidental overwriting of important clipboard content using the `CopySnippet` component.
 
-### Variant/property name
+- Consider alternative presentation approaches if the content within the `CopySnippet` component has complex formatting or requires additional context for proper understanding.
 
-<!-- don’t forget to include real examples and do/don’t blocks, as necessary -->
-{description}
+## Truncation
 
-## Content
+Truncating a `CopySnippet` without accessible alternatives can make it difficult for keyboard users to understand and interact with the content. 
 
-- {description}
-- {description}
-- {description}
-- {description}
-- {description}
+1. Incomplete Information: Keyboard users need the full text to understand the `CopySnippet`. Truncation removes essential details, making it hard for them to grasp the complete context or purpose of the copied content.
+
+2. Navigation Challenges: Truncated text disrupts keyboard navigation, causing difficulty locating and interacting with the truncated parts. This can lead to clarity and satisfaction for users.
+
+3. Limited Interaction: Truncation restricts keyboard users from copying the entire content of the `CopySnippet`. Access to the complete text is crucial for accurately copying the intended information.
+
+4. Lack of Context: Truncated text in a `CopySnippet` makes it harder for keyboard users to understand the meaning or significance of the content. They may need help remembering essential details or grasping the copied text's full context.
+
+To ensure accessibility, we recommend to not truncate the `CopySnippet` without accessible alternatives. 
+- Consider showing the complete text on user interaction or providing tooltips with additional details that can be accessed using the keyboard.
 
 ## Related
 
