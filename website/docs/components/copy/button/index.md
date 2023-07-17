@@ -3,12 +3,12 @@ title: Copy Button
 description: A button that copies the attached or associated text upon interaction
 caption: A button that copies the attached or associated text upon interaction
 links:
-  figma:
+  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/branch/rLvpmUN7ClBOAx5iPU5PvU/HDS-Product---Components?type=design&node-id=39556%3A118454&mode=design&t=FeiIRDCnPlQf4c7i-1
   github: 
 previewImage: assets/illustrations/components/copy-button.jpg
 navigation:
   hidden: false
-  keywords: ['add', 'alternate', 'keywords', 'here']
+  keywords: ['copy', 'button']
 ---
 
 <section data-tab="Guidelines">
