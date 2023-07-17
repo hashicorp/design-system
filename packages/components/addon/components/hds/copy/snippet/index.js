@@ -8,8 +8,8 @@ import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
-export const DEFAULT_COLOR = 'tertiary';
-export const COLORS = ['tertiary', 'secondary'];
+export const DEFAULT_COLOR = 'primary';
+export const COLORS = ['primary', 'secondary'];
 export const DEFAULT_ICON = 'clipboard-copy';
 export const SUCCESS_ICON = 'clipboard-checked';
 export const ERROR_ICON = 'clipboard';
@@ -38,8 +38,8 @@ export default class HdsCopySnippetIndexComponent extends Component {
   /**
    * @param color
    * @type {string}
-   * @default tertiary
-   * @description Determines the color of button to be used; acceptable values are `secondary` and `tertiary`
+   * @default primary
+   * @description Determines the color of button to be used; acceptable values are `primary` and `secondary`
    */
   get color() {
     let { color = DEFAULT_COLOR } = this.args;
@@ -60,10 +60,6 @@ export default class HdsCopySnippetIndexComponent extends Component {
       : this.args.textToCopy;
   }
 
-  get targetToCopy() {
-    return this.args.targetToCopy;
-  }
-
   /**
    * Get the class names to apply to the component.
    * @method CopySnippet#classNames
@@ -73,7 +69,7 @@ export default class HdsCopySnippetIndexComponent extends Component {
     let classes = ['hds-copy-snippet'];
 
     // add a class based on the @color argument
-    classes.push(`hds-button--color-${this.color}`);
+    classes.push(`hds-copy-snippet--color-${this.color}`);
 
     classes.push(`hds-copy-snippet--${this.status}`);
 
