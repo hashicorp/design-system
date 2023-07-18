@@ -8,7 +8,7 @@ The basic invocation requires `textToCopy` to be passed:
 
 ### Color
 
-There are two available colors for the component: `secondary` and `tertiary`. The default is `tertiary`. To use a different color, declare another value for `@color`:
+There are two available colors for the component: `primary` and `secondary`. The default is `primary`. To use a different color, declare another value for `@color`:
 
 ```handlebars
 <Hds::Copy::Snippet @textToCopy="e4rt-yg80-39kt"
