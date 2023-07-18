@@ -13,9 +13,10 @@ At this time we are not accepting external contributions from non-HashiCorp empl
 
 While we don’t accept direct contributions of new components or patterns, we do welcome contributions in the following forms:
 
-* [Reporting](https://github.com/hashicorp/design-system/issues/new/choose) or [fixing](#code-contributions) bugs and [giving feedback](https://docs.google.com/forms/d/e/1FAIpQLSdPShbSiUYgimppZeqWT99bVi6zLbKDThQUQTirH3RCj2okdg/viewform)
-* [Proposing new components or patterns](https://docs.google.com/forms/d/e/1FAIpQLScpMXgrUTVT5fYriu4Pp48r4Nl_eCPluVnJLg0Yg3NXsRWvIA/viewform)
-* [Adding an icon](#icon-contributions)
+* [Reporting](https://go.hashi.co/hds-support) or fixing an issue or bug (see [Code contributions](#code-contributions))
+* [Providing general feedback](https://docs.google.com/forms/d/e/1FAIpQLSdPShbSiUYgimppZeqWT99bVi6zLbKDThQUQTirH3RCj2okdg/viewform)
+* [Proposing new components or patterns](https://go.hashi.co/hds-support)
+* Adding an icon (see [Icon contributions](#icon-contributions))
 * Improving our documentation
 * Participating in discussions or coming to Office Hours
 
@@ -30,4 +31,4 @@ For contributions to the individual code packages, consult the `CONTRIBUTING.md`
 
 ## Icon contributions
 
-Contributing is not required to get new icons added to the library, but HashiCorp employees are welcome and encouraged to contribute to the icon library. [File an icon request](https://docs.google.com/forms/d/e/1FAIpQLSc2wsaOaKHiVKPzk-FWlqwVdOjSmSuOU03XC5ZdJkHOcLDOEA/viewform) and if you’d like to design the icon yourself, start by reading through the  [contribution workflow](https://www.figma.com/file/MYiw4kiVpunIMMw0sBkE1t/%E2%9C%8F%EF%B8%8F-Flight-Development?node-id=566%3A1129&t=Bbflj3UUaWVyhamn-4) for creating a new icon.
+Contributing is not required to get new icons added to the library, but HashiCorp employees are welcome and encouraged to contribute to the icon library. [File an icon request](https://go.hashi.co/hds-support) and if you’d like to design the icon yourself, start by reading through the  [contribution workflow](https://www.figma.com/file/MYiw4kiVpunIMMw0sBkE1t/%E2%9C%8F%EF%B8%8F-Flight-Development?node-id=566%3A1129&t=Bbflj3UUaWVyhamn-4) for creating a new icon.

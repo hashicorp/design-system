@@ -76,7 +76,7 @@ Tabs will fill 100% of the parent container, unless explicitly set to something 
 
 !!! Insight
 
-Do you have a need for a more elegant overflow experience? Please let us know by [submitting a request](https://docs.google.com/forms/d/e/1FAIpQLScpMXgrUTVT5fYriu4Pp48r4Nl_eCPluVnJLg0Yg3NXsRWvIA/viewform).
+Do you have a need for a more elegant overflow experience? Please let us know by [submitting a request](https://go.hashi.co/hds-support).
 !!!
 
 ## Content
