@@ -69,7 +69,6 @@ At any time, you can check out the `components/template` folder to get an idea o
 5. Within `index.md`, update the order of content for the "Code" section to be: 
     - how-to-use.md
     - component-api.md
-    - showcase.md
 6. Remove the old `design guidelines` image and Figma link, if they still exist.
     1. Make sure the associated images are also removed from the `public` folder.
 7. Update mentions of "HashiCorp Design System" to "Helios" (in rare cases "Helios Design System") and "the design systems team" to "Helios team". 

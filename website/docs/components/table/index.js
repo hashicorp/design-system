@@ -7,11 +7,6 @@ import Component from '@glimmer/component';
 import { capitalize } from '@ember/string';
 
 export default class Index extends Component {
-  get STATES() {
-    // these are used only for presentation purpose in the showcase
-    return ['active', 'default', 'hover', 'focus'];
-  }
-
   get model() {
     const data = [
       {
