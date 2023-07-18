@@ -14,6 +14,7 @@ import {
 } from '@hashicorp/design-system-components/components/hds/text/code';
 import {
   AVAILABLE_ALIGNS,
+  AVAILABLE_COLORS,
 } from '@hashicorp/design-system-components/components/hds/text/index';
 
 export default class ComponentsTextRoute extends Route {
@@ -26,6 +27,7 @@ export default class ComponentsTextRoute extends Route {
       CODE_AVAILABLE_SIZES,
       CODE_AVAILABLE_WEIGHTS_PER_SIZE,
       AVAILABLE_ALIGNS,
+      AVAILABLE_COLORS,
     };
   }
 }
