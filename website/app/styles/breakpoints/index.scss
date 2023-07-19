@@ -18,11 +18,11 @@ $doc-breakpoint-for-sidebar: 880px;
   @media (max-width: calc(#{$doc-breakpoint-medium} - 1px)) { @content; }
 }
 
-@mixin medium {
+@mixin medium-only {
   @media (min-width: $doc-breakpoint-medium) and (max-width: calc(#{$doc-breakpoint-large} - 1px)) { @content; }
 }
 
-@mixin medium-and-above {
+@mixin medium {
   @media (min-width: $doc-breakpoint-medium) { @content; }
 }
 

@@ -15,7 +15,7 @@
   padding: 0;
   list-style: none;
 
-  @include breakpoint.medium-and-above () {
+  @include breakpoint.medium () {
     grid-template-columns: repeat(2, 1fr);
   }
 }

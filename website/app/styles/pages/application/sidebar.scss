@@ -92,7 +92,7 @@ body.application:not(.index) {
       content: "";
     }
 
-    @include breakpoint.medium-and-above() {
+    @include breakpoint.medium () {
       display: none;
     }
   }

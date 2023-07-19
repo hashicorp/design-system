@@ -26,7 +26,7 @@
   padding: 16px 24px;
   color: var(--doc-color-black);
 
-  @include breakpoint.medium-and-above() {
+  @include breakpoint.medium () {
     flex-direction: row;
     justify-content: space-between;
   }
@@ -35,7 +35,7 @@
     flex-direction: column-reverse;
     color: var(--doc-color-white);
 
-    @include breakpoint.medium-and-above() {
+    @include breakpoint.medium () {
       flex-direction: row-reverse;
     }
   }
