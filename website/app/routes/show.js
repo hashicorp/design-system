@@ -86,6 +86,7 @@ export default class ShowRoute extends Route {
           'description',
           'caption',
           'links',
+          'related',
           'layout',
           'previewImage', // this is needed by the `head-data` to generate the `og:image` in the page <head>
           'navigation',
@@ -105,6 +106,27 @@ export default class ShowRoute extends Route {
           .replace(/\/index$/, '')
           .replaceAll('/', '-')}`;
 
+        // associate the "related components" urls declared in the the frontmatter
+        // with the `pageAttributes` metadata for that component coming from the TOC object
+        let relatedComponents = [];
+        if (frontmatter.related) {
+          frontmatter.related.map((relatedComponent) => {
+            const relatedComponentData = toc.flat.find(
+              (item) => item.pageURL === relatedComponent
+            );
+            if (relatedComponentData) {
+              relatedComponents.push({
+                ...relatedComponentData.pageAttributes,
+                pageURL: relatedComponentData.pageURL,
+              });
+            } else {
+              console.error(
+                `The related component '${relatedComponent}' doesn't have a valid path in the frontmatter block of this page.`
+              );
+            }
+          });
+        }
+
         return {
           // IMPORTANT: this is the "component" ID which is used to get the correct backing class for the markdown "component"
           // This ID comes from the markdown-to-json conversion (see `id: relativePath.replace(/\.md$/, '')` in `addons/field-guide/lib/markdown-to-jsonapi.js`)
@@ -116,6 +138,7 @@ export default class ShowRoute extends Route {
           frontmatter,
           hasCover,
           hasSidecar,
+          relatedComponents,
         };
       });
   }

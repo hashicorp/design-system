@@ -84,6 +84,10 @@ export default class ShowController extends Controller {
     return { links };
   }
 
+  get relatedComponents() {
+    return this.model.relatedComponents ?? false;
+  }
+
   get currentActiveTabIndex() {
     const tab = this.tabs.find((tab) => {
       return tab.isCurrent;

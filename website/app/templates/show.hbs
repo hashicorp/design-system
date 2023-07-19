@@ -9,9 +9,15 @@
       @extra={{this.extra}}
     />
   {{/if}}
+
   <Doc::Page::Content @breakthrough={{not this.model.hasSidecar}} id={{this.model.showContentId}}>
     <DynamicTemplate @templateString={{this.renderedContent}} @componentId={{this.model.id}} />
+
+    <pre>Related components: {{this.relatedComponents}}</pre>
+    {{! log this.relatedComponents }}
+
   </Doc::Page::Content>
+
   {{#if this.model.hasSidecar}}
     <Doc::Page::Sidecar @tocs={{this.tocs}} />
   {{/if}}
