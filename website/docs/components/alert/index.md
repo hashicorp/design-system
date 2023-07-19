@@ -5,6 +5,7 @@ caption: Displays a brief message without interrupting a user’s task.
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=1377%3A11987
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/alert
+related: ['components/modal', 'components/toast']
 previewImage: assets/illustrations/components/alert.jpg
 navigation:
   keywords: ['alert', 'toast', 'notification', 'banner', 'message']

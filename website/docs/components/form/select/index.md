@@ -5,6 +5,7 @@ caption: A form element that allows users to choose one option from a list.
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=14283%3A34475&t=pDgL7LJUJXZUN7Xq-3
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/form/select
+related: ['patterns/form-patterns']
 previewImage: assets/illustrations/components/form/select.jpg
 navigation:
   keywords: ['dropdown', 'form']

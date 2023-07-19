@@ -5,6 +5,7 @@ caption: A form element that allows users to select between two mutually exclusi
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=13181%3A36435&t=pDgL7LJUJXZUN7Xq-3
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/form/toggle
+related: ['components/form/checkbox', 'components/form/radio', 'patterns/form-patterns']
 previewImage: assets/illustrations/components/form/toggle.jpg
 navigation:
   keywords: ['toggle button', 'switch', 'light switch']

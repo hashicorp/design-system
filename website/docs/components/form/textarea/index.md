@@ -5,6 +5,7 @@ caption: A form input that accepts multi-line text.
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=13343%3A31585&t=pDgL7LJUJXZUN7Xq-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/form/textarea
+related: ['patterns/form-patterns']
 previewImage: assets/illustrations/components/form/textarea.jpg
 navigation:
   keywords: ['text field', 'textbox', 'text box', 'form']
