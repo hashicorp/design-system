@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2023-07-19T00:21:07.417Z",
+  "lastRunTimeISO": "2023-07-19T00:32:52.654Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -15,7 +15,7 @@
       "id": "1368:168",
       "fileName": "loading-24",
       "iconName": "loading",
-      "description": "loading, loader, spinner",
+      "description": "loading, loader, spinner, animated",
       "size": "24",
       "width": 24,
       "height": 24
@@ -24,7 +24,7 @@
       "id": "1368:171",
       "fileName": "loading-16",
       "iconName": "loading",
-      "description": "loading, loader, spinner",
+      "description": "loading, loader, spinner, animated",
       "size": "16",
       "width": 16,
       "height": 16
@@ -33,7 +33,7 @@
       "id": "1368:177",
       "fileName": "running-24",
       "iconName": "running",
-      "description": "running, run",
+      "description": "running, run, animated",
       "size": "24",
       "width": 24,
       "height": 24
@@ -42,7 +42,7 @@
       "id": "1368:180",
       "fileName": "running-16",
       "iconName": "running",
-      "description": "running, run",
+      "description": "running, run, animated",
       "size": "16",
       "width": 16,
       "height": 16
@@ -2373,7 +2373,7 @@
       "id": "350:31",
       "fileName": "alert-circle-24",
       "iconName": "alert-circle",
-      "description": "alert, circle, error, attention",
+      "description": "alert, circle, error, attention, warning",
       "size": "24",
       "width": 24,
       "height": 24
@@ -2382,7 +2382,7 @@
       "id": "350:35",
       "fileName": "alert-circle-16",
       "iconName": "alert-circle",
-      "description": "alert, circle, error, attention",
+      "description": "alert, circle, error, attention, warning",
       "size": "16",
       "width": 16,
       "height": 16
@@ -2391,7 +2391,7 @@
       "id": "551:32",
       "fileName": "alert-circle-fill-24",
       "iconName": "alert-circle-fill",
-      "description": "alert, circle, error, attention",
+      "description": "alert, circle, error, attention, warning",
       "size": "24",
       "width": 24,
       "height": 24
@@ -2400,7 +2400,7 @@
       "id": "551:37",
       "fileName": "alert-circle-fill-16",
       "iconName": "alert-circle-fill",
-      "description": "alert, circle, error, attention",
+      "description": "alert, circle, error, attention, warning",
       "size": "16",
       "width": 16,
       "height": 16
@@ -2409,7 +2409,7 @@
       "id": "1729:90",
       "fileName": "alert-diamond-24",
       "iconName": "alert-diamond",
-      "description": "alert, diamond, error, attention",
+      "description": "alert, diamond, error, attention, warning",
       "size": "24",
       "width": 24,
       "height": 24
@@ -2418,7 +2418,7 @@
       "id": "1729:94",
       "fileName": "alert-diamond-16",
       "iconName": "alert-diamond",
-      "description": "alert, diamond, error, attention",
+      "description": "alert, diamond, error, attention, warning",
       "size": "16",
       "width": 16,
       "height": 16
@@ -2427,7 +2427,7 @@
       "id": "1729:101",
       "fileName": "alert-diamond-fill-24",
       "iconName": "alert-diamond-fill",
-      "description": "alert, diamond, error, attention",
+      "description": "alert, diamond, error, attention, warning",
       "size": "24",
       "width": 24,
       "height": 24
@@ -2436,7 +2436,7 @@
       "id": "1729:106",
       "fileName": "alert-diamond-fill-16",
       "iconName": "alert-diamond-fill",
-      "description": "alert, diamond, error, attention",
+      "description": "alert, diamond, error, attention, warning",
       "size": "16",
       "width": 16,
       "height": 16
@@ -2445,7 +2445,7 @@
       "id": "350:43",
       "fileName": "alert-triangle-24",
       "iconName": "alert-triangle",
-      "description": "alert, triangle, error, attention",
+      "description": "alert, triangle, error, attention, warning",
       "size": "24",
       "width": 24,
       "height": 24
@@ -2454,7 +2454,7 @@
       "id": "350:47",
       "fileName": "alert-triangle-16",
       "iconName": "alert-triangle",
-      "description": "alert, triangle, error, attention",
+      "description": "alert, triangle, error, attention, warning",
       "size": "16",
       "width": 16,
       "height": 16
@@ -2463,7 +2463,7 @@
       "id": "551:46",
       "fileName": "alert-triangle-fill-24",
       "iconName": "alert-triangle-fill",
-      "description": "alert, triangle, error, attention",
+      "description": "alert, triangle, error, attention, warning",
       "size": "24",
       "width": 24,
       "height": 24
@@ -2472,7 +2472,7 @@
       "id": "551:51",
       "fileName": "alert-triangle-fill-16",
       "iconName": "alert-triangle-fill",
-      "description": "alert, triangle, error, attention",
+      "description": "alert, triangle, error, attention, warning",
       "size": "16",
       "width": 16,
       "height": 16
@@ -2481,7 +2481,7 @@
       "id": "350:55",
       "fileName": "alert-octagon-24",
       "iconName": "alert-octagon",
-      "description": "alert, octagon, error, attention",
+      "description": "alert, octagon, error, attention, warning",
       "size": "24",
       "width": 24,
       "height": 24
@@ -2490,7 +2490,7 @@
       "id": "350:59",
       "fileName": "alert-octagon-16",
       "iconName": "alert-octagon",
-      "description": "alert, octagon, error, attention",
+      "description": "alert, octagon, error, attention, warning",
       "size": "16",
       "width": 16,
       "height": 16
@@ -2607,7 +2607,7 @@
       "id": "2052:66",
       "fileName": "api-24",
       "iconName": "api",
-      "description": "api, data",
+      "description": "api, data, interface",
       "size": "24",
       "width": 24,
       "height": 24
@@ -2616,7 +2616,7 @@
       "id": "2052:76",
       "fileName": "api-16",
       "iconName": "api",
-      "description": "api, data",
+      "description": "api, data, interface",
       "size": "16",
       "width": 16,
       "height": 16
@@ -2859,7 +2859,7 @@
       "id": "350:265",
       "fileName": "at-sign-24",
       "iconName": "at-sign",
-      "description": "at, @, email",
+      "description": "at, @, email, handle",
       "size": "24",
       "width": 24,
       "height": 24
@@ -2868,7 +2868,7 @@
       "id": "350:268",
       "fileName": "at-sign-16",
       "iconName": "at-sign",
-      "description": "at, @, email",
+      "description": "at, @, email, handle",
       "size": "16",
       "width": 16,
       "height": 16
@@ -2913,7 +2913,7 @@
       "id": "350:4426",
       "fileName": "bank-vault-24",
       "iconName": "bank-vault",
-      "description": "vault, secure, safe",
+      "description": "vault, secure, safe, secret",
       "size": "24",
       "width": 24,
       "height": 24
@@ -2922,7 +2922,7 @@
       "id": "350:4439",
       "fileName": "bank-vault-16",
       "iconName": "bank-vault",
-      "description": "vault, secure, safe",
+      "description": "vault, secure, safe, secret",
       "size": "16",
       "width": 16,
       "height": 16
@@ -2931,7 +2931,7 @@
       "id": "350:307",
       "fileName": "bar-chart-24",
       "iconName": "bar-chart",
-      "description": "chart, graph, usage, signal",
+      "description": "chart, graph, usage, signal, bars",
       "size": "24",
       "width": 24,
       "height": 24
@@ -2940,7 +2940,7 @@
       "id": "350:311",
       "fileName": "bar-chart-16",
       "iconName": "bar-chart",
-      "description": "chart, graph, usage, signal",
+      "description": "chart, graph, usage, signal, bars",
       "size": "16",
       "width": 16,
       "height": 16
@@ -2949,7 +2949,7 @@
       "id": "350:319",
       "fileName": "bar-chart-alt-24",
       "iconName": "bar-chart-alt",
-      "description": "chart, graph, usage",
+      "description": "chart, graph, usage, bars",
       "size": "24",
       "width": 24,
       "height": 24
@@ -2958,7 +2958,7 @@
       "id": "350:323",
       "fileName": "bar-chart-alt-16",
       "iconName": "bar-chart-alt",
-      "description": "chart, graph, usage",
+      "description": "chart, graph, usage, bars",
       "size": "16",
       "width": 16,
       "height": 16
@@ -2967,7 +2967,7 @@
       "id": "350:331",
       "fileName": "battery-24",
       "iconName": "battery",
-      "description": "battery, empty",
+      "description": "battery, empty, charge",
       "size": "24",
       "width": 24,
       "height": 24
@@ -2976,7 +2976,7 @@
       "id": "350:334",
       "fileName": "battery-16",
       "iconName": "battery",
-      "description": "battery, empty",
+      "description": "battery, empty, charge",
       "size": "16",
       "width": 16,
       "height": 16
@@ -2985,7 +2985,7 @@
       "id": "350:342",
       "fileName": "battery-charging-24",
       "iconName": "battery-charging",
-      "description": "battery, charging\n",
+      "description": "battery, charging",
       "size": "24",
       "width": 24,
       "height": 24
@@ -2994,7 +2994,7 @@
       "id": "350:346",
       "fileName": "battery-charging-16",
       "iconName": "battery-charging",
-      "description": "battery, charging\n",
+      "description": "battery, charging",
       "size": "16",
       "width": 16,
       "height": 16
@@ -3003,7 +3003,7 @@
       "id": "350:354",
       "fileName": "beaker-24",
       "iconName": "beaker",
-      "description": "beaker, lab, experiment",
+      "description": "beaker, lab, experiment, science, test",
       "size": "24",
       "width": 24,
       "height": 24
@@ -3012,7 +3012,7 @@
       "id": "350:358",
       "fileName": "beaker-16",
       "iconName": "beaker",
-      "description": "beaker, lab, experiment",
+      "description": "beaker, lab, experiment, science, test",
       "size": "16",
       "width": 16,
       "height": 16
@@ -3021,7 +3021,7 @@
       "id": "350:367",
       "fileName": "bell-24",
       "iconName": "bell",
-      "description": "bell, notification",
+      "description": "bell, notification, notify, ring, alert",
       "size": "24",
       "width": 24,
       "height": 24
@@ -3030,7 +3030,7 @@
       "id": "350:370",
       "fileName": "bell-16",
       "iconName": "bell",
-      "description": "bell, notification",
+      "description": "bell, notification, notify, ring, alert",
       "size": "16",
       "width": 16,
       "height": 16
@@ -3039,7 +3039,7 @@
       "id": "350:377",
       "fileName": "bell-active-fill-24",
       "iconName": "bell-active-fill",
-      "description": "bell, notification",
+      "description": "bell, notification, notify, ring, alert",
       "size": "24",
       "width": 24,
       "height": 24
@@ -3048,7 +3048,7 @@
       "id": "350:383",
       "fileName": "bell-active-fill-16",
       "iconName": "bell-active-fill",
-      "description": "bell, notification",
+      "description": "bell, notification, notify, ring, alert",
       "size": "16",
       "width": 16,
       "height": 16
@@ -3057,7 +3057,7 @@
       "id": "350:395",
       "fileName": "bell-active-24",
       "iconName": "bell-active",
-      "description": "bell, notification",
+      "description": "bell, notification, notify, ring, alert",
       "size": "24",
       "width": 24,
       "height": 24
@@ -3066,7 +3066,7 @@
       "id": "350:399",
       "fileName": "bell-active-16",
       "iconName": "bell-active",
-      "description": "bell, notification",
+      "description": "bell, notification, notify, ring, alert",
       "size": "16",
       "width": 16,
       "height": 16
@@ -3075,7 +3075,7 @@
       "id": "350:409",
       "fileName": "bell-off-24",
       "iconName": "bell-off",
-      "description": "bell, notification, off, disabled",
+      "description": "bell, notification, notify, ring, alert, off, disabled",
       "size": "24",
       "width": 24,
       "height": 24
@@ -3084,7 +3084,7 @@
       "id": "350:413",
       "fileName": "bell-off-16",
       "iconName": "bell-off",
-      "description": "bell, notification, off, disabled",
+      "description": "bell, notification, notify, ring, alert, off, disabled",
       "size": "16",
       "width": 16,
       "height": 16
@@ -3237,7 +3237,7 @@
       "id": "350:518",
       "fileName": "briefcase-24",
       "iconName": "briefcase",
-      "description": "briefcase, job, work",
+      "description": "briefcase, job, work, office, bag",
       "size": "24",
       "width": 24,
       "height": 24
@@ -3246,7 +3246,7 @@
       "id": "350:523",
       "fileName": "briefcase-16",
       "iconName": "briefcase",
-      "description": "briefcase, job, work",
+      "description": "briefcase, job, work, office, bag",
       "size": "16",
       "width": 16,
       "height": 16
@@ -3255,7 +3255,7 @@
       "id": "350:533",
       "fileName": "bug-24",
       "iconName": "bug",
-      "description": "bug, issue",
+      "description": "bug, issue, security, malware, vulnerability",
       "size": "24",
       "width": 24,
       "height": 24
@@ -3264,7 +3264,7 @@
       "id": "350:544",
       "fileName": "bug-16",
       "iconName": "bug",
-      "description": "bug, issue",
+      "description": "bug, issue, security, malware, vulnerability",
       "size": "16",
       "width": 16,
       "height": 16
@@ -3291,7 +3291,7 @@
       "id": "1484:85",
       "fileName": "bulb-24",
       "iconName": "bulb",
-      "description": "bulb, light, idea, smart, insight",
+      "description": "bulb, light, idea, smart, insight, on",
       "size": "24",
       "width": 24,
       "height": 24
@@ -3300,7 +3300,7 @@
       "id": "1484:93",
       "fileName": "bulb-16",
       "iconName": "bulb",
-      "description": "bulb, light, idea, smart, insight",
+      "description": "bulb, light, idea, smart, insight, on",
       "size": "16",
       "width": 16,
       "height": 16
@@ -3309,7 +3309,7 @@
       "id": "350:569",
       "fileName": "calendar-24",
       "iconName": "calendar",
-      "description": "calendar, date",
+      "description": "calendar, date, appointment, event, schedule, day, month",
       "size": "24",
       "width": 24,
       "height": 24
@@ -3318,7 +3318,7 @@
       "id": "350:574",
       "fileName": "calendar-16",
       "iconName": "calendar",
-      "description": "calendar, date",
+      "description": "calendar, date, appointment, event, schedule, day, month",
       "size": "16",
       "width": 16,
       "height": 16
@@ -3399,7 +3399,7 @@
       "id": "350:630",
       "fileName": "certificate-24",
       "iconName": "certificate",
-      "description": "certificate, award, achievement",
+      "description": "certificate, award, achievement, badge",
       "size": "24",
       "width": 24,
       "height": 24
@@ -3408,7 +3408,7 @@
       "id": "350:635",
       "fileName": "certificate-16",
       "iconName": "certificate",
-      "description": "certificate, award, achievement",
+      "description": "certificate, award, achievement, badge",
       "size": "16",
       "width": 16,
       "height": 16
@@ -3471,7 +3471,7 @@
       "id": "350:676",
       "fileName": "check-24",
       "iconName": "check",
-      "description": "check, tick, success, complete, done",
+      "description": "check, tick, success, complete, done, test, accept, approve",
       "size": "24",
       "width": 24,
       "height": 24
@@ -3480,7 +3480,7 @@
       "id": "350:679",
       "fileName": "check-16",
       "iconName": "check",
-      "description": "check, tick, success, complete, done",
+      "description": "check, tick, success, complete, done, test, accept, approve",
       "size": "16",
       "width": 16,
       "height": 16
@@ -3489,7 +3489,7 @@
       "id": "350:687",
       "fileName": "check-circle-24",
       "iconName": "check-circle",
-      "description": "check, tick, success, circle, complete, done",
+      "description": "check, tick, success, circle, complete, done, test, accept, approve",
       "size": "24",
       "width": 24,
       "height": 24
@@ -3498,7 +3498,7 @@
       "id": "350:691",
       "fileName": "check-circle-16",
       "iconName": "check-circle",
-      "description": "check, tick, success, circle, complete, done",
+      "description": "check, tick, success, circle, complete, done, test, accept, approve",
       "size": "16",
       "width": 16,
       "height": 16
@@ -3507,7 +3507,7 @@
       "id": "350:700",
       "fileName": "check-circle-fill-24",
       "iconName": "check-circle-fill",
-      "description": "check, tick, success, circle, complete, done",
+      "description": "check, tick, success, circle, complete, done, test, accept, approve",
       "size": "24",
       "width": 24,
       "height": 24
@@ -3516,7 +3516,7 @@
       "id": "350:705",
       "fileName": "check-circle-fill-16",
       "iconName": "check-circle-fill",
-      "description": "check, tick, success, circle, complete, done",
+      "description": "check, tick, success, circle, complete, done, test, accept, approve",
       "size": "16",
       "width": 16,
       "height": 16
@@ -3525,7 +3525,7 @@
       "id": "350:715",
       "fileName": "check-diamond-24",
       "iconName": "check-diamond",
-      "description": "check, tick, success, diamond, complete, done",
+      "description": "check, tick, success, diamond, complete, done, test, accept, approve",
       "size": "24",
       "width": 24,
       "height": 24
@@ -3534,7 +3534,7 @@
       "id": "350:719",
       "fileName": "check-diamond-16",
       "iconName": "check-diamond",
-      "description": "check, tick, success, diamond, complete, done",
+      "description": "check, tick, success, diamond, complete, done, test, accept, approve",
       "size": "16",
       "width": 16,
       "height": 16
@@ -3543,7 +3543,7 @@
       "id": "350:728",
       "fileName": "check-diamond-fill-24",
       "iconName": "check-diamond-fill",
-      "description": "check, tick, success, diamond, complete, done",
+      "description": "check, tick, success, diamond, complete, done, test, accept, approve",
       "size": "24",
       "width": 24,
       "height": 24
@@ -3552,7 +3552,7 @@
       "id": "350:733",
       "fileName": "check-diamond-fill-16",
       "iconName": "check-diamond-fill",
-      "description": "check, tick, success, diamond, complete, done",
+      "description": "check, tick, success, diamond, complete, done, test, accept, approve",
       "size": "16",
       "width": 16,
       "height": 16
@@ -3561,7 +3561,7 @@
       "id": "363:5",
       "fileName": "check-hexagon-24",
       "iconName": "check-hexagon",
-      "description": "check, tick, success, diamond, complete, done",
+      "description": "check, tick, success, diamond, complete, done, test, accept, approve",
       "size": "24",
       "width": 24,
       "height": 24
@@ -3570,7 +3570,7 @@
       "id": "363:9",
       "fileName": "check-hexagon-16",
       "iconName": "check-hexagon",
-      "description": "check, tick, success, diamond, complete, done",
+      "description": "check, tick, success, diamond, complete, done, test, accept, approve",
       "size": "16",
       "width": 16,
       "height": 16
@@ -3579,7 +3579,7 @@
       "id": "363:18",
       "fileName": "check-hexagon-fill-24",
       "iconName": "check-hexagon-fill",
-      "description": "check, tick, success, diamond, complete, done",
+      "description": "check, tick, success, diamond, complete, done, test, accept, approve",
       "size": "24",
       "width": 24,
       "height": 24
@@ -3588,7 +3588,7 @@
       "id": "363:23",
       "fileName": "check-hexagon-fill-16",
       "iconName": "check-hexagon-fill",
-      "description": "check, tick, success, diamond, complete, done",
+      "description": "check, tick, success, diamond, complete, done, test, accept, approve",
       "size": "16",
       "width": 16,
       "height": 16
@@ -3597,7 +3597,7 @@
       "id": "350:743",
       "fileName": "check-square-24",
       "iconName": "check-square",
-      "description": "check, tick, success, checkbox, square, complete, done",
+      "description": "check, tick, success, checkbox, square, complete, done, test, accept, approve",
       "size": "24",
       "width": 24,
       "height": 24
@@ -3606,7 +3606,7 @@
       "id": "350:747",
       "fileName": "check-square-16",
       "iconName": "check-square",
-      "description": "check, tick, success, checkbox, square, complete, done",
+      "description": "check, tick, success, checkbox, square, complete, done, test, accept, approve",
       "size": "16",
       "width": 16,
       "height": 16
@@ -3615,7 +3615,7 @@
       "id": "350:756",
       "fileName": "check-square-fill-24",
       "iconName": "check-square-fill",
-      "description": "check, tick, success, checkbox, square, checked, complete, done",
+      "description": "check, tick, success, checkbox, square, checked, complete, done, test, accept, approve",
       "size": "24",
       "width": 24,
       "height": 24
@@ -3624,7 +3624,7 @@
       "id": "350:761",
       "fileName": "check-square-fill-16",
       "iconName": "check-square-fill",
-      "description": "check, tick, success, checkbox, square, checked, complete, done",
+      "description": "check, tick, success, checkbox, square, checked, complete, done, test, accept, approve",
       "size": "16",
       "width": 16,
       "height": 16
@@ -3777,7 +3777,7 @@
       "id": "350:844",
       "fileName": "circle-24",
       "iconName": "circle",
-      "description": "circle, ring, arrow, direction",
+      "description": "circle, ring, arrow, direction, round",
       "size": "24",
       "width": 24,
       "height": 24
@@ -3786,7 +3786,7 @@
       "id": "350:846",
       "fileName": "circle-16",
       "iconName": "circle",
-      "description": "circle, ring, arrow, direction",
+      "description": "circle, ring, arrow, direction, round",
       "size": "16",
       "width": 16,
       "height": 16
@@ -3795,7 +3795,7 @@
       "id": "350:852",
       "fileName": "circle-dot-24",
       "iconName": "circle-dot",
-      "description": "circle, dot",
+      "description": "circle, dot, round",
       "size": "24",
       "width": 24,
       "height": 24
@@ -3804,7 +3804,7 @@
       "id": "350:855",
       "fileName": "circle-dot-16",
       "iconName": "circle-dot",
-      "description": "circle, dot",
+      "description": "circle, dot, round",
       "size": "16",
       "width": 16,
       "height": 16
@@ -3813,7 +3813,7 @@
       "id": "350:863",
       "fileName": "circle-fill-24",
       "iconName": "circle-fill",
-      "description": "circle, dot",
+      "description": "circle, dot, round",
       "size": "24",
       "width": 24,
       "height": 24
@@ -3822,7 +3822,7 @@
       "id": "350:865",
       "fileName": "circle-fill-16",
       "iconName": "circle-fill",
-      "description": "circle, dot",
+      "description": "circle, dot, round",
       "size": "16",
       "width": 16,
       "height": 16
@@ -3831,7 +3831,7 @@
       "id": "648:228",
       "fileName": "circle-half-24",
       "iconName": "circle-half",
-      "description": "circle, dot, half, progress",
+      "description": "circle, dot, half, progress, round",
       "size": "24",
       "width": 24,
       "height": 24
@@ -3840,7 +3840,7 @@
       "id": "648:231",
       "fileName": "circle-half-16",
       "iconName": "circle-half",
-      "description": "circle, dot, half, progress",
+      "description": "circle, dot, half, progress, round",
       "size": "16",
       "width": 16,
       "height": 16
@@ -3849,7 +3849,7 @@
       "id": "350:872",
       "fileName": "clipboard-24",
       "iconName": "clipboard",
-      "description": "clipboard, copy",
+      "description": "clipboard, copy, paste, content",
       "size": "24",
       "width": 24,
       "height": 24
@@ -3858,7 +3858,7 @@
       "id": "350:878",
       "fileName": "clipboard-16",
       "iconName": "clipboard",
-      "description": "clipboard, copy",
+      "description": "clipboard, copy, paste, content",
       "size": "16",
       "width": 16,
       "height": 16
@@ -3867,7 +3867,7 @@
       "id": "350:889",
       "fileName": "clipboard-checked-24",
       "iconName": "clipboard-checked",
-      "description": "clipboard, copy, copied, success",
+      "description": "clipboard, copy, copied, success, paste, content",
       "size": "24",
       "width": 24,
       "height": 24
@@ -3876,7 +3876,7 @@
       "id": "350:895",
       "fileName": "clipboard-checked-16",
       "iconName": "clipboard-checked",
-      "description": "clipboard, copy, copied, success",
+      "description": "clipboard, copy, copied, success, paste, content",
       "size": "16",
       "width": 16,
       "height": 16
@@ -3885,7 +3885,7 @@
       "id": "350:907",
       "fileName": "clipboard-copy-24",
       "iconName": "clipboard-copy",
-      "description": "clipboard, copy, snippet",
+      "description": "clipboard, copy, snippet, paste, content",
       "size": "24",
       "width": 24,
       "height": 24
@@ -3894,7 +3894,7 @@
       "id": "350:915",
       "fileName": "clipboard-copy-16",
       "iconName": "clipboard-copy",
-      "description": "clipboard, copy, snippet",
+      "description": "clipboard, copy, snippet, paste, content",
       "size": "16",
       "width": 16,
       "height": 16
@@ -3903,7 +3903,7 @@
       "id": "350:928",
       "fileName": "clock-24",
       "iconName": "clock",
-      "description": "clock, time, activity",
+      "description": "clock, time, activity, hour",
       "size": "24",
       "width": 24,
       "height": 24
@@ -3912,7 +3912,7 @@
       "id": "350:931",
       "fileName": "clock-16",
       "iconName": "clock",
-      "description": "clock, time, activity",
+      "description": "clock, time, activity, hour",
       "size": "16",
       "width": 16,
       "height": 16
@@ -3921,7 +3921,7 @@
       "id": "2033:66",
       "fileName": "clock-filled-24",
       "iconName": "clock-filled",
-      "description": "clock, time, activity",
+      "description": "clock, time, activity, hour",
       "size": "24",
       "width": 24,
       "height": 24
@@ -3930,7 +3930,7 @@
       "id": "2033:74",
       "fileName": "clock-filled-16",
       "iconName": "clock-filled",
-      "description": "clock, time, activity",
+      "description": "clock, time, activity, hour",
       "size": "16",
       "width": 16,
       "height": 16
@@ -3939,7 +3939,7 @@
       "id": "350:938",
       "fileName": "cloud-24",
       "iconName": "cloud",
-      "description": "cloud",
+      "description": "cloud, data, storage",
       "size": "24",
       "width": 24,
       "height": 24
@@ -3948,7 +3948,7 @@
       "id": "350:940",
       "fileName": "cloud-16",
       "iconName": "cloud",
-      "description": "cloud",
+      "description": "cloud, data, storage",
       "size": "16",
       "width": 16,
       "height": 16
@@ -3975,7 +3975,7 @@
       "id": "350:946",
       "fileName": "cloud-check-24",
       "iconName": "cloud-check",
-      "description": "cloud, check, success",
+      "description": "cloud, check, success, data, storage",
       "size": "24",
       "width": 24,
       "height": 24
@@ -3984,7 +3984,7 @@
       "id": "350:950",
       "fileName": "cloud-check-16",
       "iconName": "cloud-check",
-      "description": "cloud, check, success",
+      "description": "cloud, check, success, data, storage",
       "size": "16",
       "width": 16,
       "height": 16
@@ -3993,7 +3993,7 @@
       "id": "350:959",
       "fileName": "cloud-download-24",
       "iconName": "cloud-download",
-      "description": "cloud, download, sync",
+      "description": "cloud, download, sync, data, storage",
       "size": "24",
       "width": 24,
       "height": 24
@@ -4002,7 +4002,7 @@
       "id": "350:963",
       "fileName": "cloud-download-16",
       "iconName": "cloud-download",
-      "description": "cloud, download, sync",
+      "description": "cloud, download, sync, data, storage",
       "size": "16",
       "width": 16,
       "height": 16
@@ -4011,7 +4011,7 @@
       "id": "350:972",
       "fileName": "cloud-lightning-24",
       "iconName": "cloud-lightning",
-      "description": "cloud, lightning",
+      "description": "cloud, lightning, data, storage",
       "size": "24",
       "width": 24,
       "height": 24
@@ -4020,7 +4020,7 @@
       "id": "350:975",
       "fileName": "cloud-lightning-16",
       "iconName": "cloud-lightning",
-      "description": "cloud, lightning",
+      "description": "cloud, lightning, data, storage",
       "size": "16",
       "width": 16,
       "height": 16
@@ -4029,7 +4029,7 @@
       "id": "350:982",
       "fileName": "cloud-lock-24",
       "iconName": "cloud-lock",
-      "description": "cloud, lock, secure",
+      "description": "cloud, lock, secure, data, storage, protected",
       "size": "24",
       "width": 24,
       "height": 24
@@ -4038,7 +4038,7 @@
       "id": "350:987",
       "fileName": "cloud-lock-16",
       "iconName": "cloud-lock",
-      "description": "cloud, lock, secure",
+      "description": "cloud, lock, secure, data, storage, protected",
       "size": "16",
       "width": 16,
       "height": 16
@@ -4047,7 +4047,7 @@
       "id": "350:997",
       "fileName": "cloud-off-24",
       "iconName": "cloud-off",
-      "description": "cloud, off, disabled",
+      "description": "cloud, off, disabled, data, storage",
       "size": "24",
       "width": 24,
       "height": 24
@@ -4056,7 +4056,7 @@
       "id": "350:1000",
       "fileName": "cloud-off-16",
       "iconName": "cloud-off",
-      "description": "cloud, off, disabled",
+      "description": "cloud, off, disabled, data, storage",
       "size": "16",
       "width": 16,
       "height": 16
@@ -4065,7 +4065,7 @@
       "id": "350:1009",
       "fileName": "cloud-upload-24",
       "iconName": "cloud-upload",
-      "description": "cloud, upload, sync",
+      "description": "cloud, upload, sync, data, storage",
       "size": "24",
       "width": 24,
       "height": 24
@@ -4074,7 +4074,7 @@
       "id": "350:1013",
       "fileName": "cloud-upload-16",
       "iconName": "cloud-upload",
-      "description": "cloud, upload, sync",
+      "description": "cloud, upload, sync, data, storage",
       "size": "16",
       "width": 16,
       "height": 16
@@ -4083,7 +4083,7 @@
       "id": "350:1022",
       "fileName": "cloud-x-24",
       "iconName": "cloud-x",
-      "description": "cloud, fail, delete",
+      "description": "cloud, fail, delete, data, storage",
       "size": "24",
       "width": 24,
       "height": 24
@@ -4092,7 +4092,7 @@
       "id": "350:1026",
       "fileName": "cloud-x-16",
       "iconName": "cloud-x",
-      "description": "cloud, fail, delete",
+      "description": "cloud, fail, delete, data, storage",
       "size": "16",
       "width": 16,
       "height": 16
@@ -4101,7 +4101,7 @@
       "id": "350:1035",
       "fileName": "code-24",
       "iconName": "code",
-      "description": "code, snippet",
+      "description": "code, snippet, software, application, development",
       "size": "24",
       "width": 24,
       "height": 24
@@ -4110,7 +4110,7 @@
       "id": "350:1039",
       "fileName": "code-16",
       "iconName": "code",
-      "description": "code, snippet",
+      "description": "code, snippet, software, application, development",
       "size": "16",
       "width": 16,
       "height": 16
@@ -4119,7 +4119,7 @@
       "id": "350:1048",
       "fileName": "collections-24",
       "iconName": "collections",
-      "description": "collections, books",
+      "description": "collections, books, projects, resources",
       "size": "24",
       "width": 24,
       "height": 24
@@ -4128,7 +4128,7 @@
       "id": "350:1054",
       "fileName": "collections-16",
       "iconName": "collections",
-      "description": "collections, books",
+      "description": "collections, books, projects, resources",
       "size": "16",
       "width": 16,
       "height": 16
@@ -4155,7 +4155,7 @@
       "id": "350:1080",
       "fileName": "compass-24",
       "iconName": "compass",
-      "description": "compass, navigate, browser",
+      "description": "compass, navigate, browser, map",
       "size": "24",
       "width": 24,
       "height": 24
@@ -4164,7 +4164,7 @@
       "id": "350:1083",
       "fileName": "compass-16",
       "iconName": "compass",
-      "description": "compass, navigate, browser",
+      "description": "compass, navigate, browser, map",
       "size": "16",
       "width": 16,
       "height": 16
@@ -4173,7 +4173,7 @@
       "id": "551:90",
       "fileName": "connection-24",
       "iconName": "connection",
-      "description": "git, vcs, commit",
+      "description": "git, vcs, commit, link, network",
       "size": "24",
       "width": 24,
       "height": 24
@@ -4182,7 +4182,7 @@
       "id": "551:94",
       "fileName": "connection-16",
       "iconName": "connection",
-      "description": "git, vcs, commit",
+      "description": "git, vcs, commit, link, network",
       "size": "16",
       "width": 16,
       "height": 16
@@ -4191,7 +4191,7 @@
       "id": "551:103",
       "fileName": "connection-gateway-24",
       "iconName": "connection-gateway",
-      "description": "git, vcs, commit",
+      "description": "git, vcs, commit, link, network",
       "size": "24",
       "width": 24,
       "height": 24
@@ -4200,7 +4200,7 @@
       "id": "551:111",
       "fileName": "connection-gateway-16",
       "iconName": "connection-gateway",
-      "description": "git, vcs, commit",
+      "description": "git, vcs, commit, link, network",
       "size": "16",
       "width": 16,
       "height": 16
@@ -4353,7 +4353,7 @@
       "id": "350:1171",
       "fileName": "cpu-24",
       "iconName": "cpu",
-      "description": "cpu, memory, chip",
+      "description": "cpu, memory, chip, computer",
       "size": "24",
       "width": 24,
       "height": 24
@@ -4362,7 +4362,7 @@
       "id": "350:1182",
       "fileName": "cpu-16",
       "iconName": "cpu",
-      "description": "cpu, memory, chip",
+      "description": "cpu, memory, chip, computer",
       "size": "16",
       "width": 16,
       "height": 16
@@ -4371,7 +4371,7 @@
       "id": "350:1197",
       "fileName": "credit-card-24",
       "iconName": "credit-card",
-      "description": "credit, card, billing",
+      "description": "credit, card, billing, business, money, payment",
       "size": "24",
       "width": 24,
       "height": 24
@@ -4380,7 +4380,7 @@
       "id": "350:1201",
       "fileName": "credit-card-16",
       "iconName": "credit-card",
-      "description": "credit, card, billing",
+      "description": "credit, card, billing, business, money, payment",
       "size": "16",
       "width": 16,
       "height": 16
@@ -4425,7 +4425,7 @@
       "id": "652:34",
       "fileName": "dashboard-24",
       "iconName": "dashboard",
-      "description": "grid, dashboard, overview",
+      "description": "grid, dashboard, overview, layout",
       "size": "24",
       "width": 24,
       "height": 24
@@ -4434,7 +4434,7 @@
       "id": "652:38",
       "fileName": "dashboard-16",
       "iconName": "dashboard",
-      "description": "grid, dashboard, overview",
+      "description": "grid, dashboard, overview, layout",
       "size": "16",
       "width": 16,
       "height": 16
@@ -4443,7 +4443,7 @@
       "id": "350:1237",
       "fileName": "database-24",
       "iconName": "database",
-      "description": "database, data",
+      "description": "database, data,, information, computing",
       "size": "24",
       "width": 24,
       "height": 24
@@ -4452,7 +4452,7 @@
       "id": "350:1241",
       "fileName": "database-16",
       "iconName": "database",
-      "description": "database, data",
+      "description": "database, data,, information, computing",
       "size": "16",
       "width": 16,
       "height": 16
@@ -4551,7 +4551,7 @@
       "id": "350:1302",
       "fileName": "discussion-circle-24",
       "iconName": "discussion-circle",
-      "description": "discussion, comment, conversation",
+      "description": "discussion, comment, conversation, bubble, chat, communication",
       "size": "24",
       "width": 24,
       "height": 24
@@ -4560,7 +4560,7 @@
       "id": "350:1305",
       "fileName": "discussion-circle-16",
       "iconName": "discussion-circle",
-      "description": "discussion, comment, conversation",
+      "description": "discussion, comment, conversation, bubble, chat, communication",
       "size": "16",
       "width": 16,
       "height": 16
@@ -4569,7 +4569,7 @@
       "id": "350:1313",
       "fileName": "discussion-square-24",
       "iconName": "discussion-square",
-      "description": "discussion, comment, conversation",
+      "description": "discussion, comment, conversation, bubble, chat, communication",
       "size": "24",
       "width": 24,
       "height": 24
@@ -4578,7 +4578,7 @@
       "id": "350:1316",
       "fileName": "discussion-square-16",
       "iconName": "discussion-square",
-      "description": "discussion, comment, conversation",
+      "description": "discussion, comment, conversation, bubble, chat, communication",
       "size": "16",
       "width": 16,
       "height": 16
@@ -4641,7 +4641,7 @@
       "id": "350:1368",
       "fileName": "dollar-sign-24",
       "iconName": "dollar-sign",
-      "description": "dollar, money, variable",
+      "description": "dollar, money, variable, payment",
       "size": "24",
       "width": 24,
       "height": 24
@@ -4650,7 +4650,7 @@
       "id": "350:1371",
       "fileName": "dollar-sign-16",
       "iconName": "dollar-sign",
-      "description": "dollar, money, variable",
+      "description": "dollar, money, variable, payment",
       "size": "16",
       "width": 16,
       "height": 16
@@ -4695,7 +4695,7 @@
       "id": "350:1378",
       "fileName": "download-24",
       "iconName": "download",
-      "description": "download",
+      "description": "download, file, export, save",
       "size": "24",
       "width": 24,
       "height": 24
@@ -4704,7 +4704,7 @@
       "id": "350:1382",
       "fileName": "download-16",
       "iconName": "download",
-      "description": "download",
+      "description": "download, file, export, save",
       "size": "16",
       "width": 16,
       "height": 16
@@ -4731,7 +4731,7 @@
       "id": "350:1398",
       "fileName": "duplicate-24",
       "iconName": "duplicate",
-      "description": "duplicate, copy, clone",
+      "description": "duplicate, copy, clone, multiply",
       "size": "24",
       "width": 24,
       "height": 24
@@ -4740,7 +4740,7 @@
       "id": "350:1401",
       "fileName": "duplicate-16",
       "iconName": "duplicate",
-      "description": "duplicate, copy, clone",
+      "description": "duplicate, copy, clone, multiply",
       "size": "16",
       "width": 16,
       "height": 16
@@ -4749,7 +4749,7 @@
       "id": "350:1409",
       "fileName": "edit-24",
       "iconName": "edit",
-      "description": "edit, pencil",
+      "description": "edit, pencil, draw, writing",
       "size": "24",
       "width": 24,
       "height": 24
@@ -4758,7 +4758,7 @@
       "id": "350:1413",
       "fileName": "edit-16",
       "iconName": "edit",
-      "description": "edit, pencil",
+      "description": "edit, pencil, draw, writing",
       "size": "16",
       "width": 16,
       "height": 16
@@ -4767,7 +4767,7 @@
       "id": "1509:66",
       "fileName": "enterprise-24",
       "iconName": "enterprise",
-      "description": "enterprise, business, company",
+      "description": "enterprise, business, company, organization, org, global, world",
       "size": "24",
       "width": 24,
       "height": 24
@@ -4776,7 +4776,7 @@
       "id": "1509:78",
       "fileName": "enterprise-16",
       "iconName": "enterprise",
-      "description": "enterprise, business, company",
+      "description": "enterprise, business, company, organization, org, global, world",
       "size": "16",
       "width": 16,
       "height": 16
@@ -4911,7 +4911,7 @@
       "id": "350:1507",
       "fileName": "file-24",
       "iconName": "file",
-      "description": "file, document",
+      "description": "file, document, format, paper",
       "size": "24",
       "width": 24,
       "height": 24
@@ -4920,7 +4920,7 @@
       "id": "350:1510",
       "fileName": "file-16",
       "iconName": "file",
-      "description": "file, document",
+      "description": "file, document, format, paper",
       "size": "16",
       "width": 16,
       "height": 16
@@ -4929,7 +4929,7 @@
       "id": "350:1517",
       "fileName": "file-check-24",
       "iconName": "file-check",
-      "description": "file, document, success, check",
+      "description": "file, document, success, check, format, paper",
       "size": "24",
       "width": 24,
       "height": 24
@@ -4938,7 +4938,7 @@
       "id": "350:1523",
       "fileName": "file-check-16",
       "iconName": "file-check",
-      "description": "file, document, success, check",
+      "description": "file, document, success, check, format, paper",
       "size": "16",
       "width": 16,
       "height": 16
@@ -4947,7 +4947,7 @@
       "id": "350:1534",
       "fileName": "file-change-24",
       "iconName": "file-change",
-      "description": "file, document, change, modified",
+      "description": "file, document, change, modified, format, paper",
       "size": "24",
       "width": 24,
       "height": 24
@@ -4956,7 +4956,7 @@
       "id": "350:1538",
       "fileName": "file-change-16",
       "iconName": "file-change",
-      "description": "file, document, change, modified",
+      "description": "file, document, change, modified, format, paper",
       "size": "16",
       "width": 16,
       "height": 16
@@ -4965,7 +4965,7 @@
       "id": "350:1547",
       "fileName": "file-diff-24",
       "iconName": "file-diff",
-      "description": "file, document, diff, change",
+      "description": "file, document, diff, change, format, paper",
       "size": "24",
       "width": 24,
       "height": 24
@@ -4974,7 +4974,7 @@
       "id": "350:1553",
       "fileName": "file-diff-16",
       "iconName": "file-diff",
-      "description": "file, document, diff, change",
+      "description": "file, document, diff, change, format, paper",
       "size": "16",
       "width": 16,
       "height": 16
@@ -4983,7 +4983,7 @@
       "id": "350:1565",
       "fileName": "file-minus-24",
       "iconName": "file-minus",
-      "description": "file, document, remove, minus",
+      "description": "file, document, remove, minus, format, paper",
       "size": "24",
       "width": 24,
       "height": 24
@@ -4992,7 +4992,7 @@
       "id": "350:1569",
       "fileName": "file-minus-16",
       "iconName": "file-minus",
-      "description": "file, document, remove, minus",
+      "description": "file, document, remove, minus, format, paper",
       "size": "16",
       "width": 16,
       "height": 16
@@ -5001,7 +5001,7 @@
       "id": "350:1577",
       "fileName": "file-plus-24",
       "iconName": "file-plus",
-      "description": "file, document, create, add, plus",
+      "description": "file, document, create, add, plus, format, paper",
       "size": "24",
       "width": 24,
       "height": 24
@@ -5010,7 +5010,7 @@
       "id": "350:1582",
       "fileName": "file-plus-16",
       "iconName": "file-plus",
-      "description": "file, document, create, add, plus",
+      "description": "file, document, create, add, plus, format, paper",
       "size": "16",
       "width": 16,
       "height": 16
@@ -5019,7 +5019,7 @@
       "id": "350:1591",
       "fileName": "file-source-24",
       "iconName": "file-source",
-      "description": "file, document, source, code",
+      "description": "file, document, source, code, format, paper",
       "size": "24",
       "width": 24,
       "height": 24
@@ -5028,7 +5028,7 @@
       "id": "350:1596",
       "fileName": "file-source-16",
       "iconName": "file-source",
-      "description": "file, document, source, code",
+      "description": "file, document, source, code, format, paper",
       "size": "16",
       "width": 16,
       "height": 16
@@ -5037,7 +5037,7 @@
       "id": "350:1606",
       "fileName": "file-text-24",
       "iconName": "file-text",
-      "description": "file, document, text",
+      "description": "file, document, text, format, paper",
       "size": "24",
       "width": 24,
       "height": 24
@@ -5046,7 +5046,7 @@
       "id": "350:1612",
       "fileName": "file-text-16",
       "iconName": "file-text",
-      "description": "file, document, text",
+      "description": "file, document, text, format, paper",
       "size": "16",
       "width": 16,
       "height": 16
@@ -5055,7 +5055,7 @@
       "id": "350:1622",
       "fileName": "file-x-24",
       "iconName": "file-x",
-      "description": "file, document, deleted, removed",
+      "description": "file, document, deleted, removed, format, paper",
       "size": "24",
       "width": 24,
       "height": 24
@@ -5064,7 +5064,7 @@
       "id": "350:1629",
       "fileName": "file-x-16",
       "iconName": "file-x",
-      "description": "file, document, deleted, removed",
+      "description": "file, document, deleted, removed, format, paper",
       "size": "16",
       "width": 16,
       "height": 16
@@ -5073,7 +5073,7 @@
       "id": "350:1641",
       "fileName": "files-24",
       "iconName": "files",
-      "description": "files, documents, group, hosts",
+      "description": "files, documents, group, hosts, format, paper",
       "size": "24",
       "width": 24,
       "height": 24
@@ -5082,7 +5082,7 @@
       "id": "350:1646",
       "fileName": "files-16",
       "iconName": "files",
-      "description": "files, documents, group, hosts",
+      "description": "files, documents, group, hosts, format, paper",
       "size": "16",
       "width": 16,
       "height": 16
@@ -5109,7 +5109,7 @@
       "id": "548:215",
       "fileName": "filter-24",
       "iconName": "filter",
-      "description": "filter",
+      "description": "filter, options, configuration",
       "size": "24",
       "width": 24,
       "height": 24
@@ -5118,7 +5118,7 @@
       "id": "548:219",
       "fileName": "filter-16",
       "iconName": "filter",
-      "description": "filter",
+      "description": "filter, options, configuration",
       "size": "16",
       "width": 16,
       "height": 16
@@ -5127,7 +5127,7 @@
       "id": "548:227",
       "fileName": "filter-circle-24",
       "iconName": "filter-circle",
-      "description": "filter, circle, inactive, off",
+      "description": "filter, circle, inactive, off, options, configuration",
       "size": "24",
       "width": 24,
       "height": 24
@@ -5136,7 +5136,7 @@
       "id": "548:232",
       "fileName": "filter-circle-16",
       "iconName": "filter-circle",
-      "description": "filter, circle, inactive, off",
+      "description": "filter, circle, inactive, off, options, configuration",
       "size": "16",
       "width": 16,
       "height": 16
@@ -5145,7 +5145,7 @@
       "id": "548:241",
       "fileName": "filter-fill-24",
       "iconName": "filter-fill",
-      "description": "filter, circle, active, on",
+      "description": "filter, circle, active, on, options, configuration",
       "size": "24",
       "width": 24,
       "height": 24
@@ -5154,7 +5154,7 @@
       "id": "548:247",
       "fileName": "filter-fill-16",
       "iconName": "filter-fill",
-      "description": "filter, circle, active, on",
+      "description": "filter, circle, active, on, options, configuration",
       "size": "16",
       "width": 16,
       "height": 16
@@ -5199,7 +5199,7 @@
       "id": "350:1696",
       "fileName": "folder-24",
       "iconName": "folder",
-      "description": "folder, directory, project",
+      "description": "folder, directory, project, document, file",
       "size": "24",
       "width": 24,
       "height": 24
@@ -5208,7 +5208,7 @@
       "id": "350:1699",
       "fileName": "folder-16",
       "iconName": "folder",
-      "description": "folder, directory, project",
+      "description": "folder, directory, project, document, file",
       "size": "16",
       "width": 16,
       "height": 16
@@ -5217,7 +5217,7 @@
       "id": "350:1707",
       "fileName": "folder-fill-24",
       "iconName": "folder-fill",
-      "description": "folder, directory, project",
+      "description": "folder, directory, project, document, file",
       "size": "24",
       "width": 24,
       "height": 24
@@ -5226,7 +5226,7 @@
       "id": "350:1711",
       "fileName": "folder-fill-16",
       "iconName": "folder-fill",
-      "description": "folder, directory, project",
+      "description": "folder, directory, project, document, file",
       "size": "16",
       "width": 16,
       "height": 16
@@ -5235,7 +5235,7 @@
       "id": "350:1720",
       "fileName": "folder-minus-24",
       "iconName": "folder-minus",
-      "description": "folder, directory, project, minus, remove",
+      "description": "folder, directory, project, minus, remove, document, file",
       "size": "24",
       "width": 24,
       "height": 24
@@ -5244,7 +5244,7 @@
       "id": "350:1724",
       "fileName": "folder-minus-16",
       "iconName": "folder-minus",
-      "description": "folder, directory, project, minus, remove",
+      "description": "folder, directory, project, minus, remove, document, file",
       "size": "16",
       "width": 16,
       "height": 16
@@ -5253,7 +5253,7 @@
       "id": "350:1732",
       "fileName": "folder-minus-fill-24",
       "iconName": "folder-minus-fill",
-      "description": "folder, directory, project, minus, remove",
+      "description": "folder, directory, project, minus, remove, document, file",
       "size": "24",
       "width": 24,
       "height": 24
@@ -5262,7 +5262,7 @@
       "id": "350:1738",
       "fileName": "folder-minus-fill-16",
       "iconName": "folder-minus-fill",
-      "description": "folder, directory, project, minus, remove",
+      "description": "folder, directory, project, minus, remove, document, file",
       "size": "16",
       "width": 16,
       "height": 16
@@ -5271,7 +5271,7 @@
       "id": "350:1747",
       "fileName": "folder-plus-24",
       "iconName": "folder-plus",
-      "description": "folder, directory, project, plus, add, create",
+      "description": "folder, directory, project, plus, add, create, document, file",
       "size": "24",
       "width": 24,
       "height": 24
@@ -5280,7 +5280,7 @@
       "id": "350:1752",
       "fileName": "folder-plus-16",
       "iconName": "folder-plus",
-      "description": "folder, directory, project, plus, add, create",
+      "description": "folder, directory, project, plus, add, create, document, file",
       "size": "16",
       "width": 16,
       "height": 16
@@ -5289,7 +5289,7 @@
       "id": "350:1761",
       "fileName": "folder-plus-fill-24",
       "iconName": "folder-plus-fill",
-      "description": "folder, directory, project, plus, add, create",
+      "description": "folder, directory, project, plus, add, create, document, file",
       "size": "24",
       "width": 24,
       "height": 24
@@ -5298,7 +5298,7 @@
       "id": "350:1766",
       "fileName": "folder-plus-fill-16",
       "iconName": "folder-plus-fill",
-      "description": "folder, directory, project, plus, add, create",
+      "description": "folder, directory, project, plus, add, create, document, file",
       "size": "16",
       "width": 16,
       "height": 16
@@ -5307,7 +5307,7 @@
       "id": "350:1776",
       "fileName": "folder-star-24",
       "iconName": "folder-star",
-      "description": "folder, directory, starred, favorite, pinned",
+      "description": "folder, directory, starred, favorite, pinned, document, file",
       "size": "24",
       "width": 24,
       "height": 24
@@ -5316,7 +5316,7 @@
       "id": "350:1781",
       "fileName": "folder-star-16",
       "iconName": "folder-star",
-      "description": "folder, directory, starred, favorite, pinned",
+      "description": "folder, directory, starred, favorite, pinned, document, file",
       "size": "16",
       "width": 16,
       "height": 16
@@ -5325,7 +5325,7 @@
       "id": "350:1789",
       "fileName": "folder-users-24",
       "iconName": "folder-users",
-      "description": "folder, directory, project, group, users",
+      "description": "folder, directory, project, group, users, document, file",
       "size": "24",
       "width": 24,
       "height": 24
@@ -5334,7 +5334,7 @@
       "id": "350:1797",
       "fileName": "folder-users-16",
       "iconName": "folder-users",
-      "description": "folder, directory, project, group, users",
+      "description": "folder, directory, project, group, users, document, file",
       "size": "16",
       "width": 16,
       "height": 16
@@ -5343,7 +5343,7 @@
       "id": "350:1809",
       "fileName": "frown-24",
       "iconName": "frown",
-      "description": "emoji, frown, negative, sad",
+      "description": "emoji, frown, negative, sad, face",
       "size": "24",
       "width": 24,
       "height": 24
@@ -5352,7 +5352,7 @@
       "id": "350:1814",
       "fileName": "frown-16",
       "iconName": "frown",
-      "description": "emoji, frown, negative, sad",
+      "description": "emoji, frown, negative, sad, face",
       "size": "16",
       "width": 16,
       "height": 16
@@ -5379,7 +5379,7 @@
       "id": "546:99",
       "fileName": "gift-24",
       "iconName": "gift",
-      "description": "gift, present",
+      "description": "gift, present, new",
       "size": "24",
       "width": 24,
       "height": 24
@@ -5388,7 +5388,7 @@
       "id": "546:105",
       "fileName": "gift-16",
       "iconName": "gift",
-      "description": "gift, present",
+      "description": "gift, present, new",
       "size": "16",
       "width": 16,
       "height": 16
@@ -5505,7 +5505,7 @@
       "id": "350:1930",
       "fileName": "globe-private-24",
       "iconName": "globe-private",
-      "description": "globe, world, global, private, secure, encrypted",
+      "description": "globe, world, global, private, secure, encrypted, protected",
       "size": "24",
       "width": 24,
       "height": 24
@@ -5514,7 +5514,7 @@
       "id": "350:1935",
       "fileName": "globe-private-16",
       "iconName": "globe-private",
-      "description": "globe, world, global, private, secure, encrypted",
+      "description": "globe, world, global, private, secure, encrypted, protected",
       "size": "16",
       "width": 16,
       "height": 16
@@ -5523,7 +5523,7 @@
       "id": "1788:66",
       "fileName": "government-24",
       "iconName": "government",
-      "description": "government, public, sector",
+      "description": "government, public, sector, organization, building",
       "size": "24",
       "width": 24,
       "height": 24
@@ -5532,7 +5532,7 @@
       "id": "1788:75",
       "fileName": "government-16",
       "iconName": "government",
-      "description": "government, public, sector",
+      "description": "government, public, sector, organization, building",
       "size": "16",
       "width": 16,
       "height": 16
@@ -5541,7 +5541,7 @@
       "id": "350:1946",
       "fileName": "grid-24",
       "iconName": "grid",
-      "description": "grid, format, view, group",
+      "description": "grid, format, view, group, layout",
       "size": "24",
       "width": 24,
       "height": 24
@@ -5550,7 +5550,7 @@
       "id": "350:1951",
       "fileName": "grid-16",
       "iconName": "grid",
-      "description": "grid, format, view, group",
+      "description": "grid, format, view, group, layout",
       "size": "16",
       "width": 16,
       "height": 16
@@ -5559,7 +5559,7 @@
       "id": "350:1960",
       "fileName": "grid-alt-24",
       "iconName": "grid-alt",
-      "description": "grid, format, view, group",
+      "description": "grid, format, view, group, layout",
       "size": "24",
       "width": 24,
       "height": 24
@@ -5568,7 +5568,7 @@
       "id": "350:1970",
       "fileName": "grid-alt-16",
       "iconName": "grid-alt",
-      "description": "grid, format, view, group",
+      "description": "grid, format, view, group, layout",
       "size": "16",
       "width": 16,
       "height": 16
@@ -5757,7 +5757,7 @@
       "id": "350:2089",
       "fileName": "help-24",
       "iconName": "help",
-      "description": "help, question, support",
+      "description": "help, question, support, information, unknown",
       "size": "24",
       "width": 24,
       "height": 24
@@ -5766,7 +5766,7 @@
       "id": "350:2093",
       "fileName": "help-16",
       "iconName": "help",
-      "description": "help, question, support",
+      "description": "help, question, support, information, unknown",
       "size": "16",
       "width": 16,
       "height": 16
@@ -5811,7 +5811,7 @@
       "id": "350:2101",
       "fileName": "history-24",
       "iconName": "history",
-      "description": "clock, time, history",
+      "description": "clock, time, history, schedule",
       "size": "24",
       "width": 24,
       "height": 24
@@ -5820,7 +5820,7 @@
       "id": "350:2105",
       "fileName": "history-16",
       "iconName": "history",
-      "description": "clock, time, history",
+      "description": "clock, time, history, schedule",
       "size": "16",
       "width": 16,
       "height": 16
@@ -5901,7 +5901,7 @@
       "id": "350:2171",
       "fileName": "image-24",
       "iconName": "image",
-      "description": "image, photo, picture",
+      "description": "image, photo, picture, media",
       "size": "24",
       "width": 24,
       "height": 24
@@ -5910,7 +5910,7 @@
       "id": "350:2175",
       "fileName": "image-16",
       "iconName": "image",
-      "description": "image, photo, picture",
+      "description": "image, photo, picture, media",
       "size": "16",
       "width": 16,
       "height": 16
@@ -5937,7 +5937,7 @@
       "id": "350:2194",
       "fileName": "info-24",
       "iconName": "info",
-      "description": "info, tip",
+      "description": "info, tip, about",
       "size": "24",
       "width": 24,
       "height": 24
@@ -5946,7 +5946,7 @@
       "id": "350:2198",
       "fileName": "info-16",
       "iconName": "info",
-      "description": "info, tip",
+      "description": "info, tip, about",
       "size": "16",
       "width": 16,
       "height": 16
@@ -5955,7 +5955,7 @@
       "id": "1727:66",
       "fileName": "info-fill-24",
       "iconName": "info-fill",
-      "description": "info, tip",
+      "description": "info, tip, about",
       "size": "24",
       "width": 24,
       "height": 24
@@ -5964,7 +5964,7 @@
       "id": "1727:71",
       "fileName": "info-fill-16",
       "iconName": "info-fill",
-      "description": "info, tip",
+      "description": "info, tip, about",
       "size": "16",
       "width": 16,
       "height": 16
@@ -6135,7 +6135,7 @@
       "id": "350:2327",
       "fileName": "line-chart-24",
       "iconName": "line-chart",
-      "description": "chart, graph, trend",
+      "description": "chart, graph, trend, data",
       "size": "24",
       "width": 24,
       "height": 24
@@ -6144,7 +6144,7 @@
       "id": "350:2334",
       "fileName": "line-chart-16",
       "iconName": "line-chart",
-      "description": "chart, graph, trend",
+      "description": "chart, graph, trend, data",
       "size": "16",
       "width": 16,
       "height": 16
@@ -6153,7 +6153,7 @@
       "id": "350:2346",
       "fileName": "line-chart-up-24",
       "iconName": "line-chart-up",
-      "description": "chart, graph, trend, up",
+      "description": "chart, graph, trend, up, data",
       "size": "24",
       "width": 24,
       "height": 24
@@ -6162,7 +6162,7 @@
       "id": "350:2354",
       "fileName": "line-chart-up-16",
       "iconName": "line-chart-up",
-      "description": "chart, graph, trend, up",
+      "description": "chart, graph, trend, up, data",
       "size": "16",
       "width": 16,
       "height": 16
@@ -6225,7 +6225,7 @@
       "id": "350:2389",
       "fileName": "lock-24",
       "iconName": "lock",
-      "description": "lock, secure",
+      "description": "lock, secure, security, protection",
       "size": "24",
       "width": 24,
       "height": 24
@@ -6234,7 +6234,7 @@
       "id": "350:2393",
       "fileName": "lock-16",
       "iconName": "lock",
-      "description": "lock, secure",
+      "description": "lock, secure, security, protection",
       "size": "16",
       "width": 16,
       "height": 16
@@ -6243,7 +6243,7 @@
       "id": "350:2402",
       "fileName": "lock-fill-24",
       "iconName": "lock-fill",
-      "description": "lock, secure, locked, secured",
+      "description": "lock, secure, locked, secured, protected",
       "size": "24",
       "width": 24,
       "height": 24
@@ -6252,7 +6252,7 @@
       "id": "350:2407",
       "fileName": "lock-fill-16",
       "iconName": "lock-fill",
-      "description": "lock, secure, locked, secured",
+      "description": "lock, secure, locked, secured, protected",
       "size": "16",
       "width": 16,
       "height": 16
@@ -6261,7 +6261,7 @@
       "id": "350:2417",
       "fileName": "lock-off-24",
       "iconName": "lock-off",
-      "description": "lock, secure, off, disabled",
+      "description": "lock, secure, off, disabled, protected",
       "size": "24",
       "width": 24,
       "height": 24
@@ -6270,7 +6270,7 @@
       "id": "350:2422",
       "fileName": "lock-off-16",
       "iconName": "lock-off",
-      "description": "lock, secure, off, disabled",
+      "description": "lock, secure, off, disabled, protected",
       "size": "16",
       "width": 16,
       "height": 16
@@ -6279,7 +6279,7 @@
       "id": "1874:66",
       "fileName": "logs-24",
       "iconName": "logs",
-      "description": "logs",
+      "description": "logs, events, list",
       "size": "24",
       "width": 24,
       "height": 24
@@ -6288,7 +6288,7 @@
       "id": "1874:72",
       "fileName": "logs-16",
       "iconName": "logs",
-      "description": "logs",
+      "description": "logs, events, list",
       "size": "16",
       "width": 16,
       "height": 16
@@ -6297,7 +6297,7 @@
       "id": "350:2431",
       "fileName": "mail-24",
       "iconName": "mail",
-      "description": "mail, email, message",
+      "description": "mail, email, message, communication",
       "size": "24",
       "width": 24,
       "height": 24
@@ -6306,7 +6306,7 @@
       "id": "350:2435",
       "fileName": "mail-16",
       "iconName": "mail",
-      "description": "mail, email, message",
+      "description": "mail, email, message, communication",
       "size": "16",
       "width": 16,
       "height": 16
@@ -6315,7 +6315,7 @@
       "id": "350:2445",
       "fileName": "mail-open-24",
       "iconName": "mail-open",
-      "description": "mail, email, message, opened",
+      "description": "mail, email, message, opened, communication",
       "size": "24",
       "width": 24,
       "height": 24
@@ -6324,7 +6324,7 @@
       "id": "350:2449",
       "fileName": "mail-open-16",
       "iconName": "mail-open",
-      "description": "mail, email, message, opened",
+      "description": "mail, email, message, opened, communication",
       "size": "16",
       "width": 16,
       "height": 16
@@ -6351,7 +6351,7 @@
       "id": "350:2458",
       "fileName": "map-24",
       "iconName": "map",
-      "description": "map, navigate, plan",
+      "description": "map, navigate, plan, location",
       "size": "24",
       "width": 24,
       "height": 24
@@ -6360,7 +6360,7 @@
       "id": "350:2462",
       "fileName": "map-16",
       "iconName": "map",
-      "description": "map, navigate, plan",
+      "description": "map, navigate, plan, location",
       "size": "16",
       "width": 16,
       "height": 16
@@ -6441,7 +6441,7 @@
       "id": "350:2516",
       "fileName": "menu-24",
       "iconName": "menu",
-      "description": "menu, hamburger, navigation",
+      "description": "menu, hamburger, navigation, list",
       "size": "24",
       "width": 24,
       "height": 24
@@ -6450,7 +6450,7 @@
       "id": "350:2520",
       "fileName": "menu-16",
       "iconName": "menu",
-      "description": "menu, hamburger, navigation",
+      "description": "menu, hamburger, navigation, list",
       "size": "16",
       "width": 16,
       "height": 16
@@ -6477,7 +6477,7 @@
       "id": "350:2551",
       "fileName": "message-circle-24",
       "iconName": "message-circle",
-      "description": "message, chat",
+      "description": "message, chat, conversation",
       "size": "24",
       "width": 24,
       "height": 24
@@ -6486,7 +6486,7 @@
       "id": "350:2553",
       "fileName": "message-circle-16",
       "iconName": "message-circle",
-      "description": "message, chat",
+      "description": "message, chat, conversation",
       "size": "16",
       "width": 16,
       "height": 16
@@ -6495,7 +6495,7 @@
       "id": "350:2560",
       "fileName": "message-circle-fill-24",
       "iconName": "message-circle-fill",
-      "description": "message, chat, text",
+      "description": "message, chat, text, conversation",
       "size": "24",
       "width": 24,
       "height": 24
@@ -6504,7 +6504,7 @@
       "id": "350:2565",
       "fileName": "message-circle-fill-16",
       "iconName": "message-circle-fill",
-      "description": "message, chat, text",
+      "description": "message, chat, text, conversation",
       "size": "16",
       "width": 16,
       "height": 16
@@ -6513,7 +6513,7 @@
       "id": "350:2574",
       "fileName": "message-square-24",
       "iconName": "message-square",
-      "description": "message, chat",
+      "description": "message, chat, conversation",
       "size": "24",
       "width": 24,
       "height": 24
@@ -6522,7 +6522,7 @@
       "id": "350:2576",
       "fileName": "message-square-16",
       "iconName": "message-square",
-      "description": "message, chat",
+      "description": "message, chat, conversation",
       "size": "16",
       "width": 16,
       "height": 16
@@ -6531,7 +6531,7 @@
       "id": "350:2582",
       "fileName": "message-square-fill-24",
       "iconName": "message-square-fill",
-      "description": "message, chat, text",
+      "description": "message, chat, text, conversation",
       "size": "24",
       "width": 24,
       "height": 24
@@ -6540,7 +6540,7 @@
       "id": "350:2587",
       "fileName": "message-square-fill-16",
       "iconName": "message-square-fill",
-      "description": "message, chat, text",
+      "description": "message, chat, text, conversation",
       "size": "16",
       "width": 16,
       "height": 16
@@ -6549,7 +6549,7 @@
       "id": "350:2596",
       "fileName": "mic-24",
       "iconName": "mic",
-      "description": "microphone",
+      "description": "microphone, voice, speak",
       "size": "24",
       "width": 24,
       "height": 24
@@ -6558,7 +6558,7 @@
       "id": "350:2601",
       "fileName": "mic-16",
       "iconName": "mic",
-      "description": "microphone",
+      "description": "microphone, voice, speak",
       "size": "16",
       "width": 16,
       "height": 16
@@ -6567,7 +6567,7 @@
       "id": "350:2610",
       "fileName": "mic-off-24",
       "iconName": "mic-off",
-      "description": "microphone, off, disabled",
+      "description": "microphone, off, disabled, voice",
       "size": "24",
       "width": 24,
       "height": 24
@@ -6576,7 +6576,7 @@
       "id": "350:2616",
       "fileName": "mic-off-16",
       "iconName": "mic-off",
-      "description": "microphone, off, disabled",
+      "description": "microphone, off, disabled, voice",
       "size": "16",
       "width": 16,
       "height": 16
@@ -6783,7 +6783,7 @@
       "id": "350:2752",
       "fileName": "monitor-24",
       "iconName": "monitor",
-      "description": "monitor, display, screen",
+      "description": "monitor, display, screen, desktop, computer",
       "size": "24",
       "width": 24,
       "height": 24
@@ -6792,7 +6792,7 @@
       "id": "350:2756",
       "fileName": "monitor-16",
       "iconName": "monitor",
-      "description": "monitor, display, screen",
+      "description": "monitor, display, screen, desktop, computer",
       "size": "16",
       "width": 16,
       "height": 16
@@ -7035,7 +7035,7 @@
       "id": "350:2925",
       "fileName": "org-24",
       "iconName": "org",
-      "description": "organization, team, group, company",
+      "description": "organization, team, group, company, global",
       "size": "24",
       "width": 24,
       "height": 24
@@ -7044,7 +7044,7 @@
       "id": "350:2935",
       "fileName": "org-16",
       "iconName": "org",
-      "description": "organization, team, group, company",
+      "description": "organization, team, group, company, global",
       "size": "16",
       "width": 16,
       "height": 16
@@ -7071,7 +7071,7 @@
       "id": "350:2973",
       "fileName": "package-24",
       "iconName": "package",
-      "description": "package, dependency, box",
+      "description": "package, dependency, box, build",
       "size": "24",
       "width": 24,
       "height": 24
@@ -7080,7 +7080,7 @@
       "id": "350:2978",
       "fileName": "package-16",
       "iconName": "package",
-      "description": "package, dependency, box",
+      "description": "package, dependency, box, build",
       "size": "16",
       "width": 16,
       "height": 16
@@ -7197,7 +7197,7 @@
       "id": "350:3066",
       "fileName": "phone-24",
       "iconName": "phone",
-      "description": "phone, telephone",
+      "description": "phone, telephone, communication, conversation",
       "size": "24",
       "width": 24,
       "height": 24
@@ -7206,7 +7206,7 @@
       "id": "350:3068",
       "fileName": "phone-16",
       "iconName": "phone",
-      "description": "phone, telephone",
+      "description": "phone, telephone, communication, conversation",
       "size": "16",
       "width": 16,
       "height": 16
@@ -7215,7 +7215,7 @@
       "id": "350:3074",
       "fileName": "phone-call-24",
       "iconName": "phone-call",
-      "description": "phone, telephone",
+      "description": "phone, telephone, communication, conversation",
       "size": "24",
       "width": 24,
       "height": 24
@@ -7224,7 +7224,7 @@
       "id": "350:3077",
       "fileName": "phone-call-16",
       "iconName": "phone-call",
-      "description": "phone, telephone",
+      "description": "phone, telephone, communication, conversation",
       "size": "16",
       "width": 16,
       "height": 16
@@ -7233,7 +7233,7 @@
       "id": "350:3084",
       "fileName": "phone-off-24",
       "iconName": "phone-off",
-      "description": "phone, telephone, off, disabled",
+      "description": "phone, telephone, off, disabled, communication, conversation",
       "size": "24",
       "width": 24,
       "height": 24
@@ -7242,7 +7242,7 @@
       "id": "350:3087",
       "fileName": "phone-off-16",
       "iconName": "phone-off",
-      "description": "phone, telephone, off, disabled",
+      "description": "phone, telephone, off, disabled, communication, conversation",
       "size": "16",
       "width": 16,
       "height": 16
@@ -7251,7 +7251,7 @@
       "id": "350:3094",
       "fileName": "pie-chart-24",
       "iconName": "pie-chart",
-      "description": "chart, pie, graph",
+      "description": "chart, pie, graph, data",
       "size": "24",
       "width": 24,
       "height": 24
@@ -7260,7 +7260,7 @@
       "id": "350:3097",
       "fileName": "pie-chart-16",
       "iconName": "pie-chart",
-      "description": "chart, pie, graph",
+      "description": "chart, pie, graph, data",
       "size": "16",
       "width": 16,
       "height": 16
@@ -7557,7 +7557,7 @@
       "id": "350:3271",
       "fileName": "repeat-24",
       "iconName": "repeat",
-      "description": "repeat, redo, process",
+      "description": "repeat, redo, process, loop",
       "size": "24",
       "width": 24,
       "height": 24
@@ -7566,7 +7566,7 @@
       "id": "350:3276",
       "fileName": "repeat-16",
       "iconName": "repeat",
-      "description": "repeat, redo, process",
+      "description": "repeat, redo, process, loop",
       "size": "16",
       "width": 16,
       "height": 16
@@ -7755,7 +7755,7 @@
       "id": "350:3417",
       "fileName": "search-24",
       "iconName": "search",
-      "description": "search, find",
+      "description": "search, find, magnifier",
       "size": "24",
       "width": 24,
       "height": 24
@@ -7764,7 +7764,7 @@
       "id": "350:3420",
       "fileName": "search-16",
       "iconName": "search",
-      "description": "search, find",
+      "description": "search, find, magnifier",
       "size": "16",
       "width": 16,
       "height": 16
@@ -7809,7 +7809,7 @@
       "id": "350:3453",
       "fileName": "serverless-24",
       "iconName": "serverless",
-      "description": "serverless, off, disabled",
+      "description": "serverless, off, disabled, data",
       "size": "24",
       "width": 24,
       "height": 24
@@ -7818,7 +7818,7 @@
       "id": "350:3458",
       "fileName": "serverless-16",
       "iconName": "serverless",
-      "description": "serverless, off, disabled",
+      "description": "serverless, off, disabled, data",
       "size": "16",
       "width": 16,
       "height": 16
@@ -7899,7 +7899,7 @@
       "id": "350:3523",
       "fileName": "shield-24",
       "iconName": "shield",
-      "description": "shield, secure, protect",
+      "description": "shield, secure, protect, privacy",
       "size": "24",
       "width": 24,
       "height": 24
@@ -7908,7 +7908,7 @@
       "id": "350:3525",
       "fileName": "shield-16",
       "iconName": "shield",
-      "description": "shield, secure, protect",
+      "description": "shield, secure, protect, privacy",
       "size": "16",
       "width": 16,
       "height": 16
@@ -7917,7 +7917,7 @@
       "id": "350:3531",
       "fileName": "shield-alert-24",
       "iconName": "shield-alert",
-      "description": "shield, secure, protect, issue, alert",
+      "description": "shield, secure, protect, issue, alert, privacy",
       "size": "24",
       "width": 24,
       "height": 24
@@ -7926,7 +7926,7 @@
       "id": "350:3535",
       "fileName": "shield-alert-16",
       "iconName": "shield-alert",
-      "description": "shield, secure, protect, issue, alert",
+      "description": "shield, secure, protect, issue, alert, privacy",
       "size": "16",
       "width": 16,
       "height": 16
@@ -7935,7 +7935,7 @@
       "id": "350:3544",
       "fileName": "shield-check-24",
       "iconName": "shield-check",
-      "description": "shield, secure, protect, check, success",
+      "description": "shield, secure, protect, check, success, privacy",
       "size": "24",
       "width": 24,
       "height": 24
@@ -7944,7 +7944,7 @@
       "id": "350:3548",
       "fileName": "shield-check-16",
       "iconName": "shield-check",
-      "description": "shield, secure, protect, check, success",
+      "description": "shield, secure, protect, check, success, privacy",
       "size": "16",
       "width": 16,
       "height": 16
@@ -7953,7 +7953,7 @@
       "id": "350:3557",
       "fileName": "shield-off-24",
       "iconName": "shield-off",
-      "description": "shield, secure, protect, off, disabled",
+      "description": "shield, secure, protect, off, disabled, privacy",
       "size": "24",
       "width": 24,
       "height": 24
@@ -7962,7 +7962,7 @@
       "id": "350:3560",
       "fileName": "shield-off-16",
       "iconName": "shield-off",
-      "description": "shield, secure, protect, off, disabled",
+      "description": "shield, secure, protect, off, disabled, privacy",
       "size": "16",
       "width": 16,
       "height": 16
@@ -7971,7 +7971,7 @@
       "id": "350:3567",
       "fileName": "shield-x-24",
       "iconName": "shield-x",
-      "description": "shield, secure, protect, error",
+      "description": "shield, secure, protect, error, privacy",
       "size": "24",
       "width": 24,
       "height": 24
@@ -7980,7 +7980,7 @@
       "id": "350:3571",
       "fileName": "shield-x-16",
       "iconName": "shield-x",
-      "description": "shield, secure, protect, error",
+      "description": "shield, secure, protect, error, privacy",
       "size": "16",
       "width": 16,
       "height": 16
@@ -8043,7 +8043,7 @@
       "id": "350:3619",
       "fileName": "sidebar-24",
       "iconName": "sidebar",
-      "description": "layout, sidebar",
+      "description": "layout, sidebar, navigation",
       "size": "24",
       "width": 24,
       "height": 24
@@ -8052,7 +8052,7 @@
       "id": "350:3622",
       "fileName": "sidebar-16",
       "iconName": "sidebar",
-      "description": "layout, sidebar",
+      "description": "layout, sidebar, navigation",
       "size": "16",
       "width": 16,
       "height": 16
@@ -8061,7 +8061,7 @@
       "id": "350:3629",
       "fileName": "sidebar-hide-24",
       "iconName": "sidebar-hide",
-      "description": "layout, sidebar, hide, collapse",
+      "description": "layout, sidebar, hide, collapse, navigation",
       "size": "24",
       "width": 24,
       "height": 24
@@ -8070,7 +8070,7 @@
       "id": "350:3633",
       "fileName": "sidebar-hide-16",
       "iconName": "sidebar-hide",
-      "description": "layout, sidebar, hide, collapse",
+      "description": "layout, sidebar, hide, collapse, navigation",
       "size": "16",
       "width": 16,
       "height": 16
@@ -8079,7 +8079,7 @@
       "id": "350:3642",
       "fileName": "sidebar-show-24",
       "iconName": "sidebar-show",
-      "description": "layout, sidebar, show, expand",
+      "description": "layout, sidebar, show, expand, navigation",
       "size": "24",
       "width": 24,
       "height": 24
@@ -8088,7 +8088,7 @@
       "id": "350:3646",
       "fileName": "sidebar-show-16",
       "iconName": "sidebar-show",
-      "description": "layout, sidebar, show, expand",
+      "description": "layout, sidebar, show, expand, navigation",
       "size": "16",
       "width": 16,
       "height": 16
@@ -8097,7 +8097,7 @@
       "id": "350:3655",
       "fileName": "sign-in-24",
       "iconName": "sign-in",
-      "description": "login, signin, enter",
+      "description": "login, signin, enter, access",
       "size": "24",
       "width": 24,
       "height": 24
@@ -8106,7 +8106,7 @@
       "id": "350:3659",
       "fileName": "sign-in-16",
       "iconName": "sign-in",
-      "description": "login, signin, enter",
+      "description": "login, signin, enter, access",
       "size": "16",
       "width": 16,
       "height": 16
@@ -8115,7 +8115,7 @@
       "id": "350:3667",
       "fileName": "sign-out-24",
       "iconName": "sign-out",
-      "description": "logout, signout, leave, exit",
+      "description": "logout, signout, leave, exit, access",
       "size": "24",
       "width": 24,
       "height": 24
@@ -8124,7 +8124,7 @@
       "id": "350:3671",
       "fileName": "sign-out-16",
       "iconName": "sign-out",
-      "description": "logout, signout, leave, exit",
+      "description": "logout, signout, leave, exit, access",
       "size": "16",
       "width": 16,
       "height": 16
@@ -8223,7 +8223,7 @@
       "id": "350:3730",
       "fileName": "sliders-24",
       "iconName": "sliders",
-      "description": "sliders, options, preferences, customize",
+      "description": "sliders, options, preferences, customize, options",
       "size": "24",
       "width": 24,
       "height": 24
@@ -8232,7 +8232,7 @@
       "id": "350:3740",
       "fileName": "sliders-16",
       "iconName": "sliders",
-      "description": "sliders, options, preferences, customize",
+      "description": "sliders, options, preferences, customize, options",
       "size": "16",
       "width": 16,
       "height": 16
@@ -8241,7 +8241,7 @@
       "id": "350:3754",
       "fileName": "smartphone-24",
       "iconName": "smartphone",
-      "description": "phone, device",
+      "description": "phone, device, mobile",
       "size": "24",
       "width": 24,
       "height": 24
@@ -8250,7 +8250,7 @@
       "id": "350:3757",
       "fileName": "smartphone-16",
       "iconName": "smartphone",
-      "description": "phone, device",
+      "description": "phone, device, mobile",
       "size": "16",
       "width": 16,
       "height": 16
@@ -8511,7 +8511,7 @@
       "id": "350:3933",
       "fileName": "support-24",
       "iconName": "support",
-      "description": "lifebuoy, help, support",
+      "description": "lifebuoy, help, support, question, service, information, assistance",
       "size": "24",
       "width": 24,
       "height": 24
@@ -8520,7 +8520,7 @@
       "id": "350:3940",
       "fileName": "support-16",
       "iconName": "support",
-      "description": "lifebuoy, help, support",
+      "description": "lifebuoy, help, support, question, service, information, assistance",
       "size": "16",
       "width": 16,
       "height": 16
@@ -8637,7 +8637,7 @@
       "id": "350:4051",
       "fileName": "tablet-24",
       "iconName": "tablet",
-      "description": "tablet, device",
+      "description": "tablet, device, mobile",
       "size": "24",
       "width": 24,
       "height": 24
@@ -8646,7 +8646,7 @@
       "id": "350:4054",
       "fileName": "tablet-16",
       "iconName": "tablet",
-      "description": "tablet, device",
+      "description": "tablet, device, mobile",
       "size": "16",
       "width": 16,
       "height": 16
@@ -8655,7 +8655,7 @@
       "id": "350:4061",
       "fileName": "tag-24",
       "iconName": "tag",
-      "description": "tag, label",
+      "description": "tag, label, category",
       "size": "24",
       "width": 24,
       "height": 24
@@ -8664,7 +8664,7 @@
       "id": "350:4064",
       "fileName": "tag-16",
       "iconName": "tag",
-      "description": "tag, label",
+      "description": "tag, label, category",
       "size": "16",
       "width": 16,
       "height": 16
@@ -8691,7 +8691,7 @@
       "id": "350:4083",
       "fileName": "terminal-24",
       "iconName": "terminal",
-      "description": "terminal, code, cli",
+      "description": "terminal, code, cli, programming",
       "size": "24",
       "width": 24,
       "height": 24
@@ -8700,7 +8700,7 @@
       "id": "350:4086",
       "fileName": "terminal-16",
       "iconName": "terminal",
-      "description": "terminal, code, cli",
+      "description": "terminal, code, cli, programming",
       "size": "16",
       "width": 16,
       "height": 16
@@ -8709,7 +8709,7 @@
       "id": "350:4094",
       "fileName": "terminal-screen-24",
       "iconName": "terminal-screen",
-      "description": "terminal, code, cli, interactive",
+      "description": "terminal, code, cli, interactive, programming",
       "size": "24",
       "width": 24,
       "height": 24
@@ -8718,7 +8718,7 @@
       "id": "350:4098",
       "fileName": "terminal-screen-16",
       "iconName": "terminal-screen",
-      "description": "terminal, code, cli, interactive",
+      "description": "terminal, code, cli, interactive, programming",
       "size": "16",
       "width": 16,
       "height": 16
@@ -8727,7 +8727,7 @@
       "id": "1845:66",
       "fileName": "test-24",
       "iconName": "test",
-      "description": "activity, pulse, health",
+      "description": "test, check, delay, waiting",
       "size": "24",
       "width": 24,
       "height": 24
@@ -8736,7 +8736,7 @@
       "id": "1845:71",
       "fileName": "test-16",
       "iconName": "test",
-      "description": "activity, pulse, health",
+      "description": "test, check, delay, waiting",
       "size": "16",
       "width": 16,
       "height": 16
@@ -9069,7 +9069,7 @@
       "id": "350:4307",
       "fileName": "upload-24",
       "iconName": "upload",
-      "description": "upload",
+      "description": "upload, data, file, import",
       "size": "24",
       "width": 24,
       "height": 24
@@ -9078,7 +9078,7 @@
       "id": "350:4311",
       "fileName": "upload-16",
       "iconName": "upload",
-      "description": "upload",
+      "description": "upload, data, file, import",
       "size": "16",
       "width": 16,
       "height": 16
@@ -9087,7 +9087,7 @@
       "id": "350:4319",
       "fileName": "user-24",
       "iconName": "user",
-      "description": "user, person",
+      "description": "user, person, profile",
       "size": "24",
       "width": 24,
       "height": 24
@@ -9096,7 +9096,7 @@
       "id": "350:4322",
       "fileName": "user-16",
       "iconName": "user",
-      "description": "user, person",
+      "description": "user, person, profile",
       "size": "16",
       "width": 16,
       "height": 16
@@ -9105,7 +9105,7 @@
       "id": "350:4329",
       "fileName": "user-check-24",
       "iconName": "user-check",
-      "description": "user, person, check, success",
+      "description": "user, person, check, success, profile",
       "size": "24",
       "width": 24,
       "height": 24
@@ -9114,7 +9114,7 @@
       "id": "350:4334",
       "fileName": "user-check-16",
       "iconName": "user-check",
-      "description": "user, person, check, success",
+      "description": "user, person, check, success, profile",
       "size": "16",
       "width": 16,
       "height": 16
@@ -9123,7 +9123,7 @@
       "id": "350:4343",
       "fileName": "user-circle-24",
       "iconName": "user-circle",
-      "description": "user, person, avatar, circle",
+      "description": "user, person, avatar, circle, profile",
       "size": "24",
       "width": 24,
       "height": 24
@@ -9132,7 +9132,7 @@
       "id": "350:4347",
       "fileName": "user-circle-16",
       "iconName": "user-circle",
-      "description": "user, person, avatar, circle",
+      "description": "user, person, avatar, circle, profile",
       "size": "16",
       "width": 16,
       "height": 16
@@ -9141,7 +9141,7 @@
       "id": "350:4356",
       "fileName": "user-circle-fill-24",
       "iconName": "user-circle-fill",
-      "description": "user, person, avatar, circle",
+      "description": "user, person, avatar, circle, profile",
       "size": "24",
       "width": 24,
       "height": 24
@@ -9150,7 +9150,7 @@
       "id": "350:4361",
       "fileName": "user-circle-fill-16",
       "iconName": "user-circle-fill",
-      "description": "user, person, avatar, circle",
+      "description": "user, person, avatar, circle, profile",
       "size": "16",
       "width": 16,
       "height": 16
@@ -9159,7 +9159,7 @@
       "id": "350:4371",
       "fileName": "user-minus-24",
       "iconName": "user-minus",
-      "description": "user, person, minus, remove",
+      "description": "user, person, minus, remove, profile",
       "size": "24",
       "width": 24,
       "height": 24
@@ -9168,7 +9168,7 @@
       "id": "350:4375",
       "fileName": "user-minus-16",
       "iconName": "user-minus",
-      "description": "user, person, minus, remove",
+      "description": "user, person, minus, remove, profile",
       "size": "16",
       "width": 16,
       "height": 16
@@ -9177,7 +9177,7 @@
       "id": "350:4383",
       "fileName": "user-plus-24",
       "iconName": "user-plus",
-      "description": "user, person, plus, new, create, add",
+      "description": "user, person, plus, new, create, add, profile",
       "size": "24",
       "width": 24,
       "height": 24
@@ -9186,7 +9186,7 @@
       "id": "350:4388",
       "fileName": "user-plus-16",
       "iconName": "user-plus",
-      "description": "user, person, plus, new, create, add",
+      "description": "user, person, plus, new, create, add, profile",
       "size": "16",
       "width": 16,
       "height": 16
@@ -9195,7 +9195,7 @@
       "id": "350:4397",
       "fileName": "user-x-24",
       "iconName": "user-x",
-      "description": "user, person, delete, remove",
+      "description": "user, person, delete, remove, profile",
       "size": "24",
       "width": 24,
       "height": 24
@@ -9204,7 +9204,7 @@
       "id": "350:4402",
       "fileName": "user-x-16",
       "iconName": "user-x",
-      "description": "user, person, delete, remove",
+      "description": "user, person, delete, remove, profile",
       "size": "16",
       "width": 16,
       "height": 16
@@ -9213,7 +9213,7 @@
       "id": "350:4412",
       "fileName": "users-24",
       "iconName": "users",
-      "description": "users, people, team, group",
+      "description": "users, people, team, group, profile",
       "size": "24",
       "width": 24,
       "height": 24
@@ -9222,7 +9222,7 @@
       "id": "350:4417",
       "fileName": "users-16",
       "iconName": "users",
-      "description": "users, people, team, group",
+      "description": "users, people, team, group, profile",
       "size": "16",
       "width": 16,
       "height": 16
@@ -9465,7 +9465,7 @@
       "id": "350:4608",
       "fileName": "wrench-24",
       "iconName": "wrench",
-      "description": "wrench, tool, adjust",
+      "description": "wrench, tool, adjust, build",
       "size": "24",
       "width": 24,
       "height": 24
@@ -9474,7 +9474,7 @@
       "id": "350:4610",
       "fileName": "wrench-16",
       "iconName": "wrench",
-      "description": "wrench, tool, adjust",
+      "description": "wrench, tool, adjust, build",
       "size": "16",
       "width": 16,
       "height": 16
