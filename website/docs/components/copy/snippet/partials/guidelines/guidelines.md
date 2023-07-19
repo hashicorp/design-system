@@ -12,16 +12,17 @@
 
 ### Effective Usage
 
-- Use the `CopySnippet` component for meaningful content that needs to be copied, avoiding trivial or readily available text. Examples include error messages and lengthy code snippets that don't require a full copy.
+- There's no limit to the number of `CopySnippet` components on a page, but maintain a balance to avoid overwhelming the user or cluttering the interface.
+- Use the `CopySnippet` judiciously for crucial information that users frequently need. This keeps the copied content relevant and valuable without causing confusion or clutter.
 
 !!! Dont
 
-![Example of the copy button component not using proper placement] (/assets/components/copy/copy-snippet-usage-example.png =875x*)
+Use the `CopySnippet` component for meaningful content that requires copying, while avoiding trivial or readily available text. Examples of suitable content include lengthy code snippets that don't need to be copied in their entirety and easily accessible text that users can manually copy at their discretion.
 
+![Example of the copy snippet component not using proper usage] (/assets/components/copy/copy-snippet-usage-example.png =675x*)
+
+![Example of the copy snippet component not using proper usage] (/assets/components/copy/copy-snippet-usage-example-2.png =675x*)
 !!!
-
-- There's no limit to the number of `CopySnippet` components on a page, but maintain a balance to avoid overwhelming the user or cluttering the interface.
-- Use the `CopySnippet` judiciously for crucial information that users frequently need. This keeps the copied content relevant and valuable without causing confusion or clutter.
 
 ## Table Usage
 There are a few reasons why using a `CopySnippet` component in a table may not be ideal:
