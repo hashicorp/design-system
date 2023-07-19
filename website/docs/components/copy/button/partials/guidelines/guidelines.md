@@ -2,33 +2,40 @@
 
 ### When to use
 
-- Use the `CopyButton` to provide users with a convenient way to copy large text blocks, such as code snippets or API keys.
-- Use when users need to copy data like tokens or URLs from within the content.
-- Use the `CopyButton` with clear visual cues or explanatory text indicating what will be copied.
+- Use the `CopyButton` to conveniently copy large text blocks, such as code snippets, API keys, or Tokens. 
+- Don't use the `CopyButton` to copy the text within the button container, instead use a `CopySnippet`
 
 ### When not to use
 
 - Don’t place the `CopyButton` in a disconnected location. It should be visually associated with specific content or context to prevent confusion.
 
-### Sizes
+## Sizes
 
-The preferred size for the `CopyButton` is medium, but you can choose a different size that best fits the user interface. For example, avoid using a medium-sized `CopyButton` in a small code block where it might look out of place.
+The `CopyButton` default size is medium, but you can choose a different size that best suits your UI. For example, avoid using a medium-sized `CopyButton` in a small code block where it looks out of place. Ensure that the size of the `CopyButton` aligns well with the surrounding elements. 
 
 ## Content
 
-Keep the text short, around 25 characters. Provide enough context to be helpful, avoiding full sentences. Maintain consistent language within your product. For example, if you use “Copy” on one page, stick with it throughout the application instead of “Duplicate.”
+Keep the text short, around 25 characters. Provide enough context to be helpful, avoiding complete sentences.
 
-## Copying Important Information
+## Placement 
 
-When using the `CopyButton` or `CopySnippet` components, it’s essential to consider when to use them. Keep the following guidelines in mind:
+Don’t place the `CopyButton` in a disconnected area within the UI. It should be visually associated with specific content or context to prevent user confusion.
 
-- Meaningful Content: Reserve the CopyButton or CopySnippet components for significant or essential content that requires copying. Avoid using them for trivial or easily accessible text.
+!!! Do
 
-- Value and Need: Prioritize using these components for content that holds value or requires sharing and referencing in other contexts.
+Keeping the `CopyButton` in conjunction with the content being copied enables users to easily recognize what they are copying to their clipboard.
 
-- Assess the risk: Evaluate the potential for accidentally replacing valuable data in a user’s clipboard. Take necessary precautions to avoid data loss or inconvenience.
+![Example of the copy button component using proper placement] (/assets/components/copy/copy-button-placement-do.png =875x*)
 
-- Safeguards and confirmation: Implement safeguards such as confirmation mechanisms or prompts to ensure intentional copying and prevent accidental data loss.
+!!!
+
+!!! Dont
+
+Not placing the `CopyButton` in conjunction with the content being copied may make it challenging for users to recognize what they are copying to their clipboard.
+
+![Example of the copy button component not using proper placement] (/assets/components/copy/copy-button-placement-dont.png =875x*)
+
+!!!
 
 ## Related
 
