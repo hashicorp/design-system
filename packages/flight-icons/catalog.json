@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2023-07-19T00:32:52.654Z",
+  "lastRunTimeISO": "2023-07-19T20:40:02.271Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -840,6 +840,42 @@
       "height": 16
     },
     {
+      "id": "4229:66",
+      "fileName": "elastic-observability-24",
+      "iconName": "elastic-observability",
+      "description": "elastic, observability, provider, cloud",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "4229:74",
+      "fileName": "elastic-observability-16",
+      "iconName": "elastic-observability",
+      "description": "elastic, observability, provider, cloud",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "4229:85",
+      "fileName": "elastic-observability-color-24",
+      "iconName": "elastic-observability-color",
+      "description": "elastic, observability, provider, cloud",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "4229:93",
+      "fileName": "elastic-observability-color-16",
+      "iconName": "elastic-observability-color",
+      "description": "elastic, observability, provider, cloud",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
       "id": "707:179",
       "fileName": "f5-24",
       "iconName": "f5",
@@ -1483,6 +1519,42 @@
       "fileName": "microsoft-teams-color-16",
       "iconName": "microsoft-teams-color",
       "description": "microsoft, teams",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "4229:107",
+      "fileName": "new-relic-24",
+      "iconName": "new-relic",
+      "description": "new relic, provider, cloud",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "4229:114",
+      "fileName": "new-relic-16",
+      "iconName": "new-relic",
+      "description": "new relic, provider, cloud",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "4229:124",
+      "fileName": "new-relic-color-24",
+      "iconName": "new-relic-color",
+      "description": "new relic, provider, cloud",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "4229:131",
+      "fileName": "new-relic-color-16",
+      "iconName": "new-relic-color",
+      "description": "new relic, provider, cloud",
       "size": "16",
       "width": 16,
       "height": 16
