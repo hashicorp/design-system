@@ -8,7 +8,7 @@
 ### When not to use
 
 - Avoid using a `CopySnippet` component to copy content outside its container.
-- Don't use a `CopySnippet` in a code block. Instead, use a [Copy Button](/components/copy/button).
+- Don’t use a `Copy::Snippet` in a code block. Instead, use a [Copy Button](/components/copy/button).
 
 ### Effective Usage
 
