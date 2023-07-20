@@ -14,8 +14,11 @@
     <DynamicTemplate @templateString={{this.renderedContent}} @componentId={{this.model.id}} />
 
     {{#if this.relatedComponents}}
+      <hr />
       <h2 class="doc-text-h2">Related</h2>
       <Doc::Cards::Deck @cols="2" @layout="horizontal" @cards={{this.relatedComponents}} />
+
+      {{! <Doc::RelatedComponents /> }}
     {{/if}}
   </Doc::Page::Content>
 
