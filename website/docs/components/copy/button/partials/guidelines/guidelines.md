@@ -2,7 +2,7 @@
 
 ### When to use
 
-- Use the `CopyButton` to conveniently copy large text blocks, such as code snippets, API keys, or Tokens. 
+- Use the `Copy::Button` to conveniently copy large text blocks, such as code snippets, API keys, or Tokens. 
 - Don't use the `CopyButton` to copy the text within the button container, instead use a `CopySnippet`
 
 ### When not to use
