@@ -17,7 +17,7 @@
 
 !!! Dont
 
-Use the `CopySnippet` component for meaningful content that requires copying, while avoiding trivial or readily available text. Examples of suitable content include lengthy code snippets that don't need to be copied in their entirety and easily accessible text that users can manually copy at their discretion.
+Use the `CopySnippet` component for meaningful content that requires copying, while avoiding trivial or readily available text. Examples of suitable content include lengthy code snippets that don’t need to be copied in their entirety and easily accessible text that users can manually copy at their discretion.
 
 ![Example of the copy snippet component not using proper usage] (/assets/components/copy/copy-snippet-usage-example.png =675x*)
 
