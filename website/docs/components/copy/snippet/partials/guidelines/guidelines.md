@@ -2,7 +2,7 @@
 
 ### When to use
 
-- Use the `CopySnippet` component when you want users to be able to copy code snippets or text, such as URLs, tokens, or IDs.
+- Use the `CopySnippet` component to allow users to copy code snippets or text, such as URLs, tokens, or IDs.
 - Use when users need to extract and use specific information like API keys, configuration settings, or unique identifiers.
 
 ### When not to use
