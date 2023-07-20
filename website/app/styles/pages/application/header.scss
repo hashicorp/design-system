@@ -63,7 +63,7 @@
 .doc-page-header__nav-menu {
   display: none;
 
-  @include breakpoint.medium-and-above() {
+  @include breakpoint.medium () {
     display: block;
     flex: 1 0 auto;
     align-self: stretch;
@@ -157,7 +157,7 @@
 
   body.application.index & {
     // this is a special case: in homepage the top-level links in the header are still accessible at the "medium" viewport, so no need to show the burger menu
-    @include breakpoint.medium () {
+    @include breakpoint.medium-only () {
       display: none;
     }
   }
