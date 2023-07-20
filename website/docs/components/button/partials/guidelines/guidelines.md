@@ -118,7 +118,6 @@ Use `arrow-right` when using the Button for internal links. In most cases, consi
 
 <Hds::Button @color="secondary" @text="Continue with HCP account" @icon="arrow-right" @iconPosition="trailing" @href="https://hashicorp.com" />
 
-
 Use `external-link` when using the Button for external links. In most cases, consider using the [Standalone Link](/components/link/standalone) instead. For more details, please refer to the [code documentation](/components/button?tab=code#links).
 
 <Hds::Button @color="secondary" @text="Authenticate with GitHub" @icon="external-link" @iconPosition="trailing" @href="https://hashicorp.com" />
