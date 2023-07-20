@@ -39,8 +39,8 @@ module('Integration | Component | hds/page-header/index', function (hooks) {
           </Hds::PageHeader>`
     );
     assert.dom('.hds-page-header').exists();
-    assert.dom('.hds-page-header__title-text').exists();
-    assert.dom('.hds-page-header__title-text').hasText('Page title');
+    assert.dom('.hds-page-header__title').exists();
+    assert.dom('.hds-page-header__title').hasText('Page title');
     assert.dom('.hds-breadcrumb').exists();
     assert.dom('.hds-icon-tile').exists();
     assert.dom('.hds-page-header__actions').exists();
@@ -55,7 +55,7 @@ module('Integration | Component | hds/page-header/index', function (hooks) {
   test('it should not render the contextual components if not provided', async function (assert) {
     await render(hbs`<Hds::PageHeader />`);
     assert.dom('.hds-breadcrumb').doesNotExist();
-    assert.dom('.hds-page-header__title-text').doesNotExist();
+    assert.dom('.hds-page-header__title').doesNotExist();
     assert.dom('.hds-page-header__actions').doesNotExist();
     assert.dom('.hds-page-header__subtitle').doesNotExist();
     assert.dom('.hds-page-header__description').doesNotExist();

@@ -55,7 +55,7 @@
   max-width: 100%;
 }
 
-.hds-page-header__title-main {
+.hds-page-header__title-wrapper {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -63,7 +63,7 @@
   align-items: center;
 }
 
-.hds-page-header__title-text {
+.hds-page-header__title {
   max-width: 100%;
   overflow-wrap: break-word;
 }
