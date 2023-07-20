@@ -28,4 +28,4 @@ Users external to HashiCorp can [file issues in GitHub](https://github.com/hashi
 
 ## Office hours
 
-Office hours are a great way to get feedback on your project or help to get unstuck in a code migration. [Add yourself to the agenda](https://docs.google.com/document/d/1LdyQznltt4VCbGGGDuDkARRRKXI4laCHxHhY8dJy4wE/edit?usp=sharing) to the next office hours session.
+Office hours are a great way to get feedback on your project or help to get unstuck in a code migration. [Sign up for an appointment](https://docs.google.com/document/d/1LdyQznltt4VCbGGGDuDkARRRKXI4laCHxHhY8dJy4wE/edit?usp=sharing) at the next office hours.
