@@ -3,7 +3,7 @@
 ### When to use
 
 - Use the `Copy::Button` to conveniently copy large text blocks, such as code snippets, API keys, or Tokens. 
-- Don’t use the `CopyButton` to copy the text within the button container, instead use a [Copy Snippet](/components/copy/snippet).
+- Don’t use the `Copy::Button` to copy the text within the button container, instead use a [`Copy::Snippet`](/components/copy/snippet).
 
 ### When not to use
 
