@@ -13,10 +13,6 @@
 
 The `CopyButton` default size is medium, but you can choose a different size that best suits your UI. For example, avoid using a medium-sized `CopyButton` in a small code block where it looks out of place. Ensure that the size of the `CopyButton` aligns well with the surrounding elements. 
 
-## Content
-
-Keep the text short, around 25 characters. Provide enough context to be helpful, avoiding complete sentences.
-
 ## Placement 
 
 Don’t place the `CopyButton` in a disconnected area within the UI. It should be visually associated with specific content or context to prevent user confusion.
