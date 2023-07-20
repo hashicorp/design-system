@@ -8,6 +8,34 @@
 <Shw::Text::H1>Copy::Snippet</Shw::Text::H1>
 
 <section data-test-percy>
-  <Hds::Copy::Snippet @text="45tg-65hf-t3dh-704y" />
+  <Shw::Text::H2>Generated element</Shw::Text::H2>
 
+  <Shw::Flex as |SF|>
+    <SF.Item class="shw-component-button-generated">
+      <Shw::Label>Default</Shw::Label>
+      <Hds::Copy::Snippet @textToCopy="fbrct1ed-fgr35h-tyng89-wed4r" />
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H2>Color</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    {{#each @model.COLORS as |color|}}
+      <SF.Item @label={{capitalize color}}>
+        <Hds::Copy::Snippet @textToCopy="fbrct1ed-fgr35h-tyng89-wed4r" @color={{color}} />
+      </SF.Item>
+    {{/each}}
+  </Shw::Flex>
+
+  <Shw::Text::H2>States</Shw::Text::H2>
+
+  <Shw::Grid @columns={{4}} as |SG|>
+    {{#each @model.COLORS as |color|}}
+      {{#each @model.STATES as |state|}}
+        <SG.Item @label="{{capitalize color}} / {{capitalize state}}">
+          <Hds::Copy::Snippet @textToCopy="fbrct1ed-fgr35h-tyng89-wed4r" @color={{color}} mock-state-value={{state}} />
+        </SG.Item>
+      {{/each}}
+    {{/each}}
+  </Shw::Grid>
 </section>
