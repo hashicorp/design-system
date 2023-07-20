@@ -27,7 +27,7 @@ Use the `CopySnippet` component for meaningful content that requires copying, wh
 ## Table Usage
 There are a few reasons why using a `CopySnippet` component in a table may not be ideal:
 
-1. **Complexity and Readability**: Tables often contain organized data with multiple rows and columns. If the content within each cell is long or complicated, like code snippets or lengthy text, using the `CopySnippet` component may reduce readability and make it harder to understand the copied content within the table format.
+1. **Complexity and Readability**: Tables often contain organized data with multiple rows and columns. If the content within each cell is long or complicated, such as code snippets or lengthy text, using the `CopySnippet` component may reduce readability and make it harder to understand the copied content within the table format.
 
 2. **Interference with Table Functionality**: Tables often have interactive features like sorting, filtering, or editing. Adding the `CopySnippet` component within the table cells might interfere with these functionalities, making it challenging for users to interact with the table or perform table-specific actions.
 
