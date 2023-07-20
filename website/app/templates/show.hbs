@@ -12,8 +12,11 @@
 
   <Doc::Page::Content @breakthrough={{not this.model.hasSidecar}} id={{this.model.showContentId}}>
     <DynamicTemplate @templateString={{this.renderedContent}} @componentId={{this.model.id}} />
-    <h2 class="doc-text-h2">Related</h2>
-    <Doc::Cards::Deck @cols="2" @layout="horizontal" @cards={{this.relatedComponents}} />
+
+    {{#if this.relatedItems}}
+      <h2 class="doc-text-h2">Related</h2>
+      <Doc::Cards::Deck @cols="2" @layout="horizontal" @cards={{this.relatedComponents}} />
+    {{/if}}
   </Doc::Page::Content>
 
   {{#if this.model.hasSidecar}}
