@@ -32,7 +32,3 @@ There are three sizes: small, medium, and large.
 <Hds::BadgeCount @text="3" @size="small" />
 <Hds::BadgeCount @text="3" @size="medium" />
 <Hds::BadgeCount @text="3" @size="large" />
-
-## Related
-
-- [Badge](/components/badge)

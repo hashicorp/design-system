@@ -204,8 +204,3 @@ The title or description should contain the alert type, e.g., “Warning,” if 
 - Alert descriptions should be short but clear enough to explain what’s happening. We recommend keeping messages under 90 characters.
 - For warning and critical alerts, guide the users on how to prevent or fix the issue.
 - For content guidelines on actions, refer to [Button](/components/button) and [Link](/components/link/standalone) documentation.
-
-## Related
-
-- [Toast](/components/toast)
-- [Modal](/components/modal)

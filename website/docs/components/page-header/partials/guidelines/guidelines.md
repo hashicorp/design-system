@@ -235,10 +235,3 @@ The Ember component uses a variety of different methods to ensure fluidity and r
 Additional responsive characteristics are the responsibility of the consumer and dependent on the layout and spacing methods defined at the application level.
 
 !!!
-
-## Related
-
-- [Breadcrumb](/components/breadcrumb)
-- [Button](/component/button)
-- [Dropdown](/component/dropdown)
-- [IconTile](/components/icon-tile)

@@ -71,9 +71,3 @@ For shorter, simpler forms, indicate optional fields instead.
 ## Error validation
 
 For error validation recommendations, refer to the [Form patterns](/patterns/form-patterns) documentation.
-
-## Related
-
-<!-- only include the 2 most similar/related components -->
-- [TextInput](/components/form/text-input)
-- [Textarea](/components/form/textarea)

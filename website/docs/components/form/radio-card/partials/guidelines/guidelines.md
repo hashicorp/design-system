@@ -117,9 +117,3 @@ Labels are part of the radio’s selectable area, making them interactive elemen
 !!!
 
 For general content recommendations, refer to the [Primitives](/components/form/primitives) documentation.
-
-## Related
-
-- [Radio](/components/form/radio)
-- [Card](/components/card)
-- [Form patterns](/patterns/form-patterns)
