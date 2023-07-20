@@ -12,7 +12,7 @@
 
 ### Effective Usage
 
-- There's no limit to the number of `CopySnippet` components on a page, but maintain a balance to avoid overwhelming the user or cluttering the interface.
+- There’s no limit to the number of `CopySnippet` components on a page, but maintain a balance to avoid overwhelming the user or cluttering the interface.
 - Use the `CopySnippet` judiciously for crucial information that users frequently need. This keeps the copied content relevant and valuable without causing confusion or clutter.
 
 !!! Dont
