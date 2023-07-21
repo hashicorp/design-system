@@ -103,8 +103,11 @@
 
 .doc-component-api__property-description {
   .doc-component-api {
-    margin: 16px 0;
+    margin: 16px 0 16px 8px;
+    padding-right: 16px;
+    padding-left: 16px;
     border: none;
+    border-left: 2px solid var(--doc-color-feedback-information-300);
     border-radius: 0;
 
     &:last-child {
@@ -113,14 +116,14 @@
   }
 
   .doc-component-api__property {
-    padding-top: 16px;
-    padding-bottom: 16px;
-    padding-left: 12px;
-  }
+    padding-left: 0;
 
-  .doc-component-api__property-values,
-  .doc-component-api__property-description {
-    padding-left: 12px;
-    border-left: 2px solid var(--doc-color-feedback-information-300);
+    &:first-child {
+      padding-top: 12px;
+    }
+
+    &:last-child {
+      padding-bottom: 12px;
+    }
   }
 }
