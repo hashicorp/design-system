@@ -7,7 +7,6 @@ links:
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/copy/button
 previewImage: assets/illustrations/components/copy-button.jpg
 navigation:
-  hidden: false
   keywords: ['copy', 'button']
 ---
 
