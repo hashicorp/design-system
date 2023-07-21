@@ -79,8 +79,3 @@ The text should wrap when it exceeds a maximum width of 280px. There is no chara
 
 Text wrapping can be achieved using the property `isMultiline` in Figma.
 !!!
-
-## Related
-
-<!-- only include the 2 most similar/related components -->
-- [Modal](https://helios.hashicorp.design/components/modal)

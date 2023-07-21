@@ -59,8 +59,3 @@ The Reveal component should be used for hiding and showing simple content. For c
 
 In cases where surrounding elements already have margin or padding added, you may want to reduce or remove the spacing entirely.
 !!!
-
-## Related
-
-<!-- only include the 2 most similar/related components -->
-- [Flyout](/components/flyout)

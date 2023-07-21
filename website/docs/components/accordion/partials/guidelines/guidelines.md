@@ -96,7 +96,3 @@ The `content` supports any custom content, local components, or Helios component
 ### Custom
 
 ![Example of content in accordion item](/assets/components/accordion/content-custom.png =690x*)
-
-## Related
-
-- [Reveal](/components/reveal)

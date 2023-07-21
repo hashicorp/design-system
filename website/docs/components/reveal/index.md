@@ -5,6 +5,7 @@ caption: A toggle that reveals additional content to the user when triggered.
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=35103%3A70091&t=PdXIqxQkqpsXUQki-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/reveal
+related: ['components/flyout']
 previewImage: assets/illustrations/components/reveal.jpg
 navigation:
   hidden: false

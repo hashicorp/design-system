@@ -82,7 +82,3 @@ Do you have a need for a more elegant overflow experience? Please let us know by
 ## Content
 
 Tabs should be short and concise, and a good indication of what content the user can expect to find within the TabPanel. They should not consist of full sentences.
-
-## Related
-
-- [Breadcrumb](/components/breadcrumb)

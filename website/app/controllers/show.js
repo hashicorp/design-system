@@ -84,6 +84,20 @@ export default class ShowController extends Controller {
     return { links };
   }
 
+  get relatedComponents() {
+    if (this.model.relatedComponents) {
+      return this.model.relatedComponents.map((relatedComponent) => ({
+        image: `/${relatedComponent.previewImage}`,
+        title: relatedComponent?.navigation?.label || relatedComponent.title,
+        caption: relatedComponent.caption,
+        route: 'show',
+        model: relatedComponent.pageURL,
+      }));
+    } else {
+      return false;
+    }
+  }
+
   get currentActiveTabIndex() {
     const tab = this.tabs.find((tab) => {
       return tab.isCurrent;

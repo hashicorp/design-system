@@ -5,6 +5,7 @@ caption: {Short description that appears in the cards}
 links:
   figma: {link to the "<%= columnizedModuleName %>" page in the components Figma library}
   github: {link to the "<%= columnizedModuleName %>" component's folder in the GitHub repo}
+related: ['path/to/component', 'path/to/pattern']
 previewImage: assets/illustrations/components/<%= kebabizedModuleName %>.jpg
 navigation:
   hidden: true

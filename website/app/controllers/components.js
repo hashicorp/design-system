@@ -20,7 +20,7 @@ export default class ComponentsController extends Controller {
         )
         .map((page) => {
           return {
-            image: page.pageAttributes.previewImage,
+            image: `/${page.pageAttributes.previewImage}`,
             title:
               page.pageAttributes?.navigation?.label ||
               page.pageAttributes.title,
