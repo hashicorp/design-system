@@ -7,5 +7,4 @@ previewImage: assets/illustrations/foundations/focus-ring.jpg
 
 <section data-tab="Code">
   @include "partials/code/how-to-use.md"
-  <!-- @include "partials/code/showcase.md" -->
 </section>

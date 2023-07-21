@@ -147,5 +147,4 @@ When migrating icons from Structure, reference our [mapping of icon names betwee
 
 - [Figma library](https://www.figma.com/file/TLnoT5AYQfy3tZ0H68BgOr/Flight-Icons?node-id=164%3A0&t=bWFdjHgfV6aLQjep-1) (Internal only)
 - [SVG assets (ZIP file)](/assets/zip/flight-icons-svg.zip)
-- [Request an icon](https://docs.google.com/forms/d/e/1FAIpQLSc2wsaOaKHiVKPzk-FWlqwVdOjSmSuOU03XC5ZdJkHOcLDOEA/viewform?) (Internal only)
-- [Report an issue](https://github.com/hashicorp/design-system/issues/new/choose)
+- [Request an icon or report an issue](https://go.hashi.co/hds-support)

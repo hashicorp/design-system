@@ -1,5 +1,33 @@
 # @hashicorp/design-system-components
 
+## 2.8.0
+
+### Minor Changes
+
+- [#1492](https://github.com/hashicorp/design-system/pull/1492) [`a17e5b2ac`](https://github.com/hashicorp/design-system/commit/a17e5b2acf66493ccbb68a623a3b7ba2fd5ab5a8) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - `Card` - Updated default value of `@overflow` argument to `"visible"` to address an area of consumer confusion and better support the most common use cases.
+
+  Technically, this is a breaking change as it will require consumers relying upon the previous `hidden` default value to now manually set the value. The result of not setting the a `"hidden"` value can cause square edges of some images to "stick out" and overlap the rounded corners of the Card itself. We considered this to be a fairly minor, low-impact issue however which would not affect functionality or usability.
+
+- [#1452](https://github.com/hashicorp/design-system/pull/1452) [`c277d0366`](https://github.com/hashicorp/design-system/commit/c277d036673cf572c00ebf5b8b35b424c0b057fd) Thanks [@alex-ju](https://github.com/alex-ju)! - `Form::TextInput` - Add loading state on "search" type
+
+- [#1468](https://github.com/hashicorp/design-system/pull/1468) [`b0a766ccf`](https://github.com/hashicorp/design-system/commit/b0a766ccf5357dd6f0e8dfb68d8c1ee823e76b50) Thanks [@alex-ju](https://github.com/alex-ju)! - Added `MaskedInput` component for forms
+
+- [#1423](https://github.com/hashicorp/design-system/pull/1423) [`5ac340c8c`](https://github.com/hashicorp/design-system/commit/5ac340c8c3a3adab388704067578cf419e2e2f10) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - Add new `Accordion` component
+
+### Patch Changes
+
+- [#1466](https://github.com/hashicorp/design-system/pull/1466) [`cdda7ae8e`](https://github.com/hashicorp/design-system/commit/cdda7ae8eaf553bd32ec9e3944edf08fe352caf4) Thanks [@alex-ju](https://github.com/alex-ju)! - `Hds::PageHeader` – Set position to 'relative'
+
+- [#1470](https://github.com/hashicorp/design-system/pull/1470) [`0ea2ccfd0`](https://github.com/hashicorp/design-system/commit/0ea2ccfd0303149014de768c715ebb53dffe6c4c) Thanks [@alex-ju](https://github.com/alex-ju)! - `Hds::Textarea` – Fix border and text color for readonly state
+
+- [#1456](https://github.com/hashicorp/design-system/pull/1456) [`b4237e73b`](https://github.com/hashicorp/design-system/commit/b4237e73b3701d94e92556ad0108b8a38bef312d) Thanks [@alex-ju](https://github.com/alex-ju)! - `Hds::Modal` – Prevent `onClose` callback function invocation when `isDismissDisabled` is `true`
+
+- [#1469](https://github.com/hashicorp/design-system/pull/1469) [`ef98ed4ed`](https://github.com/hashicorp/design-system/commit/ef98ed4ed188520fd69a0090ab93d7d0c44e634c) Thanks [@didoo](https://github.com/didoo)! - Set the `font-weight` of the `button` mixin explicitly to `regular` instead of relying on inheritance (components using this mixin: `Button`, `Dropdown::ToggleButton` and soon `Accordion`) - No visual difference expected
+
+- Updated dependencies [[`b2ec25b39`](https://github.com/hashicorp/design-system/commit/b2ec25b399ba9aad5f8ae0b1f18a1bef9a6543e0)]:
+  - @hashicorp/design-system-tokens@1.6.0
+  - @hashicorp/ember-flight-icons@3.0.7
+
 ## 2.7.1
 
 ### Patch Changes

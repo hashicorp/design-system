@@ -1,6 +1,6 @@
 {
   "name": "@hashicorp/design-system-components",
-  "version": "2.7.1",
+  "version": "2.8.0",
   "description": "Helios Design System Components",
   "keywords": [
     "hashicorp",
@@ -40,8 +40,8 @@
   },
   "dependencies": {
     "@ember/render-modifiers": "^2.0.5",
-    "@hashicorp/design-system-tokens": "^1.5.0",
-    "@hashicorp/ember-flight-icons": "^3.0.6",
+    "@hashicorp/design-system-tokens": "^1.6.0",
+    "@hashicorp/ember-flight-icons": "^3.0.7",
     "dialog-polyfill": "^0.5.6",
     "ember-a11y-refocus": "^3.0.2",
     "ember-auto-import": "^2.6.3",
@@ -102,7 +102,7 @@
     "prettier": "^2.8.8",
     "qunit": "^2.19.4",
     "qunit-dom": "^2.0.0",
-    "stylelint": "^14.16.1",
+    "stylelint": "^15.10.1",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard-scss": "^5.0.0",
     "webpack": "^5.84.1"

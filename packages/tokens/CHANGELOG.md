@@ -1,5 +1,11 @@
 # @hashicorp/design-system-tokens
 
+## 1.6.0
+
+### Minor Changes
+
+- [#1452](https://github.com/hashicorp/design-system/pull/1452) [`b2ec25b39`](https://github.com/hashicorp/design-system/commit/b2ec25b399ba9aad5f8ae0b1f18a1bef9a6543e0) Thanks [@alex-ju](https://github.com/alex-ju)! - Add design token for loading state icon on search input
+
 ## 1.5.0
 
 ### Minor Changes

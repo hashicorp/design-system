@@ -88,7 +88,8 @@
   // DATE/TIME
 
   &[type="date"],
-  &[type="time"] {
+  &[type="time"],
+  &[type="datetime-local"] {
 
     // browsers set a specific width for these controls, we want to keep it
     width: initial;
@@ -108,7 +109,8 @@
 
   // we override the default icon with the Flight corresponding one
   // notice: the original in Chrome has two assets, one for light and one for dark mode, and uses a special syntax, but apparently it doesn't work if used in a stylesheet
-  &[type="date"] {
+  &[type="date"],
+  &[type="datetime-local"] {
     &::-webkit-calendar-picker-indicator {
       background-image: var(--token-form-text-input-background-image-data-url-date);
       background-position: center center;

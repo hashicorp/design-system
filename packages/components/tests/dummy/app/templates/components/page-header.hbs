@@ -265,6 +265,30 @@ SPDX-License-Identifier: MPL-2.0
         In the case of a badge, the title and badge will wrap if the available space is exceeded.
       </Shw::Text::Body>
     </SF.Item>
+    <SF.Item @label="Non-breaking Title/Subtitle/Description + badge">
+      <Hds::PageHeader as |PH|>
+        <PH.Title>
+          Pagetitlewithaveryveryveryverylongnonbreakingstringthatcanspanmultiplelines
+        </PH.Title>
+        <PH.Subtitle
+        >Subtitlewithaveryveryveryveryveryveryveryveryveryveryveryveryveryveveryveryveryveryveryveryveryveryveryveryveryveryryveryverylongnonbreakingstringthatcanspanmultiplelines</PH.Subtitle>
+        <PH.Description
+        >Descriptionwithaveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryverylongnonbreakingstringthatcanspanmultiplelines.</PH.Description>
+        <PH.IconTile @logo="vagrant" />
+        <PH.Badges>
+          <Hds::Badge @text="Wrapping badge" @icon="mic" @color="critical" />
+        </PH.Badges>
+        <PH.Actions>
+          <Hds::Button @text="Get started" @icon="terminal-screen" @iconPosition="trailing" />
+        </PH.Actions>
+      </Hds::PageHeader>
+
+      <Shw::Text::Body @tag="p">
+        In the case of non-breaking text the long string will be forced to wrap using the
+        <code>break-word</code>
+        option.
+      </Shw::Text::Body>
+    </SF.Item>
   </Shw::Flex>
 
   <Shw::Divider @level={{3}} />

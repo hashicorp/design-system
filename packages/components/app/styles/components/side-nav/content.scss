@@ -34,9 +34,9 @@
 .hds-side-nav__list-title {
   display: flex;
   align-items: center;
-  min-height: 34px;
+  min-height: var(--token-side-nav-body-list-item-height);
   margin-top: var(--token-side-nav-body-list-margin-vertical);
-  padding: 0 var(--token-side-nav-body-list-item-padding-horizontal);
+  padding: 9px var(--token-side-nav-body-list-item-padding-horizontal); // 8px = (min-height - body-100-line-height) / 2
   color: var(--token-side-nav-color-foreground-faint);
 
   // Remove margin from title at top of all list-items & lists

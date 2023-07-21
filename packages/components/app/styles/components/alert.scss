@@ -40,24 +40,9 @@
   gap: 4px;
   justify-content: center;
   color: var(--token-color-foreground-warning-on-surface);
-  font-size: var(--token-typography-body-200-font-size);
-  font-family: var(--token-typography-body-200-font-family);
-  line-height: var(--token-typography-body-200-line-height);
-
-  .hds-alert--type-compact & {
-    font-size: var(--token-typography-body-100-font-size);
-    font-family: var(--token-typography-body-100-font-family);
-    line-height: var(--token-typography-body-100-line-height);
-  }
-}
-
-.hds-alert__title {
-  font-weight: var(--token-typography-font-weight-semibold);
 }
 
 .hds-alert__description {
-  color: var(--token-color-foreground-primary);
-  font-weight: var(--token-typography-font-weight-regular);
   word-break: break-word;
 
   // we add very basic styling for elements that may be injected via the "description" string

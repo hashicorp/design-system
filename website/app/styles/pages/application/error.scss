@@ -24,7 +24,7 @@
   min-width: 0;
   max-width: 320px;
 
-  @include breakpoint.medium-and-above () {
+  @include breakpoint.medium () {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 48px;

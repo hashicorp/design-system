@@ -2,22 +2,22 @@
 
 ### When to use
 
-- Use the `CopySnippet` component when you want users to be able to copy code snippets or text, such as URLs, tokens, or IDs.
+- Use the `CopySnippet` component to allow users to copy code snippets or text, such as URLs, tokens, or IDs.
 - Use when users need to extract and use specific information like API keys, configuration settings, or unique identifiers.
 
 ### When not to use
 
 - Avoid using a `CopySnippet` component to copy content outside its container.
-- Don't use a `CopySnippet` in a code block. Instead, use a [Copy Button](/components/copy/button).
+- Don’t use a `Copy::Snippet` in a code block. Instead, use a [Copy Button](/components/copy/button).
 
 ### Effective Usage
 
-- There's no limit to the number of `CopySnippet` components on a page, but maintain a balance to avoid overwhelming the user or cluttering the interface.
+- There’s no limit to the number of `CopySnippet` components on a page, but maintain a balance to avoid overwhelming the user or cluttering the interface.
 - Use the `CopySnippet` judiciously for crucial information that users frequently need. This keeps the copied content relevant and valuable without causing confusion or clutter.
 
 !!! Dont
 
-Use the `CopySnippet` component for meaningful content that requires copying, while avoiding trivial or readily available text. Examples of suitable content include lengthy code snippets that don't need to be copied in their entirety and easily accessible text that users can manually copy at their discretion.
+Use the `CopySnippet` component for meaningful content that requires copying, while avoiding trivial or readily available text. Examples of suitable content include lengthy code snippets that don’t need to be copied in their entirety and easily accessible text that users can manually copy at their discretion.
 
 ![Example of the copy snippet component not using proper usage] (/assets/components/copy/copy-snippet-usage-example.png =675x*)
 
@@ -27,7 +27,7 @@ Use the `CopySnippet` component for meaningful content that requires copying, wh
 ## Table Usage
 There are a few reasons why using a `CopySnippet` component in a table may not be ideal:
 
-1. **Complexity and Readability**: Tables often contain organized data with multiple rows and columns. If the content within each cell is long or complicated, like code snippets or lengthy text, using the `CopySnippet` component may reduce readability and make it harder to understand the copied content within the table format.
+1. **Complexity and Readability**: Tables often contain organized data with multiple rows and columns. If the content within each cell is long or complicated, such as code snippets or lengthy text, using the `CopySnippet` component may reduce readability and make it harder to understand the copied content within the table format.
 
 2. **Interference with Table Functionality**: Tables often have interactive features like sorting, filtering, or editing. Adding the `CopySnippet` component within the table cells might interfere with these functionalities, making it challenging for users to interact with the table or perform table-specific actions.
 

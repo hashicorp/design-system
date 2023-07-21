@@ -8,7 +8,7 @@ import { assert } from '@ember/debug';
 
 export const DEFAULT_LEVEL = 'base';
 export const DEFAULT_BACKGROUND = 'neutral-primary';
-export const DEFAULT_OVERFLOW = 'hidden';
+export const DEFAULT_OVERFLOW = 'visible';
 export const LEVELS = ['base', 'mid', 'high'];
 export const BACKGROUNDS = ['neutral-primary', 'neutral-secondary'];
 export const OVERFLOWS = ['hidden', 'visible'];
@@ -106,7 +106,7 @@ export default class HdsCardContainerComponent extends Component {
    *
    * @param overflow
    * @type {string}
-   * @default 'hidden'
+   * @default 'visible'
    */
   get overflow() {
     let { overflow = DEFAULT_OVERFLOW } = this.args;

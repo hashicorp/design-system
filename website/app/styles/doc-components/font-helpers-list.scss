@@ -16,7 +16,7 @@
   padding: 0;
   list-style: none;
 
-  @include breakpoint.medium-and-above () {
+  @include breakpoint.medium () {
     display: grid;
     grid-template-columns: minmax(120px, max-content) auto;
   }
@@ -26,7 +26,7 @@
   display: flex;
   flex-direction: column;
 
-  @include breakpoint.medium-and-above () {
+  @include breakpoint.medium () {
     display: contents;
   }
 }
@@ -41,7 +41,7 @@
   border: 1px solid var(--doc-color-gray-500);
   border-radius: 3px 3px 0 0;
 
-  @include breakpoint.medium-and-above () {
+  @include breakpoint.medium () {
     justify-content: center;
     text-align: center;
     border-radius: 3px 0 0 3px;
@@ -55,7 +55,7 @@
   border-width: 0 1px 1px 1px;
   border-radius: 0 0 3px 3px;
 
-  @include breakpoint.medium-and-above () {
+  @include breakpoint.medium () {
     border-width: 1px 1px 1px 0;
     border-radius: 0 3px 3px 0;
   }
