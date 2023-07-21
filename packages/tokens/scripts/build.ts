@@ -134,7 +134,7 @@ const targets: ConfigTargets = {
             `src/devdot/**/*.json`
         ],
         'transformGroup': 'products/web',
-        'platforms': ['web/css-variables', 'docs/json']
+        'platforms': ['web/css-variables']
     },
     'marketing': {
         'source': [
