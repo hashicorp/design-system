@@ -2833,7 +2833,7 @@ __metadata:
     ember-source: ~4.12.0
     ember-source-channel-url: ^3.0.0
     ember-stargate: ^0.4.3
-    ember-style-modifier: ^0.8.0
+    ember-style-modifier: ^3.0.1
     ember-template-lint: ^4.18.2
     ember-template-lint-plugin-prettier: ^4.1.0
     ember-truth-helpers: ^3.1.1
@@ -10312,7 +10312,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-modifier@npm:^2.1.2 || ^3.1.0 || ^4.0.0, ember-modifier@npm:^4.1.0":
+"ember-modifier@npm:^2.1.2 || ^3.1.0 || ^4.0.0, ember-modifier@npm:^3.2.7 || ^4.0.0, ember-modifier@npm:^4.1.0":
   version: 4.1.0
   resolution: "ember-modifier@npm:4.1.0"
   dependencies:
@@ -10552,6 +10552,19 @@ __metadata:
     ember-cli-babel: ^7.26.6
     ember-modifier: ^3.2.7
   checksum: ae105c24d05be275d47eff3563f0df9d59c4047c4b6afcc2903dbbfa87d5833ccd66bf5e6bee6244505cba404289f5f302112bb4d83f4edf9400507bb4ffe877
+  languageName: node
+  linkType: hard
+
+"ember-style-modifier@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "ember-style-modifier@npm:3.0.1"
+  dependencies:
+    ember-auto-import: ^2.5.0
+    ember-cli-babel: ^7.26.11
+    ember-modifier: ^3.2.7 || ^4.0.0
+  peerDependencies:
+    "@ember/string": ^3.0.1
+  checksum: 093a9affaaa7b3f1c782fa46616bd3f9a02f518c3eff22f1f4c2582f2411cc9d1eecb95d483aaeabf6ce050d95ff928201cd5287e950027b96cbe702e56ae68d
   languageName: node
   linkType: hard
 
