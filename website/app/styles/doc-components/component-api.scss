@@ -68,18 +68,18 @@
 // second row - values
 
 .doc-component-api__property-values {
-  margin: 24px 0 0 0;
-  padding: 0;
+  @include doc-font-family("mono"); // custom font styling
+  margin: 12px 0 0 0;
+  padding: 12px 0 0 0;
+  font-size: 13px;
+  line-height: 1.714;
 }
 
 .doc-component-api__property-value {
-  @include doc-font-family("mono"); // custom font styling
   display: inline-block;
   margin-bottom: 8px;
   padding: 0 6px;
   color: var(--doc-color-gray-200);
-  font-size: 13px;
-  line-height: 1.714;
   background-color: var(--doc-color-gray-600);
   border: 1px solid transparent;
   border-radius: 3px;
@@ -95,7 +95,7 @@
 
 .doc-component-api__property-description {
   @include doc-font-style-body-small ();
-  margin: 20px 0 0 0;
+  padding: 20px 0 0 0;
 }
 
 
@@ -105,7 +105,6 @@
   .doc-component-api {
     margin: 16px 0;
     border: none;
-    border-left: 2px solid var(--doc-color-feedback-information-300);
     border-radius: 0;
 
     &:last-child {
@@ -116,5 +115,12 @@
   .doc-component-api__property {
     padding-top: 16px;
     padding-bottom: 16px;
+    padding-left: 12px;
+  }
+
+  .doc-component-api__property-values,
+  .doc-component-api__property-description {
+    padding-left: 12px;
+    border-left: 2px solid var(--doc-color-feedback-information-300);
   }
 }

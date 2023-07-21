@@ -14,31 +14,29 @@
     {{/if}}
   </div>
   {{#if (or @values @valueNote)}}
-    <div class="doc-component-api__property-values">
-      {{#if @values}}
-        <ul class="doc-component-api__property-values" role="list">
-          {{#each @values as |value|}}
-            <li
-              class="doc-component-api__property-value
-                {{if (eq @default value) 'doc-component-api__property-value--default'}}"
-            >
-              {{value}}{{#if (eq @default value)}} <span class="doc-sr-only">(default)</span>{{/if}}
-            </li>
-          {{/each}}
-        </ul>
-      {{else if @valueNote}}
-        {{@valueNote}}
-      {{/if}}
-    </div>
-  {{else if @default}}
-    <div class="doc-component-api__property-values">
+    {{#if @values}}
       <ul class="doc-component-api__property-values" role="list">
-        <li class="doc-component-api__property-value doc-component-api__property-value--default">
-          {{@default}}
-          <span class="doc-sr-only">(default)</span>
-        </li>
+        {{#each @values as |value|}}
+          <li
+            class="doc-component-api__property-value
+              {{if (eq @default value) 'doc-component-api__property-value--default'}}"
+          >
+            {{value}}{{#if (eq @default value)}} <span class="doc-sr-only">(default)</span>{{/if}}
+          </li>
+        {{/each}}
       </ul>
-    </div>
+    {{else if @valueNote}}
+      <div class="doc-component-api__property-values">
+        {{@valueNote}}
+      </div>
+    {{/if}}
+  {{else if @default}}
+    <ul class="doc-component-api__property-values" role="list">
+      <li class="doc-component-api__property-value doc-component-api__property-value--default">
+        {{@default}}
+        <span class="doc-sr-only">(default)</span>
+      </li>
+    </ul>
   {{/if}}
   {{#if (has-block)}}
     <div class="doc-component-api__property-description">
