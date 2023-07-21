@@ -4,7 +4,7 @@ description: A button that copies the attached or associated text upon interacti
 caption: A button that copies the attached or associated text upon interaction
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/branch/rLvpmUN7ClBOAx5iPU5PvU/HDS-Product---Components?type=design&node-id=39556%3A118454&mode=design&t=FeiIRDCnPlQf4c7i-1
-  github: https://github.com/hashicorp/design-system/pull/1488
+  github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/copy/button
 previewImage: assets/illustrations/components/copy-button.jpg
 navigation:
   hidden: false
