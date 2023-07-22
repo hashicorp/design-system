@@ -44,6 +44,38 @@ Use color logically.
 - **Warning** to help users avoid an issue. Provide guidance and actions, if possible.
 - **Critical** to indicate critical errors that need immediate action.
 
+## Critical Alert vs Critical Toast
+
+### When to use an Alert
+
+Use the Alert for more intrusive message communication about errors or critical disruptions at an application, page or section level where users need to take immediate action.
+
+<Hds::Alert @type="inline" @color="critical" as |A|>
+    <A.Title>You have exceeded 50 applies this month</A.Title>
+    <A.Description>You may only invoke applies that destroy managed resources. Upgrade now and access additional product features, unlimited applies, and increased concurrency.</A.Description>
+    <A.Button @text="Upgrade" @color="secondary" @onClick={{this.noop}} />
+    <A.Link::Standalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="View usage" @href="#" />
+  </Hds::Alert>
+
+Use the Alert to communicate validation errors. For more details, refer to the [form validation patterns](/patterns/form-patterns).
+
+<Hds::Alert @type="inline" @color="critical" as |A|>
+    <A.Title>Form submission error</A.Title>
+    <A.Description>Correct the formatting of the following fields to update your user profile:
+    </A.Description>
+    <A.Description>
+    <Hds::Link::Inline @href="...">Email address</Hds::Link::Inline>
+    </A.Description>
+  </Hds::Alert>
+
+### When to use a Toast
+
+Use the Toast to provide non-intrusive feedback to users about the failure of an ongoing task or request. For example, a failure while deleting a cluster.
+
+Use the Toast to communicate error messages that are not caused by the user. For example, an unsuccessful Vault cluster creation due to a failure while validating the deployment.
+
+For more details, refer to the [Toast guidelines](/components/toast).
+
 ### Icons
 
 All alerts have icons by default that are intentionally tied to the alert type.
