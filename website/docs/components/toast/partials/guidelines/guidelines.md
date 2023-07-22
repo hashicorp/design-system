@@ -1,5 +1,4 @@
 ## Usage
-
 ### When to use
 
 - To display contextual information resulting from a user’s action.
@@ -51,7 +50,34 @@ Use color logically.
 - **Highlight** use interchangeably with `neutral` when more prominence is needed. Use it sparingly.
 - **Success** to indicate a successful action was completed.
 - **Warning** to indicate a successful action was completed but may have triggered a related issue. Provide guidance and actions if possible.
+
 - **Critical** to indicate error or critical issues resulting from a failed action.
+
+## Critical Toast vs Critical Alert
+
+### When to use a Toast
+
+Use the Toast to provide non-intrusive feedback to users about the failure of an ongoing task or request. For example, a failure while deleting a cluster.
+
+<Hds::Toast @color="critical" @onDismiss={{this.noop}} as |T|>
+    <T.Title>Module error</T.Title>
+    <T.Description>This module encountered an error during publishing. You may need to republish.</T.Description>
+  </Hds::Toast>
+
+Use the Toast to communicate error messages that are not caused by the user. For example, an unsuccessful Vault cluster creation due to a failure while validating the deployment.
+
+<Hds::Toast @color="critical" @onDismiss={{this.noop}} as |T|>
+    <T.Title>Vault cluster update failed</T.Title>
+    <T.Description>**test-cluster_1** configuration update failed.</T.Description>
+  </Hds::Toast>
+
+<!-- Do not set critical Toast to dismiss automatically. -->
+
+### When to use an Alert
+
+Use the Alert for more prominent and intrusive message communication at an application, page or section level. For more details, refer to the [Alert guidelines](/components/alert).
+
+Use the Alert to communicate validation errors. For more details, refer to the [form validation patterns](/patterns/form-patterns).
 
 ## Icons
 
