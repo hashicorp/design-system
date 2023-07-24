@@ -546,6 +546,19 @@
       </div>
       {{! template-lint-enable no-inline-styles }}
     </SF.Item>
+    <SF.Item @label="With isTruncated">
+      {{! template-lint-disable no-inline-styles }}
+      <div class="hds-dropdown__content" style="width: 250px">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::CopyItem
+            @copyItemTitle="Lorem ipsum dolor"
+            @text="91ee1e8ef65b337f0e70d793f456c71d"
+            @isTruncated={{true}}
+          />
+        </ul>
+      </div>
+      {{! template-lint-enable no-inline-styles }}
+    </SF.Item>
   </Shw::Flex>
 
   <Shw::Text::H3>States</Shw::Text::H3>
@@ -576,6 +589,24 @@
             <Hds::Dropdown::ListItem::CopyItem
               @text="{{state}}: fbrct1ed-fgr35h-tyng89-wed4r"
               @copyItemTitle="Lorem ipsumy dolor"
+              mock-state-value={{state}}
+              mock-state-selector="button"
+            />
+          {{/each}}
+        </ul>
+      </div>
+      {{! template-lint-enable no-inline-styles }}
+    </SF.Item>
+    <SF.Item @label="With copyItemTitle & isTruncated">
+      {{! Notice: we want to emulate the case of a fixed width list }}
+      {{! template-lint-disable no-inline-styles }}
+      <div class="hds-dropdown__content" style="width: 250px">
+        <ul class="hds-dropdown__list">
+          {{#each @model.ITEM_STATES as |state|}}
+            <Hds::Dropdown::ListItem::CopyItem
+              @text="{{state}}: fbrct1ed-fgr35h-tyng89-wed4r"
+              @copyItemTitle="Lorem ipsumy dolor"
+              @isTruncated={{true}}
               mock-state-value={{state}}
               mock-state-selector="button"
             />

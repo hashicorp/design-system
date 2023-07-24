@@ -59,10 +59,10 @@ module('Acceptance | Percy test', function (hooks) {
     await percySnapshot('Card');
 
     await visit('/components/copy/button');
-    await percySnapshot('Copy/button');
+    await percySnapshot('CopyButton');
 
     await visit('/components/copy/snippet');
-    await percySnapshot('Copy/snippet');
+    await percySnapshot('CopySnippet');
 
     await visit('/components/dropdown');
     await percySnapshot('Dropdown');
