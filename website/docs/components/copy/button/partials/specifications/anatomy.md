@@ -1,6 +1,6 @@
 ## Anatomy
 
-![Anatomy of copyButton](/assets/components/copy/copy-button-anatomy.png =376px*)
+![Anatomy of the Copy Button](/assets/components/copy/copy-button-anatomy.png)
 
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|

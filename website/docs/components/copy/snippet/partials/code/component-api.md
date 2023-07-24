@@ -10,12 +10,6 @@ This component uses [ember-cli-clipboard](https://github.com/jkusa/ember-cli-cli
   <C.Property @name="textToCopy" @type="string" @required="true">
     String value or action that returns a string to be copied.
   </C.Property>
-  <C.Property @name="onSuccess" @type="action">
-     Action sent on a successful copy.
-  </C.Property>
-    <C.Property @name="onError" @type="action">
-     Action sent on a failed copy.
-  </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>

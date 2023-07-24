@@ -3,12 +3,11 @@ title: Copy Snippet
 description: A button that copies the text content of the button itself.
 caption: A button that copies the text content of the button itself.
 links:
-figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/branch/rLvpmUN7ClBOAx5iPU5PvU/HDS-Product---Components?type=design&node-id=40399%3A101737&mode=design&t=FeiIRDCnPlQf4c7i-1
+figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=40399-101361&mode=design
 github:  https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/copy/snippet
 previewImage: assets/illustrations/components/copy-snippet.jpg
 navigation:
-  hidden: false
-  keywords: ['snippet', 'copy', 'code']
+  keywords: ['button', 'clipboard', 'code']
 ---
 
 <section data-tab="Guidelines">

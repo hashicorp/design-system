@@ -2,13 +2,12 @@
 
 ### When to use
 
-- Use the `Copy::Snippet` component to allow users to copy code snippets or text, such as URLs, tokens, or IDs.
-- Use when users need to extract and use specific information like API keys, configuration settings, or unique identifiers.
+- To allow users to copy code snippets, such as URLs, tokens, IDs, etc.
 
 ### When not to use
 
-- Avoid using a `Copy::Snippet` component to copy content outside its container.
-- Don’t use a `Copy::Snippet` in a code block. Instead, use a [Copy Button](/components/copy/button).
+- To copy content outside its container, use [Copy Button](/components/copy/button).
+- In a code block, use [Copy Button](/components/copy/button).
 
 ### Effective Usage
 
@@ -24,7 +23,7 @@ Use the `Copy::Snippet` component for meaningful content that requires copying, 
 ![Example of the copy snippet component not using proper usage] (/assets/components/copy/copy-snippet-usage-example-2.png =675x*)
 !!!
 
-## Table Usage
+## Usage in tables
 There are a few reasons why using a `Copy::Snippet` component in a table may not be ideal:
 
 1. **Complexity and Readability**: Tables often contain organized data with multiple rows and columns. If the content within each cell is long or complicated, such as code snippets or lengthy text, using the `Copy::Snippet` component may reduce readability and make it harder to understand the copied content within the table format.
@@ -43,7 +42,7 @@ There are a few reasons why using a `Copy::Snippet` component in a table may not
 
 ## Truncation
 
-Truncation of the `Copy::Snippet` is optional and can be used as needed. When correctly applied, the `Copy::Snippet` shortens its content to fit within its parent container's width. Ensuring that the text stays within the container and only overflows if short.
+Truncation of the Copy Snippet is optional and can be used when space is limited or showing the full snippet isn't necessary. When enabled, the visible content is truncated to fit within the parent container. 
 
 !!! Do
 

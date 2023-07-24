@@ -13,17 +13,11 @@ This component uses [ember-cli-clipboard](https://github.com/jkusa/ember-cli-cli
   <C.Property @name="text" @required="true" @type="string">
     Text of the button or value of `aria-label` if `isIconOnly` is set to `true`. If no text value is defined an error will be thrown.
   </C.Property>
-  <C.Property @name="textToCopy" @type="string">
+  <C.Property @name="textToCopy" @type="string | function">
     String value or action that returns a string to be copied.
   </C.Property>
-  <C.Property @name="targetToCopy" @type="string">
+  <C.Property @name="targetToCopy" @type="string | function">
      Selector string of element or action that returns an element from which to copy text.
-  </C.Property>
-  <C.Property @name="onSuccess" @type="action">
-     Action sent on a successful copy.
-  </C.Property>
-    <C.Property @name="onError" @type="action">
-     Action sent on a failed copy.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).

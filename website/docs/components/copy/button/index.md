@@ -1,13 +1,13 @@
 ---
 title: Copy Button
-description: A button that copies the attached or associated text upon interaction
-caption: A button that copies the attached or associated text upon interaction
+description: A button that copies the attached or associated text upon interaction.
+caption: A button that copies the attached or associated text upon interaction.
 links:
-  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/branch/rLvpmUN7ClBOAx5iPU5PvU/HDS-Product---Components?type=design&node-id=39556%3A118454&mode=design&t=FeiIRDCnPlQf4c7i-1
+  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=37400-71082&mode=design
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/copy/button
 previewImage: assets/illustrations/components/copy-button.jpg
 navigation:
-  keywords: ['copy', 'button']
+  keywords: ['snippet', 'clipboard']
 ---
 
 <section data-tab="Guidelines">
