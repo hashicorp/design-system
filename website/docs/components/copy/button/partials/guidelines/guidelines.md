@@ -10,7 +10,12 @@
 
 ## Sizes
 
-The Copy Button comes in small and medium sizes. Use the size that best fits the hierarchy of the UI. 
+The `Copy::Button` comes in small and medium sizes. Use the size that best fits the hierarchy of the UI. 
+
+<Doc::Layout @spacing="16px">
+  <Hds::Copy::Button @text="Copy" @size="small" />
+  <Hds::Copy::Button @text="Copy" @size="medium" />
+</Doc::Layout>
 
 ## Placement 
 
@@ -18,21 +23,19 @@ Don’t place the `Copy::Button` in a disconnected area within the UI. It should
 
 !!! Do
 
-Keeping the Copy Button near the content being copied enables users to recognize what they are copying to their clipboard.
+Keeping the `Copy::Button` near the content being copied enables users to recognize what they are copying to their clipboard.
 
-![Example of the copy button component using proper placement] (/assets/components/copy/copy-button-placement-do.png =875x*)
-
+![Example of the copy button component using proper placement] (/assets/components/copy/copy-button-placement-do.png)
 !!!
 
 !!! Dont
 
-Placing the Copy Button far away from the content being copied may make it challenging for users to recognize what they are copying to their clipboard.
+Placing the `Copy::Button` far away from the content being copied may make it challenging for users to recognize what they are copying to their clipboard.
 
-![Example of the copy button component not using proper placement] (/assets/components/copy/copy-button-placement-dont.png =875x*)
-
+![Example of the copy button component not using proper placement] (/assets/components/copy/copy-button-placement-dont.png)
 !!!
 
 ## Related
 
 - [Copy Snippet](/components/copy/snippet)
-- [Button](/components/button)
+- [Masked-Input](/components/form/masked-input)

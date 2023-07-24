@@ -5,4 +5,4 @@
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|
 | Icon             | Required |
-| Text             | Optional, but aria label will still be attached. |
+| Text             | Optional, but aria label will still be attached.|
