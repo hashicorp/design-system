@@ -21,10 +21,6 @@ This differentiation is important because the expectations from the user are dif
 
 Unconstrained generally refers to a more "static" experience that isn’t triggered by a user action. This is often tied to a page-level function or a navigational element.
 
-<!-- TODO 
-**Insert some supporting images here**
--->
-
 ## Layout and reading patterns
 
 When users read content, the pattern their eyes follow generally adheres to one or more reading patterns. By identifying and familiarizing ourselves with these patterns we can better understand how the layout within our application, pattern, or component impacts comprehension and interpretation of the content.
@@ -69,7 +65,7 @@ A Z-shaped pattern refers to a pattern that follows the shape of the letter Z:
 
 An F-shaped pattern loosely follows the shape of the letter F, first identified through eye-tracking and heatmap studies by the [Nielsen/Norman Group](https://www.nngroup.com/articles/f-shaped-pattern-reading-web-content-discovered/).
 
-![An example of eye tracking and heat maps from the NN/group](/assets/patterns/button-organization/f-shaped-pattern-nn-group.jpeg)
+![An example of eye tracking and heat maps from the NN/group](/assets/patterns/button-organization/f-shaped-pattern-nn-group.png)
 
 #### Characteristics
 
