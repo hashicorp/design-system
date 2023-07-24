@@ -86,7 +86,7 @@ Buttons used for a Dropdown (with the chevron icon) can be found in [Dropdown](/
 
 ### Leading
 
-In most cases, use leading icons. Choose icons that add meaning and clarity to the action described in the link’s text.
+In most cases, use leading icons. Choose icons that add meaning and clarity to the action described in the button’s text.
 
 <Hds::ButtonSet>
   <Hds::Button @color="secondary" @text="Unlock" @icon="unlock" @iconPosition="leading" />
