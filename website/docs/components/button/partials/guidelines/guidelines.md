@@ -90,7 +90,6 @@ In most cases, use leading icons. Choose icons that add meaning and clarity to t
 
 <Hds::ButtonSet>
   <Hds::Button @color="secondary" @text="Unlock" @icon="unlock" @iconPosition="leading" />
-  <Hds::Button @color="secondary" @text="Show more results" @icon="eye" @iconPosition="leading" />
   <Hds::Button @color="critical" @text="Delete" @icon="trash" @iconPosition="leading" />
   <Hds::Button @color="tertiary" @text="Previous" @icon="chevron-left" @iconPosition="leading" />
 </Hds::ButtonSet>
