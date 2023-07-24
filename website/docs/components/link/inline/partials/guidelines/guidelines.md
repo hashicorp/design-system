@@ -14,12 +14,12 @@
 
 The Inline Link is only published as a component in Ember, there is no corresponding component in Figma. To achieve the same results, apply **text** and **color** styles from the [Foundations library](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?type=design&node-id=2130%3A2&t=6XBReWOxMRTiW1Iv-1) to your text.
 
-The Ember component inherits the styles of the text around it. Depending on the surrounding text the link style in Figma may need to be overridden from the published style of `Medium` to ensure that the link and body text are the same.
+The Ember component inherits the styles of the text around it. Depending on the surrounding text the link style in Figma may need to be overridden to ensure that the link and body text are the same.
 
 - Text styles can be found under text styles `Body` or `Code`.
 - Color styles:
-  - `Components / Link inline / Foreground / Primary`
-  - `Components / Link inline / Foreground / Secondary`
+    - `Components / Link inline / Foreground / Primary`
+    - `Components / Link inline / Foreground / Secondary`
 
 ## Color
 
@@ -37,7 +37,7 @@ Use the `secondary` variant for less important links or when the primary link ca
 
 !!! Dont
 
-Don’t mix `primary` and `secondary` links within a block of text or adjacent blocks of text as this can lead to confusion surrounding the hierarchy of the links and their importance.
+Don’t mix `primary` and `secondary` links within a block of text or adjacent blocks of text. This can lead to confusion about the hierarchy of the links and their relative importance.
 
 ![Different types of links in a block of text](/assets/components/link/inline/link-inline-dont-mix.png)
 !!!
@@ -50,7 +50,7 @@ An Inline Link can include a leading or trailing icon. Avoid creating links with
 
 There is no straight-forward method to add an icon within a block of text in Figma. Some alternatives to consider are:
 
-- Manually positioning the icon in a frame.
+- Manually positioning the icon next to a link.
 - Wrapping the text and link in multiple nested auto-layout containers.
 - Excluding the icon visually but communicating the intended usage in the engineering hand-off.
 
