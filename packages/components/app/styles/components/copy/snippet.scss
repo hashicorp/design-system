@@ -9,15 +9,14 @@
 @use "../../mixins/focus-ring" as *;
 
 .hds-copy-snippet {
+  @include hds-focus-ring-with-pseudo-element();
+
   display: flex;
-  gap: 0.5rem;
+  gap: 8px;
   align-items: center;
   justify-content: space-between;
   max-width: 100%;
   padding: 0.375rem 0.25rem;
-  font-size: var(--token-typography-code-100-font-size);
-  font-family: var(--token-typography-code-100-font-family);
-  line-height: var(--token-typography-code-100-line-height);
   text-align: left;
   border: 1px solid transparent;
   border-radius: 0.3125rem;
@@ -26,10 +25,11 @@
 
 .hds-copy-snippet--color-primary {
   color: var(--token-color-foreground-action);
-  background-color: transparent;
+  background-color: var(--token-color-surface-interactive);
 
   &:hover,
   &.mock-hover {
+    color: var(--token-color-foreground-action-hover);
     background-color: var(--token-color-surface-interactive);
     border-color: var(--token-color-border-strong);
   }
@@ -40,34 +40,22 @@
     background-color: var(--token-color-surface-interactive-active);
     border-color: var(--token-color-border-strong);
   }
-
-  &:focus,
-  &.mock-focus {
-    @include hds-focus-ring-with-pseudo-element();
-  }
 }
 
 .hds-copy-snippet--color-secondary {
   color: var(--token-color-foreground-primary);
-  background-color: transparent;
+  background-color: var(--token-color-surface-interactive);
 
   &:hover,
   &.mock-hover {
-    color: var(--token-color-foreground-primary);
     background-color: var(--token-color-surface-interactive);
     border-color: var(--token-color-border-strong);
   }
 
   &:active,
   &.mock-active {
-    color: var(--token-color-foreground-primary);
     background-color: var(--token-color-surface-interactive-active);
     border-color: var(--token-color-border-strong);
-  }
-
-  &:focus,
-  &.mock-focus {
-    @include hds-focus-ring-with-pseudo-element();
   }
 
   .hds-copy-snippet__icon {
@@ -109,10 +97,7 @@
 }
 
 .hds-copy-snippet__icon {
-  width: 1rem;
-  min-width: 1rem;
-  height: 1rem;
-  min-height: 1rem;
+  flex: none;
 }
 
 .hds-copy-snippet--width-full { // TODO shw-item is preventing this from working on the preview page
