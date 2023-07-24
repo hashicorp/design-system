@@ -15,13 +15,13 @@
       color: var(--token-color-foreground-action);
     }
 
-    &.hds-copy-button--success {
+    &.hds-copy-button--status-success {
       .hds-button__icon {
         color: var(--token-color-foreground-success-on-surface);
       }
     }
 
-    &.hds-copy-button--error {
+    &.hds-copy-button--status-error {
       .hds-button__icon {
         color: var(--token-color-foreground-critical-on-surface);
       }

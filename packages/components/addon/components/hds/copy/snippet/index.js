@@ -20,6 +20,17 @@ export default class HdsCopySnippetIndexComponent extends Component {
   @tracked timer;
 
   /**
+   * @param textToCopy
+   * @type {string}
+   * @description The string to be copied.
+   */
+  get textToCopy() {
+    return this.args.encoded
+      ? decodeURI(this.args.textToCopy)
+      : this.args.textToCopy;
+  }
+
+  /**
    * @param icon
    * @type {string}
    * @default DEFAULT_ICON
@@ -64,10 +75,14 @@ export default class HdsCopySnippetIndexComponent extends Component {
     return this.args.isFullWidth ?? false;
   }
 
-  get textToCopy() {
-    return this.args.encoded
-      ? decodeURI(this.args.textToCopy)
-      : this.args.textToCopy;
+  /**
+   * @param isTruncated
+   * @type {boolean}
+   * @default false
+   * @description Indicates that the component should be truncated instead of wrapping text and using multiple lines. The default is false.
+   */
+  get isTruncated() {
+    return this.args.isTruncated ?? false;
   }
 
   /**
@@ -82,11 +97,15 @@ export default class HdsCopySnippetIndexComponent extends Component {
     classes.push(`hds-copy-snippet--color-${this.color}`);
 
     // add a class based on the tracked status (idle/success/error)
-    classes.push(`hds-copy-snippet--${this.status}`);
+    classes.push(`hds-copy-snippet--status-${this.status}`);
 
     // add a class based on the @isFullWidth argument
     if (this.isFullWidth) {
       classes.push('hds-copy-snippet--width-full');
+    }
+
+    if (this.isTruncated) {
+      classes.push('hds-copy-snippet--truncated');
     }
 
     return classes.join(' ');

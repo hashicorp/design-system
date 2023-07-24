@@ -19,6 +19,31 @@ export default class HdsCopyButtonComponent extends Component {
   @tracked status = DEFAULT_STATUS;
   @tracked timer;
 
+  /**
+   * @param textToCopy
+   * @type {string}
+   * @description The string to be copied.
+   */
+  get textToCopy() {
+    return this.args.encoded
+      ? decodeURI(this.args.textToCopy)
+      : this.args.textToCopy;
+  }
+
+  /**
+   * @param targetToCopy
+   * @type {string}
+   * @description The id of the element whose content should be copied.
+   */
+  get targetToCopy() {
+    return this.args.targetToCopy;
+  }
+
+  /**
+   * @param icon
+   * @type {string}
+   * @description The icon to be displayed for each status; automatically calculated based on the tracked property `status`.
+   */
   get icon() {
     let icon = DEFAULT_ICON;
     if (this.status === 'success') {
@@ -48,16 +73,6 @@ export default class HdsCopyButtonComponent extends Component {
     return size;
   }
 
-  get textToCopy() {
-    return this.args.encoded
-      ? decodeURI(this.args.textToCopy)
-      : this.args.textToCopy;
-  }
-
-  get targetToCopy() {
-    return this.args.targetToCopy;
-  }
-
   /**
    * Get the class names to apply to the component.
    * @method CopyButton#classNames
@@ -69,7 +84,7 @@ export default class HdsCopyButtonComponent extends Component {
     // add a class based on the @size argument
     classes.push(`hds-button--size-${this.size}`);
 
-    classes.push(`hds-copy-button--${this.status}`);
+    classes.push(`hds-copy-button--status-${this.status}`);
 
     return classes.join(' ');
   }

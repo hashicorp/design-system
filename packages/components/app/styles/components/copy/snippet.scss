@@ -86,7 +86,7 @@
   }
 }
 
-.hds-copy-snippet--success {
+.hds-copy-snippet--status-success {
   background-color: var(--token-color-surface-interactive);
 
   .hds-copy-snippet__icon {
@@ -94,7 +94,7 @@
   }
 }
 
-.hds-copy-snippet--error {
+.hds-copy-snippet--status-error {
   background-color: var(--token-color-surface-interactive);
 
   .hds-copy-snippet__icon {
@@ -112,4 +112,8 @@
 .hds-copy-snippet--width-full {
   width: 100%;
   max-width: 100%;
+}
+
+.hds-copy-snippet--truncated {
+  text-overflow: ellipsis;
 }
