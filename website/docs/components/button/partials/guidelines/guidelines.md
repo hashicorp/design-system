@@ -107,17 +107,17 @@ Use the leading position when creating or adding a new object.
 
 ### Trailing
 
-Consider trailing icons when there’s no other meaningful icon or when guiding the user forward through the product.
+Consider trailing icons when guiding the user forward through the product or when using the Button for links.
 
 Use `chevron-right` to indicate moving forward in a multi-step flow.
 
 <Hds::Button @color="primary" @text="Next" @icon="chevron-right" @iconPosition="trailing" />
 
-Use `arrow-right` when using the Button for internal links. In most cases, consider using the [Standalone Link](/components/link/standalone) instead. For more details, please refer to the [code documentation](/components/button?tab=code#links).
+Use `arrow-right` when using the Button for internal links. In most cases, consider using a [Standalone Link](/components/link/standalone) instead. For more details, please refer to the [code documentation](/components/button?tab=code#links).
 
 <Hds::Button @color="secondary" @text="Continue with HCP account" @icon="arrow-right" @iconPosition="trailing" @href="https://hashicorp.com" />
 
-Use `external-link` when using the Button for external links. In most cases, consider using the [Standalone Link](/components/link/standalone) instead. For more details, please refer to the [code documentation](/components/button?tab=code#links).
+Use `external-link` when using the Button for external links. In most cases, consider using a [Standalone Link](/components/link/standalone) instead. For more details, please refer to the [code documentation](/components/button?tab=code#links).
 
 <Hds::Button @color="secondary" @text="Authenticate with GitHub" @icon="external-link" @iconPosition="trailing" @href="https://hashicorp.com" />
 
