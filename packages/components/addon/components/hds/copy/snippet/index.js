@@ -22,7 +22,7 @@ export default class HdsCopySnippetIndexComponent extends Component {
   /**
    * @param textToCopy
    * @type {string}
-   * @description The string to be copied.
+   * @description The string to be copied. Supports encoded strings.
    */
   get textToCopy() {
     return this.args.encoded
@@ -102,10 +102,6 @@ export default class HdsCopySnippetIndexComponent extends Component {
     // add a class based on the @isFullWidth argument
     if (this.isFullWidth) {
       classes.push('hds-copy-snippet--width-full');
-    }
-
-    if (this.isTruncated) {
-      classes.push('hds-copy-snippet--truncated');
     }
 
     return classes.join(' ');

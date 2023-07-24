@@ -8,6 +8,8 @@
   {{clipboard text=this.textToCopy onError=this.onError onSuccess=this.onSuccess}}
   ...attributes
 >
-  {{@textToCopy}}
+  <span class="hds-copy-snippet__text {{if @isTruncated 'hds-copy-snippet__text--truncated'}}">
+    {{this.textToCopy}}
+  </span>
   <FlightIcon @name={{this.icon}} class="hds-copy-snippet__icon" />
 </button>
