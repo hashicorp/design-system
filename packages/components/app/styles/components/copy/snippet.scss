@@ -30,7 +30,6 @@
   &:hover,
   &.mock-hover {
     color: var(--token-color-foreground-action-hover);
-    background-color: var(--token-color-surface-interactive);
     border-color: var(--token-color-border-strong);
   }
 
@@ -48,7 +47,6 @@
 
   &:hover,
   &.mock-hover {
-    background-color: var(--token-color-surface-interactive);
     border-color: var(--token-color-border-strong);
   }
 
