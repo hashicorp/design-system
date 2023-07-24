@@ -14,17 +14,12 @@
 
 The Inline Link is only published as a component in Ember, there is no corresponding component in Figma. To achieve the same results, apply **text** and **color** styles from the [Foundations library](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?type=design&node-id=2130%3A2&t=6XBReWOxMRTiW1Iv-1) to your text.
 
-The Ember component inherits the styles of the text around it, ensure that the font weight defined in Figma is the same as the body text it is contained within.
+The Ember component inherits the styles of the text around it. Depending on the surrounding text the link style in Figma may need to be overridden from the published style of `Medium` to ensure that the link and body text are the same.
 
 - Text styles can be found under text styles `Body` or `Code`.
 - Color styles:
-    - `Components / Link inline / Foreground / Primary`
-    - `Components / Link inline / Foreground / Secondary`
-
-!!! Info
-
-In Figma we publish links with a font-weight of `Medium`. Depending on the surrounding text the link style may need to be overriden to match.
-!!!
+  - `Components / Link inline / Foreground / Primary`
+  - `Components / Link inline / Foreground / Secondary`
 
 ## Color
 
@@ -32,25 +27,32 @@ In Figma we publish links with a font-weight of `Medium`. Depending on the surro
 
 We recommend using the `primary` variant as the default and for more important links.
 
-#### Primary example
-
-<span class="hds-typography-body-300">Lorem ipsum <Hds::Link::Inline @color="primary" @href="...">dolor</Hds::Link::Inline> sit amet, consectetur adipiscing elit.</span>
+![Primary inline link example](/assets/components/link/inline/link-inline-primary.png)
 
 ### Secondary
 
-Use the secondary variant for less important links, when the primary link can’t be used, or when there are multiple links in a block of text.
+Use the `secondary` variant for less important links or when the primary link can’t be used.
 
-#### Secondary example
+![Secondary inline link example](/assets/components/link/inline/link-inline-secondary.png)
 
-<span class="hds-typography-body-300">Lorem ipsum <Hds::Link::Inline @color="secondary" @href="...">dolor</Hds::Link::Inline> sit amet, consectetur adipiscing elit, sed do <Hds::Link::Inline @color="secondary" @href="...">eiusmod</Hds::Link::Inline> tempor incididunt ut <Hds::Link::Inline @color="secondary" @href="...">labore</Hds::Link::Inline> et dolore magna aliqua.</span>
+!!! Dont
+
+Don’t mix `primary` and `secondary` links within a block of text or adjacent blocks of text as this can lead to confusion surrounding the hierarchy of the links and their importance.
+
+![Different types of links in a block of text](/assets/components/link/inline/link-inline-dont-mix.png)
+!!!
 
 ## Icon position
 
 An Inline Link can include a leading or trailing icon. Avoid creating links with both leading and trailing icons.
 
-!!! Insight
+!!! Info
 
-There is no straight-forward method to add an icon within a block of text in Figma. Include this information in the engineering hand-off if intending to use an Inline Link with an icon.
+There is no straight-forward method to add an icon within a block of text in Figma. Some alternatives to consider are:
+
+- Manually positioning the icon in a frame.
+- Wrapping the text and link in multiple nested auto-layout containers.
+- Excluding the icon visually but communicating the intended usage in the engineering hand-off.
 
 !!!
 
@@ -86,16 +88,16 @@ Don’t wrap an entire sentence or text block in a link.
 
 ### Display sizes
 
-We don't recommend using links within `Display` sizes as these are generally reserved for titles and headlines. 
+We don't recommend using links within `Display` sizes as these are generally reserved for titles and headlines.
 
-If an Inline Link inside of `Display` text is required, the Ember component will inherit the font size and weight. The style in Figma will need to be overriden with an underline as we do not publish link styles for `Display` sizes at this time.
+If an Inline Link inside of `Display` text is required, the Ember component will inherit the font size and weight. The style in Figma will need to be overridden with an underline as we do not publish link styles for `Display` sizes at this time.
 
 !!! Do
 
 Highlight actions paired with a `Display` headline using the [Standalone Link](/components/link/standalone) and associate it with the headline in the layout.
 
 <Doc::Layout @direction="vertical" @spacing="1rem">
-    <span class="hds-typography-display-400 hds-font-family-sans-display hds-font-weight-bold">Headline</span>
-    <Hds::Link::Standalone @icon="arrow-right" @iconPosition="trailing" @href="..." @color="primary" @text="Link to relevant content" />
+<span class="hds-typography-display-400 hds-font-family-sans-display hds-font-weight-bold">Headline</span>
+<Hds::Link::Standalone @icon="arrow-right" @iconPosition="trailing" @href="..." @color="primary" @text="Link to relevant content" />
 </Doc::Layout>
 !!!
