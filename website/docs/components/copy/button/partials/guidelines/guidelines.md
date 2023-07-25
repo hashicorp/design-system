@@ -23,7 +23,7 @@ Don’t place the `Copy::Button` in a disconnected area within the UI. It should
 
 !!! Do
 
-Keeping the `Copy::Button` near the content being copied enables users to recognize what they are copying to their clipboard.
+Placing a Copy Button close to the content explicitly communicates what is being copied.
 
 ![Example of the copy button component using proper placement] (/assets/components/copy/copy-button-placement-do.png)
 !!!
