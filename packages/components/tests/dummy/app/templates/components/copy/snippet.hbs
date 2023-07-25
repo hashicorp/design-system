@@ -28,7 +28,7 @@
       </Shw::Outliner>
     </SF.Item>
     <SF.Item>
-      <Shw::Label>Truncated</Shw::Label>
+      <Shw::Label>@isTruncated</Shw::Label>
       <Shw::Outliner {{style width="300px"}}>
         <Hds::Copy::Snippet
           @textToCopy="fbrct1ed-fgr35h-tyng89-wed4r with a bunch of other long text that should force truncation if truncation is set to true"
@@ -39,17 +39,17 @@
   </Shw::Flex>
   <Shw::Flex as |SF|>
     <SF.Item>
-      <Shw::Label>Full Width with long text</Shw::Label>
-      <Shw::Outliner {{style width="100%"}}>
+      <Shw::Label>@isFullWidth with long text</Shw::Label>
+      <Shw::Outliner {{style width="500px"}}>
         <Hds::Copy::Snippet
           @textToCopy="fbrct1ed-fgr35h-tyng89-wed4r and some other text that should not matter because the element with is set to full width and hopefully people will not do this but in case they do we want to make sure that we still have the designed layout"
           @isFullWidth={{true}}
         />
       </Shw::Outliner>
     </SF.Item>
-    <SF.Item>
-      <Shw::Label>Full Width with shorter text</Shw::Label>
-      <Shw::Outliner {{style width="100%"}}>
+    <SF.Item {{style width="100%"}}>
+      <Shw::Label>@isFullWidth with shorter text</Shw::Label>
+      <Shw::Outliner {{style width="500px"}}>
         <Hds::Copy::Snippet @textToCopy="fbrct1ed-fgr35h-tyng89-wed4r" @isFullWidth={{true}} />
       </Shw::Outliner>
     </SF.Item>
