@@ -2,7 +2,7 @@
 
 <Doc::Badge @type="warning">Conditionally Conformant</Doc::Badge>
 
-When the default variant of this component is used, there should not be any WCAG conformance issues with this component.
+When the default variant of the component is used, there should not be any WCAG conformance issues.
 
 However, the truncation feature is not conformant because a keyboard-only user cannot access the truncated content. Please be aware of this when evaluating whether or not to include truncation in your copy snippet.
 
