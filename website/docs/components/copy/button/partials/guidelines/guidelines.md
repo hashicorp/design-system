@@ -30,7 +30,7 @@ Placing a Copy Button close to the content explicitly communicates what is being
 
 !!! Dont
 
-Placing the `Copy::Button` far away from the content being copied may make it challenging for users to recognize what they are copying to their clipboard.
+Placing the Copy Button far away from the content being copied may make it challenging for users to recognize what they are copying to their clipboard.
 
 ![Example of the Copy Button component using improper placement] (/assets/components/copy/copy-button-placement-dont.png)
 !!!
