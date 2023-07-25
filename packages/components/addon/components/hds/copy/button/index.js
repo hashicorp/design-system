@@ -25,9 +25,7 @@ export default class HdsCopyButtonComponent extends Component {
    * @description The string to be copied.
    */
   get textToCopy() {
-    return this.args.encoded
-      ? decodeURI(this.args.textToCopy)
-      : this.args.textToCopy;
+    return this.args.textToCopy;
   }
 
   /**

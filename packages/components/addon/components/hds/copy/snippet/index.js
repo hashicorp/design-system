@@ -22,12 +22,10 @@ export default class HdsCopySnippetIndexComponent extends Component {
   /**
    * @param textToCopy
    * @type {string}
-   * @description The string to be copied. Supports encoded strings.
+   * @description The string to be copied.
    */
   get textToCopy() {
-    return this.args.encoded
-      ? decodeURI(this.args.textToCopy)
-      : this.args.textToCopy;
+    return this.args.textToCopy;
   }
 
   /**
