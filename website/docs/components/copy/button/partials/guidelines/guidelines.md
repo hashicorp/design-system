@@ -38,4 +38,4 @@ Placing the `Copy::Button` far away from the content being copied may make it ch
 ## Related
 
 - [Copy Snippet](/components/copy/snippet)
-- [Masked-Input](/components/form/masked-input)
+- [Masked Input](/components/form/masked-input)
