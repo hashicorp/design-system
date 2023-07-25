@@ -12,7 +12,7 @@
 
 !!! Dont
 
-Take caution when using for full code snippets, instead consider using a more prominent code block with a [Copy Button](/components/copy/button).
+Take caution when using for longer code snippets, instead consider using a more prominent code block with a [Copy Button](/components/copy/button).
 
 ![Example of the copy snippet component not using proper usage] (/assets/components/copy/copy-snippet-dont.png)
 !!!
