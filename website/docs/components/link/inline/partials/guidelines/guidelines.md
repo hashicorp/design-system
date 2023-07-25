@@ -48,7 +48,7 @@ An Inline Link can include a leading or trailing icon. Avoid creating links with
 
 !!! Info
 
-There is no straight-forward method to add an icon within a block of text in Figma. Some alternatives to consider are:
+There is no straight-forward method to add an icon within a block of text in Figma. Some strategies to consider are:
 
 - Manually positioning the icon next to a link.
 - Wrapping the text and link in multiple nested auto-layout containers.
