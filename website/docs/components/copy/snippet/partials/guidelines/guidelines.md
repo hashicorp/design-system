@@ -42,7 +42,7 @@ Truncation of the Copy Snippet is optional and can be used when space is limited
 
 Avoid truncating content too soon. For shorter snippets and where space allows, show the full snippet. 
 
-![Example of CopySnippet component truncating to soon](/assets/components/copy/copy-snippet-truncation-dont.png)
+![Example of Copy Snippet component truncating too soon](/assets/components/copy/copy-snippet-truncation-dont.png)
 
 !!!
 
