@@ -38,6 +38,15 @@ export default class HdsCopyButtonComponent extends Component {
   }
 
   /**
+   * @param container
+   * @type {string}
+   * @description For cases where focus management is needed, set the focused element as the container value.
+   */
+  get container() {
+    return this.args.container;
+  }
+
+  /**
    * @param icon
    * @type {string}
    * @description The icon to be displayed for each status; automatically calculated based on the tracked property `status`.

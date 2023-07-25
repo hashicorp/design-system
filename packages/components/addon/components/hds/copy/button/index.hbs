@@ -11,6 +11,12 @@
   @isIconOnly={{@isIconOnly}}
   @color="secondary"
   @iconPosition="trailing"
-  {{clipboard text=this.textToCopy target=this.targetToCopy onError=this.onError onSuccess=this.onSuccess}}
+  {{clipboard
+    text=this.textToCopy
+    target=this.targetToCopy
+    container=this.container
+    onError=this.onError
+    onSuccess=this.onSuccess
+  }}
   ...attributes
 />
