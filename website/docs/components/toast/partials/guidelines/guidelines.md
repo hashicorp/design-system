@@ -71,11 +71,9 @@ Use the Toast to communicate error messages that are not caused by the user. For
     <T.Description>**test-cluster_1** configuration update failed.</T.Description>
   </Hds::Toast>
 
-<!-- Do not set critical Toast to dismiss automatically. -->
-
 ### When to use an Alert
 
-Use the Alert for more intrusive message communication about errors or critical disruptions at an application, page or section level where users need to take immediate action. For more details, refer to the [Alert guidelines](/components/alert).
+Use the Alert for more intrusive message communication about errors or critical disruptions at an application, page, or section level where users need to take immediate action. For more details, refer to the [Alert guidelines](/components/alert).
 
 Use the Alert to communicate validation errors. For more details, refer to the [form validation patterns](/patterns/form-patterns).
 
