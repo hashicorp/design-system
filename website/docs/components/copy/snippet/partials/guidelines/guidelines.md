@@ -35,7 +35,7 @@ When needing multiple `Copy::Snippets` in a single page, such as a Table, consid
 
 ## Truncation
 
-Truncation of the `Copy::Snippet` is optional and can be used when space is limited or showing the full snippet isn't necessary. When enabled, the visible content is truncated to fit within the parent container. 
+Truncation of the Copy Snippet is optional and can be used when space is limited or when showing the full snippet isn’t necessary. When enabled, the visible content is truncated to fit within the parent container. 
 
 !!! Dont
 
