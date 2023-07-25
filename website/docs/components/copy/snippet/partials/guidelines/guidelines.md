@@ -18,6 +18,7 @@ Take caution when using for longer code snippets, instead consider using a more 
 !!!
 
 ## Color
+
 The `Copy::Snippet` comes in two colors: `primary` and `secondary`
 
 <Doc::Layout @spacing="16px">
