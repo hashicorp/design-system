@@ -1,4 +1,5 @@
 ## Usage
+
 ### When to use
 
 - To display contextual information resulting from a user’s action.
@@ -53,9 +54,7 @@ Use color logically.
 
 - **Critical** to indicate error or critical issues resulting from a failed action.
 
-## Critical Toast vs Critical Alert
-
-### When to use a Toast
+### Critical toasts
 
 Use the Toast to provide non-intrusive feedback to users about the failure of an ongoing task or request. For example, a failure while deleting a cluster.
 
