@@ -32,7 +32,7 @@ Keeping the `Copy::Button` near the content being copied enables users to recogn
 
 Placing the `Copy::Button` far away from the content being copied may make it challenging for users to recognize what they are copying to their clipboard.
 
-![Example of the copy button component not using proper placement] (/assets/components/copy/copy-button-placement-dont.png)
+![Example of the Copy Button component using improper placement] (/assets/components/copy/copy-button-placement-dont.png)
 !!!
 
 ## Related
