@@ -4,7 +4,7 @@
 
 When the default variant of this component is used, there should not be any WCAG conformance issues with this component.
 
-However, the truncation feature is not conformant, because a keyboard-only user has no method of accessing truncated content. Users should be aware of this when evaluating whether or not to include truncation in your copy snippet.
+However, the truncation feature is not conformant because a keyboard-only user cannot access the truncated content. Please be aware of this when evaluating whether or not to include truncation in your copy snippet.
 
 ## Applicable WCAG Success Criteria
 
