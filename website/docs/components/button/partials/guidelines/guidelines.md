@@ -107,7 +107,7 @@ Use the leading position when creating or adding a new object.
 
 ### Trailing
 
-Consider trailing icons when guiding the user forward through the product or when using the Button for links.
+Consider trailing icons when guiding the user forward through the product.
 
 Use `chevron-right` to indicate moving forward in a multi-step flow.
 
