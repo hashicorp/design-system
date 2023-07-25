@@ -1,6 +1,6 @@
 ## Conformance rating
 
-<Doc::Badge @type="success">Conditionally Conformant</Doc::Badge>
+<Doc::Badge @type="warning">Conditionally Conformant</Doc::Badge>
 
 When the default variant of this component is used, there should not be any WCAG conformance issues with this component.
 
