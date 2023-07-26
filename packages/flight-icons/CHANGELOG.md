@@ -1,5 +1,11 @@
 # @hashicorp/flight-icons
 
+## 2.16.0
+
+### Minor Changes
+
+- [#1515](https://github.com/hashicorp/design-system/pull/1515) [`09734a0d2`](https://github.com/hashicorp/design-system/commit/09734a0d2a45be0b25b8e841649d87ad9c600053) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Added Elastic observability and New relic
+
 ## 2.15.0
 
 ### Minor Changes

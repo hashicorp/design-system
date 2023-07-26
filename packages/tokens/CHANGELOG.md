@@ -1,5 +1,11 @@
 # @hashicorp/design-system-tokens
 
+## 1.7.0
+
+### Minor Changes
+
+- [#1513](https://github.com/hashicorp/design-system/pull/1513) [`fd5953633`](https://github.com/hashicorp/design-system/commit/fd595363396c2e6672025ab8f9c3df7d2a3fce53) Thanks [@dstaley](https://github.com/dstaley)! - Add JSON output format for `marketing` target (and in the process refactored internal logic for tokens generation)
+
 ## 1.6.0
 
 ### Minor Changes
