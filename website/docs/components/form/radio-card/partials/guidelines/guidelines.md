@@ -57,7 +57,7 @@ In most cases, we recommend using the bottom position. Still, we offer Radio Car
 
 ## Layout
 
-In most cases, use the horizontal layout to maximize the real estate available. Use the vertical layout intentionally when assembled with other components with limited horizontal space, or when needing to create a vertical options list with radio cards.
+In most cases, use the horizontal layout to maximize the real estate available. Use the vertical layout intentionally when assembled with other components within limited horizontal space, or when needing to create a vertical options list with radio cards.
 
 ### Horizontal
 
