@@ -2,7 +2,8 @@
 
 ### When to use
 
-- To copy large text blocks, such as code snippets, API keys, or Tokens. 
+- To copy plain text, large code snippets, and input values.
+- When needing separation between the text-to-copy and the copy interaction.
 
 ### When not to use
 
