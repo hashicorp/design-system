@@ -21,11 +21,9 @@
   <C.Property @name="alignment" @type="enum" @values={{array "left" "center" }} @default="left">
     Sets the alignment of the Radio Card content.
   </C.Property>
-  <C.Property @name="layout" @type="enum" @values={{array "fluid" "fixed" }} @default="fluid">
-    By default, the Radio Card will expand to fit the parent container. When used in a group, the cards will equally share the width to fit the available space. If the `@layout` parameter is set to `fixed`, a `@maxWidth` value must be specified to constrain the card.
-  </C.Property>
   <C.Property @name="maxWidth" @type="string" @valueNote="any valid CSS width (%, vw, etc)">
-    When used with a `fluid` layout, this parameter will determine the number of Radio Cards shown per row (for example `25%` will result in 4 cards). When used with a `fixed` layout, this parameter will preserve the width of the card and wrap cards on multiple rows if necessary.
+    This parameter will set the width of the card, wrapping cards on multiple rows if necessary.
+    You can use it to define the number of Radio Cards shown per row (for example `25%` will result in 4 cards).
   </C.Property>
   <C.Property @name="extraAriaDescribedBy" @type="string">
     An additional ID attribute to be added to the `aria-describedby` HTML attribute.
@@ -84,8 +82,8 @@
   <C.Property @name="isRequired" @type="boolean" @default="false">
     Appends a `Required` indicator next to the legend text and sets the `required` attribute on the controls when user input is required.
   </C.Property>
-  <C.Property @name="layout" @type="string" @values={{array "fluid" "fixed" }} @default="fluid">
-    By default, the Radio Cards will expand to fit the parent container and will equally share the width to fit the available space. If the `@layout` parameter is set to `fixed`, a `@maxWidth` value must be specified for each `RadioCard` to constrain them.
+  <C.Property @name="layout" @type="string" @values={{array "horizontal" "vertical" }} @default="horizontal">
+    By default, the Radio Cards will be layed out horizontally, one next to another. Set this property to `vertical` to stack them one underneath each other.
   </C.Property>
 </Doc::ComponentApi>
 
