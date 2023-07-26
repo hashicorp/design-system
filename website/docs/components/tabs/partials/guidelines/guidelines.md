@@ -8,6 +8,33 @@
 
 - For navigation, consider navigation, [Standalone Links](/components/link/standalone), or [Breadcrumb](/components/breadcrumb).
 
+### Usage examples
+
+!!! Do
+
+Use Tabs to break up content that is related to each other and is on the same hierarchical level.
+
+![Modal Hierarchy in the user flow](/assets/components/tabs/tab-usage-example-01.png)
+!!!
+
+!!! Dont
+
+Don't use Tabs to take the user to a new URL or as a primary or secondary navigation.
+
+![Modal Hierarchy in the user flow](/assets/components/tabs/tab-usage-example-02.png)
+!!!
+
+!!! Dont
+
+Don't use Tabs for sequential content.
+
+![Modal Hierarchy in the user flow](/assets/components/tabs/tab-usage-example-03.png)
+!!!
+
+## Behavior
+
+Text goes here...
+
 ## Spacing
 
 ### Contained
