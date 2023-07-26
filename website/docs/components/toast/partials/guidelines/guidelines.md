@@ -56,27 +56,30 @@ Use color logically.
 
 ### Critical toasts
 
+!!! Do
+
 Use the Toast to provide non-intrusive feedback to users about the failure of an ongoing task or request. For example, a failure while deleting a cluster.
 
-!!! Do
 <Hds::Toast @color="critical" @onDismiss={{this.noop}} as |T|>
     <T.Title>Module error</T.Title>
     <T.Description>This module encountered an error during publishing. You may need to republish.</T.Description>
   </Hds::Toast>
 !!!
 
+!!! Do
+
 Use the Toast to communicate error messages that are not caused by the user. For example, an unsuccessful Vault cluster creation due to a failure while validating the deployment.
 
-!!! Do
 <Hds::Toast @color="critical" @onDismiss={{this.noop}} as |T|>
     <T.Title>Vault cluster update failed</T.Title>
     <T.Description>**test-cluster_1** configuration update failed.</T.Description>
   </Hds::Toast>
 !!!
 
+!!! Dont
+
 Don't use toasts for intrusive message communication about errors or critical disruptions at an application, page, or section level. Use the [Alert](/components/alert) instead.
 
-!!! Dont
 <Hds::Toast @color="critical" @onDismiss={{this.noop}} as |T|>
     <T.Title>You have exceeded 50 applies this month</T.Title>
     <T.Description>You may only invoke applies that destroy managed resources. Upgrade now and access additional product features, unlimited applies, and increased concurrency.
@@ -84,9 +87,10 @@ Don't use toasts for intrusive message communication about errors or critical di
   </Hds::Toast>
 !!!
 
+!!! Dont
+
 Don't use toasts to communicate validation errors. Use the [Alert](/components/alert) instead.
 
-!!! Dont
 <Hds::Toast @color="critical" @onDismiss={{this.noop}} as |T|>
     <T.Title>Form submission error</T.Title>
     <T.Description>Correct the formatting of the following fields to update your user profile:

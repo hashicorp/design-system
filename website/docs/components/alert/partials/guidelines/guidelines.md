@@ -46,9 +46,10 @@ Use color logically.
 
 #### Critical alerts
 
+!!! Do
+
 Use the Alert for more intrusive message communication about errors or critical disruptions at an application, page, or section level where users need to take immediate action.
 
-!!! Do
 <Hds::Alert @type="inline" @color="critical" as |A|>
     <A.Title>You have exceeded 50 applies this month</A.Title>
     <A.Description>You may only invoke applies that destroy managed resources. Upgrade now and access additional product features, unlimited applies, and increased concurrency.</A.Description>
@@ -57,9 +58,10 @@ Use the Alert for more intrusive message communication about errors or critical 
   </Hds::Alert>
 !!!
 
+!!! Do
+
 Use the Alert to communicate validation errors. For more details, refer to the [form validation patterns](/patterns/form-patterns).
 
-!!! Do
 <Hds::Alert @type="inline" @color="critical" as |A|>
     <A.Title>Form submission error</A.Title>
     <A.Description>Correct the formatting of the following fields to update your user profile:
@@ -70,9 +72,10 @@ Use the Alert to communicate validation errors. For more details, refer to the [
   </Hds::Alert>
 !!!
 
+!!! Dont
+
 Don't use alerts to provide non-intrusive feedback to users about the failure of an ongoing task or request. For example, a failure while deleting a cluster. Use the [Toast](/components/toast) instead.
 
-!!! Dont
 <Hds::Alert @type="inline" @color="critical" as |A|>
     <A.Title>Module error</A.Title>
     <A.Description>This module encountered an error during publishing. You may need to republish.
@@ -80,9 +83,10 @@ Don't use alerts to provide non-intrusive feedback to users about the failure of
   </Hds::Alert>
 !!!
 
+!!! Dont
+
 Don't use alerts to communicate error messages that are not caused by the user. For example, an unsuccessful Vault cluster creation due to a failure while validating the deployment. Use the [Toast](/components/toast) instead.
 
-!!! Dont
 <Hds::Alert @type="inline" @color="critical" as |A|>
     <A.Title>Vault cluster update failed</A.Title>
     <A.Description>**test-cluster_1** configuration update failed.</A.Description>
