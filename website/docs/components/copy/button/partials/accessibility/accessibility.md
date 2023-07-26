@@ -2,7 +2,7 @@
 
 <Doc::Badge @type="success">Conformant</Doc::Badge>
 
-When used as recommended there should not be any WCAG conformance issues with this component.
+When used as recommended, there should not be any WCAG conformance issues with this component.
 
 ## Applicable WCAG Success Criteria
 
