@@ -69,7 +69,7 @@
       </Hds::Form::RadioCard::Group>
     </SF.Item>
     <SF.Item @label="With different content height">
-      <Hds::Form::RadioCard::Group @name="radio-card-group-custom" @layout="fixed" as |G|>
+      <Hds::Form::RadioCard::Group @name="radio-card-group-custom" as |G|>
         <G.Legend>Group legend</G.Legend>
         <G.RadioCard @maxWidth="330px" @checked={{true}} {{on "change" this.onChange}} as |R|>
           <R.Icon @name="hexagon" />
@@ -154,26 +154,26 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Text::H3>Group layout</Shw::Text::H3>
+  <Shw::Text::H3>Card width</Shw::Text::H3>
 
   <Shw::Flex @direction="column" as |SF|>
-    <SF.Item @label="Fluid">
-      <Hds::Form::RadioCard::Group @name="radio-card-layout-fluid" @layout="fluid" as |G|>
+    <SF.Item @label="Flexible width (default)">
+      <Hds::Form::RadioCard::Group @name="radio-card-width-flexible" as |G|>
         <G.Legend>Group legend</G.Legend>
-        <G.RadioCard @maxWidth="50%" @checked={{true}} {{on "change" this.onChange}} as |R|>
+        <G.RadioCard @checked={{true}} {{on "change" this.onChange}} as |R|>
           <R.Icon @name="hexagon" />
           <R.Label>Radio card label 1</R.Label>
           <R.Description>This is the radio card description text.</R.Description>
         </G.RadioCard>
-        <G.RadioCard @maxWidth="50%" {{on "change" this.onChange}} as |R|>
+        <G.RadioCard {{on "change" this.onChange}} as |R|>
           <R.Icon @name="hexagon" />
           <R.Label>Radio card label 2</R.Label>
           <R.Description>This is the radio card description text.</R.Description>
         </G.RadioCard>
       </Hds::Form::RadioCard::Group>
     </SF.Item>
-    <SF.Item @label="Fixed">
-      <Hds::Form::RadioCard::Group @name="radio-card-layout-fixed" @layout="fixed" as |G|>
+    <SF.Item @label="Fixed width">
+      <Hds::Form::RadioCard::Group @name="radio-card-width-fixed" as |G|>
         <G.Legend>Group legend</G.Legend>
         <G.RadioCard @maxWidth="244px" @checked={{true}} {{on "change" this.onChange}} as |R|>
           <R.Icon @name="hexagon" />
@@ -252,6 +252,42 @@
           <G.RadioCard @checked={{item.checked}} @value={{item.value}} {{on "change" this.onChange}} as |R|>
             <R.Icon @name="hexagon" />
             <R.Label>{{item.label}}</R.Label>
+            <R.Description>{{item.description}}</R.Description>
+          </G.RadioCard>
+        {{/each}}
+      </Hds::Form::RadioCard::Group>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H3>Group layout</Shw::Text::H3>
+
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="Horizontal (default)">
+      <Hds::Form::RadioCard::Group
+        @name="radio-card-layout-horizontal"
+        @controlPosition="left"
+        @layout="horizontal"
+        as |G|
+      >
+        <G.Legend>Group legend</G.Legend>
+        {{#each @model.RADIOCARDS as |item|}}
+          <G.RadioCard @checked={{item.checked}} @value={{item.value}} {{on "change" this.onChange}} as |R|>
+            <R.Icon @name="hexagon" />
+            <R.Label>{{item.label}}</R.Label>
+            <R.Badge @text={{item.badge}} />
+            <R.Description>{{item.description}}</R.Description>
+          </G.RadioCard>
+        {{/each}}
+      </Hds::Form::RadioCard::Group>
+    </SF.Item>
+    <SF.Item @label="Vertical">
+      <Hds::Form::RadioCard::Group @name="radio-card-layout-vertical" @controlPosition="left" @layout="vertical" as |G|>
+        <G.Legend>Group legend</G.Legend>
+        {{#each @model.RADIOCARDS as |item|}}
+          <G.RadioCard @checked={{item.checked}} @value={{item.value}} {{on "change" this.onChange}} as |R|>
+            <R.Icon @name="hexagon" />
+            <R.Label>{{item.label}}</R.Label>
+            <R.Badge @text={{item.badge}} />
             <R.Description>{{item.description}}</R.Description>
           </G.RadioCard>
         {{/each}}
