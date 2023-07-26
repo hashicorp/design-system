@@ -4,7 +4,7 @@
 }}
 <Hds::Form::Fieldset
   class="hds-form-group--radio-cards"
-  @layout="horizontal"
+  @layout={{if (eq @layout "vertical") "vertical" "horizontal"}}
   @name={{@name}}
   @isRequired={{@isRequired}}
   @isOptional={{@isOptional}}
@@ -22,7 +22,6 @@
           name=@name
           alignment=@alignment
           controlPosition=@controlPosition
-          layout=@layout
           extraAriaDescribedBy=F.ariaDescribedBy
         )
       )

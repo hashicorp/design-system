@@ -24,6 +24,17 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
       .hasClass('hds-form-group--radio-cards');
   });
 
+  // LAYOUT
+
+  test('it should render the component with CSS classes that reflect the arguments provided', async function (assert) {
+    await render(
+      hbs`<Hds::Form::RadioCard::Group id="test-radio-card-group-layout" @layout="vertical" />`
+    );
+    assert
+      .dom('#test-radio-card-group-layout')
+      .hasClass('hds-form-group--layout-vertical');
+  });
+
   // CONTEXTUAL COMPONENTS
 
   test('it renders the contextual components', async function (assert) {
@@ -80,9 +91,9 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
 
   // ARGUMENT FORWARDING: NAME, ALIGNMENT, CONTROL POSITION, LAYOUT
 
-  test('it should render the component with CSS classes that reflect the arguments provided', async function (assert) {
+  test('it should render the contextual components with CSS classes that reflect the arguments provided', async function (assert) {
     await render(
-      hbs`<Hds::Form::RadioCard::Group @name="test-name" @alignment="center" @controlPosition="left" @layout="fixed" as |G|>
+      hbs`<Hds::Form::RadioCard::Group @name="test-name" @alignment="center" @controlPosition="left" as |G|>
             <G.Legend>This is the legend</G.Legend>
             <G.HelperText>This is the group helper text</G.HelperText>
             <G.RadioCard @maxWidth="50%" data-test="first-control"/>
@@ -100,9 +111,6 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
     assert
       .dom('.hds-form-radio-card')
       .hasClass('hds-form-radio-card--control-left');
-    assert
-      .dom('.hds-form-radio-card')
-      .hasClass('hds-form-radio-card--layout-fixed');
   });
 
   // REQUIRED AND OPTIONAL
