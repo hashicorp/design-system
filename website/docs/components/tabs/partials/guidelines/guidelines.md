@@ -14,34 +14,39 @@
 
 Use Tabs to break up content that is related to each other and is on the same hierarchical level.
 
-![Modal Hierarchy in the user flow](/assets/components/tabs/tab-usage-example-01.png)
+![Tab usage example](/assets/components/tabs/tab-usage-example-01.png)
 !!!
 
 !!! Dont
 
 Don't use Tabs to take the user to a new URL or as a primary or secondary navigation.
 
-![Modal Hierarchy in the user flow](/assets/components/tabs/tab-usage-example-02.png)
+![Tab usage example](/assets/components/tabs/tab-usage-example-02.png)
 !!!
 
 !!! Dont
 
-Don't use Tabs for sequential content.
+Don't use Tabs for sequential content. Consider following a standard stepper pattern, using the [Stepper Indicator](/components/stepper).
 
-![Modal Hierarchy in the user flow](/assets/components/tabs/tab-usage-example-03.png)
+![Tab usage example](/assets/components/tabs/tab-usage-example-03.png)
 !!!
 
 ## Behavior
 
-- Don’t use tabs with only one button. There should be at least two Tabs.
+- One tab should be selected and its related content should be visible on page load.
 
 - Always keep the tabs in the same order. Only the content should change.
 
-- One tab should be selected and its related content should be visible on page load.
+- There should always be one tab already selected on page load and its related content should be visible.
 
-- There should always be one tab that's already selected and its related content should be visible.
+- Use Tabs when users don't need to see the content from multiple tabs at the same time. If users need to constantly view the content behind different tabs, consider using the [Accordion](/components/accordion).
 
-- Use Tabs when users don't need to see the content from multiple tabs at the same time. If users need to constantly view the content behind different tabs, consider using the Accordion.
+- Don’t use tabs with only one button. There should be at least two Tabs.
+
+!!! Dont
+
+![Tab with only one button](/assets/components/tabs/tab-behavior-single-button.png)
+!!!
 
 ## Spacing
 
