@@ -28,14 +28,15 @@ module('Integration | Component | hds/form/radio-card/index', function (hooks) {
     assert.dom('input').hasAttribute('name', 'name');
   });
 
-  // CHECKED, DISABLED
+  // CHECKED, DISABLED, MAX-WIDTH
 
   test('it should render the component with CSS classes that reflect the arguments provided', async function (assert) {
     await render(
-      hbs`<Hds::Form::RadioCard @checked="checked" @disabled="disabled" />`
+      hbs`<Hds::Form::RadioCard @checked="checked" @disabled="disabled" @maxWidth="25%" />`
     );
     assert.dom('label').hasClass('hds-form-radio-card--checked');
     assert.dom('label').hasClass('hds-form-radio-card--disabled');
+    assert.dom('label').hasClass('hds-form-radio-card--fixed-width');
   });
 
   // CONTEXTUAL COMPONENTS
@@ -88,32 +89,6 @@ module('Integration | Component | hds/form/radio-card/index', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(hbs`<Hds::Form::RadioCard @controlPosition="foo" />`);
-    assert.throws(function () {
-      throw new Error(errorMessage);
-    });
-  });
-
-  test('it should throw an assertion if an incorrect value for @layout is provided', async function (assert) {
-    const errorMessage =
-      '@layout for "Hds::Form::RadioCard" must be one of the following: fluid, fixed; received: foo';
-    assert.expect(2);
-    setupOnerror(function (error) {
-      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
-    });
-    await render(hbs`<Hds::Form::RadioCard @layout="foo" />`);
-    assert.throws(function () {
-      throw new Error(errorMessage);
-    });
-  });
-
-  test('it should throw an assertion if @layout is fixed and no @maxWidth value is provided', async function (assert) {
-    const errorMessage =
-      '@maxWidth for "Hds::Form::RadioCard" with @layout "fixed" is required';
-    assert.expect(2);
-    setupOnerror(function (error) {
-      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
-    });
-    await render(hbs`<Hds::Form::RadioCard @layout="fixed" />`);
     assert.throws(function () {
       throw new Error(errorMessage);
     });
