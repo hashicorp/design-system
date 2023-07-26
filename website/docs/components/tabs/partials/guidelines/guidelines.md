@@ -33,7 +33,15 @@ Don't use Tabs for sequential content.
 
 ## Behavior
 
-Text goes here...
+- Don’t use tabs with only one button. There should be at least two Tabs.
+
+- Always keep the tabs in the same order. Only the content should change.
+
+- One tab should be selected and its related content should be visible on page load.
+
+- There should always be one tab that's already selected and its related content should be visible.
+
+- Use Tabs when users don't need to see the content from multiple tabs at the same time. If users need to constantly view the content behind different tabs, consider using the Accordion.
 
 ## Spacing
 
