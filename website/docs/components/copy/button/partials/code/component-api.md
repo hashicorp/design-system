@@ -11,7 +11,7 @@ This component uses [ember-cli-clipboard](https://github.com/jkusa/ember-cli-cli
     Indicates that a button should take up the full width of the parent container.
   </C.Property>
   <C.Property @name="text" @required="true" @type="string">
-    Text of the button or value of `aria-label` if `isIconOnly` is set to `true`. If no text value is defined an error will be thrown.
+    The text of the button or value of `aria-label` if `isIconOnly` is set to `true`. If no text value is defined, an error will be thrown.
   </C.Property>
   <C.Property @name="textToCopy" @type="string | function">
     String value or action that returns a string to be copied.
