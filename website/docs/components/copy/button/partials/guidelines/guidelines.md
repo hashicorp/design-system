@@ -7,11 +7,11 @@
 
 ### When not to use
 
-- To copy the text within the button, use a [Copy Snippet](/components/copy/snippet).
+- To copy short code snippets, such as URLs, tokens, IDs, use a [Copy Snippet](/components/copy/snippet).
 
 ## Sizes
 
-The `Copy::Button` comes in small and medium sizes. Use the size that best fits the hierarchy of the UI. 
+The Copy Button comes in small and medium sizes. Use the size that best fits the hierarchy of the UI. 
 
 <Doc::Layout @spacing="16px">
   <Hds::Copy::Button @text="Copy" @size="small" />
