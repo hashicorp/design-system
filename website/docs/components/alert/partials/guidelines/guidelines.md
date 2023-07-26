@@ -10,7 +10,7 @@
 - As a dialog to confirm an action, consider [Modal](/components/modal).
 - To flag new features (e.g., "In Preview", "Beta", "New", etc), consider [Badge](/components/badge).
 
-### Color
+## Color
 
 <Doc::Layout @spacing="12px">
   <Hds::Alert @type="inline" @color="neutral" as |A|>
@@ -44,7 +44,7 @@ Use color logically.
 - **Warning** to help users avoid an issue. Provide guidance and actions, if possible.
 - **Critical** to indicate critical errors that need immediate action.
 
-#### Critical alerts
+### Critical alerts
 
 !!! Do
 
@@ -93,7 +93,7 @@ Don't use alerts to communicate error messages that are not caused by the user. 
   </Hds::Alert>
 !!!
 
-### Icons
+## Icons
 
 All alerts have icons by default that are intentionally tied to the alert type.
 
@@ -105,13 +105,13 @@ Icons within the `neutral` and `highlight` alerts can be replaced with other ico
   <A.Link::Standalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="Release notes" @href="#" />
 </Hds::Alert>
 
-### Dismissal
+## Dismissal
 
-#### Persistent
+### Persistent
 
 All alerts are persistent by default, while compact alerts are always persistent.
 
-#### Dismissible
+### Dismissible
 
 Page and inline alerts can be dismissible.
 
@@ -144,7 +144,7 @@ We recommend keeping `critical` alerts non-dismissible as they are essential to 
 
 Use small buttons to avoid competing with other actions on the page. Use more than two actions sparingly.
 
-#### Buttons
+### Buttons
 
 We recommend using the `secondary` button variant for primary actions and the `tertiary` button variant for secondary actions.
 
@@ -155,7 +155,7 @@ We recommend using the `secondary` button variant for primary actions and the `t
   <A.Button @color="tertiary" @icon="arrow-right" @iconPosition="trailing" @text="Tertiary" />
 </Hds::Alert>
 
-##### Usage of critical buttons
+#### Usage of critical buttons
 
 Avoid using critical buttons in alerts. We handle the prominence and importance via the styling of the alert container itself. If needing to confirm that the user intended to interact with the action, consider displaying a confirmation modal.
 
@@ -167,7 +167,7 @@ Avoid using critical buttons in alerts. We handle the prominence and importance 
 </Hds::Alert>
 !!!
 
-#### Links
+### Links
 
 Use [Standalone Link](/components/link/standalone) when an action takes the user to a new destination (URL).
 
@@ -180,44 +180,44 @@ We recommend using the secondary standalone link to maintain visual hierarchy an
   <A.Link::Standalone @icon="arrow-right" @iconPosition="trailing" @color="secondary" @text="Standalone link" @href="#" />
 </Hds::Alert>
 
-### Placement
+## Placement
 
-#### Page
+### Page
 
 Page alerts are placed between the global header navigation and the breadcrumb, next to the left navigation.
 
 ![Placement of page alert](/assets/components/alert/alert-placement-page.png =600x*)
 
-#### Inline
+### Inline
 
 Inline alerts can be added to a section or component or inline with content.
 
 ![Placement of inline alert](/assets/components/alert/alert-placement-inline.png =600x*)
 
-#### Compact
+### Compact
 
 Compact alerts can be added to a section or component or inline with content.
 
 ![Placement of compact Alert](/assets/components/alert/alert-placement-compact.png =600x*)
 
-### Composition
+## Composition
 
 Page and inline alerts can be configured in a variety of ways. For example: 
 
-#### With icon and title
+### With icon and title
 
 <Hds::Alert @type="inline" as |A|>
   <A.Title>With icon and title</A.Title>
 </Hds::Alert>
 
-#### With icon, title, and description
+### With icon, title, and description
 
 <Hds::Alert @type="inline" as |A|>
   <A.Title>With icon, title, and description</A.Title>
   <A.Description>Lorem ipsum dolar sit amet.</A.Description>
 </Hds::Alert>
 
-#### Title and description only
+### Title and description only
 
 The title or description should contain the alert type, e.g., “Warning,” if no icon is present.
 
@@ -225,7 +225,7 @@ The title or description should contain the alert type, e.g., “Warning,” if 
   <A.Title>Warning: the action could not be completed</A.Title>
 </Hds::Alert>
 
-#### With actions
+### With actions
 
 <Hds::Alert @type="inline" @color="success" as |A|>
   <A.Title>Alert with actions</A.Title>
@@ -234,7 +234,7 @@ The title or description should contain the alert type, e.g., “Warning,” if 
   <A.Link::Standalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="Learn more" @href="#" />
 </Hds::Alert>
 
-#### With generic content
+### With generic content
 
 <Hds::Alert @type="inline" @color="success" as |A|>
   <A.Title>An alert with extra/custom content</A.Title>
