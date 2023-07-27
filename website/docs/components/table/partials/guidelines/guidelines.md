@@ -26,7 +26,16 @@ Column width is determined by manually resizing the header column and cells with
 
 ### Alignment
 
-Use consistent alignment throughout the Table. We recommend using end-alignment in the last column when displaying non-text based content. 
+The alignment of text and content within a table impacts the readability and speed at which users can effectively parse the information. The chosen alignment method depends on the content within the cell, purpose of the table, and relative position within the table.
+
+!!! Info
+
+While we don't currently support internationalization in Helios, this documentation intentionally references alignment values in internationalized terms to make them more broadly applicable and future-proof.
+!!!
+
+#### Consistent alignment
+
+Use consistent alignment between the header label and the cell content.
 
 !!! Do
 
@@ -36,6 +45,53 @@ Use consistent alignment throughout the Table. We recommend using end-alignment 
 !!! Dont
 
 ![Table column placement example](/assets/components/table/table-alignment-dont.png =500x*)
+!!!
+
+#### Start alignment
+
+Align content to the start of the cell by default. This ensures readability across different content types, consistency in content of varying lengths, and alignment between the column header label and the content within the cell.
+
+Use start alignment for:
+
+- String and text-based content (unique identifiers or IDs, names and naming conventions, IP addresses, etc).
+- Numerical values that do not contain decimals or floating point numbers.
+- Nested components that display a string or text value, e.g., a [Badge](/components/badge).
+
+<!--Insert image here-->
+
+#### End alignment
+
+End alignment can be used when expressing numerical values with decimals as this aligns the decimal places vertically.
+
+Common examples of end alignment include:
+
+- Financial information and currency ammounts.
+- Fractional and floating point values represented with decimals.
+
+<!--Insert image here -->
+
+End alignment can also be used in the last column of a table to:
+
+- Highlight a "more options" function pertaining to the content within a row.
+- As a means to visually "bookend" the row with content that is of a similar length, e.g., timestamps, TTL (time-to-live) values, dates.
+
+<!--Insert image here-->
+
+!!! Dont
+
+Don't end align content that is variable in length. This can make the content more difficult to read by forcing an unnatural [reading pattern](patterns/button-organization?tab=research#layout-and-reading-patterns).
+
+<!--Add image here-->
+
+!!!
+
+#### Other alignment methods
+
+We don't recommend center or justified alignment of content within a cell or table. These alignment methods can result in the content being difficult to read, especially if the content is variable in length.
+
+!!! Dont
+
+Include a don't here for center/justified alignment.
 !!!
 
 ### Placement
@@ -100,23 +156,53 @@ Row placement determines the visual styling based on where the row is placed rel
 - If content is largely string/text-based, `short` allows for more content to be displayed within the page.
 - While denser content allows for more rows to be displayed within a single page, it also makes comprehension and scanning more difficult.
 
-### Content
-
-While we are not prescriptive about what goes into a cell, there are some best practices to consider:
-
-- We recommended keeping data within a column to one data type. Using more than one data type makes sorting almost impossible.
-- While it‘s possible to change the text style/color within a cell, we recommended only using Helios font styles.
-
 ### Icon usage
 
-Icons nested within cells can help differentiate content, see status, and increase the hierarchy of a piece of data or object. Use the outlined icon style by default and if contrast against other icons is important, use the filled style.
+Icons nested within cells can help differentiate content, highlight additional metadata, and increase the hierarchy of a piece of data or object. Use the outlined icon style by default and if contrast against other icons is important, use the filled style.
 
 Icons should rarely be used without a text label. A label helps reinforce the purpose and communication of the icon and can reduce ambiguity when expressing complex data.
+
+!!! Dont
+
+Don't use an icon as the sole communication method within a cell, even if the icon is explicit, e.g., a service icon.
+
+<!--Insert image here-->
+!!!
+
+!!! Do
+
+Use an icon to _enhance_ the text or value it is paired with.
+
+<!--Insert image here-->
+!!!
 
 !!! Do
 
 ![Example of proper icon usage in tables](/assets/components/table/table-nested-icons-do.png =726x*)
 !!!
+
+#### Service icons
+
+Use service icons within a cell to communicate the source or provider of a service.
+
+<!--Insert service icon image-->
+
+#### Grouping
+
+Use icons to communicate commonalities between values or that a value is part of a larger object or hierarchical structure.
+
+<!--Insert image example here -->
+
+!!! Dont
+
+Don't use an icon to indicate the status of an object, row, or resource. Instead, use a [Badge](components/badge).
+!!!
+
+#### Product branding
+
+Use icons to communicate that a specific item is a HashiCorp product or resource.
+
+<!--Insert image here-->
 
 #### Leading vs. trailing icons
 
@@ -133,3 +219,35 @@ In general, we recommend using **leading icons** because the text following the 
 
 ![Example of proper icon placement in tables](/assets/components/table/table-icons-placement-dont.png =380x*)
 !!!
+
+### Links within cells
+
+!!! Info
+
+This guidance is an extension of the [Inline Link](/components/link/inline) guidelines.
+!!!
+
+Within a table, use `secondary` (`Foreground / Strong`) links as the default. Using the `primary` link styling within a table over-emphasizes the link in the visual hierarchy.
+
+<!--Insert image here-->
+
+Use `Body / 200 / Link` as the default typographic style witin a table. This style increases the prominence a small amount to differentiate it from other string and non-interactive content.
+
+<!--Insert image here-->
+
+#### Multiple links
+
+If a table contains more than one column of links, consider using `Body / 200 / Link` for the most important link (usually the title of the row, ID, or other naming convention), and `Body / 200 / Regular` with an underline for less important links.
+
+<!--Insert image here-->
+
+#### Long-form content
+
+If a cell contains long-form or descriptive content, use the link style that is most appropriate for the hierarchy and frequency of links within the content. If there are a minimal number of links within the content, `primary` styling may be appropriate, but if there are many links `secondary` styling may be more appropriate.
+
+## General content recommendations
+
+While we are not prescriptive about what goes into a cell, there are some best practices to consider:
+
+- We recommended keeping data within a column to one data type. Using more than one data type makes sorting almost impossible.
+- While it‘s possible to change the text style/color within a cell, we recommended only using Helios font styles.
