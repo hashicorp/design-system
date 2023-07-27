@@ -5,11 +5,21 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { click, render, waitFor } from '@ember/test-helpers';
+import {
+  click,
+  render,
+  resetOnerror,
+  setupOnerror,
+  waitFor,
+} from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/copy/snippet/index', function (hooks) {
   setupRenderingTest(hooks);
+
+  hooks.afterEach(() => {
+    resetOnerror();
+  });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
@@ -76,5 +86,22 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
       .hasClass('hds-copy-snippet--status-success');
     await waitFor('.hds-copy-snippet--status-idle', { timeout: 2000 });
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet--status-idle');
+  });
+
+  // ASSERTIONS
+
+  test('it should throw an assertion if an incorrect value for @color is provided', async function (assert) {
+    const errorMessage =
+      '@color for "Hds::Copy::Snippet" must be one of the following: primary, secondary; received: tertiary';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(
+      hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="3423g-234525-h345346-f34rtf4" @color="tertiary" />`
+    );
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
   });
 });
