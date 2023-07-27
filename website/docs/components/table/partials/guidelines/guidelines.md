@@ -24,7 +24,18 @@
 
 Column width is determined by manually resizing the header column and cells within Figma. As a best practice, column width should be adjusted to fit the longest data type within the cell.
 
-### Alignment
+### Placement
+
+!!! Info
+
+The column placement property is only relevant within Figma and doesn’t exist as a property within the code.
+!!!
+
+Column placement determines the visual styling based on where the column is placed relative to other columns in the Table.
+
+![Table column placement example](/assets/components/table/table-col-placement.png =750x*)
+
+## Alignment
 
 The alignment of text and content within a table impacts the readability and speed at which users can effectively parse the information. The chosen alignment method depends on the content within the cell, purpose of the table, and relative position within the table.
 
@@ -33,7 +44,7 @@ The alignment of text and content within a table impacts the readability and spe
 While we don't currently support internationalization in Helios, this documentation intentionally references alignment values in internationalized terms to make them more broadly applicable and future-proof.
 !!!
 
-#### Consistent alignment
+### Consistent alignment
 
 Use consistent alignment between the header label and the cell content.
 
@@ -47,7 +58,7 @@ Use consistent alignment between the header label and the cell content.
 ![Table column placement example](/assets/components/table/table-alignment-dont.png =500x*)
 !!!
 
-#### Start alignment
+### Start alignment
 
 Align content to the start of the cell by default. This ensures readability across different content types, consistency in content of varying lengths, and alignment between the column header label and the content within the cell.
 
@@ -59,7 +70,7 @@ Use start alignment for:
 
 ![Start alignment of content within a table](/assets/components/table/start-alignment-example.png)
 
-#### End alignment
+### End alignment
 
 End alignment can be used when expressing numerical values with decimals as this aligns the decimal places vertically.
 
@@ -85,9 +96,9 @@ Don't end align content that is variable in length. This can make the content mo
 
 !!!
 
-#### Other alignment methods
+### Other alignment methods
 
-We don't recommend center or justified alignment of content within a cell or table. These alignment methods can result in the content being difficult to read, especially if the content is variable in length.
+We don't recommend center or justified alignment of content within a cell or table. These alignment methods can result in the content being difficult to read, especially if it is variable in length.
 
 !!! Dont
 
@@ -95,17 +106,6 @@ Don't center header labels or cell content within a table.
 
 ![Example of centered content within a table](/assets/components/table/center-justified-alignment.png)
 !!!
-
-### Placement
-
-!!! Info
-
-The column placement property is only relevant within Figma and doesn’t exist as a property within the code.
-!!!
-
-Column placement determines the visual styling based on where the column is placed relative to other columns in the Table.
-
-![Table column placement example](/assets/components/table/table-col-placement.png =750x*)
 
 ## Rows
 
