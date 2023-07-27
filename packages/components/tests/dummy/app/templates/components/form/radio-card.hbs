@@ -293,5 +293,29 @@
         {{/each}}
       </Hds::Form::RadioCard::Group>
     </SF.Item>
+    <SF.Item @label="Vertical, fixed width">
+      <Hds::Form::RadioCard::Group
+        @name="radio-card-layout-vertical-fixed"
+        @controlPosition="left"
+        @layout="vertical"
+        as |G|
+      >
+        <G.Legend>Group legend</G.Legend>
+        {{#each @model.RADIOCARDS as |item|}}
+          <G.RadioCard
+            @maxWidth="330px"
+            @checked={{item.checked}}
+            @value={{item.value}}
+            {{on "change" this.onChange}}
+            as |R|
+          >
+            <R.Icon @name="hexagon" />
+            <R.Label>{{item.label}}</R.Label>
+            <R.Badge @text={{item.badge}} />
+            <R.Description>{{item.description}}</R.Description>
+          </G.RadioCard>
+        {{/each}}
+      </Hds::Form::RadioCard::Group>
+    </SF.Item>
   </Shw::Flex>
 </section>
