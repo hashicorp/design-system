@@ -57,7 +57,7 @@ Use start alignment for:
 - Numerical values that do not contain decimals or floating point numbers.
 - Nested components that display a string or text value, e.g., a [Badge](/components/badge).
 
-<!--Insert image here-->
+![Start alignment of content within a table](/assets/components/table/start-alignment-example.png)
 
 #### End alignment
 
@@ -68,20 +68,20 @@ Common examples of end alignment include:
 - Financial information and currency ammounts.
 - Fractional and floating point values represented with decimals.
 
-<!--Insert image here -->
+![End alignment of content within a table](/assets/components/table/end-alignment-example.png)
 
 End alignment can also be used in the last column of a table to:
 
 - Highlight a "more options" function pertaining to the content within a row.
 - As a means to visually "bookend" the row with content that is of a similar length, e.g., timestamps, TTL (time-to-live) values, dates.
 
-<!--Insert image here-->
+![End alignment example within a table with a date and more options](/assets/components/table/end-alignment-example-02.png)
 
 !!! Dont
 
 Don't end align content that is variable in length. This can make the content more difficult to read by forcing an unnatural [reading pattern](patterns/button-organization?tab=research#layout-and-reading-patterns).
 
-<!--Add image here-->
+![End alignment with content that is variable in length](/assets/components/table/end-alignment-variable-length.png)
 
 !!!
 
@@ -91,7 +91,9 @@ We don't recommend center or justified alignment of content within a cell or tab
 
 !!! Dont
 
-Include a don't here for center/justified alignment.
+Don't center header labels or cell content within a table.
+
+![Example of centered content within a table](/assets/components/table/center-justified-alignment.png)
 !!!
 
 ### Placement
@@ -162,6 +164,13 @@ Icons nested within cells can help differentiate content, highlight additional m
 
 Icons should rarely be used without a text label. A label helps reinforce the purpose and communication of the icon and can reduce ambiguity when expressing complex data.
 
+!!! Do
+
+Use an icon to _enhance_ the text or value it is paired with.
+
+<!--Insert image here-->
+!!!
+
 !!! Dont
 
 Don't use an icon as the sole communication method within a cell, even if the icon is explicit, e.g., a service icon.
@@ -169,12 +178,6 @@ Don't use an icon as the sole communication method within a cell, even if the ic
 <!--Insert image here-->
 !!!
 
-!!! Do
-
-Use an icon to _enhance_ the text or value it is paired with.
-
-<!--Insert image here-->
-!!!
 
 !!! Do
 
@@ -227,25 +230,25 @@ In general, we recommend using **leading icons** because the text following the 
 This guidance is an extension of the [Inline Link](/components/link/inline) guidelines.
 !!!
 
-Within a table, use `secondary` (`Foreground / Strong`) links as the default. Using the `primary` link styling within a table over-emphasizes the link in the visual hierarchy.
-
-<!--Insert image here-->
+Within a table, use `secondary` (`Foreground / Strong`) links as the default. 
 
 Use `Body / 200 / Link` as the default typographic style witin a table. This style increases the prominence a small amount to differentiate it from other string and non-interactive content.
 
-<!--Insert image here-->
+![Link example](/assets/components/table/link-example.png)
 
 #### Multiple links
 
 If a table contains more than one column of links, consider using `Body / 200 / Link` for the most important link (usually the title of the row, ID, or other naming convention), and `Body / 200 / Regular` with an underline for less important links.
 
-<!--Insert image here-->
+![Multiple links within a table](/assets/components/table/multiple-links.png)
 
 #### Long-form content
 
 If a cell contains long-form or descriptive content, use the link style that is most appropriate for the hierarchy and frequency of links within the content. If there are a minimal number of links within the content, `primary` styling may be appropriate, but if there are many links `secondary` styling may be more appropriate.
 
-## General content recommendations
+![Links in long-form content](/assets/components/table/longform-content-links.png)
+
+## General content
 
 While we are not prescriptive about what goes into a cell, there are some best practices to consider:
 
