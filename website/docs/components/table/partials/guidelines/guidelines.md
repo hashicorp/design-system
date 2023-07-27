@@ -65,7 +65,7 @@ End alignment can be used when expressing numerical values with decimals as this
 
 Common examples of end alignment include:
 
-- Financial information and currency ammounts.
+- Financial information and currency amounts.
 - Fractional and floating point values represented with decimals.
 
 ![End alignment of content within a table](/assets/components/table/end-alignment-example.png)
@@ -209,7 +209,7 @@ This guidance is an extension of the [Inline Link](/components/link/inline) guid
 
 Within a table, use `secondary` (`Foreground / Strong`) links as the default. 
 
-Use `Body / 200 / Link` as the default typographic style witin a table. This style increases the prominence a small amount to differentiate it from other string and non-interactive content.
+Use `Body / 200 / Link` as the default typographic style within a table. This style increases the prominence a small amount to differentiate it from other string and non-interactive content.
 
 ![Link example](/assets/components/table/link-example.png)
 
