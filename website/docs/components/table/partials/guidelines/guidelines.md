@@ -160,68 +160,45 @@ Row placement determines the visual styling based on where the row is placed rel
 
 ### Icon usage
 
-Icons nested within cells can help differentiate content, highlight additional metadata, and increase the hierarchy of a piece of data or object. Use the outlined icon style by default and if contrast against other icons is important, use the filled style.
+Icons used within cells can help differentiate content, highlight additional metadata, increase the hierarchy of a value, or otherwise _enhance_ the text or value it is paired with. Use the outlined icon style by default and if contrast against other icons is important, use the filled style.
 
-Icons should rarely be used without a text label. A label helps reinforce the purpose and communication of the icon and can reduce ambiguity when expressing complex data.
+!!! Dont
 
-!!! Do
+Don't use an icon as the sole communication method within a cell, even if the icon is explicit, e.g., a brand or service icon.
 
-Use an icon to _enhance_ the text or value it is paired with.
-
-<!--Insert image here-->
+![Icon within a table without a label](/assets/components/table/icon-without-label.png)
 !!!
 
 !!! Dont
 
-Don't use an icon as the sole communication method within a cell, even if the icon is explicit, e.g., a service icon.
+Don't use an icon to indicate the status of an object, row, or resource. Instead, use a [Badge](components/badge).
 
-<!--Insert image here-->
-!!!
-
-
-!!! Do
-
-![Example of proper icon usage in tables](/assets/components/table/table-nested-icons-do.png =726x*)
+![Icons being used for status](/assets/components/table/icon-status.png)
 !!!
 
 #### Service icons
 
 Use service icons within a cell to communicate the source or provider of a service.
 
-<!--Insert service icon image-->
+![Service icon within a table](/assets/components/table/with-service-icon.png)
 
 #### Grouping
 
 Use icons to communicate commonalities between values or that a value is part of a larger object or hierarchical structure.
 
-<!--Insert image example here -->
-
-!!! Dont
-
-Don't use an icon to indicate the status of an object, row, or resource. Instead, use a [Badge](components/badge).
-!!!
+![Icons used for grouping in a table](/assets/components/table/icon-grouping.png)
 
 #### Product branding
 
 Use icons to communicate that a specific item is a HashiCorp product or resource.
 
-<!--Insert image here-->
+![Icon product branding](/assets/components/table/icon-product-branding.png)
 
 #### Leading vs. trailing icons
 
-Both leading and trailing icons increase the visual weight of the content within the cell, so use icons intentionally throughout Tables. Take care not to mix and match different icon positions in the same column. 
-
 In general, we recommend using **leading icons** because the text following the icon will remain aligned and thus be easier for the user to scan. 
 
-!!! Do
-
-![Example of proper icon placement in tables](/assets/components/table/table-icons-placement-do.png =784x*)
-!!!
-
-!!! Dont
-
-![Example of proper icon placement in tables](/assets/components/table/table-icons-placement-dont.png =380x*)
-!!!
+Take care not to mix and match different icon positions in the same column. 
 
 ### Links within cells
 
