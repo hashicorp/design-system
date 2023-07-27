@@ -7,7 +7,7 @@ import { assert } from '@ember/debug';
 export const DEFAULT_SIZE = '200';
 export const AVAILABLE_SIZES = [300, 200, 100];
 
-export const DEFAULT_WEIGHT = '200';
+export const DEFAULT_WEIGHT = 'regular';
 export const AVAILABLE_WEIGHTS_PER_SIZE = {
   300: ['regular'],
   200: ['regular'],
