@@ -78,13 +78,13 @@
 
 .hds-copy-snippet--status-success {
   .hds-copy-snippet__icon {
-    color: var(--token-color-foreground-success-on-surface);
+    color: var(--token-color-foreground-success);
   }
 }
 
 .hds-copy-snippet--status-error {
   .hds-copy-snippet__icon {
-    color: var(--token-color-foreground-critical-on-surface);
+    color: var(--token-color-foreground-critical);
   }
 }
 
