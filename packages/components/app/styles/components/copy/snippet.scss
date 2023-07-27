@@ -74,16 +74,12 @@
 }
 
 .hds-copy-snippet--status-success {
-  background-color: var(--token-color-surface-interactive);
-
   .hds-copy-snippet__icon {
     color: var(--token-color-foreground-success-on-surface);
   }
 }
 
 .hds-copy-snippet--status-error {
-  background-color: var(--token-color-surface-interactive);
-
   .hds-copy-snippet__icon {
     color: var(--token-color-foreground-critical-on-surface);
   }
@@ -98,7 +94,7 @@
   flex: none;
 }
 
-.hds-copy-snippet--width-full { // TODO shw-item is preventing this from working on the preview page
+.hds-copy-snippet--width-full {
   justify-content: center;
   width: 100%;
   max-width: 100%;
