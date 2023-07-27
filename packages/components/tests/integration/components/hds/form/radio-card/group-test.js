@@ -26,7 +26,7 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
 
   // LAYOUT
 
-  test('it should render the component with CSS classes that reflect the arguments provided', async function (assert) {
+  test('it should render the component with CSS classes that reflect the `@layout` argument provided', async function (assert) {
     await render(
       hbs`<Hds::Form::RadioCard::Group id="test-radio-card-group-layout" @layout="vertical" />`
     );
