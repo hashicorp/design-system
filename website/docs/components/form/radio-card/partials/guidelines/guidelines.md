@@ -55,6 +55,49 @@ In most cases, we recommend using the bottom position. Still, we offer Radio Car
   </G.RadioCard>
 </Hds::Form::RadioCard::Group>
 
+## Layout
+
+In most cases, use the horizontal layout to maximize the real estate available. Use the vertical layout intentionally when assembled with other components within limited horizontal space, or when needing to create a vertical options list with radio cards.
+
+### Horizontal
+
+<Hds::Form::RadioCard::Group @name="radio-card-horizontal-layout" as |G|>
+  <G.Legend>Allow this source connect to the destination</G.Legend>
+  <G.RadioCard @checked={{true}} {{on "change" this.onChange}} as |R|>
+    <R.Icon @name="arrow-right" @color="var(--token-color-foreground-success)" />
+    <R.Label>Allow</R.Label>
+    <R.Description>The source service will be allowed to connect to the destination.</R.Description>
+  </G.RadioCard>
+  <G.RadioCard {{on "change" this.onChange}} as |R|>
+    <R.Icon @name="skip" @color="var(--token-color-foreground-critical)" />
+    <R.Label>Deny</R.Label>
+    <R.Description>The source service will not be allowed to connect to the destination.</R.Description>
+  </G.RadioCard>
+  <G.RadioCard {{on "change" this.onChange}} as |R|>
+    <R.Icon @name="layers" @color="var(--token-color-foreground-primary)" />
+    <R.Label>Application aware</R.Label>
+    <R.Description>The source may or may not connect to the destination service via unique permissions based on Layer 7 criteria: path, header, or method.</R.Description>
+  </G.RadioCard>
+</Hds::Form::RadioCard::Group>
+
+### Vertical
+
+<Hds::Form::RadioCard::Group @name="radio-card-vertical-layout" @controlPosition="left" @layout="vertical" as |G|>
+  <G.Legend>Allow this source connect to the destination</G.Legend>
+  <G.RadioCard @checked={{true}} {{on "change" this.onChange}} as |R|>
+    <R.Label>Admin</R.Label>
+    <R.Description>Grants full admin capabilities for this project and all workspaces within. Team members can edit and delete this project, manage the team access level, and create and move workspaces.</R.Description>
+  </G.RadioCard>
+  <G.RadioCard {{on "change" this.onChange}} as |R|>
+    <R.Label>Read</R.Label>
+    <R.Description>Grants full admin capabilities for this project and all workspaces within. Team members can manage the team access level, and create and move workspaces.</R.Description>
+  </G.RadioCard>
+  <G.RadioCard {{on "change" this.onChange}} as |R|>
+    <R.Label>Write</R.Label>
+    <R.Description>Grants full admin capabilities for this project and all workspaces within. Team members can edit this project, manage the team access level, and create and move workspaces.</R.Description>
+  </G.RadioCard>
+</Hds::Form::RadioCard::Group>
+
 ## Nested badge
 
 Badges can be used in radio cards to display additional information and context. To ensure proper usage of the badge component, refer to the [guidelines](/components/badge).
