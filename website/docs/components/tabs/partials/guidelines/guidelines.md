@@ -2,13 +2,7 @@
 
 ### When to use
 
-- Allows users to move between different views within the same context.
-
-### When not to use
-
-- For navigation, consider navigation, [Standalone Links](/components/link/standalone), or [Breadcrumb](/components/breadcrumb).
-
-### Usage examples
+- To move between different views within the same context.
 
 !!! Do
 
@@ -17,35 +11,40 @@ Use Tabs to break up content that is related to each other and is on the same hi
 ![Tab usage example](/assets/components/tabs/tab-usage-example-01.png)
 !!!
 
+### When not to use
+
+- For navigation, consider [SideNav](/components/side-nav), [Standalone Links](/components/link/standalone), or [Breadcrumb](/components/breadcrumb).
+- As a stepper or progress bar for multi-step workflows, consider a stepper, using the [Stepper Indicator](/components/stepper).
+- To see multiple content areas at the same time or to fully collapse the content area, use [Accordion](/components/accordion).
+
 !!! Dont
 
-Don't use Tabs to take the user to a new URL or as a primary or secondary navigation.
+Don't use Tabs for primary or secondary navigation.
 
 ![Tab usage example](/assets/components/tabs/tab-usage-example-02.png)
 !!!
 
 !!! Dont
 
-Don't use Tabs for sequential content. Consider following a standard stepper pattern, using the [Stepper Indicator](/components/stepper).
+Don't use Tabs for sequential content.
 
 ![Tab usage example](/assets/components/tabs/tab-usage-example-03.png)
 !!!
 
-## Behavior
-
-- One tab should be selected and its related content should be visible on page load.
-
-- Always keep the tabs in the same order. Only the content should change.
-
-- There should always be one tab already selected on page load and its related content should be visible.
-
-- Use Tabs when users don't need to see the content from multiple tabs at the same time. If users need to constantly view the content behind different tabs, consider using the [Accordion](/components/accordion).
-
-- Don’t use tabs with only one button. There should be at least two Tabs.
+## Tab best practices
 
 !!! Dont
 
-![Tab with only one button](/assets/components/tabs/tab-behavior-single-button.png)
+We don't recommend using a singular Tab; instead consider using a heading. 
+
+![Tabs with only one tab](/assets/components/tabs/tab-behavior-single-button.png)
+!!!
+
+!!! Dont
+
+Don't trigger a Tab change via an external action, such as a submit or next button. Tab changes should only be triggered by the Tab itself as that is the expected user interaction. 
+
+![Tabs with external trigger](/assets/components/tabs/tabs-external-trigger.png)
 !!!
 
 ## Spacing
@@ -59,7 +58,7 @@ When the content area consists of a contained component (e.g., table, card, etc)
 - Top & right border-radius of the content area be set to 0
 - The content area should be flush on the left & right with the tabs
 
-![Tabs contained spacing example](/assets/components/tabs/tabs-spacing-contained.png =587x*)
+![Tabs contained spacing example](/assets/components/tabs/tabs-spacing-contained.png)
 
 ### Nested
 
@@ -75,7 +74,7 @@ When nesting tabs, regardless of if your content area consists of contained or n
 - Top & right border-radius of the content area be set to 0, if contained
 - Each content area should be left indented by 16px
 
-![Tabs nested spacing example](/assets/components/tabs/tabs-spacing-nested.png =500x*)
+![Tabs nested spacing example](/assets/components/tabs/tabs-spacing-nested.png)
 
 ### Not contained
 
@@ -85,7 +84,7 @@ When the content area does not consist of a contained component (ie. text block,
 - 16px between the Tabs and the content area
 - The content area should be flush on the left & right with the Tabs, if only one level of tabs. If nested levels, see "Nested".
 
-![Tabs not contained spacing example](/assets/components/tabs/tabs-spacing-not-contained.png =1150x*)
+![Tabs not contained spacing example](/assets/components/tabs/tabs-spacing-not-contained.png)
 
 ## Overflow
 
