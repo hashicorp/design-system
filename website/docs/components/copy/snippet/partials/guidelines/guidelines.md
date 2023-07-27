@@ -22,8 +22,8 @@ Take caution when using for longer code snippets, instead consider using a more 
 The `Copy::Snippet` comes in two colors: `primary` and `secondary`
 
 <Doc::Layout @spacing="16px">
-<Hds::Copy::Snippet @textToCopy="Primary" /> 
-<Hds::Copy::Snippet @textToCopy="Secondary" @color="secondary" />
+    <Hds::Copy::Snippet @textToCopy="Primary" /> 
+    <Hds::Copy::Snippet @textToCopy="Secondary" @color="secondary" />
 </Doc::Layout>
 
 !!! Do
@@ -31,6 +31,10 @@ The `Copy::Snippet` comes in two colors: `primary` and `secondary`
 When multiple Copy Snippets are needed in a single page, such as in a [Table](/components/table), consider using the `secondary` color to reduce the prominence of each Copy Snippet.
 
 ![Example of the Copy Snippet component in a table](/assets/components/copy/copy-snippet-table-do.png)
+
+When there are multiple secondary styled [links](/components/link) in a single page, such as in a stepper form, consider using the `primary` color to show prominence of each Copy Snippet.
+
+![Example of the Copy Snippet component in a stepper form](/assets/components/copy/copy-snippet-stepper-do.png)
 
 !!!
 
