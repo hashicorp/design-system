@@ -5,11 +5,21 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { click, render, waitFor } from '@ember/test-helpers';
+import {
+  click,
+  render,
+  resetOnerror,
+  setupOnerror,
+  waitFor,
+} from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/copy/button/index', function (hooks) {
   setupRenderingTest(hooks);
+
+  hooks.afterEach(() => {
+    resetOnerror();
+  });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
@@ -110,5 +120,34 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-success');
     await waitFor('.hds-copy-button--status-idle', { timeout: 2000 });
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
+  });
+
+  // ASSERTIONS
+
+  test('it should throw an assertion if @text is missing/has no value', async function (assert) {
+    const errorMessage = '@text for "Hds::Button" must have a valid value';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::Copy::Button id="test-copy-button"
+    @textToCopy="someSecretThingGoesHere" />`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+
+  test('it should throw an assertion if an incorrect value for @size is provided', async function (assert) {
+    const errorMessage =
+      '@size for "Hds::Copy::Button" must be one of the following: small, medium; received: tiny';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::Copy::Button id="test-copy-button" @text="Copy your secret key" @size="tiny"
+    @textToCopy="someSecretThingGoesHere" />`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
   });
 });
