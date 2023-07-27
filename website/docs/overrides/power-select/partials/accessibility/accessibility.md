@@ -1,4 +1,4 @@
-## Conformance status
+## Conformance rating
 
 <Doc::Badge @type="critical">Non-conformant</Doc::Badge>
 
