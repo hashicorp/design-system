@@ -84,7 +84,9 @@ export default class HdsFormRadioCardIndexComponent extends Component {
       classes.push('hds-form-radio-card--disabled');
     }
     if (this.args.maxWidth) {
-      classes.push('hds-form-radio-card--fixed-width');
+      classes.push('hds-form-radio-card--has-fixed-width');
+    } else {
+      classes.push('hds-form-radio-card--has-fluid-width');
     }
 
     // add a class based on the @controlPosition argument
