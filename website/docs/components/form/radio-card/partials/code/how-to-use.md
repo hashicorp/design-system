@@ -39,7 +39,7 @@ The `@name` argument offers an easy way to provide the same name for all the rad
 
 ### Custom content
 
-Customizable options include: 
+Customizable options include:
 
 - Defining custom content using the `Generic` block
 - Defining a custom width using the `maxWidth` argument
@@ -71,6 +71,32 @@ Customizable options include:
         <li class="hds-typography-display-100">250 free requests/month</li>
       </ul>
     </R.Generic>
+  </G.RadioCard>
+</Hds::Form::RadioCard::Group>
+```
+
+### Layout and control position
+
+To change how the cards are layed out in a group set the `@layout` argument to `vertical`. To change the position of the control elements within a card set the `@controlPosition` argument to `left`.
+
+```handlebars
+<Hds::Form::RadioCard::Group
+  @name="radio-card-layout-vertical"
+  @layout="vertical"
+  @controlPosition="left" as |G|
+>
+  <G.Legend>Allow this source connect to the destination</G.Legend>
+  <G.RadioCard @checked={{true}} {{on "change" this.onChange}} as |R|>
+    <R.Label>Admin</R.Label>
+    <R.Description>Grants full admin capabilities for this project and all workspaces within. Team members can edit and delete this project, manage the team access level, and create and move workspaces.</R.Description>
+  </G.RadioCard>
+  <G.RadioCard {{on "change" this.onChange}} as |R|>
+    <R.Label>Read</R.Label>
+    <R.Description>Grants full admin capabilities for this project and all workspaces within. Team members can manage the team access level, and create and move workspaces.</R.Description>
+  </G.RadioCard>
+  <G.RadioCard {{on "change" this.onChange}} as |R|>
+    <R.Label>Write</R.Label>
+    <R.Description>Grants full admin capabilities for this project and all workspaces within. Team members can edit this project, manage the team access level, and create and move workspaces.</R.Description>
   </G.RadioCard>
 </Hds::Form::RadioCard::Group>
 ```
