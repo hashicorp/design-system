@@ -36,7 +36,7 @@ When multiple Copy Snippets are needed in a single page, such as in a [Table](/c
 
 !!! Do 
 
-When there are many secondary links on a page, like in a stepper form, it's important to use the `primary` color to highlight each Copy Snippet's importance for completing a task.
+When there are many secondary links on a page, like in a stepper form, it’s important to use the `primary` color to highlight each Copy Snippet’s importance for completing a task.
 
 ![Example of the Copy Snippet component in a stepper form](/assets/components/copy/copy-snippet-stepper-do.png)
 
