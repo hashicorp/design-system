@@ -1,4 +1,4 @@
-## Conformance status
+## Conformance rating
 
 <Doc::Badge @type="warning">Conditionally conformant</Doc::Badge>
 
