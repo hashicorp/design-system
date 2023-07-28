@@ -20,33 +20,6 @@ export default class HdsCopyButtonComponent extends Component {
   @tracked timer;
 
   /**
-   * @param textToCopy
-   * @type {string}
-   * @description The string to be copied.
-   */
-  get textToCopy() {
-    return this.args.textToCopy;
-  }
-
-  /**
-   * @param targetToCopy
-   * @type {string}
-   * @description The id of the element whose content should be copied.
-   */
-  get targetToCopy() {
-    return this.args.targetToCopy;
-  }
-
-  /**
-   * @param container
-   * @type {string}
-   * @description For cases where focus management is needed, set the focused element as the container value.
-   */
-  get container() {
-    return this.args.container;
-  }
-
-  /**
    * @param icon
    * @type {string}
    * @description The icon to be displayed for each status; automatically calculated based on the tracked property `status`.
