@@ -41,7 +41,7 @@ The alignment of text and content within a table impacts the readability and spe
 
 !!! Info
 
-While we don't currently support internationalization in Helios, this documentation intentionally references alignment values in internationalized terms to make them more broadly applicable and future-proof.
+While we don’t currently support internationalization in Helios, this documentation intentionally references alignment values in internationalized terms to make them more broadly applicable and future-proof.
 !!!
 
 ### Consistent alignment
@@ -91,7 +91,7 @@ End alignment can also be used in the last column of a table to:
 
 !!! Dont
 
-Don't end align content that is variable in length. This can make the content more difficult to read by forcing an unnatural [reading pattern](patterns/button-organization?tab=research#layout-and-reading-patterns).
+Don’t end align content that is variable in length. This can make the content more difficult to read by forcing an unnatural [reading pattern](patterns/button-organization?tab=research#layout-and-reading-patterns).
 
 ![End alignment with content that is variable in length](/assets/components/table/end-alignment-variable-length.png)
 
@@ -99,11 +99,11 @@ Don't end align content that is variable in length. This can make the content mo
 
 ### Other alignment methods
 
-We don't recommend center or justified alignment of content within a cell or table. These alignment methods can result in the content being difficult to read, especially if it is variable in length.
+We don’t recommend center or justified alignment of content within a cell or table. These alignment methods can result in the content being difficult to read, especially if it is variable in length.
 
 !!! Dont
 
-Don't center header labels or cell content within a table.
+Don’t center header labels or cell content within a table.
 
 ![Example of centered content within a table](/assets/components/table/center-justified-alignment.png)
 !!!
@@ -165,14 +165,14 @@ Icons used within cells can help differentiate content, highlight additional met
 
 !!! Dont
 
-Don't use an icon as the sole communication method within a cell, even if the icon is explicit, e.g., a brand or service icon.
+Don’t use an icon as the sole communication method within a cell, even if the icon is explicit, e.g., a brand or service icon.
 
 ![Icon within a table without a label](/assets/components/table/icon-without-label.png)
 !!!
 
 !!! Dont
 
-Don't use an icon to indicate the status of an object, row, or resource. Instead, use a [Badge](components/badge).
+Don’t use an icon to indicate the status of an object, row, or resource. Instead, use a [Badge](components/badge).
 
 ![Icons being used for status](/assets/components/table/icon-status.png)
 !!!
@@ -197,7 +197,7 @@ Use icons to communicate that a specific item is a HashiCorp product or resource
 
 !!! Dont
 
-Don't use an [Icon Tile](/assets/components/icon-tile) in place of an icon within a table cell.
+Don’t use an [Icon Tile](/assets/components/icon-tile) in place of an icon within a table cell.
 
 ![Icon Tile within a table cell](/assets/components/table/icon-tile-product-branding.png)
 !!!
