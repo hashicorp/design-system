@@ -194,6 +194,13 @@ Use icons to communicate that a specific item is a HashiCorp product or resource
 
 ![Icon product branding](/assets/components/table/icon-product-branding.png)
 
+!!! Dont
+
+Don't use an [Icon Tile](/assets/components/icon-tile) in place of an icon within a table cell.
+
+![Icon Tile within a table cell](/assets/components/table/icon-tile-product-branding.png)
+!!!
+
 #### Leading vs. trailing icons
 
 In general, we recommend using **leading icons** because the text following the icon will remain aligned and thus be easier for the user to scan. 
@@ -221,7 +228,7 @@ If a table contains more than one column of links, consider using `Body / 200 / 
 
 #### Long-form content
 
-If a cell contains long-form or descriptive content, use the link style that is most appropriate for the hierarchy and frequency of links within the content. If there are a minimal number of links within the content, `primary` styling may be appropriate, but if there are many links `secondary` styling may be more appropriate.
+If a cell contains long-form or descriptive content, use the link style that is most appropriate for the hierarchy and frequency of links within the content. If there are a minimal number of links, `primary` styling may be appropriate, but if there are many links `secondary` styling may be more appropriate.
 
 ![Links in long-form content](/assets/components/table/longform-content-links.png)
 
