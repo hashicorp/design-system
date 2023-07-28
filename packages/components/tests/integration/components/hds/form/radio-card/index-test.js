@@ -32,11 +32,22 @@ module('Integration | Component | hds/form/radio-card/index', function (hooks) {
 
   test('it should render the component with CSS classes that reflect the arguments provided', async function (assert) {
     await render(
-      hbs`<Hds::Form::RadioCard @checked="checked" @disabled="disabled" @maxWidth="25%" />`
+      hbs`<Hds::Form::RadioCard @checked="checked" @disabled="disabled" />`
     );
     assert.dom('label').hasClass('hds-form-radio-card--checked');
     assert.dom('label').hasClass('hds-form-radio-card--disabled');
-    assert.dom('label').hasClass('hds-form-radio-card--fixed-width');
+  });
+
+  // WIDTH
+
+  test('it should render the default class, resulting in a fluid width', async function (assert) {
+    await render(hbs`<Hds::Form::RadioCard />`);
+    assert.dom('label').hasClass('hds-form-radio-card--has-fluid-width');
+  });
+
+  test('it should render the correct class if `@maxWidth` is set', async function (assert) {
+    await render(hbs`<Hds::Form::RadioCard @maxWidth="25%" />`);
+    assert.dom('label').hasClass('hds-form-radio-card--has-fixed-width');
   });
 
   // CONTEXTUAL COMPONENTS
