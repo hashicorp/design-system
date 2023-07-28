@@ -67,7 +67,7 @@ export default class HdsCopySnippetIndexComponent extends Component {
    * @param isFullWidth
    * @type {boolean}
    * @default false
-   * @description Indicates that the component should take up the full width of the parent container. The default is false.
+   * @description Indicates that the component should take up the full width of the parent container.
    */
   get isFullWidth() {
     return this.args.isFullWidth ?? false;
