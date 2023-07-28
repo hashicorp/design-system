@@ -28,6 +28,10 @@ export default class HdsTableThComponent extends Component {
     return align;
   }
 
+  get isHidden() {
+    return this.args.isHidden ?? false;
+  }
+
   /**
    * Get the class names to apply to the component.
    * @method classNames

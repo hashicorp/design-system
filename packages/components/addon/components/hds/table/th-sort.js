@@ -66,6 +66,10 @@ export default class HdsTableThSortComponent extends Component {
     return align;
   }
 
+  get isHidden() {
+    return this.args.isHidden ?? false;
+  }
+
   /**
    * @param onClick
    * @type {function}

@@ -19,7 +19,7 @@
             <H.Th>Lorem</H.Th>
             <H.Th>Ipsum</H.Th>
             <H.Th>Dolor</H.Th>
-            <H.Th>Sit amet</H.Th>
+            <H.Th><span class="sr-only">Sit amet</span></H.Th>
           </H.Tr>
         </:head>
         <:body as |B|>
@@ -205,14 +205,14 @@
     </:body>
   </Hds::Table>
 
-  <Shw::Text::H4>Sortable table (only some columns sortable)</Shw::Text::H4>
+  <Shw::Text::H4>Sortable table (only some columns sortable, one column header visually hidden)</Shw::Text::H4>
 
   <Hds::Table
     @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist" isSortable="true")
       (hash key="album" label="Album" isSortable="true")
-      (hash key="year" label="Release Year")
+      (hash key="year" label="Release Year" isHidden="true")
     }}
   >
     <:body as |B|>

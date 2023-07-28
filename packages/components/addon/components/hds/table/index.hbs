@@ -22,7 +22,13 @@
               {{column.label}}
             </Hds::Table::ThSort>
           {{else}}
-            <Hds::Table::Th @align={{column.align}} @width={{column.width}}>{{column.label}}</Hds::Table::Th>
+            <Hds::Table::Th @align={{column.align}} @width={{column.width}}>
+              {{#if this.isHidden}}
+                <span class="sr-only">{{column.label}}</span>
+              {{else}}
+                {{column.label}}
+              {{/if}}
+            </Hds::Table::Th>
           {{/if}}
         {{/each}}
       </Hds::Table::Tr>
@@ -30,8 +36,8 @@
       {{yield
         (hash
           Tr=(component "hds/table/tr")
-          Th=(component "hds/table/th")
-          ThSort=(component "hds/table/th-sort")
+          Th=(component "hds/table/th" isHidden=this.isHidden)
+          ThSort=(component "hds/table/th-sort" isHidden=this.isHidden)
           sortBy=this.sortBy
           sortOrder=this.sortOrder
           setSortBy=this.setSortBy
