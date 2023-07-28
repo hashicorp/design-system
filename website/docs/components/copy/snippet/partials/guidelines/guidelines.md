@@ -2,7 +2,7 @@
 
 ### When to use
 
-- To allow users to copy code snippets, such as URLs, tokens, IDs, etc.
+- To enable users to copy code snippets, such as URLs, tokens, IDs, etc.
 
 ### When not to use
 
