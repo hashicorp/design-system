@@ -20,7 +20,7 @@ The Copy Button comes in small and medium sizes. Use the size that best fits the
 
 ## Placement 
 
-Don’t place the `Copy::Button` in a disconnected area within the UI. It should be visually associated with specific content or context to prevent user confusion.
+Place the Copy Button as close to the content being copied as possible. Avoid too much visual separation between the content and the button to ensure users understand what will be copied to the clipboard.
 
 !!! Dont
 
