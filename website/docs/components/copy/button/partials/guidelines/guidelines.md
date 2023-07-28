@@ -26,14 +26,14 @@ Place the Copy Button as close to the content being copied as possible. Avoid to
 
 Placing the Copy Button far away from the content being copied may make it challenging for users to recognize what they are copying to their clipboard.
 
-![Example of the Copy Button component using improper placement] (/assets/components/copy/copy-button-placement-dont.png)
+![Example of the Copy Button component using improper placement](/assets/components/copy/copy-button-placement-dont.png)
 !!!
 
 !!! Do
 
 Placing a Copy Button close to the content explicitly communicates what is being copied.
 
-![Example of the copy button component using proper placement] (/assets/components/copy/copy-button-placement-do.png)
+![Example of the copy button component using proper placement](/assets/components/copy/copy-button-placement-do.png)
 !!!
 
 ## Related
