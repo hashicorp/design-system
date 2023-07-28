@@ -1,0 +1,101 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "Copy::Button Component"}}
+
+<Shw::Text::H1>Copy::Button</Shw::Text::H1>
+
+<section data-test-percy>
+  <Shw::Text::H2>Generated element</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    <SF.Item class="shw-component-button-generated">
+      <Shw::Label>Default</Shw::Label>
+      <p class="shw-text shw-text-body" id="targetToCopy">This is the target element; the button will copy the text in
+        this target element.</p>
+      <Hds::Copy::Button @text="Copy" @targetToCopy="#targetToCopy" />
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H2>Content</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Default">
+      <Hds::Copy::Button @text="Copy" @targetToCopy="#targetToCopy" />
+    </SF.Item>
+    <SF.Item @label="Icon only">
+      <Hds::Copy::Button @isIconOnly={{true}} @text="Copy" @targetToCopy="#targetToCopy" />
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H2>Sizes</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    {{#each @model.SIZES as |size|}}
+      <SF.Item @label={{capitalize size}}>
+        <Hds::Copy::Button @text="Copy" @size={{size}} @targetToCopy="#targetToCopy" />
+      </SF.Item>
+    {{/each}}
+    <SF.Item @label="Full width">
+      <Shw::Outliner {{style width="300px"}}>
+        <Hds::Copy::Button @text="Copy" @isFullWidth={{true}} @targetToCopy="#targetToCopy" />
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H2>States</Shw::Text::H2>
+
+  <Shw::Grid @columns={{4}} as |SG|>
+    {{#each @model.SIZES as |size|}}
+      {{#each @model.STATES as |state|}}
+        <SG.Item @label="{{capitalize size}} / {{capitalize state}}">
+          <Hds::Copy::Button @text="Copy" @size={{size}} mock-state-value={{state}} @targetToCopy="#targetToCopy" />
+        </SG.Item>
+      {{/each}}
+    {{/each}}
+  </Shw::Grid>
+  <Shw::Text::H2>Status</Shw::Text::H2>
+  <Shw::Flex as |SF|>
+    {{#each @model.STATUS as |status|}}
+      <SF.Item @label="{{capitalize status}}">
+        <Hds::Copy::Button
+          @text="Copy"
+          @targetToCopy="#targetToCopy"
+          @status={{status}}
+          class="hds-copy-button--{{status}}"
+        />
+      </SF.Item>
+    {{/each}}
+  </Shw::Flex>
+
+  <Shw::Text::H2>Some specific use cases for demo purposes</Shw::Text::H2>
+  <Shw::Flex as |SF|>
+    <SF.Item>
+      <Shw::Label>A code block</Shw::Label>
+      {{!-- prettier-ignore --}}
+      <pre><code id="targetToCopy3">&lt;h1&gt;A page header example&lt;/h1&gt;
+&lt;p&gt;Some paragraph text also&lt;/p&gt;
+      </code></pre>
+      <Hds::Copy::Button @text="Copy this code block" @targetToCopy="#targetToCopy3" />
+    </SF.Item>
+  </Shw::Flex>
+  <Shw::Flex as |SF|>
+    <SF.Item>
+      <Shw::Label>Copy an input value</Shw::Label>
+      <Hds::Form::TextInput::Field @value="036140285924" @name="test-input" @id="test-input" as |F|>
+        <F.Label>Input Label</F.Label>
+      </Hds::Form::TextInput::Field>
+      <br />
+      <Hds::Copy::Button @text="Copy the input value" @targetToCopy="#test-input" />
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex as |SF|>
+    <SF.Item>
+      <Shw::Label>Use textToCopy instead of targetToCopy</Shw::Label>
+      <Hds::Copy::Button @text="Copy your secret key" @textToCopy="someSecretThingGoesHere" />
+    </SF.Item>
+  </Shw::Flex>
+</section>

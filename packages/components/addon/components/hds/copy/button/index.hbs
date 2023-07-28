@@ -1,0 +1,16 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<Hds::Button
+  class={{this.classNames}}
+  @size={{this.size}}
+  @isFullWidth={{@isFullWidth}}
+  @text={{@text}}
+  @icon={{this.icon}}
+  @isIconOnly={{@isIconOnly}}
+  @color="secondary"
+  @iconPosition="trailing"
+  {{clipboard text=@textToCopy target=@targetToCopy container=@container onError=this.onError onSuccess=this.onSuccess}}
+  ...attributes
+/>
