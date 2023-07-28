@@ -20,15 +20,6 @@ export default class HdsCopySnippetIndexComponent extends Component {
   @tracked timer;
 
   /**
-   * @param textToCopy
-   * @type {string}
-   * @description The string to be copied.
-   */
-  get textToCopy() {
-    return this.args.textToCopy;
-  }
-
-  /**
    * @param icon
    * @type {string}
    * @default DEFAULT_ICON
