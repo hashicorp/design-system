@@ -5,11 +5,15 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/form/field/index', function (hooks) {
   setupRenderingTest(hooks);
+
+  hooks.afterEach(() => {
+    resetOnerror();
+  });
 
   test('it should render the component with a CSS class provided via the @contextualClass argument', async function (assert) {
     await render(
@@ -160,5 +164,20 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
     assert.dom('#test-form-field').hasClass('my-class');
     assert.dom('#test-form-field').hasAttribute('data-test1');
     assert.dom('#test-form-field').hasAttribute('data-test2', 'test');
+  });
+
+  // ASSERTIONS
+
+  test('it should throw an assertion if an incorrect value for @layout is provided', async function (assert) {
+    const errorMessage =
+      '@layout for "Hds::Form::Field" must be one of the following: vertical, flag; received: foo';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::Form::Field @layout="foo" />`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
   });
 });
