@@ -32,7 +32,11 @@ When multiple Copy Snippets are needed in a single page, such as in a [Table](/c
 
 ![Example of the Copy Snippet component in a table](/assets/components/copy/copy-snippet-table-do.png)
 
-When there are multiple secondary styled [links](/components/link) in a single page, such as in a stepper form, consider using the `primary` color to show prominence of each Copy Snippet.
+!!!
+
+!!! Do 
+
+When there are many secondary links on a page, like in a stepper form, it's important to use the `primary` color to highlight each Copy Snippet's importance for completing a task.
 
 ![Example of the Copy Snippet component in a stepper form](/assets/components/copy/copy-snippet-stepper-do.png)
 
