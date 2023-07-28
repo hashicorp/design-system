@@ -1,9 +1,10 @@
 ---
 title: Filter concepts
-description: Filter concepts
-caption: Caption goes here
-previewImage: assets/illustrations/patterns/filter-patterns.jpg
+description: High-level filtering concepts, common terminology, and methods.
+caption: High-level filtering concepts, common terminology, and methods.
+previewImage: assets/illustrations/patterns/filter-pattern-concepts.jpg
 navigation:
+  order: 3
 keywords: []
 ---
 

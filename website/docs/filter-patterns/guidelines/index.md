@@ -1,9 +1,10 @@
 ---
 title: Filter guidelines
-description: Filter guidelines
-caption: Caption goes here
+description: Filter pattern usage and implementation guidelines.
+caption: Filter pattern usage and implementation guidelines.
 previewImage: assets/illustrations/patterns/filter-patterns.jpg
 navigation:
+  order: 1
 keywords: []
 ---
 
