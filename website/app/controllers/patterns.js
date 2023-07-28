@@ -9,7 +9,7 @@ export default class PatternsController extends Controller {
   get cards() {
     // we want to use a flat tree here...
     const tocTree = this.model.toc.flat;
-    const sections = ['patterns'];
+    const sections = ['patterns', 'filter-patterns'];
     const cards = {};
     sections.forEach((section) => {
       cards[section] = tocTree
