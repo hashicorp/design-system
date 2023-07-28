@@ -438,6 +438,8 @@ export { IconClipboardChecked24 } from './clipboard-checked-24';
 export { IconClipboardChecked16 } from './clipboard-checked-16';
 export { IconClipboardCopy24 } from './clipboard-copy-24';
 export { IconClipboardCopy16 } from './clipboard-copy-16';
+export { IconClipboardX24 } from './clipboard-x-24';
+export { IconClipboardX16 } from './clipboard-x-16';
 export { IconClock24 } from './clock-24';
 export { IconClock16 } from './clock-16';
 export { IconClockFilled24 } from './clock-filled-24';

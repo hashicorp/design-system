@@ -1,7 +1,7 @@
 import { forwardRef, useMemo } from 'react';
 import { IconProps } from './types';
 
-export const IconXDiamond16 = forwardRef<SVGSVGElement, IconProps>(
+export const IconClipboardX16 = forwardRef<SVGSVGElement, IconProps>(
     ({ color = 'currentColor', title, ...props }, svgRef) => {
         const titleId = useMemo(
             () =>
@@ -23,14 +23,12 @@ export const IconXDiamond16 = forwardRef<SVGSVGElement, IconProps>(
                 {...props}
             >
                 {title ? <title id={titleId}>{title}</title> : null}
-                <g fill={color}>
-                    <path d="M10.78 5.22a.75.75 0 010 1.06L9.06 8l1.72 1.72a.75.75 0 01-1.06 1.06L8 9.06l-1.72 1.72a.75.75 0 11-1.06-1.06L6.94 8 5.22 6.28a.75.75 0 011.06-1.06L8 6.94l1.72-1.72a.75.75 0 011.06 0z" />
-                    <path
-                        fillRule="evenodd"
-                        d="M.75 6.41L6.407.753a2.25 2.25 0 013.182 0l5.657 5.657a2.25 2.25 0 010 3.182l-5.657 5.656a2.25 2.25 0 01-3.182 0L.75 9.592a2.25 2.25 0 010-3.182zm6.718-4.597L1.81 7.47a.75.75 0 000 1.06l5.657 5.658a.75.75 0 001.06 0l5.657-5.657a.75.75 0 000-1.06L8.53 1.812a.75.75 0 00-1.061 0z"
-                        clipRule="evenodd"
-                    />
-                </g>
+                <path
+                    fill={color}
+                    fillRule="evenodd"
+                    d="M11.975 1h.775A2.25 2.25 0 0115 3.25v10.5A2.25 2.25 0 0112.75 16h-9.5A2.25 2.25 0 011 13.75V3.25A2.25 2.25 0 013.25 1h.775c.116-.57.62-1 1.225-1h5.5c.605 0 1.11.43 1.225 1zM5.5 2.5v-1h5v1h-5zm-.548 4.548a.775.775 0 011.096-1.096L8 7.904l1.952-1.952a.775.775 0 011.096 1.096L9.096 9l1.952 1.952a.775.775 0 11-1.096 1.096L8 10.096l-1.952 1.952a.775.775 0 11-1.096-1.096L6.904 9 4.952 7.048z"
+                    clipRule="evenodd"
+                />
             </svg>
         );
     }
