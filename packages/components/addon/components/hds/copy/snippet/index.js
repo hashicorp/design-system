@@ -77,7 +77,7 @@ export default class HdsCopySnippetIndexComponent extends Component {
    * @param isTruncated
    * @type {boolean}
    * @default false
-   * @description Indicates that the component should be truncated instead of wrapping text and using multiple lines. The default is false.
+   * @description Indicates that the component should be truncated instead of wrapping text and using multiple lines.
    */
   get isTruncated() {
     return this.args.isTruncated ?? false;
