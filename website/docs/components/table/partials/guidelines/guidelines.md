@@ -64,8 +64,9 @@ Align content to the start of the cell by default. This ensures readability acro
 
 Use start alignment for:
 
-- String and text-based content (unique identifiers or IDs, names and naming conventions, IP addresses, etc).
+- String and text-based content (unique identifiers or IDs, names and naming conventions, etc).
 - Numerical values that do not contain decimals or floating point numbers.
+- Numerical values that contain periods or other delimeter characters (IP addresses).
 - Nested components that display a string or text value, e.g., a [Badge](/components/badge).
 
 ![Start alignment of content within a table](/assets/components/table/start-alignment-example.png)
