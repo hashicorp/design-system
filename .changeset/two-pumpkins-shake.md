@@ -2,4 +2,4 @@
 "@hashicorp/design-system-components": minor
 ---
 
-Adds the CopyButton and CopySnippet components.
+Adds the `CopyButton` and `CopySnippet` components.
