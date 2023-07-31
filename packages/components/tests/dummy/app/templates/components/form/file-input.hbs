@@ -46,6 +46,9 @@
         <Hds::Form::FileInput mock-state-value={{state}} />
       </SF.Item>
     {{/each}}
+    <SF.Item @label="disabled">
+      <Hds::Form::FileInput mock-state-value="disabled" disabled />
+    </SF.Item>
   </Shw::Flex>
 
   <Shw::Text::H2>Button States (for comparison, temporary)</Shw::Text::H2>
@@ -56,5 +59,8 @@
         <Hds::Button @icon="upload" @text="Choose file" @color="secondary" mock-state-value={{state}} />
       </SF.Item>
     {{/each}}
+    <SF.Item @label="disabled">
+      <Hds::Button @icon="upload" @text="Choose file" @color="secondary" mock-state-value="disabled" disabled />
+    </SF.Item>
   </Shw::Flex>
 </section>
