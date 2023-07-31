@@ -23,7 +23,7 @@
             </Hds::Table::ThSort>
           {{else}}
             <Hds::Table::Th @align={{column.align}} @width={{column.width}}>
-              {{#if this.isHidden}}
+              {{#if column.isHidden}}
                 <span class="sr-only">{{column.label}}</span>
               {{else}}
                 {{column.label}}
