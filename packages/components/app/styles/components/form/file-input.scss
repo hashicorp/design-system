@@ -81,3 +81,33 @@
   border-color: var(--token-color-border-strong);
   box-shadow: none;
 }
+
+.hds-form-file-input::file-selector-button {
+  &:disabled,
+  &[disabled],
+  &.mock-disabled,
+  &:disabled:focus,
+  &[disabled]:focus,
+  &.mock-disabled:focus,
+  &:disabled:hover,
+  &[disabled]:hover,
+  &.mock-disabled:hover {
+    @include hds-button-state-disabled();
+  }
+}
+
+.hds-form-file-input {
+  &:disabled,
+  &[disabled],
+  &.mock-disabled,
+  &:disabled:focus,
+  &[disabled]:focus,
+  &.mock-disabled:focus,
+  &:disabled:hover,
+  &[disabled]:hover,
+  &.mock-disabled:hover {
+    &::file-selector-button {
+      @include hds-button-state-disabled();
+    }
+  }
+}
