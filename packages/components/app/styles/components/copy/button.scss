@@ -1,0 +1,31 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// COPY > BUTTON
+//
+
+// mostly the hds-button but with a few style tweaks
+// so the CSS is scoped to the component class (we're not changing any of the other class names)
+.hds-copy-button {
+  cursor: pointer;
+
+  .hds-button__icon {
+    color: var(--token-color-foreground-action);
+  }
+
+  &.hds-copy-button--status-success {
+    .hds-button__icon {
+      color: var(--token-color-foreground-success);
+    }
+  }
+
+  &.hds-copy-button--status-error {
+    .hds-button__icon {
+      color: var(--token-color-foreground-critical);
+    }
+  }
+}
+

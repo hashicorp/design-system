@@ -84,6 +84,43 @@ Buttons used for a Dropdown (with the chevron icon) can be found in [Dropdown](/
   <Hds::Button @color="secondary" @text="No text" @icon="plus" @isIconOnly={{true}} />
 </Hds::ButtonSet>
 
+### Leading
+
+In most cases, use leading icons. Choose icons that add meaning and clarity to the action described in the button’s text.
+
+<Hds::ButtonSet>
+  <Hds::Button @color="secondary" @text="Unlock" @icon="unlock" @iconPosition="leading" />
+  <Hds::Button @color="critical" @text="Delete" @icon="trash" @iconPosition="leading" />
+  <Hds::Button @color="tertiary" @text="Previous" @icon="chevron-left" @iconPosition="leading" />
+</Hds::ButtonSet>
+
+!!! Do
+
+Use the leading position when creating or adding a new object.
+
+<Hds::ButtonSet>
+  <Hds::Button @color="primary" @text="Create variable" @icon="plus" @iconPosition="leading" />
+  <Hds::Button @color="secondary" @text="Add repository" @icon="plus" @iconPosition="leading" />
+</Hds::ButtonSet>
+
+!!!
+
+### Trailing
+
+Consider trailing icons when guiding the user forward through the product.
+
+Use `chevron-right` to indicate moving forward in a multi-step flow.
+
+<Hds::Button @color="primary" @text="Next" @icon="chevron-right" @iconPosition="trailing" />
+
+Use `arrow-right` when using the Button for internal links. In most cases, consider using a [Standalone Link](/components/link/standalone) instead. For more details, please refer to the [code documentation](/components/button?tab=code#links).
+
+<Hds::Button @color="secondary" @text="Continue with HCP account" @icon="arrow-right" @iconPosition="trailing" @href="https://hashicorp.com" />
+
+Use `external-link` when using the Button for external links. In most cases, consider using a [Standalone Link](/components/link/standalone) instead. For more details, please refer to the [code documentation](/components/button?tab=code#links).
+
+<Hds::Button @color="secondary" @text="Authenticate with GitHub" @icon="external-link" @iconPosition="trailing" @href="https://hashicorp.com" />
+
 ## Button set
 
 [ButtonSets](/components/button-set) are patterns when multiple Buttons need to be displayed in a single row.

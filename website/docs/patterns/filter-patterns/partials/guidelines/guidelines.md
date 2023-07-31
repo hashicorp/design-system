@@ -159,7 +159,7 @@ Use the Helios [Application State](/components/application-state) component to c
 
 ### Within applied filters
 
-If no filters have been applied, use a [Tooltip](/components/tooltip) coupled with the applied filters label to guide the user to the filter functions. Not only does this provide context and direct the user to the filters, but it prevents unncessary layout shift upon applying filters.
+If no filters have been applied, use a [Tooltip](/components/tooltip) coupled with the applied filters label to guide the user to the filter functions. Not only does this provide context and direct the user to the filters, but it prevents unnecessary layout shift upon applying filters.
 
 ![Empty state in applied filters](/assets/patterns/filter-patterns/applied-filters-empty-state.png =450x*)
 

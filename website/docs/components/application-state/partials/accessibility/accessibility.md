@@ -1,4 +1,4 @@
-## Conformance status
+## Conformance rating
 
 <Doc::Badge @type="success">Conformant</Doc::Badge>
 

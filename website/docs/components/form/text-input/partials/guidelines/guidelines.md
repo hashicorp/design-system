@@ -44,15 +44,15 @@ Text Input accepts [all native HTML types](https://developer.mozilla.org/en-US/d
 Date and time fields use the native browser functionality for the popovers. Some browsers do not display an icon or popover.
 !!!
 
-<Hds::Form::TextInput::Field @type="date" placeholder="mm/dd/yy" @width="150px" as |F|>
+<Hds::Form::TextInput::Field @type="date" placeholder="mm/dd/yy" as |F|>
   <F.Label>Date</F.Label>
 </Hds::Form::TextInput::Field>
 
-<Hds::Form::TextInput::Field @type="time" placeholder="--:-- --" @width="150px" as |F|>
+<Hds::Form::TextInput::Field @type="time" placeholder="--:-- --" as |F|>
   <F.Label>Time</F.Label>
 </Hds::Form::TextInput::Field>
 
-<Hds::Form::TextInput::Field @type="datetime-local" placeholder="mm/dd/yyT--:-- --" @width="150px" as |F|>
+<Hds::Form::TextInput::Field @type="datetime-local" placeholder="mm/dd/yyT--:-- --" as |F|>
   <F.Label>Datetime</F.Label>
 </Hds::Form::TextInput::Field>
 

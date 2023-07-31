@@ -51,7 +51,55 @@ Use color logically.
 - **Highlight** use interchangeably with `neutral` when more prominence is needed. Use it sparingly.
 - **Success** to indicate a successful action was completed.
 - **Warning** to indicate a successful action was completed but may have triggered a related issue. Provide guidance and actions if possible.
+
 - **Critical** to indicate error or critical issues resulting from a failed action.
+
+### Critical toasts
+
+!!! Do
+
+Use the Toast to provide non-intrusive feedback to users about the failure of an ongoing task or request. For example, a failure while deleting a cluster.
+
+<Hds::Toast @color="critical" @onDismiss={{this.noop}} as |T|>
+    <T.Title>Module error</T.Title>
+    <T.Description>This module encountered an error during publishing. You may need to republish.</T.Description>
+  </Hds::Toast>
+!!!
+
+!!! Do
+
+Use the Toast to communicate error messages that are not caused by the user. For example, an unsuccessful Vault cluster creation due to a failure while validating the deployment.
+
+<Hds::Toast @color="critical" @onDismiss={{this.noop}} as |T|>
+    <T.Title>Vault cluster update failed</T.Title>
+    <T.Description>**test-cluster_1** configuration update failed.</T.Description>
+  </Hds::Toast>
+!!!
+
+!!! Dont
+
+Don't use toasts for intrusive message communication about errors or critical disruptions at an application, page, or section level. Use the [Alert](/components/alert) instead.
+
+<Hds::Toast @color="critical" @onDismiss={{this.noop}} as |T|>
+    <T.Title>You have exceeded 50 applies this month</T.Title>
+    <T.Description>You may only invoke applies that destroy managed resources. Upgrade now and access additional product features, unlimited applies, and increased concurrency.
+    </T.Description>
+  </Hds::Toast>
+!!!
+
+!!! Dont
+
+Don't use toasts to communicate validation errors. Use the [Alert](/components/alert) instead.
+
+<Hds::Toast @color="critical" @onDismiss={{this.noop}} as |T|>
+    <T.Title>Form submission error</T.Title>
+    <T.Description>Correct the formatting of the following fields to update your user profile:
+    </T.Description>
+    <T.Description>
+    <Hds::Link::Inline @href="...">Email address</Hds::Link::Inline>
+    </T.Description>
+  </Hds::Toast>
+!!!
 
 ## Icons
 

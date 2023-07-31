@@ -2,4 +2,4 @@
 "@hashicorp/flight-icons": minor
 ---
 
-Added Elastic observability and New relic
+Added new `clipboard-x` icon

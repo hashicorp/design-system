@@ -279,60 +279,8 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
 .hds-dropdown-list-item--variant-copy-item {
   width: 100%;
   padding: 10px 16px 12px;
-
-  button {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 12px 8px;
-    color: var(--token-color-foreground-primary);
-    background-color: transparent;
-    border: 1px solid var(--token-color-border-primary);
-    border-radius: 5px;
-
-    &:hover,
-    &.mock-hover {
-      background-color: var(--token-color-surface-interactive-hover);
-      cursor: pointer;
-    }
-
-    @include hds-focus-ring-basic();
-
-    &:focus,
-    &.mock-focus {
-      // TODO this focus is just way too complex
-      background-color: var(--token-color-surface-action);
-      border-color: var(--token-color-focus-action-internal);
-    }
-
-    &:active,
-    &.mock-active {
-      background-color: var(--token-color-surface-interactive-active);
-    }
-
-    &.is-success {
-      background-color: var(--token-color-surface-success);
-      border-color: var(--token-color-border-success);
-
-      .hds-dropdown-list-item__copy-item-icon {
-        color: var(--token-color-foreground-success);
-      }
-    }
-  }
 }
 
-.hds-dropdown-list-item__copy-item-text {
-  overflow: hidden;
-  white-space: nowrap;
-  text-align: left;
-  text-overflow: ellipsis;
-}
-
-.hds-dropdown-list-item__copy-item-icon {
-  flex: none;
-  margin-left: 8px;
-  color: var(--token-color-foreground-action);
-}
 
 // HDS::DROPDOWN::LIST-ITEM::DESCRIPTION
 

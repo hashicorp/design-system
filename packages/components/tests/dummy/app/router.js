@@ -62,6 +62,10 @@ Router.map(function () {
     this.route('toast');
     this.route('tabs');
     this.route('tooltip');
+    this.route('copy', function () {
+      this.route('button');
+      this.route('snippet');
+    });
   });
   this.route('layouts', function () {
     this.route('app-frame');
