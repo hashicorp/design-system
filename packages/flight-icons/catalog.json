@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2023-07-19T20:40:02.271Z",
+  "lastRunTimeISO": "2023-07-27T21:32:10.457Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -3967,6 +3967,24 @@
       "fileName": "clipboard-copy-16",
       "iconName": "clipboard-copy",
       "description": "clipboard, copy, snippet, paste, content",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "4278:82",
+      "fileName": "clipboard-x-24",
+      "iconName": "clipboard-x",
+      "description": "clipboard, copy, copied, error, paste, content",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "4278:88",
+      "fileName": "clipboard-x-16",
+      "iconName": "clipboard-x",
+      "description": "clipboard, copy, copied, error, paste, content",
       "size": "16",
       "width": 16,
       "height": 16

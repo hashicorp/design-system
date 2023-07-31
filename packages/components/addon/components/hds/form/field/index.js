@@ -40,7 +40,7 @@ export default class HdsFormFieldIndexComponent extends Component {
     let { layout } = this.args;
 
     assert(
-      `@type for "Hds::Form::Field" must be one of the following: ${LAYOUT_TYPES.join(
+      `@layout for "Hds::Form::Field" must be one of the following: ${LAYOUT_TYPES.join(
         ', '
       )}; received: ${layout}`,
       LAYOUT_TYPES.includes(layout)

@@ -1,0 +1,111 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// COPY > SNIPPET
+//
+@use "../../mixins/focus-ring" as *;
+
+.hds-copy-snippet {
+  @include hds-focus-ring-with-pseudo-element();
+
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 6px 4px;
+  white-space: normal;
+  text-align: left;
+  overflow-wrap: anywhere;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hds-copy-snippet--color-primary {
+  color: var(--token-color-foreground-action);
+  background-color: var(--token-color-surface-interactive);
+
+  &:hover,
+  &.mock-hover {
+    color: var(--token-color-foreground-action-hover);
+    border-color: var(--token-color-border-strong);
+  }
+
+  &:active,
+  &.mock-active {
+    color: var(--token-color-foreground-action-active);
+    background-color: var(--token-color-surface-interactive-active);
+    border-color: var(--token-color-border-strong);
+  }
+}
+
+.hds-copy-snippet--color-secondary {
+  color: var(--token-color-foreground-primary);
+  background-color: var(--token-color-surface-interactive);
+
+  &:hover,
+  &.mock-hover {
+    border-color: var(--token-color-border-strong);
+  }
+
+  &:active,
+  &.mock-active {
+    background-color: var(--token-color-surface-interactive-active);
+    border-color: var(--token-color-border-strong);
+  }
+
+  .hds-copy-snippet__icon {
+    color: var(--token-color-foreground-action);
+
+    &:hover {
+      color: var(--token-color-foreground-action-hover);
+    }
+
+    &:active {
+      color: var(--token-color-foreground-action-active);
+    }
+
+    &:focus {
+      color: var(--token-color-foreground-action);
+    }
+  }
+}
+
+.hds-copy-snippet--status-success {
+  .hds-copy-snippet__icon {
+    color: var(--token-color-foreground-success);
+  }
+}
+
+.hds-copy-snippet--status-error {
+  .hds-copy-snippet__icon {
+    color: var(--token-color-foreground-critical);
+  }
+}
+
+.hds-copy-snippet__text {
+  flex: 1 0 0;
+  max-width: calc(100% - 24px);
+}
+
+.hds-copy-snippet__icon {
+  flex: none;
+}
+
+.hds-copy-snippet--width-full {
+  justify-content: center;
+
+  .hds-copy-snippet__text {
+    flex: 0 0 auto;
+  }
+}
+
+.hds-copy-snippet__text--truncated {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

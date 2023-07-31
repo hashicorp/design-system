@@ -3,25 +3,15 @@
 The most basic invocation requires some content to be passed as children and either an `@href` or `@route` argument.
 
 ```handlebars
-<span class="hds-typography-body-300">
-  Lorem <Hds::Link::Inline @href="...">ipsum dolor</Hds::Link::Inline> sit amet consectetur adipiscing elit.
-</span>
+Lorem <Hds::Link::Inline @href="...">ipsum dolor</Hds::Link::Inline> sit amet consectetur adipiscing elit.
 ```
 
 ### Color
 
-There are two available colors for an Inline Link: `primary` and `secondary`. The default is `primary`. To use a different color, set `@color` to `secondary`.
+There are two available colors for an Inline Link: `primary` and `secondary`. The default is `primary`.
 
 ```handlebars
-<span class="hds-typography-body-300">
-  Lorem <Hds::Link::Inline @color="primary" @href="...">ipsum dolor</Hds::Link::Inline> sit amet consectetur adipiscing elit.
-</span>
-```
-
-```handlebars
-<span class="hds-typography-body-300">
-  Lorem <Hds::Link::Inline @color="secondary" @href="...">ipsum dolor</Hds::Link::Inline> sit amet consectetur adipiscing elit.
-</span>
+Lorem <Hds::Link::Inline @color="secondary" @href="...">ipsum dolor</Hds::Link::Inline> sit amet consectetur adipiscing elit.
 ```
 
 ### Icon
@@ -31,9 +21,7 @@ To add an icon to the Inline Link, give the `@icon` argument any [icon](/icons/l
 `Hds::Link::Inline` does not have an intrinsic size. Instead, the size of the icon is calculated proportionally (via `em`) in relation to the font-size of the text.
 
 ```handlebars
-<span class="hds-typography-body-300">
-  Lorem <Hds::Link::Inline @color="primary" @icon="external-link" @href="...">ipsum dolor</Hds::Link::Inline> sit amet consectetur adipiscing elit.
-</span>
+Lorem <Hds::Link::Inline @icon="external-link" @href="...">ipsum dolor</Hds::Link::Inline> sit amet consectetur adipiscing elit.
 ```
 
 ### Icon position
@@ -41,9 +29,7 @@ To add an icon to the Inline Link, give the `@icon` argument any [icon](/icons/l
 By default, if you define an icon, it‘s placed in the trailing (end) position. If you would like to position the icon in the leading (start) position, define `@iconPosition`.
 
 ```handlebars
-<span class="hds-typography-body-300">
-  Lorem <Hds::Link::Inline @color="primary" @icon="globe" @iconPosition="leading" @href="...">ipsum dolor</Hds::Link::Inline> sit amet consectetur adipiscing elit.
-</span>
+Lorem <Hds::Link::Inline @icon="external-link" @iconPosition="leading" @href="...">ipsum dolor</Hds::Link::Inline> sit amet consectetur adipiscing elit.
 ```
 
 ### URL and route handling
@@ -59,9 +45,7 @@ To generate an `<a>` link, pass an `@href` argument with a URL as the value.
 `target=“_blank”` and `rel=“noopener noreferrer”` attributes are applied by default. This is the most common case, as internal links are generally handled using a `@route` argument. 
 
 ```handlebars
-<span class="hds-typography-body-300">
-  Lorem <Hds::Link::Inline @color="primary" @icon="external-link" @href="https://www.hashicorp.com">ipsum dolor</Hds::Link::Inline> sit amet consectetur adipiscing elit.
-</span>
+Lorem <Hds::Link::Inline @icon="external-link" @href="https://www.hashicorp.com">ipsum dolor</Hds::Link::Inline> sit amet consectetur adipiscing elit.
 ```
 
 If the `@href` argument points to an internal link, or uses a different protocol (e.g., "mailto" of "ftp"), pass `@isHrefExternal={{true}}` to the component and it will omit the `target` and `rel` attributes.
@@ -75,9 +59,7 @@ All the standard arguments for the `<LinkTo/LinkToExternal>` components are supp
 To generate an `<a>` link using a `<LinkTo>` Ember component, pass a `@route` argument. 
 
 ```handlebars
-<span class="hds-typography-body-300">
-  Lorem <Hds::Link::Inline @route="my.page.route" @model="my.page.model">ipsum dolor</Hds::Link::Inline> sit amet consectetur adipiscing elit.
-</span>
+Lorem <Hds::Link::Inline @route="my.page.route" @model="my.page.model">ipsum dolor</Hds::Link::Inline> sit amet consectetur adipiscing elit.
 ```
 
 ##### For `<LinkToExternal>`
