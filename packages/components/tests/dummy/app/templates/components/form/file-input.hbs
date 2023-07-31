@@ -8,50 +8,64 @@
 <Shw::Text::H1>Form::FileInput</Shw::Text::H1>
 
 <section data-test-percy>
+  <button id="dummy-toggle-highlight" type="button" {{on "click" this.toggleHighlight}}>
+    {{if this.showHighlight "Hide" "Show"}}
+    layout highlight
+  </button>
+
+  <div class="{{if this.showHighlight 'shw-component-form-file-input-layout-highlight'}}">
+    <Shw::Text::H2>On its own</Shw::Text::H2>
+    <Shw::Text::Body>
+      <code>Input[type=file]</code>
+      (styled via
+      <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::file-selector-button">
+        <code>::file-selector-button</code>
+      </a>)
+    </Shw::Text::Body>
+    <Hds::Form::FileInput />
+
+    <Shw::Text::H2>Used next to other content</Shw::Text::H2>
+
+    <Shw::Flex @direction="column" {{style gap="2rem"}} as |SF|>
+      <SF.Item @label="With text before & after">
+        <p class="hds-typography-body-300">
+          Lorem ipsum
+          <Hds::Form::FileInput />
+          dolor sit amet
+        </p>
+      </SF.Item>
+
+      <SF.Item @label="With text above & below">
+        <p class="hds-typography-body-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <Hds::Form::FileInput />
+        <p class="hds-typography-body-300">Ut enim ad minim veniam, quis nostrud exercitation.</p>
+      </SF.Item>
+
+      <SF.Item @label="" />
+    </Shw::Flex>
+
+    <Shw::Text::H2>States</Shw::Text::H2>
+
+    <Shw::Flex {{style gap="2rem"}} as |SF|>
+      {{#each @model.STATES as |state|}}
+        <SF.Item @label={{state}}>
+          <Hds::Form::FileInput mock-state-value={{state}} />
+        </SF.Item>
+      {{/each}}
+      <SF.Item @label="disabled">
+        <Hds::Form::FileInput mock-state-value="disabled" disabled />
+      </SF.Item>
+    </Shw::Flex>
+  </div>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>HDS Button (for comparison, temporary)</Shw::Text::H2>
+
   <Shw::Text::Body><code>Hds::Button[@color=secondary]</code> (used as visual reference)</Shw::Text::Body>
   <Hds::Button @icon="upload" @text="Choose file" @color="secondary" />
 
-  <Shw::Text::H2>On its own</Shw::Text::H2>
-  <Shw::Text::Body><code>Input[type=file]</code>
-    (styled via
-    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::file-selector-button"><code
-      >::file-selector-button</code></a>)</Shw::Text::Body>
-  <Hds::Form::FileInput />
-
-  <Shw::Text::H2>Used next to other content</Shw::Text::H2>
-
-  <Shw::Flex @direction="column" {{style gap="2rem"}} as |SF|>
-    <SF.Item @label="With text before & after">
-      <p class="hds-typography-body-300">
-        Lorem ipsum
-        <Hds::Form::FileInput />
-        dolor sit amet
-      </p>
-    </SF.Item>
-
-    <SF.Item @label="With text above & below">
-      <p class="hds-typography-body-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      <Hds::Form::FileInput />
-      <p class="hds-typography-body-300">Ut enim ad minim veniam, quis nostrud exercitation.</p>
-    </SF.Item>
-
-    <SF.Item @label="" />
-  </Shw::Flex>
-
-  <Shw::Text::H2>States</Shw::Text::H2>
-
-  <Shw::Flex {{style gap="2rem"}} as |SF|>
-    {{#each @model.STATES as |state|}}
-      <SF.Item @label={{state}}>
-        <Hds::Form::FileInput mock-state-value={{state}} />
-      </SF.Item>
-    {{/each}}
-    <SF.Item @label="disabled">
-      <Hds::Form::FileInput mock-state-value="disabled" disabled />
-    </SF.Item>
-  </Shw::Flex>
-
-  <Shw::Text::H2>Button States (for comparison, temporary)</Shw::Text::H2>
+  <Shw::Text::H3>States</Shw::Text::H3>
 
   <Shw::Flex {{style gap="2rem"}} as |SF|>
     {{#each @model.STATES as |state|}}

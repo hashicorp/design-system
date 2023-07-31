@@ -4,3 +4,11 @@
  */
 
 // FORM > FILE-INPUT
+
+body.components-form-file-input {
+  .shw-component-form-file-input-layout-highlight {
+    .hds-form-file-input {
+      outline: 1px dashed #78909c;
+    }
+  }
+}
