@@ -42,7 +42,7 @@ We don’t recommend using a singular Tab; instead consider using a heading.
 
 !!! Dont
 
-Don't trigger a Tab change via an external action, such as a submit or next button. Tab changes should only be triggered by the Tab itself as that is the expected user interaction. 
+Don’t trigger a Tab change via an external action, such as a submit or next button. Tab changes should only be triggered by the Tab itself as that is the expected user interaction. 
 
 ![Tabs with external trigger](/assets/components/tabs/tabs-external-trigger.png)
 !!!
