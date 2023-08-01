@@ -172,12 +172,6 @@ When creating local components for your product, it’s helpful to separate them
 Consider using [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) methods when designing and building local components. Helios components generally correspond with `atoms` and `molecules`, while more complex components correspond to `organisms`.
 !!!
 
-## Patterns
-
-We’ve spent much of the past year building lower-level components and, therefore, don’t yet offer <LinkTo class="doc-link-generic" @route="patterns">patterns</LinkTo>.
-
-See which patterns we plan to work on in the [Helios roadmap](https://go.hashi.co/hds-rollout).
-
 ## Resources
 
 ### Helios Figma libraries
