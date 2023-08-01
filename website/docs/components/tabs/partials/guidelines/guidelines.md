@@ -35,7 +35,7 @@ Don’t use Tabs for sequential content.
 
 !!! Dont
 
-We don't recommend using a singular Tab; instead consider using a heading. 
+We don’t recommend using a singular Tab; instead consider using a heading. 
 
 ![Tabs with only one tab](/assets/components/tabs/tab-behavior-single-button.png)
 !!!
