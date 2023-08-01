@@ -26,7 +26,7 @@ Don’t use Tabs for primary or secondary navigation.
 
 !!! Dont
 
-Don't use Tabs for sequential content.
+Don’t use Tabs for sequential content.
 
 ![Tab usage example](/assets/components/tabs/tab-usage-example-03.png)
 !!!
