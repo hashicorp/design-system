@@ -19,7 +19,7 @@ Use Tabs to break up content that is related to each other and is on the same hi
 
 !!! Dont
 
-Don't use Tabs for primary or secondary navigation.
+Don’t use Tabs for primary or secondary navigation.
 
 ![Tab usage example](/assets/components/tabs/tab-usage-example-02.png)
 !!!
