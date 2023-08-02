@@ -223,7 +223,7 @@ Use `Body / 200 / Link` as the default typographic style within a table. This st
 
 #### Multiple links
 
-If a table contains more than one column of links, consider using `Body / 200 / Link` for the most important link (usually the title of the row, ID, or other naming convention), and `Body / 200 / Regular` with an underline for less important links.
+If a table contains more than one column of links, consider using `Body / 200 / Link` for the most important link; usually the title of the row, ID, or other naming convention. For less important links use `Body / 200 / Regular` with an added underline in Figma.
 
 ![Multiple links within a table](/assets/components/table/multiple-links.png)
 
