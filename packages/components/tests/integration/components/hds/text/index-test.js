@@ -118,6 +118,7 @@ module('Integration | Component | hds/text/index', function (hooks) {
   test('it should throw an assertion if an incorrect value for @align is provided', async function (assert) {
     const errorMessage =
       '@align for "Hds::Text" must be one of the following: left, center, right; received: top';
+    assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
