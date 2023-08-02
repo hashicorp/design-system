@@ -14,7 +14,7 @@
 
 ### Sorting
 
-![Header column sorting](/assets/components/table/table-sorting.png =1000x*)
+![Header column sorting](/assets/components/table/table-sorting.png)
 
 - Sorting is not relevant for all content, so consider when to apply sorting thoughtfully.
 - Columns that do contain a sortable data type are interactive and therefore have corresponding hover, active, and focus states.
@@ -28,12 +28,12 @@ Column width is determined by manually resizing the header column and cells with
 
 !!! Info
 
-The column placement property is only relevant within Figma and doesn’t exist as a property within the code.
+The column placement property is only relevant within Figma and doesn’t exist as a property in code.
 !!!
 
 Column placement determines the visual styling based on where the column is placed relative to other columns in the Table.
 
-![Table column placement example](/assets/components/table/table-col-placement.png =750x*)
+![Table column placement example](/assets/components/table/table-col-placement.png)
 
 ## Alignment
 
@@ -50,12 +50,12 @@ Use consistent alignment between the header label and the cell content.
 
 !!! Do
 
-![Table column placement example](/assets/components/table/table-alignment-do.png =500x*)
+![Table column placement example](/assets/components/table/table-alignment-do.png)
 !!!
 
 !!! Dont
 
-![Table column placement example](/assets/components/table/table-alignment-dont.png =500x*)
+![Table column placement example](/assets/components/table/table-alignment-dont.png)
 !!!
 
 ### Start alignment
@@ -112,9 +112,9 @@ Don’t center header labels or cell content within a table.
 
 ### Striping
 
-![Table striping examples](/assets/components/table/table-striping.png =810x*)
+![Table striping examples](/assets/components/table/table-striping.png)
 
-While striping is not required, we recommend it for the added usability benefits. 
+While striping is not required, we recommend it for the added usability benefits.
 
 When using striping in a Table, start with the second row to allow the Table Header to be further differentiated from the the row directly beneath it.
 
@@ -138,7 +138,7 @@ The row placement property is only relevant within Figma and doesn’t exist as 
 
 Row placement determines the visual styling based on where the row is placed relative to other rows within the Table. Only cells with a column placement that is either `start` or `end` utilize the row placement property; column position `middle` does not utilize this property.
 
-![Table row placement example](/assets/components/table/table-row-placement.png =819x*)
+![Table row placement example](/assets/components/table/table-row-placement.png)
 
 ## Headers
 
@@ -152,7 +152,7 @@ Row placement determines the visual styling based on where the row is placed rel
 
 ### Density
 
-![Table cell density](/assets/components/table/table-density.png =798x*)
+![Table cell density](/assets/components/table/table-density.png)
 
 - We recommend using `medium` cell density by default.
 - If content is complex or a smaller data set (e.g., a Table of basic user data), `tall` cell density allows for more breathing room surrounding the content.
@@ -204,9 +204,9 @@ Don’t use an [Icon Tile](/assets/components/icon-tile) in place of an icon wit
 
 #### Leading vs. trailing icons
 
-In general, we recommend using **leading icons** because the text following the icon will remain aligned and thus be easier for the user to scan. 
+In general, we recommend using **leading icons** because the text following the icon will remain aligned and thus be easier for the user to scan.
 
-Take care not to mix and match different icon positions in the same column. 
+Take care not to mix and match different icon positions in the same column.
 
 ### Links within cells
 
@@ -215,7 +215,7 @@ Take care not to mix and match different icon positions in the same column.
 This guidance is an extension of the [Inline Link](/components/link/inline) guidelines.
 !!!
 
-Within a table, use `secondary` (`Foreground / Strong`) links as the default. 
+Within a table, use `secondary` (`Foreground / Strong`) links as the default.
 
 Use `Body / 200 / Link` as the default typographic style within a table. This style increases the prominence a small amount to differentiate it from other string and non-interactive content.
 

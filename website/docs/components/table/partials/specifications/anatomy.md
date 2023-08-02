@@ -2,7 +2,7 @@
 
 ### Table headers
 
-![Table header anatomy](/assets/components/table/table-header-anatomy.png =365x*)
+![Table header anatomy](/assets/components/table/table-header-anatomy.png)
 
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|
@@ -12,7 +12,7 @@
 
 ### Table cells
 
-![Table cell anatomy](/assets/components/table/table-cell-anatomy.png =359x*)
+![Table cell anatomy](/assets/components/table/table-cell-anatomy.png)
 
 | Element      | Usage    |
 |--------------|----------|
