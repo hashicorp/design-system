@@ -12,10 +12,8 @@
 .hds-form-file-input {
   margin: -4px 0 -4px -4px; // offset shadow padding + default 1px spacing
   padding: 3px 0 3px 3px; // add padding so button shadow is visible
-  font-family: var(--token-typography-font-stack-text);
   border: 1px solid transparent;
   border-radius: calc($hds-button-border-radius + 1px);
-  // font-size: 1.875rem; // we may want to use this to tweak the size of the text that contains the name of the file?
 
   &:focus,
   &:focus-visible {
@@ -33,8 +31,6 @@
   padding: 0.5625rem 0.9375rem;
   padding-left: 34px; // override to add space for the background image icon
   color: var(--token-color-foreground-primary);
-  font-size: 0.875rem;
-  font-family: var(--token-typography-font-stack-text);
   line-height: 1rem;
   text-decoration: none;
   background-color: var(--token-color-surface-faint);
@@ -59,20 +55,21 @@
   border-color: var(--token-color-border-strong);
 }
 
-
 .hds-form-file-input::file-selector-button:focus,
 .hds-form-file-input.mock-focus::file-selector-button {
   color: var(--token-color-foreground-primary);
   background-color: var(--token-color-surface-faint);
   border-color: var(--token-color-focus-action-internal);
-
   outline: 3px solid var(--token-color-focus-action-external);
 }
 
+// TODO: causing focus highlight to display when button is clicked
 .hds-form-file-input:focus-within::file-selector-button {
   border-color: var(--token-color-focus-action-internal);
   outline: 3px solid var(--token-color-focus-action-external);
 }
+
+// TESTING: .hds-form-file-input::file-selector-button:active { outline: 5px dotted pink !important; }
 
 .hds-form-file-input::file-selector-button:active,
 .hds-form-file-input.mock-active::file-selector-button {
@@ -80,20 +77,6 @@
   background-color: var(--token-color-surface-interactive-active);
   border-color: var(--token-color-border-strong);
   box-shadow: none;
-}
-
-.hds-form-file-input::file-selector-button {
-  &:disabled,
-  &[disabled],
-  &.mock-disabled,
-  &:disabled:focus,
-  &[disabled]:focus,
-  &.mock-disabled:focus,
-  &:disabled:hover,
-  &[disabled]:hover,
-  &.mock-disabled:hover {
-    @include hds-button-state-disabled();
-  }
 }
 
 .hds-form-file-input {
@@ -107,6 +90,20 @@
   &[disabled]:hover,
   &.mock-disabled:hover {
     &::file-selector-button {
+      @include hds-button-state-disabled();
+    }
+  }
+
+  &::file-selector-button {
+    &:disabled,
+    &[disabled],
+    &.mock-disabled,
+    &:disabled:focus,
+    &[disabled]:focus,
+    &.mock-disabled:focus,
+    &:disabled:hover,
+    &[disabled]:hover,
+    &.mock-disabled:hover {
       @include hds-button-state-disabled();
     }
   }

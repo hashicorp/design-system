@@ -22,7 +22,7 @@
         <code>::file-selector-button</code>
       </a>)
     </Shw::Text::Body>
-    <Hds::Form::FileInput />
+    <Hds::Form::FileInput::Base />
 
     <Shw::Text::H2>Used next to other content</Shw::Text::H2>
 
@@ -30,14 +30,14 @@
       <SF.Item @label="With text before & after">
         <p class="hds-typography-body-300">
           Lorem ipsum
-          <Hds::Form::FileInput />
+          <Hds::Form::FileInput::Base />
           dolor sit amet
         </p>
       </SF.Item>
 
       <SF.Item @label="With text above & below">
         <p class="hds-typography-body-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <Hds::Form::FileInput />
+        <Hds::Form::FileInput::Base />
         <p class="hds-typography-body-300">Ut enim ad minim veniam, quis nostrud exercitation.</p>
       </SF.Item>
 
@@ -49,11 +49,11 @@
     <Shw::Flex {{style gap="2rem"}} as |SF|>
       {{#each @model.STATES as |state|}}
         <SF.Item @label={{state}}>
-          <Hds::Form::FileInput mock-state-value={{state}} />
+          <Hds::Form::FileInput::Base mock-state-value={{state}} />
         </SF.Item>
       {{/each}}
       <SF.Item @label="disabled">
-        <Hds::Form::FileInput mock-state-value="disabled" disabled />
+        <Hds::Form::FileInput::Base mock-state-value="disabled" disabled />
       </SF.Item>
     </Shw::Flex>
   </div>
