@@ -83,7 +83,7 @@
 
   <Shw::Text::H2>Color</Shw::Text::H2>
 
-  <Shw::Text::H4 tag="h3">Color inheritance</Shw::Text::H4>
+  <Shw::Text::H4 @tag="h3">Color inheritance</Shw::Text::H4>
   <Shw::Flex @direction="row" @wrap={{true}} {{style gap="2rem"}} as |SF|>
     <SF.Item @label="parent with no specific color">
       <div>
@@ -97,7 +97,7 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Text::H4 tag="h3">Pre-defined colors</Shw::Text::H4>
+  <Shw::Text::H4 @tag="h3">Pre-defined colors</Shw::Text::H4>
   <Shw::Flex @direction="row" @wrap={{true}} {{style gap="2rem"}} as |SF|>
     {{#each this.model.AVAILABLE_COLORS as |color|}}
       <SF.Item @label={{color}}>
@@ -110,7 +110,7 @@
     {{/each}}
   </Shw::Flex>
 
-  <Shw::Text::H4 tag="h3">Custom colors</Shw::Text::H4>
+  <Shw::Text::H4 @tag="h3">Custom colors</Shw::Text::H4>
   <Shw::Flex @direction="row" @wrap={{true}} {{style gap="2rem"}} as |SF|>
     <SF.Item @label="text with #e91e63 color">
       <Hds::Text::Body @size="300" @tag="p" @color="#e91e63">Lorem ipsum dolor</Hds::Text::Body>
