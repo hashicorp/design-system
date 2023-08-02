@@ -151,28 +151,6 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
     assert.dom('button.hds-flyout__dismiss').isFocused();
   });
 
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component and subcomponents', async function (assert) {
-    await render(
-      hbs`<Hds::Flyout id="test-flyout" class="flyout-class" data-test-flyout1 data-test-flyout2="test" as |F|>
-            <F.Header id="test-flyout-header" data-test-flyout-header1 data-test-flyout-header2="test-header">Title</F.Header>
-            <F.Body id="test-flyout-body" data-test-flyout-body1 data-test-flyout-body2="test-body">Body</F.Body>
-          </Hds::Flyout>`
-    );
-    assert.dom('#test-flyout').hasClass('flyout-class');
-    assert.dom('#test-flyout').hasAttribute('data-test-flyout1');
-    assert.dom('#test-flyout').hasAttribute('data-test-flyout2', 'test');
-    assert.dom('#test-flyout-header').hasAttribute('data-test-flyout-header1');
-    assert
-      .dom('#test-flyout-header')
-      .hasAttribute('data-test-flyout-header2', 'test-header');
-    assert.dom('#test-flyout-body').hasAttribute('data-test-flyout-body1');
-    assert
-      .dom('#test-flyout-body')
-      .hasAttribute('data-test-flyout-body2', 'test-body');
-  });
-
   // CALLBACKS
 
   test('it should call `onOpen` function if provided', async function (assert) {

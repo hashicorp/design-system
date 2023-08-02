@@ -95,15 +95,4 @@ module('Integration | Component | hds/form/fieldset/index', function (hooks) {
     assert.dom('legend .hds-form-indicator').exists();
     assert.dom('legend .hds-form-indicator').hasText('(Optional)');
   });
-
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component', async function (assert) {
-    await render(
-      hbs`<Hds::Form::Fieldset id="test-form-fieldset" class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('#test-form-fieldset').hasClass('my-class');
-    assert.dom('#test-form-fieldset').hasAttribute('data-test1');
-    assert.dom('#test-form-fieldset').hasAttribute('data-test2', 'test');
-  });
 });

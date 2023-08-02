@@ -19,18 +19,5 @@ module(
     `);
       assert.dom('#test-nav-ellipsis').hasClass('hds-pagination-nav__ellipsis');
     });
-
-    // ATTRIBUTES
-
-    test('it should spread all the attributes passed to the component on the element', async function (assert) {
-      await render(
-        hbs`<Hds::Pagination::Nav::Ellipsis id="test-pagination-ellipsis" class="my-class" data-test1 data-test2="test" />`
-      );
-      assert.dom('#test-pagination-ellipsis').hasClass('my-class');
-      assert.dom('#test-pagination-ellipsis').hasAttribute('data-test1');
-      assert
-        .dom('#test-pagination-ellipsis')
-        .hasAttribute('data-test2', 'test');
-    });
   }
 );

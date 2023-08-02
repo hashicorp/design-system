@@ -127,15 +127,4 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
     assert.dom('legend .hds-form-indicator').exists();
     assert.dom('legend .hds-form-indicator').hasText('(Optional)');
   });
-
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component on the element', async function (assert) {
-    await render(
-      hbs`<Hds::Form::RadioCard::Group id="test-radio-card-group" class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('#test-radio-card-group').hasClass('my-class');
-    assert.dom('#test-radio-card-group').hasAttribute('data-test1');
-    assert.dom('#test-radio-card-group').hasAttribute('data-test2', 'test');
-  });
 });

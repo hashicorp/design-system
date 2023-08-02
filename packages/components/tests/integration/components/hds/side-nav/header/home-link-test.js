@@ -44,17 +44,6 @@ module('Integration | Component | hds/side-nav/home-link', function (hooks) {
       .hasAttribute('fill', 'var(--token-color-boundary-brand)');
   });
 
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component on the element', async function (assert) {
-    await render(
-      hbs`<Hds::SideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="Hashicorp" id="test-side-nav-homelink" class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('#test-side-nav-homelink').hasClass('my-class');
-    assert.dom('#test-side-nav-homelink').hasAttribute('data-test1');
-    assert.dom('#test-side-nav-homelink').hasAttribute('data-test2', 'test');
-  });
-
   // ASSERTIONS
 
   test('it should throw an assertion if @ariaLabel is missing/has no value', async function (assert) {

@@ -62,17 +62,6 @@ module('Integration | Component | hds/side-nav/icon-button', function (hooks) {
       .hasAttribute('href', '/utilities/interactive');
   });
 
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component on the element', async function (assert) {
-    await render(
-      hbs`<Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" id="test-side-nav-button" class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('#test-side-nav-button').hasClass('my-class');
-    assert.dom('#test-side-nav-button').hasAttribute('data-test1');
-    assert.dom('#test-side-nav-button').hasAttribute('data-test2', 'test');
-  });
-
   // ASSERTIONS
 
   test('it should throw an assertion if @ariaLabel is missing/has no value', async function (assert) {

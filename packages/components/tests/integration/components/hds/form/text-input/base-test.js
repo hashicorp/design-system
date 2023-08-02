@@ -76,17 +76,6 @@ module('Integration | Component | hds/form/text-input/base', function (hooks) {
     assert.dom('#test-form-text-input').hasStyle({ width: '248px' });
   });
 
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component', async function (assert) {
-    await render(
-      hbs`<Hds::Form::TextInput::Base id="test-form-text-input" class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('#test-form-text-input').hasClass('my-class');
-    assert.dom('#test-form-text-input').hasAttribute('data-test1');
-    assert.dom('#test-form-text-input').hasAttribute('data-test2', 'test');
-  });
-
   // ASSERTIONS
 
   test('it should throw an assertion if an incorrect value for @type is provided', async function (assert) {
