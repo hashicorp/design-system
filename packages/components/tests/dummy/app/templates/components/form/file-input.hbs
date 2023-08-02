@@ -13,8 +13,10 @@
     layout highlight
   </button>
 
+  <Shw::Text::H2>Content</Shw::Text::H2>
+
   <div class="{{if this.showHighlight 'shw-component-form-file-input-layout-highlight'}}">
-    <Shw::Text::H2>On its own</Shw::Text::H2>
+    <Shw::Text::H3>On its own</Shw::Text::H3>
     <Shw::Text::Body>
       <code>Input[type=file]</code>
       (styled via
@@ -24,7 +26,7 @@
     </Shw::Text::Body>
     <Hds::Form::FileInput::Base />
 
-    <Shw::Text::H2>Used next to other content</Shw::Text::H2>
+    <Shw::Text::H3>Used next to other content</Shw::Text::H3>
 
     <Shw::Flex @direction="column" {{style gap="2rem"}} as |SF|>
       <SF.Item @label="With text before & after">
