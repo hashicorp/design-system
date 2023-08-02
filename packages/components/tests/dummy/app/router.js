@@ -35,6 +35,7 @@ Router.map(function () {
     this.route('form', function () {
       this.route('base-elements');
       this.route('checkbox');
+      this.route('file-input');
       this.route('masked-input');
       this.route('radio');
       this.route('select');
@@ -42,7 +43,6 @@ Router.map(function () {
       this.route('textarea');
       this.route('toggle');
       this.route('radio-card');
-      this.route('file-input');
     });
     this.route('icon-tile');
     this.route('link', function () {
