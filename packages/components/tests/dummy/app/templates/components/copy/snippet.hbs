@@ -67,13 +67,24 @@
 
   <Shw::Text::H2>States</Shw::Text::H2>
 
-  <Shw::Grid @columns={{4}} as |SG|>
+  <Shw::Grid @columns={{6}} as |SG|>
     {{#each @model.COLORS as |color|}}
       {{#each @model.STATES as |state|}}
-        <SG.Item @label="{{capitalize color}} / {{capitalize state}}">
+        <SG.Item @label={{if (eq color "primary") (capitalize state)}}>
           <Hds::Copy::Snippet @textToCopy="fbrct1ed-fgr35h-tyng89-wed4r" @color={{color}} mock-state-value={{state}} />
         </SG.Item>
       {{/each}}
+      {{#let (array "success" "error") as |statuses|}}
+        {{#each statuses as |status|}}
+          <SG.Item @label={{if (eq color "primary") (capitalize status)}}>
+            <Hds::Copy::Snippet
+              @textToCopy="fbrct1ed-fgr35h-tyng89-wed4r"
+              @color={{color}}
+              mock-copy-status={{status}}
+            />
+          </SG.Item>
+        {{/each}}
+      {{/let}}
     {{/each}}
   </Shw::Grid>
 </section>
