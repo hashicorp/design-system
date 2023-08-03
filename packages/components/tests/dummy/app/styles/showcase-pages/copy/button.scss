@@ -5,9 +5,11 @@
 
 // COPY > BUTTON
 
-body.components-copy-button pre {
-  padding: 1rem;
-  color: white;
-  background-color: black;
-  border-radius: 5px;
+body.components-copy-button {
+  .shw-component-copy-button-code-block {
+    padding: 1rem;
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+  }
 }
