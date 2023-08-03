@@ -37,28 +37,22 @@
 
   <Shw::Text::H2>States</Shw::Text::H2>
 
-  <Shw::Grid @columns={{4}} as |SG|>
+  <Shw::Grid @columns={{6}} as |SG|>
     {{#each @model.SIZES as |size|}}
       {{#each @model.STATES as |state|}}
-        <SG.Item @label="{{capitalize size}} / {{capitalize state}}">
+        <SG.Item @label={{if (eq size "small") (capitalize state)}}>
           <Hds::Copy::Button @text="Copy" @size={{size}} mock-state-value={{state}} @targetToCopy="#targetToCopy" />
         </SG.Item>
       {{/each}}
+      {{#let (array "success" "error") as |statuses|}}
+        {{#each statuses as |status|}}
+          <SG.Item @label={{if (eq size "small") (capitalize status)}}>
+            <Hds::Copy::Button @text="Copy" @size={{size}} @targetToCopy="#targetToCopy" mock-copy-status={{status}} />
+          </SG.Item>
+        {{/each}}
+      {{/let}}
     {{/each}}
   </Shw::Grid>
-  <Shw::Text::H2>Status</Shw::Text::H2>
-  <Shw::Flex as |SF|>
-    {{#each @model.STATUS as |status|}}
-      <SF.Item @label="{{capitalize status}}">
-        <Hds::Copy::Button
-          @text="Copy"
-          @targetToCopy="#targetToCopy"
-          @status={{status}}
-          class="hds-copy-button--{{status}}"
-        />
-      </SF.Item>
-    {{/each}}
-  </Shw::Flex>
 
   <Shw::Divider />
 
@@ -105,7 +99,13 @@
       <Shw::Label>Input element (readonly)</Shw::Label>
       <Hds::Copy::Button @text="Copy the input value" @targetToCopy="#test-input-readonly" />
       <br />
-      <Hds::Form::TextInput::Field readonly @value="036140285924-readonly" @name="test-input-readonly" @id="test-input-readonly" as |F|>
+      <Hds::Form::TextInput::Field
+        readonly
+        @value="036140285924-readonly"
+        @name="test-input-readonly"
+        @id="test-input-readonly"
+        as |F|
+      >
         <F.Label>Input Label</F.Label>
       </Hds::Form::TextInput::Field>
     </SG.Item>
@@ -113,7 +113,13 @@
       <Shw::Label>Input element (disabled)</Shw::Label>
       <Hds::Copy::Button @text="Copy the input value" @targetToCopy="#test-input-disabled" />
       <br />
-      <Hds::Form::TextInput::Field disabled @value="036140285924-disabled" @name="test-input-disabled" @id="test-input-disabled" as |F|>
+      <Hds::Form::TextInput::Field
+        disabled
+        @value="036140285924-disabled"
+        @name="test-input-disabled"
+        @id="test-input-disabled"
+        as |F|
+      >
         <F.Label>Input Label</F.Label>
       </Hds::Form::TextInput::Field>
     </SG.Item>
