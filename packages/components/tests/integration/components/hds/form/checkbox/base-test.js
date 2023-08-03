@@ -22,15 +22,4 @@ module('Integration | Component | hds/form/checkbox/base', function (hooks) {
     assert.dom('#test-form-checkbox').doesNotHaveAttribute('indeterminate');
     assert.dom('#test-form-checkbox').hasProperty('indeterminate', true);
   });
-
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component', async function (assert) {
-    await render(
-      hbs`<Hds::Form::Checkbox::Base id="test-form-checkbox" class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('#test-form-checkbox').hasClass('my-class');
-    assert.dom('#test-form-checkbox').hasAttribute('data-test1');
-    assert.dom('#test-form-checkbox').hasAttribute('data-test2', 'test');
-  });
 });

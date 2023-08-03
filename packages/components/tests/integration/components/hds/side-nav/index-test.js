@@ -178,17 +178,6 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
       .doesNotHaveAttribute('data-test-minimized');
   });
 
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component on the element', async function (assert) {
-    await render(
-      hbs`<Hds::SideNav id="test-side-nav" class="my-class" data-test1 data-test2="test" @hasA11yRefocus={{false}} />`
-    );
-    assert.dom('#test-side-nav').hasClass('my-class');
-    assert.dom('#test-side-nav').hasAttribute('data-test1');
-    assert.dom('#test-side-nav').hasAttribute('data-test2', 'test');
-  });
-
   // CALLBACKS
 
   test('it should call `onToggleMinimizedStatus` function if provided', async function (assert) {

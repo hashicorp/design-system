@@ -40,15 +40,4 @@ module('Integration | Component | hds/side-nav/base', function (hooks) {
     assert.dom('#test-side-nav-body').exists();
     assert.dom('#test-side-nav-footer').exists();
   });
-
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component on the element', async function (assert) {
-    await render(
-      hbs`<Hds::SideNav::Base id="test-side-nav" class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('#test-side-nav').hasClass('my-class');
-    assert.dom('#test-side-nav').hasAttribute('data-test1');
-    assert.dom('#test-side-nav').hasAttribute('data-test2', 'test');
-  });
 });

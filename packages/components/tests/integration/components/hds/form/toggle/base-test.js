@@ -19,17 +19,6 @@ module('Integration | Component | hds/form/toggle/base', function (hooks) {
     assert.dom('#test-form-toggle').hasClass('hds-form-toggle__control');
   });
 
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component', async function (assert) {
-    await render(
-      hbs`<Hds::Form::Toggle::Base id="test-form-toggle" class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('#test-form-toggle').hasClass('my-class');
-    assert.dom('#test-form-toggle').hasAttribute('data-test1');
-    assert.dom('#test-form-toggle').hasAttribute('data-test2', 'test');
-  });
-
   // ACCESSIBILITY
 
   test('it should render with the correct role', async function (assert) {

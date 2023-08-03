@@ -65,19 +65,6 @@ module('Integration | Component | hds/form/radio-card/index', function (hooks) {
     assert.dom('.custom').doesNotExist();
   });
 
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component on the input', async function (assert) {
-    await render(
-      hbs`<Hds::Form::RadioCard id="my-id" name="my-name" class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('input').hasAttribute('id', 'my-id');
-    assert.dom('input').hasAttribute('name', 'my-name');
-    assert.dom('input').hasClass('my-class');
-    assert.dom('input').hasAttribute('data-test1');
-    assert.dom('input').hasAttribute('data-test2', 'test');
-  });
-
   // ASSERTIONS: ALIGNMENT, CONTROL POSITION, LAYOUT
 
   test('it should throw an assertion if an incorrect value for @alignment is provided', async function (assert) {

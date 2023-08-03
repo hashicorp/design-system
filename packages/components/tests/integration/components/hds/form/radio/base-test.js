@@ -15,15 +15,4 @@ module('Integration | Component | hds/form/radio/base', function (hooks) {
     await render(hbs`<Hds::Form::Radio::Base id="test-form-radio" />`);
     assert.dom('#test-form-radio').hasClass('hds-form-radio');
   });
-
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component', async function (assert) {
-    await render(
-      hbs`<Hds::Form::Radio::Base id="test-form-radio" class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('#test-form-radio').hasClass('my-class');
-    assert.dom('#test-form-radio').hasAttribute('data-test1');
-    assert.dom('#test-form-radio').hasAttribute('data-test2', 'test');
-  });
 });

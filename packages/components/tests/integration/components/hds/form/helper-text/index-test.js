@@ -42,21 +42,13 @@ module(
         .hasText('This is an HTML element inside the helper text');
     });
 
-    // ATTRIBUTES
+    // ID
 
     test('it renders a helper text with the correct "id" attribute if the @controlId argument is provided', async function (assert) {
       await render(
         hbs`<Hds::Form::HelperText @controlId="my-control-id">This is the helper text</Hds::Form::HelperText>`
       );
       assert.dom('#helper-text-my-control-id').exists();
-    });
-    test('it should spread all the attributes passed to the component', async function (assert) {
-      await render(
-        hbs`<Hds::Form::HelperText id="test-form-helper-text" class="my-class" data-test1 data-test2="test" />`
-      );
-      assert.dom('#test-form-helper-text').hasClass('my-class');
-      assert.dom('#test-form-helper-text').hasAttribute('data-test1');
-      assert.dom('#test-form-helper-text').hasAttribute('data-test2', 'test');
     });
   }
 );

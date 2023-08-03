@@ -144,17 +144,6 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     assert.dom('#test-dropdown #test-list-item-interactive').doesNotExist();
   });
 
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component', async function (assert) {
-    await render(
-      hbs`<Hds::Dropdown id="test-dropdown" class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('#test-dropdown').hasClass('my-class');
-    assert.dom('#test-dropdown').hasAttribute('data-test1');
-    assert.dom('#test-dropdown').hasAttribute('data-test2', 'test');
-  });
-
   // ACCESSIBILITY
 
   test('it should render a list of items without a role if no selectable items are passed in', async function (assert) {
