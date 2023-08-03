@@ -233,14 +233,9 @@ If a cell contains long-form or descriptive content, use the link style that is 
 
 ![Links in long-form content](/assets/components/table/longform-content-links.png)
 
-## General content
+## Null values
 
-While we are not prescriptive about what goes into a cell, there are some best practices to consider:
-
-- We recommended keeping data within a column to one data type. Using more than one data type makes sorting difficult.
-- While changing the text style/color within a cell is possible, we recommend only using Helios font styles and colors.
-
-### Null or empty values
+### Null cell values
 
 If records within a table contain empty or null values, don’t reflect this literally with an empty cell. While a literal representation of a data set may seem logical when showcasing tabular data, a null value still intrinsically has an attribute of `none` or `empty` which should be communicated to user.
 
@@ -289,3 +284,22 @@ As a fallback, consider using an `em dash (—)` or `n/a (not available)` in pla
 Depending on the data set and the type of content it expresses, consider communicating to the user _why_ a value is null by using a tooltip. This can communicate broader product-specific functions and terminology, but can also highlight errors or issues that need to be corrected.
 
 ![Null value cause communicated with a tooltip](/assets/components/table/null-value-cause-tooltip.png)
+
+### Null or empty table state
+
+In the case of an entire data set returning null or empty, use [Application State](/components/application-state) to communicate this and provide the user with next steps to correct the problem or create a new record in the data set.
+
+Common examples of this include:
+
+- A table expressing a data set that is dependent on user-created records which don’t exist.
+- An error occurred when fetching the data for the table.
+- A data set has been filtered to the point of not returning any records (see our [Filter patterns](/patterns/filter-patterns#empty-state) pattern guidance for more details).
+
+![Null data set within a table](/assets/components/table/null-data-set-in-a-table.png)
+
+## General content
+
+While we are not prescriptive about what goes into a cell, there are some best practices to consider:
+
+- We recommended keeping data within a column to one data type. Using more than one data type makes sorting difficult.
+- While changing the text style/color within a cell is possible, we recommend only using Helios font styles and colors.
