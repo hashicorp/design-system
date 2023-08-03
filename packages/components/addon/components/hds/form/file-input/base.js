@@ -12,7 +12,7 @@ export default class HdsFormFileInputBaseComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-form-file-input', 'hds-typography-body-100'];
+    let classes = ['hds-form-file-input', 'hds-typography-body-200'];
 
     // add a class based on the @extraClass argument
     // classes.push(`hds-form-file-input--variant-${this.args.extraClass}`);
