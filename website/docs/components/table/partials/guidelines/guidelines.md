@@ -172,7 +172,7 @@ Don’t use an icon as the sole communication method within a cell, even if the 
 
 !!! Dont
 
-Don’t use an icon to indicate the status of an object, row, or resource. Instead, use a [Badge](components/badge).
+We don’t recommend using an icon to indicate the status of an object, row, or resource. Instead, consider using a [Badge](components/badge).
 
 ![Icons being used for status](/assets/components/table/icon-status.png)
 !!!
@@ -237,5 +237,5 @@ If a cell contains long-form or descriptive content, use the link style that is 
 
 While we are not prescriptive about what goes into a cell, there are some best practices to consider:
 
-- We recommended keeping data within a column to one data type. Using more than one data type makes sorting almost impossible.
-- While it‘s possible to change the text style/color within a cell, we recommended only using Helios font styles.
+- We recommended keeping data within a column to one data type. Using more than one data type makes sorting difficult.
+- While changing the text style/color within a cell is possible, we recommend only using Helios font styles and colors.
