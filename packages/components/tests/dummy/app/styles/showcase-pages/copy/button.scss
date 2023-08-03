@@ -6,6 +6,12 @@
 // COPY > BUTTON
 
 body.components-copy-button {
+  .shw-component-copy-button-composition-masked-input-base {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
   .shw-component-copy-button-code-block {
     padding: 1rem;
     color: white;
