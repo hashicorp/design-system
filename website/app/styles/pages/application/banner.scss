@@ -42,13 +42,15 @@ $horizontal-padding: 90px; // reserved space for the "close" button
 
 .doc-page-banner__close {
   position: absolute;
-  top: 8px;
+  top: 11px;
   right: 8px;
   display: flex;
   gap: 8px;
   align-items: center;
   color: #fff;
   background-color: transparent;
-  border: 1px solid transparent;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  padding: 2px;
   cursor: pointer;
 }
