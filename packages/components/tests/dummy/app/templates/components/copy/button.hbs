@@ -100,6 +100,27 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Flex as |SF|>
+    <SF.Item @label="With MaskedInput::Field">
+      <div class="shw-component-copy-button-composition-masked-input-field">
+        <Hds::Form::MaskedInput::Field @value="Lorem ipsum dolor" as |F|>
+          <F.Label>This is the label</F.Label>
+          <F.HelperText>This is the helper text</F.HelperText>
+        </Hds::Form::MaskedInput::Field>
+        <Hds::Copy::Button @isIconOnly={{true}} @text="Copy" @textToCopy="Lorem ipsum dolor" />
+      </div>
+    </SF.Item>
+    <SF.Item @label="With MaskedInput::Field (multiline)">
+      <div class="shw-component-copy-button-composition-masked-input-field">
+        <Hds::Form::MaskedInput::Field @value="Lorem ipsum dolor" @isMultiline={{true}} as |F|>
+          <F.Label>This is the label</F.Label>
+          <F.HelperText>This is the helper text</F.HelperText>
+        </Hds::Form::MaskedInput::Field>
+        <Hds::Copy::Button @isIconOnly={{true}} @text="Copy" @textToCopy="Lorem ipsum dolor" />
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
   <Shw::Divider />
 
   <Shw::Text::H2>Demo</Shw::Text::H2>
