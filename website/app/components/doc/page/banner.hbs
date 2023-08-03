@@ -3,8 +3,14 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<div class="doc-page-banner">
-  <FlightIcon class="doc-page-banner__icon" @name="message-circle-fill" @size={{24}} />
-  <p class="doc-page-banner__text doc-text-body">Got a minute? We’d like your feedback!
-    <a href="#" target="_blank" rel="noopener noreferrer">Take the survey</a></p>
-</div>
+{{#if this.isVisible}}
+  <div class="doc-page-banner">
+    <FlightIcon class="doc-page-banner__icon" @name="message-circle-fill" @size={{24}} />
+    <p class="doc-page-banner__text doc-text-body">Got a minute? We’d like your feedback!
+      <a href="#" target="_blank" rel="noopener noreferrer">Take the survey</a></p>
+    <button type="button" class="doc-page-banner__close doc-text-body-small" {{on "click" this.onClose}}>
+      <FlightIcon @name="x" @size={{16}} />
+      <span>Close</span>
+    </button>
+  </div>
+{{/if}}
