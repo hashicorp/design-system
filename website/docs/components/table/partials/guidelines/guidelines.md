@@ -66,7 +66,7 @@ Use start alignment for:
 
 - String and text-based content (unique identifiers or IDs, names and naming conventions, etc).
 - Numerical values that do not contain decimals or floating point numbers.
-- Numerical values that contain periods or other delimeter characters (IP addresses).
+- Numerical values that contain periods or other delimiter characters (IP addresses).
 - Nested components that display a string or text value, e.g., a [Badge](/components/badge).
 
 ![Start alignment of content within a table](/assets/components/table/start-alignment-example.png)
@@ -239,3 +239,53 @@ While we are not prescriptive about what goes into a cell, there are some best p
 
 - We recommended keeping data within a column to one data type. Using more than one data type makes sorting difficult.
 - While changing the text style/color within a cell is possible, we recommend only using Helios font styles and colors.
+
+### Null or empty values
+
+If records within a table contain empty or null values, don’t reflect this literally with an empty cell. While a literal representation of a data set may seem logical when showcasing tabular data, a null value still intrinsically has an attribute of `none` or `empty` which should be communicated to user.
+
+An empty cell can impact the user experience negatively by:
+
+- Breaking the natural reading flow within the table and making the data harder to parse.
+- Eroding user trust in the validity of the data; an empty cell may indicate an error but doesn’t communicate what the error is or its cause.
+- Failing to communicate what value is used when filtering or sorting a data set.
+
+!!! Dont
+
+![Null empty cells](/assets/components/table/null-empty-cells.png)
+!!!
+
+Instead, explicitly communicate null values to the user and represent them with a similar visual treatment as non-null values.
+
+!!! Do
+
+Visually represent null values in an inverse and comparative manner with non-null values.
+
+![Null value communicated with text](/assets/components/table/null-value-comparative-value.png)
+!!!
+
+#### Styling null values
+
+In records that express a value with text, use the same text style as non-null values in the same column (in most cases this is `Body / 200 / Regular`). Consider reducing the prominence of the null values by using `Foreground / Faint` color instead of `Primary` or `Strong`.
+
+![Null value in a text string](/assets/components/table/null-value-text-example.png)
+
+#### Null values with badges
+
+In records that express a value with a badge (e.g., status, health, etc), maintain consistency with cells of the same content type by communicating null values in a `neutral` badge.
+
+![Null value communicated in a badge](/assets/components/table/null-value-badge-example.png)
+
+#### Null value fallback
+
+As a fallback, consider using an `em dash (—)` or `n/a (not available)` in place of the null value. This may occur when the content type of a value isn't able to be determined or if the value is null for an unkown reason.
+
+![Null value communicated with an em-dash](/assets/components/table/null-value-fallback-em-dash.png)
+
+![Null value communicated with n/a](/assets/components/table/null-value-fallback-na.png)
+
+#### Communicating why a value is null
+
+Depending on the data set and the type of content it expresses, consider communicating to the user _why_ a value is null by using a tooltip. This can communicate broader product-specific functions and terminology, but can also highlight errors or issues that need to be corrected.
+
+![Null value cause communicated with a tooltip](/assets/components/table/null-value-cause-tooltip.png)
