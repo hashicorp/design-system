@@ -142,8 +142,6 @@ Row placement determines the visual styling based on where the row is placed rel
 
 ## Headers
 
-### Content
-
 - Headers should be clear, concise, and straightforward.
 - The headers should infer clearly what type (string, number, status, etc) of content is contained within the cell.
 - Headers should use sentence-case capitalization, not all-caps.
