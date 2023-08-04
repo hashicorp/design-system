@@ -1,9 +1,137 @@
+The `Text` component is a **code-only** component used to apply specific predefined HDS typographic styles to a block of text or content.
+
+The equivalent if Figma is not a component, but a set of [typographic Figma styles](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?type=design&node-id=1262-9192).
+
 ## How to use this component
 
-<!-- use the same heading order from Guidelines -->
-{basic invocation details}
+The “base” `Text` component is specialized in three different variants–the ones actually used by the consumers–with a one-to-one association between the namespace (eg. `::Display`) and the [corresponding style in Figma](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?type=design&node-id=1262-9192&mode=design).
 
-<!-- This below is just an example of invocation, to get started -->
 ```handlebars
-<Hds::Text>This is the Hds::Text component </Hds::Text>
+<Hds::Text::Display>Text as "Display" variant</Hds::Text::Display>
+<Hds::Text::Body>Text as "Body" variant</Hds::Text::Body>
+<Hds::Text::Code>Text as "Code" variant</Hds::Text::Code>
 ```
+
+Since no `@tag` argument is provided (see below) by default the text element is rendered as a `<span>`.
+
+### HTML tag
+
+To specify which HTML tag to use to render the element, use the `@tag` argument:
+
+```handlebars
+<Hds::Text::Display @tag="h1">Text as "Display" variant</Hds::Text::Display>
+<Hds::Text::Body @tag="p">Text as "Body" variant</Hds::Text::Body>
+<Hds::Text::Code @tag="pre">Text as "Code" variant</Hds::Text::Code>
+```
+
+!!! Insight
+
+While by default the component renders as `<span>`, we invite consumers to:
+- consider which HTML semantic tag is the correct one for the context in which the text is used
+- always set a `@tag` value accordingly, to make the explicit the semantic choice
+
+!!!
+
+### Size
+
+To specify which size to apply to the text, use the `@size` argument:
+
+
+```handlebars
+<Hds::Text::Display @tag="h1" @size="500">Text as "Display-500" variant</Hds::Text::Display>
+<Hds::Text::Body @tag="p" @size="300">Text as "Body-300" variant</Hds::Text::Body>
+<Hds::Text::Code @tag="pre" @size="100">Text as "Code-100" variant</Hds::Text::Code>
+```
+
+Different style variants support different sizes: refer to the [Component API](#component-api) section for details.
+
+### Weight
+
+To apply a specific font weight to the text, use the `@weight` argument:
+
+```handlebars
+<Hds::Text::Display @tag="h4" @size="300" @weight="bold">"Display" text with "bold" font weight</Hds::Text::Display>
+<Hds::Text::Body @tag="p" @weight="medium">"Body" text with "medium" font weight</Hds::Text::Body>
+<Hds::Text::Body @tag="p" @weight="semibold">"Body" text with "semibold" font weight</Hds::Text::Body>
+```
+
+!!! Critical
+
+**Important**
+
+
+Different typographic styles support only [a limited set of font weights](/foundations/typography?tab=code#style-and-weight).
+Refer to the [Component API](#component-api) section to see what the allowed combinations are for the different styles.
+
+!!!
+
+### Alignment
+
+To specify a text alignment use the `@align` argument:
+
+```handlebars
+<Hds::Text::Display @tag="h1" @align="right">This text is right aligned</Hds::Text::Display>
+<Hds::Text::Body @tag="p" @align="center">This text is center aligned</Hds::Text::Body>
+<Hds::Text::Code @tag="pre" @align="left">This text is left aligned</Hds::Text::Code>
+```
+
+### Color
+
+It is possible to apply to the text a specific **foreground** color (from a predefined list) using the `@color` argument:
+
+```handlebars
+<Hds::Text::Body @tag="p" @color="strong">This text has a "strong" color applied</Hds::Text::Body>
+<Hds::Text::Body @tag="p" @color="action-active">This text has an "action-active" color applied</Hds::Text::Body>
+<Hds::Text::Body @tag="p" @color="highlight-high-contrast">This text has a "highlight-high-contrast" color applied</Hds::Text::Body>
+```
+
+For the list of possible foreground colors supported refer to the [Component API](#component-api) section for details.
+
+It’s also possible to provide a CSS color as string (in this case the color will be applied as inline style). The string can be a CSS `var()` that uses one of the [predefined color tokens](/foundations/colors?tab=palette):
+
+```handlebars
+<Hds::Text::Body @tag="p" @color="var(--token-color-palette-blue-400)">This text has a "blue-400" color applied</Hds::Text::Body>
+```
+
+Or it can be one of the standard CSS color formats (hex, rgb, rgba, hsl, etc.):
+
+```handlebars
+<Hds::Text::Body @tag="p" @color="#FF0000">This text has a "#FF0000" (red) color applied</Hds::Text::Body>
+```
+
+!!! Warning
+
+We don't do validation on the CSS color string, so make sure the value used is correct.
+
+!!!
+
+### Structured content
+
+Since the component is not prescriptive on the tags that can be used to render the text, it can be used to apply a typographic style not only to plain text but also to structured content:
+
+```handlebars
+<Hds::Text::Body @tag="p" @size="300">This text contains some <strong>strong</strong> and <em>em</em> tags, a <Hds::Link::Inline @href="#">link</Hds::Link::Inline>.</Hds::Text::Body>
+```
+
+We can imagine even more complex examples where we may want to apply a typographic style to an entire block of content:
+
+```handlebars
+<Hds::Text::Body @tag="div" @size="200" @color="strong">
+  <p>This is some generic text in a paragraph.</p>
+  <ul>
+    <li>this list item contains some <strong>strong</strong> and <em>em</em> tags</li>
+    <li>this list item contains a <Hds::Link::Inline @href="#">link</Hds::Link::Inline></li>
+  </ul>
+  <p>This is also some generic text in a paragraph.</p>
+</Hds::Text::Body>
+```
+
+!!! Warning
+
+**Notice**
+
+While this is technically possible, it's not necessarily desirable (or correct in every possible context).
+Please be mindful of how the markup is structured, in terms of HTML semantic (for accessibility) as well as code readability (for the developers writing/reviewing/maintaining that code, now and in the future).
+
+!!!
+
