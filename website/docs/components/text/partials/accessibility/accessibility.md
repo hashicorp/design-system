@@ -5,19 +5,11 @@
 
 When used as recommended, there should not be any WCAG conformance issues with this component.
 
-<Doc::Badge @type="warning">Conditionally conformant</Doc::Badge>
+!!! Info
 
-Explain how the component is conditionally conformant. For example, any component that offers text truncation is conditionally conformant- it is conformant as long as the text truncation feature is not used.
+Since this component is nothing more than a wrapper around generic HTML tags with custom typographic styles applied, any conformance issue that may arise will depend on how this component is used in the consumer's code, in the same way as normal HTML tags and text would do.
 
-<Doc::Badge @type="critical">Not conformant</Doc::Badge>
-
-The `Component Name` component is not WCAG-conformant on its own. (Explain how to use it in a conformant way)
-
-## Applicable WCAG Success Criteria
-
-This section is for reference only. This component intends to conform to the following WCAG Success Criteria:
-
-<Doc::WcagList @criteriaList={{array "..." }} />
+!!!
 
 ---
 
