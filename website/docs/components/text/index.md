@@ -1,15 +1,14 @@
 ---
 title: Text
-description: {Optional long description that appears in the cover}
-caption: {Short description that appears in the cards}
+description: A component that can be used to applies predefined typographic styles to a block of content.
+caption: A component that applies predefined typographic styles to its content.
 links:
-  figma: {link to the "Text" page in the components Figma library}
-  github: {link to the "Text" component's folder in the GitHub repo}
-related: ['path/to/component', 'path/to/pattern']
+  figma: https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?type=design&node-id=1262-9192
+  github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/text
+related: ['foundations/typography']
 previewImage: assets/illustrations/components/text.jpg
 navigation:
-  hidden: true
-  keywords: ['add', 'alternate', 'keywords', 'here']
+  keywords: ['text', 'typography', 'style', 'display', 'body', 'code']
 ---
 
 <section data-tab="Guidelines">
