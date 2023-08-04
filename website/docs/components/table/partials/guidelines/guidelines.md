@@ -35,7 +35,7 @@ Column placement determines the visual styling based on where the column is plac
 
 ![Table column placement example](/assets/components/table/table-col-placement.png)
 
-## Alignment
+### Alignment
 
 The alignment of text and content within a table impacts the readability and speed at which users can effectively parse the information. The chosen alignment method depends on the content within the cell, purpose of the table, and relative position within the table.
 
@@ -44,7 +44,7 @@ The alignment of text and content within a table impacts the readability and spe
 While we don’t currently support internationalization in Helios, this documentation intentionally references alignment values in internationalized terms to make them more broadly applicable and future-proof.
 !!!
 
-### Consistent alignment
+#### Consistent alignment
 
 Use consistent alignment between the header label and the cell content.
 
@@ -58,7 +58,7 @@ Use consistent alignment between the header label and the cell content.
 ![Table column placement example](/assets/components/table/table-alignment-dont.png)
 !!!
 
-### Start alignment
+#### Start alignment
 
 Align content to the start of the cell by default. This ensures readability across different content types, consistency in content of varying lengths, and alignment between the column header label and the content within the cell.
 
@@ -71,7 +71,7 @@ Use start alignment for:
 
 ![Start alignment of content within a table](/assets/components/table/start-alignment-example.png)
 
-### End alignment
+#### End alignment
 
 End alignment can be used when expressing numerical values with decimals as this aligns the decimal places vertically.
 
@@ -97,7 +97,7 @@ Don’t end align content that is variable in length. This can make the content 
 
 !!!
 
-### Other alignment methods
+#### Other alignment methods
 
 We don’t recommend center or justified alignment of content within a cell or table. These alignment methods can result in the content being difficult to read, especially if it is variable in length.
 
@@ -159,7 +159,7 @@ Row placement determines the visual styling based on where the row is placed rel
 - If content is largely string/text-based, `short` allows for more content to be displayed within the page.
 - While denser content allows for more rows to be displayed within a single page, it also makes comprehension and scanning more difficult.
 
-### Icon usage
+<!-- ### Icon usage
 
 Icons used within cells can help differentiate content, highlight additional metadata, increase the hierarchy of a value, or otherwise _enhance_ the text or value it is paired with. Use the outlined icon style by default and if contrast against other icons is important, use the filled style.
 
@@ -206,9 +206,9 @@ Don’t use an [Icon Tile](/assets/components/icon-tile) in place of an icon wit
 
 In general, we recommend using **leading icons** because the text following the icon will remain aligned and thus be easier for the user to scan.
 
-Take care not to mix and match different icon positions in the same column.
+Take care not to mix and match different icon positions in the same column. -->
 
-### Links within cells
+<!-- ### Links within cells
 
 !!! Info
 
@@ -231,9 +231,9 @@ If a table contains more than one column of links, consider using `Body / 200 / 
 
 If a cell contains long-form or descriptive content, use the link style that is most appropriate for the hierarchy and frequency of links within the content. If there are a minimal number of links, `primary` styling may be appropriate, but if there are many links `secondary` styling may be more appropriate.
 
-![Links in long-form content](/assets/components/table/longform-content-links.png)
+![Links in long-form content](/assets/components/table/longform-content-links.png) -->
 
-## Null values
+<!-- ## Null values
 
 ### Null cell values
 
@@ -273,7 +273,7 @@ In records that express a value with a badge (e.g., status, health, etc), mainta
 
 #### Null value fallback
 
-As a fallback, consider using an `em dash (—)` or `n/a (not available)` in place of the null value. This may occur when the content type of a value isn’t able to be determined or if the value is null for an unknown reason.
+As a fallback, consider using an `em dash (—)` or `n/a (not available)` in place of the null value. This may occur when the content type of a value isnt able to be determined or if the value is null for an unknown reason.
 
 ![Null value communicated with an em-dash](/assets/components/table/null-value-fallback-em-dash.png)
 
@@ -302,4 +302,4 @@ Common examples of this include:
 While we are not prescriptive about what goes into a cell, there are some best practices to consider:
 
 - We recommended keeping data within a column to one data type. Using more than one data type makes sorting difficult.
-- While changing the text style/color within a cell is possible, we recommend only using Helios font styles and colors.
+- While changing the text style/color within a cell is possible, we recommend only using Helios font styles and colors. -->
