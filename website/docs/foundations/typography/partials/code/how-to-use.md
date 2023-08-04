@@ -2,9 +2,9 @@
 
 We offer different ways to apply typography styles to UI elements:
 
-- [Text helper component](#text-component) - This should be the **preferred way** to apply HDS text styles to **HTML elements**.
+- [Text helper component](#text-component) - This is the **preferred way** to apply HDS text styles to **HTML elements**.
 - [CSS helper classes](#css-helper-classes) - This can be used to apply styles to **Ember components** (or as fallback when using the `Text` helper component is not possible).
-- [Design tokens](#design-tokens) - This should be the **last resort** when none of the previous options was possible (or when only some of the HDS styles properties  are needed, like `font-family`, `font-size`, `line-height`, etc.)
+- [Design tokens](#design-tokens) - This should be the **last resort** when none of the previous options are possible (or when only some of the HDS styles properties  are needed, like `font-family`, `font-size`, `line-height`, etc.)
 
 ### Text component
 

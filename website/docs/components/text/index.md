@@ -1,6 +1,6 @@
 ---
 title: Text
-description: A component that can be used to applies predefined typographic styles to a block of content.
+description: A component that applies predefined typographic styles to a block of content.
 caption: A component that applies predefined typographic styles to its content.
 links:
   figma: https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?type=design&node-id=1262-9192

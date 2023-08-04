@@ -1,10 +1,10 @@
 The `Text` component is a **code-only** component used to apply specific predefined HDS typographic styles to a block of text or content.
 
-The equivalent if Figma is not a component, but a set of [typographic Figma styles](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?type=design&node-id=1262-9192).
+The equivalent in Figma is not a component, but a set of [typographic Figma styles](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?type=design&node-id=1262-9192).
 
 ## How to use this component
 
-The “base” `Text` component is specialized in three different variants–the ones actually used by the consumers–with a one-to-one association between the namespace (eg. `::Display`) and the [corresponding style in Figma](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?type=design&node-id=1262-9192&mode=design).
+The `Text` component is available in three different variants with a one-to-one association between the namespace (eg. `::Display`) and the [corresponding style in Figma](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?type=design&node-id=1262-9192&mode=design).
 
 ```handlebars
 <Hds::Text::Display>Text as "Display" variant</Hds::Text::Display>
@@ -12,7 +12,7 @@ The “base” `Text` component is specialized in three different variants–the
 <Hds::Text::Code>Text as "Code" variant</Hds::Text::Code>
 ```
 
-Since no `@tag` argument is provided (see below) by default the text element is rendered as a `<span>`.
+When no `@tag` argument is provided by default the text element is rendered as a `<span>`.
 
 ### HTML tag
 
@@ -26,7 +26,7 @@ To specify which HTML tag to use to render the element, use the `@tag` argument:
 
 !!! Insight
 
-While by default the component renders as `<span>`, we invite consumers to:
+While by default the component renders a `<span>`, we invite consumers to:
 - consider which HTML semantic tag is the correct one for the context in which the text is used
 - always set a `@tag` value accordingly, to make the explicit the semantic choice
 
@@ -58,7 +58,6 @@ To apply a specific font weight to the text, use the `@weight` argument:
 !!! Critical
 
 **Important**
-
 
 Different typographic styles support only [a limited set of font weights](/foundations/typography?tab=code#style-and-weight).
 Refer to the [Component API](#component-api) section to see what the allowed combinations are for the different styles.
@@ -101,7 +100,7 @@ Or it can be one of the standard CSS color formats (hex, rgb, rgba, hsl, etc.):
 
 !!! Warning
 
-We don't do validation on the CSS color string, so make sure the value used is correct.
+We don't validate the CSS color string, ensure that the value used is correct.
 
 !!!
 

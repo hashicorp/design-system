@@ -7,7 +7,7 @@ When used as recommended, there should not be any WCAG conformance issues with t
 
 !!! Info
 
-Since this component is nothing more than a wrapper around generic HTML tags with custom typographic styles applied, any conformance issue that may arise will depend on how this component is used in the consumer's code, in the same way as normal HTML tags and text would do.
+Since this component is nothing more than a wrapper around generic HTML tags with custom typographic styles applied, any conformance issues that may arise will depend on how this component is used in the consumer's code, in the same way as normal HTML tags and text would do.
 
 !!!
 
