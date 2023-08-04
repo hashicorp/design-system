@@ -273,7 +273,7 @@ In records that express a value with a badge (e.g., status, health, etc), mainta
 
 #### Null value fallback
 
-As a fallback, consider using an `em dash (—)` or `n/a (not available)` in place of the null value. This may occur when the content type of a value isn't able to be determined or if the value is null for an unknown reason.
+As a fallback, consider using an `em dash (—)` or `n/a (not available)` in place of the null value. This may occur when the content type of a value isn’t able to be determined or if the value is null for an unknown reason.
 
 ![Null value communicated with an em-dash](/assets/components/table/null-value-fallback-em-dash.png)
 
