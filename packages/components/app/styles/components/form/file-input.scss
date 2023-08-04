@@ -68,7 +68,7 @@
 }
 
 // Fix issue with button focus style which was displaying after button was activated
-.hds-form-file-input:not(:focus) {
+.hds-form-file-input:not(:focus, .mock-focus) {
   &::file-selector-button {
     border-color: var(--token-color-border-strong);
     outline: 0;
