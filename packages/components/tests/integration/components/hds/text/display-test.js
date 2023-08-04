@@ -61,7 +61,7 @@ module('Integration | Component | hds/text/display', function (hooks) {
   });
   test('it should throw an assertion if an incorrect value for @weight is provided when @size=400', async function (assert) {
     const errorMessage =
-      '@weight for "Hds::Text::Display" with @size=400 must be one of the following: semibold, medium, bold; received: foo';
+      '@weight for "Hds::Text::Display" with @size=400 must be one of the following: medium, semibold, bold; received: foo';
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
@@ -73,7 +73,7 @@ module('Integration | Component | hds/text/display', function (hooks) {
   });
   test('it should throw an assertion if an incorrect value for @weight is provided when @size=300', async function (assert) {
     const errorMessage =
-      '@weight for "Hds::Text::Display" with @size=300 must be one of the following: semibold, medium, bold; received: foo';
+      '@weight for "Hds::Text::Display" with @size=300 must be one of the following: medium, semibold, bold; received: foo';
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);

@@ -7,11 +7,17 @@ import { assert } from '@ember/debug';
 export const DEFAULT_SIZE = '200';
 export const AVAILABLE_SIZES = [500, 400, 300, 200, 100];
 
-// notice: the first item in the array is considered the default
+export const DEFAULT_WEIGHTS_PER_SIZE = {
+  500: ['bold'],
+  400: ['semibold'],
+  300: ['semibold'],
+  200: ['semibold'],
+  100: ['medium'],
+};
 export const AVAILABLE_WEIGHTS_PER_SIZE = {
   500: ['bold'],
-  400: ['semibold', 'medium', 'bold'],
-  300: ['semibold', 'medium', 'bold'],
+  400: ['medium', 'semibold', 'bold'],
+  300: ['medium', 'semibold', 'bold'],
   200: ['semibold'],
   100: ['medium'],
 };
@@ -66,7 +72,7 @@ export default class HdsTextDisplayComponent extends Component {
       );
     } else {
       // use the default (first item in the array)
-      weight = AVAILABLE_WEIGHTS_PER_SIZE[this.size][0];
+      weight = DEFAULT_WEIGHTS_PER_SIZE[this.size];
     }
 
     return weight;
