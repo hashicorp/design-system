@@ -16,7 +16,7 @@ The `Text` component is available in three different variants with a one-to-one 
 <Hds::Text::Code>Text as "Code" variant</Hds::Text::Code>
 ```
 
-When no `@tag` argument is provided by default the text element is rendered as a `<span>`.
+When no `@tag` argument is provided, the text element is rendered as a `<span>` by default.
 
 ### HTML tag
 
@@ -31,8 +31,8 @@ To specify which HTML tag to use to render the element, use the `@tag` argument:
 !!! Insight
 
 While by default the component renders a `<span>`, we invite consumers to:
-- consider which HTML semantic tag is the correct one for the context in which the text is used
-- always set a `@tag` value accordingly, to make the explicit the semantic choice
+- consider which semantic HTML tag is the correct one for the context in which the text is used
+- always set a `@tag` value accordingly, to make the semantic choice explicit
 
 !!!
 
@@ -70,7 +70,7 @@ Refer to the [Component API](#component-api) section to see what the allowed com
 
 ### Alignment
 
-To specify a text alignment use the `@align` argument:
+To specify a text alignment, use the `@align` argument:
 
 ```handlebars
 <Hds::Text::Display @tag="h1" @align="right">This text is right-aligned</Hds::Text::Display>
@@ -80,7 +80,7 @@ To specify a text alignment use the `@align` argument:
 
 ### Color
 
-It is possible to apply to the text a specific **foreground** color (from a predefined list) using the `@color` argument:
+It is possible to apply a specific **foreground** color to the text (from a predefined list) using the `@color` argument:
 
 ```handlebars
 <Hds::Text::Body @tag="p" @color="strong">This text has a "strong" color applied</Hds::Text::Body>
@@ -88,7 +88,7 @@ It is possible to apply to the text a specific **foreground** color (from a pred
 <Hds::Text::Body @tag="p" @color="highlight-high-contrast">This text has a "highlight-high-contrast" color applied</Hds::Text::Body>
 ```
 
-For the list of possible foreground colors supported refer to the [Component API](#component-api) section for details.
+For the list of possible foreground colors supported, refer to the [Component API](#component-api) section for details.
 
 It’s also possible to provide a CSS color as string (in this case the color will be applied as inline style). The string can be a CSS `var()` that uses one of the [predefined color tokens](/foundations/colors?tab=palette):
 
@@ -104,7 +104,7 @@ Or it can be one of the standard CSS color formats (hex, rgb, rgba, hsl, etc.):
 
 !!! Warning
 
-We don't validate the CSS color string, ensure that the value used is correct.
+We don’t validate the CSS color string to ensure that the value used is correct.
 
 !!!
 
@@ -133,7 +133,7 @@ We can imagine even more complex examples where we may want to apply a typograph
 
 **Notice**
 
-While this is technically possible, it's not necessarily desirable (or correct in every possible context).
+While this is technically possible, it’s not necessarily desirable (or correct in every possible context).
 Please be mindful of how the markup is structured, in terms of HTML semantics (for accessibility) as well as code readability (for the developers writing/reviewing/maintaining that code, now and in the future).
 
 !!!
