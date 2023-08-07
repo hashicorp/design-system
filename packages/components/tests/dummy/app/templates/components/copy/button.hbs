@@ -8,16 +8,6 @@
 <Shw::Text::H1>Copy::Button</Shw::Text::H1>
 
 <section data-test-percy>
-  <Shw::Text::H2>Generated element</Shw::Text::H2>
-
-  <Shw::Flex as |SF|>
-    <SF.Item class="shw-component-button-generated">
-      <Shw::Label>Default</Shw::Label>
-      <p class="shw-text shw-text-body" id="targetToCopy">This is the target element; the button will copy the text in
-        this target element.</p>
-      <Hds::Copy::Button @text="Copy" @targetToCopy="#targetToCopy" />
-    </SF.Item>
-  </Shw::Flex>
 
   <Shw::Text::H2>Content</Shw::Text::H2>
 
@@ -47,55 +37,159 @@
 
   <Shw::Text::H2>States</Shw::Text::H2>
 
-  <Shw::Grid @columns={{4}} as |SG|>
+  <Shw::Grid @columns={{6}} as |SG|>
     {{#each @model.SIZES as |size|}}
       {{#each @model.STATES as |state|}}
-        <SG.Item @label="{{capitalize size}} / {{capitalize state}}">
+        <SG.Item @label={{if (eq size "small") (capitalize state)}}>
           <Hds::Copy::Button @text="Copy" @size={{size}} mock-state-value={{state}} @targetToCopy="#targetToCopy" />
         </SG.Item>
       {{/each}}
+      {{#let (array "success" "error") as |statuses|}}
+        {{#each statuses as |status|}}
+          <SG.Item @label={{if (eq size "small") (capitalize status)}}>
+            <Hds::Copy::Button @text="Copy" @size={{size}} @targetToCopy="#targetToCopy" mock-copy-status={{status}} />
+          </SG.Item>
+        {{/each}}
+      {{/let}}
     {{/each}}
   </Shw::Grid>
-  <Shw::Text::H2>Status</Shw::Text::H2>
-  <Shw::Flex as |SF|>
-    {{#each @model.STATUS as |status|}}
-      <SF.Item @label="{{capitalize status}}">
-        <Hds::Copy::Button
-          @text="Copy"
-          @targetToCopy="#targetToCopy"
-          @status={{status}}
-          class="hds-copy-button--{{status}}"
-        />
-      </SF.Item>
-    {{/each}}
-  </Shw::Flex>
 
-  <Shw::Text::H2>Some specific use cases for demo purposes</Shw::Text::H2>
+  <Shw::Divider />
+
+  <Shw::Text::H2>Compositions</Shw::Text::H2>
+
   <Shw::Flex as |SF|>
-    <SF.Item>
-      <Shw::Label>A code block</Shw::Label>
-      {{!-- prettier-ignore --}}
-      <pre><code id="targetToCopy3">&lt;h1&gt;A page header example&lt;/h1&gt;
-&lt;p&gt;Some paragraph text also&lt;/p&gt;
-      </code></pre>
-      <Hds::Copy::Button @text="Copy this code block" @targetToCopy="#targetToCopy3" />
+    <SF.Item @label="With MaskedInput::Base">
+      <div class="shw-component-copy-button-composition-masked-input-base">
+        <Hds::Form::MaskedInput::Base @value="Lorem ipsum dolor" />
+        <Hds::Copy::Button @isIconOnly={{true}} @text="Copy" @textToCopy="Lorem ipsum dolor" />
+      </div>
     </SF.Item>
-  </Shw::Flex>
-  <Shw::Flex as |SF|>
-    <SF.Item>
-      <Shw::Label>Copy an input value</Shw::Label>
-      <Hds::Form::TextInput::Field @value="036140285924" @name="test-input" @id="test-input" as |F|>
-        <F.Label>Input Label</F.Label>
-      </Hds::Form::TextInput::Field>
-      <br />
-      <Hds::Copy::Button @text="Copy the input value" @targetToCopy="#test-input" />
+    <SF.Item @label="With MaskedInput::Base (multiline)">
+      <div class="shw-component-copy-button-composition-masked-input-base">
+        <Hds::Form::MaskedInput::Base @isMultiline={{true}} @value="Lorem ipsum dolor" />
+        <Hds::Copy::Button @isIconOnly={{true}} @text="Copy" @textToCopy="Lorem ipsum dolor" />
+      </div>
     </SF.Item>
   </Shw::Flex>
 
   <Shw::Flex as |SF|>
+    <SF.Item @label="With Form::Field + MaskedInput::Base">
+      <Hds::Form::Field @layout="vertical" as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        <F.Control>
+          <div class="shw-component-copy-button-composition-masked-input-base">
+            <Hds::Form::MaskedInput::Base @value="Lorem ipsum dolor" />
+            <Hds::Copy::Button @isIconOnly={{true}} @text="Copy" @textToCopy="Lorem ipsum dolor" />
+          </div>
+        </F.Control>
+      </Hds::Form::Field>
+    </SF.Item>
+    <SF.Item @label="With Form::Field + MaskedInput::Base (multiline)">
+      <Hds::Form::Field @layout="vertical" as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        <F.Control>
+          <div class="shw-component-copy-button-composition-masked-input-base">
+            <Hds::Form::MaskedInput::Base @isMultiline={{true}} @value="Lorem ipsum dolor" />
+            <Hds::Copy::Button @isIconOnly={{true}} @text="Copy" @textToCopy="Lorem ipsum dolor" />
+          </div>
+        </F.Control>
+      </Hds::Form::Field>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="With MaskedInput::Field">
+      <div class="shw-component-copy-button-composition-masked-input-field">
+        <Hds::Form::MaskedInput::Field @value="Lorem ipsum dolor" as |F|>
+          <F.Label>This is the label</F.Label>
+          <F.HelperText>This is the helper text</F.HelperText>
+        </Hds::Form::MaskedInput::Field>
+        <Hds::Copy::Button @isIconOnly={{true}} @text="Copy" @textToCopy="Lorem ipsum dolor" />
+      </div>
+    </SF.Item>
+    <SF.Item @label="With MaskedInput::Field (multiline)">
+      <div class="shw-component-copy-button-composition-masked-input-field">
+        <Hds::Form::MaskedInput::Field @value="Lorem ipsum dolor" @isMultiline={{true}} as |F|>
+          <F.Label>This is the label</F.Label>
+          <F.HelperText>This is the helper text</F.HelperText>
+        </Hds::Form::MaskedInput::Field>
+        <Hds::Copy::Button @isIconOnly={{true}} @text="Copy" @textToCopy="Lorem ipsum dolor" />
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Demo</Shw::Text::H2>
+
+  <Shw::Text::H4 @tag="h3">In memory</Shw::Text::H4>
+
+  <Shw::Flex as |SF|>
     <SF.Item>
-      <Shw::Label>Use textToCopy instead of targetToCopy</Shw::Label>
       <Hds::Copy::Button @text="Copy your secret key" @textToCopy="someSecretThingGoesHere" />
     </SF.Item>
   </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H4 @tag="h3">With target element</Shw::Text::H4>
+
+  <Shw::Grid {{style gap="2rem"}} @columns={{3}} as |SG|>
+    <SG.Item>
+      <Shw::Label>Text element</Shw::Label>
+      <Hds::Copy::Button @text="Copy the paragraph" @targetToCopy="#targetToCopy" />
+      <p class="shw-text shw-text-body" id="targetToCopy">This is the target element; the button will copy the text in
+        this target element.</p>
+    </SG.Item>
+    <SG.Item>
+      <Shw::Label>Code block</Shw::Label>
+      <Hds::Copy::Button @text="Copy the code block" @targetToCopy="#targetToCopy3" />
+      {{!-- prettier-ignore --}}
+      <pre class="shw-component-copy-button-code-block"><code id="targetToCopy3">&lt;h1&gt;A page header example&lt;/h1&gt;
+&lt;p&gt;Some paragraph text also&lt;/p&gt;</code></pre>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Grid {{style gap="2rem"}} @columns={{3}} as |SG|>
+    <SG.Item>
+      <Shw::Label>Input element</Shw::Label>
+      <Hds::Copy::Button @text="Copy the input value" @targetToCopy="#test-input" />
+      <br />
+      <Hds::Form::TextInput::Field @value="036140285924" @name="test-input" @id="test-input" as |F|>
+        <F.Label>Input Label</F.Label>
+      </Hds::Form::TextInput::Field>
+    </SG.Item>
+    <SG.Item>
+      <Shw::Label>Input element (readonly)</Shw::Label>
+      <Hds::Copy::Button @text="Copy the input value" @targetToCopy="#test-input-readonly" />
+      <br />
+      <Hds::Form::TextInput::Field
+        readonly
+        @value="036140285924-readonly"
+        @name="test-input-readonly"
+        @id="test-input-readonly"
+        as |F|
+      >
+        <F.Label>Input Label</F.Label>
+      </Hds::Form::TextInput::Field>
+    </SG.Item>
+    <SG.Item>
+      <Shw::Label>Input element (disabled)</Shw::Label>
+      <Hds::Copy::Button @text="Copy the input value" @targetToCopy="#test-input-disabled" />
+      <br />
+      <Hds::Form::TextInput::Field
+        disabled
+        @value="036140285924-disabled"
+        @name="test-input-disabled"
+        @id="test-input-disabled"
+        as |F|
+      >
+        <F.Label>Input Label</F.Label>
+      </Hds::Form::TextInput::Field>
+    </SG.Item>
+  </Shw::Grid>
+
 </section>
