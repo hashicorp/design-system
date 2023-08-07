@@ -1,6 +1,10 @@
 The `Text` component is a **code-only** component used to apply specific predefined HDS typographic styles to a block of text or content.
 
+!!! Info
+
 The equivalent in Figma is not a component, but a set of [typographic Figma styles](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?type=design&node-id=1262-9192).
+
+!!!
 
 ## How to use this component
 
@@ -50,9 +54,9 @@ Different style variants support different sizes: refer to the [Component API](#
 To apply a specific font weight to the text, use the `@weight` argument:
 
 ```handlebars
-<Hds::Text::Display @tag="h4" @size="300" @weight="bold">"Display" text with "bold" font weight</Hds::Text::Display>
-<Hds::Text::Body @tag="p" @weight="medium">"Body" text with "medium" font weight</Hds::Text::Body>
+<Hds::Text::Display @tag="h4" @size="300" @weight="medium">"Display" text with "medium" font weight</Hds::Text::Display>
 <Hds::Text::Body @tag="p" @weight="semibold">"Body" text with "semibold" font weight</Hds::Text::Body>
+<Hds::Text::Code @tag="pre" @weight="bold">"Copy" text with "bold" font weight</Hds::Text::Code>
 ```
 
 !!! Critical

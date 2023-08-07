@@ -69,7 +69,7 @@ The `Text` component is used through these specialized variants: `Hds::Text::Dis
   <C.Property @name="tag" @type="string" @default="span">
     HTML tag to be used to render the text element.
   </C.Property>
-  <C.Property @name="weight" @type="string" @values={{array "regular" }} @default="regular">
+  <C.Property @name="weight" @type="string" @values={{array "regular" "bold" }} @default="regular">
     The font weight of the text. If no `@weight` argument is provided, the component will inherit its weight from the parent container/context.
   </C.Property>
   <C.Property @name="align" @type="string" @values={{array "left" "center" "right" }}>
