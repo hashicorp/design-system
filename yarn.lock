@@ -2799,7 +2799,7 @@ __metadata:
     "@glimmer/component": ^1.1.2
     "@glimmer/tracking": ^1.1.2
     "@hashicorp/design-system-tokens": ^1.7.0
-    "@hashicorp/ember-flight-icons": ^3.0.8
+    "@hashicorp/ember-flight-icons": ^3.0.9
     "@percy/cli": ^1.24.2
     "@percy/ember": ^4.2.0
     babel-eslint: ^10.1.0
@@ -2890,7 +2890,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/ember-flight-icons@^3.0.8, @hashicorp/ember-flight-icons@workspace:^, @hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons":
+"@hashicorp/ember-flight-icons@^3.0.9, @hashicorp/ember-flight-icons@workspace:^, @hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons":
   version: 0.0.0-use.local
   resolution: "@hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons"
   dependencies:
@@ -2900,7 +2900,7 @@ __metadata:
     "@embroider/test-setup": ^2.1.1
     "@glimmer/component": ^1.1.2
     "@glimmer/tracking": ^1.1.2
-    "@hashicorp/flight-icons": ^2.16.0
+    "@hashicorp/flight-icons": ^2.17.0
     babel-eslint: ^10.1.0
     broccoli-asset-rev: ^3.0.0
     ember-auto-import: ^2.6.3
@@ -2936,7 +2936,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/flight-icons@^2.16.0, @hashicorp/flight-icons@workspace:^, @hashicorp/flight-icons@workspace:packages/flight-icons":
+"@hashicorp/flight-icons@^2.17.0, @hashicorp/flight-icons@workspace:^, @hashicorp/flight-icons@workspace:packages/flight-icons":
   version: 0.0.0-use.local
   resolution: "@hashicorp/flight-icons@workspace:packages/flight-icons"
   dependencies:
