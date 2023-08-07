@@ -73,9 +73,9 @@ Refer to the [Component API](#component-api) section to see what the allowed com
 To specify a text alignment use the `@align` argument:
 
 ```handlebars
-<Hds::Text::Display @tag="h1" @align="right">This text is right aligned</Hds::Text::Display>
-<Hds::Text::Body @tag="p" @align="center">This text is center aligned</Hds::Text::Body>
-<Hds::Text::Code @tag="pre" @align="left">This text is left aligned</Hds::Text::Code>
+<Hds::Text::Display @tag="h1" @align="right">This text is right-aligned</Hds::Text::Display>
+<Hds::Text::Body @tag="p" @align="center">This text is center-aligned</Hds::Text::Body>
+<Hds::Text::Code @tag="pre" @align="left">This text is left-aligned</Hds::Text::Code>
 ```
 
 ### Color
@@ -134,7 +134,7 @@ We can imagine even more complex examples where we may want to apply a typograph
 **Notice**
 
 While this is technically possible, it's not necessarily desirable (or correct in every possible context).
-Please be mindful of how the markup is structured, in terms of HTML semantic (for accessibility) as well as code readability (for the developers writing/reviewing/maintaining that code, now and in the future).
+Please be mindful of how the markup is structured, in terms of HTML semantics (for accessibility) as well as code readability (for the developers writing/reviewing/maintaining that code, now and in the future).
 
 !!!
 
