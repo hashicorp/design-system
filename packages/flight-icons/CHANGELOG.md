@@ -1,5 +1,11 @@
 # @hashicorp/flight-icons
 
+## 2.17.0
+
+### Minor Changes
+
+- [#1532](https://github.com/hashicorp/design-system/pull/1532) [`ccfb5795a`](https://github.com/hashicorp/design-system/commit/ccfb5795af4ee2e55939de1be3037003e85cc77e) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Added new `clipboard-x` icon
+
 ## 2.16.0
 
 ### Minor Changes
