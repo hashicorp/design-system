@@ -15,26 +15,26 @@ This is the full-fledged component (responsive and animated).
     A named block where the content for the “footer” section of the SideNav is rendered. It yields the value of `isMinimized` too.
   </C.Property>
   <C.Property @name="isResponsive" @type="boolean" @default="true">
-    Controls whether the SideNav is responsive to viewport changes. It can be programmatically turned off passing `false`.
+    Controls whether the SideNav is responsive to viewport changes. It can be programmatically turned off by passing `false`.
     <br>
-    <em>Notice: even if the @isResponsive parameter is set to false, some JavaScript is executed anyway in the background, and events listeners are attached to some DOM elements (even if these functionality are not used).</em>
+    <em>Notice: even if the @isResponsive parameter is set to false, some JavaScript is executed anyway in the background, and event listeners are attached to some DOM elements (even if this functionality is not used).</em>
   </C.Property>
   <C.Property @name="hasA11yRefocus" @type="boolean" @default="true">
-    Controls whether a "navigator narrator" and a "skip link" are added to the navigation (provided by the [`ember-a11y-refocus` Ember addon](https://github.com/ember-a11y/ember-a11y-refocus)). It can be programmatically turned off passing `false`.
+    Controls whether a "navigator narrator" and a "skip link" are added to the navigation (provided by the [`ember-a11y-refocus` Ember addon](https://github.com/ember-a11y/ember-a11y-refocus)). It can be programmatically turned off by passing `false`.
     <br><br>
     <em>For details about the addon behaviour and functionality, refer to the [official documentation](https://github.com/ember-a11y/ember-a11y-refocus#readme).</em>
     <Doc::ComponentApi as |C|>
       <C.Property @name="a11yRefocusSkipTo" @type="string">
-        Pass through property for the `skipTo` argument - The element ID that should receive focus on skip.
+        Pass-through property for the `skipTo` argument - The element ID that should receive focus on skip.
       </C.Property>
       <C.Property @name="a11yRefocusSkipText" @type="string">
-        Pass through property for the `skipText` argument - The text passed in the skip link; defaults to "Skip to main content".
+        Pass-through property for the `skipText` argument - The text passed in the skip link; defaults to "Skip to main content".
       </C.Property>
       <C.Property @name="a11yRefocusNavigationText" @type="string">
-        Pass through property for the `navigationText` argument - The text used as navigation message. Defaults to "The page navigation is complete. You may now navigate the page content as you wish.".
+        Pass-through property for the `navigationText` argument - The text used as navigation message. Defaults to "The page navigation is complete. You may now navigate the page content as you wish.".
       </C.Property>
       <C.Property @name="a11yRefocusRouteChangeValidator" @type="string">
-        Pass through property for the `routeChangeValidator` argument - Custom function used to define which route changes should trigger the refocusing behavior for the navigator narrator. - For details see [Customizing the definition of a route change](https://github.com/ember-a11y/ember-a11y-refocus#customizing-the-definition-of-a-route-change).
+        Pass-through property for the `routeChangeValidator` argument - Custom function used to define which route changes should trigger the refocusing behavior for the navigator narrator. - For details see [Customizing the definition of a route change](https://github.com/ember-a11y/ember-a11y-refocus#customizing-the-definition-of-a-route-change).
       </C.Property>
     </Doc::ComponentApi>
   </C.Property>
