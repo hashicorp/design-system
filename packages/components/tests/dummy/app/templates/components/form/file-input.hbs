@@ -17,20 +17,8 @@
 
   <div class="{{if this.showHighlight 'shw-component-form-file-input-layout-highlight'}}">
     <Shw::Flex {{style gap="2rem"}} as |SF|>
-      <SF.Item @label="FileInput">
-        <Shw::Text::Body>
-          <code>Input[type=file]</code>
-          (styled via
-          <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::file-selector-button">
-            <code>::file-selector-button</code>
-          </a>)
-        </Shw::Text::Body>
+      <SF.Item>
         <Hds::Form::FileInput::Base />
-      </SF.Item>
-
-      <SF.Item @label="HdsButton for visual reference">
-        <Shw::Text::Body><code>Hds::Button[@color=secondary]</code></Shw::Text::Body>
-        <Hds::Button @icon="upload" @text="Choose file" @color="secondary" />
       </SF.Item>
     </Shw::Flex>
 
@@ -47,19 +35,6 @@
       </SF.Item>
     </Shw::Flex>
 
-    <Shw::Divider @level={{2}} />
-
-    <Shw::Text::H3>HdsButton states for visual reference</Shw::Text::H3>
-    <Shw::Flex {{style gap="2rem"}} as |SF|>
-      {{#each @model.STATES as |state|}}
-        <SF.Item @label={{state}}>
-          <Hds::Button @icon="upload" @text="Choose file" @color="secondary" mock-state-value={{state}} />
-        </SF.Item>
-      {{/each}}
-      <SF.Item @label="disabled">
-        <Hds::Button @icon="upload" @text="Choose file" @color="secondary" mock-state-value="disabled" disabled />
-      </SF.Item>
-    </Shw::Flex>
   </div>
 
   <Shw::Divider />

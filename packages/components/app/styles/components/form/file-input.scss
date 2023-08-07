@@ -13,8 +13,6 @@
   margin: -4px 0 -4px -4px; // offset shadow padding + default 1px spacing
   padding: 3px 0 3px 3px; // add padding so button shadow is visible
   color: var(--token-color-foreground-primary);
-  border: 1px solid transparent;
-  border-radius: calc($hds-button-border-radius + 1px);
 
   &:focus,
   &:focus-visible {
@@ -27,25 +25,18 @@
 
 // Button
 .hds-form-file-input::file-selector-button {
-  min-height: 2.25rem;
+  min-height: 36px;
   margin-right: 16px;
-  margin-inline-end: 16px;
-  padding: 0.5625rem 0.9375rem;
-  padding-left: 34px; // override to add space for the background image icon
+  padding: 7px 16px 7px 37px; // padding in code altered to match Figma visual design
   color: var(--token-color-foreground-primary);
   font: inherit;
-  line-height: 1rem;
-  text-decoration: none;
   background-color: var(--token-color-surface-faint);
-
   // upload icon
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3E%3Cg fill='%233b3d45'%3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: 14px 50%;
+  background-position: 15px 50%;
   background-size: var(--token-form-text-input-background-image-size);
-
-  border: $hds-button-border-width solid transparent;
-  border-color: var(--token-color-border-strong);
+  border: $hds-button-border-width solid var(--token-color-border-strong);
   border-radius: $hds-button-border-radius;
   box-shadow: var(--token-elevation-low-box-shadow);
   cursor: pointer;
@@ -93,22 +84,11 @@
   &:disabled:hover,
   &[disabled]:hover,
   &.mock-disabled:hover {
+    color: var(--token-color-foreground-disabled);
+
     &::file-selector-button {
       @include hds-button-state-disabled();
-    }
-  }
-
-  &::file-selector-button {
-    &:disabled,
-    &[disabled],
-    &.mock-disabled,
-    &:disabled:focus,
-    &[disabled]:focus,
-    &.mock-disabled:focus,
-    &:disabled:hover,
-    &[disabled]:hover,
-    &.mock-disabled:hover {
-      @include hds-button-state-disabled();
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3E%3Cg fill='%238c909c'%3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E");
     }
   }
 }

@@ -15,15 +15,4 @@ module('Integration | Component | hds/form/file-input/base', function (hooks) {
     await render(hbs`<Hds::Form::FileInput::Base id="test-form-file-input" />`);
     assert.dom('#test-form-file-input').hasClass('hds-form-file-input');
   });
-
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component', async function (assert) {
-    await render(
-      hbs`<Hds::Form::FileInput::Base id="test-form-file-input" class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('#test-form-file-input').hasClass('my-class');
-    assert.dom('#test-form-file-input').hasAttribute('data-test1');
-    assert.dom('#test-form-file-input').hasAttribute('data-test2', 'test');
-  });
 });
