@@ -38,15 +38,13 @@ In records that express a value with a badge (e.g., status, health, etc), mainta
 
 #### Null value fallback
 
-As a fallback, consider using an `em dash (—)` or `n/a (not available)` in place of the null value. This may occur when the content type of a value isnt able to be determined or if the value is null for an unknown reason.
+As a fallback, consider using an `em dash (—)` in place of the null value. This may occur when the content type of a value isn’t able to be determined or if the value is null for an unknown reason.
 
 ![Null value communicated with an em-dash](/assets/components/table/null-value-fallback-em-dash.png)
 
-![Null value communicated with n/a](/assets/components/table/null-value-fallback-na.png)
-
 #### Communicating why a value is null
 
-Depending on the data set and the type of content it expresses, consider communicating to the user _why_ a value is null by using a tooltip. This can communicate broader product-specific functions and terminology, but can also highlight errors or issues that need to be corrected.
+Depending on the data set and the type of content it expresses, consider communicating to the user _why_ a value is null by using a [Tooltip](/components/tooltip). This can communicate broader product-specific functions and terminology, but can also highlight errors or issues that need to be corrected.
 
 ![Null value cause communicated with a tooltip](/assets/components/table/null-value-cause-tooltip.png)
 
@@ -58,6 +56,6 @@ Common examples of this include:
 
 - A table expressing a data set that is dependent on user-created records which don’t exist.
 - An error occurred when fetching the data for the table.
-- A data set has been filtered to the point of not returning any records (see our [Filter patterns](/patterns/filter-patterns#empty-state) pattern guidance for more details).
+- A data set has been filtered to the point of not returning any records (see our [Filter patterns](/patterns/filter-patterns#empty-state) guidance for more details).
 
 ![Null data set within a table](/assets/components/table/null-data-set-in-a-table.png)
