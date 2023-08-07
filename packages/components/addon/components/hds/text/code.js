@@ -9,9 +9,9 @@ export const AVAILABLE_SIZES = [300, 200, 100];
 
 export const DEFAULT_WEIGHT = 'regular';
 export const AVAILABLE_WEIGHTS_PER_SIZE = {
-  300: ['regular'],
-  200: ['regular'],
-  100: ['regular'],
+  300: ['regular', 'bold'],
+  200: ['regular', 'bold'],
+  100: ['regular', 'bold'],
 };
 
 export default class HdsTextCodeComponent extends Component {

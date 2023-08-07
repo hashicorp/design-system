@@ -49,7 +49,7 @@ module('Integration | Component | hds/text/code', function (hooks) {
   });
   test('it should throw an assertion if an incorrect value for @weight is provided when @size=300', async function (assert) {
     const errorMessage =
-      '@weight for "Hds::Text::Code" with @size=300 must be one of the following: regular; received: foo';
+      '@weight for "Hds::Text::Code" with @size=300 must be one of the following: regular, bold; received: foo';
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
@@ -61,7 +61,7 @@ module('Integration | Component | hds/text/code', function (hooks) {
   });
   test('it should throw an assertion if an incorrect value for @weight is provided when @size=200', async function (assert) {
     const errorMessage =
-      '@weight for "Hds::Text::Code" with @size=200 must be one of the following: regular; received: foo';
+      '@weight for "Hds::Text::Code" with @size=200 must be one of the following: regular, bold; received: foo';
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
@@ -73,7 +73,7 @@ module('Integration | Component | hds/text/code', function (hooks) {
   });
   test('it should throw an assertion if an incorrect value for @weight is provided when @size=100', async function (assert) {
     const errorMessage =
-      '@weight for "Hds::Text::Code" with @size=100 must be one of the following: regular; received: foo';
+      '@weight for "Hds::Text::Code" with @size=100 must be one of the following: regular, bold; received: foo';
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
