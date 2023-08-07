@@ -2,8 +2,8 @@
 
 The File Input component has two different variants with their own APIs:
 
-- `Form::FileInput::Base` - the base component: the `<input type="file">` control
-- `Form::FileInput::Field` - the field parent component: the `<input type="file">` control, with label, helper text, and error messaging (in a wrapping container)
+- `Form::FileInput::Base`—the base component: the `<input type="file">` control
+- `Form::FileInput::Field`—the field parent component: the `<input type="file">` control, with label, helper text, and error messaging (in a wrapping container)
 
 ### Form::FileInput::Base
 
@@ -11,7 +11,7 @@ The File Input component has two different variants with their own APIs:
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
     <br/><br/>
-    The attributes will be applied to the `<input type="file">` element. This means you can use all the standard HTML attributes of the `<input type="file">` element and all the usual Ember techniques for event handling, validation, etc.
+    The attributes will be applied to the `<input type="file">` element. This means you can use [all the standard HTML attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file) of the `<input type="file">` element and all the usual Ember techniques for event handling, validation, etc.
     <br/><br/>
     Examples of HTML attributes: `id`, `name`, `value`, `placeholder`, `disabled`, `readonly`, `required`. See [the whole list of HTML attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attributes). Examples of Ember modifiers: `\{{on "input" [do something]}}`, `\{{on "change" [do something]}}`, `\{{on "blur" [do something]}}`.
   </C.Property>
