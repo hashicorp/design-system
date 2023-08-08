@@ -10,10 +10,10 @@
 .hds-segmented-group {
   display: inline-flex;
 
-  .hds-button,
-  .hds-dropdown,
-  .hds-form-select,
-  .hds-form-text-input {
+  > .hds-button,
+  > .hds-dropdown,
+  > .hds-form-select,
+  > .hds-form-text-input {
     &:first-child {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
