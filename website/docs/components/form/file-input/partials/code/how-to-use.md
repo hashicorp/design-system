@@ -43,7 +43,7 @@ The `Label` and `HelperText` contextual components used in the Field component y
 ```handlebars
 <Hds::Form::FileInput::Field as |F|>
   <F.Label>Upload a file <Hds::Badge @size="small" @text="Beta" /></F.Label>
-  <F.HelperText>This is an experimental feature (<Hds::Link::Inline @href="#">read more</Hds::Link::Inline>).</F.HelperText>
+  <F.HelperText>This is an <Hds::Link::Inline @href="#">experimental feature</Hds::Link::Inline>.</F.HelperText>
 </Hds::Form::FileInput::Field>
 ```
 
