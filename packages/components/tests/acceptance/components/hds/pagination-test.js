@@ -6,9 +6,26 @@
 import { module, test } from 'qunit';
 import { click, select, visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from '../../../helpers';
+import { a11yAudit } from 'ember-a11y-testing/test-support';
 
 module('Acceptance | Component | hds/pagination', function (hooks) {
   setupApplicationTest(hooks);
+
+  test('visit components/pagination and check a11y', async function (assert) {
+    let axeOptions = {
+      rules: {
+        'duplicate-id': { enabled: false },
+      },
+    };
+
+    await visit('/components/pagination');
+
+    assert.strictEqual(currentURL(), '/components/pagination');
+
+    await a11yAudit(axeOptions);
+
+    assert.ok(true, 'no a11y errors found!');
+  });
 
   test('interacting with the demo of a "numbered" pagination with routing', async function (assert) {
     await visit('/components/pagination');
