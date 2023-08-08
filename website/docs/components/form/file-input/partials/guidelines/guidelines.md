@@ -14,17 +14,19 @@ File Input accepts [all native HTML types](https://developer.mozilla.org/en-US/d
 
 ### Disabled State 
 
-The File Input lets users add documents and images. If disabled, users may feel confused, frustrated, and unsure about why it's not working.
+The File Input component lets users add documents and images. If disabled, users may feel confused, frustrated, and unsure about why it's not working.
 
-Instead of disabling the file input component, consider these options:
+Instead of disabling the file input component, consider these options: 
 
-- Include explanatory text or prompts: If you display the disabled file input, explain why it's disabled and what users need to do to enable it. You can use a tooltip, a pop-up message, or an instructional sentence.
+- Include explanatory text or prompts: If you display a disabled file input, explain why it's disabled and what users need to do to enable it. You can use a tooltip, or an instructional sentence.
 
 - Use progressive disclosure: Display or enable the file input only when users meet certain conditions (e.g., after completing the necessary information). This approach guides users step-by-step and presents relevant options based on their progress.
 
 ### Truncation
 
 Truncation works differently in Figma and the browser. In Figma, truncation occurs at the end of the text, while in the browser, it will truncate text in the middle.
+
+![visual diffrence in truncation between figma and browser](/assets/components/form/file-input/file-input-truncation.png)
 
 ### Multiple Files 
 

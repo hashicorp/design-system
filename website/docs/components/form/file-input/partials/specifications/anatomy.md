@@ -1,15 +1,13 @@
 ## Anatomy
 
-<!-- image then table -->
-![Anatomy of formFileInput](/assets/components/alert/form-file-input-anatomy-inline.png)
+![Anatomy of File Input](/assets/components/form/file-input/file-input-anatomy.png)
 
-<!-- this is just an example, refer to other components to see how to fill this table -->
-| Element          | Usage                                           |
-|------------------|-------------------------------------------------|
-| Icon             | Optional, but recommended                       |
-| Title            | Required, if no description Optional, otherwise |
-| Description      | Required, if no title Optional, otherwise       |
-| Actions          | Optional                                        |
-| Dismiss button   | Optional                                        |
-| Content          | Required                                        |
-| Container        | Required                                        |
+
+| Element           | Usage                                          |
+|-------------------|------------------------------------------------|
+| Label             | Required                                       |
+| Indicator         | Optional                                       |
+| Helper text       | Optional                                       |
+| Button            | Required                                       |
+| File status       | Required                                       |
+| Error message     | Triggered by system                            |

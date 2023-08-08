@@ -1,2 +1,3 @@
-<!-- populate with examples and documentation of interactive states -->
-<!-- this can usually be found in the design guidelines -->
+## States
+
+![Example of file input states](/assets/components/form/file-input/file-input-states.png)
