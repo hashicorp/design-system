@@ -190,16 +190,14 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   max-width: initial;
 }
 
-.hds-dropdown__content--position-bottom-right,
-.hds-dropdown__content--position-right {
+.hds-dropdown__content--position-bottom-right {
   position: absolute;
   top: calc(100% + 4px);
   right: 0;
   z-index: 2;
 }
 
-.hds-dropdown__content--position-bottom-left,
-.hds-dropdown__content--position-left {
+.hds-dropdown__content--position-bottom-left {
   position: absolute;
   top: calc(100% + 4px);
   left: 0;
