@@ -11,4 +11,9 @@ export default class Index extends Component {
   copyToClipboard() {
     console.log('Clicked "Copy to clipboard" button!');
   }
+
+  @action
+  alertOnClick() {
+    alert('Hello from Helios!');
+  }
 }
