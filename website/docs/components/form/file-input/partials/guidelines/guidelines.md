@@ -14,9 +14,9 @@ File Input accepts [all native HTML types](https://developer.mozilla.org/en-US/d
 
 ### Disabled State 
 
-The File Input component lets users add documents and images. If disabled, users may feel confused, frustrated, and unsure about why it's not working.
+The File Input component lets users add documents and images. Disabling it can make users feel confused, frustrated, and unsure about why it's not working.
 
-Instead of disabling the file input component, consider these options: 
+Instead of disabling, consider these alternatives:
 
 - Include explanatory text or prompts: If you display a disabled file input, explain why it's disabled and what users need to do to enable it. You can use a tooltip, or an instructional sentence.
 

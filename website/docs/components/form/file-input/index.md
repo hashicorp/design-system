@@ -1,7 +1,7 @@
 ---
 title: File Input
-description: A form input that enables users to select one or more files from their local device for upload.
-caption: A form input that enables users to upload files.
+description: A file input that enables users to select one or more files from their local device for upload.
+caption: A file input that enables users to upload files.
 links:
   figma: {link to the "Form::FileInput" page in the components Figma library}
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/form/file-input
