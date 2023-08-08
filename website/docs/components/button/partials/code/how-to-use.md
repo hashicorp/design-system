@@ -70,7 +70,7 @@ There are three sizes available for the Button: `small`, `medium`, and `large`. 
 This indicates that the Button should take up the full-width of the parent container. It’s set to `false` by default.
 
 ```handlebars
-<Hds::Button @text="Copy to clipboard" @isFullWidth={{true}} />
+<Hds::Button @text="Full width button" @isFullWidth={{true}} />
 ```
 
 ### Type
