@@ -132,5 +132,5 @@ If using an `@href` or `@route` and needing to disable the component, you’ll n
 !!!
 
 ```handlebars
-<Hds::Button @text="Alert me" disabled />
+<Hds::Button @text="Alert me" disabled {{on "click" this.alertOnClick}} />
 ```
