@@ -1,0 +1,84 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<Hds::AppFrame as |Frame|>
+  <Frame.Sidebar>
+    <Hds::SideNav @isResponsive={{true}} @hasA11yRefocus={{true}} @a11yRefocusSkipTo="my-content-id">
+      <:header as |Header|>
+        <Hds::SideNav::Header>
+          <:logo>
+            <Hds::SideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @route="demo-app" />
+          </:logo>
+          <:actions>
+            <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
+              <dd.ToggleIcon @icon="help" @text="settings menu" />
+              <dd.Title @text="Signed In" />
+              <dd.Description @text="email@domain.com" />
+              <dd.Separator />
+              <dd.Interactive @href="#" @text="Settings and Preferences" />
+            </Hds::Dropdown>
+            <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
+              <dd.ToggleIcon @icon="user" @text="user menu" />
+              <dd.Title @text="Signed In" />
+              <dd.Description @text="email@domain.com" />
+              <dd.Interactive @href="#" @text="Account Settings" />
+            </Hds::Dropdown>
+          </:actions>
+        </Hds::SideNav::Header>
+        {{#unless Header.isMinimized}}
+          <pre>TEST POST HEADER</pre>
+        {{/unless}}
+      </:header>
+      <:body as |Body|>
+        {{! <pre>PRE BODY FIXED CONTENT</pre> }}
+        {{#unless Body.isMinimized}}
+          <pre>TEST PRE BODY</pre>
+        {{/unless}}
+        <Hds::SideNav::Portal::Target />
+        {{#unless Body.isMinimized}}
+          <pre>TEST POST BODY</pre>
+        {{/unless}}
+      </:body>
+      <:footer>
+        <Hds::Card::Container @level="base" class="demo-app-fake-banner-footer hds-side-nav-hide-when-minimized">
+          Subscription expires in 5 days
+        </Hds::Card::Container>
+        <div class="demo-app-fake-org-switcher hds-side-nav-hide-when-minimized">
+          <FlightIcon @name="org" />
+          <span>fake-org-switcher</span>
+          <FlightIcon @name="caret" />
+        </div>
+        <pre class="hds-side-nav-hide-when-minimized">App version 1.2.3</pre>
+      </:footer>
+    </Hds::SideNav>
+  </Frame.Sidebar>
+  <Frame.Main id="my-content-id">
+    {{outlet}}
+  </Frame.Main>
+  <Frame.Footer>This is the footer!</Frame.Footer>
+  <Frame.Modals id="my-modals-id" data-test-modals-container />
+</Hds::AppFrame>
+
+<Hds::SideNav::Portal as |Nav|>
+  <Nav.extraBefore><pre>Extra before (portal)</pre></Nav.extraBefore>
+  <Nav.Link @route="demo-app" @icon="dashboard" @text="Dashboard" />
+  <Nav.Title>Services</Nav.Title>
+  <Nav.Link @href="#" @icon="boundary" @text="Boundary" />
+  <Nav.Link @href="#" @icon="consul" @text="Consul" />
+  <Nav.Link @href="#" @icon="packer" @text="Packer" @hasSubItems={{true}} />
+  <Nav.Link @href="#" @icon="vault" @text="Vault" />
+  <Nav.Link @href="#" @icon="terraform" @text="Terraform" @hasSubItems={{true}} />
+  <Nav.Link @href="#" @icon="vagrant" @text="Vagrant" />
+  <Nav.Link @route="demo-app.sub-page" @icon="waypoint" @text="Waipoint" @badge="Beta" />
+  <Nav.Title>Something</Nav.Title>
+  <Nav.Item>
+    <div class="demo-app-fake-org-switcher">
+      <span>Partition-1</span>
+      <FlightIcon @name="caret" />
+    </div>
+  </Nav.Item>
+  <Nav.Title>Something else</Nav.Title>
+  <Nav.Link @href="#" @icon="hexagon" @text="Hello" />
+  <Nav.Link @href="#" @icon="hexagon" @text="World" />
+</Hds::SideNav::Portal>

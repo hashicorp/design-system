@@ -1,0 +1,111 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// DEMO APP
+
+body.demo-app {
+  // we remove the grid layout
+  display: initial;
+
+  // we hide the "show" frame elements
+  .shw-page-header,
+  .shw-page-aside {
+    display: none;
+  }
+
+  .shw-page-main {
+    display: contents;
+    padding: 0 !important;
+  }
+
+  // we outline the "frame" elements
+  .hds-app-frame {
+    outline: 1px dotted #d3d3d3;
+  }
+
+  .hds-app-frame__header {
+    border-bottom: 1px dotted #d3d3d3;
+  }
+
+  .hds-app-frame__sidebar {
+    border-right: 1px dotted #d3d3d3;
+  }
+
+  .hds-app-frame__footer {
+    border-top: 1px dotted #d3d3d3;
+  }
+
+  // FAKE ELEMENTS
+
+  .demo-app-fake-banner-footer {
+    margin-bottom: 12px;
+    padding: 16px;
+    color: var(--token-color-foreground-faint);
+    font-size: var(--token-typography-body-100-font-size);
+    font-family: var(--token-typography-body-100-font-family);
+    line-height: var(--token-typography-body-100-line-height);
+  }
+
+  .demo-app-fake-org-switcher {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 36px;
+    padding: 0 12px;
+    color: var(--token-color-palette-neutral-300);
+    font-weight: 400;
+    font-size: var(--token-typography-body-200-font-size);
+    font-family: var(--token-typography-body-200-font-family);
+    line-height: var(--token-typography-body-200-line-height);
+    text-align: left;
+    background-color: var(--token-color-palette-neutral-700);
+    border: 1px solid var(--token-color-palette-neutral-500);
+    border-radius: 5px;
+    box-shadow: none;
+
+    .flight-icon {
+      flex: none;
+    }
+
+    span {
+      flex: 1 1 auto;
+      margin-right: auto;
+      margin-left: 6px;
+    }
+  }
+
+  .demo-app-fake-terraform-welcome-message {
+    padding: 32px 12px;
+
+    h2 {
+      color: var(--token-color-palette-neutral-0);
+    }
+
+    h3 {
+      margin: 8px 0 0;
+      color: var(--token-color-palette-neutral-100);
+    }
+
+    p {
+      margin: 8px 0 0;
+      color: var(--token-color-palette-neutral-200);
+    }
+
+    ul {
+      margin: 8px 0 0;
+      padding: 0;
+    }
+
+    li {
+      margin: 0;
+      padding-left: 8px;
+      color: var(--token-color-palette-neutral-300);
+
+      & + & {
+        margin-top: 4px;
+      }
+    }
+  }
+}
