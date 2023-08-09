@@ -4,14 +4,6 @@
 
 - Use a file input to let users quickly select files from their computer.
 
-### Types of File Inputs 
-
-The appearance of file input can vary across different web browsers.
-
-File Input accepts [all native HTML types](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file), but we offer built in styling for the following:
-
-![Types of File Inputs in web browsers](/assets/components/form/file-input/file-input-browsers.png)
-
 ### Disabled State 
 
 The File Input component lets users add documents and images. Disabling it can make users feel confused, frustrated, and unsure about why it's not working.
@@ -26,8 +18,16 @@ Instead of disabling, consider these alternatives:
 
 Truncation works differently in Figma and the browser. In Figma, truncation occurs at the end of the text, while in the browser, it will truncate text in the middle.
 
-![visual diffrence in truncation between figma and browser](/assets/components/form/file-input/file-input-truncation.png)
+![visual difference in truncation between figma and browser](/assets/components/form/file-input/file-input-truncation.png)
 
 ### Multiple Files 
 
 In the native HTML file input, you can input multiple files using the "multiple" attribute. When you input more than one file, the status message will change to show the number of files you've selected, such as "2 files" in Chrome (Other browsers may have slight differences in how they display this).
+
+### Browser differences
+
+The appearance of file input can vary across different web browsers.
+
+File Input accepts [all native HTML types](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file), but we offer built in styling for the following:
+
+![Types of File Inputs in web browsers](/assets/components/form/file-input/file-input-browsers.png)

@@ -1,1 +1,0 @@
-A file input enables the user to select a file from their computer.
