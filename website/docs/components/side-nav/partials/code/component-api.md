@@ -20,7 +20,7 @@ This is the full-fledged component (responsive and animated).
     <em>Notice: even if the @isResponsive parameter is set to false, some JavaScript is executed anyway in the background, and event listeners are attached to some DOM elements (even if this functionality is not used).</em>
   </C.Property>
   <C.Property @name="hasA11yRefocus" @type="boolean" @default="true">
-    Controls whether a "navigator narrator" and a "skip link" are added to the navigation (provided by the [`ember-a11y-refocus` Ember addon](https://github.com/ember-a11y/ember-a11y-refocus)). It can be programmatically turned off by passing `false`.
+    Controls whether a "navigator narrator" and a "skip link" are added to the navigation (provided by the [`ember-a11y-refocus` Ember addon](https://github.com/ember-a11y/ember-a11y-refocus)). It can be programmatically turned off by passing `false`. Warning: if it is set to false, then it will fail Bypass Blocks, [Success Criteria 2.4.1](https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks.html). Since this component appears on every page, the application will not be considered conformant.
     <br><br>
     <em>For details about the addon behaviour and functionality, refer to the [official documentation](https://github.com/ember-a11y/ember-a11y-refocus#readme).</em>
     <Doc::ComponentApi as |C|>

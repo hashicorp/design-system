@@ -456,7 +456,7 @@ By default, the component uses the [ember-a11y-refocus](https://github.com/ember
 
 **Notice**
 
-The addon introduces a refocusing behavior **on route changes** that may interfere with the hosting application (eg. unfocusing an active element). For details on how to control this behaviour, see [Customizing the definition of a route change](https://github.com/ember-a11y/ember-a11y-refocus#customizing-the-definition-of-a-route-change).
+The addon introduces a refocusing behavior **on route changes** that may interfere with the hosting application (eg. unfocusing an active element). For details on how to control this behavior, see the section about [customizing the definition of a route change](https://github.com/ember-a11y/ember-a11y-refocus#customizing-the-definition-of-a-route-change).
 
 !!!
 
