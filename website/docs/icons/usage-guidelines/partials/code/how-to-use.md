@@ -15,6 +15,25 @@ yarn add @hashicorp/ember-flight-icons
 Because this addon exposes a `data-test-icon` helper, we recommend installing [`ember-test-selectors`](https://github.com/simplabs/ember-test-selectors) which strips out all `data-test-*` attributes for production builds.
 !!!
 
+
+#### Deferred loading
+
+By default, the SVG sprite will be injected into your application's `index.html` file. If you would like this to happen later as part of your app bundle you can set the `lazyEmbed` flag to `true` in the `emberFlightIcons` object in your app's `config/environment.js` file:
+
+```js
+module.exports = function(environment) {
+  const ENV = {
+    // your other config
+    ...
+    emberFlightIcons: {
+      lazyEmbed: true,
+    },
+  };
+}
+```
+
+For more information on why this may be helpful in certain scenarios, see [DS-049 - Improve Ember Flight Icons Loading Performance](https://go.hashi.co/rfc/ds-049).
+
 ### Using icons in React apps
 
 To use icons in a React application, install the `@hashicorp/flight-icons` package and import the icons as either inline SVGs or as a standalone React/SVG component. 
