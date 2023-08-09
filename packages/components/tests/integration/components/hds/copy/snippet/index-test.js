@@ -88,6 +88,15 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet--status-idle');
   });
 
+  test('it should be able to copy a number', async function (assert) {
+    // context: https://github.com/hashicorp/design-system/pull/1564
+    await render(
+      hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy={{123456789}} />`
+    );
+    // if the `ember-cli-clipboard` addon fails it triggers a JS error
+    assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet--status-idle');
+  });
+
   // ASSERTIONS
 
   test('it should throw an assertion if an incorrect value for @color is provided', async function (assert) {
