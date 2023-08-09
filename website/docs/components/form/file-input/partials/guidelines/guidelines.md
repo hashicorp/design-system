@@ -30,4 +30,4 @@ The appearance of file input can vary across different web browsers.
 
 File Input accepts [all native HTML types](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file), but we offer built in styling for the following:
 
-![Types of File Inputs in web browsers](/assets/components/form/file-input/file-input-browsers.png)
+![Examples of file input states rendered in different web browsers](/assets/components/form/file-input/file-input-browsers.png)
