@@ -35,6 +35,14 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Flex as |SF|>
+    <SF.Item>
+      <Shw::Label>With number to copy</Shw::Label>
+      {{! context: https://github.com/hashicorp/design-system/pull/1564 }}
+      <Hds::Copy::Snippet @textToCopy={{123456789}} />
+    </SF.Item>
+  </Shw::Flex>
+
   <Shw::Text::H2>Full width</Shw::Text::H2>
   <Shw::Flex as |SF|>
     <SF.Item>

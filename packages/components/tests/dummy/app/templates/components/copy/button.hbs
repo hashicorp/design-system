@@ -131,6 +131,10 @@
     <SF.Item>
       <Hds::Copy::Button @text="Copy your secret key" @textToCopy="someSecretThingGoesHere" />
     </SF.Item>
+    <SF.Item>
+      {{! context: https://github.com/hashicorp/design-system/pull/1564 }}
+      <Hds::Copy::Button @text="Copy a number" @textToCopy={{123456789}} />
+    </SF.Item>
   </Shw::Flex>
 
   <Shw::Divider @level={{2}} />
