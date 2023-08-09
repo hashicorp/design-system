@@ -1,6 +1,6 @@
 ## How to use this component
 
-The File Input component uses the native HTML input with type="file" under the hood but adds visual styling to match other HDS components.
+The File Input component uses the native HTML input with `type="file"` under the hood but adds visual styling to match other HDS components.
 
 There are two ways to use the File Input component:
 
