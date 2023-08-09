@@ -17,7 +17,7 @@ const getTocSectionsBundle = (section) => {
   const ABOUT = ['about', 'getting-started'];
   const FOUNDATIONS = ['foundations', 'icons'];
   const COMPONENTS = ['components', 'layouts', 'overrides', 'utilities'];
-  const PATTERNS = ['patterns'];
+  const PATTERNS = ['patterns', 'filter-patterns'];
   // this will be removed later
   const TESTING = ['testing'];
 
