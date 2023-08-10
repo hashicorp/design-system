@@ -5,7 +5,7 @@
 <button
   type="button"
   class={{this.classNames}}
-  {{clipboard text=@textToCopy onError=this.onError onSuccess=this.onSuccess}}
+  {{clipboard text=@textToCopy container=@container onError=this.onError onSuccess=this.onSuccess}}
   ...attributes
 >
   <span class="hds-copy-snippet__text hds-typography-code-100 {{if @isTruncated 'hds-copy-snippet__text--truncated'}}">
