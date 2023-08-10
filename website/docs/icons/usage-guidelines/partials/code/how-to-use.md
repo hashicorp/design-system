@@ -111,7 +111,7 @@ It renders to this (where the `id` will be unique each time):
 
 Because the icons are hidden to assistive technology, they cannot be used on their own and must be used inside of an element with an accessible name.
 
-The [Hds::Button](/components/button?tab=code#icon-only-button) component automatically provides this support, but if you make a custom element, or want to use a FlightIcon inside of a native HTML element like your own button element, ensure that an `aria-label` attribute is added, like this:
+The [Hds::Button](/components/button?tab=code#icon-only-button) component automatically provides this support, but if you make a custom element, or want to use a `FlightIcon` inside of a native HTML element like your own button element, ensure that an `aria-label` attribute is added, like this:
 
 ```handlebars
 <button type="button" aria-label="add a new thing">
