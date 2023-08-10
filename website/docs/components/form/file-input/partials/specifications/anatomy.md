@@ -9,5 +9,5 @@
 | Indicator         | Optional                                       |
 | Helper text       | Optional                                       |
 | Button            | Required                                       |
-| File status       | Required                                       |
+| File status       | Update triggered by system                     |
 | Error message     | Triggered by system                            |
