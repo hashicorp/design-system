@@ -35,7 +35,7 @@ For more information on why this may be helpful in certain scenarios, see [DS-04
 
 ### Adding icons to React apps
 
-To use icons in a React application, install the `@hashicorp/flight-icons` package and import the icons as either inline SVGs or as a standalone React/SVG component.
+To add icons to a React application, install the `@hashicorp/flight-icons` package and import the icons as either inline SVGs or as a standalone React/SVG component.
 
 !!! Info
 
