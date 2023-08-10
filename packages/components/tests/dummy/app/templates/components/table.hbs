@@ -224,6 +224,25 @@
     </:body>
   </Hds::Table>
 
+  <Shw::Text::H4>Sortable table, one column right-aligned</Shw::Text::H4>
+
+  <Hds::Table
+    @model={{this.model.music}}
+    @columns={{array
+      (hash key="artist" label="Artist" isSortable="true")
+      (hash key="album" label="Album" isSortable="true")
+      (hash key="year" label="Release Year" isSortable="true" align="right")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td @align="right">{{B.data.year}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
   <Shw::Text::H4>Sortable table, some columns sortable, artist column pre-sorted.</Shw::Text::H4>
 
   <Hds::Table
