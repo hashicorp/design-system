@@ -159,6 +159,12 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
   text-align: right;
 }
 
+// Due to the structure of the ThSort button content, we need to add some extra alignment support but this should be cleaned up in HDS-2363
+.hds-table__th-sort.hds-table__th-sort--text-right button .hds-table__th-sort--button-content {
+  justify-content: flex-end;
+}
+
+
 .hds-table__th-sort--text-center,
 .hds-table__th--text-center,
 .hds-table__td--text-center {
