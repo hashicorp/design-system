@@ -4,7 +4,7 @@ Use [Badges](/components/badge) to communicate status and high-priority metadata
 
 ### Badge type
 
-We recommend using `outlined` [Badges](/components/badge) within a Table. This variant provides enough differentation between the component, the value in the cell, and the background of the Table row.
+We recommend using `outlined` [Badges](/components/badge) within Tables. This variant provides enough differentiation between the component, the value in the cell, and the background of the Table row.
 
 ![Outlined Badges within a Table](/assets/components/table/outlined-badge-within-Table.png)
 
@@ -56,7 +56,7 @@ If the Table row [density](#density) is set to `short`, use the `small` Badge si
 
 !!! Dont
 
-Don’t use the `large` Badge size in the Table as this elevates the Badge too prominently in the hiearchy and can create inconsistency between Badges and text.
+Don’t use the `large` Badge size in the Table as this elevates the Badge too prominently in the hierarchy and can create inconsistency between Badges and text.
 
 ![Large badge within a Table](/assets/components/table/large-badge-in-Table.png)
 !!!
