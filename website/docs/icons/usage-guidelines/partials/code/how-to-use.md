@@ -2,7 +2,7 @@
 
 Icons can be used in many ways. The package can be installed as an [Ember addon](#using-icons-in-ember-apps) for the convenience of using a component with strong defaults. It can also be [consumed in React applications](#using-icons-in-react-apps) via direct import of the SVG file or as a standalone React/SVG icon component.
 
-### Using icons in Ember apps
+### Adding icons to Ember apps
 
 Install the `ember-flight-icons` addon.
 
@@ -14,7 +14,6 @@ yarn add @hashicorp/ember-flight-icons
 
 Because this addon exposes a `data-test-icon` helper, we recommend installing [`ember-test-selectors`](https://github.com/simplabs/ember-test-selectors) which strips out all `data-test-*` attributes for production builds.
 !!!
-
 
 #### Deferred loading
 
@@ -34,9 +33,9 @@ module.exports = function(environment) {
 
 For more information on why this may be helpful in certain scenarios, see [DS-049 - Improve Ember Flight Icons Loading Performance](https://go.hashi.co/rfc/ds-049).
 
-### Using icons in React apps
+### Adding icons to React apps
 
-To use icons in a React application, install the `@hashicorp/flight-icons` package and import the icons as either inline SVGs or as a standalone React/SVG component. 
+To add icons to a React application, install the `@hashicorp/flight-icons` package and import the icons as either inline SVGs or as a standalone React/SVG component.
 
 !!! Info
 
@@ -108,6 +107,16 @@ It renders to this (where the `id` will be unique each time):
 >
     <use href="/@hashicorp/ember-flight-icons/icons/sprite.svg#alert-circle-16"></use>
 </svg>
+```
+
+Because the icons are hidden to assistive technology, they cannot be used on their own and must be used inside of an element with an accessible name.
+
+The [Hds::Button](/components/button?tab=code#icon-only-button) component automatically provides this support, but if you make a custom element, or want to use a `FlightIcon` inside of a native HTML element like your own button element, ensure that an `aria-label` attribute is added, like this:
+
+```handlebars
+<button type="button" aria-label="add a new thing">
+  <FlightIcon @name="plus" />
+</button>
 ```
 
 ### Color
