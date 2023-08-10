@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+env:
+  NODE_VERSION: '20.x'
+
 jobs:
   release:
     name: Release
@@ -16,10 +19,10 @@ jobs:
           # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
 
-      - name: Setup Node.js 16.x
+      - name: Setup Node.js
         uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3.6.0
         with:
-          node-version: 16.x
+          node-version: ${{ env.NODE_VERSION }}
           cache-dependency-path: yarn.lock
 
       - name: Install Dependencies
