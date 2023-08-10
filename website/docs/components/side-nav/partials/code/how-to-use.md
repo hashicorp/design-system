@@ -450,7 +450,15 @@ If you find yourself in the situation of wanting/needing to customize or change 
 
 #### `ember-a11y-refocus`
 
-By default the component uses the [ember-a11y-refocus](https://github.com/ember-a11y/ember-a11y-refocus) addon to provide a "navigator narrator" and a "Skip Link" to the navigation (see [the addon documentation for details)](https://github.com/ember-a11y/ember-a11y-refocus#what-this-addon-does).
+By default, the component uses the [ember-a11y-refocus](https://github.com/ember-a11y/ember-a11y-refocus) addon to provide a "navigator narrator" and a "Skip Link" to the navigation (see [the addon documentation for details)](https://github.com/ember-a11y/ember-a11y-refocus#what-this-addon-does).
+
+!!! Critical
+
+**Notice**
+
+The addon introduces a refocusing behavior **on route changes** that may interfere with the hosting application (eg. unfocusing an active element). For details on how to control this behavior, see the section about [customizing the definition of a route change](https://github.com/ember-a11y/ember-a11y-refocus#customizing-the-definition-of-a-route-change).
+
+!!!
 
 This functionality can be disabled using the `@hasA11yRefocus=\{{false}}` argument, if that is necessary.
 
