@@ -1,11 +1,5 @@
 The File Input component uses the native HTML input with `type="file"` under the hood but adds visual styling to match other HDS components.
 
-## Disabled field
-
-Disabled inputs can result in confusion and frustration, leading users to question why it’s not working. Instead of disabling, consider these alternatives:
-
-- Include explanatory text or prompts: If you display a disabled file input, explain why it’s disabled and what users need to do to enable it. 
-- Use progressive disclosure: Display or enable the file input only when users meet certain conditions (e.g., after completing the necessary information). This approach guides users step-by-step and presents relevant options based on their progress.
 
 ## Truncation
 
