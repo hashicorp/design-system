@@ -6,7 +6,7 @@ Use [Badges](/components/badge) to communicate status and high-priority metadata
 
 We recommend using `outlined` [Badges](/components/badge) within Tables. This variant provides enough differentiation between the component, the value in the cell, and the background of the Table row.
 
-![Outlined Badges within a Table](/assets/components/table/outlined-badge-within-Table.png)
+![Outlined Badges within a Table](/assets/components/table/outlined-badge-within-table.png)
 
 ### Badge color
 
@@ -39,7 +39,7 @@ Use logical icons when communicating status in a Badge. Some common examples whe
 
 In the case of a [null or empty](#null-values) value, use the text-only variant of the Badge.
 
-![Null value represented by a badge within a Table](/assets/components/table/badge-Table-null-value.png)
+![Null value represented by a badge within a Table](/assets/components/table/badge-table-null-value.png)
 !!!
 
 ### Badge consistency
@@ -58,7 +58,7 @@ If the Table row [density](#density) is set to `short`, use the `small` Badge si
 
 Don’t use the `large` Badge size in the Table as this elevates the Badge too prominently in the hierarchy and can create inconsistency between Badges and text.
 
-![Large badge within a Table](/assets/components/table/large-badge-in-Table.png)
+![Large badge within a Table](/assets/components/table/large-badge-in-table.png)
 !!!
 
 !!! Dont
