@@ -14,7 +14,7 @@
 
 ### Sorting
 
-![Header column sorting](/assets/components/table/table-sorting.png =1000x*)
+![Header column sorting](/assets/components/table/table-sorting.png)
 
 - Sorting is not relevant for all content, so consider when to apply sorting thoughtfully.
 - Columns that do contain a sortable data type are interactive and therefore have corresponding hover, active, and focus states.
@@ -24,38 +24,97 @@
 
 Column width is determined by manually resizing the header column and cells within Figma. As a best practice, column width should be adjusted to fit the longest data type within the cell.
 
-### Alignment
-
-Use consistent alignment throughout the Table. We recommend using end-alignment in the last column when displaying non-text based content. 
-
-!!! Do
-
-![Table column placement example](/assets/components/table/table-alignment-do.png =500x*)
-!!!
-
-!!! Dont
-
-![Table column placement example](/assets/components/table/table-alignment-dont.png =500x*)
-!!!
-
 ### Placement
 
 !!! Info
 
-The column placement property is only relevant within Figma and doesn’t exist as a property within the code.
+The column placement property is only relevant within Figma and doesn’t exist as a property in code.
 !!!
 
 Column placement determines the visual styling based on where the column is placed relative to other columns in the Table.
 
-![Table column placement example](/assets/components/table/table-col-placement.png =750x*)
+![Table column placement example](/assets/components/table/table-col-placement.png)
+
+### Alignment
+
+The alignment of text and content within a table impacts the readability and speed at which users can effectively parse the information. The chosen alignment method depends on the content within the cell, purpose of the table, and relative position within the table.
+
+!!! Info
+
+While we don’t currently support internationalization in Helios, this documentation intentionally references alignment values in internationalized terms to make them more broadly applicable and future-proof.
+!!!
+
+#### Consistent alignment
+
+Use consistent alignment between the header label and the cell content.
+
+!!! Do
+
+![Table column placement example](/assets/components/table/table-alignment-do.png)
+!!!
+
+!!! Dont
+
+![Table column placement example](/assets/components/table/table-alignment-dont.png)
+!!!
+
+#### Start alignment
+
+Align content to the start of the cell by default. This ensures readability across different content types, consistency in content of varying lengths, and alignment between the column header label and the content within the cell.
+
+Use start alignment for:
+
+- String and text-based content (unique identifiers or IDs, names and naming conventions, etc).
+- Numerical values that do not contain decimals or floating point numbers.
+- Numerical values that contain periods or other delimiter characters (IP addresses).
+- Nested components that display a string or text value, e.g., a [Badge](/components/badge).
+
+![Start alignment of content within a table](/assets/components/table/start-alignment-example.png)
+
+#### End alignment
+
+End alignment can be used when expressing numerical values with decimals as this aligns the decimal places vertically.
+
+Common examples of end alignment include:
+
+- Financial information and currency amounts.
+- Fractional and floating point values represented with decimals.
+
+![End alignment of content within a table](/assets/components/table/end-alignment-example.png)
+
+End alignment can also be used in the last column of a table to:
+
+- Highlight a "more options" function pertaining to the content within a row.
+- As a means to visually "bookend" the row with content that is of a similar length, e.g., timestamps, TTL (time-to-live) values, dates.
+
+![End alignment example within a table with a date and more options](/assets/components/table/end-alignment-example-02.png)
+
+!!! Dont
+
+Don’t end align content that is variable in length. This can make the content more difficult to read by forcing an unnatural [reading pattern](patterns/button-organization?tab=research#layout-and-reading-patterns).
+
+![End alignment with content that is variable in length](/assets/components/table/end-alignment-variable-length.png)
+
+!!!
+
+#### Other alignment methods
+
+We don’t recommend center or justified alignment of content within a cell or table. These alignment methods can result in the content being difficult to read, especially if it is variable in length.
+
+!!! Dont
+
+Don’t center header labels or cell content within a table.
+
+![Example of centered content within a table](/assets/components/table/center-justified-alignment.png)
+!!!
 
 ## Rows
 
 ### Striping
 
-![Table striping examples](/assets/components/table/table-striping.png =810x*)
+![Table striping examples](/assets/components/table/table-striping.png)
 
-While striping is not required, we recommend it for the added usability benefits. 
+While striping is not required, we recommend it for the added usability benefits.
 
 When using striping in a Table, start with the second row to allow the Table Header to be further differentiated from the the row directly beneath it.
 
@@ -79,11 +138,9 @@ The row placement property is only relevant within Figma and doesn’t exist as 
 
 Row placement determines the visual styling based on where the row is placed relative to other rows within the Table. Only cells with a column placement that is either `start` or `end` utilize the row placement property; column position `middle` does not utilize this property.
 
-![Table row placement example](/assets/components/table/table-row-placement.png =819x*)
+![Table row placement example](/assets/components/table/table-row-placement.png)
 
 ## Headers
-
-### Content
 
 - Headers should be clear, concise, and straightforward.
 - The headers should infer clearly what type (string, number, status, etc) of content is contained within the cell.
@@ -93,43 +150,9 @@ Row placement determines the visual styling based on where the row is placed rel
 
 ### Density
 
-![Table cell density](/assets/components/table/table-density.png =798x*)
+![Table cell density](/assets/components/table/table-density.png)
 
 - We recommend using `medium` cell density by default.
 - If content is complex or a smaller data set (e.g., a Table of basic user data), `tall` cell density allows for more breathing room surrounding the content.
 - If content is largely string/text-based, `short` allows for more content to be displayed within the page.
 - While denser content allows for more rows to be displayed within a single page, it also makes comprehension and scanning more difficult.
-
-### Content
-
-While we are not prescriptive about what goes into a cell, there are some best practices to consider:
-
-- We recommended keeping data within a column to one data type. Using more than one data type makes sorting almost impossible.
-- While it‘s possible to change the text style/color within a cell, we recommended only using Helios font styles.
-
-### Icon usage
-
-Icons nested within cells can help differentiate content, see status, and increase the hierarchy of a piece of data or object. Use the outlined icon style by default and if contrast against other icons is important, use the filled style.
-
-Icons should rarely be used without a text label. A label helps reinforce the purpose and communication of the icon and can reduce ambiguity when expressing complex data.
-
-!!! Do
-
-![Example of proper icon usage in tables](/assets/components/table/table-nested-icons-do.png =726x*)
-!!!
-
-#### Leading vs. trailing icons
-
-Both leading and trailing icons increase the visual weight of the content within the cell, so use icons intentionally throughout Tables. Take care not to mix and match different icon positions in the same column. 
-
-In general, we recommend using **leading icons** because the text following the icon will remain aligned and thus be easier for the user to scan. 
-
-!!! Do
-
-![Example of proper icon placement in tables](/assets/components/table/table-icons-placement-do.png =784x*)
-!!!
-
-!!! Dont
-
-![Example of proper icon placement in tables](/assets/components/table/table-icons-placement-dont.png =380x*)
-!!!

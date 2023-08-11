@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  NODE_VERSION: '16.x'
+  NODE_VERSION: '20.x'
 
 concurrency:
    group: ci-components-nightly-${{ github.head_ref || github.ref }}

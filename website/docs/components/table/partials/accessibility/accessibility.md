@@ -12,12 +12,12 @@ When used as recommended, there should not be any WCAG conformance issues with t
 
 !!! Do
 
-![Example of focus order being properly applied to a table](/assets/components/table/table-cell-focus-do.png =936x*)
+![Example of focus order being properly applied to a table](/assets/components/table/table-cell-focus-do.png)
 !!!
 
 !!! Dont
 
-![Example of focus order being incorrectly applied to a table](/assets/components/table/table-cell-focus-dont.png =938x*)
+![Example of focus order being incorrectly applied to a table](/assets/components/table/table-cell-focus-dont.png)
 !!!
 
 ## Best practices

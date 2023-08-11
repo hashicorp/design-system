@@ -4,13 +4,16 @@
  */
 
 import Route from '@ember/routing/route';
-import { SIZES } from '@hashicorp/design-system-components/components/hds/copy/button';
+import {
+  SIZES,
+  SUCCESS_ICON,
+  ERROR_ICON,
+} from '@hashicorp/design-system-components/components/hds/copy/button';
 
 export default class ComponentsCopyButtonRoute extends Route {
   model() {
     // these are used only for presentation purpose in the showcase
     const STATES = ['default', 'hover', 'active', 'focus'];
-    const STATUS = ['idle', 'success', 'error'];
-    return { SIZES, STATES, STATUS };
+    return { SIZES, STATES, SUCCESS_ICON, ERROR_ICON };
   }
 }

@@ -8,7 +8,7 @@ import { action } from '@ember/object';
 
 export default class Index extends Component {
   @action
-  copyToClipboard() {
-    console.log('Clicked "Copy to clipboard" button!');
+  alertOnClick() {
+    alert('Hello from Helios!');
   }
 }

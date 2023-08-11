@@ -129,15 +129,4 @@ module('Integration | Component | hds/form/select/field', function (hooks) {
     assert.dom('select').hasAttribute('required');
     assert.dom('label .hds-form-indicator').doesNotExist();
   });
-
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component on the input', async function (assert) {
-    await render(
-      hbs`<Hds::Form::Select::Field class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('select').hasClass('my-class');
-    assert.dom('select').hasAttribute('data-test1');
-    assert.dom('select').hasAttribute('data-test2', 'test');
-  });
 });

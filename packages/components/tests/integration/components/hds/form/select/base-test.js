@@ -44,15 +44,4 @@ module('Integration | Component | hds/form/select/base', function (hooks) {
     );
     assert.dom('#test-form-select').hasClass('hds-form-select--is-invalid');
   });
-
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component', async function (assert) {
-    await render(
-      hbs`<Hds::Form::Select::Base id="test-form-select" class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('#test-form-select').hasClass('my-class');
-    assert.dom('#test-form-select').hasAttribute('data-test1');
-    assert.dom('#test-form-select').hasAttribute('data-test2', 'test');
-  });
 });

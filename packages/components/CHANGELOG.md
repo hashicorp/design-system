@@ -1,16 +1,37 @@
 # @hashicorp/design-system-components
 
+## 2.9.0
+
+### Minor Changes
+
+- [#1488](https://github.com/hashicorp/design-system/pull/1488) [`372bae36d`](https://github.com/hashicorp/design-system/commit/372bae36d87377dc87aa18ed39c7834a4cc545f4) Thanks [@MelSumner](https://github.com/MelSumner)! - Adds the `Hds::CopyButton` and `Hds::CopySnippet` components.
+
+### Patch Changes
+
+- [#1539](https://github.com/hashicorp/design-system/pull/1539) [`9d3f29a42`](https://github.com/hashicorp/design-system/commit/9d3f29a42e8130b2155498a7c3cb77a6da279a68) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Adjusted closing brace on copywrite headers to avoid terminal noise
+
+- [#1549](https://github.com/hashicorp/design-system/pull/1549) [`a6553ea03`](https://github.com/hashicorp/design-system/commit/a6553ea032f70f0167f149589801b72154c3cf75) Thanks [@fivetanley](https://github.com/fivetanley)! - `Hds::Modal` - reduce test flakiness around closing Modal when using `@ember/test-helpers`
+
+- [#1530](https://github.com/hashicorp/design-system/pull/1530) [`b757e6efb`](https://github.com/hashicorp/design-system/commit/b757e6efb4c115abcd604bc4ef155f731f118c72) Thanks [@alex-ju](https://github.com/alex-ju)! - Fix Embroider warnings caused by incorrect export of internal utility functions
+
+- [#1552](https://github.com/hashicorp/design-system/pull/1552) [`865ff7aad`](https://github.com/hashicorp/design-system/commit/865ff7aad593bddf6f16bfdb1210318bedfa4e22) Thanks [@alex-ju](https://github.com/alex-ju)! - `Hds::Flyout` - reduce test flakiness around closing Flyout when using `@ember/test-helpers`
+
+- [#1529](https://github.com/hashicorp/design-system/pull/1529) [`1433fe098`](https://github.com/hashicorp/design-system/commit/1433fe0988b9c4e0d280ac450e6688e5d606630d) Thanks [@alex-ju](https://github.com/alex-ju)! - `Hds::Form::Field` - Fix error message for unexpected `@layout` values
+
+- Updated dependencies []:
+  - @hashicorp/ember-flight-icons@3.0.9
+
 ## 2.8.1
 
 ### Patch Changes
 
-- [#1516](https://github.com/hashicorp/design-system/pull/1516) [`f2192cad7`](https://github.com/hashicorp/design-system/commit/f2192cad73b6d966bf813f54dcee02e157c76392) Thanks [@didoo](https://github.com/didoo)! - `SideNav` - Fixed issue with links still being interactive (even if visually hidden) when the navigation is "minimized"
+- [#1516](https://github.com/hashicorp/design-system/pull/1516) [`f2192cad7`](https://github.com/hashicorp/design-system/commit/f2192cad73b6d966bf813f54dcee02e157c76392) Thanks [@didoo](https://github.com/didoo)! - `Hds::SideNav` - Fixed issue with links still being interactive (even if visually hidden) when the navigation is "minimized"
 
-- [#1518](https://github.com/hashicorp/design-system/pull/1518) [`5fd48e31e`](https://github.com/hashicorp/design-system/commit/5fd48e31ed3241ee19a8226bb28fa04ad79479c5) Thanks [@didoo](https://github.com/didoo)! - `PageHeader` - Fixed overflow of non-breaking text for `title`, `subtitle` and `description` elements
+- [#1518](https://github.com/hashicorp/design-system/pull/1518) [`5fd48e31e`](https://github.com/hashicorp/design-system/commit/5fd48e31ed3241ee19a8226bb28fa04ad79479c5) Thanks [@didoo](https://github.com/didoo)! - `Hds::PageHeader` - Fixed overflow of non-breaking text for `title`, `subtitle` and `description` elements
 
-- [#1494](https://github.com/hashicorp/design-system/pull/1494) [`169a85b63`](https://github.com/hashicorp/design-system/commit/169a85b6348649bc0e2411f3ab6f6a086eecb692) Thanks [@natmegs](https://github.com/natmegs)! - `Form::TextInput` - Add support for datetime-local type
+- [#1494](https://github.com/hashicorp/design-system/pull/1494) [`169a85b63`](https://github.com/hashicorp/design-system/commit/169a85b6348649bc0e2411f3ab6f6a086eecb692) Thanks [@natmegs](https://github.com/natmegs)! - `Hds::Form::TextInput` - Add support for `datetime-local` type
 
-- [#1500](https://github.com/hashicorp/design-system/pull/1500) [`b6c2867a4`](https://github.com/hashicorp/design-system/commit/b6c2867a4b7d1c183e9a17d16208ed12ce1aa43f) Thanks [@didoo](https://github.com/didoo)! - - `SideNav` - updated layout styling for the `SideNav::List::Title` element
+- [#1500](https://github.com/hashicorp/design-system/pull/1500) [`b6c2867a4`](https://github.com/hashicorp/design-system/commit/b6c2867a4b7d1c183e9a17d16208ed12ce1aa43f) Thanks [@didoo](https://github.com/didoo)! - `Hds::SideNav` - updated layout styling for the `SideNav::List::Title` element
 
 - [#1520](https://github.com/hashicorp/design-system/pull/1520) [`7f7ec22c3`](https://github.com/hashicorp/design-system/commit/7f7ec22c387ac9df05d05de31e5c2b45d6324777) Thanks [@alex-ju](https://github.com/alex-ju)! - Upgrade `ember-style-modifier` to `3.0.1`
 
@@ -22,15 +43,15 @@
 
 ### Minor Changes
 
-- [#1492](https://github.com/hashicorp/design-system/pull/1492) [`a17e5b2ac`](https://github.com/hashicorp/design-system/commit/a17e5b2acf66493ccbb68a623a3b7ba2fd5ab5a8) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - `Card` - Updated default value of `@overflow` argument to `"visible"` to address an area of consumer confusion and better support the most common use cases.
+- [#1492](https://github.com/hashicorp/design-system/pull/1492) [`a17e5b2ac`](https://github.com/hashicorp/design-system/commit/a17e5b2acf66493ccbb68a623a3b7ba2fd5ab5a8) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - `Hds::Card` - Updated default value of `@overflow` argument to `"visible"` to address an area of consumer confusion and better support the most common use cases.
 
-  Technically, this is a breaking change as it will require consumers relying upon the previous `hidden` default value to now manually set the value. The result of not setting the a `"hidden"` value can cause square edges of some images to "stick out" and overlap the rounded corners of the Card itself. We considered this to be a fairly minor, low-impact issue however which would not affect functionality or usability.
+  Technically, this is a breaking change as it will require consumers relying upon the previous `hidden` default value to now manually set the value. The result of not setting the a `hidden` value can cause square edges of some images to "stick out" and overlap the rounded corners of the Card itself. We considered this to be a fairly minor, low-impact issue however which would not affect functionality or usability.
 
-- [#1452](https://github.com/hashicorp/design-system/pull/1452) [`c277d0366`](https://github.com/hashicorp/design-system/commit/c277d036673cf572c00ebf5b8b35b424c0b057fd) Thanks [@alex-ju](https://github.com/alex-ju)! - `Form::TextInput` - Add loading state on "search" type
+- [#1452](https://github.com/hashicorp/design-system/pull/1452) [`c277d0366`](https://github.com/hashicorp/design-system/commit/c277d036673cf572c00ebf5b8b35b424c0b057fd) Thanks [@alex-ju](https://github.com/alex-ju)! - `Hds::Form::TextInput` - Add loading state on "search" type
 
-- [#1468](https://github.com/hashicorp/design-system/pull/1468) [`b0a766ccf`](https://github.com/hashicorp/design-system/commit/b0a766ccf5357dd6f0e8dfb68d8c1ee823e76b50) Thanks [@alex-ju](https://github.com/alex-ju)! - Added `MaskedInput` component for forms
+- [#1468](https://github.com/hashicorp/design-system/pull/1468) [`b0a766ccf`](https://github.com/hashicorp/design-system/commit/b0a766ccf5357dd6f0e8dfb68d8c1ee823e76b50) Thanks [@alex-ju](https://github.com/alex-ju)! - Add `Hds::Form::MaskedInput` component
 
-- [#1423](https://github.com/hashicorp/design-system/pull/1423) [`5ac340c8c`](https://github.com/hashicorp/design-system/commit/5ac340c8c3a3adab388704067578cf419e2e2f10) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - Add new `Accordion` component
+- [#1423](https://github.com/hashicorp/design-system/pull/1423) [`5ac340c8c`](https://github.com/hashicorp/design-system/commit/5ac340c8c3a3adab388704067578cf419e2e2f10) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - Add `Hds::Accordion` component
 
 ### Patch Changes
 
@@ -78,7 +99,7 @@
 
 - [#1426](https://github.com/hashicorp/design-system/pull/1426) [`1f8886a2d`](https://github.com/hashicorp/design-system/commit/1f8886a2d5117d74a0dddd4bca4a09d9fcedc8da) Thanks [@MelSumner](https://github.com/MelSumner)! - Style tweaks to standalone link
 
-- [#1434](https://github.com/hashicorp/design-system/pull/1434) [`eadefc4bd`](https://github.com/hashicorp/design-system/commit/eadefc4bdb4e5fd6c110a7be1d7d9aa720695678) Thanks [@alex-ju](https://github.com/alex-ju)! - Fix scroll management on `Modal` and `Flyout` resulting in stray `style` attribute on `<body>` element
+- [#1434](https://github.com/hashicorp/design-system/pull/1434) [`eadefc4bd`](https://github.com/hashicorp/design-system/commit/eadefc4bdb4e5fd6c110a7be1d7d9aa720695678) Thanks [@alex-ju](https://github.com/alex-ju)! - Fix scroll management on `Hds::Modal` and `Hds::Flyout` resulting in stray `style` attribute on `<body>` element
 
 - Updated dependencies [[`e6e0c22c5`](https://github.com/hashicorp/design-system/commit/e6e0c22c538e381f4a97428dc35cf1295ce6ae21)]:
   - @hashicorp/ember-flight-icons@3.0.6

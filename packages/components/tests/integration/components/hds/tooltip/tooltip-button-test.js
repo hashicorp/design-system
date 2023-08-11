@@ -36,9 +36,9 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
   test('when allowHTML to true is passed in as an extraTippyOption, it renders rich HTML and text content passed into the tooltip', async function (assert) {
     await render(
       hbs`
-        <Hds::TooltipButton 
+        <Hds::TooltipButton
           @extraTippyOptions={{hash allowHTML=true}}
-          @text="<em>em</em> <strong>strong</strong>" 
+          @text="<em>em</em> <strong>strong</strong>"
           id="test-tooltip-button"
         >info</Hds::TooltipButton>
       `
@@ -127,19 +127,6 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
       hbs`<Hds::TooltipButton @text="More info." @isInline={{false}} id="test-tooltip-button">info</Hds::TooltipButton>`
     );
     assert.dom('#test-tooltip-button').hasClass('hds-tooltip-button--is-block');
-  });
-
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component on the element', async function (assert) {
-    await render(
-      hbs`
-      <Hds::TooltipButton @text="Here is more info." id="test-tooltip-button" class="my-class" data-test1 data-test2="test">info</Hds::TooltipButton>
-      `
-    );
-    assert.dom('#test-tooltip-button').hasClass('my-class');
-    assert.dom('#test-tooltip-button').hasAttribute('data-test1');
-    assert.dom('#test-tooltip-button').hasAttribute('data-test2', 'test');
   });
 
   // ASSERTIONS

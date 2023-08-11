@@ -113,20 +113,6 @@ module('Integration | Component | hds/reveal/index', function (hooks) {
     assert.dom('.hds-reveal__toggle-button').hasText('Close me');
   });
 
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component on the element', async function (assert) {
-    await render(
-      hbs`
-      <Hds::Reveal @text="More options" id="test-reveal" class="my-class" data-test1 data-test2="test">
-        Additional content
-      </Hds::Reveal>`
-    );
-    assert.dom('#test-reveal').hasClass('my-class');
-    assert.dom('#test-reveal').hasAttribute('data-test1');
-    assert.dom('#test-reveal').hasAttribute('data-test2', 'test');
-  });
-
   // ASSERTIONS
 
   test('it should throw an assertion if @text is missing/has no value', async function (assert) {

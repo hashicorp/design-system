@@ -70,17 +70,6 @@ module('Integration | Component | hds/pagination/nav/arrow', function (hooks) {
     assert.dom('.hds-pagination-nav__control').hasAttribute('disabled');
   });
 
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component on the element', async function (assert) {
-    await render(
-      hbs`<Hds::Pagination::Nav::Arrow @direction="next" id="test-pagination-arrow" class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('#test-pagination-arrow').hasClass('my-class');
-    assert.dom('#test-pagination-arrow').hasAttribute('data-test1');
-    assert.dom('#test-pagination-arrow').hasAttribute('data-test2', 'test');
-  });
-
   // EVENTS
 
   test('it should call the onClick handler with the value of the direction of the button', async function (assert) {

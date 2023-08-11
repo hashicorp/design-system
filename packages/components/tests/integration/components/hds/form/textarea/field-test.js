@@ -135,15 +135,4 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
     assert.dom('textarea').hasAttribute('required');
     assert.dom('label .hds-form-indicator').doesNotExist();
   });
-
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component on the input', async function (assert) {
-    await render(
-      hbs`<Hds::Form::Textarea::Field class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('textarea').hasClass('my-class');
-    assert.dom('textarea').hasAttribute('data-test1');
-    assert.dom('textarea').hasAttribute('data-test2', 'test');
-  });
 });
