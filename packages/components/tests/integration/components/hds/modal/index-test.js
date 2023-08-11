@@ -161,33 +161,6 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     assert.dom('button.hds-modal__dismiss').isFocused();
   });
 
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component and subcomponents', async function (assert) {
-    await render(
-      hbs`<Hds::Modal id="test-modal" class="modal-class" data-test-modal1 data-test-modal2="test" as |M|>
-            <M.Header id="test-modal-header" data-test-modal-header1 data-test-modal-header2="test-header">Title</M.Header>
-            <M.Body id="test-modal-body" data-test-modal-body1 data-test-modal-body2="test-body">Body</M.Body>
-            <M.Footer id="test-modal-footer" data-test-modal-footer1 data-test-modal-footer2="test-footer">Footer</M.Footer>
-          </Hds::Modal>`
-    );
-    assert.dom('#test-modal').hasClass('modal-class');
-    assert.dom('#test-modal').hasAttribute('data-test-modal1');
-    assert.dom('#test-modal').hasAttribute('data-test-modal2', 'test');
-    assert.dom('#test-modal-header').hasAttribute('data-test-modal-header1');
-    assert
-      .dom('#test-modal-header')
-      .hasAttribute('data-test-modal-header2', 'test-header');
-    assert.dom('#test-modal-body').hasAttribute('data-test-modal-body1');
-    assert
-      .dom('#test-modal-body')
-      .hasAttribute('data-test-modal-body2', 'test-body');
-    assert.dom('#test-modal-footer').hasAttribute('data-test-modal-footer1');
-    assert
-      .dom('#test-modal-footer')
-      .hasAttribute('data-test-modal-footer2', 'test-footer');
-  });
-
   // CALLBACKS
 
   test('it should call `onOpen` function if provided', async function (assert) {

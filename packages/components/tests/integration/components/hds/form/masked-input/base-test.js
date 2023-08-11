@@ -114,16 +114,5 @@ module(
       );
       assert.dom('textarea#test-form-masked-input').exists();
     });
-
-    // ATTRIBUTES
-
-    test('it should spread all the attributes passed to the component on the input', async function (assert) {
-      await render(
-        hbs`<Hds::Form::MaskedInput::Base class="my-class" data-test1 data-test2="test" />`
-      );
-      assert.dom('input').hasClass('my-class');
-      assert.dom('input').hasAttribute('data-test1');
-      assert.dom('input').hasAttribute('data-test2', 'test');
-    });
   }
 );

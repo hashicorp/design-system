@@ -5,7 +5,7 @@ The Button component is used to trigger an action or event. For accessibility, B
 The basic invocation requires text to be passed:
 
 ```handlebars
-<Hds::Button @text="Copy to clipboard" />
+<Hds::Button @text="Basic button" />
 ```
 
 ### Add an icon
@@ -13,7 +13,7 @@ The basic invocation requires text to be passed:
 To add an icon to your Button, give the `@icon` any [icon](/icons/library) name:
 
 ```handlebars
-<Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" />
+<Hds::Button @text="Create cluster" @icon="plus" />
 ```
 
 ### Icon position
@@ -21,7 +21,7 @@ To add an icon to your Button, give the `@icon` any [icon](/icons/library) name:
 By default, if you define an icon, it is placed in the leading position (before the text). If you need to position the icon in the trailing position (after the text), define `@iconPosition`:
 
 ```handlebars
-<Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" @iconPosition="trailing" />
+<Hds::Button @text="Next step" @icon="arrow-right" @iconPosition="trailing" />
 ```
 
 ### Icon-only Button
@@ -34,7 +34,7 @@ To add a tooltip to an icon-only Button, here’s an example of how to do it in 
 If you would like to create an icon-only Button, set `@isIconOnly` to `true`. Note that you still have to define the `@text` value; it will be used as the `aria-label` attribute value on the `Button` element.
 
 ```handlebars
-<Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" @isIconOnly={{true}} />
+<Hds::Button @text="Create cluster" @icon="plus" @isIconOnly={{true}} />
 ```
 
 ### Color
@@ -70,7 +70,7 @@ There are three sizes available for the Button: `small`, `medium`, and `large`. 
 This indicates that the Button should take up the full-width of the parent container. It’s set to `false` by default.
 
 ```handlebars
-<Hds::Button @text="Copy to clipboard" @isFullWidth={{true}} />
+<Hds::Button @text="Full width button" @isFullWidth={{true}} />
 ```
 
 ### Type
@@ -88,7 +88,7 @@ Define the action in your route or controller, and add it to the component invoc
 Read the Ember.js guides for more information: [Patterns for Actions](https://guides.emberjs.com/release/in-depth-topics/patterns-for-actions/) .
 
 ```handlebars
-<Hds::Button @text="Copy to clipboard" {{on "click" this.copyToClipboard}} />
+<Hds::Button @text="Alert me" {{on "click" this.alertOnClick}} />
 ```
 
 ### Links
@@ -132,5 +132,5 @@ If using an `@href` or `@route` and needing to disable the component, you’ll n
 !!!
 
 ```handlebars
-<Hds::Button @text="Copy to clipboard" disabled />
+<Hds::Button @text="Alert me" disabled {{on "click" this.alertOnClick}} />
 ```

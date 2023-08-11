@@ -122,6 +122,15 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
   });
 
+  test('it should be able to copy a number', async function (assert) {
+    // context: https://github.com/hashicorp/design-system/pull/1564
+    await render(
+      hbs`<Hds::Copy::Button id="test-copy-button" @text="Copy a number" textToCopy={{123456789}} />`
+    );
+    // if the `ember-cli-clipboard` addon fails it triggers a JS error
+    assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
+  });
+
   // ASSERTIONS
 
   test('it should throw an assertion if @text is missing/has no value', async function (assert) {

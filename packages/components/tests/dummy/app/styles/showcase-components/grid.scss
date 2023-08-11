@@ -36,6 +36,10 @@
   .shw-grid--cols-6 > & {
     grid-template-columns: repeat(6, 1fr);
   }
+
+  .shw-grid--cols-7 > & {
+    grid-template-columns: repeat(7, 1fr);
+  }
 }
 
 .shw-grid__item--grow {

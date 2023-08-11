@@ -12,7 +12,7 @@ export const DEFAULT_COLOR = 'primary';
 export const COLORS = ['primary', 'secondary'];
 export const DEFAULT_ICON = 'clipboard-copy';
 export const SUCCESS_ICON = 'clipboard-checked';
-export const ERROR_ICON = 'clipboard';
+export const ERROR_ICON = 'clipboard-x';
 export const DEFAULT_STATUS = 'idle';
 
 export default class HdsCopySnippetIndexComponent extends Component {

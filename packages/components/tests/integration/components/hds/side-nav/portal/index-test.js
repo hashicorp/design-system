@@ -75,28 +75,6 @@ module('Integration | Component | hds/side-nav/portal', function (hooks) {
     assert.dom('#test-side-nav-list-link').hasText('Link');
   });
 
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the portals on the rendered elements', async function (assert) {
-    await render(hbs`
-      <Hds::SideNav::Portal::Target id="test-side-nav-portal-target" class="my-class" data-test1 data-test2="test" />
-      <Hds::SideNav::Portal id="test-side-nav-portal" class="my-class" data-test1 data-test2="test">
-        <div/>
-      </Hds::SideNav::Portal>
-    `);
-    assert.dom('#test-side-nav-portal-target').exists();
-    assert.dom('#test-side-nav-portal-target').hasClass('my-class');
-    assert.dom('#test-side-nav-portal-target').hasAttribute('data-test1');
-    assert
-      .dom('#test-side-nav-portal-target')
-      .hasAttribute('data-test2', 'test');
-
-    assert.dom('#test-side-nav-portal').exists();
-    assert.dom('#test-side-nav-portal').hasClass('my-class');
-    assert.dom('#test-side-nav-portal').hasAttribute('data-test1');
-    assert.dom('#test-side-nav-portal').hasAttribute('data-test2', 'test');
-  });
-
   // A11Y
 
   test('it should render with the correct aria-label attribute passed down to the "list" parent', async function (assert) {

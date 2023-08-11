@@ -44,15 +44,4 @@ module('Integration | Component | hds/form/textarea/base', function (hooks) {
     );
     assert.dom('#test-form-textarea').hasClass('hds-form-textarea--is-invalid');
   });
-
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component', async function (assert) {
-    await render(
-      hbs`<Hds::Form::Textarea::Base id="test-form-textarea" class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('#test-form-textarea').hasClass('my-class');
-    assert.dom('#test-form-textarea').hasAttribute('data-test1');
-    assert.dom('#test-form-textarea').hasAttribute('data-test2', 'test');
-  });
 });

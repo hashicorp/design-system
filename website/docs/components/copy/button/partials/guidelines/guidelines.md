@@ -35,8 +35,3 @@ Placing a Copy Button close to the content explicitly communicates what is being
 
 ![Example of the copy button component using proper placement](/assets/components/copy/copy-button-placement-do.png)
 !!!
-
-## Related
-
-- [Copy Snippet](/components/copy/snippet)
-- [Masked Input](/components/form/masked-input)

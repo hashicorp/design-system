@@ -8,6 +8,15 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { getElementId } from '@hashicorp/design-system-components/utils/hds-get-element-id';
+import { buildWaiter } from '@ember/test-waiters';
+import { DEBUG } from '@glimmer/env';
+
+let waiter;
+
+// Notice: this code will get stripped out in production builds (DEBUG evaluates to `true` in dev/test builds, but `false` in prod builds)
+if (DEBUG) {
+  waiter = buildWaiter('@hashicorp/design-system-components:modal');
+}
 
 export const DEFAULT_SIZE = 'medium';
 export const DEFAULT_COLOR = 'neutral';
@@ -156,7 +165,19 @@ export default class HdsModalIndexComponent extends Component {
   }
 
   @action
-  onDismiss() {
+  async onDismiss() {
+    // allow ember test helpers to be aware of when the `close` event fires
+    // when using `click` or other helpers from '@ember/test-helpers'
+    // Notice: this code will get stripped out in production builds (DEBUG evaluates to `true` in dev/test builds, but `false` in prod builds)
+    if (DEBUG && this.element.open) {
+      let token = waiter.beginAsync();
+      let listener = () => {
+        waiter.endAsync(token);
+        this.element.removeEventListener('close', listener);
+      };
+      this.element.addEventListener('close', listener);
+    }
+
     // Make modal dialog invisible using the native `close` method
     this.element.close();
 

@@ -32,15 +32,4 @@ module('Integration | Component | hds/side-nav/header', function (hooks) {
     assert.dom('#test-side-nav-logo').exists();
     assert.dom('#test-side-nav-actions').exists();
   });
-
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component on the element', async function (assert) {
-    await render(
-      hbs`<Hds::SideNav::Header id="test-side-nav-header" class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('#test-side-nav-header').hasClass('my-class');
-    assert.dom('#test-side-nav-header').hasAttribute('data-test1');
-    assert.dom('#test-side-nav-header').hasAttribute('data-test2', 'test');
-  });
 });

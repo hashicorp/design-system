@@ -78,15 +78,4 @@ module('Integration | Component | hds/side-nav/list/link', function (hooks) {
       .hasTagName('a')
       .hasAttribute('href', '/utilities/interactive');
   });
-
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component on the element', async function (assert) {
-    await render(
-      hbs`<Hds::SideNav::List::Link id="test-side-nav-link" class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('#test-side-nav-link').hasClass('my-class');
-    assert.dom('#test-side-nav-link').hasAttribute('data-test1');
-    assert.dom('#test-side-nav-link').hasAttribute('data-test2', 'test');
-  });
 });

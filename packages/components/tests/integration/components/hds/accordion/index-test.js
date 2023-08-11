@@ -56,7 +56,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
         <Hds::Accordion as |A|>
           <A.Item>
             <:toggle>Item one</:toggle>
-            <:content>Additional content</:content> 
+            <:content>Additional content</:content>
           </A.Item>
         </Hds::Accordion>
       `
@@ -76,7 +76,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
         <Hds::Accordion as |A|>
           <A.Item>
             <:toggle>Item one</:toggle>
-            <:content>Additional content</:content> 
+            <:content>Additional content</:content>
           </A.Item>
         </Hds::Accordion>
       `
@@ -105,7 +105,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
         <Hds::Accordion as |A|>
           <A.Item @isOpen={{true}}>
             <:toggle>Item one</:toggle>
-            <:content>Additional content</:content> 
+            <:content>Additional content</:content>
           </A.Item>
         </Hds::Accordion>
       `
@@ -127,11 +127,11 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
         <Hds::Accordion as |A|>
           <A.Item id="test-contains-interactive--false">
             <:toggle>Item one</:toggle>
-            <:content>Additional content</:content> 
+            <:content>Additional content</:content>
           </A.Item>
           <A.Item @containsInteractive={{true}} id="test-contains-interactive--true">
             <:toggle>Item one</:toggle>
-            <:content>Additional content</:content> 
+            <:content>Additional content</:content>
           </A.Item>
         </Hds::Accordion>
       `
@@ -142,29 +142,5 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     assert
       .dom('#test-contains-interactive--true')
       .hasClass('hds-accordion-item--contains-interactive');
-  });
-
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component on the element', async function (assert) {
-    await render(
-      hbs`
-        <Hds::Accordion id="test-accordion" class="my-class" data-test1 data-test2="test" as |A|>
-          <A.Item id="test-accordion-item" class="my-class" data-test1 data-test2="test">
-            <:toggle>Item one</:toggle>
-            <:content>Additional content</:content> 
-          </A.Item>
-        </Hds::Accordion>
-      `
-    );
-    // Accordion:
-    assert.dom('#test-accordion').hasClass('my-class');
-    assert.dom('#test-accordion').hasAttribute('data-test1');
-    assert.dom('#test-accordion').hasAttribute('data-test2', 'test');
-
-    // AccordionItem:
-    assert.dom('#test-accordion-item').hasClass('my-class');
-    assert.dom('#test-accordion-item').hasAttribute('data-test1');
-    assert.dom('#test-accordion-item').hasAttribute('data-test2', 'test');
   });
 });

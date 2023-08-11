@@ -8,19 +8,16 @@
 <Shw::Text::H1>Copy::Snippet</Shw::Text::H1>
 
 <section data-test-percy>
-  <Shw::Text::H2>Generated element</Shw::Text::H2>
+
+  <Shw::Text::H2>Content</Shw::Text::H2>
 
   <Shw::Flex as |SF|>
     <SF.Item>
-      <Shw::Label>Default</Shw::Label>
+      <Shw::Label>With short text</Shw::Label>
       <Hds::Copy::Snippet @textToCopy="fbrct1ed-fgr35h-tyng89-wed4r" />
     </SF.Item>
-  </Shw::Flex>
-
-  <Shw::Text::H2>Widths</Shw::Text::H2>
-  <Shw::Flex as |SF|>
     <SF.Item>
-      <Shw::Label>Default (multi-line)</Shw::Label>
+      <Shw::Label>With long text (multi-line / default)</Shw::Label>
       <Shw::Outliner {{style width="300px"}}>
         <Hds::Copy::Snippet
           @textToCopy="fbrct1ed-fgr35h-tyng89-wed4r with some really long text that should wrap and be multi-line"
@@ -28,7 +25,7 @@
       </Shw::Outliner>
     </SF.Item>
     <SF.Item>
-      <Shw::Label>@isTruncated</Shw::Label>
+      <Shw::Label>With long text (truncated)</Shw::Label>
       <Shw::Outliner {{style width="300px"}}>
         <Hds::Copy::Snippet
           @textToCopy="fbrct1ed-fgr35h-tyng89-wed4r with a bunch of other long text that should force truncation if truncation is set to true"
@@ -37,20 +34,30 @@
       </Shw::Outliner>
     </SF.Item>
   </Shw::Flex>
+
   <Shw::Flex as |SF|>
     <SF.Item>
-      <Shw::Label>@isFullWidth with long text</Shw::Label>
+      <Shw::Label>With number to copy</Shw::Label>
+      {{! context: https://github.com/hashicorp/design-system/pull/1564 }}
+      <Hds::Copy::Snippet @textToCopy={{123456789}} />
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H2>Full width</Shw::Text::H2>
+  <Shw::Flex as |SF|>
+    <SF.Item>
+      <Shw::Label>With short text</Shw::Label>
+      <Shw::Outliner {{style width="500px"}}>
+        <Hds::Copy::Snippet @textToCopy="fbrct1ed-fgr35h-tyng89-wed4r" @isFullWidth={{true}} />
+      </Shw::Outliner>
+    </SF.Item>
+    <SF.Item>
+      <Shw::Label>With long text</Shw::Label>
       <Shw::Outliner {{style width="500px"}}>
         <Hds::Copy::Snippet
           @textToCopy="fbrct1ed-fgr35h-tyng89-wed4r and some other text that should not matter because the element with is set to full width and hopefully people will not do this but in case they do we want to make sure that we still have the designed layout"
           @isFullWidth={{true}}
         />
-      </Shw::Outliner>
-    </SF.Item>
-    <SF.Item {{style width="100%"}}>
-      <Shw::Label>@isFullWidth with shorter text</Shw::Label>
-      <Shw::Outliner {{style width="500px"}}>
-        <Hds::Copy::Snippet @textToCopy="fbrct1ed-fgr35h-tyng89-wed4r" @isFullWidth={{true}} />
       </Shw::Outliner>
     </SF.Item>
   </Shw::Flex>
@@ -67,13 +74,24 @@
 
   <Shw::Text::H2>States</Shw::Text::H2>
 
-  <Shw::Grid @columns={{4}} as |SG|>
+  <Shw::Grid @columns={{6}} as |SG|>
     {{#each @model.COLORS as |color|}}
       {{#each @model.STATES as |state|}}
-        <SG.Item @label="{{capitalize color}} / {{capitalize state}}">
+        <SG.Item @label={{if (eq color "primary") (capitalize state)}}>
           <Hds::Copy::Snippet @textToCopy="fbrct1ed-fgr35h-tyng89-wed4r" @color={{color}} mock-state-value={{state}} />
         </SG.Item>
       {{/each}}
+      {{#let (array "success" "error") as |statuses|}}
+        {{#each statuses as |status|}}
+          <SG.Item @label={{if (eq color "primary") (capitalize status)}}>
+            <Hds::Copy::Snippet
+              @textToCopy="fbrct1ed-fgr35h-tyng89-wed4r"
+              @color={{color}}
+              mock-copy-status={{status}}
+            />
+          </SG.Item>
+        {{/each}}
+      {{/let}}
     {{/each}}
   </Shw::Grid>
 </section>

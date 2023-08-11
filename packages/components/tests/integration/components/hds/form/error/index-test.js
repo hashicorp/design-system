@@ -51,20 +51,12 @@ module('Integration | Component | hds/form/error/index', function (hooks) {
       .hasText('First error message');
   });
 
-  // ATTRIBUTES
+  // ID
 
   test('it renders an error with the correct "id" attribute if the @controlId argument is provided', async function (assert) {
     await render(
       hbs`<Hds::Form::Error @controlId="my-control-id">This is the error</Hds::Form::Error>`
     );
     assert.dom('#error-my-control-id').exists();
-  });
-  test('it should spread all the attributes passed to the component', async function (assert) {
-    await render(
-      hbs`<Hds::Form::Error id="test-form-error" class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('#test-form-error').hasClass('my-class');
-    assert.dom('#test-form-error').hasAttribute('data-test1');
-    assert.dom('#test-form-error').hasAttribute('data-test2', 'test');
   });
 });

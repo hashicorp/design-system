@@ -12,7 +12,7 @@ export const DEFAULT_SIZE = 'medium';
 export const SIZES = ['small', 'medium'];
 export const DEFAULT_ICON = 'clipboard-copy';
 export const SUCCESS_ICON = 'clipboard-checked';
-export const ERROR_ICON = 'clipboard';
+export const ERROR_ICON = 'clipboard-x';
 export const DEFAULT_STATUS = 'idle';
 
 export default class HdsCopyButtonComponent extends Component {

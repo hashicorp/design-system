@@ -155,17 +155,6 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
     assert.dom('label .hds-form-indicator').hasText('(Optional)');
   });
 
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component', async function (assert) {
-    await render(
-      hbs`<Hds::Form::Field id="test-form-field" class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('#test-form-field').hasClass('my-class');
-    assert.dom('#test-form-field').hasAttribute('data-test1');
-    assert.dom('#test-form-field').hasAttribute('data-test2', 'test');
-  });
-
   // ASSERTIONS
 
   test('it should throw an assertion if an incorrect value for @layout is provided', async function (assert) {

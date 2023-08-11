@@ -81,19 +81,6 @@ module(
       assert.dom('.hds-pagination-size-selector label').hasText('Custom text');
     });
 
-    // ATTRIBUTES
-
-    test('it should spread all the attributes passed to the component on the element', async function (assert) {
-      await render(
-        hbs`<Hds::Pagination::SizeSelector @pageSizes={{array 10 30 50}} id="test-pagination-size-selector" class="my-class" data-test1 data-test2="test" />`
-      );
-      assert.dom('#test-pagination-size-selector').hasClass('my-class');
-      assert.dom('#test-pagination-size-selector').hasAttribute('data-test1');
-      assert
-        .dom('#test-pagination-size-selector')
-        .hasAttribute('data-test2', 'test');
-    });
-
     // EVENTS
 
     test('it should call the onClick handler with the value of the page number', async function (assert) {

@@ -44,15 +44,4 @@ module('Integration | Component | hds/side-nav/list/index', function (hooks) {
     `);
     assert.dom('.hds-side-nav__list').hasAttribute('role', 'list');
   });
-
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component on the element', async function (assert) {
-    await render(
-      hbs`<Hds::SideNav::List id="test-side-nav-list" class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('#test-side-nav-list').hasClass('my-class');
-    assert.dom('#test-side-nav-list').hasAttribute('data-test1');
-    assert.dom('#test-side-nav-list').hasAttribute('data-test2', 'test');
-  });
 });

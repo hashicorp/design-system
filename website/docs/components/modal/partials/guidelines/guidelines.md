@@ -303,8 +303,6 @@ While certain experiences may only call for a single action button, we recommend
 
 Depending on the information being requested, a secondary action that closes or cancels the model may not perform the same function as dismissing the Modal. For example, responding “no” to a “yes/no” question is not the same as dismissing the Modal, the latter of which does not submit a response.
 
-!!! Info
-
 **Best practices for avoiding data loss**
 
 If a user attempts to dismiss a Modal that contains a partially filled form or other interactive elements, we recommend ensuring that the following criteria are met to promote a positive user experience:

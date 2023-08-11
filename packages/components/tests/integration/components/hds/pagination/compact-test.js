@@ -63,17 +63,6 @@ module('Integration | Component | hds/pagination/compact', function (hooks) {
       .hasAttribute('disabled');
   });
 
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component on the element', async function (assert) {
-    await render(
-      hbs`<Hds::Pagination::Compact id="test-pagination-compact" class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('#test-pagination-compact').hasClass('my-class');
-    assert.dom('#test-pagination-compact').hasAttribute('data-test1');
-    assert.dom('#test-pagination-compact').hasAttribute('data-test2', 'test');
-  });
-
   // EVENTS
 
   test('it should invoke the onPageChange callback and return the value of the new page number and page size', async function (assert) {

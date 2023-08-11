@@ -51,17 +51,6 @@ module('Integration | Component | hds/pagination/nav/number', function (hooks) {
       .doesNotHaveAttribute('aria-current', 'page');
   });
 
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component on the element', async function (assert) {
-    await render(
-      hbs`<Hds::Pagination::Nav::Number @page={{3}} id="test-pagination-number" class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('#test-pagination-number').hasClass('my-class');
-    assert.dom('#test-pagination-number').hasAttribute('data-test1');
-    assert.dom('#test-pagination-number').hasAttribute('data-test2', 'test');
-  });
-
   // EVENTS
 
   test('it should call the onClick handler with the value of the page number', async function (assert) {

@@ -1,13 +1,13 @@
 ## Anatomy
 
-![Tab container anatomy](/assets/components/tabs/tabs-container-anatomy.png =675x*)
+![Tab container anatomy](/assets/components/tabs/tabs-container-anatomy.png)
 
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|
 | Tab              | Required, two minimum                           |
 | Content area     | Required, Tabs should never be used alone       |
 
-![Tab items anatomy](/assets/components/tabs/tab-anatomy-v2.png =620x*)
+![Tab items anatomy](/assets/components/tabs/tab-item-anatomy.png)
 
 
 | Element          | Usage                                           |

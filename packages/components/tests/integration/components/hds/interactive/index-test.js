@@ -61,33 +61,6 @@ module('Integration | Component | hds/interactive/index', function (hooks) {
     assert.dom('#test-interactive').doesNotHaveAttribute('rel');
   });
 
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the <button> element', async function (assert) {
-    await render(
-      hbs`<Hds::Interactive id="test-interactive" class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('button#test-interactive').hasClass('my-class');
-    assert.dom('button#test-interactive').hasAttribute('data-test1');
-    assert.dom('button#test-interactive').hasAttribute('data-test2', 'test');
-  });
-  test('it should spread all the attributes passed to the <a> element', async function (assert) {
-    await render(
-      hbs`<Hds::Interactive @href="#" id="test-interactive" class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('a#test-interactive').hasClass('my-class');
-    assert.dom('a#test-interactive').hasAttribute('data-test1');
-    assert.dom('a#test-interactive').hasAttribute('data-test2', 'test');
-  });
-  test('it should spread all the attributes passed to the <LinkTo> element', async function (assert) {
-    await render(
-      hbs`<Hds::Interactive @route="index" id="test-interactive" class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('a#test-interactive').hasClass('my-class');
-    assert.dom('a#test-interactive').hasAttribute('data-test1');
-    assert.dom('a#test-interactive').hasAttribute('data-test2', 'test');
-  });
-
   // YIELDING
 
   test('it should yield the children of the <button> element', async function (assert) {

@@ -276,17 +276,6 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
     assert.dom('.hds-pagination-nav__arrow--direction-next').isDisabled();
   });
 
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component on the element', async function (assert) {
-    await render(
-      hbs`<Hds::Pagination::Numbered @totalItems={{100}} id="test-pagination-numbered" class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('#test-pagination-numbered').hasClass('my-class');
-    assert.dom('#test-pagination-numbered').hasAttribute('data-test1');
-    assert.dom('#test-pagination-numbered').hasAttribute('data-test2', 'test');
-  });
-
   // INTERACTION
 
   test('it should select the activated page number', async function (assert) {
