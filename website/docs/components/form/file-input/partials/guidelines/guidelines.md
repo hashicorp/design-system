@@ -1,5 +1,13 @@
 The File Input component uses the native HTML input with `type="file"` under the hood but adds visual styling to match other HDS components.
 
+!!! Info
+
+*A note about browser inconsistency*
+
+Because the File Input is based on the native HTML input, the content and visual appearance may vary slightly across browsers.
+
+![Examples of file input states rendered in different web browsers](/assets/components/form/file-input/file-input-browsers.png)
+!!!
 
 ## Truncation
 
@@ -15,12 +23,3 @@ Due to limitations in Figma, truncation will occur at the end of the text, while
 ## Multiple files
 
 Multiple files can be added at once when the `multiple` attribute is enabled in code. When more than one file is selected, the text will change to show the number of files you’ve selected, e.g., “2 files”. *The exact language used may differ between browsers.*
-
-!!! Info
-
-*A note about browser inconsistency*
-
-Because the File Input is based on the native HTML input, the content and visual appearance may vary slightly across browsers.
-
-![Examples of file input states rendered in different web browsers](/assets/components/form/file-input/file-input-browsers.png)
-!!!
