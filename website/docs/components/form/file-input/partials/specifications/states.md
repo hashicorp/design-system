@@ -2,6 +2,7 @@
 
 ![Example of File Input states](/assets/components/form/file-input/file-input-states.png =876x*)
 
-## Disabled field
+!!! Info
 
-Disabled fields should be used sparingly and with intention as they may lead to confusion around why they are disabled and how to enable them. 
+Because disabled states completely remove the interactive function of an element, it can be challenging for a user to understand why it has been disabled and/or why they cannot interact with that element. For this reason, we recommend using disabled fields sparingly and with intention. Instead, consider using methods like enabling or hiding the element. Read more about [when to enable vs hide](https://hashicorp.atlassian.net/wiki/spaces/DES/pages/2678685874/Hiding+Disabling).
+!!!
