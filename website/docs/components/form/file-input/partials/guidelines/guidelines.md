@@ -1,13 +1,10 @@
 The File Input component uses the native HTML input with `type="file"` under the hood but adds visual styling to match other HDS components.
 
-!!! Info
-
-*A note about browser inconsistency*
+## Browser inconsistency
 
 Because the File Input is based on the native HTML input, the content and visual appearance may vary slightly across browsers.
 
 ![Examples of file input states rendered in different web browsers](/assets/components/form/file-input/file-input-browsers.png)
-!!!
 
 ## Truncation
 
