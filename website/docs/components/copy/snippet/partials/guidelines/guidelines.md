@@ -53,8 +53,3 @@ Avoid truncating content too soon. For shorter snippets and where space allows, 
 ![Example of Copy Snippet component truncating too soon](/assets/components/copy/copy-snippet-truncation-dont.png)
 
 !!!
-
-## Related
-
-- [Copy Button](/components/copy/button)
-- [Button](/components/button)

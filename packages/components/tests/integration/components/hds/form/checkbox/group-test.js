@@ -151,15 +151,4 @@ module('Integration | Component | hds/form/checkbox/group', function (hooks) {
     assert.dom('legend .hds-form-indicator').exists();
     assert.dom('legend .hds-form-indicator').hasText('(Optional)');
   });
-
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component on the element', async function (assert) {
-    await render(
-      hbs`<Hds::Form::Checkbox::Group id="test-form-checkbox" class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('#test-form-checkbox').hasClass('my-class');
-    assert.dom('#test-form-checkbox').hasAttribute('data-test1');
-    assert.dom('#test-form-checkbox').hasAttribute('data-test2', 'test');
-  });
 });

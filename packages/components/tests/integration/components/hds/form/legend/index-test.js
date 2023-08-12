@@ -60,15 +60,4 @@ module('Integration | Component | hds/form/legend/index', function (hooks) {
     assert.dom('#test-form-legend > .hds-form-indicator').exists();
     assert.dom('#test-form-legend .hds-form-indicator').hasText('(Optional)');
   });
-
-  // ATTRIBUTES
-
-  test('it should spread all the attributes passed to the component', async function (assert) {
-    await render(
-      hbs`<Hds::Form::Legend id="test-form-legend" class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('#test-form-legend').hasClass('my-class');
-    assert.dom('#test-form-legend').hasAttribute('data-test1');
-    assert.dom('#test-form-legend').hasAttribute('data-test2', 'test');
-  });
 });

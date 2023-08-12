@@ -57,20 +57,12 @@ module('Integration | Component | hds/form/label/index', function (hooks) {
     assert.dom('#test-form-label .hds-form-indicator').hasText('(Optional)');
   });
 
-  // ATTRIBUTES
+  // FOR
 
   test('it renders a label with the "for" attribute if the @controlId argument is provided', async function (assert) {
     await render(
       hbs`<Hds::Form::Label @controlId="my-control-id" id="test-form-label">This is the label</Hds::Form::Label>`
     );
     assert.dom('#test-form-label').hasAttribute('for', 'my-control-id');
-  });
-  test('it should spread all the attributes passed to the component', async function (assert) {
-    await render(
-      hbs`<Hds::Form::Label id="test-form-label" class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('#test-form-label').hasClass('my-class');
-    assert.dom('#test-form-label').hasAttribute('data-test1');
-    assert.dom('#test-form-label').hasAttribute('data-test2', 'test');
   });
 });

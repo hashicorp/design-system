@@ -111,7 +111,19 @@
         <S.Button @color="secondary" @text="Button" />
         <S.Dropdown as |DD|>
           <DD.ToggleButton @color="secondary" @text="Dropdown" />
-          <DD.Interactive @href="#" @text="Dropdown Item" />
+          <DD.Header @hasDivider={{true}}>
+            <Hds::Form::TextInput::Base @type="search" placeholder="Narrow results" />
+          </DD.Header>
+          <DD.Checkbox name="checkbox-item-dropdown" @count="11">virtualbox</DD.Checkbox>
+          <DD.Checkbox name="checkbox-item-dropdown" @count="1" checked>vmware</DD.Checkbox>
+          <DD.Checkbox name="checkbox-item-dropdown" @count="10">docker</DD.Checkbox>
+          <DD.Checkbox name="checkbox-item-dropdown" @count="0">hyperv</DD.Checkbox>
+          <DD.Footer @hasDivider={{true}}>
+            <Hds::ButtonSet>
+              <Hds::Button @text="Apply" @isFullWidth={{true}} @size="small" />
+              <Hds::Button @text="Cancel" @color="secondary" @isFullWidth={{true}} @size="small" />
+            </Hds::ButtonSet>
+          </DD.Footer>
         </S.Dropdown>
       </Hds::SegmentedGroup>
     </SG.Item>
@@ -120,7 +132,19 @@
         <S.TextInput aria-label="segmented-input-dropdown-button" />
         <S.Dropdown as |DD|>
           <DD.ToggleButton @color="secondary" @text="Dropdown" />
-          <DD.Interactive @href="#" @text="Dropdown Item" />
+          <DD.Header @hasDivider={{true}}>
+            <Hds::Form::TextInput::Base @type="search" placeholder="Narrow results" />
+          </DD.Header>
+          <DD.Checkbox name="checkbox-item-dropdown" @count="11">virtualbox</DD.Checkbox>
+          <DD.Checkbox name="checkbox-item-dropdown" @count="1" checked>vmware</DD.Checkbox>
+          <DD.Checkbox name="checkbox-item-dropdown" @count="10">docker</DD.Checkbox>
+          <DD.Checkbox name="checkbox-item-dropdown" @count="0">hyperv</DD.Checkbox>
+          <DD.Footer @hasDivider={{true}}>
+            <Hds::ButtonSet>
+              <Hds::Button @text="Apply" @isFullWidth={{true}} @size="small" />
+              <Hds::Button @text="Cancel" @color="secondary" @isFullWidth={{true}} @size="small" />
+            </Hds::ButtonSet>
+          </DD.Footer>
         </S.Dropdown>
         <S.Button @color="secondary" @text="Button" />
       </Hds::SegmentedGroup>
@@ -157,7 +181,19 @@
         </S.Select>
         <S.Dropdown as |DD|>
           <DD.ToggleButton @color="secondary" @text="Dropdown" />
-          <DD.Interactive @href="#" @text="Dropdown Item" />
+          <DD.Header @hasDivider={{true}}>
+            <Hds::Form::TextInput::Base @type="search" placeholder="Narrow results" />
+          </DD.Header>
+          <DD.Checkbox name="checkbox-item-dropdown" @count="11">virtualbox</DD.Checkbox>
+          <DD.Checkbox name="checkbox-item-dropdown" @count="1" checked>vmware</DD.Checkbox>
+          <DD.Checkbox name="checkbox-item-dropdown" @count="10">docker</DD.Checkbox>
+          <DD.Checkbox name="checkbox-item-dropdown" @count="0">hyperv</DD.Checkbox>
+          <DD.Footer @hasDivider={{true}}>
+            <Hds::ButtonSet>
+              <Hds::Button @text="Apply" @isFullWidth={{true}} @size="small" />
+              <Hds::Button @text="Cancel" @color="secondary" @isFullWidth={{true}} @size="small" />
+            </Hds::ButtonSet>
+          </DD.Footer>
         </S.Dropdown>
       </Hds::SegmentedGroup>
     </SG.Item>

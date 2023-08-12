@@ -12,7 +12,7 @@
 
 ## Title
 
-Displays the title or topmost heading of the page, not to exceed 50 characters.
+Displays the title or topmost heading of the page. We recommend not exceeding 50 characters in length, but in the case of a longer value (e.g., a user or automatically generated value) the title will wrap to multiple lines.
 
 !!! Warning
 

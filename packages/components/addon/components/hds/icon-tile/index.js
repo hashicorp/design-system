@@ -133,7 +133,6 @@ export default class HdsIconTileIndexComponent extends Component {
   get entity() {
     let entity;
 
-    // TODO: discuss if we want these kind of tests
     assert(
       `you can't pass both @logo and @icon properties to the "Hds::IconTile" component`,
       !(this.args.logo && this.args.icon)

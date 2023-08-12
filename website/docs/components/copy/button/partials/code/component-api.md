@@ -20,7 +20,7 @@ This component uses [ember-cli-clipboard](https://github.com/jkusa/ember-cli-cli
      Selector string of element or action that returns an element from which to copy text.
   </C.Property>
   <C.Property @name="container" @type="string">
-     Selector string or element object of containing element, typically used in conjunction with modals; set the focused element as the container value".
+     Selector string or element object of containing element, typically used in conjunction with modals; set the focused element as the container value.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
