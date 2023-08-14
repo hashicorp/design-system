@@ -13,6 +13,7 @@
     tabindex={{unless this.isSelected "-1"}}
     data-is-selected={{this.isInitialTab}}
     {{did-insert this.didInsertNode}}
+    {{will-destroy this.willDestroyNode}}
     {{on "click" this.onClick}}
     {{on "keyup" this.onKeyUp}}
   >

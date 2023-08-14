@@ -11,6 +11,7 @@
           Tab=(component
             "hds/tabs/tab"
             didInsertNode=this.didInsertTab
+            willDestroyNode=this.willDestroyTab
             tabIds=this.tabIds
             panelIds=this.panelIds
             selectedTabIndex=this.selectedTabIndex
@@ -28,6 +29,7 @@
       Panel=(component
         "hds/tabs/panel"
         didInsertNode=this.didInsertPanel
+        willDestroyNode=this.willDestroyPanel
         tabIds=this.tabIds
         panelIds=this.panelIds
         selectedTabIndex=this.selectedTabIndex
