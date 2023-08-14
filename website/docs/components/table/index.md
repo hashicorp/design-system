@@ -24,6 +24,7 @@ navigation:
   @include "partials/content/general.md"
   @include "partials/content/icon-usage.md"
   @include "partials/content/link-usage.md"
+  @include "partials/content/badge-usage.md"
   @include "partials/content/null-values.md"
 </section>
 

@@ -7,13 +7,13 @@ This guidance is an extension of the [Inline Link](/components/link/inline) guid
 
 Within a table, use `secondary` (`Foreground / Strong`) links as the default.
 
-Use `Body / 200 / Link` as the default typographic style within a table. This style increases the prominence a small amount to differentiate it from other string and non-interactive content.
+Use `Body / 200 / Link` as the default typographic style within a table. This style increases the prominence slightly to differentiate it from other text content.
 
 ![Link example](/assets/components/table/link-example.png)
 
 #### Multiple links
 
-If a table contains more than one column of links, consider using `Body / 200 / Link` for the most important link; usually the title of the row, ID, or other naming convention. For less important links use `Body / 200 / Regular` with an added underline in Figma.
+If a table contains more than one column of links, consider using `Body / 200 / Link` for the most important links; usually the title of the row, ID, or other naming convention. For less important links, use `Body / 200 / Regular` with an added underline in Figma.
 
 ![Multiple links within a table](/assets/components/table/multiple-links.png)
 

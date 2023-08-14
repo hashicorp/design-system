@@ -26,13 +26,13 @@ Visually represent null values in an inverse and comparative manner with non-nul
 
 #### Styling null values
 
-In records that express a value with text, use the same text style as non-null values in the same column (in most cases this is `Body / 200 / Regular`). Consider reducing the prominence of the null values by using `Foreground / Faint` color instead of `Primary` or `Strong`.
+In cells that contain values represented by text, use the same text style as non-null values in the column (in most cases this is `Body / 200 / Regular`). Consider reducing the prominence of the null values by using `Foreground / Faint` color instead of `Primary` or `Strong`.
 
 ![Null value in a text string](/assets/components/table/null-value-text-example.png)
 
 #### Null values with badges
 
-In records that express a value with a badge (e.g., status, health, etc), maintain consistency with cells of the same content type by communicating null values in a `neutral` badge.
+In cells that contain a badge (e.g., status, health, etc), communicate null values by using a `neutral` color badge to maintain visual consistency with other non-null cells.
 
 ![Null value communicated in a badge](/assets/components/table/null-value-badge-example.png)
 
