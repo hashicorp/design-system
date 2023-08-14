@@ -77,6 +77,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/form/checkbox');
     await percySnapshot('Form - Checkbox');
 
+    await visit('/components/form/file-input');
+    await percySnapshot('Form - FileInput');
+
     await visit('/components/form/masked-input');
     await percySnapshot('Form - MaskedInput');
 

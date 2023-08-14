@@ -1,0 +1,94 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// FORM > FILE-INPUT
+//
+
+@use "../../mixins/button" as *;
+
+.hds-form-file-input {
+  margin: -4px 0 -4px -4px; // offset shadow padding + default 1px spacing
+  padding: 3px 0 3px 3px; // add padding so button shadow is visible
+  color: var(--token-color-foreground-primary);
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+// https://developer.mozilla.org/en-US/docs/Web/CSS/::file-selector-button
+// https://caniuse.com/?search=file-selector-button
+
+// Button
+.hds-form-file-input::file-selector-button {
+  min-height: 36px;
+  margin-right: 16px;
+  padding: 7px 16px 7px 37px; // padding in code altered to match Figma visual design
+  color: var(--token-color-foreground-primary);
+  font: inherit;
+  background-color: var(--token-color-surface-faint);
+  // upload icon
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3E%3Cg fill='%233b3d45'%3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 15px 50%;
+  background-size: var(--token-form-text-input-background-image-size);
+  border: $hds-button-border-width solid var(--token-color-border-strong);
+  border-radius: $hds-button-border-radius;
+  box-shadow: var(--token-elevation-low-box-shadow);
+  cursor: pointer;
+}
+
+// Button states
+.hds-form-file-input::file-selector-button:hover,
+.hds-form-file-input.mock-hover::file-selector-button {
+  color: var(--token-color-foreground-primary);
+  background-color: var(--token-color-surface-primary);
+  border-color: var(--token-color-border-strong);
+}
+
+.hds-form-file-input:focus-within::file-selector-button,
+.hds-form-file-input.mock-focus::file-selector-button {
+  color: var(--token-color-foreground-primary);
+  background-color: var(--token-color-surface-faint);
+  border-color: var(--token-color-focus-action-internal);
+  outline: 3px solid var(--token-color-focus-action-external);
+}
+
+// Fix issue with button focus style which was displaying after button was activated
+.hds-form-file-input:not(:focus, .mock-focus) {
+  &::file-selector-button {
+    border-color: var(--token-color-border-strong);
+    outline: 0;
+  }
+}
+
+.hds-form-file-input::file-selector-button:active,
+.hds-form-file-input.mock-active::file-selector-button {
+  color: var(--token-color-foreground-primary);
+  background-color: var(--token-color-surface-interactive-active);
+  border-color: var(--token-color-border-strong);
+  box-shadow: none;
+}
+
+.hds-form-file-input {
+  &:disabled,
+  &[disabled],
+  &.mock-disabled,
+  &:disabled:focus,
+  &[disabled]:focus,
+  &.mock-disabled:focus,
+  &:disabled:hover,
+  &[disabled]:hover,
+  &.mock-disabled:hover {
+    color: var(--token-color-foreground-disabled);
+
+    &::file-selector-button {
+      @include hds-button-state-disabled();
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3E%3Cg fill='%238c909c'%3E%3Cpath d='M4.24 5.8a.75.75 0 001.06-.04l1.95-2.1v6.59a.75.75 0 001.5 0V3.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.101.001L4.2 4.74a.75.75 0 00.04 1.06z'/%3E%3Cpath d='M1.75 9a.75.75 0 01.75.75v3c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75v-3a.75.75 0 011.5 0v3A2.25 2.25 0 0112.75 15h-9.5A2.25 2.25 0 011 12.75v-3A.75.75 0 011.75 9z'/%3E%3C/g%3E%3C/svg%3E");
+    }
+  }
+}

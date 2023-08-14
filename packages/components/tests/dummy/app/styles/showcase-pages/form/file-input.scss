@@ -1,0 +1,14 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// FORM > FILE-INPUT
+
+body.components-form-file-input {
+  .shw-component-form-file-input-layout-highlight {
+    .hds-form-file-input {
+      outline: 1px dashed #78909c;
+    }
+  }
+}
