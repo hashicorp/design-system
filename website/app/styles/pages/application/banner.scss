@@ -1,0 +1,56 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// BANNER
+
+@use "../../breakpoints" as breakpoint;
+
+$horizontal-padding: 90px; // reserved space for the "close" button
+
+.doc-page-banner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  grid-area: banner;
+  gap: 6px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px $horizontal-padding;
+  color: #fff;
+  background: linear-gradient(135deg, #4f53d0 0%, #7545cb 100%);
+
+  body:not(.index) & {
+    @include breakpoint.with-fixed-sidebar() {
+      padding-left: calc(var(--doc-page-sidebar-width) + $horizontal-padding); // we need to compensate for the fixed position of the sidebar
+    }
+  }
+}
+
+.doc-page-banner__icon {
+  flex: none;
+}
+
+.doc-page-banner__text {
+  margin: 0;
+
+  a {
+    color: inherit;
+  }
+}
+
+.doc-page-banner__close {
+  position: absolute;
+  top: 11px;
+  right: 8px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 2px;
+  color: #fff;
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  cursor: pointer;
+}

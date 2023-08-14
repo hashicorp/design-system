@@ -1,0 +1,20 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{#if this.isVisible}}
+  <div class="doc-page-banner">
+    <FlightIcon class="doc-page-banner__icon" @name="message-circle-fill" @size={{24}} />
+    <p class="doc-page-banner__text doc-text-body">Got a minute? We’d like your feedback!
+      <a href="https://forms.gle/N5ibgGF3zXFFm1Lj9" target="_blank" rel="noopener noreferrer">Take the survey</a></p>
+    <button
+      type="button"
+      class="doc-page-banner__close doc-text-body-small"
+      aria-label="Close banner"
+      {{on "click" this.onClose}}
+    >
+      <FlightIcon @name="x" @size={{16}} />
+    </button>
+  </div>
+{{/if}}
