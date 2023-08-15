@@ -1,6 +1,6 @@
 {
   "name": "@hashicorp/design-system-components",
-  "version": "2.9.0",
+  "version": "2.10.0",
   "description": "Helios Design System Components",
   "keywords": [
     "hashicorp",
@@ -42,7 +42,7 @@
     "@ember/render-modifiers": "^2.0.5",
     "@ember/test-waiters": "^3.0.2",
     "@hashicorp/design-system-tokens": "^1.7.0",
-    "@hashicorp/ember-flight-icons": "^3.0.9",
+    "@hashicorp/ember-flight-icons": "^3.1.0",
     "dialog-polyfill": "^0.5.6",
     "ember-a11y-refocus": "^3.0.2",
     "ember-auto-import": "^2.6.3",
