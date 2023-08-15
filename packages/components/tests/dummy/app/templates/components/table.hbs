@@ -292,13 +292,13 @@
         <B.Td>{{B.data.cluster-partition}}</B.Td>
         <B.Td>
           {{#if (eq B.data.status "failing")}}
-            <Hds::Badge @text="Failing" @color="critical" @icon="x" />
+            <Hds::Badge @text="Failing" @color="critical" @icon="x" @type="outlined" />
           {{else if (eq B.data.status "active")}}
-            <Hds::Badge @text="Active" @color="success" @icon="check" />
+            <Hds::Badge @text="Active" @color="success" @icon="check" @type="outlined" />
           {{else if (eq B.data.status "pending")}}
-            <Hds::Badge @text="Pending" @color="neutral" @icon="loading" />
+            <Hds::Badge @text="Pending" @color="neutral" @icon="loading" @type="outlined" />
           {{else if (eq B.data.status "establishing")}}
-            <Hds::Badge @text="Establishing" @color="highlight" @icon="loading" />
+            <Hds::Badge @text="Establishing" @color="highlight" @icon="loading" @type="outlined" />
           {{/if}}
         </B.Td>
         <B.Td>{{B.data.services.imported}}</B.Td>
@@ -343,13 +343,13 @@
         <B.Td>{{B.data.cluster-partition}}</B.Td>
         <B.Td>
           {{#if (eq B.data.status "failing")}}
-            <Hds::Badge @text="Failing" @color="critical" @icon="x" />
+            <Hds::Badge @text="Failing" @color="critical" @icon="x" @type="outlined" />
           {{else if (eq B.data.status "active")}}
-            <Hds::Badge @text="Active" @color="success" @icon="check" />
+            <Hds::Badge @text="Active" @color="success" @icon="check" @type="outlined" />
           {{else if (eq B.data.status "pending")}}
-            <Hds::Badge @text="Pending" @color="neutral" @icon="loading" />
+            <Hds::Badge @text="Pending" @color="neutral" @icon="loading" @type="outlined" />
           {{else if (eq B.data.status "establishing")}}
-            <Hds::Badge @text="Establishing" @color="highlight" @icon="loading" />
+            <Hds::Badge @text="Establishing" @color="highlight" @icon="loading" @type="outlined" />
           {{/if}}
         </B.Td>
         <B.Td>{{B.data.services.imported}}</B.Td>
@@ -403,13 +403,13 @@
           <B.Td>{{item.cluster-partition}}</B.Td>
           <B.Td>
             {{#if (eq item.status "failing")}}
-              <Hds::Badge @text="Failing" @color="critical" @icon="x" />
+              <Hds::Badge @text="Failing" @color="critical" @icon="x" @type="outlined" />
             {{else if (eq item.status "active")}}
-              <Hds::Badge @text="Active" @color="success" @icon="check" />
+              <Hds::Badge @text="Active" @color="success" @icon="check" @type="outlined" />
             {{else if (eq item.status "pending")}}
-              <Hds::Badge @text="Pending" @color="neutral" @icon="loading" />
+              <Hds::Badge @text="Pending" @color="neutral" @icon="loading" @type="outlined" />
             {{else if (eq item.status "establishing")}}
-              <Hds::Badge @text="Establishing" @color="highlight" @icon="loading" />
+              <Hds::Badge @text="Establishing" @color="highlight" @icon="loading" @type="outlined" />
             {{/if}}
           </B.Td>
           <B.Td>{{item.services.imported}}</B.Td>
@@ -463,13 +463,13 @@
           <B.Td>{{item.cluster-partition}}</B.Td>
           <B.Td>
             {{#if (eq item.status "failing")}}
-              <Hds::Badge @text="Failing" @color="critical" @icon="x" />
+              <Hds::Badge @text="Failing" @color="critical" @icon="x" @type="outlined" />
             {{else if (eq item.status "active")}}
-              <Hds::Badge @text="Active" @color="success" @icon="check" />
+              <Hds::Badge @text="Active" @color="success" @icon="check" @type="outlined" />
             {{else if (eq item.status "pending")}}
-              <Hds::Badge @text="Pending" @color="neutral" @icon="loading" />
+              <Hds::Badge @text="Pending" @color="neutral" @icon="loading" @type="outlined" />
             {{else if (eq item.status "establishing")}}
-              <Hds::Badge @text="Establishing" @color="highlight" @icon="loading" />
+              <Hds::Badge @text="Establishing" @color="highlight" @icon="loading" @type="outlined" />
             {{/if}}
           </B.Td>
           <B.Td>{{item.services.imported}}</B.Td>

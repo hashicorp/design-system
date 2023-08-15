@@ -101,7 +101,7 @@ Live filtering refers to updating the records within a data set immediately afte
 
 <video width="100%" controls loop>
   <source
-    src="/assets/patterns/filter-patterns/live-filtering-02.mp4"
+    src="/assets/patterns/filter-patterns/live-filtering.mp4"
     type="video/mp4"
   />
 </video>
@@ -112,7 +112,7 @@ Applying filters one at a time lets the user to "finalize" their decision before
 
 <video width="100%" controls loop>
   <source
-    src="/assets/patterns/filter-patterns/per-filter-02.mp4"
+    src="/assets/patterns/filter-patterns/per-filter.mp4"
     type="video/mp4"
   />
 </video>
@@ -123,7 +123,7 @@ Batch filtering supports the user making multiple selections across different pa
 
 <video width="100%" controls loop>
   <source
-    src="/assets/patterns/filter-patterns/batch-filtering-02.mp4"
+    src="/assets/patterns/filter-patterns/batch-filtering.mp4"
     type="video/mp4"
   />
 </video>
