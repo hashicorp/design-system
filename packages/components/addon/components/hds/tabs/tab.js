@@ -55,6 +55,15 @@ export default class HdsTabsIndexComponent extends Component {
   }
 
   @action
+  willDestroyNode() {
+    let { willDestroyNode } = this.args;
+
+    if (typeof willDestroyNode === 'function') {
+      willDestroyNode(...arguments);
+    }
+  }
+
+  @action
   onClick() {
     let { onClick } = this.args;
 

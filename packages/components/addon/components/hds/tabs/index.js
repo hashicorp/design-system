@@ -45,9 +45,21 @@ export default class HdsTabsIndexComponent extends Component {
   }
 
   @action
+  willDestroyTab(element) {
+    this.tabNodes = this.tabNodes.filter((node) => node.id !== element.id);
+    this.tabIds = this.tabIds.filter((tabId) => tabId !== element.id);
+  }
+
+  @action
   didInsertPanel(panelId, element) {
     this.panelNodes = [...this.panelNodes, element];
     this.panelIds = [...this.panelIds, panelId];
+  }
+
+  @action
+  willDestroyPanel(element) {
+    this.panelNodes = this.panelNodes.filter((node) => node.id !== element.id);
+    this.panelIds = this.panelIds.filter((panelId) => panelId !== element.id);
   }
 
   @action
