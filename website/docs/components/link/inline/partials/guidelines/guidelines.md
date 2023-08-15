@@ -16,7 +16,7 @@ The Inline Link is only published as a component in Ember, there is no correspon
 
 The Ember component inherits the typographic styles of the text around it (font, weight, etc), while the [color](#color) is determined by the `@color` argument.
 
-Depending on the surrounding text, the link style in Figma may need to be overridden to ensure that the link and body text are the same.
+Since a component isn’t available for this within Figma, you will need to manually adjust the style of the text. To do this, select the text needed for the link, and change the decoration to "Underline".
 
 - Text styles can be found under text styles `Body` or `Code`.
 - Color styles:
