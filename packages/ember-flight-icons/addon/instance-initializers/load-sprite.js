@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import * as svgSprite from '@hashicorp/flight-icons/svg-sprite/svg-sprite-module';
 import config from 'ember-get-config';
 
