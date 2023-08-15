@@ -268,5 +268,35 @@
       </M.Footer>
     </Hds::Modal>
   {{/if}}
+
+  <button type="button" {{on "click" (fn this.activateModal "tabsModalActive")}}>Open tabs modal</button>
+
+  {{#if this.tabsModalActive}}
+    <Hds::Modal id="tabs-modal" @onClose={{fn this.deactivateModal "tabsModalActive"}} as |M|>
+      <M.Header>
+        Modal title
+      </M.Header>
+      <M.Body>
+        <Hds::Tabs as |T|>
+          <T.Tab>One</T.Tab>
+          <T.Tab>Two</T.Tab>
+          <T.Tab>Three</T.Tab>
+          <T.Panel>
+            <p class="hds-typography-body-300 hds-foreground-primary">Content 1</p>
+          </T.Panel>
+          <T.Panel>
+            <p class="hds-typography-body-300 hds-foreground-primary">Content 2</p>
+          </T.Panel>
+          <T.Panel>
+            <p class="hds-typography-body-300 hds-foreground-primary">Content 3</p>
+          </T.Panel>
+        </Hds::Tabs>
+      </M.Body>
+      <M.Footer as |F|>
+        <Hds::Button type="button" @text="Confirm" {{on "click" F.close}} />
+      </M.Footer>
+    </Hds::Modal>
+  {{/if}}
+
 </section>
 {{! template-lint-enable no-autofocus-attribute }}
