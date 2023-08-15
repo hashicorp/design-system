@@ -2799,7 +2799,7 @@ __metadata:
     "@glimmer/component": ^1.1.2
     "@glimmer/tracking": ^1.1.2
     "@hashicorp/design-system-tokens": ^1.7.0
-    "@hashicorp/ember-flight-icons": ^3.0.9
+    "@hashicorp/ember-flight-icons": ^3.1.0
     "@percy/cli": ^1.24.2
     "@percy/ember": ^4.2.0
     babel-eslint: ^10.1.0
@@ -2890,7 +2890,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/ember-flight-icons@^3.0.9, @hashicorp/ember-flight-icons@workspace:^, @hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons":
+"@hashicorp/ember-flight-icons@^3.1.0, @hashicorp/ember-flight-icons@workspace:^, @hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons":
   version: 0.0.0-use.local
   resolution: "@hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons"
   dependencies:

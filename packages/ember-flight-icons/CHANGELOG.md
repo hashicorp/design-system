@@ -1,5 +1,11 @@
 # @hashicorp/ember-flight-icons
 
+## 3.1.0
+
+### Minor Changes
+
+- [#1543](https://github.com/hashicorp/design-system/pull/1543) [`8b8d6bcfa`](https://github.com/hashicorp/design-system/commit/8b8d6bcfa67efa5de1a2cc419167a962e747a8c9) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Add opt in flag to allow consumers to move sprite loading out of index.html
+
 ## 3.0.9
 
 ### Patch Changes

@@ -1,5 +1,30 @@
 # @hashicorp/design-system-components
 
+## 2.10.0
+
+### Minor Changes
+
+- [#1535](https://github.com/hashicorp/design-system/pull/1535) [`2daa95479`](https://github.com/hashicorp/design-system/commit/2daa95479307fea0b94b2af413126d09525462c8) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - Add new `FileInput` component
+
+### Patch Changes
+
+- [#1570](https://github.com/hashicorp/design-system/pull/1570) [`7bf297996`](https://github.com/hashicorp/design-system/commit/7bf297996e06a15cb2506bfb23f43d71ecc9b492) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Remove unnecessary export of `hds/copy/index.js`
+
+- [#1575](https://github.com/hashicorp/design-system/pull/1575) [`0362019ca`](https://github.com/hashicorp/design-system/commit/0362019ca043ef955364f18b23dbcd36f0bfb2bf) Thanks [@alex-ju](https://github.com/alex-ju)! - `Hds::Tabs` - Fix missing tab indicator when used in Modal or Flyout
+
+- [#1567](https://github.com/hashicorp/design-system/pull/1567) [`384faeec2`](https://github.com/hashicorp/design-system/commit/384faeec244011f8090f3bcce0def89da1563164) Thanks [@MelSumner](https://github.com/MelSumner)! - Add support for container in Copy::Snippet and update API docs
+
+- [#1571](https://github.com/hashicorp/design-system/pull/1571) [`8ad8a5908`](https://github.com/hashicorp/design-system/commit/8ad8a59080d0c0c855f2f746f0a10ddf4440e461) Thanks [@alex-ju](https://github.com/alex-ju)! - `Hds::Tabs` - Fix tabs and panels misbehaving on route change
+
+- [#1568](https://github.com/hashicorp/design-system/pull/1568) [`dbe2e437d`](https://github.com/hashicorp/design-system/commit/dbe2e437d7d465cda3b69c7a28b01cbfb2849b79) Thanks [@MelSumner](https://github.com/MelSumner)! - Update error icon for copy components
+
+- [#1555](https://github.com/hashicorp/design-system/pull/1555) [`90a615161`](https://github.com/hashicorp/design-system/commit/90a61516156ea58898febaa5bd66b31386256151) Thanks [@alex-ju](https://github.com/alex-ju)! - `Hds::SegmentedGroup` - prevent `border-radius` from interfering with underlying elements
+
+- [#1565](https://github.com/hashicorp/design-system/pull/1565) [`60154db1a`](https://github.com/hashicorp/design-system/commit/60154db1a00f877b2c3bc4a9c4069556e8af809b) Thanks [@MelSumner](https://github.com/MelSumner)! - Resolved issue where ThSort was not supporting right-aligned text properly
+
+- Updated dependencies [[`8b8d6bcfa`](https://github.com/hashicorp/design-system/commit/8b8d6bcfa67efa5de1a2cc419167a962e747a8c9)]:
+  - @hashicorp/ember-flight-icons@3.1.0
+
 ## 2.9.0
 
 ### Minor Changes
