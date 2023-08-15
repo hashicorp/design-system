@@ -7,6 +7,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
+import { schedule } from '@ember/runloop';
 
 export default class HdsTabsIndexComponent extends Component {
   @tracked tabNodes = [];
@@ -28,7 +29,10 @@ export default class HdsTabsIndexComponent extends Component {
       }
     });
     this.selectedTabIndex = initialTabIndex;
-    this.setTabIndicator(initialTabIndex);
+
+    schedule('afterRender', () => {
+      this.setTabIndicator(initialTabIndex);
+    });
 
     assert('Only one tab may use isSelected argument', selectedCount <= 1);
 
