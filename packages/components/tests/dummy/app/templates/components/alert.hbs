@@ -140,6 +140,55 @@
             </A.Generic>
           </Hds::Alert>
         </SF.Item>
+
+        <SF.Item>
+          <Hds::Alert @type="inline" @color="success" as |A|>
+            <A.Title>An alert with an HTML link compared to the <code>Hds::Link</code> in the description</A.Title>
+            <A.Description>
+              <p>Description with an <a href="#">HTML link</a>.</p>
+              <p>
+                Compared with a
+                <Hds::Link::Inline @href="#">Primary Hds::Link::Inline</Hds::Link::Inline>, and a
+                <Hds::Link::Standalone @icon="hashicorp" @text="Primary Hds::Link::Standalone with an icon" @href="#" />
+              </p>
+              <p>
+                Also compared with a
+                <Hds::Link::Inline @href="#" @color="secondary">Secondary Hds::Link::Inline</Hds::Link::Inline>, and a
+                <Hds::Link::Standalone
+                  @icon="hashicorp"
+                  @color="secondary"
+                  @text="Primary Hds::Link::Standalone with an icon"
+                  @href="#"
+                />
+              </p>
+            </A.Description>
+          </Hds::Alert>
+        </SF.Item>
+
+        <SF.Item>
+          <Hds::Alert @type="compact" @color="success" as |A|>
+            <A.Title>An alert with an HTML link compared to the <code>Hds::Link</code> in the description</A.Title>
+            <A.Description>
+              Compact alert with an
+              <a href="#">HTML link</a>.
+              <p>
+                Compared with a
+                <Hds::Link::Inline @href="#">Primary Hds::Link::Inline</Hds::Link::Inline>, and a
+                <Hds::Link::Standalone @icon="hashicorp" @text="Primary Hds::Link::Standalone with an icon" @href="#" />
+              </p>
+              <p>
+                Also compared with a
+                <Hds::Link::Inline @href="#" @color="secondary">Secondary Hds::Link::Inline</Hds::Link::Inline>, and a
+                <Hds::Link::Standalone
+                  @icon="hashicorp"
+                  @color="secondary"
+                  @text="Primary Hds::Link::Standalone with an icon"
+                  @href="#"
+                />
+              </p>
+            </A.Description>
+          </Hds::Alert>
+        </SF.Item>
       </Shw::Flex>
     </SG.Item>
   </Shw::Grid>
