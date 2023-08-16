@@ -1,3 +1,10 @@
+An Inline Link handles the generation of:
+
+- an HTML anchor element `<a>` that points to an external URL (when using a `@href` argument)
+- an [Ember component `<LinkTo>`](https://guides.emberjs.com/release/routing/linking-between-routes/#toc_the-linkto--component) that points to an internal application link or resource (when using a `@route` argument).
+
+The Inline Link Ember component inherits the typographic styles of the text around it (font, weight, etc), while the [color](#color-1) is determined by the `@color` argument.
+
 ## How to use this component
 
 The most basic invocation requires some content to be passed as children and either an `@href` or `@route` argument.
