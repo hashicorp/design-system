@@ -60,7 +60,7 @@ Use the Alert for more intrusive message communication about errors or critical 
 
 !!! Do
 
-Use the Alert to communicate validation errors. For more details, refer to the [form validation patterns](/patterns/form-patterns).
+Use the Alert to communicate validation errors. For more details, refer to the [form validation patterns](/patterns/form-patterns?tab=validation).
 
 <Hds::Alert @type="inline" @color="critical" as |A|>
     <A.Title>Form submission error</A.Title>
