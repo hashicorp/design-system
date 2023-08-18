@@ -6,7 +6,25 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
-export default class HdsInteractiveComponent extends Component {
+interface HdsInteractiveSignature {
+  Args: {
+    href?: string;
+    isHrefExternal?: boolean;
+    isRouteExternal?: boolean;
+    route?: unknown;
+    models?: unknown;
+    model?: unknown;
+    query?: unknown;
+    'current-when'?: unknown;
+    replace?: unknown;
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLAnchorElement | HTMLButtonElement;
+}
+
+export default class HdsInteractiveIndexComponent extends Component<HdsInteractiveSignature> {
   /**
    * Determines if a @href value is "external" (it adds target="_blank" rel="noopener noreferrer")
    *
@@ -30,9 +48,16 @@ export default class HdsInteractiveComponent extends Component {
   }
 
   @action
-  onKeyUp(event) {
+  onKeyUp(event: KeyboardEvent) {
     if (event.key === ' ' || event.code === 'Space') {
-      event.target.click();
+      (event.target as HTMLElement).click();
     }
+  }
+}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'Hds::Interactive': typeof HdsInteractiveIndexComponent;
+    'hds/interactive': typeof HdsInteractiveIndexComponent;
   }
 }
