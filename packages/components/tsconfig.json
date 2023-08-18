@@ -39,5 +39,8 @@
     "types/**/*",
     "test-support/**/*",
     "addon-test-support/**/*"
-  ]
+  ],
+  "glint": {
+    "environment": "ember-loose"
+  }
 }

@@ -2776,6 +2776,67 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@glint/core@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@glint/core@npm:1.1.0"
+  dependencies:
+    "@glimmer/syntax": ^0.84.2
+    escape-string-regexp: ^4.0.0
+    semver: ^7.5.2
+    silent-error: ^1.1.1
+    uuid: ^8.3.2
+    vscode-languageserver: ^8.0.1
+    vscode-languageserver-textdocument: ^1.0.5
+    vscode-uri: ^3.0.2
+    yargs: ^17.5.1
+  peerDependencies:
+    typescript: ">=4.8.0"
+  bin:
+    glint: bin/glint.js
+    glint-language-server: bin/glint-language-server.js
+  checksum: 320509ecd325106f0872ffda50f23bf03f6d61b1b7d967049dbe0cd63f4e55bcbb163b3bb3d99e74ae1c373e7fba5a40fa574824bfa49b390659f81976ea7d4a
+  languageName: node
+  linkType: hard
+
+"@glint/environment-ember-loose@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@glint/environment-ember-loose@npm:1.1.0"
+  peerDependencies:
+    "@glimmer/component": ^1.1.2
+    "@glint/template": ^1.1.0
+    "@types/ember__array": ^4.0.2
+    "@types/ember__component": ^4.0.10
+    "@types/ember__controller": ^4.0.2
+    "@types/ember__object": ^4.0.4
+    "@types/ember__routing": ^4.0.11
+    ember-cli-htmlbars: ^6.0.1
+    ember-modifier: ^3.2.7 || ^4.0.0
+  peerDependenciesMeta:
+    "@types/ember__array":
+      optional: true
+    "@types/ember__component":
+      optional: true
+    "@types/ember__controller":
+      optional: true
+    "@types/ember__object":
+      optional: true
+    "@types/ember__routing":
+      optional: true
+    ember-cli-htmlbars:
+      optional: true
+    ember-modifier:
+      optional: true
+  checksum: 7d9498d3277b1a21060695fec837d8a2fae16de08672257398cd469f97993226967c302d8952928386fd7f88e2edb304c79454e97dc86945faee7f68fa6cb260
+  languageName: node
+  linkType: hard
+
+"@glint/template@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@glint/template@npm:1.1.0"
+  checksum: c79f6ce6fc8999423d663c70d8483fc3d3b64d3c34a56d483b0335aad6cb489c04c08c038d4c71e70da557702221792cda2a59d62f0fa7735f189b7e55a44a95
+  languageName: node
+  linkType: hard
+
 "@handlebars/parser@npm:~2.0.0":
   version: 2.0.0
   resolution: "@handlebars/parser@npm:2.0.0"
@@ -2795,6 +2856,9 @@ __metadata:
     "@embroider/test-setup": ^2.1.1
     "@glimmer/component": ^1.1.2
     "@glimmer/tracking": ^1.1.2
+    "@glint/core": ^1.1.0
+    "@glint/environment-ember-loose": ^1.1.0
+    "@glint/template": ^1.1.0
     "@hashicorp/design-system-tokens": ^1.9.0
     "@hashicorp/ember-flight-icons": ^3.1.3
     "@percy/cli": ^1.24.2
@@ -2876,7 +2940,7 @@ __metadata:
     stylelint-config-rational-order: ^0.1.2
     stylelint-config-standard-scss: ^5.0.0
     tippy.js: ^6.3.7
-    typescript: latest
+    typescript: ^5.1.6
     webpack: ^5.84.1
   languageName: unknown
   linkType: soft
@@ -19126,6 +19190,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"semver@npm:^7.5.2":
+  version: 7.5.4
+  resolution: "semver@npm:7.5.4"
+  dependencies:
+    lru-cache: ^6.0.0
+  bin:
+    semver: bin/semver.js
+  checksum: 12d8ad952fa353b0995bf180cdac205a4068b759a140e5d3c608317098b3575ac2f1e09182206bf2eb26120e1c0ed8fb92c48c592f6099680de56bb071423ca3
+  languageName: node
+  linkType: hard
+
 "send@npm:0.18.0":
   version: 0.18.0
   resolution: "send@npm:0.18.0"
@@ -21123,7 +21198,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:latest":
+"typescript@npm:^5.1.6":
   version: 5.1.6
   resolution: "typescript@npm:5.1.6"
   bin:
@@ -21143,13 +21218,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@latest#~builtin<compat/typescript>":
+"typescript@patch:typescript@^5.1.6#~builtin<compat/typescript>":
   version: 5.1.6
-  resolution: "typescript@patch:typescript@npm%3A5.1.6#~builtin<compat/typescript>::version=5.1.6&hash=1f5320"
+  resolution: "typescript@patch:typescript@npm%3A5.1.6#~builtin<compat/typescript>::version=5.1.6&hash=5da071"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 21e88b0a0c0226f9cb9fd25b9626fb05b4c0f3fddac521844a13e1f30beb8f14e90bd409a9ac43c812c5946d714d6e0dee12d5d02dfc1c562c5aacfa1f49b606
+  checksum: f53bfe97f7c8b2b6d23cf572750d4e7d1e0c5fff1c36d859d0ec84556a827b8785077bc27676bf7e71fae538e517c3ecc0f37e7f593be913d884805d931bc8be
   languageName: node
   linkType: hard
 
@@ -21634,6 +21709,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"vscode-jsonrpc@npm:8.1.0":
+  version: 8.1.0
+  resolution: "vscode-jsonrpc@npm:8.1.0"
+  checksum: 8980037cc0014802e6ac1e5dfcff9a65e8292727096dfd23c92d2039c0c45de74a00d6ee06938cf1a671286dd8258a5f418cf048c26ad0fcb0c44f96c9e0f278
+  languageName: node
+  linkType: hard
+
+"vscode-languageserver-protocol@npm:3.17.3":
+  version: 3.17.3
+  resolution: "vscode-languageserver-protocol@npm:3.17.3"
+  dependencies:
+    vscode-jsonrpc: 8.1.0
+    vscode-languageserver-types: 3.17.3
+  checksum: ffea508b2efd7f4853f1cef5e5eac58672f0ae71a9ec275ad37a4a2a24cdc3ff023f941e759951aee01c79da3f3279f10e034f19d875f081eb387181241bd836
+  languageName: node
+  linkType: hard
+
+"vscode-languageserver-textdocument@npm:^1.0.5":
+  version: 1.0.10
+  resolution: "vscode-languageserver-textdocument@npm:1.0.10"
+  checksum: 605ff0662535088567a145b48d28f0c41844d28269fa0b3fca3a1e179dd14baf7181150b274bf3840ef2a043ed8474a9227aaf169a6fae574516349a1b371a18
+  languageName: node
+  linkType: hard
+
 "vscode-languageserver-textdocument@npm:^1.0.8":
   version: 1.0.9
   resolution: "vscode-languageserver-textdocument@npm:1.0.9"
@@ -21641,7 +21740,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vscode-uri@npm:^3.0.7":
+"vscode-languageserver-types@npm:3.17.3":
+  version: 3.17.3
+  resolution: "vscode-languageserver-types@npm:3.17.3"
+  checksum: fbc8221297261f659a6482875ff2a419dc9d55965dc53745797da569ff9f819cd832e6f2699017baadd946548bbfe212e3f6971f3d960f12dc0ee9c629dacc07
+  languageName: node
+  linkType: hard
+
+"vscode-languageserver@npm:^8.0.1":
+  version: 8.1.0
+  resolution: "vscode-languageserver@npm:8.1.0"
+  dependencies:
+    vscode-languageserver-protocol: 3.17.3
+  bin:
+    installServerIntoExtension: bin/installServerIntoExtension
+  checksum: 38810619d0a7c587e7e84fc55d9897a0ac235b80a0a8c0ab1faf4283ec6ca1c25f80c0116bcc54aa99d0d9f202f69119fd8cb1264ffb5825eabf45af9bd6793d
+  languageName: node
+  linkType: hard
+
+"vscode-uri@npm:^3.0.2, vscode-uri@npm:^3.0.7":
   version: 3.0.7
   resolution: "vscode-uri@npm:3.0.7"
   checksum: c899a0334f9f6ba53021328e083f6307978c09b94407d7e5fe86fcd8fcb8f1da0cb344123a335e55769055007a46d51aff83f9ee1dfc0296ee54b78f34ef0e4f
