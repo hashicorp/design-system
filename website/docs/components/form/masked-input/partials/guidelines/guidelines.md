@@ -68,6 +68,12 @@ For shorter, simpler forms, indicate optional fields instead.
   <F.Label>Label</F.Label>
 </Hds::Form::MaskedInput::Field>
 
+## Copyable masked input 
+
+Contents within the `Masked Input` can be copied with the `Copy Button` boolean property. Refer to [copybutton](www.helios.com/copy/copy-button) for usage guidlines. 
+
+![Masked input with a copy button](/assets/components/form/masked-input/masked-input-has-copy-button.png)
+
 ## Error validation
 
-For error validation recommendations, refer to the [Form patterns](/patterns/form-patterns) documentation.
+For error validation recommendations, refer to the [Form patterns](/patterns/form-patterns) documentation
