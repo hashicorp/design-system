@@ -69,6 +69,9 @@
     "@embroider/test-setup": "^2.1.1",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
+    "@glint/core": "^1.1.0",
+    "@glint/environment-ember-loose": "^1.1.0",
+    "@glint/template": "^1.1.0",
     "@percy/cli": "^1.24.2",
     "@percy/ember": "^4.2.0",
     "@tsconfig/ember": "latest",
@@ -132,7 +135,7 @@
     "stylelint": "^15.10.1",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard-scss": "^5.0.0",
-    "typescript": "latest",
+    "typescript": "^5.1.6",
     "webpack": "^5.84.1"
   },
   "engines": {
