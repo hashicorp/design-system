@@ -13,7 +13,29 @@ export const SIZES = ['small', 'medium', 'large'];
 export const COLORS = ['primary', 'secondary', 'tertiary', 'critical'];
 export const ICONPOSITIONS = ['leading', 'trailing'];
 
-export default class HdsButtonIndexComponent extends Component {
+export interface HdsButtonSignature {
+  Args: {
+    size?: 'small' | 'medium' | 'large';
+    color?: 'primary' | 'secondary' | 'tertiary' | 'critical';
+    text: string;
+    icon?: string;
+    iconPosition?: 'leading' | 'trailing';
+    isIconOnly?: boolean;
+    isFullWidth?: boolean;
+    href?: string;
+    isHrefExternal?: boolean;
+    route?: unknown;
+    models?: unknown;
+    model?: unknown;
+    query?: unknown;
+    'current-when'?: unknown;
+    replace?: unknown;
+    isRouteExternal?: boolean;
+  };
+  Element: HTMLElement;
+}
+
+export default class HdsButtonIndexComponent extends Component<HdsButtonSignature> {
   /**
    * @param text
    * @type {string}
@@ -159,5 +181,12 @@ export default class HdsButtonIndexComponent extends Component {
     }
 
     return classes.join(' ');
+  }
+}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'Hds::Button': typeof HdsButtonIndexComponent;
+    'hds/button': typeof HdsButtonIndexComponent;
   }
 }
