@@ -2,13 +2,13 @@
 import Modifier from 'ember-modifier';
 import { assert } from '@ember/debug';
 import { registerDestructor } from '@ember/destroyable';
-import  codemirror from 'codemirror';
+import codemirror from 'codemirror';
 
 // import type Owner from '@ember/owner';
 
 // import 'core/utils/register-codemirror-hcl';
 // import 'codemirror/mode/go/go';
-// import 'codemirror/mode/javascript/javascript';
+import 'codemirror/mode/javascript/javascript';
 // import 'codemirror/mode/markdown/markdown';
 // import 'codemirror/mode/shell/shell';
 // import 'codemirror/addon/edit/matchbrackets';
@@ -27,7 +27,7 @@ const PRESET_DEFAULTS = {
   matchBrackets: true,
   autoCloseBrackets: true,
   styleActiveLine: true,
-  mode: 'hcl',
+  mode: 'javascript',
 };
 
 function cleanup(instance) {
