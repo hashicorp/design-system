@@ -70,7 +70,7 @@ For shorter, simpler forms, indicate optional fields instead.
 
 ## Copyable masked input 
 
-Contents within the `Masked Input` can be copied with the `Copy Button` boolean property. Refer to [copybutton](www.helios.com/copy/copy-button) for usage guidlines. 
+The new boolean property allows for toggling the display of a Copy Button on the right side of the MaskedInput. When set to `true,` the Copy Button becomes visible, helping users to copy the masked content to their clipboard. Refer to the [copybutton](www.helios.com/copy/copy-button) usage guidelines to learn more about copying content. 
 
 ![Masked input with a copy button](/assets/components/form/masked-input/masked-input-has-copy-button.png)
 
