@@ -7,13 +7,10 @@ import codemirror from 'codemirror';
 // import type Owner from '@ember/owner';
 
 // import 'core/utils/register-codemirror-hcl';
-// import 'codemirror/mode/go/go';
+import 'codemirror/mode/go/go';
 import 'codemirror/mode/javascript/javascript';
-// import 'codemirror/mode/markdown/markdown';
-// import 'codemirror/mode/shell/shell';
-// import 'codemirror/addon/edit/matchbrackets';
-// import 'codemirror/addon/edit/closebrackets';
-// import 'codemirror/addon/selection/active-line';
+import 'codemirror/mode/markdown/markdown';
+import 'codemirror/mode/shell/shell';
 
 // Here we define default options for the editor.
 // These should follow the codemirror configuration types
@@ -21,12 +18,7 @@ import 'codemirror/mode/javascript/javascript';
 
 // TODO: create custom theme (KB)
 const PRESET_DEFAULTS = {
-  theme: 'monokai',
-  lineNumbers: true,
-  cursorBlinkRate: 500,
-  matchBrackets: true,
-  autoCloseBrackets: true,
-  styleActiveLine: true,
+  theme: 'dracula',
   mode: 'javascript',
 };
 
@@ -42,12 +34,12 @@ function cleanup(instance) {
  * provided element.
  *
  * The supported modes for the editor are currently: hcl, shell, go, javascript
- * The supported themes are: monokai
+ * The supported themes are: dracula
  *
  * Sample usage:
  * ```
  * <div
- *   {{code-mirror onInput=@onInput options=@options value=@value}}
+ *   {{code-mirror options=@options value=@value}}
  * />
  * ```
  *
@@ -74,8 +66,6 @@ export default class HdsCodeMirrorModifier extends Modifier {
     { rootMargin: '0px', threshold: 1.0 }
   );
 
-  // onInput!: CodeMirrorSignature['Args']['Named']['onInput'];
-
   constructor(owner, args) {
     super(owner, args);
     registerDestructor(this, cleanup);
@@ -93,7 +83,7 @@ export default class HdsCodeMirrorModifier extends Modifier {
   }
 
   #setup(element, _positional, named) {
-    const { onInput, options = {}, value } = named;
+    const { onInput, options = {}, value, lineNumbers, lineWrapping } = named;
 
     this.onInput = onInput;
 
@@ -101,6 +91,8 @@ export default class HdsCodeMirrorModifier extends Modifier {
       ...PRESET_DEFAULTS,
       ...options,
       value,
+      lineNumbers,
+      lineWrapping,
     });
 
     this.element = element;

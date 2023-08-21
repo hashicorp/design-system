@@ -8,19 +8,50 @@
 <Shw::Text::H1>CodeBlock</Shw::Text::H1>
 
 <section data-test-percy>
+  <Shw::Text::h2>Default invocation</Shw::Text::h2>
 
-  {{! ADD YOUR CONTENT HERE }}
+  <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SG|>
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="one line">
+      <Hds::CodeBlock @value="console.log('I am JavaScript code');" />
+    </SG.Item>
 
-  {{! This below is just an example of invocation, to get started }}
-  {{!-- <Hds::CodeBlock>This is the Hds::CodeBlock component </Hds::CodeBlock> --}}
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="multi-line">
+      <Hds::CodeBlock
+        @value="let codeLang='JavaScript';
+console.log(`I am ${codeLang} code`);"
+      />
+    </SG.Item>
+  </Shw::Flex>
+
+  <Shw::Text::h2>Options</Shw::Text::h2>
+  <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SG|>
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="with lineWrapping=false">
+      <Hds::CodeBlock
+        @value="console.log('I am JavaScript code', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam');"
+      />
+    </SG.Item>
+
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="with lineWrapping=true">
+      <Hds::CodeBlock
+        @lineWrapping={{true}}
+        @value="console.log('I am JavaScript code', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam');"
+      />
+    </SG.Item>
+  </Shw::Flex>
+
+  {{!-- <Shw::Text::h3>with lineWrapping=true</Shw::Text::h3>
 
   <Hds::CodeBlock
-    @value="console.log('I am JavaScript code');"
+    @lineWrapping={{true}}
+    @value="console.log('I am JavaScript code', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam');"
+  /> --}}
+
+  <Shw::Text::h3>with linenumbers=true</Shw::Text::h3>
+
+  <Hds::CodeBlock
+    @lineNumbers={{true}}
+    @value="let codeLang='JavaScript';
+
+console.log(`I am ${codeLang} code`);"
   />
-
-  {{!-- <CodeEditor @codeValue={{codeValue}} as |C|>
-	<C.Toolbar />
-	<C.FieldEditor class='autosize' @options={{options}} />
- </CodeEditor> --}}
-
 </section>

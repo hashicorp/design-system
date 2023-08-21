@@ -9,7 +9,7 @@
 
 .hds-code-block {
   // add the component styles here
-  outline: 3px dotted red;
+  border: 1px solid;
 }
 
 // -----------------------------------------
@@ -18,7 +18,8 @@
 /* BASICS */
 
 .CodeMirror {
-  height: 300px;
+  // height: 300px;
+  height: auto;
   color: black;
 
   /* Set height, width, borders, and global font properties here */
@@ -49,7 +50,8 @@
   background-color: #f7f7f7;
   border-right: 1px solid #ddd;
 }
-.CodeMirror-linenumbers {}
+
+// .CodeMirror-linenumbers {}
 
 .CodeMirror-linenumber {
   min-width: 20px;
@@ -90,32 +92,35 @@
 .cm-fat-cursor .CodeMirror-line > span > span::selection { background: transparent; }
 
 .cmcursor .CodeMirror-line::selection,
-.cmcursor .CodeMirror-line > span::-moz-selection,
-.cm-fat-cursor .CodeMirror-line > span > span::-moz-selection { background: transparent; }
+.cmcursor .CodeMirror-line > span::selection,
+.cmcursor .CodeMirror-line > span > span::selection { background: transparent; }
 .cm-fat-cursor { caret-color: transparent; }
 
-@keyframes blink {
-  0% {}
-  50% { background-color: transparent; }
-  100% {}
-}
+// @keyframes blink {
+//   0% {}
+//   50% { background-color: transparent; }
+//   100% {}
+// }
 
-@keyframes blink {
-  0% {}
-  50% { background-color: transparent; }
-  100% {}
-}
+// @keyframes blink {
+//   0% {}
+//   50% { background-color: transparent; }
+//   100% {}
+// }
 
-@keyframes blink {
-  0% {}
-  50% { background-color: transparent; }
-  100% {}
-}
+// @keyframes blink {
+//   0% {}
+//   50% { background-color: transparent; }
+//   100% {}
+// }
 
 /* Can style cursor different in overwrite (non-insert) mode */
-.CodeMirror-overwrite .CodeMirror-cursor {}
+// .CodeMirror-overwrite .CodeMirror-cursor {}
 
-.cm-tab { display: inline-block; text-decoration: inherit; }
+.cm-tab {
+  display: inline-block;
+  text-decoration: inherit;
+}
 
 .CodeMirror-rulers {
   position: absolute;
@@ -154,8 +159,10 @@
 .cm-s-default .cm-variable,
 .cm-s-default .cm-punctuation,
 .cm-s-default .cm-property,
-.cm-s-default .cm-operator {}
-.cm-s-default .cm-variable-2 { color: #05a; }
+// .cm-s-default .cm-operator {}
+.cm-s-default .cm-variable-2 {
+  color: #05a;
+}
 
 .cm-s-default .cm-variable-3,
 .cm-s-default .cm-type { color: #085; }
@@ -337,7 +344,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket { color: #a22; }
   padding: 0.1px; /* Force widget margins to stay inside of the container */
 }
 
-.CodeMirror-widget {}
+// .CodeMirror-widget {}
 
 .CodeMirror-rtl pre { direction: rtl; }
 
@@ -414,3 +421,63 @@ div.CodeMirror-dragcursors {
 
 /* Help users use markselection to safely style text background */
 span.CodeMirror-selectedtext { background: none; }
+
+
+// ------------------------
+
+/*
+
+    Name:       dracula
+    Author:     Michael Kaminsky (http://github.com/mkaminsky11)
+
+    Original dracula color scheme by Zeno Rocha (https://github.com/zenorocha/dracula-theme)
+
+*/
+
+.cm-s-dracula.CodeMirror,
+.cm-s-dracula .CodeMirror-gutters {
+  color: #f8f8f2 !important;
+  background-color: #282a36 !important;
+  border: none;
+}
+.cm-s-dracula .CodeMirror-gutters { color: #282a36; }
+.cm-s-dracula .CodeMirror-cursor { border-left: solid thin #f8f8f0; }
+.cm-s-dracula .CodeMirror-linenumber { color: #6d8a88; }
+.cm-s-dracula .CodeMirror-selected { background: rgba(255, 255, 255, 10%); }
+
+.cm-s-dracula .CodeMirror-line::selection,
+.cm-s-dracula .CodeMirror-line > span::selection,
+.cm-s-dracula .CodeMirror-line > span > span::selection { background: rgba(255, 255, 255, 10%); }
+
+.cmdracula .CodeMirror-line::selection,
+// .cmdracula .CodeMirror-line > span > span::-moz-selection,
+.cmdracula .CodeMirror-line > span::selection {
+  background: rgba(255, 255, 255, 10%);
+}
+.cm-s-dracula span.cm-comment { color: #6272a4; }
+
+.cm-s-dracula span.cm-string,
+.cm-s-dracula span.cm-string-2 { color: #f1fa8c; }
+.cm-s-dracula span.cm-number { color: #bd93f9; }
+.cm-s-dracula span.cm-variable { color: #50fa7b; }
+.cm-s-dracula span.cm-variable-2 { color: white; }
+.cm-s-dracula span.cm-def { color: #50fa7b; }
+.cm-s-dracula span.cm-operator { color: #ff79c6; }
+.cm-s-dracula span.cm-keyword { color: #ff79c6; }
+.cm-s-dracula span.cm-atom { color: #bd93f9; }
+.cm-s-dracula span.cm-meta { color: #f8f8f2; }
+.cm-s-dracula span.cm-tag { color: #ff79c6; }
+.cm-s-dracula span.cm-attribute { color: #50fa7b; }
+.cm-s-dracula span.cm-qualifier { color: #50fa7b; }
+.cm-s-dracula span.cm-property { color: #66d9ef; }
+.cm-s-dracula span.cm-builtin { color: #50fa7b; }
+
+.cm-s-dracula span.cm-variable-3,
+.cm-s-dracula span.cm-type { color: #ffb86c; }
+
+.cm-s-dracula .CodeMirror-activeline-background { background: rgba(255, 255, 255, 10%); }
+
+.cm-s-dracula .CodeMirror-matchingbracket {
+  color: white !important;
+  text-decoration: underline;
+}

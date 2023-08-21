@@ -7,12 +7,5 @@
   data-test-code-editor-field-editor
   ...attributes
   class={{this.classNames}}
-  {{hds-code-mirror value=@value options=@options}}
+  {{hds-code-mirror value=@value options=@options lineNumbers=@lineNumbers lineWrapping=@lineWrapping}}
 ></div>
-
-{{!-- <button
-  type="button"
-  class={{this.classNames}}
-  {{hds-tooltip this.text options=this.options}}
-  ...attributes
->{{~yield~}}</button> --}}
