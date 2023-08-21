@@ -27,7 +27,7 @@ A different type of Alert can be invoked using the `type` argument.
 </Hds::Alert>
 ```
 
-### Content
+### Title and description
 
 Optionally, you can pass only `title` or only `description`.
 
