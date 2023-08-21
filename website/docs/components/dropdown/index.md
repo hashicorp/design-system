@@ -5,6 +5,7 @@ caption: Hide/Show a list of actions or options with a toggle button.
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=5633%3A16319&t=XC8SUxxJOFHgqYzK-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/dropdown
+related: ['components/segmented-group','patterns/filter-patterns']
 previewImage: assets/illustrations/components/dropdown.jpg
 navigation:
   keywords: ['select', 'menu', 'action menu', 'list']
