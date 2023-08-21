@@ -23,7 +23,7 @@ For content guidelines on actions, refer to [Button](/components/button) and
 
 ### Usage of critical buttons
 
-Avoid using critical buttons in alerts. We handle the prominence and importance via the styling of the alert container itself. If needing to confirm that the user intended to interact with the action, consider displaying a confirmation modal.
+Avoid using critical buttons in alerts. We handle the prominence and importance via the styling of the alert container itself. If you need to confirm that the user intended to interact with the action, consider displaying a confirmation modal.
 
 !!! Dont
 <Hds::Alert @type="inline" @color="critical" as |A|>
@@ -57,7 +57,7 @@ If multiple links are necessary or if linking within the Alert description, use 
   </A.Description>
 </Hds::Alert>
 
-If linking to multiple related items on the same page, e.g., highlighting multiple form validation errors, wrap the links in an list.
+If linking to multiple related items on the same page, e.g., highlighting multiple form validation errors, wrap the links in a list.
 
 <Hds::Alert @type="inline" @color="critical" as |A|>
   <A.Title>Error submitting the form</A.Title>
@@ -81,7 +81,7 @@ We recommend using `secondary` [Inline Links](/components/link/inline) in the `c
 
 <Hds::Alert @type="compact" @color="success" as |A|>
   <A.Description>
-    You've successfully configured your account. Next, <Hds::Link::Inline @href="#" @color="secondary">create a cluster</Hds::Link::Inline>, <Hds::Link::Inline @href="#" @color="secondary">invite your teammates</Hds::Link::Inline>, or create a <Hds::Link::Inline @href="#" @color="secondary">HashiCorp Virtual Network (HVN)</Hds::Link::Inline>.
+    You’ve successfully configured your account. Next, <Hds::Link::Inline @href="#" @color="secondary">create a cluster</Hds::Link::Inline>, <Hds::Link::Inline @href="#" @color="secondary">invite your teammates</Hds::Link::Inline>, or create a <Hds::Link::Inline @href="#" @color="secondary">HashiCorp Virtual Network (HVN)</Hds::Link::Inline>.
   </A.Description>
 </Hds::Alert>
 
@@ -89,7 +89,7 @@ If the link requires more prominence, consider using the `primary` color.
 
 <Hds::Alert @type="compact" @color="success" as |A|>
   <A.Description>
-    You've successfully configured your account. Next, <Hds::Link::Inline @href="#" @color="primary">create your first cluster</Hds::Link::Inline>.
+    You’ve successfully configured your account. Next, <Hds::Link::Inline @href="#" @color="primary">create your first cluster</Hds::Link::Inline>.
   </A.Description>
 </Hds::Alert>
 
@@ -99,7 +99,7 @@ Don’t mix and match different link colors in the same Alert.
 
 <Hds::Alert @type="compact" @color="success" as |A|>
   <A.Description>
-    You've successfully configured your account. Next, <Hds::Link::Inline @href="#" @color="primary">create a cluster</Hds::Link::Inline>, <Hds::Link::Inline @href="#" @color="secondary">invite your teammates</Hds::Link::Inline>, or create a <Hds::Link::Inline @href="#" @color="secondary">HashiCorp Virtual Network (HVN)</Hds::Link::Inline>.
+    You’ve successfully configured your account. Next, <Hds::Link::Inline @href="#" @color="primary">create a cluster</Hds::Link::Inline>, <Hds::Link::Inline @href="#" @color="secondary">invite your teammates</Hds::Link::Inline>, or create a <Hds::Link::Inline @href="#" @color="secondary">HashiCorp Virtual Network (HVN)</Hds::Link::Inline>.
   </A.Description>
 </Hds::Alert>
 !!!
