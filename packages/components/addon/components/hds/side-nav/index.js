@@ -11,7 +11,7 @@ import { registerDestructor } from '@ember/destroyable';
 
 export default class HdsSideNavComponent extends Component {
   @tracked isResponsive = this.args.isResponsive ?? true;
-  @tracked isMinimized = this.isResponsive; // we set it minimized by default so that if we switch viewport from desktop to mobile its already minimized
+  @tracked isMinimized = this.args.isMinimized ?? false;
   @tracked isAnimating = false;
   @tracked isDesktop = true;
   hasA11yRefocus = this.args.hasA11yRefocus ?? true;
@@ -126,6 +126,9 @@ export default class HdsSideNavComponent extends Component {
   @action
   updateDesktopVariable(event) {
     this.isDesktop = event.matches;
+
+    // automatically minimize on narrow viewports (when not in desktop mode)
+    this.isMinimized = !this.isDesktop;
 
     let { onDesktopViewportChange } = this.args;
 
