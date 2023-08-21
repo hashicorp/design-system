@@ -1,0 +1,18 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+<div
+  data-test-code-editor-field-editor
+  ...attributes
+  class={{this.classNames}}
+  {{hds-code-mirror value=@value onInput=@onInput options=@options}}
+></div>
+
+{{!-- <button
+  type="button"
+  class={{this.classNames}}
+  {{hds-tooltip this.text options=this.options}}
+  ...attributes
+>{{~yield~}}</button> --}}

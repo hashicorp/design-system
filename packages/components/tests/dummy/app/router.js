@@ -66,6 +66,7 @@ Router.map(function () {
       this.route('button');
       this.route('snippet');
     });
+    this.route('code-block');
   });
   this.route('layouts', function () {
     this.route('app-frame');
