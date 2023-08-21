@@ -70,7 +70,7 @@ For shorter, simpler forms, indicate optional fields instead.
 
 ## Copyable masked input 
 
-Setting the `hasCopyButton` property to `true` will display a [Copy Button](components/copy/copy-button) adjacent to the Masked Input, allowing users to copy the value in the Masked Input to their clipboard. Refer to the [Copy Button](components/copy/copy-button) usage guidelines for more details around copying content. 
+Setting the `hasCopyButton` property to `true` will display a [Copy Button](/components/copy/copy-button) adjacent to the Masked Input, allowing users to copy the value in the Masked Input to their clipboard. Refer to the [Copy Button](/components/copy/copy-button) usage guidelines for more details around copying content. 
 
 ![Masked Input with a Copy Button](/assets/components/form/masked-input/masked-input-has-copy-button.png)
 
