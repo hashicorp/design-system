@@ -33,25 +33,3 @@ $hds-form-masked-input-button-size: 24px;
     -webkit-text-security: none;
   }
 }
-
-// notice: by design, for this button we don't apply a custom style for the focused state
-// but we rely on the standard outlined styling provided by the browser
-.hds-form-masked-input__toggle-button {
-  position: absolute;
-  top: calc(var(--token-form-control-padding) - var(--token-form-control-border-width));
-  right: calc(var(--token-form-control-padding) - var(--token-form-control-border-width));
-  grid-area: input;
-  width: $hds-form-masked-input-button-size;
-  height: $hds-form-masked-input-button-size;
-  padding: 2px;
-  color: var(--token-color-foreground-primary);
-  background-color: transparent;
-  border-color: transparent;
-  cursor: pointer;
-}
-
-.hds-form-masked-input__copy-button {
-  grid-area: copy-button;
-  align-self: flex-start;
-  margin-left: 8px;
-}
