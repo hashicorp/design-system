@@ -31,9 +31,7 @@ module(
       assert
         .dom('.hds-form-masked-input__control')
         .hasStyle({ '-webkit-text-security': 'disc' });
-      assert
-        .dom('.hds-form-masked-input__toggle-button .flight-icon-eye')
-        .exists();
+      assert.dom('.hds-visibility-toggle .flight-icon-eye').exists();
     });
 
     test('it should render readable text when `isMasked` is false', async function (assert) {
@@ -43,22 +41,18 @@ module(
       assert
         .dom('.hds-form-masked-input__control')
         .hasStyle({ '-webkit-text-security': 'none' });
-      assert
-        .dom('.hds-form-masked-input__toggle-button .flight-icon-eye-off')
-        .exists();
+      assert.dom('.hds-visibility-toggle .flight-icon-eye-off').exists();
     });
 
     test('it should toggle the masking when button is pressed', async function (assert) {
       await render(
         hbs`<Hds::Form::MaskedInput::Base id="test-form-masked-input" />`
       );
-      await click('.hds-form-masked-input__toggle-button');
+      await click('.hds-visibility-toggle');
       assert
         .dom('.hds-form-masked-input__control')
         .hasStyle({ '-webkit-text-security': 'none' });
-      assert
-        .dom('.hds-form-masked-input__toggle-button .flight-icon-eye-off')
-        .exists();
+      assert.dom('.hds-visibility-toggle .flight-icon-eye-off').exists();
     });
 
     // ACCESSIBILITY
@@ -68,7 +62,7 @@ module(
         hbs`<Hds::Form::MaskedInput::Base @id="test-form-masked-input" />`
       );
       assert
-        .dom('.hds-form-masked-input__toggle-button')
+        .dom('.hds-visibility-toggle')
         .hasAttribute('aria-controls', 'test-form-masked-input');
     });
 
@@ -77,11 +71,11 @@ module(
         hbs`<Hds::Form::MaskedInput::Base @id="test-form-masked-input" />`
       );
       assert
-        .dom('.hds-form-masked-input__toggle-button')
+        .dom('.hds-visibility-toggle')
         .hasAttribute('aria-label', 'Show masked content');
-      await click('.hds-form-masked-input__toggle-button');
+      await click('.hds-visibility-toggle');
       assert
-        .dom('.hds-form-masked-input__toggle-button')
+        .dom('.hds-visibility-toggle')
         .hasAttribute('aria-label', 'Hide masked content');
     });
 
@@ -89,13 +83,13 @@ module(
       await render(
         hbs`<Hds::Form::MaskedInput::Base @id="test-form-masked-input" />`
       );
-      await click('.hds-form-masked-input__toggle-button');
+      await click('.hds-visibility-toggle');
       assert
-        .dom('.hds-form-masked-input__toggle-button')
+        .dom('.hds-visibility-toggle')
         .hasText('Input content is now visible');
-      await click('.hds-form-masked-input__toggle-button');
+      await click('.hds-visibility-toggle');
       assert
-        .dom('.hds-form-masked-input__toggle-button')
+        .dom('.hds-visibility-toggle')
         .hasText('Input content is now hidden');
     });
 
