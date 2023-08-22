@@ -8,7 +8,8 @@
 //
 
 .hds-code-block {
-  // add the component styles here
+  overflow: auto;
+  overscroll-behavior: contain;
   border: 1px solid;
 }
 

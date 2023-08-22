@@ -4,8 +4,8 @@
 }}
 
 <div
-  data-test-code-editor-field-editor
-  ...attributes
   class={{this.classNames}}
+  {{style maxHeight=@maxHeight}}
   {{hds-code-mirror value=@value options=@options lineNumbers=@lineNumbers lineWrapping=@lineWrapping}}
+  ...attributes
 ></div>
