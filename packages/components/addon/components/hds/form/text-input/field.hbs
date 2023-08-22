@@ -14,16 +14,38 @@
   {{yield (hash Label=F.Label isRequired=F.isRequired isOptional=F.isOptional)}}
   {{yield (hash HelperText=F.HelperText Error=F.Error)}}
   <F.Control>
-    <Hds::Form::TextInput::Base
-      @type={{@type}}
-      @value={{@value}}
-      @isInvalid={{@isInvalid}}
-      @width={{@width}}
-      @isLoading={{@isLoading}}
-      required={{@isRequired}}
-      ...attributes
-      id={{F.id}}
-      aria-describedby={{F.ariaDescribedBy}}
-    />
+    {{#if (eq @type "password")}}
+      <div class="hds-form-text-input__wrapper" {{style width=@width}}>
+        <Hds::Form::TextInput::Base
+          @type={{this.type}}
+          @value={{@value}}
+          @isInvalid={{@isInvalid}}
+          @isLoading={{@isLoading}}
+          required={{@isRequired}}
+          ...attributes
+          id={{F.id}}
+          aria-describedby={{F.ariaDescribedBy}}
+        />
+        <Hds::VisibilityToggle
+          @isMasked={{this.isMasked}}
+          @ariaLabel={{@ariaLabel}}
+          @ariaMessageText={{@ariaMessageText}}
+          aria-controls={{F.id}}
+          {{on "click" this.onClickToggle}}
+        />
+      </div>
+    {{else}}
+      <Hds::Form::TextInput::Base
+        @type={{@type}}
+        @value={{@value}}
+        @isInvalid={{@isInvalid}}
+        @width={{@width}}
+        @isLoading={{@isLoading}}
+        required={{@isRequired}}
+        ...attributes
+        id={{F.id}}
+        aria-describedby={{F.ariaDescribedBy}}
+      />
+    {{/if}}
   </F.Control>
 </Hds::Form::Field>

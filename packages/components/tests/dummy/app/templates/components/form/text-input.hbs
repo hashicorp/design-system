@@ -215,6 +215,47 @@
     </SG.Item>
   </Shw::Grid>
 
+  <Shw::Text::H3>Password</Shw::Text::H3>
+
+  <Shw::Grid @columns="3" as |SG|>
+    <SG.Item @label="Only label">
+      <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" @type="password" as |F|>
+        <F.Label>This is the label text</F.Label>
+      </Hds::Form::TextInput::Field>
+    </SG.Item>
+    <SG.Item @label="Label + Helper text">
+      <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" @type="password" as |F|>
+        <F.Label>This is the label text</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+      </Hds::Form::TextInput::Field>
+    </SG.Item>
+    {{! left empty on purpose }}
+    <SG.Item />
+    <SG.Item @label="Label + Error">
+      <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" @isInvalid={{true}} @type="password" as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.Error>This is the error</F.Error>
+      </Hds::Form::TextInput::Field>
+    </SG.Item>
+    <SG.Item @label="Label + Helper text + Error">
+      <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" @isInvalid={{true}} @type="password" as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        <F.Error>This is the error</F.Error>
+      </Hds::Form::TextInput::Field>
+    </SG.Item>
+    <SG.Item @label="Label + Helper text + Errors">
+      <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" @isInvalid={{true}} @type="password" as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        <F.Error as |E|>
+          <E.Message>First error message</E.Message>
+          <E.Message>Second error message</E.Message>
+        </F.Error>
+      </Hds::Form::TextInput::Field>
+    </SG.Item>
+  </Shw::Grid>
+
   <Shw::Text::H3>Required and optional</Shw::Text::H3>
 
   <Shw::Grid @columns={{3}} as |SG|>
