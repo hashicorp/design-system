@@ -7,8 +7,8 @@ import codemirror from 'codemirror';
 // import type Owner from '@ember/owner';
 
 // import 'core/utils/register-codemirror-hcl';
-import 'codemirror/mode/go/go';
 import 'codemirror/mode/javascript/javascript';
+import 'codemirror/mode/go/go';
 import 'codemirror/mode/markdown/markdown';
 import 'codemirror/mode/shell/shell';
 
@@ -19,7 +19,6 @@ import 'codemirror/mode/shell/shell';
 // TODO: create custom theme (KB)
 const PRESET_DEFAULTS = {
   theme: 'dracula',
-  mode: 'javascript',
 };
 
 function cleanup(instance) {
@@ -83,7 +82,14 @@ export default class HdsCodeMirrorModifier extends Modifier {
   }
 
   #setup(element, _positional, named) {
-    const { onInput, options = {}, value, lineNumbers, lineWrapping } = named;
+    const {
+      onInput,
+      options = {},
+      value,
+      lineNumbers,
+      lineWrapping,
+      mode = 'javascript',
+    } = named;
 
     this.onInput = onInput;
 
@@ -93,6 +99,7 @@ export default class HdsCodeMirrorModifier extends Modifier {
       value,
       lineNumbers,
       lineWrapping,
+      mode,
     });
 
     this.element = element;
