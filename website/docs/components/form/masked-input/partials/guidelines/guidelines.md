@@ -68,7 +68,7 @@ For shorter, simpler forms, indicate optional fields instead.
   <F.Label>Label</F.Label>
 </Hds::Form::MaskedInput::Field>
 
-## Copyable masked input 
+## Copying the Masked Input value
 
 Setting the `hasCopyButton` property to `true` will display a [Copy Button](/components/copy/copy-button) adjacent to the Masked Input, allowing users to copy the value in the Masked Input to their clipboard. Refer to the [Copy Button](/components/copy/copy-button) usage guidelines for more details around copying content. 
 
