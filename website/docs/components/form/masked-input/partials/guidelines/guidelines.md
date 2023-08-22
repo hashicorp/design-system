@@ -72,7 +72,14 @@ For shorter, simpler forms, indicate optional fields instead.
 
 Setting the `hasCopyButton` property to `true` will display a [Copy Button](/components/copy/copy-button) adjacent to the Masked Input, allowing users to copy the value in the Masked Input to their clipboard. Refer to the [Copy Button](/components/copy/copy-button) usage guidelines for more details around copying content. 
 
-![Masked Input with a Copy Button](/assets/components/form/masked-input/masked-input-has-copy-button.png)
+<Doc::Layout @spacing="16px">
+  <Hds::Form::MaskedInput::Field @value="0362df4996ca864b4df9e42cba0d6d" @width="300px" @hasCopyButton={{true}} as |F|>
+    <F.Label>Label</F.Label>
+  </Hds::Form::MaskedInput::Field>
+  <Hds::Form::MaskedInput::Field @value="0362df4996ca864b4df9e42cba0d6d" @isMultiline={{true}} @width="300px" @hasCopyButton={{true}} as |F|>
+    <F.Label>Label</F.Label>
+  </Hds::Form::MaskedInput::Field>
+</Doc::Layout>
 
 ## Error validation
 
