@@ -1,0 +1,23 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "VisibilityToggle Component"}}
+
+<Shw::Text::H1>VisibilityToggle</Shw::Text::H1>
+
+<section data-test-percy>
+  <Shw::Grid @columns={{4}} {{style width="fit-content"}} as |SG|>
+    <SG.Item @label="Default">
+      <Shw::Outliner class="shw-utility-visibility-toggle-sample">
+        <Hds::VisibilityToggle />
+      </Shw::Outliner>
+    </SG.Item>
+    <SG.Item @label="Masked">
+      <Shw::Outliner class="shw-utility-visibility-toggle-sample">
+        <Hds::VisibilityToggle @isMasked={{true}} />
+      </Shw::Outliner>
+    </SG.Item>
+  </Shw::Grid>
+</section>
