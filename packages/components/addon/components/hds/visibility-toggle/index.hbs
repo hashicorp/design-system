@@ -1,0 +1,8 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<button class="hds-visibility-toggle" type="button" aria-label={{this.ariaLabel}} ...attributes>
+  <FlightIcon @name={{if @isMasked "eye" "eye-off"}} @size="16" @isInlineBlock={{false}} />
+  <span class="sr-only" aria-live="polite">{{this.ariaMessageText}}</span>
+</button>
