@@ -83,7 +83,22 @@
 
 // "TYPE" CUSTOMIZATION
 
+// only used for [type="password"]
+.hds-form-text-input__wrapper {
+  position: relative;
+  width: 100%;
+}
+
 .hds-form-text-input {
+
+  // PASSWORD
+
+  &[type="password"] {
+    // only applied on field variant
+    .hds-form-field__control & {
+      padding-right: calc(var(--token-form-control-padding) + 24px);
+    }
+  }
 
   // DATE/TIME
 
