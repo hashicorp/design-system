@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2023-07-27T21:32:10.457Z",
+  "lastRunTimeISO": "2023-08-21T23:24:05.054Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -1236,6 +1236,42 @@
       "height": 16
     },
     {
+      "id": "4403:80",
+      "fileName": "jira-24",
+      "iconName": "jira",
+      "description": "jira, atlassian, tasks, tickets",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "4403:83",
+      "fileName": "jira-16",
+      "iconName": "jira",
+      "description": "jira, atlassian, tasks, tickets",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "4403:89",
+      "fileName": "jira-color-24",
+      "iconName": "jira-color",
+      "description": "jira, atlassian, tasks, tickets",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "4403:94",
+      "fileName": "jira-color-16",
+      "iconName": "jira-color",
+      "description": "jira, atlassian, tasks, tickets",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
       "id": "707:283",
       "fileName": "kubernetes-24",
       "iconName": "kubernetes",
@@ -1987,6 +2023,42 @@
       "fileName": "venafi-color-16",
       "iconName": "venafi-color",
       "description": "venafi, identity",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "4403:66",
+      "fileName": "vercel-24",
+      "iconName": "vercel",
+      "description": "vercel",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "4403:68",
+      "fileName": "vercel-16",
+      "iconName": "vercel",
+      "description": "vercel",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "4403:73",
+      "fileName": "vercel-color-24",
+      "iconName": "vercel-color",
+      "description": "vercel",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "4403:75",
+      "fileName": "vercel-color-16",
+      "iconName": "vercel-color",
+      "description": "vercel",
       "size": "16",
       "width": 16,
       "height": 16
