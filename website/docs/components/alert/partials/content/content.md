@@ -33,13 +33,13 @@ Avoid using critical buttons in alerts. We handle the prominence and importance 
 </Hds::Alert>
 !!!
 
-## Links
+### Links
 
-### Within page and inline Alerts
+#### Within page and inline Alerts
 
 Use [Standalone Link](/components/link/standalone) when an action takes the user to a new destination (URL).
 
-We recommend using the secondary standalone link to maintain visual hierarchy and avoid competing prominence when used with the secondary button.
+We recommend using the `secondary` Standalone Link to maintain visual hierarchy and avoid competing prominence when used with the `secondary` Button.
 
 <Hds::Alert @type="inline" @color="highlight" as |A|>
   <A.Title>Links in alerts</A.Title>
@@ -75,7 +75,7 @@ If linking to multiple related items on the same page, e.g., highlighting multip
   </A.Description>
 </Hds::Alert>
 
-### Within compact Alerts
+#### Within compact Alerts
 
 We recommend using `secondary` [Inline Links](/components/link/inline) in the `compact` Alert to match the intended hierarchy of the component and when linking to multiple URLs.
 
@@ -95,7 +95,7 @@ If the link requires more prominence, consider using the `primary` color.
 
 !!! Dont
 
-Don’t mix and match different link colors in the same Alert.
+Don’t mix and match different link colors in the same `compact` Alert.
 
 <Hds::Alert @type="compact" @color="success" as |A|>
   <A.Description>
