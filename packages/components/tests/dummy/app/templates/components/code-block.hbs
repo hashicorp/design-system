@@ -99,6 +99,13 @@ func main() {
 }"
   />
 
+  <Shw::Text::h3>readOnly=true</Shw::Text::h3>
+  <Hds::CodeBlock
+    @readOnly={{true}}
+    @value="let codeLang='JavaScript';
+console.log(`I am ${codeLang} code`);"
+  />
+
   <Shw::Text::h3>Different coding languages</Shw::Text::h3>
 
   <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SG|>

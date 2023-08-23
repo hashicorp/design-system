@@ -88,6 +88,7 @@ export default class HdsCodeMirrorModifier extends Modifier {
       value,
       lineNumbers,
       lineWrapping,
+      readOnly,
       mode = 'javascript',
     } = named;
 
@@ -99,6 +100,7 @@ export default class HdsCodeMirrorModifier extends Modifier {
       value,
       lineNumbers,
       lineWrapping,
+      readOnly,
       mode,
     });
 

@@ -7,7 +7,14 @@
   <div
     class={{this.classNames}}
     {{style maxHeight=@maxHeight}}
-    {{hds-code-mirror value=@value options=@options lineNumbers=@lineNumbers lineWrapping=@lineWrapping mode=@language}}
+    {{hds-code-mirror
+      value=@value
+      options=@options
+      lineNumbers=@lineNumbers
+      lineWrapping=@lineWrapping
+      readOnly=@readOnly
+      mode=@language
+    }}
     ...attributes
   ></div>
 
