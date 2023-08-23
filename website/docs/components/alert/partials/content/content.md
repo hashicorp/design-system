@@ -37,7 +37,7 @@ Avoid using critical buttons in alerts. We handle the prominence and importance 
 
 #### Within page and inline Alerts
 
-Use [Standalone Link](/components/link/standalone) when an action takes the user to a new destination (URL).
+Use a [Standalone Link](/components/link/standalone) when an action takes the user to a new destination (URL).
 
 We recommend using the `secondary` Standalone Link to maintain visual hierarchy and avoid competing prominence when used with the `secondary` Button.
 
@@ -48,10 +48,10 @@ We recommend using the `secondary` Standalone Link to maintain visual hierarchy 
   <A.Link::Standalone @icon="arrow-right" @iconPosition="trailing" @color="secondary" @text="Standalone link" @href="#" />
 </Hds::Alert>
 
-If multiple links are necessary or if linking within the Alert description, use the `secondary` [Inline Link](/components/link/inline).
+If linking within the Alert description, use the `secondary` [Inline Link](/components/link/inline).
 
 <Hds::Alert @type="inline" @color="warning" as |A|>
-  <A.Title>Multiple links</A.Title>
+  <A.Title>Links in the description</A.Title>
   <A.Description>
     Lorem ipsum dolor sit amet, <Hds::Link::Inline @href="#" @color="secondary">consectetur</Hds::Link::Inline> adipiscing elit, sed do <Hds::Link::Inline @href="#" @color="secondary">eiusmod</Hds::Link::Inline> tempor incididunt ut <Hds::Link::Inline @href="#" @color="secondary">labore</Hds::Link::Inline> et dolore magna aliqua.
   </A.Description>
