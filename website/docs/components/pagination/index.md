@@ -5,6 +5,7 @@ caption: Used to let users navigate through content broken down into pages.
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=18709%3A42011&t=pIE459t8qucXP9uR-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/pagination
+related: ['components/table','patterns/filter-patterns']
 previewImage: assets/illustrations/components/pagination.jpg
 ---
 
