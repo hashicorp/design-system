@@ -7,6 +7,16 @@
 // CODE-BLOCK
 //
 
+.hds-code-block-wrapper {
+  position: relative;
+}
+
+.hds-code-block__copy-button {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+}
+
 .hds-code-block {
   overflow: auto;
   overscroll-behavior: contain;

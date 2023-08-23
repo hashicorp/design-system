@@ -3,9 +3,21 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<div
-  class={{this.classNames}}
-  {{style maxHeight=@maxHeight}}
-  {{hds-code-mirror value=@value options=@options lineNumbers=@lineNumbers lineWrapping=@lineWrapping mode=@language}}
-  ...attributes
-></div>
+<div class="hds-code-block-wrapper">
+  <div
+    class={{this.classNames}}
+    {{style maxHeight=@maxHeight}}
+    {{hds-code-mirror value=@value options=@options lineNumbers=@lineNumbers lineWrapping=@lineWrapping mode=@language}}
+    ...attributes
+  ></div>
+
+  {{#if @hasCopyButton}}
+    <Hds::Copy::Button
+      @text="Copy"
+      @isIconOnly={{true}}
+      @size="small"
+      class="hds-code-block__copy-button"
+      @textToCopy={{@value}}
+    />
+  {{/if}}
+</div>

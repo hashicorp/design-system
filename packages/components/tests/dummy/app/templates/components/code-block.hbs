@@ -55,7 +55,7 @@ console.log(`I am ${codeLang} code`);"
 console.log(`I am ${codeLang} code`);"
   />
 
-  <Shw::Text::h3>with maxHeight="100px" and linenumbers=true</Shw::Text::h3>
+  <Shw::Text::h3>with maxHeight="100px"</Shw::Text::h3>
 
   {{! template-lint-disable no-whitespace-for-layout }}
   <Hds::CodeBlock
@@ -82,6 +82,22 @@ function assertObjectsEqual (actual, expected, testName) {
 }"
   />
   {{! template-lint-enable no-whitespace-for-layout }}
+
+  <Shw::Text::h3>with hasCopyButton=true</Shw::Text::h3>
+
+  <Hds::CodeBlock
+    id="clipboardTarget"
+    @lineNumbers={{true}}
+    @hasCopyButton={{true}}
+    @language="go"
+    @value="package main
+
+import 'fmt'
+
+func main() {
+  fmt.Println('hello world')
+}"
+  />
 
   <Shw::Text::h3>Different coding languages</Shw::Text::h3>
 
