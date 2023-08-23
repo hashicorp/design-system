@@ -2,33 +2,38 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<div class={{this.classNames}} {{style width=@width}}>
-  {{#if @isMultiline}}
-    <Hds::Form::Textarea::Base
-      class="hds-form-masked-input__control"
-      @value={{@value}}
-      @isInvalid={{@isInvalid}}
-      @height={{@height}}
-      id={{this.id}}
-      ...attributes
-    />
-  {{else}}
-    <Hds::Form::TextInput::Base
-      class="hds-form-masked-input__control"
-      @value={{@value}}
-      @isInvalid={{@isInvalid}}
-      id={{this.id}}
-      ...attributes
-    />
+<div class="hds-form-masked-input__wrapper">
+  <div class={{this.classNames}} {{style width=@width}}>
+    {{#if @isMultiline}}
+      <Hds::Form::Textarea::Base
+        class="hds-form-masked-input__control"
+        @value={{@value}}
+        @isInvalid={{@isInvalid}}
+        @height={{@height}}
+        id={{this.id}}
+        ...attributes
+      />
+    {{else}}
+      <Hds::Form::TextInput::Base
+        class="hds-form-masked-input__control"
+        @value={{@value}}
+        @isInvalid={{@isInvalid}}
+        id={{this.id}}
+        ...attributes
+      />
+    {{/if}}
+    <button
+      class="hds-form-masked-input__toggle-button"
+      type="button"
+      aria-label={{this.ariaLabel}}
+      aria-controls={{this.id}}
+      {{on "click" this.onClickToggle}}
+    >
+      <FlightIcon @name={{if this.isMasked "eye" "eye-off"}} @size="16" @isInlineBlock={{false}} />
+      <span class="sr-only" aria-live="polite">{{this.ariaMessageText}}</span>
+    </button>
+  </div>
+  {{#if @hasCopyButton}}
+    <Hds::Copy::Button @text="Copy masked content" @isIconOnly={{true}} @textToCopy="{{@value}}" />
   {{/if}}
-  <button
-    class="hds-form-masked-input__toggle-button"
-    type="button"
-    aria-label={{this.ariaLabel}}
-    aria-controls={{this.id}}
-    {{on "click" this.onClickToggle}}
-  >
-    <FlightIcon @name={{if this.isMasked "eye" "eye-off"}} @size="16" @isInlineBlock={{false}} />
-    <span class="sr-only" aria-live="polite">{{this.ariaMessageText}}</span>
-  </button>
 </div>

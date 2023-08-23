@@ -9,6 +9,12 @@
 
 $hds-form-masked-input-button-size: 24px;
 
+.hds-form-masked-input__wrapper {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
 .hds-form-masked-input {
   position: relative;
   width: 100%;
