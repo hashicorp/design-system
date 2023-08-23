@@ -136,4 +136,39 @@ func main() {
       <Hds::CodeBlock @lineNumbers={{true}} @language="shell" @value="echo 'Hello World'" />
     </SG.Item>
   </Shw::Flex>
+
+  <Shw::Text::h2>CodeBlocks used in Tabs</Shw::Text::h2>
+
+  <Hds::Tabs as |T|>
+    <T.Tab>JavaScript</T.Tab>
+    <T.Tab>Shell</T.Tab>
+    <T.Tab>Go</T.Tab>
+
+    <T.Panel>
+      <Hds::CodeBlock
+        @lineNumbers={{true}}
+        @language="javascript"
+        @value="let codeLang='JavaScript';
+console.log(`I am ${codeLang} code`);"
+      />
+    </T.Panel>
+
+    <T.Panel>
+      <Hds::CodeBlock @lineNumbers={{true}} @language="shell" @value="echo 'Hello World'" />
+    </T.Panel>
+
+    <T.Panel>
+      <Hds::CodeBlock
+        @lineNumbers={{true}}
+        @language="go"
+        @value="package main
+
+import 'fmt'
+
+func main() {
+  fmt.Println('hello world')
+}"
+      />
+    </T.Panel>
+  </Hds::Tabs>
 </section>
