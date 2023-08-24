@@ -79,12 +79,24 @@
               magna eget, porttitor lobortis nulla.</T.Description>
           </Hds::Toast>
         </SF.Item>
+        <SF.Item>
+          <Hds::Toast @type="inline" @color="success" as |A|>
+            <A.Title>A toast comparing different types of links in the description</A.Title>
+            <A.Description>
+              Description with
+              <a href="#">HTML link</a>
+              compared with
+              <Hds::Link::Inline @href="#">Primary Hds::Link::Inline</Hds::Link::Inline>
+              and
+              <Hds::Link::Inline @href="#" @color="secondary">Secondary Hds::Link::Inline</Hds::Link::Inline>.
+            </A.Description>
+          </Hds::Toast>
+        </SF.Item>
       </Shw::Flex>
     </SG.Item>
     <SG.Item>
       <Shw::Flex @direction="column" as |SF|>
         <SF.Item>
-
           <Hds::Toast @color="success" @onDismiss={{this.noop}} as |T|>
             <T.Title>A toast with a rich description (HTML)</T.Title>
             <T.Description>Using the

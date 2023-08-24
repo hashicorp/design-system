@@ -149,49 +149,28 @@
   <Shw::Grid @columns={{2}} as |SG|>
     <SG.Item>
       <Hds::Alert @type="inline" @color="success" as |A|>
-        <A.Title>HTML link compared to the <code>Hds::Link</code> in the description</A.Title>
+        <A.Title>HTML link compared to <code>Hds::Link</code> in the description</A.Title>
         <A.Description>
-          <p>Description with an <a href="#">HTML link</a>.</p>
-          <p>
-            Compared with a
-            <Hds::Link::Inline @href="#">Primary Hds::Link::Inline</Hds::Link::Inline>, and a
-            <Hds::Link::Standalone @icon="hashicorp" @text="Primary Hds::Link::Standalone with an icon" @href="#" />
-          </p>
-          <p>
-            Also compared with a
-            <Hds::Link::Inline @href="#" @color="secondary">Secondary Hds::Link::Inline</Hds::Link::Inline>, and a
-            <Hds::Link::Standalone
-              @icon="hashicorp"
-              @color="secondary"
-              @text="Primary Hds::Link::Standalone with an icon"
-              @href="#"
-            />
-          </p>
+          Description with
+          <a href="#">HTML link</a>
+          compared with
+          <Hds::Link::Inline @href="#">Primary Hds::Link::Inline</Hds::Link::Inline>
+          and
+          <Hds::Link::Inline @href="#" @color="secondary">Secondary Hds::Link::Inline</Hds::Link::Inline>.
         </A.Description>
       </Hds::Alert>
     </SG.Item>
 
     <SG.Item>
       <Hds::Alert @type="compact" @color="success" as |A|>
-        <A.Title>An alert with an HTML link compared to the <code>Hds::Link</code> in the description</A.Title>
+        <A.Title>An alert with HTML link compared to <code>Hds::Link</code> in Description</A.Title>
         <A.Description>
-          Compact alert with an
-          <a href="#">HTML link</a>.
-          <p>
-            Compared with a
-            <Hds::Link::Inline @href="#">Primary Hds::Link::Inline</Hds::Link::Inline>, and a
-            <Hds::Link::Standalone @icon="hashicorp" @text="Primary Hds::Link::Standalone with an icon" @href="#" />
-          </p>
-          <p>
-            Also compared with a
-            <Hds::Link::Inline @href="#" @color="secondary">Secondary Hds::Link::Inline</Hds::Link::Inline>, and a
-            <Hds::Link::Standalone
-              @icon="hashicorp"
-              @color="secondary"
-              @text="Primary Hds::Link::Standalone with an icon"
-              @href="#"
-            />
-          </p>
+          Compact alert with
+          <a href="#">HTML link</a>
+          compared with
+          <Hds::Link::Inline @href="#">Primary Hds::Link::Inline</Hds::Link::Inline>
+          and
+          <Hds::Link::Inline @href="#" @color="secondary">Secondary Hds::Link::Inline</Hds::Link::Inline>.
         </A.Description>
       </Hds::Alert>
     </SG.Item>
