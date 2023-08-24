@@ -181,6 +181,55 @@ Pass the argument `@isLoading={{true}}` to the item. This will show a “loading
 </Hds::Dropdown>
 ```
 
+### ListItem::Checkmark
+
+For switching context (e.g., organization switchers, project switchers, etc.) use `ListItem::Checkmark`.
+
+```handlebars
+<Hds::Dropdown @listPosition="bottom-left" as |dd|>
+  <dd.ToggleButton @text="HCP Design Sandbox" @color="secondary" />
+  <dd.Checkmark>ACME Org</dd.Checkmark>
+  <dd.Checkmark @selected={{true}}>HCP Design Sandbox</dd.Checkmark>
+  <dd.Footer @hasDivider={{true}}>
+    <Hds::Link::Standalone @icon="list" @text="All Organizations" @color="secondary" @href="#" />
+  </dd.Footer>
+</Hds::Dropdown>
+```
+
+### ListItem::Checkbox
+
+For multi-selection within a form or larger filter pattern use `ListItem::Checkbox`.
+
+```handlebars
+<Hds::Dropdown as |dd|>
+  <dd.ToggleButton @count="2" @text="Status" @color="secondary" />
+  <dd.Checkbox @count="4">Failing</dd.Checkbox>
+  <dd.Checkbox @count="2" checked>Active</dd.Checkbox>
+  <dd.Checkbox @count="1">Starting</dd.Checkbox>
+  <dd.Checkbox @count="3" checked>Pending</dd.Checkbox>
+  <dd.Footer @hasDivider={{true}}>
+    <Hds::Button @text="Apply filters" @isFullWidth={{true}} @size="small" />
+  </dd.Footer>
+</Hds::Dropdown>
+```
+
+### ListItem::Radio
+
+For single selection within a form or larger filter pattern use `ListItem::Radio`.
+
+```handlebars
+<Hds::Dropdown as |dd|>
+  <dd.ToggleButton @text="Status" @color="secondary" />
+  <dd.Radio name="status" @count="4">Failing</dd.Radio>
+  <dd.Radio name="status" @count="2" checked>Active</dd.Radio>
+  <dd.Radio name="status" @count="1">Starting</dd.Radio>
+  <dd.Radio name="status" @count="3">Pending</dd.Radio>
+  <dd.Footer @hasDivider={{true}}>
+    <Hds::Button @text="Apply filters" @isFullWidth={{true}} @size="small" />
+  </dd.Footer>
+</Hds::Dropdown>
+```
+
 ### ListItem::Generic
 
 !!! Info
