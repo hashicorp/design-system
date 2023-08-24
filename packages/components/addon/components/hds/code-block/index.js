@@ -20,6 +20,8 @@ export default class HdsCodeBlockIndexComponent extends Component {
   get classNames() {
     let classes = ['hds-code-block'];
 
+    classes.push('hds-typography-code-200');
+
     // add a class based on the @xxx argument
     // classes.push(`hds-code-block--[variant]-${this.xxx}`);
 
