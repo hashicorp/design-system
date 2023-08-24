@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2023-08-21T23:24:05.054Z",
+  "lastRunTimeISO": "2023-08-24T22:08:08.210Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -259,6 +259,42 @@
       "fileName": "aws-color-16",
       "iconName": "aws-color",
       "description": "amazon, aws, amazon web services",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "4425:66",
+      "fileName": "aws-cdk-24",
+      "iconName": "aws-cdk",
+      "description": "",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "4425:68",
+      "fileName": "aws-cdk-16",
+      "iconName": "aws-cdk",
+      "description": "",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "4425:73",
+      "fileName": "aws-cdk-color-24",
+      "iconName": "aws-cdk-color",
+      "description": "",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "4425:75",
+      "fileName": "aws-cdk-color-16",
+      "iconName": "aws-cdk-color",
+      "description": "",
       "size": "16",
       "width": 16,
       "height": 16
@@ -1920,37 +1956,37 @@
       "height": 16
     },
     {
-      "id": "855:190",
+      "id": "4425:94",
       "fileName": "twitter-24",
       "iconName": "twitter",
-      "description": "twitter",
+      "description": "",
       "size": "24",
       "width": 24,
       "height": 24
     },
     {
-      "id": "855:192",
+      "id": "4425:96",
       "fileName": "twitter-16",
       "iconName": "twitter",
-      "description": "twitter",
+      "description": "",
       "size": "16",
       "width": 16,
       "height": 16
     },
     {
-      "id": "855:197",
+      "id": "4425:101",
       "fileName": "twitter-color-24",
       "iconName": "twitter-color",
-      "description": "twitter",
+      "description": "",
       "size": "24",
       "width": 24,
       "height": 24
     },
     {
-      "id": "855:199",
+      "id": "4425:103",
       "fileName": "twitter-color-16",
       "iconName": "twitter-color",
-      "description": "twitter",
+      "description": "",
       "size": "16",
       "width": 16,
       "height": 16
