@@ -30,7 +30,7 @@ When set to `true`, this constrains text to one-line and truncates it if it does
 Care should be taken in choosing to use this feature as there are [accessibility concerns](/components/copy/snippet?tab=accessibility).
 
 ```handlebars
-<div class="doc-page-constrain-copy-snippet-width">
+<div class="doc-copy-snippet-demo-constrain-width">
   <Hds::Copy::Snippet
     @textToCopy="fbrct1ed-fgr35h-tyng89-wed4r with a bunch of other long text that should force truncation if truncation is set to true"
     @isTruncated={{true}}
