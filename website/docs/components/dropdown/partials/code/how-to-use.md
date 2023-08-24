@@ -201,7 +201,7 @@ For switching context (e.g., organization switchers, project switchers, etc.) us
 For multi-selection within a form or larger filter pattern use `ListItem::Checkbox`.
 
 ```handlebars
-<Hds::Dropdown as |dd|>
+<Hds::Dropdown @listPosition="bottom-left" as |dd|>
   <dd.ToggleButton @count="2" @text="Status" @color="secondary" />
   <dd.Checkbox @count="4">Failing</dd.Checkbox>
   <dd.Checkbox @count="2" checked>Active</dd.Checkbox>
@@ -218,7 +218,7 @@ For multi-selection within a form or larger filter pattern use `ListItem::Checkb
 For single selection within a form or larger filter pattern use `ListItem::Radio`.
 
 ```handlebars
-<Hds::Dropdown as |dd|>
+<Hds::Dropdown @listPosition="bottom-left" as |dd|>
   <dd.ToggleButton @text="Status" @color="secondary" />
   <dd.Radio name="status" @count="4">Failing</dd.Radio>
   <dd.Radio name="status" @count="2" checked>Active</dd.Radio>
