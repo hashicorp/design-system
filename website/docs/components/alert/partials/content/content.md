@@ -37,18 +37,15 @@ Avoid using critical buttons in alerts. We handle the prominence and importance 
 
 #### Within page and inline Alerts
 
-Use a [Standalone Link](/components/link/standalone) when an action takes the user to a new destination (URL).
-
-We recommend using the `secondary` Standalone Link to maintain visual hierarchy and avoid competing prominence when used with the `secondary` Button.
+When linking to internal and external resources in the Alert, default to using a `secondary` [Standalone Link](/components/link/standalone) in the `actions` area. In the Ember component, these elements are passed as [contextual components](?tab=code#actions).
 
 <Hds::Alert @type="inline" @color="highlight" as |A|>
   <A.Title>Links in alerts</A.Title>
   <A.Description>Lorem ipsum dolar sit amet.</A.Description>
-  <A.Button @text="Your action" @color="secondary" @onClick={{this.noop}} />
   <A.Link::Standalone @icon="arrow-right" @iconPosition="trailing" @color="secondary" @text="Standalone link" @href="#" />
 </Hds::Alert>
 
-If linking within the Alert description, use the `secondary` [Inline Link](/components/link/inline).
+If linking within the Alert description, use the `secondary` [Inline Link](/components/link/inline) as the default. A common use case for this is when linking to multiple resources.
 
 <Hds::Alert @type="inline" @color="warning" as |A|>
   <A.Title>Links in the description</A.Title>
@@ -77,7 +74,7 @@ If linking to multiple related items on the same page, e.g., highlighting multip
 
 #### Within compact Alerts
 
-We recommend using `secondary` [Inline Links](/components/link/inline) in the `compact` Alert to match the intended hierarchy of the component and when linking to multiple URLs.
+As `compact` Alerts don’t support a title or actions, use `secondary` [Inline Links](/components/link/inline) in the description of the component. This matches the intended hierarchy of the component relative to other Alert types and supports linking to multiple resources.
 
 <Hds::Alert @type="compact" @color="success" as |A|>
   <A.Description>
@@ -85,7 +82,7 @@ We recommend using `secondary` [Inline Links](/components/link/inline) in the `c
   </A.Description>
 </Hds::Alert>
 
-If the link requires more prominence, consider using the `primary` color.
+If there is only one link within the `compact` alert, it’s acceptable to use the `primary` color, but this will result in increased prominence and elevated hierarchy.
 
 <Hds::Alert @type="compact" @color="success" as |A|>
   <A.Description>
@@ -102,6 +99,13 @@ Don’t mix and match different link colors in the same `compact` Alert.
     You’ve successfully configured your account. Next, <Hds::Link::Inline @href="#" @color="primary">create a cluster</Hds::Link::Inline>, <Hds::Link::Inline @href="#" @color="secondary">invite your teammates</Hds::Link::Inline>, or create a <Hds::Link::Inline @href="#" @color="secondary">HashiCorp Virtual Network (HVN)</Hds::Link::Inline>.
   </A.Description>
 </Hds::Alert>
+!!!
+
+!!! Dont
+
+Don’t use a [Standalone Link](/components/link/standalone) in the description of a `compact` Alert. The description area is intended for inline content, while the Standalone Link is a block-level element.
+
+![Standalone Link inside of compact Alert](/assets/components/alert/standalone-link-inside-compact-alert.png)
 !!!
 
 ## Composition
