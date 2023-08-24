@@ -88,7 +88,7 @@ export default class HdsCodeMirrorModifier extends Modifier {
       value,
       lineNumbers,
       lineWrapping,
-      readOnly,
+      readOnly = true,
       mode = 'javascript',
     } = named;
 
