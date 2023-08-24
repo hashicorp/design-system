@@ -45,7 +45,7 @@ When linking to internal and external resources in the Alert, default to using a
   <A.Link::Standalone @icon="arrow-right" @iconPosition="trailing" @color="secondary" @text="Standalone link" @href="#" />
 </Hds::Alert>
 
-If linking within the Alert description, use the `secondary` [Inline Link](/components/link/inline) as the default. A common use case for this is when linking to multiple resources.
+Within the Alert description, use the `secondary` [Inline Link](/components/link/inline) as the default link color. A common use case for this is when linking to multiple resources.
 
 <Hds::Alert @type="inline" @color="warning" as |A|>
   <A.Title>Links in the description</A.Title>
@@ -54,7 +54,7 @@ If linking within the Alert description, use the `secondary` [Inline Link](/comp
   </A.Description>
 </Hds::Alert>
 
-If linking to multiple related items on the same page, e.g., highlighting multiple form validation errors, wrap the links in a list.
+Wrap links to multiple related items on the same page in a list, e.g., when highlighting multiple form validation errors.
 
 <Hds::Alert @type="inline" @color="critical" as |A|>
   <A.Title>Error submitting the form</A.Title>
