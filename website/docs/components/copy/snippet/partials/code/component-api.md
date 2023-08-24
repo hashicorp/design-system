@@ -13,6 +13,11 @@ This component uses [ember-cli-clipboard](https://github.com/jkusa/ember-cli-cli
   <C.Property @name="container" @type="string">
      Selector string or element object of containing element, typically used in conjunction with modals; set the focused element as the container value.
   </C.Property>
+  <C.Property @name="isTruncated" @type="boolean" @default="false">
+    Constrains text to one line and truncates it based on available width. Text will only be truncated if it does not fit within the available space within a page layout.
+    <br><br>
+    There are accessibility concerns if using this feature. See the [Accessibility section](/components/copy/snippet?tab=accessibility) for more information.
+  </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
