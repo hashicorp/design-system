@@ -238,7 +238,7 @@ Use the standard HTML `checked` attribute to mark the input as checked.
 
 #### Indeterminate
 
-In addition to the checked and unchecked states, a checkbox can be in an indeterminate state, also refered to as partially checked state. A common usecase for this state is when a parent checkbox allows the user select multiple children checkboxes at once.
+In addition to the checked and unchecked states, a checkbox can be in an indeterminate state, also referred to as partially checked state. A common use case for this state is when a parent checkbox allows the user select multiple children checkboxes at once.
 
 ```handlebars
 <Hds::Form::Checkbox::Field indeterminate={{true}} as |F|>
