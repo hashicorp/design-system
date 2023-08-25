@@ -13,7 +13,7 @@ $hds-form-masked-input-button-size: 24px;
   position: relative;
   display: grid;
   grid-template-areas: "input copy-button";
-  grid-template-columns: auto min-content;
+  grid-template-columns: 1fr auto;
   width: 100%;
 
   .hds-form-masked-input__control {
