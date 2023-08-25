@@ -34,7 +34,7 @@
   {{#if @hasCopyButton}}
     <Hds::Copy::Button
       class="hds-form-masked-input__copy-button"
-      @text="Copy masked content"
+      @text={{this.copyButtonText}}
       @isIconOnly={{true}}
       @textToCopy="{{@value}}"
     />

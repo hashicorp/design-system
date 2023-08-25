@@ -23,6 +23,9 @@ The Masked Input component has two different variants with their own APIs:
   <C.Property @name="hasCopyButton" @type="boolean" @default="false">
     If set to `true`, it renders a [`Copy::Button`](/components/copy/button) next to the form control allowing the value of the input to be copied to the clipboard.
   </C.Property>
+  <C.Property @name="copyButtonText" @type="string" @default="Copy masked content">
+    Override this value to provide a meaninful `aria-label` for the [`Copy::Button`](/components/copy/button) component.
+  </C.Property>
   <C.Property @name="width" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
     By default, the input fills the parent container. If a `@width` parameter is provided, the control will have a fixed width.
   </C.Property>
@@ -61,6 +64,9 @@ The Masked Input component has two different variants with their own APIs:
   </C.Property>
   <C.Property @name="hasCopyButton" @type="boolean" @default="false">
     If set to `true`, it renders a [`Copy::Button`](/components/copy/button) next to the form control allowing the value of the input to be copied to the clipboard.
+  </C.Property>
+  <C.Property @name="copyButtonText" @type="string" @default="Copy masked content">
+    Override this value to provide a meaninful `aria-label` for the [`Copy::Button`](/components/copy/button) component.
   </C.Property>
   <C.Property @name="width" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
     By default, the input fills the parent container. If a `@width` parameter is provided, the control will have a fixed width. This width will only be applied to the control, not the other elements of the field.
