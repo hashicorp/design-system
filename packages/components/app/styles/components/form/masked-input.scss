@@ -12,7 +12,6 @@ $hds-form-masked-input-button-size: 24px;
 .hds-form-masked-input {
   position: relative;
   display: grid;
-  grid-column-gap: 8px;
   grid-template-columns: auto min-content;
   width: 100%;
 
@@ -53,4 +52,5 @@ $hds-form-masked-input-button-size: 24px;
 .hds-form-masked-input__copy-button {
   grid-area: 1 / 2 / 2 / 3;
   align-self: flex-start;
+  margin-left: 8px;
 }
