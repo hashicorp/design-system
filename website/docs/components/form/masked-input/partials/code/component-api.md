@@ -27,7 +27,7 @@ The Masked Input component has two different variants with their own APIs:
     Override this value to provide a meaninful `aria-label` for the [`Copy::Button`](/components/copy/button) component.
   </C.Property>
   <C.Property @name="width" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
-    By default, the input fills the parent container. If a `@width` parameter is provided, the control will have a fixed width. When `hasCopyButton` is `true` the width includes the associated copy button.
+    By default, the input fills the parent container. If a `@width` parameter is provided, the control will have a fixed width. When `hasCopyButton` is `true`, the width includes the associated copy button.
   </C.Property>
   <C.Property @name="height" @type="string" @valueNote="any valid CSS height (px, rem, etc)">
     Only available if `@isMultiline` is `true`. By default, the `<textarea>` has a `height` determined by the browser to accommodate 4 lines of text. If a custom `@height` value is provided, the control will have a fixed height.
