@@ -11,7 +11,7 @@ The basic invocation requires the `type` argument, an `onDismiss` callback funct
 </Hds::Toast>
 ```
 
-### Content
+### Title and description
 
 Optionally, you can pass only `title` or only `description`.
 
