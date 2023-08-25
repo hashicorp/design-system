@@ -1,10 +1,20 @@
 ## How to use these styles
 
-While we do offer design tokens for typography, we recommend using the predefined CSS helper classes.
+We offer different ways to apply typography styles to UI elements:
+
+- [Text helper component](#text-component): This is the **preferred way** to apply HDS text styles to **HTML elements**.
+- [CSS helper classes](#css-helper-classes): This can be used to apply styles to **Ember components** (or as fallback when using the `Text` helper component is not possible).
+- [Design tokens](#design-tokens): This should be the **last resort** when none of the previous options are possible (or when only some of the HDS style properties  are needed, like `font-family`, `font-size`, `line-height`, etc.)
+
+### Text component
+
+This helper component provides a handy way to declare an HTML tag and apply to it one of the predefined typographic styles (via CSS helper classes, this happens automatically under the hood), plus a set of other properties like color and alignment.
+
+For details about this component, [see the `Text` page](/components/text).
 
 ### CSS helper classes
 
-In a single declaration, these classes contain everything to apply a standard typographic style to an element: `font-family`, `font-size`, `line-height`, and a reset for `margin` and `padding` to match the intended design language.
+In a single declaration, these predefined CSS classes contain everything to apply a standard typographic style to an element: `font-family`, `font-size`, `line-height`, and a reset for `margin` and `padding` to match the intended design language.
 
 ```markup
 <p class="hds-typography-display-300">The quick brown fox jumps over the lazy dog.</p>

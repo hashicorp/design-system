@@ -1,0 +1,3 @@
+{{#let (element this.componentTag) as |Tag|}}
+  <Tag class={{this.classNames}} {{style color=this.customColor}} ...attributes>{{yield}}</Tag>
+{{/let}}
