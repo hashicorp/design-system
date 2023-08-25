@@ -11,9 +11,13 @@ $hds-form-masked-input-button-size: 24px;
 
 .hds-form-masked-input {
   position: relative;
+  display: grid;
+  grid-template-areas: "input copy-button";
+  grid-template-columns: 1fr auto;
   width: 100%;
 
   .hds-form-masked-input__control {
+    grid-area: input;
     padding-right: calc(var(--token-form-control-padding) + $hds-form-masked-input-button-size);
   }
 }
@@ -36,6 +40,7 @@ $hds-form-masked-input-button-size: 24px;
   position: absolute;
   top: calc(var(--token-form-control-padding) - var(--token-form-control-border-width));
   right: calc(var(--token-form-control-padding) - var(--token-form-control-border-width));
+  grid-area: input;
   width: $hds-form-masked-input-button-size;
   height: $hds-form-masked-input-button-size;
   padding: 2px;
@@ -43,4 +48,10 @@ $hds-form-masked-input-button-size: 24px;
   background-color: transparent;
   border-color: transparent;
   cursor: pointer;
+}
+
+.hds-form-masked-input__copy-button {
+  grid-area: copy-button;
+  align-self: flex-start;
+  margin-left: 8px;
 }

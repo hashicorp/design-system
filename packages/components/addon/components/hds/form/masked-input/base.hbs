@@ -31,4 +31,12 @@
     <FlightIcon @name={{if this.isMasked "eye" "eye-off"}} @size="16" @isInlineBlock={{false}} />
     <span class="sr-only" aria-live="polite">{{this.ariaMessageText}}</span>
   </button>
+  {{#if @hasCopyButton}}
+    <Hds::Copy::Button
+      class="hds-form-masked-input__copy-button"
+      @text={{this.copyButtonText}}
+      @isIconOnly={{true}}
+      @textToCopy="{{@value}}"
+    />
+  {{/if}}
 </div>

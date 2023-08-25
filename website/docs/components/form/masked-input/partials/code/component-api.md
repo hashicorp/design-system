@@ -20,8 +20,14 @@ The Masked Input component has two different variants with their own APIs:
   <C.Property @name="isInvalid" @type="boolean" @default="false">
     Applies an “invalid” appearance to the control but doesn’t modify its logical validity.
   </C.Property>
+  <C.Property @name="hasCopyButton" @type="boolean" @default="false">
+    If set to `true`, it renders a [`Copy::Button`](/components/copy/button) next to the form control allowing the value of the input to be copied to the clipboard.
+  </C.Property>
+  <C.Property @name="copyButtonText" @type="string" @default="Copy masked content">
+    Override this value to provide a meaninful `aria-label` for the [`Copy::Button`](/components/copy/button) component.
+  </C.Property>
   <C.Property @name="width" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
-    By default, the input fills the parent container. If a `@width` parameter is provided, the control will have a fixed width.
+    By default, the input fills the parent container. If a `@width` parameter is provided, the control will have a fixed width. When `hasCopyButton` is `true`, the width includes the associated copy button.
   </C.Property>
   <C.Property @name="height" @type="string" @valueNote="any valid CSS height (px, rem, etc)">
     Only available if `@isMultiline` is `true`. By default, the `<textarea>` has a `height` determined by the browser to accommodate 4 lines of text. If a custom `@height` value is provided, the control will have a fixed height.
@@ -55,6 +61,12 @@ The Masked Input component has two different variants with their own APIs:
   </C.Property>
   <C.Property @name="isOptional" @type="boolean" @default="false">
     Appends an `Optional` indicator next to the label text when user input is optional.
+  </C.Property>
+  <C.Property @name="hasCopyButton" @type="boolean" @default="false">
+    If set to `true`, it renders a [`Copy::Button`](/components/copy/button) next to the form control allowing the value of the input to be copied to the clipboard.
+  </C.Property>
+  <C.Property @name="copyButtonText" @type="string" @default="Copy masked content">
+    Override this value to provide a meaninful `aria-label` for the [`Copy::Button`](/components/copy/button) component.
   </C.Property>
   <C.Property @name="width" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
     By default, the input fills the parent container. If a `@width` parameter is provided, the control will have a fixed width. This width will only be applied to the control, not the other elements of the field.
