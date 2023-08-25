@@ -1,6 +1,6 @@
 ## General recommendations
 
-- Keep the title short, as this will be the most prominent element when users scan the alert.
+- Keep the title short, as this will be the most prominent element when users scan the Alert.
 - Avoid ending the title with a period.
 - Alert descriptions should be short but clear enough to explain what’s happening. We recommend keeping messages under 90 characters.
 - For warning and critical alerts, guide the users on how to prevent or fix the issue.
