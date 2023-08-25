@@ -1,0 +1,192 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "CodeBlock Component"}}
+
+<Shw::Text::H1>CodeBlock</Shw::Text::H1>
+
+<section data-test-percy>
+  <Shw::Text::h2>Default invocation</Shw::Text::h2>
+
+  <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SG|>
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="one line">
+      {{! <Hds::CodeBlock @value="console.log('I am JavaScript code');" /> }}
+    </SG.Item>
+
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="multi-line">
+      {{! <Hds::CodeBlock
+        @value="let codeLang='JavaScript';
+console.log(`I am ${codeLang} code`);"
+      /> }}
+    </SG.Item>
+  </Shw::Flex>
+
+  <Shw::Text::h2>Options</Shw::Text::h2>
+
+  <Shw::Text::h3>lineWrapping</Shw::Text::h3>
+
+  <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SG|>
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="with lineWrapping=false">
+      {{! <Hds::CodeBlock
+        @value="console.log('I am JavaScript code', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam');"
+      /> }}
+    </SG.Item>
+
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="with lineWrapping=true">
+      {{!-- <Hds::CodeBlock
+        @lineWrapping={{true}}
+        @value="console.log('I am JavaScript code', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam');"
+      /> --}}
+    </SG.Item>
+  </Shw::Flex>
+
+  <Shw::Text::h3>with linenumbers=true</Shw::Text::h3>
+
+  {{!-- <Hds::CodeBlock
+    @lineNumbers={{true}}
+    @value="let codeLang='JavaScript';
+console.log(`I am ${codeLang} code`);"
+  /> --}}
+
+  <Shw::Text::h3>with maxHeight="100px"</Shw::Text::h3>
+
+  {{! template-lint-disable no-whitespace-for-layout }}
+  {{!-- <Hds::CodeBlock
+    @lineNumbers={{true}}
+    @maxHeight="100px"
+    @value="function convertObjectToArray (obj) {
+  let arr = Object
+    .keys(obj) // return object's keys as an array
+    .map(key => {return [key, obj[key] ]}) // map a function on each array item
+    .flat()
+    .sort()
+  ;
+  return arr;
+}
+function assertObjectsEqual (actual, expected, testName) {
+  let actualStr = JSON.stringify( convertObjectToArray(actual) );
+  let expectedStr = JSON.stringify( convertObjectToArray(expected) );
+  console.log(`ACTUAL: ${actualStr}  EXPECTED: ${expectedStr}`);
+  if (actualStr === expectedStr) {
+    console.log('passed');
+  } else {
+    console.log(`FAILED [${testName}] Expected ${JSON.stringify(expected)}, but got ${JSON.stringify(actual)}`);
+  }
+}"
+  /> --}}
+  {{! template-lint-enable no-whitespace-for-layout }}
+
+  <Shw::Text::h3>with hasCopyButton=true</Shw::Text::h3>
+
+  {{!-- <Hds::CodeBlock
+    id="clipboardTarget"
+    @lineNumbers={{true}}
+    @hasCopyButton={{true}}
+    @language="go"
+    @value="package main
+import 'fmt'
+func main() {
+  fmt.Println('hello world')
+}"
+  /> --}}
+
+  <Shw::Text::h3>readOnly=false (so content is editable)</Shw::Text::h3>
+  {{!-- <Hds::CodeBlock
+    @readOnly={{false}}
+    @value="let codeLang='JavaScript';
+console.log(`I am ${codeLang} code`);"
+  /> --}}
+
+  <Shw::Text::h3>Different coding languages</Shw::Text::h3>
+
+  <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SG|>
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="JavaScript">
+      {{!-- <Hds::CodeBlock
+        @lineNumbers={{true}}
+        @language="javascript"
+        @value="let codeLang='JavaScript';
+console.log(`I am ${codeLang} code`);"
+      /> --}}
+    </SG.Item>
+
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="Go">
+      {{!-- <Hds::CodeBlock
+        @lineNumbers={{true}}
+        @language="go"
+        @value="package main
+import 'fmt'
+func main() {
+  fmt.Println('hello world')
+}"
+      /> --}}
+    </SG.Item>
+
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="Markdown">
+      {{! template-lint-disable no-whitespace-for-layout }}
+      {{!-- <Hds::CodeBlock
+        @lineNumbers={{true}}
+        @language="markdown"
+        @value='## Compact `Alert`
+```
+<Hds::Alert @type="compact" as |A|>
+  <A.Title>Title here</A.Title>
+  <A.Description>Description here</A.Description>
+</Hds::Alert>
+```
+| Element     | Usage       |
+| ----------- | ----------- |
+| Icon        | Required    |
+| Description | Required    |
+        '
+      /> --}}
+      {{! template-lint-enable no-whitespace-for-layout }}
+    </SG.Item>
+
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="Shell">
+      {{!-- <Hds::CodeBlock @lineNumbers={{true}} @language="shell" @value="echo 'Hello World'" /> --}}
+    </SG.Item>
+  </Shw::Flex>
+
+  <Shw::Text::h2>CodeBlocks used in Tabs</Shw::Text::h2>
+
+  <Hds::Tabs as |T|>
+    <T.Tab>JavaScript</T.Tab>
+    <T.Tab>Shell</T.Tab>
+    <T.Tab>Go</T.Tab>
+
+    <T.Panel>
+      {{!-- <Hds::CodeBlock
+        @lineNumbers={{true}}
+        @language="javascript"
+        @value="let codeLang='JavaScript';
+console.log(`I am ${codeLang} code`);"
+      /> --}}
+    </T.Panel>
+
+    <T.Panel>
+      {{!-- <Hds::CodeBlock @lineNumbers={{true}} @language="shell" @value="echo 'Hello World'" /> --}}
+    </T.Panel>
+
+    <T.Panel>
+      {{!-- <Hds::CodeBlock
+        @lineNumbers={{true}}
+        @language="go"
+        @value="package main
+import 'fmt'
+func main() {
+  fmt.Println('hello world')
+}"
+      /> --}}
+    </T.Panel>
+  </Hds::Tabs>
+
+  <Shw::Divider />
+
+  <Shw::Text::h2>TESTING!!!</Shw::Text::h2>
+
+  <Hds::CodeBlock>This is the Hds::CodeBlock component </Hds::CodeBlock>
+
+  <Shw::Divider />
+</section>
