@@ -22,3 +22,18 @@ This indicates that the component should take up the full-width of the parent co
 ```handlebars
 <Hds::Copy::Snippet @textToCopy="e4rt-yg80-39kt" @isFullWidth={{true}} />
 ```
+
+### isTruncated
+
+When set to `true`, this constrains text to one-line and truncates it if it does not fit the available space.
+
+Care should be taken in choosing to use this feature as there are [accessibility concerns](/components/copy/snippet?tab=accessibility).
+
+```handlebars
+<div class="doc-copy-snippet-demo-constrain-width">
+  <Hds::Copy::Snippet
+    @textToCopy="fbrct1ed-fgr35h-tyng89-wed4r with a bunch of other long text that should force truncation if truncation is set to true"
+    @isTruncated={{true}}
+  />
+</div>
+```
