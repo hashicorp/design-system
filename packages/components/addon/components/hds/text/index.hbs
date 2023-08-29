@@ -1,3 +1,8 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
 {{#let (element this.componentTag) as |Tag|}}
   <Tag class={{this.classNames}} {{style color=this.customColor}} ...attributes>{{yield}}</Tag>
 {{/let}}
