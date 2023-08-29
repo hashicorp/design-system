@@ -93,3 +93,8 @@ body {
     display: none !important;
   }
 }
+
+// Configure ember-shiki CSS styling
+:root {
+  --ember-shiki-border-radius: 0;
+}
