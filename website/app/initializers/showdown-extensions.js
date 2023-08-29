@@ -86,12 +86,7 @@ export function initialize(/* application */) {
           language = 'shell';
         }
 
-        let highlightedCodeBlock = Prism.highlight(codeblock, Prism.languages[language], language) + end;
-
-        // escape { and } for the code sample
-        highlightedCodeBlock = highlightedCodeBlock.replace(/{/g, '&#123;').replace(/}/g, '&#125;')
-
-        let preBlock = `<pre class="doc-code-block__code-snippet language-${language}"><code ${language ? `class="${language} language-${language}"` : ''}>${highlightedCodeBlock}</code></pre>`;
+        let codeBlock = `<CodeBlock @code="${codeblockEncoded}" @language="${language}" @isUriEncoded={{true}} />`;
 
         let autoExecuteLanguages = ['html', 'handlebars', 'hbs'];
 
@@ -100,18 +95,17 @@ export function initialize(/* application */) {
         selfExecutingBlock += '  <div class="doc-code-block__code-rendered">';
         selfExecutingBlock += `    ${inputCodeblock}`;
         selfExecutingBlock += '  </div>';
-        selfExecutingBlock += `  <Doc::CopyButton @type="solid" @textToCopy='${codeblockEncoded}' @encoded={{true}} />`;
-        selfExecutingBlock += `  ${preBlock}`;
+        selfExecutingBlock += `  ${codeBlock}`;
         selfExecutingBlock += '</div>';
 
         if(attributeString.includes('data-execute=false')) {
-          codeblock = preBlock;
+          codeblock = codeBlock;
         } else if (attributeString.includes('data-execute=true')) {
           codeblock = selfExecutingBlock;
         } else if (autoExecuteLanguages.includes(language)) {
           codeblock = selfExecutingBlock
         } else {
-          codeblock = preBlock;
+          codeblock = codeBlock;
         }
 
 
