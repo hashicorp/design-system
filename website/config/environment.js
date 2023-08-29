@@ -40,6 +40,9 @@ module.exports = function (environment) {
       title: 'Helios Design System',
       url: 'https://helios.hashicorp.design',
     },
+    'ember-shiki': {
+      defaultThemes: ['github-dark'],
+    },
   };
 
   if (environment === 'development') {
