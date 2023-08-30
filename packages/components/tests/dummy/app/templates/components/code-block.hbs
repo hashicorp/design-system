@@ -98,11 +98,53 @@ func main() {
 console.log(`I am ${codeLang} code`);"
   />
 
-  <Shw::Text::h3>Different coding languages</Shw::Text::h3>
+  <Shw::Text::h2>highlight</Shw::Text::h2>
+  <Shw::Text::Body>Specify line numbers or ranges of line numbers to highlight</Shw::Text::Body>
+
+  <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SG|>
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="Highlight line 2 & 4">
+      <Hds::CodeBlock
+        @highlight={{"2, 4"}}
+        @value="import Application from '@ember/application';
+import Resolver from 'ember-resolver';
+import loadInitializers from 'ember-load-initializers';
+import config from 'dummy/config/environment';
+
+export default class App extends Application {
+  modulePrefix = config.modulePrefix;
+  podModulePrefix = config.podModulePrefix;
+  Resolver = Resolver;
+}
+
+loadInitializers(App, config.modulePrefix);"
+      />
+    </SG.Item>
+
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="Highlight lines 6-10">
+      <Hds::CodeBlock
+        @highlight={{"6-10"}}
+        @value="import Application from '@ember/application';
+import Resolver from 'ember-resolver';
+import loadInitializers from 'ember-load-initializers';
+import config from 'dummy/config/environment';
+
+export default class App extends Application {
+  modulePrefix = config.modulePrefix;
+  podModulePrefix = config.podModulePrefix;
+  Resolver = Resolver;
+}
+
+loadInitializers(App, config.modulePrefix);"
+      />
+    </SG.Item>
+  </Shw::Flex>
+
+  <Shw::Text::h3>language</Shw::Text::h3>
 
   <Shw::Text::Body>
+    Specify coding language syntax to use<br />
     <mark>
-      TODO: Figure out how to dynamically load language modules
+      TODO: Figure out how to get AutoLoader plugin working to dynamically load language modules
     </mark>
   </Shw::Text::Body>
 
