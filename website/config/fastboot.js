@@ -4,7 +4,7 @@ module.exports = function () {
   return {
     buildSandboxGlobals(defaultGlobals) {
       return Object.assign({}, defaultGlobals, {
-        fetch: fetch,
+        fetch: require('node-fetch'),
         AbortController,
         ReadableStream:
           typeof ReadableStream !== 'undefined'

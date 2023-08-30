@@ -12,13 +12,13 @@ However, as a _temporary_ bridge, while we work to provide the accessible compon
 
 ### Examples of correct use
 
-```markup
+```html
 <button aria-label="Check activity">
     <FlightIcon @name="activity" />
 </button>
 ```
 
-```markup
+```html
 <h2>
     Activity report <FlightIcon @name="activity" />
 </h2>

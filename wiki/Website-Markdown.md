@@ -227,7 +227,7 @@ Using different language syntax identifiers, it's possible to have specific synt
 - ```` ```md ```` → markdown
 - ```` ```js ```` → JavaScript
 - ```` ```css ```` → CSS/Sass
-- ```` ```markup ```` → HTML-like code
+- ```` ```html ```` → HTML-like code
 - ```` ```handlebars ```` → Handlebars code
 
 The last one, `handlebars`, is a special one for our application: it's used to identify code blocks that need to be executed and rendered at run time, with a preview of the executed code and the code block below.

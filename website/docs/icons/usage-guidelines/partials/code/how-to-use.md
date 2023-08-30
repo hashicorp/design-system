@@ -87,13 +87,13 @@ import { IconArrowRight24 } from '@hashicorp/flight-icons/svg-react/arrow-right-
 
 The most basic invocation requires only the `@name` property to be passed with a value matching an existing name in [the Icon library](icons/library).
 
-```markup
+```html
 <FlightIcon @name="alert-circle" />
 ```
 
 It renders to this (where the `id` will be unique each time):
 
-```markup
+```html
 <svg
     id="icon-ember115"
     class="flight-icon icon-alert-circle display-inline"
@@ -159,7 +159,7 @@ To have the icon fill the parent container (width: 100%, height: 100%, display: 
 
 To append additional classes to the component, add `class` with value(s):
 
-```markup
+```html
 <FlightIcon @name="triangle-fill" class="ds-rotate-90" />
 ``` -->
 
