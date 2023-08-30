@@ -10,14 +10,22 @@ import { assert } from '@ember/debug';
 import { htmlSafe } from '@ember/template';
 import Prism from 'prismjs';
 import { setup } from 'prismjs-glimmer';
-//import loadLanguages from 'prismjs/components/';
+
+import 'prismjs/plugins/line-numbers/prism-line-numbers';
+import 'prismjs/plugins/line-highlight/prism-line-highlight';
+
+// Importing language individually because autoloader isn't currently working
 import 'prismjs/components/prism-go';
 import 'prismjs/components/prism-markdown';
 import 'prismjs/components/prism-shell-session';
 
-import 'prismjs/plugins/line-numbers/prism-line-numbers';
+// languages_path isn't working so autoloader isn't working
+// https://prismjs.com/plugins/autoloader/
+import 'prismjs/plugins/autoloader/prism-autoloader';
 
 setup(Prism);
+// Path is supposed to normally not need to be specified but it's not working either way currently
+// Prism.plugins.autoloader.languages_path = 'prismjs/components';
 
 export default class HdsCodeBlockIndexComponent extends Component {
   @tracked prismCode = '';
@@ -97,7 +105,7 @@ export default class HdsCodeBlockIndexComponent extends Component {
       classes.push('hds-code-block--has-line-wrapping');
     }
 
-    if (this.args.lineNumbers === true) {
+    if (this.args.lineNumbers === true || this.args.highlight) {
       classes.push('line-numbers');
     }
 
