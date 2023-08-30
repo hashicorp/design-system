@@ -2826,7 +2826,6 @@ __metadata:
     ember-focus-trap: ^1.0.2
     ember-keyboard: ^8.2.0
     ember-load-initializers: ^2.1.2
-    ember-named-blocks-polyfill: ^0.2.5
     ember-page-title: ^7.0.0
     ember-power-select: ^6.0.1
     ember-qunit: ^6.2.0
@@ -10339,16 +10338,6 @@ __metadata:
     ember-cli-typescript: ^5.0.0
     ember-compatibility-helpers: ^1.2.5
   checksum: 2e96d9ec3939de178a9ce704d5a9360fd73f0276ffa4a9cce9f100a4087fdc8fae4a8b28bf1be22b05a4d1c61e1bb1ab93ca60576810c6556bc4d9323864c66a
-  languageName: node
-  linkType: hard
-
-"ember-named-blocks-polyfill@npm:^0.2.5":
-  version: 0.2.5
-  resolution: "ember-named-blocks-polyfill@npm:0.2.5"
-  dependencies:
-    ember-cli-babel: ^7.19.0
-    ember-cli-version-checker: ^5.1.1
-  checksum: f3ca8eeb61a208bf4690d423806b35371b5f01c58028404c9065d7d6e289d2220f40232756718a784fe0d0a65ed9c5a66a3df76f4abd222d07fca35886f5c583
   languageName: node
   linkType: hard
 
