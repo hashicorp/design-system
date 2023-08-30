@@ -58,7 +58,7 @@
 
   /* Code blocks */
   & {
-    margin: 0.5em 0;
+    // margin: 0.5em 0;
     padding: 0.5em 1em;
     overflow: auto;
   }
@@ -278,5 +278,76 @@
     color: #999;
     text-align: right;
     content: counter(linenumber);
+  }
+
+  // LineHighlight plugin styles (works with lineNumbers) ------------
+  pre[data-line] {
+    position: relative;
+    padding: 1em 0 1em 3em;
+  }
+
+  .line-highlight {
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin-top: 0.5em; /* Same as .prism’s padding-top */
+    padding: inherit 0;
+    line-height: inherit;
+    white-space: pre;
+    background: hsla(24deg, 20%, 50%, 60%);
+    // background: linear-gradient(to right, hsla(24deg, 20%, 50%, 10%) 70%, hsla(24deg, 20%, 50%, 0%));
+    pointer-events: none;
+  }
+
+  @media print {
+    .line-highlight {
+      /*
+       * This will prevent browsers from replacing the background color with white.
+       * It's necessary because the element is layered on top of the displayed code.
+       */
+      -webkit-print-color-adjust: exact;
+      color-adjust: exact;
+    }
+  }
+
+  .line-highlight::before,
+  .line-highlight[data-end]::after {
+    position: absolute;
+    top: 0.4em;
+    left: 0.6em;
+    min-width: 1em;
+    padding: 0 0.5em;
+    color: hsl(24deg, 20%, 95%);
+    font: bold 65%/1.5 sans-serif;
+    text-align: center;
+    text-shadow: none;
+    vertical-align: 0.3em;
+    background-color: hsla(24deg, 20%, 50%, 40%);
+    border-radius: 999px;
+    box-shadow: 0 1px white;
+    content: attr(data-start);
+  }
+
+  .line-highlight[data-end]::after {
+    top: auto;
+    bottom: 0.4em;
+    content: attr(data-end);
+  }
+
+  &.line-numbers .line-highlight::before,
+  &.line-numbers .line-highlight::after {
+    content: none;
+  }
+
+  pre[id].linkable-line-numbers span.line-numbers-rows {
+    pointer-events: all;
+  }
+
+  pre[id].linkable-line-numbers span.line-numbers-rows > span::before {
+    cursor: pointer;
+  }
+
+  pre[id].linkable-line-numbers span.line-numbers-rows > span:hover::before {
+    background-color: rgba(128, 128, 128, 20%);
   }
 }

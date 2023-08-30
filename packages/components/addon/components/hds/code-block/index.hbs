@@ -4,7 +4,12 @@
 }}
 
 <div class="hds-code-block-wrapper">
-  <pre class={{this.classNames}} contentEditable={{not this.readOnly}} {{style maxHeight=@maxHeight}}>
+  <pre
+    class={{this.classNames}}
+    contentEditable={{not this.readOnly}}
+    {{style maxHeight=@maxHeight}}
+    data-line={{@highlight}}
+  >
     {{~! ~}}
     <code {{did-insert this.setPrismCode}} {{did-update this.setPrismCode this.code @language}} ...attributes>
       {{~this.prismCode~}}
