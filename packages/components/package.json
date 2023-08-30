@@ -57,6 +57,8 @@
     "ember-stargate": "^0.4.3",
     "ember-style-modifier": "^3.0.1",
     "ember-truth-helpers": "^3.1.1",
+    "prismjs": "^1.29.0",
+    "prismjs-glimmer": "^1.1.1",
     "sass": "^1.62.1",
     "tippy.js": "^6.3.7"
   },
