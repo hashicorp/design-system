@@ -3547,6 +3547,8 @@ __metadata:
     loader.js: ^4.7.0
     npm-run-all: ^4.1.5
     prettier: ^2.8.8
+    prismjs: ^1.29.0
+    prismjs-glimmer: ^1.1.1
     qunit: ^2.19.4
     qunit-dom: ^2.0.0
     sass: ^1.62.1
@@ -20524,6 +20526,13 @@ __metadata:
   version: 1.28.0
   resolution: "prismjs@npm:1.28.0"
   checksum: bde93fb2beb45b7243219fc53855f59ee54b3fa179f315e8f9d66244d756ef984462e10561bbdc6713d3d7e051852472d7c284f5794a8791eeaefea2fb910b16
+  languageName: node
+  linkType: hard
+
+"prismjs@npm:^1.29.0":
+  version: 1.29.0
+  resolution: "prismjs@npm:1.29.0"
+  checksum: 007a8869d4456ff8049dc59404e32d5666a07d99c3b0e30a18bd3b7676dfa07d1daae9d0f407f20983865fd8da56de91d09cb08e6aa61f5bc420a27c0beeaf93
   languageName: node
   linkType: hard
 

@@ -2,7 +2,23 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-{{! ADD YOUR TEMPLATE CONTENT HERE }}
-<div class={{this.classNames}} ...attributes>
-  {{yield}}
+
+<div class="hds-code-block-wrapper">
+  <pre class={{this.classNames}} contentEditable={{not this.readOnly}} {{style maxHeight=@maxHeight}}>
+    {{~! ~}}
+    <code {{did-insert this.setPrismCode}} {{did-update this.setPrismCode this.code @language}} ...attributes>
+      {{~this.prismCode~}}
+    </code>
+    {{~! ~}}
+  </pre>
+
+  {{#if @hasCopyButton}}
+    <Hds::Copy::Button
+      @text="Copy"
+      @isIconOnly={{true}}
+      @size="small"
+      class="hds-code-block__copy-button"
+      @textToCopy={{@value}}
+    />
+  {{/if}}
 </div>
