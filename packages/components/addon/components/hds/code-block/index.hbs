@@ -4,19 +4,23 @@
 }}
 
 <div class="hds-code-block-wrapper">
-  <div
-    class={{this.classNames}}
-    {{style maxHeight=@maxHeight}}
-    {{hds-code-mirror
-      value=@value
-      options=@options
-      lineNumbers=@lineNumbers
-      lineWrapping=@lineWrapping
-      readOnly=@readOnly
-      mode=@language
-    }}
-    ...attributes
-  ></div>
+  <pre class={{this.classNames}}>
+    {{~! ~}}
+    <code
+      class="hds-code-block__code"
+      {{style maxHeight=@maxHeight}}
+      {{hds-code-mirror
+        value=@value
+        options=@options
+        lineNumbers=@lineNumbers
+        lineWrapping=@lineWrapping
+        readOnly=@readOnly
+        mode=@language
+      }}
+      ...attributes
+    ></code>
+    {{~! ~}}
+  </pre>
 
   {{#if @hasCopyButton}}
     <Hds::Copy::Button
