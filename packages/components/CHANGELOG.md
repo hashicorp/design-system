@@ -1,5 +1,24 @@
 # @hashicorp/design-system-components
 
+## 2.11.0
+
+### Minor Changes
+
+- [#1490](https://github.com/hashicorp/design-system/pull/1490) [`4dafcb7d7`](https://github.com/hashicorp/design-system/commit/4dafcb7d7568027c495cb92d01026359a040507a) Thanks [@didoo](https://github.com/didoo)! - `Hds::Text` - Added new `Text` component
+
+- [#1587](https://github.com/hashicorp/design-system/pull/1587) [`57e7a42cb`](https://github.com/hashicorp/design-system/commit/57e7a42cb8353af83d8be5be0a318f951b00d3e3) Thanks [@alex-ju](https://github.com/alex-ju)! - `Hds::Form::MaskedInput` - Add `hasCopyButton` argument
+
+### Patch Changes
+
+- [#1577](https://github.com/hashicorp/design-system/pull/1577) [`8aa9a5889`](https://github.com/hashicorp/design-system/commit/8aa9a5889cf14fc28100a462dfd42754a3bdb42b) Thanks [@DingoEatingFuzz](https://github.com/DingoEatingFuzz)! - Remove aria-hidden from the "optional" span in Form::Indicator
+
+- [#1606](https://github.com/hashicorp/design-system/pull/1606) [`7ac4526db`](https://github.com/hashicorp/design-system/commit/7ac4526dbddda6bea0e6e9f542addc5c97914fa8) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Remove `ember-named-blocks-polyfill` as all consumers of HDS are on Ember 3.25 or later now. This can be installed locally if it is still needed.
+
+- [#1576](https://github.com/hashicorp/design-system/pull/1576) [`e16c88ba9`](https://github.com/hashicorp/design-system/commit/e16c88ba959dcd0b186fd823fc3fccacf39674e8) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - `Alert`, `Toast`: Fixed an issue with anchor tag color styles within Description that had been overriding `Hds::Link` color; changed the default color for HTML links within Description to "neutral" to better align with existing guidance for links in the actions and improve accessible contrast.
+
+- Updated dependencies []:
+  - @hashicorp/ember-flight-icons@3.1.1
+
 ## 2.10.0
 
 ### Minor Changes
