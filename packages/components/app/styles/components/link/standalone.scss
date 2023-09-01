@@ -21,7 +21,7 @@ $hds-link-standalone-border-width: 1px;
   align-items: center;
   justify-content: center;
   width: fit-content;
-  font-weight: var(--token-typography-font-weight-medium);
+  font-weight: var(hds-font-weight-regular);
   font-family: var(--token-typography-font-stack-text);
   background-color: transparent; // needs to exist for a11y
   border: $hds-link-standalone-border-width solid transparent; // needs to exist AND be transparent for a11y
