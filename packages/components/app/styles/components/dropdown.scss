@@ -532,7 +532,8 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
 
     &[disabled] ~ .hds-dropdown-list-item__label,
     &[disabled] ~ .hds-dropdown-list-item__icon,
-    &[disabled] ~ .hds-dropdown-list-item__count {
+    &[disabled] ~ .hds-dropdown-list-item__count,
+    &[disabled] ~ .hds-dropdown-list-item__text-content {
       color: var(--token-color-foreground-disabled);
     }
   }
