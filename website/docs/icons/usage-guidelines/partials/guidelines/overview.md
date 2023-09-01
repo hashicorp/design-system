@@ -4,7 +4,7 @@ There are four types of icons: Outlined, Filled, Off, and Contained.
 
 ### Outlined
 
-Outlined icons are icons with a standard outline. 
+Outlined icons are icons with a standard outline.
 
 Use Outlined icons by default.
 
@@ -14,7 +14,7 @@ Use Outlined icons by default.
 
 Filled icons are icons with a solid fill and are indicated by `-fill` in the icon name.
 
-Use Filled icons to show a toggled state or for contrast with Outlined icons. 
+Use Filled icons to show a toggled state or for contrast with Outlined icons.
 
 ![Example of filled icons](/assets/foundations/flight-icons/icon-types-fill.png =660x*)
 
@@ -26,7 +26,7 @@ For objects that can be toggled on/off, show the Outlined icon for `off` and the
 
 #### Using for contrast
 
-If contrast against other icons is important, use Filled for the more important icon(s). 
+If contrast against other icons is important, use Filled for the more important icon(s).
 
 For example, when showing one failure in a list of 20 otherwise successful builds, use `x-square-fill` while keeping the remaining icons in the Outlined style so the failure is more prominent.
 
@@ -64,7 +64,7 @@ If an object can have multiple states, use a Contained icon for the overall pare
 
 ### Animated
 
-Animated icons are icons with an animated effect that show a transition between two states. 
+Animated icons are icons with an animated effect that show a transition between two states.
 
 ![Example of animated icons](/assets/foundations/flight-icons/icon-animated.png =660x*)
 
@@ -74,7 +74,7 @@ Use animated icons to communicate activity happening in the background. For exam
 
 ## Sizes
 
-Icons are optimized for two icon sizes: `16px` and `24px`. 
+Icons are optimized for two icon sizes: `16px` and `24px`.
 
 Use `16px` icons by default in product interfaces and `24px` icons for empty states.
 
@@ -126,22 +126,6 @@ Some icons represent common actions within our products.
 - Use `support` when referencing HashiCorp support.
 
 ![Examples of common help icons](/assets/foundations/flight-icons/help-actions.png =660x*)
-
-
-## Migrating from Structure
-
-### Choosing the correct icon
-
-When migrating icons from Structure, reference our [mapping of icon names between Structure and Helios](https://github.com/hashicorp/design-system/blob/main/packages/flight-icons/structure-mappings.json).
-
-### Choosing the correct size
-
-| Structure icon size   | Helios icon size         |
-|-----------------------|--------------------------|
-| <= 20px               | 16px                     |
-| >= 21px               | 24px*                    |
-
-*If 24px seems too large, consider using the 16px icon and reworking the interface for a better fit.
 
 ## Resources
 
