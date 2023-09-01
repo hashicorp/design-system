@@ -92,8 +92,6 @@ export default class HdsTextIndexComponent extends Component {
   get predefinedColor() {
     let { color } = this.args;
 
-    console.log(color, AVAILABLE_COLORS.includes(color));
-
     if (AVAILABLE_COLORS.includes(color)) {
       return color;
     } else {
