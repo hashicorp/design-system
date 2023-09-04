@@ -26,7 +26,7 @@
         aria-describedby={{F.ariaDescribedBy}}
       />
       {{#if this.showVisibilityToggle}}
-        <Hds::VisibilityToggle
+        <Hds::Form::VisibilityToggle
           @isVisible={{(not this.isPasswordReadable)}}
           @ariaLabel={{this.visibilityToggleAriaLabel}}
           @ariaMessageText={{this.visibilityToggleAriaMessageText}}
