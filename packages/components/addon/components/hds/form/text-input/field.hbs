@@ -25,13 +25,13 @@
         id={{F.id}}
         aria-describedby={{F.ariaDescribedBy}}
       />
-      {{#if (eq @type "password")}}
+      {{#if this.showVisibilityToggle}}
         <Hds::VisibilityToggle
-          @isVisible={{this.isMasked}}
-          @ariaLabel={{@ariaLabel}}
-          @ariaMessageText={{@ariaMessageText}}
+          @isVisible={{(not this.isPasswordReadable)}}
+          @ariaLabel={{this.ariaLabel}}
+          @ariaMessageText={{this.ariaMessageText}}
           aria-controls={{F.id}}
-          {{on "click" this.onClickToggle}}
+          {{on "click" this.onClickTogglePasswordReadability}}
         />
       {{/if}}
     </div>
