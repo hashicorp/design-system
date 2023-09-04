@@ -9,14 +9,14 @@
 
 <section data-test-percy>
   <Shw::Grid @columns={{4}} {{style width="fit-content"}} as |SG|>
-    <SG.Item @label="Default">
+    <SG.Item @label="Eye">
       <Shw::Outliner class="shw-utility-visibility-toggle-sample">
-        <Hds::VisibilityToggle />
+        <Hds::VisibilityToggle @isVisible={{true}} />
       </Shw::Outliner>
     </SG.Item>
-    <SG.Item @label="Masked">
+    <SG.Item @label="Eye off">
       <Shw::Outliner class="shw-utility-visibility-toggle-sample">
-        <Hds::VisibilityToggle @isMasked={{true}} />
+        <Hds::VisibilityToggle @isVisible={{false}} />
       </Shw::Outliner>
     </SG.Item>
   </Shw::Grid>

@@ -33,3 +33,13 @@ $hds-form-masked-input-button-size: 24px;
     -webkit-text-security: none;
   }
 }
+
+.hds-form-masked-input__toggle-button {
+  grid-area: input;
+}
+
+.hds-form-masked-input__copy-button {
+  grid-area: copy-button;
+  align-self: flex-start;
+  margin-left: 8px;
+}
