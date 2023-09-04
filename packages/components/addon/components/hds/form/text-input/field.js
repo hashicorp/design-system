@@ -22,13 +22,13 @@ export default class HdsFormTextInputFieldComponent extends Component {
   }
 
   /**
-   * @param ariaLabel
+   * @param visibilityToggleAriaLabel
    * @type {string}
    * @default 'Show password'
    */
-  get ariaLabel() {
-    if (this.args.ariaLabel) {
-      return this.args.ariaLabel;
+  get visibilityToggleAriaLabel() {
+    if (this.args.visibilityToggleAriaLabel) {
+      return this.args.visibilityToggleAriaLabel;
     } else if (this.isPasswordReadable) {
       return 'Hide password';
     } else {
@@ -37,13 +37,13 @@ export default class HdsFormTextInputFieldComponent extends Component {
   }
 
   /**
-   * @param ariaMessageText
+   * @param visibilityToggleAriaMessageText
    * @type {string}
    * @default 'Password is now hidden'
    */
-  get ariaMessageText() {
-    if (this.args.ariaMessageText) {
-      return this.args.ariaMessageText;
+  get visibilityToggleAriaMessageText() {
+    if (this.args.visibilityToggleAriaMessageText) {
+      return this.args.visibilityToggleAriaMessageText;
     } else if (this.isPasswordReadable) {
       return 'Password is now visible';
     } else {
