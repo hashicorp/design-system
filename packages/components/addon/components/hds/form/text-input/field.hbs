@@ -28,8 +28,8 @@
       {{#if this.showVisibilityToggle}}
         <Hds::VisibilityToggle
           @isVisible={{(not this.isPasswordReadable)}}
-          @ariaLabel={{this.ariaLabel}}
-          @ariaMessageText={{this.ariaMessageText}}
+          @ariaLabel={{this.visibilityToggleAriaLabel}}
+          @ariaMessageText={{this.visibilityToggleAriaMessageText}}
           aria-controls={{F.id}}
           {{on "click" this.onClickTogglePasswordReadability}}
         />
