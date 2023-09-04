@@ -97,7 +97,19 @@ export default class HdsCopySnippetIndexComponent extends Component {
   }
 
   @action
-  onSuccess() {
+  onSuccess(aaa, bbb, ccc, ddd) {
+    debugger;
+    console.log(
+      arguments,
+      aaa,
+      typeof aaa,
+      bbb,
+      typeof bbb,
+      ccc,
+      typeof ccc,
+      ddd,
+      typeof ddd
+    );
     this.status = 'success';
     this.resetStatusDelayed();
   }

@@ -2,11 +2,13 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<li class={{this.classNames}} ...attributes>
-  {{#if @copyItemTitle}}
-    <div
-      class="hds-dropdown-list-item__copy-item-title hds-typography-body-100 hds-font-weight-semibold"
-    >{{@copyItemTitle}}</div>
-  {{/if}}
-  <Hds::Copy::Snippet @textToCopy={{this.text}} @isTruncated={{@isTruncated}} />
-</li>
+{{#let (unique-id) as |copySnippetID|}}
+  <li class={{this.classNames}} ...attributes id={{copySnippetID}} tabindex="0">
+    {{#if @copyItemTitle}}
+      <div
+        class="hds-dropdown-list-item__copy-item-title hds-typography-body-100 hds-font-weight-semibold"
+      >{{@copyItemTitle}}</div>
+    {{/if}}
+    <Hds::Copy::Snippet @textToCopy={{this.text}} @isTruncated={{@isTruncated}} @container="#{{copySnippetID}}" />
+  </li>
+{{/let}}
