@@ -22,10 +22,11 @@
     />
   {{/if}}
   <Hds::VisibilityToggle
-    @isMasked={{this.isMasked}}
+    @isVisible={{this.isMasked}}
     @ariaLabel={{this.ariaLabel}}
     @ariaMessageText={{this.ariaMessageText}}
     aria-controls={{this.id}}
+    class="hds-form-masked-input__toggle-button"
     {{on "click" this.onClickToggle}}
   />
   {{#if @hasCopyButton}}

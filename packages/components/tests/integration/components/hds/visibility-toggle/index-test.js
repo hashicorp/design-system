@@ -21,29 +21,29 @@ module(
     test('it should render the default icon, `aria-label` and `sr-live` message', async function (assert) {
       await render(hbs`<Hds::VisibilityToggle id="test-visibility-toggle" />`);
       assert
-        .dom('#test-visibility-toggle')
-        .hasAttribute('aria-label', 'Hide masked content');
-      assert
         .dom('#test-visibility-toggle .flight-icon')
         .hasClass('flight-icon-eye-off');
-      assert
-        .dom('#test-visibility-toggle .sr-only')
-        .hasText('Input content is now visible');
     });
 
-    test('it should render correct icon, `aria-label` and `sr-live` message when `@isMasked` is `true`', async function (assert) {
+    test('it should render correct icon when `@isVisible` is `true`', async function (assert) {
       await render(
-        hbs`<Hds::VisibilityToggle @isMasked={{true}} id="test-visibility-toggle" />`
+        hbs`<Hds::VisibilityToggle @isVisible={{true}} id="test-visibility-toggle" />`
       );
-      assert
-        .dom('#test-visibility-toggle')
-        .hasAttribute('aria-label', 'Show masked content');
       assert
         .dom('#test-visibility-toggle .flight-icon')
         .hasClass('flight-icon-eye');
+    });
+
+    test('it should render `aria-label` and `sr-live` message', async function (assert) {
+      await render(
+        hbs`<Hds::VisibilityToggle @ariaLabel="Hide masked content" @ariaMessageText="Input content is now visible" id="test-visibility-toggle" />`
+      );
+      assert
+        .dom('#test-visibility-toggle')
+        .hasAttribute('aria-label', 'Hide masked content');
       assert
         .dom('#test-visibility-toggle .sr-only')
-        .hasText('Input content is now hidden');
+        .hasText('Input content is now visible');
     });
   }
 );
