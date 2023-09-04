@@ -33,7 +33,6 @@ export default class HdsMenuPrimitiveComponent extends Component {
     // due to inconsistent implementation of relatedTarget across browsers we use the activeElement as a fallback
     // if the related target is not part of the disclosed content we close the disclosed container
     if (!this.element.contains(event.relatedTarget || document.activeElement)) {
-      debugger;
       this.close();
     }
   }
