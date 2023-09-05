@@ -39,10 +39,10 @@ Pass a `@value` argument to pre-populate the input. By default, the content is v
 </Hds::Form::MaskedInput::Field>
 ```
 
-If you need to make the content visible by default or control the masking from outside the component, use the `@isMasked` argument.
+If you need to make the content visible by default or control the masking from outside the component, use the `@isContentMasked` argument.
 
 ```handlebars
-<Hds::Form::MaskedInput::Field @isMasked={{false}} @value="036215df4996ca649928d8864b4df9e42cba0d6d" as |F|>
+<Hds::Form::MaskedInput::Field @isContentMasked={{false}} @value="036215df4996ca649928d8864b4df9e42cba0d6d" as |F|>
   <F.Label>Terraform Cloud team token</F.Label>
 </Hds::Form::MaskedInput::Field>
 ```

@@ -34,9 +34,9 @@ module(
       assert.dom('.hds-form-visibility-toggle .flight-icon-eye').exists();
     });
 
-    test('it should render readable text when `isMasked` is false', async function (assert) {
+    test('it should render readable text when `isContentMasked` is false', async function (assert) {
       await render(
-        hbs`<Hds::Form::MaskedInput::Base id="test-form-masked-input" @isMasked={{false}} />`
+        hbs`<Hds::Form::MaskedInput::Base id="test-form-masked-input" @isContentMasked={{false}} />`
       );
       assert
         .dom('.hds-form-masked-input__control')

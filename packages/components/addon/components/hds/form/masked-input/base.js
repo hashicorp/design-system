@@ -9,11 +9,11 @@ import { action } from '@ember/object';
 import { getElementId } from '@hashicorp/design-system-components/utils/hds-get-element-id';
 
 export default class HdsFormMaskedInputBaseComponent extends Component {
-  @tracked isMasked = this.args.isMasked ?? true;
+  @tracked isContentMasked = this.args.isContentMasked ?? true;
 
   @action
   onClickToggleMasking() {
-    this.isMasked = !this.isMasked;
+    this.isContentMasked = !this.isContentMasked;
   }
 
   /**
@@ -31,7 +31,7 @@ export default class HdsFormMaskedInputBaseComponent extends Component {
   get visibilityToggleAriaLabel() {
     if (this.args.visibilityToggleAriaLabel) {
       return this.args.visibilityToggleAriaLabel;
-    } else if (this.isMasked) {
+    } else if (this.isContentMasked) {
       return 'Show masked content';
     } else {
       return 'Hide masked content';
@@ -46,7 +46,7 @@ export default class HdsFormMaskedInputBaseComponent extends Component {
   get visibilityToggleAriaMessageText() {
     if (this.args.visibilityToggleAriaMessageText) {
       return this.args.visibilityToggleAriaMessageText;
-    } else if (this.isMasked) {
+    } else if (this.isContentMasked) {
       return 'Input content is hidden';
     } else {
       return 'Input content is visible';
@@ -74,7 +74,7 @@ export default class HdsFormMaskedInputBaseComponent extends Component {
   get classNames() {
     let classes = ['hds-form-masked-input'];
 
-    if (this.isMasked) {
+    if (this.isContentMasked) {
       classes.push(`hds-form-masked-input--is-masked`);
     } else {
       classes.push(`hds-form-masked-input--is-not-masked`);
