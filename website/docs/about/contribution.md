@@ -107,4 +107,4 @@ If you need to test the component in one of our consumers’ codebases, review t
 
 ## Resources
 
-Learn how the [Collaboration Model for the Helios Design System](https://hermes.hashicorp.services/document/1_5ARBNK3ZLNAB7L2mo5H9e4GKMqEfjRaVIGE77mrEvA) took shape.
+Learn how the [Collaboration Model for the Helios Design System](https://go.hashi.co/rfc/ds-059) took shape.
