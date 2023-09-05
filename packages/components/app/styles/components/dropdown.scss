@@ -530,7 +530,6 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
     margin-top: 2px;
     margin-right: 8px;
 
-    &[disabled] ~ .hds-dropdown-list-item__label,
     &[disabled] ~ .hds-dropdown-list-item__icon,
     &[disabled] ~ .hds-dropdown-list-item__count,
     &[disabled] ~ .hds-dropdown-list-item__text-content {
