@@ -14,6 +14,13 @@ import {
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
+// used to wait for the async "clipboard.writeText" to complete
+function wait(timeout = 200) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, timeout);
+  });
+}
+
 module('Integration | Component | hds/copy/button/index', function (hooks) {
   setupRenderingTest(hooks);
 
@@ -82,6 +89,7 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
     );
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
     await click('button#test-copy-button');
+    await wait();
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-success');
   });
 
@@ -92,6 +100,7 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
     );
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
     await click('button#test-copy-button');
+    await wait();
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-success');
   });
 
@@ -105,6 +114,7 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
     );
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
     await click('button#test-copy-button');
+    await wait();
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-success');
     await waitFor('.hds-copy-button--status-idle', { timeout: 2000 });
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
@@ -117,6 +127,7 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
     );
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
     await click('button#test-copy-button');
+    await wait();
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-success');
     await waitFor('.hds-copy-button--status-idle', { timeout: 2000 });
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');

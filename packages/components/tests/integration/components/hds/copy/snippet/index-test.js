@@ -14,6 +14,12 @@ import {
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
+// used to wait for the async "clipboard.writeText" to complete
+function wait(timeout = 200) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, timeout);
+  });
+}
 module('Integration | Component | hds/copy/snippet/index', function (hooks) {
   setupRenderingTest(hooks);
 
@@ -70,6 +76,7 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
     );
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet--status-idle');
     await click('button#test-copy-snippet');
+    await wait();
     assert
       .dom('#test-copy-snippet')
       .hasClass('hds-copy-snippet--status-success');
@@ -81,6 +88,7 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
     );
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet--status-idle');
     await click('button#test-copy-snippet');
+    await wait();
     assert
       .dom('#test-copy-snippet')
       .hasClass('hds-copy-snippet--status-success');
