@@ -68,6 +68,12 @@ The Masked Input component has two different variants with their own APIs:
   <C.Property @name="isOptional" @type="boolean" @default="false">
     Appends an `Optional` indicator next to the label text when user input is optional.
   </C.Property>
+  <C.Property @name="visibilityToggleAriaLabel" @type="string" @default="Show masked content">
+    Override this value to provide a meaninful `aria-label` for the visibility toggle button.
+  </C.Property>
+  <C.Property @name="visibilityToggleAriaMessageText" @type="string" @default="Input content is hidden">
+    Override this value to provide a meaninful `aria-live` message when the visibility toggle button is pressed.
+  </C.Property>
   <C.Property @name="hasCopyButton" @type="boolean" @default="false">
     If set to `true`, it renders a [`Copy::Button`](/components/copy/button) next to the form control allowing the value of the input to be copied to the clipboard.
   </C.Property>
