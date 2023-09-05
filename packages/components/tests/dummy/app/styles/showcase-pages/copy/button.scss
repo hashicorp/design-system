@@ -37,6 +37,14 @@ body.components-copy-button {
     }
   }
 
+  .shw-component-copy-button-display-none {
+    display: none;
+  }
+
+  .shw-component-copy-button-visibility-hidden {
+    visibility: hidden;
+  }
+
   .shw-component-copy-button-code-block {
     padding: 1rem;
     color: white;
@@ -47,6 +55,6 @@ body.components-copy-button {
   .shw-component-copy-button-flex-container {
     display: flex;
     gap: 8px;
-    align-items: start;
+    align-items: center;
   }
 }

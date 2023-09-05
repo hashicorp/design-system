@@ -35,4 +35,17 @@ export default class CopyButtonController extends Controller {
   routeDidChange() {
     scheduleOnce('afterRender', this, replaceMockCopyStatus);
   }
+
+  get bigIntNumber() {
+    let bigIntNumber = BigInt(12345678910);
+    return bigIntNumber;
+  }
+
+  get targetNodeElement() {
+    return document.querySelector('#test-target-node-element');
+  }
+
+  get targetMultipleNodeElements() {
+    return document.querySelectorAll('#test-target-node-elements');
+  }
 }
