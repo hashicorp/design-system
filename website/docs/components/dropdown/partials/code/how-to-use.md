@@ -15,35 +15,6 @@ To make the invocation more flexible and intuitive, we provide contextual compon
 </Hds::Dropdown>
 ```
 
-### List position
-
-By default, the list is positioned below the button, aligned to the right. To change the list position pass `bottom-left`, `top-left`, or `top-right` to `@listPosition` on the Dropdown component.
-
-```handlebars
-<Hds::Dropdown @listPosition="bottom-left" as |dd|>
-  <dd.ToggleButton @text="Text Toggle" />
-  <dd.Interactive @route="components" @text="Item One" />
-  <dd.Interactive @route="components" @text="Item Two" />
-  <dd.Interactive @route="components" @text="Item Three" />
-  <dd.Interactive @text="Item Four (closes on click)" {{on "click" dd.close}} />
-  <dd.Separator />
-  <dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
-</Hds::Dropdown>
-```
-
-In contexts where the Dropdown needs to be _inline_, to inherit the alignment from a parent, you can use the `@isInline` argument (and set the `@listPosition` accordingly to your needs):
-
-```handlebars
-<div class="doc-dropdown-mock-text-align-right">
-  <Hds::Dropdown @isInline={{true}} @listPosition="bottom-right" as |dd|>
-    <dd.ToggleButton @text="Text Toggle" @color="secondary" />
-    <dd.Interactive @route="components" @text="Item One" />
-    <dd.Interactive @route="components" @text="Item Two" />
-    <dd.Interactive @route="components" @text="Item Three" />
-  </Hds::Dropdown>
-</div>
-```
-
 ### ToggleButton
 
 The basic invocation of ToggleButton requires `@text` to be passed. By default, it renders a primary button with a chevron icon.
@@ -120,6 +91,49 @@ Pass any [icon](/icons/library) name to `@icon` to change the icon used in Toggl
   <dd.Interactive @route="components" @text="Settings and Preferences" />
   <dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
 </Hds::Dropdown>
+```
+### List placement
+
+By default, the list is positioned below the button, aligned to the right. To change the list position pass `bottom-left`, `top-left`, or `top-right` to `@listPosition` on the Dropdown component.
+
+```handlebars
+<Hds::Dropdown @listPosition="bottom-left" as |dd|>
+  <dd.ToggleButton @text="Text Toggle" />
+  <dd.Interactive @route="components" @text="Item One" />
+  <dd.Interactive @route="components" @text="Item Two" />
+  <dd.Interactive @route="components" @text="Item Three" />
+  <dd.Interactive @text="Item Four (closes on click)" {{on "click" dd.close}} />
+  <dd.Separator />
+  <dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
+</Hds::Dropdown>
+```
+
+In contexts where the Dropdown needs to be _inline_, to inherit the alignment from a parent, you can use the `@isInline` argument (and set the `@listPosition` accordingly to your needs):
+
+```handlebars
+<div class="doc-dropdown-mock-text-align-right">
+  <Hds::Dropdown @isInline={{true}} @listPosition="bottom-right" as |dd|>
+    <dd.ToggleButton @text="Text Toggle" @color="secondary" />
+    <dd.Interactive @route="components" @text="Item One" />
+    <dd.Interactive @route="components" @text="Item Two" />
+    <dd.Interactive @route="components" @text="Item Three" />
+  </Hds::Dropdown>
+</div>
+```
+
+### List size
+
+If you need to more explicitly control the height or width of a list, any acceptable value (px, rem, em) can be declared:
+
+```handlebars
+<div class="doc-dropdown-mock-text-align-right">
+  <Hds::Dropdown @isInline={{true}} @height="250px" @width="250px" as |dd|>
+    <dd.ToggleButton @text="Text Toggle" @color="secondary" />
+    <dd.Interactive @route="components" @text="Item One" />
+    <dd.Interactive @route="components" @text="Item Two" />
+    <dd.Interactive @route="components" @text="Item Three" />
+  </Hds::Dropdown>
+</div>
 ```
 
 ### ListItem::Interactive
