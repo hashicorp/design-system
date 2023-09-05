@@ -159,7 +159,7 @@ It is possible that you may want to add a list footer for things like a set of b
   <dd.Footer @hasDivider={{true}}>
     <Hds::ButtonSet>
       <Hds::Button @text="Apply filters" @isFullWidth={{true}} @size="small" />
-      <Hds::Button @text="Cancel" @color="secondary" @isFullWidth={{true}} @size="small" />
+      <Hds::Button @text="Cancel" @color="secondary" @size="small" />
     </Hds::ButtonSet>
   </dd.Footer>
 </Hds::Dropdown>
