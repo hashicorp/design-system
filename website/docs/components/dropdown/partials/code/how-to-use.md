@@ -144,7 +144,7 @@ If you need to more explicitly control the height or width of a list, any accept
 It is possible that you may want to add a list footer for things like a set of buttons for a filter control:
 
 ```handlebars
-<Hds::Dropdown @height="200px" as |dd|>
+<Hds::Dropdown @height="284px" as |dd|>
   <dd.ToggleButton @icon="tag" @text="Tags" @color="secondary" />
   <dd.Checkbox>access</dd.Checkbox>
   <dd.Checkbox>homework</dd.Checkbox>
