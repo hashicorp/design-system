@@ -11,6 +11,6 @@
   @isIconOnly={{@isIconOnly}}
   @color="secondary"
   @iconPosition="trailing"
-  {{clipboard text=@textToCopy target=@targetToCopy container=@container onError=this.onError onSuccess=this.onSuccess}}
+  {{hds-clipboard text=@textToCopy target=@targetToCopy onSuccess=this.onSuccess onError=this.onError}}
   ...attributes
 />
