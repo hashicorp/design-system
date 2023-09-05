@@ -23,8 +23,8 @@
   {{/if}}
   <Hds::Form::VisibilityToggle
     @isVisible={{this.isMasked}}
-    @ariaLabel={{this.ariaLabel}}
-    @ariaMessageText={{this.ariaMessageText}}
+    @ariaLabel={{this.visibilityToggleAriaLabel}}
+    @ariaMessageText={{this.visibilityToggleAriaMessageText}}
     aria-controls={{this.id}}
     class="hds-form-masked-input__toggle-button"
     {{on "click" this.onClickToggleMasking}}
