@@ -47,9 +47,9 @@ export default class HdsFormMaskedInputBaseComponent extends Component {
     if (this.args.ariaMessageText) {
       return this.args.ariaMessageText;
     } else if (this.isMasked) {
-      return 'Input content is now hidden';
+      return 'Input content is hidden';
     } else {
-      return 'Input content is now visible';
+      return 'Input content is visible';
     }
   }
 

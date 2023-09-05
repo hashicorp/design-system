@@ -86,11 +86,11 @@ module(
       await click('.hds-form-visibility-toggle');
       assert
         .dom('.hds-form-visibility-toggle')
-        .hasText('Input content is now visible');
+        .hasText('Input content is visible');
       await click('.hds-form-visibility-toggle');
       assert
         .dom('.hds-form-visibility-toggle')
-        .hasText('Input content is now hidden');
+        .hasText('Input content is hidden');
     });
 
     // MULTILINE
