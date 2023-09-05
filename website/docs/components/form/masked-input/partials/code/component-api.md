@@ -11,7 +11,7 @@ The Masked Input component has two different variants with their own APIs:
   <C.Property @name="value" @type="string|number|date">
     Input control’s value.
   </C.Property>
-  <C.Property @name="isMasked" @type="boolean" @default="true">
+  <C.Property @name="isContentMasked" @type="boolean" @default="true">
     Set this argument to `false` to make the input content visible by default or bind it to a variable to control the masking from outside the component.
   </C.Property>
   <C.Property @name="isMultiline" @type="boolean" @default="false">
@@ -47,7 +47,7 @@ The Masked Input component has two different variants with their own APIs:
   <C.Property @name="value" @type="string|number|date">
     Input control’s value.
   </C.Property>
-  <C.Property @name="isMasked" @type="boolean" @default="true">
+  <C.Property @name="isContentMasked" @type="boolean" @default="true">
     Set this argument to `false` to make the input content visible by default or bind it to a variable to control the masking from outside the component.
   </C.Property>
   <C.Property @name="isMultiline" @type="boolean" @default="false">
