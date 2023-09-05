@@ -28,7 +28,7 @@
       />
       {{#if this.showVisibilityToggle}}
         <Hds::Form::VisibilityToggle
-          @isVisible={{(not this.isPasswordReadable)}}
+          @isVisible={{this.isPasswordMasked}}
           @ariaLabel={{this.visibilityToggleAriaLabel}}
           @ariaMessageText={{this.visibilityToggleAriaMessageText}}
           aria-controls={{F.id}}
