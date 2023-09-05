@@ -167,7 +167,7 @@ It is possible that you may want to add a list footer for things like a set of b
 
 ### ListItem::Interactive
 
-`ListItem::Interactive` renders the correct element based on the passing of an `@route`, `@href`, or the addition of a click event (e.g.,
+`ListItem::Interactive` renders the correct element based on the passing of a `@route`, `@href`, or the addition of a click event (e.g.,
 `\{{on "click" this.myAction}}`). Internally, the component uses the [Hds::Interactive](/utilities/interactive) utility component.
 
 #### Rendering a button
