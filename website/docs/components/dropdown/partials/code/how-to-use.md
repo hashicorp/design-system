@@ -128,10 +128,14 @@ If you need to more explicitly control the height or width of a list, any accept
 
 ```handlebars
 <Hds::Dropdown @isInline={{true}} @height="250px" @width="250px" as |dd|>
-  <dd.ToggleButton @text="Text Toggle" @color="secondary" />
+  <dd.ToggleButton @text="Text Toggle" />
   <dd.Interactive @route="components" @text="Item One" />
   <dd.Interactive @route="components" @text="Item Two" />
   <dd.Interactive @route="components" @text="Item Three" />
+  <dd.Interactive @route="components" @text="Item Four" />
+  <dd.Interactive @route="components" @text="Item Five" />
+  <dd.Interactive @route="components" @text="Item Six" />
+  <dd.Interactive @route="components" @text="Item Seven" />
 </Hds::Dropdown>
 ```
 
