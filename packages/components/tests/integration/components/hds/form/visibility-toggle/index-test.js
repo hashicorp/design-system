@@ -42,14 +42,14 @@ module(
 
     test('it should render `aria-label` and `sr-live` message', async function (assert) {
       await render(
-        hbs`<Hds::Form::VisibilityToggle @ariaLabel="Hide masked content" @ariaMessageText="Input content is now visible" id="test-visibility-toggle" />`
+        hbs`<Hds::Form::VisibilityToggle @ariaLabel="Hide masked content" @ariaMessageText="Input content is visible" id="test-visibility-toggle" />`
       );
       assert
         .dom('#test-visibility-toggle')
         .hasAttribute('aria-label', 'Hide masked content');
       assert
         .dom('#test-visibility-toggle .sr-only')
-        .hasText('Input content is now visible');
+        .hasText('Input content is visible');
     });
   }
 );
