@@ -12,8 +12,9 @@
       </div>
     {{/if}}
     <span class="hds-dropdown-list-item__text-content">{{yield}}</span>
+
+    {{#if @count}}
+      <span class="hds-dropdown-list-item__count hds-typography-body-100 hds-font-weight-medium">{{@count}}</span>
+    {{/if}}
   </label>
-  {{#if @count}}
-    <span class="hds-dropdown-list-item__count hds-typography-body-100 hds-font-weight-medium">{{@count}}</span>
-  {{/if}}
 </li>

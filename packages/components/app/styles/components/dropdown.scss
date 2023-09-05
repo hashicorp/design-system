@@ -553,7 +553,8 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
 
 // COUNT
 .hds-dropdown-list-item__count {
-  margin-left: 8px;
+  margin-left: auto;
+  padding-left: 8px;
   color: var(--token-color-foreground-faint);
   line-height: 20px; // replicating the resulted height of the list item
 }
