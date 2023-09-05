@@ -4,6 +4,8 @@
  */
 
 import Controller from '@ember/controller';
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 import { scheduleOnce } from '@ember/runloop';
 
@@ -26,6 +28,7 @@ function replaceMockCopyStatus() {
 
 export default class CopyButtonController extends Controller {
   @service router;
+  @tracked isModalActive = false;
 
   constructor() {
     super(...arguments);
@@ -47,5 +50,15 @@ export default class CopyButtonController extends Controller {
 
   get targetMultipleNodeElements() {
     return document.querySelectorAll('#test-target-node-elements');
+  }
+
+  @action
+  activateModal() {
+    this.isModalActive = true;
+  }
+
+  @action
+  deactivateModal() {
+    this.isModalActive = false;
   }
 }

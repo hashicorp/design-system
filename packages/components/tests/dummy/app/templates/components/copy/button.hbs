@@ -259,6 +259,132 @@ that should be copied"
     </SG.Item>
   </Shw::Grid>
 
+  <Shw::Grid {{style gap="2rem"}} @columns={{3}} as |SG|>
+    <SG.Item>
+      <Shw::Label>Within a Dropdown</Shw::Label>
+      <Hds::Dropdown @listPosition="bottom-left" as |dd|>
+        <dd.ToggleButton @text="Open menu" />
+        <dd.Generic>
+          <div class="shw-component-copy-button-demo-container">
+            <p class="shw-text-h4">With HDS components</p>
+            <p class="shw-text-body">Input</p>
+            <div class="shw-component-copy-button-demo-flex-container">
+              <Hds::Form::TextInput::Base
+                @name="test-dropdown-text-input"
+                id="test-dropdown-text-input"
+                @value="Lorem ipsum dolor"
+              />
+              <Hds::Copy::Button
+                @isIconOnly={{true}}
+                @text="Copy the text input value"
+                @targetToCopy="#test-dropdown-text-input"
+              />
+            </div>
+            <Shw::Divider @level={{2}} />
+            <p class="shw-text-h4">With HTML blocks</p>
+            <p class="shw-text-body">Structured content</p>
+            <div class="shw-component-copy-button-demo-flex-container">
+              <p class="shw-component-copy-button-demo-paragraph" id="test-dropdown-structured-content">This is the
+                <span><strong>some</strong>
+                  <em>structured</em></span>
+                content that will be
+                <a href="#">targeted</a>
+                by the
+                <code>button</code>.</p>
+              <Hds::Copy::Button
+                @isIconOnly={{true}}
+                @text="Copy the structured content"
+                @targetToCopy="#test-dropdown-structured-content"
+              />
+            </div>
+            <p class="shw-text-body">Code block with 'contentEditable'</p>
+            <div class="shw-component-copy-button-demo-flex-container">
+              {{!-- prettier-ignore --}}
+              <pre class="shw-component-copy-button-code-block"><code
+            id="test-dropdown-code-block-editable"
+            contenteditable="true"
+          >&lt;h1&gt;Lorem&lt;/h1&gt;
+&lt;p&gt;Ipsum dolor&lt;/p&gt;</code></pre>
+              <Hds::Copy::Button
+                @isIconOnly={{true}}
+                @text="Copy the code block content"
+                @targetToCopy="#test-dropdown-code-block-editable"
+              />
+            </div>
+          </div>
+        </dd.Generic>
+      </Hds::Dropdown>
+    </SG.Item>
+    <SG.Item>
+      <Shw::Label>Within a Modal</Shw::Label>
+      <Hds::Button @color="secondary" @text="Open modal" {{on "click" this.activateModal}} />
+
+      {{! template-lint-disable no-autofocus-attribute }}
+      {{#if this.isModalActive}}
+        <Hds::Modal id="test-copy-button-modal" @onClose={{this.deactivateModal}} as |M|>
+          <M.Header>
+            Lorem ipsum dolor
+          </M.Header>
+          <M.Body>
+            <form name="test-copy-button-modal-form" class="shw-component-copy-button-demo-container">
+              <p class="shw-text-h4">With HDS components</p>
+              <p class="shw-text-body">Input</p>
+              <div class="shw-component-copy-button-demo-flex-container">
+                <Hds::Form::TextInput::Base
+                  @name="test-modal-text-input"
+                  id="test-modal-text-input"
+                  @value="Lorem ipsum dolor"
+                />
+                <Hds::Copy::Button
+                  @isIconOnly={{true}}
+                  @text="Copy the text input value"
+                  @targetToCopy="#test-modal-text-input"
+                />
+              </div>
+              <Shw::Divider @level={{2}} />
+              <p class="shw-text-h4">With HTML blocks</p>
+              <p class="shw-text-body">Structured content</p>
+              <div class="shw-component-copy-button-demo-flex-container">
+                <p class="shw-component-copy-button-demo-paragraph" id="test-modal-structured-content">This is the
+                  <span><strong>some</strong>
+                    <em>structured</em></span>
+                  content that will be
+                  <a href="#">targeted</a>
+                  by the
+                  <code>button</code>.</p>
+                <Hds::Copy::Button
+                  @isIconOnly={{true}}
+                  @text="Copy the structured content"
+                  @targetToCopy="#test-modal-structured-content"
+                />
+              </div>
+              <p class="shw-text-body">Code block with 'contentEditable'</p>
+              <div class="shw-component-copy-button-demo-flex-container">
+                {{!-- prettier-ignore --}}
+                <pre class="shw-component-copy-button-code-block"><code
+              id="test-modal-code-block-editable"
+              contenteditable="true"
+            >&lt;h1&gt;Lorem&lt;/h1&gt;
+&lt;p&gt;Ipsum dolor&lt;/p&gt;</code></pre>
+                <Hds::Copy::Button
+                  @isIconOnly={{true}}
+                  @text="Copy the code block content"
+                  @targetToCopy="#test-modal-code-block-editable"
+                />
+              </div>
+            </form>
+          </M.Body>
+          <M.Footer as |F|>
+            <Hds::ButtonSet>
+              <Hds::Button type="submit" @text="OK" {{on "click" this.deactivateModal}} />
+              <Hds::Button type="button" @text="Cancel" @color="secondary" {{on "click" F.close}} />
+            </Hds::ButtonSet>
+          </M.Footer>
+        </Hds::Modal>
+      {{/if}}
+    </SG.Item>
+  </Shw::Grid>
+
   <Shw::Text::H4>HTML blocks</Shw::Text::H4>
 
   <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
@@ -460,29 +586,6 @@ that should be copied"
           @targetToCopy={{this.targetNodeElement}}
         />
       </div>
-    </SF.Item>
-    <SF.Item>
-      <Shw::Label>Multiple nodes (triggers an error)</Shw::Label>
-      <div class="shw-component-copy-button-flex-container">
-        <p class="shw-text-body">
-          <span data-target="test-target-node-elements">Lorem</span>
-          <span data-target="test-target-node-elements">ipsum dolor</span>
-        </p>
-        <Hds::Copy::Button
-          @isIconOnly={{true}}
-          @text="Copy the content in the nodes"
-          @targetToCopy={{this.targetMultipleNodeElements}}
-        />
-      </div>
-    </SF.Item>
-  </Shw::Flex>
-
-  <Shw::Text::H4>Edge cases</Shw::Text::H4>
-
-  <Shw::Flex {{style gap="2rem"}} @columns={{3}} as |SF|>
-    <SF.Item>
-      <Shw::Label>Non-existent node (triggers an error)</Shw::Label>
-      <Hds::Copy::Button @text="Copy from a non-existent target" @targetToCopy="#test-non-existent-target" />
     </SF.Item>
   </Shw::Flex>
 
