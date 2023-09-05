@@ -92,6 +92,7 @@ Pass any [icon](/icons/library) name to `@icon` to change the icon used in Toggl
   <dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
 </Hds::Dropdown>
 ```
+
 ### List placement
 
 By default, the list is positioned below the button, aligned to the right. To change the list position pass `bottom-left`, `top-left`, or `top-right` to `@listPosition` on the Dropdown component.
@@ -126,14 +127,38 @@ In contexts where the Dropdown needs to be _inline_, to inherit the alignment fr
 If you need to more explicitly control the height or width of a list, any acceptable value (px, rem, em) can be declared:
 
 ```handlebars
-<div class="doc-dropdown-mock-text-align-right">
-  <Hds::Dropdown @isInline={{true}} @height="250px" @width="250px" as |dd|>
-    <dd.ToggleButton @text="Text Toggle" @color="secondary" />
-    <dd.Interactive @route="components" @text="Item One" />
-    <dd.Interactive @route="components" @text="Item Two" />
-    <dd.Interactive @route="components" @text="Item Three" />
-  </Hds::Dropdown>
-</div>
+<Hds::Dropdown @isInline={{true}} @height="250px" @width="250px" as |dd|>
+  <dd.ToggleButton @text="Text Toggle" @color="secondary" />
+  <dd.Interactive @route="components" @text="Item One" />
+  <dd.Interactive @route="components" @text="Item Two" />
+  <dd.Interactive @route="components" @text="Item Three" />
+</Hds::Dropdown>
+```
+
+### List footer
+
+It is possible that you may want to add a list footer for things like a set of buttons for a filter control:
+
+```handlebars
+<Hds::Dropdown @height="200px" as |dd|>
+  <dd.ToggleButton @icon="tag" @text="Tags" @color="secondary" />
+  <dd.Checkbox>access</dd.Checkbox>
+  <dd.Checkbox>homework</dd.Checkbox>
+  <dd.Checkbox>discovery</dd.Checkbox>
+  <dd.Checkbox>memories</dd.Checkbox>
+  <dd.Checkbox>music</dd.Checkbox>
+  <dd.Checkbox>pharell</dd.Checkbox>
+  <dd.Checkbox>punk</dd.Checkbox>
+  <dd.Checkbox>random</dd.Checkbox>
+  <dd.Checkbox>robots</dd.Checkbox>
+  <dd.Checkbox>tag</dd.Checkbox>
+  <dd.Footer @hasDivider={{true}}>
+    <Hds::ButtonSet>
+      <Hds::Button @text="Apply filters" @isFullWidth={{true}} @size="small" />
+      <Hds::Button @text="Cancel" @color="secondary" @isFullWidth={{true}} @size="small" />
+    </Hds::ButtonSet>
+  </dd.Footer>
+</Hds::Dropdown>
 ```
 
 ### ListItem::Interactive
