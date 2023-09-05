@@ -540,17 +540,16 @@
 
   <Shw::Text::H2>Visibility toggle</Shw::Text::H2>
 
-  <Shw::Grid @columns={{4}} {{style width="fit-content"}} as |SG|>
-    <SG.Item @label="Eye">
-      <Shw::Outliner class="shw-component-form-base-elements-visibility-toggle">
+  <Shw::Flex as |SF|>
+    <SF.Item @label="On">
+      <Shw::Outliner>
         <Hds::Form::VisibilityToggle @isVisible={{true}} />
       </Shw::Outliner>
-    </SG.Item>
-    <SG.Item @label="Eye off">
-      <Shw::Outliner class="shw-component-form-base-elements-visibility-toggle">
+    </SF.Item>
+    <SF.Item @label="Off">
+      <Shw::Outliner>
         <Hds::Form::VisibilityToggle @isVisible={{false}} />
       </Shw::Outliner>
-    </SG.Item>
-  </Shw::Grid>
-
+    </SF.Item>
+  </Shw::Flex>
 </section>

@@ -83,22 +83,24 @@
 
 // "TYPE" CUSTOMIZATION
 
-// only used for [type="password"]
 .hds-form-text-input__wrapper {
   position: relative;
   width: 100%;
 }
 
+// PASSWORD
+
+.hds-form-text-input--has-visibility-toggle {
+  padding-right: calc(var(--token-form-control-padding) + 24px);
+}
+
+.hds-form-text-input__visibility-toggle {
+  position: absolute;
+  top: calc(var(--token-form-control-padding) - var(--token-form-control-border-width));
+  right: calc(var(--token-form-control-padding) - var(--token-form-control-border-width));
+}
+
 .hds-form-text-input {
-
-  // PASSWORD
-
-  &[type="password"] {
-    // only applied on field variant
-    .hds-form-field__control & {
-      padding-right: calc(var(--token-form-control-padding) + 24px);
-    }
-  }
 
   // DATE/TIME
 

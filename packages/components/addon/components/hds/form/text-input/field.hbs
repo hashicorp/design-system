@@ -20,6 +20,7 @@
         @value={{@value}}
         @isInvalid={{@isInvalid}}
         @isLoading={{@isLoading}}
+        @hasVisibilityToggle={{this.showVisibilityToggle}}
         required={{@isRequired}}
         ...attributes
         id={{F.id}}
@@ -31,6 +32,7 @@
           @ariaLabel={{this.visibilityToggleAriaLabel}}
           @ariaMessageText={{this.visibilityToggleAriaMessageText}}
           aria-controls={{F.id}}
+          class="hds-form-text-input__visibility-toggle"
           {{on "click" this.onClickTogglePasswordReadability}}
         />
       {{/if}}
