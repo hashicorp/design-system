@@ -5,7 +5,7 @@
 <button
   type="button"
   class={{this.classNames}}
-  {{clipboard text=@textToCopy container=@container onError=this.onError onSuccess=this.onSuccess}}
+  {{hds-clipboard text=@textToCopy onSuccess=this.onSuccess onError=this.onError}}
   ...attributes
 >
   <Hds::Text::Code
