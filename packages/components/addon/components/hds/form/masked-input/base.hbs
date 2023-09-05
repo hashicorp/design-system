@@ -27,7 +27,7 @@
     @ariaMessageText={{this.ariaMessageText}}
     aria-controls={{this.id}}
     class="hds-form-masked-input__toggle-button"
-    {{on "click" this.onClickToggle}}
+    {{on "click" this.onClickToggleMasking}}
   />
   {{#if @hasCopyButton}}
     <Hds::Copy::Button

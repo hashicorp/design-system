@@ -12,7 +12,7 @@ export default class HdsFormMaskedInputBaseComponent extends Component {
   @tracked isMasked = this.args.isMasked ?? true;
 
   @action
-  onClickToggle() {
+  onClickToggleMasking() {
     this.isMasked = !this.isMasked;
   }
 
