@@ -7,7 +7,7 @@ navigation:
 
 !!! Info
 
-We currently only accepting collaborations from HashiCorp employees. Resources and links on this page may only be available to HashiCorp employees.
+We are currently only accepting collaborations from HashiCorp employees. Resources and links on this page may only be available to HashiCorp employees.
 
 !!!
 
