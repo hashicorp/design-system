@@ -8,7 +8,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class HdsFormTextInputFieldComponent extends Component {
-  @tracked isPasswordReadable = false;
+  @tracked isPasswordMasked = true;
   @tracked hasVisibilityToggle = this.args.hasVisibilityToggle ?? true;
   @tracked type = this.args.type ?? 'text';
 
@@ -29,10 +29,10 @@ export default class HdsFormTextInputFieldComponent extends Component {
   get visibilityToggleAriaLabel() {
     if (this.args.visibilityToggleAriaLabel) {
       return this.args.visibilityToggleAriaLabel;
-    } else if (this.isPasswordReadable) {
-      return 'Hide password';
-    } else {
+    } else if (this.isPasswordMasked) {
       return 'Show password';
+    } else {
+      return 'Hide password';
     }
   }
 
@@ -44,16 +44,16 @@ export default class HdsFormTextInputFieldComponent extends Component {
   get visibilityToggleAriaMessageText() {
     if (this.args.visibilityToggleAriaMessageText) {
       return this.args.visibilityToggleAriaMessageText;
-    } else if (this.isPasswordReadable) {
-      return 'Password is visible';
-    } else {
+    } else if (this.isPasswordMasked) {
       return 'Password is hidden';
+    } else {
+      return 'Password is visible';
     }
   }
 
   @action
   onClickTogglePasswordReadability() {
-    this.isPasswordReadable = !this.isPasswordReadable;
-    this.type = this.isPasswordReadable ? 'text' : 'password';
+    this.isPasswordMasked = !this.isPasswordMasked;
+    this.type = this.isPasswordMasked ? 'password' : 'text';
   }
 }
