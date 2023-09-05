@@ -8,7 +8,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class HdsFormTextInputFieldComponent extends Component {
-  @tracked isPasswordReadable = this.args.isPasswordReadable ?? false;
+  @tracked isPasswordReadable = false;
   @tracked hasVisibilityToggle = this.args.hasVisibilityToggle ?? true;
   @tracked type = this.args.type ?? 'text';
 
