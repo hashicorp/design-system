@@ -73,12 +73,24 @@ export default class HdsCopyButtonComponent extends Component {
   onSuccess() {
     this.status = 'success';
     this.resetStatusDelayed();
+
+    let { onSuccess } = this.args;
+
+    if (typeof onSuccess === 'function') {
+      onSuccess();
+    }
   }
 
   @action
   onError() {
     this.status = 'error';
     this.resetStatusDelayed();
+
+    let { onError } = this.args;
+
+    if (typeof onError === 'function') {
+      onError();
+    }
   }
 
   resetStatusDelayed() {
