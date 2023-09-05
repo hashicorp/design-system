@@ -13,9 +13,6 @@
 $hds-form-visibility-toggle-button-size: 24px;
 
 .hds-form-visibility-toggle {
-  position: absolute;
-  top: calc(var(--token-form-control-padding) - var(--token-form-control-border-width));
-  right: calc(var(--token-form-control-padding) - var(--token-form-control-border-width));
   width: $hds-form-visibility-toggle-button-size;
   height: $hds-form-visibility-toggle-button-size;
   padding: 2px;
