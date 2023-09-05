@@ -28,9 +28,9 @@ export default class HdsFormMaskedInputBaseComponent extends Component {
    * @type {string}
    * @default 'Show masked content'
    */
-  get ariaLabel() {
-    if (this.args.ariaLabel) {
-      return this.args.ariaLabel;
+  get visibilityToggleAriaLabel() {
+    if (this.args.visibilityToggleAriaLabel) {
+      return this.args.visibilityToggleAriaLabel;
     } else if (this.isMasked) {
       return 'Show masked content';
     } else {
@@ -43,9 +43,9 @@ export default class HdsFormMaskedInputBaseComponent extends Component {
    * @type {string}
    * @default 'Input content is now hidden'
    */
-  get ariaMessageText() {
-    if (this.args.ariaMessageText) {
-      return this.args.ariaMessageText;
+  get visibilityToggleAriaMessageText() {
+    if (this.args.visibilityToggleAriaMessageText) {
+      return this.args.visibilityToggleAriaMessageText;
     } else if (this.isMasked) {
       return 'Input content is hidden';
     } else {
