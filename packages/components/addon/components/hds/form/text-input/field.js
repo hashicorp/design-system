@@ -45,9 +45,9 @@ export default class HdsFormTextInputFieldComponent extends Component {
     if (this.args.visibilityToggleAriaMessageText) {
       return this.args.visibilityToggleAriaMessageText;
     } else if (this.isPasswordReadable) {
-      return 'Password is now visible';
+      return 'Password is visible';
     } else {
-      return 'Password is now hidden';
+      return 'Password is hidden';
     }
   }
 
