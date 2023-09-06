@@ -2,7 +2,7 @@ The Button component is used to trigger an action or event. For accessibility, B
 
 !!! Info
 
-Due to diferences in text rendering between Figma and web browsers, the `Button` and `Link::Standalone` Ember components use font-weight 400 vs. the Figma components which use font-weight 500.
+Due to differences in text rendering between Figma and web browsers, the `Button` Ember component uses `font-weight` 400 vs. the Figma component which uses `font-weight` 500.
 
 !!!
 ## How to use this component
