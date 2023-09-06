@@ -5,18 +5,11 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import {
-  click,
-  render,
-  resetOnerror,
-  setupOnerror,
-  waitFor,
-} from '@ember/test-helpers';
+import { click, render, resetOnerror, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 
-// used to wait for the async "clipboard.writeText" to complete (even if it's synthetic, it's still an async call)
-function wait(timeout = 200) {
+function wait(timeout = 2000) {
   return new Promise((resolve) => {
     setTimeout(resolve, timeout);
   });
@@ -25,10 +18,19 @@ function wait(timeout = 200) {
 module('Integration | Component | hds/copy/button/index', function (hooks) {
   setupRenderingTest(hooks);
 
+  // IMPORTANT: don't use an arrow function here or "this.set" will not be recognized
+  hooks.beforeEach(function () {
+    sinon.stub(window.navigator.clipboard, 'writeText').resolves();
+    this.success = undefined;
+    this.set('onSuccess', () => (this.success = true));
+    this.set('onError', () => (this.success = false));
+  });
+
   hooks.afterEach(() => {
     resetOnerror();
     // we need to restore the "window.navigator" methods
     sinon.restore();
+    this.success = undefined;
   });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
@@ -37,6 +39,28 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
     );
     assert.dom('#test-copy-button').hasClass('hds-copy-button');
   });
+
+  // @TEXT ARGUMENT
+
+  test('it should allow to copy a `string` provided as `@text` argument', async function (assert) {
+    await render(
+      hbs`<Hds::Copy::Button id="test-copy-button" @text="copy" @targetToCopy="#targetToCopy" onSuccess={{this.onSuccess}} @onError={{this.onError}} />`
+    );
+    await click('button#test-copy-button');
+    assert.true(this.success);
+  });
+
+  // @TARGET ARGUMENT
+
+  test('it should allow to target an element using a `string` selector for the `@target` argument', async function (assert) {
+    await render(
+      hbs`<p id="test-copy-button-target">Hello world!</p><Hds::Copy::Button id="test-copy-button" @text="copy" @targetToCopy="#test-copy-button-target" onSuccess={{this.onSuccess}} @onError={{this.onError}} />`
+    );
+    await click('button#test-copy-button');
+    assert.true(this.success);
+  });
+
+  // VARIANTS
 
   test('it should render the correct default component variation: secondary color, medium size, idle status', async function (assert) {
     await render(
@@ -50,11 +74,11 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
 
   test('it should only render an icon and also render an aria-label if isIconOnly is set to true', async function (assert) {
     await render(
-      hbs`<p id="clipboardTarget2">
+      hbs`<p id="test-clipboard-target">
       The button will copy the text in this paragraph element.
     </p>
     <Hds::Copy::Button @text="Copy" @isIconOnly={{true}}
-    @targetToCopy="#clipboardTarget2" id="test-copy-button" />`
+    @targetToCopy="#test-clipboard-target" id="test-copy-button" />`
     );
     assert.dom('#test-copy-button').doesNotIncludeText('Copy');
     assert.dom('#test-copy-button').hasAria('label', 'Copy');
@@ -67,12 +91,15 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
     assert.dom('#test-copy-button').hasClass('hds-button--size-small');
   });
 
-  test('it always renders the text value', async function (assert) {
+  test('it always renders the text value, not the text to copy', async function (assert) {
     await render(
       hbs`<Hds::Copy::Button id="test-copy-button" @text="Copy your secret key"
       @textToCopy="someSecretThingGoesHere" />`
     );
     assert.dom('#test-copy-button').hasText('Copy your secret key');
+    assert
+      .dom('#test-copy-button')
+      .doesNotIncludeText('someSecretThingGoesHere');
   });
 
   test('it should have the correct CSS class to support full-width size if @isFullWidth prop is true', async function (assert) {
@@ -82,70 +109,46 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
     assert.dom('#test-copy-button').hasClass('hds-button--width-full');
   });
 
-  test('it should update the status to success if the copy operation was successful using targetToCopy', async function (assert) {
-    sinon.stub(window.navigator.clipboard, 'writeText').resolves();
-    await render(
-      hbs`<p id="clipboardTarget2">
-      The button will copy the text in this paragraph element.
-    </p>
-    <Hds::Copy::Button @text="Copy" @isIconOnly={{true}}
-    @targetToCopy="#clipboardTarget2" id="test-copy-button" />`
-    );
-    assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
-    await click('button#test-copy-button');
-    await wait();
-    assert.dom('#test-copy-button').hasClass('hds-copy-button--status-success');
-  });
+  // COPY STATES
 
-  test('it should update the status to success if the copy operation was successful using textToCopy', async function (assert) {
-    sinon.stub(window.navigator.clipboard, 'writeText').resolves();
+  test('it should update the status to success if the copy operation was successful', async function (assert) {
     await render(
       hbs`<Hds::Copy::Button id="test-copy-button" @text="Copy your secret key"
       @textToCopy="someSecretThingGoesHere" />`
     );
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
     await click('button#test-copy-button');
-    await wait();
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-success');
   });
 
-  test('it should update the status back to idle after success while using targetToCopy', async function (assert) {
-    sinon.stub(window.navigator.clipboard, 'writeText').resolves();
-    await render(
-      hbs`<p id="clipboardTarget2">
-      The button will copy the text in this paragraph element.
-    </p>
-    <Hds::Copy::Button @text="Copy" @isIconOnly={{true}}
-    @targetToCopy="#clipboardTarget2" id="test-copy-button" />`
-    );
-    assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
-    await click('button#test-copy-button');
-    await wait();
-    assert.dom('#test-copy-button').hasClass('hds-copy-button--status-success');
-    await waitFor('.hds-copy-button--status-idle', { timeout: 2000 });
-    assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
-  });
-
-  test('it should update the status back to idle after success while using textToCopy', async function (assert) {
-    sinon.stub(window.navigator.clipboard, 'writeText').resolves();
+  test('it should update the status back to idle after success', async function (assert) {
     await render(
       hbs`<Hds::Copy::Button id="test-copy-button" @text="Copy your secret key"
       @textToCopy="someSecretThingGoesHere" />`
     );
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
     await click('button#test-copy-button');
-    await wait();
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-success');
-    await waitFor('.hds-copy-button--status-idle', { timeout: 2000 });
+    await wait(); // wait for the status to revert to "idle" automatically
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
   });
 
-  test('it should be able to copy a number', async function (assert) {
-    // context: https://github.com/hashicorp/design-system/pull/1564
+  test('it should update the status to an error after a failed "copy" operation', async function (assert) {
+    sinon.restore();
+    sinon
+      .stub(window.navigator.clipboard, 'writeText')
+      .throws(
+        'Sinon throws (syntethic error)',
+        'this is a fake error message provided to the sinon.stub().throws() method'
+      );
     await render(
-      hbs`<Hds::Copy::Button id="test-copy-button" @text="Copy a number" textToCopy={{123456789}} />`
+      hbs`<Hds::Copy::Button id="test-copy-button" @text="Copy your secret key"
+      @textToCopy="someSecretThingGoesHere" />`
     );
-    // if the `ember-cli-clipboard` addon fails it triggers a JS error
+    assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
+    await click('button#test-copy-button');
+    assert.dom('#test-copy-button').hasClass('hds-copy-button--status-error');
+    await wait(); // wait for the status to revert to "idle" automatically
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
   });
 
