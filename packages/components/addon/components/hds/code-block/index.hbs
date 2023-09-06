@@ -4,7 +4,7 @@
 }}
 
 <div class="hds-code-block-wrapper">
-  <pre class={{this.classNames}}>
+  <pre class={{this.classNames}} ...attributes>
     {{~! ~}}
     <code
       class="hds-code-block__code"
@@ -17,7 +17,6 @@
         readOnly=@readOnly
         mode=@language
       }}
-      ...attributes
     ></code>
     {{~! ~}}
   </pre>
