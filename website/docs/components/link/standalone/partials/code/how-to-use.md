@@ -3,6 +3,12 @@ The Standalone Link handles the generation of:
 - an HTML anchor element `<a>` that points to an external URL (when using a `@href` argument)
 - an [Ember component `<LinkTo>`](https://guides.emberjs.com/release/routing/linking-between-routes/#toc_the-linkto--component) that points to an internal application link or resource (when using a `@route` argument)
 
+!!! Info
+
+Due to diferences in text rendering between Figma and web browsers, the `Button` and `Link::Standalone` Ember components use font-weight 400 vs. the Figma components which use font-weight 500.
+
+!!!
+
 ## How to use this component
 
 The most basic invocation requires both `@icon` and `@text`, and either an `@href` or `@route` argument.
