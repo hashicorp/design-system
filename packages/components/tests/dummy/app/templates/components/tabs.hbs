@@ -98,6 +98,34 @@
     <T.Panel><Shw::Placeholder @text="Content three" @height="50" @background="#eee" /></T.Panel>
   </Hds::Tabs>
 
+  <Shw::Text::Body>Nested tabs</Shw::Text::Body>
+
+  <Hds::Tabs as |T|>
+    <T.Tab>One</T.Tab>
+    <T.Tab>Two</T.Tab>
+    <T.Tab>Three</T.Tab>
+
+    <T.Panel>
+      <Hds::Tabs as |T|>
+        <T.Tab>Tab One - Sub-tab A</T.Tab>
+        <T.Tab>Tab One - Sub-tab B</T.Tab>
+        <T.Tab>Tab One - Sub-tab C</T.Tab>
+        <T.Panel><Shw::Placeholder @text="Tab One - Content A" @height="50" @background="#eee" /></T.Panel>
+        <T.Panel><Shw::Placeholder @text="Tab One - Content B" @height="50" @background="#eee" /></T.Panel>
+        <T.Panel><Shw::Placeholder @text="Tab One - Content C" @height="50" @background="#eee" /></T.Panel>
+      </Hds::Tabs>
+    </T.Panel>
+    <T.Panel>
+      <Hds::Tabs as |T|>
+        <T.Tab>Tab Two - Sub-tab A</T.Tab>
+        <T.Tab>Tab Two - Sub-tab B</T.Tab>
+        <T.Panel><Shw::Placeholder @text="Tab Two - Content A" @height="50" @background="#eee" /></T.Panel>
+        <T.Panel><Shw::Placeholder @text="Tab Two - Content B" @height="50" @background="#eee" /></T.Panel>
+      </Hds::Tabs>
+    </T.Panel>
+    <T.Panel><Shw::Placeholder @text="Tab Three - Content" @height="50" @background="#eee" /></T.Panel>
+  </Hds::Tabs>
+
   <Shw::Divider />
 
   <Shw::Text::H2>Base elements</Shw::Text::H2>

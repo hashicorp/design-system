@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2023-08-21T23:24:05.054Z",
+  "lastRunTimeISO": "2023-08-30T18:49:39.787Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -259,6 +259,42 @@
       "fileName": "aws-color-16",
       "iconName": "aws-color",
       "description": "amazon, aws, amazon web services",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "4461:95",
+      "fileName": "aws-cdk-24",
+      "iconName": "aws-cdk",
+      "description": "amazon, aws, amazon web services,cdk",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "4461:97",
+      "fileName": "aws-cdk-16",
+      "iconName": "aws-cdk",
+      "description": "amazon, aws, amazon web services,cdk",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "4461:102",
+      "fileName": "aws-cdk-color-24",
+      "iconName": "aws-cdk-color",
+      "description": "amazon, aws, amazon web services,cdk",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "4461:104",
+      "fileName": "aws-cdk-color-16",
+      "iconName": "aws-cdk-color",
+      "description": "amazon, aws, amazon web services,cdk",
       "size": "16",
       "width": 16,
       "height": 16
@@ -1236,6 +1272,42 @@
       "height": 16
     },
     {
+      "id": "4461:140",
+      "fileName": "jfrog-24",
+      "iconName": "jfrog",
+      "description": "jfrog",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "4461:142",
+      "fileName": "jfrog-16",
+      "iconName": "jfrog",
+      "description": "jfrog",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "4461:147",
+      "fileName": "jfrog-color-24",
+      "iconName": "jfrog-color",
+      "description": "jfrog",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "4461:149",
+      "fileName": "jfrog-color-16",
+      "iconName": "jfrog-color",
+      "description": "jfrog",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
       "id": "4403:80",
       "fileName": "jira-24",
       "iconName": "jira",
@@ -1920,7 +1992,7 @@
       "height": 16
     },
     {
-      "id": "855:190",
+      "id": "4458:66",
       "fileName": "twitter-24",
       "iconName": "twitter",
       "description": "twitter",
@@ -1929,7 +2001,7 @@
       "height": 24
     },
     {
-      "id": "855:192",
+      "id": "4458:68",
       "fileName": "twitter-16",
       "iconName": "twitter",
       "description": "twitter",
@@ -1938,7 +2010,7 @@
       "height": 16
     },
     {
-      "id": "855:197",
+      "id": "4458:73",
       "fileName": "twitter-color-24",
       "iconName": "twitter-color",
       "description": "twitter",
@@ -1947,10 +2019,46 @@
       "height": 24
     },
     {
-      "id": "855:199",
+      "id": "4458:75",
       "fileName": "twitter-color-16",
       "iconName": "twitter-color",
       "description": "twitter",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "4425:94",
+      "fileName": "twitter-x-24",
+      "iconName": "twitter-x",
+      "description": "twitter, x",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "4425:96",
+      "fileName": "twitter-x-16",
+      "iconName": "twitter-x",
+      "description": "twitter, x",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "4425:101",
+      "fileName": "twitter-x-color-24",
+      "iconName": "twitter-x-color",
+      "description": "twitter, x",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "4425:103",
+      "fileName": "twitter-x-color-16",
+      "iconName": "twitter-x-color",
+      "description": "twitter, x",
       "size": "16",
       "width": 16,
       "height": 16

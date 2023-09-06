@@ -15,35 +15,6 @@ To make the invocation more flexible and intuitive, we provide contextual compon
 </Hds::Dropdown>
 ```
 
-### List position
-
-By default, the list is positioned below the button, aligned to the right. To change the list position pass `bottom-left`, `top-left`, or `top-right` to `@listPosition` on the Dropdown component.
-
-```handlebars
-<Hds::Dropdown @listPosition="bottom-left" as |dd|>
-  <dd.ToggleButton @text="Text Toggle" />
-  <dd.Interactive @route="components" @text="Item One" />
-  <dd.Interactive @route="components" @text="Item Two" />
-  <dd.Interactive @route="components" @text="Item Three" />
-  <dd.Interactive @text="Item Four (closes on click)" {{on "click" dd.close}} />
-  <dd.Separator />
-  <dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
-</Hds::Dropdown>
-```
-
-In contexts where the Dropdown needs to be _inline_, to inherit the alignment from a parent, you can use the `@isInline` argument (and set the `@listPosition` accordingly to your needs):
-
-```handlebars
-<div class="doc-dropdown-mock-text-align-right">
-  <Hds::Dropdown @isInline={{true}} @listPosition="bottom-right" as |dd|>
-    <dd.ToggleButton @text="Text Toggle" @color="secondary" />
-    <dd.Interactive @route="components" @text="Item One" />
-    <dd.Interactive @route="components" @text="Item Two" />
-    <dd.Interactive @route="components" @text="Item Three" />
-  </Hds::Dropdown>
-</div>
-```
-
 ### ToggleButton
 
 The basic invocation of ToggleButton requires `@text` to be passed. By default, it renders a primary button with a chevron icon.
@@ -122,9 +93,81 @@ Pass any [icon](/icons/library) name to `@icon` to change the icon used in Toggl
 </Hds::Dropdown>
 ```
 
+### List placement
+
+By default, the list is positioned below the button, aligned to the right. To change the list position pass `bottom-left`, `top-left`, or `top-right` to `@listPosition` on the Dropdown component.
+
+```handlebars
+<Hds::Dropdown @listPosition="bottom-left" as |dd|>
+  <dd.ToggleButton @text="Text Toggle" />
+  <dd.Interactive @route="components" @text="Item One" />
+  <dd.Interactive @route="components" @text="Item Two" />
+  <dd.Interactive @route="components" @text="Item Three" />
+  <dd.Interactive @text="Item Four (closes on click)" {{on "click" dd.close}} />
+  <dd.Separator />
+  <dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
+</Hds::Dropdown>
+```
+
+In contexts where the Dropdown needs to be _inline_, to inherit the alignment from a parent, you can use the `@isInline` argument (and set the `@listPosition` accordingly to your needs):
+
+```handlebars
+<div class="doc-dropdown-mock-text-align-right">
+  <Hds::Dropdown @isInline={{true}} @listPosition="bottom-right" as |dd|>
+    <dd.ToggleButton @text="Text Toggle" @color="secondary" />
+    <dd.Interactive @route="components" @text="Item One" />
+    <dd.Interactive @route="components" @text="Item Two" />
+    <dd.Interactive @route="components" @text="Item Three" />
+  </Hds::Dropdown>
+</div>
+```
+
+### List size
+
+You can explicitly control the height or width of a list. Any acceptable value (px, rem, em) can be declared:
+
+```handlebars
+<Hds::Dropdown @isInline={{true}} @height="250px" @width="250px" as |dd|>
+  <dd.ToggleButton @text="Text Toggle" />
+  <dd.Interactive @route="components" @text="Item One" />
+  <dd.Interactive @route="components" @text="Item Two" />
+  <dd.Interactive @route="components" @text="Item Three" />
+  <dd.Interactive @route="components" @text="Item Four" />
+  <dd.Interactive @route="components" @text="Item Five" />
+  <dd.Interactive @route="components" @text="Item Six" />
+  <dd.Interactive @route="components" @text="Item Seven" />
+</Hds::Dropdown>
+```
+
+### List footer
+
+It is possible that you may want to add a list footer for things like a set of buttons for a filter control:
+
+```handlebars
+<Hds::Dropdown @height="284px" as |dd|>
+  <dd.ToggleButton @icon="tag" @text="Tags" @color="secondary" />
+  <dd.Checkbox>access</dd.Checkbox>
+  <dd.Checkbox>homework</dd.Checkbox>
+  <dd.Checkbox>discovery</dd.Checkbox>
+  <dd.Checkbox>memories</dd.Checkbox>
+  <dd.Checkbox>music</dd.Checkbox>
+  <dd.Checkbox>pharell</dd.Checkbox>
+  <dd.Checkbox>punk</dd.Checkbox>
+  <dd.Checkbox>random</dd.Checkbox>
+  <dd.Checkbox>robots</dd.Checkbox>
+  <dd.Checkbox>tag</dd.Checkbox>
+  <dd.Footer @hasDivider={{true}}>
+    <Hds::ButtonSet>
+      <Hds::Button @text="Apply filters" @isFullWidth={{true}} @size="small" />
+      <Hds::Button @text="Cancel" @color="secondary" @size="small" />
+    </Hds::ButtonSet>
+  </dd.Footer>
+</Hds::Dropdown>
+```
+
 ### ListItem::Interactive
 
-`ListItem::Interactive` renders the correct element based on the passing of an `@route`, `@href`, or the addition of a click event (e.g.,
+`ListItem::Interactive` renders the correct element based on the passing of a `@route`, `@href`, or the addition of a click event (e.g.,
 `\{{on "click" this.myAction}}`). Internally, the component uses the [Hds::Interactive](/utilities/interactive) utility component.
 
 #### Rendering a button

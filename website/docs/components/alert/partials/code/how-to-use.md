@@ -27,7 +27,7 @@ A different type of Alert can be invoked using the `type` argument.
 </Hds::Alert>
 ```
 
-### Content
+### Title and description
 
 Optionally, you can pass only `title` or only `description`.
 
@@ -114,7 +114,7 @@ When needed, the `Description` contextual component can contain logic, rich HTML
     <em>emphasized text</em>,
     <code>code</code>,
     <pre>pre</pre>,
-    <a href="#">inline</a>
+    <Hds::Link::Inline @color="secondary" @href="#">inline</Hds::Link::Inline>
     <LinkTo @route="index">links</LinkTo>.
   </A.Description>
 </Hds::Alert>

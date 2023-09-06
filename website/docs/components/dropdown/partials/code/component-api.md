@@ -21,7 +21,7 @@ The Dropdown component is composed of different child components each with their
   <C.Property @name="width" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
     By default, the Dropdown List has a `min-width` of `200px` and a `max-width` of `400px`, so it adapts to the content size. If a `@width` parameter is provided then the list will have a fixed width.
   </C.Property>
-  <C.Property @name="height" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
+  <C.Property @name="height" @type="string" @valueNote="any valid CSS height (px, rem, etc)">
     If a `@height` parameter is provided then the list will have a fixed height.
   </C.Property>
   <C.Property @name="isInline" @type="boolean" @default="false">
