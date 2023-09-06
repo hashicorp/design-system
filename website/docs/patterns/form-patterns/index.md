@@ -2,6 +2,7 @@
 title: Form patterns
 description: Guidelines for delivering user-centric forms comprised of Helios form components and primitives.
 caption: Guidelines for delivering user-centric forms comprised of Helios form components and primitives.
+related: ['components/form/primitives']
 previewImage: assets/illustrations/patterns/form-patterns.jpg
 navigation:
   keywords: ['spacing', 'validation', 'legend', 'fieldset']

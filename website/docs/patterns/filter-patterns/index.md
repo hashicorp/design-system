@@ -2,6 +2,7 @@
 title: Filter patterns
 description: Guidelines and best practices for filtering a data set using Helios components.
 caption: Guidelines and best practices for filtering a data set using Helios components.
+related: ['components/dropdown','components/pagination','components/segmented-group']
 previewImage: assets/illustrations/patterns/filter-patterns.jpg
 navigation:
   keywords: ['filter', 'segmented group', 'tag', 'dropdown', 'input', 'data set', 'sidebar', 'bar']

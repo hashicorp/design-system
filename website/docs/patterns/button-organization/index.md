@@ -2,6 +2,7 @@
 title: Button organization
 description: Guidelines for aligning, ordering, and grouping buttons.
 caption: Guidelines for aligning, ordering, and grouping buttons.
+related: ['components/button']
 previewImage: assets/illustrations/patterns/button-organization.jpg
 navigation:
 keywords: ['buttons', 'button set', 'alignment', 'order', 'grouping']

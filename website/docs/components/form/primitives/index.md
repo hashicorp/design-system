@@ -4,6 +4,7 @@ description: Elements used to compose form fields.
 caption: Elements used to compose form fields.
 links:
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/form
+related: ['patterns/form-patterns']
 previewImage: assets/illustrations/components/form/primitives.jpg
 navigation:
   order: 99

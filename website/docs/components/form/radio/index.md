@@ -5,7 +5,7 @@ caption: A form element that allows users to select a single item from group of 
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=13181%3A36977&t=pDgL7LJUJXZUN7Xq-3
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/form/radio
-related: ['components/form/checkbox', 'components/form/toggle', 'patterns/form-patterns']
+related: ['components/form/checkbox', 'components/form/toggle', 'components/form/select']
 previewImage: assets/illustrations/components/form/radio.jpg
 navigation:
   keywords: ['radio group', 'radio button', 'select']

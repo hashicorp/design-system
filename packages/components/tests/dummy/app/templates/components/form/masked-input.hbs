@@ -87,7 +87,7 @@
           <SG.Item
             @label="{{capitalize variant}} / {{capitalize state}}"
             mock-state-value={{state}}
-            mock-state-selector="input"
+            mock-state-selector="textarea"
           >
             <Shw::Flex @direction="column" as |SF|>
               <SF.Item>
@@ -95,6 +95,67 @@
                   disabled={{if (eq variant "disabled") "disabled"}}
                   readonly={{if (eq variant "readonly") "readonly"}}
                   @isMultiline={{true}}
+                  @value="Lorem ipsum dolor"
+                  @isInvalid={{if (eq variant "invalid") true}}
+                />
+              </SF.Item>
+            </Shw::Flex>
+          </SG.Item>
+        {{/each}}
+      </Shw::Grid>
+    {{/each}}
+  {{/let}}
+
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>Copy button</Shw::Text::H3>
+
+  <Shw::Text::H4>Single line</Shw::Text::H4>
+
+  {{#let (array "base" "invalid" "readonly") as |variants|}}
+    {{#each variants as |variant|}}
+      <Shw::Grid @columns={{3}} as |SG|>
+        {{#each @model.STATES as |state|}}
+          <SG.Item
+            @label="{{capitalize variant}} / {{capitalize state}}"
+            mock-state-value={{state}}
+            mock-state-selector="input"
+          >
+            <Shw::Flex @direction="column" as |SF|>
+              <SF.Item>
+                <Hds::Form::MaskedInput::Base
+                  disabled={{if (eq variant "disabled") "disabled"}}
+                  readonly={{if (eq variant "readonly") "readonly"}}
+                  @hasCopyButton={{true}}
+                  @value="Lorem ipsum dolor"
+                  @isInvalid={{if (eq variant "invalid") true}}
+                />
+              </SF.Item>
+            </Shw::Flex>
+          </SG.Item>
+        {{/each}}
+      </Shw::Grid>
+    {{/each}}
+  {{/let}}
+
+  <Shw::Text::H4>Multiline</Shw::Text::H4>
+
+  {{#let (array "base" "invalid" "readonly") as |variants|}}
+    {{#each variants as |variant|}}
+      <Shw::Grid @columns={{3}} as |SG|>
+        {{#each @model.STATES as |state|}}
+          <SG.Item
+            @label="{{capitalize variant}} / {{capitalize state}}"
+            mock-state-value={{state}}
+            mock-state-selector="textarea"
+          >
+            <Shw::Flex @direction="column" as |SF|>
+              <SF.Item>
+                <Hds::Form::MaskedInput::Base
+                  disabled={{if (eq variant "disabled") "disabled"}}
+                  readonly={{if (eq variant "readonly") "readonly"}}
+                  @isMultiline={{true}}
+                  @hasCopyButton={{true}}
                   @value="Lorem ipsum dolor"
                   @isInvalid={{if (eq variant "invalid") true}}
                 />
@@ -126,8 +187,13 @@
         <F.HelperText>This is the helper text</F.HelperText>
       </Hds::Form::MaskedInput::Field>
     </SG.Item>
-    {{! left empty on purpose }}
-    <SG.Item />
+    <SG.Item @label="Label + Helper text + Copy Button + Error">
+      <Hds::Form::MaskedInput::Field @value="Lorem ipsum dolor" @isInvalid={{true}} @hasCopyButton={{true}} as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        <F.Error>This is the error</F.Error>
+      </Hds::Form::MaskedInput::Field>
+    </SG.Item>
     <SG.Item @label="Label + Error">
       <Hds::Form::MaskedInput::Field @value="Lorem ipsum dolor" @isInvalid={{true}} as |F|>
         <F.Label>This is the label</F.Label>
@@ -167,8 +233,19 @@
         <F.HelperText>This is the helper text</F.HelperText>
       </Hds::Form::MaskedInput::Field>
     </SG.Item>
-    {{! left empty on purpose }}
-    <SG.Item />
+    <SG.Item @label="Label + Helper text + Copy Button + Error">
+      <Hds::Form::MaskedInput::Field
+        @isMultiline={{true}}
+        @value="Lorem ipsum dolor"
+        @isInvalid={{true}}
+        @hasCopyButton={{true}}
+        as |F|
+      >
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        <F.Error>This is the error</F.Error>
+      </Hds::Form::MaskedInput::Field>
+    </SG.Item>
     <SG.Item @label="Label + Error">
       <Hds::Form::MaskedInput::Field @isMultiline={{true}} @value="Lorem ipsum dolor" @isInvalid={{true}} as |F|>
         <F.Label>This is the label</F.Label>

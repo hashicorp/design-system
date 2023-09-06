@@ -77,6 +77,15 @@ Something to keep in mind when designing and implementing functionality that mak
 
 !!!
 
+#### Copy button
+
+To allow users to copy the input value to their clipboard, set the `@hasCopyButton` argument to `true`.
+
+```handlebars
+<Hds::Form::MaskedInput::Field @hasCopyButton={{true}} @value="036215df4996ca649928d8864b4df9e42cba0d6d" as |F|>
+  <F.Label>Terraform Cloud team token</F.Label>
+</Hds::Form::MaskedInput::Field>
+```
 
 #### Helper text
 

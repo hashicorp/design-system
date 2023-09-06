@@ -144,6 +144,38 @@
     </SG.Item>
   </Shw::Grid>
 
+  <Shw::Text::H3>With different types of links as content</Shw::Text::H3>
+
+  <Shw::Grid @columns={{2}} as |SG|>
+    <SG.Item>
+      <Hds::Alert @type="inline" @color="success" as |A|>
+        <A.Title>HTML link compared to <code>Hds::Link</code> in the description</A.Title>
+        <A.Description>
+          Description with
+          <a href="#">HTML link</a>
+          compared with
+          <Hds::Link::Inline @href="#">Primary Hds::Link::Inline</Hds::Link::Inline>
+          and
+          <Hds::Link::Inline @href="#" @color="secondary">Secondary Hds::Link::Inline</Hds::Link::Inline>.
+        </A.Description>
+      </Hds::Alert>
+    </SG.Item>
+
+    <SG.Item>
+      <Hds::Alert @type="compact" @color="success" as |A|>
+        <A.Title>An alert with HTML link compared to <code>Hds::Link</code> in Description</A.Title>
+        <A.Description>
+          Compact alert with
+          <a href="#">HTML link</a>
+          compared with
+          <Hds::Link::Inline @href="#">Primary Hds::Link::Inline</Hds::Link::Inline>
+          and
+          <Hds::Link::Inline @href="#" @color="secondary">Secondary Hds::Link::Inline</Hds::Link::Inline>.
+        </A.Description>
+      </Hds::Alert>
+    </SG.Item>
+  </Shw::Grid>
+
   <Shw::Text::H2>Actions</Shw::Text::H2>
 
   <Shw::Grid @columns={{2}} as |SG|>

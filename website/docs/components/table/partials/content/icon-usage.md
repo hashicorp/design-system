@@ -45,4 +45,4 @@ Don’t use an [Icon Tile](/assets/components/icon-tile) in place of an icon wit
 
 In general, we recommend using **leading icons** because the text following the icon will remain aligned and thus be easier for the user to scan.
 
-Take care not to mix and match different icon positions in the same column.
+Don’t mix and match different icon positions in the same column.

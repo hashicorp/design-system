@@ -31,7 +31,7 @@ Use meaningful text that relates to the content inside.
 
 ## Content type
 
-The Reveal component should be used for hiding and showing simple content. For complex content and advanced functionality, consider using an Accordion (coming soon).
+The Reveal component should be used for hiding and showing simple content. For complex content and advanced functionality, consider using an [Accordion](/components/accordion).
 
 !!! Dont
 

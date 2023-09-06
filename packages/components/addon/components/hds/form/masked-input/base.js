@@ -41,7 +41,7 @@ export default class HdsFormMaskedInputBaseComponent extends Component {
   /**
    * @param ariaMessageText
    * @type {string}
-   * @default ''
+   * @default 'Input content is now hidden'
    */
   get ariaMessageText() {
     if (this.args.ariaMessageText) {
@@ -50,6 +50,19 @@ export default class HdsFormMaskedInputBaseComponent extends Component {
       return 'Input content is now hidden';
     } else {
       return 'Input content is now visible';
+    }
+  }
+
+  /**
+   * @param copyButtonText
+   * @type {string}
+   * @default 'Copy masked content'
+   */
+  get copyButtonText() {
+    if (this.args.copyButtonText) {
+      return this.args.copyButtonText;
+    } else {
+      return 'Copy masked content';
     }
   }
 
