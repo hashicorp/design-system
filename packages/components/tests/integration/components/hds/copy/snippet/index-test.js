@@ -13,6 +13,7 @@ import {
   waitFor,
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import sinon from 'sinon';
 
 // used to wait for the async "clipboard.writeText" to complete
 function wait(timeout = 200) {
@@ -25,6 +26,8 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
 
   hooks.afterEach(() => {
     resetOnerror();
+    // we need to restore the "window.navigator" methods
+    sinon.restore();
   });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
@@ -71,6 +74,7 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
   });
 
   test('it should update the status to success if the copy operation was successful', async function (assert) {
+    sinon.stub(window.navigator.clipboard, 'writeText').resolves();
     await render(
       hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="3423g-234525-h345346-f34rtf4" @isFullWidth={{true}} />`
     );
@@ -83,6 +87,7 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
   });
 
   test('it should update the status back to idle after success', async function (assert) {
+    sinon.stub(window.navigator.clipboard, 'writeText').resolves();
     await render(
       hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="3423g-234525-h345346-f34rtf4" @isFullWidth={{true}} />`
     );

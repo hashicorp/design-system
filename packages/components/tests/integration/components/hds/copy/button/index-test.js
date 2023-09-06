@@ -13,8 +13,9 @@ import {
   waitFor,
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import sinon from 'sinon';
 
-// used to wait for the async "clipboard.writeText" to complete
+// used to wait for the async "clipboard.writeText" to complete (even if it's synthetic, it's still an async call)
 function wait(timeout = 200) {
   return new Promise((resolve) => {
     setTimeout(resolve, timeout);
@@ -26,6 +27,8 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
 
   hooks.afterEach(() => {
     resetOnerror();
+    // we need to restore the "window.navigator" methods
+    sinon.restore();
   });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
@@ -80,6 +83,7 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
   });
 
   test('it should update the status to success if the copy operation was successful using targetToCopy', async function (assert) {
+    sinon.stub(window.navigator.clipboard, 'writeText').resolves();
     await render(
       hbs`<p id="clipboardTarget2">
       The button will copy the text in this paragraph element.
@@ -94,6 +98,7 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
   });
 
   test('it should update the status to success if the copy operation was successful using textToCopy', async function (assert) {
+    sinon.stub(window.navigator.clipboard, 'writeText').resolves();
     await render(
       hbs`<Hds::Copy::Button id="test-copy-button" @text="Copy your secret key"
       @textToCopy="someSecretThingGoesHere" />`
@@ -105,6 +110,7 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
   });
 
   test('it should update the status back to idle after success while using targetToCopy', async function (assert) {
+    sinon.stub(window.navigator.clipboard, 'writeText').resolves();
     await render(
       hbs`<p id="clipboardTarget2">
       The button will copy the text in this paragraph element.
@@ -121,6 +127,7 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
   });
 
   test('it should update the status back to idle after success while using textToCopy', async function (assert) {
+    sinon.stub(window.navigator.clipboard, 'writeText').resolves();
     await render(
       hbs`<Hds::Copy::Button id="test-copy-button" @text="Copy your secret key"
       @textToCopy="someSecretThingGoesHere" />`
