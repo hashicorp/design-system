@@ -76,7 +76,6 @@ Router.map(function () {
     this.route('dismiss-button');
     this.route('interactive');
     this.route('menu-primitive');
-    this.route('visibility-toggle');
   });
   this.route('overrides', function () {
     this.route('power-select');
