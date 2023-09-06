@@ -191,6 +191,23 @@
 
   <Shw::Text::H2>"Field" control</Shw::Text::H2>
 
+  <Shw::Text::H3>Types (native)</Shw::Text::H3>
+
+  <Shw::Grid @columns={{4}} as |SG|>
+    {{#each @model.TYPES as |type|}}
+      <SG.Item @label={{capitalize type}}>
+        <Hds::Form::TextInput::Field @type={{type}} @value={{type}} as |F|>
+          <F.Label>This is the label text</F.Label>
+        </Hds::Form::TextInput::Field>
+      </SG.Item>
+    {{/each}}
+    <SG.Item @label="Search (loading state)">
+      <Hds::Form::TextInput::Field @type="search" @value="search" @isLoading={{true}} as |F|>
+        <F.Label>This is the label text</F.Label>
+      </Hds::Form::TextInput::Field>
+    </SG.Item>
+  </Shw::Grid>
+
   <Shw::Text::H3>Content</Shw::Text::H3>
 
   <Shw::Grid @columns="3" as |SG|>
