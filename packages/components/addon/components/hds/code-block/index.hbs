@@ -9,9 +9,10 @@
     contentEditable={{not this.readOnly}}
     {{style maxHeight=@maxHeight}}
     data-line={{@highlight}}
+    ...attributes
   >
     {{~! ~}}
-    <code {{did-insert this.setPrismCode}} {{did-update this.setPrismCode this.code @language}} ...attributes>
+    <code {{did-insert this.setPrismCode}} {{did-update this.setPrismCode this.code @language}}>
       {{~this.prismCode~}}
     </code>
     {{~! ~}}

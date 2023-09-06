@@ -17,10 +17,6 @@
   bottom: 16px;
 }
 
-.hds-code-block--has-line-wrapping {
-  white-space: pre-wrap;
-}
-
 .hds-code-block {
   margin: 0;
 
@@ -156,7 +152,6 @@
     font-size: 1em;
     font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
     line-height: 1.5;
-    white-space: pre;
     text-align: left;
     text-shadow: 0 -0.1em 0.2em black;
     word-wrap: normal;
@@ -295,7 +290,6 @@
     margin-top: 0.5em; /* Same as .prism’s padding-top */
     padding: inherit 0;
     line-height: inherit;
-    white-space: pre;
     background: hsla(24deg, 20%, 50%, 60%);
     // background: linear-gradient(to right, hsla(24deg, 20%, 50%, 10%) 70%, hsla(24deg, 20%, 50%, 0%));
     pointer-events: none;
@@ -352,4 +346,8 @@
   pre[id].linkable-line-numbers span.line-numbers-rows > span:hover::before {
     background-color: rgba(128, 128, 128, 20%);
   }
+}
+
+.hds-code-block--has-line-wrapping {
+  white-space: pre-wrap;
 }
