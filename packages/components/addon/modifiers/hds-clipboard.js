@@ -75,7 +75,7 @@ async function copyToClipboard(text, target) {
     try {
       // notice: the "clipboard-write" permission is granted automatically to pages when they are in the active tab
       // https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/write
-      navigator.clipboard.writeText(textToCopy);
+      await navigator.clipboard.writeText(textToCopy);
       console.log('success', textToCopy);
       return true;
     } catch (error) {
