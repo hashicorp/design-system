@@ -164,9 +164,6 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/utilities/dismiss-button');
     await percySnapshot('DismissButton');
 
-    await visit('/utilities/visibility-toggle');
-    await percySnapshot('VisibilityToggle');
-
     // DO NOT REMOVE – PERCY SNAPSHOTS END
 
     assert.ok(true);
