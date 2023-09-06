@@ -289,6 +289,16 @@
                 </F.Error>
               </Hds::Form::TextInput::Field>
             </SF.Item>
+            <SF.Item @grow={{true}} {{style display=display}}>
+              <Hds::Form::TextInput::Field @value="password" @width="120px" @type="password" @isInvalid={{true}} as |F|>
+                <F.Label>Custom width on password input</F.Label>
+                <F.HelperText>This is the helper text that should go on multiple lines</F.HelperText>
+                <F.Error as |E|>
+                  <E.Message>This is the first error text</E.Message>
+                  <E.Message>This is the second error text that should go on multiple lines</E.Message>
+                </F.Error>
+              </Hds::Form::TextInput::Field>
+            </SF.Item>
           </Shw::Flex>
         </SG.Item>
       {{/each}}
