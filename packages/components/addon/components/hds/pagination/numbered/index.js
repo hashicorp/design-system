@@ -130,10 +130,10 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   /**
    * @param ariaLabel
    * @type {string}
-   * @default 'Pagination navigation'
+   * @default 'Pagination'
    */
   get ariaLabel() {
-    return this.args.ariaLabel ?? 'Pagination navigation';
+    return this.args.ariaLabel ?? 'Pagination';
   }
 
   // This very specific `get/set` pattern is used to handle the two different use cases of the component

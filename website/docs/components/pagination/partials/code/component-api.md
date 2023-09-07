@@ -22,7 +22,7 @@ These Pagination sub-elements may be used directly if you need to cover a very s
 ### Pagination::Numbered
 
 <Doc::ComponentApi as |C|>
-<C.Property @name="ariaLabel" @type="string" @default="Pagination navigation">
+<C.Property @name="ariaLabel" @type="string" @default="Pagination">
     Accepts a localized string.
 </C.Property>
 <C.Property @name="totalItems" @required="true" @type="number">
@@ -66,7 +66,7 @@ This component supports use of [`...attributes`](https://guides.emberjs.com/rele
 ### Pagination::Compact
 
 <Doc::ComponentApi as |C|>
-<C.Property @name="ariaLabel" @type="string" @default="Pagination navigation">
+<C.Property @name="ariaLabel" @type="string" @default="Pagination">
     Accepts a localized string.
 </C.Property>
 <C.Property @name="route/model/models/replace">
