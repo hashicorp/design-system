@@ -17,8 +17,8 @@ Thank you for your interest in contributing to the Helios Design System. We thin
 
 Possible forms of collaboration include, but are not limited to: 
 
-- [Direct contributions](/about/contribution/#direct-contributions), like bug fixes, documentation improvements, small enhancements to existing artifacts, etc.
-- Net-new artifacts, like icons, components, patterns, etc.
+- [Direct contributions](/about/contribution/#direct-contributions), such as bug fixes, documentation improvements, small enhancements to existing artifacts, etc.
+- New artifacts, such as icons, components, patterns, etc.
 - Obtaining support, feedback, and usage guidance from the Design System team.
 
 ## Our collaborative process
@@ -51,15 +51,15 @@ We evaluate requests based on the following criteria:
 
 Based on the evaluation criteria, there are different possible outcomes:
 
-- We start or plan to **dedicate time and resources to the project**. We plan a kickoff with the Requestor to further discuss the project.
+- We start or plan to **dedicate time and resources to the project**. We plan a kickoff with the requestor to further discuss the project.
 - We believe there’s an **opportunity for future collaboration**, but don’t have time or resources to dedicate to it now. We’ll continue to monitor interest in the request and re-evaluate it in the (near) future.
-- We **can’t support this request**. We’ll provide guidance and suggestions on how to move forward, but the final decision on how to proceed with the work will be left to the Requestor.
+- We **can’t support this request**. We’ll provide guidance and suggestions on how to move forward, but the final decision on how to proceed with the work will be left to the requestor.
 
 ### Kickoff meeting
 
-We’ll organize a Kickoff meeting with the Requestor (and any necessary stakeholders) for projects to which we can dedicate time and resources. In this Kickoff meeting, we aim to define the following:
+We’ll organize a kickoff meeting with the requestor (and any necessary stakeholders) for projects to which we can dedicate time and resources. In this kickoff meeting, we aim to define the following:
 
-- What resources from each team will be allocated to the project, and what each individual's role is
+- What resources from each team will be allocated to the project, and what each individual’s role is
 - What the scope of the project is (or if more discovery is necessary), and if the project can be delivered incrementally
 - What the timeline for the project is, and if there’s a deadline that needs to be met
 - What the open questions, risks, or unknowns are for this project
@@ -69,7 +69,7 @@ We’ll organize a Kickoff meeting with the Requestor (and any necessary stakeho
 
 ### Collaborative execution
 
-The dedicated resources from each team will work together to complete the project according to the scope and timeline defined in the kickoff. This process is variable, depending on the project’s complexity, and it can be quite intensive for larger collaborations given the high bar for quality required. This project will need to go through thorough reviews with key stakeholders, as defined in the kickoff.
+The dedicated resources from each team will work together to complete the project according to the scope and timeline defined in the kickoff. This process is variable, depending on the project’s complexity, and it can be quite intensive for larger collaborations given the high bar for quality required. The project will need to go through thorough reviews with key stakeholders, as defined in the kickoff.
 
 To get an idea of what this process could look like, please refer to [the process followed by the Design System team when building a net-new component](https://github.com/hashicorp/design-system/blob/main/packages/components/NEW-COMPONENT-CHECKLIST.md).
 
@@ -87,7 +87,7 @@ Once reviewed and approved, the feature can be implemented and released in Helio
 
 ## Direct contributions
 
-We support a small number of autonomous but coordinated direct contributions. These include bug fixes in the code, new icons, documentation improvements, and small enhancements to exitsting components.
+We support a small number of autonomous but coordinated direct contributions. These include bug fixes in the code, new icons, documentation improvements, and small enhancements to existing components.
 
 ### Contribute a new icon in Figma
 
@@ -100,7 +100,7 @@ To work in one of the Helios code packages, consult the corresponding `CONTRIBUT
 - [Ember Flight Icons](https://github.com/hashicorp/design-system/blob/main/packages/ember-flight-icons/CONTRIBUTING.md)
 - [Components](https://github.com/hashicorp/design-system/blob/main/packages/components/CONTRIBUTING.md)
 
-Review the [Engineering Checklist for new components](https://github.com/hashicorp/design-system/blob/main/packages/components/NEW-COMPONENT-CHECKLIST.md#engineering-checklist) if you’re working on a net-new component.
+Review the [Engineering Checklist for new components](https://github.com/hashicorp/design-system/blob/main/packages/components/NEW-COMPONENT-CHECKLIST.md#engineering-checklist) if you’re working on a new component.
 
 If you need to test the component in one of our consumers’ codebases, review the [instructions for testing a component in Cloud UI](https://github.com/hashicorp/design-system/blob/main/packages/components/HOW-TO-TEST-A-COMPONENT-IN-CLOUD-UI.md).
 
