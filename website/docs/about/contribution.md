@@ -1,13 +1,13 @@
 ---
 title: Contribution
-description: How to collaborate with the Design System team and contribute to the system.
+description: How to collaborate with the Design Systems Team and contribute to the Helios Design System.
 navigation:
   order: 104
 ---
 
 !!! Info
 
-We are currently only accepting collaborations from HashiCorp employees. Resources and links on this page may only be available to HashiCorp employees.
+We’re currently accepting collaborations only from HashiCorp employees. Some resources and links on this page are only available to HashiCorp employees.
 
 !!!
 
@@ -29,11 +29,11 @@ Our collaborative process is intended to be a guideline, not a playbook. Each co
 
 Before submitting a new request, check that the issue doesn’t already exist in our [backlog](https://hashicorp.atlassian.net/jira/software/c/projects/HDS/boards/1082). If no request exists, create a new issue using our [intake form](https://go.hashi.co/hds-support). Creating an issue allows us to track and prioritize all requests in one central location easily.
 
-Alternatively, if you just have a question or you’re not sure your project is right for collaboration, reach out to the Design System team in [#team-design-systems](https://hashicorp.slack.com/archives/C7KTUHNUS).
+Alternatively, if you just have a question or you’re not sure your project is right for collaboration, reach out to the Design Systems Team in [#team-design-systems](https://hashicorp.slack.com/archives/C7KTUHNUS).
 
 ### Evaluation of the request
 
-The Design System team will then evaluate each incoming request and provide the Requestor with a decision. 
+The Design Systems Team will then evaluate each incoming request and provide the Requestor with a decision. 
 
 #### How we evaluate requests
 
@@ -44,7 +44,7 @@ We evaluate requests based on the following criteria:
 - Integration with existing foundations, components, and features of the system
 - Impact on existing components, especially in the case of breaking changes
 - Expected effort and possible complexities and unknowns involved
-- Availability of resources on the Design System team
+- Availability of resources on the Design Systems Team
 - Prioritization in relation to other initiatives already undertaken and/or planned
 
 #### Possible outcomes
@@ -71,18 +71,18 @@ We’ll organize a kickoff meeting with the requestor (and any necessary stakeho
 
 The dedicated resources from each team will work together to complete the project according to the scope and timeline defined in the kickoff. This process is variable, depending on the project’s complexity, and it can be quite intensive for larger collaborations given the high bar for quality required. The project will need to go through thorough reviews with key stakeholders, as defined in the kickoff.
 
-To get an idea of what this process could look like, please refer to [the process followed by the Design System team when building a net-new component](https://github.com/hashicorp/design-system/blob/main/packages/components/NEW-COMPONENT-CHECKLIST.md).
+To get an idea of what this process could look like, please refer to [the process followed by the Design Systems Team when building a net-new component](https://github.com/hashicorp/design-system/blob/main/packages/components/NEW-COMPONENT-CHECKLIST.md).
 
 ### Implementation and release
 
 Once reviewed and approved, the feature can be implemented and released in Helios. 
 
-- The Design System team will:
+- The Design Systems Team will:
     - Document these artifacts on the Helios website
     - Release the artifacts that were created/ported/updated in collaboration with the product team
     - Publicize the release of these new artifacts, as well as the fact that they were the result of of a joint collaboration with the product team
 - The product team will:
-    - Follow the guidance provided by the Design System team in the follow-up work related to the collaboration effort
+    - Follow the guidance provided by the Design Systems Team in the follow-up work related to the collaboration effort
     - Have a clear plan to adopt the artifacts produced during the collaboration
 
 ## Direct contributions
