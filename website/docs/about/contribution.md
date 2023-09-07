@@ -19,7 +19,7 @@ Possible forms of collaboration include, but are not limited to:
 
 - [Direct contributions](/about/contribution/#direct-contributions), such as bug fixes, documentation improvements, small enhancements to existing artifacts, etc.
 - New artifacts, such as icons, components, patterns, etc.
-- Obtaining support, feedback, and usage guidance from the Design System team.
+- Obtaining support, feedback, and usage guidance from the Design Systems Team.
 
 ## Our collaborative process
 
