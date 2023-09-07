@@ -37,6 +37,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/alert');
     await percySnapshot('Alert');
 
+    await visit('/components/application-footer');
+    await percySnapshot('ApplicationFooter');
+
     await visit('/components/application-state');
     await percySnapshot('ApplicationState');
 
