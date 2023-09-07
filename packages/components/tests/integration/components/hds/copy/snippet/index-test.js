@@ -18,6 +18,14 @@ function wait(timeout = 2000) {
 module('Integration | Component | hds/copy/snippet/index', function (hooks) {
   setupRenderingTest(hooks);
 
+  // IMPORTANT: don't use an arrow function here or "this.set" will not be recognized
+  hooks.beforeEach(function () {
+    sinon.stub(window.navigator.clipboard, 'writeText').resolves();
+    this.success = undefined;
+    this.set('onSuccess', () => (this.success = true));
+    this.set('onError', () => (this.success = false));
+  });
+
   hooks.afterEach(() => {
     resetOnerror();
     // we need to restore the "window.navigator" methods
@@ -72,22 +80,20 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
   // COPY STATES
 
   test('it should update the status to success if the copy operation was successful', async function (assert) {
-    sinon.stub(window.navigator.clipboard, 'writeText').resolves();
     await render(
-      hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" @isFullWidth={{true}} />`
+      hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" @onSuccess={{this.onSuccess}} @onError={{this.onError}} />`
     );
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet--status-idle');
     await click('button#test-copy-snippet');
-    await wait();
+    assert.true(this.success);
     assert
       .dom('#test-copy-snippet')
       .hasClass('hds-copy-snippet--status-success');
   });
 
   test('it should update the status back to idle after success', async function (assert) {
-    sinon.stub(window.navigator.clipboard, 'writeText').resolves();
     await render(
-      hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" @isFullWidth={{true}} />`
+      hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" />`
     );
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet--status-idle');
     await click('button#test-copy-snippet');
@@ -99,6 +105,7 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
   });
 
   test('it should update the status to an error after a failed "copy" operation', async function (assert) {
+    sinon.restore();
     sinon
       .stub(window.navigator.clipboard, 'writeText')
       .throws(
@@ -106,10 +113,11 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
         'this is a fake error message provided to the sinon.stub().throws() method'
       );
     await render(
-      hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" @isFullWidth={{true}} />`
+      hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" @onSuccess={{this.onSuccess}} @onError={{this.onError}} />`
     );
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet--status-idle');
     await click('button#test-copy-snippet');
+    assert.false(this.success);
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet--status-error');
     await wait(); // wait for the status to revert to "idle" automatically
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet--status-idle');
