@@ -14,7 +14,27 @@
 
   <Hds::ApplicationFooter />
 
-  <Shw::Text::H3>With typical custom link content plus extra content</Shw::Text::H3>
+  <Shw::Text::H3>With generic custom content</Shw::Text::H3>
+
+  <Hds::ApplicationFooter>
+    <:linksBefore>
+      <Hds::ApplicationFooter::Item>
+        <Shw::Placeholder @height="1.5em" @text="linksBefore" @background="#e4e4e4" />
+      </Hds::ApplicationFooter::Item>
+    </:linksBefore>
+
+    <:linksAfter>
+      <Hds::ApplicationFooter::Item>
+        <Shw::Placeholder @height="1.5em" @text="LinksAfter" @background="#e4e4e4" />
+      </Hds::ApplicationFooter::Item>
+    </:linksAfter>
+
+    <:extraContent>
+      <Shw::Placeholder @height="36px" @text="Extra content" @background="#e4e4e4" />
+    </:extraContent>
+  </Hds::ApplicationFooter>
+
+  <Shw::Text::H3>With typical custom content</Shw::Text::H3>
 
   <Hds::ApplicationFooter>
     <:linksBefore>
@@ -25,13 +45,5 @@
         @href="https://cloud.hashicorp.com/docs/changelog"
       >Changelog</Hds::ApplicationFooter::Link>
     </:linksBefore>
-
-    <:linksAfter>
-      <Hds::ApplicationFooter::Link @href="#">link after</Hds::ApplicationFooter::Link>
-    </:linksAfter>
-
-    <:extraContent>
-      <Shw::Placeholder @height="36px" @text="Extra content" @background="#e4e4e4" />
-    </:extraContent>
   </Hds::ApplicationFooter>
 </section>
