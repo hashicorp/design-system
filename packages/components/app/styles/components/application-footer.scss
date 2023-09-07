@@ -7,6 +7,19 @@
 // APPLICATION-FOOTER
 //
 
+// NOTE: Styles are for dev purposes currently, visual designs are not final
 .hds-application-footer {
-  // add the component styles here
+  padding: 20px 40px;
+  text-align: center;
+  border-top: 1px solid;
+}
+
+.hds-application-footer__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
 }

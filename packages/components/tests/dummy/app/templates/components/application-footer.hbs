@@ -8,5 +8,22 @@
 <Shw::Text::H1>ApplicationFooter</Shw::Text::H1>
 
 <section data-test-percy>
-  <Hds::ApplicationFooter />
+  <Hds::ApplicationFooter>
+    <:linksBefore>
+      {{! TODO: StatusLink should be separate component }}
+      <Hds::ApplicationFooter::Link @href="https://status.hashicorp.com">Platform fully operational</Hds::ApplicationFooter::Link>
+
+      <Hds::ApplicationFooter::Link
+        @href="https://cloud.hashicorp.com/docs/changelog"
+      >Changelog</Hds::ApplicationFooter::Link>
+    </:linksBefore>
+
+    <:linksAfter>
+      <Hds::ApplicationFooter::Link @href="#">link after</Hds::ApplicationFooter::Link>
+    </:linksAfter>
+
+    <:customContent>
+      Custom content
+    </:customContent>
+  </Hds::ApplicationFooter>
 </section>

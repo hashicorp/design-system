@@ -5,20 +5,22 @@
 
 <div class={{this.classNames}} ...attributes>
   <ul class="hds-application-footer__list">
-    <li>
-      <Hds::Link::Inline @color="secondary" @href="...">Platform fully operational</Hds::Link::Inline>
-    </li>
-    <li><Hds::Link::Inline @color="secondary" @href="...">Changelog</Hds::Link::Inline></li>
-    <li><Hds::Link::Inline @color="secondary" @href="...">Support</Hds::Link::Inline></li>
-    <li><Hds::Link::Inline @color="secondary" @href="...">Terms</Hds::Link::Inline></li>
-    <li><Hds::Link::Inline @color="secondary" @href="...">Privacy</Hds::Link::Inline></li>
-    <li><Hds::Link::Inline @color="secondary" @href="...">Security</Hds::Link::Inline></li>
-    <li><Hds::Link::Inline
-        @color="secondary"
-        @href="mailto:accessibility@hashicorp.com"
-      >Accessibility</Hds::Link::Inline></li>
-    <li>© 2023 HashiCorp</li>
+    {{yield to="linksBefore"}}
+
+    <Hds::ApplicationFooter::Link @href="https://www.hashicorp.com/support">Support</Hds::ApplicationFooter::Link>
+    <Hds::ApplicationFooter::Link
+      @href="https://portal.cloud.hashicorp.com/terms-of-service"
+    >Terms</Hds::ApplicationFooter::Link>
+    <Hds::ApplicationFooter::Link @href="https://www.hashicorp.com/privacy">Privacy</Hds::ApplicationFooter::Link>
+    <Hds::ApplicationFooter::Link @href="https://www.hashicorp.com/security">Security</Hds::ApplicationFooter::Link>
+    <Hds::ApplicationFooter::Link @href="mailto:accessibility@hashicorp.com">Accessibility Support</Hds::ApplicationFooter::Link>
+
+    {{yield to="linksAfter"}}
+
+    <Hds::ApplicationFooter::Item>© 2023 HashiCorp</Hds::ApplicationFooter::Item>
   </ul>
+
+  {{yield to="customContent"}}
 </div>
 
 {{! NOTE: DOM, nested component choices, class names, & styling are still in flux}}

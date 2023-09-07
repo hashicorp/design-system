@@ -1,0 +1,11 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+<Hds::ApplicationFooter::Item>
+  {{! TODO: Use Hds::Interactive instead for link? }}
+  <Hds::Link::Inline class="hds-application-footer__link" @color="secondary" @href={{@href}}>
+    {{yield}}
+  </Hds::Link::Inline>
+</Hds::ApplicationFooter::Item>
