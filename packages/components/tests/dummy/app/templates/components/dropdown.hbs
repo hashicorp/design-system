@@ -783,7 +783,7 @@
   </Shw::Flex>
   <Shw::Flex as |SF|>
     <SF.Item @label="Interactive">
-      <Hds::Dropdown @listPosition="left" as |dd|>
+      <Hds::Dropdown @listPosition="bottom-left" as |dd|>
         <dd.ToggleButton @text="Checkmark" @color="secondary" />
         <dd.Checkmark @count="11">virtualbox</dd.Checkmark>
         <dd.Checkmark @count="1" @selected={{true}}>vmware</dd.Checkmark>
@@ -941,7 +941,7 @@
   </Shw::Flex>
   <Shw::Flex as |SF|>
     <SF.Item @label="Interactive">
-      <Hds::Dropdown @listPosition="left" as |dd|>
+      <Hds::Dropdown @listPosition="bottom-left" as |dd|>
         <dd.ToggleButton @text="Checkbox" @color="secondary" />
         <dd.Checkbox name="checkbox-item-dropdown" @count="11">virtualbox</dd.Checkbox>
         <dd.Checkbox name="checkbox-item-dropdown" @count="1" checked>vmware</dd.Checkbox>
@@ -1099,7 +1099,7 @@
   </Shw::Flex>
   <Shw::Flex as |SF|>
     <SF.Item @label="Interactive">
-      <Hds::Dropdown @listPosition="left" as |dd|>
+      <Hds::Dropdown @listPosition="bottom-left" as |dd|>
         <dd.ToggleButton @text="Radio" @color="secondary" />
         <dd.Radio name="radio-item-dropdown" @count="11">virtualbox</dd.Radio>
         <dd.Radio name="radio-item-dropdown" @count="1" checked>vmware</dd.Radio>
