@@ -1,6 +1,6 @@
 ## Component API
 
-This component uses [ember-cli-clipboard](https://github.com/jkusa/ember-cli-clipboard) under the hood.
+This component uses the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API) under the hood.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="size" @type="enum" @values={{array "small" "medium" }} @default="medium"/>
@@ -19,8 +19,11 @@ This component uses [ember-cli-clipboard](https://github.com/jkusa/ember-cli-cli
   <C.Property @name="targetToCopy" @type="string | function">
      Selector string of element or action that returns an element from which to copy text.
   </C.Property>
-  <C.Property @name="container" @type="string">
-     Selector string or element object of containing element, typically used in conjunction with modals; set the focused element as the container value.
+  <C.Property @name="onSuccess" @type="function">
+    Callback function invoked (if provided) when the "copy" action succeeds.
+  </C.Property>
+  <C.Property @name="onError" @type="function">
+    Callback function invoked (if provided) when the "copy" action fails.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
