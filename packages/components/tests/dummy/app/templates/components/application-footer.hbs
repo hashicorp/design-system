@@ -8,6 +8,14 @@
 <Shw::Text::H1>ApplicationFooter</Shw::Text::H1>
 
 <section data-test-percy>
+  <Shw::Text::H2>Content</Shw::Text::H2>
+
+  <Shw::Text::H3>With only the default content</Shw::Text::H3>
+
+  <Hds::ApplicationFooter />
+
+  <Shw::Text::H3>With typical custom link content plus extra content</Shw::Text::H3>
+
   <Hds::ApplicationFooter>
     <:linksBefore>
       {{! TODO: StatusLink should be separate component }}
@@ -22,8 +30,8 @@
       <Hds::ApplicationFooter::Link @href="#">link after</Hds::ApplicationFooter::Link>
     </:linksAfter>
 
-    <:customContent>
-      Custom content
-    </:customContent>
+    <:extraContent>
+      <Shw::Placeholder @height="36px" @text="Extra content" @background="#e4e4e4" />
+    </:extraContent>
   </Hds::ApplicationFooter>
 </section>
