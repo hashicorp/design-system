@@ -6,7 +6,7 @@
 import Modifier from 'ember-modifier';
 import { assert } from '@ember/debug';
 
-async function copyToClipboard(text, target) {
+export const getTextToCopy = (text) => {
   let textToCopy;
 
   if (text) {
@@ -23,18 +23,26 @@ async function copyToClipboard(text, target) {
         `\`hds-clipboard\` modifier - \`text\` argument must be a string - provided: ${typeof text}`
       );
     }
-  } else if (target) {
-    let targetElement;
-    if (typeof target === 'string') {
-      targetElement = document.querySelector(target);
+  }
+  return textToCopy;
+};
 
-      assert(
+export const getTargetElement = (target) => {
+  let targetElement;
+  if (typeof target === 'string') {
+    targetElement = document.querySelector(target);
+
+    if (!targetElement) {
+      console.error(
         '`hds-clipboard` modifier - `target` selector provided does not point to an existing DOM node, check your selector string',
         targetElement
       );
-    } else if (target instanceof Node && target.nodeType === 1) {
-      targetElement = target;
-    } else if (target instanceof NodeList) {
+      return;
+    }
+  } else if (target instanceof Node && target.nodeType === 1) {
+    targetElement = target;
+  } else {
+    if (target instanceof NodeList) {
       assert(
         '`hds-clipboard` modifier - `target` argument must be a string or a DOM node - provided: a list of DOM nodes'
       );
@@ -43,7 +51,13 @@ async function copyToClipboard(text, target) {
         `\`hds-clipboard\` modifier - \`target\` argument must be a string or a DOM node - provided: ${typeof target}`
       );
     }
+  }
+  return targetElement;
+};
 
+export const getTextToCopyFromTargetElement = (targetElement) => {
+  let textToCopy;
+  if (targetElement instanceof Node && targetElement.nodeType === 1) {
     if (
       targetElement instanceof HTMLInputElement || // targetElement.nodeName === 'INPUT' ||
       targetElement instanceof HTMLTextAreaElement || // targetElement.nodeName === 'TEXTAREA' ||
@@ -63,12 +77,11 @@ async function copyToClipboard(text, target) {
       // textToCopy = selection.toString();
       // selection.removeAllRanges();
     }
-  } else {
-    assert(
-      '`hds-clipboard` modifier - either a `text` or a `target` argument is required'
-    );
   }
+  return textToCopy;
+};
 
+export const writeTextToClipboard = async (textToCopy) => {
   // finally copy the text to the clipboard using the Clipboard API
   // https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API
   if (textToCopy) {
@@ -91,7 +104,24 @@ async function copyToClipboard(text, target) {
   } else {
     return false;
   }
-}
+};
+
+export const copyToClipboard = async (text, target) => {
+  let textToCopy;
+
+  if (text) {
+    textToCopy = getTextToCopy(text);
+  } else if (target) {
+    const targetElement = getTargetElement(target);
+    textToCopy = getTextToCopyFromTargetElement(targetElement);
+  } else {
+    assert(
+      '`hds-clipboard` modifier - either a `text` or a `target` argument is required'
+    );
+  }
+  const success = await writeTextToClipboard(textToCopy);
+  return success;
+};
 
 export default class HdsClipboardModifier extends Modifier {
   didSetup = false;
