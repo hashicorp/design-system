@@ -43,7 +43,7 @@ We evaluate requests based on the following criteria:
 - Relevance and added value for the design system as a whole
 - Integration with existing foundations, components, and features of the system
 - Impact on existing components, especially in the case of breaking changes
-- Expected effort and possible complexities and unknowns involved
+- Expected effort, possible complexities, and unknowns involved
 - Availability of resources on the Design Systems Team
 - Prioritization in relation to other initiatives already undertaken and/or planned
 
