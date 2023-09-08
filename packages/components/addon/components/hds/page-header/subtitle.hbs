@@ -2,4 +2,10 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<p class="hds-foreground-faint hds-typography-body-200 hds-page-header__subtitle" ...attributes>{{yield}}</p>
+<Hds::Text::Body
+  class="hds-page-header__subtitle"
+  @tag="p"
+  @size="200"
+  @color="faint"
+  ...attributes
+>{{yield}}</Hds::Text::Body>
