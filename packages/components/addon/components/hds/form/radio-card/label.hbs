@@ -2,4 +2,10 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<span class="hds-form-radio-card__label hds-typography-display-300 hds-font-weight-bold" ...attributes>{{yield}}</span>
+<Hds::Text::Display
+  class="hds-form-radio-card__label"
+  @tag="span"
+  @size="300"
+  @weight="bold"
+  ...attributes
+>{{yield}}</Hds::Text::Display>

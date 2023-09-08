@@ -2,6 +2,14 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<div class={{this.classNames}} id={{this.id}} {{did-insert this.onInsert}} ...attributes>
+<Hds::Text::Body
+  class={{this.classNames}}
+  @tag="div"
+  @size="100"
+  @weight="regular"
+  id={{this.id}}
+  {{did-insert this.onInsert}}
+  ...attributes
+>
   {{yield}}
-</div>
+</Hds::Text::Body>
