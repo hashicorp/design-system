@@ -15,10 +15,9 @@
 
     {{yield to="linksAfter"}}
 
-    <Hds::AppFooter::Item>© 2023 HashiCorp</Hds::AppFooter::Item>
+    <Hds::AppFooter::Item class="hds-app-footer__item--copyright"><FlightIcon @name="hashicorp" />
+      © 2023 HashiCorp</Hds::AppFooter::Item>
   </ul>
-
-  {{yield to="extraContent"}}
 </div>
 
 {{! NOTE: DOM, nested component choices, class names, & styling are still in flux}}

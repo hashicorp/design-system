@@ -24,3 +24,25 @@
   padding: 0;
   list-style-type: none;
 }
+
+// TODO: Add component level variables for colors to enable theming
+.hds-app-footer__link {
+  color: var(--token-color-foreground-strong);
+
+  &:hover,
+  &.mock-hover {
+    color: var(--token-color-foreground-primary);
+  }
+
+  &:active,
+  &.mock-active {
+    color: var(--token-color-foreground-faint);
+  }
+}
+
+.hds-app-footer__item--copyright {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}

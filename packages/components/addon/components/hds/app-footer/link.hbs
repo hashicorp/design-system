@@ -4,8 +4,19 @@
 }}
 
 <Hds::AppFooter::Item>
-  {{! TODO: Use Hds::Interactive instead for link? }}
-  <Hds::Link::Inline class="hds-app-footer__link" @color="secondary" @href={{@href}}>
+  {{! Q: Use Hds::Interactive for link or just Link::Inline? }}
+  <Hds::Interactive
+    class="hds-app-footer__link"
+    @current-when={{@current-when}}
+    @models={{hds-link-to-models @model @models}}
+    @query={{hds-link-to-query @query}}
+    @replace={{@replace}}
+    @route={{@route}}
+    @isRouteExternal={{@isRouteExternal}}
+    @href={{@href}}
+    @isHrefExternal={{@isHrefExternal}}
+    ...attributes
+  >
     {{yield}}
-  </Hds::Link::Inline>
+  </Hds::Interactive>
 </Hds::AppFooter::Item>
