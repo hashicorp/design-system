@@ -17,9 +17,6 @@ export default class HdsFormIndicatorIndexComponent extends Component {
     if (this.args.isOptional) {
       // add speficic class for "optional" indicator
       classes.push('hds-form-indicator--optional');
-
-      // add typographic classes
-      classes.push('hds-typography-body-100', 'hds-font-weight-regular');
     }
 
     return classes.join(' ');
