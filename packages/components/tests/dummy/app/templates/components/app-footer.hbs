@@ -3,47 +3,47 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-{{page-title "ApplicationFooter Component"}}
+{{page-title "AppFooter Component"}}
 
-<Shw::Text::H1>ApplicationFooter</Shw::Text::H1>
+<Shw::Text::H1>AppFooter</Shw::Text::H1>
 
 <section data-test-percy>
   <Shw::Text::H2>Content</Shw::Text::H2>
 
   <Shw::Text::H3>With only the default content</Shw::Text::H3>
 
-  <Hds::ApplicationFooter />
+  <Hds::AppFooter />
 
   <Shw::Text::H3>With generic custom content</Shw::Text::H3>
 
-  <Hds::ApplicationFooter>
+  <Hds::AppFooter>
     <:linksBefore>
-      <Hds::ApplicationFooter::Item>
+      <Hds::AppFooter::Item>
         <Shw::Placeholder @height="1.5em" @text="linksBefore" @background="#e4e4e4" />
-      </Hds::ApplicationFooter::Item>
+      </Hds::AppFooter::Item>
     </:linksBefore>
 
     <:linksAfter>
-      <Hds::ApplicationFooter::Item>
+      <Hds::AppFooter::Item>
         <Shw::Placeholder @height="1.5em" @text="LinksAfter" @background="#e4e4e4" />
-      </Hds::ApplicationFooter::Item>
+      </Hds::AppFooter::Item>
     </:linksAfter>
 
     <:extraContent>
       <Shw::Placeholder @height="36px" @text="Extra content" @background="#e4e4e4" />
     </:extraContent>
-  </Hds::ApplicationFooter>
+  </Hds::AppFooter>
 
   <Shw::Text::H3>With typical custom content</Shw::Text::H3>
 
-  <Hds::ApplicationFooter>
+  <Hds::AppFooter>
     <:linksBefore>
       {{! TODO: StatusLink should be separate component }}
-      <Hds::ApplicationFooter::Link @href="https://status.hashicorp.com">Platform fully operational</Hds::ApplicationFooter::Link>
+      <Hds::AppFooter::Link @href="https://status.hashicorp.com">Platform fully operational</Hds::AppFooter::Link>
 
-      <Hds::ApplicationFooter::Link
+      <Hds::AppFooter::Link
         @href="https://cloud.hashicorp.com/docs/changelog"
-      >Changelog</Hds::ApplicationFooter::Link>
+      >Changelog</Hds::AppFooter::Link>
     </:linksBefore>
-  </Hds::ApplicationFooter>
+  </Hds::AppFooter>
 </section>

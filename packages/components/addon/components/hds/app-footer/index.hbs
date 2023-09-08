@@ -1,0 +1,26 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+<div class={{this.classNames}} ...attributes>
+  <ul class="hds-app-footer__list">
+    {{yield to="linksBefore"}}
+
+    <Hds::AppFooter::Link @href="https://www.hashicorp.com/support">Support</Hds::AppFooter::Link>
+    <Hds::AppFooter::Link
+      @href="https://portal.cloud.hashicorp.com/terms-of-service"
+    >Terms</Hds::AppFooter::Link>
+    <Hds::AppFooter::Link @href="https://www.hashicorp.com/privacy">Privacy</Hds::AppFooter::Link>
+    <Hds::AppFooter::Link @href="https://www.hashicorp.com/security">Security</Hds::AppFooter::Link>
+    <Hds::AppFooter::Link @href="mailto:accessibility@hashicorp.com">Accessibility Support</Hds::AppFooter::Link>
+
+    {{yield to="linksAfter"}}
+
+    <Hds::AppFooter::Item>© 2023 HashiCorp</Hds::AppFooter::Item>
+  </ul>
+
+  {{yield to="extraContent"}}
+</div>
+
+{{! NOTE: DOM, nested component choices, class names, & styling are still in flux}}

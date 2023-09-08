@@ -5,4 +5,4 @@
 
 import Route from '@ember/routing/route';
 
-export default class ComponentsApplicationFooterRoute extends Route {}
+export default class ComponentsAppFooterRoute extends Route {}

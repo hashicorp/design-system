@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 
-export default class HdsApplicationFooterIndexComponent extends Component {
+export default class HdsAppFooterIndexComponent extends Component {
   // UNCOMMENT THIS IF YOU NEED A CONSTRUCTOR
   // constructor() {
   //   super(...arguments);
@@ -19,10 +19,10 @@ export default class HdsApplicationFooterIndexComponent extends Component {
    */
   get classNames() {
     // TODO: Move typography class and/or use new Text component
-    let classes = ['hds-application-footer', 'hds-typography-body-200'];
+    let classes = ['hds-app-footer', 'hds-typography-body-200'];
 
     // add a class based on the @xxx argument
-    // classes.push(`hds-application-footer--[variant]-${this.xxx}`);
+    // classes.push(`hds-app-footer--[variant]-${this.xxx}`);
 
     return classes.join(' ');
   }
