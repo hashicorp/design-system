@@ -164,9 +164,20 @@ If the Dropdown content exceeds the height of the container, the header and foot
 ### ListItem::CopyItem
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="copyItemTitle" @type="string"/>
+  <C.Property @name="copyItemTitle" @type="string">
+    Displays a title above the text to be copied.
+  </C.Property>
   <C.Property @name="text" @required="true" @type="string">
     Text to be copied. If no text value is defined, an error will be thrown.
+    <br><br>
+    _Notice: this argument is forwarded (as `textToCopy`) to the [`Copy::Snippet` component](/components/copy/snippet?tab=code#component-api)._
+  </C.Property>
+  <C.Property @name="isTruncated" @type="boolean" @default="false">
+    Constrains text to one line and truncates it based on available width. Text will only be truncated if it does not fit within the available space.
+    <br><br>
+    There are accessibility concerns if using this feature. See the [Accessibility section](/components/copy/snippet?tab=accessibility) of the `Copy::Snippet` component for more information.
+    <br><br>
+    _Notice: this argument is forwarded to the [`Copy::Snippet` component](/components/copy/snippet?tab=code#component-api)._
   </C.Property>
 </Doc::ComponentApi>
 
