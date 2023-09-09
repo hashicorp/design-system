@@ -7,17 +7,24 @@
 // app-footer
 //
 
+// WIP: names, etc. may change
+:root {
+  --token-app-footer-text-color: var(--token-color-foreground-faint);
+  --token-app-footer-border-color: var(--token-color-border-primary);
+}
+
 // NOTE: Styles are for dev purposes currently, visual designs are not final
 .hds-app-footer {
-  padding: 20px 40px;
+  padding: 24px;
+  color: var(--token-app-footer-text-color);
   text-align: center;
-  border-top: 1px solid;
+  border-top: 1px solid var(--token-app-footer-border-color);
 }
 
 .hds-app-footer__list {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 24px;
   align-items: center;
   justify-content: center;
   margin: 0;
@@ -25,24 +32,25 @@
   list-style-type: none;
 }
 
-// TODO: Add component level variables for colors to enable theming
 .hds-app-footer__link {
-  color: var(--token-color-foreground-strong);
+  color: inherit;
 
-  &:hover,
-  &.mock-hover {
-    color: var(--token-color-foreground-primary);
-  }
+  // designs for various states not yet ready...
+  // &:hover,
+  // &.mock-hover {
+  //   color: var(--token-color-foreground-primary);
+  // }
 
-  &:active,
-  &.mock-active {
-    color: var(--token-color-foreground-faint);
-  }
+  // &:active,
+  // &.mock-active {
+  //   color: var(--token-color-foreground-faint);
+  // }
 }
 
+.hds-app-footer__link,
 .hds-app-footer__item--copyright {
   display: flex;
-  gap: 4px;
+  gap: 8px;
   align-items: center;
   justify-content: center;
 }
