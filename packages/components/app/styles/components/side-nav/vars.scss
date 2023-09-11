@@ -16,7 +16,7 @@
   // breakpoint
   --hds-app-desktop-breakpoint: 1088px; // this is used only to read its value via JS and set the `hds-side-nav--is-desktop` class
   // widths
-  --hds-app-sidenav-width-minimized: 80px;
+  --hds-app-sidenav-width-minimized: 8px;
   --hds-app-sidenav-width-expanded: 280px;
   --hds-app-sidenav-width-fixed: var(--hds-app-sidenav-width-expanded);
   // sidebar menu
