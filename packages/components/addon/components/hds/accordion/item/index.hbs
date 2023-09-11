@@ -14,17 +14,28 @@
         @parentContainsInteractive={{this.containsInteractive}}
       />
 
-      <div
-        class="hds-accordion-item__toggle-content hds-typography-display-200 hds-foreground-strong hds-font-weight-semibold"
+      <Hds::Text::Display
+        @tag="div"
+        @size="200"
+        @weight="semibold"
+        @color="strong"
+        class="hds-accordion-item__toggle-content"
       >
         {{yield to="toggle"}}
-      </div>
+      </Hds::Text::Display>
     </div>
   </:toggle>
 
   <:content>
-    <div class="hds-accordion-item__content hds-typography-body-200 hds-foreground-primary" id={{this.contentId}}>
+    <Hds::Text::Body
+      class="hds-accordion-item__content"
+      @tag="div"
+      @size="200"
+      @weight="regular"
+      @color="primary"
+      id={{this.contentId}}
+    >
       {{yield to="content"}}
-    </div>
+    </Hds::Text::Body>
   </:content>
 </Hds::DisclosurePrimitive>
