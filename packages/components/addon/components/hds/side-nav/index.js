@@ -12,6 +12,7 @@ import { registerDestructor } from '@ember/destroyable';
 export default class HdsSideNavComponent extends Component {
   @tracked isResponsive = this.args.isResponsive ?? true;
   @tracked isMinimized = this.args.isMinimized ?? false;
+  @tracked isCollapsible = this.args.isCollapsible ?? false;
   @tracked isAnimating = false;
   @tracked isDesktop = true;
   hasA11yRefocus = this.args.hasA11yRefocus ?? true;
@@ -39,8 +40,11 @@ export default class HdsSideNavComponent extends Component {
   addEventListeners() {
     document.addEventListener('keydown', this.escapePress, true);
     this.desktopMQ.addEventListener('change', this.updateDesktopVariable, true);
-    // set initial state based on viewport
-    this.updateDesktopVariable({ matches: this.desktopMQ.matches });
+    // if not instantiated as minimized via arguments
+    if (!this.args.isMinimized) {
+      // set initial state based on viewport
+      this.updateDesktopVariable({ matches: this.desktopMQ.matches });
+    }
   }
 
   removeEventListeners() {
@@ -54,6 +58,10 @@ export default class HdsSideNavComponent extends Component {
 
   get shouldTrapFocus() {
     return this.isResponsive && !this.isDesktop && !this.isMinimized;
+  }
+
+  get showToggleButton() {
+    return (this.isResponsive && !this.isDesktop) || this.isCollapsible;
   }
 
   /**
@@ -74,13 +82,13 @@ export default class HdsSideNavComponent extends Component {
     // add specific class names for the different possible states
     if (this.isDesktop) {
       classes.push('hds-side-nav--is-desktop');
-    } else {
+    } else if (this.isResponsive) {
       classes.push('hds-side-nav--is-mobile');
     }
     if (this.isResponsive) {
       classes.push('hds-side-nav--is-responsive');
     }
-    if (this.isMinimized) {
+    if (this.isMinimized && this.isResponsive) {
       classes.push('hds-side-nav--is-minimized');
     } else {
       classes.push('hds-side-nav--is-not-minimized');
@@ -94,7 +102,7 @@ export default class HdsSideNavComponent extends Component {
 
   @action
   escapePress(event) {
-    if (event.key === 'Escape' && !this.isMinimized) {
+    if (event.key === 'Escape' && !this.isMinimized && !this.isDesktop) {
       this.isMinimized = true;
     }
   }

@@ -19,7 +19,7 @@
         @navigationText={{@a11yRefocusNavigationText}}
       />
     {{/if}}
-    {{#if this.isResponsive}}
+    {{#if this.showToggleButton}}
       {{! template-lint-disable no-invalid-interactive}}
       <div class="hds-side-nav__overlay" {{on "click" this.toggleMinimizedStatus}} />
       {{! template-lint-enable no-invalid-interactive}}
@@ -29,7 +29,7 @@
         {{on "click" this.toggleMinimizedStatus}}
         aria-label={{this.ariaLabel}}
       >
-        <FlightIcon @name={{if this.isMinimized "menu" "x"}} @size="24" @stretched={{true}} />
+        <FlightIcon @name={{if this.isMinimized "chevrons-right" "chevrons-left"}} />
       </button>
     {{/if}}
   </:root>
