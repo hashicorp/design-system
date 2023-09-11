@@ -5,13 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import {
-  render,
-  click,
-  triggerKeyEvent,
-  resetOnerror,
-  setupOnerror,
-} from '@ember/test-helpers';
+import { render, click, resetOnerror, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/side-nav/index', function (hooks) {
@@ -95,8 +89,6 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
   test('it is "responsive" by default', async function (assert) {
     await render(hbs`<Hds::SideNav id="test-side-nav" />`);
     assert.dom('#test-side-nav').hasClass('hds-side-nav--is-responsive');
-    assert.dom('.hds-side-nav__overlay').exists();
-    assert.dom('.hds-side-nav__menu-toggle-button').exists();
   });
 
   test('it is not "responsive" if `isResponsive` is false', async function (assert) {
@@ -106,15 +98,14 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
     assert
       .dom('#test-side-nav')
       .doesNotHaveClass('hds-side-nav--is-responsive');
-    assert.dom('.hds-side-nav__overlay').doesNotExist();
-    assert.dom('.hds-side-nav__menu-toggle-button').doesNotExist();
   });
 
-  test('it responds to different events to toggle between "minimized" (by default) and "non-mimimized" states', async function (assert) {
-    await render(hbs`<Hds::SideNav id="test-side-nav" />`);
-    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-minimized');
+  // COLLAPSIBLE
 
-    await click('.hds-side-nav__menu-toggle-button');
+  test('it responds to different events to toggle between "non-minimized" (by default) and "mimimized" states', async function (assert) {
+    await render(
+      hbs`<Hds::SideNav @isCollapsible={{true}} id="test-side-nav" />`
+    );
     assert.dom('#test-side-nav').hasClass('hds-side-nav--is-not-minimized');
 
     await click('.hds-side-nav__menu-toggle-button');
@@ -122,20 +113,11 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
 
     await click('.hds-side-nav__menu-toggle-button');
     assert.dom('#test-side-nav').hasClass('hds-side-nav--is-not-minimized');
-
-    await click('.hds-side-nav__overlay');
-    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-minimized');
-
-    await click('.hds-side-nav__menu-toggle-button');
-    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-not-minimized');
-
-    await triggerKeyEvent(document, 'keydown', 'Escape');
-    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-minimized');
   });
 
-  test('the "minimized" and "non-minimized" states have impact on its internal properties', async function (assert) {
+  test('the "non-minimized" and "minimized" states have impact on its internal properties', async function (assert) {
     await render(hbs`
-      <Hds::SideNav id="test-side-nav">
+      <Hds::SideNav @isCollapsible={{true}} id="test-side-nav">
         <:header as |H|>
           <span id="test-side-nav-header" data-test-minimized={{H.isMinimized}} />
         </:header>
@@ -147,26 +129,13 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
         </:footer>
       </Hds::SideNav>
     `);
-    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-minimized');
-    assert
-      .dom('.hds-side-nav__menu-toggle-button')
-      .hasAttribute('aria-label', 'Open menu');
-    assert
-      .dom('.hds-side-nav__menu-toggle-button .flight-icon')
-      .hasClass('flight-icon-menu');
-    assert.dom('#test-side-nav-header').hasAttribute('data-test-minimized');
-    assert.dom('#test-side-nav-body').hasAttribute('data-test-minimized');
-    assert.dom('#test-side-nav-footer').hasAttribute('data-test-minimized');
-
-    await click('.hds-side-nav__menu-toggle-button');
-
     assert.dom('#test-side-nav').hasClass('hds-side-nav--is-not-minimized');
     assert
       .dom('.hds-side-nav__menu-toggle-button')
       .hasAttribute('aria-label', 'Close menu');
     assert
       .dom('.hds-side-nav__menu-toggle-button .flight-icon')
-      .hasClass('flight-icon-x');
+      .hasClass('flight-icon-chevrons-left');
     assert
       .dom('#test-side-nav-header')
       .doesNotHaveAttribute('data-test-minimized');
@@ -176,6 +145,19 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
     assert
       .dom('#test-side-nav-footer')
       .doesNotHaveAttribute('data-test-minimized');
+
+    await click('.hds-side-nav__menu-toggle-button');
+
+    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-minimized');
+    assert
+      .dom('.hds-side-nav__menu-toggle-button')
+      .hasAttribute('aria-label', 'Open menu');
+    assert
+      .dom('.hds-side-nav__menu-toggle-button .flight-icon')
+      .hasClass('flight-icon-chevrons-right');
+    assert.dom('#test-side-nav-header').hasAttribute('data-test-minimized');
+    assert.dom('#test-side-nav-body').hasAttribute('data-test-minimized');
+    assert.dom('#test-side-nav-footer').hasAttribute('data-test-minimized');
   });
 
   // CALLBACKS
@@ -184,7 +166,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
     let toggled = false;
     this.set('onToggleMinimizedStatus', () => (toggled = true));
     await render(
-      hbs`<Hds::SideNav @onToggleMinimizedStatus={{this.onToggleMinimizedStatus}} />`
+      hbs`<Hds::SideNav @isCollapsible={{true}} @onToggleMinimizedStatus={{this.onToggleMinimizedStatus}} />`
     );
     await click('.hds-side-nav__menu-toggle-button');
     assert.ok(toggled);
