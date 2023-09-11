@@ -8,13 +8,13 @@
       <FlightIcon @name={{@icon}} @size="24" />
     </div>
   {{/if}}
-  <div class="hds-application-state__title hds-typography-display-400 hds-font-weight-semibold">
+  <Hds::Text::Display class="hds-application-state__title" @tag="div" @size="400" @weight="semibold">
     {{@title}}
-  </div>
+  </Hds::Text::Display>
   {{#if @errorCode}}
-    <div class="hds-application-state__error-code hds-typography-body-100 hds-font-weight-medium">
+    <Hds::Text::Body class="hds-application-state__error-code" @tag="div" @size="100" @weight="medium">
       Error
       {{@errorCode}}
-    </div>
+    </Hds::Text::Body>
   {{/if}}
 </div>
