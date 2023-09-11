@@ -24,11 +24,17 @@
         <FlightIcon @name={{@icon}} @isInlineBlock={{false}} />
       </div>
     {{/if}}
-    <div class="hds-dropdown-list-item__interactive-text hds-typography-body-200 hds-font-weight-medium">
+    <Hds::Text::Body @tag="div" @size="200" @weight="medium" class="hds-dropdown-list-item__interactive-text">
       {{yield}}
-    </div>
+    </Hds::Text::Body>
     {{#if @count}}
-      <span class="hds-dropdown-list-item__count hds-typography-body-100 hds-font-weight-medium">{{@count}}</span>
+      <Hds::Text::Body
+        class="hds-dropdown-list-item__count"
+        @tag="span"
+        @size="100"
+        @weight="medium"
+        @color="faint"
+      >{{@count}}</Hds::Text::Body>
     {{/if}}
     <span class="hds-dropdown-list-item__checkmark">
       {{#if @selected}}
