@@ -1,10 +1,9 @@
-The Button component is used to trigger an action or event. For accessibility, Buttons should not be used to route to a URL; use a [Link](/components/link/standalone) instead.
-
 !!! Info
 
 Due to differences in text rendering between Figma and web browsers, the `Button` Ember component uses `font-weight` 400 vs. the Figma component which uses `font-weight` 500.
 
 !!!
+
 ## How to use this component
 
 The basic invocation requires text to be passed:
@@ -98,14 +97,16 @@ Read the Ember.js guides for more information: [Patterns for Actions](https://gu
 
 ### Links
 
-You can generate a link with the visual appearance of a button, by passing an `@href` or a `@route` argument to the component.
+!!! Insight
 
-If you’re passing an `@href` or a `@route` argument to the component, this will generate an `<a>` link, not a `<button>`. In this case, no `type` is needed.
-
-!!! Info
+While we support using links within buttons, please strive for the correct semantic use. Learn more about [how semantic use helps make our products more conformant](/components/button?tab=accessibility#button-vs-link).
 
 The `Hds::Button` component uses the generic `Hds::Interactive` component. For more details about how this utility component works, please refer to [its documentation page](/utilities/interactive).
 !!!
+
+You can generate a link with the visual appearance of a button, by passing an `@href` or a `@route` argument to the component.
+
+If you’re passing an `@href` or a `@route` argument to the component, this will generate an `<a>` link, not a `<button>`. In this case, no `type` is needed.
 
 #### With @href
 
