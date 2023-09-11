@@ -73,65 +73,97 @@
 .hds-side-nav__menu-toggle-button {
   position: absolute;
   top: -2px;
+  left: -1px;
   z-index: 1;
-  width: 36px;
+  width: 24px;
   height: 36px;
-  padding: 5px;
+  padding: 9px 0;
   color: var(--token-color-foreground-high-contrast);
   background: none;
-  background-color: var(--token-color-foreground-primary);
-  border: 1px solid transparent;
-  border-radius: 5px;
+  background-color: var(--token-side-nav-color-surface-primary);
+  border: 1px solid var(--token-color-palette-neutral-500);
+  border-left-color: transparent;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
   transform:
-    translateX(calc(var(--hds-app-sidenav-width-expanded) + 8px))
+    translateX(var(--hds-app-sidenav-width-expanded))
     translateY(24px);
   cursor: pointer;
-  transition-timing-function: var(--hds-app-sidenav-animation-easing);
-  transition-duration: var(--hds-app-sidenav-animation-duration);
-  transition-property: width, height, padding, border-radius, transform;
+  transition:
+    transform var(--hds-app-sidenav-animation-duration)
+    var(--hds-app-sidenav-animation-easing),
+    width var(--hds-app-sidenav-animation-duration)
+    var(--hds-app-sidenav-animation-easing);
+
+  &::before {
+    position: absolute;
+    top: -10px;
+    left: -1px;
+    z-index: -1;
+    width: 10px;
+    height: 10px;
+    color: var(--token-color-foreground-high-contrast);
+    border-bottom: 1px solid var(--token-color-palette-neutral-500);
+    border-left: 1px solid var(--token-color-palette-neutral-500);
+    border-bottom-left-radius: 5px;
+    box-shadow: 0 5px 0 var(--token-side-nav-color-surface-primary);
+    content: "";
+  }
+
+  &::after {
+    position: absolute;
+    bottom: -10px;
+    left: -1px;
+    width: 10px;
+    height: 10px;
+    color: var(--token-color-foreground-high-contrast);
+    border-top: 1px solid var(--token-color-palette-neutral-500);
+    border-left: 1px solid var(--token-color-palette-neutral-500);
+    border-top-left-radius: 5px;
+    box-shadow: 0 -5px 0 var(--token-side-nav-color-surface-primary);
+    content: "";
+  }
 
   &:hover {
-    background-color: var(--token-color-palette-neutral-600);
-    border-color: transparent;
+    width: 32px;
+    background-color: var(--token-side-nav-color-surface-interactive-hover);
+
+    &::before {
+      box-shadow: 0 5px 0 var(--token-side-nav-color-surface-interactive-hover);
+    }
+
+    &::after {
+      box-shadow: 0 -5px 0 var(--token-side-nav-color-surface-interactive-hover);
+    }
   }
 
   &:active {
-    background-color: var(--token-color-palette-neutral-500);
+    background-color: var(--token-side-nav-color-surface-interactive-active);
     border-color: transparent;
+
+    &::before {
+      box-shadow: 0 5px 0 var(--token-side-nav-color-surface-interactive-active);
+    }
+
+    &::after {
+      box-shadow: 0 -5px 0 var(--token-side-nav-color-surface-interactive-active);
+    }
   }
 
-  &:focus {
-    background-color: var(--token-color-palette-neutral-500);
+  &:focus-visible {
     border-color: var(--token-color-focus-action-internal);
     outline: 3px solid var(--token-color-focus-action-external);
+
+    &::before,
+    &::after {
+      display: none;
+    }
   }
 
-  // by default it's styled as "close" button
-  .hds-side-nav--is-mobile & {
-    width: 36px;
-    height: 36px;
-    padding: 5px;
-    background-color: var(--token-color-foreground-primary);
-    border-radius: 5px;
-    transform:
-      translateX(calc(var(--hds-app-sidenav-width-expanded) + 8px))
-      translateY(24px);
-    // z-index: 15; // not needed anymore?
-  }
-
-  // when the sidenav is minimized it's styled as "menu" button
   .hds-side-nav--is-minimized & {
-    width: 36px;
-    height: 36px;
-    padding: 5px;
-    border-radius: 5px;
-    transform: translateX(22px) translateY(var(--hds-app-sidenav-menu-button-y-shift));
-  }
-
-  // when it's desktop we _never_ want to show the menu/toggle button
-  .hds-side-nav--is-desktop & {
-    // TODO: apply this if collabsable is set to `false`
-    // display: none;
+    transform:
+      translateX(var(--hds-app-sidenav-width-minimized))
+      translateY(24px);
   }
 }
 
@@ -145,6 +177,7 @@
   height: 100%;
   color: var(--token-side-nav-color-foreground-primary); // we set a default color (in case generic content is added to the header/body/footer of the sidenav)
   background: var(--token-side-nav-color-surface-primary);
+  border-right: 1px solid var(--token-color-palette-neutral-500);
 
   // RESPONSIVENESS - This controls the width of the "sidenav" container, and is independent (bur related) from the parent "sidebar" grid area
 
