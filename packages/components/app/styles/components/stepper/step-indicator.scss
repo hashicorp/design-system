@@ -21,11 +21,6 @@ $hds-stepper-indicator-step-size: 24px;
   width: 100%;
   height: 100%;
   filter: drop-shadow(0 1px 1px rgba(101, 106, 118, 5%));
-
-  path {
-    fill: --status-fill-color;
-    stroke: --status-stroke-color;
-  }
 }
 
 .hds-stepper-indicator-step__status {
@@ -42,13 +37,11 @@ $hds-stepper-indicator-step-size: 24px;
 .hds-stepper-indicator-step__icon {
   width: 12px;
   height: 12px;
-  color: --status-text-color;
 }
 
 .hds-stepper-indicator-step__text {
   width: 20px;
   overflow: hidden;
-  color: --status-text-color;
   font-weight: var(--token-typography-font-weight-medium);
   font-size: 0.8125rem;
   font-family: var(--token-typography-font-stack-text);
