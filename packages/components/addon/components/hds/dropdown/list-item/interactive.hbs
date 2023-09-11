@@ -8,9 +8,9 @@
       <div class="hds-dropdown-list-item__interactive-icon">
         <FlightIcon @name="loading" @isInlineBlock={{false}} />
       </div>
-      <div class="hds-dropdown-list-item__interactive-text hds-typography-body-100 hds-font-weight-regular">
+      <Hds::Text::Body @tag="div" @size="100" @weight="regular" class="hds-dropdown-list-item__interactive-text">
         {{this.text}}
-      </div>
+      </Hds::Text::Body>
     </div>
   {{else}}
     <Hds::Interactive
@@ -29,9 +29,9 @@
           <FlightIcon @name={{@icon}} @isInlineBlock={{false}} />
         </div>
       {{/if}}
-      <div class="hds-dropdown-list-item__interactive-text hds-typography-body-200 hds-font-weight-medium">
+      <Hds::Text::Body class="hds-dropdown-list-item__interactive-text" @tag="div" @size="200" @weight="medium">
         {{this.text}}
-      </div>
+      </Hds::Text::Body>
     </Hds::Interactive>
   {{/if}}
 </li>
