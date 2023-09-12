@@ -13,7 +13,7 @@
   --token-app-footer-border-color: var(--token-color-border-primary);
 }
 
-// NOTE: Styles are for dev purposes currently, visual designs are not final
+// NOTE: Styles are for dev purposes currently, visual designs are NOT final
 .hds-app-footer {
   padding: 24px;
   color: var(--token-app-footer-text-color);
@@ -34,9 +34,9 @@
 .hds-app-footer__item { list-style-type: none; }
 
 .hds-app-footer__link {
-  color: inherit;
+  color: inherit; // inherits "faint" color
 
-  // designs for various states not yet ready...
+  // WIP: Changed component back to use LinkInline Secondary for now although default color is overridden
   // &:hover,
   // &.mock-hover {
   //   color: var(--token-color-foreground-primary);
