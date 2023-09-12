@@ -18,8 +18,7 @@ export default class HdsAppFooterIndexComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    // TODO: Move typography class and/or use new Text component
-    let classes = ['hds-app-footer', 'hds-typography-body-200'];
+    let classes = ['hds-app-footer'];
 
     // add a class based on the @xxx argument
     // classes.push(`hds-app-footer--[variant]-${this.xxx}`);

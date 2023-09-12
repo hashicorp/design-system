@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 
-export const STATUS_ICON_MAPPINGS = {
+export const STATUSES = {
   OPERATIONAL: {
     iconName: 'check-circle-fill',
     iconColor: 'var(--token-color-foreground-success)',
@@ -30,11 +30,11 @@ export default class HdsAppFooterStatusLinkComponent extends Component {
   }
 
   get statusIcon() {
-    return STATUS_ICON_MAPPINGS[this.status.toUpperCase()].iconName;
+    return STATUSES[this.status.toUpperCase()].iconName;
   }
 
   get statusIconColor() {
-    return STATUS_ICON_MAPPINGS[this.status.toUpperCase()].iconColor;
+    return STATUSES[this.status.toUpperCase()].iconColor;
   }
 
   /**
@@ -44,11 +44,6 @@ export default class HdsAppFooterStatusLinkComponent extends Component {
    */
   get classNames() {
     let classes = ['hds-app-footer__status-link'];
-
-    // add a class based on the @status argument
-    if (this.status) {
-      classes.push(`hds-app-footer__status-link--${this.status.toLowerCase()}`);
-    }
 
     return classes.join(' ');
   }

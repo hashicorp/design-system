@@ -29,8 +29,9 @@
   justify-content: center;
   margin: 0;
   padding: 0;
-  list-style-type: none;
 }
+
+.hds-app-footer__item { list-style-type: none; }
 
 .hds-app-footer__link {
   color: inherit;

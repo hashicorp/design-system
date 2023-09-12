@@ -8,34 +8,93 @@
 <Shw::Text::H1>AppFooter</Shw::Text::H1>
 
 <section data-test-percy>
-  <Shw::Text::H2>Content</Shw::Text::H2>
+  <div class="{{if this.showHighlight 'shw-component-app-footer-layout-highlight'}}">
+    <Shw::Text::H2>Content</Shw::Text::H2>
 
-  <Shw::Text::H3>With only the default content</Shw::Text::H3>
+    <button type="button" {{on "click" this.toggleHighlight}}>
+      {{if this.showHighlight "Hide" "Show"}}
+      layout highlight
+    </button>
 
-  <Hds::AppFooter />
+    <Shw::Text::H3>With only the default content</Shw::Text::H3>
 
-  <Shw::Text::H3>With generic custom “link” content</Shw::Text::H3>
+    <Hds::AppFooter />
 
-  <Hds::AppFooter>
-    <:linksBefore>
-      <Hds::AppFooter::Item>
-        <Shw::Placeholder @height="2em" @text="linksBefore" @background="#e4e4e4" />
-      </Hds::AppFooter::Item>
-    </:linksBefore>
+    <Shw::Text::H3>With generic custom “link” content</Shw::Text::H3>
 
-    <:linksAfter>
-      <Hds::AppFooter::Item>
-        <Shw::Placeholder @height="2em" @text="LinksAfter" @background="#e4e4e4" />
-      </Hds::AppFooter::Item>
-    </:linksAfter>
-  </Hds::AppFooter>
+    <Hds::AppFooter>
+      <:linksBefore>
+        <Hds::AppFooter::Item>
+          <Shw::Placeholder @height="2em" @text="linksBefore" @background="#e4e4e4" />
+        </Hds::AppFooter::Item>
+      </:linksBefore>
 
-  <Shw::Text::H3>With typical custom content</Shw::Text::H3>
+      <:linksAfter>
+        <Hds::AppFooter::Item>
+          <Shw::Placeholder @height="2em" @text="LinksAfter" @background="#e4e4e4" />
+        </Hds::AppFooter::Item>
+      </:linksAfter>
+    </Hds::AppFooter>
 
-  <Hds::AppFooter>
-    <:linksBefore>
-      <Hds::AppFooter::StatusLink @status="operational" />
-      <Hds::AppFooter::Link @href="https://cloud.hashicorp.com/docs/changelog">Changelog</Hds::AppFooter::Link>
-    </:linksBefore>
-  </Hds::AppFooter>
+    <Shw::Text::H3>With typical custom content</Shw::Text::H3>
+
+    <Hds::AppFooter>
+      <:linksBefore>
+        <Hds::AppFooter::StatusLink @status="operational" />
+        <Hds::AppFooter::Link @href="https://cloud.hashicorp.com/docs/changelog">Changelog</Hds::AppFooter::Link>
+      </:linksBefore>
+    </Hds::AppFooter>
+
+    <Shw::Divider />
+
+    <Shw::Text::H2>Base elements</Shw::Text::H2>
+
+    <button type="button" {{on "click" this.toggleHighlight}}>
+      {{if this.showHighlight "Hide" "Show"}}
+      layout highlight
+    </button>
+
+    <Shw::Text::H3>Hds::AppFooter::Item</Shw::Text::H3>
+
+    <ul class="hds-app-footer__list">
+      <Hds::AppFooter::Item>Item</Hds::AppFooter::Item>
+    </ul>
+
+    <Shw::Text::H3>Hds::AppFooter::Link</Shw::Text::H3>
+
+    <Shw::Text::H4>States</Shw::Text::H4>
+
+    <Shw::Flex {{style gap="2rem" justifyContent="space-between"}} as |SF|>
+      {{#each @model.STATES as |state|}}
+        <SF.Item @label={{state}}>
+          <ul class="hds-app-footer__list">
+            <Hds::AppFooter::Link @href="#" mock-state-value={{state}}>Link</Hds::AppFooter::Link>
+          </ul>
+        </SF.Item>
+      {{/each}}
+    </Shw::Flex>
+
+    <Shw::Divider />
+
+    <Shw::Text::H2>Child elements</Shw::Text::H2>
+
+    <button type="button" {{on "click" this.toggleHighlight}}>
+      {{if this.showHighlight "Hide" "Show"}}
+      layout highlight
+    </button>
+
+    <Shw::Text::H3>Hds::AppFooter::StatusLink</Shw::Text::H3>
+
+    <Shw::Text::H4>Status variants</Shw::Text::H4>
+
+    <Shw::Flex {{style gap="2rem" justifyContent="space-between"}} as |SF|>
+      {{#each-in @model.STATUSES as |status|}}
+        <SF.Item @label={{status}}>
+          <ul class="hds-app-footer__list">
+            <Hds::AppFooter::StatusLink @status={{status}} />
+          </ul>
+        </SF.Item>
+      {{/each-in}}
+    </Shw::Flex>
+  </div>
 </section>

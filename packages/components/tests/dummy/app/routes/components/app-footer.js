@@ -5,4 +5,13 @@
 
 import Route from '@ember/routing/route';
 
-export default class ComponentsAppFooterRoute extends Route {}
+import { STATUSES } from '@hashicorp/design-system-components/components/hds/app-footer/status-link';
+
+export default class ComponentsAppFooterRoute extends Route {
+  model() {
+    // these are used only for presentation purpose in the showcase
+    const STATES = ['default', 'hover', 'active', 'focus'];
+
+    return { STATES, STATUSES };
+  }
+}
