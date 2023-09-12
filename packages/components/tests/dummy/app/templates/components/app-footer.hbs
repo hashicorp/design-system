@@ -87,5 +87,14 @@
         </SF.Item>
       {{/each-in}}
     </Shw::Flex>
+
+    <Shw::Text::H4>With custom text</Shw::Text::H4>
+    <Shw::Flex {{style gap="2rem" justifyContent="space-between"}} as |SF|>
+      <SF.Item>
+        <ul class="hds-app-footer__list">
+          <Hds::AppFooter::StatusLink @status="operational" @text="Operativo" />
+        </ul>
+      </SF.Item>
+    </Shw::Flex>
   </div>
 </section>

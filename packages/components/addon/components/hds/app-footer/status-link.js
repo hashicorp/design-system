@@ -7,18 +7,22 @@ import Component from '@glimmer/component';
 
 export const STATUSES = {
   OPERATIONAL: {
+    text: 'Operational',
     iconName: 'check-circle-fill',
     iconColor: 'var(--token-color-foreground-success)',
   },
   DEGRADED: {
+    text: 'Degraded',
     iconName: 'alert-triangle',
     iconColor: 'var(--token-color-foreground-warning)',
   },
   OUTAGE: {
+    text: 'Outage',
     iconName: 'x-square-fill',
     iconColor: 'var(--token-color-foreground-critical)',
   },
   MAINTENANCE: {
+    text: 'Maintenance',
     iconName: 'info-fill',
     iconColor: 'var(--token-color-foreground-highlight)',
   },
@@ -35,6 +39,10 @@ export default class HdsAppFooterStatusLinkComponent extends Component {
 
   get statusIconColor() {
     return STATUSES[this.status.toUpperCase()].iconColor;
+  }
+
+  get text() {
+    return this.args.text ?? STATUSES[this.status.toUpperCase()].text;
   }
 
   /**
