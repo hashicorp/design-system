@@ -47,7 +47,7 @@
 
     <Shw::Divider />
 
-    <Shw::Text::H2>Base elements</Shw::Text::H2>
+    <Shw::Text::H2>Base components & child components</Shw::Text::H2>
 
     <button type="button" {{on "click" this.toggleHighlight}}>
       {{if this.showHighlight "Hide" "Show"}}
@@ -73,15 +73,6 @@
         </SF.Item>
       {{/each}}
     </Shw::Flex>
-
-    <Shw::Divider />
-
-    <Shw::Text::H2>Child elements</Shw::Text::H2>
-
-    <button type="button" {{on "click" this.toggleHighlight}}>
-      {{if this.showHighlight "Hide" "Show"}}
-      layout highlight
-    </button>
 
     <Shw::Text::H3>Hds::AppFooter::StatusLink</Shw::Text::H3>
 
