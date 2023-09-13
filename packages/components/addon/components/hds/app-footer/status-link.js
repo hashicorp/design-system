@@ -34,11 +34,13 @@ export default class HdsAppFooterStatusLinkComponent extends Component {
   }
 
   get statusIcon() {
-    return STATUSES[this.status.toUpperCase()].iconName;
+    return this.args.statusIcon ?? STATUSES[this.status.toUpperCase()].iconName;
   }
 
   get statusIconColor() {
-    return STATUSES[this.status.toUpperCase()].iconColor;
+    return (
+      this.args.statusIconColor ?? STATUSES[this.status.toUpperCase()].iconColor
+    );
   }
 
   get text() {
