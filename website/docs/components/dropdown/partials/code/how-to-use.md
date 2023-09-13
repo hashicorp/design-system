@@ -232,7 +232,7 @@ Pass the argument `@isLoading={{true}}` to the item. This will show a “loading
 
 ### ListItem::CopyItem
 
-To enable users to copy a snippet of code (eg. URLs, secrets, code blocks, etc.).
+To enable users to copy a snippet of code (eg. URLs, secrets, code blocks, etc.) use `ListItem::CopyItem`.
 
 Using the `@isTruncated` argument it is possible to constrain the text to one-line and truncate it if it does not fit the available space. Please be aware there are [serious accessibility concerns](/components/copy/snippet?tab=accessibility) with using this feature.
 
@@ -242,9 +242,13 @@ Using the `@isTruncated` argument it is possible to constrain the text to one-li
   <dd.Title @text="Integrate with Terraform Cloud" />
   <dd.Description @text="Create a new run task in Terraform using the URL and key below." />
   <dd.CopyItem @text="https://api.cloud.hashicorp.com" @copyItemTitle="Endpoint URL" />
-  <dd.CopyItem @isTruncated={{true}} @text="91ee1e8ef65b337f0e70d793f456c71d91ee1e8ef65b337f0e70d793f456c71d" @copyItemTitle="HMAC Key" />
+  <dd.CopyItem @text="91ee1e8ef65b337f0e70d793f456c71d91ee1e8ef65b337f0e70d793f456c71d" @copyItemTitle="HMAC Key" />
+  <dd.CopyItem @isTruncated={{false}} @text="91ee1e8ef65b337f0e70d793f456c71d91ee1e8ef65b337f0e70d793f456c71d" @copyItemTitle="HMAC Key (without truncation)" />
 </Hds::Dropdown>
 ```
+
+Using the `@isTruncated` argument is possible to disable the truncation constrain applied to the text (to be rendered on a single line, and truncate it if it does not fit the available space). Care should be taken in choosing how to use this feature as there are [accessibility concerns](/components/copy/snippet?tab=accessibility).
+
 ### ListItem::Checkmark
 
 For switching context (e.g., organization switchers, project switchers, etc.) use `ListItem::Checkmark`.
