@@ -22,6 +22,19 @@ export default class HdsDropdownListItemCopyItemComponent extends Component {
 
     return text;
   }
+
+  /**
+   * @param isTruncated
+   * @type {boolean}
+   * @default true
+   * @description Indicates that the text should be truncated instead of wrapping and using multiple lines.
+   */
+  get isTruncated() {
+    let { isTruncated = true } = this.args;
+
+    return isTruncated;
+  }
+
   /**
    * Get the class names to apply to the component.
    * @method classNames

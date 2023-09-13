@@ -8,5 +8,5 @@
       class="hds-dropdown-list-item__copy-item-title hds-typography-body-100 hds-font-weight-semibold"
     >{{@copyItemTitle}}</div>
   {{/if}}
-  <Hds::Copy::Snippet @textToCopy={{this.text}} @isTruncated={{@isTruncated}} />
+  <Hds::Copy::Snippet @color="secondary" @textToCopy={{this.text}} @isTruncated={{this.isTruncated}} />
 </li>
