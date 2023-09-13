@@ -38,7 +38,7 @@
 
     <Hds::AppFooter>
       <:listItems>
-        <Hds::AppFooter::LegalLinks @termsUrl="www.myco.com" />
+        <Hds::AppFooter::LegalLinks />
         <Hds::AppFooter::Copyright />
       </:listItems>
     </Hds::AppFooter>
@@ -49,7 +49,7 @@
       <:listItems>
         <Hds::AppFooter::StatusLink @status="operational" />
         <Hds::AppFooter::Link @href="https://cloud.hashicorp.com/docs/changelog">Changelog</Hds::AppFooter::Link>
-        <Hds::AppFooter::LegalLinks @termsUrl="www.myco.com" />
+        <Hds::AppFooter::LegalLinks />
         <Hds::AppFooter::Copyright />
       </:listItems>
     </Hds::AppFooter>
@@ -116,5 +116,27 @@
         </ul>
       </SF.Item>
     </Shw::Flex>
+
+    <Shw::Text::H3>Hds::AppFooter::LegalLinks</Shw::Text::H3>
+
+    <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
+      <SF.Item @label="with default url for “Terms” link">
+        <ul class="hds-app-footer__list">
+          <Hds::AppFooter::LegalLinks />
+        </ul>
+      </SF.Item>
+
+      <SF.Item @label="with custom url for “Terms” link">
+        <ul class="hds-app-footer__list">
+          <Hds::AppFooter::LegalLinks @termsUrl="https://www.terraform.io/tfc-terms" />
+        </ul>
+      </SF.Item>
+    </Shw::Flex>
+
+    <Shw::Text::H3>Hds::AppFooter::Copyright</Shw::Text::H3>
+
+    <ul class="hds-app-footer__list">
+      <Hds::AppFooter::Copyright />
+    </ul>
   </div>
 </section>
