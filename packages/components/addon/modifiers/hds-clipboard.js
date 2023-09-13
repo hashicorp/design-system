@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Modifier from 'ember-modifier';
+import { modifier } from 'ember-modifier';
 import { assert } from '@ember/debug';
 
 export const getTextToCopy = (text) => {
@@ -126,55 +126,39 @@ export const copyToClipboard = async (text, target) => {
   return success;
 };
 
-export default class HdsClipboardModifier extends Modifier {
-  didSetup = false;
+// Notice: we use a function-based modifier here instead of a class-based one
+// because it's quite simple in its logic, and doesn't require injecting services
+// see: https://github.com/ember-modifier/ember-modifier#function-based-modifiers
 
-  modify(element, positional, named) {
-    assert(
-      '`hds-clipboard` modifier - the modifier must be applied to an element',
-      element
-    );
+export default modifier((element, positional, named) => {
+  assert(
+    '`hds-clipboard` modifier - the modifier must be applied to an element',
+    element
+  );
 
-    const { text, target, onSuccess, onError } = named;
-    this.text = text;
-    this.target = target;
-    this.onSuccess = onSuccess;
-    this.onError = onError;
+  const { text, target, onSuccess, onError } = named;
 
-    if (!this.didSetup) {
-      this.#listenClick(element);
-      this.didSetup = true;
-    }
-  }
-
-  // add a "click" event listener to the element
-  #listenClick(element) {
-    this.listener = element.addEventListener('click', (e) => this.#onClick(e));
-  }
-
-  // defines a new `copyToClipboard` action on each click event
-  async #onClick(event) {
+  const onClick = async (event) => {
     const trigger = event.currentTarget;
-    const success = await copyToClipboard(this.text, this.target);
+    const success = await copyToClipboard(text, target);
 
     // fire the `onSuccess/onError` callbacks (if provided)
-    const args = {
-      triggger: trigger,
-      text: this.text,
-      target: this.target,
-    };
     if (success) {
-      if (typeof this.onSuccess === 'function') {
-        this.onSuccess(args);
+      if (typeof onSuccess === 'function') {
+        onSuccess({ trigger, text, target });
       }
     } else {
-      if (typeof this.onError === 'function') {
-        this.onError(args);
+      if (typeof onError === 'function') {
+        onError({ trigger, text, target });
       }
     }
-  }
+  };
 
-  willDestroy() {
-    this.listener.destroy();
-  }
-}
+  // add the "onClick" event listener to the element
+  element.addEventListener('click', onClick);
+
+  // this (teardown) function is run when the element is removed
+  return () => {
+    element.removeEventListener('click', onClick);
+  };
+});
