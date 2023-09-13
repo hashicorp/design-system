@@ -16,33 +16,42 @@
       layout highlight
     </button>
 
-    <Shw::Text::H3>With only the default content</Shw::Text::H3>
-
-    <Hds::AppFooter />
-
-    <Shw::Text::H3>With generic custom “link” content</Shw::Text::H3>
+    <Shw::Text::H3>With only generic content</Shw::Text::H3>
 
     <Hds::AppFooter>
-      <:linksBefore>
-        <Hds::AppFooter::Item>
-          <Shw::Placeholder @height="2em" @text="linksBefore" @background="#e4e4e4" />
-        </Hds::AppFooter::Item>
-      </:linksBefore>
+      <:topContent>
+        <Shw::Placeholder @height="2em" @text="top content" @background="#e4e4e4" />
+      </:topContent>
 
-      <:linksAfter>
+      <:listItems>
         <Hds::AppFooter::Item>
-          <Shw::Placeholder @height="2em" @text="LinksAfter" @background="#e4e4e4" />
+          <Shw::Placeholder @height="2em" @text="list item" @background="#e4e4e4" />
         </Hds::AppFooter::Item>
-      </:linksAfter>
+      </:listItems>
+
+      <:bottomContent>
+        <Shw::Placeholder @height="2em" @text="bottom content" @background="#e4e4e4" />
+      </:bottomContent>
+    </Hds::AppFooter>
+
+    <Shw::Text::H3>With minimal recommended content</Shw::Text::H3>
+
+    <Hds::AppFooter>
+      <:listItems>
+        <Hds::AppFooter::LegalLinks @termsUrl="www.myco.com" />
+        <Hds::AppFooter::Copyright />
+      </:listItems>
     </Hds::AppFooter>
 
     <Shw::Text::H3>With typical custom content</Shw::Text::H3>
 
     <Hds::AppFooter>
-      <:linksBefore>
+      <:listItems>
         <Hds::AppFooter::StatusLink @status="operational" />
         <Hds::AppFooter::Link @href="https://cloud.hashicorp.com/docs/changelog">Changelog</Hds::AppFooter::Link>
-      </:linksBefore>
+        <Hds::AppFooter::LegalLinks @termsUrl="www.myco.com" />
+        <Hds::AppFooter::Copyright />
+      </:listItems>
     </Hds::AppFooter>
 
     <Shw::Divider />

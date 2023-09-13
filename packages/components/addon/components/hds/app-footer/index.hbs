@@ -4,20 +4,11 @@
 }}
 
 <div class={{this.classNames}} ...attributes>
+  {{yield to="topContent"}}
+
   <ul class="hds-app-footer__list">
-    {{yield to="linksBefore"}}
-
-    <Hds::AppFooter::Link @href="https://www.hashicorp.com/support">Support</Hds::AppFooter::Link>
-    <Hds::AppFooter::Link @href="https://portal.cloud.hashicorp.com/terms-of-service">Terms</Hds::AppFooter::Link>
-    <Hds::AppFooter::Link @href="https://www.hashicorp.com/privacy">Privacy</Hds::AppFooter::Link>
-    <Hds::AppFooter::Link @href="https://www.hashicorp.com/security">Security</Hds::AppFooter::Link>
-    <Hds::AppFooter::Link @href="mailto:accessibility@hashicorp.com">Accessibility Support</Hds::AppFooter::Link>
-
-    {{yield to="linksAfter"}}
-
-    <Hds::AppFooter::Item class="hds-app-footer__item--copyright"><FlightIcon @name="hashicorp" />
-      © 2023 HashiCorp</Hds::AppFooter::Item>
+    {{yield to="listItems"}}
   </ul>
-</div>
 
-{{! NOTE: DOM, nested component choices, class names, & styling are still in flux}}
+  {{yield to="bottomContent"}}
+</div>
