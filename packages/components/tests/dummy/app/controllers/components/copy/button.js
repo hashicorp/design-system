@@ -61,4 +61,17 @@ export default class CopyButtonController extends Controller {
   deactivateModal() {
     this.isModalActive = false;
   }
+
+  // DEBUG
+  // uncomment these if you need to debug the `onSuccess/onError` callback methods
+
+  // @action
+  // onSuccess({ trigger, text, target }) {
+  //   console.log('onSuccess invoked in the controller', trigger, text, target);
+  // }
+
+  // @action
+  // onError({ trigger, text, target }) {
+  //   console.log('onError invoked in the controller', trigger, text, target);
+  // }
 }
