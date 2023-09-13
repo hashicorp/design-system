@@ -3,10 +3,11 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
+{{! TODO: use new Text component? }}
 <Hds::AppFooter::Item>
   {{! Q: Use Hds::Interactive for link or just Link::Inline? }}
   <Hds::Link::Inline
-    class="hds-app-footer__link"
+    class="hds-app-footer__link hds-typography-body-200"
     @color="secondary"
     @route={{@route}}
     @models={{hds-link-to-models @model @models}}
