@@ -47,6 +47,10 @@ export default class HdsAppFooterStatusLinkComponent extends Component {
     return this.args.text ?? STATUSES[this.status.toUpperCase()].text;
   }
 
+  get linkUrl() {
+    return this.args.linkUrl ?? 'https://status.hashicorp.com';
+  }
+
   /**
    * Get the class names to apply to the component.
    * @method classNames

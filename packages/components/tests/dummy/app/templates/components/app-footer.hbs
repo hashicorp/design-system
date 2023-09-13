@@ -105,12 +105,13 @@
         </ul>
       </SF.Item>
 
-      <SF.Item @label="with custom icon, color, and text">
+      <SF.Item @label="with custom icon, color, text, and link url">
         <ul class="hds-app-footer__list">
           <Hds::AppFooter::StatusLink
             @status="operational"
             @statusIcon="waypoint"
             @statusIconColor="var(--token-color-waypoint-brand)"
+            @linkUrl="https://www.hashicorp.com/products/waypoint"
             @text="Waypoint"
           />
         </ul>
