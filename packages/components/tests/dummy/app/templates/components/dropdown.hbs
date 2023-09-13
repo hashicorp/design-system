@@ -540,8 +540,17 @@
   <Shw::Text::H4>Content</Shw::Text::H4>
 
   <Shw::Flex as |SF|>
-    <SF.Item @label="Base">
+    <SF.Item @label="With short text">
       {{! Notice: we want to emulate the case of a fixed width list }}
+      {{! template-lint-disable no-inline-styles }}
+      <div class="hds-dropdown__content" style="width: 250px">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::CopyItem @text="Lorem ipsum" />
+        </ul>
+      </div>
+      {{! template-lint-enable no-inline-styles }}
+    </SF.Item>
+    <SF.Item @label="With long text">
       {{! template-lint-disable no-inline-styles }}
       <div class="hds-dropdown__content" style="width: 250px">
         <ul class="hds-dropdown__list">
@@ -550,7 +559,33 @@
       </div>
       {{! template-lint-enable no-inline-styles }}
     </SF.Item>
-    <SF.Item @label="With copyItemTitle defined">
+    <SF.Item @label="With long text + isTruncated=false">
+      {{! template-lint-disable no-inline-styles }}
+      <div class="hds-dropdown__content" style="width: 250px">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::CopyItem
+            @copyItemTitle="Lorem ipsum dolor"
+            @text="91ee1e8ef65b337f0e70d793f456c71d"
+            @isTruncated={{false}}
+          />
+        </ul>
+      </div>
+      {{! template-lint-enable no-inline-styles }}
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Short text + copyItemTitle">
+      {{! Notice: we want to emulate the case of a fixed width list }}
+      {{! template-lint-disable no-inline-styles }}
+      <div class="hds-dropdown__content" style="width: 250px">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::CopyItem @copyItemTitle="Lorem ipsum dolor" @text="Lorem ipsum" />
+        </ul>
+      </div>
+      {{! template-lint-enable no-inline-styles }}
+    </SF.Item>
+    <SF.Item @label="Long text + copyItemTitle">
       {{! template-lint-disable no-inline-styles }}
       <div class="hds-dropdown__content" style="width: 250px">
         <ul class="hds-dropdown__list">
@@ -562,14 +597,14 @@
       </div>
       {{! template-lint-enable no-inline-styles }}
     </SF.Item>
-    <SF.Item @label="With isTruncated">
+    <SF.Item @label="Long text + copyItemTitle + isTruncated=false">
       {{! template-lint-disable no-inline-styles }}
       <div class="hds-dropdown__content" style="width: 250px">
         <ul class="hds-dropdown__list">
           <Hds::Dropdown::ListItem::CopyItem
             @copyItemTitle="Lorem ipsum dolor"
             @text="91ee1e8ef65b337f0e70d793f456c71d"
-            @isTruncated={{true}}
+            @isTruncated={{false}}
           />
         </ul>
       </div>
@@ -596,7 +631,7 @@
       </div>
       {{! template-lint-enable no-inline-styles }}
     </SF.Item>
-    <SF.Item @label="With copyItemTitle defined">
+    <SF.Item @label="With copyItemTitle">
       {{! Notice: we want to emulate the case of a fixed width list }}
       {{! template-lint-disable no-inline-styles }}
       <div class="hds-dropdown__content" style="width: 250px">
@@ -613,7 +648,7 @@
       </div>
       {{! template-lint-enable no-inline-styles }}
     </SF.Item>
-    <SF.Item @label="With copyItemTitle & isTruncated">
+    <SF.Item @label="With copyItemTitle + isTruncated=false">
       {{! Notice: we want to emulate the case of a fixed width list }}
       {{! template-lint-disable no-inline-styles }}
       <div class="hds-dropdown__content" style="width: 250px">
@@ -622,7 +657,7 @@
             <Hds::Dropdown::ListItem::CopyItem
               @text="{{state}}: fbrct1ed-fgr35h-tyng89-wed4r"
               @copyItemTitle="Lorem ipsumy dolor"
-              @isTruncated={{true}}
+              @isTruncated={{false}}
               mock-state-value={{state}}
               mock-state-selector="button"
             />
