@@ -20,10 +20,10 @@ Figma file: [if it applies]
 
 ***
 
-### 👀 Reviewer's checklist:
+### 👀 Component checklist
 
-- [ ] +1 Percy if applicable
-- [ ] Confirm that PR has a changelog update via [Changesets](https://github.com/changesets/changesets) if needed
-- [ ] Confirm that A11y tests have been run locally for this component
+- [ ] Percy was checked for any visual regression
+- [ ] A11y tests have been run locally
+- [ ] A changelog entry was added via [Changesets](https://github.com/changesets/changesets) if needed
 
 :speech_balloon: Please consider using [conventional comments](https://conventionalcomments.org/) when reviewing this PR.
