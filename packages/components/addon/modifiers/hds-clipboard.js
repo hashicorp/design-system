@@ -39,7 +39,7 @@ export const getTargetElement = (target) => {
       );
       return;
     }
-  } else if (target instanceof Node && target.nodeType === 1) {
+  } else if (target instanceof Node && target.nodeType === Node.ELEMENT_NODE) {
     targetElement = target;
   } else {
     if (target instanceof NodeList) {
@@ -57,7 +57,10 @@ export const getTargetElement = (target) => {
 
 export const getTextToCopyFromTargetElement = (targetElement) => {
   let textToCopy;
-  if (targetElement instanceof Node && targetElement.nodeType === 1) {
+  if (
+    targetElement instanceof Node &&
+    targetElement.nodeType === Node.ELEMENT_NODE
+  ) {
     if (
       targetElement instanceof HTMLInputElement || // targetElement.nodeName === 'INPUT' ||
       targetElement instanceof HTMLTextAreaElement || // targetElement.nodeName === 'TEXTAREA' ||
@@ -150,8 +153,8 @@ export default class HdsClipboardModifier extends Modifier {
   }
 
   // defines a new `copyToClipboard` action on each click event
-  async #onClick(e) {
-    const trigger = e.delegateTarget || e.currentTarget;
+  async #onClick(event) {
+    const trigger = event.currentTarget;
     const success = await copyToClipboard(this.text, this.target);
 
     // fire the `onSuccess/onError` callbacks (if provided)
