@@ -4,7 +4,7 @@
  */
 
 import { modifier } from 'ember-modifier';
-import { assert } from '@ember/debug';
+import { assert, warn } from '@ember/debug';
 
 export const getTextToCopy = (text) => {
   let textToCopy;
@@ -97,8 +97,9 @@ export const writeTextToClipboard = async (textToCopy) => {
       return true;
     } catch (error) {
       // clipboard write failed
-      console.log(
-        '`hds-clipboard` modifier - an error occurred while writing to the clipboard - check your browser permissions',
+      // this probably never happens (see comment above) or happens only for very old browsers that don't for which `navigator.clipboard` is undefined
+      warn(
+        'copy action failed, please check your browser‘s permissions',
         textToCopy,
         error
       );
