@@ -3,8 +3,8 @@
 ### When to use
 
 - To trigger an action or event, like a form submission.
-- For links that require more prominence, such as CTAs (calls-to-action), see [Links in Buttons](/components/button#links-in-buttons).
-- For links that are part of an [inverse button group](/patterns/button-organization#grouping), see [Links in Buttons](/components/button#links-in-buttons).
+- For links that require more prominence, such as CTAs (calls-to-action), see [Links as Buttons](/components/button#links-as-buttons).
+- For links that are part of an [inverse button group](/patterns/button-organization#grouping), see [Links as Buttons](/components/button#links-as-buttons).
 
 ### When not to use
 
@@ -116,14 +116,14 @@ Use `external-link` when using the Button for external links. In most cases, con
 
 <Hds::Button @color="secondary" @text="Authenticate with GitHub" @icon="external-link" @iconPosition="trailing" @href="https://hashicorp.com" />
 
-## Links in Buttons
+## Links as Buttons
 
 !!! Insight
 
 While we support using links within buttons, please strive for the correct semantic use. Learn more about [how semantic use helps make our products more conformant](/components/button?tab=accessibility#button-vs-link).
 !!!
 
-The Button component accepts an `@href` or `@route` argument, which results in a link with the visual appearance of a button. While we advise against this approach because it can cause confusion for keyboard-only users, there are a few instances where this may be appropriate for improved visual hierarchy, such as:
+The Button component accepts an `@href` or `@route` argument, which results in a link with the visual appearance of a button. While in general, we advise against this approach because it can cause confusion for keyboard-only users, there are a few instances where this may be appropriate for improved visual hierarchy, such as:
 
 For links that require more prominence and CTAs (calls-to-action).
 
@@ -132,7 +132,7 @@ For links that require more prominence and CTAs (calls-to-action).
 <Hds::Alert @type="inline" @color="neutral" as |A|>
   <A.Title>Modifying user permissions</A.Title>
   <A.Description>
-    This page displays all users in the organization that have permissions in this project. A user must be invited to the org first before you can change the user’s role at the project level.
+    This page displays all users in the organization who have permissions in this project. A user must be invited to the org first before you can change the user’s role at the project level.
   </A.Description>
   <A.Button @text="Go to HCP Design Sandbox" @color="secondary" @href="#" />
   <A.Link::Standalone @text="View documentation" @color="primary" @icon="docs-link" @iconPosition="trailing" @href="#" />

@@ -99,7 +99,7 @@ Read the Ember.js guides for more information: [Patterns for Actions](https://gu
 
 !!! Insight
 
-While we support using links within buttons, please strive for the correct semantic use. Learn more about [how semantic use helps make our products more conformant](/components/button?tab=accessibility#button-vs-link).
+While we support using links as buttons, please strive for the correct semantic use. Learn more about [how semantic use helps make our products more conformant](/components/button?tab=accessibility#button-vs-link).
 
 The `Hds::Button` component uses the generic `Hds::Interactive` component. For more details about how this utility component works, please refer to [its documentation page](/utilities/interactive).
 !!!
