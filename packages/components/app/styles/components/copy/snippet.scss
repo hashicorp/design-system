@@ -97,8 +97,13 @@
   max-width: 100%;
 }
 
-.hds-copy-snippet__text--truncated {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+.hds-copy-snippet--is-truncated {
+  width: 100%;
+  max-width: 100%;
+
+  .hds-copy-snippet__text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 }

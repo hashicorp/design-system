@@ -8,11 +8,7 @@
   {{hds-clipboard text=@textToCopy onSuccess=this.onSuccess onError=this.onError}}
   ...attributes
 >
-  <Hds::Text::Code
-    class="hds-copy-snippet__text {{if @isTruncated 'hds-copy-snippet__text--truncated'}}"
-    @tag="span"
-    @size="100"
-  >
+  <Hds::Text::Code class="hds-copy-snippet__text" @tag="span" @size="100">
     {{@textToCopy}}
   </Hds::Text::Code>
   <FlightIcon @name={{this.icon}} class="hds-copy-snippet__icon" />

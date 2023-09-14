@@ -88,6 +88,11 @@ export default class HdsCopySnippetIndexComponent extends Component {
     // add a class based on the tracked status (idle/success/error)
     classes.push(`hds-copy-snippet--status-${this.status}`);
 
+    // add a class based on the @isTruncated argument
+    if (this.isTruncated) {
+      classes.push('hds-copy-snippet--is-truncated');
+    }
+
     // add a class based on the @isFullWidth argument
     if (this.isFullWidth) {
       classes.push('hds-copy-snippet--width-full');
