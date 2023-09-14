@@ -14,6 +14,11 @@ export default class GridItemComponent extends Component {
       classes.push('shw-grid__item--grow');
     }
 
+    // add a class based on the @forceMinWidth argument
+    if (this.args.forceMinWidth === true) {
+      classes.push('shw-grid__item--force-min-width');
+    }
+
     return classes.join(' ');
   }
 }
