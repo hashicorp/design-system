@@ -15,11 +15,8 @@
   gap: 8px;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
   padding: 6px 4px;
-  white-space: normal;
   text-align: left;
-  overflow-wrap: anywhere;
   border: 1px solid transparent;
   border-radius: 5px;
   cursor: pointer;
@@ -89,7 +86,6 @@
 
 .hds-copy-snippet__text {
   flex: 1 0 0;
-  max-width: calc(100% - 24px);
 }
 
 .hds-copy-snippet__icon {
@@ -97,11 +93,8 @@
 }
 
 .hds-copy-snippet--width-full {
-  justify-content: center;
-
-  .hds-copy-snippet__text {
-    flex: 0 0 auto;
-  }
+  width: 100%;
+  max-width: 100%;
 }
 
 .hds-copy-snippet__text--truncated {
