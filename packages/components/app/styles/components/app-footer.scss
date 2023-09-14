@@ -15,6 +15,12 @@
 
 // NOTE: Styles are for dev purposes currently, visual designs are NOT final
 .hds-app-footer {
+  // testing
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: flex-end;
+
   padding: 24px;
   color: var(--token-app-footer-text-color);
   border-top: 1px solid var(--token-app-footer-border-color);
@@ -26,6 +32,7 @@
   gap: 24px;
   align-items: center;
   justify-content: flex-end;
+  width: max-content; // testing
   margin: 0;
   padding: 0;
 }
