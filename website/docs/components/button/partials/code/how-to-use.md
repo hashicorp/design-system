@@ -97,16 +97,14 @@ Read the Ember.js guides for more information: [Patterns for Actions](https://gu
 
 ### Links
 
-!!! Insight
-
-While we support using links as buttons, please strive for the correct semantic use. Learn more about [how semantic use helps make our products more conformant](/components/button?tab=accessibility#button-vs-link).
-
-The `Hds::Button` component uses the generic `Hds::Interactive` component. For more details about how this utility component works, please refer to [its documentation page](/utilities/interactive).
-!!!
-
 You can generate a link with the visual appearance of a button, by passing an `@href` or a `@route` argument to the component.
 
 If you’re passing an `@href` or a `@route` argument to the component, this will generate an `<a>` link, not a `<button>`. In this case, no `type` is needed.
+
+!!! Info
+
+The `Hds::Button` component uses the generic `Hds::Interactive` component. For more details about how this utility component works, please refer to [its documentation page](/utilities/interactive).
+!!!
 
 #### With @href
 

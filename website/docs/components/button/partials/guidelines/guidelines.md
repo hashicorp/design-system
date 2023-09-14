@@ -118,11 +118,6 @@ Use `external-link` when using the Button for external links. In most cases, con
 
 ## Links as Buttons
 
-!!! Insight
-
-While we support using links within buttons, please strive for the correct semantic use. Learn more about [how semantic use helps make our products more conformant](/components/button?tab=accessibility#button-vs-link).
-!!!
-
 The Button component accepts an `@href` or `@route` argument, which results in a link with the visual appearance of a button. While in general, we advise against this approach because it can cause confusion for keyboard-only users, there are a few instances where this may be appropriate for improved visual hierarchy, such as:
 
 For links that require more prominence and CTAs (calls-to-action).
@@ -144,6 +139,8 @@ For links that are part of an [inverse button group](/patterns/button-organizati
   <Hds::Button @color="primary" @text="Submit" />
   <Hds::Button @color="secondary" @text="Cancel" @href="#" />
 </Hds::ButtonSet>
+
+Learn more about [how semantic use helps make our products more conformant](/components/button?tab=accessibility#button-vs-link).
 
 ## Button set
 
