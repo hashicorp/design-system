@@ -17,7 +17,6 @@
 .hds-app-footer {
   padding: 24px;
   color: var(--token-app-footer-text-color);
-  text-align: center;
   border-top: 1px solid var(--token-app-footer-border-color);
 }
 
@@ -26,7 +25,7 @@
   flex-wrap: wrap;
   gap: 24px;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   margin: 0;
   padding: 0;
 }
