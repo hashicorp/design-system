@@ -144,7 +144,7 @@ Learn more about [how semantic use helps make our products more conformant](/com
 
 ## Button set
 
-ButtonSet is a layout component that provides proper spacing between multiple Buttons. Refer to the [ButtonSet](/components/button-set) documentation to learn more. ButtonSet is only available in code.
+ButtonSet is a layout component that provides consistent spacing between multiple Buttons. Refer to the [ButtonSet](/components/button-set) documentation to learn more. ButtonSet is only available in code.
 
 <Hds::ButtonSet>
   <Hds::Button @color="primary" @text="Edit cluster" />
