@@ -129,7 +129,7 @@ You can explicitly control the height or width of a list. Any acceptable value (
 Note: The `@height` argument actually sets a `max-height` which prevents the list from growing past a certain height.
 
 ```handlebars
-<Hds::Dropdown @isInline={{true}} @height="250px" @width="250px" as |dd|>
+<Hds::Dropdown @isInline={{true}} @height="170px" @width="250px" as |dd|>
   <dd.ToggleButton @text="Text Toggle" />
   <dd.Interactive @route="components" @text="Item One" />
   <dd.Interactive @route="components" @text="Item Two" />
