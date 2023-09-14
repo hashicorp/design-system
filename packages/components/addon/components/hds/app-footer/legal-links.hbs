@@ -3,8 +3,20 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<Hds::AppFooter::Link @href="https://www.hashicorp.com/support">Support</Hds::AppFooter::Link>
-<Hds::AppFooter::Link @href={{this.termsUrl}}>Terms</Hds::AppFooter::Link>
-<Hds::AppFooter::Link @href="https://www.hashicorp.com/privacy">Privacy</Hds::AppFooter::Link>
-<Hds::AppFooter::Link @href="https://www.hashicorp.com/security">Security</Hds::AppFooter::Link>
-<Hds::AppFooter::Link @href="mailto:accessibility@hashicorp.com">Accessibility Support</Hds::AppFooter::Link>
+<Hds::AppFooter::Link
+  @href="https://www.hashicorp.com/support"
+  class="hds-app-footer__link--support"
+>Support</Hds::AppFooter::Link>
+<Hds::AppFooter::Link @href={{this.termsUrl}} class="hds-app-footer__link--terms">Terms</Hds::AppFooter::Link>
+<Hds::AppFooter::Link
+  @href="https://www.hashicorp.com/privacy"
+  class="hds-app-footer__link--privacy"
+>Privacy</Hds::AppFooter::Link>
+<Hds::AppFooter::Link
+  @href="https://www.hashicorp.com/security"
+  class="hds-app-footer__link--security"
+>Security</Hds::AppFooter::Link>
+<Hds::AppFooter::Link
+  @href="mailto:accessibility@hashicorp.com"
+  class="hds-app-footer__link--accessibility"
+>Accessibility Support</Hds::AppFooter::Link>
