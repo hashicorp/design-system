@@ -126,6 +126,8 @@ In contexts where the Dropdown needs to be _inline_, to inherit the alignment fr
 
 You can explicitly control the height or width of a list. Any acceptable value (px, rem, em) can be declared:
 
+Note: The height property actually sets a max-height which prevents the list from growing past a certain height.
+
 ```handlebars
 <Hds::Dropdown @isInline={{true}} @height="250px" @width="250px" as |dd|>
   <dd.ToggleButton @text="Text Toggle" />

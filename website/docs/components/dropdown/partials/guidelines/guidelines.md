@@ -154,7 +154,7 @@ If you do not want the width of the List to expand automatically to accommodate 
 
 #### Height
 
-The height of the ListContainer is automatically determined based on the contents, but the height can also be set manually. We recommend setting the height manually if you know the list will be long.  
+The height of the ListContainer is automatically determined based on the contents, but the height can also be set manually. We recommend setting the height manually if you know the list will be long. In code, the height property actually acts as a max-height.
 
 <div class="hds-dropdown__content" style="height: 275px">
   <Doc::ListContainer class="hds-dropdown__list">
