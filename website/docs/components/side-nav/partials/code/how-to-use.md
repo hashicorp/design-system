@@ -138,7 +138,7 @@ Here is an example of some possible actions:
         </:logo>
         <:actions>
           <Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" />
-          <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
+          <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="bottom-left" as |dd|>
             <dd.ToggleIcon @icon="help" @text="settings menu" />
             <dd.Title @text="Help & Support" />
             <dd.Interactive @text="Documentation" @href="#" />
@@ -149,7 +149,7 @@ Here is an example of some possible actions:
             <dd.Interactive @text="Create support ticket" @href="#" />
             <dd.Interactive @text="Give feedback" @href="#" />
           </Hds::Dropdown>
-          <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
+          <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="bottom-left" as |dd|>
             <dd.ToggleIcon @icon="user" @text="user menu" />
             <dd.Title @text="Signed In" />
             <dd.Description @text="email@domain.com" />
@@ -277,7 +277,7 @@ but in your app they will probably need to be set to `true` (or omitted to rely 
           <Hds::SideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
         </:logo>
         <:actions>
-          <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
+          <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="bottom-left" as |dd|>
             <dd.ToggleIcon @icon="help" @text="help menu" />
             <dd.Title @text="Help & Support" />
             <dd.Interactive @text="Documentation" @href="#" />
@@ -288,7 +288,7 @@ but in your app they will probably need to be set to `true` (or omitted to rely 
             <dd.Interactive @text="Create support ticket" @href="#" />
             <dd.Interactive @text="Give feedback" @href="#" />
           </Hds::Dropdown>
-          <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
+          <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="bottom-left" as |dd|>
             <dd.ToggleIcon @icon="user" @text="user menu" />
             <dd.Title @text="Signed In" />
             <dd.Description @text="email@domain.com" />
