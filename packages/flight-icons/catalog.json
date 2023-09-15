@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2023-08-30T18:49:39.787Z",
+  "lastRunTimeISO": "2023-09-14T21:10:56.706Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -2491,6 +2491,42 @@
       "fileName": "vault-color-16",
       "iconName": "vault-color",
       "description": "vault",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "4615:67",
+      "fileName": "vault-secrets-24",
+      "iconName": "vault-secrets",
+      "description": "vault secrets, hcp vault secrets",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "4615:72",
+      "fileName": "vault-secrets-16",
+      "iconName": "vault-secrets",
+      "description": "vault secrets, hcp vault secrets",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "4615:80",
+      "fileName": "vault-secrets-color-24",
+      "iconName": "vault-secrets-color",
+      "description": "vault secrets, hcp vault secrets",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "4615:85",
+      "fileName": "vault-secrets-color-16",
+      "iconName": "vault-secrets-color",
+      "description": "vault secrets, hcp vault secrets",
       "size": "16",
       "width": 16,
       "height": 16
