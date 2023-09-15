@@ -18,6 +18,7 @@ export const PRODUCTS = [
   'terraform',
   'vagrant',
   'vault',
+  'vault-secrets',
   'waypoint',
 ];
 export const COLORS = ['neutral', ...PRODUCTS];
