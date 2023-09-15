@@ -83,6 +83,23 @@
 
 // "TYPE" CUSTOMIZATION
 
+.hds-form-text-input__wrapper {
+  position: relative;
+  width: 100%;
+}
+
+// PASSWORD
+
+.hds-form-text-input--has-visibility-toggle {
+  padding-right: calc(var(--token-form-control-padding) + 24px);
+}
+
+.hds-form-text-input__visibility-toggle {
+  position: absolute;
+  top: calc(var(--token-form-control-padding) - var(--token-form-control-border-width));
+  right: calc(var(--token-form-control-padding) - var(--token-form-control-border-width));
+}
+
 .hds-form-text-input {
 
   // DATE/TIME

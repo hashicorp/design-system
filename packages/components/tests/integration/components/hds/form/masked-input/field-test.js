@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, resetOnerror } from '@ember/test-helpers';
+import { click, render, resetOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module(
@@ -139,6 +139,62 @@ module(
       );
       assert.dom('input').hasAttribute('required');
       assert.dom('label .hds-form-indicator').doesNotExist();
+    });
+
+    // ACCESSIBILITY
+
+    test('it automatically provides the ID relations between the elements', async function (assert) {
+      await render(
+        hbs`<Hds::Form::MaskedInput::Field @id="test-form-masked-input" />`
+      );
+      assert
+        .dom('.hds-form-visibility-toggle')
+        .hasAttribute('aria-controls', 'test-form-masked-input');
+    });
+
+    test('it updates the button label on toggle', async function (assert) {
+      await render(
+        hbs`<Hds::Form::MaskedInput::Field @id="test-form-masked-input" />`
+      );
+      assert
+        .dom('.hds-form-visibility-toggle')
+        .hasAttribute('aria-label', 'Show masked content');
+      await click('.hds-form-visibility-toggle');
+      assert
+        .dom('.hds-form-visibility-toggle')
+        .hasAttribute('aria-label', 'Hide masked content');
+    });
+
+    test('it renders a custom toggle button label', async function (assert) {
+      await render(
+        hbs`<Hds::Form::MaskedInput::Field @id="test-form-masked-input" @visibilityToggleAriaLabel="Show my masked content" />`
+      );
+      assert
+        .dom('.hds-form-visibility-toggle')
+        .hasAttribute('aria-label', 'Show my masked content');
+    });
+
+    test('it informs the user about visibility change on toggle', async function (assert) {
+      await render(
+        hbs`<Hds::Form::MaskedInput::Field @id="test-form-masked-input" />`
+      );
+      await click('.hds-form-visibility-toggle');
+      assert
+        .dom('.hds-form-visibility-toggle')
+        .hasText('Input content is visible');
+      await click('.hds-form-visibility-toggle');
+      assert
+        .dom('.hds-form-visibility-toggle')
+        .hasText('Input content is hidden');
+    });
+
+    test('it renders a custom message on toggle', async function (assert) {
+      await render(
+        hbs`<Hds::Form::MaskedInput::Field @id="test-form-masked-input" @visibilityToggleAriaMessageText="My input content is visible" />`
+      );
+      assert
+        .dom('.hds-form-visibility-toggle')
+        .hasText('My input content is visible');
     });
   }
 );

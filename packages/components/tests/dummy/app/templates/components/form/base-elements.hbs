@@ -576,4 +576,22 @@
     {{/let}}
   </div>
 
+  {{! ###################### }}
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Visibility toggle</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="On">
+      <Shw::Outliner>
+        <Hds::Form::VisibilityToggle @isVisible={{true}} />
+      </Shw::Outliner>
+    </SF.Item>
+    <SF.Item @label="Off">
+      <Shw::Outliner>
+        <Hds::Form::VisibilityToggle @isVisible={{false}} />
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
 </section>
