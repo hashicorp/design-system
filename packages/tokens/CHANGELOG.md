@@ -1,5 +1,13 @@
 # @hashicorp/design-system-tokens
 
+## 1.8.0
+
+### Minor Changes
+
+- [#1640](https://github.com/hashicorp/design-system/pull/1640) [`8001667d2`](https://github.com/hashicorp/design-system/commit/8001667d2b0b549b5c2743ebaa4b50b58344a87f) Thanks [@didoo](https://github.com/didoo)! - `Design tokens` - Added color tokens for “Vault Secrets” product
+
+  `IconTile` - updated component to include `vault-secrets` product option
+
 ## 1.7.0
 
 ### Minor Changes

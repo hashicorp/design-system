@@ -1,5 +1,11 @@
 # @hashicorp/flight-icons
 
+## 2.19.0
+
+### Minor Changes
+
+- [#1638](https://github.com/hashicorp/design-system/pull/1638) [`64d1a98d3`](https://github.com/hashicorp/design-system/commit/64d1a98d36fc9c79e941929fec4b9ee6ee89ffdb) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - This PR will include the `Vault Secrets` icon.
+
 ## 2.18.0
 
 ### Minor Changes
