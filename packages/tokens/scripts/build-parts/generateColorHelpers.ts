@@ -32,7 +32,7 @@ export function generateColorHelpers(tokens: TransformedToken[]): Helpers {
                 // notice: we assume a 1px border (if a user needs a different border width, and want to use the helper, they have to apply an override)
                 helpers.push(`.${PREFIX}-${context}-${name} { border: 1px solid var(--${token.name}); }`)
             }
-        } else if (['hashicorp', 'hcp', 'boundary','consul','nomad','packer','terraform','vagrant','vault','waypoint'].includes(group)) {
+        } else if (['hashicorp', 'hcp', 'boundary','consul','nomad','packer','terraform','vagrant','vault','vault-secrets','waypoint'].includes(group)) {
             // TODO!
             // to be discussed if we want to expose all these colors as helpers
         } else if (group === 'palette') {
