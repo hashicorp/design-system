@@ -78,7 +78,18 @@
     {{#each @model.COLORS as |color|}}
       {{#each @model.STATES as |state|}}
         <SG.Item @label={{if (eq color "primary") (capitalize state)}}>
-          <Hds::Copy::Snippet @textToCopy="fbrct1ed-fgr35h-tyng89-wed4r" @color={{color}} mock-state-value={{state}} />
+          <div
+            class={{if
+              (or (eq state "default") (eq state "focus"))
+              "shw-component-copy-snippet-state-container-chequered-background"
+            }}
+          >
+            <Hds::Copy::Snippet
+              @textToCopy="fbrct1ed-fgr35h-tyng89-wed4r"
+              @color={{color}}
+              mock-state-value={{state}}
+            />
+          </div>
         </SG.Item>
       {{/each}}
       {{#let (array "success" "error") as |statuses|}}
