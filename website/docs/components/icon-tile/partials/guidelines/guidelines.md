@@ -32,6 +32,7 @@ Use a **product-specific color** for objects or pages directly related to a prod
   <Hds::IconTile @color="terraform" @icon="grid" />
   <Hds::IconTile @color="vagrant" @icon="box" />
   <Hds::IconTile @color="vault" @icon="key" />
+  <Hds::IconTile @color="vault-secrets" @icon="fingerprint" />
   <Hds::IconTile @color="waypoint" @icon="cloud-upload" />
 </Doc::Layout>
 
