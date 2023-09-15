@@ -3,7 +3,7 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<Hds::AppFooter::Link class={{this.classNames}} @href={{this.linkUrl}} ...attributes>
+<Hds::AppFooter::Link class={{this.classNames}} @href={{this.href}} ...attributes>
   {{#if this.statusIcon}}
     <FlightIcon @size="16" @name={{this.statusIcon}} @color={{this.statusIconColor}} />
   {{/if}}
