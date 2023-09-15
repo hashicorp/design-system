@@ -1,5 +1,27 @@
 # @hashicorp/design-system-components
 
+## 2.12.0
+
+### Minor Changes
+
+- [#1640](https://github.com/hashicorp/design-system/pull/1640) [`8001667d2`](https://github.com/hashicorp/design-system/commit/8001667d2b0b549b5c2743ebaa4b50b58344a87f) Thanks [@didoo](https://github.com/didoo)! - `Design tokens` - Added color tokens for “Vault Secrets” product
+
+  `IconTile` - updated component to include `vault-secrets` product option
+
+### Patch Changes
+
+- [#1615](https://github.com/hashicorp/design-system/pull/1615) [`d5d4402b2`](https://github.com/hashicorp/design-system/commit/d5d4402b2b7529d60ac693babc2a9187f8fbad36) Thanks [@didoo](https://github.com/didoo)! - `Text` - Removed leftover `console.log` from code
+
+- [#1618](https://github.com/hashicorp/design-system/pull/1618) [`4e31014d5`](https://github.com/hashicorp/design-system/commit/4e31014d503d4b71e6b70b11ba750b75c0cb2d37) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - Refactor the layout of the `Dropdown` checkbox and radio inputs to make the gap between the inputs and the associated text, as well as the icon and count, clickable.
+
+- [#1617](https://github.com/hashicorp/design-system/pull/1617) [`214f66e9e`](https://github.com/hashicorp/design-system/commit/214f66e9e8818da87e6d514b3808b40a0b7e56f5) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - Change font-weight of `Hds::Link::Standalone` from 500 to 400 to match font-weight of `Hds::Button`.
+
+- [#1628](https://github.com/hashicorp/design-system/pull/1628) [`cc15349d3`](https://github.com/hashicorp/design-system/commit/cc15349d31c698d89540897570f76a5f2dc670ce) Thanks [@didoo](https://github.com/didoo)! - `Stepper` - removed some CSS declarations that were not used/applied
+
+- Updated dependencies [[`8001667d2`](https://github.com/hashicorp/design-system/commit/8001667d2b0b549b5c2743ebaa4b50b58344a87f)]:
+  - @hashicorp/design-system-tokens@1.8.0
+  - @hashicorp/ember-flight-icons@3.1.2
+
 ## 2.11.0
 
 ### Minor Changes
