@@ -26,6 +26,7 @@ Hds::IconTile components are used in the examples below but you could use Doc::L
   <Hds::IconTile @color="terraform" @icon="grid" />
   <Hds::IconTile @color="vagrant" @icon="box" />
   <Hds::IconTile @color="vault" @icon="key" />
+  <Hds::IconTile @color="vault-secrets" @icon="fingerprint" />
   <Hds::IconTile @color="waypoint" @icon="cloud-upload" />
 </Doc::Layout>
 ```

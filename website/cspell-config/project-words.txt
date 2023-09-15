@@ -46,6 +46,7 @@ dismissibility
 terraform
 packer
 vault
+vault-secrets
 boundary
 consul
 nomad
