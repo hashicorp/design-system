@@ -50,6 +50,35 @@
       </:listItems>
     </Hds::AppFooter>
 
+    <Shw::Text::H3>With extra content above “links”</Shw::Text::H3>
+
+    <Hds::AppFooter>
+      <:topContent>
+        <Hds::Dropdown as |dd|>
+          <dd.ToggleButton @text="Theme" @color="secondary" @size="small" />
+          <dd.Interactive @icon="monitor" {{on "click" dd.close}} @text="System" />
+          <dd.Interactive @icon="moon" {{on "click" dd.close}} @text="Dark" />
+          <dd.Interactive @icon="sun" {{on "click" dd.close}} @text="Light" />
+        </Hds::Dropdown>
+
+        {{! <Hds::Form::Select::Field as |F|>
+          <F.Label>Theme</F.Label>
+          <F.Options>
+            <option value="system">System</option>
+            <option value="dark">Dark</option>
+            <option value="light">Light</option>
+          </F.Options>
+        </Hds::Form::Select::Field> }}
+      </:topContent>
+
+      <:listItems>
+        <Hds::AppFooter::StatusLink @status="operational" />
+        <Hds::AppFooter::Link @href="https://cloud.hashicorp.com/docs/changelog">Changelog</Hds::AppFooter::Link>
+        <Hds::AppFooter::LegalLinks />
+        <Hds::AppFooter::Copyright />
+      </:listItems>
+    </Hds::AppFooter>
+
     <Shw::Divider />
 
     <Shw::Text::H2>Base components & child components</Shw::Text::H2>

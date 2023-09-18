@@ -4,7 +4,8 @@
 }}
 
 <div class={{this.classNames}} ...attributes>
-  {{yield to="topContent"}}
+  {{! topContent structure is temporary, will be refactored when final design is ready }}
+  <div class="hds-app-footer__top-content">{{yield to="topContent"}}</div>
 
   <ul class="hds-app-footer__list">
     {{yield to="listItems"}}
