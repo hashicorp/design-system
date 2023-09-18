@@ -80,13 +80,13 @@ export default class HdsSideNavComponent extends Component {
     let classes = []; // `hds-side-nav` is already set by the "Hds::SideNav::Base" component
 
     // add specific class names for the different possible states
-    if (this.isDesktop) {
-      classes.push('hds-side-nav--is-desktop');
-    } else if (this.isResponsive) {
-      classes.push('hds-side-nav--is-mobile');
-    }
     if (this.isResponsive) {
       classes.push('hds-side-nav--is-responsive');
+    }
+    if (!this.isDesktop && this.isResponsive) {
+      classes.push('hds-side-nav--is-mobile');
+    } else {
+      classes.push('hds-side-nav--is-desktop');
     }
     if (this.isMinimized && this.isResponsive) {
       classes.push('hds-side-nav--is-minimized');
