@@ -25,6 +25,10 @@
   --hds-app-sidenav-animation-duration: 250ms;
   --hds-app-sidenav-animation-delay: var(--hds-app-sidenav-animation-duration);
   --hds-app-sidenav-animation-easing: cubic-bezier(0.65, 0, 0.35, 1);
+  // border
+  --hds-app-sidenav-border-width: 1px;
+  --hds-app-sidenav-border-color: var(--token-color-palette-neutral-500);
+  --hds-app-sidenav-border-radius: 5px;
 }
 
 // reduced motion
