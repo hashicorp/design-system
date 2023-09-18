@@ -72,8 +72,8 @@
 
 .hds-side-nav__menu-toggle-button {
   position: absolute;
-  top: -2px;
-  left: -1px;
+  top: calc(var(--hds-app-sidenav-border-width) * -1);
+  left: calc(var(--hds-app-sidenav-border-width) * -1);
   z-index: 1;
   display: block;
   width: 26px;
@@ -83,10 +83,10 @@
   text-align: right;
   background: none;
   background-color: var(--token-side-nav-color-surface-primary);
-  border: 1px solid var(--token-color-palette-neutral-500);
+  border: var(--hds-app-sidenav-border-width) solid var(--hds-app-sidenav-border-color);
   border-left-color: transparent;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-top-right-radius: var(--hds-app-sidenav-border-radius);
+  border-bottom-right-radius: var(--hds-app-sidenav-border-radius);
   transform:
     translateX(var(--hds-app-sidenav-width-expanded))
     translateY(24px);
@@ -99,30 +99,30 @@
 
   &::before {
     position: absolute;
-    top: -10px;
-    left: -1px;
+    top: calc(var(--hds-app-sidenav-border-radius) * -2);
+    left: calc(var(--hds-app-sidenav-border-width) * -1);
     z-index: -1;
-    width: 10px;
-    height: 10px;
+    width: calc(var(--hds-app-sidenav-border-radius) * 2);
+    height: calc(var(--hds-app-sidenav-border-radius) * 2);
     color: var(--token-color-foreground-high-contrast);
-    border-bottom: 1px solid var(--token-color-palette-neutral-500);
-    border-left: 1px solid var(--token-color-palette-neutral-500);
-    border-bottom-left-radius: 5px;
-    box-shadow: 0 5px 0 var(--token-side-nav-color-surface-primary);
+    border-bottom: var(--hds-app-sidenav-border-width) solid var(--hds-app-sidenav-border-color);
+    border-left: var(--hds-app-sidenav-border-width) solid var(--hds-app-sidenav-border-color);
+    border-bottom-left-radius: var(--hds-app-sidenav-border-radius);
+    box-shadow: 0 var(--hds-app-sidenav-border-radius) 0 var(--token-side-nav-color-surface-primary);
     content: "";
   }
 
   &::after {
     position: absolute;
-    bottom: -10px;
-    left: -1px;
-    width: 10px;
-    height: 10px;
+    bottom: calc(var(--hds-app-sidenav-border-radius) * -2);
+    left: calc(var(--hds-app-sidenav-border-width) * -1);
+    width: calc(var(--hds-app-sidenav-border-radius) * 2);
+    height: calc(var(--hds-app-sidenav-border-radius) * 2);
     color: var(--token-color-foreground-high-contrast);
-    border-top: 1px solid var(--token-color-palette-neutral-500);
-    border-left: 1px solid var(--token-color-palette-neutral-500);
-    border-top-left-radius: 5px;
-    box-shadow: 0 -5px 0 var(--token-side-nav-color-surface-primary);
+    border-top: var(--hds-app-sidenav-border-width) solid var(--hds-app-sidenav-border-color);
+    border-left: var(--hds-app-sidenav-border-width) solid var(--hds-app-sidenav-border-color);
+    border-top-left-radius: var(--hds-app-sidenav-border-radius);
+    box-shadow: 0 calc(var(--hds-app-sidenav-border-radius) * -1) 0 var(--token-side-nav-color-surface-primary);
     content: "";
   }
 
@@ -131,11 +131,11 @@
     background-color: var(--token-side-nav-color-surface-interactive-hover);
 
     &::before {
-      box-shadow: 0 5px 0 var(--token-side-nav-color-surface-interactive-hover);
+      box-shadow: 0 var(--hds-app-sidenav-border-radius) 0 var(--token-side-nav-color-surface-interactive-hover);
     }
 
     &::after {
-      box-shadow: 0 -5px 0 var(--token-side-nav-color-surface-interactive-hover);
+      box-shadow: 0 calc(var(--hds-app-sidenav-border-radius) * -1) 0 var(--token-side-nav-color-surface-interactive-hover);
     }
   }
 
@@ -144,11 +144,11 @@
     border-color: transparent;
 
     &::before {
-      box-shadow: 0 5px 0 var(--token-side-nav-color-surface-interactive-active);
+      box-shadow: 0 var(--hds-app-sidenav-border-radius) 0 var(--token-side-nav-color-surface-interactive-active);
     }
 
     &::after {
-      box-shadow: 0 -5px 0 var(--token-side-nav-color-surface-interactive-active);
+      box-shadow: 0 calc(var(--hds-app-sidenav-border-radius) * -1) 0 var(--token-side-nav-color-surface-interactive-active);
     }
   }
 
@@ -179,7 +179,7 @@
   height: 100%;
   color: var(--token-side-nav-color-foreground-primary); // we set a default color (in case generic content is added to the header/body/footer of the sidenav)
   background: var(--token-side-nav-color-surface-primary);
-  border-right: 1px solid var(--token-color-palette-neutral-500);
+  border-right: var(--hds-app-sidenav-border-width) solid var(--hds-app-sidenav-border-color);
 
   // RESPONSIVENESS - This controls the width of the "sidenav" container, and is independent (bur related) from the parent "sidebar" grid area
 
