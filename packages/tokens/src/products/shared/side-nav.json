@@ -9,6 +9,14 @@
         "vertical": {
           "value": "16",
           "type": "size"
+        },
+        "horizontal-minimized": {
+          "value": "8",
+          "type": "size"
+        },
+        "vertical-minimized": {
+          "value": "22",
+          "type": "size"
         }
       }
     },
@@ -20,6 +28,10 @@
         },
         "logo-size": {
           "value": "48",
+          "type": "size"
+        },
+        "logo-size-minimized": {
+          "value": "32",
           "type": "size"
         }
       },
