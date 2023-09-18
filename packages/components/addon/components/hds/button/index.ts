@@ -9,17 +9,21 @@ import { assert } from '@ember/debug';
 export const DEFAULT_SIZE = 'medium';
 export const DEFAULT_COLOR = 'primary';
 export const DEFAULT_ICONPOSITION = 'leading';
-export const SIZES = ['small', 'medium', 'large'];
-export const COLORS = ['primary', 'secondary', 'tertiary', 'critical'];
-export const ICONPOSITIONS = ['leading', 'trailing'];
+export const SIZES = ['small', 'medium', 'large'] as const;
+export const COLORS = ['primary', 'secondary', 'tertiary', 'critical'] as const;
+export const ICONPOSITIONS = ['leading', 'trailing'] as const;
+
+export type HdsButtonSize = typeof SIZES[number];
+export type HdsButtonColor = typeof COLORS[number];
+export type HdsButtonIconPosition = typeof ICONPOSITIONS[number];
 
 export interface HdsButtonSignature {
   Args: {
-    size?: 'small' | 'medium' | 'large';
-    color?: 'primary' | 'secondary' | 'tertiary' | 'critical';
+    size?: HdsButtonSize;
+    color?: HdsButtonColor;
     text: string;
     icon?: string;
-    iconPosition?: 'leading' | 'trailing';
+    iconPosition?: HdsButtonIconPosition;
     isIconOnly?: boolean;
     isFullWidth?: boolean;
     href?: string;
