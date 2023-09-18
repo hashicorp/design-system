@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 15 Sep 2023 06:10:51 GMT
+ * Generated on Mon, 18 Sep 2023 14:08:25 GMT
  */
 
 :root {
@@ -266,8 +266,11 @@
   --token-pagination-child-spacing-horizontal: 20px;
   --token-side-nav-wrapper-padding-horizontal: 16px;
   --token-side-nav-wrapper-padding-vertical: 16px;
+  --token-side-nav-wrapper-padding-horizontal-minimized: 8px;
+  --token-side-nav-wrapper-padding-vertical-minimized: 22px;
   --token-side-nav-header-home-link-padding: 4px;
   --token-side-nav-header-home-link-logo-size: 48px;
+  --token-side-nav-header-home-link-logo-size-minimized: 32px;
   --token-side-nav-header-actions-spacing: 8px;
   --token-side-nav-body-list-margin-vertical: 24px;
   --token-side-nav-body-list-item-height: 36px;
