@@ -94,7 +94,7 @@
   transition:
     transform var(--hds-app-sidenav-animation-duration)
     var(--hds-app-sidenav-animation-easing),
-    width var(--hds-app-sidenav-animation-duration)
+    width 150ms
     var(--hds-app-sidenav-animation-easing);
 
   &::before {
