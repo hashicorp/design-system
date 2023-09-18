@@ -75,10 +75,12 @@
   top: -2px;
   left: -1px;
   z-index: 1;
-  width: 24px;
+  display: block;
+  width: 26px;
   height: 36px;
-  padding: 9px 0;
+  padding: 9px 4px;
   color: var(--token-color-foreground-high-contrast);
+  text-align: right;
   background: none;
   background-color: var(--token-side-nav-color-surface-primary);
   border: 1px solid var(--token-color-palette-neutral-500);
@@ -203,6 +205,12 @@
   padding-right: var(--token-side-nav-wrapper-padding-horizontal);
   padding-bottom: 8px; // by design
   padding-left: var(--token-side-nav-wrapper-padding-horizontal);
+
+  .hds-side-nav--is-minimized & {
+    padding-top: var(--token-side-nav-wrapper-padding-vertical-minimized);
+    padding-right: var(--token-side-nav-wrapper-padding-horizontal-minimized);
+    padding-left: var(--token-side-nav-wrapper-padding-horizontal-minimized);
+  }
 }
 
 .hds-side-nav__wrapper-body {
