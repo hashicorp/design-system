@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
-interface HdsInteractiveSignature {
+export interface HdsInteractiveSignature {
   Args: {
     href?: string;
     isHrefExternal?: boolean;

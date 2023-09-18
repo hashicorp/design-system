@@ -5,6 +5,7 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import { HdsInteractiveSignature } from '../interactive';
 
 export const DEFAULT_SIZE = 'medium';
 export const DEFAULT_COLOR = 'primary';
@@ -18,7 +19,7 @@ export type HdsButtonColor = typeof COLORS[number];
 export type HdsButtonIconPosition = typeof ICONPOSITIONS[number];
 
 export interface HdsButtonSignature {
-  Args: {
+  Args: HdsInteractiveSignature['Args'] & {
     size?: HdsButtonSize;
     color?: HdsButtonColor;
     text: string;
@@ -26,17 +27,8 @@ export interface HdsButtonSignature {
     iconPosition?: HdsButtonIconPosition;
     isIconOnly?: boolean;
     isFullWidth?: boolean;
-    href?: string;
-    isHrefExternal?: boolean;
-    route?: unknown;
-    models?: unknown;
-    model?: unknown;
-    query?: unknown;
-    'current-when'?: unknown;
-    replace?: unknown;
-    isRouteExternal?: boolean;
   };
-  Element: HTMLElement;
+  Element: HdsInteractiveSignature['Element'];
 }
 
 export default class HdsButtonIndexComponent extends Component<HdsButtonSignature> {
