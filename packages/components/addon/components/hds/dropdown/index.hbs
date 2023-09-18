@@ -12,7 +12,7 @@
     }}
   </:toggle>
   <:content as |c|>
-    <div class={{this.classNamesContent}} {{style width=@width height=@height}}>
+    <div class={{this.classNamesContent}} {{style width=@width max-height=@height}}>
       {{yield (hash Header=(component "hds/dropdown/header"))}}
       <ul class="hds-dropdown__list" {{did-insert this.didInsertList}}>
         {{yield
