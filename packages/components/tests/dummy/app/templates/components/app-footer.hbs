@@ -50,7 +50,26 @@
       </:listItems>
     </Hds::AppFooter>
 
-    <Shw::Text::H3>With extra content above “links”</Shw::Text::H3>
+    <Shw::Text::H3>With custom “meta” (non-link) content</Shw::Text::H3>
+
+    <Hds::AppFooter>
+      <:listItems>
+        <Hds::AppFooter::StatusLink @status="OPERATIONAL" />
+        <Hds::AppFooter::LegalLinks />
+        <Hds::AppFooter::Item>
+          <Hds::Text::Body @tag="span" @size="100" @color="regular">v.01.15</Hds::Text::Body>
+        </Hds::AppFooter::Item>
+        <Hds::AppFooter::Item>
+          <Hds::Text::Body @tag="span" @size="100" @color="regular">Product Name</Hds::Text::Body>
+        </Hds::AppFooter::Item>
+        <Hds::AppFooter::Item>
+          <Hds::Text::Body @tag="span" @size="100" @color="regular">API: 1.02</Hds::Text::Body>
+        </Hds::AppFooter::Item>
+        <Hds::AppFooter::Copyright />
+      </:listItems>
+    </Hds::AppFooter>
+
+    <Shw::Text::H3>With extra content above listItems content</Shw::Text::H3>
 
     <Hds::AppFooter>
       <:topContent>

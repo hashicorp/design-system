@@ -8,10 +8,10 @@
 //
 
 // WIP: names, etc. may change
-:root {
-  --token-app-footer-text-color: var(--token-color-foreground-faint);
-  --token-app-footer-border-color: var(--token-color-border-primary);
-}
+// :root {
+//   --token-app-footer-text-color: var(--token-color-foreground-faint);
+//   --token-app-footer-border-color: var(--token-color-border-primary);
+// }
 
 // NOTE: Styles are for dev purposes currently, visual designs are NOT final
 .hds-app-footer {
@@ -21,11 +21,11 @@
   justify-content: flex-end;
 
   padding: 24px;
-  color: var(--token-app-footer-text-color);
   border-top: 1px solid var(--token-app-footer-border-color);
 }
 
-// topContent structure is temporary, will be refactored when final design is ready
+// NOTE: topContent structure is temporary, will be refactored when final design is ready
+// These are NOT final styles, they will be updated when the updated designs and related DOM are also updated
 .hds-app-footer__top-content {
   display: flex;
   flex-wrap: wrap;
@@ -51,19 +51,27 @@
 
 .hds-app-footer__list-item { list-style-type: none; }
 
+// WIP
 .hds-app-footer__link {
-  color: inherit; // inherits "faint" color
+  // Overriding some default colors
+  &.hds-link-inline--color-secondary {
+    color: var(--token-color-foreground-faint);
 
-  // WIP: Changed component back to use LinkInline Secondary for now although default color is overridden
-  // &:hover,
-  // &.mock-hover {
-  //   color: var(--token-color-foreground-primary);
-  // }
+    &:hover,
+    &.mock-hover {
+      color: var(--token-color-foreground-primary);
+    }
 
-  // &:active,
-  // &.mock-active {
-  //   color: var(--token-color-foreground-faint);
-  // }
+    &:active,
+    &.mock-active {
+      color: var(--token-color-foreground-primary);
+    }
+
+    &:focus,
+    &.mock-focus {
+      color: var(--token-color-foreground-primary);
+    }
+  }
 }
 
 .hds-app-footer__link,
