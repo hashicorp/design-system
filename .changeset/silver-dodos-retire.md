@@ -13,3 +13,6 @@
 - `Pagination` - replaced internal text styling (using `Text` component)
 - `Stepper` - replaced internal text styling (using `Text` component)
 - `Tag` - replaced internal text styling (using `Text` component)
+
+
+_No impact is expected on the consumers' applications._

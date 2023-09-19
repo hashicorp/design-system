@@ -12,3 +12,5 @@
   - added `@onSuccess/onError` callbacks
 - `Dropdown::ListItem::CopyItem`
   - the change to the underlying `Copy::Snippet` has fixed an issue with the focus being lost on copy (causing the dropdown to close on copy)
+
+_Consumers should remove the `@container` argument from all the instances of `Copy::Button` (not needed anymore) and double check that the `Copy::Button/Snippet` instances work exactly as before._
