@@ -1,5 +1,13 @@
 # @hashicorp/design-system-components
 
+## 2.12.1
+
+### Patch Changes
+
+- [#1627](https://github.com/hashicorp/design-system/pull/1627) [`53c9f13c0`](https://github.com/hashicorp/design-system/commit/53c9f13c0a2b120d19d74a88fd0e0799d59752c4) Thanks [@MelSumner](https://github.com/MelSumner)! - Bugfix aria-label on pagination component
+
+- [#1635](https://github.com/hashicorp/design-system/pull/1635) [`2ecab760c`](https://github.com/hashicorp/design-system/commit/2ecab760c07c89ee9d34e993b879fc19e914c2e0) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - `Dropdown`: changed`@height` property to use `max-height` instead of a fixed height.
+
 ## 2.12.0
 
 ### Minor Changes
