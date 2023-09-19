@@ -4,6 +4,7 @@
  */
 
 import Component from '@glimmer/component';
+import { assert } from '@ember/debug';
 
 export const STATUSES = {
   OPERATIONAL: {
@@ -35,7 +36,16 @@ export default class HdsAppFooterStatusLinkComponent extends Component {
    * @description The name of the status which the StatusLink is being set to
    */
   get status() {
-    return this.args.status.toUpperCase();
+    if (this.args.status) {
+      assert(
+        `@status for "Hds::AppFooter" must be one of the following: ${Object.keys(
+          STATUSES
+        ).join(', ')} received: ${this.args.status}`,
+        Object.keys(STATUSES).includes(this.args.status.toUpperCase())
+      );
+      return this.args.status.toUpperCase();
+    }
+    return undefined;
   }
 
   /**
@@ -44,7 +54,10 @@ export default class HdsAppFooterStatusLinkComponent extends Component {
    * @description The name for the StatusLink icon
    */
   get statusIcon() {
-    return this.args.statusIcon ?? STATUSES[this.status.toUpperCase()].iconName;
+    if (this.status && !this.args.statusIcon) {
+      return STATUSES[this.status].iconName;
+    }
+    return this.args.statusIcon;
   }
 
   /**
@@ -53,9 +66,10 @@ export default class HdsAppFooterStatusLinkComponent extends Component {
    * @description The color for the StatusLink icon
    */
   get statusIconColor() {
-    return (
-      this.args.statusIconColor ?? STATUSES[this.status.toUpperCase()].iconColor
-    );
+    if (this.status && !this.args.statusIconColor) {
+      return STATUSES[this.status].iconColor;
+    }
+    return this.args.statusIconColor;
   }
 
   /**
@@ -64,7 +78,10 @@ export default class HdsAppFooterStatusLinkComponent extends Component {
    * @description The text content of the StatusLink
    */
   get text() {
-    return this.args.text ?? STATUSES[this.status.toUpperCase()].text;
+    if (this.status && !this.args.text) {
+      return STATUSES[this.status].text;
+    }
+    return this.args.text;
   }
 
   /**
