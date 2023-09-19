@@ -65,9 +65,7 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
     await render(
       hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" @isTruncated={{true}} />`
     );
-    assert
-      .dom('#test-copy-snippet > span')
-      .hasClass('hds-copy-snippet__text--truncated');
+    assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet--is-truncated');
   });
 
   test('it should have the correct CSS class to support full-width size if @isFullWidth prop is true', async function (assert) {
