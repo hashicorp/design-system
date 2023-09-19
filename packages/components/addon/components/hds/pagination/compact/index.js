@@ -50,10 +50,10 @@ export default class HdsPaginationCompactIndexComponent extends Component {
   /**
    * @param ariaLabel
    * @type {string}
-   * @default 'Pagination navigation'
+   * @default 'Pagination'
    */
   get ariaLabel() {
-    return this.args.ariaLabel ?? 'Pagination navigation';
+    return this.args.ariaLabel ?? 'Pagination';
   }
 
   get routeQueryParams() {
