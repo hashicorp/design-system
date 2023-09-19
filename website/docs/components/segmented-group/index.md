@@ -3,7 +3,7 @@ title: Segmented Group
 description: Combines one or more input fields and actions to handle complex filtering and data collection.
 caption: Combines one or more input fields and actions to handle complex filtering and data collection.
 links:
-  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=30150%3A45701&t=akpWrhSdwygOH6md-1
+  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=34323-69877&mode=design&t=72WLExKItFWAX1jX-4
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/segmented-group
 related: ['components/dropdown', 'components/button-set', 'patterns/filter-patterns']
 previewImage: assets/illustrations/components/form/segmented-group.jpg
