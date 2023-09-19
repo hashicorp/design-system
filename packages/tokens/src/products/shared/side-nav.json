@@ -20,6 +20,18 @@
         }
       }
     },
+    "toggle-button": {
+      "padding": {
+        "horizontal": {
+          "value": "4",
+          "type": "size"
+        },
+        "vertical": {
+          "value": "10",
+          "type": "size"
+        }
+      }
+    },
     "header": {
       "home-link": {
         "padding": {
