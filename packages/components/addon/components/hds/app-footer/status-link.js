@@ -29,24 +29,49 @@ export const STATUSES = {
 };
 
 export default class HdsAppFooterStatusLinkComponent extends Component {
+  /**
+   * @param ariaLabel
+   * @type {string}
+   * @description The name of the status which the StatusLink is being set to
+   */
   get status() {
     return this.args.status.toUpperCase();
   }
 
+  /**
+   * @param statusIcon
+   * @type {string}
+   * @description The name for the StatusLink icon
+   */
   get statusIcon() {
     return this.args.statusIcon ?? STATUSES[this.status.toUpperCase()].iconName;
   }
 
+  /**
+   * @param statusIconColor
+   * @type {string}
+   * @description The color for the StatusLink icon
+   */
   get statusIconColor() {
     return (
       this.args.statusIconColor ?? STATUSES[this.status.toUpperCase()].iconColor
     );
   }
 
+  /**
+   * @param text
+   * @type {string}
+   * @description The text content of the StatusLink
+   */
   get text() {
     return this.args.text ?? STATUSES[this.status.toUpperCase()].text;
   }
 
+  /**
+   * @param href
+   * @type {string}
+   * @description The href value of the StatusLink
+   */
   get href() {
     return this.args.href ?? 'https://status.hashicorp.com';
   }
