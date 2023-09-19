@@ -3,8 +3,7 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-{{! TODO: use new Text component? }}
-<Hds::AppFooter::Item class="hds-app-footer__item--copyright hds-typography-body-200" ...attributes>
+<Hds::AppFooter::Item class="hds-app-footer__item--copyright" ...attributes>
   <FlightIcon @name="hashicorp" />
-  © 2023 HashiCorp
+  <Hds::Text::Body @tag="span" @size="200">© 2023 HashiCorp</Hds::Text::Body>
 </Hds::AppFooter::Item>

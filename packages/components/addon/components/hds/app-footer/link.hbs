@@ -3,11 +3,10 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-{{! TODO: use new Text component? }}
 <Hds::AppFooter::Item>
   {{! Q: Use Hds::Interactive for link or just Link::Inline? }}
   <Hds::Link::Inline
-    class="hds-app-footer__link hds-typography-body-200"
+    class="hds-app-footer__link"
     @color="secondary"
     @route={{@route}}
     @models={{hds-link-to-models @model @models}}
@@ -19,6 +18,6 @@
     @isHrefExternal={{@isHrefExternal}}
     ...attributes
   >
-    {{yield}}
+    <Hds::Text::Body @tag="span" @size="200">{{yield}}</Hds::Text::Body>
   </Hds::Link::Inline>
 </Hds::AppFooter::Item>
