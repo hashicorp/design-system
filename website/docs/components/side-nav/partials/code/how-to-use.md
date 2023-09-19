@@ -396,7 +396,8 @@ Alternatively, if you want to create a custom transition (or respond in a differ
 
 As mentioned above, the full-fledged `Hds::SideNav` component is "responsive" by default:
 
-- when the **viewport is `desktop`** the sidebar navigation is static and has a fixed width (the width at which the viewport is considered "desktop" is controlled by a dedicated CSS variable, see below for more details)
+- when the **viewport is `desktop`** the sidebar navigation is static and has a fixed width
+    - the width at which the viewport is considered "desktop" is controlled by a dedicated CSS variable `--hds-app-desktop-breakpoint`; if needed it can be overwritten (at `:root` level) to define a custom "desktop" breakpoint
 - when the **viewport is `mobile`** the sidebar navigation is responsive and the user can minimize or maximize its width via a toggle button (the component will take care automatically of the transitions between these two states)
     - in this case the SideNav occupies only a minimum width in terms of page layout, even when expanded (it partially covers the main content)
     - a toggle button is added to the SideNav, used to expand/minimize its width
