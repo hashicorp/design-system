@@ -20,10 +20,10 @@ export default class HdsAppFooterIndexComponent extends Component {
    * @type {string}
    * @description The href value of the "Terms" link
    */
+  // TODO: Make Terms url required instead of setting a default value?
   get urlForTerms() {
     return (
-      this.args.urlForTerms ??
-      'https://portal.cloud.hashicorp.com/terms-of-service'
+      this.args.urlForTerms ?? 'https://www.hashicorp.com/terms-of-service'
     );
   }
 
