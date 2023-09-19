@@ -49,7 +49,7 @@
   padding: 0;
 }
 
-.hds-app-footer__item { list-style-type: none; }
+.hds-app-footer__list-item { list-style-type: none; }
 
 .hds-app-footer__link {
   color: inherit; // inherits "faint" color
@@ -67,7 +67,7 @@
 }
 
 .hds-app-footer__link,
-.hds-app-footer__item--copyright {
+.hds-app-footer__list-item--copyright {
   display: flex;
   gap: 8px;
   align-items: center;
