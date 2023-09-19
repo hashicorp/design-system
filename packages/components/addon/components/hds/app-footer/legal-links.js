@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 
 export default class HdsAppFooterIndexComponent extends Component {
   /**
-   * @param ariaLabel
+   * @param urlForSupport
    * @type {string}
    * @description The href value of the "Support" link
    */
@@ -28,7 +28,7 @@ export default class HdsAppFooterIndexComponent extends Component {
   }
 
   /**
-   * @param ariaLabel
+   * @param urlForPrivacy
    * @type {string}
    * @description The href value of the "Privacy" link
    */
@@ -37,7 +37,7 @@ export default class HdsAppFooterIndexComponent extends Component {
   }
 
   /**
-   * @param ariaLabel
+   * @param urlForSecurity
    * @type {string}
    * @description The href value of the "Security" link
    */
@@ -46,7 +46,7 @@ export default class HdsAppFooterIndexComponent extends Component {
   }
 
   /**
-   * @param ariaLabel
+   * @param urlForAccessibility
    * @type {string}
    * @description The href value of the "Accessibility" link
    */
