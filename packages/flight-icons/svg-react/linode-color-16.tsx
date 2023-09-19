@@ -49,7 +49,7 @@ export const IconLinodeColor16 = forwardRef<SVGSVGElement, IconProps>(
                 />
                 <path
                     fill="#004B16"
-                    d="M5.71 11.71L5.28 8.848 3.066 7.06l.592 2.775L5.71 11.71z"
+                    d="M5.71 11.71L5.28 8.85l-2.213-1.79.592 2.775L5.71 11.71z"
                 />
                 <path
                     fill="#000"
@@ -57,7 +57,7 @@ export const IconLinodeColor16 = forwardRef<SVGSVGElement, IconProps>(
                 />
                 <path
                     fill="#004B16"
-                    d="M5.072 7.482l-.591-3.92L2 2.067l.787 3.686 2.285 1.73z"
+                    d="M5.072 7.482l-.591-3.92L2 2.065l.787 3.686 2.285 1.73z"
                 />
                 <path
                     fill="#000"
