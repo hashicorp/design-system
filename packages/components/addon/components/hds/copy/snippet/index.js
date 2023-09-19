@@ -97,15 +97,27 @@ export default class HdsCopySnippetIndexComponent extends Component {
   }
 
   @action
-  onSuccess() {
+  onSuccess(args) {
     this.status = 'success';
     this.resetStatusDelayed();
+
+    let { onSuccess } = this.args;
+
+    if (typeof onSuccess === 'function') {
+      onSuccess(args);
+    }
   }
 
   @action
-  onError() {
+  onError(args) {
     this.status = 'error';
     this.resetStatusDelayed();
+
+    let { onError } = this.args;
+
+    if (typeof onError === 'function') {
+      onError(args);
+    }
   }
 
   resetStatusDelayed() {

@@ -4,6 +4,8 @@
  */
 
 import Controller from '@ember/controller';
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 import { scheduleOnce } from '@ember/runloop';
 
@@ -26,6 +28,7 @@ function replaceMockCopyStatus() {
 
 export default class CopyButtonController extends Controller {
   @service router;
+  @tracked isModalActive = false;
 
   constructor() {
     super(...arguments);
@@ -35,4 +38,40 @@ export default class CopyButtonController extends Controller {
   routeDidChange() {
     scheduleOnce('afterRender', this, replaceMockCopyStatus);
   }
+
+  get bigIntNumber() {
+    let bigIntNumber = BigInt(12345678910);
+    return bigIntNumber;
+  }
+
+  get targetNodeElement() {
+    return document.querySelector('#test-target-node-element');
+  }
+
+  get targetMultipleNodeElements() {
+    return document.querySelectorAll('#test-target-node-elements');
+  }
+
+  @action
+  activateModal() {
+    this.isModalActive = true;
+  }
+
+  @action
+  deactivateModal() {
+    this.isModalActive = false;
+  }
+
+  // DEBUG
+  // uncomment these if you need to debug the `onSuccess/onError` callback methods
+
+  // @action
+  // onSuccess({ trigger, text, target }) {
+  //   console.log('onSuccess invoked in the controller', trigger, text, target);
+  // }
+
+  // @action
+  // onError({ trigger, text, target }) {
+  //   console.log('onError invoked in the controller', trigger, text, target);
+  // }
 }
