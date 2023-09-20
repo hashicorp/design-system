@@ -79,7 +79,6 @@
   box-sizing: content-box;
   padding: calc(var(--token-side-nav-toggle-button-padding-vertical) - var(--hds-app-sidenav-border-width)) var(--token-side-nav-toggle-button-padding-horizontal);
   color: var(--token-color-foreground-high-contrast);
-  text-align: right;
   background: none;
   background-color: var(--token-side-nav-color-surface-primary);
   border: var(--hds-app-sidenav-border-width) solid var(--hds-app-sidenav-border-color);
@@ -103,7 +102,6 @@
     box-sizing: border-box;
     width: calc(var(--hds-app-sidenav-border-radius) * 2);
     height: calc(var(--hds-app-sidenav-border-radius) * 2);
-    color: var(--token-color-foreground-high-contrast);
     border-bottom: var(--hds-app-sidenav-border-width) solid var(--hds-app-sidenav-border-color);
     border-left: var(--hds-app-sidenav-border-width) solid var(--hds-app-sidenav-border-color);
     border-bottom-left-radius: var(--hds-app-sidenav-border-radius);
@@ -118,7 +116,6 @@
     box-sizing: border-box;
     width: calc(var(--hds-app-sidenav-border-radius) * 2);
     height: calc(var(--hds-app-sidenav-border-radius) * 2);
-    color: var(--token-color-foreground-high-contrast);
     border-top: var(--hds-app-sidenav-border-width) solid var(--hds-app-sidenav-border-color);
     border-left: var(--hds-app-sidenav-border-width) solid var(--hds-app-sidenav-border-color);
     border-top-left-radius: var(--hds-app-sidenav-border-radius);
