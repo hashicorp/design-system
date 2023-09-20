@@ -110,8 +110,14 @@
     <Shw::Text::H3>Hds::AppFooter::Item</Shw::Text::H3>
 
     <ul class="hds-app-footer__list">
-      <Hds::AppFooter::Item>Item</Hds::AppFooter::Item>
+      <Hds::AppFooter::Item><Hds::Text::Body
+          @tag="span"
+          @size="100"
+          @color="regular"
+        >Item</Hds::Text::Body></Hds::AppFooter::Item>
     </ul>
+
+    <Shw::Divider @level={{2}} />
 
     <Shw::Text::H3>Hds::AppFooter::Link</Shw::Text::H3>
 
@@ -126,6 +132,8 @@
         </SF.Item>
       {{/each}}
     </Shw::Flex>
+
+    <Shw::Divider @level={{2}} />
 
     <Shw::Text::H3>Hds::AppFooter::StatusLink</Shw::Text::H3>
 
@@ -185,6 +193,8 @@
       </SF.Item>
     </Shw::Flex>
 
+    <Shw::Divider @level={{2}} />
+
     <Shw::Text::H3>Hds::AppFooter::LegalLinks</Shw::Text::H3>
 
     <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
@@ -200,6 +210,8 @@
         </ul>
       </SF.Item>
     </Shw::Flex>
+
+    <Shw::Divider @level={{2}} />
 
     <Shw::Text::H3>Hds::AppFooter::Copyright</Shw::Text::H3>
 

@@ -51,7 +51,6 @@
 
 .hds-app-footer__list-item { list-style-type: none; }
 
-// WIP
 .hds-app-footer__link {
   // Overriding some default colors
   &.hds-link-inline--color-secondary {
@@ -59,17 +58,17 @@
 
     &:hover,
     &.mock-hover {
-      color: var(--token-color-foreground-primary);
+      color: var(--token-color-palette-neutral-600);
     }
 
     &:active,
     &.mock-active {
-      color: var(--token-color-foreground-primary);
+      color: var(--token-color-palette-neutral-700);
     }
 
     &:focus,
     &.mock-focus {
-      color: var(--token-color-foreground-primary);
+      color: var(--token-color-foreground-faint);
     }
   }
 }
