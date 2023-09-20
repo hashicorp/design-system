@@ -93,14 +93,14 @@ export default class HdsAppFooterStatusLinkComponent extends Component {
     return this.args.href ?? 'https://status.hashicorp.com';
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
-  get classNames() {
-    let classes = ['hds-app-footer__status-link'];
+  // /**
+  //  * Get the class names to apply to the component.
+  //  * @method classNames
+  //  * @return {string} The "class" attribute to apply to the component.
+  //  */
+  // get classNames() {
+  //   let classes = ['hds-app-footer__status-link-item'];
 
-    return classes.join(' ');
-  }
+  //   return classes.join(' ');
+  // }
 }

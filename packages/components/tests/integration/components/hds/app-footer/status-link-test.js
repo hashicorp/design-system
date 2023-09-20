@@ -15,7 +15,7 @@ module('Integration | Component | hds/app-footer/index', function (hooks) {
     await render(
       hbs`<Hds::AppFooter::StatusLink @status="operational" id="test-status-link" />`
     );
-    assert.dom('#test-status-link').hasClass('hds-app-footer__status-link');
+    assert.dom('#test-status-link > a').hasClass('hds-app-footer__status-link');
   });
 
   // OPTIONS

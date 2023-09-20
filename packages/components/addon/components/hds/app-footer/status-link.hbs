@@ -3,20 +3,21 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<Hds::Interactive
-  class={{this.classNames}}
-  @route={{@route}}
-  @models={{hds-link-to-models @model @models}}
-  @query={{hds-link-to-query @query}}
-  @current-when={{@current-when}}
-  @replace={{@replace}}
-  @isRouteExternal={{@isRouteExternal}}
-  @href={{this.href}}
-  @isHrefExternal={{@isHrefExternal}}
-  ...attributes
->
-  {{#if this.statusIcon}}
-    <FlightIcon @size="16" @name={{this.statusIcon}} @color={{this.statusIconColor}} />
-  {{/if}}
-  <Hds::Text::Body @tag="span" @size="200">{{this.text}}</Hds::Text::Body>
-</Hds::Interactive>
+<Hds::AppFooter::Item ...attributes>
+  <Hds::Interactive
+    class="hds-app-footer__status-link"
+    @route={{@route}}
+    @models={{hds-link-to-models @model @models}}
+    @query={{hds-link-to-query @query}}
+    @current-when={{@current-when}}
+    @replace={{@replace}}
+    @isRouteExternal={{@isRouteExternal}}
+    @href={{this.href}}
+    @isHrefExternal={{@isHrefExternal}}
+  >
+    {{#if this.statusIcon}}
+      <FlightIcon @size="16" @name={{this.statusIcon}} @color={{this.statusIconColor}} />
+    {{/if}}
+    <Hds::Text::Body @tag="span" @size="200">{{this.text}}</Hds::Text::Body>
+  </Hds::Interactive>
+</Hds::AppFooter::Item>
