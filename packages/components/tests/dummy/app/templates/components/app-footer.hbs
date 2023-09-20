@@ -42,7 +42,7 @@
     <Shw::Text::H3>With typical custom content</Shw::Text::H3>
 
     <Hds::AppFooter>
-      <Hds::AppFooter::StatusLink @status="OPERATIONAL" />
+      <Hds::AppFooter::StatusLink @status="operational" />
       <Hds::AppFooter::Link @href="https://cloud.hashicorp.com/docs/changelog">Changelog</Hds::AppFooter::Link>
       <Hds::AppFooter::LegalLinks />
       <Hds::AppFooter::Copyright />
@@ -51,7 +51,7 @@
     <Shw::Text::H3>With custom “meta” (non-link) content</Shw::Text::H3>
 
     <Hds::AppFooter>
-      <Hds::AppFooter::StatusLink @status="OPERATIONAL" />
+      <Hds::AppFooter::StatusLink @status="operational" />
       <Hds::AppFooter::LegalLinks />
       <Hds::AppFooter::Item>
         <Hds::Text::Body @tag="span" @size="100" @color="regular">v.01.15</Hds::Text::Body>
@@ -76,7 +76,7 @@
           <dd.Interactive @icon="sun" {{on "click" dd.close}} @text="Light" />
         </Hds::Dropdown>
       </Hds::AppFooter::Item>
-      <Hds::AppFooter::StatusLink @status="OPERATIONAL" />
+      <Hds::AppFooter::StatusLink @status="operational" />
       <Hds::AppFooter::Link @href="https://cloud.hashicorp.com/docs/changelog">Changelog</Hds::AppFooter::Link>
       <Hds::AppFooter::LegalLinks />
       <Hds::AppFooter::Copyright />
@@ -140,19 +140,19 @@
     <Shw::Flex {{style gap="2rem"}} as |SF|>
       <SF.Item @label="with custom text">
         <ul class="hds-app-footer__list">
-          <Hds::AppFooter::StatusLink @status="OPERATIONAL" @text="Operativo" />
+          <Hds::AppFooter::StatusLink @status="operational" @text="Operativo" />
         </ul>
       </SF.Item>
 
       <SF.Item @label="with custom icon color">
         <ul class="hds-app-footer__list">
-          <Hds::AppFooter::StatusLink @status="OPERATIONAL" @statusIconColor="purple" />
+          <Hds::AppFooter::StatusLink @status="operational" @statusIconColor="purple" />
         </ul>
       </SF.Item>
 
       <SF.Item @label="with custom icon">
         <ul class="hds-app-footer__list">
-          <Hds::AppFooter::StatusLink @status="OPERATIONAL" @statusIcon="cloud-check" />
+          <Hds::AppFooter::StatusLink @status="operational" @statusIcon="cloud-check" />
         </ul>
       </SF.Item>
     </Shw::Flex>

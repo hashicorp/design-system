@@ -19,7 +19,6 @@
   flex-wrap: wrap;
   gap: 24px;
   justify-content: flex-end;
-
   padding: 24px;
   border-top: 1px solid var(--token-color-border-primary);
 }
@@ -30,7 +29,7 @@
   gap: 24px;
   align-items: center;
   justify-content: flex-end;
-  width: max-content; // testing
+  width: max-content;
   margin: 0;
   padding: 0;
 }
@@ -39,7 +38,7 @@
 
 .hds-app-footer__link.hds-link-inline--color-secondary,
 .hds-app-footer__status-link {
-  // Overriding some default colors
+  // Overriding default colors
   color: var(--token-color-foreground-faint);
 
   &:hover,
@@ -59,7 +58,7 @@
 }
 
 .hds-app-footer__status-link,
-.hds-app-footer__list-item--copyright {
+.hds-app-footer__list-item {
   display: flex;
   gap: 6px;
   align-items: center;
