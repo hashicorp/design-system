@@ -37,32 +37,31 @@
 
 .hds-app-footer__list-item { list-style-type: none; }
 
-.hds-app-footer__link {
+.hds-app-footer__link.hds-link-inline--color-secondary,
+.hds-app-footer__status-link {
   // Overriding some default colors
-  &.hds-link-inline--color-secondary {
+  color: var(--token-color-foreground-faint);
+
+  &:hover,
+  &.mock-hover {
+    color: var(--token-color-palette-neutral-600);
+  }
+
+  &:active,
+  &.mock-active {
+    color: var(--token-color-palette-neutral-700);
+  }
+
+  &:focus,
+  &.mock-focus {
     color: var(--token-color-foreground-faint);
-
-    &:hover,
-    &.mock-hover {
-      color: var(--token-color-palette-neutral-600);
-    }
-
-    &:active,
-    &.mock-active {
-      color: var(--token-color-palette-neutral-700);
-    }
-
-    &:focus,
-    &.mock-focus {
-      color: var(--token-color-foreground-faint);
-    }
   }
 }
 
-.hds-app-footer__link,
+.hds-app-footer__status-link,
 .hds-app-footer__list-item--copyright {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   align-items: center;
   justify-content: center;
 }

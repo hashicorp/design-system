@@ -26,7 +26,7 @@ module('Integration | Component | hds/app-footer/index', function (hooks) {
     await render(hbs`<Hds::AppFooter::StatusLink @status="operational" />`);
     assert.dom('.hds-app-footer__status-link').hasText('Operational');
     assert
-      .dom('.flight-icon-check-circle-fill')
+      .dom('.flight-icon-check-circle')
       .hasAttribute('fill', 'var(--token-color-foreground-success)');
   });
 
@@ -38,20 +38,20 @@ module('Integration | Component | hds/app-footer/index', function (hooks) {
       .hasAttribute('fill', 'var(--token-color-foreground-warning)');
   });
 
-  test('it should display text, icon, and icon color matching the passed in "outage" status', async function (assert) {
-    await render(hbs`<Hds::AppFooter::StatusLink @status="outage" />`);
-    assert.dom('.hds-app-footer__status-link').hasText('Outage');
-    assert
-      .dom('.flight-icon-x-square-fill')
-      .hasAttribute('fill', 'var(--token-color-foreground-critical)');
-  });
-
   test('it should display text, icon, and icon color matching the passed in "maintenance" status', async function (assert) {
     await render(hbs`<Hds::AppFooter::StatusLink @status="maintenance" />`);
     assert.dom('.hds-app-footer__status-link').hasText('Maintenance');
     assert
-      .dom('.flight-icon-info-fill')
-      .hasAttribute('fill', 'var(--token-color-foreground-highlight)');
+      .dom('.flight-icon-alert-triangle')
+      .hasAttribute('fill', 'var(--token-color-foreground-warning)');
+  });
+
+  test('it should display text, icon, and icon color matching the passed in "critical" status', async function (assert) {
+    await render(hbs`<Hds::AppFooter::StatusLink @status="critical" />`);
+    assert.dom('.hds-app-footer__status-link').hasText('Critical');
+    assert
+      .dom('.flight-icon-x-circle')
+      .hasAttribute('fill', 'var(--token-color-foreground-critical)');
   });
 
   // text, statusIcon, statusIconColor

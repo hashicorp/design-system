@@ -9,7 +9,7 @@ import { assert } from '@ember/debug';
 export const STATUSES = {
   OPERATIONAL: {
     text: 'Operational',
-    iconName: 'check-circle-fill',
+    iconName: 'check-circle',
     iconColor: 'var(--token-color-foreground-success)',
   },
   DEGRADED: {
@@ -17,15 +17,15 @@ export const STATUSES = {
     iconName: 'alert-triangle',
     iconColor: 'var(--token-color-foreground-warning)',
   },
-  OUTAGE: {
-    text: 'Outage',
-    iconName: 'x-square-fill',
-    iconColor: 'var(--token-color-foreground-critical)',
-  },
   MAINTENANCE: {
     text: 'Maintenance',
-    iconName: 'info-fill',
-    iconColor: 'var(--token-color-foreground-highlight)',
+    iconName: 'alert-triangle',
+    iconColor: 'var(--token-color-foreground-warning)',
+  },
+  CRITICAL: {
+    text: 'Critical',
+    iconName: 'x-circle',
+    iconColor: 'var(--token-color-foreground-critical)',
   },
 };
 
