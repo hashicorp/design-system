@@ -24,8 +24,6 @@
   border-top: 1px solid var(--token-color-border-primary);
 }
 
-.hds-app-footer__item { list-style-type: none; }
-
 .hds-app-footer__link.hds-link-inline--color-secondary,
 .hds-app-footer__status-link {
   // Overriding default colors
@@ -53,4 +51,5 @@
   gap: 6px;
   align-items: center;
   justify-content: center;
+  width: max-content;
 }

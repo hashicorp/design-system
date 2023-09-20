@@ -108,9 +108,7 @@
     <Shw::Flex {{style gap="2rem" justifyContent="space-between"}} as |SF|>
       {{#each @model.STATES as |state|}}
         <SF.Item @label={{state}}>
-          <div class="hds-app-footer">
-            <Hds::AppFooter::Link @href="#" mock-state-value={{state}}>Link</Hds::AppFooter::Link>
-          </div>
+          <Hds::AppFooter::Link @href="#" mock-state-value={{state}}>Link</Hds::AppFooter::Link>
         </SF.Item>
       {{/each}}
     </Shw::Flex>
@@ -124,9 +122,7 @@
     <Shw::Flex {{style gap="2rem" justifyContent="space-between"}} as |SF|>
       {{#each-in @model.STATUSES as |status|}}
         <SF.Item @label={{status}}>
-          <div class="hds-app-footer">
-            <Hds::AppFooter::StatusLink @status={{status}} />
-          </div>
+          <Hds::AppFooter::StatusLink @status={{status}} />
         </SF.Item>
       {{/each-in}}
     </Shw::Flex>
@@ -171,11 +167,15 @@
 
     <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
       <SF.Item @label="with default url for “Terms” link">
-        <Hds::AppFooter::LegalLinks />
+        <div class="shw-component-app-footer-layout-items">
+          <Hds::AppFooter::LegalLinks />
+        </div>
       </SF.Item>
 
       <SF.Item @label="with custom url for “Terms” link">
-        <Hds::AppFooter::LegalLinks @termsUrl="https://www.terraform.io/tfc-terms" />
+        <div class="shw-component-app-footer-layout-items">
+          <Hds::AppFooter::LegalLinks @termsUrl="https://www.terraform.io/tfc-terms" />
+        </div>
       </SF.Item>
     </Shw::Flex>
 
