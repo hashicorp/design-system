@@ -205,6 +205,9 @@
   padding-right: var(--token-side-nav-wrapper-padding-horizontal);
   padding-bottom: 8px; // by design
   padding-left: var(--token-side-nav-wrapper-padding-horizontal);
+  transition:
+    padding var(--hds-app-sidenav-animation-duration)
+    var(--hds-app-sidenav-animation-easing);
 
   .hds-side-nav--is-minimized & {
     padding-top: var(--token-side-nav-wrapper-padding-vertical-minimized);
