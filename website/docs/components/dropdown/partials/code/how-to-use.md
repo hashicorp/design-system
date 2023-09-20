@@ -247,7 +247,7 @@ Using the `@isTruncated` argument it is possible to constrain the text to one-li
 </Hds::Dropdown>
 ```
 
-Using the `@isTruncated` argument, it is possible to disable the truncation constrain applied to the text (to render it on a single line, and truncate it if it does not fit the available space). Care should be taken in choosing how to use this feature as there are [accessibility concerns](/components/copy/snippet?tab=accessibility).
+Using the `@isTruncated` argument, it is possible to disable the truncation applied to the text. Care should be taken in choosing how to use this feature as there are [accessibility concerns](/components/copy/snippet?tab=accessibility).
 
 ### ListItem::Checkmark
 
