@@ -23,14 +23,14 @@ module('Acceptance | Icon Search', function (hooks) {
   });
 
   test('should load content based on query param', async function (assert) {
-    await visit('/icons/library?searchQuery=loading&selectedIconSize=16');
+    await visit('/icons/library?searchQuery=cpu&selectedIconSize=16');
 
     assert.strictEqual(
       currentURL(),
-      '/icons/library?searchQuery=loading&selectedIconSize=16'
+      '/icons/library?searchQuery=cpu&selectedIconSize=16'
     );
 
-    assert.dom('.doc-icons-list-grid-item').exists({ count: 2 });
+    assert.dom('.doc-icons-list-grid-item').exists({ count: 1 });
   });
 
   test('should clear search results if input is cleared', async function (assert) {
