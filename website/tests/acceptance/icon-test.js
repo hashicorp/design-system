@@ -19,7 +19,7 @@ module('Acceptance | Icon Search', function (hooks) {
       '/icons/library?searchQuery=loading&selectedIconSize=24'
     );
 
-    assert.dom('.doc-icons-list-grid-item').exists({ count: 1 });
+    assert.dom('.doc-icons-list-grid-item').exists({ count: 2 });
   });
 
   test('should load content based on query param', async function (assert) {
@@ -30,7 +30,7 @@ module('Acceptance | Icon Search', function (hooks) {
       '/icons/library?searchQuery=loading&selectedIconSize=16'
     );
 
-    assert.dom('.doc-icons-list-grid-item').exists({ count: 1 });
+    assert.dom('.doc-icons-list-grid-item').exists({ count: 2 });
   });
 
   test('should clear search results if input is cleared', async function (assert) {
