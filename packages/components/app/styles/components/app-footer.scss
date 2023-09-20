@@ -13,7 +13,7 @@
 //   --token-app-footer-border-color: var(--token-color-border-primary);
 // }
 
-// NOTE: Styles are for dev purposes currently, visual designs are NOT final
+// NOTE: Styles are a WIP and NOT final
 .hds-app-footer {
   display: flex;
   flex-wrap: wrap;
@@ -22,20 +22,6 @@
 
   padding: 24px;
   border-top: 1px solid var(--token-app-footer-border-color);
-}
-
-// NOTE: topContent structure is temporary, will be refactored when final design is ready
-// These are NOT final styles, they will be updated when the updated designs and related DOM are also updated
-.hds-app-footer__top-content {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  justify-content: flex-end;
-  width: 100%;
-
-  &:empty {
-    display: none;
-  }
 }
 
 .hds-app-footer__list {

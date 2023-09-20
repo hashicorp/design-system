@@ -19,83 +19,67 @@
     <Shw::Text::H3>With only generic content</Shw::Text::H3>
 
     <Hds::AppFooter>
-      <:topContent>
-        <Shw::Placeholder @height="2em" @text="top content" @background="#e4e4e4" />
-      </:topContent>
+      <Hds::AppFooter::Item>
+        <Shw::Placeholder @height="2em" @text="list item" @background="#e4e4e4" />
+      </Hds::AppFooter::Item>
 
-      <:listItems>
-        <Hds::AppFooter::Item>
-          <Shw::Placeholder @height="2em" @text="list item" @background="#e4e4e4" />
-        </Hds::AppFooter::Item>
-      </:listItems>
+      <Hds::AppFooter::Item>
+        <Shw::Placeholder @height="2em" @text="list item" @background="#e4e4e4" />
+      </Hds::AppFooter::Item>
+
+      <Hds::AppFooter::Item>
+        <Shw::Placeholder @height="2em" @text="list item" @background="#e4e4e4" />
+      </Hds::AppFooter::Item>
     </Hds::AppFooter>
 
     <Shw::Text::H3>With minimal recommended content</Shw::Text::H3>
 
     <Hds::AppFooter>
-      <:listItems>
-        <Hds::AppFooter::LegalLinks />
-        <Hds::AppFooter::Copyright />
-      </:listItems>
+      <Hds::AppFooter::LegalLinks />
+      <Hds::AppFooter::Copyright />
     </Hds::AppFooter>
 
     <Shw::Text::H3>With typical custom content</Shw::Text::H3>
 
     <Hds::AppFooter>
-      <:listItems>
-        <Hds::AppFooter::StatusLink @status="OPERATIONAL" />
-        <Hds::AppFooter::Link @href="https://cloud.hashicorp.com/docs/changelog">Changelog</Hds::AppFooter::Link>
-        <Hds::AppFooter::LegalLinks />
-        <Hds::AppFooter::Copyright />
-      </:listItems>
+      <Hds::AppFooter::StatusLink @status="OPERATIONAL" />
+      <Hds::AppFooter::Link @href="https://cloud.hashicorp.com/docs/changelog">Changelog</Hds::AppFooter::Link>
+      <Hds::AppFooter::LegalLinks />
+      <Hds::AppFooter::Copyright />
     </Hds::AppFooter>
 
     <Shw::Text::H3>With custom “meta” (non-link) content</Shw::Text::H3>
 
     <Hds::AppFooter>
-      <:listItems>
-        <Hds::AppFooter::StatusLink @status="OPERATIONAL" />
-        <Hds::AppFooter::LegalLinks />
-        <Hds::AppFooter::Item>
-          <Hds::Text::Body @tag="span" @size="100" @color="regular">v.01.15</Hds::Text::Body>
-        </Hds::AppFooter::Item>
-        <Hds::AppFooter::Item>
-          <Hds::Text::Body @tag="span" @size="100" @color="regular">Product Name</Hds::Text::Body>
-        </Hds::AppFooter::Item>
-        <Hds::AppFooter::Item>
-          <Hds::Text::Body @tag="span" @size="100" @color="regular">API: 1.02</Hds::Text::Body>
-        </Hds::AppFooter::Item>
-        <Hds::AppFooter::Copyright />
-      </:listItems>
+      <Hds::AppFooter::StatusLink @status="OPERATIONAL" />
+      <Hds::AppFooter::LegalLinks />
+      <Hds::AppFooter::Item>
+        <Hds::Text::Body @tag="span" @size="100" @color="regular">v.01.15</Hds::Text::Body>
+      </Hds::AppFooter::Item>
+      <Hds::AppFooter::Item>
+        <Hds::Text::Body @tag="span" @size="100" @color="regular">Product Name</Hds::Text::Body>
+      </Hds::AppFooter::Item>
+      <Hds::AppFooter::Item>
+        <Hds::Text::Body @tag="span" @size="100" @color="regular">API: 1.02</Hds::Text::Body>
+      </Hds::AppFooter::Item>
+      <Hds::AppFooter::Copyright />
     </Hds::AppFooter>
 
-    <Shw::Text::H3>With extra content above listItems content</Shw::Text::H3>
+    <Shw::Text::H3>With theme selctor as part of extra content</Shw::Text::H3>
 
     <Hds::AppFooter>
-      <:topContent>
+      <Hds::AppFooter::Item>
         <Hds::Dropdown as |dd|>
           <dd.ToggleButton @text="Theme" @color="secondary" @size="small" />
           <dd.Interactive @icon="monitor" {{on "click" dd.close}} @text="System" />
           <dd.Interactive @icon="moon" {{on "click" dd.close}} @text="Dark" />
           <dd.Interactive @icon="sun" {{on "click" dd.close}} @text="Light" />
         </Hds::Dropdown>
-
-        {{! <Hds::Form::Select::Field as |F|>
-          <F.Label>Theme</F.Label>
-          <F.Options>
-            <option value="system">System</option>
-            <option value="dark">Dark</option>
-            <option value="light">Light</option>
-          </F.Options>
-        </Hds::Form::Select::Field> }}
-      </:topContent>
-
-      <:listItems>
-        <Hds::AppFooter::StatusLink @status="OPERATIONAL" />
-        <Hds::AppFooter::Link @href="https://cloud.hashicorp.com/docs/changelog">Changelog</Hds::AppFooter::Link>
-        <Hds::AppFooter::LegalLinks />
-        <Hds::AppFooter::Copyright />
-      </:listItems>
+      </Hds::AppFooter::Item>
+      <Hds::AppFooter::StatusLink @status="OPERATIONAL" />
+      <Hds::AppFooter::Link @href="https://cloud.hashicorp.com/docs/changelog">Changelog</Hds::AppFooter::Link>
+      <Hds::AppFooter::LegalLinks />
+      <Hds::AppFooter::Copyright />
     </Hds::AppFooter>
 
     <Shw::Divider />
