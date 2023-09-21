@@ -9,6 +9,9 @@ The Tabs component is composed of different parts, with their own APIs:
 ### Tabs API
 
 <Doc::ComponentApi as |C|>
+  <C.Property @name="selectedTabIndex" @type="string">
+    The index of the tab that should be selected. Use of this property will override the `Tabs::Tab` `isSelected` property.
+  </C.Property>
   <C.Property @name="onClickTab" @type="function"/>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).

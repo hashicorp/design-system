@@ -57,3 +57,20 @@ Use the `@onClickTab` handler to pass in a custom function. For example, to stor
   <T.Panel>Content three</T.Panel>
 </Hds::Tabs>
 ```
+
+### Control the selected tab dynamically
+
+Use the `@selectedTabIndex` to manage the currently selected tab manually.
+
+```handlebars
+<Hds::Button @text="Change selected tab" {{on "click" this.changeActiveTab}} />
+<Hds::Tabs @selectedTabIndex={{this.selectedTabIndex}} class="dynamic-index-control" as |T|>
+  <T.Tab>One</T.Tab>
+  <T.Tab>Two</T.Tab>
+  <T.Tab>Three</T.Tab>
+
+  <T.Panel>Content one</T.Panel>
+  <T.Panel>Content two</T.Panel>
+  <T.Panel>Content three</T.Panel>
+</Hds::Tabs>
+```
