@@ -3433,6 +3433,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@hashicorp/design-system-codemods@workspace:packages/codemods":
+  version: 0.0.0-use.local
+  resolution: "@hashicorp/design-system-codemods@workspace:packages/codemods"
+  dependencies:
+    codemod-cli: ^3.2.0
+    coveralls: ^3.1.0
+    eslint: ^8.49.0
+    eslint-config-prettier: ^9.0.0
+    eslint-plugin-node: ^11.1.0
+    eslint-plugin-prettier: ^5.0.0
+    jest: ^26.6.3
+    prettier: ^3.0.3
+  bin:
+    design-system-codemods: ./bin/cli.js
+  languageName: unknown
+  linkType: soft
+
 "@hashicorp/design-system-components@workspace:^, @hashicorp/design-system-components@workspace:packages/components":
   version: 0.0.0-use.local
   resolution: "@hashicorp/design-system-components@workspace:packages/components"
@@ -9534,23 +9551,6 @@ __metadata:
   checksum: c0448ef19a4f2b503c125236f7b4c568d43ec22b4f42a9b461645deb00ea709864646e5801cbb283dc2c2be0cd20cd953efcec043d18ffb5d4de32de3eb901c6
   languageName: node
   linkType: hard
-
-"codemods@workspace:packages/codemods":
-  version: 0.0.0-use.local
-  resolution: "codemods@workspace:packages/codemods"
-  dependencies:
-    codemod-cli: ^3.2.0
-    coveralls: ^3.1.0
-    eslint: ^8.49.0
-    eslint-config-prettier: ^9.0.0
-    eslint-plugin-node: ^11.1.0
-    eslint-plugin-prettier: ^5.0.0
-    jest: ^26.6.3
-    prettier: ^3.0.3
-  bin:
-    codemods: ./bin/cli.js
-  languageName: unknown
-  linkType: soft
 
 "collapse-white-space@npm:^1.0.2":
   version: 1.0.6
