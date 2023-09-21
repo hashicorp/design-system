@@ -1,5 +1,6 @@
 {
-  "name": "codemods",
+  "name": "@hashicorp/design-system-codemods",
+  "description": "Helios Design System codemods",
   "version": "0.1.0",
   "scripts": {
     "lint": "eslint --cache .",
@@ -10,8 +11,19 @@
   },
   "bin": "./bin/cli.js",
   "keywords": [
-    "codemod-cli"
+    "hashicorp",
+    "helios",
+    "design system",
+    "codemod-cli",
+    "codemod"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hashicorp/design-system.git",
+    "directory": "packages/codemods"
+  },
+  "license": "MPL-2.0",
+  "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "dependencies": {
     "codemod-cli": "^3.2.0"
   },
