@@ -95,6 +95,38 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Text::H3>List position</Shw::Text::H3>
+
+  <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
+    <SF.Item @label="Below (default)">
+      <div class="hds-power-select">
+        <PowerSelect
+          @options={{@model.OPTIONS}}
+          @selected={{@model.SELECTED}}
+          @onChange={{this.noop}}
+          @renderInPlace={{true}}
+          as |option|
+        >
+          {{option}}
+        </PowerSelect>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Above">
+      <div class="hds-power-select">
+        <PowerSelect
+          @options={{@model.OPTIONS}}
+          @selected={{@model.SELECTED}}
+          @onChange={{this.noop}}
+          @renderInPlace={{true}}
+          @verticalPosition="above"
+          as |option|
+        >
+          {{option}}
+        </PowerSelect>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
   <Shw::Text::H2>Multiple selection</Shw::Text::H2>
 
   <Shw::Text::H3>Interaction</Shw::Text::H3>
