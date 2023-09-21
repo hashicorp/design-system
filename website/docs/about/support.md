@@ -29,3 +29,7 @@ Users external to HashiCorp can [file issues in GitHub](https://github.com/hashi
 ## Office hours
 
 Office hours are a great way to get feedback on your project or help to get unstuck in a code migration. [Sign up for an appointment](https://docs.google.com/document/d/1LdyQznltt4VCbGGGDuDkARRRKXI4laCHxHhY8dJy4wE/edit?usp=sharing) at the next office hours.
+
+## Share Feedback
+
+If you have more general feedback you can share it (anonymously) with us using our [feedback form](https://go.hashi.co/hds-feedback).
