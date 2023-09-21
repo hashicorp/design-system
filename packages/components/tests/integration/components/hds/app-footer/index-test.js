@@ -19,14 +19,14 @@ module('Integration | Component | hds/app-footer/index', function (hooks) {
   // CONTENT
   test('it should render the passed in content', async function (assert) {
     await render(hbs`
-      <Hds::AppFooter id="test-app-footer">
-        <Hds::AppFooter::StatusLink @status="operational" id="test-status-link" />
-        <Hds::AppFooter::Link @href="https://cloud.hashicorp.com/docs/changelog" id="test-custom-link">
+      <Hds::AppFooter id="test-app-footer" as |AF|>
+        <AF.StatusLink @status="operational" id="test-status-link" />
+        <AF.Link @href="https://cloud.hashicorp.com/docs/changelog" id="test-custom-link">
           Changelog
-        </Hds::AppFooter::Link>
-        <Hds::AppFooter::Item id="test-custom-item">Item</Hds::AppFooter::Item>
-        <Hds::AppFooter::LegalLinks />
-        <Hds::AppFooter::Copyright id="test-copyright" />
+        </AF.Link>
+        <AF.Item id="test-custom-item">Item</AF.Item>
+        <AF.LegalLinks />
+        <AF.Copyright id="test-copyright" />
       </Hds::AppFooter>
     `);
     assert.dom('#test-status-link').exists();

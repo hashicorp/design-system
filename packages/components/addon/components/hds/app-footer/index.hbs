@@ -4,7 +4,20 @@
 }}
 
 <div class="hds-app-footer" ...attributes>
+  {{!-- {{yield to="topContent"}} --}}
+  {{yield (hash ExtraContent=(component "hds/app-footer/extra-content"))}}
+
   <ul class="hds-app-footer__list">
-    {{yield}}
+    {{yield
+      (hash
+        Item=(component "hds/app-footer/item")
+        Link=(component "hds/app-footer/link")
+        StatusLink=(component "hds/app-footer/status-link")
+        LegalLinks=(component "hds/app-footer/legal-links")
+      )
+    }}
   </ul>
+
+  {{!-- {{yield to="bottomContent"}} --}}
+  {{yield (hash Copyright=(component "hds/app-footer/copyright"))}}
 </div>

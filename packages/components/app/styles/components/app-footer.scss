@@ -58,10 +58,10 @@
 }
 
 .hds-app-footer__status-link,
-.hds-app-footer__list-item {
+.hds-app-footer__list-item,
+.hds-app-footer__copyright {
   display: flex;
   gap: 6px;
   align-items: center;
   justify-content: center;
-  width: max-content; // still needed?
 }

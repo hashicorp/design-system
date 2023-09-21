@@ -18,68 +18,69 @@
 
     <Shw::Text::H3>With only generic content</Shw::Text::H3>
 
-    <Hds::AppFooter>
-      <Hds::AppFooter::Item>
-        <Shw::Placeholder @height="2em" @text="list item" @background="#e4e4e4" />
-      </Hds::AppFooter::Item>
-
-      <Hds::AppFooter::Item>
-        <Shw::Placeholder @height="2em" @text="list item" @background="#e4e4e4" />
-      </Hds::AppFooter::Item>
-
-      <Hds::AppFooter::Item>
-        <Shw::Placeholder @height="2em" @text="list item" @background="#e4e4e4" />
-      </Hds::AppFooter::Item>
+    <Hds::AppFooter as |AF|>
+      <AF.ExtraContent>
+        <Shw::Placeholder @height="2em" @text="Extra Content" @background="#e4e4e4" />
+      </AF.ExtraContent>
+      <AF.Item>
+        <Shw::Placeholder @height="2em" @text="Item" @background="#e4e4e4" />
+      </AF.Item>
+      <AF.Item>
+        <Shw::Placeholder @height="2em" @text="Item" @background="#e4e4e4" />
+      </AF.Item>
+      <AF.Item>
+        <Shw::Placeholder @height="2em" @text="Item" @background="#e4e4e4" />
+      </AF.Item>
     </Hds::AppFooter>
 
     <Shw::Text::H3>With minimal recommended content</Shw::Text::H3>
 
-    <Hds::AppFooter>
-      <Hds::AppFooter::LegalLinks />
-      <Hds::AppFooter::Copyright />
+    <Hds::AppFooter as |AF|>
+      <AF.LegalLinks />
+      <AF.Copyright />
     </Hds::AppFooter>
 
     <Shw::Text::H3>With typical custom content</Shw::Text::H3>
 
-    <Hds::AppFooter>
-      <Hds::AppFooter::StatusLink @status="operational" />
-      <Hds::AppFooter::Link @href="https://cloud.hashicorp.com/docs/changelog">Changelog</Hds::AppFooter::Link>
-      <Hds::AppFooter::LegalLinks />
-      <Hds::AppFooter::Copyright />
+    <Hds::AppFooter as |AF|>
+      <AF.StatusLink @status="operational" />
+      <AF.Link @href="https://cloud.hashicorp.com/docs/changelog">Changelog</AF.Link>
+      <AF.LegalLinks />
+      <AF.Copyright />
     </Hds::AppFooter>
 
     <Shw::Text::H3>With custom “meta” (non-link) content</Shw::Text::H3>
 
-    <Hds::AppFooter>
-      <Hds::AppFooter::StatusLink @status="operational" />
-      <Hds::AppFooter::LegalLinks />
-      <Hds::AppFooter::Item>
+    <Hds::AppFooter as |AF|>
+      <AF.StatusLink @status="operational" />
+      <AF.LegalLinks />
+      <AF.Item>
         <Hds::Text::Body @tag="span" @size="100" @color="primary">v.01.15</Hds::Text::Body>
-      </Hds::AppFooter::Item>
-      <Hds::AppFooter::Item>
+      </AF.Item>
+      <AF.Item>
         <Hds::Text::Body @tag="span" @size="100" @color="primary">Product Name</Hds::Text::Body>
-      </Hds::AppFooter::Item>
-      <Hds::AppFooter::Item>
+      </AF.Item>
+      <AF.Item>
         <Hds::Text::Body @tag="span" @size="100" @color="primary">API: 1.02</Hds::Text::Body>
-      </Hds::AppFooter::Item>
-      <Hds::AppFooter::Copyright />
+      </AF.Item>
+      <AF.Copyright />
     </Hds::AppFooter>
 
-    <Shw::Text::H3>With theme selctor as part of extra content</Shw::Text::H3>
+    <Shw::Text::H3>With theme selector as part of Extra Content</Shw::Text::H3>
 
-    <Hds::AppFooter>
-      <Hds::AppFooter::Item>
+    <Hds::AppFooter as |AF|>
+      <AF.ExtraContent>
         <Hds::Dropdown as |dd|>
           <dd.ToggleButton @text="Theme" @color="secondary" @size="small" />
           <dd.Interactive @icon="monitor" {{on "click" dd.close}} @text="System" />
           <dd.Interactive @icon="moon" {{on "click" dd.close}} @text="Dark" />
           <dd.Interactive @icon="sun" {{on "click" dd.close}} @text="Light" />
         </Hds::Dropdown>
-      </Hds::AppFooter::Item>
-      <Hds::AppFooter::StatusLink @status="operational" />
-      <Hds::AppFooter::Link @href="https://cloud.hashicorp.com/docs/changelog">Changelog</Hds::AppFooter::Link>
-      <Hds::AppFooter::LegalLinks />
-      <Hds::AppFooter::Copyright />
+      </AF.ExtraContent>
+      <AF.StatusLink @status="operational" />
+      <AF.Link @href="https://cloud.hashicorp.com/docs/changelog">Changelog</AF.Link>
+      <AF.LegalLinks />
+      <AF.Copyright />
     </Hds::AppFooter>
 
     <Shw::Divider />
