@@ -23,6 +23,7 @@ node ./bin/cli.js <TRANSFORM NAME> path/of/files/ or/some**/*glob.js
 ## Transforms
 
 <!--TRANSFORMS_START-->
+* [v3/dropdown](transforms/v3/dropdown/README.md)
 <!--TRANSFORMS_END-->
 
 ## Contributing
