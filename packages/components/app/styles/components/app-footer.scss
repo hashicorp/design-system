@@ -18,11 +18,23 @@
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
-  align-items: center;
   justify-content: flex-end;
   padding: 24px;
   border-top: 1px solid var(--token-color-border-primary);
 }
+
+.hds-app-footer__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+  justify-content: flex-end;
+  width: max-content;
+  margin: 0;
+  padding: 0;
+}
+
+.hds-app-footer__list-item { list-style-type: none; }
 
 .hds-app-footer__link.hds-link-inline--color-secondary,
 .hds-app-footer__status-link {
@@ -46,10 +58,10 @@
 }
 
 .hds-app-footer__status-link,
-.hds-app-footer__item {
+.hds-app-footer__list-item {
   display: flex;
   gap: 6px;
   align-items: center;
   justify-content: center;
-  width: max-content;
+  width: max-content; // still needed?
 }
