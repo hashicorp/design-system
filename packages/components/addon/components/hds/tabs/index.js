@@ -126,10 +126,9 @@ export default class HdsTabsIndexComponent extends Component {
 
   @action
   setTabIndicator() {
-    const tabElem = this.tabNodes[this.selectedIndex];
-    const tabsParentElem = tabElem.closest('.hds-tabs');
-
     next(() => {
+      const tabElem = this.tabNodes[this.selectedIndex];
+      const tabsParentElem = tabElem.closest('.hds-tabs');
       const tabLeftPos = tabElem.parentNode.offsetLeft;
       const tabWidth = tabElem.parentNode.offsetWidth;
 
