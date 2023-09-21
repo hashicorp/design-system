@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
-import { schedule } from '@ember/runloop';
+import { next, schedule } from '@ember/runloop';
 
 export default class HdsTabsIndexComponent extends Component {
   @tracked tabNodes = [];
@@ -16,26 +16,37 @@ export default class HdsTabsIndexComponent extends Component {
   @tracked panelIds = [];
   @tracked selectedTabIndex;
 
+  get selectedIndex() {
+    return this.selectionControlled
+      ? this.args.selectedTabIndex
+      : this.selectedTabIndex;
+  }
+
+  get selectionControlled() {
+    return this.args.selectedTabIndex >= 0;
+  }
+
   @action
   didInsert() {
     // default starting tab index
     let initialTabIndex = 0;
     let selectedCount = 0;
 
-    this.tabNodes.forEach((tabElement, index) => {
-      if (tabElement.hasAttribute('data-is-selected')) {
-        initialTabIndex = index;
-        selectedCount++;
-      }
-    });
-    this.selectedTabIndex = initialTabIndex;
+    if (!this.selectionControlled) {
+      this.tabNodes.forEach((tabElement, index) => {
+        if (tabElement.hasAttribute('data-is-selected')) {
+          initialTabIndex = index;
+          selectedCount++;
+        }
+      });
+      this.selectedTabIndex = initialTabIndex;
+    }
 
     schedule('afterRender', () => {
-      this.setTabIndicator(initialTabIndex);
+      this.setTabIndicator();
     });
 
     assert('Only one tab may use isSelected argument', selectedCount <= 1);
-
     assert(
       'The number of Tabs must be equal to the number of Panels',
       this.tabNodes.length === this.panelNodes.length
@@ -69,7 +80,6 @@ export default class HdsTabsIndexComponent extends Component {
   @action
   onClick(tabIndex, event) {
     this.selectedTabIndex = tabIndex;
-    this.setTabIndicator(tabIndex);
 
     // Scroll Tab into view if it's out of view
     this.tabNodes[tabIndex].parentNode.scrollIntoView({
@@ -114,15 +124,22 @@ export default class HdsTabsIndexComponent extends Component {
     this.panelNodes[tabIndex].focus();
   }
 
-  setTabIndicator(tabIndex) {
-    const tabElem = this.tabNodes[tabIndex];
+  @action
+  setTabIndicator() {
+    const tabElem = this.tabNodes[this.selectedIndex];
     const tabsParentElem = tabElem.closest('.hds-tabs');
 
-    const tabLeftPos = tabElem.parentNode.offsetLeft;
-    const tabWidth = tabElem.parentNode.offsetWidth;
+    next(() => {
+      const tabLeftPos = tabElem.parentNode.offsetLeft;
+      const tabWidth = tabElem.parentNode.offsetWidth;
+      console.log(tabLeftPos, tabWidth);
 
-    // Set CSS custom properties for indicator
-    tabsParentElem.style.setProperty('--indicator-left-pos', tabLeftPos + 'px');
-    tabsParentElem.style.setProperty('--indicator-width', tabWidth + 'px');
+      // Set CSS custom properties for indicator
+      tabsParentElem.style.setProperty(
+        '--indicator-left-pos',
+        tabLeftPos + 'px'
+      );
+      tabsParentElem.style.setProperty('--indicator-width', tabWidth + 'px');
+    });
   }
 }

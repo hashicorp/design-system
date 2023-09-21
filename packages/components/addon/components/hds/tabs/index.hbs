@@ -3,7 +3,12 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 {{! template-lint-disable no-invalid-role }}
-<div class="hds-tabs" {{did-insert this.didInsert}} ...attributes>
+<div
+  class="hds-tabs"
+  {{did-insert this.didInsert}}
+  {{did-update this.setTabIndicator this.selectedIndex}}
+  ...attributes
+>
   <div class="hds-tabs__tablist-wrapper">
     <ul class="hds-tabs__tablist" role="tablist">
       {{yield
@@ -14,7 +19,7 @@
             willDestroyNode=this.willDestroyTab
             tabIds=this.tabIds
             panelIds=this.panelIds
-            selectedTabIndex=this.selectedTabIndex
+            selectedTabIndex=this.selectedIndex
             onClick=this.onClick
             onKeyUp=this.onKeyUp
           )
@@ -32,7 +37,7 @@
         willDestroyNode=this.willDestroyPanel
         tabIds=this.tabIds
         panelIds=this.panelIds
-        selectedTabIndex=this.selectedTabIndex
+        selectedTabIndex=(if this.selectionControlled @selectedTabIndex this.selectedTabIndex)
       )
     )
   }}

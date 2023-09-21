@@ -126,6 +126,21 @@
     <T.Panel><Shw::Placeholder @text="Tab Three - Content" @height="50" @background="#eee" /></T.Panel>
   </Hds::Tabs>
 
+  <Shw::Text::Body>With selected tab condition</Shw::Text::Body>
+  <Hds::Tabs @selectedTabIndex={{this.selectedTabIndex}} @onClickTab={{this.updateQueryParam}} as |T|>
+    <T.Tab data-tab-key="one">One</T.Tab>
+    <T.Tab data-tab-key="two">Two</T.Tab>
+    <T.Tab data-tab-key="three">Three</T.Tab>
+
+    <T.Panel>
+      <Shw::Placeholder @height="50" @background="#eee">
+        <span>Content one with <a href="#">link to test tabbing</a></span>
+      </Shw::Placeholder>
+    </T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content two" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content three" @height="50" @background="#eee" /></T.Panel>
+  </Hds::Tabs>
+
   <Shw::Divider />
 
   <Shw::Text::H2>Base elements</Shw::Text::H2>
