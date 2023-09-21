@@ -231,4 +231,34 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
     assert.dom('.hds-tabs__tab-count').exists();
     assert.dom('.hds-tabs__tab-count').hasText('5');
   });
+
+  test('it should allow for external control of selected index', async function (assert) {
+    this.selectedTabIndex = 0;
+    await render(hbs`
+      <Hds::Tabs @selectedTabIndex={{this.selectedTabIndex}} as |T|>
+        <T.Tab>One</T.Tab>
+        <T.Tab>Two</T.Tab>
+        <T.Panel data-test="one panel">Content 1</T.Panel>
+        <T.Panel data-test="two panel">Content 2</T.Panel>
+      </Hds::Tabs>
+    `);
+
+    assert.dom('.hds-tabs__tab--is-selected').hasText('One');
+    assert
+      .dom('.hds-tabs__panel[data-test="one panel"]')
+      .doesNotHaveAttribute('hidden');
+    assert
+      .dom('.hds-tabs__panel[data-test="two panel"]')
+      .hasAttribute('hidden');
+
+    this.set('selectedTabIndex', 1);
+
+    assert.dom('.hds-tabs__tab--is-selected').hasText('Two');
+    assert
+      .dom('.hds-tabs__panel[data-test="one panel"]')
+      .hasAttribute('hidden');
+    assert
+      .dom('.hds-tabs__panel[data-test="two panel"]')
+      .doesNotHaveAttribute('hidden');
+  });
 });
