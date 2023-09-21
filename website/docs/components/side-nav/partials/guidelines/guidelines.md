@@ -129,3 +129,11 @@ The SideNav should always be positioned on the left side of the viewport, occupy
 On smaller viewports, the SideNav should collapse to maximize the available real estate on tablet and mobile devices. By tapping the menu icon, users can expand and access the full menu when needed.
 
 ![Responsive side-nav](/assets/components/side-nav/sidenav-position-and-responsive.png)
+
+## Collapse functionality
+
+The SideNav supports a function for the end-user to expand and collapse the component via the `isCollapsible` property. If set to true, a button at the edge of the SideNav will be displayed, allowing them to determine if the SideNav is collapsed independent of the viewport width (to a certain extent).
+
+![SideNav collapse function](/assets/components/side-nav/sidenav-collapse-interaction.png)
+
+On smaller viewports the SideNav will be rendered in its collapsed state **by default** and will overlay the main page content it its expanded state.
