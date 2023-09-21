@@ -132,7 +132,6 @@ export default class HdsTabsIndexComponent extends Component {
     next(() => {
       const tabLeftPos = tabElem.parentNode.offsetLeft;
       const tabWidth = tabElem.parentNode.offsetWidth;
-      console.log(tabLeftPos, tabWidth);
 
       // Set CSS custom properties for indicator
       tabsParentElem.style.setProperty(
