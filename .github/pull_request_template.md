@@ -23,7 +23,8 @@ Figma file: [if it applies]
 ### 👀 Component checklist
 
 - [ ] Percy was checked for any visual regression
-- [ ] A11y tests have been run locally
+- [ ] A11y tests have been run locally (`yarn test:a11y --filter="COMPONENT-NAME"`)
+- [ ] If documenting a new component, an acceptance test that includes the `a11yAudit` has been added
 - [ ] A changelog entry was added via [Changesets](https://github.com/changesets/changesets) if needed
 
 :speech_balloon: Please consider using [conventional comments](https://conventionalcomments.org/) when reviewing this PR.
