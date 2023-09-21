@@ -7,52 +7,52 @@ import Component from '@glimmer/component';
 
 export default class HdsAppFooterIndexComponent extends Component {
   /**
-   * @param urlForSupport
+   * @param hrefForSupport
    * @type {string}
    * @description The href value of the "Support" link
    */
-  get urlForSupport() {
-    return this.args.urlForSupport ?? 'https://www.hashicorp.com/support';
+  get hrefForSupport() {
+    return this.args.hrefForSupport ?? 'https://www.hashicorp.com/support';
   }
 
   /**
-   * @param urlForTerms
+   * @param hrefForTerms
    * @type {string}
    * @description The href value of the "Terms" link
    */
   // TODO: Make Terms url required instead of setting a default value?
-  get urlForTerms() {
+  get hrefForTerms() {
     return (
-      this.args.urlForTerms ?? 'https://www.hashicorp.com/terms-of-service'
+      this.args.hrefForTerms ?? 'https://www.hashicorp.com/terms-of-service'
     );
   }
 
   /**
-   * @param urlForPrivacy
+   * @param hrefForPrivacy
    * @type {string}
    * @description The href value of the "Privacy" link
    */
-  get urlForPrivacy() {
-    return this.args.urlForPrivacy ?? 'https://www.hashicorp.com/privacy';
+  get hrefForPrivacy() {
+    return this.args.hrefForPrivacy ?? 'https://www.hashicorp.com/privacy';
   }
 
   /**
-   * @param urlForSecurity
+   * @param hrefForSecurity
    * @type {string}
    * @description The href value of the "Security" link
    */
-  get urlForSecurity() {
-    return this.args.urlForSecurity ?? 'https://www.hashicorp.com/security';
+  get hrefForSecurity() {
+    return this.args.hrefForSecurity ?? 'https://www.hashicorp.com/security';
   }
 
   /**
-   * @param urlForAccessibility
+   * @param hrefForAccessibility
    * @type {string}
    * @description The href value of the "Accessibility" link
    */
-  get urlForAccessibility() {
+  get hrefForAccessibility() {
     return (
-      this.args.urlForAccessibility ?? 'mailto:accessibility@hashicorp.com'
+      this.args.hrefForAccessibility ?? 'mailto:accessibility@hashicorp.com'
     );
   }
 }
