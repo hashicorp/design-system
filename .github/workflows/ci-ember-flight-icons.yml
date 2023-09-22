@@ -2,6 +2,8 @@ name: CI - Ember Flight Icons
     
 on:
   push:
+    paths:
+      - '**.js'
     branches:
       - main
   pull_request: {}
