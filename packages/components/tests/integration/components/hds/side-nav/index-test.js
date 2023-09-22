@@ -108,10 +108,10 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
     );
     assert.dom('#test-side-nav').hasClass('hds-side-nav--is-not-minimized');
 
-    await click('.hds-side-nav__menu-toggle-button');
+    await click('.hds-side-nav__toggle-button');
     assert.dom('#test-side-nav').hasClass('hds-side-nav--is-minimized');
 
-    await click('.hds-side-nav__menu-toggle-button');
+    await click('.hds-side-nav__toggle-button');
     assert.dom('#test-side-nav').hasClass('hds-side-nav--is-not-minimized');
   });
 
@@ -131,10 +131,10 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
     `);
     assert.dom('#test-side-nav').hasClass('hds-side-nav--is-not-minimized');
     assert
-      .dom('.hds-side-nav__menu-toggle-button')
+      .dom('.hds-side-nav__toggle-button')
       .hasAttribute('aria-label', 'Close menu');
     assert
-      .dom('.hds-side-nav__menu-toggle-button .flight-icon')
+      .dom('.hds-side-nav__toggle-button .flight-icon')
       .hasClass('flight-icon-chevrons-left');
     assert
       .dom('#test-side-nav-header')
@@ -146,14 +146,14 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
       .dom('#test-side-nav-footer')
       .doesNotHaveAttribute('data-test-minimized');
 
-    await click('.hds-side-nav__menu-toggle-button');
+    await click('.hds-side-nav__toggle-button');
 
     assert.dom('#test-side-nav').hasClass('hds-side-nav--is-minimized');
     assert
-      .dom('.hds-side-nav__menu-toggle-button')
+      .dom('.hds-side-nav__toggle-button')
       .hasAttribute('aria-label', 'Open menu');
     assert
-      .dom('.hds-side-nav__menu-toggle-button .flight-icon')
+      .dom('.hds-side-nav__toggle-button .flight-icon')
       .hasClass('flight-icon-chevrons-right');
     assert.dom('#test-side-nav-header').hasAttribute('data-test-minimized');
     assert.dom('#test-side-nav-body').hasAttribute('data-test-minimized');
@@ -168,7 +168,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
     await render(
       hbs`<Hds::SideNav @isCollapsible={{true}} @onToggleMinimizedStatus={{this.onToggleMinimizedStatus}} />`
     );
-    await click('.hds-side-nav__menu-toggle-button');
+    await click('.hds-side-nav__toggle-button');
     assert.ok(toggled);
   });
 
