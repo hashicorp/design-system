@@ -23,14 +23,11 @@
       {{! template-lint-disable no-invalid-interactive}}
       <div class="hds-side-nav__overlay" {{on "click" this.toggleMinimizedStatus}} />
       {{! template-lint-enable no-invalid-interactive}}
-      <button
-        class="hds-side-nav__toggle-button"
-        type="button"
-        {{on "click" this.toggleMinimizedStatus}}
+      <Hds::SideNav::ToggleButton
         aria-label={{this.ariaLabel}}
-      >
-        <FlightIcon @name={{if this.isMinimized "chevrons-right" "chevrons-left"}} />
-      </button>
+        @icon={{if this.isMinimized "chevrons-right" "chevrons-left"}}
+        {{on "click" this.toggleMinimizedStatus}}
+      />
     {{/if}}
   </:root>
   <:header as |Header|>
