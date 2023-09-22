@@ -8,7 +8,7 @@
 
 | Element          | Usage                              |
 | ---------------- | ---------------------------------- |
-| Collapse Trigger | Optional                           |
+| Collapse Toggle  | Optional                           |
 | **Header**       |                                    |
 | Home link        | Required; either default or custom |
 | Help dropdown    | Optional                           |

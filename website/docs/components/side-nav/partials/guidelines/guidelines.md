@@ -132,8 +132,23 @@ On smaller viewports, the SideNav should collapse to maximize the available real
 
 ## Collapse functionality
 
-The SideNav supports a function for the end-user to expand and collapse the component via the `isCollapsible` property. If set to true, a button at the edge of the SideNav will be displayed, allowing them to determine if the SideNav is collapsed independent of the viewport width (to a certain extent).
+If the `isCollapsible` property is set to true, a collapse toggle button will be exposed to the end-user allowing them to manually expand and collapse the component. 
 
 ![SideNav collapse function](/assets/components/side-nav/sidenav-collapse-interaction.png)
 
 On smaller viewports the SideNav will be rendered in its collapsed state **by default** and will overlay the main page content it its expanded state.
+
+![SideNav overlay on smaller viewports](/assets/components/side-nav/sidenav-overlay-small-viewport.png)
+
+### Collapsed reflow
+
+The collapse functionality of the SideNav gives control to the end-user to unlock more horizontal space in the main page. Thus, the main page content should reflow to occupy this space if the SideNav is in it's collapsed state.
+
+This is handled out of the box by the HDS [AppFrame](/components/app-frame) component, but may need to be accounted for in custom implementations of the component.
+
+<video width="100%" controls loop>
+  <source
+    src="/assets/components/side-nav/sidenav-expand-collapse.mp4"
+    type="video/mp4"
+  />
+</video>
