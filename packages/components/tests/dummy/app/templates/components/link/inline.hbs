@@ -34,25 +34,81 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Divider />
+
   <Shw::Text::H2>Content</Shw::Text::H2>
 
-  <Shw::Flex as |SF|>
-    <SF.Item @label="Only text">
+  <Shw::Grid
+    @columns={{3}}
+    {{style width="fit-content" grid-template-columns="repeat(3, auto)" gap="1rem 2rem"}}
+    as |SG|
+  >
+    <SG.Item @label="Only text">
       <div class="hds-typography-body-300">
-        <Hds::Link::Inline @color="primary" @href="#">Lorem ipsum</Hds::Link::Inline>
+        <Hds::Link::Inline @color="primary" @href="#">Lorem ipsum dolor</Hds::Link::Inline>
       </div>
-    </SF.Item>
-    <SF.Item @label="Text + leading icon">
+    </SG.Item>
+    <SG.Item @label="Text + leading icon">
       <div class="hds-typography-body-300">
-        <Hds::Link::Inline @color="primary" @icon="globe" @iconPosition="leading" @href="#">Lorem ipsum</Hds::Link::Inline>
+        <Hds::Link::Inline @color="primary" @icon="globe" @iconPosition="leading" @href="#">Lorem ipsum dolor</Hds::Link::Inline>
       </div>
-    </SF.Item>
-    <SF.Item @label="Text + trailing icon">
+    </SG.Item>
+    <SG.Item @label="Text + trailing icon">
       <div class="hds-typography-body-300">
-        <Hds::Link::Inline @color="primary" @icon="arrow-right-circle" @iconPosition="trailing" @href="#">Lorem ipsum</Hds::Link::Inline>
+        <Hds::Link::Inline @color="primary" @icon="arrow-right-circle" @iconPosition="trailing" @href="#">Lorem ipsum
+          dolor</Hds::Link::Inline>
       </div>
-    </SF.Item>
-  </Shw::Flex>
+    </SG.Item>
+    <SG.Item @label="HDS::Text::Body">
+      <Hds::Link::Inline @color="primary" @href="#"><Hds::Text::Body @size="300" @tag="span">Lorem ipsum dolor</Hds::Text::Body></Hds::Link::Inline>
+    </SG.Item>
+    <SG.Item @label="HDS::Text::Body + leading icon">
+      <Hds::Link::Inline @color="primary" @icon="globe" @iconPosition="leading" @href="#"><Hds::Text::Body
+          @size="300"
+          @tag="span"
+        >Lorem ipsum dolor</Hds::Text::Body></Hds::Link::Inline>
+    </SG.Item>
+    <SG.Item @label="HDS::Text::Body + trailing icon">
+      <Hds::Link::Inline @color="primary" @icon="arrow-right-circle" @iconPosition="trailing" @href="#"><Hds::Text::Body
+          @size="300"
+          @tag="span"
+        >Lorem ipsum dolor</Hds::Text::Body></Hds::Link::Inline>
+    </SG.Item>
+    <SG.Item @label="HDS::Text::Display">
+      <Hds::Link::Inline @color="primary" @href="#"><Hds::Text::Display @size="200" @tag="span">Lorem ipsum dolor</Hds::Text::Display></Hds::Link::Inline>
+    </SG.Item>
+    <SG.Item @label="HDS::Text::Display + leading icon">
+      <Hds::Link::Inline @color="primary" @icon="globe" @iconPosition="leading" @href="#"><Hds::Text::Display
+          @size="200"
+          @tag="span"
+        >Lorem ipsum dolor</Hds::Text::Display></Hds::Link::Inline>
+    </SG.Item>
+    <SG.Item @label="HDS::Text::Display + trailing icon">
+      <Hds::Link::Inline
+        @color="primary"
+        @icon="arrow-right-circle"
+        @iconPosition="trailing"
+        @href="#"
+      ><Hds::Text::Display @size="200" @tag="span">Lorem ipsum dolor</Hds::Text::Display></Hds::Link::Inline>
+    </SG.Item>
+    <SG.Item @label="HDS::Text::Code">
+      <Hds::Link::Inline @color="primary" @href="#"><Hds::Text::Code @size="200" @tag="code">Lorem ipsum dolor</Hds::Text::Code></Hds::Link::Inline>
+    </SG.Item>
+    <SG.Item @label="HDS::Text::Code + leading icon">
+      <Hds::Link::Inline @color="primary" @icon="globe" @iconPosition="leading" @href="#"><Hds::Text::Code
+          @size="200"
+          @tag="code"
+        >Lorem ipsum dolor</Hds::Text::Code></Hds::Link::Inline>
+    </SG.Item>
+    <SG.Item @label="HDS::Text::Code + trailing icon">
+      <Hds::Link::Inline @color="primary" @icon="arrow-right-circle" @iconPosition="trailing" @href="#"><Hds::Text::Code
+          @size="200"
+          @tag="code"
+        >Lorem ipsum dolor</Hds::Text::Code></Hds::Link::Inline>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
 
   <Shw::Flex as |SF|>
     <SF.Item @label="With different text sizes">
@@ -83,6 +139,8 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Divider @level={{2}} />
+
   <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Within text block">
       <div class="hds-typography-body-300">
@@ -105,6 +163,8 @@
       </div>
     </SG.Item>
   </Shw::Grid>
+
+  <Shw::Divider />
 
   <Shw::Text::H2>States</Shw::Text::H2>
 
