@@ -10,9 +10,9 @@ import { assert } from '@ember/debug';
 import { registerDestructor } from '@ember/destroyable';
 
 export default class HdsSideNavComponent extends Component {
-  @tracked isResponsive = this.args.isResponsive ?? true;
-  @tracked isMinimized = this.args.isMinimized ?? false;
-  @tracked isCollapsible = this.args.isCollapsible ?? false;
+  @tracked isResponsive = this.args.isResponsive ?? true; // controls if the component reacts to viewport changes
+  @tracked isMinimized = this.args.isMinimized ?? false; // sets the default state on 'desktop' viewports
+  @tracked isCollapsible = this.args.isCollapsible ?? false; // controls if users can collapse the sidenav on 'desktop' viewports
   @tracked isAnimating = false;
   @tracked isDesktop = true;
   hasA11yRefocus = this.args.hasA11yRefocus ?? true;
