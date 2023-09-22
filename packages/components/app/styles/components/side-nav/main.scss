@@ -76,7 +76,7 @@
   left: calc(var(--hds-app-sidenav-border-width) * -1);
   z-index: 1;
   display: flex;
-  box-sizing: content-box;
+  box-sizing: content-box; // keeps the border outside the element to consistently control the border width across SideNav elements
   padding: calc(var(--token-side-nav-toggle-button-padding-vertical) - var(--hds-app-sidenav-border-width)) var(--token-side-nav-toggle-button-padding-horizontal);
   color: var(--token-color-foreground-high-contrast);
   background: none;
