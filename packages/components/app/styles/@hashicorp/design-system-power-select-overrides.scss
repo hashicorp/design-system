@@ -71,12 +71,20 @@
 
   .ember-basic-select-dropdown,
   .ember-power-select-dropdown {
+    &.ember-basic-dropdown-content--below,
     &.ember-basic-dropdown-content--in-place {
       margin-top: -3px;
       border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
       border-bottom-right-radius: 6px;
       border-bottom-left-radius: 6px;
       box-shadow: var(--token-elevation-high-box-shadow), var(--token-elevation-high-box-shadow);
+    }
+
+    &.ember-basic-dropdown-content--above {
+      margin-top: 3px;
+      border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
+      border-radius: 6px 6px 0 0;
+      box-shadow: none;
     }
   }
 
