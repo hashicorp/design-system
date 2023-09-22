@@ -1,6 +1,17 @@
 {
   "side-nav": {
     "wrapper": {
+      "border": {
+        "width": {
+          "value": "1",
+          "type": "size"
+        },
+        "color": {
+          "value": "#656a76",
+          "type": "color",
+          "group": "components"
+        }
+      },
       "padding": {
         "horizontal": {
           "value": "16",
@@ -21,6 +32,12 @@
       }
     },
     "toggle-button": {
+      "border": {
+        "radius": {
+          "value": "5",
+          "type": "size"
+        }
+      },
       "padding": {
         "horizontal": {
           "value": "4",
