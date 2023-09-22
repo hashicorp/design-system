@@ -1,5 +1,16 @@
 # @hashicorp/design-system-components
 
+## 2.12.2
+
+### Patch Changes
+
+- [#1655](https://github.com/hashicorp/design-system/pull/1655) [`38f7e36c2`](https://github.com/hashicorp/design-system/commit/38f7e36c25f3efdade9c8833512d55af502ee07e) Thanks [@alex-ju](https://github.com/alex-ju)! - PowerSelect - fix style overrides when the list is positioned above
+
+- [#1652](https://github.com/hashicorp/design-system/pull/1652) [`61af964b0`](https://github.com/hashicorp/design-system/commit/61af964b0078377dcedafa744e0fd18e89852b96) Thanks [@didoo](https://github.com/didoo)! - `Text` - Fixed issue with whitespace adding extra underline when used in links (eg. inside a `Link::Inline`)
+
+- Updated dependencies []:
+  - @hashicorp/ember-flight-icons@3.1.3
+
 ## 2.12.1
 
 ### Patch Changes

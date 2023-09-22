@@ -1,5 +1,22 @@
 # @hashicorp/flight-icons
 
+## 2.20.0
+
+### Minor Changes
+
+- [#1657](https://github.com/hashicorp/design-system/pull/1657) [`98bbe9438`](https://github.com/hashicorp/design-system/commit/98bbe9438e034695a552e4033c80ef28970ef22a) Thanks [@jorytindall](https://github.com/jorytindall)! - Added "static" version of the animated icons:
+
+  - `loading-static`
+  - `running-static`
+
+  Added new set of icons for Google services:
+
+  - `google-docs`
+  - `google-forms`
+  - `google-slides`
+  - `google-sheets`
+  - `google-drive`
+
 ## 2.19.0
 
 ### Minor Changes
