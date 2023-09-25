@@ -23,13 +23,15 @@
   border-top: 1px solid var(--token-color-border-primary);
 }
 
-.hds-app-footer__list {
+.hds-app-footer__list,
+.hds-app-footer__legal-links {
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
   align-items: center;
   justify-content: flex-end;
   width: max-content;
+  max-width: 100%;
   margin: 0;
   padding: 0;
 }
