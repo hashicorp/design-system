@@ -21,6 +21,14 @@ Possible forms of collaboration include, but are not limited to:
 - New artifacts, such as icons, components, patterns, etc.
 - Obtaining support, feedback, and usage guidance from the Design Systems Team.
 
+## Direct contributions
+
+We support a small number of autonomous but coordinated direct contributions. These include bug fixes in the code, new icons, documentation improvements, and small enhancements to existing components.
+
+### Why large direct contributions are not currently accepted
+
+Adding new components or patterns to Helios takes significant time and consideration of use cases across all our products. As a team, we also strive to maintain a high bar for consistency in implementation and delivery across both design and code to ensure a systematic and high-quality experience for our consumers when using Helios in their work. This combination of factors means that large direct contributions are not pragmatic for us to support at this time, however, we've developed the collaboration process outlined here to help enable teams to work directly with us to support their needs.  
+ 
 ## Our collaborative process
 
 Our collaborative process is intended to be a guideline, not a playbook. Each collaboration may be different depending on the complexity of the proposal. This process generally works best for larger collaboration projects, but we’ll help define the necessary steps based on your project type during the kickoff.
@@ -84,10 +92,6 @@ Once reviewed and approved, the feature can be implemented and released in Helio
 - The product team will:
     - Follow the guidance provided by the Design Systems Team in the follow-up work related to the collaboration effort
     - Have a clear plan to adopt the artifacts produced during the collaboration
-
-## Direct contributions
-
-We support a small number of autonomous but coordinated direct contributions. These include bug fixes in the code, new icons, documentation improvements, and small enhancements to existing components.
 
 ### Contribute a new icon in Figma
 
