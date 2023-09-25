@@ -3,6 +3,8 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<ul class="hds-app-footer__meta-items" aria-label="Meta data">
-  {{yield (hash Item=(component "hds/app-footer/item"))}}
-</ul>
+<Hds::AppFooter::Item>
+  <ul class="hds-app-footer__meta-items" aria-label="Meta data">
+    {{yield (hash Item=(component "hds/app-footer/item"))}}
+  </ul>
+</Hds::AppFooter::Item>
