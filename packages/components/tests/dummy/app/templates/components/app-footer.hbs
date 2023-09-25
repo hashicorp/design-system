@@ -37,7 +37,6 @@
 
     <Hds::AppFooter as |AF|>
       <AF.LegalLinks />
-      <AF.Copyright />
     </Hds::AppFooter>
 
     <Shw::Text::H3>With typical custom content</Shw::Text::H3>
@@ -46,7 +45,6 @@
       <AF.StatusLink @status="operational" />
       <AF.Link @href="https://cloud.hashicorp.com/docs/changelog">Changelog</AF.Link>
       <AF.LegalLinks />
-      <AF.Copyright />
     </Hds::AppFooter>
 
     <Shw::Text::H3>With custom “meta” (non-link) content</Shw::Text::H3>
@@ -63,7 +61,6 @@
       <AF.Item>
         <Hds::Text::Body @tag="span" @size="100" @color="primary">API: 1.02</Hds::Text::Body>
       </AF.Item>
-      <AF.Copyright />
     </Hds::AppFooter>
 
     <Shw::Text::H3>With theme selector as part of Extra Content</Shw::Text::H3>
@@ -80,7 +77,6 @@
       <AF.StatusLink @status="operational" />
       <AF.Link @href="https://cloud.hashicorp.com/docs/changelog">Changelog</AF.Link>
       <AF.LegalLinks />
-      <AF.Copyright />
     </Hds::AppFooter>
 
     <Shw::Divider />
@@ -108,8 +104,6 @@
         <AF.Item>
           <Shw::Placeholder @height="2em" @text="API: 1.02" @background="#FF7575" />
         </AF.Item>
-
-        <AF.Copyright />
       </Hds::AppFooter>
     </div>
 
@@ -134,8 +128,6 @@
         <AF.Item>
           <Shw::Placeholder @height="2em" @text="API: 1.02" @background="#FF7575" />
         </AF.Item>
-
-        <AF.Copyright />
       </Hds::AppFooter>
     </div>
 
@@ -159,8 +151,6 @@
         <AF.Item>
           <Shw::Placeholder @height="2em" @text="API: 1.02" @background="#FF7575" />
         </AF.Item>
-
-        <AF.Copyright />
       </Hds::AppFooter>
     </div>
 
@@ -185,8 +175,6 @@
         <AF.Item>
           <Shw::Placeholder @height="2em" @text="API: 1.02" @background="#FF7575" />
         </AF.Item>
-
-        <AF.Copyright />
       </Hds::AppFooter>
     </div>
 
@@ -302,13 +290,5 @@
         </ul>
       </SF.Item>
     </Shw::Flex>
-
-    <Shw::Divider @level={{2}} />
-
-    <Shw::Text::H3>Hds::AppFooter::Copyright</Shw::Text::H3>
-
-    <ul class="hds-app-footer__list">
-      <Hds::AppFooter::Copyright />
-    </ul>
   </div>
 </section>
