@@ -85,6 +85,113 @@
 
     <Shw::Divider />
 
+    <Shw::Text::H2>Layout</Shw::Text::H2>
+
+    <Shw::Text::H4>Desktop view</Shw::Text::H4>
+
+    <div class="shw-component-app-footer-desktop-view">
+      <Hds::AppFooter as |AF|>
+        <AF.ExtraContent>
+          <Shw::Placeholder @height="2em" @text="Extra Content" @background="#FF7575" />
+        </AF.ExtraContent>
+
+        <AF.StatusLink @status="operational" />
+
+        <AF.LegalLinks />
+
+        <AF.Item>
+          <Shw::Placeholder @height="2em" @text="v.01.15" @background="#FF7575" />
+        </AF.Item>
+        <AF.Item>
+          <Shw::Placeholder @height="2em" @text="Product" @background="#FF7575" />
+        </AF.Item>
+        <AF.Item>
+          <Shw::Placeholder @height="2em" @text="API: 1.02" @background="#FF7575" />
+        </AF.Item>
+
+        <AF.Copyright />
+      </Hds::AppFooter>
+    </div>
+
+    <Shw::Text::H4>Tablet view</Shw::Text::H4>
+
+    <div class="shw-component-app-footer-tablet-view">
+      <Hds::AppFooter as |AF|>
+        <AF.ExtraContent>
+          <Shw::Placeholder @height="2em" @text="Extra Content" @background="#FF7575" />
+        </AF.ExtraContent>
+
+        <AF.StatusLink @status="operational" />
+
+        <AF.LegalLinks />
+
+        <AF.Item>
+          <Shw::Placeholder @height="2em" @text="v.01.15" @background="#FF7575" />
+        </AF.Item>
+        <AF.Item>
+          <Shw::Placeholder @height="2em" @text="Product" @background="#FF7575" />
+        </AF.Item>
+        <AF.Item>
+          <Shw::Placeholder @height="2em" @text="API: 1.02" @background="#FF7575" />
+        </AF.Item>
+
+        <AF.Copyright />
+      </Hds::AppFooter>
+    </div>
+
+    <Shw::Text::H4>Mobile (large) view</Shw::Text::H4>
+
+    <div class="shw-component-app-footer-mobile-large-view">
+      <Hds::AppFooter as |AF|>
+        <AF.ExtraContent>
+          <Shw::Placeholder @height="2em" @text="Extra Content" @background="#FF7575" />
+        </AF.ExtraContent>
+
+        <AF.StatusLink @status="operational" />
+        <AF.LegalLinks />
+
+        <AF.Item>
+          <Shw::Placeholder @height="2em" @text="v.01.15" @background="#FF7575" />
+        </AF.Item>
+        <AF.Item>
+          <Shw::Placeholder @height="2em" @text="Product" @background="#FF7575" />
+        </AF.Item>
+        <AF.Item>
+          <Shw::Placeholder @height="2em" @text="API: 1.02" @background="#FF7575" />
+        </AF.Item>
+
+        <AF.Copyright />
+      </Hds::AppFooter>
+    </div>
+
+    <Shw::Text::H4>Mobile (small) view</Shw::Text::H4>
+
+    <div class="shw-component-app-footer-mobile-small-view">
+      <Hds::AppFooter as |AF|>
+        <AF.ExtraContent>
+          <Shw::Placeholder @height="2em" @text="Extra Content Before" @background="#FF7575" />
+        </AF.ExtraContent>
+
+        <AF.StatusLink @status="operational" />
+
+        <AF.LegalLinks />
+
+        <AF.Item>
+          <Shw::Placeholder @height="2em" @text="v.01.15" @background="#FF7575" />
+        </AF.Item>
+        <AF.Item>
+          <Shw::Placeholder @height="2em" @text="Product" @background="#FF7575" />
+        </AF.Item>
+        <AF.Item>
+          <Shw::Placeholder @height="2em" @text="API: 1.02" @background="#FF7575" />
+        </AF.Item>
+
+        <AF.Copyright />
+      </Hds::AppFooter>
+    </div>
+
+    <Shw::Divider />
+
     <Shw::Text::H2>Base components & child components</Shw::Text::H2>
 
     <button type="button" {{on "click" this.toggleHighlight}}>

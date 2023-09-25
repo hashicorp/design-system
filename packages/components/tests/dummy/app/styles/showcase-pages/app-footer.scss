@@ -14,4 +14,32 @@ body.components-app-footer {
       outline: 1px dashed #78909c;
     }
   }
+
+  .shw-component-app-footer-desktop-view,
+  .shw-component-app-footer-tablet-view,
+  .shw-component-app-footer-mobile-large-view,
+  .shw-component-app-footer-mobile-small-view {
+    outline: 1px dashed #ccc;
+
+    .hds-app-footer__list-item { background: lighten(#006ae7, 30%); }
+
+    .hds-app-footer__copyright {
+      color: #fff;
+      background: #000;
+
+      > * { color: inherit; }
+    }
+  }
+
+  .shw-component-app-footer-tablet-view {
+    max-width: 665px;
+  }
+
+  .shw-component-app-footer-mobile-large-view {
+    max-width: 366px;
+  }
+
+  .shw-component-app-footer-mobile-small-view {
+    max-width: 290px;
+  }
 }
