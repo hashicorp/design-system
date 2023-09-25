@@ -39,7 +39,7 @@
       <AF.LegalLinks />
     </Hds::AppFooter>
 
-    <Shw::Text::H3>With typical custom content</Shw::Text::H3>
+    <Shw::Text::H3>With custom Link content</Shw::Text::H3>
 
     <Hds::AppFooter as |AF|>
       <AF.StatusLink @status="operational" />
@@ -47,20 +47,22 @@
       <AF.LegalLinks />
     </Hds::AppFooter>
 
-    <Shw::Text::H3>With custom “meta” (non-link) content</Shw::Text::H3>
+    <Shw::Text::H3>With custom Meta Item (non-link) content</Shw::Text::H3>
 
     <Hds::AppFooter as |AF|>
       <AF.StatusLink @status="operational" />
       <AF.LegalLinks />
-      <AF.Item>
-        <Hds::Text::Body @tag="span" @size="100" @color="primary">v.01.15</Hds::Text::Body>
-      </AF.Item>
-      <AF.Item>
-        <Hds::Text::Body @tag="span" @size="100" @color="primary">Product Name</Hds::Text::Body>
-      </AF.Item>
-      <AF.Item>
-        <Hds::Text::Body @tag="span" @size="100" @color="primary">API: 1.02</Hds::Text::Body>
-      </AF.Item>
+      <AF.MetaItems as |M|>
+        <M.Item>
+          <Hds::Text::Body @tag="span" @size="100" @color="primary">v.01.15</Hds::Text::Body>
+        </M.Item>
+        <M.Item>
+          <Hds::Text::Body @tag="span" @size="100" @color="primary">Product Name</Hds::Text::Body>
+        </M.Item>
+        <M.Item>
+          <Hds::Text::Body @tag="span" @size="100" @color="primary">API: 1.02</Hds::Text::Body>
+        </M.Item>
+      </AF.MetaItems>
     </Hds::AppFooter>
 
     <Shw::Text::H3>With theme selector as part of Extra Content</Shw::Text::H3>
@@ -95,15 +97,17 @@
 
         <AF.LegalLinks />
 
-        <AF.Item>
-          <Shw::Placeholder @height="2em" @text="v.01.15" @background="#FF7575" />
-        </AF.Item>
-        <AF.Item>
-          <Shw::Placeholder @height="2em" @text="Product" @background="#FF7575" />
-        </AF.Item>
-        <AF.Item>
-          <Shw::Placeholder @height="2em" @text="API: 1.02" @background="#FF7575" />
-        </AF.Item>
+        <AF.MetaItems as |M|>
+          <M.Item>
+            <Shw::Placeholder @height="2em" @text="v.01.15" @background="#FF7575" />
+          </M.Item>
+          <M.Item>
+            <Shw::Placeholder @height="2em" @text="Product" @background="#FF7575" />
+          </M.Item>
+          <M.Item>
+            <Shw::Placeholder @height="2em" @text="API: 1.02" @background="#FF7575" />
+          </M.Item>
+        </AF.MetaItems>
       </Hds::AppFooter>
     </div>
 
@@ -119,15 +123,17 @@
 
         <AF.LegalLinks />
 
-        <AF.Item>
-          <Shw::Placeholder @height="2em" @text="v.01.15" @background="#FF7575" />
-        </AF.Item>
-        <AF.Item>
-          <Shw::Placeholder @height="2em" @text="Product" @background="#FF7575" />
-        </AF.Item>
-        <AF.Item>
-          <Shw::Placeholder @height="2em" @text="API: 1.02" @background="#FF7575" />
-        </AF.Item>
+        <AF.MetaItems as |M|>
+          <M.Item>
+            <Shw::Placeholder @height="2em" @text="v.01.15" @background="#FF7575" />
+          </M.Item>
+          <M.Item>
+            <Shw::Placeholder @height="2em" @text="Product" @background="#FF7575" />
+          </M.Item>
+          <M.Item>
+            <Shw::Placeholder @height="2em" @text="API: 1.02" @background="#FF7575" />
+          </M.Item>
+        </AF.MetaItems>
       </Hds::AppFooter>
     </div>
 
@@ -142,15 +148,17 @@
         <AF.StatusLink @status="operational" />
         <AF.LegalLinks />
 
-        <AF.Item>
-          <Shw::Placeholder @height="2em" @text="v.01.15" @background="#FF7575" />
-        </AF.Item>
-        <AF.Item>
-          <Shw::Placeholder @height="2em" @text="Product" @background="#FF7575" />
-        </AF.Item>
-        <AF.Item>
-          <Shw::Placeholder @height="2em" @text="API: 1.02" @background="#FF7575" />
-        </AF.Item>
+        <AF.MetaItems as |M|>
+          <M.Item>
+            <Shw::Placeholder @height="2em" @text="v.01.15" @background="#FF7575" />
+          </M.Item>
+          <M.Item>
+            <Shw::Placeholder @height="2em" @text="Product" @background="#FF7575" />
+          </M.Item>
+          <M.Item>
+            <Shw::Placeholder @height="2em" @text="API: 1.02" @background="#FF7575" />
+          </M.Item>
+        </AF.MetaItems>
       </Hds::AppFooter>
     </div>
 
@@ -166,15 +174,17 @@
 
         <AF.LegalLinks />
 
-        <AF.Item>
-          <Shw::Placeholder @height="2em" @text="v.01.15" @background="#FF7575" />
-        </AF.Item>
-        <AF.Item>
-          <Shw::Placeholder @height="2em" @text="Product" @background="#FF7575" />
-        </AF.Item>
-        <AF.Item>
-          <Shw::Placeholder @height="2em" @text="API: 1.02" @background="#FF7575" />
-        </AF.Item>
+        <AF.MetaItems as |M|>
+          <M.Item>
+            <Shw::Placeholder @height="2em" @text="v.01.15" @background="#FF7575" />
+          </M.Item>
+          <M.Item>
+            <Shw::Placeholder @height="2em" @text="Product" @background="#FF7575" />
+          </M.Item>
+          <M.Item>
+            <Shw::Placeholder @height="2em" @text="API: 1.02" @background="#FF7575" />
+          </M.Item>
+        </AF.MetaItems>
       </Hds::AppFooter>
     </div>
 

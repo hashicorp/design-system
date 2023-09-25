@@ -29,6 +29,10 @@ body.components-app-footer {
 
       > * { color: inherit; }
     }
+
+    .hds-app-footer__meta-items {
+      background: lighten(#ff7575, 15%);
+    }
   }
 
   .shw-component-app-footer-tablet-view {
