@@ -39,6 +39,9 @@ export default class HdsSideNavComponent extends Component {
 
   addEventListeners() {
     document.addEventListener('keydown', this.escapePress, true);
+    if (this.isCollapsible) {
+      document.addEventListener('keyup', this.altBracketLeftPress, true);
+    }
     this.desktopMQ.addEventListener('change', this.updateDesktopVariable, true);
     // if not instantiated as minimized via arguments
     if (!this.args.isMinimized) {
@@ -49,6 +52,9 @@ export default class HdsSideNavComponent extends Component {
 
   removeEventListeners() {
     document.removeEventListener('keydown', this.escapePress, true);
+    if (this.isCollapsible) {
+      document.removeEventListener('keyup', this.altBracketLeftPress, true);
+    }
     this.desktopMQ.removeEventListener(
       'change',
       this.updateDesktopVariable,
@@ -104,6 +110,13 @@ export default class HdsSideNavComponent extends Component {
   escapePress(event) {
     if (event.key === 'Escape' && !this.isMinimized && !this.isDesktop) {
       this.isMinimized = true;
+    }
+  }
+
+  @action
+  altBracketLeftPress(event) {
+    if (event.altKey && event.code === 'BracketLeft') {
+      this.toggleMinimizedStatus();
     }
   }
 

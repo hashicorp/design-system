@@ -5,7 +5,13 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, click, resetOnerror, setupOnerror } from '@ember/test-helpers';
+import {
+  render,
+  click,
+  resetOnerror,
+  triggerKeyEvent,
+  setupOnerror,
+} from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/side-nav/index', function (hooks) {
@@ -158,6 +164,29 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
     assert.dom('#test-side-nav-header').hasAttribute('data-test-minimized');
     assert.dom('#test-side-nav-body').hasAttribute('data-test-minimized');
     assert.dom('#test-side-nav-footer').hasAttribute('data-test-minimized');
+  });
+
+  // SHORTCUTS
+
+  test('it should collapse/expand on alt+[', async function (assert) {
+    await render(
+      hbs`<Hds::SideNav id="test-side-nav" @isCollapsible={{true}} />`
+    );
+    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-not-minimized');
+
+    // collapse
+    await triggerKeyEvent('#test-side-nav', 'keyup', 'BracketLeft', {
+      altKey: true,
+      code: 'BracketLeft',
+    });
+    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-minimized');
+
+    // expand
+    await triggerKeyEvent('#test-side-nav', 'keyup', 'BracketLeft', {
+      altKey: true,
+      code: 'BracketLeft',
+    });
+    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-not-minimized');
   });
 
   // CALLBACKS
