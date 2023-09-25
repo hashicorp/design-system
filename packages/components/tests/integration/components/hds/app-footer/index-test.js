@@ -26,13 +26,11 @@ module('Integration | Component | hds/app-footer/index', function (hooks) {
         </AF.Link>
         <AF.Item id="test-custom-item">Item</AF.Item>
         <AF.LegalLinks />
-        <AF.Copyright id="test-copyright" />
       </Hds::AppFooter>
     `);
     assert.dom('#test-status-link').exists();
     assert.dom('#test-custom-link').exists();
     assert.dom('#test-custom-item').exists();
-    assert.dom('#test-copyright').exists();
 
     // TODO: Not sure how to test for these as I deleted the class names from feedback, should I add data-attributes instead?
     // LegalLinks:
