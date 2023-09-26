@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 
-export default class HdsAppFooterIndexComponent extends Component {
+export default class HdsAppFooterLegalLinksComponent extends Component {
   /**
    * @param hrefForSupport
    * @type {string}
@@ -20,7 +20,6 @@ export default class HdsAppFooterIndexComponent extends Component {
    * @type {string}
    * @description The href value of the "Terms" link
    */
-  // TODO: Make Terms url required instead of setting a default value?
   get hrefForTerms() {
     return (
       this.args.hrefForTerms ?? 'https://www.hashicorp.com/terms-of-service'

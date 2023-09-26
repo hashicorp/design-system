@@ -333,5 +333,19 @@
         </ul>
       </SF.Item>
     </Shw::Flex>
+
+    <Shw::Divider @level={{2}} />
+
+    <Shw::Text::H3>Hds::AppFooter::Copyright</Shw::Text::H3>
+
+    <Shw::Flex {{style gap="2rem"}} as |SF|>
+      <SF.Item @label="with default (current) year">
+        <Hds::AppFooter::Copyright />
+      </SF.Item>
+
+      <SF.Item @label="with custom year">
+        <Hds::AppFooter::Copyright @year="1984" />
+      </SF.Item>
+    </Shw::Flex>
   </div>
 </section>
