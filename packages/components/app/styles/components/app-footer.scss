@@ -13,11 +13,12 @@
 //   --token-app-footer-border-color: var(--token-color-border-primary);
 // }
 
-// NOTE: Styles are a WIP and NOT final
+$app-footer-gap: 24px;
+
 .hds-app-footer {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: $app-footer-gap;
   justify-content: flex-end;
   padding: 24px;
   border-top: 1px solid var(--token-color-border-primary);
@@ -27,7 +28,7 @@
 .hds-app-footer__legal-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: $app-footer-gap;
   align-items: center;
   justify-content: flex-end;
   width: max-content;
