@@ -23,15 +23,13 @@ body.components-app-footer {
 
     .hds-app-footer__list-item { background: lighten(#006ae7, 30%); }
 
+    .hds-app-footer__legal-links { background: lighten(#006ae7, 45%); }
+
     .hds-app-footer__copyright {
       color: #fff;
       background: #000;
 
       > * { color: inherit; }
-    }
-
-    .hds-app-footer__meta-items {
-      background: lighten(#ff7575, 15%);
     }
   }
 
@@ -46,6 +44,4 @@ body.components-app-footer {
   .shw-component-app-footer-mobile-small-view {
     max-width: 290px;
   }
-
-  .hds-app-footer__legal-links { background: lighten(#006ae7, 45%); }
 }
