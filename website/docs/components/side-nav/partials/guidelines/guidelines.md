@@ -142,7 +142,7 @@ On smaller viewports, the SideNav will be rendered in its collapsed state **by d
 
 ### Collapsed reflow
 
-The collapse functionality of the SideNav gives control to the end-user to unlock more horizontal space in the main page. Thus, the main page content should reflow to occupy this space if the SideNav is in it's collapsed state.
+The collapse functionality of the SideNav gives control to the end-user to unlock more horizontal space in the main page. Thus, the main page content should reflow to occupy this space if the SideNav is in its collapsed state.
 
 This is handled out of the box by the HDS [AppFrame](/components/app-frame) component, but may need to be accounted for in custom implementations of the component.
 
