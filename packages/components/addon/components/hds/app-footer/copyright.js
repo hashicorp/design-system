@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 
 export default class HdsAppFooterCopyrightComponent extends Component {
   /**
-   * @param copyrightYear
+   * @param year
    * @type {string}
    * @description The copyright year
    */

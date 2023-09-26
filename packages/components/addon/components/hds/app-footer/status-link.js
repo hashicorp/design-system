@@ -31,7 +31,7 @@ export const STATUSES = {
 
 export default class HdsAppFooterStatusLinkComponent extends Component {
   /**
-   * @param ariaLabel
+   * @param status
    * @type {string}
    * @description The name of the status which the StatusLink is being set to
    */
