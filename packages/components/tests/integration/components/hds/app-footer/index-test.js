@@ -17,27 +17,34 @@ module('Integration | Component | hds/app-footer/index', function (hooks) {
   });
 
   // CONTENT
-  test('it should render the passed in content', async function (assert) {
+
+  test('it renders the default content', async function (assert) {
+    await render(hbs`<Hds::AppFooter id="test-app-footer" />`);
+    assert.dom('.hds-app-footer__copyright').exists();
+  });
+
+  test('it renders the passed in content', async function (assert) {
     await render(hbs`
-      <Hds::AppFooter id="test-app-footer" as |AF|>
-        <AF.StatusLink @status="operational" id="test-status-link" />
-        <AF.Link @href="https://cloud.hashicorp.com/docs/changelog" id="test-custom-link">
-          Changelog
+      <Hds::AppFooter as |AF|>
+        <AF.ExtraContentBefore id="test-extra-content-before">Before</AF.ExtraContentBefore>
+        <AF.Item id="test-custom-item">Custom item</AF.Item>
+        <AF.Link @href="https://cloud.hashicorp.com" id="test-custom-link">
+        Custom link
         </AF.Link>
-        <AF.Item id="test-custom-item">Item</AF.Item>
-        <AF.LegalLinks />
+        <AF.StatusLink @status="operational" id="test-status-link" />
+        <AF.LegalLinks id="test-legal-links" />
+        <AF.ExtraContentAfter id="test-extra-content-after">After</AF.ExtraContentAfter>
       </Hds::AppFooter>
     `);
+    assert.dom('#test-extra-content-before').exists().hasText('Before');
+    assert.dom('#test-custom-item').exists().hasText('Custom item');
+    assert
+      .dom('#test-custom-link')
+      .exists()
+      .hasText('Custom link')
+      .hasAttribute('href', 'https://cloud.hashicorp.com');
     assert.dom('#test-status-link').exists();
-    assert.dom('#test-custom-link').exists();
-    assert.dom('#test-custom-item').exists();
-
-    // TODO: Not sure how to test for these as I deleted the class names from feedback, should I add data-attributes instead?
-    // LegalLinks:
-    // assert.dom('.hds-app-footer__link--support').exists();
-    // assert.dom('.hds-app-footer__link--terms').exists();
-    // assert.dom('.hds-app-footer__link--privacy').exists();
-    // assert.dom('.hds-app-footer__link--security').exists();
-    // assert.dom('.hds-app-footer__link--accessibility').exists();
+    assert.dom('#test-legal-links').exists();
+    assert.dom('#test-extra-content-after').exists().hasText('After');
   });
 });
