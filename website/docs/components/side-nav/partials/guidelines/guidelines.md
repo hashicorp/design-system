@@ -136,7 +136,7 @@ If the `isCollapsible` property is set to true, a collapse toggle button will be
 
 ![SideNav collapse function](/assets/components/side-nav/sidenav-collapse-interaction.png)
 
-On smaller viewports the SideNav will be rendered in its collapsed state **by default** and will overlay the main page content it its expanded state.
+On smaller viewports, the SideNav will be rendered in its collapsed state **by default** and will overlay the main page content in its expanded state.
 
 ![SideNav overlay on smaller viewports](/assets/components/side-nav/sidenav-overlay-small-viewport.png)
 
