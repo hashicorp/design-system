@@ -8,8 +8,10 @@
 body.components-app-footer {
   .shw-component-app-footer-layout-highlight {
     .hds-app-footer,
+    .hds-app-footer__extra-content-before,
+    .hds-app-footer__extra-content-after,
     .hds-app-footer__list,
-    .hds-app-footer__item,
+    .hds-app-footer__list-item,
     .hds-app-footer__copyright {
       outline: 1px dashed #78909c;
     }

@@ -20,7 +20,7 @@
 
     <Hds::AppFooter as |AF|>
       <AF.ExtraContentBefore>
-        <Shw::Placeholder @height="2em" @text="Extra Content" @background="#e4e4e4" />
+        <Shw::Placeholder @height="2em" @text="Extra Content Before" @background="#e4e4e4" />
       </AF.ExtraContentBefore>
       <AF.Item>
         <Shw::Placeholder @height="2em" @text="Item" @background="#e4e4e4" />
@@ -31,6 +31,9 @@
       <AF.Item>
         <Shw::Placeholder @height="2em" @text="Item" @background="#e4e4e4" />
       </AF.Item>
+      <AF.ExtraContentAfter>
+        <Shw::Placeholder @height="2em" @text="Extra Content After" @background="#e4e4e4" />
+      </AF.ExtraContentAfter>
     </Hds::AppFooter>
 
     <Shw::Text::H3>With minimal recommended content</Shw::Text::H3>
@@ -39,7 +42,7 @@
       <AF.LegalLinks />
     </Hds::AppFooter>
 
-    <Shw::Text::H3>With custom Link content</Shw::Text::H3>
+    <Shw::Text::H3>With StatusLink & custom Link content</Shw::Text::H3>
 
     <Hds::AppFooter as |AF|>
       <AF.StatusLink @status="operational" />
@@ -82,6 +85,11 @@
     <Shw::Divider />
 
     <Shw::Text::H2>Layout</Shw::Text::H2>
+
+    <button type="button" {{on "click" this.toggleHighlight}}>
+      {{if this.showHighlight "Hide" "Show"}}
+      layout highlight
+    </button>
 
     <Shw::Text::H4>Desktop view</Shw::Text::H4>
 
@@ -203,6 +211,24 @@
       {{if this.showHighlight "Hide" "Show"}}
       layout highlight
     </button>
+
+    <Shw::Text::H3>Extra Content</Shw::Text::H3>
+
+    <Shw::Flex {{style gap="2rem"}} as |SF|>
+      <SF.Item @label="Hds::AppFooter::ExtraContentBefore">
+        <Hds::AppFooter::ExtraContentBefore>
+          <Shw::Placeholder @height="2em" @text="Extra Content Before" @background="#FF7575" />
+        </Hds::AppFooter::ExtraContentBefore>
+      </SF.Item>
+
+      <SF.Item @label="Hds::AppFooter::ExtraContentAfter">
+        <Hds::AppFooter::ExtraContentAfter>
+          <Shw::Placeholder @height="2em" @text="Extra Content After" @background="#FF7575" />
+        </Hds::AppFooter::ExtraContentAfter>
+      </SF.Item>
+    </Shw::Flex>
+
+    <Shw::Divider @level={{2}} />
 
     <Shw::Text::H3>Hds::AppFooter::Item</Shw::Text::H3>
 
