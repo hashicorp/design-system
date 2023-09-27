@@ -44,6 +44,8 @@ module(
         .hasAttribute('href', 'mailto:accessibility@hashicorp.com');
     });
 
+    // OPTIONS
+
     test('it uses the passed in custom href values', async function (assert) {
       await render(hbs`
       <Hds::AppFooter::LegalLinks 
