@@ -1,26 +1,33 @@
 # v3/dropdown
 
-
 ## Usage
 
-```
-npx @hashicorp/design-system-codemods v3/dropdown path/of/files/ or/some**/*glob.hbs
+To run this codemod in your project using `npx`, you would run the following:
 
-# or
-
-yarn global add @hashicorp/design-system-codemods
-@hashicorp/design-system-codemods v3/dropdown path/of/files/ or/some**/*glob.hbs
+```bash
+npx @hashicorp/design-system-codemods v3/dropdown path/to/some/glob/**/*.hbs
 ```
 
-## Local Usage
+## Local usage
+
+To run this codemod in this repository (even before publishing it), you would run the following:
+
+```bash
+node ./bin/cli.js v3/dropdown path/to/some/glob/**/*.hbs
 ```
-node ./bin/cli.js v3/dropdown path/of/files/ or/some**/*glob.hbs
+
+## Input
+
+```hbs
+<Hds::Dropdown @listPosition="left" as |dd|>
+  <dd.ToggleButton @text="Menu left" />
+</Hds::Dropdown>
 ```
 
-## Input / Output
+## Output
 
-<!--FIXTURES_TOC_START-->
-<!--FIXTURES_TOC_END-->
-
-<!--FIXTURES_CONTENT_START-->
-<!--FIXTURES_CONTENT_END-->
+```hbs
+<Hds::Dropdown @listPosition="bottom-left" as |dd|>
+  <dd.ToggleButton @text="Menu left" />
+</Hds::Dropdown>
+```
