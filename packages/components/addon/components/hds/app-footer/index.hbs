@@ -5,10 +5,8 @@
 
 <div class="hds-app-footer" ...attributes>
   {{yield (hash ExtraContentBefore=(component "hds/app-footer/extra-content-before"))}}
-
   <ul class="hds-app-footer__list" aria-label="Footer items">
     {{yield (hash StatusLink=(component "hds/app-footer/status-link"))}}
-
     {{yield
       (hash
         Link=(component "hds/app-footer/link")
@@ -17,8 +15,6 @@
       )
     }}
   </ul>
-
   {{yield (hash ExtraContentAfter=(component "hds/app-footer/extra-content-after"))}}
-
   <Hds::AppFooter::Copyright @year={{@copyrightYear}} />
 </div>

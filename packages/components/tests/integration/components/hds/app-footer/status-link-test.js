@@ -8,7 +8,7 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | hds/app-footer/index', function (hooks) {
+module('Integration | Component | hds/app-footer/status-link', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
@@ -55,7 +55,8 @@ module('Integration | Component | hds/app-footer/index', function (hooks) {
   });
 
   // text, statusIcon, statusIconColor
-  test('it should display the custom text, icon color, and icon passed in', async function (assert) {
+
+    test('it should display the custom text, icon color, and icon passed in', async function (assert) {
     await render(hbs`
       <Hds::AppFooter::StatusLink
         @text="Waypoint"
