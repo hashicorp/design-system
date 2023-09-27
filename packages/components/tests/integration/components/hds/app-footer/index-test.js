@@ -29,7 +29,7 @@ module('Integration | Component | hds/app-footer/index', function (hooks) {
         <AF.ExtraBefore><span id="test-extra-before">Before</span></AF.ExtraBefore>
         <AF.Item id="test-custom-item">Custom item</AF.Item>
         <AF.Link @href="https://cloud.hashicorp.com" id="test-custom-link">
-        Custom link
+          Custom link
         </AF.Link>
         <AF.StatusLink @status="operational" id="test-status-link" />
         <AF.LegalLinks id="test-legal-links" />
