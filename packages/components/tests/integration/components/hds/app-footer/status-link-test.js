@@ -28,7 +28,7 @@ module(
 
     test('it should display text, icon, and icon color matching the passed in "operational" status', async function (assert) {
       await render(hbs`<Hds::AppFooter::StatusLink @status="operational" />`);
-      assert.dom('.hds-app-footer__status-link').hasText('Operational');
+      assert.dom('.hds-app-footer__status-link').hasText('System operational');
       assert
         .dom('.flight-icon-check-circle')
         .hasAttribute('fill', 'var(--token-color-foreground-success)');
@@ -36,7 +36,7 @@ module(
 
     test('it should display text, icon, and icon color matching the passed in "degraded" status', async function (assert) {
       await render(hbs`<Hds::AppFooter::StatusLink @status="degraded" />`);
-      assert.dom('.hds-app-footer__status-link').hasText('Degraded');
+      assert.dom('.hds-app-footer__status-link').hasText('System degraded');
       assert
         .dom('.flight-icon-alert-triangle')
         .hasAttribute('fill', 'var(--token-color-foreground-warning)');
@@ -44,7 +44,7 @@ module(
 
     test('it should display text, icon, and icon color matching the passed in "maintenance" status', async function (assert) {
       await render(hbs`<Hds::AppFooter::StatusLink @status="maintenance" />`);
-      assert.dom('.hds-app-footer__status-link').hasText('Maintenance');
+      assert.dom('.hds-app-footer__status-link').hasText('System maintenance');
       assert
         .dom('.flight-icon-alert-triangle')
         .hasAttribute('fill', 'var(--token-color-foreground-warning)');
@@ -52,7 +52,7 @@ module(
 
     test('it should display text, icon, and icon color matching the passed in "critical" status', async function (assert) {
       await render(hbs`<Hds::AppFooter::StatusLink @status="critical" />`);
-      assert.dom('.hds-app-footer__status-link').hasText('Critical');
+      assert.dom('.hds-app-footer__status-link').hasText('System critical');
       assert
         .dom('.flight-icon-x-circle')
         .hasAttribute('fill', 'var(--token-color-foreground-critical)');
