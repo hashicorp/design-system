@@ -6,7 +6,7 @@ import { a11yAudit } from 'ember-a11y-testing/test-support';
 module('Acceptance | components/hds/application state', function (hooks) {
   setupApplicationTest(hooks);
 
-  test('visiting /components/hds/application-state', async function (assert) {
+  test('visiting /components/application-state', async function (assert) {
     await visit('/components/application-state');
 
     assert.strictEqual(currentURL(), '/components/application-state');
