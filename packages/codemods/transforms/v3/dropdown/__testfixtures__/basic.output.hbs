@@ -1,10 +1,6 @@
 <Hds::Dropdown @listPosition="bottom-left" as |dd|>
-  <dd.ToggleButton @text="Menu" />
-  <dd.Title @text="Title Text" />
-  <dd.Description @text="Descriptive text goes here." />
-  <dd.Interactive @href="#" @text="Add" />
-  <dd.Interactive @href="#" @text="Add More" />
-  <dd.Interactive @href="#" @text="Add Another Thing Too" />
-  <dd.Separator />
-  <dd.Interactive @route="components" @icon="trash" @text="Delete" @color="critical" />
+  <dd.ToggleButton @text="Menu left" />
+</Hds::Dropdown>
+<Hds::Dropdown @listPosition="bottom-right" as |dd|>
+  <dd.ToggleButton @text="Menu bottom right" />
 </Hds::Dropdown>
