@@ -4,7 +4,7 @@
 }}
 
 <nav class="hds-side-nav__list-wrapper" ...attributes>
-  {{yield (hash extraBefore=(component "hds/yield"))}}
+  {{yield (hash ExtraBefore=(component "hds/yield"))}}
   <ul class="hds-side-nav__list" role="list">
     {{yield
       (hash
@@ -15,5 +15,5 @@
       )
     }}
   </ul>
-  {{yield (hash extraAfter=(component "hds/yield"))}}
+  {{yield (hash ExtraAfter=(component "hds/yield"))}}
 </nav>
