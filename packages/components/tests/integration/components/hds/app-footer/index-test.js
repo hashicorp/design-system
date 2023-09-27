@@ -36,15 +36,14 @@ module('Integration | Component | hds/app-footer/index', function (hooks) {
         <AF.ExtraContentAfter id="test-extra-content-after">After</AF.ExtraContentAfter>
       </Hds::AppFooter>
     `);
-    assert.dom('#test-extra-content-before').exists().hasText('Before');
-    assert.dom('#test-custom-item').exists().hasText('Custom item');
+    assert.dom('#test-extra-content-before').hasText('Before');
+    assert.dom('#test-custom-item').hasText('Custom item');
     assert
       .dom('#test-custom-link')
-      .exists()
       .hasText('Custom link')
       .hasAttribute('href', 'https://cloud.hashicorp.com');
     assert.dom('#test-status-link').exists();
     assert.dom('#test-legal-links').exists();
-    assert.dom('#test-extra-content-after').exists().hasText('After');
+    assert.dom('#test-extra-content-after').hasText('After');
   });
 });
