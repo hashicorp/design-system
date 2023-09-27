@@ -3,7 +3,7 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<div class="hds-app-footer" ...attributes>
+<div class={{this.classNames}} ...attributes>
   {{yield (hash ExtraBefore=(component "hds/yield"))}}
   <ul class="hds-app-footer__list" aria-label="Footer items">
     {{yield (hash StatusLink=(component "hds/app-footer/status-link"))}}

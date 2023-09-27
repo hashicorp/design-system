@@ -46,4 +46,16 @@ module('Integration | Component | hds/app-footer/index', function (hooks) {
     assert.dom('#test-legal-links').exists();
     assert.dom('#test-extra-after').hasText('After');
   });
+
+  // OPTIONS
+
+  test('it renders with the default "light" theme', async function (assert) {
+    await render(hbs`<Hds::AppFooter id="test-app-footer" />`);
+    assert.dom('#test-app-footer').hasClass('hds-app-footer--theme-light');
+  });
+
+  test('it renders with the passed in "dark" theme', async function (assert) {
+    await render(hbs`<Hds::AppFooter id="test-app-footer" @theme="dark" />`);
+    assert.dom('#test-app-footer').hasClass('hds-app-footer--theme-dark');
+  });
 });

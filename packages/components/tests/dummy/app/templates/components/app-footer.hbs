@@ -70,13 +70,13 @@
           <AF.StatusLink @status="operational" />
           <AF.LegalLinks />
           <AF.Item>
-            <Hds::Text::Body @tag="span" @size="100" @color="primary">v.2.0</Hds::Text::Body>
+            <Hds::Text::Body @tag="span" @size="100">v.2.0</Hds::Text::Body>
           </AF.Item>
           <AF.Item>
-            <Hds::Text::Body @tag="span" @size="100" @color="primary">Product Name</Hds::Text::Body>
+            <Hds::Text::Body @tag="span" @size="100">Product Name</Hds::Text::Body>
           </AF.Item>
           <AF.Item>
-            <Hds::Text::Body @tag="span" @size="100" @color="primary">API: 1.0</Hds::Text::Body>
+            <Hds::Text::Body @tag="span" @size="100">API: 1.0</Hds::Text::Body>
           </AF.Item>
         </Hds::AppFooter>
       </SF.Item>
@@ -100,6 +100,45 @@
 
     <Shw::Divider />
 
+    <Shw::Text::H2>Options</Shw::Text::H2>
+
+    <button type="button" {{on "click" this.toggleHighlight}}>
+      {{if this.showHighlight "Hide" "Show"}}
+      layout highlight
+    </button>
+
+    <Shw::Text::H3>Theme</Shw::Text::H3>
+
+    <Shw::Flex @direction="column" {{style marginTop="32px"}} as |SF|>
+      <SF.Item @label="theme=light">
+        <Hds::AppFooter as |AF|>
+          <AF.StatusLink @status="operational" />
+          <AF.LegalLinks />
+          <AF.Item>
+            <Hds::Text::Body @tag="span" @size="100">v.2.0</Hds::Text::Body>
+          </AF.Item>
+          <AF.Item>
+            <Hds::Text::Body @tag="span" @size="100">Product Name</Hds::Text::Body>
+          </AF.Item>
+        </Hds::AppFooter>
+      </SF.Item>
+
+      <SF.Item @label="theme=dark">
+        <Hds::AppFooter @theme="dark" as |AF|>
+          <AF.StatusLink @status="operational" />
+          <AF.LegalLinks />
+          <AF.Item>
+            <Hds::Text::Body @tag="span" @size="100">v.2.0</Hds::Text::Body>
+          </AF.Item>
+          <AF.Item>
+            <Hds::Text::Body @tag="span" @size="100">Product Name</Hds::Text::Body>
+          </AF.Item>
+        </Hds::AppFooter>
+      </SF.Item>
+    </Shw::Flex>
+
+    <Shw::Divider />
+
     <Shw::Text::H2>Layout</Shw::Text::H2>
 
     <button type="button" {{on "click" this.toggleHighlight}}>
@@ -117,13 +156,13 @@
             <AF.StatusLink @status="operational" />
             <AF.LegalLinks />
             <AF.Item>
-              <Hds::Text::Body @tag="span" @size="100" @color="primary">v.2.0</Hds::Text::Body>
+              <Hds::Text::Body @tag="span" @size="100">v.2.0</Hds::Text::Body>
             </AF.Item>
             <AF.Item>
-              <Hds::Text::Body @tag="span" @size="100" @color="primary">Name</Hds::Text::Body>
+              <Hds::Text::Body @tag="span" @size="100">Name</Hds::Text::Body>
             </AF.Item>
             <AF.Item>
-              <Hds::Text::Body @tag="span" @size="100" @color="primary">API: 1.0</Hds::Text::Body>
+              <Hds::Text::Body @tag="span" @size="100">API: 1.0</Hds::Text::Body>
             </AF.Item>
             <AF.ExtraAfter>
               <Shw::Placeholder @height="2em" {{style width="fit-content"}} @text="After" @background="#FF7575" />
@@ -141,13 +180,13 @@
             <AF.StatusLink @status="operational" />
             <AF.LegalLinks />
             <AF.Item>
-              <Hds::Text::Body @tag="span" @size="100" @color="primary">v.2.0</Hds::Text::Body>
+              <Hds::Text::Body @tag="span" @size="100">v.2.0</Hds::Text::Body>
             </AF.Item>
             <AF.Item>
-              <Hds::Text::Body @tag="span" @size="100" @color="primary">Name</Hds::Text::Body>
+              <Hds::Text::Body @tag="span" @size="100">Name</Hds::Text::Body>
             </AF.Item>
             <AF.Item>
-              <Hds::Text::Body @tag="span" @size="100" @color="primary">API: 1.0</Hds::Text::Body>
+              <Hds::Text::Body @tag="span" @size="100">API: 1.0</Hds::Text::Body>
             </AF.Item>
             <AF.ExtraAfter>
               <Shw::Placeholder @height="2em" {{style width="fit-content"}} @text="After" @background="#FF7575" />
@@ -165,13 +204,13 @@
             <AF.StatusLink @status="operational" />
             <AF.LegalLinks />
             <AF.Item>
-              <Hds::Text::Body @tag="span" @size="100" @color="primary">v.2.0</Hds::Text::Body>
+              <Hds::Text::Body @tag="span" @size="100">v.2.0</Hds::Text::Body>
             </AF.Item>
             <AF.Item>
-              <Hds::Text::Body @tag="span" @size="100" @color="primary">Name</Hds::Text::Body>
+              <Hds::Text::Body @tag="span" @size="100">Name</Hds::Text::Body>
             </AF.Item>
             <AF.Item>
-              <Hds::Text::Body @tag="span" @size="100" @color="primary">API: 1.0</Hds::Text::Body>
+              <Hds::Text::Body @tag="span" @size="100">API: 1.0</Hds::Text::Body>
             </AF.Item>
             <AF.ExtraAfter>
               <Shw::Placeholder @height="2em" {{style width="fit-content"}} @text="After" @background="#FF7575" />
@@ -189,13 +228,13 @@
             <AF.StatusLink @status="operational" />
             <AF.LegalLinks />
             <AF.Item>
-              <Hds::Text::Body @tag="span" @size="100" @color="primary">v.2.0</Hds::Text::Body>
+              <Hds::Text::Body @tag="span" @size="100">v.2.0</Hds::Text::Body>
             </AF.Item>
             <AF.Item>
-              <Hds::Text::Body @tag="span" @size="100" @color="primary">Name</Hds::Text::Body>
+              <Hds::Text::Body @tag="span" @size="100">Name</Hds::Text::Body>
             </AF.Item>
             <AF.Item>
-              <Hds::Text::Body @tag="span" @size="100" @color="primary">API: 1.0</Hds::Text::Body>
+              <Hds::Text::Body @tag="span" @size="100">API: 1.0</Hds::Text::Body>
             </AF.Item>
             <AF.ExtraAfter>
               <Shw::Placeholder @height="2em" {{style width="fit-content"}} @text="After" @background="#FF7575" />
@@ -230,10 +269,24 @@
 
     <Shw::Text::H4>States</Shw::Text::H4>
 
+    <Shw::Text::Body><strong>Light theme (default)</strong></Shw::Text::Body>
+
     <Shw::Flex {{style gap="2rem" justifyContent="space-between"}} as |SF|>
       {{#each @model.STATES as |state|}}
         <SF.Item @label={{state}}>
-          <ul class="hds-app-footer__list">
+          <ul class="hds-app-footer__list hds-app-footer--theme-light">
+            <Hds::AppFooter::Link @href="#" mock-state-value={{state}}>Link</Hds::AppFooter::Link>
+          </ul>
+        </SF.Item>
+      {{/each}}
+    </Shw::Flex>
+
+    <Shw::Text::Body><strong>Dark theme</strong></Shw::Text::Body>
+
+    <Shw::Flex {{style gap="2rem" justifyContent="space-between"}} as |SF|>
+      {{#each @model.STATES as |state|}}
+        <SF.Item @label={{state}}>
+          <ul class="hds-app-footer__list hds-app-footer--theme-dark">
             <Hds::AppFooter::Link @href="#" mock-state-value={{state}}>Link</Hds::AppFooter::Link>
           </ul>
         </SF.Item>
@@ -246,10 +299,24 @@
 
     <Shw::Text::H4>Status variants</Shw::Text::H4>
 
+    <Shw::Text::Body><strong>Light theme (default)</strong></Shw::Text::Body>
+
     <Shw::Flex {{style gap="2rem" justifyContent="space-between"}} as |SF|>
       {{#each-in @model.STATUSES as |status|}}
         <SF.Item @label={{status}}>
-          <ul class="hds-app-footer__list">
+          <ul class="hds-app-footer__list hds-app-footer--theme-light">
+            <Hds::AppFooter::StatusLink @status={{status}} />
+          </ul>
+        </SF.Item>
+      {{/each-in}}
+    </Shw::Flex>
+
+    <Shw::Text::Body><strong>Dark theme</strong></Shw::Text::Body>
+
+    <Shw::Flex {{style gap="2rem" justifyContent="space-between"}} as |SF|>
+      {{#each-in @model.STATUSES as |status|}}
+        <SF.Item @label={{status}}>
+          <ul class="hds-app-footer__list hds-app-footer--theme-dark">
             <Hds::AppFooter::StatusLink @status={{status}} />
           </ul>
         </SF.Item>
@@ -262,19 +329,19 @@
 
     <Shw::Flex {{style gap="2rem"}} as |SF|>
       <SF.Item @label="with custom text">
-        <ul class="hds-app-footer__list">
+        <ul class="hds-app-footer__list hds-app-footer--theme-light">
           <Hds::AppFooter::StatusLink @status="operational" @text="Operativo" />
         </ul>
       </SF.Item>
 
       <SF.Item @label="with custom icon color">
-        <ul class="hds-app-footer__list">
+        <ul class="hds-app-footer__list hds-app-footer--theme-light">
           <Hds::AppFooter::StatusLink @status="operational" @statusIconColor="purple" />
         </ul>
       </SF.Item>
 
       <SF.Item @label="with custom icon">
-        <ul class="hds-app-footer__list">
+        <ul class="hds-app-footer__list hds-app-footer--theme-light">
           <Hds::AppFooter::StatusLink @status="operational" @statusIcon="cloud-check" />
         </ul>
       </SF.Item>
@@ -283,13 +350,13 @@
     <Shw::Text::Body><strong>Custom values with no status</strong></Shw::Text::Body>
     <Shw::Flex {{style gap="2rem"}} as |SF|>
       <SF.Item @label="with custom icon and text">
-        <ul class="hds-app-footer__list">
+        <ul class="hds-app-footer__list hds-app-footer--theme-light">
           <Hds::AppFooter::StatusLink @statusIcon="hexagon-fill" @text="Lorem ipsum" />
         </ul>
       </SF.Item>
 
       <SF.Item @label="with custom icon, icon color, text, & href">
-        <ul class="hds-app-footer__list">
+        <ul class="hds-app-footer__list hds-app-footer--theme-light">
           <Hds::AppFooter::StatusLink
             @statusIcon="waypoint"
             @statusIconColor="var(--token-color-waypoint-brand)"

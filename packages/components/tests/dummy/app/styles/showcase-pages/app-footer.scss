@@ -42,4 +42,18 @@ body.components-app-footer {
   .shw-component-app-footer-mobile-small-view {
     max-width: 290px;
   }
+
+  .hds-app-footer--theme-dark {
+    position: relative;
+    background: var(--palette-neutral-neutral-700, #0c0c0e);
+
+    &::after {
+      position: absolute;
+      z-index: -1;
+      display: block;
+      background: inherit;
+      content: "";
+      inset: -8px;
+    }
+  }
 }

@@ -21,7 +21,7 @@ $app-footer-gap: 24px;
   gap: $app-footer-gap;
   justify-content: flex-end;
   padding: 24px;
-  border-top: 1px solid var(--token-color-border-primary);
+  border-top: 1px solid;
 }
 
 .hds-app-footer__list,
@@ -39,24 +39,9 @@ $app-footer-gap: 24px;
 
 .hds-app-footer__list-item { list-style-type: none; }
 
-.hds-app-footer__link.hds-link-inline--color-secondary,
 .hds-app-footer__status-link {
-  // Overriding default colors
-  color: var(--token-color-foreground-faint);
-
-  &:hover,
-  &.mock-hover {
-    color: var(--token-color-palette-neutral-600);
-  }
-
-  &:active,
-  &.mock-active {
-    color: var(--token-color-palette-neutral-700);
-  }
-
-  &:focus,
-  &.mock-focus {
-    color: var(--token-color-foreground-faint);
+  .flight-icon {
+    fill: var(--hds-app-footer-status-icon-color, currentColor);
   }
 }
 
@@ -67,4 +52,111 @@ $app-footer-gap: 24px;
   gap: 6px;
   align-items: center;
   justify-content: center;
+
+  // temporary to fix layout bug
+  .hds-link-inline--icon-leading > .hds-link-inline__icon { margin: 0; }
+}
+
+// Themes
+// ------------
+
+// Light
+// Q: Should the light theme colors be applied by default instead of class-based?
+.hds-app-footer--theme-light {
+  color: var(--token-color-foreground-primary);
+  border-top-color: var(--token-color-border-primary);
+
+  .hds-app-footer__link.hds-link-inline--color-secondary,
+  .hds-app-footer__status-link {
+    // Overriding default colors
+    color: var(--token-color-foreground-faint);
+
+    &:hover,
+    &.mock-hover {
+      color: var(--token-color-palette-neutral-600);
+    }
+
+    &:active,
+    &.mock-active {
+      color: var(--token-color-palette-neutral-700);
+    }
+
+    &:focus,
+    &.mock-focus {
+      color: var(--token-color-foreground-faint);
+    }
+  }
+
+  .hds-app-footer__copyright {
+    .flight-icon { fill: var(--token-color-hashicorp-brand); }
+  }
+
+  // preset status types
+  .hds-app-footer__status-link--operational {
+    .flight-icon { fill: var(--token-color-foreground-success); }
+  }
+
+  .hds-app-footer__status-link--degraded {
+    .flight-icon { fill: var(--token-color-foreground-warning); }
+  }
+
+  .hds-app-footer__status-link--maintenance {
+    .flight-icon { fill: var(--token-color-foreground-warning); }
+  }
+
+  .hds-app-footer__status-link--critical {
+    .flight-icon { fill: var(--token-color-foreground-critical); }
+  }
+}
+
+// Dark
+.hds-app-footer--theme-dark {
+  color: #b2b6bd;
+  border-top-color: #b2b6bd66;
+
+  .hds-app-footer__link.hds-link-inline--color-secondary,
+  .hds-app-footer__status-link {
+    // Overriding default colors
+    color: #b2b6bd;
+
+    &:hover,
+    &.mock-hover {
+      color: #d5d7db;
+    }
+
+    &:active,
+    &.mock-active {
+      color: #efeff1;
+    }
+
+    &:focus,
+    &.mock-focus,
+    &:focus-visible {
+      color: #b2b6bd;
+      outline-color: #389aff;
+    }
+  }
+
+  .hds-app-footer__copyright {
+    color: #b2b6bd;
+
+    .flight-icon { fill: #fff; }
+  }
+
+  // preset status types
+  .hds-app-footer__status-link--operational {
+    .flight-icon { fill: #009241; }
+  }
+
+  .hds-app-footer__status-link--degraded {
+    .flight-icon { fill: #e88c03; }
+  }
+
+  .hds-app-footer__status-link--maintenance {
+    .flight-icon { fill: #e88c03; }
+  }
+
+  .hds-app-footer__status-link--critical {
+    .flight-icon { fill: #ef3016; }
+  }
 }

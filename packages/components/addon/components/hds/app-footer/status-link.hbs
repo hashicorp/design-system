@@ -3,9 +3,9 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<Hds::AppFooter::Item ...attributes>
+{{!-- <Hds::AppFooter::Item ...attributes>
   <Hds::Interactive
-    class="hds-app-footer__status-link"
+    class={{this.classNames}}
     @route={{@route}}
     @models={{hds-link-to-models @model @models}}
     @query={{hds-link-to-query @query}}
@@ -20,4 +20,22 @@
     {{/if}}
     <Hds::Text::Body @tag="span" @size="100">{{this.text}}</Hds::Text::Body>
   </Hds::Interactive>
-</Hds::AppFooter::Item>
+</Hds::AppFooter::Item> --}}
+
+<Hds::AppFooter::Link
+  class={{this.classNames}}
+  style={{this.itemStyle}}
+  @route={{@route}}
+  @models={{hds-link-to-models @model @models}}
+  @query={{hds-link-to-query @query}}
+  @current-when={{@current-when}}
+  @replace={{@replace}}
+  @isRouteExternal={{@isRouteExternal}}
+  @href={{this.href}}
+  @isHrefExternal={{@isHrefExternal}}
+  @icon={{this.statusIcon}}
+  @iconPosition="leading"
+  ...attributes
+>
+  <Hds::Text::Body @tag="span" @size="100">{{this.text}}</Hds::Text::Body>
+</Hds::AppFooter::Link>

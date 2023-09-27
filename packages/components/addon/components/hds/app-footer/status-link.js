@@ -4,28 +4,29 @@
  */
 
 import Component from '@glimmer/component';
+import { htmlSafe } from '@ember/template';
 import { assert } from '@ember/debug';
 
 export const STATUSES = {
   OPERATIONAL: {
     text: 'System operational',
     iconName: 'check-circle',
-    iconColor: 'var(--token-color-foreground-success)',
+    // iconColor: 'var(--token-color-foreground-success)',
   },
   DEGRADED: {
     text: 'System degraded',
     iconName: 'alert-triangle',
-    iconColor: 'var(--token-color-foreground-warning)',
+    // iconColor: 'var(--token-color-foreground-warning)',
   },
   MAINTENANCE: {
     text: 'System maintenance',
     iconName: 'alert-triangle',
-    iconColor: 'var(--token-color-foreground-warning)',
+    // iconColor: 'var(--token-color-foreground-warning)',
   },
   CRITICAL: {
     text: 'System critical',
     iconName: 'x-circle',
-    iconColor: 'var(--token-color-foreground-critical)',
+    // iconColor: 'var(--token-color-foreground-critical)',
   },
 };
 
@@ -73,6 +74,21 @@ export default class HdsAppFooterStatusLinkComponent extends Component {
   }
 
   /**
+   * Get the inline style to apply to the item.
+   * @method StatusLink#itemStyle
+   * @return {string} The "style" attribute to apply to the item.
+   */
+  get itemStyle() {
+    if (this.args.statusIconColor) {
+      return htmlSafe(
+        `--hds-app-footer-status-icon-color: ${this.args.statusIconColor}`
+      );
+    } else {
+      return undefined;
+    }
+  }
+
+  /**
    * @param text
    * @type {string}
    * @description The text content of the StatusLink
@@ -93,14 +109,19 @@ export default class HdsAppFooterStatusLinkComponent extends Component {
     return this.args.href ?? 'https://status.hashicorp.com';
   }
 
-  // /**
-  //  * Get the class names to apply to the component.
-  //  * @method classNames
-  //  * @return {string} The "class" attribute to apply to the component.
-  //  */
-  // get classNames() {
-  //   let classes = ['hds-app-footer__status-link-item'];
+  /**
+   * Get the class names to apply to the component.
+   * @method classNames
+   * @return {string} The "class" attribute to apply to the component.
+   */
+  get classNames() {
+    let classes = ['hds-app-footer__status-link'];
 
-  //   return classes.join(' ');
-  // }
+    // add a class based on the @status argument
+    if (this.args.status) {
+      classes.push(`hds-app-footer__status-link--${this.status.toLowerCase()}`);
+    }
+
+    return classes.join(' ');
+  }
 }
