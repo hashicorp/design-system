@@ -175,7 +175,7 @@ The `SideNav::Portal` component is used to "transport" some content through the 
 The content yielded in the component is injected inside a `Hds::SideNav::List` element (hence all its sub-components available as yielded components).
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="<[P].extraBefore/Item/BackLink/Title/Link/extraAfter>" @type="yielded component">
+  <C.Property @name="<[P].ExtraBefore/Item/BackLink/Title/Link/ExtraAfter>" @type="yielded component">
     Sub-components yielded from `Hds::SideNav::List` (see below).
   </C.Property>
   <C.Property @name="targetName" @type="string" @default="hds-side-nav-portal-target">
@@ -195,7 +195,7 @@ The content yielded in the component is injected inside a `Hds::SideNav::List` e
 The `SideNav::List` component is used to wrap and contain the `SideNav::List::Title`, `SideNav::List::Link`, `SideNav::List::BackLink` and `SideNav::List::Item` components.
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="<[L].extraBefore>" @type="yielded component">
+  <C.Property @name="<[L].ExtraBefore>" @type="yielded component">
     Container that yields its content before the `<ul>` list of items (but inside the `<nav>` wrapper)
   </C.Property>
   <C.Property @name="<[L].Item>" @type="yielded component">
@@ -210,7 +210,7 @@ The `SideNav::List` component is used to wrap and contain the `SideNav::List::Ti
   <C.Property @name="<[L].Link>" @type="yielded component">
     The `SideNav::List::Link` component (see below).
   </C.Property>
-  <C.Property @name="<[L].extraAfter>" @type="yielded component">
+  <C.Property @name="<[L].ExtraAfter>" @type="yielded component">
     Container that yields its content after the `<ul>` list of items (but inside the `<nav>` wrapper)
   </C.Property>
   <C.Property @name="...attributes">
