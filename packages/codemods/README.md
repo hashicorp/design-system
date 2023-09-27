@@ -4,20 +4,18 @@ A collection of codemods for Helios components.
 
 ## Usage
 
-To run a specific codemod from this project, you would run the following:
+To run a specific codemod (for example the `v3/dropdown`) in your project using `npx`, you would run the following:
 
-```
-npx codemods <TRANSFORM NAME> path/of/files/ or/some**/*glob.js
-
-# or
-
-yarn global add codemods
-codemods <TRANSFORM NAME> path/of/files/ or/some**/*glob.js
+```bash
+npx @hashicorp/design-system-codemods v3/dropdown path/to/some/glob/**/*.hbs
 ```
 
-## Local Usage
-```
-node ./bin/cli.js <TRANSFORM NAME> path/of/files/ or/some**/*glob.js
+## Local usage
+
+To run a specific codemod (for example the `v3/dropdown`) in this repository (even before publishing it), you would run the following:
+
+```bash
+node ./bin/cli.js v3/dropdown path/to/some/glob/**/*.hbs
 ```
 
 ## Transforms
