@@ -19,9 +19,14 @@
     <Shw::Text::H3>With only generic content</Shw::Text::H3>
 
     <Hds::AppFooter as |AF|>
-      <AF.ExtraContentBefore>
-        <Shw::Placeholder @height="2em" @text="Extra Content Before" @background="#e4e4e4" />
-      </AF.ExtraContentBefore>
+      <AF.ExtraBefore>
+        <Shw::Placeholder
+          @height="2em"
+          {{style width="fit-content"}}
+          @text="Extra Content Before"
+          @background="#e4e4e4"
+        />
+      </AF.ExtraBefore>
       <AF.Item>
         <Shw::Placeholder @height="2em" @text="Item" @background="#e4e4e4" />
       </AF.Item>
@@ -31,9 +36,14 @@
       <AF.Item>
         <Shw::Placeholder @height="2em" @text="Item" @background="#e4e4e4" />
       </AF.Item>
-      <AF.ExtraContentAfter>
-        <Shw::Placeholder @height="2em" @text="Extra Content After" @background="#e4e4e4" />
-      </AF.ExtraContentAfter>
+      <AF.ExtraAfter>
+        <Shw::Placeholder
+          @height="2em"
+          {{style width="fit-content"}}
+          @text="Extra Content After"
+          @background="#e4e4e4"
+        />
+      </AF.ExtraAfter>
     </Hds::AppFooter>
 
     <Shw::Text::H3>With only the default content</Shw::Text::H3>
@@ -73,14 +83,14 @@
     <Shw::Text::H3>With theme selector as Extra Content Before</Shw::Text::H3>
 
     <Hds::AppFooter as |AF|>
-      <AF.ExtraContentBefore>
+      <AF.ExtraBefore>
         <Hds::Dropdown as |dd|>
           <dd.ToggleButton @text="Theme" @color="secondary" @size="small" />
           <dd.Interactive @icon="monitor" {{on "click" dd.close}} @text="System" />
           <dd.Interactive @icon="moon" {{on "click" dd.close}} @text="Dark" />
           <dd.Interactive @icon="sun" {{on "click" dd.close}} @text="Light" />
         </Hds::Dropdown>
-      </AF.ExtraContentBefore>
+      </AF.ExtraBefore>
       <AF.StatusLink @status="operational" />
       <AF.Link @href="https://cloud.hashicorp.com/docs/changelog">Changelog</AF.Link>
       <AF.LegalLinks />
@@ -99,9 +109,9 @@
 
     <div class="shw-component-app-footer-desktop-view">
       <Hds::AppFooter as |AF|>
-        <AF.ExtraContentBefore>
-          <Shw::Placeholder @height="2em" @text="Before" @background="#FF7575" />
-        </AF.ExtraContentBefore>
+        <AF.ExtraBefore>
+          <Shw::Placeholder @height="2em" {{style width="fit-content"}} @text="Before" @background="#FF7575" />
+        </AF.ExtraBefore>
 
         <AF.StatusLink @status="operational" />
 
@@ -117,9 +127,9 @@
           <Hds::Text::Body @tag="span" @size="100" @color="primary">API: 1.02</Hds::Text::Body>
         </AF.Item>
 
-        <AF.ExtraContentAfter>
-          <Shw::Placeholder @height="2em" @text="After" @background="#FF7575" />
-        </AF.ExtraContentAfter>
+        <AF.ExtraAfter>
+          <Shw::Placeholder @height="2em" {{style width="fit-content"}} @text="After" @background="#FF7575" />
+        </AF.ExtraAfter>
       </Hds::AppFooter>
     </div>
 
@@ -127,9 +137,9 @@
 
     <div class="shw-component-app-footer-tablet-view">
       <Hds::AppFooter as |AF|>
-        <AF.ExtraContentBefore>
-          <Shw::Placeholder @height="2em" @text="Before" @background="#FF7575" />
-        </AF.ExtraContentBefore>
+        <AF.ExtraBefore>
+          <Shw::Placeholder @height="2em" {{style width="fit-content"}} @text="Before" @background="#FF7575" />
+        </AF.ExtraBefore>
 
         <AF.StatusLink @status="operational" />
 
@@ -145,9 +155,9 @@
           <Hds::Text::Body @tag="span" @size="100" @color="primary">API: 1.02</Hds::Text::Body>
         </AF.Item>
 
-        <AF.ExtraContentAfter>
-          <Shw::Placeholder @height="2em" @text="After" @background="#FF7575" />
-        </AF.ExtraContentAfter>
+        <AF.ExtraAfter>
+          <Shw::Placeholder @height="2em" {{style width="fit-content"}} @text="After" @background="#FF7575" />
+        </AF.ExtraAfter>
       </Hds::AppFooter>
     </div>
 
@@ -155,9 +165,9 @@
 
     <div class="shw-component-app-footer-mobile-large-view">
       <Hds::AppFooter as |AF|>
-        <AF.ExtraContentBefore>
-          <Shw::Placeholder @height="2em" @text="Before" @background="#FF7575" />
-        </AF.ExtraContentBefore>
+        <AF.ExtraBefore>
+          <Shw::Placeholder @height="2em" {{style width="fit-content"}} @text="Before" @background="#FF7575" />
+        </AF.ExtraBefore>
 
         <AF.StatusLink @status="operational" />
 
@@ -173,9 +183,9 @@
           <Hds::Text::Body @tag="span" @size="100" @color="primary">API: 1.02</Hds::Text::Body>
         </AF.Item>
 
-        <AF.ExtraContentAfter>
-          <Shw::Placeholder @height="2em" @text="After" @background="#FF7575" />
-        </AF.ExtraContentAfter>
+        <AF.ExtraAfter>
+          <Shw::Placeholder @height="2em" {{style width="fit-content"}} @text="After" @background="#FF7575" />
+        </AF.ExtraAfter>
       </Hds::AppFooter>
     </div>
 
@@ -183,9 +193,9 @@
 
     <div class="shw-component-app-footer-mobile-small-view">
       <Hds::AppFooter as |AF|>
-        <AF.ExtraContentBefore>
-          <Shw::Placeholder @height="2em" @text="Before" @background="#FF7575" />
-        </AF.ExtraContentBefore>
+        <AF.ExtraBefore>
+          <Shw::Placeholder @height="2em" {{style width="fit-content"}} @text="Before" @background="#FF7575" />
+        </AF.ExtraBefore>
 
         <AF.StatusLink @status="operational" />
 
@@ -201,9 +211,9 @@
           <Hds::Text::Body @tag="span" @size="100" @color="primary">API: 1.02</Hds::Text::Body>
         </AF.Item>
 
-        <AF.ExtraContentAfter>
-          <Shw::Placeholder @height="2em" @text="After" @background="#FF7575" />
-        </AF.ExtraContentAfter>
+        <AF.ExtraAfter>
+          <Shw::Placeholder @height="2em" {{style width="fit-content"}} @text="After" @background="#FF7575" />
+        </AF.ExtraAfter>
       </Hds::AppFooter>
     </div>
 
@@ -215,24 +225,6 @@
       {{if this.showHighlight "Hide" "Show"}}
       layout highlight
     </button>
-
-    <Shw::Text::H3>Extra Content</Shw::Text::H3>
-
-    <Shw::Flex {{style gap="2rem"}} as |SF|>
-      <SF.Item @label="Hds::AppFooter::ExtraContentBefore">
-        <Hds::AppFooter::ExtraContentBefore>
-          <Shw::Placeholder @height="2em" @text="Extra Content Before" @background="#FF7575" />
-        </Hds::AppFooter::ExtraContentBefore>
-      </SF.Item>
-
-      <SF.Item @label="Hds::AppFooter::ExtraContentAfter">
-        <Hds::AppFooter::ExtraContentAfter>
-          <Shw::Placeholder @height="2em" @text="Extra Content After" @background="#FF7575" />
-        </Hds::AppFooter::ExtraContentAfter>
-      </SF.Item>
-    </Shw::Flex>
-
-    <Shw::Divider @level={{2}} />
 
     <Shw::Text::H3>Hds::AppFooter::Item</Shw::Text::H3>
 

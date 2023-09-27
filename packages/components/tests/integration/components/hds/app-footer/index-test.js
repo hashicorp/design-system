@@ -26,17 +26,17 @@ module('Integration | Component | hds/app-footer/index', function (hooks) {
   test('it renders the passed in content', async function (assert) {
     await render(hbs`
       <Hds::AppFooter as |AF|>
-        <AF.ExtraContentBefore id="test-extra-content-before">Before</AF.ExtraContentBefore>
+        <AF.ExtraBefore><span id="test-extra-before">Before</span></AF.ExtraBefore>
         <AF.Item id="test-custom-item">Custom item</AF.Item>
         <AF.Link @href="https://cloud.hashicorp.com" id="test-custom-link">
         Custom link
         </AF.Link>
         <AF.StatusLink @status="operational" id="test-status-link" />
         <AF.LegalLinks id="test-legal-links" />
-        <AF.ExtraContentAfter id="test-extra-content-after">After</AF.ExtraContentAfter>
+        <AF.ExtraAfter><span id="test-extra-after">After</span></AF.ExtraAfter>
       </Hds::AppFooter>
     `);
-    assert.dom('#test-extra-content-before').hasText('Before');
+    assert.dom('#test-extra-before').hasText('Before');
     assert.dom('#test-custom-item').hasText('Custom item');
     assert
       .dom('#test-custom-link')
@@ -44,6 +44,6 @@ module('Integration | Component | hds/app-footer/index', function (hooks) {
       .hasAttribute('href', 'https://cloud.hashicorp.com');
     assert.dom('#test-status-link').exists();
     assert.dom('#test-legal-links').exists();
-    assert.dom('#test-extra-content-after').hasText('After');
+    assert.dom('#test-extra-after').hasText('After');
   });
 });
