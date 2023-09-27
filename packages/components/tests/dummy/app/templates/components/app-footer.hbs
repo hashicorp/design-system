@@ -16,85 +16,87 @@
       layout highlight
     </button>
 
-    <Shw::Text::H3>With only generic content</Shw::Text::H3>
+    <Shw::Flex @direction="column" {{style marginTop="32px"}} as |SF|>
+      <SF.Item @label="With only generic content">
+        <Hds::AppFooter as |AF|>
+          <AF.ExtraBefore>
+            <Shw::Placeholder
+              @height="2em"
+              {{style width="fit-content"}}
+              @text="Extra Content Before"
+              @background="#e4e4e4"
+            />
+          </AF.ExtraBefore>
+          <AF.Item>
+            <Shw::Placeholder @height="2em" @text="Item" @background="#e4e4e4" />
+          </AF.Item>
+          <AF.Item>
+            <Shw::Placeholder @height="2em" @text="Item" @background="#e4e4e4" />
+          </AF.Item>
+          <AF.Item>
+            <Shw::Placeholder @height="2em" @text="Item" @background="#e4e4e4" />
+          </AF.Item>
+          <AF.ExtraAfter>
+            <Shw::Placeholder
+              @height="2em"
+              {{style width="fit-content"}}
+              @text="Extra Content After"
+              @background="#e4e4e4"
+            />
+          </AF.ExtraAfter>
+        </Hds::AppFooter>
+      </SF.Item>
 
-    <Hds::AppFooter as |AF|>
-      <AF.ExtraBefore>
-        <Shw::Placeholder
-          @height="2em"
-          {{style width="fit-content"}}
-          @text="Extra Content Before"
-          @background="#e4e4e4"
-        />
-      </AF.ExtraBefore>
-      <AF.Item>
-        <Shw::Placeholder @height="2em" @text="Item" @background="#e4e4e4" />
-      </AF.Item>
-      <AF.Item>
-        <Shw::Placeholder @height="2em" @text="Item" @background="#e4e4e4" />
-      </AF.Item>
-      <AF.Item>
-        <Shw::Placeholder @height="2em" @text="Item" @background="#e4e4e4" />
-      </AF.Item>
-      <AF.ExtraAfter>
-        <Shw::Placeholder
-          @height="2em"
-          {{style width="fit-content"}}
-          @text="Extra Content After"
-          @background="#e4e4e4"
-        />
-      </AF.ExtraAfter>
-    </Hds::AppFooter>
+      <SF.Item @label="With only the default content">
+        <Hds::AppFooter />
+      </SF.Item>
 
-    <Shw::Text::H3>With only the default content</Shw::Text::H3>
+      <SF.Item @label="With minimal recommended content">
+        <Hds::AppFooter as |AF|>
+          <AF.LegalLinks />
+        </Hds::AppFooter>
+      </SF.Item>
 
-    <Hds::AppFooter />
+      <SF.Item @label="With StatusLink & custom Link content">
+        <Hds::AppFooter as |AF|>
+          <AF.StatusLink @status="operational" />
+          <AF.Link @href="https://cloud.hashicorp.com/docs/changelog">Changelog</AF.Link>
+          <AF.LegalLinks />
+        </Hds::AppFooter>
+      </SF.Item>
 
-    <Shw::Text::H3>With minimal recommended content</Shw::Text::H3>
+      <SF.Item @label="With custom “meta” items (non-link) content">
+        <Hds::AppFooter as |AF|>
+          <AF.StatusLink @status="operational" />
+          <AF.LegalLinks />
+          <AF.Item>
+            <Hds::Text::Body @tag="span" @size="100" @color="primary">v.2.0</Hds::Text::Body>
+          </AF.Item>
+          <AF.Item>
+            <Hds::Text::Body @tag="span" @size="100" @color="primary">Product Name</Hds::Text::Body>
+          </AF.Item>
+          <AF.Item>
+            <Hds::Text::Body @tag="span" @size="100" @color="primary">API: 1.0</Hds::Text::Body>
+          </AF.Item>
+        </Hds::AppFooter>
+      </SF.Item>
 
-    <Hds::AppFooter as |AF|>
-      <AF.LegalLinks />
-    </Hds::AppFooter>
-
-    <Shw::Text::H3>With StatusLink & custom Link content</Shw::Text::H3>
-
-    <Hds::AppFooter as |AF|>
-      <AF.StatusLink @status="operational" />
-      <AF.Link @href="https://cloud.hashicorp.com/docs/changelog">Changelog</AF.Link>
-      <AF.LegalLinks />
-    </Hds::AppFooter>
-
-    <Shw::Text::H3>With custom “meta” items (non-link) content</Shw::Text::H3>
-
-    <Hds::AppFooter as |AF|>
-      <AF.StatusLink @status="operational" />
-      <AF.LegalLinks />
-      <AF.Item>
-        <Hds::Text::Body @tag="span" @size="100" @color="primary">v.01.15</Hds::Text::Body>
-      </AF.Item>
-      <AF.Item>
-        <Hds::Text::Body @tag="span" @size="100" @color="primary">Product Name</Hds::Text::Body>
-      </AF.Item>
-      <AF.Item>
-        <Hds::Text::Body @tag="span" @size="100" @color="primary">API: 1.02</Hds::Text::Body>
-      </AF.Item>
-    </Hds::AppFooter>
-
-    <Shw::Text::H3>With theme selector as Extra Content Before</Shw::Text::H3>
-
-    <Hds::AppFooter as |AF|>
-      <AF.ExtraBefore>
-        <Hds::Dropdown as |dd|>
-          <dd.ToggleButton @text="Theme" @color="secondary" @size="small" />
-          <dd.Interactive @icon="monitor" {{on "click" dd.close}} @text="System" />
-          <dd.Interactive @icon="moon" {{on "click" dd.close}} @text="Dark" />
-          <dd.Interactive @icon="sun" {{on "click" dd.close}} @text="Light" />
-        </Hds::Dropdown>
-      </AF.ExtraBefore>
-      <AF.StatusLink @status="operational" />
-      <AF.Link @href="https://cloud.hashicorp.com/docs/changelog">Changelog</AF.Link>
-      <AF.LegalLinks />
-    </Hds::AppFooter>
+      <SF.Item @label="With theme selector as Extra Content Before">
+        <Hds::AppFooter as |AF|>
+          <AF.ExtraBefore>
+            <Hds::Dropdown as |dd|>
+              <dd.ToggleButton @text="Theme" @color="secondary" @size="small" />
+              <dd.Interactive @icon="monitor" {{on "click" dd.close}} @text="System" />
+              <dd.Interactive @icon="moon" {{on "click" dd.close}} @text="Dark" />
+              <dd.Interactive @icon="sun" {{on "click" dd.close}} @text="Light" />
+            </Hds::Dropdown>
+          </AF.ExtraBefore>
+          <AF.StatusLink @status="operational" />
+          <AF.Link @href="https://cloud.hashicorp.com/docs/changelog">Changelog</AF.Link>
+          <AF.LegalLinks />
+        </Hds::AppFooter>
+      </SF.Item>
+    </Shw::Flex>
 
     <Shw::Divider />
 
@@ -105,117 +107,103 @@
       layout highlight
     </button>
 
-    <Shw::Text::H4>Desktop view</Shw::Text::H4>
+    <Shw::Flex @direction="column" {{style marginTop="32px"}} as |SF|>
+      <SF.Item @label="Desktop view">
+        <div class="shw-component-app-footer-desktop-view">
+          <Hds::AppFooter as |AF|>
+            <AF.ExtraBefore>
+              <Shw::Placeholder @height="2em" {{style width="fit-content"}} @text="Before" @background="#FF7575" />
+            </AF.ExtraBefore>
+            <AF.StatusLink @status="operational" />
+            <AF.LegalLinks />
+            <AF.Item>
+              <Hds::Text::Body @tag="span" @size="100" @color="primary">v.2.0</Hds::Text::Body>
+            </AF.Item>
+            <AF.Item>
+              <Hds::Text::Body @tag="span" @size="100" @color="primary">Name</Hds::Text::Body>
+            </AF.Item>
+            <AF.Item>
+              <Hds::Text::Body @tag="span" @size="100" @color="primary">API: 1.0</Hds::Text::Body>
+            </AF.Item>
+            <AF.ExtraAfter>
+              <Shw::Placeholder @height="2em" {{style width="fit-content"}} @text="After" @background="#FF7575" />
+            </AF.ExtraAfter>
+          </Hds::AppFooter>
+        </div>
+      </SF.Item>
 
-    <div class="shw-component-app-footer-desktop-view">
-      <Hds::AppFooter as |AF|>
-        <AF.ExtraBefore>
-          <Shw::Placeholder @height="2em" {{style width="fit-content"}} @text="Before" @background="#FF7575" />
-        </AF.ExtraBefore>
+      <SF.Item @label="Tablet view">
+        <div class="shw-component-app-footer-tablet-view">
+          <Hds::AppFooter as |AF|>
+            <AF.ExtraBefore>
+              <Shw::Placeholder @height="2em" {{style width="fit-content"}} @text="Before" @background="#FF7575" />
+            </AF.ExtraBefore>
+            <AF.StatusLink @status="operational" />
+            <AF.LegalLinks />
+            <AF.Item>
+              <Hds::Text::Body @tag="span" @size="100" @color="primary">v.2.0</Hds::Text::Body>
+            </AF.Item>
+            <AF.Item>
+              <Hds::Text::Body @tag="span" @size="100" @color="primary">Name</Hds::Text::Body>
+            </AF.Item>
+            <AF.Item>
+              <Hds::Text::Body @tag="span" @size="100" @color="primary">API: 1.0</Hds::Text::Body>
+            </AF.Item>
+            <AF.ExtraAfter>
+              <Shw::Placeholder @height="2em" {{style width="fit-content"}} @text="After" @background="#FF7575" />
+            </AF.ExtraAfter>
+          </Hds::AppFooter>
+        </div>
+      </SF.Item>
 
-        <AF.StatusLink @status="operational" />
+      <SF.Item @label="Mobile (large) view">
+        <div class="shw-component-app-footer-mobile-large-view">
+          <Hds::AppFooter as |AF|>
+            <AF.ExtraBefore>
+              <Shw::Placeholder @height="2em" {{style width="fit-content"}} @text="Before" @background="#FF7575" />
+            </AF.ExtraBefore>
+            <AF.StatusLink @status="operational" />
+            <AF.LegalLinks />
+            <AF.Item>
+              <Hds::Text::Body @tag="span" @size="100" @color="primary">v.2.0</Hds::Text::Body>
+            </AF.Item>
+            <AF.Item>
+              <Hds::Text::Body @tag="span" @size="100" @color="primary">Name</Hds::Text::Body>
+            </AF.Item>
+            <AF.Item>
+              <Hds::Text::Body @tag="span" @size="100" @color="primary">API: 1.0</Hds::Text::Body>
+            </AF.Item>
+            <AF.ExtraAfter>
+              <Shw::Placeholder @height="2em" {{style width="fit-content"}} @text="After" @background="#FF7575" />
+            </AF.ExtraAfter>
+          </Hds::AppFooter>
+        </div>
+      </SF.Item>
 
-        <AF.LegalLinks />
-
-        <AF.Item>
-          <Hds::Text::Body @tag="span" @size="100" @color="primary">v.01.15</Hds::Text::Body>
-        </AF.Item>
-        <AF.Item>
-          <Hds::Text::Body @tag="span" @size="100" @color="primary">Name</Hds::Text::Body>
-        </AF.Item>
-        <AF.Item>
-          <Hds::Text::Body @tag="span" @size="100" @color="primary">API: 1.02</Hds::Text::Body>
-        </AF.Item>
-
-        <AF.ExtraAfter>
-          <Shw::Placeholder @height="2em" {{style width="fit-content"}} @text="After" @background="#FF7575" />
-        </AF.ExtraAfter>
-      </Hds::AppFooter>
-    </div>
-
-    <Shw::Text::H4>Tablet view</Shw::Text::H4>
-
-    <div class="shw-component-app-footer-tablet-view">
-      <Hds::AppFooter as |AF|>
-        <AF.ExtraBefore>
-          <Shw::Placeholder @height="2em" {{style width="fit-content"}} @text="Before" @background="#FF7575" />
-        </AF.ExtraBefore>
-
-        <AF.StatusLink @status="operational" />
-
-        <AF.LegalLinks />
-
-        <AF.Item>
-          <Hds::Text::Body @tag="span" @size="100" @color="primary">v.01.15</Hds::Text::Body>
-        </AF.Item>
-        <AF.Item>
-          <Hds::Text::Body @tag="span" @size="100" @color="primary">Name</Hds::Text::Body>
-        </AF.Item>
-        <AF.Item>
-          <Hds::Text::Body @tag="span" @size="100" @color="primary">API: 1.02</Hds::Text::Body>
-        </AF.Item>
-
-        <AF.ExtraAfter>
-          <Shw::Placeholder @height="2em" {{style width="fit-content"}} @text="After" @background="#FF7575" />
-        </AF.ExtraAfter>
-      </Hds::AppFooter>
-    </div>
-
-    <Shw::Text::H4>Mobile (large) view</Shw::Text::H4>
-
-    <div class="shw-component-app-footer-mobile-large-view">
-      <Hds::AppFooter as |AF|>
-        <AF.ExtraBefore>
-          <Shw::Placeholder @height="2em" {{style width="fit-content"}} @text="Before" @background="#FF7575" />
-        </AF.ExtraBefore>
-
-        <AF.StatusLink @status="operational" />
-
-        <AF.LegalLinks />
-
-        <AF.Item>
-          <Hds::Text::Body @tag="span" @size="100" @color="primary">v.01.15</Hds::Text::Body>
-        </AF.Item>
-        <AF.Item>
-          <Hds::Text::Body @tag="span" @size="100" @color="primary">Name</Hds::Text::Body>
-        </AF.Item>
-        <AF.Item>
-          <Hds::Text::Body @tag="span" @size="100" @color="primary">API: 1.02</Hds::Text::Body>
-        </AF.Item>
-
-        <AF.ExtraAfter>
-          <Shw::Placeholder @height="2em" {{style width="fit-content"}} @text="After" @background="#FF7575" />
-        </AF.ExtraAfter>
-      </Hds::AppFooter>
-    </div>
-
-    <Shw::Text::H4>Mobile (small) view</Shw::Text::H4>
-
-    <div class="shw-component-app-footer-mobile-small-view">
-      <Hds::AppFooter as |AF|>
-        <AF.ExtraBefore>
-          <Shw::Placeholder @height="2em" {{style width="fit-content"}} @text="Before" @background="#FF7575" />
-        </AF.ExtraBefore>
-
-        <AF.StatusLink @status="operational" />
-
-        <AF.LegalLinks />
-
-        <AF.Item>
-          <Hds::Text::Body @tag="span" @size="100" @color="primary">v.01.15</Hds::Text::Body>
-        </AF.Item>
-        <AF.Item>
-          <Hds::Text::Body @tag="span" @size="100" @color="primary">Name</Hds::Text::Body>
-        </AF.Item>
-        <AF.Item>
-          <Hds::Text::Body @tag="span" @size="100" @color="primary">API: 1.02</Hds::Text::Body>
-        </AF.Item>
-
-        <AF.ExtraAfter>
-          <Shw::Placeholder @height="2em" {{style width="fit-content"}} @text="After" @background="#FF7575" />
-        </AF.ExtraAfter>
-      </Hds::AppFooter>
-    </div>
+      <SF.Item @label="Mobile (small) view">
+        <div class="shw-component-app-footer-mobile-small-view">
+          <Hds::AppFooter as |AF|>
+            <AF.ExtraBefore>
+              <Shw::Placeholder @height="2em" {{style width="fit-content"}} @text="Before" @background="#FF7575" />
+            </AF.ExtraBefore>
+            <AF.StatusLink @status="operational" />
+            <AF.LegalLinks />
+            <AF.Item>
+              <Hds::Text::Body @tag="span" @size="100" @color="primary">v.2.0</Hds::Text::Body>
+            </AF.Item>
+            <AF.Item>
+              <Hds::Text::Body @tag="span" @size="100" @color="primary">Name</Hds::Text::Body>
+            </AF.Item>
+            <AF.Item>
+              <Hds::Text::Body @tag="span" @size="100" @color="primary">API: 1.0</Hds::Text::Body>
+            </AF.Item>
+            <AF.ExtraAfter>
+              <Shw::Placeholder @height="2em" {{style width="fit-content"}} @text="After" @background="#FF7575" />
+            </AF.ExtraAfter>
+          </Hds::AppFooter>
+        </div>
+      </SF.Item>
+    </Shw::Flex>
 
     <Shw::Divider />
 

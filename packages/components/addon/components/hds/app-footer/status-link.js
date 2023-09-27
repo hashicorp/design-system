@@ -8,22 +8,22 @@ import { assert } from '@ember/debug';
 
 export const STATUSES = {
   OPERATIONAL: {
-    text: 'Operational',
+    text: 'System operational',
     iconName: 'check-circle',
     iconColor: 'var(--token-color-foreground-success)',
   },
   DEGRADED: {
-    text: 'Degraded',
+    text: 'System degraded',
     iconName: 'alert-triangle',
     iconColor: 'var(--token-color-foreground-warning)',
   },
   MAINTENANCE: {
-    text: 'Maintenance',
+    text: 'System maintenance',
     iconName: 'alert-triangle',
     iconColor: 'var(--token-color-foreground-warning)',
   },
   CRITICAL: {
-    text: 'Critical',
+    text: 'System critical',
     iconName: 'x-circle',
     iconColor: 'var(--token-color-foreground-critical)',
   },
