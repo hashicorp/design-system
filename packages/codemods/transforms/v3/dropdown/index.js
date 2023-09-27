@@ -16,7 +16,7 @@ module.exports = function ({ source /*, path*/ }, { parse, visit }) {
           const attr = node.attributes.find(a => a.name === '@listPosition')
 
           // if `@listPosition` is `left` or `right` update the argument value
-          if (attr.value.chars === "left" || attr.value.chars === "right") {
+          if (attr && attr.value && (attr.value.chars === "left" || attr.value.chars === "right")) {
             const updatedListPositionAttr = b.attr('@listPosition', b.text(`bottom-${attr.value.chars}`));
             outputAttrs.push(updatedListPositionAttr);
             if (!CODEMOD_ANALYSIS) {
