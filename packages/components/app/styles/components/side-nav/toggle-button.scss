@@ -78,7 +78,6 @@
   &:active,
   &.mock-active {
     background-color: var(--token-side-nav-color-surface-interactive-active);
-    border-color: transparent;
 
     &::before {
       box-shadow: 0 var(--token-side-nav-toggle-button-border-radius) 0 var(--token-side-nav-color-surface-interactive-active);
