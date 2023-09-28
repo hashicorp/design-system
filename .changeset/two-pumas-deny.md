@@ -3,4 +3,4 @@
 "@hashicorp/design-system-tokens": minor
 ---
 
-`SideNav` - add `@isCollapsible` and `@isMinimized` arguments
+`SideNav` - add `@isCollapsible` (to control if users can collapse the sidenav on 'desktop' viewports) and `@isMinimized` (to control the default state on 'desktop' viewports) arguments
