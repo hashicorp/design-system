@@ -57,10 +57,14 @@
         </Hds::AppFooter>
       </SF.Item>
 
-      <SF.Item @label="With StatusLink & custom Link content">
+      <SF.Item @label="With StatusLink & custom Link content (with leading icon)">
         <Hds::AppFooter as |AF|>
           <AF.StatusLink @status="operational" />
-          <AF.Link @href="https://cloud.hashicorp.com/docs/changelog" @icon="mail" @iconPosition="leading">Changelog</AF.Link>
+          <AF.Link
+            @href="https://cloud.hashicorp.com/docs/changelog"
+            @icon="logs"
+            @iconPosition="leading"
+          >Changelog</AF.Link>
           <AF.LegalLinks />
         </Hds::AppFooter>
       </SF.Item>
