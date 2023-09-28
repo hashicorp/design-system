@@ -1,15 +1,14 @@
 ## Anatomy
 
-<!-- image then table -->
-![Anatomy of appFooter](/assets/components/alert/app-footer-anatomy-inline.png)
+![Anatomy of AppFooter](/assets/components/app-footer/app-footer-anatomy.png)
 
-<!-- this is just an example, refer to other components to see how to fill this table -->
-| Element          | Usage                                           |
-|------------------|-------------------------------------------------|
-| Icon             | Optional, but recommended                       |
-| Title            | Required, if no description Optional, otherwise |
-| Description      | Required, if no title Optional, otherwise       |
-| Actions          | Optional                                        |
-| Dismiss button   | Optional                                        |
-| Content          | Required                                        |
-| Container        | Required                                        |
+
+| Element               | Usage                                              |
+|-----------------------|----------------------------------------------------|
+| Extra content before  | Optional                                           |
+| Status link           | Optional                                           |
+| Legal links           | Optional, but recommended for consumer-facing apps |
+| Links                 | Optional                                           |
+| Items                 | Optional                                           |
+| Extra content after   | Optional                                           |
+| Copyright             | Required                                           |

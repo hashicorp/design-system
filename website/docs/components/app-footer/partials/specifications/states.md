@@ -1,2 +1,9 @@
-<!-- populate with examples and documentation of interactive states -->
-<!-- this can usually be found in the design guidelines -->
+## States
+
+### Links
+
+![Link interactive states](/assets/components/app-footer/link-states.png)
+
+### Status link
+
+![StatusLink interactive states](/assets/components/app-footer/status-link-states.png)
