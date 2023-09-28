@@ -26,30 +26,42 @@ module(
 
     test('it should display text, icon, and icon color matching the passed in "operational" status', async function (assert) {
       await render(hbs`<Hds::AppFooter::StatusLink @status="operational" />`);
-      assert.dom('.hds-app-footer__status-link').hasText('System operational');
-      assert.dom('.flight-icon-check-circle');
-      // .hasAttribute('fill', 'var(--token-color-foreground-success)')
+      assert
+        .dom('.hds-app-footer__status-link')
+        .hasText('System operational')
+        .hasClass('hds-app-footer__status-link--operational');
+      assert.dom('.flight-icon-check-circle').exists();
+      // .hasStyle({fill: 'var(--token-color-foreground-success)'})
     });
 
     test('it should display text, icon, and icon color matching the passed in "degraded" status', async function (assert) {
       await render(hbs`<Hds::AppFooter::StatusLink @status="degraded" />`);
-      assert.dom('.hds-app-footer__status-link').hasText('System degraded');
-      assert.dom('.flight-icon-alert-triangle');
-      // .hasAttribute('fill', 'var(--token-color-foreground-warning)')
+      assert
+        .dom('.hds-app-footer__status-link')
+        .hasText('System degraded')
+        .hasClass('hds-app-footer__status-link--degraded');
+      assert.dom('.flight-icon-alert-triangle').exists();
+      // .hasStyle({fill: 'var(--token-color-foreground-warning)'})
     });
 
     test('it should display text, icon, and icon color matching the passed in "maintenance" status', async function (assert) {
       await render(hbs`<Hds::AppFooter::StatusLink @status="maintenance" />`);
-      assert.dom('.hds-app-footer__status-link').hasText('System maintenance');
-      assert.dom('.flight-icon-alert-triangle');
-      // .hasAttribute('fill', 'var(--token-color-foreground-warning)')
+      assert
+        .dom('.hds-app-footer__status-link')
+        .hasText('System maintenance')
+        .hasClass('hds-app-footer__status-link--maintenance');
+      assert.dom('.flight-icon-alert-triangle').exists();
+      // .hasStyle({fill: 'var(--token-color-foreground-warning)'})
     });
 
     test('it should display text, icon, and icon color matching the passed in "critical" status', async function (assert) {
       await render(hbs`<Hds::AppFooter::StatusLink @status="critical" />`);
-      assert.dom('.hds-app-footer__status-link').hasText('System critical');
-      assert.dom('.flight-icon-x-circle');
-      // .hasAttribute('fill', 'var(--token-color-foreground-critical)')
+      assert
+        .dom('.hds-app-footer__status-link')
+        .hasText('System critical')
+        .hasClass('hds-app-footer__status-link--critical');
+      assert.dom('.flight-icon-x-circle').exists();
+      // .hasStyle({fill: 'var(--token-color-foreground-critical)'})
     });
 
     // text, statusIcon, statusIconColor
@@ -63,8 +75,8 @@ module(
       />
     `);
       assert.dom('.hds-app-footer__status-link').hasText('Waypoint');
-      assert.dom('.flight-icon-waypoint');
-      // .hasAttribute('fill', 'var(--token-color-waypoint-brand)')
+      assert.dom('.hds-app-footer__status-link .flight-icon').exists();
+      // .hasStyle({'--hds-app-footer-status-icon-color': 'var(--token-color-waypoint-brand)'})
     });
 
     // href
