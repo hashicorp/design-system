@@ -5,7 +5,7 @@
 
 <div class={{this.classNames}} ...attributes>
   {{yield (hash ExtraBefore=(component "hds/yield"))}}
-  <ul class="hds-app-footer__list" aria-label="Footer items">
+  <ul class="hds-app-footer__list" aria-label={{this.ariaLabel}}>
     {{yield (hash StatusLink=(component "hds/app-footer/status-link"))}}
     {{yield
       (hash

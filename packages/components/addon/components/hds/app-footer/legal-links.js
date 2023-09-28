@@ -7,6 +7,15 @@ import Component from '@glimmer/component';
 
 export default class HdsAppFooterLegalLinksComponent extends Component {
   /**
+   * @param ariaLabel
+   * @type {string}
+   * @default 'Legal links'
+   */
+  get ariaLabel() {
+    return this.args.ariaLabel ?? 'Legal links';
+  }
+
+  /**
    * @param hrefForSupport
    * @type {string}
    * @description The href value of the "Support" link

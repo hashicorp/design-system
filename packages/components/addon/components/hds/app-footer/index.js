@@ -7,6 +7,15 @@ import Component from '@glimmer/component';
 
 export default class HdsAppFooterIndexComponent extends Component {
   /**
+   * @param ariaLabel
+   * @type {string}
+   * @default 'Footer items'
+   */
+  get ariaLabel() {
+    return this.args.ariaLabel ?? 'Footer items';
+  }
+
+  /**
    * @param theme
    * @type {string}
    * @description The component theme
