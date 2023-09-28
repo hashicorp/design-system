@@ -60,7 +60,7 @@
       <SF.Item @label="With StatusLink & custom Link content">
         <Hds::AppFooter as |AF|>
           <AF.StatusLink @status="operational" />
-          <AF.Link @href="https://cloud.hashicorp.com/docs/changelog">Changelog</AF.Link>
+          <AF.Link @href="https://cloud.hashicorp.com/docs/changelog" @icon="mail" @iconPosition="leading">Changelog</AF.Link>
           <AF.LegalLinks />
         </Hds::AppFooter>
       </SF.Item>
@@ -270,7 +270,7 @@
     <Shw::Text::Body><strong>Light theme (default)</strong></Shw::Text::Body>
 
     <Shw::Flex {{style gap="2rem" justifyContent="space-between"}} as |SF|>
-      {{#each @model.STATES as |state|}}
+      {{#each @model.LINK_STATES as |state|}}
         <SF.Item @label={{state}}>
           <ul class="hds-app-footer__list hds-app-footer--theme-light">
             <Hds::AppFooter::Link @href="#" mock-state-value={{state}}>Link</Hds::AppFooter::Link>
@@ -282,7 +282,7 @@
     <Shw::Text::Body><strong>Dark theme</strong></Shw::Text::Body>
 
     <Shw::Flex {{style gap="2rem" justifyContent="space-between"}} as |SF|>
-      {{#each @model.STATES as |state|}}
+      {{#each @model.LINK_STATES as |state|}}
         <SF.Item @label={{state}}>
           <ul class="hds-app-footer__list hds-app-footer--theme-dark">
             <Hds::AppFooter::Link @href="#" mock-state-value={{state}}>Link</Hds::AppFooter::Link>
@@ -300,7 +300,7 @@
     <Shw::Text::Body><strong>Light theme (default)</strong></Shw::Text::Body>
 
     <Shw::Flex {{style gap="2rem" justifyContent="space-between"}} as |SF|>
-      {{#each-in @model.STATUSES as |status|}}
+      {{#each-in @model.STATUS_LINK_STATUSES as |status|}}
         <SF.Item @label={{status}}>
           <ul class="hds-app-footer__list hds-app-footer--theme-light">
             <Hds::AppFooter::StatusLink @status={{status}} />
@@ -312,7 +312,7 @@
     <Shw::Text::Body><strong>Dark theme</strong></Shw::Text::Body>
 
     <Shw::Flex {{style gap="2rem" justifyContent="space-between"}} as |SF|>
-      {{#each-in @model.STATUSES as |status|}}
+      {{#each-in @model.STATUS_LINK_STATUSES as |status|}}
         <SF.Item @label={{status}}>
           <ul class="hds-app-footer__list hds-app-footer--theme-dark">
             <Hds::AppFooter::StatusLink @status={{status}} />
