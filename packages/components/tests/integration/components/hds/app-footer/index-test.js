@@ -45,7 +45,7 @@ module('Integration | Component | hds/app-footer/index', function (hooks) {
     assert.dom('#test-status-link').exists();
     assert.dom('#test-legal-links').exists();
     assert.dom('#test-extra-after').hasText('After');
-    assert.dom('.hds-app-footer__copyright').exists();    
+    assert.dom('.hds-app-footer__copyright').exists();
   });
 
   // OPTIONS
