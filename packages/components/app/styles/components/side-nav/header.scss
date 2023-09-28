@@ -61,7 +61,9 @@
   width: var(--token-side-nav-header-home-link-logo-size);
   height: var(--token-side-nav-header-home-link-logo-size);
   transition:
-    all var(--hds-app-sidenav-animation-duration)
+    width var(--hds-app-sidenav-animation-duration)
+    var(--hds-app-sidenav-animation-easing),
+    height var(--hds-app-sidenav-animation-duration)
     var(--hds-app-sidenav-animation-easing);
 
   .hds-side-nav--is-minimized & {
