@@ -132,7 +132,7 @@ On smaller viewports, the SideNav should collapse to maximize the available real
 
 ## Collapse functionality
 
-If the `isCollapsible` property is set to true, a collapse toggle button will be exposed to the end-user allowing them to manually expand and collapse the component.
+If the `isCollapsible` property is set to `true`, a collapse toggle button will be exposed to the end-user allowing them to manually expand and collapse the component.
 
 ![SideNav collapse function](/assets/components/side-nav/sidenav-collapse-interaction.png)
 
