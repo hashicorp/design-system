@@ -7,12 +7,6 @@
 // app-footer
 //
 
-// WIP: names, etc. may change
-// :root {
-//   --token-app-footer-text-color: var(--token-color-foreground-faint);
-//   --token-app-footer-border-color: var(--token-color-border-primary);
-// }
-
 $app-footer-gap: 24px;
 $app-footer-icon-text-gap: 6px;
 
@@ -24,18 +18,6 @@ $app-footer-icon-text-gap: 6px;
   padding: 24px;
   color: var(--app-footer-foreground-color);
   border-top: 1px solid var(--app-footer-border-top-color);
-}
-
-// THEMING
-
-.hds-app-footer--theme-light {
-  --app-footer-foreground-color: var(--token-color-foreground-primary);
-  --app-footer-border-top-color: var(--token-color-border-primary);
-}
-
-.hds-app-footer--theme-dark {
-  --app-footer-foreground-color: #b2b6bd;
-  --app-footer-border-top-color: #b2b6bd66; // rgba(#b2b6bd, 0.4) - the Sass color function don't work with CSS variables ¯\_(ツ)_/¯
 }
 
 // SUB-ELEMENTS
@@ -59,12 +41,53 @@ $app-footer-icon-text-gap: 6px;
   align-items: center;
   justify-content: center;
 
-  // we want a custom spacing for the status link (internally is using the "AppFooter::Link")
-  // notice: we increase specificity because otherwise is overwritten by the order of imports of components scss files
+  // custom spacing for the status link (internally is using the "AppFooter::Link")
+  // Note: we increase specificity because otherwise is overwritten by the order of imports of components scss files
   &.hds-link-inline--icon-leading > .hds-link-inline__icon { margin-right: $app-footer-icon-text-gap; }
 
   .flight-icon {
     fill: var(--hds-app-footer-status-icon-color, currentColor);
+  }
+}
+
+// preset status types
+.hds-app-footer__status-link--operational {
+  .flight-icon { fill: var(--app-footer-status-link-icon-operational-color); }
+}
+
+.hds-app-footer__status-link--degraded {
+  .flight-icon { fill: var(--app-footer-status-link-icon-degraded-color); }
+}
+
+.hds-app-footer__status-link--maintenance {
+  .flight-icon { fill: var(--app-footer-status-link-icon-maintenance-color); }
+}
+
+.hds-app-footer__status-link--critical {
+  .flight-icon { fill: var(--app-footer-status-link-icon-critical-color); }
+}
+
+
+.hds-app-footer__link.hds-link-inline--color-secondary,
+.hds-app-footer__status-link {
+  // Overriding default colors
+  color: var(--app-footer-link-default-color);
+
+  &:hover,
+  &.mock-hover {
+    color: var(--app-footer-link-hover-color);
+  }
+
+  &:active,
+  &.mock-active {
+    color: var(--app-footer-link-active-color);
+  }
+
+  &:focus,
+  &.mock-focus,
+  &:focus-visible {
+    color: var(--app-footer-link-focus-color);
+    outline-color: var(--app-footer-link-focus-outline-color);
   }
 }
 
@@ -80,103 +103,55 @@ $app-footer-icon-text-gap: 6px;
   gap: $app-footer-icon-text-gap;
   align-items: center;
   justify-content: center;
+  color: var(--app-footer-copyright-text-color);
+
+  .flight-icon { fill: var(--app-footer-copyright-icon-hashicorp-color); }
 }
 
-
-// Themes
-// ------------
+// THEMING
 
 // Light
-// Q: Should the light theme colors be applied by default instead of class-based?
 .hds-app-footer--theme-light {
-  .hds-app-footer__link.hds-link-inline--color-secondary,
-  .hds-app-footer__status-link {
-    // Overriding default colors
-    color: var(--token-color-foreground-faint);
+  --app-footer-foreground-color: var(--token-color-foreground-primary);
+  --app-footer-border-top-color: var(--token-color-border-primary);
 
-    &:hover,
-    &.mock-hover {
-      color: var(--token-color-palette-neutral-600);
-    }
+  // Overriding default Secondary Link colors
+  --app-footer-link-default-color: var(--token-color-foreground-faint);
+  --app-footer-link-hover-color: var(--token-color-palette-neutral-600);
+  --app-footer-link-active-color: var(--token-color-palette-neutral-700);
+  --app-footer-link-focus-color: var(--token-color-foreground-faint);
+  --app-footer-link-focus-outline-color: var(--token-color-focus-action-internal);
 
-    &:active,
-    &.mock-active {
-      color: var(--token-color-palette-neutral-700);
-    }
+  // Copyright
+  --app-footer-copyright-text-color: var(--token-color-foreground-primary);
+  --app-footer-copyright-icon-hashicorp-color: var(--token-color-hashicorp-brand);
 
-    &:focus,
-    &.mock-focus {
-      color: var(--token-color-foreground-faint);
-    }
-  }
-
-  .hds-app-footer__copyright {
-    .flight-icon { fill: var(--token-color-hashicorp-brand); }
-  }
-
-  // preset status types
-  .hds-app-footer__status-link--operational {
-    .flight-icon { fill: var(--token-color-foreground-success); }
-  }
-
-  .hds-app-footer__status-link--degraded {
-    .flight-icon { fill: var(--token-color-foreground-warning); }
-  }
-
-  .hds-app-footer__status-link--maintenance {
-    .flight-icon { fill: var(--token-color-foreground-warning); }
-  }
-
-  .hds-app-footer__status-link--critical {
-    .flight-icon { fill: var(--token-color-foreground-critical); }
-  }
+  // StatusLink icon colors
+  --app-footer-status-link-icon-operational-color: var(--token-color-foreground-success);
+  --app-footer-status-link-icon-degraded-color: var(--token-color-foreground-warning);
+  --app-footer-status-link-icon-maintenance-color: var(--token-color-foreground-warning);
+  --app-footer-status-link-icon-critical-color: var(--token-color-foreground-critical);
 }
 
 // Dark
 .hds-app-footer--theme-dark {
-  .hds-app-footer__link.hds-link-inline--color-secondary,
-  .hds-app-footer__status-link {
-    // Overriding default colors
-    color: #b2b6bd;
+  --app-footer-foreground-color: #b2b6bd;
+  --app-footer-border-top-color: #b2b6bd66; // rgba(#b2b6bd, 0.4) - Sass color functions don't work with CSS variables
 
-    &:hover,
-    &.mock-hover {
-      color: #d5d7db;
-    }
+  // Overriding default Secondary Link colors
+  --app-footer-link-default-color: #b2b6bd;
+  --app-footer-link-hover-color: #d5d7db;
+  --app-footer-link-active-color: #efeff1;
+  --app-footer-link-focus-color: #b2b6bd;
+  --app-footer-link-focus-outline-color: #389aff;
 
-    &:active,
-    &.mock-active {
-      color: #efeff1;
-    }
+  // Copyright
+  --app-footer-copyright-text-color: #b2b6bd;
+  --app-footer-copyright-icon-hashicorp-color: #fff;
 
-    &:focus,
-    &.mock-focus,
-    &:focus-visible {
-      color: #b2b6bd;
-      outline-color: #389aff;
-    }
-  }
-
-  .hds-app-footer__copyright {
-    color: #b2b6bd;
-
-    .flight-icon { fill: #fff; }
-  }
-
-  // preset status types
-  .hds-app-footer__status-link--operational {
-    .flight-icon { fill: #009241; }
-  }
-
-  .hds-app-footer__status-link--degraded {
-    .flight-icon { fill: #e88c03; }
-  }
-
-  .hds-app-footer__status-link--maintenance {
-    .flight-icon { fill: #e88c03; }
-  }
-
-  .hds-app-footer__status-link--critical {
-    .flight-icon { fill: #ef3016; }
-  }
+  // StatusLink Icon colors
+  --app-footer-status-link-icon-operational-color: #009241;
+  --app-footer-status-link-icon-degraded-color: #e88c03;
+  --app-footer-status-link-icon-maintenance-color: #e88c03;
+  --app-footer-status-link-icon-critical-color: #ef3016;
 }
