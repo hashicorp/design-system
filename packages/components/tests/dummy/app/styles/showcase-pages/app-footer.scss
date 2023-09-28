@@ -13,21 +13,21 @@ body.components-app-footer {
     .hds-app-footer__copyright {
       outline: 1px dashed #78909c;
     }
-  }
 
-  .shw-component-app-footer-desktop-view,
-  .shw-component-app-footer-tablet-view,
-  .shw-component-app-footer-mobile-large-view,
-  .shw-component-app-footer-mobile-small-view {
-    .hds-app-footer__list-item { background: lighten(#006ae7, 30%); }
+    .shw-component-app-footer-desktop-view,
+    .shw-component-app-footer-tablet-view,
+    .shw-component-app-footer-mobile-large-view,
+    .shw-component-app-footer-mobile-small-view {
+      .hds-app-footer__list-item { background: lighten(#006ae7, 30%); }
 
-    .hds-app-footer__legal-links { background: lighten(#006ae7, 45%); }
+      .hds-app-footer__legal-links { background: lighten(#006ae7, 45%); }
 
-    .hds-app-footer__copyright {
-      color: #fff;
-      background: #000;
+      .hds-app-footer__copyright {
+        color: #fff;
+        background: #000;
 
-      > * { color: inherit; }
+        > * { color: inherit; }
+      }
     }
   }
 

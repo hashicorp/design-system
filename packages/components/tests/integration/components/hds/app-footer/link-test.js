@@ -20,7 +20,7 @@ module('Integration | Component | hds/app-footer/link', function (hooks) {
 
   // CONTENT
 
-  test('it renders text content yielded within the Item', async function (assert) {
+  test('it renders text content yielded within the Link', async function (assert) {
     await render(
       hbs`<Hds::AppFooter::Link @href="https://cloud.hashicorp.com" id="test-link">
         Custom link

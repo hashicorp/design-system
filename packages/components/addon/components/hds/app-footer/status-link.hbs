@@ -25,17 +25,17 @@
 <Hds::AppFooter::Link
   class={{this.classNames}}
   style={{this.itemStyle}}
-  @route={{@route}}
+  @current-when={{@current-when}}
   @models={{hds-link-to-models @model @models}}
   @query={{hds-link-to-query @query}}
-  @current-when={{@current-when}}
   @replace={{@replace}}
+  @route={{@route}}
   @isRouteExternal={{@isRouteExternal}}
-  @href={{this.href}}
+  @href={{@href}}
   @isHrefExternal={{@isHrefExternal}}
   @icon={{this.statusIcon}}
   @iconPosition="leading"
   ...attributes
 >
-  <Hds::Text::Body @tag="span" @size="100">{{this.text}}</Hds::Text::Body>
+  {{this.text}}
 </Hds::AppFooter::Link>
