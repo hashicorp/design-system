@@ -8,22 +8,22 @@ import { htmlSafe } from '@ember/template';
 import { assert } from '@ember/debug';
 
 export const STATUSES = {
-  OPERATIONAL: {
+  operational: {
     text: 'System operational',
     iconName: 'check-circle',
     // iconColor: 'var(--token-color-foreground-success)',
   },
-  DEGRADED: {
+  degraded: {
     text: 'System degraded',
     iconName: 'alert-triangle',
     // iconColor: 'var(--token-color-foreground-warning)',
   },
-  MAINTENANCE: {
+  maintenance: {
     text: 'System maintenance',
     iconName: 'alert-triangle',
     // iconColor: 'var(--token-color-foreground-warning)',
   },
-  CRITICAL: {
+  critical: {
     text: 'System critical',
     iconName: 'x-circle',
     // iconColor: 'var(--token-color-foreground-critical)',
@@ -42,9 +42,9 @@ export default class HdsAppFooterStatusLinkComponent extends Component {
         `@status for "Hds::AppFooter" must be one of the following: ${Object.keys(
           STATUSES
         ).join(', ')} received: ${this.args.status}`,
-        Object.keys(STATUSES).includes(this.args.status.toUpperCase())
+        Object.keys(STATUSES).includes(this.args.status.toLowerCase())
       );
-      return this.args.status.toUpperCase();
+      return this.args.status.toLowerCase();
     }
     return undefined;
   }
@@ -94,10 +94,14 @@ export default class HdsAppFooterStatusLinkComponent extends Component {
    * @description The text content of the StatusLink
    */
   get text() {
-    if (this.status && !this.args.text) {
-      return STATUSES[this.status].text;
-    }
-    return this.args.text;
+    let { text } = this.args;
+
+    assert(
+      'Either @status or @text for "Hds::AppFooter::StatusLink" must have a valid value',
+      text !== undefined || this.status
+    );
+
+    return text ?? STATUSES[this.status].text;
   }
 
   /**
@@ -119,7 +123,7 @@ export default class HdsAppFooterStatusLinkComponent extends Component {
 
     // add a class based on the @status argument
     if (this.args.status) {
-      classes.push(`hds-app-footer__status-link--${this.status.toLowerCase()}`);
+      classes.push(`hds-app-footer__status-link--${this.status}`);
     }
 
     return classes.join(' ');

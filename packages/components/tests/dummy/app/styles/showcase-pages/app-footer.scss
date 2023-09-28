@@ -20,6 +20,8 @@ body.components-app-footer {
     .shw-component-app-footer-mobile-small-view {
       .hds-app-footer__list-item { background: lighten(#006ae7, 30%); }
       .hds-app-footer__legal-links { background: lighten(#006ae7, 45%); }
+      // using !important to override inline style:
+      .shw-app-footer-extra { background: #ff7575 !important; }
 
       .hds-app-footer__copyright {
         color: #fff;
