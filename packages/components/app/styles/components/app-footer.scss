@@ -14,6 +14,7 @@
 // }
 
 $app-footer-gap: 24px;
+$app-footer-icon-text-gap: 6px;
 
 .hds-app-footer {
   display: flex;
@@ -21,8 +22,23 @@ $app-footer-gap: 24px;
   gap: $app-footer-gap;
   justify-content: flex-end;
   padding: 24px;
-  border-top: 1px solid;
+  color: var(--app-footer-foreground-color);
+  border-top: 1px solid var(--app-footer-border-top-color);
 }
+
+// THEMING
+
+.hds-app-footer--theme-light {
+  --app-footer-foreground-color: var(--token-color-foreground-primary);
+  --app-footer-border-top-color: var(--token-color-border-primary);
+}
+
+.hds-app-footer--theme-dark {
+  --app-footer-foreground-color: #b2b6bd;
+  --app-footer-border-top-color: #b2b6bd66; // rgba(#b2b6bd, 0.4) - the Sass color function don't work with CSS variables ¯\_(ツ)_/¯
+}
+
+// SUB-ELEMENTS
 
 .hds-app-footer__list,
 .hds-app-footer__legal-links {
@@ -35,27 +51,37 @@ $app-footer-gap: 24px;
   max-width: 100%;
   margin: 0;
   padding: 0;
+  list-style-type: none;
 }
 
-.hds-app-footer__list-item { list-style-type: none; }
-
 .hds-app-footer__status-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // we want a custom spacing for the status link (internally is using the "AppFooter::Link")
+  // notice: we increase specificity because otherwise is overwritten by the order of imports of components scss files
+  &.hds-link-inline--icon-leading > .hds-link-inline__icon { margin-right: $app-footer-icon-text-gap; }
+
   .flight-icon {
     fill: var(--hds-app-footer-status-icon-color, currentColor);
   }
 }
 
-.hds-app-footer__status-link,
-.hds-app-footer__list-item,
-.hds-app-footer__copyright {
+.hds-app-footer__copyright,
+.hds-app-footer__list-item {
   display: flex;
-  gap: 6px;
   align-items: center;
   justify-content: center;
-
-  // temporary to fix layout bug
-  .hds-link-inline--icon-leading > .hds-link-inline__icon { margin: 0; }
 }
+
+.hds-app-footer__copyright {
+  display: flex;
+  gap: $app-footer-icon-text-gap;
+  align-items: center;
+  justify-content: center;
+}
+
 
 // Themes
 // ------------
@@ -63,9 +89,6 @@ $app-footer-gap: 24px;
 // Light
 // Q: Should the light theme colors be applied by default instead of class-based?
 .hds-app-footer--theme-light {
-  color: var(--token-color-foreground-primary);
-  border-top-color: var(--token-color-border-primary);
-
   .hds-app-footer__link.hds-link-inline--color-secondary,
   .hds-app-footer__status-link {
     // Overriding default colors
@@ -111,9 +134,6 @@ $app-footer-gap: 24px;
 
 // Dark
 .hds-app-footer--theme-dark {
-  color: #b2b6bd;
-  border-top-color: #b2b6bd66;
-
   .hds-app-footer__link.hds-link-inline--color-secondary,
   .hds-app-footer__status-link {
     // Overriding default colors

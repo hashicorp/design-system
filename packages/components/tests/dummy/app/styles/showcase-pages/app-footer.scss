@@ -19,7 +19,6 @@ body.components-app-footer {
     .shw-component-app-footer-mobile-large-view,
     .shw-component-app-footer-mobile-small-view {
       .hds-app-footer__list-item { background: lighten(#006ae7, 30%); }
-
       .hds-app-footer__legal-links { background: lighten(#006ae7, 45%); }
 
       .hds-app-footer__copyright {
@@ -45,7 +44,7 @@ body.components-app-footer {
 
   .hds-app-footer--theme-dark {
     position: relative;
-    background: var(--palette-neutral-neutral-700, #0c0c0e);
+    background: var(--token-color-palette-neutral-700);
 
     &::after {
       position: absolute;
