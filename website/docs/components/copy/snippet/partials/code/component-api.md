@@ -16,7 +16,7 @@ This component uses [ember-cli-clipboard](https://github.com/jkusa/ember-cli-cli
   <C.Property @name="isTruncated" @type="boolean" @default="false">
     Constrains text to one line and truncates it based on available width. Text will only be truncated if it does not fit within the available space.
     <br><br>
-    There are accessibility concerns if using this feature. See the [Accessibility section](/components/copy/snippet?tab=accessibility) for more information.
+    Please be aware there are [serious accessibility concerns](/components/copy/snippet?tab=accessibility) with using this feature.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).

@@ -234,7 +234,7 @@ Pass the argument `@isLoading={{true}}` to the item. This will show a “loading
 
 To enable users to copy a snippet of code (eg. URLs, secrets, code blocks, etc.).
 
-Using the `@isTruncated` argument it is possible to constrain the text to one-line and truncate it if it does not fit the available space. Care should be taken in choosing to use this feature as there are [accessibility concerns](/components/copy/snippet?tab=accessibility).
+Using the `@isTruncated` argument it is possible to constrain the text to one-line and truncate it if it does not fit the available space. Please be aware there are [serious accessibility concerns](/components/copy/snippet?tab=accessibility) with using this feature.
 
 ```handlebars
 <Hds::Dropdown as |dd|>

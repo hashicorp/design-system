@@ -39,11 +39,6 @@ Add the correct `@route/@models/@model/@query` parameter to each Breadcrumb Item
 
 By default, the Breadcrumb allows items to wrap on multiple lines if the container is too small. Pass `false` to the `@itemsCanWrap` parameter to avoid wrapping.
 
-!!! Warning
-
-The text will automatically truncate and be replaced with an ellipsis to fit within the container. However, this may result in the text being unavailable to keyboard-only users and, thus, is not WCAG-conformant.
-!!!
-
 ```handlebars
 <Hds::Breadcrumb @itemsCanWrap={{false}}>
   <Hds::Breadcrumb::Item @text="My org" @icon="org" />
@@ -53,14 +48,11 @@ The text will automatically truncate and be replaced with an ellipsis to fit wit
 </Hds::Breadcrumb>
 ```
 
-### With truncation
+### Truncation
+
+#### With dropdown 
 
 It’s possible to hide part of the Breadcrumb tree under a "truncated" item that shows the elements on "toggle".
-
-!!! Warning
-
-The text will automatically truncate and be replaced with an ellipsis to fit within the container. However, this may result in the text being unavailable to keyboard-only users and, thus, is not WCAG conformant.
-!!!
 
 ```handlebars
 <Hds::Breadcrumb>
@@ -71,5 +63,19 @@ The text will automatically truncate and be replaced with an ellipsis to fit wit
     <Hds::Breadcrumb::Item @text="Cluster details" @route="components" />
   </Hds::Breadcrumb::Truncation>
   <Hds::Breadcrumb::Item @text="Cluster sub-details" @current={{true}} />
+</Hds::Breadcrumb>
+```
+#### Width-based truncation
+
+By setting `@itemsCanWrap` to `false`, it is possible to constrain the text to one-line and truncate it if it does not fit the available space. Please be aware there are [serious accessibility concerns](/components/copy/snippet?tab=accessibility) with using this feature.
+
+```handlebars
+<Hds::Breadcrumb @itemsCanWrap={{false}}>
+  <Hds::Breadcrumb::Item @text="Level one with a very long string" @icon="org" />
+  <Hds::Breadcrumb::Item @text="Level two with a very long string" @icon="folder" />
+  <Hds::Breadcrumb::Item @text="Level three with a very long string" />
+  <Hds::Breadcrumb::Item @text="Level four with a very long string" />
+  <Hds::Breadcrumb::Item @text="Level five with a very long string" />
+  <Hds::Breadcrumb::Item @text="Current with a very long string" @current={{true}} />
 </Hds::Breadcrumb>
 ```
