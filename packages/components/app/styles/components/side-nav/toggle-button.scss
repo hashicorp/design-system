@@ -14,8 +14,11 @@
   left: calc(var(--token-side-nav-wrapper-border-width) * -1);
   z-index: 1;
   display: flex;
-  box-sizing: content-box; // keeps the border outside the element to consistently control the border width across SideNav elements
-  padding: calc(var(--token-side-nav-toggle-button-padding-vertical) - var(--token-side-nav-wrapper-border-width)) var(--token-side-nav-toggle-button-padding-horizontal);
+  flex-direction: row-reverse;
+  align-items: center;
+  width: 26px;
+  height: 36px;
+  padding: 0 4px;
   color: var(--token-color-foreground-high-contrast);
   background: none;
   background-color: var(--token-side-nav-color-surface-primary);
@@ -28,7 +31,7 @@
   transition:
     transform var(--hds-app-sidenav-animation-duration)
     var(--hds-app-sidenav-animation-easing),
-    padding var(--hds-app-sidenav-animation-duration)
+    width var(--hds-app-sidenav-animation-duration)
     var(--hds-app-sidenav-animation-easing);
 
   &::before {
@@ -61,7 +64,7 @@
 
   &:hover,
   &.mock-hover {
-    padding: calc(var(--token-side-nav-toggle-button-padding-vertical) - var(--token-side-nav-wrapper-border-width)) var(--token-side-nav-toggle-button-padding-horizontal) calc(var(--token-side-nav-toggle-button-padding-vertical) - var(--token-side-nav-wrapper-border-width)) 8px;
+    width: 30px;
     background-color: var(--token-side-nav-color-surface-interactive-hover);
 
     &::before {
