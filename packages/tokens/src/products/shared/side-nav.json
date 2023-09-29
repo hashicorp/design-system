@@ -37,16 +37,6 @@
           "value": "5",
           "type": "size"
         }
-      },
-      "padding": {
-        "horizontal": {
-          "value": "4",
-          "type": "size"
-        },
-        "vertical": {
-          "value": "10",
-          "type": "size"
-        }
       }
     },
     "header": {
