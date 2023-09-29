@@ -10,10 +10,10 @@ module.exports = function ({ source /*, path*/ }, { parse, visit }) {
       ElementNode(node) {
         if (node.tag === 'Hds::Form::RadioCard') {
           // filter out the `@layout` attribute
-          const outputAttrs = node.attributes.filter(a => a.name !== '@layout');
+          const outputAttrs = node.attributes.filter((a) => a.name !== '@layout');
 
           // look up for `@layout`
-          const attr = node.attributes.find(a => a.name === '@layout');
+          const attr = node.attributes.find((a) => a.name === '@layout');
 
           // update the attributes
           if (attr && attr.value) {
@@ -27,19 +27,23 @@ module.exports = function ({ source /*, path*/ }, { parse, visit }) {
                     modifiers: node.modifiers,
                     blockParams: node.blockParams,
                   }
-                )
+                ),
               ];
             }
           }
-        } else {
+        } else if (node.tag === 'Hds::Form::RadioCard::Group') {
           // filter out the `@layout` attribute
-          const outputAttrs = node.attributes.filter(a => a.name !== '@layout');
+          const outputAttrs = node.attributes.filter((a) => a.name !== '@layout');
 
           // look up for `@layout`
-          const attr = node.attributes.find(a => a.name === '@layout');
+          const attr = node.attributes.find((a) => a.name === '@layout');
 
           // if `@layout` is 'fixed' or 'fluid' (one of the deprecated values) we remove the argument
-          if (attr && attr.value && (attr.value.chars === "fixed" || attr.value.chars === "fluid")) {
+          if (
+            attr &&
+            attr.value &&
+            (attr.value.chars === 'fixed' || attr.value.chars === 'fluid')
+          ) {
             if (!CODEMOD_ANALYSIS) {
               return [
                 b.element(
@@ -50,12 +54,12 @@ module.exports = function ({ source /*, path*/ }, { parse, visit }) {
                     modifiers: node.modifiers,
                     blockParams: node.blockParams,
                   }
-                )
+                ),
               ];
             }
           }
         }
-      }
+      },
     };
   });
 };
