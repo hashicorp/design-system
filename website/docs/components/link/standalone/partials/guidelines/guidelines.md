@@ -128,7 +128,7 @@ We recommend at least 8px between Standalone Links when placed in a horizontal l
 
 !!! Dont
 
-Don't stack Standalone Links without any space between them. This creates a cluttered visual and requires percise mouse interaction that may not make for an inclusive experience.
+Don't stack Standalone Links without any space between them. This creates a cluttered visual and requires precise mouse interaction that may not make for an inclusive experience.
 
 ![Example of no space between Standalone Links in a vertical list](/assets/components/link/standalone/standalone-link-vertical-list-dont.png)
 !!!
