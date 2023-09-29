@@ -82,7 +82,7 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Hds::SideNav::Portal @targetName="sidenav-portal-demo-1" as |Nav|>
+  <Hds::SideNav::Portal @targetName="sidenav-portal-demo-1" @ariaLabel="Primary on portal demo 1" as |Nav|>
     <Nav.extraBefore><Shw::Placeholder @height="72px" @text="extraBefore" @background="#f3d9c5" /></Nav.extraBefore>
     <Nav.Item><Shw::Placeholder @height="200px" @text="portaled content" @background="#e4e4e4" /></Nav.Item>
     <Nav.extraAfter><Shw::Placeholder @height="72px" @text="extraAfter" @background="#f3d9c5" /></Nav.extraAfter>
@@ -139,7 +139,7 @@
           </div>
         </SF.Item>
       </Shw::Flex>
-      <Hds::SideNav::Portal @targetName="sidenav-portal-demo-2" as |Nav|>
+      <Hds::SideNav::Portal @targetName="sidenav-portal-demo-2" @ariaLabel="Primary on portal demo 2" as |Nav|>
         <Nav.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
         <Nav.Title>Services</Nav.Title>
         <Nav.Link @text="Boundary" @icon="boundary" @href="#" />
@@ -195,11 +195,11 @@
               </:header>
 
               <:body>
-                <Hds::SideNav::List as |SNL|>
+                <Hds::SideNav::List aria-label="Dashboard" as |SNL|>
                   <SNL.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
                 </Hds::SideNav::List>
 
-                <Hds::SideNav::List as |SNL|>
+                <Hds::SideNav::List aria-label="Services" as |SNL|>
                   <SNL.Title>Services</SNL.Title>
                   <SNL.Link @text="Boundary" @icon="boundary" @href="#" />
                   <SNL.Link @text="Consul" @icon="consul" @href="#" />
@@ -211,7 +211,7 @@
                   <SNL.Link @text="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} />
                 </Hds::SideNav::List>
 
-                <Hds::SideNav::List as |SNL|>
+                <Hds::SideNav::List aria-label="Organization" as |SNL|>
                   <SNL.Title>Default Org</SNL.Title>
                   <SNL.Link @text="HashiCorp Virtual Networks" @icon="network" @href="#" />
                   <SNL.Link @text="Access control (IAM)" @icon="users" @href="#" @hasSubItems={{true}} />
@@ -426,7 +426,7 @@
   <Shw::Flex as |SF|>
     <SF.Item @label="Title with multiple items">
       <div class="shw-component-sim-side-nav-body">
-        <Hds::SideNav::List as |SNL|>
+        <Hds::SideNav::List aria-label="Multiple items" as |SNL|>
           <SNL.Title>Services</SNL.Title>
 
           <SNL.Link @text="Boundary" @icon="boundary" @href="#" />
@@ -450,10 +450,10 @@
 
     <SF.Item @label="Multiple groups">
       <div class="shw-component-sim-side-nav-body">
-        <Hds::SideNav::List as |SNL|>
+        <Hds::SideNav::List aria-label="Dashboard (multiple groups)" as |SNL|>
           <SNL.Link @text="Dashboard" @icon="dashboard" @href="#" />
         </Hds::SideNav::List>
-        <Hds::SideNav::List as |SNL|>
+        <Hds::SideNav::List aria-label="Services (multiple groups)" as |SNL|>
           <SNL.Title>Services</SNL.Title>
 
           <SNL.Link @text="Boundary" @icon="boundary" @href="#" />
@@ -465,7 +465,7 @@
           <SNL.Link @text="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
           <SNL.Link @text="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} @href="#" />
         </Hds::SideNav::List>
-        <Hds::SideNav::List as |SNL|>
+        <Hds::SideNav::List aria-label="Organization (multiple groups)" as |SNL|>
           <SNL.Title>Default Org</SNL.Title>
 
           <SNL.Link @text="HashiCorp Virtual Networks" @icon="network" @href="#" />
