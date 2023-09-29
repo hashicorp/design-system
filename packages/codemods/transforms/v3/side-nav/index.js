@@ -51,7 +51,7 @@ module.exports = function ({ source /*, path*/ }, { parse, visit }) {
                 b.element(
                   { name: node.tag, selfClosing: false },
                   {
-                    attrs: node.attrs,
+                    attrs: node.attributes,
                     children: outputChildren,
                     modifiers: node.modifiers,
                     blockParams: node.blockParams,
