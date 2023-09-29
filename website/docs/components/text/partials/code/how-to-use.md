@@ -23,9 +23,9 @@ When no `@tag` argument is provided, the text element is rendered as a `<span>` 
 To specify which HTML tag to use to render the element, use the `@tag` argument:
 
 ```handlebars
-<Hds::Text::Display @tag="h1">Text as "Display" variant</Hds::Text::Display>
-<Hds::Text::Body @tag="p">Text as "Body" variant</Hds::Text::Body>
-<Hds::Text::Code @tag="pre">Text as "Code" variant</Hds::Text::Code>
+<Hds::Text::Display @tag="h1">Page title</Hds::Text::Display>
+<Hds::Text::Body @tag="p">Paragraph text</Hds::Text::Body>
+<Hds::Text::Code @tag="pre">Code sample</Hds::Text::Code>
 ```
 
 !!! Insight
@@ -42,9 +42,9 @@ To specify which size to apply to the text, use the `@size` argument:
 
 
 ```handlebars
-<Hds::Text::Display @tag="h1" @size="500">Text as "Display-500" variant</Hds::Text::Display>
-<Hds::Text::Body @tag="p" @size="300">Text as "Body-300" variant</Hds::Text::Body>
-<Hds::Text::Code @tag="pre" @size="100">Text as "Code-100" variant</Hds::Text::Code>
+<Hds::Text::Display @tag="h1" @size="500">Page title with "Display-500" variant </Hds::Text::Display>
+<Hds::Text::Body @tag="p" @size="300">Paragraph text with "Body-300" variant-</Hds::Text::Body>
+<Hds::Text::Code @tag="pre" @size="100">Code sample with "Code-100" variant</Hds::Text::Code>
 ```
 
 Different style variants support different sizes: refer to the [Component API](#component-api) section for details.
@@ -54,9 +54,9 @@ Different style variants support different sizes: refer to the [Component API](#
 To apply a specific font weight to the text, use the `@weight` argument:
 
 ```handlebars
-<Hds::Text::Display @tag="h4" @size="300" @weight="medium">"Display" text with "medium" font weight</Hds::Text::Display>
-<Hds::Text::Body @tag="p" @weight="semibold">"Body" text with "semibold" font weight</Hds::Text::Body>
-<Hds::Text::Code @tag="pre" @weight="bold">"Copy" text with "bold" font weight</Hds::Text::Code>
+<Hds::Text::Display @tag="h4" @size="300" @weight="medium">Level 4 heading with "medium" font weight</Hds::Text::Display>
+<Hds::Text::Body @tag="p" @weight="semibold">Paragraph text with "semibold" font weight </Hds::Text::Body>
+<Hds::Text::Code @tag="pre" @weight="bold">Code sample with "bold" font weight</Hds::Text::Code>
 ```
 
 !!! Critical
@@ -73,9 +73,9 @@ Refer to the [Component API](#component-api) section to see what the allowed com
 To specify a text alignment, use the `@align` argument:
 
 ```handlebars
-<Hds::Text::Display @tag="h1" @align="right">This text is right-aligned</Hds::Text::Display>
-<Hds::Text::Body @tag="p" @align="center">This text is center-aligned</Hds::Text::Body>
-<Hds::Text::Code @tag="pre" @align="left">This text is left-aligned</Hds::Text::Code>
+<Hds::Text::Display @tag="h1" @align="right">Page title, right-aligned</Hds::Text::Display>
+<Hds::Text::Body @tag="p" @align="center">Paragraph, center-aligned</Hds::Text::Body>
+<Hds::Text::Code @tag="pre" @align="left">Code sample, left-aligned</Hds::Text::Code>
 ```
 
 ### Color
@@ -83,9 +83,9 @@ To specify a text alignment, use the `@align` argument:
 It is possible to apply a specific **foreground** color to the text (from a predefined list) using the `@color` argument:
 
 ```handlebars
-<Hds::Text::Body @tag="p" @color="strong">This text has a "strong" color applied</Hds::Text::Body>
-<Hds::Text::Body @tag="p" @color="action-active">This text has an "action-active" color applied</Hds::Text::Body>
-<Hds::Text::Body @tag="p" @color="highlight-high-contrast">This text has a "highlight-high-contrast" color applied</Hds::Text::Body>
+<Hds::Text::Body @tag="p" @color="strong">Paragraph with "strong" color applied</Hds::Text::Body>
+<Hds::Text::Body @tag="p" @color="action-active">Paragraph with "action-active" color applied</Hds::Text::Body>
+<Hds::Text::Body @tag="p" @color="highlight-high-contrast">Paragraph with "highlight-high-contrast" color applied</Hds::Text::Body>
 ```
 
 For the list of possible foreground colors supported, refer to the [Component API](#component-api) section for details.
