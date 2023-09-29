@@ -10,10 +10,10 @@ npx @hashicorp/design-system-codemods v3/side-nav path/to/some/glob/**/*.hbs
 
 ## Local usage
 
-To run this codemod in this repository (even before publishing it), you would run the following:
+To run this codemod in this repository (even before publishing it), you would run the following from the root directory of this repository:
 
 ```bash
-node ./bin/cli.js v3/side-nav path/to/some/glob/**/*.hbs
+node ./packages/codemods/bin/cli.js v3/dropdown path/to/some/glob/**/*.hbs
 ```
 
 ## Input
