@@ -149,149 +149,45 @@
     </button>
 
     <Shw::Flex @direction="column" {{style marginTop="32px"}} as |SF|>
-      <SF.Item @label="Desktop view">
-        <div class="shw-component-app-footer-desktop-view">
-          <Hds::AppFooter as |AF|>
-            <AF.ExtraBefore>
-              <Shw::Placeholder
-                class="shw-app-footer-extra"
-                @height="2em"
-                {{style width="fit-content"}}
-                @text="Before"
-                @background="#e4e4e4"
-              />
-            </AF.ExtraBefore>
-            <AF.StatusLink @status="operational" />
-            <AF.LegalLinks />
-            <AF.Item>
-              <Hds::Text::Body @tag="span" @size="100">v.2.0</Hds::Text::Body>
-            </AF.Item>
-            <AF.Item>
-              <Hds::Text::Body @tag="span" @size="100">Name</Hds::Text::Body>
-            </AF.Item>
-            <AF.Item>
-              <Hds::Text::Body @tag="span" @size="100">API: 1.0</Hds::Text::Body>
-            </AF.Item>
-            <AF.ExtraAfter>
-              <Shw::Placeholder
-                class="shw-app-footer-extra"
-                @height="2em"
-                {{style width="fit-content"}}
-                @text="After"
-                @background="#e4e4e4"
-              />
-            </AF.ExtraAfter>
-          </Hds::AppFooter>
-        </div>
-      </SF.Item>
-
-      <SF.Item @label="Tablet view">
-        <div class="shw-component-app-footer-tablet-view">
-          <Hds::AppFooter as |AF|>
-            <AF.ExtraBefore>
-              <Shw::Placeholder
-                class="shw-app-footer-extra"
-                @height="2em"
-                {{style width="fit-content"}}
-                @text="Before"
-                @background="#e4e4e4"
-              />
-            </AF.ExtraBefore>
-            <AF.StatusLink @status="operational" />
-            <AF.LegalLinks />
-            <AF.Item>
-              <Hds::Text::Body @tag="span" @size="100">v.2.0</Hds::Text::Body>
-            </AF.Item>
-            <AF.Item>
-              <Hds::Text::Body @tag="span" @size="100">Name</Hds::Text::Body>
-            </AF.Item>
-            <AF.Item>
-              <Hds::Text::Body @tag="span" @size="100">API: 1.0</Hds::Text::Body>
-            </AF.Item>
-            <AF.ExtraAfter>
-              <Shw::Placeholder
-                class="shw-app-footer-extra"
-                @height="2em"
-                {{style width="fit-content"}}
-                @text="After"
-                @background="#e4e4e4"
-              />
-            </AF.ExtraAfter>
-          </Hds::AppFooter>
-        </div>
-      </SF.Item>
-
-      <SF.Item @label="Mobile (large) view">
-        <div class="shw-component-app-footer-mobile-large-view">
-          <Hds::AppFooter as |AF|>
-            <AF.ExtraBefore>
-              <Shw::Placeholder
-                class="shw-app-footer-extra"
-                @height="2em"
-                {{style width="fit-content"}}
-                @text="Before"
-                @background="#e4e4e4"
-              />
-            </AF.ExtraBefore>
-            <AF.StatusLink @status="operational" />
-            <AF.LegalLinks />
-            <AF.Item>
-              <Hds::Text::Body @tag="span" @size="100">v.2.0</Hds::Text::Body>
-            </AF.Item>
-            <AF.Item>
-              <Hds::Text::Body @tag="span" @size="100">Name</Hds::Text::Body>
-            </AF.Item>
-            <AF.Item>
-              <Hds::Text::Body @tag="span" @size="100">API: 1.0</Hds::Text::Body>
-            </AF.Item>
-            <AF.ExtraAfter>
-              <Shw::Placeholder
-                class="shw-app-footer-extra"
-                @height="2em"
-                {{style width="fit-content"}}
-                @text="After"
-                @background="#e4e4e4"
-              />
-            </AF.ExtraAfter>
-          </Hds::AppFooter>
-        </div>
-      </SF.Item>
-
-      <SF.Item @label="Mobile (small) view">
-        <div class="shw-component-app-footer-mobile-small-view">
-          <Hds::AppFooter as |AF|>
-            <AF.ExtraBefore>
-              <Shw::Placeholder
-                class="shw-app-footer-extra"
-                @height="2em"
-                {{style width="fit-content"}}
-                @text="Before"
-                @background="#e4e4e4"
-              />
-            </AF.ExtraBefore>
-            <AF.StatusLink @status="operational" />
-            <AF.LegalLinks />
-            <AF.Item>
-              <Hds::Text::Body @tag="span" @size="100">v.2.0</Hds::Text::Body>
-            </AF.Item>
-            <AF.Item>
-              <Hds::Text::Body @tag="span" @size="100">Name</Hds::Text::Body>
-            </AF.Item>
-            <AF.Item>
-              <Hds::Text::Body @tag="span" @size="100">API: 1.0</Hds::Text::Body>
-            </AF.Item>
-            <AF.ExtraAfter>
-              <Shw::Placeholder
-                class="shw-app-footer-extra"
-                @height="2em"
-                {{style width="fit-content"}}
-                @text="After"
-                @background="#e4e4e4"
-              />
-            </AF.ExtraAfter>
-          </Hds::AppFooter>
-        </div>
-      </SF.Item>
+      {{#let (array "desktop" "tablet" "mobile-large" "mobile-small") as |layouts|}}
+        {{#each layouts as |layout|}}
+          <SF.Item @label={{layout}}>
+            <div class={{(concat (concat "shw-component-app-footer-" layout) "-view")}}>
+              <Hds::AppFooter as |AF|>
+                <AF.ExtraBefore>
+                  <Shw::Placeholder
+                    class="shw-app-footer-extra"
+                    @height="2em"
+                    {{style width="fit-content"}}
+                    @text="Before"
+                    @background="#e4e4e4"
+                  />
+                </AF.ExtraBefore>
+                <AF.StatusLink @status="operational" />
+                <AF.LegalLinks />
+                <AF.Item>
+                  <Hds::Text::Body @tag="span" @size="100">v.2.0</Hds::Text::Body>
+                </AF.Item>
+                <AF.Item>
+                  <Hds::Text::Body @tag="span" @size="100">Name</Hds::Text::Body>
+                </AF.Item>
+                <AF.Item>
+                  <Hds::Text::Body @tag="span" @size="100">API: 1.0</Hds::Text::Body>
+                </AF.Item>
+                <AF.ExtraAfter>
+                  <Shw::Placeholder
+                    class="shw-app-footer-extra"
+                    @height="2em"
+                    {{style width="fit-content"}}
+                    @text="After"
+                    @background="#e4e4e4"
+                  />
+                </AF.ExtraAfter>
+              </Hds::AppFooter>
+            </div>
+          </SF.Item>
+        {{/each}}
+      {{/let}}
     </Shw::Flex>
 
     <Shw::Divider />
