@@ -5,8 +5,8 @@
 
 // FOOTER
 
-@use "../../breakpoints" as breakpoint;
-@use "../../typography/mixins" as *;
+@use '../../breakpoints' as breakpoint;
+@use '../../typography/mixins' as *;
 
 .doc-page-footer {
   // z-index: var(--doc-z-index-footer);
@@ -14,7 +14,9 @@
 
   body.application:not(.index) & {
     @include breakpoint.with-fixed-sidebar() {
-      padding-left: var(--doc-page-sidebar-width); // we need to compensate for the fixed position of the sidebar
+      padding-left: var(
+        --doc-page-sidebar-width
+      ); // we need to compensate for the fixed position of the sidebar
     }
   }
 }
@@ -26,18 +28,13 @@
   padding: 16px 24px;
   color: var(--doc-color-black);
 
-  @include breakpoint.medium () {
+  @include breakpoint.medium() {
     flex-direction: row;
     justify-content: space-between;
   }
 
   body.application.index & {
-    flex-direction: column-reverse;
     color: var(--doc-color-white);
-
-    @include breakpoint.medium () {
-      flex-direction: row-reverse;
-    }
   }
 }
 
