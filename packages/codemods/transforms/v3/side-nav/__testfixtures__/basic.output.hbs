@@ -1,0 +1,21 @@
+<Hds::Test::OpenNode @foo="bar">Test</Hds::Test::OpenNode>
+<Hds::Test::SelfClosingNode @foo="bar" />
+
+<Hds::SideNav::List as |XXX|>
+  <XXX.Item>AAA</XXX.Item>
+  <XXX.Item>BBB</XXX.Item>
+</Hds::SideNav::List>
+
+<Hds::SideNav::List as |YYY|>
+  <YYY.ExtraBefore>...</YYY.ExtraBefore>
+  <YYY.Item>AAA</YYY.Item>
+  <YYY.ExtraAfter>...</YYY.ExtraAfter>
+  <YYY.Item>BBB</YYY.Item>
+</Hds::SideNav::List>
+
+<Hds::SideNav::Portal as |ZZZ|>
+  <ZZZ.ExtraBefore>...</ZZZ.ExtraBefore>
+  <ZZZ.Item>AAA</ZZZ.Item>
+  <ZZZ.ExtraAfter>...</ZZZ.ExtraAfter>
+  <ZZZ.Item>BBB</ZZZ.Item>
+</Hds::SideNav::Portal>
