@@ -32,12 +32,7 @@
   }
 
   body.application.index & {
-    flex-direction: column-reverse;
     color: var(--doc-color-white);
-
-    @include breakpoint.medium () {
-      flex-direction: row-reverse;
-    }
   }
 }
 
