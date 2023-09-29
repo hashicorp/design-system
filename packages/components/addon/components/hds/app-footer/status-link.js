@@ -27,22 +27,32 @@ export const STATUSES = {
 };
 
 export default class HdsAppFooterStatusLinkComponent extends Component {
+  constructor() {
+    super(...arguments);
+
+    assert(
+      'Either @status or @text for "Hds::AppFooter::StatusLink" must have a valid value',
+      this.args.text !== undefined || this.args.status
+    );
+  }
+
   /**
    * @param status
    * @type {string}
    * @description The name of the status which the StatusLink is being set to
    */
   get status() {
+    let status;
     if (this.args.status) {
+      status = this.args.status.toLowerCase();
       assert(
         `@status for "Hds::AppFooter" must be one of the following: ${Object.keys(
           STATUSES
         ).join(', ')} received: ${this.args.status}`,
-        Object.keys(STATUSES).includes(this.args.status.toLowerCase())
+        Object.keys(STATUSES).includes(status)
       );
-      return this.args.status.toLowerCase();
     }
-    return undefined;
+    return status;
   }
 
   /**
@@ -90,14 +100,10 @@ export default class HdsAppFooterStatusLinkComponent extends Component {
    * @description The text content of the StatusLink
    */
   get text() {
-    let { text } = this.args;
-
-    assert(
-      'Either @status or @text for "Hds::AppFooter::StatusLink" must have a valid value',
-      text !== undefined || this.status
-    );
-
-    return text ?? STATUSES[this.status].text;
+    if (!this.args.text) {
+      return STATUSES[this.status].text;
+    }
+    return this.args.text;
   }
 
   /**
