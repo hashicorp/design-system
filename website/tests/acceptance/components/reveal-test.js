@@ -16,7 +16,7 @@ module('Acceptance | components/reveal', function (hooks) {
 
     assert.strictEqual(currentURL(), '/components/reveal');
   });
-  test('Components/reveal page passes a11y automated checks', async function (assert) {
+  test('Components/reveal page passes automated a11y checks', async function (assert) {
     await visit('/components/reveal');
 
     await a11yAudit();

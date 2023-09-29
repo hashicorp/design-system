@@ -16,7 +16,7 @@ module('Acceptance | components/pagination', function (hooks) {
 
     assert.strictEqual(currentURL(), '/components/pagination');
   });
-  test('Components/pagination page passes a11y automated checks', async function (assert) {
+  test('Components/pagination page passes automated a11y checks', async function (assert) {
     await visit('/components/pagination');
 
     await a11yAudit();

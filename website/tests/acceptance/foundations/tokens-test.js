@@ -17,7 +17,7 @@ module('Acceptance | foundations/tokens', function (hooks) {
     assert.strictEqual(currentURL(), '/foundations/tokens');
   });
 
-  test('foundations/accessibility page passes a11y automated checks', async function (assert) {
+  test('foundations/accessibility page passes automated a11y checks', async function (assert) {
     await visit('/foundations/tokens');
 
     await a11yAudit();

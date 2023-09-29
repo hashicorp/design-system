@@ -16,7 +16,7 @@ module('Acceptance | components/side-nav', function (hooks) {
 
     assert.strictEqual(currentURL(), '/components/side-nav');
   });
-  test('Components/side-nav page passes a11y automated checks', async function (assert) {
+  test('Components/side-nav page passes automated a11y checks', async function (assert) {
     let axeOptions = {
       rules: {
         'duplicate-id-aria': { enabled: false },

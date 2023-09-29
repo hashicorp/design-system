@@ -17,7 +17,7 @@ module('Acceptance | getting started/for designers', function (hooks) {
     assert.strictEqual(currentURL(), '/getting-started/for-designers');
   });
 
-  test('getting-started/for-designers page passes a11y automated checks', async function (assert) {
+  test('getting-started/for-designers page passes automated a11y checks', async function (assert) {
     await visit('/getting-started/for-designers');
 
     await a11yAudit();

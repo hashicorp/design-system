@@ -16,7 +16,7 @@ module('Acceptance | components/accordion', function (hooks) {
 
     assert.strictEqual(currentURL(), '/components/accordion');
   });
-  test('Components/accordion page passes a11y automated checks', async function (assert) {
+  test('Components/accordion page passes automated a11y checks', async function (assert) {
     await visit('/components/accordion');
 
     await a11yAudit();

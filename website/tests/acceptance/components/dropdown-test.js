@@ -17,7 +17,7 @@ module('Acceptance | components/dropdown', function (hooks) {
     assert.strictEqual(currentURL(), '/components/dropdown');
   });
 
-  test('components/dropdown page passes a11y automated checks', async function (assert) {
+  test('components/dropdown page passes automated a11y checks', async function (assert) {
     await visit('/components/dropdown');
     await a11yAudit();
     assert.ok(true, 'a11y automation audit passed');

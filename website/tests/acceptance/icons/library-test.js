@@ -17,7 +17,7 @@ module('Acceptance | icons/library', function (hooks) {
     assert.strictEqual(currentURL(), '/icons/library');
   });
 
-  skip('icons/library page passes a11y automated checks', async function (assert) {
+  skip('icons/library page passes automated a11y checks', async function (assert) {
     await visit('/icons/library');
 
     await a11yAudit();

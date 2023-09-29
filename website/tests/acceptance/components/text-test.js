@@ -16,7 +16,7 @@ module('Acceptance | components/text', function (hooks) {
 
     assert.strictEqual(currentURL(), '/components/text');
   });
-  test('Components/text page passes a11y automated checks', async function (assert) {
+  test('Components/text page passes automated a11y checks', async function (assert) {
     let axeOptions = {
       rules: {
         'heading-order': {

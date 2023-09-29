@@ -16,7 +16,7 @@ module('Acceptance | index', function (hooks) {
 
     assert.strictEqual(currentURL(), '/components/segmented-group');
   });
-  test('Components/segmented-group page passes a11y automated checks', async function (assert) {
+  test('Components/segmented-group page passes automated a11y checks', async function (assert) {
     await visit('/components/segmented-group');
 
     await a11yAudit();

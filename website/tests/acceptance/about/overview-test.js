@@ -17,7 +17,7 @@ module('Acceptance | about/overview', function (hooks) {
     assert.strictEqual(currentURL(), '/about/overview');
   });
 
-  test('about/overview page passes a11y automated checks', async function (assert) {
+  test('about/overview page passes automated a11y checks', async function (assert) {
     await visit('/about/overview');
 
     await a11yAudit();

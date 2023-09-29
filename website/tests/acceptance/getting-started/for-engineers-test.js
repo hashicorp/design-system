@@ -17,7 +17,7 @@ module('Acceptance | getting started/for engineers', function (hooks) {
     assert.strictEqual(currentURL(), '/getting-started/for-engineers');
   });
 
-  test('getting-started/for-engineers page passes a11y automated checks', async function (assert) {
+  test('getting-started/for-engineers page passes automated a11y checks', async function (assert) {
     await visit('/getting-started/for-engineers');
 
     await a11yAudit();
