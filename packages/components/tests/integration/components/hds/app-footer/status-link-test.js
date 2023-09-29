@@ -90,5 +90,33 @@ module(
         .dom('.hds-app-footer__status-link')
         .hasAttribute('href', 'https://www.hashicorp.com/custom-url');
     });
+
+    // ASSERTIONS
+
+    test('it should throw an assertion if neither @text nor @status are provided', async function (assert) {
+      const errorMessage =
+        'Either @status or @text for "Hds::AppFooter::StatusLink" must have a valid value';
+      assert.expect(2);
+      setupOnerror(function (error) {
+        assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+      });
+      await render(hbs`<Hds::AppFooter::StatusLink />`);
+      assert.throws(function () {
+        throw new Error(errorMessage);
+      });
+    });
+
+    test('it should throw an assertion if an incorrect value for @status is provided', async function (assert) {
+      const errorMessage =
+        '@status for "Hds::AppFooter" must be one of the following: operational, degraded, maintenance, critical received: foo';
+      assert.expect(2);
+      setupOnerror(function (error) {
+        assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+      });
+      await render(hbs`<Hds::AppFooter::StatusLink @status="foo" />`);
+      assert.throws(function () {
+        throw new Error(errorMessage);
+      });
+    });
   }
 );
