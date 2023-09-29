@@ -31,32 +31,6 @@ The base `AppFooter` component includes a copyright notice. It also wraps and co
   </C.Property>
 </Doc::ComponentApi>
 
-### AppFooter::LegalLinks
-
-<Doc::ComponentApi as |C|>
-  <C.Property @name="hrefForSupport" @type="string" @default="&quot;https://www.hashicorp.com/support&quot;">
-    Override the default href value with a custom url value.
-  </C.Property>
-  <C.Property @name="hrefForTerms" @type="string" @default="&quot;https://www.hashicorp.com/terms-of-service&quot;">
-    Override the default href value with a custom url value.
-  </C.Property>
-  <C.Property @name="hrefForPrivacy" @type="string" @default="&quot;https://www.hashicorp.com/privacy&quot;">
-    Override the default href value with a custom url value.
-  </C.Property>
-  <C.Property @name="hrefForSecurity" @type="string" @default="&quot;https://www.hashicorp.com/security&quot;">
-    Override the default href value with a custom url value.
-  </C.Property>
-  <C.Property @name="Accessibility" @type="string" @default="&quot;mailto:accessibility@hashicorp.com&quot;">
-    Override the default href value with a custom url value.
-  </C.Property>
-  <C.Property @name="ariaLabel" @type="string" @default="&quot;Legal links&quot;">
-    Accepts a localized string. The `ariaLabel` value is applied to the nested list of included legal links.
-  </C.Property>
-  <C.Property @name="...attributes">
-    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
-  </C.Property>
-</Doc::ComponentApi>
-
 ### AppFooter::StatusLink
 
 <Doc::ComponentApi as |C|>
@@ -74,6 +48,35 @@ The base `AppFooter` component includes a copyright notice. It also wraps and co
   </C.Property>
   <C.Property @name="href" @type="string" @default="https://status.hashicorp.com">
     Pass a custom href for the link.
+  </C.Property>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
+</Doc::ComponentApi>
+
+### AppFooter::LegalLinks
+
+<Doc::ComponentApi as |C|>
+  <C.Property @name="hrefForSupport" @type="string" @default="&quot;https://www.hashicorp.com/support&quot;">
+    Override the default href value with a custom url value.
+  </C.Property>
+  <C.Property @name="hrefForTerms" @type="string" @default="&quot;https://www.hashicorp.com/terms-of-service&quot;">
+    Override the default href value with a custom url value.
+    <br>
+    <br>
+    Note: As this links to the ToS of the website, you should overwrite this value with the ToS most relevant to your product application.
+  </C.Property>
+  <C.Property @name="hrefForPrivacy" @type="string" @default="&quot;https://www.hashicorp.com/privacy&quot;">
+    Override the default href value with a custom url value.
+  </C.Property>
+  <C.Property @name="hrefForSecurity" @type="string" @default="&quot;https://www.hashicorp.com/security&quot;">
+    Override the default href value with a custom url value.
+  </C.Property>
+  <C.Property @name="Accessibility" @type="string" @default="&quot;mailto:accessibility@hashicorp.com&quot;">
+    Override the default href value with a custom url value.
+  </C.Property>
+  <C.Property @name="ariaLabel" @type="string" @default="&quot;Legal links&quot;">
+    Accepts a localized string. The `ariaLabel` value is applied to the nested list of included legal links.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
