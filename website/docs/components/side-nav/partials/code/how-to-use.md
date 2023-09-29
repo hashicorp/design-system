@@ -317,7 +317,7 @@ will be injected automatically in the "target" portal declared above;
 if multiple portals are declared, multiple "panels" will be rendered
 based on the nesting of the page route within the application’s global routing
 --}}
-<Hds::SideNav::Portal as |Nav|>
+<Hds::SideNav::Portal @ariaLabel="Primary" as |Nav|>
   <Nav.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
   <Nav.Title>Services</Nav.Title>
   <Nav.Link @text="Boundary" @icon="boundary" @href="#" />
