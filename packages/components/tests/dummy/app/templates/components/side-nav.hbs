@@ -745,17 +745,17 @@
 
   <Shw::Flex as |SF|>
     <SF.Item @label="Minimized">
-      <div class="shw-component-sim-other-elements">
+      <div class="shw-component-sim-toggle-button">
         <Hds::SideNav::ToggleButton aria-label="Open menu" @icon="chevrons-right" />
       </div>
     </SF.Item>
     <SF.Item @label="Expanded">
-      <div class="shw-component-sim-other-elements">
+      <div class="shw-component-sim-toggle-button">
         <Hds::SideNav::ToggleButton aria-label="Close menu" @icon="chevrons-left" />
       </div>
     </SF.Item>
     <SF.Item @label="Custom icon">
-      <div class="shw-component-sim-other-elements">
+      <div class="shw-component-sim-toggle-button">
         <Hds::SideNav::ToggleButton aria-label="Menu" @icon="menu" />
       </div>
     </SF.Item>
@@ -767,7 +767,7 @@
     {{#let (array "default" "hover" "active" "focus") as |states|}}
       {{#each states as |state|}}
         <SF.Item @label={{state}}>
-          <div class="shw-component-sim-other-elements">
+          <div class="shw-component-sim-toggle-button">
             <Hds::SideNav::ToggleButton aria-label="Close menu" @icon="chevrons-left" mock-state-value={{state}} />
           </div>
         </SF.Item>

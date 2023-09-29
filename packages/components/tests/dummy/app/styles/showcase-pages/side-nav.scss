@@ -52,6 +52,15 @@ body.components-side-nav {
     background: $shw-component-side-nav-background;
   }
 
+  .shw-component-sim-toggle-button {
+    height: 80px;
+
+    .hds-side-nav__toggle-button {
+      position: relative;
+      transform: none;
+    }
+  }
+
   // these are used to showcase the non-componentized elements
 
   .shw-component-sim-other-elements {
@@ -63,11 +72,6 @@ body.components-side-nav {
       position: static;
       height: auto !important;
       min-height: auto !important;
-    }
-
-    .hds-side-nav__toggle-button {
-      position: relative;
-      transform: none;
     }
 
     .ember-a11y-refocus-skip-link {
