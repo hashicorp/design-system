@@ -73,9 +73,9 @@ Refer to the [Component API](#component-api) section to see what the allowed com
 To specify a text alignment, use the `@align` argument:
 
 ```handlebars
-<Hds::Text::Display @tag="h1" @align="right">Page title with right-alignment</Hds::Text::Display>
-<Hds::Text::Body @tag="p" @align="center">Paragraph with center-alignment</Hds::Text::Body>
-<Hds::Text::Code @tag="pre" @align="left">Code sample with left-alignment</Hds::Text::Code>
+<Hds::Text::Display @tag="h1" @align="right">Page title, right-aligned</Hds::Text::Display>
+<Hds::Text::Body @tag="p" @align="center">Paragraph, center-aligned</Hds::Text::Body>
+<Hds::Text::Code @tag="pre" @align="left">Code sample, left-aligned</Hds::Text::Code>
 ```
 
 ### Color
