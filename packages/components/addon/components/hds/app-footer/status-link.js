@@ -11,22 +11,18 @@ export const STATUSES = {
   operational: {
     text: 'System operational',
     iconName: 'check-circle',
-    // iconColor: 'var(--token-color-foreground-success)',
   },
   degraded: {
     text: 'System degraded',
     iconName: 'alert-triangle',
-    // iconColor: 'var(--token-color-foreground-warning)',
   },
   maintenance: {
     text: 'System maintenance',
     iconName: 'alert-triangle',
-    // iconColor: 'var(--token-color-foreground-warning)',
   },
   critical: {
     text: 'System critical',
     iconName: 'x-circle',
-    // iconColor: 'var(--token-color-foreground-critical)',
   },
 };
 

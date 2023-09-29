@@ -90,7 +90,6 @@ $app-footer-icon-text-gap: 6px;
   }
 }
 
-.hds-app-footer__copyright,
 .hds-app-footer__list-item {
   display: flex;
   align-items: center;
@@ -104,7 +103,7 @@ $app-footer-icon-text-gap: 6px;
   justify-content: center;
   color: var(--app-footer-copyright-text-color);
 
-  .flight-icon { fill: var(--app-footer-copyright-icon-hashicorp-color); }
+  .flight-icon { fill: var(--app-footer-copyright-icon-color); }
 }
 
 // THEMING
@@ -123,7 +122,7 @@ $app-footer-icon-text-gap: 6px;
 
   // Copyright
   --app-footer-copyright-text-color: var(--token-color-foreground-primary);
-  --app-footer-copyright-icon-hashicorp-color: var(--token-color-hashicorp-brand);
+  --app-footer-copyright-icon-color: var(--token-color-hashicorp-brand);
 
   // StatusLink icon colors
   --app-footer-status-link-icon-operational-color: var(--token-color-foreground-success);
@@ -146,7 +145,7 @@ $app-footer-icon-text-gap: 6px;
 
   // Copyright
   --app-footer-copyright-text-color: #b2b6bd;
-  --app-footer-copyright-icon-hashicorp-color: #fff;
+  --app-footer-copyright-icon-color: #fff;
 
   // StatusLink Icon colors
   --app-footer-status-link-icon-operational-color: #009241;

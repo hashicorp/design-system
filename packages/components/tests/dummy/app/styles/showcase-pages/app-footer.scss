@@ -27,7 +27,7 @@ body.components-app-footer {
         color: #fff;
         background: #000;
 
-        > * { color: inherit; }
+        .flight-icon { fill: currentColor; }
       }
     }
   }
