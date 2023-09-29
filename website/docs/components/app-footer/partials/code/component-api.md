@@ -2,7 +2,7 @@
 
 ### AppFooter
 
-The base `AppFooter` component includes a copyright notice. It also wraps and contains the `AppFooter::LegalLinks`, `AppFooter::StatusLink`, `AppFooter::Link`, and `AppFooter::Item` child components as well as `ExtraBefore` and `ExtraAfter` yielded components.
+The base `AppFooter` component includes a copyright notice. It also wraps and contains the `AppFooter::StatusLink`, `AppFooter::LegalLinks`, `AppFooter::Link`, and `AppFooter::Item` child components as well as `ExtraBefore` and `ExtraAfter` yielded components.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<[AF].extraBefore>" @type="yielded component">
@@ -96,7 +96,7 @@ The base `AppFooter` component includes a copyright notice. It also wraps and co
     Controls if the “LinkTo” is external to the Ember engine, in which case it will use a `<LinkToExternal>` for the `@route`.
   </C.Property>
   <C.Property @name="yield">
-    Elements passed as children are yielded to the content of the `&lt;a&gt;` HTML element.
+    Elements passed as children are yielded to the content of the `<a>` HTML element.
   </C.Property>
    <C.Property @name="icon" @type="string">
     Use this parameter to show an icon. Any [icon](/icons/library) name is acceptable.
@@ -113,7 +113,7 @@ The base `AppFooter` component includes a copyright notice. It also wraps and co
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">
-    Elements passed as children are yielded to the content of the `&lt;li&gt;` HTML element.
+    Elements passed as children are yielded to the content of the `<li>` HTML element.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).

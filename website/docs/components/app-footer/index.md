@@ -1,6 +1,6 @@
 ---
 title: AppFooter
-description: The AppFooter is a footer that appears on every screen to displays supplementary information and links.
+description: A footer that appears on every screen to displays supplementary information and links.
 caption: Displays supplementary information and links for the application.
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=46946-2369&mode=design
@@ -8,7 +8,7 @@ links:
 related: ['layouts/app-frame']
 previewImage: assets/illustrations/components/app-footer.jpg
 navigation:
-  keywords: ['copyright', 'support', 'terms', 'privacy', 'security', 'accecssibility', 'system status']
+  keywords: ['footer', 'copyright', 'support', 'terms', 'privacy', 'security', 'accessibility', 'system status']
 ---
 
 <section data-tab="Guidelines">

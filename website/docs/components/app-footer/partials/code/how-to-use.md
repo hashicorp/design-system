@@ -14,7 +14,7 @@ The `AppFooter` contains only a copyright by default. The provided `LegalLinks` 
 
 ### StatusLink
 
-Add the `StatusLink` to provide information on the health of your application. Pass a predefined `status` name or use individual arguments to set `text`, `statusIcon`, `iconColor`, or `href` to create a custom status type.
+Add the `StatusLink` to provide information on the health of your application. Pass a predefined `status` name or use individual arguments to set `text`, `statusIcon`, `iconColor` to create a custom status type. Pass a custom `href` value to point to a custom URL.
 
 ```handlebars
 <Hds::AppFooter as |AF|>
