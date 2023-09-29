@@ -20,8 +20,12 @@ node ./packages/codemods/bin/cli.js v3/dropdown path/to/some/glob/**/*.hbs
 
 ## Transforms
 
+### v3
 <!--TRANSFORMS_START-->
 * [v3/dropdown](transforms/v3/dropdown/README.md)
+* [v3/masked-input](transforms/v3/masked-input/README.md)
+* [v3/radio-card](transforms/v3/radio-card/README.md)
+* [v3/side-nav](transforms/v3/side-nav/README.md)
 <!--TRANSFORMS_END-->
 
 ## Contributing
@@ -36,6 +40,6 @@ node ./packages/codemods/bin/cli.js v3/dropdown path/to/some/glob/**/*.hbs
 
 * `yarn test`
 
-### Update Documentation
+### Update documentation
 
 * `yarn update-docs`
