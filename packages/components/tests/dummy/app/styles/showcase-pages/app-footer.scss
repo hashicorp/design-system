@@ -57,4 +57,11 @@ body.components-app-footer {
       inset: -8px;
     }
   }
+
+  .shw-component-app-footer-add-extra-margin-to-dark-block {
+    ul.hds-app-footer--theme-dark {
+      margin-top: 16px;
+      margin-bottom: 8px;
+    }
+  }
 }
