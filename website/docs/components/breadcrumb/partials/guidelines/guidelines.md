@@ -116,7 +116,9 @@ Icons shouldn’t be placed randomly within the list. If the preceding item does
 
 We offer various options for truncation due to depth or lack of space.
 
-### Truncate middle
+### With dropdown
+
+#### Truncate middle
 
 “Truncate middle” houses any number of Breadcrumb Items under a menu in the middle of the Breadcrumb. The number of items displayed before and after truncation depends on the use case and space available within the application.  We recommend this method if needing to truncate the Breadcrumb.
 
@@ -130,7 +132,7 @@ We offer various options for truncation due to depth or lack of space.
   <Hds::Breadcrumb::Item @text="Current" @current={{true}} />
 </Hds::Breadcrumb>
 
-### Truncate squeeze
+#### Truncate squeeze
 
 “Truncate squeeze” reduces the persistent Breadcrumb Items to the first and last/current items and hides the other items under a menu. We recommend only using this method when space is limited, such as on mobile viewports.
 
@@ -144,7 +146,7 @@ We offer various options for truncation due to depth or lack of space.
 
 ### Width-based
 
-Each text-based item can truncate using a pixel-based max-width. We recommend this option for items with long text strings.
+Each text-based item can truncate using a pixel-based max-width. We recommend this option for items with long text strings. Please be aware there are [serious accessibility concerns](/components/copy/snippet?tab=accessibility) with using this feature.
 
 <Hds::Breadcrumb @itemsCanWrap={{false}} aria-label="breadcrumb width based">
   <Hds::Breadcrumb::Item @text="Level one" />

@@ -44,6 +44,8 @@ When there are many secondary links on a page, like in a stepper form, it’s im
 
 ## Truncation
 
+Truncation should be avoided as there is no current known way to make truncated content available to keyboard-only users. This is a current, known limitation of web technology.
+
 Truncation of the Copy Snippet is optional and can be used when space is limited or when showing the full snippet isn’t necessary. When enabled, the visible content is truncated to fit within the parent container. 
 
 !!! Dont

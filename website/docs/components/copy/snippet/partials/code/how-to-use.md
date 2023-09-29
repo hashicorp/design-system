@@ -27,7 +27,7 @@ This indicates that the component should take up the full-width of the parent co
 
 When set to `true`, this constrains text to one-line and truncates it if it does not fit the available space.
 
-Care should be taken in choosing to use this feature as there are [accessibility concerns](/components/copy/snippet?tab=accessibility).
+Please be aware there are [serious accessibility concerns](/components/copy/snippet?tab=accessibility) with using this feature.
 
 ```handlebars
 <div class="doc-copy-snippet-demo-constrain-width">
