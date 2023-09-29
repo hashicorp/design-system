@@ -10,7 +10,7 @@
 
 .hds-side-nav__toggle-button {
   position: absolute;
-  top: -2px;
+  top: 22px;
   left: calc(var(--token-side-nav-wrapper-border-width) * -1);
   z-index: 1;
   display: flex;
@@ -23,9 +23,7 @@
   border-left-color: transparent;
   border-top-right-radius: var(--token-side-nav-toggle-button-border-radius);
   border-bottom-right-radius: var(--token-side-nav-toggle-button-border-radius);
-  transform:
-    translateX(var(--hds-app-sidenav-width-expanded))
-    translateY(24px);
+  transform: translateX(var(--hds-app-sidenav-width-expanded));
   cursor: pointer;
   transition:
     transform var(--hds-app-sidenav-animation-duration)
@@ -100,8 +98,6 @@
   }
 
   .hds-side-nav--is-minimized & {
-    transform:
-      translateX(var(--hds-app-sidenav-width-minimized))
-      translateY(24px);
+    transform: translateX(var(--hds-app-sidenav-width-minimized));
   }
 }
