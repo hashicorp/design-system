@@ -23,7 +23,10 @@ We leverage conditional jobs across our CI suite to limit CI runs. Where needed 
 
 ## Vercel
 
-Vercel has [built-in functionality](https://vercel.com/guides/how-do-i-use-the-ignored-build-step-field-on-vercel#with-folders-and-workspaces) to ignore builds based on criteria we specify. This is managed per app in the Vercel Dashboard under `<App Name> -> Settings -> Git -> Ignored Build Step`.
+Vercel has [built-in functionality](https://vercel.com/guides/how-do-i-use-the-ignored-build-step-field-on-vercel#with-folders-and-workspaces) to ignore builds based on criteria we specify. This is managed per app in the Vercel Dashboard under `<App Name> -> Settings -> Git -> Ignored Build Step` that looks like this
+
+![image](https://github.com/hashicorp/design-system/assets/1672302/a1c12d18-fc7e-4d62-8e20-60d2e8810a41)
+
 
 ### Website
 
