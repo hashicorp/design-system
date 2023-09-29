@@ -22,6 +22,9 @@ $app-footer-icon-text-gap: 6px;
 
 // SUB-ELEMENTS
 
+// hide list if no children
+.hds-app-footer__list:not(:has(li)) { display: none; }
+
 .hds-app-footer__list,
 .hds-app-footer__legal-links {
   display: flex;
