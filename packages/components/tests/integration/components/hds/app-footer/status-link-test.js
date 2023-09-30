@@ -25,7 +25,7 @@ module(
     // status
 
     test('it should display text, icon, and icon color matching the passed in status', async function (assert) {
-      await render(hbs`<ul class="hds-app-footer--theme-light">
+      await render(hbs`<ul class="hds-app-footer hds-app-footer--theme-light">
         <Hds::AppFooter::StatusLink id="test-operational" @status="operational" />
         <Hds::AppFooter::StatusLink id="test-degraded" @status="degraded" />
         <Hds::AppFooter::StatusLink id="test-maintenance" @status="maintenance" />
