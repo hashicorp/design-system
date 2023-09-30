@@ -174,7 +174,7 @@ The content yielded in the component is injected inside a `Hds::SideNav::List` e
     The unique name used by [`ember-stargate`](https://github.com/simonihmig/ember-stargate#usage) to identify the target portal. If provided, the same name must be used in the `SideNav::PortalTarget` to identify it.
   </C.Property>
   <C.Property @name="ariaLabel" @type="string">
-    The value of the `aria-label` that is applied to the `<nav>` element in the `Hds::SideNav::List` component.
+    The value of the `aria-label` that is applied to the `<nav>` element in the `Hds::SideNav::List` component. This value must be unique on the page, so they can be distinguished from one another.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
