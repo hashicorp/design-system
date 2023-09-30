@@ -19,7 +19,7 @@ module('Integration | Component | hds/app-footer/index', function (hooks) {
   // CONTENT
 
   test('it renders the default content', async function (assert) {
-    await render(hbs`<Hds::AppFooter id="test-app-footer" />`);
+    await render(hbs`<Hds::AppFooter id="test-app-footer"></Hds::AppFooter>`);
     assert.dom('.hds-app-footer__copyright').exists();
   });
 

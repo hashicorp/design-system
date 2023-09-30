@@ -14,14 +14,18 @@ module(
     setupRenderingTest(hooks);
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
-      await render(hbs`<Hds::AppFooter::LegalLinks id="test-legal-links" />`);
+      await render(
+        hbs`<ul><Hds::AppFooter::LegalLinks id="test-legal-links" /></ul>`
+      );
       assert.dom('#test-legal-links').hasClass('hds-app-footer__legal-links');
     });
 
     // CONTENT
 
     test('it contains the default links with default href values', async function (assert) {
-      await render(hbs`<Hds::AppFooter::LegalLinks id="test-legal-links" />`);
+      await render(
+        hbs`<ul><Hds::AppFooter::LegalLinks id="test-legal-links" /></ul>`
+      );
       assert
         .dom('#test-legal-links li:nth-child(1) a')
         .hasText('Support')
@@ -48,14 +52,14 @@ module(
 
     test('it uses the passed in custom href values', async function (assert) {
       await render(hbs`
-      <Hds::AppFooter::LegalLinks 
+      <ul><Hds::AppFooter::LegalLinks 
         id="test-legal-links"
         @hrefForSupport="https://www.support.com"
         @hrefForTerms="https://www.terms.com"
         @hrefForPrivacy="https://www.privacy.com"
         @hrefForSecurity="https://www.security.com"
         @hrefForAccessibility="https://www.a11y.com"
-      />
+      /></ul>
     `);
       assert
         .dom('#test-legal-links li:nth-child(1) a')

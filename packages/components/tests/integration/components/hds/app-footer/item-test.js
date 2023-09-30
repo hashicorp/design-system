@@ -12,7 +12,7 @@ module('Integration | Component | hds/app-footer/item', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(hbs`<Hds::AppFooter::Item id="test-item" />`);
+    await render(hbs`<ul><Hds::AppFooter::Item id="test-item" /></ul>`);
     assert.dom('#test-item').hasClass('hds-app-footer__list-item');
   });
 
@@ -20,7 +20,7 @@ module('Integration | Component | hds/app-footer/item', function (hooks) {
 
   test('it renders text content yielded within the Item', async function (assert) {
     await render(
-      hbs`<Hds::AppFooter::Item id="test-item">Custom item</Hds::AppFooter::Item>`
+      hbs`<ul><Hds::AppFooter::Item id="test-item">Custom item</Hds::AppFooter::Item></ul>`
     );
     assert.dom('#test-item').hasText('Custom item');
   });
