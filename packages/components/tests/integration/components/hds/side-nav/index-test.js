@@ -5,7 +5,13 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, click, resetOnerror, setupOnerror } from '@ember/test-helpers';
+import {
+  render,
+  click,
+  resetOnerror,
+  setupOnerror,
+  triggerKeyEvent,
+} from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/side-nav/index', function (hooks) {
@@ -78,8 +84,6 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
   });
 
   // RESPONSIVENESS
-  // unfortunately it doesn't seems to exist a way to test using a "mobile" viewport
-  // so we have to test bits and bobs of the whole responsiveness implementation ¯\_(ツ)_/¯
 
   test('it is "desktop" by default', async function (assert) {
     await render(hbs`<Hds::SideNav id="test-side-nav" />`);
@@ -98,6 +102,74 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
     assert
       .dom('#test-side-nav')
       .doesNotHaveClass('hds-side-nav--is-responsive');
+  });
+
+  // MOBILE
+
+  test('it is "mobile" on narrow viewports', async function (assert) {
+    await render(hbs`
+      <style>:root {--hds-app-desktop-breakpoint: 10088px}</style>
+      <Hds::SideNav id="test-side-nav" />
+    `);
+    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-mobile');
+  });
+
+  test('it is minimized/collapsed on narrow viewports by default', async function (assert) {
+    await render(hbs`
+      <style>:root {--hds-app-desktop-breakpoint: 10088px}</style>
+      <Hds::SideNav id="test-side-nav" />
+    `);
+    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-minimized');
+  });
+
+  test('it is not minimized/collapsed on narrow viewports if `isResponsive` is false', async function (assert) {
+    await render(hbs`
+      <style>:root {--hds-app-desktop-breakpoint: 10088px}</style>
+      <Hds::SideNav id="test-side-nav" @isResponsive={{false}} />
+    `);
+    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-not-minimized');
+  });
+
+  test('it shows a toggle button on narrow viewports by default', async function (assert) {
+    await render(hbs`
+      <style>:root {--hds-app-desktop-breakpoint: 10088px}</style>
+      <Hds::SideNav id="test-side-nav" />
+    `);
+    assert.dom('.hds-side-nav__toggle-button').exists();
+  });
+
+  test('it does not show a toggle button on narrow viewports if `isResponsive` is false', async function (assert) {
+    await render(hbs`
+      <style>:root {--hds-app-desktop-breakpoint: 10088px}</style>
+      <Hds::SideNav id="test-side-nav" @isResponsive={{false}} />
+    `);
+    assert.dom('.hds-side-nav__toggle-button').doesNotExist();
+  });
+
+  test('it expands/collapses when the toggle button is pressed on narrow viewports', async function (assert) {
+    await render(hbs`
+      <style>:root {--hds-app-desktop-breakpoint: 10088px}</style>
+      <Hds::SideNav id="test-side-nav" />
+    `);
+    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-minimized');
+
+    await click('.hds-side-nav__toggle-button');
+    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-not-minimized');
+    await click('.hds-side-nav__toggle-button');
+    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-minimized');
+  });
+
+  test('it collapses when the ESC key is pressed on narrow viewports', async function (assert) {
+    await render(hbs`
+      <style>:root {--hds-app-desktop-breakpoint: 10088px}</style>
+      <Hds::SideNav id="test-side-nav" />
+    `);
+    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-minimized');
+    await click('.hds-side-nav__toggle-button');
+    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-not-minimized');
+
+    await triggerKeyEvent('#test-side-nav', 'keydown', 'Escape');
+    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-minimized');
   });
 
   // COLLAPSIBLE
