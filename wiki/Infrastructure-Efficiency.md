@@ -30,12 +30,12 @@ Vercel has [built-in functionality](https://vercel.com/guides/how-do-i-use-the-i
 
 ### Website
 
-Keeping in mind that the command is run from the Root Directory specified in Settings -> General which in this case is website, we use the following command to limit builds:
+Keeping in mind that the command is run from the Root Directory specified in Settings -> General, which in this case is `website`, we use the following command to limit builds:
 
 `git diff HEAD^ HEAD --quiet  . ../packages/flight-icons/catalog.json`
 
 ### Showcase
 
-Keeping in mind that the command is run from the Root Directory specified in Settings -> General, which in this case is packages/components, we use the following command to limit builds:
+Keeping in mind that the command is run from the Root Directory specified in Settings -> General, which in this case is `packages/components`, we use the following command to limit builds:
 
 `git diff HEAD^ HEAD --quiet  . ../../packages/flight-icons/catalog.json ../../packages/ember-flight-icons/`
