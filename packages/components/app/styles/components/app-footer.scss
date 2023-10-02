@@ -15,6 +15,7 @@ $app-footer-icon-text-gap: 6px;
   flex-wrap: wrap;
   gap: $app-footer-gap;
   justify-content: flex-end;
+  min-width: 0; // https://css-tricks.com/preventing-a-grid-blowout
   padding: 24px;
   color: var(--app-footer-foreground-color);
   border-top: 1px solid var(--app-footer-border-top-color);
