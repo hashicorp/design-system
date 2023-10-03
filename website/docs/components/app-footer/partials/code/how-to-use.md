@@ -4,7 +4,7 @@ The `AppFooter` is used to display a brief list of useful links and information 
 
 ### Basic invocation with recommended content
 
-The `AppFooter` contains only a copyright by default. The provided `LegalLinks` child component is recommended for inclusion on HashiCorp Cloud application footers.
+The `AppFooter` contains only a copyright by default. The provided `LegalLinks` child component is recommended for inclusion in application footers for our cloud products such as HCP and TFC.
 
 ```handlebars
 <Hds::AppFooter as |AF|>
