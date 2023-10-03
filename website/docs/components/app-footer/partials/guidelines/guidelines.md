@@ -72,7 +72,7 @@ In Figma, we support two size variants, `Large` and `Small`, to help illustrate 
 
 !!! Warning 
 
-Due to structural wrapping limitations in Figma, the component may not be a direct translation to what is in the browser. The Ember component should be the source of truth for proper wrapping.
+Due to limitations in Figma, the component may not be a direct translation to what is rendered in the browser. The Ember component should be the source of truth for proper wrapping.
 !!!
 
 ### Large
