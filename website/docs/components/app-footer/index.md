@@ -5,7 +5,7 @@ caption: Displays supplementary information and links for the application.
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=46946-2369&mode=design
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/app-footer
-related: ['layouts/app-frame']
+related: ['layouts/app-frame', 'components/side-nav']
 previewImage: assets/illustrations/components/app-footer.jpg
 navigation:
   keywords: ['footer', 'copyright', 'support', 'terms', 'privacy', 'security', 'accessibility', 'system status']
