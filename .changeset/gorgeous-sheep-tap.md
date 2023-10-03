@@ -2,4 +2,4 @@
 "@hashicorp/design-system-components": minor
 ---
 
-Add new `AppFooter` component
+`AppFooter` - Added new component

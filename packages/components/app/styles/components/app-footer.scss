@@ -32,8 +32,8 @@ $app-footer-icon-text-gap: 6px;
   gap: $app-footer-gap;
   align-items: center;
   justify-content: flex-end;
-  width: max-content;
-  max-width: 100%;
+  width: fit-content;
+  min-width: 0;
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -71,6 +71,7 @@ $app-footer-icon-text-gap: 6px;
 .hds-app-footer__status-link {
   // Overriding default colors
   color: var(--app-footer-link-default-color);
+  text-align: right;
 
   &:hover,
   &.mock-hover {
@@ -93,7 +94,6 @@ $app-footer-icon-text-gap: 6px;
 .hds-app-footer__list-item {
   display: flex;
   align-items: center;
-  justify-content: center;
   max-width: 100%;
 }
 
@@ -101,7 +101,6 @@ $app-footer-icon-text-gap: 6px;
   display: flex;
   gap: $app-footer-icon-text-gap;
   align-items: center;
-  justify-content: center;
   color: var(--app-footer-copyright-text-color);
 
   .flight-icon { fill: var(--app-footer-copyright-icon-color); }
