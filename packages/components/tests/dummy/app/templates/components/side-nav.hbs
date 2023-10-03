@@ -736,6 +736,44 @@
       {{/each}}
     {{/let}}
   </Shw::Grid>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>SideNav::ToggleButton</Shw::Text::H2>
+
+  <Shw::Text::H3>Content</Shw::Text::H3>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Minimized">
+      <div class="shw-component-sim-toggle-button">
+        <Hds::SideNav::ToggleButton aria-label="Open menu" @icon="chevrons-right" />
+      </div>
+    </SF.Item>
+    <SF.Item @label="Expanded">
+      <div class="shw-component-sim-toggle-button">
+        <Hds::SideNav::ToggleButton aria-label="Close menu" @icon="chevrons-left" />
+      </div>
+    </SF.Item>
+    <SF.Item @label="Custom icon">
+      <div class="shw-component-sim-toggle-button">
+        <Hds::SideNav::ToggleButton aria-label="Menu" @icon="menu" />
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H4>States</Shw::Text::H4>
+
+  <Shw::Flex as |SF|>
+    {{#let (array "default" "hover" "active" "focus") as |states|}}
+      {{#each states as |state|}}
+        <SF.Item @label={{state}}>
+          <div class="shw-component-sim-toggle-button">
+            <Hds::SideNav::ToggleButton aria-label="Close menu" @icon="chevrons-left" mock-state-value={{state}} />
+          </div>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Flex>
 </section>
 
 <Shw::Divider />
@@ -743,32 +781,6 @@
 <section data-test-percy>
 
   <Shw::Text::H2>Other elements (not componentized)</Shw::Text::H2>
-
-  <Shw::Text::Body>⚠️
-    <strong>Notice</strong>: these elements are not actual HDS components, but we showcase them anyway to make sure that
-    their style is not changed accidentally (unfortunately they're difficult to test in isolation).</Shw::Text::Body>
-
-  <Shw::Text::H3>Menu Toggle Button</Shw::Text::H3>
-  <Shw::Flex as |SF|>
-    <SF.Item @label="Minimized (”menu“)">
-      <div class="shw-component-sim-other-elements">
-        <div class="hds-side-nav--is-mobile hds-side-nav--is-minimized">
-          <button class="hds-side-nav__menu-toggle-button" type="button">
-            <FlightIcon @name="menu" @size="24" @stretched={{true}} />
-          </button>
-        </div>
-      </div>
-    </SF.Item>
-    <SF.Item @label="Expanded (“close”)">
-      <div class="shw-component-sim-other-elements">
-        <div class="hds-side-nav--is-mobile hds-side-nav--is-not-minimized">
-          <button class="hds-side-nav__menu-toggle-button" type="button">
-            <FlightIcon @name="x" @size="24" @stretched={{true}} />
-          </button>
-        </div>
-      </div>
-    </SF.Item>
-  </Shw::Flex>
 
   <Shw::Text::H3>Skip Link (A11y Refocus)</Shw::Text::H3>
   <Shw::Flex as |SF|>

@@ -1,6 +1,17 @@
 {
   "side-nav": {
     "wrapper": {
+      "border": {
+        "width": {
+          "value": "1",
+          "type": "size"
+        },
+        "color": {
+          "value": "#656a76",
+          "type": "color",
+          "group": "components"
+        }
+      },
       "padding": {
         "horizontal": {
           "value": "16",
@@ -8,6 +19,22 @@
         },
         "vertical": {
           "value": "16",
+          "type": "size"
+        },
+        "horizontal-minimized": {
+          "value": "8",
+          "type": "size"
+        },
+        "vertical-minimized": {
+          "value": "22",
+          "type": "size"
+        }
+      }
+    },
+    "toggle-button": {
+      "border": {
+        "radius": {
+          "value": "5",
           "type": "size"
         }
       }
@@ -20,6 +47,10 @@
         },
         "logo-size": {
           "value": "48",
+          "type": "size"
+        },
+        "logo-size-minimized": {
+          "value": "32",
           "type": "size"
         }
       },

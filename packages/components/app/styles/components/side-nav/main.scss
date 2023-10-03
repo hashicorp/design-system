@@ -31,7 +31,13 @@
 
   // desktop
   &.hds-side-nav--is-desktop {
-    width: var(--hds-app-sidenav-width-expanded);
+    &.hds-side-nav--is-not-minimized {
+      width: var(--hds-app-sidenav-width-expanded);
+    }
+
+    &.hds-side-nav--is-minimized {
+      width: var(--hds-app-sidenav-width-minimized);
+    }
   }
 }
 
@@ -61,65 +67,6 @@
   }
 }
 
-
-// MENU/TOGGLE BUTTON
-
-.hds-side-nav__menu-toggle-button {
-  position: absolute;
-  z-index: 1;
-  color: var(--token-color-foreground-high-contrast);
-  background: none;
-  border: 1px solid transparent;
-  cursor: pointer;
-  transition-timing-function: var(--hds-app-sidenav-animation-easing);
-  transition-duration: var(--hds-app-sidenav-animation-duration);
-  transition-property: width, height, padding, border-radius, transform;
-
-  &:hover {
-    background-color: var(--token-color-palette-neutral-600);
-    border-color: transparent;
-  }
-
-  &:active {
-    background-color: var(--token-color-palette-neutral-500);
-    border-color: transparent;
-  }
-
-  &:focus {
-    background-color: var(--token-color-palette-neutral-500);
-    border-color: var(--token-color-focus-action-internal);
-    outline: 3px solid var(--token-color-focus-action-external);
-  }
-
-  // by default it's styled as "close" button
-  .hds-side-nav--is-mobile & {
-    width: 24px;
-    height: 24px;
-    padding: 1px;
-    background-color: var(--token-color-foreground-primary);
-    border-radius: 3px;
-    transform:
-      translateX(calc(var(--hds-app-sidenav-width-expanded) + 8px))
-      translateY(24px);
-    // z-index: 15; // not needed anymore?
-  }
-
-  // when the sidenav is minimized it's styled as "menu" button
-  .hds-side-nav--is-mobile.hds-side-nav--is-minimized & {
-    width: 36px;
-    height: 36px;
-    padding: 5px;
-    border-radius: 5px;
-    transform: translateX(22px) translateY(var(--hds-app-sidenav-menu-button-y-shift));
-  }
-
-  // when it's desktop we _never_ want to show the menu/toggle button
-  .hds-side-nav--is-desktop & {
-    display: none;
-  }
-}
-
-
 // RESPONSIVE WRAPPER
 // this container element is used to control the width of the sidebar at different viewports (desktop/mobile) and states (minimized/expanded)
 
@@ -129,6 +76,7 @@
   height: 100%;
   color: var(--token-side-nav-color-foreground-primary); // we set a default color (in case generic content is added to the header/body/footer of the sidenav)
   background: var(--token-side-nav-color-surface-primary);
+  border-right: var(--token-side-nav-wrapper-border-width) solid var(--token-side-nav-wrapper-border-color);
 
   // RESPONSIVENESS - This controls the width of the "sidenav" container, and is independent (bur related) from the parent "sidebar" grid area
 
@@ -138,17 +86,11 @@
       var(--hds-app-sidenav-animation-easing);
   }
 
-  // mobile
-  .hds-side-nav--is-mobile.hds-side-nav--is-minimized & {
+  .hds-side-nav--is-minimized & {
     width: var(--hds-app-sidenav-width-minimized);
   }
 
-  .hds-side-nav--is-mobile.hds-side-nav--is-not-minimized & {
-    width: var(--hds-app-sidenav-width-expanded);
-  }
-
-  // desktop
-  .hds-side-nav--is-desktop & {
+  .hds-side-nav--is-not-minimized & {
     width: var(--hds-app-sidenav-width-expanded);
   }
 }
@@ -160,6 +102,15 @@
   padding-right: var(--token-side-nav-wrapper-padding-horizontal);
   padding-bottom: 8px; // by design
   padding-left: var(--token-side-nav-wrapper-padding-horizontal);
+  transition:
+    padding var(--hds-app-sidenav-animation-duration)
+    var(--hds-app-sidenav-animation-easing);
+
+  .hds-side-nav--is-minimized & {
+    padding-top: var(--token-side-nav-wrapper-padding-vertical-minimized);
+    padding-right: var(--token-side-nav-wrapper-padding-horizontal-minimized);
+    padding-left: var(--token-side-nav-wrapper-padding-horizontal-minimized);
+  }
 }
 
 .hds-side-nav__wrapper-body {
@@ -187,10 +138,9 @@
 // - shown (transitioning their opacity) when the sidenav is "expanded"
 
 .hds-side-nav-hide-when-minimized {
-  .hds-side-nav--is-mobile.hds-side-nav--is-minimized & {
+  .hds-side-nav--is-minimized & {
     visibility: hidden !important; // we need `!important` here to override the inline style applied to the single panels
     opacity: 0;
-    transition: none;
     // this is needed because, despite the element having `visibility: hidden`,
     // the child elements ("panels") have their visibility dynamically managed via JS
     // and when they have "visibility: visible" applied, they are not visually visible
@@ -206,8 +156,7 @@
     pointer-events: none;
   }
 
-  .hds-side-nav--is-mobile.hds-side-nav--is-not-minimized &,
-  .hds-side-nav--is-desktop & {
+  .hds-side-nav--is-not-minimized & {
     visibility: visible;
     opacity: 1;
     transition:
