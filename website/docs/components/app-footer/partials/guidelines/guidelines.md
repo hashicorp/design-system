@@ -6,10 +6,10 @@
 
 ## Order of content
 
-While the code allows flexibility in the ordering of links and content, we recommend the following structure for a consistent visual appearance across applications: 
+While the Ember component allows flexibility in the ordering of links and content, we recommend the following structure for a consistent visual appearance across applications: 
 
-- Status link
-- Legal links
+- StatusLink
+- LegalLinks
 - Additional links
 - Plain text items (or metadata, such as version numbers)
 - Copyright
@@ -77,7 +77,7 @@ Due to structural wrapping limitations in Figma, the component may not be a dire
 
 ### Large
 
-All elements are displayed in a single row, depending on the amount of links and additional content added to the AppFooter. As the screen size is reduced, the content will wrap. 
+The `Large` size accounts for most larger viewport sizes and, depending on the number of links and additional content, will display elements in a single row or wrap as the viewport size is reduced.
 
 _Please note, this screenshot is reduced in size to fit within the content container of the website._
 
