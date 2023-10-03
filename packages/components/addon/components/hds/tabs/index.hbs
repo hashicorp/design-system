@@ -6,7 +6,7 @@
 <div
   class="hds-tabs"
   {{did-insert this.didInsert}}
-  {{did-update this.onSelectedTabIndexChange this.selectedTabIndex}}
+  {{did-update this.updateTabIndicator this.selectedTabIndex @isParentVisible}}
   ...attributes
 >
   <div class="hds-tabs__tablist-wrapper">

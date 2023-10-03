@@ -50,11 +50,6 @@ export default class HdsTabsIndexComponent extends Component {
   }
 
   @action
-  onSelectedTabIndexChange() {
-    this.setTabIndicator();
-  }
-
-  @action
   didInsertTab(element, isSelected) {
     this.tabNodes = [...this.tabNodes, element];
     this.tabIds = [...this.tabIds, element.id];
@@ -142,17 +137,24 @@ export default class HdsTabsIndexComponent extends Component {
   setTabIndicator() {
     next(() => {
       const tabElem = this.tabNodes[this.selectedTabIndex];
-      const tabsParentElem = tabElem.closest('.hds-tabs');
+      const tabsParentElem = tabElem.closest('.hds-tabs__tablist');
 
-      const tabLeftPos = tabElem.parentNode.offsetLeft;
-      const tabWidth = tabElem.parentNode.offsetWidth;
-
-      // Set CSS custom properties for indicator
-      tabsParentElem.style.setProperty(
-        '--indicator-left-pos',
-        tabLeftPos + 'px'
-      );
-      tabsParentElem.style.setProperty('--indicator-width', tabWidth + 'px');
+      // this condition is `null` if any of the parents has `display: none`
+      if (tabElem.parentNode.offsetParent) {
+        const tabLeftPos = tabElem.parentNode.offsetLeft;
+        const tabWidth = tabElem.parentNode.offsetWidth;
+        // Set CSS custom properties for indicator
+        tabsParentElem.style.setProperty(
+          '--indicator-left-pos',
+          tabLeftPos + 'px'
+        );
+        tabsParentElem.style.setProperty('--indicator-width', tabWidth + 'px');
+      }
     });
+  }
+
+  @action
+  updateTabIndicator() {
+    this.setTabIndicator();
   }
 }
