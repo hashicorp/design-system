@@ -5,7 +5,7 @@
 The base `AppFooter` component includes a copyright notice. It also wraps and contains the `AppFooter::StatusLink`, `AppFooter::LegalLinks`, `AppFooter::Link`, and `AppFooter::Item` child components as well as `ExtraBefore` and `ExtraAfter` yielded components.
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="<[AF].extraBefore>" @type="yielded component">
+  <C.Property @name="<[AF].ExtraBefore>" @type="yielded component">
     Container that yields its content before the `<ul>` list of links and items.
   </C.Property>
   <C.Property @name="<[AF].StatusLink>" @type="yielded component">
@@ -20,11 +20,11 @@ The base `AppFooter` component includes a copyright notice. It also wraps and co
   <C.Property @name="<[AF].Item>" @type="yielded component">
     The generic `AppFooter::Item` component (see below).
   </C.Property>
-  <C.Property @name="<[AF].extraAfter>" @type="yielded component">
+  <C.Property @name="<[AF].ExtraAfter>" @type="yielded component">
     Container that yields its content after the `<ul>` list of links and items.
   </C.Property>
   <C.Property @name="theme" @type="string"  @values={{array "light" "dark" }} @default="light">
-    Set the overall theme use by the component and its children.
+    Set the overall theme used by the component and its children.
   </C.Property>
   <C.Property @name="ariaLabel" @type="string" @default="&quot;Footer items&quot;">
     Accepts a localized string. The `ariaLabel` value is applied to the list of `AppFooter` content.

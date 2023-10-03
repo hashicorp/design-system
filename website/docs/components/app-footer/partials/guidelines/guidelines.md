@@ -18,25 +18,25 @@ While the code allows flexibility in the ordering of links and content, we recom
 
 ## Status link
 
-The Status link comes with default statuses that are often defined by a 3rd party tool, such as statuspage.io. If needed, they can be adjusted to suit the specific product needs.
+The StatusLink is used to communicate the application status via a third-party service or tool (such as statuspage.io). If needed, the status can be customized to suit the specific product needs.
 
 ![Example of status link options](/assets/components/app-footer/status-link-options.png)
 
 ## Legal links
 
-We offer a set of standard "Legal" links, by default. These are recommended for customer-facing products, but can be turned on/off within the component, as needed. 
+A set of standard legal links are provided by default. These are recommended for customer-facing products, but can be turned on/off within the component as needed. 
 
 ![Example of the AppFooter with legal links only](/assets/components/app-footer/app-footer-legal-links.png)
 
 ## Additional links
 
-Additional links can be added, as necessary. Some examples may include: Changelog, GitHub, etc.
+Additional links can be added as necessary. Common examples may include linking to a changelog, GitHub, etc.
 
 ![Example of the AppFooter with additional links](/assets/components/app-footer/app-footer-additional-links.png)
 
 ## Plain text items
 
-Plain text content can be added after the links. Often this is for displaying the version number or other metadata related to the product. 
+Plain text content can be added after the links. This is often used for displaying the version number or other metadata related to the product. 
 
 ![Example of the AppFooter with plain text list items](/assets/components/app-footer/app-footer-items.png)
 
@@ -68,7 +68,7 @@ The AppFooter supports both `Light` and `Dark` theme options. The dark theme can
 
 ## Responsiveness
 
-In Figma, we support two size variants `Large` and `Small`, to help illustrate how the component will respond to changing viewport sizes. In code, the component is responsive. 
+In Figma, we support two size variants, `Large` and `Small`, to help illustrate how the component will respond to different viewport sizes. In code, the component is responsive. 
 
 !!! Warning 
 
