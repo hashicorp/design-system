@@ -7,45 +7,71 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
-import { schedule } from '@ember/runloop';
+import { next, schedule } from '@ember/runloop';
 
 export default class HdsTabsIndexComponent extends Component {
   @tracked tabNodes = [];
   @tracked tabIds = [];
   @tracked panelNodes = [];
   @tracked panelIds = [];
-  @tracked selectedTabIndex;
+  @tracked _selectedTabIndex = this.args.selectedTabIndex ?? 0;
+  @tracked selectedTabId;
+
+  get selectedTabIndex() {
+    if (this.args.selectedTabIndex !== undefined) {
+      return this.args.selectedTabIndex;
+    } else {
+      return this._selectedTabIndex;
+    }
+  }
+
+  set selectedTabIndex(value) {
+    if (this.args.selectedTabIndex) {
+      // noop
+    } else {
+      this._selectedTabIndex = value;
+    }
+  }
 
   @action
   didInsert() {
-    // default starting tab index
-    let initialTabIndex = 0;
-    let selectedCount = 0;
-
-    this.tabNodes.forEach((tabElement, index) => {
-      if (tabElement.hasAttribute('data-is-selected')) {
-        initialTabIndex = index;
-        selectedCount++;
-      }
-    });
-    this.selectedTabIndex = initialTabIndex;
-
-    schedule('afterRender', () => {
-      this.setTabIndicator(initialTabIndex);
-    });
-
-    assert('Only one tab may use isSelected argument', selectedCount <= 1);
-
     assert(
       'The number of Tabs must be equal to the number of Panels',
       this.tabNodes.length === this.panelNodes.length
     );
+
+    if (this.selectedTabId) {
+      this.selectedTabIndex = this.tabIds.indexOf(this.selectedTabId);
+    }
+
+    schedule('afterRender', () => {
+      this.setTabIndicator();
+    });
   }
 
   @action
-  didInsertTab(element) {
+  onSelectedTabIndexChange() {
+    this.setTabIndicator();
+  }
+
+  @action
+  didInsertTab(element, isSelected) {
     this.tabNodes = [...this.tabNodes, element];
     this.tabIds = [...this.tabIds, element.id];
+    if (isSelected) {
+      if (this.selectedTabId) {
+        assert('Only one tab may use isSelected argument');
+      }
+      this.selectedTabId = element.id;
+    }
+  }
+
+  @action
+  didUpdateTab(tabIndex, isSelected) {
+    if (isSelected) {
+      this.selectedTabIndex = tabIndex;
+    }
+    this.setTabIndicator();
   }
 
   @action
@@ -55,7 +81,7 @@ export default class HdsTabsIndexComponent extends Component {
   }
 
   @action
-  didInsertPanel(panelId, element) {
+  didInsertPanel(element, panelId) {
     this.panelNodes = [...this.panelNodes, element];
     this.panelIds = [...this.panelIds, panelId];
   }
@@ -67,38 +93,31 @@ export default class HdsTabsIndexComponent extends Component {
   }
 
   @action
-  onClick(tabIndex, event) {
+  onClick(event, tabIndex) {
     this.selectedTabIndex = tabIndex;
-    this.setTabIndicator(tabIndex);
-
-    // Scroll Tab into view if it's out of view
-    this.tabNodes[tabIndex].parentNode.scrollIntoView({
-      behavior: 'smooth',
-      block: 'nearest',
-      inline: 'nearest',
-    });
+    this.setTabIndicator();
 
     // invoke the callback function if it's provided as argument
     if (typeof this.args.onClickTab === 'function') {
-      this.args.onClickTab(event);
+      this.args.onClickTab(tabIndex, event);
     }
   }
 
   @action
-  onKeyUp(tabIndex, e) {
+  onKeyUp(tabIndex, event) {
     const leftArrow = 37;
     const rightArrow = 39;
     const enterKey = 13;
     const spaceKey = 32;
 
-    if (e.keyCode === rightArrow) {
+    if (event.keyCode === rightArrow) {
       const nextTabIndex = (tabIndex + 1) % this.tabIds.length;
-      this.focusTab(nextTabIndex, e);
-    } else if (e.keyCode === leftArrow) {
+      this.focusTab(nextTabIndex, event);
+    } else if (event.keyCode === leftArrow) {
       const prevTabIndex =
         (tabIndex + this.tabIds.length - 1) % this.tabIds.length;
-      this.focusTab(prevTabIndex, e);
-    } else if (e.keyCode === enterKey || e.keyCode === spaceKey) {
+      this.focusTab(prevTabIndex, event);
+    } else if (event.keyCode === enterKey || event.keyCode === spaceKey) {
       this.selectedTabIndex = tabIndex;
     }
   }
@@ -114,15 +133,27 @@ export default class HdsTabsIndexComponent extends Component {
     this.panelNodes[tabIndex].focus();
   }
 
-  setTabIndicator(tabIndex) {
-    const tabElem = this.tabNodes[tabIndex];
-    const tabsParentElem = tabElem.closest('.hds-tabs');
+  setTabIndicator() {
+    next(() => {
+      const tabElem = this.tabNodes[this.selectedTabIndex];
+      const tabsParentElem = tabElem.closest('.hds-tabs');
 
-    const tabLeftPos = tabElem.parentNode.offsetLeft;
-    const tabWidth = tabElem.parentNode.offsetWidth;
+      const tabLeftPos = tabElem.parentNode.offsetLeft;
+      const tabWidth = tabElem.parentNode.offsetWidth;
 
-    // Set CSS custom properties for indicator
-    tabsParentElem.style.setProperty('--indicator-left-pos', tabLeftPos + 'px');
-    tabsParentElem.style.setProperty('--indicator-width', tabWidth + 'px');
+      // Set CSS custom properties for indicator
+      tabsParentElem.style.setProperty(
+        '--indicator-left-pos',
+        tabLeftPos + 'px'
+      );
+      tabsParentElem.style.setProperty('--indicator-width', tabWidth + 'px');
+
+      // Scroll Tab into view if it's out of view
+      this.tabNodes[this.selectedTabIndex].parentNode.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'nearest',
+      });
+    });
   }
 }

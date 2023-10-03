@@ -10,9 +10,8 @@ import { action } from '@ember/object';
 
 export default class HdsTabsIndexComponent extends Component {
   /**
-   * Generates a unique ID for the Tab
-   *
-   * @param tabId
+   * Generate a unique ID for the Tab
+   * @return {string}
    */
   tabId = 'tab-' + guidFor(this);
 
@@ -21,17 +20,10 @@ export default class HdsTabsIndexComponent extends Component {
     return this.args.tabIds ? this.args.tabIds.indexOf(this.tabId) : undefined;
   }
 
-  get panelId() {
-    return this.nodeIndex !== undefined
-      ? this.args.panelIds[this.nodeIndex]
-      : undefined;
-  }
-
   /**
-   * @param isSelected
-   * @type {boolean}
+   * Determine if the tab is the selected tab
+   * @return {boolean}
    * @default false (1st tab is selected by default)
-   * @description Determines if the tab is the selected tab
    */
   get isSelected() {
     return (
@@ -40,46 +32,53 @@ export default class HdsTabsIndexComponent extends Component {
     );
   }
 
-  get isInitialTab() {
-    let { isSelected } = this.args;
-    return isSelected;
-  }
-
   @action
-  didInsertNode() {
+  didInsertNode(element, positional) {
     let { didInsertNode } = this.args;
 
+    const isSelected = positional[0];
+
     if (typeof didInsertNode === 'function') {
-      didInsertNode(...arguments);
+      // we invert the arguments for better ergonomics
+      didInsertNode(element, isSelected);
     }
   }
 
   @action
-  willDestroyNode() {
+  didUpdateNode() {
+    let { didUpdateNode } = this.args;
+
+    if (typeof didUpdateNode === 'function') {
+      didUpdateNode(this.nodeIndex, this.args.isSelected);
+    }
+  }
+
+  @action
+  willDestroyNode(element) {
     let { willDestroyNode } = this.args;
 
     if (typeof willDestroyNode === 'function') {
-      willDestroyNode(...arguments);
+      willDestroyNode(element);
     }
   }
 
   @action
-  onClick() {
+  onClick(event) {
     let { onClick } = this.args;
 
     if (typeof onClick === 'function') {
-      onClick(this.nodeIndex, ...arguments);
+      onClick(event, this.nodeIndex);
     } else {
       return false;
     }
   }
 
   @action
-  onKeyUp() {
+  onKeyUp(event) {
     let { onKeyUp } = this.args;
 
     if (typeof onKeyUp === 'function') {
-      onKeyUp(this.nodeIndex, ...arguments);
+      onKeyUp(this.nodeIndex, event);
     } else {
       return false;
     }
