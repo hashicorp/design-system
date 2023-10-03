@@ -99,7 +99,7 @@ export default class HdsTabsIndexComponent extends Component {
 
     // invoke the callback function if it's provided as argument
     if (typeof this.args.onClickTab === 'function') {
-      this.args.onClickTab(tabIndex, event);
+      this.args.onClickTab(event, tabIndex);
     }
   }
 
@@ -120,6 +120,12 @@ export default class HdsTabsIndexComponent extends Component {
     } else if (event.keyCode === enterKey || event.keyCode === spaceKey) {
       this.selectedTabIndex = tabIndex;
     }
+    // scroll selected tab into view (it may be out of view when activated using a keyboard with `prev/next`)
+    this.tabNodes[this.selectedTabIndex].parentNode.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'nearest',
+    });
   }
 
   // Focus tab for keyboard & mouse navigation:
@@ -147,13 +153,6 @@ export default class HdsTabsIndexComponent extends Component {
         tabLeftPos + 'px'
       );
       tabsParentElem.style.setProperty('--indicator-width', tabWidth + 'px');
-
-      // Scroll Tab into view if it's out of view
-      this.tabNodes[this.selectedTabIndex].parentNode.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'nearest',
-      });
     });
   }
 }
