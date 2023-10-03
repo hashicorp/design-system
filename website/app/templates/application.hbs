@@ -7,22 +7,20 @@
 
 {{page-title "Helios Design System"}}
 
-<div class="doc-page-wrapper" id="topofpage">
-  <Doc::Page::Header
-    @currentTopRoute={{this.currentTopRoute}}
-    @isSidebarVisibleOnSmallViewport={{this.isSidebarVisibleOnSmallViewport}}
-    @onToggleBurgerMenu={{this.onToggleBurgerMenu}}
-    @routeChangeValidator={{this.transitionValidator}}
-  />
-  {{! uncomment this to turn the survey banner back on, but ensure survey link has been updated as well }}
-  {{! <Doc::Page::Banner /> }}
-  <Doc::Page::Sidebar
-    {{! `this.model.toc` comes from `routes/application.js` }}
-    @toc={{this.model.toc}}
-    @currentPath={{this.target.currentPath}}
-    @currentRoute={{this.target.currentRoute}}
-    @currentTopRoute={{this.currentTopRoute}}
-  />
-  {{outlet}}
-  <Doc::Page::Footer />
-</div>
+<Doc::Page::Header
+  @currentTopRoute={{this.currentTopRoute}}
+  @isSidebarVisibleOnSmallViewport={{this.isSidebarVisibleOnSmallViewport}}
+  @onToggleBurgerMenu={{this.onToggleBurgerMenu}}
+  @routeChangeValidator={{this.transitionValidator}}
+/>
+{{! uncomment this to turn the survey banner back on, but ensure survey link has been updated as well }}
+{{! <Doc::Page::Banner /> }}
+<Doc::Page::Sidebar
+  {{! `this.model.toc` comes from `routes/application.js` }}
+  @toc={{this.model.toc}}
+  @currentPath={{this.target.currentPath}}
+  @currentRoute={{this.target.currentRoute}}
+  @currentTopRoute={{this.currentTopRoute}}
+/>
+{{outlet}}
+<Doc::Page::Footer />
