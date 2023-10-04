@@ -30,12 +30,11 @@ setup(Prism);
 export default class HdsCodeBlockIndexComponent extends Component {
   @tracked prismCode = '';
 
-  // UNCOMMENT THIS IF YOU NEED A CONSTRUCTOR
-  // constructor() {
-  //   super(...arguments);
-  //   // ADD YOUR ASSERTIONS HERE
-  // }
-
+  /**
+   * @param code
+   * @type {string}
+   * @description code text content for the CodeBlock
+   */
   get code() {
     const code = this.args.value;
 
@@ -51,6 +50,12 @@ export default class HdsCodeBlockIndexComponent extends Component {
     return code;
   }
 
+  /**
+   * @param language
+   * @type {string}
+   * @default 'javascript'
+   * @description name of coding language used within CodeBlock for syntax highlighting
+   */
   get language() {
     return this.args.language ?? 'javascript';
   }
@@ -63,7 +68,7 @@ export default class HdsCodeBlockIndexComponent extends Component {
    * @param readOnly
    * @type {boolean}
    * @default true
-   * @description If true, then content will be editable
+   * @description Make text content non-editable / editable
    */
   get readOnly() {
     return this.args.readOnly ?? true;

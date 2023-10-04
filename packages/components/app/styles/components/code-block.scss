@@ -17,6 +17,10 @@
   bottom: 16px;
 }
 
+.hds-code-block--has-line-wrapping {
+  white-space: pre-wrap;
+}
+
 .hds-code-block {
   margin: 0;
 
@@ -346,8 +350,4 @@
   pre[id].linkable-line-numbers span.line-numbers-rows > span:hover::before {
     background-color: rgba(128, 128, 128, 20%);
   }
-}
-
-.hds-code-block--has-line-wrapping {
-  white-space: pre-wrap;
 }
