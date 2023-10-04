@@ -1,0 +1,14 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+
+// COMPONENTS > APP-FOOTER
+
+#show-content-components-app-footer {
+  .doc-app-footer-demo-dark-background {
+    padding: 8px;
+    background: var(--token-color-palette-neutral-700);
+  }
+}
