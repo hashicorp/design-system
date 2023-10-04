@@ -4,7 +4,13 @@
 }}
 <Hds::AppFrame as |Frame|>
   <Frame.Sidebar>
-    <Hds::SideNav @isResponsive={{true}} @hasA11yRefocus={{true}} @a11yRefocusSkipTo="my-content-id">
+    <Hds::SideNav
+      @isResponsive={{true}}
+      @isCollapsible={{true}}
+      @isMinimized={{false}}
+      @hasA11yRefocus={{true}}
+      @a11yRefocusSkipTo="my-content-id"
+    >
       <:header as |Header|>
         <Hds::SideNav::Header>
           <:logo>
