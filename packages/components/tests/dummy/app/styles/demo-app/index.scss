@@ -9,17 +9,6 @@ body.demo-app {
   // we remove the grid layout
   display: initial;
 
-  // we hide the "show" frame elements
-  .shw-page-header,
-  .shw-page-aside {
-    display: none;
-  }
-
-  .shw-page-main {
-    display: contents;
-    padding: 0 !important;
-  }
-
   // we outline the "frame" elements
   .hds-app-frame {
     outline: 1px dotted #d3d3d3;

@@ -5,18 +5,24 @@
 
 {{page-title "HDS Design System"}}
 
-<header class="shw-page-header">
-  <LinkTo @route="index" class="shw-page-header__logo" aria-label="home page">
-    <Shw::Logo::DesignSystem />
-  </LinkTo>
-  <div class="shw-page-header__title">Components showcase</div>
-</header>
-
-<aside class="shw-page-aside">
-  <LinkTo class="shw-back-to-components-list" @route="index"><FlightIcon @name="arrow-left" @isInlineBlock={{false}} />
-    Component list</LinkTo>
-</aside>
-
-<main id="main" class="shw-page-main">
+{{#if (or (eq this.target.currentURL "/demo-app") (eq this.target.currentURL "/demo-app/sub-page"))}}
   {{outlet}}
-</main>
+{{else}}
+  <header class="shw-page-header">
+    <LinkTo @route="index" class="shw-page-header__logo" aria-label="home page">
+      <Shw::Logo::DesignSystem />
+    </LinkTo>
+    <div class="shw-page-header__title">Components showcase</div>
+  </header>
+
+  <aside class="shw-page-aside">
+    <LinkTo class="shw-back-to-components-list" @route="index">
+      <FlightIcon @name="arrow-left" @isInlineBlock={{false}} />
+      Component list
+    </LinkTo>
+  </aside>
+
+  <main id="main" class="shw-page-main">
+    {{outlet}}
+  </main>
+{{/if}}
