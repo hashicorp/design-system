@@ -3,7 +3,7 @@ import { visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'dummy/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 
-module('Acceptance | components/dismiss button', function (hooks) {
+module('Acceptance | Component | hds/dismiss-button', function (hooks) {
   setupApplicationTest(hooks);
 
   test('Components/dismiss-button passes a11y automated checks', async function (assert) {

@@ -3,7 +3,7 @@ import { visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'dummy/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 
-module('Acceptance | components/reveal', function (hooks) {
+module('Acceptance | Component | hds/reveal', function (hooks) {
   setupApplicationTest(hooks);
 
   test('Components/hds/reveal page passes automated a11y checks', async function (assert) {
