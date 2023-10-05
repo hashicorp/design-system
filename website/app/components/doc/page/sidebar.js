@@ -14,7 +14,7 @@ const DEBOUNCE_MS = 250;
 // we want to limit the content of the sidebar navigation to only the links related to the current "section".
 // notice: super hacky way to do it, but... it works™ !
 const getTocSectionsBundle = (section) => {
-  const ABOUT = ['about', 'getting-started'];
+  const ABOUT = ['about', 'whats-new', 'getting-started'];
   const FOUNDATIONS = ['foundations', 'icons'];
   const COMPONENTS = ['components', 'layouts', 'overrides', 'utilities'];
   const PATTERNS = ['patterns'];
