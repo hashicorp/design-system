@@ -21,8 +21,10 @@
       <Hds::Form::Textarea::Base aria-label="textarea example with placeholder" placeholder="Lorem ipsum dolor" />
     </SF.Item>
     <SF.Item @label="With value">
-      <Hds::Form::Textarea::Base 
-      aria-label="textarea example with value" @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco" />
+      <Hds::Form::Textarea::Base
+        aria-label="textarea example with value"
+        @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
+      />
     </SF.Item>
   </Shw::Flex>
 
@@ -50,7 +52,7 @@
                 </SF.Item>
                 <SF.Item>
                   <Hds::Form::Textarea::Base
-                  aria-label="textarea example as with placeholder in{{state}}"
+                    aria-label="textarea example as with placeholder in{{state}}"
                     placeholder="Placeholder"
                     disabled={{if (eq variant "disabled") "disabled"}}
                     readonly={{if (eq variant "readonly") "readonly"}}
