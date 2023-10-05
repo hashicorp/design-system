@@ -1,16 +1,11 @@
 import { module, test } from 'qunit';
-import { visit, currentURL } from '@ember/test-helpers';
+import { visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'dummy/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 
 module('Acceptance | components/reveal', function (hooks) {
   setupApplicationTest(hooks);
 
-  test('visiting /components/reveal', async function (assert) {
-    await visit('/components/reveal');
-
-    assert.strictEqual(currentURL(), '/components/reveal');
-  });
   test('Components/hds/reveal page passes automated a11y checks', async function (assert) {
     await visit('/components/reveal');
     await a11yAudit();
