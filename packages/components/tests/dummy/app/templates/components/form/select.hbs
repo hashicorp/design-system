@@ -15,7 +15,7 @@
 
   <Shw::Flex {{style gap="2rem"}} as |SF|>
     <SF.Item @label="Default">
-      <Hds::Form::Select::Base as |C|>
+      <Hds::Form::Select::Base aria-label="default select" as |C|>
         <C.Options>
           <option>Lorem ipsum dolor</option>
           <option>Sine qua non est</option>
@@ -40,6 +40,7 @@
                   mock-state-selector="select"
                 >
                   <Hds::Form::Select::Field
+                    aria-label="{{state}}"
                     disabled={{if (eq variant "disabled") "disabled"}}
                     @isInvalid={{if (eq variant "invalid") true}}
                     as |F|
@@ -84,7 +85,7 @@
           <Shw::Label>Parent with <code>display: {{display}}</code></Shw::Label>
           <Shw::Flex as |SF|>
             <SF.Item {{style display=display}}>
-              <Hds::Form::Select::Base as |C|>
+              <Hds::Form::Select::Base aria-label="{{display}} select example" as |C|>
                 <C.Options>
                   <option>Default width</option>
                   <option>Lorem ipsum dolor</option>
@@ -93,7 +94,7 @@
               </Hds::Form::Select::Base>
             </SF.Item>
             <SF.Item {{style display=display}}>
-              <Hds::Form::Select::Base @width="248px" as |C|>
+              <Hds::Form::Select::Base @width="248px" aria-label="select examples with custom widths" as |C|>
                 <C.Options>
                   <option>Custom width</option>
                   <option>Lorem ipsum dolor</option>

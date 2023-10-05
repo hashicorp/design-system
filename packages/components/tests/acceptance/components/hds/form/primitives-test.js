@@ -12,7 +12,7 @@ module('Acceptance | components/form/primitives', function (hooks) {
   setupApplicationTest(hooks);
 
   test('components/form/primitives page passes automated a11y checks', async function (assert) {
-    await visit('/components/form/primitives');
+    await visit('/components/form/base-elements');
     await a11yAudit();
     assert.ok(true, 'a11y automation audit passed');
   });
