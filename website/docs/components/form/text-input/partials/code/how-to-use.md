@@ -41,7 +41,7 @@ Pass a `@value` argument to pre-populate the input.
 
 #### Type
 
-Pass a `@type` argument to change the type of input. For the list of supported types, see [Component API](#component-api).
+Pass a `@type` argument to change the type of input. `@type="number"` is not supported as it causes accessibility and usability problems. If you are looking for additional validation or to display a numeric keypad on devices with dynamic keypads we recommend using `inputmode="numeric" pattern="[0-9]*"`. For the list of supported types, see [Component API](#component-api).
 
 ```handlebars
 <Hds::Form::TextInput::Field @type="email" @value="janedoe@email.com" as |F|>

@@ -9,7 +9,7 @@ The Text Input component has two different variants with their own APIs:
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="type" @type="enum" @values={{array "text" "email" "password" "url" "search" "date" "time" "datetime-local" }} @default="text">
-    Sets the native HTML `type` of the `<input>`. See the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) for a full list of covered types.
+    Sets the native HTML `type` of the `<input>`.
   </C.Property>
   <C.Property @name="value" @type="string|number|date">
     Input control’s value.
@@ -36,7 +36,7 @@ The Text Input component has two different variants with their own APIs:
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="type" @type="enum" @values={{array "text" "email" "password" "url" "search" "date" "time" "datetime-local" }} @default="text">
-    Sets the native HTML `type` of the `<input>`. See the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) for a full list of covered types.
+    Sets the native HTML `type` of the `<input>`.
   </C.Property>
   <C.Property @name="value" @type="string|number|date">
     Input control’s value.
