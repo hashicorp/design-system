@@ -137,18 +137,33 @@ export default class HdsTabsIndexComponent extends Component {
   setTabIndicator() {
     next(() => {
       const tabElem = this.tabNodes[this.selectedTabIndex];
-      const tabsParentElem = tabElem.closest('.hds-tabs__tablist');
 
-      // this condition is `null` if any of the parents has `display: none`
-      if (tabElem.parentNode.offsetParent) {
-        const tabLeftPos = tabElem.parentNode.offsetLeft;
-        const tabWidth = tabElem.parentNode.offsetWidth;
-        // Set CSS custom properties for indicator
-        tabsParentElem.style.setProperty(
-          '--indicator-left-pos',
-          tabLeftPos + 'px'
+      if (tabElem) {
+        const tabsParentElem = tabElem.closest('.hds-tabs__tablist');
+
+        // this condition is `null` if any of the parents has `display: none`
+        if (tabElem.parentNode.offsetParent) {
+          const tabLeftPos = tabElem.parentNode.offsetLeft;
+          const tabWidth = tabElem.parentNode.offsetWidth;
+
+          // Set CSS custom properties for indicator
+          tabsParentElem.style.setProperty(
+            '--indicator-left-pos',
+            tabLeftPos + 'px'
+          );
+          tabsParentElem.style.setProperty(
+            '--indicator-width',
+            tabWidth + 'px'
+          );
+        }
+      } else {
+        assert(
+          `"Hds::Tabs" has tried to set the indicator for an element that doesn't exist (the value ${
+            this.selectedTabIndex
+          } of \`this.selectedTabIndex\` is out of bound for the array \`this.tabNodes\`, whose index range is [0-${
+            this.tabNodes.length - 1
+          }])`
         );
-        tabsParentElem.style.setProperty('--indicator-width', tabWidth + 'px');
       }
     });
   }
