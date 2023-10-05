@@ -3,7 +3,7 @@ import { visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'dummy/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 
-module('Acceptance | components/link/standalone', function (hooks) {
+module('Acceptance | Component | hds/link/standalone', function (hooks) {
   setupApplicationTest(hooks);
 
   test('visiting /components/link/standalone', async function (assert) {

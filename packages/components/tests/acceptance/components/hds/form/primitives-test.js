@@ -8,7 +8,7 @@ import { visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'dummy/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 
-module('Acceptance | components/form/primitives', function (hooks) {
+module('Acceptance | Component | hds/form/primitives', function (hooks) {
   setupApplicationTest(hooks);
 
   test('components/form/primitives page passes automated a11y checks', async function (assert) {

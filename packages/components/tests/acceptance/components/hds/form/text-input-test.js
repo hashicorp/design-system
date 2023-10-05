@@ -8,7 +8,7 @@ import { visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'dummy/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 
-module('Acceptance | components/form/text input', function (hooks) {
+module('Acceptance | Component | hds/form/text input', function (hooks) {
   setupApplicationTest(hooks);
 
   test('components/form/text-input passes a11y automated checks', async function (assert) {
