@@ -1,0 +1,67 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// APP-FOOTER
+
+body.components-app-footer {
+  .shw-component-app-footer-layout-highlight {
+    .hds-app-footer,
+    .hds-app-footer__list,
+    .hds-app-footer__list-item,
+    .hds-app-footer__copyright {
+      outline: 1px dashed #78909c;
+    }
+
+    .shw-component-app-footer-desktop-view,
+    .shw-component-app-footer-tablet-view,
+    .shw-component-app-footer-mobile-large-view,
+    .shw-component-app-footer-mobile-small-view {
+      .hds-app-footer__list-item { background: lighten(#006ae7, 30%); }
+      .hds-app-footer__legal-links { background: lighten(#006ae7, 45%); }
+      // using !important to override inline style:
+      .shw-app-footer-extra { background: #ff7575 !important; }
+
+      .hds-app-footer__copyright {
+        color: #fff;
+        background: #000;
+
+        .flight-icon { fill: currentColor; }
+      }
+    }
+  }
+
+  .shw-component-app-footer-tablet-view {
+    max-width: 665px;
+  }
+
+  .shw-component-app-footer-mobile-large-view {
+    max-width: 366px;
+  }
+
+  .shw-component-app-footer-mobile-small-view {
+    max-width: 290px;
+  }
+
+  .hds-app-footer--theme-dark {
+    position: relative;
+    background: var(--token-color-palette-neutral-700);
+
+    &::after {
+      position: absolute;
+      z-index: -1;
+      display: block;
+      background: inherit;
+      content: "";
+      inset: -8px;
+    }
+  }
+
+  .shw-component-app-footer-add-extra-margin-to-dark-block {
+    ul.hds-app-footer--theme-dark {
+      margin-top: 16px;
+      margin-bottom: 8px;
+    }
+  }
+}

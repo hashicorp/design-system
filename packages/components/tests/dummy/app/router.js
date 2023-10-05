@@ -21,6 +21,7 @@ Router.map(function () {
   this.route('components', function () {
     this.route('accordion');
     this.route('alert');
+    this.route('app-footer');
     this.route('application-state');
     this.route('avatar');
     this.route('badge');
