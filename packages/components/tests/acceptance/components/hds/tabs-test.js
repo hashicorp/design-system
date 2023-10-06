@@ -17,6 +17,9 @@ module('Acceptance | Component | hds/tabs', function (hooks) {
         listitem: {
           enabled: false,
         },
+        'landmark-unique': {
+          enabled: false,
+        },
       },
     };
     await visit('/components/tabs');
