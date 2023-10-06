@@ -1,0 +1,188 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// CODE-BLOCK
+//
+
+
+// THEMING
+
+@import "base";
+
+.hds-code-block-wrapper {
+  // base:
+  --background: #0d0e12;
+  --foreground: #efeff1;
+
+  // syntax:
+  --comment: #b2b6bd;
+  --selection: #1e222a; // not enough contrast, couldn't see selection at first when testing
+  --operator: #32fff7;
+  --function: #2d8eff;
+  --string: #ffa800;
+  --keyword: #86ff13;
+  --number: #c76cff;
+  --error: #ff3b20; // important/error
+  // ---
+  --control: #32fff7;
+  --property: #2d8eff;
+  --url: #32fff7;
+
+
+  // color names:
+  --cyan: #32fff7;
+  --green: #2d8eff;
+  --orange: #ffa800;
+  --pink: #86ff13;
+  --purple: #c76cff;
+  --red: #c76cff;
+  --yellow: #ffcc6a;
+}
+
+// WRAPPER
+
+.hds-code-block-wrapper {
+  position: relative;
+  background: var(--background);
+}
+
+// CHILD COMPONENTS
+
+// CodeBlock
+.hds-code-block {
+  margin: 0;
+  padding: 16px 24px;
+  overflow: auto;
+  color: var(--foreground);
+  font-family: var(--hds-typography-code-200);
+  background: var(--background);
+
+  code { display: block; }
+}
+
+// CodeBlock Variant
+.hds-code-block--has-line-wrapping {
+  white-space: pre-wrap;
+}
+
+.hds-code-block__copy-button {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+}
+
+
+// TODO: Clean up ----
+
+.hds-code-block {
+  // LineNumbers plugin styles ---------------
+  &.line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+
+    > code {
+      position: relative;
+      white-space: inherit;
+    }
+
+    .line-numbers-rows {
+      position: absolute;
+      top: 0;
+      left: -3.8em;
+      width: 3em; /* works for line-numbers below 1000 lines */
+      font-size: 100%;
+      letter-spacing: -1px;
+      border-right: 1px solid #999;
+      user-select: none;
+      pointer-events: none;
+
+      > span {
+        display: block;
+        counter-increment: linenumber;
+
+        &::before {
+          display: block;
+          padding-right: 0.8em;
+          color: #999;
+          text-align: right;
+          content: counter(linenumber);
+        }
+      }
+    }
+  }
+
+  .line-numbers-rows .line-numbers-rows > span
+  // LineHighlight plugin styles (works with lineNumbers) ------------
+  pre[data-line] {
+    position: relative;
+    padding: 1em 0 1em 3em;
+  }
+
+  .line-highlight {
+    position: absolute;
+    right: 0;
+    left: 0;
+    // margin-top: 0.5em; /* Same as .prism’s padding-top */
+    margin-top: 16px;
+    padding: inherit 0;
+    line-height: inherit;
+    background: hsla(24deg, 20%, 50%, 35%);
+    pointer-events: none;
+  }
+
+  @media print {
+    .line-highlight {
+      /*
+       * This will prevent browsers from replacing the background color with white.
+       * It's necessary because the element is layered on top of the displayed code.
+       */
+      -webkit-print-color-adjust: exact;
+      color-adjust: exact;
+    }
+  }
+
+  .line-highlight::before,
+  .line-highlight[data-end]::after {
+    position: absolute;
+    top: 0.4em;
+    left: 0.6em;
+    min-width: 1em;
+    padding: 0 0.5em;
+    color: hsl(24deg, 20%, 95%);
+    font: bold 65%/1.5 sans-serif;
+    text-align: center;
+    text-shadow: none;
+    vertical-align: 0.3em;
+    background-color: hsla(24deg, 20%, 50%, 40%);
+    border-radius: 999px;
+    box-shadow: 0 1px white;
+    content: attr(data-start);
+  }
+
+  .line-highlight[data-end]::after {
+    top: auto;
+    bottom: 0.4em;
+    content: attr(data-end);
+  }
+
+  &.line-numbers .line-highlight::before,
+  &.line-numbers .line-highlight::after {
+    content: none;
+  }
+
+  pre[id].linkable-line-numbers span.line-numbers-rows {
+    pointer-events: all;
+  }
+
+  pre[id].linkable-line-numbers span.line-numbers-rows > span::before {
+    cursor: pointer;
+  }
+
+  pre[id].linkable-line-numbers span.line-numbers-rows > span:hover::before {
+    background-color: rgba(128, 128, 128, 20%);
+  }
+}
