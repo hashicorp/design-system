@@ -2,4 +2,4 @@
 "@hashicorp/design-system-components": patch
 ---
 
-Updated padding for tag dismiss button for WCAG conformance
+`Tag` - Updated padding for dismiss button for WCAG conformance
