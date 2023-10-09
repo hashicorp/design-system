@@ -39,7 +39,6 @@ export default class HdsTabsIndexComponent extends Component {
     const isSelected = positional[0];
 
     if (typeof didInsertNode === 'function') {
-      // we invert the arguments for better ergonomics
       didInsertNode(element, isSelected);
     }
   }
