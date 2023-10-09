@@ -140,3 +140,11 @@ Our styles, components and icons are supported by the following browsers:
 | Safari         | last 2 versions |
 | Firefox        | last 2 versions |
 | Microsoft Edge | last 2 versions |
+
+## Code editor setup
+
+### VSCode
+
+We recommend installing the [Ember Language Server extension](https://marketplace.visualstudio.com/items?itemName=lifeart.vscode-ember-unstable) that provides autocomplete, goto definition, and diagnostics for Ember applications and addons, including Helios components.
+
+If you use TypeScript in your Ember application, we also recommend installing the [Glint extension](https://marketplace.visualstudio.com/items?itemName=typed-ember.glint-vscode) that provides improved autocomplete and quick info for components (including arguments), as well as symbol renaming and finding references. We are in the process of converting our components to TypeScript so currently only some of them benefit from these features.
