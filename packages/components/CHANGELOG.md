@@ -1,5 +1,22 @@
 # @hashicorp/design-system-components
 
+## 2.13.0
+
+### Minor Changes
+
+- [#1623](https://github.com/hashicorp/design-system/pull/1623) [`2111a5439`](https://github.com/hashicorp/design-system/commit/2111a5439abea2951f12517354db662edd7c9cb9) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - `AppFooter` - Added new component
+
+- [#1630](https://github.com/hashicorp/design-system/pull/1630) [`04da95443`](https://github.com/hashicorp/design-system/commit/04da95443290ee2d03d9bef23787a4ef10577247) Thanks [@alex-ju](https://github.com/alex-ju)! - `SideNav` - add `@isCollapsible` (to control if users can collapse the sidenav on 'desktop' viewports) and `@isMinimized` (to control the default state on 'desktop' viewports) arguments
+
+### Patch Changes
+
+- [#1696](https://github.com/hashicorp/design-system/pull/1696) [`f3f3fb103`](https://github.com/hashicorp/design-system/commit/f3f3fb103a5aa1c6489d011b6820560df4c2ed88) Thanks [@MelSumner](https://github.com/MelSumner)! - `Tag` - Updated padding for dismiss button for WCAG conformance
+
+- [#1678](https://github.com/hashicorp/design-system/pull/1678) [`a51976ded`](https://github.com/hashicorp/design-system/commit/a51976ded4f7939fe140a1abade0f98832ccc2d0) Thanks [@alex-ju](https://github.com/alex-ju)! - `Link::Standalone` – increase target size
+
+- Updated dependencies [[`04da95443`](https://github.com/hashicorp/design-system/commit/04da95443290ee2d03d9bef23787a4ef10577247)]:
+  - @hashicorp/design-system-tokens@1.9.0
+
 ## 2.12.2
 
 ### Patch Changes
