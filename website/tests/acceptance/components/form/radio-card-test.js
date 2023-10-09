@@ -17,7 +17,7 @@ module('Acceptance | components/form/radio card', function (hooks) {
     assert.strictEqual(currentURL(), '/components/form/radio-card');
   });
 
-  test('components/form/radio-card page passes a11y automated checks', async function (assert) {
+  test('components/form/radio-card page passes automated a11y checks', async function (assert) {
     await visit('/components/form/radio-card');
     await a11yAudit();
     assert.ok(true, 'a11y automation audit passed');

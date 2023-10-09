@@ -17,7 +17,7 @@ module('Acceptance | foundations/typography', function (hooks) {
     assert.strictEqual(currentURL(), '/foundations/typography');
   });
 
-  test('foundations/typography page passes a11y automated checks', async function (assert) {
+  test('foundations/typography page passes automated a11y checks', async function (assert) {
     await visit('/foundations/typography');
 
     await a11yAudit();

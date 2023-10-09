@@ -16,7 +16,7 @@ module('Acceptance | components/tooltip', function (hooks) {
 
     assert.strictEqual(currentURL(), '/components/tooltip');
   });
-  test('Components/tooltip page passes a11y automated checks', async function (assert) {
+  test('Components/tooltip page passes automated a11y checks', async function (assert) {
     await visit('/components/tooltip');
 
     await a11yAudit();

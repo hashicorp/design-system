@@ -17,7 +17,7 @@ module('Acceptance | foundations/focus-ring', function (hooks) {
     assert.strictEqual(currentURL(), '/foundations/focus-ring');
   });
 
-  test('foundations/focus-ring page passes a11y automated checks', async function (assert) {
+  test('foundations/focus-ring page passes automated a11y checks', async function (assert) {
     await visit('/foundations/focus-ring');
 
     await a11yAudit();

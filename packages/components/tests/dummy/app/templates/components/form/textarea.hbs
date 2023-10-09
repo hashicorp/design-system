@@ -15,13 +15,16 @@
 
   <Shw::Flex as |SF|>
     <SF.Item @label="Default">
-      <Hds::Form::Textarea::Base />
+      <Hds::Form::Textarea::Base aria-label="default textarea example" />
     </SF.Item>
     <SF.Item @label="With placeholder">
-      <Hds::Form::Textarea::Base placeholder="Lorem ipsum dolor" />
+      <Hds::Form::Textarea::Base aria-label="textarea example with placeholder" placeholder="Lorem ipsum dolor" />
     </SF.Item>
     <SF.Item @label="With value">
-      <Hds::Form::Textarea::Base @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco" />
+      <Hds::Form::Textarea::Base
+        aria-label="textarea example with value"
+        @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
+      />
     </SF.Item>
   </Shw::Flex>
 
@@ -41,6 +44,7 @@
               <Shw::Flex @direction="column" as |SF|>
                 <SF.Item>
                   <Hds::Form::Textarea::Base
+                    aria-label="textarea example as {{state}}"
                     disabled={{if (eq variant "disabled") "disabled"}}
                     readonly={{if (eq variant "readonly") "readonly"}}
                     @isInvalid={{if (eq variant "invalid") true}}
@@ -48,6 +52,7 @@
                 </SF.Item>
                 <SF.Item>
                   <Hds::Form::Textarea::Base
+                    aria-label="textarea example as with placeholder in{{state}}"
                     placeholder="Placeholder"
                     disabled={{if (eq variant "disabled") "disabled"}}
                     readonly={{if (eq variant "readonly") "readonly"}}
@@ -56,6 +61,7 @@
                 </SF.Item>
                 <SF.Item>
                   <Hds::Form::Textarea::Base
+                    aria-label="textarea example with value as {{state}}"
                     @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
                     disabled={{if (eq variant "disabled") "disabled"}}
                     readonly={{if (eq variant "readonly") "readonly"}}
@@ -98,10 +104,15 @@
           <Shw::Label>Parent with <code>display: {{display}}</code></Shw::Label>
           <Shw::Flex as |SF|>
             <SF.Item @grow={{true}} {{style display=display}}>
-              <Hds::Form::Textarea::Base @value="Default width" />
+              <Hds::Form::Textarea::Base aria-label="textarea example as {{display}}" @value="Default width" />
             </SF.Item>
             <SF.Item @grow={{true}} {{style display=display}}>
-              <Hds::Form::Textarea::Base @value="Custom width and height" @width="248px" @height="150px" />
+              <Hds::Form::Textarea::Base
+                aria-label="textarea example as {{display}}"
+                @value="Custom width and height"
+                @width="248px"
+                @height="150px"
+              />
             </SF.Item>
           </Shw::Flex>
         </SG.Item>

@@ -17,7 +17,7 @@ module('Acceptance | icons/usage guidelines', function (hooks) {
     assert.strictEqual(currentURL(), '/icons/usage-guidelines');
   });
 
-  test('icons/usage-guidelines page passes a11y automated checks', async function (assert) {
+  test('icons/usage-guidelines page passes automated a11y checks', async function (assert) {
     await visit('/icons/usage-guidelines');
 
     await a11yAudit();

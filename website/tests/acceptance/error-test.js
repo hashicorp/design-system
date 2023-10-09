@@ -23,7 +23,7 @@ module('Acceptance | error', function (hooks) {
     assert.strictEqual(currentURL(), '/error');
   });
 
-  test('error page passes a11y automated checks', async function (assert) {
+  test('error page passes automated a11y checks', async function (assert) {
     await visit('/error');
 
     await a11yAudit();

@@ -17,7 +17,7 @@ module('Acceptance | components/form/primitives', function (hooks) {
     assert.strictEqual(currentURL(), '/components/form/primitives');
   });
 
-  test('components/form/primitives page passes a11y automated checks', async function (assert) {
+  test('components/form/primitives page passes automated a11y checks', async function (assert) {
     await visit('/components/form/primitives');
     await a11yAudit();
     assert.ok(true, 'a11y automation audit passed');

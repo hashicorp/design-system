@@ -17,7 +17,7 @@ module('Acceptance | components/form/checkbox', function (hooks) {
     assert.strictEqual(currentURL(), '/components/form/checkbox');
   });
 
-  test('components/form/checkbox page passes a11y automated checks', async function (assert) {
+  test('components/form/checkbox page passes automated a11y checks', async function (assert) {
     await visit('/components/form/checkbox');
     await a11yAudit();
     assert.ok(true, 'a11y automation audit passed');

@@ -16,7 +16,7 @@ module('Acceptance | components/separator', function (hooks) {
 
     assert.strictEqual(currentURL(), '/components/separator');
   });
-  test('Components/separator page passes a11y automated checks', async function (assert) {
+  test('Components/separator page passes automated a11y checks', async function (assert) {
     await visit('/components/separator');
 
     await a11yAudit();

@@ -17,7 +17,7 @@ module('Acceptance | components/badge', function (hooks) {
     assert.strictEqual(currentURL(), '/components/badge');
   });
 
-  test('Components/badge page passes a11y automated checks', async function (assert) {
+  test('Components/badge page passes automated a11y checks', async function (assert) {
     await visit('/components/badge');
 
     await a11yAudit();

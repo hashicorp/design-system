@@ -16,7 +16,7 @@ module('Acceptance | components/flyout', function (hooks) {
 
     assert.strictEqual(currentURL(), '/components/flyout');
   });
-  test('Components/flyout page passes a11y automated checks', async function (assert) {
+  test('Components/flyout page passes automated a11y checks', async function (assert) {
     await visit('/components/flyout');
 
     await a11yAudit();

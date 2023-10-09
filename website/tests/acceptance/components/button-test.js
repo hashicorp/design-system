@@ -16,7 +16,7 @@ module('Acceptance | components/button', function (hooks) {
 
     assert.strictEqual(currentURL(), '/components/button');
   });
-  test('components/button page passes a11y automated checks', async function (assert) {
+  test('components/button page passes automated a11y checks', async function (assert) {
     await visit('/components/button');
     await a11yAudit();
     assert.ok(true, 'a11y automation audit passed');

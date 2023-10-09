@@ -16,7 +16,7 @@ module('Acceptance | components/page-header', function (hooks) {
 
     assert.strictEqual(currentURL(), '/components/page-header');
   });
-  test('Components/page-header page passes a11y automated checks', async function (assert) {
+  test('Components/page-header page passes automated a11y checks', async function (assert) {
     await visit('/components/page-header');
 
     await a11yAudit();

@@ -41,7 +41,7 @@ SPDX-License-Identifier: MPL-2.0
       <Hds::PageHeader as |PH|>
         <PH.Title>Page title</PH.Title>
         <PH.Breadcrumb>
-          <Hds::Breadcrumb>
+          <Hds::Breadcrumb aria-label="breadcrumbs with page title example">
             <Hds::Breadcrumb::Item @text="Organization" @icon="org" />
             <Hds::Breadcrumb::Item @text="Project" @icon="folder" />
             <Hds::Breadcrumb::Item @text="User" @icon="user" />
@@ -117,7 +117,7 @@ SPDX-License-Identifier: MPL-2.0
       <Hds::PageHeader as |PH|>
         <PH.Title>HCP Packer</PH.Title>
         <PH.Breadcrumb>
-          <Hds::Breadcrumb>
+          <Hds::Breadcrumb aria-label="breadcrumbs with complex examples">
             <Hds::Breadcrumb::Item @text="Sandbox" @icon="org" />
             <Hds::Breadcrumb::Item @text="HCP Packer" @icon="packer" />
             <Hds::Breadcrumb::Item @text="jane-doe" @icon="file-text" />
@@ -138,7 +138,7 @@ SPDX-License-Identifier: MPL-2.0
         <PH.Title>Boundary clusters</PH.Title>
         <PH.IconTile @icon="boundary-color" @color="boundary" />
         <PH.Breadcrumb>
-          <Hds::Breadcrumb>
+          <Hds::Breadcrumb aria-label="breadcrumb example with item page">
             <Hds::Breadcrumb::Item @text="Cloud sandbox" @icon="org" />
             <Hds::Breadcrumb::Item @text="Boundary clusters" @icon="boundary" />
           </Hds::Breadcrumb>
@@ -162,7 +162,7 @@ SPDX-License-Identifier: MPL-2.0
         </PH.Badges>
         <PH.Description>
           While this is supported by the contextual component, this many badges being used to represent metadata can be
-          problemantic.
+          problematic.
         </PH.Description>
       </Hds::PageHeader>
       <Shw::Divider @level={{2}} />
@@ -311,7 +311,7 @@ SPDX-License-Identifier: MPL-2.0
               <PH.Title>Title of the page</PH.Title>
               <PH.IconTile @icon="smartphone" />
               <PH.Breadcrumb>
-                <Hds::Breadcrumb>
+                <Hds::Breadcrumb aria-label="example for {{width}}">
                   <Hds::Breadcrumb::Item @text="Organization" />
                   <Hds::Breadcrumb::Item @text="User" />
                 </Hds::Breadcrumb>

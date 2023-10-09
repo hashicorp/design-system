@@ -15,13 +15,13 @@
 
   <Shw::Flex as |SF|>
     <SF.Item @label="Default">
-      <Hds::Form::TextInput::Base />
+      <Hds::Form::TextInput::Base aria-label="default input example" />
     </SF.Item>
     <SF.Item @label="With placeholder">
       <Hds::Form::TextInput::Base placeholder="Lorem ipsum dolor" />
     </SF.Item>
     <SF.Item @label="With value">
-      <Hds::Form::TextInput::Base @value="Lorem ipsum dolor" />
+      <Hds::Form::TextInput::Base @value="Lorem ipsum dolor" aria-label="text input example with value" />
     </SF.Item>
   </Shw::Flex>
 
@@ -30,11 +30,16 @@
   <Shw::Grid @columns={{4}} as |SG|>
     {{#each @model.TYPES as |type|}}
       <SG.Item @label={{capitalize type}}>
-        <Hds::Form::TextInput::Base @type={{type}} @value={{type}} />
+        <Hds::Form::TextInput::Base @type={{type}} @value={{type}} aria-label="text input example for {{type}}" />
       </SG.Item>
     {{/each}}
     <SG.Item @label="Search (loading state)">
-      <Hds::Form::TextInput::Base @type="search" @value="search" @isLoading={{true}} />
+      <Hds::Form::TextInput::Base
+        @type="search"
+        @value="search"
+        @isLoading={{true}}
+        aria-label="example of textinput with search/loading state"
+      />
     </SG.Item>
   </Shw::Grid>
 
@@ -54,6 +59,7 @@
               <Shw::Flex @direction="column" as |SF|>
                 <SF.Item>
                   <Hds::Form::TextInput::Base
+                    aria-label="text input example as {{state}}"
                     disabled={{if (eq variant "disabled") "disabled"}}
                     readonly={{if (eq variant "readonly") "readonly"}}
                     @isInvalid={{if (eq variant "invalid") true}}
@@ -61,6 +67,7 @@
                 </SF.Item>
                 <SF.Item>
                   <Hds::Form::TextInput::Base
+                    aria-label="text input example as {{state}}"
                     placeholder="Placeholder"
                     disabled={{if (eq variant "disabled") "disabled"}}
                     readonly={{if (eq variant "readonly") "readonly"}}
@@ -69,6 +76,7 @@
                 </SF.Item>
                 <SF.Item>
                   <Hds::Form::TextInput::Base
+                    aria-label="text input example as {{state}}"
                     @value="Lorem ipsum dolor"
                     disabled={{if (eq variant "disabled") "disabled"}}
                     readonly={{if (eq variant "readonly") "readonly"}}
@@ -77,6 +85,7 @@
                 </SF.Item>
                 <SF.Item>
                   <Hds::Form::TextInput::Base
+                    aria-label="text input example as {{state}}"
                     @type="password"
                     @value="Lorem ipsum dolor"
                     disabled={{if (eq variant "disabled") "disabled"}}
@@ -86,6 +95,7 @@
                 </SF.Item>
                 <SF.Item>
                   <Hds::Form::TextInput::Base
+                    aria-label="text input example as {{state}}"
                     @type="search"
                     @value="Lorem ipsum dolor"
                     disabled={{if (eq variant "disabled") "disabled"}}
@@ -95,6 +105,7 @@
                 </SF.Item>
                 <SF.Item>
                   <Hds::Form::TextInput::Base
+                    aria-label="text input example as {{state}}"
                     @type="date"
                     @value="Lorem ipsum dolor"
                     disabled={{if (eq variant "disabled") "disabled"}}
@@ -104,6 +115,7 @@
                 </SF.Item>
                 <SF.Item>
                   <Hds::Form::TextInput::Base
+                    aria-label="text input example as {{state}}"
                     @type="time"
                     @value="Lorem ipsum dolor"
                     disabled={{if (eq variant "disabled") "disabled"}}
@@ -113,6 +125,7 @@
                 </SF.Item>
                 <SF.Item>
                   <Hds::Form::TextInput::Base
+                    aria-label="text input example as {{state}}"
                     @type="datetime-local"
                     @value="Lorem ipsum dolor"
                     disabled={{if (eq variant "disabled") "disabled"}}
@@ -150,19 +163,23 @@
           <Shw::Label>Parent with <code>display: {{display}}</code></Shw::Label>
           <Shw::Flex @direction="column" as |SF|>
             <SF.Item {{style display=display}}>
-              <Hds::Form::TextInput::Base @value="Default width" />
+              <Hds::Form::TextInput::Base @value="Default width" aria-label="text input example as {{display}}" />
             </SF.Item>
             <SF.Item {{style display=display}}>
-              <Hds::Form::TextInput::Base @value="Custom width" @width="248px" />
+              <Hds::Form::TextInput::Base
+                @value="Custom width"
+                @width="248px"
+                aria-label="text input example as {{display}}"
+              />
             </SF.Item>
             <SF.Item {{style display=display}}>
-              <Hds::Form::TextInput::Base @type="date" />
+              <Hds::Form::TextInput::Base aria-label="text input example as {{display}}" @type="date" />
             </SF.Item>
             <SF.Item {{style display=display}}>
-              <Hds::Form::TextInput::Base @type="time" />
+              <Hds::Form::TextInput::Base aria-label="text input example as {{display}}" @type="time" />
             </SF.Item>
             <SF.Item {{style display=display}}>
-              <Hds::Form::TextInput::Base @type="datetime-local" />
+              <Hds::Form::TextInput::Base aria-label="text input example as {{display}}" @type="datetime-local" />
             </SF.Item>
           </Shw::Flex>
         </SG.Item>

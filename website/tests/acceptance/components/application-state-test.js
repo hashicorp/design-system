@@ -16,7 +16,7 @@ module('Acceptance | components/application-state', function (hooks) {
 
     assert.strictEqual(currentURL(), '/components/application-state');
   });
-  test('Components/application-state page passes a11y automated checks', async function (assert) {
+  test('Components/application-state page passes automated a11y checks', async function (assert) {
     await visit('/components/application-state');
 
     await a11yAudit();

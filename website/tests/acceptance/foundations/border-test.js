@@ -17,7 +17,7 @@ module('Acceptance | foundations/border', function (hooks) {
     assert.strictEqual(currentURL(), '/foundations/border');
   });
 
-  test('foundations/border page passes a11y automated checks', async function (assert) {
+  test('foundations/border page passes automated a11y checks', async function (assert) {
     await visit('/foundations/border');
 
     await a11yAudit();

@@ -16,7 +16,7 @@ module('Acceptance | components/copy/snippet', function (hooks) {
 
     assert.strictEqual(currentURL(), '/components/copy/snippet');
   });
-  test('Components/copy/snippet page passes a11y automated checks', async function (assert) {
+  test('Components/copy/snippet page passes automated a11y checks', async function (assert) {
     await visit('/components/copy/snippet');
 
     await a11yAudit();

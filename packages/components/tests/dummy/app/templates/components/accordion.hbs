@@ -369,6 +369,7 @@
                 @parentContainsInteractive={{bool}}
                 mock-state-value={{state}}
                 @onClickToggle={{this.noop}}
+                aria-label={{state}}
               />
             </div>
           </SF.Item>
@@ -380,6 +381,7 @@
               @parentContainsInteractive={{bool}}
               @isOpen={{true}}
               @onClickToggle={{this.noop}}
+              aria-label="open is true"
             />
           </div>
         </SF.Item>
@@ -391,6 +393,7 @@
               @isOpen={{true}}
               @onClickToggle={{this.noop}}
               mock-state-value="focus"
+              aria-label="focused and is open"
             />
           </div>
         </SF.Item>

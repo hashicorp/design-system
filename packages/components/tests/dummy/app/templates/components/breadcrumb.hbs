@@ -13,7 +13,7 @@
 
   <Shw::Flex @label="Text only" as |SF|>
     <SF.Item>
-      <Hds::Breadcrumb>
+      <Hds::Breadcrumb aria-label="text-only breadcrumb example">
         <Hds::Breadcrumb::Item @text="Level one" />
         <Hds::Breadcrumb::Item @text="Level two" />
         <Hds::Breadcrumb::Item @text="Level three" />
@@ -26,7 +26,7 @@
 
   <Shw::Flex @label="With icons" as |SF|>
     <SF.Item>
-      <Hds::Breadcrumb>
+      <Hds::Breadcrumb aria-label="breadcrumb with icons example">
         <Hds::Breadcrumb::Item @text="Level one" @icon="org" />
         <Hds::Breadcrumb::Item @text="Level two" @icon="folder" />
         <Hds::Breadcrumb::Item @text="Level three" />
@@ -39,7 +39,7 @@
 
   <Shw::Flex @label="With truncation" as |SF|>
     <SF.Item>
-      <Hds::Breadcrumb>
+      <Hds::Breadcrumb aria-label="breadcrumb with truncation example">
         <Hds::Breadcrumb::Item @text="Level one" />
         <Hds::Breadcrumb::Item @text="Level two" />
         <Hds::Breadcrumb::Truncation>
@@ -77,7 +77,7 @@
 
   <Shw::Flex @label="Hover" as |SF|>
     <SF.Item>
-      <Hds::Breadcrumb>
+      <Hds::Breadcrumb aria-label="breadcrumb in hover state example">
         <Hds::Breadcrumb::Item @text="Level one" @icon="org" mock-state-value="hover" mock-state-selector="a" />
         <Hds::Breadcrumb::Item @text="Level two" @icon="folder" mock-state-value="hover" mock-state-selector="a" />
         <Hds::Breadcrumb::Truncation mock-state-value="hover" mock-state-selector="button">
@@ -95,7 +95,7 @@
 
   <Shw::Flex @label="Active" as |SF|>
     <SF.Item>
-      <Hds::Breadcrumb>
+      <Hds::Breadcrumb aria-label="breadcrumb in active state example">
         <Hds::Breadcrumb::Item @text="Level one" @icon="org" mock-state-value="active" mock-state-selector="a" />
         <Hds::Breadcrumb::Item @text="Level two" @icon="folder" mock-state-value="active" mock-state-selector="a" />
         <Hds::Breadcrumb::Truncation mock-state-value="active" mock-state-selector="button">
@@ -113,7 +113,7 @@
 
   <Shw::Flex @label="Focus" as |SF|>
     <SF.Item>
-      <Hds::Breadcrumb>
+      <Hds::Breadcrumb aria-label="breadcrumb in focus state example">
         <Hds::Breadcrumb::Item @text="Level one" @icon="org" mock-state-value="focus" mock-state-selector="a" />
         <Hds::Breadcrumb::Item @text="Level two" @icon="folder" mock-state-value="focus" mock-state-selector="a" />
         <Hds::Breadcrumb::Truncation mock-state-value="focus" mock-state-selector="button">
@@ -133,7 +133,7 @@
 
   <Shw::Flex @label="With long strings / items can wrap (default)" as |SF|>
     <SF.Item class="shw-component-breadcrumb-sample-with-max-width">
-      <Hds::Breadcrumb>
+      <Hds::Breadcrumb aria-label="breadcrumb with long strings example">
         <Hds::Breadcrumb::Item @text="Level one with a very long string" @icon="org" />
         <Hds::Breadcrumb::Item @text="Level two with a very long string" @icon="folder" />
         <Hds::Breadcrumb::Item @text="Level three with a very long string" />
@@ -146,7 +146,7 @@
 
   <Shw::Flex @label="With long strings / items can't wrap (text is elliptized)" as |SF|>
     <SF.Item class="shw-component-breadcrumb-sample-with-max-width">
-      <Hds::Breadcrumb @itemsCanWrap={{false}}>
+      <Hds::Breadcrumb @itemsCanWrap={{false}} aria-label="breadcrumb with long strings and no text wrapping example">
         <Hds::Breadcrumb::Item @text="Level one with a very long string" @icon="org" />
         <Hds::Breadcrumb::Item @text="Level two with a very long string" @icon="folder" />
         <Hds::Breadcrumb::Item @text="Level three with a very long string" />
@@ -159,7 +159,7 @@
 
   <Shw::Flex @label="With max-width on single item" as |SF|>
     <SF.Item class="shw-component-breadcrumb-sample-with-max-width">
-      <Hds::Breadcrumb @itemsCanWrap={{false}}>
+      <Hds::Breadcrumb @itemsCanWrap={{false}} aria-label="breadcrumb with max-widh set example">
         <Hds::Breadcrumb::Item @text="Level one" @icon="org" />
         <Hds::Breadcrumb::Item @text="Level two" @icon="folder" />
         <Hds::Breadcrumb::Item @text="Level three" />
@@ -172,7 +172,7 @@
 
   <Shw::Flex @label="With 'truncation' element" as |SF|>
     <SF.Item class="shw-component-breadcrumb-sample-truncation-dropdown">
-      <Hds::Breadcrumb>
+      <Hds::Breadcrumb aria-label="breadcrumb with truncation element example">
         <Hds::Breadcrumb::Item @text="Level one" />
         <Hds::Breadcrumb::Item @text="Level two" />
         <Hds::Breadcrumb::Truncation>

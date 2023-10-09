@@ -17,7 +17,7 @@ module('Acceptance | foundations/elevation', function (hooks) {
     assert.strictEqual(currentURL(), '/foundations/elevation');
   });
 
-  test('foundations/elevation page passes a11y automated checks', async function (assert) {
+  test('foundations/elevation page passes automated a11y checks', async function (assert) {
     await visit('/foundations/elevation');
 
     await a11yAudit();

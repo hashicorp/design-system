@@ -17,7 +17,7 @@ module('Acceptance | foundations/accessibility', function (hooks) {
     assert.strictEqual(currentURL(), '/foundations/accessibility');
   });
 
-  test('foundations/accessibility page passes a11y automated checks', async function (assert) {
+  test('foundations/accessibility page passes automated a11y checks', async function (assert) {
     await visit('/foundations/accessibility');
 
     await a11yAudit();

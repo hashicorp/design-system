@@ -17,7 +17,7 @@ module('Acceptance | about/accessibility statement', function (hooks) {
     assert.strictEqual(currentURL(), '/about/accessibility-statement');
   });
 
-  test('about/accessibility-statement page passes a11y automated checks', async function (assert) {
+  test('about/accessibility-statement page passes automated a11y checks', async function (assert) {
     await visit('/about/accessibility-statement');
 
     await a11yAudit();
