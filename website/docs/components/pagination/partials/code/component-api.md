@@ -28,23 +28,26 @@ These Pagination sub-elements may be used directly if you need to cover a very s
 <C.Property @name="totalItems" @required="true" @type="number">
 Pass the total number of items to be paginated. If no value is defined an error will be thrown.
 </C.Property>
-<C.Property @name="currentPageSize" @type="number">
-Pass the maximum number of items to display on each page. If no value is defined, the first page size in `pageSizes` will be used. Default is `10` if custom `pageSizes` are not defined.
-</C.Property>
-<C.Property @name="pageSizes" @type="array" @values={{array "[10, 30, 50]" "array of integers" }} @default="[10, 30, 50]">
-Set the page sizes users can select from. Example: `@pageSizes=\{{array 5 20 30}}`.
-</C.Property>
 <C.Property @name="currentPage" @type="integer" @values={{array 1 "integer" }} @default={{1}}>
 Set a custom initial selected page.
 </C.Property>
-<C.Property @name="sizeSelectorLabel" @type="string" @default="Items per page">
-  Add a custom string for the label text overriding the default value.
+<C.Property @name="currentPageSize" @type="number">
+Pass the maximum number of items to display on each page. If no value is defined, the first page size in `pageSizes` will be used. Default is `10` if custom `pageSizes` are not defined.
+</C.Property>
+<C.Property @name="showLabels" @type="boolean" @default="false">
+Used to control the visibility of the "prev/next" text labels.
 </C.Property>
 <C.Property @name="isTruncated" @type="boolean" @default="true">
 Used to to limit the number of page numbers displayed (to save space, it will display an ellipsis for some numbers).
 </C.Property>
-<C.Property @name="showLabels" @type="boolean" @default="false">
-Used to control the visibility of the "prev/next" text labels.
+<C.Property @name="showSizeSelector" @type="boolean" @default="true">
+Used to control the visibility of the "size selector".
+</C.Property>
+<C.Property @name="pageSizes" @type="array" @values={{array "[10, 30, 50]" "array of integers" }} @default="[10, 30, 50]">
+Set the page sizes users can select from. Example: `@pageSizes=\{{array 5 20 30}}`.
+</C.Property>
+<C.Property @name="sizeSelectorLabel" @type="string" @default="Items per page">
+  Add a custom string for the label text overriding the default value.
 </C.Property>
 <C.Property @name="route/model/models/replace">
 These are the parameters that are passed down as arguments to the `Hds::Pagination::Arrow`/`Hds::Pagination::Number` child components, and from them to the `Hds::Interactive` component (used internally). For more details about how this low-level component works please refer to [its documentation page](/utilities/interactive/).
@@ -69,17 +72,26 @@ This component supports use of [`...attributes`](https://guides.emberjs.com/rele
 <C.Property @name="ariaLabel" @type="string" @default="Pagination">
     Accepts a localized string.
 </C.Property>
+<C.Property @name="showLabels" @type="boolean" @default="true">
+Used to control the visibility of the "prev/next" text labels.
+</C.Property>
+<C.Property @name="isDisabledPrev/isDisabledNext" @type="boolean" @default="false">
+Used to disable the "prev" or "next" controls. Notice: when the control is disabled, it’s always rendered as an HTML `<button>` element.
+</C.Property>
+<C.Property @name="showSizeSelector" @type="boolean" @default="true">
+Used to control the visibility of the "size selector".
+</C.Property>
+<C.Property @name="pageSizes" @type="array" @values={{array "[10, 30, 50]" "array of integers" }} @default="[10, 30, 50]">
+Set the page sizes users can select from. Example: `@pageSizes=\{{array 5 20 30}}`.
+</C.Property>
+<C.Property @name="sizeSelectorLabel" @type="string" @default="Items per page">
+  Add a custom string for the label text overriding the default value.
+</C.Property>
 <C.Property @name="route/model/models/replace">
 These are the parameters that are passed down as arguments to the `Hds::Pagination::Arrow` child components, and from them to the `Hds::Interactive` component (used internally). For more details about how this low-level component works, please refer to [its documentation page](/utilities/interactive/).
 </C.Property>
 <C.Property @name="queryFunction" @type="function">
 A function that returns an object that can be provided as `query` argument for the routing, and that is passed down to the to the child components together with the other routing parameters. The function receives as argument one of two possible values: `prev` / `next`.
-</C.Property>
-<C.Property @name="isDisabledPrev/isDisabledNext" @type="boolean" @default="false">
-Used to disable the "prev" or "next" controls. Notice: when the control is disabled, it’s always rendered as an HTML `<button>` element.
-</C.Property>
-<C.Property @name="showLabels" @type="boolean" @default="true">
-Used to control the visibility of the "prev/next" text labels.
 </C.Property>
 <C.Property @name="onPageChange" @type="function">
 Callback function invoked (if provided) when a "prev" or "next" control is clicked. The function receives as argument one of two possible values: `prev` / `next`
