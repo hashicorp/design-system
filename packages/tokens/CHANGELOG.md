@@ -1,5 +1,11 @@
 # @hashicorp/design-system-tokens
 
+## 1.9.0
+
+### Minor Changes
+
+- [#1630](https://github.com/hashicorp/design-system/pull/1630) [`04da95443`](https://github.com/hashicorp/design-system/commit/04da95443290ee2d03d9bef23787a4ef10577247) Thanks [@alex-ju](https://github.com/alex-ju)! - `SideNav` - add `@isCollapsible` (to control if users can collapse the sidenav on 'desktop' viewports) and `@isMinimized` (to control the default state on 'desktop' viewports) arguments
+
 ## 1.8.0
 
 ### Minor Changes
