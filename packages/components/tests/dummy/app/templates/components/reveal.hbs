@@ -95,7 +95,7 @@
         Lorem ipsum dolor sit amet consectetur
       </p>
       <Hds::Reveal @text="More options">
-        <Shw::Placeholder @text="generic content" @height="40" @width="200" @background="#eee" />
+        <Shw::Placeholder @text="generic content" @height="40" @width="200" />
       </Hds::Reveal>
       <p class="hds-typography-body-300">
         adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
@@ -125,13 +125,13 @@
   <Shw::Flex {{style gap="5rem"}} as |SF|>
     <SF.Item @label="Only using required @text">
       <Hds::Reveal @text="Same text label for open and closed">
-        <Shw::Placeholder @text="generic content" @height="40" @width="200" @background="#eee" />
+        <Shw::Placeholder @text="generic content" @height="40" @width="200" />
       </Hds::Reveal>
     </SF.Item>
 
     <SF.Item @label="Using optional @textWhenOpen">
       <Hds::Reveal @text="Open me" @textWhenOpen="Close me">
-        <Shw::Placeholder @text="generic content" @height="40" @width="200" @background="#eee" />
+        <Shw::Placeholder @text="generic content" @height="40" @width="200" />
       </Hds::Reveal>
     </SF.Item>
   </Shw::Flex>
@@ -141,13 +141,13 @@
   <Shw::Flex {{style gap="5rem"}} as |SF|>
     <SF.Item @label="Default, isOpen=false">
       <Hds::Reveal @text="More options">
-        <Shw::Placeholder @text="generic content" @height="40" @width="200" @background="#eee" />
+        <Shw::Placeholder @text="generic content" @height="40" @width="200" />
       </Hds::Reveal>
     </SF.Item>
 
     <SF.Item @label="isOpen=true">
       <Hds::Reveal @text="More options" @isOpen={{true}}>
-        <Shw::Placeholder @text="generic content" @height="40" @width="200" @background="#eee" />
+        <Shw::Placeholder @text="generic content" @height="40" @width="200" />
       </Hds::Reveal>
     </SF.Item>
   </Shw::Flex>

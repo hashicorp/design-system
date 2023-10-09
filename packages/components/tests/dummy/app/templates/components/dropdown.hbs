@@ -705,7 +705,7 @@
         <ul class="hds-dropdown__list" role="listbox" aria-label="Custom content">
           {{#each @model.ITEM_STATES as |state|}}
             <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @count="12">
-              <Shw::Placeholder @text="custom content" @width="128" @height="20" @background="#eee" />
+              <Shw::Placeholder @text="custom content" @width="128" @height="20" />
             </Hds::Dropdown::ListItem::Checkmark>
           {{/each}}
         </ul>
@@ -716,7 +716,7 @@
         <ul class="hds-dropdown__list" role="listbox" aria-label="Custom content, selected">
           {{#each @model.ITEM_STATES as |state|}}
             <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @selected={{true}} @count="12">
-              <Shw::Placeholder @text="custom content" @width="128" @height="20" @background="#eee" />
+              <Shw::Placeholder @text="custom content" @width="128" @height="20" />
             </Hds::Dropdown::ListItem::Checkmark>
           {{/each}}
         </ul>
@@ -868,7 +868,7 @@
         <ul class="hds-dropdown__list">
           {{#each @model.ITEM_STATES as |state|}}
             <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} @count="12">
-              <Shw::Placeholder @text="custom content" @width="122" @height="20" @background="#eee" />
+              <Shw::Placeholder @text="custom content" @width="122" @height="20" />
             </Hds::Dropdown::ListItem::Checkbox>
           {{/each}}
         </ul>
@@ -879,7 +879,7 @@
         <ul class="hds-dropdown__list">
           {{#each @model.ITEM_STATES as |state|}}
             <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} checked @count="12">
-              <Shw::Placeholder @text="custom content" @width="122" @height="20" @background="#eee" />
+              <Shw::Placeholder @text="custom content" @width="122" @height="20" />
             </Hds::Dropdown::ListItem::Checkbox>
           {{/each}}
         </ul>
@@ -1026,7 +1026,7 @@
         <ul class="hds-dropdown__list">
           {{#each @model.ITEM_STATES as |state|}}
             <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} @count="12">
-              <Shw::Placeholder @text="custom content" @width="122" @height="20" @background="#eee" />
+              <Shw::Placeholder @text="custom content" @width="122" @height="20" />
             </Hds::Dropdown::ListItem::Radio>
           {{/each}}
         </ul>
@@ -1037,7 +1037,7 @@
         <ul class="hds-dropdown__list">
           {{#each @model.ITEM_STATES as |state|}}
             <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} checked @count="12">
-              <Shw::Placeholder @text="custom content" @width="122" @height="20" @background="#eee" />
+              <Shw::Placeholder @text="custom content" @width="122" @height="20" />
             </Hds::Dropdown::ListItem::Radio>
           {{/each}}
         </ul>

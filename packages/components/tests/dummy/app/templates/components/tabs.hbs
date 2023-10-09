@@ -24,12 +24,12 @@
     <T.Tab>Three</T.Tab>
 
     <T.Panel>
-      <Shw::Placeholder @height="50" @background="#eee">
+      <Shw::Placeholder @height="50">
         <span>Content one with <a href="#">link to test tabbing</a></span>
       </Shw::Placeholder>
     </T.Panel>
-    <T.Panel><Shw::Placeholder @text="Content two" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><Shw::Placeholder @text="Content three" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content two" @height="50" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content three" @height="50" /></T.Panel>
   </Hds::Tabs>
 
   <Shw::Text::Body>With optional icon and badge count</Shw::Text::Body>
@@ -40,10 +40,10 @@
     <T.Tab>Three</T.Tab>
     <T.Tab @icon="alert-triangle" @count="5">Four</T.Tab>
 
-    <T.Panel><Shw::Placeholder @text="Content one" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><Shw::Placeholder @text="Content two" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><Shw::Placeholder @text="Content three" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><Shw::Placeholder @text="Content four" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content one" @height="50" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content two" @height="50" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content three" @height="50" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content four" @height="50" /></T.Panel>
   </Hds::Tabs>
 
   <Shw::Text::Body>With pre-selected tab</Shw::Text::Body>
@@ -53,10 +53,10 @@
     <T.Tab>Two</T.Tab>
     <T.Tab @isSelected={{true}}>Three (selected on page load)</T.Tab>
 
-    <T.Panel><Shw::Placeholder @text="Content one" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><Shw::Placeholder @text="Content two" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content one" @height="50" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content two" @height="50" /></T.Panel>
     <T.Panel>
-      <Shw::Placeholder @text="Content three (displayed on page load)" @height="50" @background="#eee" />
+      <Shw::Placeholder @text="Content three (displayed on page load)" @height="50" />
     </T.Panel>
   </Hds::Tabs>
 
@@ -74,16 +74,16 @@
     <T.Tab>Nine one-thousand</T.Tab>
     <T.Tab>Ten one-thousand</T.Tab>
 
-    <T.Panel><Shw::Placeholder @text="Content one" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><Shw::Placeholder @text="Content two" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><Shw::Placeholder @text="Content three" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><Shw::Placeholder @text="Content four" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><Shw::Placeholder @text="Content five" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><Shw::Placeholder @text="Content six" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><Shw::Placeholder @text="Content seven" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><Shw::Placeholder @text="Content eight" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><Shw::Placeholder @text="Content nine" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><Shw::Placeholder @text="Content ten" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content one" @height="50" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content two" @height="50" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content three" @height="50" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content four" @height="50" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content five" @height="50" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content six" @height="50" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content seven" @height="50" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content eight" @height="50" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content nine" @height="50" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content ten" @height="50" /></T.Panel>
   </Hds::Tabs>
 
   <Shw::Text::Body>Invoking a callback function when a tab is clicked</Shw::Text::Body>
@@ -93,9 +93,9 @@
     <T.Tab>Two</T.Tab>
     <T.Tab>Three</T.Tab>
 
-    <T.Panel><Shw::Placeholder @text="Content one" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><Shw::Placeholder @text="Content two" @height="50" @background="#eee" /></T.Panel>
-    <T.Panel><Shw::Placeholder @text="Content three" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content one" @height="50" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content two" @height="50" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content three" @height="50" /></T.Panel>
   </Hds::Tabs>
 
   <Shw::Text::Body>Nested tabs</Shw::Text::Body>
@@ -110,20 +110,20 @@
         <T.Tab>Tab One - Sub-tab A</T.Tab>
         <T.Tab>Tab One - Sub-tab B</T.Tab>
         <T.Tab>Tab One - Sub-tab C</T.Tab>
-        <T.Panel><Shw::Placeholder @text="Tab One - Content A" @height="50" @background="#eee" /></T.Panel>
-        <T.Panel><Shw::Placeholder @text="Tab One - Content B" @height="50" @background="#eee" /></T.Panel>
-        <T.Panel><Shw::Placeholder @text="Tab One - Content C" @height="50" @background="#eee" /></T.Panel>
+        <T.Panel><Shw::Placeholder @text="Tab One - Content A" @height="50" /></T.Panel>
+        <T.Panel><Shw::Placeholder @text="Tab One - Content B" @height="50" /></T.Panel>
+        <T.Panel><Shw::Placeholder @text="Tab One - Content C" @height="50" /></T.Panel>
       </Hds::Tabs>
     </T.Panel>
     <T.Panel>
       <Hds::Tabs as |T|>
         <T.Tab>Tab Two - Sub-tab A</T.Tab>
         <T.Tab>Tab Two - Sub-tab B</T.Tab>
-        <T.Panel><Shw::Placeholder @text="Tab Two - Content A" @height="50" @background="#eee" /></T.Panel>
-        <T.Panel><Shw::Placeholder @text="Tab Two - Content B" @height="50" @background="#eee" /></T.Panel>
+        <T.Panel><Shw::Placeholder @text="Tab Two - Content A" @height="50" /></T.Panel>
+        <T.Panel><Shw::Placeholder @text="Tab Two - Content B" @height="50" /></T.Panel>
       </Hds::Tabs>
     </T.Panel>
-    <T.Panel><Shw::Placeholder @text="Tab Three - Content" @height="50" @background="#eee" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Tab Three - Content" @height="50" /></T.Panel>
   </Hds::Tabs>
 
   <Shw::Divider />
@@ -189,7 +189,7 @@
   <Shw::Text::H3>Tabs::Panel</Shw::Text::H3>
 
   <Hds::Tabs::Panel>
-    <Shw::Placeholder @text="Panel with generic content" @height="50" @background="#eee" />
+    <Shw::Placeholder @text="Panel with generic content" @height="50" />
   </Hds::Tabs::Panel>
 
 </section>
