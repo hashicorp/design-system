@@ -10,23 +10,52 @@ const changelogs = {
   components: '../packages/components/CHANGELOG.md',
 };
 
-const appendExternalLinks = (sourcePath) => {
+const keepOnlySubsetOfEntries = ({ sourceText }) => {
+  const lines = sourceText.split(/\r?\n/);
+  let entriesCounter = 0;
+  let subsetText = '';
+
+  lines.forEach((line) => {
+    if (line.match(/^## /)) {
+      entriesCounter++;
+    }
+    // configure here how many entries we want to keep
+    if (entriesCounter > 10) {
+      return;
+    } else {
+      subsetText += `${line}\n`;
+    }
+  });
+  return subsetText;
+};
+
+const increaseHeadingsLevelByOne = ({ sourceText }) => {
+  return sourceText.replace(/^#/gm, '##');
+};
+
+const appendExternalLinks = ({ sourceText, sourcePath }) => {
   let externalLinks = '';
   externalLinks += '\n---\n\n';
   const relativePath = sourcePath.replace(/^..\//, '');
   externalLinks += `_[Read the full changelog](https://github.com/hashicorp/design-system/blob/main/${relativePath})_`;
-  return externalLinks;
+  return sourceText + externalLinks;
 };
 
 Object.keys(changelogs).forEach((changelog) => {
   try {
     const sourcePath = changelogs[changelog];
     const componentsChangelogSource = fs.readFileSync(sourcePath, 'utf8');
-    let componentsChangelogModified = componentsChangelogSource.replace(
-      /^#/gm,
-      '##'
-    );
-    componentsChangelogModified += appendExternalLinks(sourcePath);
+    let componentsChangelogModified = componentsChangelogSource;
+    componentsChangelogModified = keepOnlySubsetOfEntries({
+      sourceText: componentsChangelogModified,
+    });
+    componentsChangelogModified = increaseHeadingsLevelByOne({
+      sourceText: componentsChangelogModified,
+    });
+    componentsChangelogModified = appendExternalLinks({
+      sourceText: componentsChangelogModified,
+      sourcePath,
+    });
     fs.writeFileSync(
       `./docs/whats-new/release-notes/partials/${changelog}.md`,
       componentsChangelogModified,
