@@ -2,7 +2,7 @@
 
 ### 2.12.2
 
-#### Patch Changes
+**Patch changes**
 
 - [#1655](https://github.com/hashicorp/design-system/pull/1655) [`38f7e36c2`](https://github.com/hashicorp/design-system/commit/38f7e36c25f3efdade9c8833512d55af502ee07e) Thanks [@alex-ju](https://github.com/alex-ju)! - PowerSelect - fix style overrides when the list is positioned above
 
@@ -13,7 +13,7 @@
 
 ### 2.12.1
 
-#### Patch Changes
+**Patch changes**
 
 - [#1627](https://github.com/hashicorp/design-system/pull/1627) [`53c9f13c0`](https://github.com/hashicorp/design-system/commit/53c9f13c0a2b120d19d74a88fd0e0799d59752c4) Thanks [@MelSumner](https://github.com/MelSumner)! - `Pagination` - Bugfix `aria-label` on the component
 
@@ -21,13 +21,13 @@
 
 ### 2.12.0
 
-#### Minor Changes
+**Minor changes**
 
 - [#1640](https://github.com/hashicorp/design-system/pull/1640) [`8001667d2`](https://github.com/hashicorp/design-system/commit/8001667d2b0b549b5c2743ebaa4b50b58344a87f) Thanks [@didoo](https://github.com/didoo)! - `Design tokens` - Added color tokens for “Vault Secrets” product
 
   `IconTile` - updated component to include `vault-secrets` product option
 
-#### Patch Changes
+**Patch changes**
 
 - [#1615](https://github.com/hashicorp/design-system/pull/1615) [`d5d4402b2`](https://github.com/hashicorp/design-system/commit/d5d4402b2b7529d60ac693babc2a9187f8fbad36) Thanks [@didoo](https://github.com/didoo)! - `Text` - Removed leftover `console.log` from code
 
@@ -43,13 +43,13 @@
 
 ### 2.11.0
 
-#### Minor Changes
+**Minor changes**
 
 - [#1490](https://github.com/hashicorp/design-system/pull/1490) [`4dafcb7d7`](https://github.com/hashicorp/design-system/commit/4dafcb7d7568027c495cb92d01026359a040507a) Thanks [@didoo](https://github.com/didoo)! - `Hds::Text` - Added new `Text` component
 
 - [#1587](https://github.com/hashicorp/design-system/pull/1587) [`57e7a42cb`](https://github.com/hashicorp/design-system/commit/57e7a42cb8353af83d8be5be0a318f951b00d3e3) Thanks [@alex-ju](https://github.com/alex-ju)! - `Hds::Form::MaskedInput` - Add `hasCopyButton` argument
 
-#### Patch Changes
+**Patch changes**
 
 - [#1577](https://github.com/hashicorp/design-system/pull/1577) [`8aa9a5889`](https://github.com/hashicorp/design-system/commit/8aa9a5889cf14fc28100a462dfd42754a3bdb42b) Thanks [@DingoEatingFuzz](https://github.com/DingoEatingFuzz)! - Remove aria-hidden from the "optional" span in Form::Indicator
 
@@ -62,11 +62,11 @@
 
 ### 2.10.0
 
-#### Minor Changes
+**Minor changes**
 
 - [#1535](https://github.com/hashicorp/design-system/pull/1535) [`2daa95479`](https://github.com/hashicorp/design-system/commit/2daa95479307fea0b94b2af413126d09525462c8) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - Add new `FileInput` component
 
-#### Patch Changes
+**Patch changes**
 
 - [#1570](https://github.com/hashicorp/design-system/pull/1570) [`7bf297996`](https://github.com/hashicorp/design-system/commit/7bf297996e06a15cb2506bfb23f43d71ecc9b492) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Remove unnecessary export of `hds/copy/index.js`
 
@@ -87,11 +87,11 @@
 
 ### 2.9.0
 
-#### Minor Changes
+**Minor changes**
 
 - [#1488](https://github.com/hashicorp/design-system/pull/1488) [`372bae36d`](https://github.com/hashicorp/design-system/commit/372bae36d87377dc87aa18ed39c7834a4cc545f4) Thanks [@MelSumner](https://github.com/MelSumner)! - Adds the `Hds::CopyButton` and `Hds::CopySnippet` components.
 
-#### Patch Changes
+**Patch changes**
 
 - [#1539](https://github.com/hashicorp/design-system/pull/1539) [`9d3f29a42`](https://github.com/hashicorp/design-system/commit/9d3f29a42e8130b2155498a7c3cb77a6da279a68) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Adjusted closing brace on copywrite headers to avoid terminal noise
 
@@ -108,7 +108,7 @@
 
 ### 2.8.1
 
-#### Patch Changes
+**Patch changes**
 
 - [#1516](https://github.com/hashicorp/design-system/pull/1516) [`f2192cad7`](https://github.com/hashicorp/design-system/commit/f2192cad73b6d966bf813f54dcee02e157c76392) Thanks [@didoo](https://github.com/didoo)! - `Hds::SideNav` - Fixed issue with links still being interactive (even if visually hidden) when the navigation is "minimized"
 
@@ -126,7 +126,7 @@
 
 ### 2.8.0
 
-#### Minor Changes
+**Minor changes**
 
 - [#1492](https://github.com/hashicorp/design-system/pull/1492) [`a17e5b2ac`](https://github.com/hashicorp/design-system/commit/a17e5b2acf66493ccbb68a623a3b7ba2fd5ab5a8) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - `Hds::Card` - Updated default value of `@overflow` argument to `"visible"` to address an area of consumer confusion and better support the most common use cases.
 
@@ -138,7 +138,7 @@
 
 - [#1423](https://github.com/hashicorp/design-system/pull/1423) [`5ac340c8c`](https://github.com/hashicorp/design-system/commit/5ac340c8c3a3adab388704067578cf419e2e2f10) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - Add `Hds::Accordion` component
 
-#### Patch Changes
+**Patch changes**
 
 - [#1466](https://github.com/hashicorp/design-system/pull/1466) [`cdda7ae8e`](https://github.com/hashicorp/design-system/commit/cdda7ae8eaf553bd32ec9e3944edf08fe352caf4) Thanks [@alex-ju](https://github.com/alex-ju)! - `Hds::PageHeader` – Set position to 'relative'
 
@@ -154,7 +154,7 @@
 
 ### 2.7.1
 
-#### Patch Changes
+**Patch changes**
 
 - [#1438](https://github.com/hashicorp/design-system/pull/1438) [`ae852e7f8`](https://github.com/hashicorp/design-system/commit/ae852e7f83da72c62ee7791f89ac5c4a9e6bc7c6) Thanks [@didoo](https://github.com/didoo)! - `TooltipButton` - added `text-align: inherit` to the "button" element
 
@@ -191,7 +191,7 @@
 
 ### 2.7.0
 
-#### Minor Changes
+**Minor changes**
 
 - [#1421](https://github.com/hashicorp/design-system/pull/1421) [`b8a45d6e7`](https://github.com/hashicorp/design-system/commit/b8a45d6e7ade6e973b2a860444d80d9216e3ab5c) Thanks [@didoo](https://github.com/didoo)! - `Table` - Exposed the internal sorting properties and methods `setSortBy`, `sortBy` and `sortOrder`
 
@@ -199,7 +199,7 @@
 
 - [#1393](https://github.com/hashicorp/design-system/pull/1393) [`38fb21e60`](https://github.com/hashicorp/design-system/commit/38fb21e6091c739f621e967e23d4c8b2794c9575) Thanks [@alex-ju](https://github.com/alex-ju)! - Add `Separator` component
 
-#### Patch Changes
+**Patch changes**
 
 - [#1415](https://github.com/hashicorp/design-system/pull/1415) [`555c86d3f`](https://github.com/hashicorp/design-system/commit/555c86d3fde07109775a61523f7b26444fc9ee62) Thanks [@didoo](https://github.com/didoo)! - `Hds::Table` - Changed the way in which the column `@width` defined by the user is applied
 
