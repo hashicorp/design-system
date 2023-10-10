@@ -4,7 +4,7 @@
 }}
 
 <div class={{this.classNames}} ...attributes>
-  <pre contentEditable={{not this.readOnly}} data-line={{@highlight}}>
+  <pre contentEditable={{not this.isReadOnly}} data-line={{@highlightLines}}>
     {{~! ~}}
     <code
       class="code-block__code"
