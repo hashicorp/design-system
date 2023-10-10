@@ -4,14 +4,14 @@
 }}
 
 <div class={{this.classNames}} ...attributes>
-  <pre contentEditable={{not this.isReadOnly}} data-line={{@highlightLines}}>
+  <pre
+    class="code-block__code"
+    {{style maxHeight=@maxHeight}}
+    contentEditable={{not this.isReadOnly}}
+    data-line={{@highlightLines}}
+  >
     {{~! ~}}
-    <code
-      class="code-block__code"
-      {{style maxHeight=@maxHeight}}
-      {{did-insert this.setPrismCode}}
-      {{did-update this.setPrismCode this.code @language}}
-    >
+    <code {{did-insert this.setPrismCode}} {{did-update this.setPrismCode this.code @language}}>
       {{~this.prismCode~}}
     </code>
     {{~! ~}}
