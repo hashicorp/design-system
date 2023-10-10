@@ -1,48 +1,45 @@
 **`Figma Libraries`**
 
-## Sept. 15th 
+### Sept. 15th 
 
 #### 🔄 Component update
 
 - `IconTile`, `IconTile-Logo` added a new product variant for Vault Secrets.
 
-## Aug. 17th 
+### Aug. 17th 
 
 #### 🐞 Component bugfix
 
 - `SideNav` changing the icon from `User` to `Help` in the first dropdown at the top of the `SideNav`.
 
-## Jul. 31st
+### Jul. 31st
 
 #### 🐞 Component bugfix
 
 - `Field/Date`, `Field/Time`, `Field/Datetime` fixing the default width of these components to match the browser default.
 
-## Jul. 30th
+### Jul. 13th 
 
-#### 🎨 Foundations update
+#### 🎉 Component release 
 
-- `Text` added new font weights and sizes to the foundations library. 
+- `Accordion` releasing the Accordion component. The accordion is used to show and hide multiple sections of content in a stacked manner.
+- `MaskedInput` releasing the MaskedInput component. A form input that visually obfuscates characters to protect sensitive information by replacing them with a shape.
 
-### Examples of Edge cases
+### Jul. 12th 
 
-#### Using badges to differentiate the Product or Marketing foundation updates
+#### 🔄 Component update 
 
-## Jul. 30th <Doc::Badge @type="information">Product</Doc::Badge> 
+- `Form Primitives` page added to house the `Fieldset` component. Added the `Fieldset` component to the Form Controls stickersheet, as well.
 
-#### 🎨 Foundations update
+### Mar. 30th 
 
-- `Text` added new font weights and sizes to the foundations library. 
+#### ⛔️ Component refactor and feature additions
 
-## Jul. 30th <Doc::Badge @type="neutral">Marketing</Doc::Badge>
+- `Dropdown` refactored the `dropdown` component to utilize new Figma functionality and added new features. `ListItem` variants: `Checkmark`, `Checkbox`, `Radio`. Updates positioning options from `Left and Right` to `Top left, Top right, Bottom left, Bottom right`. Improved accessibility on `ToggleIcon` by adding a border to better indicate interactivity.
+- `ToggleButton` and `ToggleIcon` added small variants. Added a `Header` and `Footer` to the List. Added the ability to set a fixed height on the List resulting in the use of a scrollbar for longer lists
+- [Tips for migration](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN?type=design&node-id=6264-20834&mode=design)
 
-#### 🎨 Foundations update
-
-- `Text` added new font weights and sizes to the foundations library. 
-
-#### Using badges to differentiate the Product or Marketing foundation updates. For same date. 
-
-## Jul. 30th 
+### Jul. 30th 
 
 #### 🎨 Foundations update <Doc::Badge @type="information">Product</Doc::Badge> 
 
@@ -51,4 +48,3 @@
 #### 🎨 Foundations update <Doc::Badge @type="neutral">Marketing</Doc::Badge>
 
 - `Text` added new font weights and sizes to the foundations library. 
-

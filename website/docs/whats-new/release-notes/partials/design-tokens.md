@@ -24,6 +24,4 @@
 
 **August 21st** 
 
-- `TooltipButton` Add new component and `hds-tooltip` modifier. [(#1283)](https://github.com/hashicorp/design-system/pull/1283) Thanks [@KristinLBradley](https://github.com/KristinLBradley)!
-
-- `Tooltip` Add design token
+- `TooltipButton` Add new component and `hds-tooltip` modifier, and added design token for `Tooltip`. [(#1283)](https://github.com/hashicorp/design-system/pull/1283) Thanks [@KristinLBradley](https://github.com/KristinLBradley)!
