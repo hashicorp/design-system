@@ -108,7 +108,8 @@
 
 // LineWrapping
 .hds-code-block--has-line-wrapping {
-  .code-block__code { white-space: pre-wrap; }
+  pre,
+  code { white-space: pre-wrap; }
 }
 
 // Linenumbers
