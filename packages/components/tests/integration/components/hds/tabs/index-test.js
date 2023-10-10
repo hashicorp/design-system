@@ -23,6 +23,51 @@ import {
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
+function assertCssVarsCloseTo(assert, string, values) {
+  // we need to use this regex because the widths of the tabs in local env and in CI are different (browser rendering)
+  const match = string.match(
+    /^--indicator-left-pos: (\d+)px; --indicator-width: (\d+)px;$/
+  );
+  if (match) {
+    const indicatorLeftPos = parseInt(match[1]);
+    const indicatorWidth = parseInt(match[2]);
+    const expectedIndicatorLeftPos = values[0];
+    const expectedIndicatorWidth = values[1];
+    let isIndicatorLeftPosWithinTolerance;
+    let isIndicatorWidthWithinTolerance;
+    // debugger;
+    if (indicatorLeftPos === expectedIndicatorLeftPos) {
+      isIndicatorLeftPosWithinTolerance = true;
+    } else {
+      isIndicatorLeftPosWithinTolerance =
+        Math.abs(indicatorLeftPos - expectedIndicatorLeftPos) /
+          expectedIndicatorLeftPos <=
+        0.02;
+    }
+    if (indicatorWidth === expectedIndicatorWidth) {
+      isIndicatorWidthWithinTolerance = true;
+    } else {
+      isIndicatorWidthWithinTolerance =
+        Math.abs(indicatorWidth - expectedIndicatorWidth) /
+          expectedIndicatorWidth <=
+        0.03;
+    }
+    assert.ok(
+      isIndicatorLeftPosWithinTolerance,
+      `comparing expected \`--indicator-left-pos\` value \`${expectedIndicatorLeftPos}\` with actual value \`${indicatorLeftPos}\``
+    );
+    assert.ok(
+      isIndicatorWidthWithinTolerance,
+      `comparing expected \`--indicator-width\` value \`${expectedIndicatorWidth}\` with actual value \`${indicatorWidth}\``
+    );
+  } else {
+    assert.ok(
+      false,
+      `testing \`${string}\` against \`/^--indicator-left-pos: (\\d+)px; --indicator-width: (\\d+)px;$/\` regex failed because there was no match`
+    );
+  }
+}
+
 // NOTICE
 // Because of how the `tab` and `panel` subcomponents are built,
 // it's practically impossible to test them in isolation, so we will
@@ -158,7 +203,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
 
   // TAB CLICK
 
-  test('on click it should select the clicked tab, update the indicator, and display the associated panel', async function (assert) {
+  test('on click it should select the clicked tab, display the associated panel', async function (assert) {
     await this.createTabs();
     // select tab 2
     await click('[data-test="tab-2"] .hds-tabs__tab-button');
@@ -358,21 +403,17 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
 
   // INDICATOR
 
+  // eslint-disable-next-line qunit/require-expect
   test('tab indicator should respond to tab clicks', async function (assert) {
     await this.createTabs();
     let tablistStyle = find('.hds-tabs__tablist').style;
-    assert.strictEqual(
-      tablistStyle['cssText'],
-      '--indicator-left-pos: 0px; --indicator-width: 51px;'
-    );
+    assertCssVarsCloseTo(assert, tablistStyle['cssText'], [0, 51]); // --indicator-left-pos: 0px; --indicator-width: 51px;
     // select tab 2
     await click('[data-test="tab-2"] .hds-tabs__tab-button');
-    assert.strictEqual(
-      tablistStyle['cssText'],
-      '--indicator-left-pos: 51px; --indicator-width: 51px;'
-    );
+    assertCssVarsCloseTo(assert, tablistStyle['cssText'], [51, 51]); // --indicator-left-pos: 51px; --indicator-width: 51px;
   });
 
+  // eslint-disable-next-line qunit/require-expect
   test('tab indicator should respond to content size changes', async function (assert) {
     this.set('count', 5);
     await render(hbs`
@@ -384,28 +425,20 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
       </Hds::Tabs>
     `);
     let tablistStyle = find('.hds-tabs__tablist').style;
-    assert.strictEqual(
-      tablistStyle['cssText'],
-      '--indicator-left-pos: 0px; --indicator-width: 81px;'
-    );
+    assertCssVarsCloseTo(assert, tablistStyle['cssText'], [0, 81]); // --indicator-left-pos: 0px; --indicator-width: 81px;
     this.set('count', 12345);
     await settled();
-    assert.strictEqual(
-      tablistStyle['cssText'],
-      '--indicator-left-pos: 0px; --indicator-width: 112px;'
-    );
+    assertCssVarsCloseTo(assert, tablistStyle['cssText'], [0, 112]); // --indicator-left-pos: 0px; --indicator-width: 112px;
   });
 
+  // eslint-disable-next-line qunit/require-expect
   test('tab indicator should not move when focus is shifted to another tab', async function (assert) {
     const leftArrowKey = 37;
     const spaceKey = 32;
     await this.createTabs();
     let tablistStyle = find('.hds-tabs__tablist').style;
     // test that the indicator is in the right position
-    assert.strictEqual(
-      tablistStyle['cssText'],
-      '--indicator-left-pos: 0px; --indicator-width: 51px;'
-    );
+    assertCssVarsCloseTo(assert, tablistStyle['cssText'], [0, 51]); // --indicator-left-pos: 0px; --indicator-width: 51px;
     // focus 2nd tab:
     await focus('[data-test="tab-2"] .hds-tabs__tab-button');
     // test that the navigated to tab is now focused:
@@ -416,11 +449,8 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
       'keyup',
       spaceKey
     );
-    // test that the indicator changed position
-    assert.strictEqual(
-      tablistStyle['cssText'],
-      '--indicator-left-pos: 51px; --indicator-width: 51px;'
-    );
+    // test that the indicator has changed position
+    assertCssVarsCloseTo(assert, tablistStyle['cssText'], [51, 51]); // --indicator-left-pos: 51px; --indicator-width: 51px;
     // navigate back to the previous (1st) tab using left arrow key:
     await triggerKeyEvent(
       '[data-test="tab-2"] .hds-tabs__tab-button',
@@ -430,10 +460,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
     // test that the navigated to tab is now focused:
     assert.dom('[data-test="tab-1"] .hds-tabs__tab-button').isFocused();
     // test that the indicator did _not_ changed position (tab has not been activated, just focused)
-    assert.strictEqual(
-      tablistStyle['cssText'],
-      '--indicator-left-pos: 51px; --indicator-width: 51px;'
-    );
+    assertCssVarsCloseTo(assert, tablistStyle['cssText'], [51, 51]); // --indicator-left-pos: 51px; --indicator-width: 51px;
   });
 
   // ===============================================================
