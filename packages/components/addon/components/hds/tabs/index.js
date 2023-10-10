@@ -16,9 +16,17 @@ export default class HdsTabsIndexComponent extends Component {
   @tracked panelIds = [];
   @tracked _selectedTabIndex = this.args.selectedTabIndex ?? 0;
   @tracked selectedTabId;
+  @tracked isControlled;
+
+  constructor() {
+    super(...arguments);
+
+    // this is to determine if the "selected" tab logic is controlled in the consumers' code or is maintained as an internal state
+    this.isControlled = this.args.selectedTabIndex !== undefined;
+  }
 
   get selectedTabIndex() {
-    if (this.args.selectedTabIndex !== undefined) {
+    if (this.isControlled) {
       return this.args.selectedTabIndex;
     } else {
       return this._selectedTabIndex;
@@ -26,7 +34,7 @@ export default class HdsTabsIndexComponent extends Component {
   }
 
   set selectedTabIndex(value) {
-    if (this.args.selectedTabIndex) {
+    if (this.isControlled) {
       // noop
     } else {
       this._selectedTabIndex = value;
