@@ -116,6 +116,10 @@ export default class HdsCodeBlockIndexComponent extends Component {
       classes.push(`language-${this.language}`);
     }
 
+    if (this.args.hasCopyButton) {
+      classes.push('hds-code-block--has-copy-button');
+    }
+
     if (this.args.lineWrapping === true) {
       classes.push('hds-code-block--has-line-wrapping');
     }

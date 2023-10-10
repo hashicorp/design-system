@@ -222,4 +222,20 @@ func main() {
       />
     </T.Panel>
   </Hds::Tabs>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Child components</Shw::Text::H2>
+
+  <Shw::Text::H3>AppFooter::Link</Shw::Text::H3>
+
+  <Shw::Text::H4>States</Shw::Text::H4>
+
+  <Shw::Flex {{style gap="2rem" justifyContent="space-between"}} as |SF|>
+    {{#each @model.STATES as |state|}}
+      <SF.Item @label={{state}}>
+        <Hds::CodeBlock::CopyButton mock-state-value={{state}} />
+      </SF.Item>
+    {{/each}}
+  </Shw::Flex>
 </section>
