@@ -1,4 +1,4 @@
-**`npm package: @hashicorp/design-system-components`**
+**`npm package: @hashicorp/design-system-tokens`**
 
 ## 1.8.0
 
