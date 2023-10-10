@@ -78,7 +78,7 @@ Used to control the visibility of the "prev/next" text labels.
 <C.Property @name="isDisabledPrev/isDisabledNext" @type="boolean" @default="false">
 Used to disable the "prev" or "next" controls. Notice: when the control is disabled, it’s always rendered as an HTML `<button>` element.
 </C.Property>
-<C.Property @name="showSizeSelector" @type="boolean" @default="true">
+<C.Property @name="showSizeSelector" @type="boolean" @default="false">
 Used to control the visibility of the "size selector".
 </C.Property>
 <C.Property @name="pageSizes" @type="array" @values={{array "[10, 30, 50]" "array of integers" }} @default="[10, 30, 50]">
