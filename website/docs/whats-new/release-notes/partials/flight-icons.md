@@ -1,31 +1,34 @@
-# @hashicorp/flight-icons
+**`npm package: @hashicorp/flight-icons`**
 
 ## 2.20.0
 
-### Minor Changes
+**September 22nd**
 
-- [#1657](https://github.com/hashicorp/design-system/pull/1657) [`98bbe9438`](https://github.com/hashicorp/design-system/commit/98bbe9438e034695a552e4033c80ef28970ef22a) Thanks [@jorytindall](https://github.com/jorytindall)! - Added "static" version of the animated icons:
+- `loading-static`, `running-static` added "static" version of the animated icons.
 
-  - `loading-static`
-  - `running-static`
+- `google-docs`, `google-forms`, `google-slides`, `google-sheets`, `google-drive` added new set of icons for Google services.
 
-  Added new set of icons for Google services:
+- [(#1657)](https://github.com/hashicorp/design-system/pull/1657) Thanks [@jorytindall](https://github.com/jorytindall)!
 
-  - `google-docs`
-  - `google-forms`
-  - `google-slides`
-  - `google-sheets`
-  - `google-drive`
+## 2.20.0
+
+**September 22nd**
+
+- `loading-static`, `running-static` added "static" version of the animated icons. `google-docs`, `google-forms`, `google-slides`, `google-sheets`, `google-drive` added new set of icons for Google services. [(#1657)](https://github.com/hashicorp/design-system/pull/1657) Thanks [@jorytindall](https://github.com/jorytindall)!
 
 ## 2.19.0
 
-### Minor Changes
+**September 22nd**
 
-- [#1638](https://github.com/hashicorp/design-system/pull/1638) [`64d1a98d3`](https://github.com/hashicorp/design-system/commit/64d1a98d36fc9c79e941929fec4b9ee6ee89ffdb) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - This PR will include the `Vault Secrets` icon.
+- `Vault Secrets` icon is included in this PR. [(#1638)](https://github.com/hashicorp/design-system/pull/1638) Thanks [@hashibot-hds](https://github.com/hashibot-hds)!
+
+## 2.19.0
+
+**September 22nd**
+
+- `Vault Secrets` icon is included in this PR. [(#1638)](https://github.com/hashicorp/design-system/pull/1638) 
 
 ## 2.18.0
-
-### Minor Changes
 
 - [#1585](https://github.com/hashicorp/design-system/pull/1585) [`232510a52`](https://github.com/hashicorp/design-system/commit/232510a529621114dd605b741f0fe5f571b2cb56) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Add `Vercel` and `Jira` icons
 
@@ -71,11 +74,9 @@
 
 ### Minor Changes
 
-- [#727](https://github.com/hashicorp/design-system/pull/727) [`f9c22874`](https://github.com/hashicorp/design-system/commit/f9c22874ab24db25ee347c95e5c26dc0055a642e) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Remove unnused css icons
+- `CSS icons` removed since unnused. [(#727)](https://github.com/hashicorp/design-system/pull/727) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)!
 
-  _Notice: as an exception, we are releasing this change as minor instead of major for the reason that no one is actually using these files._
-
-* [#689](https://github.com/hashicorp/design-system/pull/689) [`b95f448a`](https://github.com/hashicorp/design-system/commit/b95f448a31cc138436caf0aae332139c5129d9dc) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Added Figma and Loom icons
+- `Figma` and `Loom` icons added.[(#689)](https://github.com/hashicorp/design-system/pull/689) Thanks [@hashibot-hds](https://github.com/hashibot-hds)!
 
 ## 2.11.1
 
