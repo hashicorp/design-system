@@ -33,6 +33,13 @@ const increaseHeadingsLevelByOne = ({ sourceText }) => {
   return sourceText.replace(/^#/gm, '##');
 };
 
+const replaceMajorMinorPatchHeadings = ({ sourceText }) => {
+  return sourceText.replace(
+    /^### (Major|Minor|Patch) Changes/gm,
+    '**$1 changes**'
+  );
+};
+
 const appendExternalLinks = ({ sourceText, sourcePath }) => {
   let externalLinks = '';
   externalLinks += '\n---\n\n';
@@ -47,6 +54,9 @@ Object.keys(changelogs).forEach((changelog) => {
     const componentsChangelogSource = fs.readFileSync(sourcePath, 'utf8');
     let componentsChangelogModified = componentsChangelogSource;
     componentsChangelogModified = keepOnlySubsetOfEntries({
+      sourceText: componentsChangelogModified,
+    });
+    componentsChangelogModified = replaceMajorMinorPatchHeadings({
       sourceText: componentsChangelogModified,
     });
     componentsChangelogModified = increaseHeadingsLevelByOne({

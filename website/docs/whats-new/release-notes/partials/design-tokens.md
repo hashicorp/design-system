@@ -2,7 +2,7 @@
 
 ### 1.8.0
 
-#### Minor Changes
+**Minor changes**
 
 - [#1640](https://github.com/hashicorp/design-system/pull/1640) [`8001667d2`](https://github.com/hashicorp/design-system/commit/8001667d2b0b549b5c2743ebaa4b50b58344a87f) Thanks [@didoo](https://github.com/didoo)! - `Design tokens` - Added color tokens for “Vault Secrets” product
 
@@ -10,63 +10,63 @@
 
 ### 1.7.0
 
-#### Minor Changes
+**Minor changes**
 
 - [#1513](https://github.com/hashicorp/design-system/pull/1513) [`fd5953633`](https://github.com/hashicorp/design-system/commit/fd595363396c2e6672025ab8f9c3df7d2a3fce53) Thanks [@dstaley](https://github.com/dstaley)! - Add JSON output format for `marketing` target (and in the process refactored internal logic for tokens generation)
 
 ### 1.6.0
 
-#### Minor Changes
+**Minor changes**
 
 - [#1452](https://github.com/hashicorp/design-system/pull/1452) [`b2ec25b39`](https://github.com/hashicorp/design-system/commit/b2ec25b399ba9aad5f8ae0b1f18a1bef9a6543e0) Thanks [@alex-ju](https://github.com/alex-ju)! - Add design token for loading state icon on search input
 
 ### 1.5.0
 
-#### Minor Changes
+**Minor changes**
 
 - [#1283](https://github.com/hashicorp/design-system/pull/1283) [`d0ae66503`](https://github.com/hashicorp/design-system/commit/d0ae665033e6b83a65c2dcde8630985f76872901) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - - Add new `TooltipButton` component and `hds-tooltip` modifier
   - Add design tokens for `Tooltip`
 
 ### 1.4.2
 
-#### Patch Changes
+**Patch changes**
 
 - [#1313](https://github.com/hashicorp/design-system/pull/1313) [`5a2f5778d`](https://github.com/hashicorp/design-system/commit/5a2f5778d5e1d57a7d0d080f01319492e1a5a8b7) Thanks [@didoo](https://github.com/didoo)! - Added design tokens for `SideNav` component
 
 ### 1.4.1
 
-#### Patch Changes
+**Patch changes**
 
 - [#1204](https://github.com/hashicorp/design-system/pull/1204) [`fcbaff90b`](https://github.com/hashicorp/design-system/commit/fcbaff90b514962c50363c8a985d88b520048636) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - \* Scope group layout styles to nested child components.
   - Fix bug with --token-pagination-child-spacing-vertical value so that it adds "px" unit.
 
 ### 1.4.0
 
-#### Minor Changes
+**Minor changes**
 
 - [#661](https://github.com/hashicorp/design-system/pull/661) [`2c6024a38`](https://github.com/hashicorp/design-system/commit/2c6024a38f5f457231f7301d219478a4f746de37) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - Add design tokens for `Pagination` component
 
 ### 1.3.1
 
-#### Patch Changes
+**Patch changes**
 
 - [#1036](https://github.com/hashicorp/design-system/pull/1036) [`b1756288e`](https://github.com/hashicorp/design-system/commit/b1756288e907dd36784fd33921e016d99a1b3417) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Update design system name to Helios
 
 ### 1.3.0
 
-#### Minor Changes
+**Minor changes**
 
 - [#740](https://github.com/hashicorp/design-system/pull/740) [`92c83961f`](https://github.com/hashicorp/design-system/commit/92c83961f0e8b01e52e3c596c85871ec5cf8c94d) Thanks [@alex-ju](https://github.com/alex-ju)! - Add design tokens for indeterminate `Checkbox`
 
 ### 1.2.0
 
-#### Minor Changes
+**Minor changes**
 
 - [#629](https://github.com/hashicorp/design-system/pull/629) [`a079992f`](https://github.com/hashicorp/design-system/commit/a079992fbbed11812fcf4cdd4409a00fa2d246f1) Thanks [@didoo](https://github.com/didoo)! - added component-level design tokens for `Tabs` component
 
 * [#646](https://github.com/hashicorp/design-system/pull/646) [`ecbe26df`](https://github.com/hashicorp/design-system/commit/ecbe26df6bdbaf7b4f00c70d016eead0da9168f0) Thanks [@jorytindall](https://github.com/jorytindall)! - Updated the box-shadow values for overlay tokens.
 
-#### Patch Changes
+**Patch changes**
 
 - [#636](https://github.com/hashicorp/design-system/pull/636) [`27a283a5`](https://github.com/hashicorp/design-system/commit/27a283a52c2828b32c282401f91df9bd929f9dda) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Add copyright notice to license file
 
