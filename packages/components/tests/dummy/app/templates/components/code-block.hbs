@@ -42,10 +42,10 @@ console.log(`I am ${codeLang} code`);"
     </SG.Item>
   </Shw::Flex>
 
-  <Shw::Text::h3>with lineNumbers=false</Shw::Text::h3>
+  <Shw::Text::h3>with hasLineNumbers=false</Shw::Text::h3>
 
   <Hds::CodeBlock
-    @lineNumbers={{false}}
+    @hasLineNumbers={{false}}
     @value="let codeLang='JavaScript';
 console.log(`I am ${codeLang} code`);"
   />
@@ -90,21 +90,21 @@ func main() {
 }"
   />
 
-  <Shw::Text::h3>readOnly=false (so content is editable)</Shw::Text::h3>
+  <Shw::Text::h3>isReadOnly=false (so content is editable)</Shw::Text::h3>
 
   <Hds::CodeBlock
-    @readOnly={{false}}
+    @isReadOnly={{false}}
     @value="let codeLang='JavaScript';
 console.log(`I am ${codeLang} code`);"
   />
 
-  <Shw::Text::h2>highlight</Shw::Text::h2>
+  <Shw::Text::h2>Highlight lines</Shw::Text::h2>
   <Shw::Text::Body>Specify line numbers or ranges of line numbers to highlight</Shw::Text::Body>
 
   <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SG|>
-    <SG.Item {{style width="calc(50% - 1rem)"}} @label="Highlight line 2 & 4">
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="Highlight lines 2 & 4">
       <Hds::CodeBlock
-        @highlight={{"2, 4"}}
+        @highlightLines={{"2, 4"}}
         @value="import Application from '@ember/application';
 import Resolver from 'ember-resolver';
 import loadInitializers from 'ember-load-initializers';
@@ -122,7 +122,7 @@ loadInitializers(App, config.modulePrefix);"
 
     <SG.Item {{style width="calc(50% - 1rem)"}} @label="Highlight lines 6-10">
       <Hds::CodeBlock
-        @highlight={{"6-10"}}
+        @highlightLines={{"6-10"}}
         @value="import Application from '@ember/application';
 import Resolver from 'ember-resolver';
 import loadInitializers from 'ember-load-initializers';
@@ -231,11 +231,19 @@ func main() {
 
   <Shw::Text::H4>States</Shw::Text::H4>
 
-  <Shw::Flex {{style gap="2rem" justifyContent="space-between"}} as |SF|>
+  <Shw::Grid @columns={{6}} as |SG|>
     {{#each @model.STATES as |state|}}
-      <SF.Item @label={{state}}>
-        <Hds::CodeBlock::CopyButton mock-state-value={{state}} />
-      </SF.Item>
+      <SG.Item @label={{(capitalize state)}}>
+        <Hds::CodeBlock::CopyButton mock-state-value={{state}} @textToCopy="copy me" />
+      </SG.Item>
     {{/each}}
-  </Shw::Flex>
+    {{#let (array "success" "error") as |statuses|}}
+      {{#each statuses as |status|}}
+        <SG.Item @label={{(capitalize status)}}>
+          TODO: statuses not working
+          <Hds::CodeBlock::CopyButton @status={{status}} mock-copy-status={{status}} @textToCopy="copy me" />
+        </SG.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Grid>
 </section>

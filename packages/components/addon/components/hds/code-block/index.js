@@ -65,23 +65,23 @@ export default class HdsCodeBlockIndexComponent extends Component {
   }
 
   /**
-   * @param lineNumbers
+   * @param hasLineNumbers
    * @type {boolean}
    * @default true
-   * @description Displays lineNumbers if true
+   * @description Displays line numbers if true
    */
-  get lineNumbers() {
-    return this.args.lineNumbers ?? true;
+  get hasLineNumbers() {
+    return this.args.hasLineNumbers ?? true;
   }
 
   /**
-   * @param readOnly
+   * @param isReadOnly
    * @type {boolean}
    * @default true
    * @description Make text content non-editable / editable
    */
-  get readOnly() {
-    return this.args.readOnly ?? true;
+  get isReadOnly() {
+    return this.args.isReadOnly ?? true;
   }
 
   @action
@@ -124,7 +124,7 @@ export default class HdsCodeBlockIndexComponent extends Component {
       classes.push('hds-code-block--has-line-wrapping');
     }
 
-    if (this.lineNumbers || this.args.highlight) {
+    if (this.hasLineNumbers || this.args.highlightLines) {
       classes.push('line-numbers');
     }
 
