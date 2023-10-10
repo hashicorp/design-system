@@ -42,19 +42,19 @@ console.log(`I am ${codeLang} code`);"
     </SG.Item>
   </Shw::Flex>
 
-  <Shw::Text::h3>with lineNumbers=true</Shw::Text::h3>
+  <Shw::Text::h3>with lineNumbers=false</Shw::Text::h3>
 
   <Hds::CodeBlock
-    @lineNumbers={{true}}
+    @lineNumbers={{false}}
     @value="let codeLang='JavaScript';
 console.log(`I am ${codeLang} code`);"
   />
 
-  <Shw::Text::h3>with maxHeight="100px"</Shw::Text::h3>
+  <Shw::Text::h3>with maxHeight="105px"</Shw::Text::h3>
 
   {{! template-lint-disable no-whitespace-for-layout }}
   <Hds::CodeBlock
-    @maxHeight="100px"
+    @maxHeight="105px"
     @value="function convertObjectToArray (obj) {
   let arr = Object
     .keys(obj) // return object's keys as an array
@@ -151,7 +151,6 @@ loadInitializers(App, config.modulePrefix);"
   <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SG|>
     <SG.Item {{style width="calc(50% - 1rem)"}} @label="JavaScript">
       <Hds::CodeBlock
-        @lineNumbers={{true}}
         @language="javascript"
         @value="let codeLang='JavaScript';
 console.log(`I am ${codeLang} code`);"
@@ -160,7 +159,6 @@ console.log(`I am ${codeLang} code`);"
 
     <SG.Item {{style width="calc(50% - 1rem)"}} @label="Go">
       <Hds::CodeBlock
-        @lineNumbers={{true}}
         @language="go"
         @value="package main
 import 'fmt'
@@ -173,7 +171,6 @@ func main() {
     <SG.Item {{style width="calc(50% - 1rem)"}} @label="Markdown">
       {{! template-lint-disable no-whitespace-for-layout }}
       <Hds::CodeBlock
-        @lineNumbers={{true}}
         @language="markdown"
         @value='## Compact `Alert`
 ```
@@ -191,7 +188,7 @@ func main() {
     </SG.Item>
 
     <SG.Item {{style width="calc(50% - 1rem)"}} @label="Shell">
-      <Hds::CodeBlock @lineNumbers={{true}} @language="shell-session" @value="echo 'Hello World'" />
+      <Hds::CodeBlock @language="shell-session" @value="echo 'Hello World'" />
     </SG.Item>
   </Shw::Flex>
 
@@ -204,7 +201,6 @@ func main() {
 
     <T.Panel>
       <Hds::CodeBlock
-        @lineNumbers={{true}}
         @language="javascript"
         @value="let codeLang='JavaScript';
 console.log(`I am ${codeLang} code`);"
@@ -212,12 +208,11 @@ console.log(`I am ${codeLang} code`);"
     </T.Panel>
 
     <T.Panel>
-      <Hds::CodeBlock @lineNumbers={{true}} @language="shell-session" @value="echo 'Hello World'" />
+      <Hds::CodeBlock @language="shell-session" @value="echo 'Hello World'" />
     </T.Panel>
 
     <T.Panel>
       <Hds::CodeBlock
-        @lineNumbers={{true}}
         @language="go"
         @value="package main
 import 'fmt'

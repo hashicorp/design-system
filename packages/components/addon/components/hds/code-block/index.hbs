@@ -3,16 +3,15 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<div class="hds-code-block-wrapper">
-  <pre
-    class={{this.classNames}}
-    contentEditable={{not this.readOnly}}
-    {{style maxHeight=@maxHeight}}
-    data-line={{@highlight}}
-    ...attributes
-  >
+<div class={{this.classNames}} ...attributes>
+  <pre contentEditable={{not this.readOnly}} data-line={{@highlight}}>
     {{~! ~}}
-    <code {{did-insert this.setPrismCode}} {{did-update this.setPrismCode this.code @language}}>
+    <code
+      class="code-block__code"
+      {{style maxHeight=@maxHeight}}
+      {{did-insert this.setPrismCode}}
+      {{did-update this.setPrismCode this.code @language}}
+    >
       {{~this.prismCode~}}
     </code>
     {{~! ~}}
