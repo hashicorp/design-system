@@ -962,3 +962,7 @@ This release signifies the first major release of the HashiCorp Design System. M
 
 - Updated dependencies [[`04db4d9e`](https://github.com/hashicorp/design-system/commit/04db4d9ece6aba358acfa0721a78dfe84c561b5e)]:
   - @hashicorp/design-system-tokens@0.6.0
+
+---
+
+_[Read the full changelog](https://github.com/hashicorp/design-system/blob/main/packages/components/CHANGELOG.md)_
