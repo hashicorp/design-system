@@ -18,7 +18,7 @@ While the first tab is selected by default, it is possible to customize the star
 
 #### Using `@isSelected` argument applied to one of the `Tab` elements
 
-By providing `@isSelected` argument to one of the `Tab` elements it's possible to declare which tab should be selected when the component is first rendered. From that moment on, the tab selection is controlled internally by the component.
+Declare which tab is selected when the component is first rendered by providing `@isSelected` argument to one of the `Tab` elements. From that moment on, the tab selection is controlled internally by the component.
 
 ```handlebars
 <Hds::Tabs as |T|>
@@ -80,7 +80,7 @@ Use the `@onClickTab` handler to pass in a custom function. For example, to stor
 
 ### Nested tabs
 
-[We don't recommed nesting tabs](/components/tabs#nested), but in case it's necessary to implement such feature a special code implementation needs to be used: the `T.Panel` needs to be exposed and its `P.isVisible` property needs to be provided to the nested tab using the `@isParentVisible` argument, so that when the parent visibility changes the nested tab can be initialized accordingly.
+[We don’t recommend nesting tabs](/components/tabs#nested), but in case it’s necessary to implement such a feature a special code implementation needs to be used: the `T.Panel` needs to be exposed and its `P.isVisible` property needs to be provided to the nested tab using the `@isParentVisible` argument, so that when the parent visibility changes the nested tab can be initialized accordingly.
 
 ```handlebars
   <Hds::Tabs as |T|>

@@ -15,7 +15,7 @@ The Tabs component is composed of different parts, with their own APIs:
   <C.Property @name="selectedTabIndex" @type="integer">
     This argument can be used to select the initial tab and control the component state bypassing its default internal state (usually via query parameters).
     <br/>
-    _Notice: when the initial tab is set using this parameter instead of using the `@isSelected` argument on the `Tab` sub-component, the consumer will need to take care of updating the index whenever the user clicks on one of the tabs (via `onClickTab`)._
+    _Notice: when the initial tab is set using this parameter instead of using the `@isSelected` argument on the `Tab` sub-component, the consumer is responsible for updating the index whenever the user clicks on one of the tabs (via `onClickTab`)._
   </C.Property>
   <C.Property @name="isParentVisible" @type="boolean" default="false">
     Special argument used to control nested tabs. See ["How to use / Nested tabs"](/components/tabs?tab=code#nested-tabs) for details.
