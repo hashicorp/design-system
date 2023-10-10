@@ -1,0 +1,256 @@
+// THEMING
+
+.hds-code-block {
+  // COLORS
+
+  // color names:
+  --cyan: #32fff7;
+  --green: #2d8eff;
+  --orange: #ffa800;
+  --pink: #86ff13;
+  --purple: #c76cff;
+  --red: #c76cff;
+  --yellow: #ffcc6a;
+  // ---
+  --matrix-green: #86ff13;
+
+  // base:
+  --background: #0d0e12;
+  --foreground: #efeff1;
+
+  // syntax:
+  --comment: #b2b6bd;
+  --selection: #1e222a; // not enough contrast, couldn't see selection at first when testing
+  --operator: #32fff7;
+  --function: #2d8eff;
+  --string: #ffa800;
+  --keyword: #86ff13;
+  --number: #c76cff;
+  --error: #ff3b20; // important/error
+  --line-highlight: rgba(0, 74, 222, 30%);
+  --line-highlight-left-border: #0046d1;
+  --control: #32fff7;
+  --property: #2d8eff;
+  --url: #32fff7;
+  --builtin: var(--orange);
+  --class-name: var(--matrix-green);
+  // borders
+  --code-block-border: rgba(97, 104, 117, 40%);
+}
+
+
+.hds-code-block {
+  color: var(--foreground);
+  background-color: var(--background);
+
+  /* Selection */
+
+  // Note: using browser default for now
+  // pre,
+  // code {
+  //   &::selection,
+  //   & ::selection {
+  //     background-color: var(--selection);
+  //     text-shadow: none; // makes highlight color disappear if background color not set
+  //   }
+  // }
+
+  /* Line numbers */
+
+  .line-numbers .line-numbers-rows {
+    border-color: var(--code-block-border);
+  }
+
+  /* Code block code */
+
+  .language-css {
+    color: var(--purple);
+  }
+
+  .token {
+    color: var(--pink);
+  }
+
+  .language-css .token {
+    color: var(--pink);
+  }
+
+  .token.script {
+    color: var(--foreground);
+  }
+
+  .token.atrule,
+  .token.attr-name,
+  .token.attr-value {
+    color: var(--green);
+  }
+
+  .language-css .token.atrule {
+    color: var(--purple);
+  }
+
+  .language-html .token.attr-value,
+  .language-markup .token.attr-value {
+    color: var(--yellow);
+  }
+
+  .token.boolean {
+    color: var(--purple);
+  }
+
+  .token.builtin {
+    color: var(--builtin);
+  }
+
+  .token.class-name {
+    color: var(--class-name);
+  }
+
+
+  .token.comment {
+    color: var(--comment);
+  }
+
+  .token.constant {
+    color: var(--purple);
+  }
+
+  .language-javascript .token.constant {
+    color: var(--orange);
+  }
+
+  .token.entity {
+    color: var(--pink);
+  }
+
+  .language-css .token.entity {
+    color: var(--green);
+  }
+
+  .language-html .token.entity.named-entity {
+    color: var(--purple);
+  }
+
+  .language-html .token.entity:not(.named-entity) {
+    color: var(--pink);
+  }
+
+  .language-markup .token.entity.named-entity {
+    color: var(--purple);
+  }
+
+  .language-markup .token.entity:not(.named-entity) {
+    color: var(--pink);
+  }
+
+  .token.function {
+    color: var(--function);
+  }
+
+  .language-css .token.function {
+    color: var(--cyan);
+  }
+
+  // error / important
+  .token.important {
+    color: var(--error);
+  }
+
+  .token.keyword {
+    color: var(--keyword);
+  }
+
+  .token.prolog {
+    color: var(--foreground);
+  }
+
+  .token.property {
+    color: var(--orange);
+  }
+
+  .language-css .token.property {
+    color: var(--cyan);
+  }
+
+  .token.punctuation {
+    color: var(--pink);
+  }
+
+  .language-css .token.punctuation {
+    color: var(--orange);
+  }
+
+  .language-html,
+  .language-markup {
+    .token.punctuation {
+      color: var(--foreground);
+    }
+  }
+
+  .token.selector {
+    color: var(--pink);
+  }
+
+  .language-css .token.selector {
+    color: var(--green);
+  }
+
+  .token.regex {
+    color: var(--red);
+  }
+
+  .language-css .token.rule:not(.atrule) {
+    color: var(--foreground);
+  }
+
+  .token.string {
+    color: var(--yellow);
+  }
+
+  .token.tag {
+    color: var(--pink);
+  }
+
+  .token.url {
+    color: var(--cyan);
+    color: var(--url);
+  }
+
+  .language-css .token.url {
+    color: var(--orange);
+  }
+
+  .token.variable {
+    color: var(--comment);
+  }
+
+  .token.number {
+    color: var(--number);
+  }
+
+  .token.operator {
+    color: rgba(139, 233, 253, 100%);
+  }
+
+  .token.char {
+    color: rgba(255, 135, 157, 100%);
+  }
+
+  .token.symbol {
+    color: rgba(255, 184, 108, 100%);
+  }
+
+  .token.deleted {
+    color: #e2777a;
+  }
+
+  .token.namespace {
+    color: #e2777a;
+  }
+
+  .line-highlight {
+    // Overlays code text so needs to be semi-transparent
+    background: var(--line-highlight);
+    border-left: 4px solid var(--line-highlight-left-border);
+  }
+}

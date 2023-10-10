@@ -10,45 +10,10 @@
 
 // THEMING
 
+// Note: For now the "theme" contains just the color styles
 @import "theme";
 
 .hds-code-block {
-  // COLORS
-
-  // color names:
-  --cyan: #32fff7;
-  --green: #2d8eff;
-  --orange: #ffa800;
-  --pink: #86ff13;
-  --purple: #c76cff;
-  --red: #c76cff;
-  --yellow: #ffcc6a;
-  // ---
-  --matrix-green: #86ff13;
-
-  // base:
-  --background: #0d0e12;
-  --foreground: #efeff1;
-
-  // syntax:
-  --comment: #b2b6bd;
-  --selection: #1e222a; // not enough contrast, couldn't see selection at first when testing
-  --operator: #32fff7;
-  --function: #2d8eff;
-  --string: #ffa800;
-  --keyword: #86ff13;
-  --number: #c76cff;
-  --error: #ff3b20; // important/error
-  --line-highlight: rgba(0, 74, 222, 30%);
-  --line-highlight-left-border: #0046d1;
-  --control: #32fff7;
-  --property: #2d8eff;
-  --url: #32fff7;
-  --builtin: var(--orange);
-  --class-name: var(--matrix-green);
-  // borders
-  --code-block-border: rgba(97, 104, 117, 40%);
-
   // DIMENSIONS
 
   --code-block-line-numbers-width: 49px; // 3em = 49px
@@ -88,12 +53,44 @@
 }
 
 .hds-code-block__copy-button {
-  position: absolute;
-  right: 16px;
-  bottom: 16px;
+  // TODO: move variables
+  --foreground: #efeff1;
+
+  // Overriding default colors
+  color: var(--foreground);
+  background: #15181e;
+  border: 1px solid #61687566;
+
+  &:hover,
+  &.mock-hover {
+    background: #0d0e12;
+    border-color: #61687566;
+  }
+
+  &:active,
+  &.mock-active {
+    background: #2b303c;
+  }
+
+  &:focus,
+  &.mock-focus,
+  &:focus-visible {
+    background: #15181e;
+  }
+
+  .flight-icon { color: var(--foreground); }
 }
 
 // VARIANTS
+
+// hasCopyButton
+.hds-code-block--has-copy-button {
+  .hds-code-block__copy-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
+}
 
 // LineWrapping
 .hds-code-block--has-line-wrapping {
