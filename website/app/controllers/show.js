@@ -50,6 +50,8 @@ export default class ShowController extends Controller {
     'demoCurrentPageSize',
     'demoCurrentCursor',
     'demoExtraParam',
+    // these are used in the "tabs > how to use" demos
+    'demoSelectedTab',
   ];
 
   @service fastboot;

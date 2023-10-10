@@ -12,9 +12,13 @@
 </Hds::Tabs>
 ```
 
-### Custom starting tab
+### Pre-selecting a tab
 
-Customize the starting tab to display on page load. The first tab is selected by default.
+While the first tab is selected by default, it is possible to customize the starting tab to display on page load in two different ways (depending on how the tabs' state is controlled/persisted).
+
+#### Using `@isSelected` argument applied to one of the `Tab` elements
+
+By providing `@isSelected` argument to one of the `Tab` elements it's possible to declare which tab should be selected when the component is first rendered. From that moment on, the tab selection is controlled internally by the component.
 
 ```handlebars
 <Hds::Tabs as |T|>
@@ -25,6 +29,22 @@ Customize the starting tab to display on page load. The first tab is selected by
   <T.Panel>Content 1</T.Panel>
   <T.Panel>Content 2</T.Panel>
   <T.Panel>Content 3, I am displayed on page load.</T.Panel>
+</Hds::Tabs>
+```
+
+#### Using `@selectedTabIndex` argument applied to the `Tabs` component
+
+If you want to control the internal "selected tab" state of the component, and possibly persist it in a query parameter, you need to provide a `@selectedTabIndex` argument to the main `Tabs` component. You also need to handle the change of state using the `@onClickTab` callback function, invoked whenever a user clicks/selects one of the tabs.
+
+```handlebars
+<Hds::Tabs @selectedTabIndex={{this.demoSelectedTab}} @onClickTab={{this.demoUpdateSelectedTabQueryParam}} as |T|>
+  <T.Tab>One</T.Tab>
+  <T.Tab>Two</T.Tab>
+  <T.Tab >Three</T.Tab>
+
+  <T.Panel>Content 1</T.Panel>
+  <T.Panel>Content 2</T.Panel>
+  <T.Panel>Content 3</T.Panel>
 </Hds::Tabs>
 ```
 
