@@ -18,12 +18,6 @@
   </pre>
 
   {{#if @hasCopyButton}}
-    <Hds::Copy::Button
-      @text="Copy"
-      @isIconOnly={{true}}
-      @size="small"
-      class="hds-code-block__copy-button"
-      @textToCopy={{@value}}
-    />
+    <Hds::CodeBlock::CopyButton @textToCopy={{@value}} />
   {{/if}}
 </div>
