@@ -113,6 +113,7 @@ body.application.index {
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
+        // stylelint-disable-next-line property-no-unknown
         fill-color: transparent;
       }
     }
