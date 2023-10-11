@@ -1,6 +1,11 @@
-## @hashicorp/design-system-components
+<p class="doc-whats-new-changelog-npm-info">
+  <strong><code>npm package: @hashicorp/design-system-components</code></strong>
+  <a href="https://badge.fury.io/js/%40hashicorp%2Fdesign-system-components">
+    <img src="https://badge.fury.io/js/%40hashicorp%2Fdesign-system-components.svg" alt="npm version" height="20">
+  </a>
+</p>
 
-### 2.12.2
+## 2.12.2
 
 **Patch changes**
 
@@ -11,7 +16,7 @@
 - Updated dependencies []:
   - @hashicorp/ember-flight-icons@3.1.3
 
-### 2.12.1
+## 2.12.1
 
 **Patch changes**
 
@@ -19,7 +24,7 @@
 
 - [#1635](https://github.com/hashicorp/design-system/pull/1635) [`2ecab760c`](https://github.com/hashicorp/design-system/commit/2ecab760c07c89ee9d34e993b879fc19e914c2e0) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - `Dropdown` - changed `@height` property to use `max-height` instead of a fixed height.
 
-### 2.12.0
+## 2.12.0
 
 **Minor changes**
 
@@ -41,7 +46,7 @@
   - @hashicorp/design-system-tokens@1.8.0
   - @hashicorp/ember-flight-icons@3.1.2
 
-### 2.11.0
+## 2.11.0
 
 **Minor changes**
 
@@ -60,7 +65,7 @@
 - Updated dependencies []:
   - @hashicorp/ember-flight-icons@3.1.1
 
-### 2.10.0
+## 2.10.0
 
 **Minor changes**
 
@@ -85,7 +90,7 @@
 - Updated dependencies [[`8b8d6bcfa`](https://github.com/hashicorp/design-system/commit/8b8d6bcfa67efa5de1a2cc419167a962e747a8c9)]:
   - @hashicorp/ember-flight-icons@3.1.0
 
-### 2.9.0
+## 2.9.0
 
 **Minor changes**
 
@@ -106,7 +111,7 @@
 - Updated dependencies []:
   - @hashicorp/ember-flight-icons@3.0.9
 
-### 2.8.1
+## 2.8.1
 
 **Patch changes**
 
@@ -124,7 +129,7 @@
   - @hashicorp/design-system-tokens@1.7.0
   - @hashicorp/ember-flight-icons@3.0.8
 
-### 2.8.0
+## 2.8.0
 
 **Minor changes**
 
@@ -152,7 +157,7 @@
   - @hashicorp/design-system-tokens@1.6.0
   - @hashicorp/ember-flight-icons@3.0.7
 
-### 2.7.1
+## 2.7.1
 
 **Patch changes**
 
@@ -189,7 +194,7 @@
 - Updated dependencies [[`e6e0c22c5`](https://github.com/hashicorp/design-system/commit/e6e0c22c538e381f4a97428dc35cf1295ce6ae21)]:
   - @hashicorp/ember-flight-icons@3.0.6
 
-### 2.7.0
+## 2.7.0
 
 **Minor changes**
 

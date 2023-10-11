@@ -1,6 +1,11 @@
-## @hashicorp/flight-icons
+<p class="doc-whats-new-changelog-npm-info">
+  <strong><code>npm package: @hashicorp/flight-icons</code></strong>
+  <a href="https://badge.fury.io/js/%40hashicorp%2Fflight-icons">
+    <img src="https://badge.fury.io/js/%40hashicorp%2Fflight-icons.svg" alt="npm version" height="20">
+  </a>
+</p>
 
-### 2.20.0
+## 2.20.0
 
 **Minor changes**
 
@@ -17,13 +22,13 @@
   - `google-sheets`
   - `google-drive`
 
-### 2.19.0
+## 2.19.0
 
 **Minor changes**
 
 - [#1638](https://github.com/hashicorp/design-system/pull/1638) [`64d1a98d3`](https://github.com/hashicorp/design-system/commit/64d1a98d36fc9c79e941929fec4b9ee6ee89ffdb) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - This PR will include the `Vault Secrets` icon.
 
-### 2.18.0
+## 2.18.0
 
 **Minor changes**
 
@@ -31,43 +36,43 @@
 
 - [#1610](https://github.com/hashicorp/design-system/pull/1610) [`edf8a20df`](https://github.com/hashicorp/design-system/commit/edf8a20dff1cc59c2cb8c0f211f91aa81a0b37f0) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - This PR will include the `twitter-x` icon, and older `twitter` icon. Also the `aws-cdk` and `jfrog` icons.
 
-### 2.17.0
+## 2.17.0
 
 **Minor changes**
 
 - [#1532](https://github.com/hashicorp/design-system/pull/1532) [`ccfb5795a`](https://github.com/hashicorp/design-system/commit/ccfb5795af4ee2e55939de1be3037003e85cc77e) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Added new `clipboard-x` icon
 
-### 2.16.0
+## 2.16.0
 
 **Minor changes**
 
 - [#1515](https://github.com/hashicorp/design-system/pull/1515) [`09734a0d2`](https://github.com/hashicorp/design-system/commit/09734a0d2a45be0b25b8e841649d87ad9c600053) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Added Elastic observability and New relic
 
-### 2.15.0
+## 2.15.0
 
 **Minor changes**
 
 - [#1487](https://github.com/hashicorp/design-system/pull/1487) [`4960a4a2c`](https://github.com/hashicorp/design-system/commit/4960a4a2cf368b47c22ac12186f9f2b48d406519) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Added Venafi service icon
 
-### 2.14.0
+## 2.14.0
 
 **Minor changes**
 
 - [#1428](https://github.com/hashicorp/design-system/pull/1428) [`24bb5ff62`](https://github.com/hashicorp/design-system/commit/24bb5ff628c2166314854c1295d9998bbd5e2aba) Thanks [@jorytindall](https://github.com/jorytindall)! - Added robot icon for Service Principals
 
-### 2.13.1
+## 2.13.1
 
 **Patch changes**
 
 - [#1420](https://github.com/hashicorp/design-system/pull/1420) [`8233493c0`](https://github.com/hashicorp/design-system/commit/8233493c05c422f06f1e61bb17e9c5c2e5385090) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Fix color for `connection-gateway` icon
 
-### 2.13.0
+## 2.13.0
 
 **Minor changes**
 
 - [#1412](https://github.com/hashicorp/design-system/pull/1412) [`37d06ef1a`](https://github.com/hashicorp/design-system/commit/37d06ef1ae9f1f5c4a30796e3c42e62ccbe860c9) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Added Ampersand icon
 
-### 2.12.0
+## 2.12.0
 
 **Minor changes**
 

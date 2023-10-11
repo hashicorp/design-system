@@ -1,6 +1,11 @@
-## @hashicorp/design-system-tokens
+<p class="doc-whats-new-changelog-npm-info">
+  <strong><code>npm package: @hashicorp/design-system-tokens</code></strong>
+  <a href="https://badge.fury.io/js/%40hashicorp%2Fdesign-system-tokens">
+    <img src="https://badge.fury.io/js/%40hashicorp%2Fdesign-system-tokens.svg" alt="npm version" height="20">
+  </a>
+</p>
 
-### 1.8.0
+## 1.8.0
 
 **Minor changes**
 
@@ -8,57 +13,57 @@
 
   `IconTile` - updated component to include `vault-secrets` product option
 
-### 1.7.0
+## 1.7.0
 
 **Minor changes**
 
 - [#1513](https://github.com/hashicorp/design-system/pull/1513) [`fd5953633`](https://github.com/hashicorp/design-system/commit/fd595363396c2e6672025ab8f9c3df7d2a3fce53) Thanks [@dstaley](https://github.com/dstaley)! - Add JSON output format for `marketing` target (and in the process refactored internal logic for tokens generation)
 
-### 1.6.0
+## 1.6.0
 
 **Minor changes**
 
 - [#1452](https://github.com/hashicorp/design-system/pull/1452) [`b2ec25b39`](https://github.com/hashicorp/design-system/commit/b2ec25b399ba9aad5f8ae0b1f18a1bef9a6543e0) Thanks [@alex-ju](https://github.com/alex-ju)! - Add design token for loading state icon on search input
 
-### 1.5.0
+## 1.5.0
 
 **Minor changes**
 
 - [#1283](https://github.com/hashicorp/design-system/pull/1283) [`d0ae66503`](https://github.com/hashicorp/design-system/commit/d0ae665033e6b83a65c2dcde8630985f76872901) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - - Add new `TooltipButton` component and `hds-tooltip` modifier
   - Add design tokens for `Tooltip`
 
-### 1.4.2
+## 1.4.2
 
 **Patch changes**
 
 - [#1313](https://github.com/hashicorp/design-system/pull/1313) [`5a2f5778d`](https://github.com/hashicorp/design-system/commit/5a2f5778d5e1d57a7d0d080f01319492e1a5a8b7) Thanks [@didoo](https://github.com/didoo)! - Added design tokens for `SideNav` component
 
-### 1.4.1
+## 1.4.1
 
 **Patch changes**
 
 - [#1204](https://github.com/hashicorp/design-system/pull/1204) [`fcbaff90b`](https://github.com/hashicorp/design-system/commit/fcbaff90b514962c50363c8a985d88b520048636) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - \* Scope group layout styles to nested child components.
   - Fix bug with --token-pagination-child-spacing-vertical value so that it adds "px" unit.
 
-### 1.4.0
+## 1.4.0
 
 **Minor changes**
 
 - [#661](https://github.com/hashicorp/design-system/pull/661) [`2c6024a38`](https://github.com/hashicorp/design-system/commit/2c6024a38f5f457231f7301d219478a4f746de37) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - Add design tokens for `Pagination` component
 
-### 1.3.1
+## 1.3.1
 
 **Patch changes**
 
 - [#1036](https://github.com/hashicorp/design-system/pull/1036) [`b1756288e`](https://github.com/hashicorp/design-system/commit/b1756288e907dd36784fd33921e016d99a1b3417) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Update design system name to Helios
 
-### 1.3.0
+## 1.3.0
 
 **Minor changes**
 
 - [#740](https://github.com/hashicorp/design-system/pull/740) [`92c83961f`](https://github.com/hashicorp/design-system/commit/92c83961f0e8b01e52e3c596c85871ec5cf8c94d) Thanks [@alex-ju](https://github.com/alex-ju)! - Add design tokens for indeterminate `Checkbox`
 
-### 1.2.0
+## 1.2.0
 
 **Minor changes**
 
