@@ -62,12 +62,13 @@
 #### May 30th, 2023
 
 - Breaking change `Dropdown` refactored the dropdown component to utilize new Figma functionality and added the following new features:
-        - Added `ListItem variants`: `Checkmark`, `Checkbox`, `Radio`.
-        - Updates positioning options from Left and Right to Top left, Top right, Bottom left, Bottom right.
-        - Improved accessibility on `ToggleIcon` by adding a border to better indicate interactivity.
-        - Added small variants of the `ToggleButton` and `ToggleIcon`.
-        - Added a Header and Footer to the List.
-        - Added the ability to set a fixed height on the List resulting in the use of a scrollbar for longer lists.
+    - Added `ListItem variants`: `Checkmark`, `Checkbox`, `Radio`.
+    - Added `ListItem variants`: `Checkmark`, `Checkbox`, `Radio`.
+    - Updates positioning options from Left and Right to Top left, Top right, Bottom left, Bottom right
+    - Improved accessibility on `ToggleIcon` by adding a border to better indicate interactivity.
+    - Added small variants of the `ToggleButton` and `ToggleIcon`.
+    - Added a Header and Footer to the List.
+    - Added the ability to set a fixed height on the List resulting in the use of a scrollbar for longer lists.
 
 [Tips for migration](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=6264-20834&mode=design)
 
