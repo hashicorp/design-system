@@ -10,6 +10,9 @@ module.exports = {
       legacyDecorators: true,
     },
     requireConfigFile: false,
+    babelOptions: {
+      plugins: [['@babel/plugin-proposal-decorators', { legacy: true }]],
+    },
   },
   plugins: ['ember'],
   extends: [
