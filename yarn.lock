@@ -11332,9 +11332,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-fastboot@npm:^3.3.2":
-  version: 3.3.2
-  resolution: "ember-cli-fastboot@npm:3.3.2"
+"ember-cli-fastboot@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "ember-cli-fastboot@npm:4.1.1"
   dependencies:
     broccoli-concat: ^4.2.5
     broccoli-file-creator: ^2.1.1
@@ -11346,15 +11346,15 @@ __metadata:
     ember-cli-lodash-subset: ^2.0.1
     ember-cli-preprocess-registry: ^3.3.0
     ember-cli-version-checker: ^5.1.2
-    fastboot: 3.3.2
-    fastboot-express-middleware: 3.3.2
+    fastboot: 4.1.1
+    fastboot-express-middleware: 4.1.1
     fastboot-transform: ^0.1.3
     fs-extra: ^10.0.0
     json-stable-stringify: ^1.0.1
     md5-hex: ^3.0.1
     recast: ^0.19.1
     silent-error: ^1.1.1
-  checksum: ae92e113ba3a976d1561ac2bbe2a01635b72a372873bdf9c12cd3e01bb74ba72828d162cfcbabf65f3952580d5f93bc5b5f0f78ad18928117c6d5a05a3bf6562
+  checksum: 1a1de5e34e70abf27568b24662884ee47454c67fe06a8fc2ea85cdb7da21c6926f3f77f01b2a0a014ae5c9cc3621d3020a8ec6a9c06c5a0d502d1666db3002fa
   languageName: node
   linkType: hard
 
@@ -13508,13 +13508,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastboot-express-middleware@npm:3.3.2":
-  version: 3.3.2
-  resolution: "fastboot-express-middleware@npm:3.3.2"
+"fastboot-express-middleware@npm:4.1.1":
+  version: 4.1.1
+  resolution: "fastboot-express-middleware@npm:4.1.1"
   dependencies:
     chalk: ^4.1.2
-    fastboot: 3.3.2
-  checksum: 1205879efd4e6a8aa63e5ac2fd6ae7bfd91bedeec81afba34a1c4ff1bfa01403ab9873d84874b1b624e0f83d0120a9ff37c59993fae4f52f6317969f3f58e9d9
+    fastboot: 4.1.1
+  checksum: 59079f54a33090c5b7f102d11df8a62e2fe01184d56a583382acfdda83849c0e4d81e1b751f2a6cf678b3af6c59f4589dde7449c2614ee0280b3d6873b68043c
   languageName: node
   linkType: hard
 
@@ -13528,7 +13528,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastboot@npm:3.3.2, fastboot@npm:^3.1.2":
+"fastboot@npm:4.1.1":
+  version: 4.1.1
+  resolution: "fastboot@npm:4.1.1"
+  dependencies:
+    chalk: ^4.1.2
+    cookie: ^0.4.1
+    debug: ^4.3.3
+    jsdom: ^19.0.0
+    resolve: ^1.22.0
+    simple-dom: ^1.4.0
+    source-map-support: ^0.5.21
+  checksum: 8753fdb2b1210f9c9a31a2b10bff1a88a0a3c860be335e0000a8e084fb1363d9617329f2b662b408b8b3b2727052da637901243243a18363fa40b10fdc9eaaf2
+  languageName: node
+  linkType: hard
+
+"fastboot@npm:^3.1.2":
   version: 3.3.2
   resolution: "fastboot@npm:3.3.2"
   dependencies:
@@ -23496,7 +23511,7 @@ __metadata:
     ember-cli-clipboard: ^1.0.0
     ember-cli-dependency-checker: ^3.3.2
     ember-cli-deprecation-workflow: ^2.1.0
-    ember-cli-fastboot: ^3.3.2
+    ember-cli-fastboot: ^4.1.1
     ember-cli-htmlbars: ^6.3.0
     ember-cli-inject-live-reload: ^2.1.0
     ember-cli-sass: ^11.0.1
