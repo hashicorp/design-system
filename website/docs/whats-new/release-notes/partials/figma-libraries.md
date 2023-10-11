@@ -4,50 +4,49 @@
 
 #### September 15th, 2023
 
-- `IconTile`, `IconTile-Logo` added a new product variant for Vault Secrets.
+- `IconTile` and `IconTile-Logo` - added a new product variant for Vault Secrets.
 
 #### August 17th, 2023
 
-- `SideNav` changing the icon from `User` to `Help` in the first dropdown at the top of the `SideNav`.
+- `SideNav` - changed the icon from `User` to `Help` in the first dropdown at the top of the `SideNav`.
 
 #### July 31st, 2023
 
-- `Field/Date`, `Field/Time`, `Field/Datetime` fixing the default width of these components to match the browser default.
+- Field/Date`, `Field/Time`, `Field/Datetime` - fixed the default width of the components to match the browser default.
 
 #### July 13th, 2023
 
-- `Accordion` releasing the Accordion component. The accordion is used to show and hide multiple sections of content in a stacked manner.
-- `MaskedInput` releasing the MaskedInput component. A form input that visually obfuscates characters to protect sensitive information by replacing them with a shape.
+- [`Accordion`](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=36870-71031&mode=design) - component added. 
+- [`MaskedInput`](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=39336-85955&mode=design) - component added.
 
 #### July 12th, 2023
 
-- `Form Primitives` page added to house the `Fieldset` component. Added the `Fieldset` component to the Form Controls stickersheet, as well.
+- Added a "Form Primitives" page to house the `Fieldset` component. 
 
 #### June 9th, 2023 
 
-- `Reveal` releasing the Reveal component. A toggle that reveals additional information or details about an element or content to the user when triggered.
+- [`Reveal`](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=35103-70091&mode=design) - component added.
 
 #### June 1st, 2023
 
-- `Dropdown`fixingaspacingissue between the label and chevron in the Dropdown ToggleButton.
+- `Dropdown` - fixed a spacing issue between the label and chevron in the ToggleButton.
 
 #### May 31st, 2023
 
-- `ApplicationState` Published older changes that were made to lessen the prominence of the text. 
+- `ApplicationState` - published older changes that were made to lessen the prominence of the text. 
 
 #### May 11th, 2023
 
-- `Cursor` allows you to better showcase interactive states directly in your design files. 
-
-- `Scrollbar` allows you to better indicate scrollable regions directly in your design files.
+- Added two new utility components: 
+    - `Cursor` - can be used to showcase interactive states. 
+    - `Scrollbar` - can be used to indicate which regions/containers should be scrollable.
 
 #### May 10th, 2023
 
-- `SegmentedGroup` fixed a bug that created an “inception” style loop of the inheritance between the published component library and the Local components.
-
-- `SegmentedGroup` adds more clear and straightforward support for the focus state of the Select component when nested within a SegmentedGroup.
-
-- `Select` brings consistency in how the Select and the other form controls account for focus state.
+- `SegmentedGroup` - made the following iterations to the component: 
+    - fixed a bug that created an “inception” style loop of the inheritance between the published component library and the local components.
+    - added more straightforward support for the focus state of the `Select` component when nested within a `SegmentedGroup`.
+- `Select` - updated the focus state to bring consistency in how the `Select` and the other form controls account for this interactive state.
 
 #### April 28th, 2023 
 
@@ -61,7 +60,7 @@
 
 #### May 30th, 2023
 
-- Breaking change `Dropdown` refactored the dropdown component to utilize new Figma functionality and added the following new features:
+- `Dropdown` - ⛔️ **Breaking Change** - refactored the dropdown component to utilize new Figma functionality and added the following new features:
     - Added `ListItem variants`: `Checkmark`, `Checkbox`, `Radio`.
     - Added `ListItem variants`: `Checkmark`, `Checkbox`, `Radio`.
     - Updates positioning options from Left and Right to Top left, Top right, Bottom left, Bottom right
@@ -148,7 +147,7 @@
 #### April 5th, 2022
 
 - `LinkCTA` we added a LinkCTA component. This is a link that looks like a button. There are now also additional docs around when to use a Link vs LinkCTA vs Button.
-- `Badge` we removed badge variants in a status color (success, warning, critical) that did not have icons. These variants were not accessible because they were relying solely on color to indicate meaning, which fails WCAG SC 1.4.1. These were available previously with a note that warned they were inaccessible, but we have opted to take a stronger stance and not support these variants. Badges in a status color will need to always include an icon. This is a breaking change, however it did not appear to be in use.
+- `Badge` - ⛔️ **Breaking Change** - we removed badge variants in a status color (success, warning, critical) that did not have icons. These variants were not accessible because they were relying solely on color to indicate meaning, which fails WCAG SC 1.4.1. These were available previously with a note that warned they were inaccessible, but we have opted to take a stronger stance and not support these variants. Badges in a status color will need to always include an icon. 
 - `ButtonGroup` fixed a minor color mapping issue with the border on the primary variant of the ButtonGroup component.
 
 #### March 23rd, 2022
