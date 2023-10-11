@@ -52,8 +52,6 @@ const getNewPrevNextCursors = (cursor, pageSize, records) => {
 export default class Index extends Component {
   @service router;
 
-  debugger;
-
   @tracked demoPageSizes = [5, 10, 30];
 
   // ----------------------------
@@ -347,8 +345,12 @@ export default class Index extends Component {
   get demoQueryFunctionNumbered() {
     return (page, pageSize) => {
       return {
+        // important: in order for this to work, the query param name needs to be added to the list of query params in the controller:
+        // see: https://github.com/hashicorp/design-system/blob/main/website/app/controllers/show.js#L42-L53
         demoCurrentPage: page,
         demoCurrentPageSize: pageSize,
+        // see: https://github.com/DockYard/ember-router-scroll#preservescrollposition-with-queryparams
+        preserveScrollPosition: true,
       };
     };
   }
@@ -369,8 +371,12 @@ export default class Index extends Component {
     let { newPrevCursor, newNextCursor } = this.demoNewPrevNextCursors;
     return (page) => {
       return {
+        // important: in order for this to work, the query param name needs to be added to the list of query params in the controller:
+        // see: https://github.com/hashicorp/design-system/blob/main/website/app/controllers/show.js#L42-L53
         demoCurrentCursor: page === 'prev' ? newPrevCursor : newNextCursor,
         demoExtraParam: 'hello',
+        // see: https://github.com/DockYard/ember-router-scroll#preservescrollposition-with-queryparams
+        preserveScrollPosition: true,
       };
     };
   }

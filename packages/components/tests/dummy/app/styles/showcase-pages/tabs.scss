@@ -6,6 +6,12 @@
 // TAB
 
 body.components-tabs {
+
+  // we add extra spacing to increase visual separation between the different use cases and examples
+  .hds-tabs {
+    margin-bottom: 36px;
+  }
+
   .shw-component-tabs-layout-highlight {
     .hds-tabs__tab {
       outline: 1px dashed #78909c;
@@ -16,5 +22,18 @@ body.components-tabs {
   .shw-component-tabs-sample-ul-wrapper {
     display: contents;
     list-style: none;
+  }
+
+  .shw-component-tabs-example-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .shw-component-tabs-example-heading-button-set {
+    @include shw-font-family("system sans");
+    display: flex;
+    gap: 6px;
+    font-size: 0.875rem;
   }
 }

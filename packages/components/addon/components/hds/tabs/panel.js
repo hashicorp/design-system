@@ -10,9 +10,8 @@ import { action } from '@ember/object';
 
 export default class HdsTabsIndexComponent extends Component {
   /**
-   * Generates a unique ID for the Panel
-   *
-   * @param panelId
+   * Generate a unique ID for the Panel
+   * @return {string}
    */
   panelId = 'panel-' + guidFor(this);
 
@@ -23,14 +22,22 @@ export default class HdsTabsIndexComponent extends Component {
       : undefined;
   }
 
-  get tabId() {
+  /**
+   * Check the condition if the panel is visible (because the coupled/associated tab is selected) or not
+   * @returns {boolean}
+   */
+  get isVisible() {
+    return this.nodeIndex === this.args.selectedTabIndex;
+  }
+
+  /**
+   * Get the ID of the tab coupled/associated with the panel (it's used by the `aria-labelledby` attribute)
+   * @returns string}
+   */
+  get coupledTabId() {
     return this.nodeIndex !== undefined
       ? this.args.tabIds[this.nodeIndex]
       : undefined;
-  }
-
-  get isSelected() {
-    return this.nodeIndex === this.args.selectedTabIndex;
   }
 
   @action
@@ -39,16 +46,16 @@ export default class HdsTabsIndexComponent extends Component {
 
     if (typeof didInsertNode === 'function') {
       this.elementId = element.id;
-      didInsertNode(this.elementId, ...arguments);
+      didInsertNode(element, this.elementId);
     }
   }
 
   @action
-  willDestroyNode() {
+  willDestroyNode(element) {
     let { willDestroyNode } = this.args;
 
     if (typeof willDestroyNode === 'function') {
-      willDestroyNode(...arguments);
+      willDestroyNode(element);
     }
   }
 }

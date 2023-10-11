@@ -1,0 +1,18 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+
+// COMPONENTS > APP-FOOTER
+
+#show-content-components-tabs {
+  .doc-tabs-demo-overflow {
+    .hds-tabs__panel {
+      @include doc-font-style-body-small();
+      padding: 16px;
+
+      em { display: block; }
+    }
+  }
+}

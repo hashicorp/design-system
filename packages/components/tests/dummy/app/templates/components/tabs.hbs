@@ -7,7 +7,7 @@
 
 <Shw::Text::H1>Tabs</Shw::Text::H1>
 
-<section data-test-percy class="{{if this.showHighlight 'shw-component-tabs-layout-highlight'}}">
+<section data-test-percy class={{if this.showHighlight "shw-component-tabs-layout-highlight"}}>
 
   <button id="shw-component-toggle-highlight" type="button" {{on "click" this.toggleHighlight}}>
     {{if this.showHighlight "Hide" "Show"}}
@@ -23,11 +23,7 @@
     <T.Tab>Two</T.Tab>
     <T.Tab>Three</T.Tab>
 
-    <T.Panel>
-      <Shw::Placeholder @height="50">
-        <span>Content one with <a href="#">link to test tabbing</a></span>
-      </Shw::Placeholder>
-    </T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content one" @height="50" /></T.Panel>
     <T.Panel><Shw::Placeholder @text="Content two" @height="50" /></T.Panel>
     <T.Panel><Shw::Placeholder @text="Content three" @height="50" /></T.Panel>
   </Hds::Tabs>
@@ -98,34 +94,6 @@
     <T.Panel><Shw::Placeholder @text="Content three" @height="50" /></T.Panel>
   </Hds::Tabs>
 
-  <Shw::Text::Body>Nested tabs</Shw::Text::Body>
-
-  <Hds::Tabs as |T|>
-    <T.Tab>One</T.Tab>
-    <T.Tab>Two</T.Tab>
-    <T.Tab>Three</T.Tab>
-
-    <T.Panel>
-      <Hds::Tabs as |T|>
-        <T.Tab>Tab One - Sub-tab A</T.Tab>
-        <T.Tab>Tab One - Sub-tab B</T.Tab>
-        <T.Tab>Tab One - Sub-tab C</T.Tab>
-        <T.Panel><Shw::Placeholder @text="Tab One - Content A" @height="50" /></T.Panel>
-        <T.Panel><Shw::Placeholder @text="Tab One - Content B" @height="50" /></T.Panel>
-        <T.Panel><Shw::Placeholder @text="Tab One - Content C" @height="50" /></T.Panel>
-      </Hds::Tabs>
-    </T.Panel>
-    <T.Panel>
-      <Hds::Tabs as |T|>
-        <T.Tab>Tab Two - Sub-tab A</T.Tab>
-        <T.Tab>Tab Two - Sub-tab B</T.Tab>
-        <T.Panel><Shw::Placeholder @text="Tab Two - Content A" @height="50" /></T.Panel>
-        <T.Panel><Shw::Placeholder @text="Tab Two - Content B" @height="50" /></T.Panel>
-      </Hds::Tabs>
-    </T.Panel>
-    <T.Panel><Shw::Placeholder @text="Tab Three - Content" @height="50" /></T.Panel>
-  </Hds::Tabs>
-
   <Shw::Divider />
 
   <Shw::Text::H2>Base elements</Shw::Text::H2>
@@ -136,22 +104,22 @@
 
   <Shw::Flex as |SF|>
     <SF.Item @label="Text only">
-      <ul class="shw-component-tabs-sample-ul-wrapper">
+      <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
         <Hds::Tabs::Tab>Lorem ipsum</Hds::Tabs::Tab>
       </ul>
     </SF.Item>
     <SF.Item @label="Icon + Text">
-      <ul class="shw-component-tabs-sample-ul-wrapper">
+      <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
         <Hds::Tabs::Tab @icon="hexagon">Lorem ipsum</Hds::Tabs::Tab>
       </ul>
     </SF.Item>
     <SF.Item @label="Text + Counter">
-      <ul class="shw-component-tabs-sample-ul-wrapper">
+      <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
         <Hds::Tabs::Tab @count="10">Lorem ipsum</Hds::Tabs::Tab>
       </ul>
     </SF.Item>
     <SF.Item @label="Icon + Text + Counter">
-      <ul class="shw-component-tabs-sample-ul-wrapper">
+      <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
         <Hds::Tabs::Tab @icon="hexagon" @count="10">Lorem ipsum</Hds::Tabs::Tab>
       </ul>
     </SF.Item>
@@ -161,26 +129,26 @@
 
   <Shw::Flex as |SF|>
     <SF.Item @label="Default">
-      <ul class="shw-component-tabs-sample-ul-wrapper">
+      <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
         <Hds::Tabs::Tab>Lorem ipsum</Hds::Tabs::Tab>
       </ul>
-      <ul class="shw-component-tabs-sample-ul-wrapper">
+      <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
         <Hds::Tabs::Tab @icon="hexagon" @count="10">Lorem ipsum</Hds::Tabs::Tab>
       </ul>
     </SF.Item>
     <SF.Item @label="Hover">
-      <ul class="shw-component-tabs-sample-ul-wrapper">
+      <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
         <Hds::Tabs::Tab mock-state-value="hover">Lorem ipsum</Hds::Tabs::Tab>
       </ul>
-      <ul class="shw-component-tabs-sample-ul-wrapper">
+      <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
         <Hds::Tabs::Tab @icon="hexagon" @count="10" mock-state-value="hover">Lorem ipsum</Hds::Tabs::Tab>
       </ul>
     </SF.Item>
     <SF.Item @label="Focus">
-      <ul class="shw-component-tabs-sample-ul-wrapper">
+      <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
         <Hds::Tabs::Tab mock-state-value="focus" mock-state-selector="button">Lorem ipsum</Hds::Tabs::Tab>
       </ul>
-      <ul class="shw-component-tabs-sample-ul-wrapper">
+      <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
         <Hds::Tabs::Tab @icon="hexagon" @count="10" mock-state-value="focus" mock-state-selector="button">Lorem ipsum</Hds::Tabs::Tab>
       </ul>
     </SF.Item>
@@ -191,5 +159,163 @@
   <Hds::Tabs::Panel>
     <Shw::Placeholder @text="Panel with generic content" @height="50" />
   </Hds::Tabs::Panel>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2 @tag="h2">Examples of tabs implementation</Shw::Text::H2>
+
+  <Shw::Text::H3>Internal vs external/controlled state</Shw::Text::H3>
+
+  <Shw::Text::Body>Internal state (set via <code>@isSelected</code>)</Shw::Text::Body>
+  <Hds::Tabs as |T|>
+    <T.Tab>One</T.Tab>
+    <T.Tab>Two</T.Tab>
+    <T.Tab @isSelected={{true}}>Three (@isSelected)</T.Tab>
+    <T.Panel><Shw::Placeholder @text="Content one" @height="50" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content two" @height="50" /></T.Panel>
+    <T.Panel>
+      <Shw::Placeholder @text="Content three (on page load)" @height="50" />
+    </T.Panel>
+  </Hds::Tabs>
+
+  <Shw::Text::Body>External state (set via
+    <code>@selectedTabIndex</code>
+    and controlled via query params)</Shw::Text::Body>
+
+  <Hds::Tabs @selectedTabIndex={{this.selectedTabDemo1}} @onClickTab={{this.updateQueryParamDemo1}} as |T|>
+    <T.Tab>One</T.Tab>
+    <T.Tab>Two</T.Tab>
+    <T.Tab>Three</T.Tab>
+    <T.Panel><Shw::Placeholder @text="Content one" @height="50" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content two" @height="50" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content three" @height="50" /></T.Panel>
+  </Hds::Tabs>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Nested tabs</Shw::Text::H3>
+
+  <Shw::Text::Body>Basic example</Shw::Text::Body>
+  <Hds::Tabs as |T|>
+    <T.Tab>🐤 One</T.Tab>
+    <T.Tab>🦋 Two</T.Tab>
+    <T.Tab>🐙 Three</T.Tab>
+    <T.Panel as |P|>
+      <Hds::Tabs @isParentVisible={{P.isVisible}} as |ST|>
+        <ST.Tab>🐤 Tab One - Sub-tab A</ST.Tab>
+        <ST.Tab>🐤 Tab One - Sub-tab B</ST.Tab>
+        <ST.Tab>🐤 Tab One - Sub-tab C</ST.Tab>
+        <ST.Panel><Shw::Placeholder @text="🐤 Tab One - Content A" @height="50" /></ST.Panel>
+        <ST.Panel><Shw::Placeholder @text="🐤 Tab One - Content B" @height="50" /></ST.Panel>
+        <ST.Panel><Shw::Placeholder @text="🐤 Tab One - Content C" @height="50" /></ST.Panel>
+      </Hds::Tabs>
+    </T.Panel>
+    <T.Panel as |P|>
+      <Hds::Tabs @isParentVisible={{P.isVisible}} as |ST|>
+        <ST.Tab>🦋 Tab Two - Sub-tab A</ST.Tab>
+        <ST.Tab>🦋 Tab Two - Sub-tab B</ST.Tab>
+        <ST.Panel><Shw::Placeholder @text="🦋 Tab Two - Content A" @height="50" /></ST.Panel>
+        <ST.Panel><Shw::Placeholder @text="🦋 Tab Two - Content B" @height="50" /></ST.Panel>
+      </Hds::Tabs>
+    </T.Panel>
+    <T.Panel><Shw::Placeholder @text="🐙 Tab Three - Content" @height="50" /></T.Panel>
+  </Hds::Tabs>
+
+  <Shw::Text::Body>With selected tabs (via <code>@isSelected</code>)</Shw::Text::Body>
+  <Hds::Tabs as |T|>
+    <T.Tab>🐤 One</T.Tab>
+    <T.Tab @isSelected={{true}}>🦋 Two</T.Tab>
+    <T.Tab>🐙 Three</T.Tab>
+    <T.Panel as |P|>
+      <Hds::Tabs @isParentVisible={{P.isVisible}} as |ST|>
+        <ST.Tab>🐤 Tab One - Sub-tab A</ST.Tab>
+        <ST.Tab>🐤 Tab One - Sub-tab B</ST.Tab>
+        <ST.Tab>🐤 Tab One - Sub-tab C</ST.Tab>
+        <ST.Panel><Shw::Placeholder @text="🐤 Tab One - Content A" @height="50" /></ST.Panel>
+        <ST.Panel><Shw::Placeholder @text="🐤 Tab One - Content B" @height="50" /></ST.Panel>
+        <ST.Panel><Shw::Placeholder @text="🐤 Tab One - Content C" @height="50" /></ST.Panel>
+      </Hds::Tabs>
+    </T.Panel>
+    <T.Panel as |P|>
+      <Hds::Tabs @isParentVisible={{P.isVisible}} as |ST|>
+        <ST.Tab>🦋 Tab Two - Sub-tab A</ST.Tab>
+        <ST.Tab @isSelected={{true}}>🦋 Tab Two - Sub-tab B</ST.Tab>
+        <ST.Panel><Shw::Placeholder @text="🦋 Tab Two - Content A" @height="50" /></ST.Panel>
+        <ST.Panel><Shw::Placeholder @text="🦋 Tab Two - Content B" @height="50" /></ST.Panel>
+      </Hds::Tabs>
+    </T.Panel>
+    <T.Panel><Shw::Placeholder @text="🐙 Tab Three - Content" @height="50" /></T.Panel>
+  </Hds::Tabs>
+
+  <Shw::Text::Body>With controlled/persisted state (via query params)</Shw::Text::Body>
+  <Hds::Tabs @selectedTabIndex={{this.selectedTabDemo2}} @onClickTab={{this.updateQueryParamDemo2}} as |T|>
+    <T.Tab>🐤 One</T.Tab>
+    <T.Tab>🦋 Two</T.Tab>
+    <T.Tab>🐙 Three</T.Tab>
+    <T.Panel as |P|>
+      <Hds::Tabs
+        @selectedTabIndex={{this.selectedTabDemo2_SubTab1}}
+        @onClickTab={{this.updateQueryParamDemo2_SubTab1}}
+        @isParentVisible={{P.isVisible}}
+        as |ST|
+      >
+        <ST.Tab>🐤 Tab One - Sub-tab A</ST.Tab>
+        <ST.Tab>🐤 Tab One - Sub-tab B</ST.Tab>
+        <ST.Tab>🐤 Tab One - Sub-tab C</ST.Tab>
+        <ST.Panel><Shw::Placeholder @text="🐤 Tab One - Content A" @height="50" /></ST.Panel>
+        <ST.Panel><Shw::Placeholder @text="🐤 Tab One - Content B" @height="50" /></ST.Panel>
+        <ST.Panel><Shw::Placeholder @text="🐤 Tab One - Content C" @height="50" /></ST.Panel>
+      </Hds::Tabs>
+    </T.Panel>
+    <T.Panel as |P|>
+      <Hds::Tabs
+        @selectedTabIndex={{this.selectedTabDemo2_SubTab2}}
+        @onClickTab={{this.updateQueryParamDemo2_SubTab2}}
+        @isParentVisible={{P.isVisible}}
+        as |ST|
+      >
+        <ST.Tab>🦋 Tab Two - Sub-tab A</ST.Tab>
+        <ST.Tab>🦋 Tab Two - Sub-tab B</ST.Tab>
+        <ST.Panel><Shw::Placeholder @text="🦋 Tab Two - Content A" @height="50" /></ST.Panel>
+        <ST.Panel><Shw::Placeholder @text="🦋 Tab Two - Content B" @height="50" /></ST.Panel>
+      </Hds::Tabs>
+    </T.Panel>
+    <T.Panel><Shw::Placeholder @text="🐙 Tab Three - Content" @height="50" /></T.Panel>
+  </Hds::Tabs>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Dynamic content</Shw::Text::H3>
+
+  <div class="shw-component-tabs-example-heading">
+    <Shw::Text::Body>Variable tabs width</Shw::Text::Body>
+    <button type="button" {{on "click" this.updateBadgesValuesDemo3}}>update badge values</button>
+  </div>
+  <Hds::Tabs as |T|>
+    <T.Tab @count={{this.badge1_demo3}}>One</T.Tab>
+    <T.Tab @count={{this.badge2_demo3}}>Two</T.Tab>
+    <T.Tab @count={{this.badge3_demo3}}>Three</T.Tab>
+    <T.Panel><Shw::Placeholder @text="Content of first tab" @height="50" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content of second tab" @height="50" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content of third tab" @height="50" /></T.Panel>
+  </Hds::Tabs>
+
+  <div class="shw-component-tabs-example-heading">
+    <Shw::Text::Body>Dynamic <code>@isSelected</code> argument</Shw::Text::Body>
+    <div class="shw-component-tabs-example-heading-button-set">
+      <span>@isSelected = </span>
+      <button type="button" {{on "click" (fn this.setAtSelectedDemo4 "one")}}>"one"</button>
+      <button type="button" {{on "click" (fn this.setAtSelectedDemo4 "two")}}>"two"</button>
+      <button type="button" {{on "click" (fn this.setAtSelectedDemo4 "three")}}>"three"</button>
+    </div>
+  </div>
+  <Hds::Tabs as |T|>
+    <T.Tab @isSelected={{eq this.atSelected_demo4 "one"}}>One</T.Tab>
+    <T.Tab @isSelected={{eq this.atSelected_demo4 "two"}}>Two</T.Tab>
+    <T.Tab @isSelected={{eq this.atSelected_demo4 "three"}}>Three</T.Tab>
+    <T.Panel><Shw::Placeholder @text="Content one" @height="50" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content two" @height="50" /></T.Panel>
+    <T.Panel><Shw::Placeholder @text="Content three" @height="50" /></T.Panel>
+  </Hds::Tabs>
 
 </section>

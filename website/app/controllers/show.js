@@ -43,6 +43,9 @@ export default class ShowController extends Controller {
     {
       selectedTab: 'tab',
     },
+    // see: https://github.com/DockYard/ember-router-scroll#preservescrollposition-with-queryparams
+    'preserveScrollPosition',
+    // these are used for the searches/filters in the website
     'searchQuery',
     'selectedIconSize',
     // these are used in the "pagination > how to use" demos
@@ -50,6 +53,8 @@ export default class ShowController extends Controller {
     'demoCurrentPageSize',
     'demoCurrentCursor',
     'demoExtraParam',
+    // these are used in the "tabs > how to use" demos
+    'demoSelectedTab',
   ];
 
   @service fastboot;
