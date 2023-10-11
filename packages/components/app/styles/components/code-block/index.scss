@@ -15,7 +15,7 @@
 
 .hds-code-block {
   // DIMENSIONS
-
+  // Q: Change to sass variables? (probably no need to expose...)
   --code-block-line-numbers-width: 49px; // 3em = 49px
   --code-block-code-padding: 16px;
 }
@@ -24,6 +24,7 @@
 
 .hds-code-block {
   position: relative;
+  overflow: hidden; // So header doesn't poke out from container
   font-family: var(--hds-typography-code-200);
   // Note: may change border-radius to be toggled by an "@isRounded" property
   border-radius: 6px;
@@ -44,11 +45,29 @@
   }
 }
 
-// CHILD COMPONENTS
+// CHILD COMPONENTS / ELEMENTS
+
+// Header (contains title & description)
+.hds-code-block__header {
+  // TODO: rename/move/delete variables
+  --foreground-faint: #b2b6bd;
+  --surface-faint: #15181e;
+  --code-block-border: rgba(97, 104, 117, 40%);
+
+  display: flex;
+  flex-flow: column;
+  gap: 4px;
+  padding: 8px var(--code-block-code-padding);
+  background: var(--surface-faint);
+  border-bottom: 1px solid var(--code-block-border);
+}
+
+.hds-code-block__description { color: var(--foreground-faint); }
 
 // Code
 .code-block__code {
   display: block;
+  margin: 0;
   padding: var(--code-block-code-padding);
   overflow: auto;
 }

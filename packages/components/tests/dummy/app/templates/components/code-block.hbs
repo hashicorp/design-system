@@ -8,19 +8,72 @@
 <Shw::Text::H1>CodeBlock—Prism</Shw::Text::H1>
 
 <section data-test-percy>
-  <Shw::Text::h2>Default invocation</Shw::Text::h2>
+  <Shw::Text::h2>Content</Shw::Text::h2>
 
-  <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SG|>
-    <SG.Item {{style width="calc(50% - 1rem)"}} @label="one line">
-      <Hds::CodeBlock @value="console.log('I am JavaScript code');" />
-    </SG.Item>
+  <Shw::Flex @direction="column" {{style marginTop="32px"}} as |SF|>
+    <SF.Item @label="With only code content">
+      <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SF2|>
+        <SF2.Item {{style width="calc(50% - 1rem)"}} @label="one line">
+          <Hds::CodeBlock @value="console.log('I am JavaScript code');" />
+        </SF2.Item>
 
-    <SG.Item {{style width="calc(50% - 1rem)"}} @label="multi-line">
-      <Hds::CodeBlock
-        @value="let codeLang='JavaScript';
+        <SF2.Item {{style width="calc(50% - 1rem)"}} @label="multi-line">
+          <Hds::CodeBlock
+            @value="let codeLang='JavaScript';
 console.log(`I am ${codeLang} code`);"
-      />
-    </SG.Item>
+          />
+        </SF2.Item>
+      </Shw::Flex>
+    </SF.Item>
+
+    <SF.Item>
+      <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SF2|>
+        <SF2.Item {{style width="calc(50% - 1rem)"}} @label="With title">
+          <Hds::CodeBlock @value="console.log('I am JavaScript code');" @title="Title" />
+        </SF2.Item>
+
+        <SF2.Item {{style width="calc(50% - 1rem)"}} @label="With description">
+          <Hds::CodeBlock @value="console.log('I am JavaScript code');" @description="Description" />
+        </SF2.Item>
+      </Shw::Flex>
+    </SF.Item>
+
+    <SF.Item @label="With both title and description">
+      <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SF2|>
+        <SF2.Item {{style width="calc(50% - 1rem)"}} @label="one line">
+          <Hds::CodeBlock @value="console.log('I am JavaScript code');" @title="Title" @description="Description" />
+        </SF2.Item>
+
+        <SF2.Item {{style width="calc(50% - 1rem)"}} @label="multi-line with maxHeight so content scrolls">
+          {{! template-lint-disable no-whitespace-for-layout }}
+          <Hds::CodeBlock
+            @title="Title"
+            @description="Description"
+            @maxHeight="105px"
+            @value="function convertObjectToArray (obj) {
+  let arr = Object
+    .keys(obj) // return object's keys as an array
+    .map(key => {return [key, obj[key] ]}) // map a function on each array item
+    .flat()
+    .sort()
+  ;
+  return arr;
+}
+function assertObjectsEqual (actual, expected, testName) {
+  let actualStr = JSON.stringify( convertObjectToArray(actual) );
+  let expectedStr = JSON.stringify( convertObjectToArray(expected) );
+  console.log(`ACTUAL: ${actualStr}  EXPECTED: ${expectedStr}`);
+  if (actualStr === expectedStr) {
+    console.log('passed');
+  } else {
+    console.log(`FAILED [${testName}] Expected ${JSON.stringify(expected)}, but got ${JSON.stringify(actual)}`);
+  }
+}"
+          />
+          {{! template-lint-enable no-whitespace-for-layout }}
+        </SF2.Item>
+      </Shw::Flex>
+    </SF.Item>
   </Shw::Flex>
 
   <Shw::Text::h2>Options</Shw::Text::h2>
