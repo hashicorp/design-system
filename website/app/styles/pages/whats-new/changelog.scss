@@ -1,0 +1,20 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// WHAT'S NEW > CHANGELOG
+
+.doc-whats-new-changelog-npm-info {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+  strong,
+  code,
+  a,
+  img {
+    // needed to have the flex alignment work as expected
+    display: block;
+  }
+}
