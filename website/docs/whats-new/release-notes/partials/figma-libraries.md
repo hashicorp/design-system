@@ -1,9 +1,3 @@
-!!! Info
-
-The dates below match HDS Figma library release dates. They may differ from code library release dates.
-
-!!!
-
 ## Component library 
 
 ### 2023
@@ -67,7 +61,7 @@ The dates below match HDS Figma library release dates. They may differ from code
 
 #### May 30th, 2023
 
-- ⛔️ breaking change `Dropdown` refactored the dropdown component to utilize new Figma functionality and added the following new features:
+- Breaking change `Dropdown` refactored the dropdown component to utilize new Figma functionality and added the following new features:
         - Added `ListItem variants`: `Checkmark`, `Checkbox`, `Radio`.
         - Updates positioning options from Left and Right to Top left, Top right, Bottom left, Bottom right.
         - Improved accessibility on `ToggleIcon` by adding a border to better indicate interactivity.
