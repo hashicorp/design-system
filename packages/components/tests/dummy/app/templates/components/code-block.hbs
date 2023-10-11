@@ -78,18 +78,18 @@ function assertObjectsEqual (actual, expected, testName) {
 
   <Shw::Text::h2>Options</Shw::Text::h2>
 
-  <Shw::Text::h3>lineWrapping</Shw::Text::h3>
+  <Shw::Text::h3>Line wrapping</Shw::Text::h3>
 
   <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SG|>
-    <SG.Item {{style width="calc(50% - 1rem)"}} @label="with lineWrapping=false">
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="with hasLineWrapping=false">
       <Hds::CodeBlock
         @value="console.log('I am JavaScript code', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam');"
       />
     </SG.Item>
 
-    <SG.Item {{style width="calc(50% - 1rem)"}} @label="with lineWrapping=true">
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="with hasLineWrapping=true">
       <Hds::CodeBlock
-        @lineWrapping={{true}}
+        @hasLineWrapping={{true}}
         @value="console.log('I am JavaScript code', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam');"
       />
     </SG.Item>
