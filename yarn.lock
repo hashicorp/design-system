@@ -3508,10 +3508,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@csstools/css-parser-algorithms@npm:^2.3.1":
+  version: 2.3.2
+  resolution: "@csstools/css-parser-algorithms@npm:2.3.2"
+  peerDependencies:
+    "@csstools/css-tokenizer": ^2.2.1
+  checksum: 71663a00369014727ac89ae738f0acd1341b2dc1474ff16799a6f4d24674c55c3ddb89d70c8f1ffc4e03508b18a621830f8f8a51707fda6cc5ea48f1a53cc559
+  languageName: node
+  linkType: hard
+
 "@csstools/css-tokenizer@npm:^2.1.1":
   version: 2.1.1
   resolution: "@csstools/css-tokenizer@npm:2.1.1"
   checksum: d6ac4b08d7fdfc146755542f00b208af7248efd6cf2eb0f0f7d2ba3583a81f08ed9be6047d78b046925708b5bd0886f487edeeee2f90f0f34030dcbef4122d0e
+  languageName: node
+  linkType: hard
+
+"@csstools/css-tokenizer@npm:^2.2.0":
+  version: 2.2.1
+  resolution: "@csstools/css-tokenizer@npm:2.2.1"
+  checksum: ebd9f65b253037d3a575ded45dbe41c12e71d83d6aa8a6a3a9fc2427862a805678df2a825cd19cf36b587be93f5cb1bd0932bb5c362d227ed9533db35b1fc6fa
   languageName: node
   linkType: hard
 
@@ -3522,6 +3538,16 @@ __metadata:
     "@csstools/css-parser-algorithms": ^2.3.0
     "@csstools/css-tokenizer": ^2.1.1
   checksum: 04936573ba837f14d7d637e172342c473665679c6497bbc0d548d93d08cb22e22151bb19e0e20422954c0b2aa50c3f38c9fc5f45c136e31bc863c656cb79df1b
+  languageName: node
+  linkType: hard
+
+"@csstools/media-query-list-parser@npm:^2.1.4":
+  version: 2.1.5
+  resolution: "@csstools/media-query-list-parser@npm:2.1.5"
+  peerDependencies:
+    "@csstools/css-parser-algorithms": ^2.3.2
+    "@csstools/css-tokenizer": ^2.2.1
+  checksum: 119c27951377781c06c0b68ee6f7815c71d7623e439da0d5009f2101a6cd996f60b3fd60466d7059b8f7a936fbc9fbd2306ba953fa2daf9728a710881971ab08
   languageName: node
   linkType: hard
 
@@ -3584,7 +3610,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ember/string@npm:^3.0.1, @ember/string@npm:^3.1.1":
+"@ember/string@npm:^3.0.1":
   version: 3.1.1
   resolution: "@ember/string@npm:3.1.1"
   dependencies:
@@ -3783,16 +3809,6 @@ __metadata:
     semver: ^7.3.5
     typescript-memoize: ^1.0.1
   checksum: db58b0cceb6bfa002fd8147012904be53b4efd5d27af9fca2fdf7384fc697795268b5f194c3c3f64ff01f4615bf5202e58a44adbe1a220076c46e67f4abb4503
-  languageName: node
-  linkType: hard
-
-"@embroider/test-setup@npm:^2.1.1":
-  version: 2.1.1
-  resolution: "@embroider/test-setup@npm:2.1.1"
-  dependencies:
-    lodash: ^4.17.21
-    resolve: ^1.20.0
-  checksum: 0f5dd6ee0089365c3a7f9feb52735e2fd2257528af25acbc6e9ddf8dc44f0869e50aa2279ac4476967bb0b108c4bcd743741958f63b8419707b842fbd94637ee
   languageName: node
   linkType: hard
 
@@ -4390,19 +4406,19 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@hashicorp/design-system-components@workspace:packages/components"
   dependencies:
+    "@babel/core": ^7.22.20
+    "@babel/eslint-parser": ^7.22.15
     "@ember/optional-features": ^2.0.0
     "@ember/render-modifiers": ^2.0.5
-    "@ember/string": ^3.1.1
-    "@ember/test-helpers": ^2.9.3
+    "@ember/test-helpers": ^3.2.0
     "@ember/test-waiters": ^3.0.2
-    "@embroider/test-setup": ^2.1.1
+    "@embroider/test-setup": ^3.0.1
     "@glimmer/component": ^1.1.2
     "@glimmer/tracking": ^1.1.2
     "@hashicorp/design-system-tokens": ^1.9.0
     "@hashicorp/ember-flight-icons": ^4.0.1
     "@percy/cli": ^1.24.2
     "@percy/ember": ^4.2.0
-    babel-eslint: ^10.1.0
     broccoli-asset-rev: ^3.0.0
     dialog-polyfill: ^0.5.6
     ember-a11y-refocus: ^3.0.2
@@ -4410,12 +4426,13 @@ __metadata:
     ember-auto-import: ^2.6.3
     ember-body-class: ^3.0.0
     ember-cached-decorator-polyfill: ^0.1.4
-    ember-cli: ~4.12.1
-    ember-cli-babel: ^7.26.11
+    ember-cli: ~5.3.0
+    ember-cli-babel: ^8.0.0
+    ember-cli-clean-css: ^3.0.0
     ember-cli-clipboard: ^1.0.0
-    ember-cli-dependency-checker: ^3.3.1
+    ember-cli-dependency-checker: ^3.3.2
     ember-cli-deprecation-workflow: ^2.1.0
-    ember-cli-htmlbars: ^6.2.0
+    ember-cli-htmlbars: ^6.3.0
     ember-cli-inject-live-reload: ^2.1.0
     ember-cli-sass: ^10.0.1
     ember-cli-sri: ^2.1.1
@@ -4426,35 +4443,35 @@ __metadata:
     ember-focus-trap: ^1.0.2
     ember-keyboard: ^8.2.0
     ember-load-initializers: ^2.1.2
-    ember-page-title: ^7.0.0
+    ember-page-title: ^8.0.0
     ember-power-select: ^6.0.1
-    ember-qunit: ^6.2.0
-    ember-resolver: ^10.1.0
-    ember-source: ~4.12.0
+    ember-qunit: ^8.0.1
+    ember-resolver: ^11.0.1
+    ember-source: ~5.3.0
     ember-source-channel-url: ^3.0.0
     ember-stargate: ^0.4.3
     ember-style-modifier: ^3.0.1
     ember-template-lint: ^4.18.2
     ember-template-lint-plugin-prettier: ^4.1.0
     ember-truth-helpers: ^3.1.1
-    ember-try: ^2.0.0
-    eslint: ^7.32.0
+    ember-try: ^3.0.0
+    eslint: ^8.49.0
     eslint-config-prettier: ^8.8.0
-    eslint-plugin-ember: ^11.7.2
+    eslint-plugin-ember: ^11.11.1
     eslint-plugin-node: ^11.1.0
     eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-qunit: ^7.3.4
+    eslint-plugin-qunit: ^8.0.0
     loader.js: ^4.7.0
     npm-run-all: ^4.1.5
     prettier: ^2.8.8
     qunit: ^2.19.4
     qunit-dom: ^2.0.0
     sass: ^1.62.1
-    stylelint: ^15.10.1
+    stylelint: ^15.10.3
     stylelint-config-rational-order: ^0.1.2
     stylelint-config-standard-scss: ^5.0.0
     tippy.js: ^6.3.7
-    webpack: ^5.84.1
+    webpack: ^5.88.2
   languageName: unknown
   linkType: soft
 
@@ -10406,6 +10423,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"css-functions-list@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "css-functions-list@npm:3.2.0"
+  checksum: fe912ea852fad500aef9a4f04db9a0371c7b0eb1ac1a45fbd8df0156ae0538cee7492ebd620b9bb502fe5bf2b5ed3bf3c16b6659cf67c7144eff0b597bcc3891
+  languageName: node
+  linkType: hard
+
 "css-loader@npm:^5.2.0":
   version: 5.2.7
   resolution: "css-loader@npm:5.2.7"
@@ -12864,24 +12888,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-try@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "ember-try@npm:2.0.0"
-  dependencies:
-    chalk: ^4.1.2
-    cli-table3: ^0.6.0
-    core-object: ^3.1.5
-    debug: ^4.3.2
-    ember-try-config: ^4.0.0
-    execa: ^4.1.0
-    fs-extra: ^9.0.1
-    resolve: ^1.20.0
-    rimraf: ^3.0.2
-    walk-sync: ^2.2.0
-  checksum: 0079f1f2faa4ac454e04c093ae7cac442e140dc483e5010828564e70a059b43f772e335a58693377206953679e291cb8b9ee4a9e5e89412e2fb9cbc6bbfdc9ea
-  languageName: node
-  linkType: hard
-
 "ember-try@npm:^3.0.0":
   version: 3.0.0
   resolution: "ember-try@npm:3.0.0"
@@ -13932,6 +13938,19 @@ __metadata:
     merge2: ^1.3.0
     micromatch: ^4.0.4
   checksum: 20df62be28eb5426fe8e40e0d05601a63b1daceb7c3d87534afcad91bdcf1e4b1743cf2d5247d6e225b120b46df0b9053a032b2691ba34ee121e033acd81f547
+  languageName: node
+  linkType: hard
+
+"fast-glob@npm:^3.3.1":
+  version: 3.3.1
+  resolution: "fast-glob@npm:3.3.1"
+  dependencies:
+    "@nodelib/fs.stat": ^2.0.2
+    "@nodelib/fs.walk": ^1.2.3
+    glob-parent: ^5.1.2
+    merge2: ^1.3.0
+    micromatch: ^4.0.4
+  checksum: b6f3add6403e02cf3a798bfbb1183d0f6da2afd368f27456010c0bc1f9640aea308243d4cb2c0ab142f618276e65ecb8be1661d7c62a7b4e5ba774b9ce5432e5
   languageName: node
   linkType: hard
 
@@ -19714,6 +19733,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"postcss@npm:^8.4.27":
+  version: 8.4.31
+  resolution: "postcss@npm:8.4.31"
+  dependencies:
+    nanoid: ^3.3.6
+    picocolors: ^1.0.0
+    source-map-js: ^1.0.2
+  checksum: 1d8611341b073143ad90486fcdfeab49edd243377b1f51834dc4f6d028e82ce5190e4f11bb2633276864503654fb7cab28e67abdc0fbf9d1f88cad4a0ff0beea
+  languageName: node
+  linkType: hard
+
 "preferred-pm@npm:^3.0.0":
   version: 3.0.3
   resolution: "preferred-pm@npm:3.0.3"
@@ -22408,6 +22438,56 @@ __metadata:
   bin:
     stylelint: bin/stylelint.mjs
   checksum: 8eeae81fe4ed2dfc580d7c401806dbb058c14631abfafd0821db32f1e649aee62e3d39dda3462c6122826df91bd9799409be926e91b55b007622f51e44eb94c1
+  languageName: node
+  linkType: hard
+
+"stylelint@npm:^15.10.3":
+  version: 15.10.3
+  resolution: "stylelint@npm:15.10.3"
+  dependencies:
+    "@csstools/css-parser-algorithms": ^2.3.1
+    "@csstools/css-tokenizer": ^2.2.0
+    "@csstools/media-query-list-parser": ^2.1.4
+    "@csstools/selector-specificity": ^3.0.0
+    balanced-match: ^2.0.0
+    colord: ^2.9.3
+    cosmiconfig: ^8.2.0
+    css-functions-list: ^3.2.0
+    css-tree: ^2.3.1
+    debug: ^4.3.4
+    fast-glob: ^3.3.1
+    fastest-levenshtein: ^1.0.16
+    file-entry-cache: ^6.0.1
+    global-modules: ^2.0.0
+    globby: ^11.1.0
+    globjoin: ^0.1.4
+    html-tags: ^3.3.1
+    ignore: ^5.2.4
+    import-lazy: ^4.0.0
+    imurmurhash: ^0.1.4
+    is-plain-object: ^5.0.0
+    known-css-properties: ^0.28.0
+    mathml-tag-names: ^2.1.3
+    meow: ^10.1.5
+    micromatch: ^4.0.5
+    normalize-path: ^3.0.0
+    picocolors: ^1.0.0
+    postcss: ^8.4.27
+    postcss-resolve-nested-selector: ^0.1.1
+    postcss-safe-parser: ^6.0.0
+    postcss-selector-parser: ^6.0.13
+    postcss-value-parser: ^4.2.0
+    resolve-from: ^5.0.0
+    string-width: ^4.2.3
+    strip-ansi: ^6.0.1
+    style-search: ^0.1.0
+    supports-hyperlinks: ^3.0.0
+    svg-tags: ^1.0.0
+    table: ^6.8.1
+    write-file-atomic: ^5.0.1
+  bin:
+    stylelint: bin/stylelint.mjs
+  checksum: eb70dd0e4d500141f4868ddb7403ad7eb8732b02a3f2fe3907d0859369cedd395b60b0075da758b5be07de771c586b1bf64de4eead8159d46b0d16beff827e67
   languageName: node
   linkType: hard
 
