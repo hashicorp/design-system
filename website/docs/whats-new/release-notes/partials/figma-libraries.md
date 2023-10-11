@@ -2,7 +2,7 @@
 
 ### 2023
 
-#### September 15th, 2023 <Doc::Badge @type="outlined">Latest</Doc::Badge>
+#### September 15th, 2023
 
 - `IconTile`, `IconTile-Logo` added a new product variant for Vault Secrets.
 
