@@ -13285,7 +13285,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"express@npm:^4.10.7, express@npm:^4.16.2, express@npm:^4.18.1":
+"express@npm:^4.10.7, express@npm:^4.16.2, express@npm:^4.18.1, express@npm:^4.18.2":
   version: 4.18.2
   resolution: "express@npm:4.18.2"
   dependencies:
@@ -13528,7 +13528,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastboot@npm:4.1.1":
+"fastboot@npm:4.1.1, fastboot@npm:^4.1.1":
   version: 4.1.1
   resolution: "fastboot@npm:4.1.1"
   dependencies:
@@ -17707,6 +17707,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mkdirp@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "mkdirp@npm:3.0.1"
+  bin:
+    mkdirp: dist/cjs/src/bin.js
+  checksum: 972deb188e8fb55547f1e58d66bd6b4a3623bf0c7137802582602d73e6480c1c2268dcbafbfb1be466e00cc7e56ac514d7fd9334b7cf33e3e2ab547c16f83a8d
+  languageName: node
+  linkType: hard
+
 "mktemp@npm:~0.4.0":
   version: 0.4.0
   resolution: "mktemp@npm:0.4.0"
@@ -19243,7 +19252,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prember@npm:*, prember@npm:^1.1.1":
+"prember@npm:*":
   version: 1.1.1
   resolution: "prember@npm:1.1.1"
   dependencies:
@@ -19257,6 +19266,22 @@ __metadata:
     fastboot: ^3.1.2
     mkdirp: ^0.5.1
   checksum: a4558444962c433e5a61ec628f308f105fffa3964ec8ad1b8e6420bc580f20dacef9f6d5a1b92aedeed40bdde25fa09c214c73e66264cc7ed6e3f46db0fd1218
+  languageName: node
+  linkType: hard
+
+"prember@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "prember@npm:2.0.0"
+  dependencies:
+    broccoli-debug: ^0.6.3
+    broccoli-merge-trees: ^4.2.0
+    broccoli-plugin: ^4.0.7
+    chalk: ^4.0.0
+    ember-cli-babel: ^7.26.11
+    express: ^4.18.2
+    fastboot: ^4.1.1
+    mkdirp: ^3.0.1
+  checksum: f364acd15d0d2815a7c4d04dd3d1657191dfe00478119b8369a4bfc3257b653b3f796280dc0f0a64a416256c18495c19b3977bee37aa6c38963156a55efd25c6
   languageName: node
   linkType: hard
 
@@ -23544,7 +23569,7 @@ __metadata:
     jsonapi-serializer: ^3.6.7
     loader.js: ^4.7.0
     npm-run-all: ^4.1.5
-    prember: ^1.1.1
+    prember: ^2.0.0
     prember-middleware: ^0.1.0
     prember-sitemap-generator: "https://github.com/shipshapecode/prember-sitemap-generator.git#commit=c95f47042d86c4fa7b8b631f271da090672e13df"
     prettier: ^2.8.8
