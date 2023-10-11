@@ -120,7 +120,7 @@ export default class HdsCodeBlockIndexComponent extends Component {
       classes.push('hds-code-block--has-copy-button');
     }
 
-    if (this.args.lineWrapping === true) {
+    if (this.args.hasLineWrapping === true) {
       classes.push('hds-code-block--has-line-wrapping');
     }
 
