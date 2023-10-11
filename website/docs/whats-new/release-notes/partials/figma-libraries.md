@@ -50,13 +50,13 @@
 
 #### April 28th, 2023 
 
-- `Tooltip` releasing the Tooltip component which provides additional information in a concise and unobtrusive way.
+- `Tooltip` - releasing the Tooltip component which provides additional information in a concise and unobtrusive way.
 
-- `SegmentedGroup` releasing the SegmentedGroup which combines one or more input fields and actions to handle complex filter and data collection.
+- `SegmentedGroup` - releasing the SegmentedGroup which combines one or more input fields and actions to handle complex filter and data collection.
 
 #### April 14th, 2023
 
-- `Dropdown` fixed a bug in the ListHeader where the search field wasn’t resizing properly.
+- `Dropdown` - fixed a bug in the ListHeader where the search field wasn’t resizing properly.
 
 #### May 30th, 2023
 
@@ -71,84 +71,84 @@
 
 [Tips for migration](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=6264-20834&mode=design)
 
-#### Febuary 14th, 2023
+#### February 14th, 2023
 
-- `Pagination` releasing the `Pagination` component. `Pagination` lets users navigate through content broken down into pages.
+- `Pagination` - releasing the `Pagination` component. `Pagination` lets users navigate through content broken down into pages.
 
-- `Flyout` releasing the `Flyout` component. A `Flyout` is used to show and hide additional information and content that is related to the main page without navigating or routing to a new page.
+- `Flyout` - releasing the `Flyout` component. A `Flyout` is used to show and hide additional information and content that is related to the main page without navigating or routing to a new page.
 
-- `Overlay` this component was originally organized with the `Modal` component, but has been refactored into it’s own page and stickersheet as it’s used outside of just the `Modal`.
+- `Overlay` - this component was originally organized with the `Modal` component, but has been refactored into it’s own page and stickersheet as it’s used outside of just the `Modal`.
 
 #### January 12th, 2023
 
-- `Modal` fixed a bug in which the tagline wasn’t inheriting the color style in the header.
+- `Modal` - fixed a bug in which the tagline wasn’t inheriting the color style in the header.
 
 ### 2022
 
 #### December 15th, 2022
 
-- `Modal` updated the border radius (visual change) and moved the color property out of the header subcomponent and into the main component.
-- `Table` small update to auto layout to assist in wrapping content.
+- `Modal` - updated the border radius (visual change) and moved the color property out of the header subcomponent and into the main component.
+- `Table` - small update to auto layout to assist in wrapping content.
 
 #### December 12th, 2022
 
-- `Checkbox` added indeterminate state to checkbox base and field.
+- `Checkbox` - added indeterminate state to checkbox base and field.
 
 #### November 2nd, 2022
 
-- `Tabs` releasing the Tabs component. Tabs allow users to move between different views within the same context and at the same level of hierarchy.
+- `Tabs` - releasing the Tabs component. Tabs allow users to move between different views within the same context and at the same level of hierarchy.
 
 #### October 4th, 2022
 
-- `Radio card` releasing the Radio card component. Radio card groups allow users to select a single option from a group of two or more radio cards.
+- `Radio card` - releasing the Radio card component. Radio card groups allow users to select a single option from a group of two or more radio cards.
 
 #### September 22nd, 2022
 
-- `Dropdown` introduced a small variant of the `ToggleButton`.
+- `Dropdown` - introduced a small variant of the `ToggleButton`.
 
 #### August 30th, 20222
 
-- `Search` fixed a bug where the Search component wasn't resizing properly.
+- `Search` - fixed a bug where the Search component wasn't resizing properly.
 
 #### July 29th, 2022
 
-- `Checkbox` releasing the checkbox component. Checkboxes allow users to check or uncheck an option or setting, or to allow users to select one or more options from a list.
-- `Radio` releasing the radio component. Radios allow users to select a single option from a group of two or more mutually exclusive options.
-- `Select` releasing the select component. Selects are form controls for selecting from a set of options. 
-- `Stepper` indicator: Releasing the stepper indicator component. A stepper indicator helps the user maintain context and directionality when advancing through a multi-step flow or feature.
-- `Tag` releasing the tag component. Tags indicate an object's categorization, i.e., for filtering.
-- `Textarea` releasing the textarea component. A textarea is a multi-line text input.
-- `TextInput` releasing the text input component. Text inputs are form controls that provide the user with a way to read, input, or edit short data.
-- `Toggle` releasing the toggle component. Toggles allow users to turn on and off two mutually exclusive options that provide an immediate response after any of them are selected.
+- `Checkbox` - releasing the checkbox component. Checkboxes allow users to check or uncheck an option or setting, or to allow users to select one or more options from a list.
+- `Radio` - releasing the radio component. Radios allow users to select a single option from a group of two or more mutually exclusive options.
+- `Select` - releasing the select component. Selects are form controls for selecting from a set of options. 
+- `Stepper` - indicator: Releasing the stepper indicator component. A stepper indicator helps the user maintain context and directionality when advancing through a multi-step flow or feature.
+- `Tag` - releasing the tag component. Tags indicate an object's categorization, i.e., for filtering.
+- `Textarea` - releasing the textarea component. A textarea is a multi-line text input.
+- `TextInput` - releasing the text input component. Text inputs are form controls that provide the user with a way to read, input, or edit short data.
+- `Toggle` - releasing the toggle component. Toggles allow users to turn on and off two mutually exclusive options that provide an immediate response after any of them are selected.
 
 #### May 27th, 2022
 
-- `Dropdown` released 2 ListItem variants; ListItem “type=loading” and ListItem/CopyItem.
-- `Button/Link/CTA` updated the styling (added an underline) and moved the LinkCTA component into the Button component as new variants tied to the property “isLink”; updated the documentation to reflect these changes.
+- `Dropdown` - released 2 ListItem variants; ListItem “type=loading” and ListItem/CopyItem.
+- `Button/Link/CTA` - updated the styling (added an underline) and moved the LinkCTA component into the Button component as new variants tied to the property “isLink”; updated the documentation to reflect these changes.
 
-- `Alert` released a refactored version of the Alert component. These updates include: updated documentation, improved actions using boolean properties for easier configuration, and the use of individual strokes for borders on page alerts.
-- `Toast` released a refactored version of the Toast component with improved actions using boolean properties for easier configuration.
+- `Alert` - released a refactored version of the Alert component. These updates include: updated documentation, improved actions using boolean properties for easier configuration, and the use of individual strokes for borders on page alerts.
+- `Toast` - released a refactored version of the Toast component with improved actions using boolean properties for easier configuration.
 - In this release, the alert and toast components are no longer in experimental mode and are considered safe to use by consumers.
 
 #### May 19th, 2022
 
-- `Dropdown` released a refactored version of the Dropdown component. These updates include: resizing fixes, providing more ListItems within the pre-built list, making ListItem types more discoverable, and adding more properties on the parent component for easier and faster configuration.
+- `Dropdown` - released a refactored version of the Dropdown component. These updates include: resizing fixes, providing more ListItems within the pre-built list, making ListItem types more discoverable, and adding more properties on the parent component for easier and faster configuration.
 
 #### May 6th, 2022
 
-- `Alert` releasing the Alert component. Alerts display a brief, short, important message in a way that attracts the user's attention. They should not be confused with toasts or confirmation modals.
-- `Toast` realeasing the Toast component. A Toast is an animated notification that displays a short message communicating an immediate and direct response to an action.
+- `Alert` - releasing the Alert component. Alerts display a brief, short, important message in a way that attracts the user's attention. They should not be confused with toasts or confirmation modals.
+- `Toast` - releasing the Toast component. A Toast is an animated notification that displays a short message communicating an immediate and direct response to an action.
 
 #### April 25th, 2022
 
-- `Dropdown` released the Dropdown component. Dropdowns display a list of links or actions for the user to choose from. They should not to be confused with Selects, which are used in forms.
-- `UI Kit` emoved all the “WIP” language and added meaningful descriptions and documentation links to each component.
+- `Dropdown` - released the Dropdown component. Dropdowns display a list of links or actions for the user to choose from. They should not to be confused with Selects, which are used in forms.
+- `UI Kit` - removed all the “WIP” language and added meaningful descriptions and documentation links to each component.
 
 #### April 5th, 2022
 
-- `LinkCTA` we added a LinkCTA component. This is a link that looks like a button. There are now also additional docs around when to use a Link vs LinkCTA vs Button.
+- `LinkCTA` - we added a LinkCTA component. This is a link that looks like a button. There are now also additional docs around when to use a Link vs LinkCTA vs Button.
 - `Badge` - ⛔️ **Breaking Change** - we removed badge variants in a status color (success, warning, critical) that did not have icons. These variants were not accessible because they were relying solely on color to indicate meaning, which fails WCAG SC 1.4.1. These were available previously with a note that warned they were inaccessible, but we have opted to take a stronger stance and not support these variants. Badges in a status color will need to always include an icon. 
-- `ButtonGroup` fixed a minor color mapping issue with the border on the primary variant of the ButtonGroup component.
+- `ButtonGroup` - fixed a minor color mapping issue with the border on the primary variant of the ButtonGroup component.
 
 #### March 23rd, 2022
 
