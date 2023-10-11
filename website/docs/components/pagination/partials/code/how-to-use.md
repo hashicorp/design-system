@@ -4,14 +4,14 @@ There are two different variants of the `Pagination` component (with different w
 
 This differentiation is necessary to cover both use cases of pagination for a list with a known number of elements (i.e., "numbered") and one in which this information is not available or is [cursor-based](https://jsonapi.org/profiles/ethanresnick/cursor-pagination/) (i.e., "compact").
 
-In the first one, the user is presented with a list of navigation controls ("prev/next" and "page numbers" to go directly to a specific page) and other optional UI elements; in the second, much simpler one, the user is presented with only the "prev/next" controls.
+In the first one, the user is presented with a list of navigation controls ("prev/next" and "page numbers" to go directly to a specific page) and other optional UI elements; in the second, much simpler one, the user is presented with only the "prev/next" controls (by default).
 
 When pagination is invoked directly using one of these two components, it will **automatically**:
 
 - provide the correct responsive layout for the entire Pagination and its sub-parts.
 - manage the "current page" status across the different sub-components it’s made of (based on the arguments provided to it and its children).
 - when one of the "navigation controls" is clicked, a callback function (if provided) is called, and a route (if provided) update is triggered.
-- when the "page size" is changed via the provided selector, it will automatically recalculate the total number of pages to display to the user.
+- when the "page size" is changed via the provided selector, in the "numbered" variant it will automatically recalculate the total number of pages to display to the user.
 
 
 ## Pagination sub-components
@@ -197,6 +197,12 @@ If necessary, it’s possible to hide the control labels:
 
 ```handlebars
 <Hds::Pagination::Compact @showLabels={{false}} />
+```
+
+It is also possible to show the SizeSelector (hidden by default):
+
+```handlebars
+<Hds::Pagination::Compact @showSizeSelector={{true}} />
 ```
 
 ### Event handling

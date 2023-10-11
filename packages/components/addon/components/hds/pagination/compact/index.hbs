@@ -27,4 +27,13 @@
       @disabled={{@isDisabledNext}}
     />
   </nav>
+
+  {{#if this.showSizeSelector}}
+    <Hds::Pagination::SizeSelector
+      @pageSizes={{this.pageSizes}}
+      @label={{@sizeSelectorLabel}}
+      @selectedSize={{this.currentPageSize}}
+      @onChange={{this.onPageSizeChange}}
+    />
+  {{/if}}
 </div>

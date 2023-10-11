@@ -8,8 +8,14 @@ import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { inject as service } from '@ember/service';
 
+// for context about the decision to use these values, see:
+// https://hashicorp.slack.com/archives/C03A0N1QK8S/p1673546329082759
+export const DEFAULT_PAGE_SIZES = [10, 30, 50];
+
 export default class HdsPaginationCompactIndexComponent extends Component {
   @service router;
+
+  showSizeSelector = this.args.showSizeSelector ?? false; // if the "size selector" block is visible
 
   constructor() {
     super(...arguments);
@@ -54,6 +60,23 @@ export default class HdsPaginationCompactIndexComponent extends Component {
    */
   get ariaLabel() {
     return this.args.ariaLabel ?? 'Pagination';
+  }
+
+  /**
+   * @param pageSizes
+   * @type {array of numbers}
+   * @description Set the page sizes users can select from.
+   * @default [10, 30, 50]
+   */
+  get pageSizes() {
+    let { pageSizes = DEFAULT_PAGE_SIZES } = this.args;
+
+    assert(
+      `pageSizes argument must be an array. Received: ${pageSizes}`,
+      Array.isArray(pageSizes) === true
+    );
+
+    return pageSizes;
   }
 
   get routeQueryParams() {

@@ -49,6 +49,52 @@ module('Integration | Component | hds/pagination/compact', function (hooks) {
     assert.dom('.hds-pagination-nav__arrow-label').doesNotExist();
   });
 
+  // SIZE SELECTOR
+
+  test('it shows the "size-selector" if @showSizeSelector is true', async function (assert) {
+    await render(hbs`
+      <Hds::Pagination::Compact @showSizeSelector={{true}} />
+    `);
+    assert.dom('.hds-pagination .hds-pagination-size-selector').exists();
+  });
+
+  test('it renders the "size selector" content with default pageSizes values', async function (assert) {
+    await render(hbs`
+      <Hds::Pagination::Compact @showSizeSelector={{true}} />
+    `);
+    assert
+      .dom('.hds-pagination .hds-pagination-size-selector option[value="10"]')
+      .hasText('10');
+    assert
+      .dom('.hds-pagination .hds-pagination-size-selector option[value="30"]')
+      .hasText('30');
+    assert
+      .dom('.hds-pagination .hds-pagination-size-selector option[value="50"]')
+      .hasText('50');
+  });
+
+  test('it renders custom options for passed in pageSizes', async function (assert) {
+    await render(hbs`
+      <Hds::Pagination::Compact @showSizeSelector={{true}} @pageSizes={{array 20 40 60}} />
+    `);
+    assert
+      .dom('.hds-pagination .hds-pagination-size-selector option[value="20"]')
+      .hasText('20');
+    assert
+      .dom('.hds-pagination .hds-pagination-size-selector option[value="40"]')
+      .hasText('40');
+    assert
+      .dom('.hds-pagination .hds-pagination-size-selector option[value="60"]')
+      .hasText('60');
+  });
+
+  test('it displays the passed in custom text for the SizeSelector label text', async function (assert) {
+    await render(hbs`
+      <Hds::Pagination::Compact @showSizeSelector={{true}} @sizeSelectorLabel="Custom text" />
+    `);
+    assert.dom('.hds-pagination-size-selector label').hasText('Custom text');
+  });
+
   // DISABLED
 
   test('it should render disabled buttons when @isDisabledPrev/Next are set to true', async function (assert) {
