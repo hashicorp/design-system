@@ -1,5 +1,17 @@
 # @hashicorp/design-system-components
 
+## 2.14.0
+
+### Minor Changes
+
+- [#1700](https://github.com/hashicorp/design-system/pull/1700) [`33d760fb8`](https://github.com/hashicorp/design-system/commit/33d760fb88d3945be8b50302a9bb7dce3ae221fe) Thanks [@didoo](https://github.com/didoo)! - `Pagination::Compact` - Added option to show "SizeSelector" element
+
+- [#1688](https://github.com/hashicorp/design-system/pull/1688) [`c842b6eb7`](https://github.com/hashicorp/design-system/commit/c842b6eb731d82146b0e1ad8b9f55930b58aba18) Thanks [@didoo](https://github.com/didoo)! - `Tabs` - Refactored logic for `Tabs` component + `Tab/Panel` sub-components to support more complex use cases:
+
+  - introduced `@selectedTabIndex` argument to control the "selected" tab from the consuming application, e.g. via query params (effort spearheaded by @MiniHeyd)
+  - fixed issue with nested tabs not initializing the "selected" indicator correctly
+  - fixed issue with dynamic tab content not updating the "selected" indicator correctly
+
 ## 2.13.0
 
 ### Minor Changes
