@@ -122,6 +122,39 @@
 - `TextInput` releasing the text input component. Text inputs are form controls that provide the user with a way to read, input, or edit short data.
 - `Toggle` releasing the toggle component. Toggles allow users to turn on and off two mutually exclusive options that provide an immediate response after any of them are selected.
 
+#### May 27th, 2022
+
+- `Dropdown` released 2 ListItem variants; ListItem “type=loading” and ListItem/CopyItem.
+- `Button/Link/CTA` updated the styling (added an underline) and moved the LinkCTA component into the Button component as new variants tied to the property “isLink”; updated the documentation to reflect these changes.
+
+- `Alert` released a refactored version of the Alert component. These updates include: updated documentation, improved actions using boolean properties for easier configuration, and the use of individual strokes for borders on page alerts.
+- `Toast` released a refactored version of the Toast component with improved actions using boolean properties for easier configuration.
+- In this release, the alert and toast components are no longer in experimental mode and are considered safe to use by consumers.
+
+#### May 19th, 2022
+
+- `Dropdown` released a refactored version of the Dropdown component. These updates include: resizing fixes, providing more ListItems within the pre-built list, making ListItem types more discoverable, and adding more properties on the parent component for easier and faster configuration.
+
+#### May 6th, 2022
+
+- `Alert` releasing the Alert component. Alerts display a brief, short, important message in a way that attracts the user's attention. They should not be confused with toasts or confirmation modals.
+- `Toast` realeasing the Toast component. A Toast is an animated notification that displays a short message communicating an immediate and direct response to an action.
+
+#### April 25th, 2022
+
+- `Dropdown` released the Dropdown component. Dropdowns display a list of links or actions for the user to choose from. They should not to be confused with Selects, which are used in forms.
+- `UI Kit` emoved all the “WIP” language and added meaningful descriptions and documentation links to each component.
+
+#### April 5th, 2022
+
+- `LinkCTA` we added a LinkCTA component. This is a link that looks like a button. There are now also additional docs around when to use a Link vs LinkCTA vs Button.
+- `Badge` we removed badge variants in a status color (success, warning, critical) that did not have icons. These variants were not accessible because they were relying solely on color to indicate meaning, which fails WCAG SC 1.4.1. These were available previously with a note that warned they were inaccessible, but we have opted to take a stronger stance and not support these variants. Badges in a status color will need to always include an icon. This is a breaking change, however it did not appear to be in use.
+- `ButtonGroup` fixed a minor color mapping issue with the border on the primary variant of the ButtonGroup component.
+
+#### March 23rd, 2022
+
+- Re-mapping the colors used in the components to the new semantic tokens or built-in local styles, as necessary.
+
 ## Foundations library 
 ### 2023
 #### Month Day, Year
