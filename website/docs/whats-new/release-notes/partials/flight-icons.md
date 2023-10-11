@@ -5,7 +5,7 @@
   </a>
 </p>
 
-## 2.20.0
+## 2.20.0 <Doc::Badge @type="outlined">Latest</Doc::Badge>
 
 **Minor changes**
 
@@ -26,7 +26,7 @@
 
 **Minor changes**
 
-- [#1638](https://github.com/hashicorp/design-system/pull/1638) [`64d1a98d3`](https://github.com/hashicorp/design-system/commit/64d1a98d36fc9c79e941929fec4b9ee6ee89ffdb) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - This PR will include the `Vault Secrets` icon.
+- `Vault Secrets` icon added. [#1638](https://github.com/hashicorp/design-system/pull/1638) Thanks [@hashibot-hds](https://github.com/hashibot-hds)!
 
 ## 2.18.0
 

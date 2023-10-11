@@ -1,6 +1,6 @@
 **`Figma Libraries`**
 
-## September 15th, 2023
+## September 15th, 2023 <Doc::Badge @type="outlined">Latest</Doc::Badge>
 
 ### Component
 

@@ -121,7 +121,7 @@
 - Updated dependencies [[`04da95443`](https://github.com/hashicorp/design-system/commit/04da95443290ee2d03d9bef23787a4ef10577247)]:
   - @hashicorp/design-system-tokens@1.9.0
 
-## 2.12.2
+## 2.12.2 <Doc::Badge @type="outlined">Latest</Doc::Badge>
 
 **Patch changes**
 

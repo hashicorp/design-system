@@ -11,7 +11,7 @@
 
 - Drop support for Node 14 - PR: [#1708](https://github.com/hashicorp/design-system/pull/1708) / Commit: [`59fedbdd9`](https://github.com/hashicorp/design-system/commit/59fedbdd9534d403fa51c6b2527ac65b4e72b473) /
 
-## 3.1.3
+## 3.1.3 <Doc::Badge @type="outlined">Latest</Doc::Badge>
 
 **Patch changes**
 
@@ -65,15 +65,15 @@
 
 - [#1395](https://github.com/hashicorp/design-system/pull/1395) [`e6e0c22c5`](https://github.com/hashicorp/design-system/commit/e6e0c22c538e381f4a97428dc35cf1295ce6ae21) Thanks [@alex-ju](https://github.com/alex-ju)! - Upgraded Ember.js to latest stable release 4.12, including upgrades to:
 
-  - `ember-auto-import` from `2.6.0` to `2.6.3`
-  - `ember-cli-htmlbars` from `6.1.0` to `6.2.0`
+    - `ember-auto-import` from `2.6.0` to `2.6.3`
+    - `ember-cli-htmlbars` from `6.1.0` to `6.2.0`
 
   Upgraded the following dependencies:
 
-  - `ember-focus-trap` from `1.0.1` to `1.0.2`
-  - `ember-keyboard"` from `8.1.0` to `8.2.0`
-  - `ember-truth-helpers` from `3.0.0` to `3.1.1`
-  - `sass` from `1.58.3` to `1.62.1`
+     - `ember-focus-trap` from `1.0.1` to `1.0.2`
+     - `ember-keyboard"` from `8.1.0` to `8.2.0`
+     - `ember-truth-helpers` from `3.0.0` to `3.1.1`
+     - `sass` from `1.58.3` to `1.62.1`
 
   Shifted our supported version of Node.js from `12.* || 14.* || >= 16` to `14.* || 16.* || >= 18`
 
