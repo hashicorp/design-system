@@ -4,6 +4,18 @@
 }}
 
 <div class={{this.classNames}} ...attributes>
+  {{#if (or @title @description)}}
+    <div class="hds-code-block__header">
+      {{#if @title}}
+        <Hds::CodeBlock::Title>{{@title}}</Hds::CodeBlock::Title>
+      {{/if}}
+
+      {{#if @description}}
+        <Hds::CodeBlock::Description>{{@description}}</Hds::CodeBlock::Description>
+      {{/if}}
+    </div>
+  {{/if}}
+
   <pre
     class="code-block__code"
     {{style maxHeight=@maxHeight}}
