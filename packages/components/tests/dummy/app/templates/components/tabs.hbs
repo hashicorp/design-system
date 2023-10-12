@@ -318,4 +318,20 @@
     <T.Panel><Shw::Placeholder @text="Content three" @height="50" /></T.Panel>
   </Hds::Tabs>
 
+  <div class="shw-component-tabs-example-heading">
+    <Shw::Text::Body>Dynamic <code>@isSelected</code> argument within a loop</Shw::Text::Body>
+    <div class="shw-component-tabs-example-heading-button-set">
+      <span>@isSelected = </span>
+      <button type="button" {{on "click" (fn this.setSelectedTabDemo5 "one")}}>"one"</button>
+      <button type="button" {{on "click" (fn this.setSelectedTabDemo5 "two")}}>"two"</button>
+      <button type="button" {{on "click" (fn this.setSelectedTabDemo5 "three")}}>"three"</button>
+    </div>
+  </div>
+  <Hds::Tabs as |T|>
+    {{#each this.tabsDemo5 as |tab|}}
+      <T.Tab @isSelected={{tab.isSelected}}>{{tab.label}}</T.Tab>
+      <T.Panel><Shw::Placeholder @text={{tab.content}} @height="50" /></T.Panel>
+    {{/each}}
+  </Hds::Tabs>
+
 </section>
