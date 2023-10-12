@@ -62,9 +62,6 @@ export default class HdsTabsIndexComponent extends Component {
     this.tabNodes = [...this.tabNodes, element];
     this.tabIds = [...this.tabIds, element.id];
     if (isSelected) {
-      if (this.selectedTabId) {
-        assert('Only one tab may use isSelected argument');
-      }
       this.selectedTabId = element.id;
     }
   }
