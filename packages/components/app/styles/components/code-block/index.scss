@@ -52,7 +52,7 @@
   gap: 4px;
   padding: 8px var(--code-block-code-padding);
   background-color: var(--surface-faint);
-  border-bottom: 1px solid var(--code-block-border);
+  border-bottom: 1px solid var(--border-strong);
 }
 
 .hds-code-block__description { color: var(--foreground-faint); }
@@ -141,7 +141,7 @@
       left: 0;
       width: var(--code-block-line-numbers-width);
       padding: var(--code-block-code-padding) 0;
-      border: 1px solid var(--code-block-border);
+      border: 1px solid var(--border-strong);
       user-select: none;
       pointer-events: none;
 

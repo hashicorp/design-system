@@ -15,7 +15,7 @@
   // Semantic color names:
 
   // Base UI colors:
-  --foreground-primary: #efeff1;
+  --foreground-primary: #d5d7db;
   --foreground-faint: #b2b6bd;
   --surface-primary: #0d0e12;
   --surface-faint: #15181e;
@@ -35,9 +35,6 @@
   --border-primary: rgba(178, 182, 189, 20%); // #b2b6bd33
 
   // CodeBlock UI:
-  // borders ----
-  // (TODO: Should this reference one of the basic border colors above or be replaced?)
-  --code-block-border: rgba(97, 104, 117, 40%);
   // lines of code - highlighted ----
   --line-highlight: rgba(0, 74, 222, 30%);
   --line-highlight-border: #1555d4;
