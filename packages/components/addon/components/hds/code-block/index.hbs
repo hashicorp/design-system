@@ -21,6 +21,7 @@
     {{style maxHeight=@maxHeight}}
     contentEditable={{not this.isReadOnly}}
     data-line={{@highlightLines}}
+    id={{if @hasCopyButton this.preCodeId null}}
   >
     {{~! ~}}
     <code {{did-insert this.setPrismCode}} {{did-update this.setPrismCode this.code @language}}>
@@ -30,6 +31,6 @@
   </pre>
 
   {{#if @hasCopyButton}}
-    <Hds::CodeBlock::CopyButton @textToCopy={{@value}} />
+    <Hds::CodeBlock::CopyButton @textToCopy={{@value}} aria-describedby={{this.preCodeId}} />
   {{/if}}
 </div>
