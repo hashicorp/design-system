@@ -8,28 +8,28 @@
 //
 
 
-// Note: For now, the "theme" contains mainly color styles
+// Note: "theme" contains just color variables and syntax highlighting styles
 @import "theme";
+
+// CODE-BLOCK PARENT/WRAPPER
 
 .hds-code-block {
   // DIMENSIONS
   // Q: Change to sass variables? (probably no need to expose...)
   --code-block-line-numbers-width: 49px; // 3em = 49px
   --code-block-code-padding: 16px;
-}
 
-// CODE-BLOCK PARENT/WRAPPER
-
-.hds-code-block {
   position: relative;
   overflow: hidden; // So header corners don't poke out from container
+  color: var(--foreground-primary);
   font-family: var(--hds-typography-code-200);
+  background-color: var(--surface-primary);
   // Note: may change border-radius to be toggled by an "@isRounded" property
   border-radius: 6px;
 
   pre,
   code {
-    line-height: 1.5;
+    line-height: var(--token-typography-body-200-line-height); // = 1.4286 | 20px
     white-space: pre;
     text-align: left;
     text-shadow: none;
@@ -122,6 +122,7 @@
 }
 
 // Linenumbers
+// TODO: Add variant class name to scope (instead of base class name)?
 .hds-code-block {
   // LineNumbers plugin styles ---------------
   &.line-numbers {
@@ -140,8 +141,7 @@
       left: 0;
       width: var(--code-block-line-numbers-width);
       padding: var(--code-block-code-padding) 0;
-      border-right-width: 1px;
-      border-right-style: solid;
+      border: 1px solid var(--code-block-border);
       user-select: none;
       pointer-events: none;
 
@@ -171,8 +171,10 @@
     position: absolute;
     right: 0;
     left: 0;
-    margin-top: calc(var(--code-block-code-padding) * -1);
-    line-height: inherit;
+    background: var(--line-highlight);
+    border: solid var(--line-highlight-border);
+    border-width: 1px 0 1px 4px; // top | right | bottom | left
+    mix-blend-mode: screen;
     pointer-events: none;
   }
 
