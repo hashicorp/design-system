@@ -8,9 +8,7 @@
 //
 
 
-// THEMING
-
-// Note: For now the "theme" contains just the color styles
+// Note: For now, the "theme" contains mainly color styles
 @import "theme";
 
 .hds-code-block {
@@ -24,7 +22,7 @@
 
 .hds-code-block {
   position: relative;
-  overflow: hidden; // So header doesn't poke out from container
+  overflow: hidden; // So header corners don't poke out from container
   font-family: var(--hds-typography-code-200);
   // Note: may change border-radius to be toggled by an "@isRounded" property
   border-radius: 6px;
@@ -49,16 +47,11 @@
 
 // Header (contains title & description)
 .hds-code-block__header {
-  // TODO: rename/move/delete variables
-  --foreground-faint: #b2b6bd;
-  --surface-faint: #15181e;
-  --code-block-border: rgba(97, 104, 117, 40%);
-
   display: flex;
   flex-flow: column;
   gap: 4px;
   padding: 8px var(--code-block-code-padding);
-  background: var(--surface-faint);
+  background-color: var(--surface-faint);
   border-bottom: 1px solid var(--code-block-border);
 }
 
@@ -74,40 +67,37 @@
 
 // CopyButton
 .hds-code-block__copy-button {
-  // TODO: move variables
-  --foreground-primary: #efeff1;
-
   // Overriding default colors
   color: var(--foreground-primary);
-  background: #15181e;
-  border: 1px solid #61687566;
+  background-color: var(--surface-faint);
+  border: 1px solid var(--border-strong);
 
   &:hover,
   &.mock-hover {
-    background: #0d0e12;
-    border-color: #61687566;
+    background-color: var(--surface-primary);
+    border-color: var(--border-strong);
   }
 
   &:active,
   &.mock-active {
-    background: #2b303c;
+    background-color: #2b303c; // TODO: can't find color defined in Figma
   }
 
   &:focus,
   &.mock-focus,
   &:focus-visible {
-    background: #15181e;
+    background-color: var(--surface-faint);
   }
 
   &.hds-copy-button--status-success {
     .flight-icon {
-      color: var(--token-color-foreground-success);
+      color: var(--foreground-success);
     }
   }
 
   &.hds-copy-button--status-error {
     .flight-icon {
-      color: var(--token-color-foreground-critical);
+      color: var(--foreground-critical);
     }
   }
 
@@ -197,27 +187,6 @@
     }
   }
 
-  // .line-highlight::before,
-  // .line-highlight[data-end]::after {
-  //   position: absolute;
-  //   top: 0.4em;
-  //   left: 0.6em;
-  //   min-width: 1em;
-  //   padding: 0 0.5em;
-  //   text-align: center;
-  //   text-shadow: none;
-  //   vertical-align: 0.3em;
-  //   border-radius: 999px;
-  //   box-shadow: 0 1px white;
-  //   content: attr(data-start);
-  // }
-
-  // .line-highlight[data-end]::after {
-  //   top: auto;
-  //   bottom: 0.4em;
-  //   content: attr(data-end);
-  // }
-
   &.line-numbers .line-highlight::before,
   &.line-numbers .line-highlight::after {
     content: none;
@@ -231,18 +200,9 @@
   pre[id].linkable-line-numbers span.line-numbers-rows > span::before {
     cursor: pointer;
   }
-
-  // pre[id].linkable-line-numbers span.line-numbers-rows > span:hover::before {
-  //   background-color: rgba(128, 128, 128, 20%);
-  // }
 }
 
 // Commmon tokens
 
-.token.bold {
-  font-weight: bold;
-}
-
-.token.italic {
-  font-style: italic;
-}
+.token.bold { font-weight: bold; }
+.token.italic { font-style: italic; }
