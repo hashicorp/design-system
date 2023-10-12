@@ -543,12 +543,12 @@
   <Shw::Flex as |SF|>
     <SF.Item @label="On">
       <Shw::Outliner>
-        <Hds::Form::VisibilityToggle @isVisible={{true}} />
+        <Hds::Form::VisibilityToggle @isVisible={{true}} aria-label="is-visible" />
       </Shw::Outliner>
     </SF.Item>
     <SF.Item @label="Off">
       <Shw::Outliner>
-        <Hds::Form::VisibilityToggle @isVisible={{false}} />
+        <Hds::Form::VisibilityToggle @isVisible={{false}} aria-label="is-not-visible" />
       </Shw::Outliner>
     </SF.Item>
   </Shw::Flex>
