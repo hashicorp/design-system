@@ -11,7 +11,7 @@
   <Shw::Text::h2>Content</Shw::Text::h2>
 
   <Shw::Flex @direction="column" {{style marginTop="32px"}} as |SF|>
-    <SF.Item @label="With only code content">
+    <SF.Item @label="with only code content">
       <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SF2|>
         <SF2.Item {{style width="calc(50% - 1rem)"}} @label="one line">
           <Hds::CodeBlock @value="console.log('I am JavaScript code');" />
@@ -28,17 +28,17 @@ console.log(`I am ${codeLang} code`);"
 
     <SF.Item>
       <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SF2|>
-        <SF2.Item {{style width="calc(50% - 1rem)"}} @label="With title">
+        <SF2.Item {{style width="calc(50% - 1rem)"}} @label="with title">
           <Hds::CodeBlock @value="console.log('I am JavaScript code');" @title="Title" />
         </SF2.Item>
 
-        <SF2.Item {{style width="calc(50% - 1rem)"}} @label="With description">
+        <SF2.Item {{style width="calc(50% - 1rem)"}} @label="with description">
           <Hds::CodeBlock @value="console.log('I am JavaScript code');" @description="Description" />
         </SF2.Item>
       </Shw::Flex>
     </SF.Item>
 
-    <SF.Item @label="With both title and description">
+    <SF.Item @label="with both title and description">
       <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SF2|>
         <SF2.Item {{style width="calc(50% - 1rem)"}} @label="one line">
           <Hds::CodeBlock @value="console.log('I am JavaScript code');" @title="Title" @description="Description" />
@@ -77,6 +77,25 @@ function assertObjectsEqual (actual, expected, testName) {
   </Shw::Flex>
 
   <Shw::Text::h2>Options</Shw::Text::h2>
+
+  <Shw::Text::h3>isRounded</Shw::Text::h3>
+
+  <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SG|>
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="with isRounded=true (default)">
+      <Hds::CodeBlock
+        @value="let codeLang='JavaScript';
+console.log(`I am ${codeLang} code`);"
+      />
+    </SG.Item>
+
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="with isRounded=false">
+      <Hds::CodeBlock
+        @isRounded={{false}}
+        @value="let codeLang='JavaScript';
+console.log(`I am ${codeLang} code`);"
+      />
+    </SG.Item>
+  </Shw::Flex>
 
   <Shw::Text::h3>Line wrapping</Shw::Text::h3>
 

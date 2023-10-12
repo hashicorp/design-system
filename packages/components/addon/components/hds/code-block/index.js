@@ -92,6 +92,16 @@ export default class HdsCodeBlockIndexComponent extends Component {
     return this.args.isReadOnly ?? true;
   }
 
+  /**
+   * @param isRounded
+   * @type {boolean}
+   * @default true
+   * @description Make CodeBlock container corners appear rounded
+   */
+  get isRounded() {
+    return this.args.isRounded ?? true;
+  }
+
   @action
   setPrismCode(element) {
     const code = this.code;
@@ -130,10 +140,15 @@ export default class HdsCodeBlockIndexComponent extends Component {
       classes.push('hds-code-block--has-copy-button');
     }
 
+    if (this.isRounded === true) {
+      classes.push('hds-code-block--is-rounded');
+    }
+
     if (this.args.hasLineWrapping === true) {
       classes.push('hds-code-block--has-line-wrapping');
     }
 
+    // Note: Prism.js is using the specific class name "line-numbers" to determine implementation of line numbers in the UI
     if (this.hasLineNumbers || this.args.highlightLines) {
       classes.push('line-numbers');
     }
