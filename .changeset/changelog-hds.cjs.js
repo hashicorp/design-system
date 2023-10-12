@@ -1,0 +1,140 @@
+// THIS FILE IS A DIRECT PORTING (AND CUSTOMIZATION) FROM: https://github.com/changesets/changesets/blob/0c8829bf8729ed5080bd7da843a717f60ea4b84b/packages/changelog-github/src/index.ts
+//
+// Notice:
+// - the file needs to live at the same level as the config file and `***.md` changeset files, otherwise it triggers an error "[Error: ENOENT: no such file or directory, open '/PATH/TO/hashicorp/design-system/.changeset/SUBFOLDER/changes.md']"
+// - the file needs to be in "cjs" (`require()`) format, otherwise it doesn't work (at least, we weren't able to get it working) - [we have used the `node_modules/@changesets/changelog-github/dist/changelog-github.cjs.prod.js` compiled file in the NPM package as reference of what is the expected code syntax]
+//
+
+const dotenv = require("dotenv");
+const getGithubInfo = require("@changesets/get-github-info");
+
+dotenv.config();
+
+const changelogFunctions = {
+  getDependencyReleaseLine: async (
+    changesets,
+    dependenciesUpdated,
+    options
+  ) => {
+    if (!options.repo) {
+      throw new Error(
+        'Please provide a repo to this changelog generator like this:\n"changelog": ["@changesets/changelog-github", { "repo": "org/repo" }]'
+      );
+    }
+    if (dependenciesUpdated.length === 0) return "";
+
+    const changesetLink = `- 🔄 Updated dependencies [${(
+      await Promise.all(
+        changesets.map(async (cs) => {
+          if (cs.commit) {
+            let { links } = await getGithubInfo.getInfo({
+              repo: options.repo,
+              commit: cs.commit,
+            });
+            return links.commit;
+          }
+        })
+      )
+    )
+      .filter((_) => _)
+      .join(", ")}]:`;
+
+    const updatedDepenenciesList = dependenciesUpdated.map(
+      (dependency) => `  - ${dependency.name}@${dependency.newVersion}`
+    );
+
+    return [changesetLink, ...updatedDepenenciesList].join("\n");
+  },
+  getReleaseLine: async (changeset, type, options) => {
+    if (!options || !options.repo) {
+      throw new Error(
+        'Please provide a repo to this changelog generator like this:\n"changelog": ["@changesets/changelog-github", { "repo": "org/repo" }]'
+      );
+    }
+
+    let prFromSummary;
+    let commitFromSummary;
+    let usersFromSummary = [];
+
+    const replacedChangelog = changeset.summary
+      .replace(/^\s*(?:pr|pull|pull\s+request):\s*#?(\d+)/im, (_, pr) => {
+        let num = Number(pr);
+        if (!isNaN(num)) prFromSummary = num;
+        return "";
+      })
+      .replace(/^\s*commit:\s*([^\s]+)/im, (_, commit) => {
+        commitFromSummary = commit;
+        return "";
+      })
+      .replace(/^\s*(?:author|user):\s*@?([^\s]+)/gim, (_, user) => {
+        usersFromSummary.push(user);
+        return "";
+      })
+      .trim();
+
+    const [firstLine, ...futureLines] = replacedChangelog
+      .split("\n")
+      .map((l) => l.trimRight());
+
+    const links = await (async () => {
+      if (prFromSummary !== undefined) {
+        let { links } = await getGithubInfo.getInfoFromPullRequest({
+          repo: options.repo,
+          pull: prFromSummary,
+        });
+        if (commitFromSummary) {
+          links = {
+            ...links,
+            commit: `[\`${commitFromSummary}\`](https://github.com/${options.repo}/commit/${commitFromSummary})`,
+          };
+        }
+        return links;
+      }
+      const commitToFetchFrom = commitFromSummary || changeset.commit;
+      if (commitToFetchFrom) {
+        let { links } = await getGithubInfo.getInfo({
+          repo: options.repo,
+          commit: commitToFetchFrom,
+        });
+        return links;
+      }
+      return {
+        commit: null,
+        pull: null,
+        user: null,
+      };
+    })();
+
+    let users;
+    if (usersFromSummary.length) {
+      // TODO add filter on user not being HDS
+      users = usersFromSummary
+        .map(
+          (userFromSummary) =>
+            `[@${userFromSummary}](https://github.com/${userFromSummary})`
+        )
+        .join(", ");
+    } else {
+      // TODO add filter on user not being HDS
+      users = links.user;
+    }
+
+    const metadata = [
+      links.pull === null ? "" : `PR: ${links.pull}`,
+      links.commit === null ? "" : `Commit: ${links.commit}`,
+      users === null ? "" : `Contributors: thanks ${users} 🙏`,
+    ];
+
+    let releaseEntry = "";
+    releaseEntry += `\n\n`;
+    releaseEntry += `- ${firstLine.replace(/^- /,'')}`;
+    if (metadata) {
+      releaseEntry += ` - ${metadata.join(" / ")}\n`;
+    }
+    releaseEntry += `\n`;
+    releaseEntry += `${futureLines.map((l) => `  ${l}`).join("\n")}`;
+    return releaseEntry;
+  },
+};
+
+exports.default = changelogFunctions;
