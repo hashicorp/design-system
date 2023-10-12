@@ -25,10 +25,10 @@ export default class TabsController extends Controller {
   @tracked currentTab_demo2;
   @tracked currentTab_demo2_subtab1;
   @tracked currentTab_demo2_subtab2;
-  // ---
-  @tracked badge1_demo3 = getRandomInteger();
-  @tracked badge2_demo3 = getRandomInteger();
-  @tracked badge3_demo3 = getRandomInteger();
+  // --- we initialize to non-random values to avoid visual regression tests to fail
+  @tracked badge1_demo3 = undefined;
+  @tracked badge2_demo3 = 2;
+  @tracked badge3_demo3 = 3;
   // ---
   @tracked atSelected_demo4 = 'two';
 
