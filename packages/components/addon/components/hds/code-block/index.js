@@ -10,6 +10,7 @@ import { assert } from '@ember/debug';
 import { htmlSafe } from '@ember/template';
 import Prism from 'prismjs';
 import { setup } from 'prismjs-glimmer';
+import { guidFor } from '@ember/object/internals';
 
 import 'prismjs/plugins/line-numbers/prism-line-numbers';
 import 'prismjs/plugins/line-highlight/prism-line-highlight';
@@ -29,6 +30,13 @@ setup(Prism);
 
 export default class HdsCodeBlockIndexComponent extends Component {
   @tracked prismCode = '';
+
+  /**
+   * Generates a unique ID for the code content
+   *
+   * @param preCodeId
+   */
+  preCodeId = 'pre-code-' + guidFor(this);
 
   /**
    * @param code
