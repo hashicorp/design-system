@@ -5,6 +5,122 @@
   </a>
 </p>
 
+## 3.0.0
+
+**Major changes**
+
+- Drop support for Node 14 - PR: [#1708](https://github.com/hashicorp/design-system/pull/1708) / Commit: [`59fedbdd9`](https://github.com/hashicorp/design-system/commit/59fedbdd9534d403fa51c6b2527ac65b4e72b473) /
+
+- Add `Hds::Form::VisibilityToggle` as a form base element - PR: [#1634](https://github.com/hashicorp/design-system/pull/1634) / Commit: [`0f8dfb1d3`](https://github.com/hashicorp/design-system/commit/0f8dfb1d393c9d95583a6b2ea8166adc378f13ac) /
+
+  - `Hds::Form::TextInput::Field` - Add `Hds::Form::VisibilityToggle` to password inputs (controlled via `@hasVisibilityToggle` - Notice that this is set to be visible by default now)
+  - `Hds::Form::MaskedInput` - Refactor to use `Hds::Form::VisibilityToggle`
+  - `Hds::Form::MaskedInput` - Rename `@isMasked` to `@isContentMasked`
+
+  To migrate `Hds::Form::MaskedInput` instances replace `@isMasked` arguments with `@isContentMasked`
+
+- `Hds::Dropdown` – remove `@listPosition` `left` and `right` (use `bottom-left` and `bottom-right`, respectively) - PR: [#1634](https://github.com/hashicorp/design-system/pull/1634) / Commit: [`8a8108e53`](https://github.com/hashicorp/design-system/commit/8a8108e53928b6d984b54237df6333fa76069bfa) /
+
+  To migrate `Hds::Dropdown` instances:
+
+  - replace `@listPosition="left"` with `@listPosition="bottom-left"`
+  - replace `@listPosition="right"` with `@listPosition="bottom-right"`
+
+- `SideNav` - renamed `extraBefore/After` generic containers to `ExtraBefore/After` (uppercase `E`) - PR: [#1634](https://github.com/hashicorp/design-system/pull/1634) / Commit: [`f1c040446`](https://github.com/hashicorp/design-system/commit/f1c040446902cdce29f2d10363f1728c0befcf73) /
+
+  To migrate rename all the `extraBefore/After` instances yielded within the `<Hds::SideNav>` component to `ExtraBefore/After`
+
+- `Form::RadioCard` - remove the `@layout` property - PR: [#1634](https://github.com/hashicorp/design-system/pull/1634) / Commit: [`07ccb1bc1`](https://github.com/hashicorp/design-system/commit/07ccb1bc156c33faccafb7993f33ba2b34dff604) /
+
+  `Form::RadioCard::Group` - repurpose the `@layout` property to either `horizontal` (default) or `vertical`
+
+  To migrate `Form::RadioCard` and `Form::RadioCard::Group` instances without encountering visual changes:
+
+  - make sure all instances with `@layout="fixed"` have a `@maxWidth` defined, then remove the `@layout="fixed"` definition
+  - remove all `@layout="fluid"` definitions
+
+**Minor changes**
+
+- `Dropdown::ListItem::CopyItem` - changed defaults for `@color` (now `secondary`) and `@isTruncated` (now `true`) - PR: [#1634](https://github.com/hashicorp/design-system/pull/1634) / Commit: [`b99ff90b3`](https://github.com/hashicorp/design-system/commit/b99ff90b3baa32f9ba30f987992d957e1fa575f3) /
+
+  _Consumers should review the defaults values for this (sub)component in their codebases, to make sure they match the intended visual designs._
+
+- `Button`, `Interactive` - Converted components to TypeScript - PR: [#1634](https://github.com/hashicorp/design-system/pull/1634) / Commit: [`2ddd0ece9`](https://github.com/hashicorp/design-system/commit/2ddd0ece9245f92afa3c9b2997aa6b4f638fd1c7) /
+
+- `Copy::Snippet` - Fixed the way in which “width/full-width” is applied to the component + Internal update to the “truncation” implementation. - PR: [#1634](https://github.com/hashicorp/design-system/pull/1634) / Commit: [`67070a680`](https://github.com/hashicorp/design-system/commit/67070a6800da459874d9b506b14d6126f9e73db2) /
+
+  - the component is not full-width anymore by default (the width now fits the content); use `@isFullWidth={{true}}` to have a full-width layout
+  - the internal class name `hds-copy-snippet__text--truncated` has been changed to `hds-copy-snippet--is-truncated` (and moved)
+
+  _Consumers should review the pages where this component is used to make sure its width matches the intended visual designs (in case, use the `@isFullWidth` argument to control its full-width). In case they're using the `hds-copy-snippet__text--truncated` class name, they should also update their code to adapt to the new implementation._
+
+- removed `ember-cli-clipboard` as dependency and introduced a custom `hds-clipboard` modifier (using the web [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API)) - PR: [#1634](https://github.com/hashicorp/design-system/pull/1634) / Commit: [`620c16df6`](https://github.com/hashicorp/design-system/commit/620c16df61c21a5a5b1c54d4052342442043082a) /
+
+  - `Copy::Button`
+    - replaced third-party `clipboard` modifier with `hds-clipboard`
+    - removed `@container` argument (not needed anymore, it was used in the third party library as a hack to account for focus trapping and focus shifting)
+    - added `@onSuccess/onError` callbacks
+  - `Copy::Snippet`
+    - replaced third-party `clipboard` modifier with `hds-clipboard`
+    - added `@onSuccess/onError` callbacks
+  - `Dropdown::ListItem::CopyItem`
+    - the change to the underlying `Copy::Snippet` has fixed an issue with the focus being lost on copy (causing the dropdown to close on copy)
+
+  _Consumers should remove the `@container` argument from all the instances of `Copy::Button` (not needed anymore) and double check that the `Copy::Button/Snippet` instances work exactly as before._
+
+**Patch changes**
+
+- `Copy::Snippet` - fixed background colors for different states according to Figma specs (main change is the default/base background is now transparent, not white) - PR: [#1634](https://github.com/hashicorp/design-system/pull/1634) / Commit: [`de5b896f6`](https://github.com/hashicorp/design-system/commit/de5b896f6c30c58465e6bd0f15122deb824a6d89) /
+
+- `Form::MaskedInput` - changed copy logic for `CopyButton` used inside the component - PR: [#1634](https://github.com/hashicorp/design-system/pull/1634) / Commit: [`bb4352db5`](https://github.com/hashicorp/design-system/commit/bb4352db5aad3fe291cbf6ed943a1bab773b4ade) /
+
+- `Accordion` - replaced internal text styling (using `Text` component) - PR: [#1634](https://github.com/hashicorp/design-system/pull/1634) / Commit: [`e919c1b5c`](https://github.com/hashicorp/design-system/commit/e919c1b5c52f4b6a95f21eb7e9e212983240c9dd) /
+
+  - `ApplicationState` - replaced internal text styling (using `Text` component)
+  - `Copy::Snippet` - replaced internal text styling (using `Text` component)
+  - `Dropdown` - replaced internal text styling (using `Text` component)
+  - `Form:**` - replaced internal text styling (using `Text` component)
+  - `Flyout` - replaced internal text styling (using `Text` component)
+  - `Modal` - replaced internal text styling (using `Text` component)
+  - `PageHeader` - replaced internal text styling (using `Text` component)
+  - `Pagination` - replaced internal text styling (using `Text` component)
+  - `Stepper` - replaced internal text styling (using `Text` component)
+  - `Tag` - replaced internal text styling (using `Text` component)
+
+  _No impact is expected on the consumers' applications._
+
+- 🔄 Updated dependencies [[`59fedbdd9`](https://github.com/hashicorp/design-system/commit/59fedbdd9534d403fa51c6b2527ac65b4e72b473)]:
+  - @hashicorp/ember-flight-icons@4.0.0
+
+## 2.14.0
+
+**Minor changes**
+
+- [#1700](https://github.com/hashicorp/design-system/pull/1700) [`33d760fb8`](https://github.com/hashicorp/design-system/commit/33d760fb88d3945be8b50302a9bb7dce3ae221fe) Thanks [@didoo](https://github.com/didoo)! - `Pagination::Compact` - Added option to show "SizeSelector" element
+
+- [#1688](https://github.com/hashicorp/design-system/pull/1688) [`c842b6eb7`](https://github.com/hashicorp/design-system/commit/c842b6eb731d82146b0e1ad8b9f55930b58aba18) Thanks [@didoo](https://github.com/didoo)! - `Tabs` - Refactored logic for `Tabs` component + `Tab/Panel` sub-components to support more complex use cases:
+
+  - introduced `@selectedTabIndex` argument to control the "selected" tab from the consuming application, e.g. via query params (effort spearheaded by @MiniHeyd)
+  - fixed issue with nested tabs not initializing the "selected" indicator correctly
+  - fixed issue with dynamic tab content not updating the "selected" indicator correctly
+
+## 2.13.0
+
+**Minor changes**
+
+- [#1623](https://github.com/hashicorp/design-system/pull/1623) [`2111a5439`](https://github.com/hashicorp/design-system/commit/2111a5439abea2951f12517354db662edd7c9cb9) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - `AppFooter` - Added new component
+
+- [#1630](https://github.com/hashicorp/design-system/pull/1630) [`04da95443`](https://github.com/hashicorp/design-system/commit/04da95443290ee2d03d9bef23787a4ef10577247) Thanks [@alex-ju](https://github.com/alex-ju)! - `SideNav` - add `@isCollapsible` (to control if users can collapse the sidenav on 'desktop' viewports) and `@isMinimized` (to control the default state on 'desktop' viewports) arguments
+
+**Patch changes**
+
+- [#1696](https://github.com/hashicorp/design-system/pull/1696) [`f3f3fb103`](https://github.com/hashicorp/design-system/commit/f3f3fb103a5aa1c6489d011b6820560df4c2ed88) Thanks [@MelSumner](https://github.com/MelSumner)! - `Tag` - Updated padding for dismiss button for WCAG conformance
+
+- [#1678](https://github.com/hashicorp/design-system/pull/1678) [`a51976ded`](https://github.com/hashicorp/design-system/commit/a51976ded4f7939fe140a1abade0f98832ccc2d0) Thanks [@alex-ju](https://github.com/alex-ju)! - `Link::Standalone` – increase target size
+
+- Updated dependencies [[`04da95443`](https://github.com/hashicorp/design-system/commit/04da95443290ee2d03d9bef23787a4ef10577247)]:
+  - @hashicorp/design-system-tokens@1.9.0
+
 ## 2.12.2
 
 **Patch changes**
@@ -128,88 +244,6 @@
 - Updated dependencies [[`fd5953633`](https://github.com/hashicorp/design-system/commit/fd595363396c2e6672025ab8f9c3df7d2a3fce53)]:
   - @hashicorp/design-system-tokens@1.7.0
   - @hashicorp/ember-flight-icons@3.0.8
-
-## 2.8.0
-
-**Minor changes**
-
-- [#1492](https://github.com/hashicorp/design-system/pull/1492) [`a17e5b2ac`](https://github.com/hashicorp/design-system/commit/a17e5b2acf66493ccbb68a623a3b7ba2fd5ab5a8) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - `Hds::Card` - Updated default value of `@overflow` argument to `"visible"` to address an area of consumer confusion and better support the most common use cases.
-
-  Technically, this is a breaking change as it will require consumers relying upon the previous `hidden` default value to now manually set the value. The result of not setting the a `hidden` value can cause square edges of some images to "stick out" and overlap the rounded corners of the Card itself. We considered this to be a fairly minor, low-impact issue however which would not affect functionality or usability.
-
-- [#1452](https://github.com/hashicorp/design-system/pull/1452) [`c277d0366`](https://github.com/hashicorp/design-system/commit/c277d036673cf572c00ebf5b8b35b424c0b057fd) Thanks [@alex-ju](https://github.com/alex-ju)! - `Hds::Form::TextInput` - Add loading state on "search" type
-
-- [#1468](https://github.com/hashicorp/design-system/pull/1468) [`b0a766ccf`](https://github.com/hashicorp/design-system/commit/b0a766ccf5357dd6f0e8dfb68d8c1ee823e76b50) Thanks [@alex-ju](https://github.com/alex-ju)! - Add `Hds::Form::MaskedInput` component
-
-- [#1423](https://github.com/hashicorp/design-system/pull/1423) [`5ac340c8c`](https://github.com/hashicorp/design-system/commit/5ac340c8c3a3adab388704067578cf419e2e2f10) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - Add `Hds::Accordion` component
-
-**Patch changes**
-
-- [#1466](https://github.com/hashicorp/design-system/pull/1466) [`cdda7ae8e`](https://github.com/hashicorp/design-system/commit/cdda7ae8eaf553bd32ec9e3944edf08fe352caf4) Thanks [@alex-ju](https://github.com/alex-ju)! - `Hds::PageHeader` – Set position to 'relative'
-
-- [#1470](https://github.com/hashicorp/design-system/pull/1470) [`0ea2ccfd0`](https://github.com/hashicorp/design-system/commit/0ea2ccfd0303149014de768c715ebb53dffe6c4c) Thanks [@alex-ju](https://github.com/alex-ju)! - `Hds::Textarea` – Fix border and text color for readonly state
-
-- [#1456](https://github.com/hashicorp/design-system/pull/1456) [`b4237e73b`](https://github.com/hashicorp/design-system/commit/b4237e73b3701d94e92556ad0108b8a38bef312d) Thanks [@alex-ju](https://github.com/alex-ju)! - `Hds::Modal` – Prevent `onClose` callback function invocation when `isDismissDisabled` is `true`
-
-- [#1469](https://github.com/hashicorp/design-system/pull/1469) [`ef98ed4ed`](https://github.com/hashicorp/design-system/commit/ef98ed4ed188520fd69a0090ab93d7d0c44e634c) Thanks [@didoo](https://github.com/didoo)! - Set the `font-weight` of the `button` mixin explicitly to `regular` instead of relying on inheritance (components using this mixin: `Button`, `Dropdown::ToggleButton` and soon `Accordion`) - No visual difference expected
-
-- Updated dependencies [[`b2ec25b39`](https://github.com/hashicorp/design-system/commit/b2ec25b399ba9aad5f8ae0b1f18a1bef9a6543e0)]:
-  - @hashicorp/design-system-tokens@1.6.0
-  - @hashicorp/ember-flight-icons@3.0.7
-
-## 2.7.1
-
-**Patch changes**
-
-- [#1438](https://github.com/hashicorp/design-system/pull/1438) [`ae852e7f8`](https://github.com/hashicorp/design-system/commit/ae852e7f83da72c62ee7791f89ac5c4a9e6bc7c6) Thanks [@didoo](https://github.com/didoo)! - `TooltipButton` - added `text-align: inherit` to the "button" element
-
-- [#1444](https://github.com/hashicorp/design-system/pull/1444) [`5a4d036e1`](https://github.com/hashicorp/design-system/commit/5a4d036e1dd349dfde1b1f8e278d332fac7abe7e) Thanks [@MelSumner](https://github.com/MelSumner)! - Internal accessibility tweaks for dropdown component
-
-- [#1395](https://github.com/hashicorp/design-system/pull/1395) [`e6e0c22c5`](https://github.com/hashicorp/design-system/commit/e6e0c22c538e381f4a97428dc35cf1295ce6ae21) Thanks [@alex-ju](https://github.com/alex-ju)! - Upgraded Ember.js to latest stable release 4.12, including upgrades to:
-
-  - `ember-auto-import` from `2.6.0` to `2.6.3`
-  - `ember-cli-htmlbars` from `6.1.0` to `6.2.0`
-
-  Upgraded the following dependencies:
-
-  - `ember-focus-trap` from `1.0.1` to `1.0.2`
-  - `ember-keyboard` from `8.1.0` to `8.2.0`
-  - `ember-truth-helpers` from `3.0.0` to `3.1.1`
-  - `sass` from `1.58.3` to `1.62.1`
-
-  Shifted our supported version of Node.js from `12.* || 14.* || >= 16` to `14.* || 16.* || >= 18`
-
-- [#1425](https://github.com/hashicorp/design-system/pull/1425) [`921aa03b9`](https://github.com/hashicorp/design-system/commit/921aa03b95f56da21e794ee62ecc96019f5c4bb7) Thanks [@didoo](https://github.com/didoo)! - `Table` - Set `min-height` instead of `height` for the table head cells + Updated the cells' internal padding to align with the design specs in Figma
-
-- [#1433](https://github.com/hashicorp/design-system/pull/1433) [`9aa5291d1`](https://github.com/hashicorp/design-system/commit/9aa5291d187bc867baf7c069c9dd17856cb5f79f) Thanks [@didoo](https://github.com/didoo)! - - Updated CSS code of components to use flex `gap`
-
-  - Fixed an issue with `Hds::Sidenav::Link` that was generating an empty node
-
-  This will lead to a minimal visual impact on some edge cases of `Alert/Toast` (multiple description items) and `SideNav` (text + generic content)
-
-- [#1426](https://github.com/hashicorp/design-system/pull/1426) [`1f8886a2d`](https://github.com/hashicorp/design-system/commit/1f8886a2d5117d74a0dddd4bca4a09d9fcedc8da) Thanks [@MelSumner](https://github.com/MelSumner)! - Style tweaks to standalone link
-
-- [#1434](https://github.com/hashicorp/design-system/pull/1434) [`eadefc4bd`](https://github.com/hashicorp/design-system/commit/eadefc4bdb4e5fd6c110a7be1d7d9aa720695678) Thanks [@alex-ju](https://github.com/alex-ju)! - Fix scroll management on `Hds::Modal` and `Hds::Flyout` resulting in stray `style` attribute on `<body>` element
-
-- Updated dependencies [[`e6e0c22c5`](https://github.com/hashicorp/design-system/commit/e6e0c22c538e381f4a97428dc35cf1295ce6ae21)]:
-  - @hashicorp/ember-flight-icons@3.0.6
-
-## 2.7.0
-
-**Minor changes**
-
-- [#1421](https://github.com/hashicorp/design-system/pull/1421) [`b8a45d6e7`](https://github.com/hashicorp/design-system/commit/b8a45d6e7ade6e973b2a860444d80d9216e3ab5c) Thanks [@didoo](https://github.com/didoo)! - `Table` - Exposed the internal sorting properties and methods `setSortBy`, `sortBy` and `sortOrder`
-
-- [#1377](https://github.com/hashicorp/design-system/pull/1377) [`437c253dd`](https://github.com/hashicorp/design-system/commit/437c253dd6106d616ed8f83c060adb12ac83acac) Thanks [@jorytindall](https://github.com/jorytindall)! - Adds `PageHeader` component
-
-- [#1393](https://github.com/hashicorp/design-system/pull/1393) [`38fb21e60`](https://github.com/hashicorp/design-system/commit/38fb21e6091c739f621e967e23d4c8b2794c9575) Thanks [@alex-ju](https://github.com/alex-ju)! - Add `Separator` component
-
-**Patch changes**
-
-- [#1415](https://github.com/hashicorp/design-system/pull/1415) [`555c86d3f`](https://github.com/hashicorp/design-system/commit/555c86d3fde07109775a61523f7b26444fc9ee62) Thanks [@didoo](https://github.com/didoo)! - `Hds::Table` - Changed the way in which the column `@width` defined by the user is applied
-
-- Updated dependencies []:
-  - @hashicorp/ember-flight-icons@3.0.5
 
 
 ---
