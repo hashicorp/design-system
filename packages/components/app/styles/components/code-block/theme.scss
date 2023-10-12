@@ -1,9 +1,10 @@
 // THEMING
 
-.hds-code-block {
+.hds-code-block--theme-dark {
   // COLORS
 
-  // Color names:
+  // Descriptive color names:
+
   --blue: #2d8eff;
   --cyan: #32fff7;
   --matrix-green: #86ff13;
@@ -11,16 +12,40 @@
   --purple: #c76cff;
   --red: #ff3b20;
 
-  // Base colors:
+  // Semantic color names:
+
+  // Base UI colors:
   --foreground-primary: #efeff1;
   --foreground-faint: #b2b6bd;
   --surface-primary: #0d0e12;
   --surface-faint: #15181e;
+  // status ----
+  --foreground-success: #009241;
+  --foreground-critical: #ef3016;
+  // interactive ---
+  --foreground-interactive: #dedfe3;
+  --foreground-interactive-hover: #fff;
+  --foreground-interactive-active: #f1f2f3;
+  // actions ---
+  --foreground-action-default: #2b89ff;
+  --foreground-action-hover: #389aff;
+  --foreground-action-active: #4ca1ff;
+  // borders (TODO: Names are confusing) ----
+  --border-strong: rgba(178, 182, 189, 40%); // #b2b6bd66
+  --border-primary: rgba(178, 182, 189, 20%); // #b2b6bd33
 
-  // Syntax tokens:
-  // general
+  // CodeBlock UI:
+  // borders ----
+  // (TODO: Should this reference one of the basic border colors above or be replaced?)
+  --code-block-border: rgba(97, 104, 117, 40%);
+  // lines of code - highlighted ----
+  --line-highlight: rgba(0, 74, 222, 30%);
+  --line-highlight-left-border: #0046d1;
+
+  // Syntax highlighting tokens:
+  // general ----
   --token: var(--matrix-green);
-  // specific
+  // specific ----
   --atrule: var(--blue);
   --attr-name: var(--blue);
   --attr-value: var(--blue);
@@ -49,9 +74,8 @@
   --symbol: var(--orange);
   --tag: var(--matrix-green);
   --url: var(--cyan);
-
-  // language-scoped
-  // css
+  // language-scoped:
+  // css ----
   --lang-css: var(--purple);
   --lang-css-token: var(--matrix-green);
   --lang-css-atrule: var(--purple);
@@ -62,36 +86,18 @@
   --lang-css-not-atrule: var(--foreground-primary);
   --lang-css-selector: var(--blue);
   --lang-css-url: var(--orange);
-  // javascript
+  // javascript ----
   --lang-js-constant: var(--orange);
-  // markup/html
+  // markup/html ----
   --lang-markup-attr-value: var(--yellow);
   --lang-markup-entity-named: var(--purple);
   --lang-markup-entity-not-named: var(--matrix-green);
-
-  // Lines:
-  --line-highlight: rgba(0, 74, 222, 30%);
-  --line-highlight-left-border: #0046d1;
-
-  // Borders:
-  --code-block-border: rgba(97, 104, 117, 40%);
 }
+
 
 .hds-code-block {
   color: var(--foreground-primary);
   background-color: var(--surface-primary);
-
-  /* Selection */
-
-  // Note: using browser default for now
-  // pre,
-  // code {
-  //   &::selection,
-  //   & ::selection {
-  //     background-color: var(--selection);
-  //     text-shadow: none; // makes highlight color disappear if background color not set
-  //   }
-  // }
 
   // Lines ----
 
@@ -105,7 +111,7 @@
     border-left: 4px solid var(--line-highlight-left-border);
   }
 
-  // Code block code ----
+  // Syntax highlighting ----
 
   // General tokens
   .token { color: var(--token); }
