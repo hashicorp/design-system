@@ -58,6 +58,32 @@ export default class HdsTabsIndexComponent extends Component {
   }
 
   @action
+  didUpdateSelectedTabIndex() {
+    schedule('afterRender', () => {
+      this.setTabIndicator();
+    });
+  }
+
+  @action
+  didUpdateSelectedTabId() {
+    // if the selected tab is set dynamically (eg. in a `each` loop)
+    // the `Tab` nodes will be re-inserted/rendered, which means the `this.selectedTabId` variable changes
+    // but the parent `Tabs` component has already been rendered/inserted but doesn't re-render
+    // so the value of the `selectedTabIndex` is not updated, unless we trigger a recalculation
+    // using the `did-update` modifier that checks for changes in the `this.selectedTabId` variable
+    if (this.selectedTabId) {
+      this.selectedTabIndex = this.tabIds.indexOf(this.selectedTabId);
+    }
+  }
+
+  @action
+  didUpdateParentVisibility() {
+    schedule('afterRender', () => {
+      this.setTabIndicator();
+    });
+  }
+
+  @action
   didInsertTab(element, isSelected) {
     this.tabNodes = [...this.tabNodes, element];
     this.tabIds = [...this.tabIds, element.id];
@@ -171,10 +197,5 @@ export default class HdsTabsIndexComponent extends Component {
         );
       }
     });
-  }
-
-  @action
-  updateTabIndicator() {
-    this.setTabIndicator();
   }
 }
