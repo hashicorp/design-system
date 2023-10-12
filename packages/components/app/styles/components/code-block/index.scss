@@ -23,8 +23,6 @@ $code-block-code-padding: 16px;
   color: var(--code-block-color-foreground-primary);
   font-family: var(--hds-typography-code-200);
   background-color: var(--code-block-color-surface-primary);
-  // Note: may change border-radius to be toggled by an "@isRounded" property
-  border-radius: 6px;
 
   pre,
   code {
@@ -105,6 +103,11 @@ $code-block-code-padding: 16px;
 
 // VARIANTS
 
+// isRounded
+.hds-code-block--is-rounded {
+  border-radius: 6px;
+}
+
 // hasCopyButton
 .hds-code-block--has-copy-button {
   .hds-code-block__copy-button {
@@ -121,7 +124,7 @@ $code-block-code-padding: 16px;
 }
 
 // Linenumbers
-// TODO: Add variant class name to scope (instead of base class name)?
+// Note: Prism.js is using the specific class name "line-numbers" to determine implementation of line numbers in the UI
 .hds-code-block {
   // LineNumbers plugin styles ---------------
   &.line-numbers {
@@ -170,6 +173,8 @@ $code-block-code-padding: 16px;
     position: absolute;
     right: 0;
     left: 0;
+    // Note: position seems off by just 1px although not sure why
+    margin-top: -1px;
     background-color: var(--code-block-color-line-highlight);
     border: solid var(--code-block-color-line-highlight-border);
     border-width: 1px 0 1px 4px; // top | right | bottom | left
@@ -188,18 +193,13 @@ $code-block-code-padding: 16px;
     }
   }
 
-  &.line-numbers .line-highlight::before,
-  &.line-numbers .line-highlight::after {
-    content: none;
-  }
-
   // not using currently...
   pre[id].linkable-line-numbers span.line-numbers-rows {
     pointer-events: all;
-  }
 
-  pre[id].linkable-line-numbers span.line-numbers-rows > span::before {
-    cursor: pointer;
+    > span::before {
+      cursor: pointer;
+    }
   }
 }
 
