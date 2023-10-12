@@ -5,90 +5,90 @@
 
   // Descriptive color names:
 
-  --blue: #2d8eff;
-  --cyan: #32fff7;
-  --matrix-green: #86ff13;
-  --orange: #ffa800;
-  --purple: #c76cff;
-  --red: #ff3b20;
+  --code-block-color-blue: #2d8eff;
+  --code-block-color-cyan: #32fff7;
+  --code-block-color-matrix-green: #86ff13;
+  --code-block-color-orange: #ffa800;
+  --code-block-color-purple: #c76cff;
+  --code-block-color-red: #ff3b20;
 
   // Semantic color names:
 
   // Base UI colors:
-  --foreground-primary: #d5d7db;
-  --foreground-faint: #b2b6bd;
-  --surface-primary: #0d0e12;
-  --surface-faint: #15181e;
+  --code-block-color-foreground-primary: #d5d7db;
+  --code-block-color-foreground-faint: #b2b6bd;
+  --code-block-color-surface-primary: #0d0e12;
+  --code-block-color-surface-faint: #15181e;
   // status ----
-  --foreground-success: #009241;
-  --foreground-critical: #ef3016;
+  --code-block-color-foreground-success: #009241;
+  --code-block-color-foreground-critical: #ef3016;
   // interactive ---
-  --foreground-interactive: #dedfe3;
-  --foreground-interactive-hover: #fff;
-  --foreground-interactive-active: #f1f2f3;
+  --code-block-color-foreground-interactive: #dedfe3;
+  --code-block-color-foreground-interactive-hover: #fff;
+  --code-block-color-foreground-interactive-active: #f1f2f3;
   // actions ---
-  --foreground-action-default: #2b89ff;
-  --foreground-action-hover: #389aff;
-  --foreground-action-active: #4ca1ff;
+  --code-block-color-foreground-action-default: #2b89ff;
+  --code-block-color-foreground-action-hover: #389aff;
+  --code-block-color-foreground-action-active: #4ca1ff;
   // borders (TODO: Names are confusing) ----
-  --border-strong: rgba(178, 182, 189, 40%); // #b2b6bd66
-  --border-primary: rgba(178, 182, 189, 20%); // #b2b6bd33
+  --code-block-color-border-strong: rgba(178, 182, 189, 40%); // #b2b6bd66
+  --code-block-color-border-primary: rgba(178, 182, 189, 20%); // #b2b6bd33
 
   // CodeBlock UI:
   // lines of code - highlighted ----
-  --line-highlight: rgba(0, 74, 222, 30%);
-  --line-highlight-border: #1555d4;
+  --code-block-color-line-highlight: rgba(0, 74, 222, 30%);
+  --code-block-color-line-highlight-border: #1555d4;
 
   // Syntax highlighting tokens:
   // general ----
-  --token: var(--matrix-green);
+  --code-block-color-token: var(--code-block-color-matrix-green);
   // specific ----
-  --atrule: var(--blue);
-  --attr-name: var(--blue);
-  --attr-value: var(--blue);
-  --boolean: var(--purple);
-  --builtin: var(--orange);
-  --char: var(--orange);
-  --class-name: var(--matrix-green);
-  --comment: var(--foreground-faint);
-  --control: var(--cyan);
-  --constant: var(--purple);
-  --deleted: var(--red);
-  --entity: var(--matrix-green);
-  --function: var(--blue);
-  --important: var(--red);
-  --keyword: var(--matrix-green);
-  --namespace: var(--red);
-  --number: var(--purple);
-  --operator: var(--cyan);
-  --prolog: var(--foreground-primary);
-  --property: var(--blue);
-  --punctuation: var(--foreground-primary);
-  --regex: var(--orange);
-  --script: var(--foreground-primary);
-  --selector: var(--matrix-green);
-  --string: var(--orange);
-  --symbol: var(--orange);
-  --tag: var(--matrix-green);
-  --url: var(--cyan);
+  --code-block-color-atrule: var(--code-block-color-blue);
+  --code-block-color-code-block-attr-name: var(--code-block-color-blue);
+  --code-block-color-attr-value: var(--code-block-color-blue);
+  --code-block-color-boolean: var(--code-block-color-purple);
+  --code-block-color-builtin: var(--code-block-color-orange);
+  --code-block-color-char: var(--code-block-color-orange);
+  --code-block-color-class-name: var(--code-block-color-matrix-green);
+  --code-block-color-comment: var(--code-block-color-foreground-faint);
+  --code-block-color-control: var(--code-block-color-cyan);
+  --code-block-color-constant: var(--code-block-color-purple);
+  --code-block-color-deleted: var(--code-block-color-red);
+  --code-block-color-entity: var(--code-block-color-matrix-green);
+  --code-block-color-function: var(--code-block-color-blue);
+  --code-block-color-important: var(--code-block-color-red);
+  --code-block-color-keyword: var(--code-block-color-matrix-green);
+  --code-block-color-namespace: var(--code-block-color-red);
+  --code-block-color-number: var(--code-block-color-purple);
+  --code-block-color-operator: var(--code-block-color-cyan);
+  --code-block-color-prolog: var(--code-block-color-foreground-primary);
+  --code-block-color-property: var(--code-block-color-blue);
+  --code-block-color-punctuation: var(--code-block-color-foreground-primary);
+  --code-block-color-regex: var(--code-block-color-orange);
+  --code-block-color-script: var(--code-block-color-foreground-primary);
+  --code-block-color-selector: var(--code-block-color-matrix-green);
+  --code-block-color-string: var(--code-block-color-orange);
+  --code-block-color-symbol: var(--code-block-color-orange);
+  --code-block-color-tag: var(--code-block-color-matrix-green);
+  --code-block-color-url: var(--code-block-color-cyan);
   // language-scoped:
   // css ----
-  --lang-css: var(--purple);
-  --lang-css-token: var(--matrix-green);
-  --lang-css-atrule: var(--purple);
-  --lang-css-entity: var(--blue);
-  --lang-css-function: var(--cyan);
-  --lang-css-property: var(--cyan);
-  --lang-css-punctuation: var(--orange);
-  --lang-css-not-atrule: var(--foreground-primary);
-  --lang-css-selector: var(--blue);
-  --lang-css-url: var(--orange);
+  --code-block-color-lang-css: var(--code-block-color-purple);
+  --code-block-color-lang-css-token: var(--code-block-color-matrix-green);
+  --code-block-color-lang-css-atrule: var(--code-block-color-purple);
+  --code-block-color-lang-css-entity: var(--code-block-color-blue);
+  --code-block-color-lang-css-function: var(--code-block-color-cyan);
+  --code-block-color-lang-css-property: var(--code-block-color-cyan);
+  --code-block-color-lang-css-punctuation: var(--code-block-color-orange);
+  --code-block-color-lang-css-not-atrule: var(--code-block-color-foreground-primary);
+  --code-block-color-lang-css-selector: var(--code-block-color-blue);
+  --code-block-color-lang-css-url: var(--code-block-color-orange);
   // javascript ----
-  --lang-js-constant: var(--orange);
+  --code-block-color-lang-js-constant: var(--code-block-color-orange);
   // markup/html ----
-  --lang-markup-attr-value: var(--yellow);
-  --lang-markup-entity-named: var(--purple);
-  --lang-markup-entity-not-named: var(--matrix-green);
+  --code-block-color-lang-markup-attr-value: var(--code-block-color-yellow);
+  --code-block-color-lang-markup-entity-named: var(--code-block-color-purple);
+  --code-block-color-lang-markup-entity-not-named: var(--code-block-color-matrix-green);
 }
 
 
@@ -96,60 +96,60 @@
   // Syntax highlighting ----
 
   // General tokens
-  .token { color: var(--token); }
+  .token { color: var(--code-block-color-token); }
 
-  .token.atrule { color: var(--atrule); }
-  .token.attr-name { color: var(--attr-name); }
-  .token.attr-value { color: var(--attr-value); }
-  .token.boolean { color: var(--boolean); }
-  .token.builtin { color: var(--builtin); }
-  .token.char { color: var(--char); }
-  .token.class-name { color: var(--class-name); }
-  .token.comment { color: var(--comment); }
-  .token.constant { color: var(--constant); }
-  .token.deleted { color: var(--deleted); }
-  .token.entity { color: var(--entity); }
-  .token.function { color: var(--function); }
-  .token.important { color: var(--important); }
-  .token.keyword { color: var(--keyword); }
-  .token.namespace { color: var(--namespace); }
-  .token.number { color: var(--number); }
-  .token.operator { color: var(--operator); }
-  .token.punctuation { color: var(--punctuation); }
-  .token.prolog { color: var(--prolog); }
-  .token.property { color: var(--property); }
-  .token.regex { color: var(--regex); }
-  .token.script { color: var(--script); }
-  .token.selector { color: var(--selector); }
-  .token.string { color: var(--string); }
-  .token.symbol { color: var(--symbol); }
-  .token.tag { color: var(--tag); }
-  .token.url { color: var(--url); }
-  .token.variable { color: var(--comment); }
+  .token.atrule { color: var(--code-block-color-atrule); }
+  .token.attr-name { color: var(--code-block-color-attr-name); }
+  .token.attr-value { color: var(--code-block-color-attr-value); }
+  .token.boolean { color: var(--code-block-color-boolean); }
+  .token.builtin { color: var(--code-block-color-builtin); }
+  .token.char { color: var(--code-block-color-char); }
+  .token.class-name { color: var(--code-block-color-class-name); }
+  .token.comment { color: var(--code-block-color-comment); }
+  .token.constant { color: var(--code-block-color-constant); }
+  .token.deleted { color: var(--code-block-color-deleted); }
+  .token.entity { color: var(--code-block-color-entity); }
+  .token.function { color: var(--code-block-color-function); }
+  .token.important { color: var(--code-block-color-important); }
+  .token.keyword { color: var(--code-block-color-keyword); }
+  .token.namespace { color: var(--code-block-color-namespace); }
+  .token.number { color: var(--code-block-color-number); }
+  .token.operator { color: var(--code-block-color-operator); }
+  .token.punctuation { color: var(--code-block-color-punctuation); }
+  .token.prolog { color: var(--code-block-color-prolog); }
+  .token.property { color: var(--code-block-color-property); }
+  .token.regex { color: var(--code-block-color-regex); }
+  .token.script { color: var(--code-block-color-script); }
+  .token.selector { color: var(--code-block-color-selector); }
+  .token.string { color: var(--code-block-color-string); }
+  .token.symbol { color: var(--code-block-color-symbol); }
+  .token.tag { color: var(--code-block-color-tag); }
+  .token.url { color: var(--code-block-color-url); }
+  .token.variable { color: var(--code-block-color-comment); }
 
   // Language-specific
   .language-css {
-    color: var(--lang-css);
+    color: var(--code-block-color-lang-css);
 
-    .token { color: var(--lang-css-token); }
-    .token.atrule { color: var(--lang-css-atrule); }
-    .token.rule:not(.atrule) { color: var(--lang-css-not-atrule); }
-    .token.entity { color: var(--lang-css-entity); }
-    .token.function { color: var(--lang-css-function); }
-    .token.property { color: var(--lang-css-property); }
-    .token.punctuation { color: var(--lang-css-punctuatione); }
-    .token.selector { color: var(--lang-css-selector); }
-    .token.url { color: var(--lang-css-url); }
+    .token { color: var(--code-block-color-lang-css-token); }
+    .token.atrule { color: var(--code-block-color-lang-css-atrule); }
+    .token.rule:not(.atrule) { color: var(--code-block-color-lang-css-not-atrule); }
+    .token.entity { color: var(--code-block-color-lang-css-entity); }
+    .token.function { color: var(--code-block-color-lang-css-function); }
+    .token.property { color: var(--code-block-color-lang-css-property); }
+    .token.punctuation { color: var(--code-block-color-lang-css-punctuatione); }
+    .token.selector { color: var(--code-block-color-lang-css-selector); }
+    .token.url { color: var(--code-block-color-lang-css-url); }
   }
 
   .language-javascript {
-    .token.constant { color: var(--lang-js-constant); }
+    .token.constant { color: var(--code-block-color-lang-js-constant); }
   }
 
   .language-markup,
   .language-html {
-    .token.attr-value { color: var(--lang-markup-attr-value); }
-    .token.entity.named-entity { color: var(--lang-markup-entity-named); }
-    .token.entity:not(.named-entity) { color: var(--lang-markup-entity-not-named); }
+    .token.attr-value { color: var(--code-block-color-lang-markup-attr-value); }
+    .token.entity.named-entity { color: var(--code-block-color-lang-markup-entity-named); }
+    .token.entity:not(.named-entity) { color: var(--code-block-color-lang-markup-entity-not-named); }
   }
 }
