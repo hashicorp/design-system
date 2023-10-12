@@ -10,6 +10,22 @@ const getGithubInfo = require("@changesets/get-github-info");
 
 dotenv.config();
 
+const SKIP_USERS = [
+  // HDS users
+  'didoo',
+  'KristinLBradley',
+  'MelSumner',
+  'alex-ju',
+  'jorytindall',
+  'Dhaulagiri',
+  'heatherlarsen',
+  'andgen404',
+  // bots
+  'apps/dependabot',
+  'apps/hashicorp-copywrite',
+  'hashibot-hds',
+]
+
 const changelogFunctions = {
   getDependencyReleaseLine: async (
     changesets,
@@ -105,24 +121,30 @@ const changelogFunctions = {
       };
     })();
 
-    let users;
+    let contributors = null;
     if (usersFromSummary.length) {
-      // TODO add filter on user not being HDS
-      users = usersFromSummary
-        .map(
-          (userFromSummary) =>
-            `[@${userFromSummary}](https://github.com/${userFromSummary})`
-        )
+      contributors = usersFromSummary
+        .filter((user) => !SKIP_USERS.includes(user))
+        .map((user) => `[@${user}](https://github.com/${user})`)
         .join(", ");
     } else {
-      // TODO add filter on user not being HDS
-      users = links.user;
+      // this user is coming from the `getInfoFromPullRequest` method that returns a string in the format `[@USER](https://github.com/USER)` / `[@${user.login}](${user.url})`
+      // see: https://github.com/changesets/changesets/blob/main/packages/get-github-info/src/index.ts#L215
+      const match = links.user.match(/^\[@(.*)\]/);
+      if (match) {
+        const user = match[1];
+        if (SKIP_USERS.includes(user)) {
+          console.log(`skipped contributor: ${user} = ${links.user}`);
+        } else {
+          contributors = links.user;
+        }
+      }
     }
 
     const metadata = [
       links.pull === null ? "" : `PR: ${links.pull}`,
       links.commit === null ? "" : `Commit: ${links.commit}`,
-      users === null ? "" : `Contributors: thanks ${users} 🙏`,
+      contributors === null ? "" : `Contributors: thanks ${contributors} 🙏`,
     ];
 
     let releaseEntry = "";
