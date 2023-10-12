@@ -40,7 +40,7 @@
   --code-block-border: rgba(97, 104, 117, 40%);
   // lines of code - highlighted ----
   --line-highlight: rgba(0, 74, 222, 30%);
-  --line-highlight-left-border: #0046d1;
+  --line-highlight-border: #1555d4;
 
   // Syntax highlighting tokens:
   // general ----
@@ -96,21 +96,6 @@
 
 
 .hds-code-block {
-  color: var(--foreground-primary);
-  background-color: var(--surface-primary);
-
-  // Lines ----
-
-  .line-numbers .line-numbers-rows {
-    border-color: var(--code-block-border);
-  }
-
-  .line-highlight {
-    // Overlays code text so needs to be semi-transparent
-    background: var(--line-highlight);
-    border-left: 4px solid var(--line-highlight-left-border);
-  }
-
   // Syntax highlighting ----
 
   // General tokens
