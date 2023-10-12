@@ -31,6 +31,8 @@ export default class TabsController extends Controller {
   @tracked badge3_demo3 = getRandomInteger();
   // ---
   @tracked atSelected_demo4 = 'two';
+  // ---
+  @tracked selectedTab_demo5 = 'two';
 
   // =============================
   // GENERIC HANDLERS
@@ -113,5 +115,32 @@ export default class TabsController extends Controller {
   @action
   setAtSelectedDemo4(tab) {
     this.atSelected_demo4 = tab;
+  }
+
+  // DEMO #5
+
+  get tabsDemo5() {
+    return [
+      {
+        label: 'One',
+        content: 'Content one',
+        isSelected: this.selectedTab_demo5 === 'one',
+      },
+      {
+        label: 'Two',
+        content: 'Content two',
+        isSelected: this.selectedTab_demo5 === 'two',
+      },
+      {
+        label: 'Three',
+        content: 'Content three',
+        isSelected: this.selectedTab_demo5 === 'three',
+      },
+    ];
+  }
+
+  @action
+  setSelectedTabDemo5(tab) {
+    this.selectedTab_demo5 = tab;
   }
 }
