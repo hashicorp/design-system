@@ -287,14 +287,23 @@ func main() {
   <Shw::Grid @columns={{6}} as |SG|>
     {{#each @model.STATES as |state|}}
       <SG.Item @label={{(capitalize state)}}>
-        <Hds::CodeBlock::CopyButton mock-state-value={{state}} @textToCopy="copy me" />
+        <Hds::CodeBlock::CopyButton
+          mock-state-value={{state}}
+          @textToCopy="copy me"
+          class="hds-code-block--theme-dark"
+        />
       </SG.Item>
     {{/each}}
     {{#let (array "success" "error") as |statuses|}}
       {{#each statuses as |status|}}
         <SG.Item @label={{(capitalize status)}}>
           TODO: statuses not working
-          <Hds::CodeBlock::CopyButton @status={{status}} mock-copy-status={{status}} @textToCopy="copy me" />
+          <Hds::CodeBlock::CopyButton
+            @status={{status}}
+            mock-copy-status={{status}}
+            @textToCopy="copy me"
+            class="hds-code-block--theme-dark"
+          />
         </SG.Item>
       {{/each}}
     {{/let}}

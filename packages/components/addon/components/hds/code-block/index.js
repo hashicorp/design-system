@@ -110,7 +110,9 @@ export default class HdsCodeBlockIndexComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-code-block'];
+    // Currently theres is only one theme so the class name is hard-coded.
+    // In the future, additional themes such as a "light" theme could be added.
+    let classes = ['hds-code-block', 'hds-code-block--theme-dark'];
 
     if (this.language) {
       classes.push(`language-${this.language}`);
