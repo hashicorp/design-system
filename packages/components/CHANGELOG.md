@@ -1,5 +1,11 @@
 # @hashicorp/design-system-components
 
+## 2.14.1
+
+### Patch Changes
+
+- [#1709](https://github.com/hashicorp/design-system/pull/1709) [`294dddfda`](https://github.com/hashicorp/design-system/commit/294dddfda8d8e174fd5dd7de5d6af01dd8405775) Thanks [@didoo](https://github.com/didoo)! - `Tabs` - Fixed issue with `@isSelected` dynamically changed within `#each` loops
+
 ## 2.14.0
 
 ### Minor Changes
