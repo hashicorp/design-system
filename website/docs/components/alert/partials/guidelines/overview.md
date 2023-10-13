@@ -1,4 +1,4 @@
-Use alerts to display brief but important system-generated messages. They attract the user’s attention without interrupting their task. For messages that are the result of a user’s actions, see [Toast](/components/toast).
+Alerts display brief but important system-generated messages and capture the user's attention without interrupting their workflow. They excel in conveying crucial information or errors, such as validation errors that require user attention or action. Unlike [Toast](/components/toast), tailored for feedback on user actions, Alerts serve as the go-to component for more critical notifications.
 
 ## Types of alerts
 
