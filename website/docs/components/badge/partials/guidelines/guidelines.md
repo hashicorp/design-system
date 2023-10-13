@@ -36,7 +36,7 @@ Use color logically.
 
 ### Alternative color usage
 
-Badges can also indicate different account levels: 
+Badges can also indicate different account levels:
 
 <Hds::Badge @color="critical" @type="filled" @icon="award" @text="Bronze" />
 <Hds::Badge @color="neutral" @type="filled" @icon="award" @text="Silver" />
@@ -81,7 +81,7 @@ For example:
 
 !!! Dont
 
-![example of overuse of inverted badges in a table](/assets/components/badge/badge-inverted-dont.png =584x*)
+![example of overuse of inverted badges in a table](/assets/components/badge/badge-inverted-dont.png =584x\*)
 !!!
 
 ### Outlined
@@ -123,6 +123,14 @@ Badges come in a few icon and text combinations; text only, icon only, and icon 
 <Hds::Badge @color="neutral" @type="filled" @text="Text only" />
 <Hds::Badge @color="neutral" @type="filled" @icon="corner-down-left" @isIconOnly={{true}} @text="Icon only" />
 <Hds::Badge @color="neutral" @type="filled" @icon="hexagon" @text="Text + Icon" />
+
+### Usage in status Badges
+
+To avoid relying on color alone, we recommend including an icon in Badges that communicate status (Success, Warning, Critical).
+
+<Hds::Badge @color="success" @type="filled" @icon="check" @text="Applied" />
+<Hds::Badge @color="warning" @type="filled" @icon="alert-triangle" @text="Policy override" />
+<Hds::Badge @color="critical" @type="filled" @icon="x" @text="Errored" />
 
 ## Content
 
