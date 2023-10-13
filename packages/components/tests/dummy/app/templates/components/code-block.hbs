@@ -244,17 +244,40 @@ func main() {
       {{! template-lint-disable no-whitespace-for-layout }}
       <Hds::CodeBlock
         @language="markdown"
-        @value='## Compact `Alert`
-```
-<Hds::Alert @type="compact" as |A|>
-  <A.Title>Title here</A.Title>
-  <A.Description>Description here</A.Description>
-</Hds::Alert>
-```
+        @value="# Here is some inline code
+
+<p>Here is some text within a paragraph tag</p>
+
+## Long markdown content
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+culpa qui officia deserunt mollit anim id est laborum.
+
+### Level 3 headline
+
+- Item 1
+- Item 2
+- Item 3
+
+1. Number one
+2. Number two
+3. Number three
+
+## Here is a table
+
 | Element     | Usage       |
 | ----------- | ----------- |
 | Icon        | Required    |
-| Description | Required    |'
+| Description | Required    |
+
+Lorem ipsum dolor sit amet, consectetur [and a link](https://hashicorp.com) adipiscing elit
+
+![Alternative text for an image](/public/assets/image.png)"
       />
       {{! template-lint-enable no-whitespace-for-layout }}
     </SG.Item>
