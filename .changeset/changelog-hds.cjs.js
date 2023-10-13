@@ -39,27 +39,11 @@ const changelogFunctions = {
     }
     if (dependenciesUpdated.length === 0) return "";
 
-    const changesetLink = `- 🔄 Updated dependencies [${(
-      await Promise.all(
-        changesets.map(async (cs) => {
-          if (cs.commit) {
-            let { links } = await getGithubInfo.getInfo({
-              repo: options.repo,
-              commit: cs.commit,
-            });
-            return links.commit;
-          }
-        })
-      )
-    )
-      .filter((_) => _)
-      .join(", ")}]:`;
-
-    const updatedDepenenciesList = dependenciesUpdated.map(
+    const changesetLink = `- 🔄 Updated dependencies:`;
+    const updatedDependenciesList = dependenciesUpdated.map(
       (dependency) => `  - ${dependency.name}@${dependency.newVersion}`
     );
-
-    return [changesetLink, ...updatedDepenenciesList].join("\n");
+    return [changesetLink, ...updatedDependenciesList].join("\n");
   },
   getReleaseLine: async (changeset, type, options) => {
     if (!options || !options.repo) {
