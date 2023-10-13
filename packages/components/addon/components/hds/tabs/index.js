@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import { assert } from '@ember/debug';
+import { assert, warn } from '@ember/debug';
 import { next, schedule } from '@ember/runloop';
 
 export default class HdsTabsIndexComponent extends Component {
@@ -188,13 +188,23 @@ export default class HdsTabsIndexComponent extends Component {
           );
         }
       } else {
-        assert(
-          `"Hds::Tabs" has tried to set the indicator for an element that doesn't exist (the value ${
+        let message;
+        message +=
+          '"Hds::Tabs" has tried to set the indicator for an element that doesn\'t exist';
+        if (this.tabNodes.length === 0) {
+          message +=
+            ' (the array `this.tabNodes` is empty, there are no tabs, probably already destroyed)';
+        } else {
+          message += ` (the value ${
             this.selectedTabIndex
-          } of \`this.selectedTabIndex\` is out of bound for the array \`this.tabNodes\`, whose index range is [0-${
+          } of \`this.selectedTabIndex\` is out of bound for the array \`this.tabNodes\`, whose index range is [0 - ${
             this.tabNodes.length - 1
-          }])`
-        );
+          }])`;
+        }
+        // https://api.emberjs.com/ember/5.3/classes/@ember%2Fdebug/methods/warn?anchor=warn
+        warn(message, true, {
+          id: 'hds-debug.tabs.setTabIndicator-tabElem-not-available',
+        });
       }
     });
   }
