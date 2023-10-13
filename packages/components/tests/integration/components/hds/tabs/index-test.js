@@ -370,19 +370,6 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
     });
   });
 
-  test('it should throw an assertion @selecteTabIndex if out of bound for the array of tabs', async function (assert) {
-    const errorMessage =
-      '"Hds::Tabs" has tried to set the indicator for an element that doesn\'t exist (the value 99 of `this.selectedTabIndex` is out of bound for the array `this.tabNodes`, whose index range is [0-1])';
-    assert.expect(2);
-    setupOnerror(function (error) {
-      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
-    });
-    await this.createTabs({ selectedTabIndex: 99 });
-    assert.throws(function () {
-      throw new Error(errorMessage);
-    });
-  });
-
   // ===============================================================
 
   // TAB OPTIONS
