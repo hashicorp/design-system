@@ -81,7 +81,7 @@ For example:
 
 !!! Dont
 
-![example of overuse of inverted badges in a table](/assets/components/badge/badge-inverted-dont.png =584x\*)
+![example of overuse of inverted badges in a table](/assets/components/badge/badge-inverted-dont.png =584x*)
 !!!
 
 ### Outlined
