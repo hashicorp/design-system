@@ -77,7 +77,7 @@ $code-block-code-padding: 16px;
 
   &:active,
   &.mock-active {
-    background-color: #2b303c; // TODO: can't find color defined in Figma
+    background-color: var(--code-block-color-surface-interactive-active);
   }
 
   &:focus,
@@ -173,8 +173,8 @@ $code-block-code-padding: 16px;
     position: absolute;
     right: 0;
     left: 0;
-    // Note: position seems off by just 1px although not sure why
-    margin-top: -1px;
+    // Note: position seems off by a few px although not sure why
+    margin-top: -2px;
     background-color: var(--code-block-color-line-highlight);
     border: solid var(--code-block-color-line-highlight-border);
     border-width: 1px 0 1px 4px; // top | right | bottom | left
