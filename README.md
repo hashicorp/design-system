@@ -101,7 +101,7 @@ First, create a personal access token [in GitHub](https://github.com/settings/to
 ```bash
 GITHUB_TOKEN=YOUR-TOKEN-HERE
 ```
-Second, because this command relies on reading information about the change from GitHub, it only works if the changeset files already exist in PRs there. The best option for this is to target an existing `Version Packages` PR branch and run the command against that branch locally.
+Second, because this command relies on reading information about the change from GitHub, it only works if the changeset files already exist in PRs there. The best option for this is to target an existing PR branch (with a changeset) and run the command against that branch locally.
 
 ## License
 
