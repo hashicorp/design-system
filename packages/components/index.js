@@ -12,8 +12,14 @@ module.exports = {
     return true;
   },
 
-  included: function (/* app */) {
+  included: function (app) {
     this._super.included.apply(this, arguments);
+    if (app.options && app.options['hds-code-block']) {
+      const options = app.options['hds-code-block'];
+      options.languages.forEach((language) => {
+        this.options['@embroider/macros'].setOwnConfig.languages.push(language);
+      });
+    }
   },
 
   options: {
@@ -24,6 +30,14 @@ module.exports = {
       alias: {
         'dialog-polyfill-css': 'dialog-polyfill/dist/dialog-polyfill.css',
       },
+    },
+    '@embroider/macros': {
+      setOwnConfig: {
+        languages: [],
+      },
+    },
+    'hds-code-block': {
+      languages: [],
     },
   },
 };

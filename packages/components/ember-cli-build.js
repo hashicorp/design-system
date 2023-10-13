@@ -9,6 +9,9 @@ const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 
 module.exports = function (defaults) {
   const app = new EmberAddon(defaults, {
+    'hds-code-block': {
+      languages: ['markdown', 'go', 'shell-session'],
+    },
     // See https://github.com/adopted-ember-addons/ember-cli-sass
     sassOptions: {
       precision: 4,

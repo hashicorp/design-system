@@ -41,6 +41,7 @@
   "dependencies": {
     "@ember/render-modifiers": "^2.0.5",
     "@ember/test-waiters": "^3.0.2",
+    "@embroider/macros": "^1.13.2",
     "@hashicorp/design-system-tokens": "^1.9.0",
     "@hashicorp/ember-flight-icons": "^3.1.3",
     "dialog-polyfill": "^0.5.6",
