@@ -79,7 +79,7 @@ This indicates that the Button should take up the full-width of the parent conta
 
 ### Type
 
-This is the native HTML button attribute, `type`. There are three possible values: `button`, `submit`, and `reset`. The default `type` for the Button is `submit`. To prevent a Button from submitting a form, set `type` to `button`.
+This is the native HTML button attribute, `type`. There are three possible values: `button`, `submit`, and `reset`. The default `type` for the Button is `button`. To submit form data to the server, set `type` to `submit`.
 
 ```handlebars
 <Hds::Button @text="Submit" type="submit" />
