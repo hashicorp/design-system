@@ -55,8 +55,8 @@ When referencing components, use the full Ember component name, e.g. `Hds::Accor
 
 ### npm packages
 
-![Example of npm package changelog entry](/images/doc-npm-packages.png)
+![Example of npm package changelog entry](images/doc-npm-packages.png)
 
 ### Figma libraries
 
-![Example of figma library changelog entry](/images/doc-figma-libraries.png)
+![Example of figma library changelog entry](images/doc-figma-libraries.png)
