@@ -51,6 +51,10 @@ When referencing components, use the full Ember component name, e.g. `Hds::Accor
     - Update: “changed…”
 - If **updated dependencies** are list starts with the 🔄 emoji; each dependency is added to a nested list.
 
+## Template
+
+<!-- To do: add markdown template to copy -->
+
 ## Examples
 
 ### npm packages
