@@ -8,13 +8,9 @@ While best practice guidelines are provided, clarity is most important, so use y
 
 For component changes, place the component name first and enclosed in backticks (`), followed by a dash (-), then a brief summary.
 
-#### Do 
-
-`Hds::Dropdown` - changed the `@height` property to use `max-height` instead of a fixed height. 
-
-#### Don't
-
-Changed the `@height` property in `Hds::Dropdown` to use `max-height` instead of a fixed height.
+| Do | Dont |
+|:---|:-----|
+| `Hds::Dropdown` - changed the `@height` property to use `max-height` instead of a fixed height.  | Changed the `@height` property in `Hds::Dropdown` to use `max-height` instead of a fixed height. |
 
 ### New icons
 
@@ -22,45 +18,21 @@ For icons, given that we often release multiple icons at once, we recommend usin
 
 Icon names should be enclosed in backticks (`) and use the Ember value.
 
-#### Do
+| Do | Dont |
+|:---|:-----|
+| Added a new set of service icons: <ul><li>`twitter-x`</li><li>`twitter-x-color`</li><li>`aws-cdk`</li><li>`aws-cdk-color`</li><li>`jfrog`</li><li>`jfrog-color`</li></ul> | `twitter-x`, `twitter-x-color`, `aws-cdk`, `aws-cdk-color`, `jfrog`, and `jfrog-color` icons added. |
 
-Added a new set of service icons:
-
-- `twitter-x`
-- `twitter-x-color`
-- `aws-cdk`
-- `aws-cdk-color`
-- `jfrog`
-- `jfrog-color`
-
-Added `vault-secrets` and `vault-secrets-color` icons.
-
-#### Don't
-
-`twitter-x`, `twitter-x-color`, `aws-cdk`, `aws-cdk-color`, `jfrog`, and `jfrog-color` icons added.
-
-`vault-secrets` and `vault-secrets-color` icons added.
+| Do | Dont |
+|:---|:-----|
+| Added `vault-secrets` and `vault-secrets-color` icons. | `vault-secrets` and `vault-secrets-color` icons added. |
 
 ### Breaking changes
 
 For breaking changes, add “⛔️ **Breaking change** - ” after the component name/before the summary. Be sure to include relevant details about why this is a breaking change and what needs to be done on the consumer side in order to upgrade to this version.
 
-#### Do
-
-`Hds::Dropdown::ListItem` - ⛔️ **Breaking change** - Renamed internal CSS classes as follows: 
-
-- `hds-dropdown-list-item–copy-item` -> `hds-dropdown-list-item–variant-copy-item`
-- `hds-dropdown-list-item–description` -> `hds-dropdown-list-item–variant-description`
-- `hds-dropdown-list-item–generic` -> `hds-dropdown-list-item–variant-generic`
-- `hds-dropdown-list-item–interactive` -> `hds-dropdown-list-item–variant-interactive`
-- `hds-dropdown-list-item–separator` -> `hds-dropdown-list-item–variant-separator`
-- `hds-dropdown-list-item–title` -> `hds-dropdown-list-item–variant-title`
-
-Note: If test assertions are relying on these class names, tests will fail. If extensions/overrides have been applied to these classes, they will suffer visual changes.
-
-#### Don't
-
-Renamed `Hds::Dropdown::ListItem` internal CSS classes.
+| Do | Dont |
+|:---|:-----|
+| `Hds::Dropdown::ListItem` - ⛔️ **Breaking change** - Renamed internal CSS classes as follows: <ul><li>`hds-dropdown-list-item–copy-item` -> `hds-dropdown-list-item–variant-copy-item`</li><li>`hds-dropdown-list-item–description` -> `hds-dropdown-list-item–variant-description`</li><li>`hds-dropdown-list-item–generic` -> `hds-dropdown-list-item–variant-generic`</li><li>`hds-dropdown-list-item–interactive` -> `hds-dropdown-list-item–variant-interactive`</li><li>`hds-dropdown-list-item–separator` -> `hds-dropdown-list-item–variant-separator`</li><li>`hds-dropdown-list-item–title` -> `hds-dropdown-list-item–variant-title`</li></ul><br/>Note: If test assertions are relying on these class names, tests will fail. If extensions/overrides have been applied to these classes, they will suffer visual changes. | Renamed `Hds::Dropdown::ListItem` internal CSS classes. |
 
 ## Referencing components or tokens
 
