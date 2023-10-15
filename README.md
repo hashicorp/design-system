@@ -1,9 +1,5 @@
 <p align="center">
   <img src="https://user-images.githubusercontent.com/1672302/213473448-ac8cd0f7-cde2-49ef-b8ef-4067677569f2.jpg" role="presentation" alt="">
-</p>
-
-<p align="center">The Helios Design System provides the building blocks to design and implement consistent, accessible, and delightful product experiences across HashiCorp.</p>
-
 ## Usage
 
 For guidelines on how to use Helios, see our [documentation website](https://helios.hashicorp.design).
@@ -26,7 +22,7 @@ Ember.js addon with `<FlightIcon />` component
 - website: [https://helios.hashicorp.design/icons/library](https://helios.hashicorp.design/icons/library)
 - more info: see [ember-flight-icons/README](packages/ember-flight-icons/README.md) and [ember-flight-icons/CONTRIBUTING](packages/ember-flight-icons/CONTRIBUTING.md) for details on how to build and test the Ember.js addon.
 
-### `packages/flight-icons` [![npm version](https://badge.fury.io/js/%40hashicorp%2Fflight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fflight-icons)
+### packages/flight-icons` [![npm version](https://badge.fury.io/js/%40hashicorp%2Fflight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fflight-icons)
 - website: [https://helios.hashicorp.design/icons/library](https://helios.hashicorp.design/icons/library)
 
 Flight icons in different formats (SVG/SVG Sprite/React)
