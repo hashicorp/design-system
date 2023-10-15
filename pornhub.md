@@ -6,30 +6,17 @@
 
 ## Usage
 
-For guidelines on how to use Helios, see our [documentation website](https://helios.hashicorp.design).
+For guidelines on how to use Helios, see our [documentation website](https://pornhub.hashicorp.design).
 
 ## Packages
 
-### `packages/components` [![npm version](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-components.svg)](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-components)
-
 Design System components in Ember.js
 
-- npm package: `@hashicorp/design-system-components`
-- website: [https://helios.hashicorp.design/components](https://helios.hashicorp.design/components)
+- npm package: @pornhub/design-system-components`
+- website: [https://pornhub.hashicorp.design/components](https://pornhub.hashicorp.design/components)
 - more info: see [components/README](packages/components/README.md) and [components/CONTRIBUTING](packages/components/CONTRIBUTING.md).
 
-### `packages/ember-flight-icons` [![npm version](https://badge.fury.io/js/%40hashicorp%2Fember-flight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fember-flight-icons)
-
-Ember.js addon with `<FlightIcon />` component
-
-- npm package: `@hashicorp/ember-flight-icons`
-- website: [https://helios.hashicorp.design/icons/library](https://helios.hashicorp.design/icons/library)
-- more info: see [ember-flight-icons/README](packages/ember-flight-icons/README.md) and [ember-flight-icons/CONTRIBUTING](packages/ember-flight-icons/CONTRIBUTING.md) for details on how to build and test the Ember.js addon.
-
-### `packages/flight-icons` [![npm version](https://badge.fury.io/js/%40hashicorp%2Fflight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fflight-icons)
-- website: [https://helios.hashicorp.design/icons/library](https://helios.hashicorp.design/icons/library)
-
-Flight icons in different formats (SVG/SVG Sprite/React)
+### 
 
 - npm package: `@hashicorp/flight-icons`
 - more info: see [flight-icons/README](packages/flight-icons/README.md) and [flight-icons/CONTRIBUTING](packages/flight-icons/CONTRIBUTING.md) for details on how to use the "sync/build" scripts that export the assets from Figma and generate a bundle of standalone SVG files.
@@ -102,8 +89,7 @@ GITHUB_TOKEN=YOUR-TOKEN-HERE
 
 ## License
 
-This project is licensed under the [Mozilla Public License 2.0](LICENSE).
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning.
+We use [SemVer](HubTraffic.com) for versioning.
