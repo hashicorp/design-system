@@ -129,10 +129,10 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
   // highlightLines
   test('it highlights the passed in individual line numbers', async function (assert) {
     await render(hbs`
-      <Hds::CodeBlock 
-        @highlightLines={{"1,3"}} 
-        id="test-code-block"
-        @value="import Application from '@ember/application';
+    <Hds::CodeBlock
+      id="test-code-block-highlight"
+      @highlightLines={{"1"}}
+      @value="import Application from '@ember/application';
 import Resolver from 'ember-resolver';
 import loadInitializers from 'ember-load-initializers';
 import config from 'dummy/config/environment';
@@ -142,42 +142,13 @@ export default class App extends Application {
   Resolver = Resolver;
 }
 loadInitializers(App, config.modulePrefix);"
-      />
-    `);
+    />
+  `);
     assert
-      .dom('#test-code-block [data-range="1"]')
+      .dom('#test-code-block-highlight [data-range="1"]')
       .exists()
       .hasClass('line-highlight');
-    // TODO: 2nd test isn't working. Could be a timing problem?
-    // assert
-    //   .dom('#test-code-block [data-range="3"]')
-    //   .exists()
-    //   .hasClass('line-highlight');
   });
-
-  // TODO: test isn't working. Could be a timing problem?
-  //   DISABLEtest('it highlights the passed in range of line numbers', async function (assert) {
-  //     await render(hbs`
-  //     <Hds::CodeBlock
-  //       @highlightLines={{"2-4"}}
-  //       id="test-code-block"
-  //       @value="import Application from '@ember/application';
-  // import Resolver from 'ember-resolver';
-  // import loadInitializers from 'ember-load-initializers';
-  // import config from 'dummy/config/environment';
-  // export default class App extends Application {
-  //   modulePrefix = config.modulePrefix;
-  //   podModulePrefix = config.podModulePrefix;
-  //   Resolver = Resolver;
-  // }
-  // loadInitializers(App, config.modulePrefix);"
-  //     />
-  //   `);
-  //     assert
-  //       .dom('#test-code-block [data-range="2-4"]')
-  //       .exists()
-  //       .hasClass('line-highlight');
-  //   });
 
   // maxHeight
   test('it uses the passed in maxHeight value', async function (assert) {
