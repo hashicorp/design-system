@@ -124,13 +124,16 @@ Badges come in a few icon and text combinations; text only, icon only, and icon 
 <Hds::Badge @color="neutral" @type="filled" @icon="corner-down-left" @isIconOnly={{true}} @text="Icon only" />
 <Hds::Badge @color="neutral" @type="filled" @icon="hexagon" @text="Text + Icon" />
 
-### Usage in status Badges
+## Using Badges for status
 
-To avoid relying on color alone, we recommend including an icon in Badges that communicate status (Success, Warning, Critical).
+Badges are commonly used to communicate status of items and objects. To avoid relying solely on color as a means to communicate status, we recommend:
 
-<Hds::Badge @color="success" @type="filled" @icon="check" @text="Applied" />
-<Hds::Badge @color="warning" @type="filled" @icon="alert-triangle" @text="Policy override" />
-<Hds::Badge @color="critical" @type="filled" @icon="x" @text="Errored" />
+- Including an icon that aligns with the intended severity or importance of the status. Some common examples of this are `check` for success/positive, `alert` for warning/caution, and `x` for error/critical.
+- Using explicit, straightforward language when communicating status, e.g., for items that are in a positive state, use "Successful" or "Active".
+
+<Hds::Badge @color="success" @type="filled" @icon="check" @text="Successful" />
+<Hds::Badge @color="warning" @type="filled" @icon="alert-triangle" @text="Degraded" />
+<Hds::Badge @color="critical" @type="filled" @icon="x" @text="Error" />
 
 ## Content
 
