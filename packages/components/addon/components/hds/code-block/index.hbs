@@ -4,17 +4,10 @@
 }}
 
 <div class={{this.classNames}} ...attributes>
-  {{#if (or @title @description)}}
-    <div class="hds-code-block__header">
-      {{#if @title}}
-        <Hds::CodeBlock::Title>{{@title}}</Hds::CodeBlock::Title>
-      {{/if}}
-
-      {{#if @description}}
-        <Hds::CodeBlock::Description>{{@description}}</Hds::CodeBlock::Description>
-      {{/if}}
-    </div>
-  {{/if}}
+  <div class="hds-code-block__header">
+    {{~yield (hash Title=(component "hds/code-block/title"))~}}
+    {{~yield (hash Description=(component "hds/code-block/description"))~}}
+  </div>
 
   <pre
     class="code-block__code"

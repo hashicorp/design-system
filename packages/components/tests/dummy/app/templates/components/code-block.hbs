@@ -29,11 +29,15 @@ console.log(`I am ${codeLang} code`);"
     <SF.Item>
       <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SF2|>
         <SF2.Item {{style width="calc(50% - 1rem)"}} @label="with title">
-          <Hds::CodeBlock @value="console.log('I am JavaScript code');" @title="Title" />
+          <Hds::CodeBlock @value="console.log('I am JavaScript code');" as |CB|>
+            <CB.Title>Title</CB.Title>
+          </Hds::CodeBlock>
         </SF2.Item>
 
         <SF2.Item {{style width="calc(50% - 1rem)"}} @label="with description">
-          <Hds::CodeBlock @value="console.log('I am JavaScript code');" @description="Description" />
+          <Hds::CodeBlock @value="console.log('I am JavaScript code');" as |CB|>
+            <CB.Description>Description</CB.Description>
+          </Hds::CodeBlock>
         </SF2.Item>
       </Shw::Flex>
     </SF.Item>
@@ -41,14 +45,23 @@ console.log(`I am ${codeLang} code`);"
     <SF.Item @label="with both title and description">
       <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SF2|>
         <SF2.Item {{style width="calc(50% - 1rem)"}} @label="one line">
-          <Hds::CodeBlock @value="console.log('I am JavaScript code');" @title="Title" @description="Description" />
+          <Hds::CodeBlock @value="console.log('I am JavaScript code');" as |CB|>
+            <CB.Title>Title that may wrap on multiple lines if the parent container is limiting its width</CB.Title>
+            <CB.Description>
+              Description that could contain
+              <a href="#">a link</a>
+              or other basic styling such as
+              <b>bold</b>,
+              <i>italic</i>
+              or even
+              <code>code</code>.
+            </CB.Description>
+          </Hds::CodeBlock>
         </SF2.Item>
 
         <SF2.Item {{style width="calc(50% - 1rem)"}} @label="multi-line with maxHeight so content scrolls">
           {{! template-lint-disable no-whitespace-for-layout }}
           <Hds::CodeBlock
-            @title="Title"
-            @description="Description"
             @maxHeight="105px"
             @value="function convertObjectToArray (obj) {
   let arr = Object
@@ -69,8 +82,11 @@ function assertObjectsEqual (actual, expected, testName) {
     console.log(`FAILED [${testName}] Expected ${JSON.stringify(expected)}, but got ${JSON.stringify(actual)}`);
   }
 }"
-          />
-          {{! template-lint-enable no-whitespace-for-layout }}
+            as |CB|
+          >
+            <CB.Title>Title</CB.Title>
+            <CB.Description>Description</CB.Description>
+          </Hds::CodeBlock>
         </SF2.Item>
       </Shw::Flex>
     </SF.Item>

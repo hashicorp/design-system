@@ -50,9 +50,19 @@ $code-block-code-padding: 16px;
   padding: 8px $code-block-code-padding;
   background-color: var(--code-block-color-surface-faint);
   border-bottom: 1px solid var(--code-block-color-border-primary);
+
+  &:empty {
+    display: none;
+  }
 }
 
-.hds-code-block__description { color: var(--code-block-color-foreground-faint); }
+.hds-code-block__description {
+  color: var(--code-block-color-foreground-faint);
+
+  > a {
+    color: var(--code-block-color-foreground-action-default);
+  }
+}
 
 // Code
 .code-block__code {

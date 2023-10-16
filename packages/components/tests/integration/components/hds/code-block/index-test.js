@@ -29,9 +29,14 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
       .containsText("console.log('Hello world');");
   });
 
-  test('it renders the passed in title and description text', async function (assert) {
+  // CONTEXTUAL COMPONENTS
+
+  test('it renders the contextual components', async function (assert) {
     await render(hbs`
-      <Hds::CodeBlock @value="console.log('Hello world');" @title="Title" @description="Description" id="test-code-block" />
+      <Hds::CodeBlock @value="console.log('Hello world');" id="test-code-block" as |CB|>
+        <CB.Title>Title</CB.Title>
+        <CB.Description>Description</CB.Description>
+      </Hds::CodeBlock>
     `);
     assert.dom('.hds-code-block__title').hasText('Title');
     assert.dom('.hds-code-block__description').hasText('Description');
