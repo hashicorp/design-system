@@ -37,6 +37,9 @@
     </nav>
     {{#if (or this.structuredPageTree this.isFiltered)}}
       <div class="doc-page-sidebar__filter">
+        {{! template-lint-disable no-forbidden-elements }}
+        <script async src="https://cse.google.com/cse.js?cx=8758940bd156047cf"></script>
+        <div class="gcse-search"></div>
         <Doc::Form::Filter
           @filterQuery={{this.filterQuery}}
           @placeholder="Filter sidebar"
