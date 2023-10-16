@@ -25,6 +25,8 @@ export default class HdsPaginationCompactIndexComponent extends Component {
   // at rendering time, but from that moment on it's not updated anymore, no matter what interaction the user
   // has with the component (the state is controlled externally, eg. via query parameters)
   @tracked _currentPageSize = this.args.currentPageSize ?? this.pageSizes[0];
+
+  showLabels = this.args.showLabels ?? true; // if the labels for the "prev/next" controls are visible
   showSizeSelector = this.args.showSizeSelector ?? false; // if the "size selector" block is visible
 
   constructor() {
@@ -49,18 +51,6 @@ export default class HdsPaginationCompactIndexComponent extends Component {
       );
       this.hasRouting = true;
     }
-  }
-
-  /**
-   * @param showLabels
-   * @type {boolean}
-   * @default true
-   * @description Show the labels for the "prev/next" controls
-   */
-  get showLabels() {
-    let { showLabels = true } = this.args;
-
-    return showLabels;
   }
 
   /**
