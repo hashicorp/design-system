@@ -85,6 +85,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   // has with the component (the state is controlled externally, eg. via query parameters)
   @tracked _currentPage = this.args.currentPage ?? 1;
   @tracked _currentPageSize = this.args.currentPageSize ?? this.pageSizes[0];
+  @tracked isControlled;
 
   showInfo = this.args.showInfo ?? true; // if the "info" block is visible
   showLabels = this.args.showLabels ?? false; // if the labels for the "prev/next" controls are visible
@@ -107,7 +108,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
     // initialized and updated using the arguments passed to it.
 
     if (queryFunction === undefined) {
-      this.hasRouting = false;
+      this.isControlled = false;
     } else {
       assert(
         '@queryFunction for "Hds::Pagination::Numbered" must be a function',
@@ -118,7 +119,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
         typeof this.args.currentPageSize === 'number' &&
           typeof this.args.currentPage === 'number'
       );
-      this.hasRouting = true;
+      this.isControlled = true;
     }
 
     assert(
@@ -137,7 +138,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   }
 
   // This very specific `get/set` pattern is used to handle the two different use cases of the component
-  // being "controlled" (when it has routing, meaning it needs to support links as controls)
+  // being "controlled" (when it has routing, meaning it needs to support pagination controls as links/`LinkTo`)
   // vs being "uncontrolled" (see comments above for details).
   //
   // If it has routing (and so it's "controlled"), than the value ("state") of the `currentPage/currentPageSize` variables
@@ -150,7 +151,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   // For this reason the "get" and "set" methods always read from or write to the private internal state (_variable).
 
   get currentPage() {
-    if (this.hasRouting) {
+    if (this.isControlled) {
       return this.args.currentPage;
     } else {
       return this._currentPage;
@@ -158,7 +159,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   }
 
   set currentPage(value) {
-    if (this.hasRouting) {
+    if (this.isControlled) {
       // noop
     } else {
       this._currentPage = value;
@@ -166,7 +167,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   }
 
   get currentPageSize() {
-    if (this.hasRouting) {
+    if (this.isControlled) {
       return this.args.currentPageSize;
     } else {
       return this._currentPageSize;
@@ -174,7 +175,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   }
 
   set currentPageSize(value) {
-    if (this.hasRouting) {
+    if (this.isControlled) {
       // noop
     } else {
       this._currentPageSize = value;
@@ -242,7 +243,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   }
 
   buildQueryParamsObject(page, pageSize) {
-    if (this.hasRouting) {
+    if (this.isControlled) {
       return this.args.queryFunction(page, pageSize);
     } else {
       return {};
@@ -258,7 +259,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
     };
 
     // the "query" is dynamic and needs to be calculated
-    if (this.hasRouting) {
+    if (this.isControlled) {
       routing.queryPrev = this.buildQueryParamsObject(
         this.currentPage - 1,
         this.currentPageSize
@@ -323,8 +324,8 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
     let { onPageSizeChange } = this.args;
 
     // we need to manually update the query parameters in the route (it's not a link!)
-    // notice: we agreed to reset the pagination to the first element (any alternative would result in an unpredictable UX)
-    if (this.hasRouting) {
+    if (this.isControlled) {
+      // notice: we agreed to reset the pagination to the first element (any alternative would result in an unpredictable UX)
       const queryParams = this.buildQueryParamsObject(1, newPageSize);
       this.router.transitionTo({ queryParams });
     } else {
