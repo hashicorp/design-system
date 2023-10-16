@@ -39,11 +39,11 @@ const changelogFunctions = {
     }
     if (dependenciesUpdated.length === 0) return "";
 
-    const changesetLink = `- 🔄 Updated dependencies:`;
+    const changesetLink = `**🔄 Updated dependencies:**`;
     const updatedDependenciesList = dependenciesUpdated.map(
       (dependency) => `  - ${dependency.name}@${dependency.newVersion}`
     );
-    return [changesetLink, ...updatedDependenciesList].join("\n");
+    return [changesetLink, ...updatedDependenciesList].join('\n');
   },
   getReleaseLine: async (changeset, type, options) => {
     if (!options || !options.repo) {
@@ -72,7 +72,7 @@ const changelogFunctions = {
       })
       .trim();
 
-    const [firstLine, ...futureLines] = replacedChangelog
+    const [firstLine, ...moreLines] = replacedChangelog
       .split("\n")
       .map((l) => l.trimRight());
 
@@ -82,12 +82,6 @@ const changelogFunctions = {
           repo: options.repo,
           pull: prFromSummary,
         });
-        if (commitFromSummary) {
-          links = {
-            ...links,
-            commit: `[\`${commitFromSummary}\`](https://github.com/${options.repo}/commit/${commitFromSummary})`,
-          };
-        }
         return links;
       }
       const commitToFetchFrom = commitFromSummary || changeset.commit;
@@ -99,7 +93,6 @@ const changelogFunctions = {
         return links;
       }
       return {
-        commit: null,
         pull: null,
         user: null,
       };
@@ -110,8 +103,8 @@ const changelogFunctions = {
       contributors = usersFromSummary
         .filter((user) => !SKIP_USERS.includes(user))
         .map((user) => `[@${user}](https://github.com/${user})`)
-        .join(", ");
-    } else {
+        .join(', ');
+    } else if (links.user) {
       // this user is coming from the `getInfoFromPullRequest` method that returns a string in the format `[@USER](https://github.com/USER)` / `[@${user.login}](${user.url})`
       // see: https://github.com/changesets/changesets/blob/main/packages/get-github-info/src/index.ts#L215
       const match = links.user.match(/^\[@(.*)\]/);
@@ -125,20 +118,22 @@ const changelogFunctions = {
       }
     }
 
-    const metadata = [
-      links.pull === null ? "" : `PR: ${links.pull}`,
-      links.commit === null ? "" : `Commit: ${links.commit}`,
-      contributors === null ? "" : `Contributors: thanks ${contributors} 🙏`,
-    ];
+    const metadata = [];
+    if (links.pull) {
+      metadata.push(links.pull);
+    }
+    if (contributors) {
+      metadata.push(`Thanks ${contributors} for the contribution! 🙏`);
+    }
 
     let releaseEntry = "";
-    releaseEntry += `\n\n`;
-    releaseEntry += `- ${firstLine.replace(/^- /,'')}`;
-    if (metadata) {
-      releaseEntry += ` - ${metadata.join(" / ")}\n`;
-    }
     releaseEntry += `\n`;
-    releaseEntry += `${futureLines.map((l) => `  ${l}`).join("\n")}`;
+    releaseEntry += `${firstLine.replace(/^- /,'')}\n`;
+    releaseEntry += `${moreLines.join('\n')}\n`;
+    if (metadata) {
+      releaseEntry += `\n<small>${metadata.join(' - ')}</small>\n`;
+    }
+    releaseEntry += `\n---\n`;
     return releaseEntry;
   },
 };
