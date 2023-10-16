@@ -10,6 +10,14 @@
 - When only one choice can be selected, consider [Radio](/components/form/radio/) buttons.
 - When checking or unchecking results in an immediate change, consider [Toggle](/components/form/toggle).
 
+### Indeterminate State
+
+Checkboxes typically have two states: checked and unchecked. However, there's a third, indeterminate state, which visually indicates a "partially checked" condition. It is beneficial in scenarios with nested checkboxes where parent checkboxes represent the checked state of child checkboxes. The indeterminate state can't be set via HTML but can be managed through JavaScript. 
+
+<Hds::Form::Checkbox::Field indeterminate={{true}} as |F|>
+  <F.Label>All datacenters</F.Label>
+</Hds::Form::Checkbox::Field>
+
 ### Layout
 
 We recommend using vertical Checkbox groups, especially with short option lists.
