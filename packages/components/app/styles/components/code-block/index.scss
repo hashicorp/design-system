@@ -49,7 +49,7 @@ $code-block-code-padding: 16px;
   gap: 4px;
   padding: 8px $code-block-code-padding;
   background-color: var(--code-block-color-surface-faint);
-  border-bottom: 1px solid var(--code-block-color-border-strong);
+  border-bottom: 1px solid var(--code-block-color-border-primary);
 }
 
 .hds-code-block__description { color: var(--code-block-color-foreground-faint); }
