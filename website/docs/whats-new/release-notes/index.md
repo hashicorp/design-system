@@ -22,5 +22,7 @@ navigation:
 </section>
 
 <section data-tab="Figma Libraries">
-  @include "partials/figma-libraries.md"
+  @include "partials/figma-library-components.md"
+  <div class="doc-whats-new-changelog-figma-libraries-divider" />
+  @include "partials/figma-library-foundations.md"
 </section>
