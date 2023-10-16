@@ -5,13 +5,13 @@
 
 {{page-title "CodeBlock Component"}}
 
-<Shw::Text::H1>CodeBlock—Prism</Shw::Text::H1>
+<Shw::Text::H1>CodeBlock</Shw::Text::H1>
 
 <section data-test-percy>
-  <Shw::Text::h2>Content</Shw::Text::h2>
+  <Shw::Text::H2>Content</Shw::Text::H2>
 
   <Shw::Flex @direction="column" {{style marginTop="32px"}} as |SF|>
-    <SF.Item @label="with only code content">
+    <SF.Item>
       <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SF2|>
         <SF2.Item {{style width="calc(50% - 1rem)"}} @label="one line">
           <Hds::CodeBlock @value="console.log('I am JavaScript code');" />
@@ -25,16 +25,21 @@ console.log(`I am ${codeLang} code`);"
         </SF2.Item>
       </Shw::Flex>
     </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H3>Title and description</Shw::Text::H3>
+
+  <Shw::Flex @direction="column" {{style marginTop="32px"}} as |SF|>
 
     <SF.Item>
       <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SF2|>
-        <SF2.Item {{style width="calc(50% - 1rem)"}} @label="with title">
+        <SF2.Item {{style width="calc(50% - 1rem)"}} @label="title">
           <Hds::CodeBlock @value="console.log('I am JavaScript code');" as |CB|>
             <CB.Title>Title</CB.Title>
           </Hds::CodeBlock>
         </SF2.Item>
 
-        <SF2.Item {{style width="calc(50% - 1rem)"}} @label="with description">
+        <SF2.Item {{style width="calc(50% - 1rem)"}} @label="description">
           <Hds::CodeBlock @value="console.log('I am JavaScript code');" as |CB|>
             <CB.Description>Description</CB.Description>
           </Hds::CodeBlock>
@@ -42,9 +47,9 @@ console.log(`I am ${codeLang} code`);"
       </Shw::Flex>
     </SF.Item>
 
-    <SF.Item @label="with both title and description">
+    <SF.Item>
       <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SF2|>
-        <SF2.Item {{style width="calc(50% - 1rem)"}} @label="one line">
+        <SF2.Item {{style width="calc(50% - 1rem)"}} @label="title and description">
           <Hds::CodeBlock @value="console.log('I am JavaScript code');" as |CB|>
             <CB.Title>Title that may wrap on multiple lines if the parent container is limiting its width</CB.Title>
             <CB.Description>
@@ -59,7 +64,7 @@ console.log(`I am ${codeLang} code`);"
           </Hds::CodeBlock>
         </SF2.Item>
 
-        <SF2.Item {{style width="calc(50% - 1rem)"}} @label="multi-line with maxHeight so content scrolls">
+        <SF2.Item {{style width="calc(50% - 1rem)"}} @label="title, description, and maxHeight">
           {{! template-lint-disable no-whitespace-for-layout }}
           <Hds::CodeBlock
             @maxHeight="105px"
@@ -92,19 +97,21 @@ function assertObjectsEqual (actual, expected, testName) {
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Text::h2>Options</Shw::Text::h2>
+  <Shw::Divider />
 
-  <Shw::Text::h3>isRounded</Shw::Text::h3>
+  <Shw::Text::H2>Options</Shw::Text::H2>
+
+  <Shw::Text::H3>Rounded</Shw::Text::H3>
 
   <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SG|>
-    <SG.Item {{style width="calc(50% - 1rem)"}} @label="with isRounded=true (default)">
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="isRounded=true (default)">
       <Hds::CodeBlock
         @value="let codeLang='JavaScript';
 console.log(`I am ${codeLang} code`);"
       />
     </SG.Item>
 
-    <SG.Item {{style width="calc(50% - 1rem)"}} @label="with isRounded=false">
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="isRounded=false">
       <Hds::CodeBlock
         @isRounded={{false}}
         @value="let codeLang='JavaScript';
@@ -113,16 +120,18 @@ console.log(`I am ${codeLang} code`);"
     </SG.Item>
   </Shw::Flex>
 
-  <Shw::Text::h3>Line wrapping</Shw::Text::h3>
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>Line wrapping</Shw::Text::H3>
 
   <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SG|>
-    <SG.Item {{style width="calc(50% - 1rem)"}} @label="with hasLineWrapping=false">
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="hasLineWrapping=false (default)">
       <Hds::CodeBlock
         @value="console.log('I am JavaScript code', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam');"
       />
     </SG.Item>
 
-    <SG.Item {{style width="calc(50% - 1rem)"}} @label="with hasLineWrapping=true">
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="hasLineWrapping=true">
       <Hds::CodeBlock
         @hasLineWrapping={{true}}
         @value="console.log('I am JavaScript code', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam');"
@@ -130,7 +139,11 @@ console.log(`I am ${codeLang} code`);"
     </SG.Item>
   </Shw::Flex>
 
-  <Shw::Text::h3>with hasLineNumbers=false</Shw::Text::h3>
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>Line numbers</Shw::Text::H3>
+
+  <Shw::Text::Body>hasLineNumbers=false</Shw::Text::Body>
 
   <Hds::CodeBlock
     @hasLineNumbers={{false}}
@@ -138,7 +151,11 @@ console.log(`I am ${codeLang} code`);"
 console.log(`I am ${codeLang} code`);"
   />
 
-  <Shw::Text::h3>with maxHeight="105px"</Shw::Text::h3>
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>Height limit</Shw::Text::H3>
+
+  <Shw::Text::Body>maxHeight="105px"</Shw::Text::Body>
 
   {{! template-lint-disable no-whitespace-for-layout }}
   <Hds::CodeBlock
@@ -165,7 +182,10 @@ function assertObjectsEqual (actual, expected, testName) {
   />
   {{! template-lint-enable no-whitespace-for-layout }}
 
-  <Shw::Text::h3>with hasCopyButton=true</Shw::Text::h3>
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>Copy button</Shw::Text::H3>
+  <Shw::Text::Body>hasCopyButton=true</Shw::Text::Body>
 
   <Hds::CodeBlock
     id="clipboardTarget"
@@ -178,7 +198,10 @@ func main() {
 }"
   />
 
-  <Shw::Text::h3>isReadOnly=false (so content is editable)</Shw::Text::h3>
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>Editable</Shw::Text::H3>
+  <Shw::Text::Body>isReadOnly=false</Shw::Text::Body>
 
   <Hds::CodeBlock
     @isReadOnly={{false}}
@@ -186,7 +209,9 @@ func main() {
 console.log(`I am ${codeLang} code`);"
   />
 
-  <Shw::Text::h2>Highlight lines</Shw::Text::h2>
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>Highlight lines</Shw::Text::H3>
   <Shw::Text::Body>Specify line numbers or ranges of line numbers to highlight</Shw::Text::Body>
 
   <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SG|>
@@ -227,14 +252,9 @@ loadInitializers(App, config.modulePrefix);"
     </SG.Item>
   </Shw::Flex>
 
-  <Shw::Text::h3>language</Shw::Text::h3>
-
-  <Shw::Text::Body>
-    Specify coding language syntax to use<br />
-    <mark>
-      TODO: Figure out how to get AutoLoader plugin working to dynamically load language modules
-    </mark>
-  </Shw::Text::Body>
+  <Shw::Divider @level="2" />
+  <Shw::Text::H3>Language</Shw::Text::H3>
+  <Shw::Text::Body>Specify coding language syntax to use</Shw::Text::Body>
 
   <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SG|>
     <SG.Item {{style width="calc(50% - 1rem)"}} @label="JavaScript">
@@ -303,44 +323,11 @@ Lorem ipsum dolor sit amet, consectetur [and a link](https://hashicorp.com) adip
     </SG.Item>
   </Shw::Flex>
 
-  <Shw::Text::h2>CodeBlocks used in Tabs</Shw::Text::h2>
-
-  <Hds::Tabs as |T|>
-    <T.Tab>JavaScript</T.Tab>
-    <T.Tab>Shell</T.Tab>
-    <T.Tab>Go</T.Tab>
-
-    <T.Panel>
-      <Hds::CodeBlock
-        @language="javascript"
-        @value="let codeLang='JavaScript';
-console.log(`I am ${codeLang} code`);"
-      />
-    </T.Panel>
-
-    <T.Panel>
-      <Hds::CodeBlock @language="shell-session" @value="echo 'Hello World'" />
-    </T.Panel>
-
-    <T.Panel>
-      <Hds::CodeBlock
-        @language="go"
-        @value="package main
-import 'fmt'
-func main() {
-  fmt.Println('hello world')
-}"
-      />
-    </T.Panel>
-  </Hds::Tabs>
-
   <Shw::Divider />
 
-  <Shw::Text::H2>Child components</Shw::Text::H2>
+  <Shw::Text::H2>CodeBlock::CopyButton</Shw::Text::H2>
 
-  <Shw::Text::H3>AppFooter::Link</Shw::Text::H3>
-
-  <Shw::Text::H4>States</Shw::Text::H4>
+  <Shw::Text::H3>States</Shw::Text::H3>
 
   <Shw::Grid @columns={{6}} as |SG|>
     {{#each @model.STATES as |state|}}
