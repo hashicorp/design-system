@@ -325,8 +325,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
     // we need to manually update the query parameters in the route (it's not a link!)
     // notice: we agreed to reset the pagination to the first element (any alternative would result in an unpredictable UX)
     if (this.hasRouting) {
-      let queryParams = Object.assign({}, this.routeQueryParams);
-      queryParams = this.buildQueryParamsObject(1, newPageSize);
+      const queryParams = this.buildQueryParamsObject(1, newPageSize);
       this.router.transitionTo({ queryParams });
     } else {
       this.currentPage = 1;
