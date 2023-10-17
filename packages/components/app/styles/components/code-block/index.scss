@@ -210,9 +210,8 @@ $code-block-code-padding: 16px;
       cursor: pointer;
     }
   }
+
+  // commmon tokens
+  .token.bold { font-weight: bold; }
+  .token.italic { font-style: italic; }
 }
-
-// Commmon tokens
-
-.token.bold { font-weight: bold; }
-.token.italic { font-style: italic; }
