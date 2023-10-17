@@ -1,15 +1,12 @@
 ## Anatomy
 
-<!-- image then table -->
-![Anatomy of codeBlock](/assets/components/alert/code-block-anatomy-inline.png)
+![Anatomy of codeBlock](/assets/components/code-block/code-block-anatomy.png)
 
-<!-- this is just an example, refer to other components to see how to fill this table -->
-| Element          | Usage                                           |
-|------------------|-------------------------------------------------|
-| Icon             | Optional, but recommended                       |
-| Title            | Required, if no description Optional, otherwise |
-| Description      | Required, if no title Optional, otherwise       |
-| Actions          | Optional                                        |
-| Dismiss button   | Optional                                        |
-| Content          | Required                                        |
-| Container        | Required                                        |
+| Element          | Usage    |
+|------------------|----------|
+| Title            | Optional |
+| Description      | Optional |
+| Line numbers     | Optional |
+| Copy button      | Optional |
+| Code snippet     | Required |
+| Highlighted line | Optional |
