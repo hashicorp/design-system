@@ -1,30 +1,57 @@
 # Changelog authoring best practices
 
-While best practice guidelines are provided, clarity is most important, so use your best judgement. 
+- [Tips for writing consistent changelog entries](#tips-for-writing-consistent-changelog-entries)
+- [Content structure](#content-structure)
+  - [Component changes](#component-changes)
+  - [New icons](#new-icons)
+  - [Breaking changes](#breaking-changes)
+- [Template](#template)
+    - [Example outputs](#example-outputs)
+
+---
+
+## Tips for writing consistent changelog entries
+
+- Each changelog entry should be a list item.
+    - If there are multiple changes for one element, use a nested list instead of a long paragraph of text.
+    - Use a nested list if additional details or notes are necessary.
+- Entries should use complete sentences but be short, clear, and descriptive enough to be helpful.
+- Use past tense.
+- Entries should always end with a period.
+- Use consistent terms for different types of changes: 
+    - Bugfix: “Fixed”
+    - New component, token, variant: “Added”
+    - Update: “Changed”, “Refactored”
+    - Removed or deleted: “Removed”
+    - Other edge cases: “Upgraded”, “Reduced”, “Prevented”
+- When referencing components, use the full Ember component name, e.g., `Hds::Accordion`.
+- All components or token names, including those in the summary, should be enclosed in backticks (`).
 
 ## Content structure
 
+While best practice guidelines are provided, clarity is most important, so use your best judgment. 
+
 ### Component changes
 
-For component changes, place the component name first and enclosed in backticks (`), followed by a dash (-), then a brief summary.
+For component changes, place the component name first and enclose it in backticks (`), followed by a dash (-), and then a brief summary.
 
 | Do | Dont |
 |:---|:-----|
-| `Hds::Dropdown` - changed the `@height` property to use `max-height` instead of a fixed height.  | Changed the `@height` property in `Hds::Dropdown` to use `max-height` instead of a fixed height. |
+| <ul><li>`Hds::Dropdown` - changed the `@height` property to use `max-height` instead of a fixed height.</li></ul>  | <ul><li>Changed the `@height` property in `Hds::Dropdown` to use `max-height` instead of a fixed height.</li></ul> |
 
 ### New icons
 
-For icons, given that we often release multiple icons at once, we recommend using a nested list when 3+ icons are added since lists are easier to scan. When 1 or 2 icons are added, we recommend keeping the structure consistent with the list entries, like so: "Added `icon-name` icon."
+For icons, given that we often release multiple icons at once, we recommend using a nested list when 3+ icons are added since lists are easier to scan. When 1 or 2 icons are added, we recommend keeping the structure consistent with the list entries, like "Added `icon-name` icon."
 
 Icon names should be enclosed in backticks (`) and use the Ember value.
 
 | Do | Dont |
 |:---|:-----|
-| Added a new set of service icons: <ul><li>`twitter-x`</li><li>`twitter-x-color`</li><li>`aws-cdk`</li><li>`aws-cdk-color`</li><li>`jfrog`</li><li>`jfrog-color`</li></ul> | `twitter-x`, `twitter-x-color`, `aws-cdk`, `aws-cdk-color`, `jfrog`, and `jfrog-color` icons added. |
+| <ul><li>Added a new set of service icons: <ul><li>`twitter-x`</li><li>`twitter-x-color`</li><li>`aws-cdk`</li><li>`aws-cdk-color`</li><li>`jfrog`</li><li>`jfrog-color`</li></ul></ul> | <ul><li>`twitter-x`, `twitter-x-color`, `aws-cdk`, `aws-cdk-color`, `jfrog`, and `jfrog-color` icons added.</li></ul> |
 
 | Do | Dont |
 |:---|:-----|
-| Added `vault-secrets` and `vault-secrets-color` icons. | `vault-secrets` and `vault-secrets-color` icons added. |
+| <ul><li>Added `vault-secrets` and `vault-secrets-color` icons.</li></ul> | <ul><li>`vault-secrets` and `vault-secrets-color` icons added.</li></ul> |
 
 ### Breaking changes
 
@@ -32,42 +59,25 @@ For breaking changes, add “⛔️ **Breaking change** - ” after the componen
 
 | Do | Dont |
 |:---|:-----|
-| `Hds::Dropdown::ListItem` - ⛔️ **Breaking change** - Renamed internal CSS classes as follows: <ul><li>`hds-dropdown-list-item–copy-item` -> `hds-dropdown-list-item–variant-copy-item`</li><li>`hds-dropdown-list-item–description` -> `hds-dropdown-list-item–variant-description`</li><li>`hds-dropdown-list-item–generic` -> `hds-dropdown-list-item–variant-generic`</li><li>`hds-dropdown-list-item–interactive` -> `hds-dropdown-list-item–variant-interactive`</li><li>`hds-dropdown-list-item–separator` -> `hds-dropdown-list-item–variant-separator`</li><li>`hds-dropdown-list-item–title` -> `hds-dropdown-list-item–variant-title`</li></ul><br/>Note: If test assertions are relying on these class names, tests will fail. If extensions/overrides have been applied to these classes, they will suffer visual changes. | Renamed `Hds::Dropdown::ListItem` internal CSS classes. |
-
-## Referencing components or tokens
-
-When referencing components, use the full Ember component name, e.g. `Hds::Accordion`. All components or token names, including those in the summary, should be enclosed in backticks (`).
-
-## Writing a clear summary
-
-- The summary should be short, clear, and descriptive enough to be helpful.
-- Use complete sentences.
-- Use past tense.
-- Summaries should always end with a period.
-- Use consistent terms for different types of changes: 
-    - Bugfix: “Fixed”
-    - New component, token, variant: “Added”
-    - Update: “Changed”, “Refactored”
-    - Removed or deleted: “Removed”
-    - Others: “Upgraded”, “Reduced”, “Prevented”
-- If there are multiple changes for one element, use a nested list instead of a long paragraph of text.
-- Use a nested list if additional details or notes are necessary.
+| <ul><li>**`Hds::Dropdown::ListItem`** - ⛔️ **Breaking change** - Renamed internal CSS classes as follows: </li> <ul><li>`hds-dropdown-list-item–copy-item` -> `hds-dropdown-list-item–variant-copy-item`</li><li>`hds-dropdown-list-item–description` -> `hds-dropdown-list-item–variant-description`</li><li>`hds-dropdown-list-item–generic` -> `hds-dropdown-list-item–variant-generic`</li><li>`hds-dropdown-list-item–interactive` -> `hds-dropdown-list-item–variant-interactive`</li><li>`hds-dropdown-list-item–separator` -> `hds-dropdown-list-item–variant-separator`</li><li>`hds-dropdown-list-item–title` -> `hds-dropdown-list-item–variant-title`</li><li>Note: If test assertions are relying on these class names, tests will fail. If extensions/overrides have been applied to these classes, they will suffer visual changes.</li></ul></ul> | <ul><li>Renamed `Hds::Dropdown::ListItem` internal CSS classes.</li></ul> |
 
 ## Template
 
-Copy and paste this template and adjust as necessary when creating a new [changeset](https://github.com/hashicorp/design-system#changesets).
+Copy and paste this template and adjust as necessary when creating a new [changeset](https://github.com/hashicorp/design-system#changesets). _Replace all elements ._
 
 ```
 - **`{component-name}`** - Fixed {...additional details}.
 - **`{component-name}`** - Added {...additional details}.
-- **`{component-name}`** - Changed {...additional details}.
+- **`{component-name}`** - ⛔️ **Breaking change** - Changed {...additional details}.
 - **`{component-name}`** - Upgraded {...additional details}, including:
     - `{package-name}` from `{version number}` to `{version number}`.
     - `{package-name}` from `{version number}` to `{version number}`.
     - `{package-name}` from `{version number}` to `{version number}`.
+    - {additional details}...
 ```
 ### Example outputs
-These examples are just outputs of the details provided as a part of the changeset. They do not include the PR links or contributors, which are added automatically.
+
+_These examples are just outputs of the details provided as a part of the changeset. They do not include the PR links or contributors, which are added automatically._
 
 - **`Hds::TooltipButton`** - Added `text-align: inherit` to the “button” element.
 - **`Hds::Dropdown`** - Fixed a few accessibility failures, including:
