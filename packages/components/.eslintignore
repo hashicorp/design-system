@@ -3,6 +3,7 @@
 /vendor/
 
 # compiled output
+/public/
 /dist/
 /tmp/
 
