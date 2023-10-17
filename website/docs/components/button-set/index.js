@@ -23,7 +23,7 @@ export default class Index extends Component {
   }
 
   @action
-  alertOnClick() {
-    alert('Hello from Helios!');
+  cancelLoading() {
+    this.isLoading = false;
   }
 }
