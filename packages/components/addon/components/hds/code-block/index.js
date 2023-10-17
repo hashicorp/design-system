@@ -15,18 +15,14 @@ import { guidFor } from '@ember/object/internals';
 import 'prismjs/plugins/line-numbers/prism-line-numbers';
 import 'prismjs/plugins/line-highlight/prism-line-highlight';
 
-// Importing language individually because autoloader isn't currently working
-import 'prismjs/components/prism-go';
-import 'prismjs/components/prism-markdown';
-import 'prismjs/components/prism-shell-session';
-
-// languages_path isn't working so autoloader isn't working
 // https://prismjs.com/plugins/autoloader/
 import 'prismjs/plugins/autoloader/prism-autoloader';
 
 setup(Prism);
-// Path is supposed to normally not need to be specified but it's not working either way currently
-// Prism.plugins.autoloader.languages_path = 'prismjs/components';
+
+// these are picked up from /public/ – https://cli.emberjs.com/release/writing-addons/#public
+Prism.plugins.autoloader.languages_path =
+  '/@hashicorp/design-system-components/prism-languages/';
 
 export default class HdsCodeBlockIndexComponent extends Component {
   @tracked prismCode = '';
