@@ -5,8 +5,11 @@
   - [Component changes](#component-changes)
   - [New icons](#new-icons)
   - [Breaking changes](#breaking-changes)
-- [Template](#template)
-    - [Example outputs](#example-outputs)
+- [Templates](#templates)
+  - [Template for npm packages](#template-for-npm-packages)
+    - [Example outputs for npm packages](#example-outputs-for-npm-packages)
+  - [Template for Figma changelog entries](#template-for-figma-changelog-entries)
+    - [Example outputs for Figma changes](#example-outputs-for-figma-changes)
 
 ---
 
@@ -61,9 +64,13 @@ For breaking changes, add “⛔️ **Breaking change** - ” after the componen
 |:---|:-----|
 | <ul><li>**`Hds::Dropdown::ListItem`** - ⛔️ **Breaking change** - Renamed internal CSS classes as follows: </li> <ul><li>`hds-dropdown-list-item–copy-item` -> `hds-dropdown-list-item–variant-copy-item`</li><li>`hds-dropdown-list-item–description` -> `hds-dropdown-list-item–variant-description`</li><li>`hds-dropdown-list-item–generic` -> `hds-dropdown-list-item–variant-generic`</li><li>`hds-dropdown-list-item–interactive` -> `hds-dropdown-list-item–variant-interactive`</li><li>`hds-dropdown-list-item–separator` -> `hds-dropdown-list-item–variant-separator`</li><li>`hds-dropdown-list-item–title` -> `hds-dropdown-list-item–variant-title`</li><li>Note: If test assertions are relying on these class names, tests will fail. If extensions/overrides have been applied to these classes, they will suffer visual changes.</li></ul></ul> | <ul><li>Renamed `Hds::Dropdown::ListItem` internal CSS classes.</li></ul> |
 
-## Template
+---
 
-Copy and paste this template and adjust as necessary when creating a new [changeset](https://github.com/hashicorp/design-system#changesets). _Replace all elements ._
+## Templates
+
+### Template for npm packages
+
+Copy and paste this template and adjust as necessary when creating a new [changeset](https://github.com/hashicorp/design-system#changesets). _Replace all elements in {}._
 
 ```
 - **`{component-name}`** - Fixed {...additional details}.
@@ -75,7 +82,8 @@ Copy and paste this template and adjust as necessary when creating a new [change
     - `{package-name}` from `{version number}` to `{version number}`.
     - {additional details}...
 ```
-### Example outputs
+
+#### Example outputs for npm packages
 
 _These examples are just outputs of the details provided as a part of the changeset. They do not include the PR links or contributors, which are added automatically._
 
@@ -98,3 +106,39 @@ _These examples are just outputs of the details provided as a part of the change
     - `ember-truth-helpers` from `3.0.0` to `3.1.1`
     - `sass` from `1.58.3` to `1.62.1`
 - Shifted our support version of Node.js from `12.* || 14.* || >= 16` to `14.* || 16.* || >= 18`
+
+### Template for Figma changelog entries
+
+Entries made for the Figma Components and Foundations UI Kits require a few additional steps. Copy and paste this template and adjust as necessary after publishing changes in Figma. _Replace all elements in {}._
+
+```
+## {month day, year}
+
+- **`{component-name}`** - Fixed {...additional details}.
+- **`{component-name}`** - Added {...additional details}.
+- **`{component-name}`** - ⛔️ **Breaking change** - Changed {...additional details}.
+- **`{component-name}`** - Upgraded {...additional details}, including:
+    - `{package-name}` from `{version number}` to `{version number}`.
+    - `{package-name}` from `{version number}` to `{version number}`.
+    - `{package-name}` from `{version number}` to `{version number}`.
+    - {additional details}...
+```
+
+#### Example outputs for Figma changes
+
+## September 15, 2023
+
+- **`SegmentedGroup`** - Updated the following:
+  - Fixed a bug that created an “inception” style loop of the inheritance between the published component library and the local components.
+  - Added more straightforward support for the focus state of the Select component when nested within a SegmentedGroup.
+- **`Select`** - Updated the focus state to bring consistency in how the `Select` and the other form controls account for this interactive state.
+- **`Dropdown`** - ⛔️ **Breaking change** - Refactored the component to utilize new Figma functionality and added the following new features:
+  - Added ListItem variants: Checkmark, Checkbox, Radio.
+  - Updated positioning options from Left and Right to Top left, Top right, Bottom left, Bottom right.
+  - Improved accessibility on ToggleIcon by adding a border to indicate interactivity better.
+  - Added small variants of the ToggleButton and ToggleIcon.
+  - Added a Header and Footer to the List.
+  - Added the ability to set a fixed height on the List resulting in the use of a scrollbar for longer lists.
+  - [Tips for migration](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=6264-20834&mode=design)
+
+
