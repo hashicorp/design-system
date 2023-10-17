@@ -62,12 +62,11 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
   });
 
   // language
-  // TODO: Update default language in test if changed for component
-  test('it uses JavaScript as the default language for syntax highlighting', async function (assert) {
+  test('it has no default language for syntax highlighting', async function (assert) {
     await render(hbs`
       <Hds::CodeBlock @value="console.log('Hello world');" id="test-code-block" />
     `);
-    assert.dom('#test-code-block').hasClass('language-javascript');
+    assert.dom('#test-code-block').doesNotHaveClass(/language-*/);
   });
 
   test('it uses the passed in language value for syntax highlighting', async function (assert) {
