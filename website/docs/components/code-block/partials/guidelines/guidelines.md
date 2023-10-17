@@ -21,7 +21,7 @@ It may sometimes be necessary to use the CodeBlock in a more dense layout or as 
 
 ## Metadata
 
-Use metadata to provide descriptive information, instructions, or to label a CodeBlock. Metadata is optional, but can help to provide additional context about a specific block of code. Either a title, or a description can be used within metadata, we recommend treating them similarly to a [form label](/components/form/primitives#formlabel) and [helper text](/components/form/primitives#helpertext).
+Use metadata to provide descriptive information, instructions, or to label a CodeBlock. Metadata is optional, but including a title or description can help to provide additional context about a specific block of code. We recommend treating these elements similarly to a [form label](/components/form/primitives#formlabel) and [helper text](/components/form/primitives#helpertext).
 
 **Insert image of metadata**
 
@@ -61,5 +61,15 @@ Due to limitations in Figma, line highlighting (`highlightLines`) is a boolean p
 Out of the box the CodeBlock supports any language and syntax highlighting in Prism's [supported languages](https://prismjs.com/index.html#supported-languages). If you have need a language not supported by Prism, or want to implement custom syntax highlighting please reach out the HDS team.
 !!!
 
+The Figma component treats language and syntax highlighting in a representational manner; e.g., the examples included in the component aren't meant to be specific, but rather visually represent how the syntax highlighting might render in a production environment.
+
+Several examples are included in the component in an attempt to express basic examples; these can be overridden to create custom code snippets by entering or pasting into the text layer, however, syntax highlighting will need to be manually applied to individual text elements.
+
+!!! Warning
+
+!!!
+
 ## Theming and syntax highlighting
+
+
 
