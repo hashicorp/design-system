@@ -149,11 +149,10 @@ $code-block-code-padding: 16px;
     .line-numbers-rows {
       position: absolute;
       top: 0;
-      bottom: 0;
       left: 0;
       width: $code-block-line-numbers-width;
       padding: $code-block-code-padding 0;
-      border: 1px solid var(--code-block-color-border-strong);
+      border-right: 1px solid var(--code-block-color-border-strong);
       user-select: none;
       pointer-events: none;
 
