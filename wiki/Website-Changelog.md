@@ -40,27 +40,51 @@ When referencing components, use the full Ember component name, e.g. `Hds::Accor
 
 ## Writing a clear summary
 
-- The summary should be short clear and descriptive enough to be helpful. 
-- If there are multiple changes for one element, use a nested list instead of a long paragraph of text.
-- If additional details or notes are necessary about a given change, use a nested list.
+- The summary should be short, clear, and descriptive enough to be helpful.
+- Use complete sentences.
 - Use past tense.
 - Summaries should always end with a period.
 - Use consistent terms for different types of changes: 
-    - Bugfix: “fixed…”
-    - New component, token, variant: “added…”
-    - Update: “changed…”
-- If **updated dependencies** are list starts with the 🔄 emoji; each dependency is added to a nested list.
+    - Bugfix: “Fixed”
+    - New component, token, variant: “Added”
+    - Update: “Changed”, “Refactored”
+    - Removed or deleted: “Removed”
+    - Others: “Upgraded”, “Reduced”, “Prevented”
+- If there are multiple changes for one element, use a nested list instead of a long paragraph of text.
+- Use a nested list if additional details or notes are necessary.
 
 ## Template
 
-<!-- To do: add markdown template to copy -->
+Copy and paste this template and adjust as necessary when creating a new [changeset](https://github.com/hashicorp/design-system#changesets).
 
-## Examples
+```
+- **`{component-name}`** - Fixed {...additional details}.
+- **`{component-name}`** - Added {...additional details}.
+- **`{component-name}`** - Changed {...additional details}.
+- **`{component-name}`** - Upgraded {...additional details}, including:
+    - `{package-name}` from `{version number}` to `{version number}`.
+    - `{package-name}` from `{version number}` to `{version number}`.
+    - `{package-name}` from `{version number}` to `{version number}`.
+```
+### Example outputs
+These examples are just outputs of the details provided as a part of the changeset. They do not include the PR links or contributors, which are added automatically.
 
-### npm packages
-
-![Example of npm package changelog entry](images/doc-npm-packages.png)
-
-### Figma libraries
-
-![Example of figma library changelog entry](images/doc-figma-libraries.png)
+- **`Hds::TooltipButton`** - Added `text-align: inherit` to the “button” element.
+- **`Hds::Dropdown`** - Fixed a few accessibility failures, including:
+    - Added `aria-hidden` to the separator
+    - Added `role=“none”` to the checkbox `<li>`
+- **`Hds::Table`** - Changed `height` to `min-height` for the table head cells and updated the cells' internal padding to align with the design specs in Figma.
+- **`Hds::Sidenav::Link`** - Fixed an issue resulting in an empty node.
+    - This will lead to a minimal visual impact on some edge cases of `Hds::Alert` and `Hds::Toast` (multiple description items) and `Hds::Sidenav` (text and generic content).
+- **`Hds::Link::Standalone`** - Increased the space between the actions to 16px and reduced the size of the icon in the small variant to 12px.
+- **`Hds::Modal`** and **`Hds::Flyout`** - Fixed the scroll management resulting in stray `style` attribute on the `<body>` element.
+- Updated the CSS of multiple components to use flex `gap`.
+- Upgraded Ember.js to the latest stable release 4.12, including upgrades to:
+    - `ember-auto-import` from `2.6.0` to `2.6.3`
+    - `ember-cli-htmlbars` from `6.1.0` to `6.2.0`
+- Upgraded the following dependencies:
+    - `ember-focus-trap` from `1.0.1` to `1.0.2`
+    - `ember-keyboard` from `8.1.0` to `8.2.0`
+    - `ember-truth-helpers` from `3.0.0` to `3.1.1`
+    - `sass` from `1.58.3` to `1.62.1`
+- Shifted our support version of Node.js from `12.* || 14.* || >= 16` to `14.* || 16.* || >= 18`
