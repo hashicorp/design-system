@@ -61,11 +61,11 @@ export default class HdsCodeBlockIndexComponent extends Component {
   /**
    * @param language
    * @type {string}
-   * @default 'javascript'
+   * @default undefined
    * @description name of coding language used within CodeBlock for syntax highlighting
    */
   get language() {
-    return this.args.language ?? 'javascript';
+    return this.args.language ?? undefined;
   }
 
   get languageClass() {
@@ -111,7 +111,7 @@ export default class HdsCodeBlockIndexComponent extends Component {
     if (code && language && grammar) {
       this.prismCode = htmlSafe(Prism.highlight(code, grammar, language));
     } else {
-      this.prismCode = '';
+      this.prismCode = htmlSafe(code);
     }
 
     // Force plugin initialization, required for Prism.highlight usage.
