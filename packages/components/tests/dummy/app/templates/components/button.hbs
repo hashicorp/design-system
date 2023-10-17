@@ -86,14 +86,42 @@
       {{#each @model.SIZES as |size|}}
         {{#each @model.STATES as |state|}}
           <SG.Item @label="{{capitalize size}} / {{capitalize state}}">
-            <Hds::Button @icon="plus" @text="Lorem" @size={{size}} @color={{color}} mock-state-value={{state}} />
+            {{#if (eq state "disabled")}}
+              <Hds::Button
+                @icon="plus"
+                @text="Lorem"
+                @size={{size}}
+                @color={{color}}
+                mock-state-value={{state}}
+                disabled
+              />
+            {{else}}
+              <Hds::Button @icon="plus" @text="Lorem" @size={{size}} @color={{color}} mock-state-value={{state}} />
+            {{/if}}
           </SG.Item>
         {{/each}}
       {{/each}}
       {{#if (not-eq color "tertiary")}}
         {{#each @model.STATES as |state|}}
           <SG.Item @label="Full width / {{capitalize state}}">
-            <Hds::Button @icon="plus" @text="Lorem" @color={{color}} @isFullWidth={{true}} mock-state-value={{state}} />
+            {{#if (eq state "disabled")}}
+              <Hds::Button
+                @icon="plus"
+                @text="Lorem"
+                @color={{color}}
+                @isFullWidth={{true}}
+                mock-state-value={{state}}
+                disabled
+              />
+            {{else}}
+              <Hds::Button
+                @icon="plus"
+                @text="Lorem"
+                @color={{color}}
+                @isFullWidth={{true}}
+                mock-state-value={{state}}
+              />
+            {{/if}}
           </SG.Item>
         {{/each}}
       {{/if}}
