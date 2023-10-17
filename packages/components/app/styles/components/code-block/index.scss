@@ -23,6 +23,7 @@ $code-block-code-padding: 16px;
   color: var(--code-block-color-foreground-primary);
   font-family: var(--hds-typography-code-200);
   background-color: var(--code-block-color-surface-primary);
+  border: 1px solid var(--code-block-color-border-strong);
 
   pre,
   code {
@@ -152,7 +153,8 @@ $code-block-code-padding: 16px;
       left: 0;
       width: $code-block-line-numbers-width;
       padding: $code-block-code-padding 0;
-      border-right: 1px solid var(--code-block-color-border-strong);
+      background-color: var(--code-block-color-surface-primary);
+      border-right: 1px solid var(--code-block-color-border-primary);
       user-select: none;
       pointer-events: none;
 
