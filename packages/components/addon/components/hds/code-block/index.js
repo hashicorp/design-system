@@ -8,17 +8,14 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
 import { htmlSafe } from '@ember/template';
-import Prism from 'prismjs';
-import { setup } from 'prismjs-glimmer';
 import { guidFor } from '@ember/object/internals';
+import Prism from 'prismjs';
 
 import 'prismjs/plugins/line-numbers/prism-line-numbers';
 import 'prismjs/plugins/line-highlight/prism-line-highlight';
 
 // https://prismjs.com/plugins/autoloader/
 import 'prismjs/plugins/autoloader/prism-autoloader';
-
-setup(Prism);
 
 // these are picked up from /public/ – https://cli.emberjs.com/release/writing-addons/#public
 Prism.plugins.autoloader.languages_path =
