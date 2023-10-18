@@ -16,11 +16,11 @@
     />
     {{#if @model.results}}
       <h2 class="doc-text-h2">Search results</h2>
-      {{#each @model.results as |result|}}
-        <p class="doc-text-body">you searched for: <code>{{result.query}}</code></p>
-      {{else}}
+      {{#if (eq @model.results null)}}
         <p class="doc-text-body">No results found 🤷🏾‍♀️</p>
-      {{/each}}
+      {{else}}
+        <Doc::SearchResults::List @results={{@model.results}} />
+      {{/if}}
     {{/if}}
   </Doc::Page::Content>
 </Doc::Page::Stage>
