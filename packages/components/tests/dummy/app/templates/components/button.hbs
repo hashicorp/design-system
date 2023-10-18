@@ -59,6 +59,8 @@
     {{#each @model.SIZES as |size|}}
       <SF.Item @label={{capitalize size}}>
         <Hds::Button @icon="plus" @text="Lorem ipsum" @size={{size}} />
+        <br />
+        <Hds::Button @icon="plus" @text="Lorem ipsum" @isIconOnly={{true}} @size={{size}} />
       </SF.Item>
     {{/each}}
     <SF.Item @label="Full width">
