@@ -14,9 +14,16 @@
 
 Indeterminate states indicate a "partially checked" condition in nested structures or tables. 
 
-<Hds::Form::Checkbox::Field indeterminate={{true}} as |F|>
-  <F.Label>All datacenters</F.Label>
-</Hds::Form::Checkbox::Field>
+
+!!! Do
+
+![Example of proper usage of the indeterminate state in the checkbox](/assets/components/form/checkbox/checkbox-indeterminate-do.png)
+!!!
+
+!!! Dont
+
+![Example of misuse of the indeterminate state in the checkbox](/assets/components/form/checkbox/checkbox-Indeterminate-dont.png)
+!!!
 
 ### Layout
 
