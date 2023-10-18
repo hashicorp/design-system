@@ -10,9 +10,9 @@
 - When only one choice can be selected, consider [Radio](/components/form/radio/) buttons.
 - When checking or unchecking results in an immediate change, consider [Toggle](/components/form/toggle).
 
-### Indeterminate State
+## Indeterminate state
 
-Checkboxes, primarily toggling between checked and unchecked states, offer a third, indeterminate state for indicating a "partially checked" condition in nested structures, manageable not through HTML, but JavaScript.
+Indeterminate states indicate a "partially checked" condition in nested structures or tables. 
 
 <Hds::Form::Checkbox::Field indeterminate={{true}} as |F|>
   <F.Label>All datacenters</F.Label>
