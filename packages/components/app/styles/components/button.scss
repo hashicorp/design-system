@@ -64,6 +64,8 @@
 
 .hds-button__text {
   flex: 1 0 0;
+  // <button> and <a> elements have different intrinsic text alignments, so we need to normalize it
+  text-align: center;
 }
 
 
