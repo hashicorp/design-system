@@ -15,6 +15,7 @@
     contentEditable={{not this.isReadOnly}}
     data-line={{@highlightLines}}
     id={{if @hasCopyButton this.preCodeId null}}
+    tabindex="0"
   >
     {{~! ~}}
     <code {{did-insert this.setPrismCode}} {{did-update this.setPrismCode this.code @language}}>
