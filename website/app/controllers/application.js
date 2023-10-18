@@ -88,13 +88,19 @@ export default class ApplicationController extends Controller {
   }
 
   transitionValidator(transition) {
-    // Disable transition validation if we're transitioning to the same page
-    // and the page is has a filter functionality based on `queryParams`
-    // namely the Icon library or the Tokens page
     if (
+      // Disable transition validation if we're transitioning to the same page
+      // and the page is has a filter functionality based on `queryParams`
+      // namely the Icon library or the Tokens page (they are `show` pages so the path is in reality a `param`)
       transition.from.params.path === transition.to.params.path &&
       (transition.from.params.path === 'icons/library' ||
         transition.from.params.path === 'foundations/tokens')
+    ) {
+      return false;
+    } else if (
+      // Disable transition validation if we're transitioning to the same Search page
+      transition.from.name === transition.to.name &&
+      transition.from.name === 'search'
     ) {
       return false;
     } else {
