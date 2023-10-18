@@ -158,6 +158,11 @@ export default class HdsButtonIndexComponent extends Component {
       classes.push('hds-button--width-full');
     }
 
+    // add a class if it's icon-only
+    if (this.isIconOnly) {
+      classes.push('hds-button--is-icon-only');
+    }
+
     return classes.join(' ');
   }
 }
