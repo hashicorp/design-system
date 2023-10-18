@@ -16,6 +16,7 @@ Router.map(function () {
   this.route('foundations');
   this.route('components');
   this.route('patterns');
+  this.route('search');
 
   this.route('error');
 
