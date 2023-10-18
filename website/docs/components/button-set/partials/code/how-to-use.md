@@ -11,7 +11,7 @@ The basic invocation requires two or more buttons to be provided as children:
 
 ### Equal width buttons
 
-If you want to have buttons with equal width, apply a width (via inline style or via CSS class) to the `ButtonSet` container, and the argument `@isFullWidth={{true}}` to the `Button` elements:
+If you want to have buttons with equal width, apply a width (via inline style or CSS class) to the `ButtonSet` container and the argument `@isFullWidth={{true}}` to the `Button` components:
 
 ```handlebars
 <Hds::ButtonSet {{style width="15rem"}}>

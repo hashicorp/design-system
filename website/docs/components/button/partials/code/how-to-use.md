@@ -128,11 +128,11 @@ If the route is external to your current engine, you have to pass `@isRouteExter
 
 ### Loading state
 
-If the button needs to toggle between an "idle" and a "loading" state, we suggest to apply a width to it (via inline style or via CSS class) to prevent the button to resize on click (and potentially cause layout shifts):
+If the button needs to toggle between an "idle" and a "loading" state, we suggest applying a width to it (via inline style or CSS class) to prevent the button from resizing on click (and potentially causing layout shifts):
 
 !!! Info
 
-While applying an explicit with to the button it's possible in general, we suggest to limit the application of this override **only** to this specific use case and let the button resize accordingly to its content.
+While applying an explicit width to the button is possible in general, we suggest limiting the application of this override **only** to this specific use case and letting the button resize accordingly to its content.
 
 !!!
 
