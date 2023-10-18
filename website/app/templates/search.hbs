@@ -1,0 +1,26 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "Search"}}
+
+<Doc::Page::Stage>
+  <Doc::Page::Cover @title="Search" />
+  <Doc::Page::Content @breakthrough={{true}}>
+    <Doc::Form::Search
+      @label="Full-text search"
+      @placeholder="Type to start searching..."
+      @searchQuery={{this.searchQuery}}
+      @onInput={{this.searchFullText}}
+    />
+    {{#if @model.results}}
+      <h2 class="doc-text-h2">Search results</h2>
+      {{#each @model.results as |result|}}
+        <p class="doc-text-body">you searched for: <code>{{result.query}}</code></p>
+      {{else}}
+        <p class="doc-text-body">No results found 🤷🏾‍♀️</p>
+      {{/each}}
+    {{/if}}
+  </Doc::Page::Content>
+</Doc::Page::Stage>
