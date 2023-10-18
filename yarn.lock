@@ -3511,7 +3511,6 @@ __metadata:
     ember-cli-sri: ^2.1.1
     ember-cli-string-helpers: ^6.1.0
     ember-cli-terser: ^4.0.2
-    ember-cli-typescript: ^5.2.1
     ember-composable-helpers: ^4.5.0
     ember-concurrency: ^2.3.7
     ember-focus-trap: ^1.0.2
@@ -11676,7 +11675,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-typescript@npm:^5.0.0, ember-cli-typescript@npm:^5.1.1, ember-cli-typescript@npm:^5.2.1":
+"ember-cli-typescript@npm:^5.0.0, ember-cli-typescript@npm:^5.1.1":
   version: 5.2.1
   resolution: "ember-cli-typescript@npm:5.2.1"
   dependencies:

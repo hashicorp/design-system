@@ -37,9 +37,7 @@
     "test:ember-compatibility": "ember try:each",
     "test:ember:percy": "percy exec ember test",
     "test:a11y": "ENABLE_A11Y_AUDIT=true ember test --server",
-    "test:a11y-report": "ENABLE_A11Y_MIDDLEWARE_REPORTER=true ember test",
-    "prepack": "ember ts:precompile",
-    "postpack": "ember ts:clean"
+    "test:a11y-report": "ENABLE_A11Y_MIDDLEWARE_REPORTER=true ember test"
   },
   "dependencies": {
     "@ember/render-modifiers": "^2.0.5",
@@ -53,7 +51,6 @@
     "ember-cli-babel": "^7.26.11",
     "ember-cli-htmlbars": "^6.2.0",
     "ember-cli-sass": "^10.0.1",
-    "ember-cli-typescript": "^5.2.1",
     "ember-composable-helpers": "^4.5.0",
     "ember-focus-trap": "^1.0.2",
     "ember-keyboard": "^8.2.0",
