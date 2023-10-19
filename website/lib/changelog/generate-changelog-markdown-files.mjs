@@ -157,7 +157,7 @@ figma_changelogs.forEach((changelog) => {
       changelogModified,
       newTitle
     );
-    changelogModified = keepOnlySubsetOfEntries(changelogModified, /^### /, 10);
+    changelogModified = keepOnlySubsetOfEntries(changelogModified, /^## /, 10);
     // changelogModified = replaceDateHeadings(changelogModified);
     changelogModified = increaseHeadingsLevelByOne(changelogModified);
     changelogModified = appendExternalLinks(changelogModified, sourcePath);
