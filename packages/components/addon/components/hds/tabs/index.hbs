@@ -3,7 +3,14 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 {{! template-lint-disable no-invalid-role }}
-<div class="hds-tabs" {{did-insert this.didInsert}} ...attributes>
+<div
+  class="hds-tabs"
+  {{did-insert this.didInsert}}
+  {{did-update this.didUpdateSelectedTabIndex this.selectedTabIndex}}
+  {{did-update this.didUpdateSelectedTabId this.selectedTabId}}
+  {{did-update this.didUpdateParentVisibility @isParentVisible}}
+  ...attributes
+>
   <div class="hds-tabs__tablist-wrapper">
     <ul class="hds-tabs__tablist" role="tablist">
       {{yield
@@ -11,9 +18,9 @@
           Tab=(component
             "hds/tabs/tab"
             didInsertNode=this.didInsertTab
+            didUpdateNode=this.didUpdateTab
             willDestroyNode=this.willDestroyTab
             tabIds=this.tabIds
-            panelIds=this.panelIds
             selectedTabIndex=this.selectedTabIndex
             onClick=this.onClick
             onKeyUp=this.onKeyUp

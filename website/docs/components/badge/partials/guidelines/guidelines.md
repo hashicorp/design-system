@@ -36,7 +36,7 @@ Use color logically.
 
 ### Alternative color usage
 
-Badges can also indicate different account levels: 
+Badges can also indicate different account levels:
 
 <Hds::Badge @color="critical" @type="filled" @icon="award" @text="Bronze" />
 <Hds::Badge @color="neutral" @type="filled" @icon="award" @text="Silver" />
@@ -123,6 +123,17 @@ Badges come in a few icon and text combinations; text only, icon only, and icon 
 <Hds::Badge @color="neutral" @type="filled" @text="Text only" />
 <Hds::Badge @color="neutral" @type="filled" @icon="corner-down-left" @isIconOnly={{true}} @text="Icon only" />
 <Hds::Badge @color="neutral" @type="filled" @icon="hexagon" @text="Text + Icon" />
+
+## Using Badges for status
+
+Badges are commonly used to communicate status of items and objects. To avoid relying solely on color as a means to communicate status, we recommend:
+
+- Including an icon that aligns with the intended severity or importance of the status. Some common examples of this are `check` for success, `alert` for warning, and `x` for critical.
+- Using explicit, straightforward language when communicating status, e.g., for items that are in a positive state, use "Successful" or "Active".
+
+<Hds::Badge @color="success" @type="filled" @icon="check" @text="Successful" />
+<Hds::Badge @color="warning" @type="filled" @icon="alert-triangle" @text="Degraded" />
+<Hds::Badge @color="critical" @type="filled" @icon="x" @text="Error" />
 
 ## Content
 

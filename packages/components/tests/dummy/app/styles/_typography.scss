@@ -170,6 +170,8 @@ $show-font-family-mono: ui-monospace, menlo, consolas, monospace;
   }
 }
 
+.shw-text-body code { font-size: 0.85em; } // more visually balanced
+
 // ALIGNMENT
 
 .shw-text-align-left {

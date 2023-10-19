@@ -1,6 +1,6 @@
 {
   "name": "@hashicorp/design-system-components",
-  "version": "2.13.0",
+  "version": "2.14.1",
   "description": "Helios Design System Components",
   "keywords": [
     "hashicorp",
@@ -58,7 +58,6 @@
     "ember-style-modifier": "^3.0.1",
     "ember-truth-helpers": "^3.1.1",
     "prismjs": "^1.29.0",
-    "prismjs-glimmer": "^1.1.1",
     "sass": "^1.62.1",
     "tippy.js": "^6.3.7"
   },

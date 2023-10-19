@@ -94,11 +94,14 @@ You can simulate the versioning experience locally with this command:
 yarn changeset version
 ```
 
-In order for this step to complete successfully you'll need to create a personal access token [in GitHub](https://github.com/settings/tokens). The name could be anything e.g. `design-system`, with `read:user` and `repo:status` scopes, and then add the token to a `.env` file in the project's root.
+For this step to complete successfully you'll need to keep in mind the following:
+
+First, create a personal access token [in GitHub](https://github.com/settings/tokens). The name could be anything e.g. `design-system`, with `read:user` and `repo:status` scopes, and then add the token to a `.env` file in the project's root.
 
 ```bash
 GITHUB_TOKEN=YOUR-TOKEN-HERE
 ```
+Second, because this command relies on reading information about the change from GitHub, it only works if the changeset files already exist in PRs there. The best option for this is to target an existing PR branch (with a changeset) and run the command against that branch locally.
 
 ## License
 

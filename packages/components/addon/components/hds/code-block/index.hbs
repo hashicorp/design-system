@@ -1,27 +1,17 @@
 {{!
-  Copyright (c) HashiCorp, Inc.
-  SPDX-License-Identifier: MPL-2.0
+Copyright (c) HashiCorp, Inc.
+SPDX-License-Identifier: MPL-2.0
 }}
 
 <div class={{this.classNames}} ...attributes>
-  {{#if (or @title @description)}}
-    <div class="hds-code-block__header">
-      {{#if @title}}
-        <Hds::CodeBlock::Title>{{@title}}</Hds::CodeBlock::Title>
-      {{/if}}
+  <div class="hds-code-block__header">
+    {{~yield (hash Title=(component "hds/code-block/title"))~}}
+    {{~yield (hash Description=(component "hds/code-block/description"))~}}
+  </div>
 
-      {{#if @description}}
-        <Hds::CodeBlock::Description>{{@description}}</Hds::CodeBlock::Description>
-      {{/if}}
-    </div>
-  {{/if}}
-
-  <pre
-    class="code-block__code"
-    {{style maxHeight=@maxHeight}}
-    contentEditable={{not this.isReadOnly}}
-    data-line={{@highlightLines}}
-  >
+  <pre class="hds-code-block__code" {{style maxHeight=@maxHeight}}
+    contentEditable={{not this.isReadOnly}} data-line={{@highlightLines}}
+    id={{if @hasCopyButton this.preCodeId null}} tabindex="0">
     {{~! ~}}
     <code {{did-insert this.setPrismCode}} {{did-update this.setPrismCode this.code @language}}>
       {{~this.prismCode~}}
@@ -30,6 +20,7 @@
   </pre>
 
   {{#if @hasCopyButton}}
-    <Hds::CodeBlock::CopyButton @textToCopy={{@value}} />
+  <Hds::CodeBlock::CopyButton @textToCopy={{@value}}
+    aria-describedby={{this.preCodeId}} />
   {{/if}}
 </div>

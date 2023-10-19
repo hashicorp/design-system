@@ -6,7 +6,7 @@ This component uses [prism.js](https://prismjs.com/) under the hood.
   <C.Property @name="value" @type="string">
     The text/code content for the CodeBlock.
   </C.Property>
-  <C.Property @name="language" @type="string" @default="javascript">
+  <C.Property @name="language" @type="string" @values={{array "bash" "css" "go" "hcl" "javascript" "json" "log" "markdown" "markup" "shell-session" "yaml"}}>
     The coding language to use for syntax highlighting.
   </C.Property>
   <C.Property @name="hasCopyButton" @type="boolean" @default="false">
