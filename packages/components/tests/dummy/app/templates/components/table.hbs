@@ -931,7 +931,25 @@
             <B.Td @align="right"><Hds::Badge @text="Badge" /></B.Td>
           </B.Tr>
           <B.Tr>
-            <B.Th>Dropdown (with inline container)</B.Th>
+            <B.Th>Button (with inline container)</B.Th>
+            <B.Td @align="left">
+              <div {{style display="inline-block"}}>
+                <Hds::Button @size="small" @icon="plus" @text="Lorem ipsum" @color="secondary" />
+              </div>
+            </B.Td>
+            <B.Td @align="center">
+              <div {{style display="inline-block"}}>
+                <Hds::Button @size="small" @icon="plus" @text="Lorem ipsum" @color="secondary" />
+              </div>
+            </B.Td>
+            <B.Td @align="right">
+              <div {{style display="inline-block"}}>
+                <Hds::Button @size="small" @icon="plus" @text="Lorem ipsum" @color="secondary" />
+              </div>
+            </B.Td>
+          </B.Tr>
+          <B.Tr>
+            <B.Th>Dropdown (with <code>@isInline</code>)</B.Th>
             <B.Td @align="left">
               <Hds::Dropdown @isInline={{true}} @listPosition="right" as |dd|>
                 <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
