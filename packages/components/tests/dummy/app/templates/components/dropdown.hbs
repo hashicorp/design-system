@@ -248,7 +248,7 @@
       {{#each @model.TOGGLE_STATES as |state|}}
         <SG.Item @label="{{capitalize color}}">
           {{#if (eq state "disabled")}}
-            <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @color={{color}} mock-state-value={{state}} disabled />
+            <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @color={{color}} disabled />
           {{else}}
             <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @color={{color}} mock-state-value={{state}} />
           {{/if}}
