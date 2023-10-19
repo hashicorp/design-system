@@ -4,17 +4,39 @@ The basic invocation requires `@value` to be passed.
 
 ```handlebars
 <Hds::CodeBlock
-  @value="let codeLang=`JavaScript`;
-console.log(`I am ${codeLang} code`);"
+  @value="aws ec2 --region us-west-1 accept-vpc-peering-connection"
 />
+```
+## Title and description
+
+Optionally, you can pass a title or a description.
+
+```handlebars
+<Hds::CodeBlock
+  @language="bash"
+  @value="aws ec2 --region us-west-1 accept-vpc-peering-connection"
+as |CB|>
+  <CB.Title>
+    Acceptance instructions
+  </CB.Title>
+</Hds::CodeBlock>
+```
+
+```handlebars
+<Hds::CodeBlock
+  @language="bash"
+  @value="export VAULT_ADDR=https://0242ac170030.aws.hcp.dev:8200;
+export VAULT_NAMESPACE=admin"
+as |CB|>
+  <CB.Description>
+    Export your cluster's public URL and the default <a href="#">namespace</a> called admin.
+  </CB.Description>
+</Hds::CodeBlock>
 ```
 
 ### Language
 
-(TODO: fix, can't pass content containing single quotes, double quotes also seem to break it at times)
-
-The `language` argument sets the syntax highlighting used. The default value is "javascript".
-
+The `language` argument sets the syntax highlighting used.
 
 ```handlebars
 <Hds::CodeBlock
@@ -25,8 +47,7 @@ func main() {
   fmt.Println(helloWorld)
 }"
 />
-``` 
-
+```
 
 ### Copy button
 
@@ -68,9 +89,21 @@ By default, long lines of code will overflow the `CodeBlock` container requiring
 Highlight either individual code lines or a wrange of code lines. (Examples: "2, 4", "6-10")
 
 ```handlebars
-<Hds::CodeBlock
-  @value="TODO"
-/>
+      <Hds::CodeBlock
+        @highlightLines={{"2, 4"}}
+        @value="import Application from `@ember/application`;
+import Resolver from `ember-resolver`;
+import loadInitializers from `ember-load-initializers`;
+import config from `dummy/config/environment`;
+
+export default class App extends Application {
+  modulePrefix = config.modulePrefix;
+  podModulePrefix = config.podModulePrefix;
+  Resolver = Resolver;
+}
+
+loadInitializers(App, config.modulePrefix);"
+      />
 ```
 
 ### maxHeight
@@ -78,9 +111,21 @@ Highlight either individual code lines or a wrange of code lines. (Examples: "2,
 Code content uses `auto` height by default but you can opt to set a `maxHeight` value to save space. Vertical scrolling is enabled as part of this feature allowing users to vertical scroll to view overflowing content.
 
 ```handlebars
-<Hds::CodeBlock
-  @value="TODO"
-/>
+      <Hds::CodeBlock
+        @maxHeight="105px"
+        @value="import Application from `@ember/application`;
+import Resolver from `ember-resolver`;
+import loadInitializers from `ember-load-initializers`;
+import config from `dummy/config/environment`;
+
+export default class App extends Application {
+  modulePrefix = config.modulePrefix;
+  podModulePrefix = config.podModulePrefix;
+  Resolver = Resolver;
+}
+
+loadInitializers(App, config.modulePrefix);"
+      />
 ```
 
 ### isReadOnly
@@ -90,6 +135,7 @@ By default end-users are unable to edit the code within a `CodeBlock`. Setting t
 ```handlebars
 <Hds::CodeBlock
   @isReadOnly={{false}}
-  @value="TODO"
+  @value="let codeLang=`JavaScript`;
+console.log(`I am ${codeLang} code`);"
 />
 ```
