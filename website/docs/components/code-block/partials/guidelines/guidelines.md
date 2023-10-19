@@ -15,19 +15,19 @@ The `isInline` property increases the portability of the CodeBlock to ensure tha
 
 ![Code Block with rounded corners in a standalone context](/assets/components/code-block/code-block-rounded-standalone.png)
 
-It may sometimes be necessary to use the CodeBlock in a more dense layout or nested within another component. In this circumstance, setting `isInline` to true helps the CodeBlock fits better alongside other elements, in a split view, or as part of a larger layout mechanism.
+Sometimes it may be necessary to use the CodeBlock in a more dense layout or nested within another component. In this circumstance, setting `isInline` to true ensures that the CodeBlock fits alongside other elements, in a split view, or as part of a larger layout mechanism.
 
 ![Code Block in a block context](/assets/components/code-block/code-block-block-level.png)
 
 ## Header
 
-Use a title or description in the Header to provide additional information, instructions, or to label a CodeBlock. Both of these properties are optional, but including them can help to provide additional context about a specific block of code.
+Use a `title` or `description` in the Header to provide additional information, instructions, or to label a CodeBlock. Both of these properties are optional, but including them can help to provide additional context about a specific block of code.
 
 ![Example metadata in the Code Block](/assets/components/code-block/code-block-metadata.png)
 
 ### When not to use a Header
 
-There can be an overlap between content that you may choose to include in the Header as a title or description, and content that is part of the normal layout flow in a headline or paragraph. If its necessary to elevate this content in the hiearchy of the page, we recommend including it in the normal layout flow, rather than as a title or description within the Code Block.
+There can be an overlap between content that you may choose to include in the Header as a `title` or `description`, and content that is part of the normal layout flow in a headline or paragraph. If it is necessary to elevate this content in the hiearchy of the page, we recommend including it in the normal layout flow, rather than as a `title` or `description` within the Code Block.
 
 ![An example showcasing the Code Block paired with content in the nautral flow](/assets/components/code-block/code-block-dont-use-metadata.png)
 
@@ -56,7 +56,7 @@ In the Figma component, the code examples have the appropriate number of lines b
 
 ## Line highlighting
 
-Line highlighting can be used to target specific lines or multiple lines within a block of code, and can be helpful when calling attention to a specific function or element.
+Use line highlighting to target and call attention to specific lines or multiple lines within a block of code.
 
 ![Example of line highlighting in the Code Block](/assets/components/code-block/code-block-line-highlighting.png)
 
@@ -75,13 +75,15 @@ The **Ember** component uses [Prism.js](https://prismjs.com/index.html) to handl
 
 In **Figma** we provide a handful of example languages which are intended to be _representative_ of the end result in production. Syntax highlighting in Figma is a non-trivial process and requires the manual application of color styles to each "type" of code. Despite this, creating a custom code snippet with the Code Block is supported by typing/pasting into the text layer, but syntax highlighting will not be automatically applied.
 
-### Syntax tokens
+### Applying syntax highlighting
 
-If you wish to create custom code examples when using the Code Block, we publish all of the relevant syntax highlighting styles in the HDS [Foundations](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?type=design&node-id=2130%3A2&mode=design&t=Pfj7CheLS6cR0hKa-1) library. However, due to the number languages supported by the component, the color styles use a generic naming schema (e.g., cyan, red, purple) to remain as agnostic as possible when being applied to different languages.
+If you wish to create custom examples using the Code Block, we publish all of the relevant syntax highlighting styles in the HDS [Foundations](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?type=design&node-id=2130%3A2&mode=design&t=Pfj7CheLS6cR0hKa-1) library. However, due to the number languages supported by the component, the color styles use a generic naming schema (e.g., cyan, red, purple) to remain as agnostic as possible when being applied to different languages.
 
 !!! Info
 
-Working directly with an engineering partner can reveal exactly how a snippet will render in the component and should be the first course of action when creating custom snippets. Understanding Prism's [token hierarchy](https://prismjs.com/tokens.html) can also be helpful when creating examples, but don’t hesitate to reach out the the HDS team for [support](/about/support).
+Working directly with an engineering partner can reveal exactly how a snippet will render in the component and should be the first course of action when creating custom snippets. Understanding Prism's [token hierarchy](https://prismjs.com/tokens.html) can also be helpful when creating examples.
+
+If you have questions or need assistance creating custom examples, don’t hesitate to reach out the the HDS team for [support](/about/support).
 !!!
 
 To aid in understanding how the highlighting theme is applied via Prism's tokens, we've provided a high-level, non-exhaustive list of token names and how they might be applied depending on the syntax.
@@ -92,7 +94,7 @@ To aid in understanding how the highlighting theme is applied via Prism's tokens
 | Blue | Function, builtins |
 | Orange | Strings, characters |
 | Purple | Booleans, numbers |
-| Matrix Green | Keywords, class names, saving the world |
+| Green | Keywords, class names, saving the world |
 | Red | Important items |
-| Foreground | Default color within the code block, also used for punctuation (`<`, `{ }`, `=`, etc) |
-| Comment | Used for comments across languages |
+| White | Default color within the code block, also used for punctuation (`<`, `{ }`, `=`, etc) |
+| Gray | Used for comments across languages |
