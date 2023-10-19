@@ -75,14 +75,14 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
 
 .hds-dropdown-toggle-icon--size-small {
   .hds-dropdown-toggle-icon__wrapper {
-    width: 20px;
-    height: 20px;
+    width: 24px; // same as the `button[small]` minus 2*2px becaus there are a 1px padding and 1px border to take into account
+    height: 24px;
   }
 }
 
 .hds-dropdown-toggle-icon--size-medium {
   .hds-dropdown-toggle-icon__wrapper {
-    width: 32px;
+    width: 32px; // same as the `button[medium]` minus 2*2px becaus there are a 1px padding and 1px border to take into account
     height: 32px;
   }
 }
