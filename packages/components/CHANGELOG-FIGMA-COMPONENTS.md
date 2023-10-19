@@ -29,6 +29,8 @@ Added a “Form Primitives” page to house the `Fieldset` component.
 
 ## June 1st, 2023
 
+### Breaking change
+
 `Dropdown` - Fixed a spacing issue between the label and chevron in the ToggleButton.
 
 ## May 31st, 2023
