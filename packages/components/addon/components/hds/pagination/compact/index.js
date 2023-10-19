@@ -4,6 +4,7 @@
  */
 
 import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { inject as service } from '@ember/service';
@@ -15,6 +16,18 @@ export const DEFAULT_PAGE_SIZES = [10, 30, 50];
 export default class HdsPaginationCompactIndexComponent extends Component {
   @service router;
 
+  // This private variable is used to differentiate between
+  // "uncontrolled" component (where the state is handled internally) and
+  // "controlled" component (where the state is handled externally, by the consumer's code).
+  // In the first case, the variable stores the internal state of the component at any moment,
+  // and its value is updated internally according to the user's interaction with the component.
+  // In the second case, the variable stores *only* the initial state of the component (coming from the arguments)
+  // at rendering time, but from that moment on it's not updated anymore, no matter what interaction the user
+  // has with the component (the state is controlled externally, eg. via query parameters)
+  @tracked _currentPageSize = this.args.currentPageSize ?? this.pageSizes[0];
+  @tracked isControlled;
+
+  showLabels = this.args.showLabels ?? true; // if the labels for the "prev/next" controls are visible
   showSizeSelector = this.args.showSizeSelector ?? false; // if the "size selector" block is visible
 
   constructor() {
@@ -31,26 +44,14 @@ export default class HdsPaginationCompactIndexComponent extends Component {
     // initialized and updated using the arguments passed to it.
 
     if (queryFunction === undefined) {
-      this.hasRouting = false;
+      this.isControlled = false;
     } else {
       assert(
         '@queryFunction for "Hds::Pagination::Numbered" must be a function',
         typeof queryFunction === 'function'
       );
-      this.hasRouting = true;
+      this.isControlled = true;
     }
-  }
-
-  /**
-   * @param showLabels
-   * @type {boolean}
-   * @default true
-   * @description Show the labels for the "prev/next" controls
-   */
-  get showLabels() {
-    let { showLabels = true } = this.args;
-
-    return showLabels;
   }
 
   /**
@@ -60,6 +61,35 @@ export default class HdsPaginationCompactIndexComponent extends Component {
    */
   get ariaLabel() {
     return this.args.ariaLabel ?? 'Pagination';
+  }
+
+  // This very specific `get/set` pattern is used to handle the two different use cases of the component
+  // being "controlled" (when it has routing, meaning it needs to support pagination controls as links/`LinkTo`)
+  // vs being "uncontrolled" (see comments above for details).
+  //
+  // If it has routing (and so it's "controlled"), than the value ("state") of the `currentPageSize` variable
+  // is *always* determined by the controller via arguments (most of the times, connected to query parameters in the URL).
+  // For this reason the "get" method always returns the value from the `args`,
+  // while the "set" method never updates the private internal state (_variable).
+  //
+  // If instead it doesn't have routing (and so it's "uncontrolled") than the value ("state") of the `currentPageSize` variables
+  // is *always* determined by the component's internal logic (and updated according to the user interaction with it).
+  // For this reason the "get" and "set" methods always read from or write to the private internal state (_variable).
+
+  get currentPageSize() {
+    if (this.isControlled) {
+      return this.args.currentPageSize;
+    } else {
+      return this._currentPageSize;
+    }
+  }
+
+  set currentPageSize(value) {
+    if (this.isControlled) {
+      // noop
+    } else {
+      this._currentPageSize = value;
+    }
   }
 
   /**
@@ -83,9 +113,9 @@ export default class HdsPaginationCompactIndexComponent extends Component {
     return this.router.currentRoute?.queryParams || {};
   }
 
-  buildQueryParamsObject(page) {
-    if (this.hasRouting) {
-      return this.args.queryFunction(page, this.currentPage);
+  buildQueryParamsObject(page, pageSize) {
+    if (this.isControlled) {
+      return this.args.queryFunction(page, pageSize);
     } else {
       return {};
     }
@@ -100,9 +130,15 @@ export default class HdsPaginationCompactIndexComponent extends Component {
     };
 
     // the "query" is dynamic and needs to be calculated
-    if (this.hasRouting) {
-      routing.queryPrev = this.buildQueryParamsObject('prev');
-      routing.queryNext = this.buildQueryParamsObject('next');
+    if (this.isControlled) {
+      routing.queryPrev = this.buildQueryParamsObject(
+        'prev',
+        this.currentPageSize
+      );
+      routing.queryNext = this.buildQueryParamsObject(
+        'next',
+        this.currentPageSize
+      );
     } else {
       routing.queryPrev = undefined;
       routing.queryNext = undefined;
@@ -119,6 +155,25 @@ export default class HdsPaginationCompactIndexComponent extends Component {
 
     if (typeof onPageChange === 'function') {
       onPageChange(newPage);
+    }
+  }
+
+  @action
+  onPageSizeChange(newPageSize) {
+    let { onPageSizeChange } = this.args;
+
+    // we need to manually update the query parameters in the route (it's not a link!)
+    if (this.isControlled) {
+      // we pass `null` as value for the `page` argument, so consumers can handle this condition accordingly (probably will just change the side of the data/array slice)
+      const queryParams = this.buildQueryParamsObject(null, newPageSize);
+      this.router.transitionTo({ queryParams });
+    } else {
+      this.currentPageSize = newPageSize;
+    }
+
+    // invoke the callback function
+    if (typeof onPageSizeChange === 'function') {
+      onPageSizeChange(newPageSize);
     }
   }
 }

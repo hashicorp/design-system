@@ -43,7 +43,7 @@
     <SF.Item as |SFI|>
       <SFI.Label>With
         <code>@currentPageSize=&lcub;&lcub;30&rcub;&rcub;</code>
-        and
+        +
         <code>@currentPage=&lcub;&lcub;2&rcub;&rcub;</code></SFI.Label>
       <Hds::Pagination::Numbered
         @totalItems={{40}}
@@ -99,6 +99,13 @@
     <SF.Item as |SFI|>
       <SFI.Label>With <code>@showSizeSelector=&lcub;&lcub;true&rcub;&rcub;</code></SFI.Label>
       <Hds::Pagination::Compact @showSizeSelector={{true}} />
+    </SF.Item>
+    <SF.Item as |SFI|>
+      <SFI.Label>With
+        <code>@showSizeSelector=&lcub;&lcub;true&rcub;&rcub;</code>
+        +
+        <code>@currentPageSize=&lcub;&lcub;30&rcub;&rcub;</code></SFI.Label>
+      <Hds::Pagination::Compact @showSizeSelector={{true}} @pageSizes={{array 10 30 50}} @currentPageSize={{30}} />
     </SF.Item>
   </Shw::Flex>
 
@@ -434,11 +441,15 @@
       </:body>
     </Hds::Table>
     <Hds::Pagination::Compact
+      @showSizeSelector={{true}}
       @route={{this.demoRouteName}}
+      @currentPageSize={{this.currentPageSize_demo4}}
+      @pageSizes={{array 5 10 30}}
       @queryFunction={{this.consumerQueryFunction_demo4}}
       @isDisabledPrev={{this.isDisabledPrev_demo4}}
       @isDisabledNext={{this.isDisabledNext_demo4}}
       @onPageChange={{this.genericHandlePageChange}}
+      @onPageSizeChange={{this.genericHandlePageSizeChange}}
     />
   </div>
 

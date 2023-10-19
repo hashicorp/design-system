@@ -8,6 +8,10 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
+// uncomment this to override the `atob/btoa` functions for debugging
+// const atob = (s) => s;
+// const btoa = (s) => s;
+
 const getCursorParts = (cursor, records) => {
   const token = atob(cursor);
   const tokenParts = [...token.split('__')];
@@ -62,6 +66,7 @@ export default class PaginationController extends Controller {
     'currentSortOrder_demo2',
     'prevCursor_demo4',
     'nextCursor_demo4',
+    'currentPageSize_demo4',
   ];
 
   @service router;
@@ -263,19 +268,33 @@ export default class PaginationController extends Controller {
     }
     return getNewPrevNextCursors(
       cursor,
-      this.currentPageSize_demo3,
+      this.currentPageSize_demo4,
       this.model.records
     );
   }
 
   get consumerQueryFunction_demo4() {
-    let { newPrevCursor, newNextCursor } = this.newPrevNextCursors_demo4;
-    return (page) => {
-      return {
-        prevCursor_demo4: page === 'prev' ? newPrevCursor : undefined,
-        nextCursor_demo4: page === 'next' ? newNextCursor : undefined,
-        demoExtraParam: 'hello',
-      };
+    const { newPrevCursor, newNextCursor } = this.newPrevNextCursors_demo4;
+    const currPrevCursor = this.prevCursor_demo4;
+    const currNextCursor = this.nextCursor_demo4;
+    return (page, pageSize) => {
+      // for the "compact" pagination when the user changes the page size and the `onPageSizeChange` function is invoked
+      // the callback function returns a `null` value for the `page` argument so the consumer can decide how to handle the cursors acordingly
+      if (page === null) {
+        return {
+          prevCursor_demo4: currPrevCursor,
+          nextCursor_demo4: currNextCursor,
+          currentPageSize_demo4: pageSize,
+          demoExtraParam: 'hello',
+        };
+      } else {
+        return {
+          prevCursor_demo4: page === 'prev' ? newPrevCursor : undefined,
+          nextCursor_demo4: page === 'next' ? newNextCursor : undefined,
+          currentPageSize_demo4: pageSize,
+          demoExtraParam: 'hello',
+        };
+      }
     };
   }
 
@@ -307,7 +326,8 @@ export default class PaginationController extends Controller {
     let pageSize = this.currentPageSize_demo4;
     if (direction === 'prev') {
       end = cursorIndex;
-      start = cursorIndex - pageSize;
+      // we want to avoid having a negative `start` index for the `array.slide` method (it happens if the cursorIndex is smaller than the selected page size)
+      start = Math.max(0, cursorIndex - pageSize);
     } else {
       start = cursorIndex;
       end = cursorIndex + pageSize;
@@ -324,5 +344,18 @@ export default class PaginationController extends Controller {
   @action
   toggleHighlight() {
     this.showHighlight = !this.showHighlight;
+  }
+
+  @action
+  genericHandlePageChange() {
+    console.log('genericHandlePageChange invoked with arguments', ...arguments);
+  }
+
+  @action
+  genericHandlePageSizeChange() {
+    console.log(
+      'genericHandlePageSizeChange invoked with arguments',
+      ...arguments
+    );
   }
 }
