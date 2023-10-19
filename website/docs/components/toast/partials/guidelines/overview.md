@@ -1,1 +1,1 @@
-Toasts deliver messages to communicate an ongoing process or as a result of a user's actions. They typically disappear after a set interval or upon user dismissal, offering a non-intrusive way to provide feedback. 
+Toasts deliver messages to communicate an ongoing process or result of a user action. They typically disappear after a set interval or upon user dismissal, offering a non-intrusive way to provide feedback. 
