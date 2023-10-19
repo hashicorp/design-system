@@ -17,25 +17,22 @@ export default class SearchRoute extends Route {
         results: [
           {
             title: 'Lorem',
-            description: 'Lorem ipsum dolor sit amet',
+            description: 'Lorem <b>ipsum dolor</b> sit amet',
             snippet:
-              'Morbi a libero luctus, aliquet nisi ut, lacinia orci. Vestibulum at commodo erat, vitae bibendum...',
+              'Morbi a <b>libero</b> luctus, aliquet nisi ut, lacinia orci. Vestibulum at commodo erat, vitae bibendum...',
             link: '#',
             thumbnailSrc: 'assets/illustrations/components/accordion.jpg',
           },
           {
             title: 'Ipsum',
             description: 'Lorem ipsum dolor sit amet',
-            snippet:
-              'Sed quis bibendum nisi. Proin condimentum tempor dignissim. Cras a suscipit nulla. Etiam scelerisque mauris...',
             link: '#',
             thumbnailSrc: 'assets/illustrations/components/button.jpg',
           },
           {
             title: 'Dolor',
-            description: 'Lorem ipsum dolor sit amet',
             snippet:
-              'In posuere leo eu lectus aliquam, blandit aliquet ligula eleifend. Sed vel elit eu risus...',
+              'In posuere leo eu <b>lectus aliquam</b>, blandit aliquet ligula eleifend. Sed vel elit eu risus...',
             link: '#',
             thumbnailSrc: 'assets/illustrations/components/dropdown.jpg',
           },
