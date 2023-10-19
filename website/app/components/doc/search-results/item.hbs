@@ -1,2 +1,14 @@
-{{log @result}}
-<pre>result placeholder</pre>
+<li class="doc-search-results-item">
+  <a class="doc-search-results-item__link" href={{this.link}}>
+    <img class="doc-search-results-item__thumbnail" src={{this.thumbnailSrc}} alt="Thumbnail" />
+    <div class="doc-search-results-item__content">
+      <p class="doc-search-results-item__title">{{this.title}}</p>
+      {{#if this.description}}
+        <p class="doc-search-results-item__description">{{this.description}}</p>
+      {{/if}}
+      {{#if this.snippet}}
+        <p class="doc-search-results-item__snippet">{{this.snippet}}</p>
+      {{/if}}
+    </div>
+  </a>
+</li>
