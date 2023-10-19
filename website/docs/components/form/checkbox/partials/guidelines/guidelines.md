@@ -14,7 +14,6 @@
 
 Indeterminate states indicate a "partially checked" condition in nested structures or tables. 
 
-
 !!! Do
 
 ![Example of proper usage of the indeterminate state in the checkbox](/assets/components/form/checkbox/checkbox-indeterminate-do.png)
