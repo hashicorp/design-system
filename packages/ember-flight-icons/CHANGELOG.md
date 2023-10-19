@@ -1,5 +1,15 @@
 # @hashicorp/ember-flight-icons
 
+## 4.0.0
+
+### Major Changes
+
+Drop support for Node 14
+
+<small>[#1708](https://github.com/hashicorp/design-system/pull/1708)</small>
+
+---
+
 ## 3.1.3
 
 ### Patch Changes

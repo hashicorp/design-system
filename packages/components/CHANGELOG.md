@@ -1,5 +1,152 @@
 # @hashicorp/design-system-components
 
+## 3.0.0
+
+### Major Changes
+
+Drop support for Node 14
+
+<small>[#1708](https://github.com/hashicorp/design-system/pull/1708)</small>
+
+---
+
+Add `Hds::Form::VisibilityToggle` as a form base element
+
+- `Hds::Form::TextInput::Field` - Add `Hds::Form::VisibilityToggle` to password inputs (controlled via `@hasVisibilityToggle` - Notice that this is set to be visible by default now)
+- `Hds::Form::MaskedInput` - Refactor to use `Hds::Form::VisibilityToggle`
+- `Hds::Form::MaskedInput` - Rename `@isMasked` to `@isContentMasked`
+
+To migrate `Hds::Form::MaskedInput` instances replace `@isMasked` arguments with `@isContentMasked`
+
+<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+
+---
+
+`Hds::Dropdown` – remove `@listPosition` `left` and `right` (use `bottom-left` and `bottom-right`, respectively)
+
+To migrate `Hds::Dropdown` instances:
+
+- replace `@listPosition="left"` with `@listPosition="bottom-left"`
+- replace `@listPosition="right"` with `@listPosition="bottom-right"`
+
+<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+
+---
+
+`SideNav` - renamed `extraBefore/After` generic containers to `ExtraBefore/After` (uppercase `E`)
+
+To migrate rename all the `extraBefore/After` instances yielded within the `<Hds::SideNav>` component to `ExtraBefore/After`
+
+<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+
+---
+
+`Form::RadioCard` - remove the `@layout` property
+`Form::RadioCard::Group` - repurpose the `@layout` property to either `horizontal` (default) or `vertical`
+
+To migrate `Form::RadioCard` and `Form::RadioCard::Group` instances without encountering visual changes:
+
+- make sure all instances with `@layout="fixed"` have a `@maxWidth` defined, then remove the `@layout="fixed"` definition
+- remove all `@layout="fluid"` definitions
+
+<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+
+---
+
+### Minor Changes
+
+`Dropdown::ListItem::CopyItem` - changed defaults for `@color` (now `secondary`) and `@isTruncated` (now `true`)
+
+_Consumers should review the defaults values for this (sub)component in their codebases, to make sure they match the intended visual designs._
+
+<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+
+---
+
+`Button`, `Interactive` - Converted components to TypeScript
+
+<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+
+---
+
+`Copy::Snippet` - Fixed the way in which “width/full-width” is applied to the component + Internal update to the “truncation” implementation.
+
+- the component is not full-width anymore by default (the width now fits the content); use `@isFullWidth={{true}}` to have a full-width layout
+- the internal class name `hds-copy-snippet__text--truncated` has been changed to `hds-copy-snippet--is-truncated` (and moved)
+
+_Consumers should review the pages where this component is used to make sure its width matches the intended visual designs (in case, use the `@isFullWidth` argument to control its full-width). In case they're using the `hds-copy-snippet__text--truncated` class name, they should also update their code to adapt to the new implementation._
+
+<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+
+---
+
+removed `ember-cli-clipboard` as dependency and introduced a custom `hds-clipboard` modifier (using the web [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API))
+
+- `Copy::Button`
+  - replaced third-party `clipboard` modifier with `hds-clipboard`
+  - removed `@container` argument (not needed anymore, it was used in the third party library as a hack to account for focus trapping and focus shifting)
+  - added `@onSuccess/onError` callbacks
+- `Copy::Snippet`
+  - replaced third-party `clipboard` modifier with `hds-clipboard`
+  - added `@onSuccess/onError` callbacks
+- `Dropdown::ListItem::CopyItem`
+  - the change to the underlying `Copy::Snippet` has fixed an issue with the focus being lost on copy (causing the dropdown to close on copy)
+
+_Consumers should remove the `@container` argument from all the instances of `Copy::Button` (not needed anymore) and double check that the `Copy::Button/Snippet` instances work exactly as before._
+
+<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+
+---
+
+### Patch Changes
+
+`Copy::Snippet` - fixed background colors for different states according to Figma specs (main change is the default/base background is now transparent, not white)
+
+<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+
+---
+
+`Form::MaskedInput` - changed copy logic for `CopyButton` used inside the component
+
+<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+
+---
+
+`Tabs` - replace `assert` with `warn` in `setIndicator` function
+
+<small>[#1703](https://github.com/hashicorp/design-system/pull/1703)</small>
+
+---
+
+`Accordion` - replaced internal text styling (using `Text` component)
+
+- `ApplicationState` - replaced internal text styling (using `Text` component)
+- `Copy::Snippet` - replaced internal text styling (using `Text` component)
+- `Dropdown` - replaced internal text styling (using `Text` component)
+- `Form:**` - replaced internal text styling (using `Text` component)
+- `Flyout` - replaced internal text styling (using `Text` component)
+- `Modal` - replaced internal text styling (using `Text` component)
+- `PageHeader` - replaced internal text styling (using `Text` component)
+- `Pagination` - replaced internal text styling (using `Text` component)
+- `Stepper` - replaced internal text styling (using `Text` component)
+- `Tag` - replaced internal text styling (using `Text` component)
+
+_No impact is expected on the consumers' applications._
+
+<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+
+---
+
+`Button` - Applied explicit text alignment to the text to fix alignment on "link" buttons
+
+<small>[#1732](https://github.com/hashicorp/design-system/pull/1732)</small>
+
+---
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/ember-flight-icons@4.0.0
+
 ## 2.14.1
 
 ### Patch Changes

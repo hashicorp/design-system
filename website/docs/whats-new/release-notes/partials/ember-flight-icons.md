@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 4.0.0
+
+**Major changes**
+
+Drop support for Node 14
+
+<small>[#1708](https://github.com/hashicorp/design-system/pull/1708)</small>
+
+---
+
 ## 3.1.3
 
 **Patch changes**
@@ -87,13 +97,6 @@
 
 - Updated dependencies [[`8233493c0`](https://github.com/hashicorp/design-system/commit/8233493c05c422f06f1e61bb17e9c5c2e5385090)]:
   - @hashicorp/flight-icons@2.13.1
-
-## 3.0.4
-
-**Patch changes**
-
-- Updated dependencies [[`37d06ef1a`](https://github.com/hashicorp/design-system/commit/37d06ef1ae9f1f5c4a30796e3c42e62ccbe860c9)]:
-  - @hashicorp/flight-icons@2.13.0
 
 
 ---
