@@ -1,0 +1,79 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+@use "../typography/mixins" as *;
+
+
+.doc-search-results-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.doc-search-results-item {
+  @include doc-font-family("gilmer");
+  margin: 0;
+  padding: 16px 0;
+}
+
+
+.doc-search-results-item__link {
+  display: grid;
+  grid-template-areas: "thumbnail content";
+  grid-template-columns: 120px 1fr;
+  gap: 0 18px;
+  text-decoration: none;
+}
+
+.doc-search-results-item__thumbnail {
+  display: block;
+  grid-area: thumbnail;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.doc-search-results-item__content {
+  grid-area: content;
+  padding: 2px 0;
+}
+
+.doc-search-results-item__title {
+  margin: 0;
+  color: var(--doc-color-feedback-information-100);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.2;
+
+  .doc-search-results-item__link:hover & {
+    text-decoration: underline;
+  }
+}
+
+.doc-search-results-item__description {
+  margin: 4px 0 0 0;
+  color: var(--doc-color-gray-200);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.2;
+
+  b {
+    color: var(--doc-color-gray-100);
+    font-weight: 600;
+  }
+}
+
+.doc-search-results-item__snippet {
+  margin: 4px 0 0 0;
+  color: var(--doc-color-gray-300);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
+
+  b {
+    color: var(--doc-color-gray-200);
+    font-weight: 500;
+  }
+}

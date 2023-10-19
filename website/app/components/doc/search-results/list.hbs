@@ -1,3 +1,5 @@
-{{#each @results as |result|}}
-  <Doc::SearchResults::Item @result={{result}} />
-{{/each}}
+<ul class="doc-search-results-list">
+  {{#each @results as |result|}}
+    <Doc::SearchResults::Item @result={{result}} />
+  {{/each}}
+</ul>
