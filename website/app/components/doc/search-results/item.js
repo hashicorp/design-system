@@ -11,30 +11,48 @@ export default class DocSearchResultsItemComponent extends Component {
   get title() {
     let { title } = this.args.result;
 
-    return title;
+    return title.replace(' | Helios Design System', '');
   }
 
-  get description() {
-    let { description } = this.args.result;
+  // get description() {
+  //   let { pagemap } = this.args.result;
+  //   let description;
 
-    return htmlSafe(description);
-  }
+  //   if (pagemap?.metatags?.length > 0) {
+  //     description = pagemap.metatags[0]['og:description'];
+  //   }
+
+  //   return htmlSafe(description);
+  // }
 
   get snippet() {
-    let { snippet } = this.args.result;
+    let { htmlSnippet } = this.args.result;
 
-    return htmlSafe(snippet);
+    return htmlSafe(htmlSnippet);
   }
 
   get link() {
     let { link } = this.args.result;
 
-    return link;
+    return link.replace(/^https:\/\/helios.hashicorp.design\//, '');
   }
 
   get thumbnailSrc() {
-    let { thumbnailSrc } = this.args.result;
+    // TODO handle cases where the pagemap is not returned
+    let { pagemap } = this.args.result;
+    let src;
+    if (pagemap?.cse_image?.length > 0) {
+      src = pagemap.cse_image[0].src;
+      // src = pagemap.cse_image[0].src.replace(
+      //   /^https:\/\/helios.hashicorp.design\//,
+      //   ''
+      // );
+    } else if (pagemap?.cse_thumbnail.lenght > 0) {
+      src = pagemap?.cse_thumbnail[0].src;
+    } else if (pagemap?.metatags.length > 0) {
+      src = pagemap.metatags[0]['og:image'];
+    }
 
-    return `/${thumbnailSrc}`;
+    return src;
   }
 }

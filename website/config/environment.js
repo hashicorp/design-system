@@ -5,6 +5,10 @@
 
 'use strict';
 
+const dotenv = require('dotenv');
+
+dotenv.config();
+
 module.exports = function (environment) {
   let ENV = {
     modulePrefix: 'website',
@@ -27,6 +31,7 @@ module.exports = function (environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      GOOGLE_SEARCH_KEY: process.env.GOOGLE_SEARCH_KEY,
     },
 
     fastboot: {
