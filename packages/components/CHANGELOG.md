@@ -1,5 +1,13 @@
 # @hashicorp/design-system-components
 
+## 2.14.2
+
+### Patch Changes
+
+- [#1724](https://github.com/hashicorp/design-system/pull/1724) [`65ebe6dde`](https://github.com/hashicorp/design-system/commit/65ebe6ddeb477ebc74ad6db353aaf19e1dfb06b1) Thanks [@didoo](https://github.com/didoo)! - `Pagination` - updated the logic for “Compact” variant to expose `@currentPageSize` and handle controlled/uncontrolled changes
+
+- [#1716](https://github.com/hashicorp/design-system/pull/1716) [`cde67bc7f`](https://github.com/hashicorp/design-system/commit/cde67bc7fc32c1025ddd22de6d0f9baeabf43961) Thanks [@didoo](https://github.com/didoo)! - `Tabs` - replace `assert` with `warn` in `setIndicator` function
+
 ## 2.14.1
 
 ### Patch Changes
