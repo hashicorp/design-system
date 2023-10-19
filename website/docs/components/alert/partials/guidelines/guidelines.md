@@ -6,7 +6,7 @@
 
 ### When not to use
 
-- For subtle feedback on a user’s action, consider [Toast](/components/toast).
+- To communicate successful feedback on a user’s action, consider [Toast](/components/toast).
 - As a dialog to confirm an action, consider [Modal](/components/modal).
 - To flag new features (e.g., "In Preview", "Beta", "New", etc), consider [Badge](/components/badge).
 
