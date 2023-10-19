@@ -12,15 +12,11 @@
 </p>
 
 
-### 2023
-
-#### Month Day, Year
+### Month Day, Year
 
 Lorem ipsum dolor
 
-### 2022
-
-#### Month Day, Year
+### Month Day, Year
 
 Sit amet consectetur
 
