@@ -29,7 +29,7 @@ as |CB|>
 export VAULT_NAMESPACE=admin"
 as |CB|>
   <CB.Description>
-    Export your cluster's public URL and the default <a href="#">namespace</a> called admin.
+    Export your cluster’s public URL and the default <a>namespace</a> called admin.
   </CB.Description>
 </Hds::CodeBlock>
 ```
