@@ -10,17 +10,19 @@ SPDX-License-Identifier: MPL-2.0
 <section data-test-percy>
   <Shw::Text::H2>Content</Shw::Text::H2>
 
-  <Shw::Flex @direction="column" {{style marginTop="32px" }} as |SF|>
+  <Shw::Flex @direction="column" {{style marginTop="32px"}} as |SF|>
     <SF.Item>
-      <Shw::Flex @columns={{2}} {{style gap="2rem" }} as |SF2|>
-        <SF2.Item {{style width="calc(50% - 1rem)" }} @label="one line">
-          <Hds::CodeBlock @language="javascript"
-            @value="console.log('I am JavaScript code');" />
+      <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SF2|>
+        <SF2.Item {{style width="calc(50% - 1rem)"}} @label="one line">
+          <Hds::CodeBlock @language="javascript" @value="console.log('I am JavaScript code');" />
         </SF2.Item>
 
-        <SF2.Item {{style width="calc(50% - 1rem)" }} @label="multi-line">
-          <Hds::CodeBlock @language="javascript" @value="let codeLang='JavaScript';
-console.log(`I am ${codeLang} code`);" />
+        <SF2.Item {{style width="calc(50% - 1rem)"}} @label="multi-line">
+          <Hds::CodeBlock
+            @language="javascript"
+            @value="let codeLang='JavaScript';
+console.log(`I am ${codeLang} code`);"
+          />
         </SF2.Item>
       </Shw::Flex>
     </SF.Item>
@@ -28,20 +30,18 @@ console.log(`I am ${codeLang} code`);" />
 
   <Shw::Text::H3>Title and description</Shw::Text::H3>
 
-  <Shw::Flex @direction="column" {{style marginTop="32px" }} as |SF|>
+  <Shw::Flex @direction="column" {{style marginTop="32px"}} as |SF|>
 
     <SF.Item>
-      <Shw::Flex @columns={{2}} {{style gap="2rem" }} as |SF2|>
-        <SF2.Item {{style width="calc(50% - 1rem)" }} @label="title">
-          <Hds::CodeBlock @value="console.log('I am JavaScript code');"
-            @language="javascript" as |CB|>
+      <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SF2|>
+        <SF2.Item {{style width="calc(50% - 1rem)"}} @label="title">
+          <Hds::CodeBlock @value="console.log('I am JavaScript code');" @language="javascript" as |CB|>
             <CB.Title>Title</CB.Title>
           </Hds::CodeBlock>
         </SF2.Item>
 
-        <SF2.Item {{style width="calc(50% - 1rem)" }} @label="description">
-          <Hds::CodeBlock @value="console.log('I am JavaScript code');"
-            @language="javascript" as |CB|>
+        <SF2.Item {{style width="calc(50% - 1rem)"}} @label="description">
+          <Hds::CodeBlock @value="console.log('I am JavaScript code');" @language="javascript" as |CB|>
             <CB.Description>Description</CB.Description>
           </Hds::CodeBlock>
         </SF2.Item>
@@ -49,13 +49,10 @@ console.log(`I am ${codeLang} code`);" />
     </SF.Item>
 
     <SF.Item>
-      <Shw::Flex @columns={{2}} {{style gap="2rem" }} as |SF2|>
-        <SF2.Item {{style width="calc(50% - 1rem)" }}
-          @label="title and description">
-          <Hds::CodeBlock @value="console.log('I am JavaScript code');"
-            @language="javascript" as |CB|>
-            <CB.Title>Title that may wrap on multiple lines if the parent
-              container is limiting its width</CB.Title>
+      <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SF2|>
+        <SF2.Item {{style width="calc(50% - 1rem)"}} @label="title and description">
+          <Hds::CodeBlock @value="console.log('I am JavaScript code');" @language="javascript" as |CB|>
+            <CB.Title>Title that may wrap on multiple lines if the parent container is limiting its width</CB.Title>
             <CB.Description>
               Description that could contain
               <a href="#">a link</a>
@@ -68,10 +65,12 @@ console.log(`I am ${codeLang} code`);" />
           </Hds::CodeBlock>
         </SF2.Item>
 
-        <SF2.Item {{style width="calc(50% - 1rem)" }}
-          @label="title, description, and maxHeight">
+        <SF2.Item {{style width="calc(50% - 1rem)"}} @label="title, description, and maxHeight">
           {{! template-lint-disable no-whitespace-for-layout }}
-          <Hds::CodeBlock @maxHeight="105px" @language="javascript" @value="function convertObjectToArray (obj) {
+          <Hds::CodeBlock
+            @maxHeight="105px"
+            @language="javascript"
+            @value="function convertObjectToArray (obj) {
   let arr = Object
     .keys(obj) // return object's keys as an array
     .map(key => {return [key, obj[key] ]}) // map a function on each array item
@@ -89,7 +88,9 @@ function assertObjectsEqual (actual, expected, testName) {
   } else {
     console.log(`FAILED [${testName}] Expected ${JSON.stringify(expected)}, but got ${JSON.stringify(actual)}`);
   }
-}" as |CB|>
+}"
+            as |CB|
+          >
             <CB.Title>Title</CB.Title>
             <CB.Description>Description</CB.Description>
           </Hds::CodeBlock>
@@ -104,16 +105,22 @@ function assertObjectsEqual (actual, expected, testName) {
 
   <Shw::Text::H3>Rounded</Shw::Text::H3>
 
-  <Shw::Flex @columns={{2}} {{style gap="2rem" }} as |SG|>
-    <SG.Item {{style width="calc(50% - 1rem)" }}
-      @label="isRounded=true (default)">
-      <Hds::CodeBlock @language="javascript" @value="let codeLang='JavaScript';
-console.log(`I am ${codeLang} code`);" />
+  <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SG|>
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="isRounded=true (default)">
+      <Hds::CodeBlock
+        @language="javascript"
+        @value="let codeLang='JavaScript';
+console.log(`I am ${codeLang} code`);"
+      />
     </SG.Item>
 
-    <SG.Item {{style width="calc(50% - 1rem)" }} @label="isRounded=false">
-      <Hds::CodeBlock @isRounded={{false}} @language="javascript" @value="let codeLang='JavaScript';
-console.log(`I am ${codeLang} code`);" />
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="isRounded=false">
+      <Hds::CodeBlock
+        @isRounded={{false}}
+        @language="javascript"
+        @value="let codeLang='JavaScript';
+console.log(`I am ${codeLang} code`);"
+      />
     </SG.Item>
   </Shw::Flex>
 
@@ -121,16 +128,22 @@ console.log(`I am ${codeLang} code`);" />
 
   <Shw::Text::H3>Line wrapping</Shw::Text::H3>
 
-  <Shw::Flex @columns={{2}} {{style gap="2rem" }} as |SG|>
-    <SG.Item {{style width="calc(50% - 1rem)" }}
-      @label="hasLineWrapping=false (default)">
-      <Hds::CodeBlock @language="javascript" @value="let codeLang='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam';
-console.log(codeLand);" />
+  <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SG|>
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="hasLineWrapping=false (default)">
+      <Hds::CodeBlock
+        @language="javascript"
+        @value="let codeLang='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam';
+console.log(codeLand);"
+      />
     </SG.Item>
 
-    <SG.Item {{style width="calc(50% - 1rem)" }} @label="hasLineWrapping=true">
-      <Hds::CodeBlock @language="javascript" @hasLineWrapping={{true}} @value="let codeLang='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam';
-console.log(codeLand);" />
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="hasLineWrapping=true">
+      <Hds::CodeBlock
+        @language="javascript"
+        @hasLineWrapping={{true}}
+        @value="let codeLang='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam';
+console.log(codeLand);"
+      />
     </SG.Item>
   </Shw::Flex>
 
@@ -140,8 +153,12 @@ console.log(codeLand);" />
 
   <Shw::Text::Body>hasLineNumbers=false</Shw::Text::Body>
 
-  <Hds::CodeBlock @language="javascript" @hasLineNumbers={{false}} @value="let codeLang='JavaScript';
-console.log(`I am ${codeLang} code`);" />
+  <Hds::CodeBlock
+    @language="javascript"
+    @hasLineNumbers={{false}}
+    @value="let codeLang='JavaScript';
+console.log(`I am ${codeLang} code`);"
+  />
 
   <Shw::Divider @level="2" />
 
@@ -150,7 +167,10 @@ console.log(`I am ${codeLang} code`);" />
   <Shw::Text::Body>maxHeight="105px"</Shw::Text::Body>
 
   {{! template-lint-disable no-whitespace-for-layout }}
-  <Hds::CodeBlock @language="javascript" @maxHeight="105px" @value="function convertObjectToArray (obj) {
+  <Hds::CodeBlock
+    @language="javascript"
+    @maxHeight="105px"
+    @value="function convertObjectToArray (obj) {
   let arr = Object
     .keys(obj) // return object's keys as an array
     .map(key => {return [key, obj[key] ]}) // map a function on each array item
@@ -168,7 +188,8 @@ function assertObjectsEqual (actual, expected, testName) {
   } else {
     console.log(`FAILED [${testName}] Expected ${JSON.stringify(expected)}, but got ${JSON.stringify(actual)}`);
   }
-}" />
+}"
+  />
   {{! template-lint-enable no-whitespace-for-layout }}
 
   <Shw::Divider @level="2" />
@@ -176,28 +197,39 @@ function assertObjectsEqual (actual, expected, testName) {
   <Shw::Text::H3>Copy button</Shw::Text::H3>
   <Shw::Text::Body>hasCopyButton=true</Shw::Text::Body>
 
-  <Hds::CodeBlock id="clipboardTarget" @hasCopyButton={{true}} @language="go"
+  <Hds::CodeBlock
+    id="clipboardTarget"
+    @hasCopyButton={{true}}
+    @language="go"
     @value="package main
 import 'fmt'
 func main() {
   fmt.Println('hello world')
-}" />
+}"
+  />
 
   <Shw::Divider @level="2" />
 
   <Shw::Text::H3>Editable</Shw::Text::H3>
   <Shw::Text::Body>isReadOnly=false</Shw::Text::Body>
 
-  <Hds::CodeBlock @language="javascript" @isReadOnly={{false}} @value="let codeLang='JavaScript';
-console.log(`I am ${codeLang} code`);" />
+  <Hds::CodeBlock
+    @language="javascript"
+    @isReadOnly={{false}}
+    @value="let codeLang='JavaScript';
+console.log(`I am ${codeLang} code`);"
+  />
 
   <Shw::Divider @level="2" />
 
   <Shw::Text::H3>Highlight lines</Shw::Text::H3>
 
-  <Shw::Flex @columns={{2}} {{style gap="2rem" }} as |SG|>
-    <SG.Item {{style width="calc(50% - 1rem)" }} @label="Highlight lines 2 & 4">
-      <Hds::CodeBlock @language="javascript" @highlightLines={{"2, 4"}} @value="import Application from '@ember/application';
+  <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SG|>
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="Highlight lines 2 & 4">
+      <Hds::CodeBlock
+        @language="javascript"
+        @highlightLines={{"2, 4"}}
+        @value="import Application from '@ember/application';
 import Resolver from 'ember-resolver';
 import loadInitializers from 'ember-load-initializers';
 import config from 'dummy/config/environment';
@@ -208,11 +240,15 @@ export default class App extends Application {
   Resolver = Resolver;
 }
 
-loadInitializers(App, config.modulePrefix);" />
+loadInitializers(App, config.modulePrefix);"
+      />
     </SG.Item>
 
-    <SG.Item {{style width="calc(50% - 1rem)" }} @label="Highlight lines 6-10">
-      <Hds::CodeBlock @language="javascript" @highlightLines={{"6-10"}} @value="import Application from '@ember/application';
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="Highlight lines 6-10">
+      <Hds::CodeBlock
+        @language="javascript"
+        @highlightLines={{"6-10"}}
+        @value="import Application from '@ember/application';
 import Resolver from 'ember-resolver';
 import loadInitializers from 'ember-load-initializers';
 import config from 'dummy/config/environment';
@@ -223,37 +259,44 @@ export default class App extends Application {
   Resolver = Resolver;
 }
 
-loadInitializers(App, config.modulePrefix);" />
+loadInitializers(App, config.modulePrefix);"
+      />
     </SG.Item>
   </Shw::Flex>
 
   <Shw::Divider @level="2" />
   <Shw::Text::H3>Language</Shw::Text::H3>
 
-  <Shw::Flex @columns={{2}} {{style gap="2rem" }} as |SG|>
-    <SG.Item {{style width="calc(50% - 1rem)" }} @label="no language (default)">
-      <Hds::CodeBlock @value="ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom/BWDSU
+  <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SG|>
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="no language (default)">
+      <Hds::CodeBlock
+        @value="ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom/BWDSU
 GPl+nafzlHDTYW7hdI4yZ5ew18JH4JW9jbhUFrviQzM7xlELEVf4h9lFX5QVkbPppSwg0cda3
 Pbv7kOdJ/MTyBlWXFCR+HAo3FXRitBqxiX1nKhXpHAZsMciLq8V6RjsNAQwdsdMFvSlVK/7XA
 t3FaoJoAsncM1Q9x5+3V0Ww68/eIFmb1zuUFljQJKprrX88XypNDvjYNby6vw/Pb0rwert/En
 mZ+AW4OZPnTPI89ZPmVMLuayrD2cE86Z/il8b+gw3r3+1nKatmIkjn2so1d01QraTlMqVSsbx
-NrRFi9wrf+M7Q==" />
+NrRFi9wrf+M7Q=="
+      />
     </SG.Item>
 
-    <SG.Item {{style width="calc(50% - 1rem)" }}
-      @label="HashiCorp Configuration Language">
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="HashiCorp Configuration Language">
       {{! template-lint-disable no-whitespace-for-layout }}
-      <Hds::CodeBlock @language="hcl" @value='variable "hvn_id" {
+      <Hds::CodeBlock
+        @language="hcl"
+        @value='variable "hvn_id" {
   description = "The ID of the HCP HVN."
   type        = string
   default     = "learn-hcp-vault-hvn"
-}' />
+}'
+      />
       {{! template-lint-enable no-whitespace-for-layout }}
     </SG.Item>
 
-    <SG.Item {{style width="calc(50% - 1rem)" }} @label="JSON">
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="JSON">
       {{! template-lint-disable no-whitespace-for-layout }}
-      <Hds::CodeBlock @language="json" @value='{
+      <Hds::CodeBlock
+        @language="json"
+        @value='{
   "result": [
     {
       "expressions": [
@@ -268,12 +311,15 @@ NrRFi9wrf+M7Q==" />
       ]
     }
   ]
- }' />
+ }'
+      />
       {{! template-lint-enable no-whitespace-for-layout }}
     </SG.Item>
 
-    <SG.Item {{style width="calc(50% - 1rem)" }} @label="YAML">
-      <Hds::CodeBlock @language="yaml" @value="---
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="YAML">
+      <Hds::CodeBlock
+        @language="yaml"
+        @value="---
 result:
 - expressions:
   - value: true
@@ -281,25 +327,34 @@ result:
     location:
       row: 1
       col: 1
-" />
+"
+      />
     </SG.Item>
 
-    <SG.Item {{style width="calc(50% - 1rem)" }} @label="JavaScript">
-      <Hds::CodeBlock @language="javascript" @value="let codeLang='JavaScript';
-console.log(`I am ${codeLang} code`);" />
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="JavaScript">
+      <Hds::CodeBlock
+        @language="javascript"
+        @value="let codeLang='JavaScript';
+console.log(`I am ${codeLang} code`);"
+      />
     </SG.Item>
 
-    <SG.Item {{style width="calc(50% - 1rem)" }} @label="Go">
-      <Hds::CodeBlock @language="go" @value="package main
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="Go">
+      <Hds::CodeBlock
+        @language="go"
+        @value="package main
 import 'fmt'
 func main() {
   fmt.Println('hello world')
-}" />
+}"
+      />
     </SG.Item>
 
-    <SG.Item {{style width="calc(50% - 1rem)" }} @label="Markdown">
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="Markdown">
       {{! template-lint-disable no-whitespace-for-layout }}
-      <Hds::CodeBlock @language="markdown" @value="# Level 1 headline
+      <Hds::CodeBlock
+        @language="markdown"
+        @value="# Level 1 headline
 
 <p>Here is some text within a paragraph tag</p>
 
@@ -322,13 +377,13 @@ func main() {
 
 Lorem ipsum dolor sit amet, consectetur [and a link](https://hashicorp.com) adipiscing elit
 
-![Alternative text for an image](/public/assets/image.png)" />
+![Alternative text for an image](/public/assets/image.png)"
+      />
       {{! template-lint-enable no-whitespace-for-layout }}
     </SG.Item>
 
-    <SG.Item {{style width="calc(50% - 1rem)" }} @label="Shell">
-      <Hds::CodeBlock @language="shell-session"
-        @value="$ brew tap hashicorp/tap" />
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="Shell">
+      <Hds::CodeBlock @language="shell-session" @value="$ brew tap hashicorp/tap" />
     </SG.Item>
   </Shw::Flex>
 
@@ -340,18 +395,25 @@ Lorem ipsum dolor sit amet, consectetur [and a link](https://hashicorp.com) adip
 
   <Shw::Grid @columns={{6}} as |SG|>
     {{#each @model.STATES as |state|}}
-    <SG.Item @label={{(capitalize state)}}>
-      <Hds::CodeBlock::CopyButton mock-state-value={{state}}
-        @textToCopy="copy me" class="hds-code-block--theme-dark" />
-    </SG.Item>
+      <SG.Item @label={{(capitalize state)}}>
+        <Hds::CodeBlock::CopyButton
+          mock-state-value={{state}}
+          @textToCopy="copy me"
+          class="hds-code-block--theme-dark"
+        />
+      </SG.Item>
     {{/each}}
     {{#let (array "success" "error") as |statuses|}}
-    {{#each statuses as |status|}}
-    <SG.Item @label={{(capitalize status)}}>
-      <Hds::CodeBlock::CopyButton @status={{status}} mock-copy-status={{status}}
-        @textToCopy="copy me" class="hds-code-block--theme-dark" />
-    </SG.Item>
-    {{/each}}
+      {{#each statuses as |status|}}
+        <SG.Item @label={{(capitalize status)}}>
+          <Hds::CodeBlock::CopyButton
+            @status={{status}}
+            mock-copy-status={{status}}
+            @textToCopy="copy me"
+            class="hds-code-block--theme-dark"
+          />
+        </SG.Item>
+      {{/each}}
     {{/let}}
   </Shw::Grid>
 </section>

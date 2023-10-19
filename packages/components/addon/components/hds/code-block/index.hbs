@@ -9,9 +9,14 @@ SPDX-License-Identifier: MPL-2.0
     {{~yield (hash Description=(component "hds/code-block/description"))~}}
   </div>
 
-  <pre class="hds-code-block__code" {{style maxHeight=@maxHeight}}
-    contentEditable={{not this.isReadOnly}} data-line={{@highlightLines}}
-    id={{if @hasCopyButton this.preCodeId null}} tabindex="0">
+  <pre
+    class="hds-code-block__code"
+    {{style maxHeight=@maxHeight}}
+    contentEditable={{not this.isReadOnly}}
+    data-line={{@highlightLines}}
+    id={{if @hasCopyButton this.preCodeId null}}
+    tabindex="0"
+  >
     {{~! ~}}
     <code {{did-insert this.setPrismCode}} {{did-update this.setPrismCode this.code @language}}>
       {{~this.prismCode~}}
@@ -20,7 +25,6 @@ SPDX-License-Identifier: MPL-2.0
   </pre>
 
   {{#if @hasCopyButton}}
-  <Hds::CodeBlock::CopyButton @textToCopy={{@value}}
-    aria-describedby={{this.preCodeId}} />
+    <Hds::CodeBlock::CopyButton @textToCopy={{@value}} aria-describedby={{this.preCodeId}} />
   {{/if}}
 </div>
