@@ -21,7 +21,7 @@ Indeterminate states indicate a "partially checked" condition in nested structur
 
 !!! Dont
 
-![Example of misuse of the indeterminate state in the checkbox](/assets/components/form/checkbox/checkbox-Indeterminate-dont.png)
+![Example of misuse of the indeterminate state in the checkbox](/assets/components/form/checkbox/checkbox-indeterminate-dont.png)
 !!!
 
 ### Layout
