@@ -51,6 +51,14 @@
     <SF.Item {{style width="200px"}} @label="Icon + Long text">
       <Hds::Button @icon="plus" @text="This is a very long text that should go on multiple lines" />
     </SF.Item>
+    <SF.Item {{style width="150px"}} @label="Loading (click to toggle)">
+      <Hds::Button
+        @text={{if this.isLoading "Loading" "Save"}}
+        @icon={{if this.isLoading "loading"}}
+        @isFullWidth={{true}}
+        {{on "click" this.toggleIsLoading}}
+      />
+    </SF.Item>
   </Shw::Flex>
 
   <Shw::Text::H2>Sizes</Shw::Text::H2>

@@ -126,6 +126,25 @@ If the route is external to your current engine, you have to pass `@isRouteExter
 <Hds::Button @text="Back to homepage" @icon="arrow-left" @route="index" />
 ```
 
+### Loading state
+
+If the button needs to toggle between an "idle" and a "loading" state, we suggest applying a width to it (via inline style or CSS class) to prevent the button from resizing on click (and potentially causing layout shifts):
+
+!!! Info
+
+While applying an explicit width to the button is possible in general, we suggest limiting the application of this override **only** to this specific use case and letting the button resize accordingly to its content.
+
+!!!
+
+```handlebars
+<Hds::Button
+  {{style width="7.5rem"}}
+  @icon={{if this.isLoading "loading"}}
+  @text={{if this.isLoading "Loading" "Save"}}
+  {{on "click" this.toggleIsLoading}}
+/>
+```
+
 ### Disabled Buttons
 
 To disable a Button, manually add the native `disabled` attribute:
