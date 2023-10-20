@@ -38,10 +38,7 @@ as |CB|>
 
 ### Language
 
-(TODO: fix, can't pass content containing single quotes, double quotes also seem to break it at times)
-
-The `language` argument sets the syntax highlighting used. The default value is "javascript".
-
+The `language` argument sets the syntax highlighting used.
 
 ```handlebars
 <Hds::CodeBlock
@@ -52,8 +49,7 @@ func main() {
   fmt.Println(helloWorld)
 }"
 />
-``` 
-
+```
 
 ### Copy button
 
@@ -95,7 +91,7 @@ By default, long lines of code will overflow the `CodeBlock` container requiring
 
 ### highlightLines
 
-Highlight either individual code lines or a wrange of code lines. (Examples: "2, 4", "6-10")
+Highlight either individual code lines or a range of code lines. (Examples: "2, 4", "6-10")
 
 ```handlebars
 <Hds::CodeBlock
@@ -141,7 +137,7 @@ loadInitializers(App, config.modulePrefix);"
 
 ### isReadOnly
 
-By default end-users are unable to edit the code within a `CodeBlock`. Setting this to `true` allows them to type to alter the content if they wish.
+By default end-users, are unable to edit the code within a `CodeBlock`. Setting this to `true` allows them to type to alter the content if they wish.
 
 ```handlebars
 <Hds::CodeBlock

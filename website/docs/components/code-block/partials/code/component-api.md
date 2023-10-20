@@ -16,7 +16,7 @@ This component uses [prism.js](https://prismjs.com/) under the hood.
     Used to control display of line numbers.
   </C.Property>
   <C.Property @name="hasLineWrapping" @type="boolean" @type="false">
-    Used to control line wrapping for lines of code. If true, lines of code will wrap to fit the available space. Otherwise horizontal scrolling is enabled if lines overflow the available space.
+    Used to control line wrapping for lines of code. If true, lines of code will wrap to fit the available space. Otherwise, horizontal scrolling is enabled if lines overflow the available space.
   </C.Property>
   <C.Property @name="highlightLines" @type="string">
     Accepts a list or range of line-numbers to highlight. (Examples: "2, 4" | "6-10" )
