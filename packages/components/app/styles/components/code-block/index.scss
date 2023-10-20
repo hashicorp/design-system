@@ -21,13 +21,14 @@ $code-block-code-padding: 16px;
   position: relative;
   overflow: hidden; // So header corners don't poke out from container
   color: var(--code-block-color-foreground-primary);
+  font-size: 0.8125rem;
   font-family: var(--hds-typography-code-200);
   background-color: var(--code-block-color-surface-primary);
   border: 1px solid var(--code-block-color-border-strong);
 
   pre,
   code {
-    line-height: var(--token-typography-body-200-line-height); // = 1.4286 | 20px
+    line-height: 1.4286;
     white-space: pre;
     text-align: left;
     text-shadow: none;
@@ -60,8 +61,38 @@ $code-block-code-padding: 16px;
 .hds-code-block__description {
   color: var(--code-block-color-foreground-faint);
 
-  > a {
+  // we add very basic styling for elements that may be injected via the "description" string
+
+  strong {
+    font-weight: var(--token-typography-font-weight-semibold);
+  }
+
+  code,
+  pre {
+    display: inline;
+    font-size: 0.9em; // as discussed with designers, we reduce the size for optical/visual balance
+    font-family: var(--token-typography-code-100-font-family);
+    line-height: 1em;
+  }
+
+  // Default styling for bare HTML links not using HDS::Link components
+  a:not([class*="hds-"]) {
     color: var(--code-block-color-foreground-action-default);
+
+    &:focus,
+    &:focus-visible {
+      text-decoration: none;
+      outline: 2px solid var(--token-color-focus-action-internal);
+      outline-offset: 1px;
+    }
+
+    &:hover {
+      color: var(--token-color-foreground-action-hover);
+    }
+
+    &:active {
+      color: var(--token-color-foreground-action-active);
+    }
   }
 }
 
