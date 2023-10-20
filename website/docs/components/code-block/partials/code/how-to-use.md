@@ -9,6 +9,33 @@ console.log(`I am ${codeLang} code`);"
 />
 ```
 
+### Title and description
+
+Optionally, you can pass a title or a description.
+
+```handlebars
+<Hds::CodeBlock
+  @language="bash"
+  @value="aws ec2 --region us-west-1 accept-vpc-peering-connection"
+as |CB|>
+  <CB.Title>
+    Acceptance instructions
+  </CB.Title>
+</Hds::CodeBlock>
+```
+
+```handlebars
+<Hds::CodeBlock
+  @language="bash"
+  @value="export VAULT_ADDR=https://0242ac170030.aws.hcp.dev:8200;
+export VAULT_NAMESPACE=admin"
+as |CB|>
+  <CB.Description>
+    Export your cluster’s public URL and the default <a>namespace</a> called admin.
+  </CB.Description>
+</Hds::CodeBlock>
+```
+
 ### Language
 
 (TODO: fix, can't pass content containing single quotes, double quotes also seem to break it at times)
@@ -34,6 +61,7 @@ Set `hasCopyButton` to `true` to display a button for users to copy `CodeBlock` 
 
 ```handlebars
 <Hds::CodeBlock
+  @language="javascript"
   @hasCopyButton={{true}}
   @value="let codeLang=`JavaScript`;
 console.log(`I am ${codeLang} code`);"
@@ -46,6 +74,7 @@ Line numbers are displayed by default. Set `hasLineNumbers` to `false` to hide t
 
 ```handlebars
 <Hds::CodeBlock
+  @language="javascript"
   @hasLineNumbers={{false}}
   @value="let codeLang=`JavaScript`;
 console.log(`I am ${codeLang} code`);"
@@ -58,6 +87,7 @@ By default, long lines of code will overflow the `CodeBlock` container requiring
 
 ```handlebars
 <Hds::CodeBlock
+  @language="javascript"
   @hasLineWrapping={{true}}
   @value="console.log(`I am JavaScript code`, `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam`);"
 />
@@ -69,7 +99,20 @@ Highlight either individual code lines or a wrange of code lines. (Examples: "2,
 
 ```handlebars
 <Hds::CodeBlock
-  @value="TODO"
+  @language="javascript"
+  @highlightLines={{"2, 4"}}
+  @value="import Application from `@ember/application`;
+import Resolver from `ember-resolver`;
+import loadInitializers from `ember-load-initializers`;
+import config from `dummy/config/environment`;
+
+export default class App extends Application {
+  modulePrefix = config.modulePrefix;
+  podModulePrefix = config.podModulePrefix;
+  Resolver = Resolver;
+}
+
+loadInitializers(App, config.modulePrefix);"
 />
 ```
 
@@ -79,7 +122,20 @@ Code content uses `auto` height by default but you can opt to set a `maxHeight` 
 
 ```handlebars
 <Hds::CodeBlock
-  @value="TODO"
+  @language="javascript"
+  @maxHeight="105px"
+  @value="import Application from `@ember/application`;
+import Resolver from `ember-resolver`;
+import loadInitializers from `ember-load-initializers`;
+import config from `dummy/config/environment`;
+
+export default class App extends Application {
+  modulePrefix = config.modulePrefix;
+  podModulePrefix = config.podModulePrefix;
+  Resolver = Resolver;
+}
+
+loadInitializers(App, config.modulePrefix);"
 />
 ```
 
@@ -89,6 +145,7 @@ By default end-users are unable to edit the code within a `CodeBlock`. Setting t
 
 ```handlebars
 <Hds::CodeBlock
+  @language="javascript"
   @isReadOnly={{false}}
   @value="TODO"
 />
