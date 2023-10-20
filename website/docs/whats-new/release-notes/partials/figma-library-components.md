@@ -12,34 +12,34 @@
 </p>
 
 
-### September 15th, 2023
+### Sep 15th, 2023
 
 `IconTile` and `IconTile-Logo` - Added a new product variant for Vault Secrets.
 
-### August 17th, 2023
+### Aug 17th, 2023
 
 `SideNav` - Changed the icon from `User` to `Help` in the first dropdown at the top of the `SideNav`.
 
-### July 31st, 2023
+### Jul 31st, 2023
 
 `Field/Date`, `Field/Time`, `Field/Datetime` - Fixed the default width of the components to match the browser default.
 
-### July 13th, 2023
+### Jul 13th, 2023
 
-Added new components: 
+Added new components:
 
 - `Accordion`
 - `MaskedInput`
 
-### July 12th, 2023
+### Jul 12th, 2023
 
 Added a “Form Primitives” page to house the `Fieldset` component.
 
-### June 9th, 2023
+### Jun 9th, 2023
 
 `Reveal` - Added the component.
 
-### June 1st, 2023
+### Jun 1st, 2023
 
 #### Breaking change
 
@@ -51,7 +51,7 @@ Added a “Form Primitives” page to house the `Fieldset` component.
 
 ### May 11th, 2023
 
-Added new utility components: 
+Added new utility components:
 
 - `Cursor`
 - `Scrollbar`
