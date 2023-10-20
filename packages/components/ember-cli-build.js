@@ -26,9 +26,6 @@ module.exports = function (defaults) {
         advanced: false,
       },
     },
-    fingerprint: {
-      exclude: ['/prism-languages/'],
-    },
   });
 
   /*
