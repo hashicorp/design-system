@@ -4,8 +4,7 @@ The basic invocation requires `@value` to be passed.
 
 ```handlebars
 <Hds::CodeBlock
-  @value="let codeLang=`JavaScript`;
-console.log(`I am ${codeLang} code`);"
+  @value="aws ec2 --region us-west-1 accept-vpc-peering-connection"
 />
 ```
 
@@ -77,7 +76,7 @@ console.log(`I am ${codeLang} code`);"
 />
 ```
 
-### hasLineWrapping
+### Line wrapping
 
 By default, long lines of code will overflow the `CodeBlock` container requiring users to scroll to view the full content. Setting `hasLineWrapping` to `true` will wrap long lines of code instead.
 
@@ -89,7 +88,7 @@ By default, long lines of code will overflow the `CodeBlock` container requiring
 />
 ```
 
-### highlightLines
+### Highlight lines
 
 Highlight either individual code lines or a range of code lines. (Examples: "2, 4", "6-10")
 
@@ -112,7 +111,7 @@ loadInitializers(App, config.modulePrefix);"
 />
 ```
 
-### maxHeight
+### Limit height
 
 Code content uses `auto` height by default but you can opt to set a `maxHeight` value to save space. Vertical scrolling is enabled as part of this feature allowing users to vertical scroll to view overflowing content.
 
@@ -135,7 +134,7 @@ loadInitializers(App, config.modulePrefix);"
 />
 ```
 
-### isReadOnly
+### Editable content
 
 By default end-users, are unable to edit the code within a `CodeBlock`. Setting this to `true` allows them to type to alter the content if they wish.
 
@@ -143,6 +142,7 @@ By default end-users, are unable to edit the code within a `CodeBlock`. Setting 
 <Hds::CodeBlock
   @language="javascript"
   @isReadOnly={{false}}
-  @value="TODO"
+  @value="let codeLang=`JavaScript`;
+console.log(`I am ${codeLang} code`);"
 />
 ```
