@@ -28,3 +28,14 @@ This component uses [prism.js](https://prismjs.com/) under the hood.
     Determines whether users can edit the text content of the `CodeBlock`.
   </C.Property>
 </Doc::ComponentApi>
+
+### Contextual components
+
+<Doc::ComponentApi as |C|>
+  <C.Property @name="<[A].Title>" @type="yielded component">
+    A container that yields its content inside the `"title"` block. Content inherits its style.<br/><br/>This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
+  <C.Property @name="<[A].Description>" @type="yielded component">
+    A container that yields its content inside the `"description"` block. Content inherits its style.<br/><br/>Accepts complex content, such as logic/conditionals, HTML elements, other Ember components, etc. Styling is applied for simple HTML elements, such as `strong`, `em`, `a`, `code/pre`. Application teams will need to style the rest of the content.<br/><br/>This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
+</Doc::ComponentApi>
