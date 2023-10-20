@@ -65,6 +65,10 @@ $code-block-code-padding: 16px;
   }
 }
 
+.hds-code-block__body {
+  position: relative;
+}
+
 // Code
 .hds-code-block__code {
   display: block;

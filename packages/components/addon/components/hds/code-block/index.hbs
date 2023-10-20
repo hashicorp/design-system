@@ -8,23 +8,24 @@
     {{~yield (hash Title=(component "hds/code-block/title"))~}}
     {{~yield (hash Description=(component "hds/code-block/description"))~}}
   </div>
+  <div class="hds-code-block__body">
+    <pre
+      class="hds-code-block__code"
+      {{style maxHeight=@maxHeight}}
+      contentEditable={{not this.isReadOnly}}
+      data-line={{@highlightLines}}
+      id={{if @hasCopyButton this.preCodeId null}}
+      tabindex="0"
+    >
+      {{~! ~}}
+      <code {{did-insert this.setPrismCode}} {{did-update this.setPrismCode this.code @language}}>
+        {{~this.prismCode~}}
+      </code>
+      {{~! ~}}
+    </pre>
 
-  <pre
-    class="hds-code-block__code"
-    {{style maxHeight=@maxHeight}}
-    contentEditable={{not this.isReadOnly}}
-    data-line={{@highlightLines}}
-    id={{if @hasCopyButton this.preCodeId null}}
-    tabindex="0"
-  >
-    {{~! ~}}
-    <code {{did-insert this.setPrismCode}} {{did-update this.setPrismCode this.code @language}}>
-      {{~this.prismCode~}}
-    </code>
-    {{~! ~}}
-  </pre>
-
-  {{#if @hasCopyButton}}
-    <Hds::CodeBlock::CopyButton @textToCopy={{@value}} aria-describedby={{this.preCodeId}} />
-  {{/if}}
+    {{#if @hasCopyButton}}
+      <Hds::CodeBlock::CopyButton @textToCopy={{@value}} aria-describedby={{this.preCodeId}} />
+    {{/if}}
+  </div>
 </div>
