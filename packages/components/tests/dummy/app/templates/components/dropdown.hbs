@@ -260,12 +260,7 @@
       {{#each @model.TOGGLE_STATES as |state|}}
         <SG.Item @label="With icon">
           {{#if (eq state "disabled")}}
-            <Hds::Dropdown::Toggle::Button
-              @icon="hexagon"
-              @text="Lorem"
-              @color={{color}}
-              disabled
-            />
+            <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem" @color={{color}} disabled />
           {{else}}
             <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem" @color={{color}} mock-state-value={{state}} />
           {{/if}}
@@ -277,12 +272,7 @@
       {{#each @model.TOGGLE_STATES as |state|}}
         <SG.Item @label="With count">
           {{#if (eq state "disabled")}}
-            <Hds::Dropdown::Toggle::Button
-              @count="12"
-              @text="Lorem"
-              @color={{color}}
-              disabled
-            />
+            <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @color={{color}} disabled />
           {{else}}
             <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @color={{color}} mock-state-value={{state}} />
           {{/if}}
@@ -294,13 +284,7 @@
       {{#each @model.TOGGLE_STATES as |state|}}
         <SG.Item @label="With badge">
           {{#if (eq state "disabled")}}
-            <Hds::Dropdown::Toggle::Button
-              @badge="Sit"
-              @badgeIcon="hexagon"
-              @text="Lorem"
-              @color={{color}}
-              disabled
-            />
+            <Hds::Dropdown::Toggle::Button @badge="Sit" @badgeIcon="hexagon" @text="Lorem" @color={{color}} disabled />
           {{else}}
             <Hds::Dropdown::Toggle::Button
               @badge="Sit"
