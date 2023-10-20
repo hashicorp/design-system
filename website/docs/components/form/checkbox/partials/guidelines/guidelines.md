@@ -47,12 +47,12 @@ Indeterminate states indicate a "partially checked" condition in nested structur
 
 !!! Do
 
-![Example of proper usage of the indeterminate state in the checkbox] (/assets/components/form/checkbox/checkbox-Indeterminate-do.png)
+![Example of proper usage of the indeterminate state in the checkbox] (/assets/components/form/checkbox/checkbox-indeterminate-do.png)
 !!!
 
 !!! Dont
 
-![Example of misuse of the indeterminate state in the checkbox] (/assets/components/form/checkbox/checkbox-Indeterminate-dont.png)
+![Example of misuse of the indeterminate state in the checkbox] (/assets/components/form/checkbox/checkbox-indeterminate-dont.png)
 !!!
 
 ## Required and optional
