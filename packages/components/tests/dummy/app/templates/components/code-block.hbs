@@ -335,6 +335,21 @@ NrRFi9wrf+M7Q=="
       />
     </SG.Item>
 
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="bash">
+      <Hds::CodeBlock @language="bash" @value="aws ec2 --region us-west-1 accept-vpc-peering-connection" />
+    </SG.Item>
+
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="Go">
+      <Hds::CodeBlock
+        @language="go"
+        @value="package main
+import 'fmt'
+func main() {
+  fmt.Println('hello world')
+}"
+      />
+    </SG.Item>
+
     <SG.Item {{style width="calc(50% - 1rem)"}} @label="HashiCorp Configuration Language">
       {{! template-lint-disable no-whitespace-for-layout }}
       <Hds::CodeBlock
@@ -372,6 +387,54 @@ NrRFi9wrf+M7Q=="
       {{! template-lint-enable no-whitespace-for-layout }}
     </SG.Item>
 
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="log">
+      {{! template-lint-disable no-whitespace-for-layout }}
+      <Hds::CodeBlock
+        @language="log"
+        @value='web_1            | USE_L10N =3D True
+web_1            | USE_THOUSAND_SEPARATOR =3D False
+web_1            | USE_TZ =3D True
+web_1            | USE_X_FORWARDED_HOST =3D False
+web_1            | USE_X_FORWARDED_PORT =3D False
+web_1            | WSGI_APPLICATION =3D "context.wsgi.application"
+web_1            | X_FRAME_OPTIONS =3D "SAMEORIGIN"
+web_1            | YEAR_MONTH_FORMAT =3D "F Y"
+web_1            |
+web_1            |
+web_1            |
+web_1            | -------------------------------------------------------------------------------
+web_1            | ERROR Internal Server Error: /api/v1/rides/
+web_1            | Traceback (most recent call last):
+web_1            |   File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+web_1            |     response = get_response(request)
+web_1            |   File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+web_1            |     response = self.process_exception_by_middleware(e, request)
+web_1            |   File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+web_1            |     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+web_1            |   File "/usr/local/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+web_1            |     return view_func(*args, **kwargs)
+web_1            |   File "/usr/local/lib/python3.6/site-packages/rest_framework/viewsets.py", line 116, in view
+web_1            |     return self.dispatch(request, *args, **kwargs)
+web_1            |   File "/usr/local/lib/python3.6/site-packages/rest_framework/views.py", line 495, in dispatch
+web_1            |     response = self.handle_exception(exc)
+web_1            |   File "/usr/local/lib/python3.6/site-packages/rest_framework/views.py", line 455, in handle_exception
+web_1            |     self.raise_uncaught_exception(exc)
+web_1            |   File "/usr/local/lib/python3.6/site-packages/rest_framework/views.py", line 492, in dispatch
+web_1            |     response = handler(request, *args, **kwargs)
+web_1            |   File "/code/context/scooters/views.py", line 26, in list
+web_1            |     } for x in query.model.Context.sources]
+web_1            |   File "/code/context/scooters/views.py", line 26, in <listcomp>
+web_1            |     } for x in query.model.Context.sources]
+web_1            | TypeError: source() takes 1 positional argument but 2 were given
+web_1            | [13/Jun/2019 02:54:33] "GET /api/v1/rides/ HTTP/1.1" 500 90495'
+      />
+      {{! template-lint-enable no-whitespace-for-layout }}
+    </SG.Item>
+
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="Shell">
+      <Hds::CodeBlock @language="shell-session" @value="$ brew tap hashicorp/tap" />
+    </SG.Item>
+
     <SG.Item {{style width="calc(50% - 1rem)"}} @label="YAML">
       <Hds::CodeBlock
         @language="yaml"
@@ -385,61 +448,6 @@ result:
       col: 1
 "
       />
-    </SG.Item>
-
-    <SG.Item {{style width="calc(50% - 1rem)"}} @label="JavaScript">
-      <Hds::CodeBlock
-        @language="javascript"
-        @value="let codeLang='JavaScript';
-console.log(`I am ${codeLang} code`);"
-      />
-    </SG.Item>
-
-    <SG.Item {{style width="calc(50% - 1rem)"}} @label="Go">
-      <Hds::CodeBlock
-        @language="go"
-        @value="package main
-import 'fmt'
-func main() {
-  fmt.Println('hello world')
-}"
-      />
-    </SG.Item>
-
-    <SG.Item {{style width="calc(50% - 1rem)"}} @label="Markdown">
-      {{! template-lint-disable no-whitespace-for-layout }}
-      <Hds::CodeBlock
-        @language="markdown"
-        @value="# Level 1 headline
-
-<p>Here is some text within a paragraph tag</p>
-
-## Level 2 headline
-
-- Item 1
-- Item 2
-- Item 3
-
-1. Number one
-2. Number two
-3. Number three
-
-## Here is a table
-
-| Element     | Usage       |
-| ----------- | ----------- |
-| Icon        | Required    |
-| Description | Required    |
-
-Lorem ipsum dolor sit amet, consectetur [and a link](https://hashicorp.com) adipiscing elit
-
-![Alternative text for an image](/public/assets/image.png)"
-      />
-      {{! template-lint-enable no-whitespace-for-layout }}
-    </SG.Item>
-
-    <SG.Item {{style width="calc(50% - 1rem)"}} @label="Shell">
-      <Hds::CodeBlock @language="shell-session" @value="$ brew tap hashicorp/tap" />
     </SG.Item>
   </Shw::Flex>
 

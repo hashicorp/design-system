@@ -14,12 +14,13 @@ import Prism from 'prismjs';
 import 'prismjs/plugins/line-numbers/prism-line-numbers';
 import 'prismjs/plugins/line-highlight/prism-line-highlight';
 
-// https://prismjs.com/plugins/autoloader/
-import 'prismjs/plugins/autoloader/prism-autoloader';
-
-// these are picked up from /public/ – https://cli.emberjs.com/release/writing-addons/#public
-Prism.plugins.autoloader.languages_path =
-  '/@hashicorp/design-system-components/prism-languages/';
+import 'prismjs/components/prism-bash';
+import 'prismjs/components/prism-go';
+import 'prismjs/components/prism-hcl';
+import 'prismjs/components/prism-json';
+import 'prismjs/components/prism-log';
+import 'prismjs/components/prism-shell-session';
+import 'prismjs/components/prism-yaml';
 
 export default class HdsCodeBlockIndexComponent extends Component {
   @tracked prismCode = '';
