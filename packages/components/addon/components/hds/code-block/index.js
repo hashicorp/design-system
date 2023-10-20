@@ -104,7 +104,7 @@ export default class HdsCodeBlockIndexComponent extends Component {
     if (code && language && grammar) {
       this.prismCode = htmlSafe(Prism.highlight(code, grammar, language));
     } else {
-      this.prismCode = htmlSafe(code);
+      this.prismCode = htmlSafe(Prism.util.encode(code));
     }
 
     // Force plugin initialization, required for Prism.highlight usage.
