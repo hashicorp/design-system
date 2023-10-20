@@ -337,6 +337,14 @@ export default class PaginationController extends Controller {
     return this.model.records.slice(start, end);
   }
 
+  @action
+  onPageSizeChange_demo4(pageSize) {
+    // notice: here we don't add specific logic for this, but because of how the cursor-base pagination works
+    // there should be a better handling of how the "paginated" data list is computed and shown to the user to avoid some UX issues
+    // for details see this thread: https://github.com/hashicorp/design-system/pull/1724#issuecomment-1768167782
+    this.currentPageSize_demo4 = pageSize;
+  }
+
   // =============================
   // GENERIC HANDLERS
   // =============================
