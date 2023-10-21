@@ -1,10 +1,12 @@
 # Changelog authoring best practices
 
 - [Tips for writing consistent changelog entries](#tips-for-writing-consistent-changelog-entries)
-- [Content structure](#content-structure)
-  - [Component changes](#component-changes)
-  - [New icons](#new-icons)
-  - [Breaking changes](#breaking-changes)
+  - [General guidance](#general-guidance)
+  - [Consistent terminology](#consistent-terminology)
+  - [Component references](#component-references)
+  - [Content formatting](#content-formatting)
+    - [Component changes](#component-changes)
+    - [New icons](#new-icons)
 - [Templates](#templates)
   - [Templates for npm packages](#templates-for-npm-packages)
   - [Templates for Figma changelog entries](#templates-for-figma-changelog-entries)
@@ -13,26 +15,33 @@
 
 ## Tips for writing consistent changelog entries
 
+### General guidance
 - Changelog entries should always start with a paragraph (not a list).
 - Consider using a list instead of a long paragraph of text to communicate multiple changes for one element.
-- If you need to include a note (like a migration tip), add it to the bottom of the entry in a new paragraph. Consider using emphasized text, if you need to draw more attention to it.
+- If you need to include a note (like a migration tip), add it to the bottom of the entry in a new paragraph. Consider using emphasized text if you need to draw more attention to it.
+
+
 - Entries should use complete sentences but be short, clear, and descriptive enough to be helpful.
 - Use past tense.
 - Entries should always end with a period.
+
+### Consistent terminology
 - Use consistent terms for different types of changes: 
   - Bugfix: “Fixed”
   - New component, token, variant: “Added”
   - Update: “Changed”, “Refactored”
   - Removed or deleted: “Removed”
   - Other edge cases: “Upgraded”, “Reduced”, “Prevented”
+ 
+### Component references
 - When referencing components, use the plain-text component name, e.g., `Accordion`.
 - All components or token names, including those in the summary, should be enclosed in backticks (`).
 
-## Content structure
+### Content formatting
 
 While best practice guidelines are provided, clarity is most important, so use your best judgment. 
 
-### Component changes
+#### Component changes
 
 For component changes, place the component name first and enclose it in backticks (`), followed by a dash (-), and then a brief summary.
 
@@ -40,21 +49,13 @@ For component changes, place the component name first and enclose it in backtick
 |:---|:-----|
 | `Dropdown` - changed the `@height` property to use `max-height` instead of a fixed height.  | Changed the `@height` property in `Dropdown` to use `max-height` instead of a fixed height. |
 
-### New icons
+#### New icons
 
 For icons, use a comma-separated list instead of a bulleted list and start with the icon values. Icon names should be enclosed in backticks (`) and use the Ember value.
 
 | Do | Dont |
 |:---|:-----|
 | `twitter-x`, `twitter-x-color`, `aws-cdk`, `aws-cdk-color`, `jfrog`, and `jfrog-color` icons added. | Added a new set of service icons: <ul><li>`twitter-x`</li><li>`twitter-x-color`</li><li>`aws-cdk`</li><li>`aws-cdk-color`</li><li>`jfrog`</li><li>`jfrog-color`</li></ul> | 
-
-### Breaking changes
-
-For breaking changes, add “⛔️ **Breaking change** - ” after the component name/before the summary. Be sure to include relevant details about why this is a breaking change and what needs to be done on the consumer side in order to upgrade to this version.
-
-| Do | Dont |
-|:---|:-----|
-| **`Dropdown ListItem`** - ⛔️ **Breaking change** - Renamed internal CSS classes as follows: <ul><li>from `hds-dropdown-list-item–copy-item` to `hds-dropdown-list-item–variant-copy-item`</li><li>from `hds-dropdown-list-item–description` to `hds-dropdown-list-item–variant-description`</li><li>from `hds-dropdown-list-item–generic` to `hds-dropdown-list-item–variant-generic`</li><li>from `hds-dropdown-list-item–interactive` to `hds-dropdown-list-item–variant-interactive`</li><li>from `hds-dropdown-list-item–separator` to `hds-dropdown-list-item–variant-separator`</li><li>from `hds-dropdown-list-item–title` to `hds-dropdown-list-item–variant-title`</li></ul><br/>_If test assertions are relying on these class names, tests will fail. If extensions/overrides have been applied to these classes, they will suffer visual changes._ | Renamed `Hds::Dropdown::ListItem` internal CSS classes. |
 
 ---
 
@@ -75,13 +76,6 @@ Copy and paste this template and adjust as necessary when creating a new [change
 - {change 1}
 - {change 2}
 - etc
-
-_{additional details}..._
-```
-
-#### Breaking changes
-```
-**`{component-name}`** - ⛔️ **Breaking change** - Changed {...additional details}.
 
 _{additional details}..._
 ```
@@ -118,7 +112,6 @@ _{additional details}..._
   Shifted our support version of Node.js from `12.* || 14.* || >= 16` to `14.* || 16.* || >= 18`
 </details>
 
-
 ### Templates for Figma changelog entries
 
 Entries made for the Figma Components and Foundations UI Kits require a few additional steps. Copy and paste this template and adjust as necessary after publishing changes in Figma. _Replace all elements in brackets._
@@ -146,7 +139,9 @@ _{additional details}..._
 ```
 ### {month day, year}
 
-**`{component-name}`** - ⛔️ **Breaking change** - Changed {...additional details}.
+#### Breaking change
+
+**`{component-name}`** - Changed {...additional details}.
 
 _{additional details}..._
 ```
@@ -161,8 +156,10 @@ _{additional details}..._
   - Added more straightforward support for the focus state of the Select component when nested within a SegmentedGroup.
   
   **`Select`** - Updated the focus state to bring consistency in how the `Select` and the other form controls account for this interactive state.
+
+  <h4>Breaking change</h4>
   
-  **`Dropdown`** - ⛔️ **Breaking change** - Refactored the component to utilize new Figma functionality and added the following new features:
+  **`Dropdown`** - Refactored the component to utilize new Figma functionality and added the following new features:
   - Added ListItem variants: Checkmark, Checkbox, Radio.
   - Updated positioning options from Left and Right to Top left, Top right, Bottom left, Bottom right.
   - Improved accessibility on ToggleIcon by adding a border to indicate interactivity better.
