@@ -67,12 +67,12 @@ Copy and paste this template and adjust as necessary when creating a new [change
 
 #### Simple entry
 ```
-**`{component-name}`** - Fixed {...additional details}.
+`{component-name}` - Fixed {...additional details}.
 ```
 
 #### Multiple changes per element
 ```
-**`{component-name}`** - Changed {...additional details}, including:
+`{component-name}` - Changed {...additional details}, including:
 - {change 1}
 - {change 2}
 - etc
@@ -85,19 +85,19 @@ _{additional details}..._
   <i>These examples are just outputs of the details provided as a part of the changeset. They do not include the PR links or contributors, which are added automatically.</i>
   <br/><br/>
   
-  **`TooltipButton`** - Added `text-align: inherit` to the “button” element.
+  `TooltipButton` - Added `text-align: inherit` to the “button” element.
   
-  **`Dropdown`** - Fixed a few accessibility failures, including:
+  `Dropdown` - Fixed a few accessibility failures, including:
   - Added `aria-hidden` to the separator,
   - Added `role=“none”` to the checkbox `<li>`.
     
-  **`Table`** - Changed `height` to `min-height` for the table head cells and updated the cells' internal padding to align with the design specs in Figma.
+  `Table` - Changed `height` to `min-height` for the table head cells and updated the cells' internal padding to align with the design specs in Figma.
   
-  **`Sidenav Link`** - Fixed an issue resulting in an empty node.
+  `Sidenav Link` - Fixed an issue resulting in an empty node.
   - This will lead to a minimal visual impact on some edge cases of `Alert` and `Toast` (multiple description items) and `Sidenav` (text and generic content).
   
-  **`Standalone Link`** - Increased the space between the actions to 16px and reduced the size of the icon in the small variant to 12px.
-  **`Modal`** and **`Flyout`** - Fixed the scroll management resulting in stray `style` attribute on the `<body>` element.
+  `Standalone Link` - Increased the space between the actions to 16px and reduced the size of the icon in the small variant to 12px.
+  `Modal` and `Flyout` - Fixed the scroll management resulting in stray `style` attribute on the `<body>` element.
   Updated the CSS of multiple components to use flex `gap`.
   Upgraded Ember.js to the latest stable release 4.12, including upgrades to:
   - `ember-auto-import` from `2.6.0` to `2.6.3`
@@ -120,14 +120,14 @@ Entries made for the Figma Components and Foundations UI Kits require a few addi
 ```
 ### {month day, year}
 
-**`{component-name}`** - Fixed {...additional details}.
+`{component-name}` - Fixed {...additional details}.
 ```
 
 #### Multiple changes per element
 ```
 ### {month day, year}
 
-**`{component-name}`** - Changed {...additional details}, including:
+`{component-name}` - Changed {...additional details}, including:
 - {change 1}
 - {change 2}
 - etc
@@ -141,7 +141,7 @@ _{additional details}..._
 
 #### Breaking change
 
-**`{component-name}`** - Changed {...additional details}.
+`{component-name}` - Changed {...additional details}.
 
 _{additional details}..._
 ```
@@ -151,15 +151,15 @@ _{additional details}..._
 
   <h3>September 15, 2023</h3>
 
-  **`SegmentedGroup`** - Updated the following:
+  `SegmentedGroup` - Updated the following:
   - Fixed a bug that created an “inception” style loop of the inheritance between the published component library and the local components.
   - Added more straightforward support for the focus state of the Select component when nested within a SegmentedGroup.
   
-  **`Select`** - Updated the focus state to bring consistency in how the `Select` and the other form controls account for this interactive state.
+  `Select` - Updated the focus state to bring consistency in how the `Select` and the other form controls account for this interactive state.
 
   <h4>Breaking change</h4>
   
-  **`Dropdown`** - Refactored the component to utilize new Figma functionality and added the following new features:
+  `Dropdown` - Refactored the component to utilize new Figma functionality and added the following new features:
   - Added ListItem variants: Checkmark, Checkbox, Radio.
   - Updated positioning options from Left and Right to Top left, Top right, Bottom left, Bottom right.
   - Improved accessibility on ToggleIcon by adding a border to indicate interactivity better.
