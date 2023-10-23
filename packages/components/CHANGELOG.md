@@ -1,5 +1,18 @@
 # @hashicorp/design-system-components
 
+## 2.15.0
+
+### Minor Changes
+
+- [#1690](https://github.com/hashicorp/design-system/pull/1690) [`33df4e25e`](https://github.com/hashicorp/design-system/commit/33df4e25e7bff4dabbba3744128449e2b99d4911) Thanks [@didoo](https://github.com/didoo)! - `Button` - updated horizontal padding of icon-only variant
+  `Dropdown::ToggleIcon` - updated sizing of the "small" variant to match the height of the "small" variant `Button`
+
+### Patch Changes
+
+- [#1736](https://github.com/hashicorp/design-system/pull/1736) [`541d22442`](https://github.com/hashicorp/design-system/commit/541d22442396d33850a68a61e2781094df1b121a) Thanks [@didoo](https://github.com/didoo)! - `Pagination` - Removed handling of query parameters from `onPageSizeChange` function.
+
+  _Notice: while technically this is a breaking change, we consider this a fast-follow fix for the previous release._
+
 ## 2.14.2
 
 ### Patch Changes
