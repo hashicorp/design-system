@@ -20,7 +20,6 @@
     <SF.Item class="shw-component-button-generated">
       <Shw::Label>With <code>@href</code> ⇒ <code>&lt;a&gt;</code></Shw::Label>
       <Hds::Button @icon="plus" @text="Lorem ipsum" @color="primary" @href="#" />
-      <Hds::Button @icon="plus" @text="Lorem ipsum" @color="primary" @href="#" disabled />
     </SF.Item>
     <SF.Item class="shw-component-button-generated">
       <Shw::Label>With<code>@route</code>
@@ -29,7 +28,6 @@
         ⇒
         <code>&lt;a&gt;</code></Shw::Label>
       <Hds::Button @icon="plus" @text="Lorem ipsum" @color="primary" @route="index" />
-      <Hds::Button @icon="plus" @text="Lorem ipsum" @color="primary" @route="index" disabled />
     </SF.Item>
   </Shw::Flex>
 
@@ -96,14 +94,28 @@
       {{#each @model.SIZES as |size|}}
         {{#each @model.STATES as |state|}}
           <SG.Item @label="{{capitalize size}} / {{capitalize state}}">
-            <Hds::Button @icon="plus" @text="Lorem" @size={{size}} @color={{color}} mock-state-value={{state}} />
+            {{#if (eq state "disabled")}}
+              <Hds::Button @icon="plus" @text="Lorem" @size={{size}} @color={{color}} disabled />
+            {{else}}
+              <Hds::Button @icon="plus" @text="Lorem" @size={{size}} @color={{color}} mock-state-value={{state}} />
+            {{/if}}
           </SG.Item>
         {{/each}}
       {{/each}}
       {{#if (not-eq color "tertiary")}}
         {{#each @model.STATES as |state|}}
           <SG.Item @label="Full width / {{capitalize state}}">
-            <Hds::Button @icon="plus" @text="Lorem" @color={{color}} @isFullWidth={{true}} mock-state-value={{state}} />
+            {{#if (eq state "disabled")}}
+              <Hds::Button @icon="plus" @text="Lorem" @color={{color}} @isFullWidth={{true}} disabled />
+            {{else}}
+              <Hds::Button
+                @icon="plus"
+                @text="Lorem"
+                @color={{color}}
+                @isFullWidth={{true}}
+                mock-state-value={{state}}
+              />
+            {{/if}}
           </SG.Item>
         {{/each}}
       {{/if}}
