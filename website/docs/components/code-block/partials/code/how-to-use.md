@@ -7,7 +7,8 @@ The basic invocation requires `@value` to be passed.
   @value="aws ec2 --region us-west-1 accept-vpc-peering-connection"
 />
 ```
-## Title and description
+
+### Title and description
 
 Optionally, you can pass a title or a description.
 
@@ -55,6 +56,7 @@ Set `hasCopyButton` to `true` to display a button for users to copy `CodeBlock` 
 
 ```handlebars
 <Hds::CodeBlock
+  @language="javascript"
   @hasCopyButton={{true}}
   @value="let codeLang=`JavaScript`;
 console.log(`I am ${codeLang} code`);"
@@ -67,31 +69,34 @@ Line numbers are displayed by default. Set `hasLineNumbers` to `false` to hide t
 
 ```handlebars
 <Hds::CodeBlock
+  @language="javascript"
   @hasLineNumbers={{false}}
   @value="let codeLang=`JavaScript`;
 console.log(`I am ${codeLang} code`);"
 />
 ```
 
-### hasLineWrapping
+### Line wrapping
 
 By default, long lines of code will overflow the `CodeBlock` container requiring users to scroll to view the full content. Setting `hasLineWrapping` to `true` will wrap long lines of code instead.
 
 ```handlebars
 <Hds::CodeBlock
+  @language="javascript"
   @hasLineWrapping={{true}}
   @value="console.log(`I am JavaScript code`, `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam`);"
 />
 ```
 
-### highlightLines
+### Highlight lines
 
-Highlight either individual code lines or a wrange of code lines. (Examples: "2, 4", "6-10")
+Highlight either individual code lines or a range of code lines. (Examples: "2, 4", "6-10")
 
 ```handlebars
-      <Hds::CodeBlock
-        @highlightLines={{"2, 4"}}
-        @value="import Application from `@ember/application`;
+<Hds::CodeBlock
+  @language="javascript"
+  @highlightLines={{"2, 4"}}
+  @value="import Application from `@ember/application`;
 import Resolver from `ember-resolver`;
 import loadInitializers from `ember-load-initializers`;
 import config from `dummy/config/environment`;
@@ -103,17 +108,18 @@ export default class App extends Application {
 }
 
 loadInitializers(App, config.modulePrefix);"
-      />
+/>
 ```
 
-### maxHeight
+### Limit height
 
 Code content uses `auto` height by default but you can opt to set a `maxHeight` value to save space. Vertical scrolling is enabled as part of this feature allowing users to vertical scroll to view overflowing content.
 
 ```handlebars
-      <Hds::CodeBlock
-        @maxHeight="105px"
-        @value="import Application from `@ember/application`;
+<Hds::CodeBlock
+  @language="javascript"
+  @maxHeight="105px"
+  @value="import Application from `@ember/application`;
 import Resolver from `ember-resolver`;
 import loadInitializers from `ember-load-initializers`;
 import config from `dummy/config/environment`;
@@ -125,15 +131,16 @@ export default class App extends Application {
 }
 
 loadInitializers(App, config.modulePrefix);"
-      />
+/>
 ```
 
-### isReadOnly
+### Editable content
 
-By default end-users are unable to edit the code within a `CodeBlock`. Setting this to `true` allows them to type to alter the content if they wish.
+By default end-users, are unable to edit the code within a `CodeBlock`. Setting this to `true` allows them to type to alter the content if they wish.
 
 ```handlebars
 <Hds::CodeBlock
+  @language="javascript"
   @isReadOnly={{false}}
   @value="let codeLang=`JavaScript`;
 console.log(`I am ${codeLang} code`);"
