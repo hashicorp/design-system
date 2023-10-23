@@ -130,10 +130,6 @@ export default class HdsCodeBlockIndexComponent extends Component {
       classes.push(`language-${this.language}`);
     }
 
-    if (this.args.hasCopyButton) {
-      classes.push('hds-code-block--has-copy-button');
-    }
-
     if (this.isRounded === true) {
       classes.push('hds-code-block--is-rounded');
     }

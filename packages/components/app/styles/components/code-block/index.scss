@@ -110,6 +110,9 @@ $code-block-code-padding: 16px;
 
 // CopyButton
 .hds-code-block__copy-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
   // Overriding default colors
   color: var(--code-block-color-foreground-primary);
   background-color: var(--code-block-color-surface-faint);
@@ -152,15 +155,6 @@ $code-block-code-padding: 16px;
 // isRounded
 .hds-code-block--is-rounded {
   border-radius: 6px;
-}
-
-// hasCopyButton
-.hds-code-block--has-copy-button {
-  .hds-code-block__copy-button {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-  }
 }
 
 // LineWrapping
