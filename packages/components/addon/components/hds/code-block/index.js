@@ -9,6 +9,7 @@ import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
 import { htmlSafe } from '@ember/template';
 import { guidFor } from '@ember/object/internals';
+
 import Prism from 'prismjs';
 
 import 'prismjs/plugins/line-numbers/prism-line-numbers';
