@@ -4,96 +4,163 @@
 
 ### Minor Changes
 
-- [#1690](https://github.com/hashicorp/design-system/pull/1690) [`33df4e25e`](https://github.com/hashicorp/design-system/commit/33df4e25e7bff4dabbba3744128449e2b99d4911) Thanks [@didoo](https://github.com/didoo)! - `Button` - updated horizontal padding of icon-only variant
-  `Dropdown::ToggleIcon` - updated sizing of the "small" variant to match the height of the "small" variant `Button`
+`Button` - updated horizontal padding of icon-only variant
+
+`Dropdown::ToggleIcon` - updated sizing of the "small" variant to match the height of the "small" variant `Button`
+
+<small>[#1690](https://github.com/hashicorp/design-system/pull/1690)</small>
 
 ### Patch Changes
 
-- [#1736](https://github.com/hashicorp/design-system/pull/1736) [`541d22442`](https://github.com/hashicorp/design-system/commit/541d22442396d33850a68a61e2781094df1b121a) Thanks [@didoo](https://github.com/didoo)! - `Pagination` - Removed handling of query parameters from `onPageSizeChange` function.
+`Pagination` - Removed handling of query parameters from `onPageSizeChange` function.
 
-  _Notice: while technically this is a breaking change, we consider this a fast-follow fix for the previous release._
+<small>[#1736](https://github.com/hashicorp/design-system/pull/1736)</small>
+
+_Notice: while technically this is a breaking change, we consider this a fast-follow fix for the previous release._
 
 ## 2.14.2
 
 ### Patch Changes
 
-- [#1724](https://github.com/hashicorp/design-system/pull/1724) [`65ebe6dde`](https://github.com/hashicorp/design-system/commit/65ebe6ddeb477ebc74ad6db353aaf19e1dfb06b1) Thanks [@didoo](https://github.com/didoo)! - `Pagination` - updated the logic for “Compact” variant to expose `@currentPageSize` and handle controlled/uncontrolled changes
+`Pagination` - updated the logic for “Compact” variant to expose `@currentPageSize` and handle controlled/uncontrolled changes
 
-- [#1716](https://github.com/hashicorp/design-system/pull/1716) [`cde67bc7f`](https://github.com/hashicorp/design-system/commit/cde67bc7fc32c1025ddd22de6d0f9baeabf43961) Thanks [@didoo](https://github.com/didoo)! - `Tabs` - replace `assert` with `warn` in `setIndicator` function
+<small>[#1724](https://github.com/hashicorp/design-system/pull/1724)</small>
+
+---
+
+`Tabs` - replace `assert` with `warn` in `setIndicator` function
+
+<small>[#1716](https://github.com/hashicorp/design-system/pull/1716)</small>
 
 ## 2.14.1
 
 ### Patch Changes
 
-- [#1709](https://github.com/hashicorp/design-system/pull/1709) [`294dddfda`](https://github.com/hashicorp/design-system/commit/294dddfda8d8e174fd5dd7de5d6af01dd8405775) Thanks [@didoo](https://github.com/didoo)! - `Tabs` - Fixed issue with `@isSelected` dynamically changed within `#each` loops
+`Tabs` - Fixed issue with `@isSelected` dynamically changed within `#each` loops
+
+<small>[#1709](https://github.com/hashicorp/design-system/pull/1709)</small>
 
 ## 2.14.0
 
 ### Minor Changes
 
-- [#1700](https://github.com/hashicorp/design-system/pull/1700) [`33d760fb8`](https://github.com/hashicorp/design-system/commit/33d760fb88d3945be8b50302a9bb7dce3ae221fe) Thanks [@didoo](https://github.com/didoo)! - `Pagination::Compact` - Added option to show "SizeSelector" element
+`Pagination::Compact` - Added option to show "SizeSelector" element
 
-- [#1688](https://github.com/hashicorp/design-system/pull/1688) [`c842b6eb7`](https://github.com/hashicorp/design-system/commit/c842b6eb731d82146b0e1ad8b9f55930b58aba18) Thanks [@didoo](https://github.com/didoo)! - `Tabs` - Refactored logic for `Tabs` component + `Tab/Panel` sub-components to support more complex use cases:
+<small>[#1700](https://github.com/hashicorp/design-system/pull/1700)</small>
 
-  - introduced `@selectedTabIndex` argument to control the "selected" tab from the consuming application, e.g. via query params (effort spearheaded by @MiniHeyd)
-  - fixed issue with nested tabs not initializing the "selected" indicator correctly
-  - fixed issue with dynamic tab content not updating the "selected" indicator correctly
+---
+
+`Tabs` - Refactored logic for `Tabs` component + `Tab/Panel` sub-components to support more complex use cases:
+
+- introduced `@selectedTabIndex` argument to control the "selected" tab from the consuming application, e.g. via query params (effort spearheaded by @MiniHeyd)
+- fixed issue with nested tabs not initializing the "selected" indicator correctly
+- fixed issue with dynamic tab content not updating the "selected" indicator correctly
+
+<small>[#1688](https://github.com/hashicorp/design-system/pull/1688)</small>
 
 ## 2.13.0
 
 ### Minor Changes
 
-- [#1623](https://github.com/hashicorp/design-system/pull/1623) [`2111a5439`](https://github.com/hashicorp/design-system/commit/2111a5439abea2951f12517354db662edd7c9cb9) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - `AppFooter` - Added new component
+`AppFooter` - Added new component
 
-- [#1630](https://github.com/hashicorp/design-system/pull/1630) [`04da95443`](https://github.com/hashicorp/design-system/commit/04da95443290ee2d03d9bef23787a4ef10577247) Thanks [@alex-ju](https://github.com/alex-ju)! - `SideNav` - add `@isCollapsible` (to control if users can collapse the sidenav on 'desktop' viewports) and `@isMinimized` (to control the default state on 'desktop' viewports) arguments
+<small>[#1623](https://github.com/hashicorp/design-system/pull/1623)</small>
+
+---
+
+`SideNav` - add `@isCollapsible` (to control if users can collapse the sidenav on 'desktop' viewports) and `@isMinimized` (to control the default state on 'desktop' viewports) arguments
+
+<small>[#1630](https://github.com/hashicorp/design-system/pull/1630)</small>
+
 
 ### Patch Changes
 
-- [#1696](https://github.com/hashicorp/design-system/pull/1696) [`f3f3fb103`](https://github.com/hashicorp/design-system/commit/f3f3fb103a5aa1c6489d011b6820560df4c2ed88) Thanks [@MelSumner](https://github.com/MelSumner)! - `Tag` - Updated padding for dismiss button for WCAG conformance
+`Tag` - Updated padding for dismiss button for WCAG conformance
 
-- [#1678](https://github.com/hashicorp/design-system/pull/1678) [`a51976ded`](https://github.com/hashicorp/design-system/commit/a51976ded4f7939fe140a1abade0f98832ccc2d0) Thanks [@alex-ju](https://github.com/alex-ju)! - `Link::Standalone` – increase target size
+<small>[#1696](https://github.com/hashicorp/design-system/pull/1696)</small>
 
-- Updated dependencies [[`04da95443`](https://github.com/hashicorp/design-system/commit/04da95443290ee2d03d9bef23787a4ef10577247)]:
+---
+
+`Link::Standalone` – increase target size
+
+<small>[#1678](https://github.com/hashicorp/design-system/pull/1678)</small>
+
+---
+
+**🔄 Updated dependencies:**
+
   - @hashicorp/design-system-tokens@1.9.0
 
 ## 2.12.2
 
 ### Patch Changes
 
-- [#1655](https://github.com/hashicorp/design-system/pull/1655) [`38f7e36c2`](https://github.com/hashicorp/design-system/commit/38f7e36c25f3efdade9c8833512d55af502ee07e) Thanks [@alex-ju](https://github.com/alex-ju)! - PowerSelect - fix style overrides when the list is positioned above
+`PowerSelect` - fix style overrides when the list is positioned above
 
-- [#1652](https://github.com/hashicorp/design-system/pull/1652) [`61af964b0`](https://github.com/hashicorp/design-system/commit/61af964b0078377dcedafa744e0fd18e89852b96) Thanks [@didoo](https://github.com/didoo)! - `Text` - Fixed issue with whitespace adding extra underline when used in links (eg. inside a `Link::Inline`)
+<small>[#1655](https://github.com/hashicorp/design-system/pull/1655)</small>
 
-- Updated dependencies []:
+---
+
+`Text` - Fixed issue with whitespace adding extra underline when used in links (eg. inside a `Link::Inline`)
+
+<small>[#1652](https://github.com/hashicorp/design-system/pull/1652)</small>
+
+---
+
+**🔄 Updated dependencies:**
+
   - @hashicorp/ember-flight-icons@3.1.3
 
 ## 2.12.1
 
 ### Patch Changes
 
-- [#1627](https://github.com/hashicorp/design-system/pull/1627) [`53c9f13c0`](https://github.com/hashicorp/design-system/commit/53c9f13c0a2b120d19d74a88fd0e0799d59752c4) Thanks [@MelSumner](https://github.com/MelSumner)! - `Pagination` - Bugfix `aria-label` on the component
+`Pagination` - Bugfix `aria-label` on the component
 
-- [#1635](https://github.com/hashicorp/design-system/pull/1635) [`2ecab760c`](https://github.com/hashicorp/design-system/commit/2ecab760c07c89ee9d34e993b879fc19e914c2e0) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - `Dropdown` - changed `@height` property to use `max-height` instead of a fixed height.
+<small>[#1627](https://github.com/hashicorp/design-system/pull/1627)</small>
+
+---
+
+`Dropdown` - changed `@height` property to use `max-height` instead of a fixed height.
+
+<small>[#1635](https://github.com/hashicorp/design-system/pull/1635)</small>
 
 ## 2.12.0
 
 ### Minor Changes
 
-- [#1640](https://github.com/hashicorp/design-system/pull/1640) [`8001667d2`](https://github.com/hashicorp/design-system/commit/8001667d2b0b549b5c2743ebaa4b50b58344a87f) Thanks [@didoo](https://github.com/didoo)! - `Design tokens` - Added color tokens for “Vault Secrets” product
+`IconTile` - updated component to include `vault-secrets` product option
 
-  `IconTile` - updated component to include `vault-secrets` product option
+<small>[#1640](https://github.com/hashicorp/design-system/pull/1640)</small>
 
 ### Patch Changes
 
-- [#1615](https://github.com/hashicorp/design-system/pull/1615) [`d5d4402b2`](https://github.com/hashicorp/design-system/commit/d5d4402b2b7529d60ac693babc2a9187f8fbad36) Thanks [@didoo](https://github.com/didoo)! - `Text` - Removed leftover `console.log` from code
+`Text` - Removed leftover `console.log` from code
 
-- [#1618](https://github.com/hashicorp/design-system/pull/1618) [`4e31014d5`](https://github.com/hashicorp/design-system/commit/4e31014d503d4b71e6b70b11ba750b75c0cb2d37) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - Refactor the layout of the `Dropdown` checkbox and radio inputs to make the gap between the inputs and the associated text, as well as the icon and count, clickable.
+<small>[#1615](https://github.com/hashicorp/design-system/pull/1615)</small>
 
-- [#1617](https://github.com/hashicorp/design-system/pull/1617) [`214f66e9e`](https://github.com/hashicorp/design-system/commit/214f66e9e8818da87e6d514b3808b40a0b7e56f5) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - Change font-weight of `Hds::Link::Standalone` from 500 to 400 to match font-weight of `Hds::Button`.
+---
 
-- [#1628](https://github.com/hashicorp/design-system/pull/1628) [`cc15349d3`](https://github.com/hashicorp/design-system/commit/cc15349d31c698d89540897570f76a5f2dc670ce) Thanks [@didoo](https://github.com/didoo)! - `Stepper` - removed some CSS declarations that were not used/applied
+Refactored the layout of the `Dropdown` checkbox and radio inputs to make the gap between the inputs and the associated text, as well as the icon and count, clickable.
 
-- Updated dependencies [[`8001667d2`](https://github.com/hashicorp/design-system/commit/8001667d2b0b549b5c2743ebaa4b50b58344a87f)]:
+<small>[#1618](https://github.com/hashicorp/design-system/pull/1618)</small>
+
+---
+
+`Hds::Link::Standalone` - Changed font-weight from 500 to 400 to match font-weight of `Hds::Button`.
+
+<small>[#1617](https://github.com/hashicorp/design-system/pull/1617)</small>
+
+---
+
+`Stepper` - removed some CSS declarations that were not used/applied
+
+<small>[#1628](https://github.com/hashicorp/design-system/pull/1628)</small>
+
+---
+
+**🔄 Updated dependencies:**
+
   - @hashicorp/design-system-tokens@1.8.0
   - @hashicorp/ember-flight-icons@3.1.2
 
@@ -101,65 +168,137 @@
 
 ### Minor Changes
 
-- [#1490](https://github.com/hashicorp/design-system/pull/1490) [`4dafcb7d7`](https://github.com/hashicorp/design-system/commit/4dafcb7d7568027c495cb92d01026359a040507a) Thanks [@didoo](https://github.com/didoo)! - `Hds::Text` - Added new `Text` component
+`Hds::Text` - Added new `Text` component
 
-- [#1587](https://github.com/hashicorp/design-system/pull/1587) [`57e7a42cb`](https://github.com/hashicorp/design-system/commit/57e7a42cb8353af83d8be5be0a318f951b00d3e3) Thanks [@alex-ju](https://github.com/alex-ju)! - `Hds::Form::MaskedInput` - Add `hasCopyButton` argument
+<small>[#1490](https://github.com/hashicorp/design-system/pull/1490)</small>
+
+---
+
+`Hds::Form::MaskedInput` - Add `hasCopyButton` argument
+
+<small>[#1587](https://github.com/hashicorp/design-system/pull/1587)</small>
 
 ### Patch Changes
 
-- [#1577](https://github.com/hashicorp/design-system/pull/1577) [`8aa9a5889`](https://github.com/hashicorp/design-system/commit/8aa9a5889cf14fc28100a462dfd42754a3bdb42b) Thanks [@DingoEatingFuzz](https://github.com/DingoEatingFuzz)! - Remove aria-hidden from the "optional" span in Form::Indicator
+`Form::Indicator` - Remove aria-hidden from the "optional" `<span>`
 
-- [#1606](https://github.com/hashicorp/design-system/pull/1606) [`7ac4526db`](https://github.com/hashicorp/design-system/commit/7ac4526dbddda6bea0e6e9f542addc5c97914fa8) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Remove `ember-named-blocks-polyfill` as all consumers of HDS are on Ember 3.25 or later now. This can be installed locally if it is still needed.
+<small>[#1577](https://github.com/hashicorp/design-system/pull/1577) - Thanks [@DingoEatingFuzz](https://github.com/DingoEatingFuzz) for the contribution! 🙏</small>
 
-- [#1576](https://github.com/hashicorp/design-system/pull/1576) [`e16c88ba9`](https://github.com/hashicorp/design-system/commit/e16c88ba959dcd0b186fd823fc3fccacf39674e8) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - `Alert`, `Toast`: Fixed an issue with anchor tag color styles within Description that had been overriding `Hds::Link` color; changed the default color for HTML links within Description to "neutral" to better align with existing guidance for links in the actions and improve accessible contrast.
+---
 
-- Updated dependencies []:
+Removed `ember-named-blocks-polyfill` as all consumers of HDS are on Ember 3.25 or later now. This can be installed locally if it is still needed.
+
+<small>[#1606](https://github.com/hashicorp/design-system/pull/1606)</small>
+
+---
+
+`Alert`, `Toast`: Fixed an issue with anchor tag color styles within Description that had been overriding `Hds::Link` color; changed the default color for HTML links within Description to "neutral" to better align with existing guidance for links in the actions and improve accessible contrast.
+
+<small>[#1576](https://github.com/hashicorp/design-system/pull/1576)</small>
+
+---
+
+**🔄 Updated dependencies:**
+
   - @hashicorp/ember-flight-icons@3.1.1
 
 ## 2.10.0
 
 ### Minor Changes
 
-- [#1535](https://github.com/hashicorp/design-system/pull/1535) [`2daa95479`](https://github.com/hashicorp/design-system/commit/2daa95479307fea0b94b2af413126d09525462c8) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - Add new `FileInput` component
+Added new `FileInput` component
+
+<small>[#1535](https://github.com/hashicorp/design-system/pull/1535)</small>
 
 ### Patch Changes
 
-- [#1570](https://github.com/hashicorp/design-system/pull/1570) [`7bf297996`](https://github.com/hashicorp/design-system/commit/7bf297996e06a15cb2506bfb23f43d71ecc9b492) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Remove unnecessary export of `hds/copy/index.js`
+Remove unnecessary export of `hds/copy/index.js`
 
-- [#1575](https://github.com/hashicorp/design-system/pull/1575) [`0362019ca`](https://github.com/hashicorp/design-system/commit/0362019ca043ef955364f18b23dbcd36f0bfb2bf) Thanks [@alex-ju](https://github.com/alex-ju)! - `Hds::Tabs` - Fix missing tab indicator when used in Modal or Flyout
+<small>[#1570](https://github.com/hashicorp/design-system/pull/1570)</small>
 
-- [#1567](https://github.com/hashicorp/design-system/pull/1567) [`384faeec2`](https://github.com/hashicorp/design-system/commit/384faeec244011f8090f3bcce0def89da1563164) Thanks [@MelSumner](https://github.com/MelSumner)! - Add support for container in Copy::Snippet and update API docs
+---
 
-- [#1571](https://github.com/hashicorp/design-system/pull/1571) [`8ad8a5908`](https://github.com/hashicorp/design-system/commit/8ad8a59080d0c0c855f2f746f0a10ddf4440e461) Thanks [@alex-ju](https://github.com/alex-ju)! - `Hds::Tabs` - Fix tabs and panels misbehaving on route change
+`Hds::Tabs` - Fix missing tab indicator when used in Modal or Flyout
 
-- [#1568](https://github.com/hashicorp/design-system/pull/1568) [`dbe2e437d`](https://github.com/hashicorp/design-system/commit/dbe2e437d7d465cda3b69c7a28b01cbfb2849b79) Thanks [@MelSumner](https://github.com/MelSumner)! - Update error icon for copy components
+<small>[#1575](https://github.com/hashicorp/design-system/pull/1575)</small>
 
-- [#1555](https://github.com/hashicorp/design-system/pull/1555) [`90a615161`](https://github.com/hashicorp/design-system/commit/90a61516156ea58898febaa5bd66b31386256151) Thanks [@alex-ju](https://github.com/alex-ju)! - `Hds::SegmentedGroup` - prevent `border-radius` from interfering with underlying elements
+---
 
-- [#1565](https://github.com/hashicorp/design-system/pull/1565) [`60154db1a`](https://github.com/hashicorp/design-system/commit/60154db1a00f877b2c3bc4a9c4069556e8af809b) Thanks [@MelSumner](https://github.com/MelSumner)! - Resolved issue where ThSort was not supporting right-aligned text properly
+`Copy::Snippet` - Added support for container and updated API docs
 
-- Updated dependencies [[`8b8d6bcfa`](https://github.com/hashicorp/design-system/commit/8b8d6bcfa67efa5de1a2cc419167a962e747a8c9)]:
+<small>[#1567](https://github.com/hashicorp/design-system/pull/1567)</small>
+
+---
+
+`Hds::Tabs` - Fixed tabs and panels misbehaving on route change
+
+<small>[#1571](https://github.com/hashicorp/design-system/pull/1571)</small>
+
+---
+
+<small>[#1568](https://github.com/hashicorp/design-system/pull/1568)</small>
+
+`Copy::Button`, `Copy::Snippet` - Updated error icon
+
+---
+
+`Hds::SegmentedGroup` - Prevent `border-radius` from interfering with underlying elements
+
+<small>[#1555](https://github.com/hashicorp/design-system/pull/1555)</small>
+
+---
+
+`Table` - Resolved issue where `ThSort` was not supporting right-aligned text properly
+
+<small>[#1565](https://github.com/hashicorp/design-system/pull/1565)</small>
+
+---
+
+**🔄 Updated dependencies:**
   - @hashicorp/ember-flight-icons@3.1.0
 
 ## 2.9.0
 
 ### Minor Changes
 
-- [#1488](https://github.com/hashicorp/design-system/pull/1488) [`372bae36d`](https://github.com/hashicorp/design-system/commit/372bae36d87377dc87aa18ed39c7834a4cc545f4) Thanks [@MelSumner](https://github.com/MelSumner)! - Adds the `Hds::CopyButton` and `Hds::CopySnippet` components.
+Added the `Hds::CopyButton` and `Hds::CopySnippet` components.
+
+<small>[#1488](https://github.com/hashicorp/design-system/pull/1488)</small>
 
 ### Patch Changes
 
-- [#1539](https://github.com/hashicorp/design-system/pull/1539) [`9d3f29a42`](https://github.com/hashicorp/design-system/commit/9d3f29a42e8130b2155498a7c3cb77a6da279a68) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Adjusted closing brace on copywrite headers to avoid terminal noise
+Adjusted closing brace on copywrite headers to avoid terminal noise
 
-- [#1549](https://github.com/hashicorp/design-system/pull/1549) [`a6553ea03`](https://github.com/hashicorp/design-system/commit/a6553ea032f70f0167f149589801b72154c3cf75) Thanks [@fivetanley](https://github.com/fivetanley)! - `Hds::Modal` - reduce test flakiness around closing Modal when using `@ember/test-helpers`
+<small>[#1539](https://github.com/hashicorp/design-system/pull/1539)</small>
 
-- [#1530](https://github.com/hashicorp/design-system/pull/1530) [`b757e6efb`](https://github.com/hashicorp/design-system/commit/b757e6efb4c115abcd604bc4ef155f731f118c72) Thanks [@alex-ju](https://github.com/alex-ju)! - Fix Embroider warnings caused by incorrect export of internal utility functions
+---
 
-- [#1552](https://github.com/hashicorp/design-system/pull/1552) [`865ff7aad`](https://github.com/hashicorp/design-system/commit/865ff7aad593bddf6f16bfdb1210318bedfa4e22) Thanks [@alex-ju](https://github.com/alex-ju)! - `Hds::Flyout` - reduce test flakiness around closing Flyout when using `@ember/test-helpers`
+`Hds::Modal` - reduce test flakiness around closing Modal when using `@ember/test-helpers`
 
-- [#1529](https://github.com/hashicorp/design-system/pull/1529) [`1433fe098`](https://github.com/hashicorp/design-system/commit/1433fe0988b9c4e0d280ac450e6688e5d606630d) Thanks [@alex-ju](https://github.com/alex-ju)! - `Hds::Form::Field` - Fix error message for unexpected `@layout` values
+<small>[#1549](https://github.com/hashicorp/design-system/pull/1549) - Thanks [@fivetanley](https://github.com/fivetanley) for the contribution! 🙏</small>
 
-- Updated dependencies []:
+---
+
+Fix Embroider warnings caused by incorrect export of internal utility functions
+
+<small>[#1530](https://github.com/hashicorp/design-system/pull/1530)</small>
+
+---
+
+`Hds::Flyout` - reduce test flakiness around closing Flyout when using `@ember/test-helpers`
+
+<small>[#1552](https://github.com/hashicorp/design-system/pull/1552)</small>
+
+---
+
+`Hds::Form::Field` - Fix error message for unexpected `@layout` values
+
+<small>[#1529](https://github.com/hashicorp/design-system/pull/1529)</small>
+
+---
+
+**🔄 Updated dependencies:**
+
   - @hashicorp/ember-flight-icons@3.0.9
 
 ## 2.8.1
