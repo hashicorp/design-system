@@ -274,6 +274,27 @@ function assertObjectsEqual (actual, expected, testName) {
 console.log(`I am ${codeLang} code`);"
       />
     </SG.Item>
+
+    <SG.Item
+      {{style width="calc(50% - 1rem)"}}
+      @label="contentEditable=true, hasCopyButton=true, title and description"
+    >
+      <Hds::CodeBlock
+        id="clipboardTarget3"
+        @contentEditable={{true}}
+        @hasCopyButton={{true}}
+        @language="go"
+        @value="package main
+import 'fmt'
+func main() {
+  fmt.Println('hello world')
+}"
+        as |CB|
+      >
+        <CB.Title>Title</CB.Title>
+        <CB.Description>Description</CB.Description>
+      </Hds::CodeBlock>
+    </SG.Item>
   </Shw::Flex>
 
   <Shw::Divider @level="2" />
