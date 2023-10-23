@@ -247,7 +247,11 @@
     {{#each @model.TOGGLE_BUTTON_COLORS as |color|}}
       {{#each @model.TOGGLE_STATES as |state|}}
         <SG.Item @label="{{capitalize color}}">
-          <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @color={{color}} mock-state-value={{state}} />
+          {{#if (eq state "disabled")}}
+            <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @color={{color}} disabled />
+          {{else}}
+            <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @color={{color}} mock-state-value={{state}} />
+          {{/if}}
         </SG.Item>
       {{/each}}
       <SG.Item @label="{{capitalize color}}">
@@ -255,7 +259,11 @@
       </SG.Item>
       {{#each @model.TOGGLE_STATES as |state|}}
         <SG.Item @label="With icon">
-          <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem" @color={{color}} mock-state-value={{state}} />
+          {{#if (eq state "disabled")}}
+            <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem" @color={{color}} disabled />
+          {{else}}
+            <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem" @color={{color}} mock-state-value={{state}} />
+          {{/if}}
         </SG.Item>
       {{/each}}
       <SG.Item @label="With icon">
@@ -263,7 +271,11 @@
       </SG.Item>
       {{#each @model.TOGGLE_STATES as |state|}}
         <SG.Item @label="With count">
-          <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @color={{color}} mock-state-value={{state}} />
+          {{#if (eq state "disabled")}}
+            <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @color={{color}} disabled />
+          {{else}}
+            <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @color={{color}} mock-state-value={{state}} />
+          {{/if}}
         </SG.Item>
       {{/each}}
       <SG.Item @label="With count">
@@ -271,13 +283,17 @@
       </SG.Item>
       {{#each @model.TOGGLE_STATES as |state|}}
         <SG.Item @label="With badge">
-          <Hds::Dropdown::Toggle::Button
-            @badge="Sit"
-            @badgeIcon="hexagon"
-            @text="Lorem"
-            @color={{color}}
-            mock-state-value={{state}}
-          />
+          {{#if (eq state "disabled")}}
+            <Hds::Dropdown::Toggle::Button @badge="Sit" @badgeIcon="hexagon" @text="Lorem" @color={{color}} disabled />
+          {{else}}
+            <Hds::Dropdown::Toggle::Button
+              @badge="Sit"
+              @badgeIcon="hexagon"
+              @text="Lorem"
+              @color={{color}}
+              mock-state-value={{state}}
+            />
+          {{/if}}
         </SG.Item>
       {{/each}}
       <SG.Item @label="With badge">
@@ -1261,6 +1277,7 @@
           <Shw::Placeholder @text="generic header content" @width="200" @height="36" @background="#e1f5fe" />
         </Hds::Dropdown::Header>
         <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Interactive for testing" />
           <Hds::Dropdown::ListItem::Generic>
             <Shw::Placeholder @text="generic item content" @height="36" @background="#e1f5fe" />
           </Hds::Dropdown::ListItem::Generic>
