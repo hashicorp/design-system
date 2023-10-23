@@ -63,10 +63,6 @@ export default class HdsCodeBlockIndexComponent extends Component {
     return this.args.language ?? undefined;
   }
 
-  get languageClass() {
-    return `language-${this.language}`;
-  }
-
   /**
    * @param hasLineNumbers
    * @type {boolean}
