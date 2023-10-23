@@ -20,11 +20,11 @@ $code-block-code-padding: 16px;
 .hds-code-block {
   position: relative;
   overflow: hidden; // So header corners don't poke out from container
-  color: var(--code-block-color-foreground-primary);
+  color: var(--hds-code-block-color-foreground-primary);
   font-size: 0.8125rem;
   font-family: var(--hds-typography-code-200);
-  background-color: var(--code-block-color-surface-primary);
-  border: 1px solid var(--code-block-color-border-strong);
+  background-color: var(--hds-code-block-color-surface-primary);
+  border: 1px solid var(--hds-code-block-color-border-strong);
 
   pre,
   code {
@@ -50,8 +50,8 @@ $code-block-code-padding: 16px;
   flex-flow: column;
   gap: 4px;
   padding: 8px $code-block-code-padding;
-  background-color: var(--code-block-color-surface-faint);
-  border-bottom: 1px solid var(--code-block-color-border-primary);
+  background-color: var(--hds-code-block-color-surface-faint);
+  border-bottom: 1px solid var(--hds-code-block-color-border-primary);
 
   &:empty {
     display: none;
@@ -59,7 +59,7 @@ $code-block-code-padding: 16px;
 }
 
 .hds-code-block__description {
-  color: var(--code-block-color-foreground-faint);
+  color: var(--hds-code-block-color-foreground-faint);
 
   // we add very basic styling for elements that may be injected via the "description" string
 
@@ -77,7 +77,7 @@ $code-block-code-padding: 16px;
 
   // Default styling for bare HTML links not using HDS::Link components
   a:not([class*="hds-"]) {
-    color: var(--code-block-color-foreground-action-default);
+    color: var(--hds-code-block-color-foreground-action-default);
 
     &:focus,
     &:focus-visible {
@@ -114,40 +114,40 @@ $code-block-code-padding: 16px;
   top: 8px;
   right: 8px;
   // Overriding default colors
-  color: var(--code-block-color-foreground-primary);
-  background-color: var(--code-block-color-surface-faint);
-  border: 1px solid var(--code-block-color-border-strong);
+  color: var(--hds-code-block-color-foreground-primary);
+  background-color: var(--hds-code-block-color-surface-faint);
+  border: 1px solid var(--hds-code-block-color-border-strong);
 
   &:hover,
   &.mock-hover {
-    background-color: var(--code-block-color-surface-primary);
-    border-color: var(--code-block-color-border-strong);
+    background-color: var(--hds-code-block-color-surface-primary);
+    border-color: var(--hds-code-block-color-border-strong);
   }
 
   &:active,
   &.mock-active {
-    background-color: var(--code-block-color-surface-interactive-active);
+    background-color: var(--hds-code-block-color-surface-interactive-active);
   }
 
   &:focus,
   &.mock-focus,
   &:focus-visible {
-    background-color: var(--code-block-color-surface-faint);
+    background-color: var(--hds-code-block-color-surface-faint);
   }
 
   &.hds-copy-button--status-success {
     .flight-icon {
-      color: var(--code-block-color-foreground-success);
+      color: var(--hds-code-block-color-foreground-success);
     }
   }
 
   &.hds-copy-button--status-error {
     .flight-icon {
-      color: var(--code-block-color-foreground-critical);
+      color: var(--hds-code-block-color-foreground-critical);
     }
   }
 
-  .flight-icon { color: var(--code-block-color-foreground-primary); }
+  .flight-icon { color: var(--hds-code-block-color-foreground-primary); }
 }
 
 // VARIANTS
@@ -182,8 +182,8 @@ $code-block-code-padding: 16px;
       left: 0;
       width: $code-block-line-numbers-width;
       padding: $code-block-code-padding 0;
-      background-color: var(--code-block-color-surface-primary);
-      border-right: 1px solid var(--code-block-color-border-primary);
+      background-color: var(--hds-code-block-color-surface-primary);
+      border-right: 1px solid var(--hds-code-block-color-border-primary);
       user-select: none;
       pointer-events: none;
 
@@ -215,8 +215,8 @@ $code-block-code-padding: 16px;
     left: 0;
     // Note: position seems off by a few px although not sure why
     margin-top: -2px;
-    background-color: var(--code-block-color-line-highlight);
-    border: solid var(--code-block-color-line-highlight-border);
+    background-color: var(--hds-code-block-color-line-highlight);
+    border: solid var(--hds-code-block-color-line-highlight-border);
     border-width: 1px 0 1px 4px; // top | right | bottom | left
     mix-blend-mode: screen;
     pointer-events: none;
