@@ -10,7 +10,7 @@
 - When only one choice can be selected, consider [Radio](/components/form/radio/) buttons.
 - When checking or unchecking results in an immediate change, consider [Toggle](/components/form/toggle).
 
-### Layout
+## Layout
 
 We recommend using vertical Checkbox groups, especially with short option lists.
 
@@ -41,7 +41,21 @@ We recommend using vertical Checkbox groups, especially with short option lists.
   </Hds::Form::Checkbox::Group>
 </Doc::Layout>
 
-### Required and optional
+## Indeterminate state
+
+Indeterminate states indicate a "partially checked" condition in nested structures or tables. 
+
+!!! Do
+
+![Example of proper usage of the indeterminate state in the checkbox] (/assets/components/form/checkbox/checkbox-indeterminate-do.png)
+!!!
+
+!!! Dont
+
+![Example of misuse of the indeterminate state in the checkbox] (/assets/components/form/checkbox/checkbox-indeterminate-dont.png)
+!!!
+
+## Required and optional
 
 For complex forms, indicate **required** fields. This is the most explicit and transparent method and ensures users don’t have to make assumptions. Read more about best practices for [marking required fields in forms](https://www.nngroup.com/articles/required-fields/).
 
