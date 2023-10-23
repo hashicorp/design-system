@@ -77,13 +77,13 @@ export default class HdsCodeBlockIndexComponent extends Component {
   }
 
   /**
-   * @param isReadOnly
+   * @param contentEditable
    * @type {boolean}
-   * @default true
+   * @default false
    * @description Make text content non-editable / editable
    */
-  get isReadOnly() {
-    return this.args.isReadOnly ?? true;
+  get contentEditable() {
+    return this.args.contentEditable ?? false;
   }
 
   /**

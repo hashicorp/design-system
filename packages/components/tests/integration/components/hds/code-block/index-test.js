@@ -159,7 +159,7 @@ loadInitializers(App, config.modulePrefix);"
       .hasAttribute('style', 'max-height: 100px;');
   });
 
-  // isReadOnly
+  // contentEditable
   test('the content is not editable by default', async function (assert) {
     await render(hbs`
       <Hds::CodeBlock @value="console.log('Hello world');" />
@@ -167,9 +167,9 @@ loadInitializers(App, config.modulePrefix);"
     assert.dom('.hds-code-block__code[contenteditable="true"]').doesNotExist();
   });
 
-  test('the content is editable if isReadOnly is set to false', async function (assert) {
+  test('the content is editable if contentEditable is set to true', async function (assert) {
     await render(hbs`
-      <Hds::CodeBlock @value="console.log('Hello world');" @isReadOnly={{false}} />
+      <Hds::CodeBlock @value="console.log('Hello world');" @contentEditable={{true}} />
     `);
     assert.dom('.hds-code-block__code[contenteditable="true"]').exists();
   });

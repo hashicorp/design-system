@@ -12,7 +12,7 @@
     <pre
       class="hds-code-block__code"
       {{style maxHeight=@maxHeight}}
-      contentEditable={{not this.isReadOnly}}
+      contentEditable={{this.contentEditable}}
       data-line={{@highlightLines}}
       id={{if @hasCopyButton this.preCodeId null}}
       tabindex="0"
