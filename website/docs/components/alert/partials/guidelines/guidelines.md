@@ -6,9 +6,25 @@
 
 ### When not to use
 
-- To communicate feedback on a user’s action, consider [Toast](/components/toast).
+- To communicate successful feedback on a user’s action, consider [Toast](/components/toast).
 - As a dialog to confirm an action, consider [Modal](/components/modal).
 - To flag new features (e.g., "In Preview", "Beta", "New", etc), consider [Badge](/components/badge).
+
+## Types of alerts
+
+There are three types of alerts: page, inline, and compact.
+
+### Page
+
+Use page-level alerts on the top of the page, between the navigation and the breadcrumb to inform users of an event that may require the user’s attention or action.
+
+### Inline
+
+Use inline alerts when the message is contextual or specific to the section it’s placed in.
+
+### Compact
+
+Use compact alerts when a less prominent alert is needed.
 
 ## Color
 
@@ -45,6 +61,8 @@ Use color logically.
 - **Critical** to indicate critical errors that need immediate action.
 
 ### Critical alerts
+
+Use critical alerts to convey crucial information or errors, such as validation errors that require user attention or action. 
 
 !!! Do
 
