@@ -12,13 +12,7 @@
 </p>
 
 
-### Month Day, Year
 
-Lorem ipsum dolor
-
-### Month Day, Year
-
-Sit amet consectetur
 
 ---
 
