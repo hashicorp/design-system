@@ -2,4 +2,4 @@
 "@hashicorp/design-system-components": minor
 ---
 
-Added `CodeBlock` component
+`CodeBlock` - Added new component
