@@ -151,7 +151,7 @@ To disable a Button, manually add the native `disabled` attribute:
 
 !!! Info
 
-If using an `@href` or `@route` and needing to disable the component, you’ll need to intercept the events since links can’t be disabled.
+Links cannot use the `disabled` attribute (per HTML specification); even if you were to intercept the event, they are still subject to color-contrast conformance requirements.
 !!!
 
 ```handlebars
