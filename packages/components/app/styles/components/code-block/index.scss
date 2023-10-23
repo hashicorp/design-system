@@ -21,8 +21,6 @@ $code-block-code-padding: 16px;
   position: relative;
   overflow: hidden; // So header corners don't poke out from container
   color: var(--hds-code-block-color-foreground-primary);
-  font-size: 0.8125rem;
-  font-family: var(--hds-typography-code-200);
   background-color: var(--hds-code-block-color-surface-primary);
   border: 1px solid var(--hds-code-block-color-border-strong);
 
@@ -111,6 +109,8 @@ $code-block-code-padding: 16px;
   margin: 0;
   padding: $code-block-code-padding;
   overflow: auto;
+  font-size: 0.8125rem;
+  font-family: var(--hds-typography-code-200);
 }
 
 // CopyButton
@@ -187,7 +187,6 @@ $code-block-code-padding: 16px;
       left: 0;
       width: $code-block-line-numbers-width;
       padding: $code-block-code-padding 0;
-      background-color: var(--hds-code-block-color-surface-primary);
       border-right: 1px solid var(--hds-code-block-color-border-primary);
       user-select: none;
       pointer-events: none;
@@ -222,7 +221,7 @@ $code-block-code-padding: 16px;
     margin-top: -2px;
     background-color: var(--hds-code-block-color-line-highlight);
     border: solid var(--hds-code-block-color-line-highlight-border);
-    border-width: 1px 0 1px 4px; // top | right | bottom | left
+    border-width: 1px 0 1px 4px;
     mix-blend-mode: screen;
     pointer-events: none;
   }
@@ -238,14 +237,14 @@ $code-block-code-padding: 16px;
     }
   }
 
-  // not using currently...
-  pre[id].linkable-line-numbers span.line-numbers-rows {
-    pointer-events: all;
+  // not used currently
+  // pre[id].linkable-line-numbers span.line-numbers-rows {
+  //   pointer-events: all;
 
-    > span::before {
-      cursor: pointer;
-    }
-  }
+  //   > span::before {
+  //     cursor: pointer;
+  //   }
+  // }
 
   // commmon tokens
   .token.bold { font-weight: bold; }
