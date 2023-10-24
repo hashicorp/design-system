@@ -24,6 +24,7 @@
 - Entries should use complete sentences but be short, clear, and descriptive enough to be helpful.
 - Use past tense.
 - Entries should always end with a period.
+- If there are changes to multiple components in the same entry, each change should be described in its own paragraph (and list of details, if needed)
 
 ### Consistent terminology
 - Use consistent terms for different types of changes: 
@@ -31,7 +32,7 @@
   - New component, token, variant: “Added”
   - Update: “Changed”, “Refactored”
   - Removed or deleted: “Removed”
-  - Other edge cases: “Upgraded”, “Reduced”, “Prevented”
+  - Other possible cases: “Upgraded”, “Reduced”, “Prevented”
  
 ### Component references
 - When referencing components, use the plain-text component name, e.g., `Accordion`.
@@ -78,6 +79,17 @@ Copy and paste this template and adjust as necessary when creating a new [change
 - etc
 
 _{additional details}..._
+```
+
+#### Multiple elements changed
+```
+`{component-#1-name}` - Changed {...additional details}, including:
+- {change 1}
+- {change 2}
+
+`{component-#2-name}` - Refactored {...additional details}
+
+_{...important details}_
 ```
 
 <details>
