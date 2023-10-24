@@ -3,7 +3,7 @@ title: CodeBlock
 description: A container for displaying formatted chunks of code with syntax highlighting and related features.
 caption: A container for formatting chunks of code with syntax highlighting.
 links:
-  figma: {link to the "CodeBlock" page in the components Figma library}
+  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=44796%3A2786&mode=design&t=pZ5PoxE7Q7U0kDaa-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/code-block
 related: ['components/copy/snippet', 'components/copy/button']
 previewImage: assets/illustrations/components/code-block.jpg
