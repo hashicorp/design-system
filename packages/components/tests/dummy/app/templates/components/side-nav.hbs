@@ -13,17 +13,32 @@
   <Shw::Text::H3>With generic content</Shw::Text::H3>
 
   <Shw::Flex as |SF|>
-    <SF.Item @label="Header + Body + Footer">
+    <SF.Item @label="Header + Body + Footer, base invocation">
       <div class="shw-component-sim-side-nav-root-container">
         <Hds::SideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
           <:header>
-            <Shw::Placeholder @height="72px" @text="header" />
+            <Shw::Placeholder @text="header" />
           </:header>
           <:body>
             <Shw::Placeholder @text="body" />
           </:body>
           <:footer>
-            <Shw::Placeholder @height="36px" @text="footer" />
+            <Shw::Placeholder @text="footer" />
+          </:footer>
+        </Hds::SideNav>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Header + Body + Footer, heights declared">
+      <div class="shw-component-sim-side-nav-root-container">
+        <Hds::SideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
+          <:header>
+            <Shw::Placeholder @text="header" @height="72px" />
+          </:header>
+          <:body>
+            <Shw::Placeholder @text="body" @height="250px" />
+          </:body>
+          <:footer>
+            <Shw::Placeholder @text="footer" @height="36px" />
           </:footer>
         </Hds::SideNav>
       </div>
@@ -33,11 +48,11 @@
         <Hds::SideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
           <:header>
             <Shw::Placeholder @height="72px" @text="header" />
-            <Shw::Placeholder @height="60px" @text="extra content for 'header'" @background="#e4c5f3" />
+            <Shw::Placeholder @height="60px" @text="extra content for 'header'" @background="#fff" />
           </:header>
           <:body>
             <Shw::Placeholder @height="250px" @text="body" />
-            <Shw::Placeholder @height="60px" @text="extra content for 'body'" @background="#e4c5f3" />
+            <Shw::Placeholder @height="60px" @text="extra content for 'body'" @background="#fff" />
           </:body>
           <:footer>
             <Shw::Placeholder @height="36px" @text="footer" />
@@ -52,7 +67,7 @@
             <Shw::Placeholder @height="72px" @text="header" />
           </:header>
           <:body>
-            <Shw::Placeholder @height="500px" @text="body" @background="#d2f4ff" tabindex="0" />
+            <Shw::Placeholder @height="500px" @text="body" @background="#fff" tabindex="0" />
           </:body>
           <:footer>
             <Shw::Placeholder @height="36px" @text="footer" />
@@ -83,9 +98,9 @@
   </Shw::Flex>
 
   <Hds::SideNav::Portal @targetName="sidenav-portal-demo-1" @ariaLabel="Primary on portal demo 1" as |Nav|>
-    <Nav.extraBefore><Shw::Placeholder @height="72px" @text="extraBefore" @background="#f3d9c5" /></Nav.extraBefore>
-    <Nav.Item><Shw::Placeholder @height="200px" @text="portaled content" @background="#e4e4e4" /></Nav.Item>
-    <Nav.extraAfter><Shw::Placeholder @height="72px" @text="extraAfter" @background="#f3d9c5" /></Nav.extraAfter>
+    <Nav.extraBefore><Shw::Placeholder @height="72px" @text="extraBefore" @background="#fff" /></Nav.extraBefore>
+    <Nav.Item><Shw::Placeholder @height="200px" @text="portaled content" /></Nav.Item>
+    <Nav.extraAfter><Shw::Placeholder @height="72px" @text="extraAfter" @background="#fff" /></Nav.extraAfter>
   </Hds::SideNav::Portal>
 
 </section>
