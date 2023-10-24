@@ -1,5 +1,166 @@
 # @hashicorp/design-system-components
 
+## 3.0.0
+
+### Major Changes
+
+Drop support for Node 14
+
+<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+
+---
+
+`Hds::Form::VisibilityToggle` - Added component as a form base element
+
+`Hds::Form::TextInput::Field` - Added `Hds::Form::VisibilityToggle` to password inputs (controlled via `@hasVisibilityToggle` - Notice that this is set to be visible by default now)
+
+`Hds::Form::MaskedInput` - Refactored to use `Hds::Form::VisibilityToggle`
+
+`Hds::Form::MaskedInput` - Renamed `@isMasked` to `@isContentMasked`
+
+To migrate:
+
+- in `Hds::Form::MaskedInput` instances replace `@isMasked` arguments with `@isContentMasked`
+
+<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+
+---
+
+`Hds::Dropdown` – Removed `@listPosition` `left` and `right` (use `bottom-left` and `bottom-right`, respectively).
+
+To migrate:
+
+- in `Hds::Dropdown` instances:
+  - replace `@listPosition="left"` with `@listPosition="bottom-left"`
+  - replace `@listPosition="right"` with `@listPosition="bottom-right"`
+
+<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+
+---
+
+`SideNav` - Renamed `extraBefore/After` generic containers to `ExtraBefore/After` (uppercase `E`).
+
+To migrate:
+
+- rename all the `extraBefore/After` instances yielded within the `<Hds::SideNav>` component to `ExtraBefore/After`
+
+<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+
+---
+
+`Form::RadioCard` - Remove the `@layout` property.
+
+`Form::RadioCard::Group` - Repurposed the `@layout` property to either `horizontal` (default) or `vertical`
+
+To migrate `Form::RadioCard` and `Form::RadioCard::Group` instances without encountering visual changes:
+
+- make sure all instances with `@layout="fixed"` have a `@maxWidth` defined, then remove the `@layout="fixed"` definition
+- remove all `@layout="fluid"` definitions
+
+<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+
+---
+
+### Minor Changes
+
+`Dropdown::ListItem::CopyItem` - Changed defaults for `@color` (now `secondary`) and `@isTruncated` (now `true`).
+
+_Consumers should review the defaults values for this (sub)component in their codebases, to make sure they match the intended visual designs._
+
+<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+
+---
+
+`Button`, `Interactive` - Converted components to TypeScript.
+
+<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+
+---
+
+`Copy::Snippet` - Fixed the way in which “width/full-width” is applied to the component + Internal update to the “truncation” implementation.
+
+- the component is not full-width anymore by default (the width now fits the content); use `@isFullWidth={{true}}` to have a full-width layout
+- the internal class name `hds-copy-snippet__text--truncated` has been changed to `hds-copy-snippet--is-truncated` (and moved)
+
+_Consumers should review the pages where this component is used to make sure its width matches the intended visual designs (in case, use the `@isFullWidth` argument to control its full-width). In case they're using the `hds-copy-snippet__text--truncated` class name, they should also update their code to adapt to the new implementation._
+
+<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+
+---
+
+Removed `ember-cli-clipboard` as dependency and introduced a custom `hds-clipboard` modifier (using the web [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API))
+
+`Copy::Button` - Multiple updates:
+
+- replaced third-party `clipboard` modifier with `hds-clipboard`
+- removed `@container` argument (not needed anymore, it was used in the third party library as a hack to account for focus trapping and focus shifting)
+- added `@onSuccess/onError` callbacks
+
+`Copy::Snippet` - Multiple updates:
+
+- replaced third-party `clipboard` modifier with `hds-clipboard`
+- added `@onSuccess/onError` callbacks
+- `Dropdown::ListItem::CopyItem`
+  - the change to the underlying `Copy::Snippet` has fixed an issue with the focus being lost on copy (causing the dropdown to close on copy)
+
+_Consumers should remove the `@container` argument from all the instances of `Copy::Button` (not needed anymore) and double check that the `Copy::Button/Snippet` instances work exactly as before._
+
+<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+
+---
+
+### Patch Changes
+
+`Copy::Snippet` - Fixed background colors for different states according to Figma specs (main change is the default/base background is now transparent, not white).
+
+<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+
+---
+
+`Form::MaskedInput` - Changed copy logic for `CopyButton` used inside the component.
+
+<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+
+---
+
+`Accordion` - Replaced internal text styling (using `Text` component).
+
+`ApplicationState` - Replaced internal text styling (using `Text` component).
+
+`Copy::Snippet` - Replaced internal text styling (using `Text` component).
+
+`Dropdown` - Replaced internal text styling (using `Text` component).
+
+`Form:**` - Replaced internal text styling (using `Text` component).
+
+`Flyout` - Replaced internal text styling (using `Text` component).
+
+`Modal` - Replaced internal text styling (using `Text` component).
+
+`PageHeader` - Replaced internal text styling (using `Text` component).
+
+`Pagination` - Replaced internal text styling (using `Text` component).
+
+`Stepper` - Replaced internal text styling (using `Text` component).
+
+`Tag` - Replaced internal text styling (using `Text` component).
+
+_No impact is expected on the consumers' applications._
+
+<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+
+---
+
+`Button` - Applied explicit text alignment to the text to fix alignment on "link" buttons.
+
+<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+
+---
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/ember-flight-icons@4.0.0
+
 ## 2.15.0
 
 ### Minor Changes
@@ -72,7 +233,6 @@ _Notice: while technically this is a breaking change, we consider this a fast-fo
 
 <small>[#1630](https://github.com/hashicorp/design-system/pull/1630)</small>
 
-
 ### Patch Changes
 
 `Tag` - Updated padding for dismiss button for WCAG conformance
@@ -89,7 +249,7 @@ _Notice: while technically this is a breaking change, we consider this a fast-fo
 
 **🔄 Updated dependencies:**
 
-  - @hashicorp/design-system-tokens@1.9.0
+- @hashicorp/design-system-tokens@1.9.0
 
 ## 2.12.2
 
@@ -109,7 +269,7 @@ _Notice: while technically this is a breaking change, we consider this a fast-fo
 
 **🔄 Updated dependencies:**
 
-  - @hashicorp/ember-flight-icons@3.1.3
+- @hashicorp/ember-flight-icons@3.1.3
 
 ## 2.12.1
 
@@ -161,8 +321,8 @@ Refactored the layout of the `Dropdown` checkbox and radio inputs to make the ga
 
 **🔄 Updated dependencies:**
 
-  - @hashicorp/design-system-tokens@1.8.0
-  - @hashicorp/ember-flight-icons@3.1.2
+- @hashicorp/design-system-tokens@1.8.0
+- @hashicorp/ember-flight-icons@3.1.2
 
 ## 2.11.0
 
@@ -200,7 +360,7 @@ Removed `ember-named-blocks-polyfill` as all consumers of HDS are on Ember 3.25 
 
 **🔄 Updated dependencies:**
 
-  - @hashicorp/ember-flight-icons@3.1.1
+- @hashicorp/ember-flight-icons@3.1.1
 
 ## 2.10.0
 
@@ -255,7 +415,8 @@ Remove unnecessary export of `hds/copy/index.js`
 ---
 
 **🔄 Updated dependencies:**
-  - @hashicorp/ember-flight-icons@3.1.0
+
+- @hashicorp/ember-flight-icons@3.1.0
 
 ## 2.9.0
 
@@ -299,7 +460,7 @@ Fix Embroider warnings caused by incorrect export of internal utility functions
 
 **🔄 Updated dependencies:**
 
-  - @hashicorp/ember-flight-icons@3.0.9
+- @hashicorp/ember-flight-icons@3.0.9
 
 ## 2.8.1
 

@@ -1,12 +1,22 @@
 # @hashicorp/ember-flight-icons
 
+## 4.0.0
+
+### Major Changes
+
+Drop support for Node 14
+
+<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+
+---
+
 ## 3.1.3
 
 ### Patch Changes
 
 **🔄 Updated dependencies:**
 
-  - @hashicorp/flight-icons@2.20.0
+- @hashicorp/flight-icons@2.20.0
 
 ## 3.1.2
 
@@ -14,7 +24,7 @@
 
 **🔄 Updated dependencies:**
 
-  - @hashicorp/flight-icons@2.19.0
+- @hashicorp/flight-icons@2.19.0
 
 ## 3.1.1
 
@@ -22,7 +32,7 @@
 
 **🔄 Updated dependencies:**
 
-  - @hashicorp/flight-icons@2.18.0
+- @hashicorp/flight-icons@2.18.0
 
 ## 3.1.0
 
@@ -38,7 +48,7 @@ Added opt in flag to allow consumers to move sprite loading out of index.html
 
 **🔄 Updated dependencies:**
 
-  - @hashicorp/flight-icons@2.17.0
+- @hashicorp/flight-icons@2.17.0
 
 ## 3.0.8
 
@@ -46,14 +56,15 @@ Added opt in flag to allow consumers to move sprite loading out of index.html
 
 **🔄 Updated dependencies:**
 
-  - @hashicorp/flight-icons@2.16.0
+- @hashicorp/flight-icons@2.16.0
 
 ## 3.0.7
 
 ### Patch Changes
 
 **🔄 Updated dependencies:**
-  - @hashicorp/flight-icons@2.15.0
+
+- @hashicorp/flight-icons@2.15.0
 
 ## 3.0.6
 
@@ -61,21 +72,21 @@ Added opt in flag to allow consumers to move sprite loading out of index.html
 
 Upgraded Ember.js to latest stable release 4.12, including upgrades to:
 
-  - `ember-auto-import` from `2.6.0` to `2.6.3`
-  - `ember-cli-htmlbars` from `6.1.0` to `6.2.0`
+- `ember-auto-import` from `2.6.0` to `2.6.3`
+- `ember-cli-htmlbars` from `6.1.0` to `6.2.0`
 
 Upgraded the following dependencies:
 
-  - `ember-focus-trap` from `1.0.1` to `1.0.2`
-  - `ember-keyboard"` from `8.1.0` to `8.2.0`
-  - `ember-truth-helpers` from `3.0.0` to `3.1.1`
-  - `sass` from `1.58.3` to `1.62.1`
+- `ember-focus-trap` from `1.0.1` to `1.0.2`
+- `ember-keyboard"` from `8.1.0` to `8.2.0`
+- `ember-truth-helpers` from `3.0.0` to `3.1.1`
+- `sass` from `1.58.3` to `1.62.1`
 
 Shifted our supported version of Node.js from `12.* || 14.* || >= 16` to `14.* || 16.* || >= 18`
 
 **🔄 Updated dependencies:**
 
-  - @hashicorp/flight-icons@2.14.0
+- @hashicorp/flight-icons@2.14.0
 
 <small>[#1395](https://github.com/hashicorp/design-system/pull/1395)</small>
 
@@ -85,7 +96,7 @@ Shifted our supported version of Node.js from `12.* || 14.* || >= 16` to `14.* |
 
 **🔄 Updated dependencies:**
 
-  - @hashicorp/flight-icons@2.13.1
+- @hashicorp/flight-icons@2.13.1
 
 ## 3.0.4
 
@@ -93,7 +104,7 @@ Shifted our supported version of Node.js from `12.* || 14.* || >= 16` to `14.* |
 
 **🔄 Updated dependencies:**
 
-  - @hashicorp/flight-icons@2.13.0
+- @hashicorp/flight-icons@2.13.0
 
 ## 3.0.3
 
@@ -102,7 +113,6 @@ Shifted our supported version of Node.js from `12.* || 14.* || >= 16` to `14.* |
 Fix error message for mismatched icon `@name`
 
 <small>[#1375](https://github.com/hashicorp/design-system/pull/1375) [`2c7d70868`](https://github.com/hashicorp/design-system/commit/2c7d70868b0fa000618214589e2422e07db68b22)</small>
-
 
 ## 3.0.2
 
