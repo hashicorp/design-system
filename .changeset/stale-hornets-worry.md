@@ -2,4 +2,4 @@
 "@hashicorp/design-system-components": minor
 ---
 
-`Button`, `Interactive` - Converted components to TypeScript
+`Button`, `Interactive` - Converted components to TypeScript.
