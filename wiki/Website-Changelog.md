@@ -18,13 +18,11 @@
 ### General guidance
 - Changelog entries should always start with a paragraph (not a list).
 - Consider using a list instead of a long paragraph of text to communicate multiple changes for one element.
-- If you need to include a note (like a migration tip), add it to the bottom of the entry in a new paragraph. Consider using emphasized text if you need to draw more attention to it.
-
-
+- If there are changes to multiple components in the same entry, each change should be described in a new paragraph (and a list of details, if needed).
+- If you need to include a note (like a migration tip), add it to the bottom of the entry in a new paragraph. If you need to draw more attention to the note, consider using emphasized text.
 - Entries should use complete sentences but be short, clear, and descriptive enough to be helpful.
 - Use past tense.
 - Entries should always end with a period.
-- If there are changes to multiple components in the same entry, each change should be described in its own paragraph (and list of details, if needed)
 
 ### Consistent terminology
 - Use consistent terms for different types of changes: 
