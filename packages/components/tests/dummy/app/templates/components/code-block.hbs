@@ -75,17 +75,22 @@ console.log(`I am ${codeLang} code`);"
   <Shw::Text::H3>Rounded</Shw::Text::H3>
 
   <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SG|>
-    <SG.Item {{style width="calc(50% - 1rem)"}} @label="isRounded=false">
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="isStandalone=false">
       <Hds::CodeBlock
-        @isRounded={{false}}
+        @isStandalone={{false}}
         @language="javascript"
         @value="let codeLang='JavaScript';
 console.log(`I am ${codeLang} code`);"
       />
     </SG.Item>
 
-    <SG.Item {{style width="calc(50% - 1rem)"}} @label="isRounded=false, title and description">
-      <Hds::CodeBlock @value="console.log('I am JavaScript code');" @language="javascript" @isRounded={{false}} as |CB|>
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="isStandalone=false, title and description">
+      <Hds::CodeBlock
+        @value="console.log('I am JavaScript code');"
+        @language="javascript"
+        @isStandalone={{false}}
+        as |CB|
+      >
         <CB.Title>Title</CB.Title>
         <CB.Description>Description</CB.Description>
       </Hds::CodeBlock>

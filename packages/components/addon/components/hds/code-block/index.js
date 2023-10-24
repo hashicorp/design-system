@@ -84,13 +84,13 @@ export default class HdsCodeBlockIndexComponent extends Component {
   }
 
   /**
-   * @param isRounded
+   * @param isStandalone
    * @type {boolean}
    * @default true
    * @description Make CodeBlock container corners appear rounded
    */
-  get isRounded() {
-    return this.args.isRounded ?? true;
+  get isStandalone() {
+    return this.args.isStandalone ?? true;
   }
 
   @action
@@ -127,8 +127,8 @@ export default class HdsCodeBlockIndexComponent extends Component {
       classes.push(`language-${this.language}`);
     }
 
-    if (this.isRounded === true) {
-      classes.push('hds-code-block--is-rounded');
+    if (this.isStandalone === true) {
+      classes.push('hds-code-block--is-standalone');
     }
 
     if (this.args.hasLineWrapping === true) {

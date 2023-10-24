@@ -44,21 +44,21 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
 
   // OPTIONS
 
-  // isRounded
+  // isStandalone
   test('it has rounded corners by default', async function (assert) {
     await render(hbs`
       <Hds::CodeBlock @value="console.log('Hello world');" id="test-code-block" />
     `);
-    assert.dom('#test-code-block').hasClass('hds-code-block--is-rounded');
+    assert.dom('#test-code-block').hasClass('hds-code-block--is-standalone');
   });
 
-  test('it does not have rounded corners if hasRoundedCorners is set to false', async function (assert) {
+  test('it does not have rounded corners if `isStandalone` is set to false', async function (assert) {
     await render(hbs`
-      <Hds::CodeBlock @value="console.log('Hello world');" @isRounded={{false}} id="test-code-block" />
+      <Hds::CodeBlock @value="console.log('Hello world');" @isStandalone={{false}} id="test-code-block" />
     `);
     assert
       .dom('#test-code-block')
-      .doesNotHaveClass('hds-code-block--is-rounded');
+      .doesNotHaveClass('hds-code-block--is-standalone');
   });
 
   // language
