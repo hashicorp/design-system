@@ -15,6 +15,7 @@
     "test": "tests"
   },
   "scripts": {
+    "prebuild": "node lib/changelog/generate-changelog-markdown-files.mjs",
     "build": "ember build --environment=production",
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
     "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",

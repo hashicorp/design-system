@@ -4,65 +4,86 @@
 
 ### Minor Changes
 
-- [#1630](https://github.com/hashicorp/design-system/pull/1630) [`04da95443`](https://github.com/hashicorp/design-system/commit/04da95443290ee2d03d9bef23787a4ef10577247) Thanks [@alex-ju](https://github.com/alex-ju)! - `SideNav` - add `@isCollapsible` (to control if users can collapse the sidenav on 'desktop' viewports) and `@isMinimized` (to control the default state on 'desktop' viewports) arguments
+Added design tokens for `SideNav` with `@isCollapsible` (to control if users can collapse the sidenav on 'desktop' viewports) and `@isMinimized` (to control the default state on 'desktop' viewports) arguments
+
+<small>[#1630](https://github.com/hashicorp/design-system/pull/1630)</small>
 
 ## 1.8.0
 
 ### Minor Changes
 
-- [#1640](https://github.com/hashicorp/design-system/pull/1640) [`8001667d2`](https://github.com/hashicorp/design-system/commit/8001667d2b0b549b5c2743ebaa4b50b58344a87f) Thanks [@didoo](https://github.com/didoo)! - `Design tokens` - Added color tokens for “Vault Secrets” product
 
-  `IconTile` - updated component to include `vault-secrets` product option
+Added color tokens for “Vault Secrets” product
+
+<small>[#1640](https://github.com/hashicorp/design-system/pull/1640)</small>
 
 ## 1.7.0
 
 ### Minor Changes
 
-- [#1513](https://github.com/hashicorp/design-system/pull/1513) [`fd5953633`](https://github.com/hashicorp/design-system/commit/fd595363396c2e6672025ab8f9c3df7d2a3fce53) Thanks [@dstaley](https://github.com/dstaley)! - Add JSON output format for `marketing` target (and in the process refactored internal logic for tokens generation)
+Added JSON output format for `marketing` target (and in the process refactored internal logic for tokens generation)
+
+<small>[#1513](https://github.com/hashicorp/design-system/pull/1513) - Thanks [@dstaley](https://github.com/dstaley) for the contribution! 🙏 </small>
+
 
 ## 1.6.0
 
 ### Minor Changes
 
-- [#1452](https://github.com/hashicorp/design-system/pull/1452) [`b2ec25b39`](https://github.com/hashicorp/design-system/commit/b2ec25b399ba9aad5f8ae0b1f18a1bef9a6543e0) Thanks [@alex-ju](https://github.com/alex-ju)! - Add design token for loading state icon on search input
+Added design token for loading state icon on search input
+
+<small>[#1452](https://github.com/hashicorp/design-system/pull/1452)</small>
+
 
 ## 1.5.0
 
 ### Minor Changes
 
-- [#1283](https://github.com/hashicorp/design-system/pull/1283) [`d0ae66503`](https://github.com/hashicorp/design-system/commit/d0ae665033e6b83a65c2dcde8630985f76872901) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - - Add new `TooltipButton` component and `hds-tooltip` modifier
-  - Add design tokens for `Tooltip`
+- Added new `TooltipButton` component and `hds-tooltip` modifier
+- Added design tokens for `Tooltip`
+
+<small>[#1283](https://github.com/hashicorp/design-system/pull/1283)</small>
 
 ## 1.4.2
 
 ### Patch Changes
 
-- [#1313](https://github.com/hashicorp/design-system/pull/1313) [`5a2f5778d`](https://github.com/hashicorp/design-system/commit/5a2f5778d5e1d57a7d0d080f01319492e1a5a8b7) Thanks [@didoo](https://github.com/didoo)! - Added design tokens for `SideNav` component
+Added design tokens for `SideNav` component
+
+<small>[#1313](https://github.com/hashicorp/design-system/pull/1313)</small>
 
 ## 1.4.1
 
 ### Patch Changes
 
-- [#1204](https://github.com/hashicorp/design-system/pull/1204) [`fcbaff90b`](https://github.com/hashicorp/design-system/commit/fcbaff90b514962c50363c8a985d88b520048636) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - \* Scope group layout styles to nested child components.
-  - Fix bug with --token-pagination-child-spacing-vertical value so that it adds "px" unit.
+- Scoped group layout styles to nested child components.
+- Fixed bug with `--token-pagination-child-spacing-vertical` value so that it adds "px" unit.
+
+<small>[#1204](https://github.com/hashicorp/design-system/pull/1204)</small>
 
 ## 1.4.0
 
 ### Minor Changes
 
-- [#661](https://github.com/hashicorp/design-system/pull/661) [`2c6024a38`](https://github.com/hashicorp/design-system/commit/2c6024a38f5f457231f7301d219478a4f746de37) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - Add design tokens for `Pagination` component
+Added design tokens for `Pagination` component
+
+<small>[#661](https://github.com/hashicorp/design-system/pull/661)</small>
 
 ## 1.3.1
 
 ### Patch Changes
 
-- [#1036](https://github.com/hashicorp/design-system/pull/1036) [`b1756288e`](https://github.com/hashicorp/design-system/commit/b1756288e907dd36784fd33921e016d99a1b3417) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Update design system name to Helios
+Updated design system name to "Helios"
+
+<small>[#1036](https://github.com/hashicorp/design-system/pull/1036)</small>
 
 ## 1.3.0
 
 ### Minor Changes
 
-- [#740](https://github.com/hashicorp/design-system/pull/740) [`92c83961f`](https://github.com/hashicorp/design-system/commit/92c83961f0e8b01e52e3c596c85871ec5cf8c94d) Thanks [@alex-ju](https://github.com/alex-ju)! - Add design tokens for indeterminate `Checkbox`
+Added design tokens for indeterminate `Checkbox`
+
+<small>[#740](https://github.com/hashicorp/design-system/pull/740)</small>
 
 ## 1.2.0
 
