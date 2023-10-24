@@ -14,7 +14,12 @@
     <span class="hds-dropdown-list-item__text-content">{{yield}}</span>
 
     {{#if @count}}
-      <span class="hds-dropdown-list-item__count hds-typography-body-100 hds-font-weight-medium">{{@count}}</span>
+      <Hds::Text::Body
+        class="hds-dropdown-list-item__count"
+        @tag="span"
+        @size="100"
+        @weight="medium"
+      >{{@count}}</Hds::Text::Body>
     {{/if}}
   </label>
 </li>

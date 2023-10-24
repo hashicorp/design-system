@@ -57,6 +57,11 @@ export default class HdsFormTextInputBaseComponent extends Component {
       classes.push(`hds-form-text-input--is-invalid`);
     }
 
+    // add a class based on the @hasVisibilityToggle argument
+    if (this.args.hasVisibilityToggle) {
+      classes.push(`hds-form-text-input--has-visibility-toggle`);
+    }
+
     // add a class based on the @isLoading argument
     if (this.args.isLoading) {
       classes.push(`hds-form-text-input--is-loading`);

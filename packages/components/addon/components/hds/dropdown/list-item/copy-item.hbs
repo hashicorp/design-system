@@ -4,9 +4,13 @@
 }}
 <li class={{this.classNames}} ...attributes>
   {{#if @copyItemTitle}}
-    <div
-      class="hds-dropdown-list-item__copy-item-title hds-typography-body-100 hds-font-weight-semibold"
-    >{{@copyItemTitle}}</div>
+    <Hds::Text::Body
+      class="hds-dropdown-list-item__copy-item-title"
+      @tag="div"
+      @size="100"
+      @weight="semibold"
+      @color="faint"
+    >{{@copyItemTitle}}</Hds::Text::Body>
   {{/if}}
-  <Hds::Copy::Snippet @textToCopy={{this.text}} @isTruncated={{@isTruncated}} />
+  <Hds::Copy::Snippet @color="secondary" @textToCopy={{this.text}} @isTruncated={{this.isTruncated}} />
 </li>

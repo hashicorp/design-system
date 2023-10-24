@@ -2,6 +2,13 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<li class={{this.classNames}} ...attributes>
+<Hds::Text::Body
+  class="hds-dropdown-list-item hds-dropdown-list-item--variant-description"
+  @tag="li"
+  @size="100"
+  @weight="regular"
+  @color="faint"
+  ...attributes
+>
   {{this.text}}
-</li>
+</Hds::Text::Body>

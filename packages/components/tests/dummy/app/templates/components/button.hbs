@@ -124,33 +124,51 @@
 
   <Shw::Text::H2>Containers</Shw::Text::H2>
 
-  <Shw::Flex as |SF|>
-    <SF.Item>
+  <Shw::Grid @columns={{4}} as |SG|>
+    <SG.Item @forceMinWidth={{true}}>
       <Shw::Label>Parent with <code>display: inline-block</code></Shw::Label>
       <div {{style display="inline-block"}}>
         <Hds::Button @icon="plus" @iconPosition="leading" @text="Lorem ipsum" />
       </div>
-    </SF.Item>
-    <SF.Item>
+      <hr class="shw-component-button-containers-divider" />
+      <div {{style display="inline-block"}}>
+        <Hds::Button @icon="plus" @text="This is a very long text that should go on multiple lines" />
+      </div>
+    </SG.Item>
+    <SG.Item @forceMinWidth={{true}}>
       <Shw::Label>Parent with <code>display: inline-flex</code></Shw::Label>
       <div {{style display="inline-flex"}}>
         <Hds::Button @icon="plus" @iconPosition="leading" @text="Lorem ipsum" />
       </div>
-    </SF.Item>
-    <SF.Item>
+      <hr class="shw-component-button-containers-divider" />
+      <div {{style display="inline-flex"}}>
+        <Hds::Button @icon="plus" @text="This is a very long text that should go on multiple lines" />
+      </div>
+    </SG.Item>
+    <SG.Item @forceMinWidth={{true}}>
       <Shw::Label>Parent with <code>flex-grow: 0</code></Shw::Label>
       <div {{style display="flex"}}>
         <div {{style flex-grow="0"}}>
           <Hds::Button @icon="plus" @iconPosition="leading" @text="Lorem ipsum" />
         </div>
       </div>
-    </SF.Item>
-    <SF.Item>
+      <hr class="shw-component-button-containers-divider" />
+      <div {{style display="flex"}}>
+        <div {{style flex-grow="0"}}>
+          <Hds::Button @icon="plus" @text="This is a very long text that should go on multiple lines" />
+        </div>
+      </div>
+    </SG.Item>
+    <SG.Item @forceMinWidth={{true}}>
       <Shw::Label>Parent with <code>max-width: fit-content</code></Shw::Label>
       <div {{style max-width="fit-content"}}>
         <Hds::Button @icon="plus" @iconPosition="leading" @text="Lorem ipsum" />
       </div>
-    </SF.Item>
-  </Shw::Flex>
+      <hr class="shw-component-button-containers-divider" />
+      <div {{style max-width="fit-content"}}>
+        <Hds::Button @icon="plus" @text="This is a very long text that should go on multiple lines" />
+      </div>
+    </SG.Item>
+  </Shw::Grid>
 
 </section>

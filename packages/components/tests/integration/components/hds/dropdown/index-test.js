@@ -93,9 +93,9 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
       .dom('#test-dropdown .hds-dropdown__content')
       .hasClass('hds-dropdown__content--position-bottom-right');
   });
-  test('it should render the content aligned on the left if the value of @listPosition is "left"', async function (assert) {
+  test('it should render the content aligned on the left if the value of @listPosition is "bottom-left"', async function (assert) {
     await render(hbs`
-      <Hds::Dropdown id="test-dropdown" @listPosition="left" as |dd|>
+      <Hds::Dropdown id="test-dropdown" @listPosition="bottom-left" as |dd|>
         <dd.ToggleButton @text="toggle button" id="test-toggle-button" />
         <dd.Interactive @route="components.dropdown" @text="interactive" />
       </Hds::Dropdown>
@@ -103,7 +103,7 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     await click('button#test-toggle-button');
     assert
       .dom('#test-dropdown .hds-dropdown__content')
-      .hasClass('hds-dropdown__content--position-left');
+      .hasClass('hds-dropdown__content--position-bottom-left');
   });
   test('it should render the element as `inline` if the value of @isInline is "true"', async function (assert) {
     await render(hbs`

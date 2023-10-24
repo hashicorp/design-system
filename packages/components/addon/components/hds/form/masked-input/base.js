@@ -9,11 +9,11 @@ import { action } from '@ember/object';
 import { getElementId } from '@hashicorp/design-system-components/utils/hds-get-element-id';
 
 export default class HdsFormMaskedInputBaseComponent extends Component {
-  @tracked isMasked = this.args.isMasked ?? true;
+  @tracked isContentMasked = this.args.isContentMasked ?? true;
 
   @action
-  onClickToggle() {
-    this.isMasked = !this.isMasked;
+  onClickToggleMasking() {
+    this.isContentMasked = !this.isContentMasked;
   }
 
   /**
@@ -28,10 +28,10 @@ export default class HdsFormMaskedInputBaseComponent extends Component {
    * @type {string}
    * @default 'Show masked content'
    */
-  get ariaLabel() {
-    if (this.args.ariaLabel) {
-      return this.args.ariaLabel;
-    } else if (this.isMasked) {
+  get visibilityToggleAriaLabel() {
+    if (this.args.visibilityToggleAriaLabel) {
+      return this.args.visibilityToggleAriaLabel;
+    } else if (this.isContentMasked) {
       return 'Show masked content';
     } else {
       return 'Hide masked content';
@@ -43,13 +43,13 @@ export default class HdsFormMaskedInputBaseComponent extends Component {
    * @type {string}
    * @default 'Input content is now hidden'
    */
-  get ariaMessageText() {
-    if (this.args.ariaMessageText) {
-      return this.args.ariaMessageText;
-    } else if (this.isMasked) {
-      return 'Input content is now hidden';
+  get visibilityToggleAriaMessageText() {
+    if (this.args.visibilityToggleAriaMessageText) {
+      return this.args.visibilityToggleAriaMessageText;
+    } else if (this.isContentMasked) {
+      return 'Input content is hidden';
     } else {
-      return 'Input content is now visible';
+      return 'Input content is visible';
     }
   }
 
@@ -74,7 +74,7 @@ export default class HdsFormMaskedInputBaseComponent extends Component {
   get classNames() {
     let classes = ['hds-form-masked-input'];
 
-    if (this.isMasked) {
+    if (this.isContentMasked) {
       classes.push(`hds-form-masked-input--is-masked`);
     } else {
       classes.push(`hds-form-masked-input--is-not-masked`);

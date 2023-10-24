@@ -15,11 +15,7 @@ $hds-tag-border-radius: 50px;
 .hds-tag {
   display: inline-flex;
   align-items: stretch;
-  color: var(--token-color-foreground-primary);
-  font-weight: var(--token-typography-font-weight-medium);
-  font-size: 0.8125rem; // 13px
-  font-family: var(--token-typography-font-stack-text);
-  line-height: 1rem; // 16px
+  line-height: 1rem; // 16px - override `body-100`
   vertical-align: middle;
   background-color: var(--token-color-surface-interactive);
   border: 1px solid var(--token-color-border-strong);

@@ -5,15 +5,33 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import { HdsInteractiveSignature } from '../interactive';
 
 export const DEFAULT_SIZE = 'medium';
 export const DEFAULT_COLOR = 'primary';
 export const DEFAULT_ICONPOSITION = 'leading';
-export const SIZES = ['small', 'medium', 'large'];
-export const COLORS = ['primary', 'secondary', 'tertiary', 'critical'];
-export const ICONPOSITIONS = ['leading', 'trailing'];
+export const SIZES = ['small', 'medium', 'large'] as const;
+export const COLORS = ['primary', 'secondary', 'tertiary', 'critical'] as const;
+export const ICONPOSITIONS = ['leading', 'trailing'] as const;
 
-export default class HdsButtonIndexComponent extends Component {
+export type HdsButtonSize = typeof SIZES[number];
+export type HdsButtonColor = typeof COLORS[number];
+export type HdsButtonIconPosition = typeof ICONPOSITIONS[number];
+
+export interface HdsButtonSignature {
+  Args: HdsInteractiveSignature['Args'] & {
+    size?: HdsButtonSize;
+    color?: HdsButtonColor;
+    text: string;
+    icon?: string;
+    iconPosition?: HdsButtonIconPosition;
+    isIconOnly?: boolean;
+    isFullWidth?: boolean;
+  };
+  Element: HdsInteractiveSignature['Element'];
+}
+
+export default class HdsButtonIndexComponent extends Component<HdsButtonSignature> {
   /**
    * @param text
    * @type {string}
@@ -164,5 +182,12 @@ export default class HdsButtonIndexComponent extends Component {
     }
 
     return classes.join(' ');
+  }
+}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'Hds::Button': typeof HdsButtonIndexComponent;
+    'hds/button': typeof HdsButtonIndexComponent;
   }
 }

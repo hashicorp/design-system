@@ -12,10 +12,8 @@ import { setAriaDescribedBy } from '@hashicorp/design-system-components/utils/hd
 
 export const DEFAULT_CONTROL_POSITION = 'bottom';
 export const DEFAULT_ALIGNMENT = 'left';
-export const DEFAULT_LAYOUT = 'fluid';
 export const CONTROL_POSITIONS = ['bottom', 'left'];
 export const ALIGNMENTS = ['left', 'center'];
-export const LAYOUTS = ['fluid', 'fixed'];
 
 export default class HdsFormRadioCardIndexComponent extends Component {
   @tracked ariaDescribedBy = this.args.extraAriaDescribedBy;
@@ -72,34 +70,6 @@ export default class HdsFormRadioCardIndexComponent extends Component {
   }
 
   /**
-   * Sets the layout of the card within the group
-   * Accepted values: fluid, fixed
-   *
-   * @param layout
-   * @type {string}
-   * @default 'fluid'
-   */
-  get layout() {
-    let { layout = DEFAULT_LAYOUT } = this.args;
-
-    assert(
-      `@layout for "Hds::Form::RadioCard" must be one of the following: ${LAYOUTS.join(
-        ', '
-      )}; received: ${layout}`,
-      LAYOUTS.includes(layout)
-    );
-
-    // if the `@layout` is set to 'fixed' we need a `@maxWidth` value to constrain the card to
-    if (layout === 'fixed') {
-      assert(
-        `@maxWidth for "Hds::Form::RadioCard" with @layout "fixed" is required`,
-        this.args.maxWidth
-      );
-    }
-    return layout;
-  }
-
-  /**
    * Get the class names to apply to the component.
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
@@ -113,15 +83,17 @@ export default class HdsFormRadioCardIndexComponent extends Component {
     if (this.args.disabled) {
       classes.push('hds-form-radio-card--disabled');
     }
+    if (this.args.maxWidth) {
+      classes.push('hds-form-radio-card--has-fixed-width');
+    } else {
+      classes.push('hds-form-radio-card--has-fluid-width');
+    }
 
     // add a class based on the @controlPosition argument
     classes.push(`hds-form-radio-card--control-${this.controlPosition}`);
 
     // add a class based on the @alignment argument
     classes.push(`hds-form-radio-card--align-${this.alignment}`);
-
-    // add a class based on the @layout argument
-    classes.push(`hds-form-radio-card--layout-${this.layout}`);
 
     return classes.join(' ');
   }

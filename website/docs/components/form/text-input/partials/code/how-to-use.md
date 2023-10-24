@@ -184,6 +184,25 @@ Pass a custom width for the control using the `@width` argument.
 </Hds::Form::TextInput::Field>
 ```
 
+#### Password
+
+By default, password fields render with a button allowing users to toggle between visible and obfuscated input content.
+
+```handlebars
+<Hds::Form::TextInput::Field @type="password" @value="1234567890" as |F|>
+  <F.Label>Password</F.Label>
+</Hds::Form::TextInput::Field>
+```
+
+You can remove the visibility toggle button by setting `@hasVisibilityToggle` to `false`.
+
+```handlebars
+<Hds::Form::TextInput::Field @hasVisibilityToggle={{false}} @type="password" @value="1234567890" as |F|>
+  <F.Label>Password</F.Label>
+</Hds::Form::TextInput::Field>
+```
+
+
 {{! ================= }} {{! ===== BASE ===== }} {{! ================= }}
 
 ### Form::TextInput::Base

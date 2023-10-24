@@ -25,5 +25,8 @@ module.exports = {
         'dialog-polyfill-css': 'dialog-polyfill/dist/dialog-polyfill.css',
       },
     },
+    'ember-cli-babel': {
+      enableTypeScriptTransform: true,
+    },
   },
 };

@@ -148,7 +148,7 @@
       <Hds::Form::Error>This is a simple error message</Hds::Form::Error>
     </SF.Item>
     <SF.Item @label="With text that spans multiple lines">
-      <Shw::Outliner class="shw-component-form-base-elements-container-with-badge">
+      <Shw::Outliner {{style width="250px"}}>
         <Hds::Form::Error>This is a very long error message that should span on multiple lines</Hds::Form::Error>
       </Shw::Outliner>
     </SF.Item>
@@ -534,4 +534,22 @@
     {{/let}}
   </div>
 
+  {{! ###################### }}
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Visibility toggle</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="On">
+      <Shw::Outliner>
+        <Hds::Form::VisibilityToggle @isVisible={{true}} aria-label="is-visible" />
+      </Shw::Outliner>
+    </SF.Item>
+    <SF.Item @label="Off">
+      <Shw::Outliner>
+        <Hds::Form::VisibilityToggle @isVisible={{false}} aria-label="is-not-visible" />
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
 </section>
