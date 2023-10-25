@@ -8,7 +8,7 @@ links:
 related: ['components/copy/snippet', 'components/copy/button']
 previewImage: assets/illustrations/components/code-block.jpg
 navigation:
-  keywords: ['code', 'snippet', 'copy', 'text', 'editor', 'language', 'example']
+  keywords: ['code', 'snippet', 'copy', 'text', 'editor', 'language', 'example', 'syntax', 'highlight']
 ---
 
 <section data-tab="Guidelines">

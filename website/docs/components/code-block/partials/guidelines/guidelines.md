@@ -7,7 +7,6 @@
 ### When not to use
 
 - As a full-blown code editor
-- When displaying keys, tokens, or other generated values, use a [CopySnippet](/components/copy/snippet) instead.
 
 ## Inline
 
