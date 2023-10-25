@@ -52,6 +52,7 @@
     "ember-cli-htmlbars": "^6.2.0",
     "ember-cli-sass": "^10.0.1",
     "ember-composable-helpers": "^4.5.0",
+    "ember-element-helper": "^0.8.5",
     "ember-focus-trap": "^1.0.2",
     "ember-keyboard": "^8.2.0",
     "ember-stargate": "^0.4.3",
