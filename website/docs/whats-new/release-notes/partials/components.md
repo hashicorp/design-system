@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 3.0.2
+
+**Patch changes**
+
+explicitly added `ember-element-helper` as dependency for the `components` package
+
+<small>[#1751](https://github.com/hashicorp/design-system/pull/1751)</small>
+
+---
+
 ## 3.0.1
 
 **Patch changes**
@@ -304,45 +314,6 @@ _Notice: while technically this is a breaking change, we consider this a fast-fo
 `Dropdown` - changed `@height` property to use `max-height` instead of a fixed height.
 
 <small>[#1635](https://github.com/hashicorp/design-system/pull/1635)</small>
-
-## 2.12.0
-
-**Minor changes**
-
-`IconTile` - updated component to include `vault-secrets` product option
-
-<small>[#1640](https://github.com/hashicorp/design-system/pull/1640)</small>
-
-**Patch changes**
-
-`Text` - Removed leftover `console.log` from code
-
-<small>[#1615](https://github.com/hashicorp/design-system/pull/1615)</small>
-
----
-
-Refactored the layout of the `Dropdown` checkbox and radio inputs to make the gap between the inputs and the associated text, as well as the icon and count, clickable.
-
-<small>[#1618](https://github.com/hashicorp/design-system/pull/1618)</small>
-
----
-
-`Hds::Link::Standalone` - Changed font-weight from 500 to 400 to match font-weight of `Hds::Button`.
-
-<small>[#1617](https://github.com/hashicorp/design-system/pull/1617)</small>
-
----
-
-`Stepper` - removed some CSS declarations that were not used/applied
-
-<small>[#1628](https://github.com/hashicorp/design-system/pull/1628)</small>
-
----
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/design-system-tokens@1.8.0
-- @hashicorp/ember-flight-icons@3.1.2
 
 
 ---

@@ -1,5 +1,15 @@
 # @hashicorp/design-system-components
 
+## 3.0.2
+
+### Patch Changes
+
+explicitly added `ember-element-helper` as dependency for the `components` package
+
+<small>[#1751](https://github.com/hashicorp/design-system/pull/1751)</small>
+
+---
+
 ## 3.0.1
 
 ### Patch Changes
