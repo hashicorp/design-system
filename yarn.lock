@@ -3476,7 +3476,7 @@ __metadata:
     "@glint/environment-ember-loose": ^1.1.0
     "@glint/template": ^1.1.0
     "@hashicorp/design-system-tokens": ^1.9.0
-    "@hashicorp/ember-flight-icons": ^4.0.0
+    "@hashicorp/ember-flight-icons": ^4.0.1
     "@percy/cli": ^1.24.2
     "@percy/ember": ^4.2.0
     "@tsconfig/ember": latest
@@ -3591,7 +3591,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/ember-flight-icons@^4.0.0, @hashicorp/ember-flight-icons@workspace:^, @hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons":
+"@hashicorp/ember-flight-icons@^4.0.1, @hashicorp/ember-flight-icons@workspace:^, @hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons":
   version: 0.0.0-use.local
   resolution: "@hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons"
   dependencies:

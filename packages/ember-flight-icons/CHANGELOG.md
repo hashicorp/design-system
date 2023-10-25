@@ -1,5 +1,15 @@
 # @hashicorp/ember-flight-icons
 
+## 4.0.1
+
+### Patch Changes
+
+Added missing dependency on `ember-get-config`
+
+<small>[#1747](https://github.com/hashicorp/design-system/pull/1747)</small>
+
+---
+
 ## 4.0.0
 
 ### Major Changes

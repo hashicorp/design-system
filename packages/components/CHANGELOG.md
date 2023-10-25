@@ -1,5 +1,13 @@
 # @hashicorp/design-system-components
 
+## 3.0.1
+
+### Patch Changes
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/ember-flight-icons@4.0.1
+
 ## 3.0.0
 
 ### Major Changes
