@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, settled, fillIn } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/code-block/index', function (hooks) {
@@ -172,5 +172,18 @@ loadInitializers(App, config.modulePrefix);"
       <Hds::CodeBlock @value="console.log('Hello world');" @contentEditable={{true}} />
     `);
     assert.dom('.hds-code-block__code[contenteditable="true"]').exists();
+  });
+
+  // CALLBACK
+
+  test('it should call `onInput` function if provided', async function (assert) {
+    let edited = false;
+    this.set('onInput', () => (edited = true));
+    await render(hbs`
+      <Hds::CodeBlock @value="console.log('Hello world');" @contentEditable={{true}} @onInput={{this.onInput}} />
+    `);
+    fillIn('.hds-code-block__code', 'new content');
+    await settled();
+    assert.ok(edited);
   });
 });

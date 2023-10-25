@@ -15,6 +15,7 @@
       contentEditable={{this.contentEditable}}
       data-line={{@highlightLines}}
       id={{this.preCodeId}}
+      {{on "input" this.onInput}}
       tabindex="0"
     >
       {{~! ~}}

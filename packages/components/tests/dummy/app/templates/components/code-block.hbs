@@ -275,6 +275,7 @@ function assertObjectsEqual (actual, expected, testName) {
       <Hds::CodeBlock
         @language="javascript"
         @contentEditable={{true}}
+        @onInput={{this.noop}}
         @value="let codeLang='JavaScript';
 console.log(`I am ${codeLang} code`);"
       />

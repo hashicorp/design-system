@@ -23,6 +23,8 @@ import 'prismjs/components/prism-log';
 import 'prismjs/components/prism-shell-session';
 import 'prismjs/components/prism-yaml';
 
+const NOOP = () => {};
+
 export default class HdsCodeBlockIndexComponent extends Component {
   @tracked prismCode = '';
 
@@ -91,6 +93,21 @@ export default class HdsCodeBlockIndexComponent extends Component {
    */
   get isStandalone() {
     return this.args.isStandalone ?? true;
+  }
+
+  /**
+   * @param onInput
+   * @type {function}
+   * @default () => {}
+   */
+  get onInput() {
+    let { onInput } = this.args;
+
+    if (typeof onInput === 'function') {
+      return onInput;
+    } else {
+      return NOOP;
+    }
   }
 
   @action
