@@ -4,7 +4,7 @@ This component uses [prism.js](https://prismjs.com/) under the hood.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="value" @type="string">
-    The text/code content for the CodeBlock.
+    The text/code content for the CodeBlock. The component encodes this argument before displaying it.
   </C.Property>
   <C.Property @name="language" @type="string" @values={{array "bash" "go" "hcl" "json" "log" "shell-session" "yaml"}}>
     The coding language to use for syntax highlighting.
