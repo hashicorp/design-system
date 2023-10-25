@@ -69,9 +69,9 @@ In the Figma component, line highlighting (`highlightLines`) is a boolean proper
 
 ## Language
 
-Language deteremines how syntax highlighting is applied and formatted within the block, but is handled a bit differently between the Ember and Figma components. 
+Language deteremines how syntax highlighting is applied and formatted within the block, but is handled a bit differently between the Ember and Figma components.
 
-The **Ember** component uses [Prism.js](https://prismjs.com/index.html) to handle syntax highlighting and supports close to [300 different languages and syntaxes](https://prismjs.com/index.html#supported-languages). The manner in which the syntax highlighting is applied is dependent on the value passed to the component.
+The **Ember** component uses [Prism.js](https://prismjs.com/index.html) to handle syntax highlighting and comes with a pre-defined set of languages.
 
 In **Figma** we provide a handful of example languages which are intended to be _representative_ of the end result in production. Syntax highlighting in Figma is a non-trivial process and requires the manual application of color styles to each "type" of code. Despite this, creating a custom code snippet with the Code Block is supported by typing/pasting into the text layer, but syntax highlighting will not be automatically applied.
 
