@@ -119,6 +119,112 @@ Added `figma` and `loom` icons
 
 <small>[#689](https://github.com/hashicorp/design-system/pull/689)</small>
 
+## 2.11.1
+
+**Patch changes**
+
+- [#636](https://github.com/hashicorp/design-system/pull/636) [`27a283a5`](https://github.com/hashicorp/design-system/commit/27a283a52c2828b32c282401f91df9bd929f9dda) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Add copyright notice to license file
+
+## 2.11.0
+
+**Minor changes**
+
+- [#580](https://github.com/hashicorp/design-system/pull/580) [`55f38cb3`](https://github.com/hashicorp/design-system/commit/55f38cb3a30a6edf8854e53ce3642270fe00efdc) Thanks [@didoo](https://github.com/didoo)! - updated SVG icons generation to include JS file with list of icon names
+
+* [#593](https://github.com/hashicorp/design-system/pull/593) [`382fce2d`](https://github.com/hashicorp/design-system/commit/382fce2d063e8ff31849f28d68a138537354c68e) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Added AWS Lambda and Linux icons
+
+## 2.10.0
+
+**Minor changes**
+
+- [#546](https://github.com/hashicorp/design-system/pull/546) [`4e557797`](https://github.com/hashicorp/design-system/commit/4e5577973154397da0b5d4302755a07b22826345) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Add system icons for pipeline and step
+  Add service icons for open policy agent (opa)
+
+## 2.9.0
+
+**Minor changes**
+
+- [#524](https://github.com/hashicorp/design-system/pull/524) [`f2b3398e`](https://github.com/hashicorp/design-system/commit/f2b3398e3056ae39fa35b1f9c81ddc0b2100073d) Thanks [@hashibot-hds](https://github.com/hashibot-hds)!
+  - Add service icons for azure-aks
+  - Update css exports to include recently added service icons
+
+## 2.8.0
+
+**Minor changes**
+
+- [#481](https://github.com/hashicorp/design-system/pull/481) [`c8221e26`](https://github.com/hashicorp/design-system/commit/c8221e26e85142024483be2ea85f6191f3ceb652) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Add new Service icons to Flight
+
+  - aws-cloudwatch
+  - aws-cloudwatch-color
+  - aws-s3
+  - aws-s3-color
+  - azure-aks
+  - azure-aks-color
+  - azure-blob-storage
+  - azure-blob-storage-color
+  - azure-vms
+  - azure-vms-color
+  - bridgecrew
+  - bridgecrew-color
+  - cisco
+  - cisco-color
+  - datadog
+  - datadog-color
+  - digital-ocean
+  - digital-ocean-color
+  - grafana
+  - grafana-color
+  - helm
+  - helm-color
+  - infracost
+  - infracost-color
+  - lightlytics
+  - lightlytics-color
+  - linode
+  - linode-color
+  - microsoft-teams
+  - microsoft-teams-color
+  - saml
+  - saml-color
+  - snyk
+  - snyk-color
+  - splunk
+  - splunk-color
+  - vantage
+  - vantage-color
+
+## 2.7.0
+
+**Minor changes**
+
+- [#468](https://github.com/hashicorp/design-system/pull/468) [`c2f2e4ce`](https://github.com/hashicorp/design-system/commit/c2f2e4cea526421f63853461265064742af69729) Thanks [@didoo](https://github.com/didoo)! - Updated Flight icons pipeline to distribute assets as CSS props (mainly for Consul)
+
+## 2.6.0
+
+**Minor changes**
+
+- [#339](https://github.com/hashicorp/design-system/pull/339) [`c241a6f0`](https://github.com/hashicorp/design-system/commit/c241a6f02723d2d1031d2f3e06c093d3e6b503d7) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Added two new icons from the Figma library; clock-filled, minus-square-fill.
+
+* [#345](https://github.com/hashicorp/design-system/pull/345) [`c0e90d53`](https://github.com/hashicorp/design-system/commit/c0e90d53fde0a9697d5aff04146f527285f7e696) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Add api icon from the Figma library
+
+## 2.5.0
+
+**Minor changes**
+
+- [#329](https://github.com/hashicorp/design-system/pull/329) [`671640a4`](https://github.com/hashicorp/design-system/commit/671640a476ab4ae4e0dd84e5e00964475e95e870) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Added "plug" outlined icon.
+
+## 2.4.0
+
+**Minor changes**
+
+- [#317](https://github.com/hashicorp/design-system/pull/317) [`59906536`](https://github.com/hashicorp/design-system/commit/599065361476aab6016dce017f01ca73b9ebeebc) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Add new log and test icons to Flight
+
+## 2.3.1
+
+**Patch changes**
+
+- [#219](https://github.com/hashicorp/design-system/pull/219) [`fc3a3dd4`](https://github.com/hashicorp/design-system/commit/fc3a3dd429f5681474bed95b43245d83b4094567) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - minor adjustments to add optical balance to the `government` icon
+
 
 ---
 
