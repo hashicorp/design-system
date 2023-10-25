@@ -6,27 +6,39 @@
 
 ### When not to use
 
-- As a full-blown code editor
+- As a full-blown code editor.
 
-## Inline
+### When to use a CopySnippet vs a CodeBlock
 
-The `isInline` property increases the portability of the CodeBlock to ensure that it can be used in different contexts. For example, a common use case of the CodeBlock is in a "standalone" context, which can be part of a form, multi-step process, and is generally a part of the normal layout flow.
+There is some overlap in the copying functionality of the CopySnippet and the CodeBlock. Which to use generally comes down to the complexity of the code/value displayed within the component, and whether the user benefits from seeing the larger context of the code example.
+
+For example; if allowing the user to copy an API key or other **singular** value where they don’t necessarily need to see the entire context of where the copied value is expected to be pasted into, use a CopySnippet.
+
+Use a CodeBlock if:
+
+- The user benefits from seeing the larger context of where a value should be pasted into, e.g., in a configuration file.
+- If the example being copied is more than a single line.
+- If the example consists of a command, e.g., a `curl` and `bash` script. These are oftentimes on a single line, but consist of multiple commands and functions.
+
+## Standalone
+
+The `isStandalone` property increases the portability of the CodeBlock to ensure that it can be used in different contexts. For example, a common use case of the CodeBlock is in a "standalone" context, which can be part of a form, multi-step process, and is generally a part of the normal layout flow.
 
 ![Code Block with rounded corners in a standalone context](/assets/components/code-block/code-block-rounded-standalone.png)
 
-Sometimes it may be necessary to use the CodeBlock in a more dense layout or nested within another component. In this circumstance, setting `isInline` to true ensures that the CodeBlock fits alongside other elements, in a split view, or as part of a larger layout mechanism.
+Sometimes it may be necessary to use the CodeBlock in a more dense layout or nested within another component. In this circumstance, setting `isStandalone` to false ensures that the CodeBlock fits alongside other elements, in a split view, or as part of a larger layout mechanism.
 
 ![Code Block in a block context](/assets/components/code-block/code-block-block-level.png)
 
 ## Header
 
-Use a `title` or `description` in the Header to provide additional information, instructions, or to label a CodeBlock. Both of these properties are optional, but including them can help to provide additional context about a specific block of code.
+Use a `title` or `description` in the header to provide additional information, instructions, or to label a CodeBlock. Both of these properties are optional, but including them can help to provide additional context about a specific block of code.
 
 ![Example metadata in the Code Block](/assets/components/code-block/code-block-metadata.png)
 
-### When not to use a Header
+### When not to use a header
 
-There can be an overlap between content that you may choose to include in the Header as a `title` or `description`, and content that is part of the normal layout flow in a headline or paragraph. If it is necessary to elevate this content in the hiearchy of the page, we recommend including it in the normal layout flow, rather than as a `title` or `description` within the Code Block.
+There can be an overlap between content that you may choose to include in the header as a `title` or `description`, and content that is part of the normal layout flow in a headline or paragraph. If it is necessary to elevate this content in the hiearchy of the page, we recommend including it in the normal layout flow, rather than as a `title` or `description` within the Code Block.
 
 ![An example showcasing the Code Block paired with content in the nautral flow](/assets/components/code-block/code-block-dont-use-metadata.png)
 
@@ -78,22 +90,4 @@ In **Figma** we provide a handful of example languages which are intended to be 
 
 If you wish to create custom examples using the Code Block, we publish all of the relevant syntax highlighting styles in the HDS [Foundations](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?type=design&node-id=2130%3A2&mode=design&t=Pfj7CheLS6cR0hKa-1) library. However, due to the number languages supported by the component, the color styles use a generic naming schema (e.g., cyan, red, purple) to remain as agnostic as possible when being applied to different languages.
 
-!!! Info
-
-Working directly with an engineering partner can reveal exactly how a snippet will render in the component and should be the first course of action when creating custom snippets. Understanding Prism's [token hierarchy](https://prismjs.com/tokens.html) can also be helpful when creating examples.
-
-If you have questions or need assistance creating custom examples, don’t hesitate to reach out the the HDS team for [support](/about/support).
-!!!
-
-To aid in understanding how the highlighting theme is applied via Prism's tokens, we've provided a high-level, non-exhaustive list of token names and how they might be applied depending on the syntax.
-
-| Color | Usage |
-|-------|-------|
-| Cyan | Property, url, or operator |
-| Blue | Function, builtins |
-| Orange | Strings, characters |
-| Purple | Booleans, numbers |
-| Green | Keywords, class names, saving the world |
-| Red | Important items |
-| White | Default color within the code block, also used for punctuation (`<`, `{ }`, `=`, etc) |
-| Gray | Used for comments across languages |
+For more details around syntax visit the [specifications](?tab=specifcations).

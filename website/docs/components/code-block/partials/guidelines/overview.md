@@ -1,1 +1,1 @@
-The CodeBlock is used to display, format, and highlight the syntax of example code and snippets.
+The CodeBlock is used to display, format, and highlight the syntax of code snippets.
