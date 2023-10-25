@@ -144,4 +144,4 @@ When ready for review:
 
 - [ ] add situationally appropriate reviewers
 - [ ] add instructions for reviewers in your PR, letting them know what kind of review you need
-- [ ] add a changelog update via [Changesets](https://github.com/changesets/changesets) if needed using the command `yarn changeset` (in the project root)
+- [ ] add a changelog update via [Changesets](https://github.com/changesets/changesets) if needed using the command `yarn changeset` (in the project root) using the [predefined format](https://github.com/hashicorp/design-system/blob/main/wiki/Website-Changelog.md#templates-for-npm-packages))
