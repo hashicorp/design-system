@@ -2891,7 +2891,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/addon-shim@npm:^1.0.0, @embroider/addon-shim@npm:^1.5.0":
+"@embroider/addon-shim@npm:1.8.3, @embroider/addon-shim@npm:^1.0.0, @embroider/addon-shim@npm:^1.5.0":
   version: 1.8.3
   resolution: "@embroider/addon-shim@npm:1.8.3"
   dependencies:
@@ -3523,6 +3523,7 @@ __metadata:
     ember-cli-terser: ^4.0.2
     ember-composable-helpers: ^4.5.0
     ember-concurrency: ^2.3.7
+    ember-element-helper: ^0.8.5
     ember-focus-trap: ^1.0.2
     ember-keyboard: ^8.2.0
     ember-load-initializers: ^2.1.2
@@ -11938,6 +11939,18 @@ __metadata:
   peerDependencies:
     ember-source: ^3.8 || 4
   checksum: 36110a5b5a504169abe80d004f8ad9eba56c0d8b602211606ad6ab88d541b93f7621a740c0a4a972036d5b390e42f59d638575dd4748b184e1d6f33586851e03
+  languageName: node
+  linkType: hard
+
+"ember-element-helper@npm:^0.8.5":
+  version: 0.8.5
+  resolution: "ember-element-helper@npm:0.8.5"
+  dependencies:
+    "@embroider/addon-shim": 1.8.3
+    "@embroider/util": ^1.0.0
+  peerDependencies:
+    ember-source: ^3.8 || ^4.0.0 || >= 5.0.0
+  checksum: 7be5fa71b172dc74f24bd10bdc179d9e9dcbaaeab5c78763a24dd6f6d384768d6835291771839c6b530940c3ddd259bd7fdc8242576c9cc31e74d6bb35df435b
   languageName: node
   linkType: hard
 
