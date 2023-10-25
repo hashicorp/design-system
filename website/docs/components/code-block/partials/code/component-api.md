@@ -7,7 +7,7 @@ This component uses [prism.js](https://prismjs.com/) under the hood.
     The text/code content for the CodeBlock. The component encodes this argument before displaying it.
   </C.Property>
   <C.Property @name="language" @type="string" @values={{array "bash" "go" "hcl" "json" "log" "shell-session" "yaml"}}>
-    The coding language to use for syntax highlighting.
+    The coding language to use for syntax highlighting. If you need additional languages <LinkTo class="doc-link-generic" @route="show" @model="about/support">contact the Design Systems Team</LinkTo>.
   </C.Property>
   <C.Property @name="hasCopyButton" @type="boolean" @default="false">
     Used to control whether a copy button for copying the code/text content will be displayed.
