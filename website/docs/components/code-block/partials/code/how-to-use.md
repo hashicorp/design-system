@@ -10,7 +10,7 @@ The basic invocation requires `@value` to be passed.
 
 ### Title and description
 
-Optionally, you can pass a title or a description.
+Optionally, you can pass a title and/or a description.
 
 ```handlebars
 <Hds::CodeBlock
@@ -37,7 +37,7 @@ as |CB|>
 
 ### Language
 
-The `language` argument sets the syntax highlighting used.
+The `language` argument sets the syntax highlighting used. We only support a the following languaged: `bash`, `go`, `hcl`, `json`, `log`, `shell-session` and `yaml`. If you need additional languages <LinkTo class="doc-link-generic" @route="show" @model="about/support">contact the Design Systems Team</LinkTo>
 
 ```handlebars
 <Hds::CodeBlock
@@ -113,7 +113,7 @@ loadInitializers(App, config.modulePrefix);"
 
 ### Limit height
 
-Code content uses `auto` height by default but you can opt to set a `maxHeight` value to save space. Vertical scrolling is enabled as part of this feature allowing users to vertical scroll to view overflowing content.
+Code content uses `auto` height by default but you can opt to set a `maxHeight` value to save space. Vertical scrolling is enabled as part of this feature allowing users to scroll vertically to view the overflowing content.
 
 ```handlebars
 <Hds::CodeBlock
@@ -136,7 +136,7 @@ loadInitializers(App, config.modulePrefix);"
 
 ### Editable content
 
-By default end-users, are unable to edit the code within a `CodeBlock`. Setting this to `true` allows them to type to alter the content if they wish.
+By default, end-users are unable to edit the code within a `CodeBlock`. Setting this to `true` allows them to type to alter the content if they wish.
 
 ```handlebars
 <Hds::CodeBlock
