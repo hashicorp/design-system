@@ -27,6 +27,9 @@ This component uses [prism.js](https://prismjs.com/) under the hood.
   <C.Property @name="contentEditable" @type="boolean" @default="false">
     Determines whether users can edit the text content of the `CodeBlock`.
   </C.Property>
+  <C.Property @name="isStandalone" @type="boolean" @default="true">
+    Alters the visual style of the component by setting rounded borders. When used within another component or when the context requires it, you can turn it off.
+  </C.Property>
 </Doc::ComponentApi>
 
 ### Contextual components
