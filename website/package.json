@@ -16,7 +16,7 @@
   },
   "scripts": {
     "generate-changelog-markdown-files": "node lib/changelog/generate-changelog-markdown-files.mjs",
-    "build": "yarn generate-changelog-markdown-files && ember build --environment=production",
+    "build": "ember build --environment=production",
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
     "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",
     "lint:hbs": "ember-template-lint .",
