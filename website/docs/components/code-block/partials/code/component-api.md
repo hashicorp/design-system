@@ -24,7 +24,7 @@ This component uses [prism.js](https://prismjs.com/) under the hood.
   <C.Property @name="maxHeight" @type="string" @default="auto">
     Accepts any valid CSS unit. If the `CodeBlock` content exceeds the maximum height a vertical scrollbar is enabled.
   </C.Property>
-  <C.Property @name="isReadOnly" @type="boolean" @default="true">
+  <C.Property @name="contentEditable" @type="boolean" @default="false">
     Determines whether users can edit the text content of the `CodeBlock`.
   </C.Property>
 </Doc::ComponentApi>

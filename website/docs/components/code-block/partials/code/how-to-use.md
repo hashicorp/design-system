@@ -141,7 +141,7 @@ By default, end-users are unable to edit the code within a `CodeBlock`. Setting 
 ```handlebars
 <Hds::CodeBlock
   @language="javascript"
-  @isReadOnly={{false}}
+  @contentEditable={{true}}
   @value="let codeLang=`JavaScript`;
 console.log(`I am ${codeLang} code`);"
 />
