@@ -12,7 +12,7 @@
   },
   "scripts": {
     "release": "yarn changeset publish",
-    "version": "yarn changeset version && yarn install --mode update-lockfile"
+    "version": "yarn changeset version && yarn install --mode update-lockfile && yarn workspace website generate-changelog-markdown-files"
   },
   "packageManager": "yarn@3.6.1",
   "resolutions": {

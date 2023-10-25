@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 4.0.1
+
+**Patch changes**
+
+Added missing dependency on `ember-get-config`
+
+<small>[#1747](https://github.com/hashicorp/design-system/pull/1747)</small>
+
+---
+
 ## 4.0.0
 
 **Major changes**
@@ -101,14 +111,6 @@ Shifted our supported version of Node.js from `12.* || 14.* || >= 16` to `14.* |
 - @hashicorp/flight-icons@2.14.0
 
 <small>[#1395](https://github.com/hashicorp/design-system/pull/1395)</small>
-
-## 3.0.5
-
-**Patch changes**
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/flight-icons@2.13.1
 
 
 ---
