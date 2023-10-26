@@ -141,8 +141,8 @@ $code-block-code-padding: 16px;
 // CopyButton
 .hds-code-block__copy-button {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 11px; // 12px -1px accounting for border
+  right: 12px; // 12px -1px accounting for border
   // Overriding default colors
   color: var(--hds-code-block-color-foreground-primary);
   background-color: var(--hds-code-block-color-surface-faint);
@@ -197,7 +197,7 @@ $code-block-code-padding: 16px;
       top: 0;
       left: 0;
       min-width: $code-block-line-numbers-width;
-      padding: calc($code-block-code-padding - 3px) 0;
+      padding: $code-block-code-padding 0;
       border-right: 1px solid var(--hds-code-block-color-border-primary);
       user-select: none;
       pointer-events: none;
@@ -217,7 +217,7 @@ $code-block-code-padding: 16px;
   }
 
   // LineHighlight plugin styles (works with lineNumbers) ------------
-  pre[data-line] {
+  .line-numbers-rows .line-numbers-rows > span pre[data-line] {
     position: relative;
     padding: 1em 0 1em 3em;
   }

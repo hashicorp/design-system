@@ -219,16 +219,7 @@ function assertObjectsEqual (actual, expected, testName) {
   <Shw::Text::H3>Copy button</Shw::Text::H3>
   <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SG|>
     <SG.Item {{style width="calc(50% - 1rem)"}} @label="hasCopyButton=true">
-      <Hds::CodeBlock
-        id="clipboardTarget"
-        @hasCopyButton={{true}}
-        @language="go"
-        @value="package main
-import 'fmt'
-func main() {
-  fmt.Println('hello world')
-}"
-      />
+      <Hds::CodeBlock @language="shell-session" @hasCopyButton={{true}} @value="$ brew tap hashicorp/tap" />
     </SG.Item>
 
     <SG.Item {{style width="calc(50% - 1rem)"}} @label="hasCopyButton=true, maxHeight='105px', title and description">
