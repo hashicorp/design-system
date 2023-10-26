@@ -9,6 +9,7 @@
 
 
 // Note: "theme" contains just color variables and syntax highlighting styles
+@use "../../mixins/focus-ring" as *;
 @import "theme";
 
 // DIMENSIONS
@@ -19,7 +20,6 @@ $code-block-code-padding: 16px;
 
 .hds-code-block {
   position: relative;
-  overflow: hidden; // So header corners don't poke out from container
   color: var(--hds-code-block-color-foreground-primary);
   background-color: var(--hds-code-block-color-surface-primary);
   border: 1px solid var(--hds-code-block-color-border-strong);
@@ -37,6 +37,21 @@ $code-block-code-padding: 16px;
     hyphens: none;
 
     @media print { text-shadow: none; }
+  }
+}
+
+// VARIANTS
+
+// isStandalone
+.hds-code-block--is-standalone {
+  border-radius: 6px;
+}
+
+// hasLineWrapping
+.hds-code-block--has-line-wrapping {
+  .hds-code-block__code,
+  .hds-code-block__code code {
+    white-space: pre-wrap;
   }
 }
 
@@ -59,6 +74,8 @@ $code-block-code-padding: 16px;
   padding: 8px $code-block-code-padding;
   background-color: var(--hds-code-block-color-surface-faint);
   border-bottom: 1px solid var(--hds-code-block-color-border-primary);
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
 
   &:empty {
     display: none;
@@ -101,16 +118,19 @@ $code-block-code-padding: 16px;
 
 .hds-code-block__body {
   position: relative;
+  border-radius: inherit;
 }
 
 // Code
 .hds-code-block__code {
+  @include hds-focus-ring-basic();
   display: block;
   margin: 0;
   padding: $code-block-code-padding;
   overflow: auto;
   font-size: 0.8125rem;
   font-family: var(--hds-typography-code-200);
+  border-radius: inherit;
 }
 
 // CopyButton
@@ -155,21 +175,6 @@ $code-block-code-padding: 16px;
   .flight-icon { color: var(--hds-code-block-color-foreground-primary); }
 }
 
-// VARIANTS
-
-// isStandalone
-.hds-code-block--is-standalone {
-  border-radius: 6px;
-}
-
-// hasLineWrapping
-.hds-code-block--has-line-wrapping {
-  .hds-code-block__code,
-  .hds-code-block__code code {
-    white-space: pre-wrap;
-  }
-}
-
 .hds-code-block {
   // LineNumbers plugin styles ---------------
   // Note: Prism.js is using the specific class name "line-numbers" to determine implementation of line numbers in the UI
@@ -187,7 +192,7 @@ $code-block-code-padding: 16px;
       top: 0;
       left: 0;
       min-width: $code-block-line-numbers-width;
-      padding: $code-block-code-padding 0;
+      padding: calc($code-block-code-padding - 3px) 0;
       border-right: 1px solid var(--hds-code-block-color-border-primary);
       user-select: none;
       pointer-events: none;
@@ -207,7 +212,7 @@ $code-block-code-padding: 16px;
   }
 
   // LineHighlight plugin styles (works with lineNumbers) ------------
-  .line-numbers-rows .line-numbers-rows > span pre[data-line] {
+  pre[data-line] {
     position: relative;
     padding: 1em 0 1em 3em;
   }
@@ -218,7 +223,7 @@ $code-block-code-padding: 16px;
     right: 0;
     left: 0;
     // Note: position seems off by a few px although not sure why
-    margin-top: -2px;
+    margin-top: -3px;
     background-color: var(--hds-code-block-color-line-highlight);
     border: solid var(--hds-code-block-color-line-highlight-border);
     border-width: 1px 0 1px 4px;
