@@ -8,17 +8,20 @@
 
 - As a full-blown code editor.
 
-### When to use a CopySnippet vs a CodeBlock
+### When to use a CodeBlock vs a CopySnippet
 
 There is some overlap in the copying functionality of the CopySnippet and the CodeBlock. Which to use generally comes down to the complexity of the code/value displayed within the component, and whether the user benefits from seeing the larger context of the code example.
 
-For example; if allowing the user to copy an API key or other **singular** value where they don’t necessarily need to see the entire context of where the copied value is expected to be pasted into, use a CopySnippet.
-
 Use a CodeBlock if:
 
-- The user benefits from seeing the larger context of where a value should be pasted into, e.g., in a configuration file.
-- If the example being copied is more than a single line.
+- If viewing or displaying code is the primary purpose, and copying the code is secondary.
 - If the example consists of a command, e.g., a `curl` and `bash` script. These are oftentimes on a single line, but consist of multiple commands and functions.
+
+Use a CopySnippet if:
+
+- If copying the code is the primary purpose, and viewing the code is secondary.
+- Allowing the user to copy an API key or other **single** value or string.
+- If seeing the value in a larger context of where it's expected to be pasted into isn’t necessary.
 
 ## Standalone
 
