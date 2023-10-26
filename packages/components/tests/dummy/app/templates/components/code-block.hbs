@@ -523,13 +523,15 @@ result:
         <T.Panel>
           <Hds::CodeBlock
             @language="javascript"
+            @highlightLines={{"2"}}
             @value="let codeLang='JavaScript';
-    console.log(`I am ${codeLang} code`);"
+console.log(`I am ${codeLang} code`);"
           />
         </T.Panel>
         <T.Panel>
           <Hds::CodeBlock
             @language="go"
+            @highlightLines={{"2, 4"}}
             @value="package main
 import 'fmt'
 func main() {
@@ -551,6 +553,7 @@ func main() {
           <Hds::CodeBlock
             @hasCopyButton={{true}}
             @language="go"
+            @highlightLines={{"2, 4"}}
             @value="package main
 import 'fmt'
 func main() {
@@ -574,6 +577,7 @@ func main() {
             <Hds::CodeBlock
               @hasCopyButton={{true}}
               @language="go"
+              @highlightLines={{"2, 4"}}
               @value="package main
 import 'fmt'
 func main() {
@@ -591,5 +595,4 @@ func main() {
       {{/if}}
     </SF.Item>
   </Shw::Flex>
-
 </section>

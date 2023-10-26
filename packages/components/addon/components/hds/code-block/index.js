@@ -132,12 +132,19 @@ export default class HdsCodeBlockIndexComponent extends Component {
       this.prismCode = htmlSafe(Prism.util.encode(code));
     }
 
-    // Force plugin initialization, required for Prism.highlight usage.
+    // Force prism-line-numbers plugin initialization, required for Prism.highlight usage
     // See https://github.com/PrismJS/prism/issues/1234
     Prism.hooks.run('complete', {
       code,
       element,
     });
+
+    // Force prism-line-highlight plugin initialization
+    if (this.args.highlightLines) {
+      setTimeout(() => {
+        if (window) window.dispatchEvent(new Event('resize'));
+      }, 100);
+    }
   }
 
   /**
