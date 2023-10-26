@@ -1,6 +1,6 @@
 ## How to use this component
 
-The basic invocation requires `@value` to be passed.
+The basic invocation requires a `@value` argument. The component encodes this argument before displaying it.
 
 ```handlebars
 <Hds::CodeBlock
