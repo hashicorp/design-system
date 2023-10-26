@@ -112,6 +112,89 @@ Shifted our supported version of Node.js from `12.* || 14.* || >= 16` to `14.* |
 
 <small>[#1395](https://github.com/hashicorp/design-system/pull/1395)</small>
 
+## 3.0.5
+
+**Patch changes**
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@2.13.1
+
+## 3.0.4
+
+**Patch changes**
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@2.13.0
+
+## 3.0.3
+
+**Patch changes**
+
+Fix error message for mismatched icon `@name`
+
+<small>[#1375](https://github.com/hashicorp/design-system/pull/1375) [`2c7d70868`](https://github.com/hashicorp/design-system/commit/2c7d70868b0fa000618214589e2422e07db68b22)</small>
+
+## 3.0.2
+
+**Patch changes**
+
+- [#715](https://github.com/hashicorp/design-system/pull/715) [`aeff4e02`](https://github.com/hashicorp/design-system/commit/aeff4e02e3c5c738104be326569c110dc2f79618) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - remove `ember-test-selectors` peerDependency
+
+- Updated dependencies [[`f9c22874`](https://github.com/hashicorp/design-system/commit/f9c22874ab24db25ee347c95e5c26dc0055a642e), [`b95f448a`](https://github.com/hashicorp/design-system/commit/b95f448a31cc138436caf0aae332139c5129d9dc)]:
+  - @hashicorp/flight-icons@2.12.0
+
+## 3.0.1
+
+**Patch changes**
+
+- [#618](https://github.com/hashicorp/design-system/pull/618) [`11d39410`](https://github.com/hashicorp/design-system/commit/11d39410c40725ff34a291e17eac3f8f8321c659) Thanks [@alex-ju](https://github.com/alex-ju)! - Update `ember` to `4.7.0`
+
+* [#636](https://github.com/hashicorp/design-system/pull/636) [`27a283a5`](https://github.com/hashicorp/design-system/commit/27a283a52c2828b32c282401f91df9bd929f9dda) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Add copyright notice to license file
+
+* Updated dependencies [[`27a283a5`](https://github.com/hashicorp/design-system/commit/27a283a52c2828b32c282401f91df9bd929f9dda)]:
+  - @hashicorp/flight-icons@2.11.1
+
+## 3.0.0
+
+**Major changes**
+
+- [#580](https://github.com/hashicorp/design-system/pull/580) [`55f38cb3`](https://github.com/hashicorp/design-system/commit/55f38cb3a30a6edf8854e53ce3642270fe00efdc) Thanks [@didoo](https://github.com/didoo)! - updated the Ember `FlightIcon` component to throw an error if a non-existing icon name is used
+
+**Patch changes**
+
+- Updated dependencies [[`55f38cb3`](https://github.com/hashicorp/design-system/commit/55f38cb3a30a6edf8854e53ce3642270fe00efdc), [`382fce2d`](https://github.com/hashicorp/design-system/commit/382fce2d063e8ff31849f28d68a138537354c68e)]:
+  - @hashicorp/flight-icons@2.11.0
+
+## 2.0.12
+
+**Patch changes**
+
+- Updated dependencies [[`4e557797`](https://github.com/hashicorp/design-system/commit/4e5577973154397da0b5d4302755a07b22826345)]:
+  - @hashicorp/flight-icons@2.10.0
+
+## 2.0.11
+
+**Patch changes**
+
+- Updated dependencies [[`f2b3398e`](https://github.com/hashicorp/design-system/commit/f2b3398e3056ae39fa35b1f9c81ddc0b2100073d)]:
+  - @hashicorp/flight-icons@2.9.0
+
+## 2.0.10
+
+**Patch changes**
+
+- Updated dependencies [[`c8221e26`](https://github.com/hashicorp/design-system/commit/c8221e26e85142024483be2ea85f6191f3ceb652)]:
+  - @hashicorp/flight-icons@2.8.0
+
+## 2.0.9
+
+**Patch changes**
+
+- Updated dependencies [[`c2f2e4ce`](https://github.com/hashicorp/design-system/commit/c2f2e4cea526421f63853461265064742af69729)]:
+  - @hashicorp/flight-icons@2.7.0
+
 
 ---
 
