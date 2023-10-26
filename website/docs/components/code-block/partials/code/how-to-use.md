@@ -18,19 +18,10 @@ Optionally, you can pass a title and/or a description.
   @value="aws ec2 --region us-west-1 accept-vpc-peering-connection"
 as |CB|>
   <CB.Title>
-    Acceptance instructions
+    CodeBlock title
   </CB.Title>
-</Hds::CodeBlock>
-```
-
-```handlebars
-<Hds::CodeBlock
-  @language="bash"
-  @value="export VAULT_ADDR=https://0242ac170030.aws.hcp.dev:8200;
-export VAULT_NAMESPACE=admin"
-as |CB|>
   <CB.Description>
-    Export your cluster’s public URL and the default <a>namespace</a> called admin.
+    CodeBlock description
   </CB.Description>
 </Hds::CodeBlock>
 ```
