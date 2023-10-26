@@ -90,7 +90,7 @@ By default, long lines of code will overflow the `CodeBlock` container requiring
 
 ### Highlight lines
 
-Highlight either individual code lines or a range of code lines. (Examples: "2, 4", "6-10")
+Highlight either individual code lines or a range of code lines. (Examples: `2, 4`, `6-10`)
 
 ```handlebars
 <Hds::CodeBlock
