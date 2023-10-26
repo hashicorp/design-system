@@ -30,9 +30,6 @@ export default class CodeBlockController extends Controller {
   @service router;
   @tracked isModalActive = false;
 
-  @action
-  noop() {}
-
   constructor() {
     super(...arguments);
     this.router.on('routeDidChange', this, 'routeDidChange');

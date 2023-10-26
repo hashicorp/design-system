@@ -268,43 +268,6 @@ function assertObjectsEqual (actual, expected, testName) {
 
   <Shw::Divider @level="2" />
 
-  <Shw::Text::H3>Editable content</Shw::Text::H3>
-
-  <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SG|>
-    <SG.Item {{style width="calc(50% - 1rem)"}} @label="contentEditable=true">
-      <Hds::CodeBlock
-        @language="javascript"
-        @contentEditable={{true}}
-        @onInput={{this.noop}}
-        @value="let codeLang='JavaScript';
-console.log(`I am ${codeLang} code`);"
-      />
-    </SG.Item>
-
-    <SG.Item
-      {{style width="calc(50% - 1rem)"}}
-      @label="contentEditable=true, hasCopyButton=true, title and description"
-    >
-      <Hds::CodeBlock
-        id="clipboardTarget3"
-        @contentEditable={{true}}
-        @hasCopyButton={{true}}
-        @language="go"
-        @value="package main
-import 'fmt'
-func main() {
-  fmt.Println('hello world')
-}"
-        as |CB|
-      >
-        <CB.Title>Title</CB.Title>
-        <CB.Description>Description</CB.Description>
-      </Hds::CodeBlock>
-    </SG.Item>
-  </Shw::Flex>
-
-  <Shw::Divider @level="2" />
-
   <Shw::Text::H3>Highlight lines</Shw::Text::H3>
 
   <Shw::Flex @columns={{2}} {{style gap="2rem"}} as |SG|>

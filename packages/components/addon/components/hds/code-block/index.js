@@ -25,8 +25,6 @@ import 'prismjs/components/prism-log';
 import 'prismjs/components/prism-shell-session';
 import 'prismjs/components/prism-yaml';
 
-const NOOP = () => {};
-
 export default class HdsCodeBlockIndexComponent extends Component {
   @tracked prismCode = '';
 
@@ -78,16 +76,6 @@ export default class HdsCodeBlockIndexComponent extends Component {
   }
 
   /**
-   * @param contentEditable
-   * @type {boolean}
-   * @default false
-   * @description Make text content non-editable / editable
-   */
-  get contentEditable() {
-    return this.args.contentEditable ?? false;
-  }
-
-  /**
    * @param isStandalone
    * @type {boolean}
    * @default true
@@ -105,21 +93,6 @@ export default class HdsCodeBlockIndexComponent extends Component {
    */
   get hasLineWrapping() {
     return this.args.hasLineWrapping ?? false;
-  }
-
-  /**
-   * @param onInput
-   * @type {function}
-   * @default () => {}
-   */
-  get onInput() {
-    let { onInput } = this.args;
-
-    if (typeof onInput === 'function') {
-      return onInput;
-    } else {
-      return NOOP;
-    }
   }
 
   @action
