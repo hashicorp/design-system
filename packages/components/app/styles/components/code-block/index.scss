@@ -80,7 +80,7 @@ $code-block-code-padding: 16px;
 
   // Default styling for bare HTML links not using HDS::Link components
   a:not([class*="hds-"]) {
-    color: var(--hds-code-block-color-foreground-action-default);
+    color: var(--hds-code-block-color-foreground-action);
 
     &:focus,
     &:focus-visible {
