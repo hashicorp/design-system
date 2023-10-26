@@ -17,6 +17,8 @@ import 'prismjs/plugins/line-highlight/prism-line-highlight';
 
 import 'prismjs/components/prism-bash';
 import 'prismjs/components/prism-go';
+import 'prismjs/components/prism-markup-templating';
+import 'prismjs/components/prism-handlebars';
 import 'prismjs/components/prism-hcl';
 import 'prismjs/components/prism-json';
 import 'prismjs/components/prism-log';
