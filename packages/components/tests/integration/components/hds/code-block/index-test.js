@@ -76,6 +76,14 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
     assert.dom('#test-code-block').hasClass('language-go');
   });
 
+  test('syntax highlighting fails gracefully if an invalid language is specified', async function (assert) {
+    await render(hbs`
+      <Hds::CodeBlock @value="console.log('Hello world');" @language="foo" id="test-code-block" />
+    `);
+    assert.dom('#test-code-block').hasClass('language-foo');
+    assert.dom('#test-code-block .token').doesNotExist();
+  });
+
   // hasCopyButton
   test('it does not display a Copy button by default', async function (assert) {
     await render(hbs`

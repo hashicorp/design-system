@@ -439,6 +439,19 @@ result:
 "
       />
     </SG.Item>
+
+    <SG.Item {{style width="calc(50% - 1rem)"}} @label="Invalid language (foo)">
+      {{! template-lint-disable no-whitespace-for-layout }}
+      <Hds::CodeBlock
+        @language="foo"
+        @value='variable "hvn_id" {
+  description = "The ID of the HCP HVN."
+  type        = string
+  default     = "learn-hcp-vault-hvn"
+}'
+      />
+      {{! template-lint-enable no-whitespace-for-layout }}
+    </SG.Item>
   </Shw::Flex>
 
   <Shw::Divider />
