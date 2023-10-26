@@ -22,7 +22,7 @@ This component uses [prism.js](https://prismjs.com/) under the hood.
     Accepts a list or range of line-numbers to highlight. (Examples: `2, 4`, `6-10` )
   </C.Property>
   <C.Property @name="maxHeight" @type="string" @default="auto">
-    Accepts any valid CSS unit. If the `CodeBlock` content exceeds the maximum height a vertical scrollbar is enabled.
+    Accepts any valid CSS unit. If the `CodeBlock` content exceeds the maximum height a vertical scrollbar is enabled. This value applies to the code content only and does not include the header element (title and/or description).
   </C.Property>
   <C.Property @name="contentEditable" @type="boolean" @default="false">
     Determines whether users can edit the text content of the `CodeBlock`.
