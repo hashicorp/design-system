@@ -206,9 +206,8 @@ $code-block-code-padding: 16px;
     }
   }
 
-  .line-numbers-rows .line-numbers-rows > span
   // LineHighlight plugin styles (works with lineNumbers) ------------
-  pre[data-line] {
+  .line-numbers-rows .line-numbers-rows > span pre[data-line] {
     position: relative;
     padding: 1em 0 1em 3em;
   }
