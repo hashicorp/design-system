@@ -5,6 +5,7 @@
 
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 import { scheduleOnce } from '@ember/runloop';
 
@@ -27,6 +28,7 @@ function replaceMockCopyStatus() {
 
 export default class CodeBlockController extends Controller {
   @service router;
+  @tracked isModalActive = false;
 
   @action
   noop() {}
@@ -38,5 +40,15 @@ export default class CodeBlockController extends Controller {
 
   routeDidChange() {
     scheduleOnce('afterRender', this, replaceMockCopyStatus);
+  }
+
+  @action
+  activateModal() {
+    this.isModalActive = true;
+  }
+
+  @action
+  deactivateModal() {
+    this.isModalActive = false;
   }
 }

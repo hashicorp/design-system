@@ -507,4 +507,89 @@ result:
       {{/each}}
     {{/let}}
   </Shw::Grid>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Demo</Shw::Text::H2>
+
+  <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
+    <SF.Item>
+      <Shw::Label>Within Tabs</Shw::Label>
+      <Hds::Tabs {{style width="400px"}} as |T|>
+        <T.Tab>JavaScript</T.Tab>
+        <T.Tab>Go</T.Tab>
+        <T.Tab>Lorem</T.Tab>
+
+        <T.Panel>
+          <Hds::CodeBlock
+            @language="javascript"
+            @value="let codeLang='JavaScript';
+    console.log(`I am ${codeLang} code`);"
+          />
+        </T.Panel>
+        <T.Panel>
+          <Hds::CodeBlock
+            @language="go"
+            @value="package main
+import 'fmt'
+func main() {
+  fmt.Println('hello world')
+}"
+          />
+        </T.Panel>
+        <T.Panel>
+          <Hds::CodeBlock @language="shell-session" @value="$ brew tap hashicorp/tap" />
+        </T.Panel>
+      </Hds::Tabs>
+
+    </SF.Item>
+    <SF.Item>
+      <Shw::Label>Within a Dropdown</Shw::Label>
+      <Hds::Dropdown @listPosition="bottom-left" as |dd|>
+        <dd.ToggleButton @text="Open menu" />
+        <dd.Generic>
+          <Hds::CodeBlock
+            @hasCopyButton={{true}}
+            @language="go"
+            @value="package main
+import 'fmt'
+func main() {
+  fmt.Println('hello world')
+}"
+          />
+        </dd.Generic>
+      </Hds::Dropdown>
+    </SF.Item>
+    <SF.Item>
+      <Shw::Label>Within a Modal</Shw::Label>
+      <Hds::Button @color="secondary" @text="Open modal" {{on "click" this.activateModal}} />
+
+      {{! template-lint-disable no-autofocus-attribute }}
+      {{#if this.isModalActive}}
+        <Hds::Modal id="test-copy-button-modal" @onClose={{this.deactivateModal}} as |M|>
+          <M.Header>
+            Lorem ipsum dolor
+          </M.Header>
+          <M.Body>
+            <Hds::CodeBlock
+              @hasCopyButton={{true}}
+              @language="go"
+              @value="package main
+import 'fmt'
+func main() {
+  fmt.Println('hello world')
+}"
+            />
+          </M.Body>
+          <M.Footer as |F|>
+            <Hds::ButtonSet>
+              <Hds::Button type="submit" @text="OK" {{on "click" this.deactivateModal}} />
+              <Hds::Button type="button" @text="Cancel" @color="secondary" {{on "click" F.close}} />
+            </Hds::ButtonSet>
+          </M.Footer>
+        </Hds::Modal>
+      {{/if}}
+    </SF.Item>
+  </Shw::Flex>
+
 </section>
