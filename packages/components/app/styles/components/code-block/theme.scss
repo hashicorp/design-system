@@ -7,7 +7,7 @@
 
   --hds-code-block-color-blue: #2d8eff;
   --hds-code-block-color-cyan: #32fff7;
-  --hds-code-block-color-matrix-green: #86ff13;
+  --hds-code-block-color-green: #86ff13;
   --hds-code-block-color-orange: #ffa800;
   --hds-code-block-color-purple: #c76cff;
   --hds-code-block-color-red: #ff3b20;
@@ -42,7 +42,7 @@
 
   // Syntax highlighting tokens:
   // general ----
-  --hds-code-block-color-token: var(--hds-code-block-color-matrix-green);
+  --hds-code-block-color-token: var(--hds-code-block-color-green);
   // specific ----
   --hds-code-block-color-atrule: var(--hds-code-block-color-blue);
   --hds-code-block-color-code-block-attr-name: var(--hds-code-block-color-blue);
@@ -50,15 +50,15 @@
   --hds-code-block-color-boolean: var(--hds-code-block-color-purple);
   --hds-code-block-color-builtin: var(--hds-code-block-color-orange);
   --hds-code-block-color-char: var(--hds-code-block-color-orange);
-  --hds-code-block-color-class-name: var(--hds-code-block-color-matrix-green);
+  --hds-code-block-color-class-name: var(--hds-code-block-color-green);
   --hds-code-block-color-comment: var(--hds-code-block-color-foreground-faint);
   --hds-code-block-color-control: var(--hds-code-block-color-cyan);
   --hds-code-block-color-constant: var(--hds-code-block-color-purple);
   --hds-code-block-color-deleted: var(--hds-code-block-color-red);
-  --hds-code-block-color-entity: var(--hds-code-block-color-matrix-green);
+  --hds-code-block-color-entity: var(--hds-code-block-color-green);
   --hds-code-block-color-function: var(--hds-code-block-color-blue);
   --hds-code-block-color-important: var(--hds-code-block-color-red);
-  --hds-code-block-color-keyword: var(--hds-code-block-color-matrix-green);
+  --hds-code-block-color-keyword: var(--hds-code-block-color-green);
   --hds-code-block-color-namespace: var(--hds-code-block-color-red);
   --hds-code-block-color-number: var(--hds-code-block-color-purple);
   --hds-code-block-color-operator: var(--hds-code-block-color-cyan);
@@ -67,15 +67,15 @@
   --hds-code-block-color-punctuation: var(--hds-code-block-color-foreground-primary);
   --hds-code-block-color-regex: var(--hds-code-block-color-orange);
   --hds-code-block-color-script: var(--hds-code-block-color-foreground-primary);
-  --hds-code-block-color-selector: var(--hds-code-block-color-matrix-green);
+  --hds-code-block-color-selector: var(--hds-code-block-color-green);
   --hds-code-block-color-string: var(--hds-code-block-color-orange);
   --hds-code-block-color-symbol: var(--hds-code-block-color-orange);
-  --hds-code-block-color-tag: var(--hds-code-block-color-matrix-green);
+  --hds-code-block-color-tag: var(--hds-code-block-color-green);
   --hds-code-block-color-url: var(--hds-code-block-color-cyan);
   // language-scoped:
   // css ----
   --hds-code-block-color-lang-css: var(--hds-code-block-color-purple);
-  --hds-code-block-color-lang-css-token: var(--hds-code-block-color-matrix-green);
+  --hds-code-block-color-lang-css-token: var(--hds-code-block-color-green);
   --hds-code-block-color-lang-css-atrule: var(--hds-code-block-color-purple);
   --hds-code-block-color-lang-css-entity: var(--hds-code-block-color-blue);
   --hds-code-block-color-lang-css-function: var(--hds-code-block-color-cyan);
@@ -89,7 +89,7 @@
   // markup/html ----
   --hds-code-block-color-lang-markup-attr-value: var(--hds-code-block-color-yellow);
   --hds-code-block-color-lang-markup-entity-named: var(--hds-code-block-color-purple);
-  --hds-code-block-color-lang-markup-entity-not-named: var(--hds-code-block-color-matrix-green);
+  --hds-code-block-color-lang-markup-entity-not-named: var(--hds-code-block-color-green);
 }
 
 
