@@ -162,10 +162,12 @@ $code-block-code-padding: 16px;
   border-radius: 6px;
 }
 
-// LineWrapping
+// hasLineWrapping
 .hds-code-block--has-line-wrapping {
-  pre,
-  code { white-space: pre-wrap; }
+  .hds-code-block__code,
+  .hds-code-block__code code {
+    white-space: pre-wrap;
+  }
 }
 
 .hds-code-block {

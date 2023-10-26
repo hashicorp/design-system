@@ -96,6 +96,16 @@ export default class HdsCodeBlockIndexComponent extends Component {
   }
 
   /**
+   * @param hasLineWrapping
+   * @type {boolean}
+   * @default false
+   * @description Make text content wrap on multiple lines
+   */
+  get hasLineWrapping() {
+    return this.args.hasLineWrapping ?? false;
+  }
+
+  /**
    * @param onInput
    * @type {function}
    * @default () => {}
@@ -148,7 +158,7 @@ export default class HdsCodeBlockIndexComponent extends Component {
       classes.push('hds-code-block--is-standalone');
     }
 
-    if (this.args.hasLineWrapping === true) {
+    if (this.hasLineWrapping === true) {
       classes.push('hds-code-block--has-line-wrapping');
     }
 
