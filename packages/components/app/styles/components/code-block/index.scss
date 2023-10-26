@@ -131,6 +131,11 @@ $code-block-code-padding: 16px;
   font-size: 0.8125rem;
   font-family: var(--hds-typography-code-200);
   border-radius: inherit;
+
+  ::selection {
+    color: var(--hds-code-block-color-foreground-selection);
+    background-color: var(--hds-code-block-color-surface-selection);
+  }
 }
 
 // CopyButton
