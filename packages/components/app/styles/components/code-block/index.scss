@@ -186,7 +186,7 @@ $code-block-code-padding: 16px;
       position: absolute;
       top: 0;
       left: 0;
-      width: $code-block-line-numbers-width;
+      min-width: $code-block-line-numbers-width;
       padding: $code-block-code-padding 0;
       border-right: 1px solid var(--hds-code-block-color-border-primary);
       user-select: none;
