@@ -168,10 +168,9 @@ $code-block-code-padding: 16px;
   code { white-space: pre-wrap; }
 }
 
-// Linenumbers
-// Note: Prism.js is using the specific class name "line-numbers" to determine implementation of line numbers in the UI
 .hds-code-block {
   // LineNumbers plugin styles ---------------
+  // Note: Prism.js is using the specific class name "line-numbers" to determine implementation of line numbers in the UI
   &.line-numbers {
     counter-reset: linenumber;
 
@@ -236,15 +235,6 @@ $code-block-code-padding: 16px;
       color-adjust: exact;
     }
   }
-
-  // not used currently
-  // pre[id].linkable-line-numbers span.line-numbers-rows {
-  //   pointer-events: all;
-
-  //   > span::before {
-  //     cursor: pointer;
-  //   }
-  // }
 
   // commmon tokens
   .token.bold { font-weight: bold; }
