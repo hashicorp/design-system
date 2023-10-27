@@ -124,16 +124,3 @@ export default class App extends Application {
 loadInitializers(App, config.modulePrefix);"
 />
 ```
-
-### Editable content
-
-By default, end-users are unable to edit the code within a `CodeBlock`. Setting this to `true` allows them to type to alter the content if they wish.
-
-```handlebars
-<Hds::CodeBlock
-  @language="javascript"
-  @contentEditable={{true}}
-  @value="let codeLang=`JavaScript`;
-console.log(`I am ${codeLang} code`);"
-/>
-```

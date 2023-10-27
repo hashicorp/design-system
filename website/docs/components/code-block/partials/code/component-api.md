@@ -9,6 +9,9 @@ This component uses [prism.js](https://prismjs.com/) under the hood.
   <C.Property @name="language" @type="string" @values={{array "bash" "go" "hcl" "json" "log" "shell-session" "yaml"}}>
     The coding language to use for syntax highlighting. If you need additional languages <LinkTo class="doc-link-generic" @route="show" @model="about/support">contact the Design Systems Team</LinkTo>.
   </C.Property>
+  <C.Property @name="isStandalone" @type="boolean" @default="true">
+    Applies rounded borders to the component. When used within another component or when the context requires it, you can turn it off.
+  </C.Property>
   <C.Property @name="hasCopyButton" @type="boolean" @default="false">
     Used to control whether a copy button for copying the code/text content will be displayed.
   </C.Property>
@@ -23,12 +26,6 @@ This component uses [prism.js](https://prismjs.com/) under the hood.
   </C.Property>
   <C.Property @name="maxHeight" @type="string" @default="auto">
     Accepts any valid CSS unit. If the `CodeBlock` content exceeds the maximum height a vertical scrollbar is enabled. This value applies to the code content only and does not include the header element (title and/or description).
-  </C.Property>
-  <C.Property @name="contentEditable" @type="boolean" @default="false">
-    Determines whether users can edit the text content of the `CodeBlock`.
-  </C.Property>
-  <C.Property @name="isStandalone" @type="boolean" @default="true">
-    Applies rounded borders to the component. When used within another component or when the context requires it, you can turn it off.
   </C.Property>
 </Doc::ComponentApi>
 
