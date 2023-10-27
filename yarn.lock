@@ -4619,7 +4619,7 @@ __metadata:
     "@hashicorp/ember-flight-icons": ^4.0.1
     "@percy/cli": ^1.27.3
     "@percy/ember": ^4.2.0
-    "@tsconfig/ember": latest
+    "@tsconfig/ember": ^3.0.2
     "@types/ember-qunit": ^6.1.1
     "@types/ember-resolver": ^9.0.0
     "@types/qunit": ^2.19.7
@@ -5860,10 +5860,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsconfig/ember@npm:latest":
-  version: 3.0.1
-  resolution: "@tsconfig/ember@npm:3.0.1"
-  checksum: 2e200ebae7f249b92180efacc359844b42a99fb09cbff6bf7a9a00efe400f3e29414aba162130b95e867c30a62a2d42b8d2fbbfc9fc7563d0712b6e5d53440d3
+"@tsconfig/ember@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "@tsconfig/ember@npm:3.0.2"
+  checksum: aac4e5bf1aa7b3ff31f7ca7cdace755e9588cce2fb3b8f3a18252a0dae455a6f0e0a54a96b7dd5467e04a6026aa1255e10471d01059da769cbc79cfa0d563e6d
   languageName: node
   linkType: hard
 

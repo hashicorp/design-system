@@ -76,7 +76,7 @@
     "@glint/template": "^1.2.1",
     "@percy/cli": "^1.27.3",
     "@percy/ember": "^4.2.0",
-    "@tsconfig/ember": "latest",
+    "@tsconfig/ember": "^3.0.2",
     "@types/ember-qunit": "^6.1.1",
     "@types/ember-resolver": "^9.0.0",
     "@types/qunit": "^2.19.7",
