@@ -18413,13 +18413,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsonapi-serializer@npm:^3.6.7":
-  version: 3.6.7
-  resolution: "jsonapi-serializer@npm:3.6.7"
+"jsonapi-serializer@npm:^3.6.9":
+  version: 3.6.9
+  resolution: "jsonapi-serializer@npm:3.6.9"
   dependencies:
     inflected: ^1.1.6
     lodash: ^4.16.3
-  checksum: f989c02b0f9e8a9790563abae8c9cdf9c7890fdc3b3cb1fc8eb34b5de32fd9ed0bd6677f7821b8c8a02e59cf48e63968bbfe9069072f6e80de8d5839193fd957
+  checksum: faac83de0455f89ef1c0a7e2dc17250591832efc876e5d79239186475eb725c26b8417272a1b72ef789daf2882616b80f010ed3c5f56069ddb52e46845279cc6
   languageName: node
   linkType: hard
 
@@ -26360,7 +26360,7 @@ __metadata:
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-qunit: ^8.0.1
     jsdom: ^20.0.3
-    jsonapi-serializer: ^3.6.7
+    jsonapi-serializer: ^3.6.9
     loader.js: ^4.7.0
     npm-run-all: ^4.1.5
     prember: ^2.0.0
