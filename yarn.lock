@@ -12407,9 +12407,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-babel@npm:^8.0.0":
-  version: 8.1.0
-  resolution: "ember-cli-babel@npm:8.1.0"
+"ember-cli-babel@npm:^8.2.0":
+  version: 8.2.0
+  resolution: "ember-cli-babel@npm:8.2.0"
   dependencies:
     "@babel/helper-compilation-targets": ^7.20.7
     "@babel/plugin-proposal-class-properties": ^7.16.5
@@ -12440,7 +12440,7 @@ __metadata:
     semver: ^7.3.8
   peerDependencies:
     "@babel/core": ^7.12.0
-  checksum: e26c2bd7455ca5c47911cae88e7820ce9fb1949234301465789ecc264592ca7eb83388589b166e5866923714dfd24905160210092d6b78a8ce34c375e702831a
+  checksum: 26a5abd3107ddfc76221894141b68cab79fb9cdf79ea0fa9646efe47c42f18bda49b854878118f8b57b3ebf5014828cf0ad640e77ffc209e3565f7eb792d1ef5
   languageName: node
   linkType: hard
 
@@ -26321,7 +26321,7 @@ __metadata:
     ember-body-class: ^3.0.0
     ember-cli: ~5.3.0
     ember-cli-app-version: ^6.0.1
-    ember-cli-babel: ^8.0.0
+    ember-cli-babel: ^8.2.0
     ember-cli-clean-css: ^3.0.0
     ember-cli-clipboard: ^1.1.0
     ember-cli-dependency-checker: ^3.3.2
