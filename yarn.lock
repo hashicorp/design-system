@@ -3712,6 +3712,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ember/test-waiters@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "@ember/test-waiters@npm:3.1.0"
+  dependencies:
+    calculate-cache-key-for-tree: ^2.0.0
+    ember-cli-babel: ^7.26.6
+    ember-cli-version-checker: ^5.1.2
+    semver: ^7.3.5
+  checksum: f5d8c75ec060f01d038c4f8f419f844e50928b9d7af518b00318844238b43a7b740fc2ec941f45c61fdf698977f2f8a47b34898faa7da2d09e3a38a8137ac8cf
+  languageName: node
+  linkType: hard
+
 "@embroider/addon-shim@npm:1.8.3, @embroider/addon-shim@npm:^1.0.0, @embroider/addon-shim@npm:^1.5.0":
   version: 1.8.3
   resolution: "@embroider/addon-shim@npm:1.8.3"
@@ -4617,7 +4629,7 @@ __metadata:
     "@ember/optional-features": ^2.0.0
     "@ember/render-modifiers": ^2.0.5
     "@ember/test-helpers": ^3.2.0
-    "@ember/test-waiters": ^3.0.2
+    "@ember/test-waiters": ^3.1.0
     "@embroider/test-setup": ^3.0.2
     "@glimmer/component": ^1.1.2
     "@glimmer/tracking": ^1.1.2
