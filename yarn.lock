@@ -4693,7 +4693,7 @@ __metadata:
     prismjs: ^1.29.0
     qunit: ^2.20.0
     qunit-dom: ^2.0.0
-    sass: ^1.62.1
+    sass: ^1.69.5
     sinon: ^15.2.0
     stylelint: ^15.11.0
     stylelint-config-rational-order: ^0.1.2
@@ -23153,16 +23153,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.62.1":
-  version: 1.62.1
-  resolution: "sass@npm:1.62.1"
+"sass@npm:^1.69.5":
+  version: 1.69.5
+  resolution: "sass@npm:1.69.5"
   dependencies:
     chokidar: ">=3.0.0 <4.0.0"
     immutable: ^4.0.0
     source-map-js: ">=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: 1b1b3584b38a63dd94156b65f13b90e3f84b170a38c3d5e3fa578b7a32a37aeb349b4926b0eaf9448d48e955e86b1ee01b13993f19611dad8068af07a607c13b
+  checksum: c66f4f02882e7aa7aa49703824dadbb5a174dcd05e3cd96f17f73687889aab6027d078b518e2c04b594dfd89b2f574824bf935c7aee46c770aa6be9aafcc49f2
   languageName: node
   linkType: hard
 
