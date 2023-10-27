@@ -22,7 +22,7 @@ This component uses [prism.js](https://prismjs.com/) under the hood.
     Used to control line wrapping for lines of code. If `true`, lines of code will wrap to fit the available space. Otherwise, horizontal scrolling is enabled if lines overflow the available space.
   </C.Property>
   <C.Property @name="highlightLines" @type="string">
-    Accepts a list or range of line-numbers to highlight. (Examples: `2, 4`, `6-10` )
+    Accepts a list or range of line numbers to highlight. (Examples: `2, 4`, `6-10` )
   </C.Property>
   <C.Property @name="maxHeight" @type="string" @default="auto">
     Accepts any valid CSS unit. If the `CodeBlock` content exceeds the maximum height a vertical scrollbar is enabled. This value applies to the code content only and does not include the header element (title and/or description).

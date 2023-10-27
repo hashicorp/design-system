@@ -28,7 +28,7 @@ as |CB|>
 
 ### Language
 
-The `language` argument sets the syntax highlighting used. We only support a the following languaged: `bash`, `go`, `hcl`, `json`, `log`, `shell-session` and `yaml`. If you need additional languages <LinkTo class="doc-link-generic" @route="show" @model="about/support">contact the Design Systems Team</LinkTo>
+The `language` argument sets the syntax highlighting used. We only support the following languages: `bash`, `go`, `hcl`, `json`, `log`, `shell-session`, and `yaml`. If you need additional languages <LinkTo class="doc-link-generic" @route="show" @model="about/support">contact the Design Systems Team</LinkTo>
 
 ```handlebars
 <Hds::CodeBlock
