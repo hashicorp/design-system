@@ -54,7 +54,7 @@
     "ember-composable-helpers": "^4.5.0",
     "ember-element-helper": "^0.8.5",
     "ember-focus-trap": "^1.1.0",
-    "ember-keyboard": "^8.2.0",
+    "ember-keyboard": "^8.2.1",
     "ember-stargate": "^0.4.3",
     "ember-style-modifier": "^3.0.1",
     "ember-truth-helpers": "^3.1.1",
