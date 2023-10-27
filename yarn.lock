@@ -4506,7 +4506,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glint/core@npm:^1.1.0":
+"@glint/core@npm:^1.2.1":
   version: 1.2.1
   resolution: "@glint/core@npm:1.2.1"
   dependencies:
@@ -4528,7 +4528,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glint/environment-ember-loose@npm:^1.1.0":
+"@glint/environment-ember-loose@npm:^1.2.1":
   version: 1.2.1
   resolution: "@glint/environment-ember-loose@npm:1.2.1"
   peerDependencies:
@@ -4560,7 +4560,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glint/template@npm:^1.1.0":
+"@glint/template@npm:^1.2.1":
   version: 1.2.1
   resolution: "@glint/template@npm:1.2.1"
   checksum: 77d8861dfb731c4842d42553c1ecde94b6d9ede925c4330307ea6847d3d1373e170e0af5427f09c7f10bda3a07cf88c2c13c683d51196b92f23020a20008af8b
@@ -4612,9 +4612,9 @@ __metadata:
     "@embroider/test-setup": ^3.0.2
     "@glimmer/component": ^1.1.2
     "@glimmer/tracking": ^1.1.2
-    "@glint/core": ^1.1.0
-    "@glint/environment-ember-loose": ^1.1.0
-    "@glint/template": ^1.1.0
+    "@glint/core": ^1.2.1
+    "@glint/environment-ember-loose": ^1.2.1
+    "@glint/template": ^1.2.1
     "@hashicorp/design-system-tokens": ^1.9.0
     "@hashicorp/ember-flight-icons": ^4.0.1
     "@percy/cli": ^1.24.2
