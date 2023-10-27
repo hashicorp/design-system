@@ -4674,7 +4674,7 @@ __metadata:
     eslint-plugin-ember: ^11.11.1
     eslint-plugin-node: ^11.1.0
     eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-qunit: ^8.0.0
+    eslint-plugin-qunit: ^8.0.1
     loader.js: ^4.7.0
     npm-run-all: ^4.1.5
     prettier: ^2.8.8
@@ -4761,7 +4761,7 @@ __metadata:
     eslint-plugin-ember: ^11.11.1
     eslint-plugin-node: ^11.1.0
     eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-qunit: ^8.0.0
+    eslint-plugin-qunit: ^8.0.1
     loader.js: ^4.7.0
     npm-run-all: ^4.1.5
     prettier: ^2.8.8
@@ -14081,7 +14081,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-qunit@npm:^8.0.0":
+"eslint-plugin-qunit@npm:^8.0.1":
   version: 8.0.1
   resolution: "eslint-plugin-qunit@npm:8.0.1"
   dependencies:
@@ -26343,7 +26343,7 @@ __metadata:
     eslint-plugin-ember: ^11.11.1
     eslint-plugin-node: ^11.1.0
     eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-qunit: ^8.0.0
+    eslint-plugin-qunit: ^8.0.1
     jsdom: ^20.0.3
     jsonapi-serializer: ^3.6.7
     loader.js: ^4.7.0

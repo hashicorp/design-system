@@ -87,7 +87,7 @@
     "eslint-plugin-ember": "^11.11.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-qunit": "^8.0.0",
+    "eslint-plugin-qunit": "^8.0.1",
     "jsdom": "^20.0.3",
     "jsonapi-serializer": "^3.6.7",
     "loader.js": "^4.7.0",
