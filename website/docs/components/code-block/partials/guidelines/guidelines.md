@@ -41,7 +41,7 @@ Use a `title` or `description` in the header to provide additional information, 
 
 ### When not to use a header
 
-There can be an overlap between content that you may choose to include in the header as a `title` or `description`, and content that is part of the normal layout flow in a headline or paragraph. If it is necessary to elevate this content in the hiearchy of the page, we recommend including it in the normal layout flow, rather than as a `title` or `description` within the Code Block.
+There can be an overlap between content that you may choose to include in the header as a `title` or `description`, and content that is part of the normal layout flow in a headline or paragraph. If it is necessary to elevate this content in the hierarchy of the page, we recommend including it in the normal layout flow, rather than as a `title` or `description` within the Code Block.
 
 ![An example showcasing the Code Block paired with content in the nautral flow](/assets/components/code-block/code-block-dont-use-metadata.png)
 
@@ -65,7 +65,7 @@ Line numbers are displayed by default and can make longer blocks of code and sni
 
 !!! Info
 
-In the Figma component, the code examples have the appropriate number of lines by default, but must be manually hidden or shown to match the length of custom snippets.
+In the Figma component, the code examples have the appropriate number of lines by default but must be manually hidden or shown to match the length of custom snippets.
 !!!
 
 ## Line highlighting
@@ -83,14 +83,14 @@ In the Figma component, line highlighting (`highlightLines`) is a boolean proper
 
 ## Language
 
-Language deteremines how syntax highlighting is applied and formatted within the block, but is handled a bit differently between the Ember and Figma components.
+Language determines how syntax highlighting is applied and formatted within the block but is handled a bit differently between the Ember and Figma components.
 
 The **Ember** component uses [Prism.js](https://prismjs.com/index.html) to handle syntax highlighting and comes with a pre-defined set of languages.
 
-In **Figma** we provide a handful of example languages which are intended to be _representative_ of the end result in production. Syntax highlighting in Figma is a non-trivial process and requires the manual application of color styles to each "type" of code. Despite this, creating a custom code snippet with the Code Block is supported by typing/pasting into the text layer, but syntax highlighting will not be automatically applied.
+In **Figma** we provide a handful of example languages that are intended to be _representative_ of the end result in production. Syntax highlighting in Figma is a non-trivial process and requires the manual application of color styles to each "type" of code. Despite this, creating a custom code snippet with the Code Block is supported by typing/pasting into the text layer, but syntax highlighting will not be automatically applied.
 
 ### Applying syntax highlighting
 
-If you wish to create custom examples using the Code Block, we publish all of the relevant syntax highlighting styles in the HDS [Foundations](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?type=design&node-id=2130%3A2&mode=design&t=Pfj7CheLS6cR0hKa-1) library. However, due to the number languages supported by the component, the color styles use a generic naming schema (e.g., cyan, red, purple) to remain as agnostic as possible when being applied to different languages.
+If you wish to create custom examples using the Code Block, we publish all of the relevant syntax highlighting styles in the HDS [Foundations](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?type=design&node-id=2130%3A2&mode=design&t=Pfj7CheLS6cR0hKa-1) library. However, due to the number of languages supported by the component, the color styles use a generic naming schema (e.g., cyan, red, purple) to remain as agnostic as possible when being applied to different languages.
 
 For more details around syntax visit the [specifications](?tab=specifcations).

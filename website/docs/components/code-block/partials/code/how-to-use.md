@@ -28,7 +28,7 @@ as |CB|>
 
 ### Language
 
-The `language` argument sets the syntax highlighting used. We only support a the following languaged: `bash`, `go`, `hcl`, `json`, `log`, `shell-session` and `yaml`. If you need additional languages <LinkTo class="doc-link-generic" @route="show" @model="about/support">contact the Design Systems Team</LinkTo>
+The `language` argument sets the syntax highlighting used. We only support the following languages: `bash`, `go`, `hcl`, `json`, `log`, `shell-session`, and `yaml`. If you need additional languages <LinkTo class="doc-link-generic" @route="show" @model="about/support">contact the Design Systems Team</LinkTo>
 
 ```handlebars
 <Hds::CodeBlock
@@ -122,18 +122,5 @@ export default class App extends Application {
 }
 
 loadInitializers(App, config.modulePrefix);"
-/>
-```
-
-### Editable content
-
-By default, end-users are unable to edit the code within a `CodeBlock`. Setting this to `true` allows them to type to alter the content if they wish.
-
-```handlebars
-<Hds::CodeBlock
-  @language="javascript"
-  @contentEditable={{true}}
-  @value="let codeLang=`JavaScript`;
-console.log(`I am ${codeLang} code`);"
 />
 ```
