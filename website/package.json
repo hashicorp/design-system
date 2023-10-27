@@ -82,7 +82,7 @@
     "ember-template-lint": "^4.18.2",
     "ember-test-selectors": "^6.0.0",
     "ember-truth-helpers": "^3.1.1",
-    "eslint": "^8.49.0",
+    "eslint": "^8.52.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-ember": "^11.11.1",
     "eslint-plugin-node": "^11.1.0",
