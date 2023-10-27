@@ -68,7 +68,7 @@
     "@babel/plugin-proposal-decorators": "^7.23.2",
     "@ember/optional-features": "^2.0.0",
     "@ember/test-helpers": "^3.2.0",
-    "@embroider/test-setup": "^3.0.1",
+    "@embroider/test-setup": "^3.0.2",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
     "@glint/core": "^1.1.0",

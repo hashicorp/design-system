@@ -3848,7 +3848,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/test-setup@npm:^3.0.1":
+"@embroider/test-setup@npm:^3.0.2":
   version: 3.0.2
   resolution: "@embroider/test-setup@npm:3.0.2"
   dependencies:
@@ -4609,7 +4609,7 @@ __metadata:
     "@ember/render-modifiers": ^2.0.5
     "@ember/test-helpers": ^3.2.0
     "@ember/test-waiters": ^3.0.2
-    "@embroider/test-setup": ^3.0.1
+    "@embroider/test-setup": ^3.0.2
     "@glimmer/component": ^1.1.2
     "@glimmer/tracking": ^1.1.2
     "@glint/core": ^1.1.0
@@ -4722,7 +4722,7 @@ __metadata:
     "@babel/eslint-parser": ^7.22.15
     "@ember/optional-features": ^2.0.0
     "@ember/test-helpers": ^3.2.0
-    "@embroider/test-setup": ^3.0.1
+    "@embroider/test-setup": ^3.0.2
     "@glimmer/component": ^1.1.2
     "@glimmer/tracking": ^1.1.2
     "@hashicorp/flight-icons": ^2.20.0
