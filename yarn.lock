@@ -4666,7 +4666,7 @@ __metadata:
     ember-stargate: ^0.4.3
     ember-style-modifier: ^3.0.1
     ember-template-lint: ^4.18.2
-    ember-template-lint-plugin-prettier: ^4.1.0
+    ember-template-lint-plugin-prettier: ^4.2.0
     ember-truth-helpers: ^3.1.1
     ember-try: ^3.0.0
     eslint: ^8.49.0
@@ -4754,7 +4754,7 @@ __metadata:
     ember-source: ~5.3.0
     ember-source-channel-url: ^3.0.0
     ember-template-lint: ^4.18.2
-    ember-template-lint-plugin-prettier: ^4.1.0
+    ember-template-lint-plugin-prettier: ^4.2.0
     ember-try: ^3.0.0
     eslint: ^8.49.0
     eslint-config-prettier: ^8.8.0
@@ -13493,15 +13493,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-template-lint-plugin-prettier@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "ember-template-lint-plugin-prettier@npm:4.1.0"
+"ember-template-lint-plugin-prettier@npm:^4.2.0":
+  version: 4.2.0
+  resolution: "ember-template-lint-plugin-prettier@npm:4.2.0"
   dependencies:
     prettier-linter-helpers: ^1.0.0
   peerDependencies:
     ember-template-lint: ">= 4.0.0"
     prettier: ">= 1.18.1"
-  checksum: 507a2895fa01e50ba92f704a01ffaf7b9972fb8a1cb00e48a3950a0f468d59daecf41f251613829ad14070f0ad1a542d0878b062c907149f38c15b77d6de6c45
+  checksum: 75b37fb8dd0c0fd33bbc6243f6aa237e4d378805876cbe546225f6a89b0fee60938cba7122673ed67573e268127c5a3c38e08790aff3244908ccec9a5dec578e
   languageName: node
   linkType: hard
 
