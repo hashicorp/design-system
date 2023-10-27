@@ -1,0 +1,24 @@
+{
+  "index_name": "spike_HDS_website",
+  "start_urls": ["https://helios.hashicorp.design/"],
+  "selectors": {
+    "lvl0": {
+      "selector": ".doc-page-sidebar__table-of-contents .doc-table-of-contents__link",
+      "global": true,
+      "default_value": "Documentation"
+    },
+    "lvl1": {
+      "selector": "h1.doc-page-cover__title",
+      "global": true
+    },
+    "lvl2": ".doc-page-content h2",
+    "lvl3": ".doc-page-content h3",
+    "lvl4": ".doc-page-content h4",
+    "lvl5": ".doc-page-content h5",
+    "lvl6": ".doc-page-content h6",
+    "text": ".doc-page-content p, .doc-page-content li, .doc-page-content td , .doc-page-content code"
+  },
+  "strip_chars": " .,;:#",
+  "scrap_start_urls": true,
+  "selectors_exclude": [".doc-page-header", ".doc-page-sidebar", ".doc-page-sidecar", ".doc-page-footer", ".doc-code-block", ".doc-cards-deck"]
+}
