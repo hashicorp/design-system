@@ -4586,7 +4586,7 @@ __metadata:
   resolution: "@hashicorp/design-system-codemods@workspace:packages/codemods"
   dependencies:
     codemod-cli: ^3.2.0
-    coveralls: ^3.1.0
+    coveralls: ^3.1.1
     eslint: ^8.49.0
     eslint-config-prettier: ^9.0.0
     eslint-plugin-node: ^11.1.0
@@ -11098,7 +11098,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"coveralls@npm:^3.1.0":
+"coveralls@npm:^3.1.1":
   version: 3.1.1
   resolution: "coveralls@npm:3.1.1"
   dependencies:
