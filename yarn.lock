@@ -4679,7 +4679,7 @@ __metadata:
     npm-run-all: ^4.1.5
     prettier: ^2.8.8
     prismjs: ^1.29.0
-    qunit: ^2.19.4
+    qunit: ^2.20.0
     qunit-dom: ^2.0.0
     sass: ^1.62.1
     sinon: ^15.2.0
@@ -4765,7 +4765,7 @@ __metadata:
     loader.js: ^4.7.0
     npm-run-all: ^4.1.5
     prettier: ^2.8.8
-    qunit: ^2.19.4
+    qunit: ^2.20.0
     qunit-dom: ^2.0.0
     webpack: ^5.88.2
   languageName: unknown
@@ -21957,16 +21957,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qunit@npm:^2.19.4":
-  version: 2.19.4
-  resolution: "qunit@npm:2.19.4"
+"qunit@npm:^2.20.0":
+  version: 2.20.0
+  resolution: "qunit@npm:2.20.0"
   dependencies:
     commander: 7.2.0
     node-watch: 0.7.3
     tiny-glob: 0.2.9
   bin:
     qunit: bin/qunit.js
-  checksum: 626001f82881e91f3bff2688bc55948a570bd8bf7aea7c9e7836285f1ab0a7a3577296f3b37cce21e182dcd724d14ee439fa39961348a603fbe5a6d5ffc144ef
+  checksum: d10bbc15c4103824153fe70dc921075d6d0aaf26f4c4a02aabcabdfeebf40a45b68f0ab02c65d496b733e489958484b53dc0650be6c92afb206a5c4a7dcde4d1
   languageName: node
   linkType: hard
 
@@ -26367,7 +26367,7 @@ __metadata:
     prember-middleware: ^0.1.0
     prember-sitemap-generator: "https://github.com/shipshapecode/prember-sitemap-generator.git#commit=c95f47042d86c4fa7b8b631f271da090672e13df"
     prettier: ^2.8.8
-    qunit: ^2.19.4
+    qunit: ^2.20.0
     qunit-dom: ^2.0.0
     resolve: ^1.22.3
     showdown: ^2.1.0
