@@ -4666,7 +4666,7 @@ __metadata:
     ember-composable-helpers: ^4.5.0
     ember-concurrency: ^2.3.7
     ember-element-helper: ^0.8.5
-    ember-focus-trap: ^1.0.2
+    ember-focus-trap: ^1.1.0
     ember-keyboard: ^8.2.0
     ember-load-initializers: ^2.1.2
     ember-page-title: ^8.0.0
@@ -13123,13 +13123,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-focus-trap@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "ember-focus-trap@npm:1.0.2"
+"ember-focus-trap@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "ember-focus-trap@npm:1.1.0"
   dependencies:
     "@embroider/addon-shim": ^1.0.0
     focus-trap: ^6.7.1
-  checksum: 1940405edcbff3997eb3d9f15314ded20f676e25a07adee5e306c0816ed0743849798c5bd69c1e7e35a5b32c44d0b4995a2d46cc14adc97eab899167fc51a968
+  peerDependencies:
+    ember-source: ^4.0.0 || ^5.0.0
+  checksum: 1f19c50b92c56f04681cd59ac3a88a520a53403278105aab2f4edc64df6ce3d0ceb53409e3309822bd4ced60063d9e8657117c708f90da9038c8140737e8d831
   languageName: node
   linkType: hard
 
