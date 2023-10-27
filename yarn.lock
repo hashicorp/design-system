@@ -4620,10 +4620,10 @@ __metadata:
     "@percy/cli": ^1.27.3
     "@percy/ember": ^4.2.0
     "@tsconfig/ember": latest
-    "@types/ember-qunit": latest
-    "@types/ember-resolver": latest
-    "@types/qunit": latest
-    "@types/rsvp": latest
+    "@types/ember-qunit": ^6.1.1
+    "@types/ember-resolver": ^9.0.0
+    "@types/qunit": ^2.19.7
+    "@types/rsvp": ^4.0.6
     broccoli-asset-rev: ^3.0.0
     dialog-polyfill: ^0.5.6
     ember-a11y-refocus: ^3.0.2
@@ -4687,10 +4687,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@hashicorp/design-system-tokens@workspace:packages/tokens"
   dependencies:
-    "@types/fs-extra": ^8.1.2
-    "@types/lodash": ^4.14.195
+    "@types/fs-extra": ^8.1.4
+    "@types/lodash": ^4.14.200
     "@types/node": ^13.13.52
-    "@types/tinycolor2": ^1.4.3
+    "@types/tinycolor2": ^1.4.5
     "@typescript-eslint/eslint-plugin": ^4.33.0
     "@typescript-eslint/parser": ^4.33.0
     del: ^5.1.0
@@ -4773,13 +4773,13 @@ __metadata:
     "@figma-export/types": ^3.5.0
     "@svgr/core": ^5.5.0
     "@svgr/plugin-jsx": ^5.5.0
-    "@types/archiver": ^5.3.2
+    "@types/archiver": ^5.3.4
     "@types/fs-extra": ^9.0.13
-    "@types/lodash": ^4.14.195
-    "@types/node": ^16.18.33
-    "@types/prettier": ^2.7.2
-    "@types/react": ^17.0.60
-    "@types/react-dom": ^17.0.20
+    "@types/lodash": ^4.14.200
+    "@types/node": ^16.18.59
+    "@types/prettier": ^2.7.3
+    "@types/react": ^17.0.69
+    "@types/react-dom": ^17.0.22
     "@types/svgo": ~1.3.6
     "@typescript-eslint/eslint-plugin": ^4.33.0
     "@typescript-eslint/parser": ^4.33.0
@@ -5904,12 +5904,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/archiver@npm:^5.3.2":
-  version: 5.3.2
-  resolution: "@types/archiver@npm:5.3.2"
+"@types/archiver@npm:^5.3.4":
+  version: 5.3.4
+  resolution: "@types/archiver@npm:5.3.4"
   dependencies:
     "@types/readdir-glob": "*"
-  checksum: 9db5b4fdc1740fa07d08340ed827598cc6eda97406ac18a06a158670c7124d4120650a3b9cd660e9e39b42f033cf8f052566da32681e8ad91163473df88a3c4c
+  checksum: 4ef27b99091ada9b8f13017d5b9e6d42a439e35a7858b30e040c408e081d98d8db6307b0762500288b5da38cab9823c4756b6abae1fdd2658d42bfb09eb7c5fb
   languageName: node
   linkType: hard
 
@@ -6010,7 +6010,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ember-qunit@npm:latest":
+"@types/ember-qunit@npm:^6.1.1":
   version: 6.1.1
   resolution: "@types/ember-qunit@npm:6.1.1"
   dependencies:
@@ -6019,7 +6019,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ember-resolver@npm:latest":
+"@types/ember-resolver@npm:^9.0.0":
   version: 9.0.0
   resolution: "@types/ember-resolver@npm:9.0.0"
   dependencies:
@@ -6280,12 +6280,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/fs-extra@npm:^8.1.0, @types/fs-extra@npm:^8.1.2":
+"@types/fs-extra@npm:^8.1.0":
   version: 8.1.2
   resolution: "@types/fs-extra@npm:8.1.2"
   dependencies:
     "@types/node": "*"
   checksum: 7277198ded9caea5750c82e569ba1e6fbac28cdb4a95e5d52d24e7c4c2ac90bf45fbe89e08fc21de8f9d3c9b302e30680566eb04e460c30ceac66ad24c161b37
+  languageName: node
+  linkType: hard
+
+"@types/fs-extra@npm:^8.1.4":
+  version: 8.1.4
+  resolution: "@types/fs-extra@npm:8.1.4"
+  dependencies:
+    "@types/node": "*"
+  checksum: f9245f083977b76d8d9dbda4b13d3c735ebbc8f17656cda7205a5648d31462c33589bd0dea7dfc12bd04d2b62cf969d29e8ef2a4e54ce91a0f5c90cc9c0053db
   languageName: node
   linkType: hard
 
@@ -6383,10 +6392,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:^4.14.195":
-  version: 4.14.195
-  resolution: "@types/lodash@npm:4.14.195"
-  checksum: 39b75ca635b3fa943d17d3d3aabc750babe4c8212485a4df166fe0516e39288e14b0c60afc6e21913cc0e5a84734633c71e617e2bd14eaa1cf51b8d7799c432e
+"@types/lodash@npm:^4.14.200":
+  version: 4.14.200
+  resolution: "@types/lodash@npm:4.14.200"
+  checksum: 6471f8bb5da692a6ecf03a8da4935bfbc341e67ee9bcb4f5730bfacff0c367232548f0a01e8ac5ea18c6fe78fb085d502494e33ccb47a7ee87cbdee03b47d00d
   languageName: node
   linkType: hard
 
@@ -6439,10 +6448,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^16.18.33":
-  version: 16.18.33
-  resolution: "@types/node@npm:16.18.33"
-  checksum: 4d23c8776186cf221e70410c68da8d98e962311104891e1995b565fc926bcb5bb07ae32f65dd0a41104dbe685abd5972c23146a74f9bb5d427a73622157b42f5
+"@types/node@npm:^16.18.59":
+  version: 16.18.59
+  resolution: "@types/node@npm:16.18.59"
+  checksum: 70f28744d239c48db056ff6355d2eb99305db54d1f9377b3f4458e92ffb4da8962a0c67665452d5f430cea2286ced256dac8f769660007aedd3676cf03ff28ad
   languageName: node
   linkType: hard
 
@@ -6467,17 +6476,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prettier@npm:^2.0.0":
+"@types/prettier@npm:^2.0.0, @types/prettier@npm:^2.7.3":
   version: 2.7.3
   resolution: "@types/prettier@npm:2.7.3"
   checksum: 705384209cea6d1433ff6c187c80dcc0b95d99d5c5ce21a46a9a58060c527973506822e428789d842761e0280d25e3359300f017fbe77b9755bc772ab3dc2f83
-  languageName: node
-  linkType: hard
-
-"@types/prettier@npm:^2.7.2":
-  version: 2.7.2
-  resolution: "@types/prettier@npm:2.7.2"
-  checksum: b47d76a5252265f8d25dd2fe2a5a61dc43ba0e6a96ffdd00c594cb4fd74c1982c2e346497e3472805d97915407a09423804cc2110a0b8e1b22cffcab246479b7
   languageName: node
   linkType: hard
 
@@ -6502,7 +6504,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/qunit@npm:latest":
+"@types/qunit@npm:^2.19.7":
   version: 2.19.7
   resolution: "@types/qunit@npm:2.19.7"
   checksum: fe0410951f7ee8ca6dfb86a2f9b68f157dbdfc2706bb5885fbfeddf9053206ef3953a58223c9d5ce19b4d878f3609022e9b496dc4ba9157e0f5110a56c91d0ba
@@ -6516,12 +6518,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^17.0.20":
-  version: 17.0.20
-  resolution: "@types/react-dom@npm:17.0.20"
+"@types/react-dom@npm:^17.0.22":
+  version: 17.0.22
+  resolution: "@types/react-dom@npm:17.0.22"
   dependencies:
     "@types/react": ^17
-  checksum: 525439fb14a033fc5dbe74711ecc50ec82273a528df9656594066a6219401e975101dafffd15d9a1a57a9442d52ea0c92eaacae09554dde27cd792e773f67467
+  checksum: 3c24331c0a2211370968befaad107598ee4f796c08e9b0de0b0126ee598a7c51f7bf4e0e7d9a76522a3b60d91f091d46131d136bcbe49aeb6ec3b8480dff03f9
   languageName: node
   linkType: hard
 
@@ -6536,14 +6538,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^17.0.60":
-  version: 17.0.60
-  resolution: "@types/react@npm:17.0.60"
+"@types/react@npm:^17.0.69":
+  version: 17.0.69
+  resolution: "@types/react@npm:17.0.69"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: 8565e53d6ad83cd5f606fa66f5f9d8d0e5323a0103114a0292ae8f97c17ce4a7dfa15b847c54eb0a2c41c03df7fd64ba1d5bcef91ee0c177e55315e52e334463
+  checksum: b83d4ec968b712b2b1a444c614b1ef3e59879c6911bc4001158de5de49b80b6a20fc4859353244f0171b94845d4c85a6379071445242ff23bbbc9b0ff24577d7
   languageName: node
   linkType: hard
 
@@ -6582,7 +6584,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/rsvp@npm:latest":
+"@types/rsvp@npm:^4.0.6":
   version: 4.0.6
   resolution: "@types/rsvp@npm:4.0.6"
   checksum: 5076e68a9c680c9f5b855818fc01f5866733899c252badc6289cb48119663266a9110fed9b69a16e5a6807cf2a7544d266b37096dbe299a0cbdcb2ce5cf4cd85
@@ -6641,10 +6643,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/tinycolor2@npm:^1.4.3":
-  version: 1.4.3
-  resolution: "@types/tinycolor2@npm:1.4.3"
-  checksum: 61984b2825d4ee902016ef24777787bb2fb9e4999ccd4f7e5a709442c00cf90ba4afa510b9c78f18dcc83c03305d597d5fe3825a6aad38354f95c68af70ebc1b
+"@types/tinycolor2@npm:^1.4.5":
+  version: 1.4.5
+  resolution: "@types/tinycolor2@npm:1.4.5"
+  checksum: 653b9d9b4a07c94f9e507e2173ee8d6bebcfbc7c73b19f5d357a3af489957390d817db82a9e5a4823b41b10179e9d0b2b825068f7f9d42706d591f8b2c1a464f
   languageName: node
   linkType: hard
 
