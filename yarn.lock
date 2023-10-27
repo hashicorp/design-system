@@ -4707,7 +4707,7 @@ __metadata:
     fs-extra: ^10.1.0
     lodash: ^4.17.21
     path: ^0.12.7
-    style-dictionary: ^3.8.0
+    style-dictionary: ^3.9.0
     tinycolor2: ^1.6.0
     ts-node: ^9.1.1
     typescript: ^4.9.5
@@ -24228,9 +24228,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"style-dictionary@npm:^3.8.0":
-  version: 3.8.0
-  resolution: "style-dictionary@npm:3.8.0"
+"style-dictionary@npm:^3.9.0":
+  version: 3.9.0
+  resolution: "style-dictionary@npm:3.9.0"
   dependencies:
     chalk: ^4.0.0
     change-case: ^4.1.2
@@ -24243,7 +24243,7 @@ __metadata:
     tinycolor2: ^1.4.1
   bin:
     style-dictionary: bin/style-dictionary
-  checksum: ed2440c2d1bd84593f9f60ffbfbb7c85c9592d125e169ea63e2044fe681191e8c9c156853d82ae606f9adf6aacbaa162e03d5ef85b80be334d76e28a57bfc189
+  checksum: 70ac197c75e0d97dcbfeb52ed5292b43fa83c5716c2d5a3217f65eaf4812181e847b78a3227271baffc2f5e60b9de1a7d582a3d886a575570ee658ccd687e5ce
   languageName: node
   linkType: hard
 
