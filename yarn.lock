@@ -13261,14 +13261,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-math-helpers@npm:^2.18.2":
-  version: 2.18.2
-  resolution: "ember-math-helpers@npm:2.18.2"
+"ember-math-helpers@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "ember-math-helpers@npm:3.0.0"
   dependencies:
     broccoli-funnel: ^3.0.8
     ember-cli-babel: ^7.26.11
-    ember-cli-htmlbars: ^6.0.1
-  checksum: 00ce8a0a373df912f6d61d265f0353699e5d792c1365ac0732c0bbf570cd1919efa6ce7f76912770e56bf16333502561c19415876d365b5c0b3566afa439c403
+    ember-cli-htmlbars: ^6.1.1
+  checksum: 25cfbc3acaf7f39adc3823c107f6cd944770f04b60a03663553cb4731159e9d6609cf1bc159e3b99512f70599d0fdc68d41c613da15290b80a4045f15f3c0553
   languageName: node
   linkType: hard
 
@@ -26479,7 +26479,7 @@ __metadata:
     ember-concurrency: ^3.1.1
     ember-fetch: ^8.1.2
     ember-load-initializers: ^2.1.2
-    ember-math-helpers: ^2.18.2
+    ember-math-helpers: ^3.0.0
     ember-meta: ^2.0.0
     ember-modifier: ^4.1.0
     ember-page-title: ^8.0.0
