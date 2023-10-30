@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 // THIS FILE IS A DIRECT PORTING (AND CUSTOMIZATION) FROM: https://github.com/changesets/changesets/blob/0c8829bf8729ed5080bd7da843a717f60ea4b84b/packages/changelog-github/src/index.ts
 //
 // Notice:
