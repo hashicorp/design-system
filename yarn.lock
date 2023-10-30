@@ -4719,7 +4719,7 @@ __metadata:
     prettier: ^2.8.8
     prismjs: ^1.29.0
     qunit: ^2.20.0
-    qunit-dom: ^2.0.0
+    qunit-dom: ^3.0.0
     sass: ^1.69.5
     sinon: ^15.2.0
     stylelint: ^15.11.0
@@ -4805,7 +4805,7 @@ __metadata:
     npm-run-all: ^4.1.5
     prettier: ^2.8.8
     qunit: ^2.20.0
-    qunit-dom: ^2.0.0
+    qunit-dom: ^3.0.0
     webpack: ^5.89.0
   languageName: unknown
   linkType: soft
@@ -22029,15 +22029,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qunit-dom@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "qunit-dom@npm:2.0.0"
-  dependencies:
-    broccoli-funnel: ^3.0.3
-    broccoli-merge-trees: ^4.2.0
-    ember-cli-babel: ^7.23.0
-    ember-cli-version-checker: ^5.1.1
-  checksum: f9f06ad19adaaa4f8f107f28fd3feacd65b26d4de647d08b11a844b750ebbed2adbeabab52edc9d8cda2b0b7a0e08812425a5d4698b34f1b2a9af7b6f53b8413
+"qunit-dom@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "qunit-dom@npm:3.0.0"
+  checksum: 6b9ded34d792764bddbc596ade6edef354e31922066e758d7d76e1010d77827772fc5abda6b49a5126f09280918562cd9e5f98fe6617f821ac19fc3f660969a8
   languageName: node
   linkType: hard
 
@@ -26410,7 +26405,7 @@ __metadata:
     prember-sitemap-generator: "https://github.com/shipshapecode/prember-sitemap-generator.git#commit=c95f47042d86c4fa7b8b631f271da090672e13df"
     prettier: ^2.8.8
     qunit: ^2.20.0
-    qunit-dom: ^2.0.0
+    qunit-dom: ^3.0.0
     resolve: ^1.22.8
     showdown: ^2.1.0
     stylelint: ^15.11.0
