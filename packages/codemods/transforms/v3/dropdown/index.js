@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 const CODEMOD_ANALYSIS = process.env.CODEMOD_ANALYSIS;
 
 module.exports = function ({ source /*, path*/ }, { parse, visit }) {
