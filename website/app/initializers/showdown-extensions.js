@@ -94,8 +94,10 @@ export function initialize(/* application */) {
         }
 
         if (Prism.languages[language]) {
+          // if the specified language is available in Prism we highlight the codeblock
           highlightedCodeBlock = Prism.highlight(codeblock, Prism.languages[language], language) + end;
         } else {
+          // otherwise we encode the codeblock and present it as is (without highlight)
           highlightedCodeBlock = Prism.util.encode(codeblock) + end;
         }
 

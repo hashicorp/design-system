@@ -2,6 +2,8 @@
 
 The basic invocation requires a `@value` argument. The component encodes this argument before displaying it.
 
+_Notice: if the `\n` escape sequence is used in the `@value` string in Handlebars, it will **not** be automatically converted to a newline, as it can have unexpected side effects._
+
 ```handlebars
 <Hds::CodeBlock
   @value="aws ec2 --region us-west-1 accept-vpc-peering-connection"
@@ -122,5 +124,12 @@ export default class App extends Application {
 }
 
 loadInitializers(App, config.modulePrefix);"
-/>
+as |CB|>
+  <CB.Title>
+    CodeBlock title
+  </CB.Title>
+  <CB.Description>
+    CodeBlock description
+  </CB.Description>
+</Hds::CodeBlock>
 ```
