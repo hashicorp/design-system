@@ -105,10 +105,12 @@ export default class HdsCodeBlockIndexComponent extends Component {
     const language = this.language;
     const grammar = Prism.languages[language];
 
-    if (code && language && grammar) {
-      this.prismCode = htmlSafe(Prism.highlight(code, grammar, language));
-    } else {
-      this.prismCode = htmlSafe(Prism.util.encode(code));
+    if (code) {
+      if (language && grammar) {
+        this.prismCode = htmlSafe(Prism.highlight(code, grammar, language));
+      } else {
+        this.prismCode = htmlSafe(Prism.util.encode(code));
+      }
     }
 
     // Force prism-line-numbers plugin initialization, required for Prism.highlight usage
