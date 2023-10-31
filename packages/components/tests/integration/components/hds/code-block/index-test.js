@@ -138,7 +138,7 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
     await render(hbs`
     <Hds::CodeBlock
       id="test-code-block-highlight"
-      @highlightLines={{"1"}}
+      @highlightLines="1"
       @value="import Application from '@ember/application';
 import Resolver from 'ember-resolver';
 import loadInitializers from 'ember-load-initializers';

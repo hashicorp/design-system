@@ -115,8 +115,10 @@ export default class HdsCodeBlockIndexComponent extends Component {
     });
 
     // Force prism-line-highlight plugin initialization
+    // Context: https://github.com/hashicorp/design-system/pull/1749#discussion_r1374288785
     if (this.args.highlightLines) {
       setTimeout(() => {
+        // we piggy-back on the plugin's `resize` event listener to trigger a new call of the `highlightLines` function: https://github.com/PrismJS/prism/blob/master/plugins/line-highlight/prism-line-highlight.js#L337
         if (window) window.dispatchEvent(new Event('resize'));
       }, 100);
     }
@@ -128,7 +130,7 @@ export default class HdsCodeBlockIndexComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    // Currently theres is only one theme so the class name is hard-coded.
+    // Currently there is only one theme so the class name is hard-coded.
     // In the future, additional themes such as a "light" theme could be added.
     let classes = ['hds-code-block', 'hds-code-block--theme-dark'];
 

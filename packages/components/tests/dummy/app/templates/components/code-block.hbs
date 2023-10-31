@@ -271,7 +271,7 @@ function assertObjectsEqual (actual, expected, testName) {
     <SG.Item @label="Highlight lines 2 & 4" @forceMinWidth={{true}}>
       <Hds::CodeBlock
         @language="javascript"
-        @highlightLines={{"2, 4"}}
+        @highlightLines="2, 4"
         @value="import Application from '@ember/application';
 import Resolver from 'ember-resolver';
 import loadInitializers from 'ember-load-initializers';
@@ -290,7 +290,7 @@ loadInitializers(App, config.modulePrefix);"
     <SG.Item @label="Highlight lines 6-10" @forceMinWidth={{true}}>
       <Hds::CodeBlock
         @language="javascript"
-        @highlightLines={{"6-10"}}
+        @highlightLines="6-10"
         @value="import Application from '@ember/application';
 import Resolver from 'ember-resolver';
 import loadInitializers from 'ember-load-initializers';
@@ -497,7 +497,7 @@ result:
         <T.Panel>
           <Hds::CodeBlock
             @language="javascript"
-            @highlightLines={{"2"}}
+            @highlightLines="2"
             @value="let codeLang='JavaScript';
 console.log(`I am ${codeLang} code`);"
           />
@@ -505,7 +505,7 @@ console.log(`I am ${codeLang} code`);"
         <T.Panel>
           <Hds::CodeBlock
             @language="go"
-            @highlightLines={{"2, 4"}}
+            @highlightLines="2, 4"
             @value="package main
 import 'fmt'
 func main() {
@@ -527,7 +527,7 @@ func main() {
           <Hds::CodeBlock
             @hasCopyButton={{true}}
             @language="go"
-            @highlightLines={{"2, 4"}}
+            @highlightLines="2, 4"
             @value="package main
 import 'fmt'
 func main() {
@@ -551,7 +551,7 @@ func main() {
             <Hds::CodeBlock
               @hasCopyButton={{true}}
               @language="go"
-              @highlightLines={{"2, 4"}}
+              @highlightLines="2, 4"
               @value="package main
 import 'fmt'
 func main() {
