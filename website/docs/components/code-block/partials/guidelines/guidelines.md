@@ -12,12 +12,12 @@
 
 There is some overlap in the copying functionality of the [Copy Snippet](/components/copy/snippet) and the CodeBlock. Which to use generally comes down to the complexity of the code/value displayed within the component, and whether the user benefits from seeing the larger context of the code example.
 
-Use a CodeBlock:
+**Use a CodeBlock:**
 
 - If viewing or displaying code is the primary purpose, and copying the code is secondary.
 - If the example consists of a command, e.g., a `curl` and `bash` script. These are oftentimes on a single line, but consist of multiple commands and functions.
 
-Use a Copy Snippet:
+**Use a Copy Snippet:**
 
 - If copying the code is the primary purpose, and viewing the code is secondary.
 - If allowing the user to copy an API key or other **single** value or string.
