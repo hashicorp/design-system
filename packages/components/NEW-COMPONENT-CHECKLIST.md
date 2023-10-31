@@ -81,7 +81,7 @@ The design process is largely cyclical, so some steps may be repeated until fina
 ### Release in Figma
 Once ambassadors have tested the component and iterations are approved, prepare for a final release of the component.
 
-- [ ] add a changelog entry to [CHANGELOG-FIGMA-COMPONENTS.md]([https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=6790-10926&mode=design](https://github.com/hashicorp/design-system/blob/main/packages/components/CHANGELOG-FIGMA-COMPONENTS.md))
+- [ ] add a changelog entry to [CHANGELOG-FIGMA-COMPONENTS.md](https://github.com/hashicorp/design-system/blob/main/packages/components/CHANGELOG-FIGMA-COMPONENTS.md)
 - [ ] if changes were made, publish the component
 - [ ] once the code has been released, communicate the release in the slack channel [#team-design-systems](https://hashicorp.slack.com/archives/C7KTUHNUS)
 
