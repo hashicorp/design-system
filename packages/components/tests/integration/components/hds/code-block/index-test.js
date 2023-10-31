@@ -5,11 +5,15 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/code-block/index', function (hooks) {
   setupRenderingTest(hooks);
+
+  hooks.afterEach(() => {
+    resetOnerror();
+  });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(hbs`
@@ -139,16 +143,7 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
     <Hds::CodeBlock
       id="test-code-block-highlight"
       @highlightLines="1"
-      @value="import Application from '@ember/application';
-import Resolver from 'ember-resolver';
-import loadInitializers from 'ember-load-initializers';
-import config from 'dummy/config/environment';
-export default class App extends Application {
-  modulePrefix = config.modulePrefix;
-  podModulePrefix = config.podModulePrefix;
-  Resolver = Resolver;
-}
-loadInitializers(App, config.modulePrefix);"
+      @value="console.log('Hello world');"
     />
   `);
     assert
@@ -165,5 +160,19 @@ loadInitializers(App, config.modulePrefix);"
     assert
       .dom('.hds-code-block__code')
       .hasAttribute('style', 'max-height: 100px;');
+  });
+
+  // ASSERTION
+
+  test('it should throw an assertion if no value for @code is provided', async function (assert) {
+    const errorMessage = '@code for "Hds::CodeBlock" must have a valid value';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::CodeBlock />`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
   });
 });
