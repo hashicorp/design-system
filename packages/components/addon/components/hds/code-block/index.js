@@ -17,13 +17,17 @@ import 'prismjs/plugins/line-highlight/prism-line-highlight';
 
 import 'prismjs/components/prism-bash';
 import 'prismjs/components/prism-go';
-import 'prismjs/components/prism-markup-templating';
-import 'prismjs/components/prism-handlebars';
 import 'prismjs/components/prism-hcl';
 import 'prismjs/components/prism-json';
 import 'prismjs/components/prism-log';
 import 'prismjs/components/prism-shell-session';
 import 'prismjs/components/prism-yaml';
+
+// These imports are required to overcome a global variable clash in Helios website
+// where language import are overriden by the Prism instance in `CodeBlock`
+// Note that `prism-handlebars` is dependant on `prism-markup-templating`
+import 'prismjs/components/prism-markup-templating';
+import 'prismjs/components/prism-handlebars';
 
 export default class HdsCodeBlockIndexComponent extends Component {
   @tracked prismCode = '';
