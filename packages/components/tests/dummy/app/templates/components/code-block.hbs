@@ -23,6 +23,30 @@ console.log(`I am ${codeLang} code`);"
     </SG.Item>
   </Shw::Grid>
 
+  <Shw::Text::Body>New lines handling</Shw::Text::Body>
+
+  <Shw::Grid @columns={{2}} {{style gap="2rem"}} as |SG|>
+    <SG.Item @forceMinWidth={{true}} as |SGI|>
+      <SGI.Label>new lines in Handlebars</SGI.Label>
+      <Hds::CodeBlock
+        @language="javascript"
+        @value="let codeLang='JavaScript';
+console.log(`I am ${codeLang} code`);"
+      />
+    </SG.Item>
+    <SG.Item @forceMinWidth={{true}} as |SGI|>
+      <SGI.Label>new lines with <code>\n</code> escape sequence in JavaScript</SGI.Label>
+      <Hds::CodeBlock @language="javascript" @value={{this.textWithNewline}} />
+    </SG.Item>
+    <SG.Item @forceMinWidth={{true}} as |SGI|>
+      <SGI.Label><code>\n</code> in Handlebars (not interpreted as newline)</SGI.Label>
+      <Hds::CodeBlock
+        @language="javascript"
+        @value="let codeLang='JavaScript';\nconsole.log(`I am ${codeLang} code`);"
+      />
+    </SG.Item>
+  </Shw::Grid>
+
   <Shw::Text::H3>Title and description</Shw::Text::H3>
 
   <Shw::Grid @columns={{2}} {{style gap="2rem"}} as |SG|>

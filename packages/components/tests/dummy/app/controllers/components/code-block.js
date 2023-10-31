@@ -39,6 +39,10 @@ export default class CodeBlockController extends Controller {
     scheduleOnce('afterRender', this, replaceMockCopyStatus);
   }
 
+  get textWithNewline() {
+    return "let codeLang='JavaScript';\nconsole.log(`I am ${codeLang} code`);";
+  }
+
   @action
   activateModal() {
     this.isModalActive = true;
