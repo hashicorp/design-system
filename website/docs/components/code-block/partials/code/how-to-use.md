@@ -122,5 +122,12 @@ export default class App extends Application {
 }
 
 loadInitializers(App, config.modulePrefix);"
-/>
+as |CB|>
+  <CB.Title>
+    CodeBlock title
+  </CB.Title>
+  <CB.Description>
+    CodeBlock description
+  </CB.Description>
+</Hds::CodeBlock>
 ```
