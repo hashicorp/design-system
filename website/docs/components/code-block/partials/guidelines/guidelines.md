@@ -17,11 +17,42 @@ There is some overlap in the copying functionality of the [Copy Snippet](/compon
 - If viewing or displaying code is the primary purpose, and copying the code is secondary.
 - If the example consists of a command, e.g., a `curl` and `bash` script. These are oftentimes on a single line, but consist of multiple commands and functions.
 
+!!! Dont
+
+Consider not using the CodeBlock for examples where syntax highlighting might not benefit the user, or if parsing the entire example isn’t necessary.
+
+<Hds::CodeBlock
+  @hasLineWrapping={{true}}
+  @hasLineNumbers={{false}}
+  @hasCopyButton={{true}}
+  @value="https://api.hashicorp.services/very-long-url-that-might-not-benefit-from-syntax-highlighting" />
+!!!
+
 **Use a Copy Snippet:**
 
 - If copying the code is the primary purpose, and viewing the code is secondary.
 - If allowing the user to copy an API key or other **single** value or string.
 - If seeing the value in a larger context of where it's expected to be pasted into isn’t necessary.
+
+!!! Dont
+
+In this example, viewing the code is likely the primary purpose and the user would benefit from syntax highlighting in the CodeBlock to better parse the script.
+
+<Hds::Copy::Snippet @textToCopy="aws ec2 --region us-east-1 authorize-security-group-egress --group-id --ip-permissions IpProtocol=tcp,FromPort=8200,ToPort=8200,IpRanges='[{CidrIp=172.25.16.0/20}]'" />
+!!!
+
+!!! Do
+
+Instead, use the CodeBlock instead for this type of code example.
+
+<Hds::CodeBlock
+  @language="bash"
+  @hasLineWrapping={{true}}
+  @hasLineNumbers={{false}}
+  @hasCopyButton={{true}}
+  @value="aws ec2 --region us-east-1 authorize-security-group-egress --group-id --ip-permissions IpProtocol=tcp,FromPort=8200,ToPort=8200,IpRanges='[{CidrIp=172.25.16.0/20}]'"
+/>
+!!!
 
 ## Standalone
 
