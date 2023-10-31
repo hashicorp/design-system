@@ -31,16 +31,17 @@ The design process is largely cyclical, so some steps may be repeated until fina
   - [ ] change "{Component name}" to the name of the component
   - [ ] delete the figma tips frame, if not needed
 - [ ] design and build the component, taking into account existing [foundations](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=2916%3A4) and patterns, as well as the findings from the audit and requirements from the CRD
-  - artifacts could include: 
+  - artifacts should include: 
     - component explorations
     - examples in context
     - built component
 - [ ] review with situationally appropriate stakeholders and iterate
   - reviewers should include: 
     - HDS designers and manager
-    - engineering partner
+    - engineering partner(s)
     - a11y SME
     - other external stakeholders as defined during the kickoff
+    - consider also including the design ambassadors
   - reviews should include checks for: 
     - alignment to Helios design vision
     - ux solution
@@ -68,16 +69,19 @@ The design process is largely cyclical, so some steps may be repeated until fina
     - provide a variety (basic to complex) of screenshots to recreate based on real world examples from the audit
 - [ ] ask ambassadors to test the component
   - depending on the complexity, we usually give them 3-4 days to complete the testing
-- if iterations are needed, work through the process until approved (don't forget to branch!)
+- [ ] if iterations are needed, work through the process until approved (don't forget to branch!)
      
 ### Documentation
 - [ ] while the component is being tested, write the documentation
-  - artifacts include: design guidelines, specifications, relevant a11y details
+  - artifacts should include:
+    - design guidelines
+    - specifications
+    - relevant accessibility details
        
 ### Release in Figma
 Once ambassadors have tested the component and iterations are approved, prepare for a final release of the component.
 
-- [ ] add a changelog entry to the [changelog page](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=6790-10926&mode=design)
+- [ ] add a changelog entry to [CHANGELOG-FIGMA-COMPONENTS.md]([https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=6790-10926&mode=design](https://github.com/hashicorp/design-system/blob/main/packages/components/CHANGELOG-FIGMA-COMPONENTS.md))
 - [ ] if changes were made, publish the component
 - [ ] once the code has been released, communicate the release in the slack channel [#team-design-systems](https://hashicorp.slack.com/archives/C7KTUHNUS)
 
