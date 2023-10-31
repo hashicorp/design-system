@@ -25,7 +25,10 @@
 * This theme has been tweaked to meet HDS needs – see comments for original values
 */
 
-:root {
+// scope theme styles to the docs code block so they don't leak and affect the hds code block
+.doc-code-block__code-snippet {
+  /* Colors */
+
   --background: #252937; // #282a36;
   --comment: #818fb6; // #6272a4;
   --foreground: #f8f8f2;
@@ -37,8 +40,6 @@
   --purple: #bd93f9;
   --red: #f55;
   --yellow: #e6db74; // #f1fa8c;
-
-  /* Transparency */
 
   /** 30% of transparency **/
   --background-30: #25293733;
@@ -65,10 +66,7 @@
   --purple-40: #bd93f966;
   --red-40: #f556;
   --yellow-40: #f1fa8c66;
-}
 
-// scope theme styles to the docs code block so they don't leak and affect the hds code block
-.doc-code-block__code-snippet {
   /* Selection */
 
   // "@at-root here applies the styles to the ".doc-code-block__code-snippet" parent selector which is on a pre element"
