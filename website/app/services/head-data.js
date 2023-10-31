@@ -36,7 +36,7 @@ export default class CustomHeadDataService extends HeadDataService {
     const url =
       this.router.currentURL === '/'
         ? config['ember-meta'].url
-        : `${config['ember-meta'].url}/${this.router.currentURL}`;
+        : `${config['ember-meta'].url}${this.router.currentURL}`;
     return url;
   }
 }
