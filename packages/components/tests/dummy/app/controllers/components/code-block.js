@@ -36,7 +36,9 @@ export default class CodeBlockController extends Controller {
   }
 
   routeDidChange() {
-    scheduleOnce('afterRender', this, replaceMockCopyStatus);
+    if (this.router.currentRoute.name === 'components.code-block') {
+      scheduleOnce('afterRender', this, replaceMockCopyStatus);
+    }
   }
 
   get textWithNewline() {
