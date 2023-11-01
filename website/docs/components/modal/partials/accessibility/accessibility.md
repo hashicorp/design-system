@@ -6,7 +6,7 @@ The Modal component is conformant when used as directed.
 
 ## Focus and focus order
 
-- When the Modal is triggered via the keyboard, focus is trapped within the Modal. 
+- When the modal is open, focus moves to the first interactive element within the modal and is trapped within the component.
 - Since a Modal is a complex pattern that can contain any combination of nested components and content, nested elements must adhere to their individual accessibility criteria.
 
 ### Focus order within a simple Modal
@@ -17,7 +17,7 @@ Given the Modal is triggered via a keyboard, the dismiss button is first in the 
 
 ### Focus order within a complex Modal
 
-If the Modal body contains interactive content, the first element should receive focus first. This is true regardless of how the Modal is triggered; either via a mouse click or via the keyboard.
+If the Modal body contains interactive content, such as input fields, the first element should receive focus first regardless of how the Modal is triggered; either via a mouse click or via the keyboard. This behaviour should be implemented by [setting the focus on the first element](/components/modal?tab=code#form-within-a-modal-dialog).
 
 ![Complex focus within a modal](/assets/components/modal/modal-focus-order-complex.png =1042x*)
 
