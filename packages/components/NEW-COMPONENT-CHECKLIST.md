@@ -1,70 +1,89 @@
 # New Component Checklist
 
-This is the quest issue/engineering checklist for the COMPONENT_NAME Component. All new components will have their own feature branch, and any PR that adds an item from the checklist should target the feature branch, and not `main`.
+This is the checklist the HDS team uses for any new component project. All new components will have their own feature branch, and any PR that adds an item from the checklist should target the feature branch, and not `main`.
 
 ## Pre-Flight Checklist
-Update this list and these links as appropriate.
 
-- [Component Audit](https://www.figma.com/file/h3LtloARmbYVwh7z6XWHVb/Component-Audits-FY23?node-id=0%3A1): This audit should be completed by ambassadors before any work gets started.
-- [Component Requirement Document (CRD)](https://docs.google.com/document/d/1kGcdfnb_z5tVUUvkSJGQPOssNd1yl2SVyd7bqk1KXII/): This file should exist before any design explorations or code is written.
-- ["System of Systems" Storybook](https://unofficial-design-system-search.vercel.app) (storybook of storybooks): use for reference, to consider existing features that we might need to replicate in the component.
+The following should be available as resources for the Project Kickoff.
 
+- [Component Audit](https://www.figma.com/file/wPDhYo23Rk5WDZ5lHC04W3/Component-Audits-FY24?type=design&t=yWY94cHxIGiat5L7-6): This audit is performed by HDS Ambassadors and should be **complete** before the kickoff. 
+- [Component Requirement Document (CRD)](https://docs.google.com/document/d/1kGcdfnb_z5tVUUvkSJGQPOssNd1yl2SVyd7bqk1KXII/): This file should be started before the kickoff and include an early estimate of scope and any open questions that need to be answered during the kickoff.
+
+## Project Kickoff
+
+A project kickoff will be scheduled before the project start date. The kickoff will be used to align on project scope, timelines, and milestones and as a space to discuss any open questions. In attendance should be Design System team leadership, lead Designer and Engineer on the project, and Design/Engineer buddies (if applicable). 
 
 ## Design Checklist
-The design checklist has 5 parts:
-1. creating the branch
-2. design explorations and iterations
+The design checklist has 4 primary parts:
+1. component design
+2. testing
 3. documentation
-4. release
-5. testing
+4. final release
 
-The design process is largely cyclical, so some of these steps may need to be repeated until approval.
+The design process is largely cyclical, so some steps may be repeated until final approval.
 
-### Component Creation
+### Component Design
 - [ ] [create a branch](https://help.figma.com/hc/en-us/articles/360063144053-Create-branches-and-merge-changes#Create_a_branch) in the [product components ui kit](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components)
 - [ ] add a new page for the component, as needed
-- [ ] copy & paste the [stickersheet template](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=2279%3A26800) found in UI Helpers to the new page
-  - [ ] update the status badge to "In progress"
-  - [ ] change "{DOC TYPE}" to "STICKERSHEET"
+- [ ] copy & paste the [new component template](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=46856-287&mode=design&t=V4zCk5Jv07PcHYzZ-4) to the new page
+  - [ ] set the position of this frame to 0, 0
+  - [ ] update the status badge in the banner to "In progress"
   - [ ] change "{Component name}" to the name of the component
-  - [ ] delete the sunset notice
-- [ ] **design**
-  - [ ] work through design explorations, providing 2-3 visual directions based on existing [foundations](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=2916%3A4) and patterns, as well as the findings from the audit and requirements from the CRD
-  - [ ] review with appropriate stakeholders (typically HDS designers, engineering partner, ambassadors) and iterate
-  - [ ] review for a11y considerations and iterate, as necessary
-  - [ ] review with design leadership and iterate, as necessary
-  - [ ] once approved, build out the design as a component
-    - ensure the variant and property names align with what was discussed/decided on with your engineering partner
-  - [ ] test the component with HDS designers and iterate, as necessary
-  - [ ] sync with your engineering partner (pseudo handoff)
-    - let them know it's been design approved and discuss any remaining questions (this should be an ongoing process as well)
-- [ ] **documentation**
-  - all documentation should be contained within frames so it can be easily linked to
-  - [ ] stickersheet
-    - make sure the component instances can be easily selected and other layers are locked
-  - [ ] design guidelines
-    - when complete, lock this frame
-  - [ ] figma tips, as necessary
-    - when complete, lock this frame
-  - [ ] migration details, as necessary
-    - when complete, lock this frame
-  - [ ] let your engineering partner know that design guidelines are ready to be added to the scrappy site (they will add it themselves)
-- [ ] **release**
-  - [ ] lock and hide the components leaving only the stickersheets and docs visible, and change the header's badge to Experimental
-  - [ ] add release notes to the changelog
-  - [ ] review with situationally appropriate reviewers to get final approval
+  - [ ] delete the figma tips frame, if not needed
+- [ ] design and build the component, taking into account existing [foundations](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=2916%3A4) and patterns, as well as the findings from the audit and requirements from the CRD
+  - artifacts should include: 
+    - component explorations
+    - examples in context
+    - built component
+- [ ] review with situationally appropriate stakeholders and iterate
+  - reviewers should include: 
+    - HDS designers and manager
+    - engineering partner(s)
+    - a11y SME
+    - other external stakeholders as defined during the kickoff
+    - consider also including the design ambassadors
+  - reviews should include checks for: 
+    - alignment to Helios design vision
+    - ux solution
+    - fulfillment of requirements from the audit and CRD
+    - a11y conformance
+    - alignment to code API
+    - consistent naming conventions
+    - token usage
+- [ ] have HDS designers test the component and iterate, as necessary
+- [ ] add a variety of examples to the stickersheet
+  - make sure the component instances can be easily selected and other layers are locked
+- [ ] add any necessary figma tips
+- [ ] request a final branch review from HDS designers
+- [ ] sync with your engineering partner
+  - let them know it's been approved and answer any remaining questions
+       
+### Component Testing
+- [ ] prepare for testing
+  - [ ] lock the components
+  - [ ] change the badge in the banner to "Experimental"
   - [ ] merge the branch
-  - [ ] publish the ui kit
-    - Important: do not communicate this release to consumers yet! (this will be done later in the process)
-- [ ] **testing**
-  - [ ] add a new page to the [playground](https://www.figma.com/file/95YqaJF4TNV72ucXbyC7A0/Playground?node-id=302%3A10) file and prepare a frame for each ambassador to test
+  - [ ] publish the component
+    - Important: do not communicate this release to consumers yet (this will be done later in the process)
+  - [ ] add a new page to the [playground](https://www.figma.com/file/JnkAC69NeUX83Pug32o7Mr/%F0%9F%AA%81-Playground-FY24?type=design&node-id=302-10&mode=design&t=Ov4rEelxWK7rxLdI-0) file and prepare a frame for each ambassador
     - provide a variety (basic to complex) of screenshots to recreate based on real world examples from the audit
-  - [ ] test the component with ambassadors
-  - if iterations are needed, work through the process until approved (don't forget to branch!)
-- [ ] **final release**
-  - this comes after ambassadors have tested the component in Figma and no other adjustments are needed
-  - [ ] if changes were required, follow the steps under "release" again
-  - [ ] share about the release in the slack channel [#team-design-systems](https://hashicorp.slack.com/archives/C7KTUHNUS) and let consumers know that the component is available for use in Figma
+- [ ] ask ambassadors to test the component
+  - depending on the complexity, we usually give them 3-4 days to complete the testing
+- [ ] if iterations are needed, work through the process until approved (don't forget to branch!)
+     
+### Documentation
+- [ ] while the component is being tested, write the documentation
+  - artifacts should include:
+    - design guidelines
+    - specifications
+    - relevant accessibility details
+       
+### Release in Figma
+Once ambassadors have tested the component and iterations are approved, prepare for a final release of the component.
+
+- [ ] add a changelog entry to [CHANGELOG-FIGMA-COMPONENTS.md](https://github.com/hashicorp/design-system/blob/main/packages/components/CHANGELOG-FIGMA-COMPONENTS.md)
+- [ ] if changes were made, publish the component
+- [ ] once the code has been released, communicate the release in the slack channel [#team-design-systems](https://hashicorp.slack.com/archives/C7KTUHNUS)
 
 
 ## Engineering Checklist
