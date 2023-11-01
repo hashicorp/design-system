@@ -4686,7 +4686,7 @@ __metadata:
     ember-cli-deprecation-workflow: ^2.1.0
     ember-cli-htmlbars: ^6.3.0
     ember-cli-inject-live-reload: ^2.1.0
-    ember-cli-sass: ^10.0.1
+    ember-cli-sass: ^11.0.1
     ember-cli-sri: ^2.1.1
     ember-cli-string-helpers: ^6.1.0
     ember-cli-terser: ^4.0.2
@@ -12793,18 +12793,6 @@ __metadata:
     broccoli-funnel: ^3.0.8
     debug: ^4.3.2
   checksum: 41b2d0b45a7e9423381965a43bc5c3f0d693d0d78aeeb8a9ebcbbe567f37fff21c56fb3ad9f7a941cdf3fa8a82f20b2c1a13fe9be6f10b33eb40d9553555acab
-  languageName: node
-  linkType: hard
-
-"ember-cli-sass@npm:^10.0.1":
-  version: 10.0.1
-  resolution: "ember-cli-sass@npm:10.0.1"
-  dependencies:
-    broccoli-funnel: ^2.0.1
-    broccoli-merge-trees: ^3.0.1
-    broccoli-sass-source-maps: ^4.0.0
-    ember-cli-version-checker: ^2.1.0
-  checksum: 99eb9045b19c82851a90435df14b4ab4108ee0fd57a9e78d085c225a9d3dfb72bae8118707cf2f1a2d4d37abc2c40ad0dd95c0079f43d051ec90526448189ac3
   languageName: node
   linkType: hard
 
