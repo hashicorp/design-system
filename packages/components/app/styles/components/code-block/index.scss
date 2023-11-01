@@ -198,6 +198,7 @@ $code-block-code-padding: 16px;
       top: 0;
       left: 0;
       min-width: $code-block-line-numbers-width;
+      min-height: 100%;
       padding: $code-block-code-padding 0;
       border-right: 1px solid var(--hds-code-block-color-border-primary);
       user-select: none;
