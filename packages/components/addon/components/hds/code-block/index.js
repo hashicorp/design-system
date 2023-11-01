@@ -111,22 +111,22 @@ export default class HdsCodeBlockIndexComponent extends Component {
       } else {
         this.prismCode = htmlSafe(Prism.util.encode(code));
       }
-    }
 
-    // Force prism-line-numbers plugin initialization, required for Prism.highlight usage
-    // See https://github.com/PrismJS/prism/issues/1234
-    Prism.hooks.run('complete', {
-      code,
-      element,
-    });
+      // Force prism-line-numbers plugin initialization, required for Prism.highlight usage
+      // See https://github.com/PrismJS/prism/issues/1234
+      Prism.hooks.run('complete', {
+        code,
+        element,
+      });
 
-    // Force prism-line-highlight plugin initialization
-    // Context: https://github.com/hashicorp/design-system/pull/1749#discussion_r1374288785
-    if (this.args.highlightLines) {
-      setTimeout(() => {
-        // we piggy-back on the plugin's `resize` event listener to trigger a new call of the `highlightLines` function: https://github.com/PrismJS/prism/blob/master/plugins/line-highlight/prism-line-highlight.js#L337
-        if (window) window.dispatchEvent(new Event('resize'));
-      }, 100);
+      // Force prism-line-highlight plugin initialization
+      // Context: https://github.com/hashicorp/design-system/pull/1749#discussion_r1374288785
+      if (this.args.highlightLines) {
+        setTimeout(() => {
+          // we piggy-back on the plugin's `resize` event listener to trigger a new call of the `highlightLines` function: https://github.com/PrismJS/prism/blob/master/plugins/line-highlight/prism-line-highlight.js#L337
+          if (window) window.dispatchEvent(new Event('resize'));
+        }, 100);
+      }
     }
   }
 
