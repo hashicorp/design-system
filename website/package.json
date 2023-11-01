@@ -28,7 +28,7 @@
     "lint:spell:docs": "cspell --no-progress --show-suggestions --show-context \"docs/**/*.md\"",
     "start": "ember serve",
     "start:prember": "PREMBER=true ember serve",
-    "scrape:markdown": "node docs-scraper/scrape-markdown.mjs",
+    "algolia:index": "node docs-scraper/index-website-content.mjs",
     "test": "npm-run-all lint test:*",
     "test:ember": "ember test"
   },
@@ -44,6 +44,7 @@
     "@hashicorp/design-system-tokens": "workspace:^",
     "@hashicorp/ember-flight-icons": "workspace:^",
     "@hashicorp/flight-icons": "workspace:^",
+    "algoliasearch": "^4.20.0",
     "broccoli-asset-rev": "^3.0.0",
     "broccoli-funnel": "^3.0.8",
     "broccoli-merge-trees": "^4.2.0",
