@@ -37,8 +37,6 @@ const walkDir = async (dir, fileList = []) => {
   try {
     const files = await walkDir(distDocsFolder);
 
-    // console.log('FILES', files);
-
     for (const file of files) {
       const fileFullPath = file;
       const fileRelativePath = path.relative(distDocsFolder, fileFullPath);
@@ -58,13 +56,13 @@ const walkDir = async (dir, fileList = []) => {
       const jsonData = await fs.readJSON(fileFullPath);
 
       // skip hidden pages
-      if (jsonData.data.attributes.navigation.hidden) {
+      if (jsonData.data?.attributes?.navigation?.hidden) {
         continue;
       }
 
       // extract the page content and relevant metadata
-      const pageId = _.pick(jsonData.data, 'id');
-      const pageContent = _.pick(jsonData.data.attributes, 'content');
+      const pageId = jsonData.data.id;
+      const pageContent = jsonData.data.attributes.content ?? '';
       const pageMetadata = _.pick(jsonData.data.attributes, [
         'title',
         'caption',
@@ -72,11 +70,39 @@ const walkDir = async (dir, fileList = []) => {
         'previewImage',
       ]);
 
-      if (fileRelativePath === 'components/alert/index.json') {
-        console.log('----------------------------');
-        console.log(fileRelativePath, pageId, pageMetadata);
-        console.log('----------------------------');
+      // check if the content is split in "sections"
+      const matchAllResults = pageContent.matchAll(
+        /<section data-tab="(.*?)">([\s|\S|.]*?)<\/section>/g
+      );
+
+      // notice: `matchAll` returns an iterable, not an array
+      // plus once it's iterated over, you can't iterate again
+      // so we need to destructure it on a reusable array
+      const matches = [...matchAllResults];
+
+      let markdownContent;
+      if (matches.length) {
+        // extract from each "section" the tab name and the actual content
+        markdownContent = matches.map((match) => {
+          // if (fileRelativePath === 'components/alert/index.json') {
+          //   console.log(match);
+          // }
+          return {
+            tabName: match[1],
+            tabContent: match[2],
+          };
+        });
+      } else {
+        markdownContent = pageContent;
       }
+
+      console.log('----------------------------');
+      console.log(pageId, fileRelativePath);
+      // if (fileRelativePath === 'about/support.json') {
+      // }
+      // if (fileRelativePath === 'components/alert/index.json') {
+      //   console.log(markdownContent.map((item) => item.tabName));
+      // }
     }
   } catch (err) {
     console.error(err);
