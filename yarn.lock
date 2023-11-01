@@ -4680,7 +4680,7 @@ __metadata:
     ember-body-class: ^3.0.0
     ember-cached-decorator-polyfill: ^1.0.2
     ember-cli: ~5.3.0
-    ember-cli-babel: ^7.26.11
+    ember-cli-babel: ^8.2.0
     ember-cli-clean-css: ^3.0.0
     ember-cli-dependency-checker: ^3.3.2
     ember-cli-deprecation-workflow: ^2.1.0
@@ -4777,7 +4777,7 @@ __metadata:
     broccoli-asset-rev: ^3.0.0
     ember-auto-import: ^2.6.3
     ember-cli: ~5.3.0
-    ember-cli-babel: ^7.26.11
+    ember-cli-babel: ^8.2.0
     ember-cli-clean-css: ^3.0.0
     ember-cli-dependency-checker: ^3.3.2
     ember-cli-htmlbars: ^6.3.0
@@ -12455,6 +12455,43 @@ __metadata:
     rimraf: ^3.0.1
     semver: ^5.5.0
   checksum: 72b2819018d4d29b5250284cab5fa992a7fd6b0cf958a1fc4abed4a4f6394c0aca4ee32d4c8981d8643fef7280763fadf70ebd807f262967899f4898679bcb90
+  languageName: node
+  linkType: hard
+
+"ember-cli-babel@npm:^8.2.0":
+  version: 8.2.0
+  resolution: "ember-cli-babel@npm:8.2.0"
+  dependencies:
+    "@babel/helper-compilation-targets": ^7.20.7
+    "@babel/plugin-proposal-class-properties": ^7.16.5
+    "@babel/plugin-proposal-decorators": ^7.20.13
+    "@babel/plugin-proposal-private-methods": ^7.16.5
+    "@babel/plugin-proposal-private-property-in-object": ^7.20.5
+    "@babel/plugin-transform-class-static-block": ^7.22.11
+    "@babel/plugin-transform-modules-amd": ^7.20.11
+    "@babel/plugin-transform-runtime": ^7.13.9
+    "@babel/plugin-transform-typescript": ^7.20.13
+    "@babel/preset-env": ^7.20.2
+    "@babel/runtime": 7.12.18
+    amd-name-resolver: ^1.3.1
+    babel-plugin-debug-macros: ^0.3.4
+    babel-plugin-ember-data-packages-polyfill: ^0.1.2
+    babel-plugin-ember-modules-api-polyfill: ^3.5.0
+    babel-plugin-module-resolver: ^5.0.0
+    broccoli-babel-transpiler: ^8.0.0
+    broccoli-debug: ^0.6.4
+    broccoli-funnel: ^3.0.8
+    broccoli-source: ^3.0.1
+    calculate-cache-key-for-tree: ^2.0.0
+    clone: ^2.1.2
+    ember-cli-babel-plugin-helpers: ^1.1.1
+    ember-cli-version-checker: ^5.1.2
+    ensure-posix-path: ^1.0.2
+    resolve-package-path: ^4.0.3
+    semver: ^7.3.8
+  peerDependencies:
+    "@babel/core": ^7.12.0
+  checksum: 26a5abd3107ddfc76221894141b68cab79fb9cdf79ea0fa9646efe47c42f18bda49b854878118f8b57b3ebf5014828cf0ad640e77ffc209e3565f7eb792d1ef5
   languageName: node
   linkType: hard
 
