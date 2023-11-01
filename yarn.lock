@@ -4690,7 +4690,7 @@ __metadata:
     ember-cli-sri: ^2.1.1
     ember-cli-string-helpers: ^6.1.0
     ember-cli-terser: ^4.0.2
-    ember-composable-helpers: ^4.5.0
+    ember-composable-helpers: ^5.0.0
     ember-concurrency: ^3.1.1
     ember-element-helper: ^0.8.5
     ember-focus-trap: ^1.1.0
@@ -13090,15 +13090,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-composable-helpers@npm:^4.5.0":
-  version: 4.5.0
-  resolution: "ember-composable-helpers@npm:4.5.0"
+"ember-composable-helpers@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "ember-composable-helpers@npm:5.0.0"
   dependencies:
     "@babel/core": ^7.0.0
     broccoli-funnel: 2.0.1
     ember-cli-babel: ^7.26.3
     resolve: ^1.10.0
-  checksum: 39bc86701eee2c8afde0cd912b757fd7f26b06c25df182fc6bc833722bea86a2c4cc4e51659c489dfdcea5630ed87794010584e68b4c52e6049aee8a8c87808b
+  checksum: 8fdceade42f025cb75cb3718de4a6f3836b1a74eca8d30ca7a8c0313fccdce6663ce6fa5e5bd14fd905ecac2a330d55c169f21f559f092a5900d08ddc290fff6
   languageName: node
   linkType: hard
 
