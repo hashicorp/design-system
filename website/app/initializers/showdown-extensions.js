@@ -77,6 +77,7 @@ export function initialize(/* application */) {
         let match = languageBlock.match(/(\w+)({(.*)})?/);
         let language = '';
         let attributeString = '';
+        let highlightedCodeBlock = '';
 
         if(match && match[1]) {
           language = match[1];
@@ -92,7 +93,13 @@ export function initialize(/* application */) {
           language = 'shell';
         }
 
-        let highlightedCodeBlock = Prism.highlight(codeblock, Prism.languages[language], language) + end;
+        if (Prism.languages[language]) {
+          // if the specified language is available in Prism we highlight the codeblock
+          highlightedCodeBlock = Prism.highlight(codeblock, Prism.languages[language], language) + end;
+        } else {
+          // otherwise we encode the codeblock and present it as is (without highlight)
+          highlightedCodeBlock = Prism.util.encode(codeblock) + end;
+        }
 
         // escape { and } for the code sample
         highlightedCodeBlock = highlightedCodeBlock.replace(/{/g, '&#123;').replace(/}/g, '&#125;')
