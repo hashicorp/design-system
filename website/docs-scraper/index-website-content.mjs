@@ -11,7 +11,7 @@ import _ from 'lodash';
 
 import algoliasearch from 'algoliasearch';
 
-import { collectHeadings } from './extract-content-from-markdown.mjs';
+import { parseMarkdown } from './extract-content-from-markdown.mjs';
 
 // read the environment variables from the ".env" file
 dotenv.config();
@@ -104,15 +104,24 @@ async function indexWebsiteContent() {
     }
 
     // we skip the "testing" folder
-    if (fileRelativePath.match(/^testing/)) {
+    // if (fileRelativePath.match(/^testing/)) {
+    //   continue;
+    // }
+
+    // TODO!
+    // we use ONLY the "testing" folder
+    if (fileRelativePath.match(/^testing\/markdown/) === null) {
       continue;
     }
 
     // TODO!
     // DEBUG - focus only on a single file for now
-    if (fileRelativePath !== 'about/support.json') {
+    if (fileRelativePath !== 'testing/markdown/scraping-playground.json') {
       continue;
     }
+
+    console.log('\n\n\n\n========================================');
+    console.log(`\nFile: ${fileRelativePath}\n\n`);
 
     // read the JSON file
     const jsonData = await fs.readJSON(fileFullPath);
@@ -180,8 +189,12 @@ async function indexWebsiteContent() {
     } else {
       markdownContent = pageContent;
 
-      const headings = await collectHeadings(markdownContent);
+      const { headings, paragraphs, tableCells } = await parseMarkdown(
+        markdownContent
+      );
       console.log('HEADINGS', headings);
+      console.log('PARAGRAPHS', paragraphs);
+      console.log('TABLE CELLS', tableCells);
 
       // prepare a new record for Algolia
       algoliaRecords.push(
