@@ -3,10 +3,13 @@
 //
 
 import { remark } from 'remark';
+import remarkGfm from 'remark-gfm';
 import { visit } from 'unist-util-visit';
 
-export async function collectHeadings(markdownContent) {
+export async function parseMarkdown(markdownContent) {
   const headings = [];
+  const paragraphs = [];
+  const tableCells = [];
 
   const headingMapper = () => (tree) => {
     visit(tree, 'heading', (node) => {
@@ -15,9 +18,30 @@ export async function collectHeadings(markdownContent) {
     });
   };
 
-  await remark().use(headingMapper).process(markdownContent);
+  const paragraphMapper = () => (tree) => {
+    visit(tree, 'paragraph', (node) => {
+      // TODO!
+      // How do we avoid HTML tags (eg. `<code>`) be indexed as words, but return only their "innerText"?
+      const content = stringifyChildNodes(node);
+      paragraphs.push({ content: content });
+    });
+  };
 
-  return headings;
+  const tableMapper = () => (tree) => {
+    visit(tree, 'tableCell', (node) => {
+      const content = stringifyChildNodes(node);
+      tableCells.push({ content: content });
+    });
+  };
+
+  await remark()
+    .use(remarkGfm)
+    .use(headingMapper)
+    .use(paragraphMapper)
+    .use(tableMapper)
+    .process(markdownContent);
+
+  return { headings, paragraphs, tableCells };
 }
 
 // ====================================
