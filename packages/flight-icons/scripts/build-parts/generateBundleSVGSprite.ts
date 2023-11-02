@@ -31,6 +31,7 @@ export async function generateBundleSVGSprite({ config, catalog } : { config: Co
             height: '0',
             // some browsers will not correctly render remote <use> references unless the remote document has the correct namespace
             xmlns: "http://www.w3.org/2000/svg",
+            // Next.js expects there to be a viewBox attribute to calculate dimensions; while this isn't actually useful in the case of an SVG sprite, it does prevent Next.js from throwing an error about being unable to parse the file
             viewBox: "0 0 0 0",
             class: 'flight-sprite-container',
             'aria-hidden': 'true'
