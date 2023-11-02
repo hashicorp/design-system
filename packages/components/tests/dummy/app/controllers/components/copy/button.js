@@ -36,7 +36,9 @@ export default class CopyButtonController extends Controller {
   }
 
   routeDidChange() {
-    scheduleOnce('afterRender', this, replaceMockCopyStatus);
+    if (this.router.currentRoute.name === 'components.copy.button') {
+      scheduleOnce('afterRender', this, replaceMockCopyStatus);
+    }
   }
 
   get bigIntNumber() {

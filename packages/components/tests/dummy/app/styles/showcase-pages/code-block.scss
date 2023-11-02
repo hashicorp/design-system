@@ -1,0 +1,16 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// CODE-BLOCK
+
+body.components-code-block {
+  .shw-component-code-block-copy-button {
+    .hds-code-block__copy-button {
+      position: relative;
+      top: 0;
+      left: 0;
+    }
+  }
+}
