@@ -29,6 +29,7 @@ export async function generateBundleSVGSprite({ config, catalog } : { config: Co
         svgAttrs: { 
             width: '0',
             height: '0',
+            // some browsers will not correctly render remote <use> references unless the remote document has the correct namespace
             xmlns: "http://www.w3.org/2000/svg",
             viewBox: "0 0 0 0",
             class: 'flight-sprite-container',
