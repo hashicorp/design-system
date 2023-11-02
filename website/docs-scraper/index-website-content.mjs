@@ -110,18 +110,16 @@ async function indexWebsiteContent() {
 
     // TODO!
     // we use ONLY the "testing" folder
-    if (fileRelativePath.match(/^testing\/markdown/) === null) {
+    // if (fileRelativePath.match(/^testing\/markdown/) === null) {
+    if (fileRelativePath.match(/^whats-new/) === null) {
       continue;
     }
 
     // TODO!
     // DEBUG - focus only on a single file for now
-    if (fileRelativePath !== 'testing/markdown/scraping-playground.json') {
-      continue;
-    }
-
-    console.log('\n\n\n\n========================================');
-    console.log(`\nFile: ${fileRelativePath}\n\n`);
+    // if (fileRelativePath !== 'testing/markdown/scraping-playground.json') {
+    //   continue;
+    // }
 
     // read the JSON file
     const jsonData = await fs.readJSON(fileFullPath);
@@ -166,32 +164,39 @@ async function indexWebsiteContent() {
     // so we need to destructure it on a reusable array
     const matches = [...matchAllResults];
 
-    let markdownContent;
     if (matches.length) {
       // extract from each "section" the tab name and the actual content
-      markdownContent = matches.map((match) => ({
-        tabName: match[1],
-        tabContent: match[2],
-      }));
-      markdownContent.forEach((sectionContent) => {
+      matches.forEach(async (match) => {
+        const tabName = match[1];
+        const tabContent = match[2];
+
+        const { headings, paragraphs, tableCells } = await parseMarkdown(
+          tabContent
+        );
+        console.log('\n\n\n\n========================================');
+        console.log(`\nFile: ${fileRelativePath} / Tab: ${tabName}\n\n`);
+        console.log('HEADINGS', headings);
+        console.log('PARAGRAPHS', paragraphs);
+        console.log('TABLE CELLS', tableCells);
+
         // prepare a new record for Algolia
         algoliaRecords.push(
           _.merge({}, algoliaBaseRecord, {
             // https://www.algolia.com/doc-beta/guides/sending-and-managing-data/send-and-update-your-data#unique-object-identifiers
             // objectID: TODO
-            pageURL: `${pageURL}/?tab=${sectionContent.tabName}`,
-            pageTab: sectionContent.tabName,
+            pageURL: `${pageURL}/?tab=${tabName}`,
+            pageTab: tabName,
             // TODO! this is to work around the 10K limitation of records in Algolia
-            content: sectionContent.tabContent.slice(0, 100),
+            content: tabContent.slice(0, 100),
           })
         );
       });
     } else {
-      markdownContent = pageContent;
-
       const { headings, paragraphs, tableCells } = await parseMarkdown(
-        markdownContent
+        pageContent
       );
+      console.log('\n\n\n\n========================================');
+      console.log(`\nFile: ${fileRelativePath}\n\n`);
       console.log('HEADINGS', headings);
       console.log('PARAGRAPHS', paragraphs);
       console.log('TABLE CELLS', tableCells);
@@ -204,7 +209,7 @@ async function indexWebsiteContent() {
           pageURL: pageURL,
           pageTab: null,
           // TODO! this is to work around the 10K limitation of records in Algolia
-          content: markdownContent.slice(0, 100),
+          content: pageContent.slice(0, 100),
         })
       );
     }
