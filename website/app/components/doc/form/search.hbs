@@ -14,6 +14,7 @@
       placeholder={{@placeholder}}
       value={{@searchQuery}}
       {{on "input" (perform @onInput value="target.value")}}
+      ...attributes
     />
   {{/let}}
 </div>
