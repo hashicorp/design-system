@@ -11,6 +11,8 @@ import _ from 'lodash';
 
 import algoliasearch from 'algoliasearch';
 
+import { collectHeadings } from './extract-content-from-markdown.mjs';
+
 // read the environment variables from the ".env" file
 dotenv.config();
 
@@ -106,6 +108,12 @@ async function indexWebsiteContent() {
       continue;
     }
 
+    // TODO!
+    // DEBUG - focus only on a single file for now
+    if (fileRelativePath !== 'about/support.json') {
+      continue;
+    }
+
     // read the JSON file
     const jsonData = await fs.readJSON(fileFullPath);
 
@@ -171,6 +179,10 @@ async function indexWebsiteContent() {
       });
     } else {
       markdownContent = pageContent;
+
+      const headings = await collectHeadings(markdownContent);
+      console.log('HEADINGS', headings);
+
       // prepare a new record for Algolia
       algoliaRecords.push(
         _.merge({}, algoliaBaseRecord, {
@@ -194,6 +206,10 @@ async function indexWebsiteContent() {
     // }
   }
 
+  /*
+
+  TEMPORARY DISABLED
+
   // here we construct the request to be sent to Algolia with the `batch/multiBatch` method
   // see: https://www.algolia.com/doc/api-reference/api-methods/batch/
   const algoliaRequests = algoliaRecords.map((record) => {
@@ -213,4 +229,6 @@ async function indexWebsiteContent() {
       `Algolia - Added "${objectIDs.length}" objects to index ${ALGOLIA_INDEX_ID} with task "${taskID[ALGOLIA_INDEX_ID]}"`
     )
   );
+
+  */
 }
