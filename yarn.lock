@@ -3813,7 +3813,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/macros@npm:^1.12.0, @embroider/macros@npm:^1.13.0, @embroider/macros@npm:^1.13.1":
+"@embroider/macros@npm:^1.12.0, @embroider/macros@npm:^1.13.0, @embroider/macros@npm:^1.13.1, @embroider/macros@npm:^1.8.3":
   version: 1.13.2
   resolution: "@embroider/macros@npm:1.13.2"
   dependencies:
@@ -4417,7 +4417,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/tracking@npm:^1.0.0, @glimmer/tracking@npm:^1.0.4, @glimmer/tracking@npm:^1.1.2":
+"@glimmer/tracking@npm:^1.0.0, @glimmer/tracking@npm:^1.1.2":
   version: 1.1.2
   resolution: "@glimmer/tracking@npm:1.1.2"
   dependencies:
@@ -4678,19 +4678,19 @@ __metadata:
     ember-a11y-testing: ^6.1.1
     ember-auto-import: ^2.6.3
     ember-body-class: ^3.0.0
-    ember-cached-decorator-polyfill: ^0.1.4
+    ember-cached-decorator-polyfill: ^1.0.2
     ember-cli: ~5.3.0
-    ember-cli-babel: ^7.26.11
+    ember-cli-babel: ^8.2.0
     ember-cli-clean-css: ^3.0.0
     ember-cli-dependency-checker: ^3.3.2
     ember-cli-deprecation-workflow: ^2.1.0
     ember-cli-htmlbars: ^6.3.0
     ember-cli-inject-live-reload: ^2.1.0
-    ember-cli-sass: ^10.0.1
+    ember-cli-sass: ^11.0.1
     ember-cli-sri: ^2.1.1
     ember-cli-string-helpers: ^6.1.0
     ember-cli-terser: ^4.0.2
-    ember-composable-helpers: ^4.5.0
+    ember-composable-helpers: ^5.0.0
     ember-concurrency: ^3.1.1
     ember-element-helper: ^0.8.5
     ember-focus-trap: ^1.1.0
@@ -4777,7 +4777,7 @@ __metadata:
     broccoli-asset-rev: ^3.0.0
     ember-auto-import: ^2.6.3
     ember-cli: ~5.3.0
-    ember-cli-babel: ^7.26.11
+    ember-cli-babel: ^8.2.0
     ember-cli-clean-css: ^3.0.0
     ember-cli-dependency-checker: ^3.3.2
     ember-cli-htmlbars: ^6.3.0
@@ -7981,6 +7981,13 @@ __metadata:
   version: 1.3.0
   resolution: "babel-import-util@npm:1.3.0"
   checksum: 41c6b4276ceefd2263f59be97a99bf8d948899c76587b273d115e91fa9067b0d9cc80ba727a795732052e078c30a3665649c725aed966826bf7c0a258a5fcf03
+  languageName: node
+  linkType: hard
+
+"babel-import-util@npm:^1.2.2":
+  version: 1.4.1
+  resolution: "babel-import-util@npm:1.4.1"
+  checksum: a7f43a10141f62f05c0b4b3c80ee31f5f362d5f7a7d614fcef836f3eca2ec3ae0a732f8550674542d1821e87c3fd3d986fea94ed12e2a283a1571b6d1249380a
   languageName: node
   linkType: hard
 
@@ -12357,15 +12364,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cached-decorator-polyfill@npm:^0.1.4":
-  version: 0.1.4
-  resolution: "ember-cached-decorator-polyfill@npm:0.1.4"
+"ember-cached-decorator-polyfill@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "ember-cached-decorator-polyfill@npm:1.0.2"
   dependencies:
-    "@glimmer/tracking": ^1.0.4
+    "@embroider/macros": ^1.8.3
+    "@glimmer/tracking": ^1.1.2
+    babel-import-util: ^1.2.2
     ember-cache-primitive-polyfill: ^1.0.1
-    ember-cli-babel: ^7.21.0
+    ember-cli-babel: ^7.26.11
     ember-cli-babel-plugin-helpers: ^1.1.1
-  checksum: 8f8228e8fe578a78045c00cfd9ffc124dd287e45908e912dba9823ba48a14c1cb7e15fce64f4a034b68edcf6987c51c0500fbab7825e982ea4708672b019780a
+  peerDependencies:
+    ember-source: ^3.13.0 || ^4.0.0 || >= 5.0.0
+  checksum: bbfaeafdf89a7ab834d85502829d604e3eb439cb154652b21683492e3e59a918bbaf49d39703f1a896016521d7cf03dc05e89cf5cf06de88fd1489b8e00ef8bb
   languageName: node
   linkType: hard
 
@@ -12409,7 +12420,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-babel@npm:^7.10.0, ember-cli-babel@npm:^7.13.0, ember-cli-babel@npm:^7.19.0, ember-cli-babel@npm:^7.21.0, ember-cli-babel@npm:^7.22.1, ember-cli-babel@npm:^7.23.0, ember-cli-babel@npm:^7.23.1, ember-cli-babel@npm:^7.26.0, ember-cli-babel@npm:^7.26.10, ember-cli-babel@npm:^7.26.11, ember-cli-babel@npm:^7.26.3, ember-cli-babel@npm:^7.26.4, ember-cli-babel@npm:^7.26.6, ember-cli-babel@npm:^7.7.3":
+"ember-cli-babel@npm:^7.10.0, ember-cli-babel@npm:^7.13.0, ember-cli-babel@npm:^7.19.0, ember-cli-babel@npm:^7.22.1, ember-cli-babel@npm:^7.23.0, ember-cli-babel@npm:^7.23.1, ember-cli-babel@npm:^7.26.0, ember-cli-babel@npm:^7.26.10, ember-cli-babel@npm:^7.26.11, ember-cli-babel@npm:^7.26.3, ember-cli-babel@npm:^7.26.4, ember-cli-babel@npm:^7.26.6, ember-cli-babel@npm:^7.7.3":
   version: 7.26.11
   resolution: "ember-cli-babel@npm:7.26.11"
   dependencies:
@@ -12748,18 +12759,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-sass@npm:^10.0.1":
-  version: 10.0.1
-  resolution: "ember-cli-sass@npm:10.0.1"
-  dependencies:
-    broccoli-funnel: ^2.0.1
-    broccoli-merge-trees: ^3.0.1
-    broccoli-sass-source-maps: ^4.0.0
-    ember-cli-version-checker: ^2.1.0
-  checksum: 99eb9045b19c82851a90435df14b4ab4108ee0fd57a9e78d085c225a9d3dfb72bae8118707cf2f1a2d4d37abc2c40ad0dd95c0079f43d051ec90526448189ac3
-  languageName: node
-  linkType: hard
-
 "ember-cli-sass@npm:^11.0.1":
   version: 11.0.1
   resolution: "ember-cli-sass@npm:11.0.1"
@@ -13054,15 +13053,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-composable-helpers@npm:^4.5.0":
-  version: 4.5.0
-  resolution: "ember-composable-helpers@npm:4.5.0"
+"ember-composable-helpers@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "ember-composable-helpers@npm:5.0.0"
   dependencies:
     "@babel/core": ^7.0.0
     broccoli-funnel: 2.0.1
     ember-cli-babel: ^7.26.3
     resolve: ^1.10.0
-  checksum: 39bc86701eee2c8afde0cd912b757fd7f26b06c25df182fc6bc833722bea86a2c4cc4e51659c489dfdcea5630ed87794010584e68b4c52e6049aee8a8c87808b
+  checksum: 8fdceade42f025cb75cb3718de4a6f3836b1a74eca8d30ca7a8c0313fccdce6663ce6fa5e5bd14fd905ecac2a330d55c169f21f559f092a5900d08ddc290fff6
   languageName: node
   linkType: hard
 
