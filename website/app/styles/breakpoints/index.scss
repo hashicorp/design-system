@@ -15,11 +15,11 @@ $doc-breakpoint-for-sidebar: 880px;
 
 
 @mixin small {
-  @media (max-width: calc(#{$doc-breakpoint-medium} - 1px)) { @content; }
+  @media (width <= calc(#{$doc-breakpoint-medium} - 1px)) { @content; }
 }
 
 @mixin medium-only {
-  @media (min-width: $doc-breakpoint-medium) and (max-width: calc(#{$doc-breakpoint-large} - 1px)) { @content; }
+  @media (min-width: $doc-breakpoint-medium) and (width <= calc(#{$doc-breakpoint-large} - 1px)) { @content; }
 }
 
 @mixin medium {
@@ -35,7 +35,7 @@ $doc-breakpoint-for-sidebar: 880px;
 }
 
 @mixin with-mobile-sidebar {
-  @media (max-width: calc(#{$doc-breakpoint-for-sidebar} - 1px)) { @content; }
+  @media (width <= calc(#{$doc-breakpoint-for-sidebar} - 1px)) { @content; }
 }
 
 @mixin with-fixed-sidebar {
