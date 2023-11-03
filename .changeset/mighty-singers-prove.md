@@ -2,4 +2,4 @@
 "@hashicorp/flight-icons": minor
 ---
 
-Add static SVG sprite sheet file
+Added static SVG sprite sheet file
