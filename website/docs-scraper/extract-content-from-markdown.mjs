@@ -5,16 +5,56 @@
 // remark
 import { remark } from 'remark';
 import { visit } from 'unist-util-visit';
+import { defaultSchema } from 'hast-util-sanitize';
+
+import _ from 'lodash';
 
 // plugins
 import remarkGfm from 'remark-gfm';
+import remarkHtml from 'remark-html';
 import remarkSqueezeParagraphs from 'remark-squeeze-paragraphs';
 import remarkStripBadges from 'remark-strip-badges';
+
+// customisations
+const remarkHtmlSanitise = _.cloneDeep(defaultSchema, {
+  tagNames: [
+    'custom-tag',
+    'another-custom-tag',
+    'CustomTag',
+    'Doc::Content::HdsPrinciples',
+    'Doc::TokensList',
+  ],
+  attributes: ['@type'],
+});
+
+// const remarkHtmlHandlers = {
+//   image(h, node, ...rest) {
+//     // console.log('NODE', JSON.stringify(node, null, 2));
+//     // console.log('REST', JSON.stringify(rest, null, 2));
+//     // const props = { hello: 'world!' };
+//     // return h(node, node, props);
+//   },
+// };
+
+// replace `<DOC::(*)>` tags with HTML-compatible `<doc->` custom tags
+const replaceDocTags = (markdownContent) =>
+  markdownContent.replace(/(<\/?)(Doc::[^>\s]+)/gm, (_match, p1, p2) => {
+    return p1 + _.kebabCase(p2).replace('::', '-');
+  });
+
+// ========================================================================
 
 export async function parseMarkdown(markdownContent) {
   const headings = [];
   const paragraphs = [];
-  const tableCells = [];
+  const tables = { cells: [] };
+  // const htmlTags = [];
+
+  let sanitazedContent;
+  sanitazedContent = replaceDocTags(markdownContent);
+  // console.log('----------------------------');
+  // console.log(sanitazedContent);
+  // console.log('----------------------------');
 
   const headingMapper = () => (tree) => {
     visit(tree, 'heading', (node) => {
@@ -35,20 +75,38 @@ export async function parseMarkdown(markdownContent) {
   const tableMapper = () => (tree) => {
     visit(tree, 'tableCell', (node) => {
       const content = stringifyChildNodes(node);
-      tableCells.push({ content: content });
+      tables.cells.push({ content: content });
     });
   };
 
+  const htmlTagsMapper = () => (tree) => {
+    visit(tree, 'html', (node) => {
+      console.log('HTML', JSON.stringify(node, null, 2));
+    });
+  };
+
+  // const logNodes = () => (tree) => {
+  //   visit(tree, (node) => {
+  //     console.log('LOG', JSON.stringify(node, null, 2));
+  //   });
+  // };
+
   await remark()
+    .use(remarkHtml, {
+      sanitize: remarkHtmlSanitise,
+      // handlers: remarkHtmlHandlers,
+    })
+    // .use(logNodes)
     .use(remarkGfm)
     .use(remarkStripBadges)
     .use(remarkSqueezeParagraphs)
     .use(headingMapper)
     .use(paragraphMapper)
     .use(tableMapper)
-    .process(markdownContent);
+    .use(htmlTagsMapper)
+    .process(sanitazedContent);
 
-  return { headings, paragraphs, tableCells };
+  return { headings, paragraphs, tables };
 }
 
 // ====================================
