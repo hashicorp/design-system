@@ -2,9 +2,14 @@
 // inspired by: https://github.com/hashicorp/mktg-content-workflows/blob/main/shared/search/collect-headings.ts
 //
 
+// remark
 import { remark } from 'remark';
-import remarkGfm from 'remark-gfm';
 import { visit } from 'unist-util-visit';
+
+// plugins
+import remarkGfm from 'remark-gfm';
+import remarkSqueezeParagraphs from 'remark-squeeze-paragraphs';
+import remarkStripBadges from 'remark-strip-badges';
 
 export async function parseMarkdown(markdownContent) {
   const headings = [];
@@ -36,6 +41,8 @@ export async function parseMarkdown(markdownContent) {
 
   await remark()
     .use(remarkGfm)
+    .use(remarkStripBadges)
+    .use(remarkSqueezeParagraphs)
     .use(headingMapper)
     .use(paragraphMapper)
     .use(tableMapper)

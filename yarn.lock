@@ -16040,6 +16040,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-badge@npm:^2.0.0":
+  version: 2.1.1
+  resolution: "is-badge@npm:2.1.1"
+  checksum: 75e480b24f45e97a4822eccf54b0c19aa458d059c1f5f0b525b2dd60c2163f5bc0fc98bb179e2874084a3ee7a87874e0daca1d59d9fc619cea62369213111a2d
+  languageName: node
+  linkType: hard
+
 "is-bigint@npm:^1.0.1":
   version: 1.0.4
   resolution: "is-bigint@npm:1.0.4"
@@ -18535,12 +18542,33 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mdast-squeeze-paragraphs@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "mdast-squeeze-paragraphs@npm:6.0.0"
+  dependencies:
+    "@types/mdast": ^4.0.0
+    unist-util-visit: ^5.0.0
+  checksum: 2e328080aa41161004cea388c12383a5f09be354c6361fe89c455b345adfdcae1090d8ee6698982ff8c5bae43127ec24810cd6f3184d1b778a132a603f8f0903
+  languageName: node
+  linkType: hard
+
 "mdast-util-compact@npm:^1.0.0":
   version: 1.0.4
   resolution: "mdast-util-compact@npm:1.0.4"
   dependencies:
     unist-util-visit: ^1.1.0
   checksum: 5c2eec96bd9f231d54733bbfb4fbd83ec8e1a6ddd9084a79f502614b6868a27be8ac75946ba5871c3d291673904da1fa63a5738de9c98ac1dbfd011ebb57d853
+  languageName: node
+  linkType: hard
+
+"mdast-util-definitions@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "mdast-util-definitions@npm:6.0.0"
+  dependencies:
+    "@types/mdast": ^4.0.0
+    "@types/unist": ^3.0.0
+    unist-util-visit: ^5.0.0
+  checksum: 4fdfcf435f675cee106664315525c6c0fc77b4a4f90c13899ec134b6ed23a106cea257e6e439f81025c34816b3b9b1fb6215fe2e10e565a2abafc3ebfb3c80d0
   languageName: node
   linkType: hard
 
@@ -22023,6 +22051,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"remark-squeeze-paragraphs@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "remark-squeeze-paragraphs@npm:6.0.0"
+  dependencies:
+    "@types/mdast": ^4.0.0
+    mdast-squeeze-paragraphs: ^6.0.0
+  checksum: 7bd4604890431a54e5375bec331349719d5f0547d9cbedb45569a75aea0061b47dd5e5841634aad21f04673d71ce0a9412242817762aedaad1375388fbffe879
+  languageName: node
+  linkType: hard
+
 "remark-stringify@npm:^11.0.0":
   version: 11.0.0
   resolution: "remark-stringify@npm:11.0.0"
@@ -22053,6 +22091,18 @@ __metadata:
     unherit: ^1.0.4
     xtend: ^4.0.1
   checksum: 177bf04062c4c2cf6d207e7a57b0fc19200a20b2a36f8a61a54b3df98c547353597bcc8a7ed2f249f41876559f19c8a1476627870babecce2f5b7ab768d6ca79
+  languageName: node
+  linkType: hard
+
+"remark-strip-badges@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "remark-strip-badges@npm:7.0.0"
+  dependencies:
+    "@types/mdast": ^4.0.0
+    is-badge: ^2.0.0
+    mdast-util-definitions: ^6.0.0
+    unist-util-visit: ^5.0.0
+  checksum: 6443f70506f8af9d3b8c2060ba83f06605aef0fa2a06e39c9093538d16e238145bb1df54ccd41242c6988d896500041d4deb84d6e896b364e5f1f45c9ad238c7
   languageName: node
   linkType: hard
 
@@ -25958,6 +26008,8 @@ __metadata:
     qunit-dom: ^2.0.0
     remark: ^15.0.1
     remark-gfm: ^4.0.0
+    remark-squeeze-paragraphs: ^6.0.0
+    remark-strip-badges: ^7.0.0
     resolve: ^1.22.3
     showdown: ^2.1.0
     stylelint: ^15.10.1
