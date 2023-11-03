@@ -3660,16 +3660,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ember/render-modifiers@npm:^2.0.0":
-  version: 2.0.5
-  resolution: "@ember/render-modifiers@npm:2.0.5"
+"@ember/render-modifiers@npm:^2.0.0, @ember/render-modifiers@npm:^2.0.5":
+  version: 2.1.0
+  resolution: "@ember/render-modifiers@npm:2.1.0"
   dependencies:
     "@embroider/macros": ^1.0.0
     ember-cli-babel: ^7.26.11
     ember-modifier-manager-polyfill: ^1.2.0
   peerDependencies:
-    ember-source: ^3.8 || ^4.0.0
-  checksum: ebeb4d573968f46490f8f5618b9d85f2c7ca39cee5b854bb497a3aee7dee3d710ab02b9677df30f1e2a484e712dd89171045118da563d9d9a6c316ccdccc2671
+    "@glint/template": ^1.0.2
+    ember-source: ^3.8 || ^4.0.0 || ^5.0.0
+  peerDependenciesMeta:
+    "@glint/template":
+      optional: true
+  checksum: 6c4d617b67ee52e8e29e9a2b9f42a30e8ea333a7b7a4c5a61fdf5f15623da11f40d82218aeddfbe32bee1f508c569740e842a8233f4a372728d18b66bbc197d5
   languageName: node
   linkType: hard
 
