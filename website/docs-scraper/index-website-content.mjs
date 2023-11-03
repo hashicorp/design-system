@@ -111,15 +111,15 @@ async function indexWebsiteContent() {
     // TODO!
     // we use ONLY the "testing" folder
     // if (fileRelativePath.match(/^testing\/markdown/) === null) {
-    if (fileRelativePath.match(/^whats-new/) === null) {
+    if (fileRelativePath.match(/^testing/) === null) {
       continue;
     }
 
     // TODO!
     // DEBUG - focus only on a single file for now
-    // if (fileRelativePath !== 'testing/markdown/scraping-playground.json') {
-    //   continue;
-    // }
+    if (fileRelativePath !== 'testing/markdown/scraping-playground.json') {
+      continue;
+    }
 
     // read the JSON file
     const jsonData = await fs.readJSON(fileFullPath);
@@ -170,14 +170,14 @@ async function indexWebsiteContent() {
         const tabName = match[1];
         const tabContent = match[2];
 
-        const { headings, paragraphs, tableCells } = await parseMarkdown(
-          tabContent
-        );
-        console.log('\n\n\n\n========================================');
-        console.log(`\nFile: ${fileRelativePath} / Tab: ${tabName}\n\n`);
-        console.log('HEADINGS', headings);
-        console.log('PARAGRAPHS', paragraphs);
-        console.log('TABLE CELLS', tableCells);
+        const { headings, paragraphs, tables, componentApis } =
+          await parseMarkdown(tabContent);
+        // console.log('\n\n\n\n========================================');
+        // console.log(`\nFile: ${fileRelativePath} / Tab: ${tabName}\n\n`);
+        // console.log('HEADINGS', headings);
+        // console.log('PARAGRAPHS', paragraphs);
+        // console.log('TABLE CELLS', tables.cells);
+        // console.log('COMPONENT APIs', JSON.stringify(componentApis, null, 2));
 
         // prepare a new record for Algolia
         algoliaRecords.push(
@@ -192,14 +192,14 @@ async function indexWebsiteContent() {
         );
       });
     } else {
-      const { headings, paragraphs, tableCells } = await parseMarkdown(
-        pageContent
-      );
+      const { headings, paragraphs, tables, componentApis } =
+        await parseMarkdown(pageContent);
       console.log('\n\n\n\n========================================');
       console.log(`\nFile: ${fileRelativePath}\n\n`);
       console.log('HEADINGS', headings);
       console.log('PARAGRAPHS', paragraphs);
-      console.log('TABLE CELLS', tableCells);
+      console.log('TABLE CELLS', tables.cells);
+      console.log('COMPONENT APIs', JSON.stringify(componentApis, null, 2));
 
       // prepare a new record for Algolia
       algoliaRecords.push(
