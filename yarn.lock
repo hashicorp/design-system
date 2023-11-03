@@ -13014,19 +13014,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-element-helper@npm:^0.8.2":
-  version: 0.8.5
-  resolution: "ember-element-helper@npm:0.8.5"
-  dependencies:
-    "@embroider/addon-shim": 1.8.3
-    "@embroider/util": ^1.0.0
-  peerDependencies:
-    ember-source: ^3.8 || ^4.0.0 || >= 5.0.0
-  checksum: 7be5fa71b172dc74f24bd10bdc179d9e9dcbaaeab5c78763a24dd6f6d384768d6835291771839c6b530940c3ddd259bd7fdc8242576c9cc31e74d6bb35df435b
-  languageName: node
-  linkType: hard
-
-"ember-element-helper@npm:^0.8.5":
+"ember-element-helper@npm:^0.8.2, ember-element-helper@npm:^0.8.5":
   version: 0.8.5
   resolution: "ember-element-helper@npm:0.8.5"
   dependencies:
