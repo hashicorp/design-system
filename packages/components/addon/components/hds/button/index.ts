@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
-import { HdsInteractiveSignature } from '../interactive';
+import { type HdsInteractiveSignature } from '../interactive';
 
 export const DEFAULT_SIZE = 'medium';
 export const DEFAULT_COLOR = 'primary';
