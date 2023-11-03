@@ -23,8 +23,15 @@ const remarkHtmlSanitise = _.cloneDeep(defaultSchema, {
     'CustomTag',
     'Doc::Content::HdsPrinciples',
     'Doc::TokensList',
+    'doc-content-hds-principles',
+    'doc-badge',
+    'doc-wcag-list',
+    'doc-a-11-y-support',
+    'doc-tokens-list',
+    'doc-component-api',
   ],
-  attributes: ['@type'],
+  // using a regex like `/^@/` doesn't work, is not recognized as a valid attribute
+  attributes: { '*': ['at-arg-'] },
 });
 
 // const remarkHtmlHandlers = {
@@ -38,9 +45,16 @@ const remarkHtmlSanitise = _.cloneDeep(defaultSchema, {
 
 // replace `<DOC::(*)>` tags with HTML-compatible `<doc->` custom tags
 const replaceDocTags = (markdownContent) =>
-  markdownContent.replace(/(<\/?)(Doc::[^>\s]+)/gm, (_match, p1, p2) => {
-    return p1 + _.kebabCase(p2).replace('::', '-');
-  });
+  markdownContent
+    .replace(/(<\/?)C\.Property/gim, (_match, p1) => {
+      const tag = p1 + 'Doc::ComponentApi::Property';
+      return tag;
+    })
+    .replace(/(<\/?)(Doc::[^>\s]+)([^>]*)/gim, (_match, p1, p2, p3) => {
+      const tag = p1 + _.kebabCase(p2).replaceAll('::', '-');
+      const attrs = p3.replaceAll('@', 'at-arg-').replace(/( as \|\w+\|)/, '');
+      return `${tag}${attrs}`;
+    });
 
 // ========================================================================
 
@@ -48,13 +62,13 @@ export async function parseMarkdown(markdownContent) {
   const headings = [];
   const paragraphs = [];
   const tables = { cells: [] };
-  // const htmlTags = [];
+  const htmlTags = [];
 
   let sanitazedContent;
   sanitazedContent = replaceDocTags(markdownContent);
-  // console.log('----------------------------');
-  // console.log(sanitazedContent);
-  // console.log('----------------------------');
+  console.log('----------------------------');
+  console.log(sanitazedContent);
+  console.log('----------------------------');
 
   const headingMapper = () => (tree) => {
     visit(tree, 'heading', (node) => {
@@ -82,6 +96,8 @@ export async function parseMarkdown(markdownContent) {
   const htmlTagsMapper = () => (tree) => {
     visit(tree, 'html', (node) => {
       console.log('HTML', JSON.stringify(node, null, 2));
+      console.log('parent', node.parent);
+      htmlTags.push({ html: node.value });
     });
   };
 
@@ -106,7 +122,7 @@ export async function parseMarkdown(markdownContent) {
     .use(htmlTagsMapper)
     .process(sanitazedContent);
 
-  return { headings, paragraphs, tables };
+  return { headings, paragraphs, tables, htmlTags };
 }
 
 // ====================================

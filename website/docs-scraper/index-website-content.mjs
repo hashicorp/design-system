@@ -173,11 +173,11 @@ async function indexWebsiteContent() {
         const { headings, paragraphs, tables } = await parseMarkdown(
           tabContent
         );
-        console.log('\n\n\n\n========================================');
-        console.log(`\nFile: ${fileRelativePath} / Tab: ${tabName}\n\n`);
-        console.log('HEADINGS', headings);
-        console.log('PARAGRAPHS', paragraphs);
-        console.log('TABLE CELLS', tables.cells);
+        // console.log('\n\n\n\n========================================');
+        // console.log(`\nFile: ${fileRelativePath} / Tab: ${tabName}\n\n`);
+        // console.log('HEADINGS', headings);
+        // console.log('PARAGRAPHS', paragraphs);
+        // console.log('TABLE CELLS', tables.cells);
 
         // prepare a new record for Algolia
         algoliaRecords.push(
@@ -192,12 +192,15 @@ async function indexWebsiteContent() {
         );
       });
     } else {
-      const { headings, paragraphs, tables } = await parseMarkdown(pageContent);
-      console.log('\n\n\n\n========================================');
-      console.log(`\nFile: ${fileRelativePath}\n\n`);
-      console.log('HEADINGS', headings);
-      console.log('PARAGRAPHS', paragraphs);
-      console.log('TABLE CELLS', tables.cells);
+      const { headings, paragraphs, tables, htmlTags } = await parseMarkdown(
+        pageContent
+      );
+      // console.log('\n\n\n\n========================================');
+      // console.log(`\nFile: ${fileRelativePath}\n\n`);
+      // console.log('HEADINGS', headings);
+      // console.log('PARAGRAPHS', paragraphs);
+      // console.log('TABLE CELLS', tables.cells);
+      console.log('HTML', htmlTags);
 
       // prepare a new record for Algolia
       algoliaRecords.push(
