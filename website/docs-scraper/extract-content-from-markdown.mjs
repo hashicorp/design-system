@@ -7,6 +7,8 @@ import { remark } from 'remark';
 import { visit } from 'unist-util-visit';
 import { defaultSchema } from 'hast-util-sanitize';
 import { fromHtml } from 'hast-util-from-html';
+import { fromMarkdown } from 'mdast-util-from-markdown';
+import { toString } from 'mdast-util-to-string';
 
 import _ from 'lodash';
 
@@ -18,21 +20,15 @@ import remarkStripBadges from 'remark-strip-badges';
 
 // customisations
 const remarkHtmlSanitise = _.cloneDeep(defaultSchema, {
+  // unfortunately tag names in the forma `Doc::***` are not accepted so we have to convert all the `Doc::` tags to `doc-***` (custom HTML tags)
   tagNames: [
-    'custom-tag',
-    'another-custom-tag',
-    'CustomTag',
-    'Doc::Content::HdsPrinciples',
-    'Doc::TokensList',
-    'doc-content-hds-principles',
-    'doc-badge',
-    'doc-wcag-list',
     'doc-a-11-y-support',
-    'doc-tokens-list',
+    'doc-badge',
     'doc-component-api',
+    'doc-content-hds-principles',
+    'doc-tokens-list',
+    'doc-wcag-list',
   ],
-  // using a regex like `/^@/` doesn't work, is not recognized as a valid attribute
-  attributes: { '*': ['at-arg-'] },
 });
 
 // const remarkHtmlHandlers = {
@@ -53,7 +49,8 @@ const replaceDocTags = (markdownContent) =>
     })
     .replace(/(<\/?)(Doc::[^>\s]+)([^>]*)/gim, (_match, p1, p2, p3) => {
       const tag = p1 + _.kebabCase(p2).replaceAll('::', '-');
-      const attrs = p3.replaceAll('@', 'at-arg-').replace(/( as \|\w+\|)/, '');
+      // const attrs = p3.replaceAll('@', 'at-arg-').replace(/( as \|\w+\|)/, '');
+      const attrs = p3.replace(/( as \|\w+\|)/, '');
       return `${tag}${attrs}`;
     });
 
@@ -63,7 +60,7 @@ export async function parseMarkdown(markdownContent) {
   const headings = [];
   const paragraphs = [];
   const tables = { cells: [] };
-  const htmlTags = [];
+  const componentApis = [];
 
   let sanitazedContent;
   sanitazedContent = replaceDocTags(markdownContent);
@@ -94,32 +91,47 @@ export async function parseMarkdown(markdownContent) {
     });
   };
 
-  const htmlMapper = () => (tree) => {
+  const componentApiMapper = () => (tree) => {
     visit(tree, 'html', (node) => {
-      console.log('HTML', JSON.stringify(node, null, 2));
       // https://github.com/syntax-tree/hast-util-from-html
       const root = fromHtml(node.value, { fragment: true });
       // console.log('HTML-TREE', JSON.stringify(root, null, 2));
       root.children.forEach((element) => {
         if (
-          element.type === element &&
-          element.tagName === 'doc-component-api'
+          element.type === 'element' &&
+          element.tagName === 'doc-component-api' &&
+          element.children
         ) {
-          const propertiesNames = [];
+          const properties = [];
           element.children.forEach((subelement) => {
             if (
-              subelement.type === element &&
-              subelement.tagName === 'doc-component-api-property'
+              subelement.type === 'element' &&
+              subelement.tagName === 'doc-component-api-property' &&
+              subelement.children
             ) {
-              if (subelement.properties['at-arg-name']) {
-                propertiesNames.push(subelement.properties['at-arg-name']);
+              let propertyName;
+              let propertyDescription = '';
+              if (subelement.properties['@name']) {
+                propertyName = subelement.properties['@name'];
               }
+              subelement.children
+                .filter((child) => child.type === 'text')
+                .forEach((textNode) => {
+                  // important: we need to trim the text, to remove leading/trailing newlines that cause the `fromMarkdown` to generate multiple children
+                  const text = toString(fromMarkdown(textNode.value.trim()));
+                  // we prepend a space to avoid words being joined together
+                  propertyDescription += ` ${text}`;
+                });
+              properties.push({
+                name: propertyName,
+                value: propertyDescription.trim(),
+              });
             }
           });
-          if (propertiesNames.length > 0) {
-            htmlTags.push({
+          if (properties.length > 0) {
+            componentApis.push({
               'doc-component-api': {
-                propertiesNames: propertiesNames.join(' '),
+                properties,
               },
             });
           }
@@ -135,21 +147,21 @@ export async function parseMarkdown(markdownContent) {
   // };
 
   await remark()
+    .use(remarkGfm)
     .use(remarkHtml, {
       sanitize: remarkHtmlSanitise,
       // handlers: remarkHtmlHandlers,
     })
     // .use(logNodes)
-    .use(remarkGfm)
     .use(remarkStripBadges)
     .use(remarkSqueezeParagraphs)
     .use(headingMapper)
     .use(paragraphMapper)
     .use(tableMapper)
-    .use(htmlMapper)
+    .use(componentApiMapper)
     .process(sanitazedContent);
 
-  return { headings, paragraphs, tables, htmlTags };
+  return { headings, paragraphs, tables, componentApis };
 }
 
 // ====================================
