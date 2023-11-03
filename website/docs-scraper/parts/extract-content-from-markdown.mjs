@@ -62,11 +62,7 @@ export async function parseMarkdown(markdownContent) {
   const tables = { cells: [] };
   const componentApis = [];
 
-  let sanitazedContent;
-  sanitazedContent = replaceDocTags(markdownContent);
-  // console.log('----------------------------');
-  // console.log(sanitazedContent);
-  // console.log('----------------------------');
+  const sanitazedContent = replaceDocTags(markdownContent);
 
   const headingMapper = () => (tree) => {
     visit(tree, 'heading', (node) => {
@@ -147,11 +143,11 @@ export async function parseMarkdown(markdownContent) {
   // };
 
   await remark()
-    .use(remarkGfm)
     .use(remarkHtml, {
       sanitize: remarkHtmlSanitise,
       // handlers: remarkHtmlHandlers,
     })
+    .use(remarkGfm)
     // .use(logNodes)
     .use(remarkStripBadges)
     .use(remarkSqueezeParagraphs)
