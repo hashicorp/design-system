@@ -13,17 +13,32 @@
   <Shw::Text::H3>With generic content</Shw::Text::H3>
 
   <Shw::Flex as |SF|>
-    <SF.Item @label="Header + Body + Footer">
+    <SF.Item @label="Header + Body + Footer, base invocation">
       <div class="shw-component-sim-side-nav-root-container">
         <Hds::SideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
           <:header>
-            <Shw::Placeholder @height="72px" @text="header" @background="#e4e4e4" />
+            <Shw::Placeholder @text="header" />
           </:header>
           <:body>
-            <Shw::Placeholder @height="300px" @text="body" @background="#e4e4e4" />
+            <Shw::Placeholder @text="body" />
           </:body>
           <:footer>
-            <Shw::Placeholder @height="36px" @text="footer" @background="#e4e4e4" />
+            <Shw::Placeholder @text="footer" />
+          </:footer>
+        </Hds::SideNav>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Header + Body + Footer, heights declared">
+      <div class="shw-component-sim-side-nav-root-container">
+        <Hds::SideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
+          <:header>
+            <Shw::Placeholder @text="header" @height="72px" />
+          </:header>
+          <:body>
+            <Shw::Placeholder @text="body" @height="300px" />
+          </:body>
+          <:footer>
+            <Shw::Placeholder @text="footer" @height="36px" />
           </:footer>
         </Hds::SideNav>
       </div>
@@ -32,15 +47,15 @@
       <div class="shw-component-sim-side-nav-root-container">
         <Hds::SideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
           <:header>
-            <Shw::Placeholder @height="72px" @text="header" @background="#e4e4e4" />
-            <Shw::Placeholder @height="60px" @text="extra content for 'header'" @background="#e4c5f3" />
+            <Shw::Placeholder @height="72px" @text="header" />
+            <Shw::Placeholder @height="60px" @text="extra content for 'header'" @background="#e4c5f3" id="ec-header" />
           </:header>
           <:body>
-            <Shw::Placeholder @height="250px" @text="body" @background="#e4e4e4" />
+            <Shw::Placeholder @height="250px" @text="body" />
             <Shw::Placeholder @height="60px" @text="extra content for 'body'" @background="#e4c5f3" />
           </:body>
           <:footer>
-            <Shw::Placeholder @height="36px" @text="footer" @background="#e4e4e4" />
+            <Shw::Placeholder @height="36px" @text="footer" />
           </:footer>
         </Hds::SideNav>
       </div>
@@ -49,13 +64,13 @@
       <div class="shw-component-sim-side-nav-root-container">
         <Hds::SideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
           <:header>
-            <Shw::Placeholder @height="72px" @text="header" @background="#e4e4e4" />
+            <Shw::Placeholder @height="72px" @text="header" />
           </:header>
           <:body>
-            <Shw::Placeholder @height="500px" @text="body" @background="#d2f4ff" />
+            <Shw::Placeholder @height="500px" @text="body" @background="#d2f4ff" tabindex="0" />
           </:body>
           <:footer>
-            <Shw::Placeholder @height="36px" @text="footer" @background="#e4e4e4" />
+            <Shw::Placeholder @height="36px" @text="footer" />
           </:footer>
         </Hds::SideNav>
       </div>
@@ -69,13 +84,13 @@
       <div class="shw-component-sim-side-nav-root-container">
         <Hds::SideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
           <:header>
-            <Shw::Placeholder @height="72px" @text="header" @background="#e4e4e4" />
+            <Shw::Placeholder @height="72px" @text="header" />
           </:header>
           <:body>
             <Hds::SideNav::Portal::Target @targetName="sidenav-portal-demo-1" />
           </:body>
           <:footer>
-            <Shw::Placeholder @height="36px" @text="footer" @background="#e4e4e4" />
+            <Shw::Placeholder @height="36px" @text="footer" />
           </:footer>
         </Hds::SideNav>
       </div>
@@ -83,9 +98,9 @@
   </Shw::Flex>
 
   <Hds::SideNav::Portal @targetName="sidenav-portal-demo-1" @ariaLabel="Primary on portal demo 1" as |Nav|>
-    <Nav.ExtraBefore><Shw::Placeholder @height="72px" @text="ExtraBefore" @background="#f3d9c5" /></Nav.ExtraBefore>
-    <Nav.Item><Shw::Placeholder @height="200px" @text="portaled content" @background="#e4e4e4" /></Nav.Item>
-    <Nav.ExtraAfter><Shw::Placeholder @height="72px" @text="ExtraAfter" @background="#f3d9c5" /></Nav.ExtraAfter>
+    <Nav.extraBefore><Shw::Placeholder @height="72px" @text="extraBefore" @background="#f3d9c5" /></Nav.extraBefore>
+    <Nav.Item><Shw::Placeholder @height="200px" @text="portaled content" /></Nav.Item>
+    <Nav.extraAfter><Shw::Placeholder @height="72px" @text="extraAfter" @background="#f3d9c5" /></Nav.extraAfter>
   </Hds::SideNav::Portal>
 
 </section>
@@ -244,16 +259,16 @@
       <div class="shw-component-sim-side-nav-root-container">
         <Hds::SideNav::Base>
           <:root>
-            <Shw::Placeholder @height="72px" @text="root" @background="#e4e4e4" />
+            <Shw::Placeholder @height="72px" @text="root" />
           </:root>
           <:header>
-            <Shw::Placeholder @height="72px" @text="header" @background="#e4e4e4" />
+            <Shw::Placeholder @height="72px" @text="header" />
           </:header>
           <:body>
-            <Shw::Placeholder @height="250px" @text="body" @background="#e4e4e4" />
+            <Shw::Placeholder @height="250px" @text="body" />
           </:body>
           <:footer>
-            <Shw::Placeholder @height="36px" @text="footer" @background="#e4e4e4" />
+            <Shw::Placeholder @height="36px" @text="footer" />
           </:footer>
         </Hds::SideNav::Base>
       </div>
@@ -272,11 +287,11 @@
       <div class="shw-component-sim-side-nav-header">
         <Hds::SideNav::Header>
           <:logo>
-            <Shw::Placeholder @height="100%" @width="100%" @text="generic" @background="#e4e4e4" />
+            <Shw::Placeholder @height="100%" @width="100%" @text="generic" />
           </:logo>
           <:actions>
-            <Shw::Placeholder @height="36px" @width="60px" @text="action" @background="#e4e4e4" />
-            <Shw::Placeholder @height="36px" @width="60px" @text="action" @background="#e4e4e4" />
+            <Shw::Placeholder @height="36px" @width="60px" @text="action" />
+            <Shw::Placeholder @height="36px" @width="60px" @text="action" />
           </:actions>
         </Hds::SideNav::Header>
       </div>
@@ -486,7 +501,7 @@
       <ul class="shw-component-sim-side-nav-body">
         <Hds::SideNav::List::Title>Group title</Hds::SideNav::List::Title>
         <Hds::SideNav::List::Item>
-          <Shw::Placeholder @height="108px" @text="following content" @background="#e4e4e4" />
+          <Shw::Placeholder @height="108px" @text="following content" />
         </Hds::SideNav::List::Item>
       </ul>
     </SF.Item>
@@ -494,7 +509,7 @@
       <ul class="shw-component-sim-side-nav-body">
         <Hds::SideNav::List::Title>This is a long text that should go on two lines</Hds::SideNav::List::Title>
         <Hds::SideNav::List::Item>
-          <Shw::Placeholder @height="108px" @text="following content" @background="#e4e4e4" />
+          <Shw::Placeholder @height="108px" @text="following content" />
         </Hds::SideNav::List::Item>
       </ul>
     </SF.Item>
@@ -506,7 +521,7 @@
 
   <ul class="shw-component-sim-side-nav-body">
     <Hds::SideNav::List::Item>
-      <Shw::Placeholder @height="36px" @text="item" @background="#e4e4e4" />
+      <Shw::Placeholder @height="36px" @text="item" />
     </Hds::SideNav::List::Item>
   </ul>
 
@@ -590,23 +605,23 @@
 
     <SG.Item @label="Just yielded content">
       <Hds::SideNav::List::Link>
-        <Shw::Placeholder @height="20px" @text="yielded content" @background="#e4e4e4" />
+        <Shw::Placeholder @height="20px" @text="yielded content" />
       </Hds::SideNav::List::Link>
     </SG.Item>
     <SG.Item @label="Icon + yielded content">
       {{! we've added an empty label on purpose, to test the layout in this case }}
       <Hds::SideNav::List::Link @icon="boundary" @text="">
-        <Shw::Placeholder @height="20px" @text="yielded content" @background="#e4e4e4" />
+        <Shw::Placeholder @height="20px" @text="yielded content" />
       </Hds::SideNav::List::Link>
     </SG.Item>
     <SG.Item @label="Icon + text + yielded content">
       <Hds::SideNav::List::Link @icon="boundary" @text="Boundary">
-        <Shw::Placeholder @height="20px" @text="yielded content" @background="#e4e4e4" />
+        <Shw::Placeholder @height="20px" @text="yielded content" />
       </Hds::SideNav::List::Link>
     </SG.Item>
     <SG.Item @label="With hasSubItems">
       <Hds::SideNav::List::Link @icon="boundary" @text="Boundary" @hasSubItems={{true}}>
-        <Shw::Placeholder @height="20px" @text="yielded content" @background="#e4e4e4" />
+        <Shw::Placeholder @height="20px" @text="yielded content" />
       </Hds::SideNav::List::Link>
     </SG.Item>
     <SG.Item @label="Text with no style">

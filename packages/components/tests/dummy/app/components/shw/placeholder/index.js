@@ -42,7 +42,7 @@ export default class PlaceholderIndexComponent extends Component {
   }
 
   /**
-   * Get a style attribut to apply to the placeholder based on the other properties argument.
+   * Get a style attribute to apply to the placeholder based on the other properties argument.
    * @return {string} The style attribute to apply to the placeholder
    */
   get style() {
@@ -56,7 +56,6 @@ export default class PlaceholderIndexComponent extends Component {
     if (this.args.background) {
       styles.push(`background: ${this.args.background}`);
     }
-
     return styles.length > 0 ? htmlSafe(styles.join('; ')) : undefined;
   }
 }
