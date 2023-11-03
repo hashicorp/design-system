@@ -11,7 +11,7 @@
     "@changesets/get-github-info": "^0.5.2"
   },
   "scripts": {
-    "release": "yarn changeset publish",
+    "release-packages": "yarn changeset publish",
     "version-packages": "yarn changeset version && yarn install --mode update-lockfile && yarn workspace website generate-changelog-markdown-files"
   },
   "packageManager": "yarn@4.0.1",
