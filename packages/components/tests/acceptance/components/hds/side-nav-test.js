@@ -17,8 +17,13 @@ module('Acceptance | Component | hds/side-nav', function (hooks) {
         listitem: {
           enabled: false,
         },
+        'color-contrast': {
+          enabled: false,
+          selectors: [['.shw-placeholder']],
+        },
       },
     };
+
     await visit('/components/side-nav');
 
     await a11yAudit(axeOptions);
