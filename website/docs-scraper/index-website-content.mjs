@@ -11,7 +11,32 @@ import _ from 'lodash';
 
 import algoliasearch from 'algoliasearch';
 
-import { parseMarkdown } from './extract-content-from-markdown.mjs';
+import { walkDir } from './parts/walkDir.mjs';
+import { populateAlgoliaRecords } from './parts/populateAlgoliaRecords.mjs';
+
+// TODO understand if it's possible to generalize this
+// import { getTocSectionsBundle } from '../app/components/doc/page/sidebar.js';
+const ABOUT = ['about', 'whats-new', 'getting-started'];
+const FOUNDATIONS = ['foundations', 'icons'];
+const COMPONENTS = ['components', 'layouts', 'overrides', 'utilities'];
+const PATTERNS = ['patterns'];
+const TESTING = ['testing'];
+const getPageTopRoute = (section) => {
+  if (ABOUT.includes(section)) {
+    return ABOUT[0];
+  } else if (FOUNDATIONS.includes(section)) {
+    return FOUNDATIONS[0];
+  } else if (COMPONENTS.includes(section)) {
+    return COMPONENTS[0];
+  } else if (PATTERNS.includes(section)) {
+    return PATTERNS[0];
+  } else if (TESTING.includes(section)) {
+    return TESTING[0];
+  } else {
+    // eg. the website "root" index page
+    return [];
+  }
+};
 
 // read the environment variables from the ".env" file
 dotenv.config();
@@ -21,22 +46,9 @@ dotenv.config();
 // const distDocsFolder = path.resolve(__dirname, '../dist/docs');
 const distDocsFolder = path.resolve('dist/docs');
 
-// UTILITIES
+// ===================================================
 
-const walkDir = async (dir, fileList = []) => {
-  const files = await fs.readdir(dir);
-  for (const file of files) {
-    const stat = await fs.stat(path.join(dir, file));
-    if (stat.isDirectory()) {
-      fileList = await walkDir(path.join(dir, file), fileList);
-    } else {
-      fileList.push(path.join(dir, file));
-    }
-  }
-  return fileList;
-};
-
-// SCRAPE MARKDOWN
+// INDEX WEBSITE CONTENT
 
 (async () => {
   try {
@@ -85,7 +97,7 @@ async function indexWebsiteContent() {
 
   // reset the index by removing all the existing objects
   await algoliaIndex.clearObjects();
-  console.log(chalk.green(`Algolia - Reset index "${ALGOLIA_INDEX_ID}"`));
+  console.log(chalk.green(`Algolia - Reset index "${ALGOLIA_INDEX_ID}"\n`));
 
   // we batch the records "add" operation for better efficiency
   // TODO - or better to have atomic operations?
@@ -104,22 +116,15 @@ async function indexWebsiteContent() {
     }
 
     // we skip the "testing" folder
-    // if (fileRelativePath.match(/^testing/)) {
+    if (fileRelativePath.match(/^testing/)) {
+      continue;
+    }
+
+    // DEBUG - we use ONLY the "testing" folder
+    // if (fileRelativePath.match(/^testing/) === null) {
+    // if (fileRelativePath !== 'testing/markdown/scraping-playground.json') {
     //   continue;
     // }
-
-    // TODO!
-    // we use ONLY the "testing" folder
-    // if (fileRelativePath.match(/^testing\/markdown/) === null) {
-    if (fileRelativePath.match(/^testing/) === null) {
-      continue;
-    }
-
-    // TODO!
-    // DEBUG - focus only on a single file for now
-    if (fileRelativePath !== 'testing/markdown/scraping-playground.json') {
-      continue;
-    }
 
     // read the JSON file
     const jsonData = await fs.readJSON(fileFullPath);
@@ -131,6 +136,10 @@ async function indexWebsiteContent() {
 
     // strip away the "index" from the file path and remove the `.json` extension
     const pageURL = fileRelativePath.replace(/(\/index)?\.json$/, '');
+
+    // routing categorization
+    const pageSection = fileRelativePath.split('/')[0];
+    const pageTopRoute = getPageTopRoute(pageSection);
 
     // extract the page content and relevant metadata
     const pageId = jsonData.data.id;
@@ -144,8 +153,13 @@ async function indexWebsiteContent() {
 
     // set the "base" algolia object so it can be shared across objects
     const algoliaBaseRecord = {
+      // https://www.algolia.com/doc-beta/guides/sending-and-managing-data/send-and-update-your-data#unique-object-identifiers
+      // objectID: TODO
       // PAGE
       pageId: pageId,
+      pageSection: pageSection,
+      pageTopRoute: pageTopRoute,
+      filePath: fileRelativePath,
       // METADATA
       title: pageMetadata.title,
       caption: pageMetadata.caption,
@@ -164,69 +178,40 @@ async function indexWebsiteContent() {
     // so we need to destructure it on a reusable array
     const matches = [...matchAllResults];
 
+    // console.log('========================================');
+    console.log(chalk.white(`Processing file: ${fileRelativePath}`));
+
     if (matches.length) {
       // extract from each "section" the tab name and the actual content
       matches.forEach(async (match) => {
         const tabName = match[1];
         const tabContent = match[2];
-
-        const { headings, paragraphs, tables, componentApis } =
-          await parseMarkdown(tabContent);
-        // console.log('\n\n\n\n========================================');
-        // console.log(`\nFile: ${fileRelativePath} / Tab: ${tabName}\n\n`);
-        // console.log('HEADINGS', headings);
-        // console.log('PARAGRAPHS', paragraphs);
-        // console.log('TABLE CELLS', tables.cells);
-        // console.log('COMPONENT APIs', JSON.stringify(componentApis, null, 2));
-
-        // prepare a new record for Algolia
-        algoliaRecords.push(
-          _.merge({}, algoliaBaseRecord, {
-            // https://www.algolia.com/doc-beta/guides/sending-and-managing-data/send-and-update-your-data#unique-object-identifiers
-            // objectID: TODO
-            pageURL: `${pageURL}/?tab=${tabName}`,
-            pageTab: tabName,
-            // TODO! this is to work around the 10K limitation of records in Algolia
-            content: tabContent.slice(0, 100),
-          })
-        );
+        const currBaseRecord = _.merge({}, algoliaBaseRecord, {
+          pageURL: `${pageURL}?tab=${encodeURIComponent(
+            tabName.toLowerCase()
+          )}`,
+          pageTab: tabName,
+        });
+        console.log(chalk.gray(`- Tab: ${tabName}`));
+        const records = await populateAlgoliaRecords({
+          record: currBaseRecord,
+          content: tabContent,
+        });
+        algoliaRecords.push(...records);
       });
     } else {
-      const { headings, paragraphs, tables, componentApis } =
-        await parseMarkdown(pageContent);
-      console.log('\n\n\n\n========================================');
-      console.log(`\nFile: ${fileRelativePath}\n\n`);
-      console.log('HEADINGS', headings);
-      console.log('PARAGRAPHS', paragraphs);
-      console.log('TABLE CELLS', tables.cells);
-      console.log('COMPONENT APIs', JSON.stringify(componentApis, null, 2));
-
-      // prepare a new record for Algolia
-      algoliaRecords.push(
-        _.merge({}, algoliaBaseRecord, {
-          // https://www.algolia.com/doc-beta/guides/sending-and-managing-data/send-and-update-your-data#unique-object-identifiers
-          // objectID: TODO
-          pageURL: pageURL,
-          pageTab: null,
-          // TODO! this is to work around the 10K limitation of records in Algolia
-          content: pageContent.slice(0, 100),
-        })
-      );
+      // there are no tabs, all the content is directly in the page
+      const currBaseRecord = _.merge({}, algoliaBaseRecord, {
+        pageURL: pageURL,
+        pageTab: null,
+      });
+      const records = await populateAlgoliaRecords({
+        record: currBaseRecord,
+        content: pageContent,
+      });
+      algoliaRecords.push(...records);
     }
-
-    // DEBUG
-    // console.log('----------------------------');
-    // console.log(pageId, fileRelativePath);
-    // if (fileRelativePath === 'about/support.json') {
-    // }
-    // if (fileRelativePath === 'components/alert/index.json') {
-    //   console.log(markdownContent.map((item) => item.tabName));
-    // }
   }
-
-  /*
-
-  TEMPORARY DISABLED
 
   // here we construct the request to be sent to Algolia with the `batch/multiBatch` method
   // see: https://www.algolia.com/doc/api-reference/api-methods/batch/
@@ -244,9 +229,7 @@ async function indexWebsiteContent() {
 
   console.log(
     chalk.green(
-      `Algolia - Added "${objectIDs.length}" objects to index ${ALGOLIA_INDEX_ID} with task "${taskID[ALGOLIA_INDEX_ID]}"`
+      `\nAlgolia - Added "${objectIDs.length}" objects to index ${ALGOLIA_INDEX_ID} with task "${taskID[ALGOLIA_INDEX_ID]}"`
     )
   );
-
-  */
 }
