@@ -28,11 +28,11 @@
     "codemod-cli": "^3.2.0"
   },
   "devDependencies": {
-    "coveralls": "^3.1.0",
-    "eslint": "^8.49.0",
+    "coveralls": "^3.1.1",
+    "eslint": "^8.52.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
     "jest": "^26.6.3",
     "prettier": "^3.0.3"
   },
