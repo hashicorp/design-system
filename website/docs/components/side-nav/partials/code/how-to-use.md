@@ -138,7 +138,7 @@ Here is an example of some possible actions:
         </:logo>
         <:actions>
           <Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" />
-          <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
+          <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="bottom-left" as |dd|>
             <dd.ToggleIcon @icon="help" @text="settings menu" />
             <dd.Title @text="Help & Support" />
             <dd.Interactive @text="Documentation" @href="#" />
@@ -149,7 +149,7 @@ Here is an example of some possible actions:
             <dd.Interactive @text="Create support ticket" @href="#" />
             <dd.Interactive @text="Give feedback" @href="#" />
           </Hds::Dropdown>
-          <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
+          <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="bottom-left" as |dd|>
             <dd.ToggleIcon @icon="user" @text="user menu" />
             <dd.Title @text="Signed In" />
             <dd.Description @text="email@domain.com" />
@@ -222,16 +222,16 @@ Below is an example (with simplified code for better readability) of how these e
 </div>
 ```
 
-In case a consumer needs to add custom/extra content inside the `<nav>` element but outside of the `<ul>` element, we provide two extra "slot" containers (`extraBefore` and `extraAfter`):
+In case a consumer needs to add custom/extra content inside the `<nav>` element but outside of the `<ul>` element, we provide two extra "slot" containers (`ExtraBefore` and `ExtraAfter`):
 
 ```handlebars{data-execute=false}
 <Hds::SideNav>
   {{! ... }}
   <:body>
     <Hds::SideNav::List as |SNL|>
-      <SNL.extraBefore>{{! content that is rendered before the list items }}</SNL.extraBefore>
+      <SNL.ExtraBefore>{{! content that is rendered before the list items }}</SNL.ExtraBefore>
       {{! ... list items ... }}
-      <SNL.extraAfter>{{! content that is rendered after the list items }}</SNL.extraAfter>
+      <SNL.ExtraAfter>{{! content that is rendered after the list items }}</SNL.ExtraAfter>
     </Hds::SideNav::List>
   </:body>
   {{! ... }}
@@ -258,7 +258,7 @@ The `SideNav::Portal` component internally uses the `SideNav::List` component an
 - `Link`
 - `BackLink`
 - `Item`
-- `extraBefore/After`
+- `ExtraBefore/After`
 
 For more details about how to use these sub-components refer to the ["Component API"](/components/side-nav?tab=code#sidenavlist) section.
 
@@ -277,7 +277,7 @@ but in your app they will probably need to be set to `true` (or omitted to rely 
           <Hds::SideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
         </:logo>
         <:actions>
-          <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
+          <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="bottom-left" as |dd|>
             <dd.ToggleIcon @icon="help" @text="help menu" />
             <dd.Title @text="Help & Support" />
             <dd.Interactive @text="Documentation" @href="#" />
@@ -288,7 +288,7 @@ but in your app they will probably need to be set to `true` (or omitted to rely 
             <dd.Interactive @text="Create support ticket" @href="#" />
             <dd.Interactive @text="Give feedback" @href="#" />
           </Hds::Dropdown>
-          <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="left" as |dd|>
+          <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="bottom-left" as |dd|>
             <dd.ToggleIcon @icon="user" @text="user menu" />
             <dd.Title @text="Signed In" />
             <dd.Description @text="email@domain.com" />

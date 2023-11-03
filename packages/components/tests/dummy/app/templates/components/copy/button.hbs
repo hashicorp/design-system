@@ -11,6 +11,8 @@
 
   <Shw::Text::H2>Content</Shw::Text::H2>
 
+  <input type="hidden" id="targetToCopy" value="This is some text stored in a hidden &lt;input&gt; element" />
+
   <Shw::Flex as |SF|>
     <SF.Item @label="Default">
       <Hds::Copy::Button @text="Copy" @targetToCopy="#targetToCopy" />
@@ -125,51 +127,64 @@
 
   <Shw::Text::H2>Demo</Shw::Text::H2>
 
-  <Shw::Text::H4 @tag="h3">In memory</Shw::Text::H4>
+  <Shw::Text::H3>With <code>text</code> as argument</Shw::Text::H3>
 
   <Shw::Flex as |SF|>
     <SF.Item>
-      <Hds::Copy::Button @text="Copy your secret key" @textToCopy="someSecretThingGoesHere" />
+      <Hds::Copy::Button @text="Copy a secret key" @textToCopy="someSecretThingGoesHere" />
     </SF.Item>
     <SF.Item>
       {{! context: https://github.com/hashicorp/design-system/pull/1564 }}
       <Hds::Copy::Button @text="Copy a number" @textToCopy={{123456789}} />
     </SF.Item>
+    <SF.Item>
+      <Hds::Copy::Button @text="Copy a Bigint number" @textToCopy={{this.bigIntNumber}} />
+    </SF.Item>
   </Shw::Flex>
 
   <Shw::Divider @level={{2}} />
 
-  <Shw::Text::H4 @tag="h3">With target element</Shw::Text::H4>
+  <Shw::Text::H3>With <code>target</code> element</Shw::Text::H3>
+
+  <Shw::Text::H4>Target types</Shw::Text::H4>
+
+  <Shw::Flex {{style gap="2rem"}} @columns={{3}} as |SF|>
+    <SF.Item>
+      <Shw::Label>Target as a CSS selector (`string`)</Shw::Label>
+      <div class="shw-component-copy-button-flex-container">
+        <p class="shw-text-body" id="test-target-string">Lorem ipsum dolor</p>
+        <Hds::Copy::Button
+          @isIconOnly={{true}}
+          @text="Copy the content in the node"
+          @targetToCopy="#test-target-string"
+        />
+      </div>
+    </SF.Item>
+    <SF.Item>
+      <Shw::Label>Target as a DOM element (`Node`)</Shw::Label>
+      <div class="shw-component-copy-button-flex-container">
+        <p class="shw-text-body" id="test-target-node-element">Lorem ipsum dolor</p>
+        <Hds::Copy::Button
+          @isIconOnly={{true}}
+          @text="Copy the content in the node"
+          @targetToCopy={{this.targetNodeElement}}
+        />
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H4>HDS components</Shw::Text::H4>
 
   <Shw::Grid {{style gap="2rem"}} @columns={{3}} as |SG|>
-    <SG.Item>
-      <Shw::Label>Text element</Shw::Label>
-      <Hds::Copy::Button @text="Copy the paragraph" @targetToCopy="#targetToCopy" />
-      <p class="shw-text shw-text-body" id="targetToCopy">This is the target element; the button will copy the text in
-        this target element.</p>
-    </SG.Item>
-    <SG.Item>
-      <Shw::Label>Code block</Shw::Label>
-      <Hds::Copy::Button @text="Copy the code block" @targetToCopy="#targetToCopy3" />
-      {{!-- prettier-ignore --}}
-      <pre class="shw-component-copy-button-code-block"><code id="targetToCopy3">&lt;h1&gt;A page header example&lt;/h1&gt;
-&lt;p&gt;Some paragraph text also&lt;/p&gt;</code></pre>
-    </SG.Item>
-  </Shw::Grid>
-
-  <Shw::Grid {{style gap="2rem"}} @columns={{3}} as |SG|>
-    <SG.Item>
-      <Shw::Label>Input element</Shw::Label>
-      <Hds::Copy::Button @text="Copy the input value" @targetToCopy="#test-input" />
-      <br />
+    <SG.Item class="shw-component-copy-button-input-component">
+      <Shw::Label>Input component</Shw::Label>
       <Hds::Form::TextInput::Field @value="036140285924" @name="test-input" @id="test-input" as |F|>
         <F.Label>Input Label</F.Label>
       </Hds::Form::TextInput::Field>
+      <Hds::Copy::Button @text="Copy the input value" @targetToCopy="#test-input" />
     </SG.Item>
-    <SG.Item>
-      <Shw::Label>Input element (readonly)</Shw::Label>
-      <Hds::Copy::Button @text="Copy the input value" @targetToCopy="#test-input-readonly" />
-      <br />
+    <SG.Item class="shw-component-copy-button-input-component">
+      <Shw::Label>Input component (readonly)</Shw::Label>
       <Hds::Form::TextInput::Field
         readonly
         @value="036140285924-readonly"
@@ -179,11 +194,10 @@
       >
         <F.Label>Input Label</F.Label>
       </Hds::Form::TextInput::Field>
+      <Hds::Copy::Button @text="Copy the input value" @targetToCopy="#test-input-readonly" />
     </SG.Item>
-    <SG.Item>
-      <Shw::Label>Input element (disabled)</Shw::Label>
-      <Hds::Copy::Button @text="Copy the input value" @targetToCopy="#test-input-disabled" />
-      <br />
+    <SG.Item class="shw-component-copy-button-input-component">
+      <Shw::Label>Input component (disabled)</Shw::Label>
       <Hds::Form::TextInput::Field
         disabled
         @value="036140285924-disabled"
@@ -193,7 +207,397 @@
       >
         <F.Label>Input Label</F.Label>
       </Hds::Form::TextInput::Field>
+      <Hds::Copy::Button @text="Copy the input value" @targetToCopy="#test-input-disabled" />
+    </SG.Item>
+    <SG.Item>
+      <Shw::Label>Textarea component</Shw::Label>
+      <div class="shw-component-copy-button-flex-container">
+        <Hds::Form::Textarea::Base
+          @value="This is a normal
+multiline text
+that should be copied"
+          @name="test-textarea"
+          id="test-textarea"
+        />
+        <Hds::Copy::Button @isIconOnly={{true}} @text="Copy the textarea value" @targetToCopy="#test-textarea" />
+      </div>
+    </SG.Item>
+    <SG.Item>
+      <Shw::Label>Textarea component (readonly)</Shw::Label>
+      <div class="shw-component-copy-button-flex-container">
+        <Hds::Form::Textarea::Base
+          readonly
+          @value="This is a redonly
+multiline text
+that should be copied"
+          @name="test-textarea-readonly"
+          id="test-textarea-readonly"
+        />
+        <Hds::Copy::Button
+          @isIconOnly={{true}}
+          @text="Copy the textarea value"
+          @targetToCopy="#test-textarea-readonly"
+        />
+      </div>
+    </SG.Item>
+    <SG.Item>
+      <Shw::Label>Textarea component (disabled)</Shw::Label>
+      <div class="shw-component-copy-button-flex-container">
+        <Hds::Form::Textarea::Base
+          disabled
+          @value="This is a disabled
+multiline text
+that should be copied"
+          @name="test-textarea-disabled"
+          id="test-textarea-disabled"
+        />
+        <Hds::Copy::Button
+          @isIconOnly={{true}}
+          @text="Copy the textarea value"
+          @targetToCopy="#test-textarea-disabled"
+        />
+      </div>
+    </SG.Item>
+    <SG.Item>
+      <Shw::Label>Select component</Shw::Label>
+      <div class="shw-component-copy-button-flex-container">
+        <Hds::Form::Select::Base @name="test-select" id="test-select" as |C|>
+          <C.Options>
+            <option>Lorem ipsum dolor</option>
+            <option selected>Sit amet</option>
+            <option>Consectetur adipiscing elit</option>
+          </C.Options>
+        </Hds::Form::Select::Base>
+        <Hds::Copy::Button @isIconOnly={{true}} @text="Copy the textarea value" @targetToCopy="#test-select" />
+      </div>
+    </SG.Item>
+    <SG.Item>
+      <Shw::Label>Select component (disabled)</Shw::Label>
+      <div class="shw-component-copy-button-flex-container">
+        <Hds::Form::Select::Base disabled @name="test-select-disabled" id="test-select-disabled" as |C|>
+          <C.Options>
+            <option>Lorem ipsum dolor</option>
+            <option>Sit amet</option>
+            <option selected>Consectetur adipiscing elit</option>
+          </C.Options>
+        </Hds::Form::Select::Base>
+        <Hds::Copy::Button @isIconOnly={{true}} @text="Copy the textarea value" @targetToCopy="#test-select-disabled" />
+      </div>
     </SG.Item>
   </Shw::Grid>
+
+  <Shw::Grid {{style gap="2rem"}} @columns={{3}} as |SG|>
+    <SG.Item>
+      <Shw::Label>Within a Dropdown</Shw::Label>
+      <Hds::Dropdown @listPosition="bottom-left" as |dd|>
+        <dd.ToggleButton @text="Open menu" />
+        <dd.Generic>
+          <div class="shw-component-copy-button-demo-container">
+            <p class="shw-text-h4">With HDS components</p>
+            <p class="shw-text-body">Input</p>
+            <div class="shw-component-copy-button-demo-flex-container">
+              <Hds::Form::TextInput::Base
+                @name="test-dropdown-text-input"
+                id="test-dropdown-text-input"
+                @value="Lorem ipsum dolor"
+              />
+              <Hds::Copy::Button
+                @isIconOnly={{true}}
+                @text="Copy the text input value"
+                @targetToCopy="#test-dropdown-text-input"
+              />
+            </div>
+            <Shw::Divider @level={{2}} />
+            <p class="shw-text-h4">With HTML blocks</p>
+            <p class="shw-text-body">Structured content</p>
+            <div class="shw-component-copy-button-demo-flex-container">
+              <p class="shw-component-copy-button-demo-paragraph" id="test-dropdown-structured-content">This is the
+                <span><strong>some</strong>
+                  <em>structured</em></span>
+                content that will be
+                <a href="#">targeted</a>
+                by the
+                <code>button</code>.</p>
+              <Hds::Copy::Button
+                @isIconOnly={{true}}
+                @text="Copy the structured content"
+                @targetToCopy="#test-dropdown-structured-content"
+              />
+            </div>
+            <p class="shw-text-body">Code block with 'contentEditable'</p>
+            <div class="shw-component-copy-button-demo-flex-container">
+              {{!-- prettier-ignore --}}
+              <pre class="shw-component-copy-button-code-block"><code
+            id="test-dropdown-code-block-editable"
+            contenteditable="true"
+          >&lt;h1&gt;Lorem&lt;/h1&gt;
+&lt;p&gt;Ipsum dolor&lt;/p&gt;</code></pre>
+              <Hds::Copy::Button
+                @isIconOnly={{true}}
+                @text="Copy the code block content"
+                @targetToCopy="#test-dropdown-code-block-editable"
+              />
+            </div>
+          </div>
+        </dd.Generic>
+      </Hds::Dropdown>
+    </SG.Item>
+    <SG.Item>
+      <Shw::Label>Within a Modal</Shw::Label>
+      <Hds::Button @color="secondary" @text="Open modal" {{on "click" this.activateModal}} />
+
+      {{! template-lint-disable no-autofocus-attribute }}
+      {{#if this.isModalActive}}
+        <Hds::Modal id="test-copy-button-modal" @onClose={{this.deactivateModal}} as |M|>
+          <M.Header>
+            Lorem ipsum dolor
+          </M.Header>
+          <M.Body>
+            <form name="test-copy-button-modal-form" class="shw-component-copy-button-demo-container">
+              <p class="shw-text-h4">With HDS components</p>
+              <p class="shw-text-body">Input</p>
+              <div class="shw-component-copy-button-demo-flex-container">
+                <Hds::Form::TextInput::Base
+                  @name="test-modal-text-input"
+                  id="test-modal-text-input"
+                  @value="Lorem ipsum dolor"
+                />
+                <Hds::Copy::Button
+                  @isIconOnly={{true}}
+                  @text="Copy the text input value"
+                  @targetToCopy="#test-modal-text-input"
+                />
+              </div>
+              <Shw::Divider @level={{2}} />
+              <p class="shw-text-h4">With HTML blocks</p>
+              <p class="shw-text-body">Structured content</p>
+              <div class="shw-component-copy-button-demo-flex-container">
+                <p class="shw-component-copy-button-demo-paragraph" id="test-modal-structured-content">This is the
+                  <span><strong>some</strong>
+                    <em>structured</em></span>
+                  content that will be
+                  <a href="#">targeted</a>
+                  by the
+                  <code>button</code>.</p>
+                <Hds::Copy::Button
+                  @isIconOnly={{true}}
+                  @text="Copy the structured content"
+                  @targetToCopy="#test-modal-structured-content"
+                />
+              </div>
+              <p class="shw-text-body">Code block with 'contentEditable'</p>
+              <div class="shw-component-copy-button-demo-flex-container">
+                {{!-- prettier-ignore --}}
+                <pre class="shw-component-copy-button-code-block"><code
+              id="test-modal-code-block-editable"
+              contenteditable="true"
+            >&lt;h1&gt;Lorem&lt;/h1&gt;
+&lt;p&gt;Ipsum dolor&lt;/p&gt;</code></pre>
+                <Hds::Copy::Button
+                  @isIconOnly={{true}}
+                  @text="Copy the code block content"
+                  @targetToCopy="#test-modal-code-block-editable"
+                />
+              </div>
+            </form>
+          </M.Body>
+          <M.Footer as |F|>
+            <Hds::ButtonSet>
+              <Hds::Button type="submit" @text="OK" {{on "click" this.deactivateModal}} />
+              <Hds::Button type="button" @text="Cancel" @color="secondary" {{on "click" F.close}} />
+            </Hds::ButtonSet>
+          </M.Footer>
+        </Hds::Modal>
+      {{/if}}
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Text::H4>HTML blocks</Shw::Text::H4>
+
+  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+    <SG.Item>
+      <Shw::Label>Structured content</Shw::Label>
+      <Hds::Copy::Button @text="Copy the content below" @targetToCopy="#test-structured-content" />
+      <ul class="shw-component-copy-structured-content" id="test-structured-content">
+        <li class="shw-text-body">
+          <p>This whole list is the
+            <span><strong>target</strong>
+              <em>element</em></span></p>
+        </li>
+        <li class="shw-text-body">
+          <p>The button will
+            <code>copy</code>
+            the
+            <a href="#">text</a>
+            in this
+            <cite>target</cite>
+            element.</p>
+        </li>
+      </ul>
+    </SG.Item>
+    <SG.Item>
+      <Shw::Label>With hidden content</Shw::Label>
+      <Hds::Copy::Button @text="Copy the content below" @targetToCopy="#test-hidden-content" />
+      <p class="shw-text-body" id="test-hidden-content">This paragraph contains some
+        <strong class="shw-component-copy-button-display-none">not</strong>
+        hidden content
+        <strong class="shw-component-copy-button-visibility-hidden">, or not?</strong>
+      </p>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+    <SG.Item>
+      <Shw::Label>Code block</Shw::Label>
+      <Hds::Copy::Button @text="Copy the code block" @targetToCopy="#test-code-block" />
+      {{!-- prettier-ignore --}}
+      <pre class="shw-component-copy-button-code-block"><code id="test-code-block">&lt;h1&gt;A page header example&lt;/h1&gt;
+&lt;p&gt;Some paragraph text also&lt;/p&gt;</code></pre>
+    </SG.Item>
+    <SG.Item>
+      <Shw::Label>Code block with 'contenteditable'</Shw::Label>
+      <Hds::Copy::Button @text="Edit and copy the code block" @targetToCopy="#test-code-block-editable" />
+      {{!-- prettier-ignore --}}
+      <pre class="shw-component-copy-button-code-block"><code id="test-code-block-editable" contenteditable="true">&lt;h1&gt;A page header example&lt;/h1&gt;
+&lt;p&gt;Some paragraph text also&lt;/p&gt;</code></pre>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Text::H4>HTML input elements</Shw::Text::H4>
+
+  <Shw::Flex {{style gap="2rem"}} as |SF|>
+    <SF.Item>
+      <Shw::Label>Text input</Shw::Label>
+      <div class="shw-component-copy-button-flex-container">
+        <input type="text" name="test-generic-input-text" id="test-generic-input-text" value="Lorem ipsum dolor" />
+        <Hds::Copy::Button
+          @isIconOnly={{true}}
+          @text="Copy the generic input text value"
+          @targetToCopy="#test-generic-input-text"
+        />
+      </div>
+    </SF.Item>
+    <SF.Item>
+      <Shw::Label>Password input</Shw::Label>
+      <div class="shw-component-copy-button-flex-container">
+        <input
+          type="password"
+          name="test-generic-input-password"
+          id="test-generic-input-password"
+          value="Thisisapassword"
+        />
+        <Hds::Copy::Button
+          @isIconOnly={{true}}
+          @text="Copy the generic input password value"
+          @targetToCopy="#test-generic-input-password"
+        />
+      </div>
+    </SF.Item>
+    <SF.Item>
+      <Shw::Label>Number input</Shw::Label>
+      <div class="shw-component-copy-button-flex-container">
+        <input type="number" name="test-generic-input-number" id="test-generic-input-number" value="123456" />
+        <Hds::Copy::Button
+          @isIconOnly={{true}}
+          @text="Copy the generic input number value"
+          @targetToCopy="#test-generic-input-number"
+        />
+      </div>
+    </SF.Item>
+    <SF.Item>
+      <Shw::Label>URL input</Shw::Label>
+      <div class="shw-component-copy-button-flex-container">
+        <input type="url" name="test-generic-input-url" id="test-generic-input-url" value="https://www.hello.com" />
+        <Hds::Copy::Button
+          @isIconOnly={{true}}
+          @text="Copy the generic input url value"
+          @targetToCopy="#test-generic-input-url"
+        />
+      </div>
+    </SF.Item>
+    <SF.Item>
+      <Shw::Label>Email input</Shw::Label>
+      <div class="shw-component-copy-button-flex-container">
+        <input type="email" name="test-generic-input-email" id="test-generic-input-email" value="info@hello.com" />
+        <Hds::Copy::Button
+          @isIconOnly={{true}}
+          @text="Copy the generic input email value"
+          @targetToCopy="#test-generic-input-email"
+        />
+      </div>
+    </SF.Item>
+    <SF.Item>
+      <Shw::Label>Date input</Shw::Label>
+      <div class="shw-component-copy-button-flex-container">
+        <input type="date" name="test-generic-input-date" id="test-generic-input-date" value="2018-07-22" />
+        <Hds::Copy::Button
+          @isIconOnly={{true}}
+          @text="Copy the generic input date value"
+          @targetToCopy="#test-generic-input-date"
+        />
+      </div>
+    </SF.Item>
+    <SF.Item>
+      <Shw::Label>Time input</Shw::Label>
+      <div class="shw-component-copy-button-flex-container">
+        <input type="time" name="test-generic-input-time" id="test-generic-input-time" value="23:59" />
+        <Hds::Copy::Button
+          @isIconOnly={{true}}
+          @text="Copy the generic input time value"
+          @targetToCopy="#test-generic-input-time"
+        />
+      </div>
+    </SF.Item>
+    <SF.Item>
+      <Shw::Label>Range input</Shw::Label>
+      <div class="shw-component-copy-button-flex-container">
+        <input type="range" name="test-generic-input-range" id="test-generic-input-range" min="0" max="10" value="6" />
+        <Hds::Copy::Button
+          @isIconOnly={{true}}
+          @text="Copy the generic input range value"
+          @targetToCopy="#test-generic-input-range"
+        />
+      </div>
+    </SF.Item>
+    <SF.Item>
+      <Shw::Label>Color input</Shw::Label>
+      <div class="shw-component-copy-button-flex-container">
+        <input type="color" name="test-generic-input-color" id="test-generic-input-color" value="#e66465" />
+        <Hds::Copy::Button
+          @isIconOnly={{true}}
+          @text="Copy the generic input color value"
+          @targetToCopy="#test-generic-input-color"
+        />
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+  <Shw::Flex {{style gap="2rem"}} as |SF|>
+    <SF.Item>
+      <Shw::Label>Textarea</Shw::Label>
+      <div class="shw-component-copy-button-flex-container">
+        <textarea name="test-generic-textarea" id="test-generic-textarea" rows="3">Lorem ipsum dolor</textarea>
+        <Hds::Copy::Button
+          @isIconOnly={{true}}
+          @text="Copy the generic textarea value"
+          @targetToCopy="#test-generic-textarea"
+        />
+      </div>
+    </SF.Item>
+    <SF.Item>
+      <Shw::Label>Select</Shw::Label>
+      <div class="shw-component-copy-button-flex-container">
+        <select name="test-generic-select" id="test-generic-select">
+          <option>Lorem ipsum dolor</option>
+          <option>Sit amet</option>
+          <option>Consectetur adipiscing elit</option>
+        </select>
+        <Hds::Copy::Button
+          @isIconOnly={{true}}
+          @text="Copy the generic select value"
+          @targetToCopy="#test-generic-select"
+        />
+      </div>
+    </SF.Item>
+  </Shw::Flex>
 
 </section>

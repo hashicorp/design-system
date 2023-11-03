@@ -73,7 +73,7 @@ module('Integration | Component | hds/pagination/compact', function (hooks) {
       .hasText('50');
   });
 
-  test('it renders custom options for passed in pageSizes', async function (assert) {
+  test('it renders custom options for passed in pageSizes and sets currentPageSize to the first PageSizes item', async function (assert) {
     await render(hbs`
       <Hds::Pagination::Compact @showSizeSelector={{true}} @pageSizes={{array 20 40 60}} />
     `);
@@ -86,6 +86,15 @@ module('Integration | Component | hds/pagination/compact', function (hooks) {
     assert
       .dom('.hds-pagination .hds-pagination-size-selector option[value="60"]')
       .hasText('60');
+  });
+
+  test('it renders the passed in currentPageSize value', async function (assert) {
+    await render(hbs`
+      <Hds::Pagination::Compact @showSizeSelector={{true}} @currentPageSize={{40}} @pageSizes={{array 20 40 60}} />
+    `);
+    assert
+      .dom('.hds-pagination .hds-pagination-size-selector select')
+      .hasValue('40');
   });
 
   test('it displays the passed in custom text for the SizeSelector label text', async function (assert) {

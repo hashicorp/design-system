@@ -16,14 +16,14 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: yarn
           cache-dependency-path: yarn.lock
-  
+
       - name: Install Dependencies
         run: yarn install --immutable
 
       - name: Sync icons
         env:
           # this is Brian's personal access token
-          FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }} 
+          FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
         run: yarn sync
         working-directory: packages/flight-icons
 
@@ -38,5 +38,43 @@ jobs:
           branch-suffix: 'short-commit-hash'
           commit-message: 'sync & build of flight icons'
           title: 'Updated export of icons from Figma'
-          body: ''
+          body: |
+            ### :pushpin: Summary
+
+            This is an automated PR opened by the Hashibot-HDS using the GitHub Action [Sync & Build Icons](https://github.com/hashicorp/design-system/actions/workflows/open-pull-request-for-icon-update.yml).
+
+            ### :hammer_and_wrench: Detailed description
+
+            <!-- (Remove this comment) once done ------------
+
+            Add specific details for this PR here:
+            - which icons has been added?
+            - which icons have been changed, updated or deleted?
+
+            Make sure that you have followed the instructions described here:
+            https://github.com/hashicorp/design-system/blob/main/packages/flight-icons/CONTRIBUTING.md#updating-the-icons-in-flight-icons ("Updating the icons in flight-icons" + "Automated process" + "After you have run the scripts")
+
+            Make sure that the "changeset" is added to the PR _before_ asking for review (and especially don't merge to `main` if the changeset is missing).
+
+            ⚠️ Note: The changeset needs to be applied only to the `@hashicorp/flight-icons` version (typically a new icon or a significant change to an existing icon is considered a `minor` change, a breaking change is always considered a `major`, while for a small update to an icon a `patch` is OK). No need to bump also the version of `ember-flight-icons`: changesets takes care of everything from there (see for example this previous export: https://github.com/hashicorp/design-system/pull/1638/files).
+
+            ------- (end of the comment to remove) -->
+
+            ### :camera_flash: Screenshots
+
+            <!-- Add relevant screenshots if needed -->
+
+            ### :link: External links
+
+            <!-- Add links to relevant Jira issues, Figma files/frames, Slack threads, documents, etc. -->
+
+            Jira ticket: [HDS-XXX](https://hashicorp.atlassian.net/browse/HDS-XXX)
+            Figma file: [if it applies]
+
+            ***
+
+            ### 👀 Component checklist
+
+            - [ ] A changelog entry was added via [Changesets](https://github.com/changesets/changesets) if needed ([instructions here](https://github.com/hashicorp/design-system/blob/main/packages/flight-icons/CONTRIBUTING.md#updating-the-icons-in-flight-icons) / [expected format here](https://github.com/hashicorp/design-system/blob/main/wiki/Website-Changelog.md#new-icons))
+            - [ ] Percy was checked for any visual regression
           token: ${{ secrets.PAT_TOKEN }}

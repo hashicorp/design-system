@@ -21,7 +21,9 @@ Text Input accepts [all native HTML types](https://developer.mozilla.org/en-US/d
 
 ### Password
 
-<Hds::Form::TextInput::Field @type="password" placeholder="Password" @value="password" @width="300px" as |F|>
+The `TextInput` component has a visibility toggle feature for password fields. By default, a button appears allowing users to switch easily between visible and obfuscated input.
+
+<Hds::Form::TextInput::Field @type="password" @hasVisibilityToggle={{true}} placeholder="Password" @value="password" @width="300px" as |F|>
   <F.Label>Password</F.Label>
 </Hds::Form::TextInput::Field>
 

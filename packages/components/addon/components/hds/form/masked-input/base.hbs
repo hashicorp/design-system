@@ -21,22 +21,20 @@
       ...attributes
     />
   {{/if}}
-  <button
-    class="hds-form-masked-input__toggle-button"
-    type="button"
-    aria-label={{this.ariaLabel}}
+  <Hds::Form::VisibilityToggle
+    @isVisible={{this.isContentMasked}}
+    @ariaLabel={{this.visibilityToggleAriaLabel}}
+    @ariaMessageText={{this.visibilityToggleAriaMessageText}}
     aria-controls={{this.id}}
-    {{on "click" this.onClickToggle}}
-  >
-    <FlightIcon @name={{if this.isMasked "eye" "eye-off"}} @size="16" @isInlineBlock={{false}} />
-    <span class="sr-only" aria-live="polite">{{this.ariaMessageText}}</span>
-  </button>
+    class="hds-form-masked-input__toggle-button"
+    {{on "click" this.onClickToggleMasking}}
+  />
   {{#if @hasCopyButton}}
     <Hds::Copy::Button
       class="hds-form-masked-input__copy-button"
       @text={{this.copyButtonText}}
       @isIconOnly={{true}}
-      @textToCopy="{{@value}}"
+      @targetToCopy="#{{this.id}}"
     />
   {{/if}}
 </div>

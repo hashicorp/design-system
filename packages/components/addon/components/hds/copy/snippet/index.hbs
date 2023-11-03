@@ -5,11 +5,11 @@
 <button
   type="button"
   class={{this.classNames}}
-  {{clipboard text=@textToCopy container=@container onError=this.onError onSuccess=this.onSuccess}}
+  {{hds-clipboard text=@textToCopy onSuccess=this.onSuccess onError=this.onError}}
   ...attributes
 >
-  <span class="hds-copy-snippet__text hds-typography-code-100 {{if @isTruncated 'hds-copy-snippet__text--truncated'}}">
+  <Hds::Text::Code class="hds-copy-snippet__text" @tag="span" @size="100">
     {{@textToCopy}}
-  </span>
+  </Hds::Text::Code>
   <FlightIcon @name={{this.icon}} class="hds-copy-snippet__icon" />
 </button>

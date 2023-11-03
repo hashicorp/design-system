@@ -1,0 +1,57 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// WHAT'S NEW > CHANGELOG
+
+
+#show-content-whats-new-release-notes {
+  > section {
+    > hr {
+      margin: 12px 0 18px;
+      background-color: transparent;
+      border-top: 1px dashed #ccc;
+    }
+
+    > p:has(strong:only-child) {
+      margin-top: 32px;
+    }
+  }
+
+  .doc-whats-new-changelog-npm-info {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+    strong,
+    code,
+    a,
+    img {
+      // needed to have the flex alignment work as expected
+      display: block;
+    }
+  }
+
+  .doc-whats-new-changelog-figma-library {
+    @include doc-font-family("mono");
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    font-weight: inherit;
+    font-size: 0.8em; // no need to set the line-height, it's an inline element!
+    background-color: var(--doc-color-gray-600);
+    border-radius: 0.22em;
+
+    a,
+    a:hover,
+    a:active,
+    a:visited {
+      color: inherit;
+    }
+  }
+
+  .doc-whats-new-changelog-figma-libraries-divider {
+    margin: 64px 0;
+    border-top: 3px double #ccc;
+  }
+}

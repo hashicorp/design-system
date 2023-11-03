@@ -17,7 +17,12 @@
     {{else if (eq @status "complete")}}
       <FlightIcon class="hds-stepper-indicator-step__icon" @name="check" @size="16" />
     {{else}}
-      <span class="hds-stepper-indicator-step__text">{{@text}}</span>
+      <Hds::Text::Body
+        class="hds-stepper-indicator-step__text"
+        @tag="span"
+        @size="100"
+        @weight="medium"
+      >{{@text}}</Hds::Text::Body>
     {{/if}}
   </div>
 </div>

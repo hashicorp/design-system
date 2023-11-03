@@ -33,6 +33,8 @@ export default class CopySnippetController extends Controller {
   }
 
   routeDidChange() {
-    scheduleOnce('afterRender', this, replaceMockCopyStatus);
+    if (this.router.currentRoute.name === 'components.copy.snippet') {
+      scheduleOnce('afterRender', this, replaceMockCopyStatus);
+    }
   }
 }

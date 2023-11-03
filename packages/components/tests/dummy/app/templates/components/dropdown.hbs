@@ -247,7 +247,11 @@
     {{#each @model.TOGGLE_BUTTON_COLORS as |color|}}
       {{#each @model.TOGGLE_STATES as |state|}}
         <SG.Item @label="{{capitalize color}}">
-          <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @color={{color}} mock-state-value={{state}} />
+          {{#if (eq state "disabled")}}
+            <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @color={{color}} disabled />
+          {{else}}
+            <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @color={{color}} mock-state-value={{state}} />
+          {{/if}}
         </SG.Item>
       {{/each}}
       <SG.Item @label="{{capitalize color}}">
@@ -255,7 +259,11 @@
       </SG.Item>
       {{#each @model.TOGGLE_STATES as |state|}}
         <SG.Item @label="With icon">
-          <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem" @color={{color}} mock-state-value={{state}} />
+          {{#if (eq state "disabled")}}
+            <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem" @color={{color}} disabled />
+          {{else}}
+            <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem" @color={{color}} mock-state-value={{state}} />
+          {{/if}}
         </SG.Item>
       {{/each}}
       <SG.Item @label="With icon">
@@ -263,7 +271,11 @@
       </SG.Item>
       {{#each @model.TOGGLE_STATES as |state|}}
         <SG.Item @label="With count">
-          <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @color={{color}} mock-state-value={{state}} />
+          {{#if (eq state "disabled")}}
+            <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @color={{color}} disabled />
+          {{else}}
+            <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @color={{color}} mock-state-value={{state}} />
+          {{/if}}
         </SG.Item>
       {{/each}}
       <SG.Item @label="With count">
@@ -271,13 +283,17 @@
       </SG.Item>
       {{#each @model.TOGGLE_STATES as |state|}}
         <SG.Item @label="With badge">
-          <Hds::Dropdown::Toggle::Button
-            @badge="Sit"
-            @badgeIcon="hexagon"
-            @text="Lorem"
-            @color={{color}}
-            mock-state-value={{state}}
-          />
+          {{#if (eq state "disabled")}}
+            <Hds::Dropdown::Toggle::Button @badge="Sit" @badgeIcon="hexagon" @text="Lorem" @color={{color}} disabled />
+          {{else}}
+            <Hds::Dropdown::Toggle::Button
+              @badge="Sit"
+              @badgeIcon="hexagon"
+              @text="Lorem"
+              @color={{color}}
+              mock-state-value={{state}}
+            />
+          {{/if}}
         </SG.Item>
       {{/each}}
       <SG.Item @label="With badge">
@@ -524,8 +540,17 @@
   <Shw::Text::H4>Content</Shw::Text::H4>
 
   <Shw::Flex as |SF|>
-    <SF.Item @label="Base">
+    <SF.Item @label="With short text">
       {{! Notice: we want to emulate the case of a fixed width list }}
+      {{! template-lint-disable no-inline-styles }}
+      <div class="hds-dropdown__content" style="width: 250px">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::CopyItem @text="Lorem ipsum" />
+        </ul>
+      </div>
+      {{! template-lint-enable no-inline-styles }}
+    </SF.Item>
+    <SF.Item @label="With long text">
       {{! template-lint-disable no-inline-styles }}
       <div class="hds-dropdown__content" style="width: 250px">
         <ul class="hds-dropdown__list">
@@ -534,7 +559,33 @@
       </div>
       {{! template-lint-enable no-inline-styles }}
     </SF.Item>
-    <SF.Item @label="With copyItemTitle defined">
+    <SF.Item @label="With long text + isTruncated=false">
+      {{! template-lint-disable no-inline-styles }}
+      <div class="hds-dropdown__content" style="width: 250px">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::CopyItem
+            @copyItemTitle="Lorem ipsum dolor"
+            @text="91ee1e8ef65b337f0e70d793f456c71d"
+            @isTruncated={{false}}
+          />
+        </ul>
+      </div>
+      {{! template-lint-enable no-inline-styles }}
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Short text + copyItemTitle">
+      {{! Notice: we want to emulate the case of a fixed width list }}
+      {{! template-lint-disable no-inline-styles }}
+      <div class="hds-dropdown__content" style="width: 250px">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::CopyItem @copyItemTitle="Lorem ipsum dolor" @text="Lorem ipsum" />
+        </ul>
+      </div>
+      {{! template-lint-enable no-inline-styles }}
+    </SF.Item>
+    <SF.Item @label="Long text + copyItemTitle">
       {{! template-lint-disable no-inline-styles }}
       <div class="hds-dropdown__content" style="width: 250px">
         <ul class="hds-dropdown__list">
@@ -546,14 +597,14 @@
       </div>
       {{! template-lint-enable no-inline-styles }}
     </SF.Item>
-    <SF.Item @label="With isTruncated">
+    <SF.Item @label="Long text + copyItemTitle + isTruncated=false">
       {{! template-lint-disable no-inline-styles }}
       <div class="hds-dropdown__content" style="width: 250px">
         <ul class="hds-dropdown__list">
           <Hds::Dropdown::ListItem::CopyItem
             @copyItemTitle="Lorem ipsum dolor"
             @text="91ee1e8ef65b337f0e70d793f456c71d"
-            @isTruncated={{true}}
+            @isTruncated={{false}}
           />
         </ul>
       </div>
@@ -580,7 +631,7 @@
       </div>
       {{! template-lint-enable no-inline-styles }}
     </SF.Item>
-    <SF.Item @label="With copyItemTitle defined">
+    <SF.Item @label="With copyItemTitle">
       {{! Notice: we want to emulate the case of a fixed width list }}
       {{! template-lint-disable no-inline-styles }}
       <div class="hds-dropdown__content" style="width: 250px">
@@ -597,7 +648,7 @@
       </div>
       {{! template-lint-enable no-inline-styles }}
     </SF.Item>
-    <SF.Item @label="With copyItemTitle & isTruncated">
+    <SF.Item @label="With copyItemTitle + isTruncated=false">
       {{! Notice: we want to emulate the case of a fixed width list }}
       {{! template-lint-disable no-inline-styles }}
       <div class="hds-dropdown__content" style="width: 250px">
@@ -606,7 +657,7 @@
             <Hds::Dropdown::ListItem::CopyItem
               @text="{{state}}: fbrct1ed-fgr35h-tyng89-wed4r"
               @copyItemTitle="Lorem ipsumy dolor"
-              @isTruncated={{true}}
+              @isTruncated={{false}}
               mock-state-value={{state}}
               mock-state-selector="button"
             />
@@ -767,7 +818,7 @@
   </Shw::Flex>
   <Shw::Flex as |SF|>
     <SF.Item @label="Interactive">
-      <Hds::Dropdown @listPosition="left" as |dd|>
+      <Hds::Dropdown @listPosition="bottom-left" as |dd|>
         <dd.ToggleButton @text="Checkmark" @color="secondary" />
         <dd.Checkmark @count="11">virtualbox</dd.Checkmark>
         <dd.Checkmark @count="1" @selected={{true}}>vmware</dd.Checkmark>
@@ -925,7 +976,7 @@
   </Shw::Flex>
   <Shw::Flex as |SF|>
     <SF.Item @label="Interactive">
-      <Hds::Dropdown @listPosition="left" as |dd|>
+      <Hds::Dropdown @listPosition="bottom-left" as |dd|>
         <dd.ToggleButton @text="Checkbox" @color="secondary" />
         <dd.Checkbox name="checkbox-item-dropdown" @count="11">virtualbox</dd.Checkbox>
         <dd.Checkbox name="checkbox-item-dropdown" @count="1" checked>vmware</dd.Checkbox>
@@ -1083,7 +1134,7 @@
   </Shw::Flex>
   <Shw::Flex as |SF|>
     <SF.Item @label="Interactive">
-      <Hds::Dropdown @listPosition="left" as |dd|>
+      <Hds::Dropdown @listPosition="bottom-left" as |dd|>
         <dd.ToggleButton @text="Radio" @color="secondary" />
         <dd.Radio name="radio-item-dropdown" @count="11">virtualbox</dd.Radio>
         <dd.Radio name="radio-item-dropdown" @count="1" checked>vmware</dd.Radio>
@@ -1261,6 +1312,7 @@
           <Shw::Placeholder @text="generic header content" @width="200" @height="36" @background="#e1f5fe" />
         </Hds::Dropdown::Header>
         <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Interactive for testing" />
           <Hds::Dropdown::ListItem::Generic>
             <Shw::Placeholder @text="generic item content" @height="36" @background="#e1f5fe" />
           </Hds::Dropdown::ListItem::Generic>

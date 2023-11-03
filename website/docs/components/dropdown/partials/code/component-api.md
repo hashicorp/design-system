@@ -172,7 +172,7 @@ If the Dropdown content exceeds the height of the container, the header and foot
     <br><br>
     _Notice: this argument is forwarded (as `textToCopy`) to the [`Copy::Snippet` component](/components/copy/snippet?tab=code#component-api)._
   </C.Property>
-  <C.Property @name="isTruncated" @type="boolean" @default="false">
+  <C.Property @name="isTruncated" @type="boolean" @default="true">
     Constrains text to one line and truncates it based on available width. Text will only be truncated if it does not fit within the available space.
     <br><br>
     Please be aware there are [serious accessibility concerns](/components/copy/snippet?tab=accessibility) with using this feature.

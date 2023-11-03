@@ -61,6 +61,9 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
     `);
     assert.dom('.hds-pagination .hds-pagination-info').hasText('1–20 of 100');
     assert
+      .dom('.hds-pagination .hds-pagination-size-selector select')
+      .hasValue('20');
+    assert
       .dom('.hds-pagination .hds-pagination-size-selector option[value="20"]')
       .hasText('20');
     assert
@@ -76,6 +79,9 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
       <Hds::Pagination::Numbered @totalItems={{100}} @currentPageSize={{40}} @pageSizes={{array 20 40 60}} />
     `);
     assert.dom('.hds-pagination .hds-pagination-info').hasText('1–40 of 100');
+    assert
+      .dom('.hds-pagination .hds-pagination-size-selector select')
+      .hasValue('40');
   });
 
   test('it renders the "nav" content', async function (assert) {

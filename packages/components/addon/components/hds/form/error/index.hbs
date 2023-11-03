@@ -4,7 +4,7 @@
 }}
 <div class={{this.classNames}} id={{this.id}} {{did-insert this.onInsert}} ...attributes>
   <FlightIcon class="hds-form-error__icon" @name="alert-diamond-fill" />
-  <div class="hds-form-error__content">
+  <Hds::Text::Body class="hds-form-error__content" @tag="div" @size="100" @weight="medium">
     {{yield (hash Message=(component "hds/form/error/message"))}}
-  </div>
+  </Hds::Text::Body>
 </div>

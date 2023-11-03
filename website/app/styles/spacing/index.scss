@@ -95,6 +95,10 @@ pre[class*="language-"].doc-markdown-pre.doc-code-block__code-snippet + pre[clas
 
 .doc-markdown-table {
   margin-top: 32px;
+
+  + .doc-markdown-p {
+    margin-top: 32px;
+  }
 }
 
 // SPECIAL CASES
