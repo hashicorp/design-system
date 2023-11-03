@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { module, test, skip } from 'qunit';
+import { module, skip } from 'qunit';
 import { visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'dummy/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
