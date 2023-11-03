@@ -6,6 +6,7 @@
 import { remark } from 'remark';
 import { visit } from 'unist-util-visit';
 import { defaultSchema } from 'hast-util-sanitize';
+import { fromHtml } from 'hast-util-from-html';
 
 import _ from 'lodash';
 
@@ -66,9 +67,9 @@ export async function parseMarkdown(markdownContent) {
 
   let sanitazedContent;
   sanitazedContent = replaceDocTags(markdownContent);
-  console.log('----------------------------');
-  console.log(sanitazedContent);
-  console.log('----------------------------');
+  // console.log('----------------------------');
+  // console.log(sanitazedContent);
+  // console.log('----------------------------');
 
   const headingMapper = () => (tree) => {
     visit(tree, 'heading', (node) => {
@@ -93,11 +94,37 @@ export async function parseMarkdown(markdownContent) {
     });
   };
 
-  const htmlTagsMapper = () => (tree) => {
+  const htmlMapper = () => (tree) => {
     visit(tree, 'html', (node) => {
       console.log('HTML', JSON.stringify(node, null, 2));
-      console.log('parent', node.parent);
-      htmlTags.push({ html: node.value });
+      // https://github.com/syntax-tree/hast-util-from-html
+      const root = fromHtml(node.value, { fragment: true });
+      // console.log('HTML-TREE', JSON.stringify(root, null, 2));
+      root.children.forEach((element) => {
+        if (
+          element.type === element &&
+          element.tagName === 'doc-component-api'
+        ) {
+          const propertiesNames = [];
+          element.children.forEach((subelement) => {
+            if (
+              subelement.type === element &&
+              subelement.tagName === 'doc-component-api-property'
+            ) {
+              if (subelement.properties['at-arg-name']) {
+                propertiesNames.push(subelement.properties['at-arg-name']);
+              }
+            }
+          });
+          if (propertiesNames.length > 0) {
+            htmlTags.push({
+              'doc-component-api': {
+                propertiesNames: propertiesNames.join(' '),
+              },
+            });
+          }
+        }
+      });
     });
   };
 
@@ -119,7 +146,7 @@ export async function parseMarkdown(markdownContent) {
     .use(headingMapper)
     .use(paragraphMapper)
     .use(tableMapper)
-    .use(htmlTagsMapper)
+    .use(htmlMapper)
     .process(sanitazedContent);
 
   return { headings, paragraphs, tables, htmlTags };

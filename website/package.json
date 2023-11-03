@@ -89,6 +89,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-qunit": "^7.3.4",
     "fs-extra": "^11.1.0",
+    "hast-util-from-html": "^2.0.1",
     "hast-util-sanitize": "^5.0.1",
     "jsdom": "^20.0.3",
     "jsonapi-serializer": "^3.6.7",

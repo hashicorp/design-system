@@ -15374,6 +15374,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"hast-util-from-html@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "hast-util-from-html@npm:2.0.1"
+  dependencies:
+    "@types/hast": ^3.0.0
+    devlop: ^1.1.0
+    hast-util-from-parse5: ^8.0.0
+    parse5: ^7.0.0
+    vfile: ^6.0.0
+    vfile-message: ^4.0.0
+  checksum: 8decdec1f2750d3d8d4933a4d06d78846a9fb3c97cded07395d160adae22bacfc69eaf113fd95a6ad696d1e5877580f2ac83a4161fa9f3becb0fafe2cec8b0ea
+  languageName: node
+  linkType: hard
+
 "hast-util-from-parse5@npm:^8.0.0":
   version: 8.0.1
   resolution: "hast-util-from-parse5@npm:8.0.1"
@@ -26248,6 +26262,7 @@ __metadata:
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-qunit: ^7.3.4
     fs-extra: ^11.1.0
+    hast-util-from-html: ^2.0.1
     hast-util-sanitize: ^5.0.1
     jsdom: ^20.0.3
     jsonapi-serializer: ^3.6.7
