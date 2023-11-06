@@ -6,7 +6,7 @@
 
 ## November 3rd, 2023
 
-`Breadcrumb` - updated the number of `breadcrumb / _items` to the component.
+`Breadcrumb` - Updated the number of `breadcrumb / _items` to the component.
 
 ## October 23rd, 2023
 
