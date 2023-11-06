@@ -1,5 +1,29 @@
 # @hashicorp/ember-flight-icons
 
+## 4.0.2
+
+### Patch Changes
+
+Upgraded the following dependencies:
+
+- `ember-cli-babel` from `7.26.11` to `8.2.0`
+
+<small>[#1761](https://github.com/hashicorp/design-system/pull/1761)</small>
+
+---
+
+Upgraded the following dependencies:
+
+- `ember-cli-htmlbars` from `6.2.0` to `6.3.0`
+
+<small>[#1756](https://github.com/hashicorp/design-system/pull/1756)</small>
+
+---
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@2.21.0
+
 ## 4.0.1
 
 ### Patch Changes

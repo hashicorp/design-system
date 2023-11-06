@@ -1,22 +1,31 @@
 # @hashicorp/flight-icons
 
+## 2.21.0
+
+### Minor Changes
+
+Added static SVG sprite sheet file
+
+<small>[#1763](https://github.com/hashicorp/design-system/pull/1763) - Thanks [@dstaley](https://github.com/dstaley) for the contribution! 🙏</small>
+
+---
+
 ## 2.20.0
 
 ### Minor Changes
 
 Added "static" version of the animated icons:
 
-  - `loading-static`
-  - `running-static`
+- `loading-static`
+- `running-static`
 
 Added new set of icons for Google services:
 
-  - `google-docs`
-  - `google-forms`
-  - `google-slides`
-  - `google-sheets`
-  - `google-drive`
-
+- `google-docs`
+- `google-forms`
+- `google-slides`
+- `google-sheets`
+- `google-drive`
 
 <small>[#1657](https://github.com/hashicorp/design-system/pull/1657)</small>
 
@@ -89,7 +98,6 @@ Fix color for `connection-gateway` icon
 Added `ampersand` icon
 
 <small>[#1412](https://github.com/hashicorp/design-system/pull/1412)</small>
-
 
 ## 2.12.0
 

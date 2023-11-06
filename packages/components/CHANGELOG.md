@@ -1,5 +1,56 @@
 # @hashicorp/design-system-components
 
+## 3.1.0
+
+### Minor Changes
+
+`CodeBlock` - Added new component
+
+<small>[#1687](https://github.com/hashicorp/design-system/pull/1687)</small>
+
+---
+
+### Patch Changes
+
+Upgraded the following dependencies:
+
+- `@ember/test-waiters` from `3.0.2` to `3.1.0`
+- `ember-cli-htmlbars` from `6.2.0` to `6.3.0`
+- `ember-focus-trap` from `1.0.2` to `1.1.0`
+- `ember-keyboard` from `8.2.0` to `8.2.1`
+- `sass` from `1.62.1` to `1.69.5`
+
+<small>[#1756](https://github.com/hashicorp/design-system/pull/1756)</small>
+
+---
+
+`Breadcrumb` - Added support for external links
+
+<small>[#1774](https://github.com/hashicorp/design-system/pull/1774)</small>
+
+---
+
+Upgraded the following dependencies:
+
+- `ember-cached-decorator-polyfill` from `0.1.4` to `1.0.2`
+- `ember-cli-babel` from `7.26.11` to `8.2.0`
+- `ember-cli-sass` from `10.0.1` to `11.0.1`
+- `ember-composable-helpers` from `4.5.0` to `5.0.0`
+
+<small>[#1761](https://github.com/hashicorp/design-system/pull/1761)</small>
+
+---
+
+`Button` - Fixed `HdsInteractiveSignature` type import
+
+<small>[#1769](https://github.com/hashicorp/design-system/pull/1769)</small>
+
+---
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/ember-flight-icons@4.0.2
+
 ## 3.0.2
 
 ### Patch Changes
