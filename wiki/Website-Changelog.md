@@ -10,7 +10,6 @@
 - [Templates](#templates)
   - [Templates for npm packages](#templates-for-npm-packages)
   - [Templates for Figma changelog entries](#templates-for-figma-changelog-entries)
-- [Adding Figma changelog entries](#adding-figma-changelog-entries)
 
 ---
 
