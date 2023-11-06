@@ -279,7 +279,6 @@ body.dark {
   background: none;
   border: 0;
   appearance: none;
-  appearance: none;
 }
 
 .aa-LoadingIndicator {
@@ -310,7 +309,6 @@ body.dark {
   font: inherit;
   background: none;
   border: 0;
-  appearance: none;
   appearance: none;
 
   /* Focus is set and styled on the parent, it isn't necessary here */
@@ -428,7 +426,6 @@ body.dark {
   padding: 0;
   background: none;
   border: 0;
-  appearance: none;
   appearance: none;
 }
 
@@ -1284,5 +1281,19 @@ body.dark {
 @media (hover: hover) {
   .aa-TouchOnly {
     display: none;
+  }
+}
+
+
+// =======================================
+// =======================================
+// =======================================
+
+.doc-algolia-search__aa-preview--illustration {
+  img {
+    display: block;
+    width: 80px;
+    height: auto;
+    border-radius: 3px;
   }
 }
