@@ -12,6 +12,65 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@algolia/autocomplete-core@npm:1.12.1":
+  version: 1.12.1
+  resolution: "@algolia/autocomplete-core@npm:1.12.1"
+  dependencies:
+    "@algolia/autocomplete-plugin-algolia-insights": 1.12.1
+    "@algolia/autocomplete-shared": 1.12.1
+  checksum: 106d9ad1bd602307759e37efc0dac18bfac22808f916541b00ef55a525f66ec93ccb8350e710e7babbc6e0de139f26afa561d7e4e807ef581bc3c13a2e04b1d5
+  languageName: node
+  linkType: hard
+
+"@algolia/autocomplete-js@npm:^1.12.1":
+  version: 1.12.1
+  resolution: "@algolia/autocomplete-js@npm:1.12.1"
+  dependencies:
+    "@algolia/autocomplete-core": 1.12.1
+    "@algolia/autocomplete-preset-algolia": 1.12.1
+    "@algolia/autocomplete-shared": 1.12.1
+    htm: ^3.1.1
+    preact: ^10.13.2
+  peerDependencies:
+    "@algolia/client-search": ">= 4.5.1 < 6"
+    algoliasearch: ">= 4.9.1 < 6"
+  checksum: 6b9a1a26b2e59c47c3106ca8d4feccc96181463d936f01bf7214163767b9c9cde5ab4ff07ccaa493984b41a75d43b77b8f471414f366dd32713693000aaed4e8
+  languageName: node
+  linkType: hard
+
+"@algolia/autocomplete-plugin-algolia-insights@npm:1.12.1":
+  version: 1.12.1
+  resolution: "@algolia/autocomplete-plugin-algolia-insights@npm:1.12.1"
+  dependencies:
+    "@algolia/autocomplete-shared": 1.12.1
+  peerDependencies:
+    search-insights: ">= 1 < 3"
+  checksum: bebf58962ee52d37109d269351ffcf31b208330c681f09437f47e9f7c5828126e37e4a025691febc1e15b6beead86d14810bda8af1b9c69314ee4d7bf4c68fe6
+  languageName: node
+  linkType: hard
+
+"@algolia/autocomplete-preset-algolia@npm:1.12.1":
+  version: 1.12.1
+  resolution: "@algolia/autocomplete-preset-algolia@npm:1.12.1"
+  dependencies:
+    "@algolia/autocomplete-shared": 1.12.1
+  peerDependencies:
+    "@algolia/client-search": ">= 4.9.1 < 6"
+    algoliasearch: ">= 4.9.1 < 6"
+  checksum: e43715c10b84e58237cc40696d2a198818ebbc3945efc3eeed8466a698907f9d1b231d2b27d7571889fddc553193f6987cb3717fd1f68eb1af862eb2e70573cb
+  languageName: node
+  linkType: hard
+
+"@algolia/autocomplete-shared@npm:1.12.1":
+  version: 1.12.1
+  resolution: "@algolia/autocomplete-shared@npm:1.12.1"
+  peerDependencies:
+    "@algolia/client-search": ">= 4.9.1 < 6"
+    algoliasearch: ">= 4.9.1 < 6"
+  checksum: 937055678f320dd4b97c662bb267eaab1375a502fbe04b752b4c51058f72e0884eab94c9e929d520cad40ad7245e116e096d0c93766b176ff833184368dd4213
+  languageName: node
+  linkType: hard
+
 "@algolia/cache-browser-local-storage@npm:4.20.0":
   version: 4.20.0
   resolution: "@algolia/cache-browser-local-storage@npm:4.20.0"
@@ -2963,6 +3022,23 @@ __metadata:
   peerDependencies:
     ember-source: ^3.8 || ^4.0.0
   checksum: ebeb4d573968f46490f8f5618b9d85f2c7ca39cee5b854bb497a3aee7dee3d710ab02b9677df30f1e2a484e712dd89171045118da563d9d9a6c316ccdccc2671
+  languageName: node
+  linkType: hard
+
+"@ember/render-modifiers@npm:^2.0.4, @ember/render-modifiers@npm:^2.0.5, @ember/render-modifiers@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "@ember/render-modifiers@npm:2.1.0"
+  dependencies:
+    "@embroider/macros": ^1.0.0
+    ember-cli-babel: ^7.26.11
+    ember-modifier-manager-polyfill: ^1.2.0
+  peerDependencies:
+    "@glint/template": ^1.0.2
+    ember-source: ^3.8 || ^4.0.0 || ^5.0.0
+  peerDependenciesMeta:
+    "@glint/template":
+      optional: true
+  checksum: 6c4d617b67ee52e8e29e9a2b9f42a30e8ea333a7b7a4c5a61fdf5f15623da11f40d82218aeddfbe32bee1f508c569740e842a8233f4a372728d18b66bbc197d5
   languageName: node
   linkType: hard
 
@@ -15602,6 +15678,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"htm@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "htm@npm:3.1.1"
+  checksum: 1827a0cafffcff69690b048a4df59944086d7503fe5eb7c10b40834439205bdf992941e7aa25e92b3c2c086170565b4ed7c365bc072d31067c6e7a4e478776bd
+  languageName: node
+  linkType: hard
+
 "html-encoding-sniffer@npm:^2.0.1":
   version: 2.0.1
   resolution: "html-encoding-sniffer@npm:2.0.1"
@@ -21345,6 +21428,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"preact@npm:^10.13.2":
+  version: 10.18.2
+  resolution: "preact@npm:10.18.2"
+  checksum: 84fb8c3259c0b929f662856c075b41f7faaa20f28db0524549998aa892c8e3e990e9d1344e278506ed762f7975a976ec3c62494b972ad95e7af1354b79647d3f
+  languageName: node
+  linkType: hard
+
 "preferred-pm@npm:^3.0.0":
   version: 3.0.3
   resolution: "preferred-pm@npm:3.0.3"
@@ -26213,7 +26303,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "website@workspace:website"
   dependencies:
+    "@algolia/autocomplete-js": ^1.12.1
     "@ember/optional-features": ^2.0.0
+    "@ember/render-modifiers": ^2.1.0
     "@ember/string": ^3.0.1
     "@ember/test-helpers": ^2.9.3
     "@glimmer/component": ^1.1.2
