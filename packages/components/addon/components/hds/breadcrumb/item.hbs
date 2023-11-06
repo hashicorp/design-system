@@ -32,8 +32,10 @@
     {{else}}
       <LinkTo
         class="hds-breadcrumb__link"
+        @current-when={{@current-when}}
         @models={{hds-link-to-models @model @models}}
         @query={{hds-link-to-query @query}}
+        @replace={{@replace}}
         @route={{@route}}
       >
         {{#if @icon}}
