@@ -12,23 +12,32 @@
   </a>
 </p>
 
+## 2.21.0
+
+**Minor changes**
+
+Added static SVG sprite sheet file
+
+<small>[#1763](https://github.com/hashicorp/design-system/pull/1763) - Thanks [@dstaley](https://github.com/dstaley) for the contribution! 🙏</small>
+
+---
+
 ## 2.20.0
 
 **Minor changes**
 
 Added "static" version of the animated icons:
 
-  - `loading-static`
-  - `running-static`
+- `loading-static`
+- `running-static`
 
 Added new set of icons for Google services:
 
-  - `google-docs`
-  - `google-forms`
-  - `google-slides`
-  - `google-sheets`
-  - `google-drive`
-
+- `google-docs`
+- `google-forms`
+- `google-slides`
+- `google-sheets`
+- `google-drive`
 
 <small>[#1657](https://github.com/hashicorp/design-system/pull/1657)</small>
 
@@ -101,7 +110,6 @@ Fix color for `connection-gateway` icon
 Added `ampersand` icon
 
 <small>[#1412](https://github.com/hashicorp/design-system/pull/1412)</small>
-
 
 ## 2.12.0
 
@@ -218,12 +226,6 @@ Added `figma` and `loom` icons
 **Minor changes**
 
 - [#317](https://github.com/hashicorp/design-system/pull/317) [`59906536`](https://github.com/hashicorp/design-system/commit/599065361476aab6016dce017f01ca73b9ebeebc) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Add new log and test icons to Flight
-
-## 2.3.1
-
-**Patch changes**
-
-- [#219](https://github.com/hashicorp/design-system/pull/219) [`fc3a3dd4`](https://github.com/hashicorp/design-system/commit/fc3a3dd429f5681474bed95b43245d83b4094567) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - minor adjustments to add optical balance to the `government` icon
 
 
 ---

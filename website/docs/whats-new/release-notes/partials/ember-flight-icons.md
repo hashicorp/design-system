@@ -12,6 +12,30 @@
   </a>
 </p>
 
+## 4.0.2
+
+**Patch changes**
+
+Upgraded the following dependencies:
+
+- `ember-cli-babel` from `7.26.11` to `8.2.0`
+
+<small>[#1761](https://github.com/hashicorp/design-system/pull/1761)</small>
+
+---
+
+Upgraded the following dependencies:
+
+- `ember-cli-htmlbars` from `6.2.0` to `6.3.0`
+
+<small>[#1756](https://github.com/hashicorp/design-system/pull/1756)</small>
+
+---
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@2.21.0
+
 ## 4.0.1
 
 **Patch changes**
@@ -187,13 +211,6 @@ Fix error message for mismatched icon `@name`
 
 - Updated dependencies [[`c8221e26`](https://github.com/hashicorp/design-system/commit/c8221e26e85142024483be2ea85f6191f3ceb652)]:
   - @hashicorp/flight-icons@2.8.0
-
-## 2.0.9
-
-**Patch changes**
-
-- Updated dependencies [[`c2f2e4ce`](https://github.com/hashicorp/design-system/commit/c2f2e4cea526421f63853461265064742af69729)]:
-  - @hashicorp/flight-icons@2.7.0
 
 
 ---
