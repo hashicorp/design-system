@@ -32,8 +32,11 @@ The Breadcrumb component is composed of three different parts, each with their o
   <C.Property @name="icon" @type="string">
     Use to show an icon. Any [icon](/icons/library) name is acceptable.
   </C.Property>
-  <C.Property @name="route/models/model/query">
-    These parameters are passed down as arguments to the `<LinkTo>` component.
+  <C.Property @name="route/models/model/query/current-when/replace">
+    Parameters that are passed down as arguments to the `<LinkTo>`/`<LinkToExternal>` components.
+  </C.Property>
+  <C.Property @name="isRouteExternal" @type="boolean" @default="false">
+    Controls if the “LinkTo” is external to the Ember engine, in which case it will use a `<LinkToExternal>` for the `@route`.
   </C.Property>
   <C.Property @name="current" @type="boolean" @default="false">
     Determines if an item is the last item in the Breadcrumb, in which case it doesn’t generate a link.
