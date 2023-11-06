@@ -1,5 +1,19 @@
 # [HDS Product - Components](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=6790-10926&mode=design&t=Ps0aMGZ6F3z7bAJ4-0)
 
+## November 6th, 2023
+
+`CodeBlock` - Added new component.
+
+## November 3rd, 2023
+
+`Breadcrumb` - Updated the number of `breadcrumb / _items` to the component.
+
+## October 23rd, 2023
+
+`Button` - Updated icon only button variants to be square to match the ToggleIcon.
+
+`Dropdown / ToggleIcon` - Fixed the small variant so that it’s the correct size (28px height) to match the other small Buttons and ToggleButton.
+
 ## September 15th, 2023
 
 `IconTile` and `IconTile-Logo` - Added a new product variant for Vault Secrets.
