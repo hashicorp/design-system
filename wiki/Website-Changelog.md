@@ -10,6 +10,7 @@
 - [Templates](#templates)
   - [Templates for npm packages](#templates-for-npm-packages)
   - [Templates for Figma changelog entries](#templates-for-figma-changelog-entries)
+- [Adding Figma changelog entries](#adding-figma-changelog-entries)
 
 ---
 
@@ -124,7 +125,11 @@ _{...important details}_
 
 ### Templates for Figma changelog entries
 
-Entries made for the Figma Components and Foundations UI Kits require a few additional steps. Copy and paste this template and adjust as necessary after publishing changes in Figma. _Replace all elements in brackets._
+Entries made for the Figma Components and Foundations UI Kits require a few additional steps.
+
+1. Open a PR to capture the relevant updates to the changelog.
+2. After publishing changes in Figma, copy and paste the appropriate template into the relevant changelog file in the components package; either `packages/components/CHANGELOG-FIGMA-{COMPONENTS or FOUNDATIONS}` depending on what library the change was made in.
+3. Replace all elements in brackets with the specific component or style/token name.
 
 #### Simple entry
 ```
@@ -177,3 +182,8 @@ _{additional details}..._
   - Added a Header and Footer to the List.
   - Added the ability to set a fixed height on the List resulting in the use of a scrollbar for longer lists.
 </details>
+
+
+
+
+
