@@ -182,8 +182,3 @@ _{additional details}..._
   - Added a Header and Footer to the List.
   - Added the ability to set a fixed height on the List resulting in the use of a scrollbar for longer lists.
 </details>
-
-
-
-
-
