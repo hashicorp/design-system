@@ -7,6 +7,7 @@
 ### When not to use
 
 - As a full-blown code editor.
+- As an embedded terminal or terminal emulator.
 
 ### When to use a CodeBlock vs a Copy Snippet
 
