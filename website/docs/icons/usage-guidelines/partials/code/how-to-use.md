@@ -85,7 +85,7 @@ import { IconArrowRight24 } from '@hashicorp/flight-icons/svg-react/arrow-right-
 
 ## How to use icons
 
-The most basic invocation requires only the `@name` property to be passed with a value matching an existing name in [the Icon library](icons/library).
+The most basic invocation requires only the `@name` property to be passed with a value matching an existing name in [the Icon library](/icons/library).
 
 ```markup
 <FlightIcon @name="alert-circle" />
