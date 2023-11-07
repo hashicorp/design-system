@@ -4666,6 +4666,7 @@ __metadata:
     "@babel/plugin-proposal-decorators": "npm:^7.23.2"
     "@ember/optional-features": "npm:^2.0.0"
     "@ember/render-modifiers": "npm:^2.0.5"
+    "@ember/string": "npm:^3.1.1"
     "@ember/test-helpers": "npm:^3.2.0"
     "@ember/test-waiters": "npm:^3.1.0"
     "@embroider/test-setup": "npm:^3.0.2"
