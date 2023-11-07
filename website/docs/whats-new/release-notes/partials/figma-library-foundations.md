@@ -12,6 +12,17 @@
 </p>
 
 
+### November 2nd, 2023
+
+`Elevation / Mid` - Fixed style not being correctly published to consuming libraries.
+
+### October 31st, 2023
+
+`Components / Code Block / Code / 200` - Added component-specific text style for the CodeBlock.
+
+### October 20th, 2023
+
+`Components / Code Block / Syntax` - Added syntax highlighting styles used by the CodeBlock component.
 
 
 ---
