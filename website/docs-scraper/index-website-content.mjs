@@ -45,6 +45,12 @@ dotenv.config();
 
 // const distDocsFolder = path.resolve(__dirname, '../dist/docs');
 const distDocsFolder = path.resolve('dist/docs');
+const tokensJsonFilePath = path.resolve(
+  '../packages/tokens/dist/docs/products/tokens.json'
+);
+const flightIconsJsonFilePath = path.resolve(
+  '../packages/flight-icons/catalog.json'
+);
 
 // ===================================================
 
@@ -54,7 +60,7 @@ const distDocsFolder = path.resolve('dist/docs');
   try {
     console.log(
       `\n==========\n${chalk.cyan(
-        'Markdown indexing started...'
+        'Website content indexing started...'
       )}\n==========\n`
     );
 
@@ -62,7 +68,7 @@ const distDocsFolder = path.resolve('dist/docs');
 
     console.log(
       `\n==========\n${chalk.cyan(
-        'Markdown indexing completed.'
+        'Website content indexing completed.'
       )}\n==========\n`
     );
   } catch (err) {
@@ -103,6 +109,10 @@ async function indexWebsiteContent() {
   // TODO - or better to have atomic operations?
   const algoliaRecords = [];
 
+  // --------------------------------
+  // MARKDOWN FILES
+  // --------------------------------
+
   // get all the files in the `website/dist/docs` folder
   const files = await walkDir(distDocsFolder);
 
@@ -142,7 +152,6 @@ async function indexWebsiteContent() {
     const pageTopRoute = getPageTopRoute(pageSection);
 
     // extract the page content and relevant metadata
-    const pageId = jsonData.data.id;
     const pageContent = jsonData.data.attributes.content ?? '';
     const pageMetadata = _.pick(jsonData.data.attributes, [
       'title',
@@ -153,10 +162,7 @@ async function indexWebsiteContent() {
 
     // set the "base" algolia object so it can be shared across objects
     const algoliaBaseRecord = {
-      // https://www.algolia.com/doc-beta/guides/sending-and-managing-data/send-and-update-your-data#unique-object-identifiers
-      // objectID: TODO
       // PAGE
-      pageId: pageId,
       pageSection: pageSection,
       pageTopRoute: pageTopRoute,
       filePath: fileRelativePath,
@@ -212,6 +218,82 @@ async function indexWebsiteContent() {
       algoliaRecords.push(...records);
     }
   }
+
+  // --------------------------------
+  // TOKENS
+  // --------------------------------
+
+  // read the JSON file for the tokens
+  const tokensJsonData = await fs.readJSON(tokensJsonFilePath);
+
+  tokensJsonData.forEach((token) => {
+    algoliaRecords.push({
+      // RECORD
+      objectID: `record__token-${token.name}`, // https://www.algolia.com/doc-beta/guides/sending-and-managing-data/send-and-update-your-data#unique-object-identifiers
+      // PAGE
+      pageSection: 'foundations',
+      pageTopRoute: 'foundations',
+      pageURL: `/foundations/tokens?searchQuery=${token.name}`,
+      //
+      // METADATA
+      // title: ???,
+      // caption: ???,
+      // previewImage: ???,
+      //
+      // CONTENT
+      type: 'token',
+      content: `${token.name} ${token.value}`,
+      level: 9,
+      source: 'token',
+      // EXTRA
+      'token-name': token.name,
+      'token-value': token.value,
+      'token-type': token.type, // notice: it may be `undefined`
+      'token-group': token.group, // notice: it may be `undefined`
+    });
+  });
+
+  console.log(chalk.white(`\nProcessed ${tokensJsonData.length} tokens`));
+
+  // --------------------------------
+  // ICONS
+  // --------------------------------
+
+  // read the JSON file for the Flight icons
+  const flightIconsJsonData = await fs.readJSON(flightIconsJsonFilePath);
+
+  const distinctIcons = _.uniqBy(flightIconsJsonData.assets, 'iconName');
+
+  distinctIcons.forEach((icon) => {
+    algoliaRecords.push({
+      // RECORD
+      objectID: `record__icon-${icon.iconName}`, // https://www.algolia.com/doc-beta/guides/sending-and-managing-data/send-and-update-your-data#unique-object-identifiers
+      // PAGE
+      pageSection: 'icons',
+      pageTopRoute: 'foundations',
+      pageURL: `/icons/library?searchQuery=${icon.iconName}`,
+      //
+      // METADATA
+      // title: ???,
+      // caption: ???,
+      // previewImage: ???,
+      //
+      // CONTENT
+      type: 'icon',
+      content: `${icon.iconName}, ${icon.description}`,
+      level: 9,
+      source: 'icon',
+      // EXTRA
+      'icon-name': icon.iconName,
+      'icon-aliases': icon.description,
+    });
+  });
+
+  console.log(chalk.white(`\nProcessed ${distinctIcons.length} Flight icons`));
+
+  // --------------------------------
+  // PUSH TO ALGOLIA
+  // --------------------------------
 
   // here we construct the request to be sent to Algolia with the `batch/multiBatch` method
   // see: https://www.algolia.com/doc/api-reference/api-methods/batch/
