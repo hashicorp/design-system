@@ -1,5 +1,19 @@
 # @hashicorp/design-system-components
 
+## 3.1.1
+
+### Patch Changes
+
+Added `@ember/string` as a direct dependency
+
+<small>[#1782](https://github.com/hashicorp/design-system/pull/1782)</small>
+
+---
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/ember-flight-icons@4.0.3
+
 ## 3.1.0
 
 ### Minor Changes

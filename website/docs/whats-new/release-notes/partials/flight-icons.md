@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 2.22.0
+
+**Minor changes**
+
+Added `IconName` type to `iconNames` export
+
+<small>[#1776](https://github.com/hashicorp/design-system/pull/1776) - Thanks [@dstaley](https://github.com/dstaley) for the contribution! 🙏</small>
+
+---
+
 ## 2.21.0
 
 **Minor changes**
@@ -220,12 +230,6 @@ Added `figma` and `loom` icons
 **Minor changes**
 
 - [#329](https://github.com/hashicorp/design-system/pull/329) [`671640a4`](https://github.com/hashicorp/design-system/commit/671640a476ab4ae4e0dd84e5e00964475e95e870) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Added "plug" outlined icon.
-
-## 2.4.0
-
-**Minor changes**
-
-- [#317](https://github.com/hashicorp/design-system/pull/317) [`59906536`](https://github.com/hashicorp/design-system/commit/599065361476aab6016dce017f01ca73b9ebeebc) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Add new log and test icons to Flight
 
 
 ---
