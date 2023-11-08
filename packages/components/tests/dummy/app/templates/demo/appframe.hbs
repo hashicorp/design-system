@@ -1,0 +1,30 @@
+{{page-title "Appframe"}}
+
+<Hds::AppFrame as |Frame|>
+  <Frame.Header>
+    {{! your "header" content goes here, this is just a mock placeholder }}
+    {{!-- <Shw::Placeholder @height="60px" @text="header" @background="#e5ffd2" /> --}}
+    {{!-- <Shw::Header /> --}}
+  </Frame.Header>
+  <Frame.Sidebar>
+    <Hds::SideNav @isResponsive="true" @isCollapsible="true">
+      <:header>
+        <Shw::Placeholder @text="&lt;:header /&gt;" />
+      </:header>
+      <:body>
+        <Shw::Placeholder @text="&lt;:body /&gt;" />
+      </:body>
+      <:footer>
+        <Shw::Placeholder @text="&lt;:footer /&gt;" />
+      </:footer>
+    </Hds::SideNav>
+  </Frame.Sidebar>
+  <Frame.Main>
+    {{! your "main" content goes here, this is just a mock placeholder }}
+    <Shw::Placeholder @height="100%" @text="main" @background="#d2f4ff" />
+  </Frame.Main>
+  <Frame.Footer>
+    {{! your "footer" content goes here, this is just a mock placeholder }}
+    <Shw::Placeholder @height="60px" @text="footer" @background="#fff8d2" />
+  </Frame.Footer>
+</Hds::AppFrame>

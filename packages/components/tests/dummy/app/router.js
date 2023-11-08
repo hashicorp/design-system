@@ -82,4 +82,8 @@ Router.map(function () {
   this.route('overrides', function () {
     this.route('power-select');
   });
+
+  this.route('demo', function() {
+    this.route('appframe');
+  });
 });
