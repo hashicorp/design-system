@@ -14,6 +14,9 @@ import algoliasearch from 'algoliasearch';
 import { walkDir } from './parts/walkDir.mjs';
 import { populateAlgoliaRecords } from './parts/populateAlgoliaRecords.mjs';
 
+// read the environment variables from the ".env" file
+dotenv.config();
+
 // TODO understand if it's possible to generalize this
 // import { getTocSectionsBundle } from '../app/components/doc/page/sidebar.js';
 const ABOUT = ['about', 'whats-new', 'getting-started'];
@@ -38,9 +41,6 @@ const getPageTopRoute = (section) => {
   }
 };
 
-// read the environment variables from the ".env" file
-dotenv.config();
-
 // SCRIPT CONFIG
 
 // const distDocsFolder = path.resolve(__dirname, '../dist/docs');
@@ -51,6 +51,11 @@ const tokensJsonFilePath = path.resolve(
 const flightIconsJsonFilePath = path.resolve(
   '../packages/flight-icons/catalog.json'
 );
+
+// used in development mode to skip API calls
+const DEV_SKIP_API_CALLS = false;
+// used in development to process only the "testing" markdown files
+const DEV_MARKDOWN_TESTING = false;
 
 // ===================================================
 
@@ -102,8 +107,16 @@ async function indexWebsiteContent() {
   const algoliaIndex = algoliaClient.initIndex(ALGOLIA_INDEX_ID);
 
   // reset the index by removing all the existing objects
-  await algoliaIndex.clearObjects();
-  console.log(chalk.green(`Algolia - Reset index "${ALGOLIA_INDEX_ID}"\n`));
+  if (!DEV_SKIP_API_CALLS) {
+    await algoliaIndex.clearObjects();
+    console.log(chalk.green(`Algolia - Reset index "${ALGOLIA_INDEX_ID}"\n`));
+  } else {
+    console.log(
+      chalk.magenta(
+        `\n[DEV-MODE] Algolia - Skipped resetting index ${ALGOLIA_INDEX_ID}"\n`
+      )
+    );
+  }
 
   // we batch the records "add" operation for better efficiency
   // TODO - or better to have atomic operations?
@@ -125,23 +138,30 @@ async function indexWebsiteContent() {
       continue;
     }
 
-    // we skip the "testing" folder
-    if (fileRelativePath.match(/^testing/)) {
-      continue;
+    if (DEV_MARKDOWN_TESTING) {
+      // DEBUG - we use ONLY the "playground" markdown file
+      if (fileRelativePath !== 'testing/markdown/scraping-playground.json') {
+        continue;
+      }
+      // DEBUG - we use ONLY the "testing" folder
+      // if (fileRelativePath.match(/^testing/) === null) {
+      //   continue;
+      // }
+    } else {
+      // we skip the "testing" folder
+      if (fileRelativePath.match(/^testing/)) {
+        continue;
+      }
     }
-
-    // DEBUG - we use ONLY the "testing" folder
-    // if (fileRelativePath.match(/^testing/) === null) {
-    // if (fileRelativePath !== 'testing/markdown/scraping-playground.json') {
-    //   continue;
-    // }
 
     // read the JSON file
     const jsonData = await fs.readJSON(fileFullPath);
 
-    // skip hidden pages
-    if (jsonData.data?.attributes?.navigation?.hidden) {
-      continue;
+    if (!DEV_MARKDOWN_TESTING) {
+      // skip hidden pages
+      if (jsonData.data?.attributes?.navigation?.hidden) {
+        continue;
+      }
     }
 
     // strip away the "index" from the file path and remove the `.json` extension
@@ -295,23 +315,31 @@ async function indexWebsiteContent() {
   // PUSH TO ALGOLIA
   // --------------------------------
 
-  // here we construct the request to be sent to Algolia with the `batch/multiBatch` method
-  // see: https://www.algolia.com/doc/api-reference/api-methods/batch/
-  const algoliaRequests = algoliaRecords.map((record) => {
-    return {
-      action: 'addObject',
-      indexName: ALGOLIA_INDEX_ID,
-      body: record,
-    };
-  });
+  if (!DEV_SKIP_API_CALLS) {
+    // here we construct the request to be sent to Algolia with the `batch/multiBatch` method
+    // see: https://www.algolia.com/doc/api-reference/api-methods/batch/
+    const algoliaRequests = algoliaRecords.map((record) => {
+      return {
+        action: 'addObject',
+        indexName: ALGOLIA_INDEX_ID,
+        body: record,
+      };
+    });
 
-  const { taskID, objectIDs } = await algoliaClient.multipleBatch(
-    algoliaRequests
-  );
+    const { taskID, objectIDs } = await algoliaClient.multipleBatch(
+      algoliaRequests
+    );
 
-  console.log(
-    chalk.green(
-      `\nAlgolia - Added "${objectIDs.length}" objects to index ${ALGOLIA_INDEX_ID} with task "${taskID[ALGOLIA_INDEX_ID]}"`
-    )
-  );
+    console.log(
+      chalk.green(
+        `\nAlgolia - Added "${objectIDs.length}" objects to index ${ALGOLIA_INDEX_ID} with task "${taskID[ALGOLIA_INDEX_ID]}"\n`
+      )
+    );
+  } else {
+    console.log(
+      chalk.magenta(
+        `\n[DEV-MODE] Algolia - Skipped adding objects to index ${ALGOLIA_INDEX_ID}"\n`
+      )
+    );
+  }
 }
