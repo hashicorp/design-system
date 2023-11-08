@@ -12,6 +12,20 @@
 </p>
 
 
+### November 6th, 2023
+
+`CodeBlock` - Added new component.
+
+### November 3rd, 2023
+
+`Breadcrumb` - Updated the number of `breadcrumb / _items` to the component.
+
+### October 23rd, 2023
+
+`Button` - Updated icon only button variants to be square to match the ToggleIcon.
+
+`Dropdown / ToggleIcon` - Fixed the small variant so that it’s the correct size (28px height) to match the other small Buttons and ToggleButton.
+
 ### September 15th, 2023
 
 `IconTile` and `IconTile-Logo` - Added a new product variant for Vault Secrets.
@@ -44,26 +58,6 @@ Added a “Form Primitives” page to house the `Fieldset` component.
 #### Breaking change
 
 `Dropdown` - Fixed a spacing issue between the label and chevron in the ToggleButton.
-
-### May 31st, 2023
-
-`ApplicationState` - Updated the text style to reduce the prominence.
-
-### May 11th, 2023
-
-Added new utility components: 
-
-- `Cursor`
-- `Scrollbar`
-
-### May 10th, 2023
-
-`SegmentedGroup` - Refactored the component, including:
-
-- Fixing a bug that created an “inception” style loop of the inheritance between the published component library and the local components.
-- Adding more straightforward support for the focus state of the `Select` component when nested within a `SegmentedGroup`.
-
-`Select` - Updated the focus state to bring consistency in how the `Select` and the other form controls account for this interactive state.
 
 
 ---
