@@ -1,5 +1,15 @@
 # @hashicorp/flight-icons
 
+## 2.22.0
+
+### Minor Changes
+
+Added `IconName` type to `iconNames` export
+
+<small>[#1776](https://github.com/hashicorp/design-system/pull/1776) - Thanks [@dstaley](https://github.com/dstaley) for the contribution! 🙏</small>
+
+---
+
 ## 2.21.0
 
 ### Minor Changes

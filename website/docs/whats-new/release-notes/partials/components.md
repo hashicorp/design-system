@@ -12,6 +12,20 @@
   </a>
 </p>
 
+## 3.1.1
+
+**Patch changes**
+
+Added `@ember/string` as a direct dependency
+
+<small>[#1782](https://github.com/hashicorp/design-system/pull/1782)</small>
+
+---
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/ember-flight-icons@4.0.3
+
 ## 3.1.0
 
 **Minor changes**
@@ -642,17 +656,6 @@ Fix Embroider warnings caused by incorrect export of internal utility functions
 
 - Updated dependencies []:
   - @hashicorp/ember-flight-icons@3.0.5
-
-## 2.6.0
-
-**Minor changes**
-
-- [#1381](https://github.com/hashicorp/design-system/pull/1381) [`02cdeacd5`](https://github.com/hashicorp/design-system/commit/02cdeacd51d29ed3d19e66cc09b95589becd770b) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - Add new `Reveal` component
-
-**Patch changes**
-
-- Updated dependencies []:
-  - @hashicorp/ember-flight-icons@3.0.4
 
 
 ---
