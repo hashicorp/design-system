@@ -16,6 +16,11 @@
   // we use this trick (increasing the container size here, and reducing it at single panel level)
   // to have the panels width match the sidebar extended width (it's used in the animated sliding of the panels)
   margin: 0 calc(var(--token-side-nav-wrapper-padding-horizontal) * -1);
+
+  .hds-side-nav--is-minimized & {
+    height: 0;
+    overflow: hidden;
+  }
 }
 
 .hds-side-nav__content-panels {
