@@ -128,7 +128,8 @@ Entries made for the Figma Components and Foundations UI Kits require a few addi
 
 1. Copy and paste the appropriate template into the relevant changelog file in the components package; `packages/components/CHANGELOG-FIGMA-{COMPONENTS or FOUNDATIONS}` depending on what library the change was made in.
 2. If the change in Figma has corresponding changes in code or requires an update to the documentation, the changelog entry can be added in the same PR as the rest of the changes. The release process will automatically add these changes to the changelog on the website.
-3. Otherwise, if the change only pertains to Figma and does not result in a documentation change, open a new PR to add a changelog entry. Since this change does not correspond with a code release, the script used to generate the Figma changelog must be triggered manually from the webiste directory by running `yarn generate-changelog-markdown-files`.
+3. Otherwise, if the change only pertains to Figma and does not result in a documentation change, open a new PR to add a changelog entry. 
+    - Since this change does not correspond with a code release, the script used to generate the Figma changelog must be triggered manually from the webiste directory by running `yarn generate-changelog-markdown-files`.
 4. Replace all elements in brackets with the specific component or style/token name.
 5. For consistency purposes it's recommended to publish the changes in Figma at the same time as the changelog entry is merged and added to the website.
 
