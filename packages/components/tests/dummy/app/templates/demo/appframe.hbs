@@ -2,20 +2,23 @@
 
 <Hds::AppFrame as |Frame|>
   <Frame.Header>
-    {{! your "header" content goes here, this is just a mock placeholder }}
-    {{!-- <Shw::Placeholder @height="60px" @text="header" @background="#e5ffd2" /> --}}
+    <Shw::Placeholder @height="60px" @text="header" @background="#e5ffd2" />
     {{!-- <Shw::Header /> --}}
   </Frame.Header>
   <Frame.Sidebar>
-    <Hds::SideNav @isResponsive="true" @isCollapsible="true">
+    <Hds::SideNav @isCollapsible="true">
       <:header>
-        <Shw::Placeholder @text="&lt;:header /&gt;" />
+        {{! template-lint-disable no-log }}
+        {{log "@isMinimized" @isMinimized}}
+
+        {{log "this.isMinimized" this.isMinimized}}
+        <p>Some aside::header content</p>
       </:header>
       <:body>
-        <Shw::Placeholder @text="&lt;:body /&gt;" />
+        <p>Some aside::body content wait why isn't this responsive too??</p>
       </:body>
       <:footer>
-        <Shw::Placeholder @text="&lt;:footer /&gt;" />
+        <p>Some aside::footer content</p>
       </:footer>
     </Hds::SideNav>
   </Frame.Sidebar>
