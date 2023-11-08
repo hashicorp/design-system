@@ -54,4 +54,10 @@ export async function generateBundleSVG({ config, catalog } : { config: ConfigDa
     let svgModuleContent = '/**\n * Copyright (c) HashiCorp, Inc.\n * SPDX-License-Identifier: MPL-2.0\n */\n\n';
     svgModuleContent += `export const iconNames = [ ${uniq(allIcons).join(', ')} ];`;
     await fs.writeFile(`${config.mainFolder}/svg/index.js`, svgModuleContent);
+
+    // generate an "index.d.ts" file
+    let svgModuleDeclarationContent = '/**\n * Copyright (c) HashiCorp, Inc.\n * SPDX-License-Identifier: MPL-2.0\n */\n\n';
+    svgModuleDeclarationContent += `export declare const iconNames: readonly [${uniq(allIcons).join(', ')}];\n`;
+    svgModuleDeclarationContent += `export type IconName = typeof iconNames[number];\n`;
+    await fs.writeFile(`${config.mainFolder}/svg/index.d.ts`, svgModuleDeclarationContent);
 }
