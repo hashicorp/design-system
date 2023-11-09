@@ -1,0 +1,31 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// ALGOLIA AUTOCOMPLETE SEARCH > MODAL > RESULTS
+
+// TODO
+
+// ITEM > PREVIEW
+
+.doc-algolia-search__aa-preview {}
+
+// illustration (generic search)
+
+.doc-algolia-search__aa-preview--illustration {
+  img {
+    display: block;
+    width: 80px;
+    height: auto;
+    border-radius: 3px;
+  }
+}
+
+// token
+
+.doc-algolia-search__aa-preview--token {}
+
+// icon
+
+.doc-algolia-search__aa-preview--icon {}
