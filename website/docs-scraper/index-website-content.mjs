@@ -223,6 +223,11 @@ async function indexWebsiteContent() {
           record: currBaseRecord,
           content: tabContent,
         });
+        // add the page title to the record's hierarchy
+        records.forEach(
+          (record) => (record.hierarchy.lvl0 = pageMetadata.title)
+        );
+        // add the records to the algolia list
         algoliaRecords.push(...records);
       });
     } else {
@@ -235,6 +240,9 @@ async function indexWebsiteContent() {
         record: currBaseRecord,
         content: pageContent,
       });
+      // add the page title to the record's hierarchy
+      records.forEach((record) => (record.hierarchy.lvl0 = pageMetadata.title));
+      // add the records to the algolia list
       algoliaRecords.push(...records);
     }
   }

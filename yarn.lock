@@ -11677,6 +11677,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"css-selector-parser@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "css-selector-parser@npm:3.0.0"
+  checksum: 123e498ed5436ab4f9ea3654c1e896b4125f732d2b761a246a66aa9746ae433a7a6de0e0f27729dd351df07bd53c327f3b06c03dbbb9ba0195cf86042eb804df
+  languageName: node
+  linkType: hard
+
 "css-tree@npm:1.0.0-alpha.37":
   version: 1.0.0-alpha.37
   resolution: "css-tree@npm:1.0.0-alpha.37"
@@ -21263,7 +21270,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nth-check@npm:^2.0.1":
+"nth-check@npm:^2.0.0, nth-check@npm:^2.0.1":
   version: 2.1.1
   resolution: "nth-check@npm:2.1.1"
   dependencies:
@@ -26757,6 +26764,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"unist-util-select@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "unist-util-select@npm:5.1.0"
+  dependencies:
+    "@types/unist": "npm:^3.0.0"
+    css-selector-parser: "npm:^3.0.0"
+    devlop: "npm:^1.1.0"
+    nth-check: "npm:^2.0.0"
+    zwitch: "npm:^2.0.0"
+  checksum: dbb9b63a12e894aa9ca6eeb88a3a6b5da02bed05cf10115e3570dde0fc6a2b6e0dec5052fbf151e5385ffbaf010f70b8e96c43d9c73cdc05a5c8b6f0605a88a5
+  languageName: node
+  linkType: hard
+
 "unist-util-stringify-position@npm:^1.0.0, unist-util-stringify-position@npm:^1.1.1":
   version: 1.1.2
   resolution: "unist-util-stringify-position@npm:1.1.2"
@@ -27499,6 +27519,7 @@ __metadata:
     stylelint: "npm:^15.11.0"
     stylelint-config-rational-order: "npm:^0.1.2"
     stylelint-config-standard-scss: "npm:^11.1.0"
+    unist-util-select: "npm:^5.1.0"
     unist-util-visit: "npm:^5.0.0"
     webpack: "npm:^5.89.0"
     yaml-front-matter: "npm:^4.1.1"

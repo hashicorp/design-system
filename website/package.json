@@ -117,6 +117,7 @@
     "stylelint": "^15.11.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard-scss": "^11.1.0",
+    "unist-util-select": "^5.1.0",
     "unist-util-visit": "^5.0.0",
     "webpack": "^5.89.0",
     "yaml-front-matter": "^4.1.1"

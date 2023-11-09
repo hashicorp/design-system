@@ -5,6 +5,7 @@
 // remark
 import { remark } from 'remark';
 import { visit } from 'unist-util-visit';
+import { selectAll } from 'unist-util-select';
 import { defaultSchema } from 'hast-util-sanitize';
 import { fromHtml } from 'hast-util-from-html';
 import { fromMarkdown } from 'mdast-util-from-markdown';
@@ -59,15 +60,59 @@ const replaceDocTags = (markdownContent) =>
 export async function parseMarkdown(markdownContent) {
   const headings = [];
   const paragraphs = [];
-  const tables = { cells: [] };
+  const tables = [];
   const componentApis = [];
 
   const sanitazedContent = replaceDocTags(markdownContent);
 
+  // DEBUG - use for debugging purposes
+  // const logNodes = () => (tree) => {
+  //   visit(tree, (node) => {
+  //     // console.log('LOG', JSON.stringify(node, null, 2));
+  //     console.log('TYPE', node.type);
+  //   });
+  // };
+
+  const setNodesHierarchy = () => (tree) => {
+    visit(tree, (node, index, parent) => {
+      let hierarchy = [];
+      if (parent && index > 0) {
+        const previousNode = parent.children[index - 1];
+        if (previousNode.hierarchy) {
+          hierarchy = previousNode.hierarchy;
+        }
+      }
+      if (node.type === 'heading') {
+        const depth = node.depth;
+        const content = stringifyChildNodes(node);
+        // set a new hierarchy
+        // 1) keep only the levels preceding the current depth
+        // notice: depth is 1-based, array is 0-based, but we want to leave the position/depth "0" for the main page title, which it added later
+        hierarchy = hierarchy.slice(0, depth);
+        // 2) add the content to the hierarchy
+        // notice: we use index-based notation instead of `push()` to make sure the lenght of the array coincides with the correct "depth"
+        hierarchy[depth] = content;
+        // 3) assign the hierarchy to the "heading" node
+        node.hierarchy = hierarchy;
+      } else {
+        // simply assign the previous node's hierarchy to the current node (they're sibling)
+        node.hierarchy = hierarchy;
+      }
+      // TODO! use this one to log the nodes and see the content that is added incorrectly and should be skipped
+      // if (node.type === 'paragraph') {
+      //   console.log('NODE', node.type, stringifyChildNodes(node));
+      // }
+    });
+  };
+
   const headingMapper = () => (tree) => {
     visit(tree, 'heading', (node) => {
       const content = stringifyChildNodes(node);
-      headings.push({ content: content, level: node.depth });
+      headings.push({
+        content: content,
+        level: node.depth,
+        hierarchy: node.hierarchy,
+      });
     });
   };
 
@@ -76,14 +121,15 @@ export async function parseMarkdown(markdownContent) {
       // TODO!
       // How do we avoid HTML tags (eg. `<code>`) be indexed as words, but return only their "innerText"?
       const content = stringifyChildNodes(node);
-      paragraphs.push({ content: content });
+      paragraphs.push({ content: content, hierarchy: node.hierarchy });
     });
   };
 
   const tableMapper = () => (tree) => {
-    visit(tree, 'tableCell', (node) => {
-      const content = stringifyChildNodes(node);
-      tables.cells.push({ content: content });
+    visit(tree, 'table', (node) => {
+      const cells = selectAll('tableCell', node);
+      const content = cells.map((cell) => stringifyChildNodes(cell)).join('');
+      tables.push({ content: content, hierarchy: node.hierarchy });
     });
   };
 
@@ -126,21 +172,14 @@ export async function parseMarkdown(markdownContent) {
           });
           if (properties.length > 0) {
             componentApis.push({
-              'doc-component-api': {
-                properties,
-              },
+              properties,
+              hierarchy: [null, 'Component API'],
             });
           }
         }
       });
     });
   };
-
-  // const logNodes = () => (tree) => {
-  //   visit(tree, (node) => {
-  //     console.log('LOG', JSON.stringify(node, null, 2));
-  //   });
-  // };
 
   await remark()
     .use(remarkHtml, {
@@ -149,6 +188,7 @@ export async function parseMarkdown(markdownContent) {
     })
     .use(remarkGfm)
     // .use(logNodes)
+    .use(setNodesHierarchy)
     .use(remarkStripBadges)
     .use(remarkSqueezeParagraphs)
     .use(headingMapper)
@@ -170,7 +210,7 @@ function stringifyChildNodes(node) {
     if ('children' in child) {
       acc += stringifyChildNodes(child);
     } else if ('value' in child) {
-      acc += child.value;
+      acc += ` ${child.value}`;
     }
     return acc;
   }, '');
