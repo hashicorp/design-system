@@ -111,7 +111,7 @@ export default class HdsAppFooterStatusLinkComponent extends Component {
   get classNames() {
     let classes = ['hds-app-footer__status-link'];
 
-    // add a class based on the @status argument
+    // add a class based on status if no statusIconColor is explicitly specified
     if (this.status && !this.args.statusIconColor) {
       classes.push(`hds-app-footer__status-link--${this.status}`);
     }
