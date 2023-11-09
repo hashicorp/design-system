@@ -17,6 +17,9 @@
   // to have the panels width match the sidebar extended width (it's used in the animated sliding of the panels)
   margin: 0 calc(var(--token-side-nav-wrapper-padding-horizontal) * -1);
 
+  // we hide the content when the SideNav is collapsed to prevent the vertical scrollbar from being visible
+  // when the scrollbar is set to be always visible or a mouse or trackpad force it to be always visible.
+  // ideally we would use `display: none` but doing so would disable the fade-in transition when expanding
   .hds-side-nav--is-minimized & {
     height: 0;
     overflow: hidden;
