@@ -18,6 +18,7 @@ import remarkGfm from 'remark-gfm';
 import remarkHtml from 'remark-html';
 import remarkSqueezeParagraphs from 'remark-squeeze-paragraphs';
 import remarkStripBadges from 'remark-strip-badges';
+import removeComments from 'remark-remove-comments';
 
 // customisations
 const remarkHtmlSanitise = _.cloneDeep(defaultSchema, {
@@ -62,8 +63,6 @@ export async function parseMarkdown(markdownContent) {
   const paragraphs = [];
   const tables = [];
   const componentApis = [];
-
-  const sanitazedContent = replaceDocTags(markdownContent);
 
   // DEBUG - use for debugging purposes
   // const logNodes = () => (tree) => {
@@ -181,7 +180,12 @@ export async function parseMarkdown(markdownContent) {
     });
   };
 
+  // we need to convert the `<Doc::***>` components to web-components-like code (HTML compatible)
+  const standardizedContent = replaceDocTags(markdownContent);
+
+  // processing pipeline
   await remark()
+    .use(removeComments)
     .use(remarkHtml, {
       sanitize: remarkHtmlSanitise,
       // handlers: remarkHtmlHandlers,
@@ -195,7 +199,8 @@ export async function parseMarkdown(markdownContent) {
     .use(paragraphMapper)
     .use(tableMapper)
     .use(componentApiMapper)
-    .process(sanitazedContent);
+    // we use the "sanitized" content here
+    .process(standardizedContent);
 
   return { headings, paragraphs, tables, componentApis };
 }

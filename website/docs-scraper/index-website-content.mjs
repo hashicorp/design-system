@@ -1,6 +1,17 @@
 /* eslint-env node */
 /* eslint-disable no-console */
 
+// ===================================================
+
+// DEV MODE VARIABLES
+
+// used in development mode to skip API calls
+const DEV_SKIP_API_CALLS = false;
+// used in development to process only the "testing" markdown files
+const DEV_MARKDOWN_TESTING = false;
+
+// ===================================================
+
 import dotenv from 'dotenv';
 import fs from 'fs-extra';
 import path from 'path';
@@ -51,11 +62,6 @@ const tokensJsonFilePath = path.resolve(
 const flightIconsJsonFilePath = path.resolve(
   '../packages/flight-icons/catalog.json'
 );
-
-// used in development mode to skip API calls
-const DEV_SKIP_API_CALLS = false;
-// used in development to process only the "testing" markdown files
-const DEV_MARKDOWN_TESTING = false;
 
 // ===================================================
 
