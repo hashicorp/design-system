@@ -102,65 +102,66 @@
 // ----------------
 // 2. Dark Mode
 // ----------------
-body {
-  /* stylelint-disable selector-no-qualifying-type, selector-class-pattern */
-  &[data-theme="dark"],
-  &.dark {
-    // Text colors
-    --aa-text-color-rgb: 183, 192, 199;
-    --aa-primary-color-rgb: 146, 138, 255;
-    --aa-muted-color-rgb: 146, 138, 255;
+// body {
+//   /* stylelint-disable selector-no-qualifying-type, selector-class-pattern */
+//   &[data-theme="dark"],
+//   &.dark {
+//     // Text colors
+//     --aa-text-color-rgb: 183, 192, 199;
+//     --aa-primary-color-rgb: 146, 138, 255;
+//     --aa-muted-color-rgb: 146, 138, 255;
 
-    // Background colors
-    --aa-input-background-color-rgb: 0, 3, 9;
-    --aa-background-color-rgb: 21, 24, 42;
-    --aa-selected-color-rgb: 146, 138, 255;
-    --aa-selected-color-alpha: 0.25;
-    --aa-description-highlight-background-color-rgb: 0 255 255;
-    --aa-description-highlight-background-color-alpha: 0.25;
+//     // Background colors
+//     --aa-input-background-color-rgb: 0, 3, 9;
+//     --aa-background-color-rgb: 21, 24, 42;
+//     --aa-selected-color-rgb: 146, 138, 255;
+//     --aa-selected-color-alpha: 0.25;
+//     --aa-description-highlight-background-color-rgb: 0 255 255;
+//     --aa-description-highlight-background-color-alpha: 0.25;
 
-    // Icons
-    --aa-icon-color-rgb: 119, 119, 163;
+//     // Icons
+//     --aa-icon-color-rgb: 119, 119, 163;
 
-    // Shadows
-    --aa-panel-shadow:
-      inset 1px 1px 0 0 rgb(44, 46, 64),
-      0 3px 8px 0 rgb(0, 3, 9);
+//     // Shadows
+//     --aa-panel-shadow:
+//       inset 1px 1px 0 0 rgb(44, 46, 64),
+//       0 3px 8px 0 rgb(0, 3, 9);
 
-    // Scrollbar
-    --aa-scrollbar-track-background-color-rgb: 44, 46, 64;
-    --aa-scrollbar-thumb-background-color-rgb: var(--aa-background-color-rgb);
-  }
-  /* stylelint-enable selector-no-qualifying-type, selector-class-pattern */
-}
+//     // Scrollbar
+//     --aa-scrollbar-track-background-color-rgb: 44, 46, 64;
+//     --aa-scrollbar-thumb-background-color-rgb: var(--aa-background-color-rgb);
+//   }
+//   /* stylelint-enable selector-no-qualifying-type, selector-class-pattern */
+// }
 
 // Reset for `@extend`
-%reset {
-  box-sizing: border-box;
-}
+// %reset {
+//   box-sizing: border-box;
+// }
 
 // Init for `@extend`
-%init {
-  margin: 0;
-  padding: 0;
-  color: rgba(var(--aa-text-color-rgb), var(--aa-text-color-alpha));
-  font-weight: normal;
-  font-size: var(--aa-font-size);
-  font-family: var(--aa-font-family);
-  line-height: 1em;
-  text-align: left;
-}
+// %init {
+//   margin: 0;
+//   padding: 0;
+//   color: rgba(var(--aa-text-color-rgb), var(--aa-text-color-alpha));
+//   font-weight: normal;
+//   font-size: var(--aa-font-size);
+//   font-family: var(--aa-font-family);
+//   line-height: 1em;
+//   text-align: left;
+// }
 
 // ----------------
 // 3. Autocomplete
 // ----------------
 .aa-Autocomplete,
 .aa-DetachedFormContainer {
-  @extend %init;
+  // @extend %init;
 
-  * {
-    @extend %reset;
-  }
+  // * {
+  //   @extend %reset;
+  // }
+
   // Search box
   @at-root .aa-Form {
     position: relative;
@@ -321,7 +322,7 @@ body {
 // 4. Panel
 // ----------------
 .aa-Panel {
-  @extend %init;
+  // @extend %init;
   position: absolute;
   margin: 8px 0 0;
   overflow: hidden;
@@ -336,9 +337,9 @@ body {
     transition: none;
   }
 
-  * {
-    @extend %reset;
-  }
+  // * {
+  //   @extend %reset;
+  // }
 
   button {
     margin: 0;
@@ -349,13 +350,13 @@ body {
   }
 
   @at-root .aa-PanelLayout {
-    position: relative;
-    height: 100%;
-    max-height: var(--aa-panel-max-height);
-    margin: 0;
-    padding: 0;
-    overflow-y: auto;
-    text-align: left;
+    // position: relative;
+    // height: 100%;
+    // max-height: var(--aa-panel-max-height);
+    // margin: 0;
+    // padding: 0;
+    // overflow-y: auto;
+    // text-align: left;
 
     @at-root .aa-PanelLayoutColumns--twoGolden {
       display: grid;
@@ -852,25 +853,25 @@ body {
 // 9. Detached Mode
 //----------------
 .aa-DetachedContainer {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: var(--aa-base-z-index);
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background:
-    rgba(var(--aa-background-color-rgb),
-    var(--aa-background-color-alpha));
-  box-shadow: var(--aa-panel-shadow);
+  // position: fixed;
+  // top: 0;
+  // right: 0;
+  // bottom: 0;
+  // left: 0;
+  // z-index: var(--aa-base-z-index);
+  // display: flex;
+  // flex-direction: column;
+  // margin: 0;
+  // padding: 0;
+  // overflow: hidden;
+  // background:
+  //   rgba(var(--aa-background-color-rgb),
+  //   var(--aa-background-color-alpha));
+  // box-shadow: var(--aa-panel-shadow);
 
-  &::after {
-    height: 32px;
-  }
+  // &::after {
+  //   height: 32px;
+  // }
 
   .aa-SourceHeader {
     margin: var(--aa-spacing-half) 0 var(--aa-spacing-half) 2px;
@@ -888,18 +889,18 @@ body {
     box-shadow: none;
   }
 
-  .aa-PanelLayout {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    max-height: none;
-    margin: 0;
-    overflow-y: auto;
-    box-shadow: none;
-  }
+  // .aa-PanelLayout {
+  //   position: absolute;
+  //   top: 0;
+  //   right: 0;
+  //   bottom: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   max-height: none;
+  //   margin: 0;
+  //   overflow-y: auto;
+  //   box-shadow: none;
+  // }
 
   @at-root .aa-DetachedFormContainer {
     display: flex;
@@ -933,23 +934,23 @@ body {
   }
 
   @at-root .aa-DetachedContainer--modal {
-    position: absolute;
-    top: 3%;
-    bottom: inherit;
-    max-width: var(--aa-detached-modal-max-width);
-    height: auto;
-    margin: 0 auto;
-    border-radius: 6px;
+    // position: absolute;
+    // top: 3%;
+    // bottom: inherit;
+    // max-width: var(--aa-detached-modal-max-width);
+    // height: auto;
+    // margin: 0 auto;
+    // border-radius: 6px;
 
-    .aa-PanelLayout {
-      position: static;
-      max-height: var(--aa-detached-modal-max-height);
-      padding-bottom: var(--aa-spacing-half);
+    // .aa-PanelLayout {
+    //   position: static;
+    //   max-height: var(--aa-detached-modal-max-height);
+    //   padding-bottom: var(--aa-spacing-half);
 
-      &:empty {
-        display: none;
-      }
-    }
+    //   &:empty {
+    //     display: none;
+    //   }
+    // }
   }
 }
 
@@ -1013,65 +1014,65 @@ body {
 // }
 
 // Remove scroll on `body`
-.aa-Detached {
-  height: 100vh;
-  overflow: hidden;
-}
+// .aa-Detached {
+//   height: 100vh;
+//   overflow: hidden;
+// }
 
-.aa-DetachedOverlay {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: calc(var(--aa-base-z-index) - 1);
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  background-color:
-    rgba(var(--aa-overlay-color-rgb),
-    var(--aa-overlay-color-alpha));
-}
+// .aa-DetachedOverlay {
+//   position: fixed;
+//   top: 0;
+//   right: 0;
+//   left: 0;
+//   z-index: calc(var(--aa-base-z-index) - 1);
+//   height: 100vh;
+//   margin: 0;
+//   padding: 0;
+//   background-color:
+//     rgba(var(--aa-overlay-color-rgb),
+//     var(--aa-overlay-color-alpha));
+// }
 
 //----------------
 // 10. Gradients
 //----------------
-.aa-GradientTop,
-.aa-GradientBottom {
-  position: absolute;
-  right: 0;
-  left: 0;
-  z-index: var(--aa-base-z-index);
-  height: var(--aa-spacing-half);
-  pointer-events: none;
-}
+// .aa-GradientTop,
+// .aa-GradientBottom {
+//   position: absolute;
+//   right: 0;
+//   left: 0;
+//   z-index: var(--aa-base-z-index);
+//   height: var(--aa-spacing-half);
+//   pointer-events: none;
+// }
 
-.aa-GradientTop {
-  top: 0;
-  background-image:
-    linear-gradient(rgba(var(--aa-background-color-rgb), 1),
-    rgba(var(--aa-background-color-rgb), 0));
-}
+// .aa-GradientTop {
+//   top: 0;
+//   background-image:
+//     linear-gradient(rgba(var(--aa-background-color-rgb), 1),
+//     rgba(var(--aa-background-color-rgb), 0));
+// }
 
-.aa-GradientBottom {
-  bottom: 0;
-  background-image:
-    linear-gradient(rgba(var(--aa-background-color-rgb), 0),
-    rgba(var(--aa-background-color-rgb), 1));
-  border-bottom-right-radius: calc(var(--aa-spacing) / 4);
-  border-bottom-left-radius: calc(var(--aa-spacing) / 4);
-}
+// .aa-GradientBottom {
+//   bottom: 0;
+//   background-image:
+//     linear-gradient(rgba(var(--aa-background-color-rgb), 0),
+//     rgba(var(--aa-background-color-rgb), 1));
+//   border-bottom-right-radius: calc(var(--aa-spacing) / 4);
+//   border-bottom-left-radius: calc(var(--aa-spacing) / 4);
+// }
 
-//----------------
-// 11. Utilities
-//----------------
-.aa-DesktopOnly {
-  @media (hover: none) and (pointer: coarse) {
-    display: none;
-  }
-}
+// //----------------
+// // 11. Utilities
+// //----------------
+// .aa-DesktopOnly {
+//   @media (hover: none) and (pointer: coarse) {
+//     display: none;
+//   }
+// }
 
-.aa-TouchOnly {
-  @media (hover: hover) {
-    display: none;
-  }
-}
+// .aa-TouchOnly {
+//   @media (hover: hover) {
+//     display: none;
+//   }
+// }
