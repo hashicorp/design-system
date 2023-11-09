@@ -6,6 +6,11 @@
 const itemPreview = ({ searchType, item }) => {
   let content = '';
   switch (searchType) {
+    case 'generic':
+      content += `<div class="doc-algolia-search__aa-preview doc-algolia-search__aa-preview--illustration">`;
+      content += `  <img src="/${item.previewImage}" alt="" role="presentation" />`;
+      content += `</div>`;
+      break;
     case 'icon':
       content += `<div class="doc-algolia-search__aa-preview doc-algolia-search__aa-preview--icon">`;
       content += `  <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">`;
@@ -16,12 +21,6 @@ const itemPreview = ({ searchType, item }) => {
     case 'token':
       content += `<div class="doc-algolia-search__aa-preview doc-algolia-search__aa-preview--token">`;
       content += `  T`;
-      content += `</div>`;
-      break;
-    case 'generic':
-      content += `<div class="doc-algolia-search__aa-preview doc-algolia-search__aa-preview--illustration">`;
-      // TODO! this is not fingerprinted currently, check why
-      content += `  <img src="${item.previewImage}" alt="" role="presentation" />`;
       content += `</div>`;
       break;
     default:
@@ -102,9 +101,11 @@ export const templatesItemFunction = ({ searchType }) => {
     let content = '';
     content += `<div class="aa-ItemWrapper doc-algolia-search__aa-item-wrapper">`;
     content += `  <div class="aa-ItemContent doc-algolia-search__aa-item-content">`;
-    content += `    ${itemPreview({ searchType, item })}`;
-    content += `    ${itemBody({ searchType, item, html, components })}`;
-    content += `    ${itemActions()}`;
+    content += `    <a class="aa-ItemLink doc-algolia-search__aa-item-link" href="${item.pageURL}">`;
+    content += `      ${itemPreview({ searchType, item })}`;
+    content += `      ${itemBody({ searchType, item, html, components })}`;
+    content += `      ${itemActions()}`;
+    content += `    </a>`;
     content += `  </div>`;
     content += `</div>`;
 

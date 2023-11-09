@@ -57,7 +57,7 @@ export default class DocAlgoliaSearchComponent extends Component {
               return item.pageURL;
             },
             templates: {
-              header: templatesHeaderFunction,
+              header: templatesHeaderFunction({ searchType }),
               footer: templatesFooterFunction,
               noResults: templatesNoResultsFunction({ searchType }),
               item: templatesItemFunction({ searchType }),

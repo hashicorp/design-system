@@ -5,10 +5,92 @@
 
 // ALGOLIA AUTOCOMPLETE SEARCH > MODAL
 
-// TODO
+@use "../../typography/mixins" as *;
 
-// @use "../../typography/mixins" as *;
+// This class is applied to the `<body>` to remove the scroll when the modal is opened
+.aa-Detached {
+  height: 100vh;
+  overflow: hidden;
+}
 
-// .doc-form-filter__control {
-//   @include doc-font-style-body-small();
-// }
+
+// OVERLAY (used to apply an opaque background and contain the modal container)
+
+.aa-DetachedOverlay {
+  @include doc-font-style-body-small();
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: calc(9999 - 1);
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  // TODO decide which color (and opacity) to use here
+  background-color: rgba(#002c69, 0.6);
+}
+
+// MODAL (container)
+
+.aa-DetachedContainer {
+  position: absolute;
+  top: var(--doc-page-header-height);
+  right: 0;
+  // bottom: inherit; // ???
+  left: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  max-width: 680px;
+  height: auto;
+  margin: 0 auto;
+  overflow: hidden;
+  background:
+    rgba(var(--aa-background-color-rgb),
+    var(--aa-background-color-alpha));
+  border-radius: 6px;
+  box-shadow: var(--aa-panel-shadow);
+
+  &::after { // ???
+    height: 32px;
+  }
+}
+
+// PANEL (contaner of "sources")
+
+.aa-Panel {
+  // TODO
+}
+
+.aa-PanelLayout {
+  width: 100%;
+  max-height: var(--aa-detached-modal-max-height);
+  margin: 0;
+  padding-bottom: var(--aa-spacing-half);
+  overflow-y: auto;
+
+  &:empty {
+    display: none;
+  }
+}
+
+.aa-Panel--scrollable {
+  // TODO
+}
+
+// SOURCE (search results "group")
+
+.aa-Source {
+  // TODO
+}
+
+.aa-SourceHeader {
+  // TODO
+}
+
+.aa-SourceFooter {
+  // TODO
+}
+
+// not used
+// .aa-GradientBottom {}
