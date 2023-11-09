@@ -1,0 +1,54 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+@use "../../typography/mixins" as *;
+
+// ALGOLIA AUTOCOMPLETE SEARCH > BUTTON
+
+.aa-DetachedSearchButton {
+  @include doc-font-style-body-small();
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  // height: 40px;
+  margin: 0;
+  padding: 8px 12px;
+  color: var(--doc-color-gray-400);
+  line-height: 16px; // override
+  background: #1d1e1f;
+  border: 1px solid #bfbfc0;
+  border-radius: 4px;
+  cursor: pointer;
+  appearance: none;
+
+  &:hover {
+    color: var(--doc-color-gray-600);
+  }
+
+  &:focus {
+    // TODO ?
+  }
+}
+
+.aa-DetachedSearchButtonIcon {
+  svg {
+    display: block;
+    width: 16px;
+    height: 16px;
+    color: inherit;
+  }
+}
+
+// this is made visually hidden via the `doc-sr-only` class (added via JS "classNames" param in the autocomplete configuration in the component backing class)
+.aa-DetachedSearchButtonPlaceholder {
+  &[hidden] {
+    display: none;
+  }
+}
+
+.aa-DetachedSearchButtonQuery {
+  // we hide the emulated "input text" content
+  display: none;
+}
