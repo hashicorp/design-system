@@ -16419,6 +16419,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"handlebars@npm:^4.7.8":
+  version: 4.7.8
+  resolution: "handlebars@npm:4.7.8"
+  dependencies:
+    minimist: "npm:^1.2.5"
+    neo-async: "npm:^2.6.2"
+    source-map: "npm:^0.6.1"
+    uglify-js: "npm:^3.1.4"
+    wordwrap: "npm:^1.0.0"
+  dependenciesMeta:
+    uglify-js:
+      optional: true
+  bin:
+    handlebars: bin/handlebars
+  checksum: bd528f4dd150adf67f3f857118ef0fa43ff79a153b1d943fa0a770f2599e38b25a7a0dbac1a3611a4ec86970fd2325a81310fb788b5c892308c9f8743bd02e11
+  languageName: node
+  linkType: hard
+
 "har-schema@npm:^2.0.0":
   version: 2.0.0
   resolution: "har-schema@npm:2.0.0"
@@ -27540,6 +27558,7 @@ __metadata:
     eslint-plugin-prettier: "npm:^4.2.1"
     eslint-plugin-qunit: "npm:^8.0.1"
     fs-extra: "npm:^11.1.0"
+    handlebars: "npm:^4.7.8"
     hast-util-from-html: "npm:^2.0.1"
     hast-util-sanitize: "npm:^5.0.1"
     jsdom: "npm:^22.1.0"

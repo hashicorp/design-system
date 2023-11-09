@@ -11,6 +11,8 @@ import { fromHtml } from 'hast-util-from-html';
 import { fromMarkdown } from 'mdast-util-from-markdown';
 import { toString } from 'mdast-util-to-string';
 
+import handlebars from 'handlebars';
+
 import _ from 'lodash';
 
 // plugins
@@ -20,9 +22,18 @@ import remarkSqueezeParagraphs from 'remark-squeeze-paragraphs';
 import remarkStripBadges from 'remark-strip-badges';
 import removeComments from 'remark-remove-comments';
 
+// TODO! understand how to do it with the current setup
+// import { CRITERIA } from '../../app/components/doc/wcag-list/index.js';
+import { CRITERIA } from './wcag-criteria.mjs';
+
+const WCAG_CRITERIA = CRITERIA.reduce((acc, criteria) => {
+  acc[criteria.number] = criteria;
+  return acc;
+}, {});
+
 // customisations
 const remarkHtmlSanitise = _.cloneDeep(defaultSchema, {
-  // unfortunately tag names in the forma `Doc::***` are not accepted so we have to convert all the `Doc::` tags to `doc-***` (custom HTML tags)
+  // unfortunately tag names in the format `Doc::***` are not accepted so we have to convert all the `Doc::` tags to `doc-***` (custom HTML tags)
   tagNames: [
     'doc-a-11-y-support',
     'doc-badge',
@@ -32,15 +43,6 @@ const remarkHtmlSanitise = _.cloneDeep(defaultSchema, {
     'doc-wcag-list',
   ],
 });
-
-// const remarkHtmlHandlers = {
-//   image(h, node, ...rest) {
-//     // console.log('NODE', JSON.stringify(node, null, 2));
-//     // console.log('REST', JSON.stringify(rest, null, 2));
-//     // const props = { hello: 'world!' };
-//     // return h(node, node, props);
-//   },
-// };
 
 // replace `<DOC::(*)>` tags with HTML-compatible `<doc->` custom tags
 const replaceDocTags = (markdownContent) =>
@@ -63,22 +65,29 @@ export async function parseMarkdown(markdownContent) {
   const paragraphs = [];
   const tables = [];
   const componentApis = [];
+  const wcagLists = [];
 
   // DEBUG - use for debugging purposes
   // const logNodes = () => (tree) => {
   //   visit(tree, (node) => {
-  //     // console.log('LOG', JSON.stringify(node, null, 2));
   //     console.log('TYPE', node.type);
+  //     console.log('LOG', JSON.stringify(node, null, 2));
   //   });
   // };
 
   const setNodesHierarchy = () => (tree) => {
     visit(tree, (node, index, parent) => {
       let hierarchy = [];
-      if (parent && index > 0) {
-        const previousNode = parent.children[index - 1];
-        if (previousNode.hierarchy) {
-          hierarchy = previousNode.hierarchy;
+      if (parent) {
+        if (index === 0) {
+          // first child, use the parent hierarchy
+          hierarchy = parent.hierarchy;
+        } else if (index > 0) {
+          // other children
+          const previousNode = parent.children[index - 1];
+          if (previousNode.hierarchy) {
+            hierarchy = previousNode.hierarchy;
+          }
         }
       }
       if (node.type === 'heading') {
@@ -180,29 +189,77 @@ export async function parseMarkdown(markdownContent) {
     });
   };
 
+  const wcagListMapper = () => (tree) => {
+    // the `<Doc::WcagList @criteriaList={{array "1.1.1" "2.2.2" />`
+    // becomes a `text` node within a `paragraph` node
+    // so we have to do some magic here... ¯\_(ツ)_/¯
+    visit(tree, 'text', (node) => {
+      const match = node.value.match(
+        /<doc-wcag-list @criteriaList={{array .*}} \/>/i
+      );
+      if (match) {
+        const hbsAST = handlebars.parse(node.value);
+        const criteriaList = hbsAST.body.filter(
+          (node) =>
+            node?.type === 'MustacheStatement' &&
+            node?.path?.original === 'array'
+        );
+        let criteriaIdentifiers;
+        if (
+          criteriaList &&
+          criteriaList.length > 0 &&
+          criteriaList[0].params &&
+          criteriaList[0].params.length > 0
+        ) {
+          criteriaIdentifiers = criteriaList[0].params.reduce((acc, param) => {
+            if (
+              param.type === 'StringLiteral' &&
+              Object.keys(WCAG_CRITERIA).includes(param.value)
+            ) {
+              acc.push(param.value);
+            }
+            return acc;
+          }, []);
+        }
+        if (criteriaIdentifiers.length > 0) {
+          wcagLists.push({
+            criteria: criteriaIdentifiers.map((criterion) => {
+              return _.pick(WCAG_CRITERIA[criterion], [
+                'number',
+                'title',
+                'description',
+              ]);
+            }),
+            hierarchy: node.hierarchy,
+          });
+        }
+      }
+    });
+  };
+
   // we need to convert the `<Doc::***>` components to web-components-like code (HTML compatible)
   const standardizedContent = replaceDocTags(markdownContent);
 
   // processing pipeline
   await remark()
     .use(removeComments)
-    .use(remarkHtml, {
-      sanitize: remarkHtmlSanitise,
-      // handlers: remarkHtmlHandlers,
-    })
+    .use(remarkHtml, { sanitize: remarkHtmlSanitise })
     .use(remarkGfm)
-    // .use(logNodes)
     .use(setNodesHierarchy)
+    // .use(logNodes)
     .use(remarkStripBadges)
     .use(remarkSqueezeParagraphs)
+    // "doc" (ember) nodes
+    .use(wcagListMapper)
+    .use(componentApiMapper)
+    // standard nodes
     .use(headingMapper)
     .use(paragraphMapper)
     .use(tableMapper)
-    .use(componentApiMapper)
-    // we use the "sanitized" content here
+    // we use the "standardized" content here
     .process(standardizedContent);
 
-  return { headings, paragraphs, tables, componentApis };
+  return { headings, paragraphs, tables, componentApis, wcagLists };
 }
 
 // ====================================
@@ -220,5 +277,5 @@ function stringifyChildNodes(node) {
     return acc;
   }, '');
 
-  return text;
+  return text.trim();
 }

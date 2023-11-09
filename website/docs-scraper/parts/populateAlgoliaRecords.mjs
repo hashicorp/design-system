@@ -15,15 +15,15 @@ const getHierarchyObject = (hierarchy) => {
 };
 
 export async function populateAlgoliaRecords({ record, content }) {
-  const { headings, paragraphs, tables, componentApis } = await parseMarkdown(
-    content
-  );
+  const { headings, paragraphs, tables, componentApis, wcagLists } =
+    await parseMarkdown(content);
 
   // DEBUG
   // console.log('HEADINGS', headings);
   // console.log('PARAGRAPHS', paragraphs);
   // console.log('TABLES', tables);
   // console.log('COMPONENT APIs', JSON.stringify(componentApis, null, 2));
+  // console.log('WCAG LISTS', JSON.stringify(wcagLists, null, 2));
 
   // RECORDS
   let algoliaRecords = [];
@@ -107,6 +107,32 @@ export async function populateAlgoliaRecords({ record, content }) {
           hierarchy: getHierarchyObject(hierarchy),
           level: 9,
           source: 'component-api',
+          // EXTRA
+          'property-name': property.name,
+          'property-value': property.value,
+        });
+        algoliaRecords.push(algoliaRecord);
+      });
+    }
+  });
+
+  // -- wcagLists --
+
+  wcagLists.forEach((wcagList) => {
+    if (wcagList && wcagList.criteria && wcagList.criteria.length > 0) {
+      const hierarchy = wcagList?.hierarchy ?? [];
+      wcagList.criteria.forEach((criterion) => {
+        const algoliaRecord = _.merge({}, record, {
+          type: 'wcag-list-criteria',
+          name: `WCAG ${criterion.number} - ${criterion.title}`,
+          content: `wcag ${criterion.number} ${criterion.title} ${criterion.description}`,
+          hierarchy: getHierarchyObject(hierarchy),
+          level: 9,
+          source: 'wcag-list',
+          // EXTRA
+          'criterion-number': criterion.number,
+          'criterion-title': criterion.title,
+          'criterion-description': criterion.description,
         });
         algoliaRecords.push(algoliaRecord);
       });
