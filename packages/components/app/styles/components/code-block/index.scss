@@ -53,6 +53,7 @@ $code-block-code-padding: 16px;
   .hds-code-block__code,
   .hds-code-block__code code {
     white-space: pre-wrap;
+    overflow-wrap: break-word;
   }
 }
 

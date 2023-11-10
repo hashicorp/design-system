@@ -124,6 +124,12 @@ console.log(codeLand);"
         @value="let codeLang='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam';"
       />
     </SG.Item>
+    <SG.Item @label="hasLineWrapping=true with long string" @forceMinWidth={{true}}>
+      <Hds::CodeBlock
+        @hasLineWrapping={{true}}
+        @value="hcp-domain-verification=6ea52e476fc6232d974c31453dcd884a68df6cf374892a50a897c87d11125b67"
+      />
+    </SG.Item>
   </Shw::Grid>
 
   <Shw::Divider @level="2" />
