@@ -62,8 +62,8 @@ $app-footer-icon-text-gap: 6px;
   .flight-icon { fill: var(--app-footer-status-link-icon-maintenance-color); }
 }
 
-.hds-app-footer__status-link--critical {
-  .flight-icon { fill: var(--app-footer-status-link-icon-critical-color); }
+.hds-app-footer__status-link--outage {
+  .flight-icon { fill: var(--app-footer-status-link-icon-outage-color); }
 }
 
 
@@ -127,7 +127,7 @@ $app-footer-icon-text-gap: 6px;
   --app-footer-status-link-icon-operational-color: var(--token-color-foreground-success);
   --app-footer-status-link-icon-degraded-color: var(--token-color-foreground-warning);
   --app-footer-status-link-icon-maintenance-color: var(--token-color-foreground-warning);
-  --app-footer-status-link-icon-critical-color: var(--token-color-foreground-critical);
+  --app-footer-status-link-icon-outage-color: var(--token-color-foreground-critical);
 }
 
 // Dark
@@ -150,5 +150,5 @@ $app-footer-icon-text-gap: 6px;
   --app-footer-status-link-icon-operational-color: #009241;
   --app-footer-status-link-icon-degraded-color: #e88c03;
   --app-footer-status-link-icon-maintenance-color: #e88c03;
-  --app-footer-status-link-icon-critical-color: #ef3016;
+  --app-footer-status-link-icon-outage-color: #ef3016;
 }

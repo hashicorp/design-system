@@ -40,7 +40,7 @@ The base `AppFooter` component includes a copyright notice. It also wraps and co
 ### AppFooter::StatusLink
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="status" @type="string" @values={{array "operational" "degraded" "maintenance" "critical" }}>
+  <C.Property @name="status" @type="string" @values={{array "operational" "degraded" "maintenance" "outage" }}>
     Passing one of the defined values sets the associated `text`, `statusIcon`, and `statusIconColor`. Either `status` or `text` must be passed or an error will be thrown.
   </C.Property>
   <C.Property @name="statusIcon" @type="string">

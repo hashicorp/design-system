@@ -20,8 +20,8 @@ export const STATUSES = {
     text: 'System maintenance',
     iconName: 'alert-triangle',
   },
-  critical: {
-    text: 'System critical',
+  outage: {
+    text: 'System outage',
     iconName: 'x-circle',
   },
 };
@@ -68,18 +68,6 @@ export default class HdsAppFooterStatusLinkComponent extends Component {
   }
 
   /**
-   * @param statusIconColor
-   * @type {string}
-   * @description The color for the StatusLink icon
-   */
-  get statusIconColor() {
-    if (this.status && !this.args.statusIconColor) {
-      return STATUSES[this.status].iconColor;
-    }
-    return this.args.statusIconColor;
-  }
-
-  /**
    * Get the inline style to apply to the item.
    * @method StatusLink#itemStyle
    * @return {string} The "style" attribute to apply to the item.
@@ -123,8 +111,8 @@ export default class HdsAppFooterStatusLinkComponent extends Component {
   get classNames() {
     let classes = ['hds-app-footer__status-link'];
 
-    // add a class based on the @status argument
-    if (this.args.status) {
+    // add a class based on status if no statusIconColor is explicitly specified
+    if (this.status && !this.args.statusIconColor) {
       classes.push(`hds-app-footer__status-link--${this.status}`);
     }
 

@@ -29,7 +29,7 @@ module(
         <Hds::AppFooter::StatusLink id="test-operational" @status="operational" />
         <Hds::AppFooter::StatusLink id="test-degraded" @status="degraded" />
         <Hds::AppFooter::StatusLink id="test-maintenance" @status="maintenance" />
-        <Hds::AppFooter::StatusLink id="test-critical" @status="critical" />
+        <Hds::AppFooter::StatusLink id="test-outage" @status="outage" />
       </ul>`);
       // operational
       assert
@@ -55,12 +55,12 @@ module(
       assert.dom('#test-maintenance .flight-icon-alert-triangle').hasStyle({
         fill: 'rgb(187, 90, 0)',
       });
-      // critical
+      // outage
       assert
-        .dom('#test-critical')
-        .hasText('System critical')
-        .hasClass('hds-app-footer__status-link--critical');
-      assert.dom('#test-critical .flight-icon-x-circle').hasStyle({
+        .dom('#test-outage')
+        .hasText('System outage')
+        .hasClass('hds-app-footer__status-link--outage');
+      assert.dom('#test-outage .flight-icon-x-circle').hasStyle({
         fill: 'rgb(229, 34, 40)',
       });
     });
@@ -108,7 +108,7 @@ module(
 
     test('it should throw an assertion if an incorrect value for @status is provided', async function (assert) {
       const errorMessage =
-        '@status for "Hds::AppFooter" must be one of the following: operational, degraded, maintenance, critical received: foo';
+        '@status for "Hds::AppFooter" must be one of the following: operational, degraded, maintenance, outage received: foo';
       assert.expect(2);
       setupOnerror(function (error) {
         assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
