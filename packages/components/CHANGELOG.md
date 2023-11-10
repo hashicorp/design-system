@@ -1,5 +1,27 @@
 # @hashicorp/design-system-components
 
+## 3.1.2
+
+### Patch Changes
+
+`AppFooter` – Fixed predefined statuses by replacing `critical` with `outage` and prevented `statusIconColor` from being overridden by `status`
+
+<small>[#1790](https://github.com/hashicorp/design-system/pull/1790)</small>
+
+---
+
+`SideNav` - Fixed visible scrollbar in collapsed SideNav when scroll bar is set to be always visible
+
+<small>[#1786](https://github.com/hashicorp/design-system/pull/1786)</small>
+
+---
+
+`CodeBlock` - Fixed `@hasLineWrapping` style to make long strings wrap when they overflow the container
+
+<small>[#1798](https://github.com/hashicorp/design-system/pull/1798)</small>
+
+---
+
 ## 3.1.1
 
 ### Patch Changes
