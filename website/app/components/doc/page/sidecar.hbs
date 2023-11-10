@@ -5,13 +5,11 @@
 
 <div class="doc-page-sidecar">
   <p class="doc-page-sidecar__on-this-page" id="nav-sidecar">On this page:</p>
-  {{#each @tocs as |toc|}}
-    <ul class="doc-page-sidecar__list" id={{toc.id}} hidden={{not toc.isCurrent}} aria-labelledby="nav-sidecar">
-      {{#each toc.list as |item|}}
-        <li class="doc-page-sidecar__item doc-page-sidecar__item--depth-{{item.depth}}">
-          <a href="#{{item.target}}">{{item.text}}</a>
-        </li>
-      {{/each}}
-    </ul>
-  {{/each}}
+  <ul class="doc-page-sidecar__list" id={{concat "toc-" @sidecarId}} aria-labelledby="nav-sidecar">
+    {{#each @sidecar as |item|}}
+      <li class="doc-page-sidecar__item doc-page-sidecar__item--depth-{{item.depth}}">
+        <a href="#{{item.target}}">{{item.text}}</a>
+      </li>
+    {{/each}}
+  </ul>
 </div>
