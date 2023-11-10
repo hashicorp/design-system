@@ -7,14 +7,17 @@
 {{#if @tabs}}
   <ul class="doc-page-tabs" role="tablist" ...attributes>
     {{#each @tabs as |tab|}}
-      <li class="doc-page-tabs__tab {{if tab.isCurrent 'doc-page-tabs__tab--is-current'}}" role="presentation">
+      <li
+        class="doc-page-tabs__tab {{if (eq @selectedTab.lowerLabel tab.lowerLabel) 'doc-page-tabs__tab--is-current'}}"
+        role="presentation"
+      >
         <button
           id={{tab.id}}
           type="button"
           role="tab"
           aria-controls={{tab.target}}
-          aria-selected={{if tab.isCurrent "true" "false"}}
-          {{on "click" (fn tab.onClickTab tab)}}
+          aria-selected={{if (eq @selectedTab.lowerLabel tab.lowerLabel) "true" "false"}}
+          {{on "click" (fn @onClickTab tab)}}
         >{{capitalize tab.label}}</button>
       </li>
     {{/each}}

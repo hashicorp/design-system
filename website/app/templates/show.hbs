@@ -5,14 +5,22 @@
     <Doc::Page::Cover
       @title={{this.title}}
       @description={{this.description}}
-      @tabs={{this.tabs}}
-      @status={{this.status}}
       @extra={{this.extra}}
+      @tabs={{this.tabs}}
+      @selectedTab={{this.currentTab}}
+      @onClickTab={{this.onClickTab}}
+      @status={{this.status}}
     />
   {{/if}}
 
   <Doc::Page::Content @breakthrough={{not this.model.hasSidecar}} id={{this.model.showContentId}}>
-    <DynamicTemplate @templateString={{this.renderedContent}} @componentId={{this.model.id}} />
+    {{#if this.currentTab}}
+      <section id={{this.currentTab.lowerLabel}} role="tabpanel" aria-labelledby={{this.currentTab.id}}>
+        <DynamicTemplate @templateString={{this.renderedContent}} @componentId={{this.model.id}} />
+      </section>
+    {{else}}
+      <DynamicTemplate @templateString={{this.renderedContent}} @componentId={{this.model.id}} />
+    {{/if}}
 
     {{#if this.relatedComponents}}
       <Doc::RelatedComponents @cards={{this.relatedComponents}} @componentTitle={{this.title}} />
@@ -20,6 +28,6 @@
   </Doc::Page::Content>
 
   {{#if this.model.hasSidecar}}
-    <Doc::Page::Sidecar @tocs={{this.tocs}} />
+    <Doc::Page::Sidecar @sidecarId={{this.sidecarId}} @sidecar={{this.sidecarContent}} />
   {{/if}}
 </Doc::Page::Stage>
