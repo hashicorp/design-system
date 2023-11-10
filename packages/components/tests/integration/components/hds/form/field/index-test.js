@@ -39,6 +39,7 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
           <F.Control>This is a mock control</F.Control>
+          <F.CharacterCount>20/40</F.CharacterCount>
           <F.Error>This is the error</F.Error>
         </Hds::Form::Field>`
     );
@@ -50,6 +51,7 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
       .hasText('This is the helper text');
     assert.dom('#test-form-field .hds-form-field__control').exists();
     assert.dom('.hds-form-field__control').hasText('This is a mock control');
+    assert.dom('#test-form-field .hds-form-field__character-count').exists();
     assert.dom('#test-form-field .hds-form-field__error').exists();
     assert.dom('.hds-form-field__error').hasText('This is the error');
   });
@@ -59,6 +61,7 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
           <F.Control><pre id={{F.id}} aria-describedby={{F.ariaDescribedBy}}>This is a mock control</pre></F.Control>
+          <F.CharacterCount>20/40</F.CharacterCount>
           <F.Error>This is the error</F.Error>
         </Hds::Form::Field>`
     );
@@ -75,8 +78,11 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
       .dom('.hds-form-field__control pre')
       .hasAttribute(
         'aria-describedby',
-        `helper-text-${controlId} error-${controlId}`
+        `helper-text-${controlId} character-count-${controlId} error-${controlId}`
       );
+    assert
+      .dom('.hds-form-field__character-count')
+      .hasAttribute('id', `character-count-${controlId}`);
     assert
       .dom('.hds-form-field__error')
       .hasAttribute('id', `error-${controlId}`);
@@ -87,6 +93,7 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
           <F.Control><pre id={{F.id}} aria-describedby={{F.ariaDescribedBy}}>This is a mock control</pre></F.Control>
+          <F.CharacterCount>20/40</F.CharacterCount>
           <F.Error>This is the error</F.Error>
         </Hds::Form::Field>`
     );
@@ -99,8 +106,11 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
       .dom('.hds-form-field__control pre')
       .hasAttribute(
         'aria-describedby',
-        `helper-text-${controlId} error-${controlId}`
+        `helper-text-${controlId} character-count-${controlId} error-${controlId}`
       );
+    assert
+      .dom('.hds-form-field__character-count')
+      .hasAttribute('id', `character-count-${controlId}`);
     assert
       .dom('.hds-form-field__error')
       .hasAttribute('id', `error-${controlId}`);
@@ -111,6 +121,7 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
           <F.Control><pre id={{F.id}} aria-describedby={{F.ariaDescribedBy}}>This is a mock control</pre></F.Control>
+          <F.CharacterCount>20/40</F.CharacterCount>
           <F.Error>This is the error</F.Error>
         </Hds::Form::Field>`
     );
@@ -127,8 +138,11 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
       .dom('.hds-form-field__control pre')
       .hasAttribute(
         'aria-describedby',
-        `helper-text-${controlId} error-${controlId} extra`
+        `helper-text-${controlId} character-count-${controlId} error-${controlId} extra`
       );
+    assert
+      .dom('.hds-form-field__character-count')
+      .hasAttribute('id', `character-count-${controlId}`);
     assert
       .dom('.hds-form-field__error')
       .hasAttribute('id', `error-${controlId}`);
