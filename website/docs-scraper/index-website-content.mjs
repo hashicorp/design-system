@@ -231,7 +231,7 @@ async function indexWebsiteContent() {
         });
         // add the page title to the record's hierarchy
         records.forEach(
-          (record) => (record.hierarchy.lvl0 = pageMetadata.title)
+          (record) => (record.hierarchy.lvl1 = pageMetadata.title)
         );
         // add the records to the algolia list
         algoliaRecords.push(...records);
@@ -247,7 +247,7 @@ async function indexWebsiteContent() {
         content: pageContent,
       });
       // add the page title to the record's hierarchy
-      records.forEach((record) => (record.hierarchy.lvl0 = pageMetadata.title));
+      records.forEach((record) => (record.hierarchy.lvl1 = pageMetadata.title));
       // add the records to the algolia list
       algoliaRecords.push(...records);
     }

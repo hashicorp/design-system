@@ -3,17 +3,6 @@ import _ from 'lodash';
 
 import { parseMarkdown } from './extract-content-from-markdown.mjs';
 
-const getHierarchyObject = (hierarchy) => {
-  const hierarchyObject = {
-    // this will be populated later, at page level
-    lvl0: undefined,
-  };
-  for (let depth = 1; depth <= 6; depth++) {
-    hierarchyObject[`$lvl${depth}`] = hierarchy[depth] ?? null;
-  }
-  return hierarchyObject;
-};
-
 export async function populateAlgoliaRecords({ record, content }) {
   const { headings, paragraphs, tables, componentApis, wcagLists } =
     await parseMarkdown(content);
@@ -37,7 +26,7 @@ export async function populateAlgoliaRecords({ record, content }) {
       type: 'heading',
       level: heading.level,
       content: heading.content,
-      hierarchy: getHierarchyObject(heading.hierarchy),
+      hierarchy: heading.hierarchy,
       source: 'heading',
     });
     algoliaRecords.push(algoliaRecord);
@@ -71,7 +60,7 @@ export async function populateAlgoliaRecords({ record, content }) {
     const algoliaRecord = _.merge({}, record, {
       type: 'text',
       content: paragraph.content,
-      hierarchy: getHierarchyObject(paragraph.hierarchy),
+      hierarchy: paragraph.hierarchy,
       level: 9,
       source: 'paragraph',
     });
@@ -84,7 +73,7 @@ export async function populateAlgoliaRecords({ record, content }) {
     const algoliaRecord = _.merge({}, record, {
       type: 'text',
       content: table.content,
-      hierarchy: getHierarchyObject(table.hierarchy),
+      hierarchy: table.hierarchy,
       source: 'table',
     });
     algoliaRecords.push(algoliaRecord);
@@ -104,7 +93,7 @@ export async function populateAlgoliaRecords({ record, content }) {
           type: 'component-api-property',
           name: property.name,
           content: `${property.name} ${property.value}`,
-          hierarchy: getHierarchyObject(hierarchy),
+          hierarchy: hierarchy,
           level: 9,
           source: 'component-api',
           // EXTRA
@@ -126,7 +115,7 @@ export async function populateAlgoliaRecords({ record, content }) {
           type: 'wcag-list-criteria',
           name: `WCAG ${criterion.number} - ${criterion.title}`,
           content: `wcag ${criterion.number} ${criterion.title} ${criterion.description}`,
-          hierarchy: getHierarchyObject(hierarchy),
+          hierarchy: hierarchy,
           level: 9,
           source: 'wcag-list',
           // EXTRA

@@ -77,39 +77,46 @@ export async function parseMarkdown(markdownContent) {
 
   const setNodesHierarchy = () => (tree) => {
     visit(tree, (node, index, parent) => {
-      let hierarchy = [];
+      let hierarchy = {
+        // this will be populated later, at page level
+        lvl1: undefined,
+        // we set this to `null` so they're explicitly not set
+        lvl2: null,
+        lvl3: null,
+        lvl4: null,
+        lvl5: null,
+        lvl6: null,
+      };
+
       if (parent) {
         if (index === 0) {
           // first child, use the parent hierarchy
-          hierarchy = parent.hierarchy;
+          hierarchy = { ...parent.hierarchy };
         } else if (index > 0) {
           // other children
           const previousNode = parent.children[index - 1];
           if (previousNode.hierarchy) {
-            hierarchy = previousNode.hierarchy;
+            hierarchy = { ...previousNode.hierarchy };
           }
         }
       }
+
       if (node.type === 'heading') {
         const depth = node.depth;
         const content = stringifyChildNodes(node);
         // set a new hierarchy
         // 1) keep only the levels preceding the current depth
-        // notice: depth is 1-based, array is 0-based, but we want to leave the position/depth "0" for the main page title, which it added later
-        hierarchy = hierarchy.slice(0, depth);
-        // 2) add the content to the hierarchy
-        // notice: we use index-based notation instead of `push()` to make sure the lenght of the array coincides with the correct "depth"
-        hierarchy[depth] = content;
+        for (let index = depth; index <= 6; index++) {
+          hierarchy[`lvl${index}`] = null;
+        }
+        // 2) add the current heading's content to the hierarchy
+        hierarchy[`lvl${depth}`] = content;
         // 3) assign the hierarchy to the "heading" node
-        node.hierarchy = hierarchy;
+        node.hierarchy = { ...hierarchy };
       } else {
         // simply assign the previous node's hierarchy to the current node (they're sibling)
-        node.hierarchy = hierarchy;
+        node.hierarchy = { ...hierarchy };
       }
-      // TODO! use this one to log the nodes and see the content that is added incorrectly and should be skipped
-      // if (node.type === 'paragraph') {
-      //   console.log('NODE', node.type, stringifyChildNodes(node));
-      // }
     });
   };
 
@@ -181,7 +188,14 @@ export async function parseMarkdown(markdownContent) {
           if (properties.length > 0) {
             componentApis.push({
               properties,
-              hierarchy: [null, 'Component API'],
+              hierarchy: {
+                lvl1: undefined,
+                lvl2: 'Component API',
+                lvl3: null,
+                lvl4: null,
+                lvl5: null,
+                lvl6: null,
+              },
             });
           }
         }
