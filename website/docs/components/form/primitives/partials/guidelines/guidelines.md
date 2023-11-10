@@ -9,6 +9,17 @@
 
 - Use helper text to give the user extra details about the data you’re asking them to input, e.g., formatting requirements such as MM-DD-YYYY.
 
+### Form::CharacterCount
+
+Use a character count when there is a maximum number of characters a field can accept before being rendered invalid. The default character count displays the number of characters entered by the end user, compared to the maximum allowed length of the input, though more custom implementations are supported via the exposed `count` and `maxLength` hooks.
+
+-> Include examples of different custom implementations
+
+!!! Dont
+
+A character count is not relevant for form components that don’t accept text as an input type.
+!!!
+
 ### Form::Error
 
 - Error messages should provide the user with enough context to guide them in resolving the error.
