@@ -141,6 +141,36 @@
 
   <Shw::Divider />
 
+  <Shw::Text::H2>Character count</Shw::Text::H2>
+
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="With default content">
+      <input type="hidden" value="with default content" id="character-count-input-1" />
+      <Hds::Form::CharacterCount @maxLength="40" @controlId="character-count-input-1" />
+    </SF.Item>
+    <SF.Item @label="With custom content (currentLength, maxLength)">
+      <input type="hidden" value="with custom content" id="character-count-input-2" />
+      <Hds::Form::CharacterCount @maxLength="40" @controlId="character-count-input-2" as |CC|>
+        Entered
+        {{CC.currentLength}}
+        out of
+        {{CC.maxLength}}
+        characters
+      </Hds::Form::CharacterCount>
+    </SF.Item>
+    <SF.Item @label="With custom content (remainingLength)">
+      <input type="hidden" value="with custom content" id="character-count-input-3" />
+      <Hds::Form::CharacterCount @maxLength="40" @controlId="character-count-input-3" as |CC|>
+        {{CC.remainingLength}}
+        characters remaining
+      </Hds::Form::CharacterCount>
+    </SF.Item>
+  </Shw::Flex>
+
+  {{! ###################### }}
+
+  <Shw::Divider />
+
   <Shw::Text::H2>Error</Shw::Text::H2>
 
   <Shw::Flex @direction="column" as |SF|>

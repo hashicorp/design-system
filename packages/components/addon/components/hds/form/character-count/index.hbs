@@ -1,0 +1,19 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<Hds::Text::Body
+  @tag="div"
+  @size="100"
+  class={{this.classNames}}
+  id={{this.id}}
+  {{did-insert this.onInsert}}
+  aria-live="polite"
+  ...attributes
+>
+  {{#if (has-block)}}
+    {{yield (hash maxLength=this.maxLength currentLength=this.currentLength remainingLength=this.remainingLength)}}
+  {{else}}
+    {{this.message}}
+  {{/if}}
+</Hds::Text::Body>
