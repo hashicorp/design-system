@@ -40,9 +40,9 @@ The best user experience is often a combination of different methods depending o
 
 Validation on focus change occurs on the client and refers to validating a field when it loses focus via an [`onblur`](https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event) event.
 
-Validation on focus change is immediate in the sense that it encourages displaying errors directly after a field has been filled out, while not interrupting the user while they are in the process of filling out a field.
+This method is immediate in the sense that it displays an error directly after a field has been filled out, while not interrupting the user while they are in the process of filling out a field.
 
-This method should be used **whenever possible** to resolve an error while the user is still in the context of the erroring field. This can help limit the amount of context switching necessary when filling out a form and reduce the cognitive load on the user.
+Use this method **whenever possible** to resolve an error while the user is still in the context of the erroring field. This can help limit the amount of context switching necessary when filling out a form and reduce the cognitive load on the user.
 
 <video controls loop width="100%">
   <source src="/assets/patterns/form-patterns/validation-on-focus-change.mp4" />
@@ -63,7 +63,9 @@ Validating a form on submission can occur on the client or the server and can be
 
 Delayed validation occurs on the client and refers to validating the field after a lapse in keystrokes and a specific interval of time, e.g., `500ms` or 0.5 seconds. Once the user has stopped input into the field and after the interval of time has expired, the field is validated without an `onblur` event occurring.
 
-We recommend **against** using this method because it is invasive and may result in unintended validation errors by assuming a user has completed filling out a field. Consider a user entering their credit card information; they may repeatedly reference a physical card when inputting the card number, which can cause extended delays between keystrokes and result in displaying a validation error preemptively.
+We recommend **against** using this method because it is invasive and may result in unintended validation errors by assuming a user has completed filling out a field.
+
+Consider a user entering their credit card information; they may repeatedly reference a physical card when inputting the card number, which can cause extended delays between keystrokes and result in displaying a validation error preemptively.
 
 <video controls loop width="100%">
   <source src="/assets/patterns/form-patterns/delayed-validation-example.mp4" />
