@@ -36,16 +36,16 @@ When validation is displayed to the user impacts the time it takes to complete a
 
 The best user experience is often a combination of different methods depending on the type of data being collected, the length of the form, and application security protocols.
 
-### Delayed validation
+### Validation on focus change
 
-Delayed validation occurs on the client and refers to validating a field upon its completion, which can generally be assessed by the field losing focus via an [`onblur`](https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event) event.
+Validation on focus change occurs on the client and refers to validating a field when it loses focus via an [`onblur`](https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event) event.
 
-Delayed validation is immediate in the sense that it encourages displaying errors directly after a field has been filled out, while not interrupting the user while they are in the process of filling out a field.
+Validation on focus change is immediate in the sense that it encourages displaying errors directly after a field has been filled out, while not interrupting the user while they are in the process of filling out a field.
 
 This method should be used **whenever possible** to resolve an error while the user is still in the context of the erroring field. This can help limit the amount of context switching necessary when filling out a form and reduce the cognitive load on the user.
 
 <video controls loop width="100%">
-  <source src="/assets/patterns/form-patterns/delayed-validation-example.mp4" />
+  <source src="/assets/patterns/form-patterns/validation-on-focus-change.mp4" />
 </video>
 
 ### Validation on submit
@@ -57,6 +57,16 @@ Validating a form on submission can occur on the client or the server and can be
 
 <video controls loop width="100%">
   <source src="/assets/patterns/form-patterns/validation-on-submit-example.mp4" />
+</video>
+
+### Delayed validation
+
+Delayed validation occurs on the client and refers to validating the field after a lapse in keystrokes and a specific interval of time, e.g., `500ms` or 0.5 seconds. Once the user has stopped input into the field and after the interval of time has expired, the field is validated without an `onblur` event occurring.
+
+We recommend **against** using this method because it is invasive and may result in unintended validation errors by assuming a user has completed filling out a field. Consider a user entering their credit card information; they may repeatedly reference a physical card when inputting the card number, which can cause extended delays between keystrokes and result in displaying a validation error preemptively.
+
+<video controls loop width="100%">
+  <source src="/assets/patterns/form-patterns/delayed-validation-example.mp4" />
 </video>
 
 ## Displaying validation
@@ -77,7 +87,7 @@ Display server-side errors using a Critical Inline [Alert](/components/alert) ab
 
 ## Validation interaction
 
-If a validation error occurs in a field outside of the viewport, scroll the user to the error. This commonly occurs in long, complex forms when a form-level error occurs.
+If a validation error occurs in a field outside of the viewport, scroll the user to the error. If there are multiple fields in error, scroll the user to the first (or topmost) error in the form. Form-level validation errors should be scrolled to first and take precendence over individual fields in error. This commonly occurs in long, complex forms when a form-level error occurs.
 
 <video controls loop width="100%">
   <source src="/assets/patterns/form-patterns/validation-scroll.mp4" />
