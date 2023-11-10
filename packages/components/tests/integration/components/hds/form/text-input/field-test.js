@@ -98,18 +98,21 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
       hbs`<Hds::Form::TextInput::Field as |F|>
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
+          <F.CharacterCount>20/40</F.CharacterCount>
           <F.Error>This is the error</F.Error>
         </Hds::Form::TextInput::Field>`
     );
     assert.dom('.hds-form-field__label').exists();
     assert.dom('.hds-form-field__helper-text').exists();
     assert.dom('.hds-form-field__control').exists();
+    assert.dom('.hds-form-field__character-count').exists();
     assert.dom('.hds-form-field__error').exists();
   });
   test('it does not render the yielded contextual components if not provided', async function (assert) {
     await render(hbs`<Hds::Form::TextInput::Field />`);
     assert.dom('.hds-form-field__label').doesNotExist();
     assert.dom('.hds-form-field__helper-text').doesNotExist();
+    assert.dom('.hds-form-field__character-count').doesNotExist();
     assert.dom('.hds-form-field__error').doesNotExist();
   });
   test('it automatically provides all the ID relations between the elements', async function (assert) {
@@ -117,6 +120,7 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
       hbs`<Hds::Form::TextInput::Field @extraAriaDescribedBy="extra" as |F|>
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
+          <F.CharacterCount>20/40</F.CharacterCount>
           <F.Error>This is the error</F.Error>
         </Hds::Form::TextInput::Field>`
     );
@@ -131,8 +135,11 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
       .dom('.hds-form-field__control input')
       .hasAttribute(
         'aria-describedby',
-        `helper-text-${controlId} error-${controlId} extra`
+        `helper-text-${controlId} character-count-${controlId} error-${controlId} extra`
       );
+    assert
+      .dom('.hds-form-field__character-count')
+      .hasAttribute('id', `character-count-${controlId}`);
     assert
       .dom('.hds-form-field__error')
       .hasAttribute('id', `error-${controlId}`);
