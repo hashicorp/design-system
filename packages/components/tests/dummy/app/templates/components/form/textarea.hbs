@@ -138,8 +138,12 @@
         <F.HelperText>This is the helper text</F.HelperText>
       </Hds::Form::Textarea::Field>
     </SG.Item>
-    {{! left empty on purpose }}
-    <SG.Item />
+    <SG.Item @label="Label + Character count">
+      <Hds::Form::Textarea::Field @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco" as |F|>
+        <F.Label>This is the label text</F.Label>
+        <F.CharacterCount @maxLength={{100}} />
+      </Hds::Form::Textarea::Field>
+    </SG.Item>
     <SG.Item @label="Label + Error">
       <Hds::Form::Textarea::Field
         @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
