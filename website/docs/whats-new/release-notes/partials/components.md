@@ -12,6 +12,28 @@
   </a>
 </p>
 
+## 3.1.2
+
+**Patch changes**
+
+`AppFooter` – Fixed predefined statuses by replacing `critical` with `outage` and prevented `statusIconColor` from being overridden by `status`
+
+<small>[#1790](https://github.com/hashicorp/design-system/pull/1790)</small>
+
+---
+
+`SideNav` - Fixed visible scrollbar in collapsed SideNav when scroll bar is set to be always visible
+
+<small>[#1786](https://github.com/hashicorp/design-system/pull/1786)</small>
+
+---
+
+`CodeBlock` - Fixed `@hasLineWrapping` style to make long strings wrap when they overflow the container
+
+<small>[#1798](https://github.com/hashicorp/design-system/pull/1798)</small>
+
+---
+
 ## 3.1.1
 
 **Patch changes**
@@ -639,23 +661,6 @@ Fix Embroider warnings caused by incorrect export of internal utility functions
 
 - Updated dependencies [[`e6e0c22c5`](https://github.com/hashicorp/design-system/commit/e6e0c22c538e381f4a97428dc35cf1295ce6ae21)]:
   - @hashicorp/ember-flight-icons@3.0.6
-
-## 2.7.0
-
-**Minor changes**
-
-- [#1421](https://github.com/hashicorp/design-system/pull/1421) [`b8a45d6e7`](https://github.com/hashicorp/design-system/commit/b8a45d6e7ade6e973b2a860444d80d9216e3ab5c) Thanks [@didoo](https://github.com/didoo)! - `Table` - Exposed the internal sorting properties and methods `setSortBy`, `sortBy` and `sortOrder`
-
-- [#1377](https://github.com/hashicorp/design-system/pull/1377) [`437c253dd`](https://github.com/hashicorp/design-system/commit/437c253dd6106d616ed8f83c060adb12ac83acac) Thanks [@jorytindall](https://github.com/jorytindall)! - Adds `PageHeader` component
-
-- [#1393](https://github.com/hashicorp/design-system/pull/1393) [`38fb21e60`](https://github.com/hashicorp/design-system/commit/38fb21e6091c739f621e967e23d4c8b2794c9575) Thanks [@alex-ju](https://github.com/alex-ju)! - Add `Separator` component
-
-**Patch changes**
-
-- [#1415](https://github.com/hashicorp/design-system/pull/1415) [`555c86d3f`](https://github.com/hashicorp/design-system/commit/555c86d3fde07109775a61523f7b26444fc9ee62) Thanks [@didoo](https://github.com/didoo)! - `Hds::Table` - Changed the way in which the column `@width` defined by the user is applied
-
-- Updated dependencies []:
-  - @hashicorp/ember-flight-icons@3.0.5
 
 
 ---
