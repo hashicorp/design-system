@@ -86,6 +86,9 @@
 
 .aa-SourceHeader {
   // TODO
+  color: var(--doc-color-feedback-information-200);
+  font-weight: bold;
+  border-bottom: 1px solid #e4e4e4;
 }
 
 .aa-SourceFooter {

@@ -9,14 +9,18 @@
 
 // ITEM > PREVIEW
 
-.doc-algolia-search__aa-preview {}
+.doc-algolia-search__aa-preview {
+  margin-right: 8px;
+}
 
 // illustration (generic search)
 
 .doc-algolia-search__aa-preview--illustration {
+  width: 80px;
+
   img {
     display: block;
-    width: 80px;
+    width: 100%;
     height: auto;
     border-radius: 3px;
   }
@@ -24,8 +28,62 @@
 
 // token
 
-.doc-algolia-search__aa-preview--token {}
+.doc-algolia-search__aa-preview--token {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #000c;
+  border-radius: 2px;
+}
 
 // icon
 
 .doc-algolia-search__aa-preview--icon {}
+
+
+// ITEM > TITLE
+
+.aa-ItemContentTitle {
+  max-width: 100%;
+  margin: 0 4px 0 0;
+  padding: 0;
+  overflow: hidden;
+  color: var(--doc-color-gray-100);
+  font-weight: 700;
+  font-size: 1em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  // used for icon/token names
+  // code {
+  //   @include doc-font-family("mono");
+  //   font-weight: 700;
+  // }
+}
+
+// ITEM > DESCRIPTION
+
+.aa-ItemContentDescription {
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--doc-color-gray-200);
+  font-weight: regular;
+  font-size: 0.85em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  &:empty {
+    display: none;
+  }
+
+  // used to highlight the content
+  mark {
+    // color: TODO;
+    font-weight: bold;
+    font-style: normal;
+    background: var(--doc-color-feedback-information-400);
+  }
+}
+

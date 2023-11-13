@@ -3,14 +3,9 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-const itemPreview = ({ searchType, item }) => {
+const itemPreview = ({ item }) => {
   let content = '';
-  switch (searchType) {
-    case 'generic':
-      content += `<div class="doc-algolia-search__aa-preview doc-algolia-search__aa-preview--illustration">`;
-      content += `  <img src="/${item.previewImage}" alt="" role="presentation" />`;
-      content += `</div>`;
-      break;
+  switch (item.type) {
     case 'icon':
       content += `<div class="doc-algolia-search__aa-preview doc-algolia-search__aa-preview--icon">`;
       content += `  <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">`;
@@ -24,58 +19,57 @@ const itemPreview = ({ searchType, item }) => {
       content += `</div>`;
       break;
     default:
+      content += `<div class="doc-algolia-search__aa-preview doc-algolia-search__aa-preview--illustration">`;
+      if (item.previewImage) {
+        content += `  <img src="/${item.previewImage}" alt="" role="presentation" />`;
+      } else {
+        // TODO! add a proper placeholder here!
+        content += `  <img src="/assets/illustrations/home-abstract-small.jpg" alt="" role="presentation" />`;
+      }
+      content += `</div>`;
       break;
   }
   return content;
 };
 
-const itemBody = ({ searchType, item, html, components }) => {
+const itemBody = ({ item, html, components }) => {
   let content = '';
   content += `<div class="aa-ItemContentBody">`;
-  const xxx = components.Highlight({
-    hit: item,
-    attribute: 'title',
-  });
-  const yyy = html([xxx]);
-  console.log('XXX', typeof xxx, xxx);
-  console.log('YYY', typeof yyy, yyy);
-  switch (searchType) {
+  switch (item.type) {
     case 'icon':
       content += `  <div class="aa-ItemContentTitle">\n`;
-      content += `    ${item['icon-name']}\n`;
+      content += `    Icon: ${item['icon-name']}\n`;
       content += `  </div>\n`;
       content += `  <div class="aa-ItemContentDescription">\n`;
-      content += `    ${item['icon-aliases']}\n`;
+      content += `    Aliases: ${item['icon-aliases']}\n`;
       content += `  </div>\n`;
       break;
     case 'token':
       content += `  <div class="aa-ItemContentTitle">\n`;
-      content += `    ${item['token-name']}\n`;
+      content += `    Token: ${item['token-name']}\n`;
       content += `  </div>\n`;
-      content += `  <div class="aa-ItemContentDescription">\n`;
-      // TODO! add snippet here!
-      content += `    ${item['token-value']}\n`;
-      if (item['token-type']) {
-        content += `    (${item['token-value']})\n`;
+      if (item['token-value']) {
+        content += `  <div class="aa-ItemContentDescription">\n`;
+        content += `    Value: <code>${item['token-value']}</code>\n`;
+        if (item['token-type']) {
+          content += `    (${item['token-value']})\n`;
+        }
+        content += `  </div>\n`;
       }
-      content += `  </div>\n`;
       break;
-    case 'generic':
+    default:
       content += `  <div class="aa-ItemContentTitle">\n`;
-      // content += `    ${components.Highlight({
-      //   hit: item,
-      //   attribute: 'title',
-      // })}`;
       content += `    ${item.title}\n`;
       content += `  </div>\n`;
+      if (item._highlightResult) {
+        // TODO!
+      }
       // content += `  <div class="aa-ItemContentDescription">\n`;
       // content += `    ${components.Snippet({
       //   hit: item,
       //   attribute: 'caption',
       // })}`;
       // content += `  </div>\n`;
-      break;
-    default:
       break;
   }
   content += `</div>`;
@@ -94,16 +88,17 @@ const itemActions = () => {
   return content;
 };
 
-export const templatesItemFunction = ({ searchType }) => {
+export const templatesItemFunction = () => {
   return ({ item, components, html }) => {
-    console.log(`ITEM / ${searchType.toUpperCase()}`, item);
+    const itemType = item.type || 'UNKNOWN TYPE';
+    console.log(`ITEM / ${itemType.toUpperCase()}`, item);
 
     let content = '';
     content += `<div class="aa-ItemWrapper doc-algolia-search__aa-item-wrapper">`;
     content += `  <div class="aa-ItemContent doc-algolia-search__aa-item-content">`;
-    content += `    <a class="aa-ItemLink doc-algolia-search__aa-item-link" href="${item.pageURL}">`;
-    content += `      ${itemPreview({ searchType, item })}`;
-    content += `      ${itemBody({ searchType, item, html, components })}`;
+    content += `    <a class="aa-ItemLink doc-algolia-search__aa-item-link" href="/${item.pageURL}">`;
+    content += `      ${itemPreview({ item })}`;
+    content += `      ${itemBody({ item, html, components })}`;
     content += `      ${itemActions()}`;
     content += `    </a>`;
     content += `  </div>`;
