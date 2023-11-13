@@ -35,8 +35,8 @@ export async function populateAlgoliaRecords({ record, content }) {
   // -- paragraphs --
 
   paragraphs.forEach((paragraph) => {
-    // remove empty content
-    // TODO understand why `remarkSqueezeParagraphs` doesn't work
+    // remove empty paragraphs
+    // notice: no need to do it at remark level, is more efficient here (eg. it may contain just an image)
     if (paragraph.content.trim() === '') {
       return;
     }

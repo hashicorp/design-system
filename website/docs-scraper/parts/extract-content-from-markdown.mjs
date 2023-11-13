@@ -4,8 +4,9 @@
 
 // remark
 import { remark } from 'remark';
-import { visit } from 'unist-util-visit';
+import { visit, SKIP } from 'unist-util-visit';
 import { selectAll } from 'unist-util-select';
+import { remove } from 'unist-util-remove';
 import { defaultSchema } from 'hast-util-sanitize';
 import { fromHtml } from 'hast-util-from-html';
 import { fromMarkdown } from 'mdast-util-from-markdown';
@@ -18,9 +19,7 @@ import _ from 'lodash';
 // plugins
 import remarkGfm from 'remark-gfm';
 import remarkHtml from 'remark-html';
-import remarkSqueezeParagraphs from 'remark-squeeze-paragraphs';
 import remarkStripBadges from 'remark-strip-badges';
-import removeComments from 'remark-remove-comments';
 
 // TODO! understand how to do it with the current setup
 // import { CRITERIA } from '../../app/components/doc/wcag-list/index.js';
@@ -69,9 +68,102 @@ export async function parseMarkdown(markdownContent) {
 
   // DEBUG - use for debugging purposes
   // const logNodes = () => (tree) => {
-  //   visit(tree, (node) => {
-  //     console.log('TYPE', node.type);
-  //     console.log('LOG', JSON.stringify(node, null, 2));
+  //   visit(tree, (node, _index, parent) => {
+  //     // if (node.type === 'text') {
+  //     if (node.type !== 'root') {
+  //       // if (node.type === 'text' && parent.type === 'paragraph') {
+  //       console.log('TYPE', node.type);
+  //       console.log('LOG', JSON.stringify(node, null, 2));
+  //       // if (node.value) {
+  //       //   console.log('VALUE', node.value);
+  //       // }
+  //       console.log('-----------------');
+  //     }
+  //   });
+  // };
+
+  // see: https://github.com/alvinometric/remark-remove-comments/blob/main/transformer.js
+  // const remarkRemoveComments_OLD = () => (tree) => {
+  //   visit(tree, 'html', (node, index, parent) => {
+  //     const isComment = node.value.match(/<!--([\s\S]*?)-->/g);
+
+  //     if (isComment) {
+  //       // remove node
+  //       parent.children.splice(index, 1);
+  //       // Do not traverse `node`, continue at the node *now* at `index`. http://unifiedjs.com/learn/recipe/remove-node/
+  //       return [SKIP, index];
+  //     }
+  //   });
+  // };
+
+  const remarkRemoveComments = () => (tree) => {
+    // inspired by: https://github.com/modernweb-dev/rocket/blob/754705423fc6c3f062f5818f9c979bf5988ad102/packages/mdjs-core/src/mdjsParse.js#L46
+    remove(
+      tree,
+      (node) => node.type === 'html' && node.value.match(/<!--([\s\S]*?)-->/g)
+    );
+  };
+
+  const remarkRemoveCodeBlocks = () => (tree) => {
+    remove(tree, (node) => node.type === 'code');
+  };
+
+  // const remarkRemoveEmptyParagraphs = () => (tree) => {
+  //   visit(tree, 'paragraph', (node, index, parent) => {
+  //     const isNotEmpty =
+  //       node.children &&
+  //       node.children.some(
+  //         (child) =>
+  //           child.type !== 'text' ||
+  //           (child.type === 'text' && child.value.trim() !== '')
+  //       );
+
+  //     if (!isNotEmpty) {
+  //       // remove node
+  //       parent.children.splice(index, 1);
+  //       // Do not traverse `node`, continue at the node *now* at `index`. http://unifiedjs.com/learn/recipe/remove-node/
+  //       return [SKIP, index];
+  //     }
+  //   });
+  // };
+
+  const remarkProcessCustomImageFormat = () => (tree) => {
+    visit(tree, 'text', (node) => {
+      // this is a custom syntax coming from `shadowjs`
+      // see: https://github.com/showdownjs/showdown/blob/95255984ad80acf745ed74605bd3ad8357dc9b33/src/subParsers/makehtml/images.js#L9
+      const match = node.value.match(
+        /!\[([^\]]*?)][ \t]*()\([ \t]?<?([\S]+?(?:\([\S]*?\)[\S]*?)?)>?(?: =([*\d]+[A-Za-z%]{0,4})x([*\d]+[A-Za-z%]{0,4}))?[ \t]*(?:(["'])([^"]*?)\6)?[ \t]?\)/
+      );
+      if (match) {
+        node.type = 'image';
+        node.url = match[3] ?? '';
+        node.alt = match[1] ?? '';
+        node.position = { ...node.position };
+        delete node.value;
+      }
+    });
+  };
+
+  const remarkStripHeliosContentBlocksDelimiters = () => (tree) => {
+    visit(tree, 'text', (node, index, parent) => {
+      if (parent.type === 'paragraph') {
+        node.value = node.value.replace(/^!!!.*$/g, '');
+      }
+    });
+  };
+
+  const remarkStripHeliosHandlebarsExpressions = () => (tree) => {
+    const handler = (node) => {
+      node.value = node.value.replace(/\{\{[\s]*.*?[\s]*\}\}/g, '');
+    };
+    visit(tree, 'text', handler);
+    visit(tree, 'html', handler);
+  };
+
+  // const remarkStripHeliosReleaseNotesMetadata = () => (tree) => {
+  //   visit(tree, 'html', (node, index, parent) => {
+  //     // console.log(JSON.stringify(node, null, 2));
+  //     console.log(node.value);
   //   });
   // };
 
@@ -256,17 +348,34 @@ export async function parseMarkdown(markdownContent) {
 
   // processing pipeline
   await remark()
-    .use(removeComments)
+    // process custom (showdown.js) format
+    .use(remarkProcessCustomImageFormat)
+    // pre-emptively remove any comment, just in case
+    .use(remarkRemoveComments)
+    // pre-emptively remove any comment, just in case
+    .use(remarkRemoveCodeBlocks)
+    // remove/strip all the custom entities (custom markdown, useless ember components, etc)
+    .use(remarkStripHeliosContentBlocksDelimiters)
+    // .use(remarkStripHeliosReleaseNotesMetadata)
+    // TODO what is this that I don';'t remember ???
     .use(remarkHtml, { sanitize: remarkHtmlSanitise })
+    // interpret special GFM markdown format
     .use(remarkGfm)
+    // associate to each node the hierarchy in terms of headings level
     .use(setNodesHierarchy)
-    // .use(logNodes)
+    // TODO not sure if it works (or is needed)
     .use(remarkStripBadges)
-    .use(remarkSqueezeParagraphs)
-    // "doc" (ember) nodes
+    // parse and index "doc" (ember) nodes for special components
     .use(wcagListMapper)
     .use(componentApiMapper)
+    // remove handlebars expressions (`{{...}}`) not that are not useful anymore, so they don't pollute the paragraphs
+    .use(remarkStripHeliosHandlebarsExpressions)
+    // remove empty paragraphs
+    // notice: done later in the process, more efficient than doing it here
+    // .use(remarkRemoveEmptyParagraphs)
     // standard nodes
+    // DEBUGGING
+    // .use(logNodes)
     .use(headingMapper)
     .use(paragraphMapper)
     .use(tableMapper)

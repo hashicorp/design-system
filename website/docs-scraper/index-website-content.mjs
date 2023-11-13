@@ -149,10 +149,6 @@ async function indexWebsiteContent() {
       if (fileRelativePath !== 'testing/markdown/scraping-playground.json') {
         continue;
       }
-      // DEBUG - we use ONLY the "testing" folder
-      // if (fileRelativePath.match(/^testing/) === null) {
-      //   continue;
-      // }
     } else {
       // we skip the "testing" folder
       if (fileRelativePath.match(/^testing/)) {
