@@ -10,8 +10,8 @@ import { autocomplete } from '@algolia/autocomplete-js';
 
 import { getItemsFunction } from './parts/getItems';
 import { templatesHeaderFunction } from './parts/templatesHeaderFunction';
-import { templatesFooterFunction } from './parts/templatesFooterFunction';
-import { templatesNoResultsFunction } from './parts/templatesNoResultsFunction';
+// import { templatesFooterFunction } from './parts/templatesFooterFunction';
+// import { templatesNoResultsFunction } from './parts/templatesNoResultsFunction';
 import { templatesItemFunction } from './parts/templatesItemFunction';
 
 export default class DocAlgoliaSearchComponent extends Component {
@@ -37,30 +37,53 @@ export default class DocAlgoliaSearchComponent extends Component {
       // GET SOURCES
       // see: https://www.algolia.com/doc/ui-libraries/autocomplete/api-reference/autocomplete-js/autocomplete/#param-getsources
       getSources({ query }) {
-        let searchQuery = query;
-        let searchFilters = {};
-        let searchType = 'generic';
-        if (query?.match(/^token:/)) {
-          searchQuery = query.replace(/^token:/, '');
-          searchFilters = { filters: 'type:token' };
-          searchType = 'token';
-        } else if (query?.match(/^icon:/)) {
-          searchQuery = query.replace(/^icon:/, '');
-          searchFilters = { filters: 'type:icon' };
-          searchType = 'icon';
-        }
         return [
           {
             sourceId: 'content',
-            getItems: getItemsFunction({ searchQuery, searchFilters }),
+            getItems: getItemsFunction({
+              searchQuery: query,
+              searchFilters: { facetFilters: ['type:-icon', 'type:-token'] },
+            }),
             getItemUrl: ({ item }) => {
               return item.pageURL;
             },
             templates: {
-              header: templatesHeaderFunction({ searchType }),
-              footer: templatesFooterFunction,
-              noResults: templatesNoResultsFunction({ searchType }),
-              item: templatesItemFunction({ searchType }),
+              header: templatesHeaderFunction({ group: 'generic' }),
+              // footer: templatesFooterFunction,
+              // noResults: templatesNoResultsFunction(),
+              item: templatesItemFunction(),
+            },
+          },
+          {
+            sourceId: 'icons',
+            getItems: getItemsFunction({
+              searchQuery: query,
+              searchFilters: { facetFilters: ['type:icon'] },
+            }),
+            getItemUrl: ({ item }) => {
+              return item.pageURL;
+            },
+            templates: {
+              header: templatesHeaderFunction({ group: 'icons' }),
+              // footer: templatesFooterFunction,
+              // noResults: templatesNoResultsFunction(),
+              item: templatesItemFunction(),
+            },
+          },
+          {
+            sourceId: 'tokens',
+            getItems: getItemsFunction({
+              searchQuery: query,
+              searchFilters: { facetFilters: ['type:token'] },
+            }),
+            getItemUrl: ({ item }) => {
+              return item.pageURL;
+            },
+            templates: {
+              header: templatesHeaderFunction({ group: 'tokens' }),
+              // footer: templatesFooterFunction,
+              // noResults: templatesNoResultsFunction(),
+              item: templatesItemFunction(),
             },
           },
         ];
