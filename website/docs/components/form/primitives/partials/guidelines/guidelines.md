@@ -13,12 +13,9 @@
 
 Use a character count when there is a maximum number of characters a field can accept before being rendered invalid. The default character count displays the number of characters entered by the end user, compared to the maximum allowed length of the input, though more custom implementations are supported via the exposed `count` and `maxLength` hooks.
 
--> Include examples of different custom implementations
+![character count examples within a text area](/assets/components/form/primitives/primitives-example-textarea.png)
 
-!!! Dont
-
-A character count is not relevant for form components that don’t accept text as an input type.
-!!!
+![character count examples within a text input](/assets/components/form/primitives/primitives-example-textfield.png)
 
 ### Form::Error
 
