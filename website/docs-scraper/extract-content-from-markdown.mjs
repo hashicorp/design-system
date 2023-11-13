@@ -69,7 +69,7 @@ export async function parseMarkdown(markdownContent) {
   const tableMapper = () => (tree) => {
     visit(tree, 'table', (node) => {
       const cells = selectAll('tableCell', node);
-      const content = cells.map((cell) => stringifyChildNodes(cell)).join('');
+      const content = cells.map((cell) => stringifyChildNodes(cell)).join(' ');
       tables.push({ content: content, hierarchy: node.hierarchy });
     });
   };
