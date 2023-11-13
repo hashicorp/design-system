@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 // import { pick } from 'lodash'; // not sure why this doesn't work in a `.mjs` module
 import _ from 'lodash';
 

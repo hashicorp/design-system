@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 /* eslint-env node */
 /* eslint-disable no-console */
 
@@ -22,46 +27,15 @@ import _ from 'lodash';
 
 import algoliasearch from 'algoliasearch';
 
+import { populateAlgoliaRecords } from './populateAlgoliaRecords.mjs';
 import { walkDir } from './parts/walkDir.mjs';
-import { populateAlgoliaRecords } from './parts/populateAlgoliaRecords.mjs';
+import { getPageTopRoute } from './parts/getPageTopRoute.mjs';
+
+// script config
+import { config } from './config.mjs';
 
 // read the environment variables from the ".env" file
 dotenv.config();
-
-// TODO understand if it's possible to generalize this
-// import { getTocSectionsBundle } from '../app/components/doc/page/sidebar.js';
-const ABOUT = ['about', 'whats-new', 'getting-started'];
-const FOUNDATIONS = ['foundations', 'icons'];
-const COMPONENTS = ['components', 'layouts', 'overrides', 'utilities'];
-const PATTERNS = ['patterns'];
-const TESTING = ['testing'];
-const getPageTopRoute = (section) => {
-  if (ABOUT.includes(section)) {
-    return ABOUT[0];
-  } else if (FOUNDATIONS.includes(section)) {
-    return FOUNDATIONS[0];
-  } else if (COMPONENTS.includes(section)) {
-    return COMPONENTS[0];
-  } else if (PATTERNS.includes(section)) {
-    return PATTERNS[0];
-  } else if (TESTING.includes(section)) {
-    return TESTING[0];
-  } else {
-    // eg. the website "root" index page
-    return [];
-  }
-};
-
-// SCRIPT CONFIG
-
-// const distDocsFolder = path.resolve(__dirname, '../dist/docs');
-const distDocsFolder = path.resolve('dist/docs');
-const tokensJsonFilePath = path.resolve(
-  '../packages/tokens/dist/docs/products/tokens.json'
-);
-const flightIconsJsonFilePath = path.resolve(
-  '../packages/flight-icons/catalog.json'
-);
 
 // ===================================================
 
@@ -133,11 +107,11 @@ async function indexWebsiteContent() {
   // --------------------------------
 
   // get all the files in the `website/dist/docs` folder
-  const files = await walkDir(distDocsFolder);
+  const files = await walkDir(config.distDocsFolder);
 
   for (const file of files) {
     const fileFullPath = file;
-    const fileRelativePath = path.relative(distDocsFolder, fileFullPath);
+    const fileRelativePath = path.relative(config.distDocsFolder, fileFullPath);
 
     // we want to process only the JSON file (extra precaution)
     if (path.extname(file) !== '.json') {
@@ -254,7 +228,7 @@ async function indexWebsiteContent() {
   // --------------------------------
 
   // read the JSON file for the tokens
-  const tokensJsonData = await fs.readJSON(tokensJsonFilePath);
+  const tokensJsonData = await fs.readJSON(config.tokensJsonFilePath);
 
   tokensJsonData.forEach((token) => {
     algoliaRecords.push({
@@ -290,7 +264,7 @@ async function indexWebsiteContent() {
   // --------------------------------
 
   // read the JSON file for the Flight icons
-  const flightIconsJsonData = await fs.readJSON(flightIconsJsonFilePath);
+  const flightIconsJsonData = await fs.readJSON(config.flightIconsJsonFilePath);
 
   const distinctIcons = _.uniqBy(flightIconsJsonData.assets, 'iconName');
 

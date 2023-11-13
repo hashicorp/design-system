@@ -3,13 +3,9 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-// ======================================
-//
-// TEMP!!!! IT WILL BE REMOVED LATER
-//
-// ======================================
-
-export const CRITERIA = [
+// TODO! understand how to do it with the current setup
+// import { CRITERIA } from '../../app/components/doc/wcag-list/index.js';
+const CRITERIA = [
   {
     type: 'success-criteria',
     id: 'wcag-1-1-1',
@@ -813,3 +809,8 @@ export const CRITERIA = [
     description: '',
   },
 ];
+
+export const WCAG_CRITERIA = CRITERIA.reduce((acc, criteria) => {
+  acc[criteria.number] = criteria;
+  return acc;
+}, {});
