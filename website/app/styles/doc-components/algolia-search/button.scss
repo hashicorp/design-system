@@ -44,7 +44,8 @@
 // this is made visually hidden via the `doc-sr-only` class (added via JS "classNames" param in the autocomplete configuration in the component backing class)
 .aa-DetachedSearchButtonPlaceholder {
   &[hidden] {
-    display: none;
+    // we override its visibility
+    display: block;
   }
 }
 

@@ -3,16 +3,16 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-export const templatesHeaderFunction = ({ searchType }) => {
+export const templatesHeaderFunction = ({ group }) => {
   let title;
-  switch (searchType) {
+  switch (group) {
     case 'generic':
-      title = 'Content:';
+      title = 'Generic content:';
       break;
-    case 'token':
+    case 'tokens':
       title = 'Tokens:';
       break;
-    case 'icon':
+    case 'icons':
       title = 'Icons:';
       break;
     default:
