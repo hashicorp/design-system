@@ -167,7 +167,8 @@ async function indexWebsiteContent() {
       caption: pageMetadata.caption,
       aliases: pageMetadata.navigation?.keywords,
       altName: pageMetadata.navigation?.label,
-      previewImage: pageMetadata.previewImage,
+      // for simplicity we want to store absolute paths
+      previewImage: `/${pageMetadata.previewImage}`,
     };
 
     // check if the content is split in "sections"
@@ -189,7 +190,8 @@ async function indexWebsiteContent() {
         const tabName = match[1];
         const tabContent = match[2];
         const currBaseRecord = _.merge({}, algoliaBaseRecord, {
-          pageURL: `${pageURL}?tab=${encodeURIComponent(
+          // for simplicity we want to store absolute paths
+          pageURL: `/${pageURL}?tab=${encodeURIComponent(
             tabName.toLowerCase()
           )}`,
           pageTab: tabName,
@@ -209,7 +211,8 @@ async function indexWebsiteContent() {
     } else {
       // there are no tabs, all the content is directly in the page
       const currBaseRecord = _.merge({}, algoliaBaseRecord, {
-        pageURL: pageURL,
+        // for simplicity we want to store absolute paths
+        pageURL: `/${pageURL}`,
         pageTab: null,
       });
       const records = await populateAlgoliaRecords({
