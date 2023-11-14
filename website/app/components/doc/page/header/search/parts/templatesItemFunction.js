@@ -6,6 +6,13 @@
 const itemPreview = ({ item }) => {
   let content = '';
   switch (item.type) {
+    case 'suggestion':
+      content += `<div class="aa-ItemPreview aa-ItemPreview--icon">`;
+      content += `  <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">`;
+      content += `    <use href="#flight-${item.previewIcon}-24"></use>`;
+      content += `  </svg>`;
+      content += `</div>`;
+      break;
     case 'icon':
       content += `<div class="aa-ItemPreview aa-ItemPreview--icon">`;
       content += `  <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">`;
