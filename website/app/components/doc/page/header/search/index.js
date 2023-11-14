@@ -37,56 +37,95 @@ export default class DocAlgoliaSearchComponent extends Component {
       // GET SOURCES
       // see: https://www.algolia.com/doc/ui-libraries/autocomplete/api-reference/autocomplete-js/autocomplete/#param-getsources
       getSources({ query }) {
-        return [
-          {
-            sourceId: 'content',
-            getItems: getItemsFunction({
-              searchQuery: query,
-              searchFilters: { facetFilters: ['type:-icon', 'type:-token'] },
-            }),
-            getItemUrl: ({ item }) => {
-              return item.pageURL;
+        if (query.trim() !== '') {
+          return [
+            {
+              sourceId: 'content',
+              getItems: getItemsFunction({
+                searchQuery: query,
+                searchFilters: { facetFilters: ['type:-icon', 'type:-token'] },
+              }),
+              getItemUrl: ({ item }) => {
+                return item.pageURL;
+              },
+              templates: {
+                header: templatesHeaderFunction({ group: 'generic' }),
+                // footer: templatesFooterFunction,
+                // noResults: templatesNoResultsFunction(),
+                item: templatesItemFunction(),
+              },
             },
-            templates: {
-              header: templatesHeaderFunction({ group: 'generic' }),
-              // footer: templatesFooterFunction,
-              // noResults: templatesNoResultsFunction(),
-              item: templatesItemFunction(),
+            {
+              sourceId: 'icons',
+              getItems: getItemsFunction({
+                searchQuery: query,
+                searchFilters: { facetFilters: ['type:icon'] },
+              }),
+              getItemUrl: ({ item }) => {
+                return item.pageURL;
+              },
+              templates: {
+                header: templatesHeaderFunction({ group: 'icons' }),
+                // footer: templatesFooterFunction,
+                // noResults: templatesNoResultsFunction(),
+                item: templatesItemFunction(),
+              },
             },
-          },
-          {
-            sourceId: 'icons',
-            getItems: getItemsFunction({
-              searchQuery: query,
-              searchFilters: { facetFilters: ['type:icon'] },
-            }),
-            getItemUrl: ({ item }) => {
-              return item.pageURL;
+            {
+              sourceId: 'tokens',
+              getItems: getItemsFunction({
+                searchQuery: query,
+                searchFilters: { facetFilters: ['type:token'] },
+              }),
+              getItemUrl: ({ item }) => {
+                return item.pageURL;
+              },
+              templates: {
+                header: templatesHeaderFunction({ group: 'tokens' }),
+                // footer: templatesFooterFunction,
+                // noResults: templatesNoResultsFunction(),
+                item: templatesItemFunction(),
+              },
             },
-            templates: {
-              header: templatesHeaderFunction({ group: 'icons' }),
-              // footer: templatesFooterFunction,
-              // noResults: templatesNoResultsFunction(),
-              item: templatesItemFunction(),
+          ];
+        } else {
+          return [
+            {
+              sourceId: 'suggestions',
+              getItems() {
+                return [
+                  {
+                    type: 'suggestion',
+                    title: 'Support: How to file an issue',
+                    pageURL: 'about/support#file-an-issue',
+                    previewIcon: 'support',
+                  },
+                  {
+                    type: 'suggestion',
+                    title: 'What‘s new: Release notes',
+                    pageURL: 'whats-new/release-notes',
+                    previewIcon: 'newspaper',
+                  },
+                  {
+                    type: 'suggestion',
+                    title: 'Icons: Library',
+                    pageURL: 'icons/library',
+                    previewIcon: 'search',
+                  },
+                ];
+              },
+              getItemUrl({ item }) {
+                return item.pageURL;
+              },
+              templates: {
+                header: templatesHeaderFunction({ group: 'suggestions' }),
+                // footer: templatesFooterFunction,
+                // noResults: templatesNoResultsFunction(),
+                item: templatesItemFunction(),
+              },
             },
-          },
-          {
-            sourceId: 'tokens',
-            getItems: getItemsFunction({
-              searchQuery: query,
-              searchFilters: { facetFilters: ['type:token'] },
-            }),
-            getItemUrl: ({ item }) => {
-              return item.pageURL;
-            },
-            templates: {
-              header: templatesHeaderFunction({ group: 'tokens' }),
-              // footer: templatesFooterFunction,
-              // noResults: templatesNoResultsFunction(),
-              item: templatesItemFunction(),
-            },
-          },
-        ];
+          ];
+        }
       },
     });
   }
