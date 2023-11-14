@@ -22,13 +22,13 @@ We recommend using a combination of client-side and server-side validation for t
 
 [Client-side validation](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation) is an initial check in the browser to ensure that required fields aren’t empty and the values are in the correct format.
 
-![Example of client side form validation](/assets/components/form/primitives/form-primitives-validation-client.png =600x*)
+![Example of client side form validation](/assets/components/form/primitives/form-primitives-validation-client.png =600x\*)
 
 ### Server-side
 
 Server-side validation provides a more thorough check on the server once the data has been submitted and helps keep our applications safe.
 
-![Example of server side form validation](/assets/components/form/primitives/form-primitives-validation-server.png =600x*)
+![Example of server side form validation](/assets/components/form/primitives/form-primitives-validation-server.png =600x\*)
 
 ## Validation methods
 
@@ -74,7 +74,7 @@ Validating a form on submission can occur on the client or the server and can be
 
 Delayed validation occurs on the client and refers to validating the field after a lapse in keystrokes and a specific interval of time, e.g., `500ms` or 0.5 seconds. Once the user has stopped input into the field and after the interval of time has expired, the field is validated without an `onblur` event occurring.
 
-We recommend **against** using this method because it is invasive and may result in unintended validation errors by assuming a user has completed filling out a field.
+This method can be invasive and result in unintended validation errors by assuming the user has completed filling out a field. Thus, we recommend implementing either of the previous methods prior to delayed validation for most forms.
 
 Consider a user entering their credit card information; they may repeatedly reference a physical card when inputting the card number, which can cause extended delays between keystrokes and result in displaying a validation error preemptively.
 
@@ -90,13 +90,13 @@ Where validation is displayed impacts the cognitive load on the user and can mak
 
 Display client-side validation errors within a specific field inline with the field using the built-in [invalid input state](/components/form/text-input?tab=code#validation) and the accompanying `Error` contextual component.
 
-![Inline validation error](/assets/patterns/form-patterns/form-pattern-validation-inline-error.png =800x*)
+![Inline validation error](/assets/patterns/form-patterns/form-pattern-validation-inline-error.png =800x\*)
 
 ### Form-level validation
 
 Display server-side errors using a Critical Inline [Alert](/components/alert) above the form listing **all** errors with links to each invalid field.
 
-![Form level validation error](/assets/patterns/form-patterns/form-pattern-validation-form-level-error.png =559x*)
+![Form level validation error](/assets/patterns/form-patterns/form-pattern-validation-form-level-error.png =559x\*)
 
 ## Validation interaction
 
