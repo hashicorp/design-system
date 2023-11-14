@@ -15,6 +15,9 @@ export const templatesHeaderFunction = ({ group }) => {
     case 'icons':
       title = 'Icons:';
       break;
+    case 'suggestions':
+      title = 'Suggestions:';
+      break;
     default:
       break;
   }
