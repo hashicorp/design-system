@@ -61,10 +61,6 @@ module.exports = {
     // see: https://stylelint.io/user-guide/rules/list/shorthand-property-no-redundant-values/
     'shorthand-property-no-redundant-values': null,
 
-    // we've decide to use "double" quotes (notice: this is the default rule, but better to declare it explicitly so it's evident is intentional)
-    // see: https://stylelint.io/user-guide/rules/list/string-quotes/
-    'string-quotes': 'double',
-
     // we've decided to have this custom rule because there's an issue with "currentColor" (https://github.com/stylelint/stylelint/issues/5863)
     // see: https://stylelint.io/user-guide/rules/list/value-keyword-case/
     'value-keyword-case': ['lower', { ignoreKeywords: ['currentColor'] }],
