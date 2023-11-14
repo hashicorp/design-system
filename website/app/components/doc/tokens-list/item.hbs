@@ -4,23 +4,8 @@
 }}
 
 <li class="doc-tokens-list__item">
-  <div class="doc-tokens-list__preview {{this.token.previewClass}}">
-    {{! template-lint-disable no-inline-styles }}
-    {{#if this.colorPreviewStyle}}
-      <span class="doc-tokens-list__preview-color" style={{this.colorPreviewStyle}}></span>
-    {{else if this.backgroundImagePreviewStyle}}
-      <span class="doc-tokens-list__preview-image" style={{this.backgroundImagePreviewStyle}}></span>
-    {{else if this.fontPreviewStyle}}
-      <span class="doc-tokens-list__preview-font" style={{this.fontSizePreviewStyle}}>Aa</span>
-    {{else if this.sizePreviewStyle}}
-      <span class="doc-tokens-list__preview-size" style={{this.sizePreviewStyle}}></span>
-    {{else if this.boxShadowPreviewStyle}}
-      <span class="doc-tokens-list__preview-boxshadow" style={{this.boxShadowPreviewStyle}}></span>
-    {{else}}
-      <span class="doc-tokens-list__preview-unknown"></span>
-    {{/if}}
-    {{this.token.previewText}}
-    {{! template-lint-enable no-inline-styles }}
+  <div class="doc-tokens-list__preview">
+    <Doc::TokenPreview @token={{this.token}} />
   </div>
   <div class="doc-tokens-list__content">
     <button
