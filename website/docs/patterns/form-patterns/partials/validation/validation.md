@@ -36,6 +36,17 @@ When validation is displayed to the user impacts the time it takes to complete a
 
 The best user experience is often a combination of different methods depending on the type of data being collected, the length of the form, and application security protocols.
 
+!!! Warning
+
+We do not recommend using HTML5 validation (for example, the `required` attribute). Despite being a standard its current implementation has major flaws:
+
+- It moves the focus to the input, but it doesn’t play back the associated label, so screen reader users become unaware of their location on the page.
+- The error message is not persistent – as soon as the user interacts with the page, it disappears. If you use the `pattern` attribute to define a required format, the error message is often generic (‘please match the required format’) which doesn’t help users to recover from this state.
+
+For this reason, we recommend creating your validation mechanism using our form components, following our recommendations, and providing clear and specific error messages.
+
+!!!
+
 ### Validation on focus change
 
 Validation on focus change occurs on the client and refers to validating a field when it loses focus via an [`onblur`](https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event) event.
