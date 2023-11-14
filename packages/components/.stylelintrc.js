@@ -24,14 +24,6 @@ module.exports = {
     // see: https://stylelint.io/user-guide/rules/list/declaration-empty-line-before/
     'declaration-empty-line-before': null,
 
-    // we've decided to never have spaces inside the parentheses of functions (we all prefer this way, for readability)
-    // see: https://stylelint.io/user-guide/rules/list/function-parentheses-space-inside/
-    'function-parentheses-space-inside': 'never',
-
-    // we've agreed that in some cases is useful to add extra visual space between blocks to better separate/group content
-    // see: https://stylelint.io/user-guide/rules/list/max-empty-lines/
-    'max-empty-lines': 2,
-
     // we've agreed to not enforce a limit on the lines lenght (we embed SVGs so very long strings + plus modern browsers can esily soft-wrap code)
     // see: https://stylelint.io/user-guide/rules/list/max-line-length/
     'max-line-length': null,
@@ -43,10 +35,6 @@ module.exports = {
     // we've decided to disable this rule because we want to be able to order our declarations based on different criteria, if/when needed
     // see: https://stylelint.io/user-guide/rules/list/no-duplicate-selectors/
     'no-duplicate-selectors': null,
-
-    // we all had preference on always having leading zeros (for readability)
-    // see: https://stylelint.io/user-guide/rules/list/number-leading-zero/
-    'number-leading-zero': 'always',
 
     // we've decided to enforce the `.hds|.mock|.flight` naming convention (plus, using the default stylelint rule one doesn't work for us, because we're using BEM)
     // see: https://stylelint.io/user-guide/rules/list/selector-class-pattern/
