@@ -37,7 +37,7 @@ const itemPreview = ({ item }) => {
     default:
       content += `<div class="aa-ItemPreview aa-ItemPreview--illustration">`;
       if (item.previewImage) {
-        content += `  <img src="/${item.previewImage}" alt="" role="presentation" />`;
+        content += `  <img src="${item.previewImage}" alt="" role="presentation" />`;
       } else {
         // TODO! add a proper placeholder here!
         content += `  <img src="/assets/illustrations/home-abstract-small.jpg" alt="" role="presentation" />`;
@@ -105,7 +105,7 @@ export const templatesItemFunction = () => {
     console.log(`ITEM / ${itemType.toUpperCase()}`, item);
 
     let content = '';
-    content += `<a class="aa-ItemLinkWrapper" href="/${item.pageURL}">`;
+    content += `<a class="aa-ItemLinkWrapper" href="${item.pageURL}">`;
     content += `  ${itemPreview({ item })}`;
     content += `  ${itemBody({ item, html, components })}`;
     content += `  ${itemExtra()}`;
