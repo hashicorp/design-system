@@ -14,6 +14,7 @@ import { templatesHeaderFunction } from './parts/templatesHeaderFunction';
 // import { templatesNoResultsFunction } from './parts/templatesNoResultsFunction';
 import { templatesItemFunction } from './parts/templatesItemFunction';
 import { htmlPanelFooter } from './parts/htmlPanelFooter';
+import { htmlPanelNoResults } from './parts/htmlPanelNoResults';
 
 export default class DocAlgoliaSearchComponent extends Component {
   @action
@@ -143,6 +144,17 @@ export default class DocAlgoliaSearchComponent extends Component {
               </div>
             </div>
             ${htmlPanelFooter({ html })} `,
+          root
+        );
+      },
+      renderNoResults({ render, html, state }, root) {
+        render(
+          html`
+            <div class="aa-PanelLayout aa-Panel--scrollable">
+              ${htmlPanelNoResults({ html, state })}
+            </div>
+            ${htmlPanelFooter({ html })}
+          `,
           root
         );
       },

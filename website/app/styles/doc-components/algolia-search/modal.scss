@@ -202,3 +202,16 @@
   width: auto;
   height: 12px;
 }
+
+
+// NO RESULTS
+
+
+.aa-PanelNoResults {
+  @include doc-font-style-body-small();
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  color: var(--doc-color-gray-200);
+}
