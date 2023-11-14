@@ -99,19 +99,19 @@ export default class DocAlgoliaSearchComponent extends Component {
                   {
                     type: 'suggestion',
                     title: 'Support: How to file an issue',
-                    pageURL: 'about/support#file-an-issue',
+                    pageURL: '/about/support#file-an-issue',
                     previewIcon: 'support',
                   },
                   {
                     type: 'suggestion',
                     title: 'What‘s new: Release notes',
-                    pageURL: 'whats-new/release-notes',
+                    pageURL: '/whats-new/release-notes',
                     previewIcon: 'newspaper',
                   },
                   {
                     type: 'suggestion',
                     title: 'Icons: Library',
-                    pageURL: 'icons/library',
+                    pageURL: '/icons/library',
                     previewIcon: 'search',
                   },
                 ];
