@@ -7,7 +7,7 @@ Form Primitives are used to compose form fields.
 - `Form::Legend` is the legend associated to the fieldset
 - `Form::Field` is the generic container for control, label, helper text and error messaging
 - `Form::Fieldset` is the generic container to group multiple fields with label, helper text, and error messaging
-- `Form::CharacterCount` is optionally used to display the number of characters in a field, the maximum number of characters allowed, or a custom message communicating the relationship between the count and the maximum length.
+- `Form::CharacterCount` is optionally used to display the number of characters entered in a field, the maximum number of characters allowed, or a custom message communicating the relationship between the count and the maximum length.
     - `CharacterCount` is only used in fields that accept text values (TextInput, Textarea, MaskedInput, etc).
 
 We use Form Primitives as the building blocks for the “field” and “group” controls. While we recommend using our pre-defined “field” and “group” controls because they provide built-in accessibility support, you can use the Form Primitives to implement custom layouts or controls as necessary.
