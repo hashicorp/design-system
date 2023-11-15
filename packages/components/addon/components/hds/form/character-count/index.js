@@ -64,7 +64,11 @@ export default class HdsFormCharacterCountIndexComponent extends Component {
       );
     } else {
       this.updateCurrentLength();
-      this.inputControl.addEventListener('input', this.updateCurrentLength);
+      this.inputControl.addEventListener(
+        'input',
+        this.updateCurrentLength,
+        true
+      );
     }
 
     // notice: this is a guard used to prevent triggering an error when the component is used as standalone element
@@ -72,6 +76,17 @@ export default class HdsFormCharacterCountIndexComponent extends Component {
       return onInsert;
     } else {
       return NOOP;
+    }
+  }
+
+  @action
+  willDestroyNode() {
+    if (this.inputControl) {
+      this.inputControl.removeEventListener(
+        'input',
+        this.updateCurrentLength,
+        true
+      );
     }
   }
 
