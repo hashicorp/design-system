@@ -18,7 +18,6 @@ import _ from 'lodash';
 // plugins
 import remarkGfm from 'remark-gfm';
 import remarkHtml from 'remark-html';
-import remarkStripBadges from 'remark-strip-badges';
 
 // local/custom
 import { WCAG_CRITERIA } from './parts/getWcagCriteria.mjs';
@@ -191,14 +190,12 @@ export async function parseMarkdown(markdownContent) {
     // remove/strip all the custom entities (custom markdown, useless ember components, etc)
     .use(remarkStripHeliosContentBlocksDelimiters)
     // .use(remarkStripHeliosReleaseNotesMetadata)
-    // TODO what is this that I don';'t remember ???
+    // convert markdown to HTML (TODO do we need it? what happens if we remove this?)
     .use(remarkHtml, { sanitize: remarkHtmlSanitise })
     // interpret special GFM markdown format
     .use(remarkGfm)
     // associate to each node the hierarchy in terms of headings level
     .use(setNodesHierarchy)
-    // TODO not sure if it works (or is needed)
-    .use(remarkStripBadges)
     // parse and index "doc" (ember) nodes for special components
     .use(wcagListMapper)
     .use(componentApiMapper)

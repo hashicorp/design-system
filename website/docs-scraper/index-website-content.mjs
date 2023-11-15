@@ -99,7 +99,6 @@ async function indexWebsiteContent() {
   }
 
   // we batch the records "add" operation for better efficiency
-  // TODO - or better to have atomic operations?
   const algoliaRecords = [];
 
   // --------------------------------

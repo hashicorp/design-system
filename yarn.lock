@@ -17426,13 +17426,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-badge@npm:^2.0.0":
-  version: 2.1.1
-  resolution: "is-badge@npm:2.1.1"
-  checksum: 75e480b24f45e97a4822eccf54b0c19aa458d059c1f5f0b525b2dd60c2163f5bc0fc98bb179e2874084a3ee7a87874e0daca1d59d9fc619cea62369213111a2d
-  languageName: node
-  linkType: hard
-
 "is-bigint@npm:^1.0.1":
   version: 1.0.4
   resolution: "is-bigint@npm:1.0.4"
@@ -19862,17 +19855,6 @@ __metadata:
   dependencies:
     unist-util-visit: "npm:^1.1.0"
   checksum: e26f584e214023ae471f5fafcd95bebb9a187660dd7fd86f3e3a71bf883e0ec0d209109aee53173856aa3f20fe4f1fa9f84ce698c0a0489c71e011d37b199cca
-  languageName: node
-  linkType: hard
-
-"mdast-util-definitions@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "mdast-util-definitions@npm:6.0.0"
-  dependencies:
-    "@types/mdast": "npm:^4.0.0"
-    "@types/unist": "npm:^3.0.0"
-    unist-util-visit: "npm:^5.0.0"
-  checksum: 4fdfcf435f675cee106664315525c6c0fc77b4a4f90c13899ec134b6ed23a106cea257e6e439f81025c34816b3b9b1fb6215fe2e10e565a2abafc3ebfb3c80d0
   languageName: node
   linkType: hard
 
@@ -23535,18 +23517,6 @@ __metadata:
     unherit: "npm:^1.0.4"
     xtend: "npm:^4.0.1"
   checksum: 7d758ff3deb7d1d54a0b685cdb3660c731b04dacd81b8392b6ab1dfd5afdf441434fe51354b293114c3de28eb5bd6b0467bcf6b8beaf95bd69cbdca00fa917b9
-  languageName: node
-  linkType: hard
-
-"remark-strip-badges@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "remark-strip-badges@npm:7.0.0"
-  dependencies:
-    "@types/mdast": "npm:^4.0.0"
-    is-badge: "npm:^2.0.0"
-    mdast-util-definitions: "npm:^6.0.0"
-    unist-util-visit: "npm:^5.0.0"
-  checksum: 6443f70506f8af9d3b8c2060ba83f06605aef0fa2a06e39c9093538d16e238145bb1df54ccd41242c6988d896500041d4deb84d6e896b364e5f1f45c9ad238c7
   languageName: node
   linkType: hard
 
@@ -27591,7 +27561,6 @@ __metadata:
     remark-remove-comments: "npm:^1.0.1"
     remark-shortcodes: "npm:^0.3.1"
     remark-squeeze-paragraphs: "npm:^6.0.0"
-    remark-strip-badges: "npm:^7.0.0"
     resolve: "npm:^1.22.8"
     showdown: "npm:^2.1.0"
     stylelint: "npm:^15.11.0"
