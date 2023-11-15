@@ -8,8 +8,8 @@
   class={{this.classNames}}
   id={{this.id}}
   {{did-insert this.onInsert}}
-  aria-live="polite"
   ...attributes
+  aria-live="polite"
 >
   {{#if (has-block)}}
     {{yield (hash maxLength=this.maxLength currentLength=this.currentLength remainingLength=this.remainingLength)}}

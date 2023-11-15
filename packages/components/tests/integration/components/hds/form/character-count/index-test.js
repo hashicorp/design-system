@@ -59,5 +59,18 @@ module(
         .dom('#test-form-character-count')
         .hasText('Entered 19 out of 40 characters. 21 characters remaining.');
     });
+
+    // A11y
+
+    test('it should present the character count as a live region', async function (assert) {
+      await render(
+        hbs`
+          <input type="hidden" value="with default content" id="input-1"/>
+          <Hds::Form::CharacterCount @maxLength="40" @controlId="input-1" id="test-form-character-count"/>`
+      );
+      assert
+        .dom('#test-form-character-count')
+        .hasAttribute('aria-live', 'polite');
+    });
   }
 );
