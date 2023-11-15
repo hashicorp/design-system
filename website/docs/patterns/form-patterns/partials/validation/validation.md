@@ -22,7 +22,7 @@ We recommend using a combination of client-side and server-side validation for t
 
 [Client-side validation](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation) is an initial check in the browser to ensure that required fields aren’t empty and the values are in the correct format.
 
-![Example of client side form validation](/assets/components/form/primitives/form-primitives-validation-client.png =600x\*)
+![Example of client side form validation](/assets/components/form/primitives/form-primitives-validation-client.png =600x*)
 
 ### Server-side
 
