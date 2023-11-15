@@ -14,6 +14,8 @@
   {{#if (has-block)}}
     {{yield (hash maxLength=this.maxLength currentLength=this.currentLength remainingLength=this.remainingLength)}}
   {{else}}
-    {{this.message}}
+    {{this.currentLength}}
+    /
+    {{this.maxLength}}
   {{/if}}
 </Hds::Text::Body>

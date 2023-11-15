@@ -6,13 +6,14 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-export const ID_PREFIX = 'character-count-';
 
+const ID_PREFIX = 'character-count-';
 const NOOP = () => {};
 
 export default class HdsFormCharacterCountIndexComponent extends Component {
-  @tracked message;
-  @tracked currentLength; // The current number of characters typed into the associated input
+  // The current number of characters in the associated input
+  @tracked currentLength;
+  inputControl = document.getElementById(this.args.controlId);
 
   /**
    * @param maxLength
@@ -56,10 +57,14 @@ export default class HdsFormCharacterCountIndexComponent extends Component {
   get onInsert() {
     let { onInsert } = this.args;
 
-    let inputControl = document.getElementById(this.args.controlId);
-    if (inputControl && inputControl.value) {
-      this.updateMessage(inputControl);
-      inputControl.addEventListener('input', this.onInput);
+    if (!this.inputControl || !this.inputControl.value) {
+      console.error(
+        '`Hds::Form::CharacterCount` component - `@controlId` selector provided does not point to a valid input element, check the id',
+        this.args.controlId
+      );
+    } else {
+      this.updateCurrentLength();
+      this.inputControl.addEventListener('input', this.updateCurrentLength);
     }
 
     // notice: this is a guard used to prevent triggering an error when the component is used as standalone element
@@ -70,16 +75,9 @@ export default class HdsFormCharacterCountIndexComponent extends Component {
     }
   }
 
-  @action onInput(event) {
-    let inputControl = event.target;
-    this.updateMessage(inputControl);
-  }
-
-  @action updateMessage(inputControl) {
-    if (inputControl) {
-      this.currentLength = inputControl.value.length;
-      this.message = `${this.currentLength}/${this.maxLength}`;
-    }
+  @action
+  updateCurrentLength() {
+    this.currentLength = this.inputControl.value.length;
   }
 
   /**

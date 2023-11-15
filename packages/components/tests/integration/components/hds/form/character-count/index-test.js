@@ -45,7 +45,7 @@ module(
           <input type="hidden" value="with default content" id="input-1"/>
           <Hds::Form::CharacterCount @maxLength="40" @controlId="input-1" id="test-form-character-count"/>`
       );
-      assert.dom('#test-form-character-count').hasText('20/40');
+      assert.dom('#test-form-character-count').hasText('20 / 40');
     });
     test('it renders a character count in custom format', async function (assert) {
       await render(
