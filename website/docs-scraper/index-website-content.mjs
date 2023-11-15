@@ -158,17 +158,21 @@ async function indexWebsiteContent() {
 
     // set the "base" algolia object so it can be shared across objects
     const algoliaBaseRecord = {
+      // SOURCE
+      originalFilePath: fileRelativePath,
       // PAGE
+      pageMainCategory: pageTopRoute,
       pageSection: pageSection,
-      pageTopRoute: pageTopRoute,
-      filePath: fileRelativePath,
+      pageTitle: pageMetadata.title,
+      pageCaption: pageMetadata.caption,
+      pageBaseURL: `/${pageURL}`, // for simplicity we want to store absolute paths
+      searchResultURL: undefined, // will be populated later
       // METADATA
-      title: pageMetadata.title,
-      caption: pageMetadata.caption,
       aliases: pageMetadata.navigation?.keywords,
-      altName: pageMetadata.navigation?.label,
       // for simplicity we want to store absolute paths
-      previewImage: `/${pageMetadata.previewImage}`,
+      previewImage: pageMetadata.previewImage
+        ? `/${pageMetadata.previewImage}`
+        : undefined,
     };
 
     // check if the content is split in "sections"
@@ -191,7 +195,7 @@ async function indexWebsiteContent() {
         const tabContent = match[2];
         const currBaseRecord = _.merge({}, algoliaBaseRecord, {
           // for simplicity we want to store absolute paths
-          pageURL: `/${pageURL}?tab=${encodeURIComponent(
+          searchResultURL: `/${pageURL}?tab=${encodeURIComponent(
             tabName.toLowerCase()
           )}`,
           pageTab: tabName,
@@ -211,8 +215,7 @@ async function indexWebsiteContent() {
     } else {
       // there are no tabs, all the content is directly in the page
       const currBaseRecord = _.merge({}, algoliaBaseRecord, {
-        // for simplicity we want to store absolute paths
-        pageURL: `/${pageURL}`,
+        searchResultURL: `/${pageURL}`, // for simplicity we want to store absolute paths
         pageTab: null,
       });
       const records = await populateAlgoliaRecords({
@@ -238,20 +241,17 @@ async function indexWebsiteContent() {
       // RECORD
       objectID: `record__token-${token.name}`, // https://www.algolia.com/doc-beta/guides/sending-and-managing-data/send-and-update-your-data#unique-object-identifiers
       // PAGE
+      pageMainCategory: 'foundations',
       pageSection: 'foundations',
-      pageTopRoute: 'foundations',
-      pageURL: `/foundations/tokens?searchQuery=${token.name}`,
-      //
-      // METADATA
-      // title: ???,
-      // caption: ???,
-      // previewImage: ???,
-      //
+      // pageTitle: ???,
+      // pageCaption: ???,
+      pageBaseURL: '/foundations/tokens',
+      searchResultURL: `/foundations/tokens?searchQuery=${token.name}`,
       // CONTENT
+      source: 'token',
       type: 'token',
       content: `${token.name} ${token.value}`,
       level: 9,
-      source: 'token',
       // EXTRA
       'token-name': token.name,
       'token-value': token.value,
@@ -276,20 +276,17 @@ async function indexWebsiteContent() {
       // RECORD
       objectID: `record__icon-${icon.iconName}`, // https://www.algolia.com/doc-beta/guides/sending-and-managing-data/send-and-update-your-data#unique-object-identifiers
       // PAGE
+      pageMainCategory: 'foundations',
       pageSection: 'icons',
-      pageTopRoute: 'foundations',
-      pageURL: `/icons/library?searchQuery=${icon.iconName}`,
-      //
-      // METADATA
-      // title: ???,
-      // caption: ???,
-      // previewImage: ???,
-      //
+      // pageTitle: ???,
+      // pageCaption: ???,
+      pageBaseURL: '/icons/library',
+      searchResultURL: `/icons/library?searchQuery=${icon.iconName}`,
       // CONTENT
       type: 'icon',
+      source: 'icon',
       content: `${icon.iconName}, ${icon.description}`,
       level: 9,
-      source: 'icon',
       // EXTRA
       'icon-name': icon.iconName,
       'icon-aliases': icon.description,
