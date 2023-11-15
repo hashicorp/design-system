@@ -60,10 +60,10 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
 
   test('it renders the yielded contextual components', async function (assert) {
     await render(
-      hbs`<Hds::Form::Textarea::Field as |F|>
+      hbs`<Hds::Form::Textarea::Field @value="abc123" as |F|>
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
-          <F.CharacterCount>20/40</F.CharacterCount>
+          <F.CharacterCount @maxLength={{10}}/>
           <F.Error>This is the error</F.Error>
         </Hds::Form::Textarea::Field>`
     );
@@ -82,10 +82,10 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
   });
   test('it automatically provides all the ID relations between the elements', async function (assert) {
     await render(
-      hbs`<Hds::Form::Textarea::Field @extraAriaDescribedBy="extra" as |F|>
+      hbs`<Hds::Form::Textarea::Field @value="abc123" @extraAriaDescribedBy="extra" as |F|>
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
-          <F.CharacterCount>20/40</F.CharacterCount>
+          <F.CharacterCount @maxLength={{10}}/>
           <F.Error>This is the error</F.Error>
         </Hds::Form::Textarea::Field>`
     );

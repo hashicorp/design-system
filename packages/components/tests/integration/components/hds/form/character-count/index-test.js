@@ -43,7 +43,7 @@ module(
       await render(
         hbs`
           <input type="hidden" value="with default content" id="input-1"/>
-          <Hds::Form::CharacterCount @maxLength="40" @controlId="input-1" id="test-form-character-count"/>`
+          <Hds::Form::CharacterCount @maxLength={{40}} @controlId="input-1" id="test-form-character-count"/>`
       );
       assert.dom('#test-form-character-count').hasText('20 / 40');
     });
@@ -51,7 +51,7 @@ module(
       await render(
         hbs`
         <input type="hidden" value="with custom content" id="input-2"/>
-        <Hds::Form::CharacterCount @minLength="3" @maxLength="40" @controlId="input-2" id="test-form-character-count" as |CC|>
+        <Hds::Form::CharacterCount @minLength={{3}} @maxLength={{40}} @controlId="input-2" id="test-form-character-count" as |CC|>
           Entered {{CC.currentLength}} out of {{CC.maxLength}} characters.
           {{CC.remainingLength}} characters remaining.
           {{CC.minLength}}
@@ -68,7 +68,7 @@ module(
       await render(
         hbs`
           <input type="hidden" value="with default content" id="input-3"/>
-          <Hds::Form::CharacterCount @maxLength="40" @controlId="input-3" id="test-form-character-count"/>`
+          <Hds::Form::CharacterCount @maxLength={{40}} @controlId="input-3" id="test-form-character-count"/>`
       );
       assert
         .dom('#test-form-character-count')
@@ -83,7 +83,7 @@ module(
       await render(
         hbs`
           <input value="with default content" id="input-4"/>
-          <Hds::Form::CharacterCount @onInput={{this.onInput}} @maxLength="40" @controlId="input-4" id="test-form-character-count"/>`
+          <Hds::Form::CharacterCount @onInput={{this.onInput}} @maxLength={{40}} @controlId="input-4" id="test-form-character-count"/>`
       );
       typeIn('#input-4', 'a');
       assert.ok(onInput);
