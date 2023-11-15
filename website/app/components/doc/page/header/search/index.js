@@ -48,7 +48,7 @@ export default class DocAlgoliaSearchComponent extends Component {
                 searchFilters: { facetFilters: ['type:-icon', 'type:-token'] },
               }),
               getItemUrl: ({ item }) => {
-                return item.pageURL;
+                return item.searchResultURL;
               },
               templates: {
                 header: templatesHeaderFunction({ group: 'generic' }),
@@ -64,7 +64,7 @@ export default class DocAlgoliaSearchComponent extends Component {
                 searchFilters: { facetFilters: ['type:icon'] },
               }),
               getItemUrl: ({ item }) => {
-                return item.pageURL;
+                return item.searchResultURL;
               },
               templates: {
                 header: templatesHeaderFunction({ group: 'icons' }),
@@ -80,7 +80,7 @@ export default class DocAlgoliaSearchComponent extends Component {
                 searchFilters: { facetFilters: ['type:token'] },
               }),
               getItemUrl: ({ item }) => {
-                return item.pageURL;
+                return item.searchResultURL;
               },
               templates: {
                 header: templatesHeaderFunction({ group: 'tokens' }),
@@ -98,26 +98,26 @@ export default class DocAlgoliaSearchComponent extends Component {
                 return [
                   {
                     type: 'suggestion',
-                    title: 'Support: How to file an issue',
-                    pageURL: '/about/support#file-an-issue',
+                    pageTitle: 'Support: How to file an issue',
+                    searchResultURL: '/about/support#file-an-issue',
                     previewIcon: 'support',
                   },
                   {
                     type: 'suggestion',
-                    title: 'What‘s new: Release notes',
-                    pageURL: '/whats-new/release-notes',
+                    pageTitle: 'What‘s new: Release notes',
+                    searchResultURL: '/whats-new/release-notes',
                     previewIcon: 'newspaper',
                   },
                   {
                     type: 'suggestion',
-                    title: 'Icons: Library',
-                    pageURL: '/icons/library',
+                    pageTitle: 'Icons: Library',
+                    searchResultURL: '/icons/library',
                     previewIcon: 'search',
                   },
                 ];
               },
               getItemUrl({ item }) {
-                return item.pageURL;
+                return item.searchResultURL;
               },
               templates: {
                 header: templatesHeaderFunction({ group: 'suggestions' }),

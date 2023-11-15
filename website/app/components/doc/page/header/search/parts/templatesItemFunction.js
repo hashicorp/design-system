@@ -72,7 +72,7 @@ const itemBody = ({ item, html, components }) => {
       break;
     default:
       content += `  <div class="aa-ItemContentTitle">\n`;
-      content += `    ${item.title}\n`;
+      content += `    ${item.pageTitle}\n`;
       content += `  </div>\n`;
       if (item._highlightResult) {
         // TODO!
@@ -105,7 +105,7 @@ export const templatesItemFunction = () => {
     console.log(`ITEM / ${itemType.toUpperCase()}`, item);
 
     let content = '';
-    content += `<a class="aa-ItemLinkWrapper" href="${item.pageURL}">`;
+    content += `<a class="aa-ItemLinkWrapper" href="${item.searchResultURL}">`;
     content += `  ${itemPreview({ item })}`;
     content += `  ${itemBody({ item, html, components })}`;
     content += `  ${itemExtra()}`;
