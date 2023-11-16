@@ -4,6 +4,7 @@
  */
 
 import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 import { autocomplete } from '@algolia/autocomplete-js';
@@ -16,6 +17,8 @@ import { htmlPanelFooter } from './parts/htmlPanelFooter';
 import { htmlPanelNoResults } from './parts/htmlPanelNoResults';
 
 export default class DocAlgoliaSearchComponent extends Component {
+  @tracked isModalOpen = false;
+
   @action
   didInsertSearchContainer(element) {
     const autocompleteInstance = autocomplete({
@@ -174,6 +177,14 @@ export default class DocAlgoliaSearchComponent extends Component {
     alternativeTrigger.addEventListener('click', () => {
       console.log('THIS SHOULD OPEN THE SEARCH');
       autocompleteInstance.setIsOpen(true);
+    });
+
+    // add event listener to open/close the modal via `command-K` hot-key
+    document.addEventListener('keydown', (event) => {
+      if (event.metaKey && event.key === 'k') {
+        autocompleteInstance.setIsOpen(!this.isModalOpen);
+        this.isModalOpen = !this.isModalOpen;
+      }
     });
   }
 }
