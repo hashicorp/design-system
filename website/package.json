@@ -34,6 +34,7 @@
   },
   "devDependencies": {
     "@algolia/autocomplete-js": "^1.12.1",
+    "@algolia/autocomplete-preset-algolia": "^1.12.1",
     "@babel/core": "^7.23.2",
     "@babel/eslint-parser": "^7.22.15",
     "@ember/optional-features": "^2.0.0",
