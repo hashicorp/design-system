@@ -13,6 +13,7 @@ import { templatesHeaderFunction } from './parts/templatesHeaderFunction';
 // import { templatesFooterFunction } from './parts/templatesFooterFunction';
 // import { templatesNoResultsFunction } from './parts/templatesNoResultsFunction';
 import { templatesItemFunction } from './parts/templatesItemFunction';
+import { htmlPanelFooter } from './parts/htmlPanelFooter';
 
 export default class DocAlgoliaSearchComponent extends Component {
   @action
@@ -126,6 +127,24 @@ export default class DocAlgoliaSearchComponent extends Component {
             },
           ];
         }
+      },
+      render({ elements, render, html }, root) {
+        const { suggestions, content, icons, tokens, recentSearchesPlugin } =
+          elements;
+
+        render(
+          html`<div class="aa-PanelLayout aa-Panel--scrollable">
+              <div class="aa-PanelSections">
+                <div class="aa-PanelSection">${suggestions}</div>
+                <!--<div class="aa-PanelSection">${recentSearchesPlugin}</div>-->
+                <div class="aa-PanelSection">${content}</div>
+                <div class="aa-PanelSection">${icons}</div>
+                <div class="aa-PanelSection">${tokens}</div>
+              </div>
+            </div>
+            ${htmlPanelFooter({ html })} `,
+          root
+        );
       },
     });
   }
