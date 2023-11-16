@@ -84,3 +84,7 @@ Setting the `hasCopyButton` property to `true` will display a [Copy Button](/com
 ## Error validation
 
 For error validation recommendations, refer to the [Form patterns](/patterns/form-patterns) documentation.
+
+## Content
+
+For content recommendations and detailed guidance on using the character count feature in this field, please refer to our [Primitives](/components/form/primitives) documentation.
