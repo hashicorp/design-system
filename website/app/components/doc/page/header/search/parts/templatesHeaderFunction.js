@@ -22,5 +22,5 @@ export const templatesHeaderFunction = ({ group }) => {
       break;
   }
   // we need to return a function
-  return () => title;
+  return ({ html }) => html`<div class="aa-SourceHeaderTitle">${title}</div>`;
 };
