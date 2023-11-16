@@ -453,43 +453,43 @@
     list-style: none;
   }
   // Source title
-  @at-root .aa-SourceHeader {
-    position: relative;
-    margin: var(--aa-spacing-half) 0.5em var(--aa-spacing-half) 0;
-    padding: 0;
-    // Hide empty header
-    &:empty {
-      display: none;
-    }
-    // Title typography
-    @at-root .aa-SourceHeaderTitle {
-      position: relative;
-      z-index: var(--aa-base-z-index);
-      display: inline-block;
-      margin: 0;
-      padding: 0 var(--aa-spacing-half) 0 0;
-      color: rgba(var(--aa-primary-color-rgb), 1);
-      font-weight: var(--aa-font-weight-semibold);
-      font-size: 0.8em;
-      background:
-        rgba(var(--aa-background-color-rgb),
-        var(--aa-background-color-alpha));
-    }
-    // Line separator
-    @at-root .aa-SourceHeaderLine {
-      position: absolute;
-      top: var(--aa-spacing-half);
-      right: 0;
-      left: 0;
-      z-index: calc(var(--aa-base-z-index) - 1);
-      display: block;
-      height: 2px;
-      margin: 0;
-      padding: 0;
-      border-bottom: solid 1px rgba(var(--aa-primary-color-rgb), 1);
-      opacity: 0.3;
-    }
-  }
+  // @at-root .aa-SourceHeader {
+  //   position: relative;
+  //   margin: var(--aa-spacing-half) 0.5em var(--aa-spacing-half) 0;
+  //   padding: 0;
+  //   // Hide empty header
+  //   &:empty {
+  //     display: none;
+  //   }
+  //   // Title typography
+  //   @at-root .aa-SourceHeaderTitle {
+  //     position: relative;
+  //     z-index: var(--aa-base-z-index);
+  //     display: inline-block;
+  //     margin: 0;
+  //     padding: 0 var(--aa-spacing-half) 0 0;
+  //     color: rgba(var(--aa-primary-color-rgb), 1);
+  //     font-weight: var(--aa-font-weight-semibold);
+  //     font-size: 0.8em;
+  //     background:
+  //       rgba(var(--aa-background-color-rgb),
+  //       var(--aa-background-color-alpha));
+  //   }
+  //   // Line separator
+  //   @at-root .aa-SourceHeaderLine {
+  //     position: absolute;
+  //     top: var(--aa-spacing-half);
+  //     right: 0;
+  //     left: 0;
+  //     z-index: calc(var(--aa-base-z-index) - 1);
+  //     display: block;
+  //     height: 2px;
+  //     margin: 0;
+  //     padding: 0;
+  //     border-bottom: solid 1px rgba(var(--aa-primary-color-rgb), 1);
+  //     opacity: 0.3;
+  //   }
+  // }
   // See all button
   @at-root .aa-SourceFooterSeeAll {
     padding: 0.475em 1em 0.6em;
