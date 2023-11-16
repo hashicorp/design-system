@@ -23,13 +23,16 @@ const snippetInitialText = (text) => {
   }
 };
 
+// inspired by https://github.com/segmentio/segment-docs/blob/7b1f937854249bb6fbdfb0d24b20ddd443845749/js/algolia/highlight.js#L12-L18
 function concatPartsAsHtml({ html, parts }) {
   return parts.reduce((acc, current) => {
-    return html`${acc}
-    ${current.isHighlighted
-      ? html`<mark>${current.value}</mark>`
-      : current.value} `;
-  }, html``);
+    // IMPORTANT! don't add a space between the accumulator and the appended content and before/after the returned HTML
+    if (current.isHighlighted) {
+      return html`${acc}<mark>${current.value}</mark>`;
+    } else {
+      return html`${acc}${current.value}`;
+    }
+  }, []);
 }
 
 export const htmlTemplatesItemBody = ({ item, html, components }) => {
