@@ -18,7 +18,7 @@ import { htmlPanelNoResults } from './parts/htmlPanelNoResults';
 export default class DocAlgoliaSearchComponent extends Component {
   @action
   didInsertSearchContainer(element) {
-    autocomplete({
+    const autocompleteInstance = autocomplete({
       id: 'doc-algolia-search-autocomplete-container', // https://www.algolia.com/doc/ui-libraries/autocomplete/api-reference/autocomplete-js/autocomplete/#param-id
       container: element, // 'if necessary you can use an ID eg. `#doc-algolia-search-autocomplete-container',` // https://www.algolia.com/doc/ui-libraries/autocomplete/api-reference/autocomplete-js/autocomplete/#param-container
       // panelContainer: '...' // https://www.algolia.com/doc/ui-libraries/autocomplete/api-reference/autocomplete-js/autocomplete/#param-panelcontainer
@@ -166,6 +166,14 @@ export default class DocAlgoliaSearchComponent extends Component {
           root
         );
       },
+    });
+
+    const alternativeTrigger = document.getElementById(
+      'doc-algolia-search-autocomplete-secondary-trigger'
+    );
+    alternativeTrigger.addEventListener('click', () => {
+      console.log('THIS SHOULD OPEN THE SEARCH');
+      autocompleteInstance.setIsOpen(true);
     });
   }
 }
