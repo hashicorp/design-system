@@ -21,8 +21,8 @@ export const getItemsFunction = ({ searchQuery, searchFilters }) => {
           query: searchQuery,
           params: {
             hitsPerPage: 5,
-            attributesToSnippet: ['title:10', 'caption:35'],
-            snippetEllipsisText: '…',
+            // attributesToSnippet: ['title:10', 'caption:35'],
+            // snippetEllipsisText: '…',
             ...searchFilters,
           },
         },
