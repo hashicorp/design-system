@@ -85,16 +85,20 @@
 }
 
 .aa-SourceHeader {
-  margin: 4px 0 4px 2px;
   // TODO
-  color: var(--doc-color-feedback-information-200);
-  font-weight: bold;
+  margin: 4px 0 4px 2px;
   border-bottom: 1px solid #e4e4e4;
 }
 
-.aa-SourceFooter {
+.aa-SourceHeaderTitle {
   // TODO
+  color: var(--doc-color-feedback-information-200);
+  font-weight: bold;
 }
+
+
+// not used
+// .aa-SourceFooter {}
 
 // not used
 // .aa-GradientBottom {}
