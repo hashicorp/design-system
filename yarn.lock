@@ -49,7 +49,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@algolia/autocomplete-preset-algolia@npm:1.12.1":
+"@algolia/autocomplete-preset-algolia@npm:1.12.1, @algolia/autocomplete-preset-algolia@npm:^1.12.1":
   version: 1.12.1
   resolution: "@algolia/autocomplete-preset-algolia@npm:1.12.1"
   dependencies:
@@ -25351,6 +25351,7 @@ __metadata:
   resolution: "website@workspace:website"
   dependencies:
     "@algolia/autocomplete-js": "npm:^1.12.1"
+    "@algolia/autocomplete-preset-algolia": "npm:^1.12.1"
     "@babel/core": "npm:^7.23.2"
     "@babel/eslint-parser": "npm:^7.22.15"
     "@ember/optional-features": "npm:^2.0.0"
