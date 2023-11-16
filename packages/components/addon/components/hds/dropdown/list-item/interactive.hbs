@@ -25,11 +25,11 @@
       ...attributes
     >
       {{#if @icon}}
-        <div class="hds-dropdown-list-item__interactive-icon">
+        <span class="hds-dropdown-list-item__interactive-icon">
           <FlightIcon @name={{@icon}} @isInlineBlock={{false}} />
-        </div>
+        </span>
       {{/if}}
-      <Hds::Text::Body class="hds-dropdown-list-item__interactive-text" @tag="div" @size="200" @weight="medium">
+      <Hds::Text::Body class="hds-dropdown-list-item__interactive-text" @tag="span" @size="200" @weight="medium">
         {{this.text}}
       </Hds::Text::Body>
     </Hds::Interactive>
