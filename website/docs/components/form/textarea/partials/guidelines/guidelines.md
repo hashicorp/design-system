@@ -31,4 +31,4 @@ For error validation recommendations, refer to the [Form patterns](/patterns/for
 
 ## Content
 
-For general content recommendations, refer to the [Primitives](/components/form/primitives?tab=validation) documentation.
+For content recommendations and detailed guidance on using the character count feature in this field, please refer to our [Primitives](/components/form/primitives) documentation.
