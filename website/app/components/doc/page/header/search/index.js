@@ -62,6 +62,7 @@ export default class DocAlgoliaSearchComponent extends Component {
                 searchParams: {
                   hitsPerPage: 5,
                   attributesToSnippet: ['icon-name'],
+                  typoTolerance: false, // TODO understand if it's OK in all use cases
                 },
                 searchFilters: { facetFilters: ['type:icon'] },
               }),
@@ -81,6 +82,7 @@ export default class DocAlgoliaSearchComponent extends Component {
                 searchParams: {
                   hitsPerPage: 5,
                   attributesToSnippet: ['token-name'],
+                  typoTolerance: false, // TODO understand if it's OK in all use cases
                 },
                 searchFilters: { facetFilters: ['type:token'] },
               }),
