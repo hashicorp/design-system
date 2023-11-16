@@ -11,18 +11,18 @@
   ...attributes
 >
   {{#if (eq this.iconPosition "leading")}}
-    <div class="hds-link-standalone__icon">
+    <span class="hds-link-standalone__icon">
       <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
-    </div>
-    <div class="hds-link-standalone__text">
+    </span>
+    <span class="hds-link-standalone__text">
       {{this.text}}
-    </div>
+    </span>
   {{else}}
-    <div class="hds-link-standalone__text">
+    <span class="hds-link-standalone__text">
       {{this.text}}
-    </div>
-    <div class="hds-link-standalone__icon">
+    </span>
+    <span class="hds-link-standalone__icon">
       <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
-    </div>
+    </span>
   {{/if}}
 </Hds::Interactive>

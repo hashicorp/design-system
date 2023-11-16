@@ -31,7 +31,12 @@ $hds-link-standalone-border-width: 1px;
   text-decoration-color: transparent;
 }
 
+.hds-link-standalone__icon {
+  display: block;
+}
+
 .hds-link-standalone__text {
+  display: block;
   flex: 1 0 0;
   text-decoration: underline;
   text-decoration-color: transparent;
