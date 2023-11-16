@@ -7,14 +7,14 @@ import ENV from 'website/config/environment';
 
 import { getAlgoliaResults } from '@algolia/autocomplete-js';
 
-import { searchClient } from './searchClient';
+import { algoliaSearchClient } from './algoliaSearchClient';
 
 export const getItemsFunction = ({ searchQuery, searchFilters }) => {
   return () => {
     // GET ALGOLIA RESULTS
     // see: https://www.algolia.com/doc/ui-libraries/autocomplete/api-reference/autocomplete-js/getAlgoliaResults/
     return getAlgoliaResults({
-      searchClient,
+      searchClient: algoliaSearchClient,
       queries: [
         {
           indexName: ENV.APP.ALGOLIA_INDEX_ID,

@@ -8,7 +8,7 @@ import { action } from '@ember/object';
 
 import { autocomplete } from '@algolia/autocomplete-js';
 
-import { getItemsFunction } from './parts/getItems';
+import { getItemsFunction } from './parts/getItemsFunction';
 import { templatesHeaderFunction } from './parts/templatesHeaderFunction';
 // import { templatesFooterFunction } from './parts/templatesFooterFunction';
 import { templatesItemFunction } from './parts/templatesItemFunction';
