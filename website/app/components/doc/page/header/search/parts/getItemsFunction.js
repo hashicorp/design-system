@@ -9,7 +9,11 @@ import { getAlgoliaResults } from '@algolia/autocomplete-js';
 
 import { algoliaSearchClient } from './algoliaSearchClient';
 
-export const getItemsFunction = ({ searchQuery, searchFilters }) => {
+export const getItemsFunction = ({
+  searchQuery,
+  searchParams,
+  searchFilters,
+}) => {
   return () => {
     // GET ALGOLIA RESULTS
     // see: https://www.algolia.com/doc/ui-libraries/autocomplete/api-reference/autocomplete-js/getAlgoliaResults/
@@ -20,9 +24,7 @@ export const getItemsFunction = ({ searchQuery, searchFilters }) => {
           indexName: ENV.APP.ALGOLIA_INDEX_ID,
           query: searchQuery,
           params: {
-            hitsPerPage: 5,
-            // attributesToSnippet: ['title:10', 'caption:35'],
-            // snippetEllipsisText: '…',
+            ...searchParams,
             ...searchFilters,
           },
         },

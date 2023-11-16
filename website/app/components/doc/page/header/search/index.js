@@ -40,6 +40,10 @@ export default class DocAlgoliaSearchComponent extends Component {
               sourceId: 'content',
               getItems: getItemsFunction({
                 searchQuery: query,
+                searchParams: {
+                  hitsPerPage: 5,
+                  attributesToSnippet: ['content:20'],
+                },
                 searchFilters: { facetFilters: ['type:-icon', 'type:-token'] },
               }),
               getItemUrl: ({ item }) => {
@@ -55,6 +59,10 @@ export default class DocAlgoliaSearchComponent extends Component {
               sourceId: 'icons',
               getItems: getItemsFunction({
                 searchQuery: query,
+                searchParams: {
+                  hitsPerPage: 5,
+                  attributesToSnippet: ['icon-name'],
+                },
                 searchFilters: { facetFilters: ['type:icon'] },
               }),
               getItemUrl: ({ item }) => {
@@ -70,6 +78,10 @@ export default class DocAlgoliaSearchComponent extends Component {
               sourceId: 'tokens',
               getItems: getItemsFunction({
                 searchQuery: query,
+                searchParams: {
+                  hitsPerPage: 5,
+                  attributesToSnippet: ['token-name'],
+                },
                 searchFilters: { facetFilters: ['type:token'] },
               }),
               getItemUrl: ({ item }) => {
