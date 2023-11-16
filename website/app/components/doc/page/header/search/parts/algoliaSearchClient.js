@@ -7,7 +7,7 @@ import ENV from 'website/config/environment';
 
 import algoliasearch from 'algoliasearch/lite';
 
-export const searchClient = algoliasearch(
+export const algoliaSearchClient = algoliasearch(
   ENV.APP.ALGOLIA_APPLICATION_ID,
   ENV.APP.ALGOLIA_API_KEY_SEARCH
 );
