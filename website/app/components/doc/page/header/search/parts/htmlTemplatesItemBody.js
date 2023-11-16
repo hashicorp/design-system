@@ -55,17 +55,22 @@ export const htmlTemplatesItemBody = ({ item, html, components }) => {
       // title (full)
       title = item.pageTitle;
       // description (snippeted)
-      var snippetedParts = parseAlgoliaHitHighlight({
-        hit: item,
-        attribute: ['content'],
-      });
-      // overwrite the initial text part (if it's not highlighted) with a shorter version (if needed)
-      if (snippetedParts.length > 0 && !snippetedParts[0].isHighlighted) {
-        snippetedParts[0].value = snippetInitialText(snippetedParts[0].value);
-        description = concatPartsAsHtml({ html, parts: snippetedParts });
-      } else {
-        // we fallback to the normal highlighting/snippeting, that may not always make the highlighted word(s) visible in the description, because of the elliptization via CSS
-        description = components.Snippet({ hit: item, attribute: ['content'] });
+      if (item.content) {
+        var snippetedParts = parseAlgoliaHitHighlight({
+          hit: item,
+          attribute: ['content'],
+        });
+        // overwrite the initial text part (if it's not highlighted) with a shorter version (if needed)
+        if (snippetedParts.length > 0 && !snippetedParts[0].isHighlighted) {
+          snippetedParts[0].value = snippetInitialText(snippetedParts[0].value);
+          description = concatPartsAsHtml({ html, parts: snippetedParts });
+        } else {
+          // we fallback to the normal highlighting/snippeting, that may not always make the highlighted word(s) visible in the description, because of the elliptization via CSS
+          description = components.Snippet({
+            hit: item,
+            attribute: ['content'],
+          });
+        }
       }
   }
 
