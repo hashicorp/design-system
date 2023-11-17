@@ -27,6 +27,17 @@ export default class HdsFormCharacterCountIndexComponent extends Component {
   }
 
   /**
+   * @param minLength
+   * @type {number}
+   * @default null
+   * @description The minimum number of characters allowed.
+   */
+  get minLength() {
+    let { minLength } = this.args;
+    return minLength;
+  }
+
+  /**
    * @param remainingLength
    * @type {number}
    * @default null
