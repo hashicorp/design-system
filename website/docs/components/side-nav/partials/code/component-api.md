@@ -49,6 +49,9 @@ This is the full-fledged component (responsive and animated).
   <C.Property @name="ariaLabel" @type="string">
     Accepts a localized string; the fallback is set to `Open menu` if the menu is closed, and `Close menu` if the menu is open.
   </C.Property>
+  <C.Property @name="onToggleMinimizedStatus" @type="function">
+    Callback function invoked when the `SideNav` is collapsed or expanded. The function receives a boolean argument stating if the `SideNav` is minimized on not.
+  </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
