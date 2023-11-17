@@ -8,27 +8,27 @@
 // ALGOLIA AUTOCOMPLETE SEARCH > BUTTON
 
 .aa-DetachedSearchButton {
-  @include doc-font-style-body-small();
+  @include doc-font-style-navigation();
   display: flex;
   gap: 4px;
   align-items: center;
-  // height: 40px;
+  height: 36px;
   margin: 0;
-  padding: 8px 12px;
+  padding: 4px 12px;
   color: var(--doc-color-gray-400);
   line-height: 16px; // override
-  background: #1d1e1f;
-  border: 1px solid #bfbfc0;
-  border-radius: 4px;
+  background-color: var(--doc-color-gray-100);
+  border: 1px solid var(--doc-color-gray-300);
+  border-radius: 3px;
   cursor: pointer;
-  appearance: none;
 
   &:hover {
-    color: var(--doc-color-gray-600);
+    color: var(--doc-color-white);
   }
 
   &:focus {
-    // TODO ?
+    outline: 2px solid -webkit-focus-ring-color;
+    border-radius: 3px;
   }
 }
 
