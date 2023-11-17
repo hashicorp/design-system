@@ -5,18 +5,13 @@
 
 // ALGOLIA AUTOCOMPLETE SEARCH
 
-@import "./button";
-@import "./modal";
-@import "./form";
-@import "./results";
-
 // "autocomplete" target container - not used
 // .doc-algolia-search__autocomplete-container {}
 
 // root container of the "autocomplete" injected DOM elements (only the button, in "detached" mode)
 // .aa-Autocomplete {}
 
-// temporary while we work on the styling of the custom elements
-
-@import "./algolia-autocomplete-theme-classic";
-
+@import "./button";
+@import "./modal";
+@import "./form";
+@import "./results";
