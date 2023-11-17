@@ -7,13 +7,13 @@ export const htmlTemplatesItemExtra = ({ html }) => html`
   <div class="aa-ItemExtra">
     <svg
       class="aa-ItemExtra__ReturnIcon"
-      viewBox="0 0 24 24"
-      width="20"
-      height="20"
-      fill="currentColor"
+      viewBox="0 0 16 16"
+      width="16"
+      height="16"
     >
       <path
-        d="M18.984 6.984h2.016v6h-15.188l3.609 3.609-1.406 1.406-6-6 6-6 1.406 1.406-3.609 3.609h13.172v-4.031z"
+        fill="currentColor"
+        d="M5.39844 8.12891H11.0391V4.63672H12.3203V9.41016H5.39844L6.64844 10.6602L5.94531 11.3633L3.67969 9.08984V8.44922L5.94531 6.17578L6.64844 6.87891L5.39844 8.12891Z"
       />
     </svg>
   </div>
