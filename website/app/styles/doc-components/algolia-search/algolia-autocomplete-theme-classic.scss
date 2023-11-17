@@ -163,159 +163,159 @@
   // }
 
   // Search box
-  @at-root .aa-Form {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    margin: 0;
-    line-height: 1em;
-    background-color:
-      rgba(var(--aa-input-background-color-rgb),
-      var(--aa-input-background-color-alpha));
-    border:
-      1px solid
-      rgba(var(--aa-input-border-color-rgb), var(--aa-input-border-color-alpha));
-    border-radius: 3px;
+  // @at-root .aa-Form {
+  //   position: relative;
+  //   display: flex;
+  //   align-items: center;
+  //   width: 100%;
+  //   margin: 0;
+  //   line-height: 1em;
+  //   background-color:
+  //     rgba(var(--aa-input-background-color-rgb),
+  //     var(--aa-input-background-color-alpha));
+  //   border:
+  //     1px solid
+  //     rgba(var(--aa-input-border-color-rgb), var(--aa-input-border-color-alpha));
+  //   border-radius: 3px;
 
-    &:focus-within {
-      border-color: rgba(var(--aa-primary-color-rgb), 1);
-      outline: currentColor none medium;
-      box-shadow:
-        rgba(var(--aa-primary-color-rgb),
-        var(--aa-primary-color-alpha))
-        0 0 0 2px,
-        inset rgba(var(--aa-primary-color-rgb), var(--aa-primary-color-alpha)) 0
-        0 0 2px;
-    }
+  //   &:focus-within {
+  //     border-color: rgba(var(--aa-primary-color-rgb), 1);
+  //     outline: currentColor none medium;
+  //     box-shadow:
+  //       rgba(var(--aa-primary-color-rgb),
+  //       var(--aa-primary-color-alpha))
+  //       0 0 0 2px,
+  //       inset rgba(var(--aa-primary-color-rgb), var(--aa-primary-color-alpha)) 0
+  //       0 0 2px;
+  //   }
 
-    @at-root .aa-InputWrapperPrefix {
-      display: flex;
-      flex-shrink: 0;
-      align-items: center;
-      order: 1;
-      height: var(--aa-search-input-height);
-      // Container for search and loading icons
-      @at-root .aa-Label,
-      .aa-LoadingIndicator {
-        flex-shrink: 0;
-        height: 100%;
-        padding: 0;
-        text-align: left;
-        cursor: initial;
+  //   @at-root .aa-InputWrapperPrefix {
+  //     display: flex;
+  //     flex-shrink: 0;
+  //     align-items: center;
+  //     order: 1;
+  //     height: var(--aa-search-input-height);
+  //     // Container for search and loading icons
+  //     @at-root .aa-Label,
+  //     .aa-LoadingIndicator {
+  //       flex-shrink: 0;
+  //       height: 100%;
+  //       padding: 0;
+  //       text-align: left;
+  //       cursor: initial;
 
-        svg {
-          width: var(--aa-input-icon-size);
-          height: auto;
-          max-height: var(--aa-input-icon-size);
-          color: rgba(var(--aa-primary-color-rgb), 1);
-          stroke-width: var(--aa-icon-stroke-width);
-        }
-      }
+  //       svg {
+  //         width: var(--aa-input-icon-size);
+  //         height: auto;
+  //         max-height: var(--aa-input-icon-size);
+  //         color: rgba(var(--aa-primary-color-rgb), 1);
+  //         stroke-width: var(--aa-icon-stroke-width);
+  //       }
+  //     }
 
-      @at-root .aa-SubmitButton,
-      .aa-LoadingIndicator {
-        width: calc(var(--aa-spacing) * 1.75 + var(--aa-icon-size) - 1px);
-        height: 100%;
-        padding-right: var(--aa-spacing-half);
-        padding-left: calc(var(--aa-spacing) * 0.75 - 1px);
+  //     @at-root .aa-SubmitButton,
+  //     .aa-LoadingIndicator {
+  //       width: calc(var(--aa-spacing) * 1.75 + var(--aa-icon-size) - 1px);
+  //       height: 100%;
+  //       padding-right: var(--aa-spacing-half);
+  //       padding-left: calc(var(--aa-spacing) * 0.75 - 1px);
 
-        @media (hover: none) and (pointer: coarse) {
-          width: calc(var(--aa-icon-size) + (var(--aa-spacing) * 1.25) - 1px);
-          padding-left: calc(var(--aa-spacing-half) / 2 - 1px);
-        }
-      }
+  //       @media (hover: none) and (pointer: coarse) {
+  //         width: calc(var(--aa-icon-size) + (var(--aa-spacing) * 1.25) - 1px);
+  //         padding-left: calc(var(--aa-spacing-half) / 2 - 1px);
+  //       }
+  //     }
 
-      @at-root .aa-SubmitButton {
-        margin: 0;
-        background: none;
-        border: 0;
-        appearance: none;
-      }
+  //     @at-root .aa-SubmitButton {
+  //       margin: 0;
+  //       background: none;
+  //       border: 0;
+  //       appearance: none;
+  //     }
 
-      @at-root .aa-LoadingIndicator {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+  //     @at-root .aa-LoadingIndicator {
+  //       display: flex;
+  //       align-items: center;
+  //       justify-content: center;
 
-        &[hidden] {
-          display: none;
-        }
-      }
-    }
+  //       &[hidden] {
+  //         display: none;
+  //       }
+  //     }
+  //   }
 
-    @at-root .aa-InputWrapper {
-      position: relative;
-      order: 3;
-      width: 100%;
-      // Search box input (with placeholder and query)
-      @at-root .aa-Input {
-        width: 100%;
-        height: var(--aa-search-input-height);
-        padding: 0;
-        color: rgba(var(--aa-text-color-rgb), var(--aa-text-color-alpha));
-        font: inherit;
-        background: none;
-        border: 0;
-        appearance: none;
+  //   @at-root .aa-InputWrapper {
+  //     position: relative;
+  //     order: 3;
+  //     width: 100%;
+  //     // Search box input (with placeholder and query)
+  //     @at-root .aa-Input {
+  //       width: 100%;
+  //       height: var(--aa-search-input-height);
+  //       padding: 0;
+  //       color: rgba(var(--aa-text-color-rgb), var(--aa-text-color-alpha));
+  //       font: inherit;
+  //       background: none;
+  //       border: 0;
+  //       appearance: none;
 
-        &::placeholder {
-          color: rgba(var(--aa-muted-color-rgb), var(--aa-muted-color-alpha));
-          opacity: 1;
-        }
-        // Focus is set and styled on the parent, it isn't necessary here
-        &:focus {
-          border-color: none;
-          outline: none;
-          box-shadow: none;
-        }
-        // Remove native appearance
-        &::-webkit-search-decoration,
-        &::-webkit-search-cancel-button,
-        &::-webkit-search-results-button,
-        &::-webkit-search-results-decoration {
-          appearance: none;
-        }
-      }
-    }
+  //       &::placeholder {
+  //         color: rgba(var(--aa-muted-color-rgb), var(--aa-muted-color-alpha));
+  //         opacity: 1;
+  //       }
+  //       // Focus is set and styled on the parent, it isn't necessary here
+  //       &:focus {
+  //         border-color: none;
+  //         outline: none;
+  //         box-shadow: none;
+  //       }
+  //       // Remove native appearance
+  //       &::-webkit-search-decoration,
+  //       &::-webkit-search-cancel-button,
+  //       &::-webkit-search-results-button,
+  //       &::-webkit-search-results-decoration {
+  //         appearance: none;
+  //       }
+  //     }
+  //   }
 
-    @at-root .aa-InputWrapperSuffix {
-      display: flex;
-      align-items: center;
-      order: 4;
-      height: var(--aa-search-input-height);
-      // Accelerator to clear the query
-      @at-root .aa-ClearButton {
-        display: flex;
-        align-items: center;
-        height: 100%;
-        margin: 0;
-        padding: 0 calc(var(--aa-spacing) * (5 / 6) - 0.5px);
-        color: rgba(var(--aa-muted-color-rgb), var(--aa-muted-color-alpha));
-        background: none;
-        border: 0;
-        cursor: pointer;
+  //   @at-root .aa-InputWrapperSuffix {
+  //     display: flex;
+  //     align-items: center;
+  //     order: 4;
+  //     height: var(--aa-search-input-height);
+  //     // Accelerator to clear the query
+  //     @at-root .aa-ClearButton {
+  //       display: flex;
+  //       align-items: center;
+  //       height: 100%;
+  //       margin: 0;
+  //       padding: 0 calc(var(--aa-spacing) * (5 / 6) - 0.5px);
+  //       color: rgba(var(--aa-muted-color-rgb), var(--aa-muted-color-alpha));
+  //       background: none;
+  //       border: 0;
+  //       cursor: pointer;
 
-        @media (hover: none) and (pointer: coarse) {
-          padding: 0 calc(var(--aa-spacing) * (2 / 3) - 0.5px);
-        }
+  //       @media (hover: none) and (pointer: coarse) {
+  //         padding: 0 calc(var(--aa-spacing) * (2 / 3) - 0.5px);
+  //       }
 
-        &:hover,
-        &:focus {
-          color: rgba(var(--aa-text-color-rgb), var(--aa-text-color-alpha));
-        }
+  //       &:hover,
+  //       &:focus {
+  //         color: rgba(var(--aa-text-color-rgb), var(--aa-text-color-alpha));
+  //       }
 
-        &[hidden] {
-          display: none;
-        }
+  //       &[hidden] {
+  //         display: none;
+  //       }
 
-        svg {
-          width: var(--aa-icon-size);
-          stroke-width: var(--aa-icon-stroke-width);
-        }
-      }
-    }
-  }
+  //       svg {
+  //         width: var(--aa-icon-size);
+  //         stroke-width: var(--aa-icon-stroke-width);
+  //       }
+  //     }
+  //   }
+  // }
 }
 
 // ----------------
@@ -903,38 +903,38 @@
   //   box-shadow: none;
   // }
 
-  @at-root .aa-DetachedFormContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 0;
-    padding: var(--aa-spacing-half);
-    border-bottom:
-      solid 1px
-      rgba(var(--aa-panel-border-color-rgb), var(--aa-panel-border-color-alpha));
+  // @at-root .aa-DetachedFormContainer {
+  //   display: flex;
+  //   flex-direction: row;
+  //   justify-content: space-between;
+  //   margin: 0;
+  //   padding: var(--aa-spacing-half);
+  //   border-bottom:
+  //     solid 1px
+  //     rgba(var(--aa-panel-border-color-rgb), var(--aa-panel-border-color-alpha));
 
-    @at-root .aa-DetachedCancelButton {
-      margin: 0 0 0 var(--aa-spacing-half);
-      padding: 0 var(--aa-spacing-half);
-      color: inherit;
-      color: rgba(var(--aa-text-color-rgb), var(--aa-text-color-alpha));
-      font: inherit;
-      background: none;
-      border: 0;
-      border-radius: 3px;
-      cursor: pointer;
+  //   @at-root .aa-DetachedCancelButton {
+  //     margin: 0 0 0 var(--aa-spacing-half);
+  //     padding: 0 var(--aa-spacing-half);
+  //     color: inherit;
+  //     color: rgba(var(--aa-text-color-rgb), var(--aa-text-color-alpha));
+  //     font: inherit;
+  //     background: none;
+  //     border: 0;
+  //     border-radius: 3px;
+  //     cursor: pointer;
 
-      &:hover,
-      &:focus {
-        box-shadow:
-          inset 0 0 0 1px
-          rgba(var(--aa-panel-border-color-rgb),
-          var(--aa-panel-border-color-alpha));
-      }
-    }
-  }
+  //     &:hover,
+  //     &:focus {
+  //       box-shadow:
+  //         inset 0 0 0 1px
+  //         rgba(var(--aa-panel-border-color-rgb),
+  //         var(--aa-panel-border-color-alpha));
+  //     }
+  //   }
+  // }
 
-  @at-root .aa-DetachedContainer--modal {
+  // @at-root .aa-DetachedContainer--modal {
     // position: absolute;
     // top: 3%;
     // bottom: inherit;
@@ -952,7 +952,7 @@
     //     display: none;
     //   }
     // }
-  }
+  // }
 }
 
 // Search Button
