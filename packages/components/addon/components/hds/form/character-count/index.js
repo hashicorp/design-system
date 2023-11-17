@@ -23,7 +23,7 @@ export default class HdsFormCharacterCountIndexComponent extends Component {
    */
   get maxLength() {
     let { maxLength } = this.args;
-    return maxLength;
+    return parseInt(maxLength);
   }
 
   /**
@@ -34,7 +34,7 @@ export default class HdsFormCharacterCountIndexComponent extends Component {
    */
   get minLength() {
     let { minLength } = this.args;
-    return minLength;
+    return parseInt(minLength);
   }
 
   /**
