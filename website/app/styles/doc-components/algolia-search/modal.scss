@@ -63,49 +63,107 @@
 // PANEL (container of "sources")
 
 .aa-Panel {
-  @include doc-font-style-body-small();
+  flex-grow: 1;
+  // position: relative; // ??
+  // overflow: hidden; // TODO! ??? is it needed?
 }
 
 .aa-PanelLayout {
   width: 100%;
-  max-height: var(--aa-detached-modal-max-height);
+  // height: 100%;
+  max-height: 500px;
   margin: 0;
-  padding-bottom: var(--aa-spacing-half);
+  padding: 0 8px;
   overflow-y: auto;
+
+// .aa-Panel--scrollable {
+//   max-height: var(--aa-panel-max-height);
+//   margin: 0;
+//   padding: var(--aa-spacing-half);
+//   overflow-x: hidden;
+//   overflow-y: auto;
+//   scrollbar-color:
+//     rgba(var(--aa-scrollbar-thumb-background-color-rgb),
+//     var(--aa-scrollbar-thumb-background-color-alpha))
+//     rgba(var(--aa-scrollbar-track-background-color-rgb),
+//     var(--aa-scrollbar-track-background-color-alpha));
+//   scrollbar-width: thin;
+
+//   &::-webkit-scrollbar {
+//     width: var(--aa-scrollbar-width);
+//   }
+
+//   &::-webkit-scrollbar-track {
+//     background-color:
+//       rgba(var(--aa-scrollbar-track-background-color-rgb),
+//       var(--aa-scrollbar-track-background-color-alpha));
+//   }
+
+//   &::-webkit-scrollbar-thumb {
+//     background-color:
+//       rgba(var(--aa-scrollbar-thumb-background-color-rgb),
+//       var(--aa-scrollbar-thumb-background-color-alpha));
+//     border-color:
+//       rgba(var(--aa-scrollbar-track-background-color-rgb),
+//       var(--aa-scrollbar-track-background-color-alpha));
+//     border-style: solid;
+//     border-width: 3px 2px 3px 3px;
+//     border-radius: 9999px;
+//   }
+// }
 
   &:empty {
     display: none;
   }
 }
 
-.aa-Panel--scrollable {
-  // TODO
-}
+// SOURCES (search results "groups")
 
-// SOURCE (search results "group")
+.aa-PanelSources {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  &:empty {
+    display: none;
+  }
+}
 
 .aa-Source {
-  // TODO
+  padding: 8px;
+  border-bottom: 1px solid var(--doc-color-gray-400);
+  transition: opacity 200ms ease-in, filter 200ms ease-in;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  // when a request isn't resolved yet
+  .aa-Panel--stalled & {
+    opacity: 0.8;
+    filter: grayscale(1);
+  }
+
+  @media screen and (prefers-reduced-motion) {
+    transition: none;
+  }
 }
 
+// SOURCE > HEADER/FOOTER
+
 .aa-SourceHeader {
-  // TODO
-  margin: 4px 0 4px 2px;
-  border-bottom: 1px solid #e4e4e4;
+  margin-bottom: 4px;
 }
 
 .aa-SourceHeaderTitle {
-  // TODO
-  color: var(--doc-color-feedback-information-200);
-  font-weight: bold;
+  @include doc-font-style-body-small();
+  font-weight: 600;
+  color: var(--doc-color-black);
 }
 
 
-// not used
+// not used - could be used for a "show all" button in the future
 // .aa-SourceFooter {}
-
-// not used
-// .aa-GradientBottom {}
 
 
 // PANEL FOOTER
@@ -136,6 +194,7 @@
 }
 
 .aa-PanelFooter__keyboard-hints {
+  @include doc-font-family("sans");
   display: flex;
   gap: 12px;
   align-items: center;
@@ -204,6 +263,7 @@
 }
 
 .aa-PanelFooter__algolia-text {
+  @include doc-font-family("sans");
   color: #807ea3;
   font-size: 12px;
   text-decoration: none;

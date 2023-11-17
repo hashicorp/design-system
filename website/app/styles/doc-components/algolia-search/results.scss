@@ -11,6 +11,7 @@
 
 .aa-Item {
   display: block;
+  @include doc-font-style-body-small();
 }
 
 // ITEM > LINK WRAPPER
