@@ -118,10 +118,10 @@
 
   // matching text highlighting (shared)
   mark {
+    color: var(--doc-color-black);
     // `<mark>` has a yellow background by default
     // background: none;
     background: var(--doc-color-feedback-information-300);
-    color: var(--doc-color-black);
     border-radius: 1px;
   }
 }
