@@ -37,7 +37,7 @@ module.exports = function (environment) {
     },
 
     fastboot: {
-      hostWhitelist: [/^localhost:\d+$/],
+      hostWhitelist: [/^localhost:\d+$/, /^192.168.1.31:\d+$/],
     },
 
     'ember-meta': {
