@@ -5,6 +5,7 @@
 
 // ALGOLIA AUTOCOMPLETE SEARCH > MODAL
 
+@use "../../breakpoints" as breakpoint;
 @use "../../typography/mixins" as *;
 
 // This class is applied to the `<body>` to remove the scroll when the modal is opened
@@ -14,10 +15,9 @@
 }
 
 
-// OVERLAY (used to apply an opaque background and contain the modal container)
+// OVERLAY (used to apply an opaque background and _contain_ the modal container)
 
 .aa-DetachedOverlay {
-  @include doc-font-style-body-small();
   position: fixed;
   top: 0;
   right: 0;
@@ -26,40 +26,44 @@
   height: 100vh;
   margin: 0;
   padding: 0;
-  // TODO decide which color (and opacity) to use here
-  background-color: rgba(#002c69, 0.6);
+  background-color: rgba(#000, 0.5);
 }
 
 // MODAL (container)
 
 .aa-DetachedContainer {
-  position: absolute;
-  top: var(--doc-page-header-height);
+  position: fixed;
+  top: 0;
   right: 0;
-  // bottom: inherit; // ???
   left: 0;
   z-index: 9999;
   display: flex;
   flex-direction: column;
-  max-width: 680px;
-  height: auto;
-  margin: 0 auto;
+  width: 100%;
+  max-height: 100vh;
+  margin: 0;
   overflow: hidden;
-  background:
-    rgba(var(--aa-background-color-rgb),
-    var(--aa-background-color-alpha));
-  border-radius: 6px;
-  box-shadow: var(--aa-panel-shadow);
+  background: var(--doc-color-white);
 
-  &::after { // ???
-    height: 32px;
+  @include breakpoint.with-fixed-sidebar () {
+    position: absolute;
+    // top: var(--doc-page-header-height);
+    top: 60px;
+    width: auto;
+    max-width: 680px;
+    height: auto;
+    margin: 0 auto;
+    border: 1px solid var(--doc-color-gray-400);
+    border-radius: 4px;
+    box-shadow: 0px 16px 28px 0px rgba(37, 38, 45, 0.12);
   }
 }
 
-// PANEL (contaner of "sources")
+
+// PANEL (container of "sources")
 
 .aa-Panel {
-  // TODO
+  @include doc-font-style-body-small();
 }
 
 .aa-PanelLayout {
@@ -135,6 +139,11 @@
   display: flex;
   gap: 12px;
   align-items: center;
+
+  // completely hide it on mobile/touch devices
+  @media (hover: none) and (pointer: coarse) {
+    display: none;
+  }
 }
 
 .aa-PanelFooter__keyboard-hint {
@@ -184,6 +193,7 @@
 
 .aa-PanelFooter__algolia {
   flex: none;
+  margin: 0 0 0 auto;
 }
 
 .aa-PanelFooter__algolia-link {
