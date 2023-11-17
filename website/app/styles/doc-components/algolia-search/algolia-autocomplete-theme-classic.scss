@@ -321,109 +321,109 @@
 // ----------------
 // 4. Panel
 // ----------------
-.aa-Panel {
-  // @extend %init;
-  position: absolute;
-  margin: 8px 0 0;
-  overflow: hidden;
-  background-color:
-    rgba(var(--aa-background-color-rgb),
-    var(--aa-background-color-alpha));
-  border-radius: calc(var(--aa-spacing) / 4);
-  box-shadow: var(--aa-panel-shadow);
-  transition: opacity 200ms ease-in, filter 200ms ease-in;
+// .aa-Panel {
+//   // @extend %init;
+//   position: absolute;
+//   margin: 8px 0 0;
+//   overflow: hidden;
+//   background-color:
+//     rgba(var(--aa-background-color-rgb),
+//     var(--aa-background-color-alpha));
+//   border-radius: calc(var(--aa-spacing) / 4);
+//   box-shadow: var(--aa-panel-shadow);
+//   transition: opacity 200ms ease-in, filter 200ms ease-in;
 
-  @media screen and (prefers-reduced-motion) {
-    transition: none;
-  }
+//   @media screen and (prefers-reduced-motion) {
+//     transition: none;
+//   }
 
-  // * {
-  //   @extend %reset;
-  // }
+//   // * {
+//   //   @extend %reset;
+//   // }
 
-  button {
-    margin: 0;
-    padding: 0;
-    background: none;
-    border: 0;
-    appearance: none;
-  }
+//   button {
+//     margin: 0;
+//     padding: 0;
+//     background: none;
+//     border: 0;
+//     appearance: none;
+//   }
 
-  @at-root .aa-PanelLayout {
-    // position: relative;
-    // height: 100%;
-    // max-height: var(--aa-panel-max-height);
-    // margin: 0;
-    // padding: 0;
-    // overflow-y: auto;
-    // text-align: left;
+//   @at-root .aa-PanelLayout {
+//     // position: relative;
+//     // height: 100%;
+//     // max-height: var(--aa-panel-max-height);
+//     // margin: 0;
+//     // padding: 0;
+//     // overflow-y: auto;
+//     // text-align: left;
 
-    @at-root .aa-PanelLayoutColumns--twoGolden {
-      display: grid;
-      grid-template-columns: 39.2% auto;
-      padding: 0;
-      overflow: hidden;
-    }
+//     // @at-root .aa-PanelLayoutColumns--twoGolden {
+//     //   display: grid;
+//     //   grid-template-columns: 39.2% auto;
+//     //   padding: 0;
+//     //   overflow: hidden;
+//     // }
 
-    @at-root .aa-PanelLayoutColumns--two {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      padding: 0;
-      overflow: hidden;
-    }
+//     // @at-root .aa-PanelLayoutColumns--two {
+//     //   display: grid;
+//     //   grid-template-columns: repeat(2, minmax(0, 1fr));
+//     //   padding: 0;
+//     //   overflow: hidden;
+//     // }
 
-    @at-root .aa-PanelLayoutColumns--three {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      padding: 0;
-      overflow: hidden;
-    }
-  }
+//     // @at-root .aa-PanelLayoutColumns--three {
+//     //   display: grid;
+//     //   grid-template-columns: repeat(3, minmax(0, 1fr));
+//     //   padding: 0;
+//     //   overflow: hidden;
+//     // }
+//   }
 
-  // When a request isn't resolved yet
-  @at-root .aa-Panel--stalled {
-    .aa-Source {
-      opacity: 0.8;
-      filter: grayscale(1);
-    }
-  }
+//   // When a request isn't resolved yet
+//   @at-root .aa-Panel--stalled {
+//     .aa-Source {
+//       opacity: 0.8;
+//       filter: grayscale(1);
+//     }
+//   }
 
-  @at-root .aa-Panel--scrollable {
-    max-height: var(--aa-panel-max-height);
-    margin: 0;
-    padding: var(--aa-spacing-half);
-    overflow-x: hidden;
-    overflow-y: auto;
-    scrollbar-color:
-      rgba(var(--aa-scrollbar-thumb-background-color-rgb),
-      var(--aa-scrollbar-thumb-background-color-alpha))
-      rgba(var(--aa-scrollbar-track-background-color-rgb),
-      var(--aa-scrollbar-track-background-color-alpha));
-    scrollbar-width: thin;
+//   @at-root .aa-Panel--scrollable {
+//     max-height: var(--aa-panel-max-height);
+//     margin: 0;
+//     padding: var(--aa-spacing-half);
+//     overflow-x: hidden;
+//     overflow-y: auto;
+//     scrollbar-color:
+//       rgba(var(--aa-scrollbar-thumb-background-color-rgb),
+//       var(--aa-scrollbar-thumb-background-color-alpha))
+//       rgba(var(--aa-scrollbar-track-background-color-rgb),
+//       var(--aa-scrollbar-track-background-color-alpha));
+//     scrollbar-width: thin;
 
-    &::-webkit-scrollbar {
-      width: var(--aa-scrollbar-width);
-    }
+//     &::-webkit-scrollbar {
+//       width: var(--aa-scrollbar-width);
+//     }
 
-    &::-webkit-scrollbar-track {
-      background-color:
-        rgba(var(--aa-scrollbar-track-background-color-rgb),
-        var(--aa-scrollbar-track-background-color-alpha));
-    }
+//     &::-webkit-scrollbar-track {
+//       background-color:
+//         rgba(var(--aa-scrollbar-track-background-color-rgb),
+//         var(--aa-scrollbar-track-background-color-alpha));
+//     }
 
-    &::-webkit-scrollbar-thumb {
-      background-color:
-        rgba(var(--aa-scrollbar-thumb-background-color-rgb),
-        var(--aa-scrollbar-thumb-background-color-alpha));
-      border-color:
-        rgba(var(--aa-scrollbar-track-background-color-rgb),
-        var(--aa-scrollbar-track-background-color-alpha));
-      border-style: solid;
-      border-width: 3px 2px 3px 3px;
-      border-radius: 9999px;
-    }
-  }
-}
+//     &::-webkit-scrollbar-thumb {
+//       background-color:
+//         rgba(var(--aa-scrollbar-thumb-background-color-rgb),
+//         var(--aa-scrollbar-thumb-background-color-alpha));
+//       border-color:
+//         rgba(var(--aa-scrollbar-track-background-color-rgb),
+//         var(--aa-scrollbar-track-background-color-alpha));
+//       border-style: solid;
+//       border-width: 3px 2px 3px 3px;
+//       border-radius: 9999px;
+//     }
+//   }
+// }
 
 // ----------------
 // 5. Sources
@@ -874,21 +874,21 @@
   //   height: 32px;
   // }
 
-  .aa-SourceHeader {
-    margin: var(--aa-spacing-half) 0 var(--aa-spacing-half) 2px;
-  }
+  // .aa-SourceHeader {
+  //   margin: var(--aa-spacing-half) 0 var(--aa-spacing-half) 2px;
+  // }
 
-  .aa-Panel {
-    position: relative;
-    flex-grow: 1;
-    margin: 0;
-    padding: 0;
-    background-color:
-      rgba(var(--aa-background-color-rgb),
-      var(--aa-background-color-alpha));
-    border-radius: 0;
-    box-shadow: none;
-  }
+  // .aa-Panel {
+  //   position: relative;
+  //   flex-grow: 1;
+  //   margin: 0;
+  //   padding: 0;
+  //   background-color:
+  //     rgba(var(--aa-background-color-rgb),
+  //     var(--aa-background-color-alpha));
+  //   border-radius: 0;
+  //   box-shadow: none;
+  // }
 
   // .aa-PanelLayout {
   //   position: absolute;

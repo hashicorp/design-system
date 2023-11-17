@@ -145,16 +145,24 @@ export default class DocAlgoliaSearchComponent extends Component {
           elements;
 
         render(
-          html`<div class="aa-PanelLayout aa-Panel--scrollable">
-              <div class="aa-PanelSections">
-                <div class="aa-PanelSection">${suggestions}</div>
-                <!--<div class="aa-PanelSection">${recentSearchesPlugin}</div>-->
-                <div class="aa-PanelSection">${content}</div>
-                <div class="aa-PanelSection">${icons}</div>
-                <div class="aa-PanelSection">${tokens}</div>
+          html`
+            <div class="aa-PanelLayout">
+              <div class="aa-PanelSources">
+                <!-- SUGGESTIONS -->
+                ${suggestions}
+                <!-- RECENT SEARCHES -->
+                <!-- RECENT SEARCHES -->
+                <!--${recentSearchesPlugin}</div>-->
+                <!-- CONTENT ("GENERIC") -->
+                ${content}
+                <!-- ICONS -->
+                ${icons}
+                <!-- TOKENS -->
+                ${tokens}
               </div>
             </div>
-            ${htmlPanelFooter({ html })} `,
+            ${htmlPanelFooter({ html })}
+          `,
           root
         );
       },
