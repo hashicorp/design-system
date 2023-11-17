@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, typeIn } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module(
@@ -67,12 +67,26 @@ module(
     test('it should present the character count as a live region', async function (assert) {
       await render(
         hbs`
-          <input type="hidden" value="with default content" id="input-1"/>
-          <Hds::Form::CharacterCount @maxLength="40" @controlId="input-1" id="test-form-character-count"/>`
+          <input type="hidden" value="with default content" id="input-3"/>
+          <Hds::Form::CharacterCount @maxLength="40" @controlId="input-3" id="test-form-character-count"/>`
       );
       assert
         .dom('#test-form-character-count')
         .hasAttribute('aria-live', 'polite');
+    });
+
+    // CALLBACKS
+
+    test('it should call `onInput` function if provided', async function (assert) {
+      let onInput = false;
+      this.set('onInput', () => (onInput = true));
+      await render(
+        hbs`
+          <input value="with default content" id="input-4"/>
+          <Hds::Form::CharacterCount @onInput={{this.onInput}} @maxLength="40" @controlId="input-4" id="test-form-character-count"/>`
+      );
+      typeIn('#input-4', 'a');
+      assert.ok(onInput);
     });
   }
 );

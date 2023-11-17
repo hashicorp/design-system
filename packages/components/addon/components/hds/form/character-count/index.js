@@ -104,6 +104,16 @@ export default class HdsFormCharacterCountIndexComponent extends Component {
   @action
   updateCurrentLength() {
     this.currentLength = this.inputControl.value.length;
+
+    if (typeof this.args.onInput === 'function') {
+      this.args.onInput(
+        this.inputControl,
+        this.maxLength,
+        this.minLength,
+        this.currentLength,
+        this.remainingLength
+      );
+    }
   }
 
   /**

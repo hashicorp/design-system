@@ -14,4 +14,13 @@ export default class BaseElementsController extends Controller {
   toggleHighlight() {
     this.showHighlight = !this.showHighlight;
   }
+
+  @action
+  onInput(inputControl, maxLength, minLength, currentLength, remainingLength) {
+    console.log('inputControl', inputControl);
+    console.log('maxLength', maxLength);
+    console.log('minLength', minLength);
+    console.log('currentLength', currentLength);
+    console.log('remainingLength', remainingLength);
+  }
 }
