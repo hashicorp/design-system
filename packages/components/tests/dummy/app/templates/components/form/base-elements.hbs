@@ -166,11 +166,18 @@
       </Hds::Form::CharacterCount>
     </SF.Item>
     <SF.Item @label="With custom content and callback function">
+      {{! template-lint-disable require-input-label }}
       <input type="text" aria-label="with callback function" value="Lorem ipsum dolor" id="character-count-input-4" />
-      <Hds::Form::CharacterCount @minLength={{3}} @maxLength={{40}} @onInput={{this.onInput}} @controlId="character-count-input-4" as |CC|>
-        maxLength={{CC.maxLength}}; minLength={{CC.minLength}}; 
-        currentLength={{CC.currentLength}}; remainingLength={{CC.remainingLength}};
+      <Hds::Form::CharacterCount
+        @minLength={{3}}
+        @maxLength={{40}}
+        @onInput={{this.onInput}}
+        @controlId="character-count-input-4"
+        as |CC|
+      >
+        maxLength={{CC.maxLength}}; minLength={{CC.minLength}}; currentLength={{CC.currentLength}}; remainingLength={{CC.remainingLength}};
       </Hds::Form::CharacterCount>
+      {{! template-lint-enable require-input-label }}
     </SF.Item>
   </Shw::Flex>
 
