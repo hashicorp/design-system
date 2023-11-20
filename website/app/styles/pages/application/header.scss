@@ -20,8 +20,8 @@
       width: 100%;
       height: 32px;
       margin: auto 0;
-      outline: 2px solid -webkit-focus-ring-color;
       border-radius: 3px;
+      outline: 2px solid var(--doc-focus-ring-color);
       content: "";
     }
   }
@@ -65,8 +65,8 @@
   }
 
   &:focus-visible {
-    outline: 2px solid -webkit-focus-ring-color;
     border-radius: 3px;
+    outline: 2px solid var(--doc-focus-ring-color);
   }
 
   svg {
@@ -95,7 +95,7 @@
 
   ul {
     display: flex;
-    gap: 0px;
+    gap: 0;
     align-items: center;
     height: 100%;
     margin: 0;
@@ -113,7 +113,7 @@
 
   a {
     @include doc-font-style-navigation();
-    @include doc-header-custom-focus;
+    @include doc-header-custom-focus ();
     display: flex;
     align-items: center;
     height: 100%;
@@ -153,8 +153,8 @@
     }
 
     &:focus-visible {
-      outline: 2px solid -webkit-focus-ring-color;
       border-radius: 3px;
+      outline: 2px solid var(--doc-focus-ring-color);
     }
   }
 }
@@ -182,7 +182,7 @@
 
 .doc-page-header__mobile-only-menu-button {
   @include doc-font-style-navigation();
-  @include doc-header-custom-focus;
+  @include doc-header-custom-focus ();
   display: flex;
   gap: 8px;
   align-items: center;
@@ -196,5 +196,4 @@
   &:hover {
     color: var(--doc-color-white);
   }
-
 }
