@@ -50,6 +50,8 @@ export default class DocAlgoliaSearchComponent extends Component {
                   hitsPerPage: 5,
                   attributesToHighlight: ['pageTitle', 'content'],
                   attributesToSnippet: ['content:20'],
+                  distinct: true,
+                  // attributeForDistinct: 'pageBaseURL', // this doesn't work, for some reason; it needs to be set at Algolia dashboard level under "Deduplication and Grouping" configuration
                 },
                 searchFilters: { facetFilters: ['type:-icon', 'type:-token'] },
               }),
@@ -69,7 +71,7 @@ export default class DocAlgoliaSearchComponent extends Component {
                 searchParams: {
                   hitsPerPage: 5,
                   attributesToHighlight: ['icon-name'],
-                  typoTolerance: false, // TODO understand if it's OK in all use cases
+                  typoTolerance: false,
                 },
                 searchFilters: { facetFilters: ['type:icon'] },
               }),
@@ -89,7 +91,7 @@ export default class DocAlgoliaSearchComponent extends Component {
                 searchParams: {
                   hitsPerPage: 5,
                   attributesToHighlight: ['token-name'],
-                  typoTolerance: false, // TODO understand if it's OK in all use cases
+                  typoTolerance: false,
                 },
                 searchFilters: { facetFilters: ['type:token'] },
               }),
