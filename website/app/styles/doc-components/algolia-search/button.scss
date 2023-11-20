@@ -27,8 +27,9 @@
   }
 
   &:focus {
-    border-radius: 3px;
-    outline: 2px solid -webkit-focus-ring-color;
+    border-color: var(--doc-focus-ring-color);
+    outline: 1px solid var(--doc-focus-ring);
+    outline-offset: 0;
   }
 }
 
