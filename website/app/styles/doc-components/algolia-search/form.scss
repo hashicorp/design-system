@@ -108,6 +108,35 @@ $doc-algolia-search-modal-search-input-height: 44px;
   color: var(--doc-color-feedback-information-200);
 }
 
+// the input wrapper
+
+.aa-InputWrapper {
+  position: relative;
+
+  $beta-height: 24px;
+
+  &:has(input:placeholder-shown)::before {
+    @include doc-font-family("sans");
+    @include doc-font-family("mono");
+    @include doc-font-family("gilmer");
+    position: absolute;
+    top: 50%;
+    left: 110px;
+    z-index: 9999;
+    display: block;
+    height: $beta-height;
+    margin-top: calc(-1 * $beta-height / 2);
+    padding: 0 8px;
+    color: var(--doc-color-white);
+    font-weight: 900;
+    font-size: 12px;
+    line-height: $beta-height;
+    background: linear-gradient(50.7deg, #63d0ff 0%, #844fba 100%);
+    border-radius: calc($beta-height / 2);
+    content: "Beta";
+  }
+}
+
 // the actual input
 
 .aa-Input {
