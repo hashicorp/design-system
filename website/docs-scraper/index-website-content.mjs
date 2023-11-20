@@ -316,6 +316,11 @@ async function indexWebsiteContent() {
   // --------------------------------
 
   if (!DEV_SKIP_API_CALLS) {
+    // reverse the array so the indexed content is in the "natural" order as one finds it in the web pages
+    // otherwise Algolia will use the `objectID` field, in ascending order, and this leads to weird results
+    // see: https://support.algolia.com/hc/en-us/articles/11461259527825-Is-there-a-way-to-change-the-default-descending-order-of-ObjectID-upon-an-empty-search-
+    algoliaRecords.reverse();
+
     // here we construct the request to be sent to Algolia with the `batch/multiBatch` method
     // see: https://www.algolia.com/doc/api-reference/api-methods/batch/
     const algoliaRequests = algoliaRecords.map((record) => {
