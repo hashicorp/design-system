@@ -52,7 +52,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid var(--doc-color-feedback-information-200);
+    outline: 2px solid var(--doc-focus-ring-color);
     outline-offset: 0;
 
     .aa-ItemExtra {
