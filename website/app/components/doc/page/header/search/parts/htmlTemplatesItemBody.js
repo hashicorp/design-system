@@ -71,6 +71,8 @@ export const htmlTemplatesItemBody = ({ item, html, components }) => {
             attribute: ['content'],
           });
         }
+      } else if (item.pageCaption) {
+        description = item.pageCaption;
       }
   }
 
