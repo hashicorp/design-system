@@ -47,7 +47,6 @@
 
   @include breakpoint.with-fixed-sidebar () {
     position: absolute;
-    // top: var(--doc-page-header-height);
     top: 60px;
     width: auto;
     max-width: 680px;
@@ -64,53 +63,15 @@
 
 .aa-Panel {
   flex-grow: 1;
-  // position: relative; // ??
-  // overflow: hidden; // TODO! ??? is it needed?
 }
 
 .aa-PanelLayout {
   width: 100%;
-  // height: 100%;
-  max-height: 500px;
+  height: auto;
+  max-height: calc(100vh - 220px);
   margin: 0;
   padding: 0 8px;
   overflow-y: auto;
-
-  // .aa-Panel--scrollable {
-  //   max-height: var(--aa-panel-max-height);
-  //   margin: 0;
-  //   padding: var(--aa-spacing-half);
-  //   overflow-x: hidden;
-  //   overflow-y: auto;
-  //   scrollbar-color:
-  //     rgba(var(--aa-scrollbar-thumb-background-color-rgb),
-  //     var(--aa-scrollbar-thumb-background-color-alpha))
-  //     rgba(var(--aa-scrollbar-track-background-color-rgb),
-  //     var(--aa-scrollbar-track-background-color-alpha));
-  //   scrollbar-width: thin;
-
-  //   &::-webkit-scrollbar {
-  //     width: var(--aa-scrollbar-width);
-  //   }
-
-  //   &::-webkit-scrollbar-track {
-  //     background-color:
-  //       rgba(var(--aa-scrollbar-track-background-color-rgb),
-  //       var(--aa-scrollbar-track-background-color-alpha));
-  //   }
-
-  //   &::-webkit-scrollbar-thumb {
-  //     background-color:
-  //       rgba(var(--aa-scrollbar-thumb-background-color-rgb),
-  //       var(--aa-scrollbar-thumb-background-color-alpha));
-  //     border-color:
-  //       rgba(var(--aa-scrollbar-track-background-color-rgb),
-  //       var(--aa-scrollbar-track-background-color-alpha));
-  //     border-style: solid;
-  //     border-width: 3px 2px 3px 3px;
-  //     border-radius: 9999px;
-  //   }
-  // }
 
   &:empty {
     display: none;
