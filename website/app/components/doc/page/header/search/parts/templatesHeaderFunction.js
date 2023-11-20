@@ -7,7 +7,7 @@ export const templatesHeaderFunction = ({ group }) => {
   let title;
   switch (group) {
     case 'generic':
-      title = 'Generic content:';
+      title = 'Documentation:';
       break;
     case 'tokens':
       title = 'Tokens:';
