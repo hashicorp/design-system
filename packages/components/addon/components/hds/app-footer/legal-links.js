@@ -60,7 +60,8 @@ export default class HdsAppFooterLegalLinksComponent extends Component {
    */
   get hrefForAccessibility() {
     return (
-      this.args.hrefForAccessibility ?? 'mailto:accessibility@hashicorp.com'
+      this.args.hrefForAccessibility ??
+      'https://www.hashicorp.com/accessibility'
     );
   }
 }
