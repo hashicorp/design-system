@@ -9,10 +9,14 @@
   {{did-insert this.didInsert}}
   {{focus-trap isActive=this.isOpen focusTrapOptions=(hash onDeactivate=this.onDismiss clickOutsideDeactivates=true)}}
 >
-  {{yield (hash Header=(component "hds/flyout/header" id=this.id onDismiss=this.onDismiss))}}
-  {{yield (hash Description=(component "hds/flyout/description"))}}
-  {{yield (hash Body=(component "hds/flyout/body"))}}
-  {{yield (hash Footer=(component "hds/flyout/footer" onDismiss=this.onDismiss))}}
+  {{yield
+    (hash
+      Header=(component "hds/flyout/header" id=this.id onDismiss=this.onDismiss)
+      Description=(component "hds/flyout/description")
+      Body=(component "hds/flyout/body")
+      Footer=(component "hds/flyout/footer" onDismiss=this.onDismiss)
+    )
+  }}
 </dialog>
 {{#if this.isOpen}}
   <div class="hds-flyout__overlay"></div>

@@ -72,6 +72,26 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
     assert.dom('.hds-flyout__footer').hasText('Footer');
   });
 
+  test('it renders elements interposed with contextual components', async function (assert) {
+    await render(
+      hbs`<Hds::Flyout id="test-flyout" as |F|>
+            <form id="modal-form">
+              <F.Header>Title</F.Header>
+              <F.Body>Body</F.Body>
+              <F.Footer>Footer</F.Footer>
+            </form>
+          </Hds::Flyout>`
+    );
+    assert.dom('.hds-flyout').exists({ count: 1 });
+    assert.dom('#modal-form').exists({ count: 1 });
+    assert.dom('#modal-form .hds-flyout__header').exists({ count: 1 });
+    assert.dom('#modal-form .hds-flyout__header').hasText('Title');
+    assert.dom('#modal-form .hds-flyout__body').exists({ count: 1 });
+    assert.dom('#modal-form .hds-flyout__body').hasText('Body');
+    assert.dom('#modal-form .hds-flyout__footer').exists({ count: 1 });
+    assert.dom('#modal-form .hds-flyout__footer').hasText('Footer');
+  });
+
   // TITLE (ICON, TAGLINE & DESCRIPTION)
 
   test('it renders the title without icon, tagline, and description', async function (assert) {
