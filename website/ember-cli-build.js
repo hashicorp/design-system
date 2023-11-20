@@ -29,15 +29,11 @@ module.exports = function (defaults) {
     },
     'ember-prism': {
       components: [
-        'apacheconf',
         'bash',
         'css',
         'handlebars',
-        'http',
         'javascript',
-        'json',
         'markup-templating',
-        'ruby',
         'scss',
       ],
       theme: 'dracula',
