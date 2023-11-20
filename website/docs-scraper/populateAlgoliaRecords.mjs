@@ -119,7 +119,7 @@ export async function populateAlgoliaRecords({ record, content }) {
         const algoliaRecord = _.merge({}, record, {
           type: 'wcag-list-criteria',
           name: `WCAG ${criterion.number} - ${criterion.title}`,
-          content: `wcag ${criterion.number} ${criterion.title} ${criterion.description}`,
+          content: `WCAG ${criterion.number} ${criterion.title} ${criterion.description}`,
           hierarchy: hierarchy,
           level: 9,
           source: 'wcag-list',
