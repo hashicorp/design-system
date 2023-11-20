@@ -5,7 +5,7 @@
 
 @use "../../typography/mixins" as *;
 
-// ALGOLIA AUTOCOMPLETE SEARCH > BUTTON
+// ALGOLIA AUTOCOMPLETE SEARCH > BUTTON (TRIGGER)
 
 .aa-DetachedSearchButton {
   @include doc-font-style-navigation();
