@@ -40,20 +40,23 @@ export const htmlTemplatesItemBody = ({ item, html, components }) => {
   let description;
   switch (item.type) {
     case 'icon':
-      title = components.Snippet({
+      title = components.Highlight({
         hit: item,
         attribute: 'icon-name',
       });
       break;
     case 'token':
-      title = components.Snippet({
+      title = components.Highlight({
         hit: item,
         attribute: 'token-name',
       });
       break;
     default:
       // title (full)
-      title = item.pageTitle;
+      title = components.Highlight({
+        hit: item,
+        attribute: 'pageTitle',
+      });
       // description (snippeted)
       if (item.content) {
         var snippetedParts = parseAlgoliaHitHighlight({

@@ -48,6 +48,7 @@ export default class DocAlgoliaSearchComponent extends Component {
                 searchQuery: query,
                 searchParams: {
                   hitsPerPage: 5,
+                  attributesToHighlight: ['pageTitle', 'content'],
                   attributesToSnippet: ['content:20'],
                 },
                 searchFilters: { facetFilters: ['type:-icon', 'type:-token'] },
@@ -67,7 +68,7 @@ export default class DocAlgoliaSearchComponent extends Component {
                 searchQuery: query,
                 searchParams: {
                   hitsPerPage: 5,
-                  attributesToSnippet: ['icon-name'],
+                  attributesToHighlight: ['icon-name'],
                   typoTolerance: false, // TODO understand if it's OK in all use cases
                 },
                 searchFilters: { facetFilters: ['type:icon'] },
@@ -87,7 +88,7 @@ export default class DocAlgoliaSearchComponent extends Component {
                 searchQuery: query,
                 searchParams: {
                   hitsPerPage: 5,
-                  attributesToSnippet: ['token-name'],
+                  attributesToHighlight: ['token-name'],
                   typoTolerance: false, // TODO understand if it's OK in all use cases
                 },
                 searchFilters: { facetFilters: ['type:token'] },
