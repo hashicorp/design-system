@@ -9,9 +9,13 @@
   {{did-insert this.didInsert}}
   {{focus-trap isActive=this.isOpen focusTrapOptions=(hash onDeactivate=this.onDismiss clickOutsideDeactivates=true)}}
 >
-  {{yield (hash Header=(component "hds/modal/header" id=this.id onDismiss=this.onDismiss))}}
-  {{yield (hash Body=(component "hds/modal/body"))}}
-  {{yield (hash Footer=(component "hds/modal/footer" onDismiss=this.onDismiss))}}
+  {{yield
+    (hash
+      Header=(component "hds/modal/header" id=this.id onDismiss=this.onDismiss)
+      Body=(component "hds/modal/body")
+      Footer=(component "hds/modal/footer" onDismiss=this.onDismiss)
+    )
+  }}
 </dialog>
 {{#if this.isOpen}}
   <div class="hds-modal__overlay"></div>

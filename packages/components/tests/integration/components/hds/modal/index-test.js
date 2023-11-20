@@ -74,6 +74,26 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     assert.dom('.hds-modal__footer').hasText('Footer');
   });
 
+  test('it renders elements interposed with contextual components', async function (assert) {
+    await render(
+      hbs`<Hds::Modal id="test-modal" as |M|>
+            <form id="modal-form">
+              <M.Header>Title</M.Header>
+              <M.Body>Body</M.Body>
+              <M.Footer>Footer</M.Footer>
+            </form>
+          </Hds::Modal>`
+    );
+    assert.dom('.hds-modal').exists({ count: 1 });
+    assert.dom('#modal-form').exists({ count: 1 });
+    assert.dom('#modal-form .hds-modal__header').exists({ count: 1 });
+    assert.dom('#modal-form .hds-modal__header').hasText('Title');
+    assert.dom('#modal-form .hds-modal__body').exists({ count: 1 });
+    assert.dom('#modal-form .hds-modal__body').hasText('Body');
+    assert.dom('#modal-form .hds-modal__footer').exists({ count: 1 });
+    assert.dom('#modal-form .hds-modal__footer').hasText('Footer');
+  });
+
   // TITLE (ICON & TAGLINE)
 
   test('it renders the title without icon and tagline if not provided', async function (assert) {
