@@ -27558,6 +27558,7 @@ __metadata:
     remark: "npm:^15.0.1"
     remark-gfm: "npm:^4.0.0"
     remark-html: "npm:^16.0.1"
+    remark-parse: "npm:^11.0.0"
     remark-remove-comments: "npm:^1.0.1"
     remark-shortcodes: "npm:^0.3.1"
     remark-squeeze-paragraphs: "npm:^6.0.0"

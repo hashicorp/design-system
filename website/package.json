@@ -110,6 +110,7 @@
     "remark": "^15.0.1",
     "remark-gfm": "^4.0.0",
     "remark-html": "^16.0.1",
+    "remark-parse": "^11.0.0",
     "remark-remove-comments": "^1.0.1",
     "remark-shortcodes": "^0.3.1",
     "remark-squeeze-paragraphs": "^6.0.0",
