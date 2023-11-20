@@ -226,6 +226,23 @@ async function indexWebsiteContent() {
       // add the records to the algolia list
       algoliaRecords.push(...records);
     }
+
+    // add a custom entry for the top-page
+    const topPageRecord = _.merge({}, algoliaBaseRecord, {
+      searchResultURL: `/${pageURL}`,
+      pageTab: null,
+      level: 0, // we use `level=0` here to put it on top of the other pages
+      content: '',
+      hierarchy: {
+        lvl1: pageMetadata.title,
+        lvl2: null,
+        lvl3: null,
+        lvl4: null,
+        lvl5: null,
+        lvl6: null,
+      },
+    });
+    algoliaRecords.push(topPageRecord);
   }
 
   // --------------------------------
