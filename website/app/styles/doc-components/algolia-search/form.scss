@@ -146,7 +146,7 @@ $doc-algolia-search-modal-search-input-height: 44px;
   padding: 0 42px;
   color: var(--doc-color-black);
   background: none;
-  border: 1px solid transparent;
+  border: 1px solid var(--doc-color-gray-400);
   border-radius: 3px;
   box-shadow: none;
   appearance: none;
@@ -178,18 +178,18 @@ $doc-algolia-search-modal-search-input-height: 44px;
   height: $doc-algolia-search-modal-search-input-height;
   padding: 4px 16px;
   color: var(--doc-color-gray-200);
-  background-color: var(--doc-color-white);
-  border: 1px solid var(--doc-color-gray-400);
+  background-color: var(--doc-color-gray-600);
+  border: 1px solid var(--doc-color-gray-500);
   border-radius: 3px;
   cursor: pointer;
 
   &:hover {
-    background-color: var(--doc-color-gray-600);
-    border-color: var(--doc-color-gray-300);
+    background-color: var(--doc-color-gray-500);
+    border-color: var(--doc-color-gray-400);
   }
 
   &:active {
-    background-color: var(--doc-color-gray-500);
+    background-color: var(--doc-color-gray-400);
     border-color: var(--doc-color-gray-300);
   }
 
