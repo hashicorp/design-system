@@ -1,9 +1,10 @@
 name: Update Search Index
     
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+#  push:
+  # branches:
+  #   - main
 
 env:
   NODE_VERSION: '20.x'
