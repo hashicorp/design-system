@@ -116,8 +116,6 @@ $doc-algolia-search-modal-search-input-height: 44px;
   $beta-height: 24px;
 
   &:has(input:placeholder-shown)::before {
-    @include doc-font-family("sans");
-    @include doc-font-family("mono");
     @include doc-font-family("gilmer");
     position: absolute;
     top: 50%;
@@ -131,7 +129,7 @@ $doc-algolia-search-modal-search-input-height: 44px;
     font-weight: 900;
     font-size: 12px;
     line-height: $beta-height;
-    background: linear-gradient(50.7deg, #63d0ff 0%, #844fba 100%);
+    background: linear-gradient(92deg, #6c48cc -0.05%, #9242bb 100.68%);
     border-radius: calc($beta-height / 2);
     content: "Beta";
   }
@@ -154,6 +152,10 @@ $doc-algolia-search-modal-search-input-height: 44px;
   &::placeholder {
     color: var(--doc-color-gray-300);
     opacity: 1;
+  }
+
+  &:hover {
+    border-color: var(--doc-color-gray-300);
   }
 
   &:focus-visible {
@@ -179,13 +181,13 @@ $doc-algolia-search-modal-search-input-height: 44px;
   padding: 4px 16px;
   color: var(--doc-color-gray-200);
   background-color: var(--doc-color-gray-600);
-  border: 1px solid var(--doc-color-gray-500);
+  border: 1px solid var(--doc-color-gray-400);
   border-radius: 3px;
   cursor: pointer;
 
   &:hover {
     background-color: var(--doc-color-gray-500);
-    border-color: var(--doc-color-gray-400);
+    border-color: var(--doc-color-gray-300);
   }
 
   &:active {
