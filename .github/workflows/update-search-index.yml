@@ -1,0 +1,43 @@
+name: Update Search Index
+    
+on:
+  push:
+    branches:
+      - main
+
+env:
+  NODE_VERSION: '20.x'
+
+jobs:
+  conditional-skip:
+    runs-on: ubuntu-latest 
+    name: Get files changed and conditionally skip updating the index
+    outputs:
+      trigger-ci: ${{ steps.read-files.outputs.trigger-ci }}
+    steps:
+      - uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        with:
+          fetch-depth: 0  
+      - name: Get changed files
+        id: read-files
+        run: ./.github/scripts/filter_changed_files.sh "website" "packages/flight-icons/catalog.json" "packages/tokens/dist/docs/products/tokens.json"
+
+  lint:
+    needs: [conditional-skip]
+    name: Update Search Index
+    runs-on: ubuntu-latest
+    if: needs.conditional-skip.outputs.trigger-ci == 'true'
+    steps:
+      - uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+      - name: Install Node
+        uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d # v3.8.1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: yarn
+          cache-dependency-path: yarn.lock
+      - name: Update Search Index
+        run: yarn workspace website algolia:index
+        env:
+          ALGOLIA_APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
+          ALGOLIA_API_KEY_ADMIN: ${{ secrets.ALGOLIA_API_KEY_ADMIN }}
+          ALGOLIA_INDEX_ID: ${{ secrets.ALGOLIA_INDEX_ID }}
