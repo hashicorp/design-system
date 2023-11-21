@@ -25,6 +25,9 @@ jobs:
       - name: Install Dependencies
         run: yarn install --immutable
 
+      - name: Build website
+        run: yarn workspace website build
+
       - name: Update Search Index
         run: yarn workspace website algolia:index
         env:
