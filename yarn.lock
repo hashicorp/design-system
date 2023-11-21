@@ -21346,6 +21346,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"object-hash@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "object-hash@npm:3.0.0"
+  checksum: f498d456a20512ba7be500cef4cf7b3c183cc72c65372a549c9a0e6dd78ce26f375e9b1315c07592d3fde8f10d5019986eba35970570d477ed9a2a702514432a
+  languageName: node
+  linkType: hard
+
 "object-inspect@npm:^1.12.0, object-inspect@npm:^1.9.0":
   version: 1.12.2
   resolution: "object-inspect@npm:1.12.2"
@@ -27520,6 +27527,7 @@ __metadata:
     mdast-util-from-markdown: "npm:^2.0.0"
     mdast-util-to-string: "npm:^4.0.0"
     npm-run-all: "npm:^4.1.5"
+    object-hash: "npm:^3.0.0"
     prember: "npm:^2.0.0"
     prember-middleware: "npm:^0.1.0"
     prember-sitemap-generator: "https://github.com/shipshapecode/prember-sitemap-generator.git#commit=c95f47042d86c4fa7b8b631f271da090672e13df"

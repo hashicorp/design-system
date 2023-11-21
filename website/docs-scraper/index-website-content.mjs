@@ -21,6 +21,7 @@ import dotenv from 'dotenv';
 import fs from 'fs-extra';
 import path from 'path';
 import chalk from 'chalk';
+import hash from 'object-hash';
 
 // import { pick } from 'lodash'; // not sure why this doesn't work in a `.mjs` module
 import _ from 'lodash';
@@ -204,10 +205,11 @@ async function indexWebsiteContent() {
           record: currBaseRecord,
           content: tabContent,
         });
-        // add the page title to the record's hierarchy
-        records.forEach(
-          (record) => (record.hierarchy.lvl1 = pageMetadata.title)
-        );
+        // add the objectID to the records and the page title to the records' hierarchy
+        records.forEach((record) => {
+          record.objectID = `record__content-${record.type}-${hash(record)}`; // https://www.algolia.com/doc-beta/guides/sending-and-managing-data/send-and-update-your-data#unique-object-identifiers
+          record.hierarchy.lvl1 = pageMetadata.title;
+        });
         // add the records to the algolia list
         algoliaRecords.push(...records);
       });
@@ -221,14 +223,18 @@ async function indexWebsiteContent() {
         record: currBaseRecord,
         content: pageContent,
       });
-      // add the page title to the record's hierarchy
-      records.forEach((record) => (record.hierarchy.lvl1 = pageMetadata.title));
+      // add the objectID to the records and the page title to the records' hierarchy
+      records.forEach((record) => {
+        record.objectID = `record__content-${record.type}-${hash(record)}`; // https://www.algolia.com/doc-beta/guides/sending-and-managing-data/send-and-update-your-data#unique-object-identifiers
+        record.hierarchy.lvl1 = pageMetadata.title;
+      });
       // add the records to the algolia list
       algoliaRecords.push(...records);
     }
 
     // add a custom entry for the top-page
     const topPageRecord = _.merge({}, algoliaBaseRecord, {
+      objectID: `record__page-${hash(pageURL)}`, // https://www.algolia.com/doc-beta/guides/sending-and-managing-data/send-and-update-your-data#unique-object-identifiers
       searchResultURL: `/${pageURL}`,
       pageTab: null,
       level: 0, // we use `level=0` here to put it on top of the other pages
