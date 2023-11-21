@@ -10,24 +10,9 @@ env:
   NODE_VERSION: '20.x'
 
 jobs:
-  conditional-skip:
-    runs-on: ubuntu-latest 
-    name: Get files changed and conditionally skip updating the index
-    outputs:
-      trigger-ci: ${{ steps.read-files.outputs.trigger-ci }}
-    steps:
-      - uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
-        with:
-          fetch-depth: 0  
-      - name: Get changed files
-        id: read-files
-        run: ./.github/scripts/filter_changed_files.sh "website" "packages/flight-icons/catalog.json" "packages/tokens/dist/docs/products/tokens.json"
-
   update_index:
-    needs: [conditional-skip]
     name: Update Search Index
     runs-on: ubuntu-latest
-    if: needs.conditional-skip.outputs.trigger-ci == 'true'
     steps:
       - uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
       - name: Install Node
@@ -39,6 +24,9 @@ jobs:
           
       - name: Install Dependencies
         run: yarn install --immutable
+
+      - name: Build website
+        run: yarn workspace website build
 
       - name: Update Search Index
         run: yarn workspace website algolia:index
