@@ -150,8 +150,7 @@ export default class DocAlgoliaSearchComponent extends Component {
         }
       },
       render({ elements, render, html }, root) {
-        const { suggestions, content, icons, tokens, recentSearchesPlugin } =
-          elements;
+        const { suggestions, content, icons, tokens } = elements;
 
         render(
           html`
@@ -159,9 +158,6 @@ export default class DocAlgoliaSearchComponent extends Component {
               <div class="aa-PanelSources">
                 <!-- SUGGESTIONS -->
                 ${suggestions}
-                <!-- RECENT SEARCHES -->
-                <!-- RECENT SEARCHES -->
-                <!--${recentSearchesPlugin}</div>-->
                 <!-- CONTENT ("GENERIC") -->
                 ${content}
                 <!-- ICONS -->
@@ -191,10 +187,11 @@ export default class DocAlgoliaSearchComponent extends Component {
     const alternativeTrigger = document.getElementById(
       'doc-algolia-search-autocomplete-secondary-trigger'
     );
-    alternativeTrigger.addEventListener('click', () => {
-      console.log('THIS SHOULD OPEN THE SEARCH');
-      autocompleteInstance.setIsOpen(true);
-    });
+    if (alternativeTrigger) {
+      alternativeTrigger.addEventListener('click', () => {
+        autocompleteInstance.setIsOpen(true);
+      });
+    }
 
     // add event listener to open/close the modal via `command-K` hot-key
     document.addEventListener('keydown', (event) => {
