@@ -39,6 +39,10 @@
     width: 16px;
     height: 16px;
     color: inherit;
+
+    &:hover { // we need this to avoid overwriting by the `aa-SubmitIcon` class, which is the same classname used in the modal form
+      color: inherit;
+    }
   }
 }
 
