@@ -819,6 +819,57 @@
     </div>
   </div>
 
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Table with <code>colspan/rowspan</code> attributes</Shw::Text::H3>
+
+  <Hds::Table>
+    <:head as |H|>
+      <H.Tr>
+        <H.Th>Lorem</H.Th>
+        <H.Th>Ipsum</H.Th>
+        <H.Th>Dolor</H.Th>
+        <H.Th>Sit amet</H.Th>
+      </H.Tr>
+    </:head>
+    <:body as |B|>
+      <B.Tr>
+        <B.Th rowspan="3">Scope Row with rowspan="3"</B.Th>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+      </B.Tr>
+      <B.Tr>
+        <B.Td colspan="2">Cell Content with colspan="2"</B.Td>
+        <B.Td>Cell Content</B.Td>
+      </B.Tr>
+      <B.Tr>
+        <B.Td colspan="3">Cell Content with colspan="3"</B.Td>
+      </B.Tr>
+      <B.Tr>
+        <B.Th rowspan="2">Scope Row with rowspan="2"</B.Th>
+        <B.Td>Cell Content</B.Td>
+        <B.Td rowspan="3">Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+      </B.Tr>
+      <B.Tr>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+      </B.Tr>
+      <B.Tr>
+        <B.Th>Scope Row</B.Th>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+      </B.Tr>
+      <B.Tr>
+        <B.Th>Scope Row</B.Th>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
   <Shw::Divider />
 
   <Shw::Text::H2>Base elements</Shw::Text::H2>
