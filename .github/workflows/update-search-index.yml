@@ -23,7 +23,7 @@ jobs:
         id: read-files
         run: ./.github/scripts/filter_changed_files.sh "website" "packages/flight-icons/catalog.json" "packages/tokens/dist/docs/products/tokens.json"
 
-  lint:
+  update_index:
     needs: [conditional-skip]
     name: Update Search Index
     runs-on: ubuntu-latest
