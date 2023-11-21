@@ -59,32 +59,32 @@ When the Modal dialog contains information that might be lost on close, use a co
     @onClose={{fn this.deactivateModal "formModalActive"}}
     as |M|
   >
-    <M.Header>
-      Why do you want to leave the beta?
-    </M.Header>
-    <M.Body>
-      <form name="leaving-beta-form">
-        <Hds::Form::Select::Field autofocus @width="100%" as |F|>
-          <F.Label>Select the primary reason</F.Label>
-          <F.Options>
-            <option></option>
-          </F.Options>
-        </Hds::Form::Select::Field>
-        <Hds::Form::Textarea::Field @isOptional={{true}} as |F|>
-          <F.Label>Your feedback</F.Label>
-        </Hds::Form::Textarea::Field>
-      </form>
-    </M.Body>
-    <M.Footer as |F|>
-      <Hds::ButtonSet>
-        <Hds::Button type="submit" @text="Leave Beta"
-          {{on "click" (fn this.deactivateModal "formModalActive")}}
-        />
-        <Hds::Button type="button" @text="Cancel" @color="secondary"
-          {{on "click" F.close}}
-        />
-      </Hds::ButtonSet>
-    </M.Footer>
+    <form name="leaving-beta-form">
+      <M.Header>
+        Why do you want to leave the beta?
+      </M.Header>
+      <M.Body>
+          <Hds::Form::Select::Field autofocus @width="100%" as |F|>
+            <F.Label>Select the primary reason</F.Label>
+            <F.Options>
+              <option></option>
+            </F.Options>
+          </Hds::Form::Select::Field>
+          <Hds::Form::Textarea::Field @isOptional={{true}} as |F|>
+            <F.Label>Your feedback</F.Label>
+          </Hds::Form::Textarea::Field>
+      </M.Body>
+      <M.Footer as |F|>
+        <Hds::ButtonSet>
+          <Hds::Button type="submit" @text="Leave Beta"
+            {{on "click" (fn this.deactivateModal "formModalActive")}}
+          />
+          <Hds::Button type="button" @text="Cancel" @color="secondary"
+            {{on "click" F.close}}
+          />
+        </Hds::ButtonSet>
+      </M.Footer>
+    </form>
   </Hds::Modal>
 {{/if}}
 ```
