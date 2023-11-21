@@ -23,16 +23,17 @@ const snippetInitialText = (text) => {
   }
 };
 
-// inspired by https://github.com/segmentio/segment-docs/blob/7b1f937854249bb6fbdfb0d24b20ddd443845749/js/algolia/highlight.js#L12-L18
+// inspired by https://github.com/segmentio/segment-docs/blob/7b1f937854249bb6fbdfb0d24b20ddd443845749/js/algolia/highlight.js#L12-L18 + https://github.com/knocklabs/docs/blob/51d0876db2dce44d8b87c27cb06e44fe275b7ae5/components/Autocomplete.tsx#L38-L51
 function concatPartsAsHtml({ html, parts }) {
-  return parts.reduce((acc, current) => {
-    // IMPORTANT! don't add a space between the accumulator and the appended content and before/after the returned HTML
-    if (current.isHighlighted) {
-      return html`${acc}<mark>${current.value}</mark>`;
-    } else {
-      return html`${acc}${current.value}`;
-    }
-  }, []);
+  return html`
+    ${parts.map((part) => {
+      if (part.isHighlighted) {
+        return html`<mark>${part.value}</mark>`;
+      } else {
+        return part.value;
+      }
+    })}
+  `;
 }
 
 export const htmlTemplatesItemBody = ({ item, html, components }) => {
