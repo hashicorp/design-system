@@ -17,4 +17,10 @@
       pointer-events: none;
     }
   }
+
+  #form-modal {
+    .hds-form-field--layout-vertical:first-child {
+      margin-bottom: 20px;
+    }
+  }
 }
