@@ -35,6 +35,12 @@ export default class DocAlgoliaSearchComponent extends Component {
       translations: {
         detachedCancelButtonText: 'Close', // https://www.algolia.com/doc/ui-libraries/autocomplete/api-reference/autocomplete-js/autocomplete/#param-translations
       },
+      onStateChange: ({ state, prevState }) => {
+        // used to reset the query to an empty state/string when the modal is closed (via "click" or "esc" key)
+        if (!state.isOpen && prevState.isOpen) {
+          autocompleteInstance.setQuery('');
+        }
+      },
 
       //
       // GET SOURCES
