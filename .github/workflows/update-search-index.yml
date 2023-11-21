@@ -36,6 +36,10 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: yarn
           cache-dependency-path: yarn.lock
+          
+      - name: Install Dependencies
+        run: yarn install --immutable
+
       - name: Update Search Index
         run: yarn workspace website algolia:index
         env:
