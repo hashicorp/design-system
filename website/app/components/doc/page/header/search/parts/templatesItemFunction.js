@@ -9,8 +9,9 @@ import { htmlTemplatesItemExtra } from './htmlTemplatesItemExtra';
 
 export const templatesItemFunction = () => {
   return ({ item, components, html }) => {
-    const itemType = item.type || 'UNKNOWN TYPE';
-    console.log(`ITEM / ${itemType.toUpperCase()}`, item);
+    // DEBUG - Very useful for debugging, don't delete it
+    // const itemType = item.type || 'UNKNOWN TYPE';
+    // console.log(`ITEM / ${itemType.toUpperCase()}`, item);
 
     // IMPORTANT! to use html`${something}`, `something` needs to be DOM nodes, it can't be a string, or it will render HTML as a string!
     // see: https://www.algolia.com/doc/ui-libraries/autocomplete/core-concepts/templates/#with-a-shim
