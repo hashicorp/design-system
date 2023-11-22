@@ -7,6 +7,7 @@ import { module, test } from 'qunit';
 import { visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'website/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
+import { globalAxeOptions } from 'website/tests/a11y-helper';
 
 module('Acceptance | components/dropdown', function (hooks) {
   setupApplicationTest(hooks);
@@ -19,7 +20,7 @@ module('Acceptance | components/dropdown', function (hooks) {
 
   test('components/dropdown page passes automated a11y checks', async function (assert) {
     await visit('/components/dropdown');
-    await a11yAudit();
+    await a11yAudit(globalAxeOptions);
     assert.ok(true, 'a11y automation audit passed');
   });
 });
