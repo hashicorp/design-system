@@ -34,11 +34,24 @@ export default class Index extends Component {
 
   get filteredIcons() {
     if (this.searchQuery) {
-      return this.allIcons.filter(
-        (i) =>
-          i.size === this.selectedIconSize &&
-          i.searchable.indexOf(this.searchQuery) !== -1
-      );
+      // check if the query is for an exact match (prefixed with `icon:`)
+      if (this.searchQuery.match(/^icon:/)) {
+        const exactIconName = this.searchQuery
+          .replace(/^icon:/, '')
+          .replace(/(-16|-24)$/, '');
+        const icon = this.allIcons.find((i) => {
+          return (
+            i.iconName === exactIconName && i.size === this.selectedIconSize
+          );
+        });
+        return icon ? [icon] : [];
+      } else {
+        return this.allIcons.filter(
+          (i) =>
+            i.size === this.selectedIconSize &&
+            i.searchable.indexOf(this.searchQuery) !== -1
+        );
+      }
     } else {
       return this.allIcons.filter((i) => i.size === this.selectedIconSize);
     }
