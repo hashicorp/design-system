@@ -493,7 +493,7 @@
 
   <Shw::Text::H2>Customization</Shw::Text::H2>
 
-  <Shw::Text::H4 @tag="h3">Sortable table, last column not sortable and has custom width.</Shw::Text::H4>
+  <Shw::Text::H4 @tag="h3">Sortable table, last column not sortable, visually hidden and with custom width.</Shw::Text::H4>
 
   <Hds::Table
     @model={{this.model.music}}
@@ -501,7 +501,7 @@
       (hash key="artist" label="Artist" isSortable=true)
       (hash key="album" label="Album" isSortable=true)
       (hash key="year" label="Release Year" isSortable=true)
-      (hash key="other" label="Other" width="55px" align="right")
+      (hash key="other" label="Select an action from the menu" width="55px" isVisuallyHidden=true)
     }}
     @valign="middle"
   >
@@ -920,8 +920,8 @@
 
   <Shw::Text::H3>Th</Shw::Text::H3>
 
-  <Shw::Flex @label="Th with custom width" as |SF|>
-    <SF.Item @grow={{true}}>
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="Th with custom width" @grow={{true}}>
       <Hds::Table>
         <:head as |H|>
           <H.Tr>
@@ -937,6 +937,32 @@
             <B.Td>Cell Content</B.Td>
             <B.Td>Cell Content</B.Td>
             <B.Td>100px</B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+    </SF.Item>
+    <SF.Item @label="Th with visually hidden text" @grow={{true}}>
+      <Hds::Table>
+        <:head as |H|>
+          <H.Tr>
+            <H.Th>Lorem</H.Th>
+            <H.Th>Ipsum</H.Th>
+            <H.Th>Dolor</H.Th>
+            <H.Th @isVisuallyHidden={{true}}>Sit amet</H.Th>
+          </H.Tr>
+        </:head>
+        <:body as |B|>
+          <B.Tr>
+            <B.Th>Scope Row</B.Th>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+          </B.Tr>
+          <B.Tr>
+            <B.Th @isVisuallyHidden={{true}}>Scope Row</B.Th>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
           </B.Tr>
         </:body>
       </Hds::Table>
