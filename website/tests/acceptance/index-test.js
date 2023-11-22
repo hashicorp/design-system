@@ -7,6 +7,9 @@ import { module, test } from 'qunit';
 import { visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'website/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
+import { globalAxeOptions } from 'website/tests/a11y-helper';
+
+import { merge } from 'lodash';
 
 module('Acceptance | index', function (hooks) {
   setupApplicationTest(hooks);
@@ -18,15 +21,16 @@ module('Acceptance | index', function (hooks) {
   });
 
   test('Homepage (index) passes a11y automated checks', async function (assert) {
-    let axeOptions = {
+    let axeOptions = merge(globalAxeOptions, {
       rules: {
         list: {
           enabled: false,
         },
       },
-    };
+    });
 
     await visit('/');
+
     await a11yAudit(axeOptions);
 
     assert.ok(true, 'a11y automation audit passed');

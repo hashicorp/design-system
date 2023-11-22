@@ -7,6 +7,9 @@ import { module, test } from 'qunit';
 import { visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'website/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
+import { globalAxeOptions } from 'website/tests/a11y-helper';
+
+import { merge } from 'lodash';
 
 module('Acceptance | components/side-nav', function (hooks) {
   setupApplicationTest(hooks);
@@ -17,12 +20,13 @@ module('Acceptance | components/side-nav', function (hooks) {
     assert.strictEqual(currentURL(), '/components/side-nav');
   });
   test('Components/side-nav page passes automated a11y checks', async function (assert) {
-    let axeOptions = {
+    let axeOptions = merge(globalAxeOptions, {
       rules: {
         'duplicate-id-aria': { enabled: false },
         'duplicate-id-active': { enabled: false },
       },
-    };
+    });
+
     await visit('/components/side-nav');
 
     await a11yAudit(axeOptions);
