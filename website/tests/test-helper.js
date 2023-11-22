@@ -10,15 +10,11 @@ import { setApplication } from '@ember/test-helpers';
 import { setup } from 'qunit-dom';
 import { start } from 'ember-qunit';
 import { setRunOptions } from 'ember-a11y-testing/test-support';
+import { globalAxeOptions } from 'website/tests/a11y-helper';
 
 setApplication(Application.create(config.APP));
 
-setRunOptions({
-  rules: {
-    'color-contrast': { enabled: false },
-    list: { enabled: false },
-  },
-});
+setRunOptions(globalAxeOptions);
 
 setup(QUnit.assert);
 
