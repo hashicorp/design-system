@@ -53,6 +53,9 @@ The Table component itself is where most of the options will be applied. However
       <D.Property @name="width" @type="string" @valueNote="Any valid CSS">
         If set, determines the column’s width.
       </D.Property>
+      <C.Property @name="isVisuallyHidden" @type="boolean" @default="false">
+        If set to `true`, it visually hides the column’s text content (it will still be available to screen readers for accessibility). <em>Only available for non-sortable columns.</em>
+      </C.Property>
       <D.Property @name="sortingFunction" @type="function">
         Callback function to provide support for custom sorting logic. It should implement a typical bubble-sorting algorithm using two elements and comparing them. For more details, see the example of custom sorting in the How To Use section.
       </D.Property>
@@ -123,6 +126,9 @@ If the `Th` component is passed as the first cell of a table body row, `scope="r
   </C.Property>
   <C.Property @name="width" @type="string" @valueNote="Any valid CSS">
     If set, determines the column’s width.
+  </C.Property>
+  <C.Property @name="isVisuallyHidden" @type="boolean" @default="false">
+    If set to `true`, it visually hides the column’s text content (it will still be available to screen readers for accessibility).
   </C.Property>
   <C.Property @name="yield">
     Elements passed as children of this component are yielded inside the `<th>` element.
