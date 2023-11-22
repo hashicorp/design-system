@@ -3,5 +3,9 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <th class={{this.classNames}} {{style width=@width minWidth=@width}} ...attributes scope={{(or @scope "col")}}>
-  {{yield}}
+  {{#if @isVisuallyHidden}}
+    <span class="sr-only">{{yield}}</span>
+  {{else}}
+    {{yield}}
+  {{/if}}
 </th>
