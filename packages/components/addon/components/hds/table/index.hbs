@@ -22,7 +22,11 @@
               {{column.label}}
             </Hds::Table::ThSort>
           {{else}}
-            <Hds::Table::Th @align={{column.align}} @width={{column.width}}>{{column.label}}</Hds::Table::Th>
+            <Hds::Table::Th
+              @align={{column.align}}
+              @width={{column.width}}
+              @isVisuallyHidden={{column.isVisuallyHidden}}
+            >{{column.label}}</Hds::Table::Th>
           {{/if}}
         {{/each}}
       </Hds::Table::Tr>
