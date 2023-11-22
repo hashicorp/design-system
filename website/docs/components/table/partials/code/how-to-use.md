@@ -595,10 +595,10 @@ Here’s a Table implementation that uses an array hash with localized strings f
 <Hds::Table
   @model={{this.model.myDemoData}}
   @columns={{array
-      (hash key='artist' label=(t 'components.table.headers.artist') isSortable=true)
-      (hash key='album' label=(t 'components.table.headers.album') isSortable=true)
-      (hash key='year' label=(t 'components.table.headers.year') isSortable=true)
-      (hash key='other' label=(t 'global.titles.other'))
+      (hash key="artist" label=(t "components.table.headers.artist") isSortable=true)
+      (hash key="album" label=(t "components.table.headers.album") isSortable=true)
+      (hash key="year" label=(t "components.table.headers.year") isSortable=true)
+      (hash key="other" label=(t "global.titles.other"))
     }}
 >
   <:body as |B|>
@@ -609,17 +609,17 @@ Here’s a Table implementation that uses an array hash with localized strings f
       <B.Td>
           <Hds::Dropdown as |dd|>
             <dd.ToggleIcon
-              @icon='more-horizontal'
-              @text='Overflow Options'
+              @icon="more-horizontal"
+              @text="Overflow Options"
               @hasChevron={{false}}
-              @size='small'
+              @size="small"
             />
-            <dd.Interactive @route='components.table' @text='Create' />
-            <dd.Interactive @route='components.table' @text='Read' />
-            <dd.Interactive @route='components.table' @text='Update' />
+            <dd.Interactive @href="#" @text="Create" />
+            <dd.Interactive @href="#" @text="Read" />
+            <dd.Interactive @href="#" @text="Update" />
             <dd.Separator />
             <dd.Interactive
-              @route='components.table'
+              @href="#"
               @text='Delete'
               @color='critical'
               @icon='trash'
