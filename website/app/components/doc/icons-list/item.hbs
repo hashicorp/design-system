@@ -18,5 +18,16 @@
     <Doc::MetaRow @label="Ember" @valueToCopy={{@meta.iconName}} @copyable={{true}} />
     <Doc::MetaRow @label="React" @valueToCopy={{@meta.name}} @copyable={{true}} />
     <Doc::MetaRow @label="Keywords" @valueToShow={{@meta.description}} />
+    {{#let (concat "icon:" @meta.iconName) as |searchQueryValue|}}
+      <LinkTo
+        class="doc-icons-list-grid-item__permalink"
+        @route="show"
+        @model="icons/library"
+        @query={{hash searchQuery=searchQueryValue selectedIconSize=@meta.size}}
+        aria-label="Permalink for the {{@meta.iconName}} icon"
+      >
+        <FlightIcon class="doc-icons-list-grid-item__permalink-icon" @name="link" />
+      </LinkTo>
+    {{/let}}
   </div>
 </li>

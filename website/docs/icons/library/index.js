@@ -5,7 +5,6 @@
 
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
 import { restartableTask, timeout } from 'ember-concurrency';
 import { inject as service } from '@ember/service';
 
@@ -16,12 +15,6 @@ const DEBOUNCE_MS = 250;
 export default class Index extends Component {
   @service router;
 
-  // query params come from `controllers/show.js` and we access them here because there
-  // is no "controller" for individual component documentation routes
-  @tracked selectedIconSize =
-    this.router.currentRoute.queryParams['selectedIconSize'] || '24';
-  @tracked searchQuery = this.router.currentRoute.queryParams['searchQuery'];
-
   allIcons = catalog.assets.map(({ iconName, fileName, size, description }) => {
     return {
       iconName: `${iconName}`,
@@ -31,6 +24,14 @@ export default class Index extends Component {
       searchable: `${iconName}, ${description}`,
     };
   });
+
+  get searchQuery() {
+    return this.router.currentRoute.queryParams['searchQuery'];
+  }
+
+  get selectedIconSize() {
+    return this.router.currentRoute.queryParams['selectedIconSize'] || '24';
+  }
 
   get filteredIcons() {
     if (this.searchQuery) {
@@ -57,30 +58,24 @@ export default class Index extends Component {
     }
   }
 
-  updateQueryParams() {
-    const newQueryParams = { queryParams: {} };
-    if (this.searchQuery) {
-      newQueryParams.queryParams.searchQuery = this.searchQuery;
-    } else {
-      newQueryParams.queryParams.searchQuery = null;
-    }
-
-    if (this.selectedIconSize) {
-      newQueryParams.queryParams.selectedIconSize = this.selectedIconSize;
-    }
-    this.router.transitionTo(newQueryParams);
-  }
-
   @action
   selectIconSize(event) {
-    this.selectedIconSize = event.target.value;
-    this.updateQueryParams();
+    this.router.transitionTo({
+      queryParams: {
+        searchQuery: this.searchQuery,
+        selectedIconSize: event.target.value,
+      },
+    });
   }
 
   @restartableTask *searchIcons(searchQuery) {
     yield timeout(DEBOUNCE_MS);
 
-    this.searchQuery = searchQuery;
-    this.updateQueryParams();
+    this.router.transitionTo({
+      queryParams: {
+        searchQuery: searchQuery !== '' ? searchQuery : null,
+        selectedIconSize: this.selectedIconSize,
+      },
+    });
   }
 }
