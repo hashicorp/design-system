@@ -147,8 +147,8 @@ Below you can find an example of an integration between the sortable [`Table`](/
   <Hds::Table
     @model={{this.demoPaginatedDataNumbered}}
     @columns={{array
-      (hash key="id" label="ID" isSortable="true")
-      (hash key="name" label="Name" isSortable="true")
+      (hash key="id" label="ID" isSortable=true)
+      (hash key="name" label="Name" isSortable=true)
       (hash key="email" label="Email")
       (hash key="role" label="Role")
     }}
