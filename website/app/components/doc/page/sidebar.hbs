@@ -35,18 +35,7 @@
         </li>
       </ul>
     </nav>
-    {{#if (or this.structuredPageTree this.isFiltered)}}
-      <div class="doc-page-sidebar__filter">
-        <Doc::Form::Filter
-          @filterQuery={{this.filterQuery}}
-          @placeholder="Filter sidebar"
-          autocomplete="off"
-          autocorrect="off"
-          autocapitalize="none"
-          spellcheck="false"
-          @onInput={{this.filterPageTree}}
-        />
-      </div>
+    {{#if this.structuredPageTree}}
       <nav class="doc-page-sidebar__table-of-contents" aria-label="secondary page navigation">
         {{#if this.hasTableOfContents}}
           <Doc::TableOfContents @structuredPageTree={{this.structuredPageTree}} @depth={{1}} />
