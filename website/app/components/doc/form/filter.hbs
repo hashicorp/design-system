@@ -3,14 +3,14 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<div class="doc-form-search">
+<div class="doc-form-filter">
   {{#let (unique-id) as |searchId|}}
     <Doc::Form::Label @for={{searchId}} @label={{@label}} />
     <input
       type="search"
       name="search"
       id={{searchId}}
-      class="doc-form-search__control"
+      class="doc-form-filter__control"
       placeholder={{@placeholder}}
       value={{@searchQuery}}
       {{on "input" (perform @onInput value="target.value")}}
