@@ -97,18 +97,13 @@ Tabs will fill 100% of the parent container, unless explicitly set to something 
   <T.Tab>Alice in Wonderland</T.Tab>
   <T.Tab>Lady Windermere’s Fan</T.Tab>
   <T.Tab>Dune</T.Tab>
-  <T.Tab>The Handmaid’s Tale</T.Tab>
   <T.Tab>To Kill a Mockingbird</T.Tab>
   <T.Tab>Fahrenheit 451</T.Tab>
-  <T.Tab>Slaughterhouse-Five</T.Tab>
   <T.Tab>Handle With Care</T.Tab>
   <T.Tab>Oh, the Places You’ll Go!</T.Tab>
-  <T.Tab>Barrel Fever</T.Tab>
   <T.Tab>I am No One You Know</T.Tab>
-  <T.Tab>Harry Potter and the Goblet of Fire</T.Tab>
   <T.Tab>Twilight of the Idols</T.Tab>
   <T.Tab>Song of Myself</T.Tab>
-  <T.Tab>This is My Story</T.Tab>
   <T.Tab>The Secret History</T.Tab>
   <T.Tab>Poems of Arthur O’Shaughnessy</T.Tab>
   <T.Panel>“A heart is not judged by how much you love; but by how much you are loved by others” – <em>L. Frank Baum, The Wonderful Wizard of Oz</em></T.Panel>
@@ -117,18 +112,13 @@ Tabs will fill 100% of the parent container, unless explicitly set to something 
   <T.Panel>“Why, sometimes I’ve believed as many as six impossible things before breakfast.” – <em>Lewis Carroll, Alice in Wonderland</em></T.Panel>
   <T.Panel>“We are all in the gutter, but some of us are looking at the stars.” – <em>Oscar Wilde, Lady Windermere’s Fan</em></T.Panel>
   <T.Panel>“I must not fear. Fear is the mind-killer. Fear is the little-death that brings total obliteration. I will face my fear. I will permit it to pass over me and through me. And when it has gone past I will turn the inner eye to see its path. Where the fear has gone there will be nothing. Only I will remain.” – <em>Frank Herbert, Dune</em></T.Panel>
-  <T.Panel>“Nolite te bastardes carborundorum.” (Don’t let the bastards grind you down) – <em>Margaret Atwood, The Handmaid’s Tale</em></T.Panel>
   <T.Panel>“Atticus said to Jem one day, “I’d rather you shot at tin cans in the backyard, but I know you’ll go after birds. Shoot all the blue jays you want, if you can hit ‘em, but remember it’s a sin to kill a mockingbird.” That was the only time I ever heard Atticus say it was a sin to do something, and I asked Miss Maudie about it. “Your father’s right,” she said. “Mockingbirds don’t do one thing except make music for us to enjoy. They don’t eat up people’s gardens, don’t nest in corn cribs, they don’t do one thing but sing their hearts out for us. That’s why it’s a sin to kill a mockingbird.” – <em>Harper Lee, To Kill a Mockingbird</em></T.Panel>
   <T.Panel>“Stuff your eyes with wonder, he said, live as if you’d drop dead in ten seconds. See the world. It’s more fantastic than any dream made or paid for in factories.” – <em>Ray Bradbury, Fahrenheit 451</em></T.Panel>
-  <T.Panel>“And so it goes…” – <em>Kurt Vonnegut, Slaughterhouse-Five</em></T.Panel>
   <T.Panel>“You can tell yourself that you would be willing to lose everything you have in order to get something you want. But it’s a catch-22: all of those things you’re willing to lose are what make you recognizable. Lose them, and you’ve lost yourself.” – <em>Jodi Picoult, Handle With Care</em></T.Panel>
   <T.Panel>“You have brains in your head. You have feet in your shoes. You can steer yourself any direction you choose. You’re on your own. And you know what you know. And YOU are the one who’ll decide where to go…” – <em>Dr. Seuss, Oh, the Places You’ll Go!</em></T.Panel>
-  <T.Panel>“If you’re looking for sympathy you’ll find it between shit and syphilis in the dictionary.” – <em>David Sedaris, Barrel Fever</em></T.Panel>
   <T.Panel>“I had forgotten that time wasn’t fixed like concrete but in fact was fluid as sand, or water. I had forgotten that even misery can end. ” – <em>Joyce Carol Oates, I am No One You Know</em></T.Panel>
-  <T.Panel>“If you want to know what a man’s like, take a good look at how he treats his inferiors, not his equals.” – <em>J.K. Rowling, Harry Potter and the Goblet of Fire</em></T.Panel>
   <T.Panel>“Without music, life would be a mistake.” – <em>Friedrich Nietzsche, Twilight of the Idols</em></T.Panel>
   <T.Panel>“This is what you shall do; Love the earth and sun and the animals, despise riches, give alms to every one that asks, stand up for the stupid and crazy, devote your income and labor to others, hate tyrants, argue not concerning God, have patience and indulgence toward the people, take off your hat to nothing known or unknown or to any man or number of men, go freely with powerful uneducated persons and with the young and with the mothers of families, read these leaves in the open air every season of every year of your life, re-examine all you have been told at school or church or in any book, dismiss whatever insults your own soul, and your very flesh shall be a great poem and have the richest fluency not only in its words but in the silent lines of its lips and face and between the lashes of your eyes and in every motion and joint of your body.” – <em>Walt Whitman, Song of Myself</em></T.Panel>
-  <T.Panel>“No one can make you feel inferior without your consent.” – <em>Eleanor Roosevelt, This is My Story</em></T.Panel>
   <T.Panel>“It’s a very Greek idea, and a very profound one. Beauty is terror. Whatever we call beautiful, we quiver before it. And what could be more terrifying and beautiful, to souls like the Greeks or our own, than to lose control completely? To throw off the chains of being for an instant, to shatter the accident of our mortal selves? Euripides speaks of the Maenads: head thrown I back, throat to the stars, “more like deer than human being.” To be absolutely free! One is quite capable, of course, of working out these destructive passions in more vulgar and less efficient ways. But how glorious to release them in a single burst! To sing, to scream, to dance barefoot in the woods in the dead of night, with no more awareness of mortality than an animal! These are powerful mysteries. The bellowing of bulls. Springs of honey bubbling from the ground. If we are strong enough in our souls we can rip away the veil and look that naked, terrible beauty right in the face; let God consume us, devour us, unstring our bones. Then spit us out reborn.” – <em>Donna Tartt, The Secret History</em></T.Panel>
   <T.Panel>“We are the music-makers, And we are the dreamers of dreams, Wandering by lone sea-breakers, And sitting by desolate streams. World-losers and world-forsakers, Upon whom the pale moon gleams; Yet we are the movers and shakers, Of the world forever, it seems.” – <em>Arthur O’Shaughnessy, Poems of Arthur O’Shaughnessy</em></T.Panel>
 </Hds::Tabs>
