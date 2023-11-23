@@ -14,7 +14,7 @@ export async function populateAlgoliaRecords({ record, content }) {
 
   // DEBUG
   // console.log('HEADINGS', headings);
-  // console.log('PARAGRAPHS', paragraphs);
+  // console.log('PARAGRAPHS (including the ones that will then be excluded)', paragraphs);
   // console.log('TABLES', tables);
   // console.log('COMPONENT APIs', JSON.stringify(componentApis, null, 2));
   // console.log('WCAG LISTS', JSON.stringify(wcagLists, null, 2));

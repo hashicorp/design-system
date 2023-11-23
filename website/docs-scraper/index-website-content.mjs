@@ -45,17 +45,17 @@ dotenv.config();
 (async () => {
   try {
     console.log(
-      `\n==========\n${chalk.cyan(
-        'Website content indexing started...'
-      )}\n==========\n`
+      chalk.cyan(
+        '\n==============================\nWebsite content indexing started...\n==============================\n'
+      )
     );
 
     await indexWebsiteContent();
 
     console.log(
-      `\n==========\n${chalk.cyan(
-        'Website content indexing completed.'
-      )}\n==========\n`
+      chalk.cyan(
+        '\n==============================\nWebsite content indexing completed\n==============================\n'
+      )
     );
   } catch (err) {
     console.error(err);
@@ -91,6 +91,19 @@ async function indexWebsiteContent() {
   if (!DEV_SKIP_API_CALLS) {
     await algoliaIndex.clearObjects();
     console.log(chalk.green(`Algolia - Reset index "${ALGOLIA_INDEX_ID}"\n`));
+
+    // used to wait for the `clearObjects` to execute on Algolia (the API response is immediate, but the execution could take some time)
+    await new Promise((r) => setTimeout(r, 5000));
+
+    // make sure the index is empty, otherwise trigger a warning
+    const searchResults = await algoliaIndex.search('');
+    if (searchResults.nbHits > 0) {
+      console.error(
+        chalk.red(
+          `\nAlgolia - ERROR: - ${searchResults.nbHits} records are still available after resetting the index  ${ALGOLIA_INDEX_ID}"\n`
+        )
+      );
+    }
   } else {
     console.log(
       chalk.magenta(
@@ -99,12 +112,15 @@ async function indexWebsiteContent() {
     );
   }
 
-  // we batch the records "add" operation for better efficiency
-  const algoliaRecords = [];
-
   // --------------------------------
   // MARKDOWN FILES
   // --------------------------------
+
+  console.log(
+    chalk.white('\n\n==========\nProcessing markdown content:\n==========\n')
+  );
+
+  const markdownRecords = [];
 
   // get all the files in the `website/dist/docs` folder
   const files = await walkDir(config.distDocsFolder);
@@ -186,11 +202,11 @@ async function indexWebsiteContent() {
     const matches = [...matchAllResults];
 
     // console.log('========================================');
-    console.log(chalk.white(`Processing file: ${fileRelativePath}`));
+    console.log(`Processing file: ${fileRelativePath}`);
 
     if (matches.length) {
       // extract from each "section" the tab name and the actual content
-      matches.forEach(async (match) => {
+      for (const match of matches) {
         const tabName = match[1];
         const tabContent = match[2];
         const currBaseRecord = _.merge({}, algoliaBaseRecord, {
@@ -211,8 +227,8 @@ async function indexWebsiteContent() {
           record.hierarchy.lvl1 = pageMetadata.title;
         });
         // add the records to the algolia list
-        algoliaRecords.push(...records);
-      });
+        markdownRecords.push(...records);
+      }
     } else {
       // there are no tabs, all the content is directly in the page
       const currBaseRecord = _.merge({}, algoliaBaseRecord, {
@@ -229,7 +245,7 @@ async function indexWebsiteContent() {
         record.hierarchy.lvl1 = pageMetadata.title;
       });
       // add the records to the algolia list
-      algoliaRecords.push(...records);
+      markdownRecords.push(...records);
     }
 
     // add a custom entry for the top-page
@@ -248,18 +264,24 @@ async function indexWebsiteContent() {
         lvl6: null,
       },
     });
-    algoliaRecords.push(topPageRecord);
+    markdownRecords.push(topPageRecord);
   }
+
+  console.log(`\nProduced ${markdownRecords.length} content records`);
 
   // --------------------------------
   // TOKENS
   // --------------------------------
 
+  console.log(chalk.white('\n\n==========\nProcessing tokens:\n==========\n'));
+
+  let tokensRecords = [];
+
   // read the JSON file for the tokens
   const tokensJsonData = await fs.readJSON(config.tokensJsonFilePath);
 
   tokensJsonData.forEach((token) => {
-    algoliaRecords.push({
+    tokensRecords.push({
       // RECORD
       objectID: `record__token-${token.name}`, // https://www.algolia.com/doc-beta/guides/sending-and-managing-data/send-and-update-your-data#unique-object-identifiers
       // PAGE
@@ -282,11 +304,17 @@ async function indexWebsiteContent() {
     });
   });
 
-  console.log(chalk.white(`\nProcessed ${tokensJsonData.length} tokens`));
+  console.log(`Produced ${tokensRecords.length} token records`);
 
   // --------------------------------
   // ICONS
   // --------------------------------
+
+  console.log(
+    chalk.white('\n\n==========\nProcessing Flight icons:\n==========\n')
+  );
+
+  let iconsRecords = [];
 
   // read the JSON file for the Flight icons
   const flightIconsJsonData = await fs.readJSON(config.flightIconsJsonFilePath);
@@ -294,7 +322,7 @@ async function indexWebsiteContent() {
   const distinctIcons = _.uniqBy(flightIconsJsonData.assets, 'iconName');
 
   distinctIcons.forEach((icon) => {
-    algoliaRecords.push({
+    iconsRecords.push({
       // RECORD
       objectID: `record__icon-${icon.iconName}`, // https://www.algolia.com/doc-beta/guides/sending-and-managing-data/send-and-update-your-data#unique-object-identifiers
       // PAGE
@@ -315,21 +343,48 @@ async function indexWebsiteContent() {
     });
   });
 
-  console.log(chalk.white(`\nProcessed ${distinctIcons.length} Flight icons`));
+  console.log(`Produced ${iconsRecords.length} icon records`);
 
   // --------------------------------
-  // PUSH TO ALGOLIA
+  // PUSH RECORDS TO ALGOLIA
   // --------------------------------
+
+  console.log(
+    chalk.white('\n\n==========\nProcessing Algolia records:\n==========\n')
+  );
+
+  // we batch the records "add" operation for better efficiency
+  const algoliaRecords = [
+    ...markdownRecords,
+    ...tokensRecords,
+    ...iconsRecords,
+  ];
+
+  // make sure there are no duplicate records (with duplicate objectIDs)
+  // this may happen for example if the same text in a paragraph (eg. `The code has been simplified for clarity`) appears in the same page section
+  // or if we have multiple Component API properties (eg. `...attributes`) with the same description under the same "code" tab of a page
+  let algoliaRecordsDistinct = [];
+  let uniqueObjectIDs = [];
+  algoliaRecords.forEach((record) => {
+    if (!uniqueObjectIDs.includes(record.objectID)) {
+      algoliaRecordsDistinct.push(record);
+      uniqueObjectIDs.push(record.objectID);
+    }
+  });
+
+  // reverse the array so the indexed content is in the "natural" order as one finds it in the web pages
+  // otherwise Algolia will use the `objectID` field, in ascending order, and this leads to weird results
+  // see: https://support.algolia.com/hc/en-us/articles/11461259527825-Is-there-a-way-to-change-the-default-descending-order-of-ObjectID-upon-an-empty-search-
+  algoliaRecordsDistinct.reverse();
+
+  console.log(
+    `Ready to add ${algoliaRecordsDistinct.length} distinct records to Algolia index (out of ${algoliaRecords.length} collected)`
+  );
 
   if (!DEV_SKIP_API_CALLS) {
-    // reverse the array so the indexed content is in the "natural" order as one finds it in the web pages
-    // otherwise Algolia will use the `objectID` field, in ascending order, and this leads to weird results
-    // see: https://support.algolia.com/hc/en-us/articles/11461259527825-Is-there-a-way-to-change-the-default-descending-order-of-ObjectID-upon-an-empty-search-
-    algoliaRecords.reverse();
-
     // here we construct the request to be sent to Algolia with the `batch/multiBatch` method
     // see: https://www.algolia.com/doc/api-reference/api-methods/batch/
-    const algoliaRequests = algoliaRecords.map((record) => {
+    const algoliaRequests = algoliaRecordsDistinct.map((record) => {
       return {
         action: 'addObject',
         indexName: ALGOLIA_INDEX_ID,
@@ -343,13 +398,13 @@ async function indexWebsiteContent() {
 
     console.log(
       chalk.green(
-        `\nAlgolia - Added "${objectIDs.length}" objects to index ${ALGOLIA_INDEX_ID} with task "${taskID[ALGOLIA_INDEX_ID]}"\n`
+        `\n\nAlgolia - Sent ${algoliaRequests.length} API requests → Added "${objectIDs.length}" records to index ${ALGOLIA_INDEX_ID} with task "${taskID[ALGOLIA_INDEX_ID]}"\n`
       )
     );
   } else {
     console.log(
       chalk.magenta(
-        `\n[DEV-MODE] Algolia - Skipped adding objects to index ${ALGOLIA_INDEX_ID}"\n`
+        `\n\n[DEV-MODE] Algolia - Skipped adding objects to index ${ALGOLIA_INDEX_ID}"\n`
       )
     );
   }
