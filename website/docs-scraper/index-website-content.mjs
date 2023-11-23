@@ -251,6 +251,7 @@ async function indexWebsiteContent() {
     // add a custom entry for the top-page
     const topPageRecord = _.merge({}, algoliaBaseRecord, {
       objectID: `record__page-${hash(pageURL)}`, // https://www.algolia.com/doc-beta/guides/sending-and-managing-data/send-and-update-your-data#unique-object-identifiers
+      type: 'page',
       searchResultURL: `/${pageURL}`,
       pageTab: null,
       level: 0, // we use `level=0` here to put it on top of the other pages
