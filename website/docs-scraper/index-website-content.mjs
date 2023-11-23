@@ -91,6 +91,19 @@ async function indexWebsiteContent() {
   if (!DEV_SKIP_API_CALLS) {
     await algoliaIndex.clearObjects();
     console.log(chalk.green(`Algolia - Reset index "${ALGOLIA_INDEX_ID}"\n`));
+
+    // used to wait for the `clearObjects` to execute on Algolia (the API response is immediate, but the execution could take some time)
+    await new Promise((r) => setTimeout(r, 5000));
+
+    // make sure the index is empty, otherwise trigger a warning
+    const searchResults = await algoliaIndex.search('');
+    if (searchResults.nbHits > 0) {
+      console.error(
+        chalk.red(
+          `\nAlgolia - ERROR: - ${searchResults.nbHits} records are still available after resetting the index  ${ALGOLIA_INDEX_ID}"\n`
+        )
+      );
+    }
   } else {
     console.log(
       chalk.magenta(
