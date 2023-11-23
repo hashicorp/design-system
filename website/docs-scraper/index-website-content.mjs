@@ -45,17 +45,17 @@ dotenv.config();
 (async () => {
   try {
     console.log(
-      `\n==========\n${chalk.cyan(
-        'Website content indexing started...'
-      )}\n==========\n`
+      chalk.cyan(
+        '\n==============================\nWebsite content indexing started...\n==============================\n'
+      )
     );
 
     await indexWebsiteContent();
 
     console.log(
-      `\n==========\n${chalk.cyan(
-        'Website content indexing completed.'
-      )}\n==========\n`
+      chalk.cyan(
+        '\n==============================\nWebsite content indexing completed\n==============================\n'
+      )
     );
   } catch (err) {
     console.error(err);
@@ -112,12 +112,15 @@ async function indexWebsiteContent() {
     );
   }
 
-  // we batch the records "add" operation for better efficiency
-  const algoliaRecords = [];
-
   // --------------------------------
   // MARKDOWN FILES
   // --------------------------------
+
+  console.log(
+    chalk.white('\n\n==========\nProcessing markdown content:\n==========\n')
+  );
+
+  const markdownRecords = [];
 
   // get all the files in the `website/dist/docs` folder
   const files = await walkDir(config.distDocsFolder);
@@ -199,7 +202,7 @@ async function indexWebsiteContent() {
     const matches = [...matchAllResults];
 
     // console.log('========================================');
-    console.log(chalk.white(`Processing file: ${fileRelativePath}`));
+    console.log(`Processing file: ${fileRelativePath}`);
 
     if (matches.length) {
       // extract from each "section" the tab name and the actual content
@@ -224,7 +227,7 @@ async function indexWebsiteContent() {
           record.hierarchy.lvl1 = pageMetadata.title;
         });
         // add the records to the algolia list
-        algoliaRecords.push(...records);
+        markdownRecords.push(...records);
       });
     } else {
       // there are no tabs, all the content is directly in the page
@@ -242,7 +245,7 @@ async function indexWebsiteContent() {
         record.hierarchy.lvl1 = pageMetadata.title;
       });
       // add the records to the algolia list
-      algoliaRecords.push(...records);
+      markdownRecords.push(...records);
     }
 
     // add a custom entry for the top-page
@@ -261,18 +264,24 @@ async function indexWebsiteContent() {
         lvl6: null,
       },
     });
-    algoliaRecords.push(topPageRecord);
+    markdownRecords.push(topPageRecord);
   }
+
+  console.log(`\nProduced ${markdownRecords.length} content records`);
 
   // --------------------------------
   // TOKENS
   // --------------------------------
 
+  console.log(chalk.white('\n\n==========\nProcessing tokens:\n==========\n'));
+
+  let tokensRecords = [];
+
   // read the JSON file for the tokens
   const tokensJsonData = await fs.readJSON(config.tokensJsonFilePath);
 
   tokensJsonData.forEach((token) => {
-    algoliaRecords.push({
+    tokensRecords.push({
       // RECORD
       objectID: `record__token-${token.name}`, // https://www.algolia.com/doc-beta/guides/sending-and-managing-data/send-and-update-your-data#unique-object-identifiers
       // PAGE
@@ -295,11 +304,17 @@ async function indexWebsiteContent() {
     });
   });
 
-  console.log(chalk.white(`\nProcessed ${tokensJsonData.length} tokens`));
+  console.log(`Produced ${tokensRecords.length} token records`);
 
   // --------------------------------
   // ICONS
   // --------------------------------
+
+  console.log(
+    chalk.white('\n\n==========\nProcessing Flight icons:\n==========\n')
+  );
+
+  let iconsRecords = [];
 
   // read the JSON file for the Flight icons
   const flightIconsJsonData = await fs.readJSON(config.flightIconsJsonFilePath);
@@ -307,7 +322,7 @@ async function indexWebsiteContent() {
   const distinctIcons = _.uniqBy(flightIconsJsonData.assets, 'iconName');
 
   distinctIcons.forEach((icon) => {
-    algoliaRecords.push({
+    iconsRecords.push({
       // RECORD
       objectID: `record__icon-${icon.iconName}`, // https://www.algolia.com/doc-beta/guides/sending-and-managing-data/send-and-update-your-data#unique-object-identifiers
       // PAGE
@@ -328,10 +343,10 @@ async function indexWebsiteContent() {
     });
   });
 
-  console.log(chalk.white(`\nProcessed ${distinctIcons.length} Flight icons`));
+  console.log(`Produced ${iconsRecords.length} icon records`);
 
   // --------------------------------
-  // PUSH TO ALGOLIA
+  // PUSH RECORDS TO ALGOLIA
   // --------------------------------
 
   if (!DEV_SKIP_API_CALLS) {
@@ -372,13 +387,13 @@ async function indexWebsiteContent() {
 
     console.log(
       chalk.green(
-        `\nAlgolia - Added "${objectIDs.length}" objects to index ${ALGOLIA_INDEX_ID} with task "${taskID[ALGOLIA_INDEX_ID]}"\n`
+        `\n\nAlgolia - Sent ${algoliaRequests.length} API requests → Added "${objectIDs.length}" records to index ${ALGOLIA_INDEX_ID} with task "${taskID[ALGOLIA_INDEX_ID]}"\n`
       )
     );
   } else {
     console.log(
       chalk.magenta(
-        `\n[DEV-MODE] Algolia - Skipped adding objects to index ${ALGOLIA_INDEX_ID}"\n`
+        `\n\n[DEV-MODE] Algolia - Skipped adding objects to index ${ALGOLIA_INDEX_ID}"\n`
       )
     );
   }
