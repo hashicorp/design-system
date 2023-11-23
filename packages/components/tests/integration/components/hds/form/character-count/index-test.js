@@ -51,15 +51,19 @@ module(
       await render(
         hbs`
         <input type="hidden" value="with custom content" id="input-2"/>
-        <Hds::Form::CharacterCount @minLength={{3}} @maxLength={{40}} @controlId="input-2" id="test-form-character-count" as |CC|>
-          Entered {{CC.currentLength}} out of {{CC.maxLength}} characters.
-          {{CC.remainingLength}} characters remaining.
-          {{CC.minLength}}
+        <Hds::Form::CharacterCount @minLength={{20}} @maxLength={{40}} @controlId="input-2" id="test-form-character-count" as |CC|>
+          maxLength {{CC.maxLength}} 
+          minLength {{CC.minLength}} 
+          remaining {{CC.remaining}} 
+          shortfall {{CC.shortfall}} 
+          currentLength {{CC.currentLength}}
         </Hds::Form::CharacterCount>`
       );
       assert
         .dom('#test-form-character-count')
-        .hasText('Entered 19 out of 40 characters. 21 characters remaining. 3');
+        .hasText(
+          'maxLength 40 minLength 20 remaining 21 shortfall 1 currentLength 19'
+        );
     });
 
     // A11y

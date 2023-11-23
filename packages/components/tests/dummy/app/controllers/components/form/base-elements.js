@@ -16,11 +16,19 @@ export default class BaseElementsController extends Controller {
   }
 
   @action
-  onInput(inputControl, maxLength, minLength, currentLength, remainingLength) {
+  onInput(
+    inputControl,
+    maxLength,
+    minLength,
+    remaining,
+    shortfall,
+    currentLength
+  ) {
     console.log('inputControl', inputControl);
     console.log('maxLength', maxLength);
     console.log('minLength', minLength);
     console.log('currentLength', currentLength);
-    console.log('remainingLength', remainingLength);
+    console.log('remaining', remaining);
+    console.log('shortfall', shortfall);
   }
 }

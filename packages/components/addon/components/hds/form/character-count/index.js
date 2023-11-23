@@ -38,13 +38,23 @@ export default class HdsFormCharacterCountIndexComponent extends Component {
   }
 
   /**
-   * @param remainingLength
+   * @param remaining
    * @type {number}
    * @default null
    * @description The remaining number of characters.
    */
-  get remainingLength() {
+  get remaining() {
     return this.maxLength - this.currentLength;
+  }
+
+  /**
+   * @param shortfall
+   * @type {number}
+   * @default null
+   * @description The number of characters the content is falling short of.
+   */
+  get shortfall() {
+    return this.minLength - this.currentLength;
   }
 
   /**
@@ -110,8 +120,9 @@ export default class HdsFormCharacterCountIndexComponent extends Component {
         this.inputControl,
         this.maxLength,
         this.minLength,
-        this.currentLength,
-        this.remainingLength
+        this.remaining,
+        this.shortfall,
+        this.currentLength
       );
     }
   }

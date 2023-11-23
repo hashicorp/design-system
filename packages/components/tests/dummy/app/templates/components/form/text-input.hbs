@@ -287,7 +287,7 @@
       <Hds::Form::TextInput::Field @isInvalid={{true}} @value="Lorem ipsum dolor" as |F|>
         <F.Label>This is the label text</F.Label>
         <F.CharacterCount @maxLength={{40}} as |CC|>
-          {{CC.remainingLength}}
+          {{CC.remaining}}
           characters remaining
         </F.CharacterCount>
         <F.Error>This is the error</F.Error>

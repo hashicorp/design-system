@@ -145,12 +145,12 @@
 
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="With default content">
-      <input type="hidden" value="with default content" id="character-count-input-1" />
-      <Hds::Form::CharacterCount @maxLength={{40}} @controlId="character-count-input-1" />
+      <input type="hidden" value="with default content" id="character-count-input" />
+      <Hds::Form::CharacterCount @maxLength={{40}} @controlId="character-count-input" />
     </SF.Item>
     <SF.Item @label="With custom content (currentLength, maxLength)">
-      <input type="hidden" value="with custom content" id="character-count-input-2" />
-      <Hds::Form::CharacterCount @maxLength={{40}} @controlId="character-count-input-2" as |CC|>
+      <input type="hidden" value="with custom content" id="character-count-input-current" />
+      <Hds::Form::CharacterCount @maxLength={{40}} @controlId="character-count-input-current" as |CC|>
         Entered
         {{CC.currentLength}}
         out of
@@ -158,24 +158,37 @@
         characters
       </Hds::Form::CharacterCount>
     </SF.Item>
-    <SF.Item @label="With custom content (remainingLength)">
-      <input type="hidden" value="with custom content" id="character-count-input-3" />
-      <Hds::Form::CharacterCount @maxLength={{40}} @controlId="character-count-input-3" as |CC|>
-        {{CC.remainingLength}}
+    <SF.Item @label="With custom content (remaining)">
+      <input type="hidden" value="Lorem ipsum dolor" id="character-count-input-remaining" />
+      <Hds::Form::CharacterCount @maxLength={{40}} @controlId="character-count-input-remaining" as |CC|>
+        {{CC.remaining}}
         characters remaining
+      </Hds::Form::CharacterCount>
+    </SF.Item>
+    <SF.Item @label="With custom content (shortfall)">
+      <input type="hidden" value="Lorem ipsum dolor" id="character-count-input-shortfall" />
+      <Hds::Form::CharacterCount @minLength={{20}} @controlId="character-count-input-shortfall" as |CC|>
+        {{CC.shortfall}}
+        more characters required
       </Hds::Form::CharacterCount>
     </SF.Item>
     <SF.Item @label="With custom content and callback function">
       {{! template-lint-disable require-input-label }}
-      <input type="text" aria-label="with callback function" value="Lorem ipsum dolor" id="character-count-input-4" />
+      <input
+        type="text"
+        aria-label="with callback function"
+        value="Lorem ipsum dolor"
+        id="character-count-input-callback"
+      />
       <Hds::Form::CharacterCount
-        @minLength={{3}}
+        @minLength={{20}}
         @maxLength={{40}}
         @onInput={{this.onInput}}
-        @controlId="character-count-input-4"
+        @controlId="character-count-input-callback"
         as |CC|
       >
-        maxLength={{CC.maxLength}}; minLength={{CC.minLength}}; currentLength={{CC.currentLength}}; remainingLength={{CC.remainingLength}};
+        maxLength={{CC.maxLength}}; minLength={{CC.minLength}}; remaining={{CC.remaining}}; shortfall={{CC.shortfall}};
+        currentLength={{CC.currentLength}};
       </Hds::Form::CharacterCount>
       {{! template-lint-enable require-input-label }}
     </SF.Item>
