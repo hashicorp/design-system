@@ -206,7 +206,7 @@ async function indexWebsiteContent() {
 
     if (matches.length) {
       // extract from each "section" the tab name and the actual content
-      matches.forEach(async (match) => {
+      for (const match of matches) {
         const tabName = match[1];
         const tabContent = match[2];
         const currBaseRecord = _.merge({}, algoliaBaseRecord, {
@@ -228,7 +228,7 @@ async function indexWebsiteContent() {
         });
         // add the records to the algolia list
         markdownRecords.push(...records);
-      });
+      }
     } else {
       // there are no tabs, all the content is directly in the page
       const currBaseRecord = _.merge({}, algoliaBaseRecord, {
