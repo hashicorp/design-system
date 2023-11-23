@@ -27,6 +27,8 @@ const appConfig = {
   fingerprint: {
     // override defaults to also include json files which our markdown is compiled to. without this images don't render properly.
     replaceExtensions: ['html', 'css', 'js', 'json'],
+    // in the algolia index we want to store the fingerprinted illustrations' paths only in "production"
+    exclude: isVercelProduction ? [] : ['assets/illustrations/**'],
   },
   'ember-prism': {
     components: [
