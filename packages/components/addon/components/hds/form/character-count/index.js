@@ -58,6 +58,16 @@ export default class HdsFormCharacterCountIndexComponent extends Component {
   }
 
   /**
+   * @param message
+   * @type {string}
+   * @default null
+   * @description The character count message presented to users
+   */
+  get message() {
+    return `${this.currentLength} / ${this.maxLength}`;
+  }
+
+  /**
    * Determines the unique ID to assign to the element
    * @method id
    * @return {(string|null)} The "id" attribute to apply to the element or null, if no controlId is provided
