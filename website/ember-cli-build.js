@@ -7,6 +7,8 @@
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
+const isVercelProduction = process.env.VERCEL_ENV === 'production';
+
 const appConfig = {
   // Add options here
   sassOptions: {
