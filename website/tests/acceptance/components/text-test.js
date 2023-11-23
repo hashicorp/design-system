@@ -7,6 +7,9 @@ import { module, test } from 'qunit';
 import { visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'website/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
+import { globalAxeOptions } from 'website/tests/a11y-helper';
+
+import { merge } from 'lodash';
 
 module('Acceptance | components/text', function (hooks) {
   setupApplicationTest(hooks);
@@ -17,13 +20,15 @@ module('Acceptance | components/text', function (hooks) {
     assert.strictEqual(currentURL(), '/components/text');
   });
   test('Components/text page passes automated a11y checks', async function (assert) {
-    let axeOptions = {
+    let axeOptions = merge(globalAxeOptions, {
       rules: {
         'heading-order': {
           enabled: false,
         },
       },
-    };
+    });
+
+    console.log(axeOptions);
 
     await visit('/components/text');
 
