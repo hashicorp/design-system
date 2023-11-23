@@ -340,9 +340,25 @@ async function indexWebsiteContent() {
     // see: https://support.algolia.com/hc/en-us/articles/11461259527825-Is-there-a-way-to-change-the-default-descending-order-of-ObjectID-upon-an-empty-search-
     algoliaRecords.reverse();
 
+    // make sure there are no duplicate records (with duplicate objectIDs)
+    // this may happen for example if the same text in a paragraph (eg. `The code has been simplified for clarity`) appears in the same page section
+    // or if we have multiple Component API properties (eg. `...attributes`) with the same description under the same "code" tab of a page
+    let algoliaRecordsDistinct = [];
+    let uniqueObjectIDs = [];
+    algoliaRecords.forEach((record) => {
+      if (!uniqueObjectIDs.includes(record.objectID)) {
+        algoliaRecordsDistinct.push(record);
+        uniqueObjectIDs.push(record.objectID);
+      }
+    });
+
+    console.log(
+      `Ready to add ${algoliaRecordsDistinct.length} distinct records to Algolia index (out of ${algoliaRecords.length} collected)`
+    );
+
     // here we construct the request to be sent to Algolia with the `batch/multiBatch` method
     // see: https://www.algolia.com/doc/api-reference/api-methods/batch/
-    const algoliaRequests = algoliaRecords.map((record) => {
+    const algoliaRequests = algoliaRecordsDistinct.map((record) => {
       return {
         action: 'addObject',
         indexName: ALGOLIA_INDEX_ID,
