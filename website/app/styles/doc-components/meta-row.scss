@@ -28,21 +28,17 @@
 
 .doc-meta-row__value-not-copyable {
   @include doc-font-style-code();
-  display: inline-block;
-  padding-top: 2px; // optical alignment with the copyable one
+  display: block;
+  padding-top: 4px; // optical alignment with the copyable one
   padding-left: 8px;
   color: var(--doc-color-black);
   word-break: break-word;
 
   &.doc-meta-row__value-not-copyable--is-clipped {
-    position: relative;
-    display: block;
-    /* stylelint-disable-next-line value-no-vendor-prefix */
-    display: -webkit-box;
     max-width: 100%;
     overflow: hidden;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 }
 
