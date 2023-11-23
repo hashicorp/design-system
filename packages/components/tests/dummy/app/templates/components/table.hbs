@@ -191,9 +191,9 @@
   <Hds::Table
     @model={{this.model.music}}
     @columns={{array
-      (hash key="artist" label="Artist" isSortable="true")
-      (hash key="album" label="Album" isSortable="true")
-      (hash key="year" label="Release Year" isSortable="true")
+      (hash key="artist" label="Artist" isSortable=true)
+      (hash key="album" label="Album" isSortable=true)
+      (hash key="year" label="Release Year" isSortable=true)
     }}
   >
     <:body as |B|>
@@ -210,8 +210,8 @@
   <Hds::Table
     @model={{this.model.music}}
     @columns={{array
-      (hash key="artist" label="Artist" isSortable="true")
-      (hash key="album" label="Album" isSortable="true")
+      (hash key="artist" label="Artist" isSortable=true)
+      (hash key="album" label="Album" isSortable=true)
       (hash key="year" label="Release Year")
     }}
   >
@@ -229,9 +229,9 @@
   <Hds::Table
     @model={{this.model.music}}
     @columns={{array
-      (hash key="artist" label="Artist" isSortable="true")
-      (hash key="album" label="Album" isSortable="true")
-      (hash key="year" label="Release Year" isSortable="true" align="right")
+      (hash key="artist" label="Artist" isSortable=true)
+      (hash key="album" label="Album" isSortable=true)
+      (hash key="year" label="Release Year" isSortable=true align="right")
     }}
   >
     <:body as |B|>
@@ -248,8 +248,8 @@
   <Hds::Table
     @model={{this.model.music}}
     @columns={{array
-      (hash key="artist" label="Artist" isSortable="true")
-      (hash key="album" label="Album" isSortable="true")
+      (hash key="artist" label="Artist" isSortable=true)
+      (hash key="album" label="Album" isSortable=true)
       (hash key="year" label="Release Year")
     }}
     @sortBy="artist"
@@ -276,9 +276,9 @@
   <Hds::Table
     @model={{this.clustersWithExtraData_demo1}}
     @columns={{array
-      (hash label="Peer name" isSortable="true" key="peer-name")
+      (hash label="Peer name" isSortable=true key="peer-name")
       (hash label="Cluster partition")
-      (hash label="Status" isSortable="true" key="status-sort-order")
+      (hash label="Status" isSortable=true key="status-sort-order")
       (hash label="Imported services")
       (hash label="Exported services")
       (hash label="Actions" align="right")
@@ -326,9 +326,9 @@
   <Hds::Table
     @model={{this.model.clusters}}
     @columns={{array
-      (hash label="Peer name" isSortable="true" key="peer-name")
+      (hash label="Peer name" isSortable=true key="peer-name")
       (hash label="Cluster partition")
-      (hash label="Status" isSortable="true" key="status" sortingFunction=this.customSortingFunction_demo2)
+      (hash label="Status" isSortable=true key="status" sortingFunction=this.customSortingFunction_demo2)
       (hash label="Imported services")
       (hash label="Exported services")
       (hash label="Actions" align="right")
@@ -498,9 +498,9 @@
   <Hds::Table
     @model={{this.model.music}}
     @columns={{array
-      (hash key="artist" label="Artist" isSortable="true")
-      (hash key="album" label="Album" isSortable="true")
-      (hash key="year" label="Release Year" isSortable="true")
+      (hash key="artist" label="Artist" isSortable=true)
+      (hash key="album" label="Album" isSortable=true)
+      (hash key="year" label="Release Year" isSortable=true)
       (hash key="other" label="Other" width="55px" align="right")
     }}
     @valign="middle"
@@ -529,9 +529,9 @@
   <Hds::Table
     @model={{this.model.music}}
     @columns={{array
-      (hash key="artist" label="Artist" isSortable="true")
-      (hash key="album" label="Album" isSortable="true")
-      (hash key="year" label="Release Year" isSortable="true")
+      (hash key="artist" label="Artist" isSortable=true)
+      (hash key="album" label="Album" isSortable=true)
+      (hash key="year" label="Release Year" isSortable=true)
       (hash key="vinyl-cost" label="Vinyl Cost (USD)" align="right")
     }}
   >
@@ -550,9 +550,9 @@
   <Hds::Table
     @model={{this.model.music}}
     @columns={{array
-      (hash key="artist" label="Artist" isSortable="true")
-      (hash key="album" label="Album" isSortable="true")
-      (hash key="year" label="Release Year" isSortable="true")
+      (hash key="artist" label="Artist" isSortable=true)
+      (hash key="album" label="Album" isSortable=true)
+      (hash key="year" label="Release Year" isSortable=true)
       (hash key="other" label="Additional Actions")
     }}
   >
@@ -655,9 +655,9 @@
   <Hds::Table
     @model={{this.model.manycolumns}}
     @columns={{array
-      (hash key="first_name" label="First Name" isSortable="true" width="200px")
-      (hash key="last_name" label="Last Name" isSortable="true" width="200px")
-      (hash key="age" label="Age" isSortable="true")
+      (hash key="first_name" label="First Name" isSortable=true width="200px")
+      (hash key="last_name" label="Last Name" isSortable=true width="200px")
+      (hash key="age" label="Age" isSortable=true)
       (hash key="email" label="Email")
       (hash key="bio" label="Biography" width="350px")
     }}
@@ -682,9 +682,9 @@
   <Hds::Table
     @model={{this.model.manycolumns}}
     @columns={{array
-      (hash key="first_name" label="First Name" isSortable="true" width="200px")
-      (hash key="last_name" label="Last Name" isSortable="true" width="200px")
-      (hash key="age" label="Age" isSortable="true")
+      (hash key="first_name" label="First Name" isSortable=true width="200px")
+      (hash key="last_name" label="Last Name" isSortable=true width="200px")
+      (hash key="age" label="Age" isSortable=true)
       (hash key="email" label="Email")
       (hash key="bio" label="Biography" width="350px")
     }}
@@ -706,9 +706,9 @@
   <Hds::Table
     @model={{this.model.manycolumns}}
     @columns={{array
-      (hash key="first_name" label="First Name" isSortable="true" width="20%")
-      (hash key="last_name" label="Last Name" isSortable="true" width="20%")
-      (hash key="age" label="Age" isSortable="true")
+      (hash key="first_name" label="First Name" isSortable=true width="20%")
+      (hash key="last_name" label="Last Name" isSortable=true width="20%")
+      (hash key="age" label="Age" isSortable=true)
       (hash key="email" label="Email")
       (hash key="bio" label="Biography" width="35%")
     }}
@@ -729,9 +729,9 @@
   <Hds::Table
     @model={{this.model.manycolumns}}
     @columns={{array
-      (hash key="first_name" label="First Name" isSortable="true" width="20%")
-      (hash key="last_name" label="Last Name" isSortable="true" width="20%")
-      (hash key="age" label="Age" isSortable="true")
+      (hash key="first_name" label="First Name" isSortable=true width="20%")
+      (hash key="last_name" label="Last Name" isSortable=true width="20%")
+      (hash key="age" label="Age" isSortable=true)
       (hash key="email" label="Email")
       (hash key="bio" label="Biography" width="35%")
     }}
@@ -759,14 +759,14 @@
     <Hds::Table
       @model={{this.model.manycolumns}}
       @columns={{array
-        (hash key="first_name" label="First Name" isSortable="true" width="200px")
-        (hash key="last_name" label="Last Name" isSortable="true" width="200px")
-        (hash key="age" label="Age" isSortable="true")
-        (hash key="email" label="Email" isSortable="true")
-        (hash key="phone" label="Phone" isSortable="true")
+        (hash key="first_name" label="First Name" isSortable=true width="200px")
+        (hash key="last_name" label="Last Name" isSortable=true width="200px")
+        (hash key="age" label="Age" isSortable=true)
+        (hash key="email" label="Email" isSortable=true)
+        (hash key="phone" label="Phone" isSortable=true)
         (hash key="bio" label="Biography" width="350px")
-        (hash key="education" label="Education Degree" isSortable="true")
-        (hash key="occupation" label="Occupation" isSortable="true")
+        (hash key="education" label="Education Degree" isSortable=true)
+        (hash key="occupation" label="Occupation" isSortable=true)
       }}
     >
       <:body as |B|>
@@ -793,14 +793,14 @@
       <Hds::Table
         @model={{this.model.manycolumns}}
         @columns={{array
-          (hash key="first_name" label="First Name" isSortable="true" width="200px")
-          (hash key="last_name" label="Last Name" isSortable="true" width="200px")
-          (hash key="age" label="Age" isSortable="true")
-          (hash key="email" label="Email" isSortable="true")
-          (hash key="phone" label="Phone" isSortable="true")
+          (hash key="first_name" label="First Name" isSortable=true width="200px")
+          (hash key="last_name" label="Last Name" isSortable=true width="200px")
+          (hash key="age" label="Age" isSortable=true)
+          (hash key="email" label="Email" isSortable=true)
+          (hash key="phone" label="Phone" isSortable=true)
           (hash key="bio" label="Biography" width="350px")
-          (hash key="education" label="Education Degree" isSortable="true")
-          (hash key="occupation" label="Occupation" isSortable="true")
+          (hash key="education" label="Education Degree" isSortable=true)
+          (hash key="occupation" label="Occupation" isSortable=true)
         }}
       >
         <:body as |B|>

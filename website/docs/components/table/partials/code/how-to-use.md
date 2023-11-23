@@ -477,9 +477,9 @@ The default table layout is `auto` which means the browser will try to optimize 
   <Hds::Table
     @model={{this.modelWithLargeNumberOfColumns}}
     @columns={{array
-      (hash key="first_name" label="First Name" isSortable="true")
-      (hash key="last_name" label="Last Name" isSortable="true")
-      (hash key="age" label="Age" isSortable="true")
+      (hash key="first_name" label="First Name" isSortable=true)
+      (hash key="last_name" label="Last Name" isSortable=true)
+      (hash key="age" label="Age" isSortable=true)
       (hash key="email" label="Email")
       (hash key="phone" label="Phone")
       (hash key="bio" label="Biography" width="350px")
@@ -518,9 +518,9 @@ In this case the table layout is still set to `auto` (default). If instead you w
     <Hds::Table
       @model={{this.modelWithLargeNumberOfColumns}}
       @columns={{array
-        (hash key="first_name" label="First Name" isSortable="true" width="200px")
-        (hash key="last_name" label="Last Name" isSortable="true" width="200px")
-        (hash key="age" label="Age" isSortable="true")
+        (hash key="first_name" label="First Name" isSortable=true width="200px")
+        (hash key="last_name" label="Last Name" isSortable=true width="200px")
+        (hash key="age" label="Age" isSortable=true)
         (hash key="email" label="Email")
         (hash key="phone" label="Phone")
         (hash key="bio" label="Biography" width="350px")
