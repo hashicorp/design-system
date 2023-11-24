@@ -16,6 +16,7 @@ export const remarkProcessCustomImageFormat = () => (tree) => {
       node.type = 'image';
       node.url = match[3] ?? '';
       node.alt = match[1] ?? '';
+      node.title = null;
       node.position = { ...node.position };
       delete node.value;
     }
