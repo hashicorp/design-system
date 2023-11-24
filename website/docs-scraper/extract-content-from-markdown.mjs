@@ -4,6 +4,8 @@
  */
 
 // remark
+import { unified } from 'unified';
+import remarkParse from 'remark-parse';
 import { remark } from 'remark';
 import { visit } from 'unist-util-visit';
 import { selectAll } from 'unist-util-select';
@@ -18,12 +20,16 @@ import _ from 'lodash';
 // plugins
 import remarkGfm from 'remark-gfm';
 import remarkHtml from 'remark-html';
+import remarkRehype from 'remark-rehype';
+import rehypeRaw from 'rehype-raw';
+import rehypeStringify from 'rehype-stringify';
 
 // local/custom
 import { WCAG_CRITERIA } from './parts/getWcagCriteria.mjs';
 import { replaceDocTags } from './parts/replaceDocTags.mjs';
 import { remarkRemoveComments } from './parts/remarkRemoveComments.mjs';
 import { remarkRemoveCodeBlocks } from './parts/remarkRemoveCodeBlocks.mjs';
+import { remarkRemoveEmptyParagraphs } from './parts/remarkRemoveEmptyParagraphs.mjs';
 import { remarkProcessCustomImageFormat } from './parts/remarkProcessCustomImageFormat.mjs';
 import { remarkStripHeliosContentBlocksDelimiters } from './parts/remarkStripHeliosContentBlocksDelimiters.mjs';
 import { remarkStripHeliosHandlebarsExpressions } from './parts/remarkStripHeliosHandlebarsExpressions.mjs';
@@ -33,7 +39,7 @@ import { setNodesHierarchy } from './parts/setNodesHierarchy.mjs';
 import { stringifyChildNodes } from './parts/stringifyChildNodes.mjs';
 
 // debugging
-// import { debugLogNodes } from './parts/debugLogNodes.mjs';
+import { debugLogNodes } from './parts/debugLogNodes.mjs';
 
 // ========================================================================
 
@@ -176,42 +182,75 @@ export async function parseMarkdown(markdownContent) {
     });
   };
 
+  // --------------------
+  // PROCESSING PIPELINE
+  // --------------------
+
   // we need to convert the `<Doc::***>` components to web-components-like code (HTML compatible)
   const standardizedContent = replaceDocTags(markdownContent);
 
-  // processing pipeline
-  await remark()
-    // process custom (showdown.js) format
-    .use(remarkProcessCustomImageFormat)
-    // pre-emptively remove any comment, just in case
-    .use(remarkRemoveComments)
-    // pre-emptively remove any comment, just in case
-    .use(remarkRemoveCodeBlocks)
-    // remove/strip all the custom entities (custom markdown, useless ember components, etc)
-    .use(remarkStripHeliosContentBlocksDelimiters)
-    // .use(remarkStripHeliosReleaseNotesMetadata)
-    // convert markdown to HTML (TODO do we need it? what happens if we remove this?)
-    .use(remarkHtml, { sanitize: remarkHtmlSanitise })
+  // MARKDOWN AST PROCESSING
+
+  let tree = await unified()
+    // convert the markdown to AST
+    .use(remarkParse)
     // interpret special GFM markdown format
     .use(remarkGfm)
-    // associate to each node the hierarchy in terms of headings level
-    .use(setNodesHierarchy)
-    // parse and index "doc" (ember) nodes for special components
-    .use(wcagListMapper)
-    .use(componentApiMapper)
-    // remove handlebars expressions (`{{...}}`) not that are not useful anymore, so they don't pollute the paragraphs
-    .use(remarkStripHeliosHandlebarsExpressions)
-    // remove empty paragraphs
-    // notice: done later in the process, more efficient than doing it here
-    // .use(remarkRemoveEmptyParagraphs)
-    // standard nodes
-    // DEBUGGING
-    // .use(debugLogNodes)
-    .use(headingMapper)
-    .use(paragraphMapper)
-    .use(tableMapper)
-    // we use the "standardized" content here
-    .process(standardizedContent);
+    // convert markdown to HTML (TODO do we need it? what happens if we remove this?)
+    // .use(remarkHtml, { sanitize: remarkHtmlSanitise })
+    .parse(standardizedContent);
+
+  // ✅ process custom images (showdown.js format)
+  tree = await unified().use(remarkProcessCustomImageFormat).run(tree);
+
+  // ✅ pre-emptively remove any comment, just in case
+  tree = await unified().use(remarkRemoveComments).run(tree);
+
+  // ✅ remove any code block
+  tree = await unified().use(remarkRemoveCodeBlocks).run(tree);
+
+  // ✅ remove content blocks delimiters
+  tree = await unified()
+    .use(remarkStripHeliosContentBlocksDelimiters)
+    .run(tree);
+
+  // 🤔 remove handlebars expressions (`{{...}}`) so they don't pollute the paragraphs
+  tree = await unified().use(remarkStripHeliosHandlebarsExpressions).run(tree);
+
+  // ✅ remove empty paragraphs
+  tree = await unified().use(remarkRemoveEmptyParagraphs).run(tree);
+
+  // ✅ associate to each node the hierarchy in terms of headings level
+  tree = await unified().use(setNodesHierarchy).run(tree);
+
+  // console.log('TREE BEFORE', JSON.stringify(tree, null, 2));
+  // console.log('TREE AFTER', JSON.stringify(tree, null, 2));
+
+  // HTML AST PROCESSING
+
+  const html = await unified()
+    .use(remarkParse)
+    // .use(remarkHtml, { sanitize: remarkHtmlSanitise })
+    // .use(remarkRehype)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeRaw)
+    .use(rehypeStringify)
+    .run(tree);
+
+  console.log('HTML', JSON.stringify(html, null, 2));
+
+  // process the relevant nodes
+
+  // // parse and index "doc" (ember) nodes for special components
+  // .use(wcagListMapper)
+  // .use(componentApiMapper)
+
+  // parse and index standard nodes
+  // await unified()
+  //   .use(headingMapper)
+  //   .use(paragraphMapper)
+  //   .use(tableMapper)
+  //   .parse(tree);
 
   return { headings, paragraphs, tables, componentApis, wcagLists };
 }
