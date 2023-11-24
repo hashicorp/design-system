@@ -288,6 +288,23 @@
   </Shw::Grid>
   {{! template-lint-enable require-input-label }}
 
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>currentLength</Shw::Text::H3>
+
+  {{! template-lint-disable require-input-label }}
+  <Shw::Grid @columns={{4}} as |SG|>
+    <SG.Item @label="currentLength = 0">
+      <input type="text" aria-label="currentLength = 0" id="cc-cl-eq-0" />
+      <Hds::Form::CharacterCount @controlId="cc-cl-eq-0" />
+    </SG.Item>
+    <SG.Item @label="currentLength > 0">
+      <input type="text" value="cl" aria-label="currentLength > 0" id="cc-cl-gt-0" />
+      <Hds::Form::CharacterCount @controlId="cc-cl-gt-0" />
+    </SG.Item>
+  </Shw::Grid>
+  {{! template-lint-enable require-input-label }}
+
   {{! ###################### }}
 
   <Shw::Divider />
