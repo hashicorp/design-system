@@ -16,8 +16,10 @@ export default class HdsFormCharacterCountIndexComponent extends Component {
   inputControl = document.getElementById(this.args.controlId);
 
   // Inflector utility function to determine plural or singular for 'character' noun
-  pluralize(count, noun = 'character', suffix = 's') {
-    return `${count} ${noun}${count !== 1 ? suffix : ''}`;
+  pluralize(count, prefix = '', noun = 'character', suffix = 's') {
+    return `${count}${prefix ? ' ' + prefix : ''} ${noun}${
+      count !== 1 ? suffix : ''
+    }`;
   }
 
   /**
@@ -70,6 +72,15 @@ export default class HdsFormCharacterCountIndexComponent extends Component {
    */
   get message() {
     let messageText = '';
+    if (this.minLength) {
+      if (this.currentLength === 0) {
+        messageText = `${this.pluralize(this.minLength)} required`;
+      } else if (this.currentLength < this.minLength) {
+        messageText = `${this.pluralize(this.shortfall, 'more')} required`;
+      } else if (this.currentLength >= this.minLength) {
+        messageText = `${this.pluralize(this.currentLength)} entered`;
+      }
+    }
     if (this.maxLength) {
       if (this.currentLength === 0) {
         messageText = `${this.pluralize(this.maxLength)} allowed`;

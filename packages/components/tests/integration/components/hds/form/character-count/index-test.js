@@ -81,6 +81,27 @@ module(
         .dom('#test-form-character-count')
         .hasText('Exceeded by 4 characters');
     });
+    test('it renders a character count in the predefined format when @minLength is set', async function (assert) {
+      await render(
+        hbs`
+          <input id="input-min-length"/>
+          <Hds::Form::CharacterCount @minLength={{3}} @controlId="input-min-length" id="test-form-character-count"/>`
+      );
+      assert.dom('#test-form-character-count').hasText('3 characters required');
+
+      await typeIn('#input-min-length', 'c');
+      assert
+        .dom('#test-form-character-count')
+        .hasText('2 more characters required');
+
+      await typeIn('#input-min-length', 'l');
+      assert
+        .dom('#test-form-character-count')
+        .hasText('1 more character required');
+
+      await typeIn('#input-min-length', 'u');
+      assert.dom('#test-form-character-count').hasText('3 characters entered');
+    });
     test('it renders a character count in custom format', async function (assert) {
       await render(
         hbs`
