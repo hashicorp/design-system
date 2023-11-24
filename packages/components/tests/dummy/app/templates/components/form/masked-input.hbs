@@ -298,13 +298,17 @@
       </Hds::Form::MaskedInput::Field>
     </SG.Item>
     <SG.Item @label="Label + Copy Button + Error + Character count">
-      <Hds::Form::MaskedInput::Field @value="Lorem ipsum dolor" @isInvalid={{true}} @hasCopyButton={{true}} as |F|>
-        <F.Label>This is the label</F.Label>
-        <F.CharacterCount @maxLength={{100}} as |CC|>
-          {{CC.remaining}}
-          characters remaining
-        </F.CharacterCount>
-        <F.Error>This is the error</F.Error>
+      <Hds::Form::MaskedInput::Field
+        @value="Lorem ipsum dolor sit amet"
+        @isInvalid={{this.textInputFieldIsInvalid}}
+        @hasCopyButton={{true}}
+        as |F|
+      >
+        <F.Label>This is the label text</F.Label>
+        <F.CharacterCount @maxLength={{20}} @onInput={{this.onFieldInput}} />
+        {{#if this.textInputFieldIsInvalid}}
+          <F.Error>Maximum numbers of characters exceeded</F.Error>
+        {{/if}}
       </Hds::Form::MaskedInput::Field>
     </SG.Item>
   </Shw::Grid>
@@ -334,17 +338,16 @@
     <SG.Item @label="Label + Copy Button + Error + Character count">
       <Hds::Form::MaskedInput::Field
         @isMultiline={{true}}
-        @value="Lorem ipsum dolor"
-        @isInvalid={{true}}
+        @value="Lorem ipsum dolor sit amet"
+        @isInvalid={{this.textareaFieldIsInvalid}}
         @hasCopyButton={{true}}
         as |F|
       >
-        <F.Label>This is the label</F.Label>
-        <F.CharacterCount @maxLength={{100}} as |CC|>
-          {{CC.remaining}}
-          characters remaining
-        </F.CharacterCount>
-        <F.Error>This is the error</F.Error>
+        <F.Label>This is the label text</F.Label>
+        <F.CharacterCount @maxLength={{20}} @onInput={{this.onFieldInput}} />
+        {{#if this.textareaFieldIsInvalid}}
+          <F.Error>Maximum numbers of characters exceeded</F.Error>
+        {{/if}}
       </Hds::Form::MaskedInput::Field>
     </SG.Item>
   </Shw::Grid>
