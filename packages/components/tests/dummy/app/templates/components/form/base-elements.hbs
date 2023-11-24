@@ -143,6 +143,8 @@
 
   <Shw::Text::H2>Character count</Shw::Text::H2>
 
+  <Shw::Text::H3>Content</Shw::Text::H3>
+
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="With default content">
       <input type="hidden" value="with default content" id="character-count-input" />
@@ -193,6 +195,41 @@
       {{! template-lint-enable require-input-label }}
     </SF.Item>
   </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>maxLength</Shw::Text::H3>
+
+  {{! template-lint-disable require-input-label }}
+  <Shw::Grid @columns={{4}} as |SG|>
+    <SG.Item @label="currentLength = 0">
+      <input type="text" aria-label="currentLength = 0" id="cc-max-cl-gt-0" />
+      <Hds::Form::CharacterCount @maxLength={{25}} @controlId="cc-max-cl-gt-0" />
+    </SG.Item>
+    <SG.Item @label="currentLength < maxLength">
+      <input type="text" value="cluster" aria-label="currentLength < maxLength" id="cc-max-cl-lt-ml" />
+      <Hds::Form::CharacterCount @maxLength={{25}} @controlId="cc-max-cl-lt-ml" />
+    </SG.Item>
+    <SG.Item @label="currentLength = maxLength">
+      <input
+        type="text"
+        value="cluster-length-is-longer-"
+        aria-label="currentLength = maxLength"
+        id="cc-max-cl-eq-ml"
+      />
+      <Hds::Form::CharacterCount @maxLength={{25}} @controlId="cc-max-cl-eq-ml" />
+    </SG.Item>
+    <SG.Item @label="currentLength > maxLength">
+      <input
+        type="text"
+        value="cluster-length-is-longer-than"
+        aria-label="currentLength > maxLength"
+        id="cc-max-cl-gt-ml"
+      />
+      <Hds::Form::CharacterCount @maxLength={{25}} @controlId="cc-max-cl-gt-ml" />
+    </SG.Item>
+  </Shw::Grid>
+  {{! template-lint-enable require-input-label }}
 
   {{! ###################### }}
 

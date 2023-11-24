@@ -39,13 +39,47 @@ module(
 
     // CONTENT
 
-    test('it renders a character count in the predefined format', async function (assert) {
+    test('it renders a character count with the default predefined format', async function (assert) {
       await render(
         hbs`
-          <input type="hidden" value="with default content" id="input-1"/>
-          <Hds::Form::CharacterCount @maxLength={{40}} @controlId="input-1" id="test-form-character-count"/>`
+          <input id="input-1"/>
+          <Hds::Form::CharacterCount @controlId="input-1" id="test-form-character-count"/>`
       );
-      assert.dom('#test-form-character-count').hasText('20 / 40');
+      assert.dom('#test-form-character-count').hasText('0 characters entered');
+
+      await typeIn('#input-1', 'cl');
+      assert.dom('#test-form-character-count').hasText('2 characters entered');
+    });
+    test('it renders a character count in the predefined format when @maxLength is set', async function (assert) {
+      await render(
+        hbs`
+          <input id="input-max-length"/>
+          <Hds::Form::CharacterCount @maxLength={{25}} @controlId="input-max-length" id="test-form-character-count"/>`
+      );
+      assert.dom('#test-form-character-count').hasText('25 characters allowed');
+
+      await typeIn('#input-max-length', 'cluster');
+      assert
+        .dom('#test-form-character-count')
+        .hasText('18 characters remaining');
+
+      await typeIn('#input-max-length', '-length-is-longer');
+      assert.dom('#test-form-character-count').hasText('1 character remaining');
+
+      await typeIn('#input-max-length', '-');
+      assert
+        .dom('#test-form-character-count')
+        .hasText('0 characters remaining');
+
+      await typeIn('#input-max-length', 't');
+      assert
+        .dom('#test-form-character-count')
+        .hasText('Exceeded by 1 character');
+
+      await typeIn('#input-max-length', 'han');
+      assert
+        .dom('#test-form-character-count')
+        .hasText('Exceeded by 4 characters');
     });
     test('it renders a character count in custom format', async function (assert) {
       await render(

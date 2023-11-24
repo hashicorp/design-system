@@ -15,6 +15,11 @@ export default class HdsFormCharacterCountIndexComponent extends Component {
   @tracked currentLength;
   inputControl = document.getElementById(this.args.controlId);
 
+  // Inflector utility function to determine plural or singular for 'character' noun
+  pluralize(count, noun = 'character', suffix = 's') {
+    return `${count} ${noun}${count !== 1 ? suffix : ''}`;
+  }
+
   /**
    * @param maxLength
    * @type {number}
@@ -64,7 +69,17 @@ export default class HdsFormCharacterCountIndexComponent extends Component {
    * @description The character count message presented to users
    */
   get message() {
-    return `${this.currentLength} / ${this.maxLength}`;
+    let messageText = '';
+    if (this.maxLength) {
+      if (this.currentLength === 0) {
+        messageText = `${this.pluralize(this.maxLength)} allowed`;
+      } else if (this.currentLength <= this.maxLength) {
+        messageText = `${this.pluralize(this.remaining)} remaining`;
+      } else if (this.currentLength > this.maxLength) {
+        messageText = `Exceeded by ${this.pluralize(-this.remaining)}`;
+      }
+    }
+    return messageText;
   }
 
   /**
@@ -88,7 +103,7 @@ export default class HdsFormCharacterCountIndexComponent extends Component {
   get onInsert() {
     let { onInsert } = this.args;
 
-    if (!this.inputControl || !this.inputControl.value) {
+    if (!this.inputControl || this.inputControl.value === undefined) {
       console.error(
         '`Hds::Form::CharacterCount` component - `@controlId` selector provided does not point to a valid input element, check the id',
         this.args.controlId
