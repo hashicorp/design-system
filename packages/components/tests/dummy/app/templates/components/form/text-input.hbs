@@ -284,13 +284,12 @@
       </Hds::Form::TextInput::Field>
     </SG.Item>
     <SG.Item @label="Label + Helper text + Character count">
-      <Hds::Form::TextInput::Field @isInvalid={{true}} @value="Lorem ipsum dolor" as |F|>
+      <Hds::Form::TextInput::Field @isInvalid={{this.fieldIsInvalid}} @value="Lorem ipsum dolor sit amet" as |F|>
         <F.Label>This is the label text</F.Label>
-        <F.CharacterCount @maxLength={{40}} as |CC|>
-          {{CC.remaining}}
-          characters remaining
-        </F.CharacterCount>
-        <F.Error>This is the error</F.Error>
+        <F.CharacterCount @maxLength={{20}} @onInput={{this.onFieldInput}} />
+        {{#if this.fieldIsInvalid}}
+          <F.Error>Maximum numbers of characters exceeded</F.Error>
+        {{/if}}
       </Hds::Form::TextInput::Field>
     </SG.Item>
   </Shw::Grid>
