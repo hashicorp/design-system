@@ -72,23 +72,18 @@ export default class HdsFormCharacterCountIndexComponent extends Component {
    */
   get message() {
     let messageText = '';
-    if (this.minLength) {
-      if (this.currentLength === 0) {
-        messageText = `${this.pluralize(this.minLength)} required`;
-      } else if (this.currentLength < this.minLength) {
-        messageText = `${this.pluralize(this.shortfall, 'more')} required`;
-      } else if (this.currentLength >= this.minLength) {
-        messageText = `${this.pluralize(this.currentLength)} entered`;
-      }
-    }
-    if (this.maxLength) {
-      if (this.currentLength === 0) {
-        messageText = `${this.pluralize(this.maxLength)} allowed`;
-      } else if (this.currentLength <= this.maxLength) {
-        messageText = `${this.pluralize(this.remaining)} remaining`;
-      } else if (this.currentLength > this.maxLength) {
-        messageText = `Exceeded by ${this.pluralize(-this.remaining)}`;
-      }
+    if (this.minLength && this.currentLength === 0) {
+      messageText = `${this.pluralize(this.minLength)} required`;
+    } else if (this.minLength && this.currentLength < this.minLength) {
+      messageText = `${this.pluralize(this.shortfall, 'more')} required`;
+    } else if (this.maxLength && this.currentLength === 0) {
+      messageText = `${this.pluralize(this.maxLength)} allowed`;
+    } else if (this.maxLength && this.currentLength <= this.maxLength) {
+      messageText = `${this.pluralize(this.remaining)} remaining`;
+    } else if (this.currentLength > this.maxLength) {
+      messageText = `Exceeded by ${this.pluralize(-this.remaining)}`;
+    } else {
+      messageText = `${this.pluralize(this.currentLength)} entered`;
     }
     return messageText;
   }
