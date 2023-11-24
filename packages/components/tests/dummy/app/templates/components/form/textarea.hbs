@@ -205,16 +205,15 @@
     </SG.Item>
     <SG.Item @label="Label + Character count + Error">
       <Hds::Form::Textarea::Field
-        @isInvalid={{true}}
+        @isInvalid={{this.fieldIsInvalid}}
         @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
         as |F|
       >
         <F.Label>This is the label text</F.Label>
-        <F.CharacterCount @maxLength={{100}} as |CC|>
-          {{CC.remaining}}
-          characters remaining
-        </F.CharacterCount>
-        <F.Error>This is the error</F.Error>
+        <F.CharacterCount @maxLength={{50}} @onInput={{this.onFieldInput}} />
+        {{#if this.fieldIsInvalid}}
+          <F.Error>Maximum numbers of characters exceeded</F.Error>
+        {{/if}}
       </Hds::Form::Textarea::Field>
     </SG.Item>
   </Shw::Grid>
