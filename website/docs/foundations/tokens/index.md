@@ -8,11 +8,13 @@ layout:
 ---
 
 <section data-tab="Library">
+  <!-- algolia-ignore-start -->
   <Doc::TokensList
     @groupedTokens={{this.filteredGroupedTokens}}
     @searchQuery={{this.searchQuery}}
     @searchTokens={{this.searchTokens}}
   />
+  <!-- algolia-ignore-end -->
 </section>
 
 <section data-tab="Code">
