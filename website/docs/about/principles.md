@@ -9,4 +9,7 @@ layout:
 ---
 
 <!-- TO EDIT THESE PRINCIPLES LOOK AT THE COMPONENT IN `website/app/components/doc/content/hds-principles/index.js` -->
+
+<!-- algolia-ignore-start -->
 <Doc::Content::HdsPrinciples />
+<!-- algolia-ignore-end -->

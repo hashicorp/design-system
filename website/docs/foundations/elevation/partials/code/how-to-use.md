@@ -20,10 +20,14 @@ Use the `elevation` and `surface` [design tokens](./tokens) directly in your CSS
 #### Available CSS variables
 
 ##### Elevation variables
+<!-- algolia-ignore-start -->
 <Doc::VarsList @items={{this.cssVariables.elevations}} />
+<!-- algolia-ignore-end -->
 
 ##### Surface variables
+<!-- algolia-ignore-start -->
 <Doc::VarsList @items={{this.cssVariables.surfaces}} />
+<!-- algolia-ignore-end -->
 
 
 ### CSS helper classes
@@ -46,7 +50,11 @@ Use the `elevation` and `surface` [design tokens](./tokens) directly in your CSS
 #### Available CSS helper classes
 
 ##### Elevation helpers
+<!-- algolia-ignore-start -->
 <Doc::VarsList @items={{this.cssHelpers.elevations}} />
+<!-- algolia-ignore-end -->
 
 ##### Surface helpers
+<!-- algolia-ignore-start -->
 <Doc::VarsList @items={{this.cssHelpers.surfaces}} />
+<!-- algolia-ignore-end -->
