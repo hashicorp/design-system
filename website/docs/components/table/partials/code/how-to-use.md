@@ -547,6 +547,46 @@ In this case the table layout is still set to `auto` (default). If instead you w
 
 ### More examples
 
+#### Visually hidden table headers
+
+Labels within the table header are intended to provide contextual information about the column's content to the end user. There may be special cases in which that label is redundant from a visual perspective, because the kind of content can be inferred by looking at it (eg. a contextual dropdown). In this case it's possible to visually hide the label by passing `isVisuallyHidden=true` to the column (only for non-sortable tables).
+
+```handlebars
+<Hds::Table
+  @model={{this.model.myDemoData}}
+  @columns={{array
+    (hash key="artist" label="Artist" isSortable=true)
+    (hash key="album" label="Album" isSortable=true)
+    (hash key="year" label="Year" isSortable=true)
+    (hash key="other" label="Select an action from the menu" isVisuallyHidden=true width="60px")
+  }}
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td>{{B.data.year}}</B.Td>
+      <B.Td>
+          <Hds::Dropdown as |dd|>
+            <dd.ToggleIcon
+              @icon="more-horizontal"
+              @text="Overflow Options"
+              @hasChevron={{false}}
+              @size="small"
+            />
+            <dd.Interactive
+              @href="#"
+              @text="Delete"
+              @color="critical"
+              @icon="trash"
+            />
+          </Hds::Dropdown>
+        </B.Td>
+    </B.Tr>
+  </:body>
+</Hds::Table>
+```
+
 #### Internationalized column headers, overflow menu dropdown
 
 Here’s a Table implementation that uses an array hash with localized strings for the column headers, indicates which columns should be sortable, and adds an overflow menu.
@@ -555,10 +595,10 @@ Here’s a Table implementation that uses an array hash with localized strings f
 <Hds::Table
   @model={{this.model.myDemoData}}
   @columns={{array
-      (hash key='artist' label=(t 'components.table.headers.artist') isSortable=true)
-      (hash key='album' label=(t 'components.table.headers.album') isSortable=true)
-      (hash key='year' label=(t 'components.table.headers.year') isSortable=true)
-      (hash key='other' label=(t 'global.titles.other'))
+      (hash key="artist" label=(t "components.table.headers.artist") isSortable=true)
+      (hash key="album" label=(t "components.table.headers.album") isSortable=true)
+      (hash key="year" label=(t "components.table.headers.year") isSortable=true)
+      (hash key="other" label=(t "global.titles.other"))
     }}
 >
   <:body as |B|>
@@ -569,17 +609,17 @@ Here’s a Table implementation that uses an array hash with localized strings f
       <B.Td>
           <Hds::Dropdown as |dd|>
             <dd.ToggleIcon
-              @icon='more-horizontal'
-              @text='Overflow Options'
+              @icon="more-horizontal"
+              @text="Overflow Options"
               @hasChevron={{false}}
-              @size='small'
+              @size="small"
             />
-            <dd.Interactive @route='components.table' @text='Create' />
-            <dd.Interactive @route='components.table' @text='Read' />
-            <dd.Interactive @route='components.table' @text='Update' />
+            <dd.Interactive @href="#" @text="Create" />
+            <dd.Interactive @href="#" @text="Read" />
+            <dd.Interactive @href="#" @text="Update" />
             <dd.Separator />
             <dd.Interactive
-              @route='components.table'
+              @href="#"
               @text='Delete'
               @color='critical'
               @icon='trash'
