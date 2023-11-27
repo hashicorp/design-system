@@ -20,6 +20,7 @@ import 'prismjs/components/prism-go';
 import 'prismjs/components/prism-hcl';
 import 'prismjs/components/prism-json';
 import 'prismjs/components/prism-log';
+import 'prismjs/components/prism-ruby';
 import 'prismjs/components/prism-shell-session';
 import 'prismjs/components/prism-yaml';
 

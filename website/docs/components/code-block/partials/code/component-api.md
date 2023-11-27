@@ -6,7 +6,7 @@ This component uses [prism.js](https://prismjs.com/) under the hood.
   <C.Property @name="value" @type="string">
     The text/code content for the `CodeBlock`. The component encodes this argument before displaying it.
   </C.Property>
-  <C.Property @name="language" @type="string" @values={{array "bash" "go" "hcl" "json" "log" "shell-session" "yaml"}}>
+  <C.Property @name="language" @type="string" @values={{array "bash" "go" "hcl" "json" "log" "ruby" "shell-session" "yaml"}}>
     The coding language to use for syntax highlighting. If you need additional languages <LinkTo class="doc-link-generic" @route="show" @model="about/support">contact the Design Systems Team</LinkTo>.
   </C.Property>
   <C.Property @name="isStandalone" @type="boolean" @default="true">
