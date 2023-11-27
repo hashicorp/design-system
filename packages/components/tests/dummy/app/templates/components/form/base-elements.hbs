@@ -147,8 +147,10 @@
 
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="With default content">
-      <input type="hidden" value="with default content" id="character-count-input" />
-      <Hds::Form::CharacterCount @maxLength={{40}} @controlId="character-count-input" />
+      {{#let (unique-id) as |controlId|}}
+        <input type="hidden" value="with default content" id={{controlId}} />
+        <Hds::Form::CharacterCount @maxLength={{40}} @controlId={{controlId}} />
+      {{/let}}
     </SF.Item>
     <SF.Item @label="With custom content (currentLength, maxLength)">
       <input type="hidden" value="with custom content" id="character-count-input-current" />

@@ -284,7 +284,7 @@
         <F.CharacterCount @maxLength={{100}} />
       </Hds::Form::MaskedInput::Field>
     </SG.Item>
-    <SG.Item @label="Label + Helper text + Character count">
+    <SG.Item @label="Label + Helper text + Character count (custom)">
       <Hds::Form::MaskedInput::Field @value="Lorem ipsum dolor" as |F|>
         <F.Label>This is the label text</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
@@ -297,7 +297,7 @@
         </F.CharacterCount>
       </Hds::Form::MaskedInput::Field>
     </SG.Item>
-    <SG.Item @label="Label + Copy Button + Error + Character count">
+    <SG.Item @label="Label + Copy Button + Character count + Error">
       <Hds::Form::MaskedInput::Field
         @value="Lorem ipsum dolor sit amet"
         @isInvalid={{this.textInputFieldIsInvalid}}
@@ -322,7 +322,7 @@
         <F.CharacterCount @maxLength={{100}} />
       </Hds::Form::MaskedInput::Field>
     </SG.Item>
-    <SG.Item @label="Label + Helper text + Character count">
+    <SG.Item @label="Label + Helper text + Character count (custom)">
       <Hds::Form::MaskedInput::Field @isMultiline={{true}} @value="Lorem ipsum dolor" as |F|>
         <F.Label>This is the label text</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
@@ -335,7 +335,7 @@
         </F.CharacterCount>
       </Hds::Form::MaskedInput::Field>
     </SG.Item>
-    <SG.Item @label="Label + Copy Button + Error + Character count">
+    <SG.Item @label="Label + Copy Button + Character count + Error">
       <Hds::Form::MaskedInput::Field
         @isMultiline={{true}}
         @value="Lorem ipsum dolor sit amet"

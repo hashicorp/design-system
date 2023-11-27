@@ -50,7 +50,7 @@ module(
       await typeIn('#input-1', 'cl');
       assert.dom('#test-form-character-count').hasText('2 characters entered');
     });
-    test('it renders a character count in the predefined format when @maxLength is set', async function (assert) {
+    test('it renders a character count in the predefined format when only @maxLength is set', async function (assert) {
       await render(
         hbs`
           <input id="input-max-length"/>
@@ -81,7 +81,7 @@ module(
         .dom('#test-form-character-count')
         .hasText('Exceeded by 4 characters');
     });
-    test('it renders a character count in the predefined format when @minLength is set', async function (assert) {
+    test('it renders a character count in the predefined format when only @minLength is set', async function (assert) {
       await render(
         hbs`
           <input id="input-min-length"/>
@@ -102,7 +102,7 @@ module(
       await typeIn('#input-min-length', 'u');
       assert.dom('#test-form-character-count').hasText('3 characters entered');
     });
-    test('it renders a character count in the predefined format when @minLength and @maxLength are set', async function (assert) {
+    test('it renders a character count in the predefined format when both @minLength and @maxLength are set', async function (assert) {
       await render(
         hbs`
           <input id="input-minmax-length"/>

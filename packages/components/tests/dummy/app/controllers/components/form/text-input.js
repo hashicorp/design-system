@@ -9,6 +9,7 @@ import { tracked } from '@glimmer/tracking';
 
 export default class FormTextInputController extends Controller {
   @tracked fieldIsInvalid;
+
   @action
   noop() {}
 

@@ -10,6 +10,7 @@ import { tracked } from '@glimmer/tracking';
 export default class FormMaskedInputController extends Controller {
   @tracked textInputFieldIsInvalid;
   @tracked textareaFieldIsInvalid;
+
   @action onFieldInput(
     control,
     maxLength,
