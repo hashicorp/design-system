@@ -13,14 +13,7 @@ export default class FormTextInputController extends Controller {
   @action
   noop() {}
 
-  @action onFieldInput(
-    control,
-    maxLength,
-    minLength,
-    remaining,
-    shortfall,
-    currentLength
-  ) {
-    this.fieldIsInvalid = currentLength > maxLength;
+  @action onFieldInput(args) {
+    this.fieldIsInvalid = args.currentLength > args.maxLength;
   }
 }

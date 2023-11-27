@@ -11,18 +11,11 @@ export default class FormMaskedInputController extends Controller {
   @tracked textInputFieldIsInvalid;
   @tracked textareaFieldIsInvalid;
 
-  @action onFieldInput(
-    control,
-    maxLength,
-    minLength,
-    remaining,
-    shortfall,
-    currentLength
-  ) {
-    if (control.localName === 'input') {
-      this.textInputFieldIsInvalid = currentLength > maxLength;
-    } else if (control.localName === 'textarea') {
-      this.textareaFieldIsInvalid = currentLength > maxLength;
+  @action onFieldInput(args) {
+    if (args.inputControl.localName === 'input') {
+      this.textInputFieldIsInvalid = args.currentLength > args.maxLength;
+    } else if (args.inputControl.localName === 'textarea') {
+      this.textareaFieldIsInvalid = args.currentLength > args.maxLength;
     }
   }
 }

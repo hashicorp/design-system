@@ -147,14 +147,14 @@ export default class HdsFormCharacterCountIndexComponent extends Component {
     this.currentLength = this.inputControl?.value?.length;
 
     if (typeof this.args.onInput === 'function') {
-      this.args.onInput(
-        this.inputControl,
-        this.maxLength,
-        this.minLength,
-        this.remaining,
-        this.shortfall,
-        this.currentLength
-      );
+      this.args.onInput({
+        inputControl: this.inputControl,
+        currentLength: this.currentLength,
+        maxLength: this.maxLength,
+        minLength: this.minLength,
+        remaining: this.remaining,
+        shortfall: this.shortfall,
+      });
     }
   }
 
