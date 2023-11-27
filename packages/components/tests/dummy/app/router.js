@@ -31,7 +31,6 @@ Router.map(function () {
     this.route('card');
     this.route('code-block');
     this.route('dropdown');
-    this.route('empty-state');
     this.route('flyout');
     this.route('form', function () {
       this.route('base-elements');
