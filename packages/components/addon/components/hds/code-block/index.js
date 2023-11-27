@@ -22,6 +22,7 @@ import 'prismjs/components/prism-json';
 import 'prismjs/components/prism-log';
 import 'prismjs/components/prism-shell-session';
 import 'prismjs/components/prism-yaml';
+import 'prismjs/components/prism-ruby';
 
 // These imports are required to overcome a global variable clash in Helios website
 // where language import are overriden by the Prism instance in `CodeBlock`

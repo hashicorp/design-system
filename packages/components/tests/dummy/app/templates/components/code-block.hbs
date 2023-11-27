@@ -443,6 +443,15 @@ result:
       />
     </SG.Item>
 
+    <SG.Item @label="Ruby" @forceMinWidth={{true}}>
+      <Hds::CodeBlock
+        @language="ruby"
+        @value='Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/noble64"
+end'
+      />
+    </SG.Item>
+
     <SG.Item @label="Invalid language (foo)" @forceMinWidth={{true}}>
       {{! template-lint-disable no-whitespace-for-layout }}
       <Hds::CodeBlock
