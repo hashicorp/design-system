@@ -8,28 +8,28 @@ The Table component itself is where most of the options will be applied. However
   <C.Property @name="<:head>" @type="named block">
     This is a named block where the content for the table head (`<thead>`) is rendered. Note: most consumers are unlikely to need to use this named block directly.<br />
     It yields these internal properties:
-    <Doc::ComponentApi as |D|>
-      <D.Property @name="H.setSortBy" @type="yielded function">
+    <Doc::ComponentApi as |C|>
+      <C.Property @name="H.setSortBy" @type="yielded function">
       The function used internally by the table to set the `sortBy` and `sortOrder` tracked values.
-      </D.Property>
-      <D.Property @name="H.sortBy" @type="yielded value">
+      </C.Property>
+      <C.Property @name="H.sortBy" @type="yielded value">
         The value of the internal `sortBy` tracked variable.
-      </D.Property>
-      <D.Property @name="H.sortOrder" @type="yielded value">
+      </C.Property>
+      <C.Property @name="H.sortOrder" @type="yielded value">
         The value of the internal `sortOrder` tracked variable.
-      </D.Property>
+      </C.Property>
     </Doc::ComponentApi>
   </C.Property>
   <C.Property @name="<:body>" @type="named block">
     This is a named block where the content for the table body (`<tbody>`) is rendered.<br />
     It yields these internal properties:
-    <Doc::ComponentApi as |D|>
-      <D.Property @name="B.sortBy" @type="yielded value">
+    <Doc::ComponentApi as |C|>
+      <C.Property @name="B.sortBy" @type="yielded value">
         The value of the internal `sortBy` tracked variable.
-      </D.Property>
-      <D.Property @name="B.sortOrder" @type="yielded value">
+      </C.Property>
+      <C.Property @name="B.sortOrder" @type="yielded value">
         The value of the internal `sortOrder` tracked variable.
-      </D.Property>
+      </C.Property>
     </Doc::ComponentApi>
   </C.Property>
   <C.Property @name="model" @type="array">
@@ -37,28 +37,28 @@ The Table component itself is where most of the options will be applied. However
   </C.Property>
   <C.Property @name="columns" @type="array">
     Array `hash` that defines each column with key-value properties that describe each column. Options:
-    <Doc::ComponentApi as |D|>
-      <D.Property @name="label" @type="string" @required="true">
+    <Doc::ComponentApi as |C|>
+      <C.Property @name="label" @type="string" @required="true">
       The column’s label.
-      </D.Property>
-      <D.Property @name="key" @type="string">
+      </C.Property>
+      <C.Property @name="key" @type="string">
       The column’s key (one of the keys in the model's records); required if the column is sortable.
-      </D.Property>
-      <D.Property @name="isSortable" @type="boolean" @default="false">
+      </C.Property>
+      <C.Property @name="isSortable" @type="boolean" @default="false">
         If set to `true`, indicates that a column should be sortable.
-      </D.Property>
-      <D.Property @name="align" @type="enum" @values={{array "left" "center" "right" }} @default="left">
+      </C.Property>
+      <C.Property @name="align" @type="enum" @values={{array "left" "center" "right" }} @default="left">
         Determines the horizontal content alignment (sometimes referred to as text alignment) for the column header.
-      </D.Property>
-      <D.Property @name="width" @type="string" @valueNote="Any valid CSS">
+      </C.Property>
+      <C.Property @name="width" @type="string" @valueNote="Any valid CSS">
         If set, determines the column’s width.
-      </D.Property>
+      </C.Property>
       <C.Property @name="isVisuallyHidden" @type="boolean" @default="false">
         If set to `true`, it visually hides the column’s text content (it will still be available to screen readers for accessibility). <em>Only available for non-sortable columns.</em>
       </C.Property>
-      <D.Property @name="sortingFunction" @type="function">
+      <C.Property @name="sortingFunction" @type="function">
         Callback function to provide support for custom sorting logic. It should implement a typical bubble-sorting algorithm using two elements and comparing them. For more details, see the example of custom sorting in the How To Use section.
-      </D.Property>
+      </C.Property>
     </Doc::ComponentApi>
   </C.Property>
   <C.Property @name="sortBy" @type="string">
