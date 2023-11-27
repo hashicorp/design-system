@@ -3,9 +3,12 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import fs from 'fs-extra';
+
+import _ from 'lodash';
+
 // remark
 import { unified } from 'unified';
-import remarkParse from 'remark-parse';
 import { remark } from 'remark';
 import { visit } from 'unist-util-visit';
 import { selectAll } from 'unist-util-select';
@@ -15,26 +18,32 @@ import { toString } from 'mdast-util-to-string';
 
 import handlebars from 'handlebars';
 
-import _ from 'lodash';
-
 // plugins
 import remarkGfm from 'remark-gfm';
-import remarkHtml from 'remark-html';
+import remarkParse from 'remark-parse';
+// import remarkHtml from 'remark-html';
 import remarkRehype from 'remark-rehype';
 import rehypeRaw from 'rehype-raw';
 import rehypeStringify from 'rehype-stringify';
+import remarkFrontmatter from 'remark-frontmatter';
 
 // local/custom
 import { WCAG_CRITERIA } from './parts/getWcagCriteria.mjs';
-import { replaceDocTags } from './parts/replaceDocTags.mjs';
+import { replaceDocComponentApiTags } from './parts/replaceDocComponentApiTags.mjs';
+import { removeIgnoredContent } from './parts/removeIgnoredContent.mjs';
 import { remarkRemoveComments } from './parts/remarkRemoveComments.mjs';
 import { remarkRemoveCodeBlocks } from './parts/remarkRemoveCodeBlocks.mjs';
-import { remarkRemoveEmptyParagraphs } from './parts/remarkRemoveEmptyParagraphs.mjs';
 import { remarkProcessCustomImageFormat } from './parts/remarkProcessCustomImageFormat.mjs';
-import { remarkStripHeliosContentBlocksDelimiters } from './parts/remarkStripHeliosContentBlocksDelimiters.mjs';
+import { remarkStripContentBlocksDelimiters } from './parts/remarkStripContentBlocksDelimiters.mjs';
+import { remarkProcessDocWcagList } from './parts/remarkProcessDocWcagList.mjs';
+import { remarkStripDocA11ySupport } from './parts/remarkStripDocA11ySupport.mjs';
+import { remarkStripDocBadge } from './parts/remarkStripDocBadge.mjs';
+import { remarkStripDocLayout } from './parts/remarkStripDocLayout.mjs';
 import { remarkStripHeliosHandlebarsExpressions } from './parts/remarkStripHeliosHandlebarsExpressions.mjs';
 // import { remarkStripHeliosReleaseNotesMetadata } from './remarkStripHeliosReleaseNotesMetadata.mjs';
 import { remarkHtmlSanitise } from './parts/remarkHtmlSanitise.mjs';
+import { rehypeRemoveDocListContainer } from './parts/rehypeRemoveDocListContainer.mjs';
+import { rehypeRemoveEmptyParagraphs } from './parts/rehypeRemoveEmptyParagraphs.mjs';
 import { setNodesHierarchy } from './parts/setNodesHierarchy.mjs';
 import { stringifyChildNodes } from './parts/stringifyChildNodes.mjs';
 
@@ -186,19 +195,32 @@ export async function parseMarkdown(markdownContent) {
   // PROCESSING PIPELINE
   // --------------------
 
-  // we need to convert the `<Doc::***>` components to web-components-like code (HTML compatible)
-  const standardizedContent = replaceDocTags(markdownContent);
+  const testFile =
+    '/Users/cristianorastelli/src/hashicorp/design-system/website/docs/testing/markdown/scraping-playground.md';
+
+  // TODO! remove! override
+  const fileContent = await fs.readFile(testFile);
+  markdownContent = fileContent.toString();
+
+  // remove content included in `<!-- algolia-ignore-[start/end] -->` delimiters
+  markdownContent = removeIgnoredContent(markdownContent);
+
+  // replace `<Doc::ComponentApi(::*)>` tags with web-components-like `<doc-component-api>` custom tags (HTML compatible)
+  markdownContent = replaceDocComponentApiTags(markdownContent);
 
   // MARKDOWN AST PROCESSING
+  // -----------------------
 
   let tree = await unified()
     // convert the markdown to AST
     .use(remarkParse)
     // interpret special GFM markdown format
     .use(remarkGfm)
+    // interpret the frontmatter block
+    .use(remarkFrontmatter, { type: 'yaml', marker: '-' })
     // convert markdown to HTML (TODO do we need it? what happens if we remove this?)
     // .use(remarkHtml, { sanitize: remarkHtmlSanitise })
-    .parse(standardizedContent);
+    .parse(markdownContent);
 
   // ✅ process custom images (showdown.js format)
   tree = await unified().use(remarkProcessCustomImageFormat).run(tree);
@@ -210,42 +232,51 @@ export async function parseMarkdown(markdownContent) {
   tree = await unified().use(remarkRemoveCodeBlocks).run(tree);
 
   // ✅ remove content blocks delimiters
-  tree = await unified()
-    .use(remarkStripHeliosContentBlocksDelimiters)
-    .run(tree);
+  tree = await unified().use(remarkStripContentBlocksDelimiters).run(tree);
+
+  // ✅ process <Doc::WcagList/> elements and convert the to custom AST node
+  tree = await unified().use(remarkProcessDocWcagList).run(tree);
+
+  // ✅ remove some <Doc::***/> elements
+  tree = await unified().use(remarkStripDocA11ySupport).run(tree);
+  tree = await unified().use(remarkStripDocBadge).run(tree);
+  tree = await unified().use(remarkStripDocLayout).run(tree);
 
   // 🤔 remove handlebars expressions (`{{...}}`) so they don't pollute the paragraphs
-  tree = await unified().use(remarkStripHeliosHandlebarsExpressions).run(tree);
-
-  // ✅ remove empty paragraphs
-  tree = await unified().use(remarkRemoveEmptyParagraphs).run(tree);
+  // tree = await unified().use(remarkStripHeliosHandlebarsExpressions).run(tree);
 
   // ✅ associate to each node the hierarchy in terms of headings level
   tree = await unified().use(setNodesHierarchy).run(tree);
 
-  // console.log('TREE BEFORE', JSON.stringify(tree, null, 2));
-  // console.log('TREE AFTER', JSON.stringify(tree, null, 2));
+  console.log('TREE BEFORE', JSON.stringify(tree, null, 2));
 
   // HTML AST PROCESSING
+  // -------------------
 
-  const html = await unified()
+  const htmlTree = await unified()
     .use(remarkParse)
-    // .use(remarkHtml, { sanitize: remarkHtmlSanitise })
     // .use(remarkRehype)
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeRaw)
-    .use(rehypeStringify)
+    .use(rehypeStringify, { closeSelfClosing: true })
     .run(tree);
 
-  console.log('HTML', JSON.stringify(html, null, 2));
+  // ✅ remove Doc::ListContainer (doc::listcontainer) wrappers
+  tree = await unified().use(rehypeRemoveDocListContainer).run(htmlTree);
 
-  // process the relevant nodes
+  // ✅ remove empty paragraphs
+  tree = await unified().use(rehypeRemoveEmptyParagraphs).run(htmlTree);
+
+  console.log('HTML AFTER', JSON.stringify(htmlTree, null, 2));
+
+  // EXTRACT CONTENT FROM RELEVANT NODES
+  // -----------------------------------
 
   // // parse and index "doc" (ember) nodes for special components
   // .use(wcagListMapper)
   // .use(componentApiMapper)
 
-  // parse and index standard nodes
+  // parse and index relevant nodes
   // await unified()
   //   .use(headingMapper)
   //   .use(paragraphMapper)

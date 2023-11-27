@@ -2,145 +2,93 @@
 title: Scraping playground
 ---
 
-<!-- NOTICE: you can explore the AST three using this web page: https://astexplorer.net/#/gist/0a92bbf654aca4fdfb3f139254cf0bad/d17d8e55bb73f34847d7a88aadb787a0e5fbc9f6 -->
-
-# Header 1
-## Header 2
-### Header 3
-#### Header 4
-##### Header 5
-###### Header 6
-
-----------------
-
-This is a normal paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque erat elit, lacinia at magna eget, porttitor lobortis nulla.
-
-Text can be **bold**, _italic_, or ~~strikethrough~~, and can contain emoji like 👋 🙂 🚨 🚀.
-
-Inline [links](https://github.com) should be styled according to the design specifications.
-
-----------------
-
-# Problematic use cases to fix
-
-## HTML tags inside a "paragraph"
-
-_How do we avoid the `<(/)code>` word be indexed, but return only the "ipsum" string within it?_
-
-Lorem <code>ipsum</code> dolor.
-
-----------------
-
-# Images
-
-A simple image
-
-![](http://placekitten.com/g/300/200/)
-
-Image with alt text
-
-![Hello cats!](http://placekitten.com/g/300/200/)
-
-Image with alt text and custom size
-
-![Hello cats!](http://placekitten.com/g/300/200/ =770x*)
-
-----------------
-
-# Tables
-
-| What      | Follows         |
-|-----------|-----------------|
-| A table   | A header        |
-| A table   | A header        |
-| A table   | A header        |
-
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| **col 3 is**  | right-aligned | $1600 |
-| col 2 is      | *centered*    |   $12 |
-| zebra stripes | ~~are neat~~  |    $1 |
-| `inline code` | can be added  |   too |
-
-
-----------------
-
-# Banners
-
-!!! Info
-
-Lorem ipsum
-
-!!!
-
-!!! Warning
-
-Lorem ipsum
-!!!
-
-----------------
-
-# HTML
-
-<div class="div-class">
-  <p><span class="span-class">Hello</span> world</p>
-</div>
-
-----------------
-
-# Web Components
-
-<custom-tag class="div-class">
-  <p><span class="span-class">Hello</span> world</p>
-</custom-tag>
-
-<another-custom-tag />
-
-<CustomTag class="customtag-class">
-  <p><span class="span-class">Hello</span> world</p>
-</CustomTag>
-
-----------------
-
-# DOC Components
-
-<Doc::Content::HdsPrinciples />
-
-<Doc::Badge @type="neutral">Spacebar</Doc::Badge>
-
-<Doc::WcagList @criteriaList={{array "1.1.1" "1.2.3"}} />
-
-<Doc::A11ySupport />
-
-<Doc::VarsList @items="AAA" />
-
-<Doc::TokensList
-  @groupedTokens="AAA"
-  @searchQuery="BBB"
-  @searchTokens="CCC"
-/>
+# TESTING
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="<:toggle>" @type="named block">
-    A named block that works as “toggle” for the `AccordionItem`.
+  <C.Property @name="<:head>" @type="named block">
+    This is a named block where the content for the table head (`<thead>`) is rendered. Note: most consumers are unlikely to need to use this named block directly.<br />
+    It yields these internal properties:
+    <Doc::ComponentApi as |C|>
+      <C.Property @name="H.setSortBy" @type="yielded function">
+      The function used internally by the table to set the `sortBy` and `sortOrder` tracked values.
+      </C.Property>
+      <C.Property @name="H.sortBy" @type="yielded value">
+        The value of the internal `sortBy` tracked variable.
+      </C.Property>
+      <C.Property @name="H.sortOrder" @type="yielded value">
+        The value of the internal `sortOrder` tracked variable.
+      </C.Property>
+    </Doc::ComponentApi>
   </C.Property>
-  <C.Property @name="type" @required="true" @type="enum" @values={{array "page" "inline" "compact"}}>
-    Sets the type of alert.
+  <C.Property @name="<:body>" @type="named block">
+    This is a named block where the content for the table body (`<tbody>`) is rendered.<br />
+    It yields these internal properties:
+    <Doc::ComponentApi as |C|>
+      <C.Property @name="B.sortBy" @type="yielded value">
+        The value of the internal `sortBy` tracked variable.
+      </C.Property>
+      <C.Property @name="B.sortOrder" @type="yielded value">
+        The value of the internal `sortOrder` tracked variable.
+      </C.Property>
+    </Doc::ComponentApi>
   </C.Property>
-  <C.Property @name="color" @type="enum" @values={{array "neutral" "highlight" "success" "warning" "critical"}} @default="neutral">
-    Sets the color scheme for `background`, `border`, `title`, and `description`, which **cannot** be overridden.<br/><br/>`color` results in a default `icon`, which **can** be overridden.
+  <C.Property @name="model" @type="array">
+    The data model to be used by the table.
+  </C.Property>
+  <C.Property @name="columns" @type="array">
+    Array `hash` that defines each column with key-value properties that describe each column. Options:
+    <Doc::ComponentApi as |C|>
+      <C.Property @name="label" @type="string" @required="true">
+      The column’s label.
+      </C.Property>
+      <C.Property @name="key" @type="string">
+      The column’s key (one of the keys in the model's records); required if the column is sortable.
+      </C.Property>
+      <C.Property @name="isSortable" @type="boolean" @default="false">
+        If set to `true`, indicates that a column should be sortable.
+      </C.Property>
+      <C.Property @name="align" @type="enum" @values={{array "left" "center" "right" }} @default="left">
+        Determines the horizontal content alignment (sometimes referred to as text alignment) for the column header.
+      </C.Property>
+      <C.Property @name="width" @type="string" @valueNote="Any valid CSS">
+        If set, determines the column’s width.
+      </C.Property>
+      <C.Property @name="sortingFunction" @type="function">
+        Callback function to provide support for custom sorting logic. It should implement a typical bubble-sorting algorithm using two elements and comparing them. For more details, see the example of custom sorting in the How To Use section.
+      </C.Property>
+    </Doc::ComponentApi>
+  </C.Property>
+  <C.Property @name="sortBy" @type="string">
+    If defined, the value should be set to the key of the column that should be pre-sorted.
+  </C.Property>
+  <C.Property @name="sortOrder" @type="string" @values={{array "asc" "desc" }} @default="asc">
+    Use in conjunction with `sortBy`. If defined, indicates which direction the column should be pre-sorted in. If not defined, `asc` is applied by default.
+  </C.Property>
+  <C.Property @name="isStriped" @type="boolean" @default="false">
+    Define on the table invocation. If set to `true`, even-numbered rows will have a different background color from odd-numbered rows.
+  </C.Property>
+  <C.Property @name="isFixedLayout" @type="boolean" @default="false">
+    If set to `true`, the `table-display`(CSS) property will be set to `fixed`. See [MDN reference on table-layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) for more details.
+  </C.Property>
+  <C.Property @name="density" @type="enum" @values={{array "short" "medium" "tall" }} @default="medium">
+    If set, determines the density (height) of the table body’s rows.
+  </C.Property>
+  <C.Property @name="valign" @type="enum" @values={{array "top" "middle" }} @default="top">
+    Determines the vertical alignment for content in a table. Does not apply to table headers (`th`). See [MDN reference on vertical-align](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align) for more details.
+  </C.Property>
+  <C.Property @name="caption" @type="string">
+    Adds a (non-visible) caption for users with assistive technology. If set on a sortable table, the provided table caption is paired with the automatically generated sorted message text.
+  </C.Property>
+  <C.Property @name="identityKey" @type="'none'|string" @default="@identity">
+    Option to [specify a custom key](https://api.emberjs.com/ember/release/classes/Ember.Templates.helpers/methods/each?anchor=each#:~:text=%3C/ul%3E-,Specifying%20Keys,-In%20order%20to) to the `each` iterator. If `identityKey="none"`, this is interpreted as an `undefined` value for the `@identity` key option.
+  </C.Property>
+  <C.Property @name="sortedMessageText" @type="string" @default="Sorted by (label), (asc/desc)ending">
+    Customizable text added to `caption` element when a sort is performed.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
-  <C.Property @name="<[G].Error>" @type="yielded component">
-    Container that yields its content inside the “error” block at group level. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API check the [`Form::Error`](/components/form/primitives) component.
-    <br/><br/>
-    The `id` attribute of the `Error` element is automatically generated.
-    <Doc::ComponentApi as |C|>
-      <C.Property @name="<[E].Message>" @type="yielded component">
-        If the error is made of multiple messages, you can iterate over a collection of error messages yielding individual items using `Error.Message`.
-      </C.Property>
-    </Doc::ComponentApi>
+  <C.Property @name="onSort" @type="function">
+    Callback function that is invoked when one of the sortable table headers is clicked (or has a keyboard interaction performed). The function receives the values of `sortBy` and `sortOrder` as arguments.
   </C.Property>
 </Doc::ComponentApi>
