@@ -4,91 +4,65 @@ title: Scraping playground
 
 # TESTING
 
-<Doc::ComponentApi as |C|>
-  <C.Property @name="<:head>" @type="named block">
-    This is a named block where the content for the table head (`<thead>`) is rendered. Note: most consumers are unlikely to need to use this named block directly.<br />
-    It yields these internal properties:
-    <Doc::ComponentApi as |C|>
-      <C.Property @name="H.setSortBy" @type="yielded function">
-      The function used internally by the table to set the `sortBy` and `sortOrder` tracked values.
-      </C.Property>
-      <C.Property @name="H.sortBy" @type="yielded value">
-        The value of the internal `sortBy` tracked variable.
-      </C.Property>
-      <C.Property @name="H.sortOrder" @type="yielded value">
-        The value of the internal `sortOrder` tracked variable.
-      </C.Property>
-    </Doc::ComponentApi>
-  </C.Property>
-  <C.Property @name="<:body>" @type="named block">
-    This is a named block where the content for the table body (`<tbody>`) is rendered.<br />
-    It yields these internal properties:
-    <Doc::ComponentApi as |C|>
-      <C.Property @name="B.sortBy" @type="yielded value">
-        The value of the internal `sortBy` tracked variable.
-      </C.Property>
-      <C.Property @name="B.sortOrder" @type="yielded value">
-        The value of the internal `sortOrder` tracked variable.
-      </C.Property>
-    </Doc::ComponentApi>
-  </C.Property>
-  <C.Property @name="model" @type="array">
-    The data model to be used by the table.
-  </C.Property>
-  <C.Property @name="columns" @type="array">
-    Array `hash` that defines each column with key-value properties that describe each column. Options:
-    <Doc::ComponentApi as |C|>
-      <C.Property @name="label" @type="string" @required="true">
-      The column’s label.
-      </C.Property>
-      <C.Property @name="key" @type="string">
-      The column’s key (one of the keys in the model's records); required if the column is sortable.
-      </C.Property>
-      <C.Property @name="isSortable" @type="boolean" @default="false">
-        If set to `true`, indicates that a column should be sortable.
-      </C.Property>
-      <C.Property @name="align" @type="enum" @values={{array "left" "center" "right" }} @default="left">
-        Determines the horizontal content alignment (sometimes referred to as text alignment) for the column header.
-      </C.Property>
-      <C.Property @name="width" @type="string" @valueNote="Any valid CSS">
-        If set, determines the column’s width.
-      </C.Property>
-      <C.Property @name="sortingFunction" @type="function">
-        Callback function to provide support for custom sorting logic. It should implement a typical bubble-sorting algorithm using two elements and comparing them. For more details, see the example of custom sorting in the How To Use section.
-      </C.Property>
-    </Doc::ComponentApi>
-  </C.Property>
-  <C.Property @name="sortBy" @type="string">
-    If defined, the value should be set to the key of the column that should be pre-sorted.
-  </C.Property>
-  <C.Property @name="sortOrder" @type="string" @values={{array "asc" "desc" }} @default="asc">
-    Use in conjunction with `sortBy`. If defined, indicates which direction the column should be pre-sorted in. If not defined, `asc` is applied by default.
-  </C.Property>
-  <C.Property @name="isStriped" @type="boolean" @default="false">
-    Define on the table invocation. If set to `true`, even-numbered rows will have a different background color from odd-numbered rows.
-  </C.Property>
-  <C.Property @name="isFixedLayout" @type="boolean" @default="false">
-    If set to `true`, the `table-display`(CSS) property will be set to `fixed`. See [MDN reference on table-layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) for more details.
-  </C.Property>
-  <C.Property @name="density" @type="enum" @values={{array "short" "medium" "tall" }} @default="medium">
-    If set, determines the density (height) of the table body’s rows.
-  </C.Property>
-  <C.Property @name="valign" @type="enum" @values={{array "top" "middle" }} @default="top">
-    Determines the vertical alignment for content in a table. Does not apply to table headers (`th`). See [MDN reference on vertical-align](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align) for more details.
-  </C.Property>
-  <C.Property @name="caption" @type="string">
-    Adds a (non-visible) caption for users with assistive technology. If set on a sortable table, the provided table caption is paired with the automatically generated sorted message text.
-  </C.Property>
-  <C.Property @name="identityKey" @type="'none'|string" @default="@identity">
-    Option to [specify a custom key](https://api.emberjs.com/ember/release/classes/Ember.Templates.helpers/methods/each?anchor=each#:~:text=%3C/ul%3E-,Specifying%20Keys,-In%20order%20to) to the `each` iterator. If `identityKey="none"`, this is interpreted as an `undefined` value for the `@identity` key option.
-  </C.Property>
-  <C.Property @name="sortedMessageText" @type="string" @default="Sorted by (label), (asc/desc)ending">
-    Customizable text added to `caption` element when a sort is performed.
-  </C.Property>
-  <C.Property @name="...attributes">
-    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
-  </C.Property>
-  <C.Property @name="onSort" @type="function">
-    Callback function that is invoked when one of the sortable table headers is clicked (or has a keyboard interaction performed). The function receives the values of `sortBy` and `sortOrder` as arguments.
-  </C.Property>
-</Doc::ComponentApi>
+## Simple table
+
+| What      | Follows         |
+|-----------|-----------------|
+| A table   | A header        |
+| A table   | A header        |
+| A table   | A header        |
+
+## Complex tables
+
+Tables should have bold headings and alternating shaded rows.
+
+| Artist            | Album           | Year |
+|-------------------|-----------------|------|
+| Michael Jackson   | Thriller        | 1982 |
+| Prince            | Purple Rain     | 1984 |
+| Beastie Boys      | License to Ill  | 1986 |
+
+If a table is too wide, it should condense down and/or scroll horizontally.
+
+| Artist            | Album           | Year | Label       | Awards   | Songs     |
+|-------------------|-----------------|------|-------------|----------|-----------|
+| Michael Jackson   | Thriller        | 1982 | Epic Records | Grammy Award for Album of the Year, American Music Award for Favorite Pop/Rock Album, American Music Award for Favorite Soul/R&B Album, Brit Award for Best Selling Album, Grammy Award for Best Engineered Album, Non-Classical | Wanna Be Startin' Somethin', Baby Be Mine, The Girl Is Mine, Thriller, Beat It, Billie Jean, Human Nature, P.Y.T. (Pretty Young Thing), The Lady in My Life |
+| Prince            | Purple Rain     | 1984 | Warner Brothers Records | Grammy Award for Best Score Soundtrack for Visual Media, American Music Award for Favorite Pop/Rock Album, American Music Award for Favorite Soul/R&B Album, Brit Award for Best Soundtrack/Cast Recording, Grammy Award for Best Rock Performance by a Duo or Group with Vocal | Let's Go Crazy, Take Me With U, The Beautiful Ones, Computer Blue, Darling Nikki, When Doves Cry, I Would Die 4 U, Baby I'm a Star, Purple Rain |
+| Beastie Boys      | License to Ill  | 1986 | Mercury Records | noawardsbutthistablecelliswide | Rhymin & Stealin, The New Style, She's Crafty, Posse in Effect, Slow Ride, Girls, (You Gotta) Fight for Your Right, No Sleep Till Brooklyn, Paul Revere, Hold It Now, Hit It, Brass Monkey, Slow and Low, Time to Get Ill |
+
+Normal markdown tables can contain only inline elements (and the content can be aligned too):
+
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| **col 3 is**  | right-aligned | $1600 |
+| col 2 is      | *centered*    |   $12 |
+| zebra stripes | ~~are neat~~  |    $1 |
+| `inline code` | can be added  |   too |
+
+If you need to use block elements inside a table, you have to use HTML code:
+
+<table>
+    <tr>
+        <th> Block type </th>
+        <th> Example </th>
+    </tr>
+    <tr>
+        <td> Code in &lt;pre&gt; </td>
+        <td>
+<pre>
+{
+  "id": 10,
+  "username": "janedoe",
+  "created_at": "2021-02-097T20:45:26.433Z",
+  "updated_at": "2015-02-10T19:27:16.540Z"
+}
+</pre>
+        </td>
+    </tr>
+    <tr>
+        <td> Ember component </td>
+        <td>
+            <Doc::NpmVersion class="doc-test-markdown-basic-styling" />
+        </td>
+    </tr>
+</table>
