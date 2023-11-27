@@ -23,7 +23,6 @@ Router.map(function () {
     this.route('alert');
     this.route('app-footer');
     this.route('application-state');
-    this.route('avatar');
     this.route('badge');
     this.route('badge-count');
     this.route('breadcrumb');
