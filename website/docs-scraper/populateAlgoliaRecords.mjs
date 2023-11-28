@@ -33,25 +33,8 @@ export async function populateAlgoliaRecords({ record, content }) {
   // -- paragraphs --
 
   paragraphs.forEach((paragraph) => {
-    // remove empty paragraphs
-    // notice: no need to do it at remark level, is more efficient here (eg. it may contain just an image)
+    // remove leftover empty paragraphs
     if (paragraph.content.trim() === '') {
-      return;
-    }
-    // remove banner delimiters
-    if (paragraph.content.match(/^!!!/)) {
-      return;
-    }
-    if (paragraph.content.match(/!!!$/)) {
-      return;
-    }
-    // remove <doc- delimiters
-    if (paragraph.content.match(/^<doc-/)) {
-      return;
-    }
-    // remove ![*](*** =770x*) images
-    // TODO find a way to interpret these correctly as images
-    if (paragraph.content.match(/^!\[/)) {
       return;
     }
 

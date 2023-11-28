@@ -382,6 +382,12 @@ async function indexWebsiteContent() {
     `Ready to add ${algoliaRecordsDistinct.length} distinct records to Algolia index (out of ${algoliaRecords.length} collected)`
   );
 
+  // DEBUG - leave for debugging
+  await fs.writeJSON('./ALGOLIA-RECORDS-DUMP.json', algoliaRecords, {
+    spaces: 2,
+    replacer: null,
+  });
+
   if (!DEV_SKIP_API_CALLS) {
     // here we construct the request to be sent to Algolia with the `batch/multiBatch` method
     // see: https://www.algolia.com/doc/api-reference/api-methods/batch/

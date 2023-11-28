@@ -44,6 +44,9 @@ import { stringifyChildNodes } from './parts/stringifyChildNodes.mjs';
 // debugging
 // import { debugLogNodes } from './parts/debugLogNodes.mjs';
 
+const cleanupContent = (content) =>
+  content.replaceAll(/\n/gm, ' ').replaceAll(/\s\s+/gm, ' ').trim();
+
 // ========================================================================
 
 export async function parseMarkdown(markdownContent) {
@@ -61,7 +64,7 @@ export async function parseMarkdown(markdownContent) {
       (node) => {
         const content = stringifyChildNodes(node);
         headings.push({
-          content: content,
+          content: cleanupContent(content),
           level: node.depth,
           hierarchy: node.hierarchy,
         });
@@ -75,7 +78,10 @@ export async function parseMarkdown(markdownContent) {
       (node) => node.tagName === 'p',
       (node) => {
         const content = stringifyChildNodes(node);
-        paragraphs.push({ content: content, hierarchy: node.hierarchy });
+        paragraphs.push({
+          content: cleanupContent(content),
+          hierarchy: node.hierarchy,
+        });
       }
     );
   };
@@ -91,9 +97,11 @@ export async function parseMarkdown(markdownContent) {
         );
         const content = cells
           .map((cell) => stringifyChildNodes(cell))
-          .join(' ')
-          .replace(/[\s\n]+/g, ' ');
-        tables.push({ content: content, hierarchy: node.hierarchy });
+          .join(' ');
+        tables.push({
+          content: cleanupContent(content),
+          hierarchy: node.hierarchy,
+        });
       }
     );
   };
@@ -127,7 +135,7 @@ export async function parseMarkdown(markdownContent) {
         componentApis.push({
           property: {
             name: propertyName,
-            value: propertyDescription.trim(),
+            value: cleanupContent(propertyDescription),
           },
           hierarchy: {
             lvl1: undefined,
