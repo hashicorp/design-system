@@ -11,13 +11,43 @@
 
 ### Form::CharacterCount
 
-Use a character count to communicate the maximum number of characters a field can accept before reaching an invalid state. By default, the character count displays the number of characters entered by the end user, compared to the maximum allowed length of the input. More custom implementations are supported via the exposed `currentLength`, `maxLength`, and `remainingLength` hooks. 
+Use a character count to communicate the current length of the value in an input and whether it meets or exceeds the length requirements passed to the component. The component accepts multiple arguments to set length requirements and exposes several computed values to support custom messages. Visit the [code](/components/form/primitives?tab=code#formcharactercount) documentation for more details. <!-- TODO: ensure that this link is correct -->
 
-<!-- TODO: link to code documentation -->
+#### Default messages
 
-![character count examples within a text area](/assets/components/form/primitives/primitives-example-textarea.png)
+Depending on which property (or properties) are passed to the component, a different default message will be displayed by the component to communicate the relationship between the current length of the input value (`currentLength`) and the maximum length (`maxLength`), minimum length (`minLength`), or both.
 
-![character count examples within a text input](/assets/components/form/primitives/primitives-example-textfield.png)
+The default messages provide a consistent messaging pattern for the component by clearly communicating length requirements to the user while displaying their progress towards meeting the requirements.
+
+#### Custom messages
+
+A custom message in the character count is supported and can be used when a product or application-specific message or term is required; e.g. "registry" or "workspace".
+
+!!! Dont
+
+Don’t use the character count as an alternative to [helper text](/components/form/primitives#formhelpertext) or to display static details about the field.
+
+![Character count as helper text](/assets/components/form/primitives/character-count-dont-helper-text.png)
+!!!
+
+!!! Do
+
+Instead, use [helper text](/components/form/primitives#formhelpertext) as recommended (to provide extra details about the information being requested) and the character count to communicate the user's progress towards meeting the requirements.
+
+![Character count without helper text](/assets/components/form/primitives/character-count-do-helper-text.png)
+!!!
+
+!!! Dont
+
+Don’t use helper text to communicate length requirements as this can result in an overlap of communication with the character count.
+
+![Character count with helper text](/assets/components/form/primitives/character-count-dont-helper-text-overlap.png)
+!!!
+
+!!! Info
+
+The character count is not coupled with the invalid state of the field. Instead, it is the responsibility of the consumer to implement validation at the application-level.
+!!!
 
 ### Form::Error
 
