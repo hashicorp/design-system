@@ -132,6 +132,7 @@ $doc-algolia-search-modal-search-input-height: 44px;
     background: linear-gradient(92deg, #6c48cc -0.05%, #9242bb 100.68%);
     border-radius: calc($beta-height / 2);
     content: "Beta";
+    pointer-events: none;
   }
 }
 
