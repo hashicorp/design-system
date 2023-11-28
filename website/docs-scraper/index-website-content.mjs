@@ -13,7 +13,7 @@
 // used in development mode to skip API calls
 const DEV_SKIP_API_CALLS = true;
 // used in development to process only the "testing" markdown files
-const DEV_MARKDOWN_TESTING = true;
+const DEV_MARKDOWN_TESTING = false;
 
 // ===================================================
 

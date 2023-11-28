@@ -3,6 +3,8 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import fs from 'fs-extra';
+
 // import { pick } from 'lodash'; // not sure why this doesn't work in a `.mjs` module
 import _ from 'lodash';
 
@@ -117,6 +119,13 @@ export async function populateAlgoliaRecords({ record, content }) {
       });
     }
   });
+
+  // TODO! remove debugging
+  await fs.writeJSON(
+    '/Users/cristianorastelli/src/hashicorp/design-system/website/OUTPUT.json',
+    algoliaRecords,
+    { spaces: 2, replacer: null }
+  );
 
   return algoliaRecords;
 }

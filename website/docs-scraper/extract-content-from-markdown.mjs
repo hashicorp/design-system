@@ -186,13 +186,6 @@ export async function parseMarkdown(markdownContent) {
   // PROCESSING PIPELINE
   // --------------------
 
-  const testFile =
-    '/Users/cristianorastelli/src/hashicorp/design-system/website/docs/testing/markdown/scraping-playground.md';
-
-  // TODO! remove! override
-  const fileContent = await fs.readFile(testFile);
-  markdownContent = fileContent.toString();
-
   // remove content included in `<!-- algolia-ignore-[start/end] -->` delimiters
   markdownContent = removeIgnoredContent(markdownContent);
 
@@ -218,7 +211,7 @@ export async function parseMarkdown(markdownContent) {
   markdownContent = transformHdsTags(markdownContent);
 
   // DEBUG - leave for debugging
-  console.log('MARKDOWN CONTENT', markdownContent);
+  // console.log('MARKDOWN CONTENT', markdownContent);
 
   // MARKDOWN AST PROCESSING
   // -----------------------
@@ -244,7 +237,7 @@ export async function parseMarkdown(markdownContent) {
   // tree = await unified().use(remarkStripHeliosHandlebarsExpressions).run(tree);
 
   // DEBUG - leave for debugging
-  console.log('MARKDOWN TREE', JSON.stringify(tree, null, 2));
+  // console.log('MARKDOWN TREE', JSON.stringify(tree, null, 2));
 
   // HTML AST PROCESSING
   // -------------------
@@ -276,7 +269,7 @@ export async function parseMarkdown(markdownContent) {
   tree = await unified().use(setNodesHierarchy).run(tree);
 
   // DEBUG - leave for debugging
-  console.log('HTML TREE', JSON.stringify(tree, null, 2));
+  // console.log('HTML TREE', JSON.stringify(tree, null, 2));
 
   // EXTRACT CONTENT FROM RELEVANT NODES
   // -----------------------------------
@@ -290,19 +283,12 @@ export async function parseMarkdown(markdownContent) {
     .use(wcagListMapper)
     .run(tree);
 
-  // DEBUG
+  // DEBUG - leave for debugging
   // console.log('HEADINGS', headings);
   // console.log('PARAGRAPHS', paragraphs);
   // console.log('TABLES', tables);
   // console.log('COMPONENT APIS', JSON.stringify(componentApis, null, 2));
   // console.log('WCAG LISTS', JSON.stringify(wcagLists, null, 2));
-
-  // TODO! remove debugging
-  await fs.writeJSON(
-    '/Users/cristianorastelli/src/hashicorp/design-system/website/OUTPUT.json',
-    { headings, paragraphs, tables, componentApis, wcagLists },
-    { spaces: 2, replacer: null }
-  );
 
   return { headings, paragraphs, tables, componentApis, wcagLists };
 }
