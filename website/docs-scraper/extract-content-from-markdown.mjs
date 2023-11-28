@@ -32,9 +32,6 @@ import { transformDocTags } from './parts/transformDocTags.mjs';
 import { transformHdsTags } from './parts/transformHdsTags.mjs';
 import { remarkRemoveComments } from './parts/remarkRemoveComments.mjs';
 import { remarkRemoveCodeBlocks } from './parts/remarkRemoveCodeBlocks.mjs';
-import { removeDocA11ySupport } from './parts/removeDocA11ySupport.mjs';
-import { removeDocBadge } from './parts/removeDocBadge.mjs';
-import { removeDocLayout } from './parts/removeDocLayout.mjs';
 // import { remarkStripHeliosHandlebarsExpressions } from './parts/remarkStripHeliosHandlebarsExpressions.mjs';
 import { rehypeRemoveAllHdsElements } from './parts/rehypeRemoveAllHdsElements.mjs';
 import { rehypeRemoveNonRelevantDocElements } from './parts/rehypeRemoveNonRelevantDocElements.mjs';
@@ -191,11 +188,6 @@ export async function parseMarkdown(markdownContent) {
 
   // remove content blocks delimiters
   markdownContent = removeContentBlocksDelimiters(markdownContent);
-
-  // remove some <Doc::***/> elements
-  markdownContent = removeDocA11ySupport(markdownContent);
-  markdownContent = removeDocBadge(markdownContent);
-  markdownContent = removeDocLayout(markdownContent);
 
   // process custom images (showdown.js format)
   markdownContent = replaceCustomImageFormat(markdownContent);
