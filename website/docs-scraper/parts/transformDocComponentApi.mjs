@@ -3,10 +3,10 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-export const transformDocWcagList = (markdownContent) =>
-  // eg. <Doc::WcagList @criteriaList={{array "1.1.1" "1.2.1" ... }} />
-  markdownContent.replace(
-    /<Doc::WcagList @criteriaList={{array (.*)}} \/>/gim,
-    (_match, p1) =>
-      `<div doc-wcag-list @criteriaList="${p1.replaceAll('"', '')}"></div>`
-  );
+export const transformDocComponentApi = (markdownContent) =>
+  // eg. <Doc::ComponentApi as |C|>\n<C.Property @name="..." @type="...">
+  markdownContent
+    .replace(/<Doc::ComponentApi as \|C\|>/gim, '<div doc-component-api>')
+    .replace(/<\/Doc::ComponentApi>/gim, '</div>')
+    .replace(/<C\.Property /gim, '<div doc-component-api-property ')
+    .replace(/<\/C.Property>/gim, '</div>');

@@ -12,13 +12,6 @@ export async function populateAlgoliaRecords({ record, content }) {
   const { headings, paragraphs, tables, componentApis, wcagLists } =
     await parseMarkdown(content);
 
-  // DEBUG
-  // console.log('HEADINGS', headings);
-  // console.log('PARAGRAPHS (including the ones that will then be excluded)', paragraphs);
-  // console.log('TABLES', tables);
-  // console.log('COMPONENT APIs', JSON.stringify(componentApis, null, 2));
-  // console.log('WCAG LISTS', JSON.stringify(wcagLists, null, 2));
-
   // RECORDS
   let algoliaRecords = [];
 
@@ -86,28 +79,20 @@ export async function populateAlgoliaRecords({ record, content }) {
 
   // -- componentApis --
 
-  componentApis.forEach((componentApi) => {
-    if (
-      componentApi &&
-      componentApi.properties &&
-      componentApi.properties.length > 0
-    ) {
-      const hierarchy = componentApi?.hierarchy ?? [];
-      componentApi.properties.forEach((property) => {
-        const algoliaRecord = _.merge({}, record, {
-          type: 'component-api-property',
-          name: property.name,
-          content: `${property.name} ${property.value}`,
-          hierarchy: hierarchy,
-          level: 9,
-          source: 'component-api',
-          // EXTRA
-          'property-name': property.name,
-          'property-value': property.value,
-        });
-        algoliaRecords.push(algoliaRecord);
-      });
-    }
+  componentApis.forEach((property) => {
+    const hierarchy = property?.hierarchy ?? [];
+    const algoliaRecord = _.merge({}, record, {
+      type: 'component-api-property',
+      name: property.name,
+      content: `${property.name} ${property.value}`,
+      hierarchy: hierarchy,
+      level: 9,
+      source: 'component-api',
+      // EXTRA
+      'property-name': property.name,
+      'property-value': property.value,
+    });
+    algoliaRecords.push(algoliaRecord);
   });
 
   // -- wcagLists --

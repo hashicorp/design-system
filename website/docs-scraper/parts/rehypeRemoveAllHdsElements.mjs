@@ -5,7 +5,7 @@
 
 import { visit, SKIP } from 'unist-util-visit';
 
-export const rehypeRemoveHdsElements = () => (tree) => {
+export const rehypeRemoveAllHdsElements = () => (tree) => {
   visit(
     tree,
     (node) => {
