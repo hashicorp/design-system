@@ -130,6 +130,17 @@ Use the `@isRequired` and `@isOptional` arguments to add a visual indication tha
 </Hds::Form::MaskedInput::Field>
 ```
 
+#### Character count
+
+To support users meet content length constrains set `@minLength` and/or `@maxLength` to a `CharacterCount` contextual component.
+
+```handlebars
+<Hds::Form::MaskedInput::Field @value="036215df4996ca649928d8864b4df9e42cba0d" as |F|>
+  <F.Label>Terraform Cloud team token</F.Label>
+  <F.CharacterCount @minLength={{40}}/>
+</Hds::Form::MaskedInput::Field>
+```
+
 #### Validation
 
 To indicate a field is invalid, use the `@isInvalid` argument and provide an error message using the `Error` contextual component.

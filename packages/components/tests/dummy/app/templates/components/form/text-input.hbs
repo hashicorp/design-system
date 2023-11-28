@@ -25,6 +25,8 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>Types (native)</Shw::Text::H3>
 
   <Shw::Grid @columns={{4}} as |SG|>
@@ -42,6 +44,8 @@
       />
     </SG.Item>
   </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>States</Shw::Text::H3>
 
@@ -142,6 +146,8 @@
     {{/each}}
   {{/let}}
 
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>Custom layout</Shw::Text::H3>
 
   <Shw::Flex as |SF|>
@@ -153,6 +159,8 @@
       </div>
     </SF.Item>
   </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Containers</Shw::Text::H3>
 
@@ -208,6 +216,8 @@
     </SG.Item>
   </Shw::Grid>
 
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>Content</Shw::Text::H3>
 
   <Shw::Grid @columns="3" as |SG|>
@@ -249,6 +259,43 @@
     </SG.Item>
   </Shw::Grid>
 
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Character count</Shw::Text::H3>
+
+  <Shw::Grid @columns="3" as |SG|>
+    <SG.Item @label="Label + Character count">
+      <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" as |F|>
+        <F.Label>This is the label text</F.Label>
+        <F.CharacterCount @maxLength={{40}} />
+      </Hds::Form::TextInput::Field>
+    </SG.Item>
+    <SG.Item @label="Label + Helper text + Character count (custom)">
+      <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" as |F|>
+        <F.HelperText>This is the helper text</F.HelperText>
+        <F.Label>This is the label text</F.Label>
+        <F.CharacterCount @maxLength={{40}} as |CC|>
+          Entered
+          {{CC.currentLength}}
+          out of
+          {{CC.maxLength}}
+          characters
+        </F.CharacterCount>
+      </Hds::Form::TextInput::Field>
+    </SG.Item>
+    <SG.Item @label="Label + Helper text + Character count">
+      <Hds::Form::TextInput::Field @isInvalid={{this.fieldIsInvalid}} @value="Lorem ipsum dolor sit amet" as |F|>
+        <F.Label>This is the label text</F.Label>
+        <F.CharacterCount @maxLength={{20}} @onInput={{this.onFieldInput}} />
+        {{#if this.fieldIsInvalid}}
+          <F.Error>Maximum numbers of characters exceeded</F.Error>
+        {{/if}}
+      </Hds::Form::TextInput::Field>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>Required and optional</Shw::Text::H3>
 
   <Shw::Grid @columns={{3}} as |SG|>
@@ -264,6 +311,8 @@
       </Hds::Form::TextInput::Field>
     </SG.Item>
   </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Containers</Shw::Text::H3>
 

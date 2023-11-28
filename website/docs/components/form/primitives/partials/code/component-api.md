@@ -34,6 +34,29 @@
   </C.Property>
 </Doc::ComponentApi>
 
+### Form::CharacterCount
+
+<Doc::ComponentApi as |C|>
+  <C.Property @name="controlId" @type="string">
+    The ID of the form control associated with the helper text. This is used to populate the `id` HTML attribute (with a `character-count-` prefix) of the element. This CharacterCount ID can then be referenced in the `aria-describedby` attribute of the form control.
+  </C.Property>
+  <C.Property @name="maxLength" @type="number">
+    The maximum number of characters allowed in the associated form element, used to determine the number of remaining characters. This does not restrict users from adding characters over the limit.
+  </C.Property>
+  <C.Property @name="minLength" @type="number">
+    The minimum number of characters required for the associated form element, used to determine the shortfall value.
+  </C.Property>
+  <C.Property @name="onInsert" @type="function">
+    Callback function invoked (if provided) when the associated input content is changed. The function receives as argument an object with the following properties: `inputControl` (a reference to the associated form control node element), `currentLength`, `maxLength`, `minLength`, `remaining`, and `shortfall`.
+  </C.Property>
+  <C.Property @name="yield">
+    Elements passed as children of this component are yielded inside the element. We only recommend using the block content for providing custom messages. The following variables are available within the block: `currentLength`, `maxLength`, `minLength`, `remaining`, and `shortfall`.
+  </C.Property>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
+</Doc::ComponentApi>
+
 ### Form::Error
 
 <Doc::ComponentApi as |C|>
@@ -105,7 +128,7 @@
 
 #### Contextual components
 
-Control, label, helper text and error content are passed to the field as yielded components, using the `Label`, `HelperText`, `Control`, `Error` keys.
+Control, label, helper text and error content are passed to the field as yielded components, using the `Label`, `HelperText`, `Control`, `CharacterCount`, and `Error` keys.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<[F].Label>" @type="yielded component">
@@ -127,8 +150,13 @@ Control, label, helper text and error content are passed to the field as yielded
   <C.Property @name="[C].ariaDescribedBy" @type="string">
     Returns the `aria-describedby` attribute for the control element (generated automatically, based on the presence of the `HelperText` an/or the `Error` elements in the field, plus the optional `@extraAriaDescribedBy` argument described above).
   </C.Property>
+  <C.Property @name="<[F].CharacterCount>" @type="yielded component">
+    An auto-generated or custom character count message to guide users when editing a field. For details about its API, check the `Form::CharacterCount` component.
+    <br/><br/>
+    The `id` attribute of the element is automatically generated.
+  </C.Property>
   <C.Property @name="<[F].Error>" @type="yielded component">
-    A container that yields its content inside the “error” block. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the [`Form::Error`](/components/form/primitives) component.
+    A container that yields its content inside the “error” block. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the `Form::Error` component.
     <br/><br/>
     The `id` attribute of the `Error` element is automatically generated.
     <Doc::ComponentApi as |C|>

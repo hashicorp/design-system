@@ -102,6 +102,17 @@ Use the `@isRequired` and `@isOptional` arguments to add a visual indication tha
 </Hds::Form::TextInput::Field>
 ```
 
+#### Character count
+
+To support users meet content length constrains set `@minLength` and/or `@maxLength` to a `CharacterCount` contextual component.
+
+```handlebars
+<Hds::Form::TextInput::Field @value="my-cluster-1234" as |F|>
+  <F.Label>Cluster name</F.Label>
+  <F.CharacterCount @maxLength={{30}}/>
+</Hds::Form::TextInput::Field>
+```
+
 #### Validation
 
 To indicate a field is invalid, declare that it’s invalid by using the `@isInvalid` argument and provide an error message using the `Error` contextual component.
