@@ -83,6 +83,17 @@ Use the `@isRequired` and `@isOptional` arguments to add a visual indication tha
 </Hds::Form::Textarea::Field>
 ```
 
+#### Character count
+
+To support users meet content length constrains set `@minLength` and/or `@maxLength` to a `CharacterCount` contextual component.
+
+```handlebars
+<Hds::Form::Textarea::Field @value="This is my description" as |F|>
+  <F.Label>Short description</F.Label>
+  <F.CharacterCount @maxLength={{200}}/>
+</Hds::Form::Textarea::Field>
+```
+
 #### Validation
 
 To indicate a field is invalid, use the `@isInvalid` argument and provide an error message using the `Error` contextual component.
