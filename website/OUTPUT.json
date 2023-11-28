@@ -1,20 +1,682 @@
-{
-  "headings": [
-    {
-      "content": "DOC Components",
-      "level": 1,
-      "hierarchy": {
-        "lvl1": "DOC Components",
-        "lvl2": null,
-        "lvl3": null,
-        "lvl4": null,
-        "lvl5": null,
-        "lvl6": null
-      }
-    }
-  ],
-  "paragraphs": [],
-  "tables": [],
-  "componentApis": [],
-  "wcagLists": []
-}
+[
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "heading",
+    "level": 2,
+    "content": "Components library",
+    "hierarchy": {
+      "lvl2": "Components library",
+      "lvl3": null,
+      "lvl4": null,
+      "lvl5": null,
+      "lvl6": null
+    },
+    "source": "heading"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "heading",
+    "level": 3,
+    "content": "November 6th, 2023",
+    "hierarchy": {
+      "lvl2": "Components library",
+      "lvl3": "November 6th, 2023",
+      "lvl4": null,
+      "lvl5": null,
+      "lvl6": null
+    },
+    "source": "heading"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "heading",
+    "level": 3,
+    "content": "November 3rd, 2023",
+    "hierarchy": {
+      "lvl2": "Components library",
+      "lvl3": "November 3rd, 2023",
+      "lvl4": null,
+      "lvl5": null,
+      "lvl6": null
+    },
+    "source": "heading"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "heading",
+    "level": 3,
+    "content": "October 23rd, 2023",
+    "hierarchy": {
+      "lvl2": "Components library",
+      "lvl3": "October 23rd, 2023",
+      "lvl4": null,
+      "lvl5": null,
+      "lvl6": null
+    },
+    "source": "heading"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "heading",
+    "level": 3,
+    "content": "September 15th, 2023",
+    "hierarchy": {
+      "lvl2": "Components library",
+      "lvl3": "September 15th, 2023",
+      "lvl4": null,
+      "lvl5": null,
+      "lvl6": null
+    },
+    "source": "heading"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "heading",
+    "level": 3,
+    "content": "August 17th, 2023",
+    "hierarchy": {
+      "lvl2": "Components library",
+      "lvl3": "August 17th, 2023",
+      "lvl4": null,
+      "lvl5": null,
+      "lvl6": null
+    },
+    "source": "heading"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "heading",
+    "level": 3,
+    "content": "July 31st, 2023",
+    "hierarchy": {
+      "lvl2": "Components library",
+      "lvl3": "July 31st, 2023",
+      "lvl4": null,
+      "lvl5": null,
+      "lvl6": null
+    },
+    "source": "heading"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "heading",
+    "level": 3,
+    "content": "July 13th, 2023",
+    "hierarchy": {
+      "lvl2": "Components library",
+      "lvl3": "July 13th, 2023",
+      "lvl4": null,
+      "lvl5": null,
+      "lvl6": null
+    },
+    "source": "heading"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "heading",
+    "level": 3,
+    "content": "July 12th, 2023",
+    "hierarchy": {
+      "lvl2": "Components library",
+      "lvl3": "July 12th, 2023",
+      "lvl4": null,
+      "lvl5": null,
+      "lvl6": null
+    },
+    "source": "heading"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "heading",
+    "level": 3,
+    "content": "June 9th, 2023",
+    "hierarchy": {
+      "lvl2": "Components library",
+      "lvl3": "June 9th, 2023",
+      "lvl4": null,
+      "lvl5": null,
+      "lvl6": null
+    },
+    "source": "heading"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "heading",
+    "level": 3,
+    "content": "June 1st, 2023",
+    "hierarchy": {
+      "lvl2": "Components library",
+      "lvl3": "June 1st, 2023",
+      "lvl4": null,
+      "lvl5": null,
+      "lvl6": null
+    },
+    "source": "heading"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "heading",
+    "level": 4,
+    "content": "Breaking change",
+    "hierarchy": {
+      "lvl2": "Components library",
+      "lvl3": "June 1st, 2023",
+      "lvl4": "Breaking change",
+      "lvl5": null,
+      "lvl6": null
+    },
+    "source": "heading"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "heading",
+    "level": 2,
+    "content": "Foundations library",
+    "hierarchy": {
+      "lvl2": "Foundations library",
+      "lvl3": null,
+      "lvl4": null,
+      "lvl5": null,
+      "lvl6": null
+    },
+    "source": "heading"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "heading",
+    "level": 3,
+    "content": "November 2nd, 2023",
+    "hierarchy": {
+      "lvl2": "Foundations library",
+      "lvl3": "November 2nd, 2023",
+      "lvl4": null,
+      "lvl5": null,
+      "lvl6": null
+    },
+    "source": "heading"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "heading",
+    "level": 3,
+    "content": "October 31st, 2023",
+    "hierarchy": {
+      "lvl2": "Foundations library",
+      "lvl3": "October 31st, 2023",
+      "lvl4": null,
+      "lvl5": null,
+      "lvl6": null
+    },
+    "source": "heading"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "heading",
+    "level": 3,
+    "content": "October 20th, 2023",
+    "hierarchy": {
+      "lvl2": "Foundations library",
+      "lvl3": "October 20th, 2023",
+      "lvl4": null,
+      "lvl5": null,
+      "lvl6": null
+    },
+    "source": "heading"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "text",
+    "content": "Figma library: HDS Product - Components",
+    "hierarchy": {
+      "lvl2": "Components library",
+      "lvl3": null,
+      "lvl4": null,
+      "lvl5": null,
+      "lvl6": null
+    },
+    "level": 9,
+    "source": "paragraph"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "text",
+    "content": "CodeBlock  - Added new component.",
+    "hierarchy": {
+      "lvl2": "Components library",
+      "lvl3": "November 6th, 2023",
+      "lvl4": null,
+      "lvl5": null,
+      "lvl6": null
+    },
+    "level": 9,
+    "source": "paragraph"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "text",
+    "content": "Breadcrumb  - Updated the number of breadcrumb / _items  to the component.",
+    "hierarchy": {
+      "lvl2": "Components library",
+      "lvl3": "November 3rd, 2023",
+      "lvl4": null,
+      "lvl5": null,
+      "lvl6": null
+    },
+    "level": 9,
+    "source": "paragraph"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "text",
+    "content": "Button  - Updated icon only button variants to be square to match the ToggleIcon.",
+    "hierarchy": {
+      "lvl2": "Components library",
+      "lvl3": "October 23rd, 2023",
+      "lvl4": null,
+      "lvl5": null,
+      "lvl6": null
+    },
+    "level": 9,
+    "source": "paragraph"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "text",
+    "content": "Dropdown / ToggleIcon  - Fixed the small variant so that it’s the correct size (28px height) to match the other small Buttons and ToggleButton.",
+    "hierarchy": {
+      "lvl2": "Components library",
+      "lvl3": "October 23rd, 2023",
+      "lvl4": null,
+      "lvl5": null,
+      "lvl6": null
+    },
+    "level": 9,
+    "source": "paragraph"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "text",
+    "content": "IconTile  and IconTile-Logo  - Added a new product variant for Vault Secrets.",
+    "hierarchy": {
+      "lvl2": "Components library",
+      "lvl3": "September 15th, 2023",
+      "lvl4": null,
+      "lvl5": null,
+      "lvl6": null
+    },
+    "level": 9,
+    "source": "paragraph"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "text",
+    "content": "SideNav  - Changed the icon from User  to Help  in the first dropdown at the top of the SideNav .",
+    "hierarchy": {
+      "lvl2": "Components library",
+      "lvl3": "August 17th, 2023",
+      "lvl4": null,
+      "lvl5": null,
+      "lvl6": null
+    },
+    "level": 9,
+    "source": "paragraph"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "text",
+    "content": "Field/Date , Field/Time , Field/Datetime  - Fixed the default width of the components to match the browser default.",
+    "hierarchy": {
+      "lvl2": "Components library",
+      "lvl3": "July 31st, 2023",
+      "lvl4": null,
+      "lvl5": null,
+      "lvl6": null
+    },
+    "level": 9,
+    "source": "paragraph"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "text",
+    "content": "Added new components:",
+    "hierarchy": {
+      "lvl2": "Components library",
+      "lvl3": "July 13th, 2023",
+      "lvl4": null,
+      "lvl5": null,
+      "lvl6": null
+    },
+    "level": 9,
+    "source": "paragraph"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "text",
+    "content": "Added a “Form Primitives” page to house the Fieldset  component.",
+    "hierarchy": {
+      "lvl2": "Components library",
+      "lvl3": "July 12th, 2023",
+      "lvl4": null,
+      "lvl5": null,
+      "lvl6": null
+    },
+    "level": 9,
+    "source": "paragraph"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "text",
+    "content": "Reveal  - Added the component.",
+    "hierarchy": {
+      "lvl2": "Components library",
+      "lvl3": "June 9th, 2023",
+      "lvl4": null,
+      "lvl5": null,
+      "lvl6": null
+    },
+    "level": 9,
+    "source": "paragraph"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "text",
+    "content": "Dropdown  - Fixed a spacing issue between the label and chevron in the ToggleButton.",
+    "hierarchy": {
+      "lvl2": "Components library",
+      "lvl3": "June 1st, 2023",
+      "lvl4": "Breaking change",
+      "lvl5": null,
+      "lvl6": null
+    },
+    "level": 9,
+    "source": "paragraph"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "text",
+    "content": "Read the full changelog",
+    "hierarchy": {
+      "lvl2": "Components library",
+      "lvl3": "June 1st, 2023",
+      "lvl4": "Breaking change",
+      "lvl5": null,
+      "lvl6": null
+    },
+    "level": 9,
+    "source": "paragraph"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "text",
+    "content": "Figma library: HDS Product - Foundations",
+    "hierarchy": {
+      "lvl2": "Foundations library",
+      "lvl3": null,
+      "lvl4": null,
+      "lvl5": null,
+      "lvl6": null
+    },
+    "level": 9,
+    "source": "paragraph"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "text",
+    "content": "Elevation / Mid  - Fixed style not being correctly published to consuming libraries.",
+    "hierarchy": {
+      "lvl2": "Foundations library",
+      "lvl3": "November 2nd, 2023",
+      "lvl4": null,
+      "lvl5": null,
+      "lvl6": null
+    },
+    "level": 9,
+    "source": "paragraph"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "text",
+    "content": "Components / Code Block / Code / 200  - Added component-specific text style for the CodeBlock.",
+    "hierarchy": {
+      "lvl2": "Foundations library",
+      "lvl3": "October 31st, 2023",
+      "lvl4": null,
+      "lvl5": null,
+      "lvl6": null
+    },
+    "level": 9,
+    "source": "paragraph"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "text",
+    "content": "Components / Code Block / Syntax  - Added syntax highlighting styles used by the CodeBlock component.",
+    "hierarchy": {
+      "lvl2": "Foundations library",
+      "lvl3": "October 20th, 2023",
+      "lvl4": null,
+      "lvl5": null,
+      "lvl6": null
+    },
+    "level": 9,
+    "source": "paragraph"
+  },
+  {
+    "originalFilePath": "whats-new/release-notes/index.json",
+    "pageMainCategory": "about",
+    "pageSection": "whats-new",
+    "pageTitle": "Release notes",
+    "pageBaseURL": "/whats-new/release-notes",
+    "searchResultURL": "/whats-new/release-notes?tab=figma%20libraries",
+    "pageTab": "Figma Libraries",
+    "type": "text",
+    "content": "Read the full changelog",
+    "hierarchy": {
+      "lvl2": "Foundations library",
+      "lvl3": "October 20th, 2023",
+      "lvl4": null,
+      "lvl5": null,
+      "lvl6": null
+    },
+    "level": 9,
+    "source": "paragraph"
+  }
+]
