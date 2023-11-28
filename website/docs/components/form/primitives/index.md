@@ -8,7 +8,7 @@ related: ['patterns/form-patterns']
 previewImage: assets/illustrations/components/form/primitives.jpg
 navigation:
   order: 99
-  keywords: ['form', 'base controls', 'field', 'label', 'legend', 'fieldset', 'input']
+  keywords: ['form', 'base controls', 'field', 'label', 'legend', 'fieldset', 'input', 'character count']
 ---
 
 <section data-tab="Guidelines">
