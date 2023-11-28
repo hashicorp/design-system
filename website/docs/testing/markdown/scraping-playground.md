@@ -53,3 +53,15 @@ title: Scraping playground
     <A.Description>Lorem ipsum dolar sit amet.</A.Description>
   </Hds::Alert>
 </Doc::Layout>
+
+<div class="hds-dropdown__content">
+  <Doc::ListContainer class="hds-dropdown__list">
+    <Hds::Dropdown::ListItem::Title @text="Signed in as" />
+    <Hds::Dropdown::ListItem::Description @text="name@email.com" />
+    <Hds::Dropdown::ListItem::Separator />
+    <Hds::Dropdown::ListItem::Interactive @text="User settings" />
+    <Hds::Dropdown::ListItem::Interactive @text="Admin" />
+    <Hds::Dropdown::ListItem::Interactive @text="Sign out" />
+  </Doc::ListContainer>
+</div>
+

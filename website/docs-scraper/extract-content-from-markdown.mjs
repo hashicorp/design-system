@@ -43,6 +43,7 @@ import { removeDocLayout } from './parts/removeDocLayout.mjs';
 // import { remarkStripHeliosHandlebarsExpressions } from './parts/remarkStripHeliosHandlebarsExpressions.mjs';
 // import { remarkStripHeliosReleaseNotesMetadata } from './remarkStripHeliosReleaseNotesMetadata.mjs';
 import { rehypeRemoveDocListContainer } from './parts/rehypeRemoveDocListContainer.mjs';
+import { rehypeRemoveHdsElements } from './parts/rehypeRemoveHdsElements.mjs';
 import { rehypeRemoveEmptyTextNodes } from './parts/rehypeRemoveEmptyTextNodes.mjs';
 import { rehypeRemoveEmptyParagraphs } from './parts/rehypeRemoveEmptyParagraphs.mjs';
 import { setNodesHierarchy } from './parts/setNodesHierarchy.mjs';
@@ -163,10 +164,6 @@ export async function parseMarkdown(markdownContent) {
     // has been transformed to a custom `doc-wcag-list` node type
     visit(
       tree,
-      // 'element',
-      // (node) => {
-      //   return node.type === 'element';
-      // },
       (node) => {
         return (
           node.type === 'element' &&
@@ -275,16 +272,19 @@ export async function parseMarkdown(markdownContent) {
     .use(remarkParse)
     .use(remarkRehype, {
       allowDangerousHtml: true,
-      passThrough: ['doc-wcag-list'],
+      // passThrough: ['doc-wcag-list'],
     })
     .use(rehypeRaw, {
-      passThrough: ['doc-wcag-list'],
+      // passThrough: ['doc-wcag-list'],
     })
     .use(rehypeStringify, { closeSelfClosing: true })
     .run(tree);
 
   // ✅ remove Doc::ListContainer (doc::listcontainer) wrappers
-  tree = await unified().use(rehypeRemoveDocListContainer).run(tree);
+  // tree = await unified().use(rehypeRemoveDocListContainer).run(tree);
+
+  // ✅ remove <Hds::*/> (<div hds-*/>) nodes
+  tree = await unified().use(rehypeRemoveHdsElements).run(tree);
 
   // ✅ remove empty text nodes and empty paragraphs
   tree = await unified().use(rehypeRemoveEmptyTextNodes).run(tree);
