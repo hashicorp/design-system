@@ -163,18 +163,23 @@ export async function parseMarkdown(markdownContent) {
     // has been transformed to a custom `doc-wcag-list` node type
     visit(
       tree,
+      // 'element',
+      // (node) => {
+      //   return node.type === 'element';
+      // },
       (node) => {
-        node.type === 'element' &&
+        return (
+          node.type === 'element' &&
           node.tagName === 'div' &&
-          node.properties &&
-          node.properties['doc-wcag-list'];
+          node.properties['doc-wcag-list'] !== undefined
+        );
       },
       (node) => {
         const criteriaAttribute = node.properties['@criterialist'];
         const criteriaList = criteriaAttribute
-          ? criteriaAttribute.split('')
+          ? criteriaAttribute.split(' ')
           : [];
-        if (criteriaList > 0) {
+        if (criteriaList.length > 0) {
           const validCriteria = criteriaList.filter((criterion) =>
             Object.keys(WCAG_CRITERIA).includes(criterion)
           );
@@ -308,7 +313,7 @@ export async function parseMarkdown(markdownContent) {
   // console.log('HEADINGS', headings);
   // console.log('PARAGRAPHS', paragraphs);
   // console.log('TABLES', tables);
-  console.log('WCAGLISTS', JSON.stringify(wcagLists, null, 2));
+  // console.log('WCAGLISTS', JSON.stringify(wcagLists, null, 2));
 
   // TODO! remove debugging
   await fs.writeJSON(

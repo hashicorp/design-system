@@ -8,5 +8,5 @@ export const replaceDocWcagList = (markdownContent) =>
   markdownContent.replace(
     /<Doc::WcagList @criteriaList={{array (.*)}} \/>/gim,
     (_match, p1) =>
-      `<div doc-wcag-list @criteriaList="${p1.replaceAll('"', '')}" />`
+      `<div doc-wcag-list @criteriaList="${p1.replaceAll('"', '')}"></div>`
   );
