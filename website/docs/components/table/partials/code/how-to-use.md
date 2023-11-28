@@ -549,7 +549,9 @@ In this case the table layout is still set to `auto` (default). If instead you w
 
 #### Visually hidden table headers
 
-Labels within the table header are intended to provide contextual information about the column's content to the end user. There may be special cases in which that label is redundant from a visual perspective, because the kind of content can be inferred by looking at it (eg. a contextual dropdown). In this case it's possible to visually hide the label by passing `isVisuallyHidden=true` to the column (only for non-sortable tables).
+Labels within the table header are intended to provide contextual information about the column's content to the end user. There may be special cases in which that label is redundant from a visual perspective, because the kind of content can be inferred by looking at it (eg. a contextual dropdown).
+
+In this example we're visually hiding the label in the last column by passing `isVisuallyHidden=true` to it:
 
 ```handlebars
 <Hds::Table
@@ -586,6 +588,8 @@ Labels within the table header are intended to provide contextual information ab
   </:body>
 </Hds::Table>
 ```
+
+_Notice: only non-sortable headers can be visually hidden._
 
 #### Internationalized column headers, overflow menu dropdown
 
