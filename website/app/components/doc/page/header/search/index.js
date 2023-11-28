@@ -41,6 +41,16 @@ export default class DocAlgoliaSearchComponent extends Component {
           autocompleteInstance.setQuery('');
         }
       },
+      onSubmit: ({ state, setQuery, setIsOpen, refresh }) => {
+        // hacky way to prevent the modal to close on enter
+        // see: https://github.com/algolia/autocomplete/issues/636#issuecomment-885889380
+        setIsOpen(true);
+        refresh();
+        setTimeout(() => {
+          setQuery(`${state.query}`);
+          refresh();
+        }, 10);
+      },
 
       //
       // GET SOURCES
