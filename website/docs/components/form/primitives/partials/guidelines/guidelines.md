@@ -11,13 +11,18 @@
 
 ### Form::CharacterCount
 
-Use a character count to communicate the current length of the value in an input and whether it meets or exceeds the length requirements passed to the component. The component accepts multiple arguments to set length requirements and exposes several computed values to support custom messages. Visit the [code](/components/form/primitives?tab=code#formcharactercount) documentation for more details. <!-- TODO: ensure that this link is correct -->
+Use a character count to communicate the current length of the value in an input and whether it meets or exceeds the length requirements passed to the component. The component accepts multiple arguments to set length requirements and exposes several computed values to support custom messages. Visit the [code](/components/form/primitives?tab=code#formcharactercount-1) documentation for more details. <!-- TODO: ensure that this link is correct -->
 
 #### Default messages
 
 Depending on which property (or properties) are passed to the component, a different default message will be displayed by the component to communicate the relationship between the current length of the input value (`currentLength`) and the maximum length (`maxLength`), minimum length (`minLength`), or both.
 
 The default messages provide a consistent messaging pattern for the component by clearly communicating length requirements to the user while displaying their progress towards meeting the requirements.
+
+!!! Info
+
+For representative consistenty, the Figma component mirrors the default messages that are rendered in the Ember component and are labelled as such; `default` (or `currentLength`), `maxLength`, `minLength`, and `custom`. However, if anything apart from the numerical value (e.g., "{numerical value} characters is allowed") in the non-custom variants is edited, this will require a custom implementation on the engineering side to match.
+!!!
 
 #### Custom messages
 
