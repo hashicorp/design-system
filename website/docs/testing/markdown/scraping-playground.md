@@ -2,35 +2,58 @@
 title: Scraping playground
 ---
 
-# TESTING
+<!-- NOTICE: you can explore the AST three using this web page: https://astexplorer.net/#/gist/0a92bbf654aca4fdfb3f139254cf0bad/d17d8e55bb73f34847d7a88aadb787a0e5fbc9f6 -->
 
-## Simple table
+# Header 1
+## Header 2
+### Header 3
+#### Header 4
+##### Header 5
+###### Header 6
+
+----------------
+
+This is a normal paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque erat elit, lacinia at magna eget, porttitor lobortis nulla.
+
+Text can be **bold**, _italic_, or ~~strikethrough~~, and can contain emoji like 👋 🙂 🚨 🚀.
+
+Inline [links](https://github.com) should be styled according to the design specifications.
+
+----------------
+
+# Problematic use cases to fix
+
+## HTML tags inside a "paragraph"
+
+_How do we avoid the `<(/)code>` word be indexed, but return only the "ipsum" string within it?_
+
+Lorem <code>ipsum</code> dolor.
+
+----------------
+
+# Images
+
+A simple image
+
+![](http://placekitten.com/g/300/200/)
+
+Image with alt text
+
+![Hello cats!](http://placekitten.com/g/300/200/)
+
+Image with alt text and custom size
+
+![Hello cats!](http://placekitten.com/g/300/200/ =770x*)
+
+----------------
+
+# Tables
 
 | What      | Follows         |
 |-----------|-----------------|
 | A table   | A header        |
 | A table   | A header        |
 | A table   | A header        |
-
-## Complex tables
-
-Tables should have bold headings and alternating shaded rows.
-
-| Artist            | Album           | Year |
-|-------------------|-----------------|------|
-| Michael Jackson   | Thriller        | 1982 |
-| Prince            | Purple Rain     | 1984 |
-| Beastie Boys      | License to Ill  | 1986 |
-
-If a table is too wide, it should condense down and/or scroll horizontally.
-
-| Artist            | Album           | Year | Label       | Awards   | Songs     |
-|-------------------|-----------------|------|-------------|----------|-----------|
-| Michael Jackson   | Thriller        | 1982 | Epic Records | Grammy Award for Album of the Year, American Music Award for Favorite Pop/Rock Album, American Music Award for Favorite Soul/R&B Album, Brit Award for Best Selling Album, Grammy Award for Best Engineered Album, Non-Classical | Wanna Be Startin' Somethin', Baby Be Mine, The Girl Is Mine, Thriller, Beat It, Billie Jean, Human Nature, P.Y.T. (Pretty Young Thing), The Lady in My Life |
-| Prince            | Purple Rain     | 1984 | Warner Brothers Records | Grammy Award for Best Score Soundtrack for Visual Media, American Music Award for Favorite Pop/Rock Album, American Music Award for Favorite Soul/R&B Album, Brit Award for Best Soundtrack/Cast Recording, Grammy Award for Best Rock Performance by a Duo or Group with Vocal | Let's Go Crazy, Take Me With U, The Beautiful Ones, Computer Blue, Darling Nikki, When Doves Cry, I Would Die 4 U, Baby I'm a Star, Purple Rain |
-| Beastie Boys      | License to Ill  | 1986 | Mercury Records | noawardsbutthistablecelliswide | Rhymin & Stealin, The New Style, She's Crafty, Posse in Effect, Slow Ride, Girls, (You Gotta) Fight for Your Right, No Sleep Till Brooklyn, Paul Revere, Hold It Now, Hit It, Brass Monkey, Slow and Low, Time to Get Ill |
-
-Normal markdown tables can contain only inline elements (and the content can be aligned too):
 
 | Tables        | Are           | Cool  |
 | ------------- |:-------------:| -----:|
@@ -39,30 +62,104 @@ Normal markdown tables can contain only inline elements (and the content can be 
 | zebra stripes | ~~are neat~~  |    $1 |
 | `inline code` | can be added  |   too |
 
-If you need to use block elements inside a table, you have to use HTML code:
 
-<table>
-    <tr>
-        <th> Block type </th>
-        <th> Example </th>
-    </tr>
-    <tr>
-        <td> Code in &lt;pre&gt; </td>
-        <td>
-<pre>
-{
-  "id": 10,
-  "username": "janedoe",
-  "created_at": "2021-02-097T20:45:26.433Z",
-  "updated_at": "2015-02-10T19:27:16.540Z"
-}
-</pre>
-        </td>
-    </tr>
-    <tr>
-        <td> Ember component </td>
-        <td>
-            <Doc::NpmVersion class="doc-test-markdown-basic-styling" />
-        </td>
-    </tr>
-</table>
+----------------
+
+# Banners
+
+!!! Info
+
+Lorem ipsum
+
+!!!
+
+!!! Warning
+
+Lorem ipsum
+!!!
+
+----------------
+
+# HTML
+
+<div class="div-class">
+  <p><span class="span-class">Hello</span> world</p>
+</div>
+
+----------------
+
+# Web Components
+
+<custom-tag class="div-class">
+  <p><span class="span-class">Hello</span> world</p>
+</custom-tag>
+
+<another-custom-tag />
+
+<CustomTag class="customtag-class">
+  <p><span class="span-class">Hello</span> world</p>
+</CustomTag>
+
+----------------
+
+# DOC Components
+
+<Doc::Content::HdsPrinciples />
+
+<Doc::Badge @type="neutral">Spacebar</Doc::Badge>
+
+<Doc::WcagList @criteriaList={{array "1.1.1" "1.2.3"}} />
+
+<Doc::A11ySupport />
+
+<Doc::VarsList @items="AAA" />
+
+<Doc::TokensList
+  @groupedTokens="AAA"
+  @searchQuery="BBB"
+  @searchTokens="CCC"
+/>
+
+<Doc::ComponentApi as |C|>
+  <C.Property @name="<:toggle>" @type="named block">
+    A named block that works as “toggle” for the `AccordionItem`.
+  </C.Property>
+  <C.Property @name="type" @required="true" @type="enum" @values={{array "page" "inline" "compact"}}>
+    Sets the type of alert.
+  </C.Property>
+  <C.Property @name="color" @type="enum" @values={{array "neutral" "highlight" "success" "warning" "critical"}} @default="neutral">
+    Sets the color scheme for `background`, `border`, `title`, and `description`, which **cannot** be overridden.<br/><br/>`color` results in a default `icon`, which **can** be overridden.
+  </C.Property>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
+  <C.Property @name="<[G].Error>" @type="yielded component">
+    Container that yields its content inside the “error” block at group level. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API check the [`Form::Error`](/components/form/primitives) component.
+    <br/><br/>
+    The `id` attribute of the `Error` element is automatically generated.
+    <Doc::ComponentApi as |C|>
+      <C.Property @name="<[E].Message>" @type="yielded component">
+        If the error is made of multiple messages, you can iterate over a collection of error messages yielding individual items using `Error.Message`.
+      </C.Property>
+    </Doc::ComponentApi>
+  </C.Property>
+</Doc::ComponentApi>
+
+<Hds::PageHeader as |PH|>
+  <PH.Title>HCP Packer Dashboard</PH.Title>
+  <PH.IconTile @icon="packer-color" @color="packer" />
+  <PH.Description>
+    Channel created and managed automatically for you by Packer. For more information on how this channel is managed refer to the Packer <Hds::Link::Inline @icon="external-link" @href="#">documentation</Hds::Link::Inline>.
+  </PH.Description>
+</Hds::PageHeader>
+
+<Doc::Layout @spacing="12px">
+  <Hds::Alert @type="inline" @color="neutral" as |A|>
+    <A.Title>Neutral alert title</A.Title>
+    <A.Description>Lorem ipsum dolar sit amet.</A.Description>
+  </Hds::Alert>
+  <Hds::Alert @type="inline" @color="highlight" as |A|>
+    <A.Title>Highlight alert title</A.Title>
+    <A.Description>Lorem ipsum dolar sit amet.</A.Description>
+  </Hds::Alert>
+</Doc::Layout>
