@@ -24,6 +24,7 @@ import remarkFrontmatter from 'remark-frontmatter';
 // local/custom
 import { WCAG_CRITERIA } from './parts/getWcagCriteria.mjs';
 import { removeIgnoredContent } from './parts/removeIgnoredContent.mjs';
+import { removeHandlebarsComments } from './parts/removeHandlebarsComments.mjs';
 import { removeContentBlocksDelimiters } from './parts/removeContentBlocksDelimiters.mjs';
 import { replaceCustomImageFormat } from './parts/replaceCustomImageFormat.mjs';
 import { transformDocWcagList } from './parts/transformDocWcagList.mjs';
@@ -183,8 +184,17 @@ export async function parseMarkdown(markdownContent) {
   // PROCESSING PIPELINE
   // --------------------
 
+  // DEBUG - leave for debugging
+  // const fileContent = await fs.readFile(
+  //   './docs/testing/markdown/scraping-playground.md'
+  // );
+  // markdownContent = fileContent.toString();
+
   // remove content included in `<!-- algolia-ignore-[start/end] -->` delimiters
   markdownContent = removeIgnoredContent(markdownContent);
+
+  // remove handlebars comments
+  markdownContent = removeHandlebarsComments(markdownContent);
 
   // remove content blocks delimiters
   markdownContent = removeContentBlocksDelimiters(markdownContent);
