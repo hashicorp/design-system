@@ -5,7 +5,6 @@
 
 import * as FigmaExport from '@figma-export/types';
 import * as figmaExport from '@figma-export/core';
-import { requirePackages } from '@figma-export/cli/dist/utils';
 import outputComponentsAsSvg from '@figma-export/output-components-as-svg';
 
 import { ConfigData } from '../@types/ConfigData';
@@ -41,9 +40,9 @@ export async function exportAssetsToFolder({ config, assetsMetadata } : { config
         concurrency: config.syncConcurrency,
         token: process.env.FIGMA_TOKEN || 'MISSING-TOKEN-ADD-IT-TO-ENV-FILE',
         onlyFromPages: [config.figmaFile.page],
-        transformers: requirePackages<FigmaExport.StringTransformer>(transformer),
-        outputters: requirePackages<FigmaExport.ComponentOutputter>(outputter, { output: config.mainFolder }),
-    }).then(async (figmaExportPageNode) => {
+        transformers: transformer,
+        outputters: outputter
+    }).then(async (figmaExportPageNode: FigmaExport.PageNode[]) => {
         result = figmaExportPageNode;
     }).catch((err: Error) => {
         console.error(err);
