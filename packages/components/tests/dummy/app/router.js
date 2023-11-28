@@ -23,7 +23,6 @@ Router.map(function () {
     this.route('alert');
     this.route('app-footer');
     this.route('application-state');
-    this.route('avatar');
     this.route('badge');
     this.route('badge-count');
     this.route('breadcrumb');
@@ -32,7 +31,6 @@ Router.map(function () {
     this.route('card');
     this.route('code-block');
     this.route('dropdown');
-    this.route('empty-state');
     this.route('flyout');
     this.route('form', function () {
       this.route('base-elements');
