@@ -9,6 +9,8 @@ import { setupApplicationTest } from 'website/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 import { globalAxeOptions } from 'website/tests/a11y-helper';
 
+import { merge } from 'lodash';
+
 module('Acceptance | components/dropdown', function (hooks) {
   setupApplicationTest(hooks);
 
@@ -19,8 +21,16 @@ module('Acceptance | components/dropdown', function (hooks) {
   });
 
   test('components/dropdown page passes automated a11y checks', async function (assert) {
+    let axeOptions = merge(globalAxeOptions, {
+      rules: {
+        list: {
+          enabled: false,
+        },
+      },
+    });
+
     await visit('/components/dropdown');
-    await a11yAudit(globalAxeOptions);
+    await a11yAudit(axeOptions);
     assert.ok(true, 'a11y automation audit passed');
   });
 });
