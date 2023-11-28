@@ -1,10 +1,10 @@
 {
   "headings": [
     {
-      "content": "DOC Components>",
+      "content": "DOC Components",
       "level": 1,
       "hierarchy": {
-        "lvl1": "DOC Components>",
+        "lvl1": "DOC Components",
         "lvl2": null,
         "lvl3": null,
         "lvl4": null,
@@ -15,6 +15,85 @@
   ],
   "paragraphs": [],
   "tables": [],
-  "componentApis": [],
+  "componentApis": [
+    {
+      "property": {
+        "name": "<:toggle>",
+        "value": "A named block that works as “toggle” for the AccordionItem."
+      },
+      "hierarchy": {
+        "lvl2": "Component API",
+        "lvl3": null,
+        "lvl4": null,
+        "lvl5": null,
+        "lvl6": null
+      }
+    },
+    {
+      "property": {
+        "name": "type",
+        "value": "Sets the type of alert."
+      },
+      "hierarchy": {
+        "lvl2": "Component API",
+        "lvl3": null,
+        "lvl4": null,
+        "lvl5": null,
+        "lvl6": null
+      }
+    },
+    {
+      "property": {
+        "name": "color",
+        "value": "Sets the color scheme for background, border, title, and description, which cannot be overridden. color results in a default icon, which can be overridden."
+      },
+      "hierarchy": {
+        "lvl2": "Component API",
+        "lvl3": null,
+        "lvl4": null,
+        "lvl5": null,
+        "lvl6": null
+      }
+    },
+    {
+      "property": {
+        "name": "...attributes",
+        "value": "This component supports use of ...attributes."
+      },
+      "hierarchy": {
+        "lvl2": "Component API",
+        "lvl3": null,
+        "lvl4": null,
+        "lvl5": null,
+        "lvl6": null
+      }
+    },
+    {
+      "property": {
+        "name": "<[G].Error>",
+        "value": "Container that yields its content inside the “error” block at group level. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API check the Form::Error component. The id attribute of the Error element is automatically generated."
+      },
+      "hierarchy": {
+        "lvl2": "Component API",
+        "lvl3": null,
+        "lvl4": null,
+        "lvl5": null,
+        "lvl6": null
+      }
+    },
+    {
+      "property": {
+        "name": "<[E].Message>",
+        "value": "If the error is made of multiple messages, you can iterate over a collection of error messages yielding individual items using Error.Message."
+      },
+      "hierarchy": {
+        "lvl2": "Component API",
+        "lvl3": null,
+        "lvl4": null,
+        "lvl5": null,
+        "lvl6": null
+      }
+    }
+  ],
   "wcagLists": []
 }
