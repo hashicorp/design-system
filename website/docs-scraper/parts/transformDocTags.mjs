@@ -5,7 +5,7 @@
 
 import _ from 'lodash';
 
-export const replaceDocTags = (markdownContent) =>
+export const transformDocTags = (markdownContent) =>
   markdownContent
     .replace(
       /<Doc::([^\s>]+)/gim,

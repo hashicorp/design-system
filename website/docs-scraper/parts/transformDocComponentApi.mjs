@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-export const replaceDocWcagList = (markdownContent) =>
+export const transformDocWcagList = (markdownContent) =>
   // eg. <Doc::WcagList @criteriaList={{array "1.1.1" "1.2.1" ... }} />
   markdownContent.replace(
     /<Doc::WcagList @criteriaList={{array (.*)}} \/>/gim,

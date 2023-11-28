@@ -1,10 +1,10 @@
 {
   "headings": [
     {
-      "content": "DOC Components",
+      "content": "DOC Components>",
       "level": 1,
       "hierarchy": {
-        "lvl1": "DOC Components",
+        "lvl1": "DOC Components>",
         "lvl2": null,
         "lvl3": null,
         "lvl4": null,
@@ -16,28 +16,5 @@
   "paragraphs": [],
   "tables": [],
   "componentApis": [],
-  "wcagLists": [
-    {
-      "criteria": [
-        {
-          "number": "1.1.1",
-          "title": "Non-text Content (Level A)",
-          "description": "All non-text content that is presented to the user has a text alternative that serves the equivalent purpose."
-        },
-        {
-          "number": "1.2.3",
-          "title": "Audio Description or Media Alternative (Level A)",
-          "description": ""
-        }
-      ],
-      "hierarchy": {
-        "lvl1": "DOC Components",
-        "lvl2": null,
-        "lvl3": null,
-        "lvl4": null,
-        "lvl5": null,
-        "lvl6": null
-      }
-    }
-  ]
+  "wcagLists": []
 }

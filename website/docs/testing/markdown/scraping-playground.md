@@ -2,13 +2,7 @@
 title: Scraping playground
 ---
 
-# DOC Components
-
-<Doc::Badge @type="neutral">Spacebar</Doc::Badge>
-
-<Doc::WcagList @criteriaList={{array "1.1.1" "1.2.3"}} />
-
-<Doc::A11ySupport />
+# DOC Components>
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<:toggle>" @type="named block">
@@ -34,34 +28,3 @@ title: Scraping playground
     </Doc::ComponentApi>
   </C.Property>
 </Doc::ComponentApi>
-
-<Hds::PageHeader as |PH|>
-  <PH.Title>HCP Packer Dashboard</PH.Title>
-  <PH.IconTile @icon="packer-color" @color="packer" />
-  <PH.Description>
-    Channel created and managed automatically for you by Packer. For more information on how this channel is managed refer to the Packer <Hds::Link::Inline @icon="external-link" @href="#">documentation</Hds::Link::Inline>.
-  </PH.Description>
-</Hds::PageHeader>
-
-<Doc::Layout @spacing="12px">
-  <Hds::Alert @type="inline" @color="neutral" as |A|>
-    <A.Title>Neutral alert title</A.Title>
-    <A.Description>Lorem ipsum dolar sit amet.</A.Description>
-  </Hds::Alert>
-  <Hds::Alert @type="inline" @color="highlight" as |A|>
-    <A.Title>Highlight alert title</A.Title>
-    <A.Description>Lorem ipsum dolar sit amet.</A.Description>
-  </Hds::Alert>
-</Doc::Layout>
-
-<div class="hds-dropdown__content">
-  <Doc::ListContainer class="hds-dropdown__list">
-    <Hds::Dropdown::ListItem::Title @text="Signed in as" />
-    <Hds::Dropdown::ListItem::Description @text="name@email.com" />
-    <Hds::Dropdown::ListItem::Separator />
-    <Hds::Dropdown::ListItem::Interactive @text="User settings" />
-    <Hds::Dropdown::ListItem::Interactive @text="Admin" />
-    <Hds::Dropdown::ListItem::Interactive @text="Sign out" />
-  </Doc::ListContainer>
-</div>
-

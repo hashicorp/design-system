@@ -31,9 +31,9 @@ import { WCAG_CRITERIA } from './parts/getWcagCriteria.mjs';
 import { removeIgnoredContent } from './parts/removeIgnoredContent.mjs';
 import { removeContentBlocksDelimiters } from './parts/removeContentBlocksDelimiters.mjs';
 import { replaceCustomImageFormat } from './parts/replaceCustomImageFormat.mjs';
-import { replaceDocWcagList } from './parts/replaceDocWcagList.mjs';
-import { replaceDocTags } from './parts/replaceDocTags.mjs';
-import { replaceHdsTags } from './parts/replaceHdsTags.mjs';
+import { transformDocWcagList } from './parts/transformDocWcagList.mjs';
+import { transformDocTags } from './parts/transformDocTags.mjs';
+import { transformHdsTags } from './parts/transformHdsTags.mjs';
 import { remarkRemoveComments } from './parts/remarkRemoveComments.mjs';
 import { remarkRemoveCodeBlocks } from './parts/remarkRemoveCodeBlocks.mjs';
 import { remarkProcessDocWcagList } from './parts/remarkProcessDocWcagList.mjs';
@@ -89,8 +89,10 @@ export async function parseMarkdown(markdownContent) {
   };
 
   const tableMapper = () => (tree) => {
-    visit(tree, 'element', (node) => {
-      if (node.tagName === 'table') {
+    visit(
+      tree,
+      (node) => node.tagName === 'table',
+      (node) => {
         const cells = selectAll(
           'element[tagName=th], element[tagName=td]',
           node
@@ -101,7 +103,7 @@ export async function parseMarkdown(markdownContent) {
           .replace(/[\s\n]+/g, ' ');
         tables.push({ content: content, hierarchy: node.hierarchy });
       }
-    });
+    );
   };
 
   const componentApiMapper = () => (tree) => {
@@ -161,7 +163,7 @@ export async function parseMarkdown(markdownContent) {
 
   const wcagListMapper = () => (tree) => {
     // the `<Doc::WcagList @criteriaList={{array "1.1.1" "2.2.2" />`
-    // has been transformed to a custom `doc-wcag-list` node type
+    // has been transformed to a `<div doc-wcag-list />` HTML node
     visit(
       tree,
       (node) => {
@@ -222,12 +224,15 @@ export async function parseMarkdown(markdownContent) {
   // process custom images (showdown.js format)
   markdownContent = replaceCustomImageFormat(markdownContent);
 
-  // ✅ process <Doc::WcagList/> elements and convert them to custom AST node
-  markdownContent = replaceDocWcagList(markdownContent);
+  // transform <Doc::WcagList/> components to HTML-compatible `<div [doc-wcag-list]>` tags
+  markdownContent = transformDocWcagList(markdownContent);
 
-  // replace remaining `<Doc::(*)>` and `<Hds::(*)>` tags with HTML-compatible `<div [doc-*|hds-*]>` tags
-  markdownContent = replaceDocTags(markdownContent);
-  markdownContent = replaceHdsTags(markdownContent);
+  // transform <Doc::ComponentApi/> components to HTML-compatible `<div [doc-component-api]>` tags
+  markdownContent = transformDocComponentApi(markdownContent);
+
+  // transform remaining `<Doc::(*)>` and `<Hds::(*)>` components to HTML-compatible `<div [doc-*|hds-*]>` tags
+  markdownContent = transformDocTags(markdownContent);
+  markdownContent = transformHdsTags(markdownContent);
 
   // DEBUG - leave for debugging
   console.log('MARKDOWN CONTENT', markdownContent);

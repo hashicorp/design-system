@@ -5,7 +5,7 @@
 
 import _ from 'lodash';
 
-export const replaceHdsTags = (markdownContent) =>
+export const transformHdsTags = (markdownContent) =>
   markdownContent
     .replace(
       /<Hds::([^\s>]+)/gim,
