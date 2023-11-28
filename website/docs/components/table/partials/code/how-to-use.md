@@ -549,9 +549,9 @@ In this case the table layout is still set to `auto` (default). If instead you w
 
 #### Visually hidden table headers
 
-Labels within the table header are intended to provide contextual information about the column's content to the end user. There may be special cases in which that label is redundant from a visual perspective, because the kind of content can be inferred by looking at it (eg. a contextual dropdown).
+Labels within the table header are intended to provide contextual information about the column’s content to the end user. There may be special cases in which that label is redundant from a visual perspective, because the kind of content can be inferred by looking at it (eg. a contextual dropdown).
 
-In this example we're visually hiding the label in the last column by passing `isVisuallyHidden=true` to it:
+In this example we’re visually hiding the label in the last column by passing `isVisuallyHidden=true` to it:
 
 ```handlebars
 <Hds::Table
