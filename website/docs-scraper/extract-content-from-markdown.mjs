@@ -243,9 +243,6 @@ export async function parseMarkdown(markdownContent) {
   // remove any code block
   tree = await unified().use(remarkRemoveCodeBlocks).run(tree);
 
-  // 🤔 remove handlebars expressions (`{{...}}`) so they don't pollute the paragraphs
-  // tree = await unified().use(remarkStripHeliosHandlebarsExpressions).run(tree);
-
   // DEBUG - leave for debugging
   // console.log('MARKDOWN TREE', JSON.stringify(tree, null, 2));
 
