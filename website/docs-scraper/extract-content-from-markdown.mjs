@@ -83,10 +83,14 @@ export async function parseMarkdown(markdownContent) {
   const tableMapper = () => (tree) => {
     visit(tree, 'element', (node) => {
       if (node.tagName === 'table') {
-        const cells = selectAll('th, td', node);
+        const cells = selectAll(
+          'element[tagName=th], element[tagName=td]',
+          node
+        );
         const content = cells
           .map((cell) => stringifyChildNodes(cell))
-          .join(' ');
+          .join(' ')
+          .replace(/[\s\n]+/g, ' ');
         tables.push({ content: content, hierarchy: node.hierarchy });
       }
     });
@@ -289,8 +293,8 @@ export async function parseMarkdown(markdownContent) {
     .use(tableMapper)
     .run(tree);
 
-  console.log('HEADINGS', headings);
-  console.log('PARAGRAPHS', paragraphs);
+  // console.log('HEADINGS', headings);
+  // console.log('PARAGRAPHS', paragraphs);
   console.log('TABLES', tables);
 
   return { headings, paragraphs, tables, componentApis, wcagLists };
