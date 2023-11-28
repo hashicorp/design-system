@@ -2,123 +2,13 @@
 title: Scraping playground
 ---
 
-<!-- NOTICE: you can explore the AST three using this web page: https://astexplorer.net/#/gist/0a92bbf654aca4fdfb3f139254cf0bad/d17d8e55bb73f34847d7a88aadb787a0e5fbc9f6 -->
-
-# Header 1
-## Header 2
-### Header 3
-#### Header 4
-##### Header 5
-###### Header 6
-
-----------------
-
-This is a normal paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque erat elit, lacinia at magna eget, porttitor lobortis nulla.
-
-Text can be **bold**, _italic_, or ~~strikethrough~~, and can contain emoji like 👋 🙂 🚨 🚀.
-
-Inline [links](https://github.com) should be styled according to the design specifications.
-
-----------------
-
-# Problematic use cases to fix
-
-## HTML tags inside a "paragraph"
-
-_How do we avoid the `<(/)code>` word be indexed, but return only the "ipsum" string within it?_
-
-Lorem <code>ipsum</code> dolor.
-
-----------------
-
-# Images
-
-A simple image
-
-![](http://placekitten.com/g/300/200/)
-
-Image with alt text
-
-![Hello cats!](http://placekitten.com/g/300/200/)
-
-Image with alt text and custom size
-
-![Hello cats!](http://placekitten.com/g/300/200/ =770x*)
-
-----------------
-
-# Tables
-
-| What      | Follows         |
-|-----------|-----------------|
-| A table   | A header        |
-| A table   | A header        |
-| A table   | A header        |
-
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| **col 3 is**  | right-aligned | $1600 |
-| col 2 is      | *centered*    |   $12 |
-| zebra stripes | ~~are neat~~  |    $1 |
-| `inline code` | can be added  |   too |
-
-
-----------------
-
-# Banners
-
-!!! Info
-
-Lorem ipsum
-
-!!!
-
-!!! Warning
-
-Lorem ipsum
-!!!
-
-----------------
-
-# HTML
-
-<div class="div-class">
-  <p><span class="span-class">Hello</span> world</p>
-</div>
-
-----------------
-
-# Web Components
-
-<custom-tag class="div-class">
-  <p><span class="span-class">Hello</span> world</p>
-</custom-tag>
-
-<another-custom-tag />
-
-<CustomTag class="customtag-class">
-  <p><span class="span-class">Hello</span> world</p>
-</CustomTag>
-
-----------------
-
 # DOC Components
-
-<Doc::Content::HdsPrinciples />
 
 <Doc::Badge @type="neutral">Spacebar</Doc::Badge>
 
 <Doc::WcagList @criteriaList={{array "1.1.1" "1.2.3"}} />
 
 <Doc::A11ySupport />
-
-<Doc::VarsList @items="AAA" />
-
-<Doc::TokensList
-  @groupedTokens="AAA"
-  @searchQuery="BBB"
-  @searchTokens="CCC"
-/>
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<:toggle>" @type="named block">

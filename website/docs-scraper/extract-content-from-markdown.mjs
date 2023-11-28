@@ -16,7 +16,7 @@ import { fromHtml } from 'hast-util-from-html';
 import { fromMarkdown } from 'mdast-util-from-markdown';
 import { toString } from 'mdast-util-to-string';
 
-import handlebars from 'handlebars';
+// import handlebars from 'handlebars';
 
 // plugins
 import remarkGfm from 'remark-gfm';
@@ -28,19 +28,22 @@ import remarkFrontmatter from 'remark-frontmatter';
 
 // local/custom
 import { WCAG_CRITERIA } from './parts/getWcagCriteria.mjs';
-import { replaceDocComponentApiTags } from './parts/replaceDocComponentApiTags.mjs';
 import { removeIgnoredContent } from './parts/removeIgnoredContent.mjs';
+import { removeContentBlocksDelimiters } from './parts/removeContentBlocksDelimiters.mjs';
+import { replaceCustomImageFormat } from './parts/replaceCustomImageFormat.mjs';
+import { replaceDocWcagList } from './parts/replaceDocWcagList.mjs';
+import { replaceDocTags } from './parts/replaceDocTags.mjs';
+import { replaceHdsTags } from './parts/replaceHdsTags.mjs';
 import { remarkRemoveComments } from './parts/remarkRemoveComments.mjs';
 import { remarkRemoveCodeBlocks } from './parts/remarkRemoveCodeBlocks.mjs';
-import { remarkProcessCustomImageFormat } from './parts/remarkProcessCustomImageFormat.mjs';
-import { remarkStripContentBlocksDelimiters } from './parts/remarkStripContentBlocksDelimiters.mjs';
 import { remarkProcessDocWcagList } from './parts/remarkProcessDocWcagList.mjs';
-import { remarkStripDocA11ySupport } from './parts/remarkStripDocA11ySupport.mjs';
-import { remarkStripDocBadge } from './parts/remarkStripDocBadge.mjs';
-import { remarkStripDocLayout } from './parts/remarkStripDocLayout.mjs';
-import { remarkStripHeliosHandlebarsExpressions } from './parts/remarkStripHeliosHandlebarsExpressions.mjs';
+import { removeDocA11ySupport } from './parts/removeDocA11ySupport.mjs';
+import { removeDocBadge } from './parts/removeDocBadge.mjs';
+import { removeDocLayout } from './parts/removeDocLayout.mjs';
+// import { remarkStripHeliosHandlebarsExpressions } from './parts/remarkStripHeliosHandlebarsExpressions.mjs';
 // import { remarkStripHeliosReleaseNotesMetadata } from './remarkStripHeliosReleaseNotesMetadata.mjs';
 import { rehypeRemoveDocListContainer } from './parts/rehypeRemoveDocListContainer.mjs';
+import { rehypeRemoveEmptyTextNodes } from './parts/rehypeRemoveEmptyTextNodes.mjs';
 import { rehypeRemoveEmptyParagraphs } from './parts/rehypeRemoveEmptyParagraphs.mjs';
 import { setNodesHierarchy } from './parts/setNodesHierarchy.mjs';
 import { stringifyChildNodes } from './parts/stringifyChildNodes.mjs';
@@ -59,8 +62,10 @@ export async function parseMarkdown(markdownContent) {
 
   // inspired by: https://github.com/hashicorp/mktg-content-workflows/blob/main/shared/search/collect-headings.ts
   const headingMapper = () => (tree) => {
-    visit(tree, 'element', (node) => {
-      if (['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(node.tagName)) {
+    visit(
+      tree,
+      (node) => ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(node.tagName),
+      (node) => {
         const content = stringifyChildNodes(node);
         headings.push({
           content: content,
@@ -68,16 +73,18 @@ export async function parseMarkdown(markdownContent) {
           hierarchy: node.hierarchy,
         });
       }
-    });
+    );
   };
 
   const paragraphMapper = () => (tree) => {
-    visit(tree, 'element', (node) => {
-      if (node.tagName === 'p') {
+    visit(
+      tree,
+      (node) => node.tagName === 'p',
+      (node) => {
         const content = stringifyChildNodes(node);
         paragraphs.push({ content: content, hierarchy: node.hierarchy });
       }
-    });
+    );
   };
 
   const tableMapper = () => (tree) => {
@@ -154,25 +161,38 @@ export async function parseMarkdown(markdownContent) {
   const wcagListMapper = () => (tree) => {
     // the `<Doc::WcagList @criteriaList={{array "1.1.1" "2.2.2" />`
     // has been transformed to a custom `doc-wcag-list` node type
-    visit(tree, 'doc-wcag-list', (node) => {
-      if (node.criteria && node.criteria.length > 0) {
-        const validCriteria = node.criteria.filter((criterion) =>
-          Object.keys(WCAG_CRITERIA).includes(criterion)
-        );
-        if (validCriteria.length > 0) {
-          wcagLists.push({
-            criteria: validCriteria.map((criterion) =>
-              _.pick(WCAG_CRITERIA[criterion], [
-                'number',
-                'title',
-                'description',
-              ])
-            ),
-            hierarchy: node.hierarchy,
-          });
+    visit(
+      tree,
+      (node) => {
+        node.type === 'element' &&
+          node.tagName === 'div' &&
+          node.properties &&
+          node.properties['doc-wcag-list'];
+      },
+      (node) => {
+        const criteriaAttribute = node.properties['@criterialist'];
+        const criteriaList = criteriaAttribute
+          ? criteriaAttribute.split('')
+          : [];
+        if (criteriaList > 0) {
+          const validCriteria = criteriaList.filter((criterion) =>
+            Object.keys(WCAG_CRITERIA).includes(criterion)
+          );
+          if (validCriteria.length > 0) {
+            wcagLists.push({
+              criteria: validCriteria.map((criterion) =>
+                _.pick(WCAG_CRITERIA[criterion], [
+                  'number',
+                  'title',
+                  'description',
+                ])
+              ),
+              hierarchy: node.hierarchy,
+            });
+          }
         }
       }
-    });
+    );
   };
 
   // --------------------
@@ -189,8 +209,26 @@ export async function parseMarkdown(markdownContent) {
   // remove content included in `<!-- algolia-ignore-[start/end] -->` delimiters
   markdownContent = removeIgnoredContent(markdownContent);
 
-  // replace `<Doc::ComponentApi(::*)>` tags with web-components-like `<doc-component-api>` custom tags (HTML compatible)
-  markdownContent = replaceDocComponentApiTags(markdownContent);
+  // remove content blocks delimiters
+  markdownContent = removeContentBlocksDelimiters(markdownContent);
+
+  // remove some <Doc::***/> elements
+  markdownContent = removeDocA11ySupport(markdownContent);
+  markdownContent = removeDocBadge(markdownContent);
+  markdownContent = removeDocLayout(markdownContent);
+
+  // process custom images (showdown.js format)
+  markdownContent = replaceCustomImageFormat(markdownContent);
+
+  // ✅ process <Doc::WcagList/> elements and convert them to custom AST node
+  markdownContent = replaceDocWcagList(markdownContent);
+
+  // replace remaining `<Doc::(*)>` and `<Hds::(*)>` tags with HTML-compatible `<div [doc-*|hds-*]>` tags
+  markdownContent = replaceDocTags(markdownContent);
+  markdownContent = replaceHdsTags(markdownContent);
+
+  // DEBUG - leave for debugging
+  console.log('MARKDOWN CONTENT', markdownContent);
 
   // MARKDOWN AST PROCESSING
   // -----------------------
@@ -206,25 +244,17 @@ export async function parseMarkdown(markdownContent) {
     // parse the markdown
     .parse(markdownContent);
 
-  // ✅ process custom images (showdown.js format)
-  tree = await unified().use(remarkProcessCustomImageFormat).run(tree);
-
   // ✅ pre-emptively remove any comment, just in case
   tree = await unified().use(remarkRemoveComments).run(tree);
 
   // ✅ remove any code block
   tree = await unified().use(remarkRemoveCodeBlocks).run(tree);
 
-  // ✅ remove content blocks delimiters
-  tree = await unified().use(remarkStripContentBlocksDelimiters).run(tree);
+  // ✅ process <Doc::WcagList/> elements and convert them to custom AST node
+  // tree = await unified().use(remarkProcessDocWcagList).run(tree);
 
-  // ✅ process <Doc::WcagList/> elements and convert the to custom AST node
-  tree = await unified().use(remarkProcessDocWcagList).run(tree);
-
-  // ✅ remove some <Doc::***/> elements
-  tree = await unified().use(remarkStripDocA11ySupport).run(tree);
-  tree = await unified().use(remarkStripDocBadge).run(tree);
-  tree = await unified().use(remarkStripDocLayout).run(tree);
+  // ✅ process <Doc::ComponentApi/> elements and convert them to custom AST node
+  // tree = await unified().use(remarkProcessDocComponentApi).run(tree);
 
   // 🤔 remove handlebars expressions (`{{...}}`) so they don't pollute the paragraphs
   // tree = await unified().use(remarkStripHeliosHandlebarsExpressions).run(tree);
@@ -251,7 +281,8 @@ export async function parseMarkdown(markdownContent) {
   // ✅ remove Doc::ListContainer (doc::listcontainer) wrappers
   tree = await unified().use(rehypeRemoveDocListContainer).run(tree);
 
-  // ✅ remove empty paragraphs
+  // ✅ remove empty text nodes and empty paragraphs
+  tree = await unified().use(rehypeRemoveEmptyTextNodes).run(tree);
   tree = await unified().use(rehypeRemoveEmptyParagraphs).run(tree);
 
   // ✅ associate to each node the hierarchy in terms of headings level
@@ -278,6 +309,13 @@ export async function parseMarkdown(markdownContent) {
   // console.log('PARAGRAPHS', paragraphs);
   // console.log('TABLES', tables);
   console.log('WCAGLISTS', JSON.stringify(wcagLists, null, 2));
+
+  // TODO! remove debugging
+  await fs.writeJSON(
+    '/Users/cristianorastelli/src/hashicorp/design-system/website/OUTPUT.json',
+    { headings, paragraphs, tables, componentApis, wcagLists },
+    { spaces: 2, replacer: null }
+  );
 
   return { headings, paragraphs, tables, componentApis, wcagLists };
 }
