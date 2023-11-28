@@ -153,45 +153,21 @@ export async function parseMarkdown(markdownContent) {
 
   const wcagListMapper = () => (tree) => {
     // the `<Doc::WcagList @criteriaList={{array "1.1.1" "2.2.2" />`
-    // becomes a `text` node within a `paragraph` node
-    // so we have to do some magic here... ¯\_(ツ)_/¯
-    visit(tree, 'text', (node) => {
-      const match = node.value.match(
-        /<doc-wcag-list @criteriaList={{array .*}} \/>/i
-      );
-      if (match) {
-        const hbsAST = handlebars.parse(node.value);
-        const criteriaList = hbsAST.body.filter(
-          (node) =>
-            node?.type === 'MustacheStatement' &&
-            node?.path?.original === 'array'
+    // has been transformed to a custom `doc-wcag-list` node type
+    visit(tree, 'doc-wcag-list', (node) => {
+      if (node.criteria && node.criteria.length > 0) {
+        const validCriteria = node.criteria.filter((criterion) =>
+          Object.keys(WCAG_CRITERIA).includes(criterion)
         );
-        let criteriaIdentifiers;
-        if (
-          criteriaList &&
-          criteriaList.length > 0 &&
-          criteriaList[0].params &&
-          criteriaList[0].params.length > 0
-        ) {
-          criteriaIdentifiers = criteriaList[0].params.reduce((acc, param) => {
-            if (
-              param.type === 'StringLiteral' &&
-              Object.keys(WCAG_CRITERIA).includes(param.value)
-            ) {
-              acc.push(param.value);
-            }
-            return acc;
-          }, []);
-        }
-        if (criteriaIdentifiers.length > 0) {
+        if (validCriteria.length > 0) {
           wcagLists.push({
-            criteria: criteriaIdentifiers.map((criterion) => {
-              return _.pick(WCAG_CRITERIA[criterion], [
+            criteria: validCriteria.map((criterion) =>
+              _.pick(WCAG_CRITERIA[criterion], [
                 'number',
                 'title',
                 'description',
-              ]);
-            }),
+              ])
+            ),
             hierarchy: node.hierarchy,
           });
         }
@@ -254,7 +230,7 @@ export async function parseMarkdown(markdownContent) {
   // tree = await unified().use(remarkStripHeliosHandlebarsExpressions).run(tree);
 
   // DEBUG - leave for debugging
-  // console.log('MARKDOWN TREE', JSON.stringify(tree, null, 2));
+  console.log('MARKDOWN TREE', JSON.stringify(tree, null, 2));
 
   // HTML AST PROCESSING
   // -------------------
@@ -262,8 +238,13 @@ export async function parseMarkdown(markdownContent) {
   // now convert the tree to an HTML AST tree
   tree = await unified()
     .use(remarkParse)
-    .use(remarkRehype, { allowDangerousHtml: true })
-    .use(rehypeRaw)
+    .use(remarkRehype, {
+      allowDangerousHtml: true,
+      passThrough: ['doc-wcag-list'],
+    })
+    .use(rehypeRaw, {
+      passThrough: ['doc-wcag-list'],
+    })
     .use(rehypeStringify, { closeSelfClosing: true })
     .run(tree);
 
@@ -283,19 +264,20 @@ export async function parseMarkdown(markdownContent) {
   // -----------------------------------
 
   // // parse and index "doc" (ember) nodes for special components
-  // .use(wcagListMapper)
   // .use(componentApiMapper)
 
-  // parse and index relevant nodes
+  // parse and index relevant HTML nodes
   await unified()
     .use(headingMapper)
     .use(paragraphMapper)
     .use(tableMapper)
+    .use(wcagListMapper)
     .run(tree);
 
   // console.log('HEADINGS', headings);
   // console.log('PARAGRAPHS', paragraphs);
-  console.log('TABLES', tables);
+  // console.log('TABLES', tables);
+  console.log('WCAGLISTS', JSON.stringify(wcagLists, null, 2));
 
   return { headings, paragraphs, tables, componentApis, wcagLists };
 }
