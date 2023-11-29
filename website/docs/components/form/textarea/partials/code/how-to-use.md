@@ -123,6 +123,22 @@ For custom messages, you can use the following arguments to build a relevant mes
 </Hds::Form::Textarea::Field>
 ```
 
+You can use the `@onInput` callback function to dynamically raise an error based on the number of characters entered into a field. The function receives as argument an object with the following properties: `inputControl` (a reference to the associated form control node element), `currentLength` (the current number of characters in the associated form control), `maxLength` (the maximum number of characters allowed in the associated form control), `minLength` (the minimum number of characters required in the associated form control), `remaining` (the difference between `maxLength` and `currentLength`), and `shortfall` (the difference between `currentLength` and `minLength`).
+
+```handlebars
+  <Hds::Form::Textarea::Field
+    @value="This is my description"
+    @isInvalid={{this.fieldIsInvalid}}
+    as |F|
+  >
+    <F.Label>Short description</F.Label>
+    <F.CharacterCount @minLength={{100}} @onInput={{this.onFieldInput}} />
+    {{#if this.fieldIsInvalid}}
+      <F.Error>Length should be at least 100 characters</F.Error>
+    {{/if}}
+  </Hds::Form::Textarea::Field>
+```
+
 #### Validation
 
 To indicate a field is invalid, use the `@isInvalid` argument and provide an error message using the `Error` contextual component.
