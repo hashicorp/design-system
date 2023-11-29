@@ -85,12 +85,41 @@ Use the `@isRequired` and `@isOptional` arguments to add a visual indication tha
 
 #### Character count
 
-To support users in meeting content length constraints, set `@minLength` and/or `@maxLength` to a `CharacterCount` contextual component.
+If the user input needs to be limited to a certain number of characters, use `@maxLength` on a `CharacterCount` contextual component to guide the user in meeting the length requirements. This property does not restrict the users from entering characters over the limit. To define the maximum string length that the user can enter, set `maxlength` attribute on the associated input field.
 
 ```handlebars
 <Hds::Form::Textarea::Field @value="This is my description" as |F|>
   <F.Label>Short description</F.Label>
   <F.CharacterCount @maxLength={{200}}/>
+</Hds::Form::Textarea::Field>
+```
+
+If the user input is required to have a certain number of characters, use `@minLength` on a `CharacterCount` contextual component to guide the user in meeting the length requirements.
+
+```handlebars
+<Hds::Form::Textarea::Field @value="This is my description" as |F|>
+  <F.Label>Short description</F.Label>
+  <F.CharacterCount @minLength={{100}}/>
+</Hds::Form::Textarea::Field>
+```
+
+When the user input needs to be in a certain range, use both `@minLength` and `@maxLength` on a `CharacterCount` contextual component to guide the user in meeting the length requirements.
+
+```handlebars
+<Hds::Form::Textarea::Field @value="This is my description" as |F|>
+  <F.Label>Short description</F.Label>
+  <F.CharacterCount @minLength={{100}} @minLength={{200}}/>
+</Hds::Form::Textarea::Field>
+```
+
+For custom messages, you can use the following arguments to build a relevant message: `currentLength` (the current number of characters in the associated form control), `maxLength` (the maximum number of characters allowed in the associated form control), `minLength` (the minimum number of characters required in the associated form control), `remaining` (the difference between `maxLength` and `currentLength`), and `shortfall` (the difference between `currentLength` and `minLength`).
+
+```handlebars
+<Hds::Form::Textarea::Field @value="This is my description" as |F|>
+  <F.Label>Short description</F.Label>
+  <F.CharacterCount @maxLength={{200}} as |CC|>
+    {{CC.remaining}} characters remaining
+  </F.CharacterCount>
 </Hds::Form::Textarea::Field>
 ```
 
