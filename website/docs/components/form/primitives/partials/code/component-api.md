@@ -41,7 +41,7 @@
     The ID of the form control associated with the character count. This is used to populate the element’s `id` HTML attribute (with a `character-count-` prefix). This CharacterCount ID can then be referenced in the `aria-describedby` attribute of the form control.
   </C.Property>
   <C.Property @name="maxLength" @type="number">
-    The maximum number of characters allowed in the associated form element, used to determine the number of remaining characters. This does not restrict users from adding characters over the limit.
+    The maximum number of characters allowed in the associated form element, used to determine the number of remaining characters. This does not restrict users from adding characters over the limit. To define the maximum string length that the user can enter, set `maxlength` attribute on the associated input field.
   </C.Property>
   <C.Property @name="minLength" @type="number">
     The minimum number of characters required for the associated form element, used to determine the shortfall value.
