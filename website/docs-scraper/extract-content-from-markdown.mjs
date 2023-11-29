@@ -5,15 +5,8 @@
 
 import fs from 'fs-extra';
 
-import _ from 'lodash';
-
 // unist/remark/mdast
 import { unified } from 'unified';
-import { visit } from 'unist-util-visit';
-import { selectAll } from 'unist-util-select';
-import { fromMarkdown } from 'mdast-util-from-markdown';
-import { toString } from 'mdast-util-to-string';
-// import { remark } from 'remark';
 import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
@@ -22,7 +15,6 @@ import rehypeStringify from 'rehype-stringify';
 import remarkFrontmatter from 'remark-frontmatter';
 
 // local/custom
-import { WCAG_CRITERIA } from './parts/getWcagCriteria.mjs';
 import { removeIgnoredContent } from './parts/removeIgnoredContent.mjs';
 import { removeHandlebarsComments } from './parts/removeHandlebarsComments.mjs';
 import { removeContentBlocksDelimiters } from './parts/removeContentBlocksDelimiters.mjs';
@@ -42,139 +34,18 @@ import { rehypeRemoveEmptyTextNodes } from './parts/rehypeRemoveEmptyTextNodes.m
 import { rehypeRemoveEmptyParagraphs } from './parts/rehypeRemoveEmptyParagraphs.mjs';
 import { rehypeSanitizeTextNodes } from './parts/rehypeSanitizeTextNodes.mjs';
 import { setNodesHierarchy } from './parts/setNodesHierarchy.mjs';
-import { stringifyChildNodes } from './parts/stringifyChildNodes.mjs';
+import { extractHeadings } from './parts/extractHeadings.mjs';
+import { extractParagraphs } from './parts/extractParagraphs.mjs';
+import { extractTables } from './parts/extractTables.mjs';
+import { extractComponentApis } from './parts/extractComponentApis.mjs';
+import { extractWcagLists } from './parts/extractWcagLists.mjs';
 
 // debugging
 // import { debugLogNodes } from './parts/debugLogNodes.mjs';
 
-const cleanupContent = (content) =>
-  content.replaceAll(/\n/gm, ' ').replaceAll(/\s\s+/gm, ' ').trim();
-
 // ========================================================================
 
 export async function parseMarkdown(markdownContent) {
-  const headings = [];
-  const paragraphs = [];
-  const tables = [];
-  const componentApis = [];
-  const wcagLists = [];
-
-  // inspired by: https://github.com/hashicorp/mktg-content-workflows/blob/main/shared/search/collect-headings.ts
-  const headingMapper = () => (tree) => {
-    visit(
-      tree,
-      (node) => ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(node.tagName),
-      (node) => {
-        const content = stringifyChildNodes(node);
-        headings.push({
-          content: cleanupContent(content),
-          level: node.depth,
-          hierarchy: node.hierarchy,
-        });
-      }
-    );
-  };
-
-  const paragraphMapper = () => (tree) => {
-    visit(
-      tree,
-      (node) => node.tagName === 'p' || node.tagName === 'li',
-      (node) => {
-        const content = stringifyChildNodes(node);
-        paragraphs.push({
-          content: cleanupContent(content),
-          hierarchy: node.hierarchy,
-        });
-      }
-    );
-  };
-
-  const tableMapper = () => (tree) => {
-    visit(
-      tree,
-      (node) => node.tagName === 'table',
-      (node) => {
-        const cells = selectAll(
-          'element[tagName=th], element[tagName=td]',
-          node
-        );
-        const content = cells
-          .map((cell) => stringifyChildNodes(cell))
-          .join(' ');
-        tables.push({
-          content: cleanupContent(content),
-          hierarchy: node.hierarchy,
-        });
-      }
-    );
-  };
-
-  const componentApiMapper = () => (tree) => {
-    visit(
-      tree,
-      (node) => node.tagName === 'doc-component-api-property',
-      (node) => {
-        let propertyName;
-        let propertyDescription = '';
-        if (node.properties['@name']) {
-          propertyName = node.properties['@name'];
-        }
-        node.children
-          .filter((child) => child.type === 'text')
-          .forEach((textNode) => {
-            // important: we need to trim the text, to remove leading/trailing newlines that cause the `fromMarkdown` to generate multiple children
-            const text = toString(fromMarkdown(textNode.value.trim()));
-            // we prepend a space to avoid words being joined together
-            propertyDescription += ` ${text}`;
-          });
-        componentApis.push({
-          name: propertyName,
-          value: cleanupContent(propertyDescription),
-          hierarchy: {
-            lvl1: undefined,
-            lvl2: 'Component API',
-            lvl3: null,
-            lvl4: null,
-            lvl5: null,
-            lvl6: null,
-          },
-        });
-      }
-    );
-  };
-
-  const wcagListMapper = () => (tree) => {
-    // the `<Doc::WcagList @criteriaList={{array "1.1.1" "2.2.2" />`
-    // has been transformed to a `<doc-wcag-list />` HTML-like node
-    visit(
-      tree,
-      (node) => node.tagName === 'doc-wcag-list',
-      (node) => {
-        const criteriaAttribute = node.properties['criterialist'];
-        const criteriaList = criteriaAttribute
-          ? criteriaAttribute.split(' ')
-          : [];
-        if (criteriaList.length > 0) {
-          const validCriteria = criteriaList.filter((criterion) =>
-            Object.keys(WCAG_CRITERIA).includes(criterion)
-          );
-          if (validCriteria.length > 0) {
-            wcagLists.push({
-              criteria: validCriteria.map((criterion) =>
-                _.pick(WCAG_CRITERIA[criterion], [
-                  'number',
-                  'title',
-                  'description',
-                ])
-              ),
-              hierarchy: node.hierarchy,
-            });
-          }
-        }
-      }
-    );
-  };
-
   // --------------------
   // PROCESSING PIPELINE
   // --------------------
@@ -280,21 +151,14 @@ export async function parseMarkdown(markdownContent) {
   // EXTRACT CONTENT FROM RELEVANT NODES
   // -----------------------------------
 
-  // parse and index relevant HTML nodes
-  await unified()
-    .use(headingMapper)
-    .use(paragraphMapper)
-    .use(tableMapper)
-    .use(componentApiMapper)
-    .use(wcagListMapper)
-    .run(tree);
+  const headings = await extractHeadings(tree);
+  const paragraphs = await extractParagraphs(tree);
+  const componentApis = await extractComponentApis(tree);
+  const tables = await extractTables(tree);
+  const wcagLists = await extractWcagLists(tree);
 
   // DEBUG - leave for debugging
-  // console.log('HEADINGS', headings);
   // console.log('PARAGRAPHS', paragraphs);
-  // console.log('TABLES', tables);
-  // console.log('COMPONENT APIS', JSON.stringify(componentApis, null, 2));
-  // console.log('WCAG LISTS', JSON.stringify(wcagLists, null, 2));
 
   return { headings, paragraphs, tables, componentApis, wcagLists };
 }
