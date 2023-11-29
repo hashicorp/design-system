@@ -77,7 +77,7 @@ export async function parseMarkdown(markdownContent) {
   const paragraphMapper = () => (tree) => {
     visit(
       tree,
-      (node) => node.tagName === 'p',
+      (node) => node.tagName === 'p' || node.tagName === 'li',
       (node) => {
         const content = stringifyChildNodes(node);
         paragraphs.push({
