@@ -47,10 +47,10 @@
     The minimum number of characters required for the associated form element, used to determine the shortfall value.
   </C.Property>
   <C.Property @name="onInsert" @type="function">
-    Callback function invoked (if provided) when the associated input content is changed. The function receives as argument an object with the following properties: `inputControl` (a reference to the associated form control node element), `currentLength`, `maxLength`, `minLength`, `remaining`, and `shortfall`.
+    Callback function invoked (if provided) when the associated input content is changed. The function receives as argument an object with the following properties: `inputControl` (a reference to the associated form control node element), `currentLength` (the current number of characters in the associated form control), `maxLength` (the maximum number of characters allowed in the associated form control), `minLength` (the minimum number of characters required in the associated form control), `remaining` (the difference between `maxLength` and `currentLength`), and `shortfall` (the difference between `currentLength` and `minLength`).
   </C.Property>
   <C.Property @name="yield">
-    Elements passed as children of this component are yielded inside the element. We only recommend using the block content for providing custom messages. The following variables are available within the block: `currentLength`, `maxLength`, `minLength`, `remaining`, and `shortfall`.
+    Elements passed as children of this component are yielded inside the element. We only recommend using the block content for providing custom messages. The following variables are available within the block: `currentLength` (the current number of characters in the associated form control), `maxLength` (the maximum number of characters allowed in the associated form control), `minLength` (the minimum number of characters required in the associated form control), `remaining` (the difference between `maxLength` and `currentLength`), and `shortfall` (the difference between `currentLength` and `minLength`).
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
