@@ -11,7 +11,7 @@
 // DEV MODE VARIABLES
 
 // used in development mode to skip API calls
-const DEV_SKIP_API_CALLS = true;
+const DEV_SKIP_API_CALLS = false;
 // used in development to process only the "testing" markdown files
 const DEV_MARKDOWN_TESTING = false;
 
@@ -383,10 +383,10 @@ async function indexWebsiteContent() {
   );
 
   // DEBUG - leave for debugging
-  await fs.writeJSON('./ALGOLIA-RECORDS-DUMP.json', algoliaRecords, {
-    spaces: 2,
-    replacer: null,
-  });
+  // await fs.writeJSON('./ALGOLIA-RECORDS-DUMP.json', algoliaRecords, {
+  //   spaces: 2,
+  //   replacer: null,
+  // });
 
   if (!DEV_SKIP_API_CALLS) {
     // here we construct the request to be sent to Algolia with the `batch/multiBatch` method

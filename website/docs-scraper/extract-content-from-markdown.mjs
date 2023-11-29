@@ -26,6 +26,7 @@ import { WCAG_CRITERIA } from './parts/getWcagCriteria.mjs';
 import { removeIgnoredContent } from './parts/removeIgnoredContent.mjs';
 import { removeHandlebarsComments } from './parts/removeHandlebarsComments.mjs';
 import { removeContentBlocksDelimiters } from './parts/removeContentBlocksDelimiters.mjs';
+import { removeLinkToLinks } from './parts/removeLinkToLinks.mjs';
 import { replaceCustomImageFormat } from './parts/replaceCustomImageFormat.mjs';
 import { transformDocWcagList } from './parts/transformDocWcagList.mjs';
 import { transformDocComponentApi } from './parts/transformDocComponentApi.mjs';
@@ -191,6 +192,9 @@ export async function parseMarkdown(markdownContent) {
 
   // remove content blocks delimiters
   markdownContent = removeContentBlocksDelimiters(markdownContent);
+
+  // remove <LinkTo @...> links
+  markdownContent = removeLinkToLinks(markdownContent);
 
   // process custom images (showdown.js format)
   markdownContent = replaceCustomImageFormat(markdownContent);
