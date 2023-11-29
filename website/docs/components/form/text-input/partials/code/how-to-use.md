@@ -104,7 +104,7 @@ Use the `@isRequired` and `@isOptional` arguments to add a visual indication tha
 
 #### Character count
 
-To support users meet content length constrains set `@minLength` and/or `@maxLength` to a `CharacterCount` contextual component.
+To support users in meeting content length constraints, set `@minLength` and/or `@maxLength` to a `CharacterCount` contextual component.
 
 ```handlebars
 <Hds::Form::TextInput::Field @value="my-cluster-1234" as |F|>

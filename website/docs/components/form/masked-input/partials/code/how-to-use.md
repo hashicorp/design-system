@@ -132,7 +132,7 @@ Use the `@isRequired` and `@isOptional` arguments to add a visual indication tha
 
 #### Character count
 
-To support users meet content length constrains set `@minLength` and/or `@maxLength` to a `CharacterCount` contextual component.
+To support users in meeting content length constraints, set `@minLength` and/or `@maxLength` to a `CharacterCount` contextual component.
 
 ```handlebars
 <Hds::Form::MaskedInput::Field @value="036215df4996ca649928d8864b4df9e42cba0d" as |F|>
