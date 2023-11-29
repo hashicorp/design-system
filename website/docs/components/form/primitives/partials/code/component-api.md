@@ -128,7 +128,7 @@
 
 #### Contextual components
 
-Control, label, helper text and error content are passed to the field as yielded components, using the `Label`, `HelperText`, `Control`, `CharacterCount`, and `Error` keys.
+Control, label, helper text, and error content are passed to the field as yielded components, using the `Label`, `HelperText`, `Control`, `CharacterCount`, and `Error` keys.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<[F].Label>" @type="yielded component">
