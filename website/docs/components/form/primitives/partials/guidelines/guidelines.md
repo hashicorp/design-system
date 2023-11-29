@@ -22,6 +22,18 @@ Use a character count to communicate the current length of the value in an input
 
 Depending on which property (or properties) are passed to the component, a different default message will be displayed by the component to communicate the relationship between the current length of the input value (`currentLength`) and the maximum length (`maxLength`), minimum length (`minLength`), or both.
 
+<video width="100%" controls loop>
+  <source
+    src="/assets/components/form/primitives/character-count-default-interactions.mp4"
+    type="video/mp4"
+  />
+</video>
+
+!!! Info
+
+Test and interact with the default messaging examples in the [code](/components/form/primitives?tab=code#formcharactercount-1)
+!!!
+
 The default messages provide a consistent messaging pattern for the component by clearly communicating length requirements to the user while displaying their progress towards meeting the requirements.
 
 !!! Info
