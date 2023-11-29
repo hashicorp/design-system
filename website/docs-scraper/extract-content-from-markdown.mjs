@@ -38,6 +38,7 @@ import { rehypeRemoveAllHdsElements } from './parts/rehypeRemoveAllHdsElements.m
 import { rehypeRemoveNonRelevantDocElements } from './parts/rehypeRemoveNonRelevantDocElements.mjs';
 import { rehypeRemoveEmptyTextNodes } from './parts/rehypeRemoveEmptyTextNodes.mjs';
 import { rehypeRemoveEmptyParagraphs } from './parts/rehypeRemoveEmptyParagraphs.mjs';
+import { rehypeSanitizeTextNodes } from './parts/rehypeSanitizeTextNodes.mjs';
 import { setNodesHierarchy } from './parts/setNodesHierarchy.mjs';
 import { stringifyChildNodes } from './parts/stringifyChildNodes.mjs';
 
@@ -258,6 +259,9 @@ export async function parseMarkdown(markdownContent) {
   // remove empty text nodes and empty paragraphs
   tree = await unified().use(rehypeRemoveEmptyTextNodes).run(tree);
   tree = await unified().use(rehypeRemoveEmptyParagraphs).run(tree);
+
+  // sanitize the "text" content
+  tree = await unified().use(rehypeSanitizeTextNodes).run(tree);
 
   // associate to each node the hierarchy in terms of headings level
   tree = await unified().use(setNodesHierarchy).run(tree);
