@@ -18,7 +18,7 @@
 
 Added design tokens for `SideNav` with `@isCollapsible` (to control if users can collapse the sidenav on 'desktop' viewports) and `@isMinimized` (to control the default state on 'desktop' viewports) arguments
 
-<small>[#1630](https://github.com/hashicorp/design-system/pull/1630)</small>
+<small class="doc-whats-new-changelog-metadata">[#1630](https://github.com/hashicorp/design-system/pull/1630)</small>
 
 ## 1.8.0
 
@@ -27,7 +27,7 @@ Added design tokens for `SideNav` with `@isCollapsible` (to control if users can
 
 Added color tokens for “Vault Secrets” product
 
-<small>[#1640](https://github.com/hashicorp/design-system/pull/1640)</small>
+<small class="doc-whats-new-changelog-metadata">[#1640](https://github.com/hashicorp/design-system/pull/1640)</small>
 
 ## 1.7.0
 
@@ -35,7 +35,7 @@ Added color tokens for “Vault Secrets” product
 
 Added JSON output format for `marketing` target (and in the process refactored internal logic for tokens generation)
 
-<small>[#1513](https://github.com/hashicorp/design-system/pull/1513) - Thanks [@dstaley](https://github.com/dstaley) for the contribution! 🙏 </small>
+<small class="doc-whats-new-changelog-metadata">[#1513](https://github.com/hashicorp/design-system/pull/1513) - Thanks [@dstaley](https://github.com/dstaley) for the contribution! 🙏 </small>
 
 
 ## 1.6.0
@@ -44,7 +44,7 @@ Added JSON output format for `marketing` target (and in the process refactored i
 
 Added design token for loading state icon on search input
 
-<small>[#1452](https://github.com/hashicorp/design-system/pull/1452)</small>
+<small class="doc-whats-new-changelog-metadata">[#1452](https://github.com/hashicorp/design-system/pull/1452)</small>
 
 
 ## 1.5.0
@@ -54,7 +54,7 @@ Added design token for loading state icon on search input
 - Added new `TooltipButton` component and `hds-tooltip` modifier
 - Added design tokens for `Tooltip`
 
-<small>[#1283](https://github.com/hashicorp/design-system/pull/1283)</small>
+<small class="doc-whats-new-changelog-metadata">[#1283](https://github.com/hashicorp/design-system/pull/1283)</small>
 
 ## 1.4.2
 
@@ -62,7 +62,7 @@ Added design token for loading state icon on search input
 
 Added design tokens for `SideNav` component
 
-<small>[#1313](https://github.com/hashicorp/design-system/pull/1313)</small>
+<small class="doc-whats-new-changelog-metadata">[#1313](https://github.com/hashicorp/design-system/pull/1313)</small>
 
 ## 1.4.1
 
@@ -71,7 +71,7 @@ Added design tokens for `SideNav` component
 - Scoped group layout styles to nested child components.
 - Fixed bug with `--token-pagination-child-spacing-vertical` value so that it adds "px" unit.
 
-<small>[#1204](https://github.com/hashicorp/design-system/pull/1204)</small>
+<small class="doc-whats-new-changelog-metadata">[#1204](https://github.com/hashicorp/design-system/pull/1204)</small>
 
 ## 1.4.0
 
@@ -79,7 +79,7 @@ Added design tokens for `SideNav` component
 
 Added design tokens for `Pagination` component
 
-<small>[#661](https://github.com/hashicorp/design-system/pull/661)</small>
+<small class="doc-whats-new-changelog-metadata">[#661](https://github.com/hashicorp/design-system/pull/661)</small>
 
 ## 1.3.1
 
@@ -87,7 +87,7 @@ Added design tokens for `Pagination` component
 
 Updated design system name to "Helios"
 
-<small>[#1036](https://github.com/hashicorp/design-system/pull/1036)</small>
+<small class="doc-whats-new-changelog-metadata">[#1036](https://github.com/hashicorp/design-system/pull/1036)</small>
 
 ## 1.3.0
 
@@ -95,7 +95,7 @@ Updated design system name to "Helios"
 
 Added design tokens for indeterminate `Checkbox`
 
-<small>[#740](https://github.com/hashicorp/design-system/pull/740)</small>
+<small class="doc-whats-new-changelog-metadata">[#740](https://github.com/hashicorp/design-system/pull/740)</small>
 
 ## 1.2.0
 

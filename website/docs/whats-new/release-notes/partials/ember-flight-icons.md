@@ -18,9 +18,9 @@
 
 When `lazyEmbed` is true, use dynamic `import()` to bundle the sprite separately
 
-<small>[#1803](https://github.com/hashicorp/design-system/pull/1803) - Thanks [@meirish](https://github.com/meirish) for the contribution! 🙏</small>
+<small class="doc-whats-new-changelog-metadata">[#1803](https://github.com/hashicorp/design-system/pull/1803) - Thanks [@meirish](https://github.com/meirish) for the contribution! 🙏</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 **🔄 Updated dependencies:**
 
@@ -42,17 +42,17 @@ Upgraded the following dependencies:
 
 - `ember-cli-babel` from `7.26.11` to `8.2.0`
 
-<small>[#1761](https://github.com/hashicorp/design-system/pull/1761)</small>
+<small class="doc-whats-new-changelog-metadata">[#1761](https://github.com/hashicorp/design-system/pull/1761)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 Upgraded the following dependencies:
 
 - `ember-cli-htmlbars` from `6.2.0` to `6.3.0`
 
-<small>[#1756](https://github.com/hashicorp/design-system/pull/1756)</small>
+<small class="doc-whats-new-changelog-metadata">[#1756](https://github.com/hashicorp/design-system/pull/1756)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 **🔄 Updated dependencies:**
 
@@ -64,9 +64,9 @@ Upgraded the following dependencies:
 
 Added missing dependency on `ember-get-config`
 
-<small>[#1747](https://github.com/hashicorp/design-system/pull/1747)</small>
+<small class="doc-whats-new-changelog-metadata">[#1747](https://github.com/hashicorp/design-system/pull/1747)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 ## 4.0.0
 
@@ -74,9 +74,9 @@ Added missing dependency on `ember-get-config`
 
 Drop support for Node 14
 
-<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+<small class="doc-whats-new-changelog-metadata">[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 ## 3.1.3
 
@@ -108,7 +108,7 @@ Drop support for Node 14
 
 Added opt in flag to allow consumers to move sprite loading out of index.html
 
-<small>[#1543](https://github.com/hashicorp/design-system/pull/1543)</small>
+<small class="doc-whats-new-changelog-metadata">[#1543](https://github.com/hashicorp/design-system/pull/1543)</small>
 
 ## 3.0.9
 
@@ -156,7 +156,7 @@ Shifted our supported version of Node.js from `12.* || 14.* || >= 16` to `14.* |
 
 - @hashicorp/flight-icons@2.14.0
 
-<small>[#1395](https://github.com/hashicorp/design-system/pull/1395)</small>
+<small class="doc-whats-new-changelog-metadata">[#1395](https://github.com/hashicorp/design-system/pull/1395)</small>
 
 ## 3.0.5
 
@@ -180,7 +180,7 @@ Shifted our supported version of Node.js from `12.* || 14.* || >= 16` to `14.* |
 
 Fix error message for mismatched icon `@name`
 
-<small>[#1375](https://github.com/hashicorp/design-system/pull/1375) [`2c7d70868`](https://github.com/hashicorp/design-system/commit/2c7d70868b0fa000618214589e2422e07db68b22)</small>
+<small class="doc-whats-new-changelog-metadata">[#1375](https://github.com/hashicorp/design-system/pull/1375) [`2c7d70868`](https://github.com/hashicorp/design-system/commit/2c7d70868b0fa000618214589e2422e07db68b22)</small>
 
 ## 3.0.2
 
