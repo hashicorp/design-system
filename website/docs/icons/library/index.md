@@ -17,4 +17,4 @@ previewImage: assets/illustrations/icons/library.jpg
   @searchQuery={{this.searchQuery}}
   @searchIcons={{this.searchIcons}}
 />
-<!-- algolia-ignore-start -->
+<!-- algolia-ignore-end -->
