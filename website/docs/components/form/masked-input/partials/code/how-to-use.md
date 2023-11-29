@@ -170,6 +170,22 @@ For custom messages, you can use the following arguments to build a relevant mes
 </Hds::Form::MaskedInput::Field>
 ```
 
+You can use the `@onInput` callback function to dynamically raise an error based on the number of characters entered into a field. The function receives as argument an object with the following properties: `inputControl` (a reference to the associated form control node element), `currentLength` (the current number of characters in the associated form control), `maxLength` (the maximum number of characters allowed in the associated form control), `minLength` (the minimum number of characters required in the associated form control), `remaining` (the difference between `maxLength` and `currentLength`), and `shortfall` (the difference between `currentLength` and `minLength`).
+
+```handlebars
+  <Hds::Form::MaskedInput::Field
+    @value="036215df4996ca649928d8864b4df9e42cba0d"
+    @isInvalid={{this.fieldIsInvalid}}
+    as |F|
+  >
+    <F.Label>Terraform Cloud team token</F.Label>
+    <F.CharacterCount @minLength={{40}} @onInput={{this.onFieldInput}} />
+    {{#if this.fieldIsInvalid}}
+      <F.Error>Length should be at least 40 characters</F.Error>
+    {{/if}}
+  </Hds::Form::MaskedInput::Field>
+```
+
 #### Validation
 
 To indicate a field is invalid, use the `@isInvalid` argument and provide an error message using the `Error` contextual component.
