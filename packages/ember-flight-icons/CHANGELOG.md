@@ -1,5 +1,19 @@
 # @hashicorp/ember-flight-icons
 
+## 4.0.4
+
+### Patch Changes
+
+When `lazyEmbed` is true, use dynamic `import()` to bundle the sprite separately
+
+<small>[#1803](https://github.com/hashicorp/design-system/pull/1803) - Thanks [@meirish](https://github.com/meirish) for the contribution! 🙏</small>
+
+---
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@2.23.0
+
 ## 4.0.3
 
 ### Patch Changes

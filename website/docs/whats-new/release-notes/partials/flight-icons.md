@@ -12,6 +12,17 @@
   </a>
 </p>
 
+## 2.23.0
+
+**Minor changes**
+
+`accessibility`, `channel`, `minus-circle-fill`, `plus-circle-fill` icons added.
+Fixed the size and position of the `plus-circle` icon.
+
+<small>[#1839](https://github.com/hashicorp/design-system/pull/1839)</small>
+
+---
+
 ## 2.22.0
 
 **Minor changes**
@@ -224,12 +235,6 @@ Added `figma` and `loom` icons
 - [#339](https://github.com/hashicorp/design-system/pull/339) [`c241a6f0`](https://github.com/hashicorp/design-system/commit/c241a6f02723d2d1031d2f3e06c093d3e6b503d7) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Added two new icons from the Figma library; clock-filled, minus-square-fill.
 
 * [#345](https://github.com/hashicorp/design-system/pull/345) [`c0e90d53`](https://github.com/hashicorp/design-system/commit/c0e90d53fde0a9697d5aff04146f527285f7e696) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Add api icon from the Figma library
-
-## 2.5.0
-
-**Minor changes**
-
-- [#329](https://github.com/hashicorp/design-system/pull/329) [`671640a4`](https://github.com/hashicorp/design-system/commit/671640a476ab4ae4e0dd84e5e00964475e95e870) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Added "plug" outlined icon.
 
 
 ---

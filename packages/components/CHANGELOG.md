@@ -1,5 +1,35 @@
 # @hashicorp/design-system-components
 
+## 3.2.0
+
+### Minor Changes
+
+`CodeBlock` - Added language support for Ruby syntax
+
+<small>[#1834](https://github.com/hashicorp/design-system/pull/1834)</small>
+
+---
+
+`Hds::Table` - updated `@columns` object to support `isVisuallyHidden` argument
+
+- `Hds::Table::Th` - updated to support `isVisuallyHidden` argument
+
+<small>[#1819](https://github.com/hashicorp/design-system/pull/1819)</small>
+
+---
+
+### Patch Changes
+
+`SideNav` - Reduced the width of `SideNav::ToggleButton`
+
+<small>[#1807](https://github.com/hashicorp/design-system/pull/1807)</small>
+
+---
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/ember-flight-icons@4.0.4
+
 ## 3.1.2
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # @hashicorp/flight-icons
 
+## 2.23.0
+
+### Minor Changes
+
+`accessibility`, `channel`, `minus-circle-fill`, `plus-circle-fill` icons added.
+Fixed the size and position of the `plus-circle` icon.
+
+<small>[#1839](https://github.com/hashicorp/design-system/pull/1839)</small>
+
+---
+
 ## 2.22.0
 
 ### Minor Changes

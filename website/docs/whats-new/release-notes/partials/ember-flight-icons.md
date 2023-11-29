@@ -12,6 +12,20 @@
   </a>
 </p>
 
+## 4.0.4
+
+**Patch changes**
+
+When `lazyEmbed` is true, use dynamic `import()` to bundle the sprite separately
+
+<small>[#1803](https://github.com/hashicorp/design-system/pull/1803) - Thanks [@meirish](https://github.com/meirish) for the contribution! 🙏</small>
+
+---
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@2.23.0
+
 ## 4.0.3
 
 **Patch changes**
@@ -205,13 +219,6 @@ Fix error message for mismatched icon `@name`
 
 - Updated dependencies [[`4e557797`](https://github.com/hashicorp/design-system/commit/4e5577973154397da0b5d4302755a07b22826345)]:
   - @hashicorp/flight-icons@2.10.0
-
-## 2.0.11
-
-**Patch changes**
-
-- Updated dependencies [[`f2b3398e`](https://github.com/hashicorp/design-system/commit/f2b3398e3056ae39fa35b1f9c81ddc0b2100073d)]:
-  - @hashicorp/flight-icons@2.9.0
 
 
 ---
