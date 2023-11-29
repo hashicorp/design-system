@@ -204,7 +204,7 @@ Add more than one error message using the more specific `Message` contextual com
   <F.Label>Terraform Cloud team token</F.Label>
   <F.Error as |E|>
     <E.Message>Length should be at least 40 characters</E.Message>
-    <E.Message>Should not container special characters or spaces</E.Message>
+    <E.Message>Should not containe special characters or spaces</E.Message>
   </F.Error>
 </Hds::Form::MaskedInput::Field>
 ```
