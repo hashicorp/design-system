@@ -33,7 +33,7 @@ _Test and interact with the default messaging examples in the [code](/components
 
 The default messages provide a consistent messaging pattern for the component by clearly communicating length requirements to the user while displaying their progress towards meeting the requirements.
 
-#### Use in Figma
+#### Usage in Figma
 
 For representative consistenty, the Figma component mirrors the default messages that are rendered in the Ember component and are labelled as such; `currentLength` (the default variant), `maxLength`, `minLength`, and `custom`.
 
