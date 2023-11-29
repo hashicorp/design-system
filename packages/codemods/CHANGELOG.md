@@ -6,6 +6,6 @@
 
 Add codemods for `design-system-components` v3
 
-<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+<small class="doc-whats-new-changelog-metadata">[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
