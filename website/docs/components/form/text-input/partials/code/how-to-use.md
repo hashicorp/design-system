@@ -142,6 +142,22 @@ For custom messages, you can use the following arguments to build a relevant mes
 </Hds::Form::TextInput::Field>
 ```
 
+You can use the `@onInput` callback function to dynamically raise an error based on the number of characters entered into a field. The function receives as argument an object with the following properties: `inputControl` (a reference to the associated form control node element), `currentLength` (the current number of characters in the associated form control), `maxLength` (the maximum number of characters allowed in the associated form control), `minLength` (the minimum number of characters required in the associated form control), `remaining` (the difference between `maxLength` and `currentLength`), and `shortfall` (the difference between `currentLength` and `minLength`).
+
+```handlebars
+  <Hds::Form::TextInput::Field
+    @value="my-cluster-1234"
+    @isInvalid={{this.fieldIsInvalid}}
+    as |F|
+  >
+    <F.Label>Cluster name</F.Label>
+    <F.CharacterCount @minLength={{30}} @onInput={{this.onFieldInput}} />
+    {{#if this.fieldIsInvalid}}
+      <F.Error>Length should be at least 30 characters</F.Error>
+    {{/if}}
+  </Hds::Form::TextInput::Field>
+```
+
 #### Validation
 
 To indicate a field is invalid, declare that it’s invalid by using the `@isInvalid` argument and provide an error message using the `Error` contextual component.
