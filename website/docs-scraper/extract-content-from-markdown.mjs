@@ -36,6 +36,7 @@ import { remarkRemoveComments } from './parts/remarkRemoveComments.mjs';
 import { remarkRemoveCodeBlocks } from './parts/remarkRemoveCodeBlocks.mjs';
 import { remarkSanitizeDocComponentApi } from './parts/remarkSanitizeDocComponentApi.mjs';
 import { rehypeRemoveAllHdsElements } from './parts/rehypeRemoveAllHdsElements.mjs';
+import { rehypeRemoveChangelogMetadata } from './parts/rehypeRemoveChangelogMetadata.mjs';
 import { rehypeRemoveNonRelevantDocElements } from './parts/rehypeRemoveNonRelevantDocElements.mjs';
 import { rehypeRemoveEmptyTextNodes } from './parts/rehypeRemoveEmptyTextNodes.mjs';
 import { rehypeRemoveEmptyParagraphs } from './parts/rehypeRemoveEmptyParagraphs.mjs';
@@ -259,6 +260,9 @@ export async function parseMarkdown(markdownContent) {
 
   // remove every <Hds::*/> (<div hds-*/>)  nodes
   tree = await unified().use(rehypeRemoveAllHdsElements).run(tree);
+
+  // remove "What's new" changelog metadata (<small>#1234 - Thanks…</small>)
+  tree = await unified().use(rehypeRemoveChangelogMetadata).run(tree);
 
   // remove empty text nodes and empty paragraphs
   tree = await unified().use(rehypeRemoveEmptyTextNodes).run(tree);
