@@ -9,6 +9,11 @@ export const rehypeSanitizeTextNodes = () => (tree) => {
   visit(tree, 'text', (node) => {
     node.value = node.value
       // eg. \{{on "change" this.onChange}}
-      .replace(/\\{{/g, '{{');
+      .replace(/\\{{/g, '{{')
+      // revert the <Hds::*> tags inlined in in the text to their original format (see: transformHdsTags)
+      .replace(
+        /<div hds-([^>]+?)>/gim,
+        (_match, p1) => `<Hds::${p1.replace('_', '::')}>`
+      );
   });
 };
