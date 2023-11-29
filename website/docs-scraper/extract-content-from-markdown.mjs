@@ -33,6 +33,7 @@ import { transformDocTags } from './parts/transformDocTags.mjs';
 import { transformHdsTags } from './parts/transformHdsTags.mjs';
 import { remarkRemoveComments } from './parts/remarkRemoveComments.mjs';
 import { remarkRemoveCodeBlocks } from './parts/remarkRemoveCodeBlocks.mjs';
+import { remarkSanitizeDocComponentApi } from './parts/remarkSanitizeDocComponentApi.mjs';
 import { rehypeRemoveAllHdsElements } from './parts/rehypeRemoveAllHdsElements.mjs';
 import { rehypeRemoveNonRelevantDocElements } from './parts/rehypeRemoveNonRelevantDocElements.mjs';
 import { rehypeRemoveEmptyTextNodes } from './parts/rehypeRemoveEmptyTextNodes.mjs';
@@ -108,15 +109,7 @@ export async function parseMarkdown(markdownContent) {
   const componentApiMapper = () => (tree) => {
     visit(
       tree,
-      (node) => {
-        return (
-          node.type === 'element' &&
-          node.tagName === 'div' &&
-          Object.keys(node.properties).some(
-            (key) => key === 'doc-component-api-property'
-          )
-        );
-      },
+      (node) => node.tagName === 'doc-component-api-property',
       (node) => {
         let propertyName;
         let propertyDescription = '';
@@ -132,10 +125,8 @@ export async function parseMarkdown(markdownContent) {
             propertyDescription += ` ${text}`;
           });
         componentApis.push({
-          property: {
-            name: propertyName,
-            value: cleanupContent(propertyDescription),
-          },
+          name: propertyName,
+          value: cleanupContent(propertyDescription),
           hierarchy: {
             lvl1: undefined,
             lvl2: 'Component API',
@@ -151,18 +142,12 @@ export async function parseMarkdown(markdownContent) {
 
   const wcagListMapper = () => (tree) => {
     // the `<Doc::WcagList @criteriaList={{array "1.1.1" "2.2.2" />`
-    // has been transformed to a `<div doc-wcag-list />` HTML node
+    // has been transformed to a `<doc-wcag-list />` HTML-like node
     visit(
       tree,
+      (node) => node.tagName === 'doc-wcag-list',
       (node) => {
-        return (
-          node.type === 'element' &&
-          node.tagName === 'div' &&
-          node.properties['doc-wcag-list'] !== undefined
-        );
-      },
-      (node) => {
-        const criteriaAttribute = node.properties['@criterialist'];
+        const criteriaAttribute = node.properties['criterialist'];
         const criteriaList = criteriaAttribute
           ? criteriaAttribute.split(' ')
           : [];
@@ -241,6 +226,9 @@ export async function parseMarkdown(markdownContent) {
 
   // remove any code block
   tree = await unified().use(remarkRemoveCodeBlocks).run(tree);
+
+  // sanitize Doc::ComponentApi (<doc-component-api>) nodes
+  tree = await unified().use(remarkSanitizeDocComponentApi).run(tree);
 
   // DEBUG - leave for debugging
   // console.log('MARKDOWN TREE', JSON.stringify(tree, null, 2));
