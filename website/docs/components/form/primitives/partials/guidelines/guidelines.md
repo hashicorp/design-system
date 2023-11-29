@@ -11,7 +11,12 @@
 
 ### Form::CharacterCount
 
-Use a character count to communicate the current length of the value in an input and whether it meets or exceeds the length requirements passed to the component. The component accepts multiple arguments to set length requirements and exposes several computed values to support custom messages. Visit the [code](/components/form/primitives?tab=code#formcharactercount-1) documentation for more details. <!-- TODO: ensure that this link is correct -->
+!!! Info
+
+The character count is not coupled with the invalid state of the field. Instead, it is the responsibility of the consumer to implement validation at the application-level.
+!!!
+
+Use a character count to communicate the current length of the value in an input and whether it meets or exceeds the length requirements passed to the component. The component accepts multiple arguments to set length requirements and exposes several computed values to support custom messages. Visit the [code](/components/form/primitives?tab=code#formcharactercount-1) documentation for more details.
 
 #### Default messages
 
@@ -26,7 +31,7 @@ For representative consistenty, the Figma component mirrors the default messages
 
 #### Custom messages
 
-A custom message in the character count is supported and can be used when a product or application-specific message or term is required; e.g. "registry" or "workspace".
+A custom message in the character count is supported and can be used when a product or application-specific message or term is required, e.g., "registry" or "workspace".
 
 !!! Dont
 
@@ -47,11 +52,6 @@ Instead, use [helper text](/components/form/primitives#formhelpertext) as recomm
 Don’t use helper text to communicate length requirements as this can result in an overlap of communication with the character count.
 
 ![Character count with helper text](/assets/components/form/primitives/character-count-dont-helper-text-overlap.png)
-!!!
-
-!!! Info
-
-The character count is not coupled with the invalid state of the field. Instead, it is the responsibility of the consumer to implement validation at the application-level.
 !!!
 
 ### Form::Error

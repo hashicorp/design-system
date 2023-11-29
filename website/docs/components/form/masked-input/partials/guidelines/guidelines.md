@@ -81,10 +81,14 @@ Setting the `hasCopyButton` property to `true` will display a [Copy Button](/com
   </Hds::Form::MaskedInput::Field>
 </Doc::Layout>
 
+## Character count
+
+For tracking the number of characters entered into a MaskedInput and defining requirements around minimum and maximum length, refer to the [Character count](/components/form/primitives#formcharactercount) documentation.
+
 ## Error validation
 
 For error validation recommendations, refer to the [Form patterns](/patterns/form-patterns) documentation.
 
 ## Content
 
-For content recommendations and detailed guidance on using the character count feature in this field, please refer to our [Primitives](/components/form/primitives) documentation.
+For high-level content recommendations refer to our [Primitives](/components/form/primitives) documentation.
