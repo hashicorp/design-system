@@ -24,7 +24,7 @@
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="controlId" @type="string">
-    The ID of the form control associated with the helper text. This is used to populate the `id` HTML attribute (with a `helper-text-` prefix) of the element. This HelperText ID can then be referenced in the `aria-describedby` attribute of the form control.
+    The ID of the form control associated with the helper text. This is used to populate the element’s `id` HTML attribute (with a `helper-text-` prefix). This HelperText ID can then be referenced in the `aria-describedby` attribute of the form control.
   </C.Property>
   <C.Property @name="yield">
     Elements passed as children of this component are yielded inside the element.
@@ -38,7 +38,7 @@
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="controlId" @type="string">
-    The ID of the form control associated with the helper text. This is used to populate the `id` HTML attribute (with a `character-count-` prefix) of the element. This CharacterCount ID can then be referenced in the `aria-describedby` attribute of the form control.
+    The ID of the form control associated with the character count. This is used to populate the element’s `id` HTML attribute (with a `character-count-` prefix). This CharacterCount ID can then be referenced in the `aria-describedby` attribute of the form control.
   </C.Property>
   <C.Property @name="maxLength" @type="number">
     The maximum number of characters allowed in the associated form element, used to determine the number of remaining characters. This does not restrict users from adding characters over the limit.
@@ -61,7 +61,7 @@
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="controlId" @type="string">
-    The ID of the form control associated with the error. This is used to populate the `id` HTML attribute (with an `error-` prefix) of the element. This Error ID can then be referenced in the `aria-describedby` attribute of the form control.
+    The ID of the form control associated with the error. This is used to populate the element’s `id` HTML attribute (with an `error-` prefix). This Error ID can then be referenced in the `aria-describedby` attribute of the form control.
   </C.Property>
   <C.Property @name="yield">
     Elements passed as children of this component are yielded inside the element.
