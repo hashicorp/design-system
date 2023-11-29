@@ -26,7 +26,9 @@ The default messages provide a consistent messaging pattern for the component by
 
 !!! Info
 
-For representative consistenty, the Figma component mirrors the default messages that are rendered in the Ember component and are labelled as such; `default` (or `currentLength`), `maxLength`, `minLength`, and `custom`. However, if anything apart from the numerical value (e.g., "{numerical value} characters is allowed") in the non-custom variants is edited, this will require a custom implementation on the engineering side to match.
+For representative consistenty, the Figma component mirrors the default messages that are rendered in the Ember component and are labelled as such; `default` (or `currentLength`), `maxLength`, `minLength`, and `custom`.
+
+In all variants except the `custom` variant, we recommend _only_ overriding the numerical value (e.g., "{numerical value} characters is allowed"). Overriding the text in these variants will require a custom implementation on the engineering side, instead, the `custom` variant should be used.
 !!!
 
 #### Custom messages
