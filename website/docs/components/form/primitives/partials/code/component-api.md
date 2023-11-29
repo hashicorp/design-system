@@ -156,7 +156,7 @@ Control, label, helper text, and error content are passed to the field as yielde
     The `id` attribute of the element is automatically generated.
   </C.Property>
   <C.Property @name="<[F].Error>" @type="yielded component">
-    A container that yields its content inside the “error” block. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API check the `Form::Error` component.
+    A container that yields its content inside the “error” block. The content can be a simple string, or a more complex/structured one (in which case it inherits the text style). For details about its API, check the `Form::Error` component.
     <br/><br/>
     The `id` attribute of the `Error` element is automatically generated.
     <Doc::ComponentApi as |C|>

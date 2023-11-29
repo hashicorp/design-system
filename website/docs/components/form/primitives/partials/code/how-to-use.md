@@ -80,28 +80,28 @@ The `controlId` value is used to generate an ID, prefixed with `character-count-
 <Hds::Form::CharacterCount @controlId="input-character-count-default"/>
 ```
 
-If the user input needs to be limited to a certain number of characters use `@maxLength`.
+If the user input needs to be limited to a certain number of characters, use `@maxLength`.
 
 ```handlebars
 <input type="text" aria-label="input with max length count" id="input-character-count-max"/>
 <Hds::Form::CharacterCount @maxLength="10" @controlId="input-character-count-max"/>
 ```
 
-If the user input is required to have a certain number of characters use `@minLength`.
+If the user input is required to have a certain number of characters, use `@minLength`.
 
 ```handlebars
 <input type="text" aria-label="input with min length count" id="input-character-count-min"/>
 <Hds::Form::CharacterCount @minLength="3" @controlId="input-character-count-min"/>
 ```
 
-When the user input needs to be in a certain range use both `@minLength` and `@maxLength`.
+When the user input needs to be in a certain range, use both `@minLength` and `@maxLength`.
 
 ```handlebars
 <input type="text" aria-label="input with min and max length count" id="input-character-count-min-max"/>
 <Hds::Form::CharacterCount @minLength="3" @maxLength="10" @controlId="input-character-count-min-max"/>
 ```
 
-For custom messages you can use the following arguments to build a relevant message: `currentLength`, `maxLength`, `minLength`, `remaining`, and `shortfall`.
+For custom messages, you can use the following arguments to build a relevant message: `currentLength`, `maxLength`, `minLength`, `remaining`, and `shortfall`.
 
 ```handlebars
 <input type="text" aria-label="input with min and max length count" id="input-character-count-custom"/>
