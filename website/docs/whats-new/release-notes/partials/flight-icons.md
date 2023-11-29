@@ -19,9 +19,9 @@
 `accessibility`, `channel`, `minus-circle-fill`, `plus-circle-fill` icons added.
 Fixed the size and position of the `plus-circle` icon.
 
-<small>[#1839](https://github.com/hashicorp/design-system/pull/1839)</small>
+<small class="doc-whats-new-changelog-metadata">[#1839](https://github.com/hashicorp/design-system/pull/1839)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 ## 2.22.0
 
@@ -29,9 +29,9 @@ Fixed the size and position of the `plus-circle` icon.
 
 Added `IconName` type to `iconNames` export
 
-<small>[#1776](https://github.com/hashicorp/design-system/pull/1776) - Thanks [@dstaley](https://github.com/dstaley) for the contribution! 🙏</small>
+<small class="doc-whats-new-changelog-metadata">[#1776](https://github.com/hashicorp/design-system/pull/1776) - Thanks [@dstaley](https://github.com/dstaley) for the contribution! 🙏</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 ## 2.21.0
 
@@ -39,9 +39,9 @@ Added `IconName` type to `iconNames` export
 
 Added static SVG sprite sheet file
 
-<small>[#1763](https://github.com/hashicorp/design-system/pull/1763) - Thanks [@dstaley](https://github.com/dstaley) for the contribution! 🙏</small>
+<small class="doc-whats-new-changelog-metadata">[#1763](https://github.com/hashicorp/design-system/pull/1763) - Thanks [@dstaley](https://github.com/dstaley) for the contribution! 🙏</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 ## 2.20.0
 
@@ -60,7 +60,7 @@ Added new set of icons for Google services:
 - `google-sheets`
 - `google-drive`
 
-<small>[#1657](https://github.com/hashicorp/design-system/pull/1657)</small>
+<small class="doc-whats-new-changelog-metadata">[#1657](https://github.com/hashicorp/design-system/pull/1657)</small>
 
 ## 2.19.0
 
@@ -68,7 +68,7 @@ Added new set of icons for Google services:
 
 Added `Vault Secrets` icon.
 
-<small>[#1638](https://github.com/hashicorp/design-system/pull/1638)</small>
+<small class="doc-whats-new-changelog-metadata">[#1638](https://github.com/hashicorp/design-system/pull/1638)</small>
 
 ## 2.18.0
 
@@ -76,13 +76,13 @@ Added `Vault Secrets` icon.
 
 Added `Vercel` and `Jira` icons
 
-<small>[#1585](https://github.com/hashicorp/design-system/pull/1585)</small>
+<small class="doc-whats-new-changelog-metadata">[#1585](https://github.com/hashicorp/design-system/pull/1585)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 Added `twitter-x` icon, and older `twitter` icon. Also the `aws-cdk` and `jfrog` icons.
 
-<small>[#1610](https://github.com/hashicorp/design-system/pull/1610)</small>
+<small class="doc-whats-new-changelog-metadata">[#1610](https://github.com/hashicorp/design-system/pull/1610)</small>
 
 ## 2.17.0
 
@@ -90,7 +90,7 @@ Added `twitter-x` icon, and older `twitter` icon. Also the `aws-cdk` and `jfrog`
 
 Added new `clipboard-x` icon
 
-<small>[#1532](https://github.com/hashicorp/design-system/pull/1532)</small>
+<small class="doc-whats-new-changelog-metadata">[#1532](https://github.com/hashicorp/design-system/pull/1532)</small>
 
 ## 2.16.0
 
@@ -98,7 +98,7 @@ Added new `clipboard-x` icon
 
 Added `elastic-observability` and `new-relic` icons
 
-<small>[#1515](https://github.com/hashicorp/design-system/pull/1515)</small>
+<small class="doc-whats-new-changelog-metadata">[#1515](https://github.com/hashicorp/design-system/pull/1515)</small>
 
 ## 2.15.0
 
@@ -106,7 +106,7 @@ Added `elastic-observability` and `new-relic` icons
 
 Added Venafi service icon
 
-<small>[#1487](https://github.com/hashicorp/design-system/pull/1487)</small>
+<small class="doc-whats-new-changelog-metadata">[#1487](https://github.com/hashicorp/design-system/pull/1487)</small>
 
 ## 2.14.0
 
@@ -114,7 +114,7 @@ Added Venafi service icon
 
 Added `robot` icon (for Service Principals)
 
-<small>[#1428](https://github.com/hashicorp/design-system/pull/1428)</small>
+<small class="doc-whats-new-changelog-metadata">[#1428](https://github.com/hashicorp/design-system/pull/1428)</small>
 
 ## 2.13.1
 
@@ -122,7 +122,7 @@ Added `robot` icon (for Service Principals)
 
 Fix color for `connection-gateway` icon
 
-<small>[#1420](https://github.com/hashicorp/design-system/pull/1420)</small>
+<small class="doc-whats-new-changelog-metadata">[#1420](https://github.com/hashicorp/design-system/pull/1420)</small>
 
 ## 2.13.0
 
@@ -130,7 +130,7 @@ Fix color for `connection-gateway` icon
 
 Added `ampersand` icon
 
-<small>[#1412](https://github.com/hashicorp/design-system/pull/1412)</small>
+<small class="doc-whats-new-changelog-metadata">[#1412](https://github.com/hashicorp/design-system/pull/1412)</small>
 
 ## 2.12.0
 
@@ -138,15 +138,15 @@ Added `ampersand` icon
 
 Remove unnused icons as CSS props
 
-<small>[#727](https://github.com/hashicorp/design-system/pull/727)</small>
+<small class="doc-whats-new-changelog-metadata">[#727](https://github.com/hashicorp/design-system/pull/727)</small>
 
 _Notice: as an exception, we are releasing this change as minor instead of major for the reason that no one is actually using these files._
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 Added `figma` and `loom` icons
 
-<small>[#689](https://github.com/hashicorp/design-system/pull/689)</small>
+<small class="doc-whats-new-changelog-metadata">[#689](https://github.com/hashicorp/design-system/pull/689)</small>
 
 ## 2.11.1
 

@@ -8,12 +8,6 @@
 
 #show-content-whats-new-release-notes {
   > section {
-    > hr {
-      margin: 12px 0 18px;
-      background-color: transparent;
-      border-top: 1px dashed #ccc;
-    }
-
     > p:has(strong:only-child) {
       margin-top: 32px;
     }
@@ -31,6 +25,11 @@
       // needed to have the flex alignment work as expected
       display: block;
     }
+  }
+
+  .doc-whats-new-changelog-separator {
+    margin: 12px 0 18px;
+    border-top: 1px dashed #ccc;
   }
 
   .doc-whats-new-changelog-figma-library {

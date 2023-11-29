@@ -6,25 +6,25 @@
 
 `CodeBlock` - Added language support for Ruby syntax
 
-<small>[#1834](https://github.com/hashicorp/design-system/pull/1834)</small>
+<small class="doc-whats-new-changelog-metadata">[#1834](https://github.com/hashicorp/design-system/pull/1834)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `Hds::Table` - updated `@columns` object to support `isVisuallyHidden` argument
 
 - `Hds::Table::Th` - updated to support `isVisuallyHidden` argument
 
-<small>[#1819](https://github.com/hashicorp/design-system/pull/1819)</small>
+<small class="doc-whats-new-changelog-metadata">[#1819](https://github.com/hashicorp/design-system/pull/1819)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 ### Patch Changes
 
 `SideNav` - Reduced the width of `SideNav::ToggleButton`
 
-<small>[#1807](https://github.com/hashicorp/design-system/pull/1807)</small>
+<small class="doc-whats-new-changelog-metadata">[#1807](https://github.com/hashicorp/design-system/pull/1807)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 **🔄 Updated dependencies:**
 
@@ -36,21 +36,21 @@
 
 `AppFooter` – Fixed predefined statuses by replacing `critical` with `outage` and prevented `statusIconColor` from being overridden by `status`
 
-<small>[#1790](https://github.com/hashicorp/design-system/pull/1790)</small>
+<small class="doc-whats-new-changelog-metadata">[#1790](https://github.com/hashicorp/design-system/pull/1790)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `SideNav` - Fixed visible scrollbar in collapsed SideNav when scroll bar is set to be always visible
 
-<small>[#1786](https://github.com/hashicorp/design-system/pull/1786)</small>
+<small class="doc-whats-new-changelog-metadata">[#1786](https://github.com/hashicorp/design-system/pull/1786)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `CodeBlock` - Fixed `@hasLineWrapping` style to make long strings wrap when they overflow the container
 
-<small>[#1798](https://github.com/hashicorp/design-system/pull/1798)</small>
+<small class="doc-whats-new-changelog-metadata">[#1798](https://github.com/hashicorp/design-system/pull/1798)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 ## 3.1.1
 
@@ -58,9 +58,9 @@
 
 Added `@ember/string` as a direct dependency
 
-<small>[#1782](https://github.com/hashicorp/design-system/pull/1782)</small>
+<small class="doc-whats-new-changelog-metadata">[#1782](https://github.com/hashicorp/design-system/pull/1782)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 **🔄 Updated dependencies:**
 
@@ -72,9 +72,9 @@ Added `@ember/string` as a direct dependency
 
 `CodeBlock` - Added new component
 
-<small>[#1687](https://github.com/hashicorp/design-system/pull/1687)</small>
+<small class="doc-whats-new-changelog-metadata">[#1687](https://github.com/hashicorp/design-system/pull/1687)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 ### Patch Changes
 
@@ -86,15 +86,15 @@ Upgraded the following dependencies:
 - `ember-keyboard` from `8.2.0` to `8.2.1`
 - `sass` from `1.62.1` to `1.69.5`
 
-<small>[#1756](https://github.com/hashicorp/design-system/pull/1756)</small>
+<small class="doc-whats-new-changelog-metadata">[#1756](https://github.com/hashicorp/design-system/pull/1756)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `Breadcrumb` - Added support for external links
 
-<small>[#1774](https://github.com/hashicorp/design-system/pull/1774)</small>
+<small class="doc-whats-new-changelog-metadata">[#1774](https://github.com/hashicorp/design-system/pull/1774)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 Upgraded the following dependencies:
 
@@ -103,15 +103,15 @@ Upgraded the following dependencies:
 - `ember-cli-sass` from `10.0.1` to `11.0.1`
 - `ember-composable-helpers` from `4.5.0` to `5.0.0`
 
-<small>[#1761](https://github.com/hashicorp/design-system/pull/1761)</small>
+<small class="doc-whats-new-changelog-metadata">[#1761](https://github.com/hashicorp/design-system/pull/1761)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `Button` - Fixed `HdsInteractiveSignature` type import
 
-<small>[#1769](https://github.com/hashicorp/design-system/pull/1769)</small>
+<small class="doc-whats-new-changelog-metadata">[#1769](https://github.com/hashicorp/design-system/pull/1769)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 **🔄 Updated dependencies:**
 
@@ -123,9 +123,9 @@ Upgraded the following dependencies:
 
 explicitly added `ember-element-helper` as dependency for the `components` package
 
-<small>[#1751](https://github.com/hashicorp/design-system/pull/1751)</small>
+<small class="doc-whats-new-changelog-metadata">[#1751](https://github.com/hashicorp/design-system/pull/1751)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 ## 3.0.1
 
@@ -141,9 +141,9 @@ explicitly added `ember-element-helper` as dependency for the `components` packa
 
 Drop support for Node 14
 
-<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+<small class="doc-whats-new-changelog-metadata">[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `Hds::Form::VisibilityToggle` - Added component as a form base element
 
@@ -157,9 +157,9 @@ To migrate:
 
 - in `Hds::Form::MaskedInput` instances replace `@isMasked` arguments with `@isContentMasked`
 
-<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+<small class="doc-whats-new-changelog-metadata">[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `Hds::Dropdown` – Removed `@listPosition` `left` and `right` (use `bottom-left` and `bottom-right`, respectively).
 
@@ -169,9 +169,9 @@ To migrate:
   - replace `@listPosition="left"` with `@listPosition="bottom-left"`
   - replace `@listPosition="right"` with `@listPosition="bottom-right"`
 
-<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+<small class="doc-whats-new-changelog-metadata">[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `SideNav` - Renamed `extraBefore/After` generic containers to `ExtraBefore/After` (uppercase `E`).
 
@@ -179,9 +179,9 @@ To migrate:
 
 - rename all the `extraBefore/After` instances yielded within the `<Hds::SideNav>` component to `ExtraBefore/After`
 
-<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+<small class="doc-whats-new-changelog-metadata">[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `Form::RadioCard` - Remove the `@layout` property.
 
@@ -192,9 +192,9 @@ To migrate `Form::RadioCard` and `Form::RadioCard::Group` instances without enco
 - make sure all instances with `@layout="fixed"` have a `@maxWidth` defined, then remove the `@layout="fixed"` definition
 - remove all `@layout="fluid"` definitions
 
-<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+<small class="doc-whats-new-changelog-metadata">[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 ### Minor Changes
 
@@ -202,15 +202,15 @@ To migrate `Form::RadioCard` and `Form::RadioCard::Group` instances without enco
 
 _Consumers should review the defaults values for this (sub)component in their codebases, to make sure they match the intended visual designs._
 
-<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+<small class="doc-whats-new-changelog-metadata">[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `Button`, `Interactive` - Converted components to TypeScript.
 
-<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+<small class="doc-whats-new-changelog-metadata">[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `Copy::Snippet` - Fixed the way in which “width/full-width” is applied to the component + Internal update to the “truncation” implementation.
 
@@ -219,9 +219,9 @@ _Consumers should review the defaults values for this (sub)component in their co
 
 _Consumers should review the pages where this component is used to make sure its width matches the intended visual designs (in case, use the `@isFullWidth` argument to control its full-width). In case they're using the `hds-copy-snippet__text--truncated` class name, they should also update their code to adapt to the new implementation._
 
-<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+<small class="doc-whats-new-changelog-metadata">[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 Removed `ember-cli-clipboard` as dependency and introduced a custom `hds-clipboard` modifier (using the web [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API))
 
@@ -240,23 +240,23 @@ Removed `ember-cli-clipboard` as dependency and introduced a custom `hds-clipboa
 
 _Consumers should remove the `@container` argument from all the instances of `Copy::Button` (not needed anymore) and double check that the `Copy::Button/Snippet` instances work exactly as before._
 
-<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+<small class="doc-whats-new-changelog-metadata">[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 ### Patch Changes
 
 `Copy::Snippet` - Fixed background colors for different states according to Figma specs (main change is the default/base background is now transparent, not white).
 
-<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+<small class="doc-whats-new-changelog-metadata">[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `Form::MaskedInput` - Changed copy logic for `CopyButton` used inside the component.
 
-<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+<small class="doc-whats-new-changelog-metadata">[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `Accordion` - Replaced internal text styling (using `Text` component).
 
@@ -282,15 +282,15 @@ _Consumers should remove the `@container` argument from all the instances of `Co
 
 _No impact is expected on the consumers' applications._
 
-<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+<small class="doc-whats-new-changelog-metadata">[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `Button` - Applied explicit text alignment to the text to fix alignment on "link" buttons.
 
-<small>[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
+<small class="doc-whats-new-changelog-metadata">[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 **🔄 Updated dependencies:**
 
@@ -304,13 +304,13 @@ _No impact is expected on the consumers' applications._
 
 `Dropdown::ToggleIcon` - updated sizing of the "small" variant to match the height of the "small" variant `Button`
 
-<small>[#1690](https://github.com/hashicorp/design-system/pull/1690)</small>
+<small class="doc-whats-new-changelog-metadata">[#1690](https://github.com/hashicorp/design-system/pull/1690)</small>
 
 ### Patch Changes
 
 `Pagination` - Removed handling of query parameters from `onPageSizeChange` function.
 
-<small>[#1736](https://github.com/hashicorp/design-system/pull/1736)</small>
+<small class="doc-whats-new-changelog-metadata">[#1736](https://github.com/hashicorp/design-system/pull/1736)</small>
 
 _Notice: while technically this is a breaking change, we consider this a fast-follow fix for the previous release._
 
@@ -320,13 +320,13 @@ _Notice: while technically this is a breaking change, we consider this a fast-fo
 
 `Pagination` - updated the logic for “Compact” variant to expose `@currentPageSize` and handle controlled/uncontrolled changes
 
-<small>[#1724](https://github.com/hashicorp/design-system/pull/1724)</small>
+<small class="doc-whats-new-changelog-metadata">[#1724](https://github.com/hashicorp/design-system/pull/1724)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `Tabs` - replace `assert` with `warn` in `setIndicator` function
 
-<small>[#1716](https://github.com/hashicorp/design-system/pull/1716)</small>
+<small class="doc-whats-new-changelog-metadata">[#1716](https://github.com/hashicorp/design-system/pull/1716)</small>
 
 ## 2.14.1
 
@@ -334,7 +334,7 @@ _Notice: while technically this is a breaking change, we consider this a fast-fo
 
 `Tabs` - Fixed issue with `@isSelected` dynamically changed within `#each` loops
 
-<small>[#1709](https://github.com/hashicorp/design-system/pull/1709)</small>
+<small class="doc-whats-new-changelog-metadata">[#1709](https://github.com/hashicorp/design-system/pull/1709)</small>
 
 ## 2.14.0
 
@@ -342,9 +342,9 @@ _Notice: while technically this is a breaking change, we consider this a fast-fo
 
 `Pagination::Compact` - Added option to show "SizeSelector" element
 
-<small>[#1700](https://github.com/hashicorp/design-system/pull/1700)</small>
+<small class="doc-whats-new-changelog-metadata">[#1700](https://github.com/hashicorp/design-system/pull/1700)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `Tabs` - Refactored logic for `Tabs` component + `Tab/Panel` sub-components to support more complex use cases:
 
@@ -352,7 +352,7 @@ _Notice: while technically this is a breaking change, we consider this a fast-fo
 - fixed issue with nested tabs not initializing the "selected" indicator correctly
 - fixed issue with dynamic tab content not updating the "selected" indicator correctly
 
-<small>[#1688](https://github.com/hashicorp/design-system/pull/1688)</small>
+<small class="doc-whats-new-changelog-metadata">[#1688](https://github.com/hashicorp/design-system/pull/1688)</small>
 
 ## 2.13.0
 
@@ -360,27 +360,27 @@ _Notice: while technically this is a breaking change, we consider this a fast-fo
 
 `AppFooter` - Added new component
 
-<small>[#1623](https://github.com/hashicorp/design-system/pull/1623)</small>
+<small class="doc-whats-new-changelog-metadata">[#1623](https://github.com/hashicorp/design-system/pull/1623)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `SideNav` - add `@isCollapsible` (to control if users can collapse the sidenav on 'desktop' viewports) and `@isMinimized` (to control the default state on 'desktop' viewports) arguments
 
-<small>[#1630](https://github.com/hashicorp/design-system/pull/1630)</small>
+<small class="doc-whats-new-changelog-metadata">[#1630](https://github.com/hashicorp/design-system/pull/1630)</small>
 
 ### Patch Changes
 
 `Tag` - Updated padding for dismiss button for WCAG conformance
 
-<small>[#1696](https://github.com/hashicorp/design-system/pull/1696)</small>
+<small class="doc-whats-new-changelog-metadata">[#1696](https://github.com/hashicorp/design-system/pull/1696)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `Link::Standalone` – increase target size
 
-<small>[#1678](https://github.com/hashicorp/design-system/pull/1678)</small>
+<small class="doc-whats-new-changelog-metadata">[#1678](https://github.com/hashicorp/design-system/pull/1678)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 **🔄 Updated dependencies:**
 
@@ -392,15 +392,15 @@ _Notice: while technically this is a breaking change, we consider this a fast-fo
 
 `PowerSelect` - fix style overrides when the list is positioned above
 
-<small>[#1655](https://github.com/hashicorp/design-system/pull/1655)</small>
+<small class="doc-whats-new-changelog-metadata">[#1655](https://github.com/hashicorp/design-system/pull/1655)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `Text` - Fixed issue with whitespace adding extra underline when used in links (eg. inside a `Link::Inline`)
 
-<small>[#1652](https://github.com/hashicorp/design-system/pull/1652)</small>
+<small class="doc-whats-new-changelog-metadata">[#1652](https://github.com/hashicorp/design-system/pull/1652)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 **🔄 Updated dependencies:**
 
@@ -412,13 +412,13 @@ _Notice: while technically this is a breaking change, we consider this a fast-fo
 
 `Pagination` - Bugfix `aria-label` on the component
 
-<small>[#1627](https://github.com/hashicorp/design-system/pull/1627)</small>
+<small class="doc-whats-new-changelog-metadata">[#1627](https://github.com/hashicorp/design-system/pull/1627)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `Dropdown` - changed `@height` property to use `max-height` instead of a fixed height.
 
-<small>[#1635](https://github.com/hashicorp/design-system/pull/1635)</small>
+<small class="doc-whats-new-changelog-metadata">[#1635](https://github.com/hashicorp/design-system/pull/1635)</small>
 
 ## 2.12.0
 
@@ -426,33 +426,33 @@ _Notice: while technically this is a breaking change, we consider this a fast-fo
 
 `IconTile` - updated component to include `vault-secrets` product option
 
-<small>[#1640](https://github.com/hashicorp/design-system/pull/1640)</small>
+<small class="doc-whats-new-changelog-metadata">[#1640](https://github.com/hashicorp/design-system/pull/1640)</small>
 
 ### Patch Changes
 
 `Text` - Removed leftover `console.log` from code
 
-<small>[#1615](https://github.com/hashicorp/design-system/pull/1615)</small>
+<small class="doc-whats-new-changelog-metadata">[#1615](https://github.com/hashicorp/design-system/pull/1615)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 Refactored the layout of the `Dropdown` checkbox and radio inputs to make the gap between the inputs and the associated text, as well as the icon and count, clickable.
 
-<small>[#1618](https://github.com/hashicorp/design-system/pull/1618)</small>
+<small class="doc-whats-new-changelog-metadata">[#1618](https://github.com/hashicorp/design-system/pull/1618)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `Hds::Link::Standalone` - Changed font-weight from 500 to 400 to match font-weight of `Hds::Button`.
 
-<small>[#1617](https://github.com/hashicorp/design-system/pull/1617)</small>
+<small class="doc-whats-new-changelog-metadata">[#1617](https://github.com/hashicorp/design-system/pull/1617)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `Stepper` - removed some CSS declarations that were not used/applied
 
-<small>[#1628](https://github.com/hashicorp/design-system/pull/1628)</small>
+<small class="doc-whats-new-changelog-metadata">[#1628](https://github.com/hashicorp/design-system/pull/1628)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 **🔄 Updated dependencies:**
 
@@ -465,33 +465,33 @@ Refactored the layout of the `Dropdown` checkbox and radio inputs to make the ga
 
 `Hds::Text` - Added new `Text` component
 
-<small>[#1490](https://github.com/hashicorp/design-system/pull/1490)</small>
+<small class="doc-whats-new-changelog-metadata">[#1490](https://github.com/hashicorp/design-system/pull/1490)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `Hds::Form::MaskedInput` - Add `hasCopyButton` argument
 
-<small>[#1587](https://github.com/hashicorp/design-system/pull/1587)</small>
+<small class="doc-whats-new-changelog-metadata">[#1587](https://github.com/hashicorp/design-system/pull/1587)</small>
 
 ### Patch Changes
 
 `Form::Indicator` - Remove aria-hidden from the "optional" `<span>`
 
-<small>[#1577](https://github.com/hashicorp/design-system/pull/1577) - Thanks [@DingoEatingFuzz](https://github.com/DingoEatingFuzz) for the contribution! 🙏</small>
+<small class="doc-whats-new-changelog-metadata">[#1577](https://github.com/hashicorp/design-system/pull/1577) - Thanks [@DingoEatingFuzz](https://github.com/DingoEatingFuzz) for the contribution! 🙏</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 Removed `ember-named-blocks-polyfill` as all consumers of HDS are on Ember 3.25 or later now. This can be installed locally if it is still needed.
 
-<small>[#1606](https://github.com/hashicorp/design-system/pull/1606)</small>
+<small class="doc-whats-new-changelog-metadata">[#1606](https://github.com/hashicorp/design-system/pull/1606)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `Alert`, `Toast`: Fixed an issue with anchor tag color styles within Description that had been overriding `Hds::Link` color; changed the default color for HTML links within Description to "neutral" to better align with existing guidance for links in the actions and improve accessible contrast.
 
-<small>[#1576](https://github.com/hashicorp/design-system/pull/1576)</small>
+<small class="doc-whats-new-changelog-metadata">[#1576](https://github.com/hashicorp/design-system/pull/1576)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 **🔄 Updated dependencies:**
 
@@ -503,51 +503,51 @@ Removed `ember-named-blocks-polyfill` as all consumers of HDS are on Ember 3.25 
 
 Added new `FileInput` component
 
-<small>[#1535](https://github.com/hashicorp/design-system/pull/1535)</small>
+<small class="doc-whats-new-changelog-metadata">[#1535](https://github.com/hashicorp/design-system/pull/1535)</small>
 
 ### Patch Changes
 
 Remove unnecessary export of `hds/copy/index.js`
 
-<small>[#1570](https://github.com/hashicorp/design-system/pull/1570)</small>
+<small class="doc-whats-new-changelog-metadata">[#1570](https://github.com/hashicorp/design-system/pull/1570)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `Hds::Tabs` - Fix missing tab indicator when used in Modal or Flyout
 
-<small>[#1575](https://github.com/hashicorp/design-system/pull/1575)</small>
+<small class="doc-whats-new-changelog-metadata">[#1575](https://github.com/hashicorp/design-system/pull/1575)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `Copy::Snippet` - Added support for container and updated API docs
 
-<small>[#1567](https://github.com/hashicorp/design-system/pull/1567)</small>
+<small class="doc-whats-new-changelog-metadata">[#1567](https://github.com/hashicorp/design-system/pull/1567)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `Hds::Tabs` - Fixed tabs and panels misbehaving on route change
 
-<small>[#1571](https://github.com/hashicorp/design-system/pull/1571)</small>
+<small class="doc-whats-new-changelog-metadata">[#1571](https://github.com/hashicorp/design-system/pull/1571)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
-<small>[#1568](https://github.com/hashicorp/design-system/pull/1568)</small>
+<small class="doc-whats-new-changelog-metadata">[#1568](https://github.com/hashicorp/design-system/pull/1568)</small>
 
 `Copy::Button`, `Copy::Snippet` - Updated error icon
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `Hds::SegmentedGroup` - Prevent `border-radius` from interfering with underlying elements
 
-<small>[#1555](https://github.com/hashicorp/design-system/pull/1555)</small>
+<small class="doc-whats-new-changelog-metadata">[#1555](https://github.com/hashicorp/design-system/pull/1555)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `Table` - Resolved issue where `ThSort` was not supporting right-aligned text properly
 
-<small>[#1565](https://github.com/hashicorp/design-system/pull/1565)</small>
+<small class="doc-whats-new-changelog-metadata">[#1565](https://github.com/hashicorp/design-system/pull/1565)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 **🔄 Updated dependencies:**
 
@@ -559,39 +559,39 @@ Remove unnecessary export of `hds/copy/index.js`
 
 Added the `Hds::CopyButton` and `Hds::CopySnippet` components.
 
-<small>[#1488](https://github.com/hashicorp/design-system/pull/1488)</small>
+<small class="doc-whats-new-changelog-metadata">[#1488](https://github.com/hashicorp/design-system/pull/1488)</small>
 
 ### Patch Changes
 
 Adjusted closing brace on copywrite headers to avoid terminal noise
 
-<small>[#1539](https://github.com/hashicorp/design-system/pull/1539)</small>
+<small class="doc-whats-new-changelog-metadata">[#1539](https://github.com/hashicorp/design-system/pull/1539)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `Hds::Modal` - reduce test flakiness around closing Modal when using `@ember/test-helpers`
 
-<small>[#1549](https://github.com/hashicorp/design-system/pull/1549) - Thanks [@fivetanley](https://github.com/fivetanley) for the contribution! 🙏</small>
+<small class="doc-whats-new-changelog-metadata">[#1549](https://github.com/hashicorp/design-system/pull/1549) - Thanks [@fivetanley](https://github.com/fivetanley) for the contribution! 🙏</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 Fix Embroider warnings caused by incorrect export of internal utility functions
 
-<small>[#1530](https://github.com/hashicorp/design-system/pull/1530)</small>
+<small class="doc-whats-new-changelog-metadata">[#1530](https://github.com/hashicorp/design-system/pull/1530)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `Hds::Flyout` - reduce test flakiness around closing Flyout when using `@ember/test-helpers`
 
-<small>[#1552](https://github.com/hashicorp/design-system/pull/1552)</small>
+<small class="doc-whats-new-changelog-metadata">[#1552](https://github.com/hashicorp/design-system/pull/1552)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 `Hds::Form::Field` - Fix error message for unexpected `@layout` values
 
-<small>[#1529](https://github.com/hashicorp/design-system/pull/1529)</small>
+<small class="doc-whats-new-changelog-metadata">[#1529](https://github.com/hashicorp/design-system/pull/1529)</small>
 
----
+<div class="doc-whats-new-changelog-separator"></div>
 
 **🔄 Updated dependencies:**
 
