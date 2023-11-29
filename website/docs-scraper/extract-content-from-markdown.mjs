@@ -9,7 +9,7 @@ import _ from 'lodash';
 
 // remark
 import { unified } from 'unified';
-import { remark } from 'remark';
+// import { remark } from 'remark';
 import { visit } from 'unist-util-visit';
 import { selectAll } from 'unist-util-select';
 import { fromHtml } from 'hast-util-from-html';
@@ -21,7 +21,6 @@ import handlebars from 'handlebars';
 // plugins
 import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
-// import remarkHtml from 'remark-html';
 import remarkRehype from 'remark-rehype';
 import rehypeRaw from 'rehype-raw';
 import rehypeStringify from 'rehype-stringify';
@@ -41,14 +40,13 @@ import { remarkStripDocBadge } from './parts/remarkStripDocBadge.mjs';
 import { remarkStripDocLayout } from './parts/remarkStripDocLayout.mjs';
 import { remarkStripHeliosHandlebarsExpressions } from './parts/remarkStripHeliosHandlebarsExpressions.mjs';
 // import { remarkStripHeliosReleaseNotesMetadata } from './remarkStripHeliosReleaseNotesMetadata.mjs';
-import { remarkHtmlSanitise } from './parts/remarkHtmlSanitise.mjs';
 import { rehypeRemoveDocListContainer } from './parts/rehypeRemoveDocListContainer.mjs';
 import { rehypeRemoveEmptyParagraphs } from './parts/rehypeRemoveEmptyParagraphs.mjs';
 import { setNodesHierarchy } from './parts/setNodesHierarchy.mjs';
 import { stringifyChildNodes } from './parts/stringifyChildNodes.mjs';
 
 // debugging
-import { debugLogNodes } from './parts/debugLogNodes.mjs';
+// import { debugLogNodes } from './parts/debugLogNodes.mjs';
 
 // ========================================================================
 
@@ -61,30 +59,40 @@ export async function parseMarkdown(markdownContent) {
 
   // inspired by: https://github.com/hashicorp/mktg-content-workflows/blob/main/shared/search/collect-headings.ts
   const headingMapper = () => (tree) => {
-    visit(tree, 'heading', (node) => {
-      const content = stringifyChildNodes(node);
-      headings.push({
-        content: content,
-        level: node.depth,
-        hierarchy: node.hierarchy,
-      });
+    visit(tree, 'element', (node) => {
+      if (['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(node.tagName)) {
+        const content = stringifyChildNodes(node);
+        headings.push({
+          content: content,
+          level: node.depth,
+          hierarchy: node.hierarchy,
+        });
+      }
     });
   };
 
   const paragraphMapper = () => (tree) => {
-    visit(tree, 'paragraph', (node) => {
-      // TODO!
-      // How do we avoid HTML tags (eg. `<code>`) be indexed as words, but return only their "innerText"?
-      const content = stringifyChildNodes(node);
-      paragraphs.push({ content: content, hierarchy: node.hierarchy });
+    visit(tree, 'element', (node) => {
+      if (node.tagName === 'p') {
+        const content = stringifyChildNodes(node);
+        paragraphs.push({ content: content, hierarchy: node.hierarchy });
+      }
     });
   };
 
   const tableMapper = () => (tree) => {
-    visit(tree, 'table', (node) => {
-      const cells = selectAll('tableCell', node);
-      const content = cells.map((cell) => stringifyChildNodes(cell)).join(' ');
-      tables.push({ content: content, hierarchy: node.hierarchy });
+    visit(tree, 'element', (node) => {
+      if (node.tagName === 'table') {
+        const cells = selectAll(
+          'element[tagName=th], element[tagName=td]',
+          node
+        );
+        const content = cells
+          .map((cell) => stringifyChildNodes(cell))
+          .join(' ')
+          .replace(/[\s\n]+/g, ' ');
+        tables.push({ content: content, hierarchy: node.hierarchy });
+      }
     });
   };
 
@@ -211,6 +219,7 @@ export async function parseMarkdown(markdownContent) {
   // MARKDOWN AST PROCESSING
   // -----------------------
 
+  // build an AST from the (sanitized) markdown
   let tree = await unified()
     // convert the markdown to AST
     .use(remarkParse)
@@ -218,8 +227,7 @@ export async function parseMarkdown(markdownContent) {
     .use(remarkGfm)
     // interpret the frontmatter block
     .use(remarkFrontmatter, { type: 'yaml', marker: '-' })
-    // convert markdown to HTML (TODO do we need it? what happens if we remove this?)
-    // .use(remarkHtml, { sanitize: remarkHtmlSanitise })
+    // parse the markdown
     .parse(markdownContent);
 
   // ✅ process custom images (showdown.js format)
@@ -245,29 +253,31 @@ export async function parseMarkdown(markdownContent) {
   // 🤔 remove handlebars expressions (`{{...}}`) so they don't pollute the paragraphs
   // tree = await unified().use(remarkStripHeliosHandlebarsExpressions).run(tree);
 
-  // ✅ associate to each node the hierarchy in terms of headings level
-  tree = await unified().use(setNodesHierarchy).run(tree);
-
-  console.log('TREE BEFORE', JSON.stringify(tree, null, 2));
+  // DEBUG - leave for debugging
+  // console.log('MARKDOWN TREE', JSON.stringify(tree, null, 2));
 
   // HTML AST PROCESSING
   // -------------------
 
-  const htmlTree = await unified()
+  // now convert the tree to an HTML AST tree
+  tree = await unified()
     .use(remarkParse)
-    // .use(remarkRehype)
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeRaw)
     .use(rehypeStringify, { closeSelfClosing: true })
     .run(tree);
 
   // ✅ remove Doc::ListContainer (doc::listcontainer) wrappers
-  tree = await unified().use(rehypeRemoveDocListContainer).run(htmlTree);
+  tree = await unified().use(rehypeRemoveDocListContainer).run(tree);
 
   // ✅ remove empty paragraphs
-  tree = await unified().use(rehypeRemoveEmptyParagraphs).run(htmlTree);
+  tree = await unified().use(rehypeRemoveEmptyParagraphs).run(tree);
 
-  console.log('HTML AFTER', JSON.stringify(htmlTree, null, 2));
+  // ✅ associate to each node the hierarchy in terms of headings level
+  tree = await unified().use(setNodesHierarchy).run(tree);
+
+  // DEBUG - leave for debugging
+  console.log('HTML TREE', JSON.stringify(tree, null, 2));
 
   // EXTRACT CONTENT FROM RELEVANT NODES
   // -----------------------------------
@@ -277,11 +287,15 @@ export async function parseMarkdown(markdownContent) {
   // .use(componentApiMapper)
 
   // parse and index relevant nodes
-  // await unified()
-  //   .use(headingMapper)
-  //   .use(paragraphMapper)
-  //   .use(tableMapper)
-  //   .parse(tree);
+  await unified()
+    .use(headingMapper)
+    .use(paragraphMapper)
+    .use(tableMapper)
+    .run(tree);
+
+  // console.log('HEADINGS', headings);
+  // console.log('PARAGRAPHS', paragraphs);
+  console.log('TABLES', tables);
 
   return { headings, paragraphs, tables, componentApis, wcagLists };
 }
