@@ -14,8 +14,8 @@ const htmlItemContentDescription = ({ html, description }) => html`
 `;
 
 const snippetInitialText = (text) => {
-  var splitted = text.split(' ');
-  var reduced = splitted.slice(-5);
+  const splitted = text.split(' ');
+  const reduced = splitted.slice(-5);
   if (splitted.length === reduced.length) {
     return text;
   } else {

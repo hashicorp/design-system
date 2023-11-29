@@ -140,7 +140,7 @@
 
   &::after {
     position: absolute;
-    top: -16px;
+    bottom: 100%;
     right: 0;
     left: 0;
     z-index: 9998;
@@ -157,6 +157,9 @@
   display: flex;
   gap: 12px;
   align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 
   // completely hide it on mobile/touch devices
   @media (hover: none) and (pointer: coarse) {

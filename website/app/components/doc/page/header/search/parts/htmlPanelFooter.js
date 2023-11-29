@@ -4,8 +4,8 @@
  */
 
 export const htmlPanelFooter = ({ html }) => html`<div class="aa-PanelFooter">
-  <div class="aa-PanelFooter__keyboard-hints">
-    <div
+  <ul class="aa-PanelFooter__keyboard-hints">
+    <li
       class="aa-PanelFooter__keyboard-hint"
       aria-label="Use Tab or Press up and down arrows to navigate search results"
     >
@@ -14,23 +14,23 @@ export const htmlPanelFooter = ({ html }) => html`<div class="aa-PanelFooter">
       <!-- <kbd class="arrow-down">↓</kbd> -->
       <!-- <kbd class="arrow-up">↑</kbd> -->
       <span>to navigate</span>
-    </div>
-    <div
+    </li>
+    <li
       class="aa-PanelFooter__keyboard-hint"
       aria-label="Press Enter to select the focused search result"
     >
       <kbd class="enter">↵</kbd>
       <span>to select</span>
-    </div>
-    <div
+    </li>
+    <li
       class="aa-PanelFooter__keyboard-hint"
       aria-label="Press Escape to close the search"
     >
       <kbd class="esc">Esc</kbd>
       <span>to close</span>
-    </div>
-  </div>
-  <div class="aa-PanelFooter__algolia">
+    </li>
+  </ul>
+  <p class="aa-PanelFooter__algolia">
     <a
       href="https://www.algolia.com/"
       rel="noopener noreferrer"
@@ -41,8 +41,8 @@ export const htmlPanelFooter = ({ html }) => html`<div class="aa-PanelFooter">
       <img
         class="aa-PanelFooter__algolia-logo"
         src="/assets/logos/algolia.svg"
-        alt="Algolia logo"
+        alt="Algolia"
       />
     </a>
-  </div>
+  </p>
 </div>`;

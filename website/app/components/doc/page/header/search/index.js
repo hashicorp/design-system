@@ -135,7 +135,7 @@ export default class DocAlgoliaSearchComponent extends Component {
                   },
                   {
                     type: 'suggestion',
-                    pageTitle: 'What‘s new: Release notes',
+                    pageTitle: 'What’s new: Release notes',
                     searchResultURL: '/whats-new/release-notes',
                     previewIcon: 'newspaper',
                   },
