@@ -136,9 +136,9 @@ const changelogFunctions = {
     releaseEntry += `${firstLine.replace(/^- /,'')}\n`;
     releaseEntry += `${moreLines.join('\n')}\n`;
     if (metadata) {
-      releaseEntry += `\n<small>${metadata.join(' - ')}</small>\n`;
+      releaseEntry += `\n<small class="doc-whats-new-changelog-metadata">${metadata.join(' - ')}</small>\n`;
     }
-    releaseEntry += `\n---\n`;
+    releaseEntry += `\n<div class="doc-whats-new-changelog-separator"></div>\n`;
     return releaseEntry;
   },
 };
