@@ -84,28 +84,28 @@ If the user input needs to be limited to a certain number of characters, use `@m
 
 ```handlebars
 <input type="text" aria-label="input with max length count" id="input-character-count-max"/>
-<Hds::Form::CharacterCount @maxLength="10" @controlId="input-character-count-max"/>
+<Hds::Form::CharacterCount @maxLength={{10}} @controlId="input-character-count-max"/>
 ```
 
 If the user input is required to have a certain number of characters, use `@minLength` to guide the user in meeting the length requirements.
 
 ```handlebars
 <input type="text" aria-label="input with min length count" id="input-character-count-min"/>
-<Hds::Form::CharacterCount @minLength="3" @controlId="input-character-count-min"/>
+<Hds::Form::CharacterCount @minLength={{3}} @controlId="input-character-count-min"/>
 ```
 
 When the user input needs to be in a certain range, use both `@minLength` and `@maxLength` to guide the user in meeting the length requirements.
 
 ```handlebars
 <input type="text" aria-label="input with min and max length count" id="input-character-count-min-max"/>
-<Hds::Form::CharacterCount @minLength="3" @maxLength="10" @controlId="input-character-count-min-max"/>
+<Hds::Form::CharacterCount @minLength={{3}} @maxLength={{10}} @controlId="input-character-count-min-max"/>
 ```
 
 For custom messages, you can use the following arguments to build a relevant message: `currentLength`, `maxLength`, `minLength`, `remaining`, and `shortfall`.
 
 ```handlebars
 <input type="text" aria-label="input with min and max length count" id="input-character-count-custom"/>
-<Hds::Form::CharacterCount @maxLength="20" @controlId="input-character-count-custom" as |CC|>
+<Hds::Form::CharacterCount @maxLength={{20}} @controlId="input-character-count-custom" as |CC|>
   {{CC.remaining}} characters remaining
 </Hds::Form::CharacterCount>
 ```
