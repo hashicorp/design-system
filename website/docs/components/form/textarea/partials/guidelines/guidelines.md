@@ -35,4 +35,4 @@ For error validation recommendations, refer to the [Form patterns](/patterns/for
 
 ## Content
 
-For high-level content recommendations refer to our [Primitives](/components/form/primitives) documentation.
+For high-level content recommendations, refer to our [Primitives](/components/form/primitives) documentation.

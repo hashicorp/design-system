@@ -29,19 +29,15 @@ Depending on which property (or properties) are passed to the component, a diffe
   />
 </video>
 
-!!! Info
-
-Test and interact with the default messaging examples in the [code](/components/form/primitives?tab=code#formcharactercount-1)
-!!!
+_Test and interact with the default messaging examples in the [code](/components/form/primitives?tab=code#formcharactercount-1) documentation._
 
 The default messages provide a consistent messaging pattern for the component by clearly communicating length requirements to the user while displaying their progress towards meeting the requirements.
 
-!!! Info
+#### Use in Figma
 
-For representative consistenty, the Figma component mirrors the default messages that are rendered in the Ember component and are labelled as such; `default` (or `currentLength`), `maxLength`, `minLength`, and `custom`.
+For representative consistenty, the Figma component mirrors the default messages that are rendered in the Ember component and are labelled as such; `currentLength` (the default variant), `maxLength`, `minLength`, and `custom`.
 
 In all variants except the `custom` variant, we recommend _only_ overriding the numerical value (e.g., "{numerical value} characters is allowed"). Overriding the text in these variants will require a custom implementation on the engineering side, instead, the `custom` variant should be used.
-!!!
 
 #### Custom messages
 
@@ -49,7 +45,14 @@ A custom message in the character count is supported and can be used when a prod
 
 !!! Dont
 
-Don’t use the character count as an alternative to [helper text](/components/form/primitives#formhelpertext) or to display static details about the field.
+Don’t use helper text to communicate length requirements as this can result in an overlap of communication with the character count.
+
+![Character count with helper text](/assets/components/form/primitives/character-count-dont-helper-text-overlap.png)
+!!!
+
+!!! Dont
+
+Don’t use the character count to display static details about the field.
 
 ![Character count as helper text](/assets/components/form/primitives/character-count-dont-helper-text.png)
 !!!
@@ -59,13 +62,6 @@ Don’t use the character count as an alternative to [helper text](/components/f
 Instead, use [helper text](/components/form/primitives#formhelpertext) as recommended (to provide extra details about the information being requested) and the character count to communicate the user's progress towards meeting the requirements.
 
 ![Character count without helper text](/assets/components/form/primitives/character-count-do-helper-text.png)
-!!!
-
-!!! Dont
-
-Don’t use helper text to communicate length requirements as this can result in an overlap of communication with the character count.
-
-![Character count with helper text](/assets/components/form/primitives/character-count-dont-helper-text-overlap.png)
 !!!
 
 ### Form::Error
