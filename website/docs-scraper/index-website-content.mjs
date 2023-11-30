@@ -332,7 +332,7 @@ async function indexWebsiteContent() {
       // pageTitle: ???,
       // pageCaption: ???,
       pageBaseURL: '/icons/library',
-      searchResultURL: `/icons/library?searchQuery=${icon.iconName}`,
+      searchResultURL: `/icons/library?searchQuery=icon%3A${icon.iconName}`,
       // CONTENT
       type: 'icon',
       source: 'icon',
