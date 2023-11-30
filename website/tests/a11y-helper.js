@@ -5,8 +5,6 @@
 
 export const globalAxeOptions = {
   include: [['#ember-testing-container']],
-  exclude: [
-    // see: https://github.com/algolia/autocomplete/issues/963#issuecomment-1127507049
-    ['.aa-Autocomplete'],
-  ],
+  // add global exclude rules here, if needed
+  // exclude: [['.your-selector-here']],
 };
