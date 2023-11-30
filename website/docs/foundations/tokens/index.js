@@ -50,7 +50,9 @@ export default class Index extends Component {
     if (this.searchQuery) {
       Object.keys(this.groupedTokens).forEach((category) => {
         const filteredTokens = this.groupedTokens[category].filter(
-          (t) => t.name.indexOf(this.searchQuery) !== -1
+          (t) =>
+            t.name.indexOf(this.searchQuery) !== -1 ||
+            t.value.indexOf(this.searchQuery) !== -1
         );
         filteredGroupedTokens[category] =
           filteredTokens.length > 0 ? filteredTokens : false;
