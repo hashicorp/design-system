@@ -76,7 +76,7 @@ module('Acceptance | Icon Search', function (hooks) {
 
   test('should show single icon when permalink is clicked', async function (assert) {
     await visit('/icons/library');
-    await click('[data-test="icon-permalink"]');
+    await click('[data-test="icon-permalink-loading"]');
 
     assert.strictEqual(
       currentURL(),
