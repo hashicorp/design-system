@@ -20,7 +20,7 @@
       - [CodeBlock](#codeblock)
     - [Form components](#form-components)
       - [Label](#label)
-      - [Search](#search)
+      - [Filter](#filter)
       - [Select](#select)
     - [Other components](#other-components)
 
@@ -195,9 +195,9 @@ It provides the following API:
 - `@for` - the `for` attribute
 - `@label` - the textual content on the `<label>` element
 
-#### Search
+#### Filter
 
-The `Doc::Form::Search` is an `<input type="search">` control that can be used within forms of filters.
+The `Doc::Form::Filter` is an `<input type="search">` control that can be used within forms of filters.
 
 It provides the following API:
 - `@label` - the textual content of the `<label>` associated to the `<input>` control (the `@for` value is automatically generated)
