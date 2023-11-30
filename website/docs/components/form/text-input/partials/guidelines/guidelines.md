@@ -96,10 +96,14 @@ Hidden fields are not visible to the user but the value in the field **is** pass
 | Disabled       | ✅              | 🚫                  | 🚫                          |                              
 | Hidden         | 🚫              | 🚫                  | ✅                          |
 
+## Character count
+
+For tracking the number of characters entered into a TextInput and defining requirements around minimum and maximum length, refer to the [Character count](/components/form/primitives#formcharactercount) documentation.
+
 ## Error validation
 
 For error validation recommendations, refer to the [Form patterns](/patterns/form-patterns?tab=validation) documentation.
 
 ## Content
 
-For content recommendations, refer to the [Primitives](/components/form/primitives) documentation.
+For high-level content recommendations, refer to our [Primitives](/components/form/primitives) documentation.

@@ -25,10 +25,14 @@ For shorter, simpler forms (e.g., login/signup and feedback requests), indicate 
 
 [Marking required fields in forms](https://www.nngroup.com/articles/required-fields/)
 
+## Character count
+
+For tracking the number of characters entered into a Textarea and defining requirements around minimum and maximum length, refer to the [Character count](/components/form/primitives#formcharactercount) documentation.
+
 ## Error validation
 
 For error validation recommendations, refer to the [Form patterns](/patterns/form-patterns) documentation.
 
 ## Content
 
-For general content recommendations, refer to the [Primitives](/components/form/primitives?tab=validation) documentation.
+For high-level content recommendations, refer to our [Primitives](/components/form/primitives) documentation.

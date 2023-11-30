@@ -141,6 +141,151 @@
 
   <Shw::Divider />
 
+  <Shw::Text::H2>Character count</Shw::Text::H2>
+
+  <Shw::Text::H3>Default content</Shw::Text::H3>
+
+  <Shw::Text::Body>Base</Shw::Text::Body>
+
+  {{! template-lint-disable require-input-label }}
+  <Shw::Grid @columns={{4}} as |SG|>
+    <SG.Item @label="currentLength = 0">
+      <input type="text" aria-label="currentLength = 0" id="cc-cl-eq-0" />
+      <Hds::Form::CharacterCount @controlId="cc-cl-eq-0" />
+    </SG.Item>
+    <SG.Item @label="currentLength > 0">
+      <input type="text" value="cl" aria-label="currentLength > 0" id="cc-cl-gt-0" />
+      <Hds::Form::CharacterCount @controlId="cc-cl-gt-0" />
+    </SG.Item>
+  </Shw::Grid>
+  {{! template-lint-enable require-input-label }}
+
+  <Shw::Text::Body>maxLength</Shw::Text::Body>
+
+  {{! template-lint-disable require-input-label }}
+  <Shw::Grid @columns={{4}} as |SG|>
+    <SG.Item @label="currentLength = 0">
+      {{#let (unique-id) as |controlId|}}
+        <input type="text" aria-label="currentLength = 0" id={{controlId}} />
+        <Hds::Form::CharacterCount @maxLength={{25}} @controlId={{controlId}} />
+      {{/let}}
+    </SG.Item>
+    <SG.Item @label="currentLength < maxLength">
+      {{#let (unique-id) as |controlId|}}
+        <input type="text" value="cluster" aria-label="currentLength < maxLength" id={{controlId}} />
+        <Hds::Form::CharacterCount @maxLength={{25}} @controlId={{controlId}} />
+      {{/let}}
+    </SG.Item>
+    <SG.Item @label="currentLength = maxLength">
+      {{#let (unique-id) as |controlId|}}
+        <input type="text" value="cluster-length-is-longer-" aria-label="currentLength = maxLength" id={{controlId}} />
+        <Hds::Form::CharacterCount @maxLength={{25}} @controlId={{controlId}} />
+      {{/let}}
+    </SG.Item>
+    <SG.Item @label="currentLength > maxLength">
+      {{#let (unique-id) as |controlId|}}
+        <input
+          type="text"
+          value="cluster-length-is-longer-than"
+          aria-label="currentLength > maxLength"
+          id={{controlId}}
+        />
+        <Hds::Form::CharacterCount @maxLength={{25}} @controlId={{controlId}} />
+      {{/let}}
+    </SG.Item>
+  </Shw::Grid>
+  {{! template-lint-enable require-input-label }}
+
+  <Shw::Text::Body>minLength</Shw::Text::Body>
+
+  {{! template-lint-disable require-input-label }}
+  <Shw::Grid @columns={{4}} as |SG|>
+    <SG.Item @label="currentLength = 0">
+      {{#let (unique-id) as |controlId|}}
+        <input type="text" aria-label="currentLength = 0" id={{controlId}} />
+        <Hds::Form::CharacterCount @minLength={{3}} @controlId={{controlId}} />
+      {{/let}}
+    </SG.Item>
+    <SG.Item @label="currentLength < maxLength">
+      {{#let (unique-id) as |controlId|}}
+        <input type="text" value="c" aria-label="currentLength < maxLength" id={{controlId}} />
+        <Hds::Form::CharacterCount @minLength={{3}} @controlId={{controlId}} />
+      {{/let}}
+    </SG.Item>
+    <SG.Item @label="currentLength >= minLength">
+      {{#let (unique-id) as |controlId|}}
+        <input type="text" value="clu" aria-label="currentLength >= minLength" id={{controlId}} />
+        <Hds::Form::CharacterCount @minLength={{3}} @controlId={{controlId}} />
+      {{/let}}
+    </SG.Item>
+    <SG.Item />
+  </Shw::Grid>
+  {{! template-lint-enable require-input-label }}
+
+  <Shw::Text::Body>minLength + maxLength</Shw::Text::Body>
+
+  {{! template-lint-disable require-input-label }}
+  <Shw::Grid @columns={{4}} as |SG|>
+    <SG.Item @label="currentLength = 0">
+      {{#let (unique-id) as |controlId|}}
+        <input type="text" aria-label="currentLength = 0" id={{controlId}} />
+        <Hds::Form::CharacterCount @minLength={{3}} @maxLength={{25}} @controlId={{controlId}} />
+      {{/let}}
+    </SG.Item>
+    <SG.Item @label="currentLength < minLength">
+      {{#let (unique-id) as |controlId|}}
+        <input type="text" value="c" aria-label="currentLength < minLength" id={{controlId}} />
+        <Hds::Form::CharacterCount @minLength={{3}} @maxLength={{25}} @controlId={{controlId}} />
+      {{/let}}
+    </SG.Item>
+    <SG.Item @label="minLength <= currentLength <= maxLength">
+      {{#let (unique-id) as |controlId|}}
+        <input type="text" value="cluster" aria-label="minLength <= currentLength <= maxLength" id={{controlId}} />
+        <Hds::Form::CharacterCount @minLength={{3}} @maxLength={{25}} @controlId={{controlId}} />
+      {{/let}}
+    </SG.Item>
+    <SG.Item @label="currentLength > maxLength">
+      {{#let (unique-id) as |controlId|}}
+        <input
+          type="text"
+          value="cluster-length-is-longer-than"
+          aria-label="currentLength > maxLength"
+          id={{controlId}}
+        />
+        <Hds::Form::CharacterCount @minLength={{3}} @maxLength={{25}} @controlId={{controlId}} />
+      {{/let}}
+    </SG.Item>
+  </Shw::Grid>
+  {{! template-lint-enable require-input-label }}
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Custom content</Shw::Text::H3>
+
+  {{! template-lint-disable require-input-label }}
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="With custom content (and callback function)">
+      {{#let (unique-id) as |controlId|}}
+        <input type="text" aria-label="with callback function" value="Lorem ipsum dolor" id={{controlId}} />
+        <Hds::Form::CharacterCount
+          @minLength={{20}}
+          @maxLength={{40}}
+          @onInput={{this.onInput}}
+          @controlId={{controlId}}
+          as |CC|
+        >
+          maxLength={{CC.maxLength}}; minLength={{CC.minLength}}; remaining={{CC.remaining}}; shortfall={{CC.shortfall}};
+          currentLength={{CC.currentLength}};
+        </Hds::Form::CharacterCount>
+      {{/let}}
+    </SF.Item>
+  </Shw::Flex>
+  {{! template-lint-enable require-input-label }}
+
+  {{! ###################### }}
+
+  <Shw::Divider />
+
   <Shw::Text::H2>Error</Shw::Text::H2>
 
   <Shw::Flex @direction="column" as |SF|>

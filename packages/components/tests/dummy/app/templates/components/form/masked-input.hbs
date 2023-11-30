@@ -273,6 +273,87 @@
 
   <Shw::Divider @level="2" />
 
+  <Shw::Text::H3>Character count</Shw::Text::H3>
+
+  <Shw::Text::H4>Single line</Shw::Text::H4>
+
+  <Shw::Grid @columns="3" as |SG|>
+    <SG.Item @label="Label + Character count">
+      <Hds::Form::MaskedInput::Field @value="Lorem ipsum dolor" as |F|>
+        <F.Label>This is the label text</F.Label>
+        <F.CharacterCount @maxLength={{100}} />
+      </Hds::Form::MaskedInput::Field>
+    </SG.Item>
+    <SG.Item @label="Label + Helper text + Character count (custom)">
+      <Hds::Form::MaskedInput::Field @value="Lorem ipsum dolor" as |F|>
+        <F.Label>This is the label text</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        <F.CharacterCount @maxLength={{100}} as |CC|>
+          Entered
+          {{CC.currentLength}}
+          out of
+          {{CC.maxLength}}
+          characters
+        </F.CharacterCount>
+      </Hds::Form::MaskedInput::Field>
+    </SG.Item>
+    <SG.Item @label="Label + Copy Button + Character count + Error">
+      <Hds::Form::MaskedInput::Field
+        @value="Lorem ipsum dolor sit amet"
+        @isInvalid={{this.textInputFieldIsInvalid}}
+        @hasCopyButton={{true}}
+        as |F|
+      >
+        <F.Label>This is the label text</F.Label>
+        <F.CharacterCount @maxLength={{20}} @onInput={{this.onFieldInput}} />
+        {{#if this.textInputFieldIsInvalid}}
+          <F.Error>Maximum numbers of characters exceeded</F.Error>
+        {{/if}}
+      </Hds::Form::MaskedInput::Field>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Text::H4>Multiline</Shw::Text::H4>
+
+  <Shw::Grid @columns="3" as |SG|>
+    <SG.Item @label="Label + Character count">
+      <Hds::Form::MaskedInput::Field @isMultiline={{true}} @value="Lorem ipsum dolor" as |F|>
+        <F.Label>This is the label text</F.Label>
+        <F.CharacterCount @maxLength={{100}} />
+      </Hds::Form::MaskedInput::Field>
+    </SG.Item>
+    <SG.Item @label="Label + Helper text + Character count (custom)">
+      <Hds::Form::MaskedInput::Field @isMultiline={{true}} @value="Lorem ipsum dolor" as |F|>
+        <F.Label>This is the label text</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        <F.CharacterCount @maxLength={{100}} as |CC|>
+          Entered
+          {{CC.currentLength}}
+          out of
+          {{CC.maxLength}}
+          characters
+        </F.CharacterCount>
+      </Hds::Form::MaskedInput::Field>
+    </SG.Item>
+    <SG.Item @label="Label + Copy Button + Character count + Error">
+      <Hds::Form::MaskedInput::Field
+        @isMultiline={{true}}
+        @value="Lorem ipsum dolor sit amet"
+        @isInvalid={{this.textareaFieldIsInvalid}}
+        @hasCopyButton={{true}}
+        as |F|
+      >
+        <F.Label>This is the label text</F.Label>
+        <F.CharacterCount @maxLength={{20}} @onInput={{this.onFieldInput}} />
+        {{#if this.textareaFieldIsInvalid}}
+          <F.Error>Maximum numbers of characters exceeded</F.Error>
+        {{/if}}
+      </Hds::Form::MaskedInput::Field>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider @level="2" />
+
   <Shw::Text::H3>Required and optional</Shw::Text::H3>
 
   <Shw::Text::H4>Single line</Shw::Text::H4>

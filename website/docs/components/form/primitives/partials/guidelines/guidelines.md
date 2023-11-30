@@ -9,6 +9,61 @@
 
 - Use helper text to give the user extra details about the data you’re asking them to input, e.g., formatting requirements such as MM-DD-YYYY.
 
+### Form::CharacterCount
+
+!!! Info
+
+The character count is not coupled with the invalid state of the field. Instead, it is the responsibility of the consumer to implement validation at the application-level.
+!!!
+
+Use a character count to communicate the current length of the value in an input and whether it meets or exceeds the length requirements passed to the component. The component accepts multiple arguments to set length requirements and exposes several computed values to support custom messages. Visit the [code](/components/form/primitives?tab=code#formcharactercount-1) documentation for more details.
+
+#### Default messages
+
+Depending on which property (or properties) are passed to the component, a different default message will be displayed by the component to communicate the relationship between the current length of the input value (`currentLength`) and the maximum length (`maxLength`), minimum length (`minLength`), or both.
+
+<video width="100%" controls loop>
+  <source
+    src="/assets/components/form/primitives/character-count-default-interactions.mp4"
+    type="video/mp4"
+  />
+</video>
+
+_Test and interact with the default messaging examples in the [code](/components/form/primitives?tab=code#formcharactercount-1) documentation._
+
+The default messages provide a consistent messaging pattern for the component by clearly communicating length requirements to the user while displaying their progress towards meeting the requirements.
+
+#### Usage in Figma
+
+For representative consistenty, the Figma component mirrors the default messages that are rendered in the Ember component and are labelled as such; `currentLength` (the default variant), `maxLength`, `minLength`, and `custom`.
+
+In all variants except the `custom` variant, we recommend _only_ overriding the numerical value (e.g., "{numerical value} characters is allowed"). Overriding the text in these variants will require a custom implementation on the engineering side, instead, the `custom` variant should be used.
+
+#### Custom messages
+
+A custom message in the character count is supported and can be used when a product or application-specific message or term is required, e.g., "registry" or "workspace".
+
+!!! Dont
+
+Don’t use helper text to communicate length requirements as this can result in an overlap of communication with the character count.
+
+![Character count with helper text](/assets/components/form/primitives/character-count-dont-helper-text-overlap.png)
+!!!
+
+!!! Dont
+
+Don’t use the character count to display static details about the field.
+
+![Character count as helper text](/assets/components/form/primitives/character-count-dont-helper-text.png)
+!!!
+
+!!! Do
+
+Instead, use [helper text](/components/form/primitives#formhelpertext) as recommended (to provide extra details about the information being requested) and the character count to communicate the user's progress towards meeting the requirements.
+
+![Character count without helper text](/assets/components/form/primitives/character-count-do-helper-text.png)
+!!!
+
 ### Form::Error
 
 - Error messages should provide the user with enough context to guide them in resolving the error.
