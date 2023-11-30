@@ -5,13 +5,15 @@
 
 // ALGOLIA AUTOCOMPLETE SEARCH
 
+@import "./modal";
+@import "./form";
+@import "./results";
+
 // "autocomplete" target container - not used
 // .doc-algolia-search__autocomplete-container {}
 
 // root container of the "autocomplete" injected DOM elements (only the button, in "detached" mode)
-// .aa-Autocomplete {}
-
-@import "./trigger";
-@import "./modal";
-@import "./form";
-@import "./results";
+// notice: we hide it and trigger it via the "fake" buttons in the header
+.aa-Autocomplete {
+  display: none;
+}
