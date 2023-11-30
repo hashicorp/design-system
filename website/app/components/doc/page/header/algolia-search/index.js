@@ -12,8 +12,8 @@ import { autocomplete } from '@algolia/autocomplete-js';
 
 import { getItemsFunction } from './parts/getItemsFunction';
 import { templatesHeaderFunction } from './parts/templatesHeaderFunction';
-// import { templatesFooterFunction } from './parts/templatesFooterFunction';
 import { templatesItemFunction } from './parts/templatesItemFunction';
+import { templatesFooterFunction } from './parts/templatesFooterFunction';
 import { htmlPanelFooter } from './parts/htmlPanelFooter';
 import { htmlPanelNoResults } from './parts/htmlPanelNoResults';
 
@@ -97,7 +97,6 @@ export default class DocAlgoliaSearchComponent extends Component {
               },
               templates: {
                 header: templatesHeaderFunction({ group: 'generic' }),
-                // footer: templatesFooterFunction,
                 item: templatesItemFunction(),
               },
             },
@@ -117,7 +116,10 @@ export default class DocAlgoliaSearchComponent extends Component {
               },
               templates: {
                 header: templatesHeaderFunction({ group: 'icons' }),
-                // footer: templatesFooterFunction,
+                footer: templatesFooterFunction({
+                  text: 'See all icons',
+                  link: '/icons/library',
+                }),
                 item: templatesItemFunction(),
               },
             },
@@ -137,7 +139,10 @@ export default class DocAlgoliaSearchComponent extends Component {
               },
               templates: {
                 header: templatesHeaderFunction({ group: 'tokens' }),
-                // footer: templatesFooterFunction,
+                footer: templatesFooterFunction({
+                  text: 'See all tokens',
+                  link: '/foundations/tokens',
+                }),
                 item: templatesItemFunction(),
               },
             },
@@ -240,15 +245,25 @@ export default class DocAlgoliaSearchComponent extends Component {
       }
     });
 
-    // add event listener to prevent `aa-ItemLinkWrapper` links from re-loading the page
+    // add event listener to prevent links (within the modal dialog) from re-loading the page
     document.addEventListener(
       'click',
       (event) => {
         const parentItemLink = event.target.closest('.aa-ItemLinkWrapper');
+        const parentSourceFooterLink = event.target.closest(
+          '.aa-SourceFooterLink'
+        );
         if (parentItemLink) {
           event.preventDefault();
           const itemUrl = parentItemLink.getAttribute('href');
           emberRouterTransitionTo(itemUrl);
+        } else if (parentSourceFooterLink) {
+          event.preventDefault();
+          const itemUrl = parentSourceFooterLink.getAttribute('href');
+          emberRouterTransitionTo(itemUrl);
+          // not sure wht I need to do this and not for the other links (maybe they already have some event attached to them?)
+          autocompleteInstance.setIsOpen(false);
+          autocompleteInstance.setQuery('');
         }
       },
       true

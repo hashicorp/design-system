@@ -120,6 +120,25 @@
   font-weight: 600;
 }
 
+.aa-SourceFooter {
+  padding: 4px 0;
+}
+
+.aa-SourceFooterLink {
+  @include doc-font-family("sans");
+  color: var(--doc-color-gray-300);
+  font-weight: 500;
+  font-size: 14px;
+
+  &:hover {
+    color: var(--doc-color-gray-200);
+  }
+
+  &:active {
+    color: var(--doc-color-gray-100);
+  }
+}
+
 
 // not used - could be used for a "show all" button in the future
 // .aa-SourceFooter {}
