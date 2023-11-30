@@ -25,6 +25,7 @@
         @model="icons/library"
         @query={{hash searchQuery=searchQueryValue selectedIconSize=@meta.size}}
         aria-label="Permalink for the {{@meta.iconName}} icon"
+        data-test="icon-permalink-{{@meta.iconName}}"
       >
         <FlightIcon class="doc-icons-list-grid-item__permalink-icon" @name="link" />
       </LinkTo>

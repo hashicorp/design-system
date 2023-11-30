@@ -4,7 +4,7 @@
  */
 
 import { module, test } from 'qunit';
-import { fillIn, visit, currentURL } from '@ember/test-helpers';
+import { click, fillIn, visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'website/tests/helpers';
 
 module('Acceptance | Icon Search', function (hooks) {
@@ -72,5 +72,21 @@ module('Acceptance | Icon Search', function (hooks) {
 
     assert.dom('.doc-icons-list-grid__not-found').exists();
     assert.dom('[data-test-icon="activity"]').doesNotExist();
+  });
+
+  test('should show single icon when permalink is clicked', async function (assert) {
+    await visit('/icons/library');
+    await click('[data-test="icon-permalink-loading"]');
+
+    assert.strictEqual(
+      currentURL(),
+      '/icons/library?searchQuery=icon%3Aloading&selectedIconSize=24'
+    );
+    assert
+      .dom('.doc-icons-list-filter input[type="search"]')
+      .hasValue('icon:loading');
+    assert.dom('.doc-icons-list-grid-item').exists({ count: 1 });
+    assert.dom('.flight-icon-loading').exists({ count: 1 });
+    assert.dom('.doc-copy-button__visible-value ').hasText('loading');
   });
 });
