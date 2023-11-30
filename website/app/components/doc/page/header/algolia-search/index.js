@@ -194,12 +194,14 @@ export default class DocAlgoliaSearchComponent extends Component {
       },
     });
 
-    const alternativeTrigger = document.getElementById(
-      'doc-algolia-search-autocomplete-secondary-trigger'
+    const alternativeTriggers = document.querySelectorAll(
+      'button[data-doc-algolia-search-autocomplete-secondary-trigger]'
     );
-    if (alternativeTrigger) {
-      alternativeTrigger.addEventListener('click', () => {
-        autocompleteInstance.setIsOpen(true);
+    if (alternativeTriggers) {
+      alternativeTriggers.forEach((alternativeTrigger) => {
+        alternativeTrigger.addEventListener('click', () => {
+          autocompleteInstance.setIsOpen(true);
+        });
       });
     }
 
