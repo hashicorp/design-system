@@ -26,19 +26,20 @@ export default class DocAlgoliaSearchComponent extends Component {
   didInsertSearchContainer(element) {
     // define the function to execute to transition to a search result `itemUrl` value
     const emberRouterTransitionTo = (itemUrl) => {
-      itemUrl = itemUrl.replace(/#.*/, '');
-      const parts = itemUrl.split('?');
-      const model = parts[0].replace(/^\//, '');
-      const queryParams = {};
-      if (parts[1]) {
-        parts[1].split('&').forEach((keyvalue) => {
-          const [key, value] = decodeURIComponent(keyvalue).split('=');
-          if (key && value) {
-            queryParams[key] = value;
-          }
-        });
-      }
-      this.router.transitionTo('show', model, { queryParams });
+      // TODO leaving it here for some time until we test more thoroughly that simply using the URL works in every condition
+      // itemUrl = itemUrl.replace(/#.*/, '');
+      // const parts = itemUrl.split('?');
+      // const model = parts[0].replace(/^\//, '');
+      // const queryParams = {};
+      // if (parts[1]) {
+      //   parts[1].split('&').forEach((keyvalue) => {
+      //     const [key, value] = decodeURIComponent(keyvalue).split('=');
+      //     if (key && value) {
+      //       queryParams[key] = value;
+      //     }
+      //   });
+      // }
+      this.router.transitionTo(itemUrl);
     };
 
     const autocompleteInstance = autocomplete({
