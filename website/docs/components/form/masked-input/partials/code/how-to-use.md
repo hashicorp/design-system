@@ -130,6 +130,62 @@ Use the `@isRequired` and `@isOptional` arguments to add a visual indication tha
 </Hds::Form::MaskedInput::Field>
 ```
 
+#### Character count
+
+If the user input needs to be limited to a certain number of characters, use `@maxLength` on a `CharacterCount` contextual component to guide the user in meeting the length requirements. This property does not restrict the users from entering characters over the limit. To define the maximum string length that the user can enter, set `maxlength` attribute on the associated input field.
+
+```handlebars
+<Hds::Form::MaskedInput::Field @value="036215df4996ca649928d8864b4df9e42cba0d" as |F|>
+  <F.Label>Terraform Cloud team token</F.Label>
+  <F.CharacterCount @maxLength={{40}}/>
+</Hds::Form::MaskedInput::Field>
+```
+
+If the user input is required to have a certain number of characters, use `@minLength` on a `CharacterCount` contextual component to guide the user in meeting the length requirements.
+
+```handlebars
+<Hds::Form::MaskedInput::Field @value="036215df4996ca649928d8864b4df9e42cba0d" as |F|>
+  <F.Label>Terraform Cloud team token</F.Label>
+  <F.CharacterCount @minLength={{30}}/>
+</Hds::Form::MaskedInput::Field>
+```
+
+When the user input needs to be in a certain range, use both `@minLength` and `@maxLength` on a `CharacterCount` contextual component to guide the user in meeting the length requirements.
+
+```handlebars
+<Hds::Form::MaskedInput::Field @value="036215df4996ca649928d8864b4df9e42cba0d" as |F|>
+  <F.Label>Terraform Cloud team token</F.Label>
+  <F.CharacterCount @minLength={{30}} @maxLength={{40}}/>
+</Hds::Form::MaskedInput::Field>
+```
+
+For custom messages, you can use the following arguments to build a relevant message: `currentLength` (the current number of characters in the associated form control), `maxLength` (the maximum number of characters allowed in the associated form control), `minLength` (the minimum number of characters required in the associated form control), `remaining` (the difference between `maxLength` and `currentLength`), and `shortfall` (the difference between `currentLength` and `minLength`).
+
+```handlebars
+<Hds::Form::MaskedInput::Field @value="036215df4996ca649928d8864b4df9e42cba0d" as |F|>
+  <F.Label>Terraform Cloud team token</F.Label>
+  <F.CharacterCount @maxLength={{40}} as |CC|>
+    {{CC.remaining}} characters remaining
+  </F.CharacterCount>
+</Hds::Form::MaskedInput::Field>
+```
+
+You can use the `@onInput` callback function to dynamically raise an error based on the number of characters entered into a field. The function receives as argument an object with the following properties: `inputControl` (a reference to the associated form control node element), `currentLength` (the current number of characters in the associated form control), `maxLength` (the maximum number of characters allowed in the associated form control), `minLength` (the minimum number of characters required in the associated form control), `remaining` (the difference between `maxLength` and `currentLength`), and `shortfall` (the difference between `currentLength` and `minLength`).
+
+```handlebars
+  <Hds::Form::MaskedInput::Field
+    @value="036215df4996ca649928d8864b4df9e42cba0d"
+    @isInvalid={{this.fieldIsInvalid}}
+    as |F|
+  >
+    <F.Label>Terraform Cloud team token</F.Label>
+    <F.CharacterCount @minLength={{40}} @onInput={{this.onFieldInput}} />
+    {{#if this.fieldIsInvalid}}
+      <F.Error>Length should be at least 40 characters</F.Error>
+    {{/if}}
+  </Hds::Form::MaskedInput::Field>
+```
+
 #### Validation
 
 To indicate a field is invalid, use the `@isInvalid` argument and provide an error message using the `Error` contextual component.
@@ -148,7 +204,7 @@ Add more than one error message using the more specific `Message` contextual com
   <F.Label>Terraform Cloud team token</F.Label>
   <F.Error as |E|>
     <E.Message>Length should be at least 40 characters</E.Message>
-    <E.Message>Should not container special characters or spaces</E.Message>
+    <E.Message>Should not contain special characters or spaces</E.Message>
   </F.Error>
 </Hds::Form::MaskedInput::Field>
 ```
