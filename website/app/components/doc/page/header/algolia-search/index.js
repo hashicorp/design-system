@@ -6,6 +6,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { inject as service } from '@ember/service';
 
 import { autocomplete } from '@algolia/autocomplete-js';
 
@@ -19,8 +20,27 @@ import { htmlPanelNoResults } from './parts/htmlPanelNoResults';
 export default class DocAlgoliaSearchComponent extends Component {
   @tracked isModalOpen = false;
 
+  @service router;
+
   @action
   didInsertSearchContainer(element) {
+    // define the function to execute to transition to a search result `itemUrl` value
+    const emberRouterTransitionTo = (itemUrl) => {
+      itemUrl = itemUrl.replace(/#.*/, '');
+      const parts = itemUrl.split('?');
+      const model = parts[0].replace(/^\//, '');
+      const queryParams = {};
+      if (parts[1]) {
+        parts[1].split('&').forEach((keyvalue) => {
+          const [key, value] = decodeURIComponent(keyvalue).split('=');
+          if (key && value) {
+            queryParams[key] = value;
+          }
+        });
+      }
+      this.router.transitionTo('show', model, { queryParams });
+    };
+
     const autocompleteInstance = autocomplete({
       id: 'doc-algolia-search-autocomplete-container', // https://www.algolia.com/doc/ui-libraries/autocomplete/api-reference/autocomplete-js/autocomplete/#param-id
       container: element, // 'if necessary you can use an ID eg. `#doc-algolia-search-autocomplete-container',` // https://www.algolia.com/doc/ui-libraries/autocomplete/api-reference/autocomplete-js/autocomplete/#param-container
@@ -192,6 +212,12 @@ export default class DocAlgoliaSearchComponent extends Component {
           root
         );
       },
+      navigator: {
+        // see: https://www.algolia.com/doc/ui-libraries/autocomplete/core-concepts/keyboard-navigation/
+        navigate({ itemUrl }) {
+          emberRouterTransitionTo(itemUrl);
+        },
+      },
     });
 
     const alternativeTriggers = document.querySelectorAll(
@@ -212,5 +238,19 @@ export default class DocAlgoliaSearchComponent extends Component {
         this.isModalOpen = !this.isModalOpen;
       }
     });
+
+    // add event listener to prevent `aa-ItemLinkWrapper` links from re-loading the page
+    document.addEventListener(
+      'click',
+      (event) => {
+        const parentItemLink = event.target.closest('.aa-ItemLinkWrapper');
+        if (parentItemLink) {
+          event.preventDefault();
+          const itemUrl = parentItemLink.getAttribute('href');
+          emberRouterTransitionTo(itemUrl);
+        }
+      },
+      true
+    );
   }
 }
