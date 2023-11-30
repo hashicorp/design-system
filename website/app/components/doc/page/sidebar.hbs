@@ -38,6 +38,7 @@
     {{#if (or this.structuredPageTree this.isFiltered)}}
       <div class="doc-page-sidebar__filter">
         <Doc::Form::Filter
+          @isCompact={{true}}
           @filterQuery={{this.filterQuery}}
           @placeholder="Filter sidebar"
           autocomplete="off"
