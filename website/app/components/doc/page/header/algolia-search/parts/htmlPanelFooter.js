@@ -10,9 +10,9 @@ export const htmlPanelFooter = ({ html }) => html`<div class="aa-PanelFooter">
       aria-label="Use Tab or Press up and down arrows to navigate search results"
     >
       <kbd class="tab">Tab</kbd>
-      <!-- <span>/</span> -->
-      <!-- <kbd class="arrow-down">↓</kbd> -->
-      <!-- <kbd class="arrow-up">↑</kbd> -->
+      <span>/</span>
+      <kbd class="arrow-down">↓</kbd>
+      <kbd class="arrow-up">↑</kbd>
       <span>to navigate</span>
     </li>
     <li
