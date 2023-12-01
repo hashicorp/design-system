@@ -1,5 +1,31 @@
 # @hashicorp/design-system-components
 
+## 3.3.0
+
+### Minor Changes
+
+`Hds::Form::CharacterCount` - Added new component
+`Hds::Form::Field` - Added `CharacterCount` contextual component
+`Hds::Form::MaskedInput::Field` - Added `CharacterCount` contextual component
+`Hds::Form::TextInput::Field` - Added `CharacterCount` contextual component
+`Hds::Form::Textarea::Field` - Added `CharacterCount` contextual component
+
+<small class="doc-whats-new-changelog-metadata">[#1802](https://github.com/hashicorp/design-system/pull/1802)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+`Button` - updated DOM structure to contain only `span` elements
+
+`Dropdown` - updated button elements DOM structure to contain only `span` elements
+
+`Link::Standalone` - updated DOM structure to contain only `span` elements
+
+<small class="doc-whats-new-changelog-metadata">[#1840](https://github.com/hashicorp/design-system/pull/1840)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.2.0
 
 ### Minor Changes
