@@ -20,11 +20,11 @@
     aria-selected={{if @selected "true" "false"}}
   >
     {{#if @icon}}
-      <div class="hds-dropdown-list-item__interactive-icon">
+      <span class="hds-dropdown-list-item__interactive-icon">
         <FlightIcon @name={{@icon}} @isInlineBlock={{false}} />
-      </div>
+      </span>
     {{/if}}
-    <Hds::Text::Body @tag="div" @size="200" @weight="medium" class="hds-dropdown-list-item__interactive-text">
+    <Hds::Text::Body @tag="span" @size="200" @weight="medium" class="hds-dropdown-list-item__interactive-text">
       {{yield}}
     </Hds::Text::Body>
     {{#if @count}}
