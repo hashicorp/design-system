@@ -106,6 +106,7 @@ export default class DocAlgoliaSearchComponent extends Component {
                 searchQuery: query,
                 searchParams: {
                   hitsPerPage: 5,
+                  restrictSearchableAttributes: ['icon-name'],
                   attributesToHighlight: ['icon-name'],
                   typoTolerance: false,
                 },
@@ -129,6 +130,7 @@ export default class DocAlgoliaSearchComponent extends Component {
                 searchQuery: query,
                 searchParams: {
                   hitsPerPage: 5,
+                  restrictSearchableAttributes: ['token-name'],
                   attributesToHighlight: ['token-name'],
                   typoTolerance: false,
                 },
