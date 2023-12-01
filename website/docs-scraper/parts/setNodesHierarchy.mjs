@@ -33,8 +33,8 @@ export const setNodesHierarchy = () => (tree) => {
       }
     }
 
-    if (node.type === 'heading') {
-      const depth = node.depth;
+    if (['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(node.tagName)) {
+      const depth = parseInt(node.tagName.replace('h', ''));
       const content = stringifyChildNodes(node);
       // set a new hierarchy
       // 1) keep only the levels preceding the current depth
@@ -45,6 +45,8 @@ export const setNodesHierarchy = () => (tree) => {
       hierarchy[`lvl${depth}`] = content;
       // 3) assign the hierarchy to the "heading" node
       node.hierarchy = { ...hierarchy };
+      // 4) assign the "depth" to the heading
+      node.depth = depth;
     } else {
       // simply assign the previous node's hierarchy to the current node (they're sibling)
       node.hierarchy = { ...hierarchy };

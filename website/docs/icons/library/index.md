@@ -9,6 +9,7 @@ links:
 previewImage: assets/illustrations/icons/library.jpg
 ---
 
+<!-- algolia-ignore-start -->
 <Doc::IconsList
   @icons={{this.filteredIcons}}
   @onSelect={{this.selectIconSize}}
@@ -16,3 +17,4 @@ previewImage: assets/illustrations/icons/library.jpg
   @searchQuery={{this.searchQuery}}
   @searchIcons={{this.searchIcons}}
 />
+<!-- algolia-ignore-end -->

@@ -22,7 +22,9 @@ In a single declaration, these predefined CSS classes contain everything to appl
 
 #### Font styles
 
+<!-- algolia-ignore-start -->
 <Doc::FontHelpersList @items={{this.cssHelpers.styles}} />
+<!-- algolia-ignore-end -->
 
 #### Font family
 
@@ -39,7 +41,9 @@ While we don’t recommend using custom styles often, `font-family` helpers are 
 | `font-family-mono-code`       | Monospaced text          |
 
 
+<!-- algolia-ignore-start -->
 <Doc::FontHelpersList @items={{this.cssHelpers.families}} />
+<!-- algolia-ignore-end -->
 
 #### Font weight
 
@@ -53,13 +57,17 @@ Use the `font-weight` helpers to change the weight of text in an element.
 <p class="hds-typography-display-300 hds-font-weight-semibold">The quick brown fox jumps over the lazy dog.</p>
 ```
 
+<!-- algolia-ignore-start -->
 <Doc::FontHelpersList @items={{this.cssHelpers.weights}} />
+<!-- algolia-ignore-end -->
 
 #### Style and weight
 
 The following are recommended style and weight combinations for use in our applications:
 
+<!-- algolia-ignore-start -->
 <Doc::FontHelpersList @items={{this.stylesCombinations}} />
+<!-- algolia-ignore-end -->
 
 ### Design tokens
 
