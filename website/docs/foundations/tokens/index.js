@@ -6,7 +6,6 @@
 import Component from '@glimmer/component';
 import { restartableTask, timeout } from 'ember-concurrency';
 import { inject as service } from '@ember/service';
-import { tracked } from '@glimmer/tracking';
 
 import TOKENS_RAW from '@hashicorp/design-system-tokens/dist/docs/products/tokens.json';
 
@@ -22,10 +21,6 @@ const getAliases = (token, TOKENS_RAW) => {
 
 export default class Index extends Component {
   @service router;
-
-  // query params come from `controllers/show.js` and we access them here because there
-  // is no "controller" for individual component documentation routes
-  @tracked searchQuery = this.router.currentRoute.queryParams['searchQuery'];
 
   constructor() {
     super(...arguments);
@@ -43,6 +38,10 @@ export default class Index extends Component {
       }
       this.groupedTokens[category].push(token);
     });
+  }
+
+  get searchQuery() {
+    return this.router.currentRoute.queryParams['searchQuery'];
   }
 
   get filteredGroupedTokens() {
@@ -64,21 +63,14 @@ export default class Index extends Component {
     return filteredGroupedTokens;
   }
 
-  updateQueryParams() {
-    // TODO later when we will have the tabs and sidecar parameters too, we have to preserve them
-    const newQueryParams = { queryParams: {} };
-    if (this.searchQuery) {
-      newQueryParams.queryParams.searchQuery = this.searchQuery;
-    } else {
-      newQueryParams.queryParams.searchQuery = null;
-    }
-    this.router.transitionTo(newQueryParams);
-  }
-
   @restartableTask *searchTokens(searchQuery) {
     yield timeout(DEBOUNCE_MS);
 
-    this.searchQuery = searchQuery;
-    this.updateQueryParams();
+    // TODO later when we will have the tabs and sidecar parameters too, we have to preserve them
+    this.router.transitionTo({
+      queryParams: {
+        searchQuery: searchQuery !== '' ? searchQuery : null,
+      },
+    });
   }
 }
