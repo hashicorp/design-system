@@ -17,12 +17,12 @@ const htmlPreviewIcon = ({ html, iconName }) => html`
   </div>
 `;
 
-const htmlPreviewToken = ({ html, tokenName, tokenValue }) => {
+const htmlPreviewToken = ({ html, tokenName, tokenValue, tokenType }) => {
   let style = '';
   let content = '';
   if (tokenName.match(/^token-typography/)) {
     content = 'Aa';
-  } else if (tokenName.match(/^token-color/)) {
+  } else if (tokenType === 'color' || tokenName.match(/^token-color/)) {
     style = `background-color: ${tokenValue}`;
   } else {
     content = 'T';
@@ -53,6 +53,7 @@ export const htmlTemplatesItemPreview = ({ html, item }) => {
         html,
         tokenName: item['token-name'],
         tokenValue: item['token-value'],
+        tokenType: item['token-type'],
       });
     default:
       if (item.previewImage) {
