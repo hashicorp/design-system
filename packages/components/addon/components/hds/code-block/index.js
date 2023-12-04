@@ -107,18 +107,20 @@ export default class HdsCodeBlockIndexComponent extends Component {
     const grammar = Prism.languages[language];
 
     if (code) {
-      if (language && grammar) {
-        this.prismCode = htmlSafe(Prism.highlight(code, grammar, language));
-      } else {
-        this.prismCode = htmlSafe(Prism.util.encode(code));
-      }
+      setTimeout(() => {
+        if (language && grammar) {
+          this.prismCode = htmlSafe(Prism.highlight(code, grammar, language));
+        } else {
+          this.prismCode = htmlSafe(Prism.util.encode(code));
+        }
 
-      // Force prism-line-numbers plugin initialization, required for Prism.highlight usage
-      // See https://github.com/PrismJS/prism/issues/1234
-      Prism.hooks.run('complete', {
-        code,
-        element,
-      });
+        // Force prism-line-numbers plugin initialization, required for Prism.highlight usage
+        // See https://github.com/PrismJS/prism/issues/1234
+        Prism.hooks.run('complete', {
+          code,
+          element,
+        });
+      }, 100);
 
       // Force prism-line-highlight plugin initialization
       // Context: https://github.com/hashicorp/design-system/pull/1749#discussion_r1374288785
