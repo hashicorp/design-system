@@ -45,7 +45,7 @@ module(
       assert
         .dom('#test-legal-links li:nth-child(5) a')
         .hasText('Accessibility')
-        .hasAttribute('href', 'mailto:accessibility@hashicorp.com');
+        .hasAttribute('href', 'https://www.hashicorp.com/accessibility');
     });
 
     // OPTIONS

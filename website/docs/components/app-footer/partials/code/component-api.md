@@ -87,7 +87,7 @@ The base `AppFooter` component includes a copyright notice. It also wraps and co
   <C.Property @name="hrefForSecurity" @type="string" @default="&quot;https://www.hashicorp.com/security&quot;">
     Override the default href value with a custom url value.
   </C.Property>
-  <C.Property @name="Accessibility" @type="string" @default="&quot;mailto:accessibility@hashicorp.com&quot;">
+  <C.Property @name="Accessibility" @type="string" @default="&quot;https://www.hashicorp.com/accessibility&quot;">
     Override the default href value with a custom url value.
   </C.Property>
   <C.Property @name="ariaLabel" @type="string" @default="&quot;Legal links&quot;">
