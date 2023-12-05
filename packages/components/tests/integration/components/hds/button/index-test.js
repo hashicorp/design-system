@@ -92,6 +92,15 @@ module('Integration | Component | hds/button/index', function (hooks) {
       .doesNotHaveAria('label', 'copy to clipboard');
   });
 
+  // ISINLINE
+
+  test('it should render the element as `inline` if the value of @isInline is "true"', async function (assert) {
+    await render(hbs`
+      <Hds::Button @text="Lorem ipsum" @isInline={{true}} id="test-button" />
+    `);
+    assert.dom('#test-button').hasClass('hds-button--is-inline');
+  });
+
   // TEXT
 
   test('it renders a button with the defined text', async function (assert) {

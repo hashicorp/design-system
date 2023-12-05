@@ -86,6 +86,23 @@
     {{/each}}
   </Shw::Flex>
 
+  <Shw::Text::H2>Display</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Block">
+      <div class="shw-component-button-display-sample">
+        <Hds::Button @text="Block" />
+        <Hds::Button @text="Block" />
+      </div>
+    </SF.Item>
+    <SF.Item @label="Inline">
+      <div class="shw-component-button-display-sample">
+        <Hds::Button @text="Inline" @isInline={{true}} />
+        <Hds::Button @text="Inline" @isInline={{true}} />
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
   <Shw::Text::H2>States</Shw::Text::H2>
 
   {{#each @model.COLORS as |color|}}
