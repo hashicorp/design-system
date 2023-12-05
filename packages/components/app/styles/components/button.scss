@@ -92,13 +92,13 @@
   @include hds-button-color-critical();
 }
 
+// SIZE
+@include hds-button-size-classes("hds-button");
+
 // ISINLINE
 .hds-button--is-inline {
   display: inline-block;
 }
-
-// SIZE
-@include hds-button-size-classes("hds-button");
 
 
 // SPECIAL

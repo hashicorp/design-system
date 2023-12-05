@@ -81,18 +81,21 @@ This indicates that the Button should take up the full-width of the parent conta
 
 To change the default `block` layout to `inline`, set `@isLine` to `true`.
 
-#### Default block layout
+In contexts where the Button needs to be <em>inline</em>, to inherit the alignment from a parent, you can use the `@isInline` argument
+
+<!-- #### Default block layout
 
 ```handlebars
 <Hds::Button @text="default block layout" />
 <Hds::Button @text="default block layout" />
-```
+``` -->
 
-#### Inline layout
+<!-- #### Inline layout -->
 
 ```handlebars
-<Hds::Button @text="inline layout" @isInline={{true}} />
-<Hds::Button @text="inline layout" @isInline={{true}} />
+<div class="doc-button-mock-text-align-right">
+  <Hds::Button @text="inline layout" @isInline={{true}} />
+</div>
 ```
 
 ### Type
