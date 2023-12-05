@@ -7,6 +7,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
+import { next } from '@ember/runloop';
 import { htmlSafe } from '@ember/template';
 import { guidFor } from '@ember/object/internals';
 
@@ -107,7 +108,7 @@ export default class HdsCodeBlockIndexComponent extends Component {
     const grammar = Prism.languages[language];
 
     if (code) {
-      setTimeout(() => {
+      next(() => {
         if (language && grammar) {
           this.prismCode = htmlSafe(Prism.highlight(code, grammar, language));
         } else {
@@ -120,7 +121,23 @@ export default class HdsCodeBlockIndexComponent extends Component {
           code,
           element,
         });
-      }, 100);
+      });
+
+      // NOTE: Testing replacing with "next" above
+      // setTimeout(() => {
+      //   if (language && grammar) {
+      //     this.prismCode = htmlSafe(Prism.highlight(code, grammar, language));
+      //   } else {
+      //     this.prismCode = htmlSafe(Prism.util.encode(code));
+      //   }
+
+      //   // Force prism-line-numbers plugin initialization, required for Prism.highlight usage
+      //   // See https://github.com/PrismJS/prism/issues/1234
+      //   Prism.hooks.run('complete', {
+      //     code,
+      //     element,
+      //   });
+      // }, 100);
 
       // Force prism-line-highlight plugin initialization
       // Context: https://github.com/hashicorp/design-system/pull/1749#discussion_r1374288785
