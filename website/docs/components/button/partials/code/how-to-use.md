@@ -79,9 +79,7 @@ This indicates that the Button should take up the full-width of the parent conta
 
 ### Layout
 
-To change the default `block` layout to `inline`, set `@isLine` to `true`.
-
-In contexts where the Button needs to be <em>inline</em>, to inherit the alignment from a parent, you can use the `@isInline` argument
+To change the default `block` layout to `inline`, set `@isLine` to `true`. This can be useful in contexts where the Button needs to be <em>inline</em>, for example to inherit the alignment from a parent.
 
 ```handlebars
 <div class="doc-button-mock-text-align-right">
