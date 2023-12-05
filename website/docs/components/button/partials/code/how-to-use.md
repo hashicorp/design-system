@@ -83,15 +83,6 @@ To change the default `block` layout to `inline`, set `@isLine` to `true`.
 
 In contexts where the Button needs to be <em>inline</em>, to inherit the alignment from a parent, you can use the `@isInline` argument
 
-<!-- #### Default block layout
-
-```handlebars
-<Hds::Button @text="default block layout" />
-<Hds::Button @text="default block layout" />
-``` -->
-
-<!-- #### Inline layout -->
-
 ```handlebars
 <div class="doc-button-mock-text-align-right">
   <Hds::Button @text="inline layout" @isInline={{true}} />
