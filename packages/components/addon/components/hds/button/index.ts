@@ -26,6 +26,7 @@ export interface HdsButtonSignature {
     icon?: string;
     iconPosition?: HdsButtonIconPosition;
     isIconOnly?: boolean;
+    isInline?: boolean;
     isFullWidth?: boolean;
   };
   Element: HdsInteractiveSignature['Element'];
@@ -165,9 +166,6 @@ export default class HdsButtonIndexComponent extends Component<HdsButtonSignatur
   get classNames() {
     let classes = ['hds-button'];
 
-    // add a class based on the @size argument
-    classes.push(`hds-button--size-${this.size}`);
-
     // add a class based on the @color argument
     classes.push(`hds-button--color-${this.color}`);
 
@@ -176,10 +174,18 @@ export default class HdsButtonIndexComponent extends Component<HdsButtonSignatur
       classes.push('hds-button--width-full');
     }
 
-    // add a class if it's icon-only
+    // add a class based on isIconOnly argument
     if (this.isIconOnly) {
       classes.push('hds-button--is-icon-only');
     }
+
+    // add a class based on the @isInline argument
+    if (this.args.isInline) {
+      classes.push('hds-button--is-inline');
+    }
+
+    // add a class based on the @size argument
+    classes.push(`hds-button--size-${this.size}`);
 
     return classes.join(' ');
   }

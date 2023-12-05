@@ -25,7 +25,7 @@ The Dropdown component is composed of different child components each with their
     If a `@height` parameter is provided then the list will have a max-height.
   </C.Property>
   <C.Property @name="isInline" @type="boolean" @default="false">
-    If a `@isInline` parameter is provided then the element will be displayed as `inline-block` (useful to achieve specific layouts like in a container with right alignment). Otherwise it will be have a `block` layout.
+    If an `@isInline` parameter is provided, then the element will be displayed as `inline-block` (useful to achieve specific layouts like in a container with right alignment). Otherwise, it will have a `block` layout.
   </C.Property>
   <C.Property @name="close" @type="function">
     Function to programmatically close the Dropdown.

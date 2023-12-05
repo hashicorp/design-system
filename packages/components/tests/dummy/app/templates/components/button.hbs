@@ -86,6 +86,20 @@
     {{/each}}
   </Shw::Flex>
 
+  <Shw::Text::H2>Display</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="default, isLine=false">
+      <Hds::Button @text="Lorem ipsum" />
+      <Hds::Button @text="Lorem ipsum" />
+    </SF.Item>
+
+    <SF.Item @label="isLine=true">
+      <Hds::Button @text="Lorem ipsum" @isInline={{true}} />
+      <Hds::Button @text="Lorem ipsum" @isInline={{true}} />
+    </SF.Item>
+  </Shw::Flex>
+
   <Shw::Text::H2>States</Shw::Text::H2>
 
   {{#each @model.COLORS as |color|}}

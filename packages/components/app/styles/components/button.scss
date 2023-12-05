@@ -73,10 +73,6 @@
   text-align: center;
 }
 
-
-// SIZE
-@include hds-button-size-classes("hds-button");
-
 // COLORS & STATES
 // Note: the order of the pseuo-selectors need to stay the way they are; it doesn't match the Figma file but it's the correct order for browsers to render the styles correctly.
 
@@ -95,6 +91,14 @@
 .hds-button--color-critical {
   @include hds-button-color-critical();
 }
+
+// ISINLINE
+.hds-button--is-inline {
+  display: inline-block;
+}
+
+// SIZE
+@include hds-button-size-classes("hds-button");
 
 
 // SPECIAL

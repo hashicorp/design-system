@@ -77,6 +77,23 @@ This indicates that the Button should take up the full-width of the parent conta
 <Hds::Button @text="Full width button" @isFullWidth={{true}} />
 ```
 
+### Inline layout
+
+To change the default `block` layout to `inline`, set `@isLine` to `true`.
+
+#### Default block layout
+
+```handlebars
+<Hds::Button @text="default block layout" />
+<Hds::Button @text="default block layout" />
+```
+
+### Inline layout
+```handlebars
+<Hds::Button @text="inline layout" @isInline={{true}} />
+<Hds::Button @text="inline layout" @isInline={{true}} />
+```
+
 ### Type
 
 This is the native HTML button attribute, `type`. There are three possible values: `button`, `submit`, and `reset`. The default `type` for the Button is `button`. To submit form data to the server, set `type` to `submit`.
