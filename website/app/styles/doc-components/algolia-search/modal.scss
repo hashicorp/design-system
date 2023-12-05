@@ -1,0 +1,272 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// ALGOLIA AUTOCOMPLETE SEARCH > MODAL
+
+@use "../../breakpoints" as breakpoint;
+@use "../../typography/mixins" as *;
+
+// This class is applied to the `<body>` to remove the scroll when the modal is opened
+.aa-Detached {
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+// OVERLAY (used to apply an opaque background and _contain_ the modal container)
+
+.aa-DetachedOverlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: calc(9999 - 1);
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: rgba(#000, 0.5);
+}
+
+// MODAL (container)
+
+.aa-DetachedContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  background: var(--doc-color-white);
+
+  @include breakpoint.with-fixed-sidebar () {
+    position: absolute;
+    top: 90px;
+    width: auto;
+    max-width: 680px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 4px;
+  }
+}
+
+
+// PANEL (container of "sources")
+
+.aa-Panel {
+  flex-grow: 1;
+}
+
+.aa-PanelLayout {
+  width: 100%;
+  height: auto;
+  max-height: calc(100vh - 300px);
+  margin: 0;
+  padding: 0 16px;
+  overflow-y: auto;
+
+  &:empty {
+    display: none;
+  }
+}
+
+// SOURCES (search results "groups")
+
+.aa-PanelSources {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  &:empty {
+    display: none;
+  }
+}
+
+.aa-Source {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--doc-color-gray-400);
+  transition: opacity 200ms ease-in, filter 200ms ease-in;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  // when a request isn't resolved yet
+  .aa-Panel--stalled & {
+    opacity: 0.8;
+    filter: grayscale(1);
+  }
+
+  @media screen and (prefers-reduced-motion) {
+    transition: none;
+  }
+}
+
+// SOURCE > HEADER/FOOTER
+
+.aa-SourceHeader {
+  margin-bottom: 4px;
+}
+
+.aa-SourceHeaderTitle {
+  @include doc-font-style-body-small();
+  color: var(--doc-color-black);
+  font-weight: 600;
+}
+
+.aa-SourceFooter {
+  padding: 4px 0;
+}
+
+.aa-SourceFooterLink {
+  @include doc-font-family("sans");
+  color: var(--doc-color-gray-300);
+  font-weight: 500;
+  font-size: 14px;
+
+  &:hover {
+    color: var(--doc-color-gray-200);
+  }
+
+  &:active {
+    color: var(--doc-color-gray-100);
+  }
+}
+
+
+// not used - could be used for a "show all" button in the future
+// .aa-SourceFooter {}
+
+
+// PANEL FOOTER
+
+.aa-PanelFooter {
+  position: relative;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  padding: 16px;
+  background-color: #fff;
+  box-shadow: inset 0 1px 0 rgba(#807ea3, 30%);
+
+  &::after {
+    position: absolute;
+    right: 0;
+    bottom: 100%;
+    left: 0;
+    z-index: 9998;
+    height: 16px;
+    background-image: linear-gradient(rgba(#fff, 0), rgba(#807ea3, 0.6));
+    opacity: 0.12;
+    content: "";
+    pointer-events: none;
+  }
+}
+
+.aa-PanelFooter__keyboard-hints {
+  @include doc-font-family("sans");
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  // completely hide it on mobile/touch devices
+  @media (hover: none) and (pointer: coarse) {
+    display: none;
+  }
+}
+
+.aa-PanelFooter__keyboard-hint {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+
+  kbd {
+    @include doc-font-family("mono");
+    display: inline-block;
+    min-width: 18px;
+    min-height: 18px;
+    padding: 1px 4px;
+    color: var(--doc-color-gray-200);
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 14px;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid var(--doc-color-gray-400);
+    border-radius: 3px;
+
+    &.enter {
+      // custom font to have better representation for the "↵" key
+      font-family: "Courier New", Courier, monospace;
+    }
+
+    // &.arrow-down,
+    // &.arrow-up {
+    //   // custom font to have better representation for the "↓/↑" keys
+    //   font-family: "Lucida Console", "Lucida Sans Typewriter", monospace;
+    // }
+
+    &.tab,
+    &.esc {
+      font-size: 11px;
+      letter-spacing: -0.6px;
+    }
+  }
+
+  span {
+    color: var(--doc-color-gray-200);
+    font-size: 12px;
+  }
+}
+
+
+.aa-PanelFooter__algolia {
+  flex: none;
+  margin: 0 0 0 auto;
+}
+
+.aa-PanelFooter__algolia-link {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  text-decoration: none;
+}
+
+.aa-PanelFooter__algolia-text {
+  @include doc-font-family("sans");
+  color: #807ea3;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.aa-PanelFooter__algolia-logo {
+  position: relative;
+  top: 1px; // optical alignment
+  display: block;
+  width: auto;
+  height: 12px;
+}
+
+
+// NO RESULTS
+
+
+.aa-PanelNoResults {
+  @include doc-font-style-body-small();
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  color: var(--doc-color-gray-200);
+}

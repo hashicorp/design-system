@@ -1,0 +1,204 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// ALGOLIA AUTOCOMPLETE SEARCH > MODAL > FORM
+
+@use "../../typography/mixins" as *;
+
+$doc-algolia-search-modal-search-input-height: 44px;
+
+// TOP CONTAINER
+
+.aa-DetachedFormContainer {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  padding: 8px 16px;
+  border-bottom: solid 1px var(--doc-color-gray-400);
+}
+
+// SEARCH FIELD (FORM + ICON + INPUT)
+
+// This is the main container
+
+.aa-Form {
+  position: relative;
+  flex: 1 1 0;
+}
+
+// these wrappers are used to contain:
+// - prefix: the "search" icon (wrapped in a button wrapped in a label) + the "loading" icon
+// - suffix: the "clear" icon
+
+.aa-InputWrapperPrefix,
+.aa-InputWrapperSuffix {
+  position: absolute;
+  top: 10px; // = (44px - 24px) / 2
+  width: 24px;
+  height: 24px;
+
+  // search/loading/cancel icons
+  svg {
+    width: 100%;
+    height: 100%;
+    stroke-width: 2;
+  }
+}
+
+.aa-InputWrapperPrefix { left: 10px; }
+.aa-InputWrapperSuffix { right: 10px; }
+
+
+// this layer is useless for us
+
+.aa-Label {
+  display: contents;
+}
+
+// buttons/containers wrapping the "search", "loading" and "clear" icons
+
+.aa-SubmitButton,
+.aa-ClearButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  cursor: pointer;
+  appearance: none;
+
+  &:focus-visible {
+    color: var(--doc-focus-ring-color);
+    outline: 2px solid;
+  }
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.aa-LoadingIndicator {
+  &[hidden] {
+    display: none;
+  }
+}
+
+
+// "search" (magnifier) icon and "clear/cancel" icon
+
+.aa-SubmitIcon,
+.aa-ClearIcon {
+  color: var(--doc-color-gray-300);
+
+  &:hover {
+    color: var(--doc-color-gray-200);
+  }
+}
+
+// "loading" icon
+
+.aa-LoadingIcon {
+  color: var(--doc-color-feedback-information-200);
+}
+
+// the input wrapper
+
+.aa-InputWrapper {
+  position: relative;
+
+  $beta-height: 24px;
+
+  &:has(input:placeholder-shown)::before {
+    @include doc-font-family("gilmer");
+    position: absolute;
+    top: 50%;
+    left: 110px;
+    z-index: 9999;
+    display: block;
+    height: $beta-height;
+    margin-top: calc(-1 * $beta-height / 2);
+    padding: 0 8px;
+    color: var(--doc-color-white);
+    font-weight: 900;
+    font-size: 12px;
+    line-height: $beta-height;
+    background: linear-gradient(92deg, #6c48cc -0.05%, #9242bb 100.68%);
+    border-radius: calc($beta-height / 2);
+    content: "Beta";
+    pointer-events: none;
+  }
+}
+
+// the actual input
+
+.aa-Input {
+  @include doc-font-style-body();
+  width: 100%;
+  height: $doc-algolia-search-modal-search-input-height;
+  padding: 0 42px;
+  color: var(--doc-color-black);
+  background: none;
+  border: 1px solid var(--doc-color-gray-400);
+  border-radius: 3px;
+  box-shadow: none;
+  appearance: none;
+
+  &::placeholder {
+    color: var(--doc-color-gray-300);
+    opacity: 1;
+  }
+
+  &:hover {
+    border-color: var(--doc-color-gray-300);
+  }
+
+  &:focus-visible {
+    border-color: var(--doc-focus-ring-color);
+    outline: 1px solid var(--doc-focus-ring-color);
+    outline-offset: 0;
+  }
+
+  // Remove native appearance
+  &::-webkit-search-decoration,
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-results-button,
+  &::-webkit-search-results-decoration {
+    appearance: none;
+  }
+}
+
+// CLOSE (CANCEL) BUTTON
+
+.aa-DetachedCancelButton {
+  @include doc-font-style-body-small();
+  height: $doc-algolia-search-modal-search-input-height;
+  padding: 4px 16px;
+  color: var(--doc-color-gray-200);
+  background-color: var(--doc-color-gray-600);
+  border: 1px solid var(--doc-color-gray-400);
+  border-radius: 3px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--doc-color-gray-500);
+    border-color: var(--doc-color-gray-300);
+  }
+
+  &:active {
+    background-color: var(--doc-color-gray-400);
+    border-color: var(--doc-color-gray-300);
+  }
+
+  &:focus-visible {
+    border-color: var(--doc-focus-ring-color);
+    outline: 1px solid var(--doc-focus-ring-color);
+    outline-offset: 0;
+  }
+}

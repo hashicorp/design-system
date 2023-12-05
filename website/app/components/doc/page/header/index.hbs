@@ -14,27 +14,55 @@
       <Doc::Page::Header::NavItem @label="Foundations" @route="foundations" @currentTopRoute={{@currentTopRoute}} />
       <Doc::Page::Header::NavItem @label="Components" @route="components" @currentTopRoute={{@currentTopRoute}} />
       <Doc::Page::Header::NavItem @label="Patterns" @route="patterns" @currentTopRoute={{@currentTopRoute}} />
+      <li class="doc-page-header__nav-item-generic doc-page-header__nav-item--split">
+        <div class="sr-only" id="search-button">This button opens a dialog containing an input field and some additional
+          information that you may wish to explore. An automatic search will be performed as you type text into the
+          search field, but the results may not be announced. Exploring the additional items in the modal will help you
+          discover the search results.</div>
+        <button
+          type="button"
+          class="doc-page-header__search-button"
+          data-doc-algolia-search-autocomplete-secondary-trigger
+          aria-describedby="search-button"
+        >
+          <FlightIcon @name="search" />
+          Search
+        </button>
+      </li>
       <Doc::Page::Header::NavItem
         @label="Support"
         @route="show"
         @model="about/support"
         @currentTopRoute={{@currentTopRoute}}
-        class="doc-page-header__nav-item--split"
       />
-      <li class="doc-page-header__nav-item-generic"><a
-          href="https://github.com/hashicorp/design-system"
-          target="_blank"
-          rel="noopener noreferrer"
-        ><FlightIcon @name="github" @size="24" @isInlineBlock={{false}} /><span class="sr-only">GitHub</span></a></li>
+      <li class="doc-page-header__nav-item-generic">
+        <a href="https://github.com/hashicorp/design-system" target="_blank" rel="noopener noreferrer">
+          <FlightIcon @name="github" @size="24" @isInlineBlock={{false}} />
+          <span class="doc-sr-only">GitHub</span>
+        </a>
+      </li>
     </ul>
   </nav>
-  <button type="button" class="doc-page-header__burger-menu" {{on "click" @onToggleBurgerMenu}}>
-    {{#if @isSidebarVisibleOnSmallViewport}}
-      <FlightIcon @name="x" />
-      Close
-    {{else}}
-      <FlightIcon @name="menu" />
-      Menu
-    {{/if}}
-  </button>
+  <div class="doc-page-header__mobile-only-menu">
+    <button
+      type="button"
+      class="doc-page-header__mobile-only-menu-button"
+      data-doc-algolia-search-autocomplete-secondary-trigger
+      aria-describedby="search-button"
+    >
+      <FlightIcon @name="search" />
+      Search
+    </button>
+    <button type="button" class="doc-page-header__mobile-only-menu-button" {{on "click" @onToggleBurgerMenu}}>
+      {{#if @isSidebarVisibleOnSmallViewport}}
+        <FlightIcon @name="x" />
+        Close
+      {{else}}
+        <FlightIcon @name="menu" />
+        Menu
+      {{/if}}
+    </button>
+  </div>
+  {{! ALGOLIA SEARCH }}
+  <Doc::Page::Header::AlgoliaSearch />
 </header>
