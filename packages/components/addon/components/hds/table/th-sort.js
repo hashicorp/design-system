@@ -86,7 +86,7 @@ export default class HdsTableThSortComponent extends Component {
 
     // add a class based on the @align argument
     if (this.align) {
-      classes.push(`hds-table__th--text-${this.align}`);
+      classes.push(`hds-table__th--align-${this.align}`);
     }
 
     // add a class based on the @sortOrder argument

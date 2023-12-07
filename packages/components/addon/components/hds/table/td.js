@@ -42,7 +42,7 @@ export default class HdsTableTdComponent extends Component {
 
     // add a class based on the @align argument
     if (this.align) {
-      classes.push(`hds-table__td--text-${this.align}`);
+      classes.push(`hds-table__td--align-${this.align}`);
     }
 
     return classes.join(' ');
