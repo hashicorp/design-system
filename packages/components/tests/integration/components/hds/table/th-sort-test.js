@@ -30,7 +30,7 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
     );
     assert
       .dom('#data-test-table-th-sort')
-      .hasClass('hds-table__th--sort--text-right');
+      .hasClass('hds-table__th--align-right');
   });
 
   test('it should add inline styles if `@width` is declared', async function (assert) {

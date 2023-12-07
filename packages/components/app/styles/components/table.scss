@@ -75,7 +75,7 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
 
     // horizontal alignment (contrary to the tbody, it's applied overriding some  of the "flexed" elements properties)
 
-    .hds-table__th--text-right {
+    .hds-table__th--align-right {
      .hds-table__th-content {
         justify-content: flex-end;
       }
@@ -213,14 +213,14 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
 
   // horizontal alignment (applied at cell level)
 
-  .hds-table__th--text-right,
-  .hds-table__td--text-right {
+  .hds-table__th--align-right,
+  .hds-table__td--align-right {
     text-align: right;
   }
 
 
-  .hds-table__th--text-center,
-  .hds-table__td--text-center {
+  .hds-table__th--align-center,
+  .hds-table__td--align-center {
     text-align: center;
   }
 

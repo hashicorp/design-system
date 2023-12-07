@@ -36,7 +36,7 @@ module('Integration | Component | hds/table/th', function (hooks) {
     await render(
       hbs`<Hds::Table::Th id="data-test-table-th" @align="right">Artist</Hds::Table::Th>`
     );
-    assert.dom('#data-test-table-th').hasClass('hds-table__th--text-right');
+    assert.dom('#data-test-table-th').hasClass('hds-table__th--align-right');
   });
 
   test('it should add inline styles if `@width` is declared', async function (assert) {
