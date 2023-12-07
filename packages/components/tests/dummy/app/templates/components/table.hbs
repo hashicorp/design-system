@@ -876,15 +876,50 @@
 
   <Shw::Text::H3>ThSort</Shw::Text::H3>
 
+  <Shw::Flex @direction="column" @label="Interactive states + Sorting order" as |SF|>
+    {{#each @model.STATES as |state|}}
+      <SF.Item @grow={{true}}>
+        <Hds::Table>
+          <:head>
+            <Hds::Table::Tr>
+              <Hds::Table::ThSort
+                mock-state-value={{state}}
+                mock-state-selector="button"
+                @tooltip={{(hash text="Here is more information")}}
+              >
+                Unsorted ({{state}})
+              </Hds::Table::ThSort>
+              <Hds::Table::ThSort @sortOrder="asc" mock-state-value={{state}} mock-state-selector="button">
+                Ascending
+              </Hds::Table::ThSort>
+              <Hds::Table::ThSort @sortOrder="desc" mock-state-value={{state}} mock-state-selector="button">
+                Descending
+              </Hds::Table::ThSort>
+            </Hds::Table::Tr>
+          </:head>
+          <:body as |B|>
+            <B.Td colspan="3" />
+          </:body>
+        </Hds::Table>
+      </SF.Item>
+    {{/each}}
+  </Shw::Flex>
+
+  <Shw::Text::H3>Th</Shw::Text::H3>
+
   <Shw::Flex @label="Interactive states" as |SF|>
     <SF.Item @grow={{true}}>
       <Hds::Table>
         <:head>
           <Hds::Table::Tr>
             {{#each @model.STATES as |state|}}
-              <Hds::Table::ThSort mock-state-value={{state}} mock-state-selector="button">
+              <Hds::Table::Th
+                @tooltip={{(hash text="Here is more information")}}
+                mock-state-value={{state}}
+                mock-state-selector="button"
+              >
                 {{capitalize state}}
-              </Hds::Table::ThSort>
+              </Hds::Table::Th>
             {{/each}}
           </Hds::Table::Tr>
         </:head>
@@ -894,31 +929,6 @@
       </Hds::Table>
     </SF.Item>
   </Shw::Flex>
-
-  <Shw::Flex @label="Sorting order" as |SF|>
-    <SF.Item @grow={{true}}>
-      <Hds::Table>
-        <:head>
-          <Hds::Table::Tr>
-            <Hds::Table::ThSort>
-              Unsorted (default)
-            </Hds::Table::ThSort>
-            <Hds::Table::ThSort @sortOrder="asc">
-              Ascending
-            </Hds::Table::ThSort>
-            <Hds::Table::ThSort @sortOrder="desc">
-              Descending
-            </Hds::Table::ThSort>
-          </Hds::Table::Tr>
-        </:head>
-        <:body as |B|>
-          <B.Td colspan="3" />
-        </:body>
-      </Hds::Table>
-    </SF.Item>
-  </Shw::Flex>
-
-  <Shw::Text::H3>Th</Shw::Text::H3>
 
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="Th with custom width" @grow={{true}}>

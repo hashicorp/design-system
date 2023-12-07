@@ -1,0 +1,13 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<button
+  type="button"
+  class="hds-table__th-button hds-table__th-button--sort"
+  {{on "click" this.onClick}}
+  aria-label="sort"
+  ...attributes
+>
+  <FlightIcon @name={{@icon}} />
+</button>
