@@ -491,6 +491,64 @@
 
   <Shw::Divider />
 
+  <Shw::Text::H2>Tooltip</Shw::Text::H2>
+
+  <Shw::Text::H4 @tag="h3">Table with model (sortable and non-sortable columns)</Shw::Text::H4>
+
+  <Hds::Table
+    @model={{this.model.music}}
+    @columns={{array
+      (hash key="artist" label="Artist" isSortable=true tooltip=(hash text="Artist performing the album"))
+      (hash key="album" label="Album" tooltip=(hash text="Name of the album"))
+      (hash
+        key="vinyl-cost" label="Vinil Cost (USD)" isSortable=true tooltip=(hash text="Cost of the vinyl") align="right"
+      )
+      (hash key="year" label="Release Year" tooltip=(hash text="Year of release of the album") align="right")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td @align="right">{{B.data.vinyl-cost}}</B.Td>
+        <B.Td @align="right">{{B.data.year}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
+  <Shw::Text::H4 @tag="h3">Table without model defined (sortable and non-sortable columns)</Shw::Text::H4>
+
+  <Hds::Table @caption="a custom table with no model defined">
+    <:head as |H|>
+      <H.Tr>
+        <H.ThSort @tooltip={{(hash text="Column #1 extra information")}}>Cell Header</H.ThSort>
+        <H.Th @tooltip={{(hash text="Column #2 extra information")}}>Cell Header</H.Th>
+        <H.Th>Cell Header</H.Th>
+      </H.Tr>
+    </:head>
+    <:body as |B|>
+      <B.Tr>
+        <B.Th
+          @tooltip="This is an extra (non documented) case, made possible by the fact that the &lt;Table::Th&gt; subcomponent is yielded in both the &lt;thead&gt; and the &lt;tbody&gt;"
+        >Scope Row</B.Th>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+      </B.Tr>
+      <B.Tr>
+        <B.Th>Scope row</B.Th>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+      </B.Tr>
+      <B.Tr>
+        <B.Th>Scope row</B.Th>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
+  <Shw::Divider />
+
   <Shw::Text::H2>Customization</Shw::Text::H2>
 
   <Shw::Text::H4 @tag="h3">Sortable table, last column not sortable, visually hidden and with custom width.</Shw::Text::H4>
@@ -898,11 +956,57 @@
             </Hds::Table::Tr>
           </:head>
           <:body as |B|>
-            <B.Td colspan="3" />
+            <B.Tr>
+              <B.Td colspan="3" />
+            </B.Tr>
           </:body>
         </Hds::Table>
       </SF.Item>
     {{/each}}
+  </Shw::Flex>
+
+  <Shw::Flex @label="Alignment" as |SF|>
+    <SF.Item @grow={{true}}>
+      <Hds::Table>
+        <:head>
+          <Hds::Table::Tr>
+            <Hds::Table::ThSort>Left</Hds::Table::ThSort>
+            <Hds::Table::ThSort @tooltip="Here is more information">Left</Hds::Table::ThSort>
+            <Hds::Table::ThSort @align="center">Center</Hds::Table::ThSort>
+            <Hds::Table::ThSort @align="center" @tooltip="Here is more information">Center</Hds::Table::ThSort>
+            <Hds::Table::ThSort @align="right">Right</Hds::Table::ThSort>
+            <Hds::Table::ThSort @align="right" @tooltip="Here is more information">Right</Hds::Table::ThSort>
+          </Hds::Table::Tr>
+        </:head>
+        <:body as |B|>
+          <B.Tr>
+            <B.Td colspan="6" />
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex @direction="column" @label="Multi-line" as |SF|>
+    <SF.Item {{style width="600px"}}>
+      <Hds::Table>
+        <:head>
+          <Hds::Table::Tr>
+            <Hds::Table::ThSort>
+              This is a very long text that should go on two lines
+            </Hds::Table::ThSort>
+            <Hds::Table::ThSort @tooltip="Here is more information">
+              This is a very long text that should go on two lines
+            </Hds::Table::ThSort>
+          </Hds::Table::Tr>
+        </:head>
+        <:body as |B|>
+          <B.Tr>
+            <B.Td colspan="2" />
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+    </SF.Item>
   </Shw::Flex>
 
   <Shw::Text::H3>Th</Shw::Text::H3>
@@ -924,7 +1028,31 @@
           </Hds::Table::Tr>
         </:head>
         <:body as |B|>
-          <B.Td colspan="4" />
+          <B.Tr>
+            <B.Td colspan="4" />
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex @label="Alignment" as |SF|>
+    <SF.Item @grow={{true}}>
+      <Hds::Table>
+        <:head>
+          <Hds::Table::Tr>
+            <Hds::Table::Th>Left</Hds::Table::Th>
+            <Hds::Table::Th @tooltip="Here is more information">Left</Hds::Table::Th>
+            <Hds::Table::Th @align="center">Center</Hds::Table::Th>
+            <Hds::Table::Th @align="center" @tooltip="Here is more information">Center</Hds::Table::Th>
+            <Hds::Table::Th @align="right">Right</Hds::Table::Th>
+            <Hds::Table::Th @align="right" @tooltip="Here is more information">Right</Hds::Table::Th>
+          </Hds::Table::Tr>
+        </:head>
+        <:body as |B|>
+          <B.Tr>
+            <B.Td colspan="6" />
+          </B.Tr>
         </:body>
       </Hds::Table>
     </SF.Item>
@@ -973,6 +1101,28 @@
             <B.Td>Cell Content</B.Td>
             <B.Td>Cell Content</B.Td>
             <B.Td>Cell Content</B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex @direction="column" @label="Multi-line" as |SF|>
+    <SF.Item {{style width="600px"}}>
+      <Hds::Table>
+        <:head>
+          <Hds::Table::Tr>
+            <Hds::Table::Th>
+              This is a very long text that should go on two lines
+            </Hds::Table::Th>
+            <Hds::Table::Th @tooltip="Here is more information">
+              This is a very long text that should go on two lines
+            </Hds::Table::Th>
+          </Hds::Table::Tr>
+        </:head>
+        <:body as |B|>
+          <B.Tr>
+            <B.Td colspan="2" />
           </B.Tr>
         </:body>
       </Hds::Table>

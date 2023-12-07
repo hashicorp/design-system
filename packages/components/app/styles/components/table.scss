@@ -200,8 +200,13 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
   text-align: right;
 }
 
+.hds-table__th--text-right .hds-table__th-content,
 .hds-table__th-sort--text-right .hds-table__th-content {
   justify-content: flex-end;
+
+  .hds-table__th-button--sort {
+    margin-left: 4px;
+  }
 }
 
 .hds-table__th-sort--text-center,
