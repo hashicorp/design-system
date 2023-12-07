@@ -34,11 +34,7 @@ export default class HdsTableThComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = [
-      'hds-table__th',
-      'hds-typography-body-200',
-      'hds-font-weight-semibold',
-    ];
+    let classes = ['hds-table__th'];
 
     // add a class based on the @align argument
     if (this.align) {

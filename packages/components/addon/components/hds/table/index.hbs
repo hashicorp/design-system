@@ -18,6 +18,7 @@
               @onClick={{fn this.setSortBy column.key}}
               @align={{column.align}}
               @width={{column.width}}
+              @tooltip={{column.tooltip}}
             >
               {{column.label}}
             </Hds::Table::ThSort>
@@ -25,6 +26,7 @@
             <Hds::Table::Th
               @align={{column.align}}
               @width={{column.width}}
+              @tooltip={{column.tooltip}}
               @isVisuallyHidden={{column.isVisuallyHidden}}
             >{{column.label}}</Hds::Table::Th>
           {{/if}}

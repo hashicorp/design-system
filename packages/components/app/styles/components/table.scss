@@ -57,57 +57,40 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
 
 .hds-table__th,
 .hds-table__th-sort {
+  padding: $hds-table-cell-padding-medium;
   text-align: left;
   border-top: none;
   border-right: none;
   border-bottom: $hds-table-border-width solid $hds-table-border-color;
   border-left: none;
+
 }
 
-.hds-table__th {
-  padding: $hds-table-cell-padding-medium;
-}
+// we emulate a right border slightly detached from the top/bottom borders
+.hds-table__thead > .hds-table__tr:first-of-type > .hds-table__th,
+.hds-table__thead > .hds-table__tr:first-of-type > .hds-table__th-sort {
+  position: relative;
 
-.hds-table__th-sort {
-  padding: 0;
-
-  button {
-    width: 100%;
-    height: 100%;
-    min-height: $hds-table-header-height;
-    margin: 0;
-    padding: $hds-table-cell-padding-medium;
-    text-align: inherit;
-    background-color: transparent;
-    border: 1px solid transparent;
-    border-radius: inherit;
-
-    .hds-table__th-sort--button-content {
-      display: flex; // we can't put flex on the button itself so we drop the content into its own container
-      align-items: center;
-
-      .flight-icon {
-        flex: none;
-        margin-left: 8px;
-        color: var(--token-color-foreground-action);
-      }
-    }
-
-    &:hover,
-    &.mock-hover {
-      color: var(--token-color-foreground-strong);
-      background-color: var(--token-color-palette-neutral-200);
-      cursor: pointer;
-    }
-
-    @include hds-focus-ring-with-pseudo-element($radius: inherit);
-
-    &:active,
-    &.mock-active {
-      color: var(--token-color-foreground-strong);
-      background-color: var(--token-color-palette-neutral-300);
-    }
+  &::after {
+    position: absolute;
+    top: 6px;
+    right: 0;
+    bottom: 6px;
+    width: 1px;
+    background-color: $hds-table-border-color;
+    content: "";
+    pointer-events: none;
   }
+
+  &:last-child::after {
+    background-color: transparent;
+  }
+}
+
+.hds-table__th-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .hds-table__th-button {
@@ -217,7 +200,7 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
   text-align: right;
 }
 
-.hds-table__th-sort--text-right .hds-table__th-sort--button-content {
+.hds-table__th-sort--text-right .hds-table__th-content {
   justify-content: flex-end;
 }
 
