@@ -259,3 +259,16 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
     }
   }
 }
+
+// isSelectable Table (TODO: Refactor & move)
+.hds-table .hds-table__thead .hds-table__th--is-selectable,
+.hds-table .hds-table__tbody .hds-table__td--is-selectable {
+  width: 1px; // shrink-wrap content (will expand as needed)
+  padding-right: 0;
+}
+
+// Table content
+.hds-table__checkbox {
+  display: block;
+  margin: 2px 0;
+}

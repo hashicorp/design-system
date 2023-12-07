@@ -8,7 +8,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 
-const DENSITIES = ['short', 'medium', 'tall'];
+export const DENSITIES = ['short', 'medium', 'tall'];
 const DEFAULT_DENSITY = 'medium';
 const VALIGNMENTS = ['top', 'middle', 'baseline'];
 const DEFAULT_VALIGN = 'top';
