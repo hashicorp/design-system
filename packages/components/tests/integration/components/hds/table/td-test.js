@@ -18,7 +18,7 @@ module('Integration | Component | hds/table/td', function (hooks) {
 
   test('it should render with the appropriate `@align` CSS class', async function (assert) {
     await render(hbs`<Hds::Table::Td id="data-test-table-td" @align="right"/>`);
-    assert.dom('#data-test-table-td').hasClass('hds-table__td--text-right');
+    assert.dom('#data-test-table-td').hasClass('hds-table__td--align-right');
   });
 
   test('it should support splattributes', async function (assert) {
