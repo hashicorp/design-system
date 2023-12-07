@@ -15,13 +15,13 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
       hbs`<Hds::Table::ThSort id="data-test-table-th-sort">Artist</Hds::Table::ThSort>`
     );
 
-    assert.dom('#data-test-table-th-sort').hasClass('hds-table__th-sort');
+    assert.dom('#data-test-table-th-sort').hasClass('hds-table__th--sort');
   });
 
   test('it has the scope attribute, and it is set to column', async function (assert) {
     await render(hbs`<Hds::Table::ThSort>Artist</Hds::Table::ThSort>`);
 
-    assert.dom('.hds-table__th-sort').hasAttribute('scope', 'col');
+    assert.dom('.hds-table__th--sort').hasAttribute('scope', 'col');
   });
 
   test('it should render with the appropriate `@align` CSS class', async function (assert) {
@@ -30,7 +30,7 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
     );
     assert
       .dom('#data-test-table-th-sort')
-      .hasClass('hds-table__th-sort--text-right');
+      .hasClass('hds-table__th--sort--text-right');
   });
 
   test('it should add inline styles if `@width` is declared', async function (assert) {
