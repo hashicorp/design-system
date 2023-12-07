@@ -9,10 +9,11 @@
   ...attributes
   scope="col"
 >
-  <button type="button" {{on "click" this.onClick}}>
-    <div class="hds-table__th-sort--button-content">
-      <span class="hds-typography-body-200 hds-font-weight-semibold">{{yield}}</span>
-      <FlightIcon @name={{this.icon}} />
-    </div>
-  </button>
+  <div class="hds-table__th-content">
+    <span class="hds-typography-body-200 hds-font-weight-semibold">{{yield}}</span>
+    {{#if @tooltip}}
+      <Hds::Table::ThButtonTooltip @text={{@tooltip.text}} />
+    {{/if}}
+    <Hds::Table::ThButtonSort @icon={{this.iconSort}} @onClick={{@this.onClick}} />
+  </div>
 </th>
