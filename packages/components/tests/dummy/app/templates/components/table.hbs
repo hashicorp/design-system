@@ -8,6 +8,52 @@
 <Shw::Text::H1>Table</Shw::Text::H1>
 
 <section data-test-percy>
+  {{! TODO: Move MultiSelect "section" }}
+  <Shw::Text::H2>WIP MultiSelect</Shw::Text::H2>
+
+  <Shw::Text::H3>with different densities</Shw::Text::H3>
+
+  <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
+    {{#each @model.DENSITIES as |density|}}
+      <SF.Item @label={{if (eq density "medium") (concat (capitalize density) " (default)") (capitalize density)}}>
+        <Hds::Table @density={{density}}>
+          <:head as |H|>
+            <H.Tr>
+              <H.ThSelectable />
+              <H.Th>Lorem</H.Th>
+              <H.Th>Ipsum</H.Th>
+              <H.Th>Dolor</H.Th>
+            </H.Tr>
+          </:head>
+          <:body as |B|>
+            <B.Tr>
+              <B.TdSelectable />
+              <B.Td>Cell Content</B.Td>
+              <B.Td>Cell Content</B.Td>
+              <B.Td>Cell Content</B.Td>
+            </B.Tr>
+            <B.Tr>
+              <B.TdSelectable />
+              <B.Td>
+                Longer cell content that wraps to a new line.<br />
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              </B.Td>
+              <B.Td>Cell Content</B.Td>
+              <B.Td>Cell Content</B.Td>
+            </B.Tr>
+            <B.Tr>
+              <B.TdSelectable />
+              <B.Td>Cell Content</B.Td>
+              <B.Td>Cell Content</B.Td>
+              <B.Td>Cell Content</B.Td>
+            </B.Tr>
+          </:body>
+        </Hds::Table>
+      </SF.Item>
+    {{/each}}
+  </Shw::Flex>
+
+  <Shw::Divider />
 
   <Shw::Text::H2>Density</Shw::Text::H2>
 
