@@ -11,7 +11,7 @@
         "vinyl-cost": "29.27",
         "icon": "boundary-color",
         "badge-type": "outlined",
-        "badge-color": { 
+        "badge-color": {
           "name": "neutral",
           "key": 5
         },
@@ -29,7 +29,7 @@
         "vinyl-cost": "25.99",
         "icon": "consul-color",
         "badge-type": "outlined",
-        "badge-color": { 
+        "badge-color": {
           "name": "neutral",
           "key": 5
         },
@@ -47,7 +47,7 @@
         "vinyl-cost": "46.49",
         "icon": "terraform-color",
         "badge-type": "outlined",
-        "badge-color": { 
+        "badge-color": {
           "name": "highlight",
           "key": 4
         },
@@ -62,7 +62,7 @@
         "album": "Bringing It All Back Home",
         "year": "1965",
         "quote": "By fusing the Chuck Berry beat of the Rolling Stones and the Beatles with the leftist, folk tradition of the folk revival, Dylan really had brought it back home, creating a new kind of rock & roll that made every type of artistic tradition available to rock.",
-        "vinyl-cost": "229.00",
+        "vinyl-cost": "29.00",
         "icon": "nomad-color",
         "badge-type": "outlined",
         "badge-color": {
