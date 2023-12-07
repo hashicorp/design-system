@@ -201,7 +201,7 @@ module('Integration | Component | hds/table/index', function (hooks) {
     await render(hbsSortableTable);
     assert
       .dom('#data-test-table th:first-of-type')
-      .hasClass('hds-table__th-sort');
+      .hasClass('hds-table__th--sort');
     assert.dom('#data-test-table th:first-of-type').hasText('Artist');
   });
 
@@ -215,7 +215,7 @@ module('Integration | Component | hds/table/index', function (hooks) {
 
     assert
       .dom('#data-test-table th:first-of-type')
-      .hasClass('hds-table__th-sort');
+      .hasClass('hds-table__th--sort');
     assert.dom('#data-test-table caption').hasText('');
   });
 
@@ -225,7 +225,7 @@ module('Integration | Component | hds/table/index', function (hooks) {
 
     assert.dom('#data-test-table td:nth-of-type(1)').hasText('Melanie');
 
-    await click('#data-test-table .hds-table__th-sort:nth-of-type(1) button');
+    await click('#data-test-table .hds-table__th--sort:nth-of-type(1) button');
     assert.dom('#data-test-table td:nth-of-type(1)').hasText('The Beatles');
   });
 
@@ -238,13 +238,13 @@ module('Integration | Component | hds/table/index', function (hooks) {
 
     assert.dom('#data-test-table td:nth-of-type(1)').hasText('Nick Drake');
 
-    await click('#data-test-table .hds-table__th-sort:nth-of-type(1) button');
+    await click('#data-test-table .hds-table__th--sort:nth-of-type(1) button');
     assert.dom('#data-test-table td:nth-of-type(1)').hasText('Melanie');
     assert
       .dom('#data-test-table caption')
       .hasText('Sorted by artist ascending');
 
-    await click('#data-test-table .hds-table__th-sort:nth-of-type(1) button');
+    await click('#data-test-table .hds-table__th--sort:nth-of-type(1) button');
     assert.dom('#data-test-table td:nth-of-type(1)').hasText('The Beatles');
     assert
       .dom('#data-test-table caption')
@@ -298,7 +298,7 @@ module('Integration | Component | hds/table/index', function (hooks) {
     // let’s just check that the table is pre-sorted the way we expect (artist, ascending)
     assert.dom('#data-test-table td:nth-of-type(1)').hasText('Melanie');
 
-    await click('#data-test-table .hds-table__th-sort:nth-of-type(2) button');
+    await click('#data-test-table .hds-table__th--sort:nth-of-type(2) button');
     assert
       .dom('#data-test-table tbody td:nth-of-type(2)')
       .hasText('Candles in the Rain');
@@ -308,13 +308,13 @@ module('Integration | Component | hds/table/index', function (hooks) {
     setSortableTableData(this);
     await render(hbsSortableTable);
 
-    await click('#data-test-table .hds-table__th-sort:nth-of-type(1) button');
+    await click('#data-test-table .hds-table__th--sort:nth-of-type(1) button');
     assert
-      .dom('#data-test-table .hds-table__th-sort:nth-of-type(1)')
+      .dom('#data-test-table .hds-table__th--sort:nth-of-type(1)')
       .hasAria('sort', 'descending');
-    await click('#data-test-table .hds-table__th-sort:nth-of-type(1) button');
+    await click('#data-test-table .hds-table__th--sort:nth-of-type(1) button');
     assert
-      .dom('#data-test-table .hds-table__th-sort:nth-of-type(1)')
+      .dom('#data-test-table .hds-table__th--sort:nth-of-type(1)')
       .hasAria('sort', 'ascending');
   });
 
@@ -327,10 +327,10 @@ module('Integration | Component | hds/table/index', function (hooks) {
     setSortableTableData(this);
     await render(hbsSortableTable);
 
-    await click('#data-test-table .hds-table__th-sort:nth-of-type(1) button');
+    await click('#data-test-table .hds-table__th--sort:nth-of-type(1) button');
     assert.strictEqual(sortBy, 'artist');
     assert.strictEqual(sortOrder, 'desc');
-    await click('#data-test-table .hds-table__th-sort:nth-of-type(1) button');
+    await click('#data-test-table .hds-table__th--sort:nth-of-type(1) button');
     assert.strictEqual(sortBy, 'artist');
     assert.strictEqual(sortOrder, 'asc');
   });
