@@ -31,13 +31,13 @@ export default class HdsTableThSortComponent extends Component {
   }
 
   /**
-   * @param icon
+   * @param iconSort
    * @type {string}
    * @private
    * @default swap-vertical
    * @description Determines which icon to use based on the sort order defined
    */
-  get icon() {
+  get iconSort() {
     switch (this.args.sortOrder) {
       case 'asc':
         return 'arrow-up';
@@ -87,6 +87,11 @@ export default class HdsTableThSortComponent extends Component {
     // add a class based on the @align argument
     if (this.align) {
       classes.push(`hds-table__th-sort--text-${this.align}`);
+    }
+
+    // add a class based on the @sortOrder argument
+    if (this.args.sortOrder === 'asc' || this.args.sortOrder === 'desc') {
+      classes.push(`hds-table__th-sort--is-sorted`);
     }
 
     return classes.join(' ');
