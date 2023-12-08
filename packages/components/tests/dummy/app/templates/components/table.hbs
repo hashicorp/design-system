@@ -53,6 +53,37 @@
     {{/each}}
   </Shw::Flex>
 
+  <Shw::Text::H3>with valign="middle"</Shw::Text::H3>
+
+  <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
+    <SF.Item>
+      <Hds::Table @valign="middle">
+        <:head as |H|>
+          <H.Tr>
+            <H.ThSelectable />
+            <H.Th>Lorem</H.Th>
+            <H.Th>Ipsum</H.Th>
+            <H.Th>Dolor</H.Th>
+          </H.Tr>
+        </:head>
+        <:body as |B|>
+          <B.Tr>
+            <B.TdSelectable />
+            <B.Td>
+              Longer cell content that wraps to a new line.<br />
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.<br />
+              Alias voluptates porro sit qui consequatur mollitia<br />
+              repudiandae soluta, sequi ratione quidem excepturi nostrum<br />
+              eius. Dolore aliquid aspernatur iusto? Illo, iure magnam.
+            </B.Td>
+            <B.Td>Cell Content</B.Td>
+            <B.Td>Cell Content</B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+    </SF.Item>
+  </Shw::Flex>
+
   <Shw::Divider />
 
   <Shw::Text::H2>Density</Shw::Text::H2>
