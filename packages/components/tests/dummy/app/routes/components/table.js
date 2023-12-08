@@ -17,8 +17,12 @@ export default class ComponentsTableRoute extends Route {
     let clusters = await responseClusters.json();
     let manycolumns = await responseManyColumns.json();
 
+    let responseSelectableData = await fetch('/api/mock-selectable-data.json');
+    let { data: selectableData } = await responseSelectableData.json();
+
     return {
       music: music.map((record) => ({ id: record.id, ...record.attributes })),
+      selectableData,
       clusters,
       manycolumns,
       DENSITIES,
