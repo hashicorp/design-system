@@ -1154,5 +1154,47 @@
         </:body>
       </Hds::Table>
     </SF.Item>
+    <SF.Item @grow={{true}}>
+      <Hds::Table @valign="baseline">
+        <:head as |H|>
+          <H.Tr>
+            <H.Th>Spacer</H.Th>
+            <H.Th>Text</H.Th>
+            <H.Th>Icon</H.Th>
+            <H.Th>Icon + Text</H.Th>
+            <H.Th>Icon + Text (with flex container)</H.Th>
+            <H.Th>Badge</H.Th>
+            <H.Th>Dropdown</H.Th>
+            <H.Th>Tooltip(Button)</H.Th>
+          </H.Tr>
+        </:head>
+        <:body as |B|>
+          <B.Tr>
+            <B.Th><Shw::Placeholder @height="25" />Baseline<Shw::Placeholder @height="25" /></B.Th>
+            <B.Td>Text is middle aligned</B.Td>
+            <B.Td><FlightIcon @name="film" /></B.Td>
+            <B.Td><FlightIcon @name="film" /> <span>Text in a <code>&lt;span&gt;</code></span></B.Td>
+            <B.Td>
+              <div {{style display="flex" gap="8px" align-items="center"}}>
+                <FlightIcon @name="film" />
+                <span>Text in a <code>&lt;span&gt;</code></span>
+              </div>
+            </B.Td>
+            <B.Td><Hds::Badge @text="Badge" /></B.Td>
+            <B.Td>
+              <Hds::Dropdown as |dd|>
+                <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
+                <dd.Interactive @route="components.table" @text="Dropdown" />
+              </Hds::Dropdown>
+            </B.Td>
+            <B.Td>
+              <Hds::TooltipButton @text="Hello!">
+                December 15, 2022,<br />16:40:09 PM
+              </Hds::TooltipButton>
+            </B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+    </SF.Item>
   </Shw::Flex>
 </section>
