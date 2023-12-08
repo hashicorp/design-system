@@ -3,5 +3,9 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <tr class="hds-table__tr" ...attributes>
+  {{#if @isSelectable}}
+    <Hds::Table::TdSelectable />
+  {{/if}}
+
   {{yield}}
 </tr>
