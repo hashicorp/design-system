@@ -498,12 +498,10 @@
   <Hds::Table
     @model={{this.model.music}}
     @columns={{array
-      (hash key="artist" label="Artist" isSortable=true tooltip=(hash text="Artist performing the album"))
-      (hash key="album" label="Album" tooltip=(hash text="Name of the album"))
-      (hash
-        key="vinyl-cost" label="Vinil Cost (USD)" isSortable=true tooltip=(hash text="Cost of the vinyl") align="right"
-      )
-      (hash key="year" label="Release Year" tooltip=(hash text="Year of release of the album") align="right")
+      (hash key="artist" label="Artist" isSortable=true tooltip="Artist performing the album")
+      (hash key="album" label="Album" tooltip="Name of the album")
+      (hash key="vinyl-cost" label="Vinil Cost (USD)" isSortable=true tooltip="Cost of the vinyl" align="right")
+      (hash key="year" label="Release Year" tooltip="Year of release of the album" align="right")
     }}
   >
     <:body as |B|>
@@ -521,8 +519,8 @@
   <Hds::Table @caption="a custom table with no model defined">
     <:head as |H|>
       <H.Tr>
-        <H.ThSort @tooltip={{(hash text="Column #1 extra information")}}>Cell Header</H.ThSort>
-        <H.Th @tooltip={{(hash text="Column #2 extra information")}}>Cell Header</H.Th>
+        <H.ThSort @tooltip="Column #1 extra information">Cell Header</H.ThSort>
+        <H.Th @tooltip="Column #2 extra information">Cell Header</H.Th>
         <H.Th>Cell Header</H.Th>
       </H.Tr>
     </:head>
@@ -943,7 +941,7 @@
               <Hds::Table::ThSort
                 mock-state-value={{state}}
                 mock-state-selector="button"
-                @tooltip={{(hash text="Here is more information")}}
+                @tooltip="Here is more information"
               >
                 Unsorted ({{state}})
               </Hds::Table::ThSort>
@@ -1018,7 +1016,7 @@
           <Hds::Table::Tr>
             {{#each @model.STATES as |state|}}
               <Hds::Table::Th
-                @tooltip={{(hash text="Here is more information")}}
+                @tooltip="Here is more information"
                 mock-state-value={{state}}
                 mock-state-selector="button"
               >
