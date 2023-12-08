@@ -1,1 +1,0 @@
-The Reveal is used to show and hide additional details and content not critical to the main flow.

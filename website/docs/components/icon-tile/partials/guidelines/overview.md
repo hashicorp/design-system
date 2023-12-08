@@ -1,1 +1,0 @@
-Icon Tiles represent objects and resources unrelated or directly related to a product.
