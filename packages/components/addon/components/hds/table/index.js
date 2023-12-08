@@ -10,7 +10,7 @@ import { assert } from '@ember/debug';
 
 const DENSITIES = ['short', 'medium', 'tall'];
 const DEFAULT_DENSITY = 'medium';
-const VALIGNMENTS = ['top', 'middle'];
+const VALIGNMENTS = ['top', 'middle', 'baseline'];
 const DEFAULT_VALIGN = 'top';
 
 export default class HdsTableIndexComponent extends Component {
@@ -116,7 +116,7 @@ export default class HdsTableIndexComponent extends Component {
    * @param valign
    * @type {string}
    * @default 'top'
-   * @description Determines the vertical alignment of the table cells; options are: "top", "middle". If no valign is defined, "top" is used.
+   * @description Determines the vertical alignment of the table cells; options are: "top", "middle", "baseline". If no valign is defined, "top" is used.
    */
   get valign() {
     let { valign = DEFAULT_VALIGN } = this.args;
