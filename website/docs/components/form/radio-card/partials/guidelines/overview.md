@@ -1,1 +1,0 @@
-The Radio Card is a form element (radio input) with a bigger target area represented by a card container that allows users to select a single item from a list of related options.

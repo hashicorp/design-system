@@ -1,1 +1,0 @@
-Tabs allow users to move between different views within the same context at the same level of hierarchy, e.g., UI vs. CLI, macOS vs. Windows vs. Linux, etc.
