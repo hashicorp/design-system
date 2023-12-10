@@ -1,1 +1,0 @@
-The Table component should be used for displaying tabular data; it renders an [HTML table element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table).
