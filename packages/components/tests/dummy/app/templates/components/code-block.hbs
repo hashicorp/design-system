@@ -8,38 +8,7 @@
 <Shw::Text::H1>CodeBlock</Shw::Text::H1>
 
 <section data-test-percy>
-  <Shw::Text::H2>TEST: Dynamic content update</Shw::Text::H2>
-
-  <p>
-    <button type="button" {{on "click" this.updateCodeValue}}>
-      Update value
-    </button>
-  </p>
-
-  <p>
-    <label for="input">Change input value</label>
-    <input id="input" type="text" value={{this.input}} {{on "input" this.updateInput}} />
-  </p>
-
-  <Hds::CodeBlock
-    @value={{this.codeValue}}
-    @language="javascript"
-    @hasCopyButton={{true}}
-    @hasLineNumbers={{false}}
-    id="code-block-with-dynamic-content"
-    as |CB|
-  >
-    <CB.Title>
-      Dynamic content
-    </CB.Title>
-  </Hds::CodeBlock>
-
-  <pre>this.input = {{this.input}}</pre>
-  <pre>this.codeValue = {{this.codeValue}}</pre>
-
-  <Shw::Divider />
-
-  {{!-- <Shw::Text::H2>Content</Shw::Text::H2>
+  <Shw::Text::H2>Content</Shw::Text::H2>
 
   <Shw::Grid @columns={{2}} {{style gap="2rem"}} as |SG|>
     <SG.Item @label="one line">
@@ -107,6 +76,39 @@ console.log(`I am ${codeLang} code`);"
       </Hds::CodeBlock>
     </SG.Item>
   </Shw::Grid>
+
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H2>with dynamic content</Shw::Text::H2>
+
+  <Shw::Text::Body>
+    <button type="button" {{on "click" this.updateCodeValue}}>
+      Update value
+    </button>
+  </Shw::Text::Body>
+
+  <Shw::Text::Body>
+    <label for="input">Change input value:</label>
+    <input id="input" type="text" value={{this.input}} {{on "input" this.updateInput}} />
+  </Shw::Text::Body>
+
+  <Hds::CodeBlock
+    @value={{this.codeValue}}
+    @language="javascript"
+    @hasCopyButton={{true}}
+    @hasLineNumbers={{false}}
+    id="code-block-with-dynamic-content"
+    as |CB|
+  >
+    <CB.Title>
+      Dynamic content
+    </CB.Title>
+  </Hds::CodeBlock>
+
+  <p>
+    <pre>this.input = {{this.input}}</pre>
+    <pre>this.codeValue = {{this.codeValue}}</pre>
+  </p>
 
   <Shw::Divider />
 
@@ -613,6 +615,5 @@ func main() {
         </Hds::Modal>
       {{/if}}
     </SF.Item>
-  </Shw::Flex> --}}
-
+  </Shw::Flex>
 </section>
