@@ -7,7 +7,7 @@ import { module, test } from 'qunit';
 import { visit, click } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import percySnapshot from '@percy/ember';
-import config from 'dummy/config/environment';
+import config from 'showcase/config/environment';
 
 module('Acceptance | Percy test', function (hooks) {
   setupApplicationTest(hooks);

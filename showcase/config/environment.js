@@ -7,7 +7,7 @@
 
 module.exports = function (environment) {
   const ENV = {
-    modulePrefix: 'dummy',
+    modulePrefix: 'showcase',
     environment,
     rootURL: '/',
     locationType: 'history',
