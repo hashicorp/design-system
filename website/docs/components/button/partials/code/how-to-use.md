@@ -120,7 +120,7 @@ The `Hds::Button` component uses the generic `Hds::Interactive` component. For m
 
 If you pass an `@href` argument, an `<a>` link will be generated.
 
-`target=“_blank”` and `rel=“noopener noreferrer”` attributes are applied by default. This is the most common case, as internal links are generally handled using a `@route` argument but can be overridden. If the `href` points to an internal link, or uses a different protocol (e.g., "mailto" of "ftp"), pass `@isHrefExternal={{true}}` and it will not add the `target` and `rel` attributes.
+`target=“_blank”` and `rel=“noopener noreferrer”` attributes are applied by default. This is the most common case, as internal links are generally handled using a `@route` argument but can be overridden. If the `href` points to an internal link, or uses a different protocol (e.g., "mailto" of "ftp"), pass `@isHrefExternal={{false}}` and it will not add the `target` and `rel` attributes.
 
 ```handlebars
 <Hds::Button @text="Visit website" @icon="external-link" @iconPosition="trailing" @href="https://hashicorp.com" />
