@@ -59,6 +59,9 @@ The Table component itself is where most of the options will be applied. However
       <C.Property @name="sortingFunction" @type="function">
         Callback function to provide support for custom sorting logic. It should implement a typical bubble-sorting algorithm using two elements and comparing them. For more details, see the example of custom sorting in the How To Use section.
       </C.Property>
+      <C.Property @name="tooltip" @type="string">
+        Text string which will appear in the tooltip (see [`Tooltip`](/components/tooltip) for details). May contain basic HTML tags for formatting text such as `strong` and `em` tags. Not intended for multi-paragraph text or other more complex content. May not contain interactive content such as links or buttons. The `placement` and `offset` are automatically set and can't be overwritten.
+      </C.Property>
     </Doc::ComponentApi>
   </C.Property>
   <C.Property @name="sortBy" @type="string">
@@ -127,6 +130,9 @@ If the `Th` component is passed as the first cell of a table body row, `scope="r
   <C.Property @name="width" @type="string" @valueNote="Any valid CSS">
     If set, determines the column’s width.
   </C.Property>
+  <C.Property @name="tooltip" @type="string">
+    Text string which will appear in the tooltip (see [`Tooltip`](/components/tooltip) for details). May contain basic HTML tags for formatting text such as `strong` and `em` tags. Not intended for multi-paragraph text or other more complex content. May not contain interactive content such as links or buttons. The `placement` and `offset` are automatically set and can't be overwritten.
+  </C.Property>
   <C.Property @name="isVisuallyHidden" @type="boolean" @default="false">
     If set to `true`, it visually hides the column’s text content (it will still be available to screen readers for accessibility).
   </C.Property>
@@ -151,6 +157,9 @@ This is the component that supports column sorting; use instead of `Hds::Table::
   </C.Property>
   <C.Property @name="width" @type="string" @valueNote="Any valid CSS">
     If set, determines the column’s width.
+  </C.Property>
+  <C.Property @name="tooltip" @type="string">
+    Text string which will appear in the tooltip (see [`Tooltip`](/components/tooltip) for details). May contain basic HTML tags for formatting text such as `strong` and `em` tags. Not intended for multi-paragraph text or other more complex content. May not contain interactive content such as links or buttons. The `placement` and `offset` are automatically set and can't be overwritten.
   </C.Property>
   <C.Property @name="onClick" @type="function">
     Callback function invoked when the sort button is clicked. By default, the sort is set by the column’s key.
