@@ -4,7 +4,7 @@
 }}
 <tr class="hds-table__tr" ...attributes>
   {{#if @isSelectable}}
-    <Hds::Table::TdSelectable />
+    <Hds::Table::ThSelectable @scope={{@scope}} />
   {{/if}}
 
   {{yield}}
