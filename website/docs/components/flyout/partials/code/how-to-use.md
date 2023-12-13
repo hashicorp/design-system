@@ -8,7 +8,7 @@ When an Flyout is open, the rest of the page becomes inert. The page scrolling i
 
 ## Positioning
 
-As an overlaying component, the `Hds::Flyout` requires a high value on the z-axis. We are currently setting `49` as a default value, but we recommend you review the `z-index` values used across your project and either adjust them accordingly or increase this value by defining an override.
+As an overlaying component, the `Hds::Flyout` is rendered on the [top layer](https://developer.mozilla.org/en-US/docs/Glossary/Top_layer), meaning it is always placed on top of all other elements in the page.
 
 ## Focus trap
 
