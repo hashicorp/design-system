@@ -1709,7 +1709,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/preset-typescript@npm:^7.1.0":
+"@babel/preset-typescript@npm:^7.1.0, @babel/preset-typescript@npm:^7.23.3":
   version: 7.23.3
   resolution: "@babel/preset-typescript@npm:7.23.3"
   dependencies:
@@ -3451,6 +3451,7 @@ __metadata:
     "@babel/core": "npm:^7.23.6"
     "@babel/plugin-proposal-decorators": "npm:^7.23.6"
     "@babel/plugin-transform-class-properties": "npm:^7.23.3"
+    "@babel/preset-typescript": "npm:^7.23.3"
     "@ember/render-modifiers": "npm:^2.0.5"
     "@ember/string": "npm:^3.1.1"
     "@ember/test-waiters": "npm:^3.1.0"
