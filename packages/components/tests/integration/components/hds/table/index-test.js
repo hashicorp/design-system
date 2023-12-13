@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, click } from '@ember/test-helpers';
+import { render, click, focus } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 // we're using this for multiple tests so we'll declare context once and use it when we need it.
@@ -203,6 +203,26 @@ module('Integration | Component | hds/table/index', function (hooks) {
       .dom('#data-test-table th:first-of-type')
       .hasClass('hds-table__th--sort');
     assert.dom('#data-test-table th:first-of-type').hasText('Artist');
+  });
+
+  test('it should render a sortable table with a tooltip', async function (assert) {
+    setSortableTableData(this);
+    // add the tooltip key/value to the first column
+    this.columns[0].tooltip = 'More info.';
+
+    await render(hbsSortableTable);
+
+    assert
+      .dom(
+        '#data-test-table thead th:first-of-type .hds-table__th-button--tooltip'
+      )
+      .exists();
+    // activate the tooltip:
+    await focus(
+      '#data-test-table thead th:first-of-type .hds-table__th-button--tooltip'
+    );
+    // test that the tooltip exists and has the passed in content:
+    assert.dom('.tippy-content').hasText('More info.');
   });
 
   test('it should render a sortable table with an empty caption if no caption is provided and table is unsorted', async function (assert) {
