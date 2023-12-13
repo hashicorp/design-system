@@ -150,6 +150,10 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
   .hds-table--valign-middle & {
     vertical-align: middle;
   }
+
+  .hds-table--valign-baseline & {
+    vertical-align: baseline;
+  }
 }
 
 // TABLE CELL TEXT ALIGNMENT (LEFT IS DEFAULT)

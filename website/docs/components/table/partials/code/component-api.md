@@ -76,7 +76,7 @@ The Table component itself is where most of the options will be applied. However
   <C.Property @name="density" @type="enum" @values={{array "short" "medium" "tall" }} @default="medium">
     If set, determines the density (height) of the table body’s rows.
   </C.Property>
-  <C.Property @name="valign" @type="enum" @values={{array "top" "middle" }} @default="top">
+  <C.Property @name="valign" @type="enum" @values={{array "top" "middle" "baseline" }} @default="top">
     Determines the vertical alignment for content in a table. Does not apply to table headers (`th`). See [MDN reference on vertical-align](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align) for more details.
   </C.Property>
   <C.Property @name="caption" @type="string">
