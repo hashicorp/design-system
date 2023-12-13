@@ -1,14 +1,14 @@
 ## Browser support
 
-The Modal component leverages the `<dialog>` element which is currently supported by all major browser vendors. To ensure support on older browser versions (e.g., Safari 14 or Internet Explorer 11) we rely on [a polyfill](https://github.com/GoogleChrome/dialog-polyfill) that is automatically loaded when needed.
+The Modal component leverages the `<dialog>` element which is [currently supported by all major browser vendors](https://caniuse.com/dialog). To ensure support on older browser versions (for example, Safari 14 or Internet Explorer 11) we rely on [a polyfill](https://github.com/GoogleChrome/dialog-polyfill) that is automatically loaded when needed.
 
 ## Page scroll
 
-When a Modal is open, the rest of the page is disabled (via `inert`). The page scrolling is also disabled by applying `overflow: hidden` to the `<body>` element, to make it clear to the user that the underlying elements are not interactive and to avoid confusion. Depending on users’ scroll bar settings, opening a Modal may cause slight layout shifts on the horizontal axis.
+When a Modal is open, the rest of the page becomes inert. The page scrolling is also disabled by applying `overflow: hidden` to the `<body>` element, to make it clear to the user that the underlying elements are not interactive and to avoid confusion. Depending on users’ scroll bar settings, opening a Modal may cause slight layout shifts on the horizontal axis.
 
 ## Positioning
 
-As an overlaying component, the `Hds::Modal` requires a high value on the z-axis. We are currently setting `50` as a default value, but we recommend you review the `z-index` values used across your project and either adjust them accordingly or increase this value by defining an override.
+As an overlaying component, the `Hds::Modal` is rendered on the [top layer](https://developer.mozilla.org/en-US/docs/Glossary/Top_layer), meaning it is always placed on top of all other elements in the page.
 
 ## Focus and focus trap
 
