@@ -18,10 +18,9 @@
       <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
         {{#each @model.DENSITIES as |density|}}
           <SF.Item @label={{if (eq density "medium") (concat (capitalize density) " (default)") (capitalize density)}}>
-            <Hds::Table @density={{density}}>
+            <Hds::Table @density={{density}} @isSelectable={{true}}>
               <:head as |H|>
                 <H.Tr>
-                  <H.ThSelectable />
                   <H.Th>Lorem</H.Th>
                   <H.Th>Ipsum</H.Th>
                   <H.Th>Dolor</H.Th>
@@ -29,13 +28,11 @@
               </:head>
               <:body as |B|>
                 <B.Tr>
-                  <B.TdSelectable />
                   <B.Td>Content</B.Td>
                   <B.Td>Content</B.Td>
                   <B.Td>Content</B.Td>
                 </B.Tr>
                 <B.Tr>
-                  <B.TdSelectable />
                   <B.Td>
                     Longer content that wraps.<br />
                     Lorem, ipsum dolor sit amet.
@@ -44,7 +41,6 @@
                   <B.Td>Content</B.Td>
                 </B.Tr>
                 <B.Tr>
-                  <B.TdSelectable />
                   <B.Td>Content</B.Td>
                   <B.Td>Content</B.Td>
                   <B.Td>Content</B.Td>
