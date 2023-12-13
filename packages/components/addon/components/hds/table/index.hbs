@@ -8,12 +8,10 @@
   {{else if @caption}}
     <caption class="sr-only">{{@caption}}</caption>
   {{/if}}
+
   <thead class="hds-table__thead">
     {{#if @columns}}
-      <Hds::Table::Tr>
-        {{#if @isSelectable}}
-          <Hds::Table::ThSelectable />
-        {{/if}}
+      <Hds::Table::Tr @isSelectable={{@isSelectable}}>
         {{#each @columns as |column|}}
           {{#if column.isSortable}}
             <Hds::Table::ThSort
@@ -38,9 +36,9 @@
     {{else}}
       {{yield
         (hash
-          Tr=(component "hds/table/tr")
-          Th=(component "hds/table/th")
-          ThSelectable=(component "hds/table/th-selectable")
+          Tr=(component "hds/table/tr" isSelectable=@isSelectable)
+          Th=(component "hds/table/th" @isSelectable)
+          ThSelectable=(component "hds/table/th-selectable" scope="col")
           ThSort=(component "hds/table/th-sort")
           sortBy=this.sortBy
           sortOrder=this.sortOrder
@@ -50,6 +48,7 @@
       }}
     {{/if}}
   </thead>
+
   <tbody class="hds-table__tbody">
     {{#if @columns}}
       {{! ----------------------------------------------------------------------------------------
@@ -62,7 +61,7 @@
           (hash
             Tr=(component "hds/table/tr" isSelectable=@isSelectable)
             Th=(component "hds/table/th" scope="row")
-            TdSelectable=(component "hds/table/td-selectable")
+            ThSelectable=(component "hds/table/th-selectable" scope="row")
             Td=(component "hds/table/td" align=@align)
             data=record
           )
@@ -75,7 +74,7 @@
           Tr=(component "hds/table/tr" isSelectable=@isSelectable)
           Th=(component "hds/table/th" scope="row")
           Td=(component "hds/table/td" align=@align)
-          TdSelectable=(component "hds/table/td-selectable")
+          ThSelectable=(component "hds/table/th-selectable" scope="row")
           sortBy=this.sortBy
           sortOrder=this.sortOrder
         )
