@@ -1,10 +1,10 @@
 ## Browser support
 
-The `Hds::Flyout` component leverages the `<dialog>` element which is [currently supported by all major browser vendors](https://caniuse.com/dialog). To ensure support on older browser versions (for example, Safari 14 or Internet Explorer 11) we rely on [a polyfill](https://github.com/GoogleChrome/dialog-polyfill) that is automatically loaded when needed.
+The Flyout component leverages the `<dialog>` element which is [currently supported by all major browser vendors](https://caniuse.com/dialog). To ensure support on older browser versions (for example, Safari 14 or Internet Explorer 11) we rely on [a polyfill](https://github.com/GoogleChrome/dialog-polyfill) that is automatically loaded when needed.
 
 ## Page scroll
 
-When an `Hds::Flyout` component is open, the rest of the page becomes inert. The page scrolling is also disabled by applying `overflow: hidden` to the `<body>` element, to make it clear to the user that the underlying elements are not interactive and to avoid confusion. Depending on users’ scroll bar settings, opening a Flyout may cause slight layout shifts on the horizontal axis.
+When an Flyout is open, the rest of the page becomes inert. The page scrolling is also disabled by applying `overflow: hidden` to the `<body>` element, to make it clear to the user that the underlying elements are not interactive and to avoid confusion. Depending on users’ scroll bar settings, opening a Flyout may cause slight layout shifts on the horizontal axis.
 
 ## Positioning
 
