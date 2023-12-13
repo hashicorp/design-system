@@ -2669,7 +2669,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/addon-shim@npm:^1.0.0, @embroider/addon-shim@npm:^1.2.0, @embroider/addon-shim@npm:^1.8.4, @embroider/addon-shim@npm:^1.8.6":
+"@embroider/addon-shim@npm:^1.0.0, @embroider/addon-shim@npm:^1.2.0, @embroider/addon-shim@npm:^1.8.4, @embroider/addon-shim@npm:^1.8.6, @embroider/addon-shim@npm:^1.8.7":
   version: 1.8.7
   resolution: "@embroider/addon-shim@npm:1.8.7"
   dependencies:
@@ -3400,6 +3400,7 @@ __metadata:
     "@ember/render-modifiers": "npm:^2.0.5"
     "@ember/string": "npm:^3.1.1"
     "@ember/test-waiters": "npm:^3.1.0"
+    "@embroider/addon-shim": "npm:^1.8.7"
     "@hashicorp/design-system-tokens": "npm:^1.9.0"
     "@hashicorp/ember-flight-icons": "npm:^4.0.4"
     dialog-polyfill: "npm:^0.5.6"
