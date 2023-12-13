@@ -16,6 +16,17 @@ module('Integration | Component | hds/table/tr', function (hooks) {
     assert.dom('#data-test-table-tr').hasClass('hds-table__tr');
   });
 
+  // CONTENT
+
+  test('it should render the yielded content', async function (assert) {
+    await render(
+      hbs`<Hds::Table::Tr id="data-test-table-tr"><td></td></Hds::Table::Tr>`
+    );
+    assert.dom('#data-test-table-tr > td').exists();
+  });
+
+  // ATTRIBUTES
+
   test('it should support splattributes', async function (assert) {
     await render(hbs`<Hds::Table::Tr id="data-test-table-tr" lang="es" />`);
     assert.dom('#data-test-table-tr').hasAttribute('lang', 'es');
