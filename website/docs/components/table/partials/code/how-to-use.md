@@ -454,6 +454,29 @@ To create a column that has right-aligned content, set `@align` to `right` on bo
 </Hds::Table>
 ```
 
+### Tooltip
+
+Whenever possible [table headers](/table#headers) should be clear, concise, and straightforward. But there could be cases in which the label is not sufficient by itself and extra information is required. In this case it's possible to show a tooltip next to the label in the header:
+
+```handlebars
+<Hds::Table
+  @model={{this.model.myDemoData}}
+  @columns={{array
+    (hash key="artist" label="Artist")
+    (hash key="album" label="Album" tooltip="Title of the album (in its first release)")
+    (hash key="vinyl-cost" label="Vinil Cost (USD)" isSortable=true tooltip="Cost of the vinyl (adjusted for inflation)" align="right")
+  }}
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td @align="right">{{B.data.vinyl-cost}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::Table>
+```
+
 ### Scrollable table
 
 Consuming a large amount of data in a tabular format can lead to an intense cognitive load for the user. As a general principle, care should be taken to simplify the information within a table as much as possible.

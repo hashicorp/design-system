@@ -63,7 +63,7 @@ export default class Index extends Component {
           year: '1965',
           quote:
             'By fusing the Chuck Berry beat of the Rolling Stones and the Beatles with the leftist, folk tradition of the folk revival, Dylan really had brought it back home, creating a new kind of rock & roll that made every type of artistic tradition available to rock.',
-          'vinyl-cost': '229.00',
+          'vinyl-cost': '29.00',
           icon: 'nomad-color',
           'badge-type': 'outlined',
           'badge-color': 'success',
