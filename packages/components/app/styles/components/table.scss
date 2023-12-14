@@ -133,6 +133,7 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
     color: var(--token-color-foreground-primary);
     background-color: var(--token-color-surface-interactive);
     border-color: var(--token-color-border-strong);
+    box-shadow: var(--token-elevation-low-box-shadow);
     cursor: pointer;
   }
 
@@ -143,6 +144,7 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
     color: var(--token-color-foreground-primary);
     background-color: var(--token-color-surface-interactive-active);
     border-color: var(--token-color-border-strong);
+    box-shadow: none;
   }
 }
 
