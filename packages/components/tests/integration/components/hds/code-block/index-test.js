@@ -5,7 +5,12 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
+import {
+  render,
+  settled,
+  resetOnerror,
+  setupOnerror,
+} from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/code-block/index', function (hooks) {
@@ -31,6 +36,23 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
     assert
       .dom('#test-code-block pre code')
       .containsText("console.log('Hello world');");
+  });
+
+  // DYNAMIC CONTENT
+
+  test('it renders the passed in dynamic content', async function (assert) {
+    this.set('value', "console.log('Hello world');");
+    await render(hbs`
+      <Hds::CodeBlock @value={{this.value}} id="test-code-block" />
+    `);
+    assert
+      .dom('#test-code-block pre code')
+      .hasText("console.log('Hello world');");
+    this.set('value', "console.log('Lorem ipsum');");
+    await settled();
+    assert
+      .dom('#test-code-block pre code')
+      .hasText("console.log('Lorem ipsum');");
   });
 
   // CONTEXTUAL COMPONENTS
