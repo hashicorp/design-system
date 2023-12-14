@@ -37,8 +37,8 @@
       {{yield
         (hash
           Tr=(component "hds/table/tr" isSelectable=@isSelectable)
-          Th=(component "hds/table/th" @isSelectable)
-          ThSelectable=(component "hds/table/th-selectable" scope="col")
+          Th=(component "hds/table/th")
+          ThSelectable=(component "hds/table/th-selectable")
           ThSort=(component "hds/table/th-sort")
           sortBy=this.sortBy
           sortOrder=this.sortOrder
