@@ -19,7 +19,7 @@ We recommend using the Field component because it provides built-in accessibilit
 
 ### Form::Textarea::Field
 
-The basic invocation requires a `Label`. This creates: 
+The basic invocation requires a `Label`. This creates:
 
 - a `<label>` element with a `for` attribute automatically associated with the textarea `ID` attribute.
 - a `<textarea>` control with an automatically generated `ID` attribute.
@@ -112,6 +112,8 @@ When the user input needs to be in a certain range, use both `@minLength` and `@
 </Hds::Form::Textarea::Field>
 ```
 
+##### Custom message
+
 For custom messages, you can use the following arguments to build a relevant message: `currentLength` (the current number of characters in the associated form control), `maxLength` (the maximum number of characters allowed in the associated form control), `minLength` (the minimum number of characters required in the associated form control), `remaining` (the difference between `maxLength` and `currentLength`), and `shortfall` (the difference between `currentLength` and `minLength`).
 
 ```handlebars
@@ -122,6 +124,8 @@ For custom messages, you can use the following arguments to build a relevant mes
   </F.CharacterCount>
 </Hds::Form::Textarea::Field>
 ```
+
+##### Validation using the `@onInput` callback
 
 You can use the `@onInput` callback function to dynamically raise an error based on the number of characters entered into a field. The function receives as argument an object with the following properties: `inputControl` (a reference to the associated form control node element), `currentLength` (the current number of characters in the associated form control), `maxLength` (the maximum number of characters allowed in the associated form control), `minLength` (the minimum number of characters required in the associated form control), `remaining` (the difference between `maxLength` and `currentLength`), and `shortfall` (the difference between `currentLength` and `minLength`).
 
@@ -212,7 +216,7 @@ Because this component supports use of `...attributes`, you can use all the usua
 
 #### Custom width
 
-By default, the textarea control width is set to fill the parent container. 
+By default, the textarea control width is set to fill the parent container.
 
 Pass a custom width for the control using the `@width` argument.
 

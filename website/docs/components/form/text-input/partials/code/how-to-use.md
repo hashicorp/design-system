@@ -10,7 +10,7 @@ We omit the `name` and `ID` attributes in the examples since processing of the d
 There are two ways to use the Text Input component:
 
 - `Form::TextInput::Base` - the base component: just the `<input>` control.
-- `Form::TextInput::Field` - the field component: the `<input>` control, with label, helper text, and error messaging (in a wrapping container). 
+- `Form::TextInput::Field` - the field component: the `<input>` control, with label, helper text, and error messaging (in a wrapping container).
 
 We recommend using the Field component as it provides built-in accessibility functionality. Use the Base component if needing to achieve custom layouts or for special use cases not covered by the Field component.
 
@@ -131,6 +131,8 @@ When the user input needs to be in a certain range, use both `@minLength` and `@
 </Hds::Form::TextInput::Field>
 ```
 
+##### Custom message
+
 For custom messages, you can use the following arguments to build a relevant message: `currentLength` (the current number of characters in the associated form control), `maxLength` (the maximum number of characters allowed in the associated form control), `minLength` (the minimum number of characters required in the associated form control), `remaining` (the difference between `maxLength` and `currentLength`), and `shortfall` (the difference between `currentLength` and `minLength`).
 
 ```handlebars
@@ -141,6 +143,8 @@ For custom messages, you can use the following arguments to build a relevant mes
   </F.CharacterCount>
 </Hds::Form::TextInput::Field>
 ```
+
+##### Validation using the `@onInput` callback
 
 You can use the `@onInput` callback function to dynamically raise an error based on the number of characters entered into a field. The function receives as argument an object with the following properties: `inputControl` (a reference to the associated form control node element), `currentLength` (the current number of characters in the associated form control), `maxLength` (the maximum number of characters allowed in the associated form control), `minLength` (the minimum number of characters required in the associated form control), `remaining` (the difference between `maxLength` and `currentLength`), and `shortfall` (the difference between `currentLength` and `minLength`).
 
@@ -230,7 +234,7 @@ Because this component supports use of `...attributes`, you can use all the usua
 
 #### Custom width
 
-By default, the input control width is set to fill the parent container, with the exception of "date" and "time" input types. 
+By default, the input control width is set to fill the parent container, with the exception of "date" and "time" input types.
 
 Pass a custom width for the control using the `@width` argument.
 

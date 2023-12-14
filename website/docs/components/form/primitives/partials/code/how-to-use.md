@@ -101,6 +101,8 @@ When the user input needs to be in a certain range, use both `@minLength` and `@
 <Hds::Form::CharacterCount @minLength={{3}} @maxLength={{10}} @controlId="input-character-count-min-max"/>
 ```
 
+##### Custom message
+
 For custom messages, you can use the following arguments to build a relevant message: `currentLength` (the current number of characters in the associated form control), `maxLength` (the maximum number of characters allowed in the associated form control), `minLength` (the minimum number of characters required in the associated form control), `remaining` (the difference between `maxLength` and `currentLength`), and `shortfall` (the difference between `currentLength` and `minLength`).
 
 ```handlebars
