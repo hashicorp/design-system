@@ -6,6 +6,10 @@
 // TOOLTIP
 
 body.components-tooltip {
+  .shw-component-tooltip-text-alignment {
+    padding-bottom: 50px;
+  }
+
   .shw-component-tooltip-placement-grid {
     grid-gap: 10px;
     grid-template-rows: repeat(5, 40px) !important;
