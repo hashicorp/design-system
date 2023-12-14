@@ -44,10 +44,10 @@ jobs:
         run: yarn install --immutable
       - name: Lint
         run: yarn run lint
-        working-directory: packages/components
+        working-directory: showcase
       - name: Run Tests
         run: yarn run test:ember:percy
-        working-directory: packages/components
+        working-directory: showcase
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS }}
 
@@ -79,7 +79,7 @@ jobs:
       - name: Install Dependencies
         run: yarn install --immutable
       - name: Run Tests
-        working-directory: packages/components
+        working-directory: showcase
         run: yarn ember try:one ${{ matrix.try-scenario }}
         env:
           PERCY_ENABLE: 0
