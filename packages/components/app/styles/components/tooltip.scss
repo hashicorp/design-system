@@ -79,6 +79,8 @@
     // prevent this container from potentially inheriting other values
     // such as `white-space: nowrap` that would cause content overflow
     white-space: normal;
+    // we want to have the text always aligned to the left (by design
+    text-align: left;
   }
 
   // works with Tippy's custom SVG arrow variation:
