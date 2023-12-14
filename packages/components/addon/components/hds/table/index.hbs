@@ -38,7 +38,6 @@
         (hash
           Tr=(component "hds/table/tr" isSelectable=@isSelectable)
           Th=(component "hds/table/th")
-          ThSelectable=(component "hds/table/th-selectable")
           ThSort=(component "hds/table/th-sort")
           sortBy=this.sortBy
           sortOrder=this.sortOrder
@@ -59,9 +58,8 @@
       {{#each (sort-by this.getSortCriteria @model) key=this.identityKey as |record|}}
         {{yield
           (hash
-            Tr=(component "hds/table/tr" isSelectable=@isSelectable)
+            Tr=(component "hds/table/tr" isSelectable=@isSelectable scope="row")
             Th=(component "hds/table/th" scope="row")
-            ThSelectable=(component "hds/table/th-selectable" scope="row")
             Td=(component "hds/table/td" align=@align)
             data=record
           )
@@ -71,10 +69,9 @@
     {{else}}
       {{yield
         (hash
-          Tr=(component "hds/table/tr" isSelectable=@isSelectable)
+          Tr=(component "hds/table/tr" isSelectable=@isSelectable scope="row")
           Th=(component "hds/table/th" scope="row")
           Td=(component "hds/table/td" align=@align)
-          ThSelectable=(component "hds/table/th-selectable" scope="row")
           sortBy=this.sortBy
           sortOrder=this.sortOrder
         )
