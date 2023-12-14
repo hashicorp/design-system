@@ -59,6 +59,7 @@
     "@babel/preset-typescript": "^7.23.3",
     "@embroider/addon-dev": "^4.1.2",
     "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-node-resolve": "^15.2.3",
     "rollup": "^4.9.0"
   }
 }
