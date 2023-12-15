@@ -17,6 +17,10 @@ export default class HdsTableIndexComponent extends Component {
   @tracked sortBy = this.args.sortBy;
   @tracked sortOrder = this.args.sortOrder || 'asc';
 
+  @tracked isSelected = false;
+  // @tracked checkboxIds = [];
+  // @tracked selectedCheckboxIds = [];
+
   /**
    * @param getSortCriteria
    * @type {string | function}
@@ -178,5 +182,15 @@ export default class HdsTableIndexComponent extends Component {
     if (typeof onSort === 'function') {
       onSort(this.sortBy, this.sortOrder);
     }
+  }
+
+  // @action
+  // addCheckbox(id) {
+  //   this.checkboxIds.push(id);
+  // }
+
+  @action
+  onChangeThSelectable() {
+    this.isSelected = !this.isSelected;
   }
 }
