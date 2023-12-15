@@ -7,7 +7,8 @@
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|
 | Label            | Required                                        |
-| Sort direction   | Options: none, ascending, descending            |
+| Sort             | Optional; indeterminate, ascending, descending  |
+| Tooltip          | Optional                                        |
 | Container        | Required                                        |
 
 ### Table cells
