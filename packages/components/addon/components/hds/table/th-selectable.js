@@ -27,9 +27,7 @@ export default class HdsTableThSelectableComponent extends Component {
 
   @action
   didInsert(element) {
-    const dataScope = element.getAttribute('data-scope');
-
-    if (dataScope === 'row') {
+    if (this.args.scope === 'row') {
       let { didInsert } = this.args;
       if (typeof didInsert === 'function') {
         didInsert(element.id);
