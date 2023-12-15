@@ -7,26 +7,15 @@
     // layout, which is not resolvable with the Node resolution algorithm, to
     // work with TypeScript.
     "baseUrl": ".",
+    "allowJs": true,
+    "allowImportingTsExtensions": true,
     "skipLibCheck": true,
     "paths": {
-      "dummy/tests/*": [
-        "tests/*"
-      ],
-      "dummy/*": [
-        "tests/dummy/app/*",
-        "app/*"
-      ],
       "@hashicorp/design-system-components": [
-        "addon"
+        "src"
       ],
       "@hashicorp/design-system-components/*": [
-        "addon/*"
-      ],
-      "@hashicorp/design-system-components/test-support": [
-        "addon-test-support"
-      ],
-      "@hashicorp/design-system-components/test-support/*": [
-        "addon-test-support/*"
+        "src/*"
       ],
       "*": [
         "types/*"
@@ -34,14 +23,10 @@
     }
   },
   "include": [
-    "app/**/*",
-    "addon/**/*",
-    "tests/**/*",
-    "types/**/*",
-    "test-support/**/*",
-    "addon-test-support/**/*"
+    "src/**/*",
+    "unpublished-development-types/**/*"
   ],
   "glint": {
-    "environment": "ember-loose"
+    "environment": ["ember-loose", "ember-template-imports"],
   }
 }
