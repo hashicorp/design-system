@@ -51,11 +51,6 @@
     "@hashicorp/ember-flight-icons": "workspace:^",
     "@percy/cli": "^1.27.3",
     "@percy/ember": "^4.2.0",
-    "@tsconfig/ember": "^3.0.2",
-    "@types/ember-qunit": "^6.1.1",
-    "@types/ember-resolver": "^9.0.0",
-    "@types/qunit": "^2.19.7",
-    "@types/rsvp": "^4.0.6",
     "broccoli-asset-rev": "^3.0.0",
     "ember-a11y-testing": "^6.1.1",
     "ember-auto-import": "^2.6.3",
@@ -100,7 +95,6 @@
     "stylelint": "^15.11.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard-scss": "^11.1.0",
-    "typescript": "^5.2.2",
     "webpack": "^5.89.0"
   },
   "engines": {

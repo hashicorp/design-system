@@ -16,6 +16,20 @@
   },
   "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
+  "scripts": {
+    "build": "rollup --config",
+    "prepublishOnly": "rollup --config",
+    "start": "rollup --config --watch",
+    "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
+    "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",
+    "lint:css": "stylelint \"src/styles/**/*.scss\"",
+    "lint:css:fix": "npm-run-all \"lint:css --fix\"",
+    "lint:hbs": "ember-template-lint .",
+    "lint:hbs:fix": "ember-template-lint . --fix",
+    "lint:js": "eslint . --cache",
+    "lint:js:fix": "eslint . --fix",
+    "lint:types": "tsc --noEmit"
+  },
   "dependencies": {
     "@ember/render-modifiers": "^2.0.5",
     "@ember/string": "^3.1.1",
@@ -42,24 +56,60 @@
     "sass": "^1.69.5",
     "tippy.js": "^6.3.7"
   },
-  "peerDependencies": {
-    "@babel/core": "^7.23.2",
-    "ember-source": "~5.3.0"
-  },
-  "engines": {
-    "node": "16.* || >= 18"
-  },
-  "ember": {
-    "edition": "octane"
-  },
   "devDependencies": {
     "@babel/core": "^7.23.6",
     "@babel/plugin-proposal-decorators": "^7.23.6",
     "@babel/plugin-transform-class-properties": "^7.23.3",
+    "@babel/plugin-transform-private-methods": "^7.23.3",
+    "@babel/plugin-transform-typescript": "^7.23.6",
     "@babel/preset-typescript": "^7.23.3",
     "@embroider/addon-dev": "^4.1.2",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "rollup": "^4.9.0"
+    "@tsconfig/ember": "^3.0.2",
+    "@types/ember-qunit": "^6.1.1",
+    "@types/ember-resolver": "^9.0.0",
+    "@types/qunit": "^2.19.7",
+    "@types/rsvp": "^4.0.6",
+    "ember-template-lint": "^4.18.2",
+    "ember-template-lint-plugin-prettier": "^4.2.0",
+    "eslint": "^8.52.0",
+    "eslint-config-prettier": "^8.10.0",
+    "eslint-plugin-ember": "^11.11.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-qunit": "^8.0.1",
+    "npm-run-all": "^4.1.5",
+    "rollup": "^4.9.0",
+    "rollup-plugin-scss": "^4.0.0",
+    "rollup-plugin-ts": "^3.4.5",
+    "stylelint": "^15.11.0",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard-scss": "^11.1.0",
+    "typescript": "^5.2.2"
+  },
+  "peerDependencies": {
+    "@babel/core": "^7.23.2",
+    "ember-source": "~5.3.0"
+  },
+  "ember": {
+    "edition": "octane"
+  },
+  "ember-addon": {
+    "main": "addon-main.js",
+    "type": "addon",
+    "version": 2
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./*": "./dist/*",
+    "./addon-main.js": "./addon-main.js"
+  },
+  "files": [
+    "addon-main.js",
+    "dist"
+  ],
+  "engines": {
+    "node": "16.* || >= 18"
   }
 }
