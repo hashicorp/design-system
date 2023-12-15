@@ -11,7 +11,7 @@
 
   <thead class="hds-table__thead">
     {{#if @columns}}
-      <Hds::Table::Tr @isSelectable={{@isSelectable}}>
+      <Hds::Table::Tr @isSelectable={{@isSelectable}} @onChange={{this.onChangeThSelectable}}>
         {{#each @columns as |column|}}
           {{#if column.isSortable}}
             <Hds::Table::ThSort
@@ -36,7 +36,7 @@
     {{else}}
       {{yield
         (hash
-          Tr=(component "hds/table/tr" isSelectable=@isSelectable)
+          Tr=(component "hds/table/tr" isSelectable=@isSelectable onChange=this.onChangeThSelectable)
           Th=(component "hds/table/th")
           ThSort=(component "hds/table/th-sort")
           sortBy=this.sortBy
@@ -58,7 +58,12 @@
       {{#each (sort-by this.getSortCriteria @model) key=this.identityKey as |record|}}
         {{yield
           (hash
-            Tr=(component "hds/table/tr" isSelectable=@isSelectable scope="row")
+            Tr=(component
+              "hds/table/tr"
+              isSelectable=@isSelectable
+              isSelected=this.isSelected
+              scope="row"
+            )
             Th=(component "hds/table/th" scope="row")
             Td=(component "hds/table/td" align=@align)
             data=record
@@ -69,7 +74,9 @@
     {{else}}
       {{yield
         (hash
-          Tr=(component "hds/table/tr" isSelectable=@isSelectable scope="row")
+          Tr=(component
+            "hds/table/tr" isSelectable=@isSelectable isSelected=this.isSelected scope="row"
+          )
           Th=(component "hds/table/th" scope="row")
           Td=(component "hds/table/td" align=@align)
           sortBy=this.sortBy

@@ -2,9 +2,15 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
+
 <tr class="hds-table__tr" ...attributes>
   {{#if @isSelectable}}
-    <Hds::Table::ThSelectable @scope={{@scope}} />
+    <Hds::Table::ThSelectable
+      @isSelected={{@isSelected}}
+      @onChange={{@onChange}}
+      @scope={{@scope}}
+      @didInsert={{@didInsert}}
+    />
   {{/if}}
 
   {{yield}}
