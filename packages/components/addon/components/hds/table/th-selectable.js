@@ -15,7 +15,7 @@ export default class HdsTableThSelectableComponent extends Component {
   checkboxId = 'checkbox-' + guidFor(this);
 
   @action
-  onChange(element) {
+  onChange() {
     console.log('onChange called!');
 
     let { onChange } = this.args;
@@ -25,14 +25,15 @@ export default class HdsTableThSelectableComponent extends Component {
     }
   }
 
-  // /**
-  //  * Get the class names to apply to the component.
-  //  * @method classNames
-  //  * @return {string} The "class" attribute to apply to the component.
-  //  */
-  // get classNames() {
-  //   let classes = ['hds-table__th--is-selectable'];
+  @action
+  didInsert(element) {
+    const dataScope = element.getAttribute('data-scope');
 
-  //   return classes.join(' ');
-  // }
+    if (dataScope === 'row') {
+      let { didInsert } = this.args;
+      if (typeof didInsert === 'function') {
+        didInsert(element.id);
+      }
+    }
+  }
 }
