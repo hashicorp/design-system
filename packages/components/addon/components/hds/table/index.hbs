@@ -58,12 +58,7 @@
       {{#each (sort-by this.getSortCriteria @model) key=this.identityKey as |record|}}
         {{yield
           (hash
-            Tr=(component
-              "hds/table/tr"
-              isSelectable=@isSelectable
-              isSelected=this.isSelected
-              scope="row"
-            )
+            Tr=(component "hds/table/tr" isSelectable=@isSelectable isSelected=this.isSelected scope="row")
             Th=(component "hds/table/th" scope="row")
             Td=(component "hds/table/td" align=@align)
             data=record
@@ -74,9 +69,7 @@
     {{else}}
       {{yield
         (hash
-          Tr=(component
-            "hds/table/tr" isSelectable=@isSelectable isSelected=this.isSelected scope="row"
-          )
+          Tr=(component "hds/table/tr" isSelectable=@isSelectable isSelected=this.isSelected scope="row")
           Th=(component "hds/table/th" scope="row")
           Td=(component "hds/table/td" align=@align)
           sortBy=this.sortBy
