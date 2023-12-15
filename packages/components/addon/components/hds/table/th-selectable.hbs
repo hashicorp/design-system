@@ -5,5 +5,13 @@
 
 <Hds::Table::Th class="hds-table__th--is-selectable" @scope={{@scope}} ...attributes>
   {{! ToDo: Improve aria-label }}
-  <Hds::Form::Checkbox::Base class="hds-table__checkbox" aria-label="select/deselect all" />
+  <Hds::Form::Checkbox::Base
+    class="hds-table__checkbox"
+    id={{this.checkboxId}}
+    aria-label="select/deselect all"
+    {{on "change" this.onChange}}
+    {{did-insert this.didInsert}}
+    checked={{@isSelected}}
+    data-scope={{@scope}}
+  />
 </Hds::Table::Th>
