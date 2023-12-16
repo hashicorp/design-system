@@ -12,7 +12,11 @@
 
   <thead class="hds-table__thead">
     {{#if @columns}}
-      <Hds::Table::Tr @isSelectable={{@isSelectable}} @onChange={{this.onSelectionChange}}>
+      <Hds::Table::Tr
+        @isSelectable={{@isSelectable}}
+        @onChange={{this.onSelectionChange}}
+        @didInsert={{this.addCheckbox}}
+      >
         {{#each @columns as |column|}}
           {{#if column.isSortable}}
             <Hds::Table::ThSort
@@ -37,7 +41,9 @@
     {{else}}
       {{yield
         (hash
-          Tr=(component "hds/table/tr" isSelectable=@isSelectable onChange=this.onSelectionChange)
+          Tr=(component
+            "hds/table/tr" isSelectable=@isSelectable onChange=this.onSelectionChange didInsert=this.addCheckbox
+          )
           Th=(component "hds/table/th")
           ThSort=(component "hds/table/th-sort")
           sortBy=this.sortBy
