@@ -17,9 +17,7 @@ export default class HdsTableIndexComponent extends Component {
   @tracked sortBy = this.args.sortBy;
   @tracked sortOrder = this.args.sortOrder || 'asc';
 
-  @tracked isSelected = false;
-  // @tracked checkboxIds = [];
-  // @tracked selectedCheckboxIds = [];
+  @tracked checkboxRowItems = [];
 
   /**
    * @param getSortCriteria
@@ -184,13 +182,32 @@ export default class HdsTableIndexComponent extends Component {
     }
   }
 
-  // @action
-  // addCheckbox(id) {
-  //   this.checkboxIds.push(id);
-  // }
+  @action
+  addCheckbox(checkbox) {
+    this.checkboxRowItems.push(checkbox);
+  }
 
   @action
-  onChangeThSelectable() {
-    this.isSelected = !this.isSelected;
+  onSelectionChange(id, checked) {
+    if (id === 'all') {
+      this.changeAllRowsSelection(checked);
+      let { onSelectionChange } = this.args;
+      if (typeof onSelectionChange === 'function') {
+        onSelectionChange(this.checkboxRowItems);
+      }
+    } else {
+      let { onSelectionChange } = this.args;
+      if (typeof onSelectionChange === 'function') {
+        onSelectionChange(
+          this.checkboxRowItems.filter((checkbox) => checkbox.id === id)
+        );
+      }
+    }
+  }
+
+  changeAllRowsSelection(checked) {
+    this.checkboxRowItems.forEach((checkbox) => {
+      checkbox.checked = checked;
+    });
   }
 }
