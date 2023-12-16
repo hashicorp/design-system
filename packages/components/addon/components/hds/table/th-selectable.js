@@ -29,11 +29,9 @@ export default class HdsTableThSelectableComponent extends Component {
 
   @action
   didInsert(element) {
-    if (this.args.scope === 'row') {
-      let { didInsert } = this.args;
-      if (typeof didInsert === 'function') {
-        didInsert(element);
-      }
+    let { didInsert } = this.args;
+    if (typeof didInsert === 'function') {
+      didInsert(element, this.args.scope);
     }
   }
 }

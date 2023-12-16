@@ -17,7 +17,8 @@ export default class HdsTableIndexComponent extends Component {
   @tracked sortBy = this.args.sortBy;
   @tracked sortOrder = this.args.sortOrder || 'asc';
 
-  @tracked checkboxRowItems = [];
+  checkboxHeaderItem;
+  checkboxRowItems = [];
 
   /**
    * @param getSortCriteria
@@ -183,8 +184,12 @@ export default class HdsTableIndexComponent extends Component {
   }
 
   @action
-  addCheckbox(checkbox) {
-    this.checkboxRowItems.push(checkbox);
+  addCheckbox(checkbox, scope) {
+    if (scope === 'row') {
+      this.checkboxRowItems.push(checkbox);
+    } else if (scope === 'col') {
+      this.checkboxHeaderItem = checkbox;
+    }
   }
 
   @action
@@ -196,6 +201,8 @@ export default class HdsTableIndexComponent extends Component {
         onSelectionChange(this.checkboxRowItems);
       }
     } else {
+      this.setTableState();
+
       let { onSelectionChange } = this.args;
       if (typeof onSelectionChange === 'function') {
         onSelectionChange(
@@ -209,5 +216,23 @@ export default class HdsTableIndexComponent extends Component {
     this.checkboxRowItems.forEach((checkbox) => {
       checkbox.checked = checked;
     });
+  }
+
+  setTableState() {
+    let rowCount = this.checkboxRowItems.length;
+    let selectedRowCount = this.checkboxRowItems.filter(
+      (checkbox) => checkbox.checked === true
+    ).length;
+
+    if (selectedRowCount === 0) {
+      this.checkboxHeaderItem.checked = false;
+      this.checkboxHeaderItem.indeterminate = false;
+    } else if (selectedRowCount === rowCount) {
+      this.checkboxHeaderItem.checked = true;
+      this.checkboxHeaderItem.indeterminate = false;
+    } else {
+      this.checkboxHeaderItem.checked = false;
+      this.checkboxHeaderItem.indeterminate = true;
+    }
   }
 }
