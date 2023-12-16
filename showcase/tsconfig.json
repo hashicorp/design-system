@@ -1,0 +1,23 @@
+{
+  "extends": "@tsconfig/ember/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "noUncheckedIndexedAccess": true,
+    "paths": {
+      "showcase/tests/*": [
+        "tests/*"
+      ],
+      "showcase/*": [
+        "app/*"
+      ],
+      "*": [
+        "types/*"
+      ]
+    },
+    "skipLibCheck": true,
+    "strict": true
+  },
+  "glint": {
+    "environment": "ember-loose"
+  }
+}

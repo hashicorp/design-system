@@ -25,6 +25,7 @@ module.exports = {
     // node files
     {
       files: [
+        './addon-main.cjs',
         './.eslintrc.js',
         './.prettierrc.js',
         './.template-lintrc.js',

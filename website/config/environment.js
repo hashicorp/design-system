@@ -21,6 +21,10 @@ module.exports = function (environment) {
       scrollWhenAfterRender: true,
     },
 
+    emberFlightIcons: {
+      lazyEmbed: true,
+    },
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
