@@ -78,6 +78,11 @@ export default class ComponentsTableController extends Controller {
     }
   }
 
+  @action
+  onSelectionChange(selection) {
+    console.log(selection);
+  }
+
   get sortedModelClusters__demo3() {
     const clonedModelClusters = Array.from(this.model.clusters);
     if (this.customSortBy_demo3 === 'peer-name') {

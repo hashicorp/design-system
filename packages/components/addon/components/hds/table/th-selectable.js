@@ -15,13 +15,15 @@ export default class HdsTableThSelectableComponent extends Component {
   checkboxId = 'checkbox-' + guidFor(this);
 
   @action
-  onChange() {
-    console.log('onChange called!');
-
+  onChange(event) {
     let { onChange } = this.args;
-
     if (typeof onChange === 'function') {
-      onChange();
+      let { scope } = this.args;
+      if (scope === 'col') {
+        onChange('all', event.target.checked);
+      } else if (scope === 'row') {
+        onChange(event.target.id, event.target.checked);
+      }
     }
   }
 
@@ -30,7 +32,7 @@ export default class HdsTableThSelectableComponent extends Component {
     if (this.args.scope === 'row') {
       let { didInsert } = this.args;
       if (typeof didInsert === 'function') {
-        didInsert(element.id);
+        didInsert(element);
       }
     }
   }
