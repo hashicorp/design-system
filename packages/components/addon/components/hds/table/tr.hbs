@@ -6,7 +6,7 @@
 <tr class="hds-table__tr" ...attributes>
   {{#if @isSelectable}}
     <Hds::Table::ThSelectable
-      @scope={{@scope}}
+      @scope={{(or @scope "col")}}
       @isSelected={{@isSelected}}
       @didInsert={{@didInsert}}
       @onChange={{@onChange}}

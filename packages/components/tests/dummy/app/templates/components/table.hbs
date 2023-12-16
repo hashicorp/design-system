@@ -18,7 +18,7 @@
       <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
         {{#each @model.DENSITIES as |density|}}
           <SF.Item @label={{if (eq density "medium") (concat (capitalize density) " (default)") (capitalize density)}}>
-            <Hds::Table @density={{density}} @isSelectable={{true}}>
+            <Hds::Table @density={{density}} @isSelectable={{true}} @onSelectionChange={{this.onSelectionChange}}>
               <:head as |H|>
                 <H.Tr>
                   <H.Th>Lorem</H.Th>
@@ -59,6 +59,7 @@
             <Hds::Table
               @density={{density}}
               @isSelectable={{true}}
+              @onSelectionChange={{this.onSelectionChange}}
               @model={{this.model.selectableData}}
               @columns={{array
                 (hash key="lorem" label="Lorem")
