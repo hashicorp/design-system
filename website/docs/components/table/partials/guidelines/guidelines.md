@@ -157,24 +157,31 @@ Row placement determines the visual styling based on where the row is placed rel
 - If content is largely string/text-based, `short` allows for more content to be displayed within the page.
 - While denser content allows for more rows to be displayed within a single page, it also makes comprehension and scanning more difficult.
 
-## Multi-select
+## Multi-Select
 
-Multi-selection allows users to select multiple rows from a dataset for batch operations such as delete, move, or update, enhancing efficiency.
+Multi-select enables users to select multiple rows from a dataset, significantly enhancing the efficiency of batch operations like delete, move, or update. This functionality is key for effective data management, especially in large datasets.
 
-Indeterminate State in Rows/Results:
-It is recommended to not use an indeterminate state within individual rows. This approach is more effectively applied to the global selection checkbox, as it helps to avoid potential confusion at the row level.
+!!! Info 
 
-### Patterns
+Avoid using indeterminate states in individual rows. It's more effective at the global selection checkbox to reduce confusion.
+!!!
 
-Global Selection:
-Enables selecting all items in a dataset through a single action, usually a master checkbox, making performing actions on the entire page easy.
+<video width="100%" controls loop>
+  <source
+    src="/assets/components/table/table-multi-select-basic-interaction.mp4"
+    type="video/mp4"
+  />
+</video>
 
-Global Actions:
-These operations apply to all selected rows (i.e., delete or move), allowing quick control of multiple rows on other pages within the dataset.
+### Suggested Application
 
-Number of Selected Items:
-Shows a count of selected rows, updated as selections change, providing a clear overview of user selections.
+- For global selection and actions we recommend a master checkbox at the top of the table to select all dataset items in one click, simplifying bulk operations. The interface should allow operations like select all (rows) or deselct all (rows), and delete, or move to be applied to all selected rows for quick and efficient control across multiple pages.
+- It is beneficial to display a dynamically updating count of selected rows. This feature provides a continuous and straightforward overview of user selections, adjusting in real-time as selections are made or changed.
+- When pagination is used in a table, maintain user selections as consistent and manageable across different pages.
 
-Selection in Paginated Tables:
-In paginated tables, selections should be manageable across pages, maintaining the integrity of user choices throughout the dataset.
-
+<video width="100%" controls loop>
+  <source
+    src="/assets/components/table/table-multi-select-advance-interaction.mp4"
+    type="video/mp4"
+  />
+</video>
