@@ -144,19 +144,17 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
   }
 }
 
-.hds-table__th-button--sort {
-  .hds-table__th--is-sorted & {
-    color: var(--token-color-foreground-action);
+.hds-table__th-button--is-sorted {
+  color: var(--token-color-foreground-action);
 
-    &:hover,
-    &.mock-hover {
-      color: var(--token-color-foreground-action-hover);
-    }
+  &:hover,
+  &.mock-hover {
+    color: var(--token-color-foreground-action-hover);
+  }
 
-    &:active,
-    &.mock-active {
-      color: var(--token-color-foreground-action-active);
-    }
+  &:active,
+  &.mock-active {
+    color: var(--token-color-foreground-action-active);
   }
 }
 
