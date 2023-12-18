@@ -14,8 +14,8 @@
 The Copy Button comes in small and medium sizes. Use the size that best fits the hierarchy of the UI.
 
 <Doc::Layout @spacing="16px">
-<Hds::Copy::Button @text="Copy" @size="small" />
-<Hds::Copy::Button @text="Copy" @size="medium" />
+  <Hds::Copy::Button @text="Copy" @size="small" />
+  <Hds::Copy::Button @text="Copy" @size="medium" />
 </Doc::Layout>
 
 ## Placement
@@ -74,6 +74,3 @@ In the case of a multi-line input (e.g., a [Textarea](/components/form/textarea)
 ![Simple example composing a multiline Textarea with the CopyButton](/assets/components/copy/copy-button-composition-multi-line-input-simple.png)
 
 ![A more complex example composing a multiline Textarea with the CopyButton](/assets/components/copy/copy-button-composition-multi-line-input-complex.png)
-
-
-
