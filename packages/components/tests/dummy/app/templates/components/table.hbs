@@ -1127,6 +1127,8 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>Td</Shw::Text::H3>
 
   <Shw::Flex @label="Horizontal alignment" as |SF|>
@@ -1355,4 +1357,39 @@
       </Hds::Table>
     </SF.Item>
   </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>ThButtonTooltip</Shw::Text::H3>
+
+  <Shw::Grid @label="Interactive states" @columns={{4}} as |SG|>
+    {{#each @model.STATES as |state|}}
+      <SG.Item @label={{(capitalize state)}}>
+        <Hds::Table::ThButtonTooltip @tooltip="Here is more information" mock-state-value={{state}} />
+      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>ThButtonSort</Shw::Text::H3>
+
+  <Shw::Grid @label="Interactive states + Sorting order" @columns={{4}} as |SG|>
+    {{#each @model.STATES as |state|}}
+      <SG.Item @label={{(capitalize state)}}>
+        <Shw::Flex @direction="row" as |SF|>
+          <SF.Item>
+            <Hds::Table::ThButtonSort @icon="swap-vertical" mock-state-value={{state}} />
+          </SF.Item>
+          <SF.Item>
+            <Hds::Table::ThButtonSort @icon="arrow-up" @isSorted={{true}} mock-state-value={{state}} />
+          </SF.Item>
+          <SF.Item>
+            <Hds::Table::ThButtonSort @icon="arrow-down" @isSorted={{true}} mock-state-value={{state}} />
+          </SF.Item>
+        </Shw::Flex>
+      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
+
 </section>
