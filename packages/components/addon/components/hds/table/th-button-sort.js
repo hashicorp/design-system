@@ -15,6 +15,11 @@ export default class HdsTableThButtonSortComponent extends Component {
    */
   get onClick() {
     let { onClick } = this.args;
-    return onClick || NOOP;
+
+    if (typeof onClick === 'function') {
+      return onClick;
+    } else {
+      return NOOP;
+    }
   }
 }
