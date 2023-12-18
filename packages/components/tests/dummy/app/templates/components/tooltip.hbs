@@ -103,47 +103,6 @@
         </A.Description>
       </Hds::Alert>
     </SF.Item>
-    <SF.Item @label="Used within a table heading">
-      <Hds::Table>
-        <:head as |H|>
-          <H.Tr>
-            <H.Th>Lorem</H.Th>
-            <H.Th>Ipsum
-              <Hds::TooltipButton @text="Here is more info" aria-label="Information"><FlightIcon
-                  @name="info"
-                /></Hds::TooltipButton></H.Th>
-            <H.Th>Dolor</H.Th>
-            <H.Th>Sit amet</H.Th>
-          </H.Tr>
-        </:head>
-        <:body as |B|>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-        </:body>
-      </Hds::Table>
-    </SF.Item>
   </Shw::Flex>
 
   <Shw::Divider @level={{2}} />
