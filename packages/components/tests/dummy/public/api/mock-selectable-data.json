@@ -8,7 +8,7 @@
     },
     {
       "id": "2",
-      "lorem": "Longer content that wraps. Lorem, ipsum dolor sit amet.",
+      "lorem": "Longer cell content that wraps to a new line. Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias voluptates porro sit qui consequatur mollitia repudiandae soluta, sequi ratione quidem excepturi nostrum eius. Dolore aliquid aspernatur iusto? Illo, iure magnam.",
       "ipsum": "Content",
       "dolor": "Content"
     },
