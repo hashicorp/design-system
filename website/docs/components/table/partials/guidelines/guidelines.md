@@ -168,7 +168,7 @@ Avoid using indeterminate states in individual rows. It's more effective at the 
 
 <video width="100%" controls loop>
   <source
-    src="/assets/components/table/table-multi-select-basic-interaction.mp4"
+    src="/assets/components/table/multi-selection-interaction-01.mp4"
     type="video/mp4"
   />
 </video>
@@ -181,7 +181,7 @@ Avoid using indeterminate states in individual rows. It's more effective at the 
 
 <video width="100%" controls loop>
   <source
-    src="/assets/components/table/table-multi-select-advance-interaction.mp4"
+    src="/assets/components/table/multi-selection-interaction-02.mp4"
     type="video/mp4"
   />
 </video>
