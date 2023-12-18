@@ -8,78 +8,28 @@
 <Shw::Text::H1>Table</Shw::Text::H1>
 
 <section data-test-percy>
-  {{! TODO: Move MultiSelect "section" }}
-  <Shw::Text::H2>WIP MultiSelect</Shw::Text::H2>
+  <Shw::Text::H2>MultiSelect</Shw::Text::H2>
 
-  <Shw::Text::H3>with different densities</Shw::Text::H3>
+  <Hds::Table
+    @isSelectable={{true}}
+    @onSelectionChange={{this.onSelectionChange}}
+    @model={{this.model.selectableData}}
+    @columns={{array
+      (hash key="lorem" label="Lorem")
+      (hash key="ipsum" label="Ipsum")
+      (hash key="dolor" label="Dolor")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.lorem}}</B.Td>
+        <B.Td>{{B.data.ipsum}}</B.Td>
+        <B.Td>{{B.data.dolor}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
 
-  <Shw::Grid @columns={{2}} {{style gap="2rem"}} as |SG|>
-    <SG.Item @label="No model defined">
-      <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
-        {{#each @model.DENSITIES as |density|}}
-          <SF.Item @label={{if (eq density "medium") (concat (capitalize density) " (default)") (capitalize density)}}>
-            <Hds::Table @density={{density}} @isSelectable={{true}} @onSelectionChange={{this.onSelectionChange}}>
-              <:head as |H|>
-                <H.Tr>
-                  <H.Th>Lorem</H.Th>
-                  <H.Th>Ipsum</H.Th>
-                  <H.Th>Dolor</H.Th>
-                </H.Tr>
-              </:head>
-              <:body as |B|>
-                <B.Tr>
-                  <B.Td>Content</B.Td>
-                  <B.Td>Content</B.Td>
-                  <B.Td>Content</B.Td>
-                </B.Tr>
-                <B.Tr>
-                  <B.Td>
-                    Longer content that wraps.<br />
-                    Lorem, ipsum dolor sit amet.
-                  </B.Td>
-                  <B.Td>Content</B.Td>
-                  <B.Td>Content</B.Td>
-                </B.Tr>
-                <B.Tr>
-                  <B.Td>Content</B.Td>
-                  <B.Td>Content</B.Td>
-                  <B.Td>Content</B.Td>
-                </B.Tr>
-              </:body>
-            </Hds::Table>
-          </SF.Item>
-        {{/each}}
-      </Shw::Flex>
-    </SG.Item>
-
-    <SG.Item @label="Using model">
-      <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
-        {{#each @model.DENSITIES as |density|}}
-          <SF.Item @label={{if (eq density "medium") (concat (capitalize density) " (default)") (capitalize density)}}>
-            <Hds::Table
-              @density={{density}}
-              @isSelectable={{true}}
-              @onSelectionChange={{this.onSelectionChange}}
-              @model={{this.model.selectableData}}
-              @columns={{array
-                (hash key="lorem" label="Lorem")
-                (hash key="ipsum" label="Ipsum")
-                (hash key="dolor" label="Dolor")
-              }}
-            >
-              <:body as |B|>
-                <B.Tr>
-                  <B.Td>{{B.data.lorem}}</B.Td>
-                  <B.Td>{{B.data.ipsum}}</B.Td>
-                  <B.Td>{{B.data.dolor}}</B.Td>
-                </B.Tr>
-              </:body>
-            </Hds::Table>
-          </SF.Item>
-        {{/each}}
-      </Shw::Flex>
-    </SG.Item>
-  </Shw::Grid>
+  <Shw::Divider />
 
   <Shw::Text::H3>with valign="middle"</Shw::Text::H3>
 
@@ -1341,7 +1291,7 @@
 
   <Shw::Flex @label="Vertical alignment" as |SF|>
     <SF.Item @grow={{true}}>
-      <Hds::Table @valign="top">
+      <Hds::Table @valign="top" @isSelectable={{true}}>
         <:head as |H|>
           <H.Tr>
             <H.Th>Spacer</H.Th>
@@ -1383,7 +1333,7 @@
       </Hds::Table>
     </SF.Item>
     <SF.Item @grow={{true}}>
-      <Hds::Table @valign="middle">
+      <Hds::Table @valign="middle" @isSelectable={{true}}>
         <:head as |H|>
           <H.Tr>
             <H.Th>Spacer</H.Th>
