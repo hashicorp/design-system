@@ -156,3 +156,25 @@ Row placement determines the visual styling based on where the row is placed rel
 - If content is complex or a smaller data set (e.g., a Table of basic user data), `tall` cell density allows for more breathing room surrounding the content.
 - If content is largely string/text-based, `short` allows for more content to be displayed within the page.
 - While denser content allows for more rows to be displayed within a single page, it also makes comprehension and scanning more difficult.
+
+## Multi-select
+
+Multi-selection allows users to select multiple rows from a dataset for batch operations such as delete, move, or update, enhancing efficiency.
+
+Indeterminate State in Rows/Results:
+It is recommended to not use an indeterminate state within individual rows. This approach is more effectively applied to the global selection checkbox, as it helps to avoid potential confusion at the row level.
+
+### Patterns
+
+Global Selection:
+Enables selecting all items in a dataset through a single action, usually a master checkbox, making performing actions on the entire page easy.
+
+Global Actions:
+These operations apply to all selected rows (i.e., delete or move), allowing quick control of multiple rows on other pages within the dataset.
+
+Number of Selected Items:
+Shows a count of selected rows, updated as selections change, providing a clear overview of user selections.
+
+Selection in Paginated Tables:
+In paginated tables, selections should be manageable across pages, maintaining the integrity of user choices throughout the dataset.
+
