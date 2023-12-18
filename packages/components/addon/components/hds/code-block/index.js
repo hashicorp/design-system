@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
-import { next } from '@ember/runloop';
+import { next, schedule } from '@ember/runloop';
 import { htmlSafe } from '@ember/template';
 import { guidFor } from '@ember/object/internals';
 
@@ -121,16 +121,16 @@ export default class HdsCodeBlockIndexComponent extends Component {
           code,
           element,
         });
-      });
 
-      // Force prism-line-highlight plugin initialization
-      // Context: https://github.com/hashicorp/design-system/pull/1749#discussion_r1374288785
-      if (this.args.highlightLines) {
-        setTimeout(() => {
-          // we piggy-back on the plugin's `resize` event listener to trigger a new call of the `highlightLines` function: https://github.com/PrismJS/prism/blob/master/plugins/line-highlight/prism-line-highlight.js#L337
-          if (window) window.dispatchEvent(new Event('resize'));
-        }, 100);
-      }
+        // Force prism-line-highlight plugin initialization
+        // Context: https://github.com/hashicorp/design-system/pull/1749#discussion_r1374288785
+        if (this.args.highlightLines) {
+          schedule('afterRender', () => {
+            // we piggy-back on the plugin's `resize` event listener to trigger a new call of the `highlightLines` function: https://github.com/PrismJS/prism/blob/master/plugins/line-highlight/prism-line-highlight.js#L337
+            if (window) window.dispatchEvent(new Event('resize'));
+          });
+        }
+      });
     }
   }
 
