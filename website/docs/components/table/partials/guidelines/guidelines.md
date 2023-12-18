@@ -159,7 +159,7 @@ Row placement determines the visual styling based on where the row is placed rel
 
 ## Multi-Select
 
-Multi-select enables users to select multiple rows from a dataset, significantly enhancing the efficiency of batch operations like delete, move, or update. This functionality is key for effective data management, especially in large datasets.
+Multi-select enables users to select multiple rows from a dataset, significantly enhancing the efficiency of batch operations like delete, move, or update. This functionality is important for effective data management, especially in large datasets.
 
 !!! Info 
 
