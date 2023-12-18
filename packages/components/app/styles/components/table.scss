@@ -55,21 +55,17 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
       border-bottom: $hds-table-border-width solid $hds-table-border-color;
       border-left: none;
 
-      // right border (we emulate a right border slightly detached from the top/bottom borders)
+      // border between two cells (we emulate a cell border slightly detached from the top/bottom borders)
 
-      &::after {
+      + th::before {
         position: absolute;
         top: 6px;
-        right: 0;
         bottom: 6px;
+        left: -1px; // we need to offset the border by 1px to render a right border of the previous cell
         width: 1px;
         background-color: $hds-table-border-color;
         content: "";
         pointer-events: none;
-      }
-
-      &:last-child::after {
-        background-color: transparent;
       }
     }
 
