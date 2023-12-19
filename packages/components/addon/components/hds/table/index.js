@@ -224,15 +224,8 @@ export default class HdsTableIndexComponent extends Component {
       (checkbox) => checkbox.checked === true
     ).length;
 
-    if (selectedRowCount === 0) {
-      this.checkboxHeaderItem.checked = false;
-      this.checkboxHeaderItem.indeterminate = false;
-    } else if (selectedRowCount === rowCount) {
-      this.checkboxHeaderItem.checked = true;
-      this.checkboxHeaderItem.indeterminate = false;
-    } else {
-      this.checkboxHeaderItem.checked = false;
-      this.checkboxHeaderItem.indeterminate = true;
-    }
+    this.checkboxHeaderItem.checked = selectedRowCount === rowCount;
+    this.checkboxHeaderItem.indeterminate =
+      selectedRowCount > 0 && selectedRowCount < rowCount;
   }
 }
