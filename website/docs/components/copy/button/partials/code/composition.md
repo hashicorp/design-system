@@ -9,7 +9,7 @@ These representative examples showcase the compositional recommendations in the 
   <F.Legend>Cluster name</F.Legend>
   <F.HelperText>This is some example helper text.</F.HelperText>
   <F.Control>
-    <div style="display: flex; flex-direction: row; gap: 8px; align-items: flex-start;">
+    <div class="doc-copy-button-composition-input-control">
       <Hds::Form::TextInput::Base
         @value="aws-east-cluster-01"
         id="cluster-name-example-text-input"
@@ -32,7 +32,7 @@ These representative examples showcase the compositional recommendations in the 
   <F.Legend>Cluster secret</F.Legend>
   <F.HelperText>This is some example helper text.</F.HelperText>
   <F.Control>
-    <div style="display: flex; flex-direction: row; gap: 8px; align-items: flex-start;">
+    <div class="doc-copy-button-composition-input-control">
       <Hds::Form::Textarea::Base
         @value="C9WhJuvE70CnTcqvNqptMhmnBHmMNXuj"
         id="cluster-name-example-textarea"

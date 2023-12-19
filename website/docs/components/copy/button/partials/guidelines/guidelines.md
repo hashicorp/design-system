@@ -50,7 +50,7 @@ When combining the CopyButton with form inputs:
 
 ![Example spacing of a control and CopyButton](/assets/components/copy/copy-button-composition-input-spacing.png)
 
-This ensures that other form primitives (helper text, error, etc) will span the combined with of the input control and the CopyButton.
+This ensures that other form primitives (helper text, error, etc) will span the combined width of the input control and the CopyButton.
 
 !!! Info
 
