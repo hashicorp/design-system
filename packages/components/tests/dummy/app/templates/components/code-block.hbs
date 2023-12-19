@@ -553,10 +553,12 @@ console.log(`I am ${codeLang} code`);"
           <Hds::CodeBlock
             @language="go"
             @highlightLines="2, 4"
+            @hasLineWrapping={{true}}
             @value="package main
 import 'fmt'
 func main() {
-  fmt.Println('hello world')
+  res = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam'
+  fmt.Println(res)
 }"
           />
         </T.Panel>
