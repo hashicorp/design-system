@@ -18,12 +18,7 @@ export default class HdsTableThSelectableComponent extends Component {
   onChange(event) {
     let { onChange } = this.args;
     if (typeof onChange === 'function') {
-      let { scope } = this.args;
-      if (scope === 'col') {
-        onChange('all', event.target.checked);
-      } else if (scope === 'row') {
-        onChange(event.target.id, event.target.checked);
-      }
+      onChange(event.target);
     }
   }
 
