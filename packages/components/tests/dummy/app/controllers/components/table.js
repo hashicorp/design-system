@@ -19,6 +19,9 @@ export default class ComponentsTableController extends Controller {
   @tracked customSortOrder_demo2 = 'asc';
   @tracked customSortBy_demo3 = undefined;
   @tracked customSortOrder_demo3 = 'asc';
+  @tracked customFilterRows = 'all';
+  @tracked currentPaginatedSelectablePage = 1;
+  @tracked currentPaginatedSelectablePageSize = 2;
 
   // CUSTOM SORTING DEMO #1
   // Sortable table with custom sorting done via extra key added to the data model
@@ -153,4 +156,49 @@ export default class ComponentsTableController extends Controller {
     }
     return clonedModelClusters;
   };
+
+  // TODO refactor/rename/reorganize the code later
+
+  @action
+  onFilterChange(event) {
+    // console.log(event.target.value);
+    this.customFilterRows = event.target.value;
+  }
+
+  get filteredSelectableData() {
+    if (this.customFilterRows === 'all') {
+      return this.model.selectableData;
+    } else {
+      const reminder = this.customFilterRows === 'even' ? 0 : 1;
+      return this.model.selectableData.filter(
+        (item) => item.id % 2 === reminder
+      );
+    }
+  }
+
+  get paginatedSelectableDataTotalItems() {
+    return this.model.selectableData.length;
+  }
+
+  get paginatedSelectableData() {
+    const start =
+      (this.currentPaginatedSelectablePage - 1) *
+      this.currentPaginatedSelectablePageSize;
+    const end =
+      this.currentPaginatedSelectablePage *
+      this.currentPaginatedSelectablePageSize;
+    return this.model.selectableData.slice(start, end);
+  }
+
+  @action
+  onPaginatedSelectablePageChange(page) {
+    this.currentPaginatedSelectablePage = page;
+  }
+
+  @action
+  onPaginatedSelectablePageSizeChange(pageSize) {
+    // we agreed to reset the pagination to the first element (any alternative would result in an unpredictable UX)
+    this.currentPaginatedSelectablePage = 1;
+    this.currentPaginatedSelectablePageSize = pageSize;
+  }
 }
