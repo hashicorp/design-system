@@ -7,6 +7,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
+import { guidFor } from '@ember/object/internals';
 
 export const DENSITIES = ['short', 'medium', 'tall'];
 const DEFAULT_DENSITY = 'medium';
@@ -17,8 +18,7 @@ export default class HdsTableIndexComponent extends Component {
   @tracked sortBy = this.args.sortBy;
   @tracked sortOrder = this.args.sortOrder || 'asc';
 
-  checkboxHeaderItem;
-  checkboxRowItems = [];
+  tableId = 'hds-table-' + guidFor(this);
 
   /**
    * @param getSortCriteria
@@ -184,50 +184,56 @@ export default class HdsTableIndexComponent extends Component {
   }
 
   @action
-  addCheckbox(checkbox, scope) {
-    if (scope === 'row') {
-      this.checkboxRowItems.push(checkbox);
-    } else if (scope === 'col') {
-      this.checkboxHeaderItem = checkbox;
-    }
-  }
-
-  @action
   onSelectionAllChange(checkbox) {
-    this.changeAllRowsSelection(checkbox.checked);
+    const checkboxes = this.allTbodyCheckboxes();
+    this.changeAllRowsSelection(checkboxes, checkbox.checked);
+
     let { onSelectionChange } = this.args;
     if (typeof onSelectionChange === 'function') {
-      onSelectionChange(this.checkboxRowItems);
+      onSelectionChange(checkboxes);
     }
   }
 
   @action
   onSelectionRowChange(checkbox) {
-    let current_id = checkbox.id;
     this.setTableState();
-
     let { onSelectionChange } = this.args;
     if (typeof onSelectionChange === 'function') {
-      onSelectionChange(
-        this.checkboxRowItems.filter((checkbox) => checkbox.id === current_id)
-      );
+      onSelectionChange(checkbox);
     }
   }
 
-  changeAllRowsSelection(checked) {
-    this.checkboxRowItems.forEach((checkbox) => {
+  allTbodyCheckboxes() {
+    const tableBody = document.querySelector(`#${this.tableId} tbody`);
+    const tableBodyRows = Array.from(tableBody.rows);
+    let checkboxes = [];
+
+    tableBodyRows.forEach((row) => {
+      const checkbox = row.querySelector('.hds-table__checkbox');
+      checkboxes.push(checkbox);
+    });
+    return checkboxes;
+  }
+
+  changeAllRowsSelection(checkboxes, checked) {
+    checkboxes.forEach((checkbox) => {
       checkbox.checked = checked;
     });
   }
 
   setTableState() {
-    let rowCount = this.checkboxRowItems.length;
-    let selectedRowCount = this.checkboxRowItems.filter(
+    const tableHeader = document.querySelector(`#${this.tableId} thead`);
+    const tableHeaderCheckbox = tableHeader.querySelector(
+      '.hds-table__checkbox'
+    );
+
+    let rowCount = this.allTbodyCheckboxes().length;
+    let selectedRowCount = this.allTbodyCheckboxes().filter(
       (checkbox) => checkbox.checked === true
     ).length;
 
-    this.checkboxHeaderItem.checked = selectedRowCount === rowCount;
-    this.checkboxHeaderItem.indeterminate =
+    tableHeaderCheckbox.checked = selectedRowCount === rowCount;
+    tableHeaderCheckbox.indeterminate =
       selectedRowCount > 0 && selectedRowCount < rowCount;
   }
 }
