@@ -3,7 +3,7 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<table class={{this.classNames}} ...attributes>
+<table class={{this.classNames}} id={{this.tableId}} ...attributes>
   {{#if @columns}}
     <caption class="sr-only" aria-live="polite">{{@caption}} {{this.sortedMessageText}}</caption>
   {{else if @caption}}
