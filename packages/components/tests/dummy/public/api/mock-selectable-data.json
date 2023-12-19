@@ -2,21 +2,27 @@
   "data": [
     {
       "id": "1",
-      "lorem": "Content ",
-      "ipsum": "Content ",
-      "dolor": "Content "
+      "lorem": "1 ",
+      "ipsum": "Cell Content ",
+      "dolor": "Cell Content "
     },
     {
       "id": "2",
-      "lorem": "Longer cell content that wraps to a new line. Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias voluptates porro sit qui consequatur mollitia repudiandae soluta, sequi ratione quidem excepturi nostrum eius. Dolore aliquid aspernatur iusto? Illo, iure magnam.",
-      "ipsum": "Content",
-      "dolor": "Content"
+      "lorem": "2",
+      "ipsum": "Cell Content",
+      "dolor": "Cell Content"
     },
     {
-      "id": "1",
-      "lorem": "Content ",
-      "ipsum": "Content ",
-      "dolor": "Content "
+      "id": "3",
+      "lorem": "3 ",
+      "ipsum": "Cell Content ",
+      "dolor": "Cell Content "
+    },
+    {
+      "id": "4",
+      "lorem": "4 ",
+      "ipsum": "Cell Content ",
+      "dolor": "Cell Content "
     }
   ]
 }

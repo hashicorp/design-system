@@ -24,4 +24,10 @@ body.components-table {
   .shw-component-table-max-content-width {
     width: max-content;
   }
+
+  .shw-component-table-selection-pagination-demo {
+    .hds-table + .hds-pagination {
+      margin-top: 16px;
+    }
+  }
 }
