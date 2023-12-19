@@ -22,7 +22,7 @@
 
 ### Tooltips
 
-Labels within the Table column should be clear, concise, and straightforward. In the case that more context or details are necessary a [Tooltip](/components/tooltip) can be used in conjunction with the label, but should be used sparingly and as a last resort.
+Labels within the Table column should be clear, concise, and straightforward. In the case that more context or details are necessary, a [Tooltip](/components/tooltip) can be used in conjunction with the label but should be used sparingly and as a last resort.
 
 ![Tooltips in a Header Column](/assets/components/table/table-tooltip-example.png)
 
