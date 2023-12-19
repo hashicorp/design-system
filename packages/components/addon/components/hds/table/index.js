@@ -193,22 +193,24 @@ export default class HdsTableIndexComponent extends Component {
   }
 
   @action
-  onSelectionChange(id, checked) {
-    if (id === 'all') {
-      this.changeAllRowsSelection(checked);
-      let { onSelectionChange } = this.args;
-      if (typeof onSelectionChange === 'function') {
-        onSelectionChange(this.checkboxRowItems);
-      }
-    } else {
-      this.setTableState();
+  onSelectionAllChange(checkbox) {
+    this.changeAllRowsSelection(checkbox.checked);
+    let { onSelectionChange } = this.args;
+    if (typeof onSelectionChange === 'function') {
+      onSelectionChange(this.checkboxRowItems);
+    }
+  }
 
-      let { onSelectionChange } = this.args;
-      if (typeof onSelectionChange === 'function') {
-        onSelectionChange(
-          this.checkboxRowItems.filter((checkbox) => checkbox.id === id)
-        );
-      }
+  @action
+  onSelectionRowChange(checkbox) {
+    let current_id = checkbox.id;
+    this.setTableState();
+
+    let { onSelectionChange } = this.args;
+    if (typeof onSelectionChange === 'function') {
+      onSelectionChange(
+        this.checkboxRowItems.filter((checkbox) => checkbox.id === current_id)
+      );
     }
   }
 
