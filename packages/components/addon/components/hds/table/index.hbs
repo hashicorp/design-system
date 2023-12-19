@@ -14,7 +14,7 @@
     {{#if @columns}}
       <Hds::Table::Tr
         @isSelectable={{@isSelectable}}
-        @onChange={{this.onSelectionChange}}
+        @onSelectionChange={{this.onSelectionChange}}
         @didInsert={{this.addCheckbox}}
       >
         {{#each @columns as |column|}}
@@ -40,7 +40,10 @@
       {{yield
         (hash
           Tr=(component
-            "hds/table/tr" isSelectable=@isSelectable onChange=this.onSelectionChange didInsert=this.addCheckbox
+            "hds/table/tr"
+            isSelectable=@isSelectable
+            onSelectionChange=this.onSelectionChange
+            didInsert=this.addCheckbox
           )
           Th=(component "hds/table/th")
           ThSort=(component "hds/table/th-sort")
@@ -67,7 +70,7 @@
               "hds/table/tr"
               isSelectable=@isSelectable
               didInsert=this.addCheckbox
-              onChange=this.onSelectionChange
+              onSelectionChange=this.onSelectionChange
               isSelected=this.isSelected
               scope="row"
             )
@@ -85,7 +88,7 @@
             "hds/table/tr"
             isSelectable=@isSelectable
             didInsert=this.addCheckbox
-            onChange=this.onSelectionChange
+            onSelectionChange=this.onSelectionChange
             isSelected=this.isSelected
             scope="row"
           )
