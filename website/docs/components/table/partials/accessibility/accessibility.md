@@ -7,7 +7,7 @@ When used as recommended, there should not be any WCAG conformance issues with t
 
 ## Focus in Tables
 
-- Table headers and labels are not eligible to recieve focus, rather, focus will move through interactive elements (sort and tooltip buttons) contained within the header sequentially.
+- Table headers and labels are not eligible to receive focus, rather, focus will move through interactive elements (sort and tooltip buttons) contained within the header sequentially.
 - Interactive elements within cells will receive focus, but entire cells and entire rows will not. 
 
 !!! Do
