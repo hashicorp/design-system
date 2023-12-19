@@ -247,3 +247,15 @@ For complex forms, indicate **required** fields. This is the most explicit and t
 For shorter, simpler forms, indicate **optional** fields instead.
 
 Don't mix required and optional labels, stick to one or the other. Using one method can imply that fields without a label are the inverse of whatever method you choose, though expecting the user to carry this knowledge through a complex form can cause unnecessary [validation](?tab=validation) errors when required fields aren't labeled.
+
+## Composition with other components
+
+While form patterns should generally be comprised of form-specific components, sometimes it may be necessary to compose categorically different components together to satisfy a user need.
+
+### Copying the input value
+
+If a user needs to copy the value within an input, consider pairing a [CopyButton](/components/copy/button) with the input control. This can reduce the manual friction of copying a value to a single targeted action.
+
+![CopyButton paired with an input control](/assets/components/copy/copy-button-composition-single-line-input-simple.png)
+
+Visit the [CopyButton](/components/copy/button#composition-with-other-components) for more details on this specific composition.
