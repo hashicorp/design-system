@@ -61,29 +61,6 @@
     adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
   </p>
 
-  <Shw::Text::H4>Used within a parent with explicit text alignment</Shw::Text::H4>
-
-  <Shw::Grid @columns={{3}} as |SG|>
-    <SG.Item @label="text-align = left" {{style text-align="left"}}>
-      <Hds::TooltipButton @text="Here is more information" aria-label="Information">
-        <p class="hds-typography-body-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor</p>
-      </Hds::TooltipButton>
-    </SG.Item>
-    <SG.Item @label="text-align = center" {{style text-align="center"}}>
-      <Hds::TooltipButton @text="Here is more information" aria-label="Information">
-        <p class="hds-typography-body-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor</p>
-      </Hds::TooltipButton>
-    </SG.Item>
-    <SG.Item @label="text-align = right" {{style text-align="right"}}>
-      <Hds::TooltipButton @text="Here is more information" aria-label="Information">
-        <p class="hds-typography-body-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor</p>
-      </Hds::TooltipButton>
-    </SG.Item>
-  </Shw::Grid>
-
   <Shw::Text::H4>Used within various non-interactive components</Shw::Text::H4>
 
   <Shw::Flex @direction="column" as |SF|>
@@ -254,6 +231,50 @@
       </div>
     </SF.Item>
   </Shw::Flex>
+
+  <Shw::Text::Body>Used within a parent with explicit text alignment</Shw::Text::Body>
+
+  <Shw::Grid class="shw-component-tooltip-text-alignment" @columns={{3}} as |SG|>
+    <SG.Item @label="text-align = left" {{style text-align="left"}}>
+      <Shw::Outliner>
+        <Hds::TooltipButton
+          @text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+          @placement="bottom"
+          @extraTippyOptions={{hash showOnCreate=true}}
+          aria-label="Information"
+        >
+          <p class="hds-typography-body-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor</p>
+        </Hds::TooltipButton>
+      </Shw::Outliner>
+    </SG.Item>
+    <SG.Item @label="text-align = center" {{style text-align="center"}}>
+      <Shw::Outliner>
+        <Hds::TooltipButton
+          @text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+          @placement="bottom"
+          @extraTippyOptions={{hash showOnCreate=true}}
+          aria-label="Information"
+        >
+          <p class="hds-typography-body-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor</p>
+        </Hds::TooltipButton>
+      </Shw::Outliner>
+    </SG.Item>
+    <SG.Item @label="text-align = right" {{style text-align="right"}}>
+      <Shw::Outliner>
+        <Hds::TooltipButton
+          @text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+          @placement="bottom"
+          @extraTippyOptions={{hash showOnCreate=true}}
+          aria-label="Information"
+        >
+          <p class="hds-typography-body-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor</p>
+        </Hds::TooltipButton>
+      </Shw::Outliner>
+    </SG.Item>
+  </Shw::Grid>
 
   <Shw::Divider @level={{2}} />
 
