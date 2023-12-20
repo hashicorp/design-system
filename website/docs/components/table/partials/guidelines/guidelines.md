@@ -161,6 +161,10 @@ Row placement determines the visual styling based on where the row is placed rel
 
 Multi-select enables users to select multiple rows from a table. Users benefit from multi-select by experiencing enhanced efficiency and reduced errors, improving overall data management. This feature lets users quickly perform bulk actions on multiple rows, significantly increasing productivity.
 
+### Intended interaction
+
+- `Header Column /  Select` is the master checkbox that renders a checked state or indeterminate state when `Cell / Selection` is selected. 
+- `Cell / Selection` is the component that enables multi-selection. It is always in the leading position of the row and can be rendered with {{isStriped}} or Medium, Short, and Tall densities
 
 !!! Info 
 
@@ -174,15 +178,8 @@ While you’re able to have the indeterminate state in the Cell / Select compone
   />
 </video>
 
-### Intended interaction
-
-Header Column /  Select is the master checkbox that renders a checked state or indeterminate state when Cell / Selection is selected. 
-Cell / Selection is the component that enables multi-selection. It is always in the leading position of the row and can be rendered with {{isStriped}} or Medium, Short, and Tall densities
-
-Selecting a single row highlights it for actions like edit or delete.
-Selecting the top-level header selects all rows on the current page.
-Selecting the top-level header automatically selects all visible rows on the current page, including any rows previously chosen individually.
-The 'Select all' usually affects only the current page in paginated tables. While in comparison, a global selection will select all rows on all pages (i.e., select all 53 users)
+- `Header Column /  Select` is the master checkbox that renders a checked state or indeterminate state when `Cell / Selection` is selected. 
+- `Cell / Selection` is the component that enables multi-selection. It is always in the leading position of the row and can be rendered with {{isStriped}} or Medium, Short, and Tall densities
 
 <video width="100%" controls loop>
   <source
@@ -190,3 +187,9 @@ The 'Select all' usually affects only the current page in paginated tables. Whil
     type="video/mp4"
   />
 </video>
+
+
+- Selecting a single row highlights it for actions like edit or delete.
+- Selecting the top-level header selects all rows on the current page.
+   - Selecting the top-level header automatically selects all visible rows on the current page, including any rows previously chosen individually.
+- The 'Select all' usually affects only the current page in paginated tables. While in comparison, a global selection will select all rows on all pages (i.e., select all 53 users)
