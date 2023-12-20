@@ -159,17 +159,7 @@ Row placement determines the visual styling based on where the row is placed rel
 
 ## Multi-Select
 
-Multi-select enables users to select multiple rows from a table. Users benefit from multi-select by experiencing enhanced efficiency and reduced errors, improving overall data management. This feature lets users quickly perform bulk actions on multiple rows, significantly increasing productivity.
-
-### Intended interaction
-
-- `Header Column /  Select` is the master checkbox that renders a checked state or indeterminate state when `Cell / Selection` is selected. 
-- `Cell / Selection` is the component that enables multi-selection. It is always in the leading position of the row and can be rendered with {{isStriped}} or Medium, Short, and Tall densities
-
-!!! Info 
-
-While you’re able to have the indeterminate state in the Cell / Select component, in the ember component, it is not achievable. 
-!!!
+Multi-selection allows users to choose multiple table rows, enhancing efficiency and reducing errors. This feature streamlines bulk actions, increasing productivity and improving data management.
 
 <video width="100%" controls loop>
   <source
@@ -177,6 +167,11 @@ While you’re able to have the indeterminate state in the Cell / Select compone
     type="video/mp4"
   />
 </video>
+
+!!! Info 
+
+While you’re able to have the indeterminate state in the `cell / select` component, in the ember component, it is not achievable. 
+!!!
 
 - `Header Column /  Select` is the master checkbox that renders a checked state or indeterminate state when `Cell / Selection` is selected. 
 - `Cell / Selection` is the component that enables multi-selection. It is always in the leading position of the row and can be rendered with {{isStriped}} or Medium, Short, and Tall densities
