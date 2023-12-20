@@ -8,6 +8,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
+import { schedule } from '@ember/runloop';
 
 export const DENSITIES = ['short', 'medium', 'tall'];
 const DEFAULT_DENSITY = 'medium';
@@ -196,11 +197,19 @@ export default class HdsTableIndexComponent extends Component {
 
   @action
   onSelectionRowChange(checkbox) {
-    this.setTableState();
+    this.setSelectAllState();
     let { onSelectionChange } = this.args;
     if (typeof onSelectionChange === 'function') {
       onSelectionChange(checkbox);
     }
+  }
+
+  @action
+  didUpdateTable() {
+    console.log('didUpdateTable called!!!');
+    schedule('afterRender', () => {
+      this.setSelectAllState();
+    });
   }
 
   allTbodyCheckboxes() {
@@ -216,9 +225,9 @@ export default class HdsTableIndexComponent extends Component {
     });
   }
 
-  setTableState() {
+  setSelectAllState() {
     const tableHeaderCheckbox = document.querySelector(
-      #${this.tableId} thead .hds-table__checkbox`
+      `#${this.tableId} thead .hds-table__checkbox`
     );
 
     let rowCount = this.allTbodyCheckboxes().length;
