@@ -157,9 +157,27 @@ Row placement determines the visual styling based on where the row is placed rel
 - If content is largely string/text-based, `short` allows for more content to be displayed within the page.
 - While denser content allows for more rows to be displayed within a single page, it also makes comprehension and scanning more difficult.
 
-## Multi-Select
+## Multi-Selection
 
-Multi-selection allows users to choose multiple table rows, enhancing efficiency and reducing errors. This feature streamlines bulk actions, increasing productivity and improving data management.
+Multi-selection enables users to select multiple rows in a table, enhancing efficiency and minimizing errors. This feature facilitates bulk operations, boosting productivity and optimizing data management.
+
+To enable multi-selection in a table:
+
+1. `Header Column / Selection` Component:
+Position it in the table's header row. This acts as a master control, enabling you to either select all rows simultaneously or deselect them.
+
+
+![Example of centered content within a table](/assets/components/table/multi-select-header.png)
+
+2. `Cell / Selection` Component:
+Integrate this into each table row. It allows for individual row selection and aligns with the Header Column component, reflecting the overall selection status of the table.
+
+![Example of centered content within a table](/assets/components/table/multi-select-cells.png)
+
+!!! Info 
+
+In the Ember component, unlike the `cell/select` figma component, achieving an indeterminate state is not possible. 
+!!!
 
 <video width="100%" controls loop>
   <source
@@ -168,13 +186,12 @@ Multi-selection allows users to choose multiple table rows, enhancing efficiency
   />
 </video>
 
-!!! Info 
+### Intended interaction
 
-While you’re able to have the indeterminate state in the `cell / select` component, in the ember component, it is not achievable. 
-!!!
-
-- `Header Column /  Select` is the master checkbox that renders a checked state or indeterminate state when `Cell / Selection` is selected. 
-- `Cell / Selection` is the component that enables multi-selection. It is always in the leading position of the row and can be rendered with {{isStriped}} or Medium, Short, and Tall densities
+- Selecting an individual row highlights it, indicating it is ready for actions such as editing or deletion.
+- Activating the top-level header checkbox selects every row on the current page. 
+     - This action ensures that all visible rows on the page, including those previously selected individually, are chosen collectively.
+- The 'Select all' function impacts only the rows displayed on the current page in paginated tables. In contrast, a global 'Select all' option encompasses every row across all pages (for example, selecting all 53 users in a dataset).
 
 <video width="100%" controls loop>
   <source
@@ -182,9 +199,3 @@ While you’re able to have the indeterminate state in the `cell / select` compo
     type="video/mp4"
   />
 </video>
-
-
-- Selecting a single row highlights it for actions like edit or delete.
-- Selecting the top-level header selects all rows on the current page.
-   - Selecting the top-level header automatically selects all visible rows on the current page, including any rows previously chosen individually.
-- The 'Select all' usually affects only the current page in paginated tables. While in comparison, a global selection will select all rows on all pages (i.e., select all 53 users)
