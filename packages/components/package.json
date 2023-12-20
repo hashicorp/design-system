@@ -80,7 +80,6 @@
     "eslint-plugin-qunit": "^8.0.1",
     "npm-run-all": "^4.1.5",
     "rollup": "^4.9.0",
-    "rollup-plugin-ts": "^3.4.5",
     "stylelint": "^15.11.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard-scss": "^11.1.0",
@@ -253,9 +252,7 @@
       "./template-registry.js": "./dist/_app_/template-registry.js",
       "./utils/hds-get-element-id.js": "./dist/_app_/utils/hds-get-element-id.js",
       "./utils/hds-set-aria-described-by.js": "./dist/_app_/utils/hds-set-aria-described-by.js",
-      "./defineProperty-hmWd1t9Q.js": "./dist/_app_/defineProperty-hmWd1t9Q.js",
-      "./initializerDefineProperty-IlDI_2YE.js": "./dist/_app_/initializerDefineProperty-IlDI_2YE.js",
-      "./applyDecoratedDescriptor-bCvq3qoi.js": "./dist/_app_/applyDecoratedDescriptor-bCvq3qoi.js"
+      "./_rollupPluginBabelHelpers-lqPQKyNs.js": "./dist/_app_/_rollupPluginBabelHelpers-lqPQKyNs.js"
     }
   },
   "exports": {

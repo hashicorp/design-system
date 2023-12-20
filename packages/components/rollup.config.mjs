@@ -1,6 +1,5 @@
-import babel from '@rollup/plugin-babel';
 import { Addon } from '@embroider/addon-dev/rollup';
-import typescript from 'rollup-plugin-ts';
+import { babel } from '@rollup/plugin-babel';
 
 const addon = new Addon({
   srcDir: 'src',
@@ -21,18 +20,6 @@ export default {
     // "app" tree. Things in here should also be in publicEntrypoints above, but
     // not everything in publicEntrypoints necessarily needs to go here.
     addon.appReexports(['**/*.ts', '**/*.js']),
-
-    typescript({
-      transpiler: 'babel',
-      browserslist: false,
-      tsconfig: {
-        fileName: 'tsconfig.json',
-        hook: (config) => ({
-          ...config,
-          declaration: true,
-        }),
-      },
-    }),
 
     // This babel config should *not* apply presets or compile away ES modules.
     // It exists only to provide development niceties for you, like automatic
