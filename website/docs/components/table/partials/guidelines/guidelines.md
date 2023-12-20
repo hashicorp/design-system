@@ -159,11 +159,12 @@ Row placement determines the visual styling based on where the row is placed rel
 
 ## Multi-Select
 
-Multi-select enables users to select multiple rows from a dataset, significantly enhancing the efficiency of batch operations like delete, move, or update. This functionality is important for effective data management, especially in large datasets.
+Multi-select enables users to select multiple rows from a table. Users benefit from multi-select by experiencing enhanced efficiency and reduced errors, improving overall data management. This feature lets users quickly perform bulk actions on multiple rows, significantly increasing productivity.
+
 
 !!! Info 
 
-Avoid using indeterminate states in individual rows. It's more effective at the global selection checkbox to reduce confusion.
+While you’re able to have the indeterminate state in the Cell / Select component, in the ember component, it is not achievable. 
 !!!
 
 <video width="100%" controls loop>
@@ -175,9 +176,13 @@ Avoid using indeterminate states in individual rows. It's more effective at the 
 
 ### Suggested Application
 
-- For global selection and actions we recommend a master checkbox at the top of the table to select all dataset items in one click, simplifying bulk operations. The interface should allow operations like select all (rows) or deselct all (rows), and delete, or move to be applied to all selected rows for quick and efficient control across multiple pages.
-- It is beneficial to display a dynamically updating count of selected rows. This feature provides a continuous and straightforward overview of user selections, adjusting in real-time as selections are made or changed.
-- When pagination is used in a table, maintain user selections as consistent and manageable across different pages.
+Header Column /  Select is the master checkbox that renders a checked state or indeterminate state when Cell / Selection is selected. 
+Cell / Selection is the component that enables multi-selection. It is always in the leading position of the row and can be rendered with {{isStriped}} or Medium, Short, and Tall densities
+
+Selecting a single row highlights it for actions like edit or delete.
+Selecting the top-level header selects all rows on the current page.
+Selecting the top-level header automatically selects all visible rows on the current page, including any rows previously chosen individually.
+The 'Select all' usually affects only the current page in paginated tables. While in comparison, a global selection will select all rows on all pages (i.e., select all 53 users)
 
 <video width="100%" controls loop>
   <source
