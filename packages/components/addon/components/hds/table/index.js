@@ -204,15 +204,10 @@ export default class HdsTableIndexComponent extends Component {
   }
 
   allTbodyCheckboxes() {
-    const tableBody = document.querySelector(`#${this.tableId} tbody`);
-    const tableBodyRows = Array.from(tableBody.rows);
-    let checkboxes = [];
-
-    tableBodyRows.forEach((row) => {
-      const checkbox = row.querySelector('.hds-table__checkbox');
-      checkboxes.push(checkbox);
-    });
-    return checkboxes;
+    const tableBodyCheckboxes = document.querySelectorAll(
+      `#${this.tableId} tbody .hds-table__checkbox`
+    );
+    return Array.from(tableBodyCheckboxes);
   }
 
   changeAllRowsSelection(checkboxes, checked) {
@@ -222,14 +217,13 @@ export default class HdsTableIndexComponent extends Component {
   }
 
   setTableState() {
-    const tableHeader = document.querySelector(`#${this.tableId} thead`);
-    const tableHeaderCheckbox = tableHeader.querySelector(
-      '.hds-table__checkbox'
+    const tableHeaderCheckbox = document.querySelector(
+      #${this.tableId} thead .hds-table__checkbox`
     );
 
     let rowCount = this.allTbodyCheckboxes().length;
     let selectedRowCount = this.allTbodyCheckboxes().filter(
-      (checkbox) => checkbox.checked === true
+      (checkbox) => checkbox.checked
     ).length;
 
     tableHeaderCheckbox.checked = selectedRowCount === rowCount;
