@@ -6,7 +6,7 @@
     // The combination of `baseUrl` with `paths` allows Ember's classic package
     // layout, which is not resolvable with the Node resolution algorithm, to
     // work with TypeScript.
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "allowJs": true,
     "allowImportingTsExtensions": true,
     "skipLibCheck": true,
@@ -25,6 +25,9 @@
   "include": [
     "src/**/*",
     "unpublished-development-types/**/*"
+  ],
+  "exclude": [
+    "dist/**/*"
   ],
   "glint": {
     "environment": ["ember-loose", "ember-template-imports"],

@@ -25,7 +25,13 @@ export default {
     typescript({
       transpiler: 'babel',
       browserslist: false,
-      transpileOnly: false,
+      tsconfig: {
+        fileName: 'tsconfig.json',
+        hook: (config) => ({
+          ...config,
+          declaration: true,
+        }),
+      },
     }),
 
     // This babel config should *not* apply presets or compile away ES modules.
