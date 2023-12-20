@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import { getElementId } from '@hashicorp/design-system-components/utils/hds-get-element-id';
+import { getElementId } from '../../../../utils/hds-get-element-id';
 
 export default class HdsFormMaskedInputBaseComponent extends Component {
   @tracked isContentMasked = this.args.isContentMasked ?? true;
