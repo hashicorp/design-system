@@ -174,7 +174,7 @@ While you’re able to have the indeterminate state in the Cell / Select compone
   />
 </video>
 
-### Suggested Application
+### Intended interaction
 
 Header Column /  Select is the master checkbox that renders a checked state or indeterminate state when Cell / Selection is selected. 
 Cell / Selection is the component that enables multi-selection. It is always in the leading position of the row and can be rendered with {{isStriped}} or Medium, Short, and Tall densities
