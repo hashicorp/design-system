@@ -11,14 +11,14 @@
 
 ## Sizes
 
-The Copy Button comes in small and medium sizes. Use the size that best fits the hierarchy of the UI. 
+The Copy Button comes in small and medium sizes. Use the size that best fits the hierarchy of the UI.
 
 <Doc::Layout @spacing="16px">
   <Hds::Copy::Button @text="Copy" @size="small" />
   <Hds::Copy::Button @text="Copy" @size="medium" />
 </Doc::Layout>
 
-## Placement 
+## Placement
 
 Place the Copy Button as close to the content being copied as possible. Avoid too much visual separation between the content and the button to ensure users understand what will be copied to the clipboard.
 
@@ -35,3 +35,37 @@ Placing a Copy Button close to the content explicitly communicates what is being
 
 ![Example of the copy button component using proper placement](/assets/components/copy/copy-button-placement-do.png)
 !!!
+
+## Composition with other components
+
+Since the CopyButton can target almost any associated DOM element, it can be composed with other Helios components to create and support more complex scenarios and use cases.
+
+### With form inputs
+
+When combining the CopyButton with form inputs:
+
+- Use the [Fieldset](/components/form/primitives?tab=code#formfieldset) form primitive.
+- Wrap the `Base` input control (generally a TextInput, MaskedInput, or Textarea) and CopyButton in a container with an 8px gap between each element. This is not supported by the component out of the box, but can accomplished using a custom layout wrapper.
+- Use the `isIconOnly` variant of the CopyButton as there is a enough visual association using this layout method.
+
+![Example spacing of a control and CopyButton](/assets/components/copy/copy-button-composition-input-spacing.png)
+
+This ensures that other form primitives (helper text, error, etc) will span the combined width of the input control and the CopyButton.
+
+#### Single line inputs
+
+A simple example composition of a CopyButton and [TextInput](/components/form/text-input) or [MaskedInput](/components/form/masked-input).
+
+![Simple example composing a TextInput with the CopyButton](/assets/components/copy/copy-button-composition-single-line-input-simple.png)
+
+A more complex composition with helper and error text.
+
+![A more complex example composing a TextInput with the CopyButton](/assets/components/copy/copy-button-composition-single-line-input-complex.png)
+
+#### Multi-line inputs
+
+In the case of a multi-line input (e.g., a [Textarea](/components/form/textarea) or multi-line [MaskedInput](/components/form/masked-input)), align the CopyButton to the top of the control.
+
+![Simple example composing a multiline Textarea with the CopyButton](/assets/components/copy/copy-button-composition-multi-line-input-simple.png)
+
+![A more complex example composing a multiline Textarea with the CopyButton](/assets/components/copy/copy-button-composition-multi-line-input-complex.png)

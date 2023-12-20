@@ -1,0 +1,16 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+
+// COMPONENTS > COPY/COPY-BUTTON
+
+#show-content-components-copy-button {
+  .doc-copy-button-composition-input-control {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: flex-start;
+  }
+}
