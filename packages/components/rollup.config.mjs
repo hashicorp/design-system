@@ -1,8 +1,6 @@
 import babel from '@rollup/plugin-babel';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
 import { Addon } from '@embroider/addon-dev/rollup';
 import typescript from 'rollup-plugin-ts';
-import scss from 'rollup-plugin-scss';
 
 const addon = new Addon({
   srcDir: 'src',
@@ -15,36 +13,14 @@ export default {
   output: addon.output(),
 
   plugins: [
-    nodeResolve(),
     // These are the modules that users should be able to import from your
     // addon. Anything not listed here may get optimized away.
-    addon.publicEntrypoints([
-      '**/*.ts',
-      '**/*.js',
-      'styles/@hashicorp/design-system-components.scss',
-      'styles/@hashicorp/design-system-power-select-overrides.scss',
-    ]),
+    addon.publicEntrypoints(['**/*.ts', '**/*.js']),
 
     // These are the modules that should get reexported into the traditional
     // "app" tree. Things in here should also be in publicEntrypoints above, but
     // not everything in publicEntrypoints necessarily needs to go here.
     addon.appReexports(['**/*.ts', '**/*.js']),
-
-    scss({
-      fileName: 'styles/@hashicorp/design-system-components.css',
-      outputStyle: 'compressed',
-      includePaths: [
-        '../../node_modules/@hashicorp/design-system-tokens/dist/products/css',
-      ],
-    }),
-
-    scss({
-      fileName: 'styles/@hashicorp/design-system-power-select-overrides.css',
-      outputStyle: 'compressed',
-      includePaths: [
-        '../../node_modules/@hashicorp/design-system-tokens/dist/products/css',
-      ],
-    }),
 
     typescript({
       transpiler: 'babel',
