@@ -64,6 +64,8 @@
               isSelectable=@isSelectable
               onSelectionChange=this.onSelectionRowChange
               isSelected=this.isSelected
+              didInsert=this.didInsertRowCheckbox
+              willDestroy=this.willDestroyRowCheckbox
               scope="row"
             )
             Th=(component "hds/table/th" scope="row")
@@ -81,6 +83,8 @@
             isSelectable=@isSelectable
             onSelectionChange=this.onSelectionRowChange
             isSelected=this.isSelected
+            didInsert=this.didInsertRowCheckbox
+            willDestroy=this.willDestroyRowCheckbox
             scope="row"
           )
           Th=(component "hds/table/th" scope="row")
