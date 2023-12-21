@@ -134,7 +134,7 @@
         }}
       >
         <:body as |B|>
-          <B.Tr @selectionKey="row1">
+          <B.Tr @selectionKey={{B.data.id}}>
             <B.Td>{{B.data.lorem}}</B.Td>
             <B.Td>{{B.data.ipsum}}</B.Td>
             <B.Td>{{B.data.dolor}}</B.Td>
