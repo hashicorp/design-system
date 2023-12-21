@@ -15,6 +15,23 @@ export default class HdsTableThSelectableComponent extends Component {
   checkboxId = 'checkbox-' + guidFor(this);
 
   @action
+  didInsert(checkbox) {
+    let { didInsert } = this.args;
+    if (typeof didInsert === 'function') {
+      didInsert(checkbox);
+    }
+  }
+
+  @action
+  willDestroy(checkbox) {
+    super.willDestroy(...arguments);
+    let { willDestroy } = this.args;
+    if (typeof willDestroy === 'function') {
+      willDestroy(checkbox);
+    }
+  }
+
+  @action
   onChange(event) {
     let { onChange } = this.args;
     if (typeof onChange === 'function') {
