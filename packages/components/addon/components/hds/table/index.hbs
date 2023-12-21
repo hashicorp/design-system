@@ -37,7 +37,7 @@
     {{else}}
       {{yield
         (hash
-          Tr=(component "hds/table/tr" isSelectable=@isSelectable onSelectionChange=this.onSelectionRowChange)
+          Tr=(component "hds/table/tr" isSelectable=@isSelectable onSelectionChange=this.onSelectionAllChange)
           Th=(component "hds/table/th")
           ThSort=(component "hds/table/th-sort")
           sortBy=this.sortBy
