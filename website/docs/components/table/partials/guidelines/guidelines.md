@@ -161,7 +161,7 @@ Row placement determines the visual styling based on where the row is placed rel
 
 Multi-selection enables users to select multiple rows in a table, facilitating bulk operations, actions, and editing.
 
-To enable multi-selection in a table:
+Multi-selection consist of: 
 
 1. `Header Column / Selection` Component:
 Used in the header row of the Table. This acts as a master control, enabling end-users to either select or deselect all rows simultaneously.
@@ -179,6 +179,15 @@ Used in the start position each Table row. It allows for individual row selectio
 In the Ember component, unlike the `cell/select` Figma component, achieving an indeterminate state is not possible. 
 !!!
 
+### Intended interaction
+
+#### Within a Simple Table (Single Page):
+
+- Selecting an Individual Row: Indicates that the row is ready for actions such as editing or deletion.
+- Interaction with the Top-Level Header Checkbox: Non-Checked State: Initially, the checkbox is unmarked when none of the rows are selected.
+- Checkbox Activation: Clicking the checkbox selects every row in the table, including any previously chosen individually, ensuring collective selection.
+- Indeterminate State: The checkbox shows an indeterminate state when some but not all rows are selected, indicating a partial selection.
+
 <video width="100%" controls loop>
   <source
     src="/assets/components/table/multi-selection-interaction-01.mp4"
@@ -186,12 +195,10 @@ In the Ember component, unlike the `cell/select` Figma component, achieving an i
   />
 </video>
 
-### Intended interaction
+#### Within a paginated table: 
 
-- Selecting an individual row indicates it is ready for actions such as editing or deletion.
-- Interacting with the top-level header checkbox selects every row on the current page. 
-     - This action ensures that all visible rows on the page, including those previously selected individually, are chosen collectively.
-- The “Select all” function impacts only the rows displayed on the current page in paginated tables. In contrast, a global “Select all” option encompasses every row across all pages (for example, selecting all 53 users in a dataset).
+- Global Actions:
+In addition to page-specific actions, paginated tables may benefit from global actions like a "Select all users" feature. This would apply to all rows across every page in the table, enabling actions on a larger scale (e.g., selecting all 53 users in a dataset or deselecting). 
 
 <video width="100%" controls loop>
   <source
