@@ -9,6 +9,8 @@
     class="hds-table__checkbox"
     id={{this.checkboxId}}
     aria-label="select/deselect all"
+    {{did-insert this.didInsert}}
+    {{will-destroy this.willDestroy}}
     {{on "change" this.onChange}}
     name={{concat "checkbox-" @scope}}
   />
