@@ -8,7 +8,6 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
-import { schedule } from '@ember/runloop';
 
 export const DENSITIES = ['short', 'medium', 'tall'];
 const DEFAULT_DENSITY = 'medium';
@@ -18,6 +17,7 @@ const DEFAULT_VALIGN = 'top';
 export default class HdsTableIndexComponent extends Component {
   @tracked sortBy = this.args.sortBy;
   @tracked sortOrder = this.args.sortOrder || 'asc';
+  selectionKeys = [];
 
   tableId = 'hds-table-' + guidFor(this);
 
@@ -193,31 +193,31 @@ export default class HdsTableIndexComponent extends Component {
 
     let { onSelectionChange } = this.args;
     if (typeof onSelectionChange === 'function') {
-      onSelectionChange(checkboxes);
+      onSelectionChange(this.selectionKeys);
     }
   }
 
   @action
-  onSelectionRowChange(checkbox) {
+  onSelectionRowChange(selectionKey) {
     this.setSelectAllState();
     let { onSelectionChange } = this.args;
     if (typeof onSelectionChange === 'function') {
-      onSelectionChange(checkbox);
+      onSelectionChange(new Array(selectionKey));
     }
   }
 
   @action
-  didInsertRowCheckbox() {
-    schedule('afterRender', () => {
-      this.setSelectAllState();
-    });
+  didInsertRowCheckbox(selectionKey) {
+    this.selectionKeys.push(selectionKey);
+    this.setSelectAllState();
   }
 
   @action
-  willDestroyRowCheckbox() {
-    schedule('afterRender', () => {
-      this.setSelectAllState();
-    });
+  willDestroyRowCheckbox(selectionKey) {
+    this.selectionKeys = this.selectionKeys.filter(
+      (key) => key !== selectionKey
+    );
+    this.setSelectAllState();
   }
 
   allTbodyCheckboxes() {
