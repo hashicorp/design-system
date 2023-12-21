@@ -232,13 +232,15 @@ export default class HdsTableIndexComponent extends Component {
       `#${this.tableId} thead .hds-table__checkbox`
     );
 
-    let rowCount = this.allTbodyCheckboxes().length;
-    let selectedRowCount = this.allTbodyCheckboxes().filter(
-      (checkbox) => checkbox.checked
-    ).length;
+    if (tableHeaderCheckbox) {
+      let rowCount = this.allTbodyCheckboxes().length;
+      let selectedRowCount = this.allTbodyCheckboxes().filter(
+        (checkbox) => checkbox.checked
+      ).length;
 
-    tableHeaderCheckbox.checked = selectedRowCount === rowCount;
-    tableHeaderCheckbox.indeterminate =
-      selectedRowCount > 0 && selectedRowCount < rowCount;
+      tableHeaderCheckbox.checked = selectedRowCount === rowCount;
+      tableHeaderCheckbox.indeterminate =
+        selectedRowCount > 0 && selectedRowCount < rowCount;
+    }
   }
 }
