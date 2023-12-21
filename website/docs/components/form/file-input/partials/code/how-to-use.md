@@ -5,7 +5,7 @@ The File Input component uses the native HTML input with `type="file"` under the
 There are two ways to use the File Input component:
 
 - `Form::FileInput::Base`—the Base component: just the `<input type="file">` control.
-- `Form::FileInput::Field`—the Field component: the `<input type="file">` control, with label, helper text, and error messaging (in a wrapping container). 
+- `Form::FileInput::Field`—the Field component: the `<input type="file">` control, with label, helper text, and error messaging (in a wrapping container).
 
 We recommend using the Field component as it provides built-in accessibility functionality. Use the Base component if you need to achieve custom layouts or for special use cases not covered by the Field component.
 
@@ -65,10 +65,10 @@ Use the `@isRequired` and `@isOptional` arguments to add a visual indication tha
 
 #### Validation
 
-To indicate a field is invalid, declare that it’s invalid by using the `@isInvalid` argument and provide an error message using the `Error` contextual component.
+To indicate a field is invalid, provide an error message using the `Error` contextual component.
 
 ```handlebars
-<Hds::Form::FileInput::Field @isInvalid={{true}} as |F|>
+<Hds::Form::FileInput::Field as |F|>
   <F.Label>Upload a file</F.Label>
   <F.Error>The provided file format is not valid.</F.Error>
 </Hds::Form::FileInput::Field>
@@ -77,7 +77,7 @@ To indicate a field is invalid, declare that it’s invalid by using the `@isInv
 Add more than one error message using the more specific `Message` contextual component.
 
 ```handlebars
-<Hds::Form::FileInput::Field  @isInvalid={{true}} as |F|>
+<Hds::Form::FileInput::Field as |F|>
   <F.Label>Upload a file</F.Label>
   <F.Error as |E|>
     <E.Message>File size should be a maximum of 2 MB.</E.Message>
