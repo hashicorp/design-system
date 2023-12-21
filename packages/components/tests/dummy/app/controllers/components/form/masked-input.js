@@ -11,6 +11,11 @@ export default class FormMaskedInputController extends Controller {
   @tracked textInputFieldIsInvalid;
   @tracked textareaFieldIsInvalid;
 
+  multilineText1 = 'Lorem\nipsum\ndolor';
+  multilineText2 = `Lorem
+ipsum
+dolor`;
+
   @action onFieldInput(args) {
     if (args.inputControl.localName === 'input') {
       this.textInputFieldIsInvalid = args.currentLength > args.maxLength;

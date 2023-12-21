@@ -10,6 +10,9 @@ The Masked Input component has two different variants with their own APIs:
 <Doc::ComponentApi as |C|>
   <C.Property @name="value" @type="string|number|date">
     Input control’s value.
+    <br/>
+    <br/>
+    _Notice: if the string provided contains newline characters they will be stripped, unless `@isMultiline` is set to `true` (this renders the input as a `<textarea>` element, which supports multi-line text)._
   </C.Property>
   <C.Property @name="isContentMasked" @type="boolean" @default="true">
     Set this argument to `false` to make the input content visible by default or bind it to a variable to control the masking from outside the component.

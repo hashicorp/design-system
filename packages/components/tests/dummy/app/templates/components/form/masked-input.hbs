@@ -28,6 +28,12 @@
     <SF.Item @label="With value (in clear)">
       <Hds::Form::MaskedInput::Base @isContentMasked={{false}} @value="Lorem ipsum dolor" />
     </SF.Item>
+    <SF.Item @label="With multiline value (inline `\n`)">
+      <Hds::Form::MaskedInput::Base @isContentMasked={{false}} @value={{this.multilineText1}} />
+    </SF.Item>
+    <SF.Item @label="With multiline value (template literal)">
+      <Hds::Form::MaskedInput::Base @isContentMasked={{false}} @value={{this.multilineText2}} />
+    </SF.Item>
   </Shw::Flex>
 
   <Shw::Text::H4>Multiline</Shw::Text::H4>
@@ -44,6 +50,12 @@
     </SF.Item>
     <SF.Item @label="With value (in clear)">
       <Hds::Form::MaskedInput::Base @isMultiline={{true}} @isContentMasked={{false}} @value="Lorem ipsum dolor" />
+    </SF.Item>
+    <SF.Item @label="With multiline value (inline `\n`)">
+      <Hds::Form::MaskedInput::Base @isMultiline={{true}} @isContentMasked={{false}} @value={{this.multilineText1}} />
+    </SF.Item>
+    <SF.Item @label="With multiline value (template literal)">
+      <Hds::Form::MaskedInput::Base @isMultiline={{true}} @isContentMasked={{false}} @value={{this.multilineText2}} />
     </SF.Item>
   </Shw::Flex>
 
