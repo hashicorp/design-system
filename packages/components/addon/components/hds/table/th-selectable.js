@@ -31,19 +31,19 @@ export default class HdsTableThSelectableComponent extends Component {
   }
 
   @action
-  didInsert(checkbox) {
+  didInsert() {
     let { didInsert } = this.args;
     if (typeof didInsert === 'function') {
-      didInsert(checkbox);
+      didInsert(this.args.selectionKey);
     }
   }
 
   @action
-  willDestroy(checkbox) {
+  willDestroy() {
     super.willDestroy(...arguments);
     let { willDestroy } = this.args;
     if (typeof willDestroy === 'function') {
-      willDestroy(checkbox);
+      willDestroy(this.args.selectionKey);
     }
   }
 
@@ -52,7 +52,11 @@ export default class HdsTableThSelectableComponent extends Component {
     this._checked = event.target.checked;
     let { onChange } = this.args;
     if (typeof onChange === 'function') {
-      onChange(event.target);
+      if (this.args.scope === 'col') {
+        onChange(event.target);
+      } else {
+        onChange(this.args.selectionKey);
+      }
     }
   }
 }
