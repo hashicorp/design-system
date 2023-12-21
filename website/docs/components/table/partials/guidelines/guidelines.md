@@ -159,24 +159,24 @@ Row placement determines the visual styling based on where the row is placed rel
 
 ## Multi-Selection
 
-Multi-selection enables users to select multiple rows in a table, enhancing efficiency and minimizing errors. This feature facilitates bulk operations, boosting productivity and optimizing data management.
+Multi-selection enables users to select multiple rows in a table, facilitating bulk operations, actions, and editing.
 
 To enable multi-selection in a table:
 
 1. `Header Column / Selection` Component:
-Position it in the table's header row. This acts as a master control, enabling you to either select all rows simultaneously or deselect them.
+Used in the header row of the Table. This acts as a master control, enabling end-users to either select or deselect all rows simultaneously.
 
 
 ![Example of centered content within a table](/assets/components/table/multi-select-header.png)
 
 2. `Cell / Selection` Component:
-Integrate this into each table row. It allows for individual row selection and aligns with the Header Column component, reflecting the overall selection status of the table.
+Used in the start position each Table row. It allows for individual row selection and aligns with the Header Column component, reflecting the overall selection status of the table.
 
 ![Example of centered content within a table](/assets/components/table/multi-select-cells.png)
 
 !!! Info 
 
-In the Ember component, unlike the `cell/select` figma component, achieving an indeterminate state is not possible. 
+In the Ember component, unlike the `cell/select` Figma component, achieving an indeterminate state is not possible. 
 !!!
 
 <video width="100%" controls loop>
@@ -188,10 +188,10 @@ In the Ember component, unlike the `cell/select` figma component, achieving an i
 
 ### Intended interaction
 
-- Selecting an individual row highlights it, indicating it is ready for actions such as editing or deletion.
-- Activating the top-level header checkbox selects every row on the current page. 
+- Selecting an individual row indicates it is ready for actions such as editing or deletion.
+- Interacting with the top-level header checkbox selects every row on the current page. 
      - This action ensures that all visible rows on the page, including those previously selected individually, are chosen collectively.
-- The 'Select all' function impacts only the rows displayed on the current page in paginated tables. In contrast, a global 'Select all' option encompasses every row across all pages (for example, selecting all 53 users in a dataset).
+- The “Select all” function impacts only the rows displayed on the current page in paginated tables. In contrast, a global “Select all” option encompasses every row across all pages (for example, selecting all 53 users in a dataset).
 
 <video width="100%" controls loop>
   <source
