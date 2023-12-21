@@ -8,6 +8,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
+import { schedule } from '@ember/runloop';
 
 export const DENSITIES = ['short', 'medium', 'tall'];
 const DEFAULT_DENSITY = 'medium';
@@ -203,6 +204,20 @@ export default class HdsTableIndexComponent extends Component {
     if (typeof onSelectionChange === 'function') {
       onSelectionChange(checkbox);
     }
+  }
+
+  @action
+  didInsertRowCheckbox() {
+    schedule('afterRender', () => {
+      this.setSelectAllState();
+    });
+  }
+
+  @action
+  willDestroyRowCheckbox() {
+    schedule('afterRender', () => {
+      this.setSelectAllState();
+    });
   }
 
   allTbodyCheckboxes() {
