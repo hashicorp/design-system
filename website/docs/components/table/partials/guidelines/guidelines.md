@@ -159,33 +159,26 @@ Row placement determines the visual styling based on where the row is placed rel
 
 ## Multi-Selection
 
-Multi-selection enables users to select multiple rows in a table, facilitating bulk operations, actions, and editing.
+Multi-selection enables users to select multiple rows in a table, facilitating bulk operations, actions, and editing. 
 
 Multi-selection consist of: 
 
-1. `Header Column / Selection` Component:
-Used in the header row of the Table. This acts as a master control, enabling end-users to either select or deselect all rows simultaneously.
+1. `Header Column / Select`: Used in the header row of the table. This acts as a master checkbox, enabling end-users to either select or deselect all rows on a single page simultaneously.
 
 ![Example of centered content within a table](/assets/components/table/multi-select-header.png)
 
-2. `Cell / Selection` Component:
-Used in the start position each Table row. It allows for individual row selection and aligns with the Header Column component, reflecting the overall selection status of the table.
+2. `Cell / Select`: Used in each table row. It allows for individual row selection and aligns with the Header Column component, reflecting the overall selection status of the table.
 
 ![Example of centered content within a table](/assets/components/table/multi-select-cells.png)
 
 !!! Info 
 
-In the Ember component, unlike the `cell/select` Figma component, achieving an indeterminate state is not possible. 
+In the Ember component, unlike the `cell / select` Figma component, achieving an indeterminate state is not possible. 
 !!!
 
 ### Intended interaction
 
-#### Within a Simple Table (Single Page):
-
-- Selecting an Individual Row: Indicates that the row is ready for actions such as editing or deletion.
-- Interaction with the Top-Level Header Checkbox: Non-Checked State: Initially, the checkbox is unmarked when none of the rows are selected.
-- Checkbox Activation: Clicking the checkbox selects every row in the table, including any previously chosen individually, ensuring collective selection.
-- Indeterminate State: The checkbox shows an indeterminate state when some but not all rows are selected, indicating a partial selection.
+Within a simple table on a single page, selecting an individual row activates it for actions like editing or deleting. While interacting with the top-level header checkbox involves an indeterminate state, showing this when some but not all rows are selected, indicating partial selection. Selecting the top-level checkbox also selects every row in the table view, including previously individually selected ones.
 
 <video width="100%" controls loop>
   <source
