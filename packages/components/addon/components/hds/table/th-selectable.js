@@ -19,7 +19,6 @@ export default class HdsTableThSelectableComponent extends Component {
 
   get ariaLabel() {
     if (this.args.scope === 'col') {
-      // TODO: Doesn't update in reaction to row checkboxes being selected
       if (this._checked === true) {
         return 'deselect all';
       } else {
