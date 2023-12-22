@@ -165,11 +165,11 @@ Multi-selection consist of:
 
 1. `Header Column / Select`: Used in the header row of the table. This acts as a master checkbox, enabling end-users to either select or deselect all rows on a single page simultaneously.
 
-![Example of centered content within a table](/assets/components/table/multi-select-header.png)
+![Example of multi-selection in a table header](/assets/components/table/multi-select-header.png)
 
 2. `Cell / Select`: Used in each table row. It allows for individual row selection and aligns with the Header Column component, reflecting the overall selection status of the table.
 
-![Example of centered content within a table](/assets/components/table/multi-select-cells.png)
+![Example of multi-selection within table cells](/assets/components/table/multi-select-cells.png)
 
 !!! Info 
 
