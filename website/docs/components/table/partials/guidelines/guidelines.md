@@ -166,7 +166,6 @@ Multi-selection consist of:
 1. `Header Column / Selection` Component:
 Used in the header row of the Table. This acts as a master control, enabling end-users to either select or deselect all rows simultaneously.
 
-
 ![Example of centered content within a table](/assets/components/table/multi-select-header.png)
 
 2. `Cell / Selection` Component:
@@ -195,7 +194,7 @@ In the Ember component, unlike the `cell/select` Figma component, achieving an i
   />
 </video>
 
-#### Within a paginated table: 
+<!--TODO: Add in for future use of pattern documentation #### Within a paginated table: 
 
 - Global Actions:
 In addition to page-specific actions, paginated tables may benefit from global actions like a "Select all users" feature. This would apply to all rows across every page in the table, enabling actions on a larger scale (e.g., selecting all 53 users in a dataset or deselecting). 
@@ -205,4 +204,4 @@ In addition to page-specific actions, paginated tables may benefit from global a
     src="/assets/components/table/multi-selection-interaction-02.mp4"
     type="video/mp4"
   />
-</video>
+</video>-->
