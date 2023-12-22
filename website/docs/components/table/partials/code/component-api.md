@@ -67,6 +67,12 @@ The Table component itself is where most of the options will be applied. However
   <C.Property @name="sortOrder" @type="string" @values={{array "asc" "desc" }} @default="asc">
     Use in conjunction with `sortBy`. If defined, indicates which direction the column should be pre-sorted in. If not defined, `asc` is applied by default.
   </C.Property>
+  <C.Property @name="isSelectable" @type="boolean" @default="false">
+    If set to true, renders checkboxes in table header and on table rows enabling bulk interaction. Use in conjunction with `onSelectionChange` on the `Table` and `selectionKey` on each `Table::Tr`.
+  </C.Property>
+  <C.Property @name="onSelectionChange" @type="function">
+    Use to pass a callback function to receive selection keys. Must be used in conjunction with `isSelectable` on the `Table` and setting a `selectionKey` on each `Table::Tr`.
+  </C.Property>
   <C.Property @name="isStriped" @type="boolean" @default="false">
     Define on the table invocation. If set to `true`, even-numbered rows will have a different background color from odd-numbered rows.
   </C.Property>
@@ -124,6 +130,9 @@ If the `Th` component is passed as the first cell of a table body row, `scope="r
   <C.Property @name="scope" @type="string" @values={{array "col" "row" }} @default="col">
     If used as the first item in a table body’s row, `scope` should be set to `row` for accessibility purposes. Note: you only need to manually set this if you’re creating a custom table using the child components; if you use the standard invocation for the table, this scope is already provided for you.
   </C.Property>
+  <C.Property @name="selectionKey" @type="string">
+    Use to set a key on each table row. Used in conjunction with `isSelectable` and `onSelectionChange` on the `Table`.
+  </C.Property>
   <C.Property @name="width" @type="string" @valueNote="Any valid CSS">
     If set, determines the column’s width.
   </C.Property>
@@ -133,6 +142,16 @@ If the `Th` component is passed as the first cell of a table body row, `scope="r
   <C.Property @name="yield">
     Elements passed as children of this component are yielded inside the `<th>` element.
   </C.Property>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
+</Doc::ComponentApi>
+
+### Table::ThSelectable
+
+This is the component that supports multi-select functionality; use instead of `Hds::Table::Th` if creating a custom table implementation.
+
+<Doc::ComponentApi as |C|>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>

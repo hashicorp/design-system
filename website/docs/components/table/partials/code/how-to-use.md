@@ -545,6 +545,67 @@ In this case the table layout is still set to `auto` (default). If instead you w
 </div>
 ```
 
+### Multi-select table
+
+A multi-select table includes checkboxes enabling users to select multiple rows in a table for purposes of performing bulk operations. Checking or unchecking the checkbox in the table header either selects or deselects the checkboxes on each row in the table body. Individual checkboxes in the rows can also be selected or deselected.
+
+Add `isSelectable=true` to create a multi-select table. The `onSelectionChange` argument can be used to pass a callback function to receive selection keys when the selected table rows change. You must also pass a `selectionKey` to each row which gets passed back through the `onSelectionChange` callback which maps the row selection on the table to an item in your data model.
+
+#### Multi-select table using a model
+
+```handlebars
+<Hds::Table
+  @isSelectable={{true}}
+  @onSelectionChange={{this.onSelectionChange}}
+  @model={{this.model.myDemoData}}
+  @columns={{array
+    (hash label="Artist")
+    (hash label="Album")
+    (hash label="Year")
+  }}
+>
+  <:body as |B|>
+    <B.Tr @selectionKey={{B.data.id}}>
+      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td>{{B.data.year}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::Table>
+```
+
+#### Static multi-select table with no model
+
+```handlebars
+<Hds::Table @isSelectable={{true}} @onSelectionChange={{this.onSelectionChange}}>
+  <:head as |H|>
+    <H.Tr>
+      <H.Th>Lorem</H.Th>
+      <H.Th>Ipsum</H.Th>
+      <H.Th>Dolor</H.Th>
+    </H.Tr>
+  </:head>
+  <:body as |B|>
+    <B.Tr @selectionKey="row1">
+      <B.Th>1</B.Th>
+      <B.Td>Cell Content</B.Td>
+      <B.Td>Cell Content</B.Td>
+    </B.Tr>
+    <B.Tr @selectionKey="row2">
+      <B.Th>2</B.Th>
+      <B.Td>Cell Content</B.Td>
+      <B.Td>Cell Content</B.Td>
+    </B.Tr>
+    <B.Tr @selectionKey="row3">
+      <B.Th>3</B.Th>
+      <B.Td>Cell Content</B.Td>
+      <B.Td>Cell Content</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::Table>
+```
+
+
 ### More examples
 
 #### Visually hidden table headers
