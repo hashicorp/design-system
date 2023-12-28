@@ -8,6 +8,12 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render, click, focus } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
+function wait(timeout = 2000) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, timeout);
+  });
+}
+
 // we're using this for multiple tests so we'll declare context once and use it when we need it.
 const setSortableTableData = (context) => {
   context.set('model', [
@@ -42,26 +48,76 @@ const setSortableTableData = (context) => {
   context.set('sortOrder', 'asc');
 };
 
+const setSelectableTableData = (context) => {
+  context.set('model', [
+    {
+      id: '1',
+      type: 'folk',
+      artist: 'Nick Drake',
+      album: 'Pink Moon',
+      year: '1972',
+    },
+    {
+      id: '2',
+      type: 'folk',
+      artist: 'The Beatles',
+      album: 'Abbey Road',
+      year: '1969',
+    },
+    {
+      id: '3',
+      type: 'folk',
+      artist: 'Melanie',
+      album: 'Candles in the Rain',
+      year: '1971',
+    },
+  ]);
+  context.set('columns', [
+    { key: 'artist', label: 'Artist' },
+    { key: 'album', label: 'Album' },
+    { key: 'year', label: 'Year' },
+  ]);
+};
+
 const hbsSortableTable = hbs`
-<Hds::Table
-  @model={{this.model}}
-  @sortBy={{this.sortBy}}
-  @sortOrder={{this.sortOrder}}
-  @onSort={{this.onSort}}
-  @columns={{this.columns}}
-  @sortedMessageText={{this.sortedMessageText}}
-  @caption={{this.caption}}
-  id="data-test-table"
->
-  <:body as |B|>
-    <B.Tr>
-      <B.Td>{{B.data.artist}}</B.Td>
-      <B.Td>{{B.data.album}}</B.Td>
-      <B.Td>{{B.data.year}}</B.Td>
-    </B.Tr>
-  </:body>
-</Hds::Table>
+  <Hds::Table
+    @model={{this.model}}
+    @sortBy={{this.sortBy}}
+    @sortOrder={{this.sortOrder}}
+    @onSort={{this.onSort}}
+    @columns={{this.columns}}
+    @sortedMessageText={{this.sortedMessageText}}
+    @caption={{this.caption}}
+    id="data-test-table"
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td>{{B.data.year}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
 `;
+
+const hbsSelectableTable = hbs`
+  <Hds::Table
+    @isSelectable={{true}}
+    @model={{this.model}}
+    @columns={{this.columns}}
+    data-test="selectable-table"
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td>{{B.data.year}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+`;
+
+// Basic tests
 
 module('Integration | Component | hds/table/index', function (hooks) {
   setupRenderingTest(hooks);
@@ -195,6 +251,10 @@ module('Integration | Component | hds/table/index', function (hooks) {
 
     assert.dom('#data-test-table caption').hasText('a test caption');
   });
+
+  // OPTIONS
+
+  // Sortable
 
   test('it should render a sortable table when appropriate', async function (assert) {
     setSortableTableData(this);
@@ -355,5 +415,84 @@ module('Integration | Component | hds/table/index', function (hooks) {
     await click('#data-test-table .hds-table__th--sort:nth-of-type(1) button');
     assert.strictEqual(sortBy, 'artist');
     assert.strictEqual(sortOrder, 'asc');
+  });
+
+  // Multi-select
+
+  const headerCheckbox =
+    'table[data-test="selectable-table"] thead th[scope="col"] .hds-table__checkbox';
+  const rowCheckbox =
+    'table[data-test="selectable-table"] tbody th[scope="row"] .hds-table__checkbox';
+
+  test('it renders a mult-select table when isSelectable is set to true for a table with a model', async function (assert) {
+    setSelectableTableData(this);
+    await render(hbsSelectableTable);
+    assert.dom(headerCheckbox).exists({ count: 1 });
+    assert.dom(rowCheckbox).exists({ count: this.model.length });
+  });
+
+  test('it renders a mult-select table when isSelectable is set to true for a table without a model', async function (assert) {
+    await render(hbs`
+    <Hds::Table @isSelectable={{true}} data-test="selectable-table">
+      <:head as |H|>
+        <H.Tr>
+          <H.Th>Cell Header 1</H.Th>
+          <H.Th>Cell Header 2</H.Th>
+          <H.Th>Cell Header 3</H.Th>
+        </H.Tr>
+      </:head>
+      <:body as |B|>
+        <B.Tr>
+          <B.Td>Cell Content 1 1</B.Td>
+          <B.Td>Cell Content 1 2</B.Td>
+          <B.Td>Cell Content 1 3</B.Td>
+        </B.Tr>
+        <B.Tr>
+          <B.Td>Cell Content 2 1</B.Td>
+          <B.Td>Cell Content 2 2</B.Td>
+          <B.Td>Cell Content 2 3</B.Td>
+        </B.Tr>
+        <B.Tr>
+          <B.Td>Cell Content 3 1</B.Td>
+          <B.Td>Cell Content 3 2</B.Td>
+          <B.Td>Cell Content 3 3</B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::Table>
+  `);
+    assert.dom(headerCheckbox).exists({ count: 1 });
+    assert.dom(rowCheckbox).exists({ count: 3 });
+  });
+
+  test('it selects all rows when the header checkbox checked state is triggered', async function (assert) {
+    setSelectableTableData(this);
+    await render(hbsSelectableTable);
+    // Default should be unchecked:
+    assert.dom(headerCheckbox).isNotChecked();
+    assert.dom(rowCheckbox).isNotChecked().exists({ count: 3 });
+    // Should change to checked after it is triggered:
+    await click(headerCheckbox);
+    assert.dom(headerCheckbox).isChecked();
+    assert.dom(rowCheckbox).exists({ count: 3 }).isChecked();
+  });
+
+  test('it deselects all rows when the header checkbox unchecked state is triggered', async function (assert) {
+    setSelectableTableData(this);
+    await render(hbsSelectableTable);
+    // Trigger checked status:
+    await click(headerCheckbox);
+    // Trigger unchecked state:
+    await click(headerCheckbox);
+    assert.dom(headerCheckbox).isNotChecked();
+    assert.dom(rowCheckbox).isNotChecked().exists({ count: 3 });
+  });
+
+  test('if some rows are selected but not all, the header checkbox should be in an indeterminate state', async function (assert) {
+    setSelectableTableData(this);
+    await render(hbsSelectableTable);
+    // Check checkbox in just the first row:
+    await click(rowCheckbox)[0];
+    await wait();
+    assert.dom(headerCheckbox).hasProperty('indeterminate', true);
   });
 });
