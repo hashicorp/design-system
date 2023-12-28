@@ -47,6 +47,8 @@ console.log(`I am ${codeLang} code`);"
     </SG.Item>
   </Shw::Grid>
 
+  <Shw::Divider @level="2" />
+
   <Shw::Text::H3>Title and description</Shw::Text::H3>
 
   <Shw::Grid @columns={{2}} {{style gap="2rem"}} as |SG|>
@@ -79,7 +81,7 @@ console.log(`I am ${codeLang} code`);"
 
   <Shw::Divider @level="2" />
 
-  <Shw::Text::H2>with dynamic content</Shw::Text::H2>
+  <Shw::Text::H3>Dynamic content</Shw::Text::H3>
 
   <Shw::Text::Body>
     <button type="button" {{on "click" this.updateCodeValue}}>
@@ -104,11 +106,6 @@ console.log(`I am ${codeLang} code`);"
       Dynamic content
     </CB.Title>
   </Hds::CodeBlock>
-
-  <p>
-    <pre>this.input = {{this.input}}</pre>
-    <pre>this.codeValue = {{this.codeValue}}</pre>
-  </p>
 
   <Shw::Divider />
 
