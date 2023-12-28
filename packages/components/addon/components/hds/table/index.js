@@ -242,8 +242,8 @@ export default class HdsTableIndexComponent extends Component {
       tableHeaderCheckbox.indeterminate =
         selectedRowCount > 0 && selectedRowCount < rowCount;
       tableHeaderCheckbox.ariaLabel = tableHeaderCheckbox.checked
-        ? 'deselect all'
-        : 'select all';
+        ? this.args.deselectAllAriaLabel ?? 'Deselect all'
+        : this.args.selectAllAriaLabel ?? 'Select all';
     }
   }
 }
