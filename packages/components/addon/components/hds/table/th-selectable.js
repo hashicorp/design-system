@@ -17,15 +17,30 @@ export default class HdsTableThSelectableComponent extends Component {
    */
   checkboxId = 'checkbox-' + guidFor(this);
 
+  /**
+   * @param ariaLabel
+   * @type {string}
+   * @description Sets checkbox aria-label
+   */
   get ariaLabel() {
     if (this.args.scope === 'col') {
+      // header checkbox:
       if (this._checked === true) {
-        return 'deselect all';
+        return this.args.deselectAllAriaLabel ?? 'Deselect all';
       } else {
-        return 'select all';
+        return this.args.selectAllAriaLabel ?? 'Select all';
       }
     } else {
-      return `Select ${this.args.selectionKey}`;
+      // row checkbox:
+      if (this._checked === true) {
+        return this.args.deselectRowAriaLabel
+          ? `${this.args.deselectRowAriaLabel} ${this.args.selectionKey}`
+          : `Deselect ${this.args.selectionKey}`;
+      } else {
+        return this.args.selectRowAriaLabel
+          ? `${this.args.selectRowAriaLabel} ${this.args.selectionKey}`
+          : `Select ${this.args.selectionKey}`;
+      }
     }
   }
 
