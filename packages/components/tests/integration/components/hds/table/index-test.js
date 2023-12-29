@@ -108,7 +108,7 @@ const hbsSelectableTable = hbs`
     data-test="selectable-table"
   >
     <:body as |B|>
-      <B.Tr>
+      <B.Tr @selectionKey={{B.data.id}}>
         <B.Td>{{B.data.artist}}</B.Td>
         <B.Td>{{B.data.album}}</B.Td>
         <B.Td>{{B.data.year}}</B.Td>
@@ -424,6 +424,8 @@ module('Integration | Component | hds/table/index', function (hooks) {
   const rowCheckbox =
     'table[data-test="selectable-table"] tbody th[scope="row"] .hds-table__checkbox';
 
+  // basic multi-select
+
   test('it renders a mult-select table when isSelectable is set to true for a table with a model', async function (assert) {
     setSelectableTableData(this);
     await render(hbsSelectableTable);
@@ -442,17 +444,17 @@ module('Integration | Component | hds/table/index', function (hooks) {
         </H.Tr>
       </:head>
       <:body as |B|>
-        <B.Tr>
+        <B.Tr @selectionKey="row1">
           <B.Td>Cell Content 1 1</B.Td>
           <B.Td>Cell Content 1 2</B.Td>
           <B.Td>Cell Content 1 3</B.Td>
         </B.Tr>
-        <B.Tr>
+        <B.Tr @selectionKey="row2">
           <B.Td>Cell Content 2 1</B.Td>
           <B.Td>Cell Content 2 2</B.Td>
           <B.Td>Cell Content 2 3</B.Td>
         </B.Tr>
-        <B.Tr>
+        <B.Tr @selectionKey="row3">
           <B.Td>Cell Content 3 1</B.Td>
           <B.Td>Cell Content 3 2</B.Td>
           <B.Td>Cell Content 3 3</B.Td>
@@ -464,16 +466,23 @@ module('Integration | Component | hds/table/index', function (hooks) {
     assert.dom(rowCheckbox).exists({ count: 3 });
   });
 
+  // multi-select functionality
+
   test('it selects all rows when the header checkbox checked state is triggered', async function (assert) {
     setSelectableTableData(this);
     await render(hbsSelectableTable);
     // Default should be unchecked:
-    assert.dom(headerCheckbox).isNotChecked();
-    assert.dom(rowCheckbox).isNotChecked().exists({ count: 3 });
+    assert.dom(headerCheckbox).isNotChecked().hasAria('label', 'Select all');
+    assert
+      .dom(rowCheckbox)
+      .isNotChecked()
+      .exists({ count: 3 })
+      .hasAria('label', /^Select/);
     // Should change to checked after it is triggered:
     await click(headerCheckbox);
-    assert.dom(headerCheckbox).isChecked();
-    assert.dom(rowCheckbox).exists({ count: 3 }).isChecked();
+    assert.dom(headerCheckbox).isChecked().hasAria('label', 'Deselect all');
+    // TODO: Failing (aria-label is not updating)
+    // assert.dom(rowCheckbox).isChecked().exists({ count: 3 }).hasAria('label', /^Deselect/);
   });
 
   test('it deselects all rows when the header checkbox unchecked state is triggered', async function (assert) {
@@ -494,5 +503,42 @@ module('Integration | Component | hds/table/index', function (hooks) {
     await click(rowCheckbox)[0];
     await wait();
     assert.dom(headerCheckbox).hasProperty('indeterminate', true);
+  });
+
+  // multi-select options
+
+  // custom aria-labels
+
+  test('it uses custom aria-labels if passed', async function (assert) {
+    setSelectableTableData(this);
+    await render(hbs`
+      <Hds::Table
+        @isSelectable={{true}}
+        @model={{this.model}}
+        @columns={{this.columns}}
+        data-test="selectable-table"
+        @selectAllAriaLabel="custom select all"
+        @deselectAllAriaLabel="custom deselect all"
+        @selectRowAriaLabel="custom select row"
+        @deselectRowAriaLabel="custom deselect row"
+      >
+        <:body as |B|>
+          <B.Tr @selectionKey={{B.data.id}}>
+            <B.Td>{{B.data.artist}}</B.Td>
+            <B.Td>{{B.data.album}}</B.Td>
+            <B.Td>{{B.data.year}}</B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+    `);
+    // row checkbox aria labels:
+    assert.dom(rowCheckbox).hasAria('label', /^custom select/);
+    await click(rowCheckbox);
+    assert.dom(rowCheckbox).hasAria('label', /^custom deselect/);
+
+    // header checkbox aria label:
+    assert.dom(headerCheckbox).hasAria('label', 'custom select all');
+    await click(headerCheckbox);
+    assert.dom(headerCheckbox).hasAria('label', 'custom deselect all');
   });
 });

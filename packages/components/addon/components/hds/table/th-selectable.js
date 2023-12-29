@@ -34,12 +34,12 @@ export default class HdsTableThSelectableComponent extends Component {
       // row checkbox:
       if (this._checked === true) {
         return this.args.deselectRowAriaLabel
-          ? `${this.args.deselectRowAriaLabel} ${this.args.selectionKey}`
-          : `Deselect ${this.args.selectionKey}`;
+          ? `${this.args.deselectRowAriaLabel} ${this.checkboxId}`
+          : `Deselect ${this.checkboxId}`;
       } else {
         return this.args.selectRowAriaLabel
-          ? `${this.args.selectRowAriaLabel} ${this.args.selectionKey}`
-          : `Select ${this.args.selectionKey}`;
+          ? `${this.args.selectRowAriaLabel} ${this.checkboxId}`
+          : `Select ${this.checkboxId}`;
       }
     }
   }
