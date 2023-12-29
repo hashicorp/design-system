@@ -188,6 +188,7 @@ export default class HdsTableIndexComponent extends Component {
   onSelectionAllChange(headerCheckbox) {
     const checkboxes = this.allTbodyCheckboxes();
     checkboxes.forEach((checkbox) => {
+      // TODO: need to trigger onChange action? (aria-label not getting updated)
       checkbox.checked = headerCheckbox.checked;
     });
 

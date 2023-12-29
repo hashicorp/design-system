@@ -12,7 +12,12 @@
 
   <thead class="hds-table__thead">
     {{#if @columns}}
-      <Hds::Table::Tr @isSelectable={{@isSelectable}} @onSelectionChange={{this.onSelectionAllChange}}>
+      <Hds::Table::Tr
+        @isSelectable={{@isSelectable}}
+        @onSelectionChange={{this.onSelectionAllChange}}
+        @selectAllAriaLabel={{@selectAllAriaLabel}}
+        @deselectAllAriaLabel={{@deselectAllAriaLabel}}
+      >
         {{#each @columns as |column|}}
           {{#if column.isSortable}}
             <Hds::Table::ThSort
@@ -37,7 +42,13 @@
     {{else}}
       {{yield
         (hash
-          Tr=(component "hds/table/tr" isSelectable=@isSelectable onSelectionChange=this.onSelectionAllChange)
+          Tr=(component
+            "hds/table/tr"
+            isSelectable=@isSelectable
+            onSelectionChange=this.onSelectionAllChange
+            selectAllAriaLabel=@selectAllAriaLabel
+            deselectAllAriaLabel=@deselectAllAriaLabel
+          )
           Th=(component "hds/table/th")
           ThSort=(component "hds/table/th-sort")
           sortBy=this.sortBy
@@ -67,6 +78,8 @@
               didInsert=this.didInsertRowCheckbox
               willDestroy=this.willDestroyRowCheckbox
               selectableScope="row"
+              selectRowAriaLabel=@selectRowAriaLabel
+              deselectRowAriaLabel=@deselectRowAriaLabel
             )
             Th=(component "hds/table/th" scope="row")
             Td=(component "hds/table/td" align=@align)
@@ -86,6 +99,8 @@
             didInsert=this.didInsertRowCheckbox
             willDestroy=this.willDestroyRowCheckbox
             selectableScope="row"
+            selectRowAriaLabel=@selectRowAriaLabel
+            deselectRowAriaLabel=@deselectRowAriaLabel
           )
           Th=(component "hds/table/th" scope="row")
           Td=(component "hds/table/td" align=@align)
