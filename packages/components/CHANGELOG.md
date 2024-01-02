@@ -1,5 +1,57 @@
 # @hashicorp/design-system-components
 
+## 3.4.0
+
+### Minor Changes
+
+`Button` - Added `@isInline` argument
+
+<small class="doc-whats-new-changelog-metadata">[#1854](https://github.com/hashicorp/design-system/pull/1854)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Table` - Added support for `baseline` vertical alignment
+
+<small class="doc-whats-new-changelog-metadata">[#1861](https://github.com/hashicorp/design-system/pull/1861)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+`Hds::AppFooter` - Changed visual alignment from right-aligned to centered.
+
+<small class="doc-whats-new-changelog-metadata">[#1867](https://github.com/hashicorp/design-system/pull/1867)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Tooltip` - Fixed issue with text alignment, which was inherited from the parent container (now it's always left aligned).
+
+<small class="doc-whats-new-changelog-metadata">[#1869](https://github.com/hashicorp/design-system/pull/1869)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Tabs` - Fixed subcomponents' backing-class names
+
+<small class="doc-whats-new-changelog-metadata">[#1883](https://github.com/hashicorp/design-system/pull/1883)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AppFooter` - Updated default accessibility URL to https://hashicorp.com/accessibility
+
+<small class="doc-whats-new-changelog-metadata">[#1811](https://github.com/hashicorp/design-system/pull/1811)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Form::Fieldset` as consumed by `Form::Checkbox::Group`, `Form::Radio::Group`, `Form::RadioCard::Group`, and `Form::Toggle::Group` - Changed spacing between `legend` and content from 4px to 8px
+
+<small class="doc-whats-new-changelog-metadata">[#1856](https://github.com/hashicorp/design-system/pull/1856)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/ember-flight-icons@4.0.5
+
 ## 3.3.0
 
 ### Minor Changes

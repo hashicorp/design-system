@@ -12,6 +12,14 @@
   </a>
 </p>
 
+## 4.0.5
+
+**Patch changes**
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@2.24.0
+
 ## 4.0.4
 
 **Patch changes**
@@ -212,13 +220,6 @@ Fix error message for mismatched icon `@name`
 
 - Updated dependencies [[`55f38cb3`](https://github.com/hashicorp/design-system/commit/55f38cb3a30a6edf8854e53ce3642270fe00efdc), [`382fce2d`](https://github.com/hashicorp/design-system/commit/382fce2d063e8ff31849f28d68a138537354c68e)]:
   - @hashicorp/flight-icons@2.11.0
-
-## 2.0.12
-
-**Patch changes**
-
-- Updated dependencies [[`4e557797`](https://github.com/hashicorp/design-system/commit/4e5577973154397da0b5d4302755a07b22826345)]:
-  - @hashicorp/flight-icons@2.10.0
 
 
 ---
