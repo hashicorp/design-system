@@ -47,5 +47,10 @@ export default {
     // Remove leftover build artifacts when starting a new build.
     addon.clean(),
   ],
-  external: ['dialog-polyfill-css', 'ember-modifier', 'prismjs'],
+  external: [
+    'dialog-polyfill',
+    'dialog-polyfill/dist/dialog-polyfill.css',
+    'ember-modifier',
+    'prismjs',
+  ],
 };

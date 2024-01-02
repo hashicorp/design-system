@@ -130,7 +130,10 @@ export default class HdsModalIndexComponent extends Component {
 
     // Register `<dialog>` element for polyfilling if no native support is available
     if (!element.showModal) {
-      Promise.all([import('dialog-polyfill'), import('dialog-polyfill-css')])
+      Promise.all([
+        import('dialog-polyfill'),
+        import('dialog-polyfill/dist/dialog-polyfill.css'),
+      ])
         .then(([dialogPolyfill]) => {
           const dialog = dialogPolyfill.default;
           if (dialog.registerDialog) {
