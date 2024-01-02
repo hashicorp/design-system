@@ -12,6 +12,58 @@
   </a>
 </p>
 
+## 3.4.0
+
+**Minor changes**
+
+`Button` - added `@isInline` argument
+
+<small class="doc-whats-new-changelog-metadata">[#1854](https://github.com/hashicorp/design-system/pull/1854)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Table` - Added support for `baseline` vertical alignment
+
+<small class="doc-whats-new-changelog-metadata">[#1861](https://github.com/hashicorp/design-system/pull/1861)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**Patch changes**
+
+`Hds::AppFooter` - changed visual alignment from right-aligned to centered.
+
+<small class="doc-whats-new-changelog-metadata">[#1867](https://github.com/hashicorp/design-system/pull/1867)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Tooltip` - Fixed issue with text alignment, which was inherited from the parent container (now it's always left aligned).
+
+<small class="doc-whats-new-changelog-metadata">[#1869](https://github.com/hashicorp/design-system/pull/1869)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Tabs` - Fix subcomponents' backing-class names
+
+<small class="doc-whats-new-changelog-metadata">[#1883](https://github.com/hashicorp/design-system/pull/1883)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AppFooter` - update default accessibility URL to https://hashicorp.com/accessibility
+
+<small class="doc-whats-new-changelog-metadata">[#1811](https://github.com/hashicorp/design-system/pull/1811)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Form::Fieldset` as consumed by `Form::Checkbox::Group`, `Form::Radio::Group`, `Form::RadioCard::Group`, and `Form::Toggle::Group` - changed spacing between `legend` and content from 4px to 8px
+
+<small class="doc-whats-new-changelog-metadata">[#1856](https://github.com/hashicorp/design-system/pull/1856)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/ember-flight-icons@4.0.5
+
 ## 3.3.0
 
 **Minor changes**
@@ -634,24 +686,6 @@ Fix Embroider warnings caused by incorrect export of internal utility functions
 **🔄 Updated dependencies:**
 
 - @hashicorp/ember-flight-icons@3.0.9
-
-## 2.8.1
-
-**Patch changes**
-
-- [#1516](https://github.com/hashicorp/design-system/pull/1516) [`f2192cad7`](https://github.com/hashicorp/design-system/commit/f2192cad73b6d966bf813f54dcee02e157c76392) Thanks [@didoo](https://github.com/didoo)! - `Hds::SideNav` - Fixed issue with links still being interactive (even if visually hidden) when the navigation is "minimized"
-
-- [#1518](https://github.com/hashicorp/design-system/pull/1518) [`5fd48e31e`](https://github.com/hashicorp/design-system/commit/5fd48e31ed3241ee19a8226bb28fa04ad79479c5) Thanks [@didoo](https://github.com/didoo)! - `Hds::PageHeader` - Fixed overflow of non-breaking text for `title`, `subtitle` and `description` elements
-
-- [#1494](https://github.com/hashicorp/design-system/pull/1494) [`169a85b63`](https://github.com/hashicorp/design-system/commit/169a85b6348649bc0e2411f3ab6f6a086eecb692) Thanks [@natmegs](https://github.com/natmegs)! - `Hds::Form::TextInput` - Add support for `datetime-local` type
-
-- [#1500](https://github.com/hashicorp/design-system/pull/1500) [`b6c2867a4`](https://github.com/hashicorp/design-system/commit/b6c2867a4b7d1c183e9a17d16208ed12ce1aa43f) Thanks [@didoo](https://github.com/didoo)! - `Hds::SideNav` - updated layout styling for the `SideNav::List::Title` element
-
-- [#1520](https://github.com/hashicorp/design-system/pull/1520) [`7f7ec22c3`](https://github.com/hashicorp/design-system/commit/7f7ec22c387ac9df05d05de31e5c2b45d6324777) Thanks [@alex-ju](https://github.com/alex-ju)! - Upgrade `ember-style-modifier` to `3.0.1`
-
-- Updated dependencies [[`fd5953633`](https://github.com/hashicorp/design-system/commit/fd595363396c2e6672025ab8f9c3df7d2a3fce53)]:
-  - @hashicorp/design-system-tokens@1.7.0
-  - @hashicorp/ember-flight-icons@3.0.8
 
 
 ---

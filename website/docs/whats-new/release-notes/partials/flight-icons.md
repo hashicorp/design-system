@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 2.24.0
+
+**Minor changes**
+
+`rabbitmq`, `openid`, `jwt`, `meetup`, and `transform-data` icons added.
+
+<small class="doc-whats-new-changelog-metadata">[#1873](https://github.com/hashicorp/design-system/pull/1873)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 2.23.0
 
 **Minor changes**
@@ -227,14 +237,6 @@ Added `figma` and `loom` icons
 **Minor changes**
 
 - [#468](https://github.com/hashicorp/design-system/pull/468) [`c2f2e4ce`](https://github.com/hashicorp/design-system/commit/c2f2e4cea526421f63853461265064742af69729) Thanks [@didoo](https://github.com/didoo)! - Updated Flight icons pipeline to distribute assets as CSS props (mainly for Consul)
-
-## 2.6.0
-
-**Minor changes**
-
-- [#339](https://github.com/hashicorp/design-system/pull/339) [`c241a6f0`](https://github.com/hashicorp/design-system/commit/c241a6f02723d2d1031d2f3e06c093d3e6b503d7) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Added two new icons from the Figma library; clock-filled, minus-square-fill.
-
-* [#345](https://github.com/hashicorp/design-system/pull/345) [`c0e90d53`](https://github.com/hashicorp/design-system/commit/c0e90d53fde0a9697d5aff04146f527285f7e696) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Add api icon from the Figma library
 
 
 ---

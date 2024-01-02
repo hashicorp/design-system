@@ -1,5 +1,15 @@
 # @hashicorp/flight-icons
 
+## 2.24.0
+
+### Minor Changes
+
+`rabbitmq`, `openid`, `jwt`, `meetup`, and `transform-data` icons added.
+
+<small class="doc-whats-new-changelog-metadata">[#1873](https://github.com/hashicorp/design-system/pull/1873)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 2.23.0
 
 ### Minor Changes
