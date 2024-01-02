@@ -163,11 +163,11 @@ Multi-selection enables users to select multiple rows in a table, facilitating b
 
 Multi-selection consist of: 
 
-1. `Header Column / Select`: Used in the header row of the table. This acts as a master checkbox, enabling end-users to either select or deselect all rows on a single page simultaneously.
+1. `Header Column / Select`: Used in the table's header row. This acts as the parent checkbox, allowing the selection or deselection of all child rows on a single page simultaneously.
 
 ![Example of multi-selection in a table header](/assets/components/table/multi-select-header.png)
 
-2. `Cell / Select`: Used in each table row. It allows for individual row selection and aligns with the Header Column component, reflecting the overall selection status of the table.
+2. `Cell / Select`: Used in each table row. It allows for individual row selection.
 
 ![Example of multi-selection within table cells](/assets/components/table/multi-select-cells.png)
 
@@ -178,7 +178,10 @@ In the Ember component, unlike the `cell / select` Figma component, achieving an
 
 ### Intended interaction
 
-Within a simple table on a single page, selecting an individual row activates it for actions like editing or deleting. While interacting with the top-level header checkbox involves an indeterminate state, showing this when some but not all rows are selected, indicating partial selection. Selecting the top-level checkbox also selects every row in the table view, including previously individually selected ones.
+- When individual rows are selected, the parent checkbox in the `Table` header changes to display an indeterminate state. 
+- When no or some rows (but not all) are selected on a single page, clicking the parent checkbox in the `Table` header will change it to display as checked, and all rows on that page will be selected.
+- When all rows are selected on a single page, the parent checkbox in the `Table` header appears as checked. Clicking the parent checkbox will deselect all rows on that page.
+- An additional action, outside of the `Table`, is needed in order to select all rows across all pages.
 
 <video width="100%" controls loop>
   <source
