@@ -8,7 +8,7 @@ import { cached } from '@glimmer/tracking';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
 
-export default class HdsTabsIndexComponent extends Component {
+export default class HdsTabsPanelComponent extends Component {
   /**
    * Generate a unique ID for the Panel
    * @return {string}
