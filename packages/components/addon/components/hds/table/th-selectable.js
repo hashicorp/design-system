@@ -17,38 +17,11 @@ export default class HdsTableThSelectableComponent extends Component {
    */
   checkboxId = 'checkbox-' + guidFor(this);
 
-  /**
-   * @param ariaLabel
-   * @type {string}
-   * @description Sets checkbox aria-label
-   */
-  get ariaLabel() {
-    if (this.args.scope === 'col') {
-      // header checkbox:
-      if (this._checked === true) {
-        return this.args.deselectAllAriaLabel ?? 'Deselect all';
-      } else {
-        return this.args.selectAllAriaLabel ?? 'Select all';
-      }
-    } else {
-      // row checkbox:
-      if (this._checked === true) {
-        return this.args.deselectRowAriaLabel
-          ? `${this.args.deselectRowAriaLabel} ${this.checkboxId}`
-          : `Deselect ${this.checkboxId}`;
-      } else {
-        return this.args.selectRowAriaLabel
-          ? `${this.args.selectRowAriaLabel} ${this.checkboxId}`
-          : `Select ${this.checkboxId}`;
-      }
-    }
-  }
-
   @action
-  didInsert() {
+  didInsert(checkbox) {
     let { didInsert } = this.args;
     if (typeof didInsert === 'function') {
-      didInsert(this.args.selectionKey);
+      didInsert(checkbox, this.args.selectionKey);
     }
   }
 
@@ -66,11 +39,7 @@ export default class HdsTableThSelectableComponent extends Component {
     this._checked = event.target.checked;
     let { onChange } = this.args;
     if (typeof onChange === 'function') {
-      if (this.args.scope === 'col') {
-        onChange(event.target);
-      } else {
-        onChange(this.args.selectionKey);
-      }
+      onChange(event.target, this.args.selectionKey);
     }
   }
 }
