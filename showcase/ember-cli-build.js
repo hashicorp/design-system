@@ -13,8 +13,8 @@ module.exports = function (defaults) {
     sassOptions: {
       precision: 4,
       includePaths: [
-        '../node_modules/@hashicorp/design-system-components/dist/styles',
         '../node_modules/@hashicorp/design-system-tokens/dist/products/css',
+        '../node_modules/@hashicorp/design-system-components/dist/styles',
         '../node_modules/ember-power-select/vendor',
       ],
     },
