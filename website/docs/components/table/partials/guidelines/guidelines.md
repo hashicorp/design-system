@@ -171,10 +171,6 @@ Multi-selection consists of:
 
 ![Example of multi-selection within table cells](/assets/components/table/multi-select-cells.png)
 
-!!! Info 
-
-In the Ember component, unlike the `cell / select` Figma component, achieving an indeterminate state is not possible. 
-!!!
 
 ### Intended interaction
 
