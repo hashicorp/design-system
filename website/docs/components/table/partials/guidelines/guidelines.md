@@ -157,17 +157,17 @@ Row placement determines the visual styling based on where the row is placed rel
 - If content is largely string/text-based, `short` allows for more content to be displayed within the page.
 - While denser content allows for more rows to be displayed within a single page, it also makes comprehension and scanning more difficult.
 
-## Multi-Selection
+## Multi-selection
 
 A multi-select table includes checkboxes enabling users to select multiple rows in a table for purposes of performing bulk operations. Checking or unchecking the checkbox in the table header either selects or deselects the checkboxes on each row in the table body. Individual checkboxes in the rows can also be selected or deselected.
 
-Multi-selection consist of: 
+Multi-selection consists of: 
 
 1. `Header Column / Select`: Used in the table's header row. This acts as the parent checkbox, allowing the selection or deselection of all child rows on a single page simultaneously.
 
 ![Example of multi-selection in a table header](/assets/components/table/multi-select-header.png)
 
-2. `Cell / Select`: Used in each table row. It allows for individual row selection.
+2. `Cell / Select`: Used in each table row allowing for the selection of an individual row.
 
 ![Example of multi-selection within table cells](/assets/components/table/multi-select-cells.png)
 
@@ -178,10 +178,10 @@ In the Ember component, unlike the `cell / select` Figma component, achieving an
 
 ### Intended interaction
 
-- When individual rows are selected, the parent checkbox in the `Table` header changes to display an indeterminate state. 
+- When individual rows are selected, the parent checkbox in the Table header changes to display an indeterminate state. 
 - When no or some rows (but not all) are selected on a single page, clicking the parent checkbox in the `Table` header will change it to display as checked, and all rows on that page will be selected.
 - When all rows are selected on a single page, the parent checkbox in the `Table` header appears as checked. Clicking the parent checkbox will deselect all rows on that page.
-- An additional action, outside of the `Table`, is needed in order to select all rows across all pages.
+- An additional action, outside of the Table, is needed in order to select all rows across all pages.
 
 <video width="100%" controls loop>
   <source
