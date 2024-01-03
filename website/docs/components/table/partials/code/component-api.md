@@ -68,10 +68,22 @@ The Table component itself is where most of the options will be applied. However
     Use in conjunction with `sortBy`. If defined, indicates which direction the column should be pre-sorted in. If not defined, `asc` is applied by default.
   </C.Property>
   <C.Property @name="isSelectable" @type="boolean" @default="false">
-    If set to true, renders checkboxes in table header and on table rows enabling bulk interaction. Use in conjunction with `onSelectionChange` on the `Table` and `selectionKey` on each `Table::Tr`.
+    If set to true, creates a “multi-select” table which renders checkboxes in table header and on table rows enabling bulk interaction. Use in conjunction with `onSelectionChange` on the `Table` and `selectionKey` on each `Table::Tr`.
   </C.Property>
   <C.Property @name="onSelectionChange" @type="function">
-    Use to pass a callback function to receive selection keys. Must be used in conjunction with `isSelectable` on the `Table` and setting a `selectionKey` on each `Table::Tr`.
+    Use in conjunction with `isSelectable`. Use to pass a callback function to receive selection keys. Must be used in conjunction with setting a `selectionKey` on each `Table::Tr`.
+  </C.Property>
+  <C.Property @name="selectAllAriaLabel" @type="string" @default="Select all">
+    Use in conjunction with `isSelectable`. Pass a custom aria-label value to the header checkbox in a mult-select table such as for translated strings.
+  </C.Property>
+  <C.Property @name="deselectAllAriaLabel" @type="string" @default="Deselect all">
+    Use in conjunction with `isSelectable`. Pass a custom aria-label value to the header checkbox in a mult-select table such as for translated strings.
+  </C.Property>
+  <C.Property @name="selectRowAriaLabel" @type="string" @default="Select ID#">
+    Use in conjunction with `isSelectable`. Pass a custom aria-label value to each row checkbox in a multi-select table such as for translated strings. The `id` of the checkbox is appended to the passed string.
+  </C.Property>
+  <C.Property @name="deselectRowAriaLabel" @type="string" @default="Deselect ID#">
+    Use in conjunction with `isSelectable`. Pass a custom aria-label value to each row checkbox in a multi-select table such as for translated strings. The `id` of the checkbox is appended to the passed string.
   </C.Property>
   <C.Property @name="isStriped" @type="boolean" @default="false">
     Define on the table invocation. If set to `true`, even-numbered rows will have a different background color from odd-numbered rows.
