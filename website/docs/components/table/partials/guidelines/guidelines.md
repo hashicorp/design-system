@@ -163,7 +163,7 @@ A multi-select table includes checkboxes enabling users to select multiple rows 
 
 Multi-selection consists of: 
 
-1. `Header Column / Select`: Used in the table's header row. This acts as the parent checkbox, allowing the selection or deselection of all child rows on a single page simultaneously.
+1. `Header Column / Select`: Used in the table's header row. This acts as the parent checkbox, allowing the selection or deselection of all child rows in a single table simultaneously.
 
 ![Example of multi-selection in a table header](/assets/components/table/multi-select-header.png)
 
