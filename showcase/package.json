@@ -11,7 +11,6 @@
   "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "directories": {
-    "doc": "doc",
     "test": "tests"
   },
   "scripts": {
