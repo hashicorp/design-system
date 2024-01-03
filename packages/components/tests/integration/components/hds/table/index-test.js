@@ -481,8 +481,11 @@ module('Integration | Component | hds/table/index', function (hooks) {
     // Should change to checked after it is triggered:
     await click(headerCheckbox);
     assert.dom(headerCheckbox).isChecked().hasAria('label', 'Deselect all');
-    // TODO: Failing (aria-label is not updating)
-    // assert.dom(rowCheckbox).isChecked().exists({ count: 3 }).hasAria('label', /^Deselect/);
+    assert
+      .dom(rowCheckbox)
+      .isChecked()
+      .exists({ count: 3 })
+      .hasAria('label', /^Deselect/);
   });
 
   test('it deselects all rows when the header checkbox unchecked state is triggered', async function (assert) {
