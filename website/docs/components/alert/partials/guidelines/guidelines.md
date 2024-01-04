@@ -72,7 +72,7 @@ Use the Alert for more intrusive message communication about errors or critical 
     <A.Title>You have exceeded 50 applies this month</A.Title>
     <A.Description>You may only invoke applies that destroy managed resources. Upgrade now and access additional product features, unlimited applies, and increased concurrency.</A.Description>
     <A.Button @text="Upgrade" @color="secondary" @onClick={{this.noop}} />
-    <A.Link::Standalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="View usage" @href="#" />
+    <A.LinkStandalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="View usage" @href="#" />
   </Hds::Alert>
 !!!
 
@@ -120,7 +120,7 @@ Icons within the `neutral` and `highlight` alerts can be replaced with other ico
 <Hds::Alert @type="inline" @color="highlight" @onDismiss={{this.noop}} @icon="gift" as |A|>
   <A.Title>New features available</A.Title>
   <A.Description>Starting with Terraform 0.15, you can now upgrade to a new version and your workflows will continue to be operational, just as they were in prior versions.</A.Description>
-  <A.Link::Standalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="Release notes" @href="#" />
+  <A.LinkStandalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="Release notes" @href="#" />
 </Hds::Alert>
 
 ## Dismissal
