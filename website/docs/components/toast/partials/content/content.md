@@ -42,7 +42,7 @@ When linking to internal and external resources in the Toast, default to using a
   <T.Title>Links in Toasts</T.Title>
   <T.Description>Lorem ipsum dolar sit amet, consecteu adipiscig elit null dignissim felis.</T.Description>
   <T.Button @text="Button" @color="secondary" />
-  <T.Link::Standalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="Standalone link" @href="#" />
+  <T.LinkStandalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="Standalone link" @href="#" />
 </Hds::Toast>
 
 Within the Toast description, use the `secondary` [Inline Link](/components/link/inline) as the default link color. A common use case for this is when linking to multiple resources.
@@ -103,7 +103,7 @@ The title or description should contain the Toast color type, e.g., â€œWarning,â
   <T.Title>Toast with actions</T.Title>
   <T.Description>Lorem ipsum dolar sit amet, consectetur adi.</T.Description>
   <T.Button @text="Button" @color="secondary" />
-  <T.Link::Standalone @color="secondary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+  <T.LinkStandalone @color="secondary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
 </Hds::Toast>
 
 ### With generic content

@@ -61,14 +61,14 @@ If you need to hide the icon, pass `false` to the `icon` argument.
 
 ### Actions
 
-Actions can be passed to the component using one of the suggested `Button` or `Link::Standalone` contextual components.
+Actions can be passed to the component using one of the suggested `Button` or `LinkStandalone` contextual components.
 
 ```handlebars
 <Hds::Toast @color="critical" @onDismiss={{this.yourOnDismissFunction}} as |T|>
   <T.Title>Title here</T.Title>
   <T.Description>Description here</T.Description>
   <T.Button @text="Your action" @color="secondary" {{on "click" this.yourOnClickFunction}} />
-  <T.Link::Standalone @color="secondary" @icon="plus" @text="Another action" @route="components" @color="secondary" />
+  <T.LinkStandalone @color="secondary" @icon="plus" @text="Another action" @route="components" @color="secondary" />
 </Hds::Toast>
 ```
 
