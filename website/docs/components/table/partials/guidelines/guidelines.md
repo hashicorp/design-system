@@ -176,7 +176,7 @@ Multi-selection consists of:
 
 - When individual rows are selected, the parent checkbox in the Table header changes to display an indeterminate state. 
 - When no or some rows (but not all) are selected on a single Table, clicking the parent checkbox in the Table header will change to display as checked and all rows on that page will be selected.
-- When all rows are selected on a single Table, the parent checkbox in the header appears as checked. Clicking the parent checkbox will deselect all rows on that page.
+- When all rows are selected in a single Table, the parent checkbox in the header appears as checked. Clicking the parent checkbox will deselect all rows on that page.
 - An additional action, outside of the Table, is needed in order to select all rows across all pages.
 
 <video width="100%" controls loop>
