@@ -27,10 +27,10 @@ There may be use cases in which you need to create a Toggle group that contains 
 ```handlebars
 <Hds::Form::Toggle::Group as |G|>
   <G.Legend>Visibility</G.Legend>
-  <G.Toggle::Field name="private" @id="visibility-private" as |F|>
+  <G.ToggleField name="private" @id="visibility-private" as |F|>
     <F.Label>Private</F.Label>
     <F.HelperText>Making a box private prevents users from accessing it unless given permission.</F.HelperText>
-  </G.Toggle::Field>
+  </G.ToggleField>
 </Hds::Form::Toggle::Group>
 ```
 

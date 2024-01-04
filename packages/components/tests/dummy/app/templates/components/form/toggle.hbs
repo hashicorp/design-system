@@ -116,35 +116,35 @@
     <SG.Item @label="With legend">
       <Hds::Form::Toggle::Group as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Toggle::Field checked="checked" as |F|>
+        <G.ToggleField checked="checked" as |F|>
           <F.Label>This is the label</F.Label>
-        </G.Toggle::Field>
+        </G.ToggleField>
       </Hds::Form::Toggle::Group>
     </SG.Item>
     <SG.Item @label="With legend / With helper text">
       <Hds::Form::Toggle::Group as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Toggle::Field checked="checked" as |F|>
+        <G.ToggleField checked="checked" as |F|>
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
-        </G.Toggle::Field>
+        </G.ToggleField>
       </Hds::Form::Toggle::Group>
     </SG.Item>
     <SG.Item @label="Without legend">
       <Hds::Form::Toggle::Group as |G|>
         <G.Legend>Legend of the group</G.Legend>
         <G.HelperText>Helper text for the entire group</G.HelperText>
-        <G.Toggle::Field checked="checked" as |F|>
+        <G.ToggleField checked="checked" as |F|>
           <F.Label>This is the label</F.Label>
-        </G.Toggle::Field>
+        </G.ToggleField>
       </Hds::Form::Toggle::Group>
     </SG.Item>
     <SG.Item @label="Without legend / With helper text">
       <Hds::Form::Toggle::Group as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Toggle::Field checked="checked" as |F|>
+        <G.ToggleField checked="checked" as |F|>
           <F.Label>This is the label</F.Label>
-        </G.Toggle::Field>
+        </G.ToggleField>
         <G.Error>Error for the entire group</G.Error>
       </Hds::Form::Toggle::Group>
     </SG.Item>
@@ -156,90 +156,90 @@
     <SG.Item @label="With legend">
       <Hds::Form::Toggle::Group as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Toggle::Field as |F|>
+        <G.ToggleField as |F|>
           <F.Label>Label of control #1</F.Label>
-        </G.Toggle::Field>
-        <G.Toggle::Field checked="checked" as |F|>
+        </G.ToggleField>
+        <G.ToggleField checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
-        </G.Toggle::Field>
-        <G.Toggle::Field as |F|>
+        </G.ToggleField>
+        <G.ToggleField as |F|>
           <F.Label>Label of control #3</F.Label>
-        </G.Toggle::Field>
+        </G.ToggleField>
       </Hds::Form::Toggle::Group>
     </SG.Item>
     <SG.Item @label="With legend / With helper text">
       <Hds::Form::Toggle::Group as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Toggle::Field as |F|>
+        <G.ToggleField as |F|>
           <F.Label>Label of control #1</F.Label>
           <F.HelperText>Helper text for control #1</F.HelperText>
-        </G.Toggle::Field>
-        <G.Toggle::Field checked="checked" as |F|>
+        </G.ToggleField>
+        <G.ToggleField checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
           <F.HelperText>Helper text for control #2</F.HelperText>
-        </G.Toggle::Field>
-        <G.Toggle::Field as |F|>
+        </G.ToggleField>
+        <G.ToggleField as |F|>
           <F.Label>Label of control #3</F.Label>
           <F.HelperText>Helper text for control #3</F.HelperText>
-        </G.Toggle::Field>
+        </G.ToggleField>
       </Hds::Form::Toggle::Group>
     </SG.Item>
     <SG.Item @label="Without legend">
       <Hds::Form::Toggle::Group as |G|>
-        <G.Toggle::Field as |F|>
+        <G.ToggleField as |F|>
           <F.Label>Label of control #1</F.Label>
-        </G.Toggle::Field>
-        <G.Toggle::Field checked="checked" as |F|>
+        </G.ToggleField>
+        <G.ToggleField checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
-        </G.Toggle::Field>
-        <G.Toggle::Field as |F|>
+        </G.ToggleField>
+        <G.ToggleField as |F|>
           <F.Label>Label of control #3</F.Label>
-        </G.Toggle::Field>
+        </G.ToggleField>
       </Hds::Form::Toggle::Group>
     </SG.Item>
     <SG.Item @label="Without legend / With helper text">
       <Hds::Form::Toggle::Group as |G|>
-        <G.Toggle::Field as |F|>
+        <G.ToggleField as |F|>
           <F.Label>Label of control #1</F.Label>
           <F.HelperText>Helper text for control #1</F.HelperText>
-        </G.Toggle::Field>
-        <G.Toggle::Field checked="checked" as |F|>
+        </G.ToggleField>
+        <G.ToggleField checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
           <F.HelperText>Helper text for control #2</F.HelperText>
-        </G.Toggle::Field>
-        <G.Toggle::Field as |F|>
+        </G.ToggleField>
+        <G.ToggleField as |F|>
           <F.Label>Label of control #3</F.Label>
           <F.HelperText>Helper text for control #3</F.HelperText>
-        </G.Toggle::Field>
+        </G.ToggleField>
       </Hds::Form::Toggle::Group>
     </SG.Item>
     <SG.Item @label="With helper text at group level">
       <Hds::Form::Toggle::Group as |G|>
         <G.Legend>Legend of the group</G.Legend>
         <G.HelperText>Helper text for the entire group</G.HelperText>
-        <G.Toggle::Field as |F|>
+        <G.ToggleField as |F|>
           <F.Label>Label of control #1</F.Label>
-        </G.Toggle::Field>
-        <G.Toggle::Field checked="checked" as |F|>
+        </G.ToggleField>
+        <G.ToggleField checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
-        </G.Toggle::Field>
-        <G.Toggle::Field as |F|>
+        </G.ToggleField>
+        <G.ToggleField as |F|>
           <F.Label>Label of control #3</F.Label>
-        </G.Toggle::Field>
+        </G.ToggleField>
       </Hds::Form::Toggle::Group>
     </SG.Item>
     <SG.Item @label="With error at group level">
       <Hds::Form::Toggle::Group as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Toggle::Field as |F|>
+        <G.ToggleField as |F|>
           <F.Label>Label of control #1</F.Label>
-        </G.Toggle::Field>
-        <G.Toggle::Field checked="checked" as |F|>
+        </G.ToggleField>
+        <G.ToggleField checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
-        </G.Toggle::Field>
-        <G.Toggle::Field as |F|>
+        </G.ToggleField>
+        <G.ToggleField as |F|>
           <F.Label>Label of control #3</F.Label>
-        </G.Toggle::Field>
+        </G.ToggleField>
         <G.Error>Error for the entire group</G.Error>
       </Hds::Form::Toggle::Group>
     </SG.Item>
@@ -251,81 +251,81 @@
     <SF.Item @label="With legend">
       <Hds::Form::Toggle::Group @layout="horizontal" as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Toggle::Field as |F|>
+        <G.ToggleField as |F|>
           <F.Label>Label of control #1</F.Label>
-        </G.Toggle::Field>
-        <G.Toggle::Field checked="checked" as |F|>
+        </G.ToggleField>
+        <G.ToggleField checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
-        </G.Toggle::Field>
-        <G.Toggle::Field as |F|>
+        </G.ToggleField>
+        <G.ToggleField as |F|>
           <F.Label>Label of control #3</F.Label>
-        </G.Toggle::Field>
+        </G.ToggleField>
       </Hds::Form::Toggle::Group>
     </SF.Item>
     <SF.Item @label="Without legend">
       <Hds::Form::Toggle::Group @layout="horizontal" as |G|>
-        <G.Toggle::Field as |F|>
+        <G.ToggleField as |F|>
           <F.Label>Label of control #1</F.Label>
-        </G.Toggle::Field>
-        <G.Toggle::Field checked="checked" as |F|>
+        </G.ToggleField>
+        <G.ToggleField checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
-        </G.Toggle::Field>
-        <G.Toggle::Field as |F|>
+        </G.ToggleField>
+        <G.ToggleField as |F|>
           <F.Label>Label of control #3</F.Label>
-        </G.Toggle::Field>
+        </G.ToggleField>
       </Hds::Form::Toggle::Group>
     </SF.Item>
     <SF.Item @label="With helper text at group level">
       <Hds::Form::Toggle::Group @layout="horizontal" as |G|>
         <G.Legend>Legend of the group</G.Legend>
         <G.HelperText>Helper text for the entire group</G.HelperText>
-        <G.Toggle::Field as |F|>
+        <G.ToggleField as |F|>
           <F.Label>Label of control #1</F.Label>
-        </G.Toggle::Field>
-        <G.Toggle::Field checked="checked" as |F|>
+        </G.ToggleField>
+        <G.ToggleField checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
-        </G.Toggle::Field>
-        <G.Toggle::Field as |F|>
+        </G.ToggleField>
+        <G.ToggleField as |F|>
           <F.Label>Label of control #3</F.Label>
-        </G.Toggle::Field>
+        </G.ToggleField>
       </Hds::Form::Toggle::Group>
     </SF.Item>
     <SF.Item @label="With error at group level">
       <Hds::Form::Toggle::Group @layout="horizontal" as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Toggle::Field as |F|>
+        <G.ToggleField as |F|>
           <F.Label>Label of control #1</F.Label>
-        </G.Toggle::Field>
-        <G.Toggle::Field checked="checked" as |F|>
+        </G.ToggleField>
+        <G.ToggleField checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
-        </G.Toggle::Field>
-        <G.Toggle::Field as |F|>
+        </G.ToggleField>
+        <G.ToggleField as |F|>
           <F.Label>Label of control #3</F.Label>
-        </G.Toggle::Field>
+        </G.ToggleField>
         <G.Error>Error for the entire group</G.Error>
       </Hds::Form::Toggle::Group>
     </SF.Item>
     <SF.Item @label="With controls on multiple lines" {{style width="450px"}}>
       <Hds::Form::Toggle::Group @layout="horizontal" as |G|>
         <G.Legend>Lorem ipsum dolor</G.Legend>
-        <G.Toggle::Field as |F|>
+        <G.ToggleField as |F|>
           <F.Label>Sit amet</F.Label>
-        </G.Toggle::Field>
-        <G.Toggle::Field checked="checked" as |F|>
+        </G.ToggleField>
+        <G.ToggleField checked="checked" as |F|>
           <F.Label>Consectetur adipiscing</F.Label>
-        </G.Toggle::Field>
-        <G.Toggle::Field as |F|>
+        </G.ToggleField>
+        <G.ToggleField as |F|>
           <F.Label>Elit</F.Label>
-        </G.Toggle::Field>
-        <G.Toggle::Field as |F|>
+        </G.ToggleField>
+        <G.ToggleField as |F|>
           <F.Label>Pellentesque erat</F.Label>
-        </G.Toggle::Field>
-        <G.Toggle::Field as |F|>
+        </G.ToggleField>
+        <G.ToggleField as |F|>
           <F.Label>Lacinia</F.Label>
-        </G.Toggle::Field>
-        <G.Toggle::Field checked="checked" as |F|>
+        </G.ToggleField>
+        <G.ToggleField checked="checked" as |F|>
           <F.Label>At magna</F.Label>
-        </G.Toggle::Field>
+        </G.ToggleField>
       </Hds::Form::Toggle::Group>
     </SF.Item>
   </Shw::Flex>
@@ -336,29 +336,29 @@
     <SF.Item @label="With legend + Required">
       <Hds::Form::Toggle::Group @isRequired={{true}} as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Toggle::Field as |F|>
+        <G.ToggleField as |F|>
           <F.Label>Label of control #1</F.Label>
-        </G.Toggle::Field>
-        <G.Toggle::Field checked="checked" as |F|>
+        </G.ToggleField>
+        <G.ToggleField checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
-        </G.Toggle::Field>
-        <G.Toggle::Field as |F|>
+        </G.ToggleField>
+        <G.ToggleField as |F|>
           <F.Label>Label of control #3</F.Label>
-        </G.Toggle::Field>
+        </G.ToggleField>
       </Hds::Form::Toggle::Group>
     </SF.Item>
     <SF.Item @label="With legend + Optional">
       <Hds::Form::Toggle::Group @isOptional={{true}} as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Toggle::Field as |F|>
+        <G.ToggleField as |F|>
           <F.Label>Label of control #1</F.Label>
-        </G.Toggle::Field>
-        <G.Toggle::Field checked="checked" as |F|>
+        </G.ToggleField>
+        <G.ToggleField checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
-        </G.Toggle::Field>
-        <G.Toggle::Field as |F|>
+        </G.ToggleField>
+        <G.ToggleField as |F|>
           <F.Label>Label of control #3</F.Label>
-        </G.Toggle::Field>
+        </G.ToggleField>
       </Hds::Form::Toggle::Group>
     </SF.Item>
   </Shw::Flex>

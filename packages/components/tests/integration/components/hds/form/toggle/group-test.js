@@ -27,11 +27,11 @@ module('Integration | Component | hds/form/toggle/group', function (hooks) {
       hbs`<Hds::Form::Toggle::Group as |G|>
             <G.Legend>This is the legend</G.Legend>
             <G.HelperText>This is the group helper text</G.HelperText>
-            <G.Toggle::Field checked="checked" @value="abc123" as |F|>
+            <G.ToggleField checked="checked" @value="abc123" as |F|>
               <F.Label>This is the control label</F.Label>
               <F.HelperText>This is the control helper text</F.HelperText>
               <F.Error>This is the control error</F.Error>
-            </G.Toggle::Field>
+            </G.ToggleField>
             <G.Error>This is the group error</G.Error>
         </Hds::Form::Toggle::Group>`
     );
@@ -73,11 +73,11 @@ module('Integration | Component | hds/form/toggle/group', function (hooks) {
       hbs`<Hds::Form::Toggle::Group as |G|>
             <G.Legend>This is the legend</G.Legend>
             <G.HelperText>This is the group helper text</G.HelperText>
-            <G.Toggle::Field checked="checked" @value="abc123" as |F|>
+            <G.ToggleField checked="checked" @value="abc123" as |F|>
               <F.Label>This is the control label</F.Label>
               <F.HelperText>This is the control helper text</F.HelperText>
               <F.Error>This is the control error</F.Error>
-            </G.Toggle::Field>
+            </G.ToggleField>
             <G.Error>This is the group error</G.Error>
         </Hds::Form::Toggle::Group>`
     );
@@ -108,9 +108,9 @@ module('Integration | Component | hds/form/toggle/group', function (hooks) {
     await render(
       hbs`<Hds::Form::Toggle::Group @isRequired={{true}} as |G|>
             <G.Legend>This is the legend</G.Legend>
-            <G.Toggle::Field checked="checked" @value="abc123" as |F|>
+            <G.ToggleField checked="checked" @value="abc123" as |F|>
               <F.Label>This is the control label</F.Label>
-            </G.Toggle::Field>
+            </G.ToggleField>
           </Hds::Form::Toggle::Group>`
     );
     assert.dom('legend .hds-form-indicator').exists();
@@ -121,9 +121,9 @@ module('Integration | Component | hds/form/toggle/group', function (hooks) {
     await render(
       hbs`<Hds::Form::Toggle::Group @isOptional={{true}} as |G|>
             <G.Legend>This is the legend</G.Legend>
-            <G.Toggle::Field checked="checked" @value="abc123" as |F|>
+            <G.ToggleField checked="checked" @value="abc123" as |F|>
               <F.Label>This is the control label</F.Label>
-            </G.Toggle::Field>
+            </G.ToggleField>
           </Hds::Form::Toggle::Group>`
     );
     assert.dom('legend .hds-form-indicator').exists();
