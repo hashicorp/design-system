@@ -31,5 +31,20 @@ module(
 
       assert.dom('.hds-application-state__footer--has-divider').exists();
     });
+
+    // CONTEXTUAL COMPONENTS
+
+    test('it should render an Hds::Link::Standalone component', async function (assert) {
+      await render(hbs`
+        <Hds::ApplicationState::Footer id="test-application-state-footer" as |F|>
+          <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/"/>
+        </Hds::ApplicationState::Footer>
+      `);
+      assert
+        .dom('#test-application-state-footer a')
+        .exists()
+        .hasClass('hds-link-standalone')
+        .hasText('Go back');
+    });
   }
 );
