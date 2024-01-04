@@ -133,90 +133,90 @@
     <SG.Item @label="With legend">
       <Hds::Form::Checkbox::Group @name="control-vertical-01" as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Checkbox::Field as |F|>
+        <G.CheckboxField as |F|>
           <F.Label>Label of control #1</F.Label>
-        </G.Checkbox::Field>
-        <G.Checkbox::Field checked="checked" as |F|>
+        </G.CheckboxField>
+        <G.CheckboxField checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
-        </G.Checkbox::Field>
-        <G.Checkbox::Field indeterminate={{true}} as |F|>
+        </G.CheckboxField>
+        <G.CheckboxField indeterminate={{true}} as |F|>
           <F.Label>Label of control #3</F.Label>
-        </G.Checkbox::Field>
+        </G.CheckboxField>
       </Hds::Form::Checkbox::Group>
     </SG.Item>
     <SG.Item @label="With legend / With helper text">
       <Hds::Form::Checkbox::Group @name="control-vertical-02" as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Checkbox::Field as |F|>
+        <G.CheckboxField as |F|>
           <F.Label>Label of control #1</F.Label>
           <F.HelperText>Helper text for control #1</F.HelperText>
-        </G.Checkbox::Field>
-        <G.Checkbox::Field checked="checked" as |F|>
+        </G.CheckboxField>
+        <G.CheckboxField checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
           <F.HelperText>Helper text for control #2</F.HelperText>
-        </G.Checkbox::Field>
-        <G.Checkbox::Field indeterminate={{true}} as |F|>
+        </G.CheckboxField>
+        <G.CheckboxField indeterminate={{true}} as |F|>
           <F.Label>Label of control #3</F.Label>
           <F.HelperText>Helper text for control #3</F.HelperText>
-        </G.Checkbox::Field>
+        </G.CheckboxField>
       </Hds::Form::Checkbox::Group>
     </SG.Item>
     <SG.Item @label="Without legend">
       <Hds::Form::Checkbox::Group @name="control-vertical-03" as |G|>
-        <G.Checkbox::Field as |F|>
+        <G.CheckboxField as |F|>
           <F.Label>Label of control #1</F.Label>
-        </G.Checkbox::Field>
-        <G.Checkbox::Field checked="checked" as |F|>
+        </G.CheckboxField>
+        <G.CheckboxField checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
-        </G.Checkbox::Field>
-        <G.Checkbox::Field indeterminate={{true}} as |F|>
+        </G.CheckboxField>
+        <G.CheckboxField indeterminate={{true}} as |F|>
           <F.Label>Label of control #3</F.Label>
-        </G.Checkbox::Field>
+        </G.CheckboxField>
       </Hds::Form::Checkbox::Group>
     </SG.Item>
     <SG.Item @label="Without legend / With helper text">
       <Hds::Form::Checkbox::Group @name="control-vertical-04" as |G|>
-        <G.Checkbox::Field as |F|>
+        <G.CheckboxField as |F|>
           <F.Label>Label of control #1</F.Label>
           <F.HelperText>Helper text for control #1</F.HelperText>
-        </G.Checkbox::Field>
-        <G.Checkbox::Field checked="checked" as |F|>
+        </G.CheckboxField>
+        <G.CheckboxField checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
           <F.HelperText>Helper text for control #2</F.HelperText>
-        </G.Checkbox::Field>
-        <G.Checkbox::Field indeterminate={{true}} as |F|>
+        </G.CheckboxField>
+        <G.CheckboxField indeterminate={{true}} as |F|>
           <F.Label>Label of control #3</F.Label>
           <F.HelperText>Helper text for control #3</F.HelperText>
-        </G.Checkbox::Field>
+        </G.CheckboxField>
       </Hds::Form::Checkbox::Group>
     </SG.Item>
     <SG.Item @label="With helper text at group level">
       <Hds::Form::Checkbox::Group @name="control-vertical-05" as |G|>
         <G.Legend>Legend of the group</G.Legend>
         <G.HelperText>Helper text for the entire group</G.HelperText>
-        <G.Checkbox::Field as |F|>
+        <G.CheckboxField as |F|>
           <F.Label>Label of control #1</F.Label>
-        </G.Checkbox::Field>
-        <G.Checkbox::Field checked="checked" as |F|>
+        </G.CheckboxField>
+        <G.CheckboxField checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
-        </G.Checkbox::Field>
-        <G.Checkbox::Field indeterminate={{true}} as |F|>
+        </G.CheckboxField>
+        <G.CheckboxField indeterminate={{true}} as |F|>
           <F.Label>Label of control #3</F.Label>
-        </G.Checkbox::Field>
+        </G.CheckboxField>
       </Hds::Form::Checkbox::Group>
     </SG.Item>
     <SG.Item @label="With error at group level">
       <Hds::Form::Checkbox::Group @name="control-vertical-06" as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Checkbox::Field as |F|>
+        <G.CheckboxField as |F|>
           <F.Label>Label of control #1</F.Label>
-        </G.Checkbox::Field>
-        <G.Checkbox::Field checked="checked" as |F|>
+        </G.CheckboxField>
+        <G.CheckboxField checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
-        </G.Checkbox::Field>
-        <G.Checkbox::Field indeterminate={{true}} as |F|>
+        </G.CheckboxField>
+        <G.CheckboxField indeterminate={{true}} as |F|>
           <F.Label>Label of control #3</F.Label>
-        </G.Checkbox::Field>
+        </G.CheckboxField>
         <G.Error>Error for the entire group</G.Error>
       </Hds::Form::Checkbox::Group>
     </SG.Item>
@@ -228,81 +228,81 @@
     <SF.Item @label="With legend">
       <Hds::Form::Checkbox::Group @layout="horizontal" @name="control-horizontal-01" as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Checkbox::Field as |F|>
+        <G.CheckboxField as |F|>
           <F.Label>Label of control #1</F.Label>
-        </G.Checkbox::Field>
-        <G.Checkbox::Field checked="checked" as |F|>
+        </G.CheckboxField>
+        <G.CheckboxField checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
-        </G.Checkbox::Field>
-        <G.Checkbox::Field indeterminate={{true}} as |F|>
+        </G.CheckboxField>
+        <G.CheckboxField indeterminate={{true}} as |F|>
           <F.Label>Label of control #3</F.Label>
-        </G.Checkbox::Field>
+        </G.CheckboxField>
       </Hds::Form::Checkbox::Group>
     </SF.Item>
     <SF.Item @label="Without legend">
       <Hds::Form::Checkbox::Group @layout="horizontal" @name="control-horizontal-02" as |G|>
-        <G.Checkbox::Field as |F|>
+        <G.CheckboxField as |F|>
           <F.Label>Label of control #1</F.Label>
-        </G.Checkbox::Field>
-        <G.Checkbox::Field checked="checked" as |F|>
+        </G.CheckboxField>
+        <G.CheckboxField checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
-        </G.Checkbox::Field>
-        <G.Checkbox::Field indeterminate={{true}} as |F|>
+        </G.CheckboxField>
+        <G.CheckboxField indeterminate={{true}} as |F|>
           <F.Label>Label of control #3</F.Label>
-        </G.Checkbox::Field>
+        </G.CheckboxField>
       </Hds::Form::Checkbox::Group>
     </SF.Item>
     <SF.Item @label="With helper text at group level">
       <Hds::Form::Checkbox::Group @layout="horizontal" @name="control-horizontal-03" as |G|>
         <G.Legend>Legend of the group</G.Legend>
         <G.HelperText>Helper text for the entire group</G.HelperText>
-        <G.Checkbox::Field as |F|>
+        <G.CheckboxField as |F|>
           <F.Label>Label of control #1</F.Label>
-        </G.Checkbox::Field>
-        <G.Checkbox::Field checked="checked" as |F|>
+        </G.CheckboxField>
+        <G.CheckboxField checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
-        </G.Checkbox::Field>
-        <G.Checkbox::Field indeterminate={{true}} as |F|>
+        </G.CheckboxField>
+        <G.CheckboxField indeterminate={{true}} as |F|>
           <F.Label>Label of control #3</F.Label>
-        </G.Checkbox::Field>
+        </G.CheckboxField>
       </Hds::Form::Checkbox::Group>
     </SF.Item>
     <SF.Item @label="With error at group level">
       <Hds::Form::Checkbox::Group @layout="horizontal" @name="control-horizontal-04" as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Checkbox::Field as |F|>
+        <G.CheckboxField as |F|>
           <F.Label>Label of control #1</F.Label>
-        </G.Checkbox::Field>
-        <G.Checkbox::Field checked="checked" as |F|>
+        </G.CheckboxField>
+        <G.CheckboxField checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
-        </G.Checkbox::Field>
-        <G.Checkbox::Field indeterminate={{true}} as |F|>
+        </G.CheckboxField>
+        <G.CheckboxField indeterminate={{true}} as |F|>
           <F.Label>Label of control #3</F.Label>
-        </G.Checkbox::Field>
+        </G.CheckboxField>
         <G.Error>Error for the entire group</G.Error>
       </Hds::Form::Checkbox::Group>
     </SF.Item>
     <SF.Item @label="With controls on multiple lines" {{style width="450px"}}>
       <Hds::Form::Checkbox::Group @layout="horizontal" @name="control-horizontal-05" as |G|>
         <G.Legend>Lorem ipsum dolor</G.Legend>
-        <G.Checkbox::Field as |F|>
+        <G.CheckboxField as |F|>
           <F.Label>Sit amet</F.Label>
-        </G.Checkbox::Field>
-        <G.Checkbox::Field checked="checked" as |F|>
+        </G.CheckboxField>
+        <G.CheckboxField checked="checked" as |F|>
           <F.Label>Consectetur adipiscing</F.Label>
-        </G.Checkbox::Field>
-        <G.Checkbox::Field as |F|>
+        </G.CheckboxField>
+        <G.CheckboxField as |F|>
           <F.Label>Elit</F.Label>
-        </G.Checkbox::Field>
-        <G.Checkbox::Field as |F|>
+        </G.CheckboxField>
+        <G.CheckboxField as |F|>
           <F.Label>Pellentesque erat</F.Label>
-        </G.Checkbox::Field>
-        <G.Checkbox::Field as |F|>
+        </G.CheckboxField>
+        <G.CheckboxField as |F|>
           <F.Label>Lacinia</F.Label>
-        </G.Checkbox::Field>
-        <G.Checkbox::Field checked="checked" as |F|>
+        </G.CheckboxField>
+        <G.CheckboxField checked="checked" as |F|>
           <F.Label>At magna</F.Label>
-        </G.Checkbox::Field>
+        </G.CheckboxField>
       </Hds::Form::Checkbox::Group>
     </SF.Item>
   </Shw::Flex>
@@ -313,29 +313,29 @@
     <SF.Item @label="With legend + Required">
       <Hds::Form::Checkbox::Group @isRequired={{true}} @name="control-required" as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Checkbox::Field as |F|>
+        <G.CheckboxField as |F|>
           <F.Label>Label of control #1</F.Label>
-        </G.Checkbox::Field>
-        <G.Checkbox::Field checked="checked" as |F|>
+        </G.CheckboxField>
+        <G.CheckboxField checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
-        </G.Checkbox::Field>
-        <G.Checkbox::Field indeterminate={{true}} as |F|>
+        </G.CheckboxField>
+        <G.CheckboxField indeterminate={{true}} as |F|>
           <F.Label>Label of control #3</F.Label>
-        </G.Checkbox::Field>
+        </G.CheckboxField>
       </Hds::Form::Checkbox::Group>
     </SF.Item>
     <SF.Item @label="With legend + Optional">
       <Hds::Form::Checkbox::Group @isOptional={{true}} @name="control-optional" as |G|>
         <G.Legend>Legend of the group</G.Legend>
-        <G.Checkbox::Field as |F|>
+        <G.CheckboxField as |F|>
           <F.Label>Label of control #1</F.Label>
-        </G.Checkbox::Field>
-        <G.Checkbox::Field checked="checked" as |F|>
+        </G.CheckboxField>
+        <G.CheckboxField checked="checked" as |F|>
           <F.Label>Label of control #2</F.Label>
-        </G.Checkbox::Field>
-        <G.Checkbox::Field indeterminate={{true}} as |F|>
+        </G.CheckboxField>
+        <G.CheckboxField indeterminate={{true}} as |F|>
           <F.Label>Label of control #3</F.Label>
-        </G.Checkbox::Field>
+        </G.CheckboxField>
       </Hds::Form::Checkbox::Group>
     </SF.Item>
   </Shw::Flex>

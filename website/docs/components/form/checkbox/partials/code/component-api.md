@@ -36,7 +36,7 @@ The Checkbox component has three different variants with their own APIs:
     <br/><br/>
     The `id` attribute of the element is automatically generated.
   </C.Property>
-  <C.Property @name="<[G].Checkbox::Field>" @type="yielded component">
+  <C.Property @name="<[G].CheckboxField>" @type="yielded component">
     Used to yield one or more fields inside the group. For details about its API, check the `Form::Checkbox::Field` API details.
   </C.Property>
   <C.Property @name="<[G].Error>" @type="yielded component">
