@@ -10,19 +10,9 @@
 <section data-test-percy>
   <Shw::Text::H2>Multi-select</Shw::Text::H2>
 
-  {{!-- TODO: WIP, clean up & move later --}}
-  <Shw::Text::H3>FUNCTIONAL TESTS</Shw::Text::H3>
+  <Shw::Text::H3>Functional examples (TODO: Move)</Shw::Text::H3>
 
-  <Shw::Text::H4>First scenario</Shw::Text::H4>
-  <ul>
-    <li>a table made of N rows, with a list of “users” (name, email, city) + a button that says “delete user”</li>
-    <li>when the user selects a row with a checkbox (or all via the “select all”) and clicks the button, the selected
-      row(s) - and only the selected rows – gets deleted from the DOM
-    </li>
-    <li>in order to do that you will need a callback to execute, defined in the page backing JS class file, that will
-      use your callback arguments to do the deletion
-    </li>
-  </ul>
+  <Shw::Text::H4>Delete users from table</Shw::Text::H4>
 
   <p>
     <Hds::Button @text="Delete users" @icon="trash" {{on "click" this.deleteSelectedUsers}} />
@@ -45,8 +35,8 @@
 
   <Shw::Divider />
 
-  <Shw::Text::H3>BASIC</Shw::Text::H3>
-  <Shw::Text::H3>with model</Shw::Text::H3>
+  <Shw::Text::H3>Basic examples</Shw::Text::H3>
+  <Shw::Text::H4>with model</Shw::Text::H4>
 
   <Hds::Table
     @isSelectable={{true}}
@@ -67,7 +57,7 @@
     </:body>
   </Hds::Table>
 
-  <Shw::Text::H3>with no model</Shw::Text::H3>
+  <Shw::Text::H4>with no model</Shw::Text::H4>
 
   <Hds::Table @isSelectable={{true}} @onSelectionChange={{this.onSelectionChange}}>
     <:head as |H|>
@@ -103,7 +93,9 @@
 
   <Shw::Divider @level={{2}} />
 
-  <Shw::Text::H3>With inline filter</Shw::Text::H3>
+  <Shw::Text::H3>Functional examples</Shw::Text::H3>
+
+  <Shw::Text::H4>With inline filter</Shw::Text::H4>
 
   <Shw::Text::Body @tag="div">
     <label for="filter-1">Filter:</label>
@@ -183,7 +175,7 @@
 
   <Shw::Divider @level={{2}} />
 
-  <Shw::Text::H3>With pagination</Shw::Text::H3>
+  <Shw::Text::H4>With pagination</Shw::Text::H4>
 
   <div class="shw-component-table-selection-pagination-demo">
     <Hds::Table
