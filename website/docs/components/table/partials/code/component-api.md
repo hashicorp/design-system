@@ -71,7 +71,7 @@ The Table component itself is where most of the options will be applied. However
     If set to true, creates a “multi-select” table which renders checkboxes in table header and on table rows enabling bulk interaction. Use in conjunction with `onSelectionChange` on the `Table` and `selectionKey` on each `Table::Tr`.
   </C.Property>
   <C.Property @name="onSelectionChange" @type="function">
-    Use in conjunction with `isSelectable`. Use to pass a callback function to receive selection keys. Must be used in conjunction with setting a `selectionKey` on each `Table::Tr`.
+    Use in conjunction with `isSelectable` to pass a callback function and receive selection keys. Must be used in conjunction with setting a `selectionKey` on each `Table::Tr`.
   </C.Property>
   <C.Property @name="selectAllAriaLabel" @type="string" @default="Select all">
     Use in conjunction with `isSelectable`. Pass a custom aria-label value to the header checkbox in a mult-select table such as for translated strings.
