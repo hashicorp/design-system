@@ -1,0 +1,40 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "name": "Burnaby Kuscha",
+      "email": "1_bkuscha0@tiny.cc",
+      "role": "Owner"
+    },
+    {
+      "id": "2",
+      "name": "Barton Penley",
+      "email": "2_bpenley1@miibeian.gov.cn",
+      "role": "Admin"
+    },
+    {
+      "id": "3",
+      "name": "Norina Emanulsson",
+      "email": "3_nemanulsson2@walmart.com",
+      "role": "Contributor"
+    },
+    {
+      "id": "4",
+      "name": "Orbadiah Smales",
+      "email": "4_osmales3@amazon.co.jp",
+      "role": "Contributor"
+    },
+    {
+      "id": "5",
+      "name": "Dido Titchener",
+      "email": "5_dtitchener4@blogs.com",
+      "role": "Contributor"
+    },
+    {
+      "id": "6",
+      "name": "Trish Horsburgh",
+      "email": "6_thorsburgh5@samsung.com",
+      "role": "Contributor"
+    }
+  ]
+}

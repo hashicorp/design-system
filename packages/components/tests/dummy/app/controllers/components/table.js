@@ -22,6 +22,8 @@ export default class ComponentsTableController extends Controller {
   @tracked customFilterRows = 'all';
   @tracked currentPaginatedSelectablePage = 1;
   @tracked currentPaginatedSelectablePageSize = 2;
+  @tracked selectableUserData = [...this.model.selectableUserData];
+  selectedUsers = [];
 
   // CUSTOM SORTING DEMO #1
   // Sortable table with custom sorting done via extra key added to the data model
@@ -188,6 +190,29 @@ export default class ComponentsTableController extends Controller {
       this.currentPaginatedSelectablePage *
       this.currentPaginatedSelectablePageSize;
     return this.model.selectableData.slice(start, end);
+  }
+
+  // Keep track of users selected in the selectable users table
+  @action
+  onSelectableUsersChange(selectionArr) {
+    for (const user of selectionArr) {
+      if (this.selectedUsers.includes(user)) {
+        // Remove user from selectedUsers array
+        this.selectedUsers.splice(this.selectedUsers.indexOf(user), 1);
+      } else {
+        // Add user to selectedUsers array
+        this.selectedUsers.push(user);
+      }
+    }
+  }
+
+  @action
+  deleteSelectedUsers() {
+    this.selectableUserData = this.selectableUserData.filter(
+      (user) => !this.selectedUsers.includes(user.id)
+    );
+    // Reset selectedUsers array:
+    this.selectedUsers = [];
   }
 
   @action
