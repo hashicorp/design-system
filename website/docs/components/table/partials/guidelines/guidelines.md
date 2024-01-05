@@ -159,7 +159,7 @@ Row placement determines the visual styling based on where the row is placed rel
 
 ## Multi-selection
 
-A multi-select table includes checkboxes enabling users to select multiple rows in a table for purposes of performing bulk operations. Checking or unchecking the checkbox in the table header either selects or deselects the checkboxes on each row in the table body. Individual checkboxes in the rows can also be selected or deselected.
+A multi-select table includes checkboxes enabling users to select multiple rows in a table for to perform bulk operations. Checking or unchecking the checkbox in the table header either selects or deselects the checkboxes in each row of the table body. Individual checkboxes in the rows can also be selected or deselected.
 
 Multi-selection consists of: 
 
