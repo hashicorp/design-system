@@ -10,6 +10,42 @@
 <section data-test-percy>
   <Shw::Text::H2>Multi-select</Shw::Text::H2>
 
+  {{!-- TODO: WIP, clean up & move later --}}
+  <Shw::Text::H3>FUNCTIONAL TESTS</Shw::Text::H3>
+
+  <Shw::Text::H4>First scenario</Shw::Text::H4>
+  <ul>
+    <li>a table made of N rows, with a list of “users” (name, email, city) + a button that says “delete user”</li>
+    <li>when the user selects a row with a checkbox (or all via the “select all”) and clicks the button, the selected
+      row(s) - and only the selected rows – gets deleted from the DOM
+    </li>
+    <li>in order to do that you will need a callback to execute, defined in the page backing JS class file, that will
+      use your callback arguments to do the deletion
+    </li>
+  </ul>
+
+  <p>
+    <Hds::Button @text="Delete users" @icon="trash" {{on "click" this.deleteSelectedUsers}} />
+  </p>
+
+  <Hds::Table
+    @isSelectable={{true}}
+    @onSelectionChange={{this.onSelectableUsersChange}}
+    @model={{this.selectableUserData}}
+    @columns={{array (hash key="name" label="Name") (hash key="email" label="Email") (hash key="role" label="Role")}}
+  >
+    <:body as |B|>
+      <B.Tr @selectionKey={{B.data.id}}>
+        <B.Td>{{B.data.name}}</B.Td>
+        <B.Td>{{B.data.email}}</B.Td>
+        <B.Td>{{B.data.role}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
+  <Shw::Divider />
+
+  <Shw::Text::H3>BASIC</Shw::Text::H3>
   <Shw::Text::H3>with model</Shw::Text::H3>
 
   <Hds::Table
