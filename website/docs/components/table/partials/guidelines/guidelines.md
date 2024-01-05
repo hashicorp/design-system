@@ -159,7 +159,7 @@ Row placement determines the visual styling based on where the row is placed rel
 
 ## Multi-selection
 
-A multi-select table includes checkboxes enabling users to select multiple rows in a table for to perform bulk operations. Checking or unchecking the checkbox in the table header either selects or deselects the checkboxes in each row of the table body. Individual checkboxes in the rows can also be selected or deselected.
+A multi-select table includes checkboxes enabling users to select multiple rows in a table for to perform bulk operations. Checkboxes within rows can be selected or deselected while checking or unchecking the checkbox in the table header selects or deselects the checkboxes in every row of the table body.
 
 Multi-selection consists of: 
 
@@ -185,15 +185,3 @@ Multi-selection consists of:
     type="video/mp4"
   />
 </video>
-
-<!--TODO: Add in for future use of pattern documentation #### Within a paginated table: 
-
-- Global Actions:
-In addition to page-specific actions, paginated tables may benefit from global actions like a "Select all users" feature. This would apply to all rows across every page in the table, enabling actions on a larger scale (e.g., selecting all 53 users in a dataset or deselecting). 
-
-<video width="100%" controls loop>
-  <source
-    src="/assets/components/table/multi-selection-interaction-02.mp4"
-    type="video/mp4"
-  />
-</video>-->
