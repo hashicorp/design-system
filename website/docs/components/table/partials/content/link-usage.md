@@ -2,7 +2,7 @@
 
 By default, we recommend using `secondary` [Inline Links](/components/link/inline) within a table, to avoid overloading the UI with the actionable blue color. The `secondary` variant uses the `foreground-strong` color.
 
-To increases the prominence and further differentiate links from other text content, we recommend using a font-weight of `medium`. In code, you can use the CSS helper classes `hds-typography-body-200` and `hds-font-weight-medium`. In Figma, you can use the text style `Body/200/Link`.
+To increase the prominence and further differentiate links from other text content, we recommend using a font-weight of `medium`. In code, you can use the CSS helper classes `hds-typography-body-200` and `hds-font-weight-medium`. In Figma, you can use the text style `Body/200/Link`.
 
 ![Link example](/assets/components/table/link-example.png)
 
