@@ -8,7 +8,7 @@ To increases the prominence and further differentiate links from other text cont
 
 ### Multiple links
 
-If a table contains more than one column of links, consider using a font-weight of `medium` for the most important links; usually the title of the row or ID. For less important links, use a font-weight of `regular`.
+If a table contains more than one column of links, consider using a `font-weight` of `medium` for the most important links, usually the title of the row or ID. For less important links, use a `font-weight` of `regular`.
 
 ![Multiple links within a table](/assets/components/table/multiple-links.png)
 
