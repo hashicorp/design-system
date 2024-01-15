@@ -7,6 +7,7 @@
   ...attributes
   aria-labelledby={{this.id}}
   {{did-insert this.didInsert}}
+  {{will-destroy this.willDestroyNode}}
   {{focus-trap isActive=this.isOpen focusTrapOptions=(hash onDeactivate=this.onDismiss clickOutsideDeactivates=true)}}
 >
   {{yield (hash Header=(component "hds/flyout/header" id=this.id onDismiss=this.onDismiss))}}
