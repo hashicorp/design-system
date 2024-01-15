@@ -69,13 +69,21 @@ module('Integration | Component | hds/table/th', function (hooks) {
     assert.dom('#data-test-table-th').hasAttribute('scope', 'row');
   });
 
-  test('it renders the expected aria attribute for the tooltip button', async function (assert) {
+  test('it renders the default aria attribute for the tooltip button', async function (assert) {
     await render(
       hbs`<Hds::Table::Th id="data-test-table-th" @tooltip="More info.">Artist</Hds::Table::Th>`
     );
     assert
       .dom('#data-test-table-th .hds-table__th-button--tooltip')
       .hasAria('label', 'more information');
+  });
+  test('it renders the custom aria attribute for the tooltip button', async function (assert) {
+    await render(
+      hbs`<Hds::Table::Th id="data-test-table-th" @tooltip="More info." @tooltipAriaLabel="custom tooltip aria label">Artist</Hds::Table::Th>`
+    );
+    assert
+      .dom('#data-test-table-th .hds-table__th-button--tooltip')
+      .hasAria('label', 'custom tooltip aria label');
   });
 
   // TOOLTIP
