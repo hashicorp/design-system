@@ -125,6 +125,7 @@ export default class HdsCodeBlockIndexComponent extends Component {
         // Force prism-line-highlight plugin initialization
         // Context: https://github.com/hashicorp/design-system/pull/1749#discussion_r1374288785
         if (this.args.highlightLines) {
+          // we need to delay re-evaluating the context for prism-line-highlight for as much as possible, and `afterRender` is the 'latest' we can use in the component lifecycle
           schedule('afterRender', () => {
             // we piggy-back on the plugin's `resize` event listener to trigger a new call of the `highlightLines` function: https://github.com/PrismJS/prism/blob/master/plugins/line-highlight/prism-line-highlight.js#L337
             if (window) window.dispatchEvent(new Event('resize'));
