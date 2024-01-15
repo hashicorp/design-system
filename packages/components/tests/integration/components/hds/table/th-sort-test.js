@@ -113,7 +113,7 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
       .hasAttribute('aria-sort', 'descending');
   });
 
-  test('it renders the expected aria attributes for the sorting and tooltip buttons', async function (assert) {
+  test('it renders the default aria attributes for the sorting and tooltip buttons', async function (assert) {
     await render(
       hbs`<Hds::Table::ThSort id="data-test-table-th-sort" @tooltip="More info.">Artist</Hds::Table::ThSort>`
     );
@@ -124,14 +124,25 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
       .dom('#data-test-table-th-sort .hds-table__th-button--sort')
       .hasAria('label', 'sort');
   });
-
-  // ONCLICK
-
-  test('it should call the `@onClick` function if provided', async function (assert) {
-    let isClicked = false;
-    this.set('onClick', () => (isClicked = true));
+  test('it renders the custom aria attributes for the sorting and tooltip buttons', async function (assert) {
     await render(
-      hbs`<Hds::Table::ThSort id="data-test-table-th-sort" @onClick={{this.onClick}}>Artist</Hds::Table::ThSort>`
+      hbs`<Hds::Table::ThSort id="data-test-table-th-sort" @tooltip="More info." @tooltipAriaLabel="custom tooltip aria label" @sortAriaLabel="custom sort aria label">Artist</Hds::Table::ThSort>`
+    );
+    assert
+      .dom('#data-test-table-th-sort .hds-table__th-button--tooltip')
+      .hasAria('label', 'custom tooltip aria label');
+    assert
+      .dom('#data-test-table-th-sort .hds-table__th-button--sort')
+      .hasAria('label', 'custom sort aria label');
+  });
+
+  // ONCLICKSORT
+
+  test('it should call the `@onClickSort` function if provided', async function (assert) {
+    let isClicked = false;
+    this.set('onClickSort', () => (isClicked = true));
+    await render(
+      hbs`<Hds::Table::ThSort id="data-test-table-th-sort" @onClickSort={{this.onClickSort}}>Artist</Hds::Table::ThSort>`
     );
     await click('#data-test-table-th-sort .hds-table__th-button--sort');
     assert.ok(isClicked);
