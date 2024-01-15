@@ -354,4 +354,56 @@ module('Integration | Component | hds/table/index', function (hooks) {
     assert.strictEqual(sortBy, 'artist');
     assert.strictEqual(sortOrder, 'asc');
   });
+
+  test('it renders the default `aria-label` attributes for the "sort" and "tooltip" buttons', async function (assert) {
+    setSortableTableData(this);
+    // add the extra key/value pairs to the first column
+    this.columns[0].tooltip = 'Tooltip for Artist.'; // this uses the `ThSort` component (it's sortable)
+    this.columns[2].tooltip = 'Tooltip for Year'; // this uses the `Th` component (it's not sortable)
+
+    await render(hbsSortableTable);
+
+    assert
+      .dom(
+        '#data-test-table .hds-table__th--sort:nth-of-type(1) button.hds-table__th-button--tooltip'
+      )
+      .hasAria('label', 'more information for Artist');
+    assert
+      .dom(
+        '#data-test-table .hds-table__th--sort:nth-of-type(1) button.hds-table__th-button--sort'
+      )
+      .hasAria('label', 'sort by Artist');
+    assert
+      .dom(
+        '#data-test-table .hds-table__th:nth-of-type(3) button.hds-table__th-button--tooltip'
+      )
+      .hasAria('label', 'more information for Year');
+  });
+  test('it renders the custom `aria-label` attributes for the "sort" and "tooltip" buttons', async function (assert) {
+    setSortableTableData(this);
+    // add the extra key/value pairs to the first column
+    this.columns[0].tooltip = 'More info #1'; // this uses the `ThSort` component (it's sortable)
+    this.columns[0].tooltipAriaLabel = 'Custom tooltip aria label #1';
+    this.columns[0].sortAriaLabel = 'Custom sort aria label';
+    this.columns[2].tooltip = 'More info #2'; // this uses the `Th` component (it's not sortable)
+    this.columns[2].tooltipAriaLabel = 'Custom tooltip aria label #2';
+
+    await render(hbsSortableTable);
+
+    assert
+      .dom(
+        '#data-test-table .hds-table__th--sort:nth-of-type(1) button.hds-table__th-button--tooltip'
+      )
+      .hasAria('label', 'Custom tooltip aria label #1');
+    assert
+      .dom(
+        '#data-test-table .hds-table__th--sort:nth-of-type(1) button.hds-table__th-button--sort'
+      )
+      .hasAria('label', 'Custom sort aria label');
+    assert
+      .dom(
+        '#data-test-table .hds-table__th:nth-of-type(3) button.hds-table__th-button--tooltip'
+      )
+      .hasAria('label', 'Custom tooltip aria label #2');
+  });
 });
