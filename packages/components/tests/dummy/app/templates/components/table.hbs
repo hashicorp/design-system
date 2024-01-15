@@ -1379,13 +1379,13 @@
       <SG.Item @label={{(capitalize state)}}>
         <Shw::Flex @direction="row" as |SF|>
           <SF.Item>
-            <Hds::Table::ThButtonSort @icon="swap-vertical" mock-state-value={{state}} />
+            <Hds::Table::ThButtonSort mock-state-value={{state}} />
           </SF.Item>
           <SF.Item>
-            <Hds::Table::ThButtonSort @icon="arrow-up" @isSorted={{true}} mock-state-value={{state}} />
+            <Hds::Table::ThButtonSort @sortOrder="asc" mock-state-value={{state}} />
           </SF.Item>
           <SF.Item>
-            <Hds::Table::ThButtonSort @icon="arrow-down" @isSorted={{true}} mock-state-value={{state}} />
+            <Hds::Table::ThButtonSort @sortOrder="desc" mock-state-value={{state}} />
           </SF.Item>
         </Shw::Flex>
       </SG.Item>
