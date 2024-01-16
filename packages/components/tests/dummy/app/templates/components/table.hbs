@@ -53,6 +53,7 @@
     <:body as |B|>
       <B.Tr
         @selectionKey={{B.data.id}}
+        @isSelected={{B.data.isSelected}}
         @selectRowAriaLabel="Select row {{B.data.lorem}}"
         @deselectRowAriaLabel="Deselect row {{B.data.lorem}}"
       >
@@ -84,7 +85,12 @@
         <B.Td>Cell Content</B.Td>
         <B.Td>Cell Content</B.Td>
       </B.Tr>
-      <B.Tr @selectionKey="row2" @selectRowAriaLabel="Select row2" @deselectRowAriaLabel="Deselect row2">
+      <B.Tr
+        @selectionKey="row2"
+        @isSelected={{true}}
+        @selectRowAriaLabel="Select row2"
+        @deselectRowAriaLabel="Deselect row2"
+      >
         <B.Th>2</B.Th>
         <B.Td>Cell Content</B.Td>
         <B.Td>Cell Content</B.Td>
@@ -138,7 +144,7 @@
             </B.Tr>
           {{/if}}
           {{#if (not (eq this.customFilterRows "odd"))}}
-            <B.Tr @selectionKey="row2">
+            <B.Tr @selectionKey="row2" @isSelected={{true}}>
               <B.Th>2</B.Th>
               <B.Td>Cell Content</B.Td>
               <B.Td>Cell Content</B.Td>
@@ -174,7 +180,7 @@
         }}
       >
         <:body as |B|>
-          <B.Tr @selectionKey={{B.data.id}}>
+          <B.Tr @selectionKey={{B.data.id}} @isSelected={{B.data.isSelected}}>
             <B.Td>{{B.data.lorem}}</B.Td>
             <B.Td>{{B.data.ipsum}}</B.Td>
             <B.Td>{{B.data.dolor}}</B.Td>
@@ -200,7 +206,7 @@
       }}
     >
       <:body as |B|>
-        <B.Tr @selectionKey={{B.data.id}}>
+        <B.Tr @selectionKey={{B.data.id}} @isSelected={{B.data.isSelected}}>
           <B.Td>{{B.data.lorem}}</B.Td>
           <B.Td>{{B.data.ipsum}}</B.Td>
           <B.Td>{{B.data.dolor}}</B.Td>

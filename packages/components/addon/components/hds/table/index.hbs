@@ -15,6 +15,8 @@
       <Hds::Table::Tr
         @isSelectable={{@isSelectable}}
         @onSelectionChange={{this.onSelectionAllChange}}
+        @didInsert={{this.didInsertSelectAllCheckbox}}
+        @willDestroy={{this.willDestroySelectAllCheckbox}}
         @selectAllAriaLabel={{@selectAllAriaLabel}}
         @deselectAllAriaLabel={{@deselectAllAriaLabel}}
       >
