@@ -16,7 +16,7 @@ This component uses [prism.js](https://prismjs.com/) under the hood.
     Used to control whether a copy button for copying the code/text content will be displayed.
   </C.Property>
   <C.Property @name="hasLineNumbers" @type="boolean" @default="true">
-    Used to control display of line numbers.
+    Used to control display of line numbers. Note that due to technical limitations, if the `@value` changes dynamically the line numbers will fail to update.
   </C.Property>
   <C.Property @name="hasLineWrapping" @type="boolean" @default="false">
     Used to control line wrapping for lines of code. If `true`, lines of code will wrap to fit the available space. Otherwise, horizontal scrolling is enabled if lines overflow the available space.
