@@ -47,6 +47,8 @@ console.log(`I am ${codeLang} code`);"
     </SG.Item>
   </Shw::Grid>
 
+  <Shw::Divider @level="2" />
+
   <Shw::Text::H3>Title and description</Shw::Text::H3>
 
   <Shw::Grid @columns={{2}} {{style gap="2rem"}} as |SG|>
@@ -76,6 +78,34 @@ console.log(`I am ${codeLang} code`);"
       </Hds::CodeBlock>
     </SG.Item>
   </Shw::Grid>
+
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>Dynamic content</Shw::Text::H3>
+
+  <Shw::Text::Body>
+    <button type="button" {{on "click" this.updateCodeValue}}>
+      Update value
+    </button>
+  </Shw::Text::Body>
+
+  <Shw::Text::Body>
+    <label for="input">Change input value:</label>
+    <input id="input" type="text" value={{this.input}} {{on "input" this.updateInput}} />
+  </Shw::Text::Body>
+
+  <Hds::CodeBlock
+    @value={{this.codeValue}}
+    @language="javascript"
+    @hasCopyButton={{true}}
+    @hasLineNumbers={{false}}
+    id="code-block-with-dynamic-content"
+    as |CB|
+  >
+    <CB.Title>
+      Dynamic content
+    </CB.Title>
+  </Hds::CodeBlock>
 
   <Shw::Divider />
 
@@ -520,10 +550,12 @@ console.log(`I am ${codeLang} code`);"
           <Hds::CodeBlock
             @language="go"
             @highlightLines="2, 4"
+            @hasLineWrapping={{true}}
             @value="package main
 import 'fmt'
 func main() {
-  fmt.Println('hello world')
+  res = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam'
+  fmt.Println(res)
 }"
           />
         </T.Panel>
@@ -583,5 +615,4 @@ func main() {
       {{/if}}
     </SF.Item>
   </Shw::Flex>
-
 </section>

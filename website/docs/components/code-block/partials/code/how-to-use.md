@@ -2,7 +2,11 @@
 
 The basic invocation requires a `@value` argument. The component encodes this argument before displaying it.
 
-_Notice: if the `\n` escape sequence is used in the `@value` string in Handlebars, it will **not** be automatically converted to a newline, as it can have unexpected side effects._
+!!! Info
+
+If the `\n` escape sequence is used in the `@value` string in Handlebars, it will not be automatically converted to a newline, as it can have unexpected side effects.
+
+!!!
 
 ```handlebars
 <Hds::CodeBlock
@@ -68,6 +72,12 @@ Line numbers are displayed by default. Set `hasLineNumbers` to `false` to hide t
 console.log(`I am ${codeLang} code`);"
 />
 ```
+
+!!! Info
+
+Due to technical limitations, if the `@value` changes dynamically the line numbers will fail to update.
+
+!!!
 
 ### Line wrapping
 

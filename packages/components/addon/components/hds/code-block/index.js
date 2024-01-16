@@ -7,6 +7,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
+import { next, schedule } from '@ember/runloop';
 import { htmlSafe } from '@ember/template';
 import { guidFor } from '@ember/object/internals';
 
@@ -107,27 +108,30 @@ export default class HdsCodeBlockIndexComponent extends Component {
     const grammar = Prism.languages[language];
 
     if (code) {
-      if (language && grammar) {
-        this.prismCode = htmlSafe(Prism.highlight(code, grammar, language));
-      } else {
-        this.prismCode = htmlSafe(Prism.util.encode(code));
-      }
+      next(() => {
+        if (language && grammar) {
+          this.prismCode = htmlSafe(Prism.highlight(code, grammar, language));
+        } else {
+          this.prismCode = htmlSafe(Prism.util.encode(code));
+        }
 
-      // Force prism-line-numbers plugin initialization, required for Prism.highlight usage
-      // See https://github.com/PrismJS/prism/issues/1234
-      Prism.hooks.run('complete', {
-        code,
-        element,
+        // Force prism-line-numbers plugin initialization, required for Prism.highlight usage
+        // See https://github.com/PrismJS/prism/issues/1234
+        Prism.hooks.run('complete', {
+          code,
+          element,
+        });
+
+        // Force prism-line-highlight plugin initialization
+        // Context: https://github.com/hashicorp/design-system/pull/1749#discussion_r1374288785
+        if (this.args.highlightLines) {
+          // we need to delay re-evaluating the context for prism-line-highlight for as much as possible, and `afterRender` is the 'latest' we can use in the component lifecycle
+          schedule('afterRender', () => {
+            // we piggy-back on the plugin's `resize` event listener to trigger a new call of the `highlightLines` function: https://github.com/PrismJS/prism/blob/master/plugins/line-highlight/prism-line-highlight.js#L337
+            if (window) window.dispatchEvent(new Event('resize'));
+          });
+        }
       });
-
-      // Force prism-line-highlight plugin initialization
-      // Context: https://github.com/hashicorp/design-system/pull/1749#discussion_r1374288785
-      if (this.args.highlightLines) {
-        setTimeout(() => {
-          // we piggy-back on the plugin's `resize` event listener to trigger a new call of the `highlightLines` function: https://github.com/PrismJS/prism/blob/master/plugins/line-highlight/prism-line-highlight.js#L337
-          if (window) window.dispatchEvent(new Event('resize'));
-        }, 100);
-      }
     }
   }
 

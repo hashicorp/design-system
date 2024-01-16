@@ -29,6 +29,8 @@ function replaceMockCopyStatus() {
 export default class CodeBlockController extends Controller {
   @service router;
   @tracked isModalActive = false;
+  @tracked declaration = 'let';
+  @tracked input = '';
 
   constructor() {
     super(...arguments);
@@ -43,6 +45,25 @@ export default class CodeBlockController extends Controller {
 
   get textWithNewline() {
     return "let codeLang='JavaScript';\nconsole.log(`I am ${codeLang} code`);";
+  }
+
+  get codeValue() {
+    let value = `${this.declaration} codeLang='JavaScript';`;
+    if (this.input !== '') {
+      value += `\n\nvar ${this.input} = "the input is: ${this.input}"`;
+    }
+    return value;
+  }
+
+  @action
+  updateCodeValue() {
+    this.declaration = ['var', 'const', 'let'][Math.floor(Math.random() * 3)];
+    this.input = ['rand1', 'rand2', 'rand3', ''][Math.floor(Math.random() * 4)];
+  }
+
+  @action
+  updateInput(event) {
+    this.input = event.target.value;
   }
 
   @action

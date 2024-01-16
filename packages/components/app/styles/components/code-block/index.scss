@@ -131,7 +131,7 @@ $code-block-code-padding: 16px;
   padding: $code-block-code-padding;
   overflow: auto;
   font-size: 0.8125rem;
-  font-family: var(--hds-typography-code-200);
+  font-family: var(--token-typography-code-200-font-family);
   border-radius: inherit;
 
   ::selection {
