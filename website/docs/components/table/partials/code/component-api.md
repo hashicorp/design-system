@@ -72,6 +72,8 @@ The Table component itself is where most of the options will be applied. However
   </C.Property>
   <C.Property @name="onSelectionChange" @type="function">
     Use in conjunction with `isSelectable` to pass a callback function and receive selection keys. Must be used in conjunction with setting a `selectionKey` on each `Table::Tr`.
+    <br /><br />
+    When called, this function receives array of selection keys corresponding to the selected table rows.
   </C.Property>
   <C.Property @name="selectAllAriaLabel" @type="string" @default="Select all">
     Use in conjunction with `isSelectable`. Pass a custom aria-label value to the header checkbox in a mult-select table such as for translated strings.
