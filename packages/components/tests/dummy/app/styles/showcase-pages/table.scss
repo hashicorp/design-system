@@ -30,4 +30,23 @@ body.components-table {
       margin-top: 16px;
     }
   }
+
+  .shw-animate-user {
+    display: inline-block;
+    animation: shw-bounce 1s infinite ease-in-out;
+  }
+
+  @keyframes shw-bounce {
+    0% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-8px);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
 }

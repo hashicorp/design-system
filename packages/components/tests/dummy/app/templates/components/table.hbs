@@ -12,6 +12,30 @@
 
   <Shw::Text::H3>Functional examples (TODO: Move)</Shw::Text::H3>
 
+  <Shw::Text::H4>Animate selected users</Shw::Text::H4>
+
+  <p>
+    <Hds::Button @text="Animate users" @icon="trash" {{on "click" this.animateSelectedUsers}} />
+  </p>
+
+  <Hds::Table
+    @isSelectable={{true}}
+    @onSelectionChange={{this.onAnimatedUsersChange}}
+    @model={{this.animatedUserData}}
+    @columns={{array (hash key="name" label="Name") (hash key="email" label="Email") (hash key="role" label="Role")}}
+  >
+    <:body as |B|>
+      <B.Tr @selectionKey={{B.data.id}}>
+        <B.Td>
+          <span class={{if (this.isAnimated B.data.id) "shw-animate-user"}}>{{B.data.name}}</span></B.Td>
+        <B.Td>{{B.data.email}}</B.Td>
+        <B.Td>{{B.data.role}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H4>Delete users from table</Shw::Text::H4>
 
   <p>
