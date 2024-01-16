@@ -185,18 +185,18 @@ export default class HdsTableIndexComponent extends Component {
   }
 
   @action
-  onSelectionAllChange(headerCheckbox) {
-    this.setHeaderCheckboxAriaLabel(headerCheckbox);
+  onSelectionAllChange(selectAllCheckbox) {
+    this.setSelectAllCheckboxAriaLabel(selectAllCheckbox);
     this.selectableRows.forEach((row) => {
-      row.checkbox.checked = headerCheckbox.checked;
-      this.setRowCheckboxAriaLabel(row.checkbox);
+      row.checkbox.checked = selectAllCheckbox.checked;
+      this.setSelectRowCheckboxAriaLabel(row.checkbox);
     });
 
     let { onSelectionChange } = this.args;
     if (typeof onSelectionChange === 'function') {
       onSelectionChange({
         selectionKey: 'all',
-        selectionCheckboxElement: headerCheckbox,
+        selectionCheckboxElement: selectAllCheckbox,
         selectableRows: this.selectableRows,
         selectableRowsStates: this.selectableRows.reduce((acc, row) => {
           acc[row.selectionKey] = row.checkbox.checked;
@@ -208,7 +208,7 @@ export default class HdsTableIndexComponent extends Component {
 
   @action
   onSelectionRowChange(checkbox, selectionKey) {
-    this.setRowCheckboxAriaLabel(checkbox);
+    this.setSelectRowCheckboxAriaLabel(checkbox);
     this.setSelectAllState();
     let { onSelectionChange } = this.args;
     if (typeof onSelectionChange === 'function') {
@@ -237,7 +237,7 @@ export default class HdsTableIndexComponent extends Component {
   @action
   didInsertRowCheckbox(checkbox, selectionKey) {
     this.selectableRows.push({ selectionKey, checkbox });
-    this.setRowCheckboxAriaLabel(checkbox);
+    this.setSelectRowCheckboxAriaLabel(checkbox);
     this.setSelectAllState();
   }
 
@@ -249,7 +249,7 @@ export default class HdsTableIndexComponent extends Component {
     this.setSelectAllState();
   }
 
-  setRowCheckboxAriaLabel(checkbox) {
+  setSelectRowCheckboxAriaLabel(checkbox) {
     if (checkbox.checked === true) {
       checkbox.ariaLabel = this.args.deselectRowAriaLabel
         ? `${this.args.deselectRowAriaLabel} ${checkbox.id}`
@@ -261,7 +261,7 @@ export default class HdsTableIndexComponent extends Component {
     }
   }
 
-  setHeaderCheckboxAriaLabel(checkbox) {
+  setSelectAllCheckboxAriaLabel(checkbox) {
     checkbox.ariaLabel = checkbox.checked
       ? this.args.deselectAllAriaLabel ?? 'Deselect all'
       : this.args.selectAllAriaLabel ?? 'Select all';
@@ -277,7 +277,7 @@ export default class HdsTableIndexComponent extends Component {
       this.selectAllCheckbox.checked = selectedRowCount === selectableRowsCount;
       this.selectAllCheckbox.indeterminate =
         selectedRowCount > 0 && selectedRowCount < selectableRowsCount;
-      this.setHeaderCheckboxAriaLabel(this.selectAllCheckbox);
+      this.setSelectAllCheckboxAriaLabel(this.selectAllCheckbox);
     }
   }
 }
