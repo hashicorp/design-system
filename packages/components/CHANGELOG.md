@@ -1,5 +1,22 @@
 # @hashicorp/design-system-components
 
+## 3.4.1
+
+### Patch Changes
+
+`Modal` - Removed `close` event listener on destroy
+`Flyout` - Removed `close` event listener on destroy
+
+<small class="doc-whats-new-changelog-metadata">[#1887](https://github.com/hashicorp/design-system/pull/1887)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`CodeBlock` - Fixed issues with dynamic content, compile warning, and line number alignment
+
+<small class="doc-whats-new-changelog-metadata">[#1853](https://github.com/hashicorp/design-system/pull/1853)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.4.0
 
 ### Minor Changes
@@ -18,7 +35,7 @@
 
 ### Patch Changes
 
-`Hds::AppFooter` - Changed visual alignment from right-aligned to centered.
+`AppFooter` - Changed visual alignment from right-aligned to centered.
 
 <small class="doc-whats-new-changelog-metadata">[#1867](https://github.com/hashicorp/design-system/pull/1867)</small>
 
@@ -56,11 +73,11 @@
 
 ### Minor Changes
 
-`Hds::Form::CharacterCount` - Added new component
-`Hds::Form::Field` - Added `CharacterCount` contextual component
-`Hds::Form::MaskedInput::Field` - Added `CharacterCount` contextual component
-`Hds::Form::TextInput::Field` - Added `CharacterCount` contextual component
-`Hds::Form::Textarea::Field` - Added `CharacterCount` contextual component
+`Form::CharacterCount` - Added new component
+`Form::Field` - Added `CharacterCount` contextual component
+`Form::MaskedInput::Field` - Added `CharacterCount` contextual component
+`Form::TextInput::Field` - Added `CharacterCount` contextual component
+`Form::Textarea::Field` - Added `CharacterCount` contextual component
 
 <small class="doc-whats-new-changelog-metadata">[#1802](https://github.com/hashicorp/design-system/pull/1802)</small>
 
@@ -68,11 +85,11 @@
 
 ### Patch Changes
 
-`Button` - updated DOM structure to contain only `span` elements
+`Button` - Updated DOM structure to contain only `span` elements
 
-`Dropdown` - updated button elements DOM structure to contain only `span` elements
+`Dropdown` - Updated button elements DOM structure to contain only `span` elements
 
-`Link::Standalone` - updated DOM structure to contain only `span` elements
+`Link::Standalone` - Updated DOM structure to contain only `span` elements
 
 <small class="doc-whats-new-changelog-metadata">[#1840](https://github.com/hashicorp/design-system/pull/1840)</small>
 
@@ -88,9 +105,9 @@
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`Hds::Table` - updated `@columns` object to support `isVisuallyHidden` argument
+`Table` - Updated `@columns` object to support `isVisuallyHidden` argument
 
-- `Hds::Table::Th` - updated to support `isVisuallyHidden` argument
+- `Table::Th` - Updated to support `isVisuallyHidden` argument
 
 <small class="doc-whats-new-changelog-metadata">[#1819](https://github.com/hashicorp/design-system/pull/1819)</small>
 
@@ -199,7 +216,7 @@ Upgraded the following dependencies:
 
 ### Patch Changes
 
-explicitly added `ember-element-helper` as dependency for the `components` package
+Explicitly added `ember-element-helper` as dependency for the `components` package
 
 <small class="doc-whats-new-changelog-metadata">[#1751](https://github.com/hashicorp/design-system/pull/1751)</small>
 
@@ -217,33 +234,33 @@ explicitly added `ember-element-helper` as dependency for the `components` packa
 
 ### Major Changes
 
-Drop support for Node 14
+Dropped support for Node 14
 
 <small class="doc-whats-new-changelog-metadata">[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`Hds::Form::VisibilityToggle` - Added component as a form base element
+`Form::VisibilityToggle` - Added component as a form base element
 
-`Hds::Form::TextInput::Field` - Added `Hds::Form::VisibilityToggle` to password inputs (controlled via `@hasVisibilityToggle` - Notice that this is set to be visible by default now)
+`Form::TextInput::Field` - Added `Form::VisibilityToggle` to password inputs (controlled via `@hasVisibilityToggle` - Notice that this is set to be visible by default now)
 
-`Hds::Form::MaskedInput` - Refactored to use `Hds::Form::VisibilityToggle`
+`Form::MaskedInput` - Refactored to use `Form::VisibilityToggle`
 
-`Hds::Form::MaskedInput` - Renamed `@isMasked` to `@isContentMasked`
+`Form::MaskedInput` - Renamed `@isMasked` to `@isContentMasked`
 
 To migrate:
 
-- in `Hds::Form::MaskedInput` instances replace `@isMasked` arguments with `@isContentMasked`
+- in `Form::MaskedInput` instances replace `@isMasked` arguments with `@isContentMasked`
 
 <small class="doc-whats-new-changelog-metadata">[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`Hds::Dropdown` – Removed `@listPosition` `left` and `right` (use `bottom-left` and `bottom-right`, respectively).
+`Dropdown` – Removed `@listPosition` `left` and `right` (use `bottom-left` and `bottom-right`, respectively).
 
 To migrate:
 
-- in `Hds::Dropdown` instances:
+- in `Dropdown` instances:
   - replace `@listPosition="left"` with `@listPosition="bottom-left"`
   - replace `@listPosition="right"` with `@listPosition="bottom-right"`
 
@@ -255,7 +272,7 @@ To migrate:
 
 To migrate:
 
-- rename all the `extraBefore/After` instances yielded within the `<Hds::SideNav>` component to `ExtraBefore/After`
+- rename all the `extraBefore/After` instances yielded within the `SideNav` component to `ExtraBefore/After`
 
 <small class="doc-whats-new-changelog-metadata">[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
 
