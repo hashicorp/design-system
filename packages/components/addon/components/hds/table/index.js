@@ -185,10 +185,10 @@ export default class HdsTableIndexComponent extends Component {
   }
 
   @action
-  onSelectionAllChange(selectAllCheckbox) {
-    this.setSelectAllCheckboxAriaLabel(selectAllCheckbox);
+  onSelectionAllChange() {
+    this.setSelectAllCheckboxAriaLabel(this.selectAllCheckbox);
     this.selectableRows.forEach((row) => {
-      row.checkbox.checked = selectAllCheckbox.checked;
+      row.checkbox.checked = this.selectAllCheckbox.checked;
       this.setSelectRowCheckboxAriaLabel(row.checkbox);
     });
 
@@ -196,7 +196,7 @@ export default class HdsTableIndexComponent extends Component {
     if (typeof onSelectionChange === 'function') {
       onSelectionChange({
         selectionKey: 'all',
-        selectionCheckboxElement: selectAllCheckbox,
+        selectionCheckboxElement: this.selectAllCheckbox,
         selectableRows: this.selectableRows,
         selectableRowsStates: this.selectableRows.reduce((acc, row) => {
           acc[row.selectionKey] = row.checkbox.checked;
