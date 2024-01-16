@@ -27,15 +27,6 @@ export default class HdsTableThButtonSortComponent extends Component {
   }
 
   /**
-   * @param ariaLabel
-   * @type {string}
-   * @default 'sort'
-   */
-  get ariaLabel() {
-    return this.args.ariaLabel ?? 'sort';
-  }
-
-  /**
    * @param onClick
    * @type {function}
    * @default () => {}
