@@ -67,6 +67,14 @@ export default class HdsFlyoutIndexComponent extends Component {
     return classes.join(' ');
   }
 
+  @action registerOnCloseCallback() {
+    if (this.args.onClose && typeof this.args.onClose === 'function') {
+      this.args.onClose();
+    }
+
+    this.isOpen = false;
+  }
+
   @action
   didInsert(element) {
     // Store references of `<dialog>` and `<body>` elements
@@ -94,17 +102,22 @@ export default class HdsFlyoutIndexComponent extends Component {
     }
 
     // Register "onClose" callback function to be called when a native 'close' event is dispatched
-    this.element.addEventListener('close', () => {
-      if (this.args.onClose && typeof this.args.onClose === 'function') {
-        this.args.onClose();
-      }
-
-      this.isOpen = false;
-    });
+    this.element.addEventListener('close', this.registerOnCloseCallback, true);
 
     // If the flyout dialog is not already open
     if (!this.element.open) {
       this.open();
+    }
+  }
+
+  @action
+  willDestroyNode() {
+    if (this.element) {
+      this.element.removeEventListener(
+        'close',
+        this.registerOnCloseCallback,
+        true
+      );
     }
   }
 
