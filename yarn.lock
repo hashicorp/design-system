@@ -12622,6 +12622,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ember-unique-id-helper-polyfill@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "ember-unique-id-helper-polyfill@npm:1.2.2"
+  dependencies:
+    broccoli-funnel: "npm:^3.0.8"
+    ember-cli-babel: "npm:^7.26.10"
+    ember-cli-version-checker: "npm:^5.1.2"
+  checksum: bfb208e469e1d7b5570a5070d897ab8a8a4b3211c6555d92d86f74a7e7c8b1f0817b93e6007b645bd2b7b13b3e072dd20e43c42695385b72b670a985c2ac9f4c
+  languageName: node
+  linkType: hard
+
 "emittery@npm:^0.13.1":
   version: 0.13.1
   resolution: "emittery@npm:0.13.1"
@@ -23133,6 +23144,7 @@ __metadata:
     ember-template-lint-plugin-prettier: "npm:^4.2.0"
     ember-truth-helpers: "npm:^3.1.1"
     ember-try: "npm:^3.0.0"
+    ember-unique-id-helper-polyfill: "npm:^1.2.2"
     eslint: "npm:^8.52.0"
     eslint-config-prettier: "npm:^8.10.0"
     eslint-plugin-ember: "npm:^11.11.1"
