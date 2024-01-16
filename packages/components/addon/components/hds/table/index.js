@@ -17,7 +17,7 @@ const DEFAULT_VALIGN = 'top';
 export default class HdsTableIndexComponent extends Component {
   @tracked sortBy = this.args.sortBy;
   @tracked sortOrder = this.args.sortOrder || 'asc';
-  selectionKeys = [];
+  selectableRows = [];
 
   tableId = 'hds-table-' + guidFor(this);
 
@@ -186,58 +186,57 @@ export default class HdsTableIndexComponent extends Component {
 
   @action
   onSelectionAllChange(headerCheckbox) {
-    const allTbodyCheckboxes = this.allTbodyCheckboxes();
     this.setHeaderCheckboxAriaLabel(headerCheckbox);
-    allTbodyCheckboxes.forEach((checkbox) => {
-      checkbox.checked = headerCheckbox.checked;
-      this.setRowCheckboxAriaLabel(checkbox);
+    this.selectableRows.forEach((row) => {
+      row.checkbox.checked = headerCheckbox.checked;
+      this.setRowCheckboxAriaLabel(row.checkbox);
     });
 
     let { onSelectionChange } = this.args;
     if (typeof onSelectionChange === 'function') {
       onSelectionChange({
         selectionKey: 'all',
-        checkboxElement: headerCheckbox,
-        checkboxesState: allTbodyCheckboxes.map((checkbox) => checkbox.checked),
+        selectionCheckboxElement: headerCheckbox,
+        selectableRows: this.selectableRows,
+        selectableRowsStates: this.selectableRows.reduce((acc, row) => {
+          acc[row.selectionKey] = row.checkbox.checked;
+          return acc;
+        }, {}),
       });
     }
   }
 
   @action
   onSelectionRowChange(checkbox, selectionKey) {
-    const allTbodyCheckboxes = this.allTbodyCheckboxes();
     this.setRowCheckboxAriaLabel(checkbox);
     this.setSelectAllState();
     let { onSelectionChange } = this.args;
     if (typeof onSelectionChange === 'function') {
       onSelectionChange({
         selectionKey: selectionKey,
-        checkboxElement: checkbox,
-        checkboxesState: allTbodyCheckboxes.map((checkbox) => checkbox.checked),
+        selectionCheckboxElement: checkbox,
+        selectableRows: this.selectableRows,
+        selectableRowsStates: this.selectableRows.reduce((acc, row) => {
+          acc[row.selectionKey] = row.checkbox.checked;
+          return acc;
+        }, {}),
       });
     }
   }
 
   @action
   didInsertRowCheckbox(checkbox, selectionKey) {
-    this.selectionKeys.push(selectionKey);
+    this.selectableRows.push({ selectionKey, checkbox });
     this.setRowCheckboxAriaLabel(checkbox);
     this.setSelectAllState();
   }
 
   @action
   willDestroyRowCheckbox(selectionKey) {
-    this.selectionKeys = this.selectionKeys.filter(
-      (key) => key !== selectionKey
+    this.selectableRows = this.selectableRows.filter(
+      (row) => row.selectionKey !== selectionKey
     );
     this.setSelectAllState();
-  }
-
-  allTbodyCheckboxes() {
-    const tableBodyCheckboxes = document.querySelectorAll(
-      `#${this.tableId} tbody .hds-table__checkbox`
-    );
-    return Array.from(tableBodyCheckboxes);
   }
 
   setRowCheckboxAriaLabel(checkbox) {
@@ -264,14 +263,14 @@ export default class HdsTableIndexComponent extends Component {
     );
 
     if (tableHeaderCheckbox) {
-      let rowCount = this.allTbodyCheckboxes().length;
-      let selectedRowCount = this.allTbodyCheckboxes().filter(
-        (checkbox) => checkbox.checked
+      let selectableRowsCount = this.selectableRows.length;
+      let selectedRowCount = this.selectableRows.filter(
+        (row) => row.checkbox.checked
       ).length;
 
-      tableHeaderCheckbox.checked = selectedRowCount === rowCount;
+      tableHeaderCheckbox.checked = selectedRowCount === selectableRowsCount;
       tableHeaderCheckbox.indeterminate =
-        selectedRowCount > 0 && selectedRowCount < rowCount;
+        selectedRowCount > 0 && selectedRowCount < selectableRowsCount;
       this.setHeaderCheckboxAriaLabel(tableHeaderCheckbox);
     }
   }
