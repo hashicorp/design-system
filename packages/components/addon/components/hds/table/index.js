@@ -186,26 +186,35 @@ export default class HdsTableIndexComponent extends Component {
 
   @action
   onSelectionAllChange(headerCheckbox) {
-    const checkboxes = this.allTbodyCheckboxes();
+    const allTbodyCheckboxes = this.allTbodyCheckboxes();
     this.setHeaderCheckboxAriaLabel(headerCheckbox);
-    checkboxes.forEach((checkbox) => {
+    allTbodyCheckboxes.forEach((checkbox) => {
       checkbox.checked = headerCheckbox.checked;
       this.setRowCheckboxAriaLabel(checkbox);
     });
 
     let { onSelectionChange } = this.args;
     if (typeof onSelectionChange === 'function') {
-      onSelectionChange(this.selectionKeys);
+      onSelectionChange({
+        selectionKey: 'all',
+        checkboxElement: headerCheckbox,
+        checkboxesState: allTbodyCheckboxes.map((checkbox) => checkbox.checked),
+      });
     }
   }
 
   @action
   onSelectionRowChange(checkbox, selectionKey) {
+    const allTbodyCheckboxes = this.allTbodyCheckboxes();
     this.setRowCheckboxAriaLabel(checkbox);
     this.setSelectAllState();
     let { onSelectionChange } = this.args;
     if (typeof onSelectionChange === 'function') {
-      onSelectionChange(new Array(selectionKey));
+      onSelectionChange({
+        selectionKey: selectionKey,
+        checkboxElement: checkbox,
+        checkboxesState: allTbodyCheckboxes.map((checkbox) => checkbox.checked),
+      });
     }
   }
 
