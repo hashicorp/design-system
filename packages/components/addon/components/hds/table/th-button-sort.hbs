@@ -2,6 +2,15 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<button type="button" class={{this.classNames}} {{on "click" this.onClick}} aria-label={{this.ariaLabel}} ...attributes>
-  <FlightIcon @name={{this.icon}} />
-</button>
+{{#let (unique-id) as |prefixId|}}
+  <button
+    type="button"
+    class={{this.classNames}}
+    {{on "click" this.onClick}}
+    aria-labelledby="{{prefixId}} {{@labelId}}"
+    ...attributes
+  >
+    <span id={{prefixId}} class="hds-table__th-button-aria-label-prefix">Sort by</span>
+    <FlightIcon @name={{this.icon}} />
+  </button>
+{{/let}}

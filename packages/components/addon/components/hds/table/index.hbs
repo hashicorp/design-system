@@ -15,12 +15,10 @@
           {{#if column.isSortable}}
             <Hds::Table::ThSort
               @sortOrder={{if (eq column.key this.sortBy) this.sortOrder}}
-              @sortAriaLabel={{(or column.sortAriaLabel (concat "sort by " column.label))}}
               @onClickSort={{fn this.setSortBy column.key}}
               @align={{column.align}}
               @width={{column.width}}
               @tooltip={{column.tooltip}}
-              @tooltipAriaLabel={{(or column.tooltipAriaLabel (concat "more information for " column.label))}}
             >
               {{column.label}}
             </Hds::Table::ThSort>
@@ -29,7 +27,6 @@
               @align={{column.align}}
               @width={{column.width}}
               @tooltip={{column.tooltip}}
-              @tooltipAriaLabel={{(or column.tooltipAriaLabel (concat "more information for " column.label))}}
               @isVisuallyHidden={{column.isVisuallyHidden}}
             >{{column.label}}</Hds::Table::Th>
           {{/if}}
