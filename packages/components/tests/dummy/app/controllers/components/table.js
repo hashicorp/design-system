@@ -6,6 +6,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { later } from '@ember/runloop';
 
 // we use an array to declare the custom sorting order for the clusters' status
 const customSortingCriteriaArray = [
@@ -23,7 +24,10 @@ export default class ComponentsTableController extends Controller {
   @tracked currentPaginatedSelectablePage = 1;
   @tracked currentPaginatedSelectablePageSize = 2;
   @tracked selectableUserData = [...this.model.selectableUserData];
-  selectedUsers = [];
+  @tracked animatedUserData = [...this.model.selectableUserData];
+
+  selectedUserIds = [];
+  animatedUserIds = [];
 
   // CUSTOM SORTING DEMO #1
   // Sortable table with custom sorting done via extra key added to the data model
@@ -163,7 +167,6 @@ export default class ComponentsTableController extends Controller {
 
   @action
   onFilterChange(event) {
-    // console.log(event.target.value);
     this.customFilterRows = event.target.value;
   }
 
@@ -195,24 +198,47 @@ export default class ComponentsTableController extends Controller {
   // Keep track of users selected in the selectable users table
   @action
   onSelectableUsersChange(selectionArr) {
-    for (const user of selectionArr) {
-      if (this.selectedUsers.includes(user)) {
-        // Remove user from selectedUsers array
-        this.selectedUsers.splice(this.selectedUsers.indexOf(user), 1);
-      } else {
-        // Add user to selectedUsers array
-        this.selectedUsers.push(user);
-      }
-    }
+    this.selectedUserIds = selectionArr;
   }
 
   @action
   deleteSelectedUsers() {
     this.selectableUserData = this.selectableUserData.filter(
-      (user) => !this.selectedUsers.includes(user.id)
+      (user) => !this.selectedUserIds.includes(user.id)
     );
     // Reset selectedUsers array:
-    this.selectedUsers = [];
+    this.selectedUserIds = [];
+  }
+
+  @action
+  onAnimatedUsersChange(selectionArr) {
+    this.animatedUserIds = selectionArr;
+  }
+
+  @action
+  isAnimated(userId) {
+    return this.animatedUserData.find((user) => user.id === userId).animate;
+  }
+
+  @action
+  animateSelectedUsers() {
+    let clonedAnimatedUserData = [...this.animatedUserData];
+    // Add class "shw-animate-user" to each user in animatedUsers array
+    for (const userId of this.animatedUserIds) {
+      clonedAnimatedUserData.find((user) => user.id === userId).animate = true;
+    }
+    this.animatedUserData = clonedAnimatedUserData;
+    later(() => {
+      this.resetUserAnimation();
+    }, 5000);
+  }
+
+  resetUserAnimation() {
+    let clonedAnimatedUserData = [...this.animatedUserData];
+    for (let i = 0; i < clonedAnimatedUserData.length; i++) {
+      clonedAnimatedUserData[i].animate = false;
+    }
+    this.animatedUserData = clonedAnimatedUserData;
   }
 
   @action
