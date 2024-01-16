@@ -225,6 +225,16 @@ export default class HdsTableIndexComponent extends Component {
   }
 
   @action
+  didInsertSelectAllCheckbox(checkbox) {
+    this.selectAllCheckbox = checkbox;
+  }
+
+  @action
+  willDestroySelectAllCheckbox() {
+    this.selectAllCheckbox = undefined;
+  }
+
+  @action
   didInsertRowCheckbox(checkbox, selectionKey) {
     this.selectableRows.push({ selectionKey, checkbox });
     this.setRowCheckboxAriaLabel(checkbox);
@@ -258,20 +268,16 @@ export default class HdsTableIndexComponent extends Component {
   }
 
   setSelectAllState() {
-    const tableHeaderCheckbox = document.querySelector(
-      `#${this.tableId} thead .hds-table__checkbox`
-    );
-
-    if (tableHeaderCheckbox) {
+    if (this.selectAllCheckbox) {
       let selectableRowsCount = this.selectableRows.length;
       let selectedRowCount = this.selectableRows.filter(
         (row) => row.checkbox.checked
       ).length;
 
-      tableHeaderCheckbox.checked = selectedRowCount === selectableRowsCount;
-      tableHeaderCheckbox.indeterminate =
+      this.selectAllCheckbox.checked = selectedRowCount === selectableRowsCount;
+      this.selectAllCheckbox.indeterminate =
         selectedRowCount > 0 && selectedRowCount < selectableRowsCount;
-      this.setHeaderCheckboxAriaLabel(tableHeaderCheckbox);
+      this.setHeaderCheckboxAriaLabel(this.selectAllCheckbox);
     }
   }
 }
