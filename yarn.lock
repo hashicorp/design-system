@@ -3469,6 +3469,7 @@ __metadata:
     "@types/rsvp": "npm:^4.0.6"
     dialog-polyfill: "npm:^0.5.6"
     ember-a11y-refocus: "npm:^3.0.2"
+    ember-cached-decorator-polyfill: "npm:^1.0.2"
     ember-cli-sass: "npm:^11.0.1"
     ember-composable-helpers: "npm:^5.0.0"
     ember-element-helper: "npm:^0.8.5"
