@@ -27,6 +27,15 @@ export default class HdsTableThButtonSortComponent extends Component {
   }
 
   /**
+   * @param sortOrderLabel
+   * @default 'ascending'
+   * @description Determines the label (suffix) to use in the `aria-labelledby` attribute of the button, used to indicate what will happen if the user clicks on the button
+   */
+  get sortOrderLabel() {
+    return this.args.sortOrder === 'asc' ? 'descending' : 'ascending';
+  }
+
+  /**
    * @param onClick
    * @type {function}
    * @default () => {}

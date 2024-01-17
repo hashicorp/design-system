@@ -2,15 +2,16 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-{{#let (unique-id) as |prefixId|}}
+{{#let (unique-id) as |uniqueId|}}
   <button
     type="button"
     class={{this.classNames}}
     {{on "click" this.onClick}}
-    aria-labelledby="{{prefixId}} {{@labelId}}"
+    aria-labelledby="prefix-{{uniqueId}} {{@labelId}} suffix-{{uniqueId}}"
     ...attributes
   >
-    <span id={{prefixId}} class="hds-table__th-button-aria-label-prefix">Sort by</span>
+    <span id="prefix-{{uniqueId}}" class="hds-table__th-button-aria-label-hidden-segment">Sort by</span>
+    <span id="suffix-{{uniqueId}}" class="hds-table__th-button-aria-label-hidden-segment">{{this.sortOrderLabel}}</span>
     <FlightIcon @name={{this.icon}} />
   </button>
 {{/let}}
