@@ -20,11 +20,19 @@ module('Integration | Component | hds/table/th', function (hooks) {
 
   // CONTENT
 
-  test('it renders text content yielded within the cell', async function (assert) {
+  test('it renders text content yielded within the cell (no tooltip)', async function (assert) {
     await render(
       hbs`<Hds::Table::Th id="data-test-table-th">Artist</Hds::Table::Th>`
     );
-    assert.dom('#data-test-table-th').hasText('Artist');
+    assert.dom('#data-test-table-th > span').hasText('Artist');
+  });
+  test('it renders text content yielded within the cell (with tooltip)', async function (assert) {
+    await render(
+      hbs`<Hds::Table::Th id="data-test-table-th" @tooltip="More info.">Artist</Hds::Table::Th>`
+    );
+    assert
+      .dom('#data-test-table-th .hds-table__th-content > span')
+      .hasText('Artist');
   });
 
   // ALIGNMENT
@@ -69,23 +77,6 @@ module('Integration | Component | hds/table/th', function (hooks) {
     assert.dom('#data-test-table-th').hasAttribute('scope', 'row');
   });
 
-  test('it renders the default aria attribute for the tooltip button', async function (assert) {
-    await render(
-      hbs`<Hds::Table::Th id="data-test-table-th" @tooltip="More info.">Artist</Hds::Table::Th>`
-    );
-    assert
-      .dom('#data-test-table-th .hds-table__th-button--tooltip')
-      .hasAria('label', 'more information');
-  });
-  test('it renders the custom aria attribute for the tooltip button', async function (assert) {
-    await render(
-      hbs`<Hds::Table::Th id="data-test-table-th" @tooltip="More info." @tooltipAriaLabel="custom tooltip aria label">Artist</Hds::Table::Th>`
-    );
-    assert
-      .dom('#data-test-table-th .hds-table__th-button--tooltip')
-      .hasAria('label', 'custom tooltip aria label');
-  });
-
   // TOOLTIP
 
   test('if @tooltip is undefined a tooltip button toggle should not be present', async function (assert) {
@@ -107,5 +98,19 @@ module('Integration | Component | hds/table/th', function (hooks) {
     await focus('#data-test-table-th .hds-table__th-button--tooltip');
     // test that the tooltip exists and has the passed in content:
     assert.dom('.tippy-content').hasText('More info.');
+  });
+  test('it renders the `aria-labelledby` attribute for the tooltip button with the correct IDs', async function (assert) {
+    await render(
+      hbs`<Hds::Table::Th id="data-test-table-th" @tooltip="More info.">Artist</Hds::Table::Th>`
+    );
+    let prefixLabel = this.element.querySelector(
+      '#data-test-table-th .hds-table__th-button-aria-label-hidden-segment'
+    );
+    let buttonLabel = this.element.querySelector(
+      '#data-test-table-th .hds-table__th-content > span'
+    );
+    assert
+      .dom('#data-test-table-th .hds-table__th-button--tooltip')
+      .hasAria('labelledby', `${prefixLabel.id} ${buttonLabel.id}`);
   });
 });

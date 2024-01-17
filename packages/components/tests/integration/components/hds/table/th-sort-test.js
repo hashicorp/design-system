@@ -25,7 +25,9 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
     await render(
       hbs`<Hds::Table::ThSort id="data-test-table-th-sort">Artist</Hds::Table::ThSort>`
     );
-    assert.dom('#data-test-table-th-sort').hasText('Artist');
+    assert
+      .dom('#data-test-table-th-sort .hds-table__th-content > span')
+      .hasText('Artist');
   });
 
   // ALIGNMENT
@@ -112,28 +114,26 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
       .dom('#data-test-table-th-sort')
       .hasAttribute('aria-sort', 'descending');
   });
-
-  test('it renders the default aria attributes for the sorting and tooltip buttons', async function (assert) {
+  test('it renders the `aria-labelledby` attribute for the sort button with the correct IDs', async function (assert) {
     await render(
-      hbs`<Hds::Table::ThSort id="data-test-table-th-sort" @tooltip="More info.">Artist</Hds::Table::ThSort>`
+      hbs`<Hds::Table::ThSort id="data-test-table-th-sort" @sortBy='artist' @sortOrder="desc">Artist</Hds::Table::ThSort>`
+    );
+    const prefixLabel = this.element.querySelector(
+      '#data-test-table-th-sort .hds-table__th-button-aria-label-hidden-segment:nth-of-type(1)'
+    );
+    const buttonLabel = this.element.querySelector(
+      '#data-test-table-th-sort .hds-table__th-content > span'
+    );
+    const suffixLabel = this.element.querySelector(
+      '#data-test-table-th-sort .hds-table__th-button-aria-label-hidden-segment:nth-of-type(2)'
     );
     assert
-      .dom('#data-test-table-th-sort .hds-table__th-button--tooltip')
-      .hasAria('label', 'more information');
-    assert
       .dom('#data-test-table-th-sort .hds-table__th-button--sort')
-      .hasAria('label', 'sort');
-  });
-  test('it renders the custom aria attributes for the sorting and tooltip buttons', async function (assert) {
-    await render(
-      hbs`<Hds::Table::ThSort id="data-test-table-th-sort" @tooltip="More info." @tooltipAriaLabel="custom tooltip aria label" @sortAriaLabel="custom sort aria label">Artist</Hds::Table::ThSort>`
-    );
-    assert
-      .dom('#data-test-table-th-sort .hds-table__th-button--tooltip')
-      .hasAria('label', 'custom tooltip aria label');
-    assert
-      .dom('#data-test-table-th-sort .hds-table__th-button--sort')
-      .hasAria('label', 'custom sort aria label');
+      .hasAria(
+        'labelledby',
+        `${prefixLabel.id} ${buttonLabel.id} ${suffixLabel.id}`
+      );
+    assert.dom(suffixLabel).hasText('ascending');
   });
 
   // ONCLICKSORT
@@ -171,5 +171,19 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
     await focus('#data-test-table-th-sort .hds-table__th-button--tooltip');
     // test that the tooltip exists and has the passed in content:
     assert.dom('.tippy-content').hasText('More info.');
+  });
+  test('it renders the `aria-labelledby` attribute for the tooltip button with the correct IDs', async function (assert) {
+    await render(
+      hbs`<Hds::Table::ThSort id="data-test-table-th-sort" @tooltip="More info.">Artist</Hds::Table::ThSort>`
+    );
+    let prefixLabel = this.element.querySelector(
+      '#data-test-table-th-sort .hds-table__th-button-aria-label-hidden-segment'
+    );
+    let buttonLabel = this.element.querySelector(
+      '#data-test-table-th-sort .hds-table__th-content > span'
+    );
+    assert
+      .dom('#data-test-table-th-sort .hds-table__th-button--tooltip')
+      .hasAria('labelledby', `${prefixLabel.id} ${buttonLabel.id}`);
   });
 });
