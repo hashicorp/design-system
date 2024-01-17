@@ -2,27 +2,31 @@
   "data": [
     {
       "id": "1",
-      "lorem": "1 ",
-      "ipsum": "Cell Content ",
-      "dolor": "Cell Content "
+      "lorem": "1",
+      "ipsum": "Cell Content",
+      "dolor": "Cell Content",
+      "isSelected": true
     },
     {
       "id": "2",
       "lorem": "2",
       "ipsum": "Cell Content",
-      "dolor": "Cell Content"
+      "dolor": "Cell Content",
+      "isSelected": false
     },
     {
       "id": "3",
-      "lorem": "3 ",
-      "ipsum": "Cell Content ",
-      "dolor": "Cell Content "
+      "lorem": "3",
+      "ipsum": "Cell Content",
+      "dolor": "Cell Content",
+      "isSelected": false
     },
     {
       "id": "4",
-      "lorem": "4 ",
-      "ipsum": "Cell Content ",
-      "dolor": "Cell Content "
+      "lorem": "4",
+      "ipsum": "Cell Content",
+      "dolor": "Cell Content",
+      "isSelected": false
     }
   ]
 }

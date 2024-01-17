@@ -92,6 +92,21 @@ export default class ComponentsTableController extends Controller {
     console.log(selection);
   }
 
+  @action
+  onPaginationSelectionChange(selection) {
+    const start =
+      (this.currentPaginatedSelectablePage - 1) *
+      this.currentPaginatedSelectablePageSize;
+    const end =
+      this.currentPaginatedSelectablePage *
+      this.currentPaginatedSelectablePageSize;
+    for (let i = start; i < end; i++) {
+      this.model.selectableData[i].isSelected = selection.includes(
+        this.model.selectableData[i].id
+      );
+    }
+  }
+
   get sortedModelClusters__demo3() {
     const clonedModelClusters = Array.from(this.model.clusters);
     if (this.customSortBy_demo3 === 'peer-name') {
