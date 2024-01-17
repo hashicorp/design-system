@@ -54,7 +54,7 @@ Don’t use helper text to communicate length requirements as this can result in
 
 !!! Dont
 
-Don’t use the character count to display static details about the field. Use [helper text](/components/form/primitives#formhelpertext) as recommended (to provide extra details about the information being requested) and the character count to communicate the user's progress towards meeting the requirements.
+Don’t use the character count to display static details about the field. Use [helper text](/components/form/primitives#formhelpertext) as recommended (to provide extra details about the information being requested) and the character count to communicate the user’s progress towards meeting the requirements.
 
 ![Character count as helper text](/assets/components/form/primitives/character-count-dont-helper-text.png)
 !!!
