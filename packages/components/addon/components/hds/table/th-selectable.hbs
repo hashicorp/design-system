@@ -8,7 +8,7 @@
     id={{this.checkboxId}}
     class="hds-table__checkbox"
     checked={{@isSelected}}
-    aria-label={{@selectCheckboxAriaLabel}}
+    aria-label={{this.ariaLabel}}
     {{did-insert this.didInsert}}
     {{will-destroy this.willDestroy}}
     {{on "change" this.onChange}}

@@ -267,14 +267,6 @@ export default class HdsTableIndexComponent extends Component {
   //     : this.args.selectAllAriaLabel ?? 'Select all';
   // }
 
-  get selectAllCheckboxAriaLabel() {
-    if (this.selectAllCheckbox) {
-      return this.isSelectAllCheckboxSelected ? 'Deselect all' : 'Select all';
-    } else {
-      return 'NO SELECT ALL';
-    }
-  }
-
   @action
   setSelectAllState() {
     if (this.selectAllCheckbox) {
