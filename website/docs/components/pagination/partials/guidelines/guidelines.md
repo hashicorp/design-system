@@ -51,4 +51,4 @@ If your product uses a significantly higher or lower spacing scale, increase or 
 
 While pagination can be beneficial when dividing up a database into more managable chunks, relying _solely_ on pagination and sorting to find a specific record or set of records results in a poor user experience. This is esepcially true in cursor-based pagination where it may not be clear to the user where they are relatively within a data set.
 
-Instead, more emphasis should be put into [filtering](/patterns/filter-patterns) the data set, limiting the number of returned results, with pagination used as an enhancement.
+Instead, more effort should be put into [filtering](/patterns/filter-patterns) the data set to limit the number of returned results, with pagination used as an enhancement.
