@@ -3,15 +3,15 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-{{#let (unique-id) as |prefixId|}}
+{{#let (unique-id) as |uniqueId|}}
   <button
     type="button"
     class={{this.classNames}}
     {{hds-tooltip @tooltip}}
-    aria-labelledby="{{prefixId}} {{@labelId}}"
+    aria-labelledby="{{uniqueId}} {{@labelId}}"
     ...attributes
   >
-    <span id={{prefixId}} class="hds-table__th-button-aria-label-prefix">More information for</span>
+    <span id={{uniqueId}} class="hds-table__th-button-aria-label-hidden-segment">More information for</span>
     <FlightIcon @name="info" />
   </button>
 {{/let}}
