@@ -126,6 +126,12 @@ This component can contain `Hds::Table::Th`, `Hds::Table::ThSort`, or `Hds::Tabl
   <C.Property @name="yield">
     Elements passed as children of this component are yielded inside the `<tr>` element.
   </C.Property>
+  <C.Property @name="selectionKey" @type="string">
+    Use to set a key on each table row. Used in conjunction with `isSelectable` and `onSelectionChange` on the `Table`.
+  </C.Property>
+  <C.Property @name="isSelected" @type="boolean">
+    Use to set an initial selected state for the row. Used in conjunction with setting `isSelectable` on the `Table`.
+  </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
@@ -143,9 +149,6 @@ If the `Th` component is passed as the first cell of a table body row, `scope="r
   </C.Property>
   <C.Property @name="scope" @type="string" @values={{array "col" "row" }} @default="col">
     If used as the first item in a table body’s row, `scope` should be set to `row` for accessibility purposes. Note: you only need to manually set this if you’re creating a custom table using the child components; if you use the standard invocation for the table, this scope is already provided for you.
-  </C.Property>
-  <C.Property @name="selectionKey" @type="string">
-    Use to set a key on each table row. Used in conjunction with `isSelectable` and `onSelectionChange` on the `Table`.
   </C.Property>
   <C.Property @name="width" @type="string" @valueNote="Any valid CSS">
     If set, determines the column’s width.
