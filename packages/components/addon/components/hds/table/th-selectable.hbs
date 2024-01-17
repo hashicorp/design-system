@@ -5,13 +5,12 @@
 
 <Hds::Table::Th class="hds-table__th--is-selectable" @scope={{(or @scope "col")}} ...attributes>
   <Hds::Form::Checkbox::Base
+    id={{this.checkboxId}}
     class="hds-table__checkbox"
     checked={{@isSelected}}
-    id={{this.checkboxId}}
-    aria-label={{this.ariaLabel}}
+    aria-label={{@selectCheckboxAriaLabel}}
     {{did-insert this.didInsert}}
     {{will-destroy this.willDestroy}}
     {{on "change" this.onChange}}
-    name={{concat "checkbox-" @scope}}
   />
 </Hds::Table::Th>

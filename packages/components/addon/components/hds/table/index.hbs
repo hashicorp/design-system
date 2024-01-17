@@ -3,7 +3,10 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<table class={{this.classNames}} id={{this.tableId}} ...attributes>
+<pre>this.selectAllCheckboxAriaLabel = {{this.selectAllCheckboxAriaLabel}}</pre>
+<pre>this.isSelectAllCheckboxSelected = {{this.isSelectAllCheckboxSelected}}</pre>
+
+<table class={{this.classNames}} ...attributes>
   {{#if @columns}}
     <caption class="sr-only" aria-live="polite">{{@caption}} {{this.sortedMessageText}}</caption>
   {{else if @caption}}
@@ -17,8 +20,7 @@
         @onSelectionChange={{this.onSelectionAllChange}}
         @didInsert={{this.didInsertSelectAllCheckbox}}
         @willDestroy={{this.willDestroySelectAllCheckbox}}
-        @selectAllAriaLabel={{@selectAllAriaLabel}}
-        @deselectAllAriaLabel={{@deselectAllAriaLabel}}
+        @selectCheckboxAriaLabel={{this.selectAllCheckboxAriaLabel}}
       >
         {{#each @columns as |column|}}
           {{#if column.isSortable}}
@@ -48,8 +50,7 @@
             onSelectionChange=this.onSelectionAllChange
             didInsert=this.didInsertSelectAllCheckbox
             willDestroy=this.willDestroySelectAllCheckbox
-            selectAllAriaLabel=@selectAllAriaLabel
-            deselectAllAriaLabel=@deselectAllAriaLabel
+            selectCheckboxAriaLabel=this.selectAllCheckboxAriaLabel
           )
           Th=(component "hds/table/th")
           ThSort=(component "hds/table/th-sort")
