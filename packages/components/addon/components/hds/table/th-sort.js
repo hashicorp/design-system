@@ -82,7 +82,7 @@ export default class HdsTableThSortComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-table__th', '.hds-table__th--sort'];
+    let classes = ['hds-table__th', 'hds-table__th--sort'];
 
     // add a class based on the @align argument
     if (this.align) {
