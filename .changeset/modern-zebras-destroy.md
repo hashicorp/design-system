@@ -1,5 +1,5 @@
 ---
-"@hashicorp/design-system-components": minor
+"@hashicorp/design-system-components": major
 ---
 
 `Table` - Multiple updates to the main component and its subcomponents:
@@ -16,6 +16,7 @@
 - Remove class `hds-table__th-sort--button-content`
 - Replaced class `hds-table__th-sort` with classes `hds-table__th` + `hds-table__th--sort`
 - Replaced class `hds-table__th-sort--text--[left|center|right]` with `hds-table__th--align-[left|center|right]`
+- Renamed `onClick` callback to `onClickSort`
 
 `Table::Th`:
 
