@@ -226,6 +226,9 @@ export default class HdsTableIndexComponent extends Component {
   @action
   didInsertRowCheckbox(checkbox, selectionKey) {
     this.allSelectionKeys.push(selectionKey);
+    if (checkbox.checked) {
+      this.selectedSelectionKeys.push(selectionKey);
+    }
     this.setRowCheckboxAriaLabel(checkbox);
     this.setSelectAllState();
   }
