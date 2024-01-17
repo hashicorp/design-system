@@ -204,7 +204,7 @@
   <div class="shw-component-table-selection-pagination-demo">
     <Hds::Table
       @isSelectable={{true}}
-      @onSelectionChange={{this.onSelectionChange}}
+      @onSelectionChange={{this.onPaginationSelectionChange}}
       @model={{this.paginatedSelectableData}}
       @columns={{array
         (hash key="lorem" label="Row #")
@@ -213,7 +213,7 @@
       }}
     >
       <:body as |B|>
-        <B.Tr @selectionKey={{B.data.id}}>
+        <B.Tr @selectionKey={{B.data.id}} @isSelected={{B.data.isSelected}}>
           <B.Td>{{B.data.lorem}}</B.Td>
           <B.Td>{{B.data.ipsum}}</B.Td>
           <B.Td>{{B.data.dolor}}</B.Td>
