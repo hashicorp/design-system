@@ -3490,6 +3490,8 @@ __metadata:
     prettier: "npm:^2.8.8"
     prismjs: "npm:^1.29.0"
     rollup: "npm:^4.9.0"
+    rollup-plugin-copy: "npm:^3.5.0"
+    rollup-plugin-scss: "npm:^4.0.0"
     sass: "npm:^1.69.5"
     stylelint: "npm:^15.11.0"
     stylelint-config-rational-order: "npm:^0.1.2"
@@ -5165,7 +5167,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/fs-extra@npm:^8.1.0":
+"@types/fs-extra@npm:^8.0.1, @types/fs-extra@npm:^8.1.0":
   version: 8.1.5
   resolution: "@types/fs-extra@npm:8.1.5"
   dependencies:
@@ -9628,6 +9630,13 @@ __metadata:
   version: 2.9.3
   resolution: "colord@npm:2.9.3"
   checksum: 907a4506d7307e2f580b471b581e992181ed75ab0c6925ece9ca46d88161d2fc50ed15891cd0556d0d9321237ca75afc9d462e4c050b939ef88428517f047f30
+  languageName: node
+  linkType: hard
+
+"colorette@npm:^1.1.0":
+  version: 1.4.0
+  resolution: "colorette@npm:1.4.0"
+  checksum: c8d6c8c3ef5a99acfc3dd9a68f48019f1479ec347551387e4a1762e40f69e98ce19d4dc321ffb4919d1f28a7bdc90c39d4e9a901f4c474fd2124ad93a00c0454
   languageName: node
   linkType: hard
 
@@ -14949,6 +14958,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"globby@npm:10.0.1":
+  version: 10.0.1
+  resolution: "globby@npm:10.0.1"
+  dependencies:
+    "@types/glob": "npm:^7.1.1"
+    array-union: "npm:^2.1.0"
+    dir-glob: "npm:^3.0.1"
+    fast-glob: "npm:^3.0.3"
+    glob: "npm:^7.1.3"
+    ignore: "npm:^5.1.1"
+    merge2: "npm:^1.2.3"
+    slash: "npm:^3.0.0"
+  checksum: ea724a820d7d4eafc5aa3882d667a7ef3505b3018652b2658185d58752f122b75d3370086e4d4a7b1bbcdf8c2e700e5709a48db189a930df37005e1b3c86c256
+  languageName: node
+  linkType: hard
+
 "globby@npm:^10.0.1":
   version: 10.0.2
   resolution: "globby@npm:10.0.2"
@@ -16445,6 +16470,13 @@ __metadata:
   dependencies:
     isobject: "npm:^3.0.1"
   checksum: 2a401140cfd86cabe25214956ae2cfee6fbd8186809555cd0e84574f88de7b17abacb2e477a6a658fa54c6083ecbda1e6ae404c7720244cd198903848fca70ca
+  languageName: node
+  linkType: hard
+
+"is-plain-object@npm:^3.0.0":
+  version: 3.0.1
+  resolution: "is-plain-object@npm:3.0.1"
+  checksum: d13fe75db350d4ac669595cdfe0242ae87fcecddf2bca858d2dd443a6ed6eb1f69951fac8c2fa85b16106c6b0d7738fea86c2aca2ecee7fd61de15c1574f2cc5
   languageName: node
   linkType: hard
 
@@ -22518,6 +22550,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rollup-plugin-copy@npm:^3.5.0":
+  version: 3.5.0
+  resolution: "rollup-plugin-copy@npm:3.5.0"
+  dependencies:
+    "@types/fs-extra": "npm:^8.0.1"
+    colorette: "npm:^1.1.0"
+    fs-extra: "npm:^8.1.0"
+    globby: "npm:10.0.1"
+    is-plain-object: "npm:^3.0.0"
+  checksum: 706ba6bd2052b95d1037f12963ff4b50749730f18aefad10544f9574aff7c035c88c5dd9ae1f0c0408cf09862e595a0ea4d68e13c2717addaea2bda3ade0d0e0
+  languageName: node
+  linkType: hard
+
 "rollup-plugin-delete@npm:^2.0.0":
   version: 2.0.0
   resolution: "rollup-plugin-delete@npm:2.0.0"
@@ -22527,7 +22572,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup-pluginutils@npm:^2.0.1":
+"rollup-plugin-scss@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "rollup-plugin-scss@npm:4.0.0"
+  dependencies:
+    rollup-pluginutils: "npm:^2.3.3"
+  checksum: 6cda4a3ec483285da92fd85a3f1e88a0738ab70d4c783193eb6bf10b3c47a95790f73e54f4e7844be70fc78c68be30489f5c0bab88b3cb42a4be47c82a885baa
+  languageName: node
+  linkType: hard
+
+"rollup-pluginutils@npm:^2.0.1, rollup-pluginutils@npm:^2.3.3":
   version: 2.8.2
   resolution: "rollup-pluginutils@npm:2.8.2"
   dependencies:
