@@ -28,6 +28,11 @@ node ./packages/codemods/bin/cli.js v3/dropdown path/to/some/glob/**/*.hbs
 * [v3/side-nav](transforms/v3/side-nav/README.md)
 <!--TRANSFORMS_END-->
 
+### v4
+<!--TRANSFORMS_START-->
+* [v4/table](transforms/v4/table/README.md)
+<!--TRANSFORMS_END-->
+
 ## Contributing
 
 ### Installation
