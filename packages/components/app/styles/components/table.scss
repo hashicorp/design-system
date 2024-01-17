@@ -19,6 +19,9 @@ $hds-table-cell-padding-medium: 14px 16px 13px 16px; // the 1px difference is to
 $hds-table-cell-padding-short: 6px 16px 5px 16px; // the 1px difference is to account for the bottom border
 $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to account for the bottom border
 
+
+// TABLE
+
 .hds-table {
   width: 100%;
   border: $hds-table-border-width solid $hds-table-border-color;
@@ -26,66 +29,75 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
   border-spacing: 0;
 }
 
-// TABLE DISPLAY
+
+// table display
+
 .hds-table--layout-fixed {
   table-layout: fixed;
 }
 
+
+// ----------------------------------------------------------------
+
 // TABLE HEADER
+
 .hds-table__thead {
   .hds-table__tr {
     color: var(--token-color-foreground-strong);
     background-color: var(--token-color-surface-strong);
-    // BORDER RADIUS: TARGET FIRST AND LAST TH ELEMENTS IN THE ROW
+
+    th {
+      position: relative;
+      padding: $hds-table-cell-padding-medium;
+      text-align: left;
+      border-top: none;
+      border-right: none;
+      border-bottom: $hds-table-border-width solid $hds-table-border-color;
+      border-left: none;
+
+      // right border (we emulate a right border slightly detached from the top/bottom borders)
+
+      &::after {
+        position: absolute;
+        top: 6px;
+        right: 0;
+        bottom: 6px;
+        width: 1px;
+        background-color: $hds-table-border-color;
+        content: "";
+        pointer-events: none;
+      }
+
+      &:last-child::after {
+        background-color: transparent;
+      }
+    }
+
+    // horizontal alignment (contrary to the tbody, it's applied overriding some  of the "flexed" elements properties)
+
+    .hds-table__th--text-right {
+     .hds-table__th-content {
+        justify-content: flex-end;
+      }
+    }
+
+    // border radius: target first and last th elements in the row
+
     &:first-of-type {
       th:first-child {
         border-top-left-radius: $hds-table-inner-border-radius;
       }
 
-      // LAST TH IN THE ROW, BORDER RADIUS
       th:last-child {
         border-top-right-radius: $hds-table-inner-border-radius;
       }
     }
   }
-
-  .hds-table__th {
-    min-height: $hds-table-header-height;
-  }
-}
-
-.hds-table__th {
-  padding: $hds-table-cell-padding-medium;
-  text-align: left;
-  border-top: none;
-  border-right: none;
-  border-bottom: $hds-table-border-width solid $hds-table-border-color;
-  border-left: none;
-
-}
-
-// we emulate a right border slightly detached from the top/bottom borders
-.hds-table__thead > .hds-table__tr:first-of-type > .hds-table__th {
-  position: relative;
-
-  &::after {
-    position: absolute;
-    top: 6px;
-    right: 0;
-    bottom: 6px;
-    width: 1px;
-    background-color: $hds-table-border-color;
-    content: "";
-    pointer-events: none;
-  }
-
-  &:last-child::after {
-    background-color: transparent;
-  }
 }
 
 .hds-table__th-content {
   display: flex;
+  gap: 4px;
   align-items: center;
   justify-content: flex-start;
 }
@@ -119,6 +131,10 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
     background-color: var(--token-color-surface-interactive-active);
     border-color: var(--token-color-border-strong);
   }
+}
+
+.hds-table__th-button--sort {
+  margin-left: auto;
 
   .hds-table__th--is-sorted & {
     color: var(--token-color-foreground-action);
@@ -136,94 +152,23 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
 }
 
 
-.hds-table__th-button--tooltip {
-  margin-left: 4px;
-}
-
-.hds-table__th-button--sort {
-  margin-left: auto;
-}
-
+// ----------------------------------------------------------------
 
 // TABLE BODY
-
-// TABLE STRIPING ROWS
-.hds-table--striped {
-  .hds-table__tbody {
-    .hds-table__tr:nth-child(even) {
-      background-color: var(--token-color-surface-faint);
-    }
-  }
-}
-
-// TABLE DENSITY (TBODY ROW HEIGHT)
-
-.hds-table__tbody th,
-.hds-table__tbody td {
-  .hds-table--density-short & {
-    padding: $hds-table-cell-padding-short;
-  }
-
-  .hds-table--density-medium & {
-    padding: $hds-table-cell-padding-medium;
-  }
-
-  .hds-table--density-tall & {
-    padding: $hds-table-cell-padding-tall;
-  }
-}
-
-// TABLE CELL VERTICAL ALIGNMENT
-
-.hds-table__tbody th,
-.hds-table__tbody td {
-  .hds-table--valign-top & {
-    vertical-align: top;
-  }
-
-  .hds-table--valign-middle & {
-    vertical-align: middle;
-  }
-
-  .hds-table--valign-baseline & {
-    vertical-align: baseline;
-  }
-}
-
-// TABLE CELL TEXT ALIGNMENT (LEFT IS DEFAULT)
-.hds-table__th--text-right,
-.hds-table__td--text-right {
-  text-align: right;
-}
-
-.hds-table__th--text-right .hds-table__th-content {
-  justify-content: flex-end;
-
-  .hds-table__th-button--sort {
-    margin-left: 4px;
-  }
-}
-
-.hds-table__th--text-center,
-.hds-table__td--text-center {
-  text-align: center;
-}
-
 
 .hds-table__tbody {
   .hds-table__tr {
     color: var(--token-color-foreground-primary);
     background-color: var(--token-color-surface-primary);
 
-    th,
-    td {
-      border-top: none;
-      border-right: none;
-      border-bottom: $hds-table-border-width solid $hds-table-border-color;
-      border-left: none;
+    // striped rows
+
+    .hds-table--striped &:nth-child(even) {
+      background-color: var(--token-color-surface-faint);
     }
 
-    // BORDER RADIUS: TARGET FIRST TH (SCOPE OF ROW) AND TD, AND LAST TD ELEMENTS IN THE LAST ROW
+    // border radius: target first th (scope of row) and td, and last td elements in the last row
+
     &:last-of-type {
       th,
       td {
@@ -235,10 +180,64 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
         border-bottom-left-radius: $hds-table-inner-border-radius;
       }
 
-      // A TH WILL NEVER BE LAST CHILD, ONLY FIRST CHILD
+      // a <th> will never be last child, only first child
       td:last-child {
         border-bottom-right-radius: $hds-table-inner-border-radius;
       }
+    }
+  }
+
+  .hds-table__th,
+  .hds-table__td {
+    text-align: left;
+    border-top: none;
+    border-right: none;
+    border-bottom: $hds-table-border-width solid $hds-table-border-color;
+    border-left: none;
+
+    // density
+
+    .hds-table--density-short & {
+      padding: $hds-table-cell-padding-short;
+    }
+
+    .hds-table--density-medium & {
+      padding: $hds-table-cell-padding-medium;
+    }
+
+    .hds-table--density-tall & {
+      padding: $hds-table-cell-padding-tall;
+    }
+
+  }
+
+  // horizontal alignment (applied at cell level)
+
+  .hds-table__th--text-right,
+  .hds-table__td--text-right {
+    text-align: right;
+  }
+
+
+  .hds-table__th--text-center,
+  .hds-table__td--text-center {
+    text-align: center;
+  }
+
+  // vertical alignment (applied at table level)
+
+  .hds-table__th,
+  .hds-table__td {
+    .hds-table--valign-top & {
+      vertical-align: top;
+    }
+
+    .hds-table--valign-middle & {
+      vertical-align: middle;
+    }
+
+    .hds-table--valign-baseline & {
+      vertical-align: baseline;
     }
   }
 }
