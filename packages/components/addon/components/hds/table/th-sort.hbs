@@ -12,8 +12,8 @@
   <div class="hds-table__th-content">
     <span class="hds-typography-body-200 hds-font-weight-semibold">{{yield}}</span>
     {{#if @tooltip}}
-      <Hds::Table::ThButtonTooltip @tooltip={{@tooltip}} />
+      <Hds::Table::ThButtonTooltip @tooltip={{@tooltip}} @ariaLabel={{@tooltipAriaLabel}} />
     {{/if}}
-    <Hds::Table::ThButtonSort @icon={{this.iconSort}} @isSorted={{this.isSorted}} @onClick={{@this.onClick}} />
+    <Hds::Table::ThButtonSort @sortOrder={{@sortOrder}} @onClick={{@onClickSort}} @ariaLabel={{@sortAriaLabel}} />
   </div>
 </th>

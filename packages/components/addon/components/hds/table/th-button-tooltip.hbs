@@ -3,12 +3,6 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<button
-  type="button"
-  class="hds-table__th-button hds-table__th-button--tooltip"
-  {{hds-tooltip @tooltip}}
-  aria-label="more information"
-  ...attributes
->
+<button type="button" class={{this.classNames}} {{hds-tooltip @tooltip}} aria-label={{this.ariaLabel}} ...attributes>
   <FlightIcon @name="info" />
 </button>

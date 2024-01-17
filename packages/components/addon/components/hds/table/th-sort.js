@@ -6,20 +6,10 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-const NOOP = () => {};
 const ALIGNMENTS = ['left', 'center', 'right'];
 const DEFAULT_ALIGN = 'left';
 
 export default class HdsTableThSortComponent extends Component {
-  /**
-   * @param isSorted
-   * @type {boolean}
-   * @default false
-   */
-  get isSorted() {
-    return this.args.sortOrder === 'asc' || this.args.sortOrder === 'desc';
-  }
-
   /**
    * @param ariaSort
    * @type {string}
@@ -40,24 +30,6 @@ export default class HdsTableThSortComponent extends Component {
   }
 
   /**
-   * @param iconSort
-   * @type {string}
-   * @private
-   * @default swap-vertical
-   * @description Determines which icon to use based on the sort order defined
-   */
-  get iconSort() {
-    switch (this.args.sortOrder) {
-      case 'asc':
-        return 'arrow-up';
-      case 'desc':
-        return 'arrow-down';
-      default:
-        return 'swap-vertical';
-    }
-  }
-
-  /**
    * @param align
    * @type {string}
    * @default left
@@ -73,16 +45,6 @@ export default class HdsTableThSortComponent extends Component {
       ALIGNMENTS.includes(align)
     );
     return align;
-  }
-
-  /**
-   * @param onClick
-   * @type {function}
-   * @default () => {}
-   */
-  get onClick() {
-    let { onClick } = this.args;
-    return onClick || NOOP;
   }
 
   /**

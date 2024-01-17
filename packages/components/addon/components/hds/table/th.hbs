@@ -9,7 +9,7 @@
     {{#if @tooltip}}
       <div class="hds-table__th-content">
         <span class="hds-typography-body-200 hds-font-weight-semibold">{{yield}}</span>
-        <Hds::Table::ThButtonTooltip @tooltip={{@tooltip}} />
+        <Hds::Table::ThButtonTooltip @tooltip={{@tooltip}} @ariaLabel={{@tooltipAriaLabel}} />
       </div>
     {{else}}
       <span class="hds-typography-body-200 hds-font-weight-semibold">{{yield}}</span>
