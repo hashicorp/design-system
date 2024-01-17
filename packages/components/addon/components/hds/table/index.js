@@ -249,24 +249,6 @@ export default class HdsTableIndexComponent extends Component {
     this.setSelectAllState();
   }
 
-  // setSelectRowCheckboxAriaLabel(checkbox) {
-  //   if (checkbox.checked === true) {
-  //     checkbox.ariaLabel = this.args.deselectRowAriaLabel
-  //       ? `${this.args.deselectRowAriaLabel} ${checkbox.id}`
-  //       : `Deselect ${checkbox.id}`;
-  //   } else {
-  //     checkbox.ariaLabel = this.args.selectRowAriaLabel
-  //       ? `${this.args.selectRowAriaLabel} ${checkbox.id}`
-  //       : `Select ${checkbox.id}`;
-  //   }
-  // }
-
-  // setSelectAllCheckboxAriaLabel(checkbox) {
-  //   checkbox.ariaLabel = checkbox.checked
-  //     ? this.args.deselectAllAriaLabel ?? 'Deselect all'
-  //     : this.args.selectAllAriaLabel ?? 'Select all';
-  // }
-
   @action
   setSelectAllState() {
     if (this.selectAllCheckbox) {

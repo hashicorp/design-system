@@ -21,7 +21,7 @@ export default class HdsTableThSelectableComponent extends Component {
     let { selectCheckboxAriaLabelSuffix } = this.args;
     const prefix = this.isSelected ? 'Deselect' : 'Select';
     if (selectCheckboxAriaLabelSuffix) {
-      return `${prefix} ${selectCheckboxAriaLabelSuffix}`;
+      return `${prefix} row ${selectCheckboxAriaLabelSuffix}`;
     } else {
       return prefix;
     }
