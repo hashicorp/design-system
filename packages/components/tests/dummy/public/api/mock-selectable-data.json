@@ -5,7 +5,7 @@
       "lorem": "1",
       "ipsum": "Cell Content",
       "dolor": "Cell Content",
-      "isSelected": true
+      "isSelected": false
     },
     {
       "id": "2",
