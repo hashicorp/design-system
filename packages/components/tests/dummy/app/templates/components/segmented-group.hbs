@@ -11,6 +11,23 @@
 
   <Shw::Text::H2>Content</Shw::Text::H2>
 
+  <Shw::Text::H3>One segment</Shw::Text::H3>
+
+  <Shw::Grid @columns={{4}} as |SG|>
+    <SG.Item @label="Button only">
+      <Hds::SegmentedGroup as |S|>
+        <S.Button @color="secondary" @text="Button" />
+      </Hds::SegmentedGroup>
+    </SG.Item>
+    <SG.Item @label="Input only">
+      <Hds::SegmentedGroup as |S|>
+        <S.TextInput aria-label="segmented-text-input-lone-item" />
+      </Hds::SegmentedGroup>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>Two segments</Shw::Text::H3>
 
   <Shw::Grid @columns={{4}} as |SG|>

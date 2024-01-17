@@ -14,7 +14,7 @@
   > .hds-dropdown,
   > .hds-form-select,
   > .hds-form-text-input {
-    &:first-child {
+    &:first-child:not(:only-child) {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
 
@@ -26,7 +26,7 @@
       }
     }
 
-    &:last-child {
+    &:last-child:not(:only-child) {
       margin-left: -1px;
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
@@ -39,7 +39,7 @@
       }
     }
 
-    &:not(:first-child, :last-child) {
+    &:not(:first-child, :last-child, :only-child) {
       margin-left: -1px;
       border-radius: 0;
 
