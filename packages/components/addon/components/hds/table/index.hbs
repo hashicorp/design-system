@@ -3,7 +3,7 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<table class={{this.classNames}} id={{this.tableId}} ...attributes>
+<table class={{this.classNames}} ...attributes>
   {{#if @columns}}
     <caption class="sr-only" aria-live="polite">{{@caption}} {{this.sortedMessageText}}</caption>
   {{else if @caption}}
@@ -13,10 +13,12 @@
   <thead class="hds-table__thead">
     {{#if @columns}}
       <Hds::Table::Tr
+        @selectionScope="col"
         @isSelectable={{@isSelectable}}
         @onSelectionChange={{this.onSelectionAllChange}}
-        @selectAllAriaLabel={{@selectAllAriaLabel}}
-        @deselectAllAriaLabel={{@deselectAllAriaLabel}}
+        @didInsert={{this.didInsertSelectAllCheckbox}}
+        @willDestroy={{this.willDestroySelectAllCheckbox}}
+        @selectionAriaLabelSuffix="all rows"
       >
         {{#each @columns as |column|}}
           {{#if column.isSortable}}
@@ -44,10 +46,12 @@
         (hash
           Tr=(component
             "hds/table/tr"
+            selectionScope="col"
             isSelectable=@isSelectable
             onSelectionChange=this.onSelectionAllChange
-            selectAllAriaLabel=@selectAllAriaLabel
-            deselectAllAriaLabel=@deselectAllAriaLabel
+            didInsert=this.didInsertSelectAllCheckbox
+            willDestroy=this.willDestroySelectAllCheckbox
+            selectionAriaLabelSuffix="all rows"
           )
           Th=(component "hds/table/th")
           ThSort=(component "hds/table/th-sort")
@@ -72,14 +76,12 @@
           (hash
             Tr=(component
               "hds/table/tr"
+              selectionScope="row"
               isSelectable=@isSelectable
               onSelectionChange=this.onSelectionRowChange
-              isSelected=@isSelected
               didInsert=this.didInsertRowCheckbox
               willDestroy=this.willDestroyRowCheckbox
-              selectableScope="row"
-              selectRowAriaLabel=@selectRowAriaLabel
-              deselectRowAriaLabel=@deselectRowAriaLabel
+              selectionAriaLabelSuffix=@selectionAriaLabelSuffix
             )
             Th=(component "hds/table/th" scope="row")
             Td=(component "hds/table/td" align=@align)
@@ -93,14 +95,12 @@
         (hash
           Tr=(component
             "hds/table/tr"
+            selectionScope="row"
             isSelectable=@isSelectable
             onSelectionChange=this.onSelectionRowChange
-            isSelected=@isSelected
             didInsert=this.didInsertRowCheckbox
             willDestroy=this.willDestroyRowCheckbox
-            selectableScope="row"
-            selectRowAriaLabel=@selectRowAriaLabel
-            deselectRowAriaLabel=@deselectRowAriaLabel
+            selectionAriaLabelSuffix=@selectionAriaLabelSuffix
           )
           Th=(component "hds/table/th" scope="row")
           Td=(component "hds/table/td" align=@align)
