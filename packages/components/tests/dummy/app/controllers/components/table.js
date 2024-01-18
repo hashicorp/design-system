@@ -212,8 +212,8 @@ export default class ComponentsTableController extends Controller {
 
   // Keep track of users selected in the selectable users table
   @action
-  onSelectableUsersChange(selectionArr) {
-    this.selectedUserIds = selectionArr;
+  onSelectableUsersChange({ selectedRowsKeys }) {
+    this.selectedUserIds = [...selectedRowsKeys];
   }
 
   @action

@@ -3,15 +3,14 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<Hds::Table::Th class="hds-table__th--is-selectable" @scope={{(or @scope "col")}} ...attributes>
+<Hds::Table::Th class="hds-table__th--is-selectable" @scope={{@selectionScope}} ...attributes>
   <Hds::Form::Checkbox::Base
-    class="hds-table__checkbox"
     id={{this.checkboxId}}
+    class="hds-table__checkbox"
+    checked={{@isSelected}}
     aria-label={{this.ariaLabel}}
     {{did-insert this.didInsert}}
     {{will-destroy this.willDestroy}}
-    {{on "change" this.onChange}}
-    name={{concat "checkbox-" @scope}}
-    checked={{@isSelected}}
+    {{on "change" this.onSelectionChange}}
   />
 </Hds::Table::Th>

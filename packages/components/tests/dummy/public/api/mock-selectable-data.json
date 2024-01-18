@@ -12,7 +12,7 @@
       "lorem": "2",
       "ipsum": "Cell Content",
       "dolor": "Cell Content",
-      "isSelected": false
+      "isSelected": true
     },
     {
       "id": "3",
