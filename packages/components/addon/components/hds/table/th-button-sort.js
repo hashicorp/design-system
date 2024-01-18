@@ -4,10 +4,19 @@
  */
 
 import Component from '@glimmer/component';
+import { guidFor } from '@ember/object/internals';
 
 const NOOP = () => {};
 
 export default class HdsTableThButtonSortComponent extends Component {
+  /**
+   * Generates a unique ID for the (hidden) "label prefix/suffix" <span> elements
+   *
+   * @param prefixLabelId/suffixLabelId
+   */
+  prefixLabelId = 'prefix-' + guidFor(this);
+  suffixLabelId = 'suffix-' + guidFor(this);
+
   /**
    * @param icon
    * @type {string}

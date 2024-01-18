@@ -4,12 +4,20 @@
  */
 
 import Component from '@glimmer/component';
+import { guidFor } from '@ember/object/internals';
 import { assert } from '@ember/debug';
 
 const ALIGNMENTS = ['left', 'center', 'right'];
 const DEFAULT_ALIGN = 'left';
 
 export default class HdsTableThSortComponent extends Component {
+  /**
+   * Generates a unique ID for the <span> element ("label")
+   *
+   * @param labelId
+   */
+  labelId = guidFor(this);
+
   /**
    * @param ariaSort
    * @type {string}

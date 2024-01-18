@@ -4,8 +4,16 @@
  */
 
 import Component from '@glimmer/component';
+import { guidFor } from '@ember/object/internals';
 
 export default class HdsTableThButtonTooltipComponent extends Component {
+  /**
+   * Generates a unique ID for the (hidden) "label prefix" <span> element
+   *
+   * @param prefixLabelId
+   */
+  prefixLabelId = guidFor(this);
+
   /**
    * Get the class names to apply to the component.
    * @method classNames
