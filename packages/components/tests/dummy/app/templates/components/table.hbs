@@ -383,12 +383,12 @@
     <:head as |H|>
       <H.Tr>
         <H.ThSort
-          @onClick={{fn this.onClickThSort__demo3 "peer-name" H.setSortBy}}
+          @onClickSort={{fn this.onClickThSort__demo3 "peer-name" H.setSortBy}}
           @sortOrder={{if (eq "peer-name" H.sortBy) H.sortOrder}}
         >Peer name</H.ThSort>
         <H.Th>Cluster partition</H.Th>
         <H.ThSort
-          @onClick={{fn this.onClickThSort__demo3 "status" H.setSortBy}}
+          @onClickSort={{fn this.onClickThSort__demo3 "status" H.setSortBy}}
           @sortOrder={{if (eq "status" H.sortBy) H.sortOrder}}
         >Status</H.ThSort>
         <H.Th>Imported services</H.Th>
@@ -444,11 +444,13 @@
   <Hds::Table>
     <:head as |H|>
       <H.Tr>
-        <H.ThSort onClick={{fn H.setSortBy "peer-name"}} @sortOrder={{if (eq "peer-name" H.sortBy) H.sortOrder}}>Peer
-          name</H.ThSort>
+        <H.ThSort
+          @onClickSort={{fn H.setSortBy "peer-name"}}
+          @sortOrder={{if (eq "peer-name" H.sortBy) H.sortOrder}}
+        >Peer name</H.ThSort>
         <H.Th>Cluster partition</H.Th>
         <H.ThSort
-          @onClick={{fn H.setSortBy "status"}}
+          @onClickSort={{fn H.setSortBy "status"}}
           @sortOrder={{if (eq "status" H.sortBy) H.sortOrder}}
         >Status</H.ThSort>
         <H.Th>Imported services</H.Th>
