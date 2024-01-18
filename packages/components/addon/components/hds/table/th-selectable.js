@@ -18,10 +18,10 @@ export default class HdsTableThSelectableComponent extends Component {
   checkboxId = 'checkbox-' + guidFor(this);
 
   get ariaLabel() {
-    let { selectCheckboxAriaLabelSuffix } = this.args;
+    let { selectionAriaLabelSuffix } = this.args;
     const prefix = this.isSelected ? 'Deselect' : 'Select';
-    if (selectCheckboxAriaLabelSuffix) {
-      return `${prefix} row ${selectCheckboxAriaLabelSuffix}`;
+    if (selectionAriaLabelSuffix) {
+      return `${prefix} ${selectionAriaLabelSuffix}`;
     } else {
       return prefix;
     }
@@ -45,11 +45,11 @@ export default class HdsTableThSelectableComponent extends Component {
   }
 
   @action
-  onChange(event) {
+  onSelectionChange(event) {
     this.isSelected = event.target.checked;
-    let { onChange } = this.args;
-    if (typeof onChange === 'function') {
-      onChange(event.target, this.args.selectionKey);
+    let { onSelectionChange } = this.args;
+    if (typeof onSelectionChange === 'function') {
+      onSelectionChange(event.target, this.args.selectionKey);
     }
   }
 }

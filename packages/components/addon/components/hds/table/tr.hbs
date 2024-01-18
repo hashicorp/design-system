@@ -6,13 +6,13 @@
 <tr class="hds-table__tr" ...attributes>
   {{#if @isSelectable}}
     <Hds::Table::ThSelectable
-      @scope={{(or @selectableScope "col")}}
       @isSelected={{@isSelected}}
-      @onChange={{@onSelectionChange}}
+      @selectionScope={{@selectionScope}}
+      @selectionKey={{@selectionKey}}
+      @selectionAriaLabelSuffix={{@selectionAriaLabelSuffix}}
       @didInsert={{@didInsert}}
       @willDestroy={{@willDestroy}}
-      @selectionKey={{@selectionKey}}
-      @selectCheckboxAriaLabelSuffix={{@selectCheckboxAriaLabelSuffix}}
+      @onSelectionChange={{@onSelectionChange}}
     />
   {{/if}}
 

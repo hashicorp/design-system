@@ -13,11 +13,12 @@
   <thead class="hds-table__thead">
     {{#if @columns}}
       <Hds::Table::Tr
+        @selectionScope="col"
         @isSelectable={{@isSelectable}}
         @onSelectionChange={{this.onSelectionAllChange}}
         @didInsert={{this.didInsertSelectAllCheckbox}}
         @willDestroy={{this.willDestroySelectAllCheckbox}}
-        @selectCheckboxAriaLabelSuffix="all rows"
+        @selectionAriaLabelSuffix="all rows"
       >
         {{#each @columns as |column|}}
           {{#if column.isSortable}}
@@ -43,11 +44,12 @@
         (hash
           Tr=(component
             "hds/table/tr"
+            selectionScope="col"
             isSelectable=@isSelectable
             onSelectionChange=this.onSelectionAllChange
             didInsert=this.didInsertSelectAllCheckbox
             willDestroy=this.willDestroySelectAllCheckbox
-            selectCheckboxAriaLabelSuffix="all rows"
+            selectionAriaLabelSuffix="all rows"
           )
           Th=(component "hds/table/th")
           ThSort=(component "hds/table/th-sort")
@@ -72,12 +74,12 @@
           (hash
             Tr=(component
               "hds/table/tr"
+              selectionScope="row"
               isSelectable=@isSelectable
               onSelectionChange=this.onSelectionRowChange
               didInsert=this.didInsertRowCheckbox
               willDestroy=this.willDestroyRowCheckbox
-              selectableScope="row"
-              selectCheckboxAriaLabelSuffix=@selectCheckboxAriaLabelSuffix
+              selectionAriaLabelSuffix=@selectionAriaLabelSuffix
             )
             Th=(component "hds/table/th" scope="row")
             Td=(component "hds/table/td" align=@align)
@@ -91,12 +93,12 @@
         (hash
           Tr=(component
             "hds/table/tr"
+            selectionScope="row"
             isSelectable=@isSelectable
             onSelectionChange=this.onSelectionRowChange
             didInsert=this.didInsertRowCheckbox
             willDestroy=this.willDestroyRowCheckbox
-            selectableScope="row"
-            selectCheckboxAriaLabelSuffix=@selectCheckboxAriaLabelSuffix
+            selectionAriaLabelSuffix=@selectionAriaLabelSuffix
           )
           Th=(component "hds/table/th" scope="row")
           Td=(component "hds/table/td" align=@align)
