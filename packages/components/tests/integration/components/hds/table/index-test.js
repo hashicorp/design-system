@@ -498,10 +498,6 @@ module('Integration | Component | hds/table/index', function (hooks) {
         @model={{this.model}}
         @columns={{this.columns}}
         data-test="selectable-table"
-        @selectAllAriaLabel="custom select all"
-        @deselectAllAriaLabel="custom deselect all"
-        @selectRowAriaLabel="custom select row"
-        @deselectRowAriaLabel="custom deselect row"
       >
         <:body as |B|>
           <B.Tr @selectionKey={{B.data.id}}>

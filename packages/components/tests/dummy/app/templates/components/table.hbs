@@ -41,8 +41,6 @@
   <Hds::Table
     @isSelectable={{true}}
     @onSelectionChange={{this.onSelectionChange}}
-    @selectAllAriaLabel="This is my selectAllAriaLabel label"
-    @deselectAllAriaLabel="This is my deselectAllAriaLabel label"
     @model={{this.model.selectableData}}
     @columns={{array
       (hash key="lorem" label="Row #")
@@ -65,12 +63,7 @@
 
   <Shw::Text::H4>with no model</Shw::Text::H4>
 
-  <Hds::Table
-    @isSelectable={{true}}
-    @onSelectionChange={{this.onSelectionChange}}
-    @selectAllAriaLabel="This is my selectAllAriaLabel label"
-    @deselectAllAriaLabel="This is my deselectAllAriaLabel label"
-  >
+  <Hds::Table @isSelectable={{true}} @onSelectionChange={{this.onSelectionChange}}>
     <:head as |H|>
       <H.Tr>
         <H.Th>Row #</H.Th>
