@@ -161,7 +161,7 @@ This is the component that supports column sorting; use instead of `Hds::Table::
   <C.Property @name="tooltip" @type="string">
     Text string which will appear in the tooltip (see [`Tooltip`](/components/tooltip) for details). May contain basic HTML tags for formatting text such as `strong` and `em` tags. Not intended for multi-paragraph text or other more complex content. May not contain interactive content such as links or buttons. The `placement` and `offset` are automatically set and can't be overwritten.
   </C.Property>
-  <C.Property @name="onClick" @type="function">
+  <C.Property @name="onClickSort" @type="function">
     Callback function invoked when the sort button is clicked. By default, the sort is set by the column’s key.
   </C.Property>
   <C.Property @name="yield">
