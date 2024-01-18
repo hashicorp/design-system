@@ -1,4 +1,6 @@
 {
+  "buildCommand": "yarn workspace showcase build",
+  "devCommand": "yarn workspace showcase ember serve",
   "headers": [
     {
       "source": "/(.*)",
