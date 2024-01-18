@@ -161,4 +161,8 @@
     .token.entity.named-entity { color: var(--hds-code-block-color-lang-markup-entity-named); }
     .token.entity:not(.named-entity) { color: var(--hds-code-block-color-lang-markup-entity-not-named); }
   }
+
+  .language-shell-session {
+    .token { color: var(--hds-code-block-color-foreground-primary)}
+  }
 }
