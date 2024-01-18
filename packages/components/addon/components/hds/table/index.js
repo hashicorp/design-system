@@ -202,6 +202,12 @@ export default class HdsTableIndexComponent extends Component {
           acc[row.selectionKey] = row.checkbox.checked;
           return acc;
         }, {}),
+        selectedRowsKeys: this.selectableRows.reduce((acc, row) => {
+          if (row.checkbox.checked) {
+            acc.push(row.selectionKey);
+          }
+          return acc;
+        }, []),
       });
     }
   }
@@ -220,6 +226,12 @@ export default class HdsTableIndexComponent extends Component {
           acc[row.selectionKey] = row.checkbox.checked;
           return acc;
         }, {}),
+        selectedRowsKeys: this.selectableRows.reduce((acc, row) => {
+          if (row.checkbox.checked) {
+            acc.push(row.selectionKey);
+          }
+          return acc;
+        }, []),
       });
     }
   }

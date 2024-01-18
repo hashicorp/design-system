@@ -194,16 +194,8 @@ export default class ComponentsTableController extends Controller {
 
   // Keep track of users selected in the selectable users table
   @action
-  onSelectableUsersChange(selectionArr) {
-    for (const user of selectionArr) {
-      if (this.selectedUsers.includes(user)) {
-        // Remove user from selectedUsers array
-        this.selectedUsers.splice(this.selectedUsers.indexOf(user), 1);
-      } else {
-        // Add user to selectedUsers array
-        this.selectedUsers.push(user);
-      }
-    }
+  onSelectableUsersChange({ selectedRowsKeys }) {
+    this.selectedUsers = [...selectedRowsKeys];
   }
 
   @action
