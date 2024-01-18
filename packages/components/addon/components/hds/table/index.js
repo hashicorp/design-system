@@ -7,7 +7,6 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
-import { guidFor } from '@ember/object/internals';
 
 export const DENSITIES = ['short', 'medium', 'tall'];
 const DEFAULT_DENSITY = 'medium';
@@ -17,10 +16,9 @@ const DEFAULT_VALIGN = 'top';
 export default class HdsTableIndexComponent extends Component {
   @tracked sortBy = this.args.sortBy;
   @tracked sortOrder = this.args.sortOrder || 'asc';
-  allSelectionKeys = [];
-  selectedSelectionKeys = [];
-
-  tableId = 'hds-table-' + guidFor(this);
+  @tracked selectAllCheckbox = undefined;
+  selectableRows = [];
+  @tracked isSelectAllCheckboxSelected = undefined;
 
   /**
    * @param getSortCriteria
@@ -186,104 +184,95 @@ export default class HdsTableIndexComponent extends Component {
   }
 
   @action
-  onSelectionAllChange(headerCheckbox) {
-    const checkboxes = this.allTbodyCheckboxes();
-    this.setHeaderCheckboxAriaLabel(headerCheckbox);
-    checkboxes.forEach((checkbox) => {
-      checkbox.checked = headerCheckbox.checked;
-      this.setRowCheckboxAriaLabel(checkbox);
+  onSelectionAllChange() {
+    // this.setSelectAllCheckboxAriaLabel(this.selectAllCheckbox);
+    this.selectableRows.forEach((row) => {
+      row.checkbox.checked = this.selectAllCheckbox.checked;
+      // this.setSelectRowCheckboxAriaLabel(row.checkbox);
     });
-
-    if (headerCheckbox.checked) {
-      this.selectedSelectionKeys = [...this.allSelectionKeys];
-    } else {
-      this.selectedSelectionKeys = [];
-    }
+    this.isSelectAllCheckboxSelected = this.selectAllCheckbox.checked;
 
     let { onSelectionChange } = this.args;
     if (typeof onSelectionChange === 'function') {
-      onSelectionChange([...this.selectedSelectionKeys]);
+      onSelectionChange({
+        selectionKey: 'all',
+        selectionCheckboxElement: this.selectAllCheckbox,
+        selectableRows: this.selectableRows,
+        selectableRowsStates: this.selectableRows.reduce((acc, row) => {
+          acc[row.selectionKey] = row.checkbox.checked;
+          return acc;
+        }, {}),
+        selectedRowsKeys: this.selectableRows.reduce((acc, row) => {
+          if (row.checkbox.checked) {
+            acc.push(row.selectionKey);
+          }
+          return acc;
+        }, []),
+      });
     }
   }
 
   @action
   onSelectionRowChange(checkbox, selectionKey) {
-    if (checkbox.checked) {
-      this.selectedSelectionKeys.push(selectionKey);
-    } else {
-      this.selectedSelectionKeys = this.selectedSelectionKeys.filter(
-        (key) => key !== selectionKey
-      );
-    }
-    this.setRowCheckboxAriaLabel(checkbox);
+    // this.setSelectRowCheckboxAriaLabel(checkbox);
     this.setSelectAllState();
     let { onSelectionChange } = this.args;
     if (typeof onSelectionChange === 'function') {
-      onSelectionChange([...this.selectedSelectionKeys]);
+      onSelectionChange({
+        selectionKey: selectionKey,
+        selectionCheckboxElement: checkbox,
+        selectableRows: this.selectableRows,
+        selectableRowsStates: this.selectableRows.reduce((acc, row) => {
+          acc[row.selectionKey] = row.checkbox.checked;
+          return acc;
+        }, {}),
+        selectedRowsKeys: this.selectableRows.reduce((acc, row) => {
+          if (row.checkbox.checked) {
+            acc.push(row.selectionKey);
+          }
+          return acc;
+        }, []),
+      });
     }
   }
 
   @action
+  didInsertSelectAllCheckbox(checkbox) {
+    this.selectAllCheckbox = checkbox;
+  }
+
+  @action
+  willDestroySelectAllCheckbox() {
+    this.selectAllCheckbox = undefined;
+  }
+
+  @action
   didInsertRowCheckbox(checkbox, selectionKey) {
-    this.allSelectionKeys.push(selectionKey);
-    if (checkbox.checked) {
-      this.selectedSelectionKeys.push(selectionKey);
-    }
-    this.setRowCheckboxAriaLabel(checkbox);
+    this.selectableRows.push({ selectionKey, checkbox });
+    // this.setSelectRowCheckboxAriaLabel(checkbox);
     this.setSelectAllState();
   }
 
   @action
   willDestroyRowCheckbox(selectionKey) {
-    this.allSelectionKeys = this.allSelectionKeys.filter(
-      (key) => key !== selectionKey
-    );
-    this.selectedSelectionKeys = this.selectedSelectionKeys.filter(
-      (key) => key !== selectionKey
+    this.selectableRows = this.selectableRows.filter(
+      (row) => row.selectionKey !== selectionKey
     );
     this.setSelectAllState();
   }
 
-  allTbodyCheckboxes() {
-    const tableBodyCheckboxes = document.querySelectorAll(
-      `#${this.tableId} tbody .hds-table__checkbox`
-    );
-    return Array.from(tableBodyCheckboxes);
-  }
-
-  setRowCheckboxAriaLabel(checkbox) {
-    if (checkbox.checked === true) {
-      checkbox.ariaLabel = this.args.deselectRowAriaLabel
-        ? `${this.args.deselectRowAriaLabel} ${checkbox.id}`
-        : `Deselect ${checkbox.id}`;
-    } else {
-      checkbox.ariaLabel = this.args.selectRowAriaLabel
-        ? `${this.args.selectRowAriaLabel} ${checkbox.id}`
-        : `Select ${checkbox.id}`;
-    }
-  }
-
-  setHeaderCheckboxAriaLabel(checkbox) {
-    checkbox.ariaLabel = checkbox.checked
-      ? this.args.deselectAllAriaLabel ?? 'Deselect all'
-      : this.args.selectAllAriaLabel ?? 'Select all';
-  }
-
+  @action
   setSelectAllState() {
-    const tableHeaderCheckbox = document.querySelector(
-      `#${this.tableId} thead .hds-table__checkbox`
-    );
-
-    if (tableHeaderCheckbox) {
-      let rowCount = this.allTbodyCheckboxes().length;
-      let selectedRowCount = this.allTbodyCheckboxes().filter(
-        (checkbox) => checkbox.checked
+    if (this.selectAllCheckbox) {
+      let selectableRowsCount = this.selectableRows.length;
+      let selectedRowCount = this.selectableRows.filter(
+        (row) => row.checkbox.checked
       ).length;
 
-      tableHeaderCheckbox.checked = selectedRowCount === rowCount;
-      tableHeaderCheckbox.indeterminate =
-        selectedRowCount > 0 && selectedRowCount < rowCount;
-      this.setHeaderCheckboxAriaLabel(tableHeaderCheckbox);
+      this.selectAllCheckbox.checked = selectedRowCount === selectableRowsCount;
+      this.selectAllCheckbox.indeterminate =
+        selectedRowCount > 0 && selectedRowCount < selectableRowsCount;
+      this.isSelectAllCheckboxSelected = this.selectAllCheckbox.checked;
     }
   }
 }

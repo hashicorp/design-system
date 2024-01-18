@@ -6,13 +6,26 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
+import { tracked } from '@glimmer/tracking';
 
 export default class HdsTableThSelectableComponent extends Component {
+  @tracked isSelected = this.args.isSelected;
+
   /**
    * Generate a unique ID for the Checkbox
    * @return {string}
    */
   checkboxId = 'checkbox-' + guidFor(this);
+
+  get ariaLabel() {
+    let { selectionAriaLabelSuffix } = this.args;
+    const prefix = this.isSelected ? 'Deselect' : 'Select';
+    if (selectionAriaLabelSuffix) {
+      return `${prefix} ${selectionAriaLabelSuffix}`;
+    } else {
+      return prefix;
+    }
+  }
 
   @action
   didInsert(checkbox) {
@@ -32,10 +45,11 @@ export default class HdsTableThSelectableComponent extends Component {
   }
 
   @action
-  onChange(event) {
-    let { onChange } = this.args;
-    if (typeof onChange === 'function') {
-      onChange(event.target, this.args.selectionKey);
+  onSelectionChange(event) {
+    this.isSelected = event.target.checked;
+    let { onSelectionChange } = this.args;
+    if (typeof onSelectionChange === 'function') {
+      onSelectionChange(event.target, this.args.selectionKey);
     }
   }
 }
