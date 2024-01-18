@@ -50,7 +50,7 @@
 
   // Syntax highlighting tokens:
   // general ----
-  --hds-code-block-color-token: var(--hds-code-block-color-green);
+  --hds-code-block-color-token: var(--hds-code-block-color-foreground-primary);
   // specific ----
   --hds-code-block-color-atrule: var(--hds-code-block-color-blue);
   --hds-code-block-color-code-block-attr-name: var(--hds-code-block-color-blue);
@@ -160,9 +160,5 @@
     .token.attr-value { color: var(--hds-code-block-color-lang-markup-attr-value); }
     .token.entity.named-entity { color: var(--hds-code-block-color-lang-markup-entity-named); }
     .token.entity:not(.named-entity) { color: var(--hds-code-block-color-lang-markup-entity-not-named); }
-  }
-
-  .language-shell-session {
-    .token { color: var(--hds-code-block-color-foreground-primary)}
   }
 }
