@@ -178,6 +178,11 @@ export default class ComponentsTableController extends Controller {
     return clonedModelClusters;
   };
 
+  @action
+  mockIndeterminateState(checkbox) {
+    checkbox.indeterminate = true;
+  }
+
   // TODO refactor/rename/reorganize the code later
 
   @action
