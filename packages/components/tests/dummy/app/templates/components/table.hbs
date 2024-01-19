@@ -25,7 +25,10 @@
     @columns={{array (hash key="name" label="Name") (hash key="email" label="Email") (hash key="role" label="Role")}}
   >
     <:body as |B|>
-      <B.Tr @selectionKey={{B.data.id}}>
+      <B.Tr
+        @selectionKey={{B.data.id}}
+        @selectionAriaLabelSuffix="row #{{B.data.id}}"
+      >
         <B.Td>
           <span class={{if (this.isAnimated B.data.id) "shw-animate-user"}}>{{B.data.name}}</span></B.Td>
         <B.Td>{{B.data.email}}</B.Td>
@@ -49,7 +52,10 @@
     @columns={{array (hash key="name" label="Name") (hash key="email" label="Email") (hash key="role" label="Role")}}
   >
     <:body as |B|>
-      <B.Tr @selectionKey={{B.data.id}}>
+      <B.Tr
+        @selectionKey={{B.data.id}}
+        @selectionAriaLabelSuffix="row #{{B.data.id}}"
+      >
         <B.Td>{{B.data.name}}</B.Td>
         <B.Td>{{B.data.email}}</B.Td>
         <B.Td>{{B.data.role}}</B.Td>
