@@ -1,5 +1,15 @@
 # @hashicorp/design-system-components
 
+## 3.4.2
+
+### Patch Changes
+
+`SegmentedGroup` - Fixed issue with border-radius of single child element being overridden
+
+<small class="doc-whats-new-changelog-metadata">[#1892](https://github.com/hashicorp/design-system/pull/1892)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.4.1
 
 ### Patch Changes
