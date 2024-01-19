@@ -93,6 +93,8 @@
     "ember-cli-string-helpers": "^6.1.0",
     "ember-cli-terser": "^4.0.2",
     "ember-concurrency": "^3.1.1",
+    "ember-copy": "^2.0.1",
+    "ember-deep-tracked": "^2.0.0",
     "ember-load-initializers": "^2.1.2",
     "ember-page-title": "^8.0.0",
     "ember-power-select": "^7.1.2",

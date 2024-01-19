@@ -6,6 +6,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { deepTracked } from 'ember-deep-tracked';
 import { later } from '@ember/runloop';
 
 // we use an array to declare the custom sorting order for the clusters' status
@@ -17,17 +18,35 @@ const customSortingCriteriaArray = [
 ];
 
 export default class ComponentsTableController extends Controller {
+  // custom sorting
   @tracked customSortOrder_demo2 = 'asc';
   @tracked customSortBy_demo3 = undefined;
   @tracked customSortOrder_demo3 = 'asc';
-  @tracked customFilterRows = 'all';
-  @tracked currentPaginatedSelectablePage = 1;
-  @tracked currentPaginatedSelectablePageSize = 2;
-  @tracked selectableUserData = [...this.model.selectableUserData];
-  @tracked animatedUserData = [...this.model.selectableUserData];
+  // multi-select
+  @tracked multiSelectFilterRows__demo1 = 'all';
+  @tracked multiSelectToggleScope__demo1 = false;
+  @deepTracked multiSelectModelData__demo1 = [
+    ...this.model.selectableDataDemo1,
+  ];
+  @deepTracked multiSelectNoModelState__demo1 = {
+    row1: false,
+    row2: true,
+    row3: false,
+    row4: false,
+  };
+  @deepTracked multiSelectModelData__demo2 = [
+    ...this.model.selectableDataDemo2,
+  ];
+  @tracked multiSelectToggleScope__demo2 = false;
+  @tracked multiSelectPaginatedCurrentPage_demo2 = 1;
+  @tracked multiSelectPaginatedCurrentPageSize_demo2 = 2;
+  @tracked multiSelectToggleScope__demo3 = false;
+  @deepTracked multiSelectModelData__demo3 = [...this.model.userDataDemo3];
+  @tracked multiSelectUsersCurrentPage_demo3 = 1;
+  @tracked multiSelectUsersCurrentPageSize_demo3 = 4;
+  @deepTracked multiSelectUserData__demo4 = [...this.model.userDataDemo4];
 
-  selectedUserIds = [];
-  animatedUserIds = [];
+  debugger;
 
   // CUSTOM SORTING DEMO #1
   // Sortable table with custom sorting done via extra key added to the data model
@@ -84,26 +103,6 @@ export default class ComponentsTableController extends Controller {
     // update the sorting icons for the table
     if (setSortBy) {
       setSortBy(column);
-    }
-  }
-
-  @action
-  onSelectionChange(selection) {
-    console.log(selection);
-  }
-
-  @action
-  onPaginationSelectionChange(selection) {
-    const start =
-      (this.currentPaginatedSelectablePage - 1) *
-      this.currentPaginatedSelectablePageSize;
-    const end =
-      this.currentPaginatedSelectablePage *
-      this.currentPaginatedSelectablePageSize;
-    for (let i = start; i < end; i++) {
-      this.model.selectableData[i].isSelected = selection.includes(
-        this.model.selectableData[i].id
-      );
     }
   }
 
@@ -178,98 +177,262 @@ export default class ComponentsTableController extends Controller {
     return clonedModelClusters;
   };
 
+  // GENERIC MULTI-SELECT FUNCTIONALITIES
+
+  @action
+  genericMultiSelectionChangeLogging(selection) {
+    console.log(selection);
+  }
+
+  // @action
+  // onPaginationSelectionChange(selection) {
+  //   const start =
+  //     (this.multiSelectPaginatedCurrentPage_demo2 - 1) *
+  //     this.multiSelectPaginatedCurrentPageSize_demo2;
+  //   const end =
+  //     this.multiSelectPaginatedCurrentPage_demo2 *
+  //     this.multiSelectPaginatedCurrentPageSize_demo2;
+  //   for (let i = start; i < end; i++) {
+  //     this.model.selectableData[i].isSelected = selection.includes(
+  //       this.model.selectableData[i].id
+  //     );
+  //   }
+  // }
+
   @action
   mockIndeterminateState(checkbox) {
     checkbox.indeterminate = true;
   }
 
-  // TODO refactor/rename/reorganize the code later
+  // MULTI-SELECT DEMO #1
+  // Multi-select table with external filter for odd/even rows
 
-  @action
-  onFilterChange(event) {
-    this.customFilterRows = event.target.value;
-  }
-
-  get filteredSelectableData() {
-    if (this.customFilterRows === 'all') {
-      return this.model.selectableData;
+  get multiSelectFilteredData__demo1() {
+    if (this.multiSelectFilterRows__demo1 === 'all') {
+      return this.multiSelectModelData__demo1;
     } else {
-      const reminder = this.customFilterRows === 'even' ? 0 : 1;
-      return this.model.selectableData.filter(
-        (item) => item.id % 2 === reminder
+      const remainder = this.multiSelectFilterRows__demo1 === 'even' ? 0 : 1;
+      return this.multiSelectModelData__demo1.filter(
+        (item) => item.id % 2 === remainder
       );
     }
   }
 
-  get paginatedSelectableDataTotalItems() {
-    return this.model.selectableData.length;
-  }
-
-  get paginatedSelectableData() {
-    const start =
-      (this.currentPaginatedSelectablePage - 1) *
-      this.currentPaginatedSelectablePageSize;
-    const end =
-      this.currentPaginatedSelectablePage *
-      this.currentPaginatedSelectablePageSize;
-    return this.model.selectableData.slice(start, end);
-  }
-
-  // Keep track of users selected in the selectable users table
   @action
-  onSelectableUsersChange({ selectedRowsKeys }) {
-    this.selectedUserIds = [...selectedRowsKeys];
+  toggleMultiSelectToggleScope__demo1(event) {
+    this.multiSelectToggleScope__demo1 = event.target.checked;
   }
 
   @action
-  deleteSelectedUsers() {
-    this.selectableUserData = this.selectableUserData.filter(
-      (user) => !this.selectedUserIds.includes(user.id)
-    );
-    // Reset selectedUsers array:
-    this.selectedUserIds = [];
+  onChangeMultiSelectFilter__demo1(event) {
+    this.multiSelectFilterRows__demo1 = event.target.value;
   }
 
   @action
-  onAnimatedUsersChange({ selectedRowsKeys }) {
-    this.animatedUserIds = [...selectedRowsKeys];
-  }
-
-  @action
-  isAnimated(userId) {
-    return this.animatedUserData.find((user) => user.id === userId).animate;
-  }
-
-  @action
-  animateSelectedUsers() {
-    let clonedAnimatedUserData = [...this.animatedUserData];
-    // Add class "shw-animate-user" to each user in animatedUsers array
-    for (const userId of this.animatedUserIds) {
-      clonedAnimatedUserData.find((user) => user.id === userId).animate = true;
+  onSelectionChangeWithModel__demo1({
+    selectionKey,
+    selectionCheckboxElement,
+    selectableRowsStates,
+  }) {
+    console.log(arguments);
+    if (selectionKey === 'all' && this.multiSelectToggleScope__demo1) {
+      const selectAllState = selectionCheckboxElement.checked;
+      this.multiSelectModelData__demo1.forEach((modelRow) => {
+        modelRow.isSelected = selectAllState;
+      });
+    } else {
+      Object.keys(selectableRowsStates).forEach((rowKey) => {
+        const recordToUpdate = this.multiSelectModelData__demo1.find(
+          (modelRow) => modelRow.id === rowKey
+        );
+        const recordUpdatedState = selectableRowsStates[rowKey];
+        if (recordToUpdate) {
+          recordToUpdate.isSelected = recordUpdatedState;
+        }
+      });
     }
-    this.animatedUserData = clonedAnimatedUserData;
+  }
+
+  @action
+  onSelectionChangeWithoutModel__demo1({
+    selectionKey,
+    selectionCheckboxElement,
+    selectableRowsStates,
+  }) {
+    console.log(arguments);
+    if (selectionKey === 'all' && this.multiSelectToggleScope__demo1) {
+      const selectAllState = selectionCheckboxElement.checked;
+      Object.keys(this.multiSelectNoModelState__demo1).forEach((rowKey) => {
+        this.multiSelectNoModelState__demo1[rowKey] = selectAllState;
+      });
+    } else {
+      Object.keys(selectableRowsStates).forEach((rowKey) => {
+        const recordUpdatedState = selectableRowsStates[rowKey];
+        this.multiSelectNoModelState__demo1[`row${rowKey}`] =
+          recordUpdatedState;
+      });
+    }
+  }
+
+  // MULTI-SELECT DEMO #2
+  // Multi-select table with pagination
+
+  @action
+  toggleMultiSelectPaginatedToggleScope__demo2(event) {
+    this.multiSelectToggleScope__demo2 = event.target.checked;
+  }
+
+  get multiSelectPaginatedTotalItems_demo2() {
+    return this.multiSelectModelData__demo2.length;
+  }
+
+  get multiSelectPaginatedData_demo2() {
+    const start =
+      (this.multiSelectPaginatedCurrentPage_demo2 - 1) *
+      this.multiSelectPaginatedCurrentPageSize_demo2;
+    const end =
+      this.multiSelectPaginatedCurrentPage_demo2 *
+      this.multiSelectPaginatedCurrentPageSize_demo2;
+    return this.multiSelectModelData__demo2.slice(start, end);
+  }
+
+  @action
+  onMultiSelectPaginatedPageChange_demo2(page) {
+    this.multiSelectPaginatedCurrentPage_demo2 = page;
+  }
+
+  @action
+  onMultiSelectPaginatedPageSizeChange_demo2(pageSize) {
+    // we agreed to reset the pagination to the first element (any alternative would result in an unpredictable UX)
+    this.multiSelectPaginatedCurrentPage_demo2 = 1;
+    this.multiSelectPaginatedCurrentPageSize_demo2 = pageSize;
+  }
+
+  @action
+  onMultiSelectPaginatedSelectionChange__demo2({
+    selectionKey,
+    selectionCheckboxElement,
+    selectableRowsStates,
+    selectedRowsKeys,
+  }) {
+    console.log(
+      selectionKey,
+      selectionCheckboxElement,
+      selectableRowsStates,
+      selectedRowsKeys
+    );
+    if (selectionKey === 'all' && this.multiSelectToggleScope__demo2) {
+      const selectAllState = selectionCheckboxElement.checked;
+      this.multiSelectModelData__demo2.forEach((modelRow) => {
+        modelRow.isSelected = selectAllState;
+      });
+    } else {
+      Object.keys(selectableRowsStates).forEach((rowKey) => {
+        const recordToUpdate = this.multiSelectModelData__demo2.find(
+          (modelRow) => modelRow.id.toString() === rowKey.toString()
+        );
+        const recordUpdatedState = selectableRowsStates[rowKey];
+        if (recordToUpdate) {
+          recordToUpdate.isSelected = recordUpdatedState;
+        }
+      });
+    }
+  }
+
+  // MULTI-SELECT DEMO #3
+  // Delete selected rows
+
+  @action
+  toggleMultiSelectPaginatedToggleScope__demo3(event) {
+    this.multiSelectToggleScope__demo3 = event.target.checked;
+  }
+
+  get multiSelectUsersTotalItems_demo3() {
+    return this.multiSelectModelData__demo3.length;
+  }
+
+  get multiSelectUsersData_demo3() {
+    const start =
+      (this.multiSelectUsersCurrentPage_demo3 - 1) *
+      this.multiSelectUsersCurrentPageSize_demo3;
+    const end =
+      this.multiSelectUsersCurrentPage_demo3 *
+      this.multiSelectUsersCurrentPageSize_demo3;
+    return this.multiSelectModelData__demo3.slice(start, end);
+  }
+
+  @action
+  onMultiSelectUsersPageChange_demo3(page) {
+    this.multiSelectUsersCurrentPage_demo3 = page;
+  }
+
+  @action
+  onMultiSelectUsersPageSizeChange_demo3(pageSize) {
+    // we agreed to reset the pagination to the first element (any alternative would result in an unpredictable UX)
+    this.multiSelectUsersCurrentPage_demo3 = 1;
+    this.multiSelectUsersCurrentPageSize_demo3 = pageSize;
+  }
+
+  @action
+  onMultiSelectUsersSelectionChange__demo3({
+    selectionKey,
+    selectionCheckboxElement,
+    selectableRowsStates,
+  }) {
+    console.log(arguments);
+    if (selectionKey === 'all' && this.multiSelectToggleScope__demo3) {
+      const selectAllState = selectionCheckboxElement.checked;
+      this.multiSelectModelData__demo3.forEach((modelRow) => {
+        modelRow.isSelected = selectAllState;
+      });
+    } else {
+      Object.keys(selectableRowsStates).forEach((rowKey) => {
+        const recordToUpdate = this.multiSelectModelData__demo3.find(
+          (modelRow) => {
+            return modelRow.id.toString() === rowKey.toString();
+          }
+        );
+        const recordUpdatedState = selectableRowsStates[rowKey];
+        if (recordToUpdate) {
+          recordToUpdate.isSelected = recordUpdatedState;
+        }
+      });
+    }
+  }
+
+  @action
+  multiSelectDeleteSelectedUsers_demo3() {
+    const newData = this.multiSelectModelData__demo3.filter(
+      (user) => !user.isSelected
+    );
+    this.multiSelectModelData__demo3 = [...newData];
+  }
+
+  // MULTI-SELECT DEMO #4
+  // Execute action on selected rows
+
+  @action
+  onMultiSelectSelectionChange__demo4({ selectedRowsKeys }) {
+    console.log(arguments);
+    this.multiSelectUserData__demo4.forEach((user) => {
+      user.isSelected = selectedRowsKeys.includes(user.id);
+    });
+  }
+
+  @action
+  multiSelectAnimateSelectedUsers_demo4() {
+    this.multiSelectUserData__demo4.forEach((user) => {
+      user.isAnimated = user.isSelected;
+    });
     later(() => {
-      this.resetUserAnimation();
+      this.multiSelectResetUserAnimation_demo4();
     }, 5000);
   }
 
-  resetUserAnimation() {
-    let clonedAnimatedUserData = [...this.animatedUserData];
-    for (let i = 0; i < clonedAnimatedUserData.length; i++) {
-      clonedAnimatedUserData[i].animate = false;
-    }
-    this.animatedUserData = clonedAnimatedUserData;
-  }
-
   @action
-  onPaginatedSelectablePageChange(page) {
-    this.currentPaginatedSelectablePage = page;
-  }
-
-  @action
-  onPaginatedSelectablePageSizeChange(pageSize) {
-    // we agreed to reset the pagination to the first element (any alternative would result in an unpredictable UX)
-    this.currentPaginatedSelectablePage = 1;
-    this.currentPaginatedSelectablePageSize = pageSize;
+  multiSelectResetUserAnimation_demo4() {
+    this.multiSelectUserData__demo4.forEach((user) => {
+      user.isAnimated = false;
+    });
   }
 }
