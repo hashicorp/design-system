@@ -8,388 +8,6 @@
 <Shw::Text::H1>Table</Shw::Text::H1>
 
 <section data-test-percy>
-  <Shw::Text::H2>Multi-select</Shw::Text::H2>
-
-  <Shw::Text::H3>Functional examples (TODO: Move)</Shw::Text::H3>
-
-  <Shw::Text::H4>Animate selected users</Shw::Text::H4>
-
-  <p>
-    <Hds::Button @text="Animate users" @icon="trash" {{on "click" this.animateSelectedUsers}} />
-  </p>
-
-  <Hds::Table
-    @isSelectable={{true}}
-    @onSelectionChange={{this.onAnimatedUsersChange}}
-    @model={{this.animatedUserData}}
-    @columns={{array (hash key="name" label="Name") (hash key="email" label="Email") (hash key="role" label="Role")}}
-  >
-    <:body as |B|>
-      <B.Tr @selectionKey={{B.data.id}} @selectionAriaLabelSuffix="row #{{B.data.id}}">
-        <B.Td>
-          <span class={{if (this.isAnimated B.data.id) "shw-animate-user"}}>{{B.data.name}}</span></B.Td>
-        <B.Td>{{B.data.email}}</B.Td>
-        <B.Td>{{B.data.role}}</B.Td>
-      </B.Tr>
-    </:body>
-  </Hds::Table>
-
-  <Shw::Divider @level={{2}} />
-
-  <Shw::Text::H4>Delete users from table</Shw::Text::H4>
-
-  <p>
-    <Hds::Button @text="Delete users" @icon="trash" {{on "click" this.deleteSelectedUsers}} />
-  </p>
-
-  <Hds::Table
-    @isSelectable={{true}}
-    @onSelectionChange={{this.onSelectableUsersChange}}
-    @model={{this.selectableUserData}}
-    @columns={{array (hash key="name" label="Name") (hash key="email" label="Email") (hash key="role" label="Role")}}
-  >
-    <:body as |B|>
-      <B.Tr @selectionKey={{B.data.id}} @selectionAriaLabelSuffix="row #{{B.data.id}}">
-        <B.Td>{{B.data.name}}</B.Td>
-        <B.Td>{{B.data.email}}</B.Td>
-        <B.Td>{{B.data.role}}</B.Td>
-      </B.Tr>
-    </:body>
-  </Hds::Table>
-
-  <Shw::Divider />
-
-  <Shw::Text::H3>Basic examples</Shw::Text::H3>
-  <Shw::Text::H4>with model</Shw::Text::H4>
-
-  <Hds::Table
-    @isSelectable={{true}}
-    @onSelectionChange={{this.onSelectionChange}}
-    @model={{this.model.selectableData}}
-    @columns={{array
-      (hash key="lorem" label="Row #")
-      (hash key="ipsum" label="Ipsum")
-      (hash key="dolor" label="Dolor")
-    }}
-  >
-    <:body as |B|>
-      <B.Tr
-        @isSelected={{B.data.isSelected}}
-        @selectionKey={{B.data.id}}
-        @selectionAriaLabelSuffix="row #{{B.data.lorem}}"
-      >
-        <B.Td>{{B.data.lorem}}</B.Td>
-        <B.Td>{{B.data.ipsum}}</B.Td>
-        <B.Td>{{B.data.dolor}}</B.Td>
-      </B.Tr>
-    </:body>
-  </Hds::Table>
-
-  <Shw::Text::H4>with no model</Shw::Text::H4>
-
-  <Hds::Table @isSelectable={{true}} @onSelectionChange={{this.onSelectionChange}}>
-    <:head as |H|>
-      <H.Tr>
-        <H.Th>Row #</H.Th>
-        <H.Th>Ipsum</H.Th>
-        <H.Th>Dolor</H.Th>
-      </H.Tr>
-    </:head>
-    <:body as |B|>
-      <B.Tr @selectionKey="row1" @selectionAriaLabelSuffix="row #1">
-        <B.Th>1</B.Th>
-        <B.Td>Cell Content</B.Td>
-        <B.Td>Cell Content</B.Td>
-      </B.Tr>
-      <B.Tr @isSelected={{true}} @selectionKey="row2" @selectionAriaLabelSuffix="row #2">
-        <B.Th>2</B.Th>
-        <B.Td>Cell Content</B.Td>
-        <B.Td>Cell Content</B.Td>
-      </B.Tr>
-      <B.Tr @selectionKey="row3" @selectionAriaLabelSuffix="row #3">
-        <B.Th>3</B.Th>
-        <B.Td>Cell Content</B.Td>
-        <B.Td>Cell Content</B.Td>
-      </B.Tr>
-      <B.Tr @selectionKey="row4" @selectionAriaLabelSuffix="row #4">
-        <B.Th>4</B.Th>
-        <B.Td>Cell Content</B.Td>
-        <B.Td>Cell Content</B.Td>
-      </B.Tr>
-    </:body>
-  </Hds::Table>
-
-  <Shw::Divider @level={{2}} />
-
-  <Shw::Text::H3>Functional examples</Shw::Text::H3>
-
-  <Shw::Text::H4>With inline filter</Shw::Text::H4>
-
-  <Shw::Text::Body @tag="div">
-    <label for="filter-1">Filter:</label>
-    <select id="filter-1" {{on "change" this.onFilterChange}}>
-      <option value="all" selected={{eq this.customFilterRows "all"}}>Show all rows</option>
-      <option value="even" selected={{eq this.customFilterRows "even"}}>Show even rows</option>
-      <option value="odd" selected={{eq this.customFilterRows "odd"}}>Show odd rows</option>
-    </select>
-  </Shw::Text::Body>
-
-  <pre>this.customFilterRows = {{this.customFilterRows}}</pre>
-
-  <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
-    <SF.Item @label="No model">
-      <Hds::Table @isSelectable={{true}} @onSelectionChange={{this.onSelectionChange}}>
-        <:head as |H|>
-          <H.Tr>
-            <H.Th>Row #</H.Th>
-            <H.Th>Ipsum</H.Th>
-            <H.Th>Dolor</H.Th>
-          </H.Tr>
-        </:head>
-        <:body as |B|>
-          {{#if (not (eq this.customFilterRows "even"))}}
-            <B.Tr @selectionKey="row1">
-              <B.Th>1</B.Th>
-              <B.Td>Cell Content</B.Td>
-              <B.Td>Cell Content</B.Td>
-            </B.Tr>
-          {{/if}}
-          {{#if (not (eq this.customFilterRows "odd"))}}
-            <B.Tr @selectionKey="row2" @isSelected={{true}}>
-              <B.Th>2</B.Th>
-              <B.Td>Cell Content</B.Td>
-              <B.Td>Cell Content</B.Td>
-            </B.Tr>
-          {{/if}}
-          {{#if (not (eq this.customFilterRows "even"))}}
-            <B.Tr @selectionKey="row3">
-              <B.Th>3</B.Th>
-              <B.Td>Cell Content</B.Td>
-              <B.Td>Cell Content</B.Td>
-            </B.Tr>
-          {{/if}}
-          {{#if (not (eq this.customFilterRows "odd"))}}
-            <B.Tr @selectionKey="row4">
-              <B.Th>4</B.Th>
-              <B.Td>Cell Content</B.Td>
-              <B.Td>Cell Content</B.Td>
-            </B.Tr>
-          {{/if}}
-        </:body>
-      </Hds::Table>
-    </SF.Item>
-
-    <SF.Item @label="With data model">
-      <Hds::Table
-        @isSelectable={{true}}
-        @onSelectionChange={{this.onSelectionChange}}
-        @model={{this.filteredSelectableData}}
-        @columns={{array
-          (hash key="lorem" label="Row #")
-          (hash key="ipsum" label="Ipsum")
-          (hash key="dolor" label="Dolor")
-        }}
-      >
-        <:body as |B|>
-          <B.Tr @selectionKey={{B.data.id}} @isSelected={{B.data.isSelected}}>
-            <B.Td>{{B.data.lorem}}</B.Td>
-            <B.Td>{{B.data.ipsum}}</B.Td>
-            <B.Td>{{B.data.dolor}}</B.Td>
-          </B.Tr>
-        </:body>
-      </Hds::Table>
-    </SF.Item>
-  </Shw::Flex>
-
-  <Shw::Divider @level={{2}} />
-
-  <Shw::Text::H4>With pagination</Shw::Text::H4>
-
-  <div class="shw-component-table-selection-pagination-demo">
-    <Hds::Table
-      @isSelectable={{true}}
-      @onSelectionChange={{this.onSelectionChange}}
-      @model={{this.paginatedSelectableData}}
-      @columns={{array
-        (hash key="lorem" label="Row #")
-        (hash key="ipsum" label="Ipsum")
-        (hash key="dolor" label="Dolor")
-      }}
-    >
-      <:body as |B|>
-        <B.Tr @selectionKey={{B.data.id}} @isSelected={{B.data.isSelected}}>
-          <B.Td>{{B.data.lorem}}</B.Td>
-          <B.Td>{{B.data.ipsum}}</B.Td>
-          <B.Td>{{B.data.dolor}}</B.Td>
-        </B.Tr>
-      </:body>
-    </Hds::Table>
-
-    <Hds::Pagination::Numbered
-      @totalItems={{this.paginatedSelectableDataTotalItems}}
-      @currentPageSize={{this.currentPaginatedSelectablePageSize}}
-      @pageSizes={{array 2 4}}
-      @currentPage={{this.currentPaginatedSelectablePage}}
-      @onPageChange={{this.onPaginatedSelectablePageChange}}
-      @onPageSizeChange={{this.onPaginatedSelectablePageSizeChange}}
-    />
-  </div>
-
-  <Shw::Divider />
-
-  <Shw::Text::H3>with valign="middle"</Shw::Text::H3>
-
-  <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
-    <SF.Item>
-      <Hds::Table @valign="middle">
-        <:head as |H|>
-          <H.Tr>
-            <H.ThSelectable />
-            <H.Th>Lorem</H.Th>
-            <H.Th>Ipsum</H.Th>
-            <H.Th>Dolor</H.Th>
-          </H.Tr>
-        </:head>
-        <:body as |B|>
-          <B.Tr>
-            <B.TdSelectable />
-            <B.Td>
-              Longer cell content that wraps to a new line.<br />
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.<br />
-              Alias voluptates porro sit qui consequatur mollitia<br />
-              repudiandae soluta, sequi ratione quidem excepturi nostrum<br />
-              eius. Dolore aliquid aspernatur iusto? Illo, iure magnam.
-            </B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-        </:body>
-      </Hds::Table>
-    </SF.Item>
-  </Shw::Flex>
-
-  <Shw::Divider />
-
-  <Shw::Text::H2>Density</Shw::Text::H2>
-
-  <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
-    <SF.Item @label="Default">
-      <Hds::Table>
-        <:head as |H|>
-          <H.Tr>
-            <H.Th>Lorem</H.Th>
-            <H.Th>Ipsum</H.Th>
-            <H.Th>Dolor</H.Th>
-            <H.Th>Sit amet</H.Th>
-          </H.Tr>
-        </:head>
-        <:body as |B|>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-        </:body>
-      </Hds::Table>
-    </SF.Item>
-    <SF.Item @label="Short">
-      <Hds::Table @density="short">
-        <:head as |H|>
-          <H.Tr>
-            <H.Th>Lorem</H.Th>
-            <H.Th>Ipsum</H.Th>
-            <H.Th>Dolor</H.Th>
-            <H.Th>Sit amet</H.Th>
-          </H.Tr>
-        </:head>
-        <:body as |B|>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-        </:body>
-      </Hds::Table>
-    </SF.Item>
-    <SF.Item @label="Tall">
-      <Hds::Table @density="tall">
-        <:head as |H|>
-          <H.Tr>
-            <H.Th>Lorem</H.Th>
-            <H.Th>Ipsum</H.Th>
-            <H.Th>Dolor</H.Th>
-            <H.Th>Sit amet</H.Th>
-          </H.Tr>
-        </:head>
-        <:body as |B|>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-        </:body>
-      </Hds::Table>
-    </SF.Item>
-  </Shw::Flex>
-
-  <Shw::Divider />
 
   <Shw::Text::H2>Data model</Shw::Text::H2>
 
@@ -813,7 +431,166 @@
 
   <Shw::Divider />
 
-  <Shw::Text::H2>Customization</Shw::Text::H2>
+  <Shw::Text::H2>Multi-select</Shw::Text::H2>
+
+  <Shw::Text::H4 @tag="h3">Table with model</Shw::Text::H4>
+
+  <Hds::Table
+    @isSelectable={{true}}
+    @onSelectionChange={{this.onSelectionChange}}
+    @model={{this.model.selectableData}}
+    @columns={{array
+      (hash key="lorem" label="Row #")
+      (hash key="ipsum" label="Ipsum")
+      (hash key="dolor" label="Dolor")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr
+        @isSelected={{B.data.isSelected}}
+        @selectionKey={{B.data.id}}
+        @selectionAriaLabelSuffix="row #{{B.data.lorem}}"
+      >
+        <B.Td>{{B.data.lorem}}</B.Td>
+        <B.Td>{{B.data.ipsum}}</B.Td>
+        <B.Td>{{B.data.dolor}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
+  <Shw::Text::H4 @tag="h3">Table without model defined</Shw::Text::H4>
+
+  <Hds::Table @isSelectable={{true}} @onSelectionChange={{this.onSelectionChange}}>
+    <:head as |H|>
+      <H.Tr>
+        <H.Th>Row #</H.Th>
+        <H.Th>Ipsum</H.Th>
+        <H.Th>Dolor</H.Th>
+      </H.Tr>
+    </:head>
+    <:body as |B|>
+      <B.Tr @selectionKey="row1" @selectionAriaLabelSuffix="row #1">
+        <B.Th>1</B.Th>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+      </B.Tr>
+      <B.Tr @selectionKey="row2" @isSelected={{true}} @selectionAriaLabelSuffix="row #2">
+        <B.Th>2</B.Th>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+      </B.Tr>
+      <B.Tr @selectionKey="row3" @selectionAriaLabelSuffix="row #3">
+        <B.Th>3</B.Th>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+      </B.Tr>
+      <B.Tr @selectionKey="row4" @selectionAriaLabelSuffix="row #4">
+        <B.Th>4</B.Th>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Table customization</Shw::Text::H2>
+
+  <Shw::Text::H4 @tag="h3">Density</Shw::Text::H4>
+
+  <Shw::Flex @direction="column" {{style gap="2rem"}} as |SF|>
+    {{#let (array "default" "short" "tall") as |densities|}}
+      {{#each densities as |density|}}
+        <SF.Item @label={{capitalize density}}>
+          <Shw::Grid @columns={{2}} {{style gap="2rem"}} as |SG|>
+            {{#let (array false true) as |booleans|}}
+              {{#each booleans as |bool|}}
+                <SG.Item>
+                  <Hds::Table @isSelectable={{bool}} @density={{(if (not (eq density "default")) density)}}>
+                    <:head as |H|>
+                      <H.Tr>
+                        <H.Th>Lorem</H.Th>
+                        <H.Th>Ipsum</H.Th>
+                        <H.Th>Dolor</H.Th>
+                      </H.Tr>
+                    </:head>
+                    <:body as |B|>
+                      <B.Tr @selectionKey="row1">
+                        <B.Th>Scope Row</B.Th>
+                        <B.Td>Cell Content</B.Td>
+                        <B.Td>Cell Content</B.Td>
+                      </B.Tr>
+                      <B.Tr @selectionKey="row2" @isSelected={{true}}>
+                        <B.Th>Scope Row</B.Th>
+                        <B.Td>Cell Content</B.Td>
+                        <B.Td>Cell Content</B.Td>
+                      </B.Tr>
+                      <B.Tr @selectionKey="row3">
+                        <B.Th>Scope Row</B.Th>
+                        <B.Td>Cell Content</B.Td>
+                        <B.Td>Cell Content</B.Td>
+                      </B.Tr>
+                      <B.Tr @selectionKey="row4">
+                        <B.Th>Scope Row</B.Th>
+                        <B.Td>Cell Content</B.Td>
+                        <B.Td>Cell Content</B.Td>
+                      </B.Tr>
+                    </:body>
+                  </Hds::Table>
+                </SG.Item>
+              {{/each}}
+            {{/let}}
+          </Shw::Grid>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H4 @tag="h3">Striping</Shw::Text::H4>
+
+  <Shw::Grid @columns={{2}} {{style gap="2rem"}} as |SG|>
+    {{#let (array false true) as |booleans|}}
+      {{#each booleans as |bool|}}
+        <SG.Item>
+          <Hds::Table @isStriped={{true}} @isSelectable={{bool}}>
+            <:head as |H|>
+              <H.Tr>
+                <H.Th>Lorem</H.Th>
+                <H.Th>Ipsum</H.Th>
+                <H.Th>Dolor</H.Th>
+              </H.Tr>
+            </:head>
+            <:body as |B|>
+              <B.Tr @selectionKey="row1">
+                <B.Th>Scope Row</B.Th>
+                <B.Td>Cell Content</B.Td>
+                <B.Td>Cell Content</B.Td>
+              </B.Tr>
+              <B.Tr @selectionKey="row2" @isSelected={{true}}>
+                <B.Th>Scope Row</B.Th>
+                <B.Td>Cell Content</B.Td>
+                <B.Td>Cell Content</B.Td>
+              </B.Tr>
+              <B.Tr @selectionKey="row3">
+                <B.Th>Scope Row</B.Th>
+                <B.Td>Cell Content</B.Td>
+                <B.Td>Cell Content</B.Td>
+              </B.Tr>
+              <B.Tr @selectionKey="row4">
+                <B.Th>Scope Row</B.Th>
+                <B.Td>Cell Content</B.Td>
+                <B.Td>Cell Content</B.Td>
+              </B.Tr>
+            </:body>
+          </Hds::Table>
+        </SG.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H4 @tag="h3">Sortable table, last column not sortable, visually hidden and with custom width.</Shw::Text::H4>
 
@@ -920,51 +697,6 @@
       </B.Tr>
     </:body>
   </Hds::Table>
-
-  <Shw::Divider @level={{2}} />
-
-  <Shw::Text::H2>Striping</Shw::Text::H2>
-
-  <Shw::Flex @label="Static table with row striping" as |SF|>
-    <SF.Item @grow={{true}}>
-      <Hds::Table @isStriped={{true}} @caption="Static table with row striping">
-        <:head as |H|>
-          <H.Tr>
-            <H.Th>Lorem</H.Th>
-            <H.Th>Ipsum</H.Th>
-            <H.Th>Dolor</H.Th>
-            <H.Th>Sit amet</H.Th>
-          </H.Tr>
-        </:head>
-        <:body as |B|>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-        </:body>
-      </Hds::Table>
-    </SF.Item>
-  </Shw::Flex>
 
   <Shw::Divider />
 
@@ -1458,7 +1190,7 @@
           </H.Tr>
         </:head>
         <:body as |B|>
-          <B.Tr>
+          <B.Tr @selectionKey="row">
             <Hds::Table::ThSelectable
               @selectionScope="row"
               @isSelected={{false}}
@@ -1616,7 +1348,7 @@
           </H.Tr>
         </:head>
         <:body as |B|>
-          <B.Tr @selectionKey="row1">
+          <B.Tr @selectionKey="row">
             <B.Th>Top (default)<Shw::Placeholder @height="50" /></B.Th>
             <B.Td>Text is top aligned</B.Td>
             <B.Td><FlightIcon @name="film" /></B.Td>
@@ -1658,7 +1390,7 @@
           </H.Tr>
         </:head>
         <:body as |B|>
-          <B.Tr @selectionKey="row1">
+          <B.Tr @selectionKey="row">
             <B.Th><Shw::Placeholder @height="25" />Middle<Shw::Placeholder @height="25" /></B.Th>
             <B.Td>Text is middle aligned</B.Td>
             <B.Td><FlightIcon @name="film" /></B.Td>
@@ -1762,5 +1494,178 @@
       </SG.Item>
     {{/each}}
   </Shw::Grid>
+
+  <Shw::Divider />
+  <Shw::Divider />
+  <Shw::Divider />
+  <Shw::Divider />
+  <Shw::Divider />
+  <Shw::Divider />
+  <Shw::Divider />
+
+  <Shw::Text::H3>Multi-select Functional examples (TODO: Move)</Shw::Text::H3>
+
+  <Shw::Text::H4>Animate selected users</Shw::Text::H4>
+
+  <p>
+    <Hds::Button @text="Animate users" @icon="trash" {{on "click" this.animateSelectedUsers}} />
+  </p>
+
+  <Hds::Table
+    @isSelectable={{true}}
+    @onSelectionChange={{this.onAnimatedUsersChange}}
+    @model={{this.animatedUserData}}
+    @columns={{array (hash key="name" label="Name") (hash key="email" label="Email") (hash key="role" label="Role")}}
+  >
+    <:body as |B|>
+      <B.Tr @selectionKey={{B.data.id}} @selectionAriaLabelSuffix="row #{{B.data.id}}">
+        <B.Td>
+          <span class={{if (this.isAnimated B.data.id) "shw-animate-user"}}>{{B.data.name}}</span></B.Td>
+        <B.Td>{{B.data.email}}</B.Td>
+        <B.Td>{{B.data.role}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H4>Delete users from table</Shw::Text::H4>
+
+  <p>
+    <Hds::Button @text="Delete users" @icon="trash" {{on "click" this.deleteSelectedUsers}} />
+  </p>
+
+  <Hds::Table
+    @isSelectable={{true}}
+    @onSelectionChange={{this.onSelectableUsersChange}}
+    @model={{this.selectableUserData}}
+    @columns={{array (hash key="name" label="Name") (hash key="email" label="Email") (hash key="role" label="Role")}}
+  >
+    <:body as |B|>
+      <B.Tr @selectionKey={{B.data.id}} @selectionAriaLabelSuffix="row #{{B.data.id}}">
+        <B.Td>{{B.data.name}}</B.Td>
+        <B.Td>{{B.data.email}}</B.Td>
+        <B.Td>{{B.data.role}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
+  <Shw::Divider />
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Functional examples</Shw::Text::H3>
+
+  <Shw::Text::H4>With inline filter</Shw::Text::H4>
+
+  <Shw::Text::Body @tag="div">
+    <label for="filter-1">Filter:</label>
+    <select id="filter-1" {{on "change" this.onFilterChange}}>
+      <option value="all" selected={{eq this.customFilterRows "all"}}>Show all rows</option>
+      <option value="even" selected={{eq this.customFilterRows "even"}}>Show even rows</option>
+      <option value="odd" selected={{eq this.customFilterRows "odd"}}>Show odd rows</option>
+    </select>
+  </Shw::Text::Body>
+
+  <pre>this.customFilterRows = {{this.customFilterRows}}</pre>
+
+  <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
+    <SF.Item @label="No model">
+      <Hds::Table @isSelectable={{true}} @onSelectionChange={{this.onSelectionChange}}>
+        <:head as |H|>
+          <H.Tr>
+            <H.Th>Row #</H.Th>
+            <H.Th>Ipsum</H.Th>
+            <H.Th>Dolor</H.Th>
+          </H.Tr>
+        </:head>
+        <:body as |B|>
+          {{#if (not (eq this.customFilterRows "even"))}}
+            <B.Tr @selectionKey="row1">
+              <B.Th>1</B.Th>
+              <B.Td>Cell Content</B.Td>
+              <B.Td>Cell Content</B.Td>
+            </B.Tr>
+          {{/if}}
+          {{#if (not (eq this.customFilterRows "odd"))}}
+            <B.Tr @selectionKey="row2" @isSelected={{true}}>
+              <B.Th>2</B.Th>
+              <B.Td>Cell Content</B.Td>
+              <B.Td>Cell Content</B.Td>
+            </B.Tr>
+          {{/if}}
+          {{#if (not (eq this.customFilterRows "even"))}}
+            <B.Tr @selectionKey="row3">
+              <B.Th>3</B.Th>
+              <B.Td>Cell Content</B.Td>
+              <B.Td>Cell Content</B.Td>
+            </B.Tr>
+          {{/if}}
+          {{#if (not (eq this.customFilterRows "odd"))}}
+            <B.Tr @selectionKey="row4">
+              <B.Th>4</B.Th>
+              <B.Td>Cell Content</B.Td>
+              <B.Td>Cell Content</B.Td>
+            </B.Tr>
+          {{/if}}
+        </:body>
+      </Hds::Table>
+    </SF.Item>
+
+    <SF.Item @label="With data model">
+      <Hds::Table
+        @isSelectable={{true}}
+        @onSelectionChange={{this.onSelectionChange}}
+        @model={{this.filteredSelectableData}}
+        @columns={{array
+          (hash key="lorem" label="Row #")
+          (hash key="ipsum" label="Ipsum")
+          (hash key="dolor" label="Dolor")
+        }}
+      >
+        <:body as |B|>
+          <B.Tr @selectionKey={{B.data.id}} @isSelected={{B.data.isSelected}}>
+            <B.Td>{{B.data.lorem}}</B.Td>
+            <B.Td>{{B.data.ipsum}}</B.Td>
+            <B.Td>{{B.data.dolor}}</B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H4>With pagination</Shw::Text::H4>
+
+  <div class="shw-component-table-selection-pagination-demo">
+    <Hds::Table
+      @isSelectable={{true}}
+      @onSelectionChange={{this.onSelectionChange}}
+      @model={{this.paginatedSelectableData}}
+      @columns={{array
+        (hash key="lorem" label="Row #")
+        (hash key="ipsum" label="Ipsum")
+        (hash key="dolor" label="Dolor")
+      }}
+    >
+      <:body as |B|>
+        <B.Tr @selectionKey={{B.data.id}} @isSelected={{B.data.isSelected}}>
+          <B.Td>{{B.data.lorem}}</B.Td>
+          <B.Td>{{B.data.ipsum}}</B.Td>
+          <B.Td>{{B.data.dolor}}</B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::Table>
+
+    <Hds::Pagination::Numbered
+      @totalItems={{this.paginatedSelectableDataTotalItems}}
+      @currentPageSize={{this.currentPaginatedSelectablePageSize}}
+      @pageSizes={{array 2 4}}
+      @currentPage={{this.currentPaginatedSelectablePage}}
+      @onPageChange={{this.onPaginatedSelectablePageChange}}
+      @onPageSizeChange={{this.onPaginatedSelectablePageSizeChange}}
+    />
+  </div>
 
 </section>
