@@ -89,15 +89,6 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
       }
     }
 
-    // multi-select (isSelectable=true)
-
-    .hds-table--is-selectable & {
-      .hds-table__th--is-selectable {
-        width: 1px; // shrink-wrap content (will expand as needed)
-        padding-right: 8px;
-      }
-    }
-
     // border radius: target first and last th elements in the row
 
     &:first-of-type {
@@ -110,6 +101,12 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
       }
     }
   }
+}
+
+// multi-select (isSelectable=true)
+
+.hds-table__th--is-selectable {
+  width: 48px;
 }
 
 .hds-table__th-content {
@@ -265,15 +262,6 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
 
     .hds-table--valign-baseline & {
       vertical-align: baseline;
-    }
-  }
-
-  // multi-select (isSelectable=true)
-
-  .hds-table--is-selectable & {
-    .hds-table__th--is-selectable {
-      width: 1px; // shrink-wrap content (will expand as needed)
-      padding-right: 8px;
     }
   }
 }

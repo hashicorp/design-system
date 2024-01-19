@@ -162,11 +162,6 @@ export default class HdsTableIndexComponent extends Component {
       classes.push(`hds-table--valign-${this.valign}`);
     }
 
-    // add a class based on the @isSelectable argument
-    if (this.args.isSelectable) {
-      classes.push('hds-table--is-selectable');
-    }
-
     return classes.join(' ');
   }
 
