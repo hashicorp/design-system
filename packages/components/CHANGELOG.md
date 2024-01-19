@@ -17,6 +17,12 @@
 
 <div class="doc-whats-new-changelog-separator"></div>
 
+`SegmentedGroup` - Fixed issue with border-radius of single child element being overridden
+
+<small class="doc-whats-new-changelog-metadata">[#1892](https://github.com/hashicorp/design-system/pull/1892)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.4.0
 
 ### Minor Changes

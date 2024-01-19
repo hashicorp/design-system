@@ -16,8 +16,8 @@
 
 **Patch changes**
 
-Modal - Removed `close` event listener on destroy
-Flyout - Removed `close` event listener on destroy
+`Modal` - Removed `close` event listener on destroy
+`Flyout` - Removed `close` event listener on destroy
 
 <small class="doc-whats-new-changelog-metadata">[#1887](https://github.com/hashicorp/design-system/pull/1887)</small>
 
@@ -26,6 +26,12 @@ Flyout - Removed `close` event listener on destroy
 `CodeBlock` - Fixed issues with dynamic content, compile warning, and line number alignment
 
 <small class="doc-whats-new-changelog-metadata">[#1853](https://github.com/hashicorp/design-system/pull/1853)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`SegmentedGroup` - Fixed issue with border-radius of single child element being overridden
+
+<small class="doc-whats-new-changelog-metadata">[#1892](https://github.com/hashicorp/design-system/pull/1892)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
@@ -47,7 +53,7 @@ Flyout - Removed `close` event listener on destroy
 
 **Patch changes**
 
-`Hds::AppFooter` - Changed visual alignment from right-aligned to centered.
+`AppFooter` - Changed visual alignment from right-aligned to centered.
 
 <small class="doc-whats-new-changelog-metadata">[#1867](https://github.com/hashicorp/design-system/pull/1867)</small>
 
@@ -85,11 +91,11 @@ Flyout - Removed `close` event listener on destroy
 
 **Minor changes**
 
-`Hds::Form::CharacterCount` - Added new component
-`Hds::Form::Field` - Added `CharacterCount` contextual component
-`Hds::Form::MaskedInput::Field` - Added `CharacterCount` contextual component
-`Hds::Form::TextInput::Field` - Added `CharacterCount` contextual component
-`Hds::Form::Textarea::Field` - Added `CharacterCount` contextual component
+`Form::CharacterCount` - Added new component
+`Form::Field` - Added `CharacterCount` contextual component
+`Form::MaskedInput::Field` - Added `CharacterCount` contextual component
+`Form::TextInput::Field` - Added `CharacterCount` contextual component
+`Form::Textarea::Field` - Added `CharacterCount` contextual component
 
 <small class="doc-whats-new-changelog-metadata">[#1802](https://github.com/hashicorp/design-system/pull/1802)</small>
 
@@ -97,11 +103,11 @@ Flyout - Removed `close` event listener on destroy
 
 **Patch changes**
 
-`Button` - updated DOM structure to contain only `span` elements
+`Button` - Updated DOM structure to contain only `span` elements
 
-`Dropdown` - updated button elements DOM structure to contain only `span` elements
+`Dropdown` - Updated button elements DOM structure to contain only `span` elements
 
-`Link::Standalone` - updated DOM structure to contain only `span` elements
+`Link::Standalone` - Updated DOM structure to contain only `span` elements
 
 <small class="doc-whats-new-changelog-metadata">[#1840](https://github.com/hashicorp/design-system/pull/1840)</small>
 
@@ -117,9 +123,9 @@ Flyout - Removed `close` event listener on destroy
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`Hds::Table` - updated `@columns` object to support `isVisuallyHidden` argument
+`Table` - Updated `@columns` object to support `isVisuallyHidden` argument
 
-- `Hds::Table::Th` - updated to support `isVisuallyHidden` argument
+- `Table::Th` - Updated to support `isVisuallyHidden` argument
 
 <small class="doc-whats-new-changelog-metadata">[#1819](https://github.com/hashicorp/design-system/pull/1819)</small>
 
@@ -228,7 +234,7 @@ Upgraded the following dependencies:
 
 **Patch changes**
 
-explicitly added `ember-element-helper` as dependency for the `components` package
+Explicitly added `ember-element-helper` as dependency for the `components` package
 
 <small class="doc-whats-new-changelog-metadata">[#1751](https://github.com/hashicorp/design-system/pull/1751)</small>
 
@@ -246,33 +252,33 @@ explicitly added `ember-element-helper` as dependency for the `components` packa
 
 **Major changes**
 
-Drop support for Node 14
+Dropped support for Node 14
 
 <small class="doc-whats-new-changelog-metadata">[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`Hds::Form::VisibilityToggle` - Added component as a form base element
+`Form::VisibilityToggle` - Added component as a form base element
 
-`Hds::Form::TextInput::Field` - Added `Hds::Form::VisibilityToggle` to password inputs (controlled via `@hasVisibilityToggle` - Notice that this is set to be visible by default now)
+`Form::TextInput::Field` - Added `Form::VisibilityToggle` to password inputs (controlled via `@hasVisibilityToggle` - Notice that this is set to be visible by default now)
 
-`Hds::Form::MaskedInput` - Refactored to use `Hds::Form::VisibilityToggle`
+`Form::MaskedInput` - Refactored to use `Form::VisibilityToggle`
 
-`Hds::Form::MaskedInput` - Renamed `@isMasked` to `@isContentMasked`
+`Form::MaskedInput` - Renamed `@isMasked` to `@isContentMasked`
 
 To migrate:
 
-- in `Hds::Form::MaskedInput` instances replace `@isMasked` arguments with `@isContentMasked`
+- in `Form::MaskedInput` instances replace `@isMasked` arguments with `@isContentMasked`
 
 <small class="doc-whats-new-changelog-metadata">[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`Hds::Dropdown` – Removed `@listPosition` `left` and `right` (use `bottom-left` and `bottom-right`, respectively).
+`Dropdown` – Removed `@listPosition` `left` and `right` (use `bottom-left` and `bottom-right`, respectively).
 
 To migrate:
 
-- in `Hds::Dropdown` instances:
+- in `Dropdown` instances:
   - replace `@listPosition="left"` with `@listPosition="bottom-left"`
   - replace `@listPosition="right"` with `@listPosition="bottom-right"`
 
@@ -284,7 +290,7 @@ To migrate:
 
 To migrate:
 
-- rename all the `extraBefore/After` instances yielded within the `<Hds::SideNav>` component to `ExtraBefore/After`
+- rename all the `extraBefore/After` instances yielded within the `SideNav` component to `ExtraBefore/After`
 
 <small class="doc-whats-new-changelog-metadata">[#1634](https://github.com/hashicorp/design-system/pull/1634)</small>
 
@@ -603,62 +609,6 @@ Removed `ember-named-blocks-polyfill` as all consumers of HDS are on Ember 3.25 
 **🔄 Updated dependencies:**
 
 - @hashicorp/ember-flight-icons@3.1.1
-
-## 2.10.0
-
-**Minor changes**
-
-Added new `FileInput` component
-
-<small class="doc-whats-new-changelog-metadata">[#1535](https://github.com/hashicorp/design-system/pull/1535)</small>
-
-**Patch changes**
-
-Remove unnecessary export of `hds/copy/index.js`
-
-<small class="doc-whats-new-changelog-metadata">[#1570](https://github.com/hashicorp/design-system/pull/1570)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Hds::Tabs` - Fix missing tab indicator when used in Modal or Flyout
-
-<small class="doc-whats-new-changelog-metadata">[#1575](https://github.com/hashicorp/design-system/pull/1575)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Copy::Snippet` - Added support for container and updated API docs
-
-<small class="doc-whats-new-changelog-metadata">[#1567](https://github.com/hashicorp/design-system/pull/1567)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Hds::Tabs` - Fixed tabs and panels misbehaving on route change
-
-<small class="doc-whats-new-changelog-metadata">[#1571](https://github.com/hashicorp/design-system/pull/1571)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-<small class="doc-whats-new-changelog-metadata">[#1568](https://github.com/hashicorp/design-system/pull/1568)</small>
-
-`Copy::Button`, `Copy::Snippet` - Updated error icon
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Hds::SegmentedGroup` - Prevent `border-radius` from interfering with underlying elements
-
-<small class="doc-whats-new-changelog-metadata">[#1555](https://github.com/hashicorp/design-system/pull/1555)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Table` - Resolved issue where `ThSort` was not supporting right-aligned text properly
-
-<small class="doc-whats-new-changelog-metadata">[#1565](https://github.com/hashicorp/design-system/pull/1565)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/ember-flight-icons@3.1.0
 
 
 ---
