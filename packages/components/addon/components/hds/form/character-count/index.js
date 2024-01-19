@@ -4,16 +4,16 @@
  */
 
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 
 const ID_PREFIX = 'character-count-';
 const NOOP = () => {};
 
 export default class HdsFormCharacterCountIndexComponent extends Component {
   // The current number of characters in the associated input
-  @tracked currentLength;
-  inputControl = document.getElementById(this.args.controlId);
+  get currentLength() {
+    let { value } = this.args;
+    return value ? value.length : 0;
+  }
 
   // Inflector utility function to determine plural or singular for 'character' noun
   pluralize(count, prefix = '', noun = 'character', suffix = 's') {
@@ -108,21 +108,6 @@ export default class HdsFormCharacterCountIndexComponent extends Component {
    */
   get onInsert() {
     let { onInsert } = this.args;
-
-    if (!this.inputControl || this.inputControl.value === undefined) {
-      console.error(
-        '`Hds::Form::CharacterCount` component - `@controlId` selector provided does not point to a valid input element, check the id',
-        this.args.controlId
-      );
-    } else {
-      this.updateCurrentLength();
-      this.inputControl.addEventListener(
-        'input',
-        this.updateCurrentLength,
-        true
-      );
-    }
-
     // notice: this is a guard used to prevent triggering an error when the component is used as standalone element
     if (typeof onInsert === 'function') {
       return onInsert;
@@ -130,34 +115,6 @@ export default class HdsFormCharacterCountIndexComponent extends Component {
       return NOOP;
     }
   }
-
-  @action
-  willDestroyNode() {
-    if (this.inputControl) {
-      this.inputControl.removeEventListener(
-        'input',
-        this.updateCurrentLength,
-        true
-      );
-    }
-  }
-
-  @action
-  updateCurrentLength() {
-    this.currentLength = this.inputControl?.value?.length;
-
-    if (typeof this.args.onInput === 'function') {
-      this.args.onInput({
-        inputControl: this.inputControl,
-        currentLength: this.currentLength,
-        maxLength: this.maxLength,
-        minLength: this.minLength,
-        remaining: this.remaining,
-        shortfall: this.shortfall,
-      });
-    }
-  }
-
   /**
    * Get the class names to apply to the component.
    * @method classNames
