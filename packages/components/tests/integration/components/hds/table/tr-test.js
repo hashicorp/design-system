@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/table/tr', function (hooks) {
@@ -30,5 +30,22 @@ module('Integration | Component | hds/table/tr', function (hooks) {
   test('it should support splattributes', async function (assert) {
     await render(hbs`<Hds::Table::Tr id="data-test-table-tr" lang="es" />`);
     assert.dom('#data-test-table-tr').hasAttribute('lang', 'es');
+  });
+
+  // ASSERTIONS
+
+  test('it should throw an error if @selectionKey is not defined when @isSelectable is true', async function (assert) {
+    const errorMessage =
+      '@selectionKey must be defined when @isSelectable is true';
+    assert.expect(1);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, errorMessage);
+    });
+    await render(
+      hbs`<Hds::Table::Tr @isSelectable={{true}} @selectionScope="row" />`
+    );
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
   });
 });
