@@ -226,8 +226,8 @@ export default class ComponentsTableController extends Controller {
   }
 
   @action
-  onAnimatedUsersChange(selectionArr) {
-    this.animatedUserIds = selectionArr;
+  onAnimatedUsersChange({ selectedRowsKeys }) {
+    this.animatedUserIds = [...selectedRowsKeys];
   }
 
   @action
