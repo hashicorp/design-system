@@ -15,7 +15,7 @@ export default class HdsTableTrComponent extends Component {
   get selectionKey() {
     if (this.args.isSelectable && this.args.selectionScope === 'row') {
       assert(
-        `@selectionKey must be defined when @isSelectable is true`,
+        `@selectionKey must be defined on Table::Tr when @isSelectable is true`,
         this.args.selectionKey
       );
       return this.args.selectionKey;
