@@ -183,19 +183,15 @@ export default class HdsTableIndexComponent extends Component {
     }
   }
 
-  @action
-  onSelectionAllChange() {
-    this.selectableRows.forEach((row) => {
-      row.checkbox.checked = this.selectAllCheckbox.checked;
-    });
-    this.isSelectAllCheckboxSelected = this.selectAllCheckbox.checked;
-
+  onSelectionChangeCallback(checkbox, selectionKey) {
     let { onSelectionChange } = this.args;
     if (typeof onSelectionChange === 'function') {
       onSelectionChange({
-        selectionKey: 'all',
-        selectionCheckboxElement: this.selectAllCheckbox,
-        selectableRows: this.selectableRows,
+        selectionKey: selectionKey,
+        selectionCheckboxElement: checkbox,
+        // do we really need this?
+        // selectableRows: this.selectableRows,
+        // selectableRowsKeys: this.selectableRows.map((row) => row.selectionKey),
         selectableRowsStates: this.selectableRows.reduce((acc, row) => {
           acc[row.selectionKey] = row.checkbox.checked;
           return acc;
@@ -211,26 +207,18 @@ export default class HdsTableIndexComponent extends Component {
   }
 
   @action
+  onSelectionAllChange() {
+    this.selectableRows.forEach((row) => {
+      row.checkbox.checked = this.selectAllCheckbox.checked;
+    });
+    this.isSelectAllCheckboxSelected = this.selectAllCheckbox.checked;
+    this.onSelectionChangeCallback(this.selectAllCheckbox, 'all');
+  }
+
+  @action
   onSelectionRowChange(checkbox, selectionKey) {
     this.setSelectAllState();
-    let { onSelectionChange } = this.args;
-    if (typeof onSelectionChange === 'function') {
-      onSelectionChange({
-        selectionKey: selectionKey,
-        selectionCheckboxElement: checkbox,
-        selectableRows: this.selectableRows,
-        selectableRowsStates: this.selectableRows.reduce((acc, row) => {
-          acc[row.selectionKey] = row.checkbox.checked;
-          return acc;
-        }, {}),
-        selectedRowsKeys: this.selectableRows.reduce((acc, row) => {
-          if (row.checkbox.checked) {
-            acc.push(row.selectionKey);
-          }
-          return acc;
-        }, []),
-      });
-    }
+    this.onSelectionChangeCallback(checkbox, selectionKey);
   }
 
   @action

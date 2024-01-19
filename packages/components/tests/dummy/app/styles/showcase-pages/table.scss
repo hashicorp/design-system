@@ -31,18 +31,29 @@ body.components-table {
     width: max-content;
   }
 
-  .shw-component-table-selection-pagination-demo {
+  .shw-component-table-with-pagination-demo-wrapper {
     .hds-table + .hds-pagination {
       margin-top: 16px;
     }
   }
 
-  .shw-animate-user {
-    display: inline-block;
-    animation: shw-bounce 1s infinite ease-in-out;
+  .shw-component-table-demo-topbar {
+    @include shw-font-family("system sans");
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    font-size: 0.9rem;
   }
 
-  @keyframes shw-bounce {
+  .shw-component-table-animate-user {
+    display: inline-block;
+    animation: shw-component-table-user-bounce 1s infinite ease-in-out;
+  }
+
+  @keyframes shw-component-table-user-bounce {
     0% {
       transform: translateY(0);
     }
