@@ -1,6 +1,6 @@
 {{!
-  Copyright (c) HashiCorp, Inc.
-  SPDX-License-Identifier: MPL-2.0
+Copyright (c) HashiCorp, Inc.
+SPDX-License-Identifier: MPL-2.0
 }}
 
 {{page-title "CodeBlock Component"}}
@@ -35,11 +35,16 @@ console.log(`I am ${codeLang} code`);"
       />
     </SG.Item>
     <SG.Item @forceMinWidth={{true}} as |SGI|>
-      <SGI.Label>new lines with <code>\n</code> escape sequence in JavaScript</SGI.Label>
+      <SGI.Label>new lines with
+        <code>\n</code>
+        escape sequence in JavaScript
+      </SGI.Label>
       <Hds::CodeBlock @language="javascript" @value={{this.textWithNewline}} />
     </SG.Item>
     <SG.Item @forceMinWidth={{true}} as |SGI|>
-      <SGI.Label><code>\n</code> in Handlebars (not interpreted as newline)</SGI.Label>
+      <SGI.Label><code>\n</code>
+        in Handlebars (not interpreted as newline)
+      </SGI.Label>
       <Hds::CodeBlock
         @language="javascript"
         @value="let codeLang='JavaScript';\nconsole.log(`I am ${codeLang} code`);"

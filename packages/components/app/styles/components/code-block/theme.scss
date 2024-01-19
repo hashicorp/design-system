@@ -50,7 +50,7 @@
 
   // Syntax highlighting tokens:
   // general ----
-  --hds-code-block-color-token: var(--hds-code-block-color-green);
+  --hds-code-block-color-token: var(--hds-code-block-color-foreground-primary);
   // specific ----
   --hds-code-block-color-atrule: var(--hds-code-block-color-blue);
   --hds-code-block-color-code-block-attr-name: var(--hds-code-block-color-blue);
