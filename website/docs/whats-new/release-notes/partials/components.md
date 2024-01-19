@@ -12,11 +12,28 @@
   </a>
 </p>
 
+## 3.4.1
+
+**Patch changes**
+
+Modal - Removed `close` event listener on destroy
+Flyout - Removed `close` event listener on destroy
+
+<small class="doc-whats-new-changelog-metadata">[#1887](https://github.com/hashicorp/design-system/pull/1887)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`CodeBlock` - Fixed issues with dynamic content, compile warning, and line number alignment
+
+<small class="doc-whats-new-changelog-metadata">[#1853](https://github.com/hashicorp/design-system/pull/1853)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.4.0
 
 **Minor changes**
 
-`Button` - added `@isInline` argument
+`Button` - Added `@isInline` argument
 
 <small class="doc-whats-new-changelog-metadata">[#1854](https://github.com/hashicorp/design-system/pull/1854)</small>
 
@@ -30,7 +47,7 @@
 
 **Patch changes**
 
-`Hds::AppFooter` - changed visual alignment from right-aligned to centered.
+`Hds::AppFooter` - Changed visual alignment from right-aligned to centered.
 
 <small class="doc-whats-new-changelog-metadata">[#1867](https://github.com/hashicorp/design-system/pull/1867)</small>
 
@@ -42,19 +59,19 @@
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`Tabs` - Fix subcomponents' backing-class names
+`Tabs` - Fixed subcomponents' backing-class names
 
 <small class="doc-whats-new-changelog-metadata">[#1883](https://github.com/hashicorp/design-system/pull/1883)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`AppFooter` - update default accessibility URL to https://hashicorp.com/accessibility
+`AppFooter` - Updated default accessibility URL to https://hashicorp.com/accessibility
 
 <small class="doc-whats-new-changelog-metadata">[#1811](https://github.com/hashicorp/design-system/pull/1811)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`Form::Fieldset` as consumed by `Form::Checkbox::Group`, `Form::Radio::Group`, `Form::RadioCard::Group`, and `Form::Toggle::Group` - changed spacing between `legend` and content from 4px to 8px
+`Form::Fieldset` as consumed by `Form::Checkbox::Group`, `Form::Radio::Group`, `Form::RadioCard::Group`, and `Form::Toggle::Group` - Changed spacing between `legend` and content from 4px to 8px
 
 <small class="doc-whats-new-changelog-metadata">[#1856](https://github.com/hashicorp/design-system/pull/1856)</small>
 
@@ -642,50 +659,6 @@ Remove unnecessary export of `hds/copy/index.js`
 **🔄 Updated dependencies:**
 
 - @hashicorp/ember-flight-icons@3.1.0
-
-## 2.9.0
-
-**Minor changes**
-
-Added the `Hds::CopyButton` and `Hds::CopySnippet` components.
-
-<small class="doc-whats-new-changelog-metadata">[#1488](https://github.com/hashicorp/design-system/pull/1488)</small>
-
-**Patch changes**
-
-Adjusted closing brace on copywrite headers to avoid terminal noise
-
-<small class="doc-whats-new-changelog-metadata">[#1539](https://github.com/hashicorp/design-system/pull/1539)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Hds::Modal` - reduce test flakiness around closing Modal when using `@ember/test-helpers`
-
-<small class="doc-whats-new-changelog-metadata">[#1549](https://github.com/hashicorp/design-system/pull/1549) - Thanks [@fivetanley](https://github.com/fivetanley) for the contribution! 🙏</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Fix Embroider warnings caused by incorrect export of internal utility functions
-
-<small class="doc-whats-new-changelog-metadata">[#1530](https://github.com/hashicorp/design-system/pull/1530)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Hds::Flyout` - reduce test flakiness around closing Flyout when using `@ember/test-helpers`
-
-<small class="doc-whats-new-changelog-metadata">[#1552](https://github.com/hashicorp/design-system/pull/1552)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Hds::Form::Field` - Fix error message for unexpected `@layout` values
-
-<small class="doc-whats-new-changelog-metadata">[#1529](https://github.com/hashicorp/design-system/pull/1529)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/ember-flight-icons@3.0.9
 
 
 ---
