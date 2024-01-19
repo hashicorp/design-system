@@ -41,7 +41,7 @@ module.exports = {
 
 const updateDummyAppRouter = (options) => {
   const newRouteToAdd = `components/${options.entity.name}`; // we prefix all the component routes with "components"
-  const routerFilePath = `${options.project.root}/tests/dummy/app/router.js`;
+  const routerFilePath = `${options.project.root}/app/router.js`;
   const source = fs.readFileSync(routerFilePath, 'utf-8');
   let oldRoutes = new EmberRouterGenerator(source);
   let newRoutes = oldRoutes['add'](newRouteToAdd, options);
@@ -50,7 +50,7 @@ const updateDummyAppRouter = (options) => {
 
 const updateDummyAppCSS = (options) => {
   const name = options.entity.name;
-  const cssFilePath = `${options.project.root}/tests/dummy/app/styles/app.scss`;
+  const cssFilePath = `${options.project.root}/app/styles/app.scss`;
   const source = fs.readFileSync(cssFilePath, 'utf-8');
   const oldLinesArray = source.split(/\r?\n/);
   const firstComponentImportIndex =
@@ -81,7 +81,7 @@ const updateDummyAppCSS = (options) => {
 
 const updateDummyAppIndexHBS = (options) => {
   const name = options.entity.name;
-  const hbsFilePath = `${options.project.root}/tests/dummy/app/templates/index.hbs`;
+  const hbsFilePath = `${options.project.root}/app/templates/index.hbs`;
   let newListItemHTML = '';
   newListItemHTML += '<!-- MOVE THIS HTML BLOCK IN THE RIGHT POSITION -->\n';
   newListItemHTML += '<!-- (adjust component name & route if necessary) -->\n';
