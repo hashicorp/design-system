@@ -629,6 +629,7 @@
       @currentPage={{this.multiSelectPaginatedCurrentPage_demo2}}
       @onPageChange={{this.onMultiSelectPaginatedPageChange_demo2}}
       @onPageSizeChange={{this.onMultiSelectPaginatedPageSizeChange_demo2}}
+      aria-label="Pagination for basic multi-select table"
     />
     {{#each this.multiSelectModelData__demo2 as |row|}}
       <pre>row{{row.id}} = {{(if row.isSelected "✅")}}</pre>
@@ -682,6 +683,7 @@
       @currentPage={{this.multiSelectUsersCurrentPage_demo3}}
       @onPageChange={{this.onMultiSelectUsersPageChange_demo3}}
       @onPageSizeChange={{this.onMultiSelectUsersPageSizeChange_demo3}}
+      aria-label="Pagination for multi-select table with delete action"
     />
   </div>
 
