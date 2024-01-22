@@ -292,26 +292,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:>=7.2.2, @babel/core@npm:^7.0.0, @babel/core@npm:^7.1.6, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.0, @babel/core@npm:^7.12.3, @babel/core@npm:^7.13.10, @babel/core@npm:^7.14.5, @babel/core@npm:^7.16.10, @babel/core@npm:^7.16.7, @babel/core@npm:^7.22.10, @babel/core@npm:^7.23.2, @babel/core@npm:^7.23.6, @babel/core@npm:^7.3.4":
-  version: 7.23.6
-  resolution: "@babel/core@npm:7.23.6"
+"@babel/core@npm:>=7.2.2, @babel/core@npm:^7.0.0, @babel/core@npm:^7.1.6, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.0, @babel/core@npm:^7.12.3, @babel/core@npm:^7.13.10, @babel/core@npm:^7.14.5, @babel/core@npm:^7.16.10, @babel/core@npm:^7.16.7, @babel/core@npm:^7.22.10, @babel/core@npm:^7.23.2, @babel/core@npm:^7.23.6, @babel/core@npm:^7.23.7, @babel/core@npm:^7.3.4":
+  version: 7.23.7
+  resolution: "@babel/core@npm:7.23.7"
   dependencies:
     "@ampproject/remapping": "npm:^2.2.0"
     "@babel/code-frame": "npm:^7.23.5"
     "@babel/generator": "npm:^7.23.6"
     "@babel/helper-compilation-targets": "npm:^7.23.6"
     "@babel/helper-module-transforms": "npm:^7.23.3"
-    "@babel/helpers": "npm:^7.23.6"
+    "@babel/helpers": "npm:^7.23.7"
     "@babel/parser": "npm:^7.23.6"
     "@babel/template": "npm:^7.22.15"
-    "@babel/traverse": "npm:^7.23.6"
+    "@babel/traverse": "npm:^7.23.7"
     "@babel/types": "npm:^7.23.6"
     convert-source-map: "npm:^2.0.0"
     debug: "npm:^4.1.0"
     gensync: "npm:^1.0.0-beta.2"
     json5: "npm:^2.2.3"
     semver: "npm:^6.3.1"
-  checksum: a72ba71d2f557d09ff58a5f0846344b9cea9dfcbd7418729a3a74d5b0f37a5ca024942fef4d19f248de751928a1be3d5cb0488746dd8896009dd55b974bb552e
+  checksum: 956841695ea801c8b4196d01072e6c1062335960715a6fcfd4009831003b526b00627c78b373ed49b1658c3622c71142f7ff04235fe839cac4a1a25ed51b90aa
   languageName: node
   linkType: hard
 
@@ -372,9 +372,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helper-create-class-features-plugin@npm:^7.18.6, @babel/helper-create-class-features-plugin@npm:^7.21.0, @babel/helper-create-class-features-plugin@npm:^7.22.15, @babel/helper-create-class-features-plugin@npm:^7.23.6, @babel/helper-create-class-features-plugin@npm:^7.5.5":
-  version: 7.23.6
-  resolution: "@babel/helper-create-class-features-plugin@npm:7.23.6"
+"@babel/helper-create-class-features-plugin@npm:^7.18.6, @babel/helper-create-class-features-plugin@npm:^7.21.0, @babel/helper-create-class-features-plugin@npm:^7.22.15, @babel/helper-create-class-features-plugin@npm:^7.23.6, @babel/helper-create-class-features-plugin@npm:^7.23.7, @babel/helper-create-class-features-plugin@npm:^7.5.5":
+  version: 7.23.7
+  resolution: "@babel/helper-create-class-features-plugin@npm:7.23.7"
   dependencies:
     "@babel/helper-annotate-as-pure": "npm:^7.22.5"
     "@babel/helper-environment-visitor": "npm:^7.22.20"
@@ -387,7 +387,7 @@ __metadata:
     semver: "npm:^6.3.1"
   peerDependencies:
     "@babel/core": ^7.0.0
-  checksum: 5e0cff67a6809d2285215057be45de9dd8900b91e3526fad5eac79023c1d6bee32aed1a04fcdf0e4d99ee4bd49ea5459cb98260c13222edf3bb983621bb452f4
+  checksum: c8b3ef58fca399a25f00d703b0fb2ac1d86642d9e3bd7af04df77857641ed08aaca042ffb271ef93771f9272481fd1cf102a9bddfcee407fb126c927deeef6a7
   languageName: node
   linkType: hard
 
@@ -579,14 +579,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helpers@npm:^7.23.6":
-  version: 7.23.6
-  resolution: "@babel/helpers@npm:7.23.6"
+"@babel/helpers@npm:^7.23.7":
+  version: 7.23.8
+  resolution: "@babel/helpers@npm:7.23.8"
   dependencies:
     "@babel/template": "npm:^7.22.15"
-    "@babel/traverse": "npm:^7.23.6"
+    "@babel/traverse": "npm:^7.23.7"
     "@babel/types": "npm:^7.23.6"
-  checksum: 2a85fd2bcbc15a6c94dbe7b9e94d8920f9de76d164179d6895fee89c4339079d9e3e56f572bf19b5e7d1e6f1997d7fbaeaa686b47d35136852631dfd09e85c2f
+  checksum: 4c392351910102403b6a7c922319077b179c276e422a4e45b243b45610f813a05a043b6b116cbf5eb4b437fb51b9a2dfc2b7c65f38a0de7fde1f97d08a675313
   languageName: node
   linkType: hard
 
@@ -658,19 +658,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-proposal-decorators@npm:^7.13.5, @babel/plugin-proposal-decorators@npm:^7.16.7, @babel/plugin-proposal-decorators@npm:^7.20.13, @babel/plugin-proposal-decorators@npm:^7.23.2, @babel/plugin-proposal-decorators@npm:^7.23.6":
-  version: 7.23.6
-  resolution: "@babel/plugin-proposal-decorators@npm:7.23.6"
+"@babel/plugin-proposal-decorators@npm:^7.13.5, @babel/plugin-proposal-decorators@npm:^7.16.7, @babel/plugin-proposal-decorators@npm:^7.20.13, @babel/plugin-proposal-decorators@npm:^7.23.2, @babel/plugin-proposal-decorators@npm:^7.23.6, @babel/plugin-proposal-decorators@npm:^7.23.7":
+  version: 7.23.7
+  resolution: "@babel/plugin-proposal-decorators@npm:7.23.7"
   dependencies:
-    "@babel/helper-create-class-features-plugin": "npm:^7.23.6"
+    "@babel/helper-create-class-features-plugin": "npm:^7.23.7"
     "@babel/helper-plugin-utils": "npm:^7.22.5"
-    "@babel/helper-replace-supers": "npm:^7.22.20"
-    "@babel/helper-skip-transparent-expression-wrappers": "npm:^7.22.5"
-    "@babel/helper-split-export-declaration": "npm:^7.22.6"
     "@babel/plugin-syntax-decorators": "npm:^7.23.3"
   peerDependencies:
     "@babel/core": ^7.0.0-0
-  checksum: 091796967ad728c7a00ae60c978d20f17cea08fa37bf977568880324b2619f8ce11b4a3797ef1b3137085fcb890639c49462f6be19f7cc3707e17e057df11c75
+  checksum: 1fc506b113fa204323537b3299686641c29b7626f05aa098c68a818da65ce657d2398c49aea69af91c45bbdfca6086424e28d283729dba401eb93c8a16826c95
   languageName: node
   linkType: hard
 
@@ -1828,9 +1825,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/traverse@npm:^7.14.5, @babel/traverse@npm:^7.23.6, @babel/traverse@npm:^7.4.5":
-  version: 7.23.6
-  resolution: "@babel/traverse@npm:7.23.6"
+"@babel/traverse@npm:^7.14.5, @babel/traverse@npm:^7.23.7, @babel/traverse@npm:^7.4.5":
+  version: 7.23.7
+  resolution: "@babel/traverse@npm:7.23.7"
   dependencies:
     "@babel/code-frame": "npm:^7.23.5"
     "@babel/generator": "npm:^7.23.6"
@@ -1842,7 +1839,7 @@ __metadata:
     "@babel/types": "npm:^7.23.6"
     debug: "npm:^4.3.1"
     globals: "npm:^11.1.0"
-  checksum: ee4434a3ce792ee8956b64d76843caa1dda4779bb621ed9f951dd3551965bf1f292f097011c9730ecbc0b57f02434b1fa5a771610a2ef570726b0df0fc3332d9
+  checksum: 3215e59429963c8dac85c26933372cdd322952aa9930e4bc5ef2d0e4bd7a1510d1ecf8f8fd860ace5d4d9fe496d23805a1ea019a86410aee4111de5f63ee84f9
   languageName: node
   linkType: hard
 
@@ -2784,7 +2781,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/macros@npm:1.13.4":
+"@embroider/macros@npm:1.13.4, @embroider/macros@npm:^0.50.0 || ^1.0.0, @embroider/macros@npm:^1.0.0, @embroider/macros@npm:^1.10.0, @embroider/macros@npm:^1.12.0, @embroider/macros@npm:^1.13.1, @embroider/macros@npm:^1.13.3, @embroider/macros@npm:^1.2.0, @embroider/macros@npm:^1.8.1, @embroider/macros@npm:^1.8.3":
   version: 1.13.4
   resolution: "@embroider/macros@npm:1.13.4"
   dependencies:
@@ -2802,27 +2799,6 @@ __metadata:
     "@glint/template":
       optional: true
   checksum: ad9239bab30df8f5909a4e7f34fe406e8bd0f2169bf6d6e97a5d39521821a863dcd2f1a5ed7166ba0e19dea753892fc8cf8ee1274043795ddf6717bfee5a8577
-  languageName: node
-  linkType: hard
-
-"@embroider/macros@npm:^0.50.0 || ^1.0.0, @embroider/macros@npm:^1.0.0, @embroider/macros@npm:^1.10.0, @embroider/macros@npm:^1.12.0, @embroider/macros@npm:^1.13.1, @embroider/macros@npm:^1.13.3, @embroider/macros@npm:^1.2.0, @embroider/macros@npm:^1.8.1, @embroider/macros@npm:^1.8.3":
-  version: 1.13.3
-  resolution: "@embroider/macros@npm:1.13.3"
-  dependencies:
-    "@embroider/shared-internals": "npm:2.5.1"
-    assert-never: "npm:^1.2.1"
-    babel-import-util: "npm:^2.0.0"
-    ember-cli-babel: "npm:^7.26.6"
-    find-up: "npm:^5.0.0"
-    lodash: "npm:^4.17.21"
-    resolve: "npm:^1.20.0"
-    semver: "npm:^7.3.2"
-  peerDependencies:
-    "@glint/template": ^1.0.0
-  peerDependenciesMeta:
-    "@glint/template":
-      optional: true
-  checksum: 6c0965650b1c365247a28f1440b6c96b06cd0f2c2c80823d466268044e2bb5eb72d089830edc8c3796996169311f9059d868d732772ae5cee5e7c4495d76603f
   languageName: node
   linkType: hard
 
@@ -3613,47 +3589,31 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons"
   dependencies:
-    "@babel/core": "npm:^7.23.2"
+    "@babel/core": "npm:^7.23.7"
     "@babel/eslint-parser": "npm:^7.22.15"
+    "@babel/plugin-proposal-decorators": "npm:^7.23.7"
+    "@babel/plugin-transform-class-properties": "npm:^7.23.3"
     "@ember/optional-features": "npm:^2.0.0"
-    "@ember/test-helpers": "npm:^3.2.0"
+    "@embroider/addon-dev": "npm:^4.1.3"
+    "@embroider/addon-shim": "npm:^1.8.7"
     "@embroider/test-setup": "npm:^3.0.2"
     "@glimmer/component": "npm:^1.1.2"
     "@glimmer/tracking": "npm:^1.1.2"
     "@hashicorp/flight-icons": "npm:^2.24.0"
-    broccoli-asset-rev: "npm:^3.0.0"
-    ember-auto-import: "npm:^2.6.3"
-    ember-cli: "npm:~5.3.0"
-    ember-cli-babel: "npm:^8.2.0"
-    ember-cli-clean-css: "npm:^3.0.0"
-    ember-cli-dependency-checker: "npm:^3.3.2"
-    ember-cli-htmlbars: "npm:^6.3.0"
-    ember-cli-inject-live-reload: "npm:^2.1.0"
-    ember-cli-sri: "npm:^2.1.1"
-    ember-cli-terser: "npm:^4.0.2"
-    ember-disable-prototype-extensions: "npm:^1.1.3"
+    "@rollup/plugin-babel": "npm:^6.0.4"
     ember-get-config: "npm:^2.1.1"
-    ember-load-initializers: "npm:^2.1.2"
-    ember-page-title: "npm:^8.0.0"
-    ember-qunit: "npm:^8.0.1"
-    ember-resolver: "npm:^11.0.1"
-    ember-source: "npm:~5.3.0"
-    ember-source-channel-url: "npm:^3.0.0"
     ember-template-lint: "npm:^4.18.2"
     ember-template-lint-plugin-prettier: "npm:^4.2.0"
-    ember-try: "npm:^3.0.0"
     eslint: "npm:^8.52.0"
     eslint-config-prettier: "npm:^8.10.0"
     eslint-plugin-ember: "npm:^11.11.1"
     eslint-plugin-node: "npm:^11.1.0"
     eslint-plugin-prettier: "npm:^4.2.1"
     eslint-plugin-qunit: "npm:^8.0.1"
-    loader.js: "npm:^4.7.0"
     npm-run-all: "npm:^4.1.5"
     prettier: "npm:^2.8.8"
-    qunit: "npm:^2.20.0"
-    qunit-dom: "npm:^3.0.0"
-    webpack: "npm:^5.89.0"
+    rollup: "npm:^4.9.6"
+    rollup-plugin-copy: "npm:^3.5.0"
   languageName: unknown
   linkType: soft
 
@@ -4481,93 +4441,93 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/rollup-android-arm-eabi@npm:4.9.0":
-  version: 4.9.0
-  resolution: "@rollup/rollup-android-arm-eabi@npm:4.9.0"
+"@rollup/rollup-android-arm-eabi@npm:4.9.6":
+  version: 4.9.6
+  resolution: "@rollup/rollup-android-arm-eabi@npm:4.9.6"
   conditions: os=android & cpu=arm
   languageName: node
   linkType: hard
 
-"@rollup/rollup-android-arm64@npm:4.9.0":
-  version: 4.9.0
-  resolution: "@rollup/rollup-android-arm64@npm:4.9.0"
+"@rollup/rollup-android-arm64@npm:4.9.6":
+  version: 4.9.6
+  resolution: "@rollup/rollup-android-arm64@npm:4.9.6"
   conditions: os=android & cpu=arm64
   languageName: node
   linkType: hard
 
-"@rollup/rollup-darwin-arm64@npm:4.9.0":
-  version: 4.9.0
-  resolution: "@rollup/rollup-darwin-arm64@npm:4.9.0"
+"@rollup/rollup-darwin-arm64@npm:4.9.6":
+  version: 4.9.6
+  resolution: "@rollup/rollup-darwin-arm64@npm:4.9.6"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@rollup/rollup-darwin-x64@npm:4.9.0":
-  version: 4.9.0
-  resolution: "@rollup/rollup-darwin-x64@npm:4.9.0"
+"@rollup/rollup-darwin-x64@npm:4.9.6":
+  version: 4.9.6
+  resolution: "@rollup/rollup-darwin-x64@npm:4.9.6"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@rollup/rollup-linux-arm-gnueabihf@npm:4.9.0":
-  version: 4.9.0
-  resolution: "@rollup/rollup-linux-arm-gnueabihf@npm:4.9.0"
+"@rollup/rollup-linux-arm-gnueabihf@npm:4.9.6":
+  version: 4.9.6
+  resolution: "@rollup/rollup-linux-arm-gnueabihf@npm:4.9.6"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"@rollup/rollup-linux-arm64-gnu@npm:4.9.0":
-  version: 4.9.0
-  resolution: "@rollup/rollup-linux-arm64-gnu@npm:4.9.0"
+"@rollup/rollup-linux-arm64-gnu@npm:4.9.6":
+  version: 4.9.6
+  resolution: "@rollup/rollup-linux-arm64-gnu@npm:4.9.6"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@rollup/rollup-linux-arm64-musl@npm:4.9.0":
-  version: 4.9.0
-  resolution: "@rollup/rollup-linux-arm64-musl@npm:4.9.0"
+"@rollup/rollup-linux-arm64-musl@npm:4.9.6":
+  version: 4.9.6
+  resolution: "@rollup/rollup-linux-arm64-musl@npm:4.9.6"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@rollup/rollup-linux-riscv64-gnu@npm:4.9.0":
-  version: 4.9.0
-  resolution: "@rollup/rollup-linux-riscv64-gnu@npm:4.9.0"
+"@rollup/rollup-linux-riscv64-gnu@npm:4.9.6":
+  version: 4.9.6
+  resolution: "@rollup/rollup-linux-riscv64-gnu@npm:4.9.6"
   conditions: os=linux & cpu=riscv64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@rollup/rollup-linux-x64-gnu@npm:4.9.0":
-  version: 4.9.0
-  resolution: "@rollup/rollup-linux-x64-gnu@npm:4.9.0"
+"@rollup/rollup-linux-x64-gnu@npm:4.9.6":
+  version: 4.9.6
+  resolution: "@rollup/rollup-linux-x64-gnu@npm:4.9.6"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@rollup/rollup-linux-x64-musl@npm:4.9.0":
-  version: 4.9.0
-  resolution: "@rollup/rollup-linux-x64-musl@npm:4.9.0"
+"@rollup/rollup-linux-x64-musl@npm:4.9.6":
+  version: 4.9.6
+  resolution: "@rollup/rollup-linux-x64-musl@npm:4.9.6"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@rollup/rollup-win32-arm64-msvc@npm:4.9.0":
-  version: 4.9.0
-  resolution: "@rollup/rollup-win32-arm64-msvc@npm:4.9.0"
+"@rollup/rollup-win32-arm64-msvc@npm:4.9.6":
+  version: 4.9.6
+  resolution: "@rollup/rollup-win32-arm64-msvc@npm:4.9.6"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@rollup/rollup-win32-ia32-msvc@npm:4.9.0":
-  version: 4.9.0
-  resolution: "@rollup/rollup-win32-ia32-msvc@npm:4.9.0"
+"@rollup/rollup-win32-ia32-msvc@npm:4.9.6":
+  version: 4.9.6
+  resolution: "@rollup/rollup-win32-ia32-msvc@npm:4.9.6"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"@rollup/rollup-win32-x64-msvc@npm:4.9.0":
-  version: 4.9.0
-  resolution: "@rollup/rollup-win32-x64-msvc@npm:4.9.0"
+"@rollup/rollup-win32-x64-msvc@npm:4.9.6":
+  version: 4.9.6
+  resolution: "@rollup/rollup-win32-x64-msvc@npm:4.9.6"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -5192,7 +5152,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/estree@npm:*, @types/estree@npm:^1.0.0":
+"@types/estree@npm:*, @types/estree@npm:1.0.5, @types/estree@npm:^1.0.0":
   version: 1.0.5
   resolution: "@types/estree@npm:1.0.5"
   checksum: 7de6d928dd4010b0e20c6919e1a6c27b61f8d4567befa89252055fad503d587ecb9a1e3eab1b1901f923964d7019796db810b7fd6430acb26c32866d126fd408
@@ -12111,13 +12071,6 @@ __metadata:
     ember-cli-version-checker: "npm:^5.1.1"
     ember-compatibility-helpers: "npm:^1.2.1"
   checksum: 2b5322eb61a3ba6084cfb3cdb6ce8786d87d0412d298d2f07ff155580f9b5de0c2ef9431c31aa9535b18e8a1d74df47a965f746df0a404fcc4b92ba76acee3bf
-  languageName: node
-  linkType: hard
-
-"ember-disable-prototype-extensions@npm:^1.1.3":
-  version: 1.1.3
-  resolution: "ember-disable-prototype-extensions@npm:1.1.3"
-  checksum: 949196e60330caa9324088e7c77cc54599e57ffa0ca14523c7684a5f573a76bbd20dabcfbc3f9c78a8454078f3a5650d64ccd4c250f9a239254375496aafc604
   languageName: node
   linkType: hard
 
@@ -22686,23 +22639,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^4.9.0":
-  version: 4.9.0
-  resolution: "rollup@npm:4.9.0"
+"rollup@npm:^4.9.0, rollup@npm:^4.9.6":
+  version: 4.9.6
+  resolution: "rollup@npm:4.9.6"
   dependencies:
-    "@rollup/rollup-android-arm-eabi": "npm:4.9.0"
-    "@rollup/rollup-android-arm64": "npm:4.9.0"
-    "@rollup/rollup-darwin-arm64": "npm:4.9.0"
-    "@rollup/rollup-darwin-x64": "npm:4.9.0"
-    "@rollup/rollup-linux-arm-gnueabihf": "npm:4.9.0"
-    "@rollup/rollup-linux-arm64-gnu": "npm:4.9.0"
-    "@rollup/rollup-linux-arm64-musl": "npm:4.9.0"
-    "@rollup/rollup-linux-riscv64-gnu": "npm:4.9.0"
-    "@rollup/rollup-linux-x64-gnu": "npm:4.9.0"
-    "@rollup/rollup-linux-x64-musl": "npm:4.9.0"
-    "@rollup/rollup-win32-arm64-msvc": "npm:4.9.0"
-    "@rollup/rollup-win32-ia32-msvc": "npm:4.9.0"
-    "@rollup/rollup-win32-x64-msvc": "npm:4.9.0"
+    "@rollup/rollup-android-arm-eabi": "npm:4.9.6"
+    "@rollup/rollup-android-arm64": "npm:4.9.6"
+    "@rollup/rollup-darwin-arm64": "npm:4.9.6"
+    "@rollup/rollup-darwin-x64": "npm:4.9.6"
+    "@rollup/rollup-linux-arm-gnueabihf": "npm:4.9.6"
+    "@rollup/rollup-linux-arm64-gnu": "npm:4.9.6"
+    "@rollup/rollup-linux-arm64-musl": "npm:4.9.6"
+    "@rollup/rollup-linux-riscv64-gnu": "npm:4.9.6"
+    "@rollup/rollup-linux-x64-gnu": "npm:4.9.6"
+    "@rollup/rollup-linux-x64-musl": "npm:4.9.6"
+    "@rollup/rollup-win32-arm64-msvc": "npm:4.9.6"
+    "@rollup/rollup-win32-ia32-msvc": "npm:4.9.6"
+    "@rollup/rollup-win32-x64-msvc": "npm:4.9.6"
+    "@types/estree": "npm:1.0.5"
     fsevents: "npm:~2.3.2"
   dependenciesMeta:
     "@rollup/rollup-android-arm-eabi":
@@ -22735,7 +22689,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: f7d5681eefb6a70673dd139dacfa8b072ebd8b5ff7353fbab328a8dc784240eb079f8320a239a61eb8962f56dcf3069832f98d20dc2eaa72b72a56b8e1510c33
+  checksum: 7c343d9d8ece2ebfbde20b62545f7ee16cbba719da94584fef72ad2f0bdea5f2c49cc429839350e7a4181be04e01bfcd1bd45e1654b8b288a612c409eaebdae4
   languageName: node
   linkType: hard
 
