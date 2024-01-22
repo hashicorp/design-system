@@ -53,6 +53,12 @@
   }
 }
 
+.hds-side-nav__list-title-content {
+  display: block;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
 
 // LIST (root elements)
 
@@ -147,8 +153,10 @@
 // LIST ITEM > INNER ELEMENTS
 
 .hds-side-nav__list-item-text {
+  max-width: 100%;
   color: var(--token-side-nav-color-foreground-primary);
   text-align: left;
+  overflow-wrap: break-word;
 }
 
 .hds-side-nav__list-item-icon-leading {
