@@ -1369,7 +1369,7 @@
           <Hds::Table>
             <:head as |H|>
               <H.Tr>
-                <Hds::Table::ThSelectable @selectionScope="column" @isSelected={{bool}} />
+                <Hds::Table::ThSelectable @selectionScope="col" @isSelected={{bool}} />
                 <H.Th>Lorem</H.Th>
               </H.Tr>
             </:head>
@@ -1385,7 +1385,7 @@
             <:head as |H|>
               <H.Tr>
                 <Hds::Table::ThSelectable
-                  @selectionScope="column"
+                  @selectionScope="col"
                   @isSelected={{bool}}
                   mock-state-value="focus"
                   mock-state-selector="input"
@@ -1413,7 +1413,7 @@
         <:head as |H|>
           <H.Tr>
             <Hds::Table::ThSelectable
-              @selectionScope="column"
+              @selectionScope="col"
               @isSelected={{true}}
               @didInsert={{this.mockIndeterminateState}}
             />
@@ -1436,7 +1436,7 @@
         <:head as |H|>
           <H.Tr>
             <Hds::Table::ThSelectable
-              @selectionScope="column"
+              @selectionScope="col"
               @isSelected={{true}}
               @didInsert={{this.mockIndeterminateState}}
               mock-state-value="focus"
