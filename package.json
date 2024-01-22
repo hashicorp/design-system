@@ -14,7 +14,7 @@
     "release-packages": "yarn changeset publish",
     "version-packages": "yarn changeset version && yarn install --mode update-lockfile && yarn workspace website generate-changelog-markdown-files"
   },
-  "packageManager": "yarn@4.0.1",
+  "packageManager": "yarn@4.0.2",
   "resolutions": {
     "broccoli-asset-rewrite@^2.0.0": "patch:broccoli-asset-rewrite@npm%3A2.0.0#./.yarn/patches/broccoli-asset-rewrite-npm-2.0.0-c4ce42084a.patch"
   }
