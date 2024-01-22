@@ -5,7 +5,6 @@
 
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
-import { getOwner } from '@ember/application';
 import { assert } from '@ember/debug';
 
 import { iconNames } from '@hashicorp/flight-icons/svg';
@@ -20,11 +19,6 @@ export default class FlightIconComponent extends Component {
         `The icon @name "${this.args.name}" provided to <FlightIcon> is not correct. Please verify it exists on https://helios.hashicorp.design/icons/library`
       );
     }
-  }
-
-  get contextRootURL() {
-    const config = getOwner(this).resolveRegistration('config:environment');
-    return config.rootURL || '/';
   }
 
   /**
