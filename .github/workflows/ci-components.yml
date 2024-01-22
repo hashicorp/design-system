@@ -45,7 +45,10 @@ jobs:
       - name: Lint
         run: yarn run lint
         working-directory: showcase
-      - name: Build Internal Packages
+      - name: Build Icons
+        run: yarn build
+        working-directory: packages/ember-flight-icons
+      - name: Build Components
         run: yarn build
         working-directory: packages/components
       - name: Run Tests
@@ -84,6 +87,7 @@ jobs:
       - name: Build Internal Packages
         working-directory: packages/components
         run: yarn build
+        working-directory: packages/components
       - name: Run Tests
         working-directory: showcase
         run: yarn ember try:one ${{ matrix.try-scenario }}
