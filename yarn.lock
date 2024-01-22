@@ -87,6 +87,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@algolia/cache-common@npm:4.22.1":
+  version: 4.22.1
+  resolution: "@algolia/cache-common@npm:4.22.1"
+  checksum: b57b195fdf75ca53417541fd03b48fa2351c18261f21ddc462ca4e76adef4750a35df9db707e9acc9f7a67fb465757d7f254423b4f8b0661056e4d2ec07392c1
+  languageName: node
+  linkType: hard
+
 "@algolia/cache-in-memory@npm:4.21.1":
   version: 4.21.1
   resolution: "@algolia/cache-in-memory@npm:4.21.1"
@@ -129,6 +136,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@algolia/client-common@npm:4.22.1":
+  version: 4.22.1
+  resolution: "@algolia/client-common@npm:4.22.1"
+  dependencies:
+    "@algolia/requester-common": "npm:4.22.1"
+    "@algolia/transporter": "npm:4.22.1"
+  checksum: aac4af2a11e6cda26b57c81c666712a08175eb2b76fdaf50d5767b74f5e8c95ba667007fd4a8de908665af36636fc01546ff13ad4bdb9c44bdf50feef15f541a
+  languageName: node
+  linkType: hard
+
 "@algolia/client-personalization@npm:4.21.1":
   version: 4.21.1
   resolution: "@algolia/client-personalization@npm:4.21.1"
@@ -151,10 +168,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@algolia/client-search@npm:^4.22.0":
+  version: 4.22.1
+  resolution: "@algolia/client-search@npm:4.22.1"
+  dependencies:
+    "@algolia/client-common": "npm:4.22.1"
+    "@algolia/requester-common": "npm:4.22.1"
+    "@algolia/transporter": "npm:4.22.1"
+  checksum: d67fae7e53f1c6515a3fc6cdf64d59e690f12e2bdbff4e44b074cd8e8f180c63a267a5f30eceecfe5d5c451871bcdafb8e82760f9af1a17a506d228a686e3112
+  languageName: node
+  linkType: hard
+
 "@algolia/logger-common@npm:4.21.1":
   version: 4.21.1
   resolution: "@algolia/logger-common@npm:4.21.1"
   checksum: 35f61e3a17c1ec53819e94f0f92103465bd4d3d2b4f661b270e85f7cc71d9a02c0f2e4518a523f17ff9600151732a4b950567f28bf98ea0498429dfdb9a0c191
+  languageName: node
+  linkType: hard
+
+"@algolia/logger-common@npm:4.22.1":
+  version: 4.22.1
+  resolution: "@algolia/logger-common@npm:4.22.1"
+  checksum: 3ac5430f73e8eabb4e7561b271d38151fb7f128491437c202dac3d54f7c3a83ebc96818532746422ea4abdf9d68a6ccb716dc8b97f69101ff642afaff12057e5
   languageName: node
   linkType: hard
 
@@ -183,6 +218,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@algolia/requester-common@npm:4.22.1":
+  version: 4.22.1
+  resolution: "@algolia/requester-common@npm:4.22.1"
+  checksum: 115ebd0e7507c0f20bdd362eacf291b501c991d704158cf21825c733950064fc7f88b83f25b866e17137af1991d59453e92253408834d1b6ae0817cba4755b0d
+  languageName: node
+  linkType: hard
+
 "@algolia/requester-node-http@npm:4.21.1":
   version: 4.21.1
   resolution: "@algolia/requester-node-http@npm:4.21.1"
@@ -200,6 +242,17 @@ __metadata:
     "@algolia/logger-common": "npm:4.21.1"
     "@algolia/requester-common": "npm:4.21.1"
   checksum: 1055bf31091e4f47d000635cc2a483e597c1d119df3f64bcdd4e3ff14d3a46315fca51f2367a28ca2789b2792dc4a7ef1a196792d6362ddf7ca6aae9fb869c2c
+  languageName: node
+  linkType: hard
+
+"@algolia/transporter@npm:4.22.1":
+  version: 4.22.1
+  resolution: "@algolia/transporter@npm:4.22.1"
+  dependencies:
+    "@algolia/cache-common": "npm:4.22.1"
+    "@algolia/logger-common": "npm:4.22.1"
+    "@algolia/requester-common": "npm:4.22.1"
+  checksum: cdf43c7f4dc8447da47b30dee28b26e7871ec995606877bcbc20cc867a616c1856e78ed0a004c49ccbc752a5e5cf4df06f66f6e960f8823b7373bf5d276c756c
   languageName: node
   linkType: hard
 
@@ -3460,7 +3513,7 @@ __metadata:
     "@embroider/addon-dev": "npm:^4.1.2"
     "@embroider/addon-shim": "npm:^1.8.7"
     "@hashicorp/design-system-tokens": "npm:^1.9.0"
-    "@hashicorp/ember-flight-icons": "npm:^4.0.4"
+    "@hashicorp/ember-flight-icons": "npm:^4.0.5"
     "@rollup/plugin-babel": "npm:^6.0.4"
     "@tsconfig/ember": "npm:^3.0.2"
     "@types/ember-qunit": "npm:^6.1.1"
@@ -3535,7 +3588,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/ember-flight-icons@npm:^4.0.4, @hashicorp/ember-flight-icons@workspace:^, @hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons":
+"@hashicorp/ember-flight-icons@npm:^4.0.5, @hashicorp/ember-flight-icons@workspace:^, @hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons":
   version: 0.0.0-use.local
   resolution: "@hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons"
   dependencies:
@@ -3546,7 +3599,7 @@ __metadata:
     "@embroider/test-setup": "npm:^3.0.2"
     "@glimmer/component": "npm:^1.1.2"
     "@glimmer/tracking": "npm:^1.1.2"
-    "@hashicorp/flight-icons": "npm:^2.23.0"
+    "@hashicorp/flight-icons": "npm:^2.24.0"
     broccoli-asset-rev: "npm:^3.0.0"
     ember-auto-import: "npm:^2.6.3"
     ember-cli: "npm:~5.3.0"
@@ -3583,7 +3636,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/flight-icons@npm:^2.23.0, @hashicorp/flight-icons@workspace:^, @hashicorp/flight-icons@workspace:packages/flight-icons":
+"@hashicorp/flight-icons@npm:^2.24.0, @hashicorp/flight-icons@workspace:^, @hashicorp/flight-icons@workspace:packages/flight-icons":
   version: 0.0.0-use.local
   resolution: "@hashicorp/flight-icons@workspace:packages/flight-icons"
   dependencies:
@@ -26243,6 +26296,7 @@ __metadata:
   dependencies:
     "@algolia/autocomplete-js": "npm:^1.12.1"
     "@algolia/autocomplete-preset-algolia": "npm:^1.12.1"
+    "@algolia/client-search": "npm:^4.22.0"
     "@babel/core": "npm:^7.23.2"
     "@babel/eslint-parser": "npm:^7.22.15"
     "@ember/optional-features": "npm:^2.0.0"
