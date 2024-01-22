@@ -1,5 +1,5 @@
 {
-  "buildCommand": "yarn workspace showcase build",
+  "buildCommand": "yarn workspace @hashicorp/ember-flight-icons build && yarn workspace @hashicorp/design-system-components build && yarn workspace showcase build",
   "devCommand": "yarn workspace showcase ember serve",
   "headers": [
     {

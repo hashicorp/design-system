@@ -1,5 +1,5 @@
 {
-  "buildCommand": "yarn workspace @hashicorp/design-system-components build && yarn workspace website build && yarn workspace website algolia:index",
+  "buildCommand": "yarn workspace @hashicorp/ember-flight-icons build && yarn workspace @hashicorp/design-system-components build && yarn workspace website build && yarn workspace website algolia:index",
   "devCommand": "yarn workspace website ember serve",
   "headers": [
     {
