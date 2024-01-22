@@ -3,12 +3,15 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-// these are files coming from the 'design-system-tokens' package
+// these files come from the 'design-system-tokens' package
 @use "tokens";
 @use "helpers/color";
 @use "helpers/elevation";
 @use "helpers/focus-ring";
 @use "helpers/typography";
+
+// this file comes from the 'ember-flight-icons' package
+@use "icons";
 
 // Notice: this list can be automatically edited by the Ember blueprint, please don't remove the start/end comments
 // START COMPONENTS CSS FILES IMPORTS

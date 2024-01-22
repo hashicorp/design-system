@@ -46,14 +46,12 @@ export default {
       fileName: 'styles/@hashicorp/design-system-components.css',
       includePaths: [
         '../../node_modules/@hashicorp/design-system-tokens/dist/products/css',
+        '../../node_modules/@hashicorp/ember-flight-icons/dist/styles',
       ],
     }),
 
     scss({
       fileName: 'styles/@hashicorp/design-system-power-select-overrides.css',
-      includePaths: [
-        '../../node_modules/@hashicorp/design-system-tokens/dist/products/css',
-      ],
     }),
 
     // Addons are allowed to contain imports of .css files, which we want rollup
