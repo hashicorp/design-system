@@ -68,24 +68,16 @@ The Table component itself is where most of the options will be applied. However
     Use in conjunction with `sortBy`. If defined, indicates which direction the column should be pre-sorted in. If not defined, `asc` is applied by default.
   </C.Property>
   <C.Property @name="isSelectable" @type="boolean" @default="false">
-    If set to true, creates a “multi-select” table which renders checkboxes in table header and on table rows enabling bulk interaction. Use in conjunction with `onSelectionChange` on the `Table` and `selectionKey` on each `Table::Tr`.
+    If set to `true`, creates a “multi-select” table which renders checkboxes in the table header and on the table rows enabling bulk interaction. Use in conjunction with `onSelectionChange` on the `Table` and `selectionKey` on each `Table::Tr`.
   </C.Property>
   <C.Property @name="onSelectionChange" @type="function">
-    Use in conjunction with `isSelectable` to pass a callback function and receive selection keys. Must be used in conjunction with setting a `selectionKey` on each `Table::Tr`.
+    Use in conjunction with `isSelectable` to pass a callback function to know the table selection state. Must be used in conjunction with setting a `selectionKey` on each `Table::Tr`.
     <br /><br />
-    When called, this function receives array of selection keys corresponding to the selected table rows.
-  </C.Property>
-  <C.Property @name="selectAllAriaLabel" @type="string" @default="Select all">
-    Use in conjunction with `isSelectable`. Pass a custom aria-label value to the header checkbox in a mult-select table such as for translated strings.
-  </C.Property>
-  <C.Property @name="deselectAllAriaLabel" @type="string" @default="Deselect all">
-    Use in conjunction with `isSelectable`. Pass a custom aria-label value to the header checkbox in a mult-select table such as for translated strings.
-  </C.Property>
-  <C.Property @name="selectRowAriaLabel" @type="string" @default="Select ID#">
-    Use in conjunction with `isSelectable`. Pass a custom aria-label value to each row checkbox in a multi-select table such as for translated strings. The `id` of the checkbox is appended to the passed string.
-  </C.Property>
-  <C.Property @name="deselectRowAriaLabel" @type="string" @default="Deselect ID#">
-    Use in conjunction with `isSelectable`. Pass a custom aria-label value to each row checkbox in a multi-select table such as for translated strings. The `id` of the checkbox is appended to the passed string.
+    When called, this function receives an object as argument, with different keys corresponding to different informations:<br />
+    - `selectionKey` - the value of the `@selectionKey` argument associated with the row selected/deselected by the user or `all` if the "select all" checkbox has been toggled<br />
+    - `selectionCheckboxElement` - the checkbox (DOM element) that has been toggled by the user<br />
+    - `selectedRowsKeys` - an array containing all the `@selectionKey`s of the selected rows in the table (an empty array is returned if no row is selected)<br />
+    - `selectableRowsStates` - an array of objects corresponding to all the rows displayed in the table when the user changed a selection; each object contains the `@selectionKey` value for the associated row and its `isSelected` boolean state (if the checkbox is checked or not) - **Important**: the order of the rows in the array doesn't necessarily follow the order of the rows in the table/DOM.
   </C.Property>
   <C.Property @name="isStriped" @type="boolean" @default="false">
     Define on the table invocation. If set to `true`, even-numbered rows will have a different background color from odd-numbered rows.
@@ -126,11 +118,14 @@ This component can contain `Hds::Table::Th`, `Hds::Table::ThSort`, or `Hds::Tabl
   <C.Property @name="yield">
     Elements passed as children of this component are yielded inside the `<tr>` element.
   </C.Property>
-  <C.Property @name="selectionKey" @type="string">
-    Use to set a key on each table row. Used in conjunction with `isSelectable` and `onSelectionChange` on the `Table`.
+  <C.Property @name="isSelected" @type="boolean" @default="false">
+    Sets the initial selection state for the row (used in conjunction with setting `isSelectable` on the `Table`).
   </C.Property>
-  <C.Property @name="isSelected" @type="boolean">
-    Use to set an initial selected state for the row. Used in conjunction with setting `isSelectable` on the `Table`.
+  <C.Property @name="selectionKey" @type="string | number">
+    Required value to associate an unique identifier to each table row (used in conjunction with setting `isSelectable` on the `Table` and returned in the `onSelectionChange` callback arguments). It's required if `isSelectable={{true}}`.
+  </C.Property>
+  <C.Property @name="selectionAriaLabelSuffix" @type="string">
+    Descriptive `aria-label` attribute applied to the checkbox used to select the row (used in conjunction with setting `isSelectable` on the `Table`). The component automatically prepends "Select/Deselect" to the string, depending on the selection status. It's required if `isSelectable={{true}}`.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
@@ -159,16 +154,6 @@ If the `Th` component is passed as the first cell of a table body row, `scope="r
   <C.Property @name="yield">
     Elements passed as children of this component are yielded inside the `<th>` element.
   </C.Property>
-  <C.Property @name="...attributes">
-    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
-  </C.Property>
-</Doc::ComponentApi>
-
-### Table::ThSelectable
-
-This is the component that supports multi-select functionality; use instead of `Hds::Table::Th` if creating a custom table implementation.
-
-<Doc::ComponentApi as |C|>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
