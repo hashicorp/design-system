@@ -265,13 +265,17 @@
 
   <Shw::Grid @columns="3" as |SG|>
     <SG.Item @label="Label + Character count">
-      <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" as |F|>
+      <Hds::Form::TextInput::Field
+        @value={{this.defaultText}}
+        {{on "input" (fn this.updateValue "defaultText")}}
+        as |F|
+      >
         <F.Label>This is the label text</F.Label>
         <F.CharacterCount @maxLength={{40}} />
       </Hds::Form::TextInput::Field>
     </SG.Item>
     <SG.Item @label="Label + Helper text + Character count (custom)">
-      <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" as |F|>
+      <Hds::Form::TextInput::Field @value={{this.customText}} {{on "input" (fn this.updateValue "customText")}} as |F|>
         <F.HelperText>This is the helper text</F.HelperText>
         <F.Label>This is the label text</F.Label>
         <F.CharacterCount @maxLength={{40}} as |CC|>
@@ -284,9 +288,14 @@
       </Hds::Form::TextInput::Field>
     </SG.Item>
     <SG.Item @label="Label + Helper text + Character count">
-      <Hds::Form::TextInput::Field @isInvalid={{this.fieldIsInvalid}} @value="Lorem ipsum dolor sit amet" as |F|>
+      <Hds::Form::TextInput::Field
+        @isInvalid={{this.fieldIsInvalid}}
+        @value={{this.withHelperText}}
+        {{on "input" (fn this.updateValue "withHelperText")}}
+        as |F|
+      >
         <F.Label>This is the label text</F.Label>
-        <F.CharacterCount @maxLength={{20}} @onInput={{this.onFieldInput}} />
+        <F.CharacterCount @maxLength={{20}} />
         {{#if this.fieldIsInvalid}}
           <F.Error>Maximum numbers of characters exceeded</F.Error>
         {{/if}}

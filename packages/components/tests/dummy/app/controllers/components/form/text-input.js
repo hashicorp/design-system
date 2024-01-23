@@ -8,12 +8,18 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class FormTextInputController extends Controller {
-  @tracked fieldIsInvalid;
+  @tracked defaultText = 'Lorem ipsum dolor';
+  @tracked customText = 'Lorem ipsum dolor';
+  @tracked withHelperText = 'Lorem ipsum dolor sit amet';
 
   @action
   noop() {}
 
-  @action onFieldInput(args) {
-    this.fieldIsInvalid = args.currentLength > args.maxLength;
+  get fieldIsInvalid() {
+    return this.withHelperText.length > 20;
+  }
+
+  @action updateValue(propName, event) {
+    this[propName] = event.target.value;
   }
 }
