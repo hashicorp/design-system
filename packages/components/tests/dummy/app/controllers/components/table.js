@@ -25,6 +25,7 @@ export default class ComponentsTableController extends Controller {
   // multi-select
   @tracked multiSelectFilterRows__demo1 = 'all';
   @tracked multiSelectToggleScope__demo1 = false;
+  @tracked multiSelectToggleDebug__demo1 = false;
   @deepTracked multiSelectModelData__demo1 = [
     ...this.model.selectableDataDemo1,
   ];
@@ -38,6 +39,7 @@ export default class ComponentsTableController extends Controller {
     ...this.model.selectableDataDemo2,
   ];
   @tracked multiSelectToggleScope__demo2 = false;
+  @tracked multiSelectToggleDebug__demo2 = false;
   @tracked multiSelectPaginatedCurrentPage_demo2 = 1;
   @tracked multiSelectPaginatedCurrentPageSize_demo2 = 2;
   @tracked multiSelectToggleScope__demo3 = false;
@@ -180,26 +182,6 @@ export default class ComponentsTableController extends Controller {
   // GENERIC MULTI-SELECT FUNCTIONALITIES
 
   @action
-  genericMultiSelectionChangeLogging(selection) {
-    console.log(selection);
-  }
-
-  // @action
-  // onPaginationSelectionChange(selection) {
-  //   const start =
-  //     (this.multiSelectPaginatedCurrentPage_demo2 - 1) *
-  //     this.multiSelectPaginatedCurrentPageSize_demo2;
-  //   const end =
-  //     this.multiSelectPaginatedCurrentPage_demo2 *
-  //     this.multiSelectPaginatedCurrentPageSize_demo2;
-  //   for (let i = start; i < end; i++) {
-  //     this.model.selectableData[i].isSelected = selection.includes(
-  //       this.model.selectableData[i].id
-  //     );
-  //   }
-  // }
-
-  @action
   mockIndeterminateState(checkbox) {
     checkbox.indeterminate = true;
   }
@@ -221,6 +203,11 @@ export default class ComponentsTableController extends Controller {
   @action
   toggleMultiSelectToggleScope__demo1(event) {
     this.multiSelectToggleScope__demo1 = event.target.checked;
+  }
+
+  @action
+  toggleMultiSelectToggleDebug__demo1(event) {
+    this.multiSelectToggleDebug__demo1 = event.target.checked;
   }
 
   @action
@@ -280,6 +267,11 @@ export default class ComponentsTableController extends Controller {
   @action
   toggleMultiSelectPaginatedToggleScope__demo2(event) {
     this.multiSelectToggleScope__demo2 = event.target.checked;
+  }
+
+  @action
+  toggleMultiSelectPaginatedToggleDebug__demo2(event) {
+    this.multiSelectToggleDebug__demo2 = event.target.checked;
   }
 
   get multiSelectPaginatedTotalItems_demo2() {

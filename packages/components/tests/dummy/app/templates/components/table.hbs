@@ -499,22 +499,37 @@
   <Shw::Text::H4>With inline filter</Shw::Text::H4>
 
   <div class="shw-component-table-demo-topbar">
-    <div>
+    <div class="shw-component-table-demo-topbar__toggle">
       <input
-        id="multi-select-demo1__toggle"
+        id="multi-select-demo1__toggle-scope"
         type="checkbox"
         checked={{this.multiSelectToggleScope__demo1}}
         {{on "change" this.toggleMultiSelectToggleScope__demo1}}
       />
-      <label for="multi-select-demo1__toggle">Extend "Select All" scope to non-displayed rows</label>
+      <label for="multi-select-demo1__toggle-scope">Extend "Select All" scope to non-displayed rows</label>
     </div>
-    <div>
+    <div class="shw-component-table-demo-topbar__toggle">
+      <input
+        id="multi-select-demo1__toggle-debug"
+        type="checkbox"
+        checked={{this.multiSelectToggleDebug__demo1}}
+        {{on "change" this.toggleMultiSelectToggleDebug__demo1}}
+      />
+      <label for="multi-select-demo1__toggle-debug">Show all rows' state</label>
+    </div>
+    <div class="shw-component-table-demo-topbar__action">
       <label for="multi-select-demo1__filter">Filter:</label>
-      <select id="multi-select-demo1__filter" {{on "change" this.onChangeMultiSelectFilter__demo1}}>
-        <option value="all" selected={{eq this.multiSelectFilterRows__demo1 "all"}}>Show all rows</option>
-        <option value="even" selected={{eq this.multiSelectFilterRows__demo1 "even"}}>Show even rows</option>
-        <option value="odd" selected={{eq this.multiSelectFilterRows__demo1 "odd"}}>Show odd rows</option>
-      </select>
+      <Hds::Form::Select::Base
+        id="multi-select-demo1__filter"
+        {{on "change" this.onChangeMultiSelectFilter__demo1}}
+        as |C|
+      >
+        <C.Options>
+          <option value="all" selected={{eq this.multiSelectFilterRows__demo1 "all"}}>Show all rows</option>
+          <option value="even" selected={{eq this.multiSelectFilterRows__demo1 "even"}}>Show even rows</option>
+          <option value="odd" selected={{eq this.multiSelectFilterRows__demo1 "odd"}}>Show odd rows</option>
+        </C.Options>
+      </Hds::Form::Select::Base>
     </div>
   </div>
 
@@ -538,9 +553,11 @@
           </B.Tr>
         </:body>
       </Hds::Table>
-      {{#each this.multiSelectModelData__demo1 as |row|}}
-        <pre>row{{row.id}} = {{(if row.isSelected "✅")}}</pre>
-      {{/each}}
+      {{#if this.multiSelectToggleDebug__demo1}}
+        {{#each this.multiSelectModelData__demo1 as |row|}}
+          <pre>row{{row.id}} = {{(if row.isSelected "✅")}}</pre>
+        {{/each}}
+      {{/if}}
     </SF.Item>
     <SF.Item @label="No model">
       <Hds::Table @isSelectable={{true}} @onSelectionChange={{this.onSelectionChangeWithoutModel__demo1}}>
@@ -582,17 +599,19 @@
           {{/if}}
         </:body>
       </Hds::Table>
-      <pre>row1 = {{(if (get this.multiSelectNoModelState__demo1 "row1") "✅")}}</pre>
-      <pre>row2 = {{(if (get this.multiSelectNoModelState__demo1 "row2") "✅")}}</pre>
-      <pre>row3 = {{(if (get this.multiSelectNoModelState__demo1 "row3") "✅")}}</pre>
-      <pre>row4 = {{(if (get this.multiSelectNoModelState__demo1 "row4") "✅")}}</pre>
+      {{#if this.multiSelectToggleDebug__demo1}}
+        <pre>row1 = {{(if (get this.multiSelectNoModelState__demo1 "row1") "✅")}}</pre>
+        <pre>row2 = {{(if (get this.multiSelectNoModelState__demo1 "row2") "✅")}}</pre>
+        <pre>row3 = {{(if (get this.multiSelectNoModelState__demo1 "row3") "✅")}}</pre>
+        <pre>row4 = {{(if (get this.multiSelectNoModelState__demo1 "row4") "✅")}}</pre>
+      {{/if}}
     </SF.Item>
   </Shw::Flex>
 
   <Shw::Text::H4>With pagination</Shw::Text::H4>
 
   <div class="shw-component-table-demo-topbar">
-    <div>
+    <div class="shw-component-table-demo-topbar__toggle">
       <input
         id="multi-select-demo2__toggle"
         type="checkbox"
@@ -600,6 +619,15 @@
         {{on "change" this.toggleMultiSelectPaginatedToggleScope__demo2}}
       />
       <label for="multi-select-demo2__toggle">Extend "Select All" scope to non-displayed rows</label>
+    </div>
+    <div class="shw-component-table-demo-topbar__toggle">
+      <input
+        id="multi-select-demo2__toggle-debug"
+        type="checkbox"
+        checked={{this.multiSelectToggleDebug__demo2}}
+        {{on "change" this.toggleMultiSelectPaginatedToggleDebug__demo2}}
+      />
+      <label for="multi-select-demo2__toggle-debug">Show all rows' state</label>
     </div>
   </div>
 
@@ -631,9 +659,11 @@
       @onPageSizeChange={{this.onMultiSelectPaginatedPageSizeChange_demo2}}
       aria-label="Pagination for basic multi-select table"
     />
-    {{#each this.multiSelectModelData__demo2 as |row|}}
-      <pre>row{{row.id}} = {{(if row.isSelected "✅")}}</pre>
-    {{/each}}
+    {{#if this.multiSelectToggleDebug__demo2}}
+      {{#each this.multiSelectModelData__demo2 as |row|}}
+        <pre>row{{row.id}} = {{(if row.isSelected "✅")}}</pre>
+      {{/each}}
+    {{/if}}
   </div>
 
   <Shw::Text::H4>Delete selected rows</Shw::Text::H4>
@@ -641,7 +671,7 @@
   <Shw::Text::Body>This demo emulates, for example, when a user needs to delete the selected users.</Shw::Text::Body>
 
   <div class="shw-component-table-demo-topbar">
-    <div>
+    <div class="shw-component-table-demo-topbar__toggle">
       <input
         id="multi-select-demo3__toggle"
         type="checkbox"
@@ -650,7 +680,7 @@
       />
       <label for="multi-select-demo3__toggle">Extend "Select All" scope to non-displayed rows</label>
     </div>
-    <div>
+    <div class="shw-component-table-demo-topbar__action">
       <Hds::Button @text="Delete users" @icon="trash" {{on "click" this.multiSelectDeleteSelectedUsers_demo3}} />
     </div>
   </div>
@@ -692,8 +722,7 @@
   <Shw::Text::Body>This demo emulates, for example, when a user needs to download the selected files.</Shw::Text::Body>
 
   <div class="shw-component-table-demo-topbar">
-    <div></div>
-    <div>
+    <div class="shw-component-table-demo-topbar__action">
       <Hds::Button @text="Animate users" @icon="play" {{on "click" this.multiSelectAnimateSelectedUsers_demo4}} />
     </div>
   </div>

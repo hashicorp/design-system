@@ -43,9 +43,22 @@ body.components-table {
     flex-direction: row;
     gap: 16px;
     align-items: flex-end;
-    justify-content: space-between;
     margin-bottom: 24px;
+  }
+
+  .shw-component-table-demo-topbar__toggle {
+    display: flex;
+    gap: 8px;
+    align-items: center;
     font-size: 0.9rem;
+  }
+
+  .shw-component-table-demo-topbar__action {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-right: 0;
+    margin-left: auto;
   }
 
   .shw-component-table-animate-user {
