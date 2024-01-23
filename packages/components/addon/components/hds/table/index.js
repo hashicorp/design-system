@@ -207,6 +207,7 @@ export default class HdsTableIndexComponent extends Component {
   onSelectionAllChange() {
     this.selectableRows.forEach((row) => {
       row.checkbox.checked = this.selectAllCheckbox.checked;
+      row.checkbox.dispatchEvent(new Event('toggle', { bubbles: false }));
     });
     this.isSelectAllCheckboxSelected = this.selectAllCheckbox.checked;
     this.onSelectionChangeCallback(this.selectAllCheckbox, 'all');
