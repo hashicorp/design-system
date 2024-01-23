@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2023-12-14T19:28:54.728Z",
+  "lastRunTimeISO": "2024-01-23T00:20:00.308Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -2851,6 +2851,42 @@
       "fileName": "vault-color-16",
       "iconName": "vault-color",
       "description": "vault",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "5178:102",
+      "fileName": "vault-radar-24",
+      "iconName": "vault-radar",
+      "description": "vault, hcp vault, radar",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "5178:105",
+      "fileName": "vault-radar-16",
+      "iconName": "vault-radar",
+      "description": "vault, hcp vault, radar",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "5178:111",
+      "fileName": "vault-radar-color-24",
+      "iconName": "vault-radar-color",
+      "description": "vault, hcp vault, radar",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "5178:114",
+      "fileName": "vault-radar-color-16",
+      "iconName": "vault-radar-color",
+      "description": "vault, hcp vault, radar",
       "size": "16",
       "width": 16,
       "height": 16
