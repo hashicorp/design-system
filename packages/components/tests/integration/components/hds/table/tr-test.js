@@ -34,9 +34,9 @@ module('Integration | Component | hds/table/tr', function (hooks) {
 
   // ASSERTIONS
 
-  test('it should throw an error if @selectionKey is not defined when @isSelectable is true', async function (assert) {
+  test('it should throw an error if @selectionKey is not defined when @isSelectable is `true` and @selectionScope is `row`', async function (assert) {
     const errorMessage =
-      '@selectionKey must be defined on Table::Tr when @isSelectable is true';
+      '@selectionKey must be defined on Table::Tr or B.Tr when @isSelectable is true';
     assert.expect(1);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, errorMessage);
