@@ -189,19 +189,16 @@ export default class HdsTableIndexComponent extends Component {
       onSelectionChange({
         selectionKey: selectionKey,
         selectionCheckboxElement: checkbox,
-        // do we really need this?
-        // selectableRows: this.selectableRows,
-        // selectableRowsKeys: this.selectableRows.map((row) => row.selectionKey),
-        selectableRowsStates: this.selectableRows.reduce((acc, row) => {
-          acc[row.selectionKey] = row.checkbox.checked;
-          return acc;
-        }, {}),
         selectedRowsKeys: this.selectableRows.reduce((acc, row) => {
           if (row.checkbox.checked) {
             acc.push(row.selectionKey);
           }
           return acc;
         }, []),
+        selectableRowsStates: this.selectableRows.reduce((acc, row) => {
+          acc[row.selectionKey] = row.checkbox.checked;
+          return acc;
+        }, {}),
       });
     }
   }
@@ -249,13 +246,14 @@ export default class HdsTableIndexComponent extends Component {
   setSelectAllState() {
     if (this.selectAllCheckbox) {
       let selectableRowsCount = this.selectableRows.length;
-      let selectedRowCount = this.selectableRows.filter(
+      let selectedRowsCount = this.selectableRows.filter(
         (row) => row.checkbox.checked
       ).length;
 
-      this.selectAllCheckbox.checked = selectedRowCount === selectableRowsCount;
+      this.selectAllCheckbox.checked =
+        selectedRowsCount === selectableRowsCount;
       this.selectAllCheckbox.indeterminate =
-        selectedRowCount > 0 && selectedRowCount < selectableRowsCount;
+        selectedRowsCount > 0 && selectedRowsCount < selectableRowsCount;
       this.isSelectAllCheckboxSelected = this.selectAllCheckbox.checked;
     }
   }
