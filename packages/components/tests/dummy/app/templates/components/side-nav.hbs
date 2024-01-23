@@ -624,12 +624,16 @@
     </SG.Item>
     <SG.Item @label="Icon + text + yielded content">
       <Hds::SideNav::List::Link @icon="boundary" @text="Boundary">
-        <Shw::Placeholder @height="20px" @text="yielded content" />
+        {{! template-lint-disable no-inline-styles }}
+        <Shw::Placeholder @height="20px" @width="auto" style="flex-grow: 1;" @text="yielded content" />
+        {{! template-lint-enable no-inline-styles }}
       </Hds::SideNav::List::Link>
     </SG.Item>
     <SG.Item @label="With hasSubItems">
       <Hds::SideNav::List::Link @icon="boundary" @text="Boundary" @hasSubItems={{true}}>
-        <Shw::Placeholder @height="20px" @text="yielded content" />
+        {{! template-lint-disable no-inline-styles }}
+        <Shw::Placeholder @height="20px" @width="auto" style="flex-grow: 1;" @text="yielded content" />
+        {{! template-lint-enable no-inline-styles }}
       </Hds::SideNav::List::Link>
     </SG.Item>
     <SG.Item @label="Text with no style">
