@@ -39,7 +39,6 @@
     "@hashicorp/ember-flight-icons": "^4.1.0",
     "dialog-polyfill": "^0.5.6",
     "ember-a11y-refocus": "^3.0.2",
-    "ember-cached-decorator-polyfill": "^1.0.2",
     "ember-cli-sass": "^11.0.1",
     "ember-composable-helpers": "^5.0.0",
     "ember-deep-tracked": "^2.0.0",

@@ -2781,7 +2781,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/macros@npm:1.13.4, @embroider/macros@npm:^0.50.0 || ^1.0.0, @embroider/macros@npm:^1.0.0, @embroider/macros@npm:^1.10.0, @embroider/macros@npm:^1.12.0, @embroider/macros@npm:^1.13.1, @embroider/macros@npm:^1.13.3, @embroider/macros@npm:^1.2.0, @embroider/macros@npm:^1.8.1, @embroider/macros@npm:^1.8.3":
+"@embroider/macros@npm:1.13.4, @embroider/macros@npm:^0.50.0 || ^1.0.0, @embroider/macros@npm:^1.0.0, @embroider/macros@npm:^1.10.0, @embroider/macros@npm:^1.12.0, @embroider/macros@npm:^1.13.1, @embroider/macros@npm:^1.13.3, @embroider/macros@npm:^1.2.0, @embroider/macros@npm:^1.8.1":
   version: 1.13.4
   resolution: "@embroider/macros@npm:1.13.4"
   dependencies:
@@ -3519,7 +3519,6 @@ __metadata:
     "@types/rsvp": "npm:^4.0.6"
     dialog-polyfill: "npm:^0.5.6"
     ember-a11y-refocus: "npm:^3.0.2"
-    ember-cached-decorator-polyfill: "npm:^1.0.2"
     ember-cli-sass: "npm:^11.0.1"
     ember-composable-helpers: "npm:^5.0.0"
     ember-element-helper: "npm:^0.8.5"
@@ -6996,7 +6995,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-import-util@npm:^1.1.0, babel-import-util@npm:^1.2.2":
+"babel-import-util@npm:^1.1.0":
   version: 1.4.1
   resolution: "babel-import-util@npm:1.4.1"
   checksum: becfbc6a60c8e6d026d648abec94af1a6bcc952d015dc1a802722b36abfffb5c9e0e803345d344738a1dcdab8c63eb33766316fd66b32f78b9dce9a93391a80d
@@ -11352,34 +11351,6 @@ __metadata:
     ember-cli-babel: "npm:^7.26.10"
     ember-get-config: "npm:^0.5.0"
   checksum: ae409e6e20160a64451b950e5e24dc7270a5c7c618700f9993c82f4df03ee98a873d87670e7cadbcafd2cbfcd6ab83f7d06425f779a7042895dca85990af7f5a
-  languageName: node
-  linkType: hard
-
-"ember-cache-primitive-polyfill@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "ember-cache-primitive-polyfill@npm:1.0.1"
-  dependencies:
-    ember-cli-babel: "npm:^7.22.1"
-    ember-cli-version-checker: "npm:^5.1.1"
-    ember-compatibility-helpers: "npm:^1.2.1"
-    silent-error: "npm:^1.1.1"
-  checksum: 6a9b85bb67d17b4d1a2a7556e3ae851ef1e63c7395a19f534421707a4ee19212b0682fa2435c3efaefcc7e9c4c63e7348cbdfde2a31a8e73f5d725344de34db1
-  languageName: node
-  linkType: hard
-
-"ember-cached-decorator-polyfill@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "ember-cached-decorator-polyfill@npm:1.0.2"
-  dependencies:
-    "@embroider/macros": "npm:^1.8.3"
-    "@glimmer/tracking": "npm:^1.1.2"
-    babel-import-util: "npm:^1.2.2"
-    ember-cache-primitive-polyfill: "npm:^1.0.1"
-    ember-cli-babel: "npm:^7.26.11"
-    ember-cli-babel-plugin-helpers: "npm:^1.1.1"
-  peerDependencies:
-    ember-source: ^3.13.0 || ^4.0.0 || >= 5.0.0
-  checksum: e83d4e3064c9787fa3e1b8f8b7e809360ab06c04f098f95a9aa2f95049634bda614270fedce2859373ca448b013c289658c8f290f5abd4af8ab2eecb2483f2d0
   languageName: node
   linkType: hard
 
@@ -23202,7 +23173,6 @@ __metadata:
     ember-a11y-testing: "npm:^6.1.1"
     ember-auto-import: "npm:^2.6.3"
     ember-body-class: "npm:^3.0.0"
-    ember-cached-decorator-polyfill: "npm:^1.0.2"
     ember-cli: "npm:~5.3.0"
     ember-cli-babel: "npm:^8.2.0"
     ember-cli-clean-css: "npm:^3.0.0"
