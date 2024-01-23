@@ -475,7 +475,7 @@ The default table layout is `auto` which means the browser will try to optimize 
 <!-- this is an element with "overflow: auto" -->
 <div class="doc-table-scrollable-wrapper">
   <Hds::Table
-    @model={{this.modelWithLargeNumberOfColumns}}
+    @model={{this.demoDataWithLargeNumberOfColumns}}
     @columns={{array
       (hash key="first_name" label="First Name" isSortable=true)
       (hash key="last_name" label="Last Name" isSortable=true)
@@ -516,7 +516,7 @@ In this case the table layout is still set to `auto` (default). If instead you w
   <!-- this is an element with "width: max-content" -->
   <div class="doc-table-max-content-width">
     <Hds::Table
-      @model={{this.modelWithLargeNumberOfColumns}}
+      @model={{this.demoDataWithLargeNumberOfColumns}}
       @columns={{array
         (hash key="first_name" label="First Name" isSortable=true width="200px")
         (hash key="last_name" label="Last Name" isSortable=true width="200px")
@@ -553,19 +553,21 @@ Add `isSelectable=true` to create a multi-select table. The `onSelectionChange` 
 
 #### Multi-select table using a model
 
+This is a simple example of a table with multi-selection. Notice the `@selectionKey` argument provided to the rows, used by the `@onSelectionChange` callback to provide the list of selected/deselected rows as argument(s) for the invoked function:
+
 ```handlebars
 <Hds::Table
   @isSelectable={{true}}
-  @onSelectionChange={{this.onSelectionChange}}
+  @onSelectionChange={{this.demoOnSelectionChange}}
   @model={{this.model.myDemoData}}
   @columns={{array
-    (hash label="Artist")
-    (hash label="Album")
-    (hash label="Year")
+    (hash key="artist" label="Artist")
+    (hash key="album" label="Album")
+    (hash key="year" label="Year")
   }}
 >
   <:body as |B|>
-    <B.Tr @selectionKey={{B.data.id}}>
+    <B.Tr @selectionKey={{B.data.id}} @selectionAriaLabelSuffix="row {{B.data.artist}} / {{B.data.album}}">
       <B.Td>{{B.data.artist}}</B.Td>
       <B.Td>{{B.data.album}}</B.Td>
       <B.Td>{{B.data.year}}</B.Td>
@@ -574,37 +576,121 @@ Add `isSelectable=true` to create a multi-select table. The `onSelectionChange` 
 </Hds::Table>
 ```
 
-#### Static multi-select table with no model
+!!! Warning
 
-```handlebars
-<Hds::Table @isSelectable={{true}} @onSelectionChange={{this.onSelectionChange}}>
-  <:head as |H|>
-    <H.Tr>
-      <H.Th>Lorem</H.Th>
-      <H.Th>Ipsum</H.Th>
-      <H.Th>Dolor</H.Th>
-    </H.Tr>
-  </:head>
-  <:body as |B|>
-    <B.Tr @selectionKey="row1">
-      <B.Th>1</B.Th>
-      <B.Td>Cell Content</B.Td>
-      <B.Td>Cell Content</B.Td>
-    </B.Tr>
-    <B.Tr @selectionKey="row2">
-      <B.Th>2</B.Th>
-      <B.Td>Cell Content</B.Td>
-      <B.Td>Cell Content</B.Td>
-    </B.Tr>
-    <B.Tr @selectionKey="row3">
-      <B.Th>3</B.Th>
-      <B.Td>Cell Content</B.Td>
-      <B.Td>Cell Content</B.Td>
-    </B.Tr>
-  </:body>
-</Hds::Table>
+**Important**
+
+To make the table correctly accessible each checkbox used for the selection needs to have a distinct `aria-label`. For this reason you need to provide a `@selectionAriaLabelSuffix` value (possibly unique) to the rows in the table's `tbody`.
+
+!!!
+
+Here’s an example of what a `@onSelectionChange` callback function could look like.
+
+```javascript
+@action
+demoOnSelectionChange({
+  selectionKey, // the `selectionKey` value for the selected row or "all" if the "select all" has been toggled
+  selectionCheckboxElement, // the checkbox DOM element toggled by the user
+  selectableRowsStates, // an array of objects describing each displayed "row" state (its `selectionKey` value and its `isSelected` state)
+  selectedRowsKeys // an array of all the `selectionKey` values of the currently selected rows
+}) {
+  // here we use the `selectedRowsKeys` to execute some action on each of the data records associated (via the `@selectionKey` argument) to the selected rows
+  selectedRowsKeys.forEach((rowSelectionKey) => {
+    // do something using the row's `selectionKey` value
+    // ...
+    // ...
+    // ...
+  });
+}
 ```
 
+For details about the arguments provided to the `@onSelectionChange` callback function refer to the [Component API](#component-api) section.
+
+
+!!! Info
+
+**Multi-select table without a model**
+
+While it's technically possible to use the multi-select feature in a table implemented without using a model, we strongly suggest to convert the code so that a `@model` is provided to the table, using a local dataset (created using the information/data that needs to be displayed).
+
+!!!
+
+#### Multi-select table with pagination and persisted selection status
+
+This is a more complex example, where a table with multi-selection is associated with a [Pagination](/components/pagination) element (a similar use case would apply if a [filter](/patterns/filter-patterns) is applied to the data used to populate the table). In this case, a **subset of rows** is displayed on screen.
+
+When a user selects a row, if the displayed rows are replaced with other ones (e.g., when the user clicks on the "next" button or on a different page number) there's the question of what happens to the previous selection: is it persisted in the data/model underlying the table? Or is it lost?
+
+In the demo below we are persisting the selection in the data/model, so that when navigating to different pages the row selections are persisted across table re-renderings.
+
+```handlebars
+<div class="doc-table-multiselect-with-pagination-demo">
+  <Hds::Table
+    @isSelectable={{true}}
+    @onSelectionChange={{this.demoOnSelectionChangeWithPagination}}
+    @model={{this.demoPaginatedData}}
+    @columns={{array
+      (hash key="artist" label="Artist")
+      (hash key="album" label="Album")
+      (hash key="year" label="Year")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr @selectionKey={{B.data.id}} @isSelected={{B.data.isSelected}} @selectionAriaLabelSuffix="row {{B.data.artist}} / {{B.data.album}}">
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td>{{B.data.year}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+  <Hds::Pagination::Numbered
+    @totalItems={{this.demoTotalItems}}
+    @currentPage={{this.demoCurrentPage}}
+    @pageSizes={{array 2 4}}
+    @currentPageSize={{this.demoCurrentPageSize}}
+    @onPageChange={{this.demoOnPageChange}}
+    @onPageSizeChange={{this.demoOnPageSizeChange}}
+    @ariaLabel="Pagination for multi-select table"
+  />
+</div>
+```
+
+Depending on the expected behavior, you will need to implement the consumer-side logic that handles the persistence (or not) using the `@onSelectionChange` callback function. For the example above, something like this:
+
+```javascript
+@action
+demoOnSelectionChangeWithPagination({ selectableRowsStates }) {
+  // we loop over all the displayed table rows (a subset of the dataset)
+  selectableRowsStates.forEach((row) => {
+    // we find the record in the dataset corresponding to the current row
+    const recordToUpdate = this.demoSourceData.find(
+      (modelRow) => modelRow.id === row.selectionKey
+    );
+    if (recordToUpdate) {
+      // we update the record `isSelected` state based on the row (checkbox) state
+      recordToUpdate.isSelected = row.isSelected;
+    }
+  });
+}
+
+```
+
+For details about the arguments provided to the `@onSelectionChange` callback function refer to the [Component API](#component-api) section.
+
+
+#### Usability and accessibility considerations
+
+Since the "selected" state of a row is communicated visually via the checkbox selection and for screen-reader users via the `aria-label` applied to the checkbox, there are some important considerations to keep in mind when implementing a multi-select table.
+
+If the selection status of the rows is persisted even when a row is not displayed in the UI, you need to be mindful of what the expectations of the user may be: how do we make them aware that the action that they are going to perform may involve table rows that were previously selected by the user but that are not displayed in that moment?
+
+Even more complex is the case of the "Select all" checkbox. While it's pretty straightforward the expected behaviour when all the table rows are displayed on the table (precisely, "select all the rows in the table"), it may not be obvious what is the expected behaviour when the table rows are paginated of filtered.
+
+If as a user I am looking at a subset of the whole possible rows, and I click "select all", what should I expect to happen? That all (and only) the displayed rows are selected –and this is what happens in the example above– or that all the data/model rows are selected, even if not displayed at the moment? In the first case, the "select all" state changes whenever the rows are changes (eg. the user chooses a different pagination number), and this could be confusing. In the second case, it may not be obvious to the user that _all_ the data records have been selected, and it may unintentionally perform an action on them under the assumption that they are performing it only on the displayed table rows.
+
+Whatever functionality you decide to implement, be mindful of all these possible subtleties and complexities.
+
+For more detailed guidance around these usability and accessibility concerns, refer to **[TODO!!!]**.
 
 ### More examples
 
