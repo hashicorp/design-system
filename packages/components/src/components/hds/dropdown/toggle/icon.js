@@ -4,7 +4,9 @@
  */
 
 import Component from '@glimmer/component';
+import { action } from '@ember/object';
 import { assert } from '@ember/debug';
+import { tracked } from '@glimmer/tracking';
 
 export const DEFAULT_SIZE = 'medium';
 export const SIZES = ['small', 'medium'];
@@ -12,6 +14,8 @@ export const SIZES = ['small', 'medium'];
 const NOOP = () => {};
 
 export default class HdsDropdownToggleIconComponent extends Component {
+  @tracked hasImage = false;
+
   constructor() {
     super(...arguments);
     if (!(this.args.icon || this.args.imageSrc)) {
@@ -19,6 +23,16 @@ export default class HdsDropdownToggleIconComponent extends Component {
         '@icon or @imageSrc must be defined for "Hds::Dropdown::Toggle::Icon"'
       );
     }
+  }
+
+  @action
+  onDidUpdateImageSrc() {
+    this.hasImage = true;
+  }
+
+  @action
+  onImageLoadError() {
+    this.hasImage = false;
   }
 
   /**

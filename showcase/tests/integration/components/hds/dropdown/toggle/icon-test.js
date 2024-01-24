@@ -35,11 +35,20 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
 
   // IMAGE (AVATAR)
 
-  test('if an @imageSrc is declared the image should render in the component', async function (assert) {
+  test('if an @imageSrc is declared and exists the image should render in the component', async function (assert) {
     await render(
       hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" @imageSrc="/assets/images/avatar.png" id="test-toggle-icon" />`
     );
     assert.dom('img').exists();
+  });
+
+  test('if an @imageSrc is declared but does not exist, the flight icon should render in the component', async function (assert) {
+    await render(
+      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" @imageSrc="/assets/images/avatar-no-existe.png" id="test-toggle-icon" />`
+    );
+    assert.dom('img').doesNotExist();
+    assert.dom('#test-toggle-icon').hasClass('hds-dropdown-toggle-icon');
+    assert.dom('.flight-icon.flight-icon-user').exists();
   });
 
   // CHEVRON

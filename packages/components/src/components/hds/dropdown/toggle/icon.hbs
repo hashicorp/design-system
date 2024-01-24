@@ -8,11 +8,16 @@
   ...attributes
   aria-expanded={{if @isOpen "true" "false"}}
   {{on "click" this.onClick}}
+  {{did-update this.onDidUpdateImageSrc @imageSrc}}
   type="button"
 >
   <div class="hds-dropdown-toggle-icon__wrapper">
     {{#if @imageSrc}}
-      <img src={{@imageSrc}} alt="" role="presentation" height="32" width="32" />
+      {{#if this.hasImage}}
+        <img src={{@imageSrc}} alt="" role="presentation" height="32" width="32" {{on "error" this.onImageLoadError}} />
+      {{else}}
+        <FlightIcon @name="user" @size={{this.iconSize}} />
+      {{/if}}
     {{else if @icon}}
       <FlightIcon @name={{@icon}} @size={{this.iconSize}} />
     {{/if}}
