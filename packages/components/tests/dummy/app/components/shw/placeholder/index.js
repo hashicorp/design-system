@@ -56,6 +56,10 @@ export default class PlaceholderIndexComponent extends Component {
     if (this.args.background) {
       styles.push(`background: ${this.args.background}`);
     }
+    if (this.args.flex) {
+      styles.push(`flex: ${this.args.flex}`);
+    }
+
     return styles.length > 0 ? htmlSafe(styles.join('; ')) : undefined;
   }
 }
