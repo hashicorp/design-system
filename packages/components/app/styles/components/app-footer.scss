@@ -7,13 +7,13 @@
 // app-footer
 //
 
-$app-footer-gap: 24px;
-$app-footer-icon-text-gap: 6px;
+$hds-app-footer-gap: 24px;
+$hds-app-footer-icon-text-gap: 6px;
 
 .hds-app-footer {
   display: flex;
   flex-wrap: wrap;
-  gap: $app-footer-gap;
+  gap: $hds-app-footer-gap;
   justify-content: center;
   padding: 24px;
   color: var(--app-footer-foreground-color);
@@ -29,7 +29,7 @@ $app-footer-icon-text-gap: 6px;
 .hds-app-footer__legal-links {
   display: flex;
   flex-wrap: wrap;
-  gap: $app-footer-gap;
+  gap: $hds-app-footer-gap;
   align-items: center;
   justify-content: center;
   width: fit-content;
@@ -42,7 +42,7 @@ $app-footer-icon-text-gap: 6px;
 .hds-app-footer__status-link {
   // custom spacing for the status link (internally is using the "AppFooter::Link")
   // Note: we increase specificity because otherwise is overwritten by the order of imports of components scss files
-  &.hds-link-inline--icon-leading > .hds-link-inline__icon { margin-right: $app-footer-icon-text-gap; }
+  &.hds-link-inline--icon-leading > .hds-link-inline__icon { margin-right: $hds-app-footer-icon-text-gap; }
 
   .flight-icon {
     fill: var(--hds-app-footer-status-icon-color, currentColor);
@@ -98,7 +98,7 @@ $app-footer-icon-text-gap: 6px;
 
 .hds-app-footer__copyright {
   display: flex;
-  gap: $app-footer-icon-text-gap;
+  gap: $hds-app-footer-icon-text-gap;
   align-items: center;
   color: var(--app-footer-copyright-text-color);
 
