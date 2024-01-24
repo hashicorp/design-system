@@ -437,7 +437,7 @@
 
   <Hds::Table
     @isSelectable={{true}}
-    @onSelectionChange={{this.onSelectionChange}}
+    @onSelectionChange={{this.onSelectionChangeLogArguments}}
     @model={{this.model.selectableData}}
     @columns={{array
       (hash key="lorem" label="Row #")
@@ -447,8 +447,8 @@
   >
     <:body as |B|>
       <B.Tr
-        @isSelected={{B.data.isSelected}}
         @selectionKey={{B.data.id}}
+        @isSelected={{B.data.isSelected}}
         @selectionAriaLabelSuffix="row #{{B.data.lorem}}"
       >
         <B.Td>{{B.data.lorem}}</B.Td>
@@ -460,15 +460,14 @@
 
   <Shw::Text::H4 @tag="h3">Table without model defined</Shw::Text::H4>
 
-  <Hds::Table @isSelectable={{true}} @onSelectionChange={{this.onSelectionChange}}>
+  <Hds::Table @isSelectable={{true}} @onSelectionChange={{this.onSelectionChangeLogArguments}}>
     <:head as |H|>
       <H.Tr>
         <H.Th>Row #</H.Th>
         <H.Th>Ipsum</H.Th>
         <H.Th>Dolor</H.Th>
       </H.Tr>
-    </:head>
-    <:body as |B|>
+    </:head>    <:body as |B|>
       <B.Tr @selectionKey="row1" @selectionAriaLabelSuffix="row #1">
         <B.Th>1</B.Th>
         <B.Td>Cell Content</B.Td>
@@ -546,7 +545,11 @@
         }}
       >
         <:body as |B|>
-          <B.Tr @selectionKey={{B.data.id}} @isSelected={{B.data.isSelected}}>
+          <B.Tr
+            @selectionKey={{B.data.id}}
+            @isSelected={{B.data.isSelected}}
+            @selectionAriaLabelSuffix="row #{{B.data.id}}"
+          >
             <B.Td>{{B.data.lorem}}</B.Td>
             <B.Td>{{B.data.ipsum}}</B.Td>
             <B.Td>{{B.data.dolor}}</B.Td>
@@ -570,6 +573,7 @@
         </:head>
         <:body as |B|>
           {{#if (not (eq this.multiSelectFilterRows__demo1 "even"))}}
+            {{! Notice: here for the `selectionKey` we're using numbers as strings (on purpose, to test that everything works as expected) }}
             <B.Tr @selectionKey="1" @isSelected={{get this.multiSelectNoModelState__demo1 "row1"}}>
               <B.Th>1</B.Th>
               <B.Td>Cell Content</B.Td>
@@ -643,7 +647,11 @@
       }}
     >
       <:body as |B|>
-        <B.Tr @selectionKey={{B.data.id}} @isSelected={{B.data.isSelected}}>
+        <B.Tr
+          @selectionKey={{B.data.id}}
+          @isSelected={{B.data.isSelected}}
+          @selectionAriaLabelSuffix="row #{{B.data.id}}"
+        >
           <B.Td>{{B.data.lorem}}</B.Td>
           <B.Td>{{B.data.ipsum}}</B.Td>
           <B.Td>{{B.data.dolor}}</B.Td>
@@ -680,6 +688,15 @@
       />
       <label for="multi-select-demo3__toggle">Extend "Select All" scope to non-displayed rows</label>
     </div>
+    <div class="shw-component-table-demo-topbar__toggle">
+      <input
+        id="multi-select-demo3__toggle-debug"
+        type="checkbox"
+        checked={{this.multiSelectToggleDebug__demo3}}
+        {{on "change" this.toggleMultiSelectPaginatedToggleDebug__demo3}}
+      />
+      <label for="multi-select-demo3__toggle-debug">Show all rows' state</label>
+    </div>
     <div class="shw-component-table-demo-topbar__action">
       <Hds::Button @text="Delete users" @icon="trash" {{on "click" this.multiSelectDeleteSelectedUsers_demo3}} />
     </div>
@@ -698,7 +715,11 @@
       }}
     >
       <:body as |B|>
-        <B.Tr @selectionKey={{B.data.id}} @selectionAriaLabelSuffix="row #{{B.data.id}}">
+        <B.Tr
+          @selectionKey={{B.data.id}}
+          @isSelected={{B.data.isSelected}}
+          @selectionAriaLabelSuffix="row #{{B.data.id}}"
+        >
           <B.Td>{{B.data.id}}</B.Td>
           <B.Td>{{B.data.name}}</B.Td>
           <B.Td>{{B.data.email}}</B.Td>
@@ -715,6 +736,11 @@
       @onPageSizeChange={{this.onMultiSelectUsersPageSizeChange_demo3}}
       aria-label="Pagination for multi-select table with delete action"
     />
+    {{#if this.multiSelectToggleDebug__demo3}}
+      {{#each this.multiSelectModelData__demo3 as |row|}}
+        <pre>row{{row.id}} = {{(if row.isSelected "✅")}}</pre>
+      {{/each}}
+    {{/if}}
   </div>
 
   <Shw::Text::H4>Execute action on selected rows</Shw::Text::H4>

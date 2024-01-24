@@ -43,6 +43,7 @@ export default class ComponentsTableController extends Controller {
   @tracked multiSelectPaginatedCurrentPage_demo2 = 1;
   @tracked multiSelectPaginatedCurrentPageSize_demo2 = 2;
   @tracked multiSelectToggleScope__demo3 = false;
+  @tracked multiSelectToggleDebug__demo3 = false;
   @deepTracked multiSelectModelData__demo3 = [...this.model.userDataDemo3];
   @tracked multiSelectUsersCurrentPage_demo3 = 1;
   @tracked multiSelectUsersCurrentPageSize_demo3 = 4;
@@ -182,6 +183,11 @@ export default class ComponentsTableController extends Controller {
   // GENERIC MULTI-SELECT FUNCTIONALITIES
 
   @action
+  onSelectionChangeLogArguments() {
+    console.log(...arguments);
+  }
+
+  @action
   mockIndeterminateState(checkbox) {
     checkbox.indeterminate = true;
   }
@@ -221,20 +227,19 @@ export default class ComponentsTableController extends Controller {
     selectionCheckboxElement,
     selectableRowsStates,
   }) {
-    console.log(arguments);
+    console.log(...arguments);
     if (selectionKey === 'all' && this.multiSelectToggleScope__demo1) {
       const selectAllState = selectionCheckboxElement.checked;
       this.multiSelectModelData__demo1.forEach((modelRow) => {
         modelRow.isSelected = selectAllState;
       });
     } else {
-      Object.keys(selectableRowsStates).forEach((rowKey) => {
+      selectableRowsStates.forEach((row) => {
         const recordToUpdate = this.multiSelectModelData__demo1.find(
-          (modelRow) => modelRow.id === rowKey
+          (modelRow) => modelRow.id === row.selectionKey
         );
-        const recordUpdatedState = selectableRowsStates[rowKey];
         if (recordToUpdate) {
-          recordToUpdate.isSelected = recordUpdatedState;
+          recordToUpdate.isSelected = row.isSelected;
         }
       });
     }
@@ -246,17 +251,16 @@ export default class ComponentsTableController extends Controller {
     selectionCheckboxElement,
     selectableRowsStates,
   }) {
-    console.log(arguments);
+    console.log(...arguments);
     if (selectionKey === 'all' && this.multiSelectToggleScope__demo1) {
       const selectAllState = selectionCheckboxElement.checked;
       Object.keys(this.multiSelectNoModelState__demo1).forEach((rowKey) => {
         this.multiSelectNoModelState__demo1[rowKey] = selectAllState;
       });
     } else {
-      Object.keys(selectableRowsStates).forEach((rowKey) => {
-        const recordUpdatedState = selectableRowsStates[rowKey];
-        this.multiSelectNoModelState__demo1[`row${rowKey}`] =
-          recordUpdatedState;
+      selectableRowsStates.forEach((row) => {
+        this.multiSelectNoModelState__demo1[`row${row.selectionKey}`] =
+          row.isSelected;
       });
     }
   }
@@ -305,27 +309,20 @@ export default class ComponentsTableController extends Controller {
     selectionKey,
     selectionCheckboxElement,
     selectableRowsStates,
-    selectedRowsKeys,
   }) {
-    console.log(
-      selectionKey,
-      selectionCheckboxElement,
-      selectableRowsStates,
-      selectedRowsKeys
-    );
+    console.log(...arguments);
     if (selectionKey === 'all' && this.multiSelectToggleScope__demo2) {
       const selectAllState = selectionCheckboxElement.checked;
       this.multiSelectModelData__demo2.forEach((modelRow) => {
         modelRow.isSelected = selectAllState;
       });
     } else {
-      Object.keys(selectableRowsStates).forEach((rowKey) => {
+      selectableRowsStates.forEach((row) => {
         const recordToUpdate = this.multiSelectModelData__demo2.find(
-          (modelRow) => modelRow.id.toString() === rowKey.toString()
+          (modelRow) => modelRow.id === row.selectionKey
         );
-        const recordUpdatedState = selectableRowsStates[rowKey];
         if (recordToUpdate) {
-          recordToUpdate.isSelected = recordUpdatedState;
+          recordToUpdate.isSelected = row.isSelected;
         }
       });
     }
@@ -337,6 +334,11 @@ export default class ComponentsTableController extends Controller {
   @action
   toggleMultiSelectPaginatedToggleScope__demo3(event) {
     this.multiSelectToggleScope__demo3 = event.target.checked;
+  }
+
+  @action
+  toggleMultiSelectPaginatedToggleDebug__demo3(event) {
+    this.multiSelectToggleDebug__demo3 = event.target.checked;
   }
 
   get multiSelectUsersTotalItems_demo3() {
@@ -371,22 +373,19 @@ export default class ComponentsTableController extends Controller {
     selectionCheckboxElement,
     selectableRowsStates,
   }) {
-    console.log(arguments);
+    console.log(...arguments);
     if (selectionKey === 'all' && this.multiSelectToggleScope__demo3) {
       const selectAllState = selectionCheckboxElement.checked;
       this.multiSelectModelData__demo3.forEach((modelRow) => {
         modelRow.isSelected = selectAllState;
       });
     } else {
-      Object.keys(selectableRowsStates).forEach((rowKey) => {
+      selectableRowsStates.forEach((row) => {
         const recordToUpdate = this.multiSelectModelData__demo3.find(
-          (modelRow) => {
-            return modelRow.id.toString() === rowKey.toString();
-          }
+          (modelRow) => modelRow.id === row.selectionKey
         );
-        const recordUpdatedState = selectableRowsStates[rowKey];
         if (recordToUpdate) {
-          recordToUpdate.isSelected = recordUpdatedState;
+          recordToUpdate.isSelected = row.isSelected;
         }
       });
     }
@@ -405,7 +404,7 @@ export default class ComponentsTableController extends Controller {
 
   @action
   onMultiSelectSelectionChange__demo4({ selectedRowsKeys }) {
-    console.log(arguments);
+    console.log(...arguments);
     this.multiSelectUserData__demo4.forEach((user) => {
       user.isSelected = selectedRowsKeys.includes(user.id);
     });
