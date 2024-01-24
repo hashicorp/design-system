@@ -456,7 +456,7 @@ To create a column that has right-aligned content, set `@align` to `right` on bo
 
 ### Tooltip
 
-[Table headers](/table#headers) should be clear, concise, and straightforward whenever possible. However, there could be cases where the label is insufficient by itself, and extra information is required. In this case, it's possible to show a tooltip next to the label in the header:
+[Table headers](/table#headers) should be clear, concise, and straightforward whenever possible. However, there could be cases where the label is insufficient by itself and extra information is required. In this case, it’s possible to show a tooltip next to the label in the header:
 
 ```handlebars
 <Hds::Table
@@ -464,7 +464,7 @@ To create a column that has right-aligned content, set `@align` to `right` on bo
   @columns={{array
     (hash key="artist" label="Artist")
     (hash key="album" label="Album" tooltip="Title of the album (in its first release)")
-    (hash key="vinyl-cost" label="Vinil Cost (USD)" isSortable=true tooltip="Cost of the vinyl (adjusted for inflation)" align="right")
+    (hash key="vinyl-cost" label="Vinyl Cost (USD)" isSortable=true tooltip="Cost of the vinyl (adjusted for inflation)" align="right")
   }}
 >
   <:body as |B|>
