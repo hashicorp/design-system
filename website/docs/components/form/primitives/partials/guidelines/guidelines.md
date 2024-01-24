@@ -47,7 +47,7 @@ A custom message in the character count is supported and can be used when a prod
 
 !!! Dont
 
-Don’t use helper text to communicate length requirements as this can result in an overlap of communication with the character count.
+Avoid presenting duplicate information between the helper text and the character count. Helper text should be used to provide persistent requirements while character count represents more of a progress indicator towards a length requirement.
 
 ![Character count with helper text](/assets/components/form/primitives/character-count-dont-helper-text-overlap.png)
 !!!
