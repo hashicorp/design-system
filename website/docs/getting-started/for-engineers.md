@@ -19,6 +19,10 @@ yarn add @hashicorp/design-system-components
 
 ### Import component styles
 
+You can chose between importing styles as Sass or CSS.
+
+#### Sass
+
 1. Install and configure Sass to preprocess styles, handle source maps, and include paths in your application.
 
 ```bash
@@ -54,6 +58,14 @@ minifyCSS: {
 
 ```scss
 @import "@hashicorp/design-system-components";
+```
+
+#### CSS
+
+Import the CSS by adding this configuration in `ember-cli-build.js`.
+
+```js
+app.import('node_modules/@hashicorp/design-system-components/dist/styles/@hashicorp/design-system-components.css');
 ```
 
 !!! Warning
