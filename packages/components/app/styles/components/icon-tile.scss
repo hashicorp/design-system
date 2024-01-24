@@ -48,7 +48,7 @@ $hds-icon-tile-box-shadow: 0 1px 1px rgba(#656a76, 0.05);
 // SIZE
 
 // these values later may come from the design tokens
-$size-props: (
+$hds-icon-tile-size-props: (
   "small": (
     "size": 1.75rem, // 28px
     "border-radius": 5px,
@@ -80,29 +80,29 @@ $size-props: (
 
 @each $size in $hds-icon-tile-sizes {
   .hds-icon-tile--size-#{$size} {
-    width: map-get($size-props, $size, "size");
-    height: map-get($size-props, $size, "size");
-    border-radius: map-get($size-props, $size, "border-radius");
+    width: map-get($hds-icon-tile-size-props, $size, "size");
+    height: map-get($hds-icon-tile-size-props, $size, "size");
+    border-radius: map-get($hds-icon-tile-size-props, $size, "border-radius");
 
     .hds-icon-tile__icon {
-      width: map-get($size-props, $size, "icon-size");
-      height: map-get($size-props, $size, "icon-size");
+      width: map-get($hds-icon-tile-size-props, $size, "icon-size");
+      height: map-get($hds-icon-tile-size-props, $size, "icon-size");
     }
 
     .hds-icon-tile__logo {
-      width: map-get($size-props, $size, "logo-size");
-      height: map-get($size-props, $size, "logo-size");
+      width: map-get($hds-icon-tile-size-props, $size, "logo-size");
+      height: map-get($hds-icon-tile-size-props, $size, "logo-size");
     }
 
     .hds-icon-tile__extra {
-      width: map-get($size-props, $size, "extra-size");
-      height: map-get($size-props, $size, "extra-size");
-      border-radius: map-get($size-props, $size, "extra-border-radius");
+      width: map-get($hds-icon-tile-size-props, $size, "extra-size");
+      height: map-get($hds-icon-tile-size-props, $size, "extra-size");
+      border-radius: map-get($hds-icon-tile-size-props, $size, "extra-border-radius");
     }
 
     .hds-icon-tile__extra-icon {
-      width: map-get($size-props, $size, "extra-icon-size");
-      height: map-get($size-props, $size, "extra-icon-size");
+      width: map-get($hds-icon-tile-size-props, $size, "extra-icon-size");
+      height: map-get($hds-icon-tile-size-props, $size, "extra-icon-size");
     }
   }
 }

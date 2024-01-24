@@ -46,7 +46,7 @@ $hds-link-standalone-border-width: 1px;
 // SIZE
 
 // these values later may come from the design tokens
-$size-props: (
+$hds-link-standalone-size-props: (
   "small": (
     "font-size": 0.8125rem, // 13px;
     "icon-size": 0.75rem, // 12px
@@ -67,13 +67,13 @@ $size-props: (
 @each $size in $hds-link-standalone-sizes {
   .hds-link-standalone--size-#{$size} {
     .hds-link-standalone__icon {
-      width: map-get($size-props, $size, "icon-size");
-      height: map-get($size-props, $size, "icon-size");
+      width: map-get($hds-link-standalone-size-props, $size, "icon-size");
+      height: map-get($hds-link-standalone-size-props, $size, "icon-size");
     }
 
     .hds-link-standalone__text {
-      font-size: map-get($size-props, $size, "font-size");
-      line-height: map-get($size-props, $size, "line-height");
+      font-size: map-get($hds-link-standalone-size-props, $size, "font-size");
+      line-height: map-get($hds-link-standalone-size-props, $size, "line-height");
     }
   }
 }
