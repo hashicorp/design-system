@@ -259,6 +259,9 @@ export default class HdsTableIndexComponent extends Component {
       this.selectAllCheckbox.indeterminate =
         selectedRowsCount > 0 && selectedRowsCount < selectableRowsCount;
       this.isSelectAllCheckboxSelected = this.selectAllCheckbox.checked;
+      this.selectAllCheckbox.dispatchEvent(
+        new Event('toggle', { bubbles: false })
+      );
     }
   }
 }
