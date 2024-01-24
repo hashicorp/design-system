@@ -2,7 +2,7 @@
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="size" @type="enum" @values={{array "small" "medium" "large" }} @default="medium"/>
-  <C.Property @name="logo" @type="enum" @values={{array "hcp" "boundary" "consul" "nomad" "packer" "terraform" "vagrant" "vault" "vault-secrets" "waypoint" }}>
+  <C.Property @name="logo" @type="enum" @values={{array "hcp" "boundary" "consul" "nomad" "packer" "terraform" "vagrant" "vault" "vault-secrets" "vault-radar" "waypoint" }}>
     Use this parameter to show a product logo.
   </C.Property>
   <C.Property @name="icon" @type="string">

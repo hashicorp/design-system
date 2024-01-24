@@ -19,6 +19,7 @@ export const PRODUCTS = [
   'vagrant',
   'vault',
   'vault-secrets',
+  'vault-radar',
   'waypoint',
 ];
 export const COLORS = ['neutral', ...PRODUCTS];

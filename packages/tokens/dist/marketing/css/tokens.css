@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 29 Sep 2023 09:55:35 GMT
+ * Generated on Wed, 24 Jan 2024 14:44:08 GMT
  */
 
 :root {
@@ -142,6 +142,15 @@
   --token-color-vagrant-gradient-primary-stop: #7dadff;
   --token-color-vagrant-gradient-faint-start: #f4faff; /* this is the 'vagrant-50' value at 25% opacity on white */
   --token-color-vagrant-gradient-faint-stop: #d6ebff;
+  --token-color-vault-radar-brand: #ffd814;
+  --token-color-vault-radar-brand-alt: #000000; /* this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault radar would not work */
+  --token-color-vault-radar-foreground: #9a6f00;
+  --token-color-vault-radar-surface: #fff9cf;
+  --token-color-vault-radar-border: #feec7b;
+  --token-color-vault-radar-gradient-primary-start: #feec7b;
+  --token-color-vault-radar-gradient-primary-stop: #ffe543;
+  --token-color-vault-radar-gradient-faint-start: #fffdf2; /* this is the 'vault-radar-50' value at 25% opacity on white */
+  --token-color-vault-radar-gradient-faint-stop: #fff9cf;
   --token-color-vault-secrets-brand: #ffd814;
   --token-color-vault-secrets-brand-alt: #000000; /* this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
   --token-color-vault-secrets-foreground: #9a6f00;
