@@ -513,6 +513,14 @@
         </Hds::SideNav::List::Item>
       </ul>
     </SF.Item>
+    <SF.Item @label="With very long text and no spaces">
+      <ul class="shw-component-sim-side-nav-body">
+        <Hds::SideNav::List::Title>ThisIsLongTextThatShouldWrapToTwoLinesAndNotOverflow</Hds::SideNav::List::Title>
+        <Hds::SideNav::List::Item>
+          <Shw::Placeholder @height="108px" @text="following content" />
+        </Hds::SideNav::List::Item>
+      </ul>
+    </SF.Item>
   </Shw::Flex>
 
   <Shw::Divider @level={{2}} />
@@ -616,12 +624,12 @@
     </SG.Item>
     <SG.Item @label="Icon + text + yielded content">
       <Hds::SideNav::List::Link @icon="boundary" @text="Boundary">
-        <Shw::Placeholder @height="20px" @text="yielded content" />
+        <Shw::Placeholder @height="20px" @width="auto" @flex="1 1 0" @text="yielded content" />
       </Hds::SideNav::List::Link>
     </SG.Item>
     <SG.Item @label="With hasSubItems">
       <Hds::SideNav::List::Link @icon="boundary" @text="Boundary" @hasSubItems={{true}}>
-        <Shw::Placeholder @height="20px" @text="yielded content" />
+        <Shw::Placeholder @height="20px" @width="auto" @flex="1 1 0" @text="yielded content" />
       </Hds::SideNav::List::Link>
     </SG.Item>
     <SG.Item @label="Text with no style">
@@ -721,6 +729,11 @@
     <SF.Item @label="With very long text">
       <ul class="shw-component-sim-side-nav-body">
         <Hds::SideNav::List::BackLink @text="This is a long text that should go on two lines" @href="#" />
+      </ul>
+    </SF.Item>
+    <SF.Item @label="With very long text and no spaces">
+      <ul class="shw-component-sim-side-nav-body">
+        <Hds::SideNav::List::BackLink @text="ThisIsLongTextThatShouldWrapToTwoLinesAndNotOverflow" @href="#" />
       </ul>
     </SF.Item>
   </Shw::Flex>
