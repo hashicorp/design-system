@@ -397,6 +397,54 @@
                 "group": "palette",
                 "private": "true"
             },
+            "vault-radar-brand": {
+                "value": "#ffd814",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vault-radar-600": {
+                "value": "#8b6400",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vault-radar-500": {
+                "value": "#9a6f00",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vault-radar-400": {
+                "value": "#bb8e1a",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vault-radar-300": {
+                "value": "#f5d712",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vault-radar-200": {
+                "value": "#ffe543",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vault-radar-100": {
+                "value": "#feec7b",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vault-radar-50": {
+                "value": "#fff9cf",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
             "waypoint-brand": {
                 "value": "#14c6cb",
                 "type": "color",
