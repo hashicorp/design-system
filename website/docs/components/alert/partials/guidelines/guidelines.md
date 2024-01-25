@@ -177,3 +177,41 @@ Inline alerts can be added to a section or component or inline with content.
 Compact alerts can be added to a section or component or inline with content.
 
 ![Placement of compact Alert](/assets/components/alert/alert-placement-compact.png =600x*)
+
+## Multiple alerts
+
+In general, displaying multiple alerts on the same page is discouraged as it can negatively impact the page hierarchy and unnecessarily shift emphasis away from the main content on the page.
+
+However, depending on the logic within the application and the type of content being expressed to the user, it may be necessary to display more than one message within an Alert on the page. If this is the case, follow these guidelines:
+
+!!! Dont
+
+Don’t display more than one Alert of the same type on the same page; e.g., only display a single page-level alert, or only display a single inline alert.
+
+**Insert image here**
+!!!
+
+!!! Do
+
+Instead, use Alerts hierarchically according to their intended prominence and importance to the user.
+
+**Insert image here**
+!!!
+
+!!! Dont
+
+Don’t display more than one of the same `color` Alert on the page.
+
+**Insert image here**
+!!!
+
+!!! Do
+
+Instead, try to combine multiple Alerts into a single Alert, especially if the content overlaps.
+
+**Insert image here**
+!!!
+
+As a last resort, display the most important Alert the user within the page, and obfuscated additional Alerts within a [Reveal](/components/reveal).
+
+**Insert image here**
