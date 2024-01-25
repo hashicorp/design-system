@@ -3534,7 +3534,6 @@ __metadata:
     ember-cli-terser: "npm:^4.0.2"
     ember-composable-helpers: "npm:^5.0.0"
     ember-concurrency: "npm:^3.1.1"
-    ember-copy: "npm:^2.0.1"
     ember-deep-tracked: "npm:^2.0.0"
     ember-element-helper: "npm:^0.8.5"
     ember-focus-trap: "npm:^1.1.0"
@@ -11802,15 +11801,6 @@ __metadata:
   peerDependencies:
     ember-source: ^3.28.0 || ^4.0.0 || >=5.0.0
   checksum: de94dd808e7285aa43bd7e10c7d8288340296900588764f631a434ae9c449ded6ec0cc0a58a6d94b6fb525964456fd39b3a6d902deb5ed16cf41054ffc5c02fd
-  languageName: node
-  linkType: hard
-
-"ember-copy@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "ember-copy@npm:2.0.1"
-  dependencies:
-    ember-cli-babel: "npm:^7.22.1"
-  checksum: 985650150bc1cedfbe5fdbbbc0f02dba835d82bb893dbebfaf31649567a974d7cbd7c1309032381b116d58d3d3ca2ccc7ba6882d1c25d23564c069fbbbc6970b
   languageName: node
   linkType: hard
 

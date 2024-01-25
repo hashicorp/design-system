@@ -6,7 +6,10 @@
 import Route from '@ember/routing/route';
 import { DENSITIES } from '@hashicorp/design-system-components/components/hds/table';
 
-import { copy } from 'ember-copy';
+// basic function that clones an array of objects (not deep)
+const clone = (arr) => {
+  return arr.map((item) => ({ ...item }));
+};
 
 const STATES = ['default', 'hover', 'active', 'focus'];
 
@@ -28,10 +31,10 @@ export default class ComponentsTableRoute extends Route {
     return {
       music: music.map((record) => ({ id: record.id, ...record.attributes })),
       selectableData,
-      selectableDataDemo1: copy(selectableData, true),
-      selectableDataDemo2: copy(selectableData, true),
-      userDataDemo3: copy(userData.slice(0, 16), true),
-      userDataDemo4: copy(userData.slice(0, 4), true),
+      selectableDataDemo1: clone(selectableData),
+      selectableDataDemo2: clone(selectableData),
+      userDataDemo3: clone(userData.slice(0, 16)),
+      userDataDemo4: clone(userData.slice(0, 4)),
       clusters,
       manycolumns,
       DENSITIES,
