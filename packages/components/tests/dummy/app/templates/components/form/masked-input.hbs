@@ -291,13 +291,21 @@
 
   <Shw::Grid @columns="3" as |SG|>
     <SG.Item @label="Label + Character count">
-      <Hds::Form::MaskedInput::Field @value="Lorem ipsum dolor" as |F|>
+      <Hds::Form::MaskedInput::Field
+        @value={{this.defaultText}}
+        {{on "input" (fn this.updateValue "defaultText")}}
+        as |F|
+      >
         <F.Label>This is the label text</F.Label>
         <F.CharacterCount @maxLength={{100}} />
       </Hds::Form::MaskedInput::Field>
     </SG.Item>
     <SG.Item @label="Label + Helper text + Character count (custom)">
-      <Hds::Form::MaskedInput::Field @value="Lorem ipsum dolor" as |F|>
+      <Hds::Form::MaskedInput::Field
+        @value={{this.customText}}
+        {{on "input" (fn this.updateValue "customText")}}
+        as |F|
+      >
         <F.Label>This is the label text</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
         <F.CharacterCount @maxLength={{100}} as |CC|>
@@ -311,13 +319,14 @@
     </SG.Item>
     <SG.Item @label="Label + Copy Button + Character count + Error">
       <Hds::Form::MaskedInput::Field
-        @value="Lorem ipsum dolor sit amet"
+        @value={{this.withErrorMessage}}
         @isInvalid={{this.textInputFieldIsInvalid}}
         @hasCopyButton={{true}}
+        {{on "input" (fn this.updateValue "withErrorMessage")}}
         as |F|
       >
         <F.Label>This is the label text</F.Label>
-        <F.CharacterCount @maxLength={{20}} @onInput={{this.onFieldInput}} />
+        <F.CharacterCount @maxLength={{20}} />
         {{#if this.textInputFieldIsInvalid}}
           <F.Error>Maximum numbers of characters exceeded</F.Error>
         {{/if}}
@@ -329,13 +338,23 @@
 
   <Shw::Grid @columns="3" as |SG|>
     <SG.Item @label="Label + Character count">
-      <Hds::Form::MaskedInput::Field @isMultiline={{true}} @value="Lorem ipsum dolor" as |F|>
+      <Hds::Form::MaskedInput::Field
+        @isMultiline={{true}}
+        @value={{this.multilineDefaultText}}
+        {{on "input" (fn this.updateValue "multilineDefaultText")}}
+        as |F|
+      >
         <F.Label>This is the label text</F.Label>
         <F.CharacterCount @maxLength={{100}} />
       </Hds::Form::MaskedInput::Field>
     </SG.Item>
     <SG.Item @label="Label + Helper text + Character count (custom)">
-      <Hds::Form::MaskedInput::Field @isMultiline={{true}} @value="Lorem ipsum dolor" as |F|>
+      <Hds::Form::MaskedInput::Field
+        @isMultiline={{true}}
+        @value={{this.multilineCustomText}}
+        {{on "input" (fn this.updateValue "multilineCustomText")}}
+        as |F|
+      >
         <F.Label>This is the label text</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
         <F.CharacterCount @maxLength={{100}} as |CC|>
@@ -350,13 +369,14 @@
     <SG.Item @label="Label + Copy Button + Character count + Error">
       <Hds::Form::MaskedInput::Field
         @isMultiline={{true}}
-        @value="Lorem ipsum dolor sit amet"
+        @value={{this.multilineWithErrorMessage}}
         @isInvalid={{this.textareaFieldIsInvalid}}
         @hasCopyButton={{true}}
+        {{on "input" (fn this.updateValue "multilineWithErrorMessage")}}
         as |F|
       >
         <F.Label>This is the label text</F.Label>
-        <F.CharacterCount @maxLength={{20}} @onInput={{this.onFieldInput}} />
+        <F.CharacterCount @maxLength={{20}} />
         {{#if this.textareaFieldIsInvalid}}
           <F.Error>Maximum numbers of characters exceeded</F.Error>
         {{/if}}
