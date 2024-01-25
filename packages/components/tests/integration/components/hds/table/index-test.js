@@ -8,12 +8,6 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render, click, focus } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-function wait(timeout = 2000) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, timeout);
-  });
-}
-
 // we're using this for multiple tests so we'll declare context once and use it when we need it.
 const setSortableTableData = (context) => {
   context.set('model', [
@@ -105,7 +99,7 @@ const hbsSelectableTable = hbs`
     @isSelectable={{true}}
     @model={{this.model}}
     @columns={{this.columns}}
-    data-test="selectable-table"
+    id="data-test-selectable-table"
   >
     <:body as |B|>
       <B.Tr @selectionKey={{B.data.id}}>
@@ -419,111 +413,139 @@ module('Integration | Component | hds/table/index', function (hooks) {
 
   // Multi-select
 
-  const headerCheckbox =
-    'table[data-test="selectable-table"] thead th[scope="col"] .hds-table__checkbox';
-  const rowCheckbox =
-    'table[data-test="selectable-table"] tbody th[scope="row"] .hds-table__checkbox';
+  const selectAllCheckboxSelector =
+    '#data-test-selectable-table thead th[scope="col"] .hds-table__checkbox';
+  const rowCheckboxesSelector =
+    '#data-test-selectable-table tbody th[scope="row"] .hds-table__checkbox';
 
   // basic multi-select
 
-  test('it renders a mult-select table when isSelectable is set to true for a table with a model', async function (assert) {
+  test('it renders a multi-select table when isSelectable is set to true for a table with a model', async function (assert) {
     setSelectableTableData(this);
     await render(hbsSelectableTable);
-    assert.dom(headerCheckbox).exists({ count: 1 });
-    assert.dom(rowCheckbox).exists({ count: this.model.length });
+    assert.dom(selectAllCheckboxSelector).exists({ count: 1 });
+    assert.dom(rowCheckboxesSelector).exists({ count: this.model.length });
   });
 
-  test('it renders a mult-select table when isSelectable is set to true for a table without a model', async function (assert) {
+  test('it renders a multi-select table when isSelectable is set to true for a table without a model', async function (assert) {
     await render(hbs`
-    <Hds::Table @isSelectable={{true}} data-test="selectable-table">
-      <:head as |H|>
-        <H.Tr>
-          <H.Th>Cell Header 1</H.Th>
-          <H.Th>Cell Header 2</H.Th>
-          <H.Th>Cell Header 3</H.Th>
-        </H.Tr>
-      </:head>
-      <:body as |B|>
-        <B.Tr @selectionKey="row1">
-          <B.Td>Cell Content 1 1</B.Td>
-          <B.Td>Cell Content 1 2</B.Td>
-          <B.Td>Cell Content 1 3</B.Td>
-        </B.Tr>
-        <B.Tr @selectionKey="row2">
-          <B.Td>Cell Content 2 1</B.Td>
-          <B.Td>Cell Content 2 2</B.Td>
-          <B.Td>Cell Content 2 3</B.Td>
-        </B.Tr>
-        <B.Tr @selectionKey="row3">
-          <B.Td>Cell Content 3 1</B.Td>
-          <B.Td>Cell Content 3 2</B.Td>
-          <B.Td>Cell Content 3 3</B.Td>
-        </B.Tr>
-      </:body>
-    </Hds::Table>
-  `);
-    assert.dom(headerCheckbox).exists({ count: 1 });
-    assert.dom(rowCheckbox).exists({ count: 3 });
+      <Hds::Table @isSelectable={{true}} id="data-test-selectable-table">
+        <:head as |H|>
+          <H.Tr>
+            <H.Th>Cell Header 1</H.Th>
+            <H.Th>Cell Header 2</H.Th>
+            <H.Th>Cell Header 3</H.Th>
+          </H.Tr>
+        </:head>
+        <:body as |B|>
+          <B.Tr @selectionKey="row1">
+            <B.Td>Cell Content 1 1</B.Td>
+            <B.Td>Cell Content 1 2</B.Td>
+            <B.Td>Cell Content 1 3</B.Td>
+          </B.Tr>
+          <B.Tr @selectionKey="row2">
+            <B.Td>Cell Content 2 1</B.Td>
+            <B.Td>Cell Content 2 2</B.Td>
+            <B.Td>Cell Content 2 3</B.Td>
+          </B.Tr>
+          <B.Tr @selectionKey="row3">
+            <B.Td>Cell Content 3 1</B.Td>
+            <B.Td>Cell Content 3 2</B.Td>
+            <B.Td>Cell Content 3 3</B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+    `);
+    assert.dom(selectAllCheckboxSelector).exists({ count: 1 });
+    assert.dom(rowCheckboxesSelector).exists({ count: 3 });
   });
 
   // multi-select functionality
 
-  test('it selects all rows when the header checkbox checked state is triggered', async function (assert) {
+  test('it selects all rows when the "select all" checkbox checked state is triggered', async function (assert) {
     setSelectableTableData(this);
     await render(hbsSelectableTable);
     // Default should be unchecked:
-    assert
-      .dom(headerCheckbox)
-      .isNotChecked()
-      .hasAria('label', 'Select all rows');
-    assert.dom(rowCheckbox).isNotChecked().exists({ count: 3 });
-    // .hasAria('label', /^Select/); // TODO: Fix, ariaLabel on row checkboxes no longer update when doing select/deselect all
+    assert.dom(selectAllCheckboxSelector).isNotChecked();
+    assert.dom(rowCheckboxesSelector).isNotChecked().exists({ count: 3 });
     // Should change to checked after it is triggered:
-    await click(headerCheckbox);
-    assert
-      .dom(headerCheckbox)
-      .isChecked()
-      .hasAria('label', 'Deselect all rows');
-    assert.dom(rowCheckbox).isChecked().exists({ count: 3 });
-    // .hasAria('label', /^Deselect/); // TODO: Fix, ariaLabel on row checkboxes no longer update when doing select/deselect all
+    await click(selectAllCheckboxSelector);
+    assert.dom(selectAllCheckboxSelector).isChecked();
+    assert.dom(rowCheckboxesSelector).isChecked().exists({ count: 3 });
   });
 
-  test('it deselects all rows when the header checkbox unchecked state is triggered', async function (assert) {
+  test('it deselects all rows when the "select all" checkbox unchecked state is triggered', async function (assert) {
     setSelectableTableData(this);
     await render(hbsSelectableTable);
     // Trigger checked status:
-    await click(headerCheckbox);
+    await click(selectAllCheckboxSelector);
     // Trigger unchecked state:
-    await click(headerCheckbox);
-    assert.dom(headerCheckbox).isNotChecked();
-    assert.dom(rowCheckbox).isNotChecked().exists({ count: 3 });
+    await click(selectAllCheckboxSelector);
+    assert.dom(selectAllCheckboxSelector).isNotChecked();
+    assert.dom(rowCheckboxesSelector).isNotChecked().exists({ count: 3 });
   });
 
-  test('if some rows are selected but not all, the header checkbox should be in an indeterminate state', async function (assert) {
+  test('if some rows are selected but not all, the "select all" checkbox should be in an indeterminate state', async function (assert) {
     setSelectableTableData(this);
     await render(hbsSelectableTable);
+    const rowCheckboxes = this.element.querySelectorAll(rowCheckboxesSelector);
+    const firstRowCheckbox = rowCheckboxes[0];
     // Check checkbox in just the first row:
-    await click(rowCheckbox)[0];
-    await wait();
-    assert.dom(headerCheckbox).hasProperty('indeterminate', true);
+    await click(firstRowCheckbox);
+    assert.dom(selectAllCheckboxSelector).hasProperty('indeterminate', true);
+  });
+
+  test('it should invoke the `onSelectionChange` callback when a checkbox is selected', async function (assert) {
+    let keys;
+    this.set(
+      'onSelectionChange',
+      ({ selectedRowsKeys }) => (keys = selectedRowsKeys)
+    );
+    await render(hbs`
+      <Hds::Table @isSelectable={{true}} @onSelectionChange={{this.onSelectionChange}} id="data-test-selectable-table">
+        <:head as |H|>
+          <H.Tr>
+            <H.Th>Cell Header 1</H.Th>
+            <H.Th>Cell Header 2</H.Th>
+            <H.Th>Cell Header 3</H.Th>
+          </H.Tr>
+        </:head>
+        <:body as |B|>
+          <B.Tr @selectionKey="row1">
+            <B.Td>Cell Content 1 1</B.Td>
+            <B.Td>Cell Content 1 2</B.Td>
+            <B.Td>Cell Content 1 3</B.Td>
+          </B.Tr>
+          <B.Tr @selectionKey="row2">
+            <B.Td>Cell Content 2 1</B.Td>
+            <B.Td>Cell Content 2 2</B.Td>
+            <B.Td>Cell Content 2 3</B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+    `);
+    const rowCheckboxes = this.element.querySelectorAll(rowCheckboxesSelector);
+    const firstRowCheckbox = rowCheckboxes[0];
+    await click(firstRowCheckbox);
+    assert.deepEqual(keys, ['row1']);
+    await click(selectAllCheckboxSelector);
+    assert.deepEqual(keys, ['row1', 'row2']);
+    await click(selectAllCheckboxSelector);
+    assert.deepEqual(keys, []);
   });
 
   // multi-select options
 
-  // custom aria-label suffix on row
+  // aria-labels
 
-  test('it uses custom aria-label suffix on rows if passed', async function (assert) {
+  test('it renders the expected `aria-label` values for "select all" and rows (based on provided suffix)', async function (assert) {
     setSelectableTableData(this);
     await render(hbs`
       <Hds::Table
         @isSelectable={{true}}
         @model={{this.model}}
         @columns={{this.columns}}
-        data-test="selectable-table"
-        @selectAllAriaLabel="custom select all"
-        @deselectAllAriaLabel="custom deselect all"
-        @selectRowAriaLabel="custom select row"
-        @deselectRowAriaLabel="custom deselect row"
+        id="data-test-selectable-table"
       >
         <:body as |B|>
           <B.Tr
@@ -537,9 +559,31 @@ module('Integration | Component | hds/table/index', function (hooks) {
         </:body>
       </Hds::Table>
     `);
-    // row checkbox aria labels:
-    assert.dom(rowCheckbox).hasAria('label', /custom suffix$/);
-    await click(rowCheckbox);
-    assert.dom(rowCheckbox).hasAria('label', /custom suffix$/);
+    const rowCheckboxes = this.element.querySelectorAll(rowCheckboxesSelector);
+    const firstRowCheckbox = rowCheckboxes[0];
+    const secondRowCheckbox = rowCheckboxes[1];
+
+    assert.dom(selectAllCheckboxSelector).hasAria('label', 'Select all rows');
+    assert.dom(rowCheckboxesSelector).hasAria('label', 'Select custom suffix');
+    await click(firstRowCheckbox);
+    assert.dom(selectAllCheckboxSelector).hasAria('label', 'Select all rows');
+    assert.dom(firstRowCheckbox).hasAria('label', 'Deselect custom suffix');
+    assert.dom(secondRowCheckbox).hasAria('label', 'Select custom suffix');
+    await click(selectAllCheckboxSelector);
+    assert.dom(selectAllCheckboxSelector).hasAria('label', 'Deselect all rows');
+    assert.dom(firstRowCheckbox).hasAria('label', 'Deselect custom suffix');
+    assert.dom(secondRowCheckbox).hasAria('label', 'Deselect custom suffix');
+    await click(secondRowCheckbox);
+    assert.dom(selectAllCheckboxSelector).hasAria('label', 'Select all rows');
+    assert.dom(firstRowCheckbox).hasAria('label', 'Deselect custom suffix');
+    assert.dom(secondRowCheckbox).hasAria('label', 'Select custom suffix');
+    await click(secondRowCheckbox);
+    assert.dom(selectAllCheckboxSelector).hasAria('label', 'Deselect all rows');
+    assert.dom(firstRowCheckbox).hasAria('label', 'Deselect custom suffix');
+    assert.dom(secondRowCheckbox).hasAria('label', 'Deselect custom suffix');
+    await click(selectAllCheckboxSelector);
+    assert.dom(selectAllCheckboxSelector).hasAria('label', 'Select all rows');
+    assert.dom(firstRowCheckbox).hasAria('label', 'Select custom suffix');
+    assert.dom(secondRowCheckbox).hasAria('label', 'Select custom suffix');
   });
 });
