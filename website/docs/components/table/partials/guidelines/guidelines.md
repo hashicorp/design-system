@@ -179,6 +179,11 @@ Multi-selection consists of:
 - When all rows are selected in a single Table, the parent checkbox in the header appears as checked. Clicking the parent checkbox will deselect all rows on that page.
 - An additional action outside of the Table is needed in order to select all rows across a paginated Table.
 
+!!! Info
+
+This documentation currently covers fundamental multi-select table interactions. We're working to include comprehensive patterns for additional actions. For questions or concerns, please reach out to [#team-design-systems](https://hashicorp.enterprise.slack.com/archives/C7KTUHNUS)
+!!!
+
 <video width="100%" controls loop>
   <source
     src="/assets/components/table/multi-selection-interaction-01.mp4"
