@@ -17,10 +17,14 @@
   &::before {
     position: absolute;
     right: 0;
-    bottom: calc((var(--token-tabs-indicator-height) - var(--token-tabs-divider-height)) / 2);
+    bottom: calc(
+      (var(--token-tabs-indicator-height) - var(--token-tabs-divider-height)) /
+        2
+    );
     left: 0;
     display: block;
-    border-top: var(--token-tabs-divider-height) solid var(--token-color-border-primary);
+    border-top: var(--token-tabs-divider-height) solid
+      var(--token-color-border-primary);
     content: "";
   }
 }
@@ -40,7 +44,9 @@
   align-items: center;
   height: var(--token-tabs-tab-height);
   margin: 0;
-  padding: var(--token-tabs-tab-padding-vertical) var(--token-tabs-tab-padding-horizontal);
+  // padding: var(--token-tabs-tab-padding-vertical) var(--token-tabs-tab-padding-horizontal);
+  padding-left: 20px;
+  padding-right: 10;
   color: var(--token-color-foreground-primary);
   white-space: nowrap;
   text-decoration: none;
@@ -69,7 +75,7 @@
     $top: var(--token-tabs-tab-focus-inset),
     $right: var(--token-tabs-tab-focus-inset),
     $bottom: var(--token-tabs-tab-focus-inset),
-    $left: var(--token-tabs-tab-focus-inset),
+    $left: var(--token-tabs-tab-focus-inset)
   );
   position: static;
   display: flex;
