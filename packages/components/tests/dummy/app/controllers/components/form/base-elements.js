@@ -9,19 +9,27 @@ import { tracked } from '@glimmer/tracking';
 
 export default class BaseElementsController extends Controller {
   @tracked showHighlight = false;
+  @tracked value1 = '';
+  @tracked value2 = 'cl';
+  @tracked value3 = '';
+  @tracked value4 = 'cluster';
+  @tracked value5 = 'cluster-length-is-longer-';
+  @tracked value6 = 'cluster-length-is-longer-than';
+  @tracked value7 = '';
+  @tracked value8 = 'c';
+  @tracked value9 = 'clu';
+  @tracked value10 = '';
+  @tracked value11 = 'c';
+  @tracked value12 = 'cluster';
+  @tracked value13 = 'cluster-length-is-longer-than';
+  @tracked value14 = 'Lorem ipsum dolor';
 
   @action
   toggleHighlight() {
     this.showHighlight = !this.showHighlight;
   }
 
-  @action
-  onInput(args) {
-    console.log('inputControl', args.inputControl);
-    console.log('maxLength', args.maxLength);
-    console.log('minLength', args.minLength);
-    console.log('currentLength', args.currentLength);
-    console.log('remaining', args.remaining);
-    console.log('shortfall', args.shortfall);
+  @action updateValue(propName, event) {
+    this[propName] = event.target.value;
   }
 }
