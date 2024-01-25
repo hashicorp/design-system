@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, setupOnerror } from '@ember/test-helpers';
+import { render, click, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/table/tr', function (hooks) {
@@ -23,6 +23,58 @@ module('Integration | Component | hds/table/tr', function (hooks) {
       hbs`<Hds::Table::Tr id="data-test-table-tr"><td></td></Hds::Table::Tr>`
     );
     assert.dom('#data-test-table-tr > td').exists();
+  });
+
+  // SELECTABLE
+
+  const checkboxSelector =
+    '#data-test-table-tr > .hds-table__th--is-selectable input.hds-table__checkbox';
+
+  test('it should render a checkbox if `@isSelectable` is `true`', async function (assert) {
+    await render(
+      hbs`<Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} />`
+    );
+    assert.dom(checkboxSelector).exists();
+  });
+
+  test('the checkbox should be checked if `@isSelected` is `true`', async function (assert) {
+    await render(
+      hbs`<Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} @isSelected={{true}} />`
+    );
+    assert.dom(checkboxSelector).isChecked();
+  });
+
+  test('the checkbox contains the `@selectionAriaLabelSuffix` suffix', async function (assert) {
+    await render(
+      hbs`<Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} @selectionAriaLabelSuffix="row 123" />`
+    );
+    assert.dom(checkboxSelector).hasAria('label', 'Select row 123');
+    await render(
+      hbs`<Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} @isSelected={{true}} @selectionAriaLabelSuffix="row 123" />`
+    );
+    assert.dom(checkboxSelector).hasAria('label', 'Deselect row 123');
+  });
+
+  test('the `th` element has the correct `scope` attribute value provided via `@selectionScope`', async function (assert) {
+    await render(
+      hbs`<Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} @selectionScope="test-selectionscope" />`
+    );
+    assert
+      .dom('#data-test-table-tr > .hds-table__th--is-selectable')
+      .hasAttribute('scope', 'test-selectionscope');
+  });
+
+  test('it should invoke the `onSelectionChange` callback when the checkbox is selected', async function (assert) {
+    let key;
+    this.set(
+      'onSelectionChange',
+      (_checkbox, selectionKey) => (key = selectionKey)
+    );
+    await render(
+      hbs`<Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} @selectionScope="row" @selectionKey="row123" @onSelectionChange={{this.onSelectionChange}} />`
+    );
+    await click(checkboxSelector);
+    assert.strictEqual(key, 'row123');
   });
 
   // ATTRIBUTES
