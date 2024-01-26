@@ -19,13 +19,14 @@ export default class FormMaskedInputController extends Controller {
   multilineText2 = `Lorem
 ipsum
 dolor`;
+  maxLength = 20;
 
   get textInputFieldIsInvalid() {
-    return this.withErrorMessage.length > 20;
+    return this.withErrorMessage.length > this.maxLength;
   }
 
   get textareaFieldIsInvalid() {
-    return this.multilineWithErrorMessage.length > 20;
+    return this.multilineWithErrorMessage.length > this.maxLength;
   }
 
   @action updateValue(propName, event) {

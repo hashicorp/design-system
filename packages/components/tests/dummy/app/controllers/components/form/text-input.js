@@ -11,12 +11,13 @@ export default class FormTextInputController extends Controller {
   @tracked defaultText = 'Lorem ipsum dolor';
   @tracked customText = 'Lorem ipsum dolor';
   @tracked withHelperText = 'Lorem ipsum dolor sit amet';
+  maxLength = 20;
 
   @action
   noop() {}
 
   get fieldIsInvalid() {
-    return this.withHelperText.length > 20;
+    return this.withHelperText.length > this.maxLength;
   }
 
   @action updateValue(propName, event) {

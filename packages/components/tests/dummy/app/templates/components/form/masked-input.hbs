@@ -326,7 +326,7 @@
         as |F|
       >
         <F.Label>This is the label text</F.Label>
-        <F.CharacterCount @maxLength={{20}} />
+        <F.CharacterCount @maxLength={{this.maxLength}} />
         {{#if this.textInputFieldIsInvalid}}
           <F.Error>Maximum numbers of characters exceeded</F.Error>
         {{/if}}
@@ -376,7 +376,7 @@
         as |F|
       >
         <F.Label>This is the label text</F.Label>
-        <F.CharacterCount @maxLength={{20}} />
+        <F.CharacterCount @maxLength={{this.maxLength}} />
         {{#if this.textareaFieldIsInvalid}}
           <F.Error>Maximum numbers of characters exceeded</F.Error>
         {{/if}}

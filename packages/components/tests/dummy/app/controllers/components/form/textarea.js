@@ -14,12 +14,13 @@ export default class FormTextareaController extends Controller {
     'Ut enim ad minim veniam, quis nostrud exercitation ullamco';
   @tracked withErrorMessage =
     'Ut enim ad minim veniam, quis nostrud exercitation ullamco';
+  maxLength = 50;
 
   @action
   noop() {}
 
   get fieldIsInvalid() {
-    return this.withErrorMessage.length > 50;
+    return this.withErrorMessage.length > this.maxLength;
   }
 
   @action updateValue(propName, event) {

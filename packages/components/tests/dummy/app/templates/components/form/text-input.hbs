@@ -295,7 +295,7 @@
         as |F|
       >
         <F.Label>This is the label text</F.Label>
-        <F.CharacterCount @maxLength={{20}} />
+        <F.CharacterCount @maxLength={{this.maxLength}} />
         {{#if this.fieldIsInvalid}}
           <F.Error>Maximum numbers of characters exceeded</F.Error>
         {{/if}}
