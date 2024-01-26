@@ -165,6 +165,16 @@ If no filters have been applied, use a [Tooltip](/components/tooltip) coupled wi
 
 ### Avoiding empty state
 
+Because filtering is often reductive in nature and driven by a user action, it might not always be possible to avoid an empty state within a data set. However, there are a few UI tricks and elements that can be used to better guide the user towards discovering meaningful results within a data set.
+
+#### List item count
+
+Use the `count` property within the ListItem in the dropdown to indicate how many results contain filter parameter. This will immediately call attention to parameters that will not return any results.
+
+In this example, `status = pending` does not correspond with any results.
+
+![Count property in ListItem](/assets/patterns/filter-patterns/avoid-empty-state-list-item-count.png)
+
 ### Reverting filters
 
 If the filters applied to a data set _do_ result in an empty state or no results being returned, provide the user with an escape route to revert or all filters at once or individually.
