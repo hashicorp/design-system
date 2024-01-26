@@ -181,7 +181,7 @@ Multi-selection consists of:
 
 !!! Info
 
-This documentation currently covers fundamental multi-select table interactions. We're working to include comprehensive patterns for additional actions. For questions or concerns, please reach out to [#team-design-systems](https://hashicorp.enterprise.slack.com/archives/C7KTUHNUS)
+This documentation currently covers only fundamental multi-select table interactions. We're working to include more comprehensive patterns for handling actions when multiple rows are selected and how this impacts filtering and pagination within a data set. For questions or concerns, please reach out to [#team-design-systems](https://hashicorp.enterprise.slack.com/archives/C7KTUHNUS)
 !!!
 
 <video width="100%" controls loop>

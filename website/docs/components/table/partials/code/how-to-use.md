@@ -682,15 +682,21 @@ For details about the arguments provided to the `@onSelectionChange` callback fu
 
 Since the “selected” state of a row is communicated visually via the checkbox selection and for screen-reader users via the `aria-label` applied to the checkbox, there are some important considerations to keep in mind when implementing a multi-select table.
 
-If the selection status of the rows is persisted even when a row is not displayed in the UI, you need to be mindful of what the expectations of the user may be: how do we make them aware that the action that they are going to perform may involve table rows that were previously selected by the user but that are not displayed in that moment?
+If the selection status of the rows is persisted even when a row is not displayed in the UI, consider what the expectations of the user might be: how are they made aware that the action they are going to perform may involve rows that were previously selected but not displayed in the current view?
 
-Even more complex is the case of the “Select all” checkbox. While it’s pretty straightforward when all the table rows are displayed on the table (precisely, “select all the rows in the table”), it may not be obvious what the expected behavior is when the table rows are paginated or filtered.
+Even more complex is the case of the “Select all” checkbox in the table header. While the expected behavior might seem straightforward when all rows are displayed in the table, it may not be obvious what the expected behavior is when the table rows are paginated or have been filtered.
 
-As a user, if I am looking at a subset of all the existing rows and I click “select all”, what do I expect to happen? Do I expect that only the displayed rows are selected—which is what happens in the example above—or that all the data/model rows are selected, even if not displayed at the moment? In the first case, the “select all” state changes whenever the rows change (e.g., the user chooses a different pagination number), and this could be confusing. In the second case, it may not be obvious to the user that _all_ the data records have been selected, and they may unintentionally perform an action on all the rows under the assumption that they are performing it only on the displayed table rows.
+Consider the experience of a user intending to select all or a subset of all possible rows:
+
+If a user interacts with a “Select all” function or button, is the expectation that only displayed rows are selected (what happens in the example above), or that all of the rows in the data set/model are selected, even if not displayed in the current view?
+
+In the first scenario, the “Select all” state changes depending on what rows are in view and can be confusing.
+
+In the second scenario it might not be obvious that all of the rows have been selected and may result in the user unintentionally performing a destructive action under the assumption that they have only selected the rows in the current view.
 
 Whatever functionality you decide to implement, be mindful of all these possible subtleties and complexities.
 
-For more detailed guidance around these usability and accessibility concerns, please contact the HDS team.
+At a bare minimum we recommend clearly communicating to the user if they have selected rows outside of their current view and how many out of the total data set are selected. We're working to document these scenarios as they arise, in the meantime [contact the HDS team](/about/support) for assistance.
 
 ### More examples
 
