@@ -37,7 +37,7 @@ $hds-badge-border-width: 1px;
 // SIZE
 
 // these values later may come from the design tokens
-$size-props: (
+$hds-badge-size-props: (
   "small": (
     "font-size": 0.8125rem, // 13px
     "gap": 0.25rem,
@@ -69,18 +69,18 @@ $size-props: (
 
 @each $size in $hds-badge-sizes {
   .hds-badge--size-#{$size} {
-    gap: map-get($size-props, $size, "gap");
-    min-height: map-get($size-props, $size, "height");
-    padding: calc(#{map-get($size-props, $size, "padding-vertical")} - #{$hds-badge-border-width}) calc(#{map-get($size-props, $size, "padding-horizontal")} - #{$hds-badge-border-width});
+    gap: map-get($hds-badge-size-props, $size, "gap");
+    min-height: map-get($hds-badge-size-props, $size, "height");
+    padding: calc(#{map-get($hds-badge-size-props, $size, "padding-vertical")} - #{$hds-badge-border-width}) calc(#{map-get($hds-badge-size-props, $size, "padding-horizontal")} - #{$hds-badge-border-width});
 
     .hds-badge__icon {
-      width: map-get($size-props, $size, "icon-size");
-      height: map-get($size-props, $size, "icon-size");
+      width: map-get($hds-badge-size-props, $size, "icon-size");
+      height: map-get($hds-badge-size-props, $size, "icon-size");
     }
 
     .hds-badge__text {
-      font-size: map-get($size-props, $size, "font-size");
-      line-height: map-get($size-props, $size, "line-height");
+      font-size: map-get($hds-badge-size-props, $size, "font-size");
+      line-height: map-get($hds-badge-size-props, $size, "line-height");
     }
   }
 }

@@ -26,7 +26,7 @@ $hds-badge-count-border-width: 1px;
 // SIZE
 
 // these values later may come from the design tokens
-$size-props: (
+$hds-badge-count-size-props: (
   "small": (
     "font-size": 0.8125rem, // 13px
     "height": 1.25rem,
@@ -52,11 +52,11 @@ $size-props: (
 
 @each $size in $hds-badge-count-sizes {
   .hds-badge-count--size-#{$size} {
-    min-height: map-get($size-props, $size, "height");
-    padding: calc(#{map-get($size-props, $size, "padding-vertical")} - #{$hds-badge-count-border-width}) calc(#{map-get($size-props, $size, "padding-horizontal")} - #{$hds-badge-count-border-width});
-    font-size: map-get($size-props, $size, "font-size");
-    line-height: map-get($size-props, $size, "line-height");
-    border-radius: math.div(map-get($size-props, $size, "height"), 2);
+    min-height: map-get($hds-badge-count-size-props, $size, "height");
+    padding: calc(#{map-get($hds-badge-count-size-props, $size, "padding-vertical")} - #{$hds-badge-count-border-width}) calc(#{map-get($hds-badge-count-size-props, $size, "padding-horizontal")} - #{$hds-badge-count-border-width});
+    font-size: map-get($hds-badge-count-size-props, $size, "font-size");
+    line-height: map-get($hds-badge-count-size-props, $size, "line-height");
+    border-radius: math.div(map-get($hds-badge-count-size-props, $size, "height"), 2);
   }
 }
 

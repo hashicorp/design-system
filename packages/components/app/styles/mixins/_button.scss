@@ -9,7 +9,7 @@ $hds-button-border-width: 1px;
 $hds-button-focus-border-width: 3px;
 
 // these values later may come from the design tokens
-$size-props: (
+$hds-button-size-props: (
   "small": (
     "font-size": 0.8125rem, // 13px;
     "line-height": 0.875rem, // 14px - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)
@@ -273,24 +273,24 @@ $size-props: (
 @mixin hds-button-size-classes($blockName) {
   @each $size in $hds-button-sizes {
     .#{$blockName}--size-#{$size} {
-      min-height: map-get($size-props, $size, "min-height");
-      padding: map-get($size-props, $size, "padding-vertical") map-get($size-props, $size, "padding-horizontal");
+      min-height: map-get($hds-button-size-props, $size, "min-height");
+      padding: map-get($hds-button-size-props, $size, "padding-vertical") map-get($hds-button-size-props, $size, "padding-horizontal");
 
       .#{$blockName}__icon {
-        width: map-get($size-props, $size, "icon-size");
-        height: map-get($size-props, $size, "icon-size");
+        width: map-get($hds-button-size-props, $size, "icon-size");
+        height: map-get($hds-button-size-props, $size, "icon-size");
       }
 
       .#{$blockName}__text {
-        font-size: map-get($size-props, $size, "font-size");
-        line-height: map-get($size-props, $size, "line-height");
+        font-size: map-get($hds-button-size-props, $size, "font-size");
+        line-height: map-get($hds-button-size-props, $size, "line-height");
       }
 
       &.#{$blockName}--is-icon-only {
         // overrides to have the icon-only button squared
-        min-width: map-get($size-props, $size, "min-height");
-        padding-right: map-get($size-props, $size, "padding-vertical");
-        padding-left: map-get($size-props, $size, "padding-vertical");
+        min-width: map-get($hds-button-size-props, $size, "min-height");
+        padding-right: map-get($hds-button-size-props, $size, "padding-vertical");
+        padding-left: map-get($hds-button-size-props, $size, "padding-vertical");
       }
     }
   }

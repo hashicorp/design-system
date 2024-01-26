@@ -88,17 +88,17 @@
 
   &::before {
     // notice: to avoid too many nested calc() operation, we have decided to compute directly the values in Sass
-    $outline-width: 3px;
-    $outline-offset: 1px;
-    $shift: $outline-width + $outline-offset + 1px; // here 1px refers to "--token-form-radio-border-width"
+    $hds-outline-width: 3px;
+    $hds-outline-offset: 1px;
+    $hds-shift: $hds-outline-width + $hds-outline-offset + 1px; // here 1px refers to "--token-form-radio-border-width"
     position: absolute;
-    top: -$shift;
-    right: -$shift;
-    bottom: -$shift;
-    left: -$shift;
+    top: -$hds-shift;
+    right: -$hds-shift;
+    bottom: -$hds-shift;
+    left: -$hds-shift;
     margin: auto;
-    border-width: $outline-width;
-    border-radius: calc(var(--token-form-toggle-height) / 2 + $outline-width + $outline-offset);
+    border-width: $hds-outline-width;
+    border-radius: calc(var(--token-form-toggle-height) / 2 + $hds-outline-width + $hds-outline-offset);
     content: "";
   }
 
@@ -116,8 +116,8 @@
     background-color: var(--token-form-control-checked-surface-color-default);
 
     &::after {
-      $translation: calc(var(--token-form-toggle-width) - var(--token-form-toggle-thumb-size));
-      transform: translate3d($translation, 0, 0);
+      $hds-translation: calc(var(--token-form-toggle-width) - var(--token-form-toggle-thumb-size));
+      transform: translate3d($hds-translation, 0, 0);
     }
   }
 

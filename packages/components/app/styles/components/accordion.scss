@@ -10,8 +10,8 @@
 @use "../mixins/button" as *;
 @use "../mixins/focus-ring" as *;
 
-$accordion-item-padding: 16px;
-$accordion-item-border-radius: 6px;
+$hds-accordion-item-padding: 16px;
+$hds-accordion-item-border-radius: 6px;
 
 // ACCORDION COMPONENT (wrapper)
 
@@ -25,7 +25,7 @@ $accordion-item-border-radius: 6px;
 
 .hds-accordion-item {
   background: var(--token-color-surface-primary);
-  border-radius: $accordion-item-border-radius;
+  border-radius: $hds-accordion-item-border-radius;
 
   &.hds-accordion-item--does-not-contain-interactive {
     box-shadow: var(--token-surface-mid-box-shadow);
@@ -49,9 +49,9 @@ $accordion-item-border-radius: 6px;
   gap: 12px;
   align-items: center;
   padding:
-    $accordion-item-padding
-    $accordion-item-padding
-    $accordion-item-padding
+    $hds-accordion-item-padding
+    $hds-accordion-item-padding
+    $hds-accordion-item-padding
     12px; // by design
 }
 
@@ -73,7 +73,7 @@ $accordion-item-border-radius: 6px;
     &::after {
       position: absolute;
       display: block;
-      border-radius: $accordion-item-border-radius;
+      border-radius: $hds-accordion-item-border-radius;
       content: "";
       inset: 0;
     }
@@ -116,5 +116,5 @@ $accordion-item-border-radius: 6px;
 // CONTENT BLOCK
 
 .hds-accordion-item__content {
-  padding: 4px $accordion-item-padding $accordion-item-padding $accordion-item-padding;
+  padding: 4px $hds-accordion-item-padding $hds-accordion-item-padding $hds-accordion-item-padding;
 }
