@@ -36,6 +36,15 @@ export default class HdsDropdownIndexComponent extends Component {
   }
 
   /**
+   * @param listAriaLabel
+   * @type {string}
+   * @description Sets a label for when  checkmark list items are used in the dropdown list
+   */
+  get listAriaLabel() {
+    return this.args.listAriaLabel || '';
+  }
+
+  /**
    * Get the class names to apply to the element
    * @method classNames
    * @return {string} The "class" attribute to apply to the root element
@@ -75,6 +84,7 @@ export default class HdsDropdownIndexComponent extends Component {
     let checkmarkItems = element.querySelectorAll(`[role="option"]`);
     if (checkmarkItems.length) {
       element.setAttribute('role', 'listbox');
+      element.setAttribute('aria-label', this.listAriaLabel);
     }
   }
 }
