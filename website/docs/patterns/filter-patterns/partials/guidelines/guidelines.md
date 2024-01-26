@@ -163,6 +163,14 @@ If no filters have been applied, use a [Tooltip](/components/tooltip) coupled wi
 
 ![Empty state in applied filters](/assets/patterns/filter-patterns/applied-filters-empty-state.png =450x*)
 
+### Avoiding empty state
+
+### Reverting filters
+
+If the filters applied to a data set _do_ result in an empty state or no results being returned, provide the user with an escape route to revert or all filters at once or individually.
+
+This can be done by highlighting a "Clear all" function in the [Application State](/components/application-state) to bulk clear applied filters, or individually by using a dismissible [Tag](/components/tag).
+
 ## Overflow
 
 Depending on the complexity of the data set, it may be necessary to account for the overflow of elements within the filters.
