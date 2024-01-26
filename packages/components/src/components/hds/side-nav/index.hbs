@@ -5,6 +5,7 @@
 
 <Hds::SideNav::Base
   class={{this.classNames}}
+  @isMinimized={{this.isMinimized}}
   ...attributes
   {{on "transitionstart" (fn this.setTransition "start")}}
   {{on "transitionend" (fn this.setTransition "end")}}

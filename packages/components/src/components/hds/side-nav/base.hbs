@@ -9,10 +9,10 @@
     <div class="hds-side-nav__wrapper-header">
       {{yield to="header"}}
     </div>
-    <div class="hds-side-nav__wrapper-body">
+    <div class="hds-side-nav__wrapper-body" inert={{@isMinimized}}>
       {{yield to="body"}}
     </div>
-    <div class="hds-side-nav__wrapper-footer">
+    <div class="hds-side-nav__wrapper-footer" inert={{@isMinimized}}>
       {{yield to="footer"}}
     </div>
   </div>

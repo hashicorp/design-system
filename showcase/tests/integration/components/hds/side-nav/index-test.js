@@ -217,6 +217,8 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
     assert
       .dom('#test-side-nav-footer')
       .doesNotHaveAttribute('data-test-minimized');
+    assert.dom('.hds-side-nav__wrapper-body').doesNotHaveAttribute('inert');
+    assert.dom('.hds-side-nav__wrapper-footer').doesNotHaveAttribute('inert');
 
     await click('.hds-side-nav__toggle-button');
 
@@ -230,6 +232,8 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
     assert.dom('#test-side-nav-header').hasAttribute('data-test-minimized');
     assert.dom('#test-side-nav-body').hasAttribute('data-test-minimized');
     assert.dom('#test-side-nav-footer').hasAttribute('data-test-minimized');
+    assert.dom('.hds-side-nav__wrapper-body').hasAttribute('inert');
+    assert.dom('.hds-side-nav__wrapper-footer').hasAttribute('inert');
   });
 
   // CALLBACKS
