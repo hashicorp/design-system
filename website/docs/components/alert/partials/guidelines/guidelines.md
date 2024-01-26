@@ -186,21 +186,15 @@ However, depending on the logic within the application and the type of content b
 
 ### Alerts of the same color
 
-!!! Dont
-
-Don’t display more than one of the same `color` Alert on the page. This adds unnecessary visual weight to the page and may result in the user being confused about which Alert is more important or which might require attention first.
+While it might not always be possible depending on the type of content and intended action, try to refrain from displaying more than one of the same `color` Alert on the same page. This adds unnecessary visual weight to the page and may result in the user being confused about which Alert is more important or which might require attention first.
 
 ![Example of multiple Alerts of the same color](/assets/components/alert/multiple-color-alerts-dont.png)
-!!!
 
-!!! Do
-
-Instead, try to combine relevant and overlapping content into a single Alert.
+To avoid this, try combining relevant or overlapping content into a single Alert by combining the content in a more succint narrative, or by translating the related messages into a list.
 
 ![Example of multiple Alerts combined into one](/assets/components/alert/multiple-color-alerts-do.png)
 
-This may result in the length of the content being longer, but consolidating messages into a single instance of the Alert is a more concise communication pattern.
-!!!
+![Multiple Alert messages combined in a bulleted list](/assets/components/alert/multiple-color-alerts-do-bulleted-list.png)
 
 ### Ordering of Alerts
 
@@ -209,6 +203,17 @@ Order multiple Alerts by their importance and impact on the user, starting from 
 ![Ordering alerts](/assets/components/alert/ordering-alerts.png)
 
 ### Alerts of the same type
+
+While not recommended for `page` type Alerts, it may be necessary to have more than one `inline` or `compact` Alert on a page. If this is case, 
+
+!!! Dont
+
+Don’t display more than one `page` type Alert on the same page.
+
+![Example of multiple page-level Alerts](/assets/components/alert/multiple-page-level-alerts.png)
+!!!
+
+---
 
 Try to avoid multiple Alerts of the same type (`page`, `inline`, etc) on the same page.
 
@@ -219,11 +224,19 @@ Instead, use Alerts hierarchically according to their intended prominence and im
 ![An example of multiple types of Alerts on the same page](/assets/components/alert/multiple-alert-types-do.png)
 !!!
 
+---
+
+#### Mixing Alert types
+
 ### Contextualizing Alerts
 
 `Inline` and `compact` Alerts can have more meaning if they are [placed](#placement) or contextualized within the element that is responsible for the Alert. This can help when it’s necessary to have more than one Alert on the page and is relevant for pages that aggregate content like dashboards.
 
 ![Example of multiple Alerts contextualized to different parts of the UI](/assets/components/alert/combining-contextualized-alerts.png)
+
+Contextualization is helpful when displaying a specific or localized message; e.g., within a form to highlight validation errors or problems with form submission.
+
+### Dismissible Alerts
 
 ### Alerts within a Reveal
 
