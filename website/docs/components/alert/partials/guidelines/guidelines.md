@@ -182,13 +182,13 @@ Compact alerts can be added to a section or component or inline with content.
 
 In general, displaying multiple alerts on the same page is discouraged as it can negatively impact the page hierarchy and unnecessarily shift emphasis away from the main content on the page.
 
-However, depending on the logic within the application and the type content being expressed to the user, it may be necessary to display more than one Alert on a page. Consider these scenarios and their accompanying guidelines if this is the case.
+However, depending on the logic within the application and the type of content being expressed to the user, it may be necessary to display more than one Alert on a page. Consider these scenarios and their accompanying guidelines if this is the case.
 
 ### Alerts of the same color
 
 !!! Dont
 
-Don’t display more than one of the same `color` Alert on the page. This adds unnecessary visual weight to page and may result in the user being confused about which Alert is more important or which might require attention first.
+Don’t display more than one of the same `color` Alert on the page. This adds unnecessary visual weight to the page and may result in the user being confused about which Alert is more important or which might require attention first.
 
 ![Example of multiple Alerts of the same color](/assets/components/alert/multiple-color-alerts-dont.png)
 !!!
@@ -204,7 +204,7 @@ This may result in the length of the content being longer, but consolidating mes
 
 ### Ordering of Alerts
 
-Order multiple Alerts by their importance and impact on the user, with `critical` communicating Alerts that must be resolved immediately, and descending in perceived impact to `neutral`.
+Order multiple Alerts by their importance and impact on the user, starting from `critical`, to communicate an Alert that must be resolved immediately, and descending in order of perceived impact to `neutral`.
 
 ![Ordering alerts](/assets/components/alert/ordering-alerts.png)
 
@@ -221,13 +221,13 @@ Instead, use Alerts hierarchically according to their intended prominence and im
 
 ### Contextualizing Alerts
 
-`Inline` and `compact` Alerts can have more meaning if they are [placed](#placement) or contextualized within the element that is responsible for the Alert. This can help when it's necessary to have more than one Alert on the page and is relevant for pages that aggregate content like dashbaords.
+`Inline` and `compact` Alerts can have more meaning if they are [placed](#placement) or contextualized within the element that is responsible for the Alert. This can help when it’s necessary to have more than one Alert on the page and is relevant for pages that aggregate content like dashboards.
 
 ![Example of multiple Alerts contextualized to different parts of the UI](/assets/components/alert/combining-contextualized-alerts.png)
 
 ### Alerts within a Reveal
 
-**As a last resort**, when multiple `inline` Alerts are necessary, display the most important Alert the user within the page, and obfuscate additional Alerts within a [Reveal](/components/reveal).
+**As a last resort**, when multiple `inline` Alerts are necessary, display the most important Alert to the user within the page while obfuscating additional Alerts within a [Reveal](/components/reveal).
 
 !!! Warning
 
