@@ -42,7 +42,7 @@ The Table component itself is where most of the options will be applied. However
       The column’s label.
       </C.Property>
       <C.Property @name="key" @type="string">
-      The column’s key (one of the keys in the model's records); required if the column is sortable.
+      The column’s key (one of the keys in the model’s records); required if the column is sortable.
       </C.Property>
       <C.Property @name="isSortable" @type="boolean" @default="false">
         If set to `true`, indicates that a column should be sortable.
@@ -73,11 +73,14 @@ The Table component itself is where most of the options will be applied. However
   <C.Property @name="onSelectionChange" @type="function">
     Use in conjunction with `isSelectable` to pass a callback function to know the table selection state. Must be used in conjunction with setting a `selectionKey` on each `Table::Tr`.
     <br /><br />
-    When called, this function receives an object as argument, with different keys corresponding to different informations:<br />
-    - `selectionKey` - the value of the `@selectionKey` argument associated with the row selected/deselected by the user or `all` if the "select all" checkbox has been toggled<br />
-    - `selectionCheckboxElement` - the checkbox (DOM element) that has been toggled by the user<br />
-    - `selectedRowsKeys` - an array containing all the `@selectionKey`s of the selected rows in the table (an empty array is returned if no row is selected)<br />
-    - `selectableRowsStates` - an array of objects corresponding to all the rows displayed in the table when the user changed a selection; each object contains the `@selectionKey` value for the associated row and its `isSelected` boolean state (if the checkbox is checked or not) - **Important**: the order of the rows in the array doesn't necessarily follow the order of the rows in the table/DOM.
+    When called, this function receives an object as argument, with different keys corresponding to different information:
+    <ul>
+    <li>`selectionKey`: the value of the `@selectionKey` argument associated with the row selected/deselected by the user or `all` if the “select all” checkbox has been toggled</li>
+    <li>`selectionCheckboxElement`: the checkbox (DOM element) that has been toggled by the user</li>
+    <li>`selectedRowsKeys`: an array containing all the `@selectionKey`s of the selected rows in the table (an empty array is returned if no row is selected)</li>
+    <li>`selectableRowsStates`: an array of objects corresponding to all the rows displayed in the table when the user changed a selection; each object contains the `@selectionKey` value for the associated row and its `isSelected` boolean state (if the checkbox is checked or not)<br><br>
+    **Important**: the order of the rows in the array doesn’t necessarily follow the order of the rows in the table/DOM.</li>
+    </ul>
   </C.Property>
   <C.Property @name="isStriped" @type="boolean" @default="false">
     Define on the table invocation. If set to `true`, even-numbered rows will have a different background color from odd-numbered rows.
@@ -122,10 +125,10 @@ This component can contain `Hds::Table::Th`, `Hds::Table::ThSort`, or `Hds::Tabl
     Sets the initial selection state for the row (used in conjunction with setting `isSelectable` on the `Table`).
   </C.Property>
   <C.Property @name="selectionKey" @type="string | number">
-    Required value to associate an unique identifier to each table row (used in conjunction with setting `isSelectable` on the `Table` and returned in the `onSelectionChange` callback arguments). It's required if `isSelectable={{true}}`.
+    Required value to associate an unique identifier to each table row (used in conjunction with setting `isSelectable` on the `Table` and returned in the `onSelectionChange` callback arguments). It’s required if `isSelectable={{true}}`.
   </C.Property>
   <C.Property @name="selectionAriaLabelSuffix" @type="string">
-    Descriptive `aria-label` attribute applied to the checkbox used to select the row (used in conjunction with setting `isSelectable` on the `Table`). The component automatically prepends "Select/Deselect" to the string, depending on the selection status. It's required if `isSelectable={{true}}`.
+    Descriptive `aria-label` attribute applied to the checkbox used to select the row (used in conjunction with setting `isSelectable` on the `Table`). The component automatically prepends “Select/Deselect” to the string, depending on the selection status. It’s required if `isSelectable={{true}}`.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).

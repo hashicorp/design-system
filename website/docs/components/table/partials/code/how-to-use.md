@@ -149,7 +149,7 @@ Add `isSortable=true` to the hash for each column that should be sortable.
 
 #### Pre-sorting columns
 
-To indicate that a specific column should be pre-sorted, add `@sortBy`, where the value is the column's key.
+To indicate that a specific column should be pre-sorted, add `@sortBy`, where the value is the column’s key.
 
 ```handlebars
 <Hds::Table
@@ -340,7 +340,7 @@ myDemoCustomSortingFunction = (sortBy, sortOrder) => {
 
 ### Density
 
-To create a condensed or spacious Table, add `@density` to the Table's invocation. Note that it only affects the Table body, not the Table header.
+To create a condensed or spacious Table, add `@density` to the Table’s invocation. Note that it only affects the Table body, not the Table header.
 
 ```handlebars
 <Hds::Table
@@ -366,7 +366,7 @@ To create a condensed or spacious Table, add `@density` to the Table's invocatio
 
 #### Vertical alignment
 
-To indicate that the table's content should have a middle vertical-align, use `@valign` in the table's invocation.
+To indicate that the table’s content should have a middle vertical-align, use `@valign` in the table’s invocation.
 
 ```handlebars
 <Hds::Table
@@ -392,7 +392,7 @@ To indicate that the table's content should have a middle vertical-align, use `@
 
 !!! Info
 
-Note that vertical-align only applies to inline, inline-block and table-cell elements: you can't use it to vertically align block-level elements ([see MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align)).
+Note that vertical-align only applies to inline, inline-block and table-cell elements: you can’t use it to vertically align block-level elements ([see MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align)).
 
 If you have more than just text content in the table cell, you'll want to wrap that content in a flex box and style accordingly.
 
@@ -424,7 +424,7 @@ If you have more than just text content in the table cell, you'll want to wrap t
 
 #### Horizontal alignment
 
-To create a column that has right-aligned content, set `@align` to `right` on both the column's header and cell (the cell's horizontal content alignment should be the same as the column's horizontal content alignment).
+To create a column that has right-aligned content, set `@align` to `right` on both the column’s header and cell (the cell’s horizontal content alignment should be the same as the column’s horizontal content alignment).
 
 ```handlebars
 <Hds::Table
@@ -460,7 +460,7 @@ Consuming a large amount of data in a tabular format can lead to an intense cogn
 
 We recommend using functionalities like [pagination](/components/pagination), [sorting](/components/table?tab=code#sortable-table), and [filtering](/patterns/filter-patterns) to reduce this load.
 
-That said, there may be cases when it's necessary to show a table with a large number of columns and allow the user to scroll horizontally. In this case the consumer can use different approaches, depending on their context, needs and design specs.
+That said, there may be cases when it’s necessary to show a table with a large number of columns and allow the user to scroll horizontally. In this case the consumer can use different approaches, depending on their context, needs and design specs.
 
 Below we show a couple of examples of how a scrollable table could be implemented: use them as starting point (your mileage may vary).
 
@@ -580,7 +580,7 @@ This is a simple example of a table with multi-selection. Notice the `@selection
 
 **Important**
 
-To make the table correctly accessible each checkbox used for the selection needs to have a distinct `aria-label`. For this reason you need to provide a `@selectionAriaLabelSuffix` value (possibly unique) to the rows in the table's `tbody`.
+To make the table correctly accessible, each checkbox used for the selection needs to have a distinct `aria-label`. For this reason, you need to provide a `@selectionAriaLabelSuffix` value (possibly unique) to the rows in the table’s `tbody`.
 
 !!!
 
@@ -596,7 +596,7 @@ demoOnSelectionChange({
 }) {
   // here we use the `selectedRowsKeys` to execute some action on each of the data records associated (via the `@selectionKey` argument) to the selected rows
   selectedRowsKeys.forEach((rowSelectionKey) => {
-    // do something using the row's `selectionKey` value
+    // do something using the row’s `selectionKey` value
     // ...
     // ...
     // ...
@@ -604,14 +604,14 @@ demoOnSelectionChange({
 }
 ```
 
-For details about the arguments provided to the `@onSelectionChange` callback function refer to the [Component API](#component-api) section.
+For details about the arguments provided to the `@onSelectionChange` callback function, refer to the [Component API](#component-api) section.
 
 
 !!! Info
 
 **Multi-select table without a model**
 
-While it's technically possible to use the multi-select feature in a table implemented without using a model, we strongly suggest to convert the code so that a `@model` is provided to the table, using a local dataset (created using the information/data that needs to be displayed).
+While it’s technically possible to use the multi-select feature in a table implemented without using a model, we strongly suggest converting the code to provide a `@model` to the table using a local dataset (created using the information/data you need to display).
 
 !!!
 
@@ -619,9 +619,9 @@ While it's technically possible to use the multi-select feature in a table imple
 
 This is a more complex example, where a table with multi-selection is associated with a [Pagination](/components/pagination) element (a similar use case would apply if a [filter](/patterns/filter-patterns) is applied to the data used to populate the table). In this case, a **subset of rows** is displayed on screen.
 
-When a user selects a row, if the displayed rows are replaced with other ones (e.g., when the user clicks on the "next" button or on a different page number) there's the question of what happens to the previous selection: is it persisted in the data/model underlying the table? Or is it lost?
+When a user selects a row, if the displayed rows are replaced with other ones (e.g., when the user clicks on the “next” button or on a different page number) there’s the question of what happens to the previous selection: is it persisted in the data/model underlying the table? Or is it lost?
 
-In the demo below we are persisting the selection in the data/model, so that when navigating to different pages the row selections are persisted across table re-renderings.
+In the demo below, we are persisting the selection in the data/model, so that when navigating to different pages, the row selections persist across table re-renderings.
 
 ```handlebars
 <div class="doc-table-multiselect-with-pagination-demo">
@@ -675,22 +675,22 @@ demoOnSelectionChangeWithPagination({ selectableRowsStates }) {
 
 ```
 
-For details about the arguments provided to the `@onSelectionChange` callback function refer to the [Component API](#component-api) section.
+For details about the arguments provided to the `@onSelectionChange` callback function, refer to the [Component API](#component-api) section.
 
 
 #### Usability and accessibility considerations
 
-Since the "selected" state of a row is communicated visually via the checkbox selection and for screen-reader users via the `aria-label` applied to the checkbox, there are some important considerations to keep in mind when implementing a multi-select table.
+Since the “selected” state of a row is communicated visually via the checkbox selection and for screen-reader users via the `aria-label` applied to the checkbox, there are some important considerations to keep in mind when implementing a multi-select table.
 
 If the selection status of the rows is persisted even when a row is not displayed in the UI, you need to be mindful of what the expectations of the user may be: how do we make them aware that the action that they are going to perform may involve table rows that were previously selected by the user but that are not displayed in that moment?
 
-Even more complex is the case of the "Select all" checkbox. While it's pretty straightforward the expected behaviour when all the table rows are displayed on the table (precisely, "select all the rows in the table"), it may not be obvious what is the expected behaviour when the table rows are paginated of filtered.
+Even more complex is the case of the “Select all” checkbox. While it’s pretty straightforward when all the table rows are displayed on the table (precisely, “select all the rows in the table”), it may not be obvious what the expected behavior is when the table rows are paginated or filtered.
 
-If as a user I am looking at a subset of the whole possible rows, and I click "select all", what should I expect to happen? That all (and only) the displayed rows are selected –and this is what happens in the example above– or that all the data/model rows are selected, even if not displayed at the moment? In the first case, the "select all" state changes whenever the rows are changes (eg. the user chooses a different pagination number), and this could be confusing. In the second case, it may not be obvious to the user that _all_ the data records have been selected, and it may unintentionally perform an action on them under the assumption that they are performing it only on the displayed table rows.
+As a user, if I am looking at a subset of all the existing rows and I click “select all”, what do I expect to happen? Do I expect that only the displayed rows are selected—which is what happens in the example above—or that all the data/model rows are selected, even if not displayed at the moment? In the first case, the “select all” state changes whenever the rows change (e.g., the user chooses a different pagination number), and this could be confusing. In the second case, it may not be obvious to the user that _all_ the data records have been selected, and they may unintentionally perform an action on all the rows under the assumption that they are performing it only on the displayed table rows.
 
 Whatever functionality you decide to implement, be mindful of all these possible subtleties and complexities.
 
-For more detailed guidance around these usability and accessibility concerns, refer to **[TODO!!!]**.
+For more detailed guidance around these usability and accessibility concerns, please contact the HDS team.
 
 ### More examples
 
