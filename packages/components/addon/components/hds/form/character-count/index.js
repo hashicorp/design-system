@@ -9,7 +9,7 @@ const ID_PREFIX = 'character-count-';
 const NOOP = () => {};
 
 export default class HdsFormCharacterCountIndexComponent extends Component {
-  // The current number of characters in the associated input
+  // The current number of characters in @value
   get currentLength() {
     let { value } = this.args;
     return value ? value.length : 0;
