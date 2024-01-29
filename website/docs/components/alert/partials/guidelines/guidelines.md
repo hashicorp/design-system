@@ -29,26 +29,26 @@ Use compact alerts when a less prominent alert is needed.
 ## Color
 
 <Doc::Layout @spacing="12px">
-<Hds::Alert @type="inline" @color="neutral" as |A|>
-<A.Title>Neutral alert title</A.Title>
-<A.Description>Lorem ipsum dolar sit amet.</A.Description>
-</Hds::Alert>
-<Hds::Alert @type="inline" @color="highlight" as |A|>
-<A.Title>Highlight alert title</A.Title>
-<A.Description>Lorem ipsum dolar sit amet.</A.Description>
-</Hds::Alert>
-<Hds::Alert @type="inline" @color="success" as |A|>
-<A.Title>Success alert title</A.Title>
-<A.Description>Lorem ipsum dolar sit amet.</A.Description>
-</Hds::Alert>
-<Hds::Alert @type="inline" @color="warning" as |A|>
-<A.Title>Warning alert title</A.Title>
-<A.Description>Lorem ipsum dolar sit amet.</A.Description>
-</Hds::Alert>
-<Hds::Alert @type="inline" @color="critical" as |A|>
-<A.Title>Critical alert title</A.Title>
-<A.Description>Lorem ipsum dolar sit amet.</A.Description>
-</Hds::Alert>
+  <Hds::Alert @type="inline" @color="neutral" as |A|>
+    <A.Title>Neutral alert title</A.Title>
+    <A.Description>Lorem ipsum dolar sit amet.</A.Description>
+  </Hds::Alert>
+  <Hds::Alert @type="inline" @color="highlight" as |A|>
+    <A.Title>Highlight alert title</A.Title>
+    <A.Description>Lorem ipsum dolar sit amet.</A.Description>
+  </Hds::Alert>
+  <Hds::Alert @type="inline" @color="success" as |A|>
+    <A.Title>Success alert title</A.Title>
+    <A.Description>Lorem ipsum dolar sit amet.</A.Description>
+  </Hds::Alert>
+  <Hds::Alert @type="inline" @color="warning" as |A|>
+    <A.Title>Warning alert title</A.Title>
+    <A.Description>Lorem ipsum dolar sit amet.</A.Description>
+  </Hds::Alert>
+  <Hds::Alert @type="inline" @color="critical" as |A|>
+    <A.Title>Critical alert title</A.Title>
+    <A.Description>Lorem ipsum dolar sit amet.</A.Description>
+  </Hds::Alert>
 </Doc::Layout>
 
 Use color logically.
@@ -69,10 +69,10 @@ Use critical alerts to convey crucial information or errors, such as validation 
 Use the Alert for more intrusive message communication about errors or critical disruptions at an application, page, or section level where users need to take immediate action.
 
 <Hds::Alert @type="inline" @color="critical" as |A|>
-<A.Title>You have exceeded 50 applies this month</A.Title>
-<A.Description>You may only invoke applies that destroy managed resources. Upgrade now and access additional product features, unlimited applies, and increased concurrency.</A.Description>
-<A.Button @text="Upgrade" @color="secondary" @onClick={{this.noop}} />
-<A.Link::Standalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="View usage" @href="#" />
+  <A.Title>You have exceeded 50 applies this month</A.Title>
+  <A.Description>You may only invoke applies that destroy managed resources. Upgrade now and access additional product features, unlimited applies, and increased concurrency.</A.Description>
+  <A.Button @text="Upgrade" @color="secondary" @onClick={{this.noop}} />
+  <A.Link::Standalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="View usage" @href="#" />
 </Hds::Alert>
 !!!
 
@@ -81,12 +81,12 @@ Use the Alert for more intrusive message communication about errors or critical 
 Use the Alert to communicate validation errors. For more details, refer to the [form validation patterns](/patterns/form-patterns?tab=validation).
 
 <Hds::Alert @type="inline" @color="critical" as |A|>
-<A.Title>Form submission error</A.Title>
-<A.Description>Correct the formatting of the following fields to update your user profile:
-</A.Description>
-<A.Description>
-<Hds::Link::Inline @href="..." @color="secondary">Email address</Hds::Link::Inline>
-</A.Description>
+  <A.Title>Form submission error</A.Title>
+  <A.Description>Correct the formatting of the following fields to update your user profile:
+  </A.Description>
+  <A.Description>
+  <Hds::Link::Inline @href="..." @color="secondary">Email address</Hds::Link::Inline>
+  </A.Description>
 </Hds::Alert>
 !!!
 
@@ -95,9 +95,9 @@ Use the Alert to communicate validation errors. For more details, refer to the [
 Don't use alerts to provide non-intrusive feedback to users about the failure of an ongoing task or request. For example, a failure while deleting a cluster. Use the [Toast](/components/toast) instead.
 
 <Hds::Alert @type="inline" @color="critical" as |A|>
-<A.Title>Module error</A.Title>
-<A.Description>This module encountered an error during publishing. You may need to republish.
-</A.Description>
+  <A.Title>Module error</A.Title>
+  <A.Description>This module encountered an error during publishing. You may need to republish.
+  </A.Description>
 </Hds::Alert>
 !!!
 
@@ -106,8 +106,8 @@ Don't use alerts to provide non-intrusive feedback to users about the failure of
 Don't use alerts to communicate error messages that are not caused by the user. For example, an unsuccessful Vault cluster creation due to a failure while validating the deployment. Use the [Toast](/components/toast) instead.
 
 <Hds::Alert @type="inline" @color="critical" as |A|>
-<A.Title>Vault cluster update failed</A.Title>
-<A.Description>**test-cluster_1** configuration update failed.</A.Description>
+  <A.Title>Vault cluster update failed</A.Title>
+  <A.Description>**test-cluster_1** configuration update failed.</A.Description>
 </Hds::Alert>
 !!!
 
@@ -118,9 +118,9 @@ All alerts have icons by default that are intentionally tied to the alert type.
 Icons within the `neutral` and `highlight` alerts can be replaced with other icons. Change them only when the new icon provides the user with extra value; otherwise, use the default icon provided.
 
 <Hds::Alert @type="inline" @color="highlight" @onDismiss={{this.noop}} @icon="gift" as |A|>
-<A.Title>New features available</A.Title>
-<A.Description>Starting with Terraform 0.15, you can now upgrade to a new version and your workflows will continue to be operational, just as they were in prior versions.</A.Description>
-<A.Link::Standalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="Release notes" @href="#" />
+  <A.Title>New features available</A.Title>
+  <A.Description>Starting with Terraform 0.15, you can now upgrade to a new version and your workflows will continue to be operational, just as they were in prior versions.</A.Description>
+  <A.Link::Standalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="Release notes" @href="#" />
 </Hds::Alert>
 
 ## Dismissal
@@ -137,8 +137,8 @@ We recommend setting `neutral` and `highlight` alerts to be dismissible, as they
 
 !!! Do
 <Hds::Alert @type="inline" @color="neutral" @onDismiss={{this.noop}} as |A|>
-<A.Title>Neutral alert title</A.Title>
-<A.Description>Lorem ipsum dolar sit amet.</A.Description>
+  <A.Title>Neutral alert title</A.Title>
+  <A.Description>Lorem ipsum dolar sit amet.</A.Description>
 </Hds::Alert>
 !!!
 
@@ -146,15 +146,15 @@ We recommend keeping `critical` alerts non-dismissible as they are essential to 
 
 !!! Do
 <Hds::Alert @type="inline" @color="critical" as |A|>
-<A.Title>Critical alert title</A.Title>
-<A.Description>Lorem ipsum dolar sit amet.</A.Description>
+  <A.Title>Critical alert title</A.Title>
+  <A.Description>Lorem ipsum dolar sit amet.</A.Description>
 </Hds::Alert>
 !!!
 
 !!! Dont
 <Hds::Alert @type="inline" @color="critical" @onDismiss={{this.noop}} as |A|>
-<A.Title>Critical alert title</A.Title>
-<A.Description>Lorem ipsum dolar sit amet.</A.Description>
+  <A.Title>Critical alert title</A.Title>
+  <A.Description>Lorem ipsum dolar sit amet.</A.Description>
 </Hds::Alert>
 !!!
 
