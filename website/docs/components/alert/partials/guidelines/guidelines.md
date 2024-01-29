@@ -29,26 +29,26 @@ Use compact alerts when a less prominent alert is needed.
 ## Color
 
 <Doc::Layout @spacing="12px">
-  <Hds::Alert @type="inline" @color="neutral" as |A|>
-    <A.Title>Neutral alert title</A.Title>
-    <A.Description>Lorem ipsum dolar sit amet.</A.Description>
-  </Hds::Alert>
-  <Hds::Alert @type="inline" @color="highlight" as |A|>
-    <A.Title>Highlight alert title</A.Title>
-    <A.Description>Lorem ipsum dolar sit amet.</A.Description>
-  </Hds::Alert>
-  <Hds::Alert @type="inline" @color="success" as |A|>
-    <A.Title>Success alert title</A.Title>
-    <A.Description>Lorem ipsum dolar sit amet.</A.Description>
-  </Hds::Alert>
-  <Hds::Alert @type="inline" @color="warning" as |A|>
-    <A.Title>Warning alert title</A.Title>
-    <A.Description>Lorem ipsum dolar sit amet.</A.Description>
-  </Hds::Alert>
-  <Hds::Alert @type="inline" @color="critical" as |A|>
-    <A.Title>Critical alert title</A.Title>
-    <A.Description>Lorem ipsum dolar sit amet.</A.Description>
-  </Hds::Alert>
+<Hds::Alert @type="inline" @color="neutral" as |A|>
+<A.Title>Neutral alert title</A.Title>
+<A.Description>Lorem ipsum dolar sit amet.</A.Description>
+</Hds::Alert>
+<Hds::Alert @type="inline" @color="highlight" as |A|>
+<A.Title>Highlight alert title</A.Title>
+<A.Description>Lorem ipsum dolar sit amet.</A.Description>
+</Hds::Alert>
+<Hds::Alert @type="inline" @color="success" as |A|>
+<A.Title>Success alert title</A.Title>
+<A.Description>Lorem ipsum dolar sit amet.</A.Description>
+</Hds::Alert>
+<Hds::Alert @type="inline" @color="warning" as |A|>
+<A.Title>Warning alert title</A.Title>
+<A.Description>Lorem ipsum dolar sit amet.</A.Description>
+</Hds::Alert>
+<Hds::Alert @type="inline" @color="critical" as |A|>
+<A.Title>Critical alert title</A.Title>
+<A.Description>Lorem ipsum dolar sit amet.</A.Description>
+</Hds::Alert>
 </Doc::Layout>
 
 Use color logically.
@@ -56,24 +56,24 @@ Use color logically.
 - **Neutral** to provide general information to the user regarding the current context or relevant actions.
 - **Highlight** to provide general or promotional information to the user prominently.
 - **Success** to indicate a successful action.
-    - Use the success variant sparingly. To communicate success after a user action is performed, use [Toast](/components/toast).
+  - Use the success variant sparingly. To communicate success after a user action is performed, use [Toast](/components/toast).
 - **Warning** to help users avoid an issue. Provide guidance and actions, if possible.
 - **Critical** to indicate critical errors that need immediate action.
 
 ### Critical alerts
 
-Use critical alerts to convey crucial information or errors, such as validation errors that require user attention or action. 
+Use critical alerts to convey crucial information or errors, such as validation errors that require user attention or action.
 
 !!! Do
 
 Use the Alert for more intrusive message communication about errors or critical disruptions at an application, page, or section level where users need to take immediate action.
 
 <Hds::Alert @type="inline" @color="critical" as |A|>
-    <A.Title>You have exceeded 50 applies this month</A.Title>
-    <A.Description>You may only invoke applies that destroy managed resources. Upgrade now and access additional product features, unlimited applies, and increased concurrency.</A.Description>
-    <A.Button @text="Upgrade" @color="secondary" @onClick={{this.noop}} />
-    <A.Link::Standalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="View usage" @href="#" />
-  </Hds::Alert>
+<A.Title>You have exceeded 50 applies this month</A.Title>
+<A.Description>You may only invoke applies that destroy managed resources. Upgrade now and access additional product features, unlimited applies, and increased concurrency.</A.Description>
+<A.Button @text="Upgrade" @color="secondary" @onClick={{this.noop}} />
+<A.Link::Standalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="View usage" @href="#" />
+</Hds::Alert>
 !!!
 
 !!! Do
@@ -81,13 +81,13 @@ Use the Alert for more intrusive message communication about errors or critical 
 Use the Alert to communicate validation errors. For more details, refer to the [form validation patterns](/patterns/form-patterns?tab=validation).
 
 <Hds::Alert @type="inline" @color="critical" as |A|>
-    <A.Title>Form submission error</A.Title>
-    <A.Description>Correct the formatting of the following fields to update your user profile:
-    </A.Description>
-    <A.Description>
-    <Hds::Link::Inline @href="..." @color="secondary">Email address</Hds::Link::Inline>
-    </A.Description>
-  </Hds::Alert>
+<A.Title>Form submission error</A.Title>
+<A.Description>Correct the formatting of the following fields to update your user profile:
+</A.Description>
+<A.Description>
+<Hds::Link::Inline @href="..." @color="secondary">Email address</Hds::Link::Inline>
+</A.Description>
+</Hds::Alert>
 !!!
 
 !!! Dont
@@ -95,10 +95,10 @@ Use the Alert to communicate validation errors. For more details, refer to the [
 Don't use alerts to provide non-intrusive feedback to users about the failure of an ongoing task or request. For example, a failure while deleting a cluster. Use the [Toast](/components/toast) instead.
 
 <Hds::Alert @type="inline" @color="critical" as |A|>
-    <A.Title>Module error</A.Title>
-    <A.Description>This module encountered an error during publishing. You may need to republish.
-    </A.Description>
-  </Hds::Alert>
+<A.Title>Module error</A.Title>
+<A.Description>This module encountered an error during publishing. You may need to republish.
+</A.Description>
+</Hds::Alert>
 !!!
 
 !!! Dont
@@ -106,9 +106,9 @@ Don't use alerts to provide non-intrusive feedback to users about the failure of
 Don't use alerts to communicate error messages that are not caused by the user. For example, an unsuccessful Vault cluster creation due to a failure while validating the deployment. Use the [Toast](/components/toast) instead.
 
 <Hds::Alert @type="inline" @color="critical" as |A|>
-    <A.Title>Vault cluster update failed</A.Title>
-    <A.Description>**test-cluster_1** configuration update failed.</A.Description>
-  </Hds::Alert>
+<A.Title>Vault cluster update failed</A.Title>
+<A.Description>**test-cluster_1** configuration update failed.</A.Description>
+</Hds::Alert>
 !!!
 
 ## Icons
@@ -118,9 +118,9 @@ All alerts have icons by default that are intentionally tied to the alert type.
 Icons within the `neutral` and `highlight` alerts can be replaced with other icons. Change them only when the new icon provides the user with extra value; otherwise, use the default icon provided.
 
 <Hds::Alert @type="inline" @color="highlight" @onDismiss={{this.noop}} @icon="gift" as |A|>
-  <A.Title>New features available</A.Title>
-  <A.Description>Starting with Terraform 0.15, you can now upgrade to a new version and your workflows will continue to be operational, just as they were in prior versions.</A.Description>
-  <A.Link::Standalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="Release notes" @href="#" />
+<A.Title>New features available</A.Title>
+<A.Description>Starting with Terraform 0.15, you can now upgrade to a new version and your workflows will continue to be operational, just as they were in prior versions.</A.Description>
+<A.Link::Standalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="Release notes" @href="#" />
 </Hds::Alert>
 
 ## Dismissal
@@ -137,8 +137,8 @@ We recommend setting `neutral` and `highlight` alerts to be dismissible, as they
 
 !!! Do
 <Hds::Alert @type="inline" @color="neutral" @onDismiss={{this.noop}} as |A|>
-  <A.Title>Neutral alert title</A.Title>
-  <A.Description>Lorem ipsum dolar sit amet.</A.Description>
+<A.Title>Neutral alert title</A.Title>
+<A.Description>Lorem ipsum dolar sit amet.</A.Description>
 </Hds::Alert>
 !!!
 
@@ -146,37 +146,17 @@ We recommend keeping `critical` alerts non-dismissible as they are essential to 
 
 !!! Do
 <Hds::Alert @type="inline" @color="critical" as |A|>
-  <A.Title>Critical alert title</A.Title>
-  <A.Description>Lorem ipsum dolar sit amet.</A.Description>
+<A.Title>Critical alert title</A.Title>
+<A.Description>Lorem ipsum dolar sit amet.</A.Description>
 </Hds::Alert>
 !!!
 
 !!! Dont
 <Hds::Alert @type="inline" @color="critical" @onDismiss={{this.noop}} as |A|>
-  <A.Title>Critical alert title</A.Title>
-  <A.Description>Lorem ipsum dolar sit amet.</A.Description>
+<A.Title>Critical alert title</A.Title>
+<A.Description>Lorem ipsum dolar sit amet.</A.Description>
 </Hds::Alert>
 !!!
-
-## Placement
-
-### Page
-
-Page alerts are placed between the global header navigation and the breadcrumb, next to the left navigation.
-
-![Placement of page alert](/assets/components/alert/alert-placement-page.png =600x*)
-
-### Inline
-
-Inline alerts can be added to a section or component or inline with content.
-
-![Placement of inline alert](/assets/components/alert/alert-placement-inline.png =600x*)
-
-### Compact
-
-Compact alerts can be added to a section or component or inline with content.
-
-![Placement of compact Alert](/assets/components/alert/alert-placement-compact.png =600x*)
 
 ## Multiple alerts
 
@@ -190,53 +170,73 @@ While it might not always be possible depending on the type of content and inten
 
 ![Example of multiple Alerts of the same color](/assets/components/alert/multiple-color-alerts-dont.png)
 
-To avoid this, try combining relevant or overlapping content into a single Alert by combining the content in a more succint narrative, or by translating the related messages into a list.
+To avoid this, try combining relevant or overlapping content into a single Alert with a more concise narrative, or by translating the related messages into a list.
 
 ![Example of multiple Alerts combined into one](/assets/components/alert/multiple-color-alerts-do.png)
 
 ![Multiple Alert messages combined in a bulleted list](/assets/components/alert/multiple-color-alerts-do-bulleted-list.png)
 
+### Alerts of the same type
+
+While not recommended for `page` type Alerts, it may be necessary to have more than one `inline` or `compact` Alert on a page. If this is case, ensure that the Alerts are [ordered](#ordering-of-alerts) by impact and [contextualized](#contextualizing-alerts) in areas where they provide the most relevance.
+
 ### Ordering of Alerts
 
 Order multiple Alerts by their importance and impact on the user, starting from `critical`, to communicate an Alert that must be resolved immediately, and descending in order of perceived impact to `neutral`.
 
-![Ordering alerts](/assets/components/alert/ordering-alerts.png)
+![Ordering alerts](/assets/components/alert/ordering-alerts-color.png)
 
-### Alerts of the same type
+Alert types have an implied hierarchy and should be ordered starting from `page` and descending in hierarchy to `compact`. This order may depend on how the Alerts are [contextualized](#contextualizing-alerts)
 
-While not recommended for `page` type Alerts, it may be necessary to have more than one `inline` or `compact` Alert on a page. If this is case, 
-
-!!! Dont
-
-Don’t display more than one `page` type Alert on the same page.
-
-![Example of multiple page-level Alerts](/assets/components/alert/multiple-page-level-alerts.png)
-!!!
-
----
-
-Try to avoid multiple Alerts of the same type (`page`, `inline`, etc) on the same page.
-
-!!! Do
-
-Instead, use Alerts hierarchically according to their intended prominence and importance to the user.
-
-![An example of multiple types of Alerts on the same page](/assets/components/alert/multiple-alert-types-do.png)
-!!!
-
----
-
-#### Mixing Alert types
+![Ordering alerts of different types](/assets/components/alert/ordering-alerts-type.png)
 
 ### Contextualizing Alerts
 
-`Inline` and `compact` Alerts can have more meaning if they are [placed](#placement) or contextualized within the element that is responsible for the Alert. This can help when it’s necessary to have more than one Alert on the page and is relevant for pages that aggregate content like dashboards.
+`Inline` and `compact` Alerts can have more meaning if they are contextualized within the element that is responsible for the Alert. This can help when it’s necessary to have more than one Alert on the page and is relevant for pages that aggregate content like dashboards.
 
 ![Example of multiple Alerts contextualized to different parts of the UI](/assets/components/alert/combining-contextualized-alerts.png)
 
 Contextualization is helpful when displaying a specific or localized message; e.g., within a form to highlight validation errors or problems with form submission.
 
-### Dismissible Alerts
+### Placement
+
+How an Alert is contextualized or placed is dependent on the type.
+
+#### Page
+
+Page alerts are placed between the global header navigation and the breadcrumb, next to the left navigation.
+
+![Placement of page alert](/assets/components/alert/alert-placement-page.png =600x*)
+
+#### Inline
+
+Inline alerts can be added to a section or component or inline with content.
+
+![Placement of inline alert](/assets/components/alert/alert-placement-inline.png =600x*)
+
+#### Compact
+
+Compact alerts can be added to a section or component or inline with content.
+
+![Placement of compact Alert](/assets/components/alert/alert-placement-compact.png =600x*)
+
+#### Mixing Alert types
+
+We recommend against mixing different types of Alerts in the same context, as this can unintentionally convey that different Alert types have the same hierarchical impact.
+
+!!! Dont
+
+Don’t mix different Alert types in the same context.
+
+![Example of different Alert types in the same context](/assets/components/alert/mixing-alert-types-dont.png)
+!!!
+
+!!! Do
+
+Instead, be more specific with how the Alerts are contextualized depending on what the message applies to.
+
+![Example of different Alert types contextualized](/assets/components/alert/mixing-alert-types-do.png)
+!!!
 
 ### Alerts within a Reveal
 
