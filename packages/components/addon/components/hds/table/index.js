@@ -19,6 +19,7 @@ export default class HdsTableIndexComponent extends Component {
   @tracked selectAllCheckbox = undefined;
   selectableRows = [];
   @tracked isSelectAllCheckboxSelected = undefined;
+  @tracked forceUpdateAriaLabelCallback;
 
   /**
    * @param getSortCriteria
@@ -210,7 +211,7 @@ export default class HdsTableIndexComponent extends Component {
   onSelectionAllChange() {
     this.selectableRows.forEach((row) => {
       row.checkbox.checked = this.selectAllCheckbox.checked;
-      row.checkbox.dispatchEvent(new Event('toggle', { bubbles: false }));
+      this.forceUpdateAriaLabelCallback(row.checkbox);
     });
     this.isSelectAllCheckboxSelected = this.selectAllCheckbox.checked;
     this.onSelectionChangeCallback(this.selectAllCheckbox, 'all');
@@ -223,8 +224,9 @@ export default class HdsTableIndexComponent extends Component {
   }
 
   @action
-  didInsertSelectAllCheckbox(checkbox) {
+  didInsertSelectAllCheckbox(checkbox, _selectionKey, forceUpdateAriaLabel) {
     this.selectAllCheckbox = checkbox;
+    this.forceUpdateAriaLabelCallback = forceUpdateAriaLabel;
   }
 
   @action
@@ -259,9 +261,7 @@ export default class HdsTableIndexComponent extends Component {
       this.selectAllCheckbox.indeterminate =
         selectedRowsCount > 0 && selectedRowsCount < selectableRowsCount;
       this.isSelectAllCheckboxSelected = this.selectAllCheckbox.checked;
-      this.selectAllCheckbox.dispatchEvent(
-        new Event('toggle', { bubbles: false })
-      );
+      this.forceUpdateAriaLabelCallback(this.selectAllCheckbox);
     }
   }
 }
