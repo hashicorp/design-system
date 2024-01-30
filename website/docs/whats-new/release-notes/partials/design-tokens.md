@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 1.10.0
+
+**Minor changes**
+
+Added color tokens for “Vault Radar” product
+
+<small class="doc-whats-new-changelog-metadata">[#1904](https://github.com/hashicorp/design-system/pull/1904)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 1.9.0
 
 **Minor changes**
@@ -23,7 +33,6 @@ Added design tokens for `SideNav` with `@isCollapsible` (to control if users can
 ## 1.8.0
 
 **Minor changes**
-
 
 Added color tokens for “Vault Secrets” product
 
@@ -37,7 +46,6 @@ Added JSON output format for `marketing` target (and in the process refactored i
 
 <small class="doc-whats-new-changelog-metadata">[#1513](https://github.com/hashicorp/design-system/pull/1513) - Thanks [@dstaley](https://github.com/dstaley) for the contribution! 🙏 </small>
 
-
 ## 1.6.0
 
 **Minor changes**
@@ -45,7 +53,6 @@ Added JSON output format for `marketing` target (and in the process refactored i
 Added design token for loading state icon on search input
 
 <small class="doc-whats-new-changelog-metadata">[#1452](https://github.com/hashicorp/design-system/pull/1452)</small>
-
 
 ## 1.5.0
 
@@ -181,12 +188,6 @@ Changes the output path for tokens to include `dist/ in the path
 ##### After
 
 `/dist/products/css/tokens.css`
-
-## 0.5.2
-
-**Patch changes**
-
-- [#69](https://github.com/hashicorp/design-system/pull/69) [`94edb63b`](https://github.com/hashicorp/design-system/commit/94edb63bd51c48c25f9fa80dfd12f8bd02ade09e) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Publish assets also to dist/
 
 
 ---

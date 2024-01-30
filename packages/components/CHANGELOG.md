@@ -1,5 +1,46 @@
 # @hashicorp/design-system-components
 
+## 3.5.0
+
+### Minor Changes
+
+`IconTile` - updated component adding support for `vault-radar` product
+
+<small class="doc-whats-new-changelog-metadata">[#1904](https://github.com/hashicorp/design-system/pull/1904)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+`SideNav::List::Title`, `SideNav::List::BackLink`, `SideNav::List::Link`: fixed issue with long text strings without spaces not wrapping
+
+<small class="doc-whats-new-changelog-metadata">[#1899](https://github.com/hashicorp/design-system/pull/1899)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Added `hds-` prefix to Sass variables for component styles (where missing).
+
+<small class="doc-whats-new-changelog-metadata">[#1903](https://github.com/hashicorp/design-system/pull/1903)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Tabs` - removed `@cached` decorator and the associated `ember-cached-decorator-polyfill`
+
+<small class="doc-whats-new-changelog-metadata">[#1905](https://github.com/hashicorp/design-system/pull/1905)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`CodeBlock` - Fixed the default token color in the syntax highlighting theme.
+
+<small class="doc-whats-new-changelog-metadata">[#1893](https://github.com/hashicorp/design-system/pull/1893)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/design-system-tokens@1.10.0
+- @hashicorp/ember-flight-icons@4.0.6
+
 ## 3.4.1
 
 ### Patch Changes

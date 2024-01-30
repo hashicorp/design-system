@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 2.25.0
+
+**Minor changes**
+
+`vault-radar` icons added. `vault-secrets` icons updated per Brand guidance.
+
+<small class="doc-whats-new-changelog-metadata">[#1901](https://github.com/hashicorp/design-system/pull/1901)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 2.24.0
 
 **Minor changes**
@@ -231,12 +241,6 @@ Added `figma` and `loom` icons
   - splunk-color
   - vantage
   - vantage-color
-
-## 2.7.0
-
-**Minor changes**
-
-- [#468](https://github.com/hashicorp/design-system/pull/468) [`c2f2e4ce`](https://github.com/hashicorp/design-system/commit/c2f2e4cea526421f63853461265064742af69729) Thanks [@didoo](https://github.com/didoo)! - Updated Flight icons pipeline to distribute assets as CSS props (mainly for Consul)
 
 
 ---
