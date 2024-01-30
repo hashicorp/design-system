@@ -115,6 +115,8 @@ If you want the Pagination to change the URL of the page directly (eg. updating 
   @currentPageSize={{this.demoCurrentPageSize}}
   @route={{this.demoRouteName}}
   @queryFunction={{this.demoQueryFunctionNumbered}}
+  @onPageChange={{this.handlePageChange}}
+  @onPageSizeChange={{this.handlePageSizeChangeNumbered}}
 />
 ```
 
@@ -173,6 +175,8 @@ Below you can find an example of an integration between the sortable [`Table`](/
     @currentPageSize={{this.demoCurrentPageSize}}
     @route={{this.demoRouteName}}
     @queryFunction={{this.demoQueryFunctionNumbered}}
+    @onPageChange={{this.handlePageChange}}
+    @onPageSizeChange={{this.handlePageSizeChangeNumbered}}
   />
 </div>
 ```
