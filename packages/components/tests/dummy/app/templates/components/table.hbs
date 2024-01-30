@@ -574,29 +574,29 @@
         </:head>
         <:body as |B|>
           {{#if (not (eq this.multiSelectFilterRows__demo1 "even"))}}
-            {{! Notice: here for the `selectionKey` we're using numbers as strings (on purpose, to test that everything works as expected) }}
-            <B.Tr @selectionKey="1" @isSelected={{get this.multiSelectNoModelState__demo1 "row1"}}>
+            {{! Notice: here for the `selectionKey` we're using strings instead of numbers (on purpose, to test that everything works as expected) }}
+            <B.Tr @selectionKey="row1" @isSelected={{get this.multiSelectNoModelState__demo1 "row1"}}>
               <B.Th>1</B.Th>
               <B.Td>Cell Content</B.Td>
               <B.Td>Cell Content</B.Td>
             </B.Tr>
           {{/if}}
           {{#if (not (eq this.multiSelectFilterRows__demo1 "odd"))}}
-            <B.Tr @selectionKey="2" @isSelected={{get this.multiSelectNoModelState__demo1 "row2"}}>
+            <B.Tr @selectionKey="row2" @isSelected={{get this.multiSelectNoModelState__demo1 "row2"}}>
               <B.Th>2</B.Th>
               <B.Td>Cell Content</B.Td>
               <B.Td>Cell Content</B.Td>
             </B.Tr>
           {{/if}}
           {{#if (not (eq this.multiSelectFilterRows__demo1 "even"))}}
-            <B.Tr @selectionKey="3" @isSelected={{get this.multiSelectNoModelState__demo1 "row3"}}>
+            <B.Tr @selectionKey="row3" @isSelected={{get this.multiSelectNoModelState__demo1 "row3"}}>
               <B.Th>3</B.Th>
               <B.Td>Cell Content</B.Td>
               <B.Td>Cell Content</B.Td>
             </B.Tr>
           {{/if}}
           {{#if (not (eq this.multiSelectFilterRows__demo1 "odd"))}}
-            <B.Tr @selectionKey="4" @isSelected={{get this.multiSelectNoModelState__demo1 "row4"}}>
+            <B.Tr @selectionKey="row4" @isSelected={{get this.multiSelectNoModelState__demo1 "row4"}}>
               <B.Th>4</B.Th>
               <B.Td>Cell Content</B.Td>
               <B.Td>Cell Content</B.Td>
