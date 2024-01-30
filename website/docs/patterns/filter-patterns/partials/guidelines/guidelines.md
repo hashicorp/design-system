@@ -165,15 +165,26 @@ If no filters have been applied, use a [Tooltip](/components/tooltip) coupled wi
 
 ### Avoiding empty state
 
-Because filtering is often reductive in nature and driven by a user action, it might not always be possible to avoid an empty state within a data set. However, there are a few UI tricks and elements that can be used to better guide the user towards discovering meaningful results within a data set.
+Because filtering is most often reductive in nature and driven by a user action, it might not always be possible to avoid an empty state within a data set. This can be helped by leveraging some of the available component variants and properties, and by trying to prevent mistakes and errors prior to them occurring.
 
-#### List item count
+#### ListItem count
 
-Use the `count` property within the ListItem in the dropdown to indicate how many results contain filter parameter. This will immediately call attention to parameters that will not return any results.
+Use the `count` property within the ListItem in the Dropdown to indicate how many results match or contain the specific filter parameter. This will immediately call attention to parameters that will not return any results.
 
 In this example, `status = pending` does not correspond with any results.
 
 ![Count property in ListItem](/assets/patterns/filter-patterns/avoid-empty-state-list-item-count.png)
+
+#### Approximate matching
+
+Strings within a data set can often be long, complex, and contain seemingly random sequences of characters. This can result in a cumbersome search experience if the returned results must be a direct (or _textual_) match.
+
+Instead, it can help to use _approximate_ matching or "fuzzy search" when returning results corresponding with a string value. This may resolve basic spelling mistakes and typos, while broadening the relevancy of more strict textual matching.
+
+!!! Info
+
+More details around the specifics of fuzzy search are beyond the scope of these guidelines, but are included to highlight a creative and user-centric search experience when filtering.
+!!!
 
 ### Reverting filters
 
