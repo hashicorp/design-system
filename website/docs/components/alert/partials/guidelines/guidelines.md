@@ -178,7 +178,7 @@ To avoid this, try combining relevant or overlapping content into a single Alert
 
 ### Alerts of the same type
 
-While not recommended for `page` type Alerts, it may be necessary to have more than one `inline` or `compact` Alert on a page. If this is case, ensure that the Alerts are [ordered](#ordering-of-alerts) by impact and [contextualized](#contextualizing-alerts) in areas where they provide the most relevance.
+While not recommended for `page` type Alerts, it may be necessary to have more than one `inline` or `compact` Alert on a page. If this is the case, ensure that the Alerts are [ordered](#ordering-of-alerts) by impact and [contextualized](#contextualizing-alerts) in areas where they provide the most relevance.
 
 ### Ordering of Alerts
 
