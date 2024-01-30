@@ -17,6 +17,25 @@ const customSortingCriteriaArray = [
   'pending',
 ];
 
+const updateModelWithSelectAllState = (modelData, selectAllState) => {
+  modelData.forEach((modelRow) => {
+    modelRow.isSelected = selectAllState;
+  });
+};
+
+const updateModelWithSelectableRowsStates = (
+  modelData,
+  selectableRowsStates
+) => {
+  const modelDataMap = new Map(
+    modelData.map((modelRow) => [modelRow.id, modelRow])
+  );
+  selectableRowsStates.forEach((row) => {
+    // safe to assume that there is always a record for the "selectionKey" since it's coming from the model (the selectable "rows" are a subset of the model dataset)
+    modelDataMap.get(row.selectionKey).isSelected = row.isSelected;
+  });
+};
+
 export default class ComponentsTableController extends Controller {
   // custom sorting
   @tracked customSortOrder_demo2 = 'asc';
@@ -229,19 +248,15 @@ export default class ComponentsTableController extends Controller {
   }) {
     console.log(...arguments);
     if (selectionKey === 'all' && this.multiSelectToggleScope__demo1) {
-      const selectAllState = selectionCheckboxElement.checked;
-      this.multiSelectModelData__demo1.forEach((modelRow) => {
-        modelRow.isSelected = selectAllState;
-      });
+      updateModelWithSelectAllState(
+        this.multiSelectModelData__demo1,
+        selectionCheckboxElement.checked
+      );
     } else {
-      selectableRowsStates.forEach((row) => {
-        const recordToUpdate = this.multiSelectModelData__demo1.find(
-          (modelRow) => modelRow.id === row.selectionKey
-        );
-        if (recordToUpdate) {
-          recordToUpdate.isSelected = row.isSelected;
-        }
-      });
+      updateModelWithSelectableRowsStates(
+        this.multiSelectModelData__demo1,
+        selectableRowsStates
+      );
     }
   }
 
@@ -252,6 +267,8 @@ export default class ComponentsTableController extends Controller {
     selectableRowsStates,
   }) {
     console.log(...arguments);
+    // notice: the shape of the "model" is slightly different, it's not an array of objects but an object with keys so
+    // we can't use the `updateModelWithSelectAllsState` and `updateModelWithSelectableRowsStates` functions
     if (selectionKey === 'all' && this.multiSelectToggleScope__demo1) {
       const selectAllState = selectionCheckboxElement.checked;
       Object.keys(this.multiSelectNoModelState__demo1).forEach((rowKey) => {
@@ -259,8 +276,7 @@ export default class ComponentsTableController extends Controller {
       });
     } else {
       selectableRowsStates.forEach((row) => {
-        this.multiSelectNoModelState__demo1[`row${row.selectionKey}`] =
-          row.isSelected;
+        this.multiSelectNoModelState__demo1[row.selectionKey] = row.isSelected;
       });
     }
   }
@@ -312,19 +328,15 @@ export default class ComponentsTableController extends Controller {
   }) {
     console.log(...arguments);
     if (selectionKey === 'all' && this.multiSelectToggleScope__demo2) {
-      const selectAllState = selectionCheckboxElement.checked;
-      this.multiSelectModelData__demo2.forEach((modelRow) => {
-        modelRow.isSelected = selectAllState;
-      });
+      updateModelWithSelectAllState(
+        this.multiSelectModelData__demo2,
+        selectionCheckboxElement.checked
+      );
     } else {
-      selectableRowsStates.forEach((row) => {
-        const recordToUpdate = this.multiSelectModelData__demo2.find(
-          (modelRow) => modelRow.id === row.selectionKey
-        );
-        if (recordToUpdate) {
-          recordToUpdate.isSelected = row.isSelected;
-        }
-      });
+      updateModelWithSelectableRowsStates(
+        this.multiSelectModelData__demo2,
+        selectableRowsStates
+      );
     }
   }
 
@@ -375,10 +387,10 @@ export default class ComponentsTableController extends Controller {
   }) {
     console.log(...arguments);
     if (selectionKey === 'all' && this.multiSelectToggleScope__demo3) {
-      const selectAllState = selectionCheckboxElement.checked;
-      this.multiSelectModelData__demo3.forEach((modelRow) => {
-        modelRow.isSelected = selectAllState;
-      });
+      updateModelWithSelectAllState(
+        this.multiSelectModelData__demo3,
+        selectionCheckboxElement.checked
+      );
     } else {
       selectableRowsStates.forEach((row) => {
         const recordToUpdate = this.multiSelectModelData__demo3.find(
