@@ -12,6 +12,20 @@
   </a>
 </p>
 
+## 4.0.6
+
+**Patch changes**
+
+remove unused `contextRootURL` function
+
+<small class="doc-whats-new-changelog-metadata">[#1900](https://github.com/hashicorp/design-system/pull/1900)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@2.25.0
+
 ## 4.0.5
 
 **Patch changes**
@@ -209,17 +223,6 @@ Fix error message for mismatched icon `@name`
 
 * Updated dependencies [[`27a283a5`](https://github.com/hashicorp/design-system/commit/27a283a52c2828b32c282401f91df9bd929f9dda)]:
   - @hashicorp/flight-icons@2.11.1
-
-## 3.0.0
-
-**Major changes**
-
-- [#580](https://github.com/hashicorp/design-system/pull/580) [`55f38cb3`](https://github.com/hashicorp/design-system/commit/55f38cb3a30a6edf8854e53ce3642270fe00efdc) Thanks [@didoo](https://github.com/didoo)! - updated the Ember `FlightIcon` component to throw an error if a non-existing icon name is used
-
-**Patch changes**
-
-- Updated dependencies [[`55f38cb3`](https://github.com/hashicorp/design-system/commit/55f38cb3a30a6edf8854e53ce3642270fe00efdc), [`382fce2d`](https://github.com/hashicorp/design-system/commit/382fce2d063e8ff31849f28d68a138537354c68e)]:
-  - @hashicorp/flight-icons@2.11.0
 
 
 ---

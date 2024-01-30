@@ -1,5 +1,15 @@
 # @hashicorp/flight-icons
 
+## 2.25.0
+
+### Minor Changes
+
+`vault-radar` icons added. `vault-secrets` icons updated per Brand guidance.
+
+<small class="doc-whats-new-changelog-metadata">[#1901](https://github.com/hashicorp/design-system/pull/1901)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 2.24.0
 
 ### Minor Changes

@@ -1,5 +1,19 @@
 # @hashicorp/ember-flight-icons
 
+## 4.0.6
+
+### Patch Changes
+
+remove unused `contextRootURL` function
+
+<small class="doc-whats-new-changelog-metadata">[#1900](https://github.com/hashicorp/design-system/pull/1900)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@2.25.0
+
 ## 4.0.5
 
 ### Patch Changes
