@@ -33,6 +33,8 @@ _Test and interact with the default messaging examples in the [code](/components
 
 The default messages provide a consistent messaging pattern for the component by clearly communicating length requirements to the user while displaying their progress towards meeting the requirements.
 
+![Character count with default messaging](/assets/components/form/primitives/character-count-defaults-filled.png)
+
 #### Usage in Figma
 
 For representative consistenty, the Figma component mirrors the default messages that are rendered in the Ember component and are labelled as such; `currentLength` (the default variant), `maxLength`, `minLength`, and `custom`.
@@ -45,23 +47,16 @@ A custom message in the character count is supported and can be used when a prod
 
 !!! Dont
 
-Don’t use helper text to communicate length requirements as this can result in an overlap of communication with the character count.
+Avoid presenting duplicate information between the helper text and the character count. Helper text should be used to provide persistent requirements while character count represents more of a progress indicator towards a length requirement.
 
 ![Character count with helper text](/assets/components/form/primitives/character-count-dont-helper-text-overlap.png)
 !!!
 
 !!! Dont
 
-Don’t use the character count to display static details about the field.
+Don’t use the character count to display static details about the field. Use [helper text](/components/form/primitives#formhelpertext) to provide extra details about the information being requested and the character count to communicate the user’s progress toward meeting the requirements.
 
 ![Character count as helper text](/assets/components/form/primitives/character-count-dont-helper-text.png)
-!!!
-
-!!! Do
-
-Instead, use [helper text](/components/form/primitives#formhelpertext) as recommended (to provide extra details about the information being requested) and the character count to communicate the user's progress towards meeting the requirements.
-
-![Character count without helper text](/assets/components/form/primitives/character-count-do-helper-text.png)
 !!!
 
 ### Form::Error
