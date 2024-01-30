@@ -7,6 +7,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
+import { next } from '@ember/runloop';
 
 export default class HdsTableThSelectableComponent extends Component {
   @tracked isSelected = this.args.isSelected;
@@ -59,7 +60,12 @@ export default class HdsTableThSelectableComponent extends Component {
 
   @action
   forceUpdateAriaLabel(checkbox) {
+    console.log('forceUpdateAriaLabel', checkbox, checkbox.checked);
     // updating the `isSelected` value will trigger the update of the `aria-label` value via the `ariaLabel` getter
-    this.isSelected = checkbox.checked;
+    console.log('PRE', this.isSelected, checkbox.ariaLabel);
+    next(() => {
+      this.isSelected = checkbox.checked;
+      console.log('POST', this.isSelected, checkbox.ariaLabel);
+    });
   }
 }

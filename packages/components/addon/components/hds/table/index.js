@@ -7,6 +7,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
+import { next } from '@ember/runloop';
 
 export const DENSITIES = ['short', 'medium', 'tall'];
 const DEFAULT_DENSITY = 'medium';
@@ -211,7 +212,9 @@ export default class HdsTableIndexComponent extends Component {
   onSelectionAllChange() {
     this.selectableRows.forEach((row) => {
       row.checkbox.checked = this.selectAllCheckbox.checked;
-      this.forceUpdateAriaLabelCallback(row.checkbox);
+      next(() => {
+        this.forceUpdateAriaLabelCallback(row.checkbox);
+      });
     });
     this.isSelectAllCheckboxSelected = this.selectAllCheckbox.checked;
     this.onSelectionChangeCallback(this.selectAllCheckbox, 'all');
