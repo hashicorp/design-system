@@ -157,19 +157,19 @@ Row placement determines the visual styling based on where the row is placed rel
 - If content is largely string/text-based, `short` allows for more content to be displayed within the page.
 - While denser content allows for more rows to be displayed within a single page, it also makes comprehension and scanning more difficult.
 
-## Multi-selection
+## Multi-select
 
 A multi-select table includes checkboxes enabling users to select multiple rows in a table to perform bulk operations. Checking or unchecking the checkbox in the table header either selects or deselects the checkboxes on each row in the table body. Individual checkboxes in the rows can also be selected or deselected.
 
-Multi-selection consists of: 
+A multi-select consists of: 
 
-1. `Header Column / Select`: Used in the table's header row. This acts as the parent checkbox, allowing the selection or deselection of all child rows in a single table simultaneously.
+1. A select all in a table is used in the table's header row. This acts as the parent checkbox, allowing the selection or deselection of all child rows in a single table simultaneously.
 
-![Example of multi-selection in a table header](/assets/components/table/multi-select-header.png)
+![Example of multi-select in a table header](/assets/components/table/multi-select-header.png)
 
-2. `Cell / Select`: Used in each table row allowing for the selection of an individual row.
+2. Row level select is used in each table row allowing for the selection of an individual row.
 
-![Example of multi-selection within table cells](/assets/components/table/multi-select-cells.png)
+![Example of multi-select within table cells](/assets/components/table/multi-select-cells.png)
 
 
 ### Intended interaction
@@ -186,7 +186,7 @@ This documentation currently covers only fundamental multi-select table interact
 
 <video width="100%" controls loop>
   <source
-    src="/assets/components/table/multi-selection-interaction-01.mp4"
+    src="/assets/components/table/multi-select-interaction-01.mp4"
     type="video/mp4"
   />
 </video>
