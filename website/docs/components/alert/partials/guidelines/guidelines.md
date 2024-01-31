@@ -162,7 +162,7 @@ We recommend keeping `critical` alerts non-dismissible as they are essential to 
 
 In general, displaying multiple alerts on the same page is discouraged as it can negatively impact the page hierarchy and unnecessarily shift emphasis away from the main content on the page.
 
-However, depending on the logic within the application and the type of content being expressed to the user, it may be necessary to display more than one Alert on a page. Consider these scenarios and their accompanying guidelines if this is the case.
+However, depending on the logic within the application and the type of content being expressed to the user, displaying more than one Alert on a page may be necessary.
 
 ### Alerts of the same color
 
