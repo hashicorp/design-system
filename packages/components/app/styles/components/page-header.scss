@@ -44,6 +44,15 @@
     justify-content: space-between;
     min-width: 0; // this is important or it will blow beyond the parent flexbox width with long non-breaking names
   }
+
+  // Dropdowns with @listPosition="bottom-right" need an override to prevent them from spilling outside the page
+  @container (max-width: 767px) {
+    .hds-page-header__actions {
+      .hds-dropdown__content {
+        left: 0;
+      }  
+    }
+  }
 }
 
 .hds-page-header__content {
