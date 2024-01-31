@@ -208,8 +208,8 @@ A Footer provides a fixed space at the bottom of the List. Typically, Footers ho
     <Hds::Dropdown::ListItem::Checkbox @value="Fetched">Fetched</Hds::Dropdown::ListItem::Checkbox>
     <Hds::Dropdown::Footer @hasDivider={{true}}>
       <Hds::ButtonSet>
-        <Hds::Button @text="Apply filters" type="submit" />
-        <Hds::Button @text="Cancel" @color="secondary" />
+        <Hds::Button @text="Apply" type="submit" @size="small" @isFullWidth={{true}} />
+        <Hds::Button @text="Cancel" @color="secondary" @size="small" @isFullWidth={{true}} />
       </Hds::ButtonSet>
     </Hds::Dropdown::Footer>
   </Doc::ListContainer>
