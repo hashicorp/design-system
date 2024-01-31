@@ -186,7 +186,7 @@ This documentation currently covers only fundamental multi-select table interact
 
 <video width="100%" controls loop>
   <source
-    src="/assets/components/table/multi-select-interaction-01.mp4"
+    src="/assets/components/table/multi-selection-interaction-01.mp4"
     type="video/mp4"
   />
 </video>
