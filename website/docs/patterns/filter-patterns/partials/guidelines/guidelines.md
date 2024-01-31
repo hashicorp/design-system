@@ -165,11 +165,11 @@ If no filters have been applied, use a [Tooltip](/components/tooltip) coupled wi
 
 ### Avoiding empty state
 
-Because filtering is most often reductive in nature and driven by a user action, it might not always be possible to avoid an empty state within a data set. This can be helped by leveraging some of the available component variants and properties, and by trying to prevent mistakes and errors prior to them occurring.
+Because filtering is often reductive in nature and driven by a user action, it might not always be possible to avoid an empty state within a data set. This can be helped by leveraging specific component variants and properties, and by taking steps to prevent mistakes or errors that would result in an empty state prior to them occurring.
 
 #### ListItem count
 
-Use the `count` property within the ListItem in the Dropdown to indicate how many results match or contain the specific filter parameter. This will immediately call attention to parameters that will not return any results.
+Use the `count` property within the Dropdown ListItem to more clearly explicitly call attention to filters that will return zero results.
 
 In this example, `status = pending` does not correspond with any results.
 
@@ -177,9 +177,9 @@ In this example, `status = pending` does not correspond with any results.
 
 #### Approximate matching
 
-Strings within a data set can often be long, complex, and contain seemingly random sequences of characters. This can result in a cumbersome search experience if the returned results must be a direct (or _textual_) match.
+To help resolve basic spelling mistakes, typos, and broaden the relevancy of a search term being filtered upon, consider using _approximate_ matching or "fuzzy search" when filtering by a string value.
 
-Instead, it can help to use _approximate_ matching or "fuzzy search" when returning results corresponding with a string value. This may resolve basic spelling mistakes and typos, while broadening the relevancy of more strict textual matching.
+This can help reduce the burden on the user to accurately enter long and complex strings that may consist of seemingly random sequences of characters which are common characteristics of string values within a data set.
 
 !!! Info
 
