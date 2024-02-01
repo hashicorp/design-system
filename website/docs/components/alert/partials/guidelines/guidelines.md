@@ -158,6 +158,16 @@ We recommend keeping `critical` alerts non-dismissible as they are essential to 
 </Hds::Alert>
 !!!
 
+## Ordering of Alerts
+
+Order multiple Alerts by their importance and impact on the user, starting from `critical`, to communicate an Alert that must be resolved immediately, and descending in order of perceived impact to `neutral`.
+
+![Ordering alerts](/assets/components/alert/ordering-alerts-color.png)
+
+Alert types have an implied hierarchy and should be ordered starting from `page` and descending in hierarchy to `compact`.
+
+![Ordering alerts of different types](/assets/components/alert/ordering-alerts-type.png)
+
 ## Multiple alerts
 
 In general, displaying multiple alerts on the same page is discouraged as it can negatively impact the page hierarchy and unnecessarily shift emphasis away from the main content on the page.
@@ -178,29 +188,17 @@ To avoid this, try combining relevant or overlapping content into a single Alert
 
 ### Alerts of the same type
 
-While not recommended for `page` type Alerts, it may be necessary to have more than one `inline` or `compact` Alert on a page. If this is the case, ensure that the Alerts are [ordered](#ordering-of-alerts) by impact and [contextualized](#contextualizing-alerts) in areas where they provide the most relevance.
+While not recommended for `page` type Alerts, it may be necessary to have more than one `inline` or `compact` Alert on a page. If this is the case, ensure that the Alerts are [ordered](#ordering-of-alerts) by impact and [placed](#placing-alerts) in areas where they provide the most relevance.
 
-### Ordering of Alerts
+### Placing Alerts
 
-Order multiple Alerts by their importance and impact on the user, starting from `critical`, to communicate an Alert that must be resolved immediately, and descending in order of perceived impact to `neutral`.
+`Inline` and `compact` Alerts can have more meaning if they are placed within the element that is responsible for the Alert. This can help when it’s necessary to have more than one Alert on the page and is relevant for pages that aggregate content like dashboards, or where a specific localized message is necessary.
 
-![Ordering alerts](/assets/components/alert/ordering-alerts-color.png)
+![Example of multiple Alerts placed to different parts of the UI](/assets/components/alert/combining-contextualized-alerts.png)
 
-Alert types have an implied hierarchy and should be ordered starting from `page` and descending in hierarchy to `compact`. This order may depend on how the Alerts are [contextualized](#contextualizing-alerts)
+### Placement by type
 
-![Ordering alerts of different types](/assets/components/alert/ordering-alerts-type.png)
-
-### Contextualizing Alerts
-
-`Inline` and `compact` Alerts can have more meaning if they are contextualized within the element that is responsible for the Alert. This can help when it’s necessary to have more than one Alert on the page and is relevant for pages that aggregate content like dashboards.
-
-![Example of multiple Alerts contextualized to different parts of the UI](/assets/components/alert/combining-contextualized-alerts.png)
-
-Contextualization is helpful when displaying a specific or localized message; e.g., within a form to highlight validation errors or problems with form submission.
-
-### Placement
-
-How an Alert is contextualized or placed is dependent on the type.
+Where an Alert is placed is dependent on the type.
 
 #### Page
 
@@ -233,18 +231,18 @@ Don’t mix different Alert types in the same context.
 
 !!! Do
 
-Instead, be more specific with how the Alerts are contextualized depending on what the message applies to.
+Instead, be more specific with how the Alerts are placed depending on what the message applies to.
 
-![Example of different Alert types contextualized](/assets/components/alert/mixing-alert-types-do.png)
+![Example of different Alert type placements](/assets/components/alert/mixing-alert-types-do.png)
 !!!
 
 ### Alerts within a Reveal
 
-**As a last resort**, when multiple `inline` Alerts are necessary, display the most important Alert to the user within the page while obfuscating additional Alerts within a [Reveal](/components/reveal).
+**As a last resort**, when multiple Alerts of the same type are necessary, display the Alerts that require immediate attention or have the most impact to the user within the page while obfuscating additional Alerts within a [Reveal](/components/reveal). We recommend against hiding `critical` and `warning` Alerts in this manner as they generally must be addressed quickly to avoid a negative outcome.
 
 !!! Warning
 
-This method should be **rare and infrequent**, and should only be used if the number of Alerts of the same type exceeds two. Instead, effort should be put into contextualizing Alerts that matter most to the user and in ways that make them easy to resolve.
+This method should be **rare and infrequent**, and should only be used if the number of Alerts of the same type exceeds two. Instead, effort should be put into placing Alerts that matter most to the user and in ways that make them easy to resolve.
 !!!
 
 ![Multiple alerts when a Reveal is closed](/assets/components/alert/alerts-within-reveal-closed.png)
