@@ -69,11 +69,11 @@ Use critical alerts to convey crucial information or errors, such as validation 
 Use the Alert for more intrusive message communication about errors or critical disruptions at an application, page, or section level where users need to take immediate action.
 
 <Hds::Alert @type="inline" @color="critical" as |A|>
-  <A.Title>You have exceeded 50 applies this month</A.Title>
-  <A.Description>You may only invoke applies that destroy managed resources. Upgrade now and access additional product features, unlimited applies, and increased concurrency.</A.Description>
-  <A.Button @text="Upgrade" @color="secondary" @onClick={{this.noop}} />
-  <A.Link::Standalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="View usage" @href="#" />
-</Hds::Alert>
+    <A.Title>You have exceeded 50 applies this month</A.Title>
+    <A.Description>You may only invoke applies that destroy managed resources. Upgrade now and access additional product features, unlimited applies, and increased concurrency.</A.Description>
+    <A.Button @text="Upgrade" @color="secondary" @onClick={{this.noop}} />
+    <A.Link::Standalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="View usage" @href="#" />
+  </Hds::Alert>
 !!!
 
 !!! Do
@@ -81,13 +81,13 @@ Use the Alert for more intrusive message communication about errors or critical 
 Use the Alert to communicate validation errors. For more details, refer to the [form validation patterns](/patterns/form-patterns?tab=validation).
 
 <Hds::Alert @type="inline" @color="critical" as |A|>
-  <A.Title>Form submission error</A.Title>
-  <A.Description>Correct the formatting of the following fields to update your user profile:
-  </A.Description>
-  <A.Description>
-  <Hds::Link::Inline @href="..." @color="secondary">Email address</Hds::Link::Inline>
-  </A.Description>
-</Hds::Alert>
+    <A.Title>Form submission error</A.Title>
+    <A.Description>Correct the formatting of the following fields to update your user profile:
+    </A.Description>
+    <A.Description>
+    <Hds::Link::Inline @href="..." @color="secondary">Email address</Hds::Link::Inline>
+    </A.Description>
+  </Hds::Alert>
 !!!
 
 !!! Dont
@@ -95,10 +95,10 @@ Use the Alert to communicate validation errors. For more details, refer to the [
 Don't use alerts to provide non-intrusive feedback to users about the failure of an ongoing task or request. For example, a failure while deleting a cluster. Use the [Toast](/components/toast) instead.
 
 <Hds::Alert @type="inline" @color="critical" as |A|>
-  <A.Title>Module error</A.Title>
-  <A.Description>This module encountered an error during publishing. You may need to republish.
-  </A.Description>
-</Hds::Alert>
+    <A.Title>Module error</A.Title>
+    <A.Description>This module encountered an error during publishing. You may need to republish.
+    </A.Description>
+  </Hds::Alert>
 !!!
 
 !!! Dont
@@ -106,9 +106,9 @@ Don't use alerts to provide non-intrusive feedback to users about the failure of
 Don't use alerts to communicate error messages that are not caused by the user. For example, an unsuccessful Vault cluster creation due to a failure while validating the deployment. Use the [Toast](/components/toast) instead.
 
 <Hds::Alert @type="inline" @color="critical" as |A|>
-  <A.Title>Vault cluster update failed</A.Title>
-  <A.Description>**test-cluster_1** configuration update failed.</A.Description>
-</Hds::Alert>
+    <A.Title>Vault cluster update failed</A.Title>
+    <A.Description>**test-cluster_1** configuration update failed.</A.Description>
+  </Hds::Alert>
 !!!
 
 ## Icons
