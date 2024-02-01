@@ -138,7 +138,6 @@ module('Integration | Component | hds/modal/index', function (hooks) {
 
   // ACCESSIBILITY
 
-  // TODO: Fix test
   test('it uses the title as name for the dialog', async function (assert) {
     await render(
       hbs`<Hds::Modal id="test-modal" as |M|>

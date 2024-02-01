@@ -132,7 +132,6 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
 
   // ACCESSIBILITY
 
-  // TODO: Fix test
   test('it uses the title as name for the dialog', async function (assert) {
     await render(
       hbs`<Hds::Flyout id="test-flyout" as |F|><F.Header>Title</F.Header></Hds::Flyout>`
