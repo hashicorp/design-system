@@ -1,0 +1,17 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// CODE-BLOCK
+
+body.components-dialog-primitive {
+  // TODO: Target styles better
+  // outline primitive to make their bounding box visible
+  .hds-dialog-primitive__header,
+  .hds-dialog-primitive__description,
+  .hds-dialog-primitive__body,
+  .hds-dialog-primitive__footer {
+    outline: 1px dotted #d3d3d3;
+  }
+}

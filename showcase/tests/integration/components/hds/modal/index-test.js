@@ -82,10 +82,10 @@ module('Integration | Component | hds/modal/index', function (hooks) {
             <M.Header>Title</M.Header>
           </Hds::Modal>`
     );
-    assert.dom('.hds-modal__title').exists();
-    assert.dom('.hds-modal__title').hasText('Title');
-    assert.dom('.hds-modal__icon').doesNotExist();
-    assert.dom('.hds-modal__tagline').doesNotExist();
+    assert.dom('.hds-dialog-primitive__title').exists();
+    assert.dom('.hds-dialog-primitive__title').hasText('Title');
+    assert.dom('.hds-dialog-primitive__icon').doesNotExist();
+    assert.dom('.hds-dialog-primitive__tagline').doesNotExist();
   });
   test('it renders the title with icon and tagline if provided', async function (assert) {
     await render(
@@ -93,11 +93,11 @@ module('Integration | Component | hds/modal/index', function (hooks) {
             <M.Header @icon="info" @tagline="Tagline">Title</M.Header>
           </Hds::Modal>`
     );
-    assert.dom('.hds-modal__title').exists();
-    assert.dom('.hds-modal__title').hasText('Tagline Title');
-    assert.dom('.hds-modal__icon.flight-icon-info').exists();
-    assert.dom('.hds-modal__tagline').exists();
-    assert.dom('.hds-modal__tagline').hasText('Tagline');
+    assert.dom('.hds-dialog-primitive__title').exists();
+    assert.dom('.hds-dialog-primitive__title').hasText('Tagline Title');
+    assert.dom('.hds-dialog-primitive__icon.flight-icon-info').exists();
+    assert.dom('.hds-dialog-primitive__tagline').exists();
+    assert.dom('.hds-dialog-primitive__tagline').hasText('Tagline');
   });
 
   // DISMISS
@@ -106,14 +106,14 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     await render(
       hbs`<Hds::Modal id="test-modal" as |M|><M.Header>Title</M.Header></Hds::Modal>`
     );
-    assert.dom('button.hds-modal__dismiss').exists();
+    assert.dom('button.hds-dialog-primitive__dismiss').exists();
   });
   test('it should close the modal when the "dismiss" button is pressed', async function (assert) {
     await render(
       hbs`<Hds::Modal id="test-modal" as |M|><M.Header>Title</M.Header></Hds::Modal>`
     );
     assert.dom('#test-modal').isVisible();
-    await click('button.hds-modal__dismiss');
+    await click('button.hds-dialog-primitive__dismiss');
     assert.dom('#test-modal').isNotVisible();
   });
   test('it should close the modal when the "close" function is called', async function (assert) {
@@ -132,12 +132,13 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     await render(
       hbs`<Hds::Modal @isDismissDisabled={{true}} id="test-modal" as |M|><M.Header>Title</M.Header></Hds::Modal>`
     );
-    await click('button.hds-modal__dismiss');
+    await click('button.hds-dialog-primitive__dismiss');
     assert.dom('#test-modal').exists();
   });
 
   // ACCESSIBILITY
 
+  // TODO: Fix test
   test('it uses the title as name for the dialog', async function (assert) {
     await render(
       hbs`<Hds::Modal id="test-modal" as |M|>
@@ -145,7 +146,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
           </Hds::Modal>`
     );
     // the IDs are dynamically generated
-    let titleElement = this.element.querySelector('.hds-modal__title');
+    let titleElement = this.element.querySelector('.hds-dialog-primitive__title');
     let titleElementId = titleElement.id;
     assert.dom('dialog').hasAttribute('aria-labelledby', titleElementId);
   });
@@ -158,7 +159,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
             <M.Header>Title</M.Header>
           </Hds::Modal>`
     );
-    assert.dom('button.hds-modal__dismiss').isFocused();
+    assert.dom('button.hds-dialog-primitive__dismiss').isFocused();
   });
 
   // CALLBACKS
@@ -184,7 +185,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
             <M.Header>Title</M.Header>
           </Hds::Modal>`
     );
-    await click('#test-modal-onclose-callback button.hds-modal__dismiss');
+    await click('#test-modal-onclose-callback button.hds-dialog-primitive__dismiss');
     assert.dom('#test-modal-onclose-callback').isNotVisible();
     await settled();
     assert.ok(closed);

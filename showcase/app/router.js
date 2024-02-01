@@ -30,6 +30,7 @@ Router.map(function () {
     this.route('button-set');
     this.route('card');
     this.route('code-block');
+    this.route('dialog-primitive');
     this.route('dropdown');
     this.route('flyout');
     this.route('form', function () {

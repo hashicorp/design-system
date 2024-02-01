@@ -80,10 +80,10 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
             <F.Header>Title</F.Header>
           </Hds::Flyout>`
     );
-    assert.dom('.hds-flyout__title').exists();
-    assert.dom('.hds-flyout__title').hasText('Title');
-    assert.dom('.hds-flyout__icon').doesNotExist();
-    assert.dom('.hds-flyout__tagline').doesNotExist();
+    assert.dom('.hds-dialog-primitive__title').exists();
+    assert.dom('.hds-dialog-primitive__title').hasText('Title');
+    assert.dom('.hds-dialog-primitive__icon').doesNotExist();
+    assert.dom('.hds-dialog-primitive__tagline').doesNotExist();
     assert.dom('.hds-flyout__description').doesNotExist();
   });
   test('it renders the title with icon and tagline if provided', async function (assert) {
@@ -92,11 +92,11 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
             <F.Header @icon="info" @tagline="Tagline">Title</F.Header>
           </Hds::Flyout>`
     );
-    assert.dom('.hds-flyout__title').exists();
-    assert.dom('.hds-flyout__title').hasText('Tagline Title');
-    assert.dom('.hds-flyout__icon.flight-icon-info').exists();
-    assert.dom('.hds-flyout__tagline').exists();
-    assert.dom('.hds-flyout__tagline').hasText('Tagline');
+    assert.dom('.hds-dialog-primitive__title').exists();
+    assert.dom('.hds-dialog-primitive__title').hasText('Tagline Title');
+    assert.dom('.hds-dialog-primitive__icon.flight-icon-info').exists();
+    assert.dom('.hds-dialog-primitive__tagline').exists();
+    assert.dom('.hds-dialog-primitive__tagline').hasText('Tagline');
   });
   test('it renders the description if provided', async function (assert) {
     await render(
@@ -105,12 +105,12 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
             <F.Description>Description</F.Description>
           </Hds::Flyout>`
     );
-    assert.dom('.hds-flyout__title').exists();
-    assert.dom('.hds-flyout__title').hasText('Title');
+    assert.dom('.hds-dialog-primitive__title').exists();
+    assert.dom('.hds-dialog-primitive__title').hasText('Title');
     assert.dom('.hds-flyout__description').exists();
     assert.dom('.hds-flyout__description').hasText('Description');
-    assert.dom('.hds-flyout__icon').doesNotExist();
-    assert.dom('.hds-flyout__tagline').doesNotExist();
+    assert.dom('.hds-dialog-primitive__icon').doesNotExist();
+    assert.dom('.hds-dialog-primitive__tagline').doesNotExist();
   });
 
   // DISMISS
@@ -119,25 +119,26 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
     await render(
       hbs`<Hds::Flyout id="test-flyout" as |F|><F.Header>Title</F.Header></Hds::Flyout>`
     );
-    assert.dom('button.hds-flyout__dismiss').exists();
+    assert.dom('button.hds-dialog-primitive__dismiss').exists();
   });
   test('it should close the flyout when the "dismiss" button is pressed', async function (assert) {
     await render(
       hbs`<Hds::Flyout id="test-flyout" as |F|><F.Header>Title</F.Header></Hds::Flyout>`
     );
     assert.dom('#test-flyout').isVisible();
-    await click('button.hds-flyout__dismiss');
+    await click('button.hds-dialog-primitive__dismiss');
     assert.dom('#test-flyout').isNotVisible();
   });
 
   // ACCESSIBILITY
 
+  // TODO: Fix test
   test('it uses the title as name for the dialog', async function (assert) {
     await render(
       hbs`<Hds::Flyout id="test-flyout" as |F|><F.Header>Title</F.Header></Hds::Flyout>`
     );
     // the IDs are dynamically generated
-    let titleElement = this.element.querySelector('.hds-flyout__title');
+    let titleElement = this.element.querySelector('.hds-dialog-primitive__title');
     let titleElementId = titleElement.id;
     assert.dom('dialog').hasAttribute('aria-labelledby', titleElementId);
   });
@@ -148,7 +149,7 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
     await render(
       hbs`<Hds::Flyout id="test-flyout" as |F|><F.Header>Title</F.Header></Hds::Flyout>`
     );
-    assert.dom('button.hds-flyout__dismiss').isFocused();
+    assert.dom('button.hds-dialog-primitive__dismiss').isFocused();
   });
 
   // CALLBACKS
@@ -174,7 +175,7 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
             <F.Header>Title</F.Header>
           </Hds::Flyout>`
     );
-    await click('button.hds-flyout__dismiss');
+    await click('button.hds-dialog-primitive__dismiss');
     assert.dom('#test-onclose-callback').isNotVisible();
     await settled();
     assert.ok(closed);

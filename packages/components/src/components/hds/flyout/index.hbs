@@ -15,6 +15,7 @@
   {{yield (hash Body=(component "hds/flyout/body"))}}
   {{yield (hash Footer=(component "hds/flyout/footer" onDismiss=this.onDismiss))}}
 </dialog>
+
 {{#if this.isOpen}}
   <div class="hds-flyout__overlay"></div>
 {{/if}}

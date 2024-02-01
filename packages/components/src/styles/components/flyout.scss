@@ -50,57 +50,16 @@
   opacity: 0.5;
 }
 
-.hds-flyout__header {
-  display: flex;
-  flex: none;
-  gap: 16px;
-  align-items: flex-start;
-  padding: 16px 24px;
-  color: var(--token-color-foreground-strong);
-}
-
-.hds-flyout__icon {
-  flex: none;
-  align-self: center;
-}
-
-.hds-flyout__title {
-  flex-grow: 1;
-}
-
-.hds-flyout__tagline {
-  margin-bottom: 4px;
-}
-
-.hds-flyout__dismiss {
-  align-self: center;
-}
-
-.hds-flyout__description {
-  padding: 0 24px 16px;
-}
-
 .hds-flyout__body {
-  flex: 1 1 auto;
-  padding: 24px;
-  overflow-y: auto;
-  overscroll-behavior: contain;
   border-top: 1px solid var(--token-color-border-primary);
 }
 
 .hds-flyout__footer {
-  flex: none;
-  padding: 16px 24px;
-  background: var(--token-color-surface-faint);
   border-top: 1px solid var(--token-color-border-primary);
-
-  // Tertiary buttons must always be placed/aligned at the end of the row
-  .hds-button-set {
-    .hds-button--color-tertiary {
-      margin-left: auto;
-    }
-  }
 }
+
+
+// VARIATIONS
 
 .hds-flyout--size-medium {
   @include hds-flyout-position(480px);

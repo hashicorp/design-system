@@ -1,0 +1,117 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// DIALOG PRIMITIVE
+//
+
+// TEMP STYLES FOR TESTING...
+.hds-dialog-primitive__header,
+.hds-dialog-primitive__description,
+.hds-dialog-primitive__body,
+.hds-dialog-primitive__footer {
+  // outline: 1px dashed red;
+  // background: pink !important;
+}
+
+.hds-dialog-primitive__icon,
+.hds-dialog-primitive__title,
+.hds-dialog-primitive__tagline,
+.hds-dialog-primitive__dismiss {
+  // outline: 1px dashed skyblue !important;
+}
+
+
+// HEADER
+
+.hds-dialog-primitive__header {
+  display: flex;
+  flex: none;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 16px 24px;
+  color: var(--token-color-foreground-strong); // default color
+}
+
+/*
+HEADER DIFFERENCES:
+.hds-modal__header {
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+.hds-flyout__header {}
+*/
+
+.hds-dialog-primitive__icon {
+  flex: none;
+  align-self: center;
+}
+
+.hds-dialog-primitive__title {
+  flex-grow: 1;
+}
+
+.hds-dialog-primitive__tagline {
+  margin-bottom: 4px;
+  color: var(--token-color-foreground-faint); // default color
+}
+
+.hds-dialog-primitive__dismiss {
+  align-self: center;
+}
+
+
+// DESCRIPTION
+
+.hds-dialog-primitive__description {
+  padding: 0 24px 16px;
+}
+
+
+// BODY
+
+.hds-dialog-primitive__body {
+  flex: 1 1 auto;
+  padding: 24px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/*
+BODY DIFFERENCES:
+.hds-flyout__body {
+  border-top: 1px solid var(--token-color-border-primary);
+}
+
+.hds-modal__body {}
+*/
+
+
+// FOOTER
+
+.hds-dialog-primitive__footer {
+  flex: none;
+  padding: 16px 24px;
+  background: var(--token-color-surface-faint);
+  border-top: 1px solid var(--token-color-border-primary);
+
+  // Tertiary buttons must always be placed/aligned at the end of the row
+  .hds-button-set {
+    .hds-button--color-tertiary {
+      margin-left: auto;
+    }
+  }
+}
+
+/*
+FOOTER DIFFERENCES:
+.hds-flyout__footer {}
+
+.hds-modal__footer {
+  border-bottom-right-radius: inherit;
+  border-bottom-left-radius: inherit;
+}
+*/
