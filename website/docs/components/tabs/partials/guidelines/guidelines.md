@@ -47,6 +47,12 @@ Don’t trigger a Tab change via an external action, such as a submit or next bu
 ![Tabs with external trigger](/assets/components/tabs/tabs-external-trigger.png)
 !!!
 
+## Size
+
+Medium tabs are commonly used for secondary navigation within dense UIs, offering a compact design. In contrast, large tabs are commonly used for top-level navigation, providing greater hierarchical emphasis in the interface.
+
+![Tabs sizes example](/assets/components/tabs/tab-size.png)
+
 ## Spacing
 
 ### Contained
