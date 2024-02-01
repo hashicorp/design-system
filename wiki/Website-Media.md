@@ -62,7 +62,7 @@ Including video examples and prototypes in documentation can help to express com
 
 _Video assets (.mp4, .mov, etc) aren't directly supported by markdown, for more details on how to include them in documentation view the [markdown documentation](/wiki/Website-Markdown.md)._
 
-These steps are specific to using either Adobe After Effects or Premiere along with Adobe Media Encoder for rendering.
+These steps are specific to using either Adobe After Effects or Premiere along with Adobe Media Encoder for rendering. These applications are available by default and you will need to seek approval from your manager and request a license from IT.
 
 These steps are focused on _rendering_ a video asset for use on the web using Adobe Media Encoder. More complex examples (creating a custom UI in After Effects, more in-depth editing, etc) are beyond the scope of this guide.
 
