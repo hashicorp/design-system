@@ -71,43 +71,43 @@ Interactive elements in text (associated with the input through `aria-describedb
 
 ### Form::CharacterCount
 
-The default invocation requires a `controlId` argument referencing a valid `<input>` or `<textarea>` element.
+The default invocation requires a `controlId` argument referencing a valid `<input>` or `<textarea>` element and a `@value` argument storing the value of the associated form control.
 
 The `controlId` value is used to generate an ID, prefixed with `character-count-`, so that the ID can be referenced in the `aria-describedby` attribute of the form control.
 
 ```handlebars
-<input type="text" aria-label="input with default character count" id="input-character-count-default"/>
-<Hds::Form::CharacterCount @controlId="input-character-count-default"/>
+<input type="text" aria-label="input with default character count" id="input-character-count-default" value={{this.value1}} {{on "input" (fn this.updateValue "value1")}}/>
+<Hds::Form::CharacterCount @controlId="input-character-count-default" @value={{this.value1}}/>
 ```
 
 If the user input needs to be limited to a certain number of characters, use `@maxLength` to guide the user in meeting the length requirements. This property does not restrict the users from entering characters over the limit. To define the maximum string length that the user can enter, set `maxlength` attribute on the associated input field.
 
 ```handlebars
-<input type="text" aria-label="input with max length count" id="input-character-count-max"/>
-<Hds::Form::CharacterCount @maxLength={{10}} @controlId="input-character-count-max"/>
+<input type="text" aria-label="input with max length count" id="input-character-count-max" value={{this.value2}} {{on "input" (fn this.updateValue "value2")}}/>
+<Hds::Form::CharacterCount @maxLength={{10}} @controlId="input-character-count-max" @value={{this.value2}}/>
 ```
 
 If the user input is required to have a certain number of characters, use `@minLength` to guide the user in meeting the length requirements.
 
 ```handlebars
-<input type="text" aria-label="input with min length count" id="input-character-count-min"/>
-<Hds::Form::CharacterCount @minLength={{3}} @controlId="input-character-count-min"/>
+<input type="text" aria-label="input with min length count" id="input-character-count-min" value={{this.value3}} {{on "input" (fn this.updateValue "value3")}}/>
+<Hds::Form::CharacterCount @minLength={{3}} @controlId="input-character-count-min" @value={{this.value3}}/>
 ```
 
 When the user input needs to be in a certain range, use both `@minLength` and `@maxLength` to guide the user in meeting the length requirements.
 
 ```handlebars
-<input type="text" aria-label="input with min and max length count" id="input-character-count-min-max"/>
-<Hds::Form::CharacterCount @minLength={{3}} @maxLength={{10}} @controlId="input-character-count-min-max"/>
+<input type="text" aria-label="input with min and max length count" id="input-character-count-min-max" value={{this.value4}} {{on "input" (fn this.updateValue "value4")}}/>
+<Hds::Form::CharacterCount @minLength={{3}} @maxLength={{10}} @controlId="input-character-count-min-max" @value={{this.value4}}/>
 ```
 
-##### Custom message
+#### Custom message
 
 For custom messages, you can use the following arguments to build a relevant message: `currentLength` (the current number of characters in the associated form control), `maxLength` (the maximum number of characters allowed in the associated form control), `minLength` (the minimum number of characters required in the associated form control), `remaining` (the difference between `maxLength` and `currentLength`), and `shortfall` (the difference between `currentLength` and `minLength`).
 
 ```handlebars
-<input type="text" aria-label="input with min and max length count" id="input-character-count-custom"/>
-<Hds::Form::CharacterCount @maxLength={{20}} @controlId="input-character-count-custom" as |CC|>
+<input type="text" aria-label="input with min and max length count" id="input-character-count-custom" value={{this.value5}} {{on "input" (fn this.updateValue "value5")}}/>
+<Hds::Form::CharacterCount @maxLength={{20}} @controlId="input-character-count-custom" @value={{this.value5}} as |CC|>
   {{CC.remaining}} characters remaining
 </Hds::Form::CharacterCount>
 ```
