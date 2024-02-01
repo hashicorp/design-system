@@ -199,7 +199,7 @@ Video assets are not natively supported in markdown, but you can easily insert a
 ```md
 <video width="100%" controls loop>
   <source
-    src="assets/components/{name-of-component}/{path-to-video-file}.mp4"
+    src="assets/[components][patterns]/{name-of-component-or-pattern}/{path-to-video-file}.mp4"
     type="video/mp4"
   />
 </video>
