@@ -28,7 +28,7 @@ Users external to HashiCorp can [file issues in GitHub](https://github.com/hashi
 
 ## Office hours
 
-Office hours are a great way to get feedback on your project or help to get unstuck in a code migration. [Sign up for an appointment](https://docs.google.com/document/d/1LdyQznltt4VCbGGGDuDkARRRKXI4laCHxHhY8dJy4wE/edit?usp=sharing) at the next office hours.
+[Sign up for an appointment](https://go.hashi.co/hds-office-hours) at the next office hours if you need feedback on Helios usage or want to discuss adoption challenges or upcoming projects that you may be looking to [collaborate](/about/contribution) with us on.
 
 ## Share feedback
 
