@@ -146,7 +146,9 @@ module('Integration | Component | hds/modal/index', function (hooks) {
           </Hds::Modal>`
     );
     // the IDs are dynamically generated
-    let titleElement = this.element.querySelector('.hds-dialog-primitive__title');
+    let titleElement = this.element.querySelector(
+      '.hds-dialog-primitive__title'
+    );
     let titleElementId = titleElement.id;
     assert.dom('dialog').hasAttribute('aria-labelledby', titleElementId);
   });
@@ -185,7 +187,9 @@ module('Integration | Component | hds/modal/index', function (hooks) {
             <M.Header>Title</M.Header>
           </Hds::Modal>`
     );
-    await click('#test-modal-onclose-callback button.hds-dialog-primitive__dismiss');
+    await click(
+      '#test-modal-onclose-callback button.hds-dialog-primitive__dismiss'
+    );
     assert.dom('#test-modal-onclose-callback').isNotVisible();
     await settled();
     assert.ok(closed);

@@ -17,7 +17,7 @@
 }
 
 .hds-flyout {
-  z-index: 49; // modal component is 50; we want to make sure the flyout always stays below the modal, regardless the DOM order
+  z-index: 49; // modal component is 50; we want to make sure the flyout always stays below the modal, regardless of DOM order
   flex-direction: column;
   height: 100vh;
   max-height: 100vh;
@@ -48,14 +48,6 @@
   z-index: 49;
   background: var(--token-color-palette-neutral-700);
   opacity: 0.5;
-}
-
-.hds-flyout__body {
-  border-top: 1px solid var(--token-color-border-primary);
-}
-
-.hds-flyout__footer {
-  border-top: 1px solid var(--token-color-border-primary);
 }
 
 

@@ -138,7 +138,9 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
       hbs`<Hds::Flyout id="test-flyout" as |F|><F.Header>Title</F.Header></Hds::Flyout>`
     );
     // the IDs are dynamically generated
-    let titleElement = this.element.querySelector('.hds-dialog-primitive__title');
+    let titleElement = this.element.querySelector(
+      '.hds-dialog-primitive__title'
+    );
     let titleElementId = titleElement.id;
     assert.dom('dialog').hasAttribute('aria-labelledby', titleElementId);
   });
