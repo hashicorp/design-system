@@ -247,11 +247,7 @@
       "./helpers/hds-link-to-models.js": "./dist/_app_/helpers/hds-link-to-models.js",
       "./helpers/hds-link-to-query.js": "./dist/_app_/helpers/hds-link-to-query.js",
       "./modifiers/hds-clipboard.js": "./dist/_app_/modifiers/hds-clipboard.js",
-      "./modifiers/hds-tooltip.js": "./dist/_app_/modifiers/hds-tooltip.js",
-      "./template-registry.js": "./dist/_app_/template-registry.js",
-      "./utils/hds-get-element-id.js": "./dist/_app_/utils/hds-get-element-id.js",
-      "./utils/hds-set-aria-described-by.js": "./dist/_app_/utils/hds-set-aria-described-by.js",
-      "./_rollupPluginBabelHelpers-lqPQKyNs.js": "./dist/_app_/_rollupPluginBabelHelpers-lqPQKyNs.js"
+      "./modifiers/hds-tooltip.js": "./dist/_app_/modifiers/hds-tooltip.js"
     }
   },
   "exports": {
