@@ -107,7 +107,7 @@ Use the `@isRequired` and `@isOptional` arguments to add a visual indication tha
 If the user input needs to be limited to a certain number of characters, use `@maxLength` on a `CharacterCount` contextual component to guide the user in meeting the length requirements. This property does not restrict the users from entering characters over the limit. To define the maximum string length that the user can enter, set `maxlength` attribute on the associated input field.
 
 ```handlebars
-<Hds::Form::TextInput::Field @value="my-cluster-1234" as |F|>
+<Hds::Form::TextInput::Field  @value={{this.value1}} {{on "input" (fn this.updateValue "value1")}} as |F|>
   <F.Label>Cluster name</F.Label>
   <F.CharacterCount @maxLength={{30}}/>
 </Hds::Form::TextInput::Field>
@@ -116,7 +116,7 @@ If the user input needs to be limited to a certain number of characters, use `@m
 If the user input is required to have a certain number of characters, use `@minLength` on a `CharacterCount` contextual component to guide the user in meeting the length requirements.
 
 ```handlebars
-<Hds::Form::TextInput::Field @value="my-cluster-1234" as |F|>
+<Hds::Form::TextInput::Field  @value={{this.value2}} {{on "input" (fn this.updateValue "value2")}} as |F|>
   <F.Label>Cluster name</F.Label>
   <F.CharacterCount @minLength={{20}}/>
 </Hds::Form::TextInput::Field>
@@ -125,7 +125,7 @@ If the user input is required to have a certain number of characters, use `@minL
 When the user input needs to be in a certain range, use both `@minLength` and `@maxLength` on a `CharacterCount` contextual component to guide the user in meeting the length requirements.
 
 ```handlebars
-<Hds::Form::TextInput::Field @value="my-cluster-1234" as |F|>
+<Hds::Form::TextInput::Field  @value={{this.value3}} {{on "input" (fn this.updateValue "value3")}} as |F|>
   <F.Label>Cluster name</F.Label>
   <F.CharacterCount @minLength={{20}} @maxLength={{30}}/>
 </Hds::Form::TextInput::Field>
@@ -136,7 +136,7 @@ When the user input needs to be in a certain range, use both `@minLength` and `@
 For custom messages, you can use the following arguments to build a relevant message: `currentLength` (the current number of characters in the associated form control), `maxLength` (the maximum number of characters allowed in the associated form control), `minLength` (the minimum number of characters required in the associated form control), `remaining` (the difference between `maxLength` and `currentLength`), and `shortfall` (the difference between `currentLength` and `minLength`).
 
 ```handlebars
-<Hds::Form::TextInput::Field @value="my-cluster-1234" as |F|>
+<Hds::Form::TextInput::Field  @value={{this.value4}} {{on "input" (fn this.updateValue "value4")}} as |F|>
   <F.Label>Cluster name</F.Label>
   <F.CharacterCount @maxLength={{30}} as |CC|>
     {{CC.remaining}} characters remaining
@@ -144,18 +144,19 @@ For custom messages, you can use the following arguments to build a relevant mes
 </Hds::Form::TextInput::Field>
 ```
 
-##### Validation using the `@onInput` callback
+##### Validation based on length
 
-You can use the `@onInput` callback function to dynamically raise an error based on the number of characters entered into a field. The function receives as argument an object with the following properties: `inputControl` (a reference to the associated form control node element), `currentLength` (the current number of characters in the associated form control), `maxLength` (the maximum number of characters allowed in the associated form control), `minLength` (the minimum number of characters required in the associated form control), `remaining` (the difference between `maxLength` and `currentLength`), and `shortfall` (the difference between `currentLength` and `minLength`).
+You can raise an error based on the number of characters entered into a field using a custom validation function.
 
 ```handlebars
   <Hds::Form::TextInput::Field
-    @value="my-cluster-1234"
+    @value={{this.value5}}
     @isInvalid={{this.fieldIsInvalid}}
+    {{on "input" (fn this.updateValue "value5")}}
     as |F|
   >
     <F.Label>Cluster name</F.Label>
-    <F.CharacterCount @minLength={{30}} @onInput={{this.onFieldInput}} />
+    <F.CharacterCount @minLength={{this.minLength}} />
     {{#if this.fieldIsInvalid}}
       <F.Error>Length should be at least 30 characters</F.Error>
     {{/if}}
