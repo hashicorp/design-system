@@ -5,6 +5,8 @@
   - [Where to store the media files](#where-to-store-the-media-files)
   - [Where to find the source for the media files](#where-to-find-the-source-for-the-media-files)
   - [How to export the files](#how-to-export-the-files)
+  - [Optimizing images](#optimizing-images)
+  - [Adding and optimizing video assets](#adding-and-optimizing-video-assets)
 
 ---
 
@@ -44,23 +46,41 @@ If you have any doubts or problems exporting the files, speak with one of the de
 
 ## Optimizing images
 
-While not required, it's highly recommended that image assets be optimized prior to including them on the website. Figma's export feature doesn't allow for much fine-grained control regarding image quality and optimizing for speed on the web.
-
-There are many freely available tools for image optimization, we recommend using [ImageOptim](https://imageoptim.com) because it's free, super easy to use, and with the correct settings can result in a more than _50% reduction_ in file size per image.
+Prior to adding new images to the website the assets should be optimized to reduce their file size and increase our web performance. Figma's export feature doesn't allow for much fine-grained control regarding image quality and optimizing for speed on the web. [ImageOptim](https://imageoptim.com) works great, is free, easy to use, and with the correct settings can result in a more than _50% reduction_ in file size per image.
 
 1. Install the desktop app for your specific operating system.
-2. Open the application settings; generally most of the default settings work well out of the box, but for reference:
+2. Open the application settings; generally most of the default settings work out of the box, but for reference:
     1. In the quality tab, enable `Lossy minification`
-    2. Set the image qualities for .jpg, .png, and .gif to 85-90%. This results in a high quality, high resolution image (using the guidelines outlined above), and removes a lot of the unnecessary metadata and compresses the filesize to something more managable for the web.
+    2. Set the image qualities for .jpg, .png, and .gif to 85-90%. This results in a high quality, high resolution image (using the guidelines outlined above), while removing unnecessary metadata and compressing the filesize to something more managable for the web.
 3. Within the app, either add images to the queue with the plus icon in the lower left corner, or simply drag and drop files from your file browser into the window.
 
-ImageOptim works well because rather than importing and subsequently exporting fundamentally new files, it automatically saves compressed files to the same location in the filesystem. **Warning:** This does overwrite the original file.
+Once added to the queue assets will be optimized automatically and rather than exporting fundamentally new assets, ImageOptim automatically saves compressed assets to the same location in the filesystem. **Warning:** This does overwrite the original file.
 
 ## Adding and optimizing video assets
 
-Adding video prototypes and examples to documentation can be helpful at expressing a complex concept in a step-by-step manner, though, getting these assets added to the website isn't a bit less straightforward.
+Including video examples and prototypes in documentation can help to express complex concepts in a step-by-step manner, but these types of assets require a bit more work to create and subsequently include in markdown. 
 
-While not required, using a timeline-based editor like After Effects, Premiere, or Final Cut can be very helpful when creating these assets. This process will specifically detail how to create a video asset suitable for web in Adobe After Effects.
+_Video assets (.mp4, .mov, etc) aren't directly supported by markdown, for more details on how to include them in documentation view the [markdown documentation](/wiki/Website-Markdown.md)._
 
-1. Create your source video asset; this is easily done by recording your screen with Quicktime's native screen recording feature to record a browser window or Figma prototype. A custom UI can also be built in After Effects and rendered directly, but this requires more than a basic understanding of timeline-based editors and is beyond what this guide can cover.
-2. While it doesn't really 
+These steps are specific to using either Adobe After Effects or Premiere along with Adobe Media Encoder for rendering.
+
+These steps are focused on _rendering_ a video asset for use on the web using Adobe Media Encoder. More complex examples (creating a custom UI in After Effects, more in-depth editing, etc) are beyond the scope of this guide.
+
+1. Create your source video asset; the most straightforward method is to record your screen with Quicktime's native screen recording feature either showing an in-browser example, or Figma prototype.
+2. After launching Media Encoder, add your asset to the render queue.
+    1. In After Effects this can be done through the "Composition" menu and selecting "Add to Media Encoder Render Queue…" (shortcut `Alt` + `Cmd` + `m`).
+    2. In Premiere this can be done through the "File" menu, Export -> Send to Adobe Media Encoder (shortcut `Cmd` + `Shift` + `m`) .
+    3. If adding directly to Media Encoder, click the `+` button in the Queue panel to "Add source".
+3. Click the Format of the asset to access Export Settings.
+
+![Open export settings](/wiki/images/open-export-settings.png)
+
+4. Under the Export Settings, select a format of H.264 which results in a `.mp4` file which is appropriate for web. You can also optionally select the output location and name of the rendered asset.
+
+![Export settings](/wiki/images/video-export-settings.png)
+
+5. Under "Basic Video Settings" in the Export Settings window, set the width of the rendered asset to 1200px or less and the frame rate to 15 fps. The width might depend on original asset, but I've found that his is a happy medium for file size and quality.
+
+![Basic video settings](/wiki/images/basic-video-settings.png)
+
+6. With all of these settings applied, clicking the triangle at the top of the render queue will kick off the rendering process and will proceed all files in the queue (if there are more than one).
