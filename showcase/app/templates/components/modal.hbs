@@ -42,6 +42,7 @@
         <Hds::Modal open @color={{color}} id="modal-example-{{color}}" as |M|>
           <M.Header
             @icon={{concat (if (eq color "warning") "alert-triangle") (if (eq color "critical") "alert-diamond")}}
+            @tagline="Tagline"
           >
             {{capitalize color}}
           </M.Header>

@@ -2,17 +2,13 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<div class="hds-flyout__header" ...attributes>
-  {{#if @icon}}
-    <FlightIcon class="hds-flyout__icon" @name={{@icon}} @size="24" @isInlineBlock={{false}} />
-  {{/if}}
-  <Hds::Text::Display class="hds-flyout__title" @tag="div" @size="300" @weight="semibold" id={{@id}}>
-    {{#if @tagline}}
-      <Hds::Text::Body class="hds-flyout__tagline" @tag="div" @size="100" @weight="regular" @color="faint">
-        {{@tagline}}
-      </Hds::Text::Body>
-    {{/if}}
-    {{yield}}
-  </Hds::Text::Display>
-  <Hds::DismissButton class="hds-flyout__dismiss" {{on "click" @onDismiss}} />
-</div>
+
+<Hds::DialogPrimitive::Header
+  class="hds-flyout__header"
+  @icon={{@icon}}
+  @tagline={{@tagline}}
+  @onDismiss={{@onDismiss}}
+  ...attributes
+>
+  {{yield}}
+</Hds::DialogPrimitive::Header>

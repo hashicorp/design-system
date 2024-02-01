@@ -2,6 +2,7 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<div class="hds-flyout__footer" ...attributes>
+
+<Hds::DialogPrimitive::Footer class="hds-flyout__footer" ...attributes>
   {{yield (hash close=@onDismiss)}}
-</div>
+</Hds::DialogPrimitive::Footer>

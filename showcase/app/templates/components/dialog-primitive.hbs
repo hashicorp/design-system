@@ -1,0 +1,119 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "DialogPrimitive Components"}}
+
+<Shw::Text::H1>DialogPrimitive</Shw::Text::H1>
+
+<section data-test-percy>
+  <Shw::Text::H2>DialogPrimitive:Header</Shw::Text::H2>
+
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="title only">
+      <Hds::DialogPrimitive::Header>
+        Title
+      </Hds::DialogPrimitive::Header>
+    </SF.Item>
+    <SF.Item @label="with icon">
+      <Hds::DialogPrimitive::Header @icon="info" @onDismiss={{this.onDismiss}}>
+        Title
+      </Hds::DialogPrimitive::Header>
+    </SF.Item>
+    <SF.Item @label="with tagline">
+      <Hds::DialogPrimitive::Header @tagline="Tagline" @onDismiss={{this.onDismiss}}>
+        Title
+      </Hds::DialogPrimitive::Header>
+    </SF.Item>
+    <SF.Item @label="with tagline and icon">
+      <Hds::DialogPrimitive::Header @icon="info" @tagline="Tagline" @onDismiss={{this.onDismiss}}>
+        Title
+      </Hds::DialogPrimitive::Header>
+    </SF.Item>
+    <SF.Item @label="with very long content">
+      <Hds::DialogPrimitive::Header
+        @icon="info"
+        @tagline="Tagline with very, very long content that spans multiple lines to test this element, very, very long content that spans multiple lines to test this element, very, very long content that spans multiple lines to test this element"
+      >Title with very, very long content that spans multiple lines to test this element, very, very long content that
+        spans multiple lines to test this element</Hds::DialogPrimitive::Header>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>DialogPrimitive:Description</Shw::Text::H2>
+
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item>
+      <Hds::DialogPrimitive::Description>
+        This is a very long
+        <strong>description</strong>
+        to test appropriate text
+        <Hds::Link::Inline @href="#">wrapping</Hds::Link::Inline>
+        and formatting on this element. This is a very long
+        <strong>description</strong>
+        to test appropriate text
+        <Hds::Link::Inline @href="#">wrapping</Hds::Link::Inline>
+        and formatting on this element.
+      </Hds::DialogPrimitive::Description>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>DialogPrimitive:Body</Shw::Text::H2>
+
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="with basic text content">
+      <Hds::DialogPrimitive::Body>
+        <p class="hds-typography-body-300 hds-foreground-primary">HashiCorp uses data collected by cookies and
+          JavaScript libraries to improve your browsing experience, analyze site traffic, and increase the overall
+          performance of our site. By using our website, you’re agreeing to our Privacy Policy and Cookie Policy.</p>
+        <br />
+        <p class="hds-typography-body-300 hds-foreground-primary">The categories below outline which companies and tools
+          we use for collecting data. To opt out of a category of data collection, set the toggle to “Off” and save your
+          preferences.</p>
+      </Hds::DialogPrimitive::Body>
+    </SF.Item>
+    <SF.Item @label="with generic content">
+      <Hds::DialogPrimitive::Body>
+        <Shw::Placeholder @text="some generic content" @height="50" />
+      </Hds::DialogPrimitive::Body>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>DialogPrimitive:Footer</Shw::Text::H2>
+
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="one action">
+      <Hds::DialogPrimitive::Footer>
+        <Hds::Button type="submit" @text="Primary" />
+      </Hds::DialogPrimitive::Footer>
+    </SF.Item>
+    <SF.Item @label="two actions">
+      <Hds::DialogPrimitive::Footer>
+        <Hds::ButtonSet>
+          <Hds::Button type="submit" @text="Primary" />
+          <Hds::Button type="button" @text="Secondary" @color="secondary" />
+        </Hds::ButtonSet>
+      </Hds::DialogPrimitive::Footer>
+    </SF.Item>
+    <SF.Item @label="three actions">
+      <Hds::DialogPrimitive::Footer>
+        <Hds::ButtonSet>
+          <Hds::Button type="submit" @text="Primary" />
+          <Hds::Button type="button" @text="Secondary" @color="secondary" />
+          <Hds::Button type="button" @text="Tertiary" @color="tertiary" @icon="arrow-right" @iconPosition="trailing" />
+        </Hds::ButtonSet>
+      </Hds::DialogPrimitive::Footer>
+    </SF.Item>
+    <SF.Item @label="generic footer content">
+      <Hds::DialogPrimitive::Footer>
+        <Shw::Placeholder @text="some generic content" @height="50" />
+      </Hds::DialogPrimitive::Footer>
+    </SF.Item>
+  </Shw::Flex>
+</section>
