@@ -2,18 +2,19 @@
 
 ### Table headers
 
-![Table header selection anatomy](/assets/components/table/table-header-select-anatomy.png)
+![Table header anatomy](/assets/components/table/table-header-select-anatomy.png)
 
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|
 | Checkbox         | Optional, but required when cells yield a checkbox |
 | Label            | Required                                        |
+| Tooltip          | Optional
 | Sort direction   | Options: none, ascending, descending            |
 | Container        | Required                                        |
 
 ### Table cells
 
-![Table cell selection anatomy](/assets/components/table/table-cell-select-anatomy.png)
+![Table cells anatomy](/assets/components/table/table-cell-select-anatomy.png)
 
 | Element      | Usage    |
 |--------------|----------|
