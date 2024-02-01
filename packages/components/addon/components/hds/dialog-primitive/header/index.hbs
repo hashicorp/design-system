@@ -8,15 +8,17 @@
     <FlightIcon class="hds-dialog-primitive__icon" @name={{@icon}} @size="24" @isInlineBlock={{false}} />
   {{/if}}
 
-  <Hds::Text::Display class="hds-dialog-primitive__title" @tag="div" @size="300" @weight="semibold" id={{@id}}>
+  <div class="hds-dialog-primitive__title" id={{@id}}>
     {{#if @tagline}}
       <Hds::Text::Body class="hds-dialog-primitive__tagline" @tag="div" @size="100" @weight="regular">
         {{@tagline}}
       </Hds::Text::Body>
     {{/if}}
 
-    {{yield}}
-  </Hds::Text::Display>
+    <Hds::Text::Display @tag="div" @size="300" @weight="semibold">
+      {{yield}}
+    </Hds::Text::Display>
+  </div>
 
   <Hds::DismissButton class="hds-dialog-primitive__dismiss" {{on "click" this.onDismiss}} />
 </div>

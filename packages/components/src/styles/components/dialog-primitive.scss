@@ -16,13 +16,6 @@
   // background: pink !important;
 }
 
-.hds-dialog-primitive__icon,
-.hds-dialog-primitive__title,
-.hds-dialog-primitive__tagline,
-.hds-dialog-primitive__dismiss {
-  // outline: 1px dashed skyblue !important;
-}
-
 
 // HEADER
 
@@ -34,16 +27,6 @@
   padding: 16px 24px;
   color: var(--token-color-foreground-strong); // default color
 }
-
-/*
-HEADER DIFFERENCES:
-.hds-modal__header {
-  border-top-left-radius: inherit;
-  border-top-right-radius: inherit;
-}
-
-.hds-flyout__header {}
-*/
 
 .hds-dialog-primitive__icon {
   flex: none;
@@ -64,7 +47,8 @@ HEADER DIFFERENCES:
 }
 
 
-// DESCRIPTION
+// DESCRIPTION 
+// (currently used only in Flyout, not in Modal)
 
 .hds-dialog-primitive__description {
   padding: 0 24px 16px;
@@ -78,16 +62,8 @@ HEADER DIFFERENCES:
   padding: 24px;
   overflow-y: auto;
   overscroll-behavior: contain;
-}
-
-/*
-BODY DIFFERENCES:
-.hds-flyout__body {
   border-top: 1px solid var(--token-color-border-primary);
 }
-
-.hds-modal__body {}
-*/
 
 
 // FOOTER
@@ -105,13 +81,3 @@ BODY DIFFERENCES:
     }
   }
 }
-
-/*
-FOOTER DIFFERENCES:
-.hds-flyout__footer {}
-
-.hds-modal__footer {
-  border-bottom-right-radius: inherit;
-  border-bottom-left-radius: inherit;
-}
-*/

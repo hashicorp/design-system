@@ -2,20 +2,6 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-{{!-- <div class="hds-modal__header" ...attributes>
-  {{#if @icon}}
-    <FlightIcon class="hds-modal__icon" @name={{@icon}} @size="24" @isInlineBlock={{false}} />
-  {{/if}}
-  <Hds::Text::Display class="hds-modal__title" @tag="div" @size="300" @weight="semibold" id={{@id}}>
-    {{#if @tagline}}
-      <Hds::Text::Body class="hds-modal__tagline" @tag="div" @size="100" @weight="regular">
-        {{@tagline}}
-      </Hds::Text::Body>
-    {{/if}}
-    {{yield}}
-  </Hds::Text::Display>
-  <Hds::DismissButton class="hds-modal__dismiss" {{on "click" @onDismiss}} />
-</div> --}}
 
 <Hds::DialogPrimitive::Header
   class="hds-modal__header"
