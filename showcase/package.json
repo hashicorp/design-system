@@ -14,7 +14,8 @@
     "test": "tests"
   },
   "scripts": {
-    "build": "ember build --environment=production",
+    "build": "yarn build:packages && ember build --environment=production",
+    "build:packages": "yarn workspace @hashicorp/ember-flight-icons build && yarn workspace @hashicorp/design-system-components build",
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
     "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",
     "lint:css": "stylelint \"app/styles/**/*.scss\"",
@@ -23,9 +24,9 @@
     "lint:hbs:fix": "ember-template-lint . --fix",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
-    "start": "ember serve",
+    "start": "yarn build:packages && ember serve",
     "test": "npm-run-all lint test:*",
-    "test:ember": "ember test",
+    "test:ember": "yarn build:packages && ember test",
     "test:ember-compatibility": "ember try:each",
     "test:ember:percy": "percy exec ember test",
     "test:a11y": "ENABLE_A11Y_AUDIT=true ember test --server",
