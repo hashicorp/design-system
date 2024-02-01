@@ -6,7 +6,7 @@
 import config from 'ember-get-config';
 
 export async function initialize() {
-  if (config.emberFlightIcons?.lazyEmbed) {
+  if (config?.emberFlightIcons?.lazyEmbed) {
     const { default: svgSprite } = await import(
       '@hashicorp/flight-icons/svg-sprite/svg-sprite-module'
     );
@@ -15,10 +15,10 @@ export async function initialize() {
     // to avoid issues with tools like Percy that only consider content inside that element
     if (config.environment === 'test') {
       window.document
-        .getElementById('ember-testing')
-        .insertAdjacentHTML('afterbegin', svgSprite);
+        ?.getElementById('ember-testing')
+        ?.insertAdjacentHTML('afterbegin', svgSprite);
     } else {
-      window.document.body.insertAdjacentHTML('beforeend', svgSprite);
+      window.document?.body?.insertAdjacentHTML('beforeend', svgSprite);
     }
   }
 }
