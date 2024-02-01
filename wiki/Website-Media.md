@@ -54,7 +54,7 @@ Prior to adding new images to the website the assets should be optimized to redu
     2. Set the image qualities for .jpg, .png, and .gif to 85-90%. This results in a high quality, high resolution image (using the guidelines outlined above), while removing unnecessary metadata and compressing the filesize to something more managable for the web.
 3. Within the app, either add images to the queue with the plus icon in the lower left corner, or simply drag and drop files from your file browser into the window.
 
-Once added to the queue assets will be optimized automatically and rather than exporting fundamentally new assets, ImageOptim automatically saves compressed assets to the same location in the filesystem. **Warning:** This does overwrite the original file.
+Once added to the queue assets will be optimized automatically and ImageOptim will automatically save the compressed assets to the same location in the filesystem. **Warning:** This does overwrite the original file.
 
 ## Adding and optimizing video assets
 
@@ -62,11 +62,11 @@ Including video examples and prototypes in documentation can help to express com
 
 _Video assets (.mp4, .mov, etc) aren't directly supported by markdown, for more details on how to include them in documentation view the [markdown documentation](/wiki/Website-Markdown.md)._
 
-These steps are specific to using either Adobe After Effects or Premiere along with Adobe Media Encoder for rendering. These applications are available by default and you will need to seek approval from your manager and request a license from IT.
+These steps are specific to using either Adobe After Effects or Premiere along with Adobe Media Encoder for rendering. These applications are not available by default; you will need to seek approval from your manager and request a license from IT.
 
 These steps are focused on _rendering_ a video asset for use on the web using Adobe Media Encoder. More complex examples (creating a custom UI in After Effects, more in-depth editing, etc) are beyond the scope of this guide.
 
-1. Create your source video asset; the most straightforward method is to record your screen with Quicktime's native screen recording feature either showing an in-browser example, or Figma prototype.
+1. Create your source video asset; the most straightforward method is to [record your screen with Quicktime's native screen recording feature](https://support.apple.com/en-gb/guide/quicktime-player/qtp97b08e666/mac) either showing an in-browser example, or Figma prototype.
 2. After launching Media Encoder, add your asset to the render queue.
     1. In After Effects this can be done through the "Composition" menu and selecting "Add to Media Encoder Render Queue…" (shortcut `Alt` + `Cmd` + `m`).
     2. In Premiere this can be done through the "File" menu, Export -> Send to Adobe Media Encoder (shortcut `Cmd` + `Shift` + `m`) .
