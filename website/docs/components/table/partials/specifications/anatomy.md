@@ -8,8 +8,8 @@
 |------------------|-------------------------------------------------|
 | Checkbox         | Optional, but required when cells yield a checkbox |
 | Label            | Required                                        |
-| Tooltip          | Optional
-| Sort direction   | Options: none, ascending, descending            |
+| Tooltip button          | Optional
+| Sort button   | Options: none, ascending, descending            |
 | Container        | Required                                        |
 
 ### Table cells
