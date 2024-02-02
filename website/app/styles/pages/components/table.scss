@@ -19,4 +19,10 @@
   .doc-table-max-content-width {
     width: max-content;
   }
+
+  .doc-table-multiselect-with-pagination-demo {
+    .hds-table + .hds-pagination {
+      margin-top: 16px;
+    }
+  }
 }
