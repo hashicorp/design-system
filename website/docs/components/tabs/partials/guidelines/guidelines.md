@@ -49,7 +49,7 @@ Don’t trigger a Tab change via an external action, such as a submit or next bu
 
 ## Sizes
 
-For most scenarios, medium-sized tabs fit various UI contexts well. Choose the size that aligns with the content's complexity and desired interaction pace. Large tabs should emphasize important sections, enhancing clarity and hierarchical distinction.
+Medium-sized tabs work best in most contexts. Large tabs can be used when needed to emphasize important sections, enhance clarity, and convey hierarchical distinction.
 
 ![Tabs sizes example](/assets/components/tabs/tab-size.png)
 
