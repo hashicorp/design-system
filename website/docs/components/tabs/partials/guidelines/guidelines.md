@@ -49,7 +49,7 @@ Don’t trigger a Tab change via an external action, such as a submit or next bu
 
 ## Size
 
-The tab component comes in medium and large variants, and the choice of tab size should align with the UI's requirements, emphasizing that large tabs should be reserved for contexts where enhanced visual prominence can aid in effectively distinguishing content hierarchy.
+For most scenarios, medium-sized tabs fit various UI contexts well. Choose the size that aligns with the content's complexity and desired interaction pace. Large tabs should emphasize important sections, enhancing clarity and hierarchical distinction.
 
 ![Tabs sizes example](/assets/components/tabs/tab-size.png)
 
