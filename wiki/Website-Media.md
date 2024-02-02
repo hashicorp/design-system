@@ -52,7 +52,7 @@ Prior to adding new images to the website, the assets should be optimized to red
 2. Open the application settings; generally most of the default settings work out of the box, but for reference:
     1. In the quality tab, enable "Lossy minification"
     2. Set the image qualities for JPG, PNG, and GIF files to 85–90%. This results in a high-quality, high-resolution image while removing unnecessary metadata and compressing the file size for the web.
-3. Within the app, add images either using the plus icon in the lower left corner or by dragging and dropping files from your file browser into the window.
+3. Add images either using the plus icon in the lower left corner or by dragging and dropping files from your file browser into the window.
 
 Once added to the queue, ImageOptim will automatically optimize and save the assets. **Warning:** This will overwrite the original files.
 
