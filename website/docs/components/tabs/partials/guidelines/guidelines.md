@@ -47,7 +47,7 @@ Don’t trigger a Tab change via an external action, such as a submit or next bu
 ![Tabs with external trigger](/assets/components/tabs/tabs-external-trigger.png)
 !!!
 
-## Size
+## Sizes
 
 For most scenarios, medium-sized tabs fit various UI contexts well. Choose the size that aligns with the content's complexity and desired interaction pace. Large tabs should emphasize important sections, enhancing clarity and hierarchical distinction.
 
