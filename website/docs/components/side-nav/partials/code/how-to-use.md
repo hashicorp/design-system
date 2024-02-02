@@ -324,7 +324,7 @@ based on the nesting of the page route within the application’s global routing
   <Nav.Link @text="Consul" @icon="consul" @href="#" />
   <Nav.Link @text="Packer" @icon="packer" @href="#" />
   <Nav.Link @text="Vault" @icon="vault" @href="#" />
-  <Nav.Link @text="Vault Secrets" @icon="lock" @href="#" />
+  <Nav.Link @text="Vault Secrets" @icon="vault-secrets-square" @href="#" />
   <Nav.Link @text="Terraform" @icon="terraform" @href="#" />
   <Nav.Link @text="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
   <Nav.Link @text="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} />
