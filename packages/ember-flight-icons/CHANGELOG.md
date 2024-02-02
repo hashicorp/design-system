@@ -1,5 +1,19 @@
 # @hashicorp/ember-flight-icons
 
+## 4.0.7
+
+### Patch Changes
+
+Improved resilience of SVG sprite loading script
+
+<small class="doc-whats-new-changelog-metadata">[#1920](https://github.com/hashicorp/design-system/pull/1920)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@3.0.0
+
 ## 4.0.6
 
 ### Patch Changes

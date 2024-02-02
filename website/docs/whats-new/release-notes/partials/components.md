@@ -12,6 +12,15 @@
   </a>
 </p>
 
+## 3.5.1
+
+**Patch changes**
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/design-system-tokens@1.11.0
+- @hashicorp/ember-flight-icons@4.0.7
+
 ## 3.5.0
 
 **Minor changes**
@@ -612,44 +621,6 @@ Refactored the layout of the `Dropdown` checkbox and radio inputs to make the ga
 
 - @hashicorp/design-system-tokens@1.8.0
 - @hashicorp/ember-flight-icons@3.1.2
-
-## 2.11.0
-
-**Minor changes**
-
-`Hds::Text` - Added new `Text` component
-
-<small class="doc-whats-new-changelog-metadata">[#1490](https://github.com/hashicorp/design-system/pull/1490)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Hds::Form::MaskedInput` - Add `hasCopyButton` argument
-
-<small class="doc-whats-new-changelog-metadata">[#1587](https://github.com/hashicorp/design-system/pull/1587)</small>
-
-**Patch changes**
-
-`Form::Indicator` - Remove aria-hidden from the "optional" `<span>`
-
-<small class="doc-whats-new-changelog-metadata">[#1577](https://github.com/hashicorp/design-system/pull/1577) - Thanks [@DingoEatingFuzz](https://github.com/DingoEatingFuzz) for the contribution! 🙏</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Removed `ember-named-blocks-polyfill` as all consumers of HDS are on Ember 3.25 or later now. This can be installed locally if it is still needed.
-
-<small class="doc-whats-new-changelog-metadata">[#1606](https://github.com/hashicorp/design-system/pull/1606)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Alert`, `Toast`: Fixed an issue with anchor tag color styles within Description that had been overriding `Hds::Link` color; changed the default color for HTML links within Description to "neutral" to better align with existing guidance for links in the actions and improve accessible contrast.
-
-<small class="doc-whats-new-changelog-metadata">[#1576](https://github.com/hashicorp/design-system/pull/1576)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/ember-flight-icons@3.1.1
 
 
 ---
