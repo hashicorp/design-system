@@ -6,6 +6,12 @@
                 "type": "color",
                 "group": "branding"
             },
+            "brand-on-dark": {
+                "value": "#a067da",
+                "type": "color",
+                "group": "branding",
+                "comment": "this is an alternative brand color meant to be used on dark backgrounds"
+            },
             "foreground": {
                 "value": "{color.palette.terraform-500.value}",
                 "type": "color",
