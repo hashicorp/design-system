@@ -49,7 +49,7 @@ Don’t trigger a Tab change via an external action, such as a submit or next bu
 
 ## Size
 
-Medium tabs are commonly used for secondary navigation within dense UIs, offering a compact design. In contrast, large tabs are commonly used for top-level navigation, providing greater hierarchical emphasis in the interface.
+The tab component comes in medium and large variants, and the choice of tab size should align with the UI's requirements, emphasizing that large tabs should be reserved for contexts where enhanced visual prominence can aid in effectively distinguishing content hierarchy.
 
 ![Tabs sizes example](/assets/components/tabs/tab-size.png)
 
