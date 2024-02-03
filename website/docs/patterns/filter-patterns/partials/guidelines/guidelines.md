@@ -165,19 +165,19 @@ If no filters have been applied, use a [Tooltip](/components/tooltip) coupled wi
 
 ### Avoiding an empty state
 
-Because filtering is often reductive in nature and driven by a user action, it might not always be possible to avoid an empty state within a data set.
+As filtering is reductive in nature and driven by a user action, it’s not always possible to avoid an empty state.
 
-If technically possible, use the `count` property within the Dropdown ListItem to more explicitly call attention to filters that will return zero results.
+If technically feasible, use the `count` property within the Dropdown ListItem to call attention to filters that will return zero results.
 
-In this example, `status = pending` does not correspond with any results.
+In this example, "Status > Pending" does not return any results.
 
 ![Count property in ListItem](/assets/patterns/filter-patterns/avoid-empty-state-list-item-count.png)
 
 ### Reverting filters
 
-If the filters applied to a data set _do_ result in an empty state or no results being returned, provide the user with an escape route to revert clear or all filters at once or individually.
+If applying filters to a data set yields no results, offer users an option to clear all or specific filters.
 
-This can be done by adding a "Clear all" action to the [Application State](/components/application-state) that clears all applied filters at once or by including dismissible [Tags](/components/tag) for each applied filter that can be cleared by the user individually.
+This can be done by adding a "Clear all" action to the [Application State](/components/application-state) or by including dismissible [Tags](/components/tag) for each applied filter.
 
 ## Overflow
 
