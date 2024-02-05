@@ -12,9 +12,11 @@
   </a>
 </p>
 
-## 4.0.7
+## 4.1.0
 
-**Patch changes**
+**Minor changes**
+
+_Since this is an update brand colors and product icons, we consider this a `minor` version release_
 
 Improved resilience of SVG sprite loading script
 
