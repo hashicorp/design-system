@@ -288,9 +288,9 @@ _The code has been simplified for clarity._
 <Hds::Table>
   <:head as |H|>
     <H.Tr>
-      <H.ThSort @onClick={{fn H.setSortBy "peer-name"}} @sortOrder={{if (eq "peer-name" H.sortBy) H.sortOrder}}>Peer Name</H.ThSort>
-      <H.ThSort @onClick={{fn H.setSortBy "status"}} @sortOrder={{if (eq "status" H.sortBy) H.sortOrder}}>Status</H.ThSort>
-      <H.ThSort @onClick={{fn H.setSortBy "partition"}} @sortOrder={{if (eq "partition" H.sortBy) H.sortOrder}}>Partition</H.ThSort>
+      <H.ThSort @onClickSort={{fn H.setSortBy "peer-name"}} @sortOrder={{if (eq "peer-name" H.sortBy) H.sortOrder}}>Peer Name</H.ThSort>
+      <H.ThSort @onClickSort={{fn H.setSortBy "status"}} @sortOrder={{if (eq "status" H.sortBy) H.sortOrder}}>Status</H.ThSort>
+      <H.ThSort @onClickSort={{fn H.setSortBy "partition"}} @sortOrder={{if (eq "partition" H.sortBy) H.sortOrder}}>Partition</H.ThSort>
       <H.Th>Description</H.Th>
     </H.Tr>
   </:head>
@@ -449,6 +449,29 @@ To create a column that has right-aligned content, set `@align` to `right` on bo
           <dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
         </Hds::Dropdown>
       </B.Td>
+    </B.Tr>
+  </:body>
+</Hds::Table>
+```
+
+### Tooltip
+
+[Table headers](/table#headers) should be clear, concise, and straightforward whenever possible. However, there could be cases where the label is insufficient by itself and extra information is required. In this case, it’s possible to show a tooltip next to the label in the header:
+
+```handlebars
+<Hds::Table
+  @model={{this.model.myDemoData}}
+  @columns={{array
+    (hash key="artist" label="Artist")
+    (hash key="album" label="Album" tooltip="Title of the album (in its first release)")
+    (hash key="vinyl-cost" label="Vinyl Cost (USD)" isSortable=true tooltip="Cost of the vinyl (adjusted for inflation)" align="right")
+  }}
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td @align="right">{{B.data.vinyl-cost}}</B.Td>
     </B.Tr>
   </:body>
 </Hds::Table>

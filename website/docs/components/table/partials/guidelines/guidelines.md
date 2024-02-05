@@ -20,6 +20,24 @@
 - Columns that do contain a sortable data type are interactive and therefore have corresponding hover, active, and focus states.
 - A Table may only be sorted by a single value at a time.
 
+### Tooltips
+
+Labels within the Table column should be clear, concise, and straightforward. In the case that more context or details are necessary, a [Tooltip](/components/tooltip) can be used in conjunction with the label but should be used sparingly and as a last resort.
+
+![Tooltips in a Header Column](/assets/components/table/table-tooltip-example.png)
+
+!!! Dont
+
+We recommend against using a tooltip in all or most columns in a table as this can add unnecessary visual clutter and increase the cognitive load on the user.
+
+![Tooltips in every column in a table](/assets/components/table/table-tooltip-dont.png)
+!!!
+
+Some common examples where it may be useful to include additional context in a tooltip include:
+
+- When the label contains a product or HashiCorp-specific term.
+- When the label refers to a setting that can be changed elsewhere in the application.
+
 ### Width
 
 Column width is determined by manually resizing the header column and cells within Figma. As a best practice, column width should be adjusted to fit the longest data type within the cell.
