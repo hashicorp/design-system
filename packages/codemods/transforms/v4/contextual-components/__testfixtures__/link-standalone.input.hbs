@@ -1,0 +1,19 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+<Hds::Alert @type="inline" @color="warning" as |A|>
+  <A.Link::Standalone @icon="plus" @text="Standalone" @href="#" @color="secondary" />
+</Hds::Alert>
+
+<Hds::ApplicationState as |A|>
+  <A.Footer @hasDivider={{true}} as |F|>
+    <F.Link::Standalone @icon="arrow-left" @text="Go back" @href="/" />
+    <F.Link::Standalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
+  </A.Footer>
+</Hds::ApplicationState>
+
+<Hds::Toast @color="warning" @onDismiss={{this.noop}} as |T|>
+  <T.Link::Standalone @icon="plus" @text="Standalone" @href="#" @color="secondary" />
+</Hds::Toast>
