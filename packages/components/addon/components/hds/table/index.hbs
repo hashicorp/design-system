@@ -2,15 +2,24 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
+
 <table class={{this.classNames}} ...attributes>
   {{#if @columns}}
     <caption class="sr-only" aria-live="polite">{{@caption}} {{this.sortedMessageText}}</caption>
   {{else if @caption}}
     <caption class="sr-only">{{@caption}}</caption>
   {{/if}}
+
   <thead class="hds-table__thead">
     {{#if @columns}}
-      <Hds::Table::Tr>
+      <Hds::Table::Tr
+        @selectionScope="col"
+        @isSelectable={{@isSelectable}}
+        @onSelectionChange={{this.onSelectionAllChange}}
+        @didInsert={{this.didInsertSelectAllCheckbox}}
+        @willDestroy={{this.willDestroySelectAllCheckbox}}
+        @selectionAriaLabelSuffix="all rows"
+      >
         {{#each @columns as |column|}}
           {{#if column.isSortable}}
             <Hds::Table::ThSort
@@ -35,7 +44,15 @@
     {{else}}
       {{yield
         (hash
-          Tr=(component "hds/table/tr")
+          Tr=(component
+            "hds/table/tr"
+            selectionScope="col"
+            isSelectable=@isSelectable
+            onSelectionChange=this.onSelectionAllChange
+            didInsert=this.didInsertSelectAllCheckbox
+            willDestroy=this.willDestroySelectAllCheckbox
+            selectionAriaLabelSuffix="all rows"
+          )
           Th=(component "hds/table/th")
           ThSort=(component "hds/table/th-sort")
           sortBy=this.sortBy
@@ -46,6 +63,7 @@
       }}
     {{/if}}
   </thead>
+
   <tbody class="hds-table__tbody">
     {{#if @columns}}
       {{! ----------------------------------------------------------------------------------------
@@ -56,7 +74,15 @@
       {{#each (sort-by this.getSortCriteria @model) key=this.identityKey as |record|}}
         {{yield
           (hash
-            Tr=(component "hds/table/tr")
+            Tr=(component
+              "hds/table/tr"
+              selectionScope="row"
+              isSelectable=@isSelectable
+              onSelectionChange=this.onSelectionRowChange
+              didInsert=this.didInsertRowCheckbox
+              willDestroy=this.willDestroyRowCheckbox
+              selectionAriaLabelSuffix=@selectionAriaLabelSuffix
+            )
             Th=(component "hds/table/th" scope="row")
             Td=(component "hds/table/td" align=@align)
             data=record
@@ -67,7 +93,15 @@
     {{else}}
       {{yield
         (hash
-          Tr=(component "hds/table/tr")
+          Tr=(component
+            "hds/table/tr"
+            selectionScope="row"
+            isSelectable=@isSelectable
+            onSelectionChange=this.onSelectionRowChange
+            didInsert=this.didInsertRowCheckbox
+            willDestroy=this.willDestroyRowCheckbox
+            selectionAriaLabelSuffix=@selectionAriaLabelSuffix
+          )
           Th=(component "hds/table/th" scope="row")
           Td=(component "hds/table/td" align=@align)
           sortBy=this.sortBy

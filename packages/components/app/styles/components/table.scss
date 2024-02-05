@@ -103,6 +103,12 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
   }
 }
 
+// multi-select (isSelectable=true)
+
+.hds-table__th--is-selectable {
+  width: 48px;
+}
+
 .hds-table__th-content {
   display: flex;
   gap: 8px;
@@ -258,4 +264,14 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
       vertical-align: baseline;
     }
   }
+}
+
+
+// ----------------------------------------------------------------
+
+// TABLE CONTENT
+
+.hds-table__checkbox {
+  display: block;
+  margin: 2px 0;
 }

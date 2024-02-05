@@ -6,6 +6,12 @@
 // TABLE
 
 body.components-table {
+  // we need to increase spacing between sections for this page because is too crowded
+  .shw-divider:not(.shw-divider--level-2) {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+
   // align table cell content for icon plus text in cell
   .shw-component-table-cell-content-div {
     display: flex;
@@ -23,5 +29,54 @@ body.components-table {
 
   .shw-component-table-max-content-width {
     width: max-content;
+  }
+
+  .shw-component-table-with-pagination-demo-wrapper {
+    .hds-table + .hds-pagination {
+      margin-top: 16px;
+    }
+  }
+
+  .shw-component-table-demo-topbar {
+    @include shw-font-family("system sans");
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: flex-end;
+    margin-bottom: 24px;
+  }
+
+  .shw-component-table-demo-topbar__toggle {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 0.9rem;
+  }
+
+  .shw-component-table-demo-topbar__action {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-right: 0;
+    margin-left: auto;
+  }
+
+  .shw-component-table-animate-user {
+    display: inline-block;
+    animation: shw-component-table-user-bounce 1s infinite ease-in-out;
+  }
+
+  @keyframes shw-component-table-user-bounce {
+    0% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-8px);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
   }
 }
