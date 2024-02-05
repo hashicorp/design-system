@@ -185,13 +185,13 @@
 
   <Shw::Grid @columns="3" as |SG|>
     <SG.Item @label="Label + Character count">
-      <Hds::Form::Textarea::Field @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco" as |F|>
+      <Hds::Form::Textarea::Field @value={{this.defaultText}} {{on "input" (fn this.updateValue "defaultText")}} as |F|>
         <F.Label>This is the label text</F.Label>
         <F.CharacterCount @maxLength={{100}} />
       </Hds::Form::Textarea::Field>
     </SG.Item>
     <SG.Item @label="Label + Helper text + Character count (custom)">
-      <Hds::Form::Textarea::Field @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco" as |F|>
+      <Hds::Form::Textarea::Field @value={{this.customText}} {{on "input" (fn this.updateValue "customText")}} as |F|>
         <F.Label>This is the label text</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
         <F.CharacterCount @maxLength={{100}} as |CC|>
@@ -206,11 +206,12 @@
     <SG.Item @label="Label + Character count + Error">
       <Hds::Form::Textarea::Field
         @isInvalid={{this.fieldIsInvalid}}
-        @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
+        @value={{this.withErrorMessage}}
+        {{on "input" (fn this.updateValue "withErrorMessage")}}
         as |F|
       >
         <F.Label>This is the label text</F.Label>
-        <F.CharacterCount @maxLength={{50}} @onInput={{this.onFieldInput}} />
+        <F.CharacterCount @maxLength={{this.maxLength}} />
         {{#if this.fieldIsInvalid}}
           <F.Error>Maximum numbers of characters exceeded</F.Error>
         {{/if}}

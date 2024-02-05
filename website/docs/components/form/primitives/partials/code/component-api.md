@@ -40,14 +40,14 @@
   <C.Property @name="controlId" @type="string">
     The ID of the form control associated with the character count. This is used to populate the element’s `id` HTML attribute (with a `character-count-` prefix). This CharacterCount ID can then be referenced in the `aria-describedby` attribute of the form control.
   </C.Property>
+  <C.Property @name="value" @type="string">
+    The value of the associated input to be used for comparing its length with the maximum and/or minimum limits `maxLength` and `minLength`, respectively.
+  </C.Property>
   <C.Property @name="maxLength" @type="number">
     The maximum number of characters allowed in the associated form element, used to determine the number of remaining characters. This does not restrict users from adding characters over the limit. To define the maximum string length that the user can enter, set `maxlength` attribute on the associated input field.
   </C.Property>
   <C.Property @name="minLength" @type="number">
     The minimum number of characters required for the associated form element, used to determine the shortfall value.
-  </C.Property>
-  <C.Property @name="onInsert" @type="function">
-    Callback function invoked (if provided) when the associated input content is changed. The function receives as argument an object with the following properties: `inputControl` (a reference to the associated form control node element), `currentLength` (the current number of characters in the associated form control), `maxLength` (the maximum number of characters allowed in the associated form control), `minLength` (the minimum number of characters required in the associated form control), `remaining` (the difference between `maxLength` and `currentLength`), and `shortfall` (the difference between `currentLength` and `minLength`).
   </C.Property>
   <C.Property @name="yield">
     Elements passed as children of this component are yielded inside the element. We only recommend using the block content for providing custom messages. The following variables are available within the block: `currentLength` (the current number of characters in the associated form control), `maxLength` (the maximum number of characters allowed in the associated form control), `minLength` (the minimum number of characters required in the associated form control), `remaining` (the difference between `maxLength` and `currentLength`), and `shortfall` (the difference between `currentLength` and `minLength`).

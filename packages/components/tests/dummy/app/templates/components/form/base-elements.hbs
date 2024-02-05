@@ -150,12 +150,24 @@
   {{! template-lint-disable require-input-label }}
   <Shw::Grid @columns={{4}} as |SG|>
     <SG.Item @label="currentLength = 0">
-      <input type="text" aria-label="currentLength = 0" id="cc-cl-eq-0" />
-      <Hds::Form::CharacterCount @controlId="cc-cl-eq-0" />
+      <input
+        type="text"
+        aria-label="currentLength = 0"
+        id="cc-cl-eq-0"
+        value={{this.value1}}
+        {{on "input" (fn this.updateValue "value1")}}
+      />
+      <Hds::Form::CharacterCount @value={{this.value1}} @controlId="cc-cl-eq-0" />
     </SG.Item>
     <SG.Item @label="currentLength > 0">
-      <input type="text" value="cl" aria-label="currentLength > 0" id="cc-cl-gt-0" />
-      <Hds::Form::CharacterCount @controlId="cc-cl-gt-0" />
+      <input
+        type="text"
+        aria-label="currentLength > 0"
+        id="cc-cl-gt-0"
+        value={{this.value2}}
+        {{on "input" (fn this.updateValue "value2")}}
+      />
+      <Hds::Form::CharacterCount @value={{this.value2}} @controlId="cc-cl-gt-0" />
     </SG.Item>
   </Shw::Grid>
   {{! template-lint-enable require-input-label }}
@@ -166,31 +178,50 @@
   <Shw::Grid @columns={{4}} as |SG|>
     <SG.Item @label="currentLength = 0">
       {{#let (unique-id) as |controlId|}}
-        <input type="text" aria-label="currentLength = 0" id={{controlId}} />
-        <Hds::Form::CharacterCount @maxLength={{25}} @controlId={{controlId}} />
+        <input
+          type="text"
+          aria-label="currentLength = 0"
+          id={{controlId}}
+          value={{this.value3}}
+          {{on "input" (fn this.updateValue "value3")}}
+        />
+        <Hds::Form::CharacterCount @maxLength={{25}} @controlId={{controlId}} @value={{this.value3}} />
       {{/let}}
     </SG.Item>
     <SG.Item @label="currentLength < maxLength">
       {{#let (unique-id) as |controlId|}}
-        <input type="text" value="cluster" aria-label="currentLength < maxLength" id={{controlId}} />
-        <Hds::Form::CharacterCount @maxLength={{25}} @controlId={{controlId}} />
+        <input
+          type="text"
+          aria-label="currentLength < maxLength"
+          id={{controlId}}
+          value={{this.value4}}
+          {{on "input" (fn this.updateValue "value4")}}
+        />
+        <Hds::Form::CharacterCount @maxLength={{25}} @controlId={{controlId}} @value={{this.value4}} />
       {{/let}}
     </SG.Item>
     <SG.Item @label="currentLength = maxLength">
       {{#let (unique-id) as |controlId|}}
-        <input type="text" value="cluster-length-is-longer-" aria-label="currentLength = maxLength" id={{controlId}} />
-        <Hds::Form::CharacterCount @maxLength={{25}} @controlId={{controlId}} />
+        <input
+          type="text"
+          aria-label="currentLength = maxLength"
+          id={{controlId}}
+          value={{this.value5}}
+          {{on "input" (fn this.updateValue "value5")}}
+        />
+        <Hds::Form::CharacterCount @maxLength={{25}} @controlId={{controlId}} @value={{this.value5}} />
       {{/let}}
     </SG.Item>
     <SG.Item @label="currentLength > maxLength">
       {{#let (unique-id) as |controlId|}}
         <input
           type="text"
-          value="cluster-length-is-longer-than"
           aria-label="currentLength > maxLength"
           id={{controlId}}
+          value={{this.value6}}
+          {{on "input" (fn this.updateValue "value6")}}
         />
-        <Hds::Form::CharacterCount @maxLength={{25}} @controlId={{controlId}} />
+        <Hds::Form::CharacterCount @maxLength={{25}} @controlId={{controlId}} @value={{this.value6}} />
       {{/let}}
     </SG.Item>
   </Shw::Grid>
@@ -202,20 +233,38 @@
   <Shw::Grid @columns={{4}} as |SG|>
     <SG.Item @label="currentLength = 0">
       {{#let (unique-id) as |controlId|}}
-        <input type="text" aria-label="currentLength = 0" id={{controlId}} />
-        <Hds::Form::CharacterCount @minLength={{3}} @controlId={{controlId}} />
+        <input
+          type="text"
+          aria-label="currentLength = 0"
+          id={{controlId}}
+          value={{this.value7}}
+          {{on "input" (fn this.updateValue "value7")}}
+        />
+        <Hds::Form::CharacterCount @minLength={{3}} @controlId={{controlId}} @value={{this.value7}} />
       {{/let}}
     </SG.Item>
     <SG.Item @label="currentLength < maxLength">
       {{#let (unique-id) as |controlId|}}
-        <input type="text" value="c" aria-label="currentLength < maxLength" id={{controlId}} />
-        <Hds::Form::CharacterCount @minLength={{3}} @controlId={{controlId}} />
+        <input
+          type="text"
+          aria-label="currentLength < maxLength"
+          id={{controlId}}
+          value={{this.value8}}
+          {{on "input" (fn this.updateValue "value8")}}
+        />
+        <Hds::Form::CharacterCount @minLength={{3}} @controlId={{controlId}} @value={{this.value8}} />
       {{/let}}
     </SG.Item>
     <SG.Item @label="currentLength >= minLength">
       {{#let (unique-id) as |controlId|}}
-        <input type="text" value="clu" aria-label="currentLength >= minLength" id={{controlId}} />
-        <Hds::Form::CharacterCount @minLength={{3}} @controlId={{controlId}} />
+        <input
+          type="text"
+          aria-label="currentLength >= minLength"
+          id={{controlId}}
+          value={{this.value9}}
+          {{on "input" (fn this.updateValue "value9")}}
+        />
+        <Hds::Form::CharacterCount @minLength={{3}} @controlId={{controlId}} @value={{this.value9}} />
       {{/let}}
     </SG.Item>
     <SG.Item />
@@ -228,31 +277,70 @@
   <Shw::Grid @columns={{4}} as |SG|>
     <SG.Item @label="currentLength = 0">
       {{#let (unique-id) as |controlId|}}
-        <input type="text" aria-label="currentLength = 0" id={{controlId}} />
-        <Hds::Form::CharacterCount @minLength={{3}} @maxLength={{25}} @controlId={{controlId}} />
+        <input
+          type="text"
+          aria-label="currentLength = 0"
+          id={{controlId}}
+          value={{this.value10}}
+          {{on "input" (fn this.updateValue "value10")}}
+        />
+        <Hds::Form::CharacterCount
+          @minLength={{3}}
+          @maxLength={{25}}
+          @controlId={{controlId}}
+          @value={{this.value10}}
+        />
       {{/let}}
     </SG.Item>
     <SG.Item @label="currentLength < minLength">
       {{#let (unique-id) as |controlId|}}
-        <input type="text" value="c" aria-label="currentLength < minLength" id={{controlId}} />
-        <Hds::Form::CharacterCount @minLength={{3}} @maxLength={{25}} @controlId={{controlId}} />
+        <input
+          type="text"
+          aria-label="currentLength < minLength"
+          id={{controlId}}
+          value={{this.value11}}
+          {{on "input" (fn this.updateValue "value11")}}
+        />
+        <Hds::Form::CharacterCount
+          @minLength={{3}}
+          @maxLength={{25}}
+          @controlId={{controlId}}
+          @value={{this.value11}}
+        />
       {{/let}}
     </SG.Item>
     <SG.Item @label="minLength <= currentLength <= maxLength">
       {{#let (unique-id) as |controlId|}}
-        <input type="text" value="cluster" aria-label="minLength <= currentLength <= maxLength" id={{controlId}} />
-        <Hds::Form::CharacterCount @minLength={{3}} @maxLength={{25}} @controlId={{controlId}} />
+        <input
+          type="text"
+          aria-label="minLength <= currentLength <= maxLength"
+          id={{controlId}}
+          value={{this.value12}}
+          {{on "input" (fn this.updateValue "value12")}}
+        />
+        <Hds::Form::CharacterCount
+          @minLength={{3}}
+          @maxLength={{25}}
+          @controlId={{controlId}}
+          @value={{this.value12}}
+        />
       {{/let}}
     </SG.Item>
     <SG.Item @label="currentLength > maxLength">
       {{#let (unique-id) as |controlId|}}
         <input
           type="text"
-          value="cluster-length-is-longer-than"
           aria-label="currentLength > maxLength"
           id={{controlId}}
+          value={{this.value13}}
+          {{on "input" (fn this.updateValue "value13")}}
         />
-        <Hds::Form::CharacterCount @minLength={{3}} @maxLength={{25}} @controlId={{controlId}} />
+        <Hds::Form::CharacterCount
+          @minLength={{3}}
+          @maxLength={{25}}
+          @controlId={{controlId}}
+          @value={{this.value13}}
+        />
       {{/let}}
     </SG.Item>
   </Shw::Grid>
@@ -264,14 +352,20 @@
 
   {{! template-lint-disable require-input-label }}
   <Shw::Flex @direction="column" as |SF|>
-    <SF.Item @label="With custom content (and callback function)">
+    <SF.Item @label="With custom content">
       {{#let (unique-id) as |controlId|}}
-        <input type="text" aria-label="with callback function" value="Lorem ipsum dolor" id={{controlId}} />
+        <input
+          type="text"
+          aria-label="with callback function"
+          id={{controlId}}
+          value={{this.value14}}
+          {{on "input" (fn this.updateValue "value14")}}
+        />
         <Hds::Form::CharacterCount
           @minLength={{20}}
           @maxLength={{40}}
-          @onInput={{this.onInput}}
           @controlId={{controlId}}
+          @value={{this.value14}}
           as |CC|
         >
           maxLength={{CC.maxLength}}; minLength={{CC.minLength}}; remaining={{CC.remaining}}; shortfall={{CC.shortfall}};

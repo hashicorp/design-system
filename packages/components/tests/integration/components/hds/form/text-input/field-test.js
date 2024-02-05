@@ -141,6 +141,9 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
       .dom('.hds-form-field__character-count')
       .hasAttribute('id', `character-count-${controlId}`);
     assert
+      .dom('.hds-form-field__character-count')
+      .hasText('4 characters remaining');
+    assert
       .dom('.hds-form-field__error')
       .hasAttribute('id', `error-${controlId}`);
   });

@@ -12,6 +12,10 @@ module(
   'Integration | Component | hds/form/character-count/index',
   function (hooks) {
     setupRenderingTest(hooks);
+    hooks.beforeEach(function () {
+      this.set('value', '');
+      this.update = (event) => this.set('value', event.target.value);
+    });
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
@@ -42,8 +46,8 @@ module(
     test('it renders a character count with the default predefined format', async function (assert) {
       await render(
         hbs`
-          <input id="input-1"/>
-          <Hds::Form::CharacterCount @controlId="input-1" id="test-form-character-count"/>`
+          <input id="input-1" value={{this.value}} {{on "input" this.update}} />
+          <Hds::Form::CharacterCount @value={{this.value}} @controlId="input-1" id="test-form-character-count"/>`
       );
       assert.dom('#test-form-character-count').hasText('0 characters entered');
 
@@ -53,8 +57,8 @@ module(
     test('it renders a character count in the predefined format when only @maxLength is set', async function (assert) {
       await render(
         hbs`
-          <input id="input-max-length"/>
-          <Hds::Form::CharacterCount @maxLength={{25}} @controlId="input-max-length" id="test-form-character-count"/>`
+          <input id="input-max-length" value={{this.value}} {{on "input" this.update}} />
+          <Hds::Form::CharacterCount @value={{this.value}} @maxLength={{25}} @controlId="input-max-length" id="test-form-character-count"/>`
       );
       assert.dom('#test-form-character-count').hasText('25 characters allowed');
 
@@ -84,8 +88,8 @@ module(
     test('it renders a character count in the predefined format when only @minLength is set', async function (assert) {
       await render(
         hbs`
-          <input id="input-min-length"/>
-          <Hds::Form::CharacterCount @minLength={{3}} @controlId="input-min-length" id="test-form-character-count"/>`
+          <input id="input-min-length" value={{this.value}} {{on "input" this.update}} />
+          <Hds::Form::CharacterCount @value={{this.value}} @minLength={{3}} @controlId="input-min-length" id="test-form-character-count"/>`
       );
       assert.dom('#test-form-character-count').hasText('3 characters required');
 
@@ -105,8 +109,8 @@ module(
     test('it renders a character count in the predefined format when both @minLength and @maxLength are set', async function (assert) {
       await render(
         hbs`
-          <input id="input-minmax-length"/>
-          <Hds::Form::CharacterCount @minLength={{3}} @maxLength={{25}} @controlId="input-minmax-length" id="test-form-character-count"/>`
+          <input id="input-minmax-length" value={{this.value}} {{on "input" this.update}} />
+          <Hds::Form::CharacterCount @value={{this.value}} @minLength={{3}} @maxLength={{25}} @controlId="input-minmax-length" id="test-form-character-count"/>`
       );
       assert.dom('#test-form-character-count').hasText('3 characters required');
 
@@ -126,10 +130,11 @@ module(
         .hasText('Exceeded by 4 characters');
     });
     test('it renders a character count in custom format', async function (assert) {
+      this.set('value', 'with custom content');
       await render(
         hbs`
-        <input type="hidden" value="with custom content" id="input-2"/>
-        <Hds::Form::CharacterCount @minLength={{20}} @maxLength={{40}} @controlId="input-2" id="test-form-character-count" as |CC|>
+        <input type="hidden" value={{this.value}} id="input-2" {{on "input" this.update}} />
+        <Hds::Form::CharacterCount @value={{this.value}} @minLength={{20}} @maxLength={{40}} @controlId="input-2" id="test-form-character-count" as |CC|>
           maxLength {{CC.maxLength}} 
           minLength {{CC.minLength}} 
           remaining {{CC.remaining}} 
@@ -147,28 +152,15 @@ module(
     // A11y
 
     test('it should present the character count as a live region', async function (assert) {
+      this.set('value', 'with default content');
       await render(
         hbs`
-          <input type="hidden" value="with default content" id="input-3"/>
+          <input type="hidden" value={{this.value}} id="input-3"/>
           <Hds::Form::CharacterCount @maxLength={{40}} @controlId="input-3" id="test-form-character-count"/>`
       );
       assert
         .dom('#test-form-character-count')
         .hasAttribute('aria-live', 'polite');
-    });
-
-    // CALLBACKS
-
-    test('it should call `onInput` function if provided', async function (assert) {
-      let onInput = false;
-      this.set('onInput', () => (onInput = true));
-      await render(
-        hbs`
-          <input value="with default content" id="input-4"/>
-          <Hds::Form::CharacterCount @onInput={{this.onInput}} @maxLength={{40}} @controlId="input-4" id="test-form-character-count"/>`
-      );
-      typeIn('#input-4', 'a');
-      assert.ok(onInput);
     });
   }
 );
