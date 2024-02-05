@@ -1,5 +1,22 @@
 # @hashicorp/ember-flight-icons
 
+## 4.1.0
+
+### Minor Changes
+
+_Since this is an update brand colors and product icons, we consider this a `minor` version release_
+
+Improved resilience of SVG sprite loading script
+
+<small class="doc-whats-new-changelog-metadata">[#1920](https://github.com/hashicorp/design-system/pull/1920)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@3.0.0
+
+
 ## 4.0.6
 
 ### Patch Changes

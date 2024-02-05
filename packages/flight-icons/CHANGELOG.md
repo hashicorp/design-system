@@ -1,5 +1,15 @@
 # @hashicorp/flight-icons
 
+## 3.0.0
+
+### Major Changes
+
+`vagrant`, `vault-radar`, and `vault-secrets` icons have been updated. Also added boxed versions of all product logos.
+
+<small class="doc-whats-new-changelog-metadata">[#1927](https://github.com/hashicorp/design-system/pull/1927)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 2.25.0
 
 ### Minor Changes

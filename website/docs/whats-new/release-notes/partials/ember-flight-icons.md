@@ -12,6 +12,22 @@
   </a>
 </p>
 
+## 4.1.0
+
+**Minor changes**
+
+_Since this is an update brand colors and product icons, we consider this a `minor` version release_
+
+Improved resilience of SVG sprite loading script
+
+<small class="doc-whats-new-changelog-metadata">[#1920](https://github.com/hashicorp/design-system/pull/1920)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@3.0.0
+
 ## 4.0.6
 
 **Patch changes**
@@ -212,17 +228,6 @@ Fix error message for mismatched icon `@name`
 
 - Updated dependencies [[`f9c22874`](https://github.com/hashicorp/design-system/commit/f9c22874ab24db25ee347c95e5c26dc0055a642e), [`b95f448a`](https://github.com/hashicorp/design-system/commit/b95f448a31cc138436caf0aae332139c5129d9dc)]:
   - @hashicorp/flight-icons@2.12.0
-
-## 3.0.1
-
-**Patch changes**
-
-- [#618](https://github.com/hashicorp/design-system/pull/618) [`11d39410`](https://github.com/hashicorp/design-system/commit/11d39410c40725ff34a291e17eac3f8f8321c659) Thanks [@alex-ju](https://github.com/alex-ju)! - Update `ember` to `4.7.0`
-
-* [#636](https://github.com/hashicorp/design-system/pull/636) [`27a283a5`](https://github.com/hashicorp/design-system/commit/27a283a52c2828b32c282401f91df9bd929f9dda) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Add copyright notice to license file
-
-* Updated dependencies [[`27a283a5`](https://github.com/hashicorp/design-system/commit/27a283a52c2828b32c282401f91df9bd929f9dda)]:
-  - @hashicorp/flight-icons@2.11.1
 
 
 ---

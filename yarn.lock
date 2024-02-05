@@ -3468,8 +3468,8 @@ __metadata:
     "@glint/core": "npm:^1.2.1"
     "@glint/environment-ember-loose": "npm:^1.2.1"
     "@glint/template": "npm:^1.2.1"
-    "@hashicorp/design-system-tokens": "npm:^1.10.0"
-    "@hashicorp/ember-flight-icons": "npm:^4.0.6"
+    "@hashicorp/design-system-tokens": "npm:^1.11.0"
+    "@hashicorp/ember-flight-icons": "npm:^4.1.0"
     "@percy/cli": "npm:^1.27.3"
     "@percy/ember": "npm:^4.2.0"
     "@tsconfig/ember": "npm:^3.0.2"
@@ -3535,7 +3535,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/design-system-tokens@npm:^1.10.0, @hashicorp/design-system-tokens@workspace:^, @hashicorp/design-system-tokens@workspace:packages/tokens":
+"@hashicorp/design-system-tokens@npm:^1.11.0, @hashicorp/design-system-tokens@workspace:^, @hashicorp/design-system-tokens@workspace:packages/tokens":
   version: 0.0.0-use.local
   resolution: "@hashicorp/design-system-tokens@workspace:packages/tokens"
   dependencies:
@@ -3566,7 +3566,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/ember-flight-icons@npm:^4.0.6, @hashicorp/ember-flight-icons@workspace:^, @hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons":
+"@hashicorp/ember-flight-icons@npm:^4.1.0, @hashicorp/ember-flight-icons@workspace:^, @hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons":
   version: 0.0.0-use.local
   resolution: "@hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons"
   dependencies:
@@ -3577,7 +3577,7 @@ __metadata:
     "@embroider/test-setup": "npm:^3.0.2"
     "@glimmer/component": "npm:^1.1.2"
     "@glimmer/tracking": "npm:^1.1.2"
-    "@hashicorp/flight-icons": "npm:^2.25.0"
+    "@hashicorp/flight-icons": "npm:^3.0.0"
     broccoli-asset-rev: "npm:^3.0.0"
     ember-auto-import: "npm:^2.6.3"
     ember-cli: "npm:~5.3.0"
@@ -3614,7 +3614,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/flight-icons@npm:^2.25.0, @hashicorp/flight-icons@workspace:^, @hashicorp/flight-icons@workspace:packages/flight-icons":
+"@hashicorp/flight-icons@npm:^3.0.0, @hashicorp/flight-icons@workspace:^, @hashicorp/flight-icons@workspace:packages/flight-icons":
   version: 0.0.0-use.local
   resolution: "@hashicorp/flight-icons@workspace:packages/flight-icons"
   dependencies:

@@ -1,5 +1,21 @@
 # @hashicorp/design-system-tokens
 
+## 1.11.0
+
+### Minor Changes
+
+Updated `vault`, `vault-secrets`, and `vault-radar` brand color values
+
+<small class="doc-whats-new-changelog-metadata">[#1914](https://github.com/hashicorp/design-system/pull/1914)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Added design token for `terraform-brand-on-dark` color
+
+<small class="doc-whats-new-changelog-metadata">[#1915](https://github.com/hashicorp/design-system/pull/1915)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 1.10.0
 
 ### Minor Changes

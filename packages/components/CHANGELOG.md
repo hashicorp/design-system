@@ -1,5 +1,17 @@
 # @hashicorp/design-system-components
 
+## 3.6.0
+
+### Minor Changes
+
+_Since this is an update brand colors and product icons, we consider this a `minor` version release_
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/design-system-tokens@1.11.0
+- @hashicorp/ember-flight-icons@4.1.0
+
+
 ## 3.5.0
 
 ### Minor Changes
