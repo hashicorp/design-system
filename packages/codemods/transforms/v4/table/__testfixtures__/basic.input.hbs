@@ -1,0 +1,14 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+<Hds::Table::ThSort @onClick={{this.onClickCallback}}>Label</Hds::Table::ThSort>
+
+<Hds::Table>
+  <:head as |H|>
+    <H.Tr>
+      <H.ThSort @onClick={{this.onClickCallback}}>Label</H.ThSort>
+    </H.Tr>
+  </:head>
+</Hds::Table>

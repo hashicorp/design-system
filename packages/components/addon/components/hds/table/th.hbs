@@ -6,6 +6,13 @@
   {{#if @isVisuallyHidden}}
     <span class="sr-only">{{yield}}</span>
   {{else}}
-    {{yield}}
+    {{#if @tooltip}}
+      <div class="hds-table__th-content">
+        <span id={{this.labelId}} class="hds-typography-body-200 hds-font-weight-semibold">{{yield}}</span>
+        <Hds::Table::ThButtonTooltip @tooltip={{@tooltip}} @labelId={{this.labelId}} />
+      </div>
+    {{else}}
+      <span class="hds-typography-body-200 hds-font-weight-semibold">{{yield}}</span>
+    {{/if}}
   {{/if}}
 </th>

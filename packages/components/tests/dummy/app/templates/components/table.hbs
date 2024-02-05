@@ -9,127 +9,6 @@
 
 <section data-test-percy>
 
-  <Shw::Text::H2>Density</Shw::Text::H2>
-
-  <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
-    <SF.Item @label="Default">
-      <Hds::Table>
-        <:head as |H|>
-          <H.Tr>
-            <H.Th>Lorem</H.Th>
-            <H.Th>Ipsum</H.Th>
-            <H.Th>Dolor</H.Th>
-            <H.Th>Sit amet</H.Th>
-          </H.Tr>
-        </:head>
-        <:body as |B|>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-        </:body>
-      </Hds::Table>
-    </SF.Item>
-    <SF.Item @label="Short">
-      <Hds::Table @density="short">
-        <:head as |H|>
-          <H.Tr>
-            <H.Th>Lorem</H.Th>
-            <H.Th>Ipsum</H.Th>
-            <H.Th>Dolor</H.Th>
-            <H.Th>Sit amet</H.Th>
-          </H.Tr>
-        </:head>
-        <:body as |B|>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-        </:body>
-      </Hds::Table>
-    </SF.Item>
-    <SF.Item @label="Tall">
-      <Hds::Table @density="tall">
-        <:head as |H|>
-          <H.Tr>
-            <H.Th>Lorem</H.Th>
-            <H.Th>Ipsum</H.Th>
-            <H.Th>Dolor</H.Th>
-            <H.Th>Sit amet</H.Th>
-          </H.Tr>
-        </:head>
-        <:body as |B|>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-        </:body>
-      </Hds::Table>
-    </SF.Item>
-  </Shw::Flex>
-
-  <Shw::Divider />
-
   <Shw::Text::H2>Data model</Shw::Text::H2>
 
   <Shw::Text::H4 @tag="h3">Table with model</Shw::Text::H4>
@@ -383,12 +262,12 @@
     <:head as |H|>
       <H.Tr>
         <H.ThSort
-          @onClick={{fn this.onClickThSort__demo3 "peer-name" H.setSortBy}}
+          @onClickSort={{fn this.onClickThSort__demo3 "peer-name" H.setSortBy}}
           @sortOrder={{if (eq "peer-name" H.sortBy) H.sortOrder}}
         >Peer name</H.ThSort>
         <H.Th>Cluster partition</H.Th>
         <H.ThSort
-          @onClick={{fn this.onClickThSort__demo3 "status" H.setSortBy}}
+          @onClickSort={{fn this.onClickThSort__demo3 "status" H.setSortBy}}
           @sortOrder={{if (eq "status" H.sortBy) H.sortOrder}}
         >Status</H.ThSort>
         <H.Th>Imported services</H.Th>
@@ -444,11 +323,13 @@
   <Hds::Table>
     <:head as |H|>
       <H.Tr>
-        <H.ThSort onClick={{fn H.setSortBy "peer-name"}} @sortOrder={{if (eq "peer-name" H.sortBy) H.sortOrder}}>Peer
-          name</H.ThSort>
+        <H.ThSort
+          @onClickSort={{fn H.setSortBy "peer-name"}}
+          @sortOrder={{if (eq "peer-name" H.sortBy) H.sortOrder}}
+        >Peer name</H.ThSort>
         <H.Th>Cluster partition</H.Th>
         <H.ThSort
-          @onClick={{fn H.setSortBy "status"}}
+          @onClickSort={{fn H.setSortBy "status"}}
           @sortOrder={{if (eq "status" H.sortBy) H.sortOrder}}
         >Status</H.ThSort>
         <H.Th>Imported services</H.Th>
@@ -491,7 +372,514 @@
 
   <Shw::Divider />
 
-  <Shw::Text::H2>Customization</Shw::Text::H2>
+  <Shw::Text::H2>Tooltip</Shw::Text::H2>
+
+  <Shw::Text::H4 @tag="h3">Table with model (sortable and non-sortable columns)</Shw::Text::H4>
+
+  <Hds::Table
+    @model={{this.model.music}}
+    @columns={{array
+      (hash key="artist" label="Artist" isSortable=true tooltip="Artist performing the album")
+      (hash key="album" label="Album" tooltip="Name of the album")
+      (hash key="vinyl-cost" label="Vinil Cost (USD)" isSortable=true tooltip="Cost of the vinyl" align="right")
+      (hash key="year" label="Release Year" tooltip="Year of release of the album" align="right")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td @align="right">{{B.data.vinyl-cost}}</B.Td>
+        <B.Td @align="right">{{B.data.year}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
+  <Shw::Text::H4 @tag="h3">Table without model defined (sortable and non-sortable columns)</Shw::Text::H4>
+
+  <Shw::Text::Body>⚠️
+    <em>Notice: in this example the "sort" button doesn't work, is for presentation purpose only.</em></Shw::Text::Body>
+
+  <Hds::Table @caption="a custom table with no model defined">
+    <:head as |H|>
+      <H.Tr>
+        <H.ThSort @tooltip="Column #1 extra information">Cell Header</H.ThSort>
+        <H.Th @tooltip="Column #2 extra information">Cell Header</H.Th>
+        <H.Th>Cell Header</H.Th>
+      </H.Tr>
+    </:head>
+    <:body as |B|>
+      <B.Tr>
+        <B.Th
+          @tooltip="This is an extra (non documented) case, made possible by the fact that the &lt;Table::Th&gt; subcomponent is yielded in both the &lt;thead&gt; and the &lt;tbody&gt;"
+        >Scope Row</B.Th>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+      </B.Tr>
+      <B.Tr>
+        <B.Th>Scope row</B.Th>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+      </B.Tr>
+      <B.Tr>
+        <B.Th>Scope row</B.Th>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Multi-select</Shw::Text::H2>
+
+  <Shw::Text::H4 @tag="h3">Table with model</Shw::Text::H4>
+
+  <Hds::Table
+    @isSelectable={{true}}
+    @onSelectionChange={{this.onSelectionChangeLogArguments}}
+    @model={{this.model.selectableData}}
+    @columns={{array
+      (hash key="lorem" label="Row #")
+      (hash key="ipsum" label="Ipsum")
+      (hash key="dolor" label="Dolor")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr
+        @selectionKey={{B.data.id}}
+        @isSelected={{B.data.isSelected}}
+        @selectionAriaLabelSuffix="row #{{B.data.lorem}}"
+      >
+        <B.Td>{{B.data.lorem}}</B.Td>
+        <B.Td>{{B.data.ipsum}}</B.Td>
+        <B.Td>{{B.data.dolor}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
+  <Shw::Text::H4 @tag="h3">Table without model defined</Shw::Text::H4>
+
+  <Hds::Table @isSelectable={{true}} @onSelectionChange={{this.onSelectionChangeLogArguments}}>
+    <:head as |H|>
+      <H.Tr>
+        <H.Th>Row #</H.Th>
+        <H.Th>Ipsum</H.Th>
+        <H.Th>Dolor</H.Th>
+      </H.Tr>
+    </:head>
+    <:body as |B|>
+      <B.Tr @selectionKey="row1" @selectionAriaLabelSuffix="row #1">
+        <B.Th>1</B.Th>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+      </B.Tr>
+      <B.Tr @selectionKey="row2" @isSelected={{true}} @selectionAriaLabelSuffix="row #2">
+        <B.Th>2</B.Th>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+      </B.Tr>
+      <B.Tr @selectionKey="row3" @selectionAriaLabelSuffix="row #3">
+        <B.Th>3</B.Th>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+      </B.Tr>
+      <B.Tr @selectionKey="row4" @selectionAriaLabelSuffix="row #4">
+        <B.Th>4</B.Th>
+        <B.Td>Cell Content</B.Td>
+        <B.Td>Cell Content</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Functional examples</Shw::Text::H3>
+
+  <Shw::Text::H4>With inline filter</Shw::Text::H4>
+
+  <div class="shw-component-table-demo-topbar">
+    <div class="shw-component-table-demo-topbar__toggle">
+      <input
+        id="multi-select-demo1__toggle-scope"
+        type="checkbox"
+        checked={{this.multiSelectToggleScope__demo1}}
+        {{on "change" this.toggleMultiSelectToggleScope__demo1}}
+      />
+      <label for="multi-select-demo1__toggle-scope">Extend "Select All" scope to non-displayed rows</label>
+    </div>
+    <div class="shw-component-table-demo-topbar__toggle">
+      <input
+        id="multi-select-demo1__toggle-debug"
+        type="checkbox"
+        checked={{this.multiSelectToggleDebug__demo1}}
+        {{on "change" this.toggleMultiSelectToggleDebug__demo1}}
+      />
+      <label for="multi-select-demo1__toggle-debug">Show all rows' state</label>
+    </div>
+    <div class="shw-component-table-demo-topbar__action">
+      <label for="multi-select-demo1__filter">Filter:</label>
+      <Hds::Form::Select::Base
+        id="multi-select-demo1__filter"
+        {{on "change" this.onChangeMultiSelectFilter__demo1}}
+        as |C|
+      >
+        <C.Options>
+          <option value="all" selected={{eq this.multiSelectFilterRows__demo1 "all"}}>Show all rows</option>
+          <option value="even" selected={{eq this.multiSelectFilterRows__demo1 "even"}}>Show even rows</option>
+          <option value="odd" selected={{eq this.multiSelectFilterRows__demo1 "odd"}}>Show odd rows</option>
+        </C.Options>
+      </Hds::Form::Select::Base>
+    </div>
+  </div>
+
+  <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
+    <SF.Item @label="With data model">
+      <Hds::Table
+        @isSelectable={{true}}
+        @onSelectionChange={{this.onSelectionChangeWithModel__demo1}}
+        @model={{this.multiSelectFilteredData__demo1}}
+        @columns={{array
+          (hash key="lorem" label="Row #")
+          (hash key="ipsum" label="Ipsum")
+          (hash key="dolor" label="Dolor")
+        }}
+      >
+        <:body as |B|>
+          <B.Tr
+            @selectionKey={{B.data.id}}
+            @isSelected={{B.data.isSelected}}
+            @selectionAriaLabelSuffix="row #{{B.data.id}}"
+          >
+            <B.Td>{{B.data.lorem}}</B.Td>
+            <B.Td>{{B.data.ipsum}}</B.Td>
+            <B.Td>{{B.data.dolor}}</B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+      {{#if this.multiSelectToggleDebug__demo1}}
+        {{#each this.multiSelectModelData__demo1 as |row|}}
+          <pre>row{{row.id}} = {{(if row.isSelected "✅")}}</pre>
+        {{/each}}
+      {{/if}}
+    </SF.Item>
+    <SF.Item @label="No model">
+      <Hds::Table @isSelectable={{true}} @onSelectionChange={{this.onSelectionChangeWithoutModel__demo1}}>
+        <:head as |H|>
+          <H.Tr>
+            <H.Th>Row #</H.Th>
+            <H.Th>Ipsum</H.Th>
+            <H.Th>Dolor</H.Th>
+          </H.Tr>
+        </:head>
+        <:body as |B|>
+          {{#if (not (eq this.multiSelectFilterRows__demo1 "even"))}}
+            {{! Notice: here for the `selectionKey` we're using strings instead of numbers (on purpose, to test that everything works as expected) }}
+            <B.Tr @selectionKey="row1" @isSelected={{get this.multiSelectNoModelState__demo1 "row1"}}>
+              <B.Th>1</B.Th>
+              <B.Td>Cell Content</B.Td>
+              <B.Td>Cell Content</B.Td>
+            </B.Tr>
+          {{/if}}
+          {{#if (not (eq this.multiSelectFilterRows__demo1 "odd"))}}
+            <B.Tr @selectionKey="row2" @isSelected={{get this.multiSelectNoModelState__demo1 "row2"}}>
+              <B.Th>2</B.Th>
+              <B.Td>Cell Content</B.Td>
+              <B.Td>Cell Content</B.Td>
+            </B.Tr>
+          {{/if}}
+          {{#if (not (eq this.multiSelectFilterRows__demo1 "even"))}}
+            <B.Tr @selectionKey="row3" @isSelected={{get this.multiSelectNoModelState__demo1 "row3"}}>
+              <B.Th>3</B.Th>
+              <B.Td>Cell Content</B.Td>
+              <B.Td>Cell Content</B.Td>
+            </B.Tr>
+          {{/if}}
+          {{#if (not (eq this.multiSelectFilterRows__demo1 "odd"))}}
+            <B.Tr @selectionKey="row4" @isSelected={{get this.multiSelectNoModelState__demo1 "row4"}}>
+              <B.Th>4</B.Th>
+              <B.Td>Cell Content</B.Td>
+              <B.Td>Cell Content</B.Td>
+            </B.Tr>
+          {{/if}}
+        </:body>
+      </Hds::Table>
+      {{#if this.multiSelectToggleDebug__demo1}}
+        <pre>row1 = {{(if (get this.multiSelectNoModelState__demo1 "row1") "✅")}}</pre>
+        <pre>row2 = {{(if (get this.multiSelectNoModelState__demo1 "row2") "✅")}}</pre>
+        <pre>row3 = {{(if (get this.multiSelectNoModelState__demo1 "row3") "✅")}}</pre>
+        <pre>row4 = {{(if (get this.multiSelectNoModelState__demo1 "row4") "✅")}}</pre>
+      {{/if}}
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H4>With pagination</Shw::Text::H4>
+
+  <div class="shw-component-table-demo-topbar">
+    <div class="shw-component-table-demo-topbar__toggle">
+      <input
+        id="multi-select-demo2__toggle"
+        type="checkbox"
+        checked={{this.multiSelectToggleScope__demo2}}
+        {{on "change" this.toggleMultiSelectPaginatedToggleScope__demo2}}
+      />
+      <label for="multi-select-demo2__toggle">Extend "Select All" scope to non-displayed rows</label>
+    </div>
+    <div class="shw-component-table-demo-topbar__toggle">
+      <input
+        id="multi-select-demo2__toggle-debug"
+        type="checkbox"
+        checked={{this.multiSelectToggleDebug__demo2}}
+        {{on "change" this.toggleMultiSelectPaginatedToggleDebug__demo2}}
+      />
+      <label for="multi-select-demo2__toggle-debug">Show all rows' state</label>
+    </div>
+  </div>
+
+  <div class="shw-component-table-with-pagination-demo-wrapper">
+    <Hds::Table
+      @isSelectable={{true}}
+      @onSelectionChange={{this.onMultiSelectPaginatedSelectionChange__demo2}}
+      @model={{this.multiSelectPaginatedData_demo2}}
+      @columns={{array
+        (hash key="lorem" label="Row #")
+        (hash key="ipsum" label="Ipsum")
+        (hash key="dolor" label="Dolor")
+      }}
+    >
+      <:body as |B|>
+        <B.Tr
+          @selectionKey={{B.data.id}}
+          @isSelected={{B.data.isSelected}}
+          @selectionAriaLabelSuffix="row #{{B.data.id}}"
+        >
+          <B.Td>{{B.data.lorem}}</B.Td>
+          <B.Td>{{B.data.ipsum}}</B.Td>
+          <B.Td>{{B.data.dolor}}</B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::Table>
+    <Hds::Pagination::Numbered
+      @totalItems={{this.multiSelectPaginatedTotalItems_demo2}}
+      @currentPageSize={{this.multiSelectPaginatedCurrentPageSize_demo2}}
+      @pageSizes={{array 2 4}}
+      @currentPage={{this.multiSelectPaginatedCurrentPage_demo2}}
+      @onPageChange={{this.onMultiSelectPaginatedPageChange_demo2}}
+      @onPageSizeChange={{this.onMultiSelectPaginatedPageSizeChange_demo2}}
+      @ariaLabel="Pagination for basic multi-select table"
+    />
+    {{#if this.multiSelectToggleDebug__demo2}}
+      {{#each this.multiSelectModelData__demo2 as |row|}}
+        <pre>row{{row.id}} = {{(if row.isSelected "✅")}}</pre>
+      {{/each}}
+    {{/if}}
+  </div>
+
+  <Shw::Text::H4>Delete selected rows</Shw::Text::H4>
+
+  <Shw::Text::Body>This demo emulates, for example, when a user needs to delete the selected users.</Shw::Text::Body>
+
+  <div class="shw-component-table-demo-topbar">
+    <div class="shw-component-table-demo-topbar__toggle">
+      <input
+        id="multi-select-demo3__toggle"
+        type="checkbox"
+        checked={{this.multiSelectToggleScope__demo3}}
+        {{on "change" this.toggleMultiSelectPaginatedToggleScope__demo3}}
+      />
+      <label for="multi-select-demo3__toggle">Extend "Select All" scope to non-displayed rows</label>
+    </div>
+    <div class="shw-component-table-demo-topbar__toggle">
+      <input
+        id="multi-select-demo3__toggle-debug"
+        type="checkbox"
+        checked={{this.multiSelectToggleDebug__demo3}}
+        {{on "change" this.toggleMultiSelectPaginatedToggleDebug__demo3}}
+      />
+      <label for="multi-select-demo3__toggle-debug">Show all rows' state</label>
+    </div>
+    <div class="shw-component-table-demo-topbar__action">
+      <Hds::Button @text="Delete users" @icon="trash" {{on "click" this.multiSelectDeleteSelectedUsers_demo3}} />
+    </div>
+  </div>
+
+  <div class="shw-component-table-with-pagination-demo-wrapper">
+    <Hds::Table
+      @isSelectable={{true}}
+      @onSelectionChange={{this.onMultiSelectUsersSelectionChange__demo3}}
+      @model={{this.multiSelectUsersData_demo3}}
+      @columns={{array
+        (hash key="id" label="ID")
+        (hash key="name" label="Name")
+        (hash key="email" label="Email")
+        (hash key="role" label="Role")
+      }}
+    >
+      <:body as |B|>
+        <B.Tr
+          @selectionKey={{B.data.id}}
+          @isSelected={{B.data.isSelected}}
+          @selectionAriaLabelSuffix="row #{{B.data.id}}"
+        >
+          <B.Td>{{B.data.id}}</B.Td>
+          <B.Td>{{B.data.name}}</B.Td>
+          <B.Td>{{B.data.email}}</B.Td>
+          <B.Td>{{B.data.role}}</B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::Table>
+    <Hds::Pagination::Numbered
+      @totalItems={{this.multiSelectUsersTotalItems_demo3}}
+      @currentPageSize={{this.multiSelectUsersCurrentPageSize_demo3}}
+      @pageSizes={{array 4 8}}
+      @currentPage={{this.multiSelectUsersCurrentPage_demo3}}
+      @onPageChange={{this.onMultiSelectUsersPageChange_demo3}}
+      @onPageSizeChange={{this.onMultiSelectUsersPageSizeChange_demo3}}
+      @ariaLabel="Pagination for multi-select table with delete action"
+    />
+    {{#if this.multiSelectToggleDebug__demo3}}
+      {{#each this.multiSelectModelData__demo3 as |row|}}
+        <pre>row{{row.id}} = {{(if row.isSelected "✅")}}</pre>
+      {{/each}}
+    {{/if}}
+  </div>
+
+  <Shw::Text::H4>Execute action on selected rows</Shw::Text::H4>
+
+  <Shw::Text::Body>This demo emulates, for example, when a user needs to download the selected files.</Shw::Text::Body>
+
+  <div class="shw-component-table-demo-topbar">
+    <div class="shw-component-table-demo-topbar__action">
+      <Hds::Button @text="Animate users" @icon="play" {{on "click" this.multiSelectAnimateSelectedUsers_demo4}} />
+    </div>
+  </div>
+
+  <Hds::Table
+    @isSelectable={{true}}
+    @onSelectionChange={{this.onMultiSelectSelectionChange__demo4}}
+    @model={{this.multiSelectUserData__demo4}}
+    @columns={{array
+      (hash key="id" label="ID")
+      (hash key="name" label="Name")
+      (hash key="email" label="Email")
+      (hash key="role" label="Role")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr
+        @selectionKey={{B.data.id}}
+        @isSelected={{B.data.isSelected}}
+        @selectionAriaLabelSuffix="row #{{B.data.id}}"
+      >
+        <B.Td>{{B.data.id}}</B.Td>
+        <B.Td>
+          <span class={{if B.data.isAnimated "shw-component-table-animate-user"}}>{{B.data.name}}</span>
+        </B.Td>
+        <B.Td>{{B.data.email}}</B.Td>
+        <B.Td>{{B.data.role}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Table customization</Shw::Text::H2>
+
+  <Shw::Text::H4 @tag="h3">Density</Shw::Text::H4>
+
+  <Shw::Flex @direction="column" {{style gap="2rem"}} as |SF|>
+    {{#let (array "default" "short" "tall") as |densities|}}
+      {{#each densities as |density|}}
+        <SF.Item @label={{capitalize density}}>
+          <Shw::Grid @columns={{2}} {{style gap="2rem"}} as |SG|>
+            {{#let (array false true) as |booleans|}}
+              {{#each booleans as |bool|}}
+                <SG.Item>
+                  <Hds::Table @isSelectable={{bool}} @density={{(if (not (eq density "default")) density)}}>
+                    <:head as |H|>
+                      <H.Tr>
+                        <H.Th>Lorem</H.Th>
+                        <H.Th>Ipsum</H.Th>
+                        <H.Th>Dolor</H.Th>
+                      </H.Tr>
+                    </:head>
+                    <:body as |B|>
+                      <B.Tr @selectionKey="row1">
+                        <B.Th>Scope Row</B.Th>
+                        <B.Td>Cell Content</B.Td>
+                        <B.Td>Cell Content</B.Td>
+                      </B.Tr>
+                      <B.Tr @selectionKey="row2" @isSelected={{true}}>
+                        <B.Th>Scope Row</B.Th>
+                        <B.Td>Cell Content</B.Td>
+                        <B.Td>Cell Content</B.Td>
+                      </B.Tr>
+                      <B.Tr @selectionKey="row3">
+                        <B.Th>Scope Row</B.Th>
+                        <B.Td>Cell Content</B.Td>
+                        <B.Td>Cell Content</B.Td>
+                      </B.Tr>
+                      <B.Tr @selectionKey="row4">
+                        <B.Th>Scope Row</B.Th>
+                        <B.Td>Cell Content</B.Td>
+                        <B.Td>Cell Content</B.Td>
+                      </B.Tr>
+                    </:body>
+                  </Hds::Table>
+                </SG.Item>
+              {{/each}}
+            {{/let}}
+          </Shw::Grid>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H4 @tag="h3">Striping</Shw::Text::H4>
+
+  <Shw::Grid @columns={{2}} {{style gap="2rem"}} as |SG|>
+    {{#let (array false true) as |booleans|}}
+      {{#each booleans as |bool|}}
+        <SG.Item>
+          <Hds::Table @isStriped={{true}} @isSelectable={{bool}}>
+            <:head as |H|>
+              <H.Tr>
+                <H.Th>Lorem</H.Th>
+                <H.Th>Ipsum</H.Th>
+                <H.Th>Dolor</H.Th>
+              </H.Tr>
+            </:head>
+            <:body as |B|>
+              <B.Tr @selectionKey="row1">
+                <B.Th>Scope Row</B.Th>
+                <B.Td>Cell Content</B.Td>
+                <B.Td>Cell Content</B.Td>
+              </B.Tr>
+              <B.Tr @selectionKey="row2" @isSelected={{true}}>
+                <B.Th>Scope Row</B.Th>
+                <B.Td>Cell Content</B.Td>
+                <B.Td>Cell Content</B.Td>
+              </B.Tr>
+              <B.Tr @selectionKey="row3">
+                <B.Th>Scope Row</B.Th>
+                <B.Td>Cell Content</B.Td>
+                <B.Td>Cell Content</B.Td>
+              </B.Tr>
+              <B.Tr @selectionKey="row4">
+                <B.Th>Scope Row</B.Th>
+                <B.Td>Cell Content</B.Td>
+                <B.Td>Cell Content</B.Td>
+              </B.Tr>
+            </:body>
+          </Hds::Table>
+        </SG.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H4 @tag="h3">Sortable table, last column not sortable, visually hidden and with custom width.</Shw::Text::H4>
 
@@ -599,51 +987,6 @@
     </:body>
   </Hds::Table>
 
-  <Shw::Divider @level={{2}} />
-
-  <Shw::Text::H2>Striping</Shw::Text::H2>
-
-  <Shw::Flex @label="Static table with row striping" as |SF|>
-    <SF.Item @grow={{true}}>
-      <Hds::Table @isStriped={{true}} @caption="Static table with row striping">
-        <:head as |H|>
-          <H.Tr>
-            <H.Th>Lorem</H.Th>
-            <H.Th>Ipsum</H.Th>
-            <H.Th>Dolor</H.Th>
-            <H.Th>Sit amet</H.Th>
-          </H.Tr>
-        </:head>
-        <:body as |B|>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-          <B.Tr>
-            <B.Th>Scope Row</B.Th>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-            <B.Td>Cell Content</B.Td>
-          </B.Tr>
-        </:body>
-      </Hds::Table>
-    </SF.Item>
-  </Shw::Flex>
-
   <Shw::Divider />
 
   <Shw::Text::H2>Layout</Shw::Text::H2>
@@ -657,7 +1000,7 @@
     @columns={{array
       (hash key="first_name" label="First Name" isSortable=true width="200px")
       (hash key="last_name" label="Last Name" isSortable=true width="200px")
-      (hash key="age" label="Age" isSortable=true)
+      (hash key="age" label="Age" isSortable=true align="right")
       (hash key="email" label="Email")
       (hash key="bio" label="Biography" width="350px")
     }}
@@ -666,7 +1009,7 @@
       <B.Tr>
         <B.Td>{{B.data.first_name}}</B.Td>
         <B.Td>{{B.data.last_name}}</B.Td>
-        <B.Td>{{B.data.age}}</B.Td>
+        <B.Td @align="right">{{B.data.age}}</B.Td>
         <B.Td>{{B.data.email}}</B.Td>
         <B.Td>{{B.data.bio}}</B.Td>
       </B.Tr>
@@ -684,7 +1027,7 @@
     @columns={{array
       (hash key="first_name" label="First Name" isSortable=true width="200px")
       (hash key="last_name" label="Last Name" isSortable=true width="200px")
-      (hash key="age" label="Age" isSortable=true)
+      (hash key="age" label="Age" isSortable=true align="right")
       (hash key="email" label="Email")
       (hash key="bio" label="Biography" width="350px")
     }}
@@ -694,7 +1037,7 @@
       <B.Tr>
         <B.Td>{{B.data.first_name}}</B.Td>
         <B.Td>{{B.data.last_name}}</B.Td>
-        <B.Td>{{B.data.age}}</B.Td>
+        <B.Td @align="right">{{B.data.age}}</B.Td>
         <B.Td>{{B.data.email}}</B.Td>
         <B.Td>{{B.data.bio}}</B.Td>
       </B.Tr>
@@ -708,7 +1051,7 @@
     @columns={{array
       (hash key="first_name" label="First Name" isSortable=true width="20%")
       (hash key="last_name" label="Last Name" isSortable=true width="20%")
-      (hash key="age" label="Age" isSortable=true)
+      (hash key="age" label="Age" isSortable=true align="right")
       (hash key="email" label="Email")
       (hash key="bio" label="Biography" width="35%")
     }}
@@ -717,7 +1060,7 @@
       <B.Tr>
         <B.Td>{{B.data.first_name}}</B.Td>
         <B.Td>{{B.data.last_name}}</B.Td>
-        <B.Td>{{B.data.age}}</B.Td>
+        <B.Td @align="right">{{B.data.age}}</B.Td>
         <B.Td>{{B.data.email}}</B.Td>
         <B.Td>{{B.data.bio}}</B.Td>
       </B.Tr>
@@ -731,7 +1074,7 @@
     @columns={{array
       (hash key="first_name" label="First Name" isSortable=true width="20%")
       (hash key="last_name" label="Last Name" isSortable=true width="20%")
-      (hash key="age" label="Age" isSortable=true)
+      (hash key="age" label="Age" isSortable=true align="right")
       (hash key="email" label="Email")
       (hash key="bio" label="Biography" width="35%")
     }}
@@ -741,7 +1084,7 @@
       <B.Tr>
         <B.Td>{{B.data.first_name}}</B.Td>
         <B.Td>{{B.data.last_name}}</B.Td>
-        <B.Td>{{B.data.age}}</B.Td>
+        <B.Td @align="right">{{B.data.age}}</B.Td>
         <B.Td>{{B.data.email}}</B.Td>
         <B.Td>{{B.data.bio}}</B.Td>
       </B.Tr>
@@ -761,7 +1104,7 @@
       @columns={{array
         (hash key="first_name" label="First Name" isSortable=true width="200px")
         (hash key="last_name" label="Last Name" isSortable=true width="200px")
-        (hash key="age" label="Age" isSortable=true)
+        (hash key="age" label="Age" isSortable=true align="right")
         (hash key="email" label="Email" isSortable=true)
         (hash key="phone" label="Phone" isSortable=true)
         (hash key="bio" label="Biography" width="350px")
@@ -773,7 +1116,7 @@
         <B.Tr>
           <B.Td>{{B.data.first_name}}</B.Td>
           <B.Td>{{B.data.last_name}}</B.Td>
-          <B.Td>{{B.data.age}}</B.Td>
+          <B.Td @align="right">{{B.data.age}}</B.Td>
           <B.Td>{{B.data.email}}</B.Td>
           <B.Td>{{B.data.phone}}</B.Td>
           <B.Td>{{B.data.bio}}</B.Td>
@@ -795,7 +1138,7 @@
         @columns={{array
           (hash key="first_name" label="First Name" isSortable=true width="200px")
           (hash key="last_name" label="Last Name" isSortable=true width="200px")
-          (hash key="age" label="Age" isSortable=true)
+          (hash key="age" label="Age" isSortable=true align="right")
           (hash key="email" label="Email" isSortable=true)
           (hash key="phone" label="Phone" isSortable=true)
           (hash key="bio" label="Biography" width="350px")
@@ -807,7 +1150,7 @@
           <B.Tr>
             <B.Td>{{B.data.first_name}}</B.Td>
             <B.Td>{{B.data.last_name}}</B.Td>
-            <B.Td>{{B.data.age}}</B.Td>
+            <B.Td @align="right">{{B.data.age}}</B.Td>
             <B.Td>{{B.data.email}}</B.Td>
             <B.Td>{{B.data.phone}}</B.Td>
             <B.Td>{{B.data.bio}}</B.Td>
@@ -876,49 +1219,131 @@
 
   <Shw::Text::H3>ThSort</Shw::Text::H3>
 
+  <Shw::Flex @direction="column" @label="Interactive states + Sorting order" as |SF|>
+    {{#each @model.STATES as |state|}}
+      <SF.Item @grow={{true}}>
+        <Hds::Table>
+          <:head>
+            <Hds::Table::Tr>
+              <Hds::Table::ThSort
+                mock-state-value={{state}}
+                mock-state-selector="button"
+                @tooltip="Here is more information"
+              >
+                Unsorted ({{state}})
+              </Hds::Table::ThSort>
+              <Hds::Table::ThSort @sortOrder="asc" mock-state-value={{state}} mock-state-selector="button">
+                Ascending
+              </Hds::Table::ThSort>
+              <Hds::Table::ThSort @sortOrder="desc" mock-state-value={{state}} mock-state-selector="button">
+                Descending
+              </Hds::Table::ThSort>
+            </Hds::Table::Tr>
+          </:head>
+          <:body as |B|>
+            <B.Tr>
+              <B.Td colspan="3" />
+            </B.Tr>
+          </:body>
+        </Hds::Table>
+      </SF.Item>
+    {{/each}}
+  </Shw::Flex>
+
+  <Shw::Flex @label="Alignment" as |SF|>
+    <SF.Item @grow={{true}}>
+      <Hds::Table>
+        <:head>
+          <Hds::Table::Tr>
+            <Hds::Table::ThSort>Left</Hds::Table::ThSort>
+            <Hds::Table::ThSort @tooltip="Here is more information">Left</Hds::Table::ThSort>
+            <Hds::Table::ThSort @align="center">Center</Hds::Table::ThSort>
+            <Hds::Table::ThSort @align="center" @tooltip="Here is more information">Center</Hds::Table::ThSort>
+            <Hds::Table::ThSort @align="right">Right</Hds::Table::ThSort>
+            <Hds::Table::ThSort @align="right" @tooltip="Here is more information">Right</Hds::Table::ThSort>
+          </Hds::Table::Tr>
+        </:head>
+        <:body as |B|>
+          <B.Tr>
+            <B.Td colspan="6" />
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex @direction="column" @label="Multi-line" as |SF|>
+    <SF.Item {{style width="600px"}}>
+      <Hds::Table>
+        <:head>
+          <Hds::Table::Tr>
+            <Hds::Table::ThSort>
+              This is a very long text that should go on two lines
+            </Hds::Table::ThSort>
+            <Hds::Table::ThSort @tooltip="Here is more information">
+              This is a very long text that should go on two lines
+            </Hds::Table::ThSort>
+          </Hds::Table::Tr>
+        </:head>
+        <:body as |B|>
+          <B.Tr>
+            <B.Td colspan="2" />
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Th</Shw::Text::H3>
+
   <Shw::Flex @label="Interactive states" as |SF|>
     <SF.Item @grow={{true}}>
       <Hds::Table>
         <:head>
           <Hds::Table::Tr>
             {{#each @model.STATES as |state|}}
-              <Hds::Table::ThSort mock-state-value={{state}} mock-state-selector="button">
+              <Hds::Table::Th
+                @tooltip="Here is more information"
+                mock-state-value={{state}}
+                mock-state-selector="button"
+              >
                 {{capitalize state}}
-              </Hds::Table::ThSort>
+              </Hds::Table::Th>
             {{/each}}
           </Hds::Table::Tr>
         </:head>
         <:body as |B|>
-          <B.Td colspan="4" />
+          <B.Tr>
+            <B.Td colspan="4" />
+          </B.Tr>
         </:body>
       </Hds::Table>
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Flex @label="Sorting order" as |SF|>
+  <Shw::Flex @label="Alignment" as |SF|>
     <SF.Item @grow={{true}}>
       <Hds::Table>
         <:head>
           <Hds::Table::Tr>
-            <Hds::Table::ThSort>
-              Unsorted (default)
-            </Hds::Table::ThSort>
-            <Hds::Table::ThSort @sortOrder="asc">
-              Ascending
-            </Hds::Table::ThSort>
-            <Hds::Table::ThSort @sortOrder="desc">
-              Descending
-            </Hds::Table::ThSort>
+            <Hds::Table::Th>Left</Hds::Table::Th>
+            <Hds::Table::Th @tooltip="Here is more information">Left</Hds::Table::Th>
+            <Hds::Table::Th @align="center">Center</Hds::Table::Th>
+            <Hds::Table::Th @align="center" @tooltip="Here is more information">Center</Hds::Table::Th>
+            <Hds::Table::Th @align="right">Right</Hds::Table::Th>
+            <Hds::Table::Th @align="right" @tooltip="Here is more information">Right</Hds::Table::Th>
           </Hds::Table::Tr>
         </:head>
         <:body as |B|>
-          <B.Td colspan="3" />
+          <B.Tr>
+            <B.Td colspan="6" />
+          </B.Tr>
         </:body>
       </Hds::Table>
     </SF.Item>
   </Shw::Flex>
-
-  <Shw::Text::H3>Th</Shw::Text::H3>
 
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="Th with custom width" @grow={{true}}>
@@ -968,6 +1393,133 @@
       </Hds::Table>
     </SF.Item>
   </Shw::Flex>
+
+  <Shw::Flex @direction="column" @label="Multi-line" as |SF|>
+    <SF.Item {{style width="600px"}}>
+      <Hds::Table>
+        <:head>
+          <Hds::Table::Tr>
+            <Hds::Table::Th>
+              This is a very long text that should go on two lines
+            </Hds::Table::Th>
+            <Hds::Table::Th @tooltip="Here is more information">
+              This is a very long text that should go on two lines
+            </Hds::Table::Th>
+          </Hds::Table::Tr>
+        </:head>
+        <:body as |B|>
+          <B.Tr>
+            <B.Td colspan="2" />
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>ThSelectable</Shw::Text::H3>
+
+  <Shw::Flex @direction="row" {{style gap="2rem"}} as |SF|>
+    {{#let (array false true) as |booleans|}}
+      {{#each booleans as |bool|}}
+        <SF.Item @label={{(if bool "Selected" "Deselected")}}>
+          <Hds::Table>
+            <:head as |H|>
+              <H.Tr>
+                <Hds::Table::ThSelectable @selectionScope="col" @isSelected={{bool}} />
+                <H.Th>Lorem</H.Th>
+              </H.Tr>
+            </:head>
+            <:body as |B|>
+              <B.Tr>
+                <Hds::Table::ThSelectable @selectionScope="row" @isSelected={{bool}} />
+                <B.Td>Ipsum</B.Td>
+              </B.Tr>
+            </:body>
+          </Hds::Table>
+          <br />
+          <Hds::Table>
+            <:head as |H|>
+              <H.Tr>
+                <Hds::Table::ThSelectable
+                  @selectionScope="col"
+                  @isSelected={{bool}}
+                  mock-state-value="focus"
+                  mock-state-selector="input"
+                />
+                <H.Th>Lorem</H.Th>
+              </H.Tr>
+            </:head>
+            <:body as |B|>
+              <B.Tr>
+                <Hds::Table::ThSelectable
+                  @selectionScope="row"
+                  @isSelected={{bool}}
+                  mock-state-value="focus"
+                  mock-state-selector="input"
+                />
+                <B.Td>Ipsum</B.Td>
+              </B.Tr>
+            </:body>
+          </Hds::Table>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+    <SF.Item @label="Indeterminate">
+      <Hds::Table>
+        <:head as |H|>
+          <H.Tr>
+            <Hds::Table::ThSelectable
+              @selectionScope="col"
+              @isSelected={{true}}
+              @didInsert={{this.mockIndeterminateState}}
+            />
+            <H.Th>Lorem</H.Th>
+          </H.Tr>
+        </:head>
+        <:body as |B|>
+          <B.Tr @selectionKey="row">
+            <Hds::Table::ThSelectable
+              @selectionScope="row"
+              @isSelected={{false}}
+              @didInsert={{this.mockIndeterminateState}}
+            />
+            <B.Td>Ipsum</B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+      <br />
+      <Hds::Table>
+        <:head as |H|>
+          <H.Tr>
+            <Hds::Table::ThSelectable
+              @selectionScope="col"
+              @isSelected={{true}}
+              @didInsert={{this.mockIndeterminateState}}
+              mock-state-value="focus"
+              mock-state-selector="input"
+            />
+            <H.Th>Lorem</H.Th>
+          </H.Tr>
+        </:head>
+        <:body as |B|>
+          <B.Tr>
+            <Hds::Table::ThSelectable
+              @selectionScope="row"
+              @isSelected={{false}}
+              @didInsert={{this.mockIndeterminateState}}
+              mock-state-value="focus"
+              mock-state-selector="input"
+            />
+            <B.Td>Ipsum</B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Td</Shw::Text::H3>
 
@@ -1071,7 +1623,7 @@
 
   <Shw::Flex @label="Vertical alignment" as |SF|>
     <SF.Item @grow={{true}}>
-      <Hds::Table @valign="top">
+      <Hds::Table @valign="top" @isSelectable={{true}}>
         <:head as |H|>
           <H.Tr>
             <H.Th>Spacer</H.Th>
@@ -1085,7 +1637,7 @@
           </H.Tr>
         </:head>
         <:body as |B|>
-          <B.Tr>
+          <B.Tr @selectionKey="row">
             <B.Th>Top (default)<Shw::Placeholder @height="50" /></B.Th>
             <B.Td>Text is top aligned</B.Td>
             <B.Td><FlightIcon @name="film" /></B.Td>
@@ -1113,7 +1665,7 @@
       </Hds::Table>
     </SF.Item>
     <SF.Item @grow={{true}}>
-      <Hds::Table @valign="middle">
+      <Hds::Table @valign="middle" @isSelectable={{true}}>
         <:head as |H|>
           <H.Tr>
             <H.Th>Spacer</H.Th>
@@ -1127,7 +1679,7 @@
           </H.Tr>
         </:head>
         <:body as |B|>
-          <B.Tr>
+          <B.Tr @selectionKey="row">
             <B.Th><Shw::Placeholder @height="25" />Middle<Shw::Placeholder @height="25" /></B.Th>
             <B.Td>Text is middle aligned</B.Td>
             <B.Td><FlightIcon @name="film" /></B.Td>
@@ -1155,7 +1707,7 @@
       </Hds::Table>
     </SF.Item>
     <SF.Item @grow={{true}}>
-      <Hds::Table @valign="baseline">
+      <Hds::Table @valign="baseline" @isSelectable={{true}}>
         <:head as |H|>
           <H.Tr>
             <H.Th>Spacer</H.Th>
@@ -1169,7 +1721,7 @@
           </H.Tr>
         </:head>
         <:body as |B|>
-          <B.Tr>
+          <B.Tr @selectionKey="row">
             <B.Th><Shw::Placeholder @height="25" />Baseline<Shw::Placeholder @height="25" /></B.Th>
             <B.Td>Text is middle aligned</B.Td>
             <B.Td><FlightIcon @name="film" /></B.Td>
@@ -1197,4 +1749,39 @@
       </Hds::Table>
     </SF.Item>
   </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>ThButtonTooltip</Shw::Text::H3>
+
+  <Shw::Grid @label="Interactive states" @columns={{4}} as |SG|>
+    {{#each @model.STATES as |state|}}
+      <SG.Item @label={{(capitalize state)}}>
+        <Hds::Table::ThButtonTooltip @tooltip="Here is more information" mock-state-value={{state}} />
+      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>ThButtonSort</Shw::Text::H3>
+
+  <Shw::Grid @label="Interactive states + Sorting order" @columns={{4}} as |SG|>
+    {{#each @model.STATES as |state|}}
+      <SG.Item @label={{(capitalize state)}}>
+        <Shw::Flex @direction="row" as |SF|>
+          <SF.Item>
+            <Hds::Table::ThButtonSort mock-state-value={{state}} />
+          </SF.Item>
+          <SF.Item>
+            <Hds::Table::ThButtonSort @sortOrder="asc" mock-state-value={{state}} />
+          </SF.Item>
+          <SF.Item>
+            <Hds::Table::ThButtonSort @sortOrder="desc" mock-state-value={{state}} />
+          </SF.Item>
+        </Shw::Flex>
+      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
+
 </section>

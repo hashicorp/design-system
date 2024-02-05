@@ -8,7 +8,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 
-const DENSITIES = ['short', 'medium', 'tall'];
+export const DENSITIES = ['short', 'medium', 'tall'];
 const DEFAULT_DENSITY = 'medium';
 const VALIGNMENTS = ['top', 'middle', 'baseline'];
 const DEFAULT_VALIGN = 'top';
@@ -16,6 +16,9 @@ const DEFAULT_VALIGN = 'top';
 export default class HdsTableIndexComponent extends Component {
   @tracked sortBy = this.args.sortBy;
   @tracked sortOrder = this.args.sortOrder || 'asc';
+  @tracked selectAllCheckbox = undefined;
+  selectableRows = [];
+  @tracked isSelectAllCheckboxSelected = undefined;
 
   /**
    * @param getSortCriteria
@@ -177,6 +180,88 @@ export default class HdsTableIndexComponent extends Component {
 
     if (typeof onSort === 'function') {
       onSort(this.sortBy, this.sortOrder);
+    }
+  }
+
+  onSelectionChangeCallback(checkbox, selectionKey) {
+    let { onSelectionChange } = this.args;
+    if (typeof onSelectionChange === 'function') {
+      onSelectionChange({
+        selectionKey: selectionKey,
+        selectionCheckboxElement: checkbox,
+        selectedRowsKeys: this.selectableRows.reduce((acc, row) => {
+          if (row.checkbox.checked) {
+            acc.push(row.selectionKey);
+          }
+          return acc;
+        }, []),
+        selectableRowsStates: this.selectableRows.reduce((acc, row) => {
+          acc.push({
+            selectionKey: row.selectionKey,
+            isSelected: row.checkbox.checked,
+          });
+          return acc;
+        }, []),
+      });
+    }
+  }
+
+  @action
+  onSelectionAllChange() {
+    this.selectableRows.forEach((row) => {
+      row.checkbox.checked = this.selectAllCheckbox.checked;
+      row.checkbox.dispatchEvent(new Event('toggle', { bubbles: false }));
+    });
+    this.isSelectAllCheckboxSelected = this.selectAllCheckbox.checked;
+    this.onSelectionChangeCallback(this.selectAllCheckbox, 'all');
+  }
+
+  @action
+  onSelectionRowChange(checkbox, selectionKey) {
+    this.setSelectAllState();
+    this.onSelectionChangeCallback(checkbox, selectionKey);
+  }
+
+  @action
+  didInsertSelectAllCheckbox(checkbox) {
+    this.selectAllCheckbox = checkbox;
+  }
+
+  @action
+  willDestroySelectAllCheckbox() {
+    this.selectAllCheckbox = undefined;
+  }
+
+  @action
+  didInsertRowCheckbox(checkbox, selectionKey) {
+    this.selectableRows.push({ selectionKey, checkbox });
+    this.setSelectAllState();
+  }
+
+  @action
+  willDestroyRowCheckbox(selectionKey) {
+    this.selectableRows = this.selectableRows.filter(
+      (row) => row.selectionKey !== selectionKey
+    );
+    this.setSelectAllState();
+  }
+
+  @action
+  setSelectAllState() {
+    if (this.selectAllCheckbox) {
+      let selectableRowsCount = this.selectableRows.length;
+      let selectedRowsCount = this.selectableRows.filter(
+        (row) => row.checkbox.checked
+      ).length;
+
+      this.selectAllCheckbox.checked =
+        selectedRowsCount === selectableRowsCount;
+      this.selectAllCheckbox.indeterminate =
+        selectedRowsCount > 0 && selectedRowsCount < selectableRowsCount;
+      this.isSelectAllCheckboxSelected = this.selectAllCheckbox.checked;
+      this.selectAllCheckbox.dispatchEvent(
+        new Event('toggle', { bubbles: false })
+      );
     }
   }
 }

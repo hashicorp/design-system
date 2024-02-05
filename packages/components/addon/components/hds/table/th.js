@@ -4,12 +4,20 @@
  */
 
 import Component from '@glimmer/component';
+import { guidFor } from '@ember/object/internals';
 import { assert } from '@ember/debug';
 
 const ALIGNMENTS = ['left', 'center', 'right'];
 const DEFAULT_ALIGN = 'left';
 
 export default class HdsTableThComponent extends Component {
+  /**
+   * Generates a unique ID for the <span> element ("label")
+   *
+   * @param labelId
+   */
+  labelId = guidFor(this);
+
   /**
    * @param align
    * @type {string}
@@ -34,15 +42,11 @@ export default class HdsTableThComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = [
-      'hds-table__th',
-      'hds-typography-body-200',
-      'hds-font-weight-semibold',
-    ];
+    let classes = ['hds-table__th'];
 
     // add a class based on the @align argument
     if (this.align) {
-      classes.push(`hds-table__th--text-${this.align}`);
+      classes.push(`hds-table__th--align-${this.align}`);
     }
 
     return classes.join(' ');
