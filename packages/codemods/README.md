@@ -28,7 +28,8 @@ node ./packages/codemods/bin/cli.js v3/dropdown path/to/some/glob/**/*.hbs
 
 ### v4
 <!--TRANSFORMS_START-->
-* [v4/table](transforms/v4/table/README.md)
+* [v3](transforms/v3/README.md)
+* [v4](transforms/v4/README.md)
 <!--TRANSFORMS_END-->
 
 ## Contributing
