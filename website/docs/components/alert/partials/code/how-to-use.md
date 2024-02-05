@@ -89,14 +89,14 @@ Given the variety of use cases and contexts in which alerts are used across prod
 
 ### Actions
 
-Actions can be passed to the component using one of the suggested `Button` or `Link::Standalone` contextual components.
+Actions can be passed to the component using one of the suggested `Button` or `LinkStandalone` contextual components.
 
 ```handlebars
 <Hds::Alert @type="inline" as |A|>
   <A.Title>Title here</A.Title>
   <A.Description>Description here</A.Description>
   <A.Button @text="Your action" @color="secondary" {{on "click" this.yourOnClickFunction}} />
-  <A.Link::Standalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="Another action" @href="#" />
+  <A.LinkStandalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="Another action" @href="#" />
 </Hds::Alert>
 ```
 

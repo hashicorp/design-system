@@ -1,0 +1,37 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+<Hds::Form::Checkbox::Group @name="control-vertical-01" as |G|>
+  <G.Legend>Legend of the group</G.Legend>
+  <G.CheckboxField as |F|>
+    <F.Label>Label of control #1</F.Label>
+  </G.CheckboxField>
+  <G.CheckboxField checked="checked" as |F|>
+    <F.Label>Label of control #2</F.Label>
+  </G.CheckboxField>
+  <G.CheckboxField indeterminate={{true}} as |F|>
+    <F.Label>Label of control #3</F.Label>
+  </G.CheckboxField>
+</Hds::Form::Checkbox::Group>
+
+<Hds::Form::Radio::Group @name="control-vertical-02" as |G|>
+  <G.Legend>Legend of the group</G.Legend>
+  <G.RadioField as |F|>
+    <F.Label>Label of control #1</F.Label>
+  </G.RadioField>
+  <G.RadioField checked="checked" as |F|>
+    <F.Label>Label of control #2</F.Label>
+  </G.RadioField>
+  <G.RadioField as |F|>
+    <F.Label>Label of control #3</F.Label>
+  </G.RadioField>
+</Hds::Form::Radio::Group>
+
+<Hds::Form::Toggle::Group as |G|>
+  <G.Legend>Legend of the group</G.Legend>
+  <G.ToggleField checked="checked" as |F|>
+    <F.Label>This is the label</F.Label>
+  </G.ToggleField>
+</Hds::Form::Toggle::Group>

@@ -41,7 +41,7 @@ Since `radio` controls are always used in a list of options, itâ€™s likely youâ€
     <br/><br/>
     The `id` attribute of the element is automatically generated.
   </C.Property>
-  <C.Property @name="<[G].Radio::Field>" @type="yielded component">
+  <C.Property @name="<[G].RadioField>" @type="yielded component">
     Used to yield one or more fields inside the group. For details about its API, check the `Form::Radio::Field` API details.
   </C.Property>
   <C.Property @name="<[G].Error>" @type="yielded component">

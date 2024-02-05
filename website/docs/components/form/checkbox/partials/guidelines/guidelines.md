@@ -17,27 +17,27 @@ We recommend using vertical Checkbox groups, especially with short option lists.
 <Doc::Layout @spacing="48px">
   <Hds::Form::Checkbox::Group @layout="vertical" as |G|>
     <G.Legend>Vertical group</G.Legend>
-    <G.Checkbox::Field as |F|>
+    <G.CheckboxField as |F|>
       <F.Label>Label</F.Label>
-    </G.Checkbox::Field>
-    <G.Checkbox::Field as |F|>
+    </G.CheckboxField>
+    <G.CheckboxField as |F|>
       <F.Label>Label</F.Label>
-    </G.Checkbox::Field>
-    <G.Checkbox::Field as |F|>
+    </G.CheckboxField>
+    <G.CheckboxField as |F|>
       <F.Label>Label</F.Label>
-    </G.Checkbox::Field>
+    </G.CheckboxField>
   </Hds::Form::Checkbox::Group>
   <Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
     <G.Legend>Horizontal group</G.Legend>
-    <G.Checkbox::Field as |F|>
+    <G.CheckboxField as |F|>
       <F.Label>Label</F.Label>
-    </G.Checkbox::Field>
-    <G.Checkbox::Field as |F|>
+    </G.CheckboxField>
+    <G.CheckboxField as |F|>
       <F.Label>Label</F.Label>
-    </G.Checkbox::Field>
-    <G.Checkbox::Field as |F|>
+    </G.CheckboxField>
+    <G.CheckboxField as |F|>
       <F.Label>Label</F.Label>
-    </G.Checkbox::Field>
+    </G.CheckboxField>
   </Hds::Form::Checkbox::Group>
 </Doc::Layout>
 
@@ -61,24 +61,24 @@ For complex forms, indicate **required** fields. This is the most explicit and t
 
 <Hds::Form::Checkbox::Group @layout="vertical" @isRequired={{true}} as |G|>
   <G.Legend>Group label</G.Legend>
-  <G.Checkbox::Field as |F|>
+  <G.CheckboxField as |F|>
     <F.Label>Label</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field as |F|>
+  </G.CheckboxField>
+  <G.CheckboxField as |F|>
     <F.Label>Label</F.Label>
-  </G.Checkbox::Field>
+  </G.CheckboxField>
 </Hds::Form::Checkbox::Group>
 
 For shorter, simpler forms (e.g., login/signup and feedback requests), indicate **optional** fields instead.
 
 <Hds::Form::Checkbox::Group @layout="vertical" @isOptional={{true}} as |G|>
   <G.Legend>Group label</G.Legend>
-  <G.Checkbox::Field as |F|>
+  <G.CheckboxField as |F|>
     <F.Label>Label</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field as |F|>
+  </G.CheckboxField>
+  <G.CheckboxField as |F|>
     <F.Label>Label</F.Label>
-  </G.Checkbox::Field>
+  </G.CheckboxField>
 </Hds::Form::Checkbox::Group>
 
 ## Error validation

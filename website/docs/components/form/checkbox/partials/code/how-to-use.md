@@ -30,18 +30,18 @@ The `@name` argument offers an easy way to provide the same name for all the Che
 ```handlebars
 <Hds::Form::Checkbox::Group @name="datacenter" as |G|>
   <G.Legend>Valid datacenters</G.Legend>
-  <G.Checkbox::Field as |F|>
+  <G.CheckboxField as |F|>
     <F.Label>NYC1</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field as |F|>
+  </G.CheckboxField>
+  <G.CheckboxField as |F|>
     <F.Label>DC1</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field as |F|>
+  </G.CheckboxField>
+  <G.CheckboxField as |F|>
     <F.Label>NYC2</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field as |F|>
+  </G.CheckboxField>
+  <G.CheckboxField as |F|>
     <F.Label>SF1</F.Label>
-  </G.Checkbox::Field>
+  </G.CheckboxField>
 </Hds::Form::Checkbox::Group>
 ```
 
@@ -52,36 +52,36 @@ To better fit your spacing requirements, choose between two different layout ori
 ```handlebars
 <Hds::Form::Checkbox::Group as |G|>
   <G.Legend>Valid datacenters</G.Legend>
-  <G.Checkbox::Field as |F|>
+  <G.CheckboxField as |F|>
     <F.Label>NYC1</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field as |F|>
+  </G.CheckboxField>
+  <G.CheckboxField as |F|>
     <F.Label>DC1</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field as |F|>
+  </G.CheckboxField>
+  <G.CheckboxField as |F|>
     <F.Label>NYC2</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field as |F|>
+  </G.CheckboxField>
+  <G.CheckboxField as |F|>
     <F.Label>SF1</F.Label>
-  </G.Checkbox::Field>
+  </G.CheckboxField>
 </Hds::Form::Checkbox::Group>
 ```
 
 ```handlebars
 <Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
   <G.Legend>Valid datacenters</G.Legend>
-  <G.Checkbox::Field as |F|>
+  <G.CheckboxField as |F|>
     <F.Label>NYC1</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field as |F|>
+  </G.CheckboxField>
+  <G.CheckboxField as |F|>
     <F.Label>DC1</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field as |F|>
+  </G.CheckboxField>
+  <G.CheckboxField as |F|>
     <F.Label>NYC2</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field as |F|>
+  </G.CheckboxField>
+  <G.CheckboxField as |F|>
     <F.Label>SF1</F.Label>
-  </G.Checkbox::Field>
+  </G.CheckboxField>
 </Hds::Form::Checkbox::Group>
 ```
 
@@ -100,15 +100,15 @@ When helper text is added, the component automatically adds an `aria-describedby
 <Hds::Form::Checkbox::Group @name="methods-demo2" as |G|>
   <G.Legend>Methods <Hds::Badge @size="small" @text="Beta" @color="highlight" /></G.Legend>
   <G.HelperText>All methods are applied by default unless specified. See <Hds::Link::Inline @href="#">HTTP protocol</Hds::Link::Inline> for more details.</G.HelperText>
-  <G.Checkbox::Field checked as |F|>
+  <G.CheckboxField checked as |F|>
     <F.Label>POST</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field checked as |F|>
+  </G.CheckboxField>
+  <G.CheckboxField checked as |F|>
     <F.Label>GET</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field checked as |F|>
+  </G.CheckboxField>
+  <G.CheckboxField checked as |F|>
     <F.Label>PUT</F.Label>
-  </G.Checkbox::Field>
+  </G.CheckboxField>
 </Hds::Form::Checkbox::Group>
 ```
 
@@ -120,9 +120,9 @@ Use the `@isRequired` and `@isOptional` arguments to add a visual indication tha
 <Hds::Form::Checkbox::Group @isRequired={{true}} @layout="horizontal" @name="methods-demo3" as |G|>
   <G.Legend>Methods</G.Legend>
   <G.HelperText>All methods are applied by default unless specified.</G.HelperText>
-  <G.Checkbox::Field checked as |F|><F.Label>POST</F.Label></G.Checkbox::Field>
-  <G.Checkbox::Field checked as |F|><F.Label>GET</F.Label></G.Checkbox::Field>
-  <G.Checkbox::Field checked as |F|><F.Label>PUT</F.Label></G.Checkbox::Field>
+  <G.CheckboxField checked as |F|><F.Label>POST</F.Label></G.CheckboxField>
+  <G.CheckboxField checked as |F|><F.Label>GET</F.Label></G.CheckboxField>
+  <G.CheckboxField checked as |F|><F.Label>PUT</F.Label></G.CheckboxField>
 </Hds::Form::Checkbox::Group>
 ```
 
@@ -130,9 +130,9 @@ Use the `@isRequired` and `@isOptional` arguments to add a visual indication tha
 <Hds::Form::Checkbox::Group @isOptional={{true}} @layout="horizontal" @name="methods-demo4" as |G|>
   <G.Legend>Methods</G.Legend>
   <G.HelperText>All methods are applied by default unless specified.</G.HelperText>
-  <G.Checkbox::Field checked as |F|><F.Label>POST</F.Label></G.Checkbox::Field>
-  <G.Checkbox::Field checked as |F|><F.Label>GET</F.Label></G.Checkbox::Field>
-  <G.Checkbox::Field checked as |F|><F.Label>PUT</F.Label></G.Checkbox::Field>
+  <G.CheckboxField checked as |F|><F.Label>POST</F.Label></G.CheckboxField>
+  <G.CheckboxField checked as |F|><F.Label>GET</F.Label></G.CheckboxField>
+  <G.CheckboxField checked as |F|><F.Label>PUT</F.Label></G.CheckboxField>
 </Hds::Form::Checkbox::Group>
 ```
 
@@ -143,18 +143,18 @@ To indicate a field is invalid, provide an error message using the `Error` conte
 ```handlebars
 <Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
   <G.Legend>Valid datacenters</G.Legend>
-  <G.Checkbox::Field as |F|>
+  <G.CheckboxField as |F|>
     <F.Label>NYC1</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field as |F|>
+  </G.CheckboxField>
+  <G.CheckboxField as |F|>
     <F.Label>DC1</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field as |F|>
+  </G.CheckboxField>
+  <G.CheckboxField as |F|>
     <F.Label>NYC2</F.Label>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field as |F|>
+  </G.CheckboxField>
+  <G.CheckboxField as |F|>
     <F.Label>SF1</F.Label>
-  </G.Checkbox::Field>
+  </G.CheckboxField>
   <G.Error>Error: you need to choose at least one datacenter.</G.Error>
 </Hds::Form::Checkbox::Group>
 ```
@@ -166,22 +166,22 @@ A group of Checkboxes is made of one or more `Form::Checkbox::Field` components.
 ```handlebars
 <Hds::Form::Checkbox::Group @layout="vertical" as |G|>
   <G.Legend>Valid datacenters</G.Legend>
-  <G.Checkbox::Field name="datacenter1" @id="datacenter-NYC1" @value="NYC1" {{on "change" this.yourOnChangeFunction}} as |F|>
+  <G.CheckboxField name="datacenter1" @id="datacenter-NYC1" @value="NYC1" {{on "change" this.yourOnChangeFunction}} as |F|>
     <F.Label>NYC1</F.Label>
     <F.HelperText>CoreSite- 32 Avenue of the Americas</F.HelperText>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field name="datacenter2" @id="datacenter-DC1" checked @value="DC1" {{on "change" this.yourOnChangeFunction}} as |F|>
+  </G.CheckboxField>
+  <G.CheckboxField name="datacenter2" @id="datacenter-DC1" checked @value="DC1" {{on "change" this.yourOnChangeFunction}} as |F|>
     <F.Label>DC1</F.Label>
     <F.HelperText>CoreSite- K Street</F.HelperText>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field name="datacenter3" @id="datacenter-NYC2" checked @value="NYC2" {{on "change" this.yourOnChangeFunction}} as |F|>
+  </G.CheckboxField>
+  <G.CheckboxField name="datacenter3" @id="datacenter-NYC2" checked @value="NYC2" {{on "change" this.yourOnChangeFunction}} as |F|>
     <F.Label>NYC2</F.Label>
     <F.HelperText>H5 Data Center - 325 Hudson Street</F.HelperText>
-  </G.Checkbox::Field>
-  <G.Checkbox::Field name="datacenter4" @id="datacenter-SF1" @value="SF1" {{on "change" this.yourOnChangeFunction}} as |F|>
+  </G.CheckboxField>
+  <G.CheckboxField name="datacenter4" @id="datacenter-SF1" @value="SF1" {{on "change" this.yourOnChangeFunction}} as |F|>
     <F.Label>SF1</F.Label>
     <F.HelperText>INAP - 650 Townsend Street</F.HelperText>
-  </G.Checkbox::Field>
+  </G.CheckboxField>
 </Hds::Form::Checkbox::Group>
 ```
 
@@ -192,10 +192,10 @@ There may be use cases in which you need to create a Checkbox group that contain
 ```handlebars
 <Hds::Form::Checkbox::Group as |G|>
   <G.Legend>Visibility</G.Legend>
-  <G.Checkbox::Field name="private" @id="visibility-private" as |F|>
+  <G.CheckboxField name="private" @id="visibility-private" as |F|>
     <F.Label>Private</F.Label>
     <F.HelperText>Making a box private prevents users from accessing it unless given permission.</F.HelperText>
-  </G.Checkbox::Field>
+  </G.CheckboxField>
 </Hds::Form::Checkbox::Group>
 ```
 

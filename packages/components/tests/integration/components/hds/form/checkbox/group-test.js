@@ -27,11 +27,11 @@ module('Integration | Component | hds/form/checkbox/group', function (hooks) {
       hbs`<Hds::Form::Checkbox::Group as |G|>
             <G.Legend>This is the legend</G.Legend>
             <G.HelperText>This is the group helper text</G.HelperText>
-            <G.Checkbox::Field checked="checked" @value="abc123" as |F|>
+            <G.CheckboxField checked="checked" @value="abc123" as |F|>
               <F.Label>This is the control label</F.Label>
               <F.HelperText>This is the control helper text</F.HelperText>
               <F.Error>This is the control error</F.Error>
-            </G.Checkbox::Field>
+            </G.CheckboxField>
             <G.Error>This is the group error</G.Error>
           </Hds::Form::Checkbox::Group>`
     );
@@ -73,11 +73,11 @@ module('Integration | Component | hds/form/checkbox/group', function (hooks) {
       hbs`<Hds::Form::Checkbox::Group as |G|>
             <G.Legend>This is the legend</G.Legend>
             <G.HelperText>This is the group helper text</G.HelperText>
-            <G.Checkbox::Field checked="checked" @value="abc123" as |F|>
+            <G.CheckboxField checked="checked" @value="abc123" as |F|>
               <F.Label>This is the control label</F.Label>
               <F.HelperText>This is the control helper text</F.HelperText>
               <F.Error>This is the control error</F.Error>
-            </G.Checkbox::Field>
+            </G.CheckboxField>
             <G.Error>This is the group error</G.Error>
           </Hds::Form::Checkbox::Group>`
     );
@@ -108,12 +108,12 @@ module('Integration | Component | hds/form/checkbox/group', function (hooks) {
     await render(
       hbs`<Hds::Form::Checkbox::Group @name="datacenter-demo" as |G|>
             <G.Legend>Choose datacenter</G.Legend>
-            <G.Checkbox::Field data-test="first-control" as |F|>
+            <G.CheckboxField data-test="first-control" as |F|>
               <F.Label>NYC1</F.Label>
-            </G.Checkbox::Field>
-            <G.Checkbox::Field data-test="second-control" as |F|>
+            </G.CheckboxField>
+            <G.CheckboxField data-test="second-control" as |F|>
               <F.Label>DC1</F.Label>
-            </G.Checkbox::Field>
+            </G.CheckboxField>
           </Hds::Form::Checkbox::Group>`
     );
     assert
@@ -130,9 +130,9 @@ module('Integration | Component | hds/form/checkbox/group', function (hooks) {
     await render(
       hbs`<Hds::Form::Checkbox::Group @isRequired={{true}} as |G|>
             <G.Legend>This is the legend</G.Legend>
-            <G.Checkbox::Field checked="checked" @value="abc123" as |F|>
+            <G.CheckboxField checked="checked" @value="abc123" as |F|>
               <F.Label>This is the control label</F.Label>
-            </G.Checkbox::Field>
+            </G.CheckboxField>
           </Hds::Form::Checkbox::Group>`
     );
     assert.dom('legend .hds-form-indicator').exists();
@@ -143,9 +143,9 @@ module('Integration | Component | hds/form/checkbox/group', function (hooks) {
     await render(
       hbs`<Hds::Form::Checkbox::Group @isOptional={{true}} as |G|>
             <G.Legend>This is the legend</G.Legend>
-            <G.Checkbox::Field checked="checked" @value="abc123" as |F|>
+            <G.CheckboxField checked="checked" @value="abc123" as |F|>
               <F.Label>This is the control label</F.Label>
-            </G.Checkbox::Field>
+            </G.CheckboxField>
           </Hds::Form::Checkbox::Group>`
     );
     assert.dom('legend .hds-form-indicator').exists();

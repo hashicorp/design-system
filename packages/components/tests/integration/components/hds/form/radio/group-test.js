@@ -27,11 +27,11 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
       hbs`<Hds::Form::Radio::Group as |G|>
             <G.Legend>This is the legend</G.Legend>
             <G.HelperText>This is the group helper text</G.HelperText>
-            <G.Radio::Field checked="checked" @value="abc123" as |F|>
+            <G.RadioField checked="checked" @value="abc123" as |F|>
               <F.Label>This is the control label</F.Label>
               <F.HelperText>This is the control helper text</F.HelperText>
               <F.Error>This is the control error</F.Error>
-            </G.Radio::Field>
+            </G.RadioField>
             <G.Error>This is the group error</G.Error>
           </Hds::Form::Radio::Group>`
     );
@@ -73,11 +73,11 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
       hbs`<Hds::Form::Radio::Group as |G|>
             <G.Legend>This is the legend</G.Legend>
             <G.HelperText>This is the group helper text</G.HelperText>
-            <G.Radio::Field checked="checked" @value="abc123" as |F|>
+            <G.RadioField checked="checked" @value="abc123" as |F|>
               <F.Label>This is the control label</F.Label>
               <F.HelperText>This is the control helper text</F.HelperText>
               <F.Error>This is the control error</F.Error>
-            </G.Radio::Field>
+            </G.RadioField>
             <G.Error>This is the group error</G.Error>
           </Hds::Form::Radio::Group>`
     );
@@ -108,12 +108,12 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
     await render(
       hbs`<Hds::Form::Radio::Group @name="datacenter-demo" as |G|>
             <G.Legend>Choose datacenter</G.Legend>
-            <G.Radio::Field data-test="first-control" as |F|>
+            <G.RadioField data-test="first-control" as |F|>
               <F.Label>NYC1</F.Label>
-            </G.Radio::Field>
-            <G.Radio::Field data-test="second-control" as |F|>
+            </G.RadioField>
+            <G.RadioField data-test="second-control" as |F|>
               <F.Label>DC1</F.Label>
-            </G.Radio::Field>
+            </G.RadioField>
           </Hds::Form::Radio::Group>`
     );
     assert
@@ -130,9 +130,9 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
     await render(
       hbs`<Hds::Form::Radio::Group @isRequired={{true}} as |G|>
             <G.Legend>This is the legend</G.Legend>
-            <G.Radio::Field checked="checked" @value="abc123" as |F|>
+            <G.RadioField checked="checked" @value="abc123" as |F|>
               <F.Label>This is the control label</F.Label>
-            </G.Radio::Field>
+            </G.RadioField>
         </Hds::Form::Radio::Group>`
     );
     assert.dom('legend .hds-form-indicator').exists();
@@ -143,9 +143,9 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
     await render(
       hbs`<Hds::Form::Radio::Group @isOptional={{true}} as |G|>
             <G.Legend>This is the legend</G.Legend>
-            <G.Radio::Field checked="checked" @value="abc123" as |F|>
+            <G.RadioField checked="checked" @value="abc123" as |F|>
               <F.Label>This is the control label</F.Label>
-            </G.Radio::Field>
+            </G.RadioField>
           </Hds::Form::Radio::Group>`
     );
     assert.dom('legend .hds-form-indicator').exists();

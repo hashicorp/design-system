@@ -32,10 +32,11 @@ Supports block invocation for custom content (see [Block Content](https://guides
   
 #### [A].Footer
 
-Yields the [Link::Standalone](../components/link/standalone) component as `Link::Standalone`.
-
 <Doc::ComponentApi as |C|>
   <C.Property @name="hasDivider" @type="boolean" @default="false" @values={{array "true" "false"}}>
     Indicates if there should be a visible divider above the footer.
+  </C.Property>
+  <C.Property @name="<[F].LinkStandalone>" @type="yielded component">
+    A yielded `Hds::Link::Standalone` component. It exposes the same API of the [`Link::Standalone` component](/components/link/standalone).
   </C.Property>
 </Doc::ComponentApi>

@@ -33,7 +33,7 @@ The Toggle component has two different variants with their own APIs:
     <br/><br/>
     The `id` attribute of the element is automatically generated.
   </C.Property>
-  <C.Property @name="<[G].Toggle::Field>" @type="yielded component">
+  <C.Property @name="<[G].ToggleField>" @type="yielded component">
     Used to yield one or more fields inside the group. For details about its API, check the `Toggle::Field` component above.
   </C.Property>
   <C.Property @name="<[G].Error>" @type="yielded component">

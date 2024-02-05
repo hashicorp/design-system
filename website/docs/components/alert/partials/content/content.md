@@ -42,7 +42,7 @@ When linking to internal and external resources in the Alert, default to using a
 <Hds::Alert @type="inline" @color="highlight" as |A|>
   <A.Title>Links in alerts</A.Title>
   <A.Description>Lorem ipsum dolar sit amet.</A.Description>
-  <A.Link::Standalone @icon="arrow-right" @iconPosition="trailing" @color="secondary" @text="Standalone link" @href="#" />
+  <A.LinkStandalone @icon="arrow-right" @iconPosition="trailing" @color="secondary" @text="Standalone link" @href="#" />
 </Hds::Alert>
 
 Within the Alert description, use the `secondary` [Inline Link](/components/link/inline) as the default link color. A common use case for this is when linking to multiple resources.
@@ -139,7 +139,7 @@ The title or description should contain the alert type, e.g., “Warning,” if 
   <A.Title>Alert with actions</A.Title>
   <A.Description>Lorem ipsum dolar sit amet.</A.Description>
   <A.Button @text="Your action" @color="secondary" @onClick={{this.noop}} />
-  <A.Link::Standalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="Learn more" @href="#" />
+  <A.LinkStandalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="Learn more" @href="#" />
 </Hds::Alert>
 
 ### With generic content

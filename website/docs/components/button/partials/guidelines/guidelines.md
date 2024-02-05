@@ -130,7 +130,7 @@ For links that require more prominence and CTAs (calls-to-action).
     This page displays all users in the organization who have permissions in this project. A user must be invited to the org first before you can change the user’s role at the project level.
   </A.Description>
   <A.Button @text="Go to HCP Design Sandbox" @color="secondary" @href="#" />
-  <A.Link::Standalone @text="View documentation" @color="primary" @icon="docs-link" @iconPosition="trailing" @href="#" />
+  <A.LinkStandalone @text="View documentation" @color="primary" @icon="docs-link" @iconPosition="trailing" @href="#" />
 </Hds::Alert>
 
 For links that are part of an [inverse button group](/patterns/button-organization#grouping).
