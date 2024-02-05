@@ -62,7 +62,7 @@ Providing video examples in documentation can be helpful for explaining complex 
 
 _Video assets (MP4, MOV, etc.) aren’t directly supported by markdown. For more details on how to include them, see the [markdown documentation](/wiki/Website-Markdown.md)._
 
-These steps focus on _rendering_ a video asset and are specific to the workflow between Adobe After Effects, Premiere, and Adobe Media Encoder. You will need to seek approval from your manager and request a license from IT to gain access to these applications. More complex examples (creating a custom UI in After Effects, more in-depth editing, etc) are beyond the scope of this guide.
+These steps are specific to the workflow between Adobe After Effects, Premiere, and Adobe Media Encoder. You will need to seek approval from your manager and request a license from IT to gain access to these applications. More complex examples (creating a custom UI in After Effects, more in-depth editing, etc) are beyond the scope of this guide.
 
 1. Create your source video, for example, of an in-browser experience or a Figma prototype; the most straightforward method is to [record your screen using Quicktime’s native screen recording feature](https://support.apple.com/en-gb/guide/quicktime-player/qtp97b08e666/mac).
 2. After launching Media Encoder, add your asset to the render queue.
