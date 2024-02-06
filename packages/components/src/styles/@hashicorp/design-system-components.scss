@@ -1,0 +1,67 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// these files come from the 'design-system-tokens' package
+@use "tokens";
+@use "helpers/color";
+@use "helpers/elevation";
+@use "helpers/focus-ring";
+@use "helpers/typography";
+
+// this file comes from the 'ember-flight-icons' package
+@use "icons";
+
+// Notice: this list can be automatically edited by the Ember blueprint, please don't remove the start/end comments
+// START COMPONENTS CSS FILES IMPORTS
+@use "../components/accordion";
+@use "../components/alert";
+@use "../components/app-footer";
+@use "../components/app-frame";
+@use "../components/application-state";
+@use "../components/badge";
+@use "../components/badge-count";
+@use "../components/breadcrumb";
+@use "../components/button";
+@use "../components/button-set";
+@use "../components/card";
+@use "../components/code-block";
+@use "../components/copy";
+@use "../components/disclosure-primitive";
+@use "../components/dismiss-button";
+@use "../components/dropdown";
+@use "../components/flyout";
+@use "../components/form"; // multiple components
+@use "../components/icon-tile";
+@use "../components/link"; // multiple components
+@use "../components/menu-primitive";
+@use "../components/modal";
+@use "../components/page-header";
+@use "../components/pagination";
+@use "../components/reveal";
+@use "../components/segmented-group";
+@use "../components/separator";
+@use "../components/side-nav";
+@use "../components/stepper";
+@use "../components/table";
+@use "../components/tabs";
+@use "../components/tag";
+@use "../components/text";
+@use "../components/toast";
+@use "../components/tooltip";
+// END COMPONENT CSS FILES IMPORTS
+
+// stylelint-disable-next-line selector-class-pattern
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  white-space: nowrap !important; /* 3 */
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+  clip-path: inset(50%) !important; /* 2 */
+}

@@ -1,0 +1,50 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+:root {
+  --aside-width: calc(200px + 1 * 2rem);
+  --main-width: calc(1024px + 2 * 2rem);
+  --content-width: calc(var(--aside-width) + var(--main-width));
+}
+
+.showcase-app {
+  @media screen and (width >= 1000px) {
+    display: grid;
+    grid-template-areas:
+      "header header header header"
+      ". aside main ."
+      "footer footer footer footer";
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns:
+      1fr
+      minmax(12em, var(--aside-width))
+      minmax(30em, var(--main-width))
+      1fr;
+  }
+}
+
+.shw-page-header {
+  grid-area: header;
+}
+
+.shw-page-aside {
+  grid-area: aside;
+}
+
+.shw-page-main {
+  grid-area: main;
+}
+
+// PAGE-SPECIFIC OVERRIDES
+
+body.index {
+  .shw-page-aside {
+    display: none;
+  }
+
+  .shw-page-main {
+    grid-area: aside/aside/main/main;
+  }
+}

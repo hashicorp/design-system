@@ -1,0 +1,38 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// PAGINATION
+
+body.components-pagination {
+  .shw-component-pagination-sample {
+    // no declarations
+  }
+
+  .shw-component-pagination-layout-highlight {
+    .hds-pagination-info,
+    .hds-pagination-nav,
+    .hds-pagination-nav__control,
+    .hds-pagination-nav__ellipsis,
+    .hds-pagination-size-selector {
+      outline: 1px dashed #78909c;
+    }
+  }
+
+  .shw-component-pagination-ul-wrapper {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  // paginated tables demo
+
+  .shw-component-pagination-table-demo {
+    margin: 18px auto 36px;
+
+    .hds-table + .hds-pagination {
+      margin-top: 16px;
+    }
+  }
+}

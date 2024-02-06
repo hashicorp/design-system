@@ -8,3 +8,5 @@ packages/flight-icons:
   - packages/flight-icons/**/*
 packages/tokens:
   - packages/tokens/**/*
+showcase:
+  - showcase/**/*
