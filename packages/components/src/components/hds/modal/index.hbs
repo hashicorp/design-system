@@ -2,7 +2,7 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<dialog
+<Hds::DialogPrimitive
   class={{this.classNames}}
   ...attributes
   aria-labelledby={{this.id}}
@@ -10,10 +10,25 @@
   {{will-destroy this.willDestroyNode}}
   {{focus-trap isActive=this.isOpen focusTrapOptions=(hash onDeactivate=this.onDismiss clickOutsideDeactivates=true)}}
 >
-  {{yield (hash Header=(component "hds/modal/header" id=this.id onDismiss=this.onDismiss))}}
-  {{yield (hash Body=(component "hds/modal/body"))}}
-  {{yield (hash Footer=(component "hds/modal/footer" onDismiss=this.onDismiss))}}
-</dialog>
+  <:header>
+    {{yield
+      (hash
+        Header=(component
+          "hds/dialog-primitive/header" id=this.id onDismiss=this.onDismiss extraClass="hds-modal__header"
+        )
+      )
+    }}
+  </:header>
+  <:body>
+    {{yield (hash Body=(component "hds/dialog-primitive/body" extraClass="hds-modal__body"))}}
+  </:body>
+  <:footer>
+    {{yield
+      (hash Footer=(component "hds/dialog-primitive/footer" onDismiss=this.onDismiss extraClass="hds-modal__footer"))
+    }}
+  </:footer>
+</Hds::DialogPrimitive>
+
 {{#if this.isOpen}}
   <div class="hds-modal__overlay"></div>
 {{/if}}

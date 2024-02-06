@@ -7,13 +7,52 @@
 // DIALOG PRIMITIVE
 //
 
-// TEMP STYLES FOR TESTING...
-.hds-dialog-primitive__header,
-.hds-dialog-primitive__description,
-.hds-dialog-primitive__body,
-.hds-dialog-primitive__footer {
-  // outline: 1px dashed red;
-  // background: pink !important;
+
+// MAIN CONTAINER (<dialog>)
+
+// :where reduces the specificity of the selector
+// & can be used to set “loose” defaults which can be easily overridden
+dialog:where(.hds-dialog-primitive) {
+  all: unset; // removes default dialog & inherited styles. Must be the first style to be applied
+  // unsetting all the styles causes it to not inherit the box-sizing from the parent
+  box-sizing: border-box;
+}
+
+
+// WRAPPER
+
+.hds-dialog-primitive__wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background: var(--token-color-surface-primary);
+  border-radius: inherit;
+}
+
+.hds-dialog-primitive__wrapper-header {
+  flex: none;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+.hds-dialog-primitive__wrapper-body {
+  flex: 1 1 auto;
+  // this is necessary, otherwise if there are words longer than the width of the available space for the list "item" content
+  overflow-x: hidden;
+  // we want the content to vertically scroll if needed
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  // do we want to move the "border" logic here?
+  // border-top: 1px solid var(--token-color-border-primary);
+}
+
+.hds-dialog-primitive__wrapper-footer {
+  flex: none;
+  // do we want to move the "border" logic here?
+  // border-top: 1px solid var(--token-color-border-primary);
+  border-bottom-right-radius: inherit;
+  border-bottom-left-radius: inherit;
 }
 
 
@@ -21,11 +60,11 @@
 
 .hds-dialog-primitive__header {
   display: flex;
-  flex: none;
   gap: 16px;
   align-items: flex-start;
   padding: 16px 24px;
   color: var(--token-color-foreground-strong); // default color
+  border-radius: inherit;
 }
 
 .hds-dialog-primitive__icon {
@@ -47,7 +86,7 @@
 }
 
 
-// DESCRIPTION 
+// DESCRIPTION
 // (currently used only in Flyout, not in Modal)
 
 .hds-dialog-primitive__description {
@@ -58,10 +97,7 @@
 // BODY
 
 .hds-dialog-primitive__body {
-  flex: 1 1 auto;
   padding: 24px;
-  overflow-y: auto;
-  overscroll-behavior: contain;
   border-top: 1px solid var(--token-color-border-primary);
 }
 
@@ -69,10 +105,10 @@
 // FOOTER
 
 .hds-dialog-primitive__footer {
-  flex: none;
   padding: 16px 24px;
   background: var(--token-color-surface-faint);
   border-top: 1px solid var(--token-color-border-primary);
+  border-radius: inherit;
 
   // Tertiary buttons must always be placed/aligned at the end of the row
   .hds-button-set {
