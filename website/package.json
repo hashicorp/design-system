@@ -16,7 +16,8 @@
   },
   "scripts": {
     "generate-changelog-markdown-files": "node lib/changelog/generate-changelog-markdown-files.mjs",
-    "build": "ember build --environment=production",
+    "build": "yarn build:packages && ember build --environment=production",
+    "build:packages": "yarn workspace @hashicorp/ember-flight-icons build && yarn workspace @hashicorp/design-system-components build",
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
     "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",
     "lint:hbs": "ember-template-lint .",
@@ -26,11 +27,11 @@
     "lint:css": "stylelint \"app/styles/**/*.scss\"",
     "lint:css:fix": "npm-run-all \"lint:css --fix\"",
     "lint:spell:docs": "cspell --no-progress --show-suggestions --show-context \"docs/**/*.md\"",
-    "start": "ember serve",
+    "start": "yarn build:packages && ember serve",
     "start:prember": "PREMBER=true ember serve",
     "algolia:index": "node docs-scraper/index-website-content.mjs",
     "test": "npm-run-all lint test:*",
-    "test:ember": "ember test"
+    "test:ember": "yarn build:packages && ember test"
   },
   "devDependencies": {
     "@algolia/autocomplete-js": "^1.12.1",
