@@ -8,13 +8,18 @@
 //
 
 .hds-modal {
+  all: revert; // this must be first
   z-index: 50;
-  flex-direction: column;
+  box-sizing: inherit;
   padding: 0;
   background: var(--token-color-surface-primary);
   border: none;
   border-radius: 8px;
   box-shadow: var(--token-surface-overlay-box-shadow);
+  
+  &:not([open]) {
+    display: none;
+  }
 
   &[open] {
     position: fixed;
@@ -38,17 +43,6 @@
   background: var(--token-color-palette-neutral-700);
   opacity: 0.5;
 }
-
-.hds-modal__header {
-  border-top-left-radius: inherit;
-  border-top-right-radius: inherit;
-}
-
-.hds-modal__footer {
-  border-bottom-right-radius: inherit;
-  border-bottom-left-radius: inherit;
-}
-
 
 // VARIATIONS
 

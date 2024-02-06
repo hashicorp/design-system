@@ -17,8 +17,10 @@
 }
 
 .hds-flyout {
+  all: revert; // this must be first
   z-index: 49; // modal component is 50; we want to make sure the flyout always stays below the modal, regardless of DOM order
   flex-direction: column;
+  box-sizing: inherit;
   height: 100vh;
   max-height: 100vh;
   margin: 0;
@@ -26,6 +28,10 @@
   background: var(--token-color-surface-primary);
   border: none;
   box-shadow: 0 2px 3px 0 #3b3d4540, 0 12px 24px 0 #3b3d4559; // TODO: convert to token
+
+  &:not([open]) {
+    display: none;
+  }
 
   &[open] {
     position: fixed;

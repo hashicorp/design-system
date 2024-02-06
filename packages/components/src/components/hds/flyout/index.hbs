@@ -2,7 +2,7 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<dialog
+<Hds::DialogPrimitive
   class={{this.classNames}}
   ...attributes
   aria-labelledby={{this.id}}
@@ -10,11 +10,25 @@
   {{will-destroy this.willDestroyNode}}
   {{focus-trap isActive=this.isOpen focusTrapOptions=(hash onDeactivate=this.onDismiss clickOutsideDeactivates=true)}}
 >
-  {{yield (hash Header=(component "hds/flyout/header" id=this.id onDismiss=this.onDismiss))}}
-  {{yield (hash Description=(component "hds/flyout/description"))}}
-  {{yield (hash Body=(component "hds/flyout/body"))}}
-  {{yield (hash Footer=(component "hds/flyout/footer" onDismiss=this.onDismiss))}}
-</dialog>
+  <:header>
+    {{yield
+      (hash
+        Header=(component
+          "hds/dialog-primitive/header" id=this.id onDismiss=this.onDismiss extraClass="hds-flyout__header"
+        )
+        Description=(component "hds/dialog-primitive/description" extraClass="hds-flyout__description")
+      )
+    }}
+  </:header>
+  <:body>
+    {{yield (hash Body=(component "hds/dialog-primitive/body" extraClass="hds-flyout__body"))}}
+  </:body>
+  <:footer>
+    {{yield
+      (hash Footer=(component "hds/dialog-primitive/footer" onDismiss=this.onDismiss extraClass="hds-flyout__footer"))
+    }}
+  </:footer>
+</Hds::DialogPrimitive>
 
 {{#if this.isOpen}}
   <div class="hds-flyout__overlay"></div>

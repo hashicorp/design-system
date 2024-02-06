@@ -8,6 +8,82 @@
 <Shw::Text::H1>DialogPrimitive</Shw::Text::H1>
 
 <section data-test-percy>
+
+  <Shw::Text::H2>Content</Shw::Text::H2>
+
+  <Shw::Text::H3>With generic content</Shw::Text::H3>
+
+  <Shw::Flex {{style gap="2rem"}} as |SF|>
+    <SF.Item @label="Header + Body + Footer">
+      <div class="shw-component-dialog-primitive-base-container">
+        <Hds::DialogPrimitive>
+          <:header>
+            <Shw::Placeholder @text="header" @height="60px" />
+          </:header>
+          <:body>
+            <Shw::Placeholder @text="body" @height="300px" @background="#fafafa" />
+          </:body>
+          <:footer>
+            <Shw::Placeholder @text="footer" @height="60px" />
+          </:footer>
+        </Hds::DialogPrimitive>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Header + Body (scrollable) + Footer">
+      <div class="shw-component-dialog-primitive-base-container">
+        <Hds::DialogPrimitive>
+          <:header>
+            <Shw::Placeholder @height="60px" @text="header" />
+          </:header>
+          <:body>
+            <Shw::Placeholder @height="500px" @text="body" @background="#fafafa" />
+          </:body>
+          <:footer>
+            <Shw::Placeholder @height="60px" @text="footer" />
+          </:footer>
+        </Hds::DialogPrimitive>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>With primitives</Shw::Text::H3>
+
+  <Shw::Flex {{style gap="2rem"}} as |SF|>
+    <SF.Item @label="Header + Description + Body + Footer">
+      <div class="shw-component-dialog-primitive-base-container">
+        <Hds::DialogPrimitive>
+          <:header>
+            <Hds::DialogPrimitive::Header @icon="info" @tagline="Tagline">Title</Hds::DialogPrimitive::Header>
+            <Hds::DialogPrimitive::Description>Description</Hds::DialogPrimitive::Description>
+          </:header>
+          <:body>
+            <Hds::DialogPrimitive::Body>
+              <p class="hds-typography-body-300 hds-foreground-primary">Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Libero culpa expedita assumenda at nisi minus unde fuga iure suscipit aut qui, odit
+                natus eum voluptates ut molestiae! Perferendis, impedit qui? Lorem ipsum dolor sit amet?</p>
+            </Hds::DialogPrimitive::Body>
+          </:body>
+          <:footer>
+            <Hds::DialogPrimitive::Footer>
+              <Hds::ButtonSet>
+                <Hds::Button type="submit" @text="Primary" />
+                <Hds::Button type="button" @text="Secondary" @color="secondary" />
+              </Hds::ButtonSet>
+            </Hds::DialogPrimitive::Footer>
+          </:footer>
+        </Hds::DialogPrimitive>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+</section>
+
+<Shw::Divider />
+
+<section class="shw-component-dialog-primitive-base-elements-section" data-test-percy>
+
   <Shw::Text::H2>DialogPrimitive:Header</Shw::Text::H2>
 
   <Shw::Flex @direction="column" as |SF|>
@@ -40,7 +116,7 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Divider />
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H2>DialogPrimitive:Description</Shw::Text::H2>
 
@@ -60,12 +136,12 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Divider />
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H2>DialogPrimitive:Body</Shw::Text::H2>
 
   <Shw::Flex @direction="column" as |SF|>
-    <SF.Item @label="with basic text content">
+    <SF.Item @label="With basic style">
       <Hds::DialogPrimitive::Body>
         <p class="hds-typography-body-300 hds-foreground-primary">HashiCorp uses data collected by cookies and
           JavaScript libraries to improve your browsing experience, analyze site traffic, and increase the overall
@@ -76,24 +152,24 @@
           preferences.</p>
       </Hds::DialogPrimitive::Body>
     </SF.Item>
-    <SF.Item @label="with generic content">
+    <SF.Item @label="With generic content">
       <Hds::DialogPrimitive::Body>
         <Shw::Placeholder @text="some generic content" @height="50" />
       </Hds::DialogPrimitive::Body>
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Divider />
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H2>DialogPrimitive:Footer</Shw::Text::H2>
 
   <Shw::Flex @direction="column" as |SF|>
-    <SF.Item @label="one action">
+    <SF.Item @label="One action">
       <Hds::DialogPrimitive::Footer>
         <Hds::Button type="submit" @text="Primary" />
       </Hds::DialogPrimitive::Footer>
     </SF.Item>
-    <SF.Item @label="two actions">
+    <SF.Item @label="Two actions">
       <Hds::DialogPrimitive::Footer>
         <Hds::ButtonSet>
           <Hds::Button type="submit" @text="Primary" />
@@ -101,7 +177,7 @@
         </Hds::ButtonSet>
       </Hds::DialogPrimitive::Footer>
     </SF.Item>
-    <SF.Item @label="three actions">
+    <SF.Item @label="Three actions">
       <Hds::DialogPrimitive::Footer>
         <Hds::ButtonSet>
           <Hds::Button type="submit" @text="Primary" />
@@ -110,10 +186,11 @@
         </Hds::ButtonSet>
       </Hds::DialogPrimitive::Footer>
     </SF.Item>
-    <SF.Item @label="generic footer content">
+    <SF.Item @label="Generic footer content">
       <Hds::DialogPrimitive::Footer>
         <Shw::Placeholder @text="some generic content" @height="50" />
       </Hds::DialogPrimitive::Footer>
     </SF.Item>
   </Shw::Flex>
+
 </section>

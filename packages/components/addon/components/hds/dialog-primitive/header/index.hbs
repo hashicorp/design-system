@@ -3,7 +3,7 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<div class="hds-dialog-primitive__header" ...attributes>
+<div class="hds-dialog-primitive__header {{@extraClass}}" ...attributes>
   {{#if @icon}}
     <FlightIcon class="hds-dialog-primitive__icon" @name={{@icon}} @size="24" @isInlineBlock={{false}} />
   {{/if}}
