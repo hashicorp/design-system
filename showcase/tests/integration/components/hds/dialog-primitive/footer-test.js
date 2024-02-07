@@ -38,7 +38,6 @@ module(
         </Hds::DialogPrimitive::Footer>
       `
       );
-      assert.dom('.hds-dialog-primitive__footer').exists();
       assert.dom('.hds-dialog-primitive__footer .hds-button').exists();
     });
   }

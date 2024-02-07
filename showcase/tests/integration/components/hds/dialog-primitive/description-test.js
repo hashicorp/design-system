@@ -42,7 +42,6 @@ module(
       );
       assert
         .dom('.hds-dialog-primitive__description')
-        .exists()
         .hasText('Description');
     });
   }

@@ -40,7 +40,6 @@ module(
       assert.dom('.hds-dialog-primitive__title').hasText('Title');
       assert.dom('.hds-dialog-primitive__icon').doesNotExist();
       assert.dom('.hds-dialog-primitive__tagline').doesNotExist();
-      assert.dom('.hds-flyout__description').doesNotExist();
     });
 
     test('it renders the title with icon and tagline if provided', async function (assert) {
