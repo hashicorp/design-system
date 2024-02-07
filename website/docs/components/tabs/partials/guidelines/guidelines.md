@@ -49,9 +49,17 @@ Don’t trigger a Tab change via an external action, such as a submit or next bu
 
 ## Sizes
 
-Medium-sized tabs work best in most contexts. Large tabs can be used when needed to emphasize important sections, enhance clarity, and convey hierarchical distinction.
+Medium-sized tabs work best in most contexts. Large tabs can be used when needed to emphasize important sections, enhance clarity, and convey hierarchical distinction. 
 
 ![Tabs sizes example](/assets/components/tabs/tab-size.png)
+
+### Choosing sizes 
+
+Mixing different tab sizes is not recommended, as it can confuse users. Choose tab sizes with a purpose, aligning them with the hierarchical importance of the information they represent. 
+
+### Organizing 
+
+We recommend to structure your tabs to reflect the hierarchical organization. Large tabs are reserved for major differences, emphasizing their importance, and should be used sparingly. Medium tabs, by contrast, are more adaptable and suited for grouping content under those significant categories, promoting an organized and straightforward experience within specific sections or among related content.
 
 ## Spacing
 
