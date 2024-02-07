@@ -1,1 +1,3 @@
-Overview lorem ipsum dolor
+The Helios Table [selection components](/components/table#multi-select) support the selection of one or more results within a Table, thus adding support for performing bulk actions and edits on multiple results simultaneously. While we don’t publish a specific component to support this functionality, it can be accomplished by composing multiple Helios components together into a Selection pattern.
+
+This type of functionality can assist the user in
