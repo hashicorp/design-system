@@ -36,12 +36,16 @@ export default class HdsDropdownIndexComponent extends Component {
   }
 
   /**
-   * @param listAriaLabel
-   * @type {string}
-   * @description Sets a label for when  checkmark list items are used in the dropdown list
+   * Gets the id of the associated toggle button
+   * @method labelledby
+   * @return {string} The `id` attribute to be provided to `aria-labelledby`
    */
-  get listAriaLabel() {
-    return this.args.listAriaLabel || '';
+  get labelledby() {
+    let dropdownButton = this.listElement
+      .closest('.hds-dropdown')
+      .querySelector('.hds-dropdown-toggle-button');
+    let id = dropdownButton?.getAttribute('id');
+    return id;
   }
 
   /**
@@ -81,10 +85,11 @@ export default class HdsDropdownIndexComponent extends Component {
 
   @action
   didInsertList(element) {
+    this.listElement = element;
     let checkmarkItems = element.querySelectorAll(`[role="option"]`);
     if (checkmarkItems.length) {
       element.setAttribute('role', 'listbox');
-      element.setAttribute('aria-label', this.listAriaLabel);
+      element.setAttribute('aria-labelledby', this.labelledby);
     }
   }
 }

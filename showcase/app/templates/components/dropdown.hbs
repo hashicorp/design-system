@@ -818,7 +818,7 @@
   </Shw::Flex>
   <Shw::Flex as |SF|>
     <SF.Item @label="Interactive">
-      <Hds::Dropdown @listPosition="bottom-left" @listAriaLabel="Virtual machine" as |dd|>
+      <Hds::Dropdown @listPosition="bottom-left" as |dd|>
         <dd.ToggleButton @text="Checkmark" @color="secondary" />
         <dd.Checkmark @count="11">virtualbox</dd.Checkmark>
         <dd.Checkmark @count="1" @selected={{true}}>vmware</dd.Checkmark>
