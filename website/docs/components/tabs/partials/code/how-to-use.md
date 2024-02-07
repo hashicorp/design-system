@@ -12,6 +12,22 @@
 </Hds::Tabs>
 ```
 
+### Size
+
+Set `@size` to "large" to display the large `Tabs` variant. The default `@size` is "medium".
+
+```handlebars
+<Hds::Tabs @size="large" as |T|>
+  <T.Tab>One</T.Tab>
+  <T.Tab>Two</T.Tab>
+  <T.Tab>Three</T.Tab>
+
+  <T.Panel>Content 1</T.Panel>
+  <T.Panel>Content 2</T.Panel>
+  <T.Panel>Content 3</T.Panel>
+</Hds::Tabs>
+```
+
 ### Pre-selecting a tab
 
 While the first tab is selected by default, it is possible to customize the starting tab to display on page load in two different ways (depending on how the tabs' state is controlled/persisted).

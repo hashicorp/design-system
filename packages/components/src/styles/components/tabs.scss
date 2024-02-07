@@ -9,6 +9,36 @@
 
 @use "../mixins/focus-ring" as *;
 
+// Variants:
+
+// medium = default
+.hds-tabs--size-medium {
+  .hds-tabs__tab {
+    height: var(--token-tabs-tab-height);
+    padding: var(--token-tabs-tab-padding-vertical) var(--token-tabs-tab-padding-horizontal);
+  }
+
+  .hds-tabs__tab-button {
+    font-size: var(--token-typography-body-200-font-size);
+  }
+}
+
+.hds-tabs--size-large {
+  --token-tabs-tab-height: 48px; // override the default value
+
+  .hds-tabs__tab {
+    --token-tabs-tab-padding-vertical: 12px; // override the default value
+    --token-tabs-tab-padding-horizontal: 20px; // override the default value
+
+    height: var(--token-tabs-tab-height);
+    padding: var(--token-tabs-tab-padding-vertical) var(--token-tabs-tab-padding-horizontal);
+  }
+
+  .hds-tabs__tab-button {
+    font-size: var(--token-typography-body-300-font-size);
+  }
+}
+
 // Sub-components:
 .hds-tabs__tablist-wrapper {
   position: relative;
@@ -38,9 +68,9 @@
   position: relative;
   display: flex;
   align-items: center;
-  height: var(--token-tabs-tab-height);
+  // height: var(--token-tabs-tab-height);
   margin: 0;
-  padding: var(--token-tabs-tab-padding-vertical) var(--token-tabs-tab-padding-horizontal);
+  // padding: var(--token-tabs-tab-padding-vertical) var(--token-tabs-tab-padding-horizontal);
   color: var(--token-color-foreground-primary);
   white-space: nowrap;
   text-decoration: none;
@@ -95,11 +125,11 @@
   right: 0;
   bottom: 0;
   // notice: this custom prop is set dynamically via JavaScript
-  left: var(--indicator-left-pos);
+  left: var(--indicator-left-pos, 0);
   z-index: 10;
   display: block;
   // notice: this custom prop is set dynamically via JavaScript
-  width: var(--indicator-width);
+  width: var(--indicator-width, 0);
   height: var(--token-tabs-indicator-height);
   background-color: var(--token-color-foreground-action);
   border-radius: var(--token-tabs-indicator-height);
