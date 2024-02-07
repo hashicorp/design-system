@@ -114,11 +114,13 @@ The Flyout header features several properties to better communicate the purpose 
 
 **With title icon**
 
-<Hds::Flyout::Header @icon="info" @onDismiss={{this.noop}}>Title</Hds::Flyout::Header>
+<!-- TODO: Temporary, replace with static image of Flyout Header -->
+<Hds::DialogPrimitive::Header @icon="info" @onDismiss={{this.noop}}>Title</Hds::DialogPrimitive::Header>
 
 **Without title icon**
 
-<Hds::Flyout::Header @onDismiss={{this.noop}}>Title</Hds::Flyout::Header>
+<!-- TODO: Temporary, replace with static image of Flyout Header -->
+<Hds::DialogPrimitive::Header @onDismiss={{this.noop}}>Title</Hds::DialogPrimitive::Header>
 
 #### Usage
 
@@ -130,11 +132,13 @@ The purpose and function of the Flyout should not rely solely on an icon, instea
 
 **With tagline**
 
-<Hds::Flyout::Header @tagline="Tagline" @onDismiss={{this.noop}}>Title</Hds::Flyout::Header>
+<!-- TODO: Temporary, replace with static image of Flyout Header -->
+<Hds::DialogPrimitive::Header @tagline="Tagline" @onDismiss={{this.noop}}>Title</Hds::DialogPrimitive::Header>
 
 **With tagline and icon**
 
-<Hds::Flyout::Header @tagline="Tagline" @icon="info" @onDismiss={{this.noop}}>Title</Hds::Flyout::Header>
+<!-- TODO: Temporary, replace with static image of Flyout Header -->
+<Hds::DialogPrimitive::Header @tagline="Tagline" @icon="info" @onDismiss={{this.noop}}>Title</Hds::DialogPrimitive::Header>
 
 A **tagline** helps the user maintain the context of the main page the Flyout was triggered from. Since a Flyout disables and obscures the main page content, adding a tagline can help the user understand the relationship between the Flyout and the main page.
 
@@ -151,13 +155,15 @@ A **description** provides additional information about the Flyout.
 
 **With description**
 
-<Hds::Flyout::Header @onDismiss={{this.noop}}>Title</Hds::Flyout::Header>
-<Hds::Flyout::Description>Description</Hds::Flyout::Description>
+<!-- TODO: Temporary, replace with static image of Flyout Header & Flyout Description -->
+<Hds::DialogPrimitive::Header @onDismiss={{this.noop}}>Title</Hds::DialogPrimitive::Header>
+<Hds::DialogPrimitive::Description>Description</Hds::DialogPrimitive::Description>
 
 **With description and icon**
 
-<Hds::Flyout::Header @icon="info" @onDismiss={{this.noop}}>Title</Hds::Flyout::Header>
-<Hds::Flyout::Description>Description</Hds::Flyout::Description>
+<!-- TODO: Temporary, replace with static image of Flyout Header & Flyout Description -->
+<Hds::DialogPrimitive::Header @icon="info" @onDismiss={{this.noop}}>Title</Hds::DialogPrimitive::Header>
+<Hds::DialogPrimitive::Description>Description</Hds::DialogPrimitive::Description>
 
 ## Flyout body
 
@@ -179,20 +185,22 @@ The footer is **optional** and should be used sparingly as it increases the comp
 
 **With one action**
 
-<Hds::Flyout::Footer>
+<!-- TODO: Temporary, replace with static image of Flyout Footer -->
+<Hds::DialogPrimitive::Footer>
   <Hds::ButtonSet>
     <Hds::Button @color="primary" @text="Primary" />
   </Hds::ButtonSet>
-</Hds::Flyout::Footer>
+</Hds::DialogPrimitive::Footer>
 
 **With two actions**
 
-<Hds::Flyout::Footer>
+<!-- TODO: Temporary, replace with static image of Flyout Footer -->
+<Hds::DialogPrimitive::Footer>
   <Hds::ButtonSet>
     <Hds::Button @color="primary" @text="Primary" />
     <Hds::Button @color="secondary" @text="Secondary" />
   </Hds::ButtonSet>
-</Hds::Flyout::Footer>
+</Hds::DialogPrimitive::Footer>
 
 For more guidance and details around organizing buttons and actions, refer to the [Button organization](/patterns/button-organization) pattern documentation.
 
