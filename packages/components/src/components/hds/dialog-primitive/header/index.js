@@ -9,7 +9,7 @@ const NOOP = () => {};
 
 export default class HdsDialogPrimitiveHeaderComponent extends Component {
   /**
-   * @param onClick
+   * @param onDismiss
    * @type {function}
    * @default () => {}
    */
