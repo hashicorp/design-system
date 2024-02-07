@@ -107,8 +107,8 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
     );
     assert.dom('.hds-dialog-primitive__title').exists();
     assert.dom('.hds-dialog-primitive__title').hasText('Title');
-    assert.dom('.hds-flyout__description').exists();
-    assert.dom('.hds-flyout__description').hasText('Description');
+    assert.dom('.hds-dialog-primitive__description').exists();
+    assert.dom('.hds-dialog-primitive__description').hasText('Description');
     assert.dom('.hds-dialog-primitive__icon').doesNotExist();
     assert.dom('.hds-dialog-primitive__tagline').doesNotExist();
   });
