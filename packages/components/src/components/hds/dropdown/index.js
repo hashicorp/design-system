@@ -36,19 +36,6 @@ export default class HdsDropdownIndexComponent extends Component {
   }
 
   /**
-   * Gets the id of the associated toggle button
-   * @method labelledby
-   * @return {string} The `id` attribute to be provided to `aria-labelledby`
-   */
-  get labelledby() {
-    let dropdownButton = this.listElement
-      .closest('.hds-dropdown')
-      .querySelector('.hds-dropdown-toggle-button');
-    let id = dropdownButton?.getAttribute('id');
-    return id;
-  }
-
-  /**
    * Get the class names to apply to the element
    * @method classNames
    * @return {string} The "class" attribute to apply to the root element
@@ -85,11 +72,14 @@ export default class HdsDropdownIndexComponent extends Component {
 
   @action
   didInsertList(element) {
-    this.listElement = element;
     let checkmarkItems = element.querySelectorAll(`[role="option"]`);
     if (checkmarkItems.length) {
+      let toggleButtonId = element
+        .closest('.hds-dropdown')
+        ?.querySelector('.hds-dropdown-toggle-button')
+        ?.getAttribute('id');
       element.setAttribute('role', 'listbox');
-      element.setAttribute('aria-labelledby', this.labelledby);
+      element.setAttribute('aria-labelledby', toggleButtonId);
     }
   }
 }
