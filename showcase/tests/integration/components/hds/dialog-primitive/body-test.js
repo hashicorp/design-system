@@ -36,6 +36,6 @@ module('Integration | Component | hds/dialog-primitive/body', function (hooks) {
         </Hds::DialogPrimitive::Body>
       `
     );
-    assert.dom('.hds-dialog-primitive__body').exists().hasText('Body');
+    assert.dom('.hds-dialog-primitive__body').hasText('Body');
   });
 });
