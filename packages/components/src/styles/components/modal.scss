@@ -58,20 +58,7 @@
   width: min(800px, 95vw);
 }
 
-.hds-modal--color-neutral {
-  .hds-modal__header {
-    // Q: Remove and rely upon the default ".hds-dialog-primitive__header" color?
-    color: var(--token-color-foreground-strong);
-    background: var(--token-color-surface-faint);
-  }
-
-  // Note: uses the default ".hds-dialog-primitive__body" border-top color & style
-
-  // Q: Remove and rely upon the default ".hds-dialog-primitive__tagline" color?
-  .hds-dialog-primitive__tagline {
-    color: var(--token-color-foreground-faint);
-  }
-}
+// Note ".hds-modal--color-neutral" uses default color and background-color styles from the dialog-primitive
 
 .hds-modal--color-warning {
   .hds-modal__header {
