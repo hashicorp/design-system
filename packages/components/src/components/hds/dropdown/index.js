@@ -72,9 +72,14 @@ export default class HdsDropdownIndexComponent extends Component {
 
   @action
   didInsertList(element) {
-    let checkmarkItems = element.querySelectorAll(`[role="option"]`);
+    const checkmarkItems = element.querySelectorAll(`[role="option"]`);
     if (checkmarkItems.length) {
+      const toggleButtonId = element
+        .closest('.hds-dropdown')
+        ?.querySelector('.hds-dropdown-toggle-button')
+        ?.getAttribute('id');
       element.setAttribute('role', 'listbox');
+      element.setAttribute('aria-labelledby', toggleButtonId);
     }
   }
 }
