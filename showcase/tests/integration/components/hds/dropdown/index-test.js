@@ -176,8 +176,8 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
         <dd.Checkmark>Checkmark</dd.Checkmark>
       </Hds::Dropdown>
     `);
-    let button = this.element.querySelector('.hds-dropdown-toggle-button');
-    let buttonId = button.id;
+    const button = this.element.querySelector('.hds-dropdown-toggle-button');
+    const buttonId = button.id;
     await click('button.hds-dropdown-toggle-button');
     assert.dom('#test-dropdown ul').hasAttribute('role', 'listbox');
     assert.dom('#test-dropdown ul').hasAttribute('aria-labelledby', buttonId);

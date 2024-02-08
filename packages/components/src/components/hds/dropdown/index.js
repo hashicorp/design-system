@@ -72,9 +72,9 @@ export default class HdsDropdownIndexComponent extends Component {
 
   @action
   didInsertList(element) {
-    let checkmarkItems = element.querySelectorAll(`[role="option"]`);
+    const checkmarkItems = element.querySelectorAll(`[role="option"]`);
     if (checkmarkItems.length) {
-      let toggleButtonId = element
+      const toggleButtonId = element
         .closest('.hds-dropdown')
         ?.querySelector('.hds-dropdown-toggle-button')
         ?.getAttribute('id');
