@@ -30,10 +30,12 @@ dialog:where(.hds-dialog-primitive) {
   border-radius: inherit;
 }
 
+// Note: this wraps both .hds-dialog-primitive__header & .hds-dialog-primitive__description
 .hds-dialog-primitive__wrapper-header {
   flex: none;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
+  background: var(--token-color-surface-faint);
 }
 
 .hds-dialog-primitive__wrapper-body {
