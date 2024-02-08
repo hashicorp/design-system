@@ -39,7 +39,7 @@
     "@babel/plugin-transform-class-properties": "^7.23.3",
     "@ember/optional-features": "^2.0.0",
     "@embroider/addon-dev": "^4.2.1",
-    "@embroider/test-setup": "^3.0.2",
+    "@embroider/test-setup": "^3.0.3",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
     "@rollup/plugin-babel": "^6.0.4",

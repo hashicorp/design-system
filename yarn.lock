@@ -2835,7 +2835,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/test-setup@npm:^3.0.2, @embroider/test-setup@npm:^3.0.3":
+"@embroider/test-setup@npm:^3.0.3":
   version: 3.0.3
   resolution: "@embroider/test-setup@npm:3.0.3"
   dependencies:
@@ -3595,7 +3595,7 @@ __metadata:
     "@ember/optional-features": "npm:^2.0.0"
     "@embroider/addon-dev": "npm:^4.2.1"
     "@embroider/addon-shim": "npm:^1.8.7"
-    "@embroider/test-setup": "npm:^3.0.2"
+    "@embroider/test-setup": "npm:^3.0.3"
     "@glimmer/component": "npm:^1.1.2"
     "@glimmer/tracking": "npm:^1.1.2"
     "@hashicorp/flight-icons": "npm:^3.0.0"
