@@ -40,9 +40,7 @@ module(
         </Hds::DialogPrimitive::Description>
       `
       );
-      assert
-        .dom('.hds-dialog-primitive__description')
-        .hasText('Description');
+      assert.dom('.hds-dialog-primitive__description').hasText('Description');
     });
   }
 );
