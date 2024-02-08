@@ -101,6 +101,7 @@
     $bottom: var(--token-tabs-tab-focus-inset),
     $left: var(--token-tabs-tab-focus-inset),
   );
+  font-weight: var(--token-typography-font-weight-medium);
   position: static;
   display: flex;
   gap: var(--token-tabs-tab-gutter);
