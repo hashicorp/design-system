@@ -1,11 +1,63 @@
-The Helios Table [selection components](/components/table#multi-select) support the selection of one or more results within a Table (multi-select), thus adding support for performing bulk actions and edits on multiple results simultaneously. While we don’t publish a specific component to support this functionality, it can be accomplished by composing multiple Helios components together into a Selection pattern.
+The Helios Table [selection components](/components/table#multi-select) support the selection of one or more results within a Table and thus support performing bulk actions and edits on multiple results simultaneously.
 
-This type of functionality can assist the user in editing the same parameter across multiple results or creating more specific, customized views within a Table.
+Multi-selection aids the user in editing the same parameter across multiple results or creating more specific, customized views within a Table.
 
 !!! Info
 
-These guidelines are intended to be used as a starting point for a multi-select pattern, but do not cover all scenarios. For more complex data sets and Table instances work to maintain the same level of communication to the user, but using the exact pattern structure and components may not be feasible.
+We don’t publish a specific component to support this functionality, instead these guidelines are intended to outline the requirements and recommendations to compose a Selection pattern using HDS components.
 !!!
 
-## Layout
+These guidelines are should serve as a starting point for a multi-select pattern, but do not cover all scenarios. If straying from the pattern in more complex scenarios, try to leverage the same core concepts and communication methods.
+
+## Selection pattern
+
+A Selection pattern is composed of multiple HDS components and foundational styles and consists of a number of functional and communication-oriented aspects.
+
+### Selected count
+
+Communicate how many rows or results have been selected in the _entire_ data set with a numerical selected count. This includes rows that are outside of the current view in the Table (e.g., in a different page if using Pagination), and should be represented using a numerical value.
+
+This count should persist when:
+
+- navigating between pages of a paginated Table
+- if the Table is sorted by a different parameter
+- depending on the implementation, if the restuls are filtered to include or exclude specific parameters (more details on this topic in the [interaction](/patterns/multi-selection?tab=interaction) guidelines).
+
+Pair this with a **message** to clearly communicate that a selection has been made. This can be a simple generic message stating "{number in current selection} selected", or can be more specific by referencing the type of object in the data set (e.g., a user, cluster, workspace, etc).
+
+<!--Insert image here with generic vs specific message-->
+
+### Total count
+
+If feasible or technically possible, communicate the selected count contrasted with the total number of results in the Table. This can give the user a better overall snapshop of what they have selected, and that Selected count refers to items that may not be included in their current page.
+
+<!--Insert an image withoptions for total count-->
+
+!!! Info
+
+Depending on how the data within a Table is fetched or if [cursor-based pagination](/components/pagination#numbered-vs-compact) is used, it may not be possible to get the total number of results in a data set.
+!!!
+
+### Bulk actions
+
+The act of selecting multiple results in a Table implies that the the user wants to edit, remove, or transform these results in some way. Consolidate these actions in a [List](/components/dropdown#list) triggered by a small [Dropdown](/components/dropdown) inline with the selected count, message, and total count.
+
+<!--Insert image here with bulk actions example-->
+
+### Bulk selection
+
+Handle Selection within the entire data set or Table but consolidating bulk selection actions in Dropdown along with bulk actions to transform the data set. While the HDS team is not prescriptive of what these selection options are, some common examples include:
+
+- **Select all:** select all of the restuls in a data set.
+- **Deselect all/reset selection:** take the current selected items and deselect them.
+- **Select inverse:** deselect the currently selected items, select the currently deselected items.
+- **Select odd/select even:** only select odd or even-numbered results; determined by the current sorting mechanism.
+
+## Usage in context
+
+### Basic table
+
+### With filter patterns
+
+### Complex examples
 

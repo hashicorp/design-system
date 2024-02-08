@@ -11,9 +11,4 @@
 | Bulk actions | Optional; consolidates multiple bulk actions into a single element. |
 | Bulk selection | Optional; consolidates multiple selection functions into a single element. |
 
-## Layout
-
-Place the Selection above the Table, aligned to the right (end).
-
-<!--Put an image in here-->
 
