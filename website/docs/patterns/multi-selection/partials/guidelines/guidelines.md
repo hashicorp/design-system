@@ -25,13 +25,13 @@ This count should persist when:
 
 Pair this with a **message** to clearly communicate that a selection has been made. This can be a simple generic message stating "{number in current selection} selected", or can be more specific by referencing the type of object in the data set (e.g., a user, cluster, workspace, etc).
 
-<!--Insert image here with generic vs specific message-->
+![Generic and specific messaging](/assets/patterns/multi-selection/types-of-messages.png)
 
 ### Total count
 
 If feasible or technically possible, communicate the selected count contrasted with the total number of results in the Table. This can give the user a better overall snapshop of what they have selected, and that Selected count refers to items that may not be included in their current page.
 
-<!--Insert an image withoptions for total count-->
+![Total count of items and count of selected items](/assets/patterns/multi-selection/total-count-selected-count.png)
 
 !!! Info
 
@@ -40,9 +40,13 @@ Depending on how the data within a Table is fetched or if [cursor-based paginati
 
 ### Bulk actions
 
-The act of selecting multiple results in a Table implies that the the user wants to edit, remove, or transform these results in some way. Consolidate these actions in a [List](/components/dropdown#list) triggered by a small [Dropdown](/components/dropdown) inline with the selected count, message, and total count.
+The act of selecting multiple results in a Table implies that the the user wants to edit, remove, or transform these results in some way. Consolidate these actions in a [List](/components/dropdown#list) triggered by a `small` [Dropdown](/components/dropdown) inline with the selected count, message, and total count.
 
-<!--Insert image here with bulk actions example-->
+![Example of bulk actions](/assets/patterns/multi-selection/bulk-actions.png)
+
+When working with more simple data sets or instances of a Table when only a single action might be necessary (e.g., bulk deleting a selection), use a small [Button](/components/button) in place of the Dropdown. We recommend limited Button use in this scenario to only `secondary` or `critical` depending on the intent of the action.
+
+![Example of a single action](/assets/patterns/multi-selection/single-action.png)
 
 ### Bulk selection
 
@@ -52,6 +56,8 @@ Handle Selection within the entire data set or Table but consolidating bulk sele
 - **Deselect all/reset selection:** take the current selected items and deselect them.
 - **Select inverse:** deselect the currently selected items, select the currently deselected items.
 - **Select odd/select even:** only select odd or even-numbered results; determined by the current sorting mechanism.
+
+![Example of bulk selection](/assets/patterns/multi-selection/bulk-selection.png)
 
 ## Usage in context
 
