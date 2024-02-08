@@ -156,7 +156,7 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     await click('button#test-toggle-button');
     assert.dom('#test-dropdown ul').doesNotHaveAttribute('role');
   });
-  test('it should render a list of items with a `listbox` role if selectable items are passed in', async function (assert) {
+  test('it should render a list of items with a `listbox` role, refering an existing `id` via `aria-labelledby` if selectable items are passed in', async function (assert) {
     await render(hbs`
       <Hds::Dropdown id="test-dropdown" as |dd|>
         <dd.ToggleButton @text="toggle button" id="test-toggle-button" />
@@ -165,5 +165,21 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     `);
     await click('button#test-toggle-button');
     assert.dom('#test-dropdown ul').hasAttribute('role', 'listbox');
+    assert
+      .dom('#test-dropdown ul')
+      .hasAttribute('aria-labelledby', 'test-toggle-button');
+  });
+  test('it should render a list of items with a `listbox` role, refering an generated `id` via `aria-labelledby` if selectable items are passed in', async function (assert) {
+    await render(hbs`
+      <Hds::Dropdown id="test-dropdown" as |dd|>
+        <dd.ToggleButton @text="toggle button" />
+        <dd.Checkmark>Checkmark</dd.Checkmark>
+      </Hds::Dropdown>
+    `);
+    const button = this.element.querySelector('.hds-dropdown-toggle-button');
+    const buttonId = button.id;
+    await click('button.hds-dropdown-toggle-button');
+    assert.dom('#test-dropdown ul').hasAttribute('role', 'listbox');
+    assert.dom('#test-dropdown ul').hasAttribute('aria-labelledby', buttonId);
   });
 });
