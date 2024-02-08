@@ -2,13 +2,25 @@
     "tabs": {
         "tab": {
             "height": {
-                "value": "36",
-                "type": "size"
+                "medium": {
+                    "value": "36",
+                    "type": "size"
+                },
+                "large": {
+                    "value": "48",
+                    "type": "size"
+                }
             },
             "padding": {
                 "horizontal": {
-                    "value": "12",
-                    "type": "size"
+                    "medium": {
+                        "value": "12",
+                        "type": "size"
+                    },
+                    "large": {
+                        "value": "20",
+                        "type": "size"
+                    }
                 },
                 "vertical": {
                     "value": "0",
