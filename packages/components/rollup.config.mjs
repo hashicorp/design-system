@@ -78,4 +78,7 @@ export default {
     'ember-modifier',
     'prismjs',
   ],
+  watch: {
+    include: 'src/**',
+  },
 };
