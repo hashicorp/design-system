@@ -6,7 +6,7 @@
 
 `Alert` and `Toast` - Updated the `StandaloneLink` to the secondary variant from the primary variant to align with our documented usage recommendations.
 
-_Updating the `StandaloneLink` to the secondary variant will revert any changes you've made to the text and leading icon properties._
+_Updating the `StandaloneLink` to the secondary variant will revert any changes you've made to the text and leading icon properties. Prior to updating the library we recommend annotating (with a comment or otherwise) work that is in progress or is still being referenced by engineering with the intended text and icon variant._
 
 `Table` - multiple enhancements to the `Table` components including:
 
@@ -14,7 +14,7 @@ _Updating the `StandaloneLink` to the secondary variant will revert any changes 
 - Added support for a `Tooltip` in the `Header Column` component.
 - Updated the visual language of the sort button in `Header Column` by decoupling the sort functionality into a nested `Sort Button`
 
-_Adding support for a `Tooltip` and updates to the `Sort Button` result in a breaking change in sortable variants._
+_Adding support for a `Tooltip` and updates to the `Sort Button` result in a breaking change in sortable variants. While the `Label` in the `Header Column` should persist, we recommend annotating (with a comment or otherwise) work that is in-progress or still being referenced by engineering with the columns that are intended to be sortable._
 
 ## January 24th, 2024
 
