@@ -195,6 +195,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
         </:header>
         <:body as |B|>
           <span id="test-side-nav-body" data-test-minimized={{B.isMinimized}} />
+          <span class="hds-side-nav-hide-when-minimized" />
         </:body>
         <:footer as |F|>
           <span id="test-side-nav-footer" data-test-minimized={{F.isMinimized}} />
@@ -217,6 +218,9 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
     assert
       .dom('#test-side-nav-footer')
       .doesNotHaveAttribute('data-test-minimized');
+    assert
+      .dom('.hds-side-nav-hide-when-minimized')
+      .doesNotHaveAttribute('inert');
 
     await click('.hds-side-nav__toggle-button');
 
@@ -230,6 +234,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
     assert.dom('#test-side-nav-header').hasAttribute('data-test-minimized');
     assert.dom('#test-side-nav-body').hasAttribute('data-test-minimized');
     assert.dom('#test-side-nav-footer').hasAttribute('data-test-minimized');
+    assert.dom('.hds-side-nav-hide-when-minimized').hasAttribute('inert');
   });
 
   // CALLBACKS

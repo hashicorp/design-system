@@ -111,11 +111,26 @@ export default class HdsSideNavComponent extends Component {
   toggleMinimizedStatus() {
     this.isMinimized = !this.isMinimized;
 
+    this.containersToHide.forEach((element) => {
+      if (this.isMinimized) {
+        element.setAttribute('inert', '');
+      } else {
+        element.removeAttribute('inert');
+      }
+    });
+
     let { onToggleMinimizedStatus } = this.args;
 
     if (typeof onToggleMinimizedStatus === 'function') {
       onToggleMinimizedStatus(this.isMinimized);
     }
+  }
+
+  @action
+  didInsert(element) {
+    this.containersToHide = element.querySelectorAll(
+      '.hds-side-nav-hide-when-minimized'
+    );
   }
 
   @action
