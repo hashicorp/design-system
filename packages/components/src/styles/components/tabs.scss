@@ -79,6 +79,7 @@ $hds-tabs-sizes: ( "medium", "large" );
   padding: 0;
   color: inherit;
   font-weight: var(--token-typography-font-weight-medium);
+  font-family: var(--token-typography-body-200-font-family);
   background-color: transparent;
   border: none;
   border-radius: var(--token-tabs-tab-border-radius);
