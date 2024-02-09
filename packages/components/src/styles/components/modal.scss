@@ -8,21 +8,18 @@
 //
 
 .hds-modal {
-  all: revert; // this must be first
+  position: fixed;
   z-index: 50;
-  box-sizing: inherit;
+  height: fit-content;
+  margin: auto;
   padding: 0;
   background: var(--token-color-surface-primary);
   border: none;
   border-radius: 8px;
   box-shadow: var(--token-surface-overlay-box-shadow);
-  
-  &:not([open]) {
-    display: none;
-  }
+  inset: 0;
 
   &[open] {
-    position: fixed;
     display: flex;
   }
 
@@ -61,13 +58,10 @@
 // Note ".hds-modal--color-neutral" uses default color and background-color styles from the dialog-primitive
 
 .hds-modal--color-warning {
-  .hds-modal__header {
+  .hds-dialog-primitive__wrapper-header {
     color: var(--token-color-foreground-warning-on-surface);
     background: var(--token-color-surface-warning);
-  }
-
-  .hds-modal__body {
-    border-top: 1px solid var(--token-color-border-warning);
+    border-bottom: 1px solid var(--token-color-border-warning);
   }
 
   .hds-dialog-primitive__tagline {
@@ -76,13 +70,10 @@
 }
 
 .hds-modal--color-critical {
-  .hds-modal__header {
+  .hds-dialog-primitive__wrapper-header {
     color: var(--token-color-foreground-critical-on-surface);
     background: var(--token-color-surface-critical);
-  }
-
-  .hds-modal__body {
-    border-top: 1px solid var(--token-color-border-critical);
+    border-bottom: 1px solid var(--token-color-border-critical);
   }
 
   .hds-dialog-primitive__tagline {

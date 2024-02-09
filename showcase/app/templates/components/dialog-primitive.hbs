@@ -16,7 +16,7 @@
   <Shw::Flex {{style gap="2rem"}} as |SF|>
     <SF.Item @label="Header + Body + Footer">
       <div class="shw-component-dialog-primitive-base-container">
-        <Hds::DialogPrimitive>
+        <Hds::DialogPrimitive open>
           <:header>
             <Shw::Placeholder @text="header" @height="60px" />
           </:header>
@@ -31,7 +31,7 @@
     </SF.Item>
     <SF.Item @label="Header + Body (scrollable) + Footer">
       <div class="shw-component-dialog-primitive-base-container">
-        <Hds::DialogPrimitive>
+        <Hds::DialogPrimitive open>
           <:header>
             <Shw::Placeholder @height="60px" @text="header" />
           </:header>
@@ -53,7 +53,7 @@
   <Shw::Flex {{style gap="2rem"}} as |SF|>
     <SF.Item @label="Header + Description + Body + Footer">
       <div class="shw-component-dialog-primitive-base-container">
-        <Hds::DialogPrimitive>
+        <Hds::DialogPrimitive open>
           <:header>
             <Hds::DialogPrimitive::Header @icon="info" @tagline="Tagline">Title</Hds::DialogPrimitive::Header>
             <Hds::DialogPrimitive::Description>Description</Hds::DialogPrimitive::Description>
@@ -84,35 +84,47 @@
 
 <section class="shw-component-dialog-primitive-base-elements-section" data-test-percy>
 
-  <Shw::Text::H2>DialogPrimitive:Header</Shw::Text::H2>
+  <Shw::Text::H2>DialogPrimitive::Header</Shw::Text::H2>
 
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="title only">
-      <Hds::DialogPrimitive::Header>
-        Title
-      </Hds::DialogPrimitive::Header>
+      <div class="hds-dialog-primitive__wrapper-header">
+        <Hds::DialogPrimitive::Header>
+          Title
+        </Hds::DialogPrimitive::Header>
+      </div>
     </SF.Item>
     <SF.Item @label="with icon">
-      <Hds::DialogPrimitive::Header @icon="info" @onDismiss={{this.onDismiss}}>
-        Title
-      </Hds::DialogPrimitive::Header>
+      <div class="hds-dialog-primitive__wrapper-header">
+        <Hds::DialogPrimitive::Header @icon="info" @onDismiss={{this.onDismiss}}>
+          Title
+        </Hds::DialogPrimitive::Header>
+      </div>
     </SF.Item>
     <SF.Item @label="with tagline">
-      <Hds::DialogPrimitive::Header @tagline="Tagline" @onDismiss={{this.onDismiss}}>
-        Title
-      </Hds::DialogPrimitive::Header>
+      <div class="hds-dialog-primitive__wrapper-header">
+        <Hds::DialogPrimitive::Header @tagline="Tagline" @onDismiss={{this.onDismiss}}>
+          Title
+        </Hds::DialogPrimitive::Header>
+      </div>
     </SF.Item>
     <SF.Item @label="with tagline and icon">
-      <Hds::DialogPrimitive::Header @icon="info" @tagline="Tagline" @onDismiss={{this.onDismiss}}>
-        Title
-      </Hds::DialogPrimitive::Header>
+      <div class="hds-dialog-primitive__wrapper-header">
+        <Hds::DialogPrimitive::Header @icon="info" @tagline="Tagline" @onDismiss={{this.onDismiss}}>
+          Title
+        </Hds::DialogPrimitive::Header>
+      </div>
     </SF.Item>
     <SF.Item @label="with very long content">
-      <Hds::DialogPrimitive::Header
-        @icon="info"
-        @tagline="Tagline with very, very long content that spans multiple lines to test this element, very, very long content that spans multiple lines to test this element, very, very long content that spans multiple lines to test this element"
-      >Title with very, very long content that spans multiple lines to test this element, very, very long content that
-        spans multiple lines to test this element</Hds::DialogPrimitive::Header>
+      <div class="hds-dialog-primitive__wrapper-header">
+        <Hds::DialogPrimitive::Header
+          @icon="info"
+          @tagline="Tagline with very, very long content that spans multiple lines to test this element, very, very long content that spans multiple lines to test this element, very, very long content that spans multiple lines to test this element"
+        >
+          Title with very, very long content that spans multiple lines to test this element, very, very long content that
+          spans multiple lines to test this element
+          </Hds::DialogPrimitive::Header>
+        </div>
     </SF.Item>
   </Shw::Flex>
 
