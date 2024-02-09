@@ -10,8 +10,8 @@
 
 // MAIN CONTAINER (<dialog>)
 
-// :where reduces the specificity of the selector
-// & can be used to set “loose” defaults which can be easily overridden
+// Since the `:where()` selector has a specificity of `0` (see https://developer.mozilla.org/en-US/docs/Web/CSS/:where)
+// the styles declared below are applied to the `.hds-dialog-primitive` element, but are overwritten by any other style applied via classname
 :where(.hds-dialog-primitive) {
   all: unset; // removes default dialog & inherited styles. Must be the first style to be applied
   // unsetting all the styles causes it to not inherit the box-sizing from the parent
