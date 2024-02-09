@@ -102,7 +102,6 @@
 
 .hds-dialog-primitive__body {
   padding: 24px;
-  border-top: 1px solid var(--token-color-border-primary);
 }
 
 
@@ -111,7 +110,6 @@
 .hds-dialog-primitive__footer {
   padding: 16px 24px;
   background: var(--token-color-surface-faint);
-  border-top: 1px solid var(--token-color-border-primary);
   border-radius: inherit;
 
   // Tertiary buttons must always be placed/aligned at the end of the row
