@@ -128,7 +128,7 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Divider @level={{2}} />
+  <Shw::Divider />
 
   <Shw::Text::H2>DialogPrimitive:Description</Shw::Text::H2>
 
@@ -148,7 +148,7 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Divider @level={{2}} />
+  <Shw::Divider />
 
   <Shw::Text::H2>DialogPrimitive:Body</Shw::Text::H2>
 
@@ -171,7 +171,7 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Divider @level={{2}} />
+  <Shw::Divider />
 
   <Shw::Text::H2>DialogPrimitive:Footer</Shw::Text::H2>
 
@@ -202,6 +202,18 @@
       <Hds::DialogPrimitive::Footer>
         <Shw::Placeholder @text="some generic content" @height="50" />
       </Hds::DialogPrimitive::Footer>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>DialogPrimitive:Overlay</Shw::Text::H2>
+
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="Overlay element">
+      <div class="shw-component-dialog-primitive-overlay-container">
+        <Hds::DialogPrimitive::Overlay />
+      </div>
     </SF.Item>
   </Shw::Flex>
 
