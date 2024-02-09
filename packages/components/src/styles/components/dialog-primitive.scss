@@ -67,7 +67,7 @@
   gap: 16px;
   align-items: flex-start;
   padding: 16px 24px;
-  color: var(--token-color-foreground-strong); // default color
+  color: var(--token-color-foreground-strong); // default color (applied to both the title and the icon)
   border-radius: inherit;
 }
 
