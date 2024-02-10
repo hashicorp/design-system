@@ -11,4 +11,13 @@
 | Bulk actions | Optional; consolidates multiple bulk actions into a single element. |
 | Bulk selection | Optional; consolidates multiple selection functions into a single element. |
 
+## Layout
+
+In a basic example of a Table, place the selection pattern above the top-right corner of the Table with a 16px gap in between.
+
+<!-- Insert image of this here -->
+
+### Layout with a filter pattern
+
+When composing selection with a Table and a Filter pattern, maintain the same placement and layout
 

@@ -63,6 +63,8 @@ Handle Selection within the entire data set or Table but consolidating bulk sele
 
 ### Basic table
 
+![A basic multi-select example in context](/assets/patterns/multi-selection/multi-select-in-context-basic.png)
+
 ### With filter patterns
 
 ### Complex examples
