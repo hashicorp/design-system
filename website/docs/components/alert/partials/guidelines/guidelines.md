@@ -247,6 +247,8 @@ While not recommended for `page` type Alerts, it may be necessary to have more t
 This method should be **rare and infrequent**, and should only be used if the number of Alerts of the same type exceeds two. Instead, effort should be put into placing Alerts that matter most to the user and in ways that make them easy to resolve.
 !!!
 
+This pattern is somewhat experimental, if you find a use case for it we recommend performing a usability test and collecting user feedback as a means to validate the pattern. The HDS team would love to discuss your findings through our normal [support channels](/about/support).
+
 ![Multiple alerts when a Reveal is closed](/assets/components/alert/alerts-within-reveal-closed.png)
 
 ![Multiple alerts when a Reveal is open](/assets/components/alert/alerts-within-reveal-open.png)
