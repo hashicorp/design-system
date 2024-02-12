@@ -14,18 +14,18 @@
     {{yield
       (hash
         Header=(component
-          "hds/dialog-primitive/header" id=this.id onDismiss=this.onDismiss extraClass="hds-flyout__header"
+          "hds/dialog-primitive/header" id=this.id onDismiss=this.onDismiss contextualClass="hds-flyout__header"
         )
-        Description=(component "hds/dialog-primitive/description" extraClass="hds-flyout__description")
+        Description=(component "hds/dialog-primitive/description" contextualClass="hds-flyout__description")
       )
     }}
   </:header>
   <:body>
-    {{yield (hash Body=(component "hds/dialog-primitive/body" extraClass="hds-flyout__body"))}}
+    {{yield (hash Body=(component "hds/dialog-primitive/body" contextualClass="hds-flyout__body"))}}
   </:body>
   <:footer>
     {{yield
-      (hash Footer=(component "hds/dialog-primitive/footer" onDismiss=this.onDismiss extraClass="hds-flyout__footer"))
+      (hash Footer=(component "hds/dialog-primitive/footer" onDismiss=this.onDismiss contextualClass="hds-flyout__footer"))
     }}
   </:footer>
 </Hds::DialogPrimitive::Wrapper>
