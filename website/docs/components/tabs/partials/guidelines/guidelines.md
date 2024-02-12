@@ -49,7 +49,7 @@ Don’t trigger a Tab change via an external action, such as a submit or next bu
 
 ## Sizes
 
-Medium-sized tabs work best in most contexts. Large tabs can be used to emphasize important sections, enhance clarity, and convey hierarchical distinction. 
+Medium tabs are the default and work best in most contexts. Large tabs can be used to emphasize important sections, enhance clarity, and convey hierarchical distinction. 
 
 ![Tabs sizes example](/assets/components/tabs/tab-size.png)
 
