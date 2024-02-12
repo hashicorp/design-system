@@ -52,7 +52,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     await render(
       hbs`<Hds::Modal @size="small" @color="warning" id="test-modal" as |M|><M.Header>Title</M.Header></Hds::Modal>`
     );
-    assert.dom('.hds-modal__overlay').isVisible();
+    assert.dom('.hds-dialog-primitive__overlay').isVisible();
   });
 
   // CONTEXTUAL COMPONENTS

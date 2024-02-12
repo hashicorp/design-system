@@ -50,7 +50,7 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
     await render(
       hbs`<Hds::Flyout id="test-flyout" as |F|><F.Header>Title</F.Header></Hds::Flyout>`
     );
-    assert.dom('.hds-flyout__overlay').isVisible();
+    assert.dom('.hds-dialog-primitive__overlay').isVisible();
   });
 
   // CONTEXTUAL COMPONENTS
