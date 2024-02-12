@@ -2,7 +2,7 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<Hds::DialogPrimitive
+<Hds::DialogPrimitive::Wrapper
   class={{this.classNames}}
   ...attributes
   aria-labelledby={{this.id}}
@@ -28,7 +28,7 @@
       (hash Footer=(component "hds/dialog-primitive/footer" onDismiss=this.onDismiss extraClass="hds-flyout__footer"))
     }}
   </:footer>
-</Hds::DialogPrimitive>
+</Hds::DialogPrimitive::Wrapper>
 
 {{#if this.isOpen}}
   <Hds::DialogPrimitive::Overlay />

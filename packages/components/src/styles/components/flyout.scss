@@ -17,15 +17,17 @@
   position: fixed;
   z-index: 49; // modal component is 50; we want to make sure the flyout always stays below the modal, regardless of DOM order
   inset: 0;
-  flex-direction: column;
   height: 100vh;
   max-height: 100vh;
-  margin: 0;
-  padding: 0;
   box-shadow: 0 2px 3px 0 #3b3d4540, 0 12px 24px 0 #3b3d4559; // TODO: convert to token
 
+  // the `<dialog>` element uses a special "open" attribute to determine its visibility status
+  &:not([open]) {
+    display: none;
+  }
+
   // we hide the native `::backdrop` pseudo-element in favor of using
-  // an `hds-flyout__overlay` element to detect click events with more ease
+  // a custom `overlay` element to detect click events with more ease
   &::backdrop {
     display: none;
   }
