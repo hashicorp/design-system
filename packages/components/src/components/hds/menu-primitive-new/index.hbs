@@ -1,0 +1,22 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+{{! template-lint-disable no-invalid-interactive }}
+<div
+  class="hds-menu-primitive hds-menu-primitive--NEW"
+  ...attributes
+  {{did-insert this.didInsert}}
+  {{on "focusout" this.onFocusOut}}
+  {{on "keyup" this.onKeyUp}}
+>
+  <div class="hds-menu-primitive__toggle" tabindex="-1">
+    {{yield (hash onClickToggle=this.onClickToggle isOpen=this.isOpen) to="toggle"}}
+  </div>
+  {{#if this.isOpen}}
+    <div class="hds-menu-primitive__content" tabindex="-1">
+      {{yield (hash close=this.close) to="content"}}
+    </div>
+  {{/if}}
+</div>
+{{! template-lint-enable no-invalid-interactive }}
