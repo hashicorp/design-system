@@ -4,7 +4,7 @@ description: A form element that allows users to select one or more items from a
 caption: A form element that allows users to select one or more items from a group of items.
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=9120%3A23132&t=pDgL7LJUJXZUN7Xq-3
-  github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/form/checkbox
+  github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/form/checkbox
 related: ['components/form/toggle','components/form/radio','components/form/select']
 previewImage: assets/illustrations/components/form/checkbox.jpg
 navigation:

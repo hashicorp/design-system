@@ -4,7 +4,7 @@ description: An accordion is a vertically stacked list of container-like toggles
 caption: A list of toggles that reveal or hide associated content.
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=36870-71032&mode=design&t=72WLExKItFWAX1jX-4
-  github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/accordion
+  github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/accordion
 related: ['components/reveal','components/flyout','components/modal','components/tabs']
 previewImage: assets/illustrations/components/accordion.jpg
 navigation:

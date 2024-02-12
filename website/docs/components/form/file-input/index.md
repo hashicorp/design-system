@@ -4,7 +4,7 @@ description: A form input that enables users to select one or more files from th
 caption: A form input that enables users to upload files.
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=41671-85932&mode=design&t=72WLExKItFWAX1jX-4
-  github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/form/file-input
+  github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/form/file-input
 previewImage: assets/illustrations/components/form/file-input.jpg
 navigation:
   keywords: ['file', 'upload', 'input', 'form']

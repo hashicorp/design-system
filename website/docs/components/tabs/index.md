@@ -4,7 +4,7 @@ description: Allows users to move among different views within the same context 
 caption: Allows users to move among different views within the same context.
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=16384%3A46484&t=XC8SUxxJOFHgqYzK-1
-  github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/tabs
+  github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/tabs
 related: ['components/accordion','components/breadcrumb','components/side-nav']
 previewImage: assets/illustrations/components/tabs.jpg
 navigation:

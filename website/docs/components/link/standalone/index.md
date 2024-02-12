@@ -4,7 +4,7 @@ description: A link used in isolation and not as a part of surrounding body text
 caption: A link used in isolation and not as a part of surrounding body text.
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=2365%3A21590&t=XC8SUxxJOFHgqYzK-1
-  github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/link
+  github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/link
 related: ['components/link/inline','components/button']
 previewImage: assets/illustrations/components/link/standalone.jpg
 navigation:

@@ -4,7 +4,7 @@ description: Used to display messages that are the result of a user’s actions.
 caption: Used to display messages that are the result of a user’s actions.
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=7636%3A30467&t=XC8SUxxJOFHgqYzK-1
-  github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/toast
+  github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/toast
 related: ['components/alert']
 previewImage: assets/illustrations/components/toast.jpg
 navigation:

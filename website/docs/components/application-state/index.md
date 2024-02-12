@@ -4,7 +4,7 @@ description: An informational element that displays the current state of the app
 caption: An informational element that displays the current state of the application.
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=31113-50004
-  github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/application-state
+  github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/application-state
 previewImage: assets/illustrations/components/application-state.jpg
 navigation:
   keywords: ['empty state', 'error state', 'message']
