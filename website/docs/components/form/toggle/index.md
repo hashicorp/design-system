@@ -4,7 +4,7 @@ description: A form element that allows users to select between two mutually exc
 caption: A form element that allows users to select between two mutually exclusive states.
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=13181%3A36435&t=pDgL7LJUJXZUN7Xq-3
-  github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/form/toggle
+  github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/form/toggle
 related: ['components/form/checkbox', 'components/form/radio']
 previewImage: assets/illustrations/components/form/toggle.jpg
 navigation:

@@ -4,7 +4,7 @@ description: A toggle that reveals additional information or details about an el
 caption: A toggle that reveals additional content to the user when triggered.
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=35103%3A70091&t=PdXIqxQkqpsXUQki-1
-  github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/reveal
+  github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/reveal
 related: ['components/flyout','components/accordion','components/tooltip']
 previewImage: assets/illustrations/components/reveal.jpg
 navigation:
