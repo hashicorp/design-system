@@ -1,7 +1,7 @@
 ---
-title: Multi-selection
-description: Guidelines and recommendations for multi-selection in a table and filtering pattern.
-caption: Guidelines and recommendations for multi-selection in a table and filtering pattern.
+title: Multi-select patterns
+description: Guidelines, recommendations, and interaction patterns for selecting and transforming results in a Table.
+caption: Guidelines, recommendations, and interaction patterns for selecting and transforming results in a Table.
 related: ['components/table', 'patterns/filter-patterns']
 previewImage: assets/illustrations/patterns/multi-selection.jpg
 navigation:
