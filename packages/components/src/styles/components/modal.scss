@@ -47,11 +47,11 @@
 
 .hds-modal--color-warning {
   .hds-dialog-primitive__wrapper-header {
-    color: var(--token-color-foreground-warning-on-surface);
     background: var(--token-color-surface-warning);
     border-bottom: 1px solid var(--token-color-border-warning);
   }
 
+  .hds-dialog-primitive__header,
   .hds-dialog-primitive__tagline {
     color: var(--token-color-foreground-warning-on-surface);
   }
@@ -59,11 +59,11 @@
 
 .hds-modal--color-critical {
   .hds-dialog-primitive__wrapper-header {
-    color: var(--token-color-foreground-critical-on-surface);
     background: var(--token-color-surface-critical);
     border-bottom: 1px solid var(--token-color-border-critical);
   }
 
+  .hds-dialog-primitive__header,
   .hds-dialog-primitive__tagline {
     color: var(--token-color-foreground-critical-on-surface);
   }
