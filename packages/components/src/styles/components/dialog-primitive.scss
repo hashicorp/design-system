@@ -17,6 +17,10 @@
   // unsetting all the styles causes it to not inherit the box-sizing from the parent
   box-sizing: border-box;
 
+  &[open] {
+    display: flex;
+  }
+
   &:not([open]) {
     display: none;
   }
