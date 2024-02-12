@@ -17,8 +17,8 @@ project {
     # SVG icons packed as `tsx` files
     "packages/flight-icons/svg-react/*",
     # Handlebars components sensitive to white-space
-    "packages/components/addon/components/hds/interactive/*.hbs",
-    "packages/components/addon/components/hds/link/*.hbs",
+    "packages/components/src/components/hds/interactive/*.hbs",
+    "packages/components/src/components/hds/link/*.hbs",
     # Reworked from `field-guide` and `broccoli-static-site-json`
     "website/app/components/dynamic-template-error.hbs",
     "website/app/components/dynamic-template-error.js",
