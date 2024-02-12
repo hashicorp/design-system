@@ -17,18 +17,18 @@ import {
 
 export default class HdsFloatElementModifier extends Modifier {
   didSetup = false;
-  isDialogOpen = false;
-  isDialogForcedOpen = false;
+  // isDialogOpen = false;
+  // isDialogForcedOpen = false;
 
   modify(
-    // the element that acts as an "anchor" for the "floating" element (whose position is calculated in relation to the anchor)
-    // notice: this is the element the Ember modifier is attached to
-    anchorElement,
     // the element that "floats" next to the anchor
+    // notice: this is the element the Ember modifier is attached to
+    floatingElement,
+    // the element that acts as an "anchor" for the "floating" element (whose position is calculated in relation to the anchor)
     // notice: it's expressed as argument for modifier and it can be a DOM node direclty, or a string (CSS selector, will be converted below to an actual DOM node)
-    // positional arguments of the modifier
-    [_floatingTarget],
-    // named arguments of the modifier
+    // (positional arguments of the modifier)
+    [_anchorTarget],
+    // (named arguments of the modifier)
     {
       strategy = 'absolute', // if we use `fixed` then the overscroll of the body makes the dialog look weird when the page is overscrolled
       offsetOptions = 4,
@@ -38,10 +38,10 @@ export default class HdsFloatElementModifier extends Modifier {
       middleware = [],
     }
   ) {
-    const floatingElement =
-      typeof _floatingTarget === 'string'
-        ? document.querySelector(_floatingTarget)
-        : _floatingTarget;
+    const anchorElement =
+      typeof _anchorTarget === 'string'
+        ? document.querySelector(_anchorTarget)
+        : _anchorTarget;
 
     assert(
       '`hds-float-element` modifier - no anchoring element defined',
@@ -75,7 +75,7 @@ export default class HdsFloatElementModifier extends Modifier {
     });
 
     if (!this.didSetup) {
-      this.#addEventsToAnchorElement();
+      // this.#addEventsToAnchorElement();
       this.didSetup = true;
     }
 
@@ -114,16 +114,16 @@ export default class HdsFloatElementModifier extends Modifier {
     registerDestructor(this, cleanup);
   }
 
-  #addEventsToAnchorElement() {
-    this.anchor.addEventListener(
-      'click',
-      this.#toggleForcedShowDialog.bind(this)
-    );
-    this.anchor.addEventListener('focus', this.#showDialog.bind(this));
-    this.anchor.addEventListener('mouseenter', this.#showDialog.bind(this));
-    this.anchor.addEventListener('blur', this.#hideDialog.bind(this));
-    this.anchor.addEventListener('mouseleave', this.#hideDialog.bind(this));
-  }
+  // #addEventsToAnchorElement() {
+  //   this.anchor.addEventListener(
+  //     'click',
+  //     this.#toggleForcedShowDialog.bind(this)
+  //   );
+  //   this.anchor.addEventListener('focus', this.#showDialog.bind(this));
+  //   this.anchor.addEventListener('mouseenter', this.#showDialog.bind(this));
+  //   this.anchor.addEventListener('blur', this.#hideDialog.bind(this));
+  //   this.anchor.addEventListener('mouseleave', this.#hideDialog.bind(this));
+  // }
 
   // because of how the modifier is implemented (and there's no alternative) the element may be already destroyed
   // when this function is invoked if we use a `registerDestructor`
@@ -141,34 +141,34 @@ export default class HdsFloatElementModifier extends Modifier {
   //   this.anchor.removeEventListener('mouseleave', this.#hideDialog.bind(this));
   // }
 
-  #setOpenStatus() {
-    if (this.isDialogForcedOpen || this.isDialogOpen) {
-      this.floating.setAttribute('open', true);
-    } else {
-      this.floating.removeAttribute('open');
-    }
-  }
+  // #setOpenStatus() {
+  //   if (this.isDialogForcedOpen || this.isDialogOpen) {
+  //     this.floating.setAttribute('open', true);
+  //   } else {
+  //     this.floating.removeAttribute('open');
+  //   }
+  // }
 
-  #showDialog() {
-    this.isDialogOpen = true;
-    this.#setOpenStatus();
-  }
+  // #showDialog() {
+  //   this.isDialogOpen = true;
+  //   this.#setOpenStatus();
+  // }
 
-  #hideDialog() {
-    this.isDialogOpen = false;
-    this.#setOpenStatus();
-  }
+  // #hideDialog() {
+  //   this.isDialogOpen = false;
+  //   this.#setOpenStatus();
+  // }
 
-  #toggleForcedShowDialog(event) {
-    event.preventDefault();
-    if (this.isDialogForcedOpen) {
-      this.isDialogForcedOpen = false;
-      this.isDialogOpen = false;
-    } else {
-      this.isDialogForcedOpen = true;
-    }
-    this.#setOpenStatus();
-  }
+  // #toggleForcedShowDialog(event) {
+  //   event.preventDefault();
+  //   if (this.isDialogForcedOpen) {
+  //     this.isDialogForcedOpen = false;
+  //     this.isDialogOpen = false;
+  //   } else {
+  //     this.isDialogForcedOpen = true;
+  //   }
+  //   this.#setOpenStatus();
+  // }
 
   // In case we want to change the behaviour and have only the "click" even to open the dialog we may want to add a handler for click outside.
   // see https://github.com/hashicorp/cloud-ui/blob/main/addons/core/addon/components/menu/index.js#L60-L66

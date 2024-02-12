@@ -7,10 +7,22 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { schedule } from '@ember/runloop';
+import { getElementId } from '../../../utils/hds-get-element-id';
 
 export default class HdsMenuPrimitiveNewComponent extends Component {
-  @tracked isOpen; // notice: if in the future we need to add a "@isOpen" prop to control the status from outside (eg to have the MenuPrimitive opened on render) just add  "this.args.isOpen" here to initalize the variable
+  @tracked isOpen = true; // notice: if in the future we need to add a "@isOpen" prop to control the status from outside (eg to have the MenuPrimitive opened on render) just add  "this.args.isOpen" here to initalize the variable
   @tracked toggleRef;
+
+  /**
+   * Calculate the unique ID to use for the toggle
+   */
+  get toggleId() {
+    return `toggle-${getElementId(this)}`;
+  }
+
+  get toggleSelector() {
+    return `#${this.toggleId}`;
+  }
 
   @action
   didInsert(element) {
