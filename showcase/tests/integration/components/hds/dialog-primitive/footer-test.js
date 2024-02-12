@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, resetOnerror } from '@ember/test-helpers';
+import { click, render, resetOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module(
@@ -39,6 +39,22 @@ module(
       `
       );
       assert.dom('.hds-dialog-primitive__footer .hds-button').exists();
+    });
+
+    // CALLBACK
+
+    test('it should forwards the `onDismiss` callback function so it can be invoked as yielded function', async function (assert) {
+      let dismissed = false;
+      this.set('onDismiss', () => (dismissed = true));
+      await render(
+        hbs`
+        <Hds::DialogPrimitive::Footer @onDismiss={{this.onDismiss}} as |F|>
+          <Hds::Button type="submit" @text="Primary" {{on "click" F.close}} />
+        </Hds::DialogPrimitive::Footer>
+      `
+      );
+      await click('.hds-dialog-primitive__footer .hds-button');
+      assert.ok(dismissed);
     });
   }
 );

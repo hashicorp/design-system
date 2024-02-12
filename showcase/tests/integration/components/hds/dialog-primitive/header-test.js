@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, resetOnerror } from '@ember/test-helpers';
+import { click, render, resetOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module(
@@ -68,6 +68,22 @@ module(
       `
       );
       assert.dom('button.hds-dialog-primitive__dismiss').exists();
+    });
+
+    // CALLBACK
+
+    test('the "dismiss" button should invoke the `onDismiss` callback function', async function (assert) {
+      let dismissed = false;
+      this.set('onDismiss', () => (dismissed = true));
+      await render(
+        hbs`
+        <Hds::DialogPrimitive::Header @onDismiss={{this.onDismiss}}>
+          Title
+        </Hds::DialogPrimitive::Header>
+      `
+      );
+      await click('button.hds-dialog-primitive__dismiss');
+      assert.ok(dismissed);
     });
   }
 );
