@@ -5,8 +5,8 @@
 
 // DIALOG PRIMITIVE
 
-body.components-dialog-primitive {
-  .shw-component-dialog-primitive-base-elements-section {
+body.utilities-dialog-primitive {
+  .shw-utility-dialog-primitive-base-elements-section {
     // outline primitive to make their bounding box visible
     .hds-dialog-primitive__header,
     .hds-dialog-primitive__description,
@@ -16,13 +16,13 @@ body.components-dialog-primitive {
     }
   }
 
-  .shw-component-dialog-primitive-base-container {
+  .shw-utility-dialog-primitive-base-container {
     width: 400px;
     height: 500px;
     outline: 1px dotted #d3d3d3;
   }
 
-  .shw-component-dialog-primitive-overlay-container {
+  .shw-utility-dialog-primitive-overlay-container {
     position: relative;
     width: 100%;
     height: 400px;

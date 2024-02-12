@@ -15,7 +15,7 @@
 
   <Shw::Flex {{style gap="2rem"}} as |SF|>
     <SF.Item @label="Header + Body + Footer">
-      <div class="shw-component-dialog-primitive-base-container">
+      <div class="shw-utility-dialog-primitive-base-container">
         <Hds::DialogPrimitive::Wrapper open>
           <:header>
             <Shw::Placeholder @text="header" @height="60px" />
@@ -30,7 +30,7 @@
       </div>
     </SF.Item>
     <SF.Item @label="Header + Body (scrollable) + Footer">
-      <div class="shw-component-dialog-primitive-base-container">
+      <div class="shw-utility-dialog-primitive-base-container">
         <Hds::DialogPrimitive::Wrapper open>
           <:header>
             <Shw::Placeholder @height="60px" @text="header" />
@@ -52,7 +52,7 @@
 
   <Shw::Flex {{style gap="2rem"}} as |SF|>
     <SF.Item @label="Header + Description + Body + Footer">
-      <div class="shw-component-dialog-primitive-base-container">
+      <div class="shw-utility-dialog-primitive-base-container">
         <Hds::DialogPrimitive::Wrapper open>
           <:header>
             <Hds::DialogPrimitive::Header @icon="info" @tagline="Tagline">Title</Hds::DialogPrimitive::Header>
@@ -77,7 +77,7 @@
       </div>
     </SF.Item>
     <SF.Item @label="Header + Description + Body (scrollable) + Footer">
-      <div class="shw-component-dialog-primitive-base-container">
+      <div class="shw-utility-dialog-primitive-base-container">
         <Hds::DialogPrimitive::Wrapper open>
           <:header>
             <Hds::DialogPrimitive::Header @icon="info" @tagline="Tagline">Title</Hds::DialogPrimitive::Header>
@@ -126,7 +126,7 @@
 
 <Shw::Divider />
 
-<section class="shw-component-dialog-primitive-base-elements-section" data-test-percy>
+<section class="shw-utility-dialog-primitive-base-elements-section" data-test-percy>
 
   <Shw::Text::H2>DialogPrimitive::Header</Shw::Text::H2>
 
@@ -255,7 +255,7 @@
 
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="Overlay element">
-      <div class="shw-component-dialog-primitive-overlay-container">
+      <div class="shw-utility-dialog-primitive-overlay-container">
         <Hds::DialogPrimitive::Overlay />
       </div>
     </SF.Item>
