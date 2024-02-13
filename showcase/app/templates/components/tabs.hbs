@@ -14,6 +14,24 @@
     layout highlight
   </button>
 
+  <Shw::Text::H2>Size</Shw::Text::H2>
+
+  <Shw::Flex @direction="column" as |SF|>
+    {{#each @model.SIZES as |size|}}
+      <SF.Item @label={{capitalize size}}>
+        <Hds::Tabs @size={{size}} as |T|>
+          <T.Tab>One</T.Tab>
+          <T.Tab>Two</T.Tab>
+          <T.Tab>Three</T.Tab>
+
+          <T.Panel><Shw::Placeholder @text="Content one" @height="50" /></T.Panel>
+          <T.Panel><Shw::Placeholder @text="Content two" @height="50" /></T.Panel>
+          <T.Panel><Shw::Placeholder @text="Content three" @height="50" /></T.Panel>
+        </Hds::Tabs>
+      </SF.Item>
+    {{/each}}
+  </Shw::Flex>
+
   <Shw::Text::H2>Variants</Shw::Text::H2>
 
   <Shw::Text::Body>Basic usage</Shw::Text::Body>
@@ -102,56 +120,111 @@
 
   <Shw::Text::H4>Content</Shw::Text::H4>
 
-  <Shw::Flex as |SF|>
-    <SF.Item @label="Text only">
-      <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
-        <Hds::Tabs::Tab>Lorem ipsum</Hds::Tabs::Tab>
-      </ul>
-    </SF.Item>
-    <SF.Item @label="Icon + Text">
-      <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
-        <Hds::Tabs::Tab @icon="hexagon">Lorem ipsum</Hds::Tabs::Tab>
-      </ul>
-    </SF.Item>
-    <SF.Item @label="Text + Counter">
-      <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
-        <Hds::Tabs::Tab @count="10">Lorem ipsum</Hds::Tabs::Tab>
-      </ul>
-    </SF.Item>
-    <SF.Item @label="Icon + Text + Counter">
-      <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
-        <Hds::Tabs::Tab @icon="hexagon" @count="10">Lorem ipsum</Hds::Tabs::Tab>
-      </ul>
-    </SF.Item>
+  <Shw::Flex @direction="column" as |SF|>
+    {{#each @model.SIZES as |size|}}
+      <SF.Item @label={{capitalize size}}>
+        <Shw::Flex as |SF|>
+          <SF.Item @label="Text only">
+            <div class={{concat "hds-tabs--size-" size}}>
+              <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
+                <Hds::Tabs::Tab>Lorem ipsum</Hds::Tabs::Tab>
+              </ul>
+            </div>
+          </SF.Item>
+          <SF.Item @label="Icon + Text">
+            <div class={{concat "hds-tabs--size-" size}}>
+              <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
+                <Hds::Tabs::Tab @icon="hexagon">Lorem ipsum</Hds::Tabs::Tab>
+              </ul>
+            </div>
+          </SF.Item>
+          <SF.Item @label="Text + Counter">
+            <div class={{concat "hds-tabs--size-" size}}>
+              <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
+                <Hds::Tabs::Tab @count="10">Lorem ipsum</Hds::Tabs::Tab>
+              </ul>
+            </div>
+          </SF.Item>
+          <SF.Item @label="Icon + Text + Counter">
+            <div class={{concat "hds-tabs--size-" size}}>
+              <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
+                <Hds::Tabs::Tab @icon="hexagon" @count="10">Lorem ipsum</Hds::Tabs::Tab>
+              </ul>
+            </div>
+          </SF.Item>
+        </Shw::Flex>
+      </SF.Item>
+    {{/each}}
   </Shw::Flex>
 
   <Shw::Text::H4>States</Shw::Text::H4>
 
-  <Shw::Flex as |SF|>
-    <SF.Item @label="Default">
-      <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
-        <Hds::Tabs::Tab>Lorem ipsum</Hds::Tabs::Tab>
-      </ul>
-      <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
-        <Hds::Tabs::Tab @icon="hexagon" @count="10">Lorem ipsum</Hds::Tabs::Tab>
-      </ul>
-    </SF.Item>
-    <SF.Item @label="Hover">
-      <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
-        <Hds::Tabs::Tab mock-state-value="hover">Lorem ipsum</Hds::Tabs::Tab>
-      </ul>
-      <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
-        <Hds::Tabs::Tab @icon="hexagon" @count="10" mock-state-value="hover">Lorem ipsum</Hds::Tabs::Tab>
-      </ul>
-    </SF.Item>
-    <SF.Item @label="Focus">
-      <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
-        <Hds::Tabs::Tab mock-state-value="focus" mock-state-selector="button">Lorem ipsum</Hds::Tabs::Tab>
-      </ul>
-      <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
-        <Hds::Tabs::Tab @icon="hexagon" @count="10" mock-state-value="focus" mock-state-selector="button">Lorem ipsum</Hds::Tabs::Tab>
-      </ul>
-    </SF.Item>
+  <Shw::Flex @direction="column" as |SF|>
+    {{#each @model.SIZES as |size|}}
+      <SF.Item @label={{capitalize size}}>
+        <Shw::Flex as |SF|>
+          <SF.Item @label="Default">
+            <div class={{concat "hds-tabs--size-" size}}>
+              <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
+                <Hds::Tabs::Tab>Lorem ipsum</Hds::Tabs::Tab>
+              </ul>
+              <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
+                <Hds::Tabs::Tab @icon="hexagon" @count="10">Lorem ipsum</Hds::Tabs::Tab>
+              </ul>
+            </div>
+          </SF.Item>
+          <SF.Item @label="Hover">
+            <div class={{concat "hds-tabs--size-" size}}>
+              <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
+                <Hds::Tabs::Tab mock-state-value="hover">Lorem ipsum</Hds::Tabs::Tab>
+              </ul>
+              <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
+                <Hds::Tabs::Tab @icon="hexagon" @count="10" mock-state-value="hover">Lorem ipsum</Hds::Tabs::Tab>
+              </ul>
+            </div>
+          </SF.Item>
+          <SF.Item @label="Focus">
+            <div class={{concat "hds-tabs--size-" size}}>
+              <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
+                <Hds::Tabs::Tab mock-state-value="focus" mock-state-selector="button">Lorem ipsum</Hds::Tabs::Tab>
+              </ul>
+              <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
+                <Hds::Tabs::Tab @icon="hexagon" @count="10" mock-state-value="focus" mock-state-selector="button">Lorem
+                  ipsum</Hds::Tabs::Tab>
+              </ul>
+            </div>
+          </SF.Item>
+          <SF.Item @label="Focus selected Tab">
+            <div class={{concat "hds-tabs--size-" size " shw-component-tabs-selector-example"}}>
+              <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
+                <Hds::Tabs::Tab
+                  mock-state-value="focus"
+                  class="hds-tabs__tab--is-selected"
+                  mock-state-selector="button"
+                >Lorem ipsum</Hds::Tabs::Tab>
+                {{! template-lint-disable no-invalid-role }}
+                <li class="hds-tabs__tab-indicator" role="presentation"></li>
+                {{! template-lint-enable no-invalid-role }}
+              </ul>
+            </div>
+            <div class={{concat "hds-tabs--size-" size " shw-component-tabs-selector-example"}}>
+              <ul class="shw-component-tabs-sample-ul-wrapper" role="tablist">
+                <Hds::Tabs::Tab
+                  @icon="hexagon"
+                  @count="10"
+                  class="hds-tabs__tab--is-selected"
+                  mock-state-value="focus"
+                  mock-state-selector="button"
+                >Lorem ipsum</Hds::Tabs::Tab>
+                {{! template-lint-disable no-invalid-role }}
+                <li class="hds-tabs__tab-indicator" role="presentation"></li>
+                {{! template-lint-enable no-invalid-role }}
+              </ul>
+            </div>
+          </SF.Item>
+        </Shw::Flex>
+      </SF.Item>
+    {{/each}}
   </Shw::Flex>
 
   <Shw::Text::H3>Tabs::Panel</Shw::Text::H3>

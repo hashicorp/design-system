@@ -7,7 +7,10 @@
 // TABS
 //
 
+$hds-tabs-sizes: ( "medium", "large" );
+
 @use "../mixins/focus-ring" as *;
+
 
 // Sub-components:
 .hds-tabs__tablist-wrapper {
@@ -38,9 +41,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  height: var(--token-tabs-tab-height);
   margin: 0;
-  padding: var(--token-tabs-tab-padding-vertical) var(--token-tabs-tab-padding-horizontal);
   color: var(--token-color-foreground-primary);
   white-space: nowrap;
   text-decoration: none;
@@ -77,6 +78,8 @@
   align-items: center;
   padding: 0;
   color: inherit;
+  font-weight: var(--token-typography-font-weight-medium);
+  font-family: var(--token-typography-body-200-font-family);
   background-color: transparent;
   border: none;
   border-radius: var(--token-tabs-tab-border-radius);
@@ -95,11 +98,11 @@
   right: 0;
   bottom: 0;
   // notice: this custom prop is set dynamically via JavaScript
-  left: var(--indicator-left-pos);
+  left: var(--indicator-left-pos, 0);
   z-index: 10;
   display: block;
   // notice: this custom prop is set dynamically via JavaScript
-  width: var(--indicator-width);
+  width: var(--indicator-width, 0);
   height: var(--token-tabs-indicator-height);
   background-color: var(--token-color-foreground-action);
   border-radius: var(--token-tabs-indicator-height);
@@ -114,4 +117,36 @@
 // Prevent consumers from accidentally overriding default styling of HTML “hidden” attribute
 .hds-tabs__panel[hidden] {
   display: none;
+}
+
+
+// Variants:
+
+// Size
+// medium = default
+
+$hds-tabs-size-props: (
+  "medium": (
+    "tab-height": var(--token-tabs-tab-height-medium),
+    "tab-padding-horizontal": var(--token-tabs-tab-padding-horizontal-medium),
+    "tab-font-size": var(--token-typography-body-200-font-size)
+  ),
+  "large": (
+    "tab-height": var(--token-tabs-tab-height-large),
+    "tab-padding-horizontal": var(--token-tabs-tab-padding-horizontal-large),
+    "tab-font-size": var(--token-typography-body-300-font-size)
+  )
+);
+
+@each $size in $hds-tabs-sizes {
+  .hds-tabs--size-#{$size} {
+    .hds-tabs__tab {
+      height: map-get($hds-tabs-size-props, $size, "tab-height");
+      padding: var(--token-tabs-tab-padding-vertical) map-get($hds-tabs-size-props, $size, "tab-padding-horizontal");
+    }
+  
+    .hds-tabs__tab-button {
+      font-size: map-get($hds-tabs-size-props, $size, "tab-font-size");
+    }
+  }
 }

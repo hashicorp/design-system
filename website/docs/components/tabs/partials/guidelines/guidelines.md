@@ -47,6 +47,21 @@ Don’t trigger a Tab change via an external action, such as a submit or next bu
 ![Tabs with external trigger](/assets/components/tabs/tabs-external-trigger.png)
 !!!
 
+## Sizes
+
+Medium tabs are the default and work best in most contexts. Large tabs can be used to emphasize important sections, enhance clarity, and convey hierarchical distinction. 
+
+![Tabs sizes example](/assets/components/tabs/tab-size.png)
+
+### Choosing sizes 
+
+Mixing different tab sizes is not recommended and can negatively impact the natural page hierarchy. Choose tab sizes intentionally and align them with the hierarchical importance of the information they represent. 
+
+We recommend structuring Tabs to reflect the intended hierarchy of the content they contain:
+
+- Large Tabs sit higher in the page hierarchy and can be used to express more important content, but should be used more sparingly.
+- Medium tabs are more adaptable in most scenarios and naturally occupy the same hierarchy as most page content.
+
 ## Spacing
 
 ### Contained

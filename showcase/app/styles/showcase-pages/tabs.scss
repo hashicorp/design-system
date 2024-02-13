@@ -36,4 +36,10 @@ body.components-tabs {
     gap: 6px;
     font-size: 0.875rem;
   }
+
+  .shw-component-tabs-selector-example {
+    position: relative;
+
+    .hds-tabs__tab-indicator {width: 100%;}
+  }
 }
