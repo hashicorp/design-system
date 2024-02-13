@@ -16,6 +16,6 @@ navigation:
   @include "partials/specifications/specifications.md"
 </section>
 
-<section data-tab="Interaction">
-  @include "partials/interaction/interaction.md"
+<section data-tab="Interaction concepts">
+  @include "partials/interaction-concepts/interaction-concepts.md"
 </section>
