@@ -13,7 +13,7 @@
 
 ## Spacing
 
-### Mutli-select pattern
+### Multi-select pattern
 
 Within the Multi-select pattern itself, use a 16px horizontal gap between the message and the actions.
 
@@ -35,7 +35,7 @@ In a basic example of a Table, place the selection pattern above the top-right c
 
 When composing a Multi-select pattern with a [Filter bar](/patterns/filter-patterns?tab=specifications#filter-bar-1) and [Applied filters](/patterns/filter-patterns?tab=specifications#applied-filters-1), maintain the sample placement.
 
-![Mutli-select with a Filter Pattern](/assets/patterns/multi-select-patterns/multi-select-in-context-filters.png)
+![Multi-select with a Filter Pattern](/assets/patterns/multi-select-patterns/multi-select-in-context-filters.png)
 
 ### Putting it all together
 

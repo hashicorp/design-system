@@ -15,7 +15,7 @@ This can help to prevent unnecessary deletions of results or making unintended c
 
 ## Persisting the selection
 
-One of the most common questions around Mutli-select patterns stems from when and how selected results are persisted when a user performs different actions on a Table. Consider the following scenario:
+One of the most common questions around Multi-select patterns stems from when and how selected results are persisted when a user performs different actions on a Table. Consider the following scenario:
 
 A user is viewing a data set consisting of 10,000 results that is presented in a Table. In order to make changes to specific results the user may take the following actions:
 
