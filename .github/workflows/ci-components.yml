@@ -20,12 +20,12 @@ jobs:
     outputs:
       trigger-ci: ${{ steps.read-files.outputs.trigger-ci }}
     steps:
-      - uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           fetch-depth: 0  
       - name: Get changed files
         id: read-files
-        run: ./.github/scripts/filter_changed_files.sh "packages/components" "packages/ember-flight-icons" "packages/flight-icons/catalog.json"
+        run: ./.github/scripts/filter_changed_files.sh "packages/components" "packages/ember-flight-icons" "packages/flight-icons/catalog.json" "showcase" ".github/workflows/ci-components.yml"
 
   test:
     name: "Tests"
@@ -33,9 +33,9 @@ jobs:
     needs: [conditional-skip]
     if: needs.conditional-skip.outputs.trigger-ci == 'true'
     steps:
-      - uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
       - name: Install Node
-        uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d # v3.8.1
+        uses: actions/setup-node@b39b52d1213e96004bfcb1c61a8a6fa8ab84f3e8 # v4.0.1
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: yarn
@@ -44,10 +44,16 @@ jobs:
         run: yarn install --immutable
       - name: Lint
         run: yarn run lint
+        working-directory: showcase
+      - name: Build Icons
+        run: yarn build
+        working-directory: packages/ember-flight-icons
+      - name: Build Components
+        run: yarn build
         working-directory: packages/components
       - name: Run Tests
         run: yarn run test:ember:percy
-        working-directory: packages/components
+        working-directory: showcase
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS }}
 
@@ -65,21 +71,27 @@ jobs:
          # - ember-release
           - ember-beta
          # - ember-canary
-         # - embroider-safe
+          - embroider-safe
          # - embroider-optimized
 
     steps:
-      - uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
       - name: Install Node
-        uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d # v3.8.1
+        uses: actions/setup-node@b39b52d1213e96004bfcb1c61a8a6fa8ab84f3e8 # v4.0.1
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: yarn
           cache-dependency-path: yarn.lock
       - name: Install Dependencies
         run: yarn install --immutable
-      - name: Run Tests
+      - name: Build Icons
+        run: yarn build
+        working-directory: packages/ember-flight-icons
+      - name: Build Components
+        run: yarn build
         working-directory: packages/components
+      - name: Run Tests
+        working-directory: showcase
         run: yarn ember try:one ${{ matrix.try-scenario }}
         env:
           PERCY_ENABLE: 0

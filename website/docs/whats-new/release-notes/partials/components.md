@@ -12,6 +12,59 @@
   </a>
 </p>
 
+## 3.6.0
+
+**Minor changes**
+
+_Since this is an update brand colors and product icons, we consider this a `minor` version release_
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/design-system-tokens@1.11.0
+- @hashicorp/ember-flight-icons@4.1.0
+
+
+## 3.5.0
+
+**Minor changes**
+
+`IconTile` - updated component adding support for `vault-radar` product
+
+<small class="doc-whats-new-changelog-metadata">[#1904](https://github.com/hashicorp/design-system/pull/1904)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**Patch changes**
+
+`SideNav::List::Title`, `SideNav::List::BackLink`, `SideNav::List::Link`: fixed issue with long text strings without spaces not wrapping
+
+<small class="doc-whats-new-changelog-metadata">[#1899](https://github.com/hashicorp/design-system/pull/1899)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Added `hds-` prefix to Sass variables for component styles (where missing).
+
+<small class="doc-whats-new-changelog-metadata">[#1903](https://github.com/hashicorp/design-system/pull/1903)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Tabs` - removed `@cached` decorator and the associated `ember-cached-decorator-polyfill`
+
+<small class="doc-whats-new-changelog-metadata">[#1905](https://github.com/hashicorp/design-system/pull/1905)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`CodeBlock` - Fixed the default token color in the syntax highlighting theme.
+
+<small class="doc-whats-new-changelog-metadata">[#1893](https://github.com/hashicorp/design-system/pull/1893)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/design-system-tokens@1.10.0
+- @hashicorp/ember-flight-icons@4.0.6
+
 ## 3.4.1
 
 **Patch changes**
@@ -571,44 +624,6 @@ Refactored the layout of the `Dropdown` checkbox and radio inputs to make the ga
 
 - @hashicorp/design-system-tokens@1.8.0
 - @hashicorp/ember-flight-icons@3.1.2
-
-## 2.11.0
-
-**Minor changes**
-
-`Hds::Text` - Added new `Text` component
-
-<small class="doc-whats-new-changelog-metadata">[#1490](https://github.com/hashicorp/design-system/pull/1490)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Hds::Form::MaskedInput` - Add `hasCopyButton` argument
-
-<small class="doc-whats-new-changelog-metadata">[#1587](https://github.com/hashicorp/design-system/pull/1587)</small>
-
-**Patch changes**
-
-`Form::Indicator` - Remove aria-hidden from the "optional" `<span>`
-
-<small class="doc-whats-new-changelog-metadata">[#1577](https://github.com/hashicorp/design-system/pull/1577) - Thanks [@DingoEatingFuzz](https://github.com/DingoEatingFuzz) for the contribution! 🙏</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Removed `ember-named-blocks-polyfill` as all consumers of HDS are on Ember 3.25 or later now. This can be installed locally if it is still needed.
-
-<small class="doc-whats-new-changelog-metadata">[#1606](https://github.com/hashicorp/design-system/pull/1606)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Alert`, `Toast`: Fixed an issue with anchor tag color styles within Description that had been overriding `Hds::Link` color; changed the default color for HTML links within Description to "neutral" to better align with existing guidance for links in the actions and improve accessible contrast.
-
-<small class="doc-whats-new-changelog-metadata">[#1576](https://github.com/hashicorp/design-system/pull/1576)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/ember-flight-icons@3.1.1
 
 
 ---

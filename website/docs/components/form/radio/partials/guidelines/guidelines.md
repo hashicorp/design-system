@@ -17,27 +17,27 @@ We recommend using vertical Radio groups, especially with short option lists.
 <Doc::Layout @spacing="48px">
   <Hds::Form::Radio::Group @layout="vertical" @name="group" as |G|>
     <G.Legend>Vertical group</G.Legend>
-    <G.Radio::Field as |F|>
+    <G.RadioField as |F|>
       <F.Label>Label</F.Label>
-    </G.Radio::Field>
-    <G.Radio::Field as |F|>
+    </G.RadioField>
+    <G.RadioField as |F|>
       <F.Label>Label</F.Label>
-    </G.Radio::Field>
-    <G.Radio::Field as |F|>
+    </G.RadioField>
+    <G.RadioField as |F|>
       <F.Label>Label</F.Label>
-    </G.Radio::Field>
+    </G.RadioField>
   </Hds::Form::Radio::Group>
   <Hds::Form::Radio::Group @layout="horizontal" @name="group" as |G|>
     <G.Legend>Horizontal group</G.Legend>
-    <G.Radio::Field as |F|>
+    <G.RadioField as |F|>
       <F.Label>Label</F.Label>
-    </G.Radio::Field>
-    <G.Radio::Field as |F|>
+    </G.RadioField>
+    <G.RadioField as |F|>
       <F.Label>Label</F.Label>
-    </G.Radio::Field>
-    <G.Radio::Field as |F|>
+    </G.RadioField>
+    <G.RadioField as |F|>
       <F.Label>Label</F.Label>
-    </G.Radio::Field>
+    </G.RadioField>
   </Hds::Form::Radio::Group>
 </Doc::Layout>
 
@@ -49,24 +49,24 @@ For complex forms, indicate **required** fields. This is the most explicit and t
 
 <Hds::Form::Radio::Group @isRequired={{true}} @layout="vertical" @name="group" as |G|>
   <G.Legend>Group label</G.Legend>
-  <G.Radio::Field as |F|>
+  <G.RadioField as |F|>
     <F.Label>Label</F.Label>
-  </G.Radio::Field>
-  <G.Radio::Field as |F|>
+  </G.RadioField>
+  <G.RadioField as |F|>
     <F.Label>Label</F.Label>
-  </G.Radio::Field>
+  </G.RadioField>
 </Hds::Form::Radio::Group>
 
 For shorter, simpler forms (e.g., login/signup and feedback requests), indicate **optional** fields instead.
 
 <Hds::Form::Radio::Group @isOptional={{true}} @layout="vertical" @name="group" as |G|>
   <G.Legend>Group label</G.Legend>
-  <G.Radio::Field as |F|>
+  <G.RadioField as |F|>
     <F.Label>Label</F.Label>
-  </G.Radio::Field>
-  <G.Radio::Field as |F|>
+  </G.RadioField>
+  <G.RadioField as |F|>
     <F.Label>Label</F.Label>
-  </G.Radio::Field>
+  </G.RadioField>
 </Hds::Form::Radio::Group>
 
 ## Error validation

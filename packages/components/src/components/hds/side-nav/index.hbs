@@ -1,0 +1,43 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+<Hds::SideNav::Base
+  class={{this.classNames}}
+  ...attributes
+  {{on "transitionstart" (fn this.setTransition "start")}}
+  {{on "transitionend" (fn this.setTransition "end")}}
+  {{focus-trap isActive=this.shouldTrapFocus}}
+  {{did-insert this.didInsert}}
+>
+  <:root>
+    {{#if this.hasA11yRefocus}}
+      <NavigationNarrator
+        @routeChangeValidator={{@a11yRefocusRouteChangeValidator}}
+        @skipTo="#{{@a11yRefocusSkipTo}}"
+        @skipText={{@a11yRefocusSkipText}}
+        @navigationText={{@a11yRefocusNavigationText}}
+      />
+    {{/if}}
+    {{#if this.showToggleButton}}
+      {{! template-lint-disable no-invalid-interactive}}
+      <div class="hds-side-nav__overlay" {{on "click" this.toggleMinimizedStatus}} />
+      {{! template-lint-enable no-invalid-interactive}}
+      <Hds::SideNav::ToggleButton
+        aria-label={{this.ariaLabel}}
+        @icon={{if this.isMinimized "chevrons-right" "chevrons-left"}}
+        {{on "click" this.toggleMinimizedStatus}}
+      />
+    {{/if}}
+  </:root>
+  <:header as |Header|>
+    {{yield (hash Header=Header isMinimized=this.isMinimized) to="header"}}
+  </:header>
+  <:body as |Body|>
+    {{yield (hash Body=Body isMinimized=this.isMinimized) to="body"}}
+  </:body>
+  <:footer as |Footer|>
+    {{yield (hash Footer=Footer isMinimized=this.isMinimized) to="footer"}}
+  </:footer>
+</Hds::SideNav::Base>

@@ -4,7 +4,7 @@ description: A block container that provides styling for elevation, border, and 
 caption: A block container that provides styling for elevation, border, and background.
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=2359%3A19245&t=XC8SUxxJOFHgqYzK-1
-  github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/card
+  github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/card
 previewImage: assets/illustrations/components/card.jpg
 navigation:
   keywords: ['tile', 'container', 'box']

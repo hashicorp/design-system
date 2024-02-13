@@ -12,6 +12,26 @@
   </a>
 </p>
 
+## 3.0.0
+
+**Major changes**
+
+`vagrant`, `vault-radar`, and `vault-secrets` icons have been updated. Also added boxed versions of all product logos.
+
+<small class="doc-whats-new-changelog-metadata">[#1927](https://github.com/hashicorp/design-system/pull/1927)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+## 2.25.0
+
+**Minor changes**
+
+`vault-radar` icons added. `vault-secrets` icons updated per Brand guidance.
+
+<small class="doc-whats-new-changelog-metadata">[#1901](https://github.com/hashicorp/design-system/pull/1901)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 2.24.0
 
 **Minor changes**
@@ -186,57 +206,6 @@ Added `figma` and `loom` icons
 - [#524](https://github.com/hashicorp/design-system/pull/524) [`f2b3398e`](https://github.com/hashicorp/design-system/commit/f2b3398e3056ae39fa35b1f9c81ddc0b2100073d) Thanks [@hashibot-hds](https://github.com/hashibot-hds)!
   - Add service icons for azure-aks
   - Update css exports to include recently added service icons
-
-## 2.8.0
-
-**Minor changes**
-
-- [#481](https://github.com/hashicorp/design-system/pull/481) [`c8221e26`](https://github.com/hashicorp/design-system/commit/c8221e26e85142024483be2ea85f6191f3ceb652) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Add new Service icons to Flight
-
-  - aws-cloudwatch
-  - aws-cloudwatch-color
-  - aws-s3
-  - aws-s3-color
-  - azure-aks
-  - azure-aks-color
-  - azure-blob-storage
-  - azure-blob-storage-color
-  - azure-vms
-  - azure-vms-color
-  - bridgecrew
-  - bridgecrew-color
-  - cisco
-  - cisco-color
-  - datadog
-  - datadog-color
-  - digital-ocean
-  - digital-ocean-color
-  - grafana
-  - grafana-color
-  - helm
-  - helm-color
-  - infracost
-  - infracost-color
-  - lightlytics
-  - lightlytics-color
-  - linode
-  - linode-color
-  - microsoft-teams
-  - microsoft-teams-color
-  - saml
-  - saml-color
-  - snyk
-  - snyk-color
-  - splunk
-  - splunk-color
-  - vantage
-  - vantage-color
-
-## 2.7.0
-
-**Minor changes**
-
-- [#468](https://github.com/hashicorp/design-system/pull/468) [`c2f2e4ce`](https://github.com/hashicorp/design-system/commit/c2f2e4cea526421f63853461265064742af69729) Thanks [@didoo](https://github.com/didoo)! - Updated Flight icons pipeline to distribute assets as CSS props (mainly for Consul)
 
 
 ---

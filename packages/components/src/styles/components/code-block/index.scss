@@ -1,0 +1,250 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// CODE-BLOCK
+//
+
+
+@use "../../mixins/focus-ring" as *;
+
+// Note: "theme" contains just color variables and syntax highlighting styles
+@import "theme";
+
+// DIMENSIONS
+$hds-code-block-line-numbers-width: 49px; // 3em ≈ 49px
+$hds-code-block-code-padding: 16px;
+
+// CODE-BLOCK PARENT/WRAPPER
+
+.hds-code-block {
+  position: relative;
+  color: var(--hds-code-block-color-foreground-primary);
+  background-color: var(--hds-code-block-color-surface-primary);
+  border: 1px solid var(--hds-code-block-color-border-strong);
+
+  pre,
+  code {
+    line-height: 1.4286;
+    white-space: pre;
+    text-align: left;
+    text-shadow: none;
+    word-wrap: normal;
+    word-break: normal;
+    word-spacing: normal;
+    tab-size: 4;
+    hyphens: none;
+
+    @media print { text-shadow: none; }
+  }
+}
+
+// VARIANTS
+
+// isStandalone
+.hds-code-block--is-standalone {
+  border-radius: 6px;
+}
+
+// hasLineWrapping
+.hds-code-block--has-line-wrapping {
+  .hds-code-block__code,
+  .hds-code-block__code code {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+  }
+}
+
+// CHILD COMPONENTS / ELEMENTS
+
+// Header (contains title & description)
+
+.hds-code-block__title {
+  color: var(--hds-code-block-color-foreground-primary);
+}
+
+.hds-code-block__description {
+  color: var(--hds-code-block-color-foreground-faint);
+}
+
+.hds-code-block__header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px $hds-code-block-code-padding;
+  background-color: var(--hds-code-block-color-surface-faint);
+  border-bottom: 1px solid var(--hds-code-block-color-border-primary);
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+
+  &:empty {
+    display: none;
+  }
+
+  // we add very basic styling for elements that may be yielded in the "title"/"description" elements
+
+  strong {
+    font-weight: var(--token-typography-font-weight-semibold);
+  }
+
+  code,
+  pre {
+    display: inline;
+    font-size: 0.9em; // as discussed with designers, we reduce the size for optical/visual balance
+    font-family: var(--token-typography-code-100-font-family);
+    line-height: 1em;
+  }
+
+  // Default styling for bare HTML links not using HDS::Link components
+  a:not([class*="hds-"]) {
+    color: var(--hds-code-block-color-foreground-action);
+
+    &:focus,
+    &:focus-visible {
+      text-decoration: none;
+      outline: 2px solid var(--token-color-focus-action-internal);
+      outline-offset: 1px;
+    }
+
+    &:hover {
+      color: var(--token-color-foreground-action-hover);
+    }
+
+    &:active {
+      color: var(--token-color-foreground-action-active);
+    }
+  }
+}
+
+.hds-code-block__body {
+  position: relative;
+  border-radius: inherit;
+}
+
+// Code
+.hds-code-block__code {
+  @include hds-focus-ring-basic();
+  display: block;
+  margin: 0;
+  padding: $hds-code-block-code-padding;
+  overflow: auto;
+  font-size: 0.8125rem;
+  font-family: var(--token-typography-code-200-font-family);
+  border-radius: inherit;
+
+  ::selection {
+    color: var(--hds-code-block-color-foreground-selection);
+    background-color: var(--hds-code-block-color-surface-selection);
+  }
+}
+
+// CopyButton
+.hds-code-block__copy-button {
+  position: absolute;
+  top: 11px; // 12px -1px accounting for border
+  right: 12px; // 12px -1px accounting for border
+  // Overriding default colors
+  color: var(--hds-code-block-color-foreground-primary);
+  background-color: var(--hds-code-block-color-surface-faint);
+  border: 1px solid var(--hds-code-block-color-border-strong);
+
+  &:hover,
+  &.mock-hover {
+    background-color: var(--hds-code-block-color-surface-primary);
+    border-color: var(--hds-code-block-color-border-strong);
+  }
+
+  &:active,
+  &.mock-active {
+    background-color: var(--hds-code-block-color-surface-interactive-active);
+  }
+
+  &:focus,
+  &.mock-focus,
+  &:focus-visible {
+    background-color: var(--hds-code-block-color-surface-faint);
+  }
+
+  &.hds-copy-button--status-success {
+    .flight-icon {
+      color: var(--hds-code-block-color-foreground-success);
+    }
+  }
+
+  &.hds-copy-button--status-error {
+    .flight-icon {
+      color: var(--hds-code-block-color-foreground-critical);
+    }
+  }
+
+  .flight-icon { color: var(--hds-code-block-color-foreground-primary); }
+}
+
+.hds-code-block {
+  // LineNumbers plugin styles ---------------
+  // Note: Prism.js is using the specific class name "line-numbers" to determine implementation of line numbers in the UI
+  &.line-numbers {
+    counter-reset: linenumber;
+
+    .hds-code-block__code {
+      position: relative;
+      // reserve space for line numbers
+      padding-left: calc(#{$hds-code-block-line-numbers-width} + #{$hds-code-block-code-padding});
+    }
+
+    .line-numbers-rows {
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-width: $hds-code-block-line-numbers-width;
+      min-height: 100%;
+      padding: $hds-code-block-code-padding 0;
+      border-right: 1px solid var(--hds-code-block-color-border-primary);
+      user-select: none;
+      pointer-events: none;
+
+      > span {
+        display: block;
+        counter-increment: linenumber;
+
+        &::before {
+          display: block;
+          padding-right: $hds-code-block-code-padding;
+          text-align: right;
+          content: counter(linenumber);
+        }
+      }
+    }
+  }
+
+  // Highlighted Lines
+  .line-highlight {
+    position: absolute;
+    right: 0;
+    left: 0;
+    // Note: position seems off by a few px although not sure why
+    margin-top: -3px;
+    background-color: var(--hds-code-block-color-line-highlight);
+    border: solid var(--hds-code-block-color-line-highlight-border);
+    border-width: 1px 0 1px 4px;
+    mix-blend-mode: screen;
+    pointer-events: none;
+  }
+
+  @media print {
+    .line-highlight {
+      /*
+       * This will prevent browsers from replacing the background color with white.
+       * It's necessary because the element is layered on top of the displayed code.
+       */
+      -webkit-print-color-adjust: exact;
+      color-adjust: exact;
+    }
+  }
+
+  // commmon tokens
+  .token.bold { font-weight: bold; }
+  .token.italic { font-style: italic; }
+}

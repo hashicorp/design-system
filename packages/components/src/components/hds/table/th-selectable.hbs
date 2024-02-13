@@ -1,0 +1,16 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+<Hds::Table::Th class="hds-table__th--is-selectable" @scope={{@selectionScope}} ...attributes>
+  <Hds::Form::Checkbox::Base
+    id={{this.checkboxId}}
+    class="hds-table__checkbox"
+    checked={{@isSelected}}
+    aria-label={{this.ariaLabel}}
+    {{did-insert this.didInsert}}
+    {{will-destroy this.willDestroy}}
+    {{on "change" this.onSelectionChange}}
+  />
+</Hds::Table::Th>

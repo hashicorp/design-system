@@ -1,0 +1,155 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// FORM > TOGGLE
+//
+
+
+// "BASE" CONTROL
+
+.hds-form-toggle {
+  position: relative;
+  display: inline-block; // we emulate the behaviour of a checkbox/radiobutton control
+  isolation: isolate; // used to create a new stacking context
+}
+
+// control (hidden)
+
+.hds-form-toggle__control {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  display: block;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  color: transparent;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  opacity: 0;
+  appearance: none;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+// facade (visible)
+
+.hds-form-toggle__facade {
+  position: relative;
+  display: block;
+  width: var(--token-form-toggle-width);
+  height: var(--token-form-toggle-height);
+  background-image: var(--token-form-toggle-background-image-data-url);
+  background-repeat: no-repeat;
+  background-position: var(--token-form-toggle-background-image-position-x) 50%;
+  background-size: var(--token-form-toggle-background-image-size) var(--token-form-toggle-background-image-size);
+  // notice: we want to share the border color between the "thumb" and the "track" so we use a local CSS prop for this
+  border: var(--token-form-radio-border-width) solid var(--border-color);
+  border-radius: calc(var(--token-form-toggle-height) / 2);
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition-timing-function: var(--token-form-toggle-transition-timing-function);
+    transition-duration: var(--token-form-toggle-transition-duration);
+    transition-property: all;
+  }
+
+  // used for the "thumb"
+
+  &::after {
+    position: absolute;
+    top: calc(var(--token-form-radio-border-width) * -1);
+    left: calc(var(--token-form-radio-border-width) * -1);
+    width: var(--token-form-toggle-thumb-size);
+    height: var(--token-form-toggle-thumb-size);
+    background-color: var(--token-form-control-base-surface-color-default);
+    border: var(--token-form-radio-border-width) solid var(--border-color);
+    border-radius: 50%;
+    transform: translate3d(0, 0, 0);
+    content: "";
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition-timing-function: var(--token-form-toggle-transition-timing-function);
+      transition-duration: var(--token-form-toggle-transition-duration);
+      transition-property: all;
+    }
+  }
+
+  // used for the focus
+
+  &::before {
+    // notice: to avoid too many nested calc() operation, we have decided to compute directly the values in Sass
+    $hds-outline-width: 3px;
+    $hds-outline-offset: 1px;
+    $hds-shift: $hds-outline-width + $hds-outline-offset + 1px; // here 1px refers to "--token-form-radio-border-width"
+    position: absolute;
+    top: -$hds-shift;
+    right: -$hds-shift;
+    bottom: -$hds-shift;
+    left: -$hds-shift;
+    margin: auto;
+    border-width: $hds-outline-width;
+    border-radius: calc(var(--token-form-toggle-height) / 2 + $hds-outline-width + $hds-outline-offset);
+    content: "";
+  }
+
+  // STATUS
+
+  // base (default)
+
+  :not(:checked) + & {
+    --border-color: var(--token-form-control-base-border-color-default);
+    background-color: var(--token-form-toggle-base-surface-color-default); // this is specific for "toggle", is not like the other controls!
+  }
+
+  :checked + & {
+    --border-color: var(--token-form-control-checked-border-color-default);
+    background-color: var(--token-form-control-checked-surface-color-default);
+
+    &::after {
+      $hds-translation: calc(var(--token-form-toggle-width) - var(--token-form-toggle-thumb-size));
+      transform: translate3d($hds-translation, 0, 0);
+    }
+  }
+
+  // hover
+
+  :hover:not(:checked) + &,
+  .mock-hover:not(:checked) + & {
+    --border-color: var(--token-form-control-base-border-color-hover);
+  }
+
+  :hover:checked + &,
+  .mock-hover:checked + & {
+    --border-color: var(--token-form-control-checked-border-color-hover);
+    background-color: var(--token-form-control-checked-border-color-default);
+  }
+
+  // focus (same for all the states)
+
+  :focus + &,
+  .mock-focus + & {
+    &::before {
+      border-color: var(--token-color-focus-action-external);
+      border-style: solid;
+    }
+  }
+
+  // DISABLED
+
+  :disabled:not(:checked) + &,
+  :disabled:checked + & {
+    --border-color: var(--token-form-control-disabled-border-color);
+    background-color: var(--token-form-control-disabled-surface-color);
+    background-image: var(--token-form-toggle-background-image-data-url-disabled);
+  }
+}

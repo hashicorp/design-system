@@ -4,7 +4,7 @@ description: Used to indicate an object’s categorization.
 caption: Used to indicate an object’s categorization.
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=13720%3A34360&t=XC8SUxxJOFHgqYzK-1
-  github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/tag
+  github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/tag
 related: ['components/badge','components/badge-count']
 previewImage: assets/illustrations/components/tag.jpg
 navigation:

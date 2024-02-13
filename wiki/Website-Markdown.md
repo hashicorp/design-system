@@ -14,6 +14,7 @@
         - [Advanced lists formatting](#advanced-lists-formatting)
       - [Links](#links)
       - [Images](#images)
+      - [Video](#video)
       - [Code formatting](#code-formatting)
         - [Inline code](#inline-code)
         - [Code block](#code-block)
@@ -190,6 +191,28 @@ Some text content here
 
 Some other content here
 ```
+
+#### Video
+
+Video assets are not natively supported in markdown, but you can easily insert an MP4 or similar file type into a markdown file with a basic understanding of HTML:
+
+```md
+<video width="100%" controls loop>
+  <source
+    src="/assets/[components][patterns]/{name-of-component-or-pattern}/{path-to-video-file}.mp4"
+    type="video/mp4"
+  />
+</video>
+```
+
+This example uses the native HTML video tag with a couple of key attributes:
+
+- `controls` indicating that the video player should display "play", "pause", "volume", and other basic controls.
+- `loop` indicating that the video asset should loop when it reaches the end (this can be useful for shorter examples).
+
+The `<source>` tag accepts the absolute file path (starting with a "/") in relation to the "/website/public/assets" base folder and the type of file.
+
+It’s recommended that you stick to MP4 files as they are the best optimized for all browsers.
 
 #### Code formatting
 

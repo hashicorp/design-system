@@ -5,6 +5,8 @@
   - [Where to store the media files](#where-to-store-the-media-files)
   - [Where to find the source for the media files](#where-to-find-the-source-for-the-media-files)
   - [How to export the files](#how-to-export-the-files)
+  - [Optimizing images](#optimizing-images)
+  - [Adding and optimizing video assets](#adding-and-optimizing-video-assets)
 
 ---
 
@@ -41,3 +43,42 @@ Regarding the format and settings of the "Export" panel in Figma, please follow 
   - is it an image that resizes when the viewport changes? speak with the developer and decide what is the right size to use
 
 If you have any doubts or problems exporting the files, speak with one of the designers of the HDS team.
+
+## Optimizing images
+
+Prior to adding new images to the website, the assets should be optimized to reduce file sizes and increase web performance. Figma’s export feature doesn’t allow for fine-grained control regarding image quality and optimization for the web. [ImageOptim](https://imageoptim.com) is free, works great, and is easy to use. And with the correct settings, it can result in a more than _50% reduction_ in file size per image.
+
+1. Install the desktop app for your specific operating system.
+2. Open the application settings and ensure that the settings match the recommended optimization settings:
+    1. In the quality tab, enable "Lossy minification"
+    2. Set the image qualities for JPG, PNG, and GIF files to 85–90%. This results in a high-quality, high-resolution image while removing unnecessary metadata and compressing the file size for the web.
+3. Add images either using the plus icon in the lower left corner or by dragging and dropping files from your file browser into the window.
+
+Once added to the queue, ImageOptim will automatically optimize and save the assets. **Warning:** This will overwrite the original files.
+
+## Adding and optimizing video assets
+
+Providing video examples in documentation can be helpful for explaining complex concepts in a step-by-step manner, but these types of assets require a bit more work to create and subsequently include in markdown.
+
+_Video assets (MP4, MOV, etc.) aren’t directly supported by markdown. For more details on how to include them, see the [markdown documentation](/wiki/Website-Markdown.md)._
+
+These steps are specific to the workflow between Adobe After Effects, Premiere, and Adobe Media Encoder. You will need to seek approval from your manager and request a license from IT to gain access to these applications. More complex examples (creating a custom UI in After Effects, more in-depth editing, etc) are beyond the scope of this guide.
+
+1. Create your source video, for example, of an in-browser experience or a Figma prototype; the most straightforward method is to [record your screen using Quicktime’s native screen recording feature](https://support.apple.com/en-gb/guide/quicktime-player/qtp97b08e666/mac).
+2. After launching Media Encoder, add your asset to the render queue.
+    1. In After Effects, this can be done through the "Composition" menu by selecting "Add to Media Encoder Render Queue…" (Alt + Cmd + m).
+    2. In Premiere, under the "File" menu, choose "Export -> Send to Adobe Media Encoder" (Cmd + Shift + m).
+    3. To add directly to Media Encoder, click the "+" button in the Queue panel to "Add source".
+3. Click the Format of the asset to access Export Settings.
+
+![Open export settings](/wiki/images/open-export-settings.png)
+
+4. Under the Export Settings, select H.264 as the format which renders an MP4 file and is appropriate for web. You can also optionally select the output location and name of the rendered asset.
+
+![Export settings](/wiki/images/video-export-settings.png)
+
+5. Under "Basic Video Settings" in the Export Settings window, set the width of the rendered asset to 1200px or less and the frame rate to 15 fps. The width can depend on the original asset, but I’ve found this to be a happy medium for file size and quality.
+
+![Basic video settings](/wiki/images/basic-video-settings.png)
+
+6. With all of these settings applied, click the green triangle "play" button at the top of the queue to kick off the render process which will render all files in the queue (if there are more than one).

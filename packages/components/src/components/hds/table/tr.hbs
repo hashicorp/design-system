@@ -1,0 +1,20 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+<tr class="hds-table__tr" ...attributes>
+  {{#if @isSelectable}}
+    <Hds::Table::ThSelectable
+      @isSelected={{@isSelected}}
+      @selectionScope={{@selectionScope}}
+      @selectionKey={{this.selectionKey}}
+      @selectionAriaLabelSuffix={{@selectionAriaLabelSuffix}}
+      @didInsert={{@didInsert}}
+      @willDestroy={{@willDestroy}}
+      @onSelectionChange={{@onSelectionChange}}
+    />
+  {{/if}}
+
+  {{yield}}
+</tr>

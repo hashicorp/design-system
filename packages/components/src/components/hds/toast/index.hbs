@@ -1,0 +1,17 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<Hds::Alert
+  class="hds-toast"
+  @type="inline"
+  @color={{@color}}
+  @icon={{@icon}}
+  @onDismiss={{@onDismiss}}
+  ...attributes
+  as |A|
+>
+  {{yield
+    (hash Title=A.Title Description=A.Description Button=A.Button LinkStandalone=A.LinkStandalone Generic=A.Generic)
+  }}
+</Hds::Alert>

@@ -27,7 +27,7 @@ This component intends to replace a few different simple error and empty/zero st
   <A.Header @title="Empty state title text" />
   <A.Body @text="The item you were looking for was not found." />
   <A.Footer as |F|>
-    <F.Link::Standalone @icon="help" @text="Need Help" @href="/components/alert"
+    <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert"
     @iconPosition="trailing" />
   </A.Footer>
 </Hds::ApplicationState>
@@ -40,7 +40,7 @@ This component intends to replace a few different simple error and empty/zero st
   <A.Header @title="Empty state title text" />
   <A.Body @text="The item you were looking for was not found." />
   <A.Footer @hasDivider={{true}} as |F|>
-    <F.Link::Standalone @icon="help" @text="Need Help" @href="/components/alert"
+    <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert"
     @iconPosition="trailing" />
   </A.Footer>
 </Hds::ApplicationState>
@@ -55,7 +55,7 @@ This component intends to replace a few different simple error and empty/zero st
     <Doc::Placeholder @text="block yield" @height="100" @background="#eee" />
   </A.Body>
   <A.Footer as |F|>
-    <F.Link::Standalone @icon="arrow-left" @text="Go back" @href="/" />
+    <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
   </A.Footer>
 </Hds::ApplicationState>
 ```
@@ -67,7 +67,7 @@ This component intends to replace a few different simple error and empty/zero st
   <A.Header @title="Empty state title text" />
   <A.Body @text="Some sentence that conveys a good message to the user" />
   <A.Footer as |F|>
-    <F.Link::Standalone @icon="arrow-left" @text="Go back" @href="/" />
+    <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
   </A.Footer>
 </Hds::ApplicationState>
 ```
@@ -84,8 +84,8 @@ To indicate that the message is an error state, add `@errorCode` to the `[A].Hea
     Please try again later or contact support for assistance."
   />
   <A.Footer as |F|>
-    <F.Link::Standalone @icon="arrow-left" @text="Go back" @href="/" />
-    <F.Link::Standalone @icon="help" @text="Need Help" @href="/components/alert" 
+    <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
+    <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" 
       @iconPosition="trailing" />
   </A.Footer>
 </Hds::ApplicationState>
@@ -101,8 +101,8 @@ To indicate that the message is an error state, add `@errorCode` to the `[A].Hea
     Please try again later or contact support for assistance."
   />
   <A.Footer as |F|>
-    <F.Link::Standalone @icon="arrow-left" @text="Go back" @href="/" />
-    <F.Link::Standalone @icon="help" @text="Need Help" @href="/components/alert" 
+    <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
+    <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" 
       @iconPosition="trailing" />
   </A.Footer>
 </Hds::ApplicationState>
@@ -117,8 +117,8 @@ To indicate that the message is an error state, add `@errorCode` to the `[A].Hea
     <Doc::Placeholder @text="block yield" @height="100" @background="#eee" />
   </A.Body>
   <A.Footer as |F|>
-    <F.Link::Standalone @icon="arrow-left" @text="Go back" @href="/" />
-    <F.Link::Standalone @icon="help" @text="Need Help" 
+    <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
+    <F.LinkStandalone @icon="help" @text="Need Help" 
       @href="/components/alert" @iconPosition="trailing" />
   </A.Footer>
 </Hds::ApplicationState>
@@ -134,8 +134,8 @@ To indicate that the message is an error state, add `@errorCode` to the `[A].Hea
     Please try again later or contact support for assistance."
   />
   <A.Footer @hasDivider={{true}} as |F|>
-    <F.Link::Standalone @icon="arrow-left" @text="Go back" @href="/" />
-    <F.Link::Standalone @icon="help" @text="Need Help" @href="/components/alert" 
+    <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
+    <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" 
       @iconPosition="trailing" />
   </A.Footer>
 </Hds::ApplicationState>

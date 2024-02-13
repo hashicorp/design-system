@@ -97,10 +97,10 @@ The engineering checklist has six parts: creating the feature branch, component 
 - [ ] create new branch from main for the component (`git checkout -b USER/COMPONENT-NAME`)
 - [ ] create new component using a blueprint
   - if it's a component, you have to run two commands, one for the component code (and its tests) and one for the documentation pages:
-    - `cd packages/component` and then `ember generate hds-component COMPONENT-NAME`
+    - `cd showcase` and then `ember generate hds-component COMPONENT-NAME`
     - `cd website` and then `ember generate hds-component-docs COMPONENT-NAME`
   - if it's a child component, then you have to run only one command:
-    - `cd packages/component` and then `ember generate hds-component COMPONENT_NAME/CHILD_NAME`
+    - `cd showcase` and then `ember generate hds-component COMPONENT_NAME/CHILD_NAME`
   - (Note: Many of the below mentioned files will be automatically generated.)
 - [ ] **component template**
   - use semantic HTML

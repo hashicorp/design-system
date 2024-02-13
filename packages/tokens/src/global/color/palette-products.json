@@ -302,7 +302,7 @@
                 "private": "true"
             },
             "vault-brand": {
-                "value": "#ffd814",
+                "value": "#ffcf25",
                 "type": "color",
                 "group": "palette",
                 "private": "true"
@@ -350,7 +350,7 @@
                 "private": "true"
             },
             "vault-secrets-brand": {
-                "value": "#ffd814",
+                "value": "#ffcf25",
                 "type": "color",
                 "group": "palette",
                 "private": "true"
@@ -398,7 +398,7 @@
                 "private": "true"
             },
             "vault-radar-brand": {
-                "value": "#ffd814",
+                "value": "#ffcf25",
                 "type": "color",
                 "group": "palette",
                 "private": "true"

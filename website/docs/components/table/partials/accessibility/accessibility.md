@@ -7,7 +7,7 @@ When used as recommended, there should not be any WCAG conformance issues with t
 
 ## Focus in Tables
 
-- Focus will only move through sortable headers and will skip over non-sortable headers as they aren't interactive. 
+- Table headers and labels are not eligible to receive focus, rather, focus will move through interactive elements (sort and tooltip buttons) contained within the header sequentially.
 - Interactive elements within cells will receive focus, but entire cells and entire rows will not. 
 
 !!! Do
@@ -21,17 +21,6 @@ When used as recommended, there should not be any WCAG conformance issues with t
 !!!
 
 ## Best practices
-
-### Tooltips in headers
-
-Since columns within the table header can control sorting within the table, the header column is not eligible to receive additional interactive elements such as tooltip/toggletip or other components that rely on interactivity to display content (nested interactive elements).
-
-If you need a tooltip, there may not be enough contextual information about the table or the label within the header may not be clear enough.
-
-!!! Dont
-
-![Example of a nested tooltip within a table header](/assets/components/table/table-accessibility-tooltip.png =900x*)
-!!!
 
 ### Interactive rows
 

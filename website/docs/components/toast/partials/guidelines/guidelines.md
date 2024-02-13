@@ -17,31 +17,31 @@
     <T.Title>Neutral toast title</T.Title>
     <T.Description>Lorem ipsum dolar sit amet, consecteu adipiscig elit null dignissim felis.</T.Description>
     <T.Button @text="Button" @color="secondary" />
-    <T.Link::Standalone @color="secondary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+    <T.LinkStandalone @color="secondary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
   </Hds::Toast>
   <Hds::Toast @color="highlight" @onDismiss={{this.noop}} as |T|>
     <T.Title>Highlight toast title</T.Title>
     <T.Description>Lorem ipsum dolar sit amet, consecteu adipiscig elit null dignissim felis.</T.Description>
     <T.Button @text="Button" @color="secondary" />
-    <T.Link::Standalone @color="secondary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+    <T.LinkStandalone @color="secondary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
   </Hds::Toast>
   <Hds::Toast @color="success" @onDismiss={{this.noop}} as |T|>
     <T.Title>Success toast title</T.Title>
     <T.Description>Lorem ipsum dolar sit amet, consecteu adipiscig elit null dignissim felis.</T.Description>
     <T.Button @text="Button" @color="secondary" />
-    <T.Link::Standalone @color="secondary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+    <T.LinkStandalone @color="secondary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
   </Hds::Toast>
   <Hds::Toast @color="warning" @onDismiss={{this.noop}} as |T|>
     <T.Title>Warning toast title</T.Title>
     <T.Description>Lorem ipsum dolar sit amet, consecteu adipiscig elit null dignissim felis.</T.Description>
     <T.Button @text="Button" @color="secondary" />
-    <T.Link::Standalone @color="secondary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+    <T.LinkStandalone @color="secondary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
   </Hds::Toast>
   <Hds::Toast @color="critical" @onDismiss={{this.noop}} as |T|>
     <T.Title>Critical toast title</T.Title>
     <T.Description>Lorem ipsum dolar sit amet, consecteu adipiscig elit null dignissim felis.</T.Description>
     <T.Button @text="Button" @color="secondary" />
-    <T.Link::Standalone @color="secondary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+    <T.LinkStandalone @color="secondary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
   </Hds::Toast>
 </Doc::Layout>
 
@@ -111,12 +111,12 @@ Icons within `neutral` and `highlight` Toasts can be replaced with other icons. 
   <Hds::Toast @color="neutral" @icon="running" @onDismiss={{this.noop}} as |T|>
     <T.Title>Plan running</T.Title>
     <T.Button @text="Button" @color="secondary" />
-    <T.Link::Standalone @color="secondary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+    <T.LinkStandalone @color="secondary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
   </Hds::Toast>
   <Hds::Toast @color="success" @icon="check-circle" @onDismiss={{this.noop}} as |T|>
     <T.Title>Plan finished</T.Title>
     <T.Button @text="Button" @color="secondary" />
-    <T.Link::Standalone @color="secondary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
+    <T.LinkStandalone @color="secondary" @icon="plus" @iconPosition="leading" @text="Link text" @href="#" />
   </Hds::Toast>
 </Doc::Layout>
 

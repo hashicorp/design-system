@@ -163,6 +163,22 @@ If no filters have been applied, use a [Tooltip](/components/tooltip) coupled wi
 
 ![Empty state in applied filters](/assets/patterns/filter-patterns/applied-filters-empty-state.png =450x*)
 
+### Avoiding an empty state
+
+As filtering is reductive in nature and driven by a user action, it’s not always possible to avoid an empty state.
+
+If technically feasible, use the `count` property within the Dropdown ListItem to call attention to filters that will return zero results.
+
+In this example, "Status > Pending" does not return any results.
+
+![Count property in ListItem](/assets/patterns/filter-patterns/avoid-empty-state-list-item-count.png)
+
+### Reverting filters
+
+If applying filters to a data set yields no results, offer users an option to clear all or specific filters.
+
+This can be done by adding a "Clear all" action to the [Application State](/components/application-state) or by including dismissible [Tags](/components/tag) for each applied filter.
+
 ## Overflow
 
 Depending on the complexity of the data set, it may be necessary to account for the overflow of elements within the filters.
