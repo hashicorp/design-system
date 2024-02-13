@@ -355,6 +355,19 @@ export default class Index extends Component {
     };
   }
 
+  @action
+  async handlePageSizeChangeNumbered(pageSize) {
+    const routeQueryParams = this?.router?.currentRoute?.queryParams ?? {};
+    let queryParams = Object.assign({}, routeQueryParams);
+    // the sensible thing to do here is to reset the pagination to the first element (any alternative would result in an unpredictable UX)
+    queryParams.demoCurrentPage = 1;
+    queryParams.demoCurrentPageSize = pageSize;
+    // see: https://github.com/DockYard/ember-router-scroll#preservescrollposition-with-queryparams
+    queryParams.preserveScrollPosition = true;
+    // navigate to the new URL (notice: the anchor/fragment `#...` is not preserved unfortunately)
+    await this.router.transitionTo({ queryParams });
+  }
+
   get demoNewPrevNextCursors() {
     let { newPrevCursor, newNextCursor } = getNewPrevNextCursors(
       this.demoCurrentCursor,
