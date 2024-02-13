@@ -3,7 +3,7 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<Hds::MenuPrimitive class={{this.classNames}} @onClose={{@onClose}} ...attributes>
+<Hds::MenuPrimitiveNew class={{this.classNames}} @onClose={{@onClose}} ...attributes>
   <:toggle as |t|>
     {{yield
       (hash
@@ -34,4 +34,4 @@
       {{yield (hash close=c.close Footer=(component "hds/dropdown/footer"))}}
     </div>
   </:content>
-</Hds::MenuPrimitive>
+</Hds::MenuPrimitiveNew>

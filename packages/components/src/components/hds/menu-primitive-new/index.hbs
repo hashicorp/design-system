@@ -14,11 +14,7 @@
     {{yield (hash onClickToggle=this.onClickToggle isOpen=this.isOpen) to="toggle"}}
   </div>
   {{#if this.isOpen}}
-    <div
-      class="hds-menu-primitive__content"
-      tabindex="-1"
-      {{hds-float-element this.toggleSelector}}
-    >
+    <div class="hds-menu-primitive__content" tabindex="-1" {{hds-float-element this.toggleSelector}}>
       {{yield (hash close=this.close) to="content"}}
     </div>
   {{/if}}

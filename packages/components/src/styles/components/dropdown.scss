@@ -190,33 +190,33 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   max-width: initial;
 }
 
-.hds-dropdown__content--position-bottom-right {
-  position: absolute;
-  top: calc(100% + 4px);
-  right: 0;
-  z-index: 2;
-}
+// .hds-dropdown__content--position-bottom-right {
+//   position: absolute;
+//   top: calc(100% + 4px);
+//   right: 0;
+//   z-index: 2;
+// }
 
-.hds-dropdown__content--position-bottom-left {
-  position: absolute;
-  top: calc(100% + 4px);
-  left: 0;
-  z-index: 2;
-}
+// .hds-dropdown__content--position-bottom-left {
+//   position: absolute;
+//   top: calc(100% + 4px);
+//   left: 0;
+//   z-index: 2;
+// }
 
-.hds-dropdown__content--position-top-right {
-  position: absolute;
-  right: 0;
-  bottom: calc(100% + 4px);
-  z-index: 2;
-}
+// .hds-dropdown__content--position-top-right {
+//   position: absolute;
+//   right: 0;
+//   bottom: calc(100% + 4px);
+//   z-index: 2;
+// }
 
-.hds-dropdown__content--position-top-left {
-  position: absolute;
-  bottom: calc(100% + 4px);
-  left: 0;
-  z-index: 2;
-}
+// .hds-dropdown__content--position-top-left {
+//   position: absolute;
+//   bottom: calc(100% + 4px);
+//   left: 0;
+//   z-index: 2;
+// }
 
 
 .hds-dropdown__list {
