@@ -24,7 +24,9 @@
   </:body>
   <:footer>
     {{yield
-      (hash Footer=(component "hds/dialog-primitive/footer" onDismiss=this.onDismiss contextualClass="hds-modal__footer"))
+      (hash
+        Footer=(component "hds/dialog-primitive/footer" onDismiss=this.onDismiss contextualClass="hds-modal__footer")
+      )
     }}
   </:footer>
 </Hds::DialogPrimitive::Wrapper>
