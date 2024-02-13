@@ -5,9 +5,9 @@
 | Element | Usage | 
 |---------|-------|
 | Selected count | Required; displays the number of selected items in the table. |
-| Selected message | Required; explicitly communicates that elements results the table have been selected. |
-| Total results  | Optional, but recommended; Displays the total number of results in the data set. |
-| Actions trigger | Required; use either a secondary Button for single actions, or a secondary Dropdown for multiple actions. |
+| Selected message | Required; explicitly communicates that results in the table have been selected. |
+| Total results  | Optional, but recommended; displays the total number of results in the data set. |
+| Actions trigger | Required; use either a `secondary` or `critical` [Button](/components/button)for single actions, or a `secondary` [Dropdown](/components/dropdown) for multiple actions. |
 | Bulk actions | Optional; consolidates multiple bulk actions into a single element. |
 | Bulk selection | Optional; consolidates multiple selection functions into a single element. |
 
@@ -27,7 +27,7 @@ Within a larger context, use the same spacing recommendation of 16px vertical ga
 
 ## Basic layout
 
-In a basic example of a Table, place the selection pattern above the top-right corner of the Table with a 16px gap in between.
+In a basic example of a Table, place the selection pattern above the top-right corner of the Table.
 
 ![A basic multi-select example in context](/assets/patterns/multi-select-patterns/multi-select-in-context-basic.png)
 
@@ -37,7 +37,7 @@ When composing a Multi-select pattern with a [Filter bar](/patterns/filter-patte
 
 ![Mutli-select with a Filter Pattern](/assets/patterns/multi-select-patterns/multi-select-in-context-filters.png)
 
-### Complex examples
+### Putting it all together
 
 ![Multi-select in a more complex scenario](/assets/patterns/multi-select-patterns/multi-select-in-context-complex-example.png)
 
