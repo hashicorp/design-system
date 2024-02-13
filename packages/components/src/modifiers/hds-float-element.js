@@ -21,21 +21,22 @@ export default class HdsFloatElementModifier extends Modifier {
   // isDialogForcedOpen = false;
 
   modify(
-    // the element that "floats" next to the anchor
+    // the element that "floats" next to the anchor (whose position is calculated in relation to the anchor)
     // notice: this is the element the Ember modifier is attached to
     floatingElement,
-    // the element that acts as an "anchor" for the "floating" element (whose position is calculated in relation to the anchor)
+    // the element that acts as an "anchor" for the "floating" element
     // notice: it's expressed as argument for modifier and it can be a DOM node direclty, or a string (CSS selector, will be converted below to an actual DOM node)
     // (positional arguments of the modifier)
     [_anchorTarget],
     // (named arguments of the modifier)
     {
-      strategy = 'absolute', // if we use `fixed` then the overscroll of the body makes the dialog look weird when the page is overscrolled
-      offsetOptions = 4,
-      placement = 'bottom',
-      flipOptions,
-      shiftOptions,
-      middleware = [],
+      floatingElementPlacement = 'bottom',
+      floatingElementPositionStrategy = 'absolute', // if we use `fixed` then the overscroll of the body makes the dialog look weird when the page is overscrolled
+      floatingElementZIndex = 0,
+      floatingElementOffsetOptions = 4,
+      floatingLogicFlipOptions,
+      floatingLogicShiftOptions,
+      floatingLogicMiddlewareExtra = [],
     }
   ) {
     const anchorElement =
@@ -61,15 +62,16 @@ export default class HdsFloatElementModifier extends Modifier {
     );
 
     assert(
-      '@middleware must be an array of one or more objects',
-      Array.isArray(middleware)
+      '@floatingLogicMiddlewareExtra must be an array of one or more objects',
+      Array.isArray(floatingLogicMiddlewareExtra)
     );
 
     this.anchor = anchorElement;
     this.floating = floatingElement;
 
     Object.assign(this.floating.style, {
-      position: strategy,
+      position: floatingElementPositionStrategy,
+      zIndex: floatingElementZIndex,
       top: '0',
       left: '0',
     });
@@ -85,15 +87,17 @@ export default class HdsFloatElementModifier extends Modifier {
         this.floating,
         {
           middleware: [
-            offset(offsetOptions),
-            flip(flipOptions),
-            shift(shiftOptions),
-            ...middleware,
+            offset(floatingElementOffsetOptions),
+            flip(floatingLogicFlipOptions),
+            shift(floatingLogicShiftOptions),
+            ...floatingLogicMiddlewareExtra,
+            // TODO! don't remember what this was for, probably needed
             hide({ strategy: 'referenceHidden' }),
+            // TODO! don't remember what this was for, maybe not needed?
             hide({ strategy: 'escaped' }),
           ],
-          placement,
-          strategy,
+          placement: floatingElementPlacement,
+          strategy: floatingElementPositionStrategy,
         }
       );
 

@@ -4,7 +4,12 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <li class="hds-breadcrumb__item hds-breadcrumb__item--is-truncation" ...attributes>
-  <Hds::MenuPrimitiveNew>
+  <Hds::MenuPrimitiveNew
+    @contentPlacement="bottom"
+    @contentPositionStrategy="absolute"
+    @contentZIndex="300"
+    @contentOffsetOptions={{4}}
+  >
     <:toggle as |t|>
       <button
         type="button"

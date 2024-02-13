@@ -3,7 +3,15 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<Hds::MenuPrimitiveNew class={{this.classNames}} @onClose={{@onClose}} ...attributes>
+<Hds::MenuPrimitiveNew
+  class={{this.classNames}}
+  @contentPlacement={{this.contentPlacement}}
+  @contentPositionStrategy="absolute"
+  @contentZIndex={{2}}
+  @contentOffsetOptions={{4}}
+  @onClose={{@onClose}}
+  ...attributes
+>
   <:toggle as |t|>
     {{yield
       (hash
