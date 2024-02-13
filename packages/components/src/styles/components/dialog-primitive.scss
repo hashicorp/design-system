@@ -45,7 +45,7 @@ $hds-dialog-primitive-vertical-padding: 16px;
 
 .hds-dialog-primitive__wrapper-body {
   flex: 1 1 auto;
-  // this is necessary, otherwise if there are words longer than the width of the available space for the list "item" content
+  // this is necessary, otherwise if there are words longer than the width of the available space for container it will scroll horizontally (consumers will need to handle breaking words for this content, if they want)
   overflow-x: hidden;
   // we want the content to vertically scroll if needed
   overflow-y: auto;
