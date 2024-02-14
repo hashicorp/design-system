@@ -13,6 +13,10 @@ body.components-dropdown {
     outline: 1px dashed #d3d3d3;
   }
 
+  .shw-component-dropdown-fixed-height-container {
+    min-height: 200px;
+  }
+
   .shw-component-dropdown-states-matrix {
     .shw-grid__item {
       // we hide all the labels (except for the first "row")
