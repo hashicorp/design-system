@@ -1379,13 +1379,37 @@
 <section>
   <Shw::Text::H2>Demo</Shw::Text::H2>
 
-  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+  <Shw::Grid {{style gap="2rem"}} @columns={{4}} as |SG|>
     <SG.Item @label="With fixed width">
       <div class="shw-component-dropdown-fixed-height-container">
-        <Hds::Dropdown @listPosition="bottom-left" @width="200px" as |dd|>
+        <Hds::Dropdown @listPosition="bottom-left" @width="180px" as |dd|>
           <dd.ToggleButton @color="secondary" @text="Menu" />
           <dd.Interactive @href="#" @text="Lorem ipsum dolor sit amet" />
           <dd.Interactive @href="#" @text="Consectetur adipisicing elit" />
+        </Hds::Dropdown>
+      </div>
+    </SG.Item>
+    <SG.Item @label="With long content">
+      <div class="shw-component-dropdown-fixed-height-container">
+        <Hds::Dropdown @listPosition="bottom-left" as |dd|>
+          <dd.ToggleButton @color="secondary" @text="Menu" />
+          {{#let (array 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16) as |items|}}
+            {{#each items as |item|}}
+              <dd.Interactive @href="#" @text="Item #{{item}}" />
+            {{/each}}
+          {{/let}}
+        </Hds::Dropdown>
+      </div>
+    </SG.Item>
+    <SG.Item @label="With long content + fixed height">
+      <div class="shw-component-dropdown-fixed-height-container">
+        <Hds::Dropdown @listPosition="bottom-left" @height="200px" as |dd|>
+          <dd.ToggleButton @color="secondary" @text="Menu" />
+          {{#let (array 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16) as |items|}}
+            {{#each items as |item|}}
+              <dd.Interactive @href="#" @text="Item #{{item}}" />
+            {{/each}}
+          {{/let}}
         </Hds::Dropdown>
       </div>
     </SG.Item>
