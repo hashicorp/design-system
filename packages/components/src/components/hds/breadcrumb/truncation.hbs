@@ -4,15 +4,11 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <li class="hds-breadcrumb__item hds-breadcrumb__item--is-truncation" ...attributes>
-  <Hds::MenuPrimitiveNew
-    @contentPlacement="bottom"
-    @contentPositionStrategy="absolute"
-    @contentZIndex="300"
-    @contentOffsetOptions={{4}}
-  >
+  <Hds::MenuPrimitive>
     <:toggle as |t|>
       <button
         type="button"
+        id={{this.toggleId}}
         class="hds-breadcrumb__truncation-toggle"
         aria-label={{this.ariaLabel}}
         aria-expanded={{if t.isOpen "true" "false"}}
@@ -22,11 +18,20 @@
       </button>
     </:toggle>
     <:content>
-      <div class="hds-breadcrumb__truncation-content">
+      <div
+        class="hds-breadcrumb__truncation-content"
+        {{hds-float-element
+          this.toggleSelector
+          floatingElementPlacement="bottom"
+          floatingElementPositionStrategy="absolute"
+          floatingElementZIndex=300
+          floatingElementOffsetOptions=4
+        }}
+      >
         <ol class="hds-breadcrumb__sublist">
           {{yield}}
         </ol>
       </div>
     </:content>
-  </Hds::MenuPrimitiveNew>
+  </Hds::MenuPrimitive>
 </li>

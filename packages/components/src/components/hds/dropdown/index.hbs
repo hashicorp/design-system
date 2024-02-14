@@ -3,25 +3,29 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<Hds::MenuPrimitiveNew
-  class={{this.classNames}}
-  @contentPlacement={{this.contentPlacement}}
-  @contentPositionStrategy="absolute"
-  @contentZIndex={{2}}
-  @contentOffsetOptions={{4}}
-  @onClose={{@onClose}}
-  ...attributes
->
+<Hds::MenuPrimitive class={{this.classNames}} @onClose={{@onClose}} ...attributes>
   <:toggle as |t|>
     {{yield
       (hash
-        ToggleButton=(component "hds/dropdown/toggle/button" isOpen=t.isOpen onClick=t.onClickToggle)
-        ToggleIcon=(component "hds/dropdown/toggle/icon" isOpen=t.isOpen onClick=t.onClickToggle)
+        ToggleButton=(component
+          "hds/dropdown/toggle/button" toggleId=this.toggleId isOpen=t.isOpen onClick=t.onClickToggle
+        )
+        ToggleIcon=(component "hds/dropdown/toggle/icon" toggleId=this.toggleId isOpen=t.isOpen onClick=t.onClickToggle)
       )
     }}
   </:toggle>
   <:content as |c|>
-    <div class={{this.classNamesContent}} {{style width=@width max-height=@height}}>
+    <div
+      class={{this.classNamesContent}}
+      {{style width=@width max-height=@height}}
+      {{hds-float-element
+        this.toggleSelector
+        floatingElementPlacement=this.contentPlacement
+        floatingElementPositionStrategy="absolute"
+        floatingElementZIndex=2
+        floatingElementOffsetOptions=4
+      }}
+    >
       {{yield (hash Header=(component "hds/dropdown/header"))}}
       <ul class="hds-dropdown__list" {{did-insert this.didInsertList}}>
         {{yield
@@ -42,4 +46,4 @@
       {{yield (hash close=c.close Footer=(component "hds/dropdown/footer"))}}
     </div>
   </:content>
-</Hds::MenuPrimitiveNew>
+</Hds::MenuPrimitive>

@@ -5,8 +5,8 @@
 }}
 <button
   class={{this.classNames}}
-  id={{this.toggleButtonId}}
   ...attributes
+  id={{@toggleId}}
   type="button"
   aria-expanded={{if @isOpen "true" "false"}}
   {{on "click" this.onClick}}

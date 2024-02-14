@@ -6,6 +6,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
+import { getElementId } from '../../../utils/hds-get-element-id';
 
 export const DEFAULT_POSITION = 'bottom-right';
 export const POSITIONS = [
@@ -16,6 +17,16 @@ export const POSITIONS = [
 ];
 
 export default class HdsDropdownIndexComponent extends Component {
+  /**
+   * Calculate the unique ID to use for the toggle/button (and a CSS selector for it)
+   */
+  get toggleId() {
+    return `toggle-${getElementId(this)}`;
+  }
+
+  get toggleSelector() {
+    return `#${this.toggleId}`;
+  }
   /**
    * @param listPosition
    * @type {string}
@@ -83,6 +94,7 @@ export default class HdsDropdownIndexComponent extends Component {
   didInsertList(element) {
     const checkmarkItems = element.querySelectorAll(`[role="option"]`);
     if (checkmarkItems.length) {
+      // TODO should we review this now that we have the toggleId generated above?
       const toggleButtonId = element
         .closest('.hds-dropdown')
         ?.querySelector('.hds-dropdown-toggle-button')
