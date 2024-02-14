@@ -19,7 +19,7 @@
   "scripts": {
     "build": "rollup --config",
     "prepublishOnly": "rollup --config",
-    "start": "rollup --config --watch",
+    "start": "rollup --config --watch --environment development",
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
     "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",
     "lint:css": "stylelint \"src/styles/**/*.scss\"",
