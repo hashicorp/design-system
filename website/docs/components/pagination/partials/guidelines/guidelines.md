@@ -33,17 +33,15 @@ We strongly suggest that you talk to your engineering team to see which paginati
 
 ### Truncation
 
-In Numbered Pagination, when the number of pages exceeds seven the number of visible pages will be truncated by default. What pages are truncated depends on the current page the user is on, with a few notable constants:
+By default, in Numbered Pagination, the number of visible pages will be truncated when the total number of pages exceeds seven. What pages are truncated depends on the current page the user is on, with a few notable constants:
 
 - The first and last page will always be displayed (never be truncated).
 - The previous page and next page compared to the current page will always be displayed (unless the current page is the first or last page).
 - A maximum of seven pages or truncated pages will always be displayed.
 
-The pages that do not meet these criteria are truncated automatically.
-
 !!! Info
 
-The number of pages equals `total items / items per page`. E.g., if the total number of items is 120 and there are 10 items per page, the number of pages is 12.
+The number of pages equals `total items / items per page`. E.g., if the total number of items is 120 and there are 10 items per page, the number of pages is 12. However, this can be variable depending on the `PageSize` and can determine whether the number pages extends beyond the threshold of truncation.
 !!!
 
 #### Current page at the start of Pagination
@@ -58,11 +56,11 @@ The number of pages equals `total items / items per page`. E.g., if the total nu
 
 ![Current page at the end of Pagination](/assets/components/pagination/pagination-truncation-end.png)
 
-#### When to use Truncation
+#### When to use truncation
 
 Truncation can help to reduce the cognitive load on the user by only displaying immediately relevant pages to navigate between; those directly surrounding the current page, and the first/last page.
 
-While not intended to be used as a solution for a responsive layout, truncating Pagination can help to save space if there are many pages.
+While not intended to be used as a solution for a responsive layout, truncation can help to save space if there are many pages.
 
 #### When not to use truncation
 
