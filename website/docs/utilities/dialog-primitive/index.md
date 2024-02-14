@@ -1,9 +1,9 @@
 ---
 title: DialogPrimitive
-description: Dialog Primitives are the foundational blocks of dialog components such as modals, flyouts, and similar dialo-based components.
+description: Dialog Primitives are the foundational blocks of dialog components such as modals, flyouts, and similar dialog-based components.
 caption: The foundational blocks of dialog components.
 related: ['components/modal', 'components/flyout']
-previewImage: assets/illustrations/components/dialog-primitive.jpg
+previewImage: assets/illustrations/utilities/dialog-primitive.jpg
 navigation:
   keywords: ['modal', 'flyout', 'popover', 'popup']
 ---
