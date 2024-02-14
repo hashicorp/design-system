@@ -55,6 +55,14 @@ export default class HdsDropdownIndexComponent extends Component {
       .replace(/-right$/, '-end');
   }
 
+  get contentPositionStrategy() {
+    return this.args.listPositionStrategy ?? 'absolute';
+  }
+
+  get contentZIndex() {
+    return this.args.listZIndex ?? 2;
+  }
+
   /**
    * Get the class names to apply to the element
    * @method classNames

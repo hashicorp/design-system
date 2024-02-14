@@ -21,8 +21,8 @@
       {{hds-float-element
         this.toggleSelector
         floatingElementPlacement=this.contentPlacement
-        floatingElementPositionStrategy="absolute"
-        floatingElementZIndex=2
+        floatingElementPositionStrategy=this.contentPositionStrategy
+        floatingElementZIndex=this.contentZIndex
         floatingElementOffsetOptions=4
       }}
     >
