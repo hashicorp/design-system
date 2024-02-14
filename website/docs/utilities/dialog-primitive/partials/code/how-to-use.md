@@ -7,7 +7,7 @@ The `DialogPrimitive` serves as the foundation for dialog derived components lik
 ### Basic dialog using DialogPrimitive components
 
 ```handlebars
-<Hds::DialogPrimitive::Wrapper open>
+<Hds::DialogPrimitive::Wrapper>
   <:header>
     <Hds::DialogPrimitive::Header 
       @icon="info" 
@@ -33,12 +33,4 @@ The `DialogPrimitive` serves as the foundation for dialog derived components lik
     </Hds::DialogPrimitive::Footer>
   </:footer>
 </Hds::DialogPrimitive::Wrapper>
-```
-
-### Overlay backdrop for use with modal dialogs
-
-```handlebars
-<div class="doc-utility-dialog-primitive-overlay-container">
-  <Hds::DialogPrimitive::Overlay />
-</div>
 ```
