@@ -191,10 +191,8 @@ A multi-select consists of:
 
 !!! Info
 
-For more details around how to approach a multi-select Table, recommended patterns, and intended interactions visit the [Multi-Selection patterns](/patterns/multi-selection) documentation.
+For more details around how to approach a multi-select Table, recommended patterns, and intended interactions visit the [Multi-select patterns](/patterns/multi-select-patterns) documentation.
 !!!
-
-<!--@jory move this to the pattern documentation-->
 
 ### Intended interaction
 

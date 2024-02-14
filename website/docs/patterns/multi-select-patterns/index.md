@@ -1,5 +1,5 @@
 ---
-title: Multi-select patterns
+title: Table Multi-select
 description: Guidelines, compositions, and interaction patterns for selecting and transforming results in a Table.
 caption: Guidelines, compositions, and interaction patterns for selecting and transforming results in a Table.
 related: ['components/table', 'patterns/filter-patterns']
