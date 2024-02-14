@@ -21,11 +21,11 @@ Within the Multi-select pattern itself, use a 16px horizontal gap between the me
 
 ### In context
 
-Within a larger context, use the same spacing recommendation of 16px vertical gap between the pattern, filter elements, and data set.
+Within a larger context, use a 16px vertical gap between the filter elements, multi-selection pattern, and table.
 
 ![Spacing in context with other elements](/assets/patterns/multi-select-patterns/multi-select-in-context-spacing.png)
 
-## Basic layout
+## Layout
 
 In a basic example of a Table, place the selection pattern above the top-right corner of the Table.
 
@@ -33,7 +33,7 @@ In a basic example of a Table, place the selection pattern above the top-right c
 
 ### Layout with a filter pattern
 
-When composing a Multi-select pattern with a [Filter bar](/patterns/filter-patterns?tab=specifications#filter-bar-1) and [Applied filters](/patterns/filter-patterns?tab=specifications#applied-filters-1), maintain the sample placement.
+When composing a Multi-select pattern with a [Filter bar](/patterns/filter-patterns?tab=specifications#filter-bar-1) and [Applied filters](/patterns/filter-patterns?tab=specifications#applied-filters-1), maintain the same placement.
 
 ![Multi-select with a Filter Pattern](/assets/patterns/multi-select-patterns/multi-select-in-context-filters.png)
 

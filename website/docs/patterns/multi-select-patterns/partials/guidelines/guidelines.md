@@ -11,7 +11,7 @@ Display the **selected count** to communicate how many rows or results have been
 
 ![Example of the selected count](/assets/patterns/multi-select-patterns/selected-count.png)
 
-Pair this with a **message** to clearly communicate that a selection has been made. This can be a simple generic message stating "{number in current selection} selected", or can be more specific to the type of object in the data set (e.g., a user, cluster, workspace, etc).
+Pair this with a **message** to clearly communicate that a selection has been made. This can be a simple generic message stating "{selected count} selected", or can be more specific to the type of object in the data set (e.g., a user, cluster, workspace, etc).
 
 ![Generic and specific messaging](/assets/patterns/multi-select-patterns/types-of-messages.png)
 
@@ -28,17 +28,17 @@ Depending on how the data within a Table is fetched or if [cursor-based paginati
 
 ## Bulk actions
 
-The act of selecting multiple results in a Table implies that the the user wants to edit, remove, or transform these results in some way. Consolidate these actions in a [List](/components/dropdown#list) toggled by a `small` [Dropdown](/components/dropdown) inline with the selected count, message, and total count.
+The act of selecting multiple results in a Table implies that the the user wants to edit, remove, or transform these results in some way. Consolidate these actions in a `small` [Dropdown](/components/dropdown) inline with the selected count, message, and total count.
 
 ![Example of bulk actions](/assets/patterns/multi-select-patterns/bulk-actions.png)
 
-When working with instances of a Table where only a single action is necessary (e.g., bulk deleting a selection), use a `small` [Button](/components/button) in place of the Dropdown. We recommend using only `secondary` or `critical` Buttons in this scenario depending on the intent of the action.
+For Table instances requiring a single action (like bulk deletion), use a `small` [Button](/components/button) instead of a Dropdown. We advise using either `secondary` or `critical` Buttons, based on the action’s intent.
 
 ![Example of a single action](/assets/patterns/multi-select-patterns/single-action.png)
 
 ### Editing results
 
-With a selection made, consider using a [Modal](/components/modal) to perform bulk edits or updates to parameters of the selected results. This is generally appropriate for editing five parameters or less, for more complex scenarios consider shifting the editing experience to a separate page.
+With a selection made, consider using a [Modal](/components/modal) to perform bulk edits or updates to parameters of the selected results. This is generally appropriate for editing five parameters or less; for more complex scenarios, consider shifting the editing experience to a separate page.
 
 ![Editing results in a Modal](/assets/patterns/multi-select-patterns/multi-select-edit-modal.png)
 
@@ -50,9 +50,9 @@ Deleting or performing destructive actions on results should use an additional c
 
 ## Bulk selection
 
-Use bulk selection to highlight additional, more complex methods of selecting rows in a Table. This type of selection should be global in scope, meaning that all results in the data set are affected, even those outside of the current view. Consolidate these functions in a Dropdown List paired with bulk actions.
+Bulk selection is global in scope, meaning that all results in the data set are affected, even those outside of the current view. Consolidate these functions in a Dropdown paired with bulk actions.
 
-Some common examples of bulk selection include:
+Examples of bulk selection include:
 
 - **Select all:** select all of the results in a data set.
 - **Deselect all/reset selection:** take the current selected results and deselect them.

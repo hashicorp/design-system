@@ -1,6 +1,6 @@
-When combining a Multi-select pattern with filtering, sorting, pagination, etc, you _will_ encounter confusing scenarios about how selected results should be persisted across different pages and what the user expects when traversing large data sets.
+When combining a Multi-select pattern with filtering, sorting, or pagination, you may encounter complex scenarios regarding how selected results should be persisted across pages and what the user expects when traversing large data sets.
 
-These interaction guidelines are _not exhaustive_, but instead should serve as conversation starters between design and engineering for how best to handle the user experience.
+These interaction guidelines are not fully comprehensive. They should instead be considered as conversation starters between design and engineering on how best to optimize the user experience.
 
 !!! Info
 
@@ -40,7 +40,7 @@ If a user makes a selection on one page of a paginated Table and progresses to t
 
 Filtering a data set implies removing or hiding results from rendering within a Table; a **reductive** action. In this scenario, performing a reductive action will impact multiple areas of the interface and surface a number of considerations for persisting the selection.
 
-- In a Multi-select pattern, should the [total count](/patterns/multi-select-patterns?tab=guidlines#total-count) affected to reflect a reduction in the number of visible results?
+- In a Multi-select pattern, should the [total count](/patterns/multi-select-patterns?tab=guidlines#total-count) be affected to reflect a reduction in the number of visible results?
 - In Pagination, is the number of results reduced to reflect the those excluded by the filter?
 - If a selection has been made prior to filtering, is the selected state persisted even if the filtered results are excluded from the data set?
 - Are there any parameters in the data set that are variable in nature? E.g., status that is prone to changing if a cluster is starting up or spinning down.
