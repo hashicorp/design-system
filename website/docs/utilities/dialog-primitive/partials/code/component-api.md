@@ -8,7 +8,7 @@
 
 ### Contextual components
 
-The title, description, main content, actions, and backdrop are passed into the `DialogPrimitive::Wrapper` as yielded components, using the `Header`, `Description`, `Body`, `Footer`, and `Overlay` keys.
+The title, description, main content, and actions can be passed as child components into the `DialogPrimitive::Wrapper` named blocks .
 
 #### DialogPrimitive::Header
 

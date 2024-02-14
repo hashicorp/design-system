@@ -1,8 +1,8 @@
-The DialogPrimitive Wrapper is built on the HTML `<dialog>` element, and therefore supports the same API.
+The DialogPrimitive Wrapper is built on the HTML `<dialog>` element, and therefore supports the same [JavaScript API](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog).
 
 ## How to use this component
 
-The `DialogPrimitive` serves as the foundation for dialog derived components like the HDS `Modal` and `Flyout`. Unlike other HDS primitives, we recommended using `DialogPrimitive` components directly when you need to create a dialog with a custom layout. This is particularly useful for constructing non-modal dialogs that integrate into a page layout, rather than floating above it.
+The `DialogPrimitive` serves as the foundation for dialog derived components like the [`Modal`](/components/modal) and [`Flyout`](/components/flyout). Unlike other HDS primitives, we recommended using `DialogPrimitive` components directly when you need to create a dialog with a custom layout. This is particularly useful for constructing non-modal dialogs that integrate into a page layout, rather than floating above it.
 
 ### Basic dialog using DialogPrimitive components
 
