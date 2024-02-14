@@ -334,5 +334,31 @@
     </Hds::Modal>
   {{/if}}
 
+  <button type="button" {{on "click" (fn this.activateModal "dropdownModalActive")}}>Open dropdown modal</button>
+
+  {{#if this.dropdownModalActive}}
+    <Hds::Modal id="dropdown-modal" @onClose={{fn this.deactivateModal "dropdownModalActive"}} as |M|>
+      <M.Header>
+        Modal title
+      </M.Header>
+      <M.Body>
+        <p class="hds-typography-body-200 hds-foreground-primary" {{style margin-bottom="12px"}}>Lorem ipsum dolor sit
+          amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="hds-typography-body-200 hds-foreground-primary" {{style margin-bottom="12px"}}>Ut enim ad minim
+          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+          dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <Hds::Dropdown @listPosition="bottom-left" as |dd|>
+          <dd.ToggleButton @color="secondary" @text="Generic dropdown" />
+          <dd.Interactive @href="#" @text="Lorem" />
+          <dd.Interactive @href="#" @text="Ipsum" />
+          <dd.Interactive @href="#" @text="Dolor" />
+        </Hds::Dropdown>
+      </M.Body>
+      <M.Footer as |F|>
+        <Hds::Button type="button" @text="Confirm" {{on "click" F.close}} />
+      </M.Footer>
+    </Hds::Modal>
+  {{/if}}
+
 </section>
 {{! template-lint-enable no-autofocus-attribute }}

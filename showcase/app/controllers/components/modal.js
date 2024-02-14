@@ -12,6 +12,7 @@ export default class ModalController extends Controller {
   @tracked longModalActive = false;
   @tracked formModalActive = false;
   @tracked tabsModalActive = false;
+  @tracked dropdownModalActive = false;
 
   @action
   activateModal(modal) {
