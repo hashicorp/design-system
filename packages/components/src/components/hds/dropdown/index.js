@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
-import { getElementId } from '../../../utils/hds-get-element-id';
+import { tracked } from '@glimmer/tracking';
 
 export const DEFAULT_POSITION = 'bottom-right';
 export const POSITIONS = [
@@ -17,12 +17,7 @@ export const POSITIONS = [
 ];
 
 export default class HdsDropdownIndexComponent extends Component {
-  /**
-   * Calculate the unique ID to use for the toggle/button (and a CSS selector for it)
-   */
-  get toggleId() {
-    return `toggle-${getElementId(this)}`;
-  }
+  @tracked toggleId;
 
   get toggleSelector() {
     return `#${this.toggleId}`;
@@ -110,16 +105,16 @@ export default class HdsDropdownIndexComponent extends Component {
   }
 
   @action
+  didInsertToggle(element) {
+    this.toggleId = element.id;
+  }
+
+  @action
   didInsertList(element) {
     const checkmarkItems = element.querySelectorAll(`[role="option"]`);
     if (checkmarkItems.length) {
-      // TODO should we review this now that we have the toggleId generated above?
-      const toggleButtonId = element
-        .closest('.hds-dropdown')
-        ?.querySelector('.hds-dropdown-toggle-button')
-        ?.getAttribute('id');
       element.setAttribute('role', 'listbox');
-      element.setAttribute('aria-labelledby', toggleButtonId);
+      element.setAttribute('aria-labelledby', this.toggleId);
     }
   }
 }

@@ -13,9 +13,11 @@
     {{yield
       (hash
         ToggleButton=(component
-          "hds/dropdown/toggle/button" toggleId=this.toggleId isOpen=t.isOpen onClick=t.onClickToggle
+          "hds/dropdown/toggle/button" isOpen=t.isOpen didInsertToggle=this.didInsertToggle onClick=t.onClickToggle
         )
-        ToggleIcon=(component "hds/dropdown/toggle/icon" toggleId=this.toggleId isOpen=t.isOpen onClick=t.onClickToggle)
+        ToggleIcon=(component
+          "hds/dropdown/toggle/icon" isOpen=t.isOpen didInsertToggle=this.didInsertToggle onClick=t.onClickToggle
+        )
       )
     }}
   </:toggle>

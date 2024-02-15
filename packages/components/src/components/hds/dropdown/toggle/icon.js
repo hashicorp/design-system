@@ -7,6 +7,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
+import { getElementId } from '../../../../utils/hds-get-element-id';
 
 export const DEFAULT_SIZE = 'medium';
 export const SIZES = ['small', 'medium'];
@@ -33,6 +34,15 @@ export default class HdsDropdownToggleIconComponent extends Component {
   @action
   onImageLoadError() {
     this.hasImage = false;
+  }
+
+  /**
+   * Generates a unique ID for the button
+   *
+   * @param toggleButtonId
+   */
+  get toggleButtonId() {
+    return getElementId(this);
   }
 
   /**
@@ -107,6 +117,23 @@ export default class HdsDropdownToggleIconComponent extends Component {
     // in reality it's always used inside the Dropdown main component as yielded component, so the onClick handler is always defined
     if (typeof onClick === 'function') {
       return onClick;
+    } else {
+      return NOOP;
+    }
+  }
+
+  /**
+   * @param didInsertToggle
+   * @type {function}
+   * @default () => {}
+   */
+  get didInsertToggle() {
+    let { didInsertToggle } = this.args;
+
+    // notice: this is a guard used in case the toggle is used as standalone element (eg. in the showcase)
+    // in reality it's always used inside the Dropdown main component as yielded component, so the didInsertToggle handler is always defined
+    if (typeof didInsertToggle === 'function') {
+      return didInsertToggle;
     } else {
       return NOOP;
     }

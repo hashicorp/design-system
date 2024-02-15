@@ -7,9 +7,10 @@
   class={{this.classNames}}
   aria-label={{this.text}}
   ...attributes
-  id={{@toggleId}}
+  id={{this.toggleButtonId}}
   aria-expanded={{if @isOpen "true" "false"}}
   {{on "click" this.onClick}}
+  {{did-insert this.didInsertToggle}}
   {{did-update this.onDidUpdateImageSrc @imageSrc}}
   type="button"
 >

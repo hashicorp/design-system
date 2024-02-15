@@ -5,10 +5,11 @@
 }}
 <button
   class={{this.classNames}}
+  id={{this.toggleButtonId}}
   ...attributes
-  id={{@toggleId}}
   type="button"
   aria-expanded={{if @isOpen "true" "false"}}
+  {{did-insert this.didInsertToggle}}
   {{on "click" this.onClick}}
 >
   {{#if @icon}}
