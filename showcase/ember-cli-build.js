@@ -6,6 +6,8 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const { compatBuild } = require('@embroider/compat');
+const { Webpack } = require('@embroider/webpack');
 
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
@@ -37,12 +39,18 @@ module.exports = function (defaults) {
     behave. You most likely want to be modifying `./index.js` or app's build file
   */
 
-  const { maybeEmbroider } = require('@embroider/test-setup');
-  return maybeEmbroider(app, {
-    skipBabel: [
-      {
-        package: 'qunit',
-      },
-    ],
+  return compatBuild(app, Webpack, {
+    staticAddonTestSupportTrees: true,
+    staticAddonTrees: true,
+    staticModifiers: true,
+    // staticHelpers: true,
+    // staticComponents: true,
+    // staticEmberSource: true,
+    splitControllers: true,
+    splitRouteClasses: true,
+    // splitAtRoutes: ['route.name'], // can also be a RegExp
+    packagerOptions: {
+      webpackConfig: {},
+    },
   });
 };
