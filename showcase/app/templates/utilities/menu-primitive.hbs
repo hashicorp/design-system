@@ -139,4 +139,78 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Divider />
+
+  <Shw::Text::H2>Rendering content in specific elements</Shw::Text::H2>
+
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="Content injected in the document &lt;body&gt;" @grow={{true}}>
+      <div class="shw-utility-menu-primitive-container">
+        <Hds::MenuPrimitive @renderInElement="body">
+          <:toggle as |t|>
+            <button type="button" {{on "click" t.onClickToggle}}>
+              Click me
+              <FlightIcon @name={{if t.isOpen "chevron-up" "chevron-down"}} />
+            </button>
+          </:toggle>
+          <:content>
+            <Shw::Placeholder
+              class="shw-utility-menu-primitive-injected-content-body"
+              @text="this content is injected in the document &lt;body&gt;"
+              @width="320"
+              @height="60"
+              @background="#e1f5fe"
+            />
+          </:content>
+        </Hds::MenuPrimitive>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Content injected using a DOM selector" @grow={{true}}>
+      <div class="shw-utility-menu-primitive-container">
+        <Hds::MenuPrimitive @renderInElement="#shw-utility-menu-primitive-render-target-1">
+          <:toggle as |t|>
+            <button type="button" {{on "click" t.onClickToggle}}>
+              Click me
+              <FlightIcon @name={{if t.isOpen "chevron-up" "chevron-down"}} />
+            </button>
+          </:toggle>
+          <:content>
+            <Shw::Placeholder
+              @text="this content is injected in a sibling of the &lt;Hds::MenuPrimitive&gt;"
+              @width="500"
+              @height="60"
+              @background="#e1f5fe"
+            />
+          </:content>
+        </Hds::MenuPrimitive>
+        <div id="shw-utility-menu-primitive-render-target-1">
+          <pre>the content will be injected here</pre>
+        </div>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Content injected using a DOM element" @grow={{true}}>
+      <div class="shw-utility-menu-primitive-container">
+        <Hds::MenuPrimitive @renderInElement={{this.renderTargetId}}>
+          <:toggle as |t|>
+            <button type="button" {{on "click" t.onClickToggle}}>
+              Click me
+              <FlightIcon @name={{if t.isOpen "chevron-up" "chevron-down"}} />
+            </button>
+          </:toggle>
+          <:content>
+            <Shw::Placeholder
+              @text="this content is injected in a sibling of the &lt;Hds::MenuPrimitive&gt;"
+              @width="500"
+              @height="60"
+              @background="#e1f5fe"
+            />
+          </:content>
+        </Hds::MenuPrimitive>
+        <div id="shw-utility-menu-primitive-render-target-2">
+          <pre>the content will be injected here</pre>
+        </div>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
 </section>

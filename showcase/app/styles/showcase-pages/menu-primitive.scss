@@ -38,4 +38,10 @@ body.utilities-menu-primitive {
     padding: 20px;
     outline: 1px dotted #ccc;
   }
+
+  .shw-utility-menu-primitive-injected-content-body {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
 }
