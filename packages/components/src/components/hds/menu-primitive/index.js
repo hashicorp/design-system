@@ -7,10 +7,46 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { schedule } from '@ember/runloop';
+import { assert } from '@ember/debug';
 
 export default class HdsMenuPrimitiveComponent extends Component {
   @tracked isOpen; // notice: if in the future we need to add a "@isOpen" prop to control the status from outside (eg to have the MenuPrimitive opened on render) just add  "this.args.isOpen" here to initalize the variable
   @tracked toggleRef;
+
+  get renderInElement() {
+    let { renderInElement } = this.args;
+    if (renderInElement) {
+      let targetElement;
+      if (typeof renderInElement === 'string') {
+        const selectedElement = document.querySelector(renderInElement);
+        if (selectedElement) {
+          targetElement = selectedElement;
+        } else {
+          console.error(
+            '@renderInElement for Hds::MenuPrimitive does not point to an existing DOM node, check your selector string',
+            targetElement
+          );
+        }
+      } else if (
+        renderInElement instanceof Node &&
+        renderInElement.nodeType === Node.ELEMENT_NODE
+      ) {
+        targetElement = renderInElement;
+      } else {
+        if (renderInElement instanceof NodeList) {
+          assert(
+            '@renderInElement for Hds::MenuPrimitive must be a string or a DOM node - provided: a list of DOM nodes'
+          );
+        } else {
+          assert(
+            `@renderInElement for Hds::MenuPrimitive must be a string or a DOM node - provided: ${typeof target}`
+          );
+        }
+      }
+      return targetElement;
+    }
+    return undefined;
+  }
 
   @action
   didInsert(element) {
