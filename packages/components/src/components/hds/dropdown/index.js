@@ -63,6 +63,17 @@ export default class HdsDropdownIndexComponent extends Component {
     return this.args.listZIndex ?? 2;
   }
 
+  get contentRenderInElement() {
+    let { listRenderInElement } = this.args;
+    if (listRenderInElement) {
+      return listRenderInElement;
+    } else if (this.contentPositionStrategy === 'fixed') {
+      return 'body';
+    } else {
+      return undefined;
+    }
+  }
+
   /**
    * Get the class names to apply to the element
    * @method classNames
