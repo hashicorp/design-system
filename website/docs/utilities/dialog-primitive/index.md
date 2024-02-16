@@ -22,3 +22,7 @@ navigation:
   @include "partials/specifications/anatomy.md"
   @include "partials/specifications/states.md"
 </section>
+
+<section data-tab="Accessibility">
+  @include "partials/accessibility/accessibility.md"
+</section>
