@@ -6,7 +6,7 @@ This is the checklist the HDS team uses for any new component project. All new c
 
 The following should be available as resources for the Project Kickoff.
 
-- [Component Audit](https://www.figma.com/file/wPDhYo23Rk5WDZ5lHC04W3/Component-Audits-FY24?type=design&t=yWY94cHxIGiat5L7-6): This audit is performed by HDS Ambassadors and should be **complete** before the kickoff. 
+- [Component Audit](https://www.figma.com/file/wPDhYo23Rk5WDZ5lHC04W3/Component-Audits-FY24?type=design&t=yWY94cHxIGiat5L7-6)
 - [Component Requirement Document (CRD)](https://docs.google.com/document/d/1kGcdfnb_z5tVUUvkSJGQPOssNd1yl2SVyd7bqk1KXII/): This file should be started before the kickoff and include an early estimate of scope and any open questions that need to be answered during the kickoff.
 
 ## Project Kickoff
@@ -41,7 +41,7 @@ The design process is largely cyclical, so some steps may be repeated until fina
     - engineering partner(s)
     - a11y SME
     - other external stakeholders as defined during the kickoff
-    - consider also including the design ambassadors
+    - consider also including any key stakeholders
   - reviews should include checks for: 
     - alignment to Helios design vision
     - ux solution
@@ -65,9 +65,9 @@ The design process is largely cyclical, so some steps may be repeated until fina
   - [ ] merge the branch
   - [ ] publish the component
     - Important: do not communicate this release to consumers yet (this will be done later in the process)
-  - [ ] add a new page to the [playground](https://www.figma.com/file/JnkAC69NeUX83Pug32o7Mr/%F0%9F%AA%81-Playground-FY24?type=design&node-id=302-10&mode=design&t=Ov4rEelxWK7rxLdI-0) file and prepare a frame for each ambassador
+  - [ ] add a new page to the [playground](https://www.figma.com/file/JnkAC69NeUX83Pug32o7Mr/%F0%9F%AA%81-Playground-FY24?type=design&node-id=302-10&mode=design&t=Ov4rEelxWK7rxLdI-0) file and prepare a frame for each stakeholder
     - provide a variety (basic to complex) of screenshots to recreate based on real world examples from the audit
-- [ ] ask ambassadors to test the component
+- [ ] ask key stakeholders to test the component
   - depending on the complexity, we usually give them 3-4 days to complete the testing
 - [ ] if iterations are needed, work through the process until approved (don't forget to branch!)
      
@@ -79,7 +79,7 @@ The design process is largely cyclical, so some steps may be repeated until fina
     - relevant accessibility details
        
 ### Release in Figma
-Once ambassadors have tested the component and iterations are approved, prepare for a final release of the component.
+Once key stakeholders have tested the component and iterations are approved, prepare for a final release of the component.
 
 - [ ] add a changelog entry to [CHANGELOG-FIGMA-COMPONENTS.md](https://github.com/hashicorp/design-system/blob/main/packages/components/CHANGELOG-FIGMA-COMPONENTS.md)
 - [ ] if changes were made, publish the component
