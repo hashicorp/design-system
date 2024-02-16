@@ -3,7 +3,7 @@ title: Table Multi-select
 description: Guidelines, compositions, and interaction patterns for selecting and transforming results in a Table.
 caption: Guidelines, compositions, and interaction patterns for selecting and transforming results in a Table.
 related: ['components/table', 'patterns/filter-patterns']
-previewImage: assets/illustrations/patterns/multi-select-patterns.jpg
+previewImage: assets/illustrations/patterns/table-multi-select.jpg
 navigation:
   keywords: ['selection', 'bulk']
 ---
