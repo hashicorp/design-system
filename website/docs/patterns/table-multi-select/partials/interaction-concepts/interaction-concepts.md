@@ -13,6 +13,16 @@ The most important method to ensure users are interacting with the results they 
 
 This can help to prevent unnecessary deletions of results or making unintended changes if what is currently selected is unclear.
 
+## Selection scope
+
+_Where_ a selection is made in the UI can imply differences in how the selection is scoped, and at a very basic level can broken down into three different hierarchies.
+
+1. **Row-level scope:** selection applies only to a single row, result, or item in a Table, and is made via the checkbox at the start of the row.
+2. **Page-level scope:** selection applies to all rows in the current page of a paginated table and is made via the Checkbox in the Table header.
+3. **Global scope:** selection applies to all rows in the table and is made via the bulk selection in the Multi-select pattern.
+
+![Selection scope](/assets/patterns/table-multi-select/selection-scope.png)
+
 ## Persisting the selection
 
 One of the most common questions around Multi-select patterns stems from when and how selected results are persisted when a user performs different actions on a Table. Consider the following scenario:

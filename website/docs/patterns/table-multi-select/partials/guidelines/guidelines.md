@@ -1,8 +1,8 @@
-The Helios Table [selection components](/components/table#multi-select) support the selection of one or more rows within a Table and enables the user to edit the same parameter across multiple results, creating more customized views within a Table, and bulk delete results from a data set.
+The Helios Table [multi-select functionality](/components/table#multi-select) supports performing bulk actions and and selection of one or more rows within a Table
 
 !!! Info
 
-We don’t publish a specific component to support this functionality, instead these guidelines are intended to outline the requirements and recommendations to compose a Multi-select pattern using HDS components and should serve as a starting point. Not all scenarios are covered, if straying from the pattern in more complex scenarios, try to leverage the same core concepts and communication methods.
+These guidelines are meant to help and inform teams design and build Tables that have bulk editing and bulk selection functionality. There currently aren’t Ember or Figma components to support this pattern, but it can be composed using a combination HDS components.
 !!!
 
 ## Selected count
@@ -46,6 +46,8 @@ Deleting or performing destructive actions on results should use an additional c
 ## Bulk selection
 
 Bulk selection is global in scope, meaning that all results in the data set are affected, even those outside of the current view. Consolidate these functions in a Dropdown paired with bulk actions.
+
+_Note:_ This type of selection is **not** a replacement for the selection in the header of the Table. Where the selection is made implies a different [scope](/patterns/table-multi-select?tab=interaction%20concepts#selection-scope) and is handled by different UI elements.
 
 Examples of bulk selection include:
 
