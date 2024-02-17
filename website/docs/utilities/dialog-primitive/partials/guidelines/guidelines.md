@@ -1,29 +1,9 @@
-## Usage
-
-### When to use
-
-- {description}
-
-### When not to use
-
-- {description}, consider {[component](#)}.
-- {description}, consider {[component](#)}.
-- {description}, consider {[component](#)}.
-
-### Variant/property name
-
-<!-- don’t forget to include real examples and do/don’t blocks, as necessary -->
-{description}
-
-### Variant/property name
-
-<!-- don’t forget to include real examples and do/don’t blocks, as necessary -->
-{description}
-
 ## Content
 
-- {description}
-- {description}
-- {description}
-- {description}
-- {description}
+### DialogPrimitive::Wrapper
+- Uses flexbox to contruct the layout of dialogs, positioning them top/down.
+- The body can either be hugged to the content (like a modal) or filled to the height of the container (like a flyout).
+- The footer will always be stuck to the bottom of the container.
+
+### DialogPrimitive::Header
+- The header houses information relating to the 
