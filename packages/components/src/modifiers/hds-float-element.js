@@ -13,6 +13,7 @@ import {
   hide,
   offset,
   shift,
+  // size,
 } from '@floating-ui/dom';
 
 export default class HdsFloatElementModifier extends Modifier {
@@ -90,6 +91,12 @@ export default class HdsFloatElementModifier extends Modifier {
             offset(floatingElementOffsetOptions),
             flip(floatingLogicFlipOptions),
             shift(floatingLogicShiftOptions),
+            // TODO! commenting this for now, will need to make this conditional to some argument (and understand how this relates to the `@height` argument)
+            // size({
+            //   apply: ({ availableWidth, availableHeight, middlewareData }) => {
+            //     middlewareData.size = { availableWidth, availableHeight };
+            //   },
+            // }),
             ...floatingLogicMiddlewareExtra,
             // TODO! don't remember what this was for, probably needed
             hide({ strategy: 'referenceHidden' }),
@@ -106,6 +113,8 @@ export default class HdsFloatElementModifier extends Modifier {
       Object.assign(this.floating.style, {
         top: `${y}px`,
         left: `${x}px`,
+        // TODO! commenting this for now, will need to make this conditional to some argument (and understand how this relates to the `@height` argument)
+        // maxHeight: `${middlewareData.size.availableHeight - 10}px`,
         margin: 0,
         visibility: referenceHidden ? 'hidden' : 'visible',
       });
