@@ -6,4 +6,4 @@ Dialog Primitives are building blocks that help contruct dialog-based components
 - `DialogPrimitive::Body` is the generic container that houses content from simple text, to complex forms
 - `DialogPrimitive::Footer` is the container for call to actions for the body content
 
-These primitives are not intended to be used independently of each other or seperate from the DialogPrimitive Wrapper. If you are looking to create your own dialog based component, use the DialogPrimitive Wrapper as your foundation.
+These primitives are not intended to be used independently of each other or separate from the DialogPrimitive Wrapper. If you are looking to create your own dialog-based component, use the DialogPrimitive Wrapper as your foundation.
