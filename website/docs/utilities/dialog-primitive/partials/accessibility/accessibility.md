@@ -1,11 +1,13 @@
+
 ## Conformance rating
 
-<!-- Update conformance rating badge with correct status and remove the others -->
-<Doc::Badge @type="success">Conformant</Doc::Badge>
+<Doc::Badge @type="warning">Conditionally conformant</Doc::Badge>
 
-When used as recommended, there should not be any WCAG conformance issues with this component.
+DialogPrimitive components are primarily containers which can be combined together to build a custom dialog and are not conformant on their own.
+Consumers are responsible for implementing the primitives in a way that results in a conformant experience for the user.
 
-## Focus and focus order
+
+<!-- ## Focus and focus order
 
 - When the dialog is open, focus moves to the first interactive element within the dialog and is trapped within the component.
 - Since a dialog is a complex pattern that can contain any combination of nested components and content, nested elements must adhere to their individual accessibility criteria.
@@ -20,7 +22,7 @@ In the case the dialog is triggered via a keyboard, the dismiss button must be f
 
 If the dialog body contains interactive content, such as input fields, the first element should receive focus first regardless of how the dialog is triggered; either via a mouse click or via the keyboard. This behaviour should be implemented by [setting the focus on the first element](/components/modal?tab=code#form-within-a-modal-dialog).
 
-![Complex focus within a modal](/assets/components/modal/modal-focus-order-complex.png =1042x*)
+![Complex focus within a modal](/assets/components/modal/modal-focus-order-complex.png =1042x*) -->
 
 #### Applicable WCAG Success Criteria
 
