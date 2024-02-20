@@ -6,10 +6,6 @@
 DialogPrimitive components are primarily containers which can be combined together to build a custom dialog and are not conformant on their own.
 Consumers are responsible for implementing the primitives in a way that results in a conformant experience for the user.
 
-## Focus and focus order
-
-For information on how to handle focus in an accessible way, consult the [accessibility section](/components/modal?tab=accessibility) of the `Modal` component.
-
 ## Applicable WCAG Success Criteria
 
 This section is for reference only. This component intends to conform to the following WCAG Success Criteria:
