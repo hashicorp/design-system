@@ -10,7 +10,7 @@ import {
   autoUpdate,
   computePosition,
   flip,
-  hide,
+  // hide,
   offset,
   shift,
   // size,
@@ -37,6 +37,7 @@ export default class HdsFloatElementModifier extends Modifier {
       floatingElementOffsetOptions = 4,
       floatingLogicFlipOptions,
       floatingLogicShiftOptions,
+      floatingElementEnableCollisionDetection = false,
       floatingLogicMiddlewareExtra = [],
     }
   ) {
@@ -87,10 +88,16 @@ export default class HdsFloatElementModifier extends Modifier {
         this.anchor,
         this.floating,
         {
+          // we build dynamically the list of middleware functions to invoke, depending on the options provided
           middleware: [
             offset(floatingElementOffsetOptions),
-            flip(floatingLogicFlipOptions),
-            shift(floatingLogicShiftOptions),
+            // we use this trick to conditionally add the `flip()` and `shift()` middleware only if specifically enabled
+            ...(floatingElementEnableCollisionDetection
+              ? [
+                  flip(floatingLogicFlipOptions),
+                  shift(floatingLogicShiftOptions),
+                ]
+              : []),
             // TODO! commenting this for now, will need to make this conditional to some argument (and understand how this relates to the `@height` argument)
             // size({
             //   apply: ({ availableWidth, availableHeight, middlewareData }) => {
@@ -98,17 +105,18 @@ export default class HdsFloatElementModifier extends Modifier {
             //   },
             // }),
             ...floatingLogicMiddlewareExtra,
-            // TODO! don't remember what this was for, probably needed
-            hide({ strategy: 'referenceHidden' }),
-            // TODO! don't remember what this was for, maybe not needed?
-            hide({ strategy: 'escaped' }),
+            // TODO! decide if we want to expose this with some property/argument
+            // hide({ strategy: 'referenceHidden' }),
+            // TODO! probably this is not needed because we handle the `esc` key in the underlying `MenuPrimitive` sub-component
+            // hide({ strategy: 'escaped' }),
           ],
           placement: floatingElementPlacement,
           strategy: floatingElementPositionStrategy,
         }
       );
 
-      const { referenceHidden } = middlewareData.hide;
+      // see above, probably we dont' want this
+      // const { referenceHidden } = middlewareData.hide;
 
       Object.assign(this.floating.style, {
         top: `${y}px`,
@@ -116,7 +124,8 @@ export default class HdsFloatElementModifier extends Modifier {
         // TODO! commenting this for now, will need to make this conditional to some argument (and understand how this relates to the `@height` argument)
         // maxHeight: `${middlewareData.size.availableHeight - 10}px`,
         margin: 0,
-        visibility: referenceHidden ? 'hidden' : 'visible',
+        // see above, probably we dont' want this
+        // visibility: referenceHidden ? 'hidden' : 'visible',
       });
     };
 

@@ -5,6 +5,7 @@
 }}
 <Hds::MenuPrimitive
   class={{this.classNames}}
+  @isOpen={{@isOpen}}
   @onClose={{@onClose}}
   @renderInElement={{this.contentRenderInElement}}
   ...attributes
@@ -30,6 +31,7 @@
         floatingElementPlacement=this.contentPlacement
         floatingElementPositionStrategy=this.contentPositionStrategy
         floatingElementZIndex=this.contentZIndex
+        floatingElementEnableCollisionDetection=this.contentEnableCollisionDetection
         floatingElementOffsetOptions=4
       }}
     >

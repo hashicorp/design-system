@@ -69,6 +69,10 @@ export default class HdsDropdownIndexComponent extends Component {
     }
   }
 
+  get contentEnableCollisionDetection() {
+    return this.args.listEnableCollisionDetection ?? false;
+  }
+
   /**
    * Get the class names to apply to the element
    * @method classNames
