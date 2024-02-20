@@ -1381,46 +1381,56 @@
 
   <Shw::Text::H3>Sizing</Shw::Text::H3>
 
-  <Shw::Grid {{style gap="2rem"}} @columns={{4}} as |SG|>
+  <Shw::Grid {{style gap="2rem"}} @columns={{3}} as |SG|>
     <SG.Item @label="With fixed width">
-      <Hds::Dropdown @listPosition="bottom-left" @width="180px" as |dd|>
-        <dd.ToggleButton @color="secondary" @text="Menu" />
-        <dd.Interactive @href="#" @text="Lorem ipsum dolor sit amet" />
-        <dd.Interactive @href="#" @text="Consectetur adipisicing elit" />
-      </Hds::Dropdown>
+      <Shw::Outliner {{style position="relative" height="200px" margin-bottom="50px" padding="8px"}}>
+        <Hds::Dropdown @listPosition="bottom-left" @width="180px" as |dd|>
+          <dd.ToggleButton @color="secondary" @text="Menu" />
+          <dd.Interactive @href="#" @text="Lorem ipsum dolor sit amet" />
+          <dd.Interactive @href="#" @text="Consectetur adipisicing elit" />
+        </Hds::Dropdown>
+      </Shw::Outliner>
     </SG.Item>
+  </Shw::Grid>
+  <Shw::Grid {{style gap="2rem"}} @columns={{3}} as |SG|>
     <SG.Item @label="With long content">
-      <Hds::Dropdown @listPosition="bottom-left" as |dd|>
-        <dd.ToggleButton @color="secondary" @text="Menu" />
-        {{#let (array 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16) as |items|}}
-          {{#each items as |item|}}
-            <dd.Interactive @href="#" @text="Item #{{item}}" />
-          {{/each}}
-        {{/let}}
-      </Hds::Dropdown>
+      <Shw::Outliner {{style position="relative" height="200px" margin-bottom="50px" padding="8px"}}>
+        <Hds::Dropdown @listPosition="bottom-left" as |dd|>
+          <dd.ToggleButton @color="secondary" @text="Menu" />
+          {{#let (array 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16) as |items|}}
+            {{#each items as |item|}}
+              <dd.Interactive @href="#" @text="Item #{{item}}" />
+            {{/each}}
+          {{/let}}
+        </Hds::Dropdown>
+      </Shw::Outliner>
     </SG.Item>
     <SG.Item @label="With long content + fixed height">
-      <Hds::Dropdown @listPosition="bottom-left" @height="200px" as |dd|>
-        <dd.ToggleButton @color="secondary" @text="Menu" />
-        {{#let (array 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16) as |items|}}
-          {{#each items as |item|}}
-            <dd.Interactive @href="#" @text="Item #{{item}}" />
-          {{/each}}
-        {{/let}}
-      </Hds::Dropdown>
+      <Shw::Outliner {{style position="relative" height="200px" margin-bottom="50px" padding="8px"}}>
+        <Hds::Dropdown @listPosition="bottom-left" @height="200px" as |dd|>
+          <dd.ToggleButton @color="secondary" @text="Menu" />
+          {{#let (array 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16) as |items|}}
+            {{#each items as |item|}}
+              <dd.Interactive @href="#" @text="Item #{{item}}" />
+            {{/each}}
+          {{/let}}
+        </Hds::Dropdown>
+      </Shw::Outliner>
     </SG.Item>
     <SG.Item @label="With extremely long content + middleware sizing [TODO]">
-      <Hds::Dropdown @listPosition="bottom-left" as |dd|>
-        <dd.ToggleButton @color="secondary" @text="Menu" />
-        {{#let
-          (array 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32)
-          as |items|
-        }}
-          {{#each items as |item|}}
-            <dd.Interactive @href="#" @text="Item #{{item}}" />
-          {{/each}}
-        {{/let}}
-      </Hds::Dropdown>
+      <Shw::Outliner {{style position="relative" height="200px" margin-bottom="50px" padding="8px"}}>
+        <Hds::Dropdown @listPosition="bottom-left" as |dd|>
+          <dd.ToggleButton @color="secondary" @text="Menu" />
+          {{#let
+            (array 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32)
+            as |items|
+          }}
+            {{#each items as |item|}}
+              <dd.Interactive @href="#" @text="Item #{{item}}" />
+            {{/each}}
+          {{/let}}
+        </Hds::Dropdown>
+      </Shw::Outliner>
     </SG.Item>
   </Shw::Grid>
 
@@ -1428,52 +1438,134 @@
 
   <Shw::Text::H3>Positioning</Shw::Text::H3>
 
-  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
-    {{#let (array "absolute" "fixed") as |positionStrategies|}}
-      {{#each positionStrategies as |positionStrategy|}}
-        <SG.Item @label="Strategy={{positionStrategy}} + Parent with overflow hidden">
-          <Shw::Outliner {{style position="relative" height="200px" padding="8px" overflow="hidden"}}>
-            <Hds::Dropdown
-              @listPosition="bottom-left"
-              @listPositionStrategy={{positionStrategy}}
-              @height="200px"
-              as |dd|
-            >
-              <dd.ToggleButton @color="secondary" @text="Menu" />
-              {{#let (array 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16) as |items|}}
-                {{#each items as |item|}}
-                  <dd.Interactive @href="#" @text="Item #{{item}}" />
-                {{/each}}
-              {{/let}}
-            </Hds::Dropdown>
-          </Shw::Outliner>
-        </SG.Item>
-        <SG.Item @label="Strategy={{positionStrategy}} / Z-Index=10 + Parent with overflow hidden">
-          <Shw::Outliner {{style position="relative" height="200px" padding="8px" overflow="hidden"}}>
-            <Hds::Dropdown
-              @listPosition="bottom-left"
-              @listPositionStrategy={{positionStrategy}}
-              @listZIndex={{10}}
-              @height="200px"
-              as |dd|
-            >
-              <dd.ToggleButton @color="secondary" @text="Menu" />
-              {{#let (array 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16) as |items|}}
-                {{#each items as |item|}}
-                  <dd.Interactive @href="#" @text="Item #{{item}}" />
-                {{/each}}
-              {{/let}}
-            </Hds::Dropdown>
-            <Shw::Placeholder
-              {{style position="absolute" z-index="5" top="50px" left="5px" right="5px" width="auto" height="50px"}}
-            >Z-index=5</Shw::Placeholder>
-            <Shw::Placeholder
-              {{style position="absolute" z-index="15" top="120px" left="5px" right="5px" width="auto" height="50px"}}
-            >Z-index=15</Shw::Placeholder>
-          </Shw::Outliner>
-        </SG.Item>
-      {{/each}}
-    {{/let}}
+  <Shw::Text::Body>Interaction between overflowing, position strategy and rendering context</Shw::Text::Body>
+
+  {{#let (array "absolute" "fixed") as |positionStrategies|}}
+    {{#each positionStrategies as |positionStrategy|}}
+      <Shw::Text::H4>Strategy: "{{positionStrategy}}"</Shw::Text::H4>
+      {{#let (array undefined "body") as |renderContexts|}}
+        {{#each renderContexts as |renderContext|}}
+          <Shw::Text::Body>Render: {{if renderContext "<body>" "inline"}}</Shw::Text::Body>
+          <Shw::Grid {{style gap="2rem"}} @columns={{3}} as |SG|>
+            <SG.Item @label="Base">
+              <Shw::Outliner
+                {{style position="relative" height="200px" margin-bottom="50px" padding="8px" overflow="hidden"}}
+              >
+                <Hds::Dropdown
+                  @isOpen={{true}}
+                  @listPosition="bottom-left"
+                  @listPositionStrategy={{positionStrategy}}
+                  @listRenderInElement={{renderContext}}
+                  @height="200px"
+                  as |dd|
+                >
+                  <dd.ToggleButton @color="secondary" @text="Menu" />
+                  {{#let (array 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16) as |items|}}
+                    {{#each items as |item|}}
+                      <dd.Interactive @href="#" @text="Item #{{item}}" />
+                    {{/each}}
+                  {{/let}}
+                </Hds::Dropdown>
+              </Shw::Outliner>
+            </SG.Item>
+            <SG.Item @label="With z-index=10">
+              <Shw::Outliner
+                {{style position="relative" height="200px" margin-bottom="50px" padding="8px" overflow="hidden"}}
+              >
+                <Hds::Dropdown
+                  @isOpen={{true}}
+                  @listPosition="bottom-left"
+                  @listPositionStrategy={{positionStrategy}}
+                  @listZIndex={{10}}
+                  @listRenderInElement={{renderContext}}
+                  @height="200px"
+                  as |dd|
+                >
+                  <dd.ToggleButton @color="secondary" @text="Menu" />
+                  {{#let (array 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16) as |items|}}
+                    {{#each items as |item|}}
+                      <dd.Interactive @href="#" @text="Item #{{item}}" />
+                    {{/each}}
+                  {{/let}}
+                </Hds::Dropdown>
+                <Shw::Placeholder
+                  {{style position="absolute" z-index="5" top="50px" left="5px" right="5px" width="auto" height="50px"}}
+                >Z-index=5</Shw::Placeholder>
+                <Shw::Placeholder
+                  {{style
+                    position="absolute"
+                    z-index="15"
+                    top="120px"
+                    left="5px"
+                    right="5px"
+                    width="auto"
+                    height="50px"
+                  }}
+                >Z-index=15</Shw::Placeholder>
+              </Shw::Outliner>
+            </SG.Item>
+            <SG.Item @label="With z-index=10 / Parent isolation">
+              <Shw::Outliner
+                {{style
+                  position="relative"
+                  height="200px"
+                  margin-bottom="50px"
+                  padding="8px"
+                  overflow="hidden"
+                  isolation="isolate"
+                }}
+              >
+                <Hds::Dropdown
+                  @isOpen={{true}}
+                  @listPosition="bottom-left"
+                  @listPositionStrategy={{positionStrategy}}
+                  @listZIndex={{10}}
+                  @listRenderInElement={{renderContext}}
+                  @height="200px"
+                  as |dd|
+                >
+                  <dd.ToggleButton @color="secondary" @text="Menu" />
+                  {{#let (array 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16) as |items|}}
+                    {{#each items as |item|}}
+                      <dd.Interactive @href="#" @text="Item #{{item}}" />
+                    {{/each}}
+                  {{/let}}
+                </Hds::Dropdown>
+                <Shw::Placeholder
+                  @width="auto"
+                  @height="50px"
+                  {{style position="absolute" z-index="5" top="50px" left="5px" right="5px"}}
+                >Z-index=5</Shw::Placeholder>
+                <Shw::Placeholder
+                  @width="auto"
+                  @height="50px"
+                  {{style position="absolute" z-index="15" top="120px" left="5px" right="5px"}}
+                >Z-index=15</Shw::Placeholder>
+              </Shw::Outliner>
+            </SG.Item>
+          </Shw::Grid>
+        {{/each}}
+      {{/let}}
+    {{/each}}
+  {{/let}}
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Collision detection</Shw::Text::H3>
+
+  <Shw::Grid {{style gap="2rem"}} @columns={{3}} as |SG|>
+    <SG.Item @label="With @listEnableCollisionDetection=true">
+      <Shw::Outliner {{style position="relative" height="200px" margin-bottom="50px" padding="8px"}}>
+        <Hds::Dropdown @isOpen={{true}} @listPosition="bottom-left" @listEnableCollisionDetection={{true}} as |dd|>
+          <dd.ToggleButton @color="secondary" @text="Menu" />
+          {{#let (array 1 2 3 4 5 6) as |items|}}
+            {{#each items as |item|}}
+              <dd.Interactive @href="#" @text="Item #{{item}}" />
+            {{/each}}
+          {{/let}}
+        </Hds::Dropdown>
+      </Shw::Outliner>
+    </SG.Item>
   </Shw::Grid>
 
 </section>
