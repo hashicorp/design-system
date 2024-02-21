@@ -250,7 +250,7 @@ A Flyout should slide out from the right side of the viewport on top of the main
 In Figma, the Flyout should be paired with the [overlay](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=22928%3A55862&t=ZUcWdRNwXAJddKsS-1) component which obscures the main page content the Flyout sits on top of. Using the Flyout without the overlay is currently not supported and helps to communicate visually the `inert` nature of the main page.
 !!!
 
-On smaller viewports, the Flyout should occupy 100% of the viewport width minus a 40px margin from the viewport edge.
+On smaller viewports, the Flyout should occupy 100% of the viewport width minus half the size of the minimized SideNav width from the viewport edge.
 
 - If the body content of the Flyout exceeds the maximum height of the viewport, a scroll will be introduced.
 - The Flyout header is not included in the scrolling section, only the body content. The header should always be visible to help the user understand the Flyout content and how it relates to the main page.
