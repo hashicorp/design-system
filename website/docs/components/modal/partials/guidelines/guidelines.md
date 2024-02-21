@@ -172,11 +172,13 @@ The purpose and function of the Modal should not rely solely on an icon, instead
 
 An icon paired with the title can help reinforce the purpose and function of the Modal while also drawing the eye to the header and title area. Icons can be used to communicate the severity and importance of interacting with a Modal and are especially useful in a **warning** or **critical** color Modal.
 
-<Hds::Modal::Header @icon="info" @onDismiss={{this.noop}}>Title</Hds::Modal::Header>
+<!-- TODO: Temporary, replace with static image of Modal Header -->
+<Hds::DialogPrimitive::Header @icon="info" @onDismiss={{this.noop}}>Title</Hds::DialogPrimitive::Header>
 
 #### Without title icon
 
-<Hds::Modal::Header @onDismiss={{this.noop}}>Title</Hds::Modal::Header>
+<!-- TODO: Temporary, replace with static image of Modal Header -->
+<Hds::DialogPrimitive::Header @onDismiss={{this.noop}}>Title</Hds::DialogPrimitive::Header>
 
 ### Tagline
 
@@ -184,11 +186,13 @@ A tagline helps the user maintain the context of the feature, function, or flow 
 
 #### With tagline
 
-<Hds::Modal::Header @tagline="Tagline" @onDismiss={{this.noop}}>Title</Hds::Modal::Header>
+<!-- TODO: Temporary, replace with static image of Modal Header -->
+<Hds::DialogPrimitive::Header @tagline="Tagline" @onDismiss={{this.noop}}>Title</Hds::DialogPrimitive::Header>
 
 #### With tagline and icon
 
-<Hds::Modal::Header @tagline="Tagline" @icon="info" @onDismiss={{this.noop}}>Title</Hds::Modal::Header>
+<!-- TODO: Temporary, replace with static image of Modal Header -->
+<Hds::DialogPrimitive::Header @tagline="Tagline" @icon="info" @onDismiss={{this.noop}}>Title</Hds::DialogPrimitive::Header>
 
 ## Modal body
 
@@ -219,22 +223,24 @@ Most Modals should have a low to medium level of complexity and promote interact
 
 We recommend using the Primary Button when only one action is present in the Modal.
 
-<Hds::Modal::Footer>
+<!-- TODO: Temporary, replace with static image of Modal Footer -->
+<Hds::DialogPrimitive::Footer>
   <Hds::ButtonSet>
     <Hds::Button @text="Confirm" />
   </Hds::ButtonSet>
-</Hds::Modal::Footer>
+</Hds::DialogPrimitive::Footer>
 
 #### Two actions
 
 We recommend using a [ButtonSet](/components/button-set) (Primary Button followed by a Secondary Button) when two actions are present in the Modal.
 
-<Hds::Modal::Footer>
+<!-- TODO: Temporary, replace with static image of Modal Footer -->
+<Hds::DialogPrimitive::Footer>
   <Hds::ButtonSet>
     <Hds::Button @text="Confirm" />
     <Hds::Button @text="Cancel" @color="secondary" />
   </Hds::ButtonSet>
-</Hds::Modal::Footer>
+</Hds::DialogPrimitive::Footer>
 
 #### Three actions
 
@@ -245,13 +251,14 @@ Common examples of tertiary actions include:
 - Linking to external documentation.
 - Linking to another related area or function within the application; best used to help the user better understand or collect the information needed to interact with the Modal.
 
-<Hds::Modal::Footer>
+<!-- TODO: Temporary, replace with static image of Modal Footer -->
+<Hds::DialogPrimitive::Footer>
   <Hds::ButtonSet>
     <Hds::Button @text="Confirm" />
     <Hds::Button @text="Cancel" @color="secondary" />
     <Hds::Button @text="Learn more about billing" @icon="external-link" @iconPosition="trailing" @color="tertiary" />
   </Hds::ButtonSet>
-</Hds::Modal::Footer>
+</Hds::DialogPrimitive::Footer>
 
 ### Action content guidelines
 
@@ -261,22 +268,24 @@ Common examples of tertiary actions include:
 
 !!! Do
 
-<Hds::Modal::Footer>
+<!-- TODO: Temporary, replace with static image of Modal Footer -->
+<Hds::DialogPrimitive::Footer>
   <Hds::ButtonSet>
     <Hds::Button @text="Rename cluster" />
     <Hds::Button @text="Cancel" @color="secondary" />
   </Hds::ButtonSet>
-</Hds::Modal::Footer>
+</Hds::DialogPrimitive::Footer>
 !!!
 
 !!! Dont
 
-<Hds::Modal::Footer>
+<!-- TODO: Temporary, replace with static image of Modal Footer -->
+<Hds::DialogPrimitive::Footer>
   <Hds::ButtonSet>
     <Hds::Button @text="Rename this cluster" />
     <Hds::Button @text="Don’t rename this cluster" @color="secondary" />
   </Hds::ButtonSet>
-</Hds::Modal::Footer>
+</Hds::DialogPrimitive::Footer>
 !!!
 
 ## Dismissal
