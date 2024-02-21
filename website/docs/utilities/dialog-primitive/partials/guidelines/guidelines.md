@@ -2,7 +2,7 @@
 
 The DialogPrimitive sub-components are not intended to be used independently of each other or in isolation. If you are looking to create your own dialog-based component, use the `DialogPrimitive::Wrapper` as your foundation.
 
-A common example of this is a custom dialog-based element such as a SplitWindow/Pane/Panel which allows the user to interact with both the parent page and the content within the secondary element (often referred to as a “non-modal” dialog).
+A common example of this is a non-modal dialog such as a SplitWindow or Panel which allows the user to interact with both the main page content and the content within the dialog.
 
 !!! Info
 
@@ -13,7 +13,7 @@ If you discover a use case outside of this example, please [contact](/about/supp
 
 ### Use within HDS components
 
-Examples of how to use the DialogPrimitive components can be found in the HDS [Modal](/components/modal) and [Flyout](/components/flyout) components which are composed using the DialogPrimitive. They are both types of dialogs, but have different use cases depending on the context, type of information they convey, and intended speed of interaction.
+Examples of how to use the DialogPrimitive components can be found in the HDS [Modal](/components/modal) and [Flyout](/components/flyout) components which are composed using the DialogPrimitive. They are both types of dialogs, but have different use cases depending on the context and type of information they convey.
 
 ### What is a “dialog”
 
