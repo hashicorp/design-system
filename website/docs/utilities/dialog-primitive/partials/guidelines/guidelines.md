@@ -2,7 +2,7 @@
 
 The DialogPrimitive sub-components are not intended to be used independently of each other or in isolation. If you are looking to create your own dialog-based component, use the `DialogPrimitive::Wrapper` as your foundation.
 
-A common example of this is a custom dialog-based element such as a SplitWindow/Pane/Panel which allows the user to interact with both the parent page and the content within the secondary element (often referred to as a "non-modal" dialog).
+A common example of this is a custom dialog-based element such as a SplitWindow/Pane/Panel which allows the user to interact with both the parent page and the content within the secondary element (often referred to as a “non-modal” dialog).
 
 !!! Info
 
@@ -13,11 +13,11 @@ If you discover a use case outside of this example, please [contact](/about/supp
 
 ### Use within HDS components
 
-Examples of how to use the DialogPrimitive components can be found in the HDS [Modal](/components/modal) and [Flyout](/components/flyout) components which are composed using the DialogPrimitive. They are both considered dialogs, but have different use cases depending the context, type of information they convey, and intended speed of interaction.
+Examples of how to use the DialogPrimitive components can be found in the HDS [Modal](/components/modal) and [Flyout](/components/flyout) components which are composed using the DialogPrimitive. They are both types of dialogs, but have different use cases depending on the context, type of information they convey, and intended speed of interaction.
 
-### What is a "dialog"
+### What is a “dialog”
 
-The term "dialog" has somewhat of a loaded meaning and depending on the context, can be either an ambiguous high-level term, or have a specific semantic meaning. For example:
+The term “dialog” has somewhat of a loaded meaning and, depending on the context, can be either an ambiguous high-level term or have a specific semantic meaning. For example:
 
-- Broadly; the term dialog can refer to the interaction between a user and a application or machine and encourages a bidirectional exchange of information between the two.
-- Specifically: a dialog can refer to a semantic `<dialog>` element in `HTML`. This element can be further broken down further into modal and non-modal dialogs, more details of which can be found in the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog).
+- Broadly, the term dialog can refer to the interaction between a user and an application or machine that encourages a bidirectional exchange of information between the two.
+- Specifically, a dialog can refer to a semantic `<dialog>` element in HTML. This element can be further broken down into modal and non-modal dialogs, more details of which can be found in the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog).

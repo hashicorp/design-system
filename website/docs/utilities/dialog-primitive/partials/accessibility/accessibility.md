@@ -3,8 +3,7 @@
 
 <Doc::Badge @type="warning">Conditionally conformant</Doc::Badge>
 
-DialogPrimitive components are primarily containers which can be combined together to build a custom dialog and are not conformant on their own.
-Consumers are responsible for implementing the primitives in a way that results in a conformant experience for the user.
+DialogPrimitive components are primarily containers which can be combined together to build a custom dialog and are not conformant on their own. Consumers are responsible for implementing the primitives in a way that results in a conformant experience for the user.
 
 ## Applicable WCAG Success Criteria
 

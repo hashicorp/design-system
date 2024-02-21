@@ -1,4 +1,4 @@
-DialogPrimitive contains the building blocks used to contruct dialog-based components and consists of:
+The DialogPrimitive contains the building blocks used to contruct dialog-based components and consists of:
 
 - `DialogPrimitive::Wrapper` is the structure that contains and arranges all other dialog primitives.
 - `DialogPrimitive::Header` contains the title, dismiss button, and optionally a visually supportive icon and tagline.
