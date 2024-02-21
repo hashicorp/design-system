@@ -7,14 +7,14 @@
 // FLYOUT
 //
 
-$hds-flyout-size-medium-gap: calc( var(--hds-app-sidenav-width-minimized) / 2 );
+$hds-flyout-max-width: calc(100vw - var(--hds-app-sidenav-width-minimized) / 2 );
 
 @mixin hds-flyout-position($size) {
-  width: min($size, calc(100vw - #{$hds-flyout-size-medium-gap}));
-  max-width: calc(100vw - #{$hds-flyout-size-medium-gap});
+  width: min($size, #{$hds-flyout-max-width});
+  max-width: $hds-flyout-max-width;
 
   &[open] {
-    margin-left: calc(100% - min($size, calc(100vw - #{$hds-flyout-size-medium-gap})));
+    margin-left: calc(100% - min($size, #{$hds-flyout-max-width}));
   }
 }
 
