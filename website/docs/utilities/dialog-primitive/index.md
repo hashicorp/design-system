@@ -8,7 +8,7 @@ links:
   figma: 
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/dialog-primitive
 navigation:
-  keywords: ['modal', 'flyout', 'popover', 'popup']
+  keywords: ['modal', 'flyout']
 ---
 
 <section data-tab="Guidelines">

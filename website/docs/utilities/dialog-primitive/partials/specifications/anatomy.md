@@ -15,3 +15,4 @@
 | Content          | Required                                        |
 | **Footer primitive**                                               |
 | Actions          | Optional; maximum of three (primary, secondary, and tertiary) |
+| Custom content   | Optional                                        |
