@@ -1,15 +1,17 @@
 ## Anatomy
 
-<!-- image then table -->
-![Anatomy of dialogPrimitive](/assets/components/alert/dialog-primitive-anatomy-inline.png)
+![Anatomy of dialogPrimitive](/assets/components/dialog-primitives/dialog-primitives-anatomy.png)
 
-<!-- this is just an example, refer to other components to see how to fill this table -->
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|
-| Icon             | Optional, but recommended                       |
-| Title            | Required, if no description Optional, otherwise |
-| Description      | Required, if no title Optional, otherwise       |
-| Actions          | Optional                                        |
-| Dismiss button   | Optional                                        |
+| **Header primitive**                                               |
+| Title            | Required                                        |
+| Title icon       | Optional                                        |
+| Tagline          | Optional                                        |
+| Dismiss button   | Required                                        |
+| **Description primitive**                                          |
+| Description      | Optional                                        |
+| **Body primitive**                                                 |
 | Content          | Required                                        |
-| Container        | Required                                        |
+| **Footer primitive**                                               |
+| Actions          | Optional; maximum of three (primary, secondary, and tertiary) |

@@ -4,6 +4,9 @@ description: Dialog Primitives are the foundational blocks of dialog components 
 caption: The foundational blocks of dialog components.
 related: ['components/modal', 'components/flyout']
 previewImage: assets/illustrations/utilities/dialog-primitive.jpg
+links:
+  figma: 
+  github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/dialog-primitive
 navigation:
   keywords: ['modal', 'flyout', 'popover', 'popup']
 ---
