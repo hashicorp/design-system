@@ -12,59 +12,69 @@
 
   <Shw::Text::H2>Position</Shw::Text::H2>
 
-  <Shw::Flex as |SF|>
-    <SF.Item @label="Bottom left">
-      <Hds::Dropdown @listPosition="bottom-left" as |dd|>
-        <dd.ToggleButton @color="secondary" @text="Menu" />
-        <dd.Interactive @href="#" @text="Create" />
-        <dd.Interactive @href="#" @text="Edit" />
-      </Hds::Dropdown>
-    </SF.Item>
-    <SF.Item @label="Bottom right (default)">
-      <Hds::Dropdown as |dd|>
-        <dd.ToggleButton @color="secondary" @text="Menu" />
-        <dd.Interactive @href="#" @text="Create" />
-        <dd.Interactive @href="#" @text="Edit" />
-      </Hds::Dropdown>
-    </SF.Item>
-    <SF.Item @label="Top left">
-      <Hds::Dropdown @listPosition="top-left" as |dd|>
-        <dd.ToggleButton @color="secondary" @text="Menu" />
-        <dd.Interactive @href="#" @text="Create" />
-        <dd.Interactive @href="#" @text="Edit" />
-      </Hds::Dropdown>
-    </SF.Item>
-    <SF.Item @label="Top right">
-      <Hds::Dropdown @listPosition="top-right" as |dd|>
-        <dd.ToggleButton @color="secondary" @text="Menu" />
-        <dd.Interactive @href="#" @text="Create" />
-        <dd.Interactive @href="#" @text="Edit" />
-      </Hds::Dropdown>
-    </SF.Item>
-  </Shw::Flex>
+  <Shw::Grid @columns={{3}} as |SG|>
+    <SG.Item @label="Bottom left">
+      <Shw::Outliner {{style height="140px" padding="8px"}}>
+        <Hds::Dropdown @isOpen={{true}} @listPosition="bottom-left" as |dd|>
+          <dd.ToggleButton @text="Menu" />
+          <dd.Interactive @href="#" @text="Create" />
+          <dd.Interactive @href="#" @text="Edit" />
+        </Hds::Dropdown>
+      </Shw::Outliner>
+    </SG.Item>
+    <SG.Item />
+    <SG.Item @label="Bottom right (default)">
+      <Shw::Outliner {{style height="140px" padding="8px"}}>
+        <Hds::Dropdown @isOpen={{true}} as |dd|>
+          <dd.ToggleButton @text="Menu" />
+          <dd.Interactive @href="#" @text="Create" />
+          <dd.Interactive @href="#" @text="Edit" />
+        </Hds::Dropdown>
+      </Shw::Outliner>
+    </SG.Item>
+    <SG.Item @label="Top left">
+      <Shw::Outliner {{style height="140px" padding="96px 8px 8px 8px"}}>
+        <Hds::Dropdown @isOpen={{true}} @listPosition="top-left" as |dd|>
+          <dd.ToggleButton @text="Menu" />
+          <dd.Interactive @href="#" @text="Create" />
+          <dd.Interactive @href="#" @text="Edit" />
+        </Hds::Dropdown>
+      </Shw::Outliner>
+    </SG.Item>
+    <SG.Item />
+    <SG.Item @label="Top right">
+      <Shw::Outliner {{style height="140px" padding="96px 8px 8px 8px"}}>
+        <Hds::Dropdown @isOpen={{true}} @listPosition="top-right" as |dd|>
+          <dd.ToggleButton @text="Menu" />
+          <dd.Interactive @href="#" @text="Create" />
+          <dd.Interactive @href="#" @text="Edit" />
+        </Hds::Dropdown>
+      </Shw::Outliner>
+    </SG.Item>
+  </Shw::Grid>
 
   <Shw::Text::H2>Display</Shw::Text::H2>
 
-  <Shw::Flex as |SF|>
-    <SF.Item @label="Block">
-      <div class="shw-component-dropdown-display-sample">
-        <Hds::Dropdown @listPosition="bottom-left" as |dd|>
-          <dd.ToggleButton @color="secondary" @text="Menu" />
+  <Shw::Grid @columns={{3}} as |SG|>
+    <SG.Item @label="Block">
+      <Shw::Outliner {{style height="140px" padding="8px" text-align="right"}}>
+        <Hds::Dropdown @isOpen={{true}} @listPosition="bottom-left" as |dd|>
+          <dd.ToggleButton @text="Menu" />
           <dd.Interactive @href="#" @text="Create" />
           <dd.Interactive @href="#" @text="Edit" />
         </Hds::Dropdown>
-      </div>
-    </SF.Item>
-    <SF.Item @label="Inline">
-      <div class="shw-component-dropdown-display-sample">
-        <Hds::Dropdown @listPosition="bottom-left" @isInline={{true}} as |dd|>
-          <dd.ToggleButton @color="secondary" @text="Menu" />
+      </Shw::Outliner>
+    </SG.Item>
+    <SG.Item @label="Inline">
+      <Shw::Outliner {{style height="140px" padding="8px" text-align="right"}}>
+        <Hds::Dropdown @isOpen={{true}} @listPosition="bottom-left" @isInline={{true}} as |dd|>
+          <dd.ToggleButton @text="Menu" />
           <dd.Interactive @href="#" @text="Create" />
           <dd.Interactive @href="#" @text="Edit" />
         </Hds::Dropdown>
-      </div>
-    </SF.Item>
-  </Shw::Flex>
+      </Shw::Outliner>
+    </SG.Item>
+  </Shw::Grid>
 
   <Shw::Divider />
 
