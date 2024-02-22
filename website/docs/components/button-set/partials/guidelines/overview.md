@@ -1,1 +1,1 @@
-Use a button set to ensure a consistent layout when using multiple buttons in a single row.
+Use a Button Set to ensure a consistent layout when using multiple [Buttons](/components/button) in a single row.
