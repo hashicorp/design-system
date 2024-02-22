@@ -55,6 +55,18 @@ export default class HdsMenuPrimitiveComponent extends Component {
   }
 
   @action
+  didInsertParentToggle(element) {
+    this.toggleElement = element;
+    console.log('MenuPrimitive didInsertParentToggle invoked', element);
+  }
+
+  @action
+  didInsertParentContent(element) {
+    this.contentElement = element;
+    console.log('MenuPrimitive didInsertParentContent invoked', element);
+  }
+
+  @action
   didInsertToggle(element) {
     this.toggleElement = element;
     console.log('MenuPrimitive didInsertToggle invoked', element, element.id);

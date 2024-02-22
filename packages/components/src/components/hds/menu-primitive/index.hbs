@@ -4,37 +4,24 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 {{! template-lint-disable no-invalid-interactive }}
-<div
-  class="hds-menu-primitive"
-  ...attributes
-  {{did-insert this.didInsert}}
-  {{on "focusout" this.onFocusOut}}
-  {{on "keyup" this.onKeyUp}}
->
-  <div class="hds-menu-primitive__toggle" tabindex="-1">
-    {{yield
-      (hash didInsertToggle=this.didInsertToggle onClickToggle=this.onClickToggle isOpen=this.isOpen)
-      to="toggle"
-    }}
+<div class="hds-menu-primitive" ...attributes {{did-insert this.didInsert}} {{on "focusout" this.onFocusOut}}>
+  <div class="hds-menu-primitive__toggle" tabindex="-1" {{did-insert this.didInsertParentToggle}}>
+    {{yield (hash didInsertToggle=this.didInsertToggle isOpen=this.isOpen) to="toggle"}}
   </div>
-  {{#if this.isOpen}}
+  <div class="hds-menu-primitive__content" tabindex="-1" {{did-insert this.didInsertParentContent}}>
     {{#if this.renderInElement}}
       {{#in-element this.renderInElement insertBefore=null}}
-        <div class="hds-menu-primitive__content" tabindex="-1">
-          {{yield
-            (hash toggleElement=this.toggleElement didInsertContent=this.didInsertContent close=this.close)
-            to="content"
-          }}
-        </div>
-      {{/in-element}}
-    {{else}}
-      <div class="hds-menu-primitive__content" tabindex="-1">
         {{yield
           (hash toggleElement=this.toggleElement didInsertContent=this.didInsertContent close=this.close)
           to="content"
         }}
-      </div>
+      {{/in-element}}
+    {{else}}
+      {{yield
+        (hash toggleElement=this.toggleElement didInsertContent=this.didInsertContent close=this.close)
+        to="content"
+      }}
     {{/if}}
-  {{/if}}
+  </div>
 </div>
 {{! template-lint-enable no-invalid-interactive }}
