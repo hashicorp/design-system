@@ -14,10 +14,10 @@
     {{yield
       (hash
         ToggleButton=(component
-          "hds/dropdown/toggle/button" isOpen=t.isOpen didInsertToggle=this.didInsertToggle onClick=t.onClickToggle
+          "hds/dropdown/toggle/button" isOpen=t.isOpen didInsertToggle=t.didInsertToggle onClick=t.onClickToggle
         )
         ToggleIcon=(component
-          "hds/dropdown/toggle/icon" isOpen=t.isOpen didInsertToggle=this.didInsertToggle onClick=t.onClickToggle
+          "hds/dropdown/toggle/icon" isOpen=t.isOpen didInsertToggle=t.didInsertToggle onClick=t.onClickToggle
         )
       )
     }}
@@ -27,16 +27,17 @@
       class={{this.classNamesContent}}
       {{style width=@width max-height=@height}}
       {{hds-float-element
-        this.toggleSelector
+        c.toggleElement
         floatingElementPlacement=this.contentPlacement
         floatingElementPositionStrategy=this.contentPositionStrategy
         floatingElementZIndex=this.contentZIndex
         floatingElementEnableCollisionDetection=this.contentEnableCollisionDetection
         floatingElementOffsetOptions=(array 0 4)
       }}
+      {{did-insert c.didInsertContent}}
     >
       {{yield (hash Header=(component "hds/dropdown/header"))}}
-      <ul class="hds-dropdown__list" {{did-insert this.didInsertList}}>
+      <ul class="hds-dropdown__list" {{did-insert this.didInsertList c.toggleElement}}>
         {{yield
           (hash
             close=c.close

@@ -11,7 +11,8 @@ import { assert } from '@ember/debug';
 
 export default class HdsMenuPrimitiveComponent extends Component {
   @tracked isOpen = this.args.isOpen;
-  @tracked toggleRef;
+  @tracked toggleElement;
+  @tracked contentElement;
 
   get renderInElement() {
     let { renderInElement } = this.args;
@@ -54,14 +55,23 @@ export default class HdsMenuPrimitiveComponent extends Component {
   }
 
   @action
-  onClickToggle(event) {
-    // we store a reference to the DOM node that has the "onClickToggle" event associated with it
-    if (!this.toggleRef) {
-      this.toggleRef = event.currentTarget;
-    }
+  didInsertToggle(element) {
+    this.toggleElement = element;
+    console.log('MenuPrimitive didInsertToggle invoked', element, element.id);
+  }
+
+  @action
+  didInsertContent(element) {
+    this.contentElement = element;
+    console.log('MenuPrimitive didInsertContent', element);
+  }
+
+  @action
+  onClickToggle() {
     this.isOpen = !this.isOpen;
+
     // we explicitly apply a focus state to the toggle element to overcome a bug in WebKit (see https://github.com/hashicorp/design-system/commit/40cd7f6b3cb15c45f9a1235fafd0fb3ed58e6e62)
-    this.toggleRef.focus();
+    this.toggleElement.focus();
   }
 
   @action
@@ -77,7 +87,7 @@ export default class HdsMenuPrimitiveComponent extends Component {
   onKeyUp(event) {
     if (event.key === 'Escape') {
       this.close();
-      this.toggleRef.focus();
+      this.toggleElement.focus();
     }
   }
 

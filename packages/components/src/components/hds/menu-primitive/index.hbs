@@ -12,18 +12,27 @@
   {{on "keyup" this.onKeyUp}}
 >
   <div class="hds-menu-primitive__toggle" tabindex="-1">
-    {{yield (hash onClickToggle=this.onClickToggle isOpen=this.isOpen) to="toggle"}}
+    {{yield
+      (hash didInsertToggle=this.didInsertToggle onClickToggle=this.onClickToggle isOpen=this.isOpen)
+      to="toggle"
+    }}
   </div>
   {{#if this.isOpen}}
     {{#if this.renderInElement}}
       {{#in-element this.renderInElement insertBefore=null}}
         <div class="hds-menu-primitive__content" tabindex="-1">
-          {{yield (hash close=this.close) to="content"}}
+          {{yield
+            (hash toggleElement=this.toggleElement didInsertContent=this.didInsertContent close=this.close)
+            to="content"
+          }}
         </div>
       {{/in-element}}
     {{else}}
       <div class="hds-menu-primitive__content" tabindex="-1">
-        {{yield (hash close=this.close) to="content"}}
+        {{yield
+          (hash toggleElement=this.toggleElement didInsertContent=this.didInsertContent close=this.close)
+          to="content"
+        }}
       </div>
     {{/if}}
   {{/if}}

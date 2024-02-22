@@ -13,20 +13,22 @@
         aria-label={{this.ariaLabel}}
         aria-expanded={{if t.isOpen "true" "false"}}
         {{on "click" t.onClickToggle}}
+        {{did-insert t.didInsertToggle}}
       >
         <FlightIcon @name="more-horizontal" @size="16" @isInlineBlock={{false}} />
       </button>
     </:toggle>
-    <:content>
+    <:content as |c|>
       <div
         class="hds-breadcrumb__truncation-content"
         {{hds-float-element
-          this.toggleSelector
+          c.toggleElement
           floatingElementPlacement="bottom"
           floatingElementPositionStrategy="absolute"
           floatingElementZIndex=300
           floatingElementOffsetOptions=4
         }}
+        {{did-insert c.didInsertContent}}
       >
         <ol class="hds-breadcrumb__sublist">
           {{yield}}

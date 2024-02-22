@@ -19,9 +19,6 @@ export const POSITIONS = [
 export default class HdsDropdownIndexComponent extends Component {
   @tracked toggleId;
 
-  get toggleSelector() {
-    return `#${this.toggleId}`;
-  }
   /**
    * @param listPosition
    * @type {string}
@@ -109,16 +106,11 @@ export default class HdsDropdownIndexComponent extends Component {
   }
 
   @action
-  didInsertToggle(element) {
-    this.toggleId = element.id;
-  }
-
-  @action
-  didInsertList(element) {
-    const checkmarkItems = element.querySelectorAll(`[role="option"]`);
+  didInsertList(listElement, toggleElement) {
+    const checkmarkItems = listElement.querySelectorAll(`[role="option"]`);
     if (checkmarkItems.length) {
-      element.setAttribute('role', 'listbox');
-      element.setAttribute('aria-labelledby', this.toggleId);
+      listElement.setAttribute('role', 'listbox');
+      listElement.setAttribute('aria-labelledby', toggleElement.id);
     }
   }
 }
