@@ -213,4 +213,41 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Divider />
+
+  <Shw::Text::H2>Initial state (open/closed)</Shw::Text::H2>
+
+  <Shw::Flex @direction="row" as |SF|>
+    <SF.Item @label="with @isOpen=false (default)" @grow={{true}}>
+      <div class="shw-utility-menu-primitive-container">
+        <Hds::MenuPrimitive @isOpen={{false}}>
+          <:toggle as |t|>
+            <button type="button" {{on "click" t.onClickToggle}}>
+              Click me
+              <FlightIcon @name={{if t.isOpen "chevron-up" "chevron-down"}} />
+            </button>
+          </:toggle>
+          <:content>
+            <Shw::Placeholder @text="some generic content here" @width="200" @height="90" @background="#e1f5fe" />
+          </:content>
+        </Hds::MenuPrimitive>
+      </div>
+    </SF.Item>
+    <SF.Item @label="with @isOpen=true" @grow={{true}}>
+      <div class="shw-utility-menu-primitive-container">
+        <Hds::MenuPrimitive @isOpen={{true}}>
+          <:toggle as |t|>
+            <button type="button" {{on "click" t.onClickToggle}}>
+              Click me
+              <FlightIcon @name={{if t.isOpen "chevron-up" "chevron-down"}} />
+            </button>
+          </:toggle>
+          <:content>
+            <Shw::Placeholder @text="some generic content here" @width="200" @height="90" @background="#e1f5fe" />
+          </:content>
+        </Hds::MenuPrimitive>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
 </section>
