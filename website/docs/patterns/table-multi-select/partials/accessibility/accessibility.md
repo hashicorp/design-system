@@ -1,11 +1,11 @@
 !!! Info
 
-Since it is the responsibility of consumers to implement this pattern, it is also their responsibility to ensure that all WCAG 2.1 AA success criteria are met or exceeded.
+It is the responsibility of consumers to implement this pattern, and therefore also their responsibility to ensure that all accessibility success criteria are met or exceeded.
 !!!
 
 ## Aria role
 
-Due to its dynamic nature, updates to the selected count must be announced to those using assistive technology. This can be done by adding `role=status` to the element containing the count.
+Due to its dynamic nature, updates to the selected count must be announced to those using assistive technology. This can be done by adding [`role=status`](https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA22) to the element containing the count.
 
 This is a _representative_ example of how this could be accomplished using HDS components and `role=status` to announce changes in the UI. Test it yourself by enabling voice over and incrementing the `selectedCount` with the "Add to count" button.
 
@@ -27,7 +27,7 @@ This is a _representative_ example of how this could be accomplished using HDS c
       <DD.Interactive @text="Reset selection" />
     </Hds::Dropdown>
   </div>
-  
+
 </div>
 ```
 
