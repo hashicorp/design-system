@@ -1,6 +1,6 @@
 ## Anatomy
 
-![Anatomy of codeBlock](/assets/components/code-block/code-block-anatomy.png)
+![Anatomy of Code Block](/assets/components/code-block/code-block-anatomy.png)
 
 | Element          | Usage    |
 |------------------|----------|
