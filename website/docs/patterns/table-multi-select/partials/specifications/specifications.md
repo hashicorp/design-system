@@ -41,3 +41,9 @@ When composing a Multi-select pattern with a [Filter bar](/patterns/filter-patte
 
 ![Multi-select in a more complex scenario](/assets/patterns/table-multi-select/multi-select-in-context-complex-example.png)
 
+### Reflow
+
+As the viewport width shrinks, stack the elements around the Table and filter pattern in a single column to ensure that variable parts of the UI are in view.
+
+![Example of reflow at a smaller viewport](/assets/patterns/table-multi-select/multi-select-reflow-example.png)
+

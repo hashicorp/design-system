@@ -19,9 +19,9 @@ Persisting this communication in the selected count can help to avoid mishaps, b
 
 _Where_ a selection is made in the UI can imply differences in how the selection is scoped, and at a very basic level can broken down into three different hierarchies.
 
-1. **Row-level scope:** selection applies only to a single row, result, or item in a Table, and is made via the checkbox at the start of the row.
+1. **Global scope:** selection applies to all rows in the table and is made via the bulk selection in the Multi-select pattern.
 2. **Page-level scope:** selection applies to all rows in the current page of a paginated table and is made via the Checkbox in the Table header.
-3. **Global scope:** selection applies to all rows in the table and is made via the bulk selection in the Multi-select pattern.
+3. **Row-level scope:** selection applies only to a single row, result, or item in a Table, and is made via the checkbox at the start of the row.
 
 ![Selection scope](/assets/patterns/table-multi-select/selection-scope.png)
 
