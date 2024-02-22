@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import { schedule } from '@ember/runloop';
+import { next } from '@ember/runloop';
 import { assert } from '@ember/debug';
 
 export default class HdsMenuPrimitiveComponent extends Component {
@@ -64,42 +64,52 @@ export default class HdsMenuPrimitiveComponent extends Component {
   didInsertContent(element) {
     this.contentElement = element;
     console.log('MenuPrimitive didInsertContent', element);
+    // TODO! understand if this check is really needed
+    if (this.toggleElement) {
+      this.initPopover();
+    } else {
+      next(() => {
+        this.initPopover();
+      });
+    }
+    if (this.isOpen) {
+      this.contentElement.showPopover();
+    }
   }
 
   @action
-  onClickToggle() {
-    this.isOpen = !this.isOpen;
+  initPopover() {
+    this.toggleElement.popoverTargetAction = 'toggle';
+    this.toggleElement.popoverTargetElement = this.toggleElement;
 
-    // we explicitly apply a focus state to the toggle element to overcome a bug in WebKit (see https://github.com/hashicorp/design-system/commit/40cd7f6b3cb15c45f9a1235fafd0fb3ed58e6e62)
-    this.toggleElement.focus();
+    this.contentElement.popover = 'auto';
+    // TODO!! add removal of event listener (you will need to pass down {{will-destroy this.willDestroy}})
+    this.contentElement.addEventListener('toggle', (event) => {
+      if (event.newState === 'open') {
+        console.log('Popover has been shown');
+        this.isOpen = true;
+      } else {
+        console.log('Popover has been hidden');
+        this.isOpen = false;
+        // we explicitly apply a focus state to the toggle element to overcome a bug in WebKit (see https://github.com/hashicorp/design-system/commit/40cd7f6b3cb15c45f9a1235fafd0fb3ed58e6e62)
+        this.toggleElement.focus();
+        // TODO! do we need this? where is it used??
+        // we call the "onClose" callback if it exists (and is a function)
+        let { onClose } = this.args;
+        if (typeof onClose === 'function') {
+          onClose();
+        }
+      }
+    });
   }
 
+  // TODO! discuss what we want to do with this (probably still keep it)
   @action
   onFocusOut(event) {
     // due to inconsistent implementation of relatedTarget across browsers we use the activeElement as a fallback
     // if the related target is not part of the disclosed content we close the disclosed container
     if (!this.element.contains(event.relatedTarget || document.activeElement)) {
-      this.close();
+      this.contentElement.hidePopover();
     }
-  }
-
-  @action
-  onKeyUp(event) {
-    if (event.key === 'Escape') {
-      this.close();
-      this.toggleElement.focus();
-    }
-  }
-
-  @action
-  close() {
-    // we schedule this afterRender to avoid an error in tests caused by updating `isOpen` multiple times in the same computation
-    schedule('afterRender', () => {
-      this.isOpen = false;
-      // we call the "onClose" callback if it exists (and is a function)
-      if (this.args.onClose && typeof this.args.onClose === 'function') {
-        this.args.onClose();
-      }
-    });
   }
 }
