@@ -9,9 +9,11 @@ If you run into unique scenarios that these guidelines don’t account for, we w
 
 ## Consistent communication
 
-The most important method to ensure users are interacting with the results they intend to is to clearly communicate what they have selected, or even that a selection of results exists, **at all times**.
+To help prevent unnecessary editing or deleting and to ensure users are interacting with the results they intend to, it is vital to consistently communicate their selections, or the existence of a selection, **at all times**.
 
-This can help to prevent unnecessary deletions of results or making unintended changes if what is currently selected is unclear.
+Persisting this communication in the selected count can help to avoid mishaps, but sometimes it might be necessary to confirm with the user prior to making changes that cannot be reversed.
+
+![Example of a double confirmation](/assets/patterns/table-multi-select/multi-select-double-confirmation.png)
 
 ## Selection scope
 
@@ -48,11 +50,11 @@ If a user makes a selection on one page of a paginated Table and progresses to t
 
 ### When filtering Table results
 
-Filtering a data set implies removing or hiding results from rendering within a Table; a **reductive** action. In this scenario, performing a reductive action will impact multiple areas of the interface and surface a number of considerations for persisting the selection.
+Filtering a data set implies removing or hiding results from rendering within a Table (a **reductive** action) and will impact multiple areas of the interface while raising number of considerations around persisting the selection.
 
 !!! Info
 
-Consider these topics conversation starters to help make an informed decision around the user experience, the answers may vary depending on product architecture and broader application strategy.
+Consider these topics as conversation starters to help make an informed decision about the user experience. The answers may vary depending on product architecture and broader application strategy.
 !!!
 
 - In a Multi-select pattern, should the [total count](/patterns/multi-select-patterns?tab=guidlines#total-count) change to reflect a reduction in the number of visible results?
@@ -60,7 +62,7 @@ Consider these topics conversation starters to help make an informed decision ar
 - If a selection has been made prior to filtering, is the selected state persisted even if the filtered results are excluded from the data set?
 - Are there any parameters in the data set that are variable in nature? E.g., status that is prone to changing if a cluster is starting up or spinning down.
 
-In all of these scenarios it is most important to **clearly and consistently communicate** what results have been selected and what impact a change will have on them.
+In all of these scenarios, it is important to **clearly and consistently communicate** what results have been selected and what impact a change will have on them.
 
 ### Not persisting the selection
 
