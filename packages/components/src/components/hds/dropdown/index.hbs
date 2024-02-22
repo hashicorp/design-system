@@ -7,6 +7,12 @@
   class={{this.classNames}}
   @isOpen={{@isOpen}}
   @onClose={{@onClose}}
+  @popoverOptions={{this.popoverOptions}}
+  @contentPlacement={{this.contentPlacement}}
+  @contentPositionStrategy={{this.contentPositionStrategy}}
+  @contentZIndex={{this.contentZIndex}}
+  @contentEnableCollisionDetection={{this.contentEnableCollisionDetection}}
+  @contentOffsetOptions={{(array 0 4)}}
   @renderInElement={{this.contentRenderInElement}}
   ...attributes
 >
@@ -19,19 +25,7 @@
     }}
   </:toggle>
   <:content as |c|>
-    <div
-      class={{this.classNamesContent}}
-      {{style width=@width max-height=@height}}
-      {{hds-float-element
-        c.toggleElement
-        floatingElementPlacement=this.contentPlacement
-        floatingElementPositionStrategy=this.contentPositionStrategy
-        floatingElementZIndex=this.contentZIndex
-        floatingElementEnableCollisionDetection=this.contentEnableCollisionDetection
-        floatingElementOffsetOptions=(array 0 4)
-      }}
-      {{did-insert c.didInsertContent}}
-    >
+    <div class={{this.classNamesContent}} {{style width=@width max-height=@height}}>
       {{yield (hash Header=(component "hds/dropdown/header"))}}
       <ul class="hds-dropdown__list" {{did-insert this.didInsertList c.toggleElement}}>
         {{yield

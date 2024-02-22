@@ -9,53 +9,43 @@ import { createPopper } from '@popperjs/core';
 
 function getPopperOptions(namedOptions) {
   const {
-    floatingElementPlacement = 'bottom',
-    floatingElementPositionStrategy = 'absolute', // if we use `fixed` then the overscroll of the body makes the dialog look weird when the page is overscrolled
-    floatingElementZIndex,
-    floatingElementOffsetOptions,
-    floatingElementEnableCollisionDetection,
+    popoverPlacement = 'bottom-start',
+    popoverPositionStrategy = 'absolute', // if we use `fixed` then the overscroll of the body makes the dialog look weird when the page is overscrolled
+    popoverZIndex,
+    popoverOffsetOptions,
+    popoverEnableCollisionDetection,
   } = namedOptions;
 
   const options = { modifiers: [] };
 
-  options.placement = floatingElementPlacement;
-  options.strategy = floatingElementPositionStrategy;
+  options.placement = popoverPlacement;
+  options.strategy = popoverPositionStrategy;
 
-  if (floatingElementOffsetOptions) {
+  if (popoverOffsetOptions) {
     options.modifiers.push({
       // https://popper.js.org/docs/v2/modifiers/offset/
       name: 'offset',
-      options: {
-        offset: floatingElementOffsetOptions,
-      },
+      options: { offset: popoverOffsetOptions },
     });
   }
 
-  if (floatingElementEnableCollisionDetection) {
+  if (popoverEnableCollisionDetection) {
     options.modifiers.push(
-      {
-        // https://popper.js.org/docs/v2/modifiers/flip/
-        name: 'flip',
-        enabled: true,
-      },
-      {
-        // https://popper.js.org/docs/v2/modifiers/prevent-overflow/
-        name: 'preventOverflow',
-        options: {
-          padding: 8,
-        },
-      }
+      // https://popper.js.org/docs/v2/modifiers/flip/
+      { name: 'flip', enabled: true },
+      // https://popper.js.org/docs/v2/modifiers/prevent-overflow/
+      { name: 'preventOverflow', options: { padding: 8 } }
     );
   }
 
-  if (floatingElementZIndex) {
+  if (popoverZIndex) {
     options.modifiers.push({
       // https://popper.js.org/docs/v2/modifiers/#custom-modifiers
-      name: 'floatingElementZIndex',
+      name: 'popoverZIndex',
       enabled: true,
       phase: 'main',
       fn: ({ state }) => {
-        state.styles.popper.zIndex = floatingElementZIndex;
+        state.styles.popper.zIndex = popoverZIndex;
       },
     });
   }

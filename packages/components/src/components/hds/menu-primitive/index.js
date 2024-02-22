@@ -55,27 +55,15 @@ export default class HdsMenuPrimitiveComponent extends Component {
   }
 
   @action
-  didInsertParentToggle(element) {
-    this.toggleElement = element;
-    console.log('MenuPrimitive didInsertParentToggle invoked', element);
-  }
-
-  @action
-  didInsertParentContent(element) {
-    this.contentElement = element;
-    console.log('MenuPrimitive didInsertParentContent invoked', element);
-  }
-
-  @action
   didInsertToggle(element) {
     this.toggleElement = element;
     console.log('MenuPrimitive didInsertToggle invoked', element, element.id);
   }
 
   @action
-  didInsertContent(element) {
+  didInsertParentContent(element) {
     this.contentElement = element;
-    console.log('MenuPrimitive didInsertContent', element);
+    console.log('MenuPrimitive didInsertParentContent', element);
     // TODO! understand if this check is really needed
     if (this.toggleElement) {
       this.initPopover();
@@ -84,17 +72,18 @@ export default class HdsMenuPrimitiveComponent extends Component {
         this.initPopover();
       });
     }
-    if (this.isOpen) {
-      this.contentElement.showPopover();
-    }
   }
 
   @action
   initPopover() {
     this.toggleElement.popoverTargetAction = 'toggle';
-    this.toggleElement.popoverTargetElement = this.toggleElement;
+    this.toggleElement.popoverTargetElement = this.contentElement;
 
     this.contentElement.popover = 'auto';
+    if (this.isOpen) {
+      this.contentElement.showPopover();
+    }
+
     // TODO!! add removal of event listener (you will need to pass down {{will-destroy this.willDestroy}})
     this.contentElement.addEventListener('toggle', (event) => {
       if (event.newState === 'open') {
@@ -123,5 +112,11 @@ export default class HdsMenuPrimitiveComponent extends Component {
     if (!this.element.contains(event.relatedTarget || document.activeElement)) {
       this.contentElement.hidePopover();
     }
+  }
+
+  // TODO do we need this?
+  @action
+  close() {
+    this.contentElement.hidePopover();
   }
 }

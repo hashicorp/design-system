@@ -38,24 +38,26 @@ export default class HdsDropdownIndexComponent extends Component {
     return listPosition;
   }
 
-  // TODO: do we want to rename (again?) the options for the Dropdown to match the Floating-UI / Tippyjs ones?
-  // https://floating-ui.com/docs/tutorial#placements
-  // https://atomiks.github.io/tippyjs/#placements
-  get contentPlacement() {
-    return this.listPosition
+  get popoverOptions() {
+    // TODO: do we want to rename (again?) the options for the Dropdown to match the Floating-UI / Tippyjs ones?
+    // https://floating-ui.com/docs/tutorial#placements
+    // https://atomiks.github.io/tippyjs/#placements
+    const remappedContentPlacement = this.listPosition
       .replace(/-left$/, '-start')
       .replace(/-right$/, '-end');
-  }
 
-  get contentPositionStrategy() {
-    return this.args.listPositionStrategy ?? 'absolute';
-  }
-
-  get contentZIndex() {
-    return this.args.listZIndex ?? 2;
+    return {
+      popoverPlacement: remappedContentPlacement,
+      popoverPositionStrategy: this.args.listPositionStrategy ?? 'absolute',
+      popoverOffsetOptions: [0, 4],
+      popoverZIndex: this.args.listZIndex ?? 2, // TODO! if we use Popover API this is probably not needed anymore
+      popoverEnableCollisionDetection:
+        this.args.listEnableCollisionDetection ?? false,
+    };
   }
 
   get contentRenderInElement() {
+    // TODO use `AppendTo` instead of `RenderInElement`?
     let { listRenderInElement } = this.args;
     if (listRenderInElement) {
       return listRenderInElement;
@@ -64,10 +66,6 @@ export default class HdsDropdownIndexComponent extends Component {
     } else {
       return undefined;
     }
-  }
-
-  get contentEnableCollisionDetection() {
-    return this.args.listEnableCollisionDetection ?? false;
   }
 
   /**

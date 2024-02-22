@@ -5,22 +5,24 @@
 }}
 {{! template-lint-disable no-invalid-interactive }}
 <div class="hds-menu-primitive" ...attributes {{did-insert this.didInsert}} {{on "focusout" this.onFocusOut}}>
-  <div class="hds-menu-primitive__toggle" tabindex="-1" {{did-insert this.didInsertParentToggle}}>
+  <div class="hds-menu-primitive__toggle" tabindex="-1">
     {{yield (hash didInsertToggle=this.didInsertToggle isOpen=this.isOpen) to="toggle"}}
   </div>
-  <div class="hds-menu-primitive__content" tabindex="-1" {{did-insert this.didInsertParentContent}}>
+  <div
+    class="hds-menu-primitive__content"
+    tabindex="-1"
+    {{hds-float-element
+      this.toggleElement
+      popoverOptions=@popoverOptions
+    }}
+    {{did-insert this.didInsertParentContent}}
+  >
     {{#if this.renderInElement}}
       {{#in-element this.renderInElement insertBefore=null}}
-        {{yield
-          (hash toggleElement=this.toggleElement didInsertContent=this.didInsertContent close=this.close)
-          to="content"
-        }}
+        {{yield (hash toggleElement=this.toggleElement close=this.close) to="content"}}
       {{/in-element}}
     {{else}}
-      {{yield
-        (hash toggleElement=this.toggleElement didInsertContent=this.didInsertContent close=this.close)
-        to="content"
-      }}
+      {{yield (hash toggleElement=this.toggleElement close=this.close) to="content"}}
     {{/if}}
   </div>
 </div>
