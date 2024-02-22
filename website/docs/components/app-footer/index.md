@@ -1,5 +1,5 @@
 ---
-title: AppFooter
+title: App Footer
 description: A footer that appears on every screen to display supplementary information and links.
 caption: Displays supplementary information and links for the application.
 links:
