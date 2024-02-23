@@ -9,13 +9,13 @@ Due to its dynamic nature, updates to the selected count must be announced to th
 
 This is a _representative_ example of how this could be accomplished using HDS components and `role=status` to announce changes in the UI. Test it yourself by enabling voice over and incrementing the `selectedCount` with the "Add to count" button.
 
-```hbs
-<div role="status" class="doc-table-multi-select-role-example">
+```handlebars
+<div class="doc-table-multi-select-role-example">
 
   <button {{on "click" this.updateSelectedCount}}>Add to count</button>
 
   <div class="doc-table-multi-select-pattern-wrapper">
-    <Hds::Text::Body @tag="p" @size="200" @color="foreground-primary">
+    <Hds::Text::Body role="status" @tag="p" @size="200" @color="foreground-primary" >
       {{this.selectedCount}} selected out of {{this.totalCount}}
     </Hds::Text::Body>
     <Hds::Dropdown as |DD|>
