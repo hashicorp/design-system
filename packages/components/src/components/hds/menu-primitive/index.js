@@ -7,47 +7,11 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { next } from '@ember/runloop';
-import { assert } from '@ember/debug';
 
 export default class HdsMenuPrimitiveComponent extends Component {
   @tracked isOpen = this.args.isOpen;
   @tracked toggleElement;
   @tracked contentElement;
-
-  get renderInElement() {
-    let { renderInElement } = this.args;
-    if (renderInElement) {
-      let targetElement;
-      if (typeof renderInElement === 'string') {
-        const selectedElement = document.querySelector(renderInElement);
-        if (selectedElement) {
-          targetElement = selectedElement;
-        } else {
-          console.error(
-            '@renderInElement for Hds::MenuPrimitive does not point to an existing DOM node, check your selector string',
-            targetElement
-          );
-        }
-      } else if (
-        renderInElement instanceof Node &&
-        renderInElement.nodeType === Node.ELEMENT_NODE
-      ) {
-        targetElement = renderInElement;
-      } else {
-        if (renderInElement instanceof NodeList) {
-          assert(
-            '@renderInElement for Hds::MenuPrimitive must be a string or a DOM node - provided: a list of DOM nodes'
-          );
-        } else {
-          assert(
-            `@renderInElement for Hds::MenuPrimitive must be a string or a DOM node - provided: ${typeof target}`
-          );
-        }
-      }
-      return targetElement;
-    }
-    return undefined;
-  }
 
   @action
   didInsert(element) {
@@ -79,9 +43,14 @@ export default class HdsMenuPrimitiveComponent extends Component {
     this.toggleElement.popoverTargetAction = 'toggle';
     this.toggleElement.popoverTargetElement = this.contentElement;
 
-    this.contentElement.popover = 'auto';
+    // this.contentElement.popover = 'auto';
     if (this.isOpen) {
+      // if this is set to "open" with a "manual" state, then the modal can't be closed via `esc` and `click outside`
+      // TODO in theory we could change it back to `auto` once it's closed
+      this.contentElement.popover = 'manual';
       this.contentElement.showPopover();
+    } else {
+      this.contentElement.popover = 'auto';
     }
 
     // TODO!! add removal of event listener (you will need to pass down {{will-destroy this.willDestroy}})

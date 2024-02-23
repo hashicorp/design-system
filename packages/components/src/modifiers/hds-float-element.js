@@ -7,14 +7,27 @@ import { assert } from '@ember/debug';
 
 import { createPopper } from '@popperjs/core';
 
-function getPopperOptions(namedOptions) {
+function getPopperOptions(popoverOptions) {
+  console.log(
+    'namedOptions.popoverOffsetOptions',
+    popoverOptions.popoverOffsetOptions
+  );
   const {
     popoverPlacement = 'bottom-start',
     popoverPositionStrategy = 'absolute', // if we use `fixed` then the overscroll of the body makes the dialog look weird when the page is overscrolled
     popoverZIndex,
     popoverOffsetOptions,
     popoverEnableCollisionDetection,
-  } = namedOptions;
+  } = popoverOptions;
+
+  console.log('popoverPlacement', popoverPlacement);
+  console.log('popoverPositionStrategy', popoverPositionStrategy);
+  console.log('popoverZIndex', popoverZIndex);
+  console.log('popoverOffsetOptions', popoverOffsetOptions);
+  console.log(
+    'popoverEnableCollisionDetection',
+    popoverEnableCollisionDetection
+  );
 
   const options = { modifiers: [] };
 
@@ -80,7 +93,7 @@ export default modifier((element, positional, named) => {
   // notice: it's expressed as argument for modifier and it can be a DOM node direclty, or a string (CSS selector, will be converted below to an actual DOM node)
   // (positional arguments of the modifier)
   const [_anchorTarget] = positional;
-  const popperOptions = getPopperOptions(named);
+  const popperOptions = getPopperOptions(named.popoverOptions);
 
   const anchorElement =
     typeof _anchorTarget === 'string'

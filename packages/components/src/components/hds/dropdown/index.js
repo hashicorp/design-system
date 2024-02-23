@@ -48,24 +48,12 @@ export default class HdsDropdownIndexComponent extends Component {
 
     return {
       popoverPlacement: remappedContentPlacement,
-      popoverPositionStrategy: this.args.listPositionStrategy ?? 'absolute',
+      popoverPositionStrategy: this.args.listPositionStrategy || 'absolute', // TODO! if we use Popover API this is probably not needed anymore
       popoverOffsetOptions: [0, 4],
-      popoverZIndex: this.args.listZIndex ?? 2, // TODO! if we use Popover API this is probably not needed anymore
+      popoverZIndex: this.args.listZIndex || 2, // TODO! if we use Popover API this is probably not needed anymore
       popoverEnableCollisionDetection:
-        this.args.listEnableCollisionDetection ?? false,
+        this.args.listEnableCollisionDetection || false,
     };
-  }
-
-  get contentRenderInElement() {
-    // TODO use `AppendTo` instead of `RenderInElement`?
-    let { listRenderInElement } = this.args;
-    if (listRenderInElement) {
-      return listRenderInElement;
-    } else if (this.contentPositionStrategy === 'fixed') {
-      return 'body';
-    } else {
-      return undefined;
-    }
   }
 
   /**
@@ -108,6 +96,7 @@ export default class HdsDropdownIndexComponent extends Component {
     const checkmarkItems = listElement.querySelectorAll(`[role="option"]`);
     if (checkmarkItems.length) {
       listElement.setAttribute('role', 'listbox');
+      // TODO! is this still OK or should it be modified?
       listElement.setAttribute('aria-labelledby', toggleElement.id);
     }
   }

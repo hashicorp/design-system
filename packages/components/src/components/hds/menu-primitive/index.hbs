@@ -11,19 +11,10 @@
   <div
     class="hds-menu-primitive__content"
     tabindex="-1"
-    {{hds-float-element
-      this.toggleElement
-      popoverOptions=@popoverOptions
-    }}
+    {{hds-float-element this.toggleElement popoverOptions=@popoverOptions}}
     {{did-insert this.didInsertParentContent}}
   >
-    {{#if this.renderInElement}}
-      {{#in-element this.renderInElement insertBefore=null}}
-        {{yield (hash toggleElement=this.toggleElement close=this.close) to="content"}}
-      {{/in-element}}
-    {{else}}
-      {{yield (hash toggleElement=this.toggleElement close=this.close) to="content"}}
-    {{/if}}
+    {{yield (hash toggleElement=this.toggleElement close=this.close) to="content"}}
   </div>
 </div>
 {{! template-lint-enable no-invalid-interactive }}

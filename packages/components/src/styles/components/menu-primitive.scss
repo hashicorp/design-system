@@ -11,3 +11,22 @@
   position: relative;
   width: fit-content;
 }
+
+// this will have a "popover" behaviour associated, which comes with pre-defined styling
+.hds-menu-primitive__content {
+  // TODO make sure this is OK, and we don't need to reset only some properties
+  // :where(&[popover]) {
+    //   all: unset;
+    // }
+  :where(&[popover]) {
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    color: inherit;
+    background: none;
+    border: none;
+    // width: fit-content;
+    // height: fit-content;
+    inset: 0;
+  }
+}
