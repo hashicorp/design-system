@@ -4,12 +4,12 @@ The Helios Table [multi-select functionality](/components/table#multi-select) su
 
 !!! Info
 
-These guidelines are meant to help and inform teams design and build Tables that have bulk editing and bulk selection functionality. There currently aren’t Ember or Figma components to support this pattern, but it can be composed using a combination HDS components.
+These guidelines are meant to assist teams in designing and building Tables that have bulk editing and selection functionality. Currently there aren’t Ember or Figma components to support these advanced patterns, but they can be composed using a combination of HDS components.
 !!!
 
 ## Selected count
 
-Display the **selected count** to communicate how many rows or results have been selected in the _entire_ data set. This includes rows that are outside of the current view in the Table (e.g., in a different page if using [Pagination](/components/pagination)), and should be represented using a numerical value.
+Display the **selected count** to communicate how many rows or results have been selected in the _entire_ data set. This includes Table rows that are outside of the current view in the Table (e.g., in a different page if using [Pagination](/components/pagination)), and should be represented using a numerical value.
 
 ![Example of the selected count](/assets/patterns/table-multi-select/selected-count.png)
 
@@ -25,7 +25,7 @@ If technically feasible, communicate the selected count as a portion of the **to
 
 ## Bulk actions
 
-The act of selecting multiple results in a Table implies that the the user wants to edit, remove, or transform these results in some way. Consolidate these actions in a `small` [Dropdown](/components/dropdown) inline with the selected count, message, and total count.
+Bulk actions allow the user to edit, delete, or transform one or more results in a Table. Consolidate these actions in a `small` [Dropdown](/components/dropdown) inline with the selected count, message, and total count.
 
 ![Example of bulk actions](/assets/patterns/table-multi-select/bulk-actions.png)
 
@@ -53,9 +53,9 @@ _Note:_ This type of selection is **not** a replacement for the selection in the
 
 Examples of bulk selection include:
 
-- **Select all:** select all of the results in a data set.
-- **Reset selection:** take the current selected results and deselect them.
-- **Select inverse:** deselect the currently selected results, select those that are currently deselected.
+- **Select all:** Select all of the results in a data set.
+- **Reset selection:** Take the current selected results and deselect them.
+- **Select inverse:** Deselect the currently selected results; select those that are currently deselected.
 
 ![Example of bulk selection](/assets/patterns/table-multi-select/bulk-selection.png)
 

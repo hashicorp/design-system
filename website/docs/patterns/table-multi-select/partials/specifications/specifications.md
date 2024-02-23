@@ -21,19 +21,19 @@ Within the Multi-select pattern itself, use a 16px horizontal gap between the me
 
 ### In context
 
-When combining a Multi-select pattern with filtering and similar functional elements around the Table, using a 16px vertical gap be filter elements, Multi-select pattern, and Table.
+When combining a Multi-select pattern with filtering and similar functions acting on Table data, use a 16px vertical gap between rows of related elements.
 
 ![Spacing in context with other elements](/assets/patterns/table-multi-select/multi-select-in-context-spacing.png)
 
 ## Layout
 
-For a basic Table (e.g., one that doesn't use filtering), place the selection pattern above the top-right corner of the Table.
+For a basic Table (e.g., one that doesn’t use filtering), place the selection pattern above the top-right corner of the Table.
 
 ![A basic multi-select example in context](/assets/patterns/table-multi-select/multi-select-in-context-basic.png)
 
 ### Layout with a filter pattern
 
-When composing a Multi-select pattern with a [Filter bar](/patterns/filter-patterns?tab=specifications#filter-bar-1) and [Applied filters](/patterns/filter-patterns?tab=specifications#applied-filters-1), maintain the same placement.
+When composing a Multi-select pattern together with a [Filter bar](/patterns/filter-patterns?tab=specifications#filter-bar-1) and [Applied filters](/patterns/filter-patterns?tab=specifications#applied-filters-1), maintain the same placement.
 
 ![Multi-select with a Filter Pattern](/assets/patterns/table-multi-select/multi-select-in-context-filters.png)
 
@@ -43,7 +43,7 @@ When composing a Multi-select pattern with a [Filter bar](/patterns/filter-patte
 
 ### Reflow
 
-As the viewport width shrinks, stack the elements around the Table and filter pattern in a single column to ensure that variable parts of the UI are in view.
+As the viewport width shrinks, stack the elements around the Table and filter pattern in a single column.
 
 ![Example of reflow at a smaller viewport](/assets/patterns/table-multi-select/multi-select-reflow-example.png)
 
