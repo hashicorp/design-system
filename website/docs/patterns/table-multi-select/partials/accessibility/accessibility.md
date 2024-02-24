@@ -1,6 +1,6 @@
 !!! Info
 
-It is the responsibility of consumers to implement this pattern, and therefore also their responsibility to ensure that all accessibility success criteria are met or exceeded.
+It is the responsibility of consumers to implement this pattern and to ensure that all accessibility success criteria are met or exceeded.
 !!!
 
 ## Aria role
