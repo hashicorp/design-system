@@ -6,6 +6,10 @@
 // MenuPrimitive
 
 body.utilities-menu-primitive {
+  :focus, :focus-visible {
+    outline: 3px solid red;
+  }
+
   // :where(.hds-menu-primitive__content) {
   //   // reset all the "popover" styles applied to the content
   //   all: unset;

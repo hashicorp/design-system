@@ -34,17 +34,12 @@ export default class HdsMenuPrimitiveComponent extends Component {
   didInsertPopover(element) {
     this.popoverElement = element;
 
-    // this.popoverElement.popover = 'auto';
-    // if (this.isOpen) {
-    //   // if this is set to "open" with a "manual" state, then the modal can't be closed via `esc` and `click outside`
-    //   // TODO in theory we could change it back to `auto` once it's closed
-    //   this.popoverElement.popover = 'manual';
-    //   this.popoverElement.showPopover();
-    // } else {
-    //   this.popoverElement.popover = 'auto';
-    // }
-
-    // Register "onToggle" callback function to be called when a native 'toggle' event is dispatched
+    // Register "onBeforeToggle" + "onToggle" callback functions to be called when a native 'toggle' event is dispatched
+    this.popoverElement.addEventListener(
+      'beforetoggle',
+      this.registerOnBeforeToggleEvent,
+      true
+    );
     this.popoverElement.addEventListener(
       'toggle',
       this.registerOnToggleEvent,
@@ -56,6 +51,11 @@ export default class HdsMenuPrimitiveComponent extends Component {
   willDestroyPopover() {
     if (this.popoverElement) {
       this.popoverElement.removeEventListener(
+        'beforetoggle',
+        this.registerOnBeforeToggleEvent,
+        true
+      );
+      this.popoverElement.removeEventListener(
         'toggle',
         this.registerOnToggleEvent,
         true
@@ -63,15 +63,27 @@ export default class HdsMenuPrimitiveComponent extends Component {
     }
   }
 
+  // fired just _before_ the "popover" is shown or hidden
+  @action registerOnBeforeToggleEvent(event) {
+    // we explicitly apply a focus state to the toggle element to overcome a bug in WebKit (see https://github.com/hashicorp/design-system/commit/40cd7f6b3cb15c45f9a1235fafd0fb3ed58e6e62)
+    if (event.newState === 'closed') {
+      this.toggleElement.focus();
+    }
+  }
+
+  // fired just _after_ the "popover" is shown or hidden
   @action registerOnToggleEvent(event) {
     if (event.newState === 'open') {
-      console.log('Popover has been shown', this.popoverElement);
+      console.log('Popover has been shown');
       this.isOpen = true;
+      // we call the "onOpen" callback if it exists (and is a function)
+      let { onOpen } = this.args;
+      if (typeof onOpen === 'function') {
+        onOpen();
+      }
     } else {
-      console.log('Popover has been hidden', this.popoverElement);
+      console.log('Popover has been hidden');
       this.isOpen = false;
-      // we explicitly apply a focus state to the toggle element to overcome a bug in WebKit (see https://github.com/hashicorp/design-system/commit/40cd7f6b3cb15c45f9a1235fafd0fb3ed58e6e62)
-      this.toggleElement.focus();
       // we call the "onClose" callback if it exists (and is a function)
       let { onClose } = this.args;
       if (typeof onClose === 'function') {
