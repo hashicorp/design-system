@@ -8,6 +8,74 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 
+import { createPopper } from '@popperjs/core';
+
+function getPopperOptions(popoverOptions) {
+  const {
+    popoverPlacement = 'bottom-start',
+    popoverPositionStrategy = 'absolute', // if we use `fixed` then the overscroll of the body makes the dialog look weird when the page is overscrolled
+    popoverZIndex,
+    popoverOffsetOptions,
+    popoverEnableCollisionDetection,
+  } = popoverOptions;
+
+  const options = { modifiers: [] };
+
+  options.placement = popoverPlacement;
+  options.strategy = popoverPositionStrategy;
+
+  options.modifiers.push(
+    // https://popper.js.org/docs/v2/modifiers/flip/
+    {
+      name: 'flip',
+      enabled: popoverEnableCollisionDetection || false,
+      options: { padding: 4 },
+    },
+    // https://popper.js.org/docs/v2/modifiers/prevent-overflow/
+    {
+      name: 'preventOverflow',
+      enabled: popoverEnableCollisionDetection || false,
+      options: { padding: 4 },
+    }
+  );
+
+  if (popoverOffsetOptions) {
+    options.modifiers.push({
+      // https://popper.js.org/docs/v2/modifiers/offset/
+      name: 'offset',
+      options: { offset: popoverOffsetOptions },
+    });
+  }
+
+  if (popoverZIndex) {
+    options.modifiers.push({
+      // https://popper.js.org/docs/v2/modifiers/#custom-modifiers
+      name: 'popoverZIndex',
+      phase: 'main',
+      fn: ({ state }) => {
+        state.styles.popper.zIndex = popoverZIndex;
+      },
+    });
+  }
+
+  // TODO add custom modifier (conditional option?) to resize vertically the popper if the height is larger than the available space
+  // https://popper.js.org/docs/v2/utils/detect-overflow/#example
+  //
+  // ➔ we can use this community package:
+  // https://www.npmjs.com/package/popper-max-size-modifier
+  //
+
+  // uncomment to debug first rendering [NOTICE: doesn't seem to work]
+  // options.modifiers.push({
+  //   // https://popper.js.org/docs/v2/lifecycle/#hook-into-the-lifecycle
+  //   onFirstUpdate: (state) => {
+  //     console.log('Popper `onFirstUpdate` invoked with state', state);
+  //   },
+  // });
+
+  return options;
+}
+
 export default class HdsMenuPrimitiveComponent extends Component {
   @tracked isOpen = this.args.isOpen;
   @tracked toggleElement;
@@ -53,6 +121,12 @@ export default class HdsMenuPrimitiveComponent extends Component {
       this.registerOnToggleEvent,
       true
     );
+
+    this.popperInstance = createPopper(
+      this.toggleElement,
+      this.popoverElement,
+      getPopperOptions(this.args.popoverOptions ?? {})
+    );
   }
 
   @action
@@ -69,6 +143,9 @@ export default class HdsMenuPrimitiveComponent extends Component {
         true
       );
     }
+    if (this.popperInstance && this.popperInstance) {
+      this.popperInstance.destroy();
+    }
   }
 
   // fired just _before_ the "popover" is shown or hidden
@@ -78,7 +155,7 @@ export default class HdsMenuPrimitiveComponent extends Component {
   }
 
   // fired just _after_ the "popover" is shown or hidden
-  @action registerOnToggleEvent(event) {
+  @action async registerOnToggleEvent(event) {
     if (event.newState === 'open') {
       console.log('Popover has been shown');
       this.isOpen = true;
@@ -99,6 +176,10 @@ export default class HdsMenuPrimitiveComponent extends Component {
       if (typeof onClose === 'function') {
         onClose();
       }
+    }
+    // TODO! understand if this can fix the issue with the dropdown in the modal
+    if (this.popperInstance) {
+      await this.popperInstance.update();
     }
   }
 
