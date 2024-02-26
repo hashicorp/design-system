@@ -34,6 +34,14 @@ export default class HdsMenuPrimitiveComponent extends Component {
   didInsertPopover(element) {
     this.popoverElement = element;
 
+    // this should be an extremely edge case, but in the case the popover needs to be initially forced to be open
+    // we need to use the "manual" state to support the case of multiple "menus" opened at the same time
+    // IMPORTANT! if a "popover" is set to "open" with a "manual" state, then it can't be closed via `esc` and `click outside`
+    if (this.args.isOpen) {
+      this.popoverElement.popover = 'manual';
+      this.popoverElement.showPopover();
+    }
+
     // Register "onBeforeToggle" + "onToggle" callback functions to be called when a native 'toggle' event is dispatched
     this.popoverElement.addEventListener(
       'beforetoggle',
@@ -64,11 +72,9 @@ export default class HdsMenuPrimitiveComponent extends Component {
   }
 
   // fired just _before_ the "popover" is shown or hidden
-  @action registerOnBeforeToggleEvent(event) {
-    // we explicitly apply a focus state to the toggle element to overcome a bug in WebKit (see https://github.com/hashicorp/design-system/commit/40cd7f6b3cb15c45f9a1235fafd0fb3ed58e6e62)
-    if (event.newState === 'closed') {
-      this.toggleElement.focus();
-    }
+  @action registerOnBeforeToggleEvent() {
+    // we explicitly apply a focus state to the "toggle" element to overcome a bug in WebKit (see https://github.com/hashicorp/design-system/commit/40cd7f6b3cb15c45f9a1235fafd0fb3ed58e6e62)
+    this.toggleElement.focus();
   }
 
   // fired just _after_ the "popover" is shown or hidden
@@ -83,6 +89,10 @@ export default class HdsMenuPrimitiveComponent extends Component {
       }
     } else {
       console.log('Popover has been hidden');
+      // if the popover was initially forced to be open (using the "manual" state) then revert its status to `auto` once the user interacts with it
+      if (this.args.isOpen) {
+        this.popoverElement.popover = 'auto';
+      }
       this.isOpen = false;
       // we call the "onClose" callback if it exists (and is a function)
       let { onClose } = this.args;
