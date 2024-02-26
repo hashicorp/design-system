@@ -155,7 +155,7 @@ export default class HdsMenuPrimitiveComponent extends Component {
   }
 
   // fired just _after_ the "popover" is shown or hidden
-  @action async registerOnToggleEvent(event) {
+  @action registerOnToggleEvent(event) {
     if (event.newState === 'open') {
       console.log('Popover has been shown');
       this.isOpen = true;
@@ -179,7 +179,8 @@ export default class HdsMenuPrimitiveComponent extends Component {
     }
     // TODO! understand if this can fix the issue with the dropdown in the modal
     if (this.popperInstance) {
-      await this.popperInstance.update();
+      // https://popper.js.org/docs/v2/constructors/#instance
+      this.popperInstance.forceUpdate();
     }
   }
 
