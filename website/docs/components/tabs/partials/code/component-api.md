@@ -9,6 +9,9 @@ The Tabs component is composed of different parts, with their own APIs:
 ### Tabs API
 
 <Doc::ComponentApi as |C|>
+  <C.Property @name="size" @type="enum" @values={{array "medium" "large" }} @default="medium">
+    Sets the size of the `Tabs`.
+  </C.Property>
   <C.Property @name="onClickTab" @type="function">
     Callback function invoked when the one of the tabs is clicked, if provided. The function receives the DOM `event` and the tab's `index` (integer number) as arguments.
   </C.Property>

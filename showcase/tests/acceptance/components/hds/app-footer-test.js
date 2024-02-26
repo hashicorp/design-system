@@ -4,18 +4,13 @@
  */
 
 import { module, test } from 'qunit';
-import { visit, currentURL } from '@ember/test-helpers';
+import { visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'showcase/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 
-module('Acceptance | components/app-footer', function (hooks) {
+module('Acceptance | Components | hds/app-footer', function (hooks) {
   setupApplicationTest(hooks);
 
-  test('visiting /components/app-footer', async function (assert) {
-    await visit('/components/app-footer');
-
-    assert.strictEqual(currentURL(), '/components/app-footer');
-  });
   test('Components/app-footer page passes a11y automated checks', async function (assert) {
     await visit('/components/app-footer');
 

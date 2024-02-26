@@ -19,7 +19,7 @@
   "scripts": {
     "build": "rollup --config",
     "prepublishOnly": "rollup --config",
-    "start": "rollup --config --watch",
+    "start": "rollup --config --watch --environment development",
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
     "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",
     "lint:css": "stylelint \"src/styles/**/*.scss\"",
@@ -41,7 +41,6 @@
     "ember-a11y-refocus": "^3.0.2",
     "ember-cli-sass": "^11.0.1",
     "ember-composable-helpers": "^5.0.0",
-    "ember-deep-tracked": "^2.0.0",
     "ember-element-helper": "^0.8.5",
     "ember-focus-trap": "^1.1.0",
     "ember-keyboard": "^8.2.1",

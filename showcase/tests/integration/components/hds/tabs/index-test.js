@@ -83,9 +83,10 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
       this.isSelectedTab1 = args.isSelectedTab1 ?? false;
       this.isSelectedTab2 = args.isSelectedTab2 ?? false;
       this.selectedTabIndex = args.selectedTabIndex ?? undefined;
+      this.size = args.size ?? undefined;
       this.onClickTab = args.onClickTab ?? undefined;
       return await render(hbs`
-        <Hds::Tabs id="test-tabs" @selectedTabIndex={{this.selectedTabIndex}} @onClickTab={{this.onClickTab}} as |T|>
+        <Hds::Tabs id="test-tabs" @size={{this.size}} @selectedTabIndex={{this.selectedTabIndex}} @onClickTab={{this.onClickTab}} as |T|>
           <T.Tab data-test="tab-1" @isSelected={{this.isSelectedTab1}} @icon={{this.iconTab1}} @count={{this.countTab1}}>One</T.Tab>
           <T.Tab data-test="tab-2" @isSelected={{this.isSelectedTab2}}>Two</T.Tab>
           <T.Panel data-test="panel-1">Content 1</T.Panel>
@@ -110,6 +111,18 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
   test('it should have 2 Tabs and 2 Panels', async function (assert) {
     await this.createTabs();
     assert.dom('.hds-tabs__panel').exists({ count: 2 });
+  });
+
+  // SIZE
+
+  test('it should render the component with CSS classes that reflect the default values if no arguments provided', async function (assert) {
+    await this.createTabs();
+    assert.dom('#test-tabs').hasClass('hds-tabs--size-medium');
+  });
+
+  test('it should render the component with CSS classes that reflect the arguments provided', async function (assert) {
+    await this.createTabs({ size: 'large' });
+    assert.dom('#test-tabs').hasClass('hds-tabs--size-large');
   });
 
   // TAB AND PANEL SELECTION AND DISPLAY

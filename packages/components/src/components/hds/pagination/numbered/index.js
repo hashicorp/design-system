@@ -7,7 +7,6 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
-import { inject as service } from '@ember/service';
 
 // for context about the decision to use these values, see:
 // https://hashicorp.slack.com/archives/C03A0N1QK8S/p1673546329082759
@@ -73,8 +72,6 @@ export const elliptize = ({ pages, current, limit = 7 }) => {
 };
 
 export default class HdsPaginationNumberedIndexComponent extends Component {
-  @service router;
-
   // These two private variables are used to differentiate between
   // "uncontrolled" component (where the state is handled internally) and
   // "controlled" component (where the state is handled externally, by the consumer's code).
@@ -238,10 +235,6 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
     return Math.max(Math.ceil(this.args.totalItems / this.currentPageSize), 1);
   }
 
-  get routeQueryParams() {
-    return this.router.currentRoute?.queryParams || {};
-  }
-
   buildQueryParamsObject(page, pageSize) {
     if (this.isControlled) {
       return this.args.queryFunction(page, pageSize);
@@ -323,12 +316,8 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   onPageSizeChange(newPageSize) {
     let { onPageSizeChange } = this.args;
 
-    // we need to manually update the query parameters in the route (it's not a link!)
-    if (this.isControlled) {
+    if (!this.isControlled) {
       // notice: we agreed to reset the pagination to the first element (any alternative would result in an unpredictable UX)
-      const queryParams = this.buildQueryParamsObject(1, newPageSize);
-      this.router.transitionTo({ queryParams });
-    } else {
       this.currentPage = 1;
       this.currentPageSize = newPageSize;
     }

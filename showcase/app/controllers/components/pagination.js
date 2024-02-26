@@ -201,6 +201,13 @@ export default class PaginationController extends Controller {
     return this.model.records.slice(start, end);
   }
 
+  @action
+  onPageSizeChange_demo2(pageSize) {
+    // the sensible thing to do here is to reset the pagination to the first element (any alternative would result in an unpredictable UX)
+    this.currentPage_demo2 = 1;
+    this.currentPageSize_demo2 = pageSize;
+  }
+
   // DEMO #3
 
   get newPrevNextCursors_demo3() {

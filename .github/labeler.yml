@@ -1,12 +1,24 @@
 docs-website:
-  - website/docs/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - website/docs/**/*
 packages/components:
-  - packages/components/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - packages/components/**/*
 packages/ember-flight-icons:
-  - packages/ember-flight-icons/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - packages/ember-flight-icons/**/*
 packages/flight-icons:
-  - packages/flight-icons/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - packages/flight-icons/**/*
 packages/tokens:
-  - packages/tokens/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - packages/tokens/**/*
 showcase:
-  - showcase/**/*
+  - changed-files:
+    - any-glob-to-any-file:
+      - showcase/**/*

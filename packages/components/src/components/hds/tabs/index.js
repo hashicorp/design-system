@@ -9,6 +9,9 @@ import { action } from '@ember/object';
 import { assert, warn } from '@ember/debug';
 import { next, schedule } from '@ember/runloop';
 
+export const DEFAULT_SIZE = 'medium';
+export const SIZES = ['medium', 'large'];
+
 export default class HdsTabsIndexComponent extends Component {
   @tracked tabNodes = [];
   @tracked tabIds = [];
@@ -17,6 +20,27 @@ export default class HdsTabsIndexComponent extends Component {
   @tracked _selectedTabIndex = this.args.selectedTabIndex ?? 0;
   @tracked selectedTabId;
   @tracked isControlled;
+
+  /**
+   * Sets the size of Tabs
+   * Accepted values: medium, large
+   *
+   * @param size
+   * @type {string}
+   * @default 'medium'
+   */
+  get size() {
+    let { size = DEFAULT_SIZE } = this.args;
+
+    assert(
+      `@size for "Hds::Tabs" must be one of the following: ${SIZES.join(
+        ', '
+      )}; received: ${size}`,
+      SIZES.includes(size)
+    );
+
+    return size;
+  }
 
   constructor() {
     super(...arguments);
@@ -39,6 +63,20 @@ export default class HdsTabsIndexComponent extends Component {
     } else {
       this._selectedTabIndex = value;
     }
+  }
+
+  /**
+   * Get the class names to apply to the component.
+   * @method classNames
+   * @return {string} The "class" attribute to apply to the component.
+   */
+  get classNames() {
+    let classes = ['hds-tabs'];
+
+    // add a class based on the @size argument
+    classes.push(`hds-tabs--size-${this.size}`);
+
+    return classes.join(' ');
   }
 
   @action

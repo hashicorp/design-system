@@ -5,4 +5,12 @@
 
 import Route from '@ember/routing/route';
 
-export default class ComponentsTabsRoute extends Route {}
+import { SIZES } from '@hashicorp/design-system-components/components/hds/tabs';
+
+export default class ComponentsTabsRoute extends Route {
+  model() {
+    return {
+      SIZES,
+    };
+  }
+}

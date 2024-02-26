@@ -9,6 +9,7 @@
   {{on "transitionstart" (fn this.setTransition "start")}}
   {{on "transitionend" (fn this.setTransition "end")}}
   {{focus-trap isActive=this.shouldTrapFocus}}
+  {{did-insert this.didInsert}}
 >
   <:root>
     {{#if this.hasA11yRefocus}}

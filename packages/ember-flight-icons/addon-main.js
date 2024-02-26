@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 const { addonV1Shim } = require('@embroider/addon-shim');
 const flightIconSprite = require('@hashicorp/flight-icons/svg-sprite/svg-sprite-module');
 module.exports = {

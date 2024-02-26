@@ -4,6 +4,7 @@
  */
 
 import Component from '@glimmer/component';
+import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 
 export const AVAILABLE_TAGS = [
@@ -135,5 +136,34 @@ export default class ShwTextIndexComponent extends Component {
     }
 
     return classes.join(' ');
+  }
+
+  @action
+  addHeadingLink(element) {
+    const innerText = element.innerText;
+    const sanitizedId = innerText
+      .trim()
+      .toLowerCase()
+      .replace(/\W/g, '-')
+      .replace(/-{2,}/g, '-')
+      .replace(/^-+|-+$/gm, '')
+      .substring(0, 64);
+
+    let uniqueId;
+    for (let i = 0; i < 100; i++) {
+      uniqueId = i > 0 ? `${sanitizedId}-${i}` : sanitizedId;
+      if (!document.getElementById(uniqueId)) {
+        break;
+      }
+    }
+    // update the heading
+    element.id = uniqueId;
+    element.classList.add('shw-page-heading-scroll-margin-top');
+    // inject an anchor element
+    const anchor = document.createElement('a');
+    anchor.href = `#${uniqueId}`;
+    anchor.className = 'shw-page-heading-link';
+    anchor.setAttribute('aria-labelledby', uniqueId);
+    element.prepend(anchor);
   }
 }
