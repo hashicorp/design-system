@@ -10,21 +10,6 @@ body.utilities-menu-primitive {
     outline: 3px solid red;
   }
 
-  // :where(.hds-menu-primitive__content) {
-  //   // reset all the "popover" styles applied to the content
-  //   all: unset;
-  //   // emulate show/hide styles provided out-of-the-box from the Popover API
-  // }
-
-  // // stylelint-disable-next-line selector-pseudo-class-no-unknown
-  // [popover]:not(:popover-open) {
-  //   display: none;
-  // }
-
-  // [popover]:popover-open {
-  //   display: block !important;
-  // }
-
   .shw-utility-menu-primitive-container {
     min-height: 120px;
     padding: 20px;
@@ -36,6 +21,7 @@ body.utilities-menu-primitive {
     margin: 4px 0 0 0;
     padding: 10px;
     list-style: none;
+    background: #fff;
     border: 1px solid #ccc;
 
     li {

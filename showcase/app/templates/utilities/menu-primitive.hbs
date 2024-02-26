@@ -143,39 +143,74 @@
 
   <Shw::Divider />
 
-  <Shw::Text::H2>Initial state (open/closed)</Shw::Text::H2>
+  <Shw::Text::H2>Options</Shw::Text::H2>
 
-  <Shw::Flex @direction="row" as |SF|>
-    <SF.Item @label="with @isOpen=false (default)" @grow={{true}}>
-      <div class="shw-utility-menu-primitive-container">
-        <Hds::MenuPrimitive @isOpen={{false}}>
-          <:toggle as |t|>
-            <button type="button" popovertarget={{t.popovertarget}} {{did-insert t.didInsertToggle}}>
-              Click me
-              <FlightIcon @name={{if t.isOpen "chevron-up" "chevron-down"}} />
-            </button>
-          </:toggle>
-          <:content>
-            <Shw::Placeholder @text="some generic content here" @width="200" @height="90" @background="#e1f5fe" />
-          </:content>
-        </Hds::MenuPrimitive>
-      </div>
-    </SF.Item>
-    <SF.Item @label="with @isOpen=true" @grow={{true}}>
-      <div class="shw-utility-menu-primitive-container">
-        <Hds::MenuPrimitive @isOpen={{true}}>
-          <:toggle as |t|>
-            <button type="button" popovertarget={{t.popovertarget}} {{did-insert t.didInsertToggle}}>
-              Click me
-              <FlightIcon @name={{if t.isOpen "chevron-up" "chevron-down"}} />
-            </button>
-          </:toggle>
-          <:content>
-            <Shw::Placeholder @text="some generic content here" @width="200" @height="90" @background="#e1f5fe" />
-          </:content>
-        </Hds::MenuPrimitive>
-      </div>
-    </SF.Item>
-  </Shw::Flex>
+  <Shw::Text::H3>Initial state (open/closed)</Shw::Text::H3>
+
+  <Shw::Text::Body><em>Notice: the second
+      <code>MenuPrimitive</code>
+      instance is forcibly "open" on initial rendering (by setting
+      <code>popover="manual"</code>
+      on it). This means it can't be dismissided via the
+      <code>Esc</code>
+      key or by clicking outsite; it will revert back to the standard behaviour once you interact with it.</em>
+  </Shw::Text::Body>
+
+  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+    {{#let (array false true) as |booleans|}}
+      {{#each booleans as |bool|}}
+        <SG.Item @label="With @isOpen={{if bool 'true' 'false (default)'}}">
+          <div class="shw-utility-menu-primitive-container">
+            <Hds::MenuPrimitive @isOpen={{bool}}>
+              <:toggle as |t|>
+                <button type="button" popovertarget={{t.popovertarget}} {{did-insert t.didInsertToggle}}>
+                  Click me
+                  <FlightIcon @name={{if t.isOpen "chevron-up" "chevron-down"}} />
+                </button>
+              </:toggle>
+              <:content>
+                <Shw::Placeholder @text="some generic content here" @width="200" @height="90" @background="#e1f5fe" />
+              </:content>
+            </Hds::MenuPrimitive>
+          </div>
+        </SG.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Collision detection</Shw::Text::H3>
+
+  <Shw::Text::Body><em>Notice: these
+      <code>MenuPrimitive</code>
+      instances are forcibly "open" on initial rendering (by setting
+      <code>popover="manual"</code>
+      on them). This means they can't be dismissided via the
+      <code>Esc</code>
+      key or by clicking outsite; they'll revert back to the standard behaviour once you interact with them.</em>
+  </Shw::Text::Body>
+
+  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+    {{#let (array false true) as |booleans|}}
+      {{#each booleans as |bool|}}
+        <SG.Item @label="With @listEnableCollisionDetection={{if bool 'true' 'false (default)'}}">
+          <div class="shw-utility-menu-primitive-container">
+            <Hds::MenuPrimitive @isOpen={{true}} @popoverOptions={{(hash popoverEnableCollisionDetection=bool)}}>
+              <:toggle as |t|>
+                <button type="button" popovertarget={{t.popovertarget}} {{did-insert t.didInsertToggle}}>
+                  Click me
+                  <FlightIcon @name={{if t.isOpen "chevron-up" "chevron-down"}} />
+                </button>
+              </:toggle>
+              <:content>
+                <Shw::Placeholder @text="some generic content here" @width="200" @height="90" @background="#e1f5fe" />
+              </:content>
+            </Hds::MenuPrimitive>
+          </div>
+        </SG.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Grid>
 
 </section>

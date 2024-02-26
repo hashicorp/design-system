@@ -348,49 +348,46 @@
         <p class="hds-typography-body-200 hds-foreground-primary" {{style margin-top="12px"}}>Ut enim ad minim veniam,
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur..</p>
-        {{#let (array "absolute" "fixed") as |positionStrategies|}}
-          {{#each positionStrategies as |positionStrategy|}}
-            <p class="hds-typography-body-200 hds-foreground-primary hds-font-weight-medium" {{style margin="12px 0"}}>
-              Position strategy: "{{positionStrategy}}""
-              {{if (eq positionStrategy "absolute") " (default)"}}
-            </p>
-            <Shw::Flex as |SF|>
-              <SF.Item>
-                <Hds::Dropdown @listPosition="bottom-left" @listPositionStrategy={{positionStrategy}} as |dd|>
-                  <dd.ToggleButton @color="secondary" @text="Generic" />
-                  <dd.Interactive @href="#" @text="Lorem" />
-                  <dd.Interactive @href="#" @text="Ipsum" />
-                  <dd.Interactive @href="#" @text="Dolor" />
-                </Hds::Dropdown>
-              </SF.Item>
-              <SF.Item>
-                <Hds::Dropdown @listPosition="bottom-left" @listPositionStrategy={{positionStrategy}} as |dd|>
-                  <dd.ToggleButton @color="secondary" @text="Long content" />
-                  {{#let (array 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16) as |items|}}
-                    {{#each items as |item|}}
-                      <dd.Interactive @href="#" @text="Item #{{item}}" />
-                    {{/each}}
-                  {{/let}}
-                </Hds::Dropdown>
-              </SF.Item>
-              <SF.Item>
-                <Hds::Dropdown
-                  @listPosition="bottom-left"
-                  @listPositionStrategy={{positionStrategy}}
-                  @height="165px"
-                  as |dd|
-                >
-                  <dd.ToggleButton @color="secondary" @text="Long content + Fixed height" />
-                  {{#let (array 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16) as |items|}}
-                    {{#each items as |item|}}
-                      <dd.Interactive @href="#" @text="Item #{{item}}" />
-                    {{/each}}
-                  {{/let}}
-                </Hds::Dropdown>
-              </SF.Item>
-            </Shw::Flex>
-          {{/each}}
-        {{/let}}
+        <Shw::Flex {{style margin-top="16px"}} as |SF|>
+          <SF.Item>
+            <Hds::Dropdown @listPosition="bottom-left" as |dd|>
+              <dd.ToggleButton @color="secondary" @text="Generic" />
+              <dd.Interactive @href="#" @text="Lorem" />
+              <dd.Interactive @href="#" @text="Ipsum" />
+              <dd.Interactive @href="#" @text="Dolor" />
+            </Hds::Dropdown>
+          </SF.Item>
+          <SF.Item>
+            <Hds::Dropdown @listPosition="bottom-left" as |dd|>
+              <dd.ToggleButton @color="secondary" @text="Long content" />
+              {{#let (array 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16) as |items|}}
+                {{#each items as |item|}}
+                  <dd.Interactive @href="#" @text="Item #{{item}}" />
+                {{/each}}
+              {{/let}}
+            </Hds::Dropdown>
+          </SF.Item>
+          <SF.Item>
+            <Hds::Dropdown @listPosition="bottom-left" @height="165px" as |dd|>
+              <dd.ToggleButton @color="secondary" @text="Fixed height" />
+              {{#let (array 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16) as |items|}}
+                {{#each items as |item|}}
+                  <dd.Interactive @href="#" @text="Item #{{item}}" />
+                {{/each}}
+              {{/let}}
+            </Hds::Dropdown>
+          </SF.Item>
+          <SF.Item>
+            <Hds::Dropdown @listPosition="bottom-left" @listEnableCollisionDetection={{true}} as |dd|>
+              <dd.ToggleButton @color="secondary" @text="Collision detection" />
+              {{#let (array 1 2 3 4 5 6 7 8 9 10 11 12) as |items|}}
+                {{#each items as |item|}}
+                  <dd.Interactive @href="#" @text="Item #{{item}}" />
+                {{/each}}
+              {{/let}}
+            </Hds::Dropdown>
+          </SF.Item>
+        </Shw::Flex>
       </M.Body>
       <M.Footer as |F|>
         <Hds::Button type="button" @text="Confirm" {{on "click" F.close}} />

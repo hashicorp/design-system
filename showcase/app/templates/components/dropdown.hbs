@@ -12,6 +12,15 @@
 
   <Shw::Text::H2>Position</Shw::Text::H2>
 
+  <Shw::Text::Body><em>Notice: these
+      <code>Dropdown</code>
+      instances are forcibly "open" on initial rendering (by setting
+      <code>popover="manual"</code>
+      on them). This means they can't be dismissided via the
+      <code>Esc</code>
+      key or by clicking outsite; they'll revert back to the standard behaviour once you interact with them.</em>
+  </Shw::Text::Body>
+
   <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Bottom left">
       <Shw::Outliner {{style height="140px" padding="8px"}}>
@@ -1450,6 +1459,15 @@
 
   <Shw::Text::Body>Interaction between overflowing, position strategy, z-index</Shw::Text::Body>
 
+  <Shw::Text::Body><em>Notice: these
+      <code>Dropdown</code>
+      instances are forcibly "open" on initial rendering (by setting
+      <code>popover="manual"</code>
+      on them). This means they can't be dismissided via the
+      <code>Esc</code>
+      key or by clicking outsite; they'll revert back to the standard behaviour once you interact with them.</em>
+  </Shw::Text::Body>
+
   {{#let (array "absolute" "fixed") as |positionStrategies|}}
     {{#each positionStrategies as |positionStrategy|}}
       <Shw::Text::H4>Strategy: "{{positionStrategy}}"</Shw::Text::H4>
@@ -1547,19 +1565,32 @@
 
   <Shw::Text::H3>Collision detection</Shw::Text::H3>
 
-  <Shw::Grid {{style gap="2rem"}} @columns={{3}} as |SG|>
-    <SG.Item @label="With @listEnableCollisionDetection=true">
-      <Shw::Outliner {{style position="relative" height="200px" margin-bottom="50px" padding="8px"}}>
-        <Hds::Dropdown @isOpen={{true}} @listPosition="bottom-left" @listEnableCollisionDetection={{true}} as |dd|>
-          <dd.ToggleButton @color="secondary" @text="Menu" />
-          {{#let (array 1 2 3 4 5 6) as |items|}}
-            {{#each items as |item|}}
-              <dd.Interactive @href="#" @text="Item #{{item}}" />
-            {{/each}}
-          {{/let}}
-        </Hds::Dropdown>
-      </Shw::Outliner>
-    </SG.Item>
+  <Shw::Text::Body><em>Notice: these
+      <code>Dropdown</code>
+      instances are forcibly "open" on initial rendering (by setting
+      <code>popover="manual"</code>
+      on them). This means they can't be dismissided via the
+      <code>Esc</code>
+      key or by clicking outsite; they'll revert back to the standard behaviour once you interact with them.</em>
+  </Shw::Text::Body>
+
+  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+    {{#let (array false true) as |booleans|}}
+      {{#each booleans as |bool|}}
+        <SG.Item @label="With @listEnableCollisionDetection={{if bool 'true' 'false (default)'}}">
+          <Shw::Outliner {{style position="relative" height="200px" margin-bottom="50px" padding="8px"}}>
+            <Hds::Dropdown @isOpen={{true}} @listPosition="bottom-left" @listEnableCollisionDetection={{bool}} as |dd|>
+              <dd.ToggleButton @color="secondary" @text="Menu" />
+              {{#let (array 1 2 3 4 5 6) as |items|}}
+                {{#each items as |item|}}
+                  <dd.Interactive @href="#" @text="Item #{{item}}" />
+                {{/each}}
+              {{/let}}
+            </Hds::Dropdown>
+          </Shw::Outliner>
+        </SG.Item>
+      {{/each}}
+    {{/let}}
   </Shw::Grid>
 
 </section>
