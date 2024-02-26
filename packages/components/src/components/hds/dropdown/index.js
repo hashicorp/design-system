@@ -48,9 +48,14 @@ export default class HdsDropdownIndexComponent extends Component {
 
     return {
       popoverPlacement: remappedContentPlacement,
-      popoverPositionStrategy: this.args.listPositionStrategy || 'absolute', // TODO! if we use Popover API this is probably not needed anymore
+      // TODO! if we use Popover API this is probably not needed anymore
+      popoverPositionStrategy: this.args.listPositionStrategy || 'absolute',
       popoverOffsetOptions: [0, 4],
-      popoverZIndex: this.args.listZIndex || 2, // TODO! if we use Popover API this is probably not needed anymore
+      // TODO! if we use Popover API this is probably not needed anymore
+      // TODO!! IMPORTANT: z-index is ignored in the `top-layer` container
+      // top layer elements can't use z-index; instead, elements are stacked in the order they are added to the top layer
+      // https://developer.chrome.com/blog/what-is-the-top-layer
+      popoverZIndex: this.args.listZIndex || 2,
       popoverEnableCollisionDetection:
         this.args.listEnableCollisionDetection || false,
     };
