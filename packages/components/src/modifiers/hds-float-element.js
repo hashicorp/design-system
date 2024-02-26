@@ -8,10 +8,6 @@ import { assert } from '@ember/debug';
 import { createPopper } from '@popperjs/core';
 
 function getPopperOptions(popoverOptions) {
-  console.log(
-    'namedOptions.popoverOffsetOptions',
-    popoverOptions.popoverOffsetOptions
-  );
   const {
     popoverPlacement = 'bottom-start',
     popoverPositionStrategy = 'absolute', // if we use `fixed` then the overscroll of the body makes the dialog look weird when the page is overscrolled
@@ -20,19 +16,25 @@ function getPopperOptions(popoverOptions) {
     popoverEnableCollisionDetection,
   } = popoverOptions;
 
-  console.log('popoverPlacement', popoverPlacement);
-  console.log('popoverPositionStrategy', popoverPositionStrategy);
-  console.log('popoverZIndex', popoverZIndex);
-  console.log('popoverOffsetOptions', popoverOffsetOptions);
-  console.log(
-    'popoverEnableCollisionDetection',
-    popoverEnableCollisionDetection
-  );
-
   const options = { modifiers: [] };
 
   options.placement = popoverPlacement;
   options.strategy = popoverPositionStrategy;
+
+  options.modifiers.push(
+    // https://popper.js.org/docs/v2/modifiers/flip/
+    {
+      name: 'flip',
+      enabled: popoverEnableCollisionDetection || false,
+      options: { padding: 4 },
+    },
+    // https://popper.js.org/docs/v2/modifiers/prevent-overflow/
+    {
+      name: 'preventOverflow',
+      enabled: popoverEnableCollisionDetection || false,
+      options: { padding: 4 },
+    }
+  );
 
   if (popoverOffsetOptions) {
     options.modifiers.push({
@@ -42,20 +44,10 @@ function getPopperOptions(popoverOptions) {
     });
   }
 
-  if (popoverEnableCollisionDetection) {
-    options.modifiers.push(
-      // https://popper.js.org/docs/v2/modifiers/flip/
-      { name: 'flip', enabled: true },
-      // https://popper.js.org/docs/v2/modifiers/prevent-overflow/
-      { name: 'preventOverflow', options: { padding: 8 } }
-    );
-  }
-
   if (popoverZIndex) {
     options.modifiers.push({
       // https://popper.js.org/docs/v2/modifiers/#custom-modifiers
       name: 'popoverZIndex',
-      enabled: true,
       phase: 'main',
       fn: ({ state }) => {
         state.styles.popper.zIndex = popoverZIndex;
@@ -93,7 +85,7 @@ export default modifier((element, positional, named) => {
   // notice: it's expressed as argument for modifier and it can be a DOM node direclty, or a string (CSS selector, will be converted below to an actual DOM node)
   // (positional arguments of the modifier)
   const [_anchorTarget] = positional;
-  const popperOptions = getPopperOptions(named.popoverOptions);
+  const popperOptions = getPopperOptions(named.popoverOptions ?? {});
 
   const anchorElement =
     typeof _anchorTarget === 'string'

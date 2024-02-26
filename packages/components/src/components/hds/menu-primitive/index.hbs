@@ -6,13 +6,16 @@
 {{! template-lint-disable no-invalid-interactive }}
 <div class="hds-menu-primitive" ...attributes {{did-insert this.didInsert}} {{on "focusout" this.onFocusOut}}>
   <div class="hds-menu-primitive__toggle" tabindex="-1">
-    {{yield (hash didInsertToggle=this.didInsertToggle isOpen=this.isOpen) to="toggle"}}
+    {{yield (hash popovertarget=this.popoverId isOpen=this.isOpen didInsertToggle=this.didInsertToggle) to="toggle"}}
   </div>
   <div
+    id={{this.popoverId}}
     class="hds-menu-primitive__content"
     tabindex="-1"
+    popover
     {{hds-float-element this.toggleElement popoverOptions=@popoverOptions}}
-    {{did-insert this.didInsertParentContent}}
+    {{did-insert this.didInsertPopover}}
+    {{will-destroy this.willDestroyPopover}}
   >
     {{yield (hash toggleElement=this.toggleElement close=this.close) to="content"}}
   </div>

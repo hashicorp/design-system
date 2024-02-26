@@ -8,6 +8,7 @@
   id={{this.toggleButtonId}}
   ...attributes
   type="button"
+  popovertarget={{@popovertarget}}
   aria-expanded={{if @isOpen "true" "false"}}
   {{did-insert this.didInsertToggle}}
   {{on "click" this.onClick}}

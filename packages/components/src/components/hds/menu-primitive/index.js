@@ -6,12 +6,19 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import { next } from '@ember/runloop';
+import { guidFor } from '@ember/object/internals';
 
 export default class HdsMenuPrimitiveComponent extends Component {
   @tracked isOpen = this.args.isOpen;
   @tracked toggleElement;
-  @tracked contentElement;
+  @tracked popoverElement;
+
+  /**
+   * Generates a unique ID for the "popover" (will be used in the `popovertarget` attribute of the toggle button)
+   *
+   * @param popoverId
+   */
+  popoverId = 'popover-' + guidFor(this);
 
   @action
   didInsert(element) {
@@ -21,56 +28,56 @@ export default class HdsMenuPrimitiveComponent extends Component {
   @action
   didInsertToggle(element) {
     this.toggleElement = element;
-    console.log('MenuPrimitive didInsertToggle invoked', element, element.id);
   }
 
   @action
-  didInsertParentContent(element) {
-    this.contentElement = element;
-    console.log('MenuPrimitive didInsertParentContent', element);
-    // TODO! understand if this check is really needed
-    if (this.toggleElement) {
-      this.initPopover();
-    } else {
-      next(() => {
-        this.initPopover();
-      });
-    }
+  didInsertPopover(element) {
+    this.popoverElement = element;
+
+    // this.popoverElement.popover = 'auto';
+    // if (this.isOpen) {
+    //   // if this is set to "open" with a "manual" state, then the modal can't be closed via `esc` and `click outside`
+    //   // TODO in theory we could change it back to `auto` once it's closed
+    //   this.popoverElement.popover = 'manual';
+    //   this.popoverElement.showPopover();
+    // } else {
+    //   this.popoverElement.popover = 'auto';
+    // }
+
+    // Register "onToggle" callback function to be called when a native 'toggle' event is dispatched
+    this.popoverElement.addEventListener(
+      'toggle',
+      this.registerOnToggleEvent,
+      true
+    );
   }
 
   @action
-  initPopover() {
-    this.toggleElement.popoverTargetAction = 'toggle';
-    this.toggleElement.popoverTargetElement = this.contentElement;
-
-    // this.contentElement.popover = 'auto';
-    if (this.isOpen) {
-      // if this is set to "open" with a "manual" state, then the modal can't be closed via `esc` and `click outside`
-      // TODO in theory we could change it back to `auto` once it's closed
-      this.contentElement.popover = 'manual';
-      this.contentElement.showPopover();
-    } else {
-      this.contentElement.popover = 'auto';
+  willDestroyPopover() {
+    if (this.popoverElement) {
+      this.popoverElement.removeEventListener(
+        'toggle',
+        this.registerOnToggleEvent,
+        true
+      );
     }
+  }
 
-    // TODO!! add removal of event listener (you will need to pass down {{will-destroy this.willDestroy}})
-    this.contentElement.addEventListener('toggle', (event) => {
-      if (event.newState === 'open') {
-        console.log('Popover has been shown');
-        this.isOpen = true;
-      } else {
-        console.log('Popover has been hidden');
-        this.isOpen = false;
-        // we explicitly apply a focus state to the toggle element to overcome a bug in WebKit (see https://github.com/hashicorp/design-system/commit/40cd7f6b3cb15c45f9a1235fafd0fb3ed58e6e62)
-        this.toggleElement.focus();
-        // TODO! do we need this? where is it used??
-        // we call the "onClose" callback if it exists (and is a function)
-        let { onClose } = this.args;
-        if (typeof onClose === 'function') {
-          onClose();
-        }
+  @action registerOnToggleEvent(event) {
+    if (event.newState === 'open') {
+      console.log('Popover has been shown', this.popoverElement);
+      this.isOpen = true;
+    } else {
+      console.log('Popover has been hidden', this.popoverElement);
+      this.isOpen = false;
+      // we explicitly apply a focus state to the toggle element to overcome a bug in WebKit (see https://github.com/hashicorp/design-system/commit/40cd7f6b3cb15c45f9a1235fafd0fb3ed58e6e62)
+      this.toggleElement.focus();
+      // we call the "onClose" callback if it exists (and is a function)
+      let { onClose } = this.args;
+      if (typeof onClose === 'function') {
+        onClose();
       }
-    });
+    }
   }
 
   // TODO! discuss what we want to do with this (probably still keep it)
@@ -79,13 +86,12 @@ export default class HdsMenuPrimitiveComponent extends Component {
     // due to inconsistent implementation of relatedTarget across browsers we use the activeElement as a fallback
     // if the related target is not part of the disclosed content we close the disclosed container
     if (!this.element.contains(event.relatedTarget || document.activeElement)) {
-      this.contentElement.hidePopover();
+      this.popoverElement.hidePopover();
     }
   }
 
-  // TODO do we need this?
   @action
   close() {
-    this.contentElement.hidePopover();
+    this.popoverElement.hidePopover();
   }
 }
