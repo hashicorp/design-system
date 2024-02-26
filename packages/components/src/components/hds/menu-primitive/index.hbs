@@ -17,7 +17,9 @@
     {{did-insert this.didInsertPopover}}
     {{will-destroy this.willDestroyPopover}}
   >
-    {{yield (hash toggleElement=this.toggleElement close=this.close) to="content"}}
+    {{#if this.isOpen}}
+      {{yield (hash toggleElement=this.toggleElement close=this.close) to="content"}}
+    {{/if}}
   </div>
 </div>
 {{! template-lint-enable no-invalid-interactive }}
