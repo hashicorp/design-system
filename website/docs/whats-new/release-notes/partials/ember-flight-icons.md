@@ -18,7 +18,7 @@
 
 Converted Ember packages to v2 addon format.
 
-To migrate update Sass cofiguration in `ember-cli-build.js` to include the paths for `ember-flight-icons` and `design-system-components`:
+To migrate update Sass configuration in `ember-cli-build.js` to include the paths for `ember-flight-icons` and `design-system-components`:
 
 ```js
 sassOptions: {

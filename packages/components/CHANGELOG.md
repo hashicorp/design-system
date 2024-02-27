@@ -6,7 +6,7 @@
 
 Converted Ember packages to v2 addon format.
 
-To migrate update Sass cofiguration in `ember-cli-build.js` to include the paths for `ember-flight-icons` and `design-system-components`:
+To migrate update Sass configuration in `ember-cli-build.js` to include the paths for `ember-flight-icons` and `design-system-components`:
 
 ```js
 sassOptions: {
@@ -67,6 +67,8 @@ To migrate:
 `Table::Td`:
 
 - Replaced class `hds-table__td--text-[left|center|right]` with `hds-table__td--align-[left|center|right]`
+
+To migrate run the codemod `v4/table` (see [readme file](https://github.com/hashicorp/design-system/tree/main/packages/codemods/transforms/v4/table))
 
 <small class="doc-whats-new-changelog-metadata">[#1860](https://github.com/hashicorp/design-system/pull/1860)</small>
 
