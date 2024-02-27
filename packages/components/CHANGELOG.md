@@ -6,7 +6,7 @@
 
 Converted Ember packages to v2 addon format.
 
-To migrate update Sass configuration in `ember-cli-build.js` to include the paths for `ember-flight-icons` and `design-system-components`:
+To migrate, update Sass configuration in `ember-cli-build.js` to include the paths for `ember-flight-icons` and `design-system-components`:
 
 ```js
 sassOptions: {
@@ -35,7 +35,7 @@ app.import(
 
 To migrate:
 
-- for standalone `Form::CharacterCount` instances you must pass in a `@value` arguments representing the value of the referenced input
+- for standalone `Form::CharacterCount` instances, you must pass in a `@value` argument representing the value of the referenced input
 - when used as a contextual component `F.CharacterCount` in `Form::[MaskedInput|TextInput|Textarea]::Field` make sure the form control is updating the associated `@value` on input (usually using `{{on "input" (fn this.updateValue)}}` function)
 
 <small class="doc-whats-new-changelog-metadata">[#1896](https://github.com/hashicorp/design-system/pull/1896) - Thanks [@meirish](https://github.com/meirish) for the contribution! 🙏</small>
