@@ -1,5 +1,5 @@
 ---
-title: CodeBlock
+title: Code Block
 description: A container for displaying formatted chunks of code with syntax highlighting and related features.
 caption: A container for formatting chunks of code with syntax highlighting.
 links:

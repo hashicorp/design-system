@@ -81,10 +81,9 @@ Always use the leading position for product or service icons (e.g., GitHub).
 
 !!!
 
-
 ### Trailing
 
-Consider trailing icons when there’s no other meaningful icon or when guiding the user forward through the product. 
+Consider trailing icons when there’s no other meaningful icon or when guiding the user forward through the product.
 
 - Use `arrow-right` for internal links.
 - Use `learn-link` for links to tutorials.
@@ -141,7 +140,7 @@ We recommend at least 16px between Standalone Links when placed in a horizontal 
 
 ## Common patterns
 
-### Within button sets
+### Within Button Sets
 
 Standalone Links often appear in [Button Sets](/components/button-set).
 
