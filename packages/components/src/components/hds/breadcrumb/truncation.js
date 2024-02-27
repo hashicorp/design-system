@@ -14,6 +14,15 @@ export default class HdsBreadcrumbTruncationComponent extends Component {
     return getElementId(this);
   }
 
+  get popoverOptions() {
+    return {
+      popoverPlacement: 'bottom-start',
+      popoverPositionStrategy: 'absolute',
+      popoverOffsetOptions: [0, 0],
+      popoverEnableCollisionDetection: true,
+    };
+  }
+
   /**
    * @param ariaLabel
    * @type {string}
