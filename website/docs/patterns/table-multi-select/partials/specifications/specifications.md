@@ -7,7 +7,7 @@
 | Selected count | Displays the number of selected items in the table. |
 | Selected message | Communicates that results in the table have been selected. |
 | Total results  | Displays the total number of results in the data set. |
-| Actions trigger | Recommended to use either a `secondary` or `critical` [Button](/components/button)for single actions, or a `secondary` [Dropdown](/components/dropdown) for multiple actions. |
+| Actions trigger | Recommended to use either a `secondary` or `critical` [Button](/components/button) for single actions, or a `secondary` [Dropdown](/components/dropdown) for multiple actions. |
 | Bulk actions | Consolidates multiple bulk actions into a single element. |
 | Bulk selection | Consolidates multiple selection functions into a single element. |
 
