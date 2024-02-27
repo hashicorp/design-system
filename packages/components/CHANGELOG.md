@@ -74,7 +74,7 @@ To migrate run the codemod `v4/table` (see [readme file](https://github.com/hash
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`Pagination` - Removed handling of query parameters from `onPageSizeChange` function for `Pagination::Numbered`.
+`Pagination` - Removed handling of query parameters from `onPageSizeChange` function for `Pagination::Numbered`
 
 _Unfortunately, it's not possible to cover this breaking change with a codemod. Consumers should review their usage of the `onPageSizeChange` callback and, if necessary, implement the persistence of the "page number" and "page size" values via query parameters themselves._
 
@@ -117,19 +117,19 @@ Renamed namespaced contextual components as follows:
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`Flyout` - Reduce gap between Flyout and edge of screen from 40px to half of the minimized `SideNav` width in medium view.
+`Flyout` - Reduced gap between Flyout and edge of screen from `40px` to half of the minimized SideNav width in medium view
 
 <small class="doc-whats-new-changelog-metadata">[#1957](https://github.com/hashicorp/design-system/pull/1957)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-Remove `ember-deep-tracked` dependency that was not used
+Removed `ember-deep-tracked` dependency that was not used
 
 <small class="doc-whats-new-changelog-metadata">[#1950](https://github.com/hashicorp/design-system/pull/1950)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`SideNav` - Fixed issue with naixed issue with navigation elements remaining interactive when minimized
+`SideNav` - Fixed issue with navigation elements remaining interactive when minimized
 
 <small class="doc-whats-new-changelog-metadata">[#1909](https://github.com/hashicorp/design-system/pull/1909)</small>
 
