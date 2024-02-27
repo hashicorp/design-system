@@ -48,7 +48,7 @@ app.import(
 To migrate:
 
 - for standalone `Form::CharacterCount` instances, you must pass in a `@value` argument representing the value of the referenced input
-- when used as a contextual component `F.CharacterCount` in `Form::[MaskedInput|TextInput|Textarea]::Field` make sure the form control is updating the associated `@value` on input (usually using `{{on "input" (fn this.updateValue)}}` function)
+- when used as a contextual component `F.CharacterCount` in `Form::[MaskedInput|TextInput|Textarea]::Field` make sure the form control is updating the associated `@value` on input (usually using `on "input" (fn this.updateValue)` function)
 
 <small class="doc-whats-new-changelog-metadata">[#1896](https://github.com/hashicorp/design-system/pull/1896) - Thanks [@meirish](https://github.com/meirish) for the contribution! 🙏</small>
 
