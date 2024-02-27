@@ -14,7 +14,6 @@ function getPopperOptions(popoverOptions) {
   const {
     popoverPlacement = 'bottom-start',
     popoverPositionStrategy = 'absolute', // if we use `fixed` then the overscroll of the body makes the dialog look weird when the page is overscrolled
-    popoverZIndex,
     popoverOffsetOptions,
     popoverEnableCollisionDetection,
   } = popoverOptions;
@@ -47,16 +46,21 @@ function getPopperOptions(popoverOptions) {
     });
   }
 
-  if (popoverZIndex) {
-    options.modifiers.push({
-      // https://popper.js.org/docs/v2/modifiers/#custom-modifiers
-      name: 'popoverZIndex',
-      phase: 'main',
-      fn: ({ state }) => {
-        state.styles.popper.zIndex = popoverZIndex;
-      },
-    });
-  }
+  // TODO use this to implement a "same width as reference" modifier (for the dropdown, we would neeed to change the way the min/max widths are applied to the list)
+  // https://popper.js.org/docs/v2/modifiers/community-modifiers/
+  // https://codesandbox.io/p/sandbox/bitter-sky-pe3z9?file=%2Fsrc%2Findex.js%3A5%2C1-18%2C3
+  // options.modifiers.push({
+  //   name: 'sameWidth',
+  //   enabled: true,
+  //   phase: 'beforeWrite',
+  //   requires: ['computeStyles'],
+  //   fn: ({ state }) => {
+  //     state.styles.popper.width = `${state.rects.reference.width}px`;
+  //   },
+  //   effect: ({ state }) => {
+  //     state.elements.popper.style.width = `${state.elements.reference.offsetWidth}px`;
+  //   },
+  // });
 
   // TODO add custom modifier (conditional option?) to resize vertically the popper if the height is larger than the available space
   // https://popper.js.org/docs/v2/utils/detect-overflow/#example
