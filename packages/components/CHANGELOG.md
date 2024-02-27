@@ -129,7 +129,7 @@ Remove `ember-deep-tracked` dependency that was not used
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`SideNav` - fixed issue with navigation elements remaining interactive when minimized
+`SideNav` - Fixed issue with naixed issue with navigation elements remaining interactive when minimized
 
 <small class="doc-whats-new-changelog-metadata">[#1909](https://github.com/hashicorp/design-system/pull/1909)</small>
 
