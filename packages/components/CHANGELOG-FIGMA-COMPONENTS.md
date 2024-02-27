@@ -1,5 +1,25 @@
 # [HDS Product - Components](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=6790-10926&mode=design&t=Ps0aMGZ6F3z7bAJ4-0)
 
+## Date TBD
+
+### Breaking changes
+
+`Alert` and `Toast` - Updated the `StandaloneLink` to the secondary variant from the primary variant to align with our documented usage recommendations.
+
+_Updating the `StandaloneLink` to the secondary variant will revert any changes you've made to the text and leading icon properties. Prior to updating the library we recommend annotating (with a comment or otherwise) work that is in progress or is still being referenced by engineering with the intended text and icon variant._
+
+`Table` - multiple enhancements to the `Table` components including:
+
+- Added support for multi-selection with `Header Column / Selection` and `Cell / Selection`.
+- Added support for a `Tooltip` in the `Header Column` component.
+- Updated the visual language of the sort button in `Header Column` by decoupling the sort functionality into a nested `Sort Button`
+
+_Adding support for a `Tooltip` and updates to the `Sort Button` result in a breaking change in sortable variants. While the `Label` in the `Header Column` should persist, we recommend annotating (with a comment or otherwise) work that is in-progress or still being referenced by engineering with the columns that are intended to be sortable._
+
+## January 24th, 2024
+
+`IconTile` - Added Vault Radar logo.
+
 ## November 6th, 2023
 
 `CodeBlock` - Added new component.
@@ -28,7 +48,7 @@
 
 ## July 13th, 2023
 
-Added new components: 
+Added new components:
 
 - `Accordion`
 - `MaskedInput`
@@ -53,7 +73,7 @@ Added a “Form Primitives” page to house the `Fieldset` component.
 
 ## May 11th, 2023
 
-Added new utility components: 
+Added new utility components:
 
 - `Cursor`
 - `Scrollbar`
@@ -69,7 +89,7 @@ Added new utility components:
 
 ## April 28th, 2023
 
-Added new components: 
+Added new components:
 
 - `Tooltip`
 - `SegmentedGroup`
@@ -98,7 +118,8 @@ Added new components:
 
 `Overlay` - Moved this component from the `Modal` page to it’s own page and stickersheet as it’s used with other components.
 
-Added new components: 
+Added new components:
+
 - `Pagination`
 - `Flyout`
 
@@ -134,7 +155,7 @@ Added new components:
 
 ## July 29th, 2022
 
-Added new components: 
+Added new components:
 
 - `Checkbox`
 - `Radio`
@@ -159,11 +180,11 @@ Added new components:
 
 ### Breaking change
 
-`Dropdown` - Refactored the component, including: 
+`Dropdown` - Refactored the component, including:
 
 - fixing resizing issues,
 - adding more ListItems within the pre-built list,
-- making ListItem types more discoverable, 
+- making ListItem types more discoverable,
 - adding more properties on the parent component for easier and faster configuration.
 
 ## May 6th, 2022
@@ -172,7 +193,7 @@ Added new components:
 
 ## April 25th, 2022
 
-`Dropdown` - Added the component. 
+`Dropdown` - Added the component.
 
 Removed all the “WIP” language and added meaningful descriptions and documentation links to each component.
 
@@ -184,7 +205,7 @@ Removed all the “WIP” language and added meaningful descriptions and documen
 
 ### Breaking change
 
-`Badge` - Removed badge variants in a status color (success, warning, critical) that did not have icons. 
+`Badge` - Removed badge variants in a status color (success, warning, critical) that did not have icons.
 
 ## March 23rd, 2022
 
