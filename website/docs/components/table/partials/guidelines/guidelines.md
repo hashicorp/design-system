@@ -189,6 +189,10 @@ A multi-select consists of:
 
 ![Example of multi-select within table cells](/assets/components/table/multi-select-cells.png)
 
+!!! Info
+
+For more details around using a multi-select Table, recommended patterns, and intended interactions visit the [Multi-select patterns](/patterns/table-multi-select) documentation.
+!!!
 
 ### Intended interaction
 
