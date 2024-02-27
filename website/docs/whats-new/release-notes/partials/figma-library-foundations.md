@@ -18,11 +18,11 @@
 
 ### October 31st, 2023
 
-`Components / Code Block / Code / 200` - Added component-specific text style for the Code Block.
+`Components / Code Block / Code / 200` - Added component-specific text style for the CodeBlock.
 
 ### October 20th, 2023
 
-`Components / Code Block / Syntax` - Added syntax highlighting styles used by the Code Block component.
+`Components / Code Block / Syntax` - Added syntax highlighting styles used by the CodeBlock component.
 
 
 ---

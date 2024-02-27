@@ -1,5 +1,143 @@
 # @hashicorp/design-system-components
 
+## 4.0.0
+
+### Major Changes
+
+Converted Ember packages to v2 addon format.
+
+To migrate update Sass cofiguration in `ember-cli-build.js` to include the paths for `ember-flight-icons` and `design-system-components`:
+
+```js
+sassOptions: {
+  precision: 4,
+  includePaths: [
+    './node_modules/@hashicorp/design-system-tokens/dist/products/css',
+    './node_modules/@hashicorp/ember-flight-icons/dist/styles'
+    './node_modules/@hashicorp/design-system-components/dist/styles',
+  ],
+},
+```
+
+Alternatively, you can import the CSS by adding this configuration in `ember-cli-build.js`.
+
+```js
+app.import(
+  "node_modules/@hashicorp/design-system-components/dist/styles/@hashicorp/design-system-components.css"
+);
+```
+
+<small class="doc-whats-new-changelog-metadata">[#1872](https://github.com/hashicorp/design-system/pull/1872)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Form::CharacterCount` - refactored the component, removing `onInsert` callback and adding use `@value` argument
+
+To migrate:
+
+- for standalone `Form::CharacterCount` instances you must pass in a `@value` arguments representing the value of the referenced input
+- when used as a contextual component `F.CharacterCount` in `Form::[MaskedInput|TextInput|Textarea]::Field` make sure the form control is updating the associated `@value` on input (usually using `{{on "input" (fn this.updateValue)}}` function)
+
+<small class="doc-whats-new-changelog-metadata">[#1896](https://github.com/hashicorp/design-system/pull/1896) - Thanks [@meirish](https://github.com/meirish) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Table` - Multiple updates to the main component and its subcomponents:
+
+- Updated table headers to support tooltips
+- Updated visual treatment and location of the "sort" button in the table headers
+- Refactored CSS code to simplify usage of `hds-table`-related class names
+
+`Table::ThSort`:
+
+- Added support for tooltip via the `@tooltip` argument
+- Updated visual treatment and location of the "sort" button
+- Updated DOM structure of the `<th>` content
+- Remove class `hds-table__th-sort--button-content`
+- Replaced class `hds-table__th-sort` with classes `hds-table__th` + `hds-table__th--sort`
+- Replaced class `hds-table__th-sort--text--[left|center|right]` with `hds-table__th--align-[left|center|right]`
+- Renamed `onClick` callback to `onClickSort`
+
+`Table::Th`:
+
+- Added support for tooltip via the `@tooltip` argument
+- Updated DOM structure of the `<th>` content
+- Replaced class `hds-table__th--text-[left|center|right]` with `hds-table__th--align-[left|center|right]`
+
+`Table::Td`:
+
+- Replaced class `hds-table__td--text-[left|center|right]` with `hds-table__td--align-[left|center|right]`
+
+<small class="doc-whats-new-changelog-metadata">[#1860](https://github.com/hashicorp/design-system/pull/1860)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Pagination` - Removed handling of query parameters from `onPageSizeChange` function for `Pagination::Numbered`.
+
+_Unfortunately, it's not possible to cover this breaking change with a codemod. Consumers should review their usage of the `onPageSizeChange` callback and, if necessary, implement the persistence of the "page number" and "page size" values via query parameters themselves._
+
+<small class="doc-whats-new-changelog-metadata">[#1913](https://github.com/hashicorp/design-system/pull/1913)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Renamed namespaced contextual components as follows:
+
+- `Alert::Link::Standalone` to `Alert::LinkStandalone`
+- `ApplicationState::Footer::Link::Standalone` to `ApplicationState::Footer::LinkStandalone`
+- `Form::Checkbox::Group::Checkbox::Field` to `Checkbox::Group::CheckboxField`
+- `Form::Radio::Group::Radio::Field` to `Form::Radio::Group::RadioField`
+- `Form::Toggle::Group::Toggle::Field` to `Form::Toggle::Group::ToggleField`
+- `Toast::Link::Standalone` to `Toast::LinkStandalone`
+
+<small class="doc-whats-new-changelog-metadata">[#1884](https://github.com/hashicorp/design-system/pull/1884)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Minor Changes
+
+`Table` - Added multi-select functionality
+
+<small class="doc-whats-new-changelog-metadata">[#1859](https://github.com/hashicorp/design-system/pull/1859)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Tabs` - Added `@size` argument with new "large" size variant
+
+<small class="doc-whats-new-changelog-metadata">[#1937](https://github.com/hashicorp/design-system/pull/1937)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+`Dropdown` - Fixed dropdown list missing an accessible name when Checkmark items were passed in
+
+<small class="doc-whats-new-changelog-metadata">[#1910](https://github.com/hashicorp/design-system/pull/1910)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Flyout` - Reduce gap between Flyout and edge of screen from 40px to half of the minimized `SideNav` width in medium view.
+
+<small class="doc-whats-new-changelog-metadata">[#1957](https://github.com/hashicorp/design-system/pull/1957)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Remove `ember-deep-tracked` dependency that was not used
+
+<small class="doc-whats-new-changelog-metadata">[#1950](https://github.com/hashicorp/design-system/pull/1950)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`SideNav` - fixed issue with navigation elements remaining interactive when minimized
+
+<small class="doc-whats-new-changelog-metadata">[#1909](https://github.com/hashicorp/design-system/pull/1909)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/ember-flight-icons@5.0.0
+- @hashicorp/design-system-tokens@2.0.0
+
 ## 3.6.0
 
 ### Minor Changes
@@ -10,7 +148,6 @@ _Since this is an update brand colors and product icons, we consider this a `min
 
 - @hashicorp/design-system-tokens@1.11.0
 - @hashicorp/ember-flight-icons@4.1.0
-
 
 ## 3.5.0
 

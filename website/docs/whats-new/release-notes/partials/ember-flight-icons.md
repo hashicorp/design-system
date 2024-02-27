@@ -12,6 +12,37 @@
   </a>
 </p>
 
+## 5.0.0
+
+**Major changes**
+
+Converted Ember packages to v2 addon format.
+
+To migrate update Sass cofiguration in `ember-cli-build.js` to include the paths for `ember-flight-icons` and `design-system-components`:
+
+```js
+sassOptions: {
+  precision: 4,
+  includePaths: [
+    './node_modules/@hashicorp/design-system-tokens/dist/products/css',
+    './node_modules/@hashicorp/ember-flight-icons/dist/styles'
+    './node_modules/@hashicorp/design-system-components/dist/styles',
+  ],
+},
+```
+
+Alternatively, you can import the CSS by adding this configuration in `ember-cli-build.js`.
+
+```js
+app.import(
+  "node_modules/@hashicorp/design-system-components/dist/styles/@hashicorp/design-system-components.css"
+);
+```
+
+<small class="doc-whats-new-changelog-metadata">[#1872](https://github.com/hashicorp/design-system/pull/1872)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.1.0
 
 **Minor changes**
@@ -219,15 +250,6 @@ Shifted our supported version of Node.js from `12.* || 14.* || >= 16` to `14.* |
 Fix error message for mismatched icon `@name`
 
 <small class="doc-whats-new-changelog-metadata">[#1375](https://github.com/hashicorp/design-system/pull/1375) [`2c7d70868`](https://github.com/hashicorp/design-system/commit/2c7d70868b0fa000618214589e2422e07db68b22)</small>
-
-## 3.0.2
-
-**Patch changes**
-
-- [#715](https://github.com/hashicorp/design-system/pull/715) [`aeff4e02`](https://github.com/hashicorp/design-system/commit/aeff4e02e3c5c738104be326569c110dc2f79618) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - remove `ember-test-selectors` peerDependency
-
-- Updated dependencies [[`f9c22874`](https://github.com/hashicorp/design-system/commit/f9c22874ab24db25ee347c95e5c26dc0055a642e), [`b95f448a`](https://github.com/hashicorp/design-system/commit/b95f448a31cc138436caf0aae332139c5129d9dc)]:
-  - @hashicorp/flight-icons@2.12.0
 
 
 ---
