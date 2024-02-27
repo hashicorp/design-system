@@ -1,5 +1,20 @@
 # @hashicorp/design-system-tokens
 
+## 2.0.0
+
+### Major Changes
+
+New tokens added for large and medium size `Tab` variants. The "medium" tokens replace the former equivalent tokens which were not differentiated by size.
+
+- `--token-tabs-tab-height-medium` (**Replaces `--token-tabs-tab-height`**)
+- `--token-tabs-tab-height-large` (**New**)
+- `--token-tabs-tab-padding-horizontal-medium` (**Replaces `--token-tabs-tab-padding-horizontal`**)
+- `--token-tabs-tab-padding-horizontal-large` (**New**)
+
+<small class="doc-whats-new-changelog-metadata">[#1937](https://github.com/hashicorp/design-system/pull/1937)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 1.11.0
 
 ### Minor Changes

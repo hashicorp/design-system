@@ -12,6 +12,21 @@
   </a>
 </p>
 
+## 2.0.0
+
+**Major changes**
+
+New tokens added for large and medium size `Tab` variants. The "medium" tokens replace the former equivalent tokens which were not differentiated by size.
+
+- `--token-tabs-tab-height-medium` (**Replaces `--token-tabs-tab-height`**)
+- `--token-tabs-tab-height-large` (**New**)
+- `--token-tabs-tab-padding-horizontal-medium` (**Replaces `--token-tabs-tab-padding-horizontal`**)
+- `--token-tabs-tab-padding-horizontal-large` (**New**)
+
+<small class="doc-whats-new-changelog-metadata">[#1937](https://github.com/hashicorp/design-system/pull/1937)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 1.11.0
 
 **Minor changes**
@@ -180,12 +195,6 @@ This release signifies the first major release of the HashiCorp Design System. M
 **Minor changes**
 
 - [#98](https://github.com/hashicorp/design-system/pull/98) [`411cd9b9`](https://github.com/hashicorp/design-system/commit/411cd9b949e376d38eb1dc4d4af93ae17e6c686a) Thanks [@didoo](https://github.com/didoo)! - refactored “focus-ring” tokens and CSS helpers to support both “action” and “critical“ colors
-
-## 0.6.1
-
-**Patch changes**
-
-- [#83](https://github.com/hashicorp/design-system/pull/83) [`df267ec6`](https://github.com/hashicorp/design-system/commit/df267ec6cb27d68d0e835357ba736830cac9ce64) Thanks [@didoo](https://github.com/didoo)! - Added “foreground-action-visited-hover” color token to DevDot
 
 
 ---
