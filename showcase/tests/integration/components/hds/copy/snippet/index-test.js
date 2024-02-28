@@ -39,6 +39,13 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet');
   });
 
+  test('it should render the component with an aria-label that includes the correct copy text', async function (assert) {
+    await render(
+      hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="this aria label" />`
+    );
+    assert.dom('#test-copy-snippet').hasAria('label', 'copy this aria label');
+  });
+
   // VARIANTS
 
   test('it should render the correct default component variation: primary color, idle status', async function (assert) {
