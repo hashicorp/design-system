@@ -239,7 +239,8 @@ function getStyleDictionaryConfig({ target }: { target: string }): Config {
                         return !token.private;
                     },
                 }
-            ]
+            ],
+            'actions': ['generate-css-helpers'],
         }
     }
 
