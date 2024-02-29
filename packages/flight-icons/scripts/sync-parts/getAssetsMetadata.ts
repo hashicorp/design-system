@@ -61,6 +61,11 @@ export async function getAssetsMetadata(): Promise<AssetsMetadata> {
                     variantName: component.name,
                     iconName: '',
                     description: '',
+                    category: '',
+                }
+                if (component.containing_frame.name) {
+                    // by convention the category of an icon is the containing frame's name
+                    assetsMetadata[component.node_id].category = component.containing_frame.name;
                 }
                 if (component.containing_frame.containingStateGroup) {
                     const parentComponentSet = componentSetData[component.containing_frame.containingStateGroup.nodeId]

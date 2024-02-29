@@ -16,6 +16,8 @@ export type AssetCoreData = {
     iconName: string,
     // the (optional) description contained in the "description" field of the parent component_set
     description
+    // the icon's category (by convention it's the containing frame's name)
+    category: string,
 }
 
 export type AssetsMetadata = {
