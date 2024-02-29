@@ -109,13 +109,6 @@ For example:
 - use large Badges when inline with a heading
 - use small or medium Badges in tables, depending on the data density
 
-!!! Insight
-
-**Structure migration tip**
-
-Use small Badges in place of Structure Badges.
-!!!
-
 ## Icon
 
 Badges come in a few icon and text combinations; text only, icon only, and icon + text (where the icon is in the leading position). Use icons intentionally and only when they provide the user with extra value.
