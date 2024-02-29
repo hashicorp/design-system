@@ -1,8 +1,9 @@
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/1672302/213473448-ac8cd0f7-cde2-49ef-b8ef-4067677569f2.jpg" role="presentation" alt="">
+
+<p>
+  <img width="315" alt="helios-logo" src="https://github.com/hashicorp/design-system/assets/788096/da644ef0-f6eb-4070-8f10-b595be815a0d" role="presentation" alt="">
 </p>
 
-<p align="center">The Helios Design System provides the building blocks to design and implement consistent, accessible, and delightful product experiences across HashiCorp.</p>
+<p>The Helios Design System provides the building blocks to design and implement consistent, accessible, and delightful product experiences across HashiCorp.</p>
 
 ## Usage
 
