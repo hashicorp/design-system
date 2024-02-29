@@ -86,6 +86,12 @@ StyleDictionaryPackage.registerTransformGroup({
 });
 
 StyleDictionaryPackage.registerTransformGroup({
+    name: 'products/email',
+    // TODO! update this according to the needs we have for the email templates
+    transforms: ['attribute/cti', 'name/cti/kebab', 'font-size/rem', 'size/px', 'color/css', 'color/with-alpha', 'time/seconds']
+});
+
+StyleDictionaryPackage.registerTransformGroup({
     name: 'marketing/web',
     transforms: ['attribute/cti', 'name/cti/kebab', 'font-size/rem', 'size/px', 'color/css', 'color/with-alpha', 'time/seconds']
 });
@@ -143,6 +149,17 @@ const targets: ConfigTargets = {
         ],
         'transformGroup': 'marketing/web',
         'platforms': ['web/css-variables', 'json']
+    },
+    // these tokens will be consumed by the email templating system in https://github.com/hashicorp/cloud-email
+    'cloud-email': {
+        // we need only foundational tokens (colors, typography, etc)
+        'source': [
+            `src/global/color/*.json`,
+            `src/products/shared/color/**/*.json`,
+            `src/products/shared/typography.json`,
+        ],
+        'transformGroup': 'products/email',
+        'platforms': ['email/sass-variables']
     }
 };
 
@@ -200,6 +217,24 @@ function getStyleDictionaryConfig({ target }: { target: string }): Config {
                 {
                     "destination": "tokens.json",
                     "format": "json",
+                    "filter": function(token: DesignToken) {
+                        return !token.private;
+                    },
+                }
+            ]
+        }
+    }
+
+    if (platforms.includes("email/sass-variables")) {
+        config.platforms["email/sass-variables"] = {
+            transformGroup,
+            "buildPath": `dist/${target}/`,
+            "prefix": "token",
+            "basePxFontSize": 16,
+            "files": [
+                {
+                    "destination": "tokens.scss",
+                    "format": "scss/variables",
                     "filter": function(token: DesignToken) {
                         return !token.private;
                     },
