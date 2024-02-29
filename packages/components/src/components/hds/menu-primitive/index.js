@@ -7,6 +7,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
+import { schedule } from '@ember/runloop';
 
 import { createPopper } from '@popperjs/core';
 
@@ -184,7 +185,11 @@ export default class HdsMenuPrimitiveComponent extends Component {
     // TODO! understand if this can fix the issue with the dropdown in the modal
     if (this.popperInstance) {
       // https://popper.js.org/docs/v2/constructors/#instance
-      this.popperInstance.forceUpdate();
+      // ⚠️ THIS FREEZES SAFARI!!
+      // this.popperInstance.forceUpdate();
+      // schedule('afterRender', () => {
+      //   if (window) window.dispatchEvent(new Event('resize'));
+      // });
     }
   }
 
