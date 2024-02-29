@@ -14,23 +14,12 @@
 
   <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
     <SF.Item @label="Default (no selection)">
-      <Hds::SuperSelect
-        @onChange={{this.noop}}
-        @options={{@model.OPTIONS}}
-        @renderInPlace={{true}}
-        as |option|
-      >
+      <Hds::SuperSelect @onChange={{this.noop}} @options={{@model.OPTIONS}} as |option|>
         {{option}}
       </Hds::SuperSelect>
     </SF.Item>
     <SF.Item @label="Selected">
-      <Hds::SuperSelect
-        @onChange={{this.noop}}
-        @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED}}
-        @renderInPlace={{true}}
-        as |option|
-      >
+      <Hds::SuperSelect @onChange={{this.noop}} @options={{@model.OPTIONS}} @selected={{@model.SELECTED}} as |option|>
         {{option}}
       </Hds::SuperSelect>
     </SF.Item>
@@ -40,7 +29,6 @@
         @options={{@model.OPTIONS}}
         @searchEnabled={{true}}
         @selected={{@model.SELECTED}}
-        @renderInPlace={{true}}
         as |option|
       >
         {{option}}
@@ -52,13 +40,7 @@
 
   <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
     <SF.Item @label="Default">
-      <Hds::SuperSelect
-        @onChange={{this.noop}}
-        @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED}}
-        @renderInPlace={{true}}
-        as |option|
-      >
+      <Hds::SuperSelect @onChange={{this.noop}} @options={{@model.OPTIONS}} @selected={{@model.SELECTED}} as |option|>
         {{option}}
       </Hds::SuperSelect>
     </SF.Item>
@@ -68,7 +50,6 @@
         @onChange={{this.noop}}
         @options={{@model.OPTIONS}}
         @selected={{@model.SELECTED}}
-        @renderInPlace={{true}}
         as |option|
       >
         {{option}}
@@ -80,7 +61,6 @@
         @onChange={{this.noop}}
         @options={{@model.OPTIONS}}
         @selected={{@model.SELECTED}}
-        @renderInPlace={{true}}
         as |option|
       >
         {{option}}
@@ -92,13 +72,7 @@
 
   <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
     <SF.Item @label="Below (default)">
-      <Hds::SuperSelect
-        @onChange={{this.noop}}
-        @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED}}
-        @renderInPlace={{true}}
-        as |option|
-      >
+      <Hds::SuperSelect @onChange={{this.noop}} @options={{@model.OPTIONS}} @selected={{@model.SELECTED}} as |option|>
         {{option}}
       </Hds::SuperSelect>
     </SF.Item>
@@ -107,7 +81,6 @@
         @onChange={{this.noop}}
         @options={{@model.OPTIONS}}
         @selected={{@model.SELECTED}}
-        @renderInPlace={{true}}
         @verticalPosition="above"
         as |option|
       >
@@ -126,23 +99,12 @@
 
   <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
     <SF.Item @label="Default">
-      <PowerSelect 
-        @options={{@model.OPTIONS}} 
-        @onChange={{this.noop}} 
-        @renderInPlace={{true}} 
-        as |option|
-      >
+      <PowerSelect @options={{@model.OPTIONS}} @onChange={{this.noop}} as |option|>
         {{option}}
       </PowerSelect>
     </SF.Item>
     <SF.Item @label="Selected">
-      <PowerSelect
-        @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED}}
-        @onChange={{this.noop}}
-        @renderInPlace={{true}}
-        as |option|
-      >
+      <PowerSelect @options={{@model.OPTIONS}} @selected={{@model.SELECTED}} @onChange={{this.noop}} as |option|>
         {{option}}
       </PowerSelect>
     </SF.Item>

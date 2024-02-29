@@ -18,13 +18,13 @@
     @disabled={{@disabled}}
     @onChange={{@onChange}}
     @options={{@options}}
-    @renderInPlace={{@renderInPlace}}
+    @renderInPlace={{true}}
     @searchEnabled={{@searchEnabled}}
     @selected={{@selected}}
     @verticalPosition={{@verticalPosition}}
     ...attributes
-    as |option term|
+    as |option|
   >
-    {{yield option term}}
+    {{yield option}}
   </PowerSelect>
 </div>
