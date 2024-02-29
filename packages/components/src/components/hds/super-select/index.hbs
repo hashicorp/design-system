@@ -1,0 +1,30 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{! NOTE: naming is temporary to not conflict with existing power-select wrapper }}
+<div class={{this.classNames}}>
+  {{!
+    Required:
+    * onChange
+    * options or search
+  }}
+  <PowerSelect
+    @ariaDescribedBy={{@ariaDescribedBy}}
+    @ariaInvalid={{@ariaInvalid}}
+    @ariaLabel={{@ariaLabel}}
+    @ariaLabelledBy={{@ariaLabelledBy}}
+    @disabled={{@disabled}}
+    @onChange={{@onChange}}
+    @options={{@options}}
+    @renderInPlace={{@renderInPlace}}
+    @searchEnabled={{@searchEnabled}}
+    @selected={{@selected}}
+    @verticalPosition={{@verticalPosition}}
+    ...attributes
+    as |option term|
+  >
+    {{yield option term}}
+  </PowerSelect>
+</div>

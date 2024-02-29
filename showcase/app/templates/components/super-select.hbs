@@ -1,0 +1,150 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "SuperSelect Component"}}
+
+<Shw::Text::H1>SuperSelect (HDS PowerSelect) WIP</Shw::Text::H1>
+
+<section data-test-percy>
+  <Shw::Text::H2>Single selection</Shw::Text::H2>
+
+  <Shw::Text::H3>Interaction</Shw::Text::H3>
+
+  <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
+    <SF.Item @label="Default (no selection)">
+      <Hds::SuperSelect
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @renderInPlace={{true}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect>
+    </SF.Item>
+    <SF.Item @label="Selected">
+      <Hds::SuperSelect
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
+        @renderInPlace={{true}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect>
+    </SF.Item>
+    <SF.Item @label="Search enabled">
+      <Hds::SuperSelect
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @searchEnabled={{true}}
+        @selected={{@model.SELECTED}}
+        @renderInPlace={{true}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H3>States</Shw::Text::H3>
+
+  <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
+    <SF.Item @label="Default">
+      <Hds::SuperSelect
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
+        @renderInPlace={{true}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect>
+    </SF.Item>
+    <SF.Item @label="Focus">
+      <Hds::SuperSelect
+        class="mock-focus"
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
+        @renderInPlace={{true}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect>
+    </SF.Item>
+    <SF.Item @label="Disabled">
+      <Hds::SuperSelect
+        @disabled={{true}}
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
+        @renderInPlace={{true}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H3>List position</Shw::Text::H3>
+
+  <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
+    <SF.Item @label="Below (default)">
+      <Hds::SuperSelect
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
+        @renderInPlace={{true}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect>
+    </SF.Item>
+    <SF.Item @label="Above">
+      <Hds::SuperSelect
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
+        @renderInPlace={{true}}
+        @verticalPosition="above"
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H2>Multiple selection</Shw::Text::H2>
+
+  <Shw::Text::Body>TODO...</Shw::Text::Body>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>TEMP: Bare PowerSelect component for comparison (no custom styling)</Shw::Text::H2>
+
+  <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
+    <SF.Item @label="Default">
+      <PowerSelect 
+        @options={{@model.OPTIONS}} 
+        @onChange={{this.noop}} 
+        @renderInPlace={{true}} 
+        as |option|
+      >
+        {{option}}
+      </PowerSelect>
+    </SF.Item>
+    <SF.Item @label="Selected">
+      <PowerSelect
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
+        @onChange={{this.noop}}
+        @renderInPlace={{true}}
+        as |option|
+      >
+        {{option}}
+      </PowerSelect>
+    </SF.Item>
+  </Shw::Flex>
+</section>
