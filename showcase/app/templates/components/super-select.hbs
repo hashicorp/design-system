@@ -89,9 +89,83 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Divider />
+
   <Shw::Text::H2>Multiple selection</Shw::Text::H2>
 
-  <Shw::Text::Body>TODO...</Shw::Text::Body>
+  <Shw::Text::H3>Interaction</Shw::Text::H3>
+
+  <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
+    <SF.Item @label="Default">
+      <Hds::SuperSelect @selectionType="multiple" @onChange={{this.noop}} @options={{@model.OPTIONS}} as |option|>
+        {{option}}
+      </Hds::SuperSelect>
+    </SF.Item>
+    <SF.Item @label="Selected">
+      <Hds::SuperSelect
+        @selectionType="multiple"
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTEDMULTIPLE}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect>
+    </SF.Item>
+    <SF.Item @label="Search enabled">
+      <Hds::SuperSelect
+        @selectionType="multiple"
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @searchEnabled={{true}}
+        @selected={{@model.SELECTEDMULTIPLE}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H3>States</Shw::Text::H3>
+
+  <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
+    <SF.Item @label="Default">
+      <Hds::SuperSelect
+        @selectionType="multiple"
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @searchEnabled={{true}}
+        @selected={{@model.SELECTEDMULTIPLE}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect>
+    </SF.Item>
+    <SF.Item @label="Focus">
+      <Hds::SuperSelect
+        class="mock-focus"
+        @selectionType="multiple"
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTEDMULTIPLE}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect>
+    </SF.Item>
+    <SF.Item @label="Disabled">
+      <Hds::SuperSelect
+        @selectionType="multiple"
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTEDMULTIPLE}}
+        @disabled={{true}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect>
+    </SF.Item>
+  </Shw::Flex>
 
   <Shw::Divider />
 

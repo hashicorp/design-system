@@ -5,26 +5,47 @@
 
 {{! NOTE: naming is temporary to not conflict with existing power-select wrapper }}
 <div class={{this.classNames}}>
-  {{!
+  {{! temp notes...
     Required:
     * onChange
     * options or search
   }}
-  <PowerSelect
-    @ariaDescribedBy={{@ariaDescribedBy}}
-    @ariaInvalid={{@ariaInvalid}}
-    @ariaLabel={{@ariaLabel}}
-    @ariaLabelledBy={{@ariaLabelledBy}}
-    @disabled={{@disabled}}
-    @onChange={{@onChange}}
-    @options={{@options}}
-    @renderInPlace={{true}}
-    @searchEnabled={{@searchEnabled}}
-    @selected={{@selected}}
-    @verticalPosition={{@verticalPosition}}
-    ...attributes
-    as |option|
-  >
-    {{yield option}}
-  </PowerSelect>
+
+  {{#if (eq this.selectionType "single")}}
+    <PowerSelect
+      @ariaDescribedBy={{@ariaDescribedBy}}
+      @ariaInvalid={{@ariaInvalid}}
+      @ariaLabel={{@ariaLabel}}
+      @ariaLabelledBy={{@ariaLabelledBy}}
+      @disabled={{@disabled}}
+      @onChange={{@onChange}}
+      @options={{@options}}
+      @renderInPlace={{true}}
+      @searchEnabled={{@searchEnabled}}
+      @selected={{@selected}}
+      @verticalPosition={{@verticalPosition}}
+      ...attributes
+      as |option|
+    >
+      {{yield option}}
+    </PowerSelect>
+  {{else}}
+    <PowerSelectMultiple
+      @ariaDescribedBy={{@ariaDescribedBy}}
+      @ariaInvalid={{@ariaInvalid}}
+      @ariaLabel={{@ariaLabel}}
+      @ariaLabelledBy={{@ariaLabelledBy}}
+      @disabled={{@disabled}}
+      @onChange={{@onChange}}
+      @options={{@options}}
+      @renderInPlace={{true}}
+      @searchEnabled={{@searchEnabled}}
+      @selected={{@selected}}
+      @verticalPosition={{@verticalPosition}}
+      ...attributes
+      as |option|
+    >
+      {{option}}
+    </PowerSelectMultiple>
+  {{/if}}
 </div>

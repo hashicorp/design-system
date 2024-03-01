@@ -167,6 +167,7 @@
 
   .ember-power-select-options {
     padding: 6px 0;
+    list-style: none;
   }
 
   .ember-power-select-options[role="listbox"] {
@@ -217,6 +218,10 @@
     padding-bottom: calc(var(--token-form-control-padding) - 3px);
     padding-left: 20px;
     background-image: var(--token-form-select-background-image-data-url);
+  }
+
+  .ember-power-select-multiple-options {
+    list-style: none;
   }
 
   .ember-power-select-multiple-option {
