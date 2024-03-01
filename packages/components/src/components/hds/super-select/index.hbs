@@ -4,7 +4,7 @@
 }}
 
 {{! NOTE: naming is temporary to not conflict with existing power-select wrapper }}
-<div class={{this.classNames}} ...attributes>
+<div class={{this.classNames}}>
   {{! temp notes...
     Required:
     * onChange
@@ -24,6 +24,7 @@
       @searchEnabled={{@searchEnabled}}
       @selected={{@selected}}
       @verticalPosition={{@verticalPosition}}
+      ...attributes
       as |option|
     >
       {{yield option}}
@@ -41,6 +42,7 @@
       @searchEnabled={{@searchEnabled}}
       @selected={{@selected}}
       @verticalPosition={{@verticalPosition}}
+      ...attributes
       as |option|
     >
       {{option}}
