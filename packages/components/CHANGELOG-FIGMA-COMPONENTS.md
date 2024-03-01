@@ -1,6 +1,6 @@
 # [HDS Product - Components](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=6790-10926&mode=design&t=Ps0aMGZ6F3z7bAJ4-0)
 
-## Date TBD
+## February 27th, 2024
 
 ### Breaking changes
 
