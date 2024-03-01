@@ -12,7 +12,10 @@ module('Integration | Component | hds/super-select/index', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(hbs`<Hds::SuperSelect id="test-super-select" />`);
+    this.set('NOOP', () => {});
+    await render(
+      hbs`<Hds::SuperSelect @onChange={{this.NOOP}} id="test-super-select" />`
+    );
     assert.dom('#test-super-select').hasClass('hds-super-select');
   });
 });
