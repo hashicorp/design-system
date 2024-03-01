@@ -7,87 +7,58 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
-import { schedule } from '@ember/runloop';
 
-import { createPopper } from '@popperjs/core';
+import {
+  autoUpdate,
+  computePosition,
+  flip,
+  // hide,
+  offset,
+  shift,
+  // size,
+} from '@floating-ui/dom';
 
-function getPopperOptions(popoverOptions) {
+function getFloatingUIOptions(popoverOptions) {
   const {
     popoverPlacement = 'bottom-start',
-    popoverPositionStrategy = 'absolute', // if we use `fixed` then the overscroll of the body makes the dialog look weird when the page is overscrolled
+    popoverPositionStrategy = 'absolute', // we don't need to use `fixed` anymore now that we have the Popover API that puts the element in the `top-layer`
     popoverOffsetOptions,
     popoverEnableCollisionDetection,
+    // we leave them from now in case they're needed (or we want to expose them as public API for the consumers)
+    popoverFlipOptions = { padding: 8 },
+    popoverShiftOptions = { padding: 8 },
+    popoverMiddlewareExtra = [],
   } = popoverOptions;
 
-  const options = { modifiers: [] };
+  // we build dynamically the list of middleware functions to invoke, depending on the options provided
+  const popoverMiddleware = [];
 
-  options.placement = popoverPlacement;
-  options.strategy = popoverPositionStrategy;
+  // https://floating-ui.com/docs/offset
+  popoverMiddleware.push(offset(popoverOffsetOptions));
 
-  options.modifiers.push({
-    name: 'computeStyles',
-    // https://popper.js.org/docs/v2/modifiers/compute-styles/#adaptive
-    options: {
-      adaptive: false, // true by default
-      gpuAcceleration: false, // true by default
-    },
-  });
-
-  options.modifiers.push(
-    // https://popper.js.org/docs/v2/modifiers/flip/
-    {
-      name: 'flip',
-      enabled: popoverEnableCollisionDetection || false,
-      options: { padding: 4 },
-    },
-    // https://popper.js.org/docs/v2/modifiers/prevent-overflow/
-    {
-      name: 'preventOverflow',
-      enabled: popoverEnableCollisionDetection || false,
-      options: { padding: 4 },
-    }
-  );
-
-  if (popoverOffsetOptions) {
-    options.modifiers.push({
-      // https://popper.js.org/docs/v2/modifiers/offset/
-      name: 'offset',
-      options: { offset: popoverOffsetOptions },
-    });
+  if (popoverEnableCollisionDetection) {
+    popoverMiddleware.push(
+      // https://floating-ui.com/docs/flip
+      flip(popoverFlipOptions),
+      // https://floating-ui.com/docs/shift
+      shift(popoverShiftOptions)
+    );
   }
 
-  // TODO use this to implement a "same width as reference" modifier (for the dropdown, we would neeed to change the way the min/max widths are applied to the list)
-  // https://popper.js.org/docs/v2/modifiers/community-modifiers/
-  // https://codesandbox.io/p/sandbox/bitter-sky-pe3z9?file=%2Fsrc%2Findex.js%3A5%2C1-18%2C3
-  // options.modifiers.push({
-  //   name: 'sameWidth',
-  //   enabled: true,
-  //   phase: 'beforeWrite',
-  //   requires: ['computeStyles'],
-  //   fn: ({ state }) => {
-  //     state.styles.popper.width = `${state.rects.reference.width}px`;
+  // TODO! commenting this for now, will need to make this conditional to some argument (and understand how this relates to the `@height` argument)
+  // size({
+  //   apply: ({ availableWidth, availableHeight, middlewareData }) => {
+  //     middlewareData.size = { availableWidth, availableHeight };
   //   },
-  //   effect: ({ state }) => {
-  //     state.elements.popper.style.width = `${state.elements.reference.offsetWidth}px`;
-  //   },
-  // });
+  // }),
 
-  // TODO add custom modifier (conditional option?) to resize vertically the popper if the height is larger than the available space
-  // https://popper.js.org/docs/v2/utils/detect-overflow/#example
-  //
-  // ➔ we can use this community package:
-  // https://www.npmjs.com/package/popper-max-size-modifier
-  //
+  popoverMiddleware.push(...popoverMiddlewareExtra);
 
-  // uncomment to debug first rendering [NOTICE: doesn't seem to work]
-  // options.modifiers.push({
-  //   // https://popper.js.org/docs/v2/lifecycle/#hook-into-the-lifecycle
-  //   onFirstUpdate: (state) => {
-  //     console.log('Popper `onFirstUpdate` invoked with state', state);
-  //   },
-  // });
-
-  return options;
+  return {
+    placement: popoverPlacement,
+    strategy: popoverPositionStrategy,
+    middleware: popoverMiddleware,
+  };
 }
 
 export default class HdsMenuPrimitiveComponent extends Component {
@@ -136,11 +107,35 @@ export default class HdsMenuPrimitiveComponent extends Component {
       true
     );
 
-    this.popperInstance = createPopper(
+    // the `autoUpdate` function automatically updates the position of the floating element when necessary.
+    // it should only be called when the floating element is mounted on the DOM or visible on the screen.
+    // it returns a "cleanup" function that should be invoked when the floating element is removed from the DOM or hidden from the screen.
+    // see: https://floating-ui.com/docs/autoUpdate
+    this.cleanupFloatingUI = autoUpdate(
       this.toggleElement,
       this.popoverElement,
-      getPopperOptions(this.args.popoverOptions ?? {})
+      this.computeFloatingUI
     );
+  }
+
+  @action
+  async computeFloatingUI() {
+    // important to know: `computePosition()` is not stateful, it only positions the "floating" element once
+    const state = await computePosition(
+      this.toggleElement,
+      this.popoverElement,
+      getFloatingUIOptions(this.args.popoverOptions ?? {})
+    );
+
+    let { strategy, x, y, middlewareData } = state;
+
+    Object.assign(this.popoverElement.style, {
+      position: strategy,
+      top: `${y}px`,
+      left: `${x}px`,
+      // TODO! commenting this for now, will need to make this conditional to some argument (and understand how this relates to the `@height` argument)
+      // maxHeight: `${middlewareData.size.availableHeight - 10}px`,
+    });
   }
 
   @action
@@ -157,9 +152,10 @@ export default class HdsMenuPrimitiveComponent extends Component {
         true
       );
     }
-    if (this.popperInstance && this.popperInstance) {
-      this.popperInstance.destroy();
-    }
+    // if (this.popperInstance && this.popperInstance) {
+    //   this.popperInstance.destroy();
+    // }
+    this.cleanupFloatingUI();
   }
 
   // fired just _before_ the "popover" is shown or hidden
@@ -191,15 +187,15 @@ export default class HdsMenuPrimitiveComponent extends Component {
         onClose();
       }
     }
-    // TODO! understand if this can fix the issue with the dropdown in the modal
-    if (this.popperInstance) {
-      // https://popper.js.org/docs/v2/constructors/#instance
-      // ⚠️ THIS FREEZES SAFARI!!
-      // this.popperInstance.forceUpdate();
-      // schedule('afterRender', () => {
-      //   if (window) window.dispatchEvent(new Event('resize'));
-      // });
-    }
+    // // TODO! understand if this can fix the issue with the dropdown in the modal
+    // if (this.popperInstance) {
+    //   // https://popper.js.org/docs/v2/constructors/#instance
+    //   // ⚠️ THIS FREEZES SAFARI!!
+    //   // this.popperInstance.forceUpdate();
+    //   // schedule('afterRender', () => {
+    //   //   if (window) window.dispatchEvent(new Event('resize'));
+    //   // });
+    // }
   }
 
   // TODO! discuss what we want to do with this (probably still keep it)
