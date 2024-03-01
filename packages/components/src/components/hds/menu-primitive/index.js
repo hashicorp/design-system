@@ -24,6 +24,15 @@ function getPopperOptions(popoverOptions) {
   options.placement = popoverPlacement;
   options.strategy = popoverPositionStrategy;
 
+  options.modifiers.push({
+    name: 'computeStyles',
+    // https://popper.js.org/docs/v2/modifiers/compute-styles/#adaptive
+    options: {
+      adaptive: false, // true by default
+      gpuAcceleration: false, // true by default
+    },
+  });
+
   options.modifiers.push(
     // https://popper.js.org/docs/v2/modifiers/flip/
     {
