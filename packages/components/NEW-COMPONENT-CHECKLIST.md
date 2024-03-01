@@ -111,7 +111,6 @@ The engineering checklist has six parts: creating the feature branch, component 
   - we have chosen to define the value of the `class` attribute (containing the different CSS class names) for the "root" of the element's code in the backing class, UNLESS that component only has one CSS class name.
   - write API comments in the [JS doc](https://jsdoc.app/) format (look at existing components for examples)
   - use the same naming as the Figma file for the components API, unless it conflicts with a pre-existing HTML attribute. If that is the case, document the difference in a comment.
-  - if there is an existing Structure component that is similar to the HDS component being created, ensure that all existing functionality is accounted for in some way. If we are not providing existing functionality at all, it should be documented (along with the reason why). If we are providing temporary functionality, explain that it's temporary and why.
   - booleans should start with a verb (is/has/etc)
   - assertions should match the content style of the other components, e.g., `'@text for "Hds::Button" must have a valid value'`,
   - program with intent; think about the invocation for the developer who will use the component. The goal is a terse invocation, but we also want to consider the big picture. Try to get feedback when you can.
