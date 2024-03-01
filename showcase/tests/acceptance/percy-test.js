@@ -167,6 +167,10 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/utilities/dismiss-button');
     await percySnapshot('DismissButton');
 
+    // MOVE THIS BLOCK IN THE RIGHT POSITION
+    await visit('/components/popover');
+    await percySnapshot('Popover');
+
     // DO NOT REMOVE – PERCY SNAPSHOTS END
 
     assert.ok(true);
