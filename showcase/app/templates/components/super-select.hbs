@@ -36,6 +36,8 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Divider @level="2" />
+
   <Shw::Text::H3>States</Shw::Text::H3>
 
   <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
@@ -68,6 +70,8 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Divider @level="2" />
+
   <Shw::Text::H3>List position</Shw::Text::H3>
 
   <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
@@ -83,6 +87,88 @@
         @selected={{@model.SELECTED}}
         @verticalPosition="above"
         as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect>
+    </SF.Item>
+    <SF.Item @label="matchTriggerWidth = true (List width matches trigger width)">
+     TODO: No visual differenece detected so far, investigating if support is needed.
+      <Hds::SuperSelect
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
+        @matchTriggerWidth={{true}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect>
+    </SF.Item>
+    <SF.Item @label="matchTriggerWidth = false (List width does not match trigger width)">
+      TODO: No visual differenece detected so far, investigating if support is needed.
+      <Hds::SuperSelect
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
+        @matchTriggerWidth={{false}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>Placeholder</Shw::Text::H3>
+
+  <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
+    <SF.Item @label="Custom placeholder">
+      <Hds::SuperSelect
+        @placeholder="Placeholder text"
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect>
+    </SF.Item>
+    <SF.Item @label="Search enabled with custom search placeholder">
+       <Hds::SuperSelect
+        @searchPlaceholder="Search placeholder text"
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
+        @searchEnabled={{true}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>After & before options</Shw::Text::H3>
+
+  <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
+    <SF.Item @label="Custom after options content">
+      <Hds::SuperSelect
+        @afterOptionsComponent={{"power-select/after-options"}}
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
+        as |option select|
+      >
+        {{option}}
+      </Hds::SuperSelect>
+    </SF.Item>
+    <SF.Item @label="Custom before options content">
+      <Hds::SuperSelect
+        @beforeOptionsComponent={{"power-select/after-options"}}
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
+        as |option select|
       >
         {{option}}
       </Hds::SuperSelect>

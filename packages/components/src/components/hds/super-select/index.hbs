@@ -13,15 +13,23 @@
 
   {{#if (eq this.selectionType "single")}}
     <PowerSelect
+      @afterOptionsComponent={{@afterOptionsComponent}}
       @ariaDescribedBy={{@ariaDescribedBy}}
       @ariaInvalid={{@ariaInvalid}}
       @ariaLabel={{@ariaLabel}}
       @ariaLabelledBy={{@ariaLabelledBy}}
+      @beforeOptionsComponent={{@beforeOptionsComponent}}
       @disabled={{@disabled}}
+      @groupComponent={{@groupComponent}}
+      @labelText={{@labelText}}
+      @matchTriggerWidth={{@matchTriggerWidth}}
       @onChange={{@onChange}}
       @options={{@options}}
+      @placeholder={{@placeholder}}
       @renderInPlace={{true}}
+      @search={{@search}}
       @searchEnabled={{@searchEnabled}}
+      @searchPlaceholder={{@searchPlaceholder}}
       @selected={{@selected}}
       @verticalPosition={{@verticalPosition}}
       ...attributes
@@ -31,15 +39,23 @@
     </PowerSelect>
   {{else}}
     <PowerSelectMultiple
+      @afterOptionsComponent={{@afterOptionsComponent}}
       @ariaDescribedBy={{@ariaDescribedBy}}
       @ariaInvalid={{@ariaInvalid}}
       @ariaLabel={{@ariaLabel}}
       @ariaLabelledBy={{@ariaLabelledBy}}
+      @beforeOptionsComponent={{@beforeOptionsComponent}}
       @disabled={{@disabled}}
+      @groupComponent={{@groupComponent}}
+      @labelText={{@labelText}}
+      @matchTriggerWidth={{@matchTriggerWidth}}
       @onChange={{@onChange}}
       @options={{@options}}
+      @placeholder={{@placeholder}}
       @renderInPlace={{true}}
+      @search={{@search}}
       @searchEnabled={{@searchEnabled}}
+      @searchPlaceholder={{@searchPlaceholder}}
       @selected={{@selected}}
       @verticalPosition={{@verticalPosition}}
       ...attributes

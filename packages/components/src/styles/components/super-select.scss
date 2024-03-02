@@ -282,6 +282,16 @@
     color: var(--token-color-foreground-primary);
     font-size: 0.8125rem; // 13px
     background-color: var(--token-color-surface-faint);
-    border-top: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
+    // border-top: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
+
+    // When used as before content:
+    &:first-child {
+      border-bottom: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
+    }
+
+    // When used as after content:
+    &:last-child {
+      border-top: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
+    }
   }
 }
