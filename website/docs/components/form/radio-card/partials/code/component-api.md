@@ -34,8 +34,6 @@
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
     <br/><br/>
     The attributes will be applied to the `<input type="radio">` element. This means you can use all the standard HTML attributes of the `<input type="radio">` element and all the usual Ember techniques for event handling, validation, etc.
-    <br/><br/>
-    Some examples of HTML attributes that you will likely use: `id`, `name`, `value`, `checked`, `disabled` ([see whole list here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attributes)) and some examples of Ember modifiers: `\{{on "click" [do something]}}`, `\{{on "change" [do something]}}`.
   </C.Property>
 </Doc::ComponentApi>
 
