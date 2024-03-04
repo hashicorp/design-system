@@ -12,6 +12,26 @@
 </p>
 
 
+### February 27th, 2024
+
+#### Breaking changes
+
+`Alert` and `Toast` - Updated the `StandaloneLink` to the secondary variant from the primary variant to align with our documented usage recommendations.
+
+_Updating the `StandaloneLink` to the secondary variant will revert any changes you've made to the text and leading icon properties. Prior to updating the library we recommend annotating (with a comment or otherwise) work that is in progress or is still being referenced by engineering with the intended text and icon variant._
+
+`Table` - multiple enhancements to the `Table` components including:
+
+- Added support for multi-selection with `Header Column / Selection` and `Cell / Selection`.
+- Added support for a `Tooltip` in the `Header Column` component.
+- Updated the visual language of the sort button in `Header Column` by decoupling the sort functionality into a nested `Sort Button`
+
+_Adding support for a `Tooltip` and updates to the `Sort Button` result in a breaking change in sortable variants. While the `Label` in the `Header Column` should persist, we recommend annotating (with a comment or otherwise) work that is in-progress or still being referenced by engineering with the columns that are intended to be sortable._
+
+### January 24th, 2024
+
+`IconTile` - Added Vault Radar logo.
+
 ### November 6th, 2023
 
 `CodeBlock` - Added new component.
@@ -40,7 +60,7 @@
 
 ### July 13th, 2023
 
-Added new components: 
+Added new components:
 
 - `Accordion`
 - `MaskedInput`
@@ -48,16 +68,6 @@ Added new components:
 ### July 12th, 2023
 
 Added a “Form Primitives” page to house the `Fieldset` component.
-
-### June 9th, 2023
-
-`Reveal` - Added the component.
-
-### June 1st, 2023
-
-#### Breaking change
-
-`Dropdown` - Fixed a spacing issue between the label and chevron in the ToggleButton.
 
 
 ---
