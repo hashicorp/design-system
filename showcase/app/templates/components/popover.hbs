@@ -9,9 +9,84 @@
 
 <section data-test-percy>
 
-  {{! ADD YOUR CONTENT HERE }}
+  <Shw::Text::H2>Popover</Shw::Text::H2>
 
-  {{! This below is just an example of invocation, to get started }}
-  <Hds::Popover>This is the Hds::Popover component </Hds::Popover>
+  <Shw::Text::H3>Non-interactive content</Shw::Text::H3>
+
+  <Shw::Flex as |SF|>
+
+    <SF.Item @label="Plain text">
+      <Hds::Popover>
+        <:toggle>Lorem ipsum dolor</:toggle>
+        <:content>
+          <Shw::Placeholder @text="generic content" @height="40" />
+        </:content>
+      </Hds::Popover>
+    </SF.Item>
+
+    <SF.Item @label="Icon">
+      <Hds::Popover>
+        <:toggle>
+          <FlightIcon @name="info" />
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="generic content" @height="40" />
+        </:content>
+      </Hds::Popover>
+    </SF.Item>
+
+    <SF.Item @label="Generic content">
+      <Hds::Popover>
+        <:toggle>
+          <Shw::Placeholder @text="generic content" @height="40" />
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="generic content" @height="40" />
+        </:content>
+      </Hds::Popover>
+    </SF.Item>
+
+  </Shw::Flex>
+
+  <Shw::Flex as |SF|>
+
+    <SF.Item @label="Applied to a button">
+      <Hds::Popover>
+        <:toggle>
+          <Hds::Button @text="Submit" />
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="generic content" @height="40" />
+        </:content>
+      </Hds::Popover>
+    </SF.Item>
+
+    <SF.Item @label="Applied to a link">
+      <Hds::Popover>
+        <:toggle>
+          <Hds::Link::Standalone @icon="external-link" @iconPosition="trailing" @text="Acme Corp" @href="#" />
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="generic content" @height="40" />
+        </:content>
+      </Hds::Popover>
+    </SF.Item>
+
+    <SF.Item @label="Applied to an input">
+      <Hds::Form::Field @layout="vertical" as |F|>
+        <F.Label @controlId="tooltip-example-control-id">First Name</F.Label>
+        <F.Control>
+          <Hds::Popover>
+            <:toggle>
+              <input type="text" value="Jane" id="tooltip-example-control-id" />
+            </:toggle>
+            <:content>
+              <Shw::Placeholder @text="generic content" @height="40" />
+            </:content>
+          </Hds::Popover>
+        </F.Control>
+      </Hds::Form::Field>
+    </SF.Item>
+  </Shw::Flex>
 
 </section>

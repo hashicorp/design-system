@@ -2,7 +2,26 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-{{! ADD YOUR TEMPLATE CONTENT HERE }}
-<div class={{this.classNames}} ...attributes>
-  {{yield}}
-</div>
+<Hds::MenuPrimitive
+  class={{this.classNames}}
+  @isOpen={{@isOpen}}
+  @onClose={{@onClose}}
+  @popoverOptions={{this.popoverOptions}}
+  ...attributes
+>
+  <:toggle as |t|>
+    <button
+      popovertarget={{t.popovertarget}}
+      {{! TODO! is this correct? }}
+      aria-expanded={{if @isOpen "true" "false"}}
+      {{did-insert t.didInsertToggle}}
+    >
+      {{yield to="toggle"}}
+    </button>
+  </:toggle>
+  <:content as |c|>
+    <div class={{this.classNamesContent}} {{style width=@width max-height=@height}}>
+      {{yield (hash close=c.close) to="content"}}
+    </div>
+  </:content>
+</Hds::MenuPrimitive>

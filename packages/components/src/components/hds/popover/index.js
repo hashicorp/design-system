@@ -4,13 +4,51 @@
  */
 
 import Component from '@glimmer/component';
+import { assert } from '@ember/debug';
+
+export const DEFAULT_PLACEMENT = 'bottom';
+export const PLACEMENTS = [
+  'top',
+  'top-start',
+  'top-end',
+  'right',
+  'right-start',
+  'right-end',
+  'bottom',
+  'bottom-start',
+  'bottom-end',
+  'left',
+  'left-start',
+  'left-end',
+];
 
 export default class HdsPopoverIndexComponent extends Component {
-  // UNCOMMENT THIS IF YOU NEED A CONSTRUCTOR
-  // constructor() {
-  //   super(...arguments);
-  //   // ADD YOUR ASSERTIONS HERE
-  // }
+  /**
+   * @param placement
+   * @type {string}
+   * @description Determines the position of the "popover"
+   */
+  get placement() {
+    let { placement = DEFAULT_PLACEMENT } = this.args;
+
+    assert(
+      `@placement for "Hds::Popover" must be one of the following: ${PLACEMENTS.join(
+        ', '
+      )}; received: ${placement}`,
+      PLACEMENTS.includes(placement)
+    );
+
+    return placement;
+  }
+
+  get popoverOptions() {
+    return {
+      popoverPlacement: this.placement,
+      popoverOffsetOptions: 4,
+      popoverEnableCollisionDetection:
+        this.args.enableCollisionDetection || false,
+    };
+  }
 
   /**
    * Get the class names to apply to the component.
