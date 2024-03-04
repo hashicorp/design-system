@@ -41,8 +41,10 @@ export default class HdsSuperSelectIndexComponent extends Component {
   get classNames() {
     let classes = ['hds-super-select'];
 
-    // add a class based on the @xxx argument
-    // classes.push(`hds-super-select--[variant]-${this.xxx}`);
+    // add a class based on the @matchTriggerWidth argument
+    if (this.args.matchTriggerWidth === false) {
+      classes.push('hds-super-select--match-trigger-width-false');
+    }
 
     return classes.join(' ');
   }

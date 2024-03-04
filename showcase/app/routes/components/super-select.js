@@ -12,7 +12,8 @@ export default class ComponentsSuperSelectRoute extends Route {
       'Oregon (us-west-2)',
       'N. Virginia (us-east-1)',
       'Ireland (eu-west-1)',
-      'London (eu-west-2) This one is really long. This one is really long. This one is really long. This one is really long.',
+      'London(eu-west-2)',
+      'ALongUnbrokenStringALongUnbrokenStringALongUnbrokenString',
       'Frankfurt (eu-central-1)',
     ];
     const SELECTED = ['Oregon (us-west-2)'];

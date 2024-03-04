@@ -91,29 +91,35 @@
         {{option}}
       </Hds::SuperSelect>
     </SF.Item>
-    <SF.Item @label="matchTriggerWidth = true (List width matches trigger width)">
-     TODO: No visual differenece detected so far, investigating if support is needed.
-      <Hds::SuperSelect
-        @onChange={{this.noop}}
-        @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED}}
-        @matchTriggerWidth={{true}}
-        as |option|
-      >
-        {{option}}
-      </Hds::SuperSelect>
+    <SF.Item @label="List width matches trigger width">
+      <div class="shw-display-inline-flex">
+        <Hds::SuperSelect
+          @afterOptionsComponent={{"power-select/after-options"}}
+          @onChange={{this.noop}}
+          @options={{@model.OPTIONS}}
+          @selected={{@model.SELECTED}}
+          @searchEnabled={{true}}
+          @matchTriggerWidth={{true}}
+          as |option|
+        >
+          {{option}}
+        </Hds::SuperSelect>
+      </div>
     </SF.Item>
-    <SF.Item @label="matchTriggerWidth = false (List width does not match trigger width)">
-      TODO: No visual differenece detected so far, investigating if support is needed.
-      <Hds::SuperSelect
-        @onChange={{this.noop}}
-        @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED}}
-        @matchTriggerWidth={{false}}
-        as |option|
-      >
-        {{option}}
-      </Hds::SuperSelect>
+    <SF.Item @label="List width does not match trigger width">
+      <div class="shw-display-inline-flex">
+        <Hds::SuperSelect
+          @afterOptionsComponent={{"power-select/after-options"}}
+          @onChange={{this.noop}}
+          @options={{@model.OPTIONS}}
+          @selected={{@model.SELECTED}}
+          @searchEnabled={{true}}
+          @matchTriggerWidth={{false}}
+          as |option|
+        >
+          {{option}}
+        </Hds::SuperSelect>
+      </div>
     </SF.Item>
   </Shw::Flex>
 

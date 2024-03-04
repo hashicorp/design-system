@@ -4,3 +4,10 @@
  */
 
 // SUPER-SELECT
+
+body.components-super-select {
+  // Used to test width of "trigger" compared to dropdown list
+  .shw-display-inline-flex {
+    display: inline-flex;
+  }
+}
