@@ -73,7 +73,7 @@ To group similar sets of options, use the `<optgroup>` tag within the `Options` 
 You can add extra information to the field using helper text. When helper text is added, the component automatically adds an `aria-describedby` attribute to the select control, associating it with the automatically generated `ID` of the helper text element.
 
 ```handlebars
-<Hds::Form::Select::Field @value="036140285924" as |F|>
+<Hds::Form::Select::Field as |F|>
   <F.Label>Target infrastructure</F.Label>
   <F.HelperText>The target infrastructure is where you want to deploy your apps.</F.HelperText>
   <F.Options>
