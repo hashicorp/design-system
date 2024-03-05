@@ -9,7 +9,7 @@ import { PREFIX } from './generateCssHelpers';
 
 type Helpers = string[];
 
-export function generateTypographyHelpers(tokens: TransformedTokens): Helpers {
+export function generateTypographyHelpers(tokens: TransformedTokens, outputCssVars: boolean): Helpers {
 
     const helpers: Helpers = [];
 
@@ -23,13 +23,16 @@ export function generateTypographyHelpers(tokens: TransformedTokens): Helpers {
 
             const selector = `.${PREFIX}-font`;
             if (fontStackTokens?.sans?.display) {
-                helpers.push(`${selector}-family-sans-display { font-family: var(--token-typography-font-stack-display); }`);
+                const valueFontStackDisplay = outputCssVars ? 'var(--token-typography-font-stack-display)' : fontStackTokens.display.value;
+                helpers.push(`${selector}-family-sans-display { font-family: ${valueFontStackDisplay}; }`);
             }
             if (fontStackTokens?.sans?.text) {
-                helpers.push(`${selector}-family-sans-text { font-family: var(--token-typography-font-stack-text); }`);
+                const valueFontStackText = outputCssVars ? 'var(--token-typography-font-stack-text)' : fontStackTokens.text.value;
+                helpers.push(`${selector}-family-sans-text { font-family: ${valueFontStackText}; }`);
             }
             if (fontStackTokens?.monospace?.code) {
-                helpers.push(`${selector}-family-mono-code { font-family: var(--token-typography-font-stack-code); }`);
+                const valueFontStackCode = outputCssVars ? 'var(--token-typography-font-stack-code)' : fontStackTokens.code.value;
+                helpers.push(`${selector}-family-mono-code { font-family: ${valueFontStackCode}; }`);
             }
 
         } else if (key === 'font-weight') {
@@ -46,9 +49,12 @@ export function generateTypographyHelpers(tokens: TransformedTokens): Helpers {
             let stylename = key;
 
             // basic font styles
-            declarations.push(`font-family: var(--token-typography-${stylename}-font-family);`);
-            declarations.push(`font-size: var(--token-typography-${stylename}-font-size);`);
-            declarations.push(`line-height: var(--token-typography-${stylename}-line-height);`);
+            const valueFontFamily = outputCssVars ? `var(--token-typography-${stylename}-font-family)` : tokens[stylename]['font-family'].value;
+            const valueFontSize = outputCssVars ? `var(--token-typography-${stylename}-font-size)` : tokens[stylename]['font-size'].value;
+            const valueLineHeight = outputCssVars ? `var(--token-typography-${stylename}-line-height)` : tokens[stylename]['line-height'].value;
+            declarations.push(`font-family: ${valueFontFamily};`);
+            declarations.push(`font-size: ${valueFontSize};`);
+            declarations.push(`line-height: ${valueLineHeight};`);
 
             // we reset margin/padding for all the text elements
             declarations.push('margin: 0;');

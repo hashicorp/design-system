@@ -9,7 +9,7 @@ import { PREFIX } from './generateCssHelpers';
 
 type Helpers = string[];
 
-export function generateColorHelpers(tokens: TransformedToken[]): Helpers {
+export function generateColorHelpers(tokens: TransformedToken[], outputCssVars: boolean): Helpers {
 
     const helpers: Helpers = [];
 
@@ -18,19 +18,20 @@ export function generateColorHelpers(tokens: TransformedToken[]): Helpers {
         if (!(token.attributes?.category === 'color')) return;
 
         const group = token.attributes.type || '';
+        const value = outputCssVars ? `var(--${token.name})` : token.value;
 
         if (['foreground', 'page', 'surface', 'border'].includes(group)) {
             const context = token.path[1];
             const name = token.path[2];
             if (context === 'foreground') {
-                helpers.push(`.${PREFIX}-${context}-${name} { color: var(--${token.name}); }`)
+                helpers.push(`.${PREFIX}-${context}-${name} { color: ${value}; }`)
             }
             if (context === 'page' || context === 'surface') {
-                helpers.push(`.${PREFIX}-${context}-${name} { background-color: var(--${token.name}); }`)
+                helpers.push(`.${PREFIX}-${context}-${name} { background-color: ${value}; }`)
             }
             if (context === 'border') {
                 // notice: we assume a 1px border (if a user needs a different border width, and want to use the helper, they have to apply an override)
-                helpers.push(`.${PREFIX}-${context}-${name} { border: 1px solid var(--${token.name}); }`)
+                helpers.push(`.${PREFIX}-${context}-${name} { border: 1px solid ${value}; }`)
             }
         } else if (['hashicorp', 'hcp', 'boundary','consul','nomad','packer','terraform','vagrant','vault','vault-secrets','vault-radar','waypoint'].includes(group)) {
             // TODO!
@@ -40,8 +41,6 @@ export function generateColorHelpers(tokens: TransformedToken[]): Helpers {
             // do we want people to use palette colors directly as CSS helpers?
         } else if (group === 'focus') {
             // we don't want to expose them as helpers (they're related to a11y, so we don't want users to mess up with them)
-        } else if (['neutral', 'action', 'highlight', 'success', 'warning', 'critical'].includes(group)) {
-            // THESE ARE THE OLD COLOR GROUPS, WE SKIP THEM
         } else {
             // show an error in case in the future we add new colors with a new grouping
             console.log(`ATTENTION: you need to add the color group "${group}" to the list of helpers`);
