@@ -49,6 +49,19 @@ StyleDictionaryPackage.registerTransform({
     transformer: transformPxToRem
 });
 
+StyleDictionaryPackage.registerTransform({
+    name: 'font-size/px',
+    type: 'value',
+    matcher: function(token) {
+        return token?.attributes?.category === 'typography' && token.type === 'font-size';
+    },
+    transformer: function (token) {
+        const val = parseFloat(token.value);
+        if (isNaN(val)) throw `Invalid Number: '${token.name}: ${token.value}' is not a valid number, cannot transform to 'px'.\n`;
+        return `${token.value}px`;
+    }
+});
+
 // NOTICE: in case in the future we need more complex transformations, we can use this approach (see the "modify" attribute):
 // https://github.com/amzn/style-dictionary/blob/main/examples/advanced/transitive-transforms/
 //
@@ -87,8 +100,8 @@ StyleDictionaryPackage.registerTransformGroup({
 
 StyleDictionaryPackage.registerTransformGroup({
     name: 'products/email',
-    // TODO! update this according to the needs we have for the email templates
-    transforms: ['attribute/cti', 'name/cti/kebab', 'font-size/rem', 'size/px', 'color/css', 'color/with-alpha', 'time/seconds']
+    // notice: for emails we need the font-size in `px` (not `rem`)
+    transforms: ['attribute/cti', 'name/cti/kebab', 'font-size/px', 'size/px', 'color/css', 'color/with-alpha', 'time/seconds']
 });
 
 StyleDictionaryPackage.registerTransformGroup({
@@ -230,7 +243,6 @@ function getStyleDictionaryConfig({ target }: { target: string }): Config {
             transformGroup,
             "buildPath": `dist/${target}/`,
             "prefix": "token",
-            "basePxFontSize": 16,
             "files": [
                 {
                     "destination": "tokens.scss",
