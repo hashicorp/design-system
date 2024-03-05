@@ -14,7 +14,7 @@ export const SIZES = ['small', 'medium'];
 const NOOP = () => {};
 
 export default class HdsDropdownToggleIconComponent extends Component {
-  @tracked hasImage = false;
+  @tracked hasImage = true;
 
   constructor() {
     super(...arguments);
