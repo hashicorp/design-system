@@ -154,7 +154,7 @@ const targets: ConfigTargets = {
     'cloud-email': {
         // we need only foundational tokens (colors, typography, etc)
         'source': [
-            `src/global/color/*.json`,
+            `src/global/**/*.json`,
             `src/products/shared/color/**/*.json`,
             `src/products/shared/typography.json`,
         ],
