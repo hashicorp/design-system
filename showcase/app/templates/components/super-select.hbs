@@ -129,17 +129,12 @@
 
   <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
     <SF.Item @label="Custom placeholder">
-      <Hds::SuperSelect
-        @placeholder="Placeholder text"
-        @onChange={{this.noop}}
-        @options={{@model.OPTIONS}}
-        as |option|
-      >
+      <Hds::SuperSelect @placeholder="Placeholder text" @onChange={{this.noop}} @options={{@model.OPTIONS}} as |option|>
         {{option}}
       </Hds::SuperSelect>
     </SF.Item>
     <SF.Item @label="Search enabled with custom search placeholder">
-       <Hds::SuperSelect
+      <Hds::SuperSelect
         @searchPlaceholder="Search placeholder text"
         @onChange={{this.noop}}
         @options={{@model.OPTIONS}}
@@ -163,7 +158,7 @@
         @onChange={{this.noop}}
         @options={{@model.OPTIONS}}
         @selected={{@model.SELECTED}}
-        as |option select|
+        as |option|
       >
         {{option}}
       </Hds::SuperSelect>
@@ -174,7 +169,7 @@
         @onChange={{this.noop}}
         @options={{@model.OPTIONS}}
         @selected={{@model.SELECTED}}
-        as |option select|
+        as |option|
       >
         {{option}}
       </Hds::SuperSelect>
