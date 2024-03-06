@@ -11,12 +11,12 @@ export interface HdsInteractiveSignature {
     href?: string;
     isHrefExternal?: boolean;
     isRouteExternal?: boolean;
-    route?: unknown;
+    route?: string;
     models?: unknown;
     model?: unknown;
     query?: unknown;
-    'current-when'?: unknown;
-    replace?: unknown;
+    'current-when'?: string;
+    replace?: boolean;
   };
   Blocks: {
     default: [];
