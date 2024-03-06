@@ -38,7 +38,13 @@ export default class ComponentsSuperSelectRoute extends Route {
       'one thousand',
     ];
     const SELECTED_GROUPED_OPTION = ['two'];
-    
-    return { OPTIONS, SELECTED, SELECTEDMULTIPLE, GROUPED_OPTIONS, SELECTED_GROUPED_OPTION };
+
+    return {
+      OPTIONS,
+      SELECTED,
+      SELECTEDMULTIPLE,
+      GROUPED_OPTIONS,
+      SELECTED_GROUPED_OPTION,
+    };
   }
 }
