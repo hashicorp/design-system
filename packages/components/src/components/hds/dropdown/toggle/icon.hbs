@@ -14,7 +14,7 @@
   <div class="hds-dropdown-toggle-icon__wrapper">
     {{#if @imageSrc}}
       {{#if this.hasImage}}
-        <img src={{@imageSrc}} alt="" role="presentation" height="32" width="32" {{on "error" this.onImageLoadError}} />
+        <img src={{@imageSrc}} alt="" role="presentation" {{on "error" this.onImageLoadError}} />
       {{else}}
         <FlightIcon @name="user" @size={{this.iconSize}} />
       {{/if}}
