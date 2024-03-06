@@ -11,16 +11,28 @@
 >
   <:toggle as |t|>
     {{!-- popovertarget={{t.popovertarget}} --}}
-    <button
-      {{! TODO! is this correct? }}
-      aria-expanded={{if @isOpen "true" "false"}}
-      {{did-insert t.didInsertToggle}}
-    >
-      {{yield to="toggle"}}
-    </button>
+    {{#if @isInteractive}}
+      <div
+        {{! TODO! is this correct? }}
+        aria-expanded={{if @isOpen "true" "false"}}
+        {{did-insert t.didInsertToggle}}
+      >
+        {{yield to="toggle"}}
+      </div>
+    {{else}}
+      <button
+        class="hds-popover__button"
+        {{! TODO! is this correct? }}
+        aria-expanded={{if @isOpen "true" "false"}}
+        {{did-insert t.didInsertToggle}}
+        {{on "click" t.togglePopover}}
+      >
+        {{yield to="toggle"}}
+      </button>
+    {{/if}}
   </:toggle>
   <:content as |c|>
-    <div class={{this.classNamesContent}} {{style width=@width max-height=@height}}>
+    <div class="hds-popover__content" {{style width=@width max-height=@height}}>
       {{yield (hash close=c.close) to="content"}}
     </div>
   </:content>

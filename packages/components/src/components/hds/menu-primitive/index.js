@@ -171,28 +171,34 @@ export default class HdsMenuPrimitiveComponent extends Component {
 
   @action
   showPopover() {
+    console.log('showPopover invoked');
     this.popoverElement.showPopover();
   }
 
   @action
   hidePopover() {
+    console.log('hidePopover invoked');
     this.popoverElement.hidePopover();
   }
 
   @action
   togglePopover() {
+    console.log('togglePopover invoked', this.isOpen);
     this.popoverElement.togglePopover();
   }
 
   // fired just _before_ the "popover" is shown or hidden
   @action
   registerOnBeforeToggleEvent() {
+    console.log('registerOnBeforeToggleEvent invoked');
     // we explicitly apply a focus state to the "toggle" element to overcome a bug in WebKit (see https://github.com/hashicorp/design-system/commit/40cd7f6b3cb15c45f9a1235fafd0fb3ed58e6e62)
-    this.toggleElement.focus();
+    // TODO! if we return the focus on close, this will re-open the popover!!
+    // this.toggleElement.focus();
   }
 
   // fired just _after_ the "popover" is shown or hidden
   @action registerOnToggleEvent(event) {
+    console.log('registerOnToggleEvent invoked');
     if (event.newState === 'open') {
       console.log('Popover has been shown');
       this.isOpen = true;
@@ -227,6 +233,7 @@ export default class HdsMenuPrimitiveComponent extends Component {
 
   @action
   onMouseEnter() {
+    console.log('onMouseEnter invoked');
     if (this.timer) {
       clearTimeout(this.timer);
     }
@@ -235,6 +242,7 @@ export default class HdsMenuPrimitiveComponent extends Component {
 
   @action
   onFocusIn() {
+    console.log('onFocusIn invoked');
     if (this.timer) {
       clearTimeout(this.timer);
     }
@@ -243,11 +251,13 @@ export default class HdsMenuPrimitiveComponent extends Component {
 
   @action
   onMouseLeave() {
+    console.log('onMouseLeave invoked');
     this.timer = setTimeout(this.hidePopover.bind(this), 500);
   }
 
   @action
   onFocusOut(event) {
+    console.log('onFocusOut invoked');
     // due to inconsistent implementation of relatedTarget across browsers we use the activeElement as a fallback
     // if the related target is not part of the disclosed content we close the disclosed container
     if (!this.element.contains(event.relatedTarget || document.activeElement)) {

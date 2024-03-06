@@ -13,7 +13,7 @@
 
   <Shw::Text::H3>Non-interactive content</Shw::Text::H3>
 
-  <Shw::Flex as |SF|>
+  <Shw::Flex {{style gap="2rem"}} as |SF|>
 
     <SF.Item @label="Plain text">
       <Hds::Popover>
@@ -48,10 +48,14 @@
 
   </Shw::Flex>
 
-  <Shw::Flex as |SF|>
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Interactive content</Shw::Text::H3>
+
+  <Shw::Flex {{style gap="2rem"}} as |SF|>
 
     <SF.Item @label="Applied to a button">
-      <Hds::Popover>
+      <Hds::Popover @isInteractive={{true}}>
         <:toggle>
           <Hds::Button @text="Submit" />
         </:toggle>
@@ -62,7 +66,7 @@
     </SF.Item>
 
     <SF.Item @label="Applied to a link">
-      <Hds::Popover>
+      <Hds::Popover @isInteractive={{true}}>
         <:toggle>
           <Hds::Link::Standalone @icon="external-link" @iconPosition="trailing" @text="Acme Corp" @href="#" />
         </:toggle>
@@ -76,7 +80,7 @@
       <Hds::Form::Field @layout="vertical" as |F|>
         <F.Label @controlId="tooltip-example-control-id">First Name</F.Label>
         <F.Control>
-          <Hds::Popover>
+          <Hds::Popover @isInteractive={{true}}>
             <:toggle>
               <input type="text" value="Jane" id="tooltip-example-control-id" />
             </:toggle>
