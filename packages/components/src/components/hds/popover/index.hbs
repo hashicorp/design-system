@@ -10,7 +10,6 @@
   ...attributes
 >
   <:toggle as |t|>
-    {{!-- popovertarget={{t.popovertarget}} --}}
     {{#if @isInteractive}}
       <div
         {{! TODO! is this correct? }}
@@ -24,8 +23,8 @@
         class="hds-popover__button"
         {{! TODO! is this correct? }}
         aria-expanded={{if @isOpen "true" "false"}}
+        popovertarget={{t.popovertarget}}
         {{did-insert t.didInsertToggle}}
-        {{on "click" t.togglePopover}}
       >
         {{yield to="toggle"}}
       </button>
