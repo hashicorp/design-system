@@ -24,6 +24,7 @@
     "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",
     "lint:css": "stylelint \"src/styles/**/*.scss\"",
     "lint:css:fix": "npm-run-all \"lint:css --fix\"",
+    "lint:glint": "glint",
     "lint:hbs": "ember-template-lint .",
     "lint:hbs:fix": "ember-template-lint . --fix",
     "lint:js": "eslint . --cache",
