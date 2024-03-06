@@ -17,7 +17,7 @@ import { assert } from '@ember/debug';
  * ```
  */
 
-export function hdsLinkToModels([model, models]) {
+export function hdsLinkToModels<T>([model, models]: [T, T[]]) {
   assert(
     'You cannot provide both the `@model` and `@models` arguments to the component.',
     !model || !models
@@ -32,4 +32,12 @@ export function hdsLinkToModels([model, models]) {
   }
 }
 
-export default helper(hdsLinkToModels);
+const hdsLinkToModelsHelper = helper(hdsLinkToModels);
+export default hdsLinkToModelsHelper;
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'hds-link-to-models': typeof hdsLinkToModelsHelper;
+  }
+}
+  
