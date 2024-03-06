@@ -6,17 +6,13 @@
 import { ConfigData } from "./@types/ConfigData";
 
 export const config: ConfigData = {
-    // the data of the Figma file we sync with
+    // the metadata for the Figma file we sync with
     figmaFile: {
         // this is the "production" file
-        id: 'TLnoT5AYQfy3tZ0H68BgOr',
-        // this is for testing purpose
-        // id: '2u60imwCVJvSpH0io1O068',
-        // Notice: this simple configuration is under the assumption thet all the assets will be in the same page
-        // if later we will discover we need to be more specific (eg. multiple files, multiple pages, etc.)
-        // we will adopt a more explicit, structured configuration format
+        id: 'TLnoT5AYQfy3tZ0H68BgOr', // if needed use this ID for testing purposes: `2u60imwCVJvSpH0io1O068`
         page: 'Export',
-        frames: ['Core', 'Services', 'Products', 'Animated'],
+        // you can use this filter to exclude specific frames
+        excludeFrames: [],
     },
     // notice: these paths are relative to where the npm script is invoked, not this file!
     mainFolder: '.',

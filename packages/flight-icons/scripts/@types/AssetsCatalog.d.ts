@@ -15,6 +15,8 @@ export type AssetCatalogItem = {
     iconName: AssetCoreData[iconName],
     // eg. "bitbucket, atlassian"
     description: AssetCoreData[description],
+    // eg. "products"
+    category: AssetCoreData[category],
     // eg. "16" (but in the future it may become "sm")
     size: string;
     // eg 16

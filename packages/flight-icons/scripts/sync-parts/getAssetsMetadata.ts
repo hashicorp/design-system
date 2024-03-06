@@ -31,11 +31,11 @@ export async function getAssetsMetadata(): Promise<AssetsMetadata> {
     const componentSetData: ComponentSetData = {};
     if (componentSetsResponse.meta && componentSetsResponse.meta.component_sets) {
         componentSetsResponse.meta.component_sets.forEach(component_set => {
-            // check that the component is inside the expected page/frame
+            // check that the component_set is inside the expected page/frame
             if (
                 component_set.containing_frame &&
                 component_set.containing_frame.pageName === config.figmaFile.page &&
-                config.figmaFile.frames.includes(component_set.containing_frame.name)
+                !config.figmaFile.excludeFrames.includes(component_set.containing_frame.name)
             ) {
                 componentSetData[component_set.node_id] = {
                     name: component_set.name,
@@ -54,13 +54,18 @@ export async function getAssetsMetadata(): Promise<AssetsMetadata> {
             if (
                 component.containing_frame &&
                 component.containing_frame.pageName === config.figmaFile.page &&
-                config.figmaFile.frames.includes(component.containing_frame.name)
+                !config.figmaFile.excludeFrames.includes(component.containing_frame.name)
             ) {
                 assetsMetadata[component.node_id] = {
                     id: component.node_id,
                     variantName: component.name,
                     iconName: '',
                     description: '',
+                    category: '',
+                }
+                if (component.containing_frame.name) {
+                    // by convention the category of an icon is the containing frame's name
+                    assetsMetadata[component.node_id].category = component.containing_frame.name;
                 }
                 if (component.containing_frame.containingStateGroup) {
                     const parentComponentSet = componentSetData[component.containing_frame.containingStateGroup.nodeId]
