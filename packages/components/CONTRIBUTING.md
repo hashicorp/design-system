@@ -6,6 +6,14 @@
 * `yarn install`
 * `cd packages/components`
 
+## Building
+
+* `yarn run build`
+
+To set a watcher on files located in `src` and rebuild on change
+
+* `yarn start`
+
 ## Linting
 
 * `yarn run lint`
@@ -22,13 +30,17 @@ Notice: to have VSCode autofix the code on save, you have to:
 
 ## Running tests
 
+The associated test application is located at the root of the monorepo, in `showcase`
+
+* `cd showcase`
 * `ember test` – Runs the test suite on the current Ember version
 * `ember test --server` – Runs the test suite in "watch mode"
 * `ember try:each` – Runs the test suite against multiple Ember versions
 
-## Running the dummy application
+## Running the `showcase` application
 
+* `cd showcase`
 * `ember s`
-* Visit the dummy application at [http://localhost:4200](http://localhost:4200).
+* Visit the application at [http://localhost:4200](http://localhost:4200).
 
 For more information on using ember-cli, visit [https://cli.emberjs.com/release/](https://cli.emberjs.com/release/).
