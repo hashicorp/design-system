@@ -34,6 +34,18 @@
         {{option}}
       </Hds::SuperSelect>
     </SF.Item>
+    <SF.Item @label="Custom no matches message displayed when search fails">
+      <Hds::SuperSelect
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @searchEnabled={{true}}
+        @selected={{@model.SELECTED}}
+        @noMatchesMessage="Custom message for no matches"
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect>
+    </SF.Item>
   </Shw::Flex>
 
   <Shw::Divider @level="2" />
