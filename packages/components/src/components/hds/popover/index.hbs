@@ -10,8 +10,8 @@
   ...attributes
 >
   <:toggle as |t|>
+    {{!-- popovertarget={{t.popovertarget}} --}}
     <button
-      popovertarget={{t.popovertarget}}
       {{! TODO! is this correct? }}
       aria-expanded={{if @isOpen "true" "false"}}
       {{did-insert t.didInsertToggle}}

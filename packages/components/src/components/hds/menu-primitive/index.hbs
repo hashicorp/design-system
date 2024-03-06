@@ -4,7 +4,15 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 {{! template-lint-disable no-invalid-interactive }}
-<div class="hds-menu-primitive" ...attributes {{did-insert this.didInsert}} {{on "focusout" this.onFocusOut}}>
+<div
+  class="hds-menu-primitive"
+  ...attributes
+  {{did-insert this.didInsert}}
+  {{on "mouseenter" this.onMouseEnter}}
+  {{on "mouseleave" this.onMouseLeave}}
+  {{on "focusin" this.onFocusIn}}
+  {{on "focusout" this.onFocusOut}}
+>
   <div class="hds-menu-primitive__toggle" tabindex="-1">
     {{yield (hash popovertarget=this.popoverId isOpen=this.isOpen didInsertToggle=this.didInsertToggle) to="toggle"}}
   </div>

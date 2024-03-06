@@ -81,6 +81,17 @@ export default class HdsMenuPrimitiveComponent extends Component {
   @action
   didInsertToggle(element) {
     this.toggleElement = element;
+    // this.toggleElement.addEventListener('click', this.togglePopover.bind(this));
+    // this.toggleElement.addEventListener('focus', this.showPopover.bind(this));
+    // this.toggleElement.addEventListener(
+    //   'mouseenter',
+    //   this.showPopover.bind(this)
+    // );
+    // this.toggleElement.addEventListener('blur', this.hidePopover.bind(this));
+    // this.toggleElement.addEventListener(
+    //   'mouseleave',
+    //   this.hidePopover.bind(this)
+    // );
   }
 
   @action
@@ -158,8 +169,24 @@ export default class HdsMenuPrimitiveComponent extends Component {
     this.cleanupFloatingUI();
   }
 
+  @action
+  showPopover() {
+    this.popoverElement.showPopover();
+  }
+
+  @action
+  hidePopover() {
+    this.popoverElement.hidePopover();
+  }
+
+  @action
+  togglePopover() {
+    this.popoverElement.togglePopover();
+  }
+
   // fired just _before_ the "popover" is shown or hidden
-  @action registerOnBeforeToggleEvent() {
+  @action
+  registerOnBeforeToggleEvent() {
     // we explicitly apply a focus state to the "toggle" element to overcome a bug in WebKit (see https://github.com/hashicorp/design-system/commit/40cd7f6b3cb15c45f9a1235fafd0fb3ed58e6e62)
     this.toggleElement.focus();
   }
@@ -198,18 +225,38 @@ export default class HdsMenuPrimitiveComponent extends Component {
     // }
   }
 
-  // TODO! discuss what we want to do with this (probably still keep it)
+  @action
+  onMouseEnter() {
+    if (this.timer) {
+      clearTimeout(this.timer);
+    }
+    this.showPopover();
+  }
+
+  @action
+  onFocusIn() {
+    if (this.timer) {
+      clearTimeout(this.timer);
+    }
+    this.showPopover();
+  }
+
+  @action
+  onMouseLeave() {
+    this.timer = setTimeout(this.hidePopover.bind(this), 500);
+  }
+
   @action
   onFocusOut(event) {
     // due to inconsistent implementation of relatedTarget across browsers we use the activeElement as a fallback
     // if the related target is not part of the disclosed content we close the disclosed container
     if (!this.element.contains(event.relatedTarget || document.activeElement)) {
-      this.popoverElement.hidePopover();
+      this.hidePopover();
     }
   }
 
   @action
   close() {
-    this.popoverElement.hidePopover();
+    this.hidePopover();
   }
 }
