@@ -22,6 +22,23 @@ export default class ComponentsSuperSelectRoute extends Route {
       'N. Virginia (us-east-1)',
       'Ireland (eu-west-1)',
     ];
-    return { OPTIONS, SELECTED, SELECTEDMULTIPLE };
+
+    const GROUPED_OPTIONS = [
+      { groupName: 'Smalls', options: ['one', 'two', 'three'] },
+      { groupName: 'Mediums', options: ['four', 'five', 'six'] },
+      {
+        groupName: 'Bigs',
+        options: [
+          { groupName: 'Fairly big', options: ['seven', 'eight', 'nine'] },
+          { groupName: 'Really big', options: ['ten', 'eleven', 'twelve'] },
+          'thirteen',
+        ],
+      },
+      'one hundred',
+      'one thousand',
+    ];
+    const SELECTED_GROUPED_OPTION = ['two'];
+    
+    return { OPTIONS, SELECTED, SELECTEDMULTIPLE, GROUPED_OPTIONS, SELECTED_GROUPED_OPTION };
   }
 }

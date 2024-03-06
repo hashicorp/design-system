@@ -176,6 +176,26 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>Misc options</Shw::Text::H3>
+
+  <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
+    <SF.Item @label="Custom group component (@groupComponent)">
+      <Hds::SuperSelect
+        @groupComponent={{component "power-select/group-component"}}
+        @onChange={{this.noop}}
+        @options={{@model.GROUPED_OPTIONS}}
+        @selected={{@model.SELECTED_GROUPED_OPTION}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect>
+    </SF.Item>
+
+    <SF.Item @label=""></SF.Item>
+  </Shw::Flex>
+
   <Shw::Divider />
 
   <Shw::Text::H2>Multiple selection</Shw::Text::H2>

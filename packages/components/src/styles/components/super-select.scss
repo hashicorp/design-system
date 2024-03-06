@@ -296,8 +296,27 @@
 
 // VARIANTS
 // When renderInPlace=true, setting matchTriggerWidth=false has no effect unless we override the width of the dropdown content
+// (fixes bug with ember-power-select)
 .hds-super-select--match-trigger-width-false {
   .ember-power-select-dropdown.ember-basic-dropdown-content--in-place {
       width: auto;
   }
 }
+
+// TEMPORARY, move to Showcase styles if some version is kept ------------
+
+// GroupComponent Test
+.hds-super-select__group-component {
+  outline: 1px solid var(--token-color-border-strong);
+  outline-offset: -1px;
+}
+
+.hds-super-select__group-component-group-name {
+  padding: 4px 8px;
+}
+
+.hds-super-select__group-component .hds-super-select__group-component .hds-super-select__group-component-group-name {
+  padding-left: 20px;
+}
+
+// .hds-super-select__group-component .hds-super-select__group-component .ember-power-select-option

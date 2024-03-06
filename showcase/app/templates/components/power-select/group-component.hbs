@@ -1,0 +1,14 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{! This is not an HDS component, but a supporting file for demonstrating the HDS version of a PowerSelect in the Showcase }}
+<li class="hds-super-select__group-component">
+  <div class="hds-super-select__group-component-group-name hds-typography-display-200 hds-font-weight-medium">
+    {{@group.groupName}}
+  </div>
+
+  {{! NOTE: Interface for `ember-power-select`'s `@groupComponent` requires yielding to render grouped select options. }}
+  {{yield}}
+</li>
