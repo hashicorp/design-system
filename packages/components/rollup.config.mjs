@@ -85,10 +85,5 @@ export default {
   // You can augment this if you need to.
   output: addon.output(),
   plugins: plugins,
-  external: [
-    'dialog-polyfill',
-    'dialog-polyfill/dist/dialog-polyfill.css',
-    'ember-modifier',
-    'prismjs',
-  ],
+  external: ['ember-modifier', 'prismjs'],
 };

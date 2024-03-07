@@ -3555,7 +3555,6 @@ __metadata:
     "@types/ember-resolver": "npm:^9.0.0"
     "@types/qunit": "npm:^2.19.7"
     "@types/rsvp": "npm:^4.0.6"
-    dialog-polyfill: "npm:^0.5.6"
     ember-a11y-refocus: "npm:^3.0.2"
     ember-cli-sass: "npm:^11.0.1"
     ember-composable-helpers: "npm:^5.0.0"
@@ -10994,13 +10993,6 @@ __metadata:
   dependencies:
     dequal: "npm:^2.0.0"
   checksum: 3cc5f903d02d279d6dc4aa71ab6ed9898b9f4d1f861cc5421ce7357893c21b9520de78afb203c92bd650a6977ad0ca98195453a0707a39958cf5fea3b0a8ddd8
-  languageName: node
-  linkType: hard
-
-"dialog-polyfill@npm:^0.5.6":
-  version: 0.5.6
-  resolution: "dialog-polyfill@npm:0.5.6"
-  checksum: 42428793b04fd2e0a67dfb75838703488d7d05f73663c3251441ad6ed154b8dc71d65ed03d5a0ba4a83c6167c2e6f791cbe1574d0dca37dac1405ce3816033ca
   languageName: node
   linkType: hard
 
