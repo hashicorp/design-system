@@ -46,6 +46,28 @@
         {{option}}
       </Hds::SuperSelect>
     </SF.Item>
+    <SF.Item @label="onInput message displayed to console">
+      <Hds::SuperSelect
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @searchEnabled={{true}}
+        @onInput={{this.onInput}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect>
+    </SF.Item>
+    <SF.Item @label="resultCount message (WIP... doesn't appear to work yet)">
+      <Hds::SuperSelect
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @searchEnabled={{true}}
+        @resultCountMessage={{this.resultCountMessage}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect>
+    </SF.Item>
   </Shw::Flex>
 
   <Shw::Divider @level="2" />
