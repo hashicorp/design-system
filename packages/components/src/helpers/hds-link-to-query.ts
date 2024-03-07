@@ -19,8 +19,15 @@ import { helper } from '@ember/component/helper';
 // this is a workaround for https://github.com/emberjs/ember.js/issues/19693
 // don't remove until we drop support for ember 3.27 and 3.28
 
-export function hdsLinkToQuery([query]) {
+export function hdsLinkToQuery([query]: [Record<string, string> | undefined]) {
   return query ?? {};
 }
 
-export default helper(hdsLinkToQuery);
+const hdsLinkToQueryHelper = helper(hdsLinkToQuery);
+export default hdsLinkToQueryHelper;
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'hds-link-to-query': typeof hdsLinkToQueryHelper;
+  }
+}

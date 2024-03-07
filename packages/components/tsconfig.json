@@ -10,6 +10,9 @@
     "allowJs": true,
     "allowImportingTsExtensions": true,
     "skipLibCheck": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noPropertyAccessFromIndexSignature": false,
     "paths": {
       "@hashicorp/design-system-components": [
         "src"
@@ -30,6 +33,6 @@
     "dist/**/*"
   ],
   "glint": {
-    "environment": ["ember-loose", "ember-template-imports"],
+    "environment": ["ember-loose"],
   }
 }
