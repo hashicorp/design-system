@@ -87,23 +87,6 @@ export default class HdsFlyoutIndexComponent extends Component {
         this.body.style.getPropertyValue('overflow');
     }
 
-    // Register `<dialog>` element for polyfilling if no native support is available
-    if (!element.showModal) {
-      Promise.all([
-        import('dialog-polyfill'),
-        import('dialog-polyfill/dist/dialog-polyfill.css'),
-      ])
-        .then(([dialogPolyfill]) => {
-          const dialog = dialogPolyfill.default;
-          if (dialog.registerDialog) {
-            dialog.registerDialog(element);
-            // This unscoped class is defined in the dialog polyfill: https://github.com/GoogleChrome/dialog-polyfill/blob/master/dist/dialog-polyfill.css#L33
-            element.classList.add('fixed');
-          }
-        })
-        .catch({});
-    }
-
     // Register "onClose" callback function to be called when a native 'close' event is dispatched
     this.element.addEventListener('close', this.registerOnCloseCallback, true);
 
