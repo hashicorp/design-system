@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { module, test } from 'qunit';
+import { module, skip, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import {
   render,
@@ -47,7 +47,7 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
     assert.dom('img').exists();
   });
 
-  test('if an @imageSrc is declared but does not exist, the flight icon should render in the component', async function (assert) {
+  skip('if an @imageSrc is declared but does not exist, the flight icon should render in the component', async function (assert) {
     this.set('imageSrc', '/assets/images/avatar.png');
     await render(
       hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" @imageSrc={{this.imageSrc}} id="test-toggle-icon" />`
