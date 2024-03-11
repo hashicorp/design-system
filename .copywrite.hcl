@@ -14,6 +14,8 @@ project {
     "**/*rc.js",
     # Distribution files
     "**/dist/**",
+    # Type declarations
+    "**/*.d.ts",
     # SVG icons packed as `tsx` files
     "packages/flight-icons/svg-react/*",
     # Handlebars components sensitive to white-space
