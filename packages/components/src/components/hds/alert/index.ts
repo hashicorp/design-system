@@ -8,34 +8,33 @@ import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
+import { HdsAlertTypeValues, HdsAlertColorValues } from './types.ts';
+import type { HdsAlertSignature } from './types.ts';
 
-export const TYPES = ['page', 'inline', 'compact'];
-export const DEFAULT_COLOR = 'neutral';
-export const COLORS = [
-  'neutral',
-  'highlight',
-  'success',
-  'warning',
-  'critical',
-];
+export const TYPES: string[] = Object.values(HdsAlertTypeValues);
+export const DEFAULT_COLOR = HdsAlertColorValues.Neutral;
+export const COLORS: string[] = Object.values(HdsAlertColorValues);
+
 export const MAPPING_COLORS_TO_ICONS = {
-  neutral: 'info',
-  highlight: 'info',
-  success: 'check-circle',
-  warning: 'alert-triangle',
-  critical: 'alert-diamond',
-};
+  [HdsAlertColorValues.Neutral]: 'info',
+  [HdsAlertColorValues.Highlight]: 'info',
+  [HdsAlertColorValues.Success]: 'check-circle',
+  [HdsAlertColorValues.Warning]: 'alert-triangle',
+  [HdsAlertColorValues.Critical]: 'alert-diamond',
+} as const;
 
 const CONTENT_ELEMENT_SELECTOR = '.hds-alert__content';
 const TITLE_ELEMENT_SELECTOR = '.hds-alert__title';
 const DESCRIPTION_ELEMENT_SELECTOR = '.hds-alert__description';
 
-export default class HdsAlertIndexComponent extends Component {
-  @tracked role = 'alert';
-  @tracked ariaLabelledBy;
+// TODO: Do we need to update this icon type to be a type exported from the icon foundations in the future?
 
-  constructor() {
-    super(...arguments);
+export default class HdsAlertIndexComponent extends Component<HdsAlertSignature> {
+  @tracked role = 'alert';
+  @tracked ariaLabelledBy?: string;
+
+  constructor(owner: unknown, args: HdsAlertSignature['Args']) {
+    super(owner, args);
 
     assert(
       `@type for "Hds::Alert" must be one of the following: ${TYPES.join(
@@ -52,7 +51,7 @@ export default class HdsAlertIndexComponent extends Component {
    * @description Determines the color scheme for the alert.
    */
   get color() {
-    let { color = DEFAULT_COLOR } = this.args;
+    const { color = DEFAULT_COLOR } = this.args;
 
     assert(
       `@color for "Hds::Alert" must be one of the following: ${COLORS.join(
@@ -71,7 +70,7 @@ export default class HdsAlertIndexComponent extends Component {
    * @description The name of the icon to be used.
    */
   get icon() {
-    let { icon } = this.args;
+    const { icon } = this.args;
 
     // If `icon` isn't passed, use the pre-defined one from `color`
     if (icon === undefined) {
@@ -102,7 +101,7 @@ export default class HdsAlertIndexComponent extends Component {
    * @default () => {}
    */
   get onDismiss() {
-    let { onDismiss } = this.args;
+    const { onDismiss } = this.args;
 
     if (typeof onDismiss === 'function') {
       return onDismiss;
@@ -130,7 +129,7 @@ export default class HdsAlertIndexComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-alert'];
+    const classes = ['hds-alert'];
 
     // Add a class based on the @type argument
     classes.push(`hds-alert--type-${this.args.type}`);
@@ -142,8 +141,8 @@ export default class HdsAlertIndexComponent extends Component {
   }
 
   @action
-  didInsert(element) {
-    let actions = element.querySelectorAll(
+  didInsert(element: HTMLDivElement) {
+    const actions = element.querySelectorAll(
       `${CONTENT_ELEMENT_SELECTOR} button, ${CONTENT_ELEMENT_SELECTOR} a`
     );
     if (actions.length) {
@@ -152,11 +151,11 @@ export default class HdsAlertIndexComponent extends Component {
 
     // `alertdialog` must have an accessible name so we use either the
     // title or the description as label for the alert
-    let label =
+    const label =
       element.querySelector(TITLE_ELEMENT_SELECTOR) ||
       element.querySelector(DESCRIPTION_ELEMENT_SELECTOR);
     if (label) {
-      let labelId = label.getAttribute('id') || guidFor(element);
+      const labelId = label.getAttribute('id') || guidFor(element);
       label.setAttribute('id', labelId);
       this.ariaLabelledBy = labelId;
     }
