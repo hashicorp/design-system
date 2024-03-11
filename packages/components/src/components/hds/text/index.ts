@@ -5,40 +5,43 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import {
+  HdsTextAlignValues,
+  type HdsTextTags,
+  HdsTextColorValues,
+  type HdsTextAligns,
+  type HdsTextColors,
+  type HdsTextGroups,
+  type HdsTextSizes,
+  type HdsTextWeights
+} from './types';
 
-export const AVAILABLE_ALIGNS = ['left', 'center', 'right'];
+export const AVAILABLE_COLORS: string[] = Object.values(HdsTextColorValues);
+export const AVAILABLE_ALIGNS: string[] = Object.values(HdsTextAlignValues);
 
-export const AVAILABLE_COLORS = [
-  'primary',
-  'strong',
-  'faint',
-  'disabled',
-  'high-contrast',
-  'action',
-  'action-hover',
-  'action-active',
-  'highlight',
-  'highlight-on-surface',
-  'highlight-high-contrast',
-  'success',
-  'success-on-surface',
-  'success-high-contrast',
-  'warning',
-  'warning-on-surface',
-  'warning-high-contrast',
-  'critical',
-  'critical-on-surface',
-  'critical-high-contrast',
-];
+export interface HdsTextIndexSignature {
+  Args: {
+    size: HdsTextSizes;
+    group: HdsTextGroups;
+    color?: string | HdsTextColors;
+    tag?: HdsTextTags;
+    align?: HdsTextAligns;
+    weight?: HdsTextWeights;
+  };
+  Element: HTMLSpanElement | HTMLHeadingElement | HTMLParagraphElement | HTMLDivElement;
+  Blocks: {
+    default: [],
+  };
+}
 
-export default class HdsTextIndexComponent extends Component {
+export default class HdsTextIndexComponent extends Component<HdsTextIndexSignature> {
   /**
    * Get a tag to render based on the `@tag` argument passed or the value of `this.size` (via mapping)
    *
    * @method #componentTag
    * @return {string} The html tag to use in the dynamic render of the component
    */
-  get componentTag() {
+  get componentTag(): HdsTextTags {
     let { tag = 'span' } = this.args;
 
     return tag;
@@ -92,7 +95,7 @@ export default class HdsTextIndexComponent extends Component {
   get predefinedColor() {
     let { color } = this.args;
 
-    if (AVAILABLE_COLORS.includes(color)) {
+    if (color && AVAILABLE_COLORS.includes(color)) {
       return color;
     } else {
       return undefined;
@@ -108,7 +111,7 @@ export default class HdsTextIndexComponent extends Component {
   get customColor() {
     let { color } = this.args;
 
-    if (!AVAILABLE_COLORS.includes(color)) {
+    if (color && !AVAILABLE_COLORS.includes(color)) {
       return color;
     } else {
       return undefined;
