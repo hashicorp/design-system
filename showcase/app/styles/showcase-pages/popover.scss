@@ -4,3 +4,26 @@
  */
 
 // POPOVER
+
+body.components-popover {
+  .shw-component-popover-content-interactive {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      margin: 0;
+      padding: 0;
+
+      & + li {
+        margin-top: 8px;
+        padding-top: 8px;
+        border-top: 1px dotted #ccc;
+      }
+    }
+
+    a {
+      display: block;
+    }
+  }
+}

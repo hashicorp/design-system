@@ -9,34 +9,36 @@
 
 <section data-test-percy>
 
-  <Shw::Text::H2>Popover</Shw::Text::H2>
+  <Shw::Text::H2>Content vs Interaction</Shw::Text::H2>
 
-  <Shw::Text::H3>Non-interactive content</Shw::Text::H3>
+  <Shw::Text::H3>Non-interactive trigger</Shw::Text::H3>
 
-  <Shw::Flex {{style gap="2rem"}} as |SF|>
+  <Shw::Text::Body>With non-interactive content</Shw::Text::Body>
 
-    <SF.Item @label="Plain text">
-      <Hds::Popover>
+  <Shw::Grid @columns={{3}} {{style gap="2rem"}} as |SG|>
+
+    <SG.Item @label="Plain text">
+      <Hds::Popover @enableCollisionDetection={{true}}>
         <:toggle>Lorem ipsum dolor</:toggle>
         <:content>
           <Shw::Placeholder @text="generic content" @height="40" />
         </:content>
       </Hds::Popover>
-    </SF.Item>
+    </SG.Item>
 
-    <SF.Item @label="Icon">
-      <Hds::Popover>
+    <SG.Item @label="Icon">
+      <Hds::Popover @enableCollisionDetection={{true}}>
         <:toggle>
-          <FlightIcon @name="info" />
+          <FlightIcon @name="info" @isInlineBlock={{false}} />
         </:toggle>
         <:content>
           <Shw::Placeholder @text="generic content" @height="40" />
         </:content>
       </Hds::Popover>
-    </SF.Item>
+    </SG.Item>
 
-    <SF.Item @label="Generic content">
-      <Hds::Popover>
+    <SG.Item @label="Generic content">
+      <Hds::Popover @enableCollisionDetection={{true}}>
         <:toggle>
           <Shw::Placeholder @text="generic content" @height="40" />
         </:toggle>
@@ -44,18 +46,90 @@
           <Shw::Placeholder @text="generic content" @height="40" />
         </:content>
       </Hds::Popover>
-    </SF.Item>
+    </SG.Item>
 
-  </Shw::Flex>
+  </Shw::Grid>
+
+  <Shw::Text::Body>With interactive content</Shw::Text::Body>
+
+  <Shw::Grid @columns={{3}} {{style gap="2rem"}} as |SG|>
+
+    <SG.Item @label="Plain text">
+      <Hds::Popover @enableCollisionDetection={{true}}>
+        <:toggle>Lorem ipsum dolor</:toggle>
+        <:content as |c|>
+          <ul class="shw-component-popover-content-interactive">
+            <li>
+              <a href="https://google.com">Link to Google</a>
+            </li>
+            <li>
+              <label for="input-1">Input value:</label>
+              <input id="input-1" type="text" />
+            </li>
+            <li>
+              <button type="button" {{on "click" c.close}}>Button that closes the popover on click</button>
+            </li>
+          </ul>
+        </:content>
+      </Hds::Popover>
+    </SG.Item>
+
+    <SG.Item @label="Icon">
+      <Hds::Popover @enableCollisionDetection={{true}}>
+        <:toggle>
+          <FlightIcon @name="info" @isInlineBlock={{false}} />
+        </:toggle>
+        <:content as |c|>
+          <ul class="shw-component-popover-content-interactive">
+            <li>
+              <a href="https://google.com">Link to Google</a>
+            </li>
+            <li>
+              <label for="input-2">Input value:</label>
+              <input id="input-2" type="text" />
+            </li>
+            <li>
+              <button type="button" {{on "click" c.close}}>Button that closes the popover on click</button>
+            </li>
+          </ul>
+        </:content>
+      </Hds::Popover>
+    </SG.Item>
+
+    <SG.Item @label="Generic content">
+      <Hds::Popover @enableCollisionDetection={{true}}>
+        <:toggle>
+          <Shw::Placeholder @text="generic content" @height="40" />
+        </:toggle>
+        <:content as |c|>
+          <ul class="shw-component-popover-content-interactive">
+            <li>
+              <a href="https://google.com">Link to Google</a>
+            </li>
+            <li>
+              <label for="input-3">Input value:</label>
+              <input id="input-3" type="text" />
+            </li>
+            <li>
+              <button type="button" {{on "click" c.close}}>Button that closes the popover on click</button>
+            </li>
+          </ul>
+        </:content>
+      </Hds::Popover>
+    </SG.Item>
+
+  </Shw::Grid>
 
   <Shw::Divider @level={{2}} />
 
-  <Shw::Text::H3>Interactive content</Shw::Text::H3>
+  <Shw::Text::H3>Interactive trigger</Shw::Text::H3>
 
-  <Shw::Flex {{style gap="2rem"}} as |SF|>
+  <Shw::Text::Body>With non-interactive content</Shw::Text::Body>
 
-    <SF.Item @label="Applied to a button">
-      <Hds::Popover @isInteractive={{true}}>
+  <Shw::Grid @columns={{3}} {{style gap="2rem"}} as |SG|>
+
+    <SG.Item @label="Button">
+      <Hds::Popover @isInteractive={{true}} @enableCollisionDetection={{true}}>
         <:toggle>
           <Hds::Button @text="Submit" />
         </:toggle>
@@ -63,10 +137,10 @@
           <Shw::Placeholder @text="generic content" @height="40" />
         </:content>
       </Hds::Popover>
-    </SF.Item>
+    </SG.Item>
 
-    <SF.Item @label="Applied to a link">
-      <Hds::Popover @isInteractive={{true}}>
+    <SG.Item @label="Link">
+      <Hds::Popover @isInteractive={{true}} @enableCollisionDetection={{true}}>
         <:toggle>
           <Hds::Link::Standalone @icon="external-link" @iconPosition="trailing" @text="Acme Corp" @href="#" />
         </:toggle>
@@ -74,15 +148,15 @@
           <Shw::Placeholder @text="generic content" @height="40" />
         </:content>
       </Hds::Popover>
-    </SF.Item>
+    </SG.Item>
 
-    <SF.Item @label="Applied to an input">
+    <SG.Item @label="Input">
       <Hds::Form::Field @layout="vertical" as |F|>
         <F.Label @controlId="tooltip-example-control-id">First Name</F.Label>
         <F.Control>
-          <Hds::Popover @isInteractive={{true}}>
+          <Hds::Popover @isInteractive={{true}} @enableCollisionDetection={{true}}>
             <:toggle>
-              <input type="text" value="Jane" id="tooltip-example-control-id" />
+              <input type="text" value="Jane" id="popover-example-control-id-1" />
             </:toggle>
             <:content>
               <Shw::Placeholder @text="generic content" @height="40" />
@@ -90,7 +164,83 @@
           </Hds::Popover>
         </F.Control>
       </Hds::Form::Field>
-    </SF.Item>
-  </Shw::Flex>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Text::Body>With interactive content</Shw::Text::Body>
+
+  <Shw::Grid @columns={{3}} {{style gap="2rem"}} as |SG|>
+
+    <SG.Item @label="Button">
+      <Hds::Popover @isInteractive={{true}} @enableCollisionDetection={{true}}>
+        <:toggle>
+          <Hds::Button @text="Submit" />
+        </:toggle>
+        <:content as |c|>
+          <ul class="shw-component-popover-content-interactive">
+            <li>
+              <a href="https://google.com">Link to Google</a>
+            </li>
+            <li>
+              <label for="input-4">Input value:</label>
+              <input id="input-4" type="text" />
+            </li>
+            <li>
+              <button type="button" {{on "click" c.close}}>Button that closes the popover on click</button>
+            </li>
+          </ul>
+        </:content>
+      </Hds::Popover>
+    </SG.Item>
+
+    <SG.Item @label="Link">
+      <Hds::Popover @isInteractive={{true}} @enableCollisionDetection={{true}}>
+        <:toggle>
+          <Hds::Link::Standalone @icon="external-link" @iconPosition="trailing" @text="Acme Corp" @href="#" />
+        </:toggle>
+        <:content as |c|>
+          <ul class="shw-component-popover-content-interactive">
+            <li>
+              <a href="https://google.com">Link to Google</a>
+            </li>
+            <li>
+              <label for="input-5">Input value:</label>
+              <input id="input-5" type="text" />
+            </li>
+            <li>
+              <button type="button" {{on "click" c.close}}>Button that closes the popover on click</button>
+            </li>
+          </ul>
+        </:content>
+      </Hds::Popover>
+    </SG.Item>
+
+    <SG.Item @label="Input">
+      <Hds::Form::Field @layout="vertical" as |F|>
+        <F.Label @controlId="tooltip-example-control-id">First Name</F.Label>
+        <F.Control>
+          <Hds::Popover @isInteractive={{true}} @enableCollisionDetection={{true}}>
+            <:toggle>
+              <input type="text" value="Jane" id="tooltip-example-control-id-2" />
+            </:toggle>
+            <:content as |c|>
+              <ul class="shw-component-popover-content-interactive">
+                <li>
+                  <a href="https://google.com">Link to Google</a>
+                </li>
+                <li>
+                  <label for="input-6">Input value:</label>
+                  <input id="input-6" type="text" />
+                </li>
+                <li>
+                  <button type="button" {{on "click" c.close}}>Button that closes the popover on click</button>
+                </li>
+              </ul>
+            </:content>
+          </Hds::Popover>
+        </F.Control>
+      </Hds::Form::Field>
+    </SG.Item>
+  </Shw::Grid>
 
 </section>

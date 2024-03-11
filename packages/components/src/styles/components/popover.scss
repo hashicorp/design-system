@@ -14,11 +14,17 @@
 }
 
 .hds-popover__button {
+  // add design token for --token-popover-focus-offset
+  --token-popover-focus-offset: -2px;
+
+  // TODO! discuss with designer
+  border-radius: 3px;
+
   @include hds-focus-ring-with-pseudo-element(
-    $top: var(--token-tooltip-focus-offset),
-    $right: var(--token-tooltip-focus-offset),
-    $bottom: var(--token-tooltip-focus-offset),
-    $left: var(--token-tooltip-focus-offset),
+    $top: var(--token-popover-focus-offset),
+    $right: var(--token-popover-focus-offset),
+    $bottom: var(--token-popover-focus-offset),
+    $left: var(--token-popover-focus-offset),
   );
 }
 
