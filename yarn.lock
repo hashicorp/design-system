@@ -3042,7 +3042,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/component@npm:^1.1.2":
+"@glimmer/component@npm:^1.1.0, @glimmer/component@npm:^1.1.2":
   version: 1.1.2
   resolution: "@glimmer/component@npm:1.1.2"
   dependencies:
@@ -3440,28 +3440,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glint/core@npm:^1.2.1":
-  version: 1.2.1
-  resolution: "@glint/core@npm:1.2.1"
-  dependencies:
-    "@glimmer/syntax": "npm:^0.84.2"
-    escape-string-regexp: "npm:^4.0.0"
-    semver: "npm:^7.5.2"
-    silent-error: "npm:^1.1.1"
-    uuid: "npm:^8.3.2"
-    vscode-languageserver: "npm:^8.0.1"
-    vscode-languageserver-textdocument: "npm:^1.0.5"
-    vscode-uri: "npm:^3.0.8"
-    yargs: "npm:^17.5.1"
-  peerDependencies:
-    typescript: ">=4.8.0"
-  bin:
-    glint: bin/glint.js
-    glint-language-server: bin/glint-language-server.js
-  checksum: af42d3e0ee3f6ed4774b2d7d2d80516b56e7e499f15ffeae7bcc20ac0f108deb4514d5a81ec5c97d325ff7b8078415cef8de6154d02f0263a34e473f491eae3b
-  languageName: node
-  linkType: hard
-
 "@glint/core@npm:^1.3.0":
   version: 1.3.0
   resolution: "@glint/core@npm:1.3.0"
@@ -3481,38 +3459,6 @@ __metadata:
     glint: bin/glint.js
     glint-language-server: bin/glint-language-server.js
   checksum: b8014f6a854c1f4f3bb1eb1240637d05b7d923ae4a46c518fc73646b4c79635ef99189b550a5e6124f64ec76f431869cbe6cae3e274e08446c19c4992f016535
-  languageName: node
-  linkType: hard
-
-"@glint/environment-ember-loose@npm:^1.2.1":
-  version: 1.2.1
-  resolution: "@glint/environment-ember-loose@npm:1.2.1"
-  peerDependencies:
-    "@glimmer/component": ^1.1.2
-    "@glint/template": ^1.2.1
-    "@types/ember__array": ^4.0.2
-    "@types/ember__component": ^4.0.10
-    "@types/ember__controller": ^4.0.2
-    "@types/ember__object": ^4.0.4
-    "@types/ember__routing": ^4.0.11
-    ember-cli-htmlbars: ^6.0.1
-    ember-modifier: ^3.2.7 || ^4.0.0
-  peerDependenciesMeta:
-    "@types/ember__array":
-      optional: true
-    "@types/ember__component":
-      optional: true
-    "@types/ember__controller":
-      optional: true
-    "@types/ember__object":
-      optional: true
-    "@types/ember__routing":
-      optional: true
-    ember-cli-htmlbars:
-      optional: true
-    ember-modifier:
-      optional: true
-  checksum: 7a20361ecf5f77d9974cd5c8ac9d9998fe103e8e0283855b33969821fd6be94da8af7fc6c4cd249e9d84b8b388616426c491c7670aae3e418c75adfcb2441419
   languageName: node
   linkType: hard
 
@@ -3545,13 +3491,6 @@ __metadata:
     ember-modifier:
       optional: true
   checksum: 9fb084245d35ca310afdc58ece4dec21331b53e95e024bde84daf9a454c061f6bfc9056b1448976aba6d0a7d179f5857f3423991f9bc5aa99cc46f3e589200c8
-  languageName: node
-  linkType: hard
-
-"@glint/template@npm:^1.2.1":
-  version: 1.2.1
-  resolution: "@glint/template@npm:1.2.1"
-  checksum: a40301b8b1a56e685af1b8bb730f12a3edf564d0d8212ef067ec3dff0d9a53566b040c6da4285dc4aaa9f5029e7a35bc31f29cc861774eec7a80c7b7e64045fb
   languageName: node
   linkType: hard
 
@@ -4901,6 +4840,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tsconfig/ember@npm:^3.0.5":
+  version: 3.0.5
+  resolution: "@tsconfig/ember@npm:3.0.5"
+  checksum: 0cf22338a5947783ac68067ee256bf444e70e95ed77c4fe070a78211842b6da7e81ecc95d2c85118e5dbd9a59f92d4a67fe7b677e53fe9b1c38aab30d4a8bd9e
+  languageName: node
+  linkType: hard
+
 "@tsconfig/node10@npm:^1.0.7":
   version: 1.0.9
   resolution: "@tsconfig/node10@npm:1.0.9"
@@ -5066,6 +5012,31 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/ember@npm:*, @types/ember@npm:^4.0.11":
+  version: 4.0.11
+  resolution: "@types/ember@npm:4.0.11"
+  dependencies:
+    "@types/ember__application": "npm:*"
+    "@types/ember__array": "npm:*"
+    "@types/ember__component": "npm:*"
+    "@types/ember__controller": "npm:*"
+    "@types/ember__debug": "npm:*"
+    "@types/ember__engine": "npm:*"
+    "@types/ember__error": "npm:*"
+    "@types/ember__object": "npm:*"
+    "@types/ember__polyfills": "npm:*"
+    "@types/ember__routing": "npm:*"
+    "@types/ember__runloop": "npm:*"
+    "@types/ember__service": "npm:*"
+    "@types/ember__string": "npm:*"
+    "@types/ember__template": "npm:*"
+    "@types/ember__test": "npm:*"
+    "@types/ember__utils": "npm:*"
+    "@types/rsvp": "npm:*"
+  checksum: 4554cf8020bba1c55b15778168dba705a42a6b0355acfcbd23c385a21b44375a7819bc2b2a84c8336b8c0b017a793812965caeb9967e684f00b70e3cecaafb2c
+  languageName: node
+  linkType: hard
+
 "@types/ember@npm:^3.16.5":
   version: 3.16.13
   resolution: "@types/ember@npm:3.16.13"
@@ -5091,6 +5062,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/ember__application@npm:*, @types/ember__application@npm:^4.0.11":
+  version: 4.0.11
+  resolution: "@types/ember__application@npm:4.0.11"
+  dependencies:
+    "@glimmer/component": "npm:^1.1.0"
+    "@types/ember": "npm:*"
+    "@types/ember__engine": "npm:*"
+    "@types/ember__object": "npm:*"
+    "@types/ember__owner": "npm:*"
+    "@types/ember__routing": "npm:*"
+  checksum: 03233ad49bc3fa275b3f903ea1c3d2be3219e028cc29632226e3522e1b67dff15d13577212af3379ac03d931d60cdfed96a40d62e4f51f81a8a471062e0d14a3
+  languageName: node
+  linkType: hard
+
 "@types/ember__application@npm:^3":
   version: 3.16.9
   resolution: "@types/ember__application@npm:3.16.9"
@@ -5102,12 +5087,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/ember__array@npm:*, @types/ember__array@npm:^4.0.10":
+  version: 4.0.10
+  resolution: "@types/ember__array@npm:4.0.10"
+  dependencies:
+    "@types/ember": "npm:*"
+    "@types/ember__object": "npm:*"
+  checksum: 3a9bd2e81f95c0f54a453e7b9aaac7ad2a2da13f4b2c86e2f9f59e9a8febfd19950f230c99143f59b617e39279f4b2e101b409d1be5a7b3e28146dcfc542f51f
+  languageName: node
+  linkType: hard
+
 "@types/ember__array@npm:^3":
   version: 3.16.10
   resolution: "@types/ember__array@npm:3.16.10"
   dependencies:
     "@types/ember__object": "npm:^3"
   checksum: ec02cf230fd4f7c76e8eea4097a34f9bfe55890b1595b10f569bfe0fccade34878ec290a14440c5e8286c55e48c59059ca296b7cc4858abdd0de5a0ec5f505d7
+  languageName: node
+  linkType: hard
+
+"@types/ember__component@npm:*, @types/ember__component@npm:^4.0.22":
+  version: 4.0.22
+  resolution: "@types/ember__component@npm:4.0.22"
+  dependencies:
+    "@types/ember": "npm:*"
+    "@types/ember__object": "npm:*"
+  checksum: ee4bb9724c134c149313e128deafd33500dd1f0e22df0ec0c4d5b8ce9ecd488ce5fa30c06a8d583d359c9a35a08dc664d396fc494902ee7575b2b02929a38872
   languageName: node
   linkType: hard
 
@@ -5121,12 +5126,31 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/ember__controller@npm:*, @types/ember__controller@npm:^4.0.12":
+  version: 4.0.12
+  resolution: "@types/ember__controller@npm:4.0.12"
+  dependencies:
+    "@types/ember__object": "npm:*"
+  checksum: 02001690069e1e537fc92d84d2de103693e499bc2c7ba12597a454aa7c45b7d1b93092232c44601d06915f28240ec189eb1ca0aaec139ebf39dd63e6b42b197b
+  languageName: node
+  linkType: hard
+
 "@types/ember__controller@npm:^3":
   version: 3.16.13
   resolution: "@types/ember__controller@npm:3.16.13"
   dependencies:
     "@types/ember__object": "npm:^3"
   checksum: 82f92c7bd48f94e0f854e640906b7c7b59c0652d2c1881d911c4f7784810b1bf74660f1d9efa998cff32fa42d6cf15717665b7134b5bb9f7f09406955590e829
+  languageName: node
+  linkType: hard
+
+"@types/ember__debug@npm:*, @types/ember__debug@npm:^4.0.8":
+  version: 4.0.8
+  resolution: "@types/ember__debug@npm:4.0.8"
+  dependencies:
+    "@types/ember__object": "npm:*"
+    "@types/ember__owner": "npm:*"
+  checksum: a379664f6de9c63e37c6d834185e0609a7ee3e7993650912bf0a02c51770b94818b86fa7928b80f7df3b32e4cdcc5344917da65341d66d0950599ad11656e5a4
   languageName: node
   linkType: hard
 
@@ -5140,6 +5164,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/ember__destroyable@npm:^4.0.5":
+  version: 4.0.5
+  resolution: "@types/ember__destroyable@npm:4.0.5"
+  checksum: 65fe01e00148427b0d716b18e33b1e36ec32c93176c1fcbeba38338a20d6437d2e31a4ce62ae720714b07f6619cf30c8529f8cdbcd169cc8222516bff14ae8e5
+  languageName: node
+  linkType: hard
+
+"@types/ember__engine@npm:*, @types/ember__engine@npm:^4.0.11":
+  version: 4.0.11
+  resolution: "@types/ember__engine@npm:4.0.11"
+  dependencies:
+    "@types/ember__object": "npm:*"
+    "@types/ember__owner": "npm:*"
+  checksum: 55a2fc9eb82f64e5d87d74b0624198b0ae898389ec5bb5ff845234aa60e4c8d72ccfe99bec449b3edd3f236f38d1ad5f07e64bb1daf9aacd0441a86041b4d56a
+  languageName: node
+  linkType: hard
+
 "@types/ember__engine@npm:^3":
   version: 3.16.8
   resolution: "@types/ember__engine@npm:3.16.8"
@@ -5149,10 +5190,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/ember__error@npm:*, @types/ember__error@npm:^4.0.6":
+  version: 4.0.6
+  resolution: "@types/ember__error@npm:4.0.6"
+  checksum: 8433d8960925ac59870f8152b32e9e2ee31fdcb89d2446d268a40fa68bd7551dc8cf168ff6d1dce66b56ad36a877c77e3c53da337259b76afc04b8553c995c84
+  languageName: node
+  linkType: hard
+
 "@types/ember__error@npm:^3":
   version: 3.16.5
   resolution: "@types/ember__error@npm:3.16.5"
   checksum: 58612b8e24b8bcf754a94299d7c1fae2a59aad2c3536f8eb2ff107d1c8db603022e32991e1c0d02f795efc426d565c3ac896116b2735cc58bf5319718149cd75
+  languageName: node
+  linkType: hard
+
+"@types/ember__object@npm:*, @types/ember__object@npm:^4.0.12":
+  version: 4.0.12
+  resolution: "@types/ember__object@npm:4.0.12"
+  dependencies:
+    "@types/ember": "npm:*"
+    "@types/rsvp": "npm:*"
+  checksum: 10e4c46ba60766bb16f9a3ddb995cb5c85559a7d7e7e52da34f1b4548f84caf0baabf0a9d2ecb07aa8f98f76d3542bdacdf04bf47c17f510774ce8497747ee26
   languageName: node
   linkType: hard
 
@@ -5165,10 +5223,36 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/ember__owner@npm:*":
+  version: 4.0.9
+  resolution: "@types/ember__owner@npm:4.0.9"
+  checksum: 5bf3a56fc12fe83e3a02f6a24e025ba0dc571f4950204647f913fff58ed216cf9df1d6869c85a80618b2c1e995360ff3683c7326b35ef84ca214cee8de9e438a
+  languageName: node
+  linkType: hard
+
+"@types/ember__polyfills@npm:*, @types/ember__polyfills@npm:^4.0.6":
+  version: 4.0.6
+  resolution: "@types/ember__polyfills@npm:4.0.6"
+  checksum: 331d2dd66d106ffd67866d20186da1d6321080692de174bc7f61618735228f67ae41bc435c79fbce9532bd0a63d3489f73843edefe555f63021d28ee70fb0ea8
+  languageName: node
+  linkType: hard
+
 "@types/ember__polyfills@npm:^3":
   version: 3.12.6
   resolution: "@types/ember__polyfills@npm:3.12.6"
   checksum: d406fde5fedd0684132828ede9638eee2623a12ae0b1f0f40c996600d2d919fd474fea02733c468357597d1cdd57bd1b687ec38cd0fcdbd676e51adc4ef58488
+  languageName: node
+  linkType: hard
+
+"@types/ember__routing@npm:*, @types/ember__routing@npm:^4.0.22":
+  version: 4.0.22
+  resolution: "@types/ember__routing@npm:4.0.22"
+  dependencies:
+    "@types/ember": "npm:*"
+    "@types/ember__controller": "npm:*"
+    "@types/ember__object": "npm:*"
+    "@types/ember__service": "npm:*"
+  checksum: b20fd42952278f8425ed75480f258df7f186d2af28f58f834d45c434b025f1a8442012253e4445a715ea514eeaae96408c934a148456059fbc826df3a40196a0
   languageName: node
   linkType: hard
 
@@ -5184,10 +5268,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/ember__runloop@npm:*, @types/ember__runloop@npm:^4.0.10":
+  version: 4.0.10
+  resolution: "@types/ember__runloop@npm:4.0.10"
+  dependencies:
+    "@types/ember": "npm:*"
+  checksum: 7758d9537ea2295ada0bb69ec5c41cb1dd46d8594d20cc256ee719212489e41cffe02f7a4df2cc53882489b3a823d0f09d303a11b1b6dd3e2c33cdafdc583ef2
+  languageName: node
+  linkType: hard
+
 "@types/ember__runloop@npm:^3":
   version: 3.16.9
   resolution: "@types/ember__runloop@npm:3.16.9"
   checksum: 3edc1784c7de766d992fd3157cbb86643506169ab82f7f2d970597453bb3eda0d548ecaf97c174ecccc5fe3f9cd181a727b24c9127528f5efe1bf184b242d178
+  languageName: node
+  linkType: hard
+
+"@types/ember__service@npm:*, @types/ember__service@npm:^4.0.9":
+  version: 4.0.9
+  resolution: "@types/ember__service@npm:4.0.9"
+  dependencies:
+    "@types/ember__object": "npm:*"
+  checksum: 1459e93f13a019a5d824349642aa39b7b7e1ddb6970f04592076b2c1f2027a98f43acf5bda20874cfe45821f8731e982abeff0f09bed6f00bdc468ba1ee28dfd
   languageName: node
   linkType: hard
 
@@ -5200,12 +5302,35 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/ember__string@npm:*":
+  version: 3.16.3
+  resolution: "@types/ember__string@npm:3.16.3"
+  dependencies:
+    "@types/ember__template": "npm:*"
+  checksum: ee5998efc58c663dd316743ed91b1e0242321ccb79b83e2eae666e33570df8533a1ee25311ba156ec077ef63a8cbaadcf66d58cc440b86787e7a5f8e19f9f529
+  languageName: node
+  linkType: hard
+
+"@types/ember__string@npm:3.0.15":
+  version: 3.0.15
+  resolution: "@types/ember__string@npm:3.0.15"
+  checksum: 5f35931b7c4667bc3a00fdfe6060a07c4b6106307de7f40aefca6c6a89e1b38ff05debd2d633b3ac3f926e5397155bee7655154e453084c46d5b736fdb4dd9a9
+  languageName: node
+  linkType: hard
+
 "@types/ember__string@npm:^2":
   version: 2.0.5
   resolution: "@types/ember__string@npm:2.0.5"
   dependencies:
     "@types/ember__template": "npm:^3"
   checksum: ada8258f0d129243170f3034914c84b1fe8d1203a6c5bae7a8e5837f66400ac0edef966e9aca90f7f20b8b7582da5060f31af56f028d954afa71a3e6d7455ca9
+  languageName: node
+  linkType: hard
+
+"@types/ember__template@npm:*, @types/ember__template@npm:^4.0.7":
+  version: 4.0.7
+  resolution: "@types/ember__template@npm:4.0.7"
+  checksum: 6641c12dc0d33d9dcf0d67306e42acbc3c9cca0d6c21d93d0c616eafa89a0ebb35f8253dc9bf6eeced3a84e3222f8b4f64bdf69de294e5a3e53e03ea414feac4
   languageName: node
   linkType: hard
 
@@ -5216,12 +5341,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/ember__test@npm:*, @types/ember__test@npm:^4.0.6":
+  version: 4.0.6
+  resolution: "@types/ember__test@npm:4.0.6"
+  dependencies:
+    "@types/ember__application": "npm:*"
+  checksum: aeea4a6b9f716e6205f2c7334f1047c2ed88573279d3b6fa6bf23780031ceaaa5f97bb9bf9f589b50dc77807d78d5fb868b727be34a8bb15bc673b5c5f6318a5
+  languageName: node
+  linkType: hard
+
 "@types/ember__test@npm:^3":
   version: 3.16.6
   resolution: "@types/ember__test@npm:3.16.6"
   dependencies:
     "@types/ember__application": "npm:^3"
   checksum: dcdb2448155d95151917dd59a587e0941a729149949fa3659fb4ff8f0229f00735a84a10b0e4baf52d5368d1b61b1692e6f5e910af56d696ad94b0615ee8f75c
+  languageName: node
+  linkType: hard
+
+"@types/ember__utils@npm:*, @types/ember__utils@npm:^4.0.7":
+  version: 4.0.7
+  resolution: "@types/ember__utils@npm:4.0.7"
+  dependencies:
+    "@types/ember": "npm:*"
+  checksum: 94d88c1c95716c07be0775268bbe484da72ec7d198ec3c1d59d268d835298c4bf8d9f59e4a22621281a1b2ee8eb289e8c3899b2511978fd9b5b97a1b71d48dc7
   languageName: node
   linkType: hard
 
@@ -5554,6 +5697,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/qunit@npm:^2.19.10":
+  version: 2.19.10
+  resolution: "@types/qunit@npm:2.19.10"
+  checksum: 76d8d9402af4ba41a39d77ad147776f9acd4086f8ee1dc295b1ff3ef5929d07cffd629f3840622b940b518e332243e911dbeb547ea53521600f5620b2126b6c0
+  languageName: node
+  linkType: hard
+
 "@types/qunit@npm:^2.19.7":
   version: 2.19.9
   resolution: "@types/qunit@npm:2.19.9"
@@ -5627,6 +5777,13 @@ __metadata:
   version: 4.0.8
   resolution: "@types/rsvp@npm:4.0.8"
   checksum: b5e551170318ba3a333950574dc4d74c65f6ce3d0565a9c45a8854c506bb86b4584afaebc2a9174259bd79645c27e9ade2aa75cf95642fa5f9eae2e8edaf6e1e
+  languageName: node
+  linkType: hard
+
+"@types/rsvp@npm:^4.0.9":
+  version: 4.0.9
+  resolution: "@types/rsvp@npm:4.0.9"
+  checksum: 1fd2376329a9285f46ff3468a03c384b1de44eb4cd6e6c1b456bf53d457c27dffabec74e3244984ba10b8a6270d851dd9aa481fed24fe4214fb4d13722a528bd
   languageName: node
   linkType: hard
 
@@ -23267,14 +23424,37 @@ __metadata:
     "@embroider/test-setup": "npm:^3.0.3"
     "@glimmer/component": "npm:^1.1.2"
     "@glimmer/tracking": "npm:^1.1.2"
-    "@glint/core": "npm:^1.2.1"
-    "@glint/environment-ember-loose": "npm:^1.2.1"
-    "@glint/template": "npm:^1.2.1"
+    "@glint/core": "npm:^1.3.0"
+    "@glint/environment-ember-loose": "npm:^1.3.0"
+    "@glint/template": "npm:^1.3.0"
     "@hashicorp/design-system-components": "workspace:^"
     "@hashicorp/design-system-tokens": "workspace:^"
     "@hashicorp/ember-flight-icons": "workspace:^"
     "@percy/cli": "npm:^1.27.3"
     "@percy/ember": "npm:^4.2.0"
+    "@tsconfig/ember": "npm:^3.0.5"
+    "@types/ember": "npm:^4.0.11"
+    "@types/ember-qunit": "npm:^6.1.1"
+    "@types/ember-resolver": "npm:^9.0.0"
+    "@types/ember__application": "npm:^4.0.11"
+    "@types/ember__array": "npm:^4.0.10"
+    "@types/ember__component": "npm:^4.0.22"
+    "@types/ember__controller": "npm:^4.0.12"
+    "@types/ember__debug": "npm:^4.0.8"
+    "@types/ember__destroyable": "npm:^4.0.5"
+    "@types/ember__engine": "npm:^4.0.11"
+    "@types/ember__error": "npm:^4.0.6"
+    "@types/ember__object": "npm:^4.0.12"
+    "@types/ember__polyfills": "npm:^4.0.6"
+    "@types/ember__routing": "npm:^4.0.22"
+    "@types/ember__runloop": "npm:^4.0.10"
+    "@types/ember__service": "npm:^4.0.9"
+    "@types/ember__string": "npm:3.0.15"
+    "@types/ember__template": "npm:^4.0.7"
+    "@types/ember__test": "npm:^4.0.6"
+    "@types/ember__utils": "npm:^4.0.7"
+    "@types/qunit": "npm:^2.19.10"
+    "@types/rsvp": "npm:^4.0.9"
     broccoli-asset-rev: "npm:^3.0.0"
     ember-a11y-testing: "npm:^6.1.1"
     ember-auto-import: "npm:^2.6.3"
@@ -23321,7 +23501,7 @@ __metadata:
     stylelint: "npm:^15.11.0"
     stylelint-config-rational-order: "npm:^0.1.2"
     stylelint-config-standard-scss: "npm:^11.1.0"
-    typescript: "npm:^5.3.3"
+    typescript: "npm:^5.4.2"
     webpack: "npm:^5.89.0"
   languageName: unknown
   linkType: soft
@@ -25430,6 +25610,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"typescript@npm:^5.4.2":
+  version: 5.4.2
+  resolution: "typescript@npm:5.4.2"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: f8cfdc630ab1672f004e9561eb2916935b2d267792d07ce93e97fc601c7a65191af32033d5e9c0169b7dc37da7db9bf320f7432bc84527cb7697effaa4e4559d
+  languageName: node
+  linkType: hard
+
 "typescript@patch:typescript@npm%3A^5.3.3#optional!builtin<compat/typescript>":
   version: 5.3.3
   resolution: "typescript@patch:typescript@npm%3A5.3.3#optional!builtin<compat/typescript>::version=5.3.3&hash=e012d7"
@@ -25437,6 +25627,16 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: c93786fcc9a70718ba1e3819bab56064ead5817004d1b8186f8ca66165f3a2d0100fee91fa64c840dcd45f994ca5d615d8e1f566d39a7470fc1e014dbb4cf15d
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@npm%3A^5.4.2#optional!builtin<compat/typescript>":
+  version: 5.4.2
+  resolution: "typescript@patch:typescript@npm%3A5.4.2#optional!builtin<compat/typescript>::version=5.4.2&hash=e012d7"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: ef4fc2994cc0219dc9ada94c92106ba8d44cbfd7a0328ed6f8d730311caf66e114cdfa07fbc6f369bfc0fc182d9493851b3bf1644c06fc5818690b19ee960d72
   languageName: node
   linkType: hard
 
