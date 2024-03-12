@@ -130,8 +130,8 @@
 
     <SG.Item @label="Button">
       <Hds::Popover @isInteractive={{true}} @enableCollisionDetection={{true}}>
-        <:toggle>
-          <Hds::Button @text="Submit" />
+        <:toggle as |t|>
+          <Hds::Button @text="Submit" {{t.setupToggle}} />
         </:toggle>
         <:content>
           <Shw::Placeholder @text="generic content" @height="40" />
@@ -141,8 +141,14 @@
 
     <SG.Item @label="Link">
       <Hds::Popover @isInteractive={{true}} @enableCollisionDetection={{true}}>
-        <:toggle>
-          <Hds::Link::Standalone @icon="external-link" @iconPosition="trailing" @text="Acme Corp" @href="#" />
+        <:toggle as |t|>
+          <Hds::Link::Standalone
+            @icon="external-link"
+            @iconPosition="trailing"
+            @text="Acme Corp"
+            @href="#"
+            {{t.setupToggle}}
+          />
         </:toggle>
         <:content>
           <Shw::Placeholder @text="generic content" @height="40" />
@@ -155,8 +161,8 @@
         <F.Label @controlId="tooltip-example-control-id">First Name</F.Label>
         <F.Control>
           <Hds::Popover @isInteractive={{true}} @enableCollisionDetection={{true}}>
-            <:toggle>
-              <input type="text" value="Jane" id="popover-example-control-id-1" />
+            <:toggle as |t|>
+              <input type="text" value="Jane" id="popover-example-control-id-1" {{t.setupToggle}} />
             </:toggle>
             <:content>
               <Shw::Placeholder @text="generic content" @height="40" />
@@ -173,8 +179,8 @@
 
     <SG.Item @label="Button">
       <Hds::Popover @isInteractive={{true}} @enableCollisionDetection={{true}}>
-        <:toggle>
-          <Hds::Button @text="Submit" />
+        <:toggle as |t|>
+          <Hds::Button @text="Submit" {{t.setupToggle}} />
         </:toggle>
         <:content as |c|>
           <ul class="shw-component-popover-content-interactive">
@@ -195,8 +201,8 @@
 
     <SG.Item @label="Link">
       <Hds::Popover @isInteractive={{true}} @enableCollisionDetection={{true}}>
-        <:toggle>
-          <Hds::Link::Standalone @icon="external-link" @iconPosition="trailing" @text="Acme Corp" @href="#" />
+        <:toggle as |t|>
+          <Hds::Link::Standalone @icon="external-link" @iconPosition="trailing" @text="Acme Corp" @href="#" {{t.setupToggle}} />
         </:toggle>
         <:content as |c|>
           <ul class="shw-component-popover-content-interactive">
@@ -220,8 +226,8 @@
         <F.Label @controlId="tooltip-example-control-id">First Name</F.Label>
         <F.Control>
           <Hds::Popover @isInteractive={{true}} @enableCollisionDetection={{true}}>
-            <:toggle>
-              <input type="text" value="Jane" id="tooltip-example-control-id-2" />
+            <:toggle as |t|>
+              <input type="text" value="Jane" id="tooltip-example-control-id-2" {{t.setupToggle}} />
             </:toggle>
             <:content as |c|>
               <ul class="shw-component-popover-content-interactive">

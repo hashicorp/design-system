@@ -7,6 +7,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
+import { modifier } from 'ember-modifier';
 
 import {
   autoUpdate,
@@ -76,22 +77,6 @@ export default class HdsMenuPrimitiveComponent extends Component {
   @action
   didInsert(element) {
     this.element = element;
-  }
-
-  @action
-  didInsertToggle(element) {
-    this.toggleElement = element;
-    // this.toggleElement.addEventListener('click', this.togglePopover.bind(this));
-    // this.toggleElement.addEventListener('focus', this.showPopover.bind(this));
-    // this.toggleElement.addEventListener(
-    //   'mouseenter',
-    //   this.showPopover.bind(this)
-    // );
-    // this.toggleElement.addEventListener('blur', this.hidePopover.bind(this));
-    // this.toggleElement.addEventListener(
-    //   'mouseleave',
-    //   this.hidePopover.bind(this)
-    // );
   }
 
   @action
@@ -275,4 +260,28 @@ export default class HdsMenuPrimitiveComponent extends Component {
   close() {
     this.hidePopover();
   }
+
+  setupToggle = modifier(
+    (element) => {
+      this.toggleElement = element;
+      console.log('setupToggle invoked for element:', element);
+      // this.toggleElement.addEventListener('click', this.togglePopover.bind(this));
+      // this.toggleElement.addEventListener('focus', this.showPopover.bind(this));
+      // this.toggleElement.addEventListener(
+      //   'mouseenter',
+      //   this.showPopover.bind(this)
+      // );
+      // this.toggleElement.addEventListener('blur', this.hidePopover.bind(this));
+      // this.toggleElement.addEventListener(
+      //   'mouseleave',
+      //   this.hidePopover.bind(this)
+      // );
+
+      // this (teardown) function is run when the element is removed
+      return () => {
+        console.log('Modifier teardown invoked');
+      };
+    },
+    { eager: false }
+  );
 }

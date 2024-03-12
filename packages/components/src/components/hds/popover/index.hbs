@@ -11,20 +11,12 @@
 >
   <:toggle as |t|>
     {{#if @isInteractive}}
-      <div
-        {{! TODO! is this correct? }}
-        aria-expanded={{if @isOpen "true" "false"}}
-        {{did-insert t.didInsertToggle}}
-      >
-        {{yield to="toggle"}}
-      </div>
+      {{yield (hash setupToggle=t.setupToggle) to="toggle"}}
     {{else}}
       <button
         class="hds-popover__button"
-        {{! TODO! is this correct? }}
-        aria-expanded={{if @isOpen "true" "false"}}
         popovertarget={{t.popovertarget}}
-        {{did-insert t.didInsertToggle}}
+        {{t.setupToggle}}
       >
         {{yield to="toggle"}}
       </button>
