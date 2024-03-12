@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 2.1.0
+
+**Minor changes**
+
+Added new pipeline to Style Dictionary for `cloud-email` - `email/sass-variables` to be used in email templating
+
+<small class="doc-whats-new-changelog-metadata">[#1965](https://github.com/hashicorp/design-system/pull/1965)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 2.0.0
 
 **Major changes**
@@ -189,12 +199,6 @@ This release signifies the first major release of the HashiCorp Design System. M
   - added explicit emoji support for `Display/Text`
   - replaced `SF Mono` with `ui-monospace` in Code
   - added `Menlo` to `Code`
-
-## 0.7.0
-
-**Minor changes**
-
-- [#98](https://github.com/hashicorp/design-system/pull/98) [`411cd9b9`](https://github.com/hashicorp/design-system/commit/411cd9b949e376d38eb1dc4d4af93ae17e6c686a) Thanks [@didoo](https://github.com/didoo)! - refactored “focus-ring” tokens and CSS helpers to support both “action” and “critical“ colors
 
 
 ---

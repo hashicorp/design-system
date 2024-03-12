@@ -1,5 +1,23 @@
 # @hashicorp/flight-icons
 
+## 3.1.0
+
+### Minor Changes
+
+Reorganized the icons within the "Core" icon set into 16 more descriptive categories.
+
+<small class="doc-whats-new-changelog-metadata">[#1986](https://github.com/hashicorp/design-system/pull/1986)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+Added "category" to the icons' metadata in the `catalog.json` file.
+
+<small class="doc-whats-new-changelog-metadata">[#1967](https://github.com/hashicorp/design-system/pull/1967)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.0.0
 
 ### Major Changes

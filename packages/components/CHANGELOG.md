@@ -1,5 +1,52 @@
 # @hashicorp/design-system-components
 
+## 4.1.0
+
+### Minor Changes
+
+`DismissButton` - Converted component to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#1980](https://github.com/hashicorp/design-system/pull/1980) - Thanks [@WenInCode](https://github.com/WenInCode) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Added image error handling to `Dropdown::Toggle::Icon`
+
+<small class="doc-whats-new-changelog-metadata">[#1906](https://github.com/hashicorp/design-system/pull/1906) - Thanks [@cbfx](https://github.com/cbfx) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+Enable glint
+
+<small class="doc-whats-new-changelog-metadata">[#1976](https://github.com/hashicorp/design-system/pull/1976) - Thanks [@natmegs](https://github.com/natmegs) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Upgraded ember-truth-helpers from 3.1.1 to 4.0.3
+
+<small class="doc-whats-new-changelog-metadata">[#1976](https://github.com/hashicorp/design-system/pull/1976) - Thanks [@natmegs](https://github.com/natmegs) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Added missing aria-label support to copy-snippet component.
+
+<small class="doc-whats-new-changelog-metadata">[#1963](https://github.com/hashicorp/design-system/pull/1963)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Removed `dialog-polyfill` dependency
+
+<small class="doc-whats-new-changelog-metadata">[#1977](https://github.com/hashicorp/design-system/pull/1977)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/design-system-tokens@2.1.0
+- @hashicorp/ember-flight-icons@5.0.1
+
 ## 4.0.0
 
 ### Major Changes
