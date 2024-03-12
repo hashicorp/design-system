@@ -2,4 +2,4 @@
 "@hashicorp/design-system-components": minor
 ---
 
-Convert Text components to Typescript
+`Text` - Converted component to TypeScript
