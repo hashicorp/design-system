@@ -1,5 +1,15 @@
 # @hashicorp/design-system-tokens
 
+## 2.1.0
+
+### Minor Changes
+
+Added new pipeline to Style Dictionary for `cloud-email` - `email/sass-variables` to be used in email templating
+
+<small class="doc-whats-new-changelog-metadata">[#1965](https://github.com/hashicorp/design-system/pull/1965)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 2.0.0
 
 ### Major Changes

@@ -12,6 +12,24 @@
   </a>
 </p>
 
+## 3.1.0
+
+**Minor changes**
+
+Reorganized the icons within the "Core" icon set into 16 more descriptive categories.
+
+<small class="doc-whats-new-changelog-metadata">[#1986](https://github.com/hashicorp/design-system/pull/1986)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**Patch changes**
+
+Added "category" to the icons' metadata in the `catalog.json` file.
+
+<small class="doc-whats-new-changelog-metadata">[#1967](https://github.com/hashicorp/design-system/pull/1967)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.0.0
 
 **Major changes**
@@ -198,14 +216,6 @@ Added `figma` and `loom` icons
 
 - [#546](https://github.com/hashicorp/design-system/pull/546) [`4e557797`](https://github.com/hashicorp/design-system/commit/4e5577973154397da0b5d4302755a07b22826345) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Add system icons for pipeline and step
   Add service icons for open policy agent (opa)
-
-## 2.9.0
-
-**Minor changes**
-
-- [#524](https://github.com/hashicorp/design-system/pull/524) [`f2b3398e`](https://github.com/hashicorp/design-system/commit/f2b3398e3056ae39fa35b1f9c81ddc0b2100073d) Thanks [@hashibot-hds](https://github.com/hashibot-hds)!
-  - Add service icons for azure-aks
-  - Update css exports to include recently added service icons
 
 
 ---
