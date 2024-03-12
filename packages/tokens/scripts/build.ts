@@ -49,6 +49,19 @@ StyleDictionaryPackage.registerTransform({
     transformer: transformPxToRem
 });
 
+StyleDictionaryPackage.registerTransform({
+    name: 'font-size/px',
+    type: 'value',
+    matcher: function(token) {
+        return token?.attributes?.category === 'typography' && token.type === 'font-size';
+    },
+    transformer: function (token) {
+        const val = parseFloat(token.value);
+        if (isNaN(val)) throw `Invalid Number: '${token.name}: ${token.value}' is not a valid number, cannot transform to 'px'.\n`;
+        return `${token.value}px`;
+    }
+});
+
 // NOTICE: in case in the future we need more complex transformations, we can use this approach (see the "modify" attribute):
 // https://github.com/amzn/style-dictionary/blob/main/examples/advanced/transitive-transforms/
 //
@@ -83,6 +96,12 @@ StyleDictionaryPackage.registerTransform({
 StyleDictionaryPackage.registerTransformGroup({
     name: 'products/web',
     transforms: ['attribute/cti', 'name/cti/kebab', 'font-size/rem', 'size/px', 'color/css', 'color/with-alpha', 'time/seconds']
+});
+
+StyleDictionaryPackage.registerTransformGroup({
+    name: 'products/email',
+    // notice: for emails we need the font-size in `px` (not `rem`)
+    transforms: ['attribute/cti', 'name/cti/kebab', 'font-size/px', 'size/px', 'color/css', 'color/with-alpha', 'time/seconds']
 });
 
 StyleDictionaryPackage.registerTransformGroup({
@@ -143,6 +162,17 @@ const targets: ConfigTargets = {
         ],
         'transformGroup': 'marketing/web',
         'platforms': ['web/css-variables', 'json']
+    },
+    // these tokens will be consumed by the email templating system in https://github.com/hashicorp/cloud-email
+    'cloud-email': {
+        // we need only foundational tokens (colors, typography, etc)
+        'source': [
+            `src/global/**/*.json`,
+            `src/products/shared/color/**/*.json`,
+            `src/products/shared/typography.json`,
+        ],
+        'transformGroup': 'products/email',
+        'platforms': ['email/sass-variables']
     }
 };
 
@@ -205,6 +235,24 @@ function getStyleDictionaryConfig({ target }: { target: string }): Config {
                     },
                 }
             ]
+        }
+    }
+
+    if (platforms.includes("email/sass-variables")) {
+        config.platforms["email/sass-variables"] = {
+            transformGroup,
+            "buildPath": `dist/${target}/`,
+            "prefix": "token",
+            "files": [
+                {
+                    "destination": "tokens.scss",
+                    "format": "scss/variables",
+                    "filter": function(token: DesignToken) {
+                        return !token.private;
+                    },
+                }
+            ],
+            'actions': ['generate-css-helpers'],
         }
     }
 
