@@ -12,8 +12,8 @@ import {
   type HdsTextColors,
   type HdsTextTags,
   type HdsTextAligns,
-  type HdsTextWeights
-} from './types';
+  type HdsTextWeights,
+} from './types.ts';
 
 // notice: only some combinations of size + font-weight are allowed (per design specs)
 // see: https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=1262%3A9192

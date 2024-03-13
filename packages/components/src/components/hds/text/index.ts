@@ -13,8 +13,8 @@ import {
   type HdsTextColors,
   type HdsTextGroups,
   type HdsTextSizes,
-  type HdsTextWeights
-} from './types';
+  type HdsTextWeights,
+} from './types.ts';
 
 export const AVAILABLE_COLORS: string[] = Object.values(HdsTextColorValues);
 export const AVAILABLE_ALIGNS: string[] = Object.values(HdsTextAlignValues);
