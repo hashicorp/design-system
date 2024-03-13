@@ -42,7 +42,7 @@ module('Integration | Component | hds/text/display', function (hooks) {
 
   test('it should throw an assertion if an incorrect value for @size is provided', async function (assert) {
     const errorMessage =
-      '@size for "Hds::Text::Display" must be one of the following: 500, 400, 300, 200, 100; received: 123';
+      '@size for "Hds::Text::Display" must be one of the following: 100, 200, 300, 400, 500; received: 123';
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
