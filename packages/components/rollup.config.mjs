@@ -4,10 +4,10 @@
  */
 
 import { Addon } from '@embroider/addon-dev/rollup';
+import { babel } from '@rollup/plugin-babel';
 import copy from 'rollup-plugin-copy';
 import scss from 'rollup-plugin-scss';
 import process from 'process';
-import typescript from 'rollup-plugin-ts';
 
 const addon = new Addon({
   srcDir: 'src',
@@ -37,9 +37,6 @@ const plugins = [
   // package names.
   addon.dependencies(),
 
-  // Ensure that standalone .hbs files are properly integrated as Javascript.
-  addon.hbs(),
-
   scss({
     fileName: 'styles/@hashicorp/design-system-components.css',
     includePaths: [
@@ -52,10 +49,21 @@ const plugins = [
     fileName: 'styles/@hashicorp/design-system-power-select-overrides.css',
   }),
 
-  typescript({
-    transpiler: 'babel',
-    browserslist: false,
-    transpileOnly: false,
+  // Ensure that standalone .hbs files are properly integrated as Javascript.
+  addon.hbs(),
+
+  // Ensure that .gjs files are properly integrated as Javascript
+  addon.gjs(),
+
+  // This babel config should *not* apply presets or compile away ES modules.
+  // It exists only to provide development niceties for you, like automatic
+  // template colocation.
+  //
+  // By default, this will load the actual babel config from the file
+  // babel.config.json.
+  babel({
+    extensions: ['.js', '.gjs', '.ts', '.gts'],
+    babelHelpers: 'bundled',
   }),
 
   // Addons are allowed to contain imports of .css files, which we want rollup

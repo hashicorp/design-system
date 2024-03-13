@@ -7,12 +7,15 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import {
   HdsTextSizeValues,
-  type HdsTextColors,
-  type HdsTextTags,
-  type HdsTextAligns,
   HdsTextWeightValues,
-  type HdsTextWeights
-} from './types';
+} from './types.ts';
+
+import type {
+   HdsTextColors,
+   HdsTextTags,
+   HdsTextAligns,
+   HdsTextWeights
+} from './types.ts';
 
 // notice: only some combinations of size + font-weight are allowed (per design specs)
 // see: https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=1262%3A9192
