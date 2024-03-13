@@ -19,20 +19,42 @@ import {
 // see: https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=1262%3A9192
 
 export const DEFAULT_SIZE = HdsTextSizeValues.TwoHundred;
-export const AVAILABLE_SIZES = Object.values(HdsTextSizeValues);
 
-export type HdsTextDisplayWeight = Extract<HdsTextWeights, "medium" | "semibold" | "bold">;
-export const DEFAULT_WEIGHTS_PER_SIZE: Record<HdsTextSizeValues, HdsTextDisplayWeight> = {
+// Filter out reverse mappings from enum
+// https://www.typescriptlang.org/docs/handbook/enums.html#reverse-mappings
+export const AVAILABLE_SIZES = Object.values(HdsTextSizeValues).filter(
+  (v) => typeof v === 'number'
+);
+
+export type HdsTextDisplayWeight = Extract<
+  HdsTextWeights,
+  'medium' | 'semibold' | 'bold'
+>;
+export const DEFAULT_WEIGHTS_PER_SIZE: Record<
+  HdsTextSizeValues,
+  HdsTextDisplayWeight
+> = {
   [HdsTextSizeValues.FiveHundred]: HdsTextWeightValues.Bold,
   [HdsTextSizeValues.FourHundred]: HdsTextWeightValues.Semibold,
   [HdsTextSizeValues.ThreeHundred]: HdsTextWeightValues.Semibold,
   [HdsTextSizeValues.TwoHundred]: HdsTextWeightValues.Semibold,
   [HdsTextSizeValues.OneHundred]: HdsTextWeightValues.Medium,
 };
-export const AVAILABLE_WEIGHTS_PER_SIZE: Record<HdsTextSizes, HdsTextDisplayWeight[]> = {
+export const AVAILABLE_WEIGHTS_PER_SIZE: Record<
+  HdsTextSizes,
+  HdsTextDisplayWeight[]
+> = {
   [HdsTextSizeValues.FiveHundred]: [HdsTextWeightValues.Bold],
-  [HdsTextSizeValues.FourHundred]: [HdsTextWeightValues.Medium, HdsTextWeightValues.Semibold, HdsTextWeightValues.Bold],
-  [HdsTextSizeValues.ThreeHundred]: [HdsTextWeightValues.Medium, HdsTextWeightValues.Semibold, HdsTextWeightValues.Bold],
+  [HdsTextSizeValues.FourHundred]: [
+    HdsTextWeightValues.Medium,
+    HdsTextWeightValues.Semibold,
+    HdsTextWeightValues.Bold,
+  ],
+  [HdsTextSizeValues.ThreeHundred]: [
+    HdsTextWeightValues.Medium,
+    HdsTextWeightValues.Semibold,
+    HdsTextWeightValues.Bold,
+  ],
   [HdsTextSizeValues.TwoHundred]: [HdsTextWeightValues.Semibold],
   [HdsTextSizeValues.OneHundred]: [HdsTextWeightValues.Medium],
 };
@@ -45,9 +67,13 @@ export interface HdsTextDisplaySignature {
     align?: HdsTextAligns;
     weight?: HdsTextDisplayWeight;
   };
-  Element: HTMLSpanElement | HTMLHeadingElement | HTMLParagraphElement | HTMLDivElement;
+  Element:
+    | HTMLSpanElement
+    | HTMLHeadingElement
+    | HTMLParagraphElement
+    | HTMLDivElement;
   Blocks: {
-    default: [],
+    default: [];
   };
 }
 

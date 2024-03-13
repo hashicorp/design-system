@@ -40,11 +40,11 @@ export enum HdsTextWeightValues {
 export type HdsTextWeights = `${HdsTextWeightValues}`;
 
 export enum HdsTextSizeValues {
-  OneHundred = 100,
-  TwoHundred = 200,
-  ThreeHundred = 300,
-  FourHundred = 400,
   FiveHundred = 500,
+  FourHundred = 400,
+  ThreeHundred = 300,
+  TwoHundred = 200,
+  OneHundred = 100,
 }
 type HdsTextSizesString = `${HdsTextSizeValues}`;
 type HdsTextSizesNumber =
