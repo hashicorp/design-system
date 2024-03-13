@@ -13,9 +13,10 @@ import registerFocusAndMouseEvents from './modifiers/register-focus-and-mouse-ev
 import floatPopoverModifier from './modifiers/float-popover';
 
 export default class HdsMenuPrimitiveComponent extends Component {
-  @tracked isOpen = this.args.isOpen;
   @tracked toggleElement;
   @tracked popoverElement;
+  @tracked isOpen = this.args.isOpen;
+  @tracked isClosing = false;
 
   /**
    * Generates a unique ID for the "popover" (will be used in the `popovertarget` attribute of the toggle button)
@@ -112,12 +113,14 @@ export default class HdsMenuPrimitiveComponent extends Component {
   @action
   showPopover() {
     console.log('showPopover invoked');
+    this.isClosing = false;
     this.popoverElement.showPopover();
   }
 
   @action
   hidePopover() {
     console.log('hidePopover invoked');
+    this.isClosing = true;
     this.popoverElement.hidePopover();
   }
 
@@ -143,6 +146,7 @@ export default class HdsMenuPrimitiveComponent extends Component {
     if (event.newState === 'open') {
       console.log('Popover has been shown');
       this.isOpen = true;
+      this.isClosing = false;
       // we call the "onOpen" callback if it exists (and is a function)
       let { onOpen } = this.args;
       if (typeof onOpen === 'function') {
@@ -155,6 +159,7 @@ export default class HdsMenuPrimitiveComponent extends Component {
         this.popoverElement.popover = 'auto';
       }
       this.isOpen = false;
+      this.isClosing = true;
       // we call the "onClose" callback if it exists (and is a function)
       let { onClose } = this.args;
       if (typeof onClose === 'function') {
@@ -175,10 +180,13 @@ export default class HdsMenuPrimitiveComponent extends Component {
   @action
   onFocusIn() {
     console.log('onFocusIn invoked');
-    if (this.timer) {
-      clearTimeout(this.timer);
+    // don't re-open the popover if the focus is returned because the closing
+    if (!this.isClosing) {
+      if (this.timer) {
+        clearTimeout(this.timer);
+      }
+      this.showPopover();
     }
-    this.showPopover();
   }
 
   @action
@@ -190,6 +198,7 @@ export default class HdsMenuPrimitiveComponent extends Component {
   @action
   onFocusOut(event) {
     console.log('onFocusOut invoked');
+    // TODO! discuss with Alex if/why we still need this check here
     // due to inconsistent implementation of relatedTarget across browsers we use the activeElement as a fallback
     // if the related target is not part of the disclosed content we close the disclosed container
     if (
