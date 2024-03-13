@@ -1,4 +1,5 @@
 import '@glint/environment-ember-loose';
+import 'ember-source/types';
 import Component from '@ember/component';
 
 export interface ShwTxtSignature {
