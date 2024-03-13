@@ -6,13 +6,14 @@
 import type HdsButtonIndexComponent from './components/hds/button';
 import type HdsDismissButtonIndexComponent from './components/hds/dismiss-button';
 import type HdsInteractiveIndexComponent from './components/hds/interactive';
-import type HdsLinkToModelsHelper from './helpers/hds-link-to-models';
-import type HdsLinkToQueryHelper from './helpers/hds-link-to-query';
+import type HdsLinkStandaloneComponent from './components/hds/link/standalone';
 import type HdsTextIndexComponent from './components/hds/text';
 import type HdsTextBodyComponent from './components/hds/text/body';
 import type HdsTextDisplayComponent from './components/hds/text/display';
 import type HdsTextCodeComponent from './components/hds/text/code';
 import type HdsYieldComponent from './components/hds/yield';
+import type HdsLinkToModelsHelper from './helpers/hds-link-to-models';
+import type HdsLinkToQueryHelper from './helpers/hds-link-to-query';
 
 export default interface HdsComponentsRegistry {
   HdsInteractiveComponent: typeof HdsInteractiveIndexComponent;
@@ -30,6 +31,11 @@ export default interface HdsComponentsRegistry {
   'Hds::Interactive': typeof HdsInteractiveIndexComponent;
   'hds/interactive': typeof HdsInteractiveIndexComponent;
   HdsInteractive: typeof HdsInteractiveIndexComponent;
+
+  // Link Standalone
+  'Hds::Link::Standalone': typeof HdsLinkStandaloneComponent;
+  'hds/link/standalone': typeof HdsLinkStandaloneComponent;
+  HdsLinkStandalone: typeof HdsLinkStandaloneComponent;
 
   // Text
   'Hds::Text': typeof HdsTextIndexComponent;

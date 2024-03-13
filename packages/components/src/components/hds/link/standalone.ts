@@ -5,17 +5,26 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import {
+  HdsLinkIconPositionValues,
+  HdsLinkColorValues,
+  HdsLinkStandaloneSizeValues,
+} from './types';
+import type {
+  HdsLinkStandaloneSignature,
+  HdsLinkStandaloneArgs,
+} from './types';
 
-export const DEFAULT_ICONPOSITION = 'leading';
-export const DEFAULT_COLOR = 'primary';
-export const DEFAULT_SIZE = 'medium';
-export const ICONPOSITIONS = ['leading', 'trailing'];
-export const COLORS = ['primary', 'secondary'];
-export const SIZES = ['small', 'medium', 'large'];
+export const DEFAULT_ICONPOSITION = HdsLinkIconPositionValues.Leading;
+export const DEFAULT_COLOR = HdsLinkColorValues.Primary;
+export const DEFAULT_SIZE = HdsLinkStandaloneSizeValues.Medium;
+export const ICONPOSITIONS: string[] = Object.values(HdsLinkIconPositionValues);
+export const COLORS: string[] = Object.values(HdsLinkColorValues);
+export const SIZES: string[] = Object.values(HdsLinkStandaloneSizeValues);
 
-export default class HdsLinkStandaloneComponent extends Component {
-  constructor() {
-    super(...arguments);
+export default class HdsLinkStandaloneComponent extends Component<HdsLinkStandaloneSignature> {
+  constructor(owner: unknown, args: HdsLinkStandaloneArgs) {
+    super(owner, args);
     if (!(this.args.href || this.args.route)) {
       assert('@href or @route must be defined for <Hds::Link::Standalone>');
     }

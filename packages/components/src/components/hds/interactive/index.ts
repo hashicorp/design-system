@@ -6,18 +6,20 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
+export interface HdsInteractiveArgs {
+  href?: string;
+  isHrefExternal?: boolean;
+  isRouteExternal?: boolean;
+  route?: string;
+  models?: Array<string | number>;
+  model?: string | number;
+  query?: Record<string, string>;
+  'current-when'?: string;
+  replace?: boolean;
+}
+
 export interface HdsInteractiveSignature {
-  Args: {
-    href?: string;
-    isHrefExternal?: boolean;
-    isRouteExternal?: boolean;
-    route?: string;
-    models?: Array<string | number>;
-    model?: string | number;
-    query?: Record<string, string>;
-    'current-when'?: string;
-    replace?: boolean;
-  };
+  Args: HdsInteractiveArgs;
   Blocks: {
     default: [];
   };
