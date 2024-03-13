@@ -19,6 +19,9 @@ import {
 export const AVAILABLE_COLORS: string[] = Object.values(HdsTextColorValues);
 export const AVAILABLE_ALIGNS: string[] = Object.values(HdsTextAlignValues);
 
+// A union of all types in the HTMLElementTagNameMap interface
+type AvailableElements = HTMLElementTagNameMap[keyof HTMLElementTagNameMap];
+
 export interface HdsTextIndexSignature {
   Args: {
     size: HdsTextSizes;
@@ -28,9 +31,9 @@ export interface HdsTextIndexSignature {
     align?: HdsTextAligns;
     weight?: HdsTextWeights;
   };
-  Element: HTMLSpanElement | HTMLHeadingElement | HTMLParagraphElement | HTMLDivElement;
+  Element: AvailableElements;
   Blocks: {
-    default: [],
+    default: [];
   };
 }
 
