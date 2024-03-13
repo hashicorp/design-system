@@ -13,8 +13,8 @@
   <:toggle as |t|>
     {{yield
       (hash
-        ToggleButton=(component "hds/dropdown/toggle/button" popovertarget=t.popovertarget isOpen=t.isOpen didInsertToggle=t.didInsertToggle)
-        ToggleIcon=(component "hds/dropdown/toggle/icon" popovertarget=t.popovertarget isOpen=t.isOpen didInsertToggle=t.didInsertToggle)
+        ToggleButton=(component "hds/dropdown/toggle/button" isOpen=t.isOpen setupToggle=t.setupMenuPrimitiveToggle)
+        ToggleIcon=(component "hds/dropdown/toggle/icon" isOpen=t.isOpen setupToggle=t.setupMenuPrimitiveToggle)
       )
     }}
   </:toggle>

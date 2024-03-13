@@ -14,15 +14,14 @@
   {{on "focusout" this.onFocusOut}}
 >
   <div class="hds-menu-primitive__toggle" tabindex="-1">
-    {{yield (hash
-      popovertarget=this.popoverId
-      isOpen=this.isOpen
-      togglePopover=this.togglePopover
-      setupToggle=(modifier
-        this.setupToggle
-        this.popoverElement
+    {{yield
+      (hash
+        isOpen=this.isOpen
+        togglePopover=this.togglePopover
+        setupMenuPrimitiveToggle=(modifier this.setupMenuPrimitiveToggle)
       )
-    ) to="toggle"}}
+      to="toggle"
+    }}
   </div>
   <div
     id={{this.popoverId}}

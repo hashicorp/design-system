@@ -9,58 +9,7 @@ import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
 
-import {
-  autoUpdate,
-  computePosition,
-  flip,
-  // hide,
-  offset,
-  shift,
-  // size,
-} from '@floating-ui/dom';
-
-function getFloatingUIOptions(popoverOptions) {
-  const {
-    popoverPlacement = 'bottom-start',
-    popoverPositionStrategy = 'absolute', // we don't need to use `fixed` anymore now that we have the Popover API that puts the element in the `top-layer`
-    popoverOffsetOptions,
-    popoverEnableCollisionDetection,
-    // we leave them from now in case they're needed (or we want to expose them as public API for the consumers)
-    popoverFlipOptions = { padding: 8 },
-    popoverShiftOptions = { padding: 8 },
-    popoverMiddlewareExtra = [],
-  } = popoverOptions;
-
-  // we build dynamically the list of middleware functions to invoke, depending on the options provided
-  const popoverMiddleware = [];
-
-  // https://floating-ui.com/docs/offset
-  popoverMiddleware.push(offset(popoverOffsetOptions));
-
-  if (popoverEnableCollisionDetection) {
-    popoverMiddleware.push(
-      // https://floating-ui.com/docs/flip
-      flip(popoverFlipOptions),
-      // https://floating-ui.com/docs/shift
-      shift(popoverShiftOptions)
-    );
-  }
-
-  // TODO! commenting this for now, will need to make this conditional to some argument (and understand how this relates to the `@height` argument)
-  // size({
-  //   apply: ({ availableWidth, availableHeight, middlewareData }) => {
-  //     middlewareData.size = { availableWidth, availableHeight };
-  //   },
-  // }),
-
-  popoverMiddleware.push(...popoverMiddlewareExtra);
-
-  return {
-    placement: popoverPlacement,
-    strategy: popoverPositionStrategy,
-    middleware: popoverMiddleware,
-  };
-}
+import floatPopoverModifier from './modifiers/float-popover';
 
 export default class HdsMenuPrimitiveComponent extends Component {
   @tracked isOpen = this.args.isOpen;
@@ -103,35 +52,15 @@ export default class HdsMenuPrimitiveComponent extends Component {
       true
     );
 
-    // the `autoUpdate` function automatically updates the position of the floating element when necessary.
-    // it should only be called when the floating element is mounted on the DOM or visible on the screen.
-    // it returns a "cleanup" function that should be invoked when the floating element is removed from the DOM or hidden from the screen.
-    // see: https://floating-ui.com/docs/autoUpdate
-    this.cleanupFloatingUI = autoUpdate(
-      this.toggleElement,
-      this.popoverElement,
-      this.computeFloatingUI
+    // apply the "float-popover" modifier to the "popover" element
+    // this modifiers uses the Floating UI library to provide:
+    // - positioning of the "popover" in relation to the "toggle"
+    // - collision detection (optional)
+    floatPopoverModifier(
+      this.popoverElement, // element the modifier is attached to
+      [this.toggleElement], // positional arguments
+      { popoverOptions: this.args.popoverOptions } // named arguments
     );
-  }
-
-  @action
-  async computeFloatingUI() {
-    // important to know: `computePosition()` is not stateful, it only positions the "floating" element once
-    const state = await computePosition(
-      this.toggleElement,
-      this.popoverElement,
-      getFloatingUIOptions(this.args.popoverOptions ?? {})
-    );
-
-    let { strategy, x, y, middlewareData } = state;
-
-    Object.assign(this.popoverElement.style, {
-      position: strategy,
-      top: `${y}px`,
-      left: `${x}px`,
-      // TODO! commenting this for now, will need to make this conditional to some argument (and understand how this relates to the `@height` argument)
-      // maxHeight: `${middlewareData.size.availableHeight - 10}px`,
-    });
   }
 
   @action
@@ -148,10 +77,6 @@ export default class HdsMenuPrimitiveComponent extends Component {
         true
       );
     }
-    // if (this.popperInstance && this.popperInstance) {
-    //   this.popperInstance.destroy();
-    // }
-    this.cleanupFloatingUI();
   }
 
   @action
@@ -211,15 +136,6 @@ export default class HdsMenuPrimitiveComponent extends Component {
         onClose();
       }
     }
-    // // TODO! understand if this can fix the issue with the dropdown in the modal
-    // if (this.popperInstance) {
-    //   // https://popper.js.org/docs/v2/constructors/#instance
-    //   // ⚠️ THIS FREEZES SAFARI!!
-    //   // this.popperInstance.forceUpdate();
-    //   // schedule('afterRender', () => {
-    //   //   if (window) window.dispatchEvent(new Event('resize'));
-    //   // });
-    // }
   }
 
   @action
@@ -261,10 +177,17 @@ export default class HdsMenuPrimitiveComponent extends Component {
     this.hidePopover();
   }
 
-  setupToggle = modifier(
+  setupMenuPrimitiveToggle = modifier(
     (element) => {
       this.toggleElement = element;
-      console.log('setupToggle invoked for element:', element);
+      console.log(
+        '`setupMenuPrimitiveToggle` - Modifier applied to element:',
+        element
+      );
+
+      // TODO! add condition for when the `popovertarget` needs to be added (Dropdown) or not (Popover)
+      this.toggleElement.setAttribute('popovertarget', this.popoverId);
+
       // this.toggleElement.addEventListener('click', this.togglePopover.bind(this));
       // this.toggleElement.addEventListener('focus', this.showPopover.bind(this));
       // this.toggleElement.addEventListener(
@@ -279,7 +202,7 @@ export default class HdsMenuPrimitiveComponent extends Component {
 
       // this (teardown) function is run when the element is removed
       return () => {
-        console.log('Modifier teardown invoked');
+        console.log('`setupMenuPrimitiveToggle` - Modifier teardown invoked');
       };
     },
     { eager: false }

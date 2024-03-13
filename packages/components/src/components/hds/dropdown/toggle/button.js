@@ -106,23 +106,6 @@ export default class HdsDropdownToggleButtonComponent extends Component {
   }
 
   /**
-   * @param didInsertToggle
-   * @type {function}
-   * @default () => {}
-   */
-  get didInsertToggle() {
-    let { didInsertToggle } = this.args;
-
-    // notice: this is a guard used in case the toggle is used as standalone element (eg. in the showcase)
-    // in reality it's always used inside the Dropdown main component as yielded component, so the didInsertToggle handler is always defined
-    if (typeof didInsertToggle === 'function') {
-      return didInsertToggle;
-    } else {
-      return NOOP;
-    }
-  }
-
-  /**
    * @param badgeType
    * @type {string}
    * @default 'filled'

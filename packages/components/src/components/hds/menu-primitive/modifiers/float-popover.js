@@ -1,0 +1,114 @@
+import { modifier } from 'ember-modifier';
+
+import {
+  autoUpdate,
+  computePosition,
+  flip,
+  // hide,
+  offset,
+  shift,
+  // size,
+} from '@floating-ui/dom';
+
+function getFloatingUIOptions(popoverOptions) {
+  const {
+    popoverPlacement = 'bottom-start',
+    popoverPositionStrategy = 'absolute', // we don't need to use `fixed` anymore now that we have the Popover API that puts the element in the `top-layer`
+    popoverOffsetOptions,
+    popoverEnableCollisionDetection,
+    // we leave them from now in case they're needed (or we want to expose them as public API for the consumers)
+    popoverFlipOptions = { padding: 8 },
+    popoverShiftOptions = { padding: 8 },
+    popoverMiddlewareExtra = [],
+  } = popoverOptions;
+
+  // we build dynamically the list of middleware functions to invoke, depending on the options provided
+  const popoverMiddleware = [];
+
+  // https://floating-ui.com/docs/offset
+  popoverMiddleware.push(offset(popoverOffsetOptions));
+
+  // TODO? split the option in two to support collision detection only in one direction like for the power-select
+  if (popoverEnableCollisionDetection) {
+    popoverMiddleware.push(
+      // https://floating-ui.com/docs/flip
+      flip(popoverFlipOptions),
+      // https://floating-ui.com/docs/shift
+      shift(popoverShiftOptions)
+    );
+  }
+
+  // TODO! commenting this for now, will need to make this conditional to some argument (and understand how this relates to the `@height` argument)
+  // size({
+  //   apply: ({ availableWidth, availableHeight, middlewareData }) => {
+  //     middlewareData.size = { availableWidth, availableHeight };
+  //   },
+  // }),
+
+  popoverMiddleware.push(...popoverMiddlewareExtra);
+
+  return {
+    placement: popoverPlacement,
+    strategy: popoverPositionStrategy,
+    middleware: popoverMiddleware,
+  };
+}
+
+// Notice: we use a function-based modifier here instead of a class-based one
+// because it's quite simple in its logic, and doesn't require injecting services
+// see: https://github.com/ember-modifier/ember-modifier#function-based-modifiers
+
+export default modifier((element, positional, named) => {
+  // the "popover" element that "floats" next to the anchor (whose position is calculated in relation to the anchor)
+  // notice: this is the element the Ember modifier is attached to
+  const popoverElement = element;
+  // the "toggle" element that acts as an "anchor" for the "floating" element
+  // notice: it's expressed as "positional" argument (array of arguments) for the modifier
+  const toggleElement = positional[0];
+  // the Floating UI "options" to apply to the popover
+  // notice: it's expressed as "named" argument (object) for the modifier
+  const popoverOptions = getFloatingUIOptions(named.popoverOptions ?? {});
+
+  console.log(
+    'Initial function invoked for the float-popover modifier',
+    positional,
+    toggleElement,
+    popoverElement,
+    popoverOptions
+  );
+
+  const computeFloatingUI = async () => {
+    // important to know: `computePosition()` is not stateful, it only positions the "floating" element once
+    const state = await computePosition(
+      toggleElement,
+      popoverElement,
+      popoverOptions
+    );
+
+    let { strategy, x, y, middlewareData } = state;
+
+    Object.assign(popoverElement.style, {
+      position: strategy,
+      top: `${y}px`,
+      left: `${x}px`,
+      // TODO! commenting this for now, will need to make this conditional to some argument (and understand how this relates to the `@height` argument)
+      // maxHeight: `${middlewareData.size.availableHeight - 10}px`,
+    });
+  };
+
+  // the `autoUpdate` function automatically updates the position of the floating element when necessary.
+  // it should only be called when the floating element is mounted on the DOM or visible on the screen.
+  // it returns a "cleanup" function that should be invoked when the floating element is removed from the DOM or hidden from the screen.
+  // see: https://floating-ui.com/docs/autoUpdate
+  const cleanupFloatingUI = autoUpdate(
+    toggleElement,
+    popoverElement,
+    computeFloatingUI
+  );
+
+  // this (teardown) function is run when the element is removed from the DOM
+  return () => {
+    console.log('Teardown function invoked for the float-popover modifier');
+    cleanupFloatingUI();
+  };
+});

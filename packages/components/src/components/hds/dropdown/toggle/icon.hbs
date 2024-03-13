@@ -11,8 +11,8 @@
   popovertarget={{@popovertarget}}
   aria-expanded={{if @isOpen "true" "false"}}
   {{on "click" this.onClick}}
-  {{did-insert this.didInsertToggle}}
   {{did-update this.onDidUpdateImageSrc @imageSrc}}
+  {{@setupToggle}}
   type="button"
 >
   <div class="hds-dropdown-toggle-icon__wrapper">

@@ -16,7 +16,7 @@
       <div class="shw-utility-menu-primitive-container">
         <Hds::MenuPrimitive>
           <:toggle as |t|>
-            <button type="button" popovertarget={{t.popovertarget}} {{did-insert t.didInsertToggle}}>
+            <button type="button">
               Click me
               <FlightIcon @name={{if t.isOpen "chevron-up" "chevron-down"}} />
             </button>
@@ -34,8 +34,8 @@
     <SF.Item @grow={{true}}>
       <div class="shw-utility-menu-primitive-container">
         <Hds::MenuPrimitive>
-          <:toggle as |t|>
-            <button type="button" popovertarget={{t.popovertarget}} {{did-insert t.didInsertToggle}}>Click me</button>
+          <:toggle>
+            <button type="button">Click me</button>
           </:toggle>
           <:content as |c|>
             <ul class="shw-utility-menu-primitive-content-list-of-links">
@@ -61,8 +61,8 @@
     <SF.Item @grow={{true}}>
       <div class="shw-utility-menu-primitive-container">
         <Hds::MenuPrimitive>
-          <:toggle as |t|>
-            <button type="button" popovertarget={{t.popovertarget}} {{did-insert t.didInsertToggle}}>Click me</button>
+          <:toggle>
+            <button type="button">Click me</button>
           </:toggle>
           <:content>
             <ul class="shw-utility-menu-primitive-content-list-of-links">
@@ -82,14 +82,8 @@
     <SF.Item @grow={{true}}>
       <div class="shw-utility-menu-primitive-container">
         <Hds::MenuPrimitive>
-          <:toggle as |t|>
-            <Hds::Button
-              @icon="chevron-down"
-              @iconPosition="trailing"
-              @text="Click me"
-              popovertarget={{t.popovertarget}}
-              {{did-insert t.didInsertToggle}}
-            />
+          <:toggle>
+            <Hds::Button @icon="chevron-down" @iconPosition="trailing" @text="Click me" />
           </:toggle>
           <:content as |c|>
             <ul class="shw-utility-menu-primitive-content-list-of-links">
@@ -115,15 +109,9 @@
     <SF.Item @grow={{true}}>
       <div class="shw-utility-menu-primitive-container">
         <Hds::MenuPrimitive>
-          <:toggle as |t|>
+          <:toggle>
             <div class="shw-utility-menu-primitive-button-wrapper">
-              <Hds::Button
-                @icon="chevron-down"
-                @iconPosition="trailing"
-                @text="Click me"
-                popovertarget={{t.popovertarget}}
-                {{did-insert t.didInsertToggle}}
-              />
+              <Hds::Button @icon="chevron-down" @iconPosition="trailing" @text="Click me" />
             </div>
           </:toggle>
           <:content as |c|>
@@ -163,7 +151,7 @@
           <div class="shw-utility-menu-primitive-container">
             <Hds::MenuPrimitive @isOpen={{bool}}>
               <:toggle as |t|>
-                <button type="button" popovertarget={{t.popovertarget}} {{did-insert t.didInsertToggle}}>
+                <button type="button">
                   Click me
                   <FlightIcon @name={{if t.isOpen "chevron-up" "chevron-down"}} />
                 </button>
@@ -198,7 +186,7 @@
           <div class="shw-utility-menu-primitive-container">
             <Hds::MenuPrimitive @isOpen={{true}} @popoverOptions={{(hash popoverEnableCollisionDetection=bool)}}>
               <:toggle as |t|>
-                <button type="button" popovertarget={{t.popovertarget}} {{did-insert t.didInsertToggle}}>
+                <button type="button">
                   Click me
                   <FlightIcon @name={{if t.isOpen "chevron-up" "chevron-down"}} />
                 </button>

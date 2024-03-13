@@ -10,10 +10,9 @@
         type="button"
         id={{this.toggleId}}
         class="hds-breadcrumb__truncation-toggle"
-        popovertarget={{t.popovertarget}}
         aria-label={{this.ariaLabel}}
         aria-expanded={{if t.isOpen "true" "false"}}
-        {{did-insert t.didInsertToggle}}
+        {{t.setupMenuPrimitiveToggle}}
       >
         <FlightIcon @name="more-horizontal" @size="16" @isInlineBlock={{false}} />
       </button>
