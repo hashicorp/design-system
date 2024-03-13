@@ -13,7 +13,7 @@
 
 .doc-icons-list-filter {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 1fr auto;
   gap: 24px;
   align-items: flex-end;
   margin-bottom: 24px;
@@ -34,14 +34,14 @@
 }
 
 // controls
+// Q: Remove? These styles don't have any effect
+// .doc-icons-list-filter__select {
+//   width: 120px;
+// }
 
-.doc-icons-list-filter__select {
-  width: 120px;
-}
-
-.doc-icons-list-filter__search {
-  width: auto;
-}
+// .doc-icons-list-filter__search {
+//   width: auto;
+// }
 
 
 // GRID

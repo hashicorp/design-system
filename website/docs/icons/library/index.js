@@ -15,15 +15,31 @@ const DEBOUNCE_MS = 250;
 export default class Index extends Component {
   @service router;
 
-  allIcons = catalog.assets.map(({ iconName, fileName, size, description }) => {
-    return {
-      iconName: `${iconName}`,
-      name: `${fileName}`,
-      size: `${size}`,
-      description: `${description}`,
-      searchable: `${iconName}, ${description}`,
-    };
-  });
+  constructor() {
+    super(...arguments);
+    this.groupedIcons = {};
+    // prepare the icons grouped by category
+    this.allIcons.forEach((icon) => {
+      const category = icon.category;
+      if (!this.groupedIcons[category]) {
+        this.groupedIcons[category] = [];
+      }
+      this.groupedIcons[category].push(icon);
+    });
+  }
+
+  allIcons = catalog.assets.map(
+    ({ iconName, fileName, size, description, category }) => {
+      return {
+        iconName: `${iconName}`,
+        name: `${fileName}`,
+        size: `${size}`,
+        description: `${description}`,
+        category: `${category}`,
+        searchable: `${iconName}, ${description}, ${category}`,
+      };
+    }
+  );
 
   get searchQuery() {
     return this.router.currentRoute.queryParams['searchQuery'];
@@ -33,7 +49,9 @@ export default class Index extends Component {
     return this.router.currentRoute.queryParams['selectedIconSize'] || '24';
   }
 
-  get filteredIcons() {
+  get filteredGroupedIcons() {
+    let filteredGroupedIcons = {};
+
     if (this.searchQuery) {
       // check if the query is for an exact match (prefixed with `icon:`)
       if (this.searchQuery.match(/^icon:/)) {
@@ -45,17 +63,32 @@ export default class Index extends Component {
             i.iconName === exactIconName && i.size === this.selectedIconSize
           );
         });
-        return icon ? [icon] : [];
+        if (icon) {
+          filteredGroupedIcons = { [icon.category]: [icon] };
+        }
       } else {
-        return this.allIcons.filter(
-          (i) =>
-            i.size === this.selectedIconSize &&
-            i.searchable.indexOf(this.searchQuery) !== -1
-        );
+        Object.keys(this.groupedIcons).forEach((category) => {
+          const filteredIcons = this.groupedIcons[category].filter(
+            (i) =>
+              i.searchable.indexOf(this.searchQuery) !== -1 &&
+              i.size === this.selectedIconSize
+          );
+          if (filteredIcons.length > 0) {
+            filteredGroupedIcons[category] = filteredIcons;
+          }
+        });
       }
     } else {
-      return this.allIcons.filter((i) => i.size === this.selectedIconSize);
+      Object.keys(this.groupedIcons).forEach((category) => {
+        const filteredIcons = this.groupedIcons[category].filter(
+          (i) => i.size === this.selectedIconSize
+        );
+        filteredGroupedIcons[category] =
+          filteredIcons.length > 0 ? filteredIcons : false;
+      });
     }
+
+    return filteredGroupedIcons;
   }
 
   @action
