@@ -128,6 +128,7 @@
       "./components/hds/application-state/index.js": "./dist/_app_/components/hds/application-state/index.js",
       "./components/hds/badge-count/index.js": "./dist/_app_/components/hds/badge-count/index.js",
       "./components/hds/badge/index.js": "./dist/_app_/components/hds/badge/index.js",
+      "./components/hds/badge/types.js": "./dist/_app_/components/hds/badge/types.js",
       "./components/hds/breadcrumb/index.js": "./dist/_app_/components/hds/breadcrumb/index.js",
       "./components/hds/breadcrumb/item.js": "./dist/_app_/components/hds/breadcrumb/item.js",
       "./components/hds/breadcrumb/truncation.js": "./dist/_app_/components/hds/breadcrumb/truncation.js",

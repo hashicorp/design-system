@@ -6,9 +6,9 @@
 import Route from '@ember/routing/route';
 
 import {
-  SIZES as BADGE_SIZES,
-  TYPES as BADGE_TYPES,
-  COLORS as BADGE_COLORS,
+  AVAILABLE_SIZES as BADGE_SIZES,
+  AVAILABLE_TYPES as BADGE_TYPES,
+  AVAILABLE_COLORS as BADGE_COLORS,
 } from '@hashicorp/design-system-components/components/hds/badge';
 
 export default class ComponentsBadgeRoute extends Route {
