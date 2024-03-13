@@ -4,15 +4,7 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 {{! template-lint-disable no-invalid-interactive }}
-<div
-  class="hds-menu-primitive"
-  ...attributes
-  {{did-insert this.didInsert}}
-  {{on "mouseenter" this.onMouseEnter}}
-  {{on "mouseleave" this.onMouseLeave}}
-  {{on "focusin" this.onFocusIn}}
-  {{on "focusout" this.onFocusOut}}
->
+<div class="hds-menu-primitive" ...attributes {{this.setupMenuPrimitiveContainer}}>
   <div class="hds-menu-primitive__toggle" tabindex="-1">
     {{yield
       (hash
@@ -23,14 +15,7 @@
       to="toggle"
     }}
   </div>
-  <div
-    id={{this.popoverId}}
-    class="hds-menu-primitive__content"
-    tabindex="-1"
-    popover="auto"
-    {{did-insert this.didInsertPopover}}
-    {{will-destroy this.willDestroyPopover}}
-  >
+  <div class="hds-menu-primitive__content" tabindex="-1" {{this.setupMenuPrimitivePopover}}>
     {{#if this.isOpen}}
       {{yield (hash toggleElement=this.toggleElement close=this.close) to="content"}}
     {{/if}}

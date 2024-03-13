@@ -69,15 +69,7 @@ export default modifier((element, positional, named) => {
   // notice: it's expressed as "named" argument (object) for the modifier
   const popoverOptions = getFloatingUIOptions(named.popoverOptions ?? {});
 
-  console.log(
-    'Initial function invoked for the float-popover modifier',
-    positional,
-    toggleElement,
-    popoverElement,
-    popoverOptions
-  );
-
-  const computeFloatingUI = async () => {
+  const computePopoverPosition = async () => {
     // important to know: `computePosition()` is not stateful, it only positions the "floating" element once
     const state = await computePosition(
       toggleElement,
@@ -103,12 +95,11 @@ export default modifier((element, positional, named) => {
   const cleanupFloatingUI = autoUpdate(
     toggleElement,
     popoverElement,
-    computeFloatingUI
+    computePopoverPosition
   );
 
   // this (teardown) function is run when the element is removed from the DOM
   return () => {
-    console.log('Teardown function invoked for the float-popover modifier');
     cleanupFloatingUI();
   };
 });
