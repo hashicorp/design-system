@@ -22,11 +22,3 @@ export default class HdsDismissButtonIndexComponent extends Component<HdsDismiss
     return this.args.ariaLabel ?? 'Dismiss';
   }
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Hds::DismissButton': typeof HdsDismissButtonIndexComponent;
-    'hds/dismiss-button': typeof HdsDismissButtonIndexComponent;
-    'HdsDismissButton': typeof HdsDismissButtonIndexComponent;
-  }
-}

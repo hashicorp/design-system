@@ -190,10 +190,3 @@ export default class HdsButtonIndexComponent extends Component<HdsButtonSignatur
     return classes.join(' ');
   }
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Hds::Button': typeof HdsButtonIndexComponent;
-    'hds/button': typeof HdsButtonIndexComponent;
-  }
-}

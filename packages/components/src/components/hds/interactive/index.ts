@@ -12,9 +12,9 @@ export interface HdsInteractiveSignature {
     isHrefExternal?: boolean;
     isRouteExternal?: boolean;
     route?: string;
-    models?: unknown;
-    model?: unknown;
-    query?: unknown;
+    models?: Array<string | number>;
+    model?: string | number;
+    query?: Record<string, string>;
     'current-when'?: string;
     replace?: boolean;
   };
@@ -52,12 +52,5 @@ export default class HdsInteractiveIndexComponent extends Component<HdsInteracti
     if (event.key === ' ' || event.code === 'Space') {
       (event.target as HTMLElement).click();
     }
-  }
-}
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Hds::Interactive': typeof HdsInteractiveIndexComponent;
-    'hds/interactive': typeof HdsInteractiveIndexComponent;
   }
 }

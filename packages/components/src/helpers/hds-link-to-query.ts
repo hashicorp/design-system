@@ -25,9 +25,3 @@ export function hdsLinkToQuery([query]: [Record<string, string> | undefined]) {
 
 const hdsLinkToQueryHelper = helper(hdsLinkToQuery);
 export default hdsLinkToQueryHelper;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'hds-link-to-query': typeof hdsLinkToQueryHelper;
-  }
-}
