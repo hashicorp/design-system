@@ -1,4 +1,4 @@
-export type HdsTextTags = Extract<keyof HTMLElementTagNameMap, 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'div'>;
+export type HdsTextTags = keyof HTMLElementTagNameMap;
 
 export enum HdsTextColorValues {
   Primary = 'primary',
@@ -47,7 +47,8 @@ export enum HdsTextSizeValues {
   FiveHundred = 500,
 }
 type HdsTextSizesString = `${HdsTextSizeValues}`;
-type HdsTextSizesNumber = `${HdsTextSizeValues}` extends `${infer T extends number}` ? T : never;
+type HdsTextSizesNumber =
+  `${HdsTextSizeValues}` extends `${infer T extends number}` ? T : never;
 export type HdsTextSizes = HdsTextSizesString | HdsTextSizesNumber;
 
 export enum HdsTextGroupValues {
