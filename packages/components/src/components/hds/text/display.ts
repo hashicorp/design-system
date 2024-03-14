@@ -5,14 +5,13 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
-import {
-  HdsTextSizeValues,
-  HdsTextWeightValues,
-  type HdsTextSizes,
-  type HdsTextColors,
-  type HdsTextTags,
-  type HdsTextAligns,
-  type HdsTextWeights,
+import { HdsTextSizeValues, HdsTextWeightValues } from './types.ts';
+import type {
+  HdsTextAligns,
+  HdsTextColors,
+  HdsTextSizes,
+  HdsTextTags,
+  HdsTextWeights,
 } from './types.ts';
 
 // notice: only some combinations of size + font-weight are allowed (per design specs)

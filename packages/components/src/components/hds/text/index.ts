@@ -5,15 +5,14 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
-import {
-  HdsTextAlignValues,
-  type HdsTextTags,
-  HdsTextColorValues,
-  type HdsTextAligns,
-  type HdsTextColors,
-  type HdsTextGroups,
-  type HdsTextSizes,
-  type HdsTextWeights,
+import { HdsTextAlignValues, HdsTextColorValues } from './types.ts';
+import type {
+  HdsTextAligns,
+  HdsTextColors,
+  HdsTextGroups,
+  HdsTextSizes,
+  HdsTextTags,
+  HdsTextWeights,
 } from './types.ts';
 
 export const AVAILABLE_COLORS: string[] = Object.values(HdsTextColorValues);

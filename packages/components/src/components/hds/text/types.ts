@@ -24,20 +24,29 @@ export enum HdsTextColorValues {
 }
 export type HdsTextColors = `${HdsTextColorValues}`;
 
+/** Note: If changing this enum, ensure to also update its type union below */
 export enum HdsTextAlignValues {
   Left = 'left',
   Center = 'center',
   Right = 'right',
 }
-export type HdsTextAligns = `${HdsTextAlignValues}`;
+export type HdsTextAligns =
+  | HdsTextAlignValues.Left
+  | HdsTextAlignValues.Center
+  | HdsTextAlignValues.Right;
 
+/** Note: If changing this enum, ensure to also update its type union below */
 export enum HdsTextWeightValues {
   Regular = 'regular',
   Medium = 'medium',
   Semibold = 'semibold',
   Bold = 'bold',
 }
-export type HdsTextWeights = `${HdsTextWeightValues}`;
+export type HdsTextWeights =
+  | HdsTextWeightValues.Regular
+  | HdsTextWeightValues.Medium
+  | HdsTextWeightValues.Semibold
+  | HdsTextWeightValues.Bold;
 
 export enum HdsTextSizeValues {
   FiveHundred = 500,
@@ -51,9 +60,13 @@ type HdsTextSizesNumber =
   `${HdsTextSizeValues}` extends `${infer T extends number}` ? T : never;
 export type HdsTextSizes = HdsTextSizesString | HdsTextSizesNumber;
 
+/** Note: If changing this enum, ensure to also update its type union below */
 export enum HdsTextGroupValues {
   Code = 'code',
   Display = 'display',
   Body = 'body',
 }
-export type HdsTextGroups = `${HdsTextGroupValues}`;
+export type HdsTextGroups =
+  | HdsTextGroupValues.Code
+  | HdsTextGroupValues.Display
+  | HdsTextGroupValues.Body;
