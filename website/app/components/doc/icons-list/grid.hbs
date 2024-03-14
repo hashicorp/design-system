@@ -7,10 +7,5 @@
 <ul class="doc-icons-list-grid" role="list">
   {{#each @categoryIcons as |meta|}}
     <Doc::IconsList::Item @meta={{meta}} />
-  {{else}}
-    <li class="doc-icons-list-grid__not-found">
-      <FlightIcon @name="alert-circle" />
-      No icons found
-    </li>
   {{/each}}
 </ul>

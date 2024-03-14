@@ -63,14 +63,14 @@ module('Acceptance | Icon Search', function (hooks) {
   test('should show message when no results are found', async function (assert) {
     await visit('/icons/library?searchQuery=wubalubadubdub');
 
-    assert.dom('.doc-icons-list-grid__not-found').exists();
+    assert.dom('.doc-icons-list-filter__not-found').exists();
     assert.dom('[data-test-icon="activity"]').doesNotExist();
   });
 
   test('should show message when no results are found for a specific icon', async function (assert) {
     await visit('/icons/library?searchQuery=icon%3awubalubadubdub');
 
-    assert.dom('.doc-icons-list-grid__not-found').exists();
+    assert.dom('.doc-icons-list-filter__not-found').exists();
     assert.dom('[data-test-icon="activity"]').doesNotExist();
   });
 
