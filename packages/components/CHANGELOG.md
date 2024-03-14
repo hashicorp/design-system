@@ -1,5 +1,15 @@
 # @hashicorp/design-system-components
 
+## 4.1.1
+
+### Patch Changes
+
+`Flyout` - Fixed issue with Sass operators failing in old versions of Sass
+
+<small class="doc-whats-new-changelog-metadata">[#1994](https://github.com/hashicorp/design-system/pull/1994)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.1.0
 
 ### Minor Changes
