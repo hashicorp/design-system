@@ -18,9 +18,9 @@ export interface HdsBadgeSignature {
   },
   Element: HTMLDivElement;
 }
-export const AVAILABLE_SIZES: string[] = Object.values(SizeValues);
-export const AVAILABLE_TYPES: string[] = Object.values(TypeValues);
-export const AVAILABLE_COLORS: string[] = Object.values(ColorValues);
+export const SIZES: string[] = Object.values(SizeValues);
+export const TYPES: string[] = Object.values(TypeValues);
+export const COLORS: string[] = Object.values(ColorValues);
 export const DEFAULT_SIZE = SizeValues.MEDIUM;
 export const DEFAULT_TYPE = TypeValues.FILLED;
 export const DEFAULT_COLOR = ColorValues.NEUTRAL;
@@ -38,10 +38,10 @@ export default class HdsBadgeIndexComponent extends Component<HdsBadgeSignature>
     let { size = DEFAULT_SIZE } = this.args;
 
     assert(
-      `@size for "Hds::Badge" must be one of the following: ${AVAILABLE_SIZES.join(
+      `@size for "Hds::Badge" must be one of the following: ${SIZES.join(
         ', '
       )}; received: ${size}`,
-        AVAILABLE_SIZES.includes(size)
+        SIZES.includes(size)
     );
 
     return size;
@@ -59,10 +59,10 @@ export default class HdsBadgeIndexComponent extends Component<HdsBadgeSignature>
     let { type = DEFAULT_TYPE } = this.args;
 
     assert(
-      `@type for "Hds::Badge" must be one of the following: ${AVAILABLE_TYPES.join(
+      `@type for "Hds::Badge" must be one of the following: ${TYPES.join(
         ', '
       )}; received: ${type}`,
-        AVAILABLE_TYPES.includes(type)
+        TYPES.includes(type)
     );
 
     return type;
@@ -80,10 +80,10 @@ export default class HdsBadgeIndexComponent extends Component<HdsBadgeSignature>
     let { color = DEFAULT_COLOR } = this.args;
 
     assert(
-      `@color for "Hds::Badge" must be one of the following: ${AVAILABLE_COLORS.join(
+      `@color for "Hds::Badge" must be one of the following: ${COLORS.join(
         ', '
       )}; received: ${color}`,
-        AVAILABLE_COLORS.includes(color)
+        COLORS.includes(color)
     );
 
     return color;
