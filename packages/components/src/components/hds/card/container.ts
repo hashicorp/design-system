@@ -17,12 +17,12 @@ export const AVAILABLE_OVERFLOWS: string[] = Object.values(OverflowValues);
 
 export interface HdsCardContainerSignature {
   Args: {
-    level: Level;
-    levelActive: Level;
-    levelHover: Level;
-    background: Background;
-    overflow: Overflow;
-    hasBorder: boolean;
+    level?: Level;
+    levelActive?: Level;
+    levelHover?: Level;
+    background?: Background;
+    overflow?: Overflow;
+    hasBorder?: boolean;
   };
   Element: HTMLDivElement;
 }
