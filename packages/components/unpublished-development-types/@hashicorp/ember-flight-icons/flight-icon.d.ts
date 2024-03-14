@@ -1,5 +1,5 @@
 declare module '@hashicorp/ember-flight-icons/components/flight-icon' {
-  import Component from '@ember/component';
+  import Component from '@glimmer/component';
 
   export interface FlightIconSignature {
     Args: {
