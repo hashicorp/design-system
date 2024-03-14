@@ -13,7 +13,7 @@
   ...attributes
 >
   <:toggle as |t|>
-    {{#if @isInteractive}}
+    {{#if @containsInteractive}}
       {{yield (hash setupToggle=t.setupMenuPrimitiveToggle) to="toggle"}}
     {{else}}
       <button class="hds-popover__button" {{t.setupMenuPrimitiveToggle}}>

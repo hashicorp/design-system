@@ -155,7 +155,7 @@
   <Shw::Grid @columns={{3}} {{style gap="2rem"}} as |SG|>
 
     <SG.Item @label="Button">
-      <Hds::Popover @isInteractive={{true}} @enableCollisionDetection={{true}}>
+      <Hds::Popover @containsInteractive={{true}} @enableCollisionDetection={{true}}>
         <:toggle as |t|>
           <Hds::Button @text="Submit" {{t.setupToggle}} />
         </:toggle>
@@ -166,7 +166,7 @@
     </SG.Item>
 
     <SG.Item @label="Link">
-      <Hds::Popover @isInteractive={{true}} @enableCollisionDetection={{true}}>
+      <Hds::Popover @containsInteractive={{true}} @enableCollisionDetection={{true}}>
         <:toggle as |t|>
           <Hds::Link::Standalone
             @icon="external-link"
@@ -186,7 +186,7 @@
       <Hds::Form::Field @layout="vertical" as |F|>
         <F.Label @controlId="tooltip-example-control-id">First Name</F.Label>
         <F.Control>
-          <Hds::Popover @isInteractive={{true}} @enableCollisionDetection={{true}}>
+          <Hds::Popover @containsInteractive={{true}} @enableCollisionDetection={{true}}>
             <:toggle as |t|>
               <input type="text" value="Jane" id="popover-example-control-id-1" {{t.setupToggle}} />
             </:toggle>
@@ -204,7 +204,7 @@
   <Shw::Grid @columns={{3}} {{style gap="2rem"}} as |SG|>
 
     <SG.Item @label="Button">
-      <Hds::Popover @isInteractive={{true}} @enableCollisionDetection={{true}}>
+      <Hds::Popover @containsInteractive={{true}} @enableCollisionDetection={{true}}>
         <:toggle as |t|>
           <Hds::Button @text="Submit" {{t.setupToggle}} />
         </:toggle>
@@ -232,7 +232,7 @@
     </SG.Item>
 
     <SG.Item @label="Link">
-      <Hds::Popover @isInteractive={{true}} @enableCollisionDetection={{true}}>
+      <Hds::Popover @containsInteractive={{true}} @enableCollisionDetection={{true}}>
         <:toggle as |t|>
           <Hds::Link::Standalone
             @icon="external-link"
@@ -269,7 +269,7 @@
       <Hds::Form::Field @layout="vertical" as |F|>
         <F.Label @controlId="tooltip-example-control-id">First Name</F.Label>
         <F.Control>
-          <Hds::Popover @isInteractive={{true}} @enableCollisionDetection={{true}}>
+          <Hds::Popover @containsInteractive={{true}} @enableCollisionDetection={{true}}>
             <:toggle as |t|>
               <input type="text" value="Jane" id="tooltip-example-control-id-2" {{t.setupToggle}} />
             </:toggle>
