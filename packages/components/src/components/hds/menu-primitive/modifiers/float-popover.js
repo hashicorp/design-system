@@ -39,6 +39,14 @@ function getFloatingUIOptions(popoverOptions) {
   }
 
   // TODO! commenting this for now, will need to make this conditional to some argument (and understand how this relates to the `@height` argument)
+  // https://floating-ui.com/docs/size#match-reference-width
+  // size({
+  //   apply({ rects, elements }) {
+  //     Object.assign(elements.floating.style, {
+  //       width: `${rects.reference.width}px`,
+  //     });
+  //   },
+  // });
   // size({
   //   apply: ({ availableWidth, availableHeight, middlewareData }) => {
   //     middlewareData.size = { availableWidth, availableHeight };
