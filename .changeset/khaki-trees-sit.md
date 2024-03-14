@@ -2,4 +2,4 @@
 "@hashicorp/design-system-components": patch
 ---
 
-BugFix: Fixed issue with Sass variable for Flyout width failing in some cases
+`Flyout` - Fixed issue with Sass operators failing in old versions of Sass
