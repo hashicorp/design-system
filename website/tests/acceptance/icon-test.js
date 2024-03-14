@@ -32,7 +32,19 @@ module('Acceptance | Icon Search', function (hooks) {
 
     assert.dom('.doc-icons-list-grid-item').exists({ count: 1 });
     assert.dom('.flight-icon-cpu').exists({ count: 1 });
-    assert.dom('.doc-copy-button__visible-value ').hasText('cpu');
+    assert.dom('.doc-copy-button__visible-value').hasText('cpu');
+  });
+
+  test('should load content based on category in query param', async function (assert) {
+    await visit('/icons/library?searchQuery=animated&selectedIconSize=24');
+
+    assert.strictEqual(
+      currentURL(),
+      '/icons/library?searchQuery=animated&selectedIconSize=24'
+    );
+
+    assert.dom('.doc-icons-list-grid-item').exists({ count: 2 });
+    assert.dom('.doc-text-h2').hasText('Animated');
   });
 
   test('should load a specific icon based on query param', async function (assert) {
