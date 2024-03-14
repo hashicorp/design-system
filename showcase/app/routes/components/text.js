@@ -20,7 +20,7 @@ import {
 import {
   AVAILABLE_ALIGNS,
   AVAILABLE_COLORS,
-} from '@hashicorp/design-system-components/components/hds/text/index';
+} from '@hashicorp/design-system-components/components/hds/text';
 
 export default class ComponentsTextRoute extends Route {
   model() {

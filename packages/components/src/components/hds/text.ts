@@ -8,7 +8,7 @@ import { assert } from '@ember/debug';
 import {
   HdsTextAlignValues,
   HdsTextColorValues,
-} from './types.ts';
+} from './text/types.ts';
 
 import type {
   HdsTextTags,
@@ -17,7 +17,7 @@ import type {
   HdsTextGroups,
   HdsTextSizes,
   HdsTextWeights
-} from './types.ts';
+} from './text/types.ts';
 
 export const AVAILABLE_COLORS: string[] = Object.values(HdsTextColorValues);
 export const AVAILABLE_ALIGNS: string[] = Object.values(HdsTextAlignValues);
