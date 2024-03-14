@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 4.1.1
+
+**Patch changes**
+
+`Flyout` - Fixed issue with Sass operators failing in old versions of Sass
+
+<small class="doc-whats-new-changelog-metadata">[#1994](https://github.com/hashicorp/design-system/pull/1994)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.1.0
 
 **Minor changes**
@@ -737,26 +747,6 @@ _Notice: while technically this is a breaking change, we consider this a fast-fo
 **🔄 Updated dependencies:**
 
 - @hashicorp/design-system-tokens@1.9.0
-
-## 2.12.2
-
-**Patch changes**
-
-`PowerSelect` - fix style overrides when the list is positioned above
-
-<small class="doc-whats-new-changelog-metadata">[#1655](https://github.com/hashicorp/design-system/pull/1655)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Text` - Fixed issue with whitespace adding extra underline when used in links (eg. inside a `Link::Inline`)
-
-<small class="doc-whats-new-changelog-metadata">[#1652](https://github.com/hashicorp/design-system/pull/1652)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/ember-flight-icons@3.1.3
 
 
 ---
