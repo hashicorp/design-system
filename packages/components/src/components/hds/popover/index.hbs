@@ -6,9 +6,8 @@
   class={{this.classNames}}
   @isOpen={{@isOpen}}
   @onClose={{@onClose}}
-  {{!-- TODO this is not always true! --}}
-  @enableClickEvents={{true}}
-  @enableSoftEvents={{true}}
+  @enableSoftEvents={{this.enableSoftEvents}}
+  @enableClickEvents={{this.enableClickEvents}}
   @popoverOptions={{this.popoverOptions}}
   ...attributes
 >

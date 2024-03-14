@@ -11,291 +11,146 @@
 
   <Shw::Text::H2>Content vs Interaction</Shw::Text::H2>
 
-  <Shw::Text::H3>Non-interactive trigger</Shw::Text::H3>
+  {{#let (array "non-interactive" "interactive") as |triggerTypes|}}
+    {{#each triggerTypes as |triggerType counter0|}}
 
-  <Shw::Text::Body>With non-interactive content</Shw::Text::Body>
+      <Shw::Grid @columns={{4}} {{style gap="2rem" align-items="center"}} as |SG|>
 
-  <Shw::Grid @columns={{4}} {{style gap="2rem"}} as |SG|>
+        <SG.Item {{style grid-column="span 4"}}>
+          <Shw::Text::H3 {{style margin-bottom="0"}}>Trigger with {{triggerType}} content</Shw::Text::H3>
+        </SG.Item>
 
-    <SG.Item @label="Plain text">
-      <Hds::Popover @enableCollisionDetection={{true}}>
-        <:toggle>Lorem ipsum dolor</:toggle>
-        <:content>
-          <Shw::Placeholder @text="generic content" @height="40" />
-        </:content>
-      </Hds::Popover>
-    </SG.Item>
+        {{#let (array "non-interactive" "interactive") as |contentTypes|}}
+          {{#each contentTypes as |contentType counter1|}}
 
-    <SG.Item @label="Icon">
-      <Hds::Popover @enableCollisionDetection={{true}}>
-        <:toggle>
-          <FlightIcon @name="info" @isInlineBlock={{false}} />
-        </:toggle>
-        <:content>
-          <Shw::Placeholder @text="generic content" @height="40" />
-        </:content>
-      </Hds::Popover>
-    </SG.Item>
+            <SG.Item>
+              {{#if (eq counter1 0)}}
+                <Shw::Text::H4 {{style margin-bottom="0"}}>👆 Interaction</Shw::Text::H4>
+              {{/if}}
+            </SG.Item>
+            <SG.Item {{style grid-column="span 3"}}>
+              <Shw::Text::H4 {{style margin-bottom="0"}}>💬 Popover with {{contentType}} content</Shw::Text::H4>
+            </SG.Item>
 
-    <SG.Item @label="Intercept focus">
-      <button type="button">Hello</button>
-    </SG.Item>
+            {{#let
+              (hash non-interactive=(array "soft" "click" "soft+click") interactive=(array "soft"))
+              as |interactionVariants|
+            }}
+              {{#each (get interactionVariants triggerType) as |interaction counter2|}}
 
-    <SG.Item @label="Generic content">
-      <Hds::Popover @enableCollisionDetection={{true}}>
-        <:toggle>
-          <Shw::Placeholder @text="generic content" @height="40" />
-        </:toggle>
-        <:content>
-          <Shw::Placeholder @text="generic content" @height="40" />
-        </:content>
-      </Hds::Popover>
-    </SG.Item>
+                <SG.Item>
+                  <Shw::Text::Body {{style margin="0"}}>
+                    {{#if (eq interaction "soft")}}
+                      <code>Hover/Focus</code>
+                      ("Soft")
+                    {{else if (eq interaction "click")}}
+                      <code>Click</code>
+                      only
+                    {{else if (eq interaction "soft+click")}}
+                      <code>Hover/Focus</code>
+                      +
+                      <code>Click</code>
+                    {{/if}}
+                  </Shw::Text::Body>
+                </SG.Item>
 
-  </Shw::Grid>
+                {{#let
+                  (or (eq interaction "soft") (eq interaction "soft+click"))
+                  (or (eq interaction "click") (eq interaction "soft+click"))
+                  as |enableSoftEvents enableClickEvents|
+                }}
 
-  <Shw::Text::Body>With interactive content</Shw::Text::Body>
+                  {{#let
+                    (hash
+                      non-interactive=(array "text" "icon" "placeholder") interactive=(array "button" "link" "input")
+                    )
+                    as |triggerVariants|
+                  }}
+                    {{#each (get triggerVariants triggerType) as |triggerVariant|}}
 
-  <Shw::Grid @columns={{4}} {{style gap="2rem"}} as |SG|>
+                      <SG.Item @label={{(if (eq counter2 0) (capitalize triggerVariant))}}>
+                        <Hds::Popover
+                          @enableCollisionDetection={{true}}
+                          @enableSoftEvents={{enableSoftEvents}}
+                          @enableClickEvents={{enableClickEvents}}
+                          @containsInteractive={{eq triggerType "interactive"}}
+                        >
+                          <:toggle as |t|>
+                            {{#if (eq triggerVariant "text")}}
+                              Lorem ipsum dolor
+                            {{/if}}
+                            {{#if (eq triggerVariant "icon")}}
+                              <FlightIcon @name="info" @isInlineBlock={{false}} />
+                            {{/if}}
+                            {{#if (eq triggerVariant "placeholder")}}
+                              <Shw::Placeholder @text="generic content" @height="40" />
+                            {{/if}}
+                            {{#if (eq triggerVariant "button")}}
+                              <Hds::Button @text="Submit" {{t.setupToggle}} />
+                            {{/if}}
+                            {{#if (eq triggerVariant "link")}}
+                              <Hds::Link::Standalone
+                                @icon="external-link"
+                                @iconPosition="trailing"
+                                @text="Acme Corp"
+                                @href="#"
+                                {{t.setupToggle}}
+                              />
+                            {{/if}}
+                            {{#if (eq triggerVariant "input")}}
+                              <Hds::Form::TextInput::Base {{t.setupToggle}} />
+                            {{/if}}
+                          </:toggle>
+                          <:content as |c|>
+                            {{#if (eq contentType "non-interactive")}}
+                              <Shw::Placeholder @text="generic content" @height="40" />
+                            {{/if}}
+                            {{#if (eq contentType "interactive")}}
+                              <div class="shw-component-popover-content-interactive">
+                                <button
+                                  type="button"
+                                  {{on "click" c.close}}
+                                  title="Button that closes the popover on click"
+                                >x</button>
+                                <ul>
+                                  <li>
+                                    Lorem ipsum dolor sit amet consectetur
+                                  </li>
+                                  <li>
+                                    <a href="https://google.com">Link to Google</a>
+                                  </li>
+                                  <li>
+                                    <label for="input-{{counter1}}-{{counter2}}">Input value:</label>
+                                    <input id="input-{{counter1}}-{{counter2}}" type="text" />
+                                  </li>
+                                  <li>
+                                    <button type="button" {{on "click" c.close}}>Got it!</button>
+                                  </li>
+                                </ul>
+                              </div>
+                            {{/if}}
+                          </:content>
+                        </Hds::Popover>
+                      </SG.Item>
 
-    <SG.Item @label="Plain text">
-      <Hds::Popover @enableCollisionDetection={{true}}>
-        <:toggle>Lorem ipsum dolor</:toggle>
-        <:content as |c|>
-          <div class="shw-component-popover-content-interactive">
-            <button type="button" {{on "click" c.close}} title="Button that closes the popover on click">x</button>
-            <ul>
-              <li>
-                Lorem ipsum dolor sit amet consectetur
-              </li>
-              <li>
-                <a href="https://google.com">Link to Google</a>
-              </li>
-              <li>
-                <label for="input-1">Input value:</label>
-                <input id="input-1" type="text" />
-              </li>
-              <li>
-                <button type="button" {{on "click" c.close}}>Got it!</button>
-              </li>
-            </ul>
-          </div>
-        </:content>
-      </Hds::Popover>
-    </SG.Item>
+                    {{/each}}
 
-    <SG.Item @label="Icon">
-      <Hds::Popover @enableCollisionDetection={{true}}>
-        <:toggle>
-          <FlightIcon @name="info" @isInlineBlock={{false}} />
-        </:toggle>
-        <:content as |c|>
-          <div class="shw-component-popover-content-interactive">
-            <button type="button" {{on "click" c.close}} title="Button that closes the popover on click">x</button>
-            <ul>
-              <li>
-                Lorem ipsum dolor sit amet consectetur
-              </li>
-              <li>
-                <a href="https://google.com">Link to Google</a>
-              </li>
-              <li>
-                <label for="input-2">Input value:</label>
-                <input id="input-2" type="text" />
-              </li>
-              <li>
-                <button type="button" {{on "click" c.close}}>Got it!</button>
-              </li>
-            </ul>
-          </div>
-        </:content>
-      </Hds::Popover>
-    </SG.Item>
+                  {{/let}}
+                {{/let}}
 
-    <SG.Item @label="Intercept focus">
-      <button type="button">Hello</button>
-    </SG.Item>
+              {{/each}}
+            {{/let}}
 
-    <SG.Item @label="Generic content">
-      <Hds::Popover @enableCollisionDetection={{true}}>
-        <:toggle>
-          <Shw::Placeholder @text="generic content" @height="40" />
-        </:toggle>
-        <:content as |c|>
-          <div class="shw-component-popover-content-interactive">
-            <button type="button" {{on "click" c.close}} title="Button that closes the popover on click">x</button>
-            <ul>
-              <li>
-                Lorem ipsum dolor sit amet consectetur
-              </li>
-              <li>
-                <a href="https://google.com">Link to Google</a>
-              </li>
-              <li>
-                <label for="input-3">Input value:</label>
-                <input id="input-3" type="text" />
-              </li>
-              <li>
-                <button type="button" {{on "click" c.close}}>Got it!</button>
-              </li>
-            </ul>
-          </div>
-        </:content>
-      </Hds::Popover>
-    </SG.Item>
+          {{/each}}
+        {{/let}}
 
-  </Shw::Grid>
+      </Shw::Grid>
 
-  <Shw::Divider @level={{2}} />
+      {{#if (eq counter0 0)}}
+        <Shw::Divider @level={{2}} />
+      {{/if}}
 
-  <Shw::Text::H3>Interactive trigger</Shw::Text::H3>
-
-  <Shw::Text::Body>With non-interactive content</Shw::Text::Body>
-
-  <Shw::Grid @columns={{3}} {{style gap="2rem"}} as |SG|>
-
-    <SG.Item @label="Button">
-      <Hds::Popover @containsInteractive={{true}} @enableCollisionDetection={{true}}>
-        <:toggle as |t|>
-          <Hds::Button @text="Submit" {{t.setupToggle}} />
-        </:toggle>
-        <:content>
-          <Shw::Placeholder @text="generic content" @height="40" />
-        </:content>
-      </Hds::Popover>
-    </SG.Item>
-
-    <SG.Item @label="Link">
-      <Hds::Popover @containsInteractive={{true}} @enableCollisionDetection={{true}}>
-        <:toggle as |t|>
-          <Hds::Link::Standalone
-            @icon="external-link"
-            @iconPosition="trailing"
-            @text="Acme Corp"
-            @href="#"
-            {{t.setupToggle}}
-          />
-        </:toggle>
-        <:content>
-          <Shw::Placeholder @text="generic content" @height="40" />
-        </:content>
-      </Hds::Popover>
-    </SG.Item>
-
-    <SG.Item @label="Input">
-      <Hds::Form::Field @layout="vertical" as |F|>
-        <F.Label @controlId="tooltip-example-control-id">First Name</F.Label>
-        <F.Control>
-          <Hds::Popover @containsInteractive={{true}} @enableCollisionDetection={{true}}>
-            <:toggle as |t|>
-              <input type="text" value="Jane" id="popover-example-control-id-1" {{t.setupToggle}} />
-            </:toggle>
-            <:content>
-              <Shw::Placeholder @text="generic content" @height="40" />
-            </:content>
-          </Hds::Popover>
-        </F.Control>
-      </Hds::Form::Field>
-    </SG.Item>
-  </Shw::Grid>
-
-  <Shw::Text::Body>With interactive content</Shw::Text::Body>
-
-  <Shw::Grid @columns={{3}} {{style gap="2rem"}} as |SG|>
-
-    <SG.Item @label="Button">
-      <Hds::Popover @containsInteractive={{true}} @enableCollisionDetection={{true}}>
-        <:toggle as |t|>
-          <Hds::Button @text="Submit" {{t.setupToggle}} />
-        </:toggle>
-        <:content as |c|>
-          <div class="shw-component-popover-content-interactive">
-            <button type="button" {{on "click" c.close}} title="Button that closes the popover on click">x</button>
-            <ul>
-              <li>
-                Lorem ipsum dolor sit amet consectetur
-              </li>
-              <li>
-                <a href="https://google.com">Link to Google</a>
-              </li>
-              <li>
-                <label for="input-4">Input value:</label>
-                <input id="input-4" type="text" />
-              </li>
-              <li>
-                <button type="button" {{on "click" c.close}}>Got it!</button>
-              </li>
-            </ul>
-          </div>
-        </:content>
-      </Hds::Popover>
-    </SG.Item>
-
-    <SG.Item @label="Link">
-      <Hds::Popover @containsInteractive={{true}} @enableCollisionDetection={{true}}>
-        <:toggle as |t|>
-          <Hds::Link::Standalone
-            @icon="external-link"
-            @iconPosition="trailing"
-            @text="Acme Corp"
-            @href="#"
-            {{t.setupToggle}}
-          />
-        </:toggle>
-        <:content as |c|>
-          <div class="shw-component-popover-content-interactive">
-            <button type="button" {{on "click" c.close}} title="Button that closes the popover on click">x</button>
-            <ul>
-              <li>
-                Lorem ipsum dolor sit amet consectetur
-              </li>
-              <li>
-                <a href="https://google.com">Link to Google</a>
-              </li>
-              <li>
-                <label for="input-5">Input value:</label>
-                <input id="input-5" type="text" />
-              </li>
-              <li>
-                <button type="button" {{on "click" c.close}}>Got it!</button>
-              </li>
-            </ul>
-          </div>
-        </:content>
-      </Hds::Popover>
-    </SG.Item>
-
-    <SG.Item @label="Input">
-      <Hds::Form::Field @layout="vertical" as |F|>
-        <F.Label @controlId="tooltip-example-control-id">First Name</F.Label>
-        <F.Control>
-          <Hds::Popover @containsInteractive={{true}} @enableCollisionDetection={{true}}>
-            <:toggle as |t|>
-              <input type="text" value="Jane" id="tooltip-example-control-id-2" {{t.setupToggle}} />
-            </:toggle>
-            <:content as |c|>
-              <div class="shw-component-popover-content-interactive">
-                <button type="button" {{on "click" c.close}} title="Button that closes the popover on click">x</button>
-                <ul>
-                  <li>
-                    <a href="https://google.com">Link to Google</a>
-                  </li>
-                  <li>
-                    <label for="input-6">Input value:</label>
-                    <input id="input-6" type="text" />
-                  </li>
-                  <li>
-                  </li>
-                  <li>
-                    <button type="button" {{on "click" c.close}}>Got it!</button>
-                  </li>
-                </ul>
-              </div>
-            </:content>
-          </Hds::Popover>
-        </F.Control>
-      </Hds::Form::Field>
-    </SG.Item>
-  </Shw::Grid>
+    {{/each}}
+  {{/let}}
 
 </section>

@@ -41,6 +41,14 @@ export default class HdsPopoverIndexComponent extends Component {
     return placement;
   }
 
+  get enableSoftEvents() {
+    return this.args.enableSoftEvents ?? true;
+  }
+
+  get enableClickEvents() {
+    return this.args.enableClickEvents ?? false;
+  }
+
   get popoverOptions() {
     return {
       popoverPlacement: this.placement,
