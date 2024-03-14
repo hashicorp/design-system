@@ -2,4 +2,4 @@
 "@hashicorp/design-system-components": minor
 ---
 
-`Badge` - Converted component to typescript
+`Badge` - Converted component to TypeScript
