@@ -13,18 +13,34 @@ export default modifier((element, named) => {
   // notice: it's expressed as "named" argument (object) for the modifier
   const { onMouseEnter, onMouseLeave, onFocusIn, onFocusOut } = named;
 
-  // notice: don't set `useCapture` to `true` or it will be called more then one time (one for each child node in the bubbling tree)
-  targetElement.addEventListener('mouseenter', onMouseEnter);
-  targetElement.addEventListener('mouseleave', onMouseLeave);
-  targetElement.addEventListener('focusin', onFocusIn);
-  targetElement.addEventListener('focusout', onFocusOut);
+  // IMPORTANT: don't set `useCapture` to `true` or it will be called more then one time (one for each child node in the bubbling tree)
+  if (onMouseEnter) {
+    targetElement.addEventListener('mouseenter', onMouseEnter);
+  }
+  if (onMouseLeave) {
+    targetElement.addEventListener('mouseleave', onMouseLeave);
+  }
+  if (onFocusIn) {
+    targetElement.addEventListener('focusin', onFocusIn);
+  }
+  if (onFocusOut) {
+    targetElement.addEventListener('focusout', onFocusOut);
+  }
 
   // this (teardown) function is run when the element is removed from the DOM
   return () => {
     console.log('registerFocusAndMouseEvents teardown');
-    targetElement.removeEventListener('mouseenter', onMouseEnter);
-    targetElement.removeEventListener('mouseleave', onMouseLeave);
-    targetElement.removeEventListener('focusin', onFocusIn);
-    targetElement.removeEventListener('focusout', onFocusOut);
+    if (onMouseEnter) {
+      targetElement.removeEventListener('mouseenter', onMouseEnter);
+    }
+    if (onMouseLeave) {
+      targetElement.removeEventListener('mouseleave', onMouseLeave);
+    }
+    if (onFocusIn) {
+      targetElement.removeEventListener('focusin', onFocusIn);
+    }
+    if (onFocusOut) {
+      targetElement.removeEventListener('focusout', onFocusOut);
+    }
   };
 });

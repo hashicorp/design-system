@@ -4,7 +4,7 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <li class="hds-breadcrumb__item hds-breadcrumb__item--is-truncation" ...attributes>
-  <Hds::MenuPrimitive @popoverOptions={{this.popoverOptions}}>
+  <Hds::MenuPrimitive @enableClickEvents={{true}} @popoverOptions={{this.popoverOptions}}>
     <:toggle as |t|>
       <button
         type="button"
