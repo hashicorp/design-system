@@ -62,21 +62,24 @@
       <Hds::Popover @enableCollisionDetection={{true}}>
         <:toggle>Lorem ipsum dolor</:toggle>
         <:content as |c|>
-          <ul class="shw-component-popover-content-interactive">
-            <li>
-              Lorem ipsum dolor sit amet consectetur
-            </li>
-            <li>
-              <a href="https://google.com">Link to Google</a>
-            </li>
-            <li>
-              <label for="input-1">Input value:</label>
-              <input id="input-1" type="text" />
-            </li>
-            <li>
-              <button type="button" {{on "click" c.close}}>Button that closes the popover on click</button>
-            </li>
-          </ul>
+          <div class="shw-component-popover-content-interactive">
+            <button type="button" {{on "click" c.close}} title="Button that closes the popover on click">x</button>
+            <ul>
+              <li>
+                Lorem ipsum dolor sit amet consectetur
+              </li>
+              <li>
+                <a href="https://google.com">Link to Google</a>
+              </li>
+              <li>
+                <label for="input-1">Input value:</label>
+                <input id="input-1" type="text" />
+              </li>
+              <li>
+                <button type="button" {{on "click" c.close}}>Got it!</button>
+              </li>
+            </ul>
+          </div>
         </:content>
       </Hds::Popover>
     </SG.Item>
@@ -87,21 +90,24 @@
           <FlightIcon @name="info" @isInlineBlock={{false}} />
         </:toggle>
         <:content as |c|>
-          <ul class="shw-component-popover-content-interactive">
-            <li>
-              Lorem ipsum dolor sit amet consectetur
-            </li>
-            <li>
-              <a href="https://google.com">Link to Google</a>
-            </li>
-            <li>
-              <label for="input-2">Input value:</label>
-              <input id="input-2" type="text" />
-            </li>
-            <li>
-              <button type="button" {{on "click" c.close}}>Button that closes the popover on click</button>
-            </li>
-          </ul>
+          <div class="shw-component-popover-content-interactive">
+            <button type="button" {{on "click" c.close}} title="Button that closes the popover on click">x</button>
+            <ul>
+              <li>
+                Lorem ipsum dolor sit amet consectetur
+              </li>
+              <li>
+                <a href="https://google.com">Link to Google</a>
+              </li>
+              <li>
+                <label for="input-2">Input value:</label>
+                <input id="input-2" type="text" />
+              </li>
+              <li>
+                <button type="button" {{on "click" c.close}}>Got it!</button>
+              </li>
+            </ul>
+          </div>
         </:content>
       </Hds::Popover>
     </SG.Item>
@@ -116,21 +122,24 @@
           <Shw::Placeholder @text="generic content" @height="40" />
         </:toggle>
         <:content as |c|>
-          <ul class="shw-component-popover-content-interactive">
-            <li>
-              Lorem ipsum dolor sit amet consectetur
-            </li>
-            <li>
-              <a href="https://google.com">Link to Google</a>
-            </li>
-            <li>
-              <label for="input-3">Input value:</label>
-              <input id="input-3" type="text" />
-            </li>
-            <li>
-              <button type="button" {{on "click" c.close}}>Button that closes the popover on click</button>
-            </li>
-          </ul>
+          <div class="shw-component-popover-content-interactive">
+            <button type="button" {{on "click" c.close}} title="Button that closes the popover on click">x</button>
+            <ul>
+              <li>
+                Lorem ipsum dolor sit amet consectetur
+              </li>
+              <li>
+                <a href="https://google.com">Link to Google</a>
+              </li>
+              <li>
+                <label for="input-3">Input value:</label>
+                <input id="input-3" type="text" />
+              </li>
+              <li>
+                <button type="button" {{on "click" c.close}}>Got it!</button>
+              </li>
+            </ul>
+          </div>
         </:content>
       </Hds::Popover>
     </SG.Item>
@@ -200,21 +209,24 @@
           <Hds::Button @text="Submit" {{t.setupToggle}} />
         </:toggle>
         <:content as |c|>
-          <ul class="shw-component-popover-content-interactive">
-            <li>
-              Lorem ipsum dolor sit amet consectetur
-            </li>
-            <li>
-              <a href="https://google.com">Link to Google</a>
-            </li>
-            <li>
-              <label for="input-4">Input value:</label>
-              <input id="input-4" type="text" />
-            </li>
-            <li>
-              <button type="button" {{on "click" c.close}}>Button that closes the popover on click</button>
-            </li>
-          </ul>
+          <div class="shw-component-popover-content-interactive">
+            <button type="button" {{on "click" c.close}} title="Button that closes the popover on click">x</button>
+            <ul>
+              <li>
+                Lorem ipsum dolor sit amet consectetur
+              </li>
+              <li>
+                <a href="https://google.com">Link to Google</a>
+              </li>
+              <li>
+                <label for="input-4">Input value:</label>
+                <input id="input-4" type="text" />
+              </li>
+              <li>
+                <button type="button" {{on "click" c.close}}>Got it!</button>
+              </li>
+            </ul>
+          </div>
         </:content>
       </Hds::Popover>
     </SG.Item>
@@ -222,24 +234,33 @@
     <SG.Item @label="Link">
       <Hds::Popover @isInteractive={{true}} @enableCollisionDetection={{true}}>
         <:toggle as |t|>
-          <Hds::Link::Standalone @icon="external-link" @iconPosition="trailing" @text="Acme Corp" @href="#" {{t.setupToggle}} />
+          <Hds::Link::Standalone
+            @icon="external-link"
+            @iconPosition="trailing"
+            @text="Acme Corp"
+            @href="#"
+            {{t.setupToggle}}
+          />
         </:toggle>
         <:content as |c|>
-          <ul class="shw-component-popover-content-interactive">
-            <li>
-              Lorem ipsum dolor sit amet consectetur
-            </li>
-            <li>
-              <a href="https://google.com">Link to Google</a>
-            </li>
-            <li>
-              <label for="input-5">Input value:</label>
-              <input id="input-5" type="text" />
-            </li>
-            <li>
-              <button type="button" {{on "click" c.close}}>Button that closes the popover on click</button>
-            </li>
-          </ul>
+          <div class="shw-component-popover-content-interactive">
+            <button type="button" {{on "click" c.close}} title="Button that closes the popover on click">x</button>
+            <ul>
+              <li>
+                Lorem ipsum dolor sit amet consectetur
+              </li>
+              <li>
+                <a href="https://google.com">Link to Google</a>
+              </li>
+              <li>
+                <label for="input-5">Input value:</label>
+                <input id="input-5" type="text" />
+              </li>
+              <li>
+                <button type="button" {{on "click" c.close}}>Got it!</button>
+              </li>
+            </ul>
+          </div>
         </:content>
       </Hds::Popover>
     </SG.Item>
@@ -253,18 +274,23 @@
               <input type="text" value="Jane" id="tooltip-example-control-id-2" {{t.setupToggle}} />
             </:toggle>
             <:content as |c|>
-              <ul class="shw-component-popover-content-interactive">
-                <li>
-                  <a href="https://google.com">Link to Google</a>
-                </li>
-                <li>
-                  <label for="input-6">Input value:</label>
-                  <input id="input-6" type="text" />
-                </li>
-                <li>
-                  <button type="button" {{on "click" c.close}}>Button that closes the popover on click</button>
-                </li>
-              </ul>
+              <div class="shw-component-popover-content-interactive">
+                <button type="button" {{on "click" c.close}} title="Button that closes the popover on click">x</button>
+                <ul>
+                  <li>
+                    <a href="https://google.com">Link to Google</a>
+                  </li>
+                  <li>
+                    <label for="input-6">Input value:</label>
+                    <input id="input-6" type="text" />
+                  </li>
+                  <li>
+                  </li>
+                  <li>
+                    <button type="button" {{on "click" c.close}}>Got it!</button>
+                  </li>
+                </ul>
+              </div>
             </:content>
           </Hds::Popover>
         </F.Control>
