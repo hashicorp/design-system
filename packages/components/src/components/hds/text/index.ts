@@ -44,7 +44,7 @@ export default class HdsTextIndexComponent extends Component<HdsTextIndexSignatu
    * @return {string} The html tag to use in the dynamic render of the component
    */
   get componentTag(): HdsTextTags {
-    let { tag = 'span' } = this.args;
+    const { tag = 'span' } = this.args;
 
     return tag;
   }
@@ -58,7 +58,7 @@ export default class HdsTextIndexComponent extends Component<HdsTextIndexSignatu
    * @param variant
    */
   get variant() {
-    let { group, size } = this.args;
+    const { group, size } = this.args;
 
     // notice: for performance reasons we don't do any other extra check on these values
     // we assume they've already been validated by the "parent" components
@@ -73,7 +73,7 @@ export default class HdsTextIndexComponent extends Component<HdsTextIndexSignatu
    * @type {string}
    */
   get align() {
-    let { align } = this.args;
+    const { align } = this.args;
 
     if (align) {
       assert(
@@ -95,7 +95,7 @@ export default class HdsTextIndexComponent extends Component<HdsTextIndexSignatu
    * @type {string}
    */
   get predefinedColor() {
-    let { color } = this.args;
+    const { color } = this.args;
 
     if (color && AVAILABLE_COLORS.includes(color)) {
       return color;
@@ -111,7 +111,7 @@ export default class HdsTextIndexComponent extends Component<HdsTextIndexSignatu
    * @type {string}
    */
   get customColor() {
-    let { color } = this.args;
+    const { color } = this.args;
 
     if (color && !AVAILABLE_COLORS.includes(color)) {
       return color;
@@ -126,7 +126,7 @@ export default class HdsTextIndexComponent extends Component<HdsTextIndexSignatu
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-text'];
+    const classes = ['hds-text'];
 
     // add a (helper) class based on the "group + size" variant
     classes.push(`hds-typography-${this.variant}`);

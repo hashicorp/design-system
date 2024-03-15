@@ -17,18 +17,39 @@ import type {
 // see: https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=1262%3A9192
 
 // Allow consumers to provide either string or number representation of size
-type HdsTextCodeSizeNumber = Extract<HdsTextSizeValues, HdsTextSizeValues.OneHundred | HdsTextSizeValues.TwoHundred | HdsTextSizeValues.ThreeHundred>;
+type HdsTextCodeSizeNumber = Extract<
+  HdsTextSizeValues,
+  | HdsTextSizeValues.OneHundred
+  | HdsTextSizeValues.TwoHundred
+  | HdsTextSizeValues.ThreeHundred
+>;
 type HdsTextCodeSizeString = `${HdsTextCodeSizeNumber}`;
 export type HdsTextCodeSizes = HdsTextCodeSizeNumber | HdsTextCodeSizeString;
-export const AVAILABLE_SIZES = [HdsTextSizeValues.ThreeHundred, HdsTextSizeValues.TwoHundred, HdsTextSizeValues.OneHundred];
+export const AVAILABLE_SIZES = [
+  HdsTextSizeValues.ThreeHundred,
+  HdsTextSizeValues.TwoHundred,
+  HdsTextSizeValues.OneHundred,
+];
 export const DEFAULT_SIZE = HdsTextSizeValues.TwoHundred;
 
 export const DEFAULT_WEIGHT = HdsTextWeightValues.Regular;
-export type HdsTextCodeWeight = Extract<HdsTextWeights, "regular" | "bold">;
-export const AVAILABLE_WEIGHTS_PER_SIZE: Record<HdsTextCodeSizes, HdsTextCodeWeight[]> = {
-  [HdsTextSizeValues.ThreeHundred]: [HdsTextWeightValues.Regular, HdsTextWeightValues.Bold],
-  [HdsTextSizeValues.TwoHundred]: [HdsTextWeightValues.Regular, HdsTextWeightValues.Bold],
-  [HdsTextSizeValues.OneHundred]: [HdsTextWeightValues.Regular, HdsTextWeightValues.Bold],
+export type HdsTextCodeWeight = Extract<HdsTextWeights, 'regular' | 'bold'>;
+export const AVAILABLE_WEIGHTS_PER_SIZE: Record<
+  HdsTextCodeSizes,
+  HdsTextCodeWeight[]
+> = {
+  [HdsTextSizeValues.ThreeHundred]: [
+    HdsTextWeightValues.Regular,
+    HdsTextWeightValues.Bold,
+  ],
+  [HdsTextSizeValues.TwoHundred]: [
+    HdsTextWeightValues.Regular,
+    HdsTextWeightValues.Bold,
+  ],
+  [HdsTextSizeValues.OneHundred]: [
+    HdsTextWeightValues.Regular,
+    HdsTextWeightValues.Bold,
+  ],
 };
 
 export interface HdsTextCodeSignature {
@@ -85,7 +106,7 @@ export default class HdsTextCodeComponent extends Component<HdsTextCodeSignature
    * @param variant
    */
   get weight() {
-    let { weight = DEFAULT_WEIGHT } = this.args;
+    const { weight = DEFAULT_WEIGHT } = this.args;
 
     const availableWeights = AVAILABLE_WEIGHTS_PER_SIZE[this.size];
 

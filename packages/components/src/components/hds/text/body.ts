@@ -17,18 +17,45 @@ import type {
 // see: https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=1262%3A9192
 
 // Allow consumers to provide either string or number representation of size
-type HdsTextBodySizeNumber = Extract<HdsTextSizeValues, HdsTextSizeValues.OneHundred | HdsTextSizeValues.TwoHundred | HdsTextSizeValues.ThreeHundred>;
+type HdsTextBodySizeNumber = Extract<
+  HdsTextSizeValues,
+  | HdsTextSizeValues.OneHundred
+  | HdsTextSizeValues.TwoHundred
+  | HdsTextSizeValues.ThreeHundred
+>;
 type HdsTextBodySizeString = `${HdsTextBodySizeNumber}`;
 export type HdsTextBodySizes = HdsTextBodySizeNumber | HdsTextBodySizeString;
-export const AVAILABLE_SIZES = [HdsTextSizeValues.ThreeHundred, HdsTextSizeValues.TwoHundred, HdsTextSizeValues.OneHundred];
+export const AVAILABLE_SIZES = [
+  HdsTextSizeValues.ThreeHundred,
+  HdsTextSizeValues.TwoHundred,
+  HdsTextSizeValues.OneHundred,
+];
 export const DEFAULT_SIZE = HdsTextSizeValues.TwoHundred;
 
 export const DEFAULT_WEIGHT = HdsTextWeightValues.Regular;
-export type HdsTextBodyWeight = Extract<HdsTextWeights, "regular" | "medium" | "semibold">;
-export const AVAILABLE_WEIGHTS_PER_SIZE: Record<HdsTextBodySizes, HdsTextBodyWeight[]> = {
-  300: [HdsTextWeightValues.Regular, HdsTextWeightValues.Medium, HdsTextWeightValues.Semibold],
-  200: [HdsTextWeightValues.Regular, HdsTextWeightValues.Medium, HdsTextWeightValues.Semibold],
-  100: [HdsTextWeightValues.Regular, HdsTextWeightValues.Medium, HdsTextWeightValues.Semibold],
+export type HdsTextBodyWeight = Extract<
+  HdsTextWeights,
+  'regular' | 'medium' | 'semibold'
+>;
+export const AVAILABLE_WEIGHTS_PER_SIZE: Record<
+  HdsTextBodySizes,
+  HdsTextBodyWeight[]
+> = {
+  300: [
+    HdsTextWeightValues.Regular,
+    HdsTextWeightValues.Medium,
+    HdsTextWeightValues.Semibold,
+  ],
+  200: [
+    HdsTextWeightValues.Regular,
+    HdsTextWeightValues.Medium,
+    HdsTextWeightValues.Semibold,
+  ],
+  100: [
+    HdsTextWeightValues.Regular,
+    HdsTextWeightValues.Medium,
+    HdsTextWeightValues.Semibold,
+  ],
 };
 
 export interface HdsTextBodySignature {
@@ -85,7 +112,7 @@ export default class HdsTextBodyComponent extends Component<HdsTextBodySignature
    * @param variant
    */
   get weight() {
-    let { weight = DEFAULT_WEIGHT } = this.args;
+    const { weight = DEFAULT_WEIGHT } = this.args;
 
     const availableWeights = AVAILABLE_WEIGHTS_PER_SIZE[this.size];
 
