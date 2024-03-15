@@ -69,10 +69,18 @@ export default class Index extends Component {
       );
     }
 
-    // alphabetize the filtered icons
-    filteredIcons.sort((a, b) => {
-      return a.iconName.localeCompare(b.iconName);
-    });
+    // alphabetize the filtered icons by category and then by name
+    filteredIcons
+      .sort((a, b) => {
+        return a.category.localeCompare(b.category);
+      })
+      .sort((a, b) => {
+        if (a.category === b.category) {
+          a.iconName.localeCompare(b.iconName);
+        }
+
+        return 0;
+      });
 
     // Group all filtered icons by category
     filteredIcons.forEach((icon) => {
@@ -83,14 +91,7 @@ export default class Index extends Component {
       filteredGroupedIcons[category].push(icon);
     });
 
-    // alphabetize the grouped icon categories
-    const alphabetizedCategories = Object.keys(filteredGroupedIcons).sort();
-    const alphabetizedGroupedIcons = {};
-
-    for (const category of alphabetizedCategories) {
-      alphabetizedGroupedIcons[category] = filteredGroupedIcons[category];
-    }
-    return alphabetizedGroupedIcons;
+    return filteredGroupedIcons;
   }
 
   @action
