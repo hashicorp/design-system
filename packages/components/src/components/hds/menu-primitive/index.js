@@ -220,14 +220,17 @@ export default class HdsMenuPrimitiveComponent extends Component {
   toggleForcedOpen(event) {
     console.log(
       'toggleForcedOpen invoked',
-      event.pointerType,
+      event,
       this.isOpen,
       this.isForcedOpen
     );
 
     // we want to have "forced" opening only if the trigger has been explicitly "clicked"
     // (an "enter" key pressed when the toggle is focus would trigger the click but it would be strange for the consumer to have the toggle re-open the popover)
-    const isPointerEvent = event.pointerType && event.pointerType !== '';
+    // this doesn't work in Firefox
+    // const isPointerEvent = event.pointerType && event.pointerType !== '';
+    // this works, using event.details (see: https://developer.mozilla.org/en-US/docs/Web/API/UIEvent/detail)
+    const isPointerEvent = event.detail && event.detail > 0;
 
     if (isPointerEvent && this.isOpen && !this.isForcedOpen) {
       this.isForcedOpen = true;
