@@ -33,15 +33,19 @@ export const AVAILABLE_WEIGHTS_PER_SIZE: Record<HdsTextBodySizes, HdsTextBodyWei
 
 export interface HdsTextBodySignature {
   Args: {
-    size: HdsTextBodySizes;
+    size?: HdsTextBodySizes;
     color?: string | HdsTextColors;
     tag?: HdsTextTags;
     align?: HdsTextAligns;
     weight?: HdsTextBodyWeight;
   };
-  Element: HTMLSpanElement | HTMLHeadingElement | HTMLParagraphElement | HTMLDivElement;
+  Element:
+    | HTMLSpanElement
+    | HTMLHeadingElement
+    | HTMLParagraphElement
+    | HTMLDivElement;
   Blocks: {
-    default: [],
+    default: [];
   };
 }
 

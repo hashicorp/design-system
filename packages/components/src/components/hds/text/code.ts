@@ -33,15 +33,19 @@ export const AVAILABLE_WEIGHTS_PER_SIZE: Record<HdsTextCodeSizes, HdsTextCodeWei
 
 export interface HdsTextCodeSignature {
   Args: {
-    size: HdsTextCodeSizes;
+    size?: HdsTextCodeSizes;
     color?: string | HdsTextColors;
     tag?: HdsTextTags;
     align?: HdsTextAligns;
     weight?: HdsTextCodeWeight;
   };
-  Element: HTMLSpanElement | HTMLHeadingElement | HTMLParagraphElement | HTMLDivElement;
+  Element:
+    | HTMLSpanElement
+    | HTMLHeadingElement
+    | HTMLParagraphElement
+    | HTMLDivElement;
   Blocks: {
-    default: [],
+    default: [];
   };
 }
 

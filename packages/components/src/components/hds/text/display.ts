@@ -60,7 +60,7 @@ export const AVAILABLE_WEIGHTS_PER_SIZE: Record<
 
 export interface HdsTextDisplaySignature {
   Args: {
-    size: HdsTextSizes;
+    size?: HdsTextSizes;
     color?: string | HdsTextColors;
     tag?: HdsTextTags;
     align?: HdsTextAligns;
