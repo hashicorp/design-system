@@ -14,9 +14,9 @@ export const SIZES = ['small', 'medium', 'large'] as const;
 export const COLORS = ['primary', 'secondary', 'tertiary', 'critical'] as const;
 export const ICONPOSITIONS = ['leading', 'trailing'] as const;
 
-export type HdsButtonSize = typeof SIZES[number];
-export type HdsButtonColor = typeof COLORS[number];
-export type HdsButtonIconPosition = typeof ICONPOSITIONS[number];
+export type HdsButtonSize = (typeof SIZES)[number];
+export type HdsButtonColor = (typeof COLORS)[number];
+export type HdsButtonIconPosition = (typeof ICONPOSITIONS)[number];
 
 export interface HdsButtonSignature {
   Args: HdsInteractiveSignature['Args'] & {
@@ -39,7 +39,7 @@ export default class HdsButtonIndexComponent extends Component<HdsButtonSignatur
    * @description The text of the button or value of `aria-label` if `isIconOnly` is set to `true`. If no text value is defined an error will be thrown.
    */
   get text() {
-    let { text } = this.args;
+    const { text } = this.args;
 
     assert(
       '@text for "Hds::Button" must have a valid value',
@@ -56,7 +56,7 @@ export default class HdsButtonIndexComponent extends Component<HdsButtonSignatur
    * @description The size of the button; acceptable values are `small`, `medium`, and `large`
    */
   get size() {
-    let { size = DEFAULT_SIZE } = this.args;
+    const { size = DEFAULT_SIZE } = this.args;
 
     assert(
       `@size for "Hds::Button" must be one of the following: ${SIZES.join(
@@ -75,7 +75,7 @@ export default class HdsButtonIndexComponent extends Component<HdsButtonSignatur
    * @description Determines the color of button to be used; acceptable values are `primary`, `secondary`, and `critical`
    */
   get color() {
-    let { color = DEFAULT_COLOR } = this.args;
+    const { color = DEFAULT_COLOR } = this.args;
 
     assert(
       `@color for "Hds::Button" must be one of the following: ${COLORS.join(
@@ -122,7 +122,7 @@ export default class HdsButtonIndexComponent extends Component<HdsButtonSignatur
    * @description Positions the icon before or after the text; allowed values are `leading` or `trailing`
    */
   get iconPosition() {
-    let { iconPosition = DEFAULT_ICONPOSITION } = this.args;
+    const { iconPosition = DEFAULT_ICONPOSITION } = this.args;
 
     assert(
       `@iconPosition for "Hds::Button" must be one of the following: ${ICONPOSITIONS.join(
@@ -164,7 +164,7 @@ export default class HdsButtonIndexComponent extends Component<HdsButtonSignatur
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-button'];
+    const classes = ['hds-button'];
 
     // add a class based on the @color argument
     classes.push(`hds-button--color-${this.color}`);

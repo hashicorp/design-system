@@ -2,10 +2,9 @@
 
 module.exports = {
   root: true,
-  parser: '@babel/eslint-parser',
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2018,
-    sourceType: 'module',
     ecmaFeatures: {
       legacyDecorators: true,
     },
@@ -26,6 +25,13 @@ module.exports = {
   rules: {},
   overrides: [
     // node files
+    {
+      files: ['**/*.ts', '**/*.gts'],
+      extends: [
+        'plugin:@typescript-eslint/eslint-recommended',
+        'plugin:@typescript-eslint/recommended',
+      ],
+    },
     {
       files: [
         './.eslintrc.js',

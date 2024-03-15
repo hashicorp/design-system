@@ -8,7 +8,7 @@ import Component from '@glimmer/component';
 export interface HdsDismissButtonSignature {
   Args: {
     ariaLabel?: string;
-  },
+  };
   Element: HTMLButtonElement;
 }
 
