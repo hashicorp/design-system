@@ -7,7 +7,7 @@
   type="button"
   class={{this.classNames}}
   {{hds-clipboard text=@textToCopy onSuccess=this.onSuccess onError=this.onError}}
-  aria-label={{concat 'copy ' @textToCopy}}
+  aria-label={{concat "copy " @textToCopy}}
   ...attributes
 >
   <Hds::Text::Code class="hds-copy-snippet__text" @tag="span" @size="100">
