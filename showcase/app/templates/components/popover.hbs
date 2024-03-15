@@ -14,9 +14,9 @@
   {{#let (array "non-interactive" "interactive") as |triggerTypes|}}
     {{#each triggerTypes as |triggerType counter0|}}
 
-      <Shw::Grid @columns={{4}} {{style gap="2rem" align-items="center"}} as |SG|>
+      <Shw::Grid @columns={{5}} {{style gap="2rem" align-items="center"}} as |SG|>
 
-        <SG.Item {{style grid-column="span 4"}}>
+        <SG.Item {{style grid-column="span 5"}}>
           <Shw::Text::H3 {{style margin-bottom="0"}}>Trigger with {{triggerType}} content</Shw::Text::H3>
         </SG.Item>
 
@@ -28,7 +28,7 @@
                 <Shw::Text::H4 {{style margin-bottom="0"}}>👆 Interaction</Shw::Text::H4>
               {{/if}}
             </SG.Item>
-            <SG.Item {{style grid-column="span 3"}}>
+            <SG.Item {{style grid-column="span 4"}}>
               <Shw::Text::H4 {{style margin-bottom="0"}}>💬 Popover with {{contentType}} content</Shw::Text::H4>
             </SG.Item>
 
@@ -62,7 +62,8 @@
 
                   {{#let
                     (hash
-                      non-interactive=(array "text" "icon" "placeholder") interactive=(array "button" "link" "input")
+                      non-interactive=(array "text" "icon" "placeholder" "tag")
+                      interactive=(array "button" "link" "input" "tag")
                     )
                     as |triggerVariants|
                   }}
@@ -99,6 +100,14 @@
                             {{/if}}
                             {{#if (eq triggerVariant "input")}}
                               <Hds::Form::TextInput::Base {{t.setupToggle}} />
+                            {{/if}}
+                            {{#if (eq triggerVariant "tag")}}
+                              {{#if (eq triggerType "non-interactive")}}
+                                <Hds::Tag @text="Sit amet" />
+                              {{/if}}
+                              {{#if (eq triggerType "interactive")}}
+                                <Hds::Tag @text="Sit amet" @onDismiss={{this.noop}} {{t.setupToggle}} />
+                              {{/if}}
                             {{/if}}
                           </:toggle>
                           <:content as |c|>

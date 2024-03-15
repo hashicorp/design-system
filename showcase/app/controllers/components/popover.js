@@ -8,6 +8,9 @@ import { action } from '@ember/object';
 
 export default class PopoverController extends Controller {
   @action
+  noop() {}
+
+  @action
   onClickButton() {
     window.alert('The button has been clicked!');
   }
