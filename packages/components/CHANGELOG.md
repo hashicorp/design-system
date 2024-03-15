@@ -5,6 +5,8 @@
 > [!CAUTION]
 > This version is missing the pre-compiled CSS
 
+You can still use this version if you import styles as Sass and don't require `design-system-components.css`
+
 ### Patch Changes
 
 `Flyout` - Fixed issue with Sass operators failing in old versions of Sass
