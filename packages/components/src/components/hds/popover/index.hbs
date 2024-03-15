@@ -15,7 +15,8 @@
     {{#if @containsInteractive}}
       {{yield (hash setupToggle=t.setupMenuPrimitiveToggle) to="toggle"}}
     {{else}}
-      <button class="hds-popover__button" {{t.setupMenuPrimitiveToggle}}>
+      {{! TODO! decide how to pass down aria label attributes to this button }}
+      <button class="hds-popover__button" {{t.setupMenuPrimitiveToggle}} aria-label="todo">
         {{yield to="toggle"}}
       </button>
     {{/if}}
