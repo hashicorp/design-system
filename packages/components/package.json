@@ -198,7 +198,7 @@
       "./components/hds/link/standalone.js": "./dist/_app_/components/hds/link/standalone.js",
       "./components/hds/menu-primitive/index.js": "./dist/_app_/components/hds/menu-primitive/index.js",
       "./components/hds/menu-primitive/modifiers/float-popover.js": "./dist/_app_/components/hds/menu-primitive/modifiers/float-popover.js",
-      "./components/hds/menu-primitive/modifiers/register-focus-and-mouse-events.js": "./dist/_app_/components/hds/menu-primitive/modifiers/register-focus-and-mouse-events.js",
+      "./components/hds/menu-primitive/modifiers/register-event.js": "./dist/_app_/components/hds/menu-primitive/modifiers/register-event.js",
       "./components/hds/modal/body.js": "./dist/_app_/components/hds/modal/body.js",
       "./components/hds/modal/footer.js": "./dist/_app_/components/hds/modal/footer.js",
       "./components/hds/modal/header.js": "./dist/_app_/components/hds/modal/header.js",

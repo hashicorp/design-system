@@ -10,18 +10,19 @@ import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
 
-import registerFocusAndMouseEvents from './modifiers/register-focus-and-mouse-events';
+import registerEvent from './modifiers/register-event';
 import floatPopoverModifier from './modifiers/float-popover';
 
 export default class HdsMenuPrimitiveComponent extends Component {
   @tracked toggleElement;
   @tracked popoverElement;
-  @tracked isOpen = this.args.isOpen;
+  @tracked isOpen = this.args.isOpen ?? false;
+  @tracked isForcedOpen = false;
   @tracked isClosing = false;
   // this will enable "click" events for the toggle
-  @tracked enableClickEvents = this.args.enableClickEvents || false;
+  @tracked enableClickEvents = this.args.enableClickEvents ?? false;
   // this will enable "soft" events for the toggle ("hover" and "focus")
-  @tracked enableSoftEvents = this.args.enableSoftEvents || false;
+  @tracked enableSoftEvents = this.args.enableSoftEvents ?? false;
 
   /**
    * Generates a unique ID for the "popover" (will be used in the `popovertarget` attribute of the toggle button)
@@ -40,20 +41,14 @@ export default class HdsMenuPrimitiveComponent extends Component {
         HTMLElement.prototype.hasOwnProperty('popover')
       );
 
+      // we register the "soft" events
       if (this.enableSoftEvents) {
-        // we register all the events
-        registerFocusAndMouseEvents(this.containerElement, {
-          onMouseEnter: this.onMouseEnter,
-          onMouseLeave: this.onMouseLeave,
-          onFocusIn: this.onFocusIn,
-          onFocusOut: this.onFocusOut,
-        });
-      } else {
-        // we register only the focusOut event (we always want it)
-        registerFocusAndMouseEvents(this.containerElement, {
-          onFocusOut: this.onFocusOut,
-        });
+        registerEvent(this.containerElement, ['mouseenter', this.onMouseEnter]);
+        registerEvent(this.containerElement, ['mouseleave', this.onMouseLeave]);
+        registerEvent(this.containerElement, ['focusin', this.onFocusIn]);
       }
+      // we always want the focusOut event
+      registerEvent(this.containerElement, ['focusout', this.onFocusOut]);
     },
     { eager: false }
   );
@@ -66,14 +61,16 @@ export default class HdsMenuPrimitiveComponent extends Component {
       // we rely on the `popovertarget` attribute provided by the Popover API
       // which does all the magic for us without needing JS code
       // (notice: to work it needs to be applied to a button)
-      /// see:
       if (this.enableClickEvents) {
         this.toggleElement.setAttribute('popovertarget', this.popoverId);
       }
 
-      // this (teardown) function is run when the element is removed
-      // return () => {
-      // };
+      // when the toggle supports both soft events and click events
+      // we want the popover to be explicitly dismissed when the toggle was clicked
+      // (so mouseout is disabled)
+      if (this.enableClickEvents && this.enableSoftEvents) {
+        registerEvent(this.toggleElement, ['click', this.toggleForcedOpen]);
+      }
     },
     { eager: false }
   );
@@ -95,11 +92,11 @@ export default class HdsMenuPrimitiveComponent extends Component {
       }
 
       // Register "onBeforeToggle" + "onToggle" callback functions to be called when a native 'toggle' event is dispatched
-      this.popoverElement.addEventListener(
+      registerEvent(this.popoverElement, [
         'beforetoggle',
-        this.onBeforeTogglePopover
-      );
-      this.popoverElement.addEventListener('toggle', this.onTogglePopover);
+        this.onBeforeTogglePopover,
+      ]);
+      registerEvent(this.popoverElement, ['toggle', this.onTogglePopover]);
 
       // apply the "float-popover" modifier to the "popover" element
       // (notice: this function runs the first time when the element the modifier was applied to is inserted into the DOM, and it autotracks while running. Any tracked values that it accesses will be tracked, including the arguments it receives, and if any of them changes, the function will run again)
@@ -111,15 +108,6 @@ export default class HdsMenuPrimitiveComponent extends Component {
         [this.toggleElement], // positional arguments
         { popoverOptions: this.args.popoverOptions } // named arguments
       );
-
-      // this (teardown) function is run when the element is removed
-      return () => {
-        this.popoverElement.removeEventListener(
-          'beforetoggle',
-          this.onBeforeTogglePopover
-        );
-        this.popoverElement.removeEventListener('toggle', this.onTogglePopover);
-      };
     },
     { eager: false }
   );
@@ -173,6 +161,7 @@ export default class HdsMenuPrimitiveComponent extends Component {
         this.popoverElement.popover = 'auto';
       }
       this.isOpen = false;
+      this.isForcedOpen = false;
       // reset the "isClosing" flag (the `toggle` event is fired _after_ the popover is closed)
       this.isClosing = false;
       // we call the "onClose" callback if it exists (and is a function)
@@ -207,7 +196,9 @@ export default class HdsMenuPrimitiveComponent extends Component {
   @action
   onMouseLeave() {
     console.log('onMouseLeave invoked');
-    this.timer = setTimeout(this.hidePopover.bind(this), 500);
+    if (!this.isForcedOpen) {
+      this.timer = setTimeout(this.hidePopover.bind(this), 500);
+    }
   }
 
   @action
@@ -222,6 +213,28 @@ export default class HdsMenuPrimitiveComponent extends Component {
       )
     ) {
       this.hidePopover();
+    }
+  }
+
+  @action
+  toggleForcedOpen(event) {
+    console.log(
+      'toggleForcedOpen invoked',
+      event.pointerType,
+      this.isOpen,
+      this.isForcedOpen
+    );
+
+    // we want to have "forced" opening only if the trigger has been explicitly "clicked"
+    // (an "enter" key pressed when the toggle is focus would trigger the click but it would be strange for the consumer to have the toggle re-open the popover)
+    const isPointerEvent = event.pointerType && event.pointerType !== '';
+
+    if (isPointerEvent && this.isOpen && !this.isForcedOpen) {
+      this.isForcedOpen = true;
+      // we need to prevent the native popover "toggle" to happen
+      event.preventDefault();
+    } else {
+      this.isForcedOpen = false;
     }
   }
 
