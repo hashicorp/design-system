@@ -7,17 +7,48 @@
 // MenuPrimitive COMPONENT
 //
 
+@use "../mixins/focus-ring" as *;
+
 .hds-menu-primitive {
   position: relative;
   width: fit-content;
+}
+
+.hds-menu-primitive__toggle {
+  &:where(button) {
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    font: inherit;
+    text-align: inherit;
+    background-color: inherit;
+    border: none;
+    // TODO! discuss with designer
+    border-radius: 3px;
+
+    @include hds-focus-ring-with-pseudo-element(
+      $top: -2px,
+      $right: -2px,
+      $bottom: -2px,
+      $left: -2px
+    );
+  }
+}
+
+.hds-menu-primitive__toggle--is-inline {
+  display: inline;
+}
+
+.hds-menu-primitive__toggle--is-block {
+  display: block;
 }
 
 // this will have a "popover" behaviour associated, which comes with pre-defined styling
 .hds-menu-primitive__content {
   // TODO make sure this is OK, and we don't need to reset only some properties
   // :where(&[popover]) {
-    //   all: unset;
-    // }
+  //   all: unset;
+  // }
   :where(&[popover]) {
     margin: 0;
     padding: 0;

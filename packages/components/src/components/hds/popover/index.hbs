@@ -6,22 +6,17 @@
   class={{this.classNames}}
   @isOpen={{@isOpen}}
   @onClose={{@onClose}}
+  @containsInteractive={{@containsInteractive}}
   @enableSoftEvents={{this.enableSoftEvents}}
   @enableClickEvents={{this.enableClickEvents}}
   @popoverOptions={{this.popoverOptions}}
   ...attributes
 >
   <:toggle as |t|>
-    {{#if @containsInteractive}}
-      {{yield (hash setupToggle=t.setupMenuPrimitiveToggle) to="toggle"}}
-    {{else}}
-      {{! TODO! decide how to pass down aria label attributes to this button }}
-      <button class="hds-popover__button" {{t.setupMenuPrimitiveToggle}} aria-label="todo">
-        {{yield to="toggle"}}
-      </button>
-    {{/if}}
+    {{yield (hash setupToggle=t.setupMenuPrimitiveToggle) to="toggle"}}
   </:toggle>
   <:content as |c|>
+    {{! TODO! see if makes sense to move the "width/height" down to the primitive }}
     <div class="hds-popover__content" {{style width=@width max-height=@height}}>
       {{yield (hash close=c.close) to="content"}}
     </div>

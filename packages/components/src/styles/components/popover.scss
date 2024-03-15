@@ -7,47 +7,9 @@
 // POPOVER
 //
 
-@use "../mixins/focus-ring" as *;
-
 .hds-popover {
   // add the component styles here
 }
-
-.hds-popover__button {
-  // add design token for --token-popover-focus-offset
-  --token-popover-focus-offset: -2px;
-
-  display: block;
-
-  // TODO! discuss with designer
-  border-radius: 3px;
-
-  @include hds-focus-ring-with-pseudo-element(
-    $top: var(--token-popover-focus-offset),
-    $right: var(--token-popover-focus-offset),
-    $bottom: var(--token-popover-focus-offset),
-    $left: var(--token-popover-focus-offset),
-  );
-}
-
-:where(.hds-popover__button) {
-  margin: 0;
-  padding: 0;
-  color: inherit;
-  font: inherit;
-  text-align: inherit;
-  background-color: inherit;
-  border: none;
-}
-
-:where(.hds-popover__button--is-inline) {
-  display: inline-flex;
-}
-
-:where(.hds-popover__button--is-block) {
-  display: flex;
-}
-
 
 .hds-popover__content {
   padding: 16px;
