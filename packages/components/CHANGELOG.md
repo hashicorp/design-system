@@ -2,6 +2,9 @@
 
 ## 4.1.1
 
+> [!CAUTION]
+> This version is missing the pre-compiled CSS
+
 ### Patch Changes
 
 `Flyout` - Fixed issue with Sass operators failing in old versions of Sass
