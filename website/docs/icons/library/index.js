@@ -15,19 +15,6 @@ const DEBOUNCE_MS = 250;
 export default class Index extends Component {
   @service router;
 
-  constructor() {
-    super(...arguments);
-    this.groupedIcons = {};
-    // prepare the icons grouped by category
-    this.allIcons.forEach((icon) => {
-      const category = icon.category;
-      if (!this.groupedIcons[category]) {
-        this.groupedIcons[category] = [];
-      }
-      this.groupedIcons[category].push(icon);
-    });
-  }
-
   allIcons = catalog.assets.map(
     ({ iconName, fileName, size, description, category }) => {
       return {
@@ -49,9 +36,8 @@ export default class Index extends Component {
     return this.router.currentRoute.queryParams['selectedIconSize'] || '24';
   }
 
-  get filteredGroupedIcons() {
-    const filteredGroupedIcons = {};
-
+  // Performs search & returns all icons which match search query
+  get filteredIcons() {
     if (this.searchQuery) {
       // check if the query is for an exact match (prefixed with `icon:`)
       if (this.searchQuery.match(/^icon:/)) {
@@ -63,30 +49,30 @@ export default class Index extends Component {
             i.iconName === exactIconName && i.size === this.selectedIconSize
           );
         });
-        if (icon) {
-          return { [icon.category]: [icon] };
-        }
+        return icon ? [icon] : [];
       } else {
-        Object.keys(this.groupedIcons).forEach((category) => {
-          const filteredIcons = this.groupedIcons[category].filter(
-            (i) =>
-              i.searchable.indexOf(this.searchQuery) !== -1 &&
-              i.size === this.selectedIconSize
-          );
-          if (filteredIcons.length > 0) {
-            filteredGroupedIcons[category] = filteredIcons;
-          }
-        });
+        return this.allIcons.filter(
+          (i) =>
+            i.size === this.selectedIconSize &&
+            i.searchable.indexOf(this.searchQuery) !== -1
+        );
       }
     } else {
-      Object.keys(this.groupedIcons).forEach((category) => {
-        const filteredIcons = this.groupedIcons[category].filter(
-          (i) => i.size === this.selectedIconSize
-        );
-        filteredGroupedIcons[category] =
-          filteredIcons.length > 0 ? filteredIcons : false;
-      });
+      return this.allIcons.filter((i) => i.size === this.selectedIconSize);
     }
+  }
+
+  // Groups all filtered icons by category
+  get filteredGroupedIcons() {
+    const filteredGroupedIcons = {};
+
+    this.filteredIcons.forEach((icon) => {
+      const category = icon.category;
+      if (!filteredGroupedIcons[category]) {
+        filteredGroupedIcons[category] = [];
+      }
+      filteredGroupedIcons[category].push(icon);
+    });
 
     return filteredGroupedIcons;
   }
