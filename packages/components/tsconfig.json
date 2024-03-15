@@ -13,19 +13,12 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "noPropertyAccessFromIndexSignature": false,
+    "rootDir": "./src",
+    "declarationDir": "declarations",
     "paths": {
-      "@hashicorp/design-system-components": [
-        "src"
-      ],
-      "@hashicorp/design-system-components/*": [
-        "src/*"
-      ],
-      "@ember/component/template-only": [
-        "../../../node_modules/ember-source/types/stable/@ember/component/template-only"
-      ],
-      "*": [
-        "types/*"
-      ]
+      "@hashicorp/design-system-components": ["src"],
+      "@hashicorp/design-system-components/*": ["src/*"],
+      "*": ["types/*"]
     }
   },
   "include": [

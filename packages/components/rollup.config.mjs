@@ -20,6 +20,8 @@ const plugins = [
   addon.publicEntrypoints([
     '**/*.ts',
     '**/*.js',
+    'index.js',
+    'template-registry.js',
     'styles/@hashicorp/design-system-components.scss',
   ]),
 
