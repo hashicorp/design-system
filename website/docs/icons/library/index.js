@@ -36,8 +36,11 @@ export default class Index extends Component {
     return this.router.currentRoute.queryParams['selectedIconSize'] || '24';
   }
 
-  // Performs search & returns all icons which match search query
-  get filteredIcons() {
+  get filteredGroupedIcons() {
+    let filteredIcons = [];
+    const filteredGroupedIcons = {};
+
+    // Filters all icons based on the search query
     if (this.searchQuery) {
       // check if the query is for an exact match (prefixed with `icon:`)
       if (this.searchQuery.match(/^icon:/)) {
@@ -49,24 +52,25 @@ export default class Index extends Component {
             i.iconName === exactIconName && i.size === this.selectedIconSize
           );
         });
-        return icon ? [icon] : [];
+
+        if (icon) {
+          filteredIcons.push(icon);
+        }
       } else {
-        return this.allIcons.filter(
+        filteredIcons = this.allIcons.filter(
           (i) =>
             i.size === this.selectedIconSize &&
             i.searchable.indexOf(this.searchQuery) !== -1
         );
       }
     } else {
-      return this.allIcons.filter((i) => i.size === this.selectedIconSize);
+      filteredIcons = this.allIcons.filter(
+        (i) => i.size === this.selectedIconSize
+      );
     }
-  }
 
-  // Groups all filtered icons by category
-  get filteredGroupedIcons() {
-    const filteredGroupedIcons = {};
-
-    this.filteredIcons.forEach((icon) => {
+    // Groups all filtered icons by category
+    filteredIcons.forEach((icon) => {
       const category = icon.category;
       if (!filteredGroupedIcons[category]) {
         filteredGroupedIcons[category] = [];
