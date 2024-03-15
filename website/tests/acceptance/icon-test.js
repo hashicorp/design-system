@@ -44,7 +44,7 @@ module('Acceptance | Icon Search', function (hooks) {
     );
 
     assert.dom('.doc-icons-list-grid-item').exists({ count: 2 });
-    assert.dom('.doc-text-h2').hasText('Animated');
+    assert.dom('.doc-text-h4').hasText('Animated');
   });
 
   test('should load a specific icon based on query param', async function (assert) {

@@ -4,22 +4,18 @@
 }}
 
 <div class="doc-icons-list-filter">
-  <div class="doc-icons-list-filter__search">
-    <Doc::Form::Filter
-      @label="Filter"
-      @placeholder="Type a name or keyword (e.g. arrow)"
-      @filterQuery={{@searchQuery}}
-      @onInput={{@searchIcons}}
-      data-test="icons-filter"
-    />
-  </div>
-  <div class="doc-icons-list-filter__select">
-    <Doc::Form::Select @label="Size" @onSelect={{@onSelect}} @selectedValue={{@selectedIconSize}} />
-  </div>
+  <Doc::Form::Filter
+    @label="Filter"
+    @placeholder="Type a name or keyword (e.g. arrow)"
+    @filterQuery={{@searchQuery}}
+    @onInput={{@searchIcons}}
+    data-test="icons-filter"
+  />
+  <Doc::Form::Select @label="Size" @onSelect={{@onSelect}} @selectedValue={{@selectedIconSize}} />
 </div>
 
-{{#each-in @groupedIcons as |category categoryIcons|}}
-  <Doc::IconsList::Grid @category={{category}} @categoryIcons={{categoryIcons}} />
+{{#each-in @groupedIcons as |categoryName categoryIcons|}}
+  <Doc::IconsList::Grid @categoryName={{categoryName}} @categoryIcons={{categoryIcons}} />
 {{else}}
   <p class="doc-text-body doc-icons-list-filter__not-found">No icons found. 🤷‍♀️</p>
 {{/each-in}}

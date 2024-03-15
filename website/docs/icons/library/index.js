@@ -64,7 +64,7 @@ export default class Index extends Component {
           );
         });
         if (icon) {
-          filteredGroupedIcons = { [icon.category]: [icon] };
+          return { [icon.category]: [icon] };
         }
       } else {
         Object.keys(this.groupedIcons).forEach((category) => {

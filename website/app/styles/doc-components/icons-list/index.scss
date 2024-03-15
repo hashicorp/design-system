@@ -33,16 +33,6 @@
   white-space: nowrap;
 }
 
-// controls
-// Q: Remove? These styles don't have any effect
-// .doc-icons-list-filter__select {
-//   width: 120px;
-// }
-
-// .doc-icons-list-filter__search {
-//   width: auto;
-// }
-
 
 // GRID
 
@@ -63,7 +53,6 @@
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   }
 }
-
 
 // item
 
