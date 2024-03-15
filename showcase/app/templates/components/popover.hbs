@@ -86,7 +86,7 @@
                               <Shw::Placeholder @text="generic content" @height="40" />
                             {{/if}}
                             {{#if (eq triggerVariant "button")}}
-                              <Hds::Button @text="Submit" {{t.setupToggle}} />
+                              <Hds::Button @text="Submit" {{t.setupToggle}} {{on "click" this.onClickButton}} />
                             {{/if}}
                             {{#if (eq triggerVariant "link")}}
                               <Hds::Link::Standalone
