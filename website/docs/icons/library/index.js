@@ -50,7 +50,7 @@ export default class Index extends Component {
   }
 
   get filteredGroupedIcons() {
-    let filteredGroupedIcons = {};
+    const filteredGroupedIcons = {};
 
     if (this.searchQuery) {
       // check if the query is for an exact match (prefixed with `icon:`)
