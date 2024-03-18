@@ -18,8 +18,8 @@
   </:toggle>
   <:content as |c|>
     {{! TODO! see if makes sense to move the "width/height" down to the primitive }}
-    <div class="hds-popover__content" {{style width=@width max-height=@height}}>
-      {{yield (hash close=c.close) to="content"}}
-    </div>
+    <Hds::Popover::Bubble @width={{@width}} @height={{@height}} @close={{c.close}}>
+      {{yield to="content"}}
+    </Hds::Popover::Bubble>
   </:content>
 </Hds::MenuPrimitive>

@@ -9,6 +9,26 @@
 
 <section data-test-percy>
 
+  <Shw::Text::H2>Base elements</Shw::Text::H2>
+
+  <Shw::Flex {{style gap="2rem"}} as |SF|>
+
+    <SF.Item @label="Arrow">
+      <Shw::Outliner {{style width="fit-content"}}>
+        <Hds::Popover::Arrow />
+      </Shw::Outliner>
+    </SF.Item>
+    <SF.Item @label="Bubble">
+      <Shw::Outliner {{style width="200px"}}>
+        <Hds::Popover::Bubble>
+          <Shw::Placeholder @text="generic content" @height="40" />
+        </Hds::Popover::Bubble>
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
+
   <Shw::Text::H2>Content vs Interaction</Shw::Text::H2>
 
   {{#let (array "non-interactive" "interactive") as |triggerTypes|}}

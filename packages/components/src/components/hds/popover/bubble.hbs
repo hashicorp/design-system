@@ -1,0 +1,11 @@
+{{! @glint-nocheck: not typesafe yet }}
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{! TODO! see if makes sense to move the "width/height" down to the primitive }}
+<div class="hds-popover-bubble" {{style width=@width max-height=@height}}>
+  <Hds::Popover::Arrow />
+  {{yield (hash close=@close)}}
+</div>

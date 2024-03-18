@@ -216,6 +216,8 @@
       "./components/hds/pagination/nav/number.js": "./dist/_app_/components/hds/pagination/nav/number.js",
       "./components/hds/pagination/numbered/index.js": "./dist/_app_/components/hds/pagination/numbered/index.js",
       "./components/hds/pagination/size-selector/index.js": "./dist/_app_/components/hds/pagination/size-selector/index.js",
+      "./components/hds/popover/arrow.js": "./dist/_app_/components/hds/popover/arrow.js",
+      "./components/hds/popover/bubble.js": "./dist/_app_/components/hds/popover/bubble.js",
       "./components/hds/popover/index.js": "./dist/_app_/components/hds/popover/index.js",
       "./components/hds/reveal/index.js": "./dist/_app_/components/hds/reveal/index.js",
       "./components/hds/reveal/toggle/button.js": "./dist/_app_/components/hds/reveal/toggle/button.js",

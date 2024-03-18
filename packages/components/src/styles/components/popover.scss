@@ -11,10 +11,31 @@
   // add the component styles here
 }
 
-.hds-popover__content {
+.hds-popover-bubble {
+  position: relative;
   padding: 16px;
   background: var(--token-color-surface-primary);
-  border: 1px solid var(--token-color-border-primary);
   border-radius: 5px;
-  box-shadow: var(--token-elevation-high-box-shadow);
+  box-shadow: var(--token-surface-higher-box-shadow);
+  isolation: isolate;
+}
+
+.hds-popover-arrow {
+  // temporary styling
+  .hds-popover-bubble > & {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    z-index: 1;
+    margin-left: -10px;
+  }
+}
+
+.hds-popover-arrow__surface {
+  fill: var(--token-color-surface-primary);
+}
+
+.hds-popover-arrow__border {
+  // this is the color used for the "border" of the `surface-higher` elevation
+  fill: var(--token-color-palette-alpha-200);
 }
