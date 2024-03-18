@@ -3,10 +3,10 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import { assert } from '@ember/debug';
+import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
-import { assert } from '@ember/debug';
 
 export const DENSITIES = ['short', 'medium', 'tall'];
 const DEFAULT_DENSITY = 'medium';

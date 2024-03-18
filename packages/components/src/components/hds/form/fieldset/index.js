@@ -3,9 +3,9 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 import { getElementId } from '../../../../utils/hds-get-element-id';
 import { setAriaDescribedBy } from '../../../../utils/hds-set-aria-described-by';
 

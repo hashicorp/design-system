@@ -3,11 +3,11 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
-import { inject as service } from '@ember/service';
-import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { inject as service } from '@ember/service';
+import Component from '@glimmer/component';
 import { DEBUG } from '@glimmer/env';
+import { tracked } from '@glimmer/tracking';
 import Ember from 'ember';
 
 export default class SidenavPortalTarget extends Component {

@@ -3,10 +3,10 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
-import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 
 export const DEFAULT_SIZE = 'medium';
 export const SIZES = ['small', 'medium'];

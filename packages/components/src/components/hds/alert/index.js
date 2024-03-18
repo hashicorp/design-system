@@ -3,10 +3,10 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import { assert } from '@ember/debug';
+import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
+import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
 export const TYPES = ['page', 'inline', 'compact'];

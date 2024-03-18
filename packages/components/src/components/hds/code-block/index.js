@@ -3,18 +3,18 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
-import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
+import { action } from '@ember/object';
+import { guidFor } from '@ember/object/internals';
 import { next, schedule } from '@ember/runloop';
 import { htmlSafe } from '@ember/template';
-import { guidFor } from '@ember/object/internals';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 
 import Prism from 'prismjs';
 
-import 'prismjs/plugins/line-numbers/prism-line-numbers';
 import 'prismjs/plugins/line-highlight/prism-line-highlight';
+import 'prismjs/plugins/line-numbers/prism-line-numbers';
 
 import 'prismjs/components/prism-bash';
 import 'prismjs/components/prism-go';
@@ -28,8 +28,8 @@ import 'prismjs/components/prism-yaml';
 // These imports are required to overcome a global variable clash in Helios website
 // where language import are overriden by the Prism instance in `CodeBlock`
 // Note that `prism-handlebars` is dependant on `prism-markup-templating`
-import 'prismjs/components/prism-markup-templating';
 import 'prismjs/components/prism-handlebars';
+import 'prismjs/components/prism-markup-templating';
 
 export default class HdsCodeBlockIndexComponent extends Component {
   @tracked prismCode = '';

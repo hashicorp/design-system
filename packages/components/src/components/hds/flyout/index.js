@@ -3,13 +3,13 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 import { assert } from '@ember/debug';
-import { getElementId } from '../../../utils/hds-get-element-id';
+import { action } from '@ember/object';
 import { buildWaiter } from '@ember/test-waiters';
+import Component from '@glimmer/component';
 import { DEBUG } from '@glimmer/env';
+import { tracked } from '@glimmer/tracking';
+import { getElementId } from '../../../utils/hds-get-element-id';
 
 let waiter;
 

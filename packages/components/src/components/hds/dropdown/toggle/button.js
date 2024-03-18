@@ -3,9 +3,9 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
+import Component from '@glimmer/component';
 
 export const DEFAULT_SIZE = 'medium';
 export const DEFAULT_COLOR = 'primary';
