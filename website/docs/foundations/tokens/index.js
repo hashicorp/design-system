@@ -26,27 +26,18 @@ export default class Index extends Component {
     super(...arguments);
     this.groupedTokens = {};
     // prepare the tokens grouped by category
-    // alphabetize the filtered icons by category and then by name
-    TOKENS_RAW.sort((a, b) => {
-      return a.attributes.category.localeCompare(b.attributes.category);
-    })
-      .sort((a, b) => {
-        return a.attributes.category === b.attributes.category
-          ? a.name.localeCompare(b.name)
-          : 0;
-      })
-      .forEach((token) => {
-        const category = token.attributes.category;
-        if (!this.groupedTokens[category]) {
-          this.groupedTokens[category] = [];
-        }
-        // add an extra "aliases" attribute if other tokens are alias of it
-        const aliases = getAliases(token, TOKENS_RAW);
-        if (aliases.length > 0) {
-          token.aliases = aliases;
-        }
-        this.groupedTokens[category].push(token);
-      });
+    TOKENS_RAW.forEach((token) => {
+      const category = token.attributes.category;
+      if (!this.groupedTokens[category]) {
+        this.groupedTokens[category] = [];
+      }
+      // add an extra "aliases" attribute if other tokens are alias of it
+      const aliases = getAliases(token, TOKENS_RAW);
+      if (aliases.length > 0) {
+        token.aliases = aliases;
+      }
+      this.groupedTokens[category].push(token);
+    });
   }
 
   get searchQuery() {
