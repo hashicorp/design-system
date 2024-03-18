@@ -14,6 +14,10 @@
 
 ## 4.1.1
 
+**🚨 Caution: This version is missing the pre-compiled CSS 🚨**
+
+You can still use it if you import styles as Sass and don't require `design-system-components.css`
+
 **Patch changes**
 
 `Flyout` - Fixed issue with Sass operators failing in old versions of Sass
