@@ -2,9 +2,6 @@
  * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
  */
-
-import Component from '@glimmer/component';
-import { assert } from '@ember/debug';
 import { HdsTextAlignValues, HdsTextColorValues } from './types.ts';
 import type {
   HdsTextAligns,
@@ -14,6 +11,8 @@ import type {
   HdsTextTags,
   HdsTextWeights,
 } from './types.ts';
+import { assert } from '@ember/debug';
+import Component from '@glimmer/component';
 
 export const AVAILABLE_COLORS: string[] = Object.values(HdsTextColorValues);
 export const AVAILABLE_ALIGNS: string[] = Object.values(HdsTextAlignValues);

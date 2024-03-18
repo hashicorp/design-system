@@ -2,9 +2,8 @@
  * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
  */
-
-import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import Component from '@glimmer/component';
 
 export const DEFAULT_LEVEL = 'base';
 export const DEFAULT_BACKGROUND = 'neutral-primary';
