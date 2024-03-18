@@ -9,11 +9,11 @@ import {
   HdsLinkIconPositionValues,
   HdsLinkColorValues,
   HdsLinkStandaloneSizeValues,
-} from './types';
+} from './types.ts';
 import type {
   HdsLinkStandaloneSignature,
   HdsLinkStandaloneArgs,
-} from './types';
+} from './types.ts';
 
 export const DEFAULT_ICONPOSITION = HdsLinkIconPositionValues.Leading;
 export const DEFAULT_COLOR = HdsLinkColorValues.Primary;

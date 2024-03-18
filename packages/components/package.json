@@ -197,6 +197,7 @@
       "./components/hds/interactive/index.js": "./dist/_app_/components/hds/interactive/index.js",
       "./components/hds/link/inline.js": "./dist/_app_/components/hds/link/inline.js",
       "./components/hds/link/standalone.js": "./dist/_app_/components/hds/link/standalone.js",
+      "./components/hds/link/types.js": "./dist/_app_/components/hds/link/types.js",
       "./components/hds/menu-primitive/index.js": "./dist/_app_/components/hds/menu-primitive/index.js",
       "./components/hds/modal/body.js": "./dist/_app_/components/hds/modal/body.js",
       "./components/hds/modal/footer.js": "./dist/_app_/components/hds/modal/footer.js",
