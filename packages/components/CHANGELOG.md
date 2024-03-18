@@ -2,8 +2,7 @@
 
 ## 4.1.1
 
-> [!CAUTION]
-> This version is missing the pre-compiled CSS
+**🚨 Caution: This version is missing the pre-compiled CSS 🚨**
 
 You can still use this version if you import styles as Sass and don't require `design-system-components.css`
 
