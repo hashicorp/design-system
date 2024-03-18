@@ -4,13 +4,10 @@
 }}
 
 {{#if @categoryTokens}}
-  <h2 class="doc-text-h2">{{capitalize @category}}</h2>
+  <h2 class="doc-text-h4">{{capitalize @categoryName}}</h2>
   <ul class="doc-tokens-list" role="list">
     {{#each @categoryTokens as |token|}}
       <Doc::TokensList::Item @token={{token}} />
     {{/each}}
   </ul>
-{{else}}
-  <h2 class="doc-text-h5">{{capitalize @category}}</h2>
-  <p class="doc-text-body-small" data-test-target="token-not-found">No tokens found in this category</p>
 {{/if}}

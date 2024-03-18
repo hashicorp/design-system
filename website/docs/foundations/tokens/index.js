@@ -26,18 +26,27 @@ export default class Index extends Component {
     super(...arguments);
     this.groupedTokens = {};
     // prepare the tokens grouped by category
-    TOKENS_RAW.forEach((token) => {
-      const category = token.attributes.category;
-      if (!this.groupedTokens[category]) {
-        this.groupedTokens[category] = [];
-      }
-      // add an extra "aliases" attribute if other tokens are alias of it
-      const aliases = getAliases(token, TOKENS_RAW);
-      if (aliases.length > 0) {
-        token.aliases = aliases;
-      }
-      this.groupedTokens[category].push(token);
-    });
+    // alphabetize the filtered icons by category and then by name
+    TOKENS_RAW.sort((a, b) => {
+      return a.attributes.category.localeCompare(b.attributes.category);
+    })
+      .sort((a, b) => {
+        return a.attributes.category === b.attributes.category
+          ? a.name.localeCompare(b.name)
+          : 0;
+      })
+      .forEach((token) => {
+        const category = token.attributes.category;
+        if (!this.groupedTokens[category]) {
+          this.groupedTokens[category] = [];
+        }
+        // add an extra "aliases" attribute if other tokens are alias of it
+        const aliases = getAliases(token, TOKENS_RAW);
+        if (aliases.length > 0) {
+          token.aliases = aliases;
+        }
+        this.groupedTokens[category].push(token);
+      });
   }
 
   get searchQuery() {
@@ -53,8 +62,12 @@ export default class Index extends Component {
             t.name.indexOf(this.searchQuery) !== -1 ||
             t.value.indexOf(this.searchQuery) !== -1
         );
-        filteredGroupedTokens[category] =
-          filteredTokens.length > 0 ? filteredTokens : false;
+
+        if (filteredTokens.length > 0) {
+          filteredGroupedTokens[category] = filteredTokens;
+        } else {
+          delete filteredGroupedTokens[category];
+        }
       });
     } else {
       filteredGroupedTokens = this.groupedTokens;

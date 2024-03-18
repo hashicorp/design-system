@@ -7,12 +7,15 @@
 
 @use "../breakpoints" as breakpoint;
 
+.doc-tokens-list-filter {
+  margin-bottom: 24px;
+}
 
 .doc-tokens-list {
   display: flex;
   flex-direction: column;
   gap: 16px 0;
-  margin: 1.5rem 0;
+  margin: 0;
   padding: 0;
   list-style: none;
 
