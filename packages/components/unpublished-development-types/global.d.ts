@@ -1,15 +1,13 @@
-import '@glint/environment-ember-loose';
-
+import type HdsComponentsRegistry from '../src/template-registry';
 import { LinkTo } from '@ember/routing';
-
-import type EmberTruthRegistry from 'ember-truth-helpers/template-registry';
+import '@glint/environment-ember-loose';
 import type EmberElementHelperRegistry from 'ember-element-helper/template-registry';
 import type EmberStyleModifier from 'ember-style-modifier';
+import type EmberTruthRegistry from 'ember-truth-helpers/template-registry';
 
 export default interface EmberStyleModifierRegistry {
   style: typeof EmberStyleModifier;
 }
-import type HdsComponentsRegistry from '../src/template-registry';
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry

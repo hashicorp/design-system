@@ -2,14 +2,11 @@
  * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
  */
-
 // Note: the majority of this code is a porting of the existing tooltip implementation in Cloud UI
 // (which was initially implemented in Structure)
-
-import Modifier from 'ember-modifier';
 import { assert } from '@ember/debug';
 import { registerDestructor } from '@ember/destroyable';
-
+import Modifier from 'ember-modifier';
 import tippy, { followCursor } from 'tippy.js';
 // used by custom SVG arrow:
 import 'tippy.js/dist/svg-arrow.css';

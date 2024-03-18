@@ -2,10 +2,9 @@
  * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
  */
-
-import Component from '@glimmer/component';
-import { htmlSafe } from '@ember/template';
 import { assert } from '@ember/debug';
+import { htmlSafe } from '@ember/template';
+import Component from '@glimmer/component';
 
 export default class HdsBreadcrumbItemComponent extends Component {
   /**

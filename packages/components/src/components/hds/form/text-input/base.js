@@ -2,9 +2,8 @@
  * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
  */
-
-import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import Component from '@glimmer/component';
 
 // notice: we don't support all the possible HTML types, only a subset
 // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input

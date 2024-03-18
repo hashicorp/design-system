@@ -2,9 +2,6 @@
  * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
  */
-
-import Component from '@glimmer/component';
-import { assert } from '@ember/debug';
 import { HdsTextSizeValues, HdsTextWeightValues } from './types.ts';
 import type {
   HdsTextAligns,
@@ -13,6 +10,8 @@ import type {
   HdsTextTags,
   HdsTextWeights,
 } from './types.ts';
+import { assert } from '@ember/debug';
+import Component from '@glimmer/component';
 
 // notice: only some combinations of size + font-weight are allowed (per design specs)
 // see: https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=1262%3A9192
