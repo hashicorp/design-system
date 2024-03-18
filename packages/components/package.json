@@ -19,7 +19,7 @@
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "scripts": {
     "build": "rollup --config",
-    "prepublishOnly": "rollup --config",
+    "prepublishOnly": "rollup --config && test -f 'dist/styles/@hashicorp/design-system-components.css' || echo 'The pre-compiled CSS file was not found' && exit 1",
     "start": "rollup --config --watch --environment development",
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
     "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",
