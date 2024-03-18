@@ -1,0 +1,64 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// PopoverPrimitive COMPONENT
+//
+
+@use "../mixins/focus-ring" as *;
+
+.hds-popover-primitive {
+  // TODO this causes bug in the position of the popover in Firefox (with polyfill)
+  position: relative;
+  width: fit-content;
+}
+
+.hds-popover-primitive__toggle {
+  &:where(button) {
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    font: inherit;
+    text-align: inherit;
+    background-color: inherit;
+    border: none;
+    // TODO! discuss with designer
+    border-radius: 3px;
+
+    @include hds-focus-ring-with-pseudo-element(
+      $top: -2px,
+      $right: -2px,
+      $bottom: -2px,
+      $left: -2px
+    );
+  }
+}
+
+.hds-popover-primitive__toggle--is-inline {
+  display: inline;
+}
+
+.hds-popover-primitive__toggle--is-block {
+  display: block;
+}
+
+// this will have a "popover" behaviour associated, which comes with pre-defined styling
+.hds-popover-primitive__content {
+  // TODO make sure this is OK, and we don't need to reset only some properties
+  // :where(&[popover]) {
+  //   all: unset;
+  // }
+  :where(&[popover]) {
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    color: inherit;
+    background: none;
+    border: none;
+    // width: fit-content;
+    // height: fit-content;
+    inset: 0;
+  }
+}

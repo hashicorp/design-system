@@ -3,7 +3,7 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<Hds::MenuPrimitive
+<Hds::PopoverPrimitive
   class={{this.classNames}}
   @isOpen={{@isOpen}}
   @onClose={{@onClose}}
@@ -18,8 +18,8 @@
   </:toggle>
   <:content as |c|>
     {{! TODO! see if makes sense to move the "width/height" down to the primitive }}
-    <Hds::Popover::Bubble @width={{@width}} @height={{@height}} @close={{c.close}}>
-      {{yield to="content"}}
+    <Hds::Popover::Bubble @width={{@width}} @height={{@height}}>
+      {{yield (hash close=c.close) to="content"}}
     </Hds::Popover::Bubble>
   </:content>
-</Hds::MenuPrimitive>
+</Hds::PopoverPrimitive>

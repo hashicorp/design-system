@@ -197,8 +197,6 @@
       "./components/hds/link/inline.js": "./dist/_app_/components/hds/link/inline.js",
       "./components/hds/link/standalone.js": "./dist/_app_/components/hds/link/standalone.js",
       "./components/hds/menu-primitive/index.js": "./dist/_app_/components/hds/menu-primitive/index.js",
-      "./components/hds/menu-primitive/modifiers/float-popover.js": "./dist/_app_/components/hds/menu-primitive/modifiers/float-popover.js",
-      "./components/hds/menu-primitive/modifiers/register-event.js": "./dist/_app_/components/hds/menu-primitive/modifiers/register-event.js",
       "./components/hds/modal/body.js": "./dist/_app_/components/hds/modal/body.js",
       "./components/hds/modal/footer.js": "./dist/_app_/components/hds/modal/footer.js",
       "./components/hds/modal/header.js": "./dist/_app_/components/hds/modal/header.js",
@@ -216,6 +214,7 @@
       "./components/hds/pagination/nav/number.js": "./dist/_app_/components/hds/pagination/nav/number.js",
       "./components/hds/pagination/numbered/index.js": "./dist/_app_/components/hds/pagination/numbered/index.js",
       "./components/hds/pagination/size-selector/index.js": "./dist/_app_/components/hds/pagination/size-selector/index.js",
+      "./components/hds/popover-primitive/index.js": "./dist/_app_/components/hds/popover-primitive/index.js",
       "./components/hds/popover/arrow.js": "./dist/_app_/components/hds/popover/arrow.js",
       "./components/hds/popover/bubble.js": "./dist/_app_/components/hds/popover/bubble.js",
       "./components/hds/popover/index.js": "./dist/_app_/components/hds/popover/index.js",
@@ -261,6 +260,8 @@
       "./helpers/hds-link-to-query.js": "./dist/_app_/helpers/hds-link-to-query.js",
       "./modifiers/hds-clipboard.js": "./dist/_app_/modifiers/hds-clipboard.js",
       "./modifiers/hds-float-element.js": "./dist/_app_/modifiers/hds-float-element.js",
+      "./modifiers/hds-float-popover.js": "./dist/_app_/modifiers/hds-float-popover.js",
+      "./modifiers/hds-register-event.js": "./dist/_app_/modifiers/hds-register-event.js",
       "./modifiers/hds-tooltip.js": "./dist/_app_/modifiers/hds-tooltip.js"
     }
   },

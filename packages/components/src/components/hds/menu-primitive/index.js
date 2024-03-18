@@ -10,19 +10,13 @@ import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
 
-import registerEvent from './modifiers/register-event';
-import floatPopoverModifier from './modifiers/float-popover';
+import registerEvent from '../../../modifiers/hds-register-event';
+import floatPopoverModifier from '../../../modifiers/hds-float-popover';
 
 export default class HdsMenuPrimitiveComponent extends Component {
   @tracked toggleElement;
   @tracked popoverElement;
   @tracked isOpen = this.args.isOpen ?? false;
-  @tracked isForcedOpen = false;
-  @tracked isClosing = false;
-  // this will enable "click" events for the toggle
-  @tracked enableClickEvents = this.args.enableClickEvents ?? false;
-  // this will enable "soft" events for the toggle ("hover" and "focus")
-  @tracked enableSoftEvents = this.args.enableSoftEvents ?? false;
 
   /**
    * Generates a unique ID for the "popover" (will be used in the `popovertarget` attribute of the toggle button)
@@ -41,12 +35,6 @@ export default class HdsMenuPrimitiveComponent extends Component {
         HTMLElement.prototype.hasOwnProperty('popover')
       );
 
-      // we register the "soft" events
-      if (this.enableSoftEvents) {
-        registerEvent(this.containerElement, ['mouseenter', this.onMouseEnter]);
-        registerEvent(this.containerElement, ['mouseleave', this.onMouseLeave]);
-        registerEvent(this.containerElement, ['focusin', this.onFocusIn]);
-      }
       // we always want the focusOut event
       registerEvent(this.containerElement, ['focusout', this.onFocusOut]);
     },
@@ -56,21 +44,7 @@ export default class HdsMenuPrimitiveComponent extends Component {
   setupMenuPrimitiveToggle = modifier(
     (element) => {
       this.toggleElement = element;
-
-      // for the click events we don't have `onclick` event listeners,
-      // we rely on the `popovertarget` attribute provided by the Popover API
-      // which does all the magic for us without needing JS code
-      // (notice: to work it needs to be applied to a button)
-      if (this.enableClickEvents) {
-        this.toggleElement.setAttribute('popovertarget', this.popoverId);
-      }
-
-      // when the toggle supports both soft events and click events
-      // we want the popover to be explicitly dismissed when the toggle was clicked
-      // (so mouseout is disabled)
-      if (this.enableClickEvents && this.enableSoftEvents) {
-        registerEvent(this.toggleElement, ['click', this.toggleForcedOpen]);
-      }
+      this.toggleElement.setAttribute('popovertarget', this.popoverId);
     },
     { eager: false }
   );
@@ -91,11 +65,7 @@ export default class HdsMenuPrimitiveComponent extends Component {
         this.popoverElement.popover = 'auto';
       }
 
-      // Register "onBeforeToggle" + "onToggle" callback functions to be called when a native 'toggle' event is dispatched
-      registerEvent(this.popoverElement, [
-        'beforetoggle',
-        this.onBeforeTogglePopover,
-      ]);
+      // Register "onToggle" callback function to be called when a native 'toggle' event is dispatched
       registerEvent(this.popoverElement, ['toggle', this.onTogglePopover]);
 
       // apply the "float-popover" modifier to the "popover" element
@@ -111,36 +81,6 @@ export default class HdsMenuPrimitiveComponent extends Component {
     },
     { eager: false }
   );
-
-  @action
-  showPopover() {
-    console.log('showPopover invoked');
-    this.popoverElement.showPopover();
-  }
-
-  @action
-  hidePopover() {
-    console.log('hidePopover invoked');
-    this.popoverElement.hidePopover();
-  }
-
-  @action
-  togglePopover() {
-    console.log('togglePopover invoked', this.isOpen);
-    this.popoverElement.togglePopover();
-  }
-
-  // fired just _before_ the "popover" is shown or hidden
-  @action
-  onBeforeTogglePopover(event) {
-    console.log('onBeforeTogglePopover invoked', event);
-    if (event.newState === 'closed') {
-      // we need this flag to check if it's in the "closing" process,
-      // because the browser automatically returns the focus to the "trigger" button
-      // and this would re-open immediately the popover because of the `focusin` event
-      this.isClosing = true;
-    }
-  }
 
   // fired just _after_ the "popover" is shown or hidden
   @action
@@ -161,9 +101,6 @@ export default class HdsMenuPrimitiveComponent extends Component {
         this.popoverElement.popover = 'auto';
       }
       this.isOpen = false;
-      this.isForcedOpen = false;
-      // reset the "isClosing" flag (the `toggle` event is fired _after_ the popover is closed)
-      this.isClosing = false;
       // we call the "onClose" callback if it exists (and is a function)
       let { onClose } = this.args;
       if (typeof onClose === 'function') {
@@ -173,38 +110,8 @@ export default class HdsMenuPrimitiveComponent extends Component {
   }
 
   @action
-  onMouseEnter() {
-    console.log('onMouseEnter invoked');
-    if (this.timer) {
-      clearTimeout(this.timer);
-    }
-    this.showPopover();
-  }
-
-  @action
-  onFocusIn() {
-    console.log('onFocusIn invoked');
-    // don't re-open the popover if the focus is returned because the closing
-    if (!this.isClosing) {
-      if (this.timer) {
-        clearTimeout(this.timer);
-      }
-      this.showPopover();
-    }
-  }
-
-  @action
-  onMouseLeave() {
-    console.log('onMouseLeave invoked');
-    if (!this.isForcedOpen) {
-      this.timer = setTimeout(this.hidePopover.bind(this), 500);
-    }
-  }
-
-  @action
   onFocusOut(event) {
     console.log('onFocusOut invoked');
-    // TODO! discuss with Alex if/why we still need this check here
     // due to inconsistent implementation of relatedTarget across browsers we use the activeElement as a fallback
     // if the related target is not part of the disclosed content we close the disclosed container
     if (
@@ -212,38 +119,13 @@ export default class HdsMenuPrimitiveComponent extends Component {
         event.relatedTarget || document.activeElement
       )
     ) {
-      this.hidePopover();
+      this.popoverElement.hidePopover();
     }
   }
 
-  @action
-  toggleForcedOpen(event) {
-    console.log(
-      'toggleForcedOpen invoked',
-      event,
-      this.isOpen,
-      this.isForcedOpen
-    );
-
-    // we want to have "forced" opening only if the trigger has been explicitly "clicked"
-    // (an "enter" key pressed when the toggle is focus would trigger the click but it would be strange for the consumer to have the toggle re-open the popover)
-    // this doesn't work in Firefox
-    // const isPointerEvent = event.pointerType && event.pointerType !== '';
-    // this works, using event.details (see: https://developer.mozilla.org/en-US/docs/Web/API/UIEvent/detail)
-    const isPointerEvent = event.detail && event.detail > 0;
-
-    if (isPointerEvent && this.isOpen && !this.isForcedOpen) {
-      this.isForcedOpen = true;
-      // we need to prevent the native popover "toggle" to happen
-      event.preventDefault();
-    } else {
-      this.isForcedOpen = false;
-    }
-  }
-
-  // this is exposed to the consumers to programmatically "close" the popover
+  // this is exposed to the consumers to programmatically "close" the menu
   @action
   close() {
-    this.hidePopover();
+    this.popoverElement.hidePopover();
   }
 }

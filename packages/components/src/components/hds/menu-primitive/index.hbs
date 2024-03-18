@@ -5,18 +5,9 @@
 }}
 {{! template-lint-disable no-invalid-interactive }}
 <div class="hds-menu-primitive" ...attributes {{this.setupMenuPrimitiveContainer}}>
-  {{#if @containsInteractive}}
-    <div class="hds-menu-primitive__toggle" tabindex="-1">
-      {{! TODO! probably we can remove the need of forwarding the `setupMenuPrimitiveToggle` by using `click` events instead of `popovertarget` }}
-      {{yield (hash isOpen=this.isOpen setupMenuPrimitiveToggle=(modifier this.setupMenuPrimitiveToggle)) to="toggle"}}
-    </div>
-  {{else}}
-    {{! TODO! decide how to pass down aria label attributes to this button }}
-    <button class="hds-menu-primitive__toggle" {{this.setupMenuPrimitiveToggle}} aria-label="todo">
-      {{yield (hash isOpen=this.isOpen) to="toggle"}}
-    </button>
-  {{/if}}
-
+  <div class="hds-menu-primitive__toggle" tabindex="-1">
+    {{yield (hash isOpen=this.isOpen setupMenuPrimitiveToggle=(modifier this.setupMenuPrimitiveToggle)) to="toggle"}}
+  </div>
   <div class="hds-menu-primitive__content" tabindex="-1" {{this.setupMenuPrimitivePopover}}>
     {{#if this.isOpen}}
       {{yield (hash toggleElement=this.toggleElement close=this.close) to="content"}}
