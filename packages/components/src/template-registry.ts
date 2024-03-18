@@ -3,15 +3,16 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import type HdsLinkToModelsHelper from './helpers/hds-link-to-models';
 import type HdsButtonIndexComponent from './components/hds/button';
 import type HdsDismissButtonIndexComponent from './components/hds/dismiss-button';
 import type HdsInteractiveIndexComponent from './components/hds/interactive';
+import type HdsLinkToModelsHelper from './helpers/hds-link-to-models';
 import type HdsLinkToQueryHelper from './helpers/hds-link-to-query';
 import type HdsTextIndexComponent from './components/hds/text';
 import type HdsTextBodyComponent from './components/hds/text/body';
 import type HdsTextDisplayComponent from './components/hds/text/display';
 import type HdsTextCodeComponent from './components/hds/text/code';
+import type HdsYieldComponent from './components/hds/yield';
 
 export default interface HdsComponentsRegistry {
   HdsInteractiveComponent: typeof HdsInteractiveIndexComponent;
@@ -43,6 +44,11 @@ export default interface HdsComponentsRegistry {
   'Hds::Text::Code': typeof HdsTextCodeComponent;
   'hds/text/code': typeof HdsTextCodeComponent;
   HdsTextCode: typeof HdsTextCodeComponent;
+
+  // Yield
+  'Hds::Yield': typeof HdsYieldComponent;
+  'hds/yield': typeof HdsYieldComponent;
+  HdsYield: typeof HdsYieldComponent;
 
   // Helpers
   'hds-link-to-models': typeof HdsLinkToModelsHelper;
