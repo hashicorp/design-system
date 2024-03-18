@@ -32,7 +32,19 @@ module('Acceptance | Icon Search', function (hooks) {
 
     assert.dom('.doc-icons-list-grid-item').exists({ count: 1 });
     assert.dom('.flight-icon-cpu').exists({ count: 1 });
-    assert.dom('.doc-copy-button__visible-value ').hasText('cpu');
+    assert.dom('.doc-copy-button__visible-value').hasText('cpu');
+  });
+
+  test('should load content based on category in query param', async function (assert) {
+    await visit('/icons/library?searchQuery=animated&selectedIconSize=24');
+
+    assert.strictEqual(
+      currentURL(),
+      '/icons/library?searchQuery=animated&selectedIconSize=24'
+    );
+
+    assert.dom('.doc-icons-list-grid-item').exists({ count: 2 });
+    assert.dom('.doc-text-h4').hasText('Animated');
   });
 
   test('should load a specific icon based on query param', async function (assert) {
@@ -63,14 +75,14 @@ module('Acceptance | Icon Search', function (hooks) {
   test('should show message when no results are found', async function (assert) {
     await visit('/icons/library?searchQuery=wubalubadubdub');
 
-    assert.dom('.doc-icons-list-grid__not-found').exists();
+    assert.dom('.doc-icons-list-filter__not-found').exists();
     assert.dom('[data-test-icon="activity"]').doesNotExist();
   });
 
   test('should show message when no results are found for a specific icon', async function (assert) {
     await visit('/icons/library?searchQuery=icon%3awubalubadubdub');
 
-    assert.dom('.doc-icons-list-grid__not-found').exists();
+    assert.dom('.doc-icons-list-filter__not-found').exists();
     assert.dom('[data-test-icon="activity"]').doesNotExist();
   });
 

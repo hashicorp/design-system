@@ -13,7 +13,7 @@
 
 .doc-icons-list-filter {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 1fr auto;
   gap: 24px;
   align-items: flex-end;
   margin-bottom: 24px;
@@ -31,16 +31,6 @@
   font-size: 15px;
   line-height: 1.666;
   white-space: nowrap;
-}
-
-// controls
-
-.doc-icons-list-filter__select {
-  width: 120px;
-}
-
-.doc-icons-list-filter__search {
-  width: auto;
 }
 
 
@@ -63,7 +53,6 @@
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   }
 }
-
 
 // item
 
@@ -141,13 +130,4 @@
   .doc-icons-list-grid-item:hover & {
     visibility: visible;
   }
-}
-
-// not found
-
-.doc-icons-list-grid__not-found {
-  @include doc-font-style-body();
-  display: flex;
-  gap: 12px;
-  align-items: center;
 }

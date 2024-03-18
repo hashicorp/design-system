@@ -3,13 +3,9 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
+<h2 class="doc-text-h4">{{capitalize @categoryName}}</h2>
 <ul class="doc-icons-list-grid" role="list">
-  {{#each @icons as |meta|}}
+  {{#each @categoryIcons as |meta|}}
     <Doc::IconsList::Item @meta={{meta}} />
-  {{else}}
-    <div class="doc-icons-list-grid__not-found">
-      <FlightIcon @name="alert-circle" />
-      No icons found
-    </div>
   {{/each}}
 </ul>
