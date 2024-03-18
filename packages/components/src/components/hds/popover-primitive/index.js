@@ -213,7 +213,7 @@ export default class HdsPopoverPrimitiveComponent extends Component {
   @action
   onFocusOut(event) {
     console.log('onFocusOut invoked');
-    // TODO! discuss with Alex if/why we still need this check here
+    // TODO! discuss with Alex if/why we need this check here
     // due to inconsistent implementation of relatedTarget across browsers we use the activeElement as a fallback
     // if the related target is not part of the disclosed content we close the disclosed container
     if (

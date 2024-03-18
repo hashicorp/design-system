@@ -1,6 +1,7 @@
 import { modifier } from 'ember-modifier';
 
 import {
+  arrow,
   autoUpdate,
   computePosition,
   flip,
@@ -19,6 +20,7 @@ function getFloatingUIOptions(popoverOptions) {
     // we leave them from now in case they're needed (or we want to expose them as public API for the consumers)
     popoverFlipOptions = { padding: 8 },
     popoverShiftOptions = { padding: 8 },
+    popoverArrow,
     popoverMiddlewareExtra = [],
   } = popoverOptions;
 
@@ -35,6 +37,16 @@ function getFloatingUIOptions(popoverOptions) {
       flip(popoverFlipOptions),
       // https://floating-ui.com/docs/shift
       shift(popoverShiftOptions)
+    );
+  }
+
+  if (popoverArrow) {
+    popoverMiddleware.push(
+      // https://floating-ui.com/docs/arrow
+      arrow({
+        element: popoverArrow,
+        padding: 8, // stop 8px from the edges of the "bubble" element
+      })
     );
   }
 
@@ -73,19 +85,22 @@ export default modifier((element, positional, named) => {
   // the "toggle" element that acts as an "anchor" for the "floating" element
   // notice: it's expressed as "positional" argument (array of arguments) for the modifier
   const toggleElement = positional[0];
+  // the "arrow" element (optional)
+  const arrowElement = named?.popoverOptions?.popoverArrow;
   // the Floating UI "options" to apply to the popover
   // notice: it's expressed as "named" argument (object) for the modifier
   const popoverOptions = getFloatingUIOptions(named.popoverOptions ?? {});
 
   const computePopoverPosition = async () => {
     // important to know: `computePosition()` is not stateful, it only positions the "floating" element once
+    // see: https://floating-ui.com/docs/computePosition
     const state = await computePosition(
       toggleElement,
       popoverElement,
       popoverOptions
     );
 
-    let { strategy, x, y, middlewareData } = state;
+    let { x, y, placement, strategy, middlewareData } = state;
 
     Object.assign(popoverElement.style, {
       position: strategy,
@@ -94,6 +109,23 @@ export default modifier((element, positional, named) => {
       // TODO! commenting this for now, will need to make this conditional to some argument (and understand how this relates to the `@height` argument)
       // maxHeight: `${middlewareData.size.availableHeight - 10}px`,
     });
+
+    if (arrowElement && middlewareData.arrow) {
+      // to avoid calculating at runtime values that we already know
+      // we assign a "data" attribute to the "arrow" element
+      // and use CSS to position/rotate it accordingly
+      // notice: floating-ui assumes the "arrow" container is square
+      arrowElement.setAttribute('data-hds-popover-placement', placement);
+
+      // we set `x` or `y` value (depends on the position of the arrow in relation to the popover placement)
+      // see: https://floating-ui.com/docs/arrow#usage
+      Object.assign(arrowElement.style, {
+        left:
+          middlewareData.arrow.x != null ? `${middlewareData.arrow.x}px` : '',
+        top:
+          middlewareData.arrow.y != null ? `${middlewareData.arrow.y}px` : '',
+      });
+    }
   };
 
   // the `autoUpdate` function automatically updates the position of the floating element when necessary.

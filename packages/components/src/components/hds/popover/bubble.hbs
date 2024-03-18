@@ -4,8 +4,12 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-{{! TODO! see if makes sense to move the "width/height" down to the primitive }}
-<div class="hds-popover-bubble" {{style width=@width max-height=@height}}>
+<div
+  class="hds-popover-bubble"
+  {{! TODO! see if makes sense to move the "width/height" down to the primitive }}
+  {{style width=@width max-height=@height}}
+  ...attributes
+>
   <Hds::Popover::Arrow />
   {{yield (hash close=@close)}}
 </div>

@@ -6,6 +6,19 @@
 // POPOVER
 
 body.components-popover {
+  .shw-component-popover-arrow-standalone {
+    .hds-popover-arrow {
+      position: static;
+    }
+  }
+
+  .shw-component-popover-bubble-standalone {
+    .hds-popover-arrow {
+      top: -20px;
+      left: calc(50% - 10px);
+    }
+  }
+
   .shw-component-popover-content-interactive {
     position: relative;
 

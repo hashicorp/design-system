@@ -20,14 +20,34 @@
   isolation: isolate;
 }
 
+// notice: floating-ui assumes the "arrow" container is square
+$hds-popover-arrow-size: 20px;
+
 .hds-popover-arrow {
-  // temporary styling
-  .hds-popover-bubble > & {
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    z-index: 1;
-    margin-left: -10px;
+  position: absolute;
+  z-index: 1;
+  display: block;
+  width: $hds-popover-arrow-size;
+  height: $hds-popover-arrow-size;
+  pointer-events: none;
+
+  &[data-hds-popover-placement^='top'] {
+    bottom: -$hds-popover-arrow-size;
+    transform: rotate(180deg);
+  }
+
+  &[data-hds-popover-placement^='right'] {
+    left: -$hds-popover-arrow-size;
+    transform: rotate(-90deg);
+  }
+
+  &[data-hds-popover-placement^='bottom'] {
+    top: -$hds-popover-arrow-size;
+  }
+
+  &[data-hds-popover-placement^='left'] {
+    right: -$hds-popover-arrow-size;
+    transform: rotate(90deg);
   }
 }
 

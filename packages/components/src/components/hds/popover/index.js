@@ -4,7 +4,9 @@
  */
 
 import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
+import { modifier } from 'ember-modifier';
 
 export const DEFAULT_PLACEMENT = 'bottom';
 export const PLACEMENTS = [
@@ -23,6 +25,18 @@ export const PLACEMENTS = [
 ];
 
 export default class HdsPopoverIndexComponent extends Component {
+  @tracked bubbleElement;
+  @tracked arrowElement;
+
+  setupPopoverBubble = modifier(
+    (element) => {
+      this.bubbleElement = element;
+      // for simplicity, we use this method (everything else increases the complexity for no real benefits)
+      this.arrowElement = element.querySelector('.hds-popover-arrow');
+    },
+    { eager: false }
+  );
+
   /**
    * @param placement
    * @type {string}
@@ -55,6 +69,7 @@ export default class HdsPopoverIndexComponent extends Component {
       popoverOffsetOptions: 12,
       popoverEnableCollisionDetection:
         this.args.enableCollisionDetection || false,
+      popoverArrow: this.arrowElement,
     };
   }
 
