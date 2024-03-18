@@ -3,9 +3,9 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import { assert } from '@ember/debug';
+import { action } from '@ember/object';
+import Component from '@glimmer/component';
 
 export const DEFAULT_POSITION = 'bottom-right';
 export const POSITIONS = [

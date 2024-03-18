@@ -6,13 +6,13 @@
 import type HdsButtonIndexComponent from './components/hds/button';
 import type HdsDismissButtonIndexComponent from './components/hds/dismiss-button';
 import type HdsInteractiveIndexComponent from './components/hds/interactive';
-import type HdsLinkToModelsHelper from './helpers/hds-link-to-models';
-import type HdsLinkToQueryHelper from './helpers/hds-link-to-query';
 import type HdsTextIndexComponent from './components/hds/text';
 import type HdsTextBodyComponent from './components/hds/text/body';
-import type HdsTextDisplayComponent from './components/hds/text/display';
 import type HdsTextCodeComponent from './components/hds/text/code';
+import type HdsTextDisplayComponent from './components/hds/text/display';
 import type HdsYieldComponent from './components/hds/yield';
+import type HdsLinkToModelsHelper from './helpers/hds-link-to-models';
+import type HdsLinkToQueryHelper from './helpers/hds-link-to-query';
 
 export default interface HdsComponentsRegistry {
   HdsInteractiveComponent: typeof HdsInteractiveIndexComponent;

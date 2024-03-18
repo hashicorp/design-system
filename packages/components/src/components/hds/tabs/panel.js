@@ -3,9 +3,9 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
-import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
+import { guidFor } from '@ember/object/internals';
+import Component from '@glimmer/component';
 
 export default class HdsTabsPanelComponent extends Component {
   /**

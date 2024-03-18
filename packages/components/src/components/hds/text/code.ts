@@ -3,15 +3,15 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
-import { HdsTextSizeValues, HdsTextWeightValues } from './types.ts';
+import Component from '@glimmer/component';
 import type {
   HdsTextAligns,
   HdsTextColors,
   HdsTextTags,
   HdsTextWeights,
 } from './types.ts';
+import { HdsTextSizeValues, HdsTextWeightValues } from './types.ts';
 
 // notice: only some combinations of size + font-weight are allowed (per design specs)
 // see: https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=1262%3A9192

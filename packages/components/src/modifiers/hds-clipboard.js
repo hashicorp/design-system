@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { modifier } from 'ember-modifier';
 import { assert, warn } from '@ember/debug';
+import { modifier } from 'ember-modifier';
 
 export const getTextToCopy = (text) => {
   let textToCopy;

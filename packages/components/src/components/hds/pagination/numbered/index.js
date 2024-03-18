@@ -3,10 +3,10 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import { assert } from '@ember/debug';
+import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
-import { assert } from '@ember/debug';
 
 // for context about the decision to use these values, see:
 // https://hashicorp.slack.com/archives/C03A0N1QK8S/p1673546329082759

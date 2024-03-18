@@ -3,11 +3,11 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import { assert } from '@ember/debug';
+import { action } from '@ember/object';
+import { schedule } from '@ember/runloop';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
-import { assert } from '@ember/debug';
-import { schedule } from '@ember/runloop';
 import { setAriaDescribedBy } from '../../../../utils/hds-set-aria-described-by';
 
 export const DEFAULT_CONTROL_POSITION = 'bottom';

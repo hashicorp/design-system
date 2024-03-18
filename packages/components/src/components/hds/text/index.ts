@@ -3,9 +3,8 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
-import { HdsTextAlignValues, HdsTextColorValues } from './types.ts';
+import Component from '@glimmer/component';
 import type {
   HdsTextAligns,
   HdsTextColors,
@@ -14,6 +13,7 @@ import type {
   HdsTextTags,
   HdsTextWeights,
 } from './types.ts';
+import { HdsTextAlignValues, HdsTextColorValues } from './types.ts';
 
 export const AVAILABLE_COLORS: string[] = Object.values(HdsTextColorValues);
 export const AVAILABLE_ALIGNS: string[] = Object.values(HdsTextAlignValues);
