@@ -95,6 +95,7 @@
                           @enableSoftEvents={{enableSoftEvents}}
                           @enableClickEvents={{enableClickEvents}}
                           @containsInteractive={{eq triggerType "interactive"}}
+                          @toggleAriaLabel={{if (eq triggerVariant "icon") "demo of icon as toggle for the popover"}}
                         >
                           <:toggle as |t|>
                             {{#if (eq triggerVariant "text")}}

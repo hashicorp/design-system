@@ -6,11 +6,13 @@
 <Hds::PopoverPrimitive
   class={{this.classNames}}
   @isOpen={{@isOpen}}
+  @onOpen={{@onOpen}}
   @onClose={{@onClose}}
   @containsInteractive={{@containsInteractive}}
   @enableSoftEvents={{this.enableSoftEvents}}
   @enableClickEvents={{this.enableClickEvents}}
   @popoverOptions={{this.popoverOptions}}
+  @toggleAriaLabel={{@toggleAriaLabel}}
   ...attributes
 >
   <:toggle as |t|>

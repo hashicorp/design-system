@@ -11,8 +11,7 @@
       {{yield (hash isOpen=this.isOpen setupMenuPrimitiveToggle=(modifier this.setupMenuPrimitiveToggle)) to="toggle"}}
     </div>
   {{else}}
-    {{! TODO! decide how to pass down aria label attributes to this button }}
-    <button class="hds-popover-primitive__toggle" {{this.setupMenuPrimitiveToggle}} aria-label="todo">
+    <button class="hds-popover-primitive__toggle" {{this.setupMenuPrimitiveToggle}}>
       {{yield (hash isOpen=this.isOpen) to="toggle"}}
     </button>
   {{/if}}
