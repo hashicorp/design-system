@@ -8,6 +8,28 @@ import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
 import { modifier } from 'ember-modifier';
 
+// -------------------------------------------------------------------------
+//
+// THIS IS NEEDED UNTIL FIREFOX OFFICIALLY SUPPORTS THE POPOVER API
+
+function isPopoverApiPolyfilled() {
+  // not great, but it's temporary until Firefox 127 is released
+  // see: https://wiki.mozilla.org/Release_Management/Release_owners
+  // unfortunately we can't use the Popover API support detection
+  // see: https://developer.mozilla.org/en-US/docs/Web/API/Popover_API/Using#showing_popovers_via_javascript
+  // because once polyfilled is not possible to detect the difference
+  // so the only way to know is to check for the browser version
+  const firefoxVersionMatch = navigator.userAgent.match(/Firefox\/(\d+)/);
+  // https://caniuse.com/?search=popover
+  return (
+    firefoxVersionMatch &&
+    firefoxVersionMatch[1] &&
+    parseInt(firefoxVersionMatch[1], 10) < 126
+  );
+}
+
+// -------------------------------------------------------------------------
+
 export const DEFAULT_PLACEMENT = 'bottom';
 export const PLACEMENTS = [
   'top',
@@ -66,6 +88,10 @@ export default class HdsPopoverIndexComponent extends Component {
   get popoverOptions() {
     return {
       popoverPlacement: this.placement,
+      // we set the strategy to `fixed` if the Popover API is not supported
+      // this is specifically done for Firefox: currently it doesn't support it, but will soon (we need Firefox 127 to support the last 2 versions)
+      // see: https://wiki.mozilla.org/Release_Management/Release_owners
+      popoverPositionStrategy: isPopoverApiPolyfilled() ? 'fixed' : 'absolute',
       popoverOffsetOptions: this.args.offset || 12,
       popoverEnableCollisionDetection:
         this.args.enableCollisionDetection || false,

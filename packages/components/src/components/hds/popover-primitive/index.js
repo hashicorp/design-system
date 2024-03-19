@@ -13,6 +13,10 @@ import { modifier } from 'ember-modifier';
 import registerEvent from '../../../modifiers/hds-register-event';
 import floatPopoverModifier from '../../../modifiers/hds-float-popover';
 
+// https://github.com/oddbird/popover-polyfill?tab=readme-ov-file#with-npm
+// this is needed until Firefox officially supports the Popover API
+import '@oddbird/popover-polyfill';
+
 export default class HdsPopoverPrimitiveComponent extends Component {
   @tracked toggleElement;
   @tracked popoverElement;

@@ -260,7 +260,6 @@
       "./helpers/hds-link-to-models.js": "./dist/_app_/helpers/hds-link-to-models.js",
       "./helpers/hds-link-to-query.js": "./dist/_app_/helpers/hds-link-to-query.js",
       "./modifiers/hds-clipboard.js": "./dist/_app_/modifiers/hds-clipboard.js",
-      "./modifiers/hds-float-element.js": "./dist/_app_/modifiers/hds-float-element.js",
       "./modifiers/hds-float-popover.js": "./dist/_app_/modifiers/hds-float-popover.js",
       "./modifiers/hds-register-event.js": "./dist/_app_/modifiers/hds-register-event.js",
       "./modifiers/hds-tooltip.js": "./dist/_app_/modifiers/hds-tooltip.js"

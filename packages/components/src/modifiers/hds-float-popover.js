@@ -12,7 +12,7 @@ import {
 } from '@floating-ui/dom';
 
 function getFloatingUIOptions(popoverOptions) {
-  const {
+  let {
     popoverPlacement = 'bottom-start',
     popoverPositionStrategy = 'absolute', // we don't need to use `fixed` anymore now that we have the Popover API that puts the element in the `top-layer`
     popoverOffsetOptions,
@@ -23,7 +23,9 @@ function getFloatingUIOptions(popoverOptions) {
     popoverMiddlewareExtra = [],
   } = popoverOptions;
 
+
   // we build dynamically the list of middleware functions to invoke, depending on the options provided
+
   const popoverMiddleware = [];
 
   // https://floating-ui.com/docs/offset
