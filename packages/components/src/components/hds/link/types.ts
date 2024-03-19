@@ -33,5 +33,5 @@ export interface HdsLinkStandaloneSignature {
     isRouteExternal?: boolean;
     size?: HdsLinkStandaloneSizes;
   };
-  Element: HTMLAnchorElement;
+  Element: HdsInteractiveSignature['Element'];
 }
