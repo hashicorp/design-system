@@ -37,6 +37,9 @@ export interface HdsCardContainerSignature {
     hasBorder?: boolean;
   };
   Element: HTMLDivElement;
+  Blocks: {
+    default: [];
+  };
 }
 
 export default class HdsCardContainerComponent extends Component<HdsCardContainerSignature> {
