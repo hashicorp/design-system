@@ -2,4 +2,4 @@
 "@hashicorp/design-system-components": minor
 ---
 
-`Link::Standlone` - Converted component to TypeScript
+`Link::Standalone` - Converted component to TypeScript
