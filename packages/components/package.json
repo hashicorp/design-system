@@ -258,6 +258,7 @@
       "./components/hds/toast/index.js": "./dist/_app_/components/hds/toast/index.js",
       "./components/hds/tooltip-button/index.js": "./dist/_app_/components/hds/tooltip-button/index.js",
       "./components/hds/yield/index.js": "./dist/_app_/components/hds/yield/index.js",
+      "./components/hds/yield/types.js": "./dist/_app_/components/hds/yield/types.js",
       "./helpers/hds-link-to-models.js": "./dist/_app_/helpers/hds-link-to-models.js",
       "./helpers/hds-link-to-query.js": "./dist/_app_/helpers/hds-link-to-query.js",
       "./modifiers/hds-clipboard.js": "./dist/_app_/modifiers/hds-clipboard.js",
