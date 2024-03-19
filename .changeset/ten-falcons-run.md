@@ -2,4 +2,4 @@
 "@hashicorp/design-system-components": patch
 ---
 
-Fix flaky tests by making sure @ember/test-waiters run in all environments
+`Modal`, `Flyout` - Fixed flaky tests by running `@ember/test-waiters` in all environments
