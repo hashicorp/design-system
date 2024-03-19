@@ -27,7 +27,6 @@ export default interface HdsComponentsRegistry {
   'Hds::Card': typeof HdsCardContainerComponent;
   'hds/card': typeof HdsCardContainerComponent;
   HdsCard: typeof HdsCardContainerComponent;
-  HdsCardComponent: typeof HdsCardContainerComponent;
 
   // Dismiss button
   'Hds::DismissButton': typeof HdsDismissButtonIndexComponent;

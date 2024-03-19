@@ -1,21 +1,28 @@
-export enum BackgroundValues {
+export enum HdsCardBackgroundValues {
   NeutralPrimary = 'neutral-primary',
   NeutralSecondary = 'neutral-secondary',
 }
 
-export type Background = BackgroundValues.NeutralSecondary | BackgroundValues.NeutralPrimary;
+export type HdsCardBackground =
+  | HdsCardBackgroundValues.NeutralSecondary
+  | HdsCardBackgroundValues.NeutralPrimary;
 
-export enum LevelValues {
+export enum HdsCardLevelValues {
   Base = 'base',
   Mid = 'mid',
   High = 'high',
 }
 
-export type Level = LevelValues.Base | LevelValues.Mid | LevelValues.High;
+export type HdsCardLevel =
+  | HdsCardLevelValues.Base
+  | HdsCardLevelValues.Mid
+  | HdsCardLevelValues.High;
 
-export enum OverflowValues {
+export enum HdsCardOverflowValues {
   Hidden = 'hidden',
   Visible = 'visible',
 }
 
-export type Overflow = OverflowValues.Hidden | OverflowValues.Visible;
+export type HdsCardOverflow =
+  | HdsCardOverflowValues.Hidden
+  | HdsCardOverflowValues.Visible;

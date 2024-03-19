@@ -5,23 +5,35 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
-import { BackgroundValues, LevelValues, OverflowValues } from './types.ts'
-import type { Background, Level, Overflow } from './types.ts';
+import {
+  HdsCardBackgroundValues,
+  HdsCardLevelValues,
+  HdsCardOverflowValues,
+} from './types.ts';
+import type {
+  HdsCardBackground,
+  HdsCardLevel,
+  HdsCardOverflow,
+} from './types.ts';
 
-export const DEFAULT_LEVEL = LevelValues.Base;
-export const DEFAULT_BACKGROUND = BackgroundValues.NeutralPrimary;
-export const DEFAULT_OVERFLOW = OverflowValues.Visible;
-export const AVAILABLE_LEVELS: string[] = Object.values(LevelValues);
-export const AVAILABLE_BACKGROUNDS: string[] = Object.values(BackgroundValues);
-export const AVAILABLE_OVERFLOWS: string[] = Object.values(OverflowValues);
+export const DEFAULT_LEVEL = HdsCardLevelValues.Base;
+export const DEFAULT_BACKGROUND = HdsCardBackgroundValues.NeutralPrimary;
+export const DEFAULT_OVERFLOW = HdsCardOverflowValues.Visible;
+export const AVAILABLE_LEVELS: string[] = Object.values(HdsCardLevelValues);
+export const AVAILABLE_BACKGROUNDS: string[] = Object.values(
+  HdsCardBackgroundValues
+);
+export const AVAILABLE_OVERFLOWS: string[] = Object.values(
+  HdsCardOverflowValues
+);
 
 export interface HdsCardContainerSignature {
   Args: {
-    level?: Level;
-    levelActive?: Level;
-    levelHover?: Level;
-    background?: Background;
-    overflow?: Overflow;
+    level?: HdsCardLevel;
+    levelActive?: HdsCardLevel;
+    levelHover?: HdsCardLevel;
+    background?: HdsCardBackground;
+    overflow?: HdsCardOverflow;
     hasBorder?: boolean;
   };
   Element: HTMLDivElement;
@@ -33,11 +45,11 @@ export default class HdsCardContainerComponent extends Component<HdsCardContaine
    * Accepted values: base, mid, high
    *
    * @param level
-   * @type {Level}
+   * @type {HdsCardLevel}
    * @default 'base'
    */
-  get level(): Level {
-    let { level = DEFAULT_LEVEL } = this.args;
+  get level(): HdsCardLevel {
+    const { level = DEFAULT_LEVEL } = this.args;
 
     assert(
       `@level for "Hds::Card::Container" must be one of the following: ${AVAILABLE_LEVELS.join(
@@ -54,10 +66,10 @@ export default class HdsCardContainerComponent extends Component<HdsCardContaine
    * Accepted values: base, mid, high
    *
    * @param levelHover
-   * @type {Level}
+   * @type {HdsCardLevel}
    */
-  get levelHover(): Level {
-    let { levelHover } = this.args;
+  get levelHover(): HdsCardLevel | undefined {
+    const { levelHover } = this.args;
 
     if (levelHover) {
       assert(
@@ -76,10 +88,10 @@ export default class HdsCardContainerComponent extends Component<HdsCardContaine
    * Accepted values: base, mid, high
    *
    * @param levelActive
-   * @type {Level}
+   * @type {HdsCardLevel}
    */
-  get levelActive(): Level {
-    let { levelActive } = this.args;
+  get levelActive(): HdsCardLevel | undefined {
+    const { levelActive } = this.args;
 
     if (levelActive) {
       assert(
@@ -98,11 +110,11 @@ export default class HdsCardContainerComponent extends Component<HdsCardContaine
    * Accepted values: neutral-primary, neutral-secondary
    *
    * @param background
-   * @type {Background}
+   * @type {HdsCardBackground}
    * @default 'base'
    */
-  get background(): Background {
-    let { background = DEFAULT_BACKGROUND } = this.args;
+  get background(): HdsCardBackground {
+    const { background = DEFAULT_BACKGROUND } = this.args;
 
     assert(
       `@background for "Hds::Card::Container" must be one of the following: ${AVAILABLE_BACKGROUNDS.join(
@@ -119,11 +131,11 @@ export default class HdsCardContainerComponent extends Component<HdsCardContaine
    * Accepted values: visible, hidden
    *
    * @param overflow
-   * @type {Overflow}
+   * @type {HdsCardOverflow}
    * @default 'visible'
    */
-  get overflow(): Overflow {
-    let { overflow = DEFAULT_OVERFLOW } = this.args;
+  get overflow(): HdsCardOverflow {
+    const { overflow = DEFAULT_OVERFLOW } = this.args;
 
     assert(
       `@overflow for "Hds::Card::Container" must be one of the following: ${AVAILABLE_OVERFLOWS.join(
@@ -141,7 +153,7 @@ export default class HdsCardContainerComponent extends Component<HdsCardContaine
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames(): string {
-    let classes = ['hds-card__container'];
+    const classes = ['hds-card__container'];
 
     // add "elevation" classes based on the @level and @hasBorder arguments
     classes.push(
