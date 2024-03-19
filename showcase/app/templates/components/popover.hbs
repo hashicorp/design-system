@@ -27,6 +27,110 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Toggle / States</Shw::Text::H3>
+
+  <Shw::Text::Body>
+    The button which serves as toggle (without interactive content) for the popover has no special styles of its own
+    other than for the focus state.
+  </Shw::Text::Body>
+
+  <Shw::Text::H4>With icon as opener content</Shw::Text::H4>
+
+  <Shw::Flex {{style gap="5rem"}} as |SF|>
+    {{#each @model.STATES as |state|}}
+      <SF.Item @label={{state}}>
+        <Hds::Popover
+          @toggleAriaLabel="Information"
+          mock-state-value={{state}}
+          mock-state-selector=".hds-popover-primitive__toggle"
+        >
+          <:toggle>
+            <FlightIcon @name="info" @isInlineBlock={{false}} />
+          </:toggle>
+          <:content>
+            <Shw::Placeholder @text="generic content" @height="40" />
+          </:content>
+        </Hds::Popover>
+      </SF.Item>
+    {{/each}}
+  </Shw::Flex>
+
+  <Shw::Text::H4>With text as opener content</Shw::Text::H4>
+
+  <Shw::Flex {{style gap="5rem"}} as |SF|>
+    {{#each @model.STATES as |state|}}
+      <SF.Item @label={{state}}>
+        <Hds::Popover mock-state-value={{state}} mock-state-selector=".hds-popover-primitive__toggle">
+          <:toggle>
+            Text
+          </:toggle>
+          <:content>
+            <Shw::Placeholder @text="generic content" @height="40" />
+          </:content>
+        </Hds::Popover>
+      </SF.Item>
+    {{/each}}
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Bubble / Options</Shw::Text::H3>
+
+  <Shw::Text::H4>Placement</Shw::Text::H4>
+  <Shw::Grid class="shw-component-popover-placement-grid" @columns={{5}} as |SG|>
+    {{#each @model.PLACEMENTS as |place|}}
+      <SG.Item class="shw-component-popover-placement-grid__item--{{place}}">
+        <Hds::Popover @placement={{place}} @isOpen={{true}}>
+          <:toggle>
+            <div class="shw-component-popover-placement-grid__target">{{place}}</div>
+          </:toggle>
+          <:content>
+            <Shw::Placeholder @text="content" @height="30" />
+          </:content>
+        </Hds::Popover>
+      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
+
+  <Shw::Text::H4>Offset</Shw::Text::H4>
+
+  <Shw::Flex {{style gap="5rem" margin-top="6rem"}} as |SF|>
+    <SF.Item>
+      <Hds::Popover @placement="top" @isOpen={{true}}>
+        <:toggle>
+          <Shw::Outliner>Offset: 12 (default)</Shw::Outliner>
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="generic content" @height="30" />
+        </:content>
+      </Hds::Popover>
+    </SF.Item>
+
+    <SF.Item>
+      <Hds::Popover @placement="top" @offset={{(hash mainAxis=40 crossAxis=0)}} @isOpen={{true}}>
+        <:toggle>
+          <Shw::Outliner>Offset: { mainAxis: 40, crossAxis: 0 }</Shw::Outliner>
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="generic content" @height="30" />
+        </:content>
+      </Hds::Popover>
+    </SF.Item>
+
+    <SF.Item>
+      <Hds::Popover @placement="top" @offset={{(hash mainAxis=12 crossAxis=100)}} @isOpen={{true}}>
+        <:toggle>
+          <Shw::Outliner>Offset: { mainAxis: 12, crossAxis: 100 }</Shw::Outliner>
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="generic content" @height="30" />
+        </:content>
+      </Hds::Popover>
+    </SF.Item>
+  </Shw::Flex>
+
   <Shw::Divider />
 
   <Shw::Text::H2>Content vs Interaction</Shw::Text::H2>
@@ -95,7 +199,7 @@
                           @enableSoftEvents={{enableSoftEvents}}
                           @enableClickEvents={{enableClickEvents}}
                           @containsInteractive={{eq triggerType "interactive"}}
-                          @toggleAriaLabel={{if (eq triggerVariant "icon") "demo of icon as toggle for the popover"}}
+                          @toggleAriaLabel={{if (eq triggerVariant "icon") "Information"}}
                         >
                           <:toggle as |t|>
                             {{#if (eq triggerVariant "text")}}

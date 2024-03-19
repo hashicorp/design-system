@@ -17,7 +17,6 @@ function getFloatingUIOptions(popoverOptions) {
     popoverPositionStrategy = 'absolute', // we don't need to use `fixed` anymore now that we have the Popover API that puts the element in the `top-layer`
     popoverOffsetOptions,
     popoverEnableCollisionDetection,
-    // we leave them from now in case they're needed (or we want to expose them as public API for the consumers)
     popoverFlipOptions = { padding: 8 },
     popoverShiftOptions = { padding: 8 },
     popoverArrow,

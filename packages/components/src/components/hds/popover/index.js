@@ -66,7 +66,7 @@ export default class HdsPopoverIndexComponent extends Component {
   get popoverOptions() {
     return {
       popoverPlacement: this.placement,
-      popoverOffsetOptions: 12,
+      popoverOffsetOptions: this.args.offset || 12,
       popoverEnableCollisionDetection:
         this.args.enableCollisionDetection || false,
       popoverArrow: this.arrowElement,
