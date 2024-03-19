@@ -5,17 +5,23 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import {
+  HdsLinkIconPositionValues,
+  HdsLinkColorValues,
+  HdsLinkStandaloneSizeValues,
+} from './types.ts';
+import type { HdsLinkStandaloneSignature } from './types.ts';
 
-export const DEFAULT_ICONPOSITION = 'leading';
-export const DEFAULT_COLOR = 'primary';
-export const DEFAULT_SIZE = 'medium';
-export const ICONPOSITIONS = ['leading', 'trailing'];
-export const COLORS = ['primary', 'secondary'];
-export const SIZES = ['small', 'medium', 'large'];
+export const DEFAULT_ICONPOSITION = HdsLinkIconPositionValues.Leading;
+export const DEFAULT_COLOR = HdsLinkColorValues.Primary;
+export const DEFAULT_SIZE = HdsLinkStandaloneSizeValues.Medium;
+export const ICONPOSITIONS: string[] = Object.values(HdsLinkIconPositionValues);
+export const COLORS: string[] = Object.values(HdsLinkColorValues);
+export const SIZES: string[] = Object.values(HdsLinkStandaloneSizeValues);
 
-export default class HdsLinkStandaloneComponent extends Component {
-  constructor() {
-    super(...arguments);
+export default class HdsLinkStandaloneComponent extends Component<HdsLinkStandaloneSignature> {
+  constructor(owner: unknown, args: HdsLinkStandaloneSignature['Args']) {
+    super(owner, args);
     if (!(this.args.href || this.args.route)) {
       assert('@href or @route must be defined for <Hds::Link::Standalone>');
     }
@@ -27,7 +33,7 @@ export default class HdsLinkStandaloneComponent extends Component {
    * @description The text of the link. If no text value is defined an error will be thrown.
    */
   get text() {
-    let { text } = this.args;
+    const { text } = this.args;
 
     assert(
       '@text for "Hds::Link::Standalone" must have a valid value',
@@ -44,7 +50,7 @@ export default class HdsLinkStandaloneComponent extends Component {
    * @description Determines the color of link to be used; acceptable values are `primary` and `secondary`
    */
   get color() {
-    let { color = DEFAULT_COLOR } = this.args;
+    const { color = DEFAULT_COLOR } = this.args;
 
     assert(
       `@color for "Hds::Link::Standalone" must be one of the following: ${COLORS.join(
@@ -63,7 +69,7 @@ export default class HdsLinkStandaloneComponent extends Component {
    * @description The name of the icon to be used. An icon name must be defined.
    */
   get icon() {
-    let { icon } = this.args;
+    const { icon } = this.args;
 
     assert(
       '@icon for "Hds::Link::Standalone" must have a valid value',
@@ -80,7 +86,7 @@ export default class HdsLinkStandaloneComponent extends Component {
    * @description Positions the icon before or after the text; allowed values are `leading` or `trailing`
    */
   get iconPosition() {
-    let { iconPosition = DEFAULT_ICONPOSITION } = this.args;
+    const { iconPosition = DEFAULT_ICONPOSITION } = this.args;
 
     assert(
       `@iconPosition for "Hds::Link::Standalone" must be one of the following: ${ICONPOSITIONS.join(
@@ -99,7 +105,7 @@ export default class HdsLinkStandaloneComponent extends Component {
    * @description The size of the standalone link; acceptable values are `small`, `medium`, and `large`
    */
   get size() {
-    let { size = DEFAULT_SIZE } = this.args;
+    const { size = DEFAULT_SIZE } = this.args;
 
     assert(
       `@size for "Hds::Link::Standalone" must be one of the following: ${SIZES.join(
@@ -131,7 +137,7 @@ export default class HdsLinkStandaloneComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-link-standalone'];
+    const classes = ['hds-link-standalone'];
 
     // add a class based on the @size argument
     classes.push(`hds-link-standalone--size-${this.size}`);
