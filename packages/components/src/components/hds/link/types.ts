@@ -1,4 +1,4 @@
-import type { HdsInteractiveArgs } from '../interactive';
+import type { HdsInteractiveArgs } from '../interactive/types.ts';
 
 export enum HdsLinkIconPositionValues {
   Leading = 'leading',
