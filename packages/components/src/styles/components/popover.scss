@@ -43,6 +43,7 @@ $hds-popover-arrow-size: 20px;
 
   &[data-hds-popover-placement^='bottom'] {
     top: -$hds-popover-arrow-size;
+    transform: rotate(0deg); // this fixes a rendering issue in Safari
   }
 
   &[data-hds-popover-placement^='left'] {
