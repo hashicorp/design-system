@@ -12,6 +12,36 @@ A design system is a set of guidelines, standards, assets, and processes to help
 
 Design systems are often equated with a UI kit or component library. In reality, an effective design system spans the entire lifecycle of a product, from ideation to iteration and everything in between.
 
+## What is Helios
+
+**Helios** is the design system developed by the HashiCorp Design System Team. It's commonly referred to as **HDS** for brevity.
+
+Helios is available and recommended for all HashiCorp **product teams using Ember to build their applications**. We also support teams using alternative frameworks or libraries, such as HashiCorp Developer, via our design assets, tokens, and best practice guidance.
+
+Using Helios ensures the different product lines use a common design language. We work closely with these teams on integration and implementation while collecting feedback to understand consumer needs better and inform our [roadmap](https://go.hashi.co/hds-rollout).
+
+For more information on how to use the design system, visit our getting started guides for [designers](/getting-started/for-designers) and for [engineers](/getting-started/for-engineers) or visit our public [GitHub](https://github.com/hashicorp/design-system) repository.
+
+## When to use Helios
+
+### Consumer-facing products
+
+Helios was specifically created for **consuming-facing products**.
+
+All our **product teams** in HashiCorp have adopted Helios as the single source of truth for the design language, components, and patterns used to build the UIs of their consumer-facing products.
+
+### Internal products
+
+Helios is **not** meant to be used as a **general-purpose UI library**.
+
+If you intend to use Helios for **internal products/tools** in HashiCorp, please [contact the Design Systems Team](/about/support) before starting: we need to discuss the implications for our system (it would increase the costs of change, maintenance, support, etc.)
+
+### External products
+
+Helios is **not** meant to be used **outside of HashiCorp**.
+
+If you are **not an HashiCorp employee** and want to use the Helios design system as reference, you're more than welcome; but if you intend to use the Helios design system to build your own product/UI, know that we will not provide any form of support, and in any moment we may introduce changes to our assets or components that could potentially break your product/UI.
+
 ## Helios architecture
 
 While the scale of a design system largely depends on the needs of those consuming it, the fundamental structure and architecture remain largely the same across systems.
@@ -33,18 +63,6 @@ While increasing visual and functional consistency across products is the most v
 - Dismantling silos between departments that adopt and use the system
 - More time spent on solving complex problems, less time spent on duplicative work rebuilding small atoms and molecules
 - Components, foundations, and usage guidelines published by the the Helios Design System meet or exceed WCAG 2.1 AA conformance out of the box in accordance with our [accessibility statement](/about/accessibility-statement)
-
-## Who is Helios for
-
-Helios is available and recommended for all HashiCorp product teams using Ember to build their applications. We also support teams using alternative frameworks or libraries, such as HashiCorp Developer, via our design assets, tokens, and best practice guidance.
-
-Using Helios ensures the different product lines move towards a common design language. We work closely with these teams on integration and implementation while collecting feedback to understand consumer needs better and inform our [roadmap](https://go.hashi.co/hds-rollout).
-
-For more information on adoption, visit our getting started guides for [designers](/getting-started/for-designers) and for [engineers](/getting-started/for-engineers) or visit our public [GitHub](https://github.com/hashicorp/design-system) repository.
-
-## When to use Helios
-
-The Design Systems Team has created Helios to be the single source of truth for the design language, components, and patterns used by HashiCorp product teams. We are working towards parity with other design systems used internally. Until that time, Helios components may live along side other components but we recommend a Helios-first approach in most cases.
 
 ## Resources
 
