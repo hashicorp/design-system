@@ -10,10 +10,7 @@ import {
   HdsLinkColorValues,
   HdsLinkStandaloneSizeValues,
 } from './types.ts';
-import type {
-  HdsLinkStandaloneSignature,
-  HdsLinkStandaloneArgs,
-} from './types.ts';
+import type { HdsLinkStandaloneSignature } from './types.ts';
 
 export const DEFAULT_ICONPOSITION = HdsLinkIconPositionValues.Leading;
 export const DEFAULT_COLOR = HdsLinkColorValues.Primary;
@@ -23,7 +20,7 @@ export const COLORS: string[] = Object.values(HdsLinkColorValues);
 export const SIZES: string[] = Object.values(HdsLinkStandaloneSizeValues);
 
 export default class HdsLinkStandaloneComponent extends Component<HdsLinkStandaloneSignature> {
-  constructor(owner: unknown, args: HdsLinkStandaloneArgs) {
+  constructor(owner: unknown, args: HdsLinkStandaloneSignature['Args']) {
     super(owner, args);
     if (!(this.args.href || this.args.route)) {
       assert('@href or @route must be defined for <Hds::Link::Standalone>');

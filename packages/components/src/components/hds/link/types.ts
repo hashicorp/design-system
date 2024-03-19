@@ -1,4 +1,4 @@
-import type { HdsInteractiveArgs } from '../interactive/types.ts';
+import type { HdsInteractiveSignature } from '../interactive/types.ts';
 
 export enum HdsLinkIconPositionValues {
   Leading = 'leading',
@@ -22,18 +22,16 @@ export enum HdsLinkStandaloneSizeValues {
 
 export type HdsLinkStandaloneSizes = `${HdsLinkStandaloneSizeValues}`;
 
-export interface HdsLinkStandaloneArgs extends HdsInteractiveArgs {
-  icon: string;
-  text: string;
-  color?: HdsLinkColors;
-  href?: string;
-  iconPosition?: HdsLinkIconPositions;
-  isHrefExternal?: boolean;
-  isRouteExternal?: boolean;
-  size?: HdsLinkStandaloneSizes;
-}
-
 export interface HdsLinkStandaloneSignature {
-  Args: HdsLinkStandaloneArgs;
-  Element: HTMLAnchorElement | HTMLButtonElement;
+  Args: HdsInteractiveSignature['Args'] & {
+    icon: string;
+    text: string;
+    color?: HdsLinkColors;
+    href?: string;
+    iconPosition?: HdsLinkIconPositions;
+    isHrefExternal?: boolean;
+    isRouteExternal?: boolean;
+    size?: HdsLinkStandaloneSizes;
+  };
+  Element: HTMLAnchorElement;
 }
