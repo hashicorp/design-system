@@ -1,9 +1,7 @@
 import type { ComponentLike, WithBoundArgs } from '@glint/template';
-import type HdsAlertDescriptionComponent from './description';
-import type HdsAlertTitleComponent from './title';
 import type HdsButtonIndexComponent from '../button';
-import type HdsYieldComponent from '../yield';
 import type HdsLinkStandaloneComponent from '../link/standalone';
+import type { HdsYieldSignature } from '../yield/types';
 
 export enum HdsAlertTypeValues {
   Page = 'page',
@@ -31,9 +29,9 @@ export interface HdsAlertSignature {
   Blocks: {
     default: [
       {
-        Title?: ComponentLike<typeof HdsAlertTitleComponent>;
-        Description?: ComponentLike<typeof HdsAlertDescriptionComponent>;
-        Generic?: ComponentLike<typeof HdsYieldComponent>;
+        Title?: ComponentLike<HdsAlertTitleSignature>;
+        Description?: ComponentLike<HdsAlertDescriptionSignature>;
+        Generic?: ComponentLike<HdsYieldSignature>;
         LinkStandalone?: WithBoundArgs<
           typeof HdsLinkStandaloneComponent,
           'size'
