@@ -6,6 +6,7 @@
 import type HdsButtonIndexComponent from './components/hds/button';
 import type HdsDismissButtonIndexComponent from './components/hds/dismiss-button';
 import type HdsInteractiveIndexComponent from './components/hds/interactive';
+import type HdsLinkInlineComponent from './components/hds/link/inline';
 import type HdsLinkStandaloneComponent from './components/hds/link/standalone';
 import type HdsTextIndexComponent from './components/hds/text';
 import type HdsTextBodyComponent from './components/hds/text/body';
@@ -31,6 +32,11 @@ export default interface HdsComponentsRegistry {
   'Hds::Interactive': typeof HdsInteractiveIndexComponent;
   'hds/interactive': typeof HdsInteractiveIndexComponent;
   HdsInteractive: typeof HdsInteractiveIndexComponent;
+
+  // Link Inline
+  'Hds::Link::Inline': typeof HdsLinkInlineComponent;
+  'hds/link/inline': typeof HdsLinkInlineComponent;
+  HdsLinkInline: typeof HdsLinkInlineComponent;
 
   // Link Standalone
   'Hds::Link::Standalone': typeof HdsLinkStandaloneComponent;

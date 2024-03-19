@@ -35,3 +35,18 @@ export interface HdsLinkStandaloneSignature {
   };
   Element: HdsInteractiveSignature['Element'];
 }
+
+export interface HdsLinkInlineSignature {
+  Args: HdsInteractiveSignature['Args'] & {
+    color?: HdsLinkColors;
+    href?: string;
+    icon?: string;
+    iconPosition?: HdsLinkIconPositions;
+    isHrefExternal?: boolean;
+    isRouteExternal?: boolean;
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HdsInteractiveSignature['Element'];
+}
