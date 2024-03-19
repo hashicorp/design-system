@@ -108,6 +108,7 @@
       "./components/hds/alert/description.js": "./dist/_app_/components/hds/alert/description.js",
       "./components/hds/alert/index.js": "./dist/_app_/components/hds/alert/index.js",
       "./components/hds/alert/title.js": "./dist/_app_/components/hds/alert/title.js",
+      "./components/hds/alert/types.js": "./dist/_app_/components/hds/alert/types.js",
       "./components/hds/app-footer/copyright.js": "./dist/_app_/components/hds/app-footer/copyright.js",
       "./components/hds/app-footer/index.js": "./dist/_app_/components/hds/app-footer/index.js",
       "./components/hds/app-footer/item.js": "./dist/_app_/components/hds/app-footer/item.js",
