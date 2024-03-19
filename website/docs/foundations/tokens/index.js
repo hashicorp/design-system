@@ -53,8 +53,12 @@ export default class Index extends Component {
             t.name.indexOf(this.searchQuery) !== -1 ||
             t.value.indexOf(this.searchQuery) !== -1
         );
-        filteredGroupedTokens[category] =
-          filteredTokens.length > 0 ? filteredTokens : false;
+
+        if (filteredTokens.length > 0) {
+          filteredGroupedTokens[category] = filteredTokens;
+        } else {
+          delete filteredGroupedTokens[category];
+        }
       });
     } else {
       filteredGroupedTokens = this.groupedTokens;

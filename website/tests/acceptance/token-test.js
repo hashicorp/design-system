@@ -38,6 +38,6 @@ module('Acceptance | Token Search', function (hooks) {
   test('should show message when no results are found', async function (assert) {
     await visit('/foundations/tokens?searchQuery=wubalubadubdub');
 
-    assert.dom('[data-test-target="token-not-found"]').exists();
+    assert.dom('[data-test-target="no-tokens-found"]').exists();
   });
 });
