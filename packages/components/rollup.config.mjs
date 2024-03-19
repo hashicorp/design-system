@@ -4,7 +4,7 @@
  */
 
 import { Addon } from '@embroider/addon-dev/rollup';
-import { babel } from '@rollup/plugin-babel';
+import typescript from 'rollup-plugin-ts';
 import copy from 'rollup-plugin-copy';
 import scss from 'rollup-plugin-scss';
 import process from 'process';
@@ -33,16 +33,6 @@ const plugins = [
     'helpers/**/*.js',
     'modifiers/**/*.js',
   ]),
-  // This babel config should *not* apply presets or compile away ES modules.
-  // It exists only to provide development niceties for you, like automatic
-  // template colocation.
-  //
-  // By default, this will load the actual babel config from the file
-  // babel.config.json.
-  babel({
-    babelHelpers: 'bundled',
-    extensions: ['.js', '.ts'],
-  }),
 
   // Follow the V2 Addon rules about dependencies. Your code can import from
   // `dependencies` and `peerDependencies` as well as standard Ember-provided
@@ -62,6 +52,12 @@ const plugins = [
 
   scss({
     fileName: 'styles/@hashicorp/design-system-power-select-overrides.css',
+  }),
+
+  typescript({
+    transpiler: 'babel',
+    browserslist: false,
+    transpileOnly: false,
   }),
 
   // Addons are allowed to contain imports of .css files, which we want rollup
