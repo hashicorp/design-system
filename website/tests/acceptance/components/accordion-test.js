@@ -17,10 +17,21 @@ module('Acceptance | components/accordion', function (hooks) {
 
     assert.strictEqual(currentURL(), '/components/accordion');
   });
+  test('visiting the a11y tab on the page', async function (assert) {
+    await visit('/components/accordion?tab=accessibility');
+    assert.strictEqual(currentURL(), '/components/accordion?tab=accessibility');
+  });
+  test('I can find the element that purposefully fails color contrast', async function (assert) {
+    await visit('/components/accordion?tab=accessibility');
+    assert.strictEqual(
+      this.element.querySelector('[data-test-a11y-element]').textContent.trim(),
+      'I should cause test failures.'
+    );
+  });
   test('Components/accordion page passes automated a11y checks', async function (assert) {
-    await visit('/components/accordion');
-
-    await a11yAudit(globalAxeOptions);
+    // await visit('/components/accordion');
+    await visit('/components/accordion?tab=accessibility');
+    await a11yAudit();
 
     assert.ok(true, 'a11y automation audit passed');
   });
