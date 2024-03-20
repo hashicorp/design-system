@@ -109,13 +109,13 @@
 
   <Shw::Text::H3>List position</Shw::Text::H3>
 
-  <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
-    <SF.Item @label="Below (default)">
+  <Shw::Flex @direction="row" as |SF|>
+    <SF.Item {{style flex="1"}} @label="Below (default)">
       <Hds::SuperSelect @onChange={{this.noop}} @options={{@model.OPTIONS}} @selected={{@model.SELECTED}} as |option|>
         {{option}}
       </Hds::SuperSelect>
     </SF.Item>
-    <SF.Item @label="Above">
+    <SF.Item {{style flex="1"}} @label="Above">
       <Hds::SuperSelect
         @onChange={{this.noop}}
         @options={{@model.OPTIONS}}
@@ -126,7 +126,14 @@
         {{option}}
       </Hds::SuperSelect>
     </SF.Item>
-    <SF.Item @label="List width matches trigger width">
+  </Shw::Flex>
+
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>Dropdown list options width</Shw::Text::H3>
+
+  <Shw::Flex {{style max-width="50%"}} @direction="row" as |SF|>
+    <SF.Item @label="matchTriggerWidth = true (default)">
       <div class="shw-display-inline-flex">
         <Hds::SuperSelect
           @afterOptionsComponent={{component "power-select/after-options"}}
@@ -141,7 +148,7 @@
         </Hds::SuperSelect>
       </div>
     </SF.Item>
-    <SF.Item @label="List width does not match trigger width">
+    <SF.Item @label="matchTriggerWidth = false">
       <div class="shw-display-inline-flex">
         <Hds::SuperSelect
           @afterOptionsComponent={{component "power-select/after-options"}}
