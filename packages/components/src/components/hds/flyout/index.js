@@ -9,14 +9,8 @@ import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { getElementId } from '../../../utils/hds-get-element-id';
 import { buildWaiter } from '@ember/test-waiters';
-import { DEBUG } from '@glimmer/env';
 
-let waiter;
-
-// Notice: this code will get stripped out in production builds (DEBUG evaluates to `true` in dev/test builds, but `false` in prod builds)
-if (DEBUG) {
-  waiter = buildWaiter('@hashicorp/design-system-components:flyout');
-}
+let waiter = buildWaiter('@hashicorp/design-system-components:flyout');
 
 export const DEFAULT_SIZE = 'medium';
 export const DEFAULT_HAS_OVERLAY = true;
@@ -127,7 +121,7 @@ export default class HdsFlyoutIndexComponent extends Component {
     // allow ember test helpers to be aware of when the `close` event fires
     // when using `click` or other helpers from '@ember/test-helpers'
     // Notice: this code will get stripped out in production builds (DEBUG evaluates to `true` in dev/test builds, but `false` in prod builds)
-    if (DEBUG && this.element.open) {
+    if (this.element.open) {
       let token = waiter.beginAsync();
       let listener = () => {
         waiter.endAsync(token);
