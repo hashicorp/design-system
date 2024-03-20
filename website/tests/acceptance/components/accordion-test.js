@@ -28,10 +28,10 @@ module('Acceptance | components/accordion', function (hooks) {
       'I should cause test failures.'
     );
   });
-  test('Components/accordion page passes automated a11y checks', async function (assert) {
+  test('Components/accordion a11y tab passes automated a11y checks', async function (assert) {
     // await visit('/components/accordion');
     await visit('/components/accordion?tab=accessibility');
-    await a11yAudit();
+    await a11yAudit(globalAxeOptions);
 
     assert.ok(true, 'a11y automation audit passed');
   });
