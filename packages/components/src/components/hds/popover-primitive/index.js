@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import { assert } from '@ember/debug';
+import { warn } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
 
@@ -15,7 +15,11 @@ import floatPopoverModifier from '../../../modifiers/hds-float-popover';
 
 // https://github.com/oddbird/popover-polyfill?tab=readme-ov-file#with-npm
 // this is needed until Firefox officially supports the Popover API
-import '@oddbird/popover-polyfill';
+// see: https://wiki.mozilla.org/Release_Management/Release_owners
+import {
+  isSupported as isPopoverApiSupported,
+  apply as applyPopoverApiPolyfill,
+} from '@oddbird/popover-polyfill/fn';
 
 export default class HdsPopoverPrimitiveComponent extends Component {
   @tracked toggleElement;
@@ -39,11 +43,20 @@ export default class HdsPopoverPrimitiveComponent extends Component {
     (element) => {
       this.containerElement = element;
 
-      assert(
-        'The browser used does not support the Popover API so some functionalities will not work as expected. Please check the minimum browser requirements.',
-        // eslint-disable-next-line no-prototype-builtins
-        HTMLElement.prototype.hasOwnProperty('popover')
-      );
+      if (!isPopoverApiSupported()) {
+        warn(
+          "The browser used does not support the Popover API so it's been emulated and some functionalities may not work as expected. Please check the minimum browser requirements.",
+          {
+            id: 'hds-popover.no-popover-api-support.polyfill-applied',
+          }
+        );
+        // we'll use this flag to overwrite the popover positioning strategy
+        // this is specifically done for Firefox: currently it doesn't support it, but will soon (we need Firefox 127 to support the last 2 versions)
+        this.isPopoverApiPolyfilled = true;
+        // this function polyfills quite a few DOM methods and adds emulation for the Popover API
+        // see: https://github.com/oddbird/popover-polyfill/blob/main/src/popover.ts#L123
+        applyPopoverApiPolyfill();
+      }
 
       // we register the "soft" events
       if (this.enableSoftEvents) {
@@ -122,11 +135,22 @@ export default class HdsPopoverPrimitiveComponent extends Component {
       floatPopoverModifier(
         this.popoverElement, // element the modifier is attached to
         [this.toggleElement], // positional arguments
-        { popoverOptions: this.args.popoverOptions } // named arguments
+        { popoverOptions: this.popoverOptions } // named arguments
       );
     },
     { eager: false }
   );
+
+  // this is used to intercept the arguments and overwrihe the "strategy" if the Popover API has been polyfilled
+  // this is specifically done for Firefox: currently it doesn't support it, but will soon (we need Firefox 127 to support the last 2 versions)
+  // see: https://wiki.mozilla.org/Release_Management/Release_owners
+  get popoverOptions() {
+    const popoverOptions = this.args.popoverOptions;
+    if (this.isPopoverApiPolyfilled) {
+      popoverOptions.popoverPositionStrategy = 'fixed';
+    }
+    return popoverOptions;
+  }
 
   @action
   showPopover() {
