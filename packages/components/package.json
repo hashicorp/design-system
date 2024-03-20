@@ -132,6 +132,7 @@
       "./components/hds/button-set/index.js": "./dist/_app_/components/hds/button-set/index.js",
       "./components/hds/button/index.js": "./dist/_app_/components/hds/button/index.js",
       "./components/hds/card/container.js": "./dist/_app_/components/hds/card/container.js",
+      "./components/hds/card/types.js": "./dist/_app_/components/hds/card/types.js",
       "./components/hds/code-block/copy-button.js": "./dist/_app_/components/hds/code-block/copy-button.js",
       "./components/hds/code-block/description.js": "./dist/_app_/components/hds/code-block/description.js",
       "./components/hds/code-block/index.js": "./dist/_app_/components/hds/code-block/index.js",

@@ -14,6 +14,7 @@ import type HdsTextCodeComponent from './components/hds/text/code';
 import type HdsYieldComponent from './components/hds/yield';
 import type HdsLinkToModelsHelper from './helpers/hds-link-to-models';
 import type HdsLinkToQueryHelper from './helpers/hds-link-to-query';
+import type HdsCardContainerComponent from './components/hds/card/container.ts';
 
 export default interface HdsComponentsRegistry {
   HdsInteractiveComponent: typeof HdsInteractiveIndexComponent;
@@ -21,6 +22,11 @@ export default interface HdsComponentsRegistry {
   'Hds::Button': typeof HdsButtonIndexComponent;
   'hds/button': typeof HdsButtonIndexComponent;
   HdsButton: typeof HdsButtonIndexComponent;
+
+  // Card
+  'Hds::Card': typeof HdsCardContainerComponent;
+  'hds/card': typeof HdsCardContainerComponent;
+  HdsCard: typeof HdsCardContainerComponent;
 
   // Dismiss button
   'Hds::DismissButton': typeof HdsDismissButtonIndexComponent;
