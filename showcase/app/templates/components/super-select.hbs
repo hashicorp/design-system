@@ -171,13 +171,18 @@
 
   <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
     <SF.Item @label="Custom placeholder">
-      <Hds::SuperSelect @placeholder="Placeholder text" @onChange={{this.noop}} @options={{@model.OPTIONS}} as |option|>
+      <Hds::SuperSelect
+        @placeholder="Custom placeholder text"
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        as |option|
+      >
         {{option}}
       </Hds::SuperSelect>
     </SF.Item>
     <SF.Item @label="Search enabled with custom search placeholder">
       <Hds::SuperSelect
-        @searchPlaceholder="Search placeholder text"
+        @searchPlaceholder="Custom search placeholder text"
         @onChange={{this.noop}}
         @options={{@model.OPTIONS}}
         @selected={{@model.SELECTED}}
@@ -193,10 +198,12 @@
 
   <Shw::Text::H3>After & before options</Shw::Text::H3>
 
-  <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
-    <SF.Item @label="Custom after options content">
+  <Shw::Text::H4>With generic content</Shw::Text::H4>
+
+  <Shw::Flex @direction="row" as |SF|>
+    <SF.Item {{style flex="1"}} @label="before options content">
       <Hds::SuperSelect
-        @afterOptionsComponent={{component "power-select/after-options"}}
+        @beforeOptionsComponent={{component "power-select/generic-content"}}
         @onChange={{this.noop}}
         @options={{@model.OPTIONS}}
         @selected={{@model.SELECTED}}
@@ -205,9 +212,36 @@
         {{option}}
       </Hds::SuperSelect>
     </SF.Item>
-    <SF.Item @label="Custom before options content">
+    <SF.Item {{style flex="1"}} @label="after options content">
+      <Hds::SuperSelect
+        @afterOptionsComponent={{component "power-select/generic-content"}}
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H4>With custom header & footer components</Shw::Text::H4>
+
+  <Shw::Flex @direction="row" as |SF|>
+    <SF.Item {{style flex="1"}} @label="before options content">
       <Hds::SuperSelect
         @beforeOptionsComponent={{component "power-select/after-options"}}
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect>
+    </SF.Item>
+    <SF.Item {{style flex="1"}} @label="after options content">
+      <Hds::SuperSelect
+        @afterOptionsComponent={{component "power-select/after-options"}}
         @onChange={{this.noop}}
         @options={{@model.OPTIONS}}
         @selected={{@model.SELECTED}}
