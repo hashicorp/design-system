@@ -26,6 +26,7 @@
     border: none;
     // TODO! discuss with designer
     border-radius: 3px;
+    cursor: pointer;
 
     @include hds-focus-ring-with-pseudo-element(
       $top: -2px,
