@@ -5,15 +5,17 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import { HdsLinkColorValues, HdsLinkIconPositionValues } from './types.ts';
+import type { HdsLinkInlineSignature } from './types.ts';
 
-export const DEFAULT_ICONPOSITION = 'trailing';
-export const DEFAULT_COLOR = 'primary';
-export const ICONPOSITIONS = ['leading', 'trailing'];
-export const COLORS = ['primary', 'secondary'];
+export const DEFAULT_ICONPOSITION = HdsLinkIconPositionValues.Trailing;
+export const DEFAULT_COLOR = HdsLinkColorValues.Primary;
+export const ICONPOSITIONS: string[] = Object.values(HdsLinkIconPositionValues);
+export const COLORS: string[] = Object.values(HdsLinkColorValues);
 
-export default class HdsLinkInlineComponent extends Component {
-  constructor() {
-    super(...arguments);
+export default class HdsLinkInlineComponent extends Component<HdsLinkInlineSignature> {
+  constructor(owner: unknown, args: HdsLinkInlineSignature['Args']) {
+    super(owner, args);
     if (!(this.args.href || this.args.route)) {
       assert('@href or @route must be defined for <Hds::Link::Inline>');
     }
@@ -26,7 +28,7 @@ export default class HdsLinkInlineComponent extends Component {
    * @description Determines the color of link to be used; acceptable values are `primary` and `secondary`
    */
   get color() {
-    let { color = DEFAULT_COLOR } = this.args;
+    const { color = DEFAULT_COLOR } = this.args;
 
     assert(
       `@color for "Hds::Link::Inline" must be one of the following: ${COLORS.join(
@@ -45,7 +47,7 @@ export default class HdsLinkInlineComponent extends Component {
    * @description Positions the icon before or after the text; allowed values are `leading` or `trailing`
    */
   get iconPosition() {
-    let { iconPosition = DEFAULT_ICONPOSITION } = this.args;
+    const { iconPosition = DEFAULT_ICONPOSITION } = this.args;
 
     assert(
       `@iconPosition for "Hds::Link::Inline" must be one of the following: ${ICONPOSITIONS.join(
@@ -63,7 +65,7 @@ export default class HdsLinkInlineComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-link-inline'];
+    const classes = ['hds-link-inline'];
 
     // add a class based on the @color argument
     classes.push(`hds-link-inline--color-${this.color}`);

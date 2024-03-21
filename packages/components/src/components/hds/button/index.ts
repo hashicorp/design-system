@@ -99,7 +99,7 @@ export default class HdsButtonIndexComponent extends Component<HdsButtonSignatur
       !(this.color === 'tertiary' && !this.args.icon)
     );
 
-    return this.args.icon ?? null;
+    return this.args.icon ?? undefined;
   }
 
   /**
