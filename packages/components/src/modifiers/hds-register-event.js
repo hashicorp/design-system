@@ -9,7 +9,7 @@ import { modifier } from 'ember-modifier';
 // see: https://github.com/emberjs/ember.js/issues/19869#issuecomment-1909118910
 // see: https://github.com/emberjs/ember.js/pull/20629
 // see also: https://github.com/emberjs/ember.js/blob/main/packages/%40ember/-internals/glimmer/lib/modifiers/on.ts#L30
-export default modifier((element, positional, named) => {
+export default modifier((element, positional, named = {}) => {
   // the "target" element the listeners are added to
   // notice: this is the element the Ember modifier is attached to
   const targetElement = element;
@@ -19,7 +19,7 @@ export default modifier((element, positional, named) => {
   // the options for the `addEventListener()` method
   // see: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
   // notice: it's expressed as "named" argument (object) for the modifier
-  const { useCapture = false } = named ?? {};
+  const { useCapture = false } = named;
 
   targetElement.addEventListener(event, eventHandler, useCapture);
 
