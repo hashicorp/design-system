@@ -1,5 +1,47 @@
 # @hashicorp/design-system-components
 
+## 4.2.0
+
+### Minor Changes
+
+`Link::Inline` - Converted component to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2013](https://github.com/hashicorp/design-system/pull/2013) - Thanks [@WenInCode](https://github.com/WenInCode) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Card` - Converted component to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#1997](https://github.com/hashicorp/design-system/pull/1997) - Thanks [@valeriia-ruban](https://github.com/valeriia-ruban) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Link::Standalone` - Converted component to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2010](https://github.com/hashicorp/design-system/pull/2010) - Thanks [@WenInCode](https://github.com/WenInCode) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Text` - Converted component to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#1984](https://github.com/hashicorp/design-system/pull/1984) - Thanks [@natmegs](https://github.com/natmegs) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Alert` - Converted components to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#1990](https://github.com/hashicorp/design-system/pull/1990) - Thanks [@WenInCode](https://github.com/WenInCode) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+`Modal`, `Flyout` - Fixed flaky tests by running `@ember/test-waiters` in all environments
+
+<small class="doc-whats-new-changelog-metadata">[#2011](https://github.com/hashicorp/design-system/pull/2011) - Thanks [@fivetanley](https://github.com/fivetanley) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.1.1
 
 **🚨 Caution: This version is missing the pre-compiled CSS 🚨**
