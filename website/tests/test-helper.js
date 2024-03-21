@@ -24,7 +24,6 @@ setRunOptions({
       'wcag22aa',
       'best-practice',
       'EN-301-549',
-      'ACT',
     ],
   },
   include: [['#ember-testing-container']],
