@@ -12,11 +12,61 @@
   </a>
 </p>
 
+## 4.2.0
+
+**Minor changes**
+
+`Link::Inline` - Converted component to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2013](https://github.com/hashicorp/design-system/pull/2013) - Thanks [@WenInCode](https://github.com/WenInCode) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Card` - Converted component to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#1997](https://github.com/hashicorp/design-system/pull/1997) - Thanks [@valeriia-ruban](https://github.com/valeriia-ruban) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Link::Standalone` - Converted component to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2010](https://github.com/hashicorp/design-system/pull/2010) - Thanks [@WenInCode](https://github.com/WenInCode) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Text` - Converted component to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#1984](https://github.com/hashicorp/design-system/pull/1984) - Thanks [@natmegs](https://github.com/natmegs) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Alert` - Converted component to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#1990](https://github.com/hashicorp/design-system/pull/1990) - Thanks [@WenInCode](https://github.com/WenInCode) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**Patch changes**
+
+`Modal`, `Flyout` - Fixed flaky tests by running `@ember/test-waiters` in all environments
+
+<small class="doc-whats-new-changelog-metadata">[#2011](https://github.com/hashicorp/design-system/pull/2011) - Thanks [@fivetanley](https://github.com/fivetanley) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+## 4.1.2
+
+### Patch Changes
+
+This version is a re-release of `@hashicorp/design-system-components@4.1.1` containing the missing pre-compiled CSS
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.1.1
 
 **🚨 Caution: This version is missing the pre-compiled CSS 🚨**
 
-You can still use it if you import styles as Sass and don't require `design-system-components.css`
+You can still use this version if you import styles as Sass and don't require `design-system-components.css`
 
 **Patch changes**
 
@@ -719,38 +769,6 @@ _Notice: while technically this is a breaking change, we consider this a fast-fo
 - fixed issue with dynamic tab content not updating the "selected" indicator correctly
 
 <small class="doc-whats-new-changelog-metadata">[#1688](https://github.com/hashicorp/design-system/pull/1688)</small>
-
-## 2.13.0
-
-**Minor changes**
-
-`AppFooter` - Added new component
-
-<small class="doc-whats-new-changelog-metadata">[#1623](https://github.com/hashicorp/design-system/pull/1623)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`SideNav` - add `@isCollapsible` (to control if users can collapse the sidenav on 'desktop' viewports) and `@isMinimized` (to control the default state on 'desktop' viewports) arguments
-
-<small class="doc-whats-new-changelog-metadata">[#1630](https://github.com/hashicorp/design-system/pull/1630)</small>
-
-**Patch changes**
-
-`Tag` - Updated padding for dismiss button for WCAG conformance
-
-<small class="doc-whats-new-changelog-metadata">[#1696](https://github.com/hashicorp/design-system/pull/1696)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Link::Standalone` – increase target size
-
-<small class="doc-whats-new-changelog-metadata">[#1678](https://github.com/hashicorp/design-system/pull/1678)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/design-system-tokens@1.9.0
 
 
 ---
