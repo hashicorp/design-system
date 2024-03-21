@@ -40,7 +40,7 @@
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`Alert` - Converted components to TypeScript
+`Alert` - Converted component to TypeScript
 
 <small class="doc-whats-new-changelog-metadata">[#1990](https://github.com/hashicorp/design-system/pull/1990) - Thanks [@WenInCode](https://github.com/WenInCode) for the contribution! 🙏</small>
 
@@ -51,6 +51,14 @@
 `Modal`, `Flyout` - Fixed flaky tests by running `@ember/test-waiters` in all environments
 
 <small class="doc-whats-new-changelog-metadata">[#2011](https://github.com/hashicorp/design-system/pull/2011) - Thanks [@fivetanley](https://github.com/fivetanley) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+## 4.1.2
+
+### Patch Changes
+
+This version is a re-release of `@hashicorp/design-system-components@4.1.1` containing the missing pre-compiled CSS
 
 <div class="doc-whats-new-changelog-separator"></div>
 
