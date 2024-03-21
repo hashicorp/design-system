@@ -7,6 +7,7 @@ declare module '@hashicorp/ember-flight-icons/components/flight-icon' {
       color?: string;
       name?: string;
       stretched?: boolean;
+      isInlineBlock?: boolean;
     };
     Element: SVGElement;
   }

@@ -2,6 +2,7 @@ import '@glint/environment-ember-loose';
 
 import { LinkTo } from '@ember/routing';
 
+import DidInsertModifier from '@ember/render-modifiers/modifiers/did-insert';
 import type EmberTruthRegistry from 'ember-truth-helpers/template-registry';
 import type EmberElementHelperRegistry from 'ember-element-helper/template-registry';
 import type EmberStyleModifier from 'ember-style-modifier';
@@ -18,6 +19,7 @@ declare module '@glint/environment-ember-loose/registry' {
       EmberElementHelperRegistry,
       EmberStyleModifierRegistry /*, other addon registries */ {
     // local entries
+    'did-insert': typeof DidInsertModifier;
     LinkToExternal: typeof LinkTo;
   }
 }

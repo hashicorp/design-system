@@ -3,6 +3,9 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import type HdsAlertIndexComponent from './components/hds/alert';
+import type HdsAlertDescriptionComponent from './components/hds/alert/description';
+import type HdsAlertTitleComponent from './components/hds/alert/title';
 import type HdsButtonIndexComponent from './components/hds/button';
 import type HdsDismissButtonIndexComponent from './components/hds/dismiss-button';
 import type HdsInteractiveIndexComponent from './components/hds/interactive';
@@ -18,6 +21,21 @@ import type HdsLinkToQueryHelper from './helpers/hds-link-to-query';
 import type HdsCardContainerComponent from './components/hds/card/container.ts';
 
 export default interface HdsComponentsRegistry {
+  // Alert
+  'Hds::Alert': typeof HdsAlertIndexComponent;
+  'hds/alert': typeof HdsAlertIndexComponent;
+  HdsAlert: typeof HdsAlertIndexComponent;
+
+  'Hds::Alert::Descripton': typeof HdsAlertDescriptionComponent;
+  'hds/alert/description': typeof HdsAlertDescriptionComponent;
+  HdsAlertDescripton: typeof HdsAlertDescriptionComponent;
+
+  'Hds::Alert::Title': typeof HdsAlertTitleComponent;
+  'hds/alert/title': typeof HdsAlertTitleComponent;
+  HdsAlertTitle: typeof HdsAlertTitleComponent;
+
+  HdsButtonComponent: typeof HdsButtonIndexComponent;
+  HdsDismissComponent: typeof HdsDismissButtonIndexComponent;
   HdsInteractiveComponent: typeof HdsInteractiveIndexComponent;
   // Button
   'Hds::Button': typeof HdsButtonIndexComponent;
