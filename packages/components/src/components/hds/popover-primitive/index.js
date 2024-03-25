@@ -31,6 +31,11 @@ export default class HdsPopoverPrimitiveComponent extends Component {
   @tracked enableClickEvents = this.args.enableClickEvents ?? false;
   // this will enable "soft" events for the toggle ("hover" and "focus")
   @tracked enableSoftEvents = this.args.enableSoftEvents ?? false;
+  // we'll use this flag to overwrite the popover positioning strategy
+  // this is specifically done for Firefox: currently it doesn't support it, but will soon (we need Firefox 127 to support the last 2 versions)
+  // see: https://whattrainisitnow.com/release/?version=127
+  // see: https://github.com/oddbird/popover-polyfill/blob/main/src/popover.ts#L15
+  @tracked isPopoverApiSupported = isPopoverApiSupported();
 
   /**
    * Generates a unique ID for the "popover" (will be used in the `popovertarget` attribute of the toggle button)
@@ -43,16 +48,14 @@ export default class HdsPopoverPrimitiveComponent extends Component {
     (element) => {
       this.containerElement = element;
 
-      if (!isPopoverApiSupported()) {
+      // if the Popover API is not supported we need to polyfill it
+      if (!this.isPopoverApiSupported) {
         warn(
           "The browser used does not support the Popover API so it's been emulated and some functionalities may not work as expected. Please check the minimum browser requirements.",
           {
             id: 'hds-popover.no-popover-api-support.polyfill-applied',
           }
         );
-        // we'll use this flag to overwrite the popover positioning strategy
-        // this is specifically done for Firefox: currently it doesn't support it, but will soon (we need Firefox 127 to support the last 2 versions)
-        this.isPopoverApiPolyfilled = true;
         // this function polyfills quite a few DOM methods and adds emulation for the Popover API
         // see: https://github.com/oddbird/popover-polyfill/blob/main/src/popover.ts#L123
         applyPopoverApiPolyfill();
@@ -146,7 +149,10 @@ export default class HdsPopoverPrimitiveComponent extends Component {
   // see: https://wiki.mozilla.org/Release_Management/Release_owners
   get popoverOptions() {
     const popoverOptions = this.args.popoverOptions;
-    if (this.isPopoverApiPolyfilled) {
+    // if the Popover API is not supported => then it's polyfilled
+    if (!this.isPopoverApiSupported) {
+      // when using the "absolute" strategy, the presence of a parent with "relative" position leads to wrong layout rendering (known issue in the polyfill library)
+      // see: https://github.com/oddbird/popover-polyfill/tree/main?tab=readme-ov-file#caveats
       popoverOptions.popoverPositionStrategy = 'fixed';
     }
     return popoverOptions;
