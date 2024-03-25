@@ -143,6 +143,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/stepper');
     await percySnapshot('Stepper');
 
+    await visit('/components/super-select');
+    await percySnapshot('SuperSelect');
+
     await visit('/components/table');
     await percySnapshot('Table');
 

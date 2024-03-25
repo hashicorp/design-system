@@ -58,6 +58,7 @@ Router.map(function () {
     this.route('separator');
     this.route('side-nav');
     this.route('stepper');
+    this.route('super-select');
     this.route('table');
     this.route('tag');
     this.route('text');
