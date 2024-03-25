@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import type { ComponentLike, WithBoundArgs } from '@glint/template';
 import type HdsButtonIndexComponent from '../button';
 import type HdsLinkStandaloneComponent from '../link/standalone';
