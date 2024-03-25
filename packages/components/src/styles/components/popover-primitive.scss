@@ -1,0 +1,55 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// PopoverPrimitive COMPONENT
+//
+
+.hds-popover-primitive {
+  position: relative;
+  // TODO! do we need this?
+  // width: fit-content;
+}
+
+.hds-popover-primitive__toggle {
+  &:where(button) {
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    font: inherit;
+    text-align: inherit;
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+// TODO! implement this option
+
+.hds-popover-primitive__toggle--is-inline {
+  display: inline;
+}
+
+.hds-popover-primitive__toggle--is-block {
+  display: block;
+}
+
+// this will have a "popover" behaviour associated, which comes with pre-defined styling
+.hds-popover-primitive__content {
+  // TODO! add polyfill styles here?
+  // see: https://github.com/oddbird/popover-polyfill?tab=readme-ov-file#caveats
+  :where(&[popover]) {
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    color: inherit;
+    background: none;
+    border: none;
+    // TODO do we need this?
+    // width: fit-content;
+    // height: fit-content;
+    inset: 0;
+  }
+}
