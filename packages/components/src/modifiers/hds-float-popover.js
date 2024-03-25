@@ -23,7 +23,6 @@ function getFloatingUIOptions(popoverOptions) {
     popoverMiddlewareExtra = [],
   } = popoverOptions;
 
-
   // we build dynamically the list of middleware functions to invoke, depending on the options provided
 
   const popoverMiddleware = [];

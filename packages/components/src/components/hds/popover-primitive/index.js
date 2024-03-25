@@ -36,6 +36,7 @@ export default class HdsPopoverPrimitiveComponent extends Component {
   // see: https://whattrainisitnow.com/release/?version=127
   // see: https://github.com/oddbird/popover-polyfill/blob/main/src/popover.ts#L15
   @tracked isPopoverApiSupported = isPopoverApiSupported();
+  @tracked isPopoverApiPolyfilled = HTMLElement.prototype.popoverIsPolyfilled;
 
   /**
    * Generates a unique ID for the "popover" (will be used in the `popovertarget` attribute of the toggle button)
@@ -59,6 +60,19 @@ export default class HdsPopoverPrimitiveComponent extends Component {
         // this function polyfills quite a few DOM methods and adds emulation for the Popover API
         // see: https://github.com/oddbird/popover-polyfill/blob/main/src/popover.ts#L123
         applyPopoverApiPolyfill();
+
+        // CONTENT WARNING: TERRIBLE HACK BELOW!
+        // we need to assign a special flag to be able to determine (after the polyfill is applied)
+        // if the Popover API has been polyfilled or not, to change position strategi for Firefox (see below)
+        // see: https://github.com/oddbird/popover-polyfill/issues/189
+        Object.defineProperties(HTMLElement.prototype, {
+          popoverIsPolyfilled: {
+            value: true,
+            writable: false,
+            enumerable: false,
+            configurable: true,
+          },
+        });
       }
 
       // we register the "soft" events
@@ -149,8 +163,8 @@ export default class HdsPopoverPrimitiveComponent extends Component {
   // see: https://wiki.mozilla.org/Release_Management/Release_owners
   get popoverOptions() {
     const popoverOptions = this.args.popoverOptions;
-    // if the Popover API is not supported => then it's polyfilled
-    if (!this.isPopoverApiSupported) {
+    // if the Popover API is not supported (polyfill applied for the first time) of it's already been polyfilled (see above)
+    if (!this.isPopoverApiSupported || this.isPopoverApiPolyfilled) {
       // when using the "absolute" strategy, the presence of a parent with "relative" position leads to wrong layout rendering (known issue in the polyfill library)
       // see: https://github.com/oddbird/popover-polyfill/tree/main?tab=readme-ov-file#caveats
       popoverOptions.popoverPositionStrategy = 'fixed';
