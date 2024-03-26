@@ -37,6 +37,7 @@
     "@ember/string": "^3.1.1",
     "@ember/test-waiters": "^3.1.0",
     "@embroider/addon-shim": "^1.8.7",
+    "@floating-ui/dom": "^1.6.3",
     "@hashicorp/design-system-tokens": "^2.1.0",
     "@hashicorp/ember-flight-icons": "^5.0.1",
     "ember-a11y-refocus": "^3.0.2",
