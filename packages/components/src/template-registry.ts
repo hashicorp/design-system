@@ -7,6 +7,7 @@ import type HdsAlertIndexComponent from './components/hds/alert';
 import type HdsAlertDescriptionComponent from './components/hds/alert/description';
 import type HdsAlertTitleComponent from './components/hds/alert/title';
 import type HdsButtonIndexComponent from './components/hds/button';
+import type HdsCardContainerComponent from './components/hds/card/container.ts';
 import type HdsDismissButtonIndexComponent from './components/hds/dismiss-button';
 import type HdsInteractiveIndexComponent from './components/hds/interactive';
 import type HdsLinkInlineComponent from './components/hds/link/inline';
@@ -14,11 +15,11 @@ import type HdsLinkStandaloneComponent from './components/hds/link/standalone';
 import type HdsTextIndexComponent from './components/hds/text';
 import type HdsTextBodyComponent from './components/hds/text/body';
 import type HdsTextDisplayComponent from './components/hds/text/display';
+import type HdsToastComponent from './components/hds/toast';
 import type HdsTextCodeComponent from './components/hds/text/code';
 import type HdsYieldComponent from './components/hds/yield';
 import type HdsLinkToModelsHelper from './helpers/hds-link-to-models';
 import type HdsLinkToQueryHelper from './helpers/hds-link-to-query';
-import type HdsCardContainerComponent from './components/hds/card/container.ts';
 
 export default interface HdsComponentsRegistry {
   // Alert
@@ -80,6 +81,11 @@ export default interface HdsComponentsRegistry {
   'Hds::Text::Code': typeof HdsTextCodeComponent;
   'hds/text/code': typeof HdsTextCodeComponent;
   HdsTextCode: typeof HdsTextCodeComponent;
+
+  // Toast
+  'Hds::Toast': typeof HdsToastComponent;
+  'hds/toast': typeof HdsToastComponent;
+  HdsToast: typeof HdsToastComponent;
 
   // Yield
   'Hds::Yield': typeof HdsYieldComponent;
