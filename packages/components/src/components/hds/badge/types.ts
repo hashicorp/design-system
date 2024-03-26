@@ -24,12 +24,12 @@ export type HdsBadgeColors = `${HdsBadgeColorValues}`;
 
 export interface HdsBadgeSignature {
   Args: {
-    size: HdsBadgeSizes;
-    type: HdsBadgeTypes;
-    color: HdsBadgeColors;
     text: string;
-    icon: string | null;
-    isIconOnly: boolean | null;
+    color?: HdsBadgeColors;
+    icon?: string | null;
+    isIconOnly?: boolean;
+    size?: HdsBadgeSizes;
+    type?: HdsBadgeTypes;
   };
   Element: HTMLDivElement;
 }
