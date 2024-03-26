@@ -7,8 +7,6 @@
 // PopoverPrimitive COMPONENT
 //
 
-@use "../mixins/focus-ring" as *;
-
 .hds-popover-primitive {
   // TODO this causes bug in the position of the popover in Firefox (with polyfill)
   position: relative;
@@ -24,16 +22,7 @@
     text-align: inherit;
     background-color: inherit;
     border: none;
-    // TODO! discuss with designer
-    border-radius: 3px;
     cursor: pointer;
-
-    @include hds-focus-ring-with-pseudo-element(
-      $top: -2px,
-      $right: -2px,
-      $bottom: -2px,
-      $left: -2px
-    );
   }
 }
 

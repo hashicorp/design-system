@@ -7,9 +7,28 @@
 // POPOVER
 //
 
-.hds-popover {
-  // add the component styles here
+@use "../mixins/focus-ring" as *;
+
+// TOGGLE
+
+// these are styles specific for the popover component (so we keep the "primitive" more agnostic)
+// see the `popover-primitive.scss` file for the other styles applied to the button
+.hds-popover .hds-popover-primitive__toggle {
+  &:where(button) {
+    // TODO! discuss with designer
+    border-radius: 3px;
+
+    @include hds-focus-ring-with-pseudo-element(
+      $top: -2px,
+      $right: -2px,
+      $bottom: -2px,
+      $left: -2px
+    );
+  }
 }
+
+
+// CONTENT ("bubble")
 
 .hds-popover-bubble {
   position: relative;
