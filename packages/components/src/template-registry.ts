@@ -49,9 +49,9 @@ export default interface HdsComponentsRegistry {
   HdsCard: typeof HdsCardContainerComponent;
 
   // Disclosure Primitive
-  'Hds::DismissPrimitive': typeof HdsDisclosurePrimitiveComponent;
-  'hds/dismiss-primitive': typeof HdsDisclosurePrimitiveComponent;
-  HdsDismissPrimitive: typeof HdsDisclosurePrimitiveComponent;
+  'Hds::DisclosurePrimitive': typeof HdsDisclosurePrimitiveComponent;
+  'hds/disclosure-primitive': typeof HdsDisclosurePrimitiveComponent;
+  HdsDisclosurePrimitive: typeof HdsDisclosurePrimitiveComponent;
 
   // Dismiss button
   'Hds::DismissButton': typeof HdsDismissButtonIndexComponent;
