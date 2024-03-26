@@ -1,10 +1,9 @@
-{{! @glint-nocheck: not typesafe yet }}
 {{!
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
 <div class={{this.classNames}} ...attributes>
-  {{#if @icon}}
+  {{#if this.icon}}
     <div class="hds-badge__icon">
       <FlightIcon @name={{this.icon}} @size="16" @stretched={{true}} />
     </div>
