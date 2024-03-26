@@ -4,8 +4,12 @@
  */
 
 import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
+import { hbs } from 'ember-cli-htmlbars';
 
 import { getFloatingUIOptions } from '@hashicorp/design-system-components/modifiers/hds-anchored-position';
+import anchoredElementModifier from '@hashicorp/design-system-components/modifiers/hds-anchored-position';
 
 //
 // ================================================================
@@ -130,3 +134,133 @@ module(
     });
   }
 );
+
+// ================================================================
+
+function wait(timeout = 500) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, timeout);
+  });
+}
+
+module('Integration | Modifier | hds-anchored-position', function (hooks) {
+  setupRenderingTest(hooks);
+
+  hooks.beforeEach(function () {
+    this.styleElement = document.createElement('style');
+
+    // see: https://codepen.io/didoo/pen/VwNpOJb
+    this.styleElement.textContent = `
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+
+      #ember-testing {
+        margin: 0px;
+        padding: 10px;
+      }
+
+      #wrapper {
+        position: relative;
+      }
+
+      #anchor {
+        width: 100px;
+        height: 40px;
+        background: green;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #floating {
+        width: 200px;
+        height: 100px;
+        background: lightblue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #arrow {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: red;
+      }
+    `;
+
+    document.head.appendChild(this.styleElement);
+  });
+
+  hooks.afterEach(() => {
+    if (this.styleElement) {
+      this.styleElement.remove();
+    }
+  });
+
+  test('render "anchor/floating" elements with default `options`', async function (assert) {
+    await render(hbs`
+      <div id="wrapper">
+        <div id="anchor">anchor</div>
+        <div id="floating"><div id="arrow"></div>floating</div>
+      </div>
+    `);
+    this.anchorElement = document.getElementById('anchor');
+    this.floatingElement = document.getElementById('floating');
+    this.arrowElement = document.getElementById('arrow');
+    // apply the modifier to the testing elements (after the rendering)
+    await anchoredElementModifier(
+      this.floatingElement, // element the modifier is attached to
+      [this.anchorElement, this.arrowElement] // positional arguments
+    );
+    // we need to wait for the Floating UI computation to complete (it's incremental)
+    await wait();
+    const floatingStyle = window.getComputedStyle(this.floatingElement);
+    const arrowStyle = window.getComputedStyle(this.arrowElement);
+    assert.deepEqual(floatingStyle.position, 'absolute');
+    assert.deepEqual(floatingStyle.top, '40px');
+    assert.deepEqual(floatingStyle.left, '-50px');
+    assert.deepEqual(arrowStyle.left, '95px');
+    assert.deepEqual(
+      this.arrowElement.getAttribute('data-hds-anchored-arrow-placement'),
+      'bottom'
+    );
+  });
+
+  test('render "anchor/floating" elements with custom options', async function (assert) {
+    await render(hbs`
+      <div id="wrapper">
+        <div id="anchor">anchor</div>
+        <div id="floating"><div id="arrow"></div>floating</div>
+      </div>
+    `);
+    this.anchorElement = document.getElementById('anchor');
+    this.floatingElement = document.getElementById('floating');
+    this.arrowElement = document.getElementById('arrow');
+    this.floatingOptions = {
+      placement: 'bottom-start',
+      strategy: 'fixed',
+      offsetOptions: 20,
+    };
+    // apply the modifier to the elements (after the rendering)
+    await anchoredElementModifier(
+      this.floatingElement, // element the modifier is attached to
+      [this.anchorElement, this.arrowElement], // positional arguments
+      { ...this.floatingOptions } // named arguments
+    );
+    // we need to wait for the Floating UI computation to complete (it's incremental)
+    await wait();
+    const floatingStyle = window.getComputedStyle(this.floatingElement);
+    const arrowStyle = window.getComputedStyle(this.arrowElement);
+    assert.deepEqual(floatingStyle.position, 'fixed');
+    assert.deepEqual(floatingStyle.top, '70px');
+    assert.deepEqual(floatingStyle.left, '10px');
+    assert.deepEqual(arrowStyle.left, '45px');
+    assert.deepEqual(
+      this.arrowElement.getAttribute('data-hds-anchored-arrow-placement'),
+      'bottom-start'
+    );
+  });
+});
