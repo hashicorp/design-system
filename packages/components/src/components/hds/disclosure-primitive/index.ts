@@ -7,8 +7,9 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { schedule } from '@ember/runloop';
+import type { HdsDisclosurePrimitiveSignature } from './types';
 
-export default class HdsDisclosurePrimitiveComponent extends Component {
+export default class HdsDisclosurePrimitiveComponent extends Component<HdsDisclosurePrimitiveSignature> {
   @tracked isOpen = this.args.isOpen ?? false;
 
   @action

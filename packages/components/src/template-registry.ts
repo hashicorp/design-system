@@ -8,6 +8,7 @@ import type HdsAlertDescriptionComponent from './components/hds/alert/descriptio
 import type HdsAlertTitleComponent from './components/hds/alert/title';
 import type HdsButtonIndexComponent from './components/hds/button';
 import type HdsDismissButtonIndexComponent from './components/hds/dismiss-button';
+import type HdsDisclosurePrimitiveComponent from './components/hds/disclosure-primitive';
 import type HdsInteractiveIndexComponent from './components/hds/interactive';
 import type HdsLinkInlineComponent from './components/hds/link/inline';
 import type HdsLinkStandaloneComponent from './components/hds/link/standalone';
@@ -46,6 +47,11 @@ export default interface HdsComponentsRegistry {
   'Hds::Card': typeof HdsCardContainerComponent;
   'hds/card': typeof HdsCardContainerComponent;
   HdsCard: typeof HdsCardContainerComponent;
+
+  // Disclosure Primitive
+  'Hds::DisclosurePrimitive': typeof HdsDisclosurePrimitiveComponent;
+  'hds/disclosure-primitive': typeof HdsDisclosurePrimitiveComponent;
+  HdsDisclosurePrimitive: typeof HdsDisclosurePrimitiveComponent;
 
   // Dismiss button
   'Hds::DismissButton': typeof HdsDismissButtonIndexComponent;
