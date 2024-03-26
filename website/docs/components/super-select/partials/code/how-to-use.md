@@ -1,9 +1,27 @@
 ## How to use this component
 
-<!-- use the same heading order from Guidelines -->
-{basic invocation details}
+SuperSelect is a custom select-like component aiming to overcome some limitations of the HTML `<select>` element.
+It is based on the popular Ember [PowerSelect](https://ember-power-select.com/) add-on.
 
-<!-- This below is just an example of invocation, to get started -->
+We provide two different subcomponent variants, `SuperSelect::Single` and `SuperSelect::Multiple`.
+
+### SuperSelect::Single
+
+Use `SuperSelect::Single` if you only want users to be able to select a single option similarly to the behavior
+of the native HTML `<select>`.
+
 ```handlebars
-<Hds::SuperSelect>This is the Hds::SuperSelect component </Hds::SuperSelect>
+<Hds::SuperSelect::Single>
+  This is the Hds::SuperSelect::Single component
+</Hds::SuperSelect::Single>
+```
+
+### SuperSelect::Multiple
+
+Use `SuperrSelect::Multiple` to enable users to select multiple options if needed.
+
+```handlebars
+<Hds::SuperSelect::Multiple>
+  This is the Hds::SuperSelect::Multiple component
+</Hds::SuperSelect::Multiple>
 ```
