@@ -264,8 +264,8 @@
       "./components/hds/yield/types.js": "./dist/_app_/components/hds/yield/types.js",
       "./helpers/hds-link-to-models.js": "./dist/_app_/helpers/hds-link-to-models.js",
       "./helpers/hds-link-to-query.js": "./dist/_app_/helpers/hds-link-to-query.js",
+      "./modifiers/hds-anchored-position.js": "./dist/_app_/modifiers/hds-anchored-position.js",
       "./modifiers/hds-clipboard.js": "./dist/_app_/modifiers/hds-clipboard.js",
-      "./modifiers/hds-float-popover.js": "./dist/_app_/modifiers/hds-float-popover.js",
       "./modifiers/hds-tooltip.js": "./dist/_app_/modifiers/hds-tooltip.js"
     }
   },
