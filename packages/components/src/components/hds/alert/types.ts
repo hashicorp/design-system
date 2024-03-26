@@ -24,7 +24,8 @@ export interface HdsAlertSignature {
     type: HdsAlertTypes;
     color?: HdsAlertColors;
     icon?: string | false;
-    onDismiss?: () => void;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onDismiss?: (event: MouseEvent, ...args: any[]) => void;
   };
   Blocks: {
     default: [
