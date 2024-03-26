@@ -6,31 +6,23 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import {
-  type Color,
-  ColorValues,
-  type Size,
-  SizeValues,
-  type Type,
-  TypeValues,
+  HdsBadgeColorValues,
+  HdsBadgeSizeValues,
+  HdsBadgeTypeValues,
+} from './types.ts';
+import type {
+  HdsBadgeColors,
+  HdsBadgeSizes,
+  HdsBadgeTypes,
+  HdsBadgeSignature,
 } from './types.ts';
 
-export interface HdsBadgeSignature {
-  Args: {
-    size: Size;
-    type: Type;
-    color: Color;
-    text: string;
-    icon: string | null;
-    isIconOnly: boolean | null;
-  };
-  Element: HTMLDivElement;
-}
-export const SIZES: string[] = Object.values(SizeValues);
-export const TYPES: string[] = Object.values(TypeValues);
-export const COLORS: string[] = Object.values(ColorValues);
-export const DEFAULT_SIZE = SizeValues.MEDIUM;
-export const DEFAULT_TYPE = TypeValues.FILLED;
-export const DEFAULT_COLOR = ColorValues.NEUTRAL;
+export const SIZES: string[] = Object.values(HdsBadgeSizeValues);
+export const TYPES: string[] = Object.values(HdsBadgeTypeValues);
+export const COLORS: string[] = Object.values(HdsBadgeColorValues);
+export const DEFAULT_SIZE = HdsBadgeSizeValues.Medium;
+export const DEFAULT_TYPE = HdsBadgeTypeValues.Filled;
+export const DEFAULT_COLOR = HdsBadgeColorValues.Neutral;
 
 export default class HdsBadgeIndexComponent extends Component<HdsBadgeSignature> {
   /**
@@ -38,10 +30,10 @@ export default class HdsBadgeIndexComponent extends Component<HdsBadgeSignature>
    * Accepted values: small, medium, large
    *
    * @param size
-   * @type {Size}
+   * @type {HdsBadgeSizes}
    * @default 'medium'
    */
-  get size(): Size {
+  get size(): HdsBadgeSizes {
     const { size = DEFAULT_SIZE } = this.args;
 
     assert(
@@ -59,10 +51,10 @@ export default class HdsBadgeIndexComponent extends Component<HdsBadgeSignature>
    * Accepted values: filled, inverted, outlined
    *
    * @param type
-   * @type {Type}
+   * @type {HdsBadgeTypes}
    * @default 'filled'
    */
-  get type(): Type {
+  get type(): HdsBadgeTypes {
     const { type = DEFAULT_TYPE } = this.args;
 
     assert(
@@ -80,10 +72,10 @@ export default class HdsBadgeIndexComponent extends Component<HdsBadgeSignature>
    * Accepted values: neutral, neutral-dark-mode, highlight, success, warning, critical
    *
    * @param color
-   * @type {Color}
+   * @type {HdsBadgeColors}
    * @default 'neutral'
    */
-  get color(): Color {
+  get color(): HdsBadgeColors {
     const { color = DEFAULT_COLOR } = this.args;
 
     assert(
@@ -161,6 +153,6 @@ declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     'Hds::Badge': typeof HdsBadgeIndexComponent;
     'hds/badge': typeof HdsBadgeIndexComponent;
-    'HdsBadge': typeof HdsBadgeIndexComponent;
+    HdsBadge: typeof HdsBadgeIndexComponent;
   }
 }

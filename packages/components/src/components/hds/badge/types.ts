@@ -1,24 +1,35 @@
-export type Size = `${SizeValues}`;
-export enum SizeValues {
-    SMALL = 'small',
-    MEDIUM = 'medium',
-    LARGE = 'large',
+export enum HdsBadgeSizeValues {
+  Small = 'small',
+  Medium = 'medium',
+  Large = 'large',
 }
+export type HdsBadgeSizes = `${HdsBadgeSizeValues}`;
 
-export type Type = `${TypeValues}`;
-export enum TypeValues {
-    FILLED = 'filled',
-    INVERTED = 'inverted',
-    OUTLINED = 'outlined',
+export enum HdsBadgeTypeValues {
+  Filled = 'filled',
+  Inverted = 'inverted',
+  Outlined = 'outlined',
 }
+export type HdsBadgeTypes = `${HdsBadgeTypeValues}`;
 
-export type Color = `${ColorValues}`;
-export enum ColorValues {
-    NEUTRAL = 'neutral',
-    NEUTRAL_DARK_MODE = 'neutral-dark-mode',
-    HIGHLIGHT = 'highlight',
-    SUCCESS = 'success',
-    WARNING = 'warning',
-    CRITICAL = 'critical',
+export enum HdsBadgeColorValues {
+  Neutral = 'neutral',
+  NeutralDarkMode = 'neutral-dark-mode',
+  Highlight = 'highlight',
+  Success = 'success',
+  Warning = 'warning',
+  Critical = 'critical',
+}
+export type HdsBadgeColors = `${HdsBadgeColorValues}`;
 
+export interface HdsBadgeSignature {
+  Args: {
+    size: HdsBadgeSizes;
+    type: HdsBadgeTypes;
+    color: HdsBadgeColors;
+    text: string;
+    icon: string | null;
+    isIconOnly: boolean | null;
+  };
+  Element: HTMLDivElement;
 }
