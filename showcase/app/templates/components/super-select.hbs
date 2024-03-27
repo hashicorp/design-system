@@ -11,15 +11,86 @@
 <section data-test-percy>
   <Shw::Text::H2>Single selection</Shw::Text::H2>
 
-  <Hds::SuperSelect::Single @onChange={{this.noop}} @options={{@model.OPTIONS}} as |option|>
-    {{option}}
-  </Hds::SuperSelect::Single>
+  <Shw::Text::H3>Interaction</Shw::Text::H3>
+
+  <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
+    <SF.Item @label="Default (no selection)">
+      <Hds::SuperSelect::Single @onChange={{this.noop}} @options={{@model.OPTIONS}} as |option|>
+        {{option}}
+      </Hds::SuperSelect::Single>
+    </SF.Item>
+
+    <SF.Item @label="No selection with custom placeholder">
+      <Hds::SuperSelect::Single
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @placeholder="Placeholder text"
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect::Single>
+    </SF.Item>
+
+    <SF.Item @label="Selected">
+      <Hds::SuperSelect::Single
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect::Single>
+    </SF.Item>
+
+    <SF.Item @label="Search enabled" {{style padding-bottom="12em"}}>
+      <Hds::SuperSelect::Single
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
+        @searchEnabled={{true}}
+        @initiallyOpened={{true}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect::Single>
+    </SF.Item>
+  </Shw::Flex>
 
   <Shw::Divider />
 
   <Shw::Text::H2>Multiple selection</Shw::Text::H2>
 
-  <Hds::SuperSelect::Multiple @onChange={{this.noop}} @options={{@model.OPTIONS}} as |option|>
-    {{option}}
-  </Hds::SuperSelect::Multiple>
+  <Shw::Text::H3>Interaction</Shw::Text::H3>
+
+  <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
+    <SF.Item @label="Default (no selection)">
+      <Hds::SuperSelect::Multiple @onChange={{this.noop}} @options={{@model.OPTIONS}} as |option|>
+        {{option}}
+      </Hds::SuperSelect::Multiple>
+    </SF.Item>
+
+    <SF.Item @label="Selected">
+      <Hds::SuperSelect::Multiple
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTEDMULTIPLE}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect::Multiple>
+    </SF.Item>
+
+    <SF.Item @label="Search enabled" {{style padding-bottom="12em"}}>
+      <Hds::SuperSelect::Multiple
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTEDMULTIPLE}}
+        @searchEnabled={{true}}
+        @initiallyOpened={{true}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect::Multiple>
+    </SF.Item>
+  </Shw::Flex>
 </section>

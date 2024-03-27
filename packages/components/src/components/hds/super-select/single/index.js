@@ -18,7 +18,11 @@ export default class HdsSuperSelectSingleIndexComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-super-select hds-super-select-single'];
+    let classes = [
+      'hds-super-select',
+      'hds-super-select-single',
+      'hds-typography-body-200',
+    ];
 
     // add a class based on the @xxx argument
     // classes.push(`hds-super-select-single--[variant]-${this.xxx}`);
