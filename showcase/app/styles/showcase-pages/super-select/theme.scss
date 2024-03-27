@@ -1,0 +1,85 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// SUPER-SELECT
+
+// Style overrides:
+
+.hds-super-select {
+  // Trigger
+  .ember-basic-dropdown-trigger,
+  .ember-power-select-trigger {
+    max-width: 100%;
+    min-height: 36px;
+    padding: var(--token-form-control-padding);
+    padding-right: calc(var(--token-form-control-padding) + 24px); // extra space for the icon
+    padding-left: 11px; // (To match Figma visual padding seems it should be 11px vs. 12px)
+    color: var(--token-form-control-base-foreground-value-color);
+    line-height: var(--token-typography-body-200-line-height);
+    background-color: var(--token-form-control-base-surface-color-default);
+    background-image: var(--token-form-select-background-image-data-url);
+    background-repeat: no-repeat;
+    background-position: right var(--token-form-select-background-image-position-right-x) center, top 8px left 20px;
+    background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
+    border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
+    border-radius: var(--token-form-control-border-radius);
+    box-shadow: var(--token-elevation-low-box-shadow);
+
+    &:hover,
+    &.mock-hover {
+      border-color: var(--token-form-control-base-border-color-hover);
+    }
+
+    &:focus,
+    &.mock-focus {
+      border-color: var(--token-color-focus-action-internal);
+      outline: 3px solid var(--token-color-focus-action-external);
+      outline-offset: 0;
+    }
+
+    &[aria-expanded="true"] {
+      &.ember-basic-dropdown-trigger--in-place {
+        border-radius: var(--token-form-control-border-radius);
+      }
+    }
+
+    // Hide default dropdown arrow
+    .ember-power-select-status-icon {
+      display: none;
+    }
+
+    // Single select trigger content:
+    .ember-power-select-placeholder,
+    .ember-power-select-selected-item {
+      margin-left: 0;
+      outline: 1px solid skyblue;
+      outline-offset: -1px;
+    }
+
+    .ember-power-select-placeholder {
+      color: var(--token-form-control-base-foreground-placeholder-color);
+    }
+
+    &[aria-disabled="true"] {
+      color: var(--token-form-control-disabled-foreground-color);
+      background-color: var(--token-form-control-disabled-surface-color);
+      background-image: var(--token-form-select-background-image-data-url-disabled);
+      border-color: var(--token-form-control-disabled-border-color);
+      box-shadow: none;
+      cursor: not-allowed;
+      opacity: 0.7;
+
+      .ember-power-select-selected-item {
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' fill='%238c909c'/%3E%3C/svg%3E");
+        opacity: inherit;
+      }
+    }
+  }
+
+  // Options List Items
+  // .ember-power-select-options {
+  //   font-weight: var(--token-typography-font-weight-medium);
+  // }
+}
