@@ -263,4 +263,28 @@ module('Integration | Modifier | hds-anchored-position', function (hooks) {
       'bottom-start'
     );
   });
+
+  test('the modifier works also when applied directly in the template code', async function (assert) {
+    await render(hbs`
+      <div id="wrapper">
+        <div id="anchor">anchor</div>
+        <div id="floating" {{hds-anchored-position '#anchor' '#arrow' placement='bottom-start' strategy='fixed' offsetOptions=20 }}><div id="arrow"></div>floating</div>
+      </div>
+    `);
+    this.anchorElement = document.getElementById('anchor');
+    this.floatingElement = document.getElementById('floating');
+    this.arrowElement = document.getElementById('arrow');
+    // we need to wait for the Floating UI computation to complete (it's incremental)
+    await wait();
+    const floatingStyle = window.getComputedStyle(this.floatingElement);
+    const arrowStyle = window.getComputedStyle(this.arrowElement);
+    assert.deepEqual(floatingStyle.position, 'fixed');
+    assert.deepEqual(floatingStyle.top, '70px');
+    assert.deepEqual(floatingStyle.left, '10px');
+    assert.deepEqual(arrowStyle.left, '45px');
+    assert.deepEqual(
+      this.arrowElement.getAttribute('data-hds-anchored-arrow-placement'),
+      'bottom-start'
+    );
+  });
 });
