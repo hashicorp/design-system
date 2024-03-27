@@ -4,13 +4,22 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-{{page-title "SuperSelect Component"}}
+{{page-title "SuperSelect Components"}}
 
 <Shw::Text::H1>SuperSelect</Shw::Text::H1>
 
 <section data-test-percy>
-  {{! This below is just an example of invocation, to get started }}
-  <Hds::SuperSelect::Single>This is the Hds::SuperSelect component </Hds::SuperSelect::Single>
+  <Shw::Text::H2>Single selection</Shw::Text::H2>
 
-  <Hds::SuperSelect::Multiple>This is the Hds::SuperSelect component </Hds::SuperSelect::Multiple>
+  <Hds::SuperSelect::Single @onChange={{this.noop}} @options={{@model.OPTIONS}} as |option|>
+    {{option}}
+  </Hds::SuperSelect::Single>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Multiple selection</Shw::Text::H2>
+
+  <Hds::SuperSelect::Multiple @onChange={{this.noop}} @options={{@model.OPTIONS}} as |option|>
+    {{option}}
+  </Hds::SuperSelect::Multiple>
 </section>

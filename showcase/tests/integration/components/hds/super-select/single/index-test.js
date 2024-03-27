@@ -14,8 +14,9 @@ module(
     setupRenderingTest(hooks);
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
+      this.set('NOOP', () => {});
       await render(
-        hbs`<Hds::SuperSelect::Single id="test-super-select-single" />`
+        hbs`<Hds::SuperSelect::Single @onChange={{this.NOOP}} id="test-super-select-single" />`
       );
       assert
         .dom('#test-super-select-single')

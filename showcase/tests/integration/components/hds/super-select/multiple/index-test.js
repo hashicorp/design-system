@@ -14,8 +14,9 @@ module(
     setupRenderingTest(hooks);
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
+      this.set('NOOP', () => {});
       await render(
-        hbs`<Hds::SuperSelect::Multiple id="test-super-select-multiple" />`
+        hbs`<Hds::SuperSelect::Multiple @onChange={{this.NOOP}} id="test-super-select-multiple" />`
       );
       assert
         .dom('#test-super-select-multiple')
