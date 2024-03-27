@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
-import { guidFor } from '@ember/object/internals';
+import { getElementId } from '../../../../utils/hds-get-element-id';
 
 export const DEFAULT_SIZE = 'medium';
 export const DEFAULT_COLOR = 'primary';
@@ -20,7 +20,9 @@ export default class HdsDropdownToggleButtonComponent extends Component {
    *
    * @param toggleButtonId
    */
-  toggleButtonId = 'toggle-button-' + guidFor(this);
+  get toggleButtonId() {
+    return getElementId(this);
+  }
 
   /**
    * @param text

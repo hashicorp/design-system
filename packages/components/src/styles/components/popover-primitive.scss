@@ -4,18 +4,38 @@
  */
 
 //
-// MenuPrimitive COMPONENT
+// PopoverPrimitive COMPONENT
 //
 
-@use "../mixins/focus-ring" as *;
-
-.hds-menu-primitive {
+.hds-popover-primitive {
+  // TODO this causes bug in the position of the popover in Firefox (with polyfill)
   position: relative;
   width: fit-content;
 }
 
+.hds-popover-primitive__toggle {
+  &:where(button) {
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    font: inherit;
+    text-align: inherit;
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.hds-popover-primitive__toggle--is-inline {
+  display: inline;
+}
+
+.hds-popover-primitive__toggle--is-block {
+  display: block;
+}
+
 // this will have a "popover" behaviour associated, which comes with pre-defined styling
-.hds-menu-primitive__content {
+.hds-popover-primitive__content {
   // TODO make sure this is OK, and we don't need to reset only some properties
   // :where(&[popover]) {
   //   all: unset;

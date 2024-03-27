@@ -1,0 +1,81 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// POPOVER
+//
+
+@use "../mixins/focus-ring" as *;
+
+// TOGGLE
+
+// these are styles specific for the popover component (so we keep the "primitive" more agnostic)
+// see the `popover-primitive.scss` file for the other styles applied to the button
+.hds-popover .hds-popover-primitive__toggle {
+  &:where(button) {
+    // TODO! discuss with designer
+    border-radius: 3px;
+
+    @include hds-focus-ring-with-pseudo-element(
+      $top: -2px,
+      $right: -2px,
+      $bottom: -2px,
+      $left: -2px
+    );
+  }
+}
+
+
+// CONTENT ("bubble")
+
+.hds-popover-bubble {
+  position: relative;
+  padding: 16px;
+  background: var(--token-color-surface-primary);
+  border-radius: 5px;
+  box-shadow: var(--token-surface-higher-box-shadow);
+  isolation: isolate;
+}
+
+// notice: floating-ui assumes the "arrow" container is square
+$hds-popover-arrow-size: 20px;
+
+.hds-popover-arrow {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  width: $hds-popover-arrow-size;
+  height: $hds-popover-arrow-size;
+  pointer-events: none;
+
+  &[data-hds-popover-placement^='top'] {
+    bottom: -$hds-popover-arrow-size;
+    transform: rotate(180deg);
+  }
+
+  &[data-hds-popover-placement^='right'] {
+    left: -$hds-popover-arrow-size;
+    transform: rotate(-90deg);
+  }
+
+  &[data-hds-popover-placement^='bottom'] {
+    top: -$hds-popover-arrow-size;
+    transform: rotate(0deg); // this fixes a rendering issue in Safari
+  }
+
+  &[data-hds-popover-placement^='left'] {
+    right: -$hds-popover-arrow-size;
+    transform: rotate(90deg);
+  }
+}
+
+.hds-popover-arrow__surface {
+  fill: var(--token-color-surface-primary);
+}
+
+.hds-popover-arrow__border {
+  // this is the color used for the "border" of the `surface-higher` elevation
+  fill: var(--token-color-palette-alpha-200);
+}

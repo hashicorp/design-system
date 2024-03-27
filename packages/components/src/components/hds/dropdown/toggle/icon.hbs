@@ -7,9 +7,12 @@
   class={{this.classNames}}
   aria-label={{this.text}}
   ...attributes
+  id={{this.toggleButtonId}}
+  popovertarget={{@popovertarget}}
   aria-expanded={{if @isOpen "true" "false"}}
   {{on "click" this.onClick}}
   {{did-update this.onDidUpdateImageSrc @imageSrc}}
+  {{@setupToggle}}
   type="button"
 >
   <div class="hds-dropdown-toggle-icon__wrapper">

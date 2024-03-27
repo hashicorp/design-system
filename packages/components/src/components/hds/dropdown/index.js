@@ -6,6 +6,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
+import { tracked } from '@glimmer/tracking';
 
 export const DEFAULT_POSITION = 'bottom-right';
 export const POSITIONS = [
@@ -16,6 +17,8 @@ export const POSITIONS = [
 ];
 
 export default class HdsDropdownIndexComponent extends Component {
+  @tracked toggleId;
+
   /**
    * @param listPosition
    * @type {string}
@@ -33,6 +36,22 @@ export default class HdsDropdownIndexComponent extends Component {
     );
 
     return listPosition;
+  }
+
+  get popoverOptions() {
+    // TODO: do we want to rename (again?) the options for the Dropdown to match the Floating-UI / Tippyjs ones?
+    // https://floating-ui.com/docs/tutorial#placements
+    // https://atomiks.github.io/tippyjs/#placements
+    const remappedContentPlacement = this.listPosition
+      .replace(/-left$/, '-start')
+      .replace(/-right$/, '-end');
+
+    return {
+      popoverPlacement: remappedContentPlacement,
+      popoverOffsetOptions: 4,
+      popoverEnableCollisionDetection:
+        this.args.listEnableCollisionDetection || false,
+    };
   }
 
   /**
@@ -71,15 +90,12 @@ export default class HdsDropdownIndexComponent extends Component {
   }
 
   @action
-  didInsertList(element) {
-    const checkmarkItems = element.querySelectorAll(`[role="option"]`);
+  didInsertList(listElement, toggleElement) {
+    const checkmarkItems = listElement.querySelectorAll(`[role="option"]`);
     if (checkmarkItems.length) {
-      const toggleButtonId = element
-        .closest('.hds-dropdown')
-        ?.querySelector('.hds-dropdown-toggle-button')
-        ?.getAttribute('id');
-      element.setAttribute('role', 'listbox');
-      element.setAttribute('aria-labelledby', toggleButtonId);
+      listElement.setAttribute('role', 'listbox');
+      // TODO! is this still OK or should it be modified?
+      listElement.setAttribute('aria-labelledby', toggleElement.id);
     }
   }
 }

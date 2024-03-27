@@ -7,6 +7,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
+import { getElementId } from '../../../../utils/hds-get-element-id';
 
 export const DEFAULT_SIZE = 'medium';
 export const SIZES = ['small', 'medium'];
@@ -33,6 +34,15 @@ export default class HdsDropdownToggleIconComponent extends Component {
   @action
   onImageLoadError() {
     this.hasImage = false;
+  }
+
+  /**
+   * Generates a unique ID for the button
+   *
+   * @param toggleButtonId
+   */
+  get toggleButtonId() {
+    return getElementId(this);
   }
 
   /**

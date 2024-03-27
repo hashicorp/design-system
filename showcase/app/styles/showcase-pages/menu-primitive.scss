@@ -6,6 +6,10 @@
 // MenuPrimitive
 
 body.utilities-menu-primitive {
+  :focus, :focus-visible {
+    outline: 3px solid red;
+  }
+
   .shw-utility-menu-primitive-container {
     min-height: 120px;
     padding: 20px;
@@ -17,6 +21,7 @@ body.utilities-menu-primitive {
     margin: 4px 0 0 0;
     padding: 10px;
     list-style: none;
+    background: #fff;
     border: 1px solid #ccc;
 
     li {
@@ -24,18 +29,25 @@ body.utilities-menu-primitive {
       padding: 0;
 
       & + li {
+        margin-top: 8px;
+        padding-top: 8px;
         border-top: 1px dotted #ccc;
       }
     }
 
     a {
       display: block;
-      padding: 5px;
     }
   }
 
   .shw-utility-menu-primitive-button-wrapper {
     padding: 20px;
     outline: 1px dotted #ccc;
+  }
+
+  .shw-utility-menu-primitive-injected-content-body {
+    position: fixed;
+    bottom: 0;
+    left: 0;
   }
 }

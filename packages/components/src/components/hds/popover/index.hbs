@@ -1,0 +1,27 @@
+{{! @glint-nocheck: not typesafe yet }}
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<Hds::PopoverPrimitive
+  class={{this.classNames}}
+  @isOpen={{@isOpen}}
+  @onOpen={{@onOpen}}
+  @onClose={{@onClose}}
+  @containsInteractive={{@containsInteractive}}
+  @enableSoftEvents={{this.enableSoftEvents}}
+  @enableClickEvents={{this.enableClickEvents}}
+  @popoverOptions={{this.popoverOptions}}
+  @toggleAriaLabel={{@toggleAriaLabel}}
+  ...attributes
+>
+  <:toggle as |t|>
+    {{yield (hash setupToggle=t.setupMenuPrimitiveToggle) to="toggle"}}
+  </:toggle>
+  <:content as |c|>
+    {{! TODO! see if makes sense to move the "width/height" down to the primitive }}
+    <Hds::Popover::Bubble @width={{@width}} @height={{@height}} {{this.setupPopoverBubble}}>
+      {{yield (hash close=c.close) to="content"}}
+    </Hds::Popover::Bubble>
+  </:content>
+</Hds::PopoverPrimitive>

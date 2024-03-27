@@ -181,9 +181,9 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 }
 
 .hds-breadcrumb__truncation-content {
-  position: absolute;
-  top: 100%;
-  left: -$hds-breadcrumb-item-visual-horizontal-padding;
+  // position: absolute;
+  // top: 100%;
+  // left: -$hds-breadcrumb-item-visual-horizontal-padding;
   z-index: 300; // this is the z-index used in Structure for this kind of things, I am reusing the same value
   width: max-content;
   max-width: 200px; // by design
