@@ -19,8 +19,8 @@ module(
         hbs`<Hds::SuperSelect::Multiple @onChange={{this.NOOP}} id="test-super-select-multiple" />`
       );
       assert
-        .dom('#test-super-select-multiple')
-        .hasClass('hds-super-select-multiple');
+        .dom('.hds-super-select-multiple #test-super-select-multiple')
+        .exists();
     });
   }
 );
