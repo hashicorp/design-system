@@ -2,7 +2,59 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-{{! ADD YOUR TEMPLATE CONTENT HERE }}
-<div class={{this.classNames}} ...attributes>
-  {{yield}}
+
+<div class={{this.classNames}}>
+  <PowerSelectMultiple
+    @afterOptionsComponent={{@afterOptionsComponent}}
+    @ariaDescribedBy={{@ariaDescribedBy}}
+    @ariaInvalid={{@ariaInvalid}}
+    @ariaLabel={{@ariaLabel}}
+    @ariaLabelledBy={{@ariaLabelledBy}}
+    @beforeOptionsComponent={{@beforeOptionsComponent}}
+    @disabled={{@disabled}}
+    @dropdownClass={{@dropdownClass}}
+    @extra={{@extra}}
+    @groupComponent={{@groupComponent}}
+    @horizontalPosition={{@horizontalPosition}}
+    @initiallyOpened={{@initiallyOpened}}
+    @labelText={{@labelText}}
+    @loadingMessage={{@loadingMessage}}
+    @matcher={{this.matcher}}
+    @matchTriggerWidth={{@matchTriggerWidth}}
+    @noMatchesMessage={{@noMatchesMessage}}
+    @onBlur={{@onBlur}}
+    @onChange={{@onChange}}
+    @onClose={{@onClose}}
+    @onFocus={{@onFocus}}
+    @onInput={{@onInput}}
+    @onKeydown={{@onKeydown}}
+    @onOpen={{@onOpen}}
+    @options={{@options}}
+    @optionsComponent={{@optionsComponent}}
+    @placeholder={{@placeholder}}
+    @placeholderComponent={{@placeholderComponent}}
+    @preventScroll={{@preventScroll}}
+    @registerAPI={{@registerAPI}}
+    @renderInPlace={{true}}
+    @resultCountMessage={{@resultCountMessage}}
+    @scrollTo={{@scrollTo}}
+    @search={{@search}}
+    @searchEnabled={{@searchEnabled}}
+    @searchField={{@searchField}}
+    @searchMessage={{@searchMessage}}
+    @searchPlaceholder={{@searchPlaceholder}}
+    @selected={{@selected}}
+    @selectedItemComponent={{@selectedItemComponent}}
+    @tabindex={{@tabindex}}
+    @triggerClass={{@triggerClass}}
+    @triggerComponent={{@triggerComponent}}
+    @triggerId={{@triggerId}}
+    @triggerRole={{@triggerRole}}
+    @typeAheadMatcher={{@typeAheadMatcher}}
+    @verticalPosition={{@verticalPosition}}
+    ...attributes
+    as |option|
+  >
+    {{yield option}}
+  </PowerSelectMultiple>
 </div>
