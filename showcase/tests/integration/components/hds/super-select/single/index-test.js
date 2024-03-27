@@ -18,9 +18,7 @@ module(
       await render(
         hbs`<Hds::SuperSelect::Single @onChange={{this.NOOP}} id="test-super-select-single" />`
       );
-      assert
-        .dom('#test-super-select-single')
-        .hasClass('hds-super-select-single');
+      assert.dom('.hds-super-select-single #test-super-select-single').exists();
     });
   }
 );
