@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import type { HdsInteractiveSignature } from './types';
+import type { HdsInteractiveSignature } from '../../../types/components/interactive';
 
 export default class HdsInteractiveIndexComponent extends Component<HdsInteractiveSignature> {
   /**

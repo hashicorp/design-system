@@ -4,9 +4,9 @@
  */
 
 import type { ComponentLike, WithBoundArgs } from '@glint/template';
-import type HdsButtonIndexComponent from '../button';
-import type HdsLinkStandaloneComponent from '../link/standalone';
-import type { HdsYieldSignature } from '../yield/types';
+import type HdsButtonIndexComponent from '../../components/hds/button';
+import type HdsLinkStandaloneComponent from '../../components/hds/link/standalone';
+import type { HdsYieldSignature } from './yield';
 
 export enum HdsAlertTypeValues {
   Page = 'page',

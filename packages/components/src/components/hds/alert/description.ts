@@ -4,6 +4,6 @@
  */
 
 import Component from '@glimmer/component';
-import type { HdsAlertDescriptionSignature } from './types.ts';
+import type { HdsAlertDescriptionSignature } from '../../../types/components/alert.ts';
 
 export default class HdsAlertDescriptionComponent extends Component<HdsAlertDescriptionSignature> {}

@@ -5,8 +5,11 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
-import { HdsLinkColorValues, HdsLinkIconPositionValues } from './types.ts';
-import type { HdsLinkInlineSignature } from './types.ts';
+import {
+  HdsLinkColorValues,
+  HdsLinkIconPositionValues,
+} from '../../../types/components/link.ts';
+import type { HdsLinkInlineSignature } from '../../../types/components/link.ts';
 
 export const DEFAULT_ICONPOSITION = HdsLinkIconPositionValues.Trailing;
 export const DEFAULT_COLOR = HdsLinkColorValues.Primary;

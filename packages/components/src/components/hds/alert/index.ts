@@ -8,8 +8,11 @@ import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
-import { HdsAlertTypeValues, HdsAlertColorValues } from './types.ts';
-import type { HdsAlertSignature } from './types.ts';
+import {
+  HdsAlertTypeValues,
+  HdsAlertColorValues,
+} from '../../../types/components/alert.ts';
+import type { HdsAlertSignature } from '../../../types/components/alert.ts';
 
 export const TYPES: string[] = Object.values(HdsAlertTypeValues);
 export const DEFAULT_COLOR = HdsAlertColorValues.Neutral;

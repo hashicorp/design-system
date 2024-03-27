@@ -9,12 +9,12 @@ import {
   HdsCardBackgroundValues,
   HdsCardLevelValues,
   HdsCardOverflowValues,
-} from './types.ts';
+} from '../../../types/components/card.ts';
 import type {
   HdsCardBackground,
   HdsCardLevel,
   HdsCardOverflow,
-} from './types.ts';
+} from '../../../types/components/card.ts';
 
 export const DEFAULT_LEVEL = HdsCardLevelValues.Base;
 export const DEFAULT_BACKGROUND = HdsCardBackgroundValues.NeutralPrimary;

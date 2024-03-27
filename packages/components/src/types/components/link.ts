@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import type { HdsInteractiveSignature } from '../interactive/types.ts';
+import type { HdsInteractiveSignature } from './interactive.ts';
 
 export enum HdsLinkIconPositionValues {
   Leading = 'leading',
