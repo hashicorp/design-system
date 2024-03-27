@@ -1,0 +1,76 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+<div class={{this.classNames}}>
+  {{! temp notes...
+    Required:
+    * onChange
+    * options or search
+  }}
+
+  {{#if (eq this.selectionType "single")}}
+    <PowerSelect
+      @afterOptionsComponent={{@afterOptionsComponent}}
+      @ariaDescribedBy={{@ariaDescribedBy}}
+      @ariaInvalid={{@ariaInvalid}}
+      @ariaLabel={{@ariaLabel}}
+      @ariaLabelledBy={{@ariaLabelledBy}}
+      @beforeOptionsComponent={{@beforeOptionsComponent}}
+      @disabled={{@disabled}}
+      @groupComponent={{@groupComponent}}
+      @initiallyOpened={{@initiallyOpened}}
+      @labelText={{@labelText}}
+      @matchTriggerWidth={{@matchTriggerWidth}}
+      @noMatchesMessage={{@noMatchesMessage}}
+      @onChange={{@onChange}}
+      @onInput={{@onInput}}
+      @options={{@options}}
+      @placeholder={{@placeholder}}
+      @renderInPlace={{true}}
+      @resultCountMessage={{@resultCountMessage}}
+      @search={{@search}}
+      @searchEnabled={{@searchEnabled}}
+      @searchField={{@searchField}}
+      @searchPlaceholder={{@searchPlaceholder}}
+      @selected={{@selected}}
+      @verticalPosition={{@verticalPosition}}
+      ...attributes
+      as |option|
+    >
+      {{yield option}}
+    </PowerSelect>
+  {{else}}
+    <PowerSelectMultiple
+      @afterOptionsComponent={{@afterOptionsComponent}}
+      @ariaDescribedBy={{@ariaDescribedBy}}
+      @ariaInvalid={{@ariaInvalid}}
+      @ariaLabel={{@ariaLabel}}
+      @ariaLabelledBy={{@ariaLabelledBy}}
+      @beforeOptionsComponent={{@beforeOptionsComponent}}
+      @disabled={{@disabled}}
+      @groupComponent={{@groupComponent}}
+      @initiallyOpened={{@initiallyOpened}}
+      @labelText={{@labelText}}
+      @matchTriggerWidth={{@matchTriggerWidth}}
+      @noMatchesMessage={{@noMatchesMessage}}
+      @onChange={{@onChange}}
+      @onInput={{@onInput}}
+      @options={{@options}}
+      @placeholder={{@placeholder}}
+      @renderInPlace={{true}}
+      @resultCountMessage={{@resultCountMessage}}
+      @search={{@search}}
+      @searchEnabled={{@searchEnabled}}
+      @searchField={{@searchField}}
+      @searchPlaceholder={{@searchPlaceholder}}
+      @selected={{@selected}}
+      @verticalPosition={{@verticalPosition}}
+      ...attributes
+      as |option|
+    >
+      {{option}}
+    </PowerSelectMultiple>
+  {{/if}}
+</div>

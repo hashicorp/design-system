@@ -55,6 +55,8 @@ const plugins = [
     includePaths: [
       '../../node_modules/@hashicorp/design-system-tokens/dist/products/css',
       '../../node_modules/@hashicorp/ember-flight-icons/dist/styles',
+      '../../node_modules/ember-basic-dropdown/app/styles',
+      '../../node_modules/ember-power-select/app/styles',
     ],
   }),
 
