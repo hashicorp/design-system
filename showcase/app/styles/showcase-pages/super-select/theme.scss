@@ -8,7 +8,8 @@
 // Style overrides:
 
 .hds-super-select {
-  // Trigger ----
+  // TRIGGER
+  
   .ember-basic-dropdown-trigger,
   .ember-power-select-trigger {
     max-width: 100%;
@@ -78,7 +79,7 @@
     }
   }
 
-  // Dropdown ----
+  // DROPDOWN
 
   .ember-basic-dropdown-content {
     margin-top: 4px;
@@ -91,24 +92,29 @@
     }
   }
 
-  .ember-power-select-option {
-    padding: 7px;
-    padding-left: 35px;
-    outline: 1px dotted skyblue;
-    outline-offset: -1px;
+  // Options Dropdown List
+  .ember-power-select-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 3px;
+  }
 
-    + .ember-power-select-option {
-      margin-top: 7px;
-    }
+  .ember-power-select-option {
+    min-height: 36px;
+    padding: 7px;
+    padding-left: 36px;
+    line-height: var(--token-typography-body-200-line-height);
+    // outline: 1px dotted skyblue;
+    // outline-offset: -1px;
 
     &[aria-selected="true"] {
-      color: var(--token-color-foreground-strong);
-      background-color: inherit;
+      color: var(--token-color-foreground-action);
       background-color: var(--token-form-control-base-surface-color-default);
+      // checkmark icon:
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' fill='%231060ff'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
-      // background-position: top 8px left 8px;
-      background-position: left 10px center;
+      background-position: left 12px center;
       background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
     }
   }
@@ -167,13 +173,6 @@
         appearance: none;
       }
     }
-  }
-
-  // Options Dropdown List
-  .ember-power-select-options {
-    // font-weight: var(--token-typography-font-weight-medium);
-    // outline: 2px dotted red;
-    // outline-offset: -2px;
   }
 
   // Multiple Select
