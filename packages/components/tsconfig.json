@@ -1,33 +1,20 @@
 {
   "extends": "@tsconfig/ember/tsconfig.json",
   "compilerOptions": {
-    "strict": true,
-    "noUncheckedIndexedAccess": true,
-    // The combination of `baseUrl` with `paths` allows Ember's classic package
-    // layout, which is not resolvable with the Node resolution algorithm, to
-    // work with TypeScript.
-    "baseUrl": "./src",
-    "allowJs": true,
+    "baseUrl": ".",
     "allowImportingTsExtensions": true,
-    "skipLibCheck": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "noPropertyAccessFromIndexSignature": false,
+    "verbatimModuleSyntax": true,
+    "allowJs": true,
+    "declaration": true,
+    "noEmitOnError": false,
     "declarationDir": "declarations",
-    "paths": {
-      "@hashicorp/design-system-components": ["src"],
-      "@hashicorp/design-system-components/*": ["src/*"],
-      "*": ["types/*"]
-    }
+    "emitDeclarationOnly": true,
+    "noEmit": false,
+    "skipLibCheck": true,
+    "rootDir": "./src"
   },
-  "include": [
-    "src/**/*",
-    "unpublished-development-types/**/*"
-  ],
-  "exclude": [
-    "dist/**/*"
-  ],
+  "include": ["src/**/*", "unpublished-development-types/**/*"],
   "glint": {
-    "environment": ["ember-loose"],
+    "environment": ["ember-loose"]
   }
 }

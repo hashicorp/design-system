@@ -14,7 +14,6 @@
     "url": "https://github.com/hashicorp/design-system.git",
     "directory": "packages/components"
   },
-  "types": "dist/index.d.ts",
   "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "scripts": {
@@ -274,8 +273,16 @@
     },
     "./addon-main.js": "./addon-main.js"
   },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "declarations/*"
+      ]
+    }
+  },
   "files": [
     "addon-main.js",
+    "declarations",
     "dist"
   ],
   "engines": {

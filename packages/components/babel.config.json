@@ -1,6 +1,5 @@
 {
   "plugins": [
-    "@embroider/addon-dev/template-colocation-plugin",
     [
       "@babel/plugin-transform-typescript",
       {
@@ -9,8 +8,21 @@
         "allowDeclareFields": true
       }
     ],
-    ["@babel/plugin-proposal-decorators", { "legacy": true }],
-    "@babel/plugin-transform-class-properties",
-    "@babel/plugin-transform-private-methods"
+    "@embroider/addon-dev/template-colocation-plugin",
+    [
+      "babel-plugin-ember-template-compilation",
+      {
+        "targetFormat": "hbs",
+        "transforms": []
+      }
+    ],
+    [
+      "module:decorator-transforms",
+      {
+        "runtime": {
+          "import": "decorator-transforms/runtime"
+        }
+      }
+    ]
   ]
 }
