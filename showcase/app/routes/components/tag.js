@@ -4,7 +4,7 @@
  */
 
 import Route from '@ember/routing/route';
-import { COLORS } from '@hashicorp/design-system-components/components/hds/tag';
+import { COLORS } from '@hashicorp/design-system-components/components/hds/tag/index';
 
 export default class ComponentsTagRoute extends Route {
   model() {

@@ -13,16 +13,11 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "noPropertyAccessFromIndexSignature": false,
+    "declarationDir": "declarations",
     "paths": {
-      "@hashicorp/design-system-components": [
-        "src"
-      ],
-      "@hashicorp/design-system-components/*": [
-        "src/*"
-      ],
-      "*": [
-        "types/*"
-      ]
+      "@hashicorp/design-system-components": ["src"],
+      "@hashicorp/design-system-components/*": ["src/*"],
+      "*": ["types/*"]
     }
   },
   "include": [
