@@ -197,8 +197,20 @@
   }
 
   // Multiple Select
-  // Tags
+  // Tag List (Note: May be replaced with HDS Tag component in the future)
   .ember-power-select-multiple-options {
+    display: flex;
+    gap: 4px;
     list-style: none;
+  }
+
+  // tag items
+  .ember-power-select-multiple-option {
+    float: none;
+    margin: 0;
+    font-size: var(--token-typography-body-100-font-size);
+    line-height: var(--token-typography-body-100-line-height);
+    background-color: var(--token-form-control-base-surface-color-default);
+    border-radius: 500px;
   }
 }
