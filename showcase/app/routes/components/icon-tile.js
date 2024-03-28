@@ -9,7 +9,7 @@ import {
   SIZES,
   COLORS,
   PRODUCTS,
-} from '@hashicorp/design-system-components/components/hds/icon-tile';
+} from '@hashicorp/design-system-components/components/hds/icon-tile/index';
 
 export default class ComponentsIconTileRoute extends Route {
   model() {

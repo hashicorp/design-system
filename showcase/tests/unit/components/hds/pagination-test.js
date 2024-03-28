@@ -5,7 +5,7 @@
 
 // prettier-ignore
 import { module, test } from 'qunit';
-import { elliptize } from '@hashicorp/design-system-components/components/hds/pagination/numbered';
+import { elliptize } from '@hashicorp/design-system-components/components/hds/pagination/numbered/index';
 
 const A10 = Array.from(Array(10), (x, i) => i + 1);
 const A11 = Array.from(Array(11), (x, i) => i + 1);
