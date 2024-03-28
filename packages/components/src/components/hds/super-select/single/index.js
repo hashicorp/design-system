@@ -13,6 +13,16 @@ export default class HdsSuperSelectSingleIndexComponent extends Component {
   // }
 
   /**
+   * Get the search placeholder text
+   * @param searchPlaceholder
+   * @type {string}
+   * @default 'Search'
+   */
+  get searchPlaceholder() {
+    return this.args.searchPlaceholder ?? 'Search';
+  }
+
+  /**
    * Get the class names to apply to the component.
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.

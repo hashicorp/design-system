@@ -8,7 +8,7 @@
 // Style overrides:
 
 .hds-super-select {
-  // Trigger
+  // Trigger ----
   .ember-basic-dropdown-trigger,
   .ember-power-select-trigger {
     max-width: 100%;
@@ -45,17 +45,17 @@
       }
     }
 
-    // Hide default dropdown arrow
+    // Hide default trigger dropdown arrow
     .ember-power-select-status-icon {
       display: none;
     }
 
-    // Single select trigger content:
+    // Trigger content (Single Select):
     .ember-power-select-placeholder,
     .ember-power-select-selected-item {
       margin-left: 0;
-      outline: 1px solid skyblue;
-      outline-offset: -1px;
+      // outline: 1px solid skyblue;
+      // outline-offset: -1px;
     }
 
     .ember-power-select-placeholder {
@@ -78,8 +78,107 @@
     }
   }
 
-  // Options List Items
-  // .ember-power-select-options {
-  //   font-weight: var(--token-typography-font-weight-medium);
-  // }
+  // Dropdown ----
+
+  .ember-basic-dropdown-content {
+    margin-top: 4px;
+    border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
+    border-radius: var(--token-form-control-border-radius);
+
+    &.ember-basic-dropdown-content--below,
+    &.ember-basic-dropdown-content--in-place {
+      box-shadow: var(--token-elevation-high-box-shadow), var(--token-elevation-high-box-shadow);
+    }
+  }
+
+  .ember-power-select-option {
+    padding: 7px;
+    padding-left: 35px;
+    outline: 1px dotted skyblue;
+    outline-offset: -1px;
+
+    + .ember-power-select-option {
+      margin-top: 7px;
+    }
+
+    &[aria-selected="true"] {
+      color: var(--token-color-foreground-strong);
+      background-color: inherit;
+      background-color: var(--token-form-control-base-surface-color-default);
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' fill='%231060ff'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      // background-position: top 8px left 8px;
+      background-position: left 10px center;
+      background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
+    }
+  }
+
+  // Search
+  // (Single select, to be added to Multiple | in @beforeOptionsComponent area)
+  .ember-power-select-search {
+    margin-bottom: 3px;
+    padding: 11px 11px 0 11px;
+    border-radius: var(--token-form-control-border-radius);
+  }
+
+  .ember-power-select-search-input {
+    width: 100%;
+    padding: var(--token-form-control-padding);
+    color: var(--token-form-control-base-foreground-value-color);
+    line-height: 1rem;
+    background-color: var(--token-form-control-base-surface-color-default);
+    border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
+    border-radius: var(--token-form-control-border-radius);
+    box-shadow: var(--token-elevation-inset-box-shadow);
+
+    // placeholder
+    &::placeholder {
+      color: var(--token-form-control-base-foreground-placeholder-color);
+    }
+
+    // status
+    &:hover,
+    &.mock-hover {
+      border-color: var(--token-form-control-base-border-color-hover);
+    }
+
+    // focus (same for all the states)
+    &:focus,
+    &.mock-focus {
+      border-color: var(--token-color-focus-action-internal);
+      // Notice: Safari doesn't apply a rounded border
+      outline: 3px solid var(--token-color-focus-action-external);
+      outline-offset: 0;
+    }
+
+    &[type="search"] {
+      padding-left: calc(var(--token-form-control-padding) + 24px); // extra space for the icon
+      background-image: var(--token-form-text-input-background-image-data-url-search);
+      background-repeat: no-repeat;
+      background-position: var(--token-form-text-input-background-image-position-x) 50%;
+      background-size: var(--token-form-text-input-background-image-size);
+
+      &::-webkit-search-cancel-button {
+        width: var(--token-form-text-input-background-image-size);
+        height: var(--token-form-text-input-background-image-size);
+        background-image: var(--token-form-text-input-background-image-data-url-search-cancel);
+        background-position: center center;
+        background-size: var(--token-form-text-input-background-image-size);
+        appearance: none;
+      }
+    }
+  }
+
+  // Options Dropdown List
+  .ember-power-select-options {
+    // font-weight: var(--token-typography-font-weight-medium);
+    // outline: 2px dotted red;
+    // outline-offset: -2px;
+  }
+
+  // Multiple Select
+  // Tags
+  .ember-power-select-multiple-options {
+    list-style: none;
+  }
 }

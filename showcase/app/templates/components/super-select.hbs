@@ -41,8 +41,22 @@
         {{option}}
       </Hds::SuperSelect::Single>
     </SF.Item>
+  </Shw::Flex>
 
-    <SF.Item @label="Search enabled" {{style padding-bottom="12em"}}>
+  <Shw::Flex @direction="row" as |SF|>
+    <SF.Item {{style flex="1" padding-bottom="12em"}} @label="No search">
+      <Hds::SuperSelect::Single
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
+        @initiallyOpened={{true}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect::Single>
+    </SF.Item>
+
+    <SF.Item {{style flex="1" padding-bottom="12em"}} @label="Search enabled">
       <Hds::SuperSelect::Single
         @onChange={{this.noop}}
         @options={{@model.OPTIONS}}
