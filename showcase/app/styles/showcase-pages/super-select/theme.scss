@@ -55,8 +55,6 @@
     .ember-power-select-placeholder,
     .ember-power-select-selected-item {
       margin-left: 0;
-      // outline: 1px solid skyblue;
-      // outline-offset: -1px;
     }
 
     .ember-power-select-placeholder {
@@ -92,7 +90,7 @@
     }
   }
 
-  // Options Dropdown List
+  // Options List
   .ember-power-select-options {
     display: flex;
     flex-direction: column;
@@ -100,13 +98,19 @@
     padding: 3px;
   }
 
+  // Options Item
   .ember-power-select-option {
+    position: relative;
     min-height: 36px;
     padding: 7px;
     padding-left: 36px;
     line-height: var(--token-typography-body-200-line-height);
-    // outline: 1px dotted skyblue;
-    // outline-offset: -1px;
+
+    // states
+    &[aria-current="true"] {
+      color: var(--token-form-control-base-foreground-value-color);
+      background-color: var(--token-form-control-base-surface-color-default);
+    }
 
     &[aria-selected="true"] {
       color: var(--token-color-foreground-action);
@@ -116,6 +120,23 @@
       background-repeat: no-repeat;
       background-position: left 12px center;
       background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
+    }
+
+    &:hover {
+      color: var(--token-color-foreground-action);
+      background-color: var(--token-form-control-base-surface-color-default);
+
+      // left border
+      &::before {
+        position: absolute;
+        top: 6px;
+        bottom: 6px;
+        left: 0;
+        width: 2px;
+        background-color: var(--token-color-foreground-action);
+        border-radius: 500px; // Makes it look slightly rounded on the ends (doesn't match Figma exactly)
+        content: "";
+      }
     }
   }
 
