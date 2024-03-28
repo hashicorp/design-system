@@ -6,7 +6,12 @@
     "verbatimModuleSyntax": true,
     "allowJs": true,
     "declaration": true,
+
+    // Without this set to false, no declaration files are created.
+    // Reference: https://github.com/typed-ember/glint/issues/599
+    // Remove once the linked issue is resolved.
     "noEmitOnError": false,
+
     "declarationDir": "declarations",
     "emitDeclarationOnly": true,
     "noEmit": false,
