@@ -8,6 +8,10 @@
 
 For guidelines on how to use Helios, see our [documentation website](https://helios.hashicorp.design).
 
+## Release notes
+
+[A changelog for code and Figma changes is kept on the Helios website](https://helios.hashicorp.design/whats-new/release-notes)
+
 ## Packages
 
 ### `packages/components` [![npm version](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-components.svg)](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-components)
