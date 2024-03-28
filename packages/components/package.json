@@ -269,7 +269,7 @@
     },
     "./*": {
       "types": "./declarations/*.d.ts",
-      "default": "./dist/*.js"
+      "default": "./dist/*"
     },
     "./addon-main.js": "./addon-main.js"
   },
