@@ -1,5 +1,15 @@
 # @hashicorp/design-system-components
 
+## 4.2.1
+
+### Patch Changes
+
+`CodeBlock` - Re-mapped class-name variable to color-blue
+
+<small class="doc-whats-new-changelog-metadata">[#2027](https://github.com/hashicorp/design-system/pull/2027)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.2.0
 
 ### Minor Changes

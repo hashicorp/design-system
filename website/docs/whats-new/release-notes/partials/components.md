@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 4.2.1
+
+**Patch changes**
+
+`CodeBlock` - Re-mapped class-name variable to color-blue
+
+<small class="doc-whats-new-changelog-metadata">[#2027](https://github.com/hashicorp/design-system/pull/2027)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.2.0
 
 **Minor changes**
@@ -56,7 +66,7 @@
 
 ## 4.1.2
 
-### Patch Changes
+**Patch changes**
 
 This version is a re-release of `@hashicorp/design-system-components@4.1.1` containing the missing pre-compiled CSS
 
@@ -743,32 +753,6 @@ _Notice: while technically this is a breaking change, we consider this a fast-fo
 `Tabs` - replace `assert` with `warn` in `setIndicator` function
 
 <small class="doc-whats-new-changelog-metadata">[#1716](https://github.com/hashicorp/design-system/pull/1716)</small>
-
-## 2.14.1
-
-**Patch changes**
-
-`Tabs` - Fixed issue with `@isSelected` dynamically changed within `#each` loops
-
-<small class="doc-whats-new-changelog-metadata">[#1709](https://github.com/hashicorp/design-system/pull/1709)</small>
-
-## 2.14.0
-
-**Minor changes**
-
-`Pagination::Compact` - Added option to show "SizeSelector" element
-
-<small class="doc-whats-new-changelog-metadata">[#1700](https://github.com/hashicorp/design-system/pull/1700)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Tabs` - Refactored logic for `Tabs` component + `Tab/Panel` sub-components to support more complex use cases:
-
-- introduced `@selectedTabIndex` argument to control the "selected" tab from the consuming application, e.g. via query params (effort spearheaded by @MiniHeyd)
-- fixed issue with nested tabs not initializing the "selected" indicator correctly
-- fixed issue with dynamic tab content not updating the "selected" indicator correctly
-
-<small class="doc-whats-new-changelog-metadata">[#1688](https://github.com/hashicorp/design-system/pull/1688)</small>
 
 
 ---
