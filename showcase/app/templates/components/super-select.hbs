@@ -13,25 +13,29 @@
 
   <Shw::Text::H3>Interaction</Shw::Text::H3>
 
-  <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
-    <SF.Item @label="Default (no selection)">
-      <Hds::SuperSelect::Single @onChange={{this.noop}} @options={{@model.OPTIONS}} as |option|>
-        {{option}}
-      </Hds::SuperSelect::Single>
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item>
+      <Shw::Flex @direction="row" as |SF|>
+        <SF.Item {{style flex="1"}} @label="Default (no selection)">
+          <Hds::SuperSelect::Single @onChange={{this.noop}} @options={{@model.OPTIONS}} as |option|>
+            {{option}}
+          </Hds::SuperSelect::Single>
+        </SF.Item>
+
+        <SF.Item {{style flex="1"}} @label="No selection with custom placeholder">
+          <Hds::SuperSelect::Single
+            @onChange={{this.noop}}
+            @options={{@model.OPTIONS}}
+            @placeholder="Placeholder text"
+            as |option|
+          >
+            {{option}}
+          </Hds::SuperSelect::Single>
+        </SF.Item>
+      </Shw::Flex>
     </SF.Item>
 
-    <SF.Item @label="No selection with custom placeholder">
-      <Hds::SuperSelect::Single
-        @onChange={{this.noop}}
-        @options={{@model.OPTIONS}}
-        @placeholder="Placeholder text"
-        as |option|
-      >
-        {{option}}
-      </Hds::SuperSelect::Single>
-    </SF.Item>
-
-    <SF.Item @label="Selected">
+    <SF.Item {{style max-width="50%"}} @label="Selected">
       <Hds::SuperSelect::Single
         @onChange={{this.noop}}
         @options={{@model.OPTIONS}}
@@ -46,7 +50,7 @@
   <Shw::Text::H4>Dropdown</Shw::Text::H4>
 
   <Shw::Flex @direction="row" as |SF|>
-    <SF.Item {{style flex="1" padding-bottom="12em"}} @label="No search">
+    <SF.Item {{style flex="1" padding-bottom="11em"}} @label="No search">
       <Hds::SuperSelect::Single
         @onChange={{this.noop}}
         @options={{@model.OPTIONS}}
@@ -58,7 +62,7 @@
       </Hds::SuperSelect::Single>
     </SF.Item>
 
-    <SF.Item {{style flex="1" padding-bottom="12em"}} @label="Search enabled">
+    <SF.Item {{style flex="1" padding-bottom="11em"}} @label="Search enabled">
       <Hds::SuperSelect::Single
         @onChange={{this.noop}}
         @options={{@model.OPTIONS}}
@@ -69,6 +73,107 @@
       >
         {{option}}
       </Hds::SuperSelect::Single>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>States</Shw::Text::H3>
+
+  <Shw::Flex @direction="row" as |SF|>
+    <SF.Item {{style flex="1"}} @label="Default">
+      <Hds::SuperSelect::Single
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect::Single>
+    </SF.Item>
+    <SF.Item {{style flex="1"}} @label="Focus">
+      <Hds::SuperSelect::Single
+        class="mock-focus"
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect::Single>
+    </SF.Item>
+    <SF.Item {{style flex="1"}} @label="Disabled">
+      <Hds::SuperSelect::Single
+        @disabled={{true}}
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect::Single>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>List position</Shw::Text::H3>
+
+  <Shw::Flex @direction="row" as |SF|>
+    <SF.Item {{style flex="1"}} @label="Below (default)">
+      <Hds::SuperSelect::Single
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect::Single>
+    </SF.Item>
+    <SF.Item {{style flex="1"}} @label="Above">
+      <Hds::SuperSelect::Single
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
+        @verticalPosition="above"
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect::Single>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>Match trigger width</Shw::Text::H3>
+
+  <Shw::Flex {{style flex="1" padding-bottom="11em"}} as |SF|>
+    <SF.Item @label="= true (default)">
+      <div class="shw-display-inline-flex">
+        <Hds::SuperSelect::Single
+          @onChange={{this.noop}}
+          @options={{@model.PLACES_OPTIONS}}
+          @selected={{@model.PLACES_SELECTED}}
+          @initiallyOpened={{true}}
+          as |option|
+        >
+          {{option}}
+        </Hds::SuperSelect::Single>
+      </div>
+    </SF.Item>
+    <SF.Item @label="= false">
+      <div class="shw-display-inline-flex">
+        <Hds::SuperSelect::Single
+          @onChange={{this.noop}}
+          @options={{@model.PLACES_OPTIONS}}
+          @selected={{@model.PLACES_SELECTED}}
+          @initiallyOpened={{true}}
+          @matchTriggerWidth={{false}}
+          as |option|
+        >
+          {{option}}
+        </Hds::SuperSelect::Single>
+      </div>
     </SF.Item>
   </Shw::Flex>
 
@@ -89,7 +194,7 @@
       <Hds::SuperSelect::Multiple
         @onChange={{this.noop}}
         @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTEDMULTIPLE}}
+        @selected={{@model.SELECTED_MULTIPLE}}
         as |option|
       >
         {{option}}
@@ -98,14 +203,15 @@
   </Shw::Flex>
 
   <Shw::Text::H4>Dropdown</Shw::Text::H4>
-  <Shw::Text::Body>Note: Tags will likely be replaced with HDS Tag (current ones are styled default tags)</Shw::Text::Body>
+  <Shw::Text::Body><mark>Note: Tags will likely be replaced with HDS Tag (current ones are styled default tags so
+      include “x” button)</mark></Shw::Text::Body>
 
   <Shw::Flex @direction="row" as |SF|>
-    <SF.Item {{style flex="1" padding-bottom="12em"}} @label="No search">
+    <SF.Item {{style flex="1" padding-bottom="9em"}} @label="No search">
       <Hds::SuperSelect::Multiple
         @onChange={{this.noop}}
         @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTEDMULTIPLE}}
+        @selected={{@model.SELECTED_MULTIPLE}}
         @initiallyOpened={{true}}
         as |option|
       >
@@ -113,13 +219,57 @@
       </Hds::SuperSelect::Multiple>
     </SF.Item>
 
-    <SF.Item {{style flex="1" padding-bottom="12em"}} @label="Search enabled">
+    <SF.Item {{style flex="1" padding-bottom="9em"}} @label="Search enabled">
       <Hds::SuperSelect::Multiple
         @onChange={{this.noop}}
         @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTEDMULTIPLE}}
+        @selected={{@model.SELECTED_MULTIPLE}}
         @searchEnabled={{true}}
         @initiallyOpened={{true}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect::Multiple>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>States</Shw::Text::H3>
+
+  <Shw::Text::Body><mark>Note: Tags will likely be replaced with HDS Tag (current ones are styled default tags so
+      include “x” button)</mark></Shw::Text::Body>
+
+  <Shw::Flex @direction="row" as |SF|>
+    <SF.Item {{style flex="1"}} @label="Default">
+      <Hds::SuperSelect::Multiple
+        @onChange={{this.noop}}
+        @options={{@model.PLACES_OPTIONS}}
+        @selected={{@model.PLACES_SELECTED_MULTIPLE}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect::Multiple>
+    </SF.Item>
+
+    <SF.Item {{style flex="1"}} @label="Focus">
+      <Hds::SuperSelect::Multiple
+        class="mock-focus"
+        @onChange={{this.noop}}
+        @options={{@model.PLACES_OPTIONS}}
+        @selected={{@model.PLACES_SELECTED_MULTIPLE}}
+        as |option|
+      >
+        {{option}}
+      </Hds::SuperSelect::Multiple>
+    </SF.Item>
+
+    <SF.Item {{style flex="1"}} @label="Disabled">
+      <Hds::SuperSelect::Multiple
+        @disabled={{true}}
+        @onChange={{this.noop}}
+        @options={{@model.PLACES_OPTIONS}}
+        @selected={{@model.PLACES_SELECTED_MULTIPLE}}
         as |option|
       >
         {{option}}
