@@ -12,6 +12,17 @@ export default class HdsSuperSelectMultipleIndexComponent extends Component {
   //   // ADD YOUR ASSERTIONS HERE
   // }
 
+  // NOTE: The searchPlaceholder doesn't currently work for the multiple select
+  /**
+   * Get the search placeholder text
+   * @param searchPlaceholder
+   * @type {string}
+   * @default 'Search'
+   */
+  get searchPlaceholder() {
+    return this.args.searchPlaceholder ?? 'Search';
+  }
+
   /**
    * Get the class names to apply to the component.
    * @method classNames
