@@ -16,7 +16,7 @@ Design systems are often equated with a UI kit or component library. In reality,
 
 **Helios** is the design system built by the HashiCorp Design System Team. It’s commonly referred to as **HDS**.
 
-Helios is available and recommended for all HashiCorp **product teams using Ember.js**. We also support teams using alternative frameworks or libraries, such as HashiCorp Developer, via our design assets, [tokens](/foundations/tokens), and best practice guidance.
+Helios is available and recommended for all HashiCorp product teams using Ember.js. We also support teams using alternative frameworks or libraries, such as React, on a case-by-case basis via our design assets, [tokens](/foundations/tokens), and best practice guidance.
 
 Using Helios ensures the different product lines share a common design language. We work closely with these teams on integration and implementation while collecting feedback to understand consumer needs and inform our [roadmap](https://go.hashi.co/hds-rollout).
 
