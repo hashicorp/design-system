@@ -81,7 +81,7 @@ export default class HdsIconTileIndexComponent extends Component<HdsIconTileSign
     } else if (this.args.icon) {
       return this.args.icon;
     } else {
-      return null;
+      return undefined;
     }
   }
 
