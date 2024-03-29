@@ -68,10 +68,9 @@
       border-color: var(--token-form-control-disabled-border-color);
       box-shadow: none;
       cursor: not-allowed;
-      opacity: 0.7;
+      opacity: 1;
 
       .ember-power-select-selected-item {
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' fill='%238c909c'/%3E%3C/svg%3E");
         opacity: inherit;
       }
     }
@@ -80,7 +79,7 @@
   // DROPDOWN
 
   .ember-basic-dropdown-content {
-    margin-top: 4px;
+    margin: 4px 0;
     border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
     border-radius: var(--token-form-control-border-radius);
 
@@ -88,13 +87,19 @@
     &.ember-basic-dropdown-content--in-place {
       box-shadow: var(--token-elevation-high-box-shadow), var(--token-elevation-high-box-shadow);
     }
+
+    &.ember-basic-dropdown-content--above {
+      top: unset !important; // override inline style (TODO: update in JS)
+      bottom: 100%;
+    }
   }
 
   // Options List
   .ember-power-select-options {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    // Note: flex layout causes overflow when used with overflow-wrap: break-word on the option items
+    // display: flex;
+    // flex-direction: column;
+    // gap: 8px;
     padding: 3px;
   }
 
@@ -105,6 +110,11 @@
     padding: 7px;
     padding-left: 36px;
     line-height: var(--token-typography-body-200-line-height);
+    overflow-wrap: break-word; // when used in combination with flex parent, content may overflow
+
+    + .ember-power-select-option {
+      margin-top: 8px;
+    }
 
     // states
     &[aria-current="true"] {
@@ -113,30 +123,30 @@
     }
 
     &[aria-selected="true"] {
-      color: var(--token-color-foreground-action);
+      // color: var(--token-color-foreground-action);
       background-color: var(--token-form-control-base-surface-color-default);
-      // checkmark icon:
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' fill='%231060ff'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: left 12px center;
-      background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
+      // // checkmark icon:
+      // background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' fill='%231060ff'/%3E%3C/svg%3E");
+      // background-repeat: no-repeat;
+      // background-position: left 12px center;
+      // background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
     }
 
     &:hover {
       color: var(--token-color-foreground-action);
       background-color: var(--token-form-control-base-surface-color-default);
 
-      // left border
-      &::before {
-        position: absolute;
-        top: 6px;
-        bottom: 6px;
-        left: 0;
-        width: 2px;
-        background-color: var(--token-color-foreground-action);
-        border-radius: 500px; // Makes it look slightly rounded on the ends (doesn't match Figma exactly)
-        content: "";
-      }
+      // // left border
+      // &::before {
+      //   position: absolute;
+      //   top: 6px;
+      //   bottom: 6px;
+      //   left: 0;
+      //   width: 2px;
+      //   background-color: var(--token-color-foreground-action);
+      //   border-radius: 500px; // Makes it look slightly rounded on the ends (doesn't match Figma exactly)
+      //   content: "";
+      // }
     }
   }
 
@@ -200,6 +210,7 @@
   // Tag List (Note: May be replaced with HDS Tag component in the future)
   .ember-power-select-multiple-options {
     display: flex;
+    flex-wrap: wrap;
     gap: 4px;
     list-style: none;
   }
@@ -212,5 +223,57 @@
     line-height: var(--token-typography-body-100-line-height);
     background-color: var(--token-form-control-base-surface-color-default);
     border-radius: 500px;
+  }
+}
+
+// SUBCOMPONENTS
+
+// SINGLE
+.hds-super-select-single {
+  // outline: 2px dotted lime;
+
+  // Options Item
+  .ember-power-select-option {
+    &[aria-selected="true"] {
+      color: var(--token-color-foreground-action);
+      // background-color: var(--token-form-control-base-surface-color-default);
+      // checkmark icon:
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' fill='%231060ff'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: left 12px center;
+      background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
+    }
+
+    &:hover {
+      color: var(--token-color-foreground-action);
+      background-color: var(--token-form-control-base-surface-color-default);
+
+      // left border
+      &::before {
+        position: absolute;
+        top: 6px;
+        bottom: 6px;
+        left: 0;
+        width: 2px;
+        background-color: var(--token-color-foreground-action);
+        border-radius: 500px; // Makes it look slightly rounded on the ends (doesn't match Figma exactly)
+        content: "";
+      }
+    }
+  }
+}
+
+// MULTIPLE
+.hds-super-select-multiple {
+  // outline: 2px dotted red;
+}
+
+// VARIANTS
+
+// When renderInPlace=true, matchTriggerWidth=false has no effect unless we override the width of the dropdown content
+// (fixes bug with ember-power-select)
+.hds-super-select--match-trigger-width-false {
+  .ember-power-select-dropdown.ember-basic-dropdown-content--in-place {
+      width: auto;
   }
 }

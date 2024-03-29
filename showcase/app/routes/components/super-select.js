@@ -10,7 +10,7 @@ export default class ComponentsSuperSelectRoute extends Route {
     // these are used only for presentation purpose in the showcase
     const OPTIONS = ['Option 1', 'Option 2', 'Option 3'];
     const SELECTED = ['Option 1'];
-    const SELECTEDMULTIPLE = ['Option 1', 'Option 2'];
+    const SELECTED_MULTIPLE = ['Option 1', 'Option 2'];
 
     const GROUPED_OPTIONS = [
       { groupName: 'Smalls', options: ['one', 'two', 'three'] },
@@ -29,16 +29,16 @@ export default class ComponentsSuperSelectRoute extends Route {
     const SELECTED_GROUPED_OPTION = ['two'];
 
     // Use for examples? (Delete later if not used)
-    const US_STATES_OPTIONS = [
+    const PLACES_OPTIONS = [
       'Oregon (us-west-2)',
       'N. Virginia (us-east-1)',
+      'ALongUnbrokenStringALongUnbrokenStringALongUnbrokenString',
       'Ireland (eu-west-1)',
       'London(eu-west-2)',
-      'ALongUnbrokenStringALongUnbrokenStringALongUnbrokenString',
       'Frankfurt (eu-central-1)',
     ];
-    const US_STATES_SELECTED = ['Oregon (us-west-2)'];
-    const US_STATES_SELECTEDMULTIPLE = [
+    const PLACES_SELECTED = ['Oregon (us-west-2)'];
+    const PLACES_SELECTED_MULTIPLE = [
       'Oregon (us-west-2)',
       'N. Virginia (us-east-1)',
       'Ireland (eu-west-1)',
@@ -47,12 +47,12 @@ export default class ComponentsSuperSelectRoute extends Route {
     return {
       OPTIONS,
       SELECTED,
-      SELECTEDMULTIPLE,
+      SELECTED_MULTIPLE,
       GROUPED_OPTIONS,
       SELECTED_GROUPED_OPTION,
-      US_STATES_OPTIONS,
-      US_STATES_SELECTED,
-      US_STATES_SELECTEDMULTIPLE,
+      PLACES_OPTIONS,
+      PLACES_SELECTED,
+      PLACES_SELECTED_MULTIPLE,
     };
   }
 }
