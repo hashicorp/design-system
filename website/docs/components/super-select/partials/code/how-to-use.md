@@ -11,8 +11,13 @@ Use `SuperSelect::Single` if you only want users to be able to select a single o
 of the native HTML `<select>`.
 
 ```handlebars
-<Hds::SuperSelect::Single>
-  This is the Hds::SuperSelect::Single component
+<Hds::SuperSelect::Single
+  @onChange={{this.noop}}
+  @options={{this.OPTIONS}}
+  @selected={{this.SELECTED}}
+  as |option|
+>
+  {{option}}
 </Hds::SuperSelect::Single>
 ```
 
@@ -21,7 +26,12 @@ of the native HTML `<select>`.
 Use `SuperrSelect::Multiple` to enable users to select multiple options if needed.
 
 ```handlebars
-<Hds::SuperSelect::Multiple>
-  This is the Hds::SuperSelect::Multiple component
+<Hds::SuperSelect::Multiple
+  @onChange={{this.noop}}
+  @options={{this.OPTIONS}}
+  @selected={{this.SELECTED}}
+  as |option|
+>
+  {{option}}
 </Hds::SuperSelect::Multiple>
 ```
