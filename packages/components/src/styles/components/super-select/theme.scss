@@ -7,7 +7,9 @@
 
 // Style overrides:
 
-.hds-super-select {
+.hds-super-select .ember-basic-dropdown {
+  outline: px dotted lime;
+  
   // TRIGGER
   
   .ember-basic-dropdown-trigger,
