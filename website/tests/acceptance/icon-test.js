@@ -35,15 +35,15 @@ module('Acceptance | Icon Search', function (hooks) {
     assert.dom('.doc-copy-button__visible-value').hasText('cpu');
   });
 
-  test('should load content based on category in query param', async function (assert) {
-    await visit('/icons/library?searchQuery=animated&selectedIconSize=24');
+  test('should load content based on category in query param, with case-insensitive results', async function (assert) {
+    await visit('/icons/library?searchQuery=AniMaTed&selectedIconSize=24');
 
     assert.strictEqual(
       currentURL(),
-      '/icons/library?searchQuery=animated&selectedIconSize=24'
+      '/icons/library?searchQuery=AniMaTed&selectedIconSize=24'
     );
 
-    assert.dom('.doc-icons-list-grid-item').exists({ count: 2 });
+    assert.dom('.doc-icons-list-grid-item').exists({ count: 4 });
     assert.dom('.doc-text-h4').hasText('Animated');
   });
 
