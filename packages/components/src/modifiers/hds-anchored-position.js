@@ -19,11 +19,27 @@ import {
   // size,
 } from '@floating-ui/dom';
 
+export const DEFAULT_PLACEMENT = 'bottom';
+export const PLACEMENTS = [
+  'top',
+  'top-start',
+  'top-end',
+  'right',
+  'right-start',
+  'right-end',
+  'bottom',
+  'bottom-start',
+  'bottom-end',
+  'left',
+  'left-start',
+  'left-end',
+];
+
 // we use this function to process all the options provided to the modifier in a single place,
 // in relation to the Floating UI APIs, and keep the modifier code more clean/simple
 export const getFloatingUIOptions = (options) => {
   let {
-    placement = 'bottom',
+    placement = DEFAULT_PLACEMENT,
     strategy = 'absolute', // we don't need to use `fixed` if we use the Popover API for the "floating" element (it puts the element in the `top-layer`)
     offsetOptions,
     flipOptions = { padding: 8 },
