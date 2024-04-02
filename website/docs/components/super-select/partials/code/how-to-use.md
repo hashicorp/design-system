@@ -15,6 +15,7 @@ of the native HTML `<select>`.
   @onChange={{this.noop}}
   @options={{this.OPTIONS}}
   @selected={{this.SELECTED}}
+  @searchEnabled={{true}}
   as |option|
 >
   {{option}}
@@ -23,13 +24,14 @@ of the native HTML `<select>`.
 
 ### SuperSelect::Multiple
 
-Use `SuperrSelect::Multiple` to enable users to select multiple options if needed.
+Use `Select::Multiple` to enable users to select multiple options if needed.
 
 ```handlebars
 <Hds::SuperSelect::Multiple
   @onChange={{this.noop}}
   @options={{this.OPTIONS}}
   @selected={{this.SELECTED}}
+  @searchEnabled={{true}}
   as |option|
 >
   {{option}}
