@@ -47,7 +47,7 @@ export const getFloatingUIOptions = (options) => {
     middlewareExtra = [],
     enableCollisionDetection,
     arrowElement,
-    arrowPadding = 8, // stop 8px from the edges of the "floating" element
+    arrowPadding, // distance from the edges of the "floating" element
   } = options;
 
   // we build dynamically the list of middleware functions to invoke, depending on the options provided
