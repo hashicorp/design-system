@@ -17,6 +17,8 @@ export default class Index extends Component {
 
   allIcons = catalog.assets.map(
     ({ iconName, fileName, size, description, category }) => {
+      category = category.toLowerCase(); // category names in json begin with uppercase letter
+
       return {
         iconName: `${iconName}`,
         name: `${fileName}`,
@@ -60,7 +62,7 @@ export default class Index extends Component {
         filteredIcons = this.allIcons.filter(
           (i) =>
             i.size === this.selectedIconSize &&
-            i.searchable.indexOf(this.searchQuery) !== -1
+            i.searchable.indexOf(this.searchQuery.toLowerCase()) !== -1
         );
       }
     } else {
