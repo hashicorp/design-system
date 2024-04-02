@@ -8,10 +8,9 @@
 // Style overrides:
 
 .hds-super-select .ember-basic-dropdown {
-  outline: px dotted lime;
-  
+
   // TRIGGER
-  
+
   .ember-basic-dropdown-trigger,
   .ember-power-select-trigger {
     max-width: 100%;
@@ -98,10 +97,6 @@
 
   // Options List
   .ember-power-select-options {
-    // Note: flex layout causes overflow when used with overflow-wrap: break-word on the option items
-    // display: flex;
-    // flex-direction: column;
-    // gap: 8px;
     padding: 3px;
   }
 
@@ -112,7 +107,7 @@
     padding: 7px;
     padding-left: 36px;
     line-height: var(--token-typography-body-200-line-height);
-    overflow-wrap: break-word; // when used in combination with flex parent, content may overflow
+    overflow-wrap: break-word; // when used in combination with flex parent, content may overflow (therefore not using flex layout on parent)
 
     + .ember-power-select-option {
       margin-top: 8px;
@@ -125,30 +120,7 @@
     }
 
     &[aria-selected="true"] {
-      // color: var(--token-color-foreground-action);
       background-color: var(--token-form-control-base-surface-color-default);
-      // // checkmark icon:
-      // background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' fill='%231060ff'/%3E%3C/svg%3E");
-      // background-repeat: no-repeat;
-      // background-position: left 12px center;
-      // background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
-    }
-
-    &:hover {
-      color: var(--token-color-foreground-action);
-      background-color: var(--token-form-control-base-surface-color-default);
-
-      // // left border
-      // &::before {
-      //   position: absolute;
-      //   top: 6px;
-      //   bottom: 6px;
-      //   left: 0;
-      //   width: 2px;
-      //   background-color: var(--token-color-foreground-action);
-      //   border-radius: 500px; // Makes it look slightly rounded on the ends (doesn't match Figma exactly)
-      //   content: "";
-      // }
     }
   }
 
@@ -228,17 +200,19 @@
   }
 }
 
+
 // SUBCOMPONENTS
 
 // SINGLE
-.hds-super-select-single {
+.hds-super-select-single .ember-basic-dropdown {
   // outline: 2px dotted lime;
+  // outline-offset: 2px;
 
   // Options Item
   .ember-power-select-option {
     &[aria-selected="true"] {
       color: var(--token-color-foreground-action);
-      // background-color: var(--token-form-control-base-surface-color-default);
+
       // checkmark icon:
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' fill='%231060ff'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
@@ -247,8 +221,7 @@
     }
 
     &:hover {
-      color: var(--token-color-foreground-action);
-      background-color: var(--token-form-control-base-surface-color-default);
+      color: var(--token-color-foreground-action-hover);
 
       // left border
       &::before {
@@ -257,17 +230,43 @@
         bottom: 6px;
         left: 0;
         width: 2px;
-        background-color: var(--token-color-foreground-action);
+        background-color: var(--token-color-foreground-action-hover);
         border-radius: 500px; // Makes it look slightly rounded on the ends (doesn't match Figma exactly)
         content: "";
+      }
+    }
+
+    &:active {
+      color: var(--token-color-foreground-action-active);
+
+      // left border
+      &::before {
+        background-color: var(--token-color-foreground-action-active);
       }
     }
   }
 }
 
 // MULTIPLE
-.hds-super-select-multiple {
+.hds-super-select-multiple .ember-basic-dropdown {
   // outline: 2px dotted red;
+  // outline-offset: 2px;
+
+  // Options Item
+  .ember-power-select-option {
+    // background-image: url("data:image/svg+xml, "); // TODO: Add image of uncheced checkbox
+    background-repeat: no-repeat;
+    background-position: left 12px center;
+    background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
+
+    &[aria-selected="true"] {
+      // background-image: url("data:image/svg+xml,"); // TODO: Add image of checked checkbox
+
+      &:hover {
+        // background-image: url("data:image/svg+xml,"); // TODO: Add image of checkbox with gray fill color
+      }
+    }
+  }
 }
 
 // VARIANTS
