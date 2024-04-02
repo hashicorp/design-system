@@ -141,7 +141,7 @@ export default class HdsPopoverPrimitiveComponent extends Component {
       anchoredPositionModifier(
         this.popoverElement, // element the modifier is attached to
         [this.toggleElement], // positional arguments
-        { popoverOptions: this.popoverOptions } // named arguments
+        this.popoverOptions // named arguments
       );
     },
     { eager: false }

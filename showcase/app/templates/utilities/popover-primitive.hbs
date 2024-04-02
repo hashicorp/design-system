@@ -16,12 +16,12 @@
   <Shw::Grid class="shw-utilities-popover-primitive-placement-grid" @columns={{5}} as |SG|>
     {{#each @model.PLACEMENTS as |place|}}
       <SG.Item class="shw-utilities-popover-primitive-placement-grid__item--{{place}}">
-        <Hds::PopoverPrimitive @placement={{place}} @isOpen={{true}}>
+        <Hds::PopoverPrimitive @popoverOptions={{(hash placement=place)}} @isOpen={{true}}>
           <:toggle>
             <div class="shw-utilities-popover-primitive-placement-grid__target">{{place}}</div>
           </:toggle>
           <:content>
-            <Shw::Placeholder @text="content" @height="30" />
+            <Shw::Placeholder @text="content" @width="80" @height="30" />
           </:content>
         </Hds::PopoverPrimitive>
       </SG.Item>
