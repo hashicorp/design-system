@@ -210,10 +210,12 @@ module('Integration | Modifier | hds-anchored-position', function (hooks) {
     this.anchorElement = document.getElementById('anchor');
     this.floatingElement = document.getElementById('floating');
     this.arrowElement = document.getElementById('arrow');
+    this.floatingOptions = { arrow: this.arrowElement };
     // apply the modifier to the testing elements (after the rendering)
     await anchoredElementModifier(
       this.floatingElement, // element the modifier is attached to
-      [this.anchorElement, this.arrowElement] // positional arguments
+      [this.anchorElement], // positional arguments
+      this.floatingOptions // named arguments
     );
     // we need to wait for the Floating UI computation to complete (it's incremental)
     await wait();
@@ -243,12 +245,13 @@ module('Integration | Modifier | hds-anchored-position', function (hooks) {
       placement: 'bottom-start',
       strategy: 'fixed',
       offsetOptions: 20,
+      arrow: this.arrowElement,
     };
     // apply the modifier to the elements (after the rendering)
     await anchoredElementModifier(
       this.floatingElement, // element the modifier is attached to
-      [this.anchorElement, this.arrowElement], // positional arguments
-      { ...this.floatingOptions } // named arguments
+      [this.anchorElement], // positional arguments
+      this.floatingOptions // named arguments
     );
     // we need to wait for the Floating UI computation to complete (it's incremental)
     await wait();
@@ -268,7 +271,7 @@ module('Integration | Modifier | hds-anchored-position', function (hooks) {
     await render(hbs`
       <div id="wrapper">
         <div id="anchor">anchor</div>
-        <div id="floating" {{hds-anchored-position '#anchor' '#arrow' placement='bottom-start' strategy='fixed' offsetOptions=20 }}><div id="arrow"></div>floating</div>
+        <div id="floating" {{hds-anchored-position '#anchor' placement='bottom-start' strategy='fixed' offsetOptions=20 arrow='#arrow' }}><div id="arrow"></div>floating</div>
       </div>
     `);
     this.anchorElement = document.getElementById('anchor');
