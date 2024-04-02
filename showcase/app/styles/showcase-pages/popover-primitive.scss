@@ -55,28 +55,28 @@ body.utilities-popover-primitive {
     position: absolute;
     z-index: 1;
     display: block;
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     background-color: red;
     pointer-events: none;
 
-    &[data-hds-popover-placement^='top'] {
-      bottom: -20px;
+    &[data-hds-anchored-arrow-placement^='top'] {
+      bottom: -16px;
       transform: rotate(180deg);
     }
 
-    &[data-hds-popover-placement^='right'] {
-      left: -20px;
+    &[data-hds-anchored-arrow-placement^='right'] {
+      left: -16px;
       transform: rotate(-90deg);
     }
 
-    &[data-hds-popover-placement^='bottom'] {
-      top: -20px;
+    &[data-hds-anchored-arrow-placement^='bottom'] {
+      top: -16px;
       transform: rotate(0deg); // this fixes a rendering issue in Safari
     }
 
-    &[data-hds-popover-placement^='left'] {
-      right: -20px;
+    &[data-hds-anchored-arrow-placement^='left'] {
+      right: -16px;
       transform: rotate(90deg);
     }
   }
