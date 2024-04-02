@@ -1,6 +1,6 @@
 ## Component API
 
-SuperSelect consists of two sub-components which are used directly.
+SuperSelect consists of two variant components.
 
 See the Ember [PowerSelect documentation](https://ember-power-select.com/docs) for the full list of supported options.
 
