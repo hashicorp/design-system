@@ -17,8 +17,13 @@ import floatPopoverModifier from '../../../modifiers/hds-float-popover';
 // this is needed until Firefox officially supports the Popover API
 // see: https://wiki.mozilla.org/Release_Management/Release_owners
 import {
-  isSupported as isPopoverApiSupported,
+  // this call polyfills some of the browser methods to emulate the Popover API
   apply as applyPopoverApiPolyfill,
+  // we'll use these two flags to overwrite the popover positioning strategy
+  // this is specifically done for Firefox: currently it doesn't support it, but will soon (we need Firefox 127 to support the last 2 versions)
+  // see: https://whattrainisitnow.com/release/?version=127
+  isSupported as isPopoverApiSupported,
+  isPolyfilled as isPopoverApiPolyfilled,
 } from '@oddbird/popover-polyfill/fn';
 
 export default class HdsPopoverPrimitiveComponent extends Component {
@@ -31,17 +36,6 @@ export default class HdsPopoverPrimitiveComponent extends Component {
   @tracked enableClickEvents = this.args.enableClickEvents ?? false;
   // this will enable "soft" events for the toggle ("hover" and "focus")
   @tracked enableSoftEvents = this.args.enableSoftEvents ?? false;
-  // we'll use these two flags to overwrite the popover positioning strategy
-  // this is specifically done for Firefox: currently it doesn't support it, but will soon (we need Firefox 127 to support the last 2 versions)
-  // see: https://whattrainisitnow.com/release/?version=127
-  // see: https://github.com/oddbird/popover-polyfill/blob/main/src/popover.ts#L15
-  @tracked isPopoverApiSupported = isPopoverApiSupported();
-  // see: https://github.com/oddbird/popover-polyfill/issues/189
-  // see: https://github.com/oddbird/popover-polyfill/issues/189#issuecomment-2019060029
-  // @tracked isPopoverApiPolyfilled = HTMLElement.prototype.popoverIsPolyfilled;
-  @tracked isPopoverApiPolyfilled =
-    document.body.showPopover &&
-    document.body.showPopover.toString().match(/native code/);
 
   /**
    * Generates a unique ID for the "popover" (will be used in the `popovertarget` attribute of the toggle button)
@@ -55,7 +49,7 @@ export default class HdsPopoverPrimitiveComponent extends Component {
       this.containerElement = element;
 
       // if the Popover API is not supported we need to polyfill it
-      if (!this.isPopoverApiSupported) {
+      if (!isPopoverApiSupported()) {
         warn(
           "The browser used does not support the Popover API so it's been emulated and some functionalities may not work as expected. Please check the minimum browser requirements.",
           {
@@ -156,7 +150,7 @@ export default class HdsPopoverPrimitiveComponent extends Component {
   get popoverOptions() {
     const popoverOptions = this.args.popoverOptions;
     // if the Popover API is not supported (polyfill applied for the first time) of it's already been polyfilled (see above)
-    if (!this.isPopoverApiSupported || this.isPopoverApiPolyfilled) {
+    if (!isPopoverApiSupported() || isPopoverApiPolyfilled()) {
       // when using the "absolute" strategy, the presence of a parent with "relative" position leads to wrong layout rendering (known issue in the polyfill library)
       // see: https://github.com/oddbird/popover-polyfill/tree/main?tab=readme-ov-file#caveats
       popoverOptions.popoverPositionStrategy = 'fixed';
