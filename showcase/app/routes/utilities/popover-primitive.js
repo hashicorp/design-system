@@ -9,7 +9,6 @@ import { PLACEMENTS } from '@hashicorp/design-system-components/components/hds/p
 
 export default class ComponentsPopoverRoute extends Route {
   model() {
-    console.log('PLACEMENTS', PLACEMENTS);
     return { PLACEMENTS };
   }
 }

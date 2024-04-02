@@ -26,6 +26,9 @@ import {
   isPolyfilled as isPopoverApiPolyfilled,
 } from '@oddbird/popover-polyfill/fn';
 
+// we use this to re-export the values
+export { PLACEMENTS, DEFAULT_PLACEMENT } from '../../../modifiers/hds-anchored-position';
+
 export default class HdsPopoverPrimitiveComponent extends Component {
   @tracked toggleElement;
   @tracked popoverElement;
@@ -51,7 +54,7 @@ export default class HdsPopoverPrimitiveComponent extends Component {
       // if the Popover API is not supported we need to polyfill it
       if (!isPopoverApiSupported()) {
         warn(
-          "The browser used does not support the Popover API so it's been emulated and some functionalities may not work as expected. Please check the minimum browser requirements.",
+          "The browser used does not support the Popover API so it's been emulated and some functionalities may not work as expected.",
           {
             id: 'hds-popover.no-popover-api-support.polyfill-applied',
           }
