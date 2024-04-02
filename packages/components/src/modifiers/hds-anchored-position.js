@@ -110,7 +110,7 @@ export const getFloatingUIOptions = (options) => {
 // because it's quite simple in its logic, and doesn't require injecting services
 // see: https://github.com/ember-modifier/ember-modifier#function-based-modifiers
 
-export default modifier((element, positional, named) => {
+export default modifier((element, positional, named = {}) => {
   // the element that "floats" next to the "anchor" (whose position is calculated in relation to the anchor)
   // notice: this is the element the Ember modifier is attached to
   const floatingElement = element;
@@ -131,8 +131,8 @@ export default modifier((element, positional, named) => {
 
   // the "arrow" element (optional) associated with the "floating" element
   // it can be a DOM selector (string) or a DOM element
-  // notice: it's expressed as "positional" argument (array of arguments) for the modifier
-  const _arrowTarget = positional[1];
+  // notice: for convenience it's declared inside the "named" argument (object) for the modifier but we extract it to its own variable
+  const _arrowTarget = named?.arrow;
   const arrowElement =
     typeof _arrowTarget === 'string'
       ? document.querySelector(_arrowTarget)
