@@ -266,6 +266,7 @@
       "./helpers/hds-link-to-query.js": "./dist/_app_/helpers/hds-link-to-query.js",
       "./modifiers/hds-anchored-position.js": "./dist/_app_/modifiers/hds-anchored-position.js",
       "./modifiers/hds-clipboard.js": "./dist/_app_/modifiers/hds-clipboard.js",
+      "./modifiers/hds-register-event.js": "./dist/_app_/modifiers/hds-register-event.js",
       "./modifiers/hds-tooltip.js": "./dist/_app_/modifiers/hds-tooltip.js"
     }
   },
