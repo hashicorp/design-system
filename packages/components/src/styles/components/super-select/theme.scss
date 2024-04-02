@@ -261,7 +261,7 @@
       background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg fill='none' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg filter='url(%23a)'%3E%3Crect width='16' height='16' rx='3' fill='%23F1F2F3'/%3E%3Crect x='.5' y='.5' width='15' height='15' rx='2.5' stroke='%23656A76'/%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='a' x='0' y='0' width='16' height='17' color-interpolation-filters='sRGB' filterUnits='userSpaceOnUse'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeColorMatrix in='SourceAlpha' result='hardAlpha' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'/%3E%3CfeMorphology in='SourceAlpha' radius='1' result='effect1_innerShadow_55445_78120'/%3E%3CfeOffset dy='1'/%3E%3CfeGaussianBlur stdDeviation='1'/%3E%3CfeComposite in2='hardAlpha' k2='-1' k3='1' operator='arithmetic'/%3E%3CfeColorMatrix values='0 0 0 0 0.396078 0 0 0 0 0.415686 0 0 0 0 0.462745 0 0 0 0.1 0'/%3E%3CfeBlend in2='shape' result='effect1_innerShadow_55445_78120'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E");
     }
 
-    &:disabled {
+    &[aria-disabled="true"] {
       // image of disabled checkbox
       background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg fill='none' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='16' height='16' rx='3' fill='%23FAFAFA'/%3E%3Crect x='.5' y='.5' width='15' height='15' rx='2.5' stroke='%23656A76' stroke-opacity='.2'/%3E%3C/svg%3E");
     }
@@ -275,7 +275,7 @@
         background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg fill='none' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='.5' y='.5' width='15' height='15' rx='2.5' fill='%230C56E9'/%3E%3Crect x='.5' y='.5' width='15' height='15' rx='2.5' stroke='%230046D1'/%3E%3Cpath d='m11.125 5.875-4.25 4.25' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Cpath d='m4.875 8.125 2 2' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3C/svg%3E");
       }
 
-      &:disabled {
+      &[aria-disabled="true"] {
         // image of checked checkbox disabled state
         background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg fill='none' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='16' height='16' rx='3' fill='%23FAFAFA'/%3E%3Crect x='.5' y='.5' width='15' height='15' rx='2.5' stroke='%23656A76' stroke-opacity='.2'/%3E%3Cpath d='m11.125 5.875-4.25 4.25' stroke='%238C909C' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Cpath d='m4.875 8.125 2 2' stroke='%238C909C' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3C/svg%3E");
       }
