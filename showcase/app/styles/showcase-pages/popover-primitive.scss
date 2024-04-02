@@ -45,6 +45,43 @@ body.utilities-popover-primitive {
     }
   }
 
+  // we emulate a generic "bubble"
+  .shw-utilities-popover-primitive-placement-grid__bubble {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .shw-utilities-popover-primitive-placement-grid__arrow {
+    position: absolute;
+    z-index: 1;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    pointer-events: none;
+
+    &[data-hds-popover-placement^='top'] {
+      bottom: -20px;
+      transform: rotate(180deg);
+    }
+
+    &[data-hds-popover-placement^='right'] {
+      left: -20px;
+      transform: rotate(-90deg);
+    }
+
+    &[data-hds-popover-placement^='bottom'] {
+      top: -20px;
+      transform: rotate(0deg); // this fixes a rendering issue in Safari
+    }
+
+    &[data-hds-popover-placement^='left'] {
+      right: -20px;
+      transform: rotate(90deg);
+    }
+  }
+
+
   .shw-utilities-popover-primitive-content-interactive {
     position: relative;
 

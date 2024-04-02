@@ -28,4 +28,24 @@
     {{/each}}
   </Shw::Grid>
 
+  <Shw::Grid class="shw-utilities-popover-primitive-placement-grid" @columns={{5}} as |SG|>
+    {{#each @model.PLACEMENTS as |place|}}
+      {{#let (unique-id) as |arrowId|}}
+        <SG.Item class="shw-utilities-popover-primitive-placement-grid__item--{{place}}">
+          <Hds::PopoverPrimitive @popoverOptions={{(hash placement=place arrow=(concat "#" arrowId))}} @isOpen={{true}}>
+            <:toggle>
+              <div class="shw-utilities-popover-primitive-placement-grid__target">{{place}}</div>
+            </:toggle>
+            <:content>
+              <div class="shw-utilities-popover-primitive-placement-grid__bubble">
+                <div class="shw-utilities-popover-primitive-placement-grid__arrow" id={{arrowId}} />
+                <Shw::Placeholder @text="content" @width="80" @height="30" />
+              </div>
+            </:content>
+          </Hds::PopoverPrimitive>
+        </SG.Item>
+      {{/let}}
+    {{/each}}
+  </Shw::Grid>
+
 </section>
