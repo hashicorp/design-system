@@ -6,6 +6,54 @@
 // PopoverPrimitive
 
 body.utilities-popover-primitive {
+  .shw-utilities-popover-primitive-base-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 40px;
+    outline: 1px dotted #d3d3d3;
+  }
+
+  // we emulate a generic "bubble"
+  .shw-utilities-popover-primitive-base-bubble {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .shw-utilities-popover-primitive-base-arrow {
+    position: absolute;
+    z-index: 1;
+    display: block;
+    width: 16px;
+    height: 16px;
+    // background-color: #F00;
+    background-image: url('data:image/svg+xml,<svg width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 16 8 6l8 10H0Z" fill="%23F00" fill-opacity=".5"/></svg>');
+    background-size: 16px 16px;
+    outline: 1px dotted red;
+    pointer-events: none;
+
+    &[data-hds-anchored-arrow-placement^='top'] {
+      bottom: -16px;
+      transform: rotate(180deg);
+    }
+
+    &[data-hds-anchored-arrow-placement^='right'] {
+      left: -16px;
+      transform: rotate(-90deg);
+    }
+
+    &[data-hds-anchored-arrow-placement^='bottom'] {
+      top: -16px;
+      transform: rotate(0deg); // this fixes a rendering issue in Safari
+    }
+
+    &[data-hds-anchored-arrow-placement^='left'] {
+      right: -16px;
+      transform: rotate(90deg);
+    }
+  }
+
   .shw-utilities-popover-primitive-placement-grid {
     grid-gap: 10px;
     grid-template-rows: repeat(5, 80px) !important;
@@ -42,42 +90,6 @@ body.utilities-popover-primitive {
       .shw-utilities-popover-primitive-placement-grid__target {
         font-weight: bold;
       }
-    }
-  }
-
-  // we emulate a generic "bubble"
-  .shw-utilities-popover-primitive-placement-grid__bubble {
-    position: relative;
-    isolation: isolate;
-  }
-
-  .shw-utilities-popover-primitive-placement-grid__arrow {
-    position: absolute;
-    z-index: 1;
-    display: block;
-    width: 16px;
-    height: 16px;
-    background-color: red;
-    pointer-events: none;
-
-    &[data-hds-anchored-arrow-placement^='top'] {
-      bottom: -16px;
-      transform: rotate(180deg);
-    }
-
-    &[data-hds-anchored-arrow-placement^='right'] {
-      left: -16px;
-      transform: rotate(-90deg);
-    }
-
-    &[data-hds-anchored-arrow-placement^='bottom'] {
-      top: -16px;
-      transform: rotate(0deg); // this fixes a rendering issue in Safari
-    }
-
-    &[data-hds-anchored-arrow-placement^='left'] {
-      right: -16px;
-      transform: rotate(90deg);
     }
   }
 
