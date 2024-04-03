@@ -210,26 +210,36 @@
           {{#each detections as |detection|}}
             {{#let (unique-id) as |arrowId|}}
               <SF.Item
+                @forceMinWidth={{true}}
                 @label={{unless hasScrollableContainer (concat "enableCollisionDetection=" detection)}}
-                class={{(if hasScrollableContainer "container")}}
               >
-                <div class={{(if hasScrollableContainer "content")}}>
-                  <Hds::PopoverPrimitive
-                    @popoverOptions={{(hash
-                      offsetOptions=16 arrow=(concat "#" arrowId) enableCollisionDetection=detection
-                    )}}
-                    @isOpen={{true}}
-                  >
-                    <:toggle>
-                      <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
-                    </:toggle>
-                    <:content>
-                      <div class="shw-utilities-popover-primitive-base-bubble">
-                        <div class="shw-utilities-popover-primitive-base-arrow" id={{arrowId}} />
-                        <Shw::Placeholder @text="content" @width="120" @height="40" />
-                      </div>
-                    </:content>
-                  </Hds::PopoverPrimitive>
+                <div class={{(if hasScrollableContainer "container")}}>
+                  <span
+                  >aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
+                  <div class={{(if hasScrollableContainer "content")}}>
+                    <span
+                    >bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</span>
+                    <Hds::PopoverPrimitive
+                      @popoverOptions={{(hash
+                        offsetOptions=16 arrow=(concat "#" arrowId) enableCollisionDetection=detection
+                      )}}
+                      @isOpen={{true}}
+                    >
+                      <:toggle>
+                        <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
+                      </:toggle>
+                      <:content>
+                        <div class="shw-utilities-popover-primitive-base-bubble">
+                          <div class="shw-utilities-popover-primitive-base-arrow" id={{arrowId}} />
+                          <Shw::Placeholder @text="content" @width="120" @height="40" />
+                        </div>
+                      </:content>
+                    </Hds::PopoverPrimitive>
+                    <span
+                    >bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</span>
+                  </div>
+                  <span
+                  >aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
                 </div>
               </SF.Item>
             {{/let}}
