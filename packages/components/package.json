@@ -219,6 +219,7 @@
       "./components/hds/popover/arrow.js": "./dist/_app_/components/hds/popover/arrow.js",
       "./components/hds/popover/bubble.js": "./dist/_app_/components/hds/popover/bubble.js",
       "./components/hds/popover/index.js": "./dist/_app_/components/hds/popover/index.js",
+      "./components/hds/popover/toggle/xxx.js": "./dist/_app_/components/hds/popover/toggle/xxx.js",
       "./components/hds/reveal/index.js": "./dist/_app_/components/hds/reveal/index.js",
       "./components/hds/reveal/toggle/button.js": "./dist/_app_/components/hds/reveal/toggle/button.js",
       "./components/hds/segmented-group/index.js": "./dist/_app_/components/hds/segmented-group/index.js",

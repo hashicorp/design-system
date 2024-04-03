@@ -79,3 +79,68 @@ $hds-popover-arrow-size: 20px;
   // this is the color used for the "border" of the `surface-higher` elevation
   fill: var(--token-color-palette-alpha-200);
 }
+
+// WORK IN PROGRESS
+
+.hds-xxx {
+  // border-radius: 2px; // this is used by the outline too
+
+  // &:focus,
+  // &.mock-focus,
+  // &:focus-visible {
+  //   text-decoration: none;
+  //   outline: 2px solid var(--token-color-focus-action-internal);
+  //   outline-offset: 1px;
+  // }
+}
+
+.hds-xxx__icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: text-bottom; // don't use "middle" here or it will extend beyond the focus ring
+
+  .hds-xxx--icon-leading > & {
+    margin-right: 0.25em;
+  }
+
+  .hds-xxx--icon-trailing > & {
+    margin-left: 0.25em;
+  }
+}
+
+
+// COLORS & STATES
+
+.hds-xxx--color-primary {
+  color: var(--token-color-foreground-action);
+
+  &:hover,
+  &.mock-hover {
+    color: var(--token-color-foreground-action-hover);
+  }
+
+  &:active,
+  &.mock-active {
+    color: var(--token-color-foreground-action-active);
+  }
+}
+
+.hds-xxx--color-secondary {
+  color: var(--token-color-foreground-strong);
+
+  &:hover,
+  &.mock-hover {
+    color: var(--token-color-foreground-primary);
+  }
+
+  &:active,
+  &.mock-active {
+    color: var(--token-color-foreground-faint);
+  }
+}
+
+.hds-xxx__text {
+  text-decoration: underline dotted;
+}
+

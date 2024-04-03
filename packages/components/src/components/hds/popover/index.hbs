@@ -13,10 +13,14 @@
   @enableClickEvents={{this.enableClickEvents}}
   @popoverOptions={{this.popoverOptions}}
   @toggleAriaLabel={{@toggleAriaLabel}}
+  @isInline={{@isInline}}
   ...attributes
 >
   <:toggle as |t|>
-    {{yield (hash setupToggle=t.setupMenuPrimitiveToggle) to="toggle"}}
+    {{yield (hash
+      setupToggle=t.setupMenuPrimitiveToggle
+      Xxx=(component "hds/popover/toggle/xxx")
+    ) to="toggle"}}
   </:toggle>
   <:content as |c|>
     {{! TODO! see if makes sense to move the "width/height" down to the primitive }}

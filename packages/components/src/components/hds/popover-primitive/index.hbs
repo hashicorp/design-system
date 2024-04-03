@@ -4,16 +4,22 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 {{! template-lint-disable no-invalid-interactive }}
-<div class="hds-popover-primitive" ...attributes {{this.setupMenuPrimitiveContainer}}>
+<div class="hds-popover-primitive {{if @isInline 'hds-popover-primitive--is-inline'}}" ...attributes {{this.setupMenuPrimitiveContainer}}>
   {{#if @containsInteractive}}
-    <div class="hds-popover-primitive__toggle" tabindex="-1">
+    <div class="hds-popover-primitive__toggle {{if @isInline 'hds-popover-primitive__toggle--is-inline'}}" tabindex="-1">
       {{! TODO! probably we can remove the need of forwarding the `setupMenuPrimitiveToggle` by using `click` events instead of `popovertarget` }}
       {{yield (hash isOpen=this.isOpen setupMenuPrimitiveToggle=(modifier this.setupMenuPrimitiveToggle)) to="toggle"}}
     </div>
   {{else}}
-    <button class="hds-popover-primitive__toggle" {{this.setupMenuPrimitiveToggle}}>
-      {{yield (hash isOpen=this.isOpen) to="toggle"}}
-    </button>
+    {{#if @isInline}}
+      <span role="button" tabindex="0" class="hds-popover-primitive__toggle" {{this.setupMenuPrimitiveToggle}}>
+        {{yield (hash isOpen=this.isOpen) to="toggle"}}
+      </span>
+    {{else}}
+      <button class="hds-popover-primitive__toggle" {{this.setupMenuPrimitiveToggle}}>
+        {{yield (hash isOpen=this.isOpen) to="toggle"}}
+      </button>
+    {{/if}}
   {{/if}}
 
   <div class="hds-popover-primitive__content" role="tooltip" tabindex="-1" {{this.setupMenuPrimitivePopover}}>

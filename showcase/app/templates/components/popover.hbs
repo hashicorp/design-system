@@ -9,6 +9,109 @@
 
 <section data-test-percy>
 
+  <Shw::Flex as |SF|>
+    <SF.Item @label="With yielded subcomponent">
+      <Hds::Popover>
+        <:toggle as |t|>
+          <p class="hds-typography-body-300"><t.Xxx @icon="lock" @iconPosition="leading">Test</t.Xxx></p>
+        </:toggle>
+        <:content>
+          Content
+        </:content>
+      </Hds::Popover>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Inline with other text" {{style width="250px"}}>
+      <p class="hds-typography-body-300">
+        Lorem ipsum dolor
+        <Hds::Popover>
+          <:toggle as |t|>
+            <t.Xxx @icon="lock" @iconPosition="leading">Test</t.Xxx>
+          </:toggle>
+          <:content>
+            Content
+          </:content>
+        </Hds::Popover>
+        sit amet consectetur adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
+      </p>
+    </SF.Item>
+    <SF.Item @label="Long text inline" {{style width="250px"}}>
+      <p class="hds-typography-body-300">
+        Lorem ipsum dolor
+        <Hds::Popover>
+          <:toggle as |t|>
+            <t.Xxx @icon="lock" @iconPosition="leading">Test with long text</t.Xxx>
+          </:toggle>
+          <:content>
+            Content
+          </:content>
+        </Hds::Popover>
+        sit amet consectetur adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
+      </p>
+    </SF.Item>
+    <SF.Item @label="Very long text inline" {{style width="250px"}}>
+      <p class="hds-typography-body-300">
+        Lorem ipsum dolor
+        <Hds::Popover>
+          <:toggle as |t|>
+            <t.Xxx @icon="lock" @iconPosition="leading">Test with long text that wraps multiple lines</t.Xxx>
+          </:toggle>
+          <:content>
+            Content
+          </:content>
+        </Hds::Popover>
+        sit amet consectetur adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
+      </p>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Inline (forced) with other text" {{style width="250px"}}>
+      <p class="hds-typography-body-300">
+        Lorem ipsum dolor
+        <Hds::Popover @isInline={{true}}>
+          <:toggle as |t|>
+            <t.Xxx @icon="lock" @iconPosition="leading">Test</t.Xxx>
+          </:toggle>
+          <:content>
+            Content
+          </:content>
+        </Hds::Popover>
+        sit amet consectetur adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
+      </p>
+    </SF.Item>
+    <SF.Item @label="Long text inline (forced)" {{style width="250px"}}>
+      <p class="hds-typography-body-300">
+        Lorem ipsum dolor
+        <Hds::Popover @isInline={{true}}>
+          <:toggle as |t|>
+            <t.Xxx @icon="lock" @iconPosition="leading">Test with long text</t.Xxx>
+          </:toggle>
+          <:content>
+            Content
+          </:content>
+        </Hds::Popover>
+        sit amet consectetur adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
+      </p>
+    </SF.Item>
+    <SF.Item @label="Very long text inline (forced)" {{style width="250px"}}>
+      <p class="hds-typography-body-300">
+        Lorem ipsum dolor
+        <Hds::Popover @isInline={{true}}>
+          <:toggle as |t|>
+            <t.Xxx @icon="lock" @iconPosition="leading">Test with long text that wraps multiple lines</t.Xxx>
+          </:toggle>
+          <:content>
+            Content
+          </:content>
+        </Hds::Popover>
+        sit amet consectetur adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
+      </p>
+    </SF.Item>
+  </Shw::Flex>
+
   <Shw::Text::H2>Base elements</Shw::Text::H2>
 
   <Shw::Flex {{style gap="2rem"}} as |SF|>
@@ -19,7 +122,7 @@
       </Shw::Outliner>
     </SF.Item>
     <SF.Item @label="Bubble" class="shw-component-popover-bubble-standalone">
-      <Shw::Outliner {{style width="200px"}}>
+      <Shw::Outliner {{style width="250px"}}>
         <Hds::Popover::Bubble>
           <Shw::Placeholder @text="generic content" @height="40" />
         </Hds::Popover::Bubble>

@@ -1,0 +1,16 @@
+{{! @glint-nocheck: not typesafe yet }}
+{{! IMPORTANT: we removed the newlines before/after the yield to reduce the issues with unexpected whitespaces (see https://github.com/hashicorp/design-system/pull/231#issuecomment-1123502499) }}
+{{! IMPORTANT: we need to add "squishies" here (~) because otherwise the whitespace added by Ember becomes visible in the underlined text (being an inline element) - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
+<span class={{this.classNames}}>
+  {{#if (and @icon (eq this.iconPosition "leading"))}}
+    <span class="hds-xxx__icon hds-xxx__icon--leading">
+      <FlightIcon @name={{@icon}} @size="16" @stretched={{true}} />
+    </span>
+  {{/if}}
+  <span class="hds-xxx__text">{{yield}}</span>
+  {{#if (and @icon (eq this.iconPosition "trailing"))}}
+    <span class="hds-xxx__icon hds-xxx__icon--trailing">
+      <FlightIcon @name={{@icon}} @size="16" @stretched={{true}} />
+    </span>
+  {{/if}}
+</span>
