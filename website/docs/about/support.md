@@ -17,9 +17,9 @@ Join the [#team-design-systems](https://hashicorp.slack.com/archives/C7KTUHNUS) 
 
 ## File an issue
 
- * Find a bug? 
- * Want to report an accessibility or security issue? 
- * Looking for a new icon or component?  
+ * Found a bug?
+ * Want to report an accessibility or security issue?
+ * Looking for a new icon or component?
  * Want to propose a new pattern?
 
 [File an issue in our backlog](https://go.hashi.co/hds-support) and we'll get back to you ASAP.
