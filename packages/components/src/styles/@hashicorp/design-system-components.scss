@@ -33,6 +33,7 @@
 @use "../components/dropdown";
 @use "../components/flyout";
 @use "../components/form"; // multiple components
+@use "../components/form/super-select";
 @use "../components/icon-tile";
 @use "../components/link"; // multiple components
 @use "../components/menu-primitive";
@@ -44,7 +45,6 @@
 @use "../components/separator";
 @use "../components/side-nav";
 @use "../components/stepper";
-@use "../components/super-select";
 @use "../components/table";
 @use "../components/tabs";
 @use "../components/tag";
