@@ -218,14 +218,14 @@
 
   <Shw::Text::H3>Interaction</Shw::Text::H3>
 
-  <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
-    <SF.Item @label="Default (no selection)">
+  <Shw::Flex @direction="row" as |SF|>
+    <SF.Item {{style flex="1"}} @label="Default (no selection)">
       <Hds::SuperSelect::Multiple @onChange={{this.noop}} @options={{@model.OPTIONS}} as |option|>
         {{option}}
       </Hds::SuperSelect::Multiple>
     </SF.Item>
 
-    <SF.Item @label="Selected">
+    <SF.Item {{style flex="1"}} @label="With selections">
       <Hds::SuperSelect::Multiple
         @onChange={{this.noop}}
         @options={{@model.OPTIONS}}
