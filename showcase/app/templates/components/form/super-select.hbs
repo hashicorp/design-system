@@ -9,6 +9,26 @@
 <Shw::Text::H1>SuperSelect</Shw::Text::H1>
 
 <section data-test-percy>
+  <Shw::Text::H2>Temporary WIP experiments (delete or move once finished)</Shw::Text::H2>
+
+  <Hds::Form::Field @layout="vertical" @isRequired={{true}} as |F|>
+    <F.Label>This is the label</F.Label>
+    <F.HelperText>This is the helper text</F.HelperText>
+    <F.Control>
+      <Hds::Form::SuperSelect::Single
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Single>
+    </F.Control>
+    <F.Error>This is the error</F.Error>
+  </Hds::Form::Field>
+
+  <Shw::Divider />
+
   <Shw::Text::H2>Single selection</Shw::Text::H2>
 
   <Shw::Text::H3>Interaction</Shw::Text::H3>
