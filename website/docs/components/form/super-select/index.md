@@ -4,9 +4,9 @@ description: An enhanced custom form select that enables users to search through
 caption: Enhanced form select that allows users to search and choose options from a list.
 links:
   figma: {link to the "SuperSelect" page in the components Figma library}
-  github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/super-select
+  github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/form/super-select
 related: ['components/form/select', 'components/dropdown']
-previewImage: assets/illustrations/components/super-select.jpg
+previewImage: assets/illustrations/components/form/super-select.jpg
 navigation:
   keywords: ['dropdown', 'powerselect']
 ---
