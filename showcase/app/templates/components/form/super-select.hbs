@@ -277,6 +277,33 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>Grouped options</Shw::Text::H3>
+  <Shw::Text::Body>
+    <mark>
+      NOTE: We could provide a standardized option for this & simplify the API if we choose (current styles are for demo
+      purposes)
+    </mark>
+  </Shw::Text::Body>
+
+  <Shw::Flex {{style max-width="50%" padding-bottom="10em"}} @direction="column" as |SF|>
+    <SF.Item @label="Custom group component (@groupComponent)">
+      <Hds::Form::SuperSelect::Single
+        @groupComponent={{component "form/power-select/group-component"}}
+        @onChange={{this.noop}}
+        @options={{@model.GROUPED_OPTIONS}}
+        @selected={{@model.SELECTED_GROUPED_OPTION}}
+        @initiallyOpened={{true}}
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Single>
+    </SF.Item>
+
+    <SF.Item @label="" />
+  </Shw::Flex>
+
   <Shw::Divider />
 
   <Shw::Text::H2>Multiple selection</Shw::Text::H2>

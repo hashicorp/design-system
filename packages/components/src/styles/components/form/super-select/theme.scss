@@ -351,3 +351,20 @@ $hds-tag-border-radius: 50px;
       width: auto;
   }
 }
+
+// TEMPORARY, move if some version is kept ------------
+// Used to provide custom group styles for select dropdown similar in concept to HTML optgroup 
+// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup
+
+// GroupComponent Test
+.hds-super-select__group-component {
+  border-bottom: 1px solid var(--token-color-border-primary);
+}
+
+.hds-super-select__group-component-group-name {
+  padding: 4px 8px;
+}
+
+.hds-super-select__group-component .hds-super-select__group-component .hds-super-select__group-component-group-name {
+  padding-left: 20px;
+}
