@@ -121,27 +121,60 @@
 
   <Shw::Text::H4>List position</Shw::Text::H4>
 
-  <Shw::Flex @direction="row" as |SF|>
-    <SF.Item {{style flex="1"}} @label="Below (default)">
-      <Hds::Form::SuperSelect::Single
-        @onChange={{this.noop}}
-        @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED}}
-        as |option|
-      >
-        {{option}}
-      </Hds::Form::SuperSelect::Single>
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item>
+      <Shw::Flex @direction="row" as |SF|>
+        <SF.Item {{style flex="1"}} @label="Below (default)">
+          <Hds::Form::SuperSelect::Single
+            @onChange={{this.noop}}
+            @options={{@model.OPTIONS}}
+            @selected={{@model.SELECTED}}
+            as |option|
+          >
+            {{option}}
+          </Hds::Form::SuperSelect::Single>
+        </SF.Item>
+        <SF.Item {{style flex="1"}} @label="Above">
+          <Hds::Form::SuperSelect::Single
+            @onChange={{this.noop}}
+            @options={{@model.OPTIONS}}
+            @selected={{@model.SELECTED}}
+            @verticalPosition="above"
+            as |option|
+          >
+            {{option}}
+          </Hds::Form::SuperSelect::Single>
+        </SF.Item>
+      </Shw::Flex>
     </SF.Item>
-    <SF.Item {{style flex="1"}} @label="Above">
-      <Hds::Form::SuperSelect::Single
-        @onChange={{this.noop}}
-        @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED}}
-        @verticalPosition="above"
-        as |option|
-      >
-        {{option}}
-      </Hds::Form::SuperSelect::Single>
+
+    <SF.Item>
+      <Shw::Flex {{style flex="1"}} as |SF|>
+        <SF.Item @label="Left (+ matchTriggerWidth=False)">
+          <Hds::Form::SuperSelect::Single
+            @onChange={{this.noop}}
+            @options={{@model.PLACES_OPTIONS}}
+            @selected={{@model.PLACES_SELECTED}}
+            @matchTriggerWidth={{false}}
+            @horizontalPosition="left"
+            as |option|
+          >
+            {{option}}
+          </Hds::Form::SuperSelect::Single>
+        </SF.Item>
+        <SF.Item @label="Right (+ matchTriggerWidth=False)">
+          <Hds::Form::SuperSelect::Single
+            @onChange={{this.noop}}
+            @options={{@model.PLACES_OPTIONS}}
+            @selected={{@model.PLACES_SELECTED}}
+            @matchTriggerWidth={{false}}
+            @horizontalPosition="right"
+            as |option|
+          >
+            {{option}}
+          </Hds::Form::SuperSelect::Single>
+        </SF.Item>
+      </Shw::Flex>
     </SF.Item>
   </Shw::Flex>
 
@@ -149,31 +182,27 @@
 
   <Shw::Flex {{style flex="1" padding-bottom="11em"}} as |SF|>
     <SF.Item @label="= true (default)">
-      <div class="shw-display-inline-flex">
-        <Hds::Form::SuperSelect::Single
-          @onChange={{this.noop}}
-          @options={{@model.PLACES_OPTIONS}}
-          @selected={{@model.PLACES_SELECTED}}
-          @initiallyOpened={{true}}
-          as |option|
-        >
-          {{option}}
-        </Hds::Form::SuperSelect::Single>
-      </div>
+      <Hds::Form::SuperSelect::Single
+        @onChange={{this.noop}}
+        @options={{@model.PLACES_OPTIONS}}
+        @selected={{@model.PLACES_SELECTED}}
+        @initiallyOpened={{true}}
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Single>
     </SF.Item>
     <SF.Item @label="= false">
-      <div class="shw-display-inline-flex">
-        <Hds::Form::SuperSelect::Single
-          @onChange={{this.noop}}
-          @options={{@model.PLACES_OPTIONS}}
-          @selected={{@model.PLACES_SELECTED}}
-          @initiallyOpened={{true}}
-          @matchTriggerWidth={{false}}
-          as |option|
-        >
-          {{option}}
-        </Hds::Form::SuperSelect::Single>
-      </div>
+      <Hds::Form::SuperSelect::Single
+        @onChange={{this.noop}}
+        @options={{@model.PLACES_OPTIONS}}
+        @selected={{@model.PLACES_SELECTED}}
+        @initiallyOpened={{true}}
+        @matchTriggerWidth={{false}}
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Single>
     </SF.Item>
   </Shw::Flex>
 
