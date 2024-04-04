@@ -9,17 +9,17 @@ import { setupApplicationTest } from 'website/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 import { globalAxeOptions } from 'website/tests/a11y-helper';
 
-module('Acceptance | components/super-select', function (hooks) {
+module('Acceptance | components/form/super-select', function (hooks) {
   setupApplicationTest(hooks);
 
-  test('visiting /components/super-select', async function (assert) {
-    await visit('/components/super-select');
+  test('visiting /components/form/super-select', async function (assert) {
+    await visit('/components/form/super-select');
 
-    assert.strictEqual(currentURL(), '/components/super-select');
+    assert.strictEqual(currentURL(), '/components/form/super-select');
   });
 
-  test('Components/super-select page passes automated a11y checks', async function (assert) {
-    await visit('/components/super-select');
+  test('Components/form/super-select page passes automated a11y checks', async function (assert) {
+    await visit('/components/form/super-select');
 
     await a11yAudit(globalAxeOptions);
 
