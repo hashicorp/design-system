@@ -10,7 +10,7 @@
 
 <section data-test-percy>
 
-  <Shw::Text::H2>Content</Shw::Text::H2>
+  <Shw::Text::H2>Base elements</Shw::Text::H2>
 
   <Shw::Grid @columns={{4}} {{style gap="2rem" margin-bottom="6rem"}} as |SG|>
     <SG.Item @label="Base">
@@ -37,6 +37,142 @@
           </:content>
         </Hds::PopoverPrimitive>
       {{/let}}
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Content</Shw::Text::H2>
+
+  <Shw::Flex {{style gap="4rem"}} as |SF|>
+    <SF.Item @label="Icon">
+      <Hds::PopoverPrimitive @enableSoftEvents={{true}}>
+        <:toggle>
+          <FlightIcon @name="info" @isInlineBlock={{false}} />
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="content" @width="80" @height="40" />
+        </:content>
+      </Hds::PopoverPrimitive>
+    </SF.Item>
+    <SF.Item @label="Text">
+      <Hds::PopoverPrimitive @enableSoftEvents={{true}}>
+        <:toggle>
+          <p class="hds-typography-body-300">Lorem ipsum dolor</p>
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="content" @width="80" @height="40" />
+        </:content>
+      </Hds::PopoverPrimitive>
+    </SF.Item>
+    <SF.Item @label="Badge/BadgeCount">
+      <Hds::PopoverPrimitive @enableSoftEvents={{true}}>
+        <:toggle>
+          <Hds::Badge @icon="activity" @text="Lorem ipsum" @color="highlight" />
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="content" @width="80" @height="40" />
+        </:content>
+      </Hds::PopoverPrimitive>
+      <Hds::PopoverPrimitive @enableSoftEvents={{true}}>
+        <:toggle>
+          <Hds::BadgeCount @text="123" />
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="content" @width="80" @height="40" />
+        </:content>
+      </Hds::PopoverPrimitive>
+    </SF.Item>
+    <SF.Item @label="Tag">
+      <Hds::PopoverPrimitive @enableSoftEvents={{true}}>
+        <:toggle>
+          <Hds::Tag @text="Lorem ipsum" />
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="content" @width="80" @height="40" />
+        </:content>
+      </Hds::PopoverPrimitive>
+      <Hds::PopoverPrimitive @enableSoftEvents={{true}} @containsInteractive={{true}}>
+        <:toggle as |t|>
+          <Hds::Tag {{t.setupMenuPrimitiveToggle}} @text="Lorem ipsum" @onDismiss={{this.noop}} />
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="content" @width="80" @height="40" />
+        </:content>
+      </Hds::PopoverPrimitive>
+    </SF.Item>
+    <SF.Item @label="Button">
+      <Hds::PopoverPrimitive @enableSoftEvents={{true}} @containsInteractive={{true}}>
+        <:toggle as |t|>
+          <Hds::Button {{t.setupMenuPrimitiveToggle}} @icon="plus" @text="Lorem ipsum" @color="primary" />
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="content" @width="80" @height="40" />
+        </:content>
+      </Hds::PopoverPrimitive>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Display</Shw::Text::H2>
+
+  <Shw::Grid @columns={{2}} as |SG|>
+    <SG.Item @label="Default (isInline=true)">
+      <p class="hds-typography-body-300">
+        Lorem ipsum dolor sit amet consectetur
+        <Hds::PopoverPrimitive @enableSoftEvents={{true}}>
+          <:toggle>
+            <FlightIcon @name="info" @isInlineBlock={{false}} {{style color="red"}} />
+          </:toggle>
+          <:content>
+            <Shw::Placeholder @text="content" @width="80" @height="40" />
+          </:content>
+        </Hds::PopoverPrimitive>
+        adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
+      </p>
+    </SG.Item>
+    <SG.Item @label="isInline=false">
+      <p class="hds-typography-body-300">
+        Lorem ipsum dolor sit amet consectetur
+        <Hds::PopoverPrimitive @isInline={{false}} @enableSoftEvents={{true}}>
+          <:toggle>
+            <FlightIcon @name="info" @isInlineBlock={{false}} {{style color="red"}} />
+          </:toggle>
+          <:content>
+            <Shw::Placeholder @text="content" @width="80" @height="40" />
+          </:content>
+        </Hds::PopoverPrimitive>
+        adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
+      </p>
+    </SG.Item>
+    <SG.Item>
+      <p class="hds-typography-body-300">
+        Lorem ipsum dolor sit amet consectetur
+        <Hds::PopoverPrimitive @enableSoftEvents={{true}}>
+          <:toggle>
+            <span {{style color="red"}}>toggle</span>
+          </:toggle>
+          <:content>
+            <Shw::Placeholder @text="content" @width="80" @height="40" />
+          </:content>
+        </Hds::PopoverPrimitive>
+        adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
+      </p>
+    </SG.Item>
+    <SG.Item>
+      <p class="hds-typography-body-300">
+        Lorem ipsum dolor sit amet consectetur
+        <Hds::PopoverPrimitive @isInline={{false}} @enableSoftEvents={{true}}>
+          <:toggle>
+            <span {{style color="red"}}>toggle</span>
+          </:toggle>
+          <:content>
+            <Shw::Placeholder @text="content" @width="80" @height="40" />
+          </:content>
+        </Hds::PopoverPrimitive>
+        adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
+      </p>
     </SG.Item>
   </Shw::Grid>
 

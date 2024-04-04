@@ -9,8 +9,16 @@
 
 .hds-popover-primitive {
   position: relative;
-  // TODO! do we need this?
-  // width: fit-content;
+}
+
+:where(.hds-popover-primitive--is-inline) {
+  display: inline;
+}
+
+:where(.hds-popover-primitive--is-block) {
+  display: block;
+  width: fit-content;
+  height: fit-content;
 }
 
 .hds-popover-primitive__toggle {
@@ -26,21 +34,21 @@
   }
 }
 
-// TODO! implement this option
+// Display
 
-.hds-popover-primitive__toggle--is-inline {
+:where(.hds-popover-primitive__toggle--is-inline) {
   display: inline;
 }
 
-.hds-popover-primitive__toggle--is-block {
+:where(.hds-popover-primitive__toggle--is-block) {
   display: block;
+  width: fit-content;
+  height: fit-content;
 }
 
 // this will have a "popover" behaviour associated, which comes with pre-defined styling
 .hds-popover-primitive__content {
-  // TODO! add polyfill styles here?
-  // see: https://github.com/oddbird/popover-polyfill?tab=readme-ov-file#caveats
-  :where(&[popover]) {
+   :where(&[popover]) {
     margin: 0;
     padding: 0;
     overflow: visible;

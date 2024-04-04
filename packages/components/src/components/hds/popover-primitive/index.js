@@ -33,7 +33,6 @@ export default class HdsPopoverPrimitiveComponent extends Component {
   @tracked toggleElement;
   @tracked popoverElement;
   @tracked isOpen = this.args.isOpen ?? false;
-  @tracked isForcedOpen = false;
   @tracked isClosing = false;
   // this will enable "click" events for the toggle
   @tracked enableClickEvents = this.args.enableClickEvents ?? false;
@@ -161,6 +160,54 @@ export default class HdsPopoverPrimitiveComponent extends Component {
     return popoverOptions;
   }
 
+
+  /**
+   * @param isInline
+   * @type {boolean}
+   * @default true
+   * @description sets display for the button
+   */
+  get isInline() {
+    let { isInline = true } = this.args;
+    return isInline;
+  }
+
+  /**
+   * Get the class names to apply to the element
+   * @method classNames
+   * @return {string} The "class" attribute to apply to the root element
+   */
+  get classNames() {
+    let classes = ['hds-popover-primitive'];
+
+    // add a class based on the @isInline argument
+    if (this.isInline) {
+      classes.push('hds-popover-primitive--is-inline');
+    } else {
+      classes.push('hds-popover-primitive--is-block');
+    }
+
+    return classes.join(' ');
+  }
+
+  /**
+   * Get the class names to apply to the toggle
+   * @method classNamesContent
+   * @return {string} The "class" attribute to apply to the toggle
+   */
+  get classNamesToggle() {
+    let classes = ['hds-popover-primitive__toggle'];
+
+    // add a class based on the @isInline argument
+    if (this.isInline) {
+      classes.push('hds-popover-primitive__toggle--is-inline');
+    } else {
+      classes.push('hds-popover-primitive__toggle--is-block');
+    }
+
+    return classes.join(' ');
+  }
+
   @action
   showPopover() {
     console.log('showPopover invoked');
@@ -213,7 +260,6 @@ export default class HdsPopoverPrimitiveComponent extends Component {
         this.popoverElement.popover = 'auto';
       }
       this.isOpen = false;
-      this.isForcedOpen = false;
       // reset the "isClosing" flag (the `toggle` event is fired _after_ the popover is closed)
       this.isClosing = false;
       this.toggleElement.setAttribute('aria-expanded', 'false');
@@ -249,9 +295,7 @@ export default class HdsPopoverPrimitiveComponent extends Component {
   @action
   onMouseLeave() {
     console.log('onMouseLeave invoked');
-    if (!this.isForcedOpen) {
-      this.timer = setTimeout(this.hidePopover.bind(this), 500);
-    }
+    this.timer = setTimeout(this.hidePopover.bind(this), 500);
   }
 
   @action
@@ -274,8 +318,7 @@ export default class HdsPopoverPrimitiveComponent extends Component {
     console.log(
       'toggleForcedOpen invoked',
       event,
-      this.isOpen,
-      this.isForcedOpen
+      this.isOpen
     );
 
     // we want to have "forced" opening only if the trigger has been explicitly "clicked"
@@ -285,12 +328,9 @@ export default class HdsPopoverPrimitiveComponent extends Component {
     // this works, using event.details (see: https://developer.mozilla.org/en-US/docs/Web/API/UIEvent/detail)
     const isPointerEvent = event.detail && event.detail > 0;
 
-    if (isPointerEvent && this.isOpen && !this.isForcedOpen) {
-      this.isForcedOpen = true;
+    if (isPointerEvent && this.isOpen) {
       // we need to prevent the native popover "toggle" to happen
       event.preventDefault();
-    } else {
-      this.isForcedOpen = false;
     }
   }
 
