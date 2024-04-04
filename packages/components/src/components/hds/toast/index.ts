@@ -1,4 +1,6 @@
-import Component from '@glimmer/component';
+import TemplateOnlyComponent from '@ember/component/template-only';
 import type { HdsToastSignature } from './types.ts';
 
-export default class HdsToastComponent extends Component<HdsToastSignature> {}
+const HdsToastComponent = TemplateOnlyComponent<HdsToastSignature>();
+
+export default HdsToastComponent;
