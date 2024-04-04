@@ -162,6 +162,18 @@
             {{option}}
           </Hds::Form::SuperSelect::Single>
         </SF.Item>
+        <SF.Item @label="Center (+ matchTriggerWidth=False)">
+          <Hds::Form::SuperSelect::Single
+            @onChange={{this.noop}}
+            @options={{@model.PLACES_OPTIONS}}
+            @selected={{@model.PLACES_SELECTED}}
+            @matchTriggerWidth={{false}}
+            @horizontalPosition="center"
+            as |option|
+          >
+            {{option}}
+          </Hds::Form::SuperSelect::Single>
+        </SF.Item>
         <SF.Item @label="Right (+ matchTriggerWidth=False)">
           <Hds::Form::SuperSelect::Single
             @onChange={{this.noop}}
