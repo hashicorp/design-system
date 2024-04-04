@@ -320,10 +320,7 @@ $hds-tag-border-radius: 50px;
       }
 
       // checked checkbox, hovered:
-      &:hover[aria-selected="true"] {}
-
-      &:hover {
-        // checked checkbox, hovered:
+      &:hover[aria-selected="true"] {
         &::before {
           background-color: var(--token-form-control-checked-border-color-default);
           border-color: var(--token-form-control-checked-border-color-hover);
