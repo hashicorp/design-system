@@ -28,7 +28,6 @@ export default class ComponentsSuperSelectRoute extends Route {
     ];
     const SELECTED_GROUPED_OPTION = ['two'];
 
-    // Use for examples? (Delete later if not used)
     const PLACES_OPTIONS = [
       'Oregon (us-west-2)',
       'N. Virginia (us-east-1)',
