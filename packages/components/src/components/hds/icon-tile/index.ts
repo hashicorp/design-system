@@ -6,16 +6,19 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import {
-  HdsIconTileSizeValues,
-  HdsIconTileColorValues,
+  HdsIconTileColorNeutral,
   HdsIconTileProductValues,
+  HdsIconTileSizeValues,
 } from './types.ts';
 import type { HdsIconTileSignature } from './types.ts';
 
 export const DEFAULT_SIZE = 'medium';
 export const DEFAULT_COLOR = 'neutral';
 export const SIZES: string[] = Object.values(HdsIconTileSizeValues);
-export const COLORS: string[] = Object.values(HdsIconTileColorValues);
+export const COLORS: string[] = Object.values({
+  ...HdsIconTileColorNeutral,
+  ...HdsIconTileProductValues,
+});
 export const PRODUCTS: string[] = Object.values(HdsIconTileProductValues);
 
 export default class HdsIconTileIndexComponent extends Component<HdsIconTileSignature> {
