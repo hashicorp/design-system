@@ -385,4 +385,134 @@
     {{/each}}
   {{/let}}
 
+  <Shw::Divider />
+
+  <Shw::Text::H2>Interaction</Shw::Text::H2>
+
+  {{#let (array "soft" "click") as |interactionVariants|}}
+    {{#each interactionVariants as |interaction|}}
+
+      <Shw::Text::H3>
+        On
+        {{#if (eq interaction "soft")}}
+          <code>Hover/Focus</code>
+          ("Soft")
+        {{else if (eq interaction "click")}}
+          <code>Click</code>
+        {{/if}}
+      </Shw::Text::H3>
+
+      {{#let (array "non-interactive" "interactive") as |triggerTypes|}}
+        {{#each triggerTypes as |triggerType|}}
+
+          {{#if (not (and (eq interaction "click") (eq triggerType "interactive")))}}
+
+            <Shw::Text::Body>Toggle with
+              <span {{style font-weight="500"}}>{{triggerType}}</span>
+              content</Shw::Text::Body>
+
+            <Shw::Grid @columns={{4}} {{style gap="2rem" align-items="center"}} as |SG|>
+
+              {{#let
+                (hash
+                  non-interactive=(array "text" "icon" "tag" "generic")
+                  interactive=(array "button" "link" "tag" "input")
+                )
+                as |triggerVariants|
+              }}
+                {{#each (get triggerVariants triggerType) as |triggerVariant|}}
+
+                  <SG.Item @label={{capitalize triggerVariant}}>
+                    <Hds::PopoverPrimitive
+                      @enableCollisionDetection={{true}}
+                      @enableSoftEvents={{(eq interaction "soft")}}
+                      @enableClickEvents={{(eq interaction "click")}}
+                      @containsInteractive={{eq triggerType "interactive"}}
+                      @popoverOptions={{(hash offsetOptions=4)}}
+                      @toggleAriaLabel={{if (eq triggerVariant "icon") "Information"}}
+                    >
+                      <:toggle as |t|>
+                        {{#if (eq triggerVariant "text")}}
+                          Lorem ipsum dolor
+                        {{/if}}
+                        {{#if (eq triggerVariant "icon")}}
+                          <FlightIcon @name="info" @isInlineBlock={{false}} />
+                        {{/if}}
+                        {{#if (eq triggerVariant "tag")}}
+                          {{#if (eq triggerType "non-interactive")}}
+                            <Hds::Tag @text="Sit amet" />
+                          {{/if}}
+                          {{#if (eq triggerType "interactive")}}
+                            <Hds::Tag @text="Sit amet" @onDismiss={{this.noop}} {{t.setupMenuPrimitiveToggle}} />
+                          {{/if}}
+                        {{/if}}
+                        {{#if (eq triggerVariant "button")}}
+                          <Hds::Button
+                            @text="Lorem ipsum"
+                            @icon="wand"
+                            {{t.setupMenuPrimitiveToggle}}
+                            {{on "click" this.onClickButton}}
+                          />
+                        {{/if}}
+                        {{#if (eq triggerVariant "link")}}
+                          <Hds::Link::Standalone
+                            @icon="external-link"
+                            @iconPosition="trailing"
+                            @text="Acme Corp"
+                            @href="#"
+                            {{t.setupMenuPrimitiveToggle}}
+                          />
+                        {{/if}}
+                        {{#if (eq triggerVariant "input")}}
+                          <Hds::Form::TextInput::Base
+                            placeholder="Lorem ipsum dolor"
+                            aria-label="demo input"
+                            @width="150px"
+                            {{t.setupMenuPrimitiveToggle}}
+                          />
+                        {{/if}}
+                        {{#if (eq triggerVariant "generic")}}
+                          <Shw::Placeholder @text="lorem ipsum" @height="40" />
+                        {{/if}}
+                      </:toggle>
+                      <:content as |c|>
+                        <div class="shw-component-popover-primitive-interaction-bubble">
+                          <button
+                            type="button"
+                            {{on "click" c.close}}
+                            title="Button that closes the popover on click"
+                          >x</button>
+                          <ul>
+                            <li>
+                              Lorem ipsum dolor sit amet consectetur
+                            </li>
+                            <li>
+                              <a href="https://google.com">Link to Google</a>
+                            </li>
+                            <li>
+                              <button type="button" {{on "click" c.close}}>Got it!</button>
+                            </li>
+                          </ul>
+                        </div>
+                      </:content>
+                    </Hds::PopoverPrimitive>
+                  </SG.Item>
+
+                {{/each}}
+              {{/let}}
+
+            </Shw::Grid>
+
+          {{/if}}
+
+        {{/each}}
+      {{/let}}
+
+      {{#if (eq interaction "soft")}}
+        <Shw::Divider @level={{2}} />
+      {{/if}}
+
+    {{/each}}
+  {{/let}}
+
 </section>

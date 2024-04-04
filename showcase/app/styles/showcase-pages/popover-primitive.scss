@@ -187,4 +187,44 @@ body.utilities-popover-primitive {
       outline: 4px solid magenta;
     }
   }
-}
+
+  .shw-component-popover-primitive-interaction-bubble {
+    position: relative;
+    padding: 16px;
+    background: var(--token-color-surface-primary);
+    box-shadow: var(--token-surface-higher-box-shadow);
+
+    > button {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      padding: 0;
+      font-size: 16px;
+    }
+
+    > ul {
+      margin: 0;
+      padding: 0 48px 0 0;
+      list-style: none;
+
+      li {
+        margin: 0;
+        padding: 0;
+
+        & + li {
+          margin-top: 8px;
+          padding-top: 8px;
+          border-top: 1px dotted #ccc;
+        }
+      }
+
+      a {
+        display: block;
+      }
+    }
+  }}
