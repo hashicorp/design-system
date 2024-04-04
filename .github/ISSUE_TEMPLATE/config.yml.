@@ -5,10 +5,10 @@ contact_links:
     about: Support page with links to resources and guidance on how to get support from the Helios Design Systems team
   - name: Icon request (for HashiCorp internal users)
     url: https://go.hashi.co/hds-support
-    about: File an issue in our backlog for a new icon (or changes to an existing one) and we'll get back to you ASAP.
+    about: Request a new icon (or changes to an existing one), and we'll get back to you ASAP.
   - name: Component/pattern request (for HashiCorp internal users)
     url: https://go.hashi.co/hds-support
-    about: File an issue in our backlog for a new component/pattern (or changes to an existing one) and we'll get back to you ASAP.
+    about: Request a new component/pattern (or changes to an existing one), and we'll get back to you ASAP.
   - name: Report a bug or an issue (for HashiCorp internal users)
     url: https://go.hashi.co/hds-support
     about: Report a bug, an accessibility problem, or a security issue.

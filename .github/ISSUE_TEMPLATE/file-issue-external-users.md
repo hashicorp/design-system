@@ -10,7 +10,7 @@ labels: external-request
 
 ## Description of the problem
 <!--- Describe what issue you have.  -->
-<!--- Please include a screenshot or gif if possible! -->
+<!--- Please include a screenshot or gif if possible. -->
 
 ## Possible suggested solution
 <!--- (Optional) Suggest how you would solve it -->
@@ -19,7 +19,6 @@ labels: external-request
 <!-- ================================
 
 ⚠️ Disclaimer ⚠️
-While we don't preclude requests from external users, please consider that we have limited capacity to support them, being focused on internal activities.
-We may not answer in a timely manner, or provide the solution you are asking for.
+We have limited capacity to support external requests. As such, we may not answer in a timely manner or be able to provide the solution you're asking for.
 
 ================================ -->
