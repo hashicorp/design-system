@@ -339,51 +339,38 @@
 
   <Shw::Text::H3>Collision detection</Shw::Text::H3>
 
-  {{#let (array false true) as |booleans|}}
-    {{#each booleans as |hasScrollableContainer counter|}}
-      <Shw::Grid @columns={{4}} {{style gap="2rem" margin-bottom="8rem"}} as |SF|>
-        {{#let (array false true "flip" "shift") as |detections|}}
-          {{#each detections as |detection|}}
-            {{#let (unique-id) as |arrowId|}}
-              <SF.Item
-                @forceMinWidth={{true}}
-                @label={{unless hasScrollableContainer (concat "enableCollisionDetection=" detection)}}
-              >
-                <div class={{(if hasScrollableContainer "container")}}>
-                  <span
-                  >aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
-                  <div class={{(if hasScrollableContainer "content")}}>
-                    <span
-                    >bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</span>
-                    <Hds::PopoverPrimitive
-                      @popoverOptions={{(hash
-                        offsetOptions=16 arrow=(concat "#" arrowId) enableCollisionDetection=detection
-                      )}}
-                      @isOpen={{true}}
-                    >
-                      <:toggle>
-                        <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
-                      </:toggle>
-                      <:content>
-                        <div class="shw-utilities-popover-primitive-base-bubble">
-                          <div class="shw-utilities-popover-primitive-base-arrow" id={{arrowId}} />
-                          <Shw::Placeholder @text="content" @width="120" @height="40" />
-                        </div>
-                      </:content>
-                    </Hds::PopoverPrimitive>
-                    <span
-                    >bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</span>
-                  </div>
-                  <span
-                  >aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
-                </div>
-              </SF.Item>
-            {{/let}}
-          {{/each}}
+  <Shw::Text::Body>Scroll within the boxes to see the collision detection in action</Shw::Text::Body>
+
+  <Shw::Grid @columns={{4}} {{style gap="2rem" margin-bottom="6rem"}} as |SF|>
+    {{#let (array false true "flip" "shift") as |detections|}}
+      {{#each detections as |detection|}}
+        {{#let (unique-id) as |arrowId|}}
+          <SF.Item @forceMinWidth={{true}} @label={{concat "enableCollisionDetection=" detection}}>
+            <div center-scrollable-area="both" class="shw-utilities-popover-primitive-collision-detection-container">
+              <div class="shw-utilities-popover-primitive-collision-detection-content">
+                <Hds::PopoverPrimitive
+                  @popoverOptions={{(hash
+                    offsetOptions=16 arrow=(concat "#" arrowId) enableCollisionDetection=detection
+                  )}}
+                  @isOpen={{true}}
+                >
+                  <:toggle>
+                    <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
+                  </:toggle>
+                  <:content>
+                    <div class="shw-utilities-popover-primitive-base-bubble">
+                      <div class="shw-utilities-popover-primitive-base-arrow" id={{arrowId}} />
+                      <Shw::Placeholder @text="content" @width="120" @height="40" />
+                    </div>
+                  </:content>
+                </Hds::PopoverPrimitive>
+              </div>
+            </div>
+          </SF.Item>
         {{/let}}
-      </Shw::Grid>
-    {{/each}}
-  {{/let}}
+      {{/each}}
+    {{/let}}
+  </Shw::Grid>
 
   <Shw::Divider />
 
@@ -472,7 +459,7 @@
                           />
                         {{/if}}
                         {{#if (eq triggerVariant "generic")}}
-                          <Shw::Placeholder @text="lorem ipsum" @height="40" />
+                          <Shw::Placeholder @text="lorem ipsum" @width="100" @height="40" />
                         {{/if}}
                       </:toggle>
                       <:content as |c|>
