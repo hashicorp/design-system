@@ -11,21 +11,25 @@
 <section data-test-percy>
   <Shw::Text::H2>Temporary WIP experiments (delete or move once finished)</Shw::Text::H2>
 
-  <Hds::Form::Field @layout="vertical" @isRequired={{true}} as |F|>
-    <F.Label>This is the label</F.Label>
-    <F.HelperText>This is the helper text</F.HelperText>
-    <F.Control>
-      <Hds::Form::SuperSelect::Single
-        @onChange={{this.noop}}
-        @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED}}
-        as |option|
-      >
-        {{option}}
-      </Hds::Form::SuperSelect::Single>
-    </F.Control>
-    <F.Error>This is the error</F.Error>
-  </Hds::Form::Field>
+  <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
+    <SF.Item @label="SuperSelect together with Form Primitives">
+      <Hds::Form::Field @isRequired={{true}} as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        <F.Control>
+          <Hds::Form::SuperSelect::Single
+            @onChange={{this.noop}}
+            @options={{@model.OPTIONS}}
+            @selected={{@model.SELECTED}}
+            as |option|
+          >
+            {{option}}
+          </Hds::Form::SuperSelect::Single>
+        </F.Control>
+        <F.Error>This is the error</F.Error>
+      </Hds::Form::Field>
+    </SF.Item>
+  </Shw::Flex>
 
   <Shw::Divider />
 
@@ -143,7 +147,7 @@
 
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item>
-      <Shw::Flex @direction="row" as |SF|>
+      <Shw::Flex as |SF|>
         <SF.Item {{style flex="1"}} @label="Below (default)">
           <Hds::Form::SuperSelect::Single
             @onChange={{this.noop}}
@@ -169,8 +173,8 @@
     </SF.Item>
 
     <SF.Item>
-      <Shw::Flex {{style flex="1"}} as |SF|>
-        <SF.Item @label="Left (+ matchTriggerWidth=False)">
+      <Shw::Flex as |SF|>
+        <SF.Item {{style flex="1"}} @label="Left (+ matchTriggerWidth=False)">
           <Hds::Form::SuperSelect::Single
             @onChange={{this.noop}}
             @options={{@model.PLACES_OPTIONS}}
@@ -182,7 +186,7 @@
             {{option}}
           </Hds::Form::SuperSelect::Single>
         </SF.Item>
-        <SF.Item @label="Center (+ matchTriggerWidth=False)">
+        <SF.Item {{style flex="1"}} @label="Center (+ matchTriggerWidth=False)">
           <Hds::Form::SuperSelect::Single
             @onChange={{this.noop}}
             @options={{@model.PLACES_OPTIONS}}
@@ -194,7 +198,7 @@
             {{option}}
           </Hds::Form::SuperSelect::Single>
         </SF.Item>
-        <SF.Item @label="Right (+ matchTriggerWidth=False)">
+        <SF.Item {{style flex="1"}} @label="Right (+ matchTriggerWidth=False)">
           <Hds::Form::SuperSelect::Single
             @onChange={{this.noop}}
             @options={{@model.PLACES_OPTIONS}}
@@ -212,12 +216,12 @@
 
   <Shw::Text::H4>List matches trigger width</Shw::Text::H4>
 
-  <Shw::Flex {{style flex="1" padding-bottom="11em"}} as |SF|>
-    <SF.Item @label="= true (default)">
+  <Shw::Flex {{style padding-bottom="11em"}} as |SF|>
+    <SF.Item {{style min-width="10em"}} @label="= true (default)">
       <Hds::Form::SuperSelect::Single
         @onChange={{this.noop}}
-        @options={{@model.PLACES_OPTIONS}}
-        @selected={{@model.PLACES_SELECTED}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED}}
         @initiallyOpened={{true}}
         as |option|
       >
