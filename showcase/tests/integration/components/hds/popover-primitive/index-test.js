@@ -238,7 +238,7 @@ module(
         .dom('.hds-popover-primitive__content')
         .hasAttribute('popover', 'auto');
     });
-    test('the content has a `popover` attribute set to `manual` if `@isOpen` is `true` and it reverts to `auto` after interacting with it', async function (assert) {
+    test('the content has a `popover` attribute set to `manual` if `@isOpen` is `true` and it reverts to `auto` after "soft" interacting with it', async function (assert) {
       await render(
         hbs`<Hds::PopoverPrimitive @enableSoftEvents={{true}} @isOpen={{true}} />`
       );
@@ -246,6 +246,21 @@ module(
         .dom('.hds-popover-primitive__content')
         .hasAttribute('popover', 'manual');
       await focus('.hds-popover-primitive__toggle');
+      // this will change back the `popover` attribute to `auto`
+      await blur('.hds-popover-primitive__toggle');
+      assert
+        .dom('.hds-popover-primitive__content')
+        .hasAttribute('popover', 'auto');
+    });
+    test('the content has a `popover` attribute set to `manual` if `@isOpen` is `true` and it reverts to `auto` after "click" interacting with it', async function (assert) {
+      await render(
+        hbs`<Hds::PopoverPrimitive @enableClickEvents={{true}} @isOpen={{true}} />`
+      );
+      assert
+        .dom('.hds-popover-primitive__content')
+        .hasAttribute('popover', 'manual');
+      // this will change back the `popover` attribute to `auto`
+      await click('.hds-popover-primitive__toggle');
       assert
         .dom('.hds-popover-primitive__content')
         .hasAttribute('popover', 'auto');
