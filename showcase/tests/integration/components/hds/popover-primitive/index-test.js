@@ -118,8 +118,12 @@ module(
       // focus the toggle to show the content
       await focus('button.hds-popover-primitive__toggle');
       // now it should be visible
-      // TODO! this fails and it's a problem I missed!
       assert.dom('#test-popover-primitive-content').exists();
+      // extra test to check that the the content goes on the top layer
+      assert.strictEqual(
+        document.querySelectorAll('[popover]:popover-open').length,
+        1
+      );
       // unfocus the toggle to hide the content
       await blur('button.hds-popover-primitive__toggle');
       // it's hidden when closed
@@ -244,13 +248,6 @@ module(
         .dom('.hds-popover-primitive__content')
         .hasAttribute('popover', 'auto');
     });
-
-    // • default => hds-popover-primitive__content > popover="auto"
-    // • isOpen=true => hds-popover-primitive__content > popover="auto"
-
-    // • test if the content goes on the top layer and the popover attribute is set
-
-    // TODO!
 
     // A11Y
 
