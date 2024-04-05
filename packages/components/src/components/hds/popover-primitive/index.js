@@ -96,13 +96,10 @@ export default class HdsPopoverPrimitiveComponent extends Component {
         );
       }
 
-      this.toggleElement.setAttribute('aria-controls', this.popoverId);
-
       this.toggleElement.setAttribute(
         'aria-expanded',
         this.args.isOpen ? 'true' : 'false'
       );
-
 
       // for the click events we don't use `onclick` event listeners,
       // but we rely on the `popovertarget` attribute provided by the Popover API

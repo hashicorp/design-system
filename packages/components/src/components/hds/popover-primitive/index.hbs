@@ -5,7 +5,7 @@
 }}
 <div class={{this.classNames}} ...attributes {{this.setupPrimitiveContainer}}>
   {{#let (element (if this.containsInteractive 'div' 'button')) as |Tag|}}
-    <Tag class={{this.classNamesToggle}} {{this.setupPrimitiveToggle}}>
+    <Tag class={{this.classNamesToggle}} {{this.setupPrimitiveToggle}} aria-controls={{this.popoverId}}>
       {{yield (hash popoverElement=this.popoverElement isOpen=this.isOpen) to="toggle"}}
     </Tag>
   {{/let}}
