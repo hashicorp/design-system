@@ -104,7 +104,7 @@
     <SF.Item @label="Button">
       <Hds::PopoverPrimitive @enableSoftEvents={{true}}>
         <:toggle>
-          <Hds::Button @icon="plus" @text="Lorem ipsum" @color="primary" />
+          <Hds::Button @icon="plus" @text="Lorem ipsum" @color="primary" {{on "click" this.onClickButton}} />
         </:toggle>
         <:content>
           <Shw::Placeholder @text="content" @width="80" @height="40" />
@@ -417,7 +417,7 @@
                       @popoverOptions={{(hash offsetOptions=4)}}
                       @toggleAriaLabel={{if (eq triggerVariant "icon") "Information"}}
                     >
-                      <:toggle as |t|>
+                      <:toggle>
                         {{#if (eq triggerVariant "text")}}
                           Lorem ipsum dolor
                         {{/if}}
