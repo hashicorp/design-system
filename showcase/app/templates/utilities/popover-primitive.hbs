@@ -92,9 +92,9 @@
           <Shw::Placeholder @text="content" @width="80" @height="40" />
         </:content>
       </Hds::PopoverPrimitive>
-      <Hds::PopoverPrimitive @enableSoftEvents={{true}} @containsInteractive={{true}}>
-        <:toggle as |t|>
-          <Hds::Tag {{t.setupMenuPrimitiveToggle}} @text="Lorem ipsum" @onDismiss={{this.noop}} />
+      <Hds::PopoverPrimitive @enableSoftEvents={{true}}>
+        <:toggle>
+          <Hds::Tag @text="Lorem ipsum" @onDismiss={{this.noop}} />
         </:toggle>
         <:content>
           <Shw::Placeholder @text="content" @width="80" @height="40" />
@@ -102,9 +102,9 @@
       </Hds::PopoverPrimitive>
     </SF.Item>
     <SF.Item @label="Button">
-      <Hds::PopoverPrimitive @enableSoftEvents={{true}} @containsInteractive={{true}}>
-        <:toggle as |t|>
-          <Hds::Button {{t.setupMenuPrimitiveToggle}} @icon="plus" @text="Lorem ipsum" @color="primary" />
+      <Hds::PopoverPrimitive @enableSoftEvents={{true}}>
+        <:toggle>
+          <Hds::Button @icon="plus" @text="Lorem ipsum" @color="primary" />
         </:toggle>
         <:content>
           <Shw::Placeholder @text="content" @width="80" @height="40" />
@@ -414,7 +414,6 @@
                       @enableCollisionDetection={{true}}
                       @enableSoftEvents={{(eq interaction "soft")}}
                       @enableClickEvents={{(eq interaction "click")}}
-                      @containsInteractive={{eq triggerType "interactive"}}
                       @popoverOptions={{(hash offsetOptions=4)}}
                       @toggleAriaLabel={{if (eq triggerVariant "icon") "Information"}}
                     >
@@ -430,16 +429,11 @@
                             <Hds::Tag @text="Sit amet" />
                           {{/if}}
                           {{#if (eq triggerType "interactive")}}
-                            <Hds::Tag @text="Sit amet" @onDismiss={{this.noop}} {{t.setupMenuPrimitiveToggle}} />
+                            <Hds::Tag @text="Sit amet" @onDismiss={{this.noop}} />
                           {{/if}}
                         {{/if}}
                         {{#if (eq triggerVariant "button")}}
-                          <Hds::Button
-                            @text="Lorem ipsum"
-                            @icon="wand"
-                            {{t.setupMenuPrimitiveToggle}}
-                            {{on "click" this.onClickButton}}
-                          />
+                          <Hds::Button @text="Lorem ipsum" @icon="wand" {{on "click" this.onClickButton}} />
                         {{/if}}
                         {{#if (eq triggerVariant "link")}}
                           <Hds::Link::Standalone
@@ -447,7 +441,6 @@
                             @iconPosition="trailing"
                             @text="Acme Corp"
                             @href="#"
-                            {{t.setupMenuPrimitiveToggle}}
                           />
                         {{/if}}
                         {{#if (eq triggerVariant "input")}}
@@ -455,7 +448,6 @@
                             placeholder="Lorem ipsum dolor"
                             aria-label="demo input"
                             @width="150px"
-                            {{t.setupMenuPrimitiveToggle}}
                           />
                         {{/if}}
                         {{#if (eq triggerVariant "generic")}}

@@ -77,19 +77,19 @@ module(
       assert.dom('.hds-popover-primitive__toggle--is-block').exists();
     });
 
-    // CONTAINS INTERACTIVE
+    // CONTAINS INTERACTIVE ELEMENTS
 
-    test('it should render the container as `<button>` by default', async function (assert) {
+    test('it should render the toggle container as `<button>` by default', async function (assert) {
       await render(hbs`
         <Hds::PopoverPrimitive id="test-popover-primitive" />
       `);
       assert.dom('button.hds-popover-primitive__toggle').exists();
     });
-    test('it should render the container as `<div>` if `@containsInteractive` is `true`', async function (assert) {
+    test('it should render the toggle container as `<div>` if it contains interactive elements', async function (assert) {
       await render(hbs`
-        <Hds::PopoverPrimitive id="test-popover-primitive" @containsInteractive={{true}}>
+        <Hds::PopoverPrimitive id="test-popover-primitive">
           <:toggle as |t|>
-            <button type="button" id="test-popover-primitive-toggle" {{t.setupMenuPrimitiveToggle}}>Toggle</button>
+            <button type="button" id="test-popover-primitive-toggle">Toggle</button>
           </:toggle>
           <:content>
             <div id="test-popover-primitive-content">Content</div>
@@ -151,9 +151,9 @@ module(
 
     test('it should toggle the content visibility on focus in/out when containinig interactive elements', async function (assert) {
       await render(hbs`
-        <Hds::PopoverPrimitive id="test-popover-primitive" @containsInteractive={{true}} @enableSoftEvents={{true}}>
+        <Hds::PopoverPrimitive id="test-popover-primitive" @enableSoftEvents={{true}}>
           <:toggle as |t|>
-            <button type="button" id="test-popover-primitive-toggle" {{t.setupMenuPrimitiveToggle}}>Toggle</button>
+            <button type="button" id="test-popover-primitive-toggle">Toggle</button>
           </:toggle>
           <:content>
             <div id="test-popover-primitive-content">Content</div>
@@ -174,9 +174,9 @@ module(
     });
     test('it should toggle the content visibility on click when containinig interactive elements', async function (assert) {
       await render(hbs`
-        <Hds::PopoverPrimitive id="test-popover-primitive" @containsInteractive={{true}} @enableClickEvents={{true}}>
+        <Hds::PopoverPrimitive id="test-popover-primitive" @enableClickEvents={{true}}>
           <:toggle as |t|>
-            <button type="button" id="test-popover-primitive-toggle" {{t.setupMenuPrimitiveToggle}}>Toggle</button>
+            <button type="button" id="test-popover-primitive-toggle">Toggle</button>
           </:toggle>
           <:content>
             <div id="test-popover-primitive-content">Content</div>

@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import { warn } from '@ember/debug';
+import { assert, warn } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
 
@@ -27,13 +27,17 @@ import {
 } from '@oddbird/popover-polyfill/fn';
 
 // we use this to re-export the values
-export { PLACEMENTS, DEFAULT_PLACEMENT } from '../../../modifiers/hds-anchored-position';
+export {
+  PLACEMENTS,
+  DEFAULT_PLACEMENT,
+} from '../../../modifiers/hds-anchored-position';
 
 export default class HdsPopoverPrimitiveComponent extends Component {
   @tracked toggleElement;
   @tracked popoverElement;
   @tracked isOpen = this.args.isOpen ?? false;
   @tracked isClosing = false;
+  @tracked containsInteractive = false;
   // this will enable "click" events for the toggle
   @tracked enableClickEvents = this.args.enableClickEvents ?? false;
   // this will enable "soft" events for the toggle ("hover" and "focus")
@@ -79,6 +83,12 @@ export default class HdsPopoverPrimitiveComponent extends Component {
     (element) => {
       this.toggleElement = element;
 
+      // check if it contains interactive elements
+      this.containsInteractive =
+        element.querySelector(
+          'a, button, input, select, textarea, details, dialog, menuitem, option'
+        ) !== null;
+
       if (this.args.toggleAriaLabel) {
         this.toggleElement.setAttribute(
           'aria-label',
@@ -91,19 +101,16 @@ export default class HdsPopoverPrimitiveComponent extends Component {
         this.isOpen ? 'true' : 'false'
       );
 
-      // for the click events we don't have `onclick` event listeners,
-      // we rely on the `popovertarget` attribute provided by the Popover API
+      // for the click events we don't use `onclick` event listeners,
+      // but we rely on the `popovertarget` attribute provided by the Popover API
       // which does all the magic for us without needing JS code
-      // (notice: to work it needs to be applied to a button)
+      // (important: to work it needs to be applied to a button)
       if (this.enableClickEvents) {
-        this.toggleElement.setAttribute('popovertarget', this.popoverId);
-      }
-
-      // when the toggle supports both soft events and click events
-      // we want the popover to be explicitly dismissed when the toggle was clicked
-      // (so mouseout is disabled)
-      if (this.enableClickEvents && this.enableSoftEvents) {
-        registerEvent(this.toggleElement, ['click', this.toggleForcedOpen]);
+        if (this.containsInteractive) {
+          assert("Hds::PopoverPrimitive - You have assigned `onClick` events to the \"toggle\" element, but it contains interactive elements: this may result in unexpected behaviours or non accessible code");
+        } else {
+          this.toggleElement.setAttribute('popovertarget', this.popoverId);
+        }
       }
     },
     { eager: false }
@@ -159,7 +166,6 @@ export default class HdsPopoverPrimitiveComponent extends Component {
     }
     return popoverOptions;
   }
-
 
   /**
    * @param isInline
@@ -310,27 +316,6 @@ export default class HdsPopoverPrimitiveComponent extends Component {
       )
     ) {
       this.hidePopover();
-    }
-  }
-
-  @action
-  toggleForcedOpen(event) {
-    console.log(
-      'toggleForcedOpen invoked',
-      event,
-      this.isOpen
-    );
-
-    // we want to have "forced" opening only if the trigger has been explicitly "clicked"
-    // (an "enter" key pressed when the toggle is focus would trigger the click but it would be strange for the consumer to have the toggle re-open the popover)
-    // this doesn't work in Firefox
-    // const isPointerEvent = event.pointerType && event.pointerType !== '';
-    // this works, using event.details (see: https://developer.mozilla.org/en-US/docs/Web/API/UIEvent/detail)
-    const isPointerEvent = event.detail && event.detail > 0;
-
-    if (isPointerEvent && this.isOpen) {
-      // we need to prevent the native popover "toggle" to happen
-      event.preventDefault();
     }
   }
 

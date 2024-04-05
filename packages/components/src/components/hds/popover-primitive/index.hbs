@@ -3,23 +3,15 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-{{! template-lint-disable no-invalid-interactive }}
 <div class={{this.classNames}} ...attributes {{this.setupMenuPrimitiveContainer}}>
-  {{#if @containsInteractive}}
-    <div class={{this.classNamesToggle}} tabindex="-1">
-      {{! TODO! probably we can remove the need of forwarding the `setupMenuPrimitiveToggle` by using `click` events instead of `popovertarget` }}
-      {{yield (hash isOpen=this.isOpen setupMenuPrimitiveToggle=(modifier this.setupMenuPrimitiveToggle)) to="toggle"}}
-    </div>
-  {{else}}
-    <button class={{this.classNamesToggle}} {{this.setupMenuPrimitiveToggle}}>
+  {{#let (element (if this.containsInteractive 'div' 'button')) as |Tag|}}
+    <Tag class={{this.classNamesToggle}} {{this.setupMenuPrimitiveToggle}}>
       {{yield (hash isOpen=this.isOpen) to="toggle"}}
-    </button>
-  {{/if}}
-
+    </Tag>
+  {{/let}}
   <div class="hds-popover-primitive__content" role="tooltip" tabindex="-1" {{this.setupMenuPrimitivePopover}}>
     {{#if this.isOpen}}
       {{yield (hash toggleElement=this.toggleElement close=this.close) to="content"}}
     {{/if}}
   </div>
 </div>
-{{! template-lint-enable no-invalid-interactive }}
