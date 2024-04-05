@@ -494,4 +494,39 @@
     {{/each}}
   {{/let}}
 
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>In combination with <code>@isOpen</code></Shw::Text::H3>
+
+  {{#let (array false true) as |booleans|}}
+    {{#each booleans as |isOpen|}}
+      <Shw::Grid @columns={{3}} {{style gap="2rem" margin-bottom="4rem"}} as |SG|>
+        {{#let (array "none" "soft" "click") as |interactionVariants|}}
+          {{#each interactionVariants as |interaction|}}
+            {{#let (unique-id) as |arrowId|}}
+              <SG.Item @label={{concat interaction " / isOpen={{" isOpen "}}"}}>
+                <Hds::PopoverPrimitive
+                  @popoverOptions={{(hash offsetOptions=16 arrow=(concat "#" arrowId))}}
+                  @enableSoftEvents={{(eq interaction "soft")}}
+                  @enableClickEvents={{(eq interaction "click")}}
+                  @isOpen={{isOpen}}
+                >
+                  <:toggle>
+                    <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
+                  </:toggle>
+                  <:content>
+                    <div class="shw-utilities-popover-primitive-base-bubble">
+                      <div class="shw-utilities-popover-primitive-base-arrow" id={{arrowId}} />
+                      <Shw::Placeholder @text="content" @width="120" @height="40" />
+                    </div>
+                  </:content>
+                </Hds::PopoverPrimitive>
+              </SG.Item>
+            {{/let}}
+          {{/each}}
+        {{/let}}
+      </Shw::Grid>
+    {{/each}}
+  {{/let}}
+
 </section>
