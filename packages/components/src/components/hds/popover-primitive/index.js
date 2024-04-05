@@ -100,7 +100,7 @@ export default class HdsPopoverPrimitiveComponent extends Component {
 
       this.toggleElement.setAttribute(
         'aria-expanded',
-        this.isOpen ? 'true' : 'false'
+        this.args.isOpen ? 'true' : 'false'
       );
 
 
