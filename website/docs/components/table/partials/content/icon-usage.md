@@ -11,7 +11,7 @@ Don’t use an icon as the sole communication method within a cell, even if the 
 
 !!! Dont
 
-We don’t recommend using an icon to indicate the status of an object, row, or resource. Instead, consider using a [Badge](components/badge).
+We don’t recommend using an icon to indicate the status of an object, row, or resource. Instead, consider using a [Badge](/components/badge).
 
 ![Icons being used for status](/assets/components/table/icon-status.png)
 !!!
