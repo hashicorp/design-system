@@ -1,15 +1,19 @@
 ## Anatomy
 
-<!-- image then table -->
-![Anatomy of richTooltip](/assets/components/alert/rich-tooltip-anatomy-inline.png)
+![Anatomy of the Rich Tooltip](/assets/components/rich-tooltip/rich-tooltip-anatomy.png)
 
-<!-- this is just an example, refer to other components to see how to fill this table -->
-| Element          | Usage                                           |
-|------------------|-------------------------------------------------|
-| Icon             | Optional, but recommended                       |
-| Title            | Required, if no description Optional, otherwise |
-| Description      | Required, if no title Optional, otherwise       |
-| Actions          | Optional                                        |
-| Dismiss button   | Optional                                        |
-| Content          | Required                                        |
-| Container        | Required                                        |
+| Element          | Usage    |
+|------------------|----------|
+| Content          | Required |
+| Container        | Required |
+| Pointer          | Required |
+
+### Default trigger
+
+![Default Trigger Anatomy](/assets/components/rich-tooltip/default-trigger-anatomy.png)
+
+| Element     | Usage                      |
+|-------------|----------------------------|
+| Text        | Optional                   |
+| Underline   | Required if including text |
+| Icon        | Optional                   |
