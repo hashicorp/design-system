@@ -22,7 +22,7 @@ module(
 
     test('it should render the elements yielded to the :toggle and :content slots', async function (assert) {
       await render(hbs`
-        <Hds::PopoverPrimitive id="test-popover-primitive" @popoverOptions={{(hash arrow="#test-popover-primitive-arrow")}} @enableClickEvents={{true}}>
+        <Hds::PopoverPrimitive @popoverOptions={{(hash arrow="#test-popover-primitive-arrow")}} @enableClickEvents={{true}}>
           <:toggle>
             <div id="test-popover-primitive-toggle">Toggle</div>
           </:toggle>
@@ -48,7 +48,7 @@ module(
 
     test('it should render the content if `@isOpen` is `true`', async function (assert) {
       await render(hbs`
-        <Hds::PopoverPrimitive id="test-popover-primitive" @isOpen={{true}}>
+        <Hds::PopoverPrimitive @isOpen={{true}}>
           <:toggle>
             <div id="test-popover-primitive-toggle">Toggle</div>
           </:toggle>
@@ -64,14 +64,14 @@ module(
 
     test('it should render the container and toggle as inline by default', async function (assert) {
       await render(hbs`
-        <Hds::PopoverPrimitive id="test-popover-primitive" />
+        <Hds::PopoverPrimitive />
       `);
       assert.dom('.hds-popover-primitive--is-inline').exists();
       assert.dom('.hds-popover-primitive__toggle--is-inline').exists();
     });
     test('it should render the container and toggle as block if `@isInline` is `false`', async function (assert) {
       await render(hbs`
-        <Hds::PopoverPrimitive id="test-popover-primitive" @isInline={{false}} />
+        <Hds::PopoverPrimitive @isInline={{false}} />
       `);
       assert.dom('.hds-popover-primitive--is-block').exists();
       assert.dom('.hds-popover-primitive__toggle--is-block').exists();
@@ -81,13 +81,13 @@ module(
 
     test('it should render the toggle container as `<button>` by default', async function (assert) {
       await render(hbs`
-        <Hds::PopoverPrimitive id="test-popover-primitive" />
+        <Hds::PopoverPrimitive />
       `);
       assert.dom('button.hds-popover-primitive__toggle').exists();
     });
     test('it should render the toggle container as `<div>` if it contains interactive elements', async function (assert) {
       await render(hbs`
-        <Hds::PopoverPrimitive id="test-popover-primitive">
+        <Hds::PopoverPrimitive>
           <:toggle as |t|>
             <button type="button" id="test-popover-primitive-toggle">Toggle</button>
           </:toggle>
@@ -104,7 +104,7 @@ module(
 
     test('it should toggle the content visibility on focus in/out', async function (assert) {
       await render(hbs`
-        <Hds::PopoverPrimitive id="test-popover-primitive" @enableSoftEvents={{true}}>
+        <Hds::PopoverPrimitive @enableSoftEvents={{true}}>
           <:toggle>
             <div id="test-popover-primitive-toggle">Toggle</div>
           </:toggle>
@@ -127,7 +127,7 @@ module(
     });
     test('it should toggle the content visibility on click', async function (assert) {
       await render(hbs`
-        <Hds::PopoverPrimitive id="test-popover-primitive" @enableClickEvents={{true}}>
+        <Hds::PopoverPrimitive @enableClickEvents={{true}}>
           <:toggle>
             <div id="test-popover-primitive-toggle">Toggle</div>
           </:toggle>
@@ -151,7 +151,7 @@ module(
 
     test('it should toggle the content visibility on focus in/out when containinig interactive elements', async function (assert) {
       await render(hbs`
-        <Hds::PopoverPrimitive id="test-popover-primitive" @enableSoftEvents={{true}}>
+        <Hds::PopoverPrimitive @enableSoftEvents={{true}}>
           <:toggle as |t|>
             <button type="button" id="test-popover-primitive-toggle">Toggle</button>
           </:toggle>
@@ -181,7 +181,7 @@ module(
       this.set('onClose', () => (status = 'closed'));
       await render(hbs`
         <Hds::PopoverPrimitive
-          id="test-popover-primitive"
+
           @enableClickEvents={{true}}
           @onOpen={{this.onOpen}}
           @onClose={{this.onClose}}
@@ -206,15 +206,69 @@ module(
 
     // TODO!
 
-    // POPOVER API HTML ATTRIBUTES
-    // TEST IF THE CONTENT GOES ON THE TOP LAYER AND THE POPOVER ATTRIBUTE IS SET
-    // popover + popover target attributes
+    // POPOVER API (HTML ATTRIBUTES)
+
+    test('the toggle does not have a `popovertarget` attribute by default', async function (assert) {
+      await render(hbs`<Hds::PopoverPrimitive />`);
+      assert
+        .dom('.hds-popover-primitive__toggle')
+        .doesNotHaveAttribute('popovertarget');
+    });
+    test('the toggle has a `popovertarget` attribute if `@enableClickEvents` is `true`', async function (assert) {
+      await render(hbs`<Hds::PopoverPrimitive @enableClickEvents={{true}} />`);
+      // the target ID is dynamically generated
+      let target = this.element.querySelector(
+        '.hds-popover-primitive__content'
+      );
+      let targetId = target.id;
+      assert
+        .dom('.hds-popover-primitive__toggle')
+        .hasAttribute('popovertarget', targetId);
+    });
+
+    test('the content has a `popover` attribute by default', async function (assert) {
+      await render(hbs`<Hds::PopoverPrimitive />`);
+      assert
+        .dom('.hds-popover-primitive__content')
+        .hasAttribute('popover', 'auto');
+    });
+    test('the content has a `popover` attribute set to `manual` if `@isOpen` is `true` and it reverts to `auto` after interacting with it', async function (assert) {
+      await render(
+        hbs`<Hds::PopoverPrimitive @enableSoftEvents={{true}} @isOpen={{true}} />`
+      );
+      assert
+        .dom('.hds-popover-primitive__content')
+        .hasAttribute('popover', 'manual');
+      await focus('.hds-popover-primitive__toggle');
+      assert
+        .dom('.hds-popover-primitive__content')
+        .hasAttribute('popover', 'auto');
+    });
+
+    // • default => hds-popover-primitive__content > popover="auto"
+    // • isOpen=true => hds-popover-primitive__content > popover="auto"
+
+    // • test if the content goes on the top layer and the popover attribute is set
 
     // TODO!
 
     // A11Y
 
-    // TODO!
+    test('it displays the correct aria and role attributes', async function (assert) {
+      await render(hbs`
+        <Hds::PopoverPrimitive @enableClickEvents={{true}} @toggleAriaLabel="test123" />
+      `);
+      assert.dom('.hds-popover-primitive__toggle').hasAria('label', 'test123');
+      assert.dom('.hds-popover-primitive__toggle').hasAria('expanded', 'false');
+      await click('.hds-popover-primitive__toggle');
+      assert.dom('.hds-popover-primitive__toggle').hasAria('expanded', 'true');
+      assert
+        .dom('.hds-popover-primitive__content')
+        .hasAttribute('role', 'tooltip');
+      assert
+        .dom('.hds-popover-primitive__content')
+        .hasAttribute('tabindex', '-1');
+    });
 
     // ASSERTIONS
 
@@ -226,7 +280,7 @@ module(
         assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
       });
       await render(hbs`
-        <Hds::PopoverPrimitive id="test-popover-primitive" @enableClickEvents={{true}}>
+        <Hds::PopoverPrimitive @enableClickEvents={{true}}>
           <:toggle as |t|>
             <button type="button" id="test-popover-primitive-toggle">Toggle</button>
           </:toggle>
