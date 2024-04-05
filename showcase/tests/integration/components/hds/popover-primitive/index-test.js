@@ -207,6 +207,8 @@ module(
     });
 
     // POPOVER OPTIONS
+    // notice: since these options are forwarded to the `hds-anchored-position` modifier,
+    // and there are specific tests for it, here we do only a bunch of general test to check that they work correctly
 
     // TODO!
 
