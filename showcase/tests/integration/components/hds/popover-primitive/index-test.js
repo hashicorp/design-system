@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, click, focus, blur } from '@ember/test-helpers';
+import { render, click, focus, blur, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module(
@@ -172,29 +172,6 @@ module(
       // it's hidden when closed
       assert.dom('#test-popover-primitive-content').doesNotExist();
     });
-    test('it should toggle the content visibility on click when containinig interactive elements', async function (assert) {
-      await render(hbs`
-        <Hds::PopoverPrimitive id="test-popover-primitive" @enableClickEvents={{true}}>
-          <:toggle as |t|>
-            <button type="button" id="test-popover-primitive-toggle">Toggle</button>
-          </:toggle>
-          <:content>
-            <div id="test-popover-primitive-content">Content</div>
-          </:content>
-        </Hds::PopoverPrimitive>
-      `);
-      // it's hidden when closed
-      assert.dom('#test-popover-primitive-content').doesNotExist();
-      // click the toggle to show the content
-      await click('.hds-popover-primitive__toggle > button');
-      // now it should be visible
-      // TODO! this fails and it's a problem I missed!
-      assert.dom('#test-popover-primitive-content').exists();
-      // click again the toggle to hide the content
-      await click('.hds-popover-primitive__toggle > button');
-      // it's hidden when closed
-      assert.dom('#test-popover-primitive-content').doesNotExist();
-    });
 
     // CALLBACKS
 
@@ -224,14 +201,43 @@ module(
       await click('button.hds-popover-primitive__toggle');
       assert.strictEqual(status, 'closed');
     });
+
+    // POPOVER OPTIONS
+
+    // TODO!
+
+    // POPOVER API HTML ATTRIBUTES
+    // TEST IF THE CONTENT GOES ON THE TOP LAYER AND THE POPOVER ATTRIBUTE IS SET
+    // popover + popover target attributes
+
+    // TODO!
+
+    // A11Y
+
+    // TODO!
+
+    // ASSERTIONS
+
+    test('it should throw an assertion if `@enableClickEvents` is `true` and the toggle contains interactive elements', async function (assert) {
+      const errorMessage =
+        'Hds::PopoverPrimitive - You have assigned `onClick` events to the "toggle" element, but it contains interactive elements: this may result in unexpected behaviours or non accessible code';
+      assert.expect(2);
+      setupOnerror(function (error) {
+        assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+      });
+      await render(hbs`
+        <Hds::PopoverPrimitive id="test-popover-primitive" @enableClickEvents={{true}}>
+          <:toggle as |t|>
+            <button type="button" id="test-popover-primitive-toggle">Toggle</button>
+          </:toggle>
+          <:content>
+            <div id="test-popover-primitive-content">Content</div>
+          </:content>
+        </Hds::PopoverPrimitive>
+      `);
+      assert.throws(function () {
+        throw new Error(errorMessage);
+      });
+    });
   }
-
-  // POPOVER OPTIONS
-
-  // TODO!
-
-  // POPOVER API ??
-
-  // TEST IF THE CONTENT GOES ON THE TOP LAYER AND THE POPOVER ATTRIBUTE IS SET
-  // popover + popover target attributes
 );
