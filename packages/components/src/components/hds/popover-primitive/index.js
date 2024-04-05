@@ -50,7 +50,7 @@ export default class HdsPopoverPrimitiveComponent extends Component {
    */
   popoverId = 'popover-' + guidFor(this);
 
-  setupMenuPrimitiveContainer = modifier(
+  setupPrimitiveContainer = modifier(
     (element) => {
       this.containerElement = element;
 
@@ -79,7 +79,7 @@ export default class HdsPopoverPrimitiveComponent extends Component {
     { eager: false }
   );
 
-  setupMenuPrimitiveToggle = modifier(
+  setupPrimitiveToggle = modifier(
     (element) => {
       this.toggleElement = element;
 
@@ -116,7 +116,7 @@ export default class HdsPopoverPrimitiveComponent extends Component {
     { eager: false }
   );
 
-  setupMenuPrimitivePopover = modifier(
+  setupPrimitivePopover = modifier(
     (element) => {
       this.popoverElement = element;
 
