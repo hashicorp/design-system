@@ -96,10 +96,13 @@ export default class HdsPopoverPrimitiveComponent extends Component {
         );
       }
 
+      this.toggleElement.setAttribute('aria-controls', this.popoverId);
+
       this.toggleElement.setAttribute(
         'aria-expanded',
         this.isOpen ? 'true' : 'false'
       );
+
 
       // for the click events we don't use `onclick` event listeners,
       // but we rely on the `popovertarget` attribute provided by the Popover API
@@ -107,7 +110,9 @@ export default class HdsPopoverPrimitiveComponent extends Component {
       // (important: to work it needs to be applied to a button)
       if (this.enableClickEvents) {
         if (this.containsInteractive) {
-          assert("Hds::PopoverPrimitive - You have assigned `onClick` events to the \"toggle\" element, but it contains interactive elements: this may result in unexpected behaviours or non accessible code");
+          assert(
+            'Hds::PopoverPrimitive - You have assigned `onClick` events to the "toggle" element, but it contains interactive elements: this may result in unexpected behaviours or non accessible code'
+          );
         } else {
           this.toggleElement.setAttribute('popovertarget', this.popoverId);
         }

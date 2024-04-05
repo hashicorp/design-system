@@ -46,7 +46,7 @@
 
   <Shw::Flex {{style gap="4rem"}} as |SF|>
     <SF.Item @label="Icon">
-      <Hds::PopoverPrimitive @enableSoftEvents={{true}}>
+      <Hds::PopoverPrimitive @enableSoftEvents={{true}} @toggleAriaLabel="Information">
         <:toggle>
           <FlightIcon @name="info" @isInlineBlock={{false}} />
         </:toggle>
@@ -121,9 +121,9 @@
     <SG.Item @label="Default (isInline=true)">
       <p class="hds-typography-body-300">
         Lorem ipsum dolor sit amet consectetur
-        <Hds::PopoverPrimitive @enableSoftEvents={{true}}>
+        <Hds::PopoverPrimitive @enableSoftEvents={{true}} @toggleAriaLabel="Information">
           <:toggle>
-            <FlightIcon @name="info" @isInlineBlock={{false}} {{style color="red"}} />
+            <FlightIcon @name="info" @isInlineBlock={{false}} {{style color="#EB0000"}} />
           </:toggle>
           <:content>
             <Shw::Placeholder @text="content" @width="80" @height="40" />
@@ -135,9 +135,9 @@
     <SG.Item @label="isInline=false">
       <p class="hds-typography-body-300">
         Lorem ipsum dolor sit amet consectetur
-        <Hds::PopoverPrimitive @isInline={{false}} @enableSoftEvents={{true}}>
+        <Hds::PopoverPrimitive @isInline={{false}} @enableSoftEvents={{true}} @toggleAriaLabel="Information">
           <:toggle>
-            <FlightIcon @name="info" @isInlineBlock={{false}} {{style color="red"}} />
+            <FlightIcon @name="info" @isInlineBlock={{false}} {{style color="#EB0000"}} />
           </:toggle>
           <:content>
             <Shw::Placeholder @text="content" @width="80" @height="40" />
@@ -151,7 +151,7 @@
         Lorem ipsum dolor sit amet consectetur
         <Hds::PopoverPrimitive @enableSoftEvents={{true}}>
           <:toggle>
-            <span {{style color="red"}}>toggle</span>
+            <span {{style color="#EB0000"}}>toggle</span>
           </:toggle>
           <:content>
             <Shw::Placeholder @text="content" @width="80" @height="40" />
@@ -165,7 +165,7 @@
         Lorem ipsum dolor sit amet consectetur
         <Hds::PopoverPrimitive @isInline={{false}} @enableSoftEvents={{true}}>
           <:toggle>
-            <span {{style color="red"}}>toggle</span>
+            <span {{style color="#EB0000"}}>toggle</span>
           </:toggle>
           <:content>
             <Shw::Placeholder @text="content" @width="80" @height="40" />
