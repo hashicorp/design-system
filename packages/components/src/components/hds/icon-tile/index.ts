@@ -5,26 +5,23 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import {
+  HdsIconTileColorNeutral,
+  HdsIconTileProductValues,
+  HdsIconTileSizeValues,
+} from './types.ts';
+import type { HdsIconTileSignature } from './types.ts';
 
 export const DEFAULT_SIZE = 'medium';
 export const DEFAULT_COLOR = 'neutral';
-export const SIZES = ['small', 'medium', 'large'];
-export const PRODUCTS = [
-  'boundary',
-  'consul',
-  'hcp',
-  'nomad',
-  'packer',
-  'terraform',
-  'vagrant',
-  'vault',
-  'vault-secrets',
-  'vault-radar',
-  'waypoint',
-];
-export const COLORS = ['neutral', ...PRODUCTS];
+export const SIZES: string[] = Object.values(HdsIconTileSizeValues);
+export const COLORS: string[] = Object.values({
+  ...HdsIconTileColorNeutral,
+  ...HdsIconTileProductValues,
+});
+export const PRODUCTS: string[] = Object.values(HdsIconTileProductValues);
 
-export default class HdsIconTileIndexComponent extends Component {
+export default class HdsIconTileIndexComponent extends Component<HdsIconTileSignature> {
   /**
    * Sets the size for the component
    * Accepted values: small, medium, large
@@ -34,7 +31,7 @@ export default class HdsIconTileIndexComponent extends Component {
    * @default 'medium'
    */
   get size() {
-    let { size = DEFAULT_SIZE } = this.args;
+    const { size = DEFAULT_SIZE } = this.args;
 
     assert(
       `@size for "Hds::IconTile" must be one of the following: ${SIZES.join(
@@ -87,7 +84,7 @@ export default class HdsIconTileIndexComponent extends Component {
     } else if (this.args.icon) {
       return this.args.icon;
     } else {
-      return null;
+      return undefined;
     }
   }
 
@@ -113,7 +110,7 @@ export default class HdsIconTileIndexComponent extends Component {
    * @default null
    */
   get logo() {
-    let { logo } = this.args;
+    const { logo } = this.args;
 
     if (logo) {
       assert(
@@ -173,7 +170,7 @@ export default class HdsIconTileIndexComponent extends Component {
    */
   // hds-icon-tile {{this.entityClass}} {{this.sizeClass}} {{this.colorClass}}"
   get classNames() {
-    let classes = ['hds-icon-tile'];
+    const classes = ['hds-icon-tile'];
 
     // add a class based on its entity argument
     classes.push(`hds-icon-tile--${this.entity}`);
