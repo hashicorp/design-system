@@ -8,6 +8,7 @@ import Route from '@ember/routing/route';
 export default class ComponentsSuperSelectRoute extends Route {
   model() {
     // these are used only for presentation purpose in the showcase
+    const STATES = ['default', 'hover', 'focus'];
     const OPTIONS = ['Option 1', 'Option 2', 'Option 3'];
     const SELECTED = ['Option 1'];
     const SELECTED_MULTIPLE = ['Option 1', 'Option 2'];
@@ -44,6 +45,7 @@ export default class ComponentsSuperSelectRoute extends Route {
     ];
 
     return {
+      STATES,
       OPTIONS,
       SELECTED,
       SELECTED_MULTIPLE,
