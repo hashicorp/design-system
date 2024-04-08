@@ -13,13 +13,14 @@
 
   <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
     <SF.Item @label="SuperSelect together with Form Primitives">
-      <Hds::Form::Field @isRequired={{true}} as |F|>
+      <Hds::Form::Field @layout="vertical" @isRequired={{true}} as |F|>
         <F.Label>This is the label</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
         <F.Control>
           <Hds::Form::SuperSelect::Single
             @onChange={{this.noop}}
             @options={{@model.OPTIONS}}
+            @isInvalid={{true}}
             @selected={{@model.SELECTED}}
             as |option|
           >
