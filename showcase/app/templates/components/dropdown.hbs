@@ -445,6 +445,43 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Text::H4>Icons</Shw::Text::H4>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="No icon (default)">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Interactive @text="Basic" />
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Leading icon">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Interactive @icon="settings" @text="Settings" />
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Trailing icon">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Interactive @trailingIcon="external-link" @text="Documentation" />
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Leading + Trailing icons">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Interactive
+            @icon="terraform-color"
+            @trailingIcon="external-link"
+            @text="Terraform"
+          />
+        </ul>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
   <Shw::Text::H4>Colors</Shw::Text::H4>
 
   <Shw::Flex as |SF|>
