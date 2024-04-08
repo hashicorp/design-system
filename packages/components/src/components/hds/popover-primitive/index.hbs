@@ -13,6 +13,8 @@
     {{#if @hasArrow}}
       <div class="hds-popover-primitive__arrow" {{this.setupPrimitiveArrow}} />
     {{/if}}
-    {{yield (hash toggleElement=this.toggleElement isOpen=this.isOpen close=this.close) to="content"}}
+    {{#if this.isOpen}}
+      {{yield (hash toggleElement=this.toggleElement isOpen=this.isOpen close=this.close) to="content"}}
+    {{/if}}
   </div>
 </div>
