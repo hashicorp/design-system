@@ -4,63 +4,33 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-{{page-title "SuperSelect Components"}}
+{{page-title "Form::SuperSelect Components"}}
 
-<Shw::Text::H1>SuperSelect</Shw::Text::H1>
+<Shw::Text::H1>Form::SuperSelect</Shw::Text::H1>
 
 <section data-test-percy>
-  <Shw::Text::H2>Temporary WIP experiments (delete or move once finished)</Shw::Text::H2>
-
-  <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
-    <SF.Item @label="SuperSelect together with Form Primitives">
-      <Hds::Form::Field @layout="vertical" @isRequired={{true}} as |F|>
-        <F.Label>This is the label</F.Label>
-        <F.HelperText>This is the helper text</F.HelperText>
-        <F.Control>
-          <Hds::Form::SuperSelect::Single
-            @onChange={{this.noop}}
-            @options={{@model.OPTIONS}}
-            @isInvalid={{true}}
-            @selected={{@model.SELECTED}}
-            as |option|
-          >
-            {{option}}
-          </Hds::Form::SuperSelect::Single>
-        </F.Control>
-        <F.Error>This is the error</F.Error>
-      </Hds::Form::Field>
-    </SF.Item>
-  </Shw::Flex>
-
-  <Shw::Divider />
 
   <Shw::Text::H2>Single selection</Shw::Text::H2>
 
-  <Shw::Text::H3>Interaction</Shw::Text::H3>
+  <Shw::Text::H3>Interaction status</Shw::Text::H3>
 
-  <Shw::Flex @direction="column" as |SF|>
-    <SF.Item>
-      <Shw::Flex @direction="row" as |SF|>
-        <SF.Item {{style flex="1"}} @label="Default (no selection)">
-          <Hds::Form::SuperSelect::Single @onChange={{this.noop}} @options={{@model.OPTIONS}} as |option|>
-            {{option}}
-          </Hds::Form::SuperSelect::Single>
-        </SF.Item>
-
-        <SF.Item {{style flex="1"}} @label="No selection with custom placeholder">
-          <Hds::Form::SuperSelect::Single
-            @onChange={{this.noop}}
-            @options={{@model.OPTIONS}}
-            @placeholder="Placeholder text"
-            as |option|
-          >
-            {{option}}
-          </Hds::Form::SuperSelect::Single>
-        </SF.Item>
-      </Shw::Flex>
-    </SF.Item>
-
-    <SF.Item {{style max-width="50%"}} @label="Selected">
+  <Shw::Grid @columns={{3}} as |SG|>
+    <SG.Item @label="Default">
+      <Hds::Form::SuperSelect::Single @onChange={{this.noop}} @options={{@model.OPTIONS}} as |option|>
+        {{option}}
+      </Hds::Form::SuperSelect::Single>
+    </SG.Item>
+    <SG.Item @label="With placeholder">
+      <Hds::Form::SuperSelect::Single
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @placeholder="Placeholder text"
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Single>
+    </SG.Item>
+    <SG.Item @label="Selected">
       <Hds::Form::SuperSelect::Single
         @onChange={{this.noop}}
         @options={{@model.OPTIONS}}
@@ -69,10 +39,10 @@
       >
         {{option}}
       </Hds::Form::SuperSelect::Single>
-    </SF.Item>
-  </Shw::Flex>
+    </SG.Item>
+  </Shw::Grid>
 
-  <Shw::Text::H4>Dropdown</Shw::Text::H4>
+  <Shw::Text::H4>Dropdown list</Shw::Text::H4>
 
   <Shw::Flex @direction="row" as |SF|>
     <SF.Item {{style flex="1" padding-bottom="11em"}} @label="No search">
@@ -105,40 +75,34 @@
 
   <Shw::Text::H3>States</Shw::Text::H3>
 
-  <Shw::Flex @direction="row" as |SF|>
-    <SF.Item {{style flex="1"}} @label="Default">
-      <Hds::Form::SuperSelect::Single
-        @onChange={{this.noop}}
-        @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED}}
-        as |option|
-      >
-        {{option}}
-      </Hds::Form::SuperSelect::Single>
-    </SF.Item>
-    <SF.Item {{style flex="1"}} @label="Focus">
-      <Hds::Form::SuperSelect::Single
-        class="mock-focus"
-        @onChange={{this.noop}}
-        @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED}}
-        as |option|
-      >
-        {{option}}
-      </Hds::Form::SuperSelect::Single>
-    </SF.Item>
-    <SF.Item {{style flex="1"}} @label="Disabled">
-      <Hds::Form::SuperSelect::Single
-        @disabled={{true}}
-        @onChange={{this.noop}}
-        @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED}}
-        as |option|
-      >
-        {{option}}
-      </Hds::Form::SuperSelect::Single>
-    </SF.Item>
-  </Shw::Flex>
+  <Shw::Grid @columns={{3}} as |SG|>
+    {{#let (array "base" "invalid" "disabled") as |variants|}}
+      {{#each @model.STATES as |state|}}
+        <SG.Item>
+          <Shw::Flex @direction="column" as |SF|>
+            {{#each variants as |variant|}}
+              {{! template-lint-disable simple-unless }}
+              {{#unless (and (eq variant "disabled") (eq state "focus"))}}
+                <SF.Item @label="{{capitalize variant}} / {{capitalize state}}">
+                  <Hds::Form::SuperSelect::Single
+                    @onChange={{this.noop}}
+                    @options={{@model.OPTIONS}}
+                    @selected={{@model.SELECTED}}
+                    @disabled={{if (eq variant "disabled") "disabled"}}
+                    @isInvalid={{if (eq variant "invalid") true}}
+                    class="mock-{{state}}"
+                    as |option|
+                  >
+                    {{option}}
+                  </Hds::Form::SuperSelect::Single>
+                </SF.Item>
+              {{/unless}}
+            {{/each}}
+          </Shw::Flex>
+        </SG.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Grid>
 
   <Shw::Divider @level="2" />
 
@@ -305,6 +269,31 @@
     <SF.Item @label="" />
   </Shw::Flex>
 
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>In a form field</Shw::Text::H3>
+
+  <Shw::Flex {{style max-width="50%"}} @direction="column" as |SF|>
+    <SF.Item>
+      <Hds::Form::Field @layout="vertical" @isRequired={{true}} as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        <F.Control>
+          <Hds::Form::SuperSelect::Single
+            @onChange={{this.noop}}
+            @options={{@model.OPTIONS}}
+            @isInvalid={{true}}
+            @selected={{@model.SELECTED}}
+            as |option|
+          >
+            {{option}}
+          </Hds::Form::SuperSelect::Single>
+        </F.Control>
+        <F.Error>This is the error</F.Error>
+      </Hds::Form::Field>
+    </SF.Item>
+  </Shw::Flex>
+
   <Shw::Divider />
 
   <Shw::Text::H2>Multiple selection</Shw::Text::H2>
@@ -330,7 +319,7 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Text::H4>Dropdown</Shw::Text::H4>
+  <Shw::Text::H4>Dropdown list</Shw::Text::H4>
 
   <Shw::Flex @direction="row" as |SF|>
     <SF.Item {{style flex="1" padding-bottom="9em"}} @label="No search">
@@ -363,40 +352,32 @@
 
   <Shw::Text::H3>States</Shw::Text::H3>
 
-  <Shw::Flex @direction="row" as |SF|>
-    <SF.Item {{style flex="1"}} @label="Default">
-      <Hds::Form::SuperSelect::Multiple
-        @onChange={{this.noop}}
-        @options={{@model.PLACES_OPTIONS}}
-        @selected={{@model.PLACES_SELECTED_MULTIPLE}}
-        as |option|
-      >
-        {{option}}
-      </Hds::Form::SuperSelect::Multiple>
-    </SF.Item>
-
-    <SF.Item {{style flex="1"}} @label="Focus">
-      <Hds::Form::SuperSelect::Multiple
-        class="mock-focus"
-        @onChange={{this.noop}}
-        @options={{@model.PLACES_OPTIONS}}
-        @selected={{@model.PLACES_SELECTED_MULTIPLE}}
-        as |option|
-      >
-        {{option}}
-      </Hds::Form::SuperSelect::Multiple>
-    </SF.Item>
-
-    <SF.Item {{style flex="1"}} @label="Disabled">
-      <Hds::Form::SuperSelect::Multiple
-        @disabled={{true}}
-        @onChange={{this.noop}}
-        @options={{@model.PLACES_OPTIONS}}
-        @selected={{@model.PLACES_SELECTED_MULTIPLE}}
-        as |option|
-      >
-        {{option}}
-      </Hds::Form::SuperSelect::Multiple>
-    </SF.Item>
-  </Shw::Flex>
+  <Shw::Grid @columns={{3}} as |SG|>
+    {{#let (array "base" "invalid" "disabled") as |variants|}}
+      {{#each @model.STATES as |state|}}
+        <SG.Item>
+          <Shw::Flex @direction="column" as |SF|>
+            {{#each variants as |variant|}}
+              {{! template-lint-disable simple-unless }}
+              {{#unless (and (eq variant "disabled") (eq state "focus"))}}
+                <SF.Item @label="{{capitalize variant}} / {{capitalize state}}">
+                  <Hds::Form::SuperSelect::Multiple
+                    @onChange={{this.noop}}
+                    @options={{@model.PLACES_OPTIONS}}
+                    @selected={{@model.PLACES_SELECTED_MULTIPLE}}
+                    @disabled={{if (eq variant "disabled") "disabled"}}
+                    @isInvalid={{if (eq variant "invalid") true}}
+                    class="mock-{{state}}"
+                    as |option|
+                  >
+                    {{option}}
+                  </Hds::Form::SuperSelect::Multiple>
+                </SF.Item>
+              {{/unless}}
+            {{/each}}
+          </Shw::Flex>
+        </SG.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Grid>
 </section>
