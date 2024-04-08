@@ -24,19 +24,14 @@
       </Hds::PopoverPrimitive>
     </SG.Item>
     <SG.Item @label="With arrow">
-      {{#let (unique-id) as |arrowId|}}
-        <Hds::PopoverPrimitive @popoverOptions={{(hash arrow=(concat "#" arrowId))}} @isOpen={{true}}>
-          <:toggle>
-            <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
-          </:toggle>
-          <:content>
-            <div class="shw-utilities-popover-primitive-base-bubble">
-              <div class="shw-utilities-popover-primitive-base-arrow" id={{arrowId}} />
-              <Shw::Placeholder @text="content" @width="80" @height="40" />
-            </div>
-          </:content>
-        </Hds::PopoverPrimitive>
-      {{/let}}
+      <Hds::PopoverPrimitive @hasArrow={{true}} @isOpen={{true}}>
+        <:toggle>
+          <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="content" @width="80" @height="40" />
+        </:content>
+      </Hds::PopoverPrimitive>
     </SG.Item>
   </Shw::Grid>
 
@@ -203,24 +198,20 @@
 
   <Shw::Grid class="shw-utilities-popover-primitive-placement-grid" @columns={{5}} as |SG|>
     {{#each @model.PLACEMENTS as |place|}}
-      {{#let (unique-id) as |arrowId|}}
-        <SG.Item class="shw-utilities-popover-primitive-placement-grid__item--{{place}}">
-          <Hds::PopoverPrimitive
-            @popoverOptions={{(hash placement=place arrow=(concat "#" arrowId) arrowPadding=0)}}
-            @isOpen={{true}}
-          >
-            <:toggle>
-              <div class="shw-utilities-popover-primitive-placement-grid__target">{{place}}</div>
-            </:toggle>
-            <:content>
-              <div class="shw-utilities-popover-primitive-base-bubble">
-                <div class="shw-utilities-popover-primitive-base-arrow" id={{arrowId}} />
-                <Shw::Placeholder @text="content" @width="80" @height="40" />
-              </div>
-            </:content>
-          </Hds::PopoverPrimitive>
-        </SG.Item>
-      {{/let}}
+      <SG.Item class="shw-utilities-popover-primitive-placement-grid__item--{{place}}">
+        <Hds::PopoverPrimitive
+          @popoverOptions={{hash placement=place arrowOptions=(hash padding=0)}}
+          @hasArrow={{true}}
+          @isOpen={{true}}
+        >
+          <:toggle>
+            <div class="shw-utilities-popover-primitive-placement-grid__target">{{place}}</div>
+          </:toggle>
+          <:content>
+            <Shw::Placeholder @text="content" @width="80" @height="40" />
+          </:content>
+        </Hds::PopoverPrimitive>
+      </SG.Item>
     {{/each}}
   </Shw::Grid>
 
@@ -244,30 +235,20 @@
           as |offsetOptionsVariants|
         }}
           {{#each offsetOptionsVariants as |offsetOptionsVariant|}}
-            {{#let (unique-id) as |arrowId|}}
-              <SF.Item @label={{(if (eq hasArrow false) (get offsetOptionsVariant "label"))}}>
-                <Hds::PopoverPrimitive
-                  @popoverOptions={{(hash
-                    offsetOptions=(get offsetOptionsVariant "offset") arrow=(if hasArrow (concat "#" arrowId))
-                  )}}
-                  @isOpen={{true}}
-                >
-                  <:toggle>
-                    <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
-                  </:toggle>
-                  <:content>
-                    {{#if hasArrow}}
-                      <div class="shw-utilities-popover-primitive-base-bubble">
-                        <div class="shw-utilities-popover-primitive-base-arrow" id={{arrowId}} />
-                        <Shw::Placeholder @text="content" @width="120" @height="40" />
-                      </div>
-                    {{else}}
-                      <Shw::Placeholder @text="content" @width="120" @height="40" />
-                    {{/if}}
-                  </:content>
-                </Hds::PopoverPrimitive>
-              </SF.Item>
-            {{/let}}
+            <SF.Item @label={{(if (eq hasArrow false) (get offsetOptionsVariant "label"))}}>
+              <Hds::PopoverPrimitive
+                @popoverOptions={{(hash offsetOptions=(get offsetOptionsVariant "offset"))}}
+                @hasArrow={{hasArrow}}
+                @isOpen={{true}}
+              >
+                <:toggle>
+                  <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
+                </:toggle>
+                <:content>
+                  <Shw::Placeholder @text="content" @width="120" @height="40" />
+                </:content>
+              </Hds::PopoverPrimitive>
+            </SF.Item>
           {{/each}}
         {{/let}}
       </Shw::Grid>
@@ -280,28 +261,23 @@
   <Shw::Grid @columns={{4}} {{style gap="2rem" margin-bottom="8rem"}} as |SF|>
     {{#let (array (hash label="not set") (hash label="24" arrowPadding=24)) as |arrowPaddingVariants|}}
       {{#each arrowPaddingVariants as |arrowPaddingVariant|}}
-        {{#let (unique-id) as |arrowId|}}
-          <SF.Item @label={{(get arrowPaddingVariant "label")}}>
-            <Hds::PopoverPrimitive
-              @popoverOptions={{(hash
-                offsetOptions=(hash mainAxis=16 crossAxis=100)
-                arrow=(concat "#" arrowId)
-                arrowPadding=(get arrowPaddingVariant "arrowPadding")
-              )}}
-              @isOpen={{true}}
-            >
-              <:toggle>
-                <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
-              </:toggle>
-              <:content>
-                <div class="shw-utilities-popover-primitive-base-bubble">
-                  <div class="shw-utilities-popover-primitive-base-arrow" id={{arrowId}} />
-                  <Shw::Placeholder @text="content" @width="120" @height="40" />
-                </div>
-              </:content>
-            </Hds::PopoverPrimitive>
-          </SF.Item>
-        {{/let}}
+        <SF.Item @label={{(get arrowPaddingVariant "label")}}>
+          <Hds::PopoverPrimitive
+            @popoverOptions={{(hash
+              offsetOptions=(hash mainAxis=16 crossAxis=100)
+              arrow=(hash padding=(get arrowPaddingVariant "arrowPadding"))
+            )}}
+            @hasArrow={{true}}
+            @isOpen={{true}}
+          >
+            <:toggle>
+              <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
+            </:toggle>
+            <:content>
+              <Shw::Placeholder @text="content" @width="120" @height="40" />
+            </:content>
+          </Hds::PopoverPrimitive>
+        </SF.Item>
       {{/each}}
     {{/let}}
   </Shw::Grid>
@@ -313,24 +289,20 @@
   <Shw::Grid @columns={{4}} {{style gap="2rem" margin-bottom="8rem"}} as |SF|>
     {{#let (array "absolute" "fixed") as |strategies|}}
       {{#each strategies as |strategy|}}
-        {{#let (unique-id) as |arrowId|}}
-          <SF.Item @label={{strategy}}>
-            <Hds::PopoverPrimitive
-              @popoverOptions={{(hash strategy=strategy offsetOptions=16 arrow=(concat "#" arrowId))}}
-              @isOpen={{true}}
-            >
-              <:toggle>
-                <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
-              </:toggle>
-              <:content>
-                <div class="shw-utilities-popover-primitive-base-bubble">
-                  <div class="shw-utilities-popover-primitive-base-arrow" id={{arrowId}} />
-                  <Shw::Placeholder @text="content" @width="120" @height="40" />
-                </div>
-              </:content>
-            </Hds::PopoverPrimitive>
-          </SF.Item>
-        {{/let}}
+        <SF.Item @label={{strategy}}>
+          <Hds::PopoverPrimitive
+            @popoverOptions={{(hash strategy=strategy offsetOptions=16)}}
+            @hasArrow={{true}}
+            @isOpen={{true}}
+          >
+            <:toggle>
+              <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
+            </:toggle>
+            <:content>
+              <Shw::Placeholder @text="content" @width="120" @height="40" />
+            </:content>
+          </Hds::PopoverPrimitive>
+        </SF.Item>
       {{/each}}
     {{/let}}
   </Shw::Grid>
@@ -344,30 +316,24 @@
   <Shw::Grid @columns={{4}} {{style gap="2rem" margin-bottom="6rem"}} as |SF|>
     {{#let (array false true "flip" "shift") as |detections|}}
       {{#each detections as |detection|}}
-        {{#let (unique-id) as |arrowId|}}
-          <SF.Item @forceMinWidth={{true}} @label={{concat "enableCollisionDetection=" detection}}>
-            <div center-scrollable-area="both" class="shw-utilities-popover-primitive-collision-detection-container">
-              <div class="shw-utilities-popover-primitive-collision-detection-content">
-                <Hds::PopoverPrimitive
-                  @popoverOptions={{(hash
-                    offsetOptions=16 arrow=(concat "#" arrowId) enableCollisionDetection=detection
-                  )}}
-                  @isOpen={{true}}
-                >
-                  <:toggle>
-                    <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
-                  </:toggle>
-                  <:content>
-                    <div class="shw-utilities-popover-primitive-base-bubble">
-                      <div class="shw-utilities-popover-primitive-base-arrow" id={{arrowId}} />
-                      <Shw::Placeholder @text="content" @width="120" @height="40" />
-                    </div>
-                  </:content>
-                </Hds::PopoverPrimitive>
-              </div>
+        <SF.Item @forceMinWidth={{true}} @label={{concat "enableCollisionDetection=" detection}}>
+          <div center-scrollable-area="both" class="shw-utilities-popover-primitive-collision-detection-container">
+            <div class="shw-utilities-popover-primitive-collision-detection-content">
+              <Hds::PopoverPrimitive
+                @popoverOptions={{(hash offsetOptions=16 enableCollisionDetection=detection)}}
+                @hasArrow={{true}}
+                @isOpen={{true}}
+              >
+                <:toggle>
+                  <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
+                </:toggle>
+                <:content>
+                  <Shw::Placeholder @text="content" @width="120" @height="40" />
+                </:content>
+              </Hds::PopoverPrimitive>
             </div>
-          </SF.Item>
-        {{/let}}
+          </div>
+        </SF.Item>
       {{/each}}
     {{/let}}
   </Shw::Grid>
@@ -503,26 +469,22 @@
       <Shw::Grid @columns={{3}} {{style gap="2rem" margin-bottom="4rem"}} as |SG|>
         {{#let (array "none" "soft" "click") as |interactionVariants|}}
           {{#each interactionVariants as |interaction|}}
-            {{#let (unique-id) as |arrowId|}}
-              <SG.Item @label={{concat interaction " / isOpen={{" isOpen "}}"}}>
-                <Hds::PopoverPrimitive
-                  @popoverOptions={{(hash offsetOptions=16 arrow=(concat "#" arrowId))}}
-                  @enableSoftEvents={{(eq interaction "soft")}}
-                  @enableClickEvents={{(eq interaction "click")}}
-                  @isOpen={{isOpen}}
-                >
-                  <:toggle>
-                    <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
-                  </:toggle>
-                  <:content>
-                    <div class="shw-utilities-popover-primitive-base-bubble">
-                      <div class="shw-utilities-popover-primitive-base-arrow" id={{arrowId}} />
-                      <Shw::Placeholder @text="content" @width="120" @height="40" />
-                    </div>
-                  </:content>
-                </Hds::PopoverPrimitive>
-              </SG.Item>
-            {{/let}}
+            <SG.Item @label={{concat interaction " / isOpen={{" isOpen "}}"}}>
+              <Hds::PopoverPrimitive
+                @popoverOptions={{(hash offsetOptions=16)}}
+                @enableSoftEvents={{(eq interaction "soft")}}
+                @enableClickEvents={{(eq interaction "click")}}
+                @hasArrow={{true}}
+                @isOpen={{isOpen}}
+              >
+                <:toggle>
+                  <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
+                </:toggle>
+                <:content>
+                  <Shw::Placeholder @text="content" @width="120" @height="40" />
+                </:content>
+              </Hds::PopoverPrimitive>
+            </SG.Item>
           {{/each}}
         {{/let}}
       </Shw::Grid>

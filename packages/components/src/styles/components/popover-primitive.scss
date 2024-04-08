@@ -21,6 +21,8 @@
   height: fit-content;
 }
 
+// TOGGLE
+
 .hds-popover-primitive__toggle {
   &:where(button) {
     margin: 0;
@@ -34,8 +36,6 @@
   }
 }
 
-// Display
-
 :where(.hds-popover-primitive__toggle--is-inline) {
   display: inline;
 }
@@ -46,8 +46,47 @@
   height: fit-content;
 }
 
-// this will have a "popover" behaviour associated, which comes with pre-defined styling
+
+// ARROW
+
+.hds-popover-primitive__arrow {
+  --arrow-size: var(--hds-popover-primitive-arrow-size, 16px);
+  --arrow-shift: calc(-1 * var(--arrow-size));
+  --arrow-background-image: var(--hds-popover-primitive-background-image, none);
+  position: absolute;
+  z-index: 1;
+  display: block;
+  width: var(--arrow-size);
+  height: var(--arrow-size);
+  background-image: var(--arrow-background-image);
+  background-size: var(--arrow-size) var(--arrow-size);
+  pointer-events: none;
+
+  &[data-hds-anchored-arrow-placement^="top"] {
+    bottom: var(--arrow-shift);
+    transform: rotate(180deg);
+  }
+
+  &[data-hds-anchored-arrow-placement^="right"] {
+    left: var(--arrow-shift);
+    transform: rotate(-90deg);
+  }
+
+  &[data-hds-anchored-arrow-placement^="bottom"] {
+    top: var(--arrow-shift);
+    transform: rotate(0deg); // this fixes a rendering issue in Safari
+  }
+
+  &[data-hds-anchored-arrow-placement^="left"] {
+    right: var(--arrow-shift);
+    transform: rotate(90deg);
+  }
+}
+
+// CONTENT
+
 .hds-popover-primitive__content {
+  // this will have a "popover" behaviour associated, which comes with pre-defined styling
    :where(&[popover]) {
     margin: 0;
     padding: 0;

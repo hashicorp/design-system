@@ -10,6 +10,9 @@
     </Tag>
   {{/let}}
   <div class="hds-popover-primitive__content" role="tooltip" tabindex="-1" {{this.setupPrimitivePopover}}>
+    {{#if @hasArrow}}
+      <div class="hds-popover-primitive__arrow" {{this.setupPrimitiveArrow}} />
+    {{/if}}
     {{yield (hash toggleElement=this.toggleElement isOpen=this.isOpen close=this.close) to="content"}}
   </div>
 </div>

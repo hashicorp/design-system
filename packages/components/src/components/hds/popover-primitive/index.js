@@ -7,6 +7,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert, warn } from '@ember/debug';
+import { next, schedule } from '@ember/runloop';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
 
@@ -35,6 +36,7 @@ export {
 export default class HdsPopoverPrimitiveComponent extends Component {
   @tracked toggleElement;
   @tracked popoverElement;
+  @tracked arrowElement;
   @tracked isOpen = this.args.isOpen ?? false;
   @tracked isClosing = false;
   @tracked containsInteractive = false;
@@ -52,6 +54,7 @@ export default class HdsPopoverPrimitiveComponent extends Component {
 
   setupPrimitiveContainer = modifier(
     (element) => {
+      console.log('setupPrimitiveContainer invoked', element);
       this.containerElement = element;
 
       // if the Popover API is not supported we need to polyfill it
@@ -81,6 +84,7 @@ export default class HdsPopoverPrimitiveComponent extends Component {
 
   setupPrimitiveToggle = modifier(
     (element) => {
+      console.log('setupPrimitiveToggle invoked', element);
       this.toggleElement = element;
 
       // check if it contains interactive elements
@@ -118,8 +122,17 @@ export default class HdsPopoverPrimitiveComponent extends Component {
     { eager: false }
   );
 
+  setupPrimitiveArrow = modifier(
+    (element) => {
+      console.log('setupPrimitiveArrow invoked', element);
+      this.arrowElement = element;
+    },
+    { eager: false }
+  );
+
   setupPrimitivePopover = modifier(
     (element) => {
+      console.log('setupPrimitivePopover invoked', element);
       this.popoverElement = element;
 
       this.popoverElement.id = this.popoverId;
@@ -146,11 +159,16 @@ export default class HdsPopoverPrimitiveComponent extends Component {
       // this modifiers uses the Floating UI library to provide:
       // - positioning of the "popover" in relation to the "toggle"
       // - collision detection (optional)
-      anchoredPositionModifier(
-        this.popoverElement, // element the modifier is attached to
-        [this.toggleElement], // positional arguments
-        this.popoverOptions // named arguments
-      );
+
+      // next(() => {
+      schedule('afterRender', () => {
+        console.log('I am here!!');
+        anchoredPositionModifier(
+          this.popoverElement, // element the modifier is attached to
+          [this.toggleElement], // positional arguments
+          this.popoverOptions // named arguments
+        );
+      });
     },
     { eager: false }
   );
@@ -159,13 +177,21 @@ export default class HdsPopoverPrimitiveComponent extends Component {
   // this is specifically done for Firefox: currently it doesn't support it, but will soon (we need Firefox 127 to support the last 2 versions)
   // see: https://wiki.mozilla.org/Release_Management/Release_owners
   get popoverOptions() {
-    const popoverOptions = this.args.popoverOptions;
+    const popoverOptions = this.args.popoverOptions ?? {};
     // if the Popover API is not supported (polyfill applied for the first time) of it's already been polyfilled (see above)
     if (!isPopoverApiSupported() || isPopoverApiPolyfilled()) {
       // when using the "absolute" strategy, the presence of a parent with "relative" position leads to wrong layout rendering (known issue in the polyfill library)
       // see: https://github.com/oddbird/popover-polyfill/tree/main?tab=readme-ov-file#caveats
       popoverOptions.popoverPositionStrategy = 'fixed';
     }
+
+    if (this.arrowElement) {
+      // we need to make sure the object exists (it may be already used for the `padding` of the arrow)
+      popoverOptions.arrowOptions = popoverOptions.arrowOptions ?? {};
+      // we assign the `arrowElement` to the `element` key
+      popoverOptions.arrowOptions.element = this.arrowElement;
+    }
+
     return popoverOptions;
   }
 
