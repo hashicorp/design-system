@@ -46,8 +46,7 @@ export const getFloatingUIOptions = (options) => {
     shiftOptions = { padding: 8 },
     middlewareExtra = [],
     enableCollisionDetection,
-    arrowElement,
-    arrowPadding, // distance from the edges of the "floating" element
+    arrowOptions,
   } = options;
 
   // we build dynamically the list of middleware functions to invoke, depending on the options provided
@@ -73,12 +72,10 @@ export const getFloatingUIOptions = (options) => {
   }
 
   // https://floating-ui.com/docs/arrow
-  if (arrowElement) {
+  if (arrowOptions) {
     middleware.push(
-      arrow({
-        element: arrowElement,
-        padding: arrowPadding,
-      })
+      // options: { element, padding }
+      arrow(arrowOptions)
     );
   }
 
@@ -131,23 +128,37 @@ export default modifier((element, positional, named = {}) => {
 
   // the "arrow" element (optional) associated with the "floating" element
   // it can be a DOM selector (string) or a DOM element
-  // notice: for convenience it's declared inside the "named" argument (object) for the modifier but we extract it to its own variable
-  const _arrowTarget = named?.arrow;
-  const arrowElement =
-    typeof _arrowTarget === 'string'
-      ? document.querySelector(_arrowTarget)
-      : _arrowTarget;
+  // notice: it's declared inside the "named" argument (object) for the modifier
+  // but we need to extract it also here so it can be used to assign inline styles to it
+  let arrowElement;
+  if (named?.arrowOptions?.element) {
+    assert(
+      '`hds-anchored-position` modifier - the `element` provided for the "arrow" element is not a valid DOM node',
+      named.arrowOptions.element instanceof HTMLElement ||
+        named.arrowOptions.element instanceof SVGElement
+    );
 
-  assert(
-    '`hds-anchored-position` modifier - the provided "arrow" element is not defined correctly',
-    arrowElement === undefined ||
-      arrowElement instanceof HTMLElement ||
-      arrowElement instanceof SVGElement
-  );
+    arrowElement = named.arrowOptions.element;
+  } else if (named?.arrowOptions?.selector) {
+    assert(
+      '`hds-anchored-position` modifier - the `selector` provided for the "arrow" element must be a string',
+      typeof named.arrowOptions.selector === 'string'
+    );
+
+    arrowElement = document.querySelector(named.arrowOptions.selector);
+
+    assert(
+      '`hds-anchored-position` modifier - the `selector` provided for the "arrow" element is not a valid DOM selector',
+      arrowElement
+    );
+
+    // for the the `getFloatingUIOptions` we always want to provide the element, not the selector
+    named.arrowOptions.element = arrowElement;
+  }
 
   // the Floating UI "options" to apply to the "floating" element
   // notice: it's expressed as "named" argument (object) for the modifier
-  const floatingOptions = getFloatingUIOptions({ ...named, arrowElement });
+  const floatingOptions = getFloatingUIOptions(named);
 
   const computeFloatingPosition = async () => {
     // important to know: `computePosition()` is not stateful, it only positions the "floating" element once
