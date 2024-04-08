@@ -411,7 +411,14 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
 .hds-dropdown-list-item__interactive-icon {
   display: block;
   margin-top: 2px;
+}
+
+.hds-dropdown-list-item__interactive-icon--leading {
   margin-right: 8px;
+}
+
+.hds-dropdown-list-item__interactive-icon--trailing {
+  margin-left: 8px;
 }
 
 .hds-dropdown-list-item__interactive-text {
