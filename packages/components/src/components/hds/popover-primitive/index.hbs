@@ -10,8 +10,6 @@
     </Tag>
   {{/let}}
   <div class="hds-popover-primitive__content" role="tooltip" tabindex="-1" {{this.setupPrimitivePopover}}>
-    {{#if this.isOpen}}
-      {{yield (hash toggleElement=this.toggleElement isOpen=this.isOpen close=this.close) to="content"}}
-    {{/if}}
+    {{yield (hash toggleElement=this.toggleElement isOpen=this.isOpen close=this.close) to="content"}}
   </div>
 </div>
