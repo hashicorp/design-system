@@ -45,31 +45,27 @@ module(
         </Hds::PopoverPrimitive>
       `);
       assert.dom('.hds-popover-primitive__toggle').exists();
-      assert.dom('.hds-popover-primitive__content').exists();
-      assert.dom('.hds-popover-primitive__arrow').exists();
       assert.dom('#test-popover-primitive-toggle').exists();
-      assert.dom('#test-popover-primitive-content').exists();
 
-      // arrow and content children should be hidden when it's closed (not ":popover-open")
+      assert.dom('.hds-popover-primitive__arrow').exists();
       assert.dom('.hds-popover-primitive__arrow').isNotVisible();
-      assert.dom('.hds-popover-primitive__content').isNotVisible();
-      assert.dom('#test-popover-primitive-content').isNotVisible();
+
+      assert.dom('.hds-popover-primitive__content').exists();
+      assert.dom('#test-popover-primitive-content').doesNotExist();
+
       // toggle the visibility
       await click('button.hds-popover-primitive__toggle');
-      // now arrow and content children should be visible
+
       assert.dom('.hds-popover-primitive__arrow').isVisible();
       assert.dom('.hds-popover-primitive__content').isVisible();
-      assert.dom('#test-popover-primitive-content').isVisible();
+      assert.dom('#test-popover-primitive-content').exists().isVisible();
     });
 
     test('the arrow and the content should be rendered and visible if `@isOpen` is `true`', async function (assert) {
       await render(hbs`
         <Hds::PopoverPrimitive @hasArrow={{true}} @isOpen={{true}}>
           <:toggle>Toggle</:toggle>
-          <:content>
-            {{! to test visibility we need some content inside the containers }}
-            <div id="test-popover-primitive-content">Content</div>
-          </:content>
+          <:content>Content</:content>
         </Hds::PopoverPrimitive>
       `);
       assert.dom('.hds-popover-primitive__arrow').isVisible();
@@ -125,19 +121,18 @@ module(
         <Hds::PopoverPrimitive @enableSoftEvents={{true}}>
           <:toggle>Toggle</:toggle>
           <:content>
-            {{! to test visibility we need some content inside the containers }}
             <div id="test-popover-primitive-content">Content</div>
           </:content>
         </Hds::PopoverPrimitive>
       `);
       // it's hidden when closed
       assert.dom('.hds-popover-primitive__content').isNotVisible();
-      assert.dom('#test-popover-primitive-content').isNotVisible();
+      assert.dom('#test-popover-primitive-content').doesNotExist();
       // focus the toggle to show the content
       await focus('button.hds-popover-primitive__toggle');
       // now it should be visible
       assert.dom('.hds-popover-primitive__content').isVisible();
-      assert.dom('#test-popover-primitive-content').isVisible();
+      assert.dom('#test-popover-primitive-content').exists().isVisible();
       // extra test to check that the the content goes on the top layer
       assert.strictEqual(
         document.querySelectorAll('[popover]:popover-open').length,
@@ -147,31 +142,30 @@ module(
       await blur('button.hds-popover-primitive__toggle');
       // it's hidden when closed
       assert.dom('.hds-popover-primitive__content').isNotVisible();
-      assert.dom('#test-popover-primitive-content').isNotVisible();
+      assert.dom('#test-popover-primitive-content').doesNotExist();
     });
     test('it should toggle the content visibility on click', async function (assert) {
       await render(hbs`
         <Hds::PopoverPrimitive @enableClickEvents={{true}}>
           <:toggle>Toggle</:toggle>
           <:content>
-            {{! to test visibility we need some content inside the containers }}
             <div id="test-popover-primitive-content">Content</div>
           </:content>
         </Hds::PopoverPrimitive>
       `);
       // it's hidden when closed
       assert.dom('.hds-popover-primitive__content').isNotVisible();
-      assert.dom('#test-popover-primitive-content').isNotVisible();
+      assert.dom('#test-popover-primitive-content').doesNotExist();
       // click the toggle to show the content
       await click('button.hds-popover-primitive__toggle');
       // now it should be visible
       assert.dom('.hds-popover-primitive__content').isVisible();
-      assert.dom('#test-popover-primitive-content').isVisible();
+      assert.dom('#test-popover-primitive-content').exists().isVisible();
       // click again the toggle to hide the content
       await click('button.hds-popover-primitive__toggle');
       // it's hidden when closed
       assert.dom('.hds-popover-primitive__content').isNotVisible();
-      assert.dom('#test-popover-primitive-content').isNotVisible();
+      assert.dom('#test-popover-primitive-content').doesNotExist();
     });
 
     test('it should toggle the content visibility on focus in/out when containinig interactive elements', async function (assert) {
@@ -186,15 +180,18 @@ module(
         </Hds::PopoverPrimitive>
       `);
       // it's hidden when closed
-      assert.dom('#test-popover-primitive-content').isNotVisible();
+      assert.dom('.hds-popover-primitive__content').isNotVisible();
+      assert.dom('#test-popover-primitive-content').doesNotExist();
       // focus the toggle to show the content
       await focus('.hds-popover-primitive__toggle > button');
       // now it should be visible
       assert.dom('#test-popover-primitive-content').isVisible();
+      assert.dom('#test-popover-primitive-content').exists().isVisible();
       // unfocus the toggle to hide the content
       await blur('.hds-popover-primitive__toggle > button');
       // it's hidden when closed
-      assert.dom('#test-popover-primitive-content').isNotVisible();
+      assert.dom('.hds-popover-primitive__content').isNotVisible();
+      assert.dom('#test-popover-primitive-content').doesNotExist();
     });
 
     // CALLBACKS
