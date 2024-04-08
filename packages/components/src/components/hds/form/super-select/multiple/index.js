@@ -40,6 +40,11 @@ export default class HdsSuperSelectMultipleIndexComponent extends Component {
       classes.push('hds-super-select--match-trigger-width-false');
     }
 
+    // add a class based on the @isInvalid argument
+    if (this.args.isInvalid) {
+      classes.push(`hds-super-select--is-invalid`);
+    }
+
     return classes.join(' ');
   }
 }
