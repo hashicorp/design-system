@@ -1,0 +1,30 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// UTILITIES > POPOVER-PRIMITIVE
+
+.doc-popover-primitive-custom-style {
+  .hds-popover-primitive__toggle {
+    padding: 8px 16px;
+    border: 1px dotted #ccc;
+
+    &:has(> button) {
+      padding: 0;
+      border: none;
+    }
+  }
+
+  .hds-popover-primitive__content {
+    padding: 8px 16px;
+    color: #000;
+    background-color: #d6d6d6;
+  }
+
+  .hds-popover-primitive__arrow {
+    --hds-popover-primitive-arrow-size: 16px;
+    --hds-popover-primitive-arrow-background: url('data:image/svg+xml,<svg width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 16 8 6l8 10H0Z" fill="%23D6D6D6"/></svg>')
+      no-repeat 0 0 / 16px 16px;
+  }
+}
