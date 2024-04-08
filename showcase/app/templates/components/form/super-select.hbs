@@ -113,11 +113,22 @@
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item>
       <Shw::Flex as |SF|>
-        <SF.Item {{style flex="1"}} @label="Below (default)">
+        <SF.Item {{style flex="1"}} @label="Auto (default)">
           <Hds::Form::SuperSelect::Single
             @onChange={{this.noop}}
             @options={{@model.OPTIONS}}
             @selected={{@model.SELECTED}}
+            as |option|
+          >
+            {{option}}
+          </Hds::Form::SuperSelect::Single>
+        </SF.Item>
+        <SF.Item {{style flex="1"}} @label="Below">
+          <Hds::Form::SuperSelect::Single
+            @onChange={{this.noop}}
+            @options={{@model.OPTIONS}}
+            @selected={{@model.SELECTED}}
+            @verticalPosition="below"
             as |option|
           >
             {{option}}
