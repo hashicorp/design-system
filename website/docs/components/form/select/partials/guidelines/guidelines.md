@@ -1,3 +1,11 @@
+!!! Info
+
+**This component is a native HTML element**
+
+Creating custom non-native variations of this component is not possible as we rely on the brower to render it as-is. More information can be found [on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select).
+
+!!!
+
 ## Usage
 
 ### When to use

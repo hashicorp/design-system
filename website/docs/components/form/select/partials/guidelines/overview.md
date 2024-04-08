@@ -1,1 +1,1 @@
-A Select is a form element that provides users with a way to select amongst a set of options. It is not possible to create custom variations of this component as it uses native HTML elements. More information can be [found here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select).
+A Select is a form element that provides users with a way to select amongst a set of options.
