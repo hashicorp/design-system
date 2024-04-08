@@ -1,8 +1,8 @@
 !!! Info
 
-**This component is a native HTML element**
+**This component uses a native HTML element**
 
-Creating custom non-native variations of this component is not possible as we rely on the brower to render it as-is. More information can be found [on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select).
+It's not possible to create custom variations of this component as it uses a native HTML element. Find more information [on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select).
 
 !!!
 
