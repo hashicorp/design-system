@@ -19,7 +19,7 @@ module(
         hbs`<Hds::Form::SuperSelect::Multiple @onChange={{this.NOOP}} id="test-super-select-multiple" />`
       );
       assert
-        .dom('.hds-super-select-multiple #test-super-select-multiple')
+        .dom('.hds-form-super-select-multiple #test-super-select-multiple')
         .exists();
     });
   }
