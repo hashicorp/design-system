@@ -18,7 +18,7 @@ body.utilities-popover-primitive {
   // basic styling for the "arrow" element
   .hds-popover-primitive__arrow {
     --hds-popover-primitive-arrow-size: 16px;
-    --hds-popover-primitive-background-image: url('data:image/svg+xml,<svg width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 16 8 6l8 10H0Z" fill="%23F00" fill-opacity=".5"/></svg>');
+    --hds-popover-primitive-arrow-background: url('data:image/svg+xml,<svg width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 16 8 6l8 10H0Z" fill="%23F00" fill-opacity=".5"/></svg>') no-repeat 0 0 / 16px 16px;
     outline: 1px dotted red;
   }
 
