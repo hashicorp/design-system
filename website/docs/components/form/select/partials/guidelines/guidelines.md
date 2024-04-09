@@ -2,7 +2,7 @@
 
 **This component uses a native HTML element**
 
-It's not possible to create custom variations of this component as it uses a native HTML element. Find more information [on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select).
+It's not possible to create technically custom variations of this component as it uses a native HTML element. Find more information [on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select).
 
 !!!
 
