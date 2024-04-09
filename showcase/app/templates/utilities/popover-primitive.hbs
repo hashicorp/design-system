@@ -1,0 +1,519 @@
+{{! @glint-nocheck: not typesafe yet }}
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "PopoverPrimitive"}}
+
+<Shw::Text::H1>PopoverPrimitive</Shw::Text::H1>
+
+<section data-test-percy>
+
+  <Shw::Text::H2>Base elements</Shw::Text::H2>
+
+  <Shw::Grid @columns={{4}} {{style gap="2rem" margin-bottom="6rem"}} as |SG|>
+    <SG.Item @label="Base">
+      <Hds::PopoverPrimitive @isOpen={{true}}>
+        <:toggle>
+          <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="content" @width="80" @height="40" />
+        </:content>
+      </Hds::PopoverPrimitive>
+    </SG.Item>
+    <SG.Item @label="With arrow">
+      <Hds::PopoverPrimitive @hasArrow={{true}} @isOpen={{true}}>
+        <:toggle>
+          <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="content" @width="80" @height="40" />
+        </:content>
+      </Hds::PopoverPrimitive>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Content</Shw::Text::H2>
+
+  <Shw::Flex {{style gap="4rem" margin-bottom="4rem"}} as |SF|>
+    <SF.Item @label="Non-interactive (toggle) content">
+      <Hds::PopoverPrimitive @isOpen={{true}}>
+        <:toggle>
+          <p class="hds-typography-body-300">Lorem ipsum dolor</p>
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="content" @width="80" @height="40" />
+        </:content>
+      </Hds::PopoverPrimitive>
+    </SF.Item>
+    <SF.Item @label="Interactive (toggle) content">
+      <Hds::PopoverPrimitive @isOpen={{true}} @isInline={{false}}>
+        <:toggle>
+          <Hds::Button @icon="plus" @text="Lorem ipsum" @color="primary" {{on "click" this.onClickButton}} />
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="content" @width="80" @height="40" />
+        </:content>
+      </Hds::PopoverPrimitive>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Flex {{style gap="4rem"}} as |SF|>
+    <SF.Item @label="Icon">
+      <Hds::PopoverPrimitive @enableSoftEvents={{true}} @toggleAriaLabel="Information">
+        <:toggle>
+          <FlightIcon @name="info" @isInlineBlock={{false}} />
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="content" @width="80" @height="40" />
+        </:content>
+      </Hds::PopoverPrimitive>
+    </SF.Item>
+    <SF.Item @label="Text">
+      <Hds::PopoverPrimitive @enableSoftEvents={{true}}>
+        <:toggle>
+          <p class="hds-typography-body-300">Lorem ipsum dolor</p>
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="content" @width="80" @height="40" />
+        </:content>
+      </Hds::PopoverPrimitive>
+    </SF.Item>
+    <SF.Item @label="Badge/BadgeCount">
+      <Hds::PopoverPrimitive @enableSoftEvents={{true}}>
+        <:toggle>
+          <Hds::Badge @icon="activity" @text="Lorem ipsum" @color="highlight" />
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="content" @width="80" @height="40" />
+        </:content>
+      </Hds::PopoverPrimitive>
+      <Hds::PopoverPrimitive @enableSoftEvents={{true}}>
+        <:toggle>
+          <Hds::BadgeCount @text="123" />
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="content" @width="80" @height="40" />
+        </:content>
+      </Hds::PopoverPrimitive>
+    </SF.Item>
+    <SF.Item @label="Tag">
+      <Hds::PopoverPrimitive @enableSoftEvents={{true}}>
+        <:toggle>
+          <Hds::Tag @text="Lorem ipsum" />
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="content" @width="80" @height="40" />
+        </:content>
+      </Hds::PopoverPrimitive>
+      <Hds::PopoverPrimitive @enableSoftEvents={{true}}>
+        <:toggle>
+          <Hds::Tag @text="Lorem ipsum" @onDismiss={{this.noop}} />
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="content" @width="80" @height="40" />
+        </:content>
+      </Hds::PopoverPrimitive>
+    </SF.Item>
+    <SF.Item @label="Button">
+      <Hds::PopoverPrimitive @enableSoftEvents={{true}}>
+        <:toggle>
+          <Hds::Button @icon="plus" @text="Lorem ipsum" @color="primary" {{on "click" this.onClickButton}} />
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="content" @width="80" @height="40" />
+        </:content>
+      </Hds::PopoverPrimitive>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Display</Shw::Text::H2>
+
+  <Shw::Grid @columns={{2}} as |SG|>
+    <SG.Item @label="Default (isInline=true)">
+      <p class="hds-typography-body-300">
+        Lorem ipsum dolor sit amet consectetur
+        <Hds::PopoverPrimitive @enableSoftEvents={{true}} @toggleAriaLabel="Information">
+          <:toggle>
+            <FlightIcon @name="info" @isInlineBlock={{false}} {{style color="#EB0000"}} />
+          </:toggle>
+          <:content>
+            <Shw::Placeholder @text="content" @width="80" @height="40" />
+          </:content>
+        </Hds::PopoverPrimitive>
+        adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
+      </p>
+    </SG.Item>
+    <SG.Item @label="isInline=false">
+      <p class="hds-typography-body-300">
+        Lorem ipsum dolor sit amet consectetur
+        <Hds::PopoverPrimitive @isInline={{false}} @enableSoftEvents={{true}} @toggleAriaLabel="Information">
+          <:toggle>
+            <FlightIcon @name="info" @isInlineBlock={{false}} {{style color="#EB0000"}} />
+          </:toggle>
+          <:content>
+            <Shw::Placeholder @text="content" @width="80" @height="40" />
+          </:content>
+        </Hds::PopoverPrimitive>
+        adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
+      </p>
+    </SG.Item>
+    <SG.Item>
+      <p class="hds-typography-body-300">
+        Lorem ipsum dolor sit amet consectetur
+        <Hds::PopoverPrimitive @enableSoftEvents={{true}}>
+          <:toggle>
+            <span {{style color="#EB0000"}}>toggle</span>
+          </:toggle>
+          <:content>
+            <Shw::Placeholder @text="content" @width="80" @height="40" />
+          </:content>
+        </Hds::PopoverPrimitive>
+        adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
+      </p>
+    </SG.Item>
+    <SG.Item>
+      <p class="hds-typography-body-300">
+        Lorem ipsum dolor sit amet consectetur
+        <Hds::PopoverPrimitive @isInline={{false}} @enableSoftEvents={{true}}>
+          <:toggle>
+            <span {{style color="#EB0000"}}>toggle</span>
+          </:toggle>
+          <:content>
+            <Shw::Placeholder @text="content" @width="80" @height="40" />
+          </:content>
+        </Hds::PopoverPrimitive>
+        adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
+      </p>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Options</Shw::Text::H2>
+
+  <Shw::Text::H3>Placement</Shw::Text::H3>
+
+  <Shw::Text::H4>Base</Shw::Text::H4>
+
+  <Shw::Grid class="shw-utilities-popover-primitive-placement-grid" @columns={{5}} as |SG|>
+    {{#each @model.PLACEMENTS as |place|}}
+      <SG.Item class="shw-utilities-popover-primitive-placement-grid__item--{{place}}">
+        <Hds::PopoverPrimitive @popoverOptions={{(hash placement=place)}} @isOpen={{true}}>
+          <:toggle>
+            <div class="shw-utilities-popover-primitive-placement-grid__target">{{place}}</div>
+          </:toggle>
+          <:content>
+            <Shw::Placeholder @text="content" @width="80" @height="40" />
+          </:content>
+        </Hds::PopoverPrimitive>
+      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
+
+  <Shw::Text::H4>With arrow</Shw::Text::H4>
+
+  <Shw::Grid class="shw-utilities-popover-primitive-placement-grid" @columns={{5}} as |SG|>
+    {{#each @model.PLACEMENTS as |place|}}
+      <SG.Item class="shw-utilities-popover-primitive-placement-grid__item--{{place}}">
+        <Hds::PopoverPrimitive
+          @popoverOptions={{hash placement=place arrowOptions=(hash padding=0)}}
+          @hasArrow={{true}}
+          @isOpen={{true}}
+        >
+          <:toggle>
+            <div class="shw-utilities-popover-primitive-placement-grid__target">{{place}}</div>
+          </:toggle>
+          <:content>
+            <Shw::Placeholder @text="content" @width="80" @height="40" />
+          </:content>
+        </Hds::PopoverPrimitive>
+      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Offset</Shw::Text::H3>
+
+  <Shw::Text::H4>offsetOptions</Shw::Text::H4>
+
+  {{#let (array false true) as |booleans|}}
+    {{#each booleans as |hasArrow|}}
+
+      <Shw::Grid @columns={{4}} {{style gap="2rem" margin-bottom="8rem"}} as |SF|>
+        {{#let
+          (array
+            (hash label="not set" offset=0)
+            (hash label="16" offset=16)
+            (hash label="{ mainAxis: 40, crossAxis: 0 }" offset=(hash mainAxis=40 crossAxis=0))
+            (hash label="{ mainAxis: 16, crossAxis: 100 }" offset=(hash mainAxis=16 crossAxis=100))
+          )
+          as |offsetOptionsVariants|
+        }}
+          {{#each offsetOptionsVariants as |offsetOptionsVariant|}}
+            <SF.Item @label={{(if (eq hasArrow false) (get offsetOptionsVariant "label"))}}>
+              <Hds::PopoverPrimitive
+                @popoverOptions={{(hash offsetOptions=(get offsetOptionsVariant "offset"))}}
+                @hasArrow={{hasArrow}}
+                @isOpen={{true}}
+              >
+                <:toggle>
+                  <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
+                </:toggle>
+                <:content>
+                  <Shw::Placeholder @text="content" @width="120" @height="40" />
+                </:content>
+              </Hds::PopoverPrimitive>
+            </SF.Item>
+          {{/each}}
+        {{/let}}
+      </Shw::Grid>
+
+    {{/each}}
+  {{/let}}
+
+  <Shw::Text::H4>arrowPadding</Shw::Text::H4>
+
+  <Shw::Grid @columns={{4}} {{style gap="2rem" margin-bottom="8rem"}} as |SF|>
+    {{#let (array (hash label="not set") (hash label="24" arrowPadding=24)) as |arrowPaddingVariants|}}
+      {{#each arrowPaddingVariants as |arrowPaddingVariant|}}
+        <SF.Item @label={{(get arrowPaddingVariant "label")}}>
+          <Hds::PopoverPrimitive
+            @popoverOptions={{(hash
+              offsetOptions=(hash mainAxis=16 crossAxis=100)
+              arrow=(hash padding=(get arrowPaddingVariant "arrowPadding"))
+            )}}
+            @hasArrow={{true}}
+            @isOpen={{true}}
+          >
+            <:toggle>
+              <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
+            </:toggle>
+            <:content>
+              <Shw::Placeholder @text="content" @width="120" @height="40" />
+            </:content>
+          </Hds::PopoverPrimitive>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Strategy</Shw::Text::H3>
+
+  <Shw::Grid @columns={{4}} {{style gap="2rem" margin-bottom="8rem"}} as |SF|>
+    {{#let (array "absolute" "fixed") as |strategies|}}
+      {{#each strategies as |strategy|}}
+        <SF.Item @label={{strategy}}>
+          <Hds::PopoverPrimitive
+            @popoverOptions={{(hash strategy=strategy offsetOptions=16)}}
+            @hasArrow={{true}}
+            @isOpen={{true}}
+          >
+            <:toggle>
+              <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
+            </:toggle>
+            <:content>
+              <Shw::Placeholder @text="content" @width="120" @height="40" />
+            </:content>
+          </Hds::PopoverPrimitive>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Collision detection</Shw::Text::H3>
+
+  <Shw::Text::Body>Scroll within the boxes to see the collision detection in action</Shw::Text::Body>
+
+  <Shw::Grid @columns={{4}} {{style gap="2rem" margin-bottom="6rem"}} as |SF|>
+    {{#let (array false true "flip" "shift") as |detections|}}
+      {{#each detections as |detection|}}
+        <SF.Item @forceMinWidth={{true}} @label={{concat "enableCollisionDetection=" detection}}>
+          <div center-scrollable-area="both" class="shw-utilities-popover-primitive-collision-detection-container">
+            <div class="shw-utilities-popover-primitive-collision-detection-content">
+              <Hds::PopoverPrimitive
+                @popoverOptions={{(hash offsetOptions=16 enableCollisionDetection=detection)}}
+                @hasArrow={{true}}
+                @isOpen={{true}}
+              >
+                <:toggle>
+                  <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
+                </:toggle>
+                <:content>
+                  <Shw::Placeholder @text="content" @width="120" @height="40" />
+                </:content>
+              </Hds::PopoverPrimitive>
+            </div>
+          </div>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Grid>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Interaction</Shw::Text::H2>
+
+  {{#let (array "soft" "click") as |interactionVariants|}}
+    {{#each interactionVariants as |interaction|}}
+
+      <Shw::Text::H3>
+        On
+        {{#if (eq interaction "soft")}}
+          <code>Hover/Focus</code>
+          ("Soft")
+        {{else if (eq interaction "click")}}
+          <code>Click</code>
+        {{/if}}
+      </Shw::Text::H3>
+
+      {{#let (array "non-interactive" "interactive") as |triggerTypes|}}
+        {{#each triggerTypes as |triggerType|}}
+
+          {{#if (not (and (eq interaction "click") (eq triggerType "interactive")))}}
+
+            <Shw::Text::Body>Toggle with
+              <span {{style font-weight="500"}}>{{triggerType}}</span>
+              content</Shw::Text::Body>
+
+            <Shw::Grid @columns={{4}} {{style gap="2rem" align-items="center"}} as |SG|>
+
+              {{#let
+                (hash
+                  non-interactive=(array "text" "icon" "tag" "generic")
+                  interactive=(array "button" "link" "tag" "input")
+                )
+                as |triggerVariants|
+              }}
+                {{#each (get triggerVariants triggerType) as |triggerVariant|}}
+
+                  <SG.Item @label={{capitalize triggerVariant}}>
+                    <Hds::PopoverPrimitive
+                      @enableCollisionDetection={{true}}
+                      @enableSoftEvents={{(eq interaction "soft")}}
+                      @enableClickEvents={{(eq interaction "click")}}
+                      @popoverOptions={{(hash offsetOptions=4)}}
+                      @toggleAriaLabel={{if (eq triggerVariant "icon") "Information"}}
+                    >
+                      <:toggle>
+                        {{#if (eq triggerVariant "text")}}
+                          Lorem ipsum dolor
+                        {{/if}}
+                        {{#if (eq triggerVariant "icon")}}
+                          <FlightIcon @name="info" @isInlineBlock={{false}} />
+                        {{/if}}
+                        {{#if (eq triggerVariant "tag")}}
+                          {{#if (eq triggerType "non-interactive")}}
+                            <Hds::Tag @text="Sit amet" />
+                          {{/if}}
+                          {{#if (eq triggerType "interactive")}}
+                            <Hds::Tag @text="Sit amet" @onDismiss={{this.noop}} />
+                          {{/if}}
+                        {{/if}}
+                        {{#if (eq triggerVariant "button")}}
+                          <Hds::Button @text="Lorem ipsum" @icon="wand" {{on "click" this.onClickButton}} />
+                        {{/if}}
+                        {{#if (eq triggerVariant "link")}}
+                          <Hds::Link::Standalone
+                            @icon="external-link"
+                            @iconPosition="trailing"
+                            @text="Acme Corp"
+                            @href="#"
+                          />
+                        {{/if}}
+                        {{#if (eq triggerVariant "input")}}
+                          <Hds::Form::TextInput::Base
+                            placeholder="Lorem ipsum dolor"
+                            aria-label="demo input"
+                            @width="150px"
+                          />
+                        {{/if}}
+                        {{#if (eq triggerVariant "generic")}}
+                          <Shw::Placeholder @text="lorem ipsum" @width="100" @height="40" />
+                        {{/if}}
+                      </:toggle>
+                      <:content as |c|>
+                        <div class="shw-component-popover-primitive-interaction-bubble">
+                          <button
+                            type="button"
+                            {{on "click" c.close}}
+                            title="Button that closes the popover on click"
+                          >x</button>
+                          <ul>
+                            <li>
+                              Lorem ipsum dolor sit amet consectetur
+                            </li>
+                            <li>
+                              <a href="https://google.com">Link to Google</a>
+                            </li>
+                            <li>
+                              <button type="button" {{on "click" c.close}}>Got it!</button>
+                            </li>
+                          </ul>
+                        </div>
+                      </:content>
+                    </Hds::PopoverPrimitive>
+                  </SG.Item>
+
+                {{/each}}
+              {{/let}}
+
+            </Shw::Grid>
+
+          {{/if}}
+
+        {{/each}}
+      {{/let}}
+
+      {{#if (eq interaction "soft")}}
+        <Shw::Divider @level={{2}} />
+      {{/if}}
+
+    {{/each}}
+  {{/let}}
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>In combination with <code>@isOpen</code></Shw::Text::H3>
+
+  {{#let (array false true) as |booleans|}}
+    {{#each booleans as |isOpen|}}
+      <Shw::Grid @columns={{3}} {{style gap="2rem" margin-bottom="4rem"}} as |SG|>
+        {{#let (array "none" "soft" "click") as |interactionVariants|}}
+          {{#each interactionVariants as |interaction|}}
+            <SG.Item @label={{concat interaction " / isOpen={{" isOpen "}}"}}>
+              <Hds::PopoverPrimitive
+                @popoverOptions={{(hash offsetOptions=16)}}
+                @enableSoftEvents={{(eq interaction "soft")}}
+                @enableClickEvents={{(eq interaction "click")}}
+                @hasArrow={{true}}
+                @isOpen={{isOpen}}
+              >
+                <:toggle>
+                  <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
+                </:toggle>
+                <:content>
+                  <Shw::Placeholder @text="content" @width="120" @height="40" />
+                </:content>
+              </Hds::PopoverPrimitive>
+            </SG.Item>
+          {{/each}}
+        {{/let}}
+      </Shw::Grid>
+    {{/each}}
+  {{/let}}
+
+</section>
