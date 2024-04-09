@@ -5,13 +5,8 @@
 
 import Component from '@glimmer/component';
 
-export default class HdsSuperSelectSingleIndexComponent extends Component {
-  // UNCOMMENT THIS IF YOU NEED A CONSTRUCTOR
-  // constructor() {
-  //   super(...arguments);
-  //   // ADD YOUR ASSERTIONS HERE
-  // }
-
+export default class HdsSuperSelectMultipleBaseComponent extends Component {
+  // NOTE: The searchPlaceholder doesn't currently work for the multiple select
   /**
    * Get the search placeholder text
    * @param searchPlaceholder
@@ -30,7 +25,7 @@ export default class HdsSuperSelectSingleIndexComponent extends Component {
   get classNames() {
     let classes = [
       'hds-form-super-select',
-      'hds-form-super-select-single',
+      'hds-form-super-select-multiple',
       'hds-typography-body-200',
     ];
 
