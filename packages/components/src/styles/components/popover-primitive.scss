@@ -56,6 +56,7 @@
   position: absolute;
   z-index: 1;
   display: block;
+  // notice: floating-ui assumes the "arrow" container is square
   width: var(--arrow-size);
   height: var(--arrow-size);
   background: var(--arrow-background);
