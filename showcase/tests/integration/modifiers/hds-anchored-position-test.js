@@ -57,7 +57,8 @@ module(
       assert.deepEqual(floatingUIOptions.middleware[1].name, 'flip');
       assert.deepEqual(floatingUIOptions.middleware[1].options, { padding: 8 });
       assert.deepEqual(floatingUIOptions.middleware[2].name, 'shift');
-      assert.deepEqual(floatingUIOptions.middleware[2].options, { padding: 8 });
+      // the object contains also the `limiter` function, so we test only the padding
+      assert.deepEqual(floatingUIOptions.middleware[2].options.padding, 8);
       floatingUIOptions = getFloatingUIOptions({
         enableCollisionDetection: true,
         flipOptions: { padding: 1234 },
@@ -95,10 +96,28 @@ module(
       assert.deepEqual(floatingUIOptions.middleware.length, 2);
       assert.deepEqual(floatingUIOptions.middleware[0].name, 'offset');
       assert.deepEqual(floatingUIOptions.middleware[1].name, 'shift');
-      assert.deepEqual(floatingUIOptions.middleware[1].options, { padding: 8 });
+      // the object contains also the `limiter` function, so we test only the padding
+      assert.deepEqual(floatingUIOptions.middleware[1].options.padding, 8);
       floatingUIOptions = getFloatingUIOptions({
         enableCollisionDetection: 'shift',
         shiftOptions: { padding: 9876 },
+      });
+      assert.deepEqual(floatingUIOptions.middleware[1].options, {
+        padding: 9876,
+      });
+    });
+    test('returns the offset options for the `autoPlacement` middleware functions if the `enableCollisionDetection` is set to `auto`', async function (assert) {
+      let floatingUIOptions;
+      floatingUIOptions = getFloatingUIOptions({
+        enableCollisionDetection: 'auto',
+      });
+      assert.deepEqual(floatingUIOptions.middleware.length, 2);
+      assert.deepEqual(floatingUIOptions.middleware[0].name, 'offset');
+      assert.deepEqual(floatingUIOptions.middleware[1].name, 'autoPlacement');
+      assert.deepEqual(floatingUIOptions.middleware[1].options, { padding: 8 });
+      floatingUIOptions = getFloatingUIOptions({
+        enableCollisionDetection: 'auto',
+        autoPlacementOptions: { padding: 9876 },
       });
       assert.deepEqual(floatingUIOptions.middleware[1].options, {
         padding: 9876,
@@ -120,15 +139,19 @@ module(
       assert.deepEqual(floatingUIOptions.middleware[3].name, 'test');
       assert.deepEqual(floatingUIOptions.middleware[3].options, { abc: 1234 });
     });
-    test('returns the `arrowElement` provided as an option', async function (assert) {
+    test('returns the `arrow` provided as an option', async function (assert) {
       const floatingUIOptions = getFloatingUIOptions({
         // notice: this in reality should be a DOM element, but we found a string works as well for this type of test
-        arrowElement: 'test1234',
-        arrowPadding: 1234,
+        arrowOptions: {
+          element: 'test1234',
+          selector: '#test1234',
+          padding: 1234,
+        },
       });
       assert.deepEqual(floatingUIOptions.middleware[1].name, 'arrow');
       assert.deepEqual(floatingUIOptions.middleware[1].options, {
         element: 'test1234',
+        selector: '#test1234',
         padding: 1234,
       });
     });
@@ -200,7 +223,7 @@ module('Integration | Modifier | hds-anchored-position', function (hooks) {
     }
   });
 
-  test('render "anchor/floating" elements with default `options`', async function (assert) {
+  test('render "anchor/floating/arrow" elements with default `options`', async function (assert) {
     await render(hbs`
       <div id="wrapper">
         <div id="anchor">anchor</div>
@@ -210,7 +233,7 @@ module('Integration | Modifier | hds-anchored-position', function (hooks) {
     this.anchorElement = document.getElementById('anchor');
     this.floatingElement = document.getElementById('floating');
     this.arrowElement = document.getElementById('arrow');
-    this.floatingOptions = { arrow: this.arrowElement };
+    this.floatingOptions = { arrowOptions: { element: this.arrowElement } };
     // apply the modifier to the testing elements (after the rendering)
     await anchoredElementModifier(
       this.floatingElement, // element the modifier is attached to
@@ -231,7 +254,7 @@ module('Integration | Modifier | hds-anchored-position', function (hooks) {
     );
   });
 
-  test('render "anchor/floating" elements with custom options', async function (assert) {
+  test('render "anchor/floating/arrow" elements with custom options', async function (assert) {
     await render(hbs`
       <div id="wrapper">
         <div id="anchor">anchor</div>
@@ -245,7 +268,7 @@ module('Integration | Modifier | hds-anchored-position', function (hooks) {
       placement: 'bottom-start',
       strategy: 'fixed',
       offsetOptions: 20,
-      arrow: this.arrowElement,
+      arrowOptions: { element: this.arrowElement },
     };
     // apply the modifier to the elements (after the rendering)
     await anchoredElementModifier(
@@ -271,7 +294,7 @@ module('Integration | Modifier | hds-anchored-position', function (hooks) {
     await render(hbs`
       <div id="wrapper">
         <div id="anchor">anchor</div>
-        <div id="floating" {{hds-anchored-position '#anchor' placement='bottom-start' strategy='fixed' offsetOptions=20 arrow='#arrow' }}><div id="arrow"></div>floating</div>
+        <div id="floating" {{hds-anchored-position '#anchor' placement='bottom-start' strategy='fixed' offsetOptions=20 arrowOptions=(hash selector='#arrow') }}><div id="arrow"></div>floating</div>
       </div>
     `);
     this.anchorElement = document.getElementById('anchor');
