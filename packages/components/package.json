@@ -47,6 +47,7 @@
     "ember-focus-trap": "^1.1.0",
     "ember-keyboard": "^8.2.1",
     "ember-modifier": "^4.1.0",
+    "ember-power-select": "^7.1.2",
     "ember-stargate": "^0.4.3",
     "ember-style-modifier": "^3.0.1",
     "ember-truth-helpers": "^4.0.3",
