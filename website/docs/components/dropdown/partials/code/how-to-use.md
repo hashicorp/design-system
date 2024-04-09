@@ -187,6 +187,15 @@ If you add an event handler (no `@href` or `@route`), a `<button>` element will 
 </Doc::ListContainer>
 ```
 
+You can pass an `@icon` argument to add a leading icon:
+
+```handlebars
+{{!-- The Doc::ListContainer component is just to help the component render properly --}}
+<Doc::ListContainer class="hds-dropdown__list">
+  <Hds::Dropdown::ListItem::Interactive {{on "click" this.myAction}} @text="Run command" @icon="build" />
+</Doc::ListContainer>
+```
+
 #### Rendering a link with `@href`
 
 !!! Info
@@ -202,6 +211,15 @@ If you pass an `@href` argument, a link (`<a>` element) will be generated:
 {{!-- The Doc::ListContainer component is just to help the component render properly --}}
 <Doc::ListContainer class="hds-dropdown__list">
   <Hds::Dropdown::ListItem::Interactive @href="https://www.hashicorp.com/request-demo/terraform" @text="Request a demo" />
+</Doc::ListContainer>
+```
+
+You can pass a `@trailingIcon` argument to indicate that the link points to an external resource:
+
+```handlebars
+{{!-- The Doc::ListContainer component is just to help the component render properly --}}
+<Doc::ListContainer class="hds-dropdown__list">
+  <Hds::Dropdown::ListItem::Interactive @href="https://www.hashicorp.com/request-demo/terraform" @text="Request a demo" @trailingIcon="external-link" />
 </Doc::ListContainer>
 ```
 
