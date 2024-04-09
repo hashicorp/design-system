@@ -9,16 +9,18 @@ import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module(
-  'Integration | Component | hds/form/super-select/single/index',
+  'Integration | Component | hds/form/super-select/single/base',
   function (hooks) {
     setupRenderingTest(hooks);
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       this.set('NOOP', () => {});
       await render(
-        hbs`<Hds::Form::SuperSelect::Single @onChange={{this.NOOP}} id="test-super-select-single" />`
+        hbs`<Hds::Form::SuperSelect::Single::Base @ariaLabel="Label" @onChange={{this.NOOP}} id="test-super-select-single" />`
       );
-      assert.dom('.hds-form-super-select-single #test-super-select-single').exists();
+      assert
+        .dom('.hds-form-super-select-single #test-super-select-single')
+        .exists();
     });
   }
 );
