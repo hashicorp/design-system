@@ -154,15 +154,16 @@ export default class HdsPopoverPrimitiveComponent extends Component {
       ]);
       registerEvent(this.popoverElement, ['toggle', this.onTogglePopover]);
 
-      // apply the "float-popover" modifier to the "popover" element
-      // (notice: this function runs the first time when the element the modifier was applied to is inserted into the DOM, and it autotracks while running. Any tracked values that it accesses will be tracked, including the arguments it receives, and if any of them changes, the function will run again)
-      // this modifiers uses the Floating UI library to provide:
+      // Apply the "float-popover" modifier to the "popover" element
+      // (notice: this function runs the first time when the element the modifier was applied to is inserted into the DOM, and it autotracks while running.
+      // Any tracked values that it accesses will be tracked, including the arguments it receives, and if any of them changes, the function will run again)
+      // This modifiers uses the Floating UI library to provide:
       // - positioning of the "popover" in relation to the "toggle"
       // - collision detection (optional)
 
-      // next(() => {
-      schedule('afterRender', () => {
-        console.log('I am here!!');
+      next(() => {
+      // schedule('afterRender', () => {
+        console.log('I am ready to apply the anchored-position modifier!');
         anchoredPositionModifier(
           this.popoverElement, // element the modifier is attached to
           [this.toggleElement], // positional arguments
@@ -177,7 +178,7 @@ export default class HdsPopoverPrimitiveComponent extends Component {
   // this is specifically done for Firefox: currently it doesn't support it, but will soon (we need Firefox 127 to support the last 2 versions)
   // see: https://wiki.mozilla.org/Release_Management/Release_owners
   get popoverOptions() {
-    const popoverOptions = this.args.popoverOptions ?? {};
+    const popoverOptions = this.args.popoverOptions ? { ...this.args.popoverOptions } : {};
     // if the Popover API is not supported (polyfill applied for the first time) of it's already been polyfilled (see above)
     if (!isPopoverApiSupported() || isPopoverApiPolyfilled()) {
       // when using the "absolute" strategy, the presence of a parent with "relative" position leads to wrong layout rendering (known issue in the polyfill library)
@@ -186,10 +187,12 @@ export default class HdsPopoverPrimitiveComponent extends Component {
     }
 
     if (this.arrowElement) {
-      // we need to make sure the object exists (it may be already used for the `padding` of the arrow)
-      popoverOptions.arrowOptions = popoverOptions.arrowOptions ?? {};
-      // we assign the `arrowElement` to the `element` key
-      popoverOptions.arrowOptions.element = this.arrowElement;
+      popoverOptions.arrowOptions = {
+        // we assign the `arrowElement` to the `element` key
+        element: this.arrowElement,
+        // we use the padding value from the provided options if already assigned or use a default
+        padding: popoverOptions?.arrowOptions?.padding ?? 0,
+      }
     }
 
     return popoverOptions;
