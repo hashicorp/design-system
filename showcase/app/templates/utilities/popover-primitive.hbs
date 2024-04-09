@@ -39,6 +39,31 @@
 
   <Shw::Text::H2>Content</Shw::Text::H2>
 
+  <Shw::Flex {{style gap="4rem" margin-bottom="4rem"}} as |SF|>
+    <SF.Item @label="Non-interactive (toggle) content">
+      <Hds::PopoverPrimitive @isOpen={{true}}>
+        <:toggle>
+          <p class="hds-typography-body-300">Lorem ipsum dolor</p>
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="content" @width="80" @height="40" />
+        </:content>
+      </Hds::PopoverPrimitive>
+    </SF.Item>
+    <SF.Item @label="Interactive (toggle) content">
+      <Hds::PopoverPrimitive @isOpen={{true}} @isInline={{false}}>
+        <:toggle>
+          <Hds::Button @icon="plus" @text="Lorem ipsum" @color="primary" {{on "click" this.onClickButton}} />
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="content" @width="80" @height="40" />
+        </:content>
+      </Hds::PopoverPrimitive>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
   <Shw::Flex {{style gap="4rem"}} as |SF|>
     <SF.Item @label="Icon">
       <Hds::PopoverPrimitive @enableSoftEvents={{true}} @toggleAriaLabel="Information">
