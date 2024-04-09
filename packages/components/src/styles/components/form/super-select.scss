@@ -11,7 +11,7 @@ $hds-tag-border-radius: 50px;
 
 // Style overrides:
 
-.hds-super-select .ember-basic-dropdown {
+.hds-form-super-select .ember-basic-dropdown {
 
   // TRIGGER
 
@@ -214,7 +214,7 @@ $hds-tag-border-radius: 50px;
 
 // INVALID
 
-.hds-super-select.hds-super-select--is-invalid .ember-basic-dropdown {
+.hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown {
   .ember-basic-dropdown-trigger, .ember-power-select-trigger {
     border-color: var(--token-form-control-invalid-border-color-default);
 
@@ -234,7 +234,7 @@ $hds-tag-border-radius: 50px;
 // SUBCOMPONENTS
 
 // SINGLE
-.hds-super-select-single .ember-basic-dropdown {
+.hds-form-super-select-single .ember-basic-dropdown {
 
   // Options Item
   .ember-power-select-option {
@@ -276,7 +276,7 @@ $hds-tag-border-radius: 50px;
 }
 
 // MULTIPLE
-.hds-super-select-multiple .ember-basic-dropdown {
+.hds-form-super-select-multiple .ember-basic-dropdown {
 
   // Options Item
   .ember-power-select-option {
@@ -364,7 +364,7 @@ $hds-tag-border-radius: 50px;
 
 // When renderInPlace=true, matchTriggerWidth=false has no effect unless we override the width of the dropdown content
 // (fixes bug with ember-power-select)
-.hds-super-select--match-trigger-width-false {
+.hds-form-super-select--match-trigger-width-false {
   .ember-power-select-dropdown.ember-basic-dropdown-content--in-place {
       width: auto;
   }
@@ -375,14 +375,14 @@ $hds-tag-border-radius: 50px;
 // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup
 
 // GroupComponent Test
-.hds-super-select__group-component {
+.hds-form-super-select__group-component {
   border-bottom: 1px solid var(--token-color-border-primary);
 }
 
-.hds-super-select__group-component-group-name {
+.hds-form-super-select__group-component-group-name {
   padding: 4px 8px;
 }
 
-.hds-super-select__group-component .hds-super-select__group-component .hds-super-select__group-component-group-name {
+.hds-form-super-select__group-component .hds-form-super-select__group-component .hds-form-super-select__group-component-group-name {
   padding-left: 20px;
 }
