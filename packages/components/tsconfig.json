@@ -20,6 +20,9 @@
       "@hashicorp/design-system-components/*": [
         "src/*"
       ],
+      "@ember/component/template-only": [
+        "../../../node_modules/ember-source/types/stable/@ember/component/template-only"
+      ],
       "*": [
         "types/*"
       ]

@@ -257,6 +257,7 @@
       "./components/hds/text/index.js": "./dist/_app_/components/hds/text/index.js",
       "./components/hds/text/types.js": "./dist/_app_/components/hds/text/types.js",
       "./components/hds/toast/index.js": "./dist/_app_/components/hds/toast/index.js",
+      "./components/hds/toast/types.js": "./dist/_app_/components/hds/toast/types.js",
       "./components/hds/tooltip-button/index.js": "./dist/_app_/components/hds/tooltip-button/index.js",
       "./components/hds/yield/index.js": "./dist/_app_/components/hds/yield/index.js",
       "./components/hds/yield/types.js": "./dist/_app_/components/hds/yield/types.js",
