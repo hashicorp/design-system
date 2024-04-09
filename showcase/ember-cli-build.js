@@ -19,9 +19,6 @@ module.exports = function (defaults) {
         '../node_modules/ember-power-select/vendor',
       ],
     },
-    'ember-power-select': {
-      theme: false,
-    },
     // we need to add this or Ember Sass compilation will mess up the generated CSS
     minifyCSS: {
       options: {
