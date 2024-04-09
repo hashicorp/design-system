@@ -29,19 +29,19 @@ export default class HdsSuperSelectSingleIndexComponent extends Component {
    */
   get classNames() {
     let classes = [
-      'hds-super-select',
-      'hds-super-select-single',
+      'hds-form-super-select',
+      'hds-form-super-select-single',
       'hds-typography-body-200',
     ];
 
     // add a class based on the @matchTriggerWidth argument
     if (this.args.matchTriggerWidth === false) {
-      classes.push('hds-super-select--match-trigger-width-false');
+      classes.push('hds-form-super-select--match-trigger-width-false');
     }
 
     // add a class based on the @isInvalid argument
     if (this.args.isInvalid) {
-      classes.push(`hds-super-select--is-invalid`);
+      classes.push(`hds-form-super-select--is-invalid`);
     }
 
     return classes.join(' ');
