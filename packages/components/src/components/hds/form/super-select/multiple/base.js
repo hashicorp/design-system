@@ -35,6 +35,10 @@ export default class HdsSuperSelectMultipleBaseComponent extends Component {
     this.showOnlySelected = true;
   }
 
+  @action showAll() {
+    this.showOnlySelected = false;
+  }
+
   @action clearSelected() {
     this.powerSelectAPI.actions.select(null);
     // show all options after clearing all selection

@@ -7,7 +7,11 @@
   {{#if @content}}
     {{@content}}
   {{else}}
-    <Hds::Button @text="Show Selected" @size="small" @color="secondary" {{on "click" @showSelected}} />
+    {{#if @showOnlySelected}}
+      <Hds::Button @text="Show All" @size="small" @color="secondary" {{on "click" @showAll}} />
+    {{else}}
+      <Hds::Button @text="Show Selected" @size="small" @color="secondary" {{on "click" @showSelected}} />
+    {{/if}}
     <Hds::Button @text="Clear Selected" @size="small" @color="secondary" {{on "click" @clearSelected}} />
     <span class="hds-form-super-select__result-count">{{@resultCountMessage}}</span>
   {{/if}}
