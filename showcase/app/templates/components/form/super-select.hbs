@@ -597,10 +597,34 @@
 
   <Shw::Text::H3>Before &amp; after options</Shw::Text::H3>
 
-  <Shw::Text::H4>Generic content</Shw::Text::H4>
+  <Shw::Flex @direction="row" as |SF|>
+    <SF.Item {{style flex="1" padding-bottom="15em"}} @label="After options default content">
+      <Hds::Form::SuperSelect::Multiple::Base
+        @onChange={{fn (mut @model.PLACES_SELECTED_MULTIPLE)}}
+        @options={{@model.PLACES_OPTIONS}}
+        @selected={{@model.PLACES_SELECTED_MULTIPLE}}
+        @initiallyOpened={{true}}
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Multiple::Base>
+    </SF.Item>
+    <SF.Item {{style flex="1" padding-bottom="15em"}} @label="After options text content">
+      <Hds::Form::SuperSelect::Multiple::Base
+        @afterOptionsContent="After options content"
+        @onChange={{fn (mut @model.PLACES_SELECTED_MULTIPLE)}}
+        @options={{@model.PLACES_OPTIONS}}
+        @selected={{@model.PLACES_SELECTED_MULTIPLE}}
+        @initiallyOpened={{true}}
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Multiple::Base>
+    </SF.Item>
+  </Shw::Flex>
 
   <Shw::Flex @direction="row" as |SF|>
-    <SF.Item {{style flex="1" padding-bottom="13em"}} @label="Before options content">
+    <SF.Item {{style flex="1" padding-bottom="13em"}} @label="Before options generic content">
       <Hds::Form::SuperSelect::Multiple::Base
         @beforeOptionsComponent={{component "form/power-select/generic-content"}}
         @onChange={{fn (mut @model.PLACES_SELECTED_MULTIPLE)}}
@@ -612,7 +636,7 @@
         {{option}}
       </Hds::Form::SuperSelect::Multiple::Base>
     </SF.Item>
-    <SF.Item {{style flex="1" padding-bottom="15em"}} @label="After options content">
+    <SF.Item {{style flex="1" padding-bottom="15em"}} @label="After options generic content">
       <Hds::Form::SuperSelect::Multiple::Base
         @afterOptionsComponent={{component "form/power-select/generic-content"}}
         @onChange={{fn (mut @model.PLACES_SELECTED_MULTIPLE)}}

@@ -2,15 +2,24 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-
 <div class={{this.classNames}}>
   <PowerSelectMultiple
-    @afterOptionsComponent={{@afterOptionsComponent}}
+    @afterOptionsComponent={{(or
+      @afterOptionsComponent
+      (component
+        "hds/form/super-select/multiple/after-options"
+        content=@afterOptionsContent
+        resultCountMessage=this.resultCountMessage
+        showSelected=this.showSelected
+        clearSelected=this.clearSelected
+      )
+    )}}
     @ariaDescribedBy={{@ariaDescribedBy}}
     @ariaInvalid={{@ariaInvalid}}
     @ariaLabel={{@ariaLabel}}
     @ariaLabelledBy={{@ariaLabelledBy}}
     @beforeOptionsComponent={{@beforeOptionsComponent}}
+    @closeOnSelect={{false}}
     @disabled={{@disabled}}
     @dropdownClass={{@dropdownClass}}
     @extra={{@extra}}
@@ -34,7 +43,7 @@
     @placeholder={{@placeholder}}
     @placeholderComponent={{@placeholderComponent}}
     @preventScroll={{@preventScroll}}
-    @registerAPI={{@registerAPI}}
+    @registerAPI={{this.setPowerSelectAPI}}
     @renderInPlace={{true}}
     @resultCountMessage={{@resultCountMessage}}
     @scrollTo={{@scrollTo}}

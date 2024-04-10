@@ -191,6 +191,7 @@
       "./components/hds/form/radio/group.js": "./dist/_app_/components/hds/form/radio/group.js",
       "./components/hds/form/select/base.js": "./dist/_app_/components/hds/form/select/base.js",
       "./components/hds/form/select/field.js": "./dist/_app_/components/hds/form/select/field.js",
+      "./components/hds/form/super-select/multiple/after-options.js": "./dist/_app_/components/hds/form/super-select/multiple/after-options.js",
       "./components/hds/form/super-select/multiple/base.js": "./dist/_app_/components/hds/form/super-select/multiple/base.js",
       "./components/hds/form/super-select/multiple/field.js": "./dist/_app_/components/hds/form/super-select/multiple/field.js",
       "./components/hds/form/super-select/single/base.js": "./dist/_app_/components/hds/form/super-select/single/base.js",
