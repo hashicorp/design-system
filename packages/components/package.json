@@ -217,6 +217,7 @@
       "./components/hds/pagination/nav/number.js": "./dist/_app_/components/hds/pagination/nav/number.js",
       "./components/hds/pagination/numbered/index.js": "./dist/_app_/components/hds/pagination/numbered/index.js",
       "./components/hds/pagination/size-selector/index.js": "./dist/_app_/components/hds/pagination/size-selector/index.js",
+      "./components/hds/popover-primitive/index.js": "./dist/_app_/components/hds/popover-primitive/index.js",
       "./components/hds/reveal/index.js": "./dist/_app_/components/hds/reveal/index.js",
       "./components/hds/reveal/toggle/button.js": "./dist/_app_/components/hds/reveal/toggle/button.js",
       "./components/hds/segmented-group/index.js": "./dist/_app_/components/hds/segmented-group/index.js",
