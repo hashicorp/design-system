@@ -1,0 +1,105 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// POPOVER-PRIMITIVE
+//
+
+.hds-popover-primitive {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+}
+
+:where(.hds-popover-primitive--is-inline) {
+  display: inline-block;
+}
+
+:where(.hds-popover-primitive--is-block) {
+  display: block;
+}
+
+
+// TOGGLE
+
+.hds-popover-primitive__toggle {
+  width: fit-content;
+  height: fit-content;
+
+  &:where(button) {
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    font: inherit;
+    text-align: inherit;
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+:where(.hds-popover-primitive__toggle--is-inline) {
+  display: inline-block;
+}
+
+:where(.hds-popover-primitive__toggle--is-block) {
+  display: block;
+}
+
+
+// ARROW
+
+.hds-popover-primitive__arrow {
+  --arrow-size: var(--hds-popover-primitive-arrow-size, 16px);
+  --arrow-shift: calc(-1 * var(--arrow-size));
+  --arrow-background: var(--hds-popover-primitive-arrow-background, none);
+  position: absolute;
+  z-index: 1;
+  display: block;
+  // notice: floating-ui assumes the "arrow" container is square
+  width: var(--arrow-size);
+  height: var(--arrow-size);
+  background: var(--arrow-background);
+  pointer-events: none;
+
+  &[data-hds-anchored-arrow-placement^="top"] {
+    bottom: var(--arrow-shift);
+    transform: rotate(180deg);
+  }
+
+  &[data-hds-anchored-arrow-placement^="right"] {
+    left: var(--arrow-shift);
+    transform: rotate(-90deg);
+  }
+
+  &[data-hds-anchored-arrow-placement^="bottom"] {
+    top: var(--arrow-shift);
+    transform: rotate(0deg); // this fixes a rendering issue in Safari
+  }
+
+  &[data-hds-anchored-arrow-placement^="left"] {
+    right: var(--arrow-shift);
+    transform: rotate(90deg);
+  }
+}
+
+
+// CONTENT
+
+.hds-popover-primitive__content {
+  // the "popover" attributes comes with pre-defined styling so we need to override it
+   :where(&[popover]) {
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    color: inherit;
+    background: none;
+    border: none;
+    // TODO do we need this?
+    // width: fit-content;
+    // height: fit-content;
+    inset: 0;
+  }
+}
