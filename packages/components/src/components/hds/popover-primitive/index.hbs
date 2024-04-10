@@ -1,0 +1,20 @@
+{{! @glint-nocheck: not typesafe yet }}
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<div class={{this.classNames}} ...attributes {{this.setupPrimitiveContainer}}>
+  {{#let (element (if this.containsInteractive "div" "button")) as |Tag|}}
+    <Tag class={{this.classNamesToggle}} {{this.setupPrimitiveToggle}} aria-controls={{this.popoverId}}>
+      {{yield (hash popoverElement=this.popoverElement isOpen=this.isOpen) to="toggle"}}
+    </Tag>
+  {{/let}}
+  <div class="hds-popover-primitive__content" role="tooltip" tabindex="-1" {{this.setupPrimitivePopover}}>
+    {{#if @hasArrow}}
+      <div class="hds-popover-primitive__arrow" {{this.setupPrimitiveArrow}} />
+    {{/if}}
+    {{#if this.isOpen}}
+      {{yield (hash toggleElement=this.toggleElement isOpen=this.isOpen close=this.close) to="content"}}
+    {{/if}}
+  </div>
+</div>
