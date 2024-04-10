@@ -104,7 +104,7 @@ If the Dropdown content exceeds the height of the container, the header and foot
     Text to be used in the item. If no text value is defined, an error will be thrown.
   </C.Property>
   <C.Property @name="color" @type="enum" @values={{array "action" "critical" }} @default="action">
-    Color applied to the text and (optional) icons. Acceptable values: “action” or “critical”.
+    Color applied to the text and (optional) icons.
   </C.Property>
   <C.Property @name="icon" @type="string">
     Leading icon. Acceptable value: any [icon](/icons/library) name.

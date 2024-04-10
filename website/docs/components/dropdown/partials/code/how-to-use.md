@@ -214,7 +214,7 @@ If you pass an `@href` argument, a link (`<a>` element) will be generated:
 </Doc::ListContainer>
 ```
 
-You can pass a `@trailingIcon` argument to indicate that the link points to an external resource:
+To indicate that the link points to an external resource you can use `@trailingIcon` and assign it an icon name like `external-link`, `docs-link`, `guide-link`, or `learn-link`.
 
 ```handlebars
 {{!-- The Doc::ListContainer component is just to help the component render properly --}}
