@@ -62,6 +62,10 @@ export default class ComponentsSuperSelectRoute extends Route {
       },
     ];
     const SELECTED_CLUSTER_SIZE_OPTION = CLUSTER_SIZE_OPTIONS[1];
+    const SELECTED_CLUSTER_SIZE_OPTIONS = [
+      CLUSTER_SIZE_OPTIONS[1],
+      CLUSTER_SIZE_OPTIONS[2],
+    ];
 
     return {
       STATES,
@@ -75,6 +79,7 @@ export default class ComponentsSuperSelectRoute extends Route {
       SELECTED_PLACES_OPTIONS,
       CLUSTER_SIZE_OPTIONS,
       SELECTED_CLUSTER_SIZE_OPTION,
+      SELECTED_CLUSTER_SIZE_OPTIONS,
     };
   }
 }
