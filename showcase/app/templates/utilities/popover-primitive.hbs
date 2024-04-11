@@ -342,8 +342,8 @@
     {{#let (array false true "flip" "shift") as |detections|}}
       {{#each detections as |detection|}}
         <SF.Item @forceMinWidth={{true}} @label={{concat "enableCollisionDetection=" detection}}>
-          <div center-scrollable-area="both" class="shw-utilities-popover-primitive-collision-detection-container">
-            <div class="shw-utilities-popover-primitive-collision-detection-content">
+          <Shw::Autoscrollable @verticalShift={{20}}>
+            <div class="shw-utilities-popover-primitive-collision-detection-wrapper">
               <Hds::PopoverPrimitive
                 @popoverOptions={{(hash offsetOptions=16 enableCollisionDetection=detection)}}
                 @hasArrow={{true}}
@@ -357,7 +357,7 @@
                 </:content>
               </Hds::PopoverPrimitive>
             </div>
-          </div>
+          </Shw::Autoscrollable>
         </SF.Item>
       {{/each}}
     {{/let}}
