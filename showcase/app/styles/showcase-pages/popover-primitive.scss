@@ -62,22 +62,7 @@ body.utilities-popover-primitive {
     }
   }
 
-  .shw-utilities-popover-primitive-collision-detection-container {
-    position: relative;
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    width: 100%;
-    min-height: 200px;
-    aspect-ratio: 1;
-    overflow-x: auto;
-    overflow-y: auto;
-    border: 1px dotted #d3d3d3;
-    overscroll-behavior: contain;
-
-  }
-
-  .shw-utilities-popover-primitive-collision-detection-content {
+  .shw-utilities-popover-primitive-collision-detection-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
