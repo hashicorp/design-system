@@ -39,9 +39,9 @@
     </SG.Item>
     <SG.Item @label="Selected">
       <Hds::Form::SuperSelect::Single::Base
-        @onChange={{fn (mut @model.SELECTED)}}
+        @onChange={{fn (mut @model.SELECTED_OPTION)}}
         @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED}}
+        @selected={{@model.SELECTED_OPTION}}
         as |option|
       >
         {{option}}
@@ -63,9 +63,9 @@
               {{#unless (and (eq variant "disabled") (eq state "focus"))}}
                 <SF.Item @label="{{capitalize variant}} / {{capitalize state}}">
                   <Hds::Form::SuperSelect::Single::Base
-                    @onChange={{fn (mut @model.SELECTED)}}
+                    @onChange={{fn (mut @model.SELECTED_OPTION)}}
                     @options={{@model.OPTIONS}}
-                    @selected={{@model.SELECTED}}
+                    @selected={{@model.SELECTED_OPTION}}
                     @disabled={{if (eq variant "disabled") "disabled"}}
                     @isInvalid={{if (eq variant "invalid") true}}
                     class="mock-{{state}}"
@@ -89,9 +89,9 @@
   <Shw::Flex @direction="row" as |SF|>
     <SF.Item {{style flex="1" padding-bottom="11em"}} @label="Default">
       <Hds::Form::SuperSelect::Single::Base
-        @onChange={{fn (mut @model.SELECTED)}}
+        @onChange={{fn (mut @model.SELECTED_OPTION)}}
         @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED}}
+        @selected={{@model.SELECTED_OPTION}}
         @initiallyOpened={{true}}
         as |option|
       >
@@ -101,9 +101,9 @@
 
     <SF.Item {{style flex="1" padding-bottom="11em"}} @label="Search enabled">
       <Hds::Form::SuperSelect::Single::Base
-        @onChange={{fn (mut @model.SELECTED)}}
+        @onChange={{fn (mut @model.SELECTED_OPTION)}}
         @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED}}
+        @selected={{@model.SELECTED_OPTION}}
         @searchEnabled={{true}}
         @initiallyOpened={{true}}
         as |option|
@@ -120,9 +120,9 @@
       <Shw::Flex as |SF|>
         <SF.Item {{style flex="1"}} @label="Auto (default)">
           <Hds::Form::SuperSelect::Single::Base
-            @onChange={{fn (mut @model.SELECTED)}}
+            @onChange={{fn (mut @model.SELECTED_OPTION)}}
             @options={{@model.OPTIONS}}
-            @selected={{@model.SELECTED}}
+            @selected={{@model.SELECTED_OPTION}}
             as |option|
           >
             {{option}}
@@ -130,9 +130,9 @@
         </SF.Item>
         <SF.Item {{style flex="1"}} @label="Below">
           <Hds::Form::SuperSelect::Single::Base
-            @onChange={{fn (mut @model.SELECTED)}}
+            @onChange={{fn (mut @model.SELECTED_OPTION)}}
             @options={{@model.OPTIONS}}
-            @selected={{@model.SELECTED}}
+            @selected={{@model.SELECTED_OPTION}}
             @verticalPosition="below"
             as |option|
           >
@@ -141,9 +141,9 @@
         </SF.Item>
         <SF.Item {{style flex="1"}} @label="Above">
           <Hds::Form::SuperSelect::Single::Base
-            @onChange={{fn (mut @model.SELECTED)}}
+            @onChange={{fn (mut @model.SELECTED_OPTION)}}
             @options={{@model.OPTIONS}}
-            @selected={{@model.SELECTED}}
+            @selected={{@model.SELECTED_OPTION}}
             @verticalPosition="above"
             as |option|
           >
@@ -157,9 +157,9 @@
       <Shw::Flex as |SF|>
         <SF.Item {{style flex="1"}} @label="Left (+ matchTriggerWidth=False)">
           <Hds::Form::SuperSelect::Single::Base
-            @onChange={{fn (mut @model.PLACES_SELECTED)}}
+            @onChange={{fn (mut @model.SELECTED_PLACES_OPTION)}}
             @options={{@model.PLACES_OPTIONS}}
-            @selected={{@model.PLACES_SELECTED}}
+            @selected={{@model.SELECTED_PLACES_OPTION}}
             @matchTriggerWidth={{false}}
             @horizontalPosition="left"
             as |option|
@@ -169,9 +169,9 @@
         </SF.Item>
         <SF.Item {{style flex="1"}} @label="Center (+ matchTriggerWidth=False)">
           <Hds::Form::SuperSelect::Single::Base
-            @onChange={{fn (mut @model.PLACES_SELECTED)}}
+            @onChange={{fn (mut @model.SELECTED_PLACES_OPTION)}}
             @options={{@model.PLACES_OPTIONS}}
-            @selected={{@model.PLACES_SELECTED}}
+            @selected={{@model.SELECTED_PLACES_OPTION}}
             @matchTriggerWidth={{false}}
             @horizontalPosition="center"
             as |option|
@@ -181,9 +181,9 @@
         </SF.Item>
         <SF.Item {{style flex="1"}} @label="Right (+ matchTriggerWidth=False)">
           <Hds::Form::SuperSelect::Single::Base
-            @onChange={{fn (mut @model.PLACES_SELECTED)}}
+            @onChange={{fn (mut @model.SELECTED_PLACES_OPTION)}}
             @options={{@model.PLACES_OPTIONS}}
-            @selected={{@model.PLACES_SELECTED}}
+            @selected={{@model.SELECTED_PLACES_OPTION}}
             @matchTriggerWidth={{false}}
             @horizontalPosition="right"
             as |option|
@@ -200,9 +200,9 @@
   <Shw::Flex {{style padding-bottom="11em"}} as |SF|>
     <SF.Item {{style min-width="10em"}} @label="matchTriggerWidth = true (default)">
       <Hds::Form::SuperSelect::Single::Base
-        @onChange={{fn (mut @model.SELECTED)}}
+        @onChange={{fn (mut @model.SELECTED_OPTION)}}
         @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED}}
+        @selected={{@model.SELECTED_OPTION}}
         @initiallyOpened={{true}}
         as |option|
       >
@@ -211,9 +211,9 @@
     </SF.Item>
     <SF.Item @label="matchTriggerWidth = false">
       <Hds::Form::SuperSelect::Single::Base
-        @onChange={{fn (mut @model.PLACES_SELECTED)}}
+        @onChange={{fn (mut @model.SELECTED_PLACES_OPTION)}}
         @options={{@model.PLACES_OPTIONS}}
-        @selected={{@model.PLACES_SELECTED}}
+        @selected={{@model.SELECTED_PLACES_OPTION}}
         @initiallyOpened={{true}}
         @matchTriggerWidth={{false}}
         as |option|
@@ -234,26 +234,51 @@
       <Hds::Form::SuperSelect::Single::Base
         @beforeOptionsComponent={{component "form/power-select/generic-content"}}
         @searchEnabled={{true}}
-        @onChange={{fn (mut @model.PLACES_SELECTED)}}
+        @onChange={{fn (mut @model.SELECTED_PLACES_OPTION)}}
         @options={{@model.PLACES_OPTIONS}}
-        @selected={{@model.PLACES_SELECTED}}
+        @selected={{@model.SELECTED_PLACES_OPTION}}
         @initiallyOpened={{true}}
         as |option|
       >
         {{option}}
       </Hds::Form::SuperSelect::Single::Base>
     </SF.Item>
-    <SF.Item {{style flex="1" padding-bottom="15em"}} @label="After options content">
+    <SF.Item {{style flex="1" padding-bottom="16em"}} @label="After options content">
       <Hds::Form::SuperSelect::Single::Base
         @afterOptionsComponent={{component "form/power-select/generic-content"}}
         @searchEnabled={{true}}
-        @onChange={{fn (mut @model.PLACES_SELECTED)}}
+        @onChange={{fn (mut @model.SELECTED_PLACES_OPTION)}}
         @options={{@model.PLACES_OPTIONS}}
-        @selected={{@model.PLACES_SELECTED}}
+        @selected={{@model.SELECTED_PLACES_OPTION}}
         @initiallyOpened={{true}}
         as |option|
       >
         {{option}}
+      </Hds::Form::SuperSelect::Single::Base>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>Rich option content</Shw::Text::H3>
+
+  <Shw::Flex {{style max-width="50%" padding-bottom="1em"}} as |SF|>
+    <SF.Item {{style flex="1" padding-bottom="13em"}} @label="">
+      <Hds::Form::SuperSelect::Single::Base
+        @searchEnabled={{true}}
+        @selected={{@model.SELECTED_CLUSTER_SIZE_OPTION}}
+        @onChange={{fn (mut @model.SELECTED_CLUSTER_SIZE_OPTION)}}
+        @options={{@model.CLUSTER_SIZE_OPTIONS}}
+        @initiallyOpened={{true}}
+        as |option|
+      >
+        <div class="shw-component-form-super-select-option-rich-content">
+          <p class="shw-component-form-super-select-option-rich-header">
+            <strong>{{option.size}}</strong>
+            <strong>{{option.price}}/hr</strong>
+          </p>
+          <p>{{option.description}}</p>
+        </div>
       </Hds::Form::SuperSelect::Single::Base>
     </SF.Item>
   </Shw::Flex>
@@ -282,8 +307,6 @@
         {{option}}
       </Hds::Form::SuperSelect::Single::Base>
     </SF.Item>
-
-    <SF.Item @label="" />
   </Shw::Flex>
 
   <Shw::Divider @level="2" />
@@ -293,9 +316,9 @@
   <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Only label">
       <Hds::Form::SuperSelect::Single::Field
-        @onChange={{fn (mut @model.SELECTED)}}
+        @onChange={{fn (mut @model.SELECTED_OPTION)}}
         @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED}}
+        @selected={{@model.SELECTED_OPTION}}
         as |F|
       >
         <F.Label>Lorem ipsum dolor</F.Label>
@@ -304,9 +327,9 @@
     </SG.Item>
     <SG.Item @label="Label + Helper text">
       <Hds::Form::SuperSelect::Single::Field
-        @onChange={{fn (mut @model.SELECTED)}}
+        @onChange={{fn (mut @model.SELECTED_OPTION)}}
         @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED}}
+        @selected={{@model.SELECTED_OPTION}}
         as |F|
       >
         <F.Label>This is the label</F.Label>
@@ -318,9 +341,9 @@
     <SG.Item />
     <SG.Item @label="Label + Error">
       <Hds::Form::SuperSelect::Single::Field
-        @onChange={{fn (mut @model.SELECTED)}}
+        @onChange={{fn (mut @model.SELECTED_OPTION)}}
         @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED}}
+        @selected={{@model.SELECTED_OPTION}}
         @isInvalid={{true}}
         as |F|
       >
@@ -331,9 +354,9 @@
     </SG.Item>
     <SG.Item @label="Label + Helper text + Error">
       <Hds::Form::SuperSelect::Single::Field
-        @onChange={{fn (mut @model.SELECTED)}}
+        @onChange={{fn (mut @model.SELECTED_OPTION)}}
         @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED}}
+        @selected={{@model.SELECTED_OPTION}}
         @isInvalid={{true}}
         as |F|
       >
@@ -345,9 +368,9 @@
     </SG.Item>
     <SG.Item @label="Label + Helper text + Errors">
       <Hds::Form::SuperSelect::Single::Field
-        @onChange={{fn (mut @model.SELECTED)}}
+        @onChange={{fn (mut @model.SELECTED_OPTION)}}
         @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED}}
+        @selected={{@model.SELECTED_OPTION}}
         @isInvalid={{true}}
         as |F|
       >
@@ -367,9 +390,9 @@
   <Shw::Flex as |SF|>
     <SF.Item @label="With legend + Required">
       <Hds::Form::SuperSelect::Single::Field
-        @onChange={{fn (mut @model.SELECTED)}}
+        @onChange={{fn (mut @model.SELECTED_OPTION)}}
         @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED}}
+        @selected={{@model.SELECTED_OPTION}}
         @isRequired={{true}}
         as |F|
       >
@@ -379,9 +402,9 @@
     </SF.Item>
     <SF.Item @label="With legend + Optional">
       <Hds::Form::SuperSelect::Single::Field
-        @onChange={{fn (mut @model.SELECTED)}}
+        @onChange={{fn (mut @model.SELECTED_OPTION)}}
         @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED}}
+        @selected={{@model.SELECTED_OPTION}}
         @isOptional={{true}}
         as |F|
       >
@@ -411,9 +434,9 @@
 
     <SF.Item {{style flex="1"}} @label="Selected">
       <Hds::Form::SuperSelect::Multiple::Base
-        @onChange={{fn (mut @model.SELECTED_MULTIPLE)}}
+        @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
         @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED_MULTIPLE}}
+        @selected={{@model.SELECTED_OPTIONS}}
         as |option|
       >
         {{option}}
@@ -435,9 +458,9 @@
               {{#unless (and (eq variant "disabled") (eq state "focus"))}}
                 <SF.Item @label="{{capitalize variant}} / {{capitalize state}}">
                   <Hds::Form::SuperSelect::Multiple::Base
-                    @onChange={{fn (mut @model.PLACES_SELECTED_MULTIPLE)}}
+                    @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
                     @options={{@model.PLACES_OPTIONS}}
-                    @selected={{@model.PLACES_SELECTED_MULTIPLE}}
+                    @selected={{@model.SELECTED_PLACES_OPTIONS}}
                     @disabled={{if (eq variant "disabled") "disabled"}}
                     @isInvalid={{if (eq variant "invalid") true}}
                     class="mock-{{state}}"
@@ -461,9 +484,9 @@
   <Shw::Flex @direction="row" as |SF|>
     <SF.Item {{style flex="1" padding-bottom="9em"}} @label="Default">
       <Hds::Form::SuperSelect::Multiple::Base
-        @onChange={{fn (mut @model.SELECTED_MULTIPLE)}}
+        @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
         @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED_MULTIPLE}}
+        @selected={{@model.SELECTED_OPTIONS}}
         @initiallyOpened={{true}}
         as |option|
       >
@@ -473,9 +496,9 @@
 
     <SF.Item {{style flex="1" padding-bottom="9em"}} @label="Search enabled">
       <Hds::Form::SuperSelect::Multiple::Base
-        @onChange={{fn (mut @model.SELECTED_MULTIPLE)}}
+        @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
         @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED_MULTIPLE}}
+        @selected={{@model.SELECTED_OPTIONS}}
         @searchEnabled={{true}}
         @initiallyOpened={{true}}
         as |option|
@@ -492,9 +515,9 @@
       <Shw::Flex as |SF|>
         <SF.Item {{style flex="1"}} @label="Auto (default)">
           <Hds::Form::SuperSelect::Multiple::Base
-            @onChange={{fn (mut @model.SELECTED_MULTIPLE)}}
+            @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
             @options={{@model.OPTIONS}}
-            @selected={{@model.SELECTED_MULTIPLE}}
+            @selected={{@model.SELECTED_OPTIONS}}
             as |option|
           >
             {{option}}
@@ -502,9 +525,9 @@
         </SF.Item>
         <SF.Item {{style flex="1"}} @label="Below">
           <Hds::Form::SuperSelect::Multiple::Base
-            @onChange={{fn (mut @model.SELECTED_MULTIPLE)}}
+            @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
             @options={{@model.OPTIONS}}
-            @selected={{@model.SELECTED_MULTIPLE}}
+            @selected={{@model.SELECTED_OPTIONS}}
             @verticalPosition="below"
             as |option|
           >
@@ -513,9 +536,9 @@
         </SF.Item>
         <SF.Item {{style flex="1"}} @label="Above">
           <Hds::Form::SuperSelect::Multiple::Base
-            @onChange={{fn (mut @model.SELECTED_MULTIPLE)}}
+            @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
             @options={{@model.OPTIONS}}
-            @selected={{@model.SELECTED_MULTIPLE}}
+            @selected={{@model.SELECTED_OPTIONS}}
             @verticalPosition="above"
             as |option|
           >
@@ -529,9 +552,9 @@
       <Shw::Flex as |SF|>
         <SF.Item {{style flex="1"}} @label="Left (+ matchTriggerWidth=False)">
           <Hds::Form::SuperSelect::Multiple::Base
-            @onChange={{fn (mut @model.PLACES_SELECTED_MULTIPLE)}}
+            @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
             @options={{@model.PLACES_OPTIONS}}
-            @selected={{@model.PLACES_SELECTED_MULTIPLE}}
+            @selected={{@model.SELECTED_PLACES_OPTIONS}}
             @matchTriggerWidth={{false}}
             @horizontalPosition="left"
             as |option|
@@ -541,9 +564,9 @@
         </SF.Item>
         <SF.Item {{style flex="1"}} @label="Center (+ matchTriggerWidth=False)">
           <Hds::Form::SuperSelect::Multiple::Base
-            @onChange={{fn (mut @model.PLACES_SELECTED_MULTIPLE)}}
+            @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
             @options={{@model.PLACES_OPTIONS}}
-            @selected={{@model.PLACES_SELECTED_MULTIPLE}}
+            @selected={{@model.SELECTED_PLACES_OPTIONS}}
             @matchTriggerWidth={{false}}
             @horizontalPosition="center"
             as |option|
@@ -553,9 +576,9 @@
         </SF.Item>
         <SF.Item {{style flex="1"}} @label="Right (+ matchTriggerWidth=False)">
           <Hds::Form::SuperSelect::Multiple::Base
-            @onChange={{fn (mut @model.PLACES_SELECTED_MULTIPLE)}}
+            @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
             @options={{@model.PLACES_OPTIONS}}
-            @selected={{@model.PLACES_SELECTED_MULTIPLE}}
+            @selected={{@model.SELECTED_PLACES_OPTIONS}}
             @matchTriggerWidth={{false}}
             @horizontalPosition="right"
             as |option|
@@ -572,9 +595,9 @@
   <Shw::Flex {{style padding-bottom="11em"}} as |SF|>
     <SF.Item {{style min-width="10em"}} @label="matchTriggerWidth = true (default)">
       <Hds::Form::SuperSelect::Multiple::Base
-        @onChange={{fn (mut @model.SELECTED_MULTIPLE)}}
+        @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
         @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED_MULTIPLE}}
+        @selected={{@model.SELECTED_OPTIONS}}
         @initiallyOpened={{true}}
         as |option|
       >
@@ -583,9 +606,9 @@
     </SF.Item>
     <SF.Item @label="matchTriggerWidth = false">
       <Hds::Form::SuperSelect::Multiple::Base
-        @onChange={{fn (mut @model.PLACES_SELECTED_MULTIPLE)}}
+        @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
         @options={{@model.PLACES_OPTIONS}}
-        @selected={{@model.PLACES_SELECTED_MULTIPLE}}
+        @selected={{@model.SELECTED_PLACES_OPTIONS}}
         @initiallyOpened={{true}}
         @matchTriggerWidth={{false}}
         as |option|
@@ -602,9 +625,9 @@
   <Shw::Flex @direction="row" as |SF|>
     <SF.Item {{style flex="1" padding-bottom="15em"}} @label="After options default content">
       <Hds::Form::SuperSelect::Multiple::Base
-        @onChange={{fn (mut @model.PLACES_SELECTED_MULTIPLE)}}
+        @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
         @options={{@model.PLACES_OPTIONS}}
-        @selected={{@model.PLACES_SELECTED_MULTIPLE}}
+        @selected={{@model.SELECTED_PLACES_OPTIONS}}
         @initiallyOpened={{true}}
         as |option|
       >
@@ -614,9 +637,9 @@
     <SF.Item {{style flex="1" padding-bottom="15em"}} @label="After options text content">
       <Hds::Form::SuperSelect::Multiple::Base
         @afterOptionsContent="After options content"
-        @onChange={{fn (mut @model.PLACES_SELECTED_MULTIPLE)}}
+        @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
         @options={{@model.PLACES_OPTIONS}}
-        @selected={{@model.PLACES_SELECTED_MULTIPLE}}
+        @selected={{@model.SELECTED_PLACES_OPTIONS}}
         @initiallyOpened={{true}}
         as |option|
       >
@@ -629,9 +652,9 @@
     <SF.Item {{style flex="1" padding-bottom="13em"}} @label="Before options generic content">
       <Hds::Form::SuperSelect::Multiple::Base
         @beforeOptionsComponent={{component "form/power-select/generic-content"}}
-        @onChange={{fn (mut @model.PLACES_SELECTED_MULTIPLE)}}
+        @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
         @options={{@model.PLACES_OPTIONS}}
-        @selected={{@model.PLACES_SELECTED_MULTIPLE}}
+        @selected={{@model.SELECTED_PLACES_OPTIONS}}
         @initiallyOpened={{true}}
         as |option|
       >
@@ -641,9 +664,9 @@
     <SF.Item {{style flex="1" padding-bottom="15em"}} @label="After options generic content">
       <Hds::Form::SuperSelect::Multiple::Base
         @afterOptionsComponent={{component "form/power-select/generic-content"}}
-        @onChange={{fn (mut @model.PLACES_SELECTED_MULTIPLE)}}
+        @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
         @options={{@model.PLACES_OPTIONS}}
-        @selected={{@model.PLACES_SELECTED_MULTIPLE}}
+        @selected={{@model.SELECTED_PLACES_OPTIONS}}
         @initiallyOpened={{true}}
         as |option|
       >
@@ -659,9 +682,9 @@
   <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Only label">
       <Hds::Form::SuperSelect::Multiple::Field
-        @onChange={{fn (mut @model.SELECTED_MULTIPLE)}}
+        @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
         @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED_MULTIPLE}}
+        @selected={{@model.SELECTED_OPTIONS}}
         as |F|
       >
         <F.Label>Lorem ipsum dolor</F.Label>
@@ -670,9 +693,9 @@
     </SG.Item>
     <SG.Item @label="Label + Helper text">
       <Hds::Form::SuperSelect::Multiple::Field
-        @onChange={{fn (mut @model.SELECTED_MULTIPLE)}}
+        @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
         @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED_MULTIPLE}}
+        @selected={{@model.SELECTED_OPTIONS}}
         as |F|
       >
         <F.Label>This is the label</F.Label>
@@ -684,9 +707,9 @@
     <SG.Item />
     <SG.Item @label="Label + Error">
       <Hds::Form::SuperSelect::Multiple::Field
-        @onChange={{fn (mut @model.SELECTED_MULTIPLE)}}
+        @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
         @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED_MULTIPLE}}
+        @selected={{@model.SELECTED_OPTIONS}}
         @isInvalid={{true}}
         as |F|
       >
@@ -697,9 +720,9 @@
     </SG.Item>
     <SG.Item @label="Label + Helper text + Error">
       <Hds::Form::SuperSelect::Multiple::Field
-        @onChange={{fn (mut @model.SELECTED_MULTIPLE)}}
+        @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
         @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED_MULTIPLE}}
+        @selected={{@model.SELECTED_OPTIONS}}
         @isInvalid={{true}}
         as |F|
       >
@@ -711,9 +734,9 @@
     </SG.Item>
     <SG.Item @label="Label + Helper text + Errors">
       <Hds::Form::SuperSelect::Multiple::Field
-        @onChange={{fn (mut @model.SELECTED_MULTIPLE)}}
+        @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
         @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED_MULTIPLE}}
+        @selected={{@model.SELECTED_OPTIONS}}
         @isInvalid={{true}}
         as |F|
       >
@@ -733,9 +756,9 @@
   <Shw::Flex as |SF|>
     <SF.Item @label="With legend + Required">
       <Hds::Form::SuperSelect::Multiple::Field
-        @onChange={{fn (mut @model.SELECTED_MULTIPLE)}}
+        @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
         @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED_MULTIPLE}}
+        @selected={{@model.SELECTED_OPTIONS}}
         @isRequired={{true}}
         as |F|
       >
@@ -745,9 +768,9 @@
     </SF.Item>
     <SF.Item @label="With legend + Optional">
       <Hds::Form::SuperSelect::Multiple::Field
-        @onChange={{fn (mut @model.SELECTED_MULTIPLE)}}
+        @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
         @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED_MULTIPLE}}
+        @selected={{@model.SELECTED_OPTIONS}}
         @isOptional={{true}}
         as |F|
       >
