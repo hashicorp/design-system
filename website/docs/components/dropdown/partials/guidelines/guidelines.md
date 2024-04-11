@@ -283,6 +283,7 @@ Be careful not to misuse or overuse the Generic ListItem. Relying on this escape
 Icons in ListItems are optional. Generally, we recommend letting the text speak for itself, but icons can add value in the following situations:
 
 - When they reinforce the content, e.g., `edit` for an edit or rename action. 
+- When using Interactive ListItems, a `trailingIcon` can indicate that a link is external.
 - When using Critical ListItems; read more about [how color blind users see critical actions](/components/dropdown?tab=accessibility) in our UIs.
 - To avoid inconsistent icon use within the same List. Instead use icons in all ListItems. Doing so keeps the text aligned so the eye can scan the list of options more easily.
 
@@ -294,6 +295,7 @@ Use icons consistently and when they reinforce the content.
   <Doc::ListContainer class="hds-dropdown__list">
     <Hds::Dropdown::ListItem::Interactive @text="Rename cluster" @color="action" @icon="edit" />
     <Hds::Dropdown::ListItem::Interactive @text="Restore cluster" @color="action" @icon="reload" />
+    <Hds::Dropdown::ListItem::Interactive @text="Reference cluster" @color="action" @icon="github" @trailingIcon="external-link" />
     <Hds::Dropdown::ListItem::Separator />
     <Hds::Dropdown::ListItem::Interactive @text="Delete cluster" @color="critical" @icon="trash" />
   </Doc::ListContainer>

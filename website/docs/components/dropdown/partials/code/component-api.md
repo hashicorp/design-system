@@ -104,10 +104,13 @@ If the Dropdown content exceeds the height of the container, the header and foot
     Text to be used in the item. If no text value is defined, an error will be thrown.
   </C.Property>
   <C.Property @name="color" @type="enum" @values={{array "action" "critical" }} @default="action">
-    Acceptable values: “action” or “critical”.
+    Color applied to the text and (optional) icons.
   </C.Property>
   <C.Property @name="icon" @type="string">
-    Acceptable value: any [icon](/icons/library) name.
+    Leading icon. Acceptable value: any [icon](/icons/library) name.
+  </C.Property>
+  <C.Property @name="trailingIcon" @type="string">
+    Trailing icon. Acceptable value: any [icon](/icons/library) name.
   </C.Property>
   <C.Property @name="isLoading" @type="boolean" @default="false">
     Controls if the item is in “loading” state. When in this state, the item is not actually interactive, but you can pass the other expected arguments for the item (they’re simply ignored).
