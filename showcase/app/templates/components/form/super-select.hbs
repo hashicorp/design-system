@@ -260,7 +260,7 @@
 
   <Shw::Divider @level="2" />
 
-  <Shw::Text::H3>Rich option content</Shw::Text::H3>
+  <Shw::Text::H3>Options with rich content</Shw::Text::H3>
 
   <Shw::Flex {{style max-width="50%" padding-bottom="1em"}} as |SF|>
     <SF.Item {{style flex="1" padding-bottom="13em"}} @label="">
@@ -482,7 +482,7 @@
   <Shw::Text::H3>List</Shw::Text::H3>
 
   <Shw::Flex @direction="row" as |SF|>
-    <SF.Item {{style flex="1" padding-bottom="9em"}} @label="Default">
+    <SF.Item {{style flex="1" padding-bottom="11em"}} @label="Default">
       <Hds::Form::SuperSelect::Multiple::Base
         @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
         @options={{@model.OPTIONS}}
@@ -592,7 +592,7 @@
 
   <Shw::Text::H4>List width</Shw::Text::H4>
 
-  <Shw::Flex {{style padding-bottom="11em"}} as |SF|>
+  <Shw::Flex {{style padding-bottom="14em"}} as |SF|>
     <SF.Item {{style min-width="10em"}} @label="matchTriggerWidth = true (default)">
       <Hds::Form::SuperSelect::Multiple::Base
         @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
@@ -671,6 +671,32 @@
         as |option|
       >
         {{option}}
+      </Hds::Form::SuperSelect::Multiple::Base>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>Options with rich content</Shw::Text::H3>
+
+  <Shw::Flex {{style max-width="50%" padding-bottom="14em"}} as |SF|>
+    <SF.Item {{style flex="1"}}>
+      <Hds::Form::SuperSelect::Multiple::Base
+        @searchEnabled={{true}}
+        @selected={{@model.SELECTED_CLUSTER_SIZE_OPTIONS}}
+        @selectedItemComponent={{component "form/power-select/selected-component"}}
+        @onChange={{fn (mut @model.SELECTED_CLUSTER_SIZE_OPTION)}}
+        @options={{@model.CLUSTER_SIZE_OPTIONS}}
+        @initiallyOpened={{true}}
+        as |option|
+      >
+        <div class="shw-component-form-super-select-option-rich-content">
+          <p class="shw-component-form-super-select-option-rich-header">
+            <strong>{{option.size}}</strong>
+            <strong>{{option.price}}/hr</strong>
+          </p>
+          <p>{{option.description}}</p>
+        </div>
       </Hds::Form::SuperSelect::Multiple::Base>
     </SF.Item>
   </Shw::Flex>
