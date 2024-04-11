@@ -1,0 +1,18 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// FORM > SUPER_SELECT
+
+body.components-form-super-select {
+  // .shw-component-alert-sample-custom-content-after-actions
+  .shw-component-form-super-select-option-rich-content {
+    p {margin: 0;}
+
+    .shw-component-form-super-select-option-rich-header {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
