@@ -61,6 +61,7 @@ $hds-tag-border-radius: 50px;
     // Trigger content (Single Select):
     .ember-power-select-placeholder,
     .ember-power-select-selected-item {
+      flex: 1;
       margin-left: 0;
     }
 
