@@ -5,7 +5,14 @@
 
 <div class={{this.classNames}}>
   <PowerSelect
-    @afterOptionsComponent={{@afterOptionsComponent}}
+    @afterOptionsComponent={{(or
+      @afterOptionsComponent
+      (component
+        "hds/form/super-select/after-options"
+        content=@afterOptionsContent
+        resultCountMessage=this.resultCountMessage
+      )
+    )}}
     @ariaDescribedBy={{@ariaDescribedBy}}
     @ariaInvalid={{@ariaInvalid}}
     @ariaLabel={{@ariaLabel}}
