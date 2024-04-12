@@ -78,7 +78,7 @@ The footer defaults to visible and shows a total counter, which is customizable 
 ![Custom content enabled before the list in both single and multiple variants](/assets/components/form/super-select/super-select-single-variant-footer-with-counter.png =626x*)
 
 ##### Multiple variant
-The afterOptions and footer default to visible. This pattern allows users to expedite the deselection process.
+The afterOptions and footer default to visible. This buttons allow users to expedite the deselection process. The counter (selected / total) is optional. Either both or individually may be shown.
 
 ![Custom content enabled before the list in both single and multiple variants](/assets/components/form/super-select/super-select-multiple-variant-footer-without-counter.png =757x*)
 
