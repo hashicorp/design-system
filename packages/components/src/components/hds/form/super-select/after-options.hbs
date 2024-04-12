@@ -1,0 +1,20 @@
+{{! @glint-nocheck: not typesafe yet }}
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<div class="hds-form-super-select__after-options">
+  {{#if @content}}
+    {{@content}}
+  {{else}}
+    {{#if (or @showAll @showSelected @clearSelected)}}
+      {{#if @showOnlySelected}}
+        <Hds::Button @text="Show All" @size="small" @color="secondary" {{on "click" @showAll}} />
+      {{else}}
+        <Hds::Button @text="Show Selected" @size="small" @color="secondary" {{on "click" @showSelected}} />
+      {{/if}}
+      <Hds::Button @text="Clear Selected" @size="small" @color="secondary" {{on "click" @clearSelected}} />
+    {{/if}}
+    <span class="hds-form-super-select__result-count">{{@resultCountMessage}}</span>
+  {{/if}}
+</div>
