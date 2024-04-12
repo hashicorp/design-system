@@ -4,8 +4,16 @@
  */
 
 import PowerSelectComponent from 'ember-power-select/components/power-select';
+import anchoredPositionModifier from '../../../../../modifiers/hds-anchored-position';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+
+const DEFAULT_HORIZONTAL_POSITION = 'bottom-start';
+const HORIZONTAL_POSITION_MAPPING = {
+  left: 'bottom-start',
+  center: 'bottom',
+  right: 'bottom-end',
+};
 
 export default class HdsSuperSelectMultipleBaseComponent extends PowerSelectComponent {
   @tracked powerSelectAPI;
@@ -22,6 +30,19 @@ export default class HdsSuperSelectMultipleBaseComponent extends PowerSelectComp
 
   get resultCountMessage() {
     return `${this.selectedCount} selected of ${this.optionsCount} total`;
+  }
+
+  @action calculatePosition(trigger, content) {
+    // use `hds-anchored-position` to calculate and set position
+    anchoredPositionModifier(content, [trigger], {
+      placement: this.args.horizontalPosition
+        ? HORIZONTAL_POSITION_MAPPING[this.args.horizontalPosition]
+        : DEFAULT_HORIZONTAL_POSITION,
+      offsetOptions: 4,
+      enableCollisionDetection: true,
+    });
+    // prevent PowerSelect from setting position
+    return {};
   }
 
   @action
