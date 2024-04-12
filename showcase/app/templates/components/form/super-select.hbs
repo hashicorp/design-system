@@ -265,7 +265,6 @@
   <Shw::Flex {{style max-width="50%" padding-bottom="1em"}} as |SF|>
     <SF.Item {{style flex="1" padding-bottom="13em"}} @label="">
       <Hds::Form::SuperSelect::Single::Base
-        @searchEnabled={{true}}
         @selected={{@model.SELECTED_CLUSTER_SIZE_OPTION}}
         @onChange={{fn (mut @model.SELECTED_CLUSTER_SIZE_OPTION)}}
         @options={{@model.CLUSTER_SIZE_OPTIONS}}
