@@ -73,12 +73,12 @@ AfterOptions allows for one of two options to be displayed at a given time: foot
 The footer appends below the list displaying content and/or buttons (depending on the variant) that provide additional context (or functions) to the list options.
 
 ##### Single variant
-The footer defaults to hidden, but when enabled shows a counter (selected count / total count). Either of the two texts are togglable and customizable to fit context.
+The footer defaults to visible and shows a counter (selected count / total count). Either of the two texts are togglable and customizable to fit context.
 
 ![Custom content enabled before the list in both single and multiple variants](/assets/components/form/super-select/super-select-single-variant-footer-with-counter.png =626x*)
 
 ##### Multiple variant
-The afterOptions and footer default to visible. This is the preferred pattern where users are able to expedite the deselection process.
+The afterOptions and footer default to visible. This pattern allows users to expedite the deselection process.
 
 ![Custom content enabled before the list in both single and multiple variants](/assets/components/form/super-select/super-select-multiple-variant-footer-without-counter.png =757x*)
 
