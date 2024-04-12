@@ -3,6 +3,11 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
+{{#if @showNoSelectedMessage}}
+  <div class="hds-form-super-select__no-options-selected">
+    No options selected
+  </div>
+{{/if}}
 <div class="hds-form-super-select__after-options">
   {{#if @content}}
     {{@content}}
