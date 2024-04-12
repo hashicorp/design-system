@@ -3,13 +3,14 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
+import PowerSelectComponent from 'ember-power-select/components/power-select';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-export default class HdsSuperSelectMultipleBaseComponent extends Component {
+export default class HdsSuperSelectMultipleBaseComponent extends PowerSelectComponent {
   @tracked powerSelectAPI;
   @tracked showOnlySelected = false;
+  @tracked showNoSelectedMessage = false;
 
   @action
   setPowerSelectAPI(powerSelectAPI) {
@@ -20,11 +21,11 @@ export default class HdsSuperSelectMultipleBaseComponent extends Component {
   }
 
   get selectedCount() {
-    return this.powerSelectAPI?.selected?.length || '0';
+    return this.selected?.length || '0';
   }
 
   get optionsCount() {
-    return this.powerSelectAPI?.options?.length || '0';
+    return this.options?.length || '0';
   }
 
   get resultCountMessage() {
@@ -32,16 +33,19 @@ export default class HdsSuperSelectMultipleBaseComponent extends Component {
   }
 
   @action showSelected() {
+    this.showNoSelectedMessage = this.selectedCount === '0';
     this.showOnlySelected = true;
   }
 
   @action showAll() {
+    this.showNoSelectedMessage = false;
     this.showOnlySelected = false;
   }
 
   @action clearSelected() {
     this.powerSelectAPI.actions.select(null);
     // show all options after clearing all selection
+    this.showNoSelectedMessage = false;
     this.showOnlySelected = false;
   }
 

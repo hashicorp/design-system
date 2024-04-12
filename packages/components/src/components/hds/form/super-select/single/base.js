@@ -3,9 +3,9 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
+import PowerSelectComponent from 'ember-power-select/components/power-select';
 
-export default class HdsSuperSelectSingleBaseComponent extends Component {
+export default class HdsSuperSelectSingleBaseComponent extends PowerSelectComponent {
   /**
    * Get the search placeholder text
    * @param searchPlaceholder
