@@ -248,7 +248,7 @@ $hds-tag-border-radius: 50px;
 .hds-form-super-select-single .ember-basic-dropdown {
 
   // Options Item
-  .ember-power-select-option {
+  .ember-power-select-option:not(.ember-power-select-option--no-matches-message) {
     &[aria-selected="true"] {
       color: var(--token-color-foreground-action);
 
@@ -290,7 +290,7 @@ $hds-tag-border-radius: 50px;
 .hds-form-super-select-multiple .ember-basic-dropdown {
 
   // Options Item
-  .ember-power-select-option {
+  .ember-power-select-option:not(.ember-power-select-option--no-matches-message) {
     position: relative;
 
     // pseudo checkbox
@@ -368,6 +368,15 @@ $hds-tag-border-radius: 50px;
         }
       }
     }
+  }
+}
+
+// NO MATCHES MESSAGE
+
+.hds-form-super-select .ember-basic-dropdown {
+  .ember-power-select-option--no-matches-message {
+    padding-left: 12px;
+    cursor: inherit;
   }
 }
 
