@@ -12,7 +12,6 @@ $hds-tag-border-radius: 50px;
 // Style overrides:
 
 .hds-form-super-select .ember-basic-dropdown {
-
   // TRIGGER
 
   .ember-basic-dropdown-trigger,
@@ -100,21 +99,29 @@ $hds-tag-border-radius: 50px;
       top: unset !important; // override inline style (TODO: update in JS)
       bottom: 100%;
     }
+
+    // hide first group separator line
+    > .ember-power-select-options > .hds-form-super-select__option-group:first-child::before {
+      display: none;
+    }
   }
 
   // Options List
   .ember-power-select-options {
-    padding: 3px;
+    padding: 3px 0;
+
+    .ember-power-select-options {
+      padding: 0;
+    }
   }
 
   // Options Item
   .ember-power-select-option {
     position: relative;
     min-height: 36px;
-    padding: 7px;
-    padding-left: 36px;
+    padding: 7px 7px 7px 39px; // top, right, bottom, left
     line-height: var(--token-typography-body-200-line-height);
-    overflow-wrap: break-word; // when used in combination with flex parent, content may overflow (therefore not using flex layout on parent)
+    overflow-wrap: break-word; // when used with flex parent, content may overflow (therefore not using flex layout on parent)
 
     + .ember-power-select-option {
       margin-top: 8px;
@@ -129,6 +136,37 @@ $hds-tag-border-radius: 50px;
     &[aria-selected="true"] {
       background-color: var(--token-form-control-base-surface-color-default);
     }
+  }
+
+  // Option Groups (similar to HTML optgroup)
+
+  .hds-form-super-select__option-group {
+    &:first-child .hds-form-super-select__option-group-header {
+      margin-top: 0;
+    }
+
+    // group separator line
+    &::before {
+      display: block;
+      height: 5px;
+      margin: 7px 5px 9px 5px; // top, right, bottom, left
+      // background: pink;
+      border-bottom: 1px solid var(--token-color-border-primary);
+      content: "";
+    }
+
+    .hds-form-super-select__option-group {
+      padding-left: 16px;
+
+      &:first-child::before {
+        display: none;
+      }
+    }
+  }
+
+  .hds-form-super-select__option-group-header {
+    margin: 8px 0;
+    padding: 6px 7px 2px 15px; // top, right, bottom, left
   }
 
   // Search
@@ -297,13 +335,11 @@ $hds-tag-border-radius: 50px;
     // pseudo checkbox
     &::before {
       position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 12px;
+      top: 9px;
+      left: 15px;
       display: block;
       width: var(--token-form-checkbox-size);
       height: var(--token-form-checkbox-size);
-      margin: auto 0;
       background-position: center center;
       background-size: var(--token-form-checkbox-background-image-size) var(--token-form-checkbox-background-image-size);
       border-style: solid;
@@ -418,21 +454,4 @@ $hds-tag-border-radius: 50px;
   .ember-power-select-dropdown.ember-basic-dropdown-content--in-place {
       width: auto;
   }
-}
-
-// TEMPORARY, move if some version is kept ------------
-// Used to provide custom group styles for select dropdown similar in concept to HTML optgroup 
-// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup
-
-// GroupComponent Test
-.hds-form-super-select__group-component {
-  border-bottom: 1px solid var(--token-color-border-primary);
-}
-
-.hds-form-super-select__group-component-group-name {
-  padding: 4px 8px;
-}
-
-.hds-form-super-select__group-component .hds-form-super-select__group-component .hds-form-super-select__group-component-group-name {
-  padding-left: 20px;
 }

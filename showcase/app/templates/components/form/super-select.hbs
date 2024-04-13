@@ -11,7 +11,6 @@
 <Shw::Text::H1>Form::SuperSelect</Shw::Text::H1>
 
 <section data-test-percy>
-
   <Shw::Text::H2>Single selection</Shw::Text::H2>
 
   <Shw::Text::H3>Interaction status</Shw::Text::H3>
@@ -86,8 +85,8 @@
 
   <Shw::Text::H3>List</Shw::Text::H3>
 
-  <Shw::Flex @direction="row" as |SF|>
-    <SF.Item {{style flex="1" padding-bottom="11em"}} @label="Default">
+  <Shw::Flex {{style padding-bottom="13em"}} @direction="row" as |SF|>
+    <SF.Item {{style flex="1"}} @label="Default">
       <Hds::Form::SuperSelect::Single::Base
         @onChange={{fn (mut @model.SELECTED_OPTION)}}
         @options={{@model.OPTIONS}}
@@ -98,8 +97,7 @@
         {{option}}
       </Hds::Form::SuperSelect::Single::Base>
     </SF.Item>
-
-    <SF.Item {{style flex="1" padding-bottom="11em"}} @label="Search enabled">
+    <SF.Item {{style flex="1"}} @label="Search enabled">
       <Hds::Form::SuperSelect::Single::Base
         @onChange={{fn (mut @model.SELECTED_OPTION)}}
         @options={{@model.OPTIONS}}
@@ -152,7 +150,6 @@
         </SF.Item>
       </Shw::Flex>
     </SF.Item>
-
     <SF.Item>
       <Shw::Flex as |SF|>
         <SF.Item {{style flex="1"}} @label="Left (+ matchTriggerWidth=False)">
@@ -197,7 +194,7 @@
 
   <Shw::Text::H4>List width</Shw::Text::H4>
 
-  <Shw::Flex {{style padding-bottom="11em"}} as |SF|>
+  <Shw::Flex {{style padding-bottom="13em"}} as |SF|>
     <SF.Item {{style min-width="10em"}} @label="matchTriggerWidth = true (default)">
       <Hds::Form::SuperSelect::Single::Base
         @onChange={{fn (mut @model.SELECTED_OPTION)}}
@@ -216,6 +213,39 @@
         @selected={{@model.SELECTED_PLACES_OPTION}}
         @initiallyOpened={{true}}
         @matchTriggerWidth={{false}}
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Single::Base>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H4>Complex content</Shw::Text::H4>
+
+  <Shw::Flex {{style padding-bottom="14em"}} @direction="row" as |SF|>
+    <SF.Item {{style flex="1"}} @label="Options with rich content">
+      <Hds::Form::SuperSelect::Single::Base
+        @selected={{@model.SELECTED_CLUSTER_SIZE_OPTION}}
+        @onChange={{fn (mut @model.SELECTED_CLUSTER_SIZE_OPTION)}}
+        @options={{@model.CLUSTER_SIZE_OPTIONS}}
+        @initiallyOpened={{true}}
+        as |option|
+      >
+        <div class="shw-component-form-super-select-option-rich-content">
+          <p class="shw-component-form-super-select-option-rich-header">
+            <strong>{{option.size}}</strong>
+            <strong>{{option.price}}/hr</strong>
+          </p>
+          <p>{{option.description}}</p>
+        </div>
+      </Hds::Form::SuperSelect::Single::Base>
+    </SF.Item>
+    <SF.Item {{style flex="1"}} @label="Grouped options">
+      <Hds::Form::SuperSelect::Single::Base
+        @onChange={{fn (mut @model.SELECTED_GROUPED_OPTION)}}
+        @options={{@model.GROUPED_OPTIONS}}
+        @selected={{@model.SELECTED_GROUPED_OPTION}}
+        @initiallyOpened={{true}}
         as |option|
       >
         {{option}}
@@ -250,56 +280,6 @@
         @onChange={{fn (mut @model.SELECTED_PLACES_OPTION)}}
         @options={{@model.PLACES_OPTIONS}}
         @selected={{@model.SELECTED_PLACES_OPTION}}
-        @initiallyOpened={{true}}
-        as |option|
-      >
-        {{option}}
-      </Hds::Form::SuperSelect::Single::Base>
-    </SF.Item>
-  </Shw::Flex>
-
-  <Shw::Divider @level="2" />
-
-  <Shw::Text::H3>Options with rich content</Shw::Text::H3>
-
-  <Shw::Flex {{style max-width="50%" padding-bottom="1em"}} as |SF|>
-    <SF.Item {{style flex="1" padding-bottom="13em"}} @label="">
-      <Hds::Form::SuperSelect::Single::Base
-        @selected={{@model.SELECTED_CLUSTER_SIZE_OPTION}}
-        @onChange={{fn (mut @model.SELECTED_CLUSTER_SIZE_OPTION)}}
-        @options={{@model.CLUSTER_SIZE_OPTIONS}}
-        @initiallyOpened={{true}}
-        as |option|
-      >
-        <div class="shw-component-form-super-select-option-rich-content">
-          <p class="shw-component-form-super-select-option-rich-header">
-            <strong>{{option.size}}</strong>
-            <strong>{{option.price}}/hr</strong>
-          </p>
-          <p>{{option.description}}</p>
-        </div>
-      </Hds::Form::SuperSelect::Single::Base>
-    </SF.Item>
-  </Shw::Flex>
-
-  <Shw::Divider @level="2" />
-
-  <Shw::Text::H3>Grouped options</Shw::Text::H3>
-
-  <Shw::Text::Body>
-    <mark>
-      NOTE: We could provide a standardized option for this and simplify the API if we choose (current styles are for
-      demo purposes)
-    </mark>
-  </Shw::Text::Body>
-
-  <Shw::Flex {{style max-width="50%" padding-bottom="10em"}} @direction="column" as |SF|>
-    <SF.Item @label="Custom group component (@groupComponent)">
-      <Hds::Form::SuperSelect::Single::Base
-        @groupComponent={{component "form/power-select/group-component"}}
-        @onChange={{fn (mut @model.SELECTED_GROUPED_OPTION)}}
-        @options={{@model.GROUPED_OPTIONS}}
-        @selected={{@model.SELECTED_GROUPED_OPTION}}
         @initiallyOpened={{true}}
         as |option|
       >
@@ -591,7 +571,7 @@
 
   <Shw::Text::H4>List width</Shw::Text::H4>
 
-  <Shw::Flex {{style padding-bottom="14em"}} as |SF|>
+  <Shw::Flex {{style padding-bottom="15em"}} as |SF|>
     <SF.Item {{style min-width="10em"}} @label="matchTriggerWidth = true (default)">
       <Hds::Form::SuperSelect::Multiple::Base
         @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
@@ -610,6 +590,41 @@
         @selected={{@model.SELECTED_PLACES_OPTIONS}}
         @initiallyOpened={{true}}
         @matchTriggerWidth={{false}}
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Multiple::Base>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H4>Complex content</Shw::Text::H4>
+
+  <Shw::Flex {{style padding-bottom="13em"}} @direction="row" as |SF|>
+    <SF.Item {{style flex="1"}} @label="Options with rich content">
+      <Hds::Form::SuperSelect::Multiple::Base
+        @searchEnabled={{true}}
+        @selected={{@model.SELECTED_CLUSTER_SIZE_OPTIONS}}
+        @selectedItemComponent={{component "form/power-select/selected-component"}}
+        @onChange={{fn (mut @model.SELECTED_CLUSTER_SIZE_OPTION)}}
+        @options={{@model.CLUSTER_SIZE_OPTIONS}}
+        @initiallyOpened={{true}}
+        as |option|
+      >
+        <div class="shw-component-form-super-select-option-rich-content">
+          <p class="shw-component-form-super-select-option-rich-header">
+            <strong>{{option.size}}</strong>
+            <strong>{{option.price}}/hr</strong>
+          </p>
+          <p>{{option.description}}</p>
+        </div>
+      </Hds::Form::SuperSelect::Multiple::Base>
+    </SF.Item>
+    <SF.Item {{style flex="1"}} @label="Grouped options">
+      <Hds::Form::SuperSelect::Multiple::Base
+        @onChange={{fn (mut @model.SELECTED_GROUPED_OPTION)}}
+        @options={{@model.GROUPED_OPTIONS}}
+        @selected={{@model.SELECTED_GROUPED_OPTIONS}}
+        @initiallyOpened={{true}}
         as |option|
       >
         {{option}}
@@ -670,32 +685,6 @@
         as |option|
       >
         {{option}}
-      </Hds::Form::SuperSelect::Multiple::Base>
-    </SF.Item>
-  </Shw::Flex>
-
-  <Shw::Divider @level="2" />
-
-  <Shw::Text::H3>Options with rich content</Shw::Text::H3>
-
-  <Shw::Flex {{style max-width="50%" padding-bottom="14em"}} as |SF|>
-    <SF.Item {{style flex="1"}}>
-      <Hds::Form::SuperSelect::Multiple::Base
-        @searchEnabled={{true}}
-        @selected={{@model.SELECTED_CLUSTER_SIZE_OPTIONS}}
-        @selectedItemComponent={{component "form/power-select/selected-component"}}
-        @onChange={{fn (mut @model.SELECTED_CLUSTER_SIZE_OPTION)}}
-        @options={{@model.CLUSTER_SIZE_OPTIONS}}
-        @initiallyOpened={{true}}
-        as |option|
-      >
-        <div class="shw-component-form-super-select-option-rich-content">
-          <p class="shw-component-form-super-select-option-rich-header">
-            <strong>{{option.size}}</strong>
-            <strong>{{option.price}}/hr</strong>
-          </p>
-          <p>{{option.description}}</p>
-        </div>
       </Hds::Form::SuperSelect::Multiple::Base>
     </SF.Item>
   </Shw::Flex>
