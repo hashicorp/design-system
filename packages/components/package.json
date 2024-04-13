@@ -191,6 +191,7 @@
       "./components/hds/form/super-select/after-options.js": "./dist/_app_/components/hds/form/super-select/after-options.js",
       "./components/hds/form/super-select/multiple/base.js": "./dist/_app_/components/hds/form/super-select/multiple/base.js",
       "./components/hds/form/super-select/multiple/field.js": "./dist/_app_/components/hds/form/super-select/multiple/field.js",
+      "./components/hds/form/super-select/option-group.js": "./dist/_app_/components/hds/form/super-select/option-group.js",
       "./components/hds/form/super-select/single/base.js": "./dist/_app_/components/hds/form/super-select/single/base.js",
       "./components/hds/form/super-select/single/field.js": "./dist/_app_/components/hds/form/super-select/single/field.js",
       "./components/hds/form/text-input/base.js": "./dist/_app_/components/hds/form/text-input/base.js",
