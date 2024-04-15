@@ -49,6 +49,16 @@ export default class HdsSuperSelectMultipleBaseComponent extends PowerSelectComp
     this.showOnlySelected = false;
   }
 
+  /**
+   * Get the search placeholder text
+   * @param showAfterOptions
+   * @type {boolean}
+   * @default true
+   */
+  get showAfterOptions() {
+    return this.args.showAfterOptions ?? true;
+  }
+
   // NOTE: The searchPlaceholder doesn't currently work for the multiple select
   /**
    * Get the search placeholder text
