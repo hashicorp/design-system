@@ -75,7 +75,7 @@
     z-index: 1;
     // This needs to go here because Tippy generates a javascript
     // max-width on .tippy-box.
-    max-width: var(--token-tooltip-max-width);
+    max-width: calc(var(--token-tooltip-max-width) - 2 * var(--token-tooltip-padding-horizontal));
     // prevent this container from potentially inheriting other values
     // such as `white-space: nowrap` that would cause content overflow
     white-space: normal;
