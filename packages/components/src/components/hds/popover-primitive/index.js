@@ -205,7 +205,7 @@ export default class HdsPopoverPrimitiveComponent extends Component {
    * @description sets display for the container and toggle elements
    */
   get isInline() {
-    let { isInline = true } = this.args;
+    let { isInline = false } = this.args;
     return isInline;
   }
 
