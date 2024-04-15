@@ -82,7 +82,7 @@ export default class HdsPopoverPrimitiveComponent extends Component {
       // we always want the focusOut event
       registerEvent(this.containerElement, ['focusout', this.onFocusOut]);
     },
-    { eager: false }
+    { eager: true }
   );
 
   setupPrimitiveToggle = modifier(
@@ -121,14 +121,14 @@ export default class HdsPopoverPrimitiveComponent extends Component {
         }
       }
     },
-    { eager: false }
+    { eager: true }
   );
 
   setupPrimitiveArrow = modifier(
     (element) => {
       this.arrowElement = element;
     },
-    { eager: false }
+    { eager: true }
   );
 
   setupPrimitivePopover = modifier(
@@ -168,7 +168,7 @@ export default class HdsPopoverPrimitiveComponent extends Component {
         );
       });
     },
-    { eager: false }
+    { eager: true }
   );
 
   get popoverOptions() {
