@@ -24,10 +24,6 @@ module.exports = {
     // see: https://stylelint.io/user-guide/rules/list/declaration-empty-line-before/
     'declaration-empty-line-before': null,
 
-    // we've agreed to not enforce a limit on the lines lenght (we embed SVGs so very long strings + plus modern browsers can esily soft-wrap code)
-    // see: https://stylelint.io/user-guide/rules/list/max-line-length/
-    'max-line-length': null,
-
     // we've decided to disable this rule because we want to be able to order our declarations based on different criteria, if/when needed
     // see: https://stylelint.io/user-guide/rules/list/no-descending-specificity/
     'no-descending-specificity': null,
