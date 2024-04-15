@@ -4,7 +4,7 @@
 }}
 <div class={{this.classNames}}>
   <PowerSelectMultiple
-    @afterOptionsComponent={{(or
+    @afterOptionsComponent={{if this.showAfterOptions (or
       @afterOptionsComponent
       (component
         "hds/form/super-select/after-options"
