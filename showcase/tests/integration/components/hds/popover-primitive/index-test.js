@@ -73,19 +73,19 @@ module(
 
     // DISPLAY
 
-    test('it should render the container and toggle as inline by default', async function (assert) {
+    test('it should render the container and toggle as block by default', async function (assert) {
       await render(hbs`
         <Hds::PopoverPrimitive />
       `);
-      assert.dom('.hds-popover-primitive--is-inline').exists();
-      assert.dom('.hds-popover-primitive__toggle--is-inline').exists();
-    });
-    test('it should render the container and toggle as block if `@isInline` is `false`', async function (assert) {
-      await render(hbs`
-        <Hds::PopoverPrimitive @isInline={{false}} />
-      `);
       assert.dom('.hds-popover-primitive--is-block').exists();
       assert.dom('.hds-popover-primitive__toggle--is-block').exists();
+    });
+    test('it should render the container and toggle as inline if `@isInline` is `true`', async function (assert) {
+      await render(hbs`
+        <Hds::PopoverPrimitive @isInline={{true}} />
+      `);
+      assert.dom('.hds-popover-primitive--is-inline').exists();
+      assert.dom('.hds-popover-primitive__toggle--is-inline').exists();
     });
 
     // CONTAINS INTERACTIVE ELEMENTS
