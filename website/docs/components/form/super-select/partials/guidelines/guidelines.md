@@ -86,6 +86,10 @@ Show selected will change the list to display only selected list items while tog
 
 ![Flow showing the behavior of the show selected button and how it toggles the list to only display selected list items](/assets/components/form/super-select/super-select-flow-select-all.png =836x*)
 
+If show selected is used while no selections have been made, a string of text will let the user know that no selections have been made yet.
+
+![Flow showing the behavior of the show selected button when no selections have been made yet.](/assets/components/form/super-select/super-select-flow-no-selections-select-all.png =836x*)
+
 Additionally, “clear selected” will wipe out the selections and revert the SuperSelect to its defined default state.
 
 ![Flow showing the behavior of the clear selected button and how it reverts the SuperSelect's state to the default one](/assets/components/form/super-select/super-select-flow-clear-selected.png =836x*)
