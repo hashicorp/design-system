@@ -5,7 +5,7 @@
 
 <div class={{this.classNames}}>
   <PowerSelect
-    @afterOptionsComponent={{(or
+    @afterOptionsComponent={{if this.showAfterOptions (or
       @afterOptionsComponent
       (component
         "hds/form/super-select/after-options" content=@afterOptionsContent resultCountMessage=this.resultCountMessage
