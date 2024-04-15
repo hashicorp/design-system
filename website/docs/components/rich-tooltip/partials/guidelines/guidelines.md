@@ -155,6 +155,8 @@ The Rich Tooltip supports two different interaction methods: a `hover/focus` ("s
 
 We are not prescriptive about what type of content a Rich Tooltip can contain, consider these common examples when determining whether the Rich Tooltip is appropriate for your use case.
 
+<!-- Ensure that we have alignment for all of these scenarios -->
+
 ### Text with links
 
 This is a common use case for a Rich Tooltip due to the lack of support for interactive content in the standard [Tooltip](/components/tooltip).
@@ -163,14 +165,33 @@ This is a common use case for a Rich Tooltip due to the lack of support for inte
 
 ### Structured content
 
-As the Rich Tooltip `yields` content passed to the component, it can support more complex nested layout components where necessary. This can be as simple as introducing a basic layout to better communicate hierarchy, or more complex scenarios as necessary.
+The Rich Tooltip supports more structure and layout methods to better organize the content hierarchically.
+
+![Structured content within the Rich Tooltip](/assets/components/rich-tooltip/rich-tooltip-content-structure.png)
 
 ### Key-value pairs
 
+Use the Rich Tooltip to display supplemental key-value pairs or metadata related to an element.
+
+![Key-value pairs within the Rich Tooltip](/assets/components/rich-tooltip/rich-tooltip-content-key-value-pair.png)
+
 ### Overflow content
 
-### Instructions
+![Displaying overflow content with the Rich Tooltip](/assets/components/rich-tooltip/rich-tooltip-content-overflow.png)
 
-### Onboarding
+### Onboarding and walkthrough
+
+Use the Rich Tooltip to communicate step-by-step instructions or introduce them to a new feature.
+
+![Example of onboarding/walkthrough content using the Rich Tooltip](/assets/components/rich-tooltip/rich-tooltip-content-onboarding.png)
 
 ### Data Visualization
+
+Use the Rich Tooltip to display additional dynamic data within charts, graphs, and other forms of data visualization.
+
+![Example of data visualization using the Rich Tooltip](/assets/components/rich-tooltip/rich-tooltip-content-data-visualization.png)
+
+!!! Info
+
+Helios does not currently support foundational styles or components for data visualization. If you have questions about methods or recommendations for implementing this type of feature, please [contact](/about/support) the HDS team.
+!!!
