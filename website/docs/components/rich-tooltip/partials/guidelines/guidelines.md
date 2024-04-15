@@ -78,15 +78,13 @@ Don’t add extra offset if the Rich Tooltip would block important information, 
 
 The Rich Tooltip supports both a default, trigger to implement the component quickly and consistently, but also supports generic or custom elements passed as the trigger.
 
-### Default trigger
+### InfoText
 
-#### Color
+<!-- TBD on link and name for this component -->
 
-#### Icon
+We provide the [InfoText](/components/info-text) component which accounts for the majority of use-cases when implementing a trigger element. This component ensures that the trigger is perceivable, visually consistent, and can be used inline with other content or standalone as part of the layout flow.
 
-#### Content
-
-<!-- Jory add seomthing about the length of the text -->
+More details and specs about this component can be found [here](/#link-to-component)
 
 ### Custom trigger
 
@@ -96,20 +94,13 @@ While almost any custom element can be used as a trigger element, usage must con
 - Must have a minimum contrast ratio between the background/surface color of 3:1.
 - Should use actionable language to communicate that additional context is obfuscated away from the user.<!-- Question of whether to include this or not -->
 
-!!! Info
-
 More information about this criterion can be found in the [accessibility](?tab=accessibility) section.
-!!!
-
-With these requirements in mind, consider these options prior to creating a custom element:
 
 !!! Dont
 
-Don’t use a [Badge](/components/badge) as the trigger for the component; Badges are intentionally non-interactive elements and don't visually communicate that content is hidden behind a `hover`, `click`, or `focus` interaction.
+Don’t use a [Badge](/components/badge) or [BadgeCount](/components/badge-count) as the trigger for the component; Badges are intentionally non-interactive elements and don't visually communicate that content is hidden behind a `hover`, `click`, or `focus` interaction.
 
 ![Example of using the Rich Tooltip with a badge](/assets/components/rich-tooltip/rich-tooltip-trigger-badge-dont.png)
-
-This same recommendation applies for the [Badge Count](/components/badge-count) component.
 !!!
 
 !!! Do
@@ -128,11 +119,9 @@ Don’t trigger a Rich Tooltip from a form element like a [Text Input](/componen
 
 !!! Do
 
-If _absolutely_ necessary to provide additional context within a form element, use the default trigger within [Helper Text](/components/form/primitives#formhelpertext).
+Instead, rely on the [Label](/components/form/primitives#formlabel) and [HelperText](/components/form/primitives#helpertext) primitives to communicate details about the field. If _absolutely_ necessary to provide more details about a form element, use the default trigger within [Helper Text](/components/form/primitives#formhelpertext).
 
 ![Example within Helper Text](/assets/components/rich-tooltip/rich-tooltip-trigger-helper-text-do.png)
-
-<!-- discuss with team whether to include this or not -->
 
 However, note that interactive elements in text will not be read out as interactive elements to users with screen readers; only the text will be read. More details on this recommendation can be found in the [Helper Text documentation](/components/form/primitives?tab=code#formhelpertext-1).
 !!!
@@ -157,8 +146,8 @@ Don’t use a [Button](/components/button) to trigger a Rich Tooltip if the Butt
 
 The Rich Tooltip supports two different interaction methods: a `hover/focus` ("soft") interaction, and a `click` interaction. Which one to use depends on the type and complexity of content displayed by the component, and whether _persisting_ the content in the UI is necessary or beneficial to the user.
 
-1. `Hover/focus`: 
-2. `On click`:
+1. `Hover/focus`: displays when the mouse enters the trigger or the trigger receives focus. The `RichTooltip` has a timeout by default and will persist for 500 milliseconds (0.5 seconds) _after_ the mouse leaves the trigger.
+2. `On click`: displays when the user clicks the trigger with a mouse or if the trigger receives a keyboard event (`spacebar`, `enter/return`).
 
 <!-- Do we set a default interaction in the Ember component? -->
 
@@ -178,10 +167,10 @@ As the Rich Tooltip `yields` content passed to the component, it can support mor
 
 ### Key-value pairs
 
+### Overflow content
+
 ### Instructions
 
 ### Onboarding
 
 ### Data Visualization
-
-### Overflow content
