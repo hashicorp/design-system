@@ -51,7 +51,7 @@
       </Hds::PopoverPrimitive>
     </SF.Item>
     <SF.Item @label="Interactive (toggle) content">
-      <Hds::PopoverPrimitive @isOpen={{true}} @isInline={{false}}>
+      <Hds::PopoverPrimitive @isOpen={{true}}>
         <:toggle>
           <Hds::Button @icon="plus" @text="Lorem ipsum" @color="primary" {{on "click" this.onClickButton}} />
         </:toggle>
@@ -94,6 +94,7 @@
           <Shw::Placeholder @text="content" @width="80" @height="40" />
         </:content>
       </Hds::PopoverPrimitive>
+      <br />
       <Hds::PopoverPrimitive @enableSoftEvents={{true}}>
         <:toggle>
           <Hds::BadgeCount @text="123" />
@@ -112,6 +113,7 @@
           <Shw::Placeholder @text="content" @width="80" @height="40" />
         </:content>
       </Hds::PopoverPrimitive>
+      <br />
       <Hds::PopoverPrimitive @enableSoftEvents={{true}}>
         <:toggle>
           <Hds::Tag @text="Lorem ipsum" @onDismiss={{this.noop}} />
@@ -135,15 +137,17 @@
 
   <Shw::Divider />
 
-  <Shw::Text::H2>Display</Shw::Text::H2>
+  <Shw::Text::H2>Options</Shw::Text::H2>
+
+  <Shw::Text::H3>Display</Shw::Text::H3>
 
   <Shw::Grid @columns={{2}} as |SG|>
-    <SG.Item @label="Default (isInline=true)">
+    <SG.Item @label="Default (isInline=false)">
       <p class="hds-typography-body-300">
         Lorem ipsum dolor sit amet consectetur
         <Hds::PopoverPrimitive @enableSoftEvents={{true}} @toggleAriaLabel="Information">
           <:toggle>
-            <FlightIcon @name="info" @isInlineBlock={{false}} {{style color="#EB0000"}} />
+            <FlightIcon @name="info" @isInlineBlock={{true}} {{style color="#EB0000"}} />
           </:toggle>
           <:content>
             <Shw::Placeholder @text="content" @width="80" @height="40" />
@@ -152,12 +156,12 @@
         adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
       </p>
     </SG.Item>
-    <SG.Item @label="isInline=false">
+    <SG.Item @label="Inline (isInline=true)">
       <p class="hds-typography-body-300">
         Lorem ipsum dolor sit amet consectetur
-        <Hds::PopoverPrimitive @isInline={{false}} @enableSoftEvents={{true}} @toggleAriaLabel="Information">
+        <Hds::PopoverPrimitive @isInline={{true}} @enableSoftEvents={{true}} @toggleAriaLabel="Information">
           <:toggle>
-            <FlightIcon @name="info" @isInlineBlock={{false}} {{style color="#EB0000"}} />
+            <FlightIcon @name="info" @isInlineBlock={{true}} {{style color="#EB0000"}} />
           </:toggle>
           <:content>
             <Shw::Placeholder @text="content" @width="80" @height="40" />
@@ -183,7 +187,7 @@
     <SG.Item>
       <p class="hds-typography-body-300">
         Lorem ipsum dolor sit amet consectetur
-        <Hds::PopoverPrimitive @isInline={{false}} @enableSoftEvents={{true}}>
+        <Hds::PopoverPrimitive @isInline={{true}} @enableSoftEvents={{true}}>
           <:toggle>
             <span {{style color="#EB0000"}}>toggle</span>
           </:toggle>
@@ -196,9 +200,7 @@
     </SG.Item>
   </Shw::Grid>
 
-  <Shw::Divider />
-
-  <Shw::Text::H2>Options</Shw::Text::H2>
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Placement</Shw::Text::H3>
 
@@ -348,6 +350,8 @@
                 @popoverOptions={{(hash offsetOptions=16 enableCollisionDetection=detection)}}
                 @hasArrow={{true}}
                 @isOpen={{true}}
+                @enableSoftEvents={{false}}
+                @enableClickEvents={{true}}
               >
                 <:toggle>
                   <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
