@@ -6,6 +6,7 @@ links:
   figma: {link to the "RichTooltip" page in the components Figma library}
   github: {link to the "RichTooltip" component's folder in the GitHub repo}
 related: ['components/tooltip', 'components/modal']
+previewImage: assets/illustrations/components/rich-tooltip.jpg
 navigation:
   hidden: false
   keywords: ['add', 'alternate', 'keywords', 'here']
