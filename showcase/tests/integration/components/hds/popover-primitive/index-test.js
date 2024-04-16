@@ -278,22 +278,67 @@ module(
 
     // A11Y
 
-    test('it displays the correct aria and role attributes', async function (assert) {
+    test('it displays the correct aria and role attributes for "toggle" with non interactive content', async function (assert) {
       await render(hbs`
-        <Hds::PopoverPrimitive @enableClickEvents={{true}} @toggleAriaLabel="test123" />
+        <Hds::PopoverPrimitive @enableClickEvents={{true}} @toggleAriaLabel="test123">
+          <:toggle>Toggle</:toggle>
+          <:content>Content</:content>
+        </Hds::PopoverPrimitive>
+
       `);
       // the target ID is dynamically generated
       let target = this.element.querySelector(
         '.hds-popover-primitive__content'
       );
       let targetId = target.id;
+      assert.dom('.hds-popover-primitive__toggle').hasAria('label', 'test123');
+      assert.dom('.hds-popover-primitive__toggle').hasAria('expanded', 'false');
       assert
         .dom('.hds-popover-primitive__toggle')
         .hasAria('controls', targetId);
-      assert.dom('.hds-popover-primitive__toggle').hasAria('label', 'test123');
-      assert.dom('.hds-popover-primitive__toggle').hasAria('expanded', 'false');
+      assert
+        .dom('.hds-popover-primitive__toggle')
+        .hasAria('describedby', targetId);
+      assert.dom('.hds-popover-primitive__toggle').hasAria('details', targetId);
+
       await click('.hds-popover-primitive__toggle');
+
       assert.dom('.hds-popover-primitive__toggle').hasAria('expanded', 'true');
+      assert
+        .dom('.hds-popover-primitive__content')
+        .hasAttribute('role', 'tooltip');
+      assert
+        .dom('.hds-popover-primitive__content')
+        .hasAttribute('tabindex', '-1');
+    });
+
+    test('it displays the correct aria and role attributes for "toggle" with interactive content', async function (assert) {
+      await render(hbs`
+        <Hds::PopoverPrimitive @enableSoftEvents={{true}} @toggleAriaLabel="test123">
+          <:toggle>
+            <input />
+          </:toggle>
+          <:content>Content</:content>
+        </Hds::PopoverPrimitive>
+      `);
+      // the target ID is dynamically generated
+      let target = this.element.querySelector(
+        '.hds-popover-primitive__content'
+      );
+      let targetId = target.id;
+      assert.dom('.hds-popover-primitive__toggle').hasAria('label', 'test123');
+      assert.dom('.hds-popover-primitive__toggle').doesNotHaveAria('expanded');
+      assert
+        .dom('.hds-popover-primitive__toggle')
+        .hasAria('controls', targetId);
+      assert
+        .dom('.hds-popover-primitive__toggle')
+        .hasAria('describedby', targetId);
+      assert.dom('.hds-popover-primitive__toggle').hasAria('details', targetId);
+
+      await focus('.hds-popover-primitive__toggle input');
+
+      assert.dom('.hds-popover-primitive__toggle').doesNotHaveAria('expanded');
       assert
         .dom('.hds-popover-primitive__content')
         .hasAttribute('role', 'tooltip');
