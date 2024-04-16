@@ -88,6 +88,35 @@ module(
       assert.dom('.hds-popover-primitive__toggle--is-inline').exists();
     });
 
+    // WIDTH/HEIGHT
+
+    test('it should render the container to fit the content by default', async function (assert) {
+      await render(hbs`
+        <Hds::PopoverPrimitive @isOpen={{true}}>
+          <:content>
+            <div style="width: 98px; height: 76px;" />
+          </:content>
+        </Hds::PopoverPrimitive>
+      `);
+      const content = this.element.querySelector(
+        '.hds-popover-primitive__content'
+      );
+      const rect = content.getBoundingClientRect();
+      assert.deepEqual(rect.width, 98);
+      assert.deepEqual(rect.height, 76);
+    });
+    test('it should render the container with the provided with/height', async function (assert) {
+      await render(hbs`
+        <Hds::PopoverPrimitive @popoverWidth="123px" @popoverHeight="456px" @isOpen={{true}} />
+      `);
+      const content = this.element.querySelector(
+        '.hds-popover-primitive__content'
+      );
+      const rect = content.getBoundingClientRect();
+      assert.deepEqual(rect.width, 123);
+      assert.deepEqual(rect.height, 456);
+    });
+
     // CONTAINS INTERACTIVE ELEMENTS
 
     test('it should render the toggle container as `<button>` by default', async function (assert) {
