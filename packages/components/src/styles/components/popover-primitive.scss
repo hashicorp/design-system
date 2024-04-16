@@ -89,7 +89,13 @@
 // CONTENT
 
 .hds-popover-primitive__content {
-  // the "popover" attributes comes with pre-defined styling so we need to override it
+    // isolation: isolate;
+    width: var(--hds-popover-primitive-content-width, fit-content);
+    max-width: var(--hds-popover-primitive-content-max-width, none);
+    height: var(--hds-popover-primitive-content-height, fit-content);
+    max-height: var(--hds-popover-primitive-content-max-height, none);
+
+    // the "popover" attributes comes with pre-defined styling so we need to override it
    :where(&[popover]) {
     margin: 0;
     padding: 0;

@@ -141,6 +141,30 @@ export default class HdsPopoverPrimitiveComponent extends Component {
         this.popoverElement.popover = 'auto';
       }
 
+      if (this.args.popoverWidth) {
+        // we overwrite the values of the CSS variables that set the width/max-width of the "content"
+        element.style.setProperty(
+          '--hds-popover-primitive-content-width',
+          this.args.popoverWidth
+        );
+        element.style.setProperty(
+          '--hds-popover-primitive-content-max-width',
+          'none'
+        );
+      }
+
+      if (this.args.popoverHeight) {
+        // we overwrite the values of the CSS variables that set the height/max-height of the "content"
+        element.style.setProperty(
+          '--hds-popover-primitive-content-height',
+          this.args.popoverHeight
+        );
+        element.style.setProperty(
+          '--hds-popover-primitive-content-max-height',
+          'none'
+        );
+      }
+
       // Register "onBeforeToggle" + "onToggle" callback functions to be called when a native 'toggle' event is dispatched
       registerEvent(this.popoverElement, [
         'beforetoggle',

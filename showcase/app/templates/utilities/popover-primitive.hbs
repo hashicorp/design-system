@@ -336,6 +336,90 @@
 
   <Shw::Divider @level={{2}} />
 
+  <Shw::Text::H3>Width</Shw::Text::H3>
+
+  <Shw::Grid @columns={{2}} {{style padding-bottom="6rem"}} as |SG|>
+    <SG.Item @label="Default (width=fit-content/max-width=none)">
+      <Hds::PopoverPrimitive
+        @popoverOptions={{(hash placement="bottom-start" offsetOptions=16)}}
+        @hasArrow={{true}}
+        @isOpen={{true}}
+      >
+        <:toggle>
+          <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
+        </:toggle>
+        <:content>
+          <Shw::Placeholder
+            @text="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+            {{style padding="12px 16px"}}
+          />
+        </:content>
+      </Hds::PopoverPrimitive>
+    </SG.Item>
+    <SG.Item @label="Custom fixed width (width=250px)">
+      <Hds::PopoverPrimitive
+        @popoverWidth="250px"
+        @popoverOptions={{(hash placement="bottom-start" offsetOptions=16)}}
+        @hasArrow={{true}}
+        @isOpen={{true}}
+      >
+        <:toggle>
+          <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
+        </:toggle>
+        <:content>
+          <Shw::Placeholder
+            @text="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+            {{style padding="12px 16px"}}
+          />
+        </:content>
+      </Hds::PopoverPrimitive>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Height</Shw::Text::H3>
+
+  <Shw::Grid @columns={{2}} {{style padding-bottom="10rem"}} as |SG|>
+    <SG.Item @label="Default (height=fit-content/max-height=none)">
+      <Hds::PopoverPrimitive
+        @popoverOptions={{(hash placement="bottom-start" offsetOptions=16)}}
+        @hasArrow={{true}}
+        @isOpen={{true}}
+      >
+        <:toggle>
+          <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
+        </:toggle>
+        <:content>
+          <Shw::Placeholder
+            @text="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+            {{style padding="12px 16px"}}
+          />
+        </:content>
+      </Hds::PopoverPrimitive>
+    </SG.Item>
+    <SG.Item @label="Custom fixed height (height=150px)">
+      <Hds::PopoverPrimitive
+        @popoverHeight="150px"
+        @popoverOptions={{(hash placement="bottom-start" offsetOptions=16)}}
+        @hasArrow={{true}}
+        @isOpen={{true}}
+      >
+        <:toggle>
+          <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
+        </:toggle>
+        <:content>
+          <Shw::Placeholder
+            @text="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+            {{style padding="12px 16px"}}
+          />
+        </:content>
+      </Hds::PopoverPrimitive>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>Collision detection</Shw::Text::H3>
 
   <Shw::Text::Body>Scroll within the boxes to see the collision detection in action</Shw::Text::Body>
