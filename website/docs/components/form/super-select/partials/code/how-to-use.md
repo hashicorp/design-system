@@ -3,37 +3,83 @@
 SuperSelect is a custom select-like component aiming to overcome some limitations of the HTML `<select>` element.
 It is based on the popular Ember [PowerSelect](https://ember-power-select.com/) add-on.
 
-We provide two different subcomponent variants, `SuperSelect::Single` and `SuperSelect::Multiple`.
+We provide two variants, `SuperSelect::Single` and `SuperSelect::Multiple`.
 
-### SuperSelect::Single
+**There are two ways to use the Super Select variants:**
 
-Use `SuperSelect::Single` if you only want users to be able to select a single option similarly to the behavior
-of the native HTML `<select>`.
+1. `Form::SuperSelect::Single::Base` or `Form::SuperSelect::Multiple::Base`—the base component with just the Super Select control.
+2. `Form::SuperSelect::Single::Field` or `Form::SuperSelect::Multiple::Field`—the field parent component which includes the Super Select control, label, helper text, and error messaging (in a wrapping container).
+
+We recommend using the Field component as it provides built-in accessibility functionality. Use the Base component for custom layouts or special use cases not covered by the Field component.
+
+### Basic invocation including search
+
+#### SuperSelect::Single::Field
+
+Use `SuperSelect::Single` if you want users to only select a single option.
 
 ```handlebars
-<Hds::Form::SuperSelect::Single
+<Hds::Form::SuperSelect::Single::Field
   @onChange={{this.noop}}
   @options={{this.OPTIONS}}
-  @selected={{this.SELECTED}}
   @searchEnabled={{true}}
-  as |option|
+  as |F|
 >
-  {{option}}
-</Hds::Form::SuperSelect::Single>
+  <F.Label>This is the label</F.Label>
+  {{F.options}}
+</Hds::Form::SuperSelect::Single::Field>
 ```
 
-### SuperSelect::Multiple
+#### SuperSelect::Multiple::Field
 
-Use `Select::Multiple` to enable users to select multiple options if needed.
+Use `SuperSelect::Multiple` to enable users to select multiple options.
 
 ```handlebars
-<Hds::Form::SuperSelect::Multiple
+<Hds::Form::SuperSelect::Multiple::Field
   @onChange={{this.noop}}
   @options={{this.OPTIONS}}
-  @selected={{this.SELECTED}}
   @searchEnabled={{true}}
-  as |option|
+  as |F|
 >
-  {{option}}
-</Hds::Form::SuperSelect::Multiple>
+  <F.Label>This is the label</F.Label>
+  {{F.options}}
+</Hds::Form::SuperSelect::Multiple::Field>
+```
+
+### Selected options
+
+#### Single selection
+
+```handlebars
+<Hds::Form::SuperSelect::Single::Field
+  @onChange={{this.noop}}
+  @options={{this.OPTIONS}}
+  @searchEnabled={{true}}
+  @selected={{this.SELECTED}}
+  as |F|
+>
+  <F.Label>Label</F.Label>
+  {{F.options}}
+</Hds::Form::SuperSelect::Single::Field>
+```
+
+#### Multiple selections
+
+```handlebars
+<Hds::Form::SuperSelect::Multiple::Field
+  @onChange={{this.noop}}
+  @options={{this.OPTIONS}}
+  @searchEnabled={{true}}
+  @selected={{this.SELECTEDMULTIPLE}}
+  as |F|
+>
+  <F.Label>Label</F.Label>
+  {{F.options}}
+</Hds::Form::SuperSelect::Multiple::Field>
+```
+
+### Grouped options
+
+```handlebars
+<p>TODO: Add example</p>
 ```
