@@ -2,21 +2,26 @@ import { modifier } from 'ember-modifier';
 import { assert } from '@ember/debug';
 
 import {
-  arrow,
   autoUpdate,
   computePosition,
+  offset,
   flip,
+  shift,
+  limitShift,
+  autoPlacement,
+  arrow,
+  // ---
   // this could be used in the future if we want to give consumers an option to hide the "floating" element when the "anchor" hides from the viewport
   // see: https://floating-ui.com/docs/hide
   // hide,
-  offset,
-  shift,
+  // ---
   // this could be used in the future if we want to give consumers an option to:
   // - let the "floating" element auto-resize when there is not enough space (usually vertical) in the viewport to contain the entire "floating" element
   // - let the "floating" element match the width of the "trigger" (it may have min/max width/heigh via CSS too)
   // see: https://floating-ui.com/docs/size
   // notice: below you can find a preliminary code implementation that was tested and worked relatively well
   // size,
+  // ---
 } from '@floating-ui/dom';
 
 export const DEFAULT_PLACEMENT = 'bottom';
@@ -43,7 +48,8 @@ export const getFloatingUIOptions = (options) => {
     strategy = 'absolute', // we don't need to use `fixed` if we use the Popover API for the "floating" element (it puts the element in the `top-layer`)
     offsetOptions,
     flipOptions = { padding: 8 },
-    shiftOptions = { padding: 8 },
+    shiftOptions = { padding: 8, limiter: limitShift() },
+    autoPlacementOptions = { padding: 8 },
     middlewareExtra = [],
     enableCollisionDetection,
     arrowOptions,
@@ -58,6 +64,7 @@ export const getFloatingUIOptions = (options) => {
 
   // https://floating-ui.com/docs/flip
   // https://floating-ui.com/docs/shift
+  // https://floating-ui.com/docs/autoPlacement
   if (
     enableCollisionDetection === true ||
     enableCollisionDetection === 'flip'
@@ -69,6 +76,9 @@ export const getFloatingUIOptions = (options) => {
     (enableCollisionDetection === 'shift')
   ) {
     middleware.push(shift(shiftOptions));
+  }
+  if (enableCollisionDetection === 'auto') {
+    middleware.push(autoPlacement(autoPlacementOptions));
   }
 
   // https://floating-ui.com/docs/arrow
