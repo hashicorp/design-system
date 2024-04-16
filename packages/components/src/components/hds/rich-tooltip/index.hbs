@@ -14,8 +14,8 @@
   @popoverOptions={{this.popoverOptions}}
   @toggleAriaLabel={{@toggleAriaLabel}}
   @isInline={{@isInline}}
-  @width={{@width}}
-  @height={{@height}}
+  @popoverWidth={{@popoverWidth}}
+  @popoverHeight={{@popoverHeight}}
   ...attributes
 >
   <:toggle>
@@ -27,8 +27,6 @@
     }}
   </:toggle>
   <:content as |c|>
-    <div class="hds-rich-tooltip__bubble" {{style width=@width max-width=(if @width "none")}}>
-      {{yield (hash PopoverContent=(component "hds/yield") close=c.close)}}
-    </div>
+    {{yield (hash PopoverContent=(component "hds/yield") close=c.close)}}
   </:content>
 </Hds::PopoverPrimitive>
