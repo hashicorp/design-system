@@ -31,6 +31,7 @@
         @onChange={{this.noop}}
         @options={{@model.OPTIONS}}
         @placeholder="Placeholder text"
+        @ariaLabel="Label"
         as |option|
       >
         {{option}}
@@ -41,6 +42,7 @@
         @onChange={{fn (mut @model.SELECTED_OPTION)}}
         @options={{@model.OPTIONS}}
         @selected={{@model.SELECTED_OPTION}}
+        @ariaLabel="Label"
         as |option|
       >
         {{option}}
@@ -67,6 +69,7 @@
                     @selected={{@model.SELECTED_OPTION}}
                     @disabled={{if (eq variant "disabled") "disabled"}}
                     @isInvalid={{if (eq variant "invalid") true}}
+                    @ariaLabel="Label"
                     class="mock-{{state}}"
                     as |option|
                   >
@@ -92,6 +95,7 @@
         @options={{@model.OPTIONS}}
         @selected={{@model.SELECTED_OPTION}}
         @initiallyOpened={{true}}
+        @ariaLabel="Label"
         as |option|
       >
         {{option}}
@@ -104,6 +108,7 @@
         @selected={{@model.SELECTED_OPTION}}
         @searchEnabled={{true}}
         @initiallyOpened={{true}}
+        @ariaLabel="Label"
         as |option|
       >
         {{option}}
@@ -121,6 +126,7 @@
             @onChange={{fn (mut @model.SELECTED_OPTION)}}
             @options={{@model.OPTIONS}}
             @selected={{@model.SELECTED_OPTION}}
+            @ariaLabel="Label"
             as |option|
           >
             {{option}}
@@ -132,6 +138,7 @@
             @options={{@model.OPTIONS}}
             @selected={{@model.SELECTED_OPTION}}
             @verticalPosition="below"
+            @ariaLabel="Label"
             as |option|
           >
             {{option}}
@@ -143,6 +150,7 @@
             @options={{@model.OPTIONS}}
             @selected={{@model.SELECTED_OPTION}}
             @verticalPosition="above"
+            @ariaLabel="Label"
             as |option|
           >
             {{option}}
@@ -159,6 +167,7 @@
             @selected={{@model.SELECTED_PLACES_OPTION}}
             @matchTriggerWidth={{false}}
             @horizontalPosition="left"
+            @ariaLabel="Label"
             as |option|
           >
             {{option}}
@@ -171,6 +180,7 @@
             @selected={{@model.SELECTED_PLACES_OPTION}}
             @matchTriggerWidth={{false}}
             @horizontalPosition="center"
+            @ariaLabel="Label"
             as |option|
           >
             {{option}}
@@ -183,6 +193,7 @@
             @selected={{@model.SELECTED_PLACES_OPTION}}
             @matchTriggerWidth={{false}}
             @horizontalPosition="right"
+            @ariaLabel="Label"
             as |option|
           >
             {{option}}
@@ -201,6 +212,7 @@
         @options={{@model.OPTIONS}}
         @selected={{@model.SELECTED_OPTION}}
         @initiallyOpened={{true}}
+        @ariaLabel="Label"
         as |option|
       >
         {{option}}
@@ -213,6 +225,7 @@
         @selected={{@model.SELECTED_PLACES_OPTION}}
         @initiallyOpened={{true}}
         @matchTriggerWidth={{false}}
+        @ariaLabel="Label"
         as |option|
       >
         {{option}}
@@ -229,6 +242,7 @@
         @onChange={{fn (mut @model.SELECTED_CLUSTER_SIZE_OPTION)}}
         @options={{@model.CLUSTER_SIZE_OPTIONS}}
         @initiallyOpened={{true}}
+        @ariaLabel="Label"
         as |option|
       >
         <div class="shw-component-form-super-select-option-rich-content">
@@ -246,6 +260,7 @@
         @options={{@model.GROUPED_OPTIONS}}
         @selected={{@model.SELECTED_GROUPED_OPTION}}
         @initiallyOpened={{true}}
+        @ariaLabel="Label"
         as |option|
       >
         {{option}}
@@ -264,6 +279,7 @@
         @options={{@model.PLACES_OPTIONS}}
         @selected={{@model.SELECTED_PLACES_OPTION}}
         @initiallyOpened={{true}}
+        @ariaLabel="Label"
         as |option|
       >
         {{option}}
@@ -276,6 +292,7 @@
         @selected={{@model.SELECTED_PLACES_OPTION}}
         @initiallyOpened={{true}}
         @afterOptionsContent="After options content"
+        @ariaLabel="Label"
         as |option|
       >
         {{option}}
@@ -291,6 +308,7 @@
         @options={{@model.PLACES_OPTIONS}}
         @selected={{@model.SELECTED_PLACES_OPTION}}
         @initiallyOpened={{true}}
+        @ariaLabel="Label"
         as |option|
       >
         {{option}}
@@ -303,6 +321,7 @@
         @selected={{@model.SELECTED_PLACES_OPTION}}
         @initiallyOpened={{true}}
         @showAfterOptions={{false}}
+        @ariaLabel="Label"
         as |option|
       >
         {{option}}
@@ -318,6 +337,7 @@
         @options={{@model.PLACES_OPTIONS}}
         @selected={{@model.SELECTED_PLACES_OPTION}}
         @initiallyOpened={{true}}
+        @ariaLabel="Label"
         as |option|
       >
         {{option}}
@@ -455,6 +475,7 @@
         @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
         @options={{@model.OPTIONS}}
         @selected={{@model.SELECTED_OPTIONS}}
+        @ariaLabel="Label"
         as |option|
       >
         {{option}}
@@ -481,6 +502,7 @@
                     @selected={{@model.SELECTED_PLACES_OPTIONS}}
                     @disabled={{if (eq variant "disabled") "disabled"}}
                     @isInvalid={{if (eq variant "invalid") true}}
+                    @ariaLabel="Label"
                     class="mock-{{state}}"
                     as |option|
                   >
@@ -506,6 +528,7 @@
         @options={{@model.OPTIONS}}
         @selected={{@model.SELECTED_OPTIONS}}
         @initiallyOpened={{true}}
+        @ariaLabel="Label"
         as |option|
       >
         {{option}}
@@ -519,6 +542,7 @@
         @selected={{@model.SELECTED_OPTIONS}}
         @searchEnabled={{true}}
         @initiallyOpened={{true}}
+        @ariaLabel="Label"
         as |option|
       >
         {{option}}
@@ -536,6 +560,7 @@
             @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
             @options={{@model.OPTIONS}}
             @selected={{@model.SELECTED_OPTIONS}}
+            @ariaLabel="Label"
             as |option|
           >
             {{option}}
@@ -547,6 +572,7 @@
             @options={{@model.OPTIONS}}
             @selected={{@model.SELECTED_OPTIONS}}
             @verticalPosition="below"
+            @ariaLabel="Label"
             as |option|
           >
             {{option}}
@@ -558,6 +584,7 @@
             @options={{@model.OPTIONS}}
             @selected={{@model.SELECTED_OPTIONS}}
             @verticalPosition="above"
+            @ariaLabel="Label"
             as |option|
           >
             {{option}}
@@ -575,6 +602,7 @@
             @selected={{@model.SELECTED_PLACES_OPTIONS}}
             @matchTriggerWidth={{false}}
             @horizontalPosition="left"
+            @ariaLabel="Label"
             as |option|
           >
             {{option}}
@@ -587,6 +615,7 @@
             @selected={{@model.SELECTED_PLACES_OPTIONS}}
             @matchTriggerWidth={{false}}
             @horizontalPosition="center"
+            @ariaLabel="Label"
             as |option|
           >
             {{option}}
@@ -599,6 +628,7 @@
             @selected={{@model.SELECTED_PLACES_OPTIONS}}
             @matchTriggerWidth={{false}}
             @horizontalPosition="right"
+            @ariaLabel="Label"
             as |option|
           >
             {{option}}
@@ -617,6 +647,7 @@
         @options={{@model.OPTIONS}}
         @selected={{@model.SELECTED_OPTIONS}}
         @initiallyOpened={{true}}
+        @ariaLabel="Label"
         as |option|
       >
         {{option}}
@@ -629,6 +660,7 @@
         @selected={{@model.SELECTED_PLACES_OPTIONS}}
         @initiallyOpened={{true}}
         @matchTriggerWidth={{false}}
+        @ariaLabel="Label"
         as |option|
       >
         {{option}}
@@ -647,6 +679,7 @@
         @onChange={{fn (mut @model.SELECTED_CLUSTER_SIZE_OPTION)}}
         @options={{@model.CLUSTER_SIZE_OPTIONS}}
         @initiallyOpened={{true}}
+        @ariaLabel="Label"
         as |option|
       >
         <div class="shw-component-form-super-select-option-rich-content">
@@ -664,6 +697,7 @@
         @options={{@model.GROUPED_OPTIONS}}
         @selected={{@model.SELECTED_GROUPED_OPTIONS}}
         @initiallyOpened={{true}}
+        @ariaLabel="Label"
         as |option|
       >
         {{option}}
@@ -682,6 +716,7 @@
         @options={{@model.PLACES_OPTIONS}}
         @selected={{@model.SELECTED_PLACES_OPTIONS}}
         @initiallyOpened={{true}}
+        @ariaLabel="Label"
         as |option|
       >
         {{option}}
@@ -694,6 +729,7 @@
         @options={{@model.PLACES_OPTIONS}}
         @selected={{@model.SELECTED_PLACES_OPTIONS}}
         @initiallyOpened={{true}}
+        @ariaLabel="Label"
         as |option|
       >
         {{option}}
@@ -709,6 +745,7 @@
         @options={{@model.PLACES_OPTIONS}}
         @selected={{@model.SELECTED_PLACES_OPTIONS}}
         @initiallyOpened={{true}}
+        @ariaLabel="Label"
         as |option|
       >
         {{option}}
@@ -721,6 +758,7 @@
         @selected={{@model.SELECTED_PLACES_OPTIONS}}
         @initiallyOpened={{true}}
         @showAfterOptions={{false}}
+        @ariaLabel="Label"
         as |option|
       >
         {{option}}
@@ -736,6 +774,7 @@
         @options={{@model.PLACES_OPTIONS}}
         @selected={{@model.SELECTED_PLACES_OPTIONS}}
         @initiallyOpened={{true}}
+        @ariaLabel="Label"
         as |option|
       >
         {{option}}
