@@ -208,7 +208,7 @@
   <Shw::Text::H3>Width</Shw::Text::H3>
 
   <Shw::Grid @columns={{2}} {{style padding-bottom="6rem"}} as |SG|>
-    <SG.Item @label="Default (max-width=280px)">
+    <SG.Item @label="Default (width=fit-content/max-width=280px)">
       <Hds::RichTooltip @placement="bottom-start" @isOpen={{true}} @enableClickEvents={{true}} as |RT|>
         <RT.ToggleInfoText @icon="info" @iconPosition="leading">Lorem ipsum</RT.ToggleInfoText>
         <RT.PopoverContent>
@@ -219,8 +219,49 @@
         </RT.PopoverContent>
       </Hds::RichTooltip>
     </SG.Item>
-    <SG.Item @label="Custom fixed width (width=420px)">
-      <Hds::RichTooltip @placement="bottom-start" @isOpen={{true}} @enableClickEvents={{true}} @width="420px" as |RT|>
+    <SG.Item @label="Custom fixed width (width=450px)">
+      <Hds::RichTooltip
+        @placement="bottom-start"
+        @isOpen={{true}}
+        @enableClickEvents={{true}}
+        @popoverWidth="450px"
+        as |RT|
+      >
+        <RT.ToggleInfoText @icon="info" @iconPosition="leading">Lorem ipsum</RT.ToggleInfoText>
+        <RT.PopoverContent>
+          <Shw::Placeholder
+            @text="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+            {{style padding="12px 16px"}}
+          />
+        </RT.PopoverContent>
+      </Hds::RichTooltip>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Height</Shw::Text::H3>
+
+  <Shw::Grid @columns={{2}} {{style padding-bottom="10rem"}} as |SG|>
+    <SG.Item @label="Default (height=fit-content/max-height=none)">
+      <Hds::RichTooltip @placement="bottom-start" @isOpen={{true}} @enableClickEvents={{true}} as |RT|>
+        <RT.ToggleInfoText @icon="info" @iconPosition="leading">Lorem ipsum</RT.ToggleInfoText>
+        <RT.PopoverContent>
+          <Shw::Placeholder
+            @text="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+            {{style padding="12px 16px"}}
+          />
+        </RT.PopoverContent>
+      </Hds::RichTooltip>
+    </SG.Item>
+    <SG.Item @label="Custom fixed height (height=150px)">
+      <Hds::RichTooltip
+        @placement="bottom-start"
+        @isOpen={{true}}
+        @enableClickEvents={{true}}
+        @popoverHeight="150px"
+        as |RT|
+      >
         <RT.ToggleInfoText @icon="info" @iconPosition="leading">Lorem ipsum</RT.ToggleInfoText>
         <RT.PopoverContent>
           <Shw::Placeholder
@@ -871,8 +912,21 @@
       </Shw::Outliner>
     </SF.Item>
     <SF.Item @label="Bubble" class="shw-component-rich-tooltip-bubble-standalone">
-      <div class="hds-rich-tooltip__bubble">
-        <Shw::Placeholder @text="generic content" width="250px" @height="40" />
+      <div class="hds-rich-tooltip">
+        <div class="hds-popover-primitive__content">
+          <Shw::Placeholder @text="generic content" width="250px" @height="40" />
+        </div>
+      </div>
+    </SF.Item>
+    <SF.Item
+      @label="Arrow + Bubble"
+      class="shw-component-rich-tooltip-arrow-standalone shw-component-rich-tooltip-bubble-standalone"
+    >
+      <div class="hds-popover-primitive hds-rich-tooltip">
+        <div class="hds-popover-primitive__arrow" />
+        <div class="hds-popover-primitive__content">
+          <Shw::Placeholder @text="generic content" width="250px" @height="40" />
+        </div>
       </div>
     </SF.Item>
   </Shw::Flex>
