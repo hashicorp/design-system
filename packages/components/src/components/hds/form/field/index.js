@@ -57,6 +57,13 @@ export default class HdsFormFieldIndexComponent extends Component {
   }
 
   /**
+   * Returns the label id for the form control
+   */
+  get labelId() {
+    return `label-${this.id}`;
+  }
+
+  /**
    * Get the class names to apply to the component.
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
