@@ -31,7 +31,7 @@ export default class HdsRichTooltipIndexComponent extends Component {
   }
 
   get enableSoftEvents() {
-    return this.args.enableSoftEvents ?? true;
+    return this.args.enableClickEvents !== true;
   }
 
   get enableClickEvents() {
