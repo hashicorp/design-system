@@ -134,6 +134,11 @@ There are four types of ListItems, two of which are variant specific.
 
 ![Showing the different list types as described above](/assets/components/form/super-select/super-select-list-item-types.png =399x*)
 
+### Groups
+List items can visually be grouped by adding a title and a separator. If a group is present last in the list, a sperator is not necessary to reduce visual redundancies.
+
+![Groups of list items represented in both single and multipe list variants](/assets/components/form/super-select/super-select-group-list-items.png =836x*)
+
 ## Required and optional
 For complex forms, indicate required fields. This is the most explicit and transparent method and ensures users don’t have to make assumptions. Read more about best practices for [marking required fields in forms](https://www.nngroup.com/articles/required-fields/).
 
