@@ -27,17 +27,17 @@ Multiple selections can be made within the list.
 
 ## Trigger default states
 
-### Empty
+**Empty**
 The default option, where the trigger is empty, showing nothing selected.
 
 ![Showing an empty trigger, indicating to the user there is no option selected yet](/assets/components/form/super-select/super-select-trigger-empty.png =399x*)
 
-### Placeholder text
+**Placeholder text**
 Placeholder text was added to the trigger, which helps the user understand additional context, but is not reliant on this information to carry out a task.
 
 ![Showing placeholder text inside of the trigger, still indicating no selection is made, but with some additional guidance](/assets/components/form/super-select/super-select-trigger-placeholder-text.png =399x*)
 
-### Populated
+**Populated**
 The trigger shows information populated, and has an option pre-selected before user interaction.
 
 ![Showing preselected options in both a single and multiple variant. This helps show something has been preselected previously and the user can update their options](/assets/components/form/super-select/super-select-trigger-filled.png =399x*)
