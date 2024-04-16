@@ -425,8 +425,8 @@
 
   <Shw::Text::H3>Required and optional</Shw::Text::H3>
 
-  <Shw::Flex as |SF|>
-    <SF.Item @label="With legend + Required">
+  <Shw::Grid @columns={{3}} as |SG|>
+    <SG.Item @label="With legend + Required">
       <Hds::Form::SuperSelect::Single::Field
         @onChange={{fn (mut @model.SELECTED_OPTION)}}
         @options={{@model.OPTIONS}}
@@ -437,8 +437,8 @@
         <F.Label>Lorem ipsum dolor</F.Label>
         {{F.options}}
       </Hds::Form::SuperSelect::Single::Field>
-    </SF.Item>
-    <SF.Item @label="With legend + Optional">
+    </SG.Item>
+    <SG.Item @label="With legend + Optional">
       <Hds::Form::SuperSelect::Single::Field
         @onChange={{fn (mut @model.SELECTED_OPTION)}}
         @options={{@model.OPTIONS}}
@@ -449,8 +449,8 @@
         <F.Label>Lorem ipsum dolor</F.Label>
         {{F.options}}
       </Hds::Form::SuperSelect::Single::Field>
-    </SF.Item>
-  </Shw::Flex>
+    </SG.Item>
+  </Shw::Grid>
 
   <Shw::Divider />
 
@@ -862,8 +862,8 @@
 
   <Shw::Text::H3>Required and optional</Shw::Text::H3>
 
-  <Shw::Flex as |SF|>
-    <SF.Item @label="With legend + Required">
+  <Shw::Grid @columns={{3}} as |SG|>
+    <SG.Item @label="With legend + Required">
       <Hds::Form::SuperSelect::Multiple::Field
         @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
         @options={{@model.OPTIONS}}
@@ -874,8 +874,8 @@
         <F.Label>Lorem ipsum dolor</F.Label>
         {{F.options}}
       </Hds::Form::SuperSelect::Multiple::Field>
-    </SF.Item>
-    <SF.Item @label="With legend + Optional">
+    </SG.Item>
+    <SG.Item @label="With legend + Optional">
       <Hds::Form::SuperSelect::Multiple::Field
         @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
         @options={{@model.OPTIONS}}
@@ -886,6 +886,6 @@
         <F.Label>Lorem ipsum dolor</F.Label>
         {{F.options}}
       </Hds::Form::SuperSelect::Multiple::Field>
-    </SF.Item>
-  </Shw::Flex>
+    </SG.Item>
+  </Shw::Grid>
 </section>
