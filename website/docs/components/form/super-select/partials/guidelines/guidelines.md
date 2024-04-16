@@ -53,6 +53,10 @@ If enabled, allows the user to search by filtering the results based on the quer
 
 ![Search enabled before the list in both single and multiple variants](/assets/components/form/super-select/super-select-before-options-search.png =836x*)
 
+##### Search to add behavior
+If enabled, searched terms can be added to the list. This feature is only applicable to the multiple variant.
+![Showing the search to add behavior in the multiple variant of SuperSelect](/assets/components/form/super-select/super-select-multi-flow-search-to-add.png =836x*)
+
 #### CustomContent
 If enabled, yielded content will occupy this space.
 
