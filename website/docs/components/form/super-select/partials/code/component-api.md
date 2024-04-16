@@ -15,6 +15,11 @@ See the Ember [PowerSelect documentation](https://ember-power-select.com/docs) f
   <C.Property @name="searchPlaceholder" @type="string" @default="Search">
     Displays placeholder text in the search input when `@search` is enabled.
   </C.Property>
+  <C.Property @name="groupComponent" @type="component">
+    Used to create groups of options similarly to the `optgroup` element used within HTML `select` elements. It is set to use the HDS `super-select::option-group` internal component and can’t be overridden.
+    <br><br>
+    Depends upon the structure of `options` data provided to the SuperSelect component.
+  </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
@@ -30,6 +35,11 @@ See the Ember [PowerSelect documentation](https://ember-power-select.com/docs) f
   </C.Property>
   <C.Property @name="searchPlaceholder" @type="string" @default="Search">
     Displays placeholder text in the search input when `@search` is enabled.
+  </C.Property>
+  <C.Property @name="groupComponent" @type="component">
+    Used to create groups of options similarly to the `optgroup` element used within HTML `select` elements. It is set to use the HDS `super-select::option-group` internal component and can’t be overridden.
+    <br><br>
+    Depends upon the structure of `options` data provided to the SuperSelect component.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
