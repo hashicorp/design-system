@@ -65,4 +65,13 @@ module('Integration | Component | hds/form/label/index', function (hooks) {
     );
     assert.dom('#test-form-label').hasAttribute('for', 'my-control-id');
   });
+
+  // ID
+
+  test('it renders a label with the correct "id" attribute if the @controlId argument is provided', async function (assert) {
+    await render(
+      hbs`<Hds::Form::Label @controlId="my-control-id">This is the label</Hds::Form::Label>`
+    );
+    assert.dom('#label-my-control-id').exists();
+  });
 });
