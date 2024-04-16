@@ -425,7 +425,7 @@
   <Shw::Text::Body>Scroll within the boxes to see the collision detection in action</Shw::Text::Body>
 
   <Shw::Grid @columns={{4}} {{style gap="2rem" margin-bottom="6rem"}} as |SF|>
-    {{#let (array false true "flip" "shift") as |detections|}}
+    {{#let (array false true) as |detections|}}
       {{#each detections as |detection|}}
         <SF.Item @forceMinWidth={{true}} @label={{concat "enableCollisionDetection=" detection}}>
           <Shw::Autoscrollable @verticalShift={{20}}>
@@ -449,6 +449,33 @@
         </SF.Item>
       {{/each}}
     {{/let}}
+    <SF.Item />
+    <SF.Item />
+    {{#let (array "flip" "shift" "auto") as |detections|}}
+      {{#each detections as |detection|}}
+        <SF.Item @forceMinWidth={{true}} @label={{concat "enableCollisionDetection=" detection}}>
+          <Shw::Autoscrollable @verticalShift={{20}}>
+            <div class="shw-utilities-popover-primitive-collision-detection-wrapper">
+              <Hds::PopoverPrimitive
+                @popoverOptions={{(hash offsetOptions=16 enableCollisionDetection=detection)}}
+                @hasArrow={{true}}
+                @isOpen={{true}}
+                @enableSoftEvents={{false}}
+                @enableClickEvents={{true}}
+              >
+                <:toggle>
+                  <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
+                </:toggle>
+                <:content>
+                  <Shw::Placeholder @text="content" @width="120" @height="40" />
+                </:content>
+              </Hds::PopoverPrimitive>
+            </div>
+          </Shw::Autoscrollable>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+    <SF.Item />
   </Shw::Grid>
 
   <Shw::Divider />
