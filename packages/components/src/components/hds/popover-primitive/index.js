@@ -102,12 +102,6 @@ export default class HdsPopoverPrimitiveComponent extends Component {
         );
       }
 
-      this.toggleElement.setAttribute(
-        'aria-expanded',
-        // don't use this.isOpen here because it will cause a re-rendering
-        this.args.isOpen ? 'true' : 'false'
-      );
-
       // for the click events we don't use `onclick` event listeners, but we rely on the `popovertarget` attribute
       // provided by the Popover API which does all the magic for us without needing JS code
       // (important: to work it needs to be applied to a button, so we can't safely support if the toggle contains interactive elements)
@@ -210,6 +204,19 @@ export default class HdsPopoverPrimitiveComponent extends Component {
   }
 
   /**
+   * @param ariaExpanded
+   * @type {string|null}
+   * @default null
+   * @description returns the value of the `aria-expanded` attribute if the toggle doesn't contain interactive elements (in which case it's a `<button>` and accepts this as valid `aria` attribute)
+   */
+  get ariaExpanded() {
+    if (!this.containsInteractive) {
+      return this.isOpen ? 'true' : 'false';
+    }
+    return null;
+  }
+
+  /**
    * Get the class names to apply to the element
    * @method classNames
    * @return {string} The "class" attribute to apply to the root element
@@ -276,7 +283,6 @@ export default class HdsPopoverPrimitiveComponent extends Component {
   onTogglePopover(event) {
     if (event.newState === 'open') {
       this.isOpen = true;
-      this.toggleElement.setAttribute('aria-expanded', 'true');
 
       // we call the "onOpen" callback if it exists (and is a function)
       let { onOpen } = this.args;
@@ -284,14 +290,15 @@ export default class HdsPopoverPrimitiveComponent extends Component {
         onOpen();
       }
     } else {
+      this.isOpen = false;
+      // reset the "isClosing" flag (the `toggle` event is fired _after_ the popover is closed)
+      this.isClosing = false;
+
       // if the popover was initially forced to be open (using the "manual" state) then revert its status to `auto` once the user interacts with it
       if (this.args.isOpen) {
         this.popoverElement.popover = 'auto';
       }
-      this.isOpen = false;
-      // reset the "isClosing" flag (the `toggle` event is fired _after_ the popover is closed)
-      this.isClosing = false;
-      this.toggleElement.setAttribute('aria-expanded', 'false');
+
       // we call the "onClose" callback if it exists (and is a function)
       let { onClose } = this.args;
       if (typeof onClose === 'function') {
