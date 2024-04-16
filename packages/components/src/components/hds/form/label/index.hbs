@@ -3,7 +3,7 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<label class={{this.classNames}} for={{@controlId}} ...attributes>
+<label class={{this.classNames}} for={{@controlId}} id={{this.id}} ...attributes>
   {{yield}}
   <Hds::Form::Indicator @isRequired={{@isRequired}} @isOptional={{@isOptional}} />
 </label>

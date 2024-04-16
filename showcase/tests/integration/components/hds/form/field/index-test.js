@@ -60,7 +60,7 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
       hbs`<Hds::Form::Field @layout="vertical" id="test-form-field" as |F|>
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
-          <F.Control><pre id={{F.id}} aria-describedby={{F.ariaDescribedBy}}>This is a mock control</pre></F.Control>
+          <F.Control><pre id={{F.id}} aria-describedby={{F.ariaDescribedBy}} aria-labelledby={{F.labelId}}>This is a mock control</pre></F.Control>
           <F.CharacterCount>20/40</F.CharacterCount>
           <F.Error>This is the error</F.Error>
         </Hds::Form::Field>`
@@ -81,6 +81,9 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
         `helper-text-${controlId} character-count-${controlId} error-${controlId}`
       );
     assert
+      .dom('.hds-form-field__control pre')
+      .hasAttribute('aria-labelledby', `label-${controlId}`);
+    assert
       .dom('.hds-form-field__character-count')
       .hasAttribute('id', `character-count-${controlId}`);
     assert
@@ -99,6 +102,9 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
     );
     let controlId = 'my-custom-id';
     assert.dom('.hds-form-field__label').hasAttribute('for', controlId);
+    assert
+      .dom('.hds-form-field__label')
+      .hasAttribute('id', `label-${controlId}`);
     assert
       .dom('.hds-form-field__helper-text')
       .hasAttribute('id', `helper-text-${controlId}`);
