@@ -127,7 +127,6 @@
         <div class="shw-component-rich-tooltip-placement-grid__target">
           <Hds::RichTooltip
             @placement={{place}}
-            @enableSoftEvents={{false}}
             @enableClickEvents={{true}}
             @isOpen={{true}}
             @toggleAriaLabel="more info"
@@ -210,13 +209,7 @@
 
   <Shw::Grid @columns={{2}} {{style padding-bottom="6rem"}} as |SG|>
     <SG.Item @label="Default (max-width=280px)">
-      <Hds::RichTooltip
-        @placement="bottom-start"
-        @isOpen={{true}}
-        @enableSoftEvents={{false}}
-        @enableClickEvents={{true}}
-        as |RT|
-      >
+      <Hds::RichTooltip @placement="bottom-start" @isOpen={{true}} @enableClickEvents={{true}} as |RT|>
         <RT.ToggleInfoText @icon="info" @iconPosition="leading">Lorem ipsum</RT.ToggleInfoText>
         <RT.PopoverContent>
           <Shw::Placeholder
@@ -227,14 +220,7 @@
       </Hds::RichTooltip>
     </SG.Item>
     <SG.Item @label="Custom fixed width (width=420px)">
-      <Hds::RichTooltip
-        @placement="bottom-start"
-        @isOpen={{true}}
-        @enableSoftEvents={{false}}
-        @enableClickEvents={{true}}
-        @width="420px"
-        as |RT|
-      >
+      <Hds::RichTooltip @placement="bottom-start" @isOpen={{true}} @enableClickEvents={{true}} @width="420px" as |RT|>
         <RT.ToggleInfoText @icon="info" @iconPosition="leading">Lorem ipsum</RT.ToggleInfoText>
         <RT.PopoverContent>
           <Shw::Placeholder
@@ -261,7 +247,6 @@
               <Hds::RichTooltip
                 @enableCollisionDetection={{detection}}
                 @isOpen={{true}}
-                @enableSoftEvents={{false}}
                 @enableClickEvents={{true}}
                 as |RT|
               >
@@ -750,13 +735,7 @@
     <SG.Item @label="Button + InfoText">
       <div class="shw-component-rich-tooltip-demo-action-plus-info">
         <Hds::Button @text="Lorem ipsum" @icon="wand" {{on "click" this.onClickButton}} />
-        <Hds::RichTooltip
-          @placement="top-start"
-          @enableSoftEvents={{false}}
-          @enableClickEvents={{true}}
-          @toggleAriaLabel="more info"
-          as |RT|
-        >
+        <Hds::RichTooltip @placement="top-start" @enableClickEvents={{true}} @toggleAriaLabel="more info" as |RT|>
           <RT.ToggleInfoText @icon="info" />
           <RT.PopoverContent>
             <Hds::Text::Body @size="200" @tag="p" {{style margin-bottom="12px"}}>Lorem ipsum dolor sit amet consectetur
@@ -780,13 +759,7 @@
     <SG.Item @label="Link + InfoText">
       <div class="shw-component-rich-tooltip-demo-action-plus-info">
         <Hds::Link::Standalone @icon="external-link" @iconPosition="trailing" @text="Acme Corp" @href="#" />
-        <Hds::RichTooltip
-          @placement="top-start"
-          @enableSoftEvents={{false}}
-          @enableClickEvents={{true}}
-          @toggleAriaLabel="more info"
-          as |RT|
-        >
+        <Hds::RichTooltip @placement="top-start" @enableClickEvents={{true}} @toggleAriaLabel="more info" as |RT|>
           <RT.ToggleInfoText @icon="info" />
           <RT.PopoverContent>
             <Hds::Text::Body @size="200" @tag="p" {{style margin-bottom="12px"}}>Lorem ipsum dolor sit amet consectetur
@@ -802,7 +775,7 @@
 
   <Shw::Flex as |SF|>
     <SF.Item @label="With complex popover content">
-      <Hds::RichTooltip @placement="top" @enableSoftEvents={{false}} @enableClickEvents={{true}} as |RT|>
+      <Hds::RichTooltip @placement="top" @enableClickEvents={{true}} as |RT|>
         <RT.ToggleInfoText @icon="info" @iconPosition="trailing">Lorem ipsum dolor</RT.ToggleInfoText>
         <RT.PopoverContent>
           <div class="shw-component-rich-tooltip-content-interactive">
