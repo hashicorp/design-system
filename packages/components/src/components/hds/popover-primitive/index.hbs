@@ -31,8 +31,7 @@
     class="hds-popover-primitive__content"
     tabindex="-1"
     role="tooltip"
-    aria-label="Tooltip content"
-    aria-hidden={{if this.isOpen false true}}
+    aria-hidden={{(unless this.isOpen true)}}
     {{this.setupPrimitivePopover}}
   >
     {{#if @hasArrow}}
