@@ -13,7 +13,7 @@ export default class HdsSuperSelectSingleBaseComponent extends PowerSelectCompon
    * @default false
    */
   get showAfterOptions() {
-    return this.args.showAfterOptions ?? false;
+    return this.args.showAfterOptions ?? this.args.afterOptionsContent ?? false;
   }
 
   /**
