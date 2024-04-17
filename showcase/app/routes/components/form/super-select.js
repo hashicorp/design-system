@@ -39,7 +39,7 @@ export default class ComponentsSuperSelectRoute extends Route {
     const PLACES_OPTIONS = [
       'Oregon (us-west-2)',
       'N. Virginia (us-east-1)',
-      'ALongUnbrokenStringALongUnbrokenStringALongUnbrokenStringALongUnbrokenStringALongUnbrokenString',
+      'ALongUnbrokenStringALongUnbrokenStringALongUnbrokenStringALongUnbrokenStringALongUnbrokenStringALongUnbrokenStringALongUnbrokenString',
       'Ireland (eu-west-1)',
       'London(eu-west-2)',
       'Frankfurt (eu-central-1)',
