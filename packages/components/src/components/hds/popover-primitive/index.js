@@ -350,10 +350,4 @@ export default class HdsPopoverPrimitiveComponent extends Component {
       this.hidePopover();
     }
   }
-
-  // this is exposed to the consumers to programmatically "close" the popover
-  @action
-  close() {
-    this.hidePopover();
-  }
 }
