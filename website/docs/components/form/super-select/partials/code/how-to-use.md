@@ -80,6 +80,32 @@ Use `SuperSelect::Multiple` to enable users to select multiple options.
 
 ### Grouped options
 
+#### Single
+
 ```handlebars
-<p>TODO: Add example</p>
+<Hds::Form::SuperSelect::Single::Field
+  @onChange={{this.noop}}
+  @options={{this.GROUPED_OPTIONS}}
+  @selected={{this.SELECTED_GROUPED_OPTION}}
+  @ariaLabel="Label"
+  as |F|
+>
+  <F.Label>Target infrastructure</F.Label>
+  {{F.options}}
+</Hds::Form::SuperSelect::Single::Field>
+```
+
+#### Multiple
+
+```handlebars
+<Hds::Form::SuperSelect::Multiple::Field
+  @onChange={{this.noop}}
+  @options={{this.GROUPED_OPTIONS}}
+  @selected={{this.SELECTED_GROUPED_OPTIONS}}
+  @ariaLabel="Label"
+  as |F|
+>
+  <F.Label>Target infrastructure</F.Label>
+  {{F.options}}
+</Hds::Form::SuperSelect::Multiple::Field>
 ```

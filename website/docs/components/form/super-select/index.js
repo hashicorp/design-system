@@ -29,6 +29,21 @@ export default class Index extends Component {
     ];
   }
 
+  get GROUPED_OPTIONS() {
+    return [
+      { groupName: 'Most common', options: ['Kubernetes', 'AWS'] },
+      { groupName: 'Others', options: ['CloudWise', 'SWA', 'Other'] },
+    ];
+  }
+
+  get SELECTED_GROUPED_OPTION() {
+    return ['Kubernetes'];
+  }
+
+  get SELECTED_GROUPED_OPTIONS() {
+    return ['AWS', 'CloudWise'];
+  }
+
   // notice: this is used as "noop" function for the onDismiss callback of the SuperSelect component
   @action
   noop() {
