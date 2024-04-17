@@ -7,7 +7,7 @@ import PowerSelectComponent from 'ember-power-select/components/power-select';
 
 export default class HdsSuperSelectSingleBaseComponent extends PowerSelectComponent {
   /**
-   * Get the search placeholder text
+   * Determine if `@afterOptionsComponent` gets displayed
    * @param showAfterOptions
    * @type {boolean}
    * @default true
