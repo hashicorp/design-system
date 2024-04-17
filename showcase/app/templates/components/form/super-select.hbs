@@ -88,7 +88,7 @@
 
   <Shw::Text::H3>List</Shw::Text::H3>
 
-  <Shw::Flex {{style padding-bottom="14em"}} @direction="row" as |SF|>
+  <Shw::Flex {{style padding-bottom="11em"}} @direction="row" as |SF|>
     <SF.Item {{style flex="1"}} @label="Default">
       <Hds::Form::SuperSelect::Single::Base
         @onChange={{fn (mut @model.SELECTED_OPTION)}}
@@ -205,7 +205,7 @@
 
   <Shw::Text::H4>List width</Shw::Text::H4>
 
-  <Shw::Flex {{style padding-bottom="14em"}} as |SF|>
+  <Shw::Flex {{style padding-bottom="11em"}} as |SF|>
     <SF.Item {{style min-width="10em"}} @label="matchTriggerWidth = true (default)">
       <Hds::Form::SuperSelect::Single::Base
         @onChange={{fn (mut @model.SELECTED_OPTION)}}
@@ -235,7 +235,7 @@
 
   <Shw::Text::H4>Complex content</Shw::Text::H4>
 
-  <Shw::Flex {{style padding-bottom="14em"}} @direction="row" as |SF|>
+  <Shw::Flex {{style padding-bottom="12em"}} @direction="row" as |SF|>
     <SF.Item {{style flex="1"}} @label="Options with rich content">
       <Hds::Form::SuperSelect::Single::Base
         @selected={{@model.SELECTED_CLUSTER_SIZE_OPTION}}
@@ -280,6 +280,7 @@
         @selected={{@model.SELECTED_PLACES_OPTION}}
         @initiallyOpened={{true}}
         @ariaLabel="Label"
+        @showAfterOptions={{true}}
         as |option|
       >
         {{option}}
@@ -293,6 +294,7 @@
         @initiallyOpened={{true}}
         @afterOptionsContent="After options content"
         @ariaLabel="Label"
+        @showAfterOptions={{true}}
         as |option|
       >
         {{option}}
@@ -309,6 +311,7 @@
         @selected={{@model.SELECTED_PLACES_OPTION}}
         @initiallyOpened={{true}}
         @ariaLabel="Label"
+        @showAfterOptions={{true}}
         as |option|
       >
         {{option}}
@@ -320,8 +323,8 @@
         @options={{@model.PLACES_OPTIONS}}
         @selected={{@model.SELECTED_PLACES_OPTION}}
         @initiallyOpened={{true}}
-        @showAfterOptions={{false}}
         @ariaLabel="Label"
+        @showAfterOptions={{true}}
         as |option|
       >
         {{option}}
@@ -329,7 +332,7 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Flex {{style padding-bottom="16em" max-width="50%"}} @direction="row" as |SF|>
+  <Shw::Flex {{style padding-bottom="14em" max-width="50%"}} @direction="row" as |SF|>
     <SF.Item {{style flex="1"}} @label="Before options generic content">
       <Hds::Form::SuperSelect::Single::Base
         @beforeOptionsComponent={{component "form/power-select/generic-content"}}
@@ -757,7 +760,6 @@
         @options={{@model.PLACES_OPTIONS}}
         @selected={{@model.SELECTED_PLACES_OPTIONS}}
         @initiallyOpened={{true}}
-        @showAfterOptions={{false}}
         @ariaLabel="Label"
         as |option|
       >

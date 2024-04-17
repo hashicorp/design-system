@@ -10,10 +10,10 @@ export default class HdsSuperSelectSingleBaseComponent extends PowerSelectCompon
    * Determine if `@afterOptionsComponent` gets displayed
    * @param showAfterOptions
    * @type {boolean}
-   * @default true
+   * @default false
    */
   get showAfterOptions() {
-    return this.args.showAfterOptions ?? true;
+    return this.args.showAfterOptions ?? false;
   }
 
   /**
