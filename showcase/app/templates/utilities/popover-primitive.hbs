@@ -482,28 +482,28 @@
 
   <Shw::Text::H2>Interaction</Shw::Text::H2>
 
-  {{#let (array "soft" "click") as |interactionVariants|}}
-    {{#each interactionVariants as |interaction|}}
+  {{#let (array "non-interactive" "interactive") as |triggerTypes|}}
+    {{#each triggerTypes as |triggerType|}}
 
-      <Shw::Text::H3>
-        On
-        {{#if (eq interaction "soft")}}
-          <code>Hover/Focus</code>
-          ("Soft")
-        {{else if (eq interaction "click")}}
-          <code>Click</code>
-        {{/if}}
-      </Shw::Text::H3>
+      <Shw::Text::H3>Toggle with
+        <span {{style font-weight="500"}}>{{triggerType}}</span>
+        content (rendered as
+        <code>&lt;{{if (eq triggerType "interactive") "div" "button"}}&gt;</code>)</Shw::Text::H3>
 
-      {{#let (array "non-interactive" "interactive") as |triggerTypes|}}
-        {{#each triggerTypes as |triggerType|}}
+      {{#let (array "soft" "click") as |interactionVariants|}}
+        {{#each interactionVariants as |interaction|}}
 
           {{#if (not (and (eq interaction "click") (eq triggerType "interactive")))}}
 
-            <Shw::Text::Body>Toggle with
-              <span {{style font-weight="500"}}>{{triggerType}}</span>
-              content (rendered as
-              <code>&lt;{{if (eq triggerType "interactive") "div" "button"}}&gt;</code>)</Shw::Text::Body>
+            <Shw::Text::H4>
+              On
+              {{#if (eq interaction "soft")}}
+                <code>Hover/Focus</code>
+                ("Soft")
+              {{else if (eq interaction "click")}}
+                <code>Click</code>
+              {{/if}}
+            </Shw::Text::H4>
 
             <Shw::Grid @columns={{4}} {{style gap="2rem" align-items="center"}} as |SG|>
 
@@ -595,7 +595,7 @@
         {{/each}}
       {{/let}}
 
-      {{#if (eq interaction "soft")}}
+      {{#if (eq triggerType "non-interactive")}}
         <Shw::Divider @level={{2}} />
       {{/if}}
 
