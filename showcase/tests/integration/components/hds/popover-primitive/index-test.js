@@ -127,7 +127,7 @@ module(
     });
     test('it should render the toggle container as `<div>` if it contains interactive elements', async function (assert) {
       await render(hbs`
-        <Hds::PopoverPrimitive>
+        <Hds::PopoverPrimitive @toggleContainsInteractive={{true}}>
           <:toggle>
             <button type="button">Toggle</button>
           </:toggle>
@@ -194,7 +194,7 @@ module(
 
     test('it should toggle the content visibility on focus in/out when containinig interactive elements', async function (assert) {
       await render(hbs`
-        <Hds::PopoverPrimitive @enableSoftEvents={{true}}>
+        <Hds::PopoverPrimitive @enableSoftEvents={{true}} @toggleContainsInteractive={{true}}>
           <:toggle>
             <button type="button">Toggle</button>
           </:toggle>
@@ -343,7 +343,7 @@ module(
 
     test('it displays the correct aria and role attributes for "toggle" with interactive content', async function (assert) {
       await render(hbs`
-        <Hds::PopoverPrimitive @enableSoftEvents={{true}} @toggleAriaLabel="test123">
+        <Hds::PopoverPrimitive @enableSoftEvents={{true}} @toggleAriaLabel="test123" @toggleContainsInteractive={{true}}>
           <:toggle>
             <input />
           </:toggle>
@@ -386,7 +386,7 @@ module(
         assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
       });
       await render(hbs`
-        <Hds::PopoverPrimitive @enableClickEvents={{true}}>
+        <Hds::PopoverPrimitive @enableClickEvents={{true}} @toggleContainsInteractive={{true}}>
           <:toggle>
             <input />
           </:toggle>
