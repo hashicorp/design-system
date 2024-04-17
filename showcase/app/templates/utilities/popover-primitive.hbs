@@ -502,7 +502,8 @@
 
             <Shw::Text::Body>Toggle with
               <span {{style font-weight="500"}}>{{triggerType}}</span>
-              content</Shw::Text::Body>
+              content (rendered as
+              <code>&lt;{{if (eq triggerType "interactive") "div" "button"}}&gt;</code>)</Shw::Text::Body>
 
             <Shw::Grid @columns={{4}} {{style gap="2rem" align-items="center"}} as |SG|>
 
