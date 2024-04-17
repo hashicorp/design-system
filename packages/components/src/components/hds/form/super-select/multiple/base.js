@@ -12,14 +12,6 @@ export default class HdsSuperSelectMultipleBaseComponent extends PowerSelectComp
   @tracked showOnlySelected = false;
   @tracked showNoSelectedMessage = false;
 
-  @action
-  setPowerSelectAPI(powerSelectAPI) {
-    if (typeof this.args.registerAPI === 'function') {
-      this.args.registerAPI(powerSelectAPI);
-    }
-    this.powerSelectAPI = powerSelectAPI;
-  }
-
   get selectedCount() {
     return this.selected?.length || '0';
   }
@@ -30,6 +22,14 @@ export default class HdsSuperSelectMultipleBaseComponent extends PowerSelectComp
 
   get resultCountMessage() {
     return `${this.selectedCount} selected of ${this.optionsCount} total`;
+  }
+
+  @action
+  setPowerSelectAPI(powerSelectAPI) {
+    if (typeof this.args.registerAPI === 'function') {
+      this.args.registerAPI(powerSelectAPI);
+    }
+    this.powerSelectAPI = powerSelectAPI;
   }
 
   @action showSelected() {
@@ -50,7 +50,7 @@ export default class HdsSuperSelectMultipleBaseComponent extends PowerSelectComp
   }
 
   /**
-   * Get the search placeholder text
+   * Determine if `@afterOptionsComponent` gets displayed
    * @param showAfterOptions
    * @type {boolean}
    * @default true
@@ -92,7 +92,7 @@ export default class HdsSuperSelectMultipleBaseComponent extends PowerSelectComp
       classes.push(`hds-form-super-select--is-invalid`);
     }
 
-    // add a class based on the @isInvalid argument
+    // add a class based on the showOnlySelected
     if (this.showOnlySelected) {
       classes.push(`hds-form-super-select--show-only-selected`);
     }
