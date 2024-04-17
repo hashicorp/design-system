@@ -8,7 +8,6 @@ links:
 related: ['components/tooltip', 'components/modal']
 previewImage: assets/illustrations/components/rich-tooltip.jpg
 navigation:
-  hidden: false
   keywords: ['add', 'alternate', 'keywords', 'here']
 ---
 

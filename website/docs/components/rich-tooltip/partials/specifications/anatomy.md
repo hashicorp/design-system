@@ -10,6 +10,8 @@
 
 ### Default trigger
 
+<!-- Consider moving this to it's own page -->
+
 ![Default Trigger Anatomy](/assets/components/rich-tooltip/default-trigger-anatomy.png)
 
 | Element     | Usage                      |
