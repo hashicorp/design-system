@@ -1,7 +1,7 @@
 import { forwardRef, useMemo } from 'react';
 import { IconProps } from './types';
 
-export const IconLinkedinColor16 = forwardRef<SVGSVGElement, IconProps>(
+export const IconGit24 = forwardRef<SVGSVGElement, IconProps>(
     ({ color = 'currentColor', title, ...props }, svgRef) => {
         const titleId = useMemo(
             () =>
@@ -13,10 +13,10 @@ export const IconLinkedinColor16 = forwardRef<SVGSVGElement, IconProps>(
         return (
             <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width={16}
-                height={16}
+                width={24}
+                height={24}
                 fill="none"
-                viewBox="0 0 16 16"
+                viewBox="0 0 24 24"
                 aria-hidden={!title}
                 ref={svgRef}
                 aria-labelledby={titleId}
@@ -24,8 +24,10 @@ export const IconLinkedinColor16 = forwardRef<SVGSVGElement, IconProps>(
             >
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
-                    fill="#0A66C2"
-                    d="M12.225 12.225h-1.778V9.44c0-.664-.012-1.518-.925-1.518-.926 0-1.068.723-1.068 1.47v2.833H6.676V6.499h1.707v.782h.024c.348-.594.996-.95 1.684-.925 1.802 0 2.135 1.186 2.135 2.728l-.001 3.14zM4.67 5.715a1.037 1.037 0 01-1.032-1.03c0-.567.466-1.033 1.032-1.033.566 0 1.031.466 1.032 1.032 0 .566-.466 1.032-1.032 1.032zm.889 6.51h-1.78V6.499h1.78v5.726zM13.11 2H2.885A.88.88 0 002 2.866v10.268a.88.88 0 00.885.866h10.226a.882.882 0 00.889-.866V2.865a.88.88 0 00-.889-.864z"
+                    fill={color}
+                    fillRule="evenodd"
+                    d="M12.89 2.378l8.733 8.731a1.29 1.29 0 010 1.822l-8.692 8.692a1.29 1.29 0 01-.895.377h-.033a1.29 1.29 0 01-.894-.377L2.376 12.89A1.29 1.29 0 012 12.03v-.1a1.29 1.29 0 01.376-.861l5.988-5.987 2.268 2.268a1.533 1.533 0 00.831 2.01v5.49a1.538 1.538 0 00-.834 2.006 1.535 1.535 0 002.5.497 1.533 1.533 0 00-.405-2.457V9.455l2.068 2.067a1.533 1.533 0 10.917-.864l-2.217-2.217a1.531 1.531 0 00-1.937-1.95l-2.3-2.3 1.813-1.813a1.287 1.287 0 011.822 0z"
+                    clipRule="evenodd"
                 />
             </svg>
         );

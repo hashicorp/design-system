@@ -1,7 +1,7 @@
 import { forwardRef, useMemo } from 'react';
 import { IconProps } from './types';
 
-export const IconLinkedinColor16 = forwardRef<SVGSVGElement, IconProps>(
+export const IconMinio16 = forwardRef<SVGSVGElement, IconProps>(
     ({ color = 'currentColor', title, ...props }, svgRef) => {
         const titleId = useMemo(
             () =>
@@ -23,10 +23,10 @@ export const IconLinkedinColor16 = forwardRef<SVGSVGElement, IconProps>(
                 {...props}
             >
                 {title ? <title id={titleId}>{title}</title> : null}
-                <path
-                    fill="#0A66C2"
-                    d="M12.225 12.225h-1.778V9.44c0-.664-.012-1.518-.925-1.518-.926 0-1.068.723-1.068 1.47v2.833H6.676V6.499h1.707v.782h.024c.348-.594.996-.95 1.684-.925 1.802 0 2.135 1.186 2.135 2.728l-.001 3.14zM4.67 5.715a1.037 1.037 0 01-1.032-1.03c0-.567.466-1.033 1.032-1.033.566 0 1.031.466 1.032 1.032 0 .566-.466 1.032-1.032 1.032zm.889 6.51h-1.78V6.499h1.78v5.726zM13.11 2H2.885A.88.88 0 002 2.866v10.268a.88.88 0 00.885.866h10.226a.882.882 0 00.889-.866V2.865a.88.88 0 00-.889-.864z"
-                />
+                <g fill={color}>
+                    <path d="M9.548 2.586l1.57 2.57a.03.03 0 010 .036.029.029 0 01-.02.009.028.028 0 01-.02-.01L9.041 3.07l.506-.484zM8.892 8.84v.778l-.737.375v-.774l.737-.38z" />
+                    <path d="M6.078 9.507a6.99 6.99 0 012.077-2.571v1.497L6.078 9.507zM4.88 10.895L8.155 9.23v3.81l.737.959V8.841l.448-.231a2.221 2.221 0 00.61-3.515L8.266 3.333a.374.374 0 01.547-.51l.237.247.499-.486c-.598-.776-1.332-.677-1.753-.29a1.075 1.075 0 00-.046 1.518l1.704 1.776A1.521 1.521 0 019.12 7.93l-.231.12V5.643a7.71 7.71 0 00-4.01 5.243v.009z" />
+                </g>
             </svg>
         );
     }
