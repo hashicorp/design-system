@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2024-04-15T17:27:37.712Z",
+  "lastRunTimeISO": "2024-04-17T15:13:03.169Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -1207,6 +1207,46 @@
       "height": 16
     },
     {
+      "id": "6046:80",
+      "fileName": "git-24",
+      "iconName": "git",
+      "description": "git",
+      "category": "Services",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "6046:85",
+      "fileName": "git-16",
+      "iconName": "git",
+      "description": "git",
+      "category": "Services",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "6046:93",
+      "fileName": "git-color-24",
+      "iconName": "git-color",
+      "description": "git",
+      "category": "Services",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "6046:98",
+      "fileName": "git-color-16",
+      "iconName": "git-color",
+      "description": "git",
+      "category": "Services",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
       "id": "707:229",
       "fileName": "gitlab-24",
       "iconName": "gitlab",
@@ -2121,6 +2161,46 @@
       "fileName": "microsoft-teams-color-16",
       "iconName": "microsoft-teams-color",
       "description": "microsoft, teams",
+      "category": "Services",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "6046:106",
+      "fileName": "minio-24",
+      "iconName": "minio",
+      "description": "minio",
+      "category": "Services",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "6046:109",
+      "fileName": "minio-16",
+      "iconName": "minio",
+      "description": "minio",
+      "category": "Services",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "6046:115",
+      "fileName": "minio-color-24",
+      "iconName": "minio-color",
+      "description": "minio",
+      "category": "Services",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "6046:118",
+      "fileName": "minio-color-16",
+      "iconName": "minio-color",
+      "description": "minio",
       "category": "Services",
       "size": "16",
       "width": 16,
