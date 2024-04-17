@@ -1,7 +1,7 @@
 import { forwardRef, useMemo } from 'react';
 import { IconProps } from './types';
 
-export const IconLinkedinColor16 = forwardRef<SVGSVGElement, IconProps>(
+export const IconGitColor16 = forwardRef<SVGSVGElement, IconProps>(
     ({ color = 'currentColor', title, ...props }, svgRef) => {
         const titleId = useMemo(
             () =>
@@ -24,8 +24,10 @@ export const IconLinkedinColor16 = forwardRef<SVGSVGElement, IconProps>(
             >
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
-                    fill="#0A66C2"
-                    d="M12.225 12.225h-1.778V9.44c0-.664-.012-1.518-.925-1.518-.926 0-1.068.723-1.068 1.47v2.833H6.676V6.499h1.707v.782h.024c.348-.594.996-.95 1.684-.925 1.802 0 2.135 1.186 2.135 2.728l-.001 3.14zM4.67 5.715a1.037 1.037 0 01-1.032-1.03c0-.567.466-1.033 1.032-1.033.566 0 1.031.466 1.032 1.032 0 .566-.466 1.032-1.032 1.032zm.889 6.51h-1.78V6.499h1.78v5.726zM13.11 2H2.885A.88.88 0 002 2.866v10.268a.88.88 0 00.885.866h10.226a.882.882 0 00.889-.866V2.865a.88.88 0 00-.889-.864z"
+                    fill="#F03C2E"
+                    fillRule="evenodd"
+                    d="M8.003 15a.903.903 0 01-.626-.264L1.264 8.623a.903.903 0 010-1.275l4.192-4.19 1.587 1.587a1.074 1.074 0 00.582 1.407v3.843A1.077 1.077 0 007.04 11.4a1.072 1.072 0 101.466-1.372V6.218l1.448 1.447a1.073 1.073 0 10.642-.604L9.045 5.509a1.072 1.072 0 00-1.356-1.365l-1.61-1.61 1.27-1.27a.902.902 0 011.275 0l6.112 6.113a.903.903 0 01.264.616v.042a.903.903 0 01-.264.617l-6.084 6.084a.903.903 0 01-.626.264h-.023z"
+                    clipRule="evenodd"
                 />
             </svg>
         );
