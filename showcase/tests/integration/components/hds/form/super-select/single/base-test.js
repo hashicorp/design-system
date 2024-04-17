@@ -38,11 +38,21 @@ module(
 
     // AFTER OPTIONS
 
-    test('it should render the after options block by default', async function (assert) {
+    test('it should not render the after options block by default', async function (assert) {
       this.set('NOOP', () => {});
       this.set('OPTIONS', ['Option 1', 'Option 2', 'Option 3']);
       await render(
         hbs`<Hds::Form::SuperSelect::Single::Base @ariaLabel="Label" @onChange={{this.NOOP}} @options={{this.OPTIONS}} id="test-super-select-single" as |option|>{{option}}</Hds::Form::SuperSelect::Single::Base>`
+      );
+      await click('.hds-form-super-select .ember-basic-dropdown-trigger');
+      assert.dom('.hds-form-super-select__after-options').doesNotExist();
+    });
+
+    test('it should render the after options block when showAfterOptions is set to true', async function (assert) {
+      this.set('NOOP', () => {});
+      this.set('OPTIONS', ['Option 1', 'Option 2', 'Option 3']);
+      await render(
+        hbs`<Hds::Form::SuperSelect::Single::Base @ariaLabel="Label" @onChange={{this.NOOP}} @options={{this.OPTIONS}} @showAfterOptions={{true}} id="test-super-select-single" as |option|>{{option}}</Hds::Form::SuperSelect::Single::Base>`
       );
       await click('.hds-form-super-select .ember-basic-dropdown-trigger');
       assert
