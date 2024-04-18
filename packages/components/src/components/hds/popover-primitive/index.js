@@ -15,14 +15,13 @@ import registerEvent from '../../../modifiers/hds-register-event';
 import anchoredPositionModifier from '../../../modifiers/hds-anchored-position';
 
 // https://github.com/oddbird/popover-polyfill?tab=readme-ov-file#with-npm
-// this is needed until Firefox officially supports the Popover API
-// see: https://wiki.mozilla.org/Release_Management/Release_owners
+// this is needed until Firefox releases the version 126 (up to 125 didn't support the Popover API)
 import {
   // this call polyfills some of the browser methods to emulate the Popover API
   apply as applyPopoverApiPolyfill,
   // we'll use these two flags to overwrite the popover positioning strategy
-  // this is specifically done for Firefox: currently it doesn't support it, but will soon (we need Firefox 127 to support the last 2 versions)
-  // see: https://whattrainisitnow.com/release/?version=127
+  // this is specifically done for Firefox (we need Firefox 126 to be released, to support the last 2 versions)
+  // see: https://whattrainisitnow.com/release/?version=126
   isSupported as isPopoverApiSupported,
   isPolyfilled as isPopoverApiPolyfilled,
 } from '@oddbird/popover-polyfill/fn';
