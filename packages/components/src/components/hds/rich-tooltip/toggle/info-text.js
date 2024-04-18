@@ -61,16 +61,6 @@ export default class HdsRichTooltipToggleInfoTextComponent extends Component {
   }
 
   /**
-   * @param iconIsInlineBlock
-   * @type {boolean}
-   * @default true
-   * @description sets the value for the `@isInlineBlock` argument of the icon
-   */
-  get iconIsInlineBlock() {
-    return this.isInline;
-  }
-
-  /**
    * Get the class names to apply to the component.
    * @method LinkInline#classNames
    * @return {string} The "class" attribute to apply to the component.
