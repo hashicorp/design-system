@@ -7,10 +7,10 @@ See the Ember [PowerSelect documentation](https://ember-power-select.com/docs) f
 ### SuperSelect::Single
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="renderInPlace" @type="boolean" @default="true">
+  <C.Property @name="renderInPlace" @type="boolean">
     Determines whether the dropdown options are rendered in place within the DOM vs. being attached to the root of the HTML `<body>` and positioned with JavaScript.
     <br><br>
-    Defined as `true` by default in `SuperSelect` components to fix a `PowerSelect` accessibility issue. (The opener element or “trigger” should be next to dropdown content it hides & reveals.)
+    Set as `true` in `SuperSelect` components to fix a `PowerSelect` accessibility issue. (The opener element or “trigger” should be next to dropdown content it hides & reveals.)
   </C.Property>
   <C.Property @name="searchPlaceholder" @type="string" @default="Search">
     Displays placeholder text in the search input when `@search` is enabled.
@@ -28,10 +28,10 @@ See the Ember [PowerSelect documentation](https://ember-power-select.com/docs) f
 ### SuperSelect::Multiple
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="renderInPlace" @type="boolean" @default="true">
+  <C.Property @name="renderInPlace" @type="boolean">
     Determines whether the dropdown options are rendered in place within the DOM vs. being attached to the root of the HTML `<body>` and positioned with JavaScript.
     <br><br>
-    Defined as `true` by default in `SuperSelect` components to fix a `PowerSelect` accessibility issue. (The opener element or “trigger” should be next to dropdown content it hides & reveals.)
+    Set as `true` in `SuperSelect` components to fix a `PowerSelect` accessibility issue. (The opener element or “trigger” should be next to dropdown content it hides & reveals.)
   </C.Property>
   <C.Property @name="searchPlaceholder" @type="string" @default="Search">
     Displays placeholder text in the search input when `@search` is enabled.

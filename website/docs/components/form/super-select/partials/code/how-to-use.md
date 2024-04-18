@@ -46,6 +46,36 @@ Use `SuperSelect::Multiple` to enable users to select multiple options.
 </Hds::Form::SuperSelect::Multiple::Field>
 ```
 
+### With rich content in options
+
+#### Rich content in SuperSelect::Single
+
+TODO:
+* aria-selected=true isn't getting set so checkmark doesn't appear on selected option
+* Extra empty markup is being rendered for each option
+
+```handlebars
+<Hds::Form::SuperSelect::Single::Field
+  @onChange={{this.noop}}
+  @selected={{this.SELECTED_CLUSTER_SIZE_OPTION}}
+  @options={{this.CLUSTER_SIZE_OPTIONS}}
+  as |F|
+>
+  <F.Label>Size</F.Label>
+  <div class="doc-super-select-option-rich-content">
+    <p class="doc-super-select-option-rich-header">
+      <strong>{{F.options.size}}</strong>
+      <strong>{{F.options.price}}</strong>
+    </p>
+    <p>{{F.options.description}}</p>
+  </div>
+</Hds::Form::SuperSelect::Single::Field>
+```
+
+#### Rich content in SuperSelect::Multiple
+
+TODO
+
 ### Selected options
 
 #### Single selection
