@@ -472,6 +472,7 @@
         {{#each @model.STATES as |state|}}
           <SG.Item @label={{state}}>
             <Hds::RichTooltip
+              @toggleContainsInteractive={{true}}
               mock-state-value={{state}}
               mock-state-selector={{if (eq toggle "link") "a" "button"}}
               as |RT|
@@ -729,7 +730,7 @@
             </B.Td>
             <B.Td>
               <Hds::ButtonSet>
-                <Hds::RichTooltip as |RT|>
+                <Hds::RichTooltip @toggleContainsInteractive={{true}} as |RT|>
                   <RT.ToggleGeneric>
                     <Hds::Button @text="Add" @isIconOnly={{true}} @icon="plus" @size="small" />
                   </RT.ToggleGeneric>
@@ -737,7 +738,7 @@
                     <Hds::Text::Body @size="100" @tag="p">Use this action to add a new item</Hds::Text::Body>
                   </RT.PopoverContent>
                 </Hds::RichTooltip>
-                <Hds::RichTooltip as |RT|>
+                <Hds::RichTooltip @toggleContainsInteractive={{true}} as |RT|>
                   <RT.ToggleGeneric>
                     <Hds::Button @text="Edit" @isIconOnly={{true}} @icon="edit" @size="small" @color="secondary" />
                   </RT.ToggleGeneric>
@@ -745,7 +746,7 @@
                     <Hds::Text::Body @size="100" @tag="p">Use this action to edit this item</Hds::Text::Body>
                   </RT.PopoverContent>
                 </Hds::RichTooltip>
-                <Hds::RichTooltip as |RT|>
+                <Hds::RichTooltip @toggleContainsInteractive={{true}} as |RT|>
                   <RT.ToggleGeneric>
                     <Hds::Button @text="Delete" @isIconOnly={{true}} @icon="trash" @size="small" @color="critical" />
                   </RT.ToggleGeneric>
@@ -814,7 +815,7 @@
 
   <Shw::Grid @columns={{2}} {{style width="fit-content" gap="2rem"}} as |SG|>
     <SG.Item @label="With a Button">
-      <Hds::RichTooltip @placement="top" as |RT|>
+      <Hds::RichTooltip @toggleContainsInteractive={{true}} @placement="top" as |RT|>
         <RT.ToggleGeneric>
           <Hds::Button @text="Lorem ipsum" @icon="wand" {{on "click" this.onClickButton}} />
         </RT.ToggleGeneric>
@@ -838,7 +839,7 @@
       </div>
     </SG.Item>
     <SG.Item @label="With a Link">
-      <Hds::RichTooltip @placement="top" as |RT|>
+      <Hds::RichTooltip @toggleContainsInteractive={{true}} @placement="top" as |RT|>
         <RT.ToggleGeneric>
           <Hds::Link::Standalone @icon="external-link" @iconPosition="trailing" @text="Acme Corp" @href="#" />
         </RT.ToggleGeneric>
