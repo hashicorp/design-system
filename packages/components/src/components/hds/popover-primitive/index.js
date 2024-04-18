@@ -39,7 +39,8 @@ export default class HdsPopoverPrimitiveComponent extends Component {
   @tracked arrowElement;
   @tracked isOpen = this.args.isOpen ?? false;
   @tracked isClosing = false;
-  @tracked containsInteractive = false;
+  @tracked toggleContainsInteractive =
+    this.args.toggleContainsInteractive ?? false;
   // this will enable "soft" events for the toggle ("hover" and "focus")
   @tracked enableSoftEvents = this.args.enableSoftEvents ?? false;
   // this will enable "click" events for the toggle
@@ -89,12 +90,6 @@ export default class HdsPopoverPrimitiveComponent extends Component {
     (element) => {
       this.toggleElement = element;
 
-      // check if it contains interactive elements
-      this.containsInteractive =
-        element.querySelector(
-          'a, button, input, select, textarea, details, dialog, menuitem, option'
-        ) !== null;
-
       if (this.args.toggleAriaLabel) {
         this.toggleElement.setAttribute(
           'aria-label',
@@ -106,7 +101,7 @@ export default class HdsPopoverPrimitiveComponent extends Component {
       // provided by the Popover API which does all the magic for us without needing JS code
       // (important: to work it needs to be applied to a button, so we can't safely support if the toggle contains interactive elements)
       if (this.enableClickEvents) {
-        if (this.containsInteractive) {
+        if (this.toggleContainsInteractive) {
           assert(
             'Hds::PopoverPrimitive - You have assigned `onClick` events to the "toggle" element, but it contains interactive elements: this may result in unexpected behaviours or non accessible code'
           );
@@ -225,19 +220,6 @@ export default class HdsPopoverPrimitiveComponent extends Component {
   get isInline() {
     let { isInline = false } = this.args;
     return isInline;
-  }
-
-  /**
-   * @param ariaExpanded
-   * @type {string|null}
-   * @default null
-   * @description returns the value of the `aria-expanded` attribute if the toggle doesn't contain interactive elements (in which case it's a `<button>` and accepts this as valid `aria` attribute)
-   */
-  get ariaExpanded() {
-    if (!this.containsInteractive) {
-      return this.isOpen ? 'true' : 'false';
-    }
-    return null;
   }
 
   /**

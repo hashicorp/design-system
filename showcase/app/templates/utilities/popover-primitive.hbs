@@ -51,7 +51,7 @@
       </Hds::PopoverPrimitive>
     </SF.Item>
     <SF.Item @label="Interactive (toggle) content">
-      <Hds::PopoverPrimitive @isOpen={{true}}>
+      <Hds::PopoverPrimitive @isOpen={{true}} @toggleContainsInteractive={{true}}>
         <:toggle>
           <Hds::Button @icon="plus" @text="Lorem ipsum" @color="primary" {{on "click" this.onClickButton}} />
         </:toggle>
@@ -114,7 +114,7 @@
         </:content>
       </Hds::PopoverPrimitive>
       <br />
-      <Hds::PopoverPrimitive @enableSoftEvents={{true}}>
+      <Hds::PopoverPrimitive @enableSoftEvents={{true}} @toggleContainsInteractive={{true}}>
         <:toggle>
           <Hds::Tag @text="Lorem ipsum" @onDismiss={{this.noop}} />
         </:toggle>
@@ -124,7 +124,7 @@
       </Hds::PopoverPrimitive>
     </SF.Item>
     <SF.Item @label="Button">
-      <Hds::PopoverPrimitive @enableSoftEvents={{true}}>
+      <Hds::PopoverPrimitive @enableSoftEvents={{true}} @toggleContainsInteractive={{true}}>
         <:toggle>
           <Hds::Button @icon="plus" @text="Lorem ipsum" @color="primary" {{on "click" this.onClickButton}} />
         </:toggle>
@@ -522,6 +522,7 @@
                       @enableSoftEvents={{(eq interaction "soft")}}
                       @enableClickEvents={{(eq interaction "click")}}
                       @popoverOptions={{(hash offsetOptions=4)}}
+                      @toggleContainsInteractive={{(eq triggerType "interactive")}}
                       @toggleAriaLabel={{if (eq triggerVariant "icon") "Information"}}
                     >
                       <:toggle>
