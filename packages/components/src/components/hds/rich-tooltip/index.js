@@ -42,7 +42,7 @@ export default class HdsRichTooltipIndexComponent extends Component {
     return {
       placement: this.placement,
       offsetOptions: this.args.offset || 12,
-      enableCollisionDetection: this.args.enableCollisionDetection || false,
+      enableCollisionDetection: this.args.enableCollisionDetection ?? true,
       arrowOptions: { padding: 12 },
     };
   }
