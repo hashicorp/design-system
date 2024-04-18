@@ -82,6 +82,22 @@ The Rich Tooltip supports both a default toggle (InfoText) to use the component 
 
 Be default, we provide the [InfoText](/components/rich-tooltip?tab=specifications#infotext-1) component which accounts for the majority of use-cases for the Rich Tooltip. This component ensures that the toggle is perceivable, visually consistent, and can be used inline with other content or standalone as part of the layout flow.
 
+!!! Info
+
+For now, the InfoText component should only be used with the Rich Tooltip. In Figma, this component is published separately for flexibility, while in Ember the component is more coupled with the Rich Tooltip.
+!!!
+
+#### Variants
+
+- `size`: `small`, `medium` (default), `large`
+- `hasText`: boolean; defaults to true
+- `hasTrailingIcon`: boolean; defaults to true
+- `hasLeadingIcon`: boolean
+
+#### States
+
+![InfoText states](/assets/components/rich-tooltip/infotext-states.png)
+
 ### Custom toggle
 
 While almost any element can be used to toggle the Rich Tooltip, custom elements must conform to the following usability and accessibility success criteria:
