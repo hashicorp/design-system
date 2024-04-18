@@ -24,7 +24,7 @@
       </Hds::PopoverPrimitive>
     </SG.Item>
     <SG.Item @label="With arrow">
-      <Hds::PopoverPrimitive @hasArrow={{true}} @isOpen={{true}}>
+      <Hds::PopoverPrimitive @popoverHasArrow={{true}} @isOpen={{true}}>
         <:toggle>
           <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
         </:toggle>
@@ -209,7 +209,7 @@
   <Shw::Grid class="shw-utilities-popover-primitive-placement-grid" @columns={{5}} as |SG|>
     {{#each @model.PLACEMENTS as |place|}}
       <SG.Item class="shw-utilities-popover-primitive-placement-grid__item--{{place}}">
-        <Hds::PopoverPrimitive @popoverOptions={{(hash placement=place)}} @isOpen={{true}}>
+        <Hds::PopoverPrimitive @anchoredPositionOptions={{(hash placement=place)}} @isOpen={{true}}>
           <:toggle>
             <div class="shw-utilities-popover-primitive-placement-grid__target">{{place}}</div>
           </:toggle>
@@ -227,8 +227,8 @@
     {{#each @model.PLACEMENTS as |place|}}
       <SG.Item class="shw-utilities-popover-primitive-placement-grid__item--{{place}}">
         <Hds::PopoverPrimitive
-          @popoverOptions={{hash placement=place arrowOptions=(hash padding=0)}}
-          @hasArrow={{true}}
+          @anchoredPositionOptions={{hash placement=place arrowOptions=(hash padding=0)}}
+          @popoverHasArrow={{true}}
           @isOpen={{true}}
         >
           <:toggle>
@@ -249,7 +249,7 @@
   <Shw::Text::H4>offsetOptions</Shw::Text::H4>
 
   {{#let (array false true) as |booleans|}}
-    {{#each booleans as |hasArrow|}}
+    {{#each booleans as |popoverHasArrow|}}
 
       <Shw::Grid @columns={{4}} {{style gap="2rem" margin-bottom="8rem"}} as |SF|>
         {{#let
@@ -262,10 +262,10 @@
           as |offsetOptionsVariants|
         }}
           {{#each offsetOptionsVariants as |offsetOptionsVariant|}}
-            <SF.Item @label={{(if (eq hasArrow false) (get offsetOptionsVariant "label"))}}>
+            <SF.Item @label={{(if (eq popoverHasArrow false) (get offsetOptionsVariant "label"))}}>
               <Hds::PopoverPrimitive
-                @popoverOptions={{(hash offsetOptions=(get offsetOptionsVariant "offset"))}}
-                @hasArrow={{hasArrow}}
+                @anchoredPositionOptions={{(hash offsetOptions=(get offsetOptionsVariant "offset"))}}
+                @popoverHasArrow={{popoverHasArrow}}
                 @isOpen={{true}}
               >
                 <:toggle>
@@ -290,11 +290,11 @@
       {{#each arrowPaddingVariants as |arrowPaddingVariant|}}
         <SF.Item @label={{(get arrowPaddingVariant "label")}}>
           <Hds::PopoverPrimitive
-            @popoverOptions={{(hash
+            @anchoredPositionOptions={{(hash
               offsetOptions=(hash mainAxis=16 crossAxis=100)
               arrow=(hash padding=(get arrowPaddingVariant "arrowPadding"))
             )}}
-            @hasArrow={{true}}
+            @popoverHasArrow={{true}}
             @isOpen={{true}}
           >
             <:toggle>
@@ -318,8 +318,8 @@
       {{#each strategies as |strategy|}}
         <SF.Item @label={{strategy}}>
           <Hds::PopoverPrimitive
-            @popoverOptions={{(hash strategy=strategy offsetOptions=16)}}
-            @hasArrow={{true}}
+            @anchoredPositionOptions={{(hash strategy=strategy offsetOptions=16)}}
+            @popoverHasArrow={{true}}
             @isOpen={{true}}
           >
             <:toggle>
@@ -341,8 +341,8 @@
   <Shw::Grid @columns={{2}} {{style padding-bottom="6rem"}} as |SG|>
     <SG.Item @label="Default (width=fit-content/max-width=none)">
       <Hds::PopoverPrimitive
-        @popoverOptions={{(hash placement="bottom-start" offsetOptions=16)}}
-        @hasArrow={{true}}
+        @anchoredPositionOptions={{(hash placement="bottom-start" offsetOptions=16)}}
+        @popoverHasArrow={{true}}
         @isOpen={{true}}
       >
         <:toggle>
@@ -359,8 +359,8 @@
     <SG.Item @label="Custom fixed width (width=250px)">
       <Hds::PopoverPrimitive
         @popoverWidth="250px"
-        @popoverOptions={{(hash placement="bottom-start" offsetOptions=16)}}
-        @hasArrow={{true}}
+        @anchoredPositionOptions={{(hash placement="bottom-start" offsetOptions=16)}}
+        @popoverHasArrow={{true}}
         @isOpen={{true}}
       >
         <:toggle>
@@ -383,8 +383,8 @@
   <Shw::Grid @columns={{2}} {{style padding-bottom="10rem"}} as |SG|>
     <SG.Item @label="Default (height=fit-content/max-height=none)">
       <Hds::PopoverPrimitive
-        @popoverOptions={{(hash placement="bottom-start" offsetOptions=16)}}
-        @hasArrow={{true}}
+        @anchoredPositionOptions={{(hash placement="bottom-start" offsetOptions=16)}}
+        @popoverHasArrow={{true}}
         @isOpen={{true}}
       >
         <:toggle>
@@ -401,8 +401,8 @@
     <SG.Item @label="Custom fixed height (height=150px)">
       <Hds::PopoverPrimitive
         @popoverHeight="150px"
-        @popoverOptions={{(hash placement="bottom-start" offsetOptions=16)}}
-        @hasArrow={{true}}
+        @anchoredPositionOptions={{(hash placement="bottom-start" offsetOptions=16)}}
+        @popoverHasArrow={{true}}
         @isOpen={{true}}
       >
         <:toggle>
@@ -431,8 +431,8 @@
           <Shw::Autoscrollable @verticalShift={{20}}>
             <div class="shw-utilities-popover-primitive-collision-detection-wrapper">
               <Hds::PopoverPrimitive
-                @popoverOptions={{(hash offsetOptions=16 enableCollisionDetection=detection)}}
-                @hasArrow={{true}}
+                @anchoredPositionOptions={{(hash offsetOptions=16 enableCollisionDetection=detection)}}
+                @popoverHasArrow={{true}}
                 @isOpen={{true}}
                 @enableSoftEvents={{false}}
                 @enableClickEvents={{true}}
@@ -457,8 +457,8 @@
           <Shw::Autoscrollable @verticalShift={{20}}>
             <div class="shw-utilities-popover-primitive-collision-detection-wrapper">
               <Hds::PopoverPrimitive
-                @popoverOptions={{(hash offsetOptions=16 enableCollisionDetection=detection)}}
-                @hasArrow={{true}}
+                @anchoredPositionOptions={{(hash offsetOptions=16 enableCollisionDetection=detection)}}
+                @popoverHasArrow={{true}}
                 @isOpen={{true}}
                 @enableSoftEvents={{false}}
                 @enableClickEvents={{true}}
@@ -521,7 +521,7 @@
                       @enableCollisionDetection={{true}}
                       @enableSoftEvents={{(eq interaction "soft")}}
                       @enableClickEvents={{(eq interaction "click")}}
-                      @popoverOptions={{(hash offsetOptions=4)}}
+                      @anchoredPositionOptions={{(hash offsetOptions=4)}}
                       @toggleContainsInteractive={{(eq triggerType "interactive")}}
                       @toggleAriaLabel={{if (eq triggerVariant "icon") "Information"}}
                     >
@@ -566,7 +566,7 @@
                         <div class="shw-component-popover-primitive-interaction-bubble">
                           <button
                             type="button"
-                            {{on "click" c.close}}
+                            {{on "click" c.hidePopover}}
                             title="Button that closes the popover on click"
                           >x</button>
                           <ul>
@@ -577,7 +577,7 @@
                               <a href="https://google.com">Link to Google</a>
                             </li>
                             <li>
-                              <button type="button" {{on "click" c.close}}>Got it!</button>
+                              <button type="button" {{on "click" c.hidePopover}}>Got it!</button>
                             </li>
                           </ul>
                         </div>
@@ -613,10 +613,10 @@
           {{#each interactionVariants as |interaction|}}
             <SG.Item @label={{concat interaction " / isOpen={{" isOpen "}}"}}>
               <Hds::PopoverPrimitive
-                @popoverOptions={{(hash offsetOptions=16)}}
+                @anchoredPositionOptions={{(hash offsetOptions=16)}}
                 @enableSoftEvents={{(eq interaction "soft")}}
                 @enableClickEvents={{(eq interaction "click")}}
-                @hasArrow={{true}}
+                @popoverHasArrow={{true}}
                 @isOpen={{isOpen}}
               >
                 <:toggle>

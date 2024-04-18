@@ -103,7 +103,7 @@ export default class HdsPopoverPrimitiveComponent extends Component {
       if (this.enableClickEvents) {
         if (this.toggleContainsInteractive) {
           assert(
-            'Hds::PopoverPrimitive - You have assigned `onClick` events to the "toggle" element, but it contains interactive elements: this may result in unexpected behaviours or non accessible code'
+            'Hds::PopoverPrimitive - You have enabled `click` events to the "toggle" element (via `@enableClickEvents`), but it contains interactive elements: this may result in unexpected behaviours or non accessible code'
           );
         } else {
           this.toggleElement.setAttribute('popovertarget', this.popoverId);
@@ -167,7 +167,7 @@ export default class HdsPopoverPrimitiveComponent extends Component {
       ]);
       registerEvent(this.popoverElement, ['toggle', this.onTogglePopover]);
 
-      // Apply the "float-popover" modifier to the "popover" element
+      // Apply the `hds-anchored-position` modifier to the "popover" element
       // (notice: this function runs the first time when the element the modifier was applied to is inserted into the DOM, and it autotracks while running.
       // Any tracked values that it accesses will be tracked, including the arguments it receives, and if any of them changes, the function will run again)
       // This modifiers uses the Floating UI library to provide:
@@ -177,17 +177,17 @@ export default class HdsPopoverPrimitiveComponent extends Component {
         anchoredPositionModifier(
           this.popoverElement, // element the modifier is attached to
           [this.toggleElement], // positional arguments
-          this.popoverOptions // named arguments
+          this.anchoredPositionOptions // named arguments
         );
       });
     },
     { eager: true }
   );
 
-  get popoverOptions() {
+  get anchoredPositionOptions() {
     // we need to spread the argument because if it's set via `{{ hash … }}` Ember complains when we overwrite one of its values
-    const popoverOptions = this.args.popoverOptions
-      ? { ...this.args.popoverOptions }
+    const anchoredPositionOptions = this.args.anchoredPositionOptions
+      ? { ...this.args.anchoredPositionOptions }
       : {};
 
     // we overwrite the "strategy" if the Popover API is not supported (polyfill applied for the first time) of it's already been polyfilled (see above)
@@ -196,19 +196,19 @@ export default class HdsPopoverPrimitiveComponent extends Component {
     if (!isPopoverApiSupported() || isPopoverApiPolyfilled()) {
       // when using the "absolute" strategy, the presence of a parent with "relative" position leads to wrong layout rendering (known issue in the polyfill library)
       // see: https://github.com/oddbird/popover-polyfill/tree/main?tab=readme-ov-file#caveats
-      popoverOptions.strategy = 'fixed';
+      anchoredPositionOptions.strategy = 'fixed';
     }
 
     if (this.arrowElement) {
-      popoverOptions.arrowOptions = {
+      anchoredPositionOptions.arrowOptions = {
         // we assign the `arrowElement` to the `element` key
         element: this.arrowElement,
         // we use the padding value from the provided options (if assigned) or use a default
-        padding: popoverOptions?.arrowOptions?.padding ?? 0,
+        padding: anchoredPositionOptions?.arrowOptions?.padding ?? 0,
       };
     }
 
-    return popoverOptions;
+    return anchoredPositionOptions;
   }
 
   /**
@@ -235,24 +235,6 @@ export default class HdsPopoverPrimitiveComponent extends Component {
       classes.push('hds-popover-primitive--is-inline');
     } else {
       classes.push('hds-popover-primitive--is-block');
-    }
-
-    return classes.join(' ');
-  }
-
-  /**
-   * Get the class names to apply to the toggle
-   * @method classNamesContent
-   * @return {string} The "class" attribute to apply to the toggle
-   */
-  get classNamesToggle() {
-    let classes = ['hds-popover-primitive__toggle'];
-
-    // add a class based on the @isInline argument
-    if (this.isInline) {
-      classes.push('hds-popover-primitive__toggle--is-inline');
-    } else {
-      classes.push('hds-popover-primitive__toggle--is-block');
     }
 
     return classes.join(' ');
