@@ -6,7 +6,7 @@
 <div class={{this.classNames}} ...attributes {{this.setupPrimitiveContainer}}>
   {{#if this.toggleContainsInteractive}}
     <div
-      class={{this.classNamesToggle}}
+      class="hds-popover-primitive__toggle"
       aria-controls={{this.popoverId}}
       aria-describedby={{this.popoverId}}
       aria-details={{this.popoverId}}
@@ -17,7 +17,7 @@
   {{else}}
     <button
       type="button"
-      class={{this.classNamesToggle}}
+      class="hds-popover-primitive__toggle"
       aria-controls={{this.popoverId}}
       aria-describedby={{this.popoverId}}
       aria-details={{this.popoverId}}
@@ -34,11 +34,11 @@
     aria-hidden={{(unless this.isOpen true)}}
     {{this.setupPrimitivePopover}}
   >
-    {{#if @hasArrow}}
+    {{#if @popoverHasArrow}}
       <div class="hds-popover-primitive__arrow" {{this.setupPrimitiveArrow}} />
     {{/if}}
     {{#if this.isOpen}}
-      {{yield (hash toggleElement=this.toggleElement isOpen=this.isOpen close=this.hidePopover) to="content"}}
+      {{yield (hash toggleElement=this.toggleElement isOpen=this.isOpen hidePopover=this.hidePopover) to="content"}}
     {{/if}}
   </div>
 </div>
