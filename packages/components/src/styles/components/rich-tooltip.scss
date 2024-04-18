@@ -47,7 +47,6 @@
       opacity: 1;
     }
 
-    /* stylelint-disable-next-line scss/at-rule-no-unknown */
     @starting-style {
       &[popover]:popover-open {
         opacity: 0;

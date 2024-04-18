@@ -5,18 +5,18 @@
 }}
 <Hds::PopoverPrimitive
   class="hds-rich-tooltip"
-  @hasArrow={{true}}
+  @isInline={{@isInline}}
   @isOpen={{@isOpen}}
   @onOpen={{@onOpen}}
   @onClose={{@onClose}}
   @enableSoftEvents={{this.enableSoftEvents}}
   @enableClickEvents={{this.enableClickEvents}}
-  @popoverOptions={{this.popoverOptions}}
-  @toggleAriaLabel={{@toggleAriaLabel}}
-  @isInline={{@isInline}}
   @toggleContainsInteractive={{@toggleContainsInteractive}}
+  @toggleAriaLabel={{@toggleAriaLabel}}
+  @popoverHasArrow={{true}}
   @popoverWidth={{@popoverWidth}}
   @popoverHeight={{@popoverHeight}}
+  @anchoredPositionOptions={{this.anchoredPositionOptions}}
   ...attributes
 >
   <:toggle>
@@ -28,6 +28,6 @@
     }}
   </:toggle>
   <:content as |c|>
-    {{yield (hash PopoverContent=(component "hds/yield") close=c.close)}}
+    {{yield (hash PopoverContent=(component "hds/yield") close=c.hidePopover)}}
   </:content>
 </Hds::PopoverPrimitive>

@@ -17,17 +17,17 @@ export default class HdsRichTooltipIndexComponent extends Component {
    * @type {string}
    * @description Determines the position of the "popover"
    */
-  get placement() {
-    let { placement = DEFAULT_PLACEMENT } = this.args;
+  get popoverPlacement() {
+    let { popoverPlacement = DEFAULT_PLACEMENT } = this.args;
 
     assert(
-      `@placement for "Hds::Popover" must be one of the following: ${PLACEMENTS.join(
+      `@popoverPlacement for "Hds::RichTooltip" must be one of the following: ${PLACEMENTS.join(
         ', '
-      )}; received: ${placement}`,
-      PLACEMENTS.includes(placement)
+      )}; received: ${popoverPlacement}`,
+      PLACEMENTS.includes(popoverPlacement)
     );
 
-    return placement;
+    return popoverPlacement;
   }
 
   get enableSoftEvents() {
@@ -38,10 +38,12 @@ export default class HdsRichTooltipIndexComponent extends Component {
     return this.args.enableClickEvents ?? false;
   }
 
-  get popoverOptions() {
+  get anchoredPositionOptions() {
+    // custom options specific for the `RichTooltip` component
+    // for details see the `hds-anchored-position` modifier
     return {
-      placement: this.placement,
-      offsetOptions: this.args.offset || 12,
+      placement: this.popoverPlacement,
+      offsetOptions: this.args.popoverOffset ?? 12,
       enableCollisionDetection: this.args.enableCollisionDetection ?? true,
       arrowOptions: { padding: 12 },
     };

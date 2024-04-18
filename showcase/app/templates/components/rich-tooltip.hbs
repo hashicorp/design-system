@@ -107,7 +107,6 @@
   <Shw::Text::H3>Generic</Shw::Text::H3>
 
   <Hds::RichTooltip as |RT|>
-
     <RT.ToggleGeneric>
       <Shw::Outliner>Lorem ipsum</Shw::Outliner>
     </RT.ToggleGeneric>
@@ -126,7 +125,7 @@
       <SG.Item class="shw-component-rich-tooltip-placement-grid__item--{{place}}">
         <div class="shw-component-rich-tooltip-placement-grid__target">
           <Hds::RichTooltip
-            @placement={{place}}
+            @popoverPlacement={{place}}
             @isOpen={{true}}
             @enableCollisionDetection={{false}}
             @enableClickEvents={{true}}
@@ -158,7 +157,7 @@
     </SF.Item>
     <SF.Item @label="Offset: { mainAxis: 30, crossAxis: 0 }">
       <Hds::RichTooltip
-        @offset={{(hash mainAxis=30 crossAxis=0)}}
+        @popoverOffset={{(hash mainAxis=30 crossAxis=0)}}
         @isOpen={{true}}
         @enableCollisionDetection={{false}}
         @enableClickEvents={{true}}
@@ -172,7 +171,7 @@
     </SF.Item>
     <SF.Item @label="Offset: { mainAxis: 12, crossAxis: 80 }">
       <Hds::RichTooltip
-        @offset={{(hash mainAxis=12 crossAxis=80)}}
+        @popoverOffset={{(hash mainAxis=12 crossAxis=80)}}
         @isOpen={{true}}
         @enableCollisionDetection={{false}}
         @enableClickEvents={{true}}
@@ -223,7 +222,7 @@
   <Shw::Grid @columns={{2}} {{style padding-bottom="6rem"}} as |SG|>
     <SG.Item @label="Default (width=fit-content/max-width=280px)">
       <Hds::RichTooltip
-        @placement="bottom-start"
+        @popoverPlacement="bottom-start"
         @isOpen={{true}}
         @enableCollisionDetection={{false}}
         @enableClickEvents={{true}}
@@ -240,7 +239,7 @@
     </SG.Item>
     <SG.Item @label="Custom fixed width (width=450px)">
       <Hds::RichTooltip
-        @placement="bottom-start"
+        @popoverPlacement="bottom-start"
         @isOpen={{true}}
         @enableCollisionDetection={{false}}
         @enableClickEvents={{true}}
@@ -265,7 +264,7 @@
   <Shw::Grid @columns={{2}} {{style padding-bottom="10rem"}} as |SG|>
     <SG.Item @label="Default (height=fit-content/max-height=none)">
       <Hds::RichTooltip
-        @placement="bottom-start"
+        @popoverPlacement="bottom-start"
         @isOpen={{true}}
         @enableCollisionDetection={{false}}
         @enableClickEvents={{true}}
@@ -282,7 +281,7 @@
     </SG.Item>
     <SG.Item @label="Custom fixed height (height=150px)">
       <Hds::RichTooltip
-        @placement="bottom-start"
+        @popoverPlacement="bottom-start"
         @isOpen={{true}}
         @enableCollisionDetection={{false}}
         @enableClickEvents={{true}}
@@ -608,7 +607,7 @@
           <F.Label>
             <div class="shw-component-rich-tooltip-demo-form-field-label-wrapper">
               This is the label text
-              <Hds::RichTooltip @placement="right" @toggleAriaLabel="more info" as |RT|>
+              <Hds::RichTooltip @popoverPlacement="right" @toggleAriaLabel="more info" as |RT|>
                 <RT.ToggleInfoText @icon="info" @iconPosition="trailing" />
                 <RT.PopoverContent>
                   <Shw::Placeholder @text="generic content" @height="30" />
@@ -621,7 +620,7 @@
         <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" @width="250px" as |F|>
           <F.Label>This is the label text</F.Label>
           <F.HelperText>Lorem ipsum dolor sit amet
-            <Hds::RichTooltip @placement="right" @isInline={{true}} as |RT|>
+            <Hds::RichTooltip @popoverPlacement="right" @isInline={{true}} as |RT|>
               <RT.ToggleInfoText>consectetur adipisicing</RT.ToggleInfoText>
               <RT.PopoverContent>
                 <Shw::Placeholder @text="generic content" @height="30" />
@@ -642,7 +641,7 @@
           <M.Body>
             <Hds::Text::Body @size="200" @tag="p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
               perferendis culpa expedita assumenda at
-              <Hds::RichTooltip @placement="top" @isInline={{true}} as |RT|>
+              <Hds::RichTooltip @popoverPlacement="top" @isInline={{true}} as |RT|>
                 <RT.ToggleInfoText @icon="info">nisi minus unde fuga</RT.ToggleInfoText>
                 <RT.PopoverContent>
                   <Shw::Placeholder @text="generic content" @height="30" />
@@ -815,7 +814,7 @@
 
   <Shw::Grid @columns={{2}} {{style width="fit-content" gap="2rem"}} as |SG|>
     <SG.Item @label="With a Button">
-      <Hds::RichTooltip @toggleContainsInteractive={{true}} @placement="top" as |RT|>
+      <Hds::RichTooltip @toggleContainsInteractive={{true}} @popoverPlacement="top" as |RT|>
         <RT.ToggleGeneric>
           <Hds::Button @text="Lorem ipsum" @icon="wand" {{on "click" this.onClickButton}} />
         </RT.ToggleGeneric>
@@ -828,7 +827,12 @@
     <SG.Item @label="Button + InfoText">
       <div class="shw-component-rich-tooltip-demo-action-plus-info">
         <Hds::Button @text="Lorem ipsum" @icon="wand" {{on "click" this.onClickButton}} />
-        <Hds::RichTooltip @placement="top-start" @enableClickEvents={{true}} @toggleAriaLabel="more info" as |RT|>
+        <Hds::RichTooltip
+          @popoverPlacement="top-start"
+          @enableClickEvents={{true}}
+          @toggleAriaLabel="more info"
+          as |RT|
+        >
           <RT.ToggleInfoText @icon="info" />
           <RT.PopoverContent>
             <Hds::Text::Body @size="200" @tag="p" {{style margin-bottom="12px"}}>Lorem ipsum dolor sit amet consectetur
@@ -839,7 +843,7 @@
       </div>
     </SG.Item>
     <SG.Item @label="With a Link">
-      <Hds::RichTooltip @toggleContainsInteractive={{true}} @placement="top" as |RT|>
+      <Hds::RichTooltip @toggleContainsInteractive={{true}} @popoverPlacement="top" as |RT|>
         <RT.ToggleGeneric>
           <Hds::Link::Standalone @icon="external-link" @iconPosition="trailing" @text="Acme Corp" @href="#" />
         </RT.ToggleGeneric>
@@ -852,7 +856,12 @@
     <SG.Item @label="Link + InfoText">
       <div class="shw-component-rich-tooltip-demo-action-plus-info">
         <Hds::Link::Standalone @icon="external-link" @iconPosition="trailing" @text="Acme Corp" @href="#" />
-        <Hds::RichTooltip @placement="top-start" @enableClickEvents={{true}} @toggleAriaLabel="more info" as |RT|>
+        <Hds::RichTooltip
+          @popoverPlacement="top-start"
+          @enableClickEvents={{true}}
+          @toggleAriaLabel="more info"
+          as |RT|
+        >
           <RT.ToggleInfoText @icon="info" />
           <RT.PopoverContent>
             <Hds::Text::Body @size="200" @tag="p" {{style margin-bottom="12px"}}>Lorem ipsum dolor sit amet consectetur
@@ -868,7 +877,7 @@
 
   <Shw::Flex as |SF|>
     <SF.Item @label="With complex popover content">
-      <Hds::RichTooltip @placement="top" @enableClickEvents={{true}} as |RT|>
+      <Hds::RichTooltip @popoverPlacement="top" @enableClickEvents={{true}} as |RT|>
         <RT.ToggleInfoText @icon="info" @iconPosition="trailing">Lorem ipsum dolor</RT.ToggleInfoText>
         <RT.PopoverContent>
           <div class="shw-component-rich-tooltip-content-interactive">
