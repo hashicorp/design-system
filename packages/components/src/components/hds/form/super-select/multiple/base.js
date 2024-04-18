@@ -71,6 +71,16 @@ export default class HdsSuperSelectMultipleBaseComponent extends PowerSelectComp
   }
 
   /**
+   * Get the maxWidth to apply to the dropdown
+   * @param dropdownMaxWidth
+   * @type {string}
+   * @default 'none'
+   */
+  get dropdownMaxWidth() {
+    return this.args.dropdownMaxWidth ?? 'none';
+  }
+
+  /**
    * Get the class names to apply to the component.
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.

@@ -218,13 +218,14 @@
         {{option}}
       </Hds::Form::SuperSelect::Single::Base>
     </SF.Item>
-    <SF.Item @label="matchTriggerWidth = false">
+    <SF.Item @label="matchTriggerWidth = false & dropdownMaxWidth = 40em">
       <Hds::Form::SuperSelect::Single::Base
         @onChange={{fn (mut @model.SELECTED_PLACES_OPTION)}}
         @options={{@model.PLACES_OPTIONS}}
         @selected={{@model.SELECTED_PLACES_OPTION}}
         @initiallyOpened={{true}}
         @matchTriggerWidth={{false}}
+        @dropdownMaxWidth="40em"
         @ariaLabel="Label"
         as |option|
       >
@@ -698,13 +699,14 @@
         {{option}}
       </Hds::Form::SuperSelect::Multiple::Base>
     </SF.Item>
-    <SF.Item @label="matchTriggerWidth = false">
+    <SF.Item @label="matchTriggerWidth = false & dropdownMaxWidth = 40em">
       <Hds::Form::SuperSelect::Multiple::Base
         @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
         @options={{@model.PLACES_OPTIONS}}
         @selected={{@model.SELECTED_PLACES_OPTIONS}}
         @initiallyOpened={{true}}
         @matchTriggerWidth={{false}}
+        @dropdownMaxWidth="40em"
         @ariaLabel="Label"
         as |option|
       >
