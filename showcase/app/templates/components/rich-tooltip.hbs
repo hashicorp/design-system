@@ -355,6 +355,234 @@
 
   <Shw::Divider />
 
+  <Shw::Text::H3>Inheritance</Shw::Text::H3>
+
+  <Shw::Text::Body>HDS classes</Shw::Text::Body>
+
+  <Shw::Grid @columns={{3}} {{style gap="2rem" margin-bottom="6rem"}} as |SG|>
+    <SG.Item @label="Applied to the parent (with InfoText)">
+      <div
+        class="hds-typography-display-400 hds-foreground-warning-on-surface hds-surface-warning"
+        {{style width="fit-content"}}
+      >
+        Lorem
+        <Hds::RichTooltip
+          @isOpen={{true}}
+          @isInline={{true}}
+          @enableCollisionDetection={{false}}
+          @enableClickEvents={{true}}
+          as |RT|
+        >
+          <RT.ToggleInfoText @icon="info" @iconPosition="leading">ipsum</RT.ToggleInfoText>
+          <RT.PopoverContent>
+            Generic text content
+          </RT.PopoverContent>
+        </Hds::RichTooltip>
+        dolor
+      </div>
+    </SG.Item>
+    <SG.Item @label="Applied to the component (with InfoText)">
+      <Hds::RichTooltip
+        class="hds-typography-display-400 hds-foreground-warning-on-surface hds-surface-warning"
+        @isOpen={{true}}
+        @enableCollisionDetection={{false}}
+        @enableClickEvents={{true}}
+        as |RT|
+      >
+        <RT.ToggleInfoText @icon="info" @iconPosition="leading">Lorem ipsum dolor</RT.ToggleInfoText>
+        <RT.PopoverContent>
+          Generic text content
+        </RT.PopoverContent>
+      </Hds::RichTooltip>
+    </SG.Item>
+    <SG.Item @label="Applied to the toggle (generic)">
+      <Hds::RichTooltip @isOpen={{true}} @enableCollisionDetection={{false}} @enableClickEvents={{true}} as |RT|>
+        <RT.ToggleGeneric>
+          <div class="hds-typography-display-400 hds-foreground-warning-on-surface hds-surface-warning">
+            Lorem ipsum dolor
+          </div>
+        </RT.ToggleGeneric>
+        <RT.PopoverContent>
+          Generic text content
+        </RT.PopoverContent>
+      </Hds::RichTooltip>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Grid @columns={{3}} {{style gap="2rem" margin-bottom="6rem"}} as |SG|>
+    <SG.Item @label="Applied to the parent (with InfoText/small)">
+      <div
+        class="hds-typography-display-400 hds-foreground-warning-on-surface hds-surface-warning"
+        {{style width="fit-content"}}
+      >
+        Lorem
+        <Hds::RichTooltip
+          @isOpen={{true}}
+          @isInline={{true}}
+          @enableCollisionDetection={{false}}
+          @enableClickEvents={{true}}
+          as |RT|
+        >
+          <RT.ToggleInfoText @size="small" @icon="info" @iconPosition="leading">ipsum</RT.ToggleInfoText>
+          <RT.PopoverContent>
+            Generic text content
+          </RT.PopoverContent>
+        </Hds::RichTooltip>
+        dolor
+      </div>
+    </SG.Item>
+    <SG.Item @label="Applied to the component (with InfoText/small)">
+      <Hds::RichTooltip
+        class="hds-typography-display-400 hds-foreground-warning-on-surface hds-surface-warning"
+        @isOpen={{true}}
+        @enableCollisionDetection={{false}}
+        @enableClickEvents={{true}}
+        as |RT|
+      >
+        <RT.ToggleInfoText @size="small" @icon="info" @iconPosition="leading">Lorem ipsum dolor</RT.ToggleInfoText>
+        <RT.PopoverContent>
+          Generic text content
+        </RT.PopoverContent>
+      </Hds::RichTooltip>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Text::Body>Using a custom class</Shw::Text::Body>
+
+  <Shw::Grid @columns={{3}} {{style gap="2rem" margin-bottom="6rem"}} as |SG|>
+    <SG.Item @label="Applied to the parent (with InfoText)">
+      <div class="shw-component-rich-tooltip-font-style" {{style width="fit-content"}}>
+        Lorem
+        <Hds::RichTooltip
+          @isOpen={{true}}
+          @isInline={{true}}
+          @enableClickEvents={{true}}
+          @enableCollisionDetection={{false}}
+          as |RT|
+        >
+          <RT.ToggleInfoText @icon="info" @iconPosition="leading">ipsum</RT.ToggleInfoText>
+          <RT.PopoverContent>
+            Generic text content
+          </RT.PopoverContent>
+        </Hds::RichTooltip>
+        dolor
+      </div>
+    </SG.Item>
+    <SG.Item @label="Applied to the container (with InfoText)">
+      <Hds::RichTooltip
+        class="shw-component-rich-tooltip-font-style"
+        @isOpen={{true}}
+        @isInline={{true}}
+        @enableClickEvents={{true}}
+        @enableCollisionDetection={{false}}
+        as |RT|
+      >
+        <RT.ToggleInfoText @icon="info" @iconPosition="leading">Lorem ipsum dolor</RT.ToggleInfoText>
+        <RT.PopoverContent>
+          Generic text content
+        </RT.PopoverContent>
+      </Hds::RichTooltip>
+    </SG.Item>
+    <SG.Item @label="Applied to children">
+      <Hds::RichTooltip
+        @isOpen={{true}}
+        @isInline={{true}}
+        @enableClickEvents={{true}}
+        @enableCollisionDetection={{false}}
+        as |RT|
+      >
+        <RT.ToggleGeneric>
+          <div class="shw-component-rich-tooltip-font-style">
+            Lorem ipsum dolor
+          </div>
+        </RT.ToggleGeneric>
+        <RT.PopoverContent>
+          Generic text content
+        </RT.PopoverContent>
+      </Hds::RichTooltip>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Grid @columns={{3}} {{style gap="2rem" margin-bottom="6rem"}} as |SG|>
+    <SG.Item @label="Applied to the parent (with InfoText/small)">
+      <div class="shw-component-rich-tooltip-font-style" {{style width="fit-content"}}>
+        Lorem
+        <Hds::RichTooltip
+          @isOpen={{true}}
+          @isInline={{true}}
+          @enableClickEvents={{true}}
+          @enableCollisionDetection={{false}}
+          as |RT|
+        >
+          <RT.ToggleInfoText @size="small" @icon="info" @iconPosition="leading">ipsum</RT.ToggleInfoText>
+          <RT.PopoverContent>
+            Generic text content
+          </RT.PopoverContent>
+        </Hds::RichTooltip>
+        dolor
+      </div>
+    </SG.Item>
+    <SG.Item @label="Applied to the container (with InfoText/small)">
+      <Hds::RichTooltip
+        class="shw-component-rich-tooltip-font-style"
+        @isOpen={{true}}
+        @isInline={{true}}
+        @enableClickEvents={{true}}
+        @enableCollisionDetection={{false}}
+        as |RT|
+      >
+        <RT.ToggleInfoText @size="small" @icon="info" @iconPosition="leading">Lorem ipsum dolor</RT.ToggleInfoText>
+        <RT.PopoverContent>
+          Generic text content
+        </RT.PopoverContent>
+      </Hds::RichTooltip>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Text::Body>Style interference</Shw::Text::Body>
+
+  <Shw::Flex {{style gap="2rem" margin-bottom="9rem"}} as |SF|>
+    <SF.Item @label="Parent has `white-space: nowrap`">
+      <div {{style whiteSpace="nowrap"}}>
+        <Hds::RichTooltip @isOpen={{true}} @enableCollisionDetection={{false}} @popoverWidth="200px" as |RT|>
+          <RT.ToggleInfoText @icon="info" @iconPosition="leading">Lorem ipsum dolor</RT.ToggleInfoText>
+          <RT.PopoverContent>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </RT.PopoverContent>
+        </Hds::RichTooltip>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::Body>Used within a parent with explicit text alignment</Shw::Text::Body>
+
+  <Shw::Grid class="shw-component-tooltip-text-alignment" @columns={{3}} {{style margin-bottom="9rem"}} as |SG|>
+    {{#let (array "left" "center" "right") as |alignments|}}
+      {{#each alignments as |alignment|}}
+        <SG.Item @label="text-align = {{alignment}}" {{style text-align=alignment}}>
+          <Shw::Outliner>
+            Lorem
+            <Hds::RichTooltip
+              @isOpen={{true}}
+              @enableCollisionDetection={{false}}
+              @popoverWidth="200px"
+              @isInline={{true}}
+              as |RT|
+            >
+              <RT.ToggleInfoText @icon="info" @iconPosition="leading">ipsum dolor</RT.ToggleInfoText>
+              <RT.PopoverContent>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </RT.PopoverContent>
+            </Hds::RichTooltip>
+            sit amet.
+          </Shw::Outliner>
+        </SG.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Grid>
+
+  <Shw::Divider />
+
   <Shw::Text::H2>Interaction states</Shw::Text::H2>
 
   <Shw::Text::H3>InfoText toggle</Shw::Text::H3>
