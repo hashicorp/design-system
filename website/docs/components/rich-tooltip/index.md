@@ -8,7 +8,7 @@ links:
 related: ['components/tooltip', 'components/modal']
 previewImage: assets/illustrations/components/rich-tooltip.jpg
 navigation:
-  keywords: ['add', 'alternate', 'keywords', 'here']
+  keywords: ['popover', 'popup', 'modal']
 ---
 
 <section data-tab="Guidelines">

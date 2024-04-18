@@ -30,7 +30,7 @@ View more detailed examples of the content the Rich Tooltip could contain in the
 
 ## Placement
 
-A Rich Tooltip can be placed in various positions relative to the UI element it is associated with. Choose the placement based on the context and available space around the trigger.
+A Rich Tooltip can be placed in various positions relative to the UI element it is associated with. Choose the placement based on the context and available space around the toggle.
 
 The most common options are: `top`, `bottom`, `left`, `right`.
 
@@ -40,24 +40,24 @@ The Rich Tooltip supports additional placement options: `top-start`, `top-end`, 
 
 !!! Info
 
-The placement property is _relative_ to the element triggering the component, rather than the direction of the pointer. E.g., `placement=left` will render the component to the _left_ of the trigger, but the pointer will be pointing to the right.
+The placement property is _relative_ to the element toggleing the component, rather than the direction of the pointer. E.g., `placement=left` will render the component to the _left_ of the toggle, but the pointer will be pointing to the right.
 !!!
 
 ### Collision detection
 
-The Rich Tooltip supports collision detection, meaning the `placement` property might be overridden depending on the position of the component relative to the edge of the viewport. This ensures that the component doesn't extend outside of the viewport while still being associated with the trigger element.
+The Rich Tooltip supports collision detection, meaning the `placement` property might be overridden depending on the position of the component relative to the edge of the viewport. This ensures that the component doesn't extend outside of the viewport while still being associated with the toggle element.
 
 ![Example of collision detection in the Rich Tooltip](/assets/components/rich-tooltip/rich-tooltip-collision-detection.png)
 
 ## Offset
 
-The default recommended distance between the trigger and the Rich Tooltip pointer is 4px.
+The default recommended distance between the toggle and the Rich Tooltip pointer is 4px.
 
 ![Default spacing for the Rich Tooltip](/assets/components/rich-tooltip/rich-tooltip-offset-spacing.png)
 
 !!! Info
 
-In some cases, adding an offset may be necessary to adjust the position of the RichTooltip. Changing the default offset should be done sparingly and only when it’s necessary to make sure that the component does not obscure or cover the trigger or other important information.
+In some cases, adding an offset may be necessary to adjust the position of the RichTooltip. Changing the default offset should be done sparingly and only when it’s necessary to make sure that the component does not obscure or cover the toggle or other important information.
 !!!
 
 !!! Do
@@ -74,21 +74,17 @@ Don’t add extra offset if the Rich Tooltip would block important information, 
 ![Example of adjusting the offset of the Rich Tooltip](/assets/components/rich-tooltip/rich-tooltip-offset-dont.png)
 !!!
 
-## Trigger
+## Toggle
 
-The Rich Tooltip supports both a default trigger to use the component in a consistent manner, but also supports generic or custom elements passed as the trigger.
+The Rich Tooltip supports both a default toggle (InfoText) to use the component in a consistent manner, but also supports generic or custom elements passed to the toggle element.
 
 ### InfoText
 
-<!-- TBD on link and name for this component -->
+Be default, we provide the [InfoText](/components/rich-tooltip?tab=specifications#infotext-1) component which accounts for the majority of use-cases for the Rich Tooltip. This component ensures that the toggle is perceivable, visually consistent, and can be used inline with other content or standalone as part of the layout flow.
 
-We provide the [InfoText](/components/info-text) component which accounts for the majority of use-cases for the Rich Tooltip. This component ensures that the trigger is perceivable, visually consistent, and can be used inline with other content or standalone as part of the layout flow.
+### Custom toggle
 
-More details and specs about this component can be found [here](/#link-to-component).
-
-### Custom trigger
-
-While almost any element can be used to trigger the Rich Tooltip, custom elements must conform to the following usability and accessibility success criteria:
+While almost any element can be used to toggle the Rich Tooltip, custom elements must conform to the following usability and accessibility success criteria:
 
 - Must have a minimum target area of 24x24 pixels.
 - Must have a minimum contrast ratio between the background/surface color of 3:1.
@@ -98,28 +94,28 @@ More information about this success criteria can be found in the [accessibility]
 
 !!! Dont
 
-Don’t use a [Badge](/components/badge) or [BadgeCount](/components/badge-count) as the trigger for the Rich Tooltip; Badges are intentionally non-interactive elements and don't visually communicate that content is hidden behind a `hover`, `click`, or `focus` interaction.
+Don’t use a [Badge](/components/badge) or [BadgeCount](/components/badge-count) as the toggle for the Rich Tooltip; Badges are intentionally non-interactive elements and don't visually communicate that content is hidden behind a `hover`, `click`, or `focus` interaction.
 
 ![Example of using the Rich Tooltip with a badge](/assets/components/rich-tooltip/rich-tooltip-trigger-badge-dont.png)
 !!!
 
 !!! Do
 
-Instead, place the default trigger inline with the Badge to communicate the existence of a Rich Tooltip.
+Instead, place the InfoText component inline with the Badge to communicate the existence of a Rich Tooltip.
 
-![Example of pairing the default trigger with a Badge](/assets/components/rich-tooltip/rich-tooltip-trigger-badge-do.png)
+![Example of pairing the default toggle with a Badge](/assets/components/rich-tooltip/rich-tooltip-trigger-badge-do.png)
 !!!
 
 !!! Dont
 
-Don’t trigger a Rich Tooltip from a form element like a [Text Input](/components/form/text-input), [Select](/components/form/select), or [Textarea](/components/form/textarea).
+Don’t toggle a Rich Tooltip from a form element like a [Text Input](/components/form/text-input), [Select](/components/form/select), or [Textarea](/components/form/textarea).
 
-![Example of triggering a Rich Tooltip from a form element](/assets/components/rich-tooltip/rich-tooltip-trigger-form-input-dont.png)
+![Example of toggling a Rich Tooltip from a form element](/assets/components/rich-tooltip/rich-tooltip-trigger-form-input-dont.png)
 !!!
 
 !!! Do
 
-Instead, use the [Label](/components/form/primitives#formlabel) and [HelperText](/components/form/primitives#helpertext) primitives to communicate details about the field. If _absolutely_ necessary to provide more details about a form element, use the default trigger within [Helper Text](/components/form/primitives#formhelpertext).
+Instead, use the [Label](/components/form/primitives#formlabel) and [HelperText](/components/form/primitives#helpertext) primitives to communicate details about the field. If _absolutely_ necessary to provide more details about a form element, use the InfoText within [Helper Text](/components/form/primitives#formhelpertext).
 
 ![Example within Helper Text](/assets/components/rich-tooltip/rich-tooltip-trigger-helper-text-do.png)
 
@@ -128,28 +124,26 @@ However, interactive elements in HelperText will not be read out as interactive 
 
 !!! Do
 
-If it's necessary to persist the Rich Tooltip within the UI (a toggle-like experience), consider using a `secondary` [Button](/components/button) as the trigger element. In this scenario use a [`on click`](#interaction) interaction to persist the component.
+If it's necessary to persist the Rich Tooltip within the UI, consider using a `secondary` [Button](/components/button) as the toggle element. In this scenario use the [`on click`](#interaction) interaction to persist the component.
 
-![Example using a Button to trigger the component](/assets/components/rich-tooltip/rich-tooltip-trigger-secondary-button.png)
+![Example using a Button to toggle the component](/assets/components/rich-tooltip/rich-tooltip-trigger-secondary-button.png)
 
 This can be useful when displaying instructional information or details that reference different parts of the UI.
 !!!
 
 !!! Dont
 
-Don’t use a [Button](/components/button) to trigger a Rich Tooltip if the Button performs a function. This can cause an unexpected overlap in the interaction with the Button and the triggering of the Rich Tooltip.
+Don’t use a [Button](/components/button) to toggle a Rich Tooltip if the Button performs a function. This can cause an unexpected overlap in the interaction with the Button and the toggleing of the Rich Tooltip.
 
-![Example of incorrectly triggering a Rich Tooltip with a button](/assets/components/rich-tooltip/rich-tooltip-trigger-button-dont.png)
+![Example of incorrectly toggling a Rich Tooltip with a button](/assets/components/rich-tooltip/rich-tooltip-trigger-button-dont.png)
 !!!
 
 ## Interaction
 
 The Rich Tooltip supports two different interaction methods: a `hover/focus` ("soft") interaction and a `click` interaction. Which one to use depends on the type and complexity of content displayed by the component, and whether _persisting_ the content in the UI is necessary or beneficial to the user.
 
-1. `Hover/focus`: displays when the mouse enters the trigger or the trigger receives focus. The `RichTooltip` has a timeout by default and will persist for 500 milliseconds (0.5 seconds) _after_ the mouse leaves the trigger.
-2. `On click`: displays when the user clicks the trigger with a mouse or if the trigger receives a keyboard event (`spacebar`, `enter/return`).
-
-<!-- Do we set a default interaction in the Ember component? -->
+1. `Hover/focus` (default): displays when the mouse enters the toggle or the toggle receives focus. The `RichTooltip` has a timeout by default and will persist for 500 milliseconds (0.5 seconds) _after_ the mouse leaves the toggle.
+2. `On click`: displays when the user clicks the toggle with a mouse or if the toggle receives a keyboard event (`spacebar`, `enter/return`).
 
 ## Content
 
