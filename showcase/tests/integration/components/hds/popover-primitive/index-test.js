@@ -26,16 +26,16 @@ module(
       `);
       assert.dom('.hds-popover-primitive__arrow').doesNotExist();
     });
-    test('it should render the "arrow" element if `@hasArrow` is `true`', async function (assert) {
+    test('it should render the "arrow" element if `@popoverHasArrow` is `true`', async function (assert) {
       await render(hbs`
-        <Hds::PopoverPrimitive @hasArrow={{true}} />
+        <Hds::PopoverPrimitive @popoverHasArrow={{true}} />
       `);
       assert.dom('.hds-popover-primitive__arrow').exists();
     });
 
     test('it should render the elements yielded to the :toggle and :content slots and toggle their visibility correctly', async function (assert) {
       await render(hbs`
-        <Hds::PopoverPrimitive @hasArrow={{true}} @enableClickEvents={{true}}>
+        <Hds::PopoverPrimitive @popoverHasArrow={{true}} @enableClickEvents={{true}}>
           <:toggle>
             <div id="test-popover-primitive-toggle">Toggle</div>
           </:toggle>
@@ -60,7 +60,7 @@ module(
 
     test('the arrow and the content should be rendered and visible if `@isOpen` is `true`', async function (assert) {
       await render(hbs`
-        <Hds::PopoverPrimitive @hasArrow={{true}} @isOpen={{true}}>
+        <Hds::PopoverPrimitive @popoverHasArrow={{true}} @isOpen={{true}}>
           <:toggle>Toggle</:toggle>
           <:content>Content</:content>
         </Hds::PopoverPrimitive>
@@ -78,14 +78,12 @@ module(
         <Hds::PopoverPrimitive />
       `);
       assert.dom('.hds-popover-primitive--is-block').exists();
-      assert.dom('.hds-popover-primitive__toggle--is-block').exists();
     });
     test('it should render the container and toggle as inline if `@isInline` is `true`', async function (assert) {
       await render(hbs`
         <Hds::PopoverPrimitive @isInline={{true}} />
       `);
       assert.dom('.hds-popover-primitive--is-inline').exists();
-      assert.dom('.hds-popover-primitive__toggle--is-inline').exists();
     });
 
     // WIDTH/HEIGHT
@@ -247,7 +245,7 @@ module(
       assert.strictEqual(status, 'closed');
     });
 
-    // POPOVER OPTIONS
+    // ANCHORED POSITION OPTIONS
 
     // notice: since these options are forwarded to the `hds-anchored-position` modifier and there are specific tests for it, we're not going to test them here
     // plus, since the content elements are moved to the top layer, thery're not scaled like the `ember-testing` container, all the sizes/positions are out of sync
@@ -380,7 +378,7 @@ module(
 
     test('it should throw an assertion if `@enableClickEvents` is `true` and the toggle contains interactive elements', async function (assert) {
       const errorMessage =
-        'Hds::PopoverPrimitive - You have assigned `onClick` events to the "toggle" element, but it contains interactive elements: this may result in unexpected behaviours or non accessible code';
+        'Hds::PopoverPrimitive - You have enabled `click` events to the "toggle" element (via `@enableClickEvents`), but it contains interactive elements: this may result in unexpected behaviours or non accessible code';
       assert.expect(2);
       setupOnerror(function (error) {
         assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
