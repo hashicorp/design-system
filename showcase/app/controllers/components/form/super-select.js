@@ -9,16 +9,4 @@ import { action } from '@ember/object';
 export default class SuperSelectController extends Controller {
   @action
   noop() {}
-
-  @action
-  onInput() {
-    console.log('onInput activated!');
-  }
-
-  // WIP
-  @action
-  resultCountMessage(number) {
-    console.log(`${number} results found`);
-    return `${number} results found`;
-  }
 }
