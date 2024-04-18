@@ -2,7 +2,7 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<div class={{this.classNames}}>
+<div class={{this.classNames}} {{style --hds-form-super-select-dropdown-max-width=this.dropdownMaxWidth}}>
   <PowerSelectMultiple
     @afterOptionsComponent={{if
       this.showAfterOptions

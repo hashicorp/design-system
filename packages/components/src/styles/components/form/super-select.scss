@@ -12,7 +12,11 @@ $hds-super-select-item-height: 36px;
 
 // Style overrides:
 
-.hds-form-super-select {width: 100%;}
+.hds-form-super-select {
+  --hds-form-super-select-dropdown-max-width: none;
+
+  width: 100%;
+}
 
 .hds-form-super-select .ember-basic-dropdown {
   // TRIGGER
@@ -25,7 +29,7 @@ $hds-super-select-item-height: 36px;
     min-height: $hds-super-select-item-height;
     padding: 4px;
     padding-right: calc(var(--token-form-control-padding) + 24px); // extra space for the icon
-    padding-left: 11px; // (To match Figma visual padding seems it should be 11px vs. 12px)
+    padding-left: 11px;
     color: var(--token-form-control-base-foreground-value-color);
     line-height: var(--token-typography-body-200-line-height);
     background-color: var(--token-form-control-base-surface-color-default);
@@ -89,6 +93,7 @@ $hds-super-select-item-height: 36px;
   // DROPDOWN
 
   .ember-basic-dropdown-content {
+    max-width: var(--hds-form-super-select-dropdown-max-width);
     margin: 4px 0;
     border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
     border-radius: var(--token-form-control-border-radius);
@@ -153,7 +158,6 @@ $hds-super-select-item-height: 36px;
       display: block;
       height: 5px;
       margin: 7px 5px 9px 5px; // top, right, bottom, left
-      // background: pink;
       border-bottom: 1px solid var(--token-color-border-primary);
       content: "";
     }
