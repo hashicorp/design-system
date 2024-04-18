@@ -1,0 +1,32 @@
+{{! @glint-nocheck: not typesafe yet }}
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<Hds::PopoverPrimitive
+  class="hds-rich-tooltip"
+  @hasArrow={{true}}
+  @isOpen={{@isOpen}}
+  @onOpen={{@onOpen}}
+  @onClose={{@onClose}}
+  @enableSoftEvents={{this.enableSoftEvents}}
+  @enableClickEvents={{this.enableClickEvents}}
+  @popoverOptions={{this.popoverOptions}}
+  @toggleAriaLabel={{@toggleAriaLabel}}
+  @isInline={{@isInline}}
+  @width={{@width}}
+  @height={{@height}}
+  ...attributes
+>
+  <:toggle>
+    {{yield
+      (hash InfoText=(component "hds/rich-tooltip/toggle/info-text" isInline=@isInline) Generic=(component "hds/yield"))
+      to="toggle"
+    }}
+  </:toggle>
+  <:content as |c|>
+    <div class="hds-rich-tooltip__bubble" {{style width=@width max-width=(if @width "none")}}>
+      {{yield (hash close=c.close) to="content"}}
+    </div>
+  </:content>
+</Hds::PopoverPrimitive>
