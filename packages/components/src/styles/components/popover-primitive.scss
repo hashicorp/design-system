@@ -13,14 +13,6 @@
   height: fit-content;
 }
 
-:where(.hds-popover-primitive--is-inline) {
-  display: inline-block;
-}
-
-:where(.hds-popover-primitive--is-block) {
-  display: block;
-}
-
 
 // TOGGLE
 
@@ -38,14 +30,6 @@
     border: none;
     cursor: pointer;
   }
-}
-
-:where(.hds-popover-primitive__toggle--is-inline) {
-  display: inline-block;
-}
-
-:where(.hds-popover-primitive__toggle--is-block) {
-  display: block;
 }
 
 
@@ -106,5 +90,24 @@
     background: none;
     border: none;
     inset: 0;
+  }
+}
+
+
+// DISPLAY (INLINE vs BLOCK)
+
+.hds-popover-primitive--is-inline {
+  display: inline-block;
+
+  .hds-popover-primitive__toggle {
+    display: inline-block;
+  }
+}
+
+.hds-popover-primitive--is-block {
+  display: block;
+
+  .hds-popover-primitive__toggle {
+    display: block;
   }
 }
