@@ -425,7 +425,7 @@
     </SG.Item>
   </Shw::Grid>
 
-  <Shw::Text::H3>Required and optional</Shw::Text::H3>
+  <Shw::Text::H4>Required and optional</Shw::Text::H4>
 
   <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="With legend + Required">
@@ -453,6 +453,49 @@
       </Hds::Form::SuperSelect::Single::Field>
     </SG.Item>
   </Shw::Grid>
+
+  <Shw::Text::H4>Complex content</Shw::Text::H4>
+
+  <Shw::Flex {{style padding-bottom="12em"}} @direction="row" as |SF|>
+    <SF.Item {{style flex="1"}} @label="Label and options with rich content">
+      <Hds::Form::SuperSelect::Single::Field
+        @selected={{@model.SELECTED_CLUSTER_SIZE_OPTION}}
+        @onChange={{fn (mut @model.SELECTED_CLUSTER_SIZE_OPTION)}}
+        @options={{@model.CLUSTER_SIZE_OPTIONS}}
+        @initiallyOpened={{true}}
+        @ariaLabel="Label"
+        as |F|
+      >
+        <F.Label>Label</F.Label>
+        <F.Options>
+          {{#let F.options as |option|}}
+            <div class="shw-component-form-super-select-option-rich-content">
+              <p class="shw-component-form-super-select-option-rich-header">
+                <strong>{{option.size}}</strong>
+                <strong>{{option.price}}/hr</strong>
+              </p>
+              <p>{{option.description}}</p>
+            </div>
+          {{/let}}
+        </F.Options>
+      </Hds::Form::SuperSelect::Single::Field>
+    </SF.Item>
+    <SF.Item {{style flex="1"}} @label="Label and grouped options">
+      <Hds::Form::SuperSelect::Single::Field
+        @onChange={{fn (mut @model.SELECTED_GROUPED_OPTION)}}
+        @options={{@model.GROUPED_OPTIONS}}
+        @selected={{@model.SELECTED_GROUPED_OPTION}}
+        @initiallyOpened={{true}}
+        @ariaLabel="Label"
+        as |F|
+      >
+        <F.Label>Label</F.Label>
+        <F.Options>
+          {{F.options}}
+        </F.Options>
+      </Hds::Form::SuperSelect::Single::Field>
+    </SF.Item>
+  </Shw::Flex>
 
   <Shw::Divider />
 
