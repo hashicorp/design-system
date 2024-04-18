@@ -128,6 +128,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/reveal');
     await percySnapshot('Reveal');
 
+    await visit('/components/rich-tooltip');
+    await percySnapshot('RichTooltip');
+
     await visit('/components/segmented-group');
     await percySnapshot('Segmented Group');
 
