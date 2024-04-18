@@ -148,3 +148,16 @@ body.components-rich-tooltip {
     }
   }
 }
+
+// we need to leave this out of the main selector to keep the specificity low
+
+.shw-component-rich-tooltip-font-style {
+  padding: 8px 12px;
+  color: #911ced;
+  font-weight: 900;
+  font-size: 18px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #f9f2ff;
+  border: 1px dashed #911ced;
+}
+
