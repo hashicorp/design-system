@@ -127,8 +127,9 @@
         <div class="shw-component-rich-tooltip-placement-grid__target">
           <Hds::RichTooltip
             @placement={{place}}
-            @enableClickEvents={{true}}
             @isOpen={{true}}
+            @enableCollisionDetection={{false}}
+            @enableClickEvents={{true}}
             @toggleAriaLabel="more info"
             as |RT|
           >
@@ -148,7 +149,7 @@
 
   <Shw::Flex {{style gap="5rem" margin-bottom="10rem"}} as |SF|>
     <SF.Item @label="Offset: 12 (default)">
-      <Hds::RichTooltip @isOpen={{true}} as |RT|>
+      <Hds::RichTooltip @isOpen={{true}} @enableCollisionDetection={{false}} @enableClickEvents={{true}} as |RT|>
         <RT.ToggleInfoText @icon="info" @iconPosition="leading">Lorem ipsum</RT.ToggleInfoText>
         <RT.PopoverContent>
           <Shw::Placeholder @text="generic content" @height="30" />
@@ -156,7 +157,13 @@
       </Hds::RichTooltip>
     </SF.Item>
     <SF.Item @label="Offset: { mainAxis: 30, crossAxis: 0 }">
-      <Hds::RichTooltip @offset={{(hash mainAxis=30 crossAxis=0)}} @isOpen={{true}} as |RT|>
+      <Hds::RichTooltip
+        @offset={{(hash mainAxis=30 crossAxis=0)}}
+        @isOpen={{true}}
+        @enableCollisionDetection={{false}}
+        @enableClickEvents={{true}}
+        as |RT|
+      >
         <RT.ToggleInfoText @icon="info" @iconPosition="leading">Lorem ipsum</RT.ToggleInfoText>
         <RT.PopoverContent>
           <Shw::Placeholder @text="generic content" @height="30" />
@@ -164,7 +171,13 @@
       </Hds::RichTooltip>
     </SF.Item>
     <SF.Item @label="Offset: { mainAxis: 12, crossAxis: 80 }">
-      <Hds::RichTooltip @offset={{(hash mainAxis=12 crossAxis=80)}} @isOpen={{true}} as |RT|>
+      <Hds::RichTooltip
+        @offset={{(hash mainAxis=12 crossAxis=80)}}
+        @isOpen={{true}}
+        @enableCollisionDetection={{false}}
+        @enableClickEvents={{true}}
+        as |RT|
+      >
         <RT.ToggleInfoText @icon="info" @iconPosition="leading">Lorem ipsum</RT.ToggleInfoText>
         <RT.PopoverContent>
           <Shw::Placeholder @text="generic content" @height="30" />
@@ -209,7 +222,13 @@
 
   <Shw::Grid @columns={{2}} {{style padding-bottom="6rem"}} as |SG|>
     <SG.Item @label="Default (width=fit-content/max-width=280px)">
-      <Hds::RichTooltip @placement="bottom-start" @isOpen={{true}} @enableClickEvents={{true}} as |RT|>
+      <Hds::RichTooltip
+        @placement="bottom-start"
+        @isOpen={{true}}
+        @enableCollisionDetection={{false}}
+        @enableClickEvents={{true}}
+        as |RT|
+      >
         <RT.ToggleInfoText @icon="info" @iconPosition="leading">Lorem ipsum</RT.ToggleInfoText>
         <RT.PopoverContent>
           <Shw::Placeholder
@@ -223,6 +242,7 @@
       <Hds::RichTooltip
         @placement="bottom-start"
         @isOpen={{true}}
+        @enableCollisionDetection={{false}}
         @enableClickEvents={{true}}
         @popoverWidth="450px"
         as |RT|
@@ -244,7 +264,13 @@
 
   <Shw::Grid @columns={{2}} {{style padding-bottom="10rem"}} as |SG|>
     <SG.Item @label="Default (height=fit-content/max-height=none)">
-      <Hds::RichTooltip @placement="bottom-start" @isOpen={{true}} @enableClickEvents={{true}} as |RT|>
+      <Hds::RichTooltip
+        @placement="bottom-start"
+        @isOpen={{true}}
+        @enableCollisionDetection={{false}}
+        @enableClickEvents={{true}}
+        as |RT|
+      >
         <RT.ToggleInfoText @icon="info" @iconPosition="leading">Lorem ipsum</RT.ToggleInfoText>
         <RT.PopoverContent>
           <Shw::Placeholder
@@ -258,6 +284,7 @@
       <Hds::RichTooltip
         @placement="bottom-start"
         @isOpen={{true}}
+        @enableCollisionDetection={{false}}
         @enableClickEvents={{true}}
         @popoverHeight="150px"
         as |RT|
@@ -280,14 +307,14 @@
   <Shw::Text::Body>Scroll within the boxes to see the collision detection in action</Shw::Text::Body>
 
   <Shw::Grid @columns={{4}} {{style gap="2rem" margin-bottom="6rem"}} as |SF|>
-    {{#let (array false true "flip" "shift") as |detections|}}
+    {{#let (array false true) as |detections|}}
       {{#each detections as |detection|}}
         <SF.Item @forceMinWidth={{true}} @label={{concat "enableCollisionDetection=" detection}}>
           <Shw::Autoscrollable @verticalShift={{30}}>
             <div class="shw-component-rich-tooltip-collision-detection-wrapper">
               <Hds::RichTooltip
-                @enableCollisionDetection={{detection}}
                 @isOpen={{true}}
+                @enableCollisionDetection={{detection}}
                 @enableClickEvents={{true}}
                 as |RT|
               >
@@ -301,6 +328,30 @@
         </SF.Item>
       {{/each}}
     {{/let}}
+    <SF.Item />
+    <SF.Item />
+    {{#let (array "flip" "shift" "auto") as |detections|}}
+      {{#each detections as |detection|}}
+        <SF.Item @forceMinWidth={{true}} @label={{concat "enableCollisionDetection=" detection}}>
+          <Shw::Autoscrollable @verticalShift={{30}}>
+            <div class="shw-component-rich-tooltip-collision-detection-wrapper">
+              <Hds::RichTooltip
+                @isOpen={{true}}
+                @enableCollisionDetection={{detection}}
+                @enableClickEvents={{true}}
+                as |RT|
+              >
+                <RT.ToggleInfoText @icon="info" @iconPosition="leading" @size="medium">Lorem ipsum</RT.ToggleInfoText>
+                <RT.PopoverContent>
+                  <Shw::Placeholder @text="generic content" @height="30" />
+                </RT.PopoverContent>
+              </Hds::RichTooltip>
+            </div>
+          </Shw::Autoscrollable>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+    <SF.Item />
   </Shw::Grid>
 
   <Shw::Divider />
