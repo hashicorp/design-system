@@ -146,18 +146,21 @@
 // SIZES
 
 .hds-rich-tooltip__toggle-info-text--size-small {
+  font-weight: var(--token-typography-font-weight-regular);
   font-size: var(--token-typography-body-100-font-size);
   font-family: var(--token-typography-body-100-font-family);
   line-height: var(--token-typography-body-100-line-height);
 }
 
 .hds-rich-tooltip__toggle-info-text--size-medium {
+  font-weight: var(--token-typography-font-weight-regular);
   font-size: var(--token-typography-body-200-font-size);
   font-family: var(--token-typography-body-200-font-family);
   line-height: var(--token-typography-body-200-line-height);
 }
 
 .hds-rich-tooltip__toggle-info-text--size-large {
+  font-weight: var(--token-typography-font-weight-regular);
   font-size: var(--token-typography-body-300-font-size);
   font-family: var(--token-typography-body-300-font-family);
   line-height: var(--token-typography-body-300-line-height);
