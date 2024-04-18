@@ -1,0 +1,145 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// RICH-TOOLTIP
+
+body.components-rich-tooltip {
+  .shw-component-rich-tooltip-arrow-standalone {
+    .hds-popover-primitive__arrow {
+      position: static;
+    }
+  }
+
+  .shw-component-rich-tooltip-bubble-standalone {
+    .hds-popover-primitive__arrow {
+      top: -20px;
+      left: calc(50% - 10px);
+    }
+  }
+
+  .shw-component-rich-tooltip-placement-grid {
+    grid-gap: 10px;
+    grid-template-rows: repeat(5, 80px) !important;
+    grid-template-columns: repeat(5, auto) !important;
+    padding: 5rem;
+
+    .shw-component-rich-tooltip-placement-grid__item--top-start { grid-area: 1 / 2; }
+    .shw-component-rich-tooltip-placement-grid__item--top { grid-area: 1 / 3; }
+    .shw-component-rich-tooltip-placement-grid__item--top-end { grid-area: 1 / 4; }
+    .shw-component-rich-tooltip-placement-grid__item--right-start { grid-area: 2 / 5; }
+    .shw-component-rich-tooltip-placement-grid__item--right { grid-area: 3 / 5; }
+    .shw-component-rich-tooltip-placement-grid__item--right-end { grid-area: 4 / 5; }
+    .shw-component-rich-tooltip-placement-grid__item--bottom-start { grid-area: 5 / 2; }
+    .shw-component-rich-tooltip-placement-grid__item--bottom { grid-area: 5 / 3; }
+    .shw-component-rich-tooltip-placement-grid__item--bottom-end { grid-area: 5 / 4; }
+    .shw-component-rich-tooltip-placement-grid__item--left-start { grid-area: 2 / 1; }
+    .shw-component-rich-tooltip-placement-grid__item--left { grid-area: 3 / 1; }
+    .shw-component-rich-tooltip-placement-grid__item--left-end { grid-area: 4 / 1; }
+
+    .shw-component-rich-tooltip-placement-grid__target {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 80px;
+      outline: 1px dotted #d3d3d3;
+    }
+
+    // we highlight the main axes (for visual reference)
+    .shw-component-rich-tooltip-placement-grid__item--top,
+    .shw-component-rich-tooltip-placement-grid__item--right,
+    .shw-component-rich-tooltip-placement-grid__item--bottom,
+    .shw-component-rich-tooltip-placement-grid__item--left {
+      .shw-component-rich-tooltip-placement-grid__target {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .shw-component-rich-tooltip-collision-detection-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 520px;
+    height: 480px;
+  }
+
+  .shw-component-rich-tooltip-demo-tabs-panel {
+    padding: 12px 0;
+  }
+
+  .shw-component-rich-tooltip-demo-form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .shw-component-rich-tooltip-demo-form-field-label-wrapper {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .shw-component-rich-tooltip-demo-table-cell-content-flex {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+
+    .flight-icon {
+      flex: none;
+      margin-top: 2px;
+    }
+  }
+
+  .shw-component-rich-tooltip-demo-table-cell-content-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+    margin: 8px 0;
+  }
+
+  .shw-component-rich-tooltip-demo-action-plus-info {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .shw-component-rich-tooltip-content-interactive {
+    position: relative;
+
+    > button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      padding: 0;
+      font-size: 16px;
+    }
+
+    > ul {
+      margin: 0;
+      padding: 0 48px 0 0;
+      list-style: none;
+
+      li {
+        margin: 0;
+        padding: 0;
+
+        & + li {
+          margin-top: 8px;
+          padding-top: 8px;
+          border-top: 1px dotted #ccc;
+        }
+      }
+
+      a {
+        display: block;
+      }
+    }
+  }
+}

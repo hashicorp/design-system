@@ -1,0 +1,991 @@
+{{! @glint-nocheck: not typesafe yet }}
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "RichTooltip Component"}}
+
+<Shw::Text::H1>RichTooltip</Shw::Text::H1>
+
+<section data-test-percy>
+
+  <Shw::Text::H2>Toggle</Shw::Text::H2>
+
+  <Shw::Text::H3>InfoText</Shw::Text::H3>
+
+  <Shw::Text::H4>Content</Shw::Text::H4>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Only text">
+      <Hds::RichTooltip>
+        <:toggle as |t|>
+          <t.InfoText>Lorem ipsum dolor</t.InfoText>
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="generic content" @height="40" />
+        </:content>
+      </Hds::RichTooltip>
+    </SF.Item>
+    <SF.Item @label="Text + leading icon">
+      <Hds::RichTooltip>
+        <:toggle as |t|>
+          <t.InfoText @icon="info" @iconPosition="leading">Lorem ipsum dolor</t.InfoText>
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="generic content" @height="40" />
+        </:content>
+      </Hds::RichTooltip>
+    </SF.Item>
+    <SF.Item @label="Text + trailing icon">
+      <Hds::RichTooltip>
+        <:toggle as |t|>
+          <t.InfoText @icon="info" @iconPosition="trailing">Lorem ipsum dolor</t.InfoText>
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="generic content" @height="40" />
+        </:content>
+      </Hds::RichTooltip>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H4>Sizes</Shw::Text::H4>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Inherited (default)">
+      {{#let (array "14px" "16px" "18px") as |sizes|}}
+        {{#each sizes as |size|}}
+          <div {{style font-size=size}}>
+            Lorem
+            <Hds::RichTooltip @isInline={{true}}>
+              <:toggle as |t|>
+                <t.InfoText @icon="info" @iconPosition="leading">ipsum dolor</t.InfoText>
+              </:toggle>
+              <:content>
+                <Shw::Placeholder @text="generic content" @height="40" />
+              </:content>
+            </Hds::RichTooltip>
+            sit amet
+            <Hds::RichTooltip @isInline={{true}}>
+              <:toggle as |t|>
+                <t.InfoText @icon="info" @iconPosition="trailing">consectetur adipiscing</t.InfoText>
+              </:toggle>
+              <:content>
+                <Shw::Placeholder @text="generic content" @height="40" />
+              </:content>
+            </Hds::RichTooltip>
+            elit.
+          </div>
+        {{/each}}
+      {{/let}}
+    </SF.Item>
+  </Shw::Flex>
+
+  {{#let (array "small" "medium" "large") as |sizes|}}
+    {{#each sizes as |size|}}
+      <Shw::Flex @label="{{capitalize size}}" as |SF|>
+        <SF.Item>
+          <Hds::RichTooltip>
+            <:toggle as |t|>
+              <t.InfoText @size={{size}}>Lorem ipsum dolor</t.InfoText>
+            </:toggle>
+            <:content>
+              <Shw::Placeholder @text="generic content" @height="40" />
+            </:content>
+          </Hds::RichTooltip>
+        </SF.Item>
+        <SF.Item>
+          <Hds::RichTooltip>
+            <:toggle as |t|>
+              <t.InfoText @size={{size}} @icon="info" @iconPosition="leading">Lorem ipsum dolor</t.InfoText>
+            </:toggle>
+            <:content>
+              <Shw::Placeholder @text="generic content" @height="40" />
+            </:content>
+          </Hds::RichTooltip>
+        </SF.Item>
+        <SF.Item>
+          <Hds::RichTooltip>
+            <:toggle as |t|>
+              <t.InfoText @size={{size}} @icon="info" @iconPosition="trailing">Lorem ipsum dolor</t.InfoText>
+            </:toggle>
+            <:content>
+              <Shw::Placeholder @text="generic content" @height="40" />
+            </:content>
+          </Hds::RichTooltip>
+        </SF.Item>
+      </Shw::Flex>
+    {{/each}}
+  {{/let}}
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Generic</Shw::Text::H3>
+
+  <Hds::RichTooltip>
+    <:toggle as |t|>
+      <t.Generic>
+        <Shw::Outliner>Lorem ipsum</Shw::Outliner>
+      </t.Generic>
+    </:toggle>
+    <:content>
+      <Shw::Placeholder @text="generic content" @height="40" />
+    </:content>
+  </Hds::RichTooltip>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Options</Shw::Text::H2>
+
+  <Shw::Text::H3>Placement</Shw::Text::H3>
+  <Shw::Grid class="shw-component-rich-tooltip-placement-grid" @columns={{5}} as |SG|>
+    {{#each @model.PLACEMENTS as |place|}}
+      <SG.Item class="shw-component-rich-tooltip-placement-grid__item--{{place}}">
+        <div class="shw-component-rich-tooltip-placement-grid__target">
+          <Hds::RichTooltip
+            @placement={{place}}
+            @enableSoftEvents={{false}}
+            @enableClickEvents={{true}}
+            @isOpen={{true}}
+            @toggleAriaLabel="more info"
+          >
+            <:toggle as |t|>
+              <t.InfoText @icon="info" @iconPosition="leading" @size="large" />
+            </:toggle>
+            <:content>
+              <Shw::Placeholder @text={{place}} @height="30" @width="80" />
+            </:content>
+          </Hds::RichTooltip>
+        </div>
+      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Offset</Shw::Text::H3>
+
+  <Shw::Flex {{style gap="5rem" margin-bottom="10rem"}} as |SF|>
+    <SF.Item @label="Offset: 12 (default)">
+      <Hds::RichTooltip @isOpen={{true}}>
+        <:toggle as |t|>
+          <t.InfoText @icon="info" @iconPosition="leading">Lorem ipsum</t.InfoText>
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="generic content" @height="30" />
+        </:content>
+      </Hds::RichTooltip>
+    </SF.Item>
+    <SF.Item @label="Offset: { mainAxis: 30, crossAxis: 0 }">
+      <Hds::RichTooltip @offset={{(hash mainAxis=30 crossAxis=0)}} @isOpen={{true}}>
+        <:toggle as |t|>
+          <t.InfoText @icon="info" @iconPosition="leading">Lorem ipsum</t.InfoText>
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="generic content" @height="30" />
+        </:content>
+      </Hds::RichTooltip>
+    </SF.Item>
+    <SF.Item @label="Offset: { mainAxis: 12, crossAxis: 80 }">
+      <Hds::RichTooltip @offset={{(hash mainAxis=12 crossAxis=80)}} @isOpen={{true}}>
+        <:toggle as |t|>
+          <t.InfoText @icon="info" @iconPosition="leading">Lorem ipsum</t.InfoText>
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="generic content" @height="30" />
+        </:content>
+      </Hds::RichTooltip>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Display</Shw::Text::H3>
+
+  <Shw::Flex as |SF|>
+    {{#let (array false true) as |booleans|}}
+      {{#each booleans as |isInline|}}
+        <SF.Item @label={{if isInline "Inline" "Block (default)"}}>
+          <Hds::Text::Body @size="200" @tag="p">
+            Lorem
+            <Hds::RichTooltip @isInline={{isInline}}>
+              <:toggle as |t|>
+                <t.InfoText @icon="info" @iconPosition="leading">ipsum dolor</t.InfoText>
+              </:toggle>
+              <:content>
+                <Shw::Placeholder @text="generic content" @height="40" />
+              </:content>
+            </Hds::RichTooltip>
+            sit amet
+            <Hds::RichTooltip @isInline={{isInline}}>
+              <:toggle as |t|>
+                <t.InfoText @icon="info" @iconPosition="trailing">consectetur adipiscing</t.InfoText>
+              </:toggle>
+              <:content>
+                <Shw::Placeholder @text="generic content" @height="40" />
+              </:content>
+            </Hds::RichTooltip>
+            elit.
+          </Hds::Text::Body>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Width</Shw::Text::H3>
+
+  <Shw::Grid @columns={{2}} {{style padding-bottom="6rem"}} as |SG|>
+    <SG.Item @label="Default (max-width=280px)">
+      <Hds::RichTooltip
+        @placement="bottom-start"
+        @isOpen={{true}}
+        @enableSoftEvents={{false}}
+        @enableClickEvents={{true}}
+      >
+        <:toggle as |t|>
+          <t.InfoText @icon="info" @iconPosition="leading">Lorem ipsum</t.InfoText>
+        </:toggle>
+        <:content>
+          <Shw::Placeholder
+            @text="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+            {{style padding="12px 16px"}}
+          />
+        </:content>
+      </Hds::RichTooltip>
+    </SG.Item>
+    <SG.Item @label="Custom fixed width (width=420px)">
+      <Hds::RichTooltip
+        @placement="bottom-start"
+        @isOpen={{true}}
+        @enableSoftEvents={{false}}
+        @enableClickEvents={{true}}
+        @width="420px"
+      >
+        <:toggle as |t|>
+          <t.InfoText @icon="info" @iconPosition="leading">Lorem ipsum</t.InfoText>
+        </:toggle>
+        <:content>
+          <Shw::Placeholder
+            @text="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+            {{style padding="12px 16px"}}
+          />
+        </:content>
+      </Hds::RichTooltip>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Collision detection</Shw::Text::H3>
+
+  <Shw::Text::Body>Scroll within the boxes to see the collision detection in action</Shw::Text::Body>
+
+  <Shw::Grid @columns={{4}} {{style gap="2rem" margin-bottom="6rem"}} as |SF|>
+    {{#let (array false true "flip" "shift") as |detections|}}
+      {{#each detections as |detection|}}
+        <SF.Item @forceMinWidth={{true}} @label={{concat "enableCollisionDetection=" detection}}>
+          <Shw::Autoscrollable @verticalShift={{30}}>
+            <div class="shw-component-rich-tooltip-collision-detection-wrapper">
+              <Hds::RichTooltip
+                @enableCollisionDetection={{detection}}
+                @isOpen={{true}}
+                @enableSoftEvents={{false}}
+                @enableClickEvents={{true}}
+              >
+                <:toggle as |t|>
+                  <t.InfoText @icon="info" @iconPosition="leading" @size="medium">Lorem ipsum</t.InfoText>
+                </:toggle>
+                <:content>
+                  <Shw::Placeholder @text="generic content" @height="30" />
+                </:content>
+              </Hds::RichTooltip>
+            </div>
+          </Shw::Autoscrollable>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Grid>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Interaction states</Shw::Text::H2>
+
+  <Shw::Text::H3>InfoText toggle</Shw::Text::H3>
+
+  <Shw::Text::H4>Block</Shw::Text::H4>
+
+  <Shw::Grid @columns={{4}} as |SG|>
+    {{#each @model.STATES as |state|}}
+      <SG.Item @label="{{capitalize state}}" class="shw-component-link-inline-state-samples">
+        <Hds::RichTooltip @isInline={{false}} mock-state-value={{state}} mock-state-selector="button">
+          <:toggle as |t|>
+            <t.InfoText @size="medium" @icon="info" @iconPosition="trailing" @isInline={{true}}>Lorem ipsum dolor</t.InfoText>
+          </:toggle>
+          <:content>
+            <Shw::Placeholder @text="generic content" @height="30" />
+          </:content>
+        </Hds::RichTooltip>
+      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
+
+  <Shw::Text::H4>Inline</Shw::Text::H4>
+
+  <Shw::Grid @columns={{4}} as |SG|>
+    {{#each @model.STATES as |state|}}
+      <SG.Item @label="{{capitalize state}}" class="shw-component-link-inline-state-samples">
+        <Hds::Text::Body @size="200" @tag="p" {{style margin-bottom="16px"}}>
+          Lorem
+          <Hds::RichTooltip @isInline={{true}} mock-state-value={{state}} mock-state-selector="button">
+            <:toggle as |t|>
+              <t.InfoText @icon="info" @iconPosition="trailing" @isInline={{true}}>ipsum dolor</t.InfoText>
+            </:toggle>
+            <:content>
+              <Shw::Placeholder @text="generic content" @height="30" />
+            </:content>
+          </Hds::RichTooltip>
+          sit amet
+        </Hds::Text::Body>
+        <Hds::Text::Body @size="200" @tag="p" {{style margin-bottom="16px"}}>
+          Lorem ipsum dolor sit
+          <Hds::RichTooltip @isInline={{true}} mock-state-value={{state}} mock-state-selector="button">
+            <:toggle as |t|>
+              <t.InfoText @icon="info" @iconPosition="trailing" @isInline={{true}}>amet consectetur</t.InfoText>
+            </:toggle>
+            <:content>
+              <Shw::Placeholder @text="generic content" @height="30" />
+            </:content>
+          </Hds::RichTooltip>
+          adipisicing elit
+        </Hds::Text::Body>
+        <Hds::Text::Body @size="200" @tag="p">
+          Lorem ipsum
+          <Hds::RichTooltip @isInline={{true}} mock-state-value={{state}} mock-state-selector="button">
+            <:toggle as |t|>
+              <t.InfoText @icon="info" @iconPosition="trailing" @isInline={{true}}>dolor sit amet consectetur
+                adipisicing elit</t.InfoText>
+            </:toggle>
+            <:content>
+              <Shw::Placeholder @text="generic content" @height="30" />
+            </:content>
+          </Hds::RichTooltip>
+        </Hds::Text::Body>
+      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Generic toggle</Shw::Text::H3>
+
+  <Shw::Text::H4>With non-interactive content</Shw::Text::H4>
+
+  <Shw::Text::Body>
+    In this case the "toggle" wrapper is a
+    <code>&lt;button&gt;</code>
+    and it doesn't have special styles of its own other than for the "focus" state.
+  </Shw::Text::Body>
+
+  {{#let (array "icon" "badge" "tag") as |toggles|}}
+    {{#each toggles as |toggle|}}
+      <Shw::Grid @columns={{4}} as |SG|>
+        {{#each @model.STATES as |state|}}
+          <SG.Item @label={{state}}>
+            <Hds::RichTooltip
+              @toggleAriaLabel={{if (eq toggle "icon") "Information"}}
+              mock-state-value={{state}}
+              mock-state-selector="button"
+            >
+              <:toggle>
+                {{#if (eq toggle "icon")}}
+                  <FlightIcon @name="info" @isInlineBlock={{false}} />
+                {{/if}}
+                {{#if (eq toggle "badge")}}
+                  <Hds::Badge @text="Lorem ipsum" @color="neutral" @icon="hexagon" type="outlined" />
+                {{/if}}
+                {{#if (eq toggle "tag")}}
+                  <Hds::Tag @text="Lorem ipsum" />
+                {{/if}}
+              </:toggle>
+              <:content>
+                <Shw::Placeholder @text="generic content" @height="40" />
+              </:content>
+            </Hds::RichTooltip>
+          </SG.Item>
+        {{/each}}
+      </Shw::Grid>
+    {{/each}}
+  {{/let}}
+
+  <Shw::Text::H4>With interactive content</Shw::Text::H4>
+
+  <Shw::Text::Body>
+    In this case the "toggle" wrapper is a simple
+    <code>&lt;div&gt;</code>
+    and it doesn't have any interaction states (the visual treatment of the inteactive states is the one of the
+    contained interactive element)
+  </Shw::Text::Body>
+
+  {{#let (array "link" "button") as |toggles|}}
+    {{#each toggles as |toggle|}}
+      <Shw::Grid @columns={{4}} as |SG|>
+        {{#each @model.STATES as |state|}}
+          <SG.Item @label={{state}}>
+            <Hds::RichTooltip mock-state-value={{state}} mock-state-selector={{if (eq toggle "link") "a" "button"}}>
+              <:toggle>
+                {{#if (eq toggle "link")}}
+                  <Hds::Link::Standalone @icon="external-link" @iconPosition="trailing" @text="Acme Corp" @href="#" />
+                {{/if}}
+                {{#if (eq toggle "button")}}
+                  <Hds::Button @text="Lorem ipsum" @icon="wand" {{on "click" this.onClickButton}} />
+                {{/if}}
+              </:toggle>
+              <:content>
+                <Shw::Placeholder @text="generic content" @height="40" />
+              </:content>
+            </Hds::RichTooltip>
+          </SG.Item>
+        {{/each}}
+      </Shw::Grid>
+    {{/each}}
+  {{/let}}
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Demo</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Inline with other text" {{style width="250px"}}>
+      <Hds::Text::Body @size="200" @tag="p">
+        Lorem ipsum dolor
+        <Hds::RichTooltip @isInline={{true}}>
+          <:toggle as |t|>
+            <t.InfoText @icon="lock" @iconPosition="leading" @isInline={{true}}>Test</t.InfoText>
+          </:toggle>
+          <:content>
+            <Shw::Placeholder @text="generic content" @height="30" />
+          </:content>
+        </Hds::RichTooltip>
+        sit amet consectetur adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
+      </Hds::Text::Body>
+    </SF.Item>
+    <SF.Item @label="Inline / Long text" {{style width="250px"}}>
+      <Hds::Text::Body @size="200" @tag="p">
+        Lorem ipsum dolor
+        <Hds::RichTooltip @isInline={{true}}>
+          <:toggle as |t|>
+            <t.InfoText @icon="lock" @iconPosition="leading" @isInline={{true}}>Test with long text</t.InfoText>
+          </:toggle>
+          <:content>
+            <Shw::Placeholder @text="generic content" @height="30" />
+          </:content>
+        </Hds::RichTooltip>
+        sit amet consectetur adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
+      </Hds::Text::Body>
+    </SF.Item>
+    <SF.Item @label="Inline / Multi-line" {{style width="250px"}}>
+      <Hds::Text::Body @size="200" @tag="p">
+        Lorem ipsum dolor
+        <Hds::RichTooltip @isInline={{true}}>
+          <:toggle as |t|>
+            <t.InfoText @icon="lock" @iconPosition="leading" @isInline={{true}}>Test with long text that wraps multiple
+              lines</t.InfoText>
+          </:toggle>
+          <:content>
+            <Shw::Placeholder @text="generic content" @height="30" />
+          </:content>
+        </Hds::RichTooltip>
+        sit amet consectetur adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
+      </Hds::Text::Body>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Block within other text" {{style width="250px"}}>
+      <Hds::Text::Body @size="200" @tag="p">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      </Hds::Text::Body>
+      <Hds::RichTooltip {{style margin="8px 0"}}>
+        <:toggle as |t|>
+          <t.InfoText @size="medium" @icon="lock" @iconPosition="leading">Test</t.InfoText>
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="generic content" @height="30" />
+        </:content>
+      </Hds::RichTooltip>
+      <Hds::Text::Body @size="200" @tag="p">
+        Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
+      </Hds::Text::Body>
+    </SF.Item>
+    <SF.Item @label="Block / Long text" {{style width="250px"}}>
+      <Hds::Text::Body @size="200" @tag="p">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      </Hds::Text::Body>
+      <Hds::RichTooltip {{style margin="8px 0"}}>
+        <:toggle as |t|>
+          <t.InfoText @size="medium" @icon="lock" @iconPosition="leading">Test with long text</t.InfoText>
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="generic content" @height="30" />
+        </:content>
+      </Hds::RichTooltip>
+      <Hds::Text::Body @size="200" @tag="p">
+        Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
+      </Hds::Text::Body>
+    </SF.Item>
+    <SF.Item @label="Block / Multi-line" {{style width="250px"}}>
+      <Hds::Text::Body @size="200" @tag="p">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      </Hds::Text::Body>
+      <Hds::RichTooltip {{style margin="8px 0"}}>
+        <:toggle as |t|>
+          <t.InfoText @size="medium" @icon="lock" @iconPosition="leading">Test with long text that wraps multiple lines</t.InfoText>
+        </:toggle>
+        <:content>
+          <Shw::Placeholder @text="generic content" @height="30" />
+        </:content>
+      </Hds::RichTooltip>
+      <Hds::Text::Body @size="200" @tag="p">
+        Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
+      </Hds::Text::Body>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
+    <SF.Item @label="Within an Alert">
+      <Hds::Alert @type="inline" @color="warning" {{style width="600px"}} as |A|>
+        <A.Title>Altering admin permissions</A.Title>
+        <A.Description>This user is assigned to an
+          <Hds::RichTooltip @isInline={{true}}>
+            <:toggle as |t|>
+              <t.InfoText>admin role</t.InfoText>
+            </:toggle>
+            <:content>
+              Admin role enables a couple of pretty cool features and permissions within the app. For details on what an
+              admin can do, reference
+              <Hds::Link::Inline @href="#">the documentation</Hds::Link::Inline>.
+            </:content>
+          </Hds::RichTooltip>
+          , changing this will remove them from projects in which they don’t already have admin permissions.</A.Description>
+      </Hds::Alert>
+    </SF.Item>
+    <SF.Item @label="Within a Form Field">
+      <div class="shw-component-rich-tooltip-demo-form-field" {{style width="400px"}}>
+        <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" @width="250px" as |F|>
+          <F.Label>
+            <div class="shw-component-rich-tooltip-demo-form-field-label-wrapper">
+              This is the label text
+              <Hds::RichTooltip @placement="right" @toggleAriaLabel="more info">
+                <:toggle as |t|>
+                  <t.InfoText @icon="info" @iconPosition="trailing" />
+                </:toggle>
+                <:content>
+                  <Shw::Placeholder @text="generic content" @height="30" />
+                </:content>
+              </Hds::RichTooltip>
+            </div>
+          </F.Label>
+          <F.HelperText>This is the helper text</F.HelperText>
+        </Hds::Form::TextInput::Field>
+        <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" @width="250px" as |F|>
+          <F.Label>This is the label text</F.Label>
+          <F.HelperText>Lorem ipsum dolor sit amet
+            <Hds::RichTooltip @placement="right" @isInline={{true}}>
+              <:toggle as |t|>
+                <t.InfoText>consectetur adipisicing</t.InfoText>
+              </:toggle>
+              <:content>
+                <Shw::Placeholder @text="generic content" @height="30" />
+              </:content>
+            </Hds::RichTooltip>
+            elit sed perferendis culpa expedita assumenda at nisi.</F.HelperText>
+        </Hds::Form::TextInput::Field>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Within a Modal">
+      <Hds::Button @color="secondary" @text="Open modal" {{on "click" this.activateModal}} />
+      {{! template-lint-disable no-autofocus-attribute }}
+      {{#if this.isModalActive}}
+        <Hds::Modal id="test-copy-button-modal" @onClose={{this.deactivateModal}} as |M|>
+          <M.Header>
+            Lorem ipsum dolor
+          </M.Header>
+          <M.Body>
+            <Hds::Text::Body @size="200" @tag="p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
+              perferendis culpa expedita assumenda at
+              <Hds::RichTooltip @placement="top" @isInline={{true}}>
+                <:toggle as |t|>
+                  <t.InfoText @icon="info">nisi minus unde fuga</t.InfoText>
+                </:toggle>
+                <:content>
+                  <Shw::Placeholder @text="generic content" @height="30" />
+                </:content>
+              </Hds::RichTooltip>
+              iure suscipit aut qui, odit natus eum voluptates.
+            </Hds::Text::Body>
+          </M.Body>
+          <M.Footer as |F|>
+            <Hds::ButtonSet>
+              <Hds::Button type="submit" @text="OK" {{on "click" this.deactivateModal}} />
+              <Hds::Button type="button" @text="Cancel" @color="secondary" {{on "click" F.close}} />
+            </Hds::ButtonSet>
+          </M.Footer>
+        </Hds::Modal>
+      {{/if}}
+    </SF.Item>
+    <SF.Item @label="Within a Table">
+      <Hds::Table
+        @model={{@model.DEMO_TABLE_DATA}}
+        @columns={{array
+          (hash label="Peer name")
+          (hash label="Cluster partition")
+          (hash label="Status")
+          (hash label="Tags")
+          (hash label="Actions" width="150px")
+        }}
+      >
+        <:body as |B|>
+          <B.Tr>
+            <B.Td>
+              <Hds::Link::Inline @href="#showcase">{{B.data.peer-name}}</Hds::Link::Inline>
+            </B.Td>
+            <B.Td>
+              <div class="shw-component-rich-tooltip-demo-table-cell-content-flex">
+                <FlightIcon @name={{B.data.cluster-icon}} />
+                <div>
+                  <Hds::RichTooltip>
+                    <:toggle as |t|>
+                      <t.InfoText>{{B.data.cluster-partition}}</t.InfoText>
+                    </:toggle>
+                    <:content>
+                      <Hds::Text::Body @size="100" @tag="p">Lorem ipsum dolor sit amet</Hds::Text::Body>
+                    </:content>
+                  </Hds::RichTooltip>
+                  <Hds::Text::Body @size="100" @tag="p" @color="foreground-faint">Lorem ipsum dolor sit amet</Hds::Text::Body>
+                </div>
+              </div>
+            </B.Td>
+            <B.Td>
+              <Hds::RichTooltip>
+                <:toggle>
+                  <Hds::Badge
+                    @text={{capitalize B.data.status.text}}
+                    @color={{B.data.status.color}}
+                    @icon={{B.data.status.icon}}
+                    @type="outlined"
+                  />
+                </:toggle>
+                <:content>
+                  <Hds::Text::Body @size="100" @tag="p">The status is
+                    <strong>{{B.data.status.text}}</strong>. Refer to the
+                    <Hds::Link::Inline @href="#"> documentation</Hds::Link::Inline>
+                    for more details about this status.</Hds::Text::Body>
+                </:content>
+              </Hds::RichTooltip>
+            </B.Td>
+            <B.Td>
+              <Hds::RichTooltip>
+                <:toggle as |t|>
+                  <t.InfoText @icon="info" @iconPosition="trailing">{{B.data.tagsCount}}</t.InfoText>
+                </:toggle>
+                <:content>
+                  <Hds::Text::Body @size="100" @tag="p" @weight="semibold">Tags:</Hds::Text::Body>
+                  <div class="shw-component-rich-tooltip-demo-table-cell-content-tags">
+                    {{#let (array "Lorem" "Ipsum" "Dolor" "Sit" "Amet" "Consectetur") as |tags|}}
+                      {{#each tags as |tag|}}
+                        <Hds::Tag @text={{tag}} />
+                      {{/each}}
+                    {{/let}}
+                  </div>
+                  <Hds::Text::Body @size="100" @tag="p">
+                    <Hds::Link::Inline @href="#" @icon="sidebar" @iconPosition="trailing">See all
+                      {{B.data.tagsCount}}
+                      tags</Hds::Link::Inline>
+                  </Hds::Text::Body>
+                </:content>
+              </Hds::RichTooltip>
+            </B.Td>
+            <B.Td>
+              <Hds::ButtonSet>
+                <Hds::RichTooltip>
+                  <:toggle>
+                    <Hds::Button @text="Add" @isIconOnly={{true}} @icon="plus" @size="small" />
+                  </:toggle>
+                  <:content>
+                    <Hds::Text::Body @size="100" @tag="p">Use this action to add a new item</Hds::Text::Body>
+                  </:content>
+                </Hds::RichTooltip>
+                <Hds::RichTooltip>
+                  <:toggle>
+                    <Hds::Button @text="Edit" @isIconOnly={{true}} @icon="edit" @size="small" @color="secondary" />
+                  </:toggle>
+                  <:content>
+                    <Hds::Text::Body @size="100" @tag="p">Use this action to edit this item</Hds::Text::Body>
+                  </:content>
+                </Hds::RichTooltip>
+                <Hds::RichTooltip>
+                  <:toggle>
+                    <Hds::Button @text="Delete" @isIconOnly={{true}} @icon="trash" @size="small" @color="critical" />
+                  </:toggle>
+                  <:content>
+                    <Hds::Text::Body @size="100" @tag="p">Use this action to delete this item</Hds::Text::Body>
+                  </:content>
+                </Hds::RichTooltip>
+              </Hds::ButtonSet>
+            </B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+    </SF.Item>
+    <SF.Item @label="Within Tabs">
+      <Hds::Tabs {{style width="400px"}} as |T|>
+        <T.Tab>Tab #1</T.Tab>
+        <T.Tab>Tab #2</T.Tab>
+        <T.Tab>Tab #3</T.Tab>
+        <T.Panel>
+          <div class="shw-component-rich-tooltip-demo-tabs-panel">
+            <Hds::Text::Body @size="200" @tag="p">Lorem ipsum dolor sit amet
+              <Hds::RichTooltip @isInline={{true}}>
+                <:toggle as |t|>
+                  <t.InfoText @icon="info" @iconPosition="trailing">consectetur adipisicing</t.InfoText>
+                </:toggle>
+                <:content>
+                  <Shw::Placeholder @text="generic content" @height="30" />
+                </:content>
+              </Hds::RichTooltip>
+              elit. Sed perferendis culpa expedita assumenda at nisi minus unde fuga iure suscipit aut qui, odit natus
+              eum voluptates.
+            </Hds::Text::Body>
+          </div>
+        </T.Panel>
+        <T.Panel>
+          <div class="shw-component-rich-tooltip-demo-tabs-panel">
+            <Hds::Text::Body @size="200" @tag="p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
+              perferendis culpa expedita assumenda at
+              <Hds::RichTooltip @isInline={{true}}>
+                <:toggle as |t|>
+                  <t.InfoText @icon="info" @iconPosition="trailing">nisi minus unde</t.InfoText>
+                </:toggle>
+                <:content>
+                  <Shw::Placeholder @text="generic content" @height="30" />
+                </:content>
+              </Hds::RichTooltip>
+              fuga iure suscipit aut qui, odit natus eum voluptates.
+            </Hds::Text::Body>
+          </div>
+        </T.Panel>
+        <T.Panel>
+          <div class="shw-component-rich-tooltip-demo-tabs-panel">
+            <Hds::Text::Body @size="200" @tag="p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
+              perferendis culpa expedita assumenda at
+              <Hds::RichTooltip @isInline={{true}}>
+                <:toggle as |t|>
+                  <t.InfoText @icon="info" @iconPosition="trailing">nisi minus unde fuga iure</t.InfoText>
+                </:toggle>
+                <:content>
+                  <Shw::Placeholder @text="generic content" @height="30" />
+                </:content>
+              </Hds::RichTooltip>
+              suscipit aut qui, odit natus eum voluptates.
+            </Hds::Text::Body>
+          </div>
+        </T.Panel>
+      </Hds::Tabs>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Grid @columns={{2}} {{style width="fit-content" gap="2rem"}} as |SG|>
+    <SG.Item @label="With a Button">
+      <Hds::RichTooltip @placement="top">
+        <:toggle>
+          <Hds::Button @text="Lorem ipsum" @icon="wand" {{on "click" this.onClickButton}} />
+        </:toggle>
+        <:content>
+          <Hds::Text::Body @size="200" @tag="p" {{style margin-bottom="12px"}}>Lorem ipsum dolor sit amet consectetur
+            adipisicing elit.</Hds::Text::Body>
+        </:content>
+      </Hds::RichTooltip>
+    </SG.Item>
+    <SG.Item @label="Button + InfoText">
+      <div class="shw-component-rich-tooltip-demo-action-plus-info">
+        <Hds::Button @text="Lorem ipsum" @icon="wand" {{on "click" this.onClickButton}} />
+        <Hds::RichTooltip
+          @placement="top-start"
+          @enableSoftEvents={{false}}
+          @enableClickEvents={{true}}
+          @toggleAriaLabel="more info"
+        >
+          <:toggle as |t|>
+            <t.InfoText @icon="info" />
+          </:toggle>
+          <:content as |c|>
+            <Hds::Text::Body @size="200" @tag="p" {{style margin-bottom="12px"}}>Lorem ipsum dolor sit amet consectetur
+              adipisicing elit.</Hds::Text::Body>
+            <Hds::Button @text="Got it" @size="small" {{on "click" c.close}} />
+          </:content>
+        </Hds::RichTooltip>
+      </div>
+    </SG.Item>
+    <SG.Item @label="With a Link">
+      <Hds::RichTooltip @placement="top">
+        <:toggle>
+          <Hds::Link::Standalone @icon="external-link" @iconPosition="trailing" @text="Acme Corp" @href="#" />
+        </:toggle>
+        <:content>
+          <Hds::Text::Body @size="200" @tag="p" {{style margin-bottom="12px"}}>Lorem ipsum dolor sit amet consectetur
+            adipisicing elit.</Hds::Text::Body>
+        </:content>
+      </Hds::RichTooltip>
+    </SG.Item>
+    <SG.Item @label="Link + InfoText">
+      <div class="shw-component-rich-tooltip-demo-action-plus-info">
+        <Hds::Link::Standalone @icon="external-link" @iconPosition="trailing" @text="Acme Corp" @href="#" />
+        <Hds::RichTooltip
+          @placement="top-start"
+          @enableSoftEvents={{false}}
+          @enableClickEvents={{true}}
+          @toggleAriaLabel="more info"
+        >
+          <:toggle as |t|>
+            <t.InfoText @icon="info" />
+          </:toggle>
+          <:content as |c|>
+            <Hds::Text::Body @size="200" @tag="p" {{style margin-bottom="12px"}}>Lorem ipsum dolor sit amet consectetur
+              adipisicing elit.</Hds::Text::Body>
+            <Hds::Button @text="Got it" @size="small" {{on "click" c.close}} />
+          </:content>
+        </Hds::RichTooltip>
+      </div>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="With complex popover content">
+      <Hds::RichTooltip @placement="top" @enableSoftEvents={{false}} @enableClickEvents={{true}}>
+        <:toggle as |t|>
+          <t.InfoText @icon="info" @iconPosition="trailing">Lorem ipsum dolor</t.InfoText>
+        </:toggle>
+        <:content as |c|>
+          <div class="shw-component-rich-tooltip-content-interactive">
+            <button type="button" {{on "click" c.close}} title="Button that closes the popover on click">x</button>
+            <ul>
+              <li>
+                Lorem ipsum dolor sit amet consectetur
+              </li>
+              <li>
+                <a href="https://google.com">Link to Google</a>
+              </li>
+              <li>
+                {{#let (unique-id) as |controlId|}}
+                  <label for={{controlId}}>Input value:</label>
+                  <input id={{controlId}} type="text" />
+                {{/let}}
+              </li>
+              <li>
+                <button type="button" {{on "click" c.close}}>Got it!</button>
+              </li>
+            </ul>
+          </div>
+        </:content>
+      </Hds::RichTooltip>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Base elements</Shw::Text::H2>
+
+  <Shw::Text::H3>InfoText toggle</Shw::Text::H3>
+
+  <Shw::Text::H4>Content</Shw::Text::H4>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Only text">
+      <Hds::RichTooltip::Toggle::InfoText>Lorem ipsum dolor</Hds::RichTooltip::Toggle::InfoText>
+    </SF.Item>
+    <SF.Item @label="Text + leading icon">
+      <Hds::RichTooltip::Toggle::InfoText @icon="info" @iconPosition="leading">Lorem ipsum dolor</Hds::RichTooltip::Toggle::InfoText>
+    </SF.Item>
+    <SF.Item @label="Text + trailing icon">
+      <Hds::RichTooltip::Toggle::InfoText @icon="info" @iconPosition="trailing">Lorem ipsum dolor</Hds::RichTooltip::Toggle::InfoText>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H4>Sizes</Shw::Text::H4>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Inherited (default)">
+      {{#let (array "14px" "16px" "18px") as |sizes|}}
+        {{#each sizes as |size|}}
+          <div {{style font-size=size}}>
+            Lorem
+            <Hds::RichTooltip::Toggle::InfoText @icon="info" @iconPosition="leading" @isInline={{true}}>ipsum dolor</Hds::RichTooltip::Toggle::InfoText>
+            sit amet
+            <Hds::RichTooltip::Toggle::InfoText @icon="info" @iconPosition="trailing" @isInline={{true}}>consectetur
+              adipiscing</Hds::RichTooltip::Toggle::InfoText>
+            elit.
+          </div>
+        {{/each}}
+      {{/let}}
+    </SF.Item>
+  </Shw::Flex>
+
+  {{#let (array "small" "medium" "large") as |sizes|}}
+    {{#each sizes as |size|}}
+      <Shw::Flex @label="{{capitalize size}}" as |SF|>
+        <SF.Item>
+          <Hds::RichTooltip::Toggle::InfoText @size={{size}}>Lorem ipsum dolor</Hds::RichTooltip::Toggle::InfoText>
+        </SF.Item>
+        <SF.Item>
+          <Hds::RichTooltip::Toggle::InfoText @icon="info" @iconPosition="leading" @size={{size}}>Lorem ipsum dolor</Hds::RichTooltip::Toggle::InfoText>
+        </SF.Item>
+        <SF.Item>
+          <Hds::RichTooltip::Toggle::InfoText @icon="info" @iconPosition="trailing" @size={{size}}>Lorem ipsum dolor</Hds::RichTooltip::Toggle::InfoText>
+        </SF.Item>
+      </Shw::Flex>
+    {{/each}}
+  {{/let}}
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Generic toggle</Shw::Text::H3>
+
+  <Hds::RichTooltip>
+    <:toggle as |t|>
+      <t.Generic>
+        <Shw::Outliner>Lorem ipsum</Shw::Outliner>
+      </t.Generic>
+    </:toggle>
+    <:content>
+      <Shw::Placeholder @text="generic content" @height="40" />
+    </:content>
+  </Hds::RichTooltip>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Popover (primitive customization)</Shw::Text::H3>
+
+  <Shw::Flex {{style gap="2rem"}} as |SF|>
+    <SF.Item @label="Arrow" class="shw-component-rich-tooltip-arrow-standalone">
+      <Shw::Outliner {{style width="fit-content"}}>
+        <div class="hds-rich-tooltip">
+          <div class="hds-popover-primitive__arrow" />
+        </div>
+      </Shw::Outliner>
+    </SF.Item>
+    <SF.Item @label="Bubble" class="shw-component-rich-tooltip-bubble-standalone">
+      <div class="hds-rich-tooltip__bubble">
+        <Shw::Placeholder @text="generic content" width="250px" @height="40" />
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+</section>
