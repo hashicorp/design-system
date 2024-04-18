@@ -209,14 +209,21 @@
   <Shw::Grid class="shw-utilities-popover-primitive-placement-grid" @columns={{5}} as |SG|>
     {{#each @model.PLACEMENTS as |place|}}
       <SG.Item class="shw-utilities-popover-primitive-placement-grid__item--{{place}}">
-        <Hds::PopoverPrimitive @anchoredPositionOptions={{(hash placement=place)}} @isOpen={{true}}>
-          <:toggle>
-            <div class="shw-utilities-popover-primitive-placement-grid__target">{{place}}</div>
-          </:toggle>
-          <:content>
-            <Shw::Placeholder @text="content" @width="80" @height="40" />
-          </:content>
-        </Hds::PopoverPrimitive>
+        <div class="shw-utilities-popover-primitive-placement-grid__target">
+          <Hds::PopoverPrimitive
+            @isOpen={{true}}
+            @toggleAriaLabel="target of the rich tooltip"
+            @enableClickEvents={{true}}
+            @anchoredPositionOptions={{(hash placement=place enableCollisionDetection=false)}}
+          >
+            <:toggle>
+              <Shw::Placeholder @width="32px" @height="32px" @background="#d2f4ff" />
+            </:toggle>
+            <:content>
+              <Shw::Placeholder @text={{place}} @width="90" @height="40" />
+            </:content>
+          </Hds::PopoverPrimitive>
+        </div>
       </SG.Item>
     {{/each}}
   </Shw::Grid>
@@ -226,18 +233,27 @@
   <Shw::Grid class="shw-utilities-popover-primitive-placement-grid" @columns={{5}} as |SG|>
     {{#each @model.PLACEMENTS as |place|}}
       <SG.Item class="shw-utilities-popover-primitive-placement-grid__item--{{place}}">
-        <Hds::PopoverPrimitive
-          @anchoredPositionOptions={{hash placement=place arrowOptions=(hash padding=0)}}
-          @popoverHasArrow={{true}}
-          @isOpen={{true}}
-        >
-          <:toggle>
-            <div class="shw-utilities-popover-primitive-placement-grid__target">{{place}}</div>
-          </:toggle>
-          <:content>
-            <Shw::Placeholder @text="content" @width="80" @height="40" />
-          </:content>
-        </Hds::PopoverPrimitive>
+        <div class="shw-utilities-popover-primitive-placement-grid__target">
+          <Hds::PopoverPrimitive
+            @isOpen={{true}}
+            @toggleAriaLabel="target of the rich tooltip"
+            @popoverHasArrow={{true}}
+            @enableClickEvents={{true}}
+            @anchoredPositionOptions={{hash
+              placement=place
+              offsetOptions=17
+              enableCollisionDetection=false
+              arrowOptions=(hash padding=0)
+            }}
+          >
+            <:toggle>
+              <Shw::Placeholder @width="32px" @height="32px" @background="#d2f4ff" />
+            </:toggle>
+            <:content>
+              <Shw::Placeholder @text={{place}} @width="90" @height="40" />
+            </:content>
+          </Hds::PopoverPrimitive>
+        </div>
       </SG.Item>
     {{/each}}
   </Shw::Grid>
@@ -264,12 +280,13 @@
           {{#each offsetOptionsVariants as |offsetOptionsVariant|}}
             <SF.Item @label={{(if (eq popoverHasArrow false) (get offsetOptionsVariant "label"))}}>
               <Hds::PopoverPrimitive
-                @anchoredPositionOptions={{(hash offsetOptions=(get offsetOptionsVariant "offset"))}}
-                @popoverHasArrow={{popoverHasArrow}}
                 @isOpen={{true}}
+                @toggleAriaLabel="target of the rich tooltip"
+                @popoverHasArrow={{popoverHasArrow}}
+                @anchoredPositionOptions={{(hash offsetOptions=(get offsetOptionsVariant "offset"))}}
               >
                 <:toggle>
-                  <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
+                  <Shw::Placeholder @width="32px" @height="32px" @background="#d2f4ff" />
                 </:toggle>
                 <:content>
                   <Shw::Placeholder @text="content" @width="120" @height="40" />
@@ -286,19 +303,21 @@
   <Shw::Text::H4>arrowPadding</Shw::Text::H4>
 
   <Shw::Grid @columns={{4}} {{style gap="2rem" margin-bottom="8rem"}} as |SF|>
-    {{#let (array (hash label="not set") (hash label="24" arrowPadding=24)) as |arrowPaddingVariants|}}
+    {{#let (array (hash label="not set") (hash label="32" arrowPadding=32)) as |arrowPaddingVariants|}}
       {{#each arrowPaddingVariants as |arrowPaddingVariant|}}
         <SF.Item @label={{(get arrowPaddingVariant "label")}}>
           <Hds::PopoverPrimitive
-            @anchoredPositionOptions={{(hash
-              offsetOptions=(hash mainAxis=16 crossAxis=100)
-              arrow=(hash padding=(get arrowPaddingVariant "arrowPadding"))
-            )}}
-            @popoverHasArrow={{true}}
             @isOpen={{true}}
+            @toggleAriaLabel="target of the rich tooltip"
+            @popoverHasArrow={{true}}
+            @anchoredPositionOptions={{(hash
+              placement="bottom-start"
+              offsetOptions=17
+              arrowOptions=(hash padding=(get arrowPaddingVariant "arrowPadding"))
+            )}}
           >
             <:toggle>
-              <div class="shw-utilities-popover-primitive-base-toggle">Toggle</div>
+              <Shw::Placeholder @width="32px" @height="32px" @background="#d2f4ff" />
             </:toggle>
             <:content>
               <Shw::Placeholder @text="content" @width="120" @height="40" />
