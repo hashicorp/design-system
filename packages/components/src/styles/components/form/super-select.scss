@@ -144,6 +144,28 @@ $hds-super-select-item-height: 36px;
     &[aria-selected="true"] {
       background-color: var(--token-form-control-base-surface-color-default);
     }
+
+    &[aria-current="true"],
+    &:hover {
+      // left border
+      &::after {
+        position: absolute;
+        top: 6px;
+        bottom: 6px;
+        left: 3px;
+        width: 2px;
+        background-color: var(--token-color-foreground-action-hover);
+        border-radius: 500px; // Makes it look slightly rounded on the ends (doesn't match Figma exactly)
+        content: "";
+      }
+    }
+
+    &:active {
+      // left border
+      &::after{
+        background-color: var(--token-color-foreground-action-active);
+      }
+    }
   }
 
   // Option Groups (similar to HTML optgroup)
@@ -308,27 +330,10 @@ $hds-super-select-item-height: 36px;
     &[aria-current="true"],
     &:hover {
       color: var(--token-color-foreground-action-hover);
-
-      // left border
-      &::before {
-        position: absolute;
-        top: 6px;
-        bottom: 6px;
-        left: 3px;
-        width: 2px;
-        background-color: var(--token-color-foreground-action-hover);
-        border-radius: 500px; // Makes it look slightly rounded on the ends (doesn't match Figma exactly)
-        content: "";
-      }
     }
 
     &:active {
       color: var(--token-color-foreground-action-active);
-
-      // left border
-      &::before {
-        background-color: var(--token-color-foreground-action-active);
-      }
     }
   }
 }
