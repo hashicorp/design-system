@@ -28,6 +28,8 @@
     }}
   </:toggle>
   <:content as |c|>
-    {{yield (hash PopoverContent=(component "hds/yield") close=c.hidePopover)}}
+    <div class="hds-rich-tooltip__content">
+      {{yield (hash PopoverContent=(component "hds/yield") close=c.hidePopover)}}
+    </div>
   </:content>
 </Hds::PopoverPrimitive>

@@ -73,6 +73,22 @@
   }
 }
 
+// CONTENT
+
+.hds-rich-tooltip__content {
+  // we need to reset the content to avoid it inheriting the styles from the parents of the component or the component's wrapping element
+  all: initial;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+}
 
 // -------------------------------------
 
