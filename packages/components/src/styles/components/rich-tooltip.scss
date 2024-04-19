@@ -42,28 +42,6 @@
     opacity: 0;
     transition: opacity 0.3s;
     will-change: opacity;
-
-    &[popover]:popover-open {
-      opacity: 1;
-    }
-
-    @starting-style {
-      &[popover]:popover-open {
-        opacity: 0;
-      }
-    }
-
-    // polyfilled `:popover-open` selector
-    // see: https://github.com/oddbird/popover-polyfill?tab=readme-ov-file#caveats
-    &[popover].\:popover-open {
-      opacity: 1;
-    }
-
-    @starting-style {
-      &[popover].\:popover-open {
-        opacity: 0;
-      }
-    }
   }
 
   .hds-popover-primitive__arrow {
@@ -165,3 +143,37 @@
   font-family: var(--token-typography-body-300-font-family);
   line-height: var(--token-typography-body-300-line-height);
 }
+
+
+// ANIMATION
+
+// these start/end comments are needed to avoid clean-css to mangle the generated code (probably it doesn't understand the @starting-style directive)
+
+/* clean-css ignore:start */
+
+.hds-rich-tooltip .hds-popover-primitive__content {
+  &[popover]:popover-open {
+    opacity: 1;
+  }
+
+  @starting-style {
+    &[popover]:popover-open {
+      opacity: 0;
+    }
+  }
+
+  // polyfilled `:popover-open` selector
+  // see: https://github.com/oddbird/popover-polyfill?tab=readme-ov-file#caveats
+  &[popover].\:popover-open {
+    opacity: 1;
+  }
+
+  @starting-style {
+    &[popover].\:popover-open {
+      opacity: 0;
+    }
+  }
+}
+
+/* clean-css ignore:end */
+
