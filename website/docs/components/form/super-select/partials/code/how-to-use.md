@@ -52,7 +52,7 @@ Use `SuperSelect::Multiple` to enable users to select multiple options.
 
 Pre-select one or more of the options.
 
-##### Single only
+##### Single selection only
 
 ```handlebars
 <Hds::Form::SuperSelect::Single::Field
@@ -67,7 +67,7 @@ Pre-select one or more of the options.
 </Hds::Form::SuperSelect::Single::Field>
 ```
 
-##### One or more
+##### One or more selections
 
 ```handlebars
 <Hds::Form::SuperSelect::Multiple::Field
@@ -155,13 +155,21 @@ To group similar sets of options, pass a nested data structure specifying the `g
 
 ##### Rich content in SuperSelect::Multiple
 
-TODO: 
-* Update example to include simplified content in tags
+Note: By default all the option content will display in the selected item “tags” which display in the trigger. To simplify the content in these tags, use `@selectedItemComponent` to specify a custom component.
 
+**Custom “tag” component example:**
+```markup
+<span>
+  {{@option.size}}
+</span>
+```
+
+**Component invocation:**
 ```handlebars
 <Hds::Form::SuperSelect::Multiple::Field
   @onChange={{this.noop}}
   @selected={{this.SELECTED_CLUSTER_SIZE_OPTIONS}}
+  @selectedItemComponent={{component "power-select/selected-option"}}
   @options={{this.CLUSTER_SIZE_OPTIONS}}
   as |F|
 >
