@@ -19,11 +19,12 @@
   @anchoredPositionOptions={{this.anchoredPositionOptions}}
   ...attributes
 >
-  <:toggle>
+  <:toggle as |t|>
     {{yield
       (hash
         ToggleInfoText=(component "hds/rich-tooltip/toggle/info-text" isInline=@isInline)
         ToggleGeneric=(component "hds/yield")
+        isOpen=t.isOpen
       )
     }}
   </:toggle>
