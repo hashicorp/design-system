@@ -1,6 +1,6 @@
 ## How to use this component
 
-SuperSelect is a custom select-like component aiming to overcome some limitations of the HTML `<select>` element.
+Super Select is a custom select-like component aiming to overcome some limitations of the HTML `<select>` element.
 It is based on the popular Ember [PowerSelect](https://ember-power-select.com/) add-on.
 
 We provide two variants, `SuperSelect::Single` and `SuperSelect::Multiple`.
@@ -12,9 +12,11 @@ We provide two variants, `SuperSelect::Single` and `SuperSelect::Multiple`.
 
 We recommend using the Field component as it provides built-in accessibility functionality. Use the Base component for custom layouts or special use cases not covered by the Field component.
 
-### Basic invocation including search
+### Field components
 
-#### SuperSelect::Single::Field
+#### Basic invocations including search
+
+##### SuperSelect::Single::Field
 
 Use `SuperSelect::Single` if you want users to only select a single option.
 
@@ -30,7 +32,7 @@ Use `SuperSelect::Single` if you want users to only select a single option.
 </Hds::Form::SuperSelect::Single::Field>
 ```
 
-#### SuperSelect::Multiple::Field
+##### SuperSelect::Multiple::Field
 
 Use `SuperSelect::Multiple` to enable users to select multiple options.
 
@@ -46,11 +48,90 @@ Use `SuperSelect::Multiple` to enable users to select multiple options.
 </Hds::Form::SuperSelect::Multiple::Field>
 ```
 
-### With rich content in options
+#### Selected option
 
-#### Rich content in SuperSelect::Single
+Pre-select one or more of the options.
+
+##### Single only
+
+```handlebars
+<Hds::Form::SuperSelect::Single::Field
+  @onChange={{this.noop}}
+  @options={{this.OPTIONS}}
+  @searchEnabled={{true}}
+  @selected={{this.SELECTED}}
+  as |F|
+>
+  <F.Label>Label</F.Label>
+  {{F.options}}
+</Hds::Form::SuperSelect::Single::Field>
+```
+
+##### One or more
+
+```handlebars
+<Hds::Form::SuperSelect::Multiple::Field
+  @onChange={{this.noop}}
+  @options={{this.OPTIONS}}
+  @searchEnabled={{true}}
+  @selected={{this.SELECTED}}
+  as |F|
+>
+  <F.Label>This is the label</F.Label>
+  {{F.options}}
+</Hds::Form::SuperSelect::Multiple::Field>
+```
+
+#### Placeholder
+
+Placeholder text can be added to provide additional helpful context. However this information should not be necessary for users to complete a task.
+
+```handlebars
+<Hds::Form::SuperSelect::Single::Field
+  @onChange={{this.noop}}
+  @options={{this.OPTIONS}}
+  @searchEnabled={{true}}
+  @placeholder="Your state"
+  as |F|
+>
+  <F.Label>Select your state of residence</F.Label>
+  {{F.options}}
+</Hds::Form::SuperSelect::Single::Field>
+```
+
+#### Grouped options
+
+To group similar sets of options, pass a nested data structure specifying the `groupName` and associated `options`.
+
+**Nested data structure example:**
+
+```javascript
+[
+  { groupName: 'Most common', options: ['Kubernetes', 'AWS'] },
+  { groupName: 'Others', options: ['CloudWise', 'SWA', 'Other'] },
+]
+```
+
+**Component invocation:**
+
+```handlebars
+<Hds::Form::SuperSelect::Multiple::Field
+  @onChange={{this.noop}}
+  @options={{this.GROUPED_OPTIONS}}
+  @selected={{this.SELECTED_GROUPED_OPTIONS}}
+  as |F|
+>
+  <F.Label>Grouped options</F.Label>
+  {{F.options}}
+</Hds::Form::SuperSelect::Multiple::Field>
+```
+
+#### With rich content in options
+
+##### Rich content in SuperSelect::Single
 
 TODO:
+
 * aria-selected=true isn't getting set so checkmark doesn't appear on selected option
 * Extra empty markup is being rendered for each option
 
@@ -72,45 +153,31 @@ TODO:
 </Hds::Form::SuperSelect::Single::Field>
 ```
 
-#### Rich content in SuperSelect::Multiple
+##### Rich content in SuperSelect::Multiple
 
-TODO
-
-### Selected options
-
-#### Single selection
-
-```handlebars
-<Hds::Form::SuperSelect::Single::Field
-  @onChange={{this.noop}}
-  @options={{this.OPTIONS}}
-  @searchEnabled={{true}}
-  @selected={{this.SELECTED}}
-  as |F|
->
-  <F.Label>Label</F.Label>
-  {{F.options}}
-</Hds::Form::SuperSelect::Single::Field>
-```
-
-#### Multiple selections
+TODO: Update example to include simplified content in tags
 
 ```handlebars
 <Hds::Form::SuperSelect::Multiple::Field
   @onChange={{this.noop}}
-  @options={{this.OPTIONS}}
-  @searchEnabled={{true}}
-  @selected={{this.SELECTEDMULTIPLE}}
+  @selected={{this.SELECTED_CLUSTER_SIZE_OPTIONS}}
+  @options={{this.CLUSTER_SIZE_OPTIONS}}
   as |F|
 >
-  <F.Label>Label</F.Label>
-  {{F.options}}
+  <F.Label>Size</F.Label>
+  <div class="doc-super-select-option-rich-content">
+    <p class="doc-super-select-option-rich-header">
+      <strong>{{F.options.size}}</strong>
+      <strong>{{F.options.price}}</strong>
+    </p>
+    <p>{{F.options.description}}</p>
+  </div>
 </Hds::Form::SuperSelect::Multiple::Field>
 ```
 
-### Grouped options
+#### Helper text
 
-#### Single
+You can add extra information to the field using helper text. When helper text is added, the component automatically adds an `aria-describedby` attribute to the Super Select control, associating it with the automatically generated `ID` of the helper text element.
 
 ```handlebars
 <Hds::Form::SuperSelect::Single::Field
@@ -121,21 +188,49 @@ TODO
   as |F|
 >
   <F.Label>Target infrastructure</F.Label>
+  <F.HelperText>The target infrastructure is where you want to deploy your apps.</F.HelperText>
   {{F.options}}
 </Hds::Form::SuperSelect::Single::Field>
 ```
 
-#### Multiple
+#### Extra content in label and helper text
+
+!!! Warning
+
+If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. As such, care should be used when considering this feature. If needing to use a link, include a screen reader-only message that informs the user that some help text includes links, and additional keyboard exploration may be required.
+!!!
+
+The `Label` and `HelperText` contextual components used in the Field component yield their content. This means you can also pass structured content.
+
+For example:
 
 ```handlebars
-<Hds::Form::SuperSelect::Multiple::Field
+<Hds::Form::SuperSelect::Single::Field
   @onChange={{this.noop}}
   @options={{this.GROUPED_OPTIONS}}
-  @selected={{this.SELECTED_GROUPED_OPTIONS}}
+  @selected={{this.SELECTED_GROUPED_OPTION}}
   @ariaLabel="Label"
   as |F|
 >
-  <F.Label>Target infrastructure</F.Label>
+  <F.Label>Target infrastructure <Hds::Badge @size="small" @text="Beta" /></F.Label>
+  <F.HelperText>This is an experimental feature (<Hds::Link::Inline @href="#">read more</Hds::Link::Inline>).</F.HelperText>
   {{F.options}}
-</Hds::Form::SuperSelect::Multiple::Field>
+</Hds::Form::SuperSelect::Single::Field>
+```
+
+### Base components
+
+The Base components are intended for rare cases where the Field components can’t be used and a custom implementation is needed. Most of the details for the Field components also apply to the Base components, but see the [Component API](#component-api) for more details.
+
+```handlebars
+<Hds::Form::SuperSelect::Multiple::Base
+  @onChange={{this.noop}}
+  @options={{this.OPTIONS}}
+  @searchEnabled={{true}}
+  @selected={{this.SELECTEDMULTIPLE}}
+  @aria-label="Label"
+  as |options|
+>
+  {{options}}
+</Hds::Form::SuperSelect::Multiple::Base>
 ```
