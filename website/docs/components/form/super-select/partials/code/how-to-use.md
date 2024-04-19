@@ -3,9 +3,9 @@
 Super Select is a custom select-like component aiming to overcome some limitations of the HTML `<select>` element.
 It is based on the popular Ember [PowerSelect](https://ember-power-select.com/) add-on.
 
-We provide two variants, `SuperSelect::Single` and `SuperSelect::Multiple`.
+We provide two main components with similar APIs, `SuperSelect::Single` and `SuperSelect::Multiple`.
 
-**There are two ways to use the Super Select variants:**
+**There are two ways to use each of the Super Select component types:**
 
 1. `Form::SuperSelect::Single::Base` or `Form::SuperSelect::Multiple::Base`—the base component with just the Super Select control.
 2. `Form::SuperSelect::Single::Field` or `Form::SuperSelect::Multiple::Field`—the field parent component which includes the Super Select control, label, helper text, and error messaging (in a wrapping container).
