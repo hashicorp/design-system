@@ -69,7 +69,7 @@
       ...attributes
       as |options|
     >
-      {{yield (hash options=options)}}
+      {{yield (hash options=options Options=(component "hds/yield"))}}
     </Hds::Form::SuperSelect::Multiple::Base>
   </F.Control>
 </Hds::Form::Field>
