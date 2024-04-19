@@ -234,41 +234,6 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Text::H4>Complex content</Shw::Text::H4>
-
-  <Shw::Flex {{style padding-bottom="12em"}} @direction="row" as |SF|>
-    <SF.Item {{style flex="1"}} @label="Options with rich content">
-      <Hds::Form::SuperSelect::Single::Base
-        @selected={{@model.SELECTED_CLUSTER_SIZE_OPTION}}
-        @onChange={{fn (mut @model.SELECTED_CLUSTER_SIZE_OPTION)}}
-        @options={{@model.CLUSTER_SIZE_OPTIONS}}
-        @initiallyOpened={{true}}
-        @ariaLabel="Label"
-        as |option|
-      >
-        <div class="shw-component-form-super-select-option-rich-content">
-          <p class="shw-component-form-super-select-option-rich-header">
-            <strong>{{option.size}}</strong>
-            <strong>{{option.price}}/hr</strong>
-          </p>
-          <p>{{option.description}}</p>
-        </div>
-      </Hds::Form::SuperSelect::Single::Base>
-    </SF.Item>
-    <SF.Item {{style flex="1"}} @label="Grouped options">
-      <Hds::Form::SuperSelect::Single::Base
-        @onChange={{fn (mut @model.SELECTED_GROUPED_OPTION)}}
-        @options={{@model.GROUPED_OPTIONS}}
-        @selected={{@model.SELECTED_GROUPED_OPTION}}
-        @initiallyOpened={{true}}
-        @ariaLabel="Label"
-        as |option|
-      >
-        {{option}}
-      </Hds::Form::SuperSelect::Single::Base>
-    </SF.Item>
-  </Shw::Flex>
-
   <Shw::Divider @level="2" />
 
   <Shw::Text::H3>Before &amp; after options</Shw::Text::H3>
