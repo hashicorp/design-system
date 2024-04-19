@@ -130,11 +130,6 @@ To group similar sets of options, pass a nested data structure specifying the `g
 
 ##### Rich content in SuperSelect::Single
 
-TODO:
-
-* aria-selected=true isn't getting set so checkmark doesn't appear on selected option
-* Extra empty markup is being rendered for each option
-
 ```handlebars
 <Hds::Form::SuperSelect::Single::Field
   @onChange={{this.noop}}
@@ -143,19 +138,25 @@ TODO:
   as |F|
 >
   <F.Label>Size</F.Label>
-  <div class="doc-super-select-option-rich-content">
-    <p class="doc-super-select-option-rich-header">
-      <strong>{{F.options.size}}</strong>
-      <strong>{{F.options.price}}</strong>
-    </p>
-    <p>{{F.options.description}}</p>
-  </div>
+
+  <F.Options>
+    {{#let F.options as |option|}}
+      <div class="doc-super-select-option-rich-content">
+        <p class="doc-super-select-option-rich-header">
+          <strong>{{option.size}}</strong>
+          <strong>{{option.price}}</strong>
+        </p>
+        <p>{{option.description}}</p>
+      </div>
+    {{/let}}
+  </F.Options>
 </Hds::Form::SuperSelect::Single::Field>
 ```
 
 ##### Rich content in SuperSelect::Multiple
 
-TODO: Update example to include simplified content in tags
+TODO: 
+* Update example to include simplified content in tags
 
 ```handlebars
 <Hds::Form::SuperSelect::Multiple::Field
@@ -165,13 +166,17 @@ TODO: Update example to include simplified content in tags
   as |F|
 >
   <F.Label>Size</F.Label>
-  <div class="doc-super-select-option-rich-content">
-    <p class="doc-super-select-option-rich-header">
-      <strong>{{F.options.size}}</strong>
-      <strong>{{F.options.price}}</strong>
-    </p>
-    <p>{{F.options.description}}</p>
-  </div>
+  <F.Options>
+    {{#let F.options as |option|}}
+      <div class="doc-super-select-option-rich-content">
+        <p class="doc-super-select-option-rich-header">
+          <strong>{{option.size}}</strong>
+          <strong>{{option.price}}</strong>
+        </p>
+        <p>{{option.description}}</p>
+      </div>
+    {{/let}}
+  </F.Options>
 </Hds::Form::SuperSelect::Multiple::Field>
 ```
 
