@@ -8,12 +8,14 @@ export interface HdsDisclosurePrimitiveSignature {
     toggle: [
       {
         isOpen: boolean;
-        onClickToggle: () => void;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        onClickToggle: (...args: any[]) => void;
       }
     ];
     content: [
       {
-        close: () => void;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        close: (...args: any[]) => void;
       }
     ];
   };
