@@ -2,4 +2,4 @@
 "@hashicorp/design-system-components": patch
 ---
 
-Exclude `types.js` files from appReexports
+Fixed default export warnings by preventing `types.js` files from being reexported
