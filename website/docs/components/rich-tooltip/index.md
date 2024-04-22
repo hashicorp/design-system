@@ -4,11 +4,11 @@ description: The Rich Tooltip displays structured informational content that is 
 caption: The Rich Tooltip displays structured informational content that is non-essential to the user completing a task.
 links:
   figma: {link to the "RichTooltip" page in the components Figma library}
-  github: {link to the "RichTooltip" component's folder in the GitHub repo}
+  github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/rich-tooltip
 related: ['components/tooltip', 'components/modal']
 previewImage: assets/illustrations/components/rich-tooltip.jpg
 navigation:
-  keywords: ['popover', 'popup', 'modal']
+  keywords: ['tooltip', 'popover', 'popup', 'modal']
 ---
 
 <section data-tab="Guidelines">
