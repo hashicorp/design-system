@@ -87,6 +87,16 @@ module(
 
     // MATCH TRIGGER WIDTH
 
+    test('`@matchTriggerWidth` should be true by default', async function (assert) {
+      this.set('NOOP', () => {});
+      await render(
+        hbs`<Hds::Form::SuperSelect::Single::Base @ariaLabel="Label" @onChange={{this.NOOP}} />`
+      );
+      assert
+        .dom('.hds-form-super-select')
+        .doesNotHaveClass('hds-form-super-select--match-trigger-width-false');
+    });
+
     test('it should render the correct CSS class when `@matchTriggerWidth` is false', async function (assert) {
       this.set('NOOP', () => {});
       await render(
@@ -101,16 +111,19 @@ module(
 
     // TODO: The CSS property value is returning as "undefined"
 
-    // DISABLEtest('it should set the correct CSS property value when `@dropdownMaxWidth` is set', async function (assert) {
-    //   this.set('NOOP', () => {});
-    //   await render(
-    //     hbs`<Hds::Form::SuperSelect::Single::Base @ariaLabel="Label" @onChange={{this.NOOP}} @matchTriggerWidth={{false}} @dropdownMaxWidth="40em" id="superselect-test" />`
-    //   );
-    //   await settled();
-    //   assert
-    //     .dom('#superselect-test')
-    //     .hasStyle({ '--hds-form-super-select-dropdown-max-width': '40em' });
-    // });
+    test('it should set the correct CSS property value when `@dropdownMaxWidth` is set', async function (assert) {
+      this.set('NOOP', () => {});
+      await render(
+        hbs`<Hds::Form::SuperSelect::Single::Base @ariaLabel="Label" @onChange={{this.NOOP}} @matchTriggerWidth={{false}} @dropdownMaxWidth="40em" />`
+      );
+
+      assert
+        .dom('.hds-form-super-select')
+        .hasAttribute(
+          'style',
+          '--hds-form-super-select-dropdown-max-width: 40em;'
+        );
+    });
 
     // INVALID
 
