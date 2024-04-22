@@ -868,7 +868,7 @@
       <Hds::Form::SuperSelect::Multiple::Field
         @selected={{@model.SELECTED_CLUSTER_SIZE_OPTIONS}}
         @selectedItemComponent={{component "form/power-select/selected-component"}}
-        @onChange={{fn (mut @model.SELECTED_CLUSTER_SIZE_OPTION)}}
+        @onChange={{fn (mut @model.SELECTED_CLUSTER_SIZE_OPTIONS)}}
         @options={{@model.CLUSTER_SIZE_OPTIONS}}
         @initiallyOpened={{true}}
         as |F|
@@ -889,7 +889,7 @@
     </SF.Item>
     <SF.Item {{style flex="1"}} @label="Grouped options">
       <Hds::Form::SuperSelect::Multiple::Field
-        @onChange={{fn (mut @model.SELECTED_GROUPED_OPTION)}}
+        @onChange={{fn (mut @model.SELECTED_GROUPED_OPTIONS)}}
         @options={{@model.GROUPED_OPTIONS}}
         @selected={{@model.SELECTED_GROUPED_OPTIONS}}
         @initiallyOpened={{true}}
