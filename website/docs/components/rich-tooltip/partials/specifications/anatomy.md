@@ -9,6 +9,7 @@
 | Content          | Required |
 | Container        | Required |
 | Pointer          | Required |
+| Toggle           | Required; can use either the default InfoText toggle or custom elements |
 
 ### InfoText
 
@@ -19,3 +20,8 @@
 | Text        | Optional                   |
 | Underline   | Required if including text |
 | Icon        | Optional; can be leading, trailing, or only. |
+
+#### States
+
+![InfoText states](/assets/components/rich-tooltip/infotext-states.png)
+
