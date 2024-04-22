@@ -1,6 +1,6 @@
 {{! @glint-nocheck: not typesafe yet }}
 {{! IMPORTANT: we need to add "squishies" here (~) because otherwise the whitespace added by Ember becomes visible in the underlined text (being an inline element) - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
-<span class={{this.classNames}}>
+<span class={{this.classNames}} ...attributes>
   {{~#if (and @icon (eq this.iconPosition "leading"))~}}
     <FlightIcon @name={{@icon}} @isInlineBlock={{this.isInline}} />
   {{~/if~}}
