@@ -326,7 +326,6 @@ module(
       assert
         .dom('.hds-popover-primitive__toggle')
         .hasAria('describedby', targetId);
-      assert.dom('.hds-popover-primitive__toggle').hasAria('details', targetId);
 
       await click('.hds-popover-primitive__toggle');
 
@@ -361,7 +360,6 @@ module(
       assert
         .dom('.hds-popover-primitive__toggle')
         .hasAria('describedby', targetId);
-      assert.dom('.hds-popover-primitive__toggle').hasAria('details', targetId);
 
       await focus('.hds-popover-primitive__toggle input');
 

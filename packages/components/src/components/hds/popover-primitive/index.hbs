@@ -9,7 +9,6 @@
       class="hds-popover-primitive__toggle"
       aria-controls={{this.popoverId}}
       aria-describedby={{this.popoverId}}
-      aria-details={{this.popoverId}}
       {{this.setupPrimitiveToggle}}
     >
       {{yield (hash popoverElement=this.popoverElement isOpen=this.isOpen) to="toggle"}}
@@ -20,7 +19,6 @@
       class="hds-popover-primitive__toggle"
       aria-controls={{this.popoverId}}
       aria-describedby={{this.popoverId}}
-      aria-details={{this.popoverId}}
       aria-expanded={{(if this.isOpen "true" "false")}}
       {{this.setupPrimitiveToggle}}
     >
