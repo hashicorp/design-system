@@ -94,18 +94,22 @@ $hds-super-select-item-height: 36px;
 
   .ember-basic-dropdown-content {
     max-width: var(--hds-form-super-select-dropdown-max-width);
-    margin: 4px 0;
+    margin: 0;
     border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
     border-radius: var(--token-form-control-border-radius);
 
-    &.ember-basic-dropdown-content--below,
     &.ember-basic-dropdown-content--in-place {
       box-shadow: var(--token-elevation-high-box-shadow), var(--token-elevation-high-box-shadow);
+    }
+
+    &.ember-basic-dropdown-content--below {
+      margin-top: 4px;
     }
 
     &.ember-basic-dropdown-content--above {
       top: unset !important; // override inline style (TODO: update in JS)
       bottom: 100%;
+      margin-bottom: 4px;
     }
 
     // hide first group separator line

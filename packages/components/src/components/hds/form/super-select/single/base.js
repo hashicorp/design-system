@@ -4,8 +4,30 @@
  */
 
 import PowerSelectComponent from 'ember-power-select/components/power-select';
+import anchoredPositionModifier from '../../../../../modifiers/hds-anchored-position';
+import { action } from '@ember/object';
+
+const DEFAULT_HORIZONTAL_POSITION = 'bottom-start';
+const HORIZONTAL_POSITION_MAPPING = {
+  left: 'bottom-start',
+  center: 'bottom',
+  right: 'bottom-end',
+};
 
 export default class HdsSuperSelectSingleBaseComponent extends PowerSelectComponent {
+  @action calculatePosition(trigger, content) {
+    // use `hds-anchored-position` to calculate and set position
+    anchoredPositionModifier(content, [trigger], {
+      placement: this.args.horizontalPosition
+        ? HORIZONTAL_POSITION_MAPPING[this.args.horizontalPosition]
+        : DEFAULT_HORIZONTAL_POSITION,
+      offsetOptions: 4,
+      enableCollisionDetection: true,
+    });
+    // prevent PowerSelect from setting position
+    return {};
+  }
+
   /**
    * Determine if `@afterOptionsComponent` gets displayed
    * @param showAfterOptions
