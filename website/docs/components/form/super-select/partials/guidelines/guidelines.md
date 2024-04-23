@@ -10,7 +10,7 @@
 ### When not to use
 
 - To display a list of links (or buttons) in a menu, consider the [HDS Dropdown](/components/dropdown) component instead.
-- When a simple list is displayed, consider the [HDS Select](/components/form/select) form element.
+- When a simple select is needed for a form, consider the [HDS Select](/components/form/select) form element.
 - As a means to filter an array of objects within a data set; e.g., when presented in a tabular format or list. Instead, consider other [filtering patterns](/patterns/filter-patterns).
 
 ## Components
@@ -150,8 +150,9 @@ If the list width is set to auto, it will expand to be the size of the longest l
 ## ListItem Types
 
 There are four types of ListItems, two of which are variant specific.
+
 - `Checkbox` is used to clarify to the user that multiple selections are permitted. This is only allowed within the multiple variant.
-- `Checkbox` is used to deliniate to the user that multiple selections within the list is permited. This is only allowed within the multiple variant.
+- `Checkbox` is used to delineate to the user that multiple selections within the list is permitted. This is only allowed within the multiple variant.
 - `Title` is used to group ListItems together and help visually organize groups.
 - `Separator` is used to create a visual separation between groups.
 
@@ -159,9 +160,9 @@ There are four types of ListItems, two of which are variant specific.
 
 ## Groups
 
-ListItems can be grouped visually by adding a title and a separator. The last group in the list doesn't require a separator. 
+ListItems can be grouped visually by adding a title and a separator. The last group in the list doesn't require a separator.
 
-![Groups of list items represented in both single and multipe list variants](/assets/components/form/super-select/super-select-group-list-items.png =836x*)
+![Groups of list items represented in both single and multiple list variants](/assets/components/form/super-select/super-select-group-list-items.png =836x*)
 
 ## Required and optional
 
@@ -186,6 +187,7 @@ For general content recommendations, refer to the [Primitives](/components/form/
 - We recommend keeping options clear and concise; avoid full sentences.
 - Avoid using the same word at the beginning of a set of options.
 - Order the set of options in a logical way based on the use case. For example:
-    - default or most commonly selected options first
-    - alphabetically
-    - numerically
+  - default or most commonly selected options first
+  - alphabetically
+  - numerically
+  
