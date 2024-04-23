@@ -19,8 +19,8 @@ $hds-super-select-item-height: 36px;
 }
 
 .hds-form-super-select .ember-basic-dropdown {
-  // TRIGGER
 
+  // TRIGGER
   .ember-basic-dropdown-trigger,
   .ember-power-select-trigger {
     display: flex;
@@ -91,7 +91,6 @@ $hds-super-select-item-height: 36px;
   }
 
   // DROPDOWN
-
   .ember-basic-dropdown-content {
     max-width: var(--hds-form-super-select-dropdown-max-width);
     margin: 0;
@@ -202,7 +201,7 @@ $hds-super-select-item-height: 36px;
     padding: 6px 7px 2px 15px; // top, right, bottom, left
   }
 
-  // Search
+  // SEARCH
   // (Single select, to be added to Multiple | in @beforeOptionsComponent area)
   .ember-power-select-search {
     margin-bottom: 3px;
@@ -259,7 +258,7 @@ $hds-super-select-item-height: 36px;
     }
   }
 
-  // Multiple Select
+  // MULTIPLE
   // Tag List (Note: May be replaced with HDS Tag component in the future)
   .ember-power-select-multiple-options {
     display: flex;
@@ -282,11 +281,26 @@ $hds-super-select-item-height: 36px;
   }
 
   // Tag close button ("X")
-  .ember-power-select-multiple-remove-btn {display: none;}
+  .ember-power-select-multiple-remove-btn {
+    display: none;
+  }
+
+  // Cancel button
+  .ember-power-select-trigger-multiple-input {
+    &::-webkit-search-cancel-button {
+      width: var(--token-form-text-input-background-image-size);
+      height: var(--token-form-text-input-background-image-size);
+      background-image: var(--token-form-text-input-background-image-data-url-search-cancel);
+      background-position: center center;
+      background-size: var(--token-form-text-input-background-image-size);
+      cursor: pointer;
+      // stylelint-disable-next-line property-no-vendor-prefix
+      -webkit-appearance: none;
+    }
+  }
 }
 
 // INVALID
-
 .hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown {
   .ember-basic-dropdown-trigger, .ember-power-select-trigger {
     border-color: var(--token-form-control-invalid-border-color-default);
@@ -305,7 +319,6 @@ $hds-super-select-item-height: 36px;
 }
 
 // ONLY SELECTED
-
 .hds-form-super-select.hds-form-super-select--show-only-selected .ember-basic-dropdown {
   .ember-power-select-option {
     &:not([aria-selected="true"]) {
@@ -342,7 +355,7 @@ $hds-super-select-item-height: 36px;
   }
 }
 
-// MULTIPLE
+// MULTIPLE SELECT
 .hds-form-super-select-multiple .ember-basic-dropdown {
 
   // Options Item
