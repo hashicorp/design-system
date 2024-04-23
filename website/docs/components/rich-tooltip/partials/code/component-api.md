@@ -44,7 +44,7 @@
     Controls if the tooltip should be rendered initially opened.
     <br />
     <br />
-    _Notice: in this case the tooltip can't be dismissed via `esc` or `click outside` until the end user has interacted with it (it's in a "manual" state)._
+    _Notice: in this case the tooltip can't be dismissed via `esc` or "click outside" until the end user has interacted with it (it's in a "manual" state)._
   </C.Property>
   <C.Property @name="isInline" @type="boolean" @default="false" @values={{array "true" "false"}}>
     Sets the display for the HTML element which wraps the "toggle" content. If set to `true` it sets the element's display to `inline-block` (a `<button>` can't have an `inline` layout).
