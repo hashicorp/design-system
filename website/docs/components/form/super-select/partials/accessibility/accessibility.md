@@ -1,19 +1,8 @@
 ## Conformance rating
 
-<!-- Update conformance rating badge with correct status and remove the others -->
-<Doc::Badge @type="success">Conformant</Doc::Badge>
+<Doc::Badge @type="warning">Conditionally Conformant</Doc::Badge>
 
-When used as recommended, there should not be any WCAG conformance issues with this component.
-
-<!-- Assuming final component is conformant, delete commented out sections before release
-<Doc::Badge @type="warning">Conditionally conformant</Doc::Badge>
-
-Explain how the component is conditionally conformant. For example, any component that offers text truncation is conditionally conformant- it is conformant as long as the text truncation feature is not used.
-
-<Doc::Badge @type="critical">Not conformant</Doc::Badge>
-
-The `Component Name` component is not WCAG-conformant on its own. (Explain how to use it in a conformant way)
--->
+While many improvements have been made to the underlying library for this component, some variations, such as the multi-select, is still a work in progress and does not current pass the relevant WCAG Success Criteria. Please take this into consideration when implementing this component.
 
 ## Applicable WCAG Success Criteria
 
