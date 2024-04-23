@@ -151,7 +151,7 @@ If the list width is set to auto, it will expand to be the size of the longest l
 
 There are four types of ListItems, two of which are variant specific.
 
-- `Checkbox` is used to clarify to the user that multiple selections are permitted. This is only allowed within the multiple variant.
+- `Checkmark` is used to clarify to the user that multiple selections are permitted. This is only allowed within the multiple variant.
 - `Checkbox` is used to delineate to the user that multiple selections within the list is permitted. This is only allowed within the multiple variant.
 - `Title` is used to group ListItems together and help visually organize groups.
 - `Separator` is used to create a visual separation between groups.
@@ -190,4 +190,3 @@ For general content recommendations, refer to the [Primitives](/components/form/
   - default or most commonly selected options first
   - alphabetically
   - numerically
-  
