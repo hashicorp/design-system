@@ -1,7 +1,7 @@
 ---
 title: Super Select
-description: An enhanced custom form select that enables users to search through and select items from a list of options.
-caption: Enhanced form select that allows users to search and choose options from a list.
+description: An enhanced selection component that enables users to search and select items from a list of options and supports flexible custom content.
+caption: Enhanced selection component that enables users to search and select items from a list.
 links:
   figma: {link to the "SuperSelect" page in the components Figma library}
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/form/super-select
