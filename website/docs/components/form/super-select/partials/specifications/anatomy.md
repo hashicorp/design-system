@@ -7,7 +7,7 @@
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|
 | Icon             | Optional, but recommended                       |
-| Title            | Required, if no description Optional, otherwise |
+| Title            | Required, if no description, optional otherwise |
 | Description      | Required, if no title Optional, otherwise       |
 | Actions          | Optional                                        |
 | Dismiss button   | Optional                                        |

@@ -1,1 +1,1 @@
-SuperSelect is a form element that provides users with a way to select either single or multiple options from a list within. It is an enhanced version of the HDS Select component. It supports rich content within option items, as well as before and after list components or content.
+Super Select provides users with a way to select among a group of options. It can be considered an enhanced version of the HDS Select component. It supports rich content within option items as well as custom content before and after the option items. The Super Select is built on-top of PowerSelect.
