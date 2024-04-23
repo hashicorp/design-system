@@ -53,7 +53,13 @@ The before and after options are areas above and below the list, independent fro
 
 ### BeforeOptions
 
-BeforeOptions allows for either a search field or custom content to be displayed before the options list. Applicable to both Single and Multiple variants.
+BeforeOptions allows for either a search field or custom content to be displayed before the options list. Applicable to both Single and Multiple components.
+
+!!! Warning
+
+Currently, the Multiple component only supports search in the trigger and is considered an accessibility issue (nested interactive). This is something we are working to improve in collaboration with the PowerSelect team.
+
+!!!
 
 #### Search
 
