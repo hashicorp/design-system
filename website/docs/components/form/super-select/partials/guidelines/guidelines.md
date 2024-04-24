@@ -109,7 +109,7 @@ If “Show selected” is used when no selections have been made, a message will
 
 ![Flow showing the behavior of the show selected button when no selections have been made yet.](/assets/components/form/super-select/super-select-flow-no-selections-select-all.png)
 
-Additionally, “Clear selected” will wipe out the selections and revert the SuperSelect to its deselected state.
+Additionally, “Clear selected” will wipe out the selections and revert the SuperSelect to its deselected state. This button is hidden if there are no selections.
 
 ![Flow showing the behavior of the clear selected button and how it reverts the SuperSelect's state to the default one](/assets/components/form/super-select/super-select-flow-clear-selected.png)
 
