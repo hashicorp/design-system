@@ -19,7 +19,7 @@ See below for more details about what these scripts do.
 
 # Updating the icons in `flight-icons`
 
-Whenever there is an update to the Flight Icons library in Figma (e.g. a new icon is added), these changes need to be transferred to code. This means updating the `flight-icons` package and then releasing it to the npm registry, which other tools and projects can use.
+Whenever there is a published update to the Flight Icons library in Figma (e.g. a new icon is added), these changes need to be transferred to code. This means updating the `flight-icons` package and then releasing it to the npm registry, which other tools and projects can use.
 
 We have developed a set of custom Node.js scripts to create a single pipeline for this purpose. The pipeline can be run manually on your local machine or via a GitHub Action.
 
