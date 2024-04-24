@@ -2,7 +2,7 @@
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="[RT].ToggleInfoText" @type="yielded component">
-    Standard toggle element to use, to ensures that the toggle is perceivable, visually consistent, and can be used inline with other content or standalone as part of the layout flow.
+    Standard toggle element to use, to ensure that the toggle is perceivable, visually consistent, and can be used inline with other content or standalone as part of the layout flow.
     <Doc::ComponentApi>
       <C.Property @name="yield">
         Text passed as child is yielded to the `<span>` HTML element that applies the dotted underline styling to it.
@@ -65,7 +65,7 @@
     _Notice: if `@enableCollision` is set, the popover will automatically shift position to remain visible when near the edges of the screen regardless of the starting placement._
   </C.Property>
   <C.Property @name="popoverOffset" @type="number|object" @default="12">
-    A number that represents the “distance” between the tooltip and the toggle element (used to control the relative position of the arrow in relation to the toggle). An object can also be passed, which enables to individually configure different axis.
+    A number that represents the “distance” between the tooltip and the toggle element (used to control the relative position of the arrow in relation to the toggle). An object can also be passed, which enables you to individually configure a different axis.
     <br />
     <br />
     For details see: [Floating UI > Offset > Options](https://floating-ui.com/docs/offset#options).
@@ -77,16 +77,16 @@
     By default, the tooltip adapts to its content size. If a `@popoverHeight` parameter is provided then the tooltip will have a fixed height.
   </C.Property>
   <C.Property @name="enableSoftEvents" @type="boolean" @default="true" @values={{array "true" "false"}}>
-    Assigns "soft" events listeners (`mouseEnter/Leave` + `focusIn/Out`) to the toggle, to control the visibility of the tooltip.
+    Assigns "soft" event listeners (`mouseEnter/Leave` + `focusIn/Out`) to the toggle to control the visibility of the tooltip.
   </C.Property>
   <C.Property @name="enableClickEvents" @type="boolean" @default="false" @values={{array "true" "false"}}>
-    Assigns a "click" event listener (`onClick`) to the toggle, to control the visibility of the tooltip.
+    Assigns a "click" event listener (`onClick`) to the toggle to control the visibility of the tooltip.
     <br />
     <br />
     _Notice: enabling "click" event listeners will automatically disable "soft" event listeners._
   </C.Property>
   <C.Property @name="enableCollisionDetection" @type="boolean|string" @values={{array "true" "false" "flip" "shift" "auto"}} @default="false">
-    This property controls if the tooltip should automatically adapt its position to remain visible when near the edges of the screen. It can be enabled for both axes setting it to `true`, or a single axes can be chosen passing the `flip` or `shift` value. If set to `auto` it will automatically place the popover in the position where there's more space available, but in this case it will ignore the `popoverPlacement` value.
+    This property controls if the tooltip should automatically adapt its position to remain visible when near the edges of the viewport. It can be enabled for both axes by setting it to `true`, or a single axis can be chosen by passing the `flip` or `shift` value. If set to `auto` it will automatically place the popover in the position where there's more space available, but in this case it will ignore the `popoverPlacement` value.
     <br />
     <br />
     For an overview of how collision detection works and is controlled see: [Floating UI > Tutorial](https://floating-ui.com/docs/tutorial), [Floating UI > Flip](https://floating-ui.com/docs/flip), [Floating UI > Shift](https://floating-ui.com/docs/shift), and [Floating UI > autoPlacement](https://floating-ui.com/docs/autoPlacement).

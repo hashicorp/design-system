@@ -6,27 +6,27 @@ Now, while at first glance the Rich Tooltip component may seem a simple componen
 - it also uses a third-party library called [Floating UI](https://floating-ui.com/) to provide the anchoring of the "popover" to the "toggle" element, and the automatic positioning/collision detection functionality.
 - these functionalities are in turn abstracted in two underlying HDS utilities (the `hds-anchored-position` modifier and the [PopoverPrimitive component](/utilities/popover-primitive)), on top of which the Rich Tooltip component is built.
 
-The component also provides a lot of options to customize its behaviour. Below we have tried to describe the most common ones, but if you find a use case that is not supported by the existing Rich Tooltip implementation, please [speak with the Design System team](/about/support).
+The component provides a lot of options to customize its behavior. Below we have tried to describe the most common examples, but if you find a use case that is not supported by the existing Rich Tooltip implementation, please [speak with the Design System team](/about/support).
 
-And finally, since tooltips are notoriously hard to implement in an accessible way, we have tried to limit the ways in wich the Rich Tooltip can be used, while at the same time provide an escape hatch if some edge cases need to be supported (in that case, consumers will need to make sure the component is used in a [conformant accessible way](/components/rich-tooltip?tab=accessibility)).
+And finally, since tooltips are notoriously hard to implement in an accessible way, we have tried to limit the ways in which the Rich Tooltip can be used, while at the same time provide an escape hatch if some edge cases need to be supported. If this is the case, consumers will need to make sure the component is used in a [conformant accessible way](/components/rich-tooltip?tab=accessibility).
 
 ## How to use this component
 
-When using this component, there are a few things you have to consider:
+When using this component, there are a few things to consider:
 
-- what toggle to use, the standard [InfoText toggle](#with-infotext-toggle) or a [generic toggle](#with-a-generic-toggle), and in that case if the generic toggle contains interactive elements or not
+- what toggle to use; the standard [InfoText toggle](#with-infotext-toggle) or a [generic toggle](#with-a-generic-toggle), and in that case if the generic toggle contains interactive elements or not
 - if the toggle is a [standalone element](#as-a-standalone-element) or if instead lives [inline with other text](#inline-with-other-text)
 - how the end-user should [interact](#interactivity) with the toggle to show/hide the tooltip
 
-Depending of these factors, there are different ways to implement the code. We describe these alternatives below.
+Depending of these factors, there are different ways to implement the code, described in these alternatives below.
 
 ### With `InfoText` toggle
 
 #### As a standalone element
 
-The toggle element (and the parent "wrapping" container) are rendered by default as block elements. This means it can easily be used as standalone element.
+The toggle element (and the parent "wrapping" container) are rendered by default as block elements. This means it can easily be used as a standalone element.
 
-The invocation requires a "toggle" element and a "content" to be passed as yielded sub-components:
+The invocation requires a "toggle" element and "content" to be passed as yielded sub-components:
 
 ```handlebars
 <Hds::RichTooltip as |RT|>
@@ -38,9 +38,9 @@ The invocation requires a "toggle" element and a "content" to be passed as yield
 </Hds::RichTooltip>
 ```
 
-Here we're using the `InfoText` toggle element, which ensures perceivability and accessibility out of the box. It consist of a text (with a specific underline decoration applied to it) and an optional icon (can be leading or trailing).
+Here we're using the `InfoText` toggle element, which ensures perceivability and accessibility out of the box. It consist of text (with a specific underline decoration applied to it) and an optional icon (can be leading or trailing).
 
-The text and the icon are rendered inside an HTML `<button>` element (the one that technically acts as a toggling control for the popover). For details how the user can interact with this button see the [Interactivity](#interactivity) sub-section.
+The text and the icon are rendered inside an HTML `<button>` element (the one that technically acts as a toggling control for the popover). For details about how the user can interact with this button see the [Interactivity](#interactivity) sub-section.
 
 !!! Info
 
@@ -53,7 +53,7 @@ The `PopoverContent` element instead is a pure container that yields the childre
 
 !!! Info
 
-Notice: we apply a CSS reset (`all: initial`) to the container, to avoid that styles applied to the parent elements leak into the tooltip content. If you find any issue with this reset please [speak with the Design System team](/about/support).
+Notice: we apply a CSS reset (`all: initial`) to the container to avoid styles applied to the parent elements leaking into the tooltip content. If you find any issue with this reset please [speak with the Design System team](/about/support).
 
 !!!
 
@@ -73,7 +73,7 @@ To apply a predefined typographic styles you have to pass a `@size` argument:
 </Hds::RichTooltip>
 ```
 
-In all the cases the icon size is proportional to the font size (`1em`).
+In all cases the icon size is proportional to the font size (`1em`).
 
 ##### Visual organization
 
@@ -108,7 +108,7 @@ Lorem
 sit amet consectetur adipiscing elit.
 ```
 
-In this case, is better not to assign a `@size` to the `InfoText` toggle, so that its typographic style is the same as the text that comes before/after the toggle text.
+In this case, it is better not to assign a `@size` to the `InfoText` toggle, so that its typographic style is the same as the text that comes before/after the toggle text.
 
 To apply a typographic style to the whole paragraph you can use a [Text](/components/text) component as a wrapper:
 
@@ -146,7 +146,7 @@ You can change this behavior and opt for a more explicit user interaction enabli
 </Hds::RichTooltip>
 ```
 
-Independent of which interaction is used, the tooltip can be dismissed by clicking outside of the component or with the `esc` key (this "light dismiss" behaviour is automatically provided by the [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API/Using#auto_state_and_light_dismiss)).
+Independent of which interaction is used, the tooltip can be dismissed by clicking outside of the component or with the `esc` key (this "light dismiss" behavior is automatically provided by the [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API/Using#auto_state_and_light_dismiss)).
 
 #### Placement
 
@@ -164,9 +164,9 @@ By default the tooltip is shown below the toggle, visually centered. It's possib
 
 #### Collision detection
 
-The RichTooltip component automatically adapts its alignment depending on its position in relation to the viewport, to avoid "collisions" with the browser window boundaries. This means that when an end-user scrolls the page, or resizes the browser, the position of the tooltip on the page dynamically adapts to these changes (along the two axes, main and secondary).
+The RichTooltip component automatically adapts its alignment depending on its position relative to the viewport to avoid "collisions" with the browser window boundaries. This means that when an end-user scrolls the page, or resizes the browser, the position of the tooltip on the page dynamically adapts to these changes (along the two axes, main and secondary).
 
-It's possible to disable this behaviour setting the `@enableCollisionDetection` argument to `false`.
+It's possible to disable this behavior setting the `@enableCollisionDetection` argument to `false`.
 
 It's also possible to customize this behaviour using the values:
 - `flip` - adapts the position only on the main axis
@@ -209,7 +209,7 @@ By default the size of the tooltip automatically adapts to the size of its conte
 
 ### With a generic toggle
 
-There may be use cases in which the `InfoText` toggle doesn't work in a specific context or design. These cases should be rare, but if it's necessary it's possible to use an alternative content as "toggle" with the `ToggleGeneric` yielded component:
+There may be use cases in which the `InfoText` toggle doesn't work in a specific context or design. These cases should be rare, but if necessary it's possible to use an alternative content as a "toggle" with the `ToggleGeneric` yielded component:
 
 ```handlebars
 <Hds::RichTooltip as |RT|>
@@ -243,11 +243,11 @@ In this case, it's not possible to enable the "click" events for the toggle, onl
 
 #### Other options
 
-Apart from the interactivity, which needs different considerations, using the generic toggle for the Rich Tooltip still allows to use the same options for placement, collision detection, inlining, and width/height described above.
+Apart from the interactivity, which requires different considerations, using the generic toggle for the Rich Tooltip still supports the same options for placement, collision detection, inlining, and width/height described above.
 
 ### Advanced options
 
-There may be some special use cases in which you may need some of the more advanced options of the Rich Tooltip. Below you can find some examples. If you find yourself in need of custom behaviours for the Rich Tooltip [speak with the Design System team](/about/support).
+There might be special use cases in which you may need some of the more advanced options of the Rich Tooltip. Below you can find some examples. If you find yourself in need of custom behaviors for the Rich Tooltip [speak with the Design System team](/about/support).
 
 #### Offset
 
