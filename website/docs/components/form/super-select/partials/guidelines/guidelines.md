@@ -143,7 +143,7 @@ By default, the width of the list matches the width of the trigger.
 
 #### Auto width
 
-If the list width is set to auto, it will expand to be the size of the longest list item.
+If the list width is set to auto, it will expand to be the size of the longest list item. A `max-width` can be defined for the list.
 
 ![Showing the list's auto width, resizing to the longest list item](/assets/components/form/super-select/super-select-list-width-auto.png)
 
