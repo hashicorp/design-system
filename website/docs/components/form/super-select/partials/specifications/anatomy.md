@@ -1,15 +1,17 @@
 ## Anatomy
 
-<!-- image then table -->
-![Anatomy of superSelect](/assets/components/alert/super-select-anatomy-inline.png)
+![Anatomy of superSelect](/assets/components/form/super-select/super-select-anatomy.png =667x*)
+
 
 <!-- this is just an example, refer to other components to see how to fill this table -->
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|
-| Icon             | Optional, but recommended                       |
-| Title            | Required, if no description, optional otherwise |
-| Description      | Required, if no title Optional, otherwise       |
-| Actions          | Optional                                        |
-| Dismiss button   | Optional                                        |
-| Content          | Required                                        |
-| Container        | Required                                        |
+| Label             | Required                                                    |
+| Indicator         | Optional                                                    |
+| Helper text       | Optional                                                    |
+| Selected option(s)| Optional                                                    |
+| Control           | Required                                                    |
+| Error message     | Triggered by system                                         |
+| beforeOptions     | Optional                                                    |
+| List              | Required                                                    |
+| afterOptions      | Optional                                                    |
