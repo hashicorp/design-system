@@ -20,4 +20,4 @@ Because disabled states completely remove the interactive function of an element
 
 #### Checkbox
 
-![Showing the different states for the SuperSelect list item checkbox variant](/assets/components/form/super-select/super-select-listitem-checkmark-states.png =432x*)
+![Showing the different states for the SuperSelect list item checkbox variant](/assets/components/form/super-select/super-select-listitem-checkbox-states.png =432x*)
