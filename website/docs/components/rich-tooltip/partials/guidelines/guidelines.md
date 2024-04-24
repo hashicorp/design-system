@@ -100,7 +100,7 @@ Consider these guidelines when using the InfoText component:
 
 - Use the text + trailing icon variant by default.
 - Use the `isUnderlineOnly` variant within text layers and blocks of text (only applicable to Figma).
-- When using the `iconOnly` variant without text, ensure that the component is paired with other textual elements (like a headline) or elements being described by the Rich Tooltip. Don’t use it in isolation on or it’s own.
+- When using the `iconOnly` variant without text, ensure that the component is paired with other textual elements (like a headline) or elements being described by the Rich Tooltip. Don’t use it in isolation or on it’s own.
 - When used in a block of text, we recommend omitting the icon as this can unnecessarily break up the reading flow of the content.
 
 #### Size
@@ -121,8 +121,7 @@ Only available in the InfoText component in Figma, the `isUnderlineOnly` propert
 
 - `size`: `small`, `medium`, `large`
 - `hasText`: boolean; defaults to true
-- `hasTrailingIcon`: boolean; defaults to true
-- `hasLeadingIcon`: boolean
+- `iconPosition`: `leading`, `trailing` (default), `only`, `none`
 
 ### Custom toggle
 
