@@ -1,24 +1,21 @@
 ## How to use this component
 
 Super Select is a custom select-like component aiming to overcome some limitations of the HTML `<select>` element.
-It is based on the popular Ember [PowerSelect](https://ember-power-select.com/) add-on.
 
-We provide two main components with similar APIs, `SuperSelect::Single` and `SuperSelect::Multiple`.
+It's primarily a wrapper for [ember-power-select](https://ember-power-select.com/), with specific accessibility and styling choices that best fit our design system.
+
+We provide two main components with similar APIs: `SuperSelect::Single` and `SuperSelect::Multiple`.
 
 **There are two ways to use each of the Super Select component types:**
 
-1. `Form::SuperSelect::Single::Base` or `Form::SuperSelect::Multiple::Base`—the base component with just the Super Select control.
+1. `Form::SuperSelect::Single::Base` or `Form::SuperSelect::Multiple::Base`—the base component with just the Super Select control. In these instances, you will need to add your own label, helper text, and error messaging.
 2. `Form::SuperSelect::Single::Field` or `Form::SuperSelect::Multiple::Field`—the field parent component which includes the Super Select control, label, helper text, and error messaging (in a wrapping container).
 
-We recommend using the Field component as it provides built-in accessibility functionality. Use the Base component for custom layouts or special use cases not covered by the Field component.
+We recommend using the Field variation as it provides built-in accessibility functionality. Use the Base variation for custom layouts or special use cases not otherwise covered.
 
-### Field components
+### Field: SuperSelect::Single
 
-#### Basic invocations including search
-
-##### SuperSelect::Single::Field
-
-Use `SuperSelect::Single` if you want users to only select a single option.
+In cases where the HDS Dropdown or HDS Form Select components are not suitable, use `SuperSelect::Single`.
 
 ```handlebars
 <Hds::Form::SuperSelect::Single::Field
@@ -32,9 +29,9 @@ Use `SuperSelect::Single` if you want users to only select a single option.
 </Hds::Form::SuperSelect::Single::Field>
 ```
 
-##### SuperSelect::Multiple::Field
+### Field: SuperSelect::Multiple
 
-Use `SuperSelect::Multiple` to enable users to select multiple options.
+Use `SuperSelect::Multiple` to allow users to select multiple options.
 
 ```handlebars
 <Hds::Form::SuperSelect::Multiple::Field
@@ -48,11 +45,9 @@ Use `SuperSelect::Multiple` to enable users to select multiple options.
 </Hds::Form::SuperSelect::Multiple::Field>
 ```
 
-#### Selected option
+### Pre-selected options
 
-Pre-select one or more of the options.
-
-##### Single selection only
+To pre-select an option, declare a value for the `selected` argument:
 
 ```handlebars
 <Hds::Form::SuperSelect::Single::Field
@@ -67,22 +62,7 @@ Pre-select one or more of the options.
 </Hds::Form::SuperSelect::Single::Field>
 ```
 
-##### One or more selections
-
-```handlebars
-<Hds::Form::SuperSelect::Multiple::Field
-  @onChange={{this.noop}}
-  @options={{this.OPTIONS}}
-  @searchEnabled={{true}}
-  @selected={{this.SELECTED}}
-  as |F|
->
-  <F.Label>This is the label</F.Label>
-  {{F.options}}
-</Hds::Form::SuperSelect::Multiple::Field>
-```
-
-#### Placeholder
+### Placeholder
 
 Placeholder text can be added to provide additional helpful context. However this information should not be necessary for users to complete a task.
 
@@ -99,7 +79,7 @@ Placeholder text can be added to provide additional helpful context. However thi
 </Hds::Form::SuperSelect::Single::Field>
 ```
 
-#### Grouped options
+### Grouped options
 
 To group similar sets of options, pass a nested data structure specifying the `groupName` and associated `options`.
 
@@ -126,9 +106,9 @@ To group similar sets of options, pass a nested data structure specifying the `g
 </Hds::Form::SuperSelect::Multiple::Field>
 ```
 
-#### With rich content in options
+### Rich-content options
 
-##### Rich content in SuperSelect::Single
+#### SuperSelect::Single
 
 ```handlebars
 <Hds::Form::SuperSelect::Single::Field
@@ -153,11 +133,12 @@ To group similar sets of options, pass a nested data structure specifying the `g
 </Hds::Form::SuperSelect::Single::Field>
 ```
 
-##### Rich content in SuperSelect::Multiple
+#### SuperSelect::Multiple
 
 Note: By default all the option content will display in the selected item “tags” which display in the trigger. To simplify the content in these tags, use `@selectedItemComponent` to specify a custom component.
 
 **Custom “tag” component example:**
+
 ```markup
 <span>
   {{@option.size}}
@@ -165,6 +146,7 @@ Note: By default all the option content will display in the selected item “tag
 ```
 
 **Component invocation:**
+
 ```handlebars
 <Hds::Form::SuperSelect::Multiple::Field
   @onChange={{this.noop}}
@@ -241,7 +223,7 @@ The Base components are intended for rare cases where the Field components can�
   @options={{this.OPTIONS}}
   @searchEnabled={{true}}
   @selected={{this.SELECTEDMULTIPLE}}
-  @aria-label="Label"
+  @ariaLabel="Select server preferences"
   as |options|
 >
   {{options}}
