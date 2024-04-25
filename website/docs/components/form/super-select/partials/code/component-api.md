@@ -15,7 +15,7 @@ Note: The `renderInPlace` property is set to `true` in `SuperSelect` components 
   <C.Property @name="groupComponent" @type="component">
     Used to create groups of options similarly to the `optgroup` element used within native HTML `select` elements. Requires use of the `options` property (see [grouped options example](#grouped-options)).
   </C.Property>
-  <C.Property name="placeholder">
+  <C.Property @name="placeholder" @type="string">
     Placeholder text to display when no option is selected.
   </C.Property>
   <C.Property @name="searchEnabled" @type="boolean" @default="false">
