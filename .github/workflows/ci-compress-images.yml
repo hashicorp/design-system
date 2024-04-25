@@ -1,0 +1,29 @@
+name: Compress Images
+on:
+  workflow_dispatch:
+  # schedule:
+  #   - cron: '00 23 * * 0'
+
+env:
+  NODE_VERSION: '20.x'
+
+jobs:
+  build:
+    name: Compress Images & Open PR
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - name: Compress Images
+        id: calibre
+        uses: calibreapp/image-actions@790ef463cba7b26ed3b1c80c1449deb72d4c0bcc # main
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          compressOnly: true
+      - name: Open a PR if images can be compressed
+        if: steps.calibre.outputs.markdown != ''
+        uses: peter-evans/create-pull-request@70a41aba780001da0a30141984ae2a0c95d8704e # v6.0.2
+        with:
+          title: 'Compressed Image Assets'
+          branch-suffix: timestamp
+          commit-message: 'compressed image assets'
+          body: ${{ steps.calibre.outputs.markdown }}
