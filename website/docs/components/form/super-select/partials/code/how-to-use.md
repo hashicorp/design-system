@@ -2,7 +2,7 @@
 
 Super Select is a custom select-like component aiming to overcome some limitations of the HTML `<select>` element.
 
-It's a light wrapper for Ember [PowerSelect](https://ember-power-select.com/), with some specific accessibility and styling choices made to best fit our design system.
+It's primarily a wrapper for [ember-power-select](https://ember-power-select.com/), with specific accessibility and styling choices that best fit our design system.
 
 We provide two main components with similar APIs: `SuperSelect::Single` and `SuperSelect::Multiple`.
 
@@ -11,7 +11,7 @@ We provide two main components with similar APIs: `SuperSelect::Single` and `Sup
 1. `Form::SuperSelect::Single::Base` or `Form::SuperSelect::Multiple::Base`—the base component with just the Super Select control. In these instances, you will need to add your own label, helper text, and error messaging.
 2. `Form::SuperSelect::Single::Field` or `Form::SuperSelect::Multiple::Field`—the field parent component which includes the Super Select control, label, helper text, and error messaging (in a wrapping container).
 
-We recommend using the Field variation as it provides built-in accessibility functionality. Try to only use the Base variation for custom layouts or special use cases not otherwise covered.
+We recommend using the Field variation as it provides built-in accessibility functionality. Use the Base variation for custom layouts or special use cases not otherwise covered.
 
 ### Field: Single-select
 
@@ -38,21 +38,6 @@ Use `SuperSelect::Multiple` to allow users to select multiple options. In this e
   @onChange={{this.noop}}
   @options={{this.OPTIONS}}
   @searchEnabled={{true}}
-  as |F|
->
-  <F.Label>This is the label</F.Label>
-  {{F.options}}
-</Hds::Form::SuperSelect::Multiple::Field>
-```
-
-As with the single-select, pre-selection can also be set:
-
-```handlebars
-<Hds::Form::SuperSelect::Multiple::Field
-  @onChange={{this.noop}}
-  @options={{this.OPTIONS}}
-  @searchEnabled={{true}}
-  @selected={{this.SELECTED}}
   as |F|
 >
   <F.Label>This is the label</F.Label>
