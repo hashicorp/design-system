@@ -40,6 +40,11 @@ export const PLACEMENTS = [
   'left-end',
 ];
 
+// share the same default value of "padding" for `flip/shift/autoPlacement` options
+// this refers to the minimum distance from the boundaries' edges (the viewport)
+// before the floating element changes its position (flips, shifts, or autoplace itself)
+const DEFAULT_EDGE_DISTANCE = 8;
+
 // we use this function to process all the options provided to the modifier in a single place,
 // in relation to the Floating UI APIs, and keep the modifier code more clean/simple
 export const getFloatingUIOptions = (options) => {
@@ -47,9 +52,9 @@ export const getFloatingUIOptions = (options) => {
     placement = DEFAULT_PLACEMENT,
     strategy = 'absolute', // we don't need to use `fixed` if we use the Popover API for the "floating" element (it puts the element in the `top-layer`)
     offsetOptions,
-    flipOptions = { padding: 8 },
-    shiftOptions = { padding: 8, limiter: limitShift() },
-    autoPlacementOptions = { padding: 8 },
+    flipOptions = { padding: DEFAULT_EDGE_DISTANCE },
+    shiftOptions = { padding: DEFAULT_EDGE_DISTANCE, limiter: limitShift() },
+    autoPlacementOptions = { padding: DEFAULT_EDGE_DISTANCE },
     middlewareExtra = [],
     enableCollisionDetection,
     arrowOptions,
