@@ -121,7 +121,7 @@ To group similar sets of options, pass a nested data structure specifying the `g
 </Hds::Form::SuperSelect::Multiple::Field>
 ```
 
-### Rich content options
+### Rich-content options
 
 #### Single-select
 
