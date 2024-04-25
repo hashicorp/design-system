@@ -27,3 +27,4 @@ jobs:
           branch-suffix: timestamp
           commit-message: 'compressed image assets'
           body: ${{ steps.calibre.outputs.markdown }}
+          token: ${{ secrets.PAT_TOKEN }}
