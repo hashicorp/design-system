@@ -72,8 +72,8 @@ export const getFloatingUIOptions = (options) => {
     middleware.push(flip(flipOptions));
   }
   if (
-    (enableCollisionDetection === true) |
-    (enableCollisionDetection === 'shift')
+    enableCollisionDetection === true ||
+    enableCollisionDetection === 'shift'
   ) {
     middleware.push(shift(shiftOptions));
   }
