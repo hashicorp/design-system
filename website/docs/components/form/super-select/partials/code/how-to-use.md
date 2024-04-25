@@ -15,7 +15,7 @@ We recommend using the Field variation as it provides built-in accessibility fun
 
 ### Field: Single-select
 
-In cases where the HDS Dropdown or HDS Form Select components are not suitable, use `SuperSelect::Single`. In this example, search is enabled:
+In cases where the HDS Dropdown or HDS Form Select components are not suitable, use `SuperSelect::Single`.
 
 ```handlebars
 <Hds::Form::SuperSelect::Single::Field
@@ -31,7 +31,7 @@ In cases where the HDS Dropdown or HDS Form Select components are not suitable, 
 
 ### Field: Multi-select
 
-Use `SuperSelect::Multiple` to allow users to select multiple options. In this example, search is enabled:
+Use `SuperSelect::Multiple` to allow users to select multiple options.
 
 ```handlebars
 <Hds::Form::SuperSelect::Multiple::Field
