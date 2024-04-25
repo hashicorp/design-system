@@ -17,13 +17,13 @@
 
 ### Single
 
-Selection is limited to a single list item with structured content.
+Selection is limited to a single option item with structured content.
 
 ![Single selection example with list open](/assets/components/form/super-select/super-select-single-variant-text.png =504x*)
 
 ### Multiple
 
-Multiple selections can be made within the list.
+Multiple options can be selected.
 
 ![Multiple selection example with list open](/assets/components/form/super-select/super-select-multiple-variant.png =504x*)
 
@@ -109,9 +109,9 @@ If “Show selected” is used when no selections have been made, a message will
 
 ![Flow showing the behavior of the show selected button when no selections have been made yet.](/assets/components/form/super-select/super-select-flow-no-selections-select-all.png)
 
-Additionally, “Clear selected” will wipe out the selections and revert the SuperSelect to its deselected state. This button is hidden if there are no selections.
+Additionally, “Clear selected” will wipe out the selections and revert the Super Select to its deselected state. This button is hidden if there are no selections.
 
-![Flow showing the behavior of the clear selected button and how it reverts the SuperSelect's state to the default one](/assets/components/form/super-select/super-select-flow-clear-selected.png)
+![Flow showing the behavior of the clear selected button and how it reverts the Super Select's state to the default one](/assets/components/form/super-select/super-select-flow-clear-selected.png)
 
 ##### Footer with custom content
 
@@ -151,8 +151,8 @@ If the list width is set to auto, it will expand to be the size of the longest l
 
 There are four types of ListItems, two of which are variant specific.
 
-- `Checkmark` is used in a single select; indicates that a selection has been made.
-- `Checkbox` is used in the multi-select; indicates that multiple selections can be made.
+- `Checkmark` is used in the single select to indicate a selection has been made.
+- `Checkbox` is used in the multiple selection to indicate the more than one option can be selected.
 - `Title` is used to group ListItems together and help visually organize groups.
 - `Separator` is used to create a visual separation between groups.
 
@@ -168,11 +168,11 @@ ListItems can be grouped visually by adding a title and a separator. The last gr
 
 For complex forms, indicate required fields. This is the most explicit and transparent method and ensures users don’t have to make assumptions. Read more about best practices for [marking required fields in forms](https://www.nngroup.com/articles/required-fields/).
 
-![Showing required next to the label for the SuperSelect](/assets/components/form/super-select/super-select-required.png )
+![Showing required next to the label for the Super Select](/assets/components/form/super-select/super-select-required.png )
 
 For shorter, simpler forms (e.g., login/signup and feedback requests), indicate optional fields instead.
 
-![Showing optional next to the label for the SuperSelect](/assets/components/form/super-select/super-select-optional.png )
+![Showing optional next to the label for the Super Select](/assets/components/form/super-select/super-select-optional.png )
 
 ## Error validation
 
