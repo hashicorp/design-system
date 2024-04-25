@@ -431,10 +431,10 @@
   <Shw::Text::H4>Complex content</Shw::Text::H4>
 
   <Shw::Flex {{style padding-bottom="12em"}} @direction="row" as |SF|>
-    <SF.Item {{style flex="1"}} @label="Label and options with rich content">
+    <SF.Item {{style flex="1"}} @label="rich content w/o custom selectedItem">
       <Hds::Form::SuperSelect::Single::Field
         @selected={{@model.SELECTED_CLUSTER_SIZE_OPTION}}
-        @onChange={{fn (mut @model.SELECTED_CLUSTER_SIZE_OPTION)}}
+        @onChange={{fn (mut @model.SELECTED_CLUSTER_SIZE_OPTIONS)}}
         @options={{@model.CLUSTER_SIZE_OPTIONS}}
         @initiallyOpened={{true}}
         @verticalPosition="below"
@@ -454,6 +454,31 @@
         </F.Options>
       </Hds::Form::SuperSelect::Single::Field>
     </SF.Item>
+    <SF.Item {{style flex="1"}} @label="rich content with custom selectedItem">
+      <Hds::Form::SuperSelect::Single::Field
+        @selected={{@model.SELECTED_CLUSTER_SIZE_OPTION}}
+        @selectedItemComponent={{component "form/power-select/selected-component"}}
+        @onChange={{fn (mut @model.SELECTED_CLUSTER_SIZE_OPTIONS)}}
+        @options={{@model.CLUSTER_SIZE_OPTIONS}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        as |F|
+      >
+        <F.Label>Label</F.Label>
+        <F.Options>
+          {{#let F.options as |option|}}
+            <div class="shw-component-form-super-select-option-rich-content">
+              <p class="shw-component-form-super-select-option-rich-header">
+                <strong>{{option.size}}</strong>
+                <strong>{{option.price}}/hr</strong>
+              </p>
+              <p>{{option.description}}</p>
+            </div>
+          {{/let}}
+        </F.Options>
+      </Hds::Form::SuperSelect::Single::Field>
+    </SF.Item>
+
     <SF.Item {{style flex="1"}} @label="Label and grouped options">
       <Hds::Form::SuperSelect::Single::Field
         @onChange={{fn (mut @model.SELECTED_GROUPED_OPTION)}}
@@ -883,7 +908,30 @@
   <Shw::Text::H4>Complex content</Shw::Text::H4>
 
   <Shw::Flex {{style padding-bottom="15em"}} @direction="row" as |SF|>
-    <SF.Item {{style flex="1"}} @label="Options with rich content">
+    <SF.Item {{style flex="1"}} @label="rich content w/o custom selectedItems">
+      <Hds::Form::SuperSelect::Multiple::Field
+        @selected={{@model.SELECTED_CLUSTER_SIZE_OPTIONS}}
+        @onChange={{fn (mut @model.SELECTED_CLUSTER_SIZE_OPTIONS)}}
+        @options={{@model.CLUSTER_SIZE_OPTIONS}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        as |F|
+      >
+        <F.Label>Label</F.Label>
+        <F.Options>
+          {{#let F.options as |option|}}
+            <div class="shw-component-form-super-select-option-rich-content">
+              <p class="shw-component-form-super-select-option-rich-header">
+                <strong>{{option.size}}</strong>
+                <strong>{{option.price}}/hr</strong>
+              </p>
+              <p>{{option.description}}</p>
+            </div>
+          {{/let}}
+        </F.Options>
+      </Hds::Form::SuperSelect::Multiple::Field>
+    </SF.Item>
+    <SF.Item {{style flex="1"}} @label="rich content with custom selectedItems">
       <Hds::Form::SuperSelect::Multiple::Field
         @selected={{@model.SELECTED_CLUSTER_SIZE_OPTIONS}}
         @selectedItemComponent={{component "form/power-select/selected-component"}}
