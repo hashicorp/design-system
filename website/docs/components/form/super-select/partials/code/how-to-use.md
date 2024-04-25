@@ -13,7 +13,7 @@ We provide two main components with similar APIs: `SuperSelect::Single` and `Sup
 
 We recommend using the Field variation as it provides built-in accessibility functionality. Use the Base variation for custom layouts or special use cases not otherwise covered.
 
-### Field: Single-select
+### Field: SuperSelect::Single
 
 In cases where the HDS Dropdown or HDS Form Select components are not suitable, use `SuperSelect::Single`.
 
@@ -29,7 +29,7 @@ In cases where the HDS Dropdown or HDS Form Select components are not suitable, 
 </Hds::Form::SuperSelect::Single::Field>
 ```
 
-### Field: Multi-select
+### Field: SuperSelect::Multiple
 
 Use `SuperSelect::Multiple` to allow users to select multiple options.
 
@@ -108,7 +108,7 @@ To group similar sets of options, pass a nested data structure specifying the `g
 
 ### Rich-content options
 
-#### Single-select
+#### SuperSelect::Single
 
 ```handlebars
 <Hds::Form::SuperSelect::Single::Field
@@ -133,7 +133,7 @@ To group similar sets of options, pass a nested data structure specifying the `g
 </Hds::Form::SuperSelect::Single::Field>
 ```
 
-#### Multi-select
+#### SuperSelect::Multiple
 
 Note: By default all the option content will display in the selected item “tags” which display in the trigger. To simplify the content in these tags, use `@selectedItemComponent` to specify a custom component.
 
