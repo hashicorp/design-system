@@ -65,25 +65,25 @@ Currently, the Multiple component includes search within an area of the trigger 
 
 If enabled, search allows the user to filter results based on a query.
 
-![Search enabled before the list in both single and multiple variants](/assets/components/form/super-select/super-select-before-options-search.png =836x*)
+![Search enabled before the list in both Single and Multiple components](/assets/components/form/super-select/super-select-before-options-search.png =836x*)
 
 #### CustomContent
 
 If enabled, custom content will occupy this space.
 
-![Custom content enabled before the list in both single and multiple variants](/assets/components/form/super-select/super-select-before-options-custom-content.png =836x*)
+![Custom content enabled before the list in both Single and Multiple components](/assets/components/form/super-select/super-select-before-options-custom-content.png =836x*)
 
 !!! Dont
 
 We recommend against placing heavy UI elements in custom content as it can draw attention away from the list options and will only be visible when the menu is open. Consider placing them outside the list relative to the trigger for better visibility.
 
-![Custom content enabled before the list in both single and multiple variants](/assets/components/form/super-select/super-select-dont-visually-heavy.png =836x*)
+![Custom content enabled before the list in both Single and Multiple components](/assets/components/form/super-select/super-select-dont-visually-heavy.png =836x*)
 
 !!!
 
 ### AfterOptions
 
-AfterOptions allows for either an HDS standardized footer or custom content to be displayed after the options list. Applicable to both Single and Multiple variants, although the footer has additional functionality in the Multiple variant.
+AfterOptions allows for either an HDS standardized footer or custom content to be displayed after the options list. Applicable to both Single and Multiple components, although the footer has additional functionality in the Multiple variant.
 
 #### Footer
 
@@ -93,13 +93,13 @@ By default, the footer displays below the list and contains content and/or butto
 
 The footer shows a total count, which is customizable to fit the context.
 
-![Custom content enabled before the list in both single and multiple variants](/assets/components/form/super-select/super-select-single-variant-footer-with-counter.png)
+![Custom content enabled before the list in both Single and Multiple components](/assets/components/form/super-select/super-select-single-variant-footer-with-counter.png)
 
 ##### Multiple
 
 The footer displays buttons to modify the list of options and a counter of the selected total options.
 
-![Custom content enabled before the list in both single and multiple variants](/assets/components/form/super-select/super-select-multiple-variant-footer.png)
+![Custom content enabled before the list in both Single and Multiple components](/assets/components/form/super-select/super-select-multiple-variant-footer.png)
 
 “Show selected” will change the list to display only selected list items while toggling the label of the button to “Show all.”
 
@@ -115,7 +115,7 @@ Additionally, “Clear selected” will wipe out the selections and revert the S
 
 ##### Footer with custom content
 
-In either of the two variants, you are able to fill the footer with custom content. This is helpful when wanting to mimic the footer but still customize its contents.
+In either of the two components, you are able to fill the footer with custom content. This is helpful when wanting to mimic the footer but still customize its contents.
 
 ![Showing the footer with custom content inside.](/assets/components/form/super-select/super-select-single-multiple-footer-custom-content.png =836x*) 
 
@@ -135,15 +135,13 @@ Lists can be positioned to the left, center or right of the trigger, and above o
 
 ### Width
 
-#### Match the trigger
-
-By default, the width of the list matches the width of the trigger.
+By default, the width of the list matches the trigger width.
 
 ![Showing the list's width matching the trigger's](/assets/components/form/super-select/super-select-list-width-matching.png)
 
 #### Auto width
 
-If the list width is set to auto, it will expand to be the size of the longest list item. A `max-width` can be defined for the list.
+If the list width is set to “auto,” it will match the width of the longest list item. This means it may be either narrower or wider than the trigger width accordingly. A `max-width` can also be defined for the list.
 
 ![Showing the list's auto width, resizing to the longest list item](/assets/components/form/super-select/super-select-list-width-auto.png)
 
@@ -151,18 +149,18 @@ If the list width is set to auto, it will expand to be the size of the longest l
 
 There are four types of ListItems, two of which are variant-specific.
 
-- `Checkmark` is used in the single select to indicate a selection has been made.
-- `Checkbox` is used in the multiple selection to indicate that more than one option can be selected.
+- `Checkmark` is used in the Single component to indicate a selection has been made.
+- `Checkbox` is used in the Multiple component to indicate that more than one option can be selected.
 - `Title` is used to group ListItems together and help visually organize groups.
 - `Separator` is used to create a visual separation between groups.
 
-![Showing the different list types as described above](/assets/components/form/super-select/super-select-list-item-types.png)
+![Showing the different list types](/assets/components/form/super-select/super-select-list-item-types.png)
 
 ## Groups
 
 ListItems can be grouped visually by adding a title and a separator. The last group in the list doesn't require a separator.
 
-![Groups of list items represented in both single and multiple list variants](/assets/components/form/super-select/super-select-group-list-items.png =836x*)
+![Groups of list items represented in both Single and Multiple components](/assets/components/form/super-select/super-select-group-list-items.png =836x*)
 
 ## Required and optional
 
