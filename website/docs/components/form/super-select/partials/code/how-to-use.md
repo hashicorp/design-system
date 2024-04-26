@@ -135,7 +135,11 @@ To group similar sets of options, pass a nested data structure specifying the `g
 
 #### SuperSelect::Multiple
 
-Note: By default all the option content will display in the selected item “tags” which display in the trigger. To simplify the content in these tags, use `@selectedItemComponent` to specify a custom component.
+!!! Info
+
+By default, all the option content will display in the selected item “tags” which display in the trigger. To simplify the content in these tags, use `@selectedItemComponent` to specify a custom component.
+
+!!!
 
 **Custom “tag” component example:**
 

@@ -5,7 +5,7 @@
 - When the list of options is large and search is required to help filter the list.
 - When selecting more than one option is necessary.
 - When list items are displayed in groups.
-- When you require complex structured content to be displayed within the list (and trigger).
+- When complex, structured content is required to be displayed within the options.
 
 ### When not to use
 
@@ -57,7 +57,7 @@ BeforeOptions allows for either a search field or custom content to be displayed
 
 !!! Warning
 
-Currently, the Multiple component only supports search in the trigger and is considered an accessibility issue (nested interactive). This is something we are working to improve in collaboration with the PowerSelect team.
+Currently, the Multiple component includes search within an area of the trigger instead of displaying it in the beforeOptions. This causes a nested interaction which is an accessibility violation. We are in the process of working with the Ember Power Select maintainers to resolve this issue and make it the same as in the Single component.
 
 !!!
 
@@ -97,7 +97,7 @@ The footer shows a total count, which is customizable to fit the context.
 
 ##### Multiple
 
-In the multiple select variant, the `afterOptions` and `footer` display buttons to expedite the deselection process and optionally a counter (selected / total).
+The footer displays buttons to modify the list of options and a counter of the selected total options.
 
 ![Custom content enabled before the list in both single and multiple variants](/assets/components/form/super-select/super-select-multiple-variant-footer.png)
 
@@ -105,11 +105,11 @@ In the multiple select variant, the `afterOptions` and `footer` display buttons 
 
 ![Flow showing the behavior of the show selected button and how it toggles the list to only display selected list items](/assets/components/form/super-select/super-select-flow-select-all.png)
 
-If “Show selected” is used when no selections have been made, a message will appear to let the user know.
+If “Show selected” is used when no options have been selected, a message will appear to let the user know.
 
 ![Flow showing the behavior of the show selected button when no selections have been made yet.](/assets/components/form/super-select/super-select-flow-no-selections-select-all.png)
 
-Additionally, “Clear selected” will wipe out the selections and revert the Super Select to its deselected state. This button is hidden if there are no selections.
+Additionally, “Clear selected” will wipe out the selections and revert the Super Select to its default/deselected state. This button is hidden if no options are selected.
 
 ![Flow showing the behavior of the clear selected button and how it reverts the Super Select's state to the default one](/assets/components/form/super-select/super-select-flow-clear-selected.png)
 

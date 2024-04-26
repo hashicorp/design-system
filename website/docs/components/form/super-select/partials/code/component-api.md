@@ -4,7 +4,11 @@ The Super Select component consists of two main components with nearly identical
 
 While the [ember-power-select documentation](https://ember-power-select.com/docs) has the full list of supported options, we've included the most common options here for your convenience.
 
-Note: The `renderInPlace` property is set to `true` in `SuperSelect` components to fix a `PowerSelect` accessibility issue. (The opener element or “trigger” should be next to dropdown content it hides & reveals.) It cannot be overridden.
+!!! Info
+
+The `renderInPlace` property is set to `true` in `SuperSelect` components to fix a `PowerSelect` accessibility issue. (The opener element or “trigger” should be next to dropdown content it hides & reveals.) It cannot be overridden.
+
+!!!
 
 ### SuperSelect::Single
 
