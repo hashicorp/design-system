@@ -164,7 +164,7 @@ ListItems can be grouped visually by adding a title and a separator. The last gr
 
 ## Required and optional
 
-For complex forms, required fields should be indicated. This is the most explicit and transparent method and ensures users don’t have to make assumptions. Read more about best practices for [marking required fields in forms](https://www.nngroup.com/articles/required-fields/).
+For complex forms, required fields should be indicated. This is the most explicit and transparent method to ensure users don’t have to make assumptions. Read more about best practices for [marking required fields in forms](https://www.nngroup.com/articles/required-fields/).
 
 ![Showing required next to the label for the Super Select](/assets/components/form/super-select/super-select-required.png )
 
@@ -182,9 +182,9 @@ For general content recommendations, refer to the [Primitives](/components/form/
 
 ### Options list
 
-- We recommend keeping options clear and concise; avoid full sentences.
-- Avoid using the same word at the beginning of a set of options.
-- Order the set of options in a logical way based on the use case. For example:
+- We recommend keeping option content clear and concise; avoid full sentences.
+- Avoid repeating the same word at the beginning of a set of options.
+- Order the options in a logical way based on the use case. For example:
   - default or most commonly selected options first
   - alphabetically
   - numerically
