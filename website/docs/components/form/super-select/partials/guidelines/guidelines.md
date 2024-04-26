@@ -17,7 +17,7 @@
 
 ### Single
 
-Selection is limited to a single option item with structured content.
+Selection is limited to a single option item.
 
 ![Single selection example with list open](/assets/components/form/super-select/super-select-single-variant-text.png =504x*)
 
@@ -31,7 +31,7 @@ Multiple options can be selected.
 
 **Empty**
 
-By default, the trigger is empty, indicating that nothing is selected.
+The trigger is empty by default, indicating that nothing is selected.
 
 ![Showing an empty trigger, indicating to the user there is no option selected yet](/assets/components/form/super-select/super-select-trigger-empty.png)
 
@@ -53,7 +53,7 @@ The before and after options are areas above and below the list, independent fro
 
 ### BeforeOptions
 
-BeforeOptions allows for either a search field or custom content to be displayed before the options list. Applicable to both Single and Multiple components.
+BeforeOptions allows for either a search field or custom content to be displayed before the options list.
 
 !!! Warning
 
@@ -75,7 +75,7 @@ If enabled, custom content will occupy this space.
 
 !!! Dont
 
-We recommend against placing heavy UI elements in custom content as it can draw attention away from the list options and will only be visible when the menu is open. Consider placing them outside the list relative to the trigger for better visibility.
+We recommend against placing heavy UI elements in custom content as it can draw attention away from the list options and will only be visible when the menu is open. Consider placing such content outside the list relative to the trigger for better visibility.
 
 ![Custom content enabled before the list in both Single and Multiple components](/assets/components/form/super-select/super-select-dont-visually-heavy.png =836x*)
 
@@ -83,39 +83,39 @@ We recommend against placing heavy UI elements in custom content as it can draw 
 
 ### AfterOptions
 
-AfterOptions allows for either an HDS standardized footer or custom content to be displayed after the options list. Applicable to both Single and Multiple components, although the footer has additional functionality in the Multiple variant.
+AfterOptions allows for either an HDS standardized footer or custom content to be displayed after the options list. The footer has additional functionality in the Multiple variant than the Single.
 
 #### Footer
 
-By default, the footer displays below the list and contains content and/or buttons (depending on the variant) that provide additional context (or functions) to the list options.
+By default, the footer displays below the options list and contains content and/or buttons which provide additional context or functions related to the options.
 
 ##### Single
 
-The footer shows a total count, which is customizable to fit the context.
+The footer for the Single component includes a total count, which is customizable to fit the context.
 
 ![Custom content enabled before the list in both Single and Multiple components](/assets/components/form/super-select/super-select-single-variant-footer-with-counter.png)
 
 ##### Multiple
 
-The footer displays buttons to modify the list of options and a counter of the selected total options.
+The footer for the Multiple component includes buttons to modify the options and a counter of the number of options selected out of the total.
 
 ![Custom content enabled before the list in both Single and Multiple components](/assets/components/form/super-select/super-select-multiple-variant-footer.png)
 
-“Show selected” will change the list to display only selected list items while toggling the label of the button to “Show all.”
+The “Show selected” button displays only the selected options in the list. When activated, it toggles to “Show all.”
 
 ![Flow showing the behavior of the show selected button and how it toggles the list to only display selected list items](/assets/components/form/super-select/super-select-flow-select-all.png)
 
-If “Show selected” is used when no options have been selected, a message will appear to let the user know.
+If “Show selected” is used when no options have been selected, a message will appear notifying the user.
 
 ![Flow showing the behavior of the show selected button when no selections have been made yet.](/assets/components/form/super-select/super-select-flow-no-selections-select-all.png)
 
-Additionally, “Clear selected” will wipe out the selections and revert the Super Select to its default/deselected state. This button is hidden if no options are selected.
+The “Clear selected” button clears all selections and reverts the Super Select to its default/deselected state. This button is hidden if no options are selected.
 
 ![Flow showing the behavior of the clear selected button and how it reverts the Super Select's state to the default one](/assets/components/form/super-select/super-select-flow-clear-selected.png)
 
 ##### Footer with custom content
 
-In either of the two components, you are able to fill the footer with custom content. This is helpful when wanting to mimic the footer but still customize its contents.
+The footer can contain custom content instead of the default content. This is helpful in maintaining the standard appearance of the footer container while allowing for custom usages.
 
 ![Showing the footer with custom content inside.](/assets/components/form/super-select/super-select-single-multiple-footer-custom-content.png =836x*) 
 
@@ -129,9 +129,9 @@ If enabled, custom content will occupy this space.
 
 ### Positioning
 
-Lists can be positioned to the left, center, or right of the trigger, and above or below the trigger to fit more appropriately within the UI. These options are only available when `matchTriggerWidth` is set to `false`.
+Lists can be positioned to the left, right, or center, as well as above or below the trigger as necessary to fit within the UI. These options are only available when `matchTriggerWidth` is set to `false`.
 
-![Showing the different list positions (left, center and right + top and bottom)](/assets/components/form/super-select/super-select-list-positioning.png =836x*)
+![Showing the different list positions (left, center, right + top and bottom)](/assets/components/form/super-select/super-select-list-positioning.png =836x*)
 
 ### Width
 
@@ -158,13 +158,13 @@ There are four types of ListItems, two of which are variant-specific.
 
 ## Groups
 
-ListItems can be grouped visually by adding a title and a separator. The last group in the list doesn't require a separator.
+ListItems can be grouped visually by adding a title and a separator. The last group in the list doesn’t require a separator.
 
 ![Groups of list items represented in both Single and Multiple components](/assets/components/form/super-select/super-select-group-list-items.png =836x*)
 
 ## Required and optional
 
-For complex forms, indicate required fields. This is the most explicit and transparent method and ensures users don’t have to make assumptions. Read more about best practices for [marking required fields in forms](https://www.nngroup.com/articles/required-fields/).
+For complex forms, required fields should be indicated. This is the most explicit and transparent method and ensures users don’t have to make assumptions. Read more about best practices for [marking required fields in forms](https://www.nngroup.com/articles/required-fields/).
 
 ![Showing required next to the label for the Super Select](/assets/components/form/super-select/super-select-required.png )
 
