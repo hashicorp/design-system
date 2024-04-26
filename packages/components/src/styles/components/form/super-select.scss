@@ -174,7 +174,7 @@ $hds-super-select-item-height: 36px;
   // Option Groups (similar to HTML optgroup)
 
   .hds-form-super-select__option-group {
-    &:first-child .hds-form-super-select__option-group-header {
+    &:first-child .hds-form-super-select__option-group-title {
       margin-top: 0;
     }
 
@@ -196,7 +196,7 @@ $hds-super-select-item-height: 36px;
     }
   }
 
-  .hds-form-super-select__option-group-header {
+  .hds-form-super-select__option-group-title {
     margin: 8px 0;
     padding: 6px 7px 2px 15px; // top, right, bottom, left
   }
