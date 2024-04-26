@@ -3,14 +3,14 @@
 ### When to use
 
 - When the list of options is large and search is required to help filter the list.
-- When multiple selections are possible.
+- When selecting more than one option is necessary.
 - When list items are displayed in groups.
 - When you require complex structured content to be displayed within the list (and trigger).
 
 ### When not to use
 
 - To display a list of links (or buttons) in a menu, consider the [HDS Dropdown](/components/dropdown) component instead.
-- When a simple select is needed for a form, consider the [HDS Select](/components/form/select) form element.
+- When a simple select is needed for a form, consider the [HDS Select](/components/form/select) form component.
 - As a means to filter an array of objects within a data set; e.g., when presented in a tabular format or list. Instead, consider other [filtering patterns](/patterns/filter-patterns).
 
 ## Components
@@ -37,7 +37,7 @@ By default, the trigger is empty, indicating that nothing is selected.
 
 **Placeholder text**
 
-Placeholder text can be added to the trigger to provide the user additional helpful context. However this information should not be required for them carry out a task.
+Placeholder text can be added to the trigger to provide the user additional context. However, this information should not be required for them to carry out a task.
 
 ![Showing placeholder text inside of the trigger, still indicating no selection is made, but with some additional guidance](/assets/components/form/super-select/super-select-trigger-placeholder-text.png)
 
@@ -75,7 +75,7 @@ If enabled, custom content will occupy this space.
 
 !!! Dont
 
-We recommend against placing heavy UI elements in custom content as it can draw attention away from the list options and will only be visible when the menu is open. Consider placing them in outside the list relative to the trigger for better visibility.
+We recommend against placing heavy UI elements in custom content as it can draw attention away from the list options and will only be visible when the menu is open. Consider placing them outside the list relative to the trigger for better visibility.
 
 ![Custom content enabled before the list in both single and multiple variants](/assets/components/form/super-select/super-select-dont-visually-heavy.png =836x*)
 
@@ -149,10 +149,10 @@ If the list width is set to auto, it will expand to be the size of the longest l
 
 ## ListItem Types
 
-There are four types of ListItems, two of which are variant specific.
+There are four types of ListItems, two of which are variant-specific.
 
 - `Checkmark` is used in the single select to indicate a selection has been made.
-- `Checkbox` is used in the multiple selection to indicate the more than one option can be selected.
+- `Checkbox` is used in the multiple selection to indicate that more than one option can be selected.
 - `Title` is used to group ListItems together and help visually organize groups.
 - `Separator` is used to create a visual separation between groups.
 

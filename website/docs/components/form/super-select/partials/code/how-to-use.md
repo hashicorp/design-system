@@ -13,7 +13,7 @@ We provide two main components with similar APIs: `SuperSelect::Single` and `Sup
 
 We recommend using the Field variation as it provides built-in accessibility functionality. Use the Base variation for custom layouts or special use cases not otherwise covered.
 
-### Field: SuperSelect::Single
+### Field::SuperSelect::Single
 
 In cases where the HDS Dropdown or HDS Form Select components are not suitable, use `SuperSelect::Single`.
 
@@ -29,7 +29,7 @@ In cases where the HDS Dropdown or HDS Form Select components are not suitable, 
 </Hds::Form::SuperSelect::Single::Field>
 ```
 
-### Field: SuperSelect::Multiple
+### Field::SuperSelect::Multiple
 
 Use `SuperSelect::Multiple` to allow users to select multiple options.
 
@@ -64,7 +64,7 @@ To pre-select an option, declare a value for the `selected` argument:
 
 ### Placeholder
 
-Placeholder text can be added to provide additional helpful context. However this information should not be necessary for users to complete a task.
+Placeholder text can be added to provide additional context. However, this information should not be necessary for users to complete a task.
 
 ```handlebars
 <Hds::Form::SuperSelect::Single::Field
@@ -172,7 +172,7 @@ Note: By default all the option content will display in the selected item “tag
 
 #### Helper text
 
-You can add extra information to the field using helper text. When helper text is added, the component automatically adds an `aria-describedby` attribute to the Super Select control, associating it with the automatically generated `ID` of the helper text element.
+You can add extra information to the field using [Helper Text](/components/form/primitives#formhelpertext). When helper text is added, the component automatically adds an `aria-describedby` attribute to the Super Select control, associating it with the automatically generated `ID` of the helper text element.
 
 ```handlebars
 <Hds::Form::SuperSelect::Single::Field

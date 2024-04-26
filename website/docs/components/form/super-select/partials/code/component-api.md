@@ -1,6 +1,6 @@
 ## Component API
 
-The SuperSelect component consists of two main components with nearly identical APIs to the [ember-power-select](https://ember-power-select.com/) addon.
+The Super Select component consists of two main components with nearly identical APIs to the [ember-power-select](https://ember-power-select.com/) addon.
 
 While the [ember-power-select documentation](https://ember-power-select.com/docs) has the full list of supported options, we've included the most common options here for your convenience.
 
