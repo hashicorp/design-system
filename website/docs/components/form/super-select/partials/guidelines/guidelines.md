@@ -129,7 +129,7 @@ If enabled, custom content will occupy this space.
 
 ### Positioning
 
-Lists can be positioned to the left, center or right of the trigger, and above or below the trigger to fit more appropriately within the UI. These options are only available when `matchTriggerWidth` is set to `false`.
+Lists can be positioned to the left, center, or right of the trigger, and above or below the trigger to fit more appropriately within the UI. These options are only available when `matchTriggerWidth` is set to `false`.
 
 ![Showing the different list positions (left, center and right + top and bottom)](/assets/components/form/super-select/super-select-list-positioning.png =836x*)
 
