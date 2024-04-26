@@ -182,7 +182,7 @@ For general content recommendations, refer to the [Primitives](/components/form/
 
 ### Options list
 
-- We recommend keeping option content clear and concise; avoid full sentences.
+- Keep option content clear and concise; avoid full sentences.
 - Avoid repeating the same word at the beginning of a set of options.
 - Order the options in a logical way based on the use case. For example:
   - default or most commonly selected options first
