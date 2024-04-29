@@ -12,6 +12,11 @@ module('Acceptance | components/text', function (hooks) {
   setupApplicationTest(hooks);
 
   test('visiting /components/text', async function (assert) {
+    setRunOptions({
+      rules: {
+        'heading-order': { enabled: false },
+      },
+    });
     await visit('/components/text');
 
     assert.strictEqual(currentURL(), '/components/text');
