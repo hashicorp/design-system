@@ -19,7 +19,8 @@ In cases where the HDS Dropdown or HDS Form Select components are not suitable, 
 
 ```handlebars
 <Hds::Form::SuperSelect::Single::Field
-  @onChange={{this.noop}}
+  @onChange={{fn (mut this.SELECTED_OPTION)}}
+  @selected={{this.SELECTED_OPTION}}
   @options={{this.OPTIONS}}
   @searchEnabled={{true}}
   as |F|
@@ -35,7 +36,8 @@ Use `SuperSelect::Multiple` to allow users to select multiple options.
 
 ```handlebars
 <Hds::Form::SuperSelect::Multiple::Field
-  @onChange={{this.noop}}
+  @onChange={{fn (mut this.SELECTED_OPTIONS)}}
+  @selected={{this.SELECTED_OPTIONS}}
   @options={{this.OPTIONS}}
   @searchEnabled={{true}}
   as |F|
@@ -51,10 +53,10 @@ To pre-select an option, declare a value for the `selected` argument:
 
 ```handlebars
 <Hds::Form::SuperSelect::Single::Field
-  @onChange={{this.noop}}
+  @onChange={{fn (mut this.PRE_SELECTED_OPTION)}}
+  @selected={{this.PRE_SELECTED_OPTION}}
   @options={{this.OPTIONS}}
   @searchEnabled={{true}}
-  @selected={{this.SELECTED}}
   as |F|
 >
   <F.Label>Label</F.Label>
@@ -68,13 +70,14 @@ Placeholder text can be added to provide additional context. However, this infor
 
 ```handlebars
 <Hds::Form::SuperSelect::Single::Field
-  @onChange={{this.noop}}
+  @onChange={{fn (mut this.PLACEHOLDER_SELECTED_OPTION)}}
+  @selected={{this.PLACEHOLDER_SELECTED_OPTION}}
   @options={{this.OPTIONS}}
   @searchEnabled={{true}}
-  @placeholder="Your state"
+  @placeholder="Your location"
   as |F|
 >
-  <F.Label>Select your state of residence</F.Label>
+  <F.Label>Select your location of residence</F.Label>
   {{F.options}}
 </Hds::Form::SuperSelect::Single::Field>
 ```
@@ -96,9 +99,9 @@ To group similar sets of options, pass a nested data structure specifying the `g
 
 ```handlebars
 <Hds::Form::SuperSelect::Multiple::Field
-  @onChange={{this.noop}}
-  @options={{this.GROUPED_OPTIONS}}
+  @onChange={{fn (mut this.SELECTED_GROUPED_OPTIONS)}}
   @selected={{this.SELECTED_GROUPED_OPTIONS}}
+  @options={{this.GROUPED_OPTIONS}}
   as |F|
 >
   <F.Label>Grouped options</F.Label>
@@ -112,7 +115,7 @@ To group similar sets of options, pass a nested data structure specifying the `g
 
 ```handlebars
 <Hds::Form::SuperSelect::Single::Field
-  @onChange={{this.noop}}
+  @onChange={{fn (mut this.SELECTED_CLUSTER_SIZE_OPTION)}}
   @selected={{this.SELECTED_CLUSTER_SIZE_OPTION}}
   @options={{this.CLUSTER_SIZE_OPTIONS}}
   as |F|
@@ -153,7 +156,7 @@ By default, all the option content will display in the selected item “tags” 
 
 ```handlebars
 <Hds::Form::SuperSelect::Multiple::Field
-  @onChange={{this.noop}}
+  @onChange={{fn (mut this.SELECTED_CLUSTER_SIZE_OPTIONS)}}
   @selected={{this.SELECTED_CLUSTER_SIZE_OPTIONS}}
   @selectedItemComponent={{component "power-select/selected-option"}}
   @options={{this.CLUSTER_SIZE_OPTIONS}}
@@ -180,9 +183,9 @@ You can add extra information to the field using [Helper Text](/components/form/
 
 ```handlebars
 <Hds::Form::SuperSelect::Single::Field
-  @onChange={{this.noop}}
-  @options={{this.GROUPED_OPTIONS}}
+  @onChange={{fn (mut this.SELECTED_GROUPED_OPTION)}}
   @selected={{this.SELECTED_GROUPED_OPTION}}
+  @options={{this.GROUPED_OPTIONS}}
   @ariaLabel="Label"
   as |F|
 >
@@ -205,9 +208,9 @@ For example:
 
 ```handlebars
 <Hds::Form::SuperSelect::Single::Field
-  @onChange={{this.noop}}
+  @onChange={{fn (mut this.EXTRA_SELECTED_GROUPED_OPTION)}}
+  @selected={{this.EXTRA_SELECTED_GROUPED_OPTION}}
   @options={{this.GROUPED_OPTIONS}}
-  @selected={{this.SELECTED_GROUPED_OPTION}}
   @ariaLabel="Label"
   as |F|
 >
@@ -223,10 +226,10 @@ The Base components are intended for rare cases where the Field components can�
 
 ```handlebars
 <Hds::Form::SuperSelect::Multiple::Base
-  @onChange={{this.noop}}
+  @onChange={{fn (mut this.SELECTED_MULTIPLE)}}
+  @selected={{this.SELECTED_MULTIPLE}}
   @options={{this.OPTIONS}}
   @searchEnabled={{true}}
-  @selected={{this.SELECTEDMULTIPLE}}
   @ariaLabel="Select server preferences"
   as |options|
 >
