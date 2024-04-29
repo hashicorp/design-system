@@ -169,14 +169,11 @@ export default modifier((element, positional, named = {}) => {
       '`hds-anchored-position` modifier - the `selector` provided for the "arrow" element is not a valid DOM selector',
       arrowElement
     );
-
-    // for the the `getFloatingUIOptions` we always want to provide the element, not the selector
-    named.arrowElement = arrowElement;
   }
 
   // the Floating UI "options" to apply to the "floating" element
-  // notice: it's expressed as "named" argument (object) for the modifier
-  const floatingOptions = getFloatingUIOptions(named);
+  // notice: we spread the `named` argument and override its `arrowElement` value instead of setting it directly because Ember complains that modifier's arguments must be immutable
+  const floatingOptions = getFloatingUIOptions({ ...named, arrowElement });
 
   const computeFloatingPosition = async () => {
     // important to know: `computePosition()` is not stateful, it only positions the "floating" element once
