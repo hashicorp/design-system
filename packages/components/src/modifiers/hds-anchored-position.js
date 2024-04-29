@@ -57,7 +57,8 @@ export const getFloatingUIOptions = (options) => {
     autoPlacementOptions = { padding: DEFAULT_EDGE_DISTANCE },
     middlewareExtra = [],
     enableCollisionDetection,
-    arrowOptions,
+    arrowElement,
+    arrowPadding,
   } = options;
 
   // we build dynamically the list of middleware functions to invoke, depending on the options provided
@@ -87,10 +88,12 @@ export const getFloatingUIOptions = (options) => {
   }
 
   // https://floating-ui.com/docs/arrow
-  if (arrowOptions) {
+  if (arrowElement) {
     middleware.push(
-      // options: { element, padding }
-      arrow(arrowOptions)
+      arrow({
+        element: arrowElement,
+        padding: arrowPadding ?? 0,
+      })
     );
   }
 
@@ -146,21 +149,21 @@ export default modifier((element, positional, named = {}) => {
   // notice: it's declared inside the "named" argument (object) for the modifier
   // but we need to extract it also here so it can be used to assign inline styles to it
   let arrowElement;
-  if (named?.arrowOptions?.element) {
+  if (named.arrowElement) {
     assert(
       '`hds-anchored-position` modifier - the `element` provided for the "arrow" element is not a valid DOM node',
-      named.arrowOptions.element instanceof HTMLElement ||
-        named.arrowOptions.element instanceof SVGElement
+      named.arrowElement instanceof HTMLElement ||
+        named.arrowElement instanceof SVGElement
     );
 
-    arrowElement = named.arrowOptions.element;
-  } else if (named?.arrowOptions?.selector) {
+    arrowElement = named.arrowElement;
+  } else if (named.arrowSelector) {
     assert(
       '`hds-anchored-position` modifier - the `selector` provided for the "arrow" element must be a string',
-      typeof named.arrowOptions.selector === 'string'
+      typeof named.arrowSelector === 'string'
     );
 
-    arrowElement = document.querySelector(named.arrowOptions.selector);
+    arrowElement = document.querySelector(named.arrowSelector);
 
     assert(
       '`hds-anchored-position` modifier - the `selector` provided for the "arrow" element is not a valid DOM selector',
@@ -168,7 +171,7 @@ export default modifier((element, positional, named = {}) => {
     );
 
     // for the the `getFloatingUIOptions` we always want to provide the element, not the selector
-    named.arrowOptions.element = arrowElement;
+    named.arrowElement = arrowElement;
   }
 
   // the Floating UI "options" to apply to the "floating" element
