@@ -139,19 +139,15 @@ module(
       assert.deepEqual(floatingUIOptions.middleware[3].name, 'test');
       assert.deepEqual(floatingUIOptions.middleware[3].options, { abc: 1234 });
     });
-    test('returns the `arrow` provided as an option', async function (assert) {
+    test('returns the `arrow` element provided as an option ', async function (assert) {
       const floatingUIOptions = getFloatingUIOptions({
         // notice: this in reality should be a DOM element, but we found a string works as well for this type of test
-        arrowOptions: {
-          element: 'test1234',
-          selector: '#test1234',
-          padding: 1234,
-        },
+        arrowElement: 'test1234',
+        arrowPadding: 1234,
       });
       assert.deepEqual(floatingUIOptions.middleware[1].name, 'arrow');
       assert.deepEqual(floatingUIOptions.middleware[1].options, {
         element: 'test1234',
-        selector: '#test1234',
         padding: 1234,
       });
     });
@@ -233,7 +229,7 @@ module('Integration | Modifier | hds-anchored-position', function (hooks) {
     this.anchorElement = document.getElementById('anchor');
     this.floatingElement = document.getElementById('floating');
     this.arrowElement = document.getElementById('arrow');
-    this.floatingOptions = { arrowOptions: { element: this.arrowElement } };
+    this.floatingOptions = { arrowElement: this.arrowElement };
     // apply the modifier to the testing elements (after the rendering)
     await anchoredElementModifier(
       this.floatingElement, // element the modifier is attached to
@@ -268,7 +264,7 @@ module('Integration | Modifier | hds-anchored-position', function (hooks) {
       placement: 'bottom-start',
       strategy: 'fixed',
       offsetOptions: 20,
-      arrowOptions: { element: this.arrowElement },
+      arrowElement: this.arrowElement,
     };
     // apply the modifier to the elements (after the rendering)
     await anchoredElementModifier(
@@ -294,7 +290,7 @@ module('Integration | Modifier | hds-anchored-position', function (hooks) {
     await render(hbs`
       <div id="wrapper">
         <div id="anchor">anchor</div>
-        <div id="floating" {{hds-anchored-position '#anchor' placement='bottom-start' strategy='fixed' offsetOptions=20 arrowOptions=(hash selector='#arrow') }}><div id="arrow"></div>floating</div>
+        <div id="floating" {{hds-anchored-position '#anchor' placement='bottom-start' strategy='fixed' offsetOptions=20 arrowSelector='#arrow' }}><div id="arrow"></div>floating</div>
       </div>
     `);
     this.anchorElement = document.getElementById('anchor');
