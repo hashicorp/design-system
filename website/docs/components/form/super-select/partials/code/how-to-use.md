@@ -121,13 +121,13 @@ To group similar sets of options, pass a nested data structure specifying the `g
 
   <F.Options>
     {{#let F.options as |option|}}
-      <div class="doc-super-select-option-rich-content">
-        <p class="doc-super-select-option-rich-header">
+      <Hds::Text::Body @size="200">
+        <div class="doc-super-select-option-rich-header">
           <strong>{{option.size}}</strong>
           <strong>{{option.price}}</strong>
-        </p>
-        <p>{{option.description}}</p>
-      </div>
+        </div>
+        <div>{{option.description}}</div>
+      </Hds::Text::Body>
     {{/let}}
   </F.Options>
 </Hds::Form::SuperSelect::Single::Field>
@@ -162,13 +162,13 @@ By default, all the option content will display in the selected item “tags” 
   <F.Label>Size</F.Label>
   <F.Options>
     {{#let F.options as |option|}}
-      <div class="doc-super-select-option-rich-content">
-        <p class="doc-super-select-option-rich-header">
+      <Hds::Text::Body @size="200">
+        <div class="doc-super-select-option-rich-header">
           <strong>{{option.size}}</strong>
           <strong>{{option.price}}</strong>
-        </p>
-        <p>{{option.description}}</p>
-      </div>
+        </div>
+        <div>{{option.description}}</div>
+      </Hds::Text::Body>
     {{/let}}
   </F.Options>
 </Hds::Form::SuperSelect::Multiple::Field>
