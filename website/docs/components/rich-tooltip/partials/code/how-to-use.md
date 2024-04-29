@@ -2,53 +2,32 @@ The Rich Tooltip component associates a "toggle" element with a "tooltip" elemen
 
 Now, while at first glance the Rich Tooltip component may seem a simple component, beneath the surface it conceals a lot of complexity:
 
-- the component uses the [native web Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API) to display the tooltip content as "popover" on top of the page content
+- the component uses the [native web Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API) to display the tooltip content as "popover" on top of the page
 - it also uses a third-party library called [Floating UI](https://floating-ui.com/) to provide the anchoring of the "popover" to the "toggle" element, and the automatic positioning/collision detection functionality.
 - these functionalities are in turn abstracted in two underlying HDS utilities (the `hds-anchored-position` modifier and the [PopoverPrimitive component](/utilities/popover-primitive)), on top of which the Rich Tooltip component is built.
 
-The component provides a lot of options to customize its behavior. Below we have tried to describe the most common examples, but if you find a use case that is not supported by the existing Rich Tooltip implementation, please [speak with the Design System team](/about/support).
+Since tooltips are notoriously hard to implement in an accessible way, we limited the ways in which the Rich Tooltip can be used. At the same time, we have provided an escape hatch if some edge cases need to be supported (but in this case, consumers will need to make sure the component is used in a [conformant accessible way](/components/rich-tooltip?tab=accessibility)).
 
-And finally, since tooltips are notoriously hard to implement in an accessible way, we have tried to limit the ways in which the Rich Tooltip can be used, while at the same time provide an escape hatch if some edge cases need to be supported. If this is the case, consumers will need to make sure the component is used in a [conformant accessible way](/components/rich-tooltip?tab=accessibility).
+The component provides a lot of options to customize its behavior. Below we have tried to describe the most common examples, but if you find a use case that is not supported by the existing Rich Tooltip implementation, please [speak with the Design System team](/about/support).
 
 ## How to use this component
 
 When using this component, there are a few things to consider:
 
-- what toggle to use; the standard [InfoText toggle](#with-infotext-toggle) or a [generic toggle](#with-a-generic-toggle), and in that case if the generic toggle contains interactive elements or not
+- what toggle to use; the [standard toggle](#standard-toggle) or a [generic toggle](#generic-toggle)
 - if the toggle is a [standalone element](#as-a-standalone-element) or if instead lives [inline with other text](#inline-with-other-text)
 - how the end-user should [interact](#interactivity) with the toggle to show/hide the tooltip
 
 Depending of these factors, there are different ways to implement the code, described in these alternatives below.
 
-### With `InfoText` toggle
+### Standard toggle
 
-#### As a standalone element
-
-The toggle element (and the parent "wrapping" container) are rendered by default as block elements. This means it can easily be used as a standalone element.
-
-The invocation requires a "toggle" element and "content" to be passed as yielded sub-components:
-
-```handlebars
-<Hds::RichTooltip as |RT|>
-  <RT.ToggleInfoText @icon="info">More info</RT.ToggleInfoText>
-  <RT.PopoverContent>
-    <Hds::Text::Display @tag="h4" @size="200">Some title</Hds::Text::Display>
-    <Hds::Text::Body @tag="p" @size="200">Descriptive information</Hds::Text::Body>
-  </RT.PopoverContent>
-</Hds::RichTooltip>
-```
-
-Here we're using the `InfoText` toggle element, which ensures perceivability and accessibility out of the box. It consist of text (with a specific underline decoration applied to it) and an optional icon (can be leading or trailing).
+The standard `Toggle` element **ensures perceivability and accessibility out of the box**. It consist of a text (with a specific underline decoration applied to it) and an optional icon. The icon can be leading or trailing, and its size is always proportional to the font size of the text (`1em`).
 
 The text and the icon are rendered inside an HTML `<button>` element (the one that technically acts as a toggling control for the popover). For details about how the user can interact with this button see the [Interactivity](#interactivity) sub-section.
 
-!!! Info
 
-If this doesn't work for your needs/context, you can use a [generic toggle](#with-a-generic-toggle), but in this case it's up to you to make sure the implementation is compliant with the [accessibility requirements](/components/rich-tooltip?tab=accessibility).
-
-!!!
-
-The `PopoverContent` element instead is a pure container that yields the children inside the "popover" tooltip bubble. You can pass whatever content you need to it, but you are also responsible of styling and structuring it according to your needs/context.
+The `Bubble` element instead is a pure container that yields the children inside the "popover" tooltip bubble. Consumers can pass whatever content they need to it, but they are also responsible of styling and structuring it according to their needs/context.
 
 
 !!! Info
@@ -57,92 +36,105 @@ Notice: we apply a CSS reset (`all: initial`) to the container to avoid styles a
 
 !!!
 
-##### Size
+#### As a standalone element
 
-As you can see from the code example above, the content of the toggle doesn't get formatted by default (so that it can be used [inline with other text](#inline-with-other-text) and it inherits the typographic style from its parent element).
+By default the `Toggle` element is rendered as a block. This means it can easily be used as a standalone UI element.
 
-To apply a predefined typographic styles you have to pass a `@size` argument:
+As mentioned above, the invocation requires a "toggle" and a "bubble" element to be passed as yielded sub-components. The "toggle" accepts a `@text` argument and an optional `@icon` argument. The "bubble" element instead yields its content inside the popover tooltip:
 
 ```handlebars
 <Hds::RichTooltip as |RT|>
-  <RT.ToggleInfoText @size="large" @icon="info" @iconPosition="trailing">More info</RT.ToggleInfoText>
-  <RT.PopoverContent>
+  <RT.Toggle @text="More info" @icon="info" />
+  <RT.Bubble>
     <Hds::Text::Display @tag="h4" @size="200">Some title</Hds::Text::Display>
-    <Hds::Text::Body @tag="p" @size="200">Descriptive information</Hds::Text::Body>
-  </RT.PopoverContent>
+    <Hds::Text::Body @tag="p" @size="200">Some descriptive information</Hds::Text::Body>
+  </RT.Bubble>
 </Hds::RichTooltip>
 ```
 
-In all cases the icon size is proportional to the font size (`1em`).
+As one can see, by default the text of the toggle doesn't get a typographic style (it inherits it from the parent).
+
+##### Size
+
+
+To apply a predefined typographic style it's necessary to pass a `@size` argument:
+
+```handlebars
+<Hds::RichTooltip as |RT|>
+  <RT.Toggle @size="large" @text="More info" @icon="info" />
+  <RT.Bubble>
+    <Hds::Text::Display @tag="h4" @size="200">Some title</Hds::Text::Display>
+    <Hds::Text::Body @tag="p" @size="200">Some descriptive information</Hds::Text::Body>
+  </RT.Bubble>
+</Hds::RichTooltip>
+```
 
 ##### Visual organization
 
-If you need to align the toggle with other UI elements, use a parent element that wraps the content and provides the desired layout (e.g., using flexbox):
+To align the toggle with other UI elements, consumers should use a parent element that wraps the content and provides the desired layout (e.g., using flexbox):
 
 ```handlebars
 <div class="doc-rich-tooltip-standalone-block-flex-layout">
   <Hds::Button @text="Your action" {{on "click" this.onClickButton}} />
   <Hds::RichTooltip as |RT|>
-    <RT.ToggleInfoText @size="medium" @icon="info">More info</RT.ToggleInfoText>
-    <RT.PopoverContent>
+    <RT.Toggle @size="medium" @text="More info" @icon="info" />
+    <RT.Bubble>
       <Hds::Text::Display @tag="h4" @size="200">Some title</Hds::Text::Display>
-      <Hds::Text::Body @tag="p" @size="200">Descriptive information</Hds::Text::Body>
-    </RT.PopoverContent>
+      <Hds::Text::Body @tag="p" @size="200">Some descriptive information</Hds::Text::Body>
+    </RT.Bubble>
   </Hds::RichTooltip>
 </div>
 ```
 
 #### Inline with other text
 
-If the tooltip toggle needs to be inline with other text, use the `@isInline` argument:
+If the toggle needs to be inline with other text, use the `@isInline` argument:
 
 ```handlebars
 Lorem
-<Hds::RichTooltip @isInline={{true}} as |RT|>
-  <RT.ToggleInfoText>ipsum dolor</RT.ToggleInfoText>
-  <RT.PopoverContent>
+<Hds::RichTooltip as |RT|>
+  <RT.Toggle @isInline={{true}} @text="ipsum dolor" />
+  <RT.Bubble>
     <Hds::Text::Display @tag="h4" @size="200">Some title</Hds::Text::Display>
-    <Hds::Text::Body @tag="p" @size="200">Descriptive information</Hds::Text::Body>
-  </RT.PopoverContent>
+    <Hds::Text::Body @tag="p" @size="200">Some descriptive information</Hds::Text::Body>
+  </RT.Bubble>
 </Hds::RichTooltip>
 sit amet consectetur adipiscing elit.
 ```
 
-In this case, it is better not to assign a `@size` to the `InfoText` toggle, so that its typographic style is the same as the text that comes before/after the toggle text.
+In this case, it is better not to assign a `@size` to the `Toggle`, so that its typographic style is the same as the text that comes before/after the toggle text.
 
-To apply a typographic style to the whole paragraph you can use a [Text](/components/text) component as a wrapper:
+To apply a typographic style to the whole paragraph consumers can use a [Text](/components/text) component as a wrapper:
 
 ```handlebars
 <Hds::Text::Body @tag="p" @size="300">
   Lorem
-  <Hds::RichTooltip @isInline={{true}} as |RT|>
-    <RT.ToggleInfoText>ipsum dolor</RT.ToggleInfoText>
-    <RT.PopoverContent>
+  <Hds::RichTooltip as |RT|>
+    <RT.Toggle @isInline={{true}} @text="ipsum dolor" />
+    <RT.Bubble>
       <Hds::Text::Display @tag="h4" @size="200">Some title</Hds::Text::Display>
-      <Hds::Text::Body @tag="p" @size="200">Descriptive information</Hds::Text::Body>
-    </RT.PopoverContent>
+      <Hds::Text::Body @tag="p" @size="200">Some descriptive information</Hds::Text::Body>
+    </RT.Bubble>
   </Hds::RichTooltip>
   sit amet consectetur adipiscing elit.
 </Hds::Text::Body>
 ```
 
-Similarly, you can apply a typographic class, or a custom CSS class, to a parent container.
-
-Which one of these approaches to use will depend on the context where the code is implemented, so we leave it to the consumers to decide which approach works better for them.
+Similarly, a typographic class (or a custom CSS class) can be applied to a parent container.
 
 #### Interactivity
 
 By default the visibility of the tooltip is toggled via "soft" event listeners (hover/focus) applied to the "toggle" container. _Notice: from a purely technical standpoint, the events are `mouseEnter/Leave` and `focusIn/Out`._
 
-You can change this behavior and opt for a more explicit user interaction enabling "click" events (in this case the "soft" events are disabled) setting the argument `@enableClickEvents` to `true`:
+To change this behavior and opt for a more explicit user interaction enabling "click" events (in this case the "soft" events are disabled) set the argument `@enableClickEvents` to `true`:
 
 ```handlebars
 <Hds::RichTooltip @enableClickEvents={{true}} as |RT|>
-  <RT.ToggleInfoText @size="medium" @icon="info">More info</RT.ToggleInfoText>
-  <RT.PopoverContent>
+  <RT.Toggle @size="medium" @text="More info" @icon="info" />
+  <RT.Bubble>
     <Hds::Text::Display @tag="h4" @size="200">Some title</Hds::Text::Display>
-    <Hds::Text::Body @tag="p" @size="200">Descriptive information</Hds::Text::Body>
-  </RT.PopoverContent>
+    <Hds::Text::Body @tag="p" @size="200">Some descriptive information</Hds::Text::Body>
+  </RT.Bubble>
 </Hds::RichTooltip>
 ```
 
@@ -150,15 +142,15 @@ Independent of which interaction is used, the tooltip can be dismissed by clicki
 
 #### Placement
 
-By default the tooltip is shown below the toggle, visually centered. It's possible to change the initial position of the tooltip using the `@popoverPlacement` argument:
+By default the tooltip is shown below the toggle, visually centered. It's possible to change the initial position of the tooltip using the `@placement` argument:
 
 ```handlebars
-<Hds::RichTooltip @popoverPlacement="top-start" as |RT|>
-  <RT.ToggleInfoText @size="large" @icon="info">Lorem ipsum</RT.ToggleInfoText>
-  <RT.PopoverContent>
-    <Hds::Text::Display @tag="h4" @size="300">Lorem ipsum</Hds::Text::Display>
-    <Hds::Text::Body @tag="p" @size="200">Sit amet consectetur ut ultrices id venenatis in felis auctor ante.</Hds::Text::Body>
-  </RT.PopoverContent>
+<Hds::RichTooltip as |RT|>
+  <RT.Toggle @size="medium" @text="Lorem ipsum" @icon="info" />
+  <RT.Bubble @placement="top-start">
+    <Hds::Text::Display @tag="h4" @size="200">Some title</Hds::Text::Display>
+    <Hds::Text::Body @tag="p" @size="200">Some descriptive information that spans multiple lines</Hds::Text::Body>
+  </RT.Bubble>
 </Hds::RichTooltip>
 ```
 
@@ -184,96 +176,89 @@ More in-depth explanations about the different alignment algorithms and how they
 In the example below we use an `auto` placement: try to scroll and/or resize the page and see how the tooltip changes its position automatically:
 
 ```handlebars
-<Hds::RichTooltip @enableCollisionDetection="auto" @enableClickEvents={{true}} as |RT|>
-  <RT.ToggleInfoText @size="large" @icon="info" @iconPosition="trailing">Lorem ipsum</RT.ToggleInfoText>
-  <RT.PopoverContent>
-    <Hds::Text::Display @tag="h4" @size="300">Lorem ipsum</Hds::Text::Display>
-    <Hds::Text::Body @tag="p" @size="200">Sit amet consectetur ut ultrices id venenatis in felis auctor ante.</Hds::Text::Body>
-  </RT.PopoverContent>
+<Hds::RichTooltip @enableClickEvents={{true}} as |RT|>
+  <RT.Toggle @size="medium" @text="More info" @icon="info" />
+  <RT.Bubble @enableCollisionDetection="auto">
+    <Hds::Text::Display @tag="h4" @size="200">Some title</Hds::Text::Display>
+    <Hds::Text::Body @tag="p" @size="200">Some descriptive information that spans multiple lines</Hds::Text::Body>
+  </RT.Bubble>
 </Hds::RichTooltip>
 ```
 
 #### Fixed width/height
 
-By default the size of the tooltip automatically adapts to the size of its content (with a max-width of `280px`). It's possible to assign fixed `width` and/or `height` to the tooltip using the `@popoverWidth`/`@popoverHeight` arguments:
-
-```handlebars
-<Hds::RichTooltip @popoverWidth="450px" @popoverHeight="200px" as |RT|>
-  <RT.ToggleInfoText @size="large" @icon="info" @iconPosition="trailing">Lorem ipsum</RT.ToggleInfoText>
-  <RT.PopoverContent>
-    <Hds::Text::Display @tag="h4" @size="300">Lorem ipsum</Hds::Text::Display>
-    <Hds::Text::Body @tag="p" @size="200">Sit amet consectetur ut ultrices id venenatis in felis auctor ante.</Hds::Text::Body>
-  </RT.PopoverContent>
-</Hds::RichTooltip>
-```
-
-### With a generic toggle
-
-There may be use cases in which the `InfoText` toggle doesn't work in a specific context or design. These cases should be rare, but if necessary it's possible to use an alternative content as a "toggle" with the `ToggleGeneric` yielded component:
+By default the size of the tooltip automatically adapts to the size of its content (with a max-width of `280px`). It's possible to assign fixed `width` and/or `height` to the tooltip providing the `@width`/`@height` arguments:
 
 ```handlebars
 <Hds::RichTooltip as |RT|>
-  <RT.ToggleGeneric>
-    <Hds::Tag @text="My text tag" />
-  </RT.ToggleGeneric>
-  <RT.PopoverContent>
-    <Hds::Text::Display @tag="h4" @size="300">Some title</Hds::Text::Display>
-    <Hds::Text::Body @tag="p" @size="200">Descriptive information</Hds::Text::Body>
-  </RT.PopoverContent>
+  <RT.Toggle @size="medium" @text="More info" @icon="info" />
+  <RT.Bubble @width="450px" @height="200px">
+    <Hds::Text::Display @tag="h4" @size="200">Some title</Hds::Text::Display>
+    <Hds::Text::Body @tag="p" @size="200">Some descriptive information</Hds::Text::Body>
+  </RT.Bubble>
 </Hds::RichTooltip>
 ```
 
-#### Interactive vs non-interactive content
+### Generic toggle
 
-If the content of the generic toggle is interactive, or contains interactive elements, you will need to set the `@toggleContainsInteractive` argument to `true` to avoid generating nested interactive elements (not accessible):
+There may be special use cases in which the standard text/icon-based toggle doesn't work in a specific context or design. For this reason custom content can be `yield` to the `Toggle` element, but this should be considered an option of last resort, because it could result in a non-accessible implementation.
 
 ```handlebars
-<Hds::RichTooltip @toggleContainsInteractive={{true}} as |RT|>
-  <RT.ToggleGeneric>
-    <Hds::Tag @text="My text tag" @onDismiss={{this.yourOnDismissFunction}} />
-  </RT.ToggleGeneric>
-  <RT.PopoverContent>
-    <Hds::Text::Display @tag="h4" @size="300">Some title</Hds::Text::Display>
-    <Hds::Text::Body @tag="p" @size="200">Descriptive information</Hds::Text::Body>
-  </RT.PopoverContent>
+<Hds::RichTooltip as |RT|>
+  <RT.Toggle>
+    <Hds::Tag @text="My text tag" />
+  </RT.Toggle>
+  <RT.Bubble>
+    <Hds::Text::Display @tag="h4" @size="200">Some title</Hds::Text::Display>
+    <Hds::Text::Body @tag="p" @size="200">Some descriptive information</Hds::Text::Body>
+  </RT.Bubble>
 </Hds::RichTooltip>
 ```
 
-In this case, it's not possible to enable the "click" events for the toggle, only the "soft" events (hover/focus) are allowed.
+!!! Warning
 
-#### Other options
+**Important**
 
-Apart from the interactivity, which requires different considerations, using the generic toggle for the Rich Tooltip still supports the same options for placement, collision detection, inlining, and width/height described above.
+When used in this way, it's up to the consumer to make sure the implementation is compliant with the [accessibility requirements](/components/rich-tooltip?tab=accessibility).
+
+!!!
 
 ### Advanced options
 
-There might be special use cases in which you may need some of the more advanced options of the Rich Tooltip. Below you can find some examples. If you find yourself in need of custom behaviors for the Rich Tooltip [speak with the Design System team](/about/support).
+There might be special use cases in which consumers may need to fine tune the Rich Tooltip behaviour. Below we provide some some examples.
+
+!!! Insight
+
+
+If you find yourself in need to customize the component behaviour or functionality, we suggest to [speak with the Design System team](/about/support) before actually implementing the changes (we may already have it covered).
+
+!!!
 
 #### Offset
 
-You can change the default spacing between the toggle and the tooltip itself using the `@popoverOffset` argument:
+The default spacing between the toggle and the tooltip itself can be tweaked using the `@offset` argument:
 
 ```handlebars
-<Hds::RichTooltip @popoverOffset={{24}} as |RT|>
-  <RT.ToggleInfoText @size="large" @icon="info" @iconPosition="trailing">More info</RT.ToggleInfoText>
-  <RT.PopoverContent>
-    <Hds::Text::Display @tag="h4" @size="300">Some title</Hds::Text::Display>
-    <Hds::Text::Body @tag="p" @size="200">Descriptive information</Hds::Text::Body>
-  </RT.PopoverContent>
+<Hds::RichTooltip as |RT|>
+  <RT.Toggle @size="medium" @text="More info" @icon="info" />
+  <RT.Bubble @offset={{24}}>
+    <Hds::Text::Display @tag="h4" @size="200">Some title</Hds::Text::Display>
+    <Hds::Text::Body @tag="p" @size="200">Some descriptive information</Hds::Text::Body>
+  </RT.Bubble>
 </Hds::RichTooltip>
 ```
 
 #### isOpen
 
-You can render the tooltip initially opened using the `@isOpen` argument:
+The tooltip can be rendered as initially opened using the `@isOpen` argument:
 
 ```handlebars
-<Hds::RichTooltip @isOpen={{true}} @popoverPlacement="right" as |RT|>
-  <RT.ToggleInfoText @size="large" @icon="info" @iconPosition="trailing">More info</RT.ToggleInfoText>
-  <RT.PopoverContent>
-    <Hds::Text::Display @tag="h4" @size="300">Some title</Hds::Text::Display>
-    <Hds::Text::Body @tag="p" @size="200">Descriptive information</Hds::Text::Body>
-  </RT.PopoverContent>
+<Hds::RichTooltip @isOpen={{true}} as |RT|>
+  <RT.Toggle @size="medium" @text="More info" @icon="info" @iconPosition="trailing" />
+  <RT.Bubble @placement="right">
+    <Hds::Text::Display @tag="h4" @size="200">Some title</Hds::Text::Display>
+    <Hds::Text::Body @tag="p" @size="200">Some descriptive information</Hds::Text::Body>
+  </RT.Bubble>
 </Hds::RichTooltip>
 ```
 
