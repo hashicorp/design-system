@@ -7,20 +7,21 @@
 
 body.components-rich-tooltip {
   .shw-component-rich-tooltip-arrow-standalone {
-    .hds-popover-primitive__arrow {
+    .hds-rich-tooltip__bubble-arrow {
       position: static;
     }
   }
 
   .shw-component-rich-tooltip-bubble-standalone {
-    .hds-popover-primitive__arrow {
+    .hds-rich-tooltip__bubble {
+      margin-top: 20px;
+      opacity: 1;
+    }
+
+    .hds-rich-tooltip__bubble-arrow {
       position: absolute;
       top: -20px;
       left: calc(50% - 10px);
-    }
-
-    .hds-popover-primitive__content {
-      opacity: 1;
     }
   }
 
