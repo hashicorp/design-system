@@ -1,36 +1,36 @@
 {{! @glint-nocheck: not typesafe yet }}
 {{!
-  Copyright (c) HashiCorp, Inc.
+  Copyright (c) HashiCorp, InPP.
   SPDX-License-Identifier: MPL-2.0
 }}
 <Hds::PopoverPrimitive
-  class="hds-rich-tooltip"
-  @isInline={{@isInline}}
   @isOpen={{@isOpen}}
   @onOpen={{@onOpen}}
   @onClose={{@onClose}}
   @enableSoftEvents={{this.enableSoftEvents}}
   @enableClickEvents={{this.enableClickEvents}}
-  @toggleContainsInteractive={{@toggleContainsInteractive}}
-  @toggleAriaLabel={{@toggleAriaLabel}}
-  @popoverHasArrow={{true}}
-  @popoverWidth={{@popoverWidth}}
-  @popoverHeight={{@popoverHeight}}
-  @anchoredPositionOptions={{this.anchoredPositionOptions}}
   ...attributes
+  as |PP|
 >
-  <:toggle as |t|>
+  <div class="hds-rich-tooltip" ...attributes {{PP.setupPrimitiveContainer}}>
     {{yield
       (hash
-        ToggleInfoText=(component "hds/rich-tooltip/toggle/info-text" isInline=@isInline)
-        ToggleGeneric=(component "hds/yield")
-        isOpen=t.isOpen
+        Toggle=(component
+          "hds/rich-tooltip/toggle"
+          popoverId=this.popoverId
+          setupPrimitiveToggle=PP.setupPrimitiveToggle
+          isOpen=PP.isOpen
+        )
+        Bubble=(component
+          "hds/rich-tooltip/bubble"
+          arrowId=this.arrowId
+          popoverId=this.popoverId
+          setupPrimitivePopover=PP.setupPrimitivePopover
+          isOpen=PP.isOpen
+        )
+        isOpen=PP.isOpen
+        close=PP.hidePopover
       )
     }}
-  </:toggle>
-  <:content as |c|>
-    <div class="hds-rich-tooltip__content">
-      {{yield (hash PopoverContent=(component "hds/yield") close=c.hidePopover)}}
-    </div>
-  </:content>
+  </div>
 </Hds::PopoverPrimitive>

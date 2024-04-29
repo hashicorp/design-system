@@ -1,0 +1,29 @@
+{{! @glint-nocheck: not typesafe yet }}
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+{{! IMPORTANT: we need to add "squishies" here (~) because otherwise the whitespace added by Ember becomes visible in the underlined text (being an inline element) - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
+<button
+  class={{this.classNames}}
+  ...attributes
+  type="button"
+  aria-controls={{@popoverId}}
+  aria-describedby={{@popoverId}}
+  aria-expanded={{if @isOpen "true" "false"}}
+  {{@setupPrimitiveToggle}}
+>
+  {{~#if (has-block)~}}
+    {{yield}}
+  {{~else~}}
+    {{~#if (and @icon (eq this.iconPosition "leading"))~}}
+      <FlightIcon class="hds-rich-tooltip__toggle-icon" @name={{@icon}} @isInlineBlock={{this.isInline}} />
+    {{~/if~}}
+    {{~#if @text~}}
+      <span class="hds-rich-tooltip__toggle-text">{{~@text~}}</span>
+    {{~/if~}}
+    {{~#if (and @icon (eq this.iconPosition "trailing"))~}}
+      <FlightIcon class="hds-rich-tooltip__toggle-icon" @name={{@icon}} @isInlineBlock={{this.isInline}} />
+    {{~/if~}}
+  {{~/if~}}
+</button>
