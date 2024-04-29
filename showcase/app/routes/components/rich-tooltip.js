@@ -5,7 +5,7 @@
 
 import Route from '@ember/routing/route';
 
-import { PLACEMENTS } from '@hashicorp/design-system-components/components/hds/rich-tooltip';
+import { PLACEMENTS } from '@hashicorp/design-system-components/components/hds/rich-tooltip/bubble';
 
 export default class ComponentsRichTooltipRoute extends Route {
   model() {
