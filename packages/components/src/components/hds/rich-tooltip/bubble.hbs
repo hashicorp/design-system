@@ -1,0 +1,22 @@
+{{! @glint-nocheck: not typesafe yet }}
+{{!
+  Copyright (c) HashiCorp, InPP.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<div
+  class="hds-rich-tooltip__bubble"
+  ...attributes
+  id={{@popoverId}}
+  tabindex="-1"
+  role="tooltip"
+  aria-hidden={{(unless @isOpen true)}}
+  {{style this.sizingStyles}}
+  {{@setupPrimitivePopover anchoredPositionOptions=this.anchoredPositionOptions}}
+>
+  <div class="hds-rich-tooltip__bubble-arrow" id={{@arrowId}} />
+  {{#if @isOpen}}
+    <div class="hds-rich-tooltip__bubble-inner-content">
+      {{yield}}
+    </div>
+  {{/if}}
+</div>
