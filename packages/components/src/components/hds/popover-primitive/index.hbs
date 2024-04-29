@@ -3,40 +3,17 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<div class={{this.classNames}} ...attributes {{this.setupPrimitiveContainer}}>
-  {{#if this.toggleContainsInteractive}}
-    <div
-      class="hds-popover-primitive__toggle"
-      aria-controls={{this.popoverId}}
-      aria-describedby={{this.popoverId}}
-      {{this.setupPrimitiveToggle}}
-    >
-      {{yield (hash popoverElement=this.popoverElement isOpen=this.isOpen) to="toggle"}}
-    </div>
-  {{else}}
-    <button
-      type="button"
-      class="hds-popover-primitive__toggle"
-      aria-controls={{this.popoverId}}
-      aria-describedby={{this.popoverId}}
-      aria-expanded={{(if this.isOpen "true" "false")}}
-      {{this.setupPrimitiveToggle}}
-    >
-      {{yield (hash popoverElement=this.popoverElement isOpen=this.isOpen) to="toggle"}}
-    </button>
-  {{/if}}
-  <div
-    class="hds-popover-primitive__content"
-    tabindex="-1"
-    role="tooltip"
-    aria-hidden={{(unless this.isOpen true)}}
-    {{this.setupPrimitivePopover}}
-  >
-    {{#if @popoverHasArrow}}
-      <div class="hds-popover-primitive__arrow" {{this.setupPrimitiveArrow}} />
-    {{/if}}
-    {{#if this.isOpen}}
-      {{yield (hash toggleElement=this.toggleElement isOpen=this.isOpen hidePopover=this.hidePopover) to="content"}}
-    {{/if}}
-  </div>
-</div>
+{{yield
+  (hash
+    setupPrimitiveContainer=this.setupPrimitiveContainer
+    setupPrimitiveToggle=this.setupPrimitiveToggle
+    setupPrimitivePopover=this.setupPrimitivePopover
+    toggleElement=this.toggleElement
+    arrowElement=this.arrowElement
+    popoverElement=this.popoverElement
+    isOpen=this.isOpen
+    showPopover=this.showPopover
+    hidePopover=this.hidePopover
+    togglePopover=this.togglePopover
+  )
+}}
