@@ -6,21 +6,69 @@
 // PopoverPrimitive
 
 body.utilities-popover-primitive {
-
-  // basic styling for the "arrow" element
-  .hds-popover-primitive__arrow {
-    --hds-popover-primitive-arrow-size: 16px;
-    --hds-popover-primitive-arrow-background: url('data:image/svg+xml,<svg width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 16 8 6l8 10H0Z" fill="%23F00" fill-opacity=".5"/></svg>') no-repeat 0 0 / 16px 16px;
-    outline: 1px dotted red;
+  .shw-utilities-popover-primitive-fake-container {
+    display: contents;
   }
 
-  .shw-utilities-popover-primitive-base-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100px;
-    height: 40px;
-    outline: 1px dotted #d3d3d3;
+  .shw-utilities-popover-primitive-fake-toggle {
+    display: block;
+  }
+
+  .shw-utilities-popover-primitive-fake-toggle--square {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background-color: #d2f4ff;
+    border: none;
+  }
+
+  .shw-utilities-popover-primitive-fake-popover {
+    // the "popover" attributes comes with pre-defined styling so we need to override it
+    :where(&[popover]) {
+      width: fit-content;
+      height: fit-content;
+      margin: 0;
+      padding: 0;
+      overflow: visible;
+      color: inherit;
+      background: none;
+      border: none;
+      inset: 0;
+    }
+  }
+
+  .shw-utilities-popover-primitive-fake-arrow {
+    // notice: floating-ui assumes the "arrow" container is square
+    $arrow-size: 16px;
+    position: absolute;
+    z-index: 1;
+    display: block;
+    width: $arrow-size;
+    height: $arrow-size;
+    background: url('data:image/svg+xml,<svg width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 16 8 6l8 10H0Z" fill="%23F00" fill-opacity=".5"/></svg>')
+      no-repeat 0 0 / #{$arrow-size} #{$arrow-size};
+    outline: 1px dotted red;
+    pointer-events: none;
+
+    &[data-hds-anchored-arrow-placement^="top"] {
+      bottom: (-1 * $arrow-size);
+      transform: rotate(180deg);
+    }
+
+    &[data-hds-anchored-arrow-placement^="right"] {
+      left: (-1 * $arrow-size);
+      transform: rotate(-90deg);
+    }
+
+    &[data-hds-anchored-arrow-placement^="bottom"] {
+      top: (-1 * $arrow-size);
+      transform: rotate(0deg); // this fixes a rendering issue in Safari
+    }
+
+    &[data-hds-anchored-arrow-placement^="left"] {
+      right: (-1 * $arrow-size);
+      transform: rotate(90deg);
+    }
   }
 
   .shw-utilities-popover-primitive-placement-grid {
@@ -29,18 +77,53 @@ body.utilities-popover-primitive {
     grid-template-columns: repeat(5, 160px) !important;
     padding: 5rem;
 
-    .shw-utilities-popover-primitive-placement-grid__item--top-start { grid-area: 1 / 2; }
-    .shw-utilities-popover-primitive-placement-grid__item--top { grid-area: 1 / 3; }
-    .shw-utilities-popover-primitive-placement-grid__item--top-end { grid-area: 1 / 4; }
-    .shw-utilities-popover-primitive-placement-grid__item--right-start { grid-area: 2 / 5; }
-    .shw-utilities-popover-primitive-placement-grid__item--right { grid-area: 3 / 5; }
-    .shw-utilities-popover-primitive-placement-grid__item--right-end { grid-area: 4 / 5; }
-    .shw-utilities-popover-primitive-placement-grid__item--bottom-start { grid-area: 5 / 2; }
-    .shw-utilities-popover-primitive-placement-grid__item--bottom { grid-area: 5 / 3; }
-    .shw-utilities-popover-primitive-placement-grid__item--bottom-end { grid-area: 5 / 4; }
-    .shw-utilities-popover-primitive-placement-grid__item--left-start { grid-area: 2 / 1; }
-    .shw-utilities-popover-primitive-placement-grid__item--left { grid-area: 3 / 1; }
-    .shw-utilities-popover-primitive-placement-grid__item--left-end { grid-area: 4 / 1; }
+    .shw-utilities-popover-primitive-placement-grid__item--top-start {
+      grid-area: 1 / 2;
+    }
+
+    .shw-utilities-popover-primitive-placement-grid__item--top {
+      grid-area: 1 / 3;
+    }
+
+    .shw-utilities-popover-primitive-placement-grid__item--top-end {
+      grid-area: 1 / 4;
+    }
+
+    .shw-utilities-popover-primitive-placement-grid__item--right-start {
+      grid-area: 2 / 5;
+    }
+
+    .shw-utilities-popover-primitive-placement-grid__item--right {
+      grid-area: 3 / 5;
+    }
+
+    .shw-utilities-popover-primitive-placement-grid__item--right-end {
+      grid-area: 4 / 5;
+    }
+
+    .shw-utilities-popover-primitive-placement-grid__item--bottom-start {
+      grid-area: 5 / 2;
+    }
+
+    .shw-utilities-popover-primitive-placement-grid__item--bottom {
+      grid-area: 5 / 3;
+    }
+
+    .shw-utilities-popover-primitive-placement-grid__item--bottom-end {
+      grid-area: 5 / 4;
+    }
+
+    .shw-utilities-popover-primitive-placement-grid__item--left-start {
+      grid-area: 2 / 1;
+    }
+
+    .shw-utilities-popover-primitive-placement-grid__item--left {
+      grid-area: 3 / 1;
+    }
+
+    .shw-utilities-popover-primitive-placement-grid__item--left-end {
+      grid-area: 4 / 1;
+    }
 
     .shw-utilities-popover-primitive-placement-grid__target {
       display: flex;
