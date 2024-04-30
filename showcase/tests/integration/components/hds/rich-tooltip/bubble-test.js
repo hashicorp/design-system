@@ -5,7 +5,7 @@
 
 import { module, test, skip } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, resetOnerror, setupOnerror, click } from '@ember/test-helpers';
+import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { modifier } from 'ember-modifier';
 
@@ -172,7 +172,7 @@ module('Integration | Component | hds/rich-tooltip/bubble', function (hooks) {
     // this is used only to trigger the `anchoredPositionOptions` getter
     this.set(
       'fakeSetupPrimitivePopover',
-      modifier((_element, _positional, _named) => {})
+      modifier(() => {})
     );
     const errorMessage =
       '@placement for "Hds::RichTooltip::Bubble" must be one of the following: top, top-start, top-end, right, right-start, right-end, bottom, bottom-start, bottom-end, left, left-start, left-end; received: foo';
