@@ -502,6 +502,36 @@ const CRITERIA = [
   },
   {
     type: 'success-criteria',
+    id: 'wcag-2-4-11',
+    title: 'Focus Not Obscured (Minimum) (Level AA)',
+    number: '2.4.11',
+    url: 'https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html',
+    level: 'AA',
+    description:
+      'When a user interface component receives keyboard focus, the component is not entirely hidden due to author-created content.',
+  },
+  {
+    type: 'success-criteria',
+    id: 'wcag-2-4-12',
+    title: 'Focus Not Obscured (Enhanced) (Level AAA)',
+    number: '2.4.12',
+    url: 'https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-enhanced.html',
+    level: 'AAA',
+    description:
+      'When a user interface component receives keyboard focus, no part of the component is hidden by author-created content.',
+  },
+  {
+    type: 'success-criteria',
+    id: 'wcag-2-4-13',
+    title: 'Focus Appearance (Level AAA)',
+    number: '2.4.13',
+    url: 'https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance.html',
+    level: 'AAA',
+    description:
+      'When the keyboard focus indicator is visible, an area of the focus indicator meets all requirements.',
+  },
+  {
+    type: 'success-criteria',
     id: 'wcag-2-5-1',
     title: 'Pointer Gestures (Level A)',
     number: '2.5.1',
@@ -557,6 +587,26 @@ const CRITERIA = [
     url: 'https://www.w3.org/WAI/WCAG21/Understanding/concurrent-input-mechanisms.html',
     level: 'AAA',
     description: '',
+  },
+  {
+    type: 'success-criteria',
+    id: 'wcag-2-5-7',
+    title: 'Dragging Movements (Level AA)',
+    number: '2.5.7',
+    url: 'https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements.html',
+    level: 'AA',
+    description:
+      'All functionality that uses a dragging movement for operation can be achieved by a single pointer without dragging, unless dragging is essential or the functionality is determined by the user agent and not modified by the author.',
+  },
+  {
+    type: 'success-criteria',
+    id: 'wcag-2-5-8',
+    title: 'Target Size Minimum (Level AA)',
+    number: '2.5.8',
+    url: 'https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html',
+    level: 'AA',
+    description:
+      'The size of the target for pointer inputs is at least 24 by 24 CSS pixels, with a few exceptions.',
   },
   {
     type: 'success-criteria',
@@ -665,6 +715,16 @@ const CRITERIA = [
   },
   {
     type: 'success-criteria',
+    id: 'wcag-3-2-6',
+    title: 'Consistent Help (Level A)',
+    number: '3.2.6',
+    url: 'https://www.w3.org/WAI/WCAG21/Understanding/consistent-help.html',
+    level: 'A',
+    description:
+      'If a web page contains help mechanisms, and those help mechanisms are repeated on multiple web pages, the help mechanisms are consistent.',
+  },
+  {
+    type: 'success-criteria',
     id: 'wcag-3-3-1',
     title: 'Error Identification (Level A)',
     number: '3.3.1',
@@ -723,13 +783,32 @@ const CRITERIA = [
   },
   {
     type: 'success-criteria',
-    id: 'wcag-4-1-1',
-    title: 'Parsing (Level A)',
-    number: '4.1.1',
-    url: 'https://www.w3.org/WAI/WCAG21/Understanding/parsing.html',
+    id: 'wcag-3-3-7',
+    title: 'Redundant Entry (Level A)',
+    number: '3.3.7',
+    url: 'https://www.w3.org/WAI/WCAG22/Understanding/redundant-entry.html',
     level: 'A',
     description:
-      'In content implemented using markup languages, elements have complete start and end tags, elements are nested according to their specifications, elements do not contain duplicate attributes, and any IDs are unique.',
+      'Information previously entered by or provided to the user that is required to be entered again in the same process is either auto-populated or available for the user to select',
+  },
+  {
+    type: 'success-criteria',
+    id: 'wcag-3-3-8',
+    title: 'Accessible Authentication (Minimum) (Level AA)',
+    number: '3.3.8',
+    url: 'https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum.html',
+    level: 'AA',
+    description:
+      'A cognitive function test (such as remembering a password or solving a puzzle) is not required for any step in an authentication process (with some exceptions).',
+  },
+  {
+    type: 'success-criteria',
+    id: 'wcag-3-3-9',
+    title: 'Accessible Authentication (Enhanced) (Level AAA)',
+    number: '3.3.9',
+    url: 'https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-enhanced.html',
+    level: 'AAA',
+    description: '',
   },
   {
     type: 'success-criteria',
