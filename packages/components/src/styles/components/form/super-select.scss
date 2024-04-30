@@ -133,6 +133,7 @@ $hds-super-select-item-height: 36px;
     padding: 7px 7px 7px 39px; // top, right, bottom, left
     line-height: var(--token-typography-body-200-line-height);
     overflow-wrap: break-word; // when used with flex parent, content may overflow (therefore not using flex layout on parent)
+    border: none; // guard against border in default theme
 
     + .ember-power-select-option {
       margin-top: 8px;
@@ -150,6 +151,8 @@ $hds-super-select-item-height: 36px;
 
     &[aria-current="true"],
     &:hover {
+      border: none; // guard against border in default theme
+
       // left border
       &::after {
         position: absolute;
