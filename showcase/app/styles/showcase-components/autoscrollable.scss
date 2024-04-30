@@ -1,3 +1,4 @@
+
 /**
  * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
@@ -8,10 +9,8 @@
   display: grid;
   align-items: center;
   justify-items: center;
-  width: 100%;
   aspect-ratio: 1;
-  overflow-x: auto;
-  overflow-y: auto;
+  overflow: auto;
   border: 1px dotted #d3d3d3;
   overscroll-behavior: contain;
 }
