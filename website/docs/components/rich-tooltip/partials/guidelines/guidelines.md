@@ -79,7 +79,7 @@ The Rich Tooltip supports two different interaction methods: a `hover/focus` ("s
 1. `Hover/focus` (default): displays when the mouse enters the toggle or the toggle receives focus. The `RichTooltip` has a timeout by default and will persist for 500 milliseconds (0.5 seconds) _after_ the mouse leaves the toggle, or the focus is removed from it.
 2. `On click`: displays when the user clicks the toggle with a mouse or if the toggle receives a keyboard event (`spacebar`, `enter/return`). If the content of the toggle element is interactive, an `on click` interaction _cannot_ be used.
 
-Independent of which interaction is used, the Rich Tooltip can be dismissed by clicking outside of the component or with the `esc` key.
+Independent of which interaction is used, the Rich Tooltip can be dismissed by clicking outside of the component or with the `ESC` key.
 
 ## Toggle
 

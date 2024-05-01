@@ -1,10 +1,10 @@
 The Rich Tooltip component associates a "toggle" element with a "tooltip" element that wraps some generic content (in that sense, both elements act as "containers"). "Soft" (hover/focus) or "click" event listeners can be assigned to the toggle, and when triggered they toggle the visibility of the tooltip, which appears as "popover" on top of the page content. When the tooltip is visible, it can be closed in various ways: toggling via the "soft" or "click" events, clicking outside of the popover, or via the `esc` key.
 
-Now, while at first glance the Rich Tooltip component may seem a simple component, beneath the surface it conceals a lot of complexity:
+While the Rich Tooltip may seem to be a fairly simple component, there is a lot of complexity beneath the surface:
 
 - the component uses the [native web Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API) to display the tooltip content as "popover" on top of the page
-- it also uses a third-party library called [Floating UI](https://floating-ui.com/) to provide the anchoring of the "popover" to the "toggle" element, and the automatic positioning/collision detection functionality.
-- these functionalities are in turn abstracted in two underlying HDS utilities (the `hds-anchored-position` modifier and the [PopoverPrimitive component](/utilities/popover-primitive)), on top of which the Rich Tooltip component is built.
+- A third-party library called [Floating UI](https://floating-ui.com/) provides the anchoring of the "popover" to the "toggle" element and the automatic positioning/collision detection functionality.
+- These functionalities are abstracted into two HDS utilities (the `hds-anchored-position` modifier and the [PopoverPrimitive component](/utilities/popover-primitive)), which the Rich Tooltip component is built on top of.
 
 Since tooltips are notoriously hard to implement in an accessible way, we limited the ways in which the Rich Tooltip can be used. At the same time, we have provided an escape hatch if some edge cases need to be supported (but in this case, consumers will need to make sure the component is used in a [conformant accessible way](/components/rich-tooltip?tab=accessibility)).
 
