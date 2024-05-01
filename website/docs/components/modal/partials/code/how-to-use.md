@@ -26,7 +26,11 @@ When a Modal is opened with the keyboard, the focus is automatically set to the 
 />
 
 {{#if this.basicModalActive}}
-  <Hds::Modal id="basic-modal" @onClose={{fn this.deactivateModal "basicModalActive"}} as |M|>
+  <Hds::Modal
+    id="basic-modal"
+    @onClose={{fn this.deactivateModal "basicModalActive"}}
+    as |M|
+  >
     <M.Header>
       Modal title
     </M.Header>
@@ -42,7 +46,9 @@ When a Modal is opened with the keyboard, the focus is automatically set to the 
 
 ### Form within a Modal dialog
 
-If a Modal dialog contains interactive elements, such as a form, the initial focus should be set on the first input, which is the first focusable element within the form. This can be achieved by setting the `autofocus` property on the first form element.
+If a Modal dialog presents a form, the initial focus should be set on the first input, as the first focusable element in the form. This can be achieved by setting the `autofocus` property on the first form input.
+
+The `<form>` element should be placed in the `Hds::Modal::Body` subcomponent. We also recommend to associate it to the submit button using the `form` attribute, as shown below.
 
 When the Modal dialog contains information that might be lost on close, use a confirmation message before discarding it.
 
@@ -63,7 +69,7 @@ When the Modal dialog contains information that might be lost on close, use a co
       Why do you want to leave the beta?
     </M.Header>
     <M.Body>
-      <form name="leaving-beta-form">
+      <form id="leaving-beta-form" {{on "submit" (fn this.submitForm)}}>
         <Hds::Form::Select::Field autofocus @width="100%" as |F|>
           <F.Label>Select the primary reason</F.Label>
           <F.Options>
@@ -77,9 +83,7 @@ When the Modal dialog contains information that might be lost on close, use a co
     </M.Body>
     <M.Footer as |F|>
       <Hds::ButtonSet>
-        <Hds::Button type="submit" @text="Leave Beta"
-          {{on "click" (fn this.deactivateModal "formModalActive")}}
-        />
+        <Hds::Button type="submit" form="leaving-beta-form" @text="Leave Beta" />
         <Hds::Button type="button" @text="Cancel" @color="secondary"
           {{on "click" F.close}}
         />

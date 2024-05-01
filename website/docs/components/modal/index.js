@@ -25,4 +25,9 @@ export default class Index extends Component {
   deactivateModal(modal) {
     this[modal] = false;
   }
+
+  @action
+  submitForm() {
+    this.formModalActive = false;
+  }
 }
