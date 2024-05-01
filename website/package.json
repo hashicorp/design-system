@@ -31,7 +31,8 @@
     "start:prember": "PREMBER=true ember serve",
     "algolia:index": "node docs-scraper/index-website-content.mjs",
     "test": "npm-run-all lint test:*",
-    "test:ember": "yarn build:packages && ember test"
+    "test:ember": "yarn build:packages && ember test",
+    "test:ember-a11y": "yarn build:packages && ENABLE_A11Y_AUDIT=true ember test --server"
   },
   "devDependencies": {
     "@algolia/autocomplete-js": "^1.12.1",

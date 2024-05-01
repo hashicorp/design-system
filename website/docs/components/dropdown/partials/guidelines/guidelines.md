@@ -181,10 +181,10 @@ The height of the ListContainer is automatically determined based on the content
 A Header provides a fixed space at the top of the List. Typically, Headers house a search feature that allows the user to search/filter through the available options in the list. This is great for really long lists when filtering on complex datasets. 
 
 <div class="hds-dropdown__content">
+  <Hds::Dropdown::Header @hasDivider={{true}}>
+    <Hds::Form::TextInput::Base @type="search" placeholder="Search" />
+  </Hds::Dropdown::Header>
   <Doc::ListContainer class="hds-dropdown__list">
-    <Hds::Dropdown::Header @hasDivider={{true}}>
-      <Hds::Form::TextInput::Base @type="search" placeholder="Search" />
-    </Hds::Dropdown::Header>
     <Hds::Dropdown::ListItem::Checkbox @value="Planned">Planned</Hds::Dropdown::ListItem::Checkbox>
     <Hds::Dropdown::ListItem::Checkbox @value="Policy override">Policy override</Hds::Dropdown::ListItem::Checkbox>
     <Hds::Dropdown::ListItem::Checkbox @value="Policy checked">Policy checked</Hds::Dropdown::ListItem::Checkbox>
@@ -206,13 +206,13 @@ A Footer provides a fixed space at the bottom of the List. Typically, Footers ho
     <Hds::Dropdown::ListItem::Checkbox @value="Cost estimated">Cost estimated</Hds::Dropdown::ListItem::Checkbox>
     <Hds::Dropdown::ListItem::Checkbox @value="Errored">Errored</Hds::Dropdown::ListItem::Checkbox>
     <Hds::Dropdown::ListItem::Checkbox @value="Fetched">Fetched</Hds::Dropdown::ListItem::Checkbox>
-    <Hds::Dropdown::Footer @hasDivider={{true}}>
-      <Hds::ButtonSet>
-        <Hds::Button @text="Apply" type="submit" @size="small" @isFullWidth={{true}} />
-        <Hds::Button @text="Cancel" @color="secondary" @size="small" @isFullWidth={{true}} />
-      </Hds::ButtonSet>
-    </Hds::Dropdown::Footer>
   </Doc::ListContainer>
+  <Hds::Dropdown::Footer @hasDivider={{true}}>
+    <Hds::ButtonSet>
+      <Hds::Button @text="Apply" type="submit" @size="small" @isFullWidth={{true}} />
+      <Hds::Button @text="Cancel" @color="secondary" @size="small" @isFullWidth={{true}} />
+    </Hds::ButtonSet>
+  </Hds::Dropdown::Footer>
 </div>
 
 ## ListItem

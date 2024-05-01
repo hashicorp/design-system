@@ -7,7 +7,6 @@ import { module, test, skip } from 'qunit';
 import { visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'website/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
-import { globalAxeOptions } from 'website/tests/a11y-helper';
 
 module('Acceptance | icons/library', function (hooks) {
   setupApplicationTest(hooks);
@@ -21,7 +20,7 @@ module('Acceptance | icons/library', function (hooks) {
   skip('icons/library page passes automated a11y checks', async function (assert) {
     await visit('/icons/library');
 
-    await a11yAudit(globalAxeOptions);
+    await a11yAudit();
 
     assert.ok(true, 'a11y automation audit passed');
   });
