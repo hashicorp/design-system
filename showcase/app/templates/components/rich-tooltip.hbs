@@ -334,7 +334,7 @@
   <Shw::Text::Body>HDS classes</Shw::Text::Body>
 
   <Shw::Grid @columns={{3}} {{style gap="2rem" margin-bottom="6rem"}} as |SG|>
-    <SG.Item @label="Applied to the parent (text+icon)">
+    <SG.Item @label="Applied to the parent (text+icon with size)">
       <div
         class="hds-typography-display-400 hds-foreground-warning-on-surface hds-surface-warning"
         {{style width="fit-content"}}
@@ -349,7 +349,7 @@
         dolor
       </div>
     </SG.Item>
-    <SG.Item @label="Applied to the component (text+icon)">
+    <SG.Item @label="Applied to the component (text+icon with size)">
       <Hds::RichTooltip
         class="hds-typography-display-400 hds-foreground-warning-on-surface hds-surface-warning"
         @isOpen={{true}}
@@ -362,7 +362,7 @@
         </RT.Bubble>
       </Hds::RichTooltip>
     </SG.Item>
-    <SG.Item @label="Applied to the toggle (text+icon)">
+    <SG.Item @label="Applied to the toggle (text+icon with size)">
       <Hds::RichTooltip @isOpen={{true}} @enableClickEvents={{true}} as |RT|>
         <RT.Toggle
           @text="Lorem ipsum dolor"
@@ -421,7 +421,7 @@
   <Shw::Text::Body>Using a custom class</Shw::Text::Body>
 
   <Shw::Grid @columns={{3}} {{style gap="2rem" margin-bottom="6rem"}} as |SG|>
-    <SG.Item @label="Applied to the parent (text+icon)">
+    <SG.Item @label="Applied to the parent (text+icon with size)">
       <div class="shw-component-rich-tooltip-font-style" {{style width="fit-content"}}>
         Lorem
         <Hds::RichTooltip @isOpen={{true}} @enableClickEvents={{true}} as |RT|>
@@ -433,7 +433,7 @@
         dolor
       </div>
     </SG.Item>
-    <SG.Item @label="Applied to the container (text+icon)">
+    <SG.Item @label="Applied to the container (text+icon with size)">
       <Hds::RichTooltip
         class="shw-component-rich-tooltip-font-style"
         @isOpen={{true}}
@@ -446,7 +446,7 @@
         </RT.Bubble>
       </Hds::RichTooltip>
     </SG.Item>
-    <SG.Item @label="Applied to the toggle (text+icon)">
+    <SG.Item @label="Applied to the toggle (text+icon with size)">
       <Hds::RichTooltip @isOpen={{true}} @enableClickEvents={{true}} as |RT|>
         <RT.Toggle
           @text="Lorem ipsum dolor"
