@@ -3,34 +3,13 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-@font-face {
-  font-weight: 400;
-  font-family: gilmer-web;
+ @font-face {
+  font-family: hashicorp-sans-variable;
   font-style: normal;
   font-display: swap;
   src:
-    local("Gilmer Regular"),
-    url("/assets/fonts/gilmer-400-normal.woff2") format("woff2");
-}
-
-@font-face {
-  font-weight: 500;
-  font-family: gilmer-web;
-  font-style: normal;
-  font-display: swap;
-  src:
-    local("Gilmer Medium"),
-    url("/assets/fonts/gilmer-500-normal.woff2") format("woff2");
-}
-
-@font-face {
-  font-weight: 700;
-  font-family: gilmer-web;
-  font-style: normal;
-  font-display: swap;
-  src:
-    local("Gilmer Bold"),
-    url("/assets/fonts/gilmer-700-normal.woff2") format("woff2");
+    local("Hashicorp Sans (variable)"),
+    url("/assets/fonts/hashicorp-sans-variable.woff2") format("woff2");
 }
 
 @font-face {

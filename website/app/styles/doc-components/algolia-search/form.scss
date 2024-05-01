@@ -116,7 +116,7 @@ $doc-algolia-search-modal-search-input-height: 44px;
   $beta-height: 24px;
 
   &:has(input:placeholder-shown)::before {
-    @include doc-font-family("gilmer");
+    @include doc-font-family("sans");
     position: absolute;
     top: 50%;
     left: 110px;

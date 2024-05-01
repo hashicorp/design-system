@@ -93,7 +93,7 @@ body.application.index {
   padding: var(--padding-top) 0 var(--padding-bottom);
 
   h1 {
-    @include doc-font-family("gilmer");
+    @include doc-font-family("hashicorp-sans");
     margin: 0;
     color: var(--doc-color-white);
     font-weight: 400;
@@ -120,7 +120,7 @@ body.application.index {
   }
 
   p {
-    @include doc-font-family("gilmer");
+    @include doc-font-family("sans");
     max-width: 350px;
     margin: 2em 0;
     color: var(--doc-color-gray-500);

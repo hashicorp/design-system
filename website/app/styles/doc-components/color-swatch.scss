@@ -48,7 +48,7 @@ $doc-color-swatch-border-radius: 3px;
 }
 
 .doc-color-swatch__name {
-  @include doc-font-family("gilmer");
+  @include doc-font-family("sans");
 
   margin: 0 0 8px 0;
   font-weight: bold;
@@ -73,7 +73,7 @@ $doc-color-swatch-border-radius: 3px;
   }
 
   &--context {
-    @include doc-font-family("gilmer");
+    @include doc-font-family("sans");
 
     display: flex;
     align-items: center;
