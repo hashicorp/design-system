@@ -48,7 +48,7 @@ export default class HdsRichTooltipToggleComponent extends Component {
    * @description The size of the "info" text; acceptable values are `small`, `medium`, `large`
    */
   get size() {
-    const size;
+    let size;
 
     // we assing a "size" only if `@text` is provided
     if (this.args.text) {
