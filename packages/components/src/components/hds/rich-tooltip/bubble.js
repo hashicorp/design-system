@@ -18,7 +18,7 @@ export default class HdsRichTooltipBubbleComponent extends Component {
    * @description Determines the position of the "popover"
    */
   get placement() {
-    let { placement = DEFAULT_PLACEMENT } = this.args;
+    const { placement = DEFAULT_PLACEMENT } = this.args;
 
     assert(
       `@placement for "Hds::RichTooltip::Bubble" must be one of the following: ${PLACEMENTS.join(
@@ -35,7 +35,7 @@ export default class HdsRichTooltipBubbleComponent extends Component {
   }
 
   get sizingStyles() {
-    let sizingStyles = {};
+    const sizingStyles = {};
 
     if (this.args.width) {
       sizingStyles['width'] = this.args.width;
