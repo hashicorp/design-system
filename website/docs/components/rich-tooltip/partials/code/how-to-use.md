@@ -122,7 +122,20 @@ To apply a typographic style to the whole paragraph consumers can use a [Text](/
 
 Similarly, a typographic class (or a custom CSS class) can be applied to a parent container.
 
-#### Interactivity
+#### Whitespace issues
+
+There may be cases in which the tooltip text is preceded/followed by non-whitespace characters. In this case extra whitespace could appear between these characters and the toggle text. Unfortunately he only solution we have found is to remove every whitespace before/after the `<Hds::RichTooltip>` tag, and before/after the `<RT.Toggle>` and `<RT.Bubble>` tags:
+
+```handlebars
+<Hds::Text::Body @tag="p" @size="300">
+  Lorem "<Hds::RichTooltip as |RT|><RT.Toggle @isInline={{true}} @text="ipsum dolor" /><RT.Bubble>
+      <Hds::Text::Display @tag="h4" @size="200">Some title</Hds::Text::Display>
+      <Hds::Text::Body @tag="p" @size="200">Some descriptive information</Hds::Text::Body>
+    </RT.Bubble></Hds::RichTooltip>" sit amet consectetur adipiscing elit.
+</Hds::Text::Body>
+```
+
+### Interactivity
 
 By default the visibility of the tooltip is toggled via "soft" event listeners (hover/focus) applied to the "toggle" container. _Notice: from a purely technical standpoint, the events are `mouseEnter/Leave` and `focusIn/Out`._
 
@@ -140,7 +153,7 @@ To change this behavior and opt for a more explicit user interaction enabling "c
 
 Independent of which interaction is used, the tooltip can be dismissed by clicking outside of the component or with the `esc` key (this "light dismiss" behavior is automatically provided by the [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API/Using#auto_state_and_light_dismiss)).
 
-#### Placement
+### Placement
 
 By default the tooltip is shown below the toggle, visually centered. It's possible to change the initial position of the tooltip using the `@placement` argument:
 
@@ -154,7 +167,7 @@ By default the tooltip is shown below the toggle, visually centered. It's possib
 </Hds::RichTooltip>
 ```
 
-#### Collision detection
+### Collision detection
 
 The RichTooltip component automatically adapts its alignment depending on its position relative to the viewport to avoid "collisions" with the browser window boundaries. This means that when an end-user scrolls the page, or resizes the browser, the position of the tooltip on the page dynamically adapts to these changes (along the two axes, main and secondary).
 
@@ -185,7 +198,7 @@ In the example below we use an `auto` placement: try to scroll and/or resize the
 </Hds::RichTooltip>
 ```
 
-#### Fixed width/height
+### Fixed width/height
 
 By default the size of the tooltip automatically adapts to the size of its content (with a max-width of `280px`). It's possible to assign fixed `width` and/or `height` to the tooltip providing the `@width`/`@height` arguments:
 
