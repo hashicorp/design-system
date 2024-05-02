@@ -2,7 +2,7 @@
 
 Super Select is a custom select-like component aiming to overcome some limitations of the HTML `<select>` element.
 
-It's primarily a wrapper for [ember-power-select](https://ember-power-select.com/), with specific accessibility and styling choices that best fit our design system.
+It’s primarily a wrapper for [ember-power-select](https://ember-power-select.com/), with specific accessibility and styling choices that best fit our design system.
 
 We provide two main components with similar APIs: `SuperSelect::Single` and `SuperSelect::Multiple`.
 
@@ -26,7 +26,7 @@ In cases where the HDS Dropdown or HDS Form Select components are not suitable, 
   as |F|
 >
   <F.Label>This is the label</F.Label>
-  {{F.options}}
+  <F.Options>{{F.options}}</F.Options>
 </Hds::Form::SuperSelect::Single::Field>
 ```
 
@@ -43,7 +43,7 @@ Use `SuperSelect::Multiple` to allow users to select multiple options.
   as |F|
 >
   <F.Label>This is the label</F.Label>
-  {{F.options}}
+  <F.Options>{{F.options}}</F.Options>
 </Hds::Form::SuperSelect::Multiple::Field>
 ```
 
@@ -60,7 +60,7 @@ To pre-select an option, declare a value for the `selected` argument:
   as |F|
 >
   <F.Label>Label</F.Label>
-  {{F.options}}
+  <F.Options>{{F.options}}</F.Options>
 </Hds::Form::SuperSelect::Single::Field>
 ```
 
@@ -78,7 +78,7 @@ Placeholder text can be added to provide additional context. However, this infor
   as |F|
 >
   <F.Label>Select your location of residence</F.Label>
-  {{F.options}}
+  <F.Options>{{F.options}}</F.Options>
 </Hds::Form::SuperSelect::Single::Field>
 ```
 
@@ -105,7 +105,7 @@ To group similar sets of options, pass a nested data structure specifying the `g
   as |F|
 >
   <F.Label>Grouped options</F.Label>
-  {{F.options}}
+  <F.Options>{{F.options}}</F.Options>
 </Hds::Form::SuperSelect::Multiple::Field>
 ```
 
@@ -121,7 +121,6 @@ To group similar sets of options, pass a nested data structure specifying the `g
   as |F|
 >
   <F.Label>Size</F.Label>
-
   <F.Options>
     {{#let F.options as |option|}}
       <Hds::Text::Body @size="200">
@@ -191,7 +190,7 @@ You can add extra information to the field using [Helper Text](/components/form/
 >
   <F.Label>Target infrastructure</F.Label>
   <F.HelperText>The target infrastructure is where you want to deploy your apps.</F.HelperText>
-  {{F.options}}
+  <F.Options>{{F.options}}</F.Options>
 </Hds::Form::SuperSelect::Single::Field>
 ```
 
@@ -216,7 +215,7 @@ For example:
 >
   <F.Label>Target infrastructure <Hds::Badge @size="small" @text="Beta" /></F.Label>
   <F.HelperText>This is an experimental feature (<Hds::Link::Inline @href="#">read more</Hds::Link::Inline>).</F.HelperText>
-  {{F.options}}
+  <F.Options>{{F.options}}</F.Options>
 </Hds::Form::SuperSelect::Single::Field>
 ```
 
