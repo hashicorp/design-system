@@ -93,6 +93,11 @@
   align-items: center;
   // this is needed to make sure the inline text is aligned with the other text before/after
   vertical-align: bottom;
+
+  // when it's inline and it contains only an icon we need to align it at the middle of the text otherwise it "falls" down
+  &:has(.hds-rich-tooltip__toggle-icon:only-child) {
+    vertical-align: middle;
+  }
 }
 
 :where(.hds-rich-tooltip__toggle--is-block) {
