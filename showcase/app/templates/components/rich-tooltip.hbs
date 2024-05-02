@@ -702,6 +702,33 @@
   </Shw::Flex>
 
   <Shw::Flex as |SF|>
+    <SF.Item @label="Inline text with pre/post characters (testing whitespace)" {{style width="250px"}}>
+      <Hds::Text::Body @size="200" @tag="p">
+        Lorem ipsum "<Hds::RichTooltip as |RT|>
+          <RT.Toggle @text="dolor sit" @isInline={{true}} />
+          <RT.Bubble>
+            <Shw::Placeholder @text="generic content" @height="30" />
+          </RT.Bubble>
+        </Hds::RichTooltip>" amet.
+      </Hds::Text::Body>
+    </SF.Item>
+    <SF.Item @label="Inline icon only (testing vertical alignment)" {{style width="250px"}}>
+      <Hds::Text::Body @size="200" @tag="p">
+        Lorem ipsum dolor
+        <Hds::RichTooltip as |RT|>
+          <RT.Toggle @isInline={{true}} @icon="info" />
+          <RT.Bubble>
+            <Shw::Placeholder @text="generic content" @height="30" />
+          </RT.Bubble>
+        </Hds::RichTooltip>
+        sit amet.
+      </Hds::Text::Body>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Flex as |SF|>
     <SF.Item @label="Block within other text" {{style width="250px"}}>
       <Hds::Text::Body @size="200" @tag="p">
         Lorem ipsum dolor sit amet consectetur adipisicing elit.
