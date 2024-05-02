@@ -114,7 +114,7 @@ The “Clear selected” button clears all selections and reverts the Super Sele
 
 ##### Footer with custom content
 
-The footer can contain custom content instead of the default content. This is helpful in maintaining the standard appearance of the footer container while allowing for custom usages.
+The footer can contain custom content instead of the default content. This is helpful in maintaining the standard appearance of the footer container while allowing for custom usage.
 
 ![Showing the footer with custom content inside.](/assets/components/form/super-select/super-select-single-multiple-footer-custom-content.png =836x*) 
 
