@@ -36,9 +36,9 @@ export default class HdsPopoverPrimitiveComponent extends Component {
   @tracked isOpen = this.args.isOpen ?? false;
   @tracked isClosing = false;
   // this will enable "soft" events for the toggle ("hover" and "focus")
-  @tracked enableSoftEvents = this.args.enableSoftEvents ?? false;
+  enableSoftEvents = this.args.enableSoftEvents ?? false;
   // this will enable "click" events for the toggle
-  @tracked enableClickEvents = this.args.enableClickEvents ?? false;
+  enableClickEvents = this.args.enableClickEvents ?? false;
 
   constructor() {
     super(...arguments);
@@ -227,7 +227,7 @@ export default class HdsPopoverPrimitiveComponent extends Component {
 
   @action
   onMouseLeave() {
-    this.timer = setTimeout(this.hidePopover.bind(this), 500);
+    this.timer = setTimeout(() => this.hidePopover(), 500);
   }
 
   @action
