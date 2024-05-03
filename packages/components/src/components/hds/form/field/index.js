@@ -11,6 +11,8 @@ import { schedule } from '@ember/runloop';
 import { getElementId } from '../../../../utils/hds-get-element-id';
 import { setAriaDescribedBy } from '../../../../utils/hds-set-aria-described-by';
 
+import { ID_PREFIX } from '../label/index';
+
 export const LAYOUT_TYPES = ['vertical', 'flag'];
 
 export default class HdsFormFieldIndexComponent extends Component {
@@ -60,7 +62,7 @@ export default class HdsFormFieldIndexComponent extends Component {
    * Returns the label id for the form control
    */
   get labelId() {
-    return `label-${this.id}`;
+    return `${ID_PREFIX}${this.id}`;
   }
 
   /**
