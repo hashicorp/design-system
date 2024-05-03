@@ -152,17 +152,47 @@ export default class HdsPopoverPrimitiveComponent extends Component {
 
   @action
   showPopover() {
-    this.popoverElement.showPopover();
+    try {
+      this.popoverElement.showPopover();
+    } catch (error) {
+      warn(
+        'The invocation of `showPopover` for the popover element caused an unexpected error.',
+        {
+          id: 'hds-popover.show-popover-action.invocation-failed',
+          error: error,
+        }
+      );
+    }
   }
 
   @action
   hidePopover() {
-    this.popoverElement.hidePopover();
+    try {
+      this.popoverElement.hidePopover();
+    } catch (error) {
+      warn(
+        'The invocation of `hidePopover` for the popover element caused an unexpected error.',
+        {
+          id: 'hds-popover.hide-popover-action.invocation-failed',
+          error: error,
+        }
+      );
+    }
   }
 
   @action
   togglePopover() {
-    this.popoverElement.togglePopover();
+    try {
+      this.popoverElement.togglePopover();
+    } catch (error) {
+      warn(
+        'The invocation of `togglePopover` for the popover element caused an unexpected error.',
+        {
+          id: 'hds-popover.toggle-popover-action.invocation-failed',
+          error: error,
+        }
+      );
+    }
   }
 
   // fired just _before_ the "popover" is shown or hidden
