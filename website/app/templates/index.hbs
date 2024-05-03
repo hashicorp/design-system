@@ -12,16 +12,21 @@
       <div class="doc-page-home__hero-links">
         <Doc::LinkWithIcon
           @route="show"
-          @model="getting-started/for-designers"
-          @label="Start designing with Helios"
+          @model="whats-new/release-notes"
+          @label="Release Notes"
           @icon="arrow-right"
           @isAnimated={{true}}
         />
         <Doc::LinkWithIcon
-          @route="show"
-          @model="getting-started/for-engineers"
-          @label="Install Helios in your project"
-          @icon="arrow-right"
+          @href="https://go.hashi.co/hds-rollout"
+          @label="Helios Roadmap"
+          @icon="external-link"
+          @isAnimated={{true}}
+        />
+        <Doc::LinkWithIcon
+          @href="https://go.hashi.co/hds-feedback"
+          @label="Share Feedback"
+          @icon="external-link"
           @isAnimated={{true}}
         />
       </div>
