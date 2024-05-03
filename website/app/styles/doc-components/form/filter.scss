@@ -18,7 +18,7 @@
   padding-left: 48px;
   color: var(--doc-color-gray-200);
   background-color: var(--doc-color-white);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3E%3Cg fill='%23727374'%3E%3Cpath d='M1 3.75A.75.75 0 011.75 3h12.5a.75.75 0 010 1.5H1.75A.75.75 0 011 3.75zM3.5 7.75A.75.75 0 014.25 7h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM6.75 11a.75.75 0 000 1.5h2.5a.75.75 0 000-1.5h-2.5z'/%3E%3C/g%3E%3C/svg%3E"); // notice: the icon color is hardcoded here!
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3E%3Cg fill='%23727374'%3E%3Cpath d='M7.25 2a5.25 5.25 0 103.144 9.455l2.326 2.325a.75.75 0 101.06-1.06l-2.325-2.326A5.25 5.25 0 007.25 2zM3.5 7.25a3.75 3.75 0 117.5 0 3.75 3.75 0 01-7.5 0z' clip-rule='evenodd'/%3E%3C/g%3E%3C/svg%3E"); // notice: the icon color is hardcoded here!
   background-repeat: no-repeat;
   background-position: left 16px top 11px; // we have to take into account the border
   background-size: 20px 20px;
