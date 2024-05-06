@@ -3,7 +3,6 @@
 ### When to use
 
 - When the list of options is large and search is required to help filter the list.
-- When list items are displayed in groups.
 - When complex, structured content is required to be displayed within the options.
 
 ### When not to use
