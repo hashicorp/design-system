@@ -18,7 +18,7 @@ The base `AppFooter` component includes a copyright notice. It also wraps and co
     The `AppFooter::Link` component (see below).
   </C.Property>
   <C.Property @name="<[AF].Item>" @type="yielded component">
-    The generic `AppFooter::Item` component (see below).
+    The `AppFooter::Item` component which is used for custom non-link content (see below).
   </C.Property>
   <C.Property @name="<[AF].ExtraAfter>" @type="yielded component">
     Container that yields its content after the `<ul>` list of links and items.
