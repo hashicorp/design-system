@@ -11,4 +11,11 @@
     padding: 8px;
     background: var(--token-color-palette-neutral-700);
   }
+
+  .doc-app-footer-demo-custom-content-layout {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    outline: 1px dashed #ccc;
+  }
 }

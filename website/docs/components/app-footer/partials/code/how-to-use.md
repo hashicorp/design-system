@@ -37,6 +37,7 @@ You can add custom links in addition to or instead of including `LegalLinks`.
 ### Item
 
 `Item` components can be used to include meta text or other non-link content.
+
 ```handlebars
 <Hds::AppFooter as |AF|>
   <AF.Item>
@@ -51,7 +52,44 @@ You can add custom links in addition to or instead of including `LegalLinks`.
 </Hds::AppFooter>
 ```
 
+### ExtraBefore & ExtraAfter
+
+Custom content can be added either before or after the `AppFooter` main content. The layout of this content is inline with other content by default.
+
+```handlebars
+<Hds::AppFooter as |AF|>
+  <AF.ExtraBefore>
+    <Doc::Placeholder @text="Extra Content Before" @height="2em" {{style width="fit-content" color="#636363" background="#ffd6d6"}} />
+  </AF.ExtraBefore>
+  <AF.LegalLinks />
+  <AF.ExtraAfter>
+    <Doc::Placeholder @text="Extra Content After" @height="2em" {{style width="fit-content" color="#636363" background="#ffd6d6"}} />
+  </AF.ExtraAfter>
+</Hds::AppFooter>
+```
+
+#### Custom layout
+
+Add your own styles to customize the layout of the extra content areas.
+
+```handlebars
+<Hds::AppFooter as |AF|>
+  <AF.ExtraBefore>
+    <div class="doc-app-footer-demo-custom-content-layout">
+      <Doc::Placeholder @text="Extra Content Before" @height="2em" {{style width="fit-content" color="#636363" background="#ffd6d6"}} />
+    </div>
+  </AF.ExtraBefore>
+  <AF.LegalLinks />
+  <AF.ExtraAfter>
+    <div class="doc-app-footer-demo-custom-content-layout">
+      <Doc::Placeholder @text="Extra Content After" @height="2em" {{style width="fit-content" color="#636363" background="#ffd6d6"}} />
+    </div>
+  </AF.ExtraAfter>
+</Hds::AppFooter>
+```
+
 ### Theme
+
 Both a `light` and  a `dark` theme are included.
 
 ```handlebars
