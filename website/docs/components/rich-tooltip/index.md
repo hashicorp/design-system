@@ -1,7 +1,7 @@
 ---
 title: Rich Tooltip
-description: The Rich Tooltip displays structured informational content that is non-essential to the user completing a task.
-caption: The Rich Tooltip displays structured informational content that is non-essential to the user completing a task.
+description: The Rich Tooltip component provides additional information to users in a concise and unobtrusive way while supporting more complex and structured content.
+caption: Provides additional structured informational content for a UI element.
 links:
   figma: {link to the "RichTooltip" page in the components Figma library}
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/rich-tooltip
