@@ -25,7 +25,7 @@ Multiple options can be selected.
 
 ![Multiple selection example with list open](/assets/components/form/super-select/super-select-multiple-variant.png =504x*)
 
-## Toggle value states
+## Trigger value states
 
 **Empty**
 
@@ -81,7 +81,7 @@ We recommend against placing heavy UI elements in custom content as it can draw 
 
 ### AfterOptions
 
-AfterOptions allows for either an HDS standardized footer or custom content to be displayed after the options list. The footer has additional functionality in the Multiple variant compared to the Single.
+AfterOptions allows for either an HDS standardized footer or custom content to be displayed after the options list. The footer has additional functionality in the Multiple component compared to the Single.
 
 #### Footer
 
