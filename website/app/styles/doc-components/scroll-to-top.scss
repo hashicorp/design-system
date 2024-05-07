@@ -1,0 +1,21 @@
+@use "../typography/mixins" as *;
+
+.doc-scroll-to-top {
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  z-index: 99;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  background-color: black;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  cursor: pointer;
+
+  &:focus {
+    border-color: white;
+    outline: none;
+    box-shadow: 0 0 0 3px var(--doc-focus-ring-color), 0 0 10px rgba(0, 0, 0, 20%);
+  }
+}
