@@ -25,17 +25,17 @@
         </RT.Bubble>
       </Hds::RichTooltip>
     </SF.Item>
-    <SF.Item @label="Text + Icon (leading/default)">
+    <SF.Item @label="Text + Icon (trailing/default)">
       <Hds::RichTooltip as |RT|>
-        <RT.Toggle @text="Lorem ipsum dolor" @icon="info" @iconPosition="leading" />
+        <RT.Toggle @text="Lorem ipsum dolor" @icon="info" @iconPosition="trailing" />
         <RT.Bubble>
           <Shw::Placeholder @text="generic content" @height="40" />
         </RT.Bubble>
       </Hds::RichTooltip>
     </SF.Item>
-    <SF.Item @label="Text + Icon">
+    <SF.Item @label="Icon (leading) + Text">
       <Hds::RichTooltip as |RT|>
-        <RT.Toggle @text="Lorem ipsum dolor" @icon="info" @iconPosition="trailing" />
+        <RT.Toggle @text="Lorem ipsum dolor" @icon="info" @iconPosition="leading" />
         <RT.Bubble>
           <Shw::Placeholder @text="generic content" @height="40" />
         </RT.Bubble>
@@ -70,7 +70,7 @@
               @text="Lorem ipsum dolor"
               @size={{if (eq size "inherited") undefined size}}
               @icon="info"
-              @iconPosition="trailing"
+              @iconPosition="leading"
             />
             <RT.Bubble>
               <Shw::Placeholder @text="generic content" @height="40" />
@@ -213,7 +213,7 @@
             </Hds::RichTooltip>
             sit amet
             <Hds::RichTooltip as |RT|>
-              <RT.Toggle @isInline={{isInline}} @text="consectetur adipiscing" @icon="info" @iconPosition="trailing" />
+              <RT.Toggle @isInline={{isInline}} @text="consectetur adipiscing" @icon="info" @iconPosition="leading" />
               <RT.Bubble>
                 <Shw::Placeholder @text="generic content" @height="40" />
               </RT.Bubble>
@@ -667,7 +667,7 @@
       <Hds::Text::Body @size="200" @tag="p">
         Lorem ipsum dolor
         <Hds::RichTooltip as |RT|>
-          <RT.Toggle @text="Test" @isInline={{true}} @icon="lock" />
+          <RT.Toggle @text="Test" @isInline={{true}} @icon="lock" @iconPosition="leading" />
           <RT.Bubble>
             <Shw::Placeholder @text="generic content" @height="30" />
           </RT.Bubble>
@@ -679,7 +679,7 @@
       <Hds::Text::Body @size="200" @tag="p">
         Lorem ipsum dolor
         <Hds::RichTooltip as |RT|>
-          <RT.Toggle @text="Test with long text" @isInline={{true}} @icon="lock" />
+          <RT.Toggle @text="Test with long text" @isInline={{true}} @icon="lock" @iconPosition="leading" />
           <RT.Bubble>
             <Shw::Placeholder @text="generic content" @height="30" />
           </RT.Bubble>
@@ -691,7 +691,12 @@
       <Hds::Text::Body @size="200" @tag="p">
         Lorem ipsum dolor
         <Hds::RichTooltip as |RT|>
-          <RT.Toggle @text="Test with long text that wraps multiple lines" @isInline={{true}} @icon="lock" />
+          <RT.Toggle
+            @text="Test with long text that wraps multiple lines"
+            @isInline={{true}}
+            @icon="lock"
+            @iconPosition="leading"
+          />
           <RT.Bubble>
             <Shw::Placeholder @text="generic content" @height="30" />
           </RT.Bubble>
@@ -894,7 +899,7 @@
             </B.Td>
             <B.Td>
               <Hds::RichTooltip as |RT|>
-                <RT.Toggle @text={{B.data.tagsCount}} @icon="info" @iconPosition="trailing" />
+                <RT.Toggle @text={{B.data.tagsCount}} @icon="info" @iconPosition="leading" />
                 <RT.Bubble>
                   <Hds::Text::Body @size="100" @tag="p" @weight="semibold">Tags:</Hds::Text::Body>
                   <div class="shw-component-rich-tooltip-demo-table-cell-content-tags">
@@ -905,7 +910,7 @@
                     {{/let}}
                   </div>
                   <Hds::Text::Body @size="100" @tag="p">
-                    <Hds::Link::Inline @href="#" @icon="sidebar" @iconPosition="trailing">See all
+                    <Hds::Link::Inline @href="#" @icon="sidebar" @iconPosition="leading">See all
                       {{B.data.tagsCount}}
                       tags</Hds::Link::Inline>
                   </Hds::Text::Body>
@@ -932,7 +937,7 @@
           <div class="shw-component-rich-tooltip-demo-tabs-panel">
             <Hds::Text::Body @size="200" @tag="p">Lorem ipsum dolor sit amet
               <Hds::RichTooltip as |RT|>
-                <RT.Toggle @text="consectetur adipisicing" @isInline={{true}} @icon="info" @iconPosition="trailing" />
+                <RT.Toggle @text="consectetur adipisicing" @isInline={{true}} @icon="info" @iconPosition="leading" />
                 <RT.Bubble>
                   <Shw::Placeholder @text="generic content" @height="30" />
                 </RT.Bubble>
@@ -947,7 +952,7 @@
             <Hds::Text::Body @size="200" @tag="p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
               perferendis culpa expedita assumenda at
               <Hds::RichTooltip as |RT|>
-                <RT.Toggle @text="nisi minus unde" @isInline={{true}} @icon="info" @iconPosition="trailing" />
+                <RT.Toggle @text="nisi minus unde" @isInline={{true}} @icon="info" @iconPosition="leading" />
                 <RT.Bubble>
                   <Shw::Placeholder @text="generic content" @height="30" />
                 </RT.Bubble>
@@ -961,7 +966,7 @@
             <Hds::Text::Body @size="200" @tag="p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
               perferendis culpa expedita assumenda at
               <Hds::RichTooltip as |RT|>
-                <RT.Toggle @etxt="nisi minus unde fuga iure" @isInline={{true}} @icon="info" @iconPosition="trailing" />
+                <RT.Toggle @etxt="nisi minus unde fuga iure" @isInline={{true}} @icon="info" @iconPosition="leading" />
                 <RT.Bubble>
                   <Shw::Placeholder @text="generic content" @height="30" />
                 </RT.Bubble>
@@ -992,7 +997,7 @@
     </SG.Item>
     <SG.Item @label="Link + InfoText">
       <div class="shw-component-rich-tooltip-demo-action-plus-info">
-        <Hds::Link::Standalone @icon="external-link" @iconPosition="trailing" @text="Acme Corp" @href="#" />
+        <Hds::Link::Standalone @icon="external-link" @iconPosition="leading" @text="Acme Corp" @href="#" />
         <Hds::RichTooltip @enableClickEvents={{true}} as |RT|>
           <RT.Toggle @icon="info" aria-label="more info" />
           <RT.Bubble @placement="top-start">
@@ -1049,11 +1054,11 @@
     <SF.Item @label="Only text">
       <Hds::RichTooltip::Toggle @text="Lorem ipsum dolor" />
     </SF.Item>
-    <SF.Item @label="Text + Icon (leading/default)">
-      <Hds::RichTooltip::Toggle @icon="info" @text="Lorem ipsum dolor" />
+    <SF.Item @label="Text + Icon (trailing/default)">
+      <Hds::RichTooltip::Toggle @icon="info" @text="Lorem ipsum dolor" @iconPosition="trailing" />
     </SF.Item>
-    <SF.Item @label="Text + Icon (trailing)">
-      <Hds::RichTooltip::Toggle @icon="info" @iconPosition="trailing" @text="Lorem ipsum dolor" />
+    <SF.Item @label="Icon (leading) + Text">
+      <Hds::RichTooltip::Toggle @icon="info" @iconPosition="leading" @text="Lorem ipsum dolor" />
     </SF.Item>
     <SF.Item @label="Generic (yielded)">
       <Hds::RichTooltip::Toggle>Lorem ipsum dolor</Hds::RichTooltip::Toggle>
@@ -1072,7 +1077,7 @@
             sit amet
             <Hds::RichTooltip::Toggle
               @icon="info"
-              @iconPosition="trailing"
+              @iconPosition="leading"
               @isInline={{true}}
               @text="consectetur adipiscing"
             />
@@ -1093,7 +1098,7 @@
           <Hds::RichTooltip::Toggle @icon="info" @size={{size}} @text="Lorem ipsum dolor" />
         </SF.Item>
         <SF.Item>
-          <Hds::RichTooltip::Toggle @icon="info" @iconPosition="trailing" @size={{size}} @text="Lorem ipsum dolor" />
+          <Hds::RichTooltip::Toggle @icon="info" @iconPosition="leading" @size={{size}} @text="Lorem ipsum dolor" />
         </SF.Item>
       </Shw::Flex>
     {{/each}}
