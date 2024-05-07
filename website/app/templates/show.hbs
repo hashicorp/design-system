@@ -16,6 +16,9 @@
     {{#if this.relatedComponents}}
       <Doc::RelatedComponents @cards={{this.relatedComponents}} />
     {{/if}}
+    <a class={{this.classNames}} href={{@href}} {{on "click" this.scrollToTop}}>
+      Scroll to top
+    </a>
   </Doc::Page::Content>
 
   {{#if this.model.hasSidecar}}

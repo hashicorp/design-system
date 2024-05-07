@@ -5,6 +5,7 @@ import { tracked } from '@glimmer/tracking';
 import { A } from '@ember/array';
 import { schedule } from '@ember/runloop';
 import { inject as service } from '@ember/service';
+import { later } from '@ember/runloop';
 
 import { showdownConfig } from '../shared/showdown-config';
 
@@ -216,5 +217,23 @@ export default class ShowController extends Controller {
 
     // leave for debugging
     // console.log('show setCurrent', this.sections, this.tabs, this.tocs);
+  }
+
+  @action scrollToTop(event) {
+    debugger;
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+    // later(
+    //   this,
+    //   function () {
+    //     let id = this.target?.url?.split('#')[1];
+    //     if (id) {
+    //       document.getElementById(id)?.scrollIntoView();
+    //     }
+    //   },
+    //   1
+    // );
   }
 }
