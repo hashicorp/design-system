@@ -53,13 +53,13 @@ module(
         .hasText('0 selected of 3 total');
       assert
         .dom('.hds-form-super-select__after-options .hds-button')
-        .hasText('Show Selected');
+        .hasText('Show selected');
       assert
         .dom('.hds-form-super-select__after-options .hds-button')
-        .doesNotHaveTextContaining('Clear Selected');
+        .doesNotHaveTextContaining('Clear selected');
     });
 
-    test('it should update the options view when "Show Selected"/"Show all" is toggled', async function (assert) {
+    test('it should update the options view when "Show selected"/"Show all" is toggled', async function (assert) {
       this.set('NOOP', () => {});
       this.set('OPTION', []);
       this.set('OPTIONS', ['Option 1', 'Option 2', 'Option 3']);
@@ -76,20 +76,20 @@ module(
         .hasText('2 selected of 3 total');
       assert.dom('.ember-power-select-option').isVisible({ count: 3 });
 
-      // click 'Show Selected'
+      // click 'Show selected'
       await click(
         '.hds-form-super-select__after-options .hds-button:first-child'
       );
       assert.dom('.ember-power-select-option').isVisible({ count: 2 });
 
-      // click 'Show All'
+      // click 'Show all'
       await click(
         '.hds-form-super-select__after-options .hds-button:first-child'
       );
       assert.dom('.ember-power-select-option').isVisible({ count: 3 });
     });
 
-    test('it should clear any existing selection when "Clear Selected" is activated', async function (assert) {
+    test('it should clear any existing selection when "Clear selected" is activated', async function (assert) {
       this.set('NOOP', () => {});
       this.set('OPTION', []);
       this.set('OPTIONS', ['Option 1', 'Option 2', 'Option 3']);
@@ -107,7 +107,7 @@ module(
       assert.dom('.ember-power-select-option').isVisible({ count: 3 });
       assert.dom('.hds-form-super-select__no-options-selected').doesNotExist();
 
-      // click 'Clear Selected'
+      // click 'Clear selected'
       await click(
         '.hds-form-super-select__after-options .hds-button:nth-child(2)'
       );
@@ -120,7 +120,7 @@ module(
         )
         .hasText('0 selected of 3 total');
 
-      // click 'Show Selected'
+      // click 'Show selected'
       await click(
         '.hds-form-super-select__after-options .hds-button:first-child'
       );
