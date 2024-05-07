@@ -59,7 +59,7 @@ It can also be used with generic content, in which case consumers will need to m
     <br />
     _If the toggle contains only the icon, an `aria-label` value needs to be assigned to the toggle to make it accessible._
   </C.Property>
-  <C.Property @name="iconPosition" @type="enum" @values={{array "leading" "trailing"}} @default="leading">
+  <C.Property @name="iconPosition" @type="enum" @values={{array "leading" "trailing"}} @default="trailing">
     Positions the icon before or after the text.
   </C.Property>
   <C.Property @name="size" @type="string" @values={{array "undefined" "small" "medium" "large"}} @default="undefined">

@@ -267,7 +267,7 @@ The tooltip can be rendered as initially opened using the `@isOpen` argument:
 
 ```handlebars
 <Hds::RichTooltip @isOpen={{true}} as |RT|>
-  <RT.Toggle @size="medium" @text="More info" @icon="info" @iconPosition="trailing" />
+  <RT.Toggle @size="medium" @text="More info" @icon="info" @iconPosition="leading" />
   <RT.Bubble @placement="right">
     <Hds::Text::Display @tag="h4" @size="200">Some title</Hds::Text::Display>
     <Hds::Text::Body @tag="p" @size="200">Some descriptive information</Hds::Text::Body>
