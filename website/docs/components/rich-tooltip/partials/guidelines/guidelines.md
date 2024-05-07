@@ -68,7 +68,6 @@ The Rich Tooltip supports two interaction methods: a `On hover / On focus` ("sof
 
 - The type and complexity of content displayed by the component.
 - Whether _temporarily persisting_ the content in the UI is necessary or beneficial to the user.
-- Whether the element toggling the Rich Tooltip is interactive or not.
 
 Independent of which interaction is used, the Rich Tooltip can be dismissed by clicking outside of the component or with the `ESC` key.
 
@@ -76,7 +75,7 @@ Independent of which interaction is used, the Rich Tooltip can be dismissed by c
 
 ### Default
 
-By default, we provide a [Toggle](/components/rich-tooltip?tab=specifications#toggle) component which should be used in the majority of cases with the Rich Tooltip. This component ensures that the toggle is perceivable, visually consistent, and can be used inline with other content or standalone as part of the layout flow.
+By default, we provide a [Toggle](/components/rich-tooltip?tab=specifications#toggle-1) component which should be used in the majority of cases along with the Rich Tooltip. This component ensures that the toggle is perceivable, visually consistent, and can be used inline with other content or standalone as part of the layout flow.
 
 #### How to use
 
@@ -86,7 +85,7 @@ Consider these guidelines when using the default Toggle component:
 
 When used in a block of text, use the "text only"/"no icon" variant, as the icon can unnecessarily break the reading flow of the content.
 
-![Text only underline](/assets/components/rich-tooltip/rich-tooltip-toggle-underline.png)
+![Text only underline](/assets/components/rich-tooltip/rich-tooltip-toggle-text-only.png)
 !!!
 
 !!! Do
@@ -98,7 +97,7 @@ When using the "icon only" variant, ensure the component is paired with other te
 
 #### Size
 
-The Toggle is available in `small`, `medium`, and `large` sizes in both the Ember and Figma components. If used in a paragraph of text, the Ember component offers additional support to inherit the size from the surrounding text.
+The Toggle is available in `small`, `medium`, and `large` sizes in both the Ember and Figma components. If used in a paragraph of text, the Ember component will inherit the size from the surrounding text.
 
 ![Sizes of the Toggle](/assets/components/rich-tooltip/rich-tooltip-toggle-sizes.png)
 
@@ -110,13 +109,13 @@ An icon can be used in the Toggle in either the `leading` or `trailing` position
 
 #### Underline
 
-Only available in the Toggle component in Figma, the `isUnderlineOnly` property allows the component to be used **inline** a block of text like a paragraph.
+Only available as a component in Figma, the ToggleUnderline component can be used **inline** a block of text like a paragraph.
 
 ![Underline only toggle](/assets/components/rich-tooltip/rich-tooltip-toggle-underline.png)
 
 ### Custom toggle
 
-While almost any element can be used to toggle the Rich Tooltip, custom elements must conform to the following usability and accessibility success criteria:
+If absolutely necessary, toggling the Rich Tooltip using a custom element is supported but should be used sparingly and conform to the following usability and accessibility success criteria:
 
 - Must have a minimum target area of 24x24 pixels.
 - Must have a minimum contrast ratio between the background/surface color of 3:1.
@@ -157,8 +156,6 @@ However, interactive elements in HelperText will not be read out as interactive 
 ## Content
 
 The Rich Tooltip is built to be flexible enough to support a variety of use cases and content. Consider these common examples when determining whether it's appropriate for your use case.
-
-<!-- Ensure that we have alignment for all of these scenarios -->
 
 ### Text with links
 
