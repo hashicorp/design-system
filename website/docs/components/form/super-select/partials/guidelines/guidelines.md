@@ -25,7 +25,7 @@ Multiple options can be selected.
 
 ![Multiple selection example with list open](/assets/components/form/super-select/super-select-multiple-variant.png =504x*)
 
-## Trigger value states
+## Toggle value states
 
 **Empty**
 
@@ -81,7 +81,7 @@ We recommend against placing heavy UI elements in custom content as it can draw 
 
 ### AfterOptions
 
-AfterOptions allows for either an HDS standardized footer or custom content to be displayed after the options list. The footer has additional functionality in the Multiple variant than the Single.
+AfterOptions allows for either an HDS standardized footer or custom content to be displayed after the options list. The footer has additional functionality in the Multiple variant compared to the Single.
 
 #### Footer
 
@@ -95,15 +95,15 @@ The footer for the Single component includes a total count, which is customizabl
 
 ##### Multiple
 
-The footer for the Multiple component includes buttons to modify the options and a counter of the number of options selected out of the total.
+The footer for the Multiple component includes buttons to modify the options and a count of the number of options selected out of the total.
 
 ![Custom content enabled before the list in both Single and Multiple components](/assets/components/form/super-select/super-select-multiple-variant-footer.png)
 
-The “Show selected” button displays only the selected options in the list. When activated, it toggles to “Show all.”
+The “Show selected” button displays only the selected options in the list. When toggled, the text changes to “Show all.”
 
 ![Flow showing the behavior of the show selected button and how it toggles the list to only display selected list items](/assets/components/form/super-select/super-select-flow-select-all.png)
 
-If “Show selected” is used when no options have been selected, a message will appear notifying the user.
+If “Show selected” is toggled when no options have been selected, a message will appear notifying the user.
 
 ![Flow showing the behavior of the show selected button when no selections have been made yet.](/assets/components/form/super-select/super-select-flow-no-selections-select-all.png)
 
@@ -127,7 +127,7 @@ If enabled, custom content will occupy this space.
 
 ### Positioning
 
-Lists can be positioned to the left or right, as well as above or below the trigger as necessary to fit within the UI. These options are only available when `matchTriggerWidth` is set to `false`.
+Lists can be positioned to the left or right, as well as above or below the trigger as necessary to fit within the UI. These options are only available when `matchTriggerWidth` is set to `false`. This effects the ember component only.
 
 ![Showing the different list positions (left, right + top and bottom)](/assets/components/form/super-select/super-select-list-positioning.png =836x*)
 
@@ -139,13 +139,13 @@ By default, the width of the list matches the trigger width.
 
 #### Auto width
 
-If the list width is set to “auto,” it will match the width of the longest list item. This means it may be either narrower or wider than the trigger width accordingly. A `max-width` can also be defined for the list.
+If the list width is set to “auto" it will match the width of the longest list item, which may result in the list being narrower or wider than the trigger width. A `max-width` can also be defined for the list.
 
 ![Showing the list's auto width, resizing to the longest list item](/assets/components/form/super-select/super-select-list-width-auto.png)
 
 ## ListItem Types
 
-There are four types of ListItems, two of which are variant-specific.
+There are four types of ListItems, two of which are component-specific.
 
 - `Checkmark` is used in the Single component to indicate a selection has been made.
 - `Checkbox` is used in the Multiple component to indicate that more than one option can be selected.
