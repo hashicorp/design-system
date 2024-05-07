@@ -9,11 +9,11 @@
 | Content          | Required |
 | Container        | Required |
 | Pointer          | Required |
-| Toggle           | Required; can use either the default InfoText toggle or custom elements |
+| Toggle           | Required; can use either the default Toggle or custom elements |
 
-### InfoText
+### Toggle
 
-![InfoText Anatomy](/assets/components/rich-tooltip/default-trigger-anatomy.png)
+![Toggle Anatomy](/assets/components/rich-tooltip/default-trigger-anatomy.png)
 
 | Element     | Usage                      |
 |-------------|----------------------------|
@@ -23,5 +23,5 @@
 
 #### States
 
-![InfoText states](/assets/components/rich-tooltip/infotext-states.png)
+![Toggle states](/assets/components/rich-tooltip/toggle-states.png)
 

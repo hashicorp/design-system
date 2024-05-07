@@ -2,12 +2,12 @@
 
 ### When to use
 
-- For adding extra information to a UI element that consists of more than a simple sentence, or structured content with a specific layout.
+- For adding extra information, in the form of structured content, to a UI element.
 - When it’s necessary to _temporarily persist_ extra information in the UI; e.g., if the user benefits from cross-referencing information in the component with other elements in the UI.
 
 !!! Info
 
-**Temporarily persist:** by this we mean the component will remain visible within UI until it is explicitly dismissed by the user, allowing the toggling open of the component and cross-referencing the content it contains with the rest of the UI. More details on this can be found in the [interaction](#interaction) section.
+**Temporarily persist:** By this, we mean the component will remain open so the content within can be cross-referenced with the rest of the UI until it's explicitly dismissed by the user. More details are in the [interaction](#interaction) section.
 !!!
 
 ### When not to use
@@ -19,29 +19,24 @@
 
 ### Rich Tooltip vs. Tooltip
 
-While there is overlap between the Rich Tooltip and the "standard" [Tooltip](/components/tooltip), which component to use depends on:
+While there is overlap with the [Tooltip](/components/tooltip), the _majority_ of use cases can be categorized one of two ways:
 
-- the complexity of the content
-- whether structural or layout elements are used
-- whether there are interactive elements; e.g., links or micro-interactions
-- whether the component should persist within the UI
-
-The _majority_ of use-cases can be categorized one of two ways:
-
-1. "Standard" Tooltip: simple, text-based content with support for rudimentary formatting (_italic_, **bold**, `monospace`, etc).
-2. Rich Tooltip: _relatively_ more complex, dynamic content with support for different layouts, organization of content, links, micro-interactions, diagrams, etc.
+1. Tooltip: simple, text-based content supporting basic formatting (_italic_, **bold**, `monospace`, etc).
+2. Rich Tooltip: _relatively_ more complex, supporting temporary persistence and structured content, links, micro-interactions, diagrams, etc
 
 View more detailed examples of the content the Rich Tooltip could contain in the [content](#content) section.
 
 ## Placement
 
-A Rich Tooltip can be placed in various positions relative to the UI element it is associated with. Choose the placement based on the context and available space around the toggle.
+A Rich Tooltip can be placed in various positions relative to the UI element it is associated with.
 
 The most common options are: `top`, `bottom`, `left`, `right`.
 
 ![Placement examples of the Rich Tooltip](/assets/components/rich-tooltip/rich-tooltip-placement.png)
 
 The Rich Tooltip supports additional placement options: `top-start`, `top-end`, `bottom-start`, `bottom-end`, `left-start`, `left-end`, `right-start`,and `right-end`.
+
+![Additional placements of the Rich Tooltip](/assets/components/rich-tooltip/rich-tooltip-additional-placements.png)
 
 !!! Info
 
@@ -60,11 +55,6 @@ The default recommended distance between the toggle and the Rich Tooltip pointer
 
 ![Default spacing for the Rich Tooltip](/assets/components/rich-tooltip/rich-tooltip-offset-spacing.png)
 
-!!! Info
-
-In some cases, adding an offset may be necessary to adjust the position of the RichTooltip. Changing the default offset should be done sparingly and only when it’s necessary to make sure that the component does not obscure or cover the toggle or other important information.
-!!!
-
 !!! Dont
 
 Don’t add extra offset if the Rich Tooltip would block important information, appear disconnected from the element it is meant to provide information for, or cause confusion for the user.
@@ -74,54 +64,55 @@ Don’t add extra offset if the Rich Tooltip would block important information, 
 
 ## Interaction
 
-The Rich Tooltip supports two different interaction methods: a `hover/focus` ("soft") interaction and a `click` interaction. Which one to use depends on the type and complexity of content displayed by the component, whether _temporarily persisting_ the content in the UI is necessary or beneficial to the user, and whether the element toggling the Rich Tooltip is interactive or not.
+The Rich Tooltip supports two interaction methods: a `On hover / On focus` ("soft") interaction and a `On click` interaction. Which one to use depends on:
 
-1. `Hover/focus` (default): displays when the mouse enters the toggle or the toggle receives focus. The `RichTooltip` has a timeout by default and will persist for 500 milliseconds (0.5 seconds) _after_ the mouse leaves the toggle, or the focus is removed from it.
-2. `On click`: displays when the user clicks the toggle with a mouse or if the toggle receives a keyboard event (`spacebar`, `enter/return`). If the content of the toggle element is interactive, an `on click` interaction _cannot_ be used.
+- The type and complexity of content displayed by the component.
+- Whether _temporarily persisting_ the content in the UI is necessary or beneficial to the user.
+- Whether the element toggling the Rich Tooltip is interactive or not.
 
 Independent of which interaction is used, the Rich Tooltip can be dismissed by clicking outside of the component or with the `ESC` key.
 
 ## Toggle
 
-The Rich Tooltip supports both a default toggle (InfoText) to use the component in a consistent manner, but also supports generic or custom elements passed to the toggle element.
+### Default
 
-### InfoText
-
-Be default, we provide the [InfoText](/components/rich-tooltip?tab=specifications#infotext-1) component which accounts for the majority of use-cases for the Rich Tooltip. This component ensures that the toggle is perceivable, visually consistent, and can be used inline with other content or standalone as part of the layout flow.
-
-!!! Info
-
-For now, the InfoText component should only be used with the Rich Tooltip. In Figma, this component is published separately for flexibility, while in Ember the component is coupled with the Rich Tooltip.
-!!!
+By default, we provide a [Toggle](/components/rich-tooltip?tab=specifications#toggle) component which should be used in the majority of cases with the Rich Tooltip. This component ensures that the toggle is perceivable, visually consistent, and can be used inline with other content or standalone as part of the layout flow.
 
 #### How to use
 
-Consider these guidelines when using the InfoText component:
+Consider these guidelines when using the default Toggle component:
 
-- Use the text + trailing icon variant by default.
-- Use the `isUnderlineOnly` variant within text layers and blocks of text (only applicable to Figma).
-- When using the `iconOnly` variant without text, ensure that the component is paired with other textual elements (like a headline) or elements being described by the Rich Tooltip. Don’t use it in isolation or on it’s own.
-- When used in a block of text, we recommend omitting the icon as this can unnecessarily break up the reading flow of the content.
+!!! Do
+
+When used in a block of text, use the "text only"/"no icon" variant, as the icon can unnecessarily break the reading flow of the content.
+
+![Text only underline](/assets/components/rich-tooltip/rich-tooltip-toggle-underline.png)
+!!!
+
+!!! Do
+
+When using the "icon only" variant, ensure the component is paired with other textual elements (like a headline) or elements described by the Rich Tooltip. Don’t use it in isolation or on its own.
+
+![Pairing the icon only variant with textual elements](/assets/components/rich-tooltip/rich-tooltip-icon-only-toggle.png)
+!!!
 
 #### Size
 
-![Sizes of the InfoText](/assets/components/rich-tooltip/rich-tooltip-info-text-sizes.png)
+The Toggle is available in `small`, `medium`, and `large` sizes in both the Ember and Figma components. If used in a paragraph of text, the Ember component offers additional support to inherit the size from the surrounding text.
+
+![Sizes of the Toggle](/assets/components/rich-tooltip/rich-tooltip-toggle-sizes.png)
 
 #### Icon
 
-![Sizes of the InfoText](/assets/components/rich-tooltip/rich-tooltip-info-text-icon.png)
+An icon can be used in the Toggle in either the `leading` or `trailing` position, or on its own when paired with another element as a label.
+
+![Icon placement of the Toggle](/assets/components/rich-tooltip/rich-tooltip-toggle-icon.png)
 
 #### Underline
 
-Only available in the InfoText component in Figma, the `isUnderlineOnly` property allows the component to be used **inline** a block of text like a paragraph.
+Only available in the Toggle component in Figma, the `isUnderlineOnly` property allows the component to be used **inline** a block of text like a paragraph.
 
-![Sizes of the InfoText](/assets/components/rich-tooltip/rich-tooltip-info-text-underline.png)
-
-#### Variants
-
-- `size`: `small`, `medium`, `large`
-- `hasText`: boolean; defaults to true
-- `iconPosition`: `leading`, `trailing` (default), `only`, `none`
+![Underline only toggle](/assets/components/rich-tooltip/rich-tooltip-toggle-underline.png)
 
 ### Custom toggle
 
@@ -129,20 +120,20 @@ While almost any element can be used to toggle the Rich Tooltip, custom elements
 
 - Must have a minimum target area of 24x24 pixels.
 - Must have a minimum contrast ratio between the background/surface color of 3:1.
-- Should use actionable language or be paired with a label to communicate that additional context is obfuscated away from the user.
+- Should use actionable language or be paired with a label to communicate that additional context is hidden from the user.
 
 More information about this success criteria can be found in the [accessibility](?tab=accessibility) section.
 
 !!! Dont
 
-Don’t use a [Badge](/components/badge) or [BadgeCount](/components/badge-count) as the toggle for the Rich Tooltip; Badges are intentionally non-interactive elements and don't visually communicate that content is hidden behind a `hover`, `click`, or `focus` interaction.
+Don’t use a [Badge](/components/badge) or [BadgeCount](/components/badge-count) as the toggle for the Rich Tooltip, Badges are intentionally non-interactive elements and don't visually communicate that content is hidden behind a `hover`, `click`, or `focus` interaction.
 
 ![Example of using the Rich Tooltip with a badge](/assets/components/rich-tooltip/rich-tooltip-trigger-badge-dont.png)
 !!!
 
 !!! Do
 
-Instead, place the InfoText component inline with the Badge to communicate the existence of a Rich Tooltip.
+Instead, place the Toggle component inline with the Badge to communicate the existence of a Rich Tooltip.
 
 ![Example of pairing the default toggle with a Badge](/assets/components/rich-tooltip/rich-tooltip-trigger-badge-do.png)
 !!!
@@ -156,7 +147,7 @@ Don’t toggle a Rich Tooltip from a form element like a [Text Input](/component
 
 !!! Do
 
-Instead, use the [Label](/components/form/primitives#formlabel) and [HelperText](/components/form/primitives#helpertext) primitives to communicate details about the field. If _absolutely_ necessary to provide more details about a form element, use the InfoText inline within [Helper Text](/components/form/primitives#formhelpertext).
+Instead, use the [Label](/components/form/primitives#formlabel) and [HelperText](/components/form/primitives#helpertext) primitives to communicate details about the field. If _absolutely_ necessary to provide more details about a form element, use the Toggle inline within [Helper Text](/components/form/primitives#formhelpertext).
 
 ![Example within Helper Text](/assets/components/rich-tooltip/rich-tooltip-trigger-helper-text-do.png)
 
@@ -165,13 +156,13 @@ However, interactive elements in HelperText will not be read out as interactive 
 
 ## Content
 
-We are not prescriptive about what type of content a Rich Tooltip can contain; consider these common examples when determining whether the Rich Tooltip is appropriate for your use case.
+The Rich Tooltip is built to be flexible enough to support a variety of use cases and content. Consider these common examples when determining whether it's appropriate for your use case.
 
 <!-- Ensure that we have alignment for all of these scenarios -->
 
 ### Text with links
 
-This is a common use case for a Rich Tooltip due to the lack of support for interactive content in the standard [Tooltip](/components/tooltip).
+This is a common use case for a Rich Tooltip due to the lack of support for interactive content in the [Tooltip](/components/tooltip).
 
 ![Link within text in the Rich Tooltip](/assets/components/rich-tooltip/rich-tooltip-content-links.png)
 

@@ -1,1 +1,1 @@
-A Rich Tooltip displays extra supplemental information about a UI element. It's similar to the "standard" [Tooltip](/components/tooltip) but has some important differences, as outlined in [Rich Tooltip vs. Tooltip](/#rich-tooltip-vs-tooltip).
+A Rich Tooltip displays extra supplemental information about a UI element. It's similar to the "standard" [Tooltip](/components/tooltip) but is intended to be used for more complex or structured content as opposed to simple text. More details are outlined in [Rich Tooltip vs. Tooltip](/#rich-tooltip-vs-tooltip).
