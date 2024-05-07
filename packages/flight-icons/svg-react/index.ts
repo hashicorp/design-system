@@ -1080,6 +1080,8 @@ export { IconRandom24 } from './random-24';
 export { IconRandom16 } from './random-16';
 export { IconRocket24 } from './rocket-24';
 export { IconRocket16 } from './rocket-16';
+export { IconSparkle24 } from './sparkle-24';
+export { IconSparkle16 } from './sparkle-16';
 export { IconSquare24 } from './square-24';
 export { IconSquare16 } from './square-16';
 export { IconSquareFill24 } from './square-fill-24';
