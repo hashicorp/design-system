@@ -41,7 +41,7 @@
         Controls how the layout of the popover is applied using the CSS `position` property. Since the component uses the [native web Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API) which promotes the popover to the [top layer](https://developer.mozilla.org/en-US/docs/Glossary/Top_layer), there is no need to use the `fixed` position to avoid stacking context conflicts, but we leave the option open for edge cases in which this is needed.
         <br />
         <br />
-        _Notice: if the position/strategy is set to `fixed`, the rendering of the popover becomes jagged when the page is scrolled._
+        _Notice: if the position/strategy is set to `fixed`, the rendering of the popover becomes janky when the page is scrolled._
       </C.Property>
       <C.Property @name="anchoredPositionOptions.offsetOptions" @type="number|object" @default="0">
         A number that represents the distance between the popover element and the toggle element. An object can also be passed, which enables individually configuring different axes.
