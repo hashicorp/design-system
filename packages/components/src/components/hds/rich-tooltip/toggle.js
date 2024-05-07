@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-export const DEFAULT_ICONPOSITION = 'leading';
+export const DEFAULT_ICONPOSITION = 'trailing';
 export const ICONPOSITIONS = ['leading', 'trailing'];
 export const SIZES = ['small', 'medium', 'large'];
 
