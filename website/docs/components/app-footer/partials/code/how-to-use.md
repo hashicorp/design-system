@@ -59,11 +59,11 @@ Custom content can be added either before or after the `AppFooter` main content.
 ```handlebars
 <Hds::AppFooter as |AF|>
   <AF.ExtraBefore>
-    <Doc::Placeholder @text="Extra Content Before" @height="2em" {{style width="fit-content" color="#636363" background="#ffd6d6"}} />
+    <Doc::Placeholder @text="Extra Content Before" @height="2em" @width="fit-content" class="doc-app-footer-demo-placeholder" />
   </AF.ExtraBefore>
   <AF.LegalLinks />
   <AF.ExtraAfter>
-    <Doc::Placeholder @text="Extra Content After" @height="2em" {{style width="fit-content" color="#636363" background="#ffd6d6"}} />
+    <Doc::Placeholder @text="Extra Content After" @height="2em" @width="fit-content" class="doc-app-footer-demo-placeholder" />
   </AF.ExtraAfter>
 </Hds::AppFooter>
 ```
@@ -76,13 +76,13 @@ Add your own styles to customize the layout of the extra content areas.
 <Hds::AppFooter as |AF|>
   <AF.ExtraBefore>
     <div class="doc-app-footer-demo-custom-content-layout">
-      <Doc::Placeholder @text="Extra Content Before" @height="2em" {{style width="fit-content" color="#636363" background="#ffd6d6"}} />
+      <Doc::Placeholder @text="Extra Content Before" @height="2em" @width="fit-content" class="doc-app-footer-demo-placeholder" />
     </div>
   </AF.ExtraBefore>
   <AF.LegalLinks />
   <AF.ExtraAfter>
     <div class="doc-app-footer-demo-custom-content-layout">
-      <Doc::Placeholder @text="Extra Content After" @height="2em" {{style width="fit-content" color="#636363" background="#ffd6d6"}} />
+      <Doc::Placeholder @text="Extra Content After" @height="2em" @width="fit-content" class="doc-app-footer-demo-placeholder" />
     </div>
   </AF.ExtraAfter>
 </Hds::AppFooter>
