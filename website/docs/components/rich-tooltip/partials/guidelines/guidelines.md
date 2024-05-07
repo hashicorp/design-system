@@ -165,7 +165,7 @@ This is a common use case for a Rich Tooltip due to the lack of support for inte
 
 ### Structured content
 
-The Rich Tooltip supports more structure and layout methods to better organize the content hierarchically.
+Compared to the "standard" [Tooltip](/components/tooltip), the Rich Tooltip supports more structure and layout methods to better organize the content hierarchically.
 
 ![Structured content within the Rich Tooltip](/assets/components/rich-tooltip/rich-tooltip-content-structure.png)
 
