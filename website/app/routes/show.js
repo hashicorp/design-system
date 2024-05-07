@@ -143,6 +143,21 @@ export default class ShowRoute extends Route {
       });
   }
 
+  resetController(controller) {
+    debugger
+    // if (isExiting) {
+      // isExiting would be false if only the route's model was changing
+      controller.set('searchQuery', null);
+      controller.set('selectedIconSize', null);
+    //   'demoCurrentPage',
+    // 'demoCurrentPageSize',
+    // 'demoCurrentCursor',
+    // 'demoExtraParam',
+    // // these are used in the "tabs > how to use" demos
+    // 'demoSelectedTab'
+    // }
+  }
+
   @action
   error() {
     this.router.replaceWith('error');
