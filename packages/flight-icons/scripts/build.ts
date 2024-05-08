@@ -12,6 +12,7 @@ import { optimizeAssetsSVG } from './build-parts/optimizeAssetsSVG';
 import { generateBundleSVG } from './build-parts/generateBundleSVG';
 import { generateBundleSVGSprite } from './build-parts/generateBundleSVGSprite';
 import { generateBundleSVGReact } from './build-parts/generateBundleSVGReact';
+import { generateTypeScriptTypes } from './build-parts/generateTypeScriptTypes';
 import { generatePublicZIPFile } from './build-parts/generatePublicZIPFile';
 
 // read the environment variables from the ".env" file
@@ -67,6 +68,10 @@ async function build() {
     // generate the bundle for the SVGs in React
     console.log('Generating bundle for SVG React');
     await generateBundleSVGReact({ config, catalog });
+
+    // generate the TypeScript types
+    console.log('Generating TypeScript types');
+    await generateTypeScriptTypes({ config, catalog });
 
     // zip the standalone SVG bundle and save it in the dummy app public folder
     console.log('Generating ZIP file with standalone SVG files');
