@@ -44,11 +44,11 @@ export default class ComponentsSuperSelectRoute extends Route {
       'London(eu-west-2)',
       'Frankfurt (eu-central-1)',
     ];
-    const SELECTED_PLACES_OPTION = ['Oregon (us-west-2)'];
+    const SELECTED_PLACES_OPTION = PLACES_OPTIONS[0];
     const SELECTED_PLACES_OPTIONS = [
-      'Oregon (us-west-2)',
-      'N. Virginia (us-east-1)',
-      'Ireland (eu-west-1)',
+      PLACES_OPTIONS[0],
+      PLACES_OPTIONS[1],
+      PLACES_OPTIONS[3],
     ];
 
     const CLUSTER_SIZE_OPTIONS = [
