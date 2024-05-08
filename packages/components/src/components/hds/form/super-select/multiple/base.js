@@ -97,8 +97,13 @@ export default class HdsSuperSelectMultipleBaseComponent extends PowerSelectComp
    * @type {string}
    * @default 'none'
    */
-  get dropdownMaxWidth() {
-    return this.args.dropdownMaxWidth ?? 'none';
+  get dropdownMaxWidthStyle() {
+    const maxWidthStyle = {};
+    if (this.args.dropdownMaxWidth) {
+      maxWidthStyle['--hds-form-super-select-dropdown-max-width'] =
+        this.args.dropdownMaxWidth;
+    }
+    return maxWidthStyle;
   }
 
   /**
