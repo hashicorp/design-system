@@ -139,18 +139,20 @@ Instead, place the Toggle component inline with the Badge to communicate the exi
 
 !!! Dont
 
-Don’t toggle a Rich Tooltip from a form element like a [Text Input](/components/form/text-input), [Select](/components/form/select), or [Textarea](/components/form/textarea).
+Don’t toggle a Rich Tooltip from a form element like a [Text Input](/components/form/text-input), [Select](/components/form/select), [Textarea](/components/form/textarea), or form primitive like a [Label](/components/form/primitives#formlabel) or [HelperText](/components/form/primitives#helpertext).
 
 ![Example of toggling a Rich Tooltip from a form element](/assets/components/rich-tooltip/rich-tooltip-trigger-form-input-dont.png)
+
+The following example using HelperText will not be read out as interactive to users with screen readers, only the text will be read. More details on this recommendation can be found in the [Helper Text documentation](/components/form/primitives?tab=code#formhelpertext-1).
+
+![Example within Helper Text](/assets/components/rich-tooltip/rich-tooltip-trigger-helper-text-dont.png)
 !!!
 
 !!! Do
 
-Instead, use the [Label](/components/form/primitives#formlabel) and [HelperText](/components/form/primitives#helpertext) primitives to communicate details about the field. If _absolutely_ necessary to provide more details about a form element, use the Toggle inline within [Helper Text](/components/form/primitives#formhelpertext).
+Instead, include additional details in a [Reveal](/components/reveal).
 
-![Example within Helper Text](/assets/components/rich-tooltip/rich-tooltip-trigger-helper-text-do.png)
-
-However, interactive elements in HelperText will not be read out as interactive to users with screen readers, only the text will be read. More details on this recommendation can be found in the [Helper Text documentation](/components/form/primitives?tab=code#formhelpertext-1).
+![Example with a Reveal](/assets/components/rich-tooltip/rich-tooltip-trigger-reveal-do.png)
 !!!
 
 ## Content

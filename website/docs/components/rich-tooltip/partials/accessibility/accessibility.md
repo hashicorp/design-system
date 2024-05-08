@@ -3,7 +3,9 @@
 
 <Doc::Badge @type="warning">Conditionally conformant</Doc::Badge>
 
-On the small and medium heights, the design system itself cannot guarantee that the consumer has left enough space around to meet the minimum height and width requirements of 24x24 px; on its own, the popover trigger does not meet these minimum requirements and users should take care to ensure the correct dimensions are available. Note: if used within a full sentence or paragraph of text, the popover trigger is exempt from this size requirement.
+To be accessible, the toggle which activates the tooltip must be a minimum of 24 × 24 pixels in dimension unless used within a full sentence or paragraph of text. The small and medium size variants use an invisible pseudo element which extends a few pixels larger than the actual toggle button to meet this requirement. Care must be taken to ensure there is enough space around the toggle so it does not overlap neighboring content.
+
+![Examples of the minimum height for the toggle](/assets/components/rich-tooltip/rich-tooltip-minimum-height.png)
 
 
 ## Applicable WCAG Success Criteria

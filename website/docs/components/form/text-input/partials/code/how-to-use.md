@@ -27,6 +27,9 @@ The basic invocation requires a `Label`. This creates:
 <Hds::Form::TextInput::Field as |F|>
   <F.Label>Cluster name</F.Label>
 </Hds::Form::TextInput::Field>
+<Hds::Reveal @text="More details">
+  Lorem ipsum dolor sit amet.
+</Hds::Reveal>
 ```
 
 #### Input value
