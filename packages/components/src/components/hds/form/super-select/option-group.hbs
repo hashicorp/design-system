@@ -4,9 +4,14 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <li class="hds-form-super-select__option-group" role="group" aria-labelledby={{this.groupId}}>
-  <div class="hds-form-super-select__option-group-title" id={{this.groupId}}>
-    <Hds::Text::Body @tag="span" @size="100" @weight="semibold">{{@group.groupName}}</Hds::Text::Body>
-  </div>
-
+  <Hds::Text::Body
+    @tag="span"
+    @size="100"
+    @weight="semibold"
+    class="hds-form-super-select__option-group-title"
+    id={{this.groupId}}
+  >
+    {{@group.groupName}}
+  </Hds::Text::Body>
   {{yield}}
 </li>
