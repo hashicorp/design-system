@@ -2,7 +2,11 @@
 
 Hide navigation for pages that the user doesn’t have permission to any aspect of CRUD. Show the user what permissions they’re missing if they hit a 403 error. Hide actions that a user doesn’t have appropriate permissions for if it does not impact a flow they do have permission for
 
-![If the role "Viewer" cannot "deploy a cluster", they should not see the action](/assets/patterns/disabled-pattern-application-state.png)
+If the role **viewer** cannot **deploy a cluster**, they should not see the action
+
+![Non-tabular data set](/assets/patterns/disabled-patterns/permissions-example.png)
+
+![Non-tabular data set](/assets/patterns/disabled-patterns/permissions-example-3.png)
 
 ### Upgrading
 
@@ -16,13 +20,15 @@ Enable if the user has permission to update
 
 Enable, give a message to guide the user what to do and add link to our status page
 
-![Example of image](/assets/components/patterns/disabled-pattern-application-state.png)
+![Non-tabular data set](/assets/patterns/disabled-patterns/service-outage-example.png)
 
 ### Incomplete flow
 
 Enable the action if a user is in the middle of a stepped process or form. If the user clicks on the action, we provide descriptive, helpful errors.
 
-![On the cluster create form, if I haven't entered a required input, I can still click "Create cluster" after which I'm shown an error on the missing steps.](/assets/components/alert/.png)
+On the cluster create form, if I haven't entered a required input, I can still click "Create cluster" after which I'm shown an error on the missing steps.
+
+![Non-tabular data set](/assets/patterns/disabled-patterns/incomplete-flow-example.png)
 
 ### Quota limitation
 
@@ -31,6 +37,4 @@ Hide the action, but provide instructions or shortcuts to upgrading or removing 
 ### Feature is not ready
 
 Task user preference to see upcoming features.
-(We want to avoid inundating the user with upsells that feel disingenuous.)
-
- 
+(We want to avoid inundating the user with up sells that feel disingenuous.)
