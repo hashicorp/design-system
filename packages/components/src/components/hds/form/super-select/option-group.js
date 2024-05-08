@@ -8,8 +8,8 @@ import { guidFor } from '@ember/object/internals';
 
 export default class HdsSuperSelectOptionGroupComponent extends Component {
   /**
-   * Generates a unique ID for the Group
+   * Generates a unique ID for the group title
    * @return {string}
    */
-  groupId = 'super-select-group-' + guidFor(this);
+  groupTitleId = 'super-select-group-title-' + guidFor(this);
 }
