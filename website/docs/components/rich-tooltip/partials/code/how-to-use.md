@@ -1,44 +1,44 @@
-The Rich Tooltip component associates a "toggle" element with a "tooltip" element that wraps some generic content (in that sense, both elements act as "containers"). "Soft" (hover/focus) or "click" event listeners can be assigned to the toggle, and when triggered they toggle the visibility of the tooltip, which appears as "popover" on top of the page content. When the tooltip is visible, it can be closed in various ways: toggling via the "soft" or "click" events, clicking outside of the popover, or via the `esc` key.
+The Rich Tooltip component associates a toggle element with a tooltip element that contains generic content. "Soft" (hover/focus) or click event listeners can be assigned to the toggle, which toggle the tooltip's visibility, which appears as a popover on top of the page content. The tooltip can be closed by re-triggering the toggle events, clicking outside the popover, or pressing the `esc` key.
 
 While the Rich Tooltip may seem to be a fairly simple component, there is a lot of complexity beneath the surface:
 
-- the component uses the [native web Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API) to display the tooltip content as "popover" on top of the page
+- The component uses the [native web Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API) to display the tooltip content as a popover on top of the page.
 - A third-party library called [Floating UI](https://floating-ui.com/) provides the anchoring of the "popover" to the "toggle" element and the automatic positioning/collision detection functionality.
 - These functionalities are abstracted into two HDS utilities (the `hds-anchored-position` modifier and the [PopoverPrimitive component](/utilities/popover-primitive)), which the Rich Tooltip component is built on top of.
 
-Since tooltips are notoriously hard to implement in an accessible way, we limited the ways in which the Rich Tooltip can be used. At the same time, we have provided an escape hatch if some edge cases need to be supported (but in this case, consumers will need to make sure the component is used in a [conformant accessible way](/components/rich-tooltip?tab=accessibility)).
+Since tooltips are notoriously hard to implement in an accessible way, we limited the ways in which the Rich Tooltip can be used. At the same time, we have provided an escape hatch if some edge cases need to be supported (but in this case, consumers will need to make sure the component is used in a [conformant and accessible way](/components/rich-tooltip?tab=accessibility)).
 
-The component provides a lot of options to customize its behavior. Below we have tried to describe the most common examples, but if you find a use case that is not supported by the existing Rich Tooltip implementation, please [speak with the Design System team](/about/support).
+The component provides several options to customize its behavior. Below we have tried to describe the most common examples, but if you find a use case that is not supported by the existing Rich Tooltip implementation, please [speak with the Design System team](/about/support).
 
 ## How to use this component
 
 When using this component, there are a few things to consider:
 
 - what toggle to use; the [standard toggle](#standard-toggle) or a [generic toggle](#generic-toggle)
-- if the toggle is a [standalone element](#as-a-standalone-element) or if instead lives [inline with other text](#inline-with-other-text)
+- if the toggle is a [standalone element](#as-a-standalone-element) or instead lives [inline with other text](#inline-with-other-text)
 - how the end-user should [interact](#interactivity) with the toggle to show/hide the tooltip
 
-Depending of these factors, there are different ways to implement the code, described in these alternatives below.
+Depending on these factors, there are different ways to implement the code, as described in the alternatives below.
 
 ### Standard toggle
 
-The standard `Toggle` element **ensures perceivability and accessibility out of the box**. It consist of a text (with a specific underline decoration applied to it) and an optional icon. The icon can be leading or trailing, and its size is always proportional to the font size of the text (`1em`).
+The standard `Toggle` element **ensures perceivability and accessibility out of the box**. It consist of a piece of text (with an underline decoration applied to it) and an optional icon. The icon can be leading or trailing, and its size is always proportional to the font size of the text (`1em`).
 
-The text and the icon are rendered inside an HTML `<button>` element (the one that technically acts as a toggling control for the popover). For details about how the user can interact with this button see the [Interactivity](#interactivity) sub-section.
+The text and icon are rendered inside an HTML `<button>` element (which technically acts as a toggling control for the popover). For details about how the user can interact with this button, see the [Interactivity](#interactivity) sub-section.
 
 
-The `Bubble` element instead is a pure container that yields the children inside the "popover" tooltip bubble. Consumers can pass whatever content they need to it, but they are also responsible of styling and structuring it according to their needs/context.
+The `Bubble` element is a pure container that yields the children inside the "popover" tooltip bubble. Consumers can pass whatever content they need to it, but they are responsible for styling and structuring it according to their needs/context.
 
 
 !!! Info
 
-Notice: we apply a CSS reset (`all: initial`) to the container to avoid styles applied to the parent elements leaking into the tooltip content. If you find any issue with this reset please [speak with the Design System team](/about/support).
+Note: we apply a CSS reset (`all: initial`) to the container to avoid styles applied to the parent elements leaking into the tooltip content. If you find any issue with this reset, please [speak with the Design System team](/about/support).
 
 !!!
 
 #### As a standalone element
 
-By default the `Toggle` element is rendered as a block. This means it can easily be used as a standalone UI element.
+By default, the `Toggle` element is rendered as a block. This means it can easily be used as a standalone UI element.
 
 As mentioned above, the invocation requires a "toggle" and a "bubble" element to be passed as yielded sub-components. The "toggle" accepts a `@text` argument and an optional `@icon` argument. The "bubble" element instead yields its content inside the popover tooltip:
 
@@ -57,7 +57,7 @@ As one can see, by default the text of the toggle doesn't get a typographic styl
 ##### Size
 
 
-To apply a predefined typographic style it's necessary to pass a `@size` argument:
+To apply a predefined typographic style, it's necessary to pass a `@size` argument:
 
 ```handlebars
 <Hds::RichTooltip as |RT|>
@@ -104,7 +104,7 @@ sit amet consectetur adipiscing elit.
 
 In this case, it is better not to assign a `@size` to the `Toggle`, so that its typographic style is the same as the text that comes before/after the toggle text.
 
-To apply a typographic style to the whole paragraph consumers can use a [Text](/components/text) component as a wrapper:
+To apply a typographic style to the whole paragraph, consumers can use a [Text](/components/text) component as a wrapper:
 
 ```handlebars
 <Hds::Text::Body @tag="p" @size="300">
@@ -124,7 +124,7 @@ Similarly, a typographic class (or a custom CSS class) can be applied to a paren
 
 #### Whitespace issues
 
-There may be cases in which the tooltip text is preceded/followed by non-whitespace characters. In this case extra whitespace could appear between these characters and the toggle text. Unfortunately he only solution we have found is to remove every whitespace before/after the `<Hds::RichTooltip>` tag, and before/after the `<RT.Toggle>` and `<RT.Bubble>` tags:
+There may be cases in which the tooltip text is preceded/followed by non-whitespace characters. In this case, extra whitespace could appear between these characters and the toggle text. Unfortunately the only solution we have found is to remove all whitespace before/after the `<Hds::RichTooltip>` tag, and before/after the `<RT.Toggle>` and `<RT.Bubble>` tags:
 
 ```handlebars
 <Hds::Text::Body @tag="p" @size="300">
@@ -137,9 +137,9 @@ There may be cases in which the tooltip text is preceded/followed by non-whitesp
 
 ### Interactivity
 
-By default the visibility of the tooltip is toggled via "soft" event listeners (hover/focus) applied to the "toggle" container. _Notice: from a purely technical standpoint, the events are `mouseEnter/Leave` and `focusIn/Out`._
+By default, the visibility of the tooltip is toggled via "soft" event listeners (hover/focus) applied to the toggle container. _Note: from a purely technical standpoint, the actual events used are `mouseEnter/Leave` and `focusIn/Out`._
 
-To change this behavior and opt for a more explicit user interaction enabling "click" events (in this case the "soft" events are disabled) set the argument `@enableClickEvents` to `true`:
+To change this behavior and opt for a more explicit user interaction using click events (in this case the "soft" events are disabled) set the argument `@enableClickEvents` to `true`:
 
 ```handlebars
 <Hds::RichTooltip @enableClickEvents={{true}} as |RT|>
@@ -169,9 +169,9 @@ By default the tooltip is shown below the toggle, visually centered. It's possib
 
 ### Collision detection
 
-The RichTooltip component automatically adapts its alignment depending on its position relative to the viewport to avoid "collisions" with the browser window boundaries. This means that when an end-user scrolls the page, or resizes the browser, the position of the tooltip on the page dynamically adapts to these changes (along the two axes, main and secondary).
+The RichTooltip component automatically adapts its alignment depending on its position relative to the viewport to avoid collisions with the browser window boundaries. This means that when an end-user scrolls the page, or resizes the browser, the position of the tooltip on the page dynamically adapts to these changes (along the two axes, main and secondary).
 
-It's possible to disable this behavior setting the `@enableCollisionDetection` argument to `false`.
+It's possible to disable this behavior by setting the `@enableCollisionDetection` argument to `false`.
 
 It's also possible to customize this behaviour using the values:
 - `flip` - adapts the position only along its [axis of alignment](https://floating-ui.com/docs/flip#mainaxis)
@@ -186,7 +186,7 @@ More in-depth explanations about the different alignment algorithms and how they
 
 !!!
 
-In the example below we use an `auto` placement: try to scroll and/or resize the page and see how the tooltip changes its position automatically:
+In the example below, we use an `auto` placement: try scrolling and/or resizing the page and see how the tooltip changes its position automatically:
 
 ```handlebars
 <Hds::RichTooltip @enableClickEvents={{true}} as |RT|>
@@ -200,7 +200,7 @@ In the example below we use an `auto` placement: try to scroll and/or resize the
 
 ### Fixed width/height
 
-By default the size of the tooltip automatically adapts to the size of its content (with a max-width of `280px`). It's possible to assign fixed `width` and/or `height` to the tooltip providing the `@width`/`@height` arguments:
+By default, the size of the tooltip automatically adapts to the size of its content (with a max-width of `280px`). It's possible to assign a fixed `width` and/or `height` to the tooltip by providing the `@width` or `@height` arguments:
 
 ```handlebars
 <Hds::RichTooltip as |RT|>
@@ -214,7 +214,7 @@ By default the size of the tooltip automatically adapts to the size of its conte
 
 ### Generic toggle
 
-There may be special use cases in which the standard text/icon-based toggle doesn't work in a specific context or design. For this reason custom content can be `yield` to the `Toggle` element, but this should be considered an option of last resort, because it could result in a non-accessible implementation.
+There may be special use cases in which the standard text or icon-based toggle doesn't work in a specific context or design. For this reason, custom content can be yielded to the `Toggle` element, but this should be considered an option of last resort, because it could result in a non-accessible implementation.
 
 ```handlebars
 <Hds::RichTooltip as |RT|>
@@ -242,8 +242,7 @@ There might be special use cases in which consumers may need to fine tune the Ri
 
 !!! Insight
 
-
-If you find yourself in need to customize the component behaviour or functionality, we suggest to [speak with the Design System team](/about/support) before actually implementing the changes (we may already have it covered).
+If your use case requires customizing the component behavior or functionality, we suggest [speaking with the Design System team](/about/support) first before actually implementing the changes (as we may already have your case covered).
 
 !!!
 
