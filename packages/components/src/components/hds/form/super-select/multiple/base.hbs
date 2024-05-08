@@ -2,6 +2,7 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
+{{! Important: if an argument is added in base.hbs, it must also be added/processed in the Base component used in field.hbs }}
 <div class={{this.classNames}} {{style this.dropdownMaxWidthStyle}}>
   <PowerSelectMultiple
     @afterOptionsComponent={{if

@@ -15,6 +15,7 @@
   {{yield (hash Label=F.Label isRequired=F.isRequired isOptional=F.isOptional)}}
   {{yield (hash HelperText=F.HelperText Error=F.Error)}}
   <F.Control>
+    {{! Important: if an argument is added in base.hbs, it must also be added/processed in the Base component used in field.hbs }}
     <Hds::Form::SuperSelect::Multiple::Base
       @afterOptionsComponent={{@afterOptionsComponent}}
       @afterOptionsContent={{@afterOptionsContent}}
