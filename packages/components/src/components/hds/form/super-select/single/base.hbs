@@ -41,7 +41,7 @@
     @options={{@options}}
     @optionsComponent={{@optionsComponent}}
     @placeholder={{@placeholder}}
-    @placeholderComponent={{@placeholderComponent}}
+    @placeholderComponent={{component "hds/form/super-select/placeholder"}}
     @preventScroll={{@preventScroll}}
     @registerAPI={{@registerAPI}}
     @renderInPlace={{true}}
@@ -64,6 +64,6 @@
     ...attributes
     as |option select|
   >
-    {{yield option select}}
+    <Hds::Text::Body>{{yield option select}}</Hds::Text::Body>
   </PowerSelect>
 </div>

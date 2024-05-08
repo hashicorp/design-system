@@ -488,7 +488,7 @@
     <SF.Item {{style flex="1"}} @label="rich content with custom selectedItemComponent">
       <Hds::Form::SuperSelect::Single::Field
         @selected={{@model.SELECTED_CLUSTER_SIZE_OPTION}}
-        @selectedItemComponent={{component "form/power-select/selected-component"}}
+        @selectedItemComponent={{component "form/power-select/selected-component-single"}}
         @onChange={{fn (mut @model.SELECTED_CLUSTER_SIZE_OPTIONS)}}
         @options={{@model.CLUSTER_SIZE_OPTIONS}}
         @initiallyOpened={{true}}
@@ -509,7 +509,6 @@
         </F.Options>
       </Hds::Form::SuperSelect::Single::Field>
     </SF.Item>
-
     <SF.Item {{style flex="1"}} @label="Label and grouped options">
       <Hds::Form::SuperSelect::Single::Field
         @onChange={{fn (mut @model.SELECTED_GROUPED_OPTION)}}
@@ -997,7 +996,7 @@
     <SF.Item {{style flex="1"}} @label="rich content with custom selectedItems">
       <Hds::Form::SuperSelect::Multiple::Field
         @selected={{@model.SELECTED_CLUSTER_SIZE_OPTIONS}}
-        @selectedItemComponent={{component "form/power-select/selected-component"}}
+        @selectedItemComponent={{component "form/power-select/selected-component-multiple"}}
         @onChange={{fn (mut @model.SELECTED_CLUSTER_SIZE_OPTIONS)}}
         @options={{@model.CLUSTER_SIZE_OPTIONS}}
         @initiallyOpened={{true}}

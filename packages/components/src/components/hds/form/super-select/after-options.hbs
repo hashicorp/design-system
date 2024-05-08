@@ -4,9 +4,9 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 {{#if @showNoSelectedMessage}}
-  <div class="hds-form-super-select__no-options-selected">
+  <Hds::Text::Body class="hds-form-super-select__no-options-selected">
     No options selected
-  </div>
+  </Hds::Text::Body>
 {{/if}}
 <div class="hds-form-super-select__after-options">
   {{#if @content}}
@@ -22,6 +22,8 @@
         <Hds::Button @text="Clear selected" @size="small" @color="secondary" {{on "click" @clearSelected}} />
       {{/if}}
     {{/if}}
-    <span class="hds-form-super-select__result-count">{{@resultCountMessage}}</span>
+    <Hds::Text::Body @size="100" class="hds-form-super-select__result-count">
+      {{@resultCountMessage}}
+    </Hds::Text::Body>
   {{/if}}
 </div>

@@ -112,11 +112,7 @@ export default class HdsSuperSelectMultipleBaseComponent extends PowerSelectComp
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = [
-      'hds-form-super-select',
-      'hds-form-super-select-multiple',
-      'hds-typography-body-200',
-    ];
+    let classes = ['hds-form-super-select', 'hds-form-super-select-multiple'];
 
     // add a class based on the @matchTriggerWidth argument
     if (this.args.matchTriggerWidth === false) {
