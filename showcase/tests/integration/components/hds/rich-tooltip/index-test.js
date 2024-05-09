@@ -32,26 +32,32 @@ module('Integration | Component | hds/rich-tooltip/index', function (hooks) {
     await render(hbs`
       <Hds::RichTooltip as |RT|>
         <RT.Toggle>Toggle</RT.Toggle>
-        <RT.Bubble>Content</RT.Bubble>
+        <RT.Bubble><span id="test-rich-tooltip-content">Content</span></RT.Bubble>
       </Hds::RichTooltip>
     `);
     assert.dom('.hds-rich-tooltip__toggle').isVisible();
     assert.dom('.hds-rich-tooltip__bubble').isNotVisible();
     assert.dom('.hds-rich-tooltip__bubble-arrow').isNotVisible();
-    assert.dom('.hds-rich-tooltip__bubble-inner-content').isNotVisible();
+    // because `hds-rich-tooltip__bubble-inner-content` has `display: contents` we can't use `.isVisible` so we need to test that a child is not visible
+    assert
+      .dom('.hds-rich-tooltip__bubble-inner-content #test-rich-tooltip-content')
+      .isNotVisible();
   });
 
   test('it should render the toggle (visible) and bubble (visible) and the yielded content (visible) if `@isOpen` is `true`', async function (assert) {
     await render(hbs`
       <Hds::RichTooltip @isOpen={{true}} as |RT|>
         <RT.Toggle>Toggle</RT.Toggle>
-        <RT.Bubble>Content</RT.Bubble>
+        <RT.Bubble><span id="test-rich-tooltip-content">Content</span></RT.Bubble>
       </Hds::RichTooltip>
     `);
     assert.dom('.hds-rich-tooltip__toggle').isVisible();
     assert.dom('.hds-rich-tooltip__bubble').isVisible();
     assert.dom('.hds-rich-tooltip__bubble-arrow').isVisible();
-    assert.dom('.hds-rich-tooltip__bubble-inner-content').isVisible();
+    // because `hds-rich-tooltip__bubble-inner-content` has `display: contents` we can't use `.isVisible` so we need to test that a child is visible
+    assert
+      .dom('.hds-rich-tooltip__bubble-inner-content #test-rich-tooltip-content')
+      .isVisible();
   });
 
   // INTERACTIONS
