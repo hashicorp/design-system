@@ -8,8 +8,16 @@ import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
-import { HdsAlertTypeValues, HdsAlertColorValues } from './types.ts';
-import type { HdsAlertSignature } from './types.ts';
+
+import { HdsAlertColorValues, HdsAlertTypeValues } from './types.ts';
+
+import type { ComponentLike, WithBoundArgs } from '@glint/template';
+import type HdsButtonIndexComponent from '../button';
+import type HdsLinkStandaloneComponent from '../link/standalone';
+import type { HdsYieldSignature } from '../yield';
+import type { HdsAlertColors, HdsAlertTypes } from './types.ts';
+import type { HdsAlertTitleSignature } from './title.ts';
+import type { HdsAlertDescriptionSignature } from './description.ts';
 
 export const TYPES: string[] = Object.values(HdsAlertTypeValues);
 export const DEFAULT_COLOR = HdsAlertColorValues.Neutral;
@@ -27,7 +35,30 @@ const CONTENT_ELEMENT_SELECTOR = '.hds-alert__content';
 const TITLE_ELEMENT_SELECTOR = '.hds-alert__title';
 const DESCRIPTION_ELEMENT_SELECTOR = '.hds-alert__description';
 
-// TODO: Do we need to update this icon type to be a type exported from the icon foundations in the future?
+export interface HdsAlertSignature {
+  Args: {
+    type: HdsAlertTypes;
+    color?: HdsAlertColors;
+    icon?: string | false;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onDismiss?: (event: MouseEvent, ...args: any[]) => void;
+  };
+  Blocks: {
+    default: [
+      {
+        Title?: ComponentLike<HdsAlertTitleSignature>;
+        Description?: ComponentLike<HdsAlertDescriptionSignature>;
+        Generic?: ComponentLike<HdsYieldSignature>;
+        LinkStandalone?: WithBoundArgs<
+          typeof HdsLinkStandaloneComponent,
+          'size'
+        >;
+        Button?: WithBoundArgs<typeof HdsButtonIndexComponent, 'size'>;
+      }
+    ];
+  };
+  Element: HTMLDivElement;
+}
 
 export default class HdsAlertIndexComponent extends Component<HdsAlertSignature> {
   @tracked role = 'alert';

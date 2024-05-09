@@ -6,12 +6,29 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { HdsLinkColorValues, HdsLinkIconPositionValues } from './types.ts';
-import type { HdsLinkInlineSignature } from './types.ts';
+
+import type { HdsInteractiveSignature } from '../interactive/';
+import type { HdsLinkColors, HdsLinkIconPositions } from './types.ts';
 
 export const DEFAULT_ICONPOSITION = HdsLinkIconPositionValues.Trailing;
 export const DEFAULT_COLOR = HdsLinkColorValues.Primary;
 export const ICONPOSITIONS: string[] = Object.values(HdsLinkIconPositionValues);
 export const COLORS: string[] = Object.values(HdsLinkColorValues);
+
+export interface HdsLinkInlineSignature {
+  Args: HdsInteractiveSignature['Args'] & {
+    color?: HdsLinkColors;
+    href?: string;
+    icon?: string;
+    iconPosition?: HdsLinkIconPositions;
+    isHrefExternal?: boolean;
+    isRouteExternal?: boolean;
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HdsInteractiveSignature['Element'];
+}
 
 export default class HdsLinkInlineComponent extends Component<HdsLinkInlineSignature> {
   constructor(owner: unknown, args: HdsLinkInlineSignature['Args']) {

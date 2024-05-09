@@ -34,14 +34,3 @@ export enum HdsIconTileColorNeutral {
 export type HdsIconTileColors =
   | HdsIconTileProductValues
   | HdsIconTileColorNeutral;
-
-export interface HdsIconTileSignature {
-  Args: {
-    size?: HdsIconTileSizes;
-    color?: HdsIconTileColors;
-    icon?: string | null;
-    logo?: HdsIconTileProducts;
-    iconSecondary?: string;
-  };
-  Element: HTMLDivElement;
-}

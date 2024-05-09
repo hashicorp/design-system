@@ -4,6 +4,11 @@
  */
 
 import Component from '@glimmer/component';
-import type { HdsYieldSignature } from './types';
+
+export interface HdsYieldSignature {
+  Blocks: {
+    default: [];
+  };
+}
 
 export default class HdsYieldComponent extends Component<HdsYieldSignature> {}
