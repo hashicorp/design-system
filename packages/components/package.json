@@ -141,7 +141,6 @@
       "./components/hds/copy/button/index.js": "./dist/_app_/components/hds/copy/button/index.js",
       "./components/hds/copy/snippet/index.js": "./dist/_app_/components/hds/copy/snippet/index.js",
       "./components/hds/disclosure-primitive/index.js": "./dist/_app_/components/hds/disclosure-primitive/index.js",
-      "./components/hds/disclosure-primitive/types.js": "./dist/_app_/components/hds/disclosure-primitive/types.js",
       "./components/hds/dismiss-button/index.js": "./dist/_app_/components/hds/dismiss-button/index.js",
       "./components/hds/dropdown/footer.js": "./dist/_app_/components/hds/dropdown/footer.js",
       "./components/hds/dropdown/header.js": "./dist/_app_/components/hds/dropdown/header.js",
