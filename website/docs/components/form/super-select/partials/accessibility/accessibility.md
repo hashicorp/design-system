@@ -2,7 +2,7 @@
 
 <Doc::Badge @type="warning">Conditionally Conformant</Doc::Badge>
 
-While many improvements have been made to the underlying library for this component, some variations, such as for multiple selection, are still a work in progress and do not currently pass the relevant WCAG Success Criteria. Please take this into consideration when implementing this component.
+While many improvements have been made to the underlying library for this component, some variations, such as for multiple selection, are still a work in progress and do not currently pass the relevant WCAG Success Criteria. Please take this into consideration when using this component.
 
 ## Applicable WCAG Success Criteria
 

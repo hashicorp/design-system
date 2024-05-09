@@ -9,11 +9,11 @@ Each of these main components have two different variants with their own APIs:
 
 The Single and Multiple base components have nearly identical APIs to the [ember-power-select](https://ember-power-select.com/) addon.
 
-While the [ember-power-select documentation](https://ember-power-select.com/docs) has the full list of supported options for the base components, we’ve included the most ones here for your convenience.
+While the [ember-power-select documentation](https://ember-power-select.com/docs) has the full list of supported options for the base components, we’ve included the most common ones here for your convenience.
 
 !!! Info
 
-The `renderInPlace` property is set to `true` in `SuperSelect` components to fix a `PowerSelect` accessibility issue. (The opener element or “trigger” should be next to dropdown content it hides & reveals.) It cannot be overridden.
+The `renderInPlace` property is set to `true` in `SuperSelect` components to fix a `PowerSelect` accessibility issue. (The opener element or “trigger” should be next to the dropdown content it hides & reveals.) It cannot be overridden.
 
 !!!
 
