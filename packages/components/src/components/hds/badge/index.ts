@@ -5,32 +5,44 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import {
+  HdsBadgeColorValues,
+  HdsBadgeSizeValues,
+  HdsBadgeTypeValues,
+} from './types.ts';
 
-export const DEFAULT_SIZE = 'medium';
-export const DEFAULT_TYPE = 'filled';
-export const DEFAULT_COLOR = 'neutral';
-export const SIZES = ['small', 'medium', 'large'];
-export const TYPES = ['filled', 'inverted', 'outlined'];
-export const COLORS = [
-  'neutral',
-  'neutral-dark-mode',
-  'highlight',
-  'success',
-  'warning',
-  'critical',
-];
+import type { HdsBadgeColors, HdsBadgeSizes, HdsBadgeTypes } from './types.ts';
 
-export default class HdsBadgeIndexComponent extends Component {
+export const SIZES: string[] = Object.values(HdsBadgeSizeValues);
+export const TYPES: string[] = Object.values(HdsBadgeTypeValues);
+export const COLORS: string[] = Object.values(HdsBadgeColorValues);
+export const DEFAULT_SIZE = HdsBadgeSizeValues.Medium;
+export const DEFAULT_TYPE = HdsBadgeTypeValues.Filled;
+export const DEFAULT_COLOR = HdsBadgeColorValues.Neutral;
+
+export interface HdsBadgeSignature {
+  Args: {
+    text: string;
+    color?: HdsBadgeColors;
+    icon?: string | null;
+    isIconOnly?: boolean;
+    size?: HdsBadgeSizes;
+    type?: HdsBadgeTypes;
+  };
+  Element: HTMLDivElement;
+}
+
+export default class HdsBadgeIndexComponent extends Component<HdsBadgeSignature> {
   /**
    * Sets the size for the component
    * Accepted values: small, medium, large
    *
    * @param size
-   * @type {string}
+   * @type {HdsBadgeSizes}
    * @default 'medium'
    */
   get size() {
-    let { size = DEFAULT_SIZE } = this.args;
+    const { size = DEFAULT_SIZE } = this.args;
 
     assert(
       `@size for "Hds::Badge" must be one of the following: ${SIZES.join(
@@ -47,11 +59,11 @@ export default class HdsBadgeIndexComponent extends Component {
    * Accepted values: filled, inverted, outlined
    *
    * @param type
-   * @type {string}
+   * @type {HdsBadgeTypes}
    * @default 'filled'
    */
   get type() {
-    let { type = DEFAULT_TYPE } = this.args;
+    const { type = DEFAULT_TYPE } = this.args;
 
     assert(
       `@type for "Hds::Badge" must be one of the following: ${TYPES.join(
@@ -68,11 +80,11 @@ export default class HdsBadgeIndexComponent extends Component {
    * Accepted values: neutral, neutral-dark-mode, highlight, success, warning, critical
    *
    * @param color
-   * @type {string}
+   * @type {HdsBadgeColors}
    * @default 'neutral'
    */
   get color() {
-    let { color = DEFAULT_COLOR } = this.args;
+    const { color = DEFAULT_COLOR } = this.args;
 
     assert(
       `@color for "Hds::Badge" must be one of the following: ${COLORS.join(
@@ -90,7 +102,7 @@ export default class HdsBadgeIndexComponent extends Component {
    * @description The text of the badge. If `isIconOnly` is set to `true`, the text will be visually hidden but still available to assistive technology. If no text value is defined, an error will be thrown.
    */
   get text() {
-    let { text } = this.args;
+    const { text } = this.args;
 
     assert(
       '@text for "Hds::Badge" must have a valid value',
@@ -130,7 +142,7 @@ export default class HdsBadgeIndexComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-badge'];
+    const classes = ['hds-badge'];
 
     // add a class based on the @size argument
     classes.push(`hds-badge--size-${this.size}`);
