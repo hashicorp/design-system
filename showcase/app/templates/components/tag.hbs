@@ -26,11 +26,23 @@
       <Hds::Tag @text="My link tag" @route="components.tag" />
     </SF.Item>
   </Shw::Flex>
-  <Shw::Flex as |SF|>
+
+  <Shw::Flex @label="Inline with other text" as |SF|>
     <SF.Item>
-      <p>This is a paragraph: <Hds::Tag @text="My text tag" /></p>
+      <Hds::Text::Body @size="200" @tag="p">This is a paragraph: <Hds::Tag @text="My text tag" /></Hds::Text::Body>
     </SF.Item>
   </Shw::Flex>
+
+  <Shw::Flex @label="With long text" as |SF|>
+    <SF.Item {{style width="200px"}}>
+      <Hds::Tag @text="This is a very long text that should go on multiple lines" @onDismiss={{this.noop}} />
+    </SF.Item>
+    <SF.Item {{style width="200px"}}>
+      <Hds::Tag @text="This is a very long text that should go on multiple lines" />
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H2>States</Shw::Text::H2>
 
@@ -41,6 +53,8 @@
       </SG.Item>
     {{/each}}
   </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H2>Colors</Shw::Text::H2>
 
@@ -85,6 +99,8 @@
     </Shw::Grid>
   {{/each}}
 
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H2>Containers</Shw::Text::H2>
 
   <Shw::Grid @columns={{3}} as |SG|>
@@ -97,6 +113,7 @@
             <Hds::Tag @text="My text tag" @onDismiss={{this.noop}} />
             <Hds::Tag @text="My slightly longer tag" @onDismiss={{this.noop}} />
             <Hds::Tag @text="My text tag" @onDismiss={{this.noop}} />
+            <Hds::Tag @text="This is a very long text that should go on multiple lines" @onDismiss={{this.noop}} />
           </div>
         </SG.Item>
       {{/each}}
