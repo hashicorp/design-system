@@ -37,14 +37,10 @@ export default interface HdsComponentsRegistry {
   'hds/alert/title': typeof HdsAlertTitleComponent;
   HdsAlertTitle: typeof HdsAlertTitleComponent;
 
-  HdsButtonComponent: typeof HdsButtonIndexComponent;
-  HdsDismissComponent: typeof HdsDismissButtonIndexComponent;
-  HdsInteractiveComponent: typeof HdsInteractiveIndexComponent;
-
   // Badge
   'Hds::Badge': typeof HdsBadgeIndexComponent;
   'hds/badge': typeof HdsBadgeIndexComponent;
-  HdsBadgeComponent: typeof HdsBadgeIndexComponent;
+  HdsBadge: typeof HdsBadgeIndexComponent;
 
   // Button
   'Hds::Button': typeof HdsButtonIndexComponent;

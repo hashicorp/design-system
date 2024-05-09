@@ -21,15 +21,3 @@ export enum HdsBadgeColorValues {
   Critical = 'critical',
 }
 export type HdsBadgeColors = `${HdsBadgeColorValues}`;
-
-export interface HdsBadgeSignature {
-  Args: {
-    text: string;
-    color?: HdsBadgeColors;
-    icon?: string | null;
-    isIconOnly?: boolean;
-    size?: HdsBadgeSizes;
-    type?: HdsBadgeTypes;
-  };
-  Element: HTMLDivElement;
-}
