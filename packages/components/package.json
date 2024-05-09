@@ -14,23 +14,23 @@
     "url": "https://github.com/hashicorp/design-system.git",
     "directory": "packages/components"
   },
-  "types": "dist/index.d.ts",
   "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "scripts": {
-    "build": "rollup --config",
+    "build": "concurrently 'npm:build:*'",
+    "build:js": "rollup --config",
+    "build:types": "glint --declaration",
     "prepublishOnly": "yarn workspace @hashicorp/ember-flight-icons build && rollup --config && test -f 'dist/styles/@hashicorp/design-system-components.css' || (echo 'The pre-compiled CSS file was not found' && exit 1)",
     "start": "rollup --config --watch --environment development",
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
     "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",
     "lint:css": "stylelint \"src/styles/**/*.scss\"",
     "lint:css:fix": "npm-run-all \"lint:css --fix\"",
-    "lint:glint": "glint",
+    "lint:types": "glint",
     "lint:hbs": "ember-template-lint .",
     "lint:hbs:fix": "ember-template-lint . --fix",
     "lint:js": "eslint . --cache",
-    "lint:js:fix": "eslint . --fix",
-    "lint:types": "tsc --noEmit"
+    "lint:js:fix": "eslint . --fix"
   },
   "dependencies": {
     "@ember/render-modifiers": "^2.0.5",
@@ -40,6 +40,7 @@
     "@floating-ui/dom": "^1.6.3",
     "@hashicorp/design-system-tokens": "^2.1.0",
     "@hashicorp/ember-flight-icons": "^5.0.1",
+    "decorator-transforms": "^1.1.0",
     "ember-a11y-refocus": "^3.0.2",
     "ember-cli-sass": "^11.0.1",
     "ember-composable-helpers": "^5.0.0",
@@ -55,24 +56,24 @@
     "tippy.js": "^6.3.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.6",
-    "@babel/plugin-proposal-decorators": "^7.23.6",
-    "@babel/plugin-transform-class-properties": "^7.23.3",
-    "@babel/plugin-transform-private-methods": "^7.23.3",
+    "@babel/core": "^7.24.5",
     "@babel/plugin-transform-typescript": "^7.23.6",
-    "@babel/preset-typescript": "^7.23.3",
-    "@embroider/addon-dev": "^4.1.3",
-    "@glint/core": "^1.3.0",
-    "@glint/environment-ember-loose": "^1.3.0",
-    "@glint/template": "^1.3.0",
+    "@babel/runtime": "^7.24.5",
+    "@embroider/addon-dev": "^4.3.1",
+    "@glimmer/component": "^1.1.2",
+    "@glint/core": "^1.4.0",
+    "@glint/environment-ember-loose": "^1.4.0",
+    "@glint/template": "^1.4.0",
     "@rollup/plugin-babel": "^6.0.4",
-    "@tsconfig/ember": "^3.0.2",
+    "@tsconfig/ember": "^3.0.6",
     "@types/ember-qunit": "^6.1.1",
     "@types/ember-resolver": "^9.0.0",
     "@types/qunit": "^2.19.7",
     "@types/rsvp": "^4.0.6",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
     "@typescript-eslint/parser": "^6.14.0",
+    "babel-plugin-ember-template-compilation": "^2.2.4",
+    "concurrently": "^8.2.2",
     "ember-template-lint": "^4.18.2",
     "ember-template-lint-plugin-prettier": "^4.2.0",
     "eslint": "^8.52.0",
@@ -83,7 +84,7 @@
     "eslint-plugin-qunit": "^8.0.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.8.8",
-    "rollup": "^4.9.0",
+    "rollup": "^4.17.2",
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-scss": "^4.0.0",
     "rollup-plugin-ts": "^3.4.5",
@@ -264,17 +265,25 @@
   },
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
+      "types": "./declarations/index.d.ts",
       "default": "./dist/index.js"
     },
     "./*": {
-      "types": "./dist/*.d.ts",
+      "types": "./declarations/*.d.ts",
       "default": "./dist/*"
     },
     "./addon-main.js": "./addon-main.js"
   },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "declarations/*"
+      ]
+    }
+  },
   "files": [
     "addon-main.js",
+    "declarations",
     "dist"
   ],
   "engines": {

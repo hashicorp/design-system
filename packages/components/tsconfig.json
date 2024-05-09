@@ -1,41 +1,27 @@
 {
   "extends": "@tsconfig/ember/tsconfig.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "strict": true,
     "noUncheckedIndexedAccess": true,
-    // The combination of `baseUrl` with `paths` allows Ember's classic package
-    // layout, which is not resolvable with the Node resolution algorithm, to
-    // work with TypeScript.
-    "baseUrl": "./src",
-    "allowJs": true,
     "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "allowJs": true,
+    "declaration": true,
+
+    // Without this set to false, no declaration files are created.
+    // Reference: https://github.com/typed-ember/glint/issues/599
+    // Remove once the linked issue is resolved.
+    "noEmitOnError": false,
+
+    "declarationDir": "declarations",
+    "emitDeclarationOnly": true,
+    "noEmit": false,
     "skipLibCheck": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "noPropertyAccessFromIndexSignature": false,
-    "paths": {
-      "@hashicorp/design-system-components": [
-        "src"
-      ],
-      "@hashicorp/design-system-components/*": [
-        "src/*"
-      ],
-      "@ember/component/template-only": [
-        "../../../node_modules/ember-source/types/stable/@ember/component/template-only"
-      ],
-      "*": [
-        "types/*"
-      ]
-    }
+    "rootDir": "./src"
   },
-  "include": [
-    "src/**/*",
-    "unpublished-development-types/**/*"
-  ],
-  "exclude": [
-    "dist/**/*"
-  ],
+  "include": ["src/**/*", "unpublished-development-types/**/*"],
   "glint": {
-    "environment": ["ember-loose"],
+    "environment": ["ember-loose"]
   }
 }

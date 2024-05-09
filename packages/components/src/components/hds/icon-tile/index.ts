@@ -5,12 +5,18 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+
 import {
   HdsIconTileColorNeutral,
   HdsIconTileProductValues,
   HdsIconTileSizeValues,
 } from './types.ts';
-import type { HdsIconTileSignature } from './types.ts';
+
+import type {
+  HdsIconTileColors,
+  HdsIconTileProducts,
+  HdsIconTileSizes,
+} from './types.ts';
 
 export const DEFAULT_SIZE = 'medium';
 export const DEFAULT_COLOR = 'neutral';
@@ -20,6 +26,17 @@ export const COLORS: string[] = Object.values({
   ...HdsIconTileProductValues,
 });
 export const PRODUCTS: string[] = Object.values(HdsIconTileProductValues);
+
+export interface HdsIconTileSignature {
+  Args: {
+    size?: HdsIconTileSizes;
+    color?: HdsIconTileColors;
+    icon?: string | null;
+    logo?: HdsIconTileProducts;
+    iconSecondary?: string;
+  };
+  Element: HTMLDivElement;
+}
 
 export default class HdsIconTileIndexComponent extends Component<HdsIconTileSignature> {
   /**

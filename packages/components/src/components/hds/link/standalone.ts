@@ -10,7 +10,27 @@ import {
   HdsLinkColorValues,
   HdsLinkStandaloneSizeValues,
 } from './types.ts';
-import type { HdsLinkStandaloneSignature } from './types.ts';
+
+import type { HdsInteractiveSignature } from '../interactive/';
+import type {
+  HdsLinkColors,
+  HdsLinkIconPositions,
+  HdsLinkStandaloneSizes,
+} from './types.ts';
+
+export interface HdsLinkStandaloneSignature {
+  Args: HdsInteractiveSignature['Args'] & {
+    icon: string;
+    text: string;
+    color?: HdsLinkColors;
+    href?: string;
+    iconPosition?: HdsLinkIconPositions;
+    isHrefExternal?: boolean;
+    isRouteExternal?: boolean;
+    size?: HdsLinkStandaloneSizes;
+  };
+  Element: HdsInteractiveSignature['Element'];
+}
 
 export const DEFAULT_ICONPOSITION = HdsLinkIconPositionValues.Leading;
 export const DEFAULT_COLOR = HdsLinkColorValues.Primary;

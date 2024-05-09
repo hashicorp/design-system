@@ -3,9 +3,11 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import TemplateOnlyComponent from '@ember/component/template-only';
-import type { HdsToastSignature } from './types.ts';
+import Component from '@glimmer/component';
+import type { HdsAlertSignature } from '../alert/';
 
-const HdsToastComponent = TemplateOnlyComponent<HdsToastSignature>();
+export interface HdsToastSignature extends Omit<HdsAlertSignature, 'Args'> {
+  Args: Omit<HdsAlertSignature['Args'], 'type'>;
+}
 
-export default HdsToastComponent;
+export default class HdsToastComponent extends Component<HdsToastSignature> {}

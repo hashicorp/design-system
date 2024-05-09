@@ -4,6 +4,12 @@
  */
 
 import Component from '@glimmer/component';
-import type { HdsAlertDescriptionSignature } from './types.ts';
+
+export interface HdsAlertDescriptionSignature {
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLDivElement;
+}
 
 export default class HdsAlertDescriptionComponent extends Component<HdsAlertDescriptionSignature> {}

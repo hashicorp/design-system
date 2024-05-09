@@ -18,8 +18,9 @@ const plugins = [
   // These are the modules that users should be able to import from your
   // addon. Anything not listed here may get optimized away.
   addon.publicEntrypoints([
-    '**/*.ts',
     '**/*.js',
+    'index.js',
+    'template-registry.js',
     'styles/@hashicorp/design-system-components.scss',
   ]),
 
@@ -31,24 +32,11 @@ const plugins = [
     'helpers/**/*.js',
     'modifiers/**/*.js',
   ]),
-  // This babel config should *not* apply presets or compile away ES modules.
-  // It exists only to provide development niceties for you, like automatic
-  // template colocation.
-  //
-  // By default, this will load the actual babel config from the file
-  // babel.config.json.
-  babel({
-    babelHelpers: 'bundled',
-    extensions: ['.js', '.ts'],
-  }),
 
   // Follow the V2 Addon rules about dependencies. Your code can import from
   // `dependencies` and `peerDependencies` as well as standard Ember-provided
   // package names.
   addon.dependencies(),
-
-  // Ensure that standalone .hbs files are properly integrated as Javascript.
-  addon.hbs(),
 
   scss({
     fileName: 'styles/@hashicorp/design-system-components.css',
@@ -60,6 +48,23 @@ const plugins = [
 
   scss({
     fileName: 'styles/@hashicorp/design-system-power-select-overrides.css',
+  }),
+
+  // Ensure that standalone .hbs files are properly integrated as Javascript.
+  addon.hbs(),
+
+  // Ensure that .gjs files are properly integrated as Javascript
+  addon.gjs(),
+
+  // This babel config should *not* apply presets or compile away ES modules.
+  // It exists only to provide development niceties for you, like automatic
+  // template colocation.
+  //
+  // By default, this will load the actual babel config from the file
+  // babel.config.json.
+  babel({
+    extensions: ['.js', '.gjs', '.ts', '.gts'],
+    babelHelpers: 'bundled',
   }),
 
   // Addons are allowed to contain imports of .css files, which we want rollup
