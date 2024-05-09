@@ -34,6 +34,7 @@ $hds-tabs-sizes: ( "medium", "large" );
   margin: 0;
   padding: 0;
   overflow-x: auto;
+  isolation: isolate;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -99,7 +100,7 @@ $hds-tabs-sizes: ( "medium", "large" );
   bottom: 0;
   // notice: this custom prop is set dynamically via JavaScript
   left: var(--indicator-left-pos, 0);
-  z-index: 10;
+  z-index: 1;
   display: block;
   // notice: this custom prop is set dynamically via JavaScript
   width: var(--indicator-width, 0);
