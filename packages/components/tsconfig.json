@@ -2,6 +2,8 @@
   "extends": "@tsconfig/ember/tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "allowJs": true,
