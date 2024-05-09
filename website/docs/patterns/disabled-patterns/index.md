@@ -1,7 +1,7 @@
 ---
 title: Disabled patterns
-description: Guidelines, compositions, and interaction patterns for selecting and transforming results in a Table.
-caption: Guidelines, compositions, and interaction patterns for selecting and transforming results in a Table.
+description: Guidelines for content display based on user permissions and actions.
+caption: Guidelines for content display based on user permissions and actions.
 related: 
 previewImage: 
 navigation:
@@ -9,7 +9,8 @@ navigation:
 ---
 
 <section data-tab="Guidelines">
-  @include "partials/guidelines.md"
+  @include "partials/guidelines/overview.md"
+  @include "partials/guidelines/guidelines.md"
 </section>
 
 <section data-tab="Accessibility">

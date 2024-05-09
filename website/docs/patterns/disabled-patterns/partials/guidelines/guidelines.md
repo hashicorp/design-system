@@ -1,6 +1,6 @@
 ### Permissions 
 
-Hide navigation for pages that the user doesn’t have permission to any aspect of CRUD. Show the user what permissions they’re missing if they hit a 403 error. Hide actions that a user doesn’t have appropriate permissions for if it does not impact a flow they do have permission for
+Hide navigation for pages that the user doesn’t have permission to any aspect of CRUD. Show the user what permissions they’re missing if they hit a 403 error. Hide actions that a user doesn’t have appropriate permissions for if it does not impact a flow they do have permission for. 
 
 If the role **viewer** cannot **deploy a cluster**, they should not see the action
 
@@ -14,11 +14,11 @@ Enable If the user has permission to upgrade. In some cases, it may also be wort
 
 ### Updating
 
-Enable if the user has permission to update
+Enable if the user has permission to update.
 
 ### Service outage
 
-Enable, give a message to guide the user what to do and add link to our status page
+Enable, give a message to guide the user what to do and add link to [our status page](https://status.hashicorp.com/)
 
 ![Non-tabular data set](/assets/patterns/disabled-patterns/service-outage-example.png)
 
@@ -32,7 +32,9 @@ On the cluster create form, if I haven't entered a required input, I can still c
 
 ### Quota limitation
 
-Hide the action, but provide instructions or shortcuts to upgrading or removing used quota if necessary. Add CTA that directs to a form if possible, so the user can make a request. The HVN quota has been met and none are in regions supported by Consul.
+Hide the action, but provide instructions or shortcuts to upgrading or removing used quota if necessary. Add a CTA that directs to a form if possible, so the user can make a request. 
+
+The HVN quota has been met and none are in regions supported by Consul.
 
 ### Feature is not ready
 
