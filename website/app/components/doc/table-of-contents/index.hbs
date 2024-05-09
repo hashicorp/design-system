@@ -13,7 +13,7 @@
           class="doc-table-of-contents__link"
           @route="show"
           @model={{item.pageURL}}
-          @query={{hash tab=null}}
+          @query={{hash tab=null searchQuery=null selectedIconSize=null}}
           @current-when={{"show"}}
         >
           {{#if item.pageAttributes.navigation.label}}
