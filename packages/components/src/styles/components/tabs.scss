@@ -34,6 +34,7 @@ $hds-tabs-sizes: ( "medium", "large" );
   margin: 0;
   padding: 0;
   overflow-x: auto;
+  isolation: isolate;
   -webkit-overflow-scrolling: touch;
 }
 
