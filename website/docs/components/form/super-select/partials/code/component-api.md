@@ -9,22 +9,21 @@ Each of these main components have two different variants with their own APIs:
 
 The Single and Multiple base components have nearly identical APIs to the [ember-power-select](https://ember-power-select.com/) addon.
 
-While the [ember-power-select documentation](https://ember-power-select.com/docs) has the full list of supported options for the base components, we’ve included the most common ones here for your convenience.
+While the [ember-power-select documentation](https://ember-power-select.com/docs) has the full list of supported options for the base components, we’ve included the most common ones here for your convenience as well as the options for which default values have been overridden.
 
 !!! Info
 
-The `renderInPlace` property is set to `true` in `SuperSelect` components to fix a `PowerSelect` accessibility issue. (The opener element or “trigger” should be next to the dropdown content it hides & reveals.) It cannot be overridden.
+The default values of some [ember-power-select](https://ember-power-select.com/) options have been overridden in some cases to either resolve accessibility issues or to customize according to our needs. These options are documented below.
 
 !!!
 
 ### SuperSelect::Single::Base
 
+#### Common options from ember-power-select
+
 <Doc::ComponentApi as |C|>
   <C.Property @name="options">
     An array of objects to be displayed as options in the dropdown.
-  </C.Property>
-  <C.Property @name="groupComponent" @type="component">
-    Used to create groups of options similarly to the `optgroup` element used within native HTML `select` elements. Requires use of the `options` property (see [grouped options example](#grouped-options)).
   </C.Property>
   <C.Property @name="placeholder" @type="string">
     Placeholder text to display when no option is selected.
@@ -32,14 +31,50 @@ The `renderInPlace` property is set to `true` in `SuperSelect` components to fix
   <C.Property @name="searchEnabled" @type="boolean" @default="false">
     Enables a search input field to filter options.
   </C.Property>
-  <C.Property @name="searchPlaceholder" @type="string" @default="Search">
-    Displays placeholder text in the search input when `@searchEnabled` is set to `true`.
-  </C.Property>
   <C.Property @name="selected">
     The selected option object. Can be used to set a pre-selected option.
   </C.Property>
   <C.Property @name="onChange">
     A closure action that is called when the selected option changes.
+  </C.Property>
+</Doc::ComponentApi>
+
+#### SuperSelect::Single only options and options with custom values
+
+<Doc::ComponentApi as |C|>
+  <C.Property @name="afterOptionsComponent" @type="string/contextual-component" @default="component hds/form/super-select/after-options">
+    The component rendered after the list of options. `SuperSelect::Single` displays a custom afterOptions component containing a results count by default.
+    <br><br>
+    **Customization options:**<br>
+    • To turn off rendering of the afterOptions component, set `showAfterOptions` to `false`.<br>
+    • To customize the value of the afterOptions component, specify a value for `afterOptionsContent`<br>
+    • To replace the default afterOptions component, set the value of `afterOptionsComponent` to point to your own custom component. (Example: `component "path/to/component"`)
+  </C.Property>
+  <C.Property @name="showAfterOptions" @type="boolean" @default="true">
+    Controls whether the default `afterOptions` component is displayed or hidden.
+  </C.Property>
+  <C.Property @name="afterOptionsContent" @type="string" @default="resultCountMessage">
+    Sets the content of the default `afterOptions` component overriding the default content.
+  </C.Property>
+  <C.Property @name="calculatePosition" @type="function" @default="if @verticalPosition undefined this.calculatePosition">
+    Calculates the position automatically if the vertical position is undefined.
+  </C.Property>
+  <C.Property @name="closeOnSelect" @type="boolean" @default="true">
+    Defaults to false instead for `SuperSelect::Multiple`.
+  </C.Property>
+  <C.Property @name="placeholderComponent" @type="string or component" @default="component hds/form/super-select/option-group">
+    Set to use a custom HDS `optionGroup` component to provide visual consistency.
+  </C.Property>
+  <C.Property @name="renderInPlace" @type="boolean">
+    Determines whether the dropdown options are rendered in place within the DOM vs. being attached to the root of the HTML `<body>` and positioned with JavaScript.
+    <br><br>
+    Set as `true` in `SuperSelect` components to fix a `PowerSelect` accessibility issue. (The opener element or “trigger” should be next to dropdown content it hides & reveals.) It cannot be overridden.
+  </C.Property>
+  <C.Property @name="searchPlaceholder" @type="string" @default="Search">
+    Displays placeholder text in the search input when `@searchEnabled` is set to `true`.
+  </C.Property>
+  <C.Property @name="groupComponent" @type="component">
+    Used to create groups of options similarly to the `optgroup` element used within native HTML `select` elements. Requires use of the `options` property (see [grouped options example](#grouped-options)).
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
@@ -104,12 +139,11 @@ The `renderInPlace` property is set to `true` in `SuperSelect` components to fix
 
 ### SuperSelect::Multiple::Base
 
+#### Common options from ember-power-select
+
 <Doc::ComponentApi as |C|>
   <C.Property @name="options">
     An array of objects to be displayed as options in the dropdown.
-  </C.Property>
-  <C.Property @name="groupComponent" @type="component">
-    Used to create groups of options similarly to the `optgroup` element used within native HTML `select` elements. Requires use of the `options` property (see [grouped options example](#grouped-options)).
   </C.Property>
   <C.Property @name="placeholder" @type="string">
     Placeholder text to display when no option is selected.
@@ -117,14 +151,52 @@ The `renderInPlace` property is set to `true` in `SuperSelect` components to fix
   <C.Property @name="searchEnabled" @type="boolean" @default="false">
     Enables a search input field to filter options.
   </C.Property>
-  <C.Property @name="searchPlaceholder" @type="string" @default="Search">
-    Displays placeholder text in the search input when `@searchEnabled` is set to `true`.
-  </C.Property>
   <C.Property @name="selected">
     The selected option object. Can be used to set a pre-selected option.
   </C.Property>
   <C.Property @name="onChange">
     A closure action that is called when the selected option changes.
+  </C.Property>
+</Doc::ComponentApi>
+
+#### SuperSelect::Multiple only options and options with custom values
+
+<Doc::ComponentApi as |C|>
+  <C.Property @name="afterOptionsComponent" @type="string/contextual-component" @default="component hds/form/super-select/after-options">
+    The component rendered after the list of options. `SuperSelect::Multiple` displays a custom afterOptions component containing “Show selected” button, “Clear selected” button, and a selected total count by default.
+    <br><br>
+    **Customization options:**<br>
+    • To turn off rendering of the afterOptions component, set `showAfterOptions` to `false`.<br>
+    • To customize the value of the afterOptions component, specify a value for `afterOptionsContent`<br>
+    • To replace the default afterOptions component, set the value of `afterOptionsComponent` to point to your own custom component. (Example: `component "path/to/component"`)
+  </C.Property>
+  <C.Property @name="showAfterOptions" @type="boolean" @default="true">
+    Controls whether the default `afterOptions` component is displayed or hidden.
+  </C.Property>
+  <C.Property @name="afterOptionsContent" @type="string" @default="resultCountMessage">
+    Sets the content of the default `afterOptions` component overriding the default content.
+  </C.Property>
+  <C.Property @name="calculatePosition" @type="function" @default="if @verticalPosition undefined this.calculatePosition">
+    Calculates the position automatically if the vertical position is undefined.
+  </C.Property>
+  <C.Property @name="closeOnSelect" @type="boolean" @default="false">
+    Defaults to true instead for `SuperSelect::Single`.
+  </C.Property>
+  <C.Property @name="placeholderComponent" @type="string or component" @default="component hds/form/super-select/option-group">
+    Set to use a custom HDS `optionGroup` component to provide visual consistency.
+  </C.Property>
+  <C.Property @name="renderInPlace" @type="boolean">
+    Determines whether the dropdown options are rendered in place within the DOM vs. being attached to the root of the HTML `<body>` and positioned with JavaScript.
+    <br><br>
+    Set as `true` in `SuperSelect` components to fix a `PowerSelect` accessibility issue. (The opener element or “trigger” should be next to dropdown content it hides & reveals.) It cannot be overridden.
+  </C.Property>
+  <C.Property @name="searchPlaceholder" @type="string" @default="Search">
+    Displays placeholder text in the search input when `@searchEnabled` is set to `true`.
+    <br><br>
+    Note: Currently not active, awaiting update to ember-power-select.
+  </C.Property>
+  <C.Property @name="groupComponent" @type="component">
+    Used to create groups of options similarly to the `optgroup` element used within native HTML `select` elements. Requires use of the `options` property (see [grouped options example](#grouped-options)).
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
