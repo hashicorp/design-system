@@ -1,5 +1,5 @@
 {{#if this.isButtonVisible}}
-  <button class="doc-scroll-to-top" type="button" {{on "click" this.scrollToTop}}>
+  <button class="doc-scroll-to-top" type="button" tabindex="0" {{on "click" this.scrollToTop}}>
     <FlightIcon @name="arrow-up" @color="white" @size="24" />
   </button>
 {{/if}}
