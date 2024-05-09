@@ -6,8 +6,8 @@
 
 | Element          | Usage    |
 |------------------|----------|
-| Content          | Required |
-| Container        | Required |
+| Bubble          | Required |
+| Content        | Required |
 | Pointer          | Required |
 | Toggle           | Required; can use either the default Toggle or custom elements |
 

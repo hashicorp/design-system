@@ -15,7 +15,7 @@
 - For extra information that consists of basic text, consider using the [Tooltip](/components/tooltip) instead.
 - For complex functions that change or alter the UI, consider a [Dropdown](/components/dropdown) instead.
 - As a double-confirmation for destructive actions, use a [Modal](/components/modal) instead.
-- If the information is **essential** to the user completing a task. In this case, consider placing this information within the page and associated with a specific UI element.
+- If the information is **essential** to the user completing a task, consider placing this information within the page and associated with a specific UI element.
 
 ### Rich Tooltip vs. Tooltip
 
