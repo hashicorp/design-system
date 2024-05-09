@@ -201,10 +201,10 @@
 .hds-rich-tooltip__bubble-inner-content {
   // we need to reset the content to avoid it inheriting the styles from the parents of the component or the component's wrapping element
   all: initial;
-  display: block;
+  // IMPORTANT: we don't want the element to have a `layout`, to create a "box", to avoid issues with Safari
+  // see: https://hashicorp.slack.com/archives/C025N5V4PFZ/p1715247858351399
+  display: contents;
   box-sizing: border-box;
-  width: 100%;
-  height: 100%;
 
   *,
   *::before,
