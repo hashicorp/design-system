@@ -8,8 +8,8 @@ import { action } from '@ember/object';
 
 export default class Index extends Component {
   @action
-  noop() {
-    //
+  onClickButton() {
+    console.log('Clicked the button!');
   }
 
   @action
