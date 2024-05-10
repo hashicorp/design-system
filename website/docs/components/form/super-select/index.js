@@ -18,10 +18,6 @@ export default class Index extends Component {
   GROUPED_OPTIONS = [
     { groupName: 'Most common', options: ['Kubernetes', 'AWS'] },
     { groupName: 'Others', options: ['CloudWise', 'SWA', 'Other'] },
-    {
-      groupName: 'Test same name options',
-      options: ['CloudWise', 'SWA', 'Other'],
-    },
   ];
 
   CLUSTER_SIZE_OPTIONS = [
