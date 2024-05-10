@@ -177,6 +177,13 @@ By default, all content of selected options displays in the “trigger”. Visua
 
 To simplify the content displayed in the selected options, use `@selectedItemComponent` to specify a custom component with only the content you wish to display.
 
+
+!!! Warning
+
+Use only plain HTML in your custom component. HDS components will not work.
+
+!!!
+
 **Custom `selectedItemComponent` example:**
 
 ```markup
