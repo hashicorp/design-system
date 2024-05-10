@@ -2,7 +2,9 @@
 
 The following steps are recommended for migrating components to TypeScript.
 
-1. [Pick a component]((https://hashicorp.atlassian.net/browse/HDS-2392)), assign yourself to the task in Jira and add it to the current sprint
+1. [Pick a component](https://hashicorp.atlassian.net/browse/HDS-2392), assign yourself to the task in Jira and add it to the current sprint
+
+    - [This spreadsheet](https://docs.google.com/spreadsheets/d/1sWzLSP8TUb3WYibYNZ5w6UfEb338DQbZkVaTjK8b1tw/edit#gid=0) contains (more or less) all the dependencies between components, so it’s easier to understand what is ready to be converted (eg has dependencies that are already converted to TS) and what it not.
 
 2. Rename the backing class from `.js` to `.ts`; commit after this step to make it easier to review the changes
 
@@ -10,7 +12,7 @@ The following steps are recommended for migrating components to TypeScript.
 
 4. Define component signature
 
-- You can either do it manually [following the documentation](https://typed-ember.gitbook.io/glint/environments/ember/component-signatures#glimmer-components)
+    - You can either do it manually [following the documentation](https://typed-ember.gitbook.io/glint/environments/ember/component-signatures#glimmer-components)
 
 - Or, you can generate it using `npx ember-codemod-args-to-signature --src /path/to/component`. This codemod renames the component class name to `IndexComponent` by default, so make sure to revert it (e.g. `HdsBadgeIndexComponent`)
 
