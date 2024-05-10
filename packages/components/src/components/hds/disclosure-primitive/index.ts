@@ -8,7 +8,31 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { schedule } from '@ember/runloop';
 
-export default class HdsDisclosurePrimitiveComponent extends Component {
+export interface HdsDisclosurePrimitiveSignature {
+  Args: {
+    isOpen?: boolean;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onClose?: (...args: any[]) => void;
+  };
+  Blocks: {
+    toggle: [
+      {
+        isOpen: boolean;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        onClickToggle: (...args: any[]) => void;
+      }
+    ];
+    content: [
+      {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        close: (...args: any[]) => void;
+      }
+    ];
+  };
+  Element: HTMLDivElement;
+}
+
+export default class HdsDisclosurePrimitiveComponent extends Component<HdsDisclosurePrimitiveSignature> {
   @tracked isOpen = this.args.isOpen ?? false;
 
   @action
