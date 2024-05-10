@@ -20,6 +20,10 @@ export default class ShowRoute extends Route {
   };
 
   model(params) {
+    // let promise = new Promise((resolve) => {
+    //   setTimeout(resolve, 3 * 60 * 1000); // 3 minutes
+    // });
+    // return promise;
     // remove trailing slash
     let path = params.path.replace(/\/$/, '');
 
