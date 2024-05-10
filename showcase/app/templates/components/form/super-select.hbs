@@ -11,7 +11,7 @@
 <Shw::Text::H1>Form::SuperSelect</Shw::Text::H1>
 
 <section data-test-percy>
-  <Shw::Text::H2>Single selection</Shw::Text::H2>
+  <Shw::Text::H2>Form::SuperSelect::Single::Base</Shw::Text::H2>
 
   <Shw::Text::H3>Interaction status</Shw::Text::H3>
 
@@ -67,10 +67,10 @@
                     @onChange={{fn (mut @model.SELECTED_OPTION)}}
                     @options={{@model.OPTIONS}}
                     @selected={{@model.SELECTED_OPTION}}
-                    @disabled={{if (eq variant "disabled") "disabled"}}
+                    @disabled={{if (eq variant "disabled") true}}
                     @isInvalid={{if (eq variant "invalid") true}}
                     @ariaLabel="Label"
-                    class="mock-{{state}}"
+                    mock-state-value={{state}}
                     as |option|
                   >
                     {{option}}
@@ -352,9 +352,9 @@
     <SF.Item />
   </Shw::Flex>
 
-  <Shw::Divider @level="2" />
+  <Shw::Divider />
 
-  <Shw::Text::H3>Field</Shw::Text::H3>
+  <Shw::Text::H2>Form::SuperSelect::Single::Field</Shw::Text::H2>
 
   <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Only label">
@@ -522,7 +522,7 @@
 
   <Shw::Divider />
 
-  <Shw::Text::H2>Multiple selection</Shw::Text::H2>
+  <Shw::Text::H2>Form::SuperSelect::Multiple::Base</Shw::Text::H2>
 
   <Shw::Text::H3>Interaction</Shw::Text::H3>
 
@@ -856,9 +856,9 @@
     <SF.Item />
   </Shw::Flex>
 
-  <Shw::Divider @level="2" />
+  <Shw::Divider />
 
-  <Shw::Text::H3>Field</Shw::Text::H3>
+  <Shw::Text::H2>Form::SuperSelect::Multiple::Field</Shw::Text::H2>
 
   <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Only label">
