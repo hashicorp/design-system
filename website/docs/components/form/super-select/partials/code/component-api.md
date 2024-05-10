@@ -83,7 +83,7 @@ The default values of some [ember-power-select](https://ember-power-select.com/)
   <C.Property @name="searchPlaceholder" @type="string" @default="Search">
     Displays placeholder text in the search input when `@searchEnabled` is set to `true`.
   </C.Property>
-  <C.Property @name="groupComponent" @type="component">
+  <C.Property @name="groupComponent" @type="component hds/form/super-select/option-group">
     Used to create groups of options similarly to the `optgroup` element used within native HTML `select` elements. Requires use of the `options` property (see [grouped options example](#grouped-options)).
   </C.Property>
   <C.Property @name="...attributes">
@@ -215,7 +215,7 @@ The default values of some [ember-power-select](https://ember-power-select.com/)
     <br><br>
     Note: Currently not active, awaiting update to ember-power-select.
   </C.Property>
-  <C.Property @name="groupComponent" @type="component">
+  <C.Property @name="groupComponent" @type="component hds/form/super-select/option-group">
     Used to create groups of options similarly to the `optgroup` element used within native HTML `select` elements. Requires use of the `options` property (see [grouped options example](#grouped-options)).
   </C.Property>
   <C.Property @name="...attributes">

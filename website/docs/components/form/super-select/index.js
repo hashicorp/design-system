@@ -18,6 +18,10 @@ export default class Index extends Component {
   GROUPED_OPTIONS = [
     { groupName: 'Most common', options: ['Kubernetes', 'AWS'] },
     { groupName: 'Others', options: ['CloudWise', 'SWA', 'Other'] },
+    {
+      groupName: 'Test same name options',
+      options: ['CloudWise', 'SWA', 'Other'],
+    },
   ];
 
   CLUSTER_SIZE_OPTIONS = [
@@ -50,10 +54,12 @@ export default class Index extends Component {
     this.CLUSTER_SIZE_OPTIONS[2],
   ];
 
-  SELECTED_GROUPED_OPTION = ['Kubernetes'];
-  SELECTED_GROUPED_OPTIONS = ['AWS', 'CloudWise'];
-
-  EXTRA_SELECTED_GROUPED_OPTION = ['Kubernetes'];
+  SELECTED_GROUPED_OPTION = this.GROUPED_OPTIONS[0].options[0];
+  SELECTED_GROUPED_OPTIONS = [
+    this.GROUPED_OPTIONS[0].options[0],
+    this.GROUPED_OPTIONS[1].options[0],
+  ];
+  EXTRA_SELECTED_GROUPED_OPTION = this.GROUPED_OPTIONS[0].options[0];
 
   // notice: this is used as "noop" function for the onDismiss callback of the SuperSelect component
   @action
