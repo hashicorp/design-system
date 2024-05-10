@@ -9,7 +9,25 @@ import { assert } from '@ember/debug';
 export const DEFAULT_COLOR = 'primary';
 export const COLORS = ['primary', 'secondary'];
 
-export default class HdsTagIndexComponent extends Component {
+interface IndexSignature {
+  Args: {
+    color: unknown;
+    'current-when': unknown;
+    href: unknown;
+    isHrefExternal: unknown;
+    isRouteExternal: unknown;
+    model: unknown;
+    models: unknown;
+    onDismiss: unknown;
+    query: unknown;
+    replace: unknown;
+    route: unknown;
+    text: unknown;
+  };
+  Element: HTMLElement;
+}
+
+export default class IndexComponent extends Component<IndexSignature> {
   /**
    * @param onDismiss
    * @type {function}
@@ -87,5 +105,12 @@ export default class HdsTagIndexComponent extends Component {
     }
 
     return classes.join(' ');
+  }
+}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'Index': typeof IndexComponent;
+    'index': typeof IndexComponent;
   }
 }
