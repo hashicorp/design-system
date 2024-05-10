@@ -3,7 +3,7 @@
 
 <Doc::Badge @type="warning">Conditionally conformant</Doc::Badge>
 
-To be accessible, the toggle which activates the tooltip must be a minimum of 24 × 24 pixels in dimension unless used within a full sentence or paragraph of text. The small and medium size variants use an invisible pseudo element which extends a few pixels larger than the actual toggle button to meet this requirement. Care must be taken to ensure there is enough space around the toggle so it does not overlap neighboring content.
+To be accessible, the toggle which activates the tooltip must be a minimum of 24 × 24 pixels in dimension unless used within a full sentence or paragraph of text. Care must be taken to ensure there is enough space around the toggle so it does not overlap neighboring content.
 
 ![Examples of the minimum height for the toggle](/assets/components/rich-tooltip/rich-tooltip-minimum-height.png)
 
