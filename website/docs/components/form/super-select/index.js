@@ -4,7 +4,6 @@
  */
 
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
 
 export default class Index extends Component {
   OPTIONS = [
@@ -56,10 +55,4 @@ export default class Index extends Component {
     this.GROUPED_OPTIONS[1].options[0],
   ];
   EXTRA_SELECTED_GROUPED_OPTION = this.GROUPED_OPTIONS[0].options[0];
-
-  // notice: this is used as "noop" function for the onDismiss callback of the SuperSelect component
-  @action
-  noop() {
-    //
-  }
 }
