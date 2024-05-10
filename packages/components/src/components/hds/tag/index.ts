@@ -5,36 +5,33 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import type { HdsInteractiveSignature } from '../interactive/';
+import { HdsTagColorValues } from './types.ts';
 
-export const DEFAULT_COLOR = 'primary';
-export const COLORS = ['primary', 'secondary'];
+import type { HdsTagColors } from './types.ts';
 
-interface IndexSignature {
-  Args: {
-    color: unknown;
-    'current-when': unknown;
-    href: unknown;
-    isHrefExternal: unknown;
-    isRouteExternal: unknown;
-    model: unknown;
-    models: unknown;
-    onDismiss: unknown;
-    query: unknown;
-    replace: unknown;
-    route: unknown;
-    text: unknown;
+export const COLORS: string[] = Object.values(HdsTagColorValues);
+export const DEFAULT_COLOR = HdsTagColorValues.Primary;
+
+interface HdsTagIndexSignature {
+  Args: HdsInteractiveSignature['Args'] & {
+    text: string;
+    ariaLabel?: string;
+    color?: HdsTagColors;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onDismiss?: (event: MouseEvent, ...args: any[]) => void;
   };
   Element: HTMLElement;
 }
 
-export default class IndexComponent extends Component<IndexSignature> {
+export default class HdsTagIndexComponent extends Component<HdsTagIndexSignature> {
   /**
    * @param onDismiss
    * @type {function}
    * @default () => {}
    */
   get onDismiss() {
-    let { onDismiss } = this.args;
+    const { onDismiss } = this.args;
 
     if (typeof onDismiss === 'function') {
       return onDismiss;
@@ -49,7 +46,7 @@ export default class IndexComponent extends Component<IndexSignature> {
    * @description The text of the tag. If no text value is defined, an error will be thrown.
    */
   get text() {
-    let { text } = this.args;
+    const { text } = this.args;
 
     assert('@text for "Hds::Tag" must have a valid value', text !== undefined);
 
@@ -62,7 +59,7 @@ export default class IndexComponent extends Component<IndexSignature> {
    * @default 'Dismiss'
    */
   get ariaLabel() {
-    let tagAriaLabel = this.args.ariaLabel ?? 'Dismiss';
+    const tagAriaLabel = this.args.ariaLabel ?? 'Dismiss';
     return tagAriaLabel + ' ' + this.args.text;
   }
 
@@ -74,7 +71,7 @@ export default class IndexComponent extends Component<IndexSignature> {
    */
   get color() {
     if (this.args.href || this.args.route) {
-      let { color = DEFAULT_COLOR } = this.args;
+      const { color = DEFAULT_COLOR } = this.args;
       assert(
         `@color for "Hds::Tag" must be one of the following: ${COLORS.join(
           ', '
@@ -97,7 +94,7 @@ export default class IndexComponent extends Component<IndexSignature> {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-tag'];
+    const classes = ['hds-tag'];
 
     // add a class based on the @color argument
     if (this.color) {
@@ -105,12 +102,5 @@ export default class IndexComponent extends Component<IndexSignature> {
     }
 
     return classes.join(' ');
-  }
-}
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Index': typeof IndexComponent;
-    'index': typeof IndexComponent;
   }
 }

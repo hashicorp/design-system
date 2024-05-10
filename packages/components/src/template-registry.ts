@@ -18,6 +18,7 @@ import type HdsLinkStandaloneComponent from './components/hds/link/standalone';
 import type HdsTextIndexComponent from './components/hds/text';
 import type HdsTextBodyComponent from './components/hds/text/body';
 import type HdsTextDisplayComponent from './components/hds/text/display';
+import type HdsTagComponent from './components/hds/tag';
 import type HdsToastComponent from './components/hds/toast';
 import type HdsTextCodeComponent from './components/hds/text/code';
 import type HdsYieldComponent from './components/hds/yield';
@@ -96,6 +97,11 @@ export default interface HdsComponentsRegistry {
   'Hds::Text::Code': typeof HdsTextCodeComponent;
   'hds/text/code': typeof HdsTextCodeComponent;
   HdsTextCode: typeof HdsTextCodeComponent;
+
+  // Tag
+  'Hds::Tag': typeof HdsTagComponent;
+  'hds/tag': typeof HdsTagComponent;
+  HdsTag: typeof HdsTagComponent;
 
   // Toast
   'Hds::Toast': typeof HdsToastComponent;
