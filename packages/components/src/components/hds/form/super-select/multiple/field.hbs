@@ -68,9 +68,9 @@
       @verticalPosition={{@verticalPosition}}
       @isInvalid={{@isInvalid}}
       ...attributes
-      as |option select|
+      as |options select|
     >
-      {{yield (hash option=option select=select Options=(component "hds/yield" option=option select=select))}}
+      {{yield (hash options=options select=select Options=(component "hds/yield" options=options select=select))}}
     </Hds::Form::SuperSelect::Multiple::Base>
   </F.Control>
 </Hds::Form::Field>
