@@ -16,7 +16,7 @@ module(
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       this.set('NOOP', () => {});
       await render(
-        hbs`<Hds::Form::SuperSelect::Single::Base @ariaLabel="Label" @onChange={{this.NOOP}} id="test-super-select-single" />`
+        hbs`<Hds::Form::SuperSelect::Single::Base @onChange={{this.NOOP}} id="test-super-select-single" />`
       );
       assert
         .dom('.hds-form-super-select-single #test-super-select-single')
@@ -29,7 +29,7 @@ module(
       this.set('NOOP', () => {});
       this.set('OPTIONS', ['Option 1', 'Option 2', 'Option 3']);
       await render(
-        hbs`<Hds::Form::SuperSelect::Single::Base @ariaLabel="Label" @onChange={{this.NOOP}} @options={{this.OPTIONS}} id="test-super-select-single" as |option|>{{option}}</Hds::Form::SuperSelect::Single::Base>`
+        hbs`<Hds::Form::SuperSelect::Single::Base @onChange={{this.NOOP}} @options={{this.OPTIONS}} id="test-super-select-single" as |option|>{{option}}</Hds::Form::SuperSelect::Single::Base>`
       );
       await click('.hds-form-super-select .ember-basic-dropdown-trigger');
       assert.dom('.ember-power-select-options').exists();
@@ -42,7 +42,7 @@ module(
       this.set('NOOP', () => {});
       this.set('OPTIONS', ['Option 1', 'Option 2', 'Option 3']);
       await render(
-        hbs`<Hds::Form::SuperSelect::Single::Base @ariaLabel="Label" @onChange={{this.NOOP}} @options={{this.OPTIONS}} id="test-super-select-single" as |option|>{{option}}</Hds::Form::SuperSelect::Single::Base>`
+        hbs`<Hds::Form::SuperSelect::Single::Base @onChange={{this.NOOP}} @options={{this.OPTIONS}} id="test-super-select-single" as |option|>{{option}}</Hds::Form::SuperSelect::Single::Base>`
       );
       await click('.hds-form-super-select .ember-basic-dropdown-trigger');
       assert.dom('.hds-form-super-select__after-options').doesNotExist();
@@ -52,7 +52,7 @@ module(
       this.set('NOOP', () => {});
       this.set('OPTIONS', ['Option 1', 'Option 2', 'Option 3']);
       await render(
-        hbs`<Hds::Form::SuperSelect::Single::Base @ariaLabel="Label" @onChange={{this.NOOP}} @options={{this.OPTIONS}} @showAfterOptions={{true}} id="test-super-select-single" as |option|>{{option}}</Hds::Form::SuperSelect::Single::Base>`
+        hbs`<Hds::Form::SuperSelect::Single::Base @onChange={{this.NOOP}} @options={{this.OPTIONS}} @showAfterOptions={{true}} id="test-super-select-single" as |option|>{{option}}</Hds::Form::SuperSelect::Single::Base>`
       );
       await click('.hds-form-super-select .ember-basic-dropdown-trigger');
       assert
@@ -66,7 +66,7 @@ module(
       this.set('NOOP', () => {});
       this.set('OPTIONS', ['Option 1', 'Option 2', 'Option 3']);
       await render(
-        hbs`<Hds::Form::SuperSelect::Single::Base @afterOptionsContent="Custom content" @ariaLabel="Label" @onChange={{this.NOOP}} @options={{this.OPTIONS}} id="test-super-select-single" as |option|>{{option}}</Hds::Form::SuperSelect::Single::Base>`
+        hbs`<Hds::Form::SuperSelect::Single::Base @afterOptionsContent="Custom content" @onChange={{this.NOOP}} @options={{this.OPTIONS}} id="test-super-select-single" as |option|>{{option}}</Hds::Form::SuperSelect::Single::Base>`
       );
       await click('.hds-form-super-select .ember-basic-dropdown-trigger');
       assert.dom('.hds-form-super-select__result-count').doesNotExist();
@@ -79,7 +79,7 @@ module(
       this.set('NOOP', () => {});
       this.set('OPTIONS', ['Option 1', 'Option 2', 'Option 3']);
       await render(
-        hbs`<Hds::Form::SuperSelect::Single::Base @showAfterOptions={{false}} @ariaLabel="Label" @onChange={{this.NOOP}} @options={{this.OPTIONS}} id="test-super-select-single" as |option|>{{option}}</Hds::Form::SuperSelect::Single::Base>`
+        hbs`<Hds::Form::SuperSelect::Single::Base @showAfterOptions={{false}} @onChange={{this.NOOP}} @options={{this.OPTIONS}} id="test-super-select-single" as |option|>{{option}}</Hds::Form::SuperSelect::Single::Base>`
       );
       await click('.hds-form-super-select .ember-basic-dropdown-trigger');
       assert.dom('.hds-form-super-select__after-options').doesNotExist();
@@ -90,7 +90,7 @@ module(
     test('`@matchTriggerWidth` should be true by default', async function (assert) {
       this.set('NOOP', () => {});
       await render(
-        hbs`<Hds::Form::SuperSelect::Single::Base @ariaLabel="Label" @onChange={{this.NOOP}} />`
+        hbs`<Hds::Form::SuperSelect::Single::Base @onChange={{this.NOOP}} />`
       );
       assert
         .dom('.hds-form-super-select')
@@ -100,7 +100,7 @@ module(
     test('it should render the correct CSS class when `@matchTriggerWidth` is false', async function (assert) {
       this.set('NOOP', () => {});
       await render(
-        hbs`<Hds::Form::SuperSelect::Single::Base @ariaLabel="Label" @onChange={{this.NOOP}} @matchTriggerWidth={{false}} />`
+        hbs`<Hds::Form::SuperSelect::Single::Base @onChange={{this.NOOP}} @matchTriggerWidth={{false}} />`
       );
       assert
         .dom('.hds-form-super-select')
@@ -114,7 +114,7 @@ module(
     test('it should set the correct CSS property value when `@dropdownMaxWidth` is set', async function (assert) {
       this.set('NOOP', () => {});
       await render(
-        hbs`<Hds::Form::SuperSelect::Single::Base @ariaLabel="Label" @onChange={{this.NOOP}} @matchTriggerWidth={{false}} @dropdownMaxWidth="40em" />`
+        hbs`<Hds::Form::SuperSelect::Single::Base @onChange={{this.NOOP}} @matchTriggerWidth={{false}} @dropdownMaxWidth="40em" />`
       );
 
       assert
@@ -130,7 +130,7 @@ module(
     test('it should render the correct CSS class when `@isInvalid` is true', async function (assert) {
       this.set('NOOP', () => {});
       await render(
-        hbs`<Hds::Form::SuperSelect::Single::Base @ariaLabel="Label" @onChange={{this.NOOP}} @isInvalid={{true}} />`
+        hbs`<Hds::Form::SuperSelect::Single::Base @onChange={{this.NOOP}} @isInvalid={{true}} />`
       );
       assert
         .dom('.hds-form-super-select')
