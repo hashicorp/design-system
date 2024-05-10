@@ -117,7 +117,7 @@ If options have the same name, even if under different groups, they will be trea
 
 ### Rich-content options
 
-`SuperSelect` allows you to add HTML tags within the options to lay out and structure the content.
+`SuperSelect` allows you to add HTML tags within options to lay out and structure content vs. `Hds::FormSelect` which only allows plain text strings as option content.
 
 !!! Warning
 
@@ -151,7 +151,7 @@ HDS components will not work if used inside option content. Use only plain text 
 
 #### Rich content with default display in SuperSelect::Multiple
 
-By default, all content of selected options displays in the “trigger”. Visually, this looks ok in `SuperSelect::Single`. However, in `SuperSelect::Multiple` selected items are displayed as pill-shaped “tags” so can look quite busy.
+By default, all content of selected options displays in the “trigger”. Visually, this looks ok in `SuperSelect::Single`. However, in `SuperSelect::Multiple` the selected items are displayed as pill-shaped “tags” so can look quite busy.
 
 ```handlebars
 <Hds::Form::SuperSelect::Multiple::Field
@@ -177,13 +177,6 @@ By default, all content of selected options displays in the “trigger”. Visua
 
 To simplify the content displayed in the selected options, use `@selectedItemComponent` to specify a custom component with only the content you wish to display.
 
-
-!!! Warning
-
-Use only plain HTML in your custom component. HDS components will not work.
-
-!!!
-
 **Custom `selectedItemComponent` example:**
 
 ```markup
@@ -192,13 +185,13 @@ Use only plain HTML in your custom component. HDS components will not work.
 </span>
 ```
 
-**Component invocation specifying the `selectedItemComponent`:**
+**SuperSelect::Multiple invocation specifying a `selectedItemComponent`:**
 
 ```handlebars
 <Hds::Form::SuperSelect::Multiple::Field
   @onChange={{fn (mut this.SELECTED_CLUSTER_SIZE_OPTIONS)}}
   @selected={{this.SELECTED_CLUSTER_SIZE_OPTIONS}}
-  @selectedItemComponent={{component "power-select/selected-option"}}
+  @selectedItemComponent={{component "power-select/selected-option-multiple"}}
   @options={{this.CLUSTER_SIZE_OPTIONS}}
   as |F|
 >
@@ -215,6 +208,31 @@ Use only plain HTML in your custom component. HDS components will not work.
     {{/let}}
   </F.Options>
 </Hds::Form::SuperSelect::Multiple::Field>
+```
+
+**SuperSelect::Single invocation specifying a `selectedItemComponent`:**
+
+```handlebars
+<Hds::Form::SuperSelect::Single::Field
+  @onChange={{fn (mut this.SELECTED_CLUSTER_SIZE_OPTION)}}
+  @selected={{this.SELECTED_CLUSTER_SIZE_OPTION}}
+  @selectedItemComponent={{component "power-select/selected-option-single"}}
+  @options={{this.CLUSTER_SIZE_OPTIONS}}
+  as |F|
+>
+  <F.Label>Size</F.Label>
+  <F.Options>
+    {{#let F.options as |option|}}
+      <Hds::Text::Body @size="200">
+        <div class="doc-super-select-option-rich-header">
+          <strong>{{option.size}}</strong>
+          <strong>{{option.price}}</strong>
+        </div>
+        <div>{{option.description}}</div>
+      </Hds::Text::Body>
+    {{/let}}
+  </F.Options>
+</Hds::Form::SuperSelect::Single::Field>
 ```
 
 #### Helper text
