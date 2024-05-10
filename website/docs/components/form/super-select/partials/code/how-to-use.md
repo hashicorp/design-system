@@ -117,7 +117,15 @@ If options have the same name, even if under different groups, they will be trea
 
 ### Rich-content options
 
-#### SuperSelect::Single
+`SuperSelect` allows you to add HTML tags within the options to lay out and structure the content.
+
+!!! Warning
+
+HDS components will not work if used inside option content. Use only plain text strings and HTML (if desired).
+
+!!!
+
+#### Rich content with default display in SuperSelect::Single
 
 ```handlebars
 <Hds::Form::SuperSelect::Single::Field
@@ -141,15 +149,35 @@ If options have the same name, even if under different groups, they will be trea
 </Hds::Form::SuperSelect::Single::Field>
 ```
 
-#### SuperSelect::Multiple
+#### Rich content with default display in SuperSelect::Multiple
 
-!!! Info
+By default, all content of selected options displays in the “trigger”. Visually, this looks ok in `SuperSelect::Single`. However, in `SuperSelect::Multiple` selected items are displayed as pill-shaped “tags” so can look quite busy.
 
-By default, all the option content will display in the selected item “tags” which display in the trigger. To simplify the content in these tags, use `@selectedItemComponent` to specify a custom component.
+```handlebars
+<Hds::Form::SuperSelect::Multiple::Field
+  @onChange={{fn (mut this.SELECTED_CLUSTER_SIZE_OPTIONS)}}
+  @selected={{this.SELECTED_CLUSTER_SIZE_OPTIONS}}
+  @options={{this.CLUSTER_SIZE_OPTIONS}}
+  as |F|
+>
+  <F.Label>Size</F.Label>
+  <F.Options>
+    {{#let F.options as |option|}}
+      <Hds::Text::Body @size="200">
+        <div class="doc-super-select-option-rich-header">
+          <strong>{{option.size}}</strong>
+          <strong>{{option.price}}</strong>
+        </div>
+        <div>{{option.description}}</div>
+      </Hds::Text::Body>
+    {{/let}}
+  </F.Options>
+</Hds::Form::SuperSelect::Multiple::Field>
+```
 
-!!!
+To simplify the content displayed in the selected options, use `@selectedItemComponent` to specify a custom component with only the content you wish to display.
 
-**Custom “tag” component example:**
+**Custom `selectedItemComponent` example:**
 
 ```markup
 <span>
@@ -157,7 +185,7 @@ By default, all the option content will display in the selected item “tags” 
 </span>
 ```
 
-**Component invocation:**
+**Component invocation specifying the `selectedItemComponent`:**
 
 ```handlebars
 <Hds::Form::SuperSelect::Multiple::Field
