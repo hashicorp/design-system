@@ -114,8 +114,8 @@ export default class HdsSuperSelectMultipleBaseComponent extends PowerSelectComp
   get classNames() {
     let classes = ['hds-form-super-select', 'hds-form-super-select-multiple'];
 
-    // add a class based on the @matchTriggerWidth argument
-    if (this.args.matchTriggerWidth === false) {
+    // add a class based on the @matchTriggerWidth argument or whether dropdownMaxWidth is set
+    if (this.args.matchTriggerWidth === false || this.args.dropdownMaxWidth) {
       classes.push('hds-form-super-select--match-trigger-width-false');
     }
 

@@ -114,11 +114,12 @@ module(
     test('it should set the correct CSS property value when `@dropdownMaxWidth` is set', async function (assert) {
       setOptionsData(this);
       await render(
-        hbs`<Hds::Form::SuperSelect::Single::Base @onChange={{this.NOOP}} @matchTriggerWidth={{false}} @dropdownMaxWidth="40em" />`
+        hbs`<Hds::Form::SuperSelect::Single::Base @onChange={{this.NOOP}} @dropdownMaxWidth="40em" />`
       );
 
       assert
         .dom('.hds-form-super-select')
+        .hasClass('hds-form-super-select--match-trigger-width-false')
         .hasAttribute(
           'style',
           '--hds-form-super-select-dropdown-max-width: 40em;'
