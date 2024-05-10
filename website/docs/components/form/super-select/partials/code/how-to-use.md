@@ -86,6 +86,12 @@ Placeholder text can be added to provide additional context. However, this infor
 
 To group similar sets of options, pass a nested data structure specifying the `groupName` and associated `options`.
 
+!!! Warning
+
+If options have the same name, even if under different groups, they will be treated as the same. Therefore, selecting one will select any other option with the same name.
+
+!!!
+
 **Nested data structure example:**
 
 ```javascript
