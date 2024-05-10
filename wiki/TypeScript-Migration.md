@@ -20,11 +20,9 @@ The following steps are recommended for migrating components to TypeScript.
 
 - Compare the signature generated, with the expected arguments using the website documentation (Component API section), and start defining the [basic types](https://www.typescriptlang.org/docs/handbook/basic-types.html) (e.g. `boolean`, `number`, `string`)
 
-- For more involved types, such as `enum`s, conditional and mapped types, create a `types.d.ts` file colocated with the component (a single file in the “root” of the component, containing types for components and sub-components)
-[See: Always place types in a separate file]
-
+- For more involved types, such as `enum`s, conditional and mapped types, create a `types.d.ts` file colocated with the component (a single file in the “root” of the component, containing types for components and sub-components).
+  - By separating types into their own files, we can keep your codebase more organized and easier to navigate. It also makes it easier to find and update type definitions. Keeping types separate from component logic helps maintain a clear separation of concerns making the component code easier to understand and maintain.
   - These types need to be exported, as they will be “consumed” in the backing class for the component/sub-components
-  - The lists can be an explicit union or a string/template literal
 
 - Import declarations from `types.d.ts` into the backing class file as needed. When importing types and other values make sure values are listed first (in alphabetical order), followed by the types (also in alphabetical order).
 
