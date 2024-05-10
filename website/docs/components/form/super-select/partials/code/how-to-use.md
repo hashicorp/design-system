@@ -119,12 +119,6 @@ If options have the same name, even if under different groups, they will be trea
 
 `SuperSelect` allows you to add HTML tags within options to lay out and structure content vs. `Hds::FormSelect` which only allows plain text strings as option content.
 
-!!! Warning
-
-HDS components will not work if used inside option content. Use only plain text strings and HTML (if desired).
-
-!!!
-
 #### Rich content with default display in SuperSelect::Single
 
 ```handlebars
