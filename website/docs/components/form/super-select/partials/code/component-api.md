@@ -65,6 +65,16 @@ The default values of some [ember-power-select](https://ember-power-select.com/)
   <C.Property @name="placeholderComponent" @type="string or component" @default="component hds/form/super-select/option-group">
     Set to use a custom HDS `optionGroup` component to provide visual consistency.
   </C.Property>
+  <C.Property @name="dropdownMaxWidth" @type="string">
+    Sets a maxWidth for the dropdown containing the options list.
+    <br><br>
+    If a value for `dropdownMaxWidth` is set, `matchTriggerWidth` is automatically set to false.
+  </C.Property>
+  <C.Property @name="matchTriggerWidth" @type="boolean" @default="true">
+    When enabled, the dropdown width matches the width of the trigger.
+    <br><br>
+    If a value for `dropdownMaxWidth` is set, `matchTriggerWidth` is automatically set to false.
+  </C.Property>
   <C.Property @name="renderInPlace" @type="boolean">
     Determines whether the dropdown options are rendered in place within the DOM vs. being attached to the root of the HTML `<body>` and positioned with JavaScript.
     <br><br>
@@ -184,6 +194,16 @@ The default values of some [ember-power-select](https://ember-power-select.com/)
   </C.Property>
   <C.Property @name="placeholderComponent" @type="string or component" @default="component hds/form/super-select/option-group">
     Set to use a custom HDS `optionGroup` component to provide visual consistency.
+  </C.Property>
+  <C.Property @name="dropdownMaxWidth" @type="string">
+    Sets a maxWidth for the dropdown containing the options list.
+    <br><br>
+    If a value for `dropdownMaxWidth` is set, `matchTriggerWidth` is automatically set to false.
+  </C.Property>
+  <C.Property @name="matchTriggerWidth" @type="boolean" @default="true">
+    When enabled, the dropdown width matches the width of the trigger.
+    <br><br>
+    If a value for `dropdownMaxWidth` is set, `matchTriggerWidth` is automatically set to false.
   </C.Property>
   <C.Property @name="renderInPlace" @type="boolean">
     Determines whether the dropdown options are rendered in place within the DOM vs. being attached to the root of the HTML `<body>` and positioned with JavaScript.
