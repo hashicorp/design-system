@@ -111,8 +111,6 @@ module(
 
     // DROPDOWN MAX WIDTH
 
-    // TODO: The CSS property value is returning as "undefined"
-
     test('it should set the correct CSS property value when `@dropdownMaxWidth` is set', async function (assert) {
       setOptionsData(this);
       await render(
