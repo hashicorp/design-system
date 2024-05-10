@@ -12,8 +12,9 @@ export default class ComponentsSuperSelectRoute extends Route {
 
     // Options data
     const OPTIONS = ['Option 1', 'Option 2', 'Option 3'];
-    const SELECTED_OPTION = ['Option 1'];
-    const SELECTED_OPTIONS = ['Option 1', 'Option 2'];
+    const SELECTED_OPTION = OPTIONS[0];
+    const SELECTED_OPTIONS = [OPTIONS[0], OPTIONS[1]];
+    const SELECTED_OPTIONS_SINGLE = [OPTIONS[0]];
 
     const GROUPED_OPTIONS = [
       { groupName: 'Group', options: ['Option 1', 'Option 2'] },
@@ -33,8 +34,11 @@ export default class ComponentsSuperSelectRoute extends Route {
         ],
       },
     ];
-    const SELECTED_GROUPED_OPTION = ['Option 1'];
-    const SELECTED_GROUPED_OPTIONS = ['Option 1', 'Option 2'];
+    const SELECTED_GROUPED_OPTION = GROUPED_OPTIONS[0].options[0];
+    const SELECTED_GROUPED_OPTIONS = [
+      GROUPED_OPTIONS[0].options[0],
+      GROUPED_OPTIONS[1].options[0],
+    ];
 
     const PLACES_OPTIONS = [
       'Oregon (us-west-2)',
@@ -50,6 +54,7 @@ export default class ComponentsSuperSelectRoute extends Route {
       PLACES_OPTIONS[1],
       PLACES_OPTIONS[3],
     ];
+    const SELECTED_PLACES_OPTIONS_SINGLE = [PLACES_OPTIONS[0]];
 
     const CLUSTER_SIZE_OPTIONS = [
       {
@@ -77,9 +82,11 @@ export default class ComponentsSuperSelectRoute extends Route {
       OPTIONS,
       SELECTED_OPTION,
       SELECTED_OPTIONS,
+      SELECTED_OPTIONS_SINGLE,
       GROUPED_OPTIONS,
       SELECTED_GROUPED_OPTION,
       SELECTED_GROUPED_OPTIONS,
+      SELECTED_PLACES_OPTIONS_SINGLE,
       PLACES_OPTIONS,
       SELECTED_PLACES_OPTION,
       SELECTED_PLACES_OPTIONS,

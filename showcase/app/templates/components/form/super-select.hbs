@@ -221,6 +221,20 @@
         {{option}}
       </Hds::Form::SuperSelect::Single::Base>
     </SF.Item>
+    <SF.Item {{style min-width="10em"}} @label="matchTriggerWidth = false">
+      <Hds::Form::SuperSelect::Single::Base
+        @onChange={{fn (mut @model.SELECTED_OPTION)}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED_OPTION}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        @ariaLabel="Label"
+        @matchTriggerWidth={{false}}
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Single::Base>
+    </SF.Item>
     <SF.Item @label="dropdownMaxWidth = 40em">
       <Hds::Form::SuperSelect::Single::Base
         @onChange={{fn (mut @model.SELECTED_PLACES_OPTION)}}
@@ -229,22 +243,6 @@
         @initiallyOpened={{true}}
         @verticalPosition="below"
         @dropdownMaxWidth="40em"
-        @ariaLabel="Label"
-        as |option|
-      >
-        {{option}}
-      </Hds::Form::SuperSelect::Single::Base>
-    </SF.Item>
-  </Shw::Flex>
-
-  <Shw::Flex {{style padding-bottom="11em"}} as |SF|>
-    <SF.Item @label="no dropdownMaxWidth set">
-      <Hds::Form::SuperSelect::Single::Base
-        @onChange={{fn (mut @model.SELECTED_PLACES_OPTION)}}
-        @options={{@model.PLACES_OPTIONS}}
-        @selected={{@model.SELECTED_PLACES_OPTION}}
-        @initiallyOpened={{true}}
-        @verticalPosition="below"
         @ariaLabel="Label"
         as |option|
       >
@@ -713,9 +711,9 @@
   <Shw::Flex {{style padding-bottom="16em"}} as |SF|>
     <SF.Item {{style min-width="10em"}} @label="matchTriggerWidth = true (default)">
       <Hds::Form::SuperSelect::Multiple::Base
-        @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
+        @onChange={{fn (mut @model.SELECTED_OPTIONS_SINGLE)}}
         @options={{@model.OPTIONS}}
-        @selected={{@model.SELECTED_OPTIONS}}
+        @selected={{@model.SELECTED_OPTIONS_SINGLE}}
         @initiallyOpened={{true}}
         @verticalPosition="below"
         @ariaLabel="Label"
@@ -724,32 +722,28 @@
         {{option}}
       </Hds::Form::SuperSelect::Multiple::Base>
     </SF.Item>
-    <SF.Item @label="matchTriggerWidth = false & dropdownMaxWidth = 40em">
+    <SF.Item @label="matchTriggerWidth = false">
       <Hds::Form::SuperSelect::Multiple::Base
-        @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
-        @options={{@model.PLACES_OPTIONS}}
-        @selected={{@model.SELECTED_PLACES_OPTIONS}}
+        @onChange={{fn (mut @model.SELECTED_OPTIONS_SINGLE)}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED_OPTIONS_SINGLE}}
         @initiallyOpened={{true}}
         @verticalPosition="below"
         @matchTriggerWidth={{false}}
+        @ariaLabel="Label"
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Multiple::Base>
+    </SF.Item>
+    <SF.Item @label="dropdownMaxWidth = 40em">
+      <Hds::Form::SuperSelect::Multiple::Base
+        @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS_SINGLE)}}
+        @options={{@model.PLACES_OPTIONS}}
+        @selected={{@model.SELECTED_PLACES_OPTIONS_SINGLE}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
         @dropdownMaxWidth="40em"
-        @ariaLabel="Label"
-        as |option|
-      >
-        {{option}}
-      </Hds::Form::SuperSelect::Multiple::Base>
-    </SF.Item>
-  </Shw::Flex>
-
-  <Shw::Flex {{style padding-bottom="16em"}} as |SF|>
-    <SF.Item @label="matchTriggerWidth = false & no dropdownMaxWidth set">
-      <Hds::Form::SuperSelect::Multiple::Base
-        @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
-        @options={{@model.PLACES_OPTIONS}}
-        @selected={{@model.SELECTED_PLACES_OPTIONS}}
-        @initiallyOpened={{true}}
-        @verticalPosition="below"
-        @matchTriggerWidth={{false}}
         @ariaLabel="Label"
         as |option|
       >

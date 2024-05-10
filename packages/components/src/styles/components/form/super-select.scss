@@ -489,7 +489,7 @@ $hds-super-select-item-height: 36px;
 // When renderInPlace=true, matchTriggerWidth=false has no effect unless we override the width of the dropdown content
 // (fixes bug with ember-power-select)
 .hds-form-super-select--match-trigger-width-false {
-  .ember-power-select-dropdown.ember-basic-dropdown-content--in-place {
+  .ember-power-select-dropdown.ember-basic-dropdown-content {
       width: auto;
   }
 }
