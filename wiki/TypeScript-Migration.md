@@ -2,9 +2,9 @@
 
 The following steps are recommended for migrating components to TypeScript.
 
-1. [Pick a component](https://hashicorp.atlassian.net/browse/HDS-2392), assign yourself to the task in Jira and add it to the current sprint
+1. [Pick a component](https://hashicorp.atlassian.net/browse/HDS-2392), assign yourself to the task in Jira, and add it to the current sprint
 
-    - [This spreadsheet](https://docs.google.com/spreadsheets/d/1sWzLSP8TUb3WYibYNZ5w6UfEb338DQbZkVaTjK8b1tw/edit#gid=0) contains (more or less) all the dependencies between components, so it’s easier to understand what is ready to be converted (eg has dependencies that are already converted to TS) and what it not.
+    - [This spreadsheet](https://docs.google.com/spreadsheets/d/1sWzLSP8TUb3WYibYNZ5w6UfEb338DQbZkVaTjK8b1tw/edit#gid=0) contains (more or less) all the dependencies between components, so it’s easier to understand what is ready to be converted (e.g. has dependencies that are already converted to TypeSscript) and what is not.
 
 2. Rename the backing class from `.js` to `.ts`; commit after this step to make it easier to review the changes
 
@@ -13,37 +13,36 @@ The following steps are recommended for migrating components to TypeScript.
 4. Define component signature
 
     - You can either do it manually [following the documentation](https://typed-ember.gitbook.io/glint/environments/ember/component-signatures#glimmer-components)
-
-- Or, you can generate it using `npx ember-codemod-args-to-signature --src /path/to/component`. This codemod renames the component class name to `IndexComponent` by default, so make sure to revert it (e.g. `HdsBadgeIndexComponent`)
+    - Or, you can generate it using `npx ember-codemod-args-to-signature --src /path/to/component`. This codemod renames the component class name to `IndexComponent` by default, so make sure to revert it (e.g. `HdsBadgeIndexComponent`)
 
 5. Add types and use them in the signature
 
-- The signature should follow the naming convention (e.g. `HdsBadgeIndexSignature`) and should be placed right before the backing class declaration, so it’s consistent across components
+    - The signature should follow the naming convention (e.g. `HdsBadgeIndexSignature`) and should be placed right before the backing class declaration, so it’s consistent across components
 
-- Compare the signature generated, with the expected arguments using the website documentation (Component API section), and start defining the [basic types](https://www.typescriptlang.org/docs/handbook/basic-types.html) (e.g. `boolean`, `number`, `string`)
+    - Compare the signature generated, with the expected arguments using the website documentation (Component API section), and start defining the [basic types](https://www.typescriptlang.org/docs/handbook/basic-types.html) (e.g. `boolean`, `number`, `string`)
 
-- For more involved types, such as `enum`s, conditional and mapped types, create a `types.d.ts` file colocated with the component (a single file in the “root” of the component, containing types for components and sub-components).
-  - By separating types into their own files, we can keep your codebase more organized and easier to navigate. It also makes it easier to find and update type definitions. Keeping types separate from component logic helps maintain a clear separation of concerns making the component code easier to understand and maintain.
-  - These types need to be exported, as they will be “consumed” in the backing class for the component/sub-components
+    - For more involved types, such as `enum`s, conditional, and mapped types, create a `types.ts` file colocated with the component (a single file in the “root” of the component, containing types for components and sub-components).
+      - By separating types into their own files, we can keep your codebase more organized and easier to navigate. It also makes it easier to find and update type definitions. Keeping types separate from component logic helps maintain a clear separation of concerns making the component code easier to understand and maintain.
+      - These types need to be exported, as they will be “consumed” in the backing class for the component/sub-components
 
-- Import declarations from `types.d.ts` into the backing class file as needed. When importing types and other values make sure values are listed first (in alphabetical order), followed by the types (also in alphabetical order).
+    - Import declarations from `types.ts` into the backing class file as needed. When importing types and other values make sure values are listed first (in alphabetical order), followed by the types (also in alphabetical order).
 
-  ```js
-  import { HdsTextSizeValues, HdsTextWeightValues } from './types.d.ts'
-  import type { HdsTextAligns, HdsTextColors, HdsTextWeights } from './types.d.ts';
-  ```
+      ```js
+      import { HdsTextSizeValues, HdsTextWeightValues } from './types.ts'
+      import type { HdsTextAligns, HdsTextColors, HdsTextWeights } from './types.ts';
+      ```
 
-- Enable glint checking by removing the top comment in the template file and run `yarn lint` to check for any type-related errors
-- If there are errors, fix them by adjusting the signature and/or updating logic
+    - Enable glint checking by removing the top comment in the template file and run `yarn lint` to check for any type-related errors
+    - If there are errors, fix them by adjusting the signature and/or updating logic
 
 6. Update the template registry
 
-- Remove the code generated by the codemod at the end of the backing class and add the component/sub-component to `template-registry.js` using other components as reference
+    - Remove the code generated by the codemod at the end of the backing class and add the component/sub-component to `template-registry.ts` using other components as reference
 
 7. Add changelog entry
 
-- Mark the change as minor (we’re introducing a new feature, the types associated with a component)
-- Use the following template: `ComponentName` - Converted component to TypeScript
-- Raise a PR, assign it the `typescript` label, and request a review from @hds-engineering
+    - Mark the change as minor (we’re introducing a new feature, the types associated with a component)
+    - Use the following template: `ComponentName` - Converted component to TypeScript
+    - Raise a PR, assign it the `typescript` label, and request a review from @hds-engineering
 
 8. Remember to update the status of your Jira task
