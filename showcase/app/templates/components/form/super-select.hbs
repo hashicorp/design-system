@@ -257,6 +257,25 @@
 
   <Shw::Text::H3>Before &amp; after options</Shw::Text::H3>
 
+  <Shw::Flex {{style padding-bottom="16em" max-width="50%"}} @direction="row" as |SF|>
+    <SF.Item {{style flex="1"}} @label="Before options generic content">
+      <Hds::Form::SuperSelect::Single::Base
+        @beforeOptionsComponent={{component "form/super-select/generic-content"}}
+        @onChange={{fn (mut @model.SELECTED_PLACES_OPTION)}}
+        @options={{@model.PLACES_OPTIONS}}
+        @selected={{@model.SELECTED_PLACES_OPTION}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        @ariaLabel="Label"
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Single::Base>
+    </SF.Item>
+    {{! left empty on purpose }}
+    <SF.Item />
+  </Shw::Flex>
+
   <Shw::Flex {{style padding-bottom="15em"}} @direction="row" as |SF|>
     <SF.Item {{style flex="1"}} @label="After options default content">
       <Hds::Form::SuperSelect::Single::Base
@@ -331,25 +350,6 @@
         {{option}}
       </Hds::Form::SuperSelect::Single::Base>
     </SF.Item>
-  </Shw::Flex>
-
-  <Shw::Flex {{style padding-bottom="14em" max-width="50%"}} @direction="row" as |SF|>
-    <SF.Item {{style flex="1"}} @label="Before options generic content">
-      <Hds::Form::SuperSelect::Single::Base
-        @beforeOptionsComponent={{component "form/super-select/generic-content"}}
-        @onChange={{fn (mut @model.SELECTED_PLACES_OPTION)}}
-        @options={{@model.PLACES_OPTIONS}}
-        @selected={{@model.SELECTED_PLACES_OPTION}}
-        @initiallyOpened={{true}}
-        @verticalPosition="below"
-        @ariaLabel="Label"
-        as |option|
-      >
-        {{option}}
-      </Hds::Form::SuperSelect::Single::Base>
-    </SF.Item>
-    {{! left empty on purpose }}
-    <SF.Item />
   </Shw::Flex>
 
   <Shw::Divider />
@@ -762,6 +762,25 @@
 
   <Shw::Text::H3>Before &amp; after options</Shw::Text::H3>
 
+  <Shw::Flex {{style padding-bottom="18em"}} @direction="row" as |SF|>
+    <SF.Item @label="Before options generic content">
+      <Hds::Form::SuperSelect::Multiple::Base
+        @beforeOptionsComponent={{component "form/super-select/generic-content"}}
+        @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
+        @options={{@model.PLACES_OPTIONS}}
+        @selected={{@model.SELECTED_PLACES_OPTIONS}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        @ariaLabel="Label"
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Multiple::Base>
+    </SF.Item>
+    {{! left empty on purpose }}
+    <SF.Item />
+  </Shw::Flex>
+
   <Shw::Flex {{style padding-bottom="15em"}} @direction="row" as |SF|>
     <SF.Item {{style flex="1"}} @label="After options default content">
       <Hds::Form::SuperSelect::Multiple::Base
@@ -835,25 +854,6 @@
         {{option}}
       </Hds::Form::SuperSelect::Multiple::Base>
     </SF.Item>
-  </Shw::Flex>
-
-  <Shw::Flex {{style padding-bottom="16em"}} @direction="row" as |SF|>
-    <SF.Item @label="Before options generic content">
-      <Hds::Form::SuperSelect::Multiple::Base
-        @beforeOptionsComponent={{component "form/super-select/generic-content"}}
-        @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
-        @options={{@model.PLACES_OPTIONS}}
-        @selected={{@model.SELECTED_PLACES_OPTIONS}}
-        @initiallyOpened={{true}}
-        @verticalPosition="below"
-        @ariaLabel="Label"
-        as |option|
-      >
-        {{option}}
-      </Hds::Form::SuperSelect::Multiple::Base>
-    </SF.Item>
-    {{! left empty on purpose }}
-    <SF.Item />
   </Shw::Flex>
 
   <Shw::Divider />
