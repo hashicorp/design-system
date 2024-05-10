@@ -309,7 +309,7 @@
         @selected={{@model.SELECTED_PLACES_OPTION}}
         @initiallyOpened={{true}}
         @verticalPosition="below"
-        @afterOptionsContent={{component "form/power-select/generic-content"}}
+        @afterOptionsContent={{component "form/super-select/generic-content"}}
         @ariaLabel="Label"
         as |option|
       >
@@ -318,7 +318,7 @@
     </SF.Item>
     <SF.Item {{style flex="1"}} @label="After options generic content">
       <Hds::Form::SuperSelect::Single::Base
-        @afterOptionsComponent={{component "form/power-select/generic-content"}}
+        @afterOptionsComponent={{component "form/super-select/generic-content"}}
         @onChange={{fn (mut @model.SELECTED_PLACES_OPTION)}}
         @options={{@model.PLACES_OPTIONS}}
         @selected={{@model.SELECTED_PLACES_OPTION}}
@@ -336,7 +336,7 @@
   <Shw::Flex {{style padding-bottom="14em" max-width="50%"}} @direction="row" as |SF|>
     <SF.Item {{style flex="1"}} @label="Before options generic content">
       <Hds::Form::SuperSelect::Single::Base
-        @beforeOptionsComponent={{component "form/power-select/generic-content"}}
+        @beforeOptionsComponent={{component "form/super-select/generic-content"}}
         @onChange={{fn (mut @model.SELECTED_PLACES_OPTION)}}
         @options={{@model.PLACES_OPTIONS}}
         @selected={{@model.SELECTED_PLACES_OPTION}}
@@ -484,7 +484,7 @@
     <SF.Item {{style flex="1"}} @label="rich content with custom selectedItemComponent">
       <Hds::Form::SuperSelect::Single::Field
         @selected={{@model.SELECTED_CLUSTER_SIZE_OPTION}}
-        @selectedItemComponent={{component "form/power-select/selected-component-single"}}
+        @selectedItemComponent={{component "form/super-select/selected-component-single"}}
         @onChange={{fn (mut @model.SELECTED_CLUSTER_SIZE_OPTIONS)}}
         @options={{@model.CLUSTER_SIZE_OPTIONS}}
         @initiallyOpened={{true}}
@@ -809,7 +809,7 @@
     </SF.Item>
     <SF.Item {{style flex="1"}} @label="After options generic content in footer">
       <Hds::Form::SuperSelect::Multiple::Base
-        @afterOptionsContent={{component "form/power-select/generic-content"}}
+        @afterOptionsContent={{component "form/super-select/generic-content"}}
         @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
         @options={{@model.PLACES_OPTIONS}}
         @selected={{@model.SELECTED_PLACES_OPTIONS}}
@@ -823,7 +823,7 @@
     </SF.Item>
     <SF.Item {{style flex="1"}} @label="After options generic content">
       <Hds::Form::SuperSelect::Multiple::Base
-        @afterOptionsComponent={{component "form/power-select/generic-content"}}
+        @afterOptionsComponent={{component "form/super-select/generic-content"}}
         @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
         @options={{@model.PLACES_OPTIONS}}
         @selected={{@model.SELECTED_PLACES_OPTIONS}}
@@ -840,7 +840,7 @@
   <Shw::Flex {{style padding-bottom="16em"}} @direction="row" as |SF|>
     <SF.Item @label="Before options generic content">
       <Hds::Form::SuperSelect::Multiple::Base
-        @beforeOptionsComponent={{component "form/power-select/generic-content"}}
+        @beforeOptionsComponent={{component "form/super-select/generic-content"}}
         @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
         @options={{@model.PLACES_OPTIONS}}
         @selected={{@model.SELECTED_PLACES_OPTIONS}}
@@ -988,7 +988,7 @@
     <SF.Item {{style flex="1"}} @label="rich content with custom selectedItems">
       <Hds::Form::SuperSelect::Multiple::Field
         @selected={{@model.SELECTED_CLUSTER_SIZE_OPTIONS}}
-        @selectedItemComponent={{component "form/power-select/selected-component-multiple"}}
+        @selectedItemComponent={{component "form/super-select/selected-component-multiple"}}
         @onChange={{fn (mut @model.SELECTED_CLUSTER_SIZE_OPTIONS)}}
         @options={{@model.CLUSTER_SIZE_OPTIONS}}
         @initiallyOpened={{true}}
