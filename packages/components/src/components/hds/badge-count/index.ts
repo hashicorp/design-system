@@ -13,7 +13,17 @@ export const SIZES = ['small', 'medium', 'large'];
 export const TYPES = ['filled', 'inverted', 'outlined'];
 export const COLORS = ['neutral', 'neutral-dark-mode'];
 
-export default class HdsBadgeCountIndexComponent extends Component {
+interface IndexSignature {
+  Args: {
+    color: unknown;
+    size: unknown;
+    text: unknown;
+    type: unknown;
+  };
+  Element: HTMLDivElement;
+}
+
+export default class IndexComponent extends Component<IndexSignature> {
   /**
    * Sets the size for the component
    * Accepted sizes: small, medium, large
@@ -95,5 +105,12 @@ export default class HdsBadgeCountIndexComponent extends Component {
     classes.push(`hds-badge-count--color-${this.color}`);
 
     return classes.join(' ');
+  }
+}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'Index': typeof IndexComponent;
+    'index': typeof IndexComponent;
   }
 }
