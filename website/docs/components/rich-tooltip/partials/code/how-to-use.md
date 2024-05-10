@@ -6,7 +6,7 @@ While the Rich Tooltip may seem to be a fairly simple component, there is a lot 
 - A third-party library called [Floating UI](https://floating-ui.com/) provides the anchoring of the "popover" to the "toggle" element and the automatic positioning/collision detection functionality.
 - These functionalities are abstracted into two HDS utilities (the `hds-anchored-position` modifier and the [PopoverPrimitive component](/utilities/popover-primitive)), which the Rich Tooltip component is built on top of.
 
-Since tooltips are notoriously hard to implement in an accessible way, we limited the ways in which the Rich Tooltip can be used. At the same time, we have provided an escape hatch if some edge cases need to be supported (but in this case, consumers will need to make sure the component is used in a [conformant and accessible way](/components/rich-tooltip?tab=accessibility)).
+As tooltips are notoriously difficult to implement in an accessible way, we have intentionally limited some of the ways in which the Rich Tooltip can be used, while at the same time providing an alternative if some edge cases need to be supported (but in this case, consumers will need to make sure the component is used in a [conformant and accessible way](/components/rich-tooltip?tab=accessibility)).
 
 The component provides several options to customize its behavior. Below we have tried to describe the most common examples, but if you find a use case that is not supported by the existing Rich Tooltip implementation, please [speak with the Design System team](/about/support).
 
