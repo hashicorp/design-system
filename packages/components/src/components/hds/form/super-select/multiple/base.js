@@ -45,6 +45,17 @@ export default class HdsSuperSelectMultipleBaseComponent extends PowerSelectComp
     return {};
   }
 
+  /**
+   * This action sets the powerSelectAPI property and optionally calls a registerAPI function.
+   *
+   * @param {Object} powerSelectAPI - The API object for the PowerSelect component.
+   *
+   * If a `registerAPI` function is passed in through the component's arguments,
+   * this function will be called with the `powerSelectAPI` as its argument.
+   * This allows parent components or controllers to have access to the PowerSelect API.
+   *
+   * The `powerSelectAPI` is also stored on the component instance and used in `clearSelected`
+   */
   @action
   setPowerSelectAPI(powerSelectAPI) {
     if (typeof this.args.registerAPI === 'function') {
