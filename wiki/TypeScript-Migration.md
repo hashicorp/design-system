@@ -20,17 +20,17 @@ The following steps are recommended for migrating components to TypeScript.
 
 - Compare the signature generated, with the expected arguments using the website documentation (Component API section), and start defining the [basic types](https://www.typescriptlang.org/docs/handbook/basic-types.html) (e.g. `boolean`, `number`, `string`)
 
-- For more involved types, such as `enum`s, conditional and mapped types, create a `types.ts` file colocated with the component (a single file in the “root” of the component, containing types for components and sub-components)
+- For more involved types, such as `enum`s, conditional and mapped types, create a `types.d.ts` file colocated with the component (a single file in the “root” of the component, containing types for components and sub-components)
 [See: Always place types in a separate file]
 
   - These types need to be exported, as they will be “consumed” in the backing class for the component/sub-components
   - The lists can be an explicit union or a string/template literal
 
-- Import declarations from `types.ts` into the backing class file as needed. When importing types and other values make sure values are listed first (in alphabetical order), followed by the types (also in alphabetical order).
+- Import declarations from `types.d.ts` into the backing class file as needed. When importing types and other values make sure values are listed first (in alphabetical order), followed by the types (also in alphabetical order).
 
   ```js
-  import { HdsTextSizeValues, HdsTextWeightValues } from './types.ts'
-  import type { HdsTextAligns, HdsTextColors, HdsTextWeights } from './types.ts';
+  import { HdsTextSizeValues, HdsTextWeightValues } from './types.d.ts'
+  import type { HdsTextAligns, HdsTextColors, HdsTextWeights } from './types.d.ts';
   ```
 
 - Enable glint checking by removing the top comment in the template file and run `yarn lint` to check for any type-related errors
