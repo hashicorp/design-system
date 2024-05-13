@@ -54,12 +54,13 @@ $hds-super-select-item-height: 36px;
     }
 
     &[aria-expanded="true"] {
+      // override the `BasicDropdown` border radius when opened (it's square at the bottom)
       &.ember-basic-dropdown-trigger--in-place {
         border-radius: var(--token-form-control-border-radius);
       }
     }
 
-    // Hide default trigger dropdown arrow
+    // Hide the `BasicDropdown` default trigger arrow
     .ember-power-select-status-icon {
       display: none;
     }
@@ -75,6 +76,7 @@ $hds-super-select-item-height: 36px;
       color: var(--token-form-control-base-foreground-placeholder-color);
     }
 
+    // `BasicDropdown` uses `aria-disabled` on the trigger, see: https://ember-basic-dropdown.com/docs/disabled
     &[aria-disabled="true"] {
       color: var(--token-form-control-disabled-foreground-color);
       background-color: var(--token-form-control-disabled-surface-color);
@@ -130,7 +132,7 @@ $hds-super-select-item-height: 36px;
   .ember-power-select-option {
     position: relative;
     min-height: $hds-super-select-item-height;
-    padding: 7px 7px 7px 39px; // top, right, bottom, left
+    padding: 7px 7px 7px 39px;
     font-size: var(--token-typography-body-200-font-size);
     font-family: var(--token-typography-body-200-font-family);
     line-height: var(--token-typography-body-200-line-height);
@@ -187,7 +189,7 @@ $hds-super-select-item-height: 36px;
     &::before {
       display: block;
       height: 5px;
-      margin: 7px 5px 9px 5px; // top, right, bottom, left
+      margin: 7px 5px 9px 5px;
       border-bottom: 1px solid var(--token-color-border-primary);
       content: "";
     }
@@ -203,7 +205,7 @@ $hds-super-select-item-height: 36px;
 
   .hds-form-super-select__option-group-title {
     margin: 8px 0;
-    padding: 6px 7px 2px 15px; // top, right, bottom, left
+    padding: 6px 7px 2px 15px;
   }
 
   // SEARCH
@@ -242,7 +244,6 @@ $hds-super-select-item-height: 36px;
     &:focus,
     &.mock-focus {
       border-color: var(--token-color-focus-action-internal);
-      // Notice: Safari doesn't apply a rounded border
       outline: 3px solid var(--token-color-focus-action-external);
       outline-offset: 0;
     }
@@ -281,7 +282,7 @@ $hds-super-select-item-height: 36px;
     padding: 3px 10px 5px 10px;
     font-size: var(--token-typography-body-100-font-size);
     font-family: var(--token-typography-body-100-font-family);
-    line-height: 1rem; // 16px - override `body-100`
+    line-height: 1rem; // 16px - override line height in `.ember-power-select-multiple-option`
     vertical-align: middle;
     background-color: var(--token-color-surface-interactive);
     border: 1px solid var(--token-color-border-strong);
@@ -310,7 +311,8 @@ $hds-super-select-item-height: 36px;
 
 // INVALID
 .hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown {
-  .ember-basic-dropdown-trigger, .ember-power-select-trigger {
+  .ember-basic-dropdown-trigger,
+  .ember-power-select-trigger {
     border-color: var(--token-form-control-invalid-border-color-default);
 
     &:hover,
