@@ -7,7 +7,7 @@
 
 // Copied from components/src/styles/components/tag.scss styles
 // we set a higher value than the line-height (~13px) to accommodate cases where the text wraps
-$hds-tag-border-radius: 50px; // TODO: This variable is repeated from tag.scss
+$hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
 $hds-super-select-item-height: 36px;
 
 // Style overrides:
@@ -267,7 +267,7 @@ $hds-super-select-item-height: 36px;
   }
 
   // MULTIPLE
-  // Tag List (Note: May be replaced with HDS Tag component in the future)
+  // Tag List
   .ember-power-select-multiple-options {
     display: flex;
     flex-wrap: wrap;
@@ -344,7 +344,7 @@ $hds-super-select-item-height: 36px;
   }
 }
 
-// SUBCOMPONENTS
+// VARIANT COMPONENTS
 
 // SINGLE
 .hds-form-super-select-single .ember-basic-dropdown {
@@ -415,7 +415,6 @@ $hds-super-select-item-height: 36px;
     }
 
     // unchecked checkbox, disabled:
-    // NOTE: may not be useful for this component
     &[aria-disabled="true"]:not([aria-selected="true"]) {
       &::before {
         background-color: var(--token-form-control-disabled-surface-color);
@@ -443,7 +442,6 @@ $hds-super-select-item-height: 36px;
       }
 
       // checked checkbox, disabled:
-      // NOTE: may not be useful for this component
       &[aria-disabled="true"] {
         &::before {
           background-color: var(--token-form-control-disabled-surface-color);
