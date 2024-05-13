@@ -30,9 +30,9 @@ export default interface HdsComponentsRegistry {
   'hds/alert': typeof HdsAlertIndexComponent;
   HdsAlert: typeof HdsAlertIndexComponent;
 
-  'Hds::Alert::Descripton': typeof HdsAlertDescriptionComponent;
+  'Hds::Alert::Description': typeof HdsAlertDescriptionComponent;
   'hds/alert/description': typeof HdsAlertDescriptionComponent;
-  HdsAlertDescripton: typeof HdsAlertDescriptionComponent;
+  HdsAlertDescription: typeof HdsAlertDescriptionComponent;
 
   'Hds::Alert::Title': typeof HdsAlertTitleComponent;
   'hds/alert/title': typeof HdsAlertTitleComponent;
