@@ -53,6 +53,7 @@ Router.map(function () {
     this.route('page-header');
     this.route('pagination');
     this.route('reveal');
+    this.route('rich-tooltip');
     this.route('segmented-group');
     this.route('separator');
     this.route('side-nav');
@@ -76,6 +77,7 @@ Router.map(function () {
     this.route('dismiss-button');
     this.route('interactive');
     this.route('menu-primitive');
+    this.route('popover-primitive');
   });
   this.route('overrides', function () {
     this.route('power-select');

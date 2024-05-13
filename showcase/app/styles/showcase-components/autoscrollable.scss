@@ -1,0 +1,16 @@
+
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+.shw-autoscrollable__container {
+  position: relative;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  aspect-ratio: 1;
+  overflow: auto;
+  border: 1px dotted #d3d3d3;
+  overscroll-behavior: contain;
+}

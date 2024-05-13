@@ -16,6 +16,7 @@
 
 // local components
 
+@import "./showcase-components/autoscrollable";
 @import "./showcase-components/divider";
 @import "./showcase-components/flex";
 @import "./showcase-components/grid";
@@ -53,8 +54,10 @@
 @import "./showcase-pages/menu-primitive";
 @import "./showcase-pages/modal";
 @import "./showcase-pages/pagination";
+@import "./showcase-pages/popover-primitive";
 @import "./showcase-pages/power-select";
 @import "./showcase-pages/reveal";
+@import "./showcase-pages/rich-tooltip";
 @import "./showcase-pages/separator";
 @import "./showcase-pages/side-nav";
 @import "./showcase-pages/table";

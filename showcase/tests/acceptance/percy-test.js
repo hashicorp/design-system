@@ -128,6 +128,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/reveal');
     await percySnapshot('Reveal');
 
+    await visit('/components/rich-tooltip');
+    await percySnapshot('RichTooltip');
+
     await visit('/components/segmented-group');
     await percySnapshot('Segmented Group');
 
@@ -166,6 +169,9 @@ module('Acceptance | Percy test', function (hooks) {
 
     await visit('/utilities/dismiss-button');
     await percySnapshot('DismissButton');
+
+    await visit('/utilities/popover-primitive');
+    await percySnapshot('PopoverPrimitive');
 
     // DO NOT REMOVE – PERCY SNAPSHOTS END
 
