@@ -272,18 +272,21 @@ $hds-super-select-item-height: 36px;
     display: flex;
     flex-wrap: wrap;
     gap: 4px;
+    min-width: 0;
     list-style: none;
   }
 
   // Tag item
   .ember-power-select-multiple-option {
     float: none;
+    min-width: 0;
     margin: 0;
     padding: 3px 10px 5px 10px;
     font-size: var(--token-typography-body-100-font-size);
     font-family: var(--token-typography-body-100-font-family);
     line-height: 1rem; // 16px - override line height in `.ember-power-select-multiple-option`
     vertical-align: middle;
+    overflow-wrap: break-word;
     background-color: var(--token-color-surface-interactive);
     border: 1px solid var(--token-color-border-strong);
     border-radius: $hds-tag-border-radius;
@@ -441,7 +444,7 @@ $hds-super-select-item-height: 36px;
 
       // checked checkbox, disabled:
       // NOTE: may not be useful for this component
-      &[aria-disabled="true"][aria-selected="true"] {
+      &[aria-disabled="true"] {
         &::before {
           background-color: var(--token-form-control-disabled-surface-color);
           background-image: var(--token-form-checkbox-background-image-data-url-disabled);
@@ -482,8 +485,7 @@ $hds-super-select-item-height: 36px;
 }
 
 .hds-form-super-select__result-count {
-  flex-grow: 1;
-  text-align: end;
+  margin-left: auto;
 }
 
 .hds-form-super-select__no-options-selected {
