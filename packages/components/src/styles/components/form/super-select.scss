@@ -108,7 +108,7 @@ $hds-super-select-item-height: 36px;
     }
 
     &.ember-basic-dropdown-content--above {
-      top: unset !important; // override inline style (TODO: update in JS)
+      top: unset !important; // override inline style
       bottom: 100%;
       margin-bottom: 4px;
     }
@@ -296,6 +296,10 @@ $hds-super-select-item-height: 36px;
 
   // Cancel button
   .ember-power-select-trigger-multiple-input {
+    color: var(--token-form-control-base-foreground-value-color);
+    font-size: var(--token-typography-body-200-font-size);
+    font-family: var(--token-typography-body-200-font-family);
+
     &::-webkit-search-cancel-button {
       width: var(--token-form-text-input-background-image-size);
       height: var(--token-form-text-input-background-image-size);

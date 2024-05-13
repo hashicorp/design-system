@@ -255,10 +255,10 @@
 
   <Shw::Text::H3>Before &amp; after options</Shw::Text::H3>
 
-  <Shw::Flex {{style padding-bottom="16em" max-width="50%"}} @direction="row" as |SF|>
+  <Shw::Flex {{style padding-bottom="15.5em" max-width="50%"}} @direction="row" as |SF|>
     <SF.Item {{style flex="1"}} @label="Before options generic content">
       <Hds::Form::SuperSelect::Single::Base
-        @beforeOptionsComponent={{component "form/super-select/generic-content"}}
+        @beforeOptionsComponent={{component "form/super-select/mock-components/generic-content"}}
         @onChange={{fn (mut @model.SELECTED_PLACES_OPTION)}}
         @options={{@model.PLACES_OPTIONS}}
         @selected={{@model.SELECTED_PLACES_OPTION}}
@@ -326,7 +326,7 @@
         @selected={{@model.SELECTED_PLACES_OPTION}}
         @initiallyOpened={{true}}
         @verticalPosition="below"
-        @afterOptionsContent={{component "form/super-select/generic-content"}}
+        @afterOptionsContent={{component "form/super-select/mock-components/generic-content"}}
         @ariaLabel="Label"
         as |option|
       >
@@ -335,7 +335,7 @@
     </SF.Item>
     <SF.Item {{style flex="1"}} @label="After options generic content">
       <Hds::Form::SuperSelect::Single::Base
-        @afterOptionsComponent={{component "form/super-select/generic-content"}}
+        @afterOptionsComponent={{component "form/super-select/mock-components/generic-content"}}
         @onChange={{fn (mut @model.SELECTED_PLACES_OPTION)}}
         @options={{@model.PLACES_OPTIONS}}
         @selected={{@model.SELECTED_PLACES_OPTION}}
@@ -426,7 +426,7 @@
     </SG.Item>
   </Shw::Grid>
 
-  <Shw::Text::H4>Required and optional</Shw::Text::H4>
+  <Shw::Text::H3>Required and optional</Shw::Text::H3>
 
   <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="With legend + Required">
@@ -455,7 +455,7 @@
     </SG.Item>
   </Shw::Grid>
 
-  <Shw::Text::H4>Complex content</Shw::Text::H4>
+  <Shw::Text::H3>Complex content</Shw::Text::H3>
 
   <Shw::Flex {{style padding-bottom="12em"}} @direction="row" as |SF|>
     <SF.Item {{style flex="1"}} @label="rich content w/o custom selectedItem">
@@ -482,7 +482,7 @@
     <SF.Item {{style flex="1"}} @label="rich content with custom selectedItemComponent">
       <Hds::Form::SuperSelect::Single::Field
         @selected={{@model.SELECTED_CLUSTER_SIZE_OPTION}}
-        @selectedItemComponent={{component "form/super-select/selected-component-single"}}
+        @selectedItemComponent={{component "form/super-select/mock-components/selected-component-single"}}
         @onChange={{fn (mut @model.SELECTED_CLUSTER_SIZE_OPTIONS)}}
         @options={{@model.CLUSTER_SIZE_OPTIONS}}
         @initiallyOpened={{true}}
@@ -759,7 +759,7 @@
   <Shw::Flex {{style padding-bottom="18em"}} @direction="row" as |SF|>
     <SF.Item @label="Before options generic content">
       <Hds::Form::SuperSelect::Multiple::Base
-        @beforeOptionsComponent={{component "form/super-select/generic-content"}}
+        @beforeOptionsComponent={{component "form/super-select/mock-components/generic-content"}}
         @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
         @options={{@model.PLACES_OPTIONS}}
         @selected={{@model.SELECTED_PLACES_OPTIONS}}
@@ -775,7 +775,7 @@
     <SF.Item />
   </Shw::Flex>
 
-  <Shw::Flex {{style padding-bottom="15em"}} @direction="row" as |SF|>
+  <Shw::Flex {{style padding-bottom="15.5em"}} @direction="row" as |SF|>
     <SF.Item {{style flex="1"}} @label="After options default content">
       <Hds::Form::SuperSelect::Multiple::Base
         @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
@@ -822,7 +822,7 @@
     </SF.Item>
     <SF.Item {{style flex="1"}} @label="After options generic content in footer">
       <Hds::Form::SuperSelect::Multiple::Base
-        @afterOptionsContent={{component "form/super-select/generic-content"}}
+        @afterOptionsContent={{component "form/super-select/mock-components/generic-content"}}
         @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
         @options={{@model.PLACES_OPTIONS}}
         @selected={{@model.SELECTED_PLACES_OPTIONS}}
@@ -836,7 +836,7 @@
     </SF.Item>
     <SF.Item {{style flex="1"}} @label="After options generic content">
       <Hds::Form::SuperSelect::Multiple::Base
-        @afterOptionsComponent={{component "form/super-select/generic-content"}}
+        @afterOptionsComponent={{component "form/super-select/mock-components/generic-content"}}
         @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
         @options={{@model.PLACES_OPTIONS}}
         @selected={{@model.SELECTED_PLACES_OPTIONS}}
@@ -926,7 +926,7 @@
     </SG.Item>
   </Shw::Grid>
 
-  <Shw::Text::H4>Required and optional</Shw::Text::H4>
+  <Shw::Text::H3>Required and optional</Shw::Text::H3>
 
   <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="With legend + Required">
@@ -955,7 +955,7 @@
     </SG.Item>
   </Shw::Grid>
 
-  <Shw::Text::H4>Complex content</Shw::Text::H4>
+  <Shw::Text::H3>Complex content</Shw::Text::H3>
 
   <Shw::Flex {{style padding-bottom="15em"}} @direction="row" as |SF|>
     <SF.Item {{style flex="1"}} @label="rich content w/o custom selectedItems">
@@ -982,7 +982,7 @@
     <SF.Item {{style flex="1"}} @label="rich content with custom selectedItems">
       <Hds::Form::SuperSelect::Multiple::Field
         @selected={{@model.SELECTED_CLUSTER_SIZE_OPTIONS}}
-        @selectedItemComponent={{component "form/super-select/selected-component-multiple"}}
+        @selectedItemComponent={{component "form/super-select/mock-components/selected-component-multiple"}}
         @onChange={{fn (mut @model.SELECTED_CLUSTER_SIZE_OPTIONS)}}
         @options={{@model.CLUSTER_SIZE_OPTIONS}}
         @initiallyOpened={{true}}
