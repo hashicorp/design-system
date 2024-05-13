@@ -27,8 +27,9 @@ $hds-super-select-item-height: 36px;
     align-items: center;
     max-width: 100%;
     min-height: $hds-super-select-item-height;
-    padding: 4px;
+    padding-top: 4px;
     padding-right: calc(var(--token-form-control-padding) + 24px); // extra space for the icon
+    padding-bottom: 4px;
     padding-left: 11px;
     color: var(--token-form-control-base-foreground-value-color);
     line-height: var(--token-typography-body-200-line-height);
