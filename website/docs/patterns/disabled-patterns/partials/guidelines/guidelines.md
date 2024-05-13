@@ -20,12 +20,14 @@ In this example, the button is disabled and no context is provided, leaving the 
 
 ![Showing an interface with a disabled button that doesn't describe why that button is disabled. This is not a recommended experience.](/assets/patterns/disabled-patterns/conditional-availability-example-disabled.png)
 
+When buttons are disabled, a user is unable to interact with it, meaning that any on hover, focus or click effects will not be usable.
+
 !!!
 
 
 !!! Do
 
-Instead, it's recommended to replace the content with contextual guidance to allow users to understand why this area isn't available yet. This then provides guidance and clear indication with what is going on.
+Instead, it's recommended to replace the content with contextual guidance to allow users to understand why this function isn't available yet. This then provides clear steps to take to enable this feature.
 
 ![Showing an interface with a compact alert explaining why the expected behavior isn't there with guidance.](/assets/patterns/disabled-patterns/conditional-availability-example-explanation.png)
 
@@ -34,13 +36,12 @@ Instead, it's recommended to replace the content with contextual guidance to all
 
 ### Upgrading
 
-If a user has permissions to upgrade their account, show features that give a user the opportunity to learn more about these features.
+When a user has permissions to upgrade, premium features can be visible for better discoverability. This gives us an opportunity to market these features to the user in a graceful way.
 
-In this example, our user is on the lowest paid tier, and they are an individual account with the ability to upgrade. Showing 
+A great example of this is Figma's "create branch" function that is only available on enterprise users. Having permissions to upgrade, clicking "create a branch" in figma opens a marketing modal that entices me to upgrade to gain access to this feature.
 
-### Updating
+![Screen shot of figma's modal showing information about how to upgrade to enterprise to gain access to creating branches](/assets/patterns/disabled-patterns/upgrade-modal-example.png)
 
-Enable if the user has permission to update.
 
 ### Service outage
 
