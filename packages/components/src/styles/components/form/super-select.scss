@@ -476,8 +476,6 @@ $hds-super-select-item-height: 36px;
   gap: 8px;
   align-items: center;
   padding: 8px 12px;
-  color: var(--token-color-foreground-strong);
-  font-size: var(--token-typography-body-100-font-size);
   background-color: var(--token-color-surface-strong);
   border-top: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
 }
@@ -489,7 +487,6 @@ $hds-super-select-item-height: 36px;
 .hds-form-super-select__no-options-selected {
   min-height: $hds-super-select-item-height;
   padding: 4px 15px 10px;
-  color: var(--token-color-foreground-strong);
   font-size: var(--token-typography-body-200-font-size);
   line-height: var(--token-typography-body-200-line-height);
 }
