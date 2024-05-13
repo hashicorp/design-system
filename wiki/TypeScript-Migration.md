@@ -43,6 +43,6 @@ The following steps are recommended for migrating components to TypeScript.
 
     - Mark the change as minor (we’re introducing a new feature, the types associated with a component)
     - Use the following template: `ComponentName` - Converted component to TypeScript
-    - Raise a PR, assign it the `typescript` label, and request a review from @hds-engineering
+    - Raise a PR, assign it the `typescript` label, and request a review from [hashicorp/hds-engineering](https://github.com/orgs/hashicorp/teams/hds-engineering)
 
 8. Remember to update the status of your Jira task
