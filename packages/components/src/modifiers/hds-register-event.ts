@@ -9,6 +9,8 @@ import { modifier } from 'ember-modifier';
 // because it's quite simple in its logic, and doesn't require injecting services
 // see: https://github.com/ember-modifier/ember-modifier#function-based-modifiers
 
+type ModifierElementArgumentSignature = HTMLElement | SVGElement;
+
 type ModifierNamedArgumentSignature = {
   useCapture?: boolean;
 };
@@ -25,7 +27,7 @@ type ModifierPositionalArgumentSignature = [
 // see also: https://github.com/emberjs/ember.js/blob/main/packages/%40ember/-internals/glimmer/lib/modifiers/on.ts#L30
 export default modifier(
   (
-    element,
+    element: ModifierElementArgumentSignature,
     positional: ModifierPositionalArgumentSignature,
     named: ModifierNamedArgumentSignature = {}
   ) => {

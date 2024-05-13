@@ -15,6 +15,7 @@ import type HdsDismissButtonIndexComponent from './components/hds/dismiss-button
 import type HdsIconTileIndexComponent from './components/hds/icon-tile';
 import type HdsInteractiveIndexComponent from './components/hds/interactive';
 import type HdsLinkInlineComponent from './components/hds/link/inline';
+import type HdsPopoverPrimitiveComponent from './components/hds/popover-primitive';
 import type HdsLinkStandaloneComponent from './components/hds/link/standalone';
 import type HdsTextIndexComponent from './components/hds/text';
 import type HdsTextBodyComponent from './components/hds/text/body';
@@ -89,6 +90,11 @@ export default interface HdsComponentsRegistry {
   'Hds::Link::Standalone': typeof HdsLinkStandaloneComponent;
   'hds/link/standalone': typeof HdsLinkStandaloneComponent;
   HdsLinkStandalone: typeof HdsLinkStandaloneComponent;
+
+  // Popover Primitive
+  'Hds::PopoverPrimitive': typeof HdsPopoverPrimitiveComponent;
+  'hds/popover-primitive': typeof HdsPopoverPrimitiveComponent;
+  HdsPopoverPrimitive: typeof HdsPopoverPrimitiveComponent;
 
   // Text
   'Hds::Text': typeof HdsTextIndexComponent;
