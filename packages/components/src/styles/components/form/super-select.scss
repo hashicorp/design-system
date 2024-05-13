@@ -13,8 +13,6 @@ $hds-super-select-item-height: 36px;
 // Style overrides:
 
 .hds-form-super-select {
-  --hds-form-super-select-dropdown-max-width: none;
-
   width: 100%;
 }
 
@@ -93,7 +91,7 @@ $hds-super-select-item-height: 36px;
 
   // DROPDOWN
   .ember-basic-dropdown-content {
-    max-width: var(--hds-form-super-select-dropdown-max-width);
+    max-width: var(--hds-form-super-select-dropdown-max-width, none);
     margin: 0;
     border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
     border-radius: var(--token-form-control-border-radius);
