@@ -11,7 +11,25 @@ import {
   PLACEMENTS,
 } from '../../../modifiers/hds-anchored-position.ts';
 
-export default class HdsRichTooltipBubbleComponent extends Component {
+interface BubbleSignature {
+  Args: {
+    arrowId: unknown;
+    enableCollisionDetection: unknown;
+    height: unknown;
+    isOpen: unknown;
+    offset: unknown;
+    placement: unknown;
+    popoverId: unknown;
+    setupPrimitivePopover: unknown;
+    width: unknown;
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLDivElement;
+}
+
+export default class BubbleComponent extends Component<BubbleSignature> {
   /**
    * @param placement
    * @type {string}
@@ -60,5 +78,12 @@ export default class HdsRichTooltipBubbleComponent extends Component {
       arrowSelector: `#${this.args.arrowId}`,
       arrowPadding: 12,
     };
+  }
+}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'Bubble': typeof BubbleComponent;
+    'bubble': typeof BubbleComponent;
   }
 }

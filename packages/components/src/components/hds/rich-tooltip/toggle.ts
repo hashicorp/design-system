@@ -10,7 +10,24 @@ export const DEFAULT_ICONPOSITION = 'trailing';
 export const ICONPOSITIONS = ['leading', 'trailing'];
 export const SIZES = ['small', 'medium', 'large'];
 
-export default class HdsRichTooltipToggleComponent extends Component {
+interface ToggleSignature {
+  Args: {
+    icon: unknown;
+    iconPosition: unknown;
+    isInline: unknown;
+    isOpen: unknown;
+    popoverId: unknown;
+    setupPrimitiveToggle: unknown;
+    size: unknown;
+    text: unknown;
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLButtonElement;
+}
+
+export default class ToggleComponent extends Component<ToggleSignature> {
   /**
    * @param isInline
    * @type {boolean}
@@ -85,5 +102,12 @@ export default class HdsRichTooltipToggleComponent extends Component {
     }
 
     return classes.join(' ');
+  }
+}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'Toggle': typeof ToggleComponent;
+    'toggle': typeof ToggleComponent;
   }
 }
