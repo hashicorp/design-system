@@ -12,7 +12,25 @@ In scenarios where a user lands on a 403 error page, provide a reason why with g
 
 ### Conditional availability
 
-When a feature or funciton is conditionally available depending on other conditions that must be met, ensure that the user is aware of those conditions by either displaying a message in place of the call to action or the entire section.
+When a feature or function is conditionally available depending on other steps that must be taken, provide context in place of that action so that users are able to take those steps to enable this feature.
+
+!!! Dont
+
+In this example, the button is disabled and no context is provided, leaving the user confused and unaware of the steps required to enable this feature.
+
+![Showing an interface with a disabled button that doesn't describe why that button is disabled. This is not a recommended experience.](/assets/patterns/disabled-patterns/conditional-availability-example-disabled.png)
+
+!!!
+
+
+!!! Do
+
+Instead, it's recommended to replace the content with contextual guidance to allow users to understand why this area isn't available yet. This then provides guidance and clear indication with what is going on.
+
+![Showing an interface with a compact alert explaining why the expected behavior isn't there with guidance.](/assets/patterns/disabled-patterns/conditional-availability-example-explanation.png)
+
+!!!
+
 
 ### Upgrading
 
