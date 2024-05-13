@@ -34,7 +34,8 @@ $hds-super-select-item-height: 36px;
     background-color: var(--token-form-control-base-surface-color-default);
     background-image: var(--token-form-select-background-image-data-url);
     background-repeat: no-repeat;
-    background-position: right var(--token-form-select-background-image-position-right-x) center, top 8px left 20px;
+    // placing the selection indicator to middle-right, in contrast with the Select component where it's top-right
+    background-position: right var(--token-form-select-background-image-position-right-x) center, top var(--token-form-select-background-image-position-top-y) left 20px;
     background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
     border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
     border-radius: var(--token-form-control-border-radius);
