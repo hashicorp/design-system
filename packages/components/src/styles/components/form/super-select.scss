@@ -456,6 +456,10 @@ $hds-super-select-item-height: 36px;
   .ember-power-select-option--no-matches-message {
     padding-left: 12px;
     cursor: inherit;
+    // hide the hover indicator on messages
+    &::after {
+      display: none;
+    }
   }
 }
 
