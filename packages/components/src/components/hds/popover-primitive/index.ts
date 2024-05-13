@@ -32,7 +32,20 @@ export {
   DEFAULT_PLACEMENT,
 } from '../../../modifiers/hds-anchored-position.ts';
 
-export default class HdsPopoverPrimitiveComponent extends Component {
+interface IndexSignature {
+  Args: {
+    enableClickEvents: unknown;
+    enableSoftEvents: unknown;
+    isOpen: unknown;
+    onClose: unknown;
+    onOpen: unknown;
+  };
+  Blocks: {
+    default: [unknown];
+  };
+}
+
+export default class IndexComponent extends Component<IndexSignature> {
   @tracked isOpen = this.args.isOpen ?? false;
   @tracked isClosing = false;
   // this will enable "soft" events for the toggle ("hover" and "focus")
@@ -271,5 +284,12 @@ export default class HdsPopoverPrimitiveComponent extends Component {
     ) {
       this.hidePopover();
     }
+  }
+}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'Index': typeof IndexComponent;
+    'index': typeof IndexComponent;
   }
 }
