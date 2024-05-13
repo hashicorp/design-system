@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import { modifier } from 'ember-modifier';
 
 // Notice: we use a function-based modifier here instead of a class-based one
