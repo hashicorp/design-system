@@ -3,7 +3,7 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 {{! Important: if an argument is added in base.hbs, it must also be added/processed in the Base component used in field.hbs }}
-<div class={{this.classNames}} {{style --hds-form-super-select-dropdown-max-width=this.dropdownMaxWidth}}>
+<div class={{this.classNames}} {{style this.dropdownMaxWidthStyle}}>
   <PowerSelect
     @afterOptionsComponent={{if
       this.showAfterOptions
