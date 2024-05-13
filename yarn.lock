@@ -3548,7 +3548,7 @@ __metadata:
     "@glint/template": "npm:^1.4.0"
     "@hashicorp/design-system-tokens": "npm:^2.1.0"
     "@hashicorp/ember-flight-icons": "npm:^5.0.1"
-    "@oddbird/popover-polyfill": "npm:^0.4.1"
+    "@oddbird/popover-polyfill": "npm:^0.4.3"
     "@rollup/plugin-babel": "npm:^6.0.4"
     "@tsconfig/ember": "npm:^3.0.6"
     "@types/ember-qunit": "npm:^6.1.1"
@@ -4198,10 +4198,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oddbird/popover-polyfill@npm:^0.4.1":
-  version: 0.4.1
-  resolution: "@oddbird/popover-polyfill@npm:0.4.1"
-  checksum: 08d5a065a3e4b2173006c6666bfc9ae6a8928b2e12eba5bb6db5cf871108687db5abe9bdfb107073c3f948dbd64cd986b7d628226d7523f30e9f89c8fc6b83b5
+"@oddbird/popover-polyfill@npm:^0.4.3":
+  version: 0.4.3
+  resolution: "@oddbird/popover-polyfill@npm:0.4.3"
+  checksum: edae2d175485a0759cbbb3c9754d99f7ba005f4c0f666db665d5679010e30e4ec4fecae602975fc04eef146715707542a5beb6cccb2bb09baed319101782441b
   languageName: node
   linkType: hard
 
