@@ -11,7 +11,11 @@ export default class ComponentsSuperSelectRoute extends Route {
     const STATES = ['default', 'hover', 'focus'];
 
     // Options data
-    const OPTIONS = ['Option 1', 'Option 2', 'Option 3'];
+    const OPTIONS = [
+      { name: 'Option 2', code: 'Option1' },
+      { name: 'Option 2', code: 'Option2', disabled: true },
+      { name: 'Option 3', code: 'Option3' },
+    ];
     const SELECTED_OPTION = OPTIONS[0];
     const SELECTED_OPTIONS = [OPTIONS[0], OPTIONS[1]];
     const SELECTED_OPTIONS_SINGLE = [OPTIONS[0]];

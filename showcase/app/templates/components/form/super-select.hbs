@@ -23,7 +23,7 @@
         @ariaLabel="Label"
         as |option|
       >
-        {{option}}
+        {{option.name}}
       </Hds::Form::SuperSelect::Single::Base>
     </SG.Item>
     <SG.Item @label="With placeholder">
@@ -34,7 +34,7 @@
         @ariaLabel="Label"
         as |option|
       >
-        {{option}}
+        {{option.name}}
       </Hds::Form::SuperSelect::Single::Base>
     </SG.Item>
     <SG.Item @label="Selected">
@@ -45,7 +45,7 @@
         @ariaLabel="Label"
         as |option|
       >
-        {{option}}
+        {{option.name}}
       </Hds::Form::SuperSelect::Single::Base>
     </SG.Item>
   </Shw::Grid>
@@ -73,7 +73,7 @@
                     mock-state-value={{state}}
                     as |option|
                   >
-                    {{option}}
+                    {{option.name}}
                   </Hds::Form::SuperSelect::Single::Base>
                 </SF.Item>
               {{/unless}}
@@ -99,7 +99,7 @@
         @ariaLabel="Label"
         as |option|
       >
-        {{option}}
+        {{option.name}}
       </Hds::Form::SuperSelect::Single::Base>
     </SF.Item>
     <SF.Item {{style flex="1"}} @label="Search enabled">
@@ -113,7 +113,7 @@
         @ariaLabel="Label"
         as |option|
       >
-        {{option}}
+        {{option.name}}
       </Hds::Form::SuperSelect::Single::Base>
     </SF.Item>
   </Shw::Flex>
@@ -131,7 +131,7 @@
             @ariaLabel="Label"
             as |option|
           >
-            {{option}}
+            {{option.name}}
           </Hds::Form::SuperSelect::Single::Base>
         </SF.Item>
         <SF.Item {{style flex="1"}} @label="Below">
@@ -143,7 +143,7 @@
             @ariaLabel="Label"
             as |option|
           >
-            {{option}}
+            {{option.name}}
           </Hds::Form::SuperSelect::Single::Base>
         </SF.Item>
         <SF.Item {{style flex="1"}} @label="Above">
@@ -598,7 +598,7 @@
         @ariaLabel="Label"
         as |option|
       >
-        {{option}}
+        {{option.name}}
       </Hds::Form::SuperSelect::Multiple::Base>
     </SF.Item>
 
@@ -613,7 +613,7 @@
         @ariaLabel="Label"
         as |option|
       >
-        {{option}}
+        {{option.name}}
       </Hds::Form::SuperSelect::Multiple::Base>
     </SF.Item>
   </Shw::Flex>
@@ -631,7 +631,7 @@
             @ariaLabel="Label"
             as |option|
           >
-            {{option}}
+            {{option.name}}
           </Hds::Form::SuperSelect::Multiple::Base>
         </SF.Item>
         <SF.Item {{style flex="1"}} @label="Below">
@@ -643,7 +643,7 @@
             @ariaLabel="Label"
             as |option|
           >
-            {{option}}
+            {{option.name}}
           </Hds::Form::SuperSelect::Multiple::Base>
         </SF.Item>
         <SF.Item {{style flex="1"}} @label="Above">
@@ -655,7 +655,7 @@
             @ariaLabel="Label"
             as |option|
           >
-            {{option}}
+            {{option.name}}
           </Hds::Form::SuperSelect::Multiple::Base>
         </SF.Item>
       </Shw::Flex>
@@ -719,10 +719,10 @@
         @ariaLabel="Label"
         as |option|
       >
-        {{option}}
+        {{option.name}}
       </Hds::Form::SuperSelect::Multiple::Base>
     </SF.Item>
-    <SF.Item {{style min-width="30em"}} @label="matchTriggerWidth = false">
+    <SF.Item {{style min-width="26em"}} @label="matchTriggerWidth = false">
       <Hds::Form::SuperSelect::Multiple::Base
         @onChange={{fn (mut @model.SELECTED_OPTIONS_SINGLE)}}
         @options={{@model.OPTIONS}}
@@ -733,7 +733,7 @@
         @ariaLabel="Label"
         as |option|
       >
-        {{option}}
+        {{option.name}}
       </Hds::Form::SuperSelect::Multiple::Base>
     </SF.Item>
     <SF.Item @label="dropdownMaxWidth = 30em">
@@ -863,7 +863,7 @@
         as |F|
       >
         <F.Label>Lorem ipsum dolor</F.Label>
-        {{F.options}}
+        {{F.options.name}}
       </Hds::Form::SuperSelect::Multiple::Field>
     </SG.Item>
     <SG.Item @label="Label + Helper text">
@@ -875,7 +875,7 @@
       >
         <F.Label>This is the label</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
-        {{F.options}}
+        {{F.options.name}}
       </Hds::Form::SuperSelect::Multiple::Field>
     </SG.Item>
     {{! left empty on purpose }}
@@ -889,7 +889,7 @@
         as |F|
       >
         <F.Label>This is the label</F.Label>
-        {{F.options}}
+        {{F.options.name}}
         <F.Error>This is the error</F.Error>
       </Hds::Form::SuperSelect::Multiple::Field>
     </SG.Item>
@@ -917,7 +917,7 @@
       >
         <F.Label>This is the label</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
-        {{F.options}}
+        {{F.options.name}}
         <F.Error as |E|>
           <E.Message>First error message</E.Message>
           <E.Message>Second error message</E.Message>
@@ -938,7 +938,7 @@
         as |F|
       >
         <F.Label>Lorem ipsum dolor</F.Label>
-        {{F.options}}
+        {{F.options.name}}
       </Hds::Form::SuperSelect::Multiple::Field>
     </SG.Item>
     <SG.Item @label="With legend + Optional">
@@ -950,7 +950,7 @@
         as |F|
       >
         <F.Label>Lorem ipsum dolor</F.Label>
-        {{F.options}}
+        {{F.options.name}}
       </Hds::Form::SuperSelect::Multiple::Field>
     </SG.Item>
   </Shw::Grid>
