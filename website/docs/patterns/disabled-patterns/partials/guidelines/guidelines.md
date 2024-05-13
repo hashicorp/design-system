@@ -1,16 +1,24 @@
 ### Permissions 
 
-Hide navigation for pages that the user doesn’t have permission to any aspect of CRUD. Show the user what permissions they’re missing if they hit a 403 error. Hide actions that a user doesn’t have appropriate permissions for if it does not impact a flow they do have permission for. 
+When a user does not have CRUD permissions, hide those related actions.
 
-If the role **viewer** cannot **deploy a cluster**, they should not see the action
+In this example, our user's role is **viewer** and they cannot **deploy** or **destroy** a cluster. An explanation is not needed as users understand that their account has limited permissions and that they require an additional user's help to gain these permissions (often someone with admin or similar roles).
 
-![Non-tabular data set](/assets/patterns/disabled-patterns/permissions-example.png)
+![Image showing two dropdown with lists open, one with only one menu item that is reader specific, while the other has more options that allow for further capabilities.](/assets/patterns/disabled-patterns/permissions-example.png)
 
-![Non-tabular data set](/assets/patterns/disabled-patterns/permissions-example-3.png)
+In scenarios where a user lands on a 403 error page, provide a reason why with guidance so that users understand what steps they can take to rectify the error. Having call to actions provide a path forward so that users don't feel stuck.
+
+![Showing a 403 error page with information about what is going on, with a way to go back and a way to log in with a different token](/assets/patterns/disabled-patterns/permissions-example-3.png)
+
+### Conditional availability
+
+When a feature or funciton is conditionally available depending on other conditions that must be met, ensure that the user is aware of those conditions by either displaying a message in place of the call to action or the entire section.
 
 ### Upgrading
 
-Enable If the user has permission to upgrade. In some cases, it may also be worth informing to users what they could do if they did have permission, but be mindful of not annoying users or making them feel advertised to. 
+If a user has permissions to upgrade their account, show features that give a user the opportunity to learn more about these features.
+
+In this example, our user is on the lowest paid tier, and they are an individual account with the ability to upgrade. Showing 
 
 ### Updating
 
