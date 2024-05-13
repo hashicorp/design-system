@@ -19,7 +19,7 @@ The following steps are recommended for migrating components to TypeScript.
 
     - The signature should follow the naming convention (e.g. `HdsBadgeIndexSignature`) and should be placed right before the backing class declaration, so it’s consistent across components
 
-    - Compare the signature generated, with the expected arguments using the website documentation (Component API section), and start defining the [basic types](https://www.typescriptlang.org/docs/handbook/basic-types.html) (e.g. `boolean`, `number`, `string`)
+    - Compare the signature generated, with the expected arguments using the website documentation (Component API section), and start defining the [basic types](https://www.typescriptlang.org/docs/handbook/basic-types.html) (e.g. `boolean`, `number`, `string`) and mark them as optional using the `argument?: type` syntax.
 
     - For more involved types, such as `enum`s, conditional, and mapped types, create a `types.ts` file colocated with the component (a single file in the “root” of the component, containing types for components and sub-components).
       - By separating types into their own files, we can keep your codebase more organized and easier to navigate. It also makes it easier to find and update type definitions. Keeping types separate from component logic helps maintain a clear separation of concerns making the component code easier to understand and maintain.
