@@ -38,7 +38,7 @@ Instead, it's recommended to replace the content with contextual guidance to all
 
 When a user has permissions to upgrade, premium features can be visible for better discoverability. This gives us an opportunity to market these features to the user in a graceful way.
 
-A great example of this is Figma's "create branch" function that is only available on enterprise users. Having permissions to upgrade, clicking "create a branch" in figma opens a marketing modal that entices me to upgrade to gain access to this feature.
+A an example of this is Figma's "create branch" function that is only available at the enterprise level. Clicking "create a branch" in figma opens a marketing modal that entices users to upgrade to gain access to this feature.
 
 ![Screen shot of figma's modal showing information about how to upgrade to enterprise to gain access to creating branches](/assets/patterns/disabled-patterns/upgrade-modal-example.png)
 
