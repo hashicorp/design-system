@@ -221,6 +221,8 @@ $hds-super-select-item-height: 36px;
     min-height: $hds-super-select-item-height;
     padding: var(--token-form-control-padding);
     color: var(--token-form-control-base-foreground-value-color);
+    font-size: var(--token-typography-body-200-font-size);
+    font-family: var(--token-typography-body-200-font-family);
     line-height: 1rem;
     background-color: var(--token-form-control-base-surface-color-default);
     border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
@@ -230,8 +232,6 @@ $hds-super-select-item-height: 36px;
     // placeholder
     &::placeholder {
       color: var(--token-form-control-base-foreground-placeholder-color);
-      font-size: var(--token-typography-body-200-font-size);
-      font-family: var(--token-typography-body-200-font-family);
     }
 
     // status
