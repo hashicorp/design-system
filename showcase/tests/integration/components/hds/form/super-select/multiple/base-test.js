@@ -36,7 +36,10 @@ module(
     test('it should render the options passed', async function (assert) {
       setOptionsData(this);
       await render(
-        hbs`<Hds::Form::SuperSelect::Multiple::Base @onChange={{this.NOOP}} @options={{this.OPTIONS}} as |option|>{{option}}</Hds::Form::SuperSelect::Multiple::Base>`
+        hbs`
+          <Hds::Form::SuperSelect::Multiple::Base @onChange={{this.NOOP}} @options={{this.OPTIONS}} as |option|>
+            {{option}}
+          </Hds::Form::SuperSelect::Multiple::Base>`
       );
       await click('.hds-form-super-select .ember-basic-dropdown-trigger');
       assert.dom('.ember-power-select-options').exists();
