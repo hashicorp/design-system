@@ -56,9 +56,6 @@ The default values of some [ember-power-select](https://ember-power-select.com) 
   <C.Property @name="afterOptionsContent" @type="string" @default="resultCountMessage">
     Sets the content of the default `afterOptions` component overriding the default content.
   </C.Property>
-  <C.Property @name="calculatePosition" @type="function">
-    Calculates the position automatically if the vertical position is undefined.
-  </C.Property>
   <C.Property @name="closeOnSelect" @type="boolean" @default="true">
     Defaults to false instead for `SuperSelect::Multiple`.
   </C.Property>
@@ -185,9 +182,6 @@ The default values of some [ember-power-select](https://ember-power-select.com) 
   </C.Property>
   <C.Property @name="afterOptionsContent" @type="string" @default="resultCountMessage">
     Sets the content of the default `afterOptions` component overriding the default content.
-  </C.Property>
-  <C.Property @name="calculatePosition" @type="function">
-    Calculates the position automatically if the vertical position is undefined.
   </C.Property>
   <C.Property @name="closeOnSelect" @type="boolean" @default="false">
     Defaults to true instead for `SuperSelect::Single`.
