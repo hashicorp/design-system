@@ -69,6 +69,6 @@ In this example, there is a limit in creating a new "service." When the limit is
 
 ![Image showing a title with a button that allows a user to create a new service, with a table below it.](/assets/patterns/disabled-patterns/create-new-limitation-example.png)
 
-Once the user has hit the max limitation of creating a new service, the button is hidden, and a message is placed below indicating why they are no longer able to create a new service. 
+Once the user has hit the max limitation of creating a new "service," the button is hidden, and a message is placed below indicating why they are no longer able to create a new service. 
 
 ![Image showing a title with an alert message below and a table below that.](/assets/patterns/disabled-patterns/create-new-limitation-reached-example.png)
