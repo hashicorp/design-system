@@ -6,14 +6,35 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-export const DEFAULT_SIZE = 'medium';
-export const DEFAULT_TYPE = 'filled';
-export const DEFAULT_COLOR = 'neutral';
-export const SIZES = ['small', 'medium', 'large'];
-export const TYPES = ['filled', 'inverted', 'outlined'];
-export const COLORS = ['neutral', 'neutral-dark-mode'];
+import {
+  HdsBadgeCountColorValues,
+  HdsBadgeCountSizeValues,
+  HdsBadgeCountTypeValues,
+} from './types.ts';
+import type {
+  HdsBadgeCountColors,
+  HdsBadgeSizes,
+  HdsBadgeTypes,
+} from './types.ts';
 
-export default class HdsBadgeCountIndexComponent extends Component {
+export const SIZES: string[] = Object.values(HdsBadgeCountSizeValues);
+export const TYPES: string[] = Object.values(HdsBadgeCountTypeValues);
+export const COLORS: string[] = Object.values(HdsBadgeCountColorValues);
+export const DEFAULT_SIZE = HdsBadgeCountSizeValues.Medium;
+export const DEFAULT_TYPE = HdsBadgeCountTypeValues.Filled;
+export const DEFAULT_COLOR = HdsBadgeCountColorValues.Neutral;
+
+interface HdsBadgeCountIndexSignature {
+  Args: {
+    text: string;
+    size?: HdsBadgeSizes;
+    type?: HdsBadgeTypes;
+    color?: HdsBadgeCountColors;
+  };
+  Element: HTMLDivElement;
+}
+
+export default class HdsBadgeCountIndexComponent extends Component<HdsBadgeCountIndexSignature> {
   /**
    * Sets the size for the component
    * Accepted sizes: small, medium, large
@@ -23,7 +44,7 @@ export default class HdsBadgeCountIndexComponent extends Component {
    * @default 'medium'
    */
   get size() {
-    let { size = DEFAULT_SIZE } = this.args;
+    const { size = DEFAULT_SIZE } = this.args;
 
     assert(
       `@size for "Hds::BadgeCount" must be one of the following: ${SIZES.join(
@@ -44,7 +65,7 @@ export default class HdsBadgeCountIndexComponent extends Component {
    * @default 'filled'
    */
   get type() {
-    let { type = DEFAULT_TYPE } = this.args;
+    const { type = DEFAULT_TYPE } = this.args;
 
     assert(
       `@type for "Hds::BadgeCount" must be one of the following: ${TYPES.join(
@@ -65,7 +86,7 @@ export default class HdsBadgeCountIndexComponent extends Component {
    * @default 'neutral'
    */
   get color() {
-    let { color = DEFAULT_COLOR } = this.args;
+    const { color = DEFAULT_COLOR } = this.args;
 
     assert(
       `@color for "Hds::BadgeCount" must be one of the following: ${COLORS.join(
@@ -83,7 +104,7 @@ export default class HdsBadgeCountIndexComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-badge-count'];
+    const classes = ['hds-badge-count'];
 
     // add a class based on the @size argument
     classes.push(`hds-badge-count--size-${this.size}`);

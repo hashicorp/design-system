@@ -7,6 +7,7 @@ import type HdsAlertIndexComponent from './components/hds/alert';
 import type HdsAlertDescriptionComponent from './components/hds/alert/description';
 import type HdsAlertTitleComponent from './components/hds/alert/title';
 import type HdsBadgeIndexComponent from './components/hds/badge';
+import type HdsBadgeCountIndexComponent from './components/hds/badge-count';
 import type HdsButtonIndexComponent from './components/hds/button';
 import type HdsCardContainerComponent from './components/hds/card/container.ts';
 import type HdsDisclosurePrimitiveComponent from './components/hds/disclosure-primitive';
@@ -42,6 +43,11 @@ export default interface HdsComponentsRegistry {
   'Hds::Badge': typeof HdsBadgeIndexComponent;
   'hds/badge': typeof HdsBadgeIndexComponent;
   HdsBadge: typeof HdsBadgeIndexComponent;
+
+  // BadgeCount
+  'Hds::Badge::Count': typeof HdsBadgeCountIndexComponent;
+  'hds/badge-count': typeof HdsBadgeCountIndexComponent;
+  HdsBadgeCount: typeof HdsBadgeCountIndexComponent;
 
   // Button
   'Hds::Button': typeof HdsButtonIndexComponent;
