@@ -11,11 +11,7 @@ export default class ComponentsSuperSelectRoute extends Route {
     const STATES = ['default', 'hover', 'focus'];
 
     // Options data
-    const OPTIONS = [
-      { name: 'Option 2', code: 'Option1' },
-      { name: 'Option 2', code: 'Option2', disabled: true },
-      { name: 'Option 3', code: 'Option3' },
-    ];
+    const OPTIONS = ['Option 1', 'Option 2', 'Option 3'];
     const SELECTED_OPTION = OPTIONS[0];
     const SELECTED_OPTIONS = [OPTIONS[0], OPTIONS[1]];
     const SELECTED_OPTIONS_SINGLE = [OPTIONS[0]];
@@ -67,7 +63,12 @@ export default class ComponentsSuperSelectRoute extends Route {
         price: '$0.02',
       },
       { size: 'Small', description: '2 vCPU | 2 GiB RAM', price: '$0.04' },
-      { size: 'Medium', description: '4 vCPU | 4 GiB RAM', price: '$0.08' },
+      {
+        size: 'Medium',
+        description: '4 vCPU | 4 GiB RAM',
+        price: '$0.08',
+        disabled: true,
+      },
       { size: 'Large', description: '8 vCPU | 8 GiB RAM', price: '$0.16' },
       {
         size: 'Extra Large',
