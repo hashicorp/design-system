@@ -9,6 +9,7 @@ import type HdsAccordionItemButtonComponent from './components/hds/accordion/ite
 import type HdsAlertComponent from './components/hds/alert';
 import type HdsAlertDescriptionComponent from './components/hds/alert/description';
 import type HdsAlertTitleComponent from './components/hds/alert/title';
+import type HdsAppFooterCopyrightComponent from './components/hds/app-footer/copyright';
 import type HdsBadgeComponent from './components/hds/badge';
 import type HdsBadgeCountComponent from './components/hds/badge-count';
 import type HdsButtonComponent from './components/hds/button';
@@ -57,6 +58,12 @@ export default interface HdsComponentsRegistry {
   'Hds::Alert::Title': typeof HdsAlertTitleComponent;
   'hds/alert/title': typeof HdsAlertTitleComponent;
   HdsAlertTitle: typeof HdsAlertTitleComponent;
+
+  // AppFooter
+
+  'Hds::AppFooter::Copyright': typeof HdsAppFooterCopyrightComponent;
+  'hds/app-footer/copyright': typeof HdsAppFooterCopyrightComponent;
+  HdsAppFooterCopyright: typeof HdsAppFooterCopyrightComponent;
 
   // Badge
   'Hds::Badge': typeof HdsBadgeComponent;
