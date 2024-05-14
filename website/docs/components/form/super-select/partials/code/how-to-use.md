@@ -229,7 +229,26 @@ To simplify the content displayed in the selected options, use `@selectedItemCom
 </Hds::Form::SuperSelect::Single::Field>
 ```
 
-#### Helper text
+### Limiting width
+
+If needed, you can use `dropdownMaxWidth` to limit the width of the dropdown content. Setting a value for `dropdownMaxWidth` automatically sets `matchTriggerWidth` to `false` meaning that the width of the dropdown content will not necessarily match the list of the toggle or trigger element as it does by default.
+
+```handlebars
+<div class="doc-super-select-constrain-width">
+  <Hds::Form::SuperSelect::Single::Field
+    @onChange={{fn (mut this.SELECTED_LONG_OPTION)}}
+    @selected="API code"
+    @options={{this.LONG_OPTIONS}}
+    @dropdownMaxWidth="25em"
+    as |F|
+  >
+    <F.Label>Choose one</F.Label>
+    <F.Options>{{F.options}}</F.Options>
+  </Hds::Form::SuperSelect::Single::Field>
+</div>
+```
+
+### Helper text
 
 You can add extra information to the field using [Helper Text](/components/form/primitives#formhelpertext). When helper text is added, the component automatically adds an `aria-describedby` attribute to the Super Select control, associating it with the automatically generated `ID` of the helper text element.
 

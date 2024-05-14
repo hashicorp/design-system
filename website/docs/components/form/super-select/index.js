@@ -35,8 +35,15 @@ export default class Index extends Component {
     },
   ];
 
+  LONG_OPTIONS = [
+    'AIzaSyDaGmWKa4JsXZHjGw7ISLn_3namBGewQe8mVLWwsAawjYr4Rx_Af50DDqtlxmfnc8mVLWws',
+    'GmWKa4JsXZHjGw7zaCELgL.0imfnc8mVLWwsAawjYr4RxAf50DDqtlx_BGewQe8mVLWwsAa',
+    '3namBGewQe8mVLWwsAawj_19803eb836a_64203a_22528ec4e9f4444_VLWwsAJsXZHjGw7zaCEL',
+  ];
+
   SELECTED_OPTION = null;
   SELECTED_OPTIONS = null;
+  SELECTED_LONG_OPTION = null;
 
   SELECTED_MULTIPLE = [this.OPTIONS[0], this.OPTIONS[1], this.OPTIONS[2]];
 
@@ -55,4 +62,6 @@ export default class Index extends Component {
     this.GROUPED_OPTIONS[1].options[0],
   ];
   EXTRA_SELECTED_GROUPED_OPTION = this.GROUPED_OPTIONS[0].options[0];
+
+  DD_WIDTH_SELECTED_OPTION = this.OPTIONS[1];
 }
