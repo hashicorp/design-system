@@ -153,7 +153,7 @@ The default values of some [ember-power-select](https://ember-power-select.com) 
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="options" @type="collection">
-    An array of objects to be displayed as options in the dropdown.
+    Collection of options to display in the component.
   </C.Property>
   <C.Property @name="placeholder" @type="string">
     Placeholder text to display when no option is selected.
