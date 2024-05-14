@@ -12,7 +12,7 @@ module('Acceptance | components/form/super-select/single', function (hooks) {
   setupApplicationTest(hooks);
 
   test('Components/form/super-select/single page passes automated a11y checks', async function (assert) {
-    await visit('/components/form/super-select/single');
+    await visit('/components/form/super-select');
 
     await a11yAudit();
 

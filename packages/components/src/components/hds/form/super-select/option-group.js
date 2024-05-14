@@ -11,5 +11,5 @@ export default class HdsSuperSelectOptionGroupComponent extends Component {
    * Generates a unique ID for the group title
    * @return {string}
    */
-  groupTitleId = 'super-select-group-title-' + guidFor(this);
+  groupTitleId = 'group-title-' + guidFor(this);
 }
