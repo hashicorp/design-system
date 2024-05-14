@@ -20,7 +20,7 @@ In this example, the button is disabled and no context is provided, leaving the 
 
 ![Showing an interface with a disabled button that doesn't describe why that button is disabled. This is not a recommended experience.](/assets/patterns/disabled-patterns/conditional-availability-example-disabled.png)
 
-When buttons are disabled, a user is unable to interact with it, meaning that any on hover, focus or click effects will not be usable.
+When buttons are disabled, a user is unable to interact with it, meaning that any on hover, focus or click effects will not function.
 
 !!!
 
@@ -31,39 +31,44 @@ Instead, it's recommended to replace the content with contextual guidance to all
 
 ![Showing an interface with a compact alert explaining why the expected behavior isn't there with guidance.](/assets/patterns/disabled-patterns/conditional-availability-example-explanation.png)
 
+If possible, provide CTAs directly to the place where users can take immediate action.
+
 !!!
 
 
 ### Upgrading
 
-When a user has permissions to upgrade, premium features can be visible for better discoverability. This gives us an opportunity to market these features to the user in a graceful way.
+When a user has permissions to upgrade, premium features can be visible for better discoverability. This provides a graceful marketing opportunity.
 
-A an example of this is Figma's "create branch" function that is only available at the enterprise level. Clicking "create a branch" in figma opens a marketing modal that entices users to upgrade to gain access to this feature.
+An example of this is Figma's "create branch" function that is only available at the enterprise tier. Clicking "create a branch" in figma opens a marketing modal that entices users to upgrade to gain access to this feature.
 
-![Screen shot of figma's modal showing information about how to upgrade to enterprise to gain access to creating branches](/assets/patterns/disabled-patterns/upgrade-modal-example.png)
+![Screen shot of figma's modal showing information about how to upgrade to enterprise to gain access to creating branches.](/assets/patterns/disabled-patterns/upgrade-modal-example.png)
 
 
 ### Service outage
 
-Enable, give a message to guide the user what to do and add link to [our status page](https://status.hashicorp.com/)
+In instances where outages may occur, provide a clear message to users on what they can do and add a link to [our status page](https://status.hashicorp.com/).
 
-![Non-tabular data set](/assets/patterns/disabled-patterns/service-outage-example.png)
+An example of this is Instagram's login page. When a user has no connection to their servers, a message will appear on submit.
+
+![Displaying Instagram's login page with an error below notifying the user they have no connection to instagram.](/assets/patterns/disabled-patterns/service-outage-example.png)
 
 ### Incomplete flow
 
-Enable the action if a user is in the middle of a stepped process or form. If the user clicks on the action, we provide descriptive, helpful errors.
+Regardless of the progress of a form, always enable submission, even if there appear to be obvious steps missing. This allows a user to proceed in their workflow, even if it results in an error. When we disable the only way to move forward, users are often left confused and frustrated. Instead, allow users to understand what erorrs took place so that they can fix them and proceed in the form's completion.
 
-On the cluster create form, if I haven't entered a required input, I can still click "Create cluster" after which I'm shown an error on the missing steps.
+In this example, creating a cluster has requried inputs. Clicking "create cluster" will yield errors where applicable, allowing the user to understand where the problems are to remediate them.
 
-![Non-tabular data set](/assets/patterns/disabled-patterns/incomplete-flow-example.png)
+![Image showing an input field with an error explaining what was missed.](/assets/patterns/disabled-patterns/incomplete-flow-example.png)
 
 ### Quota limitation
 
-Hide the action, but provide instructions or shortcuts to upgrading or removing used quota if necessary. Add a CTA that directs to a form if possible, so the user can make a request. 
+When a quota limitation has been hit, hide the action and replace it with contextual guidance with a call to action to increase the quota (when possible). If the user does not have permissions to upgrade, instead guide them to communicate with the persons responsible with increasing the limitation.
 
-The HVN quota has been met and none are in regions supported by Consul.
+In this example, there is a limit in creating a new "service." When the limit isn't reached yet, the button is present and functions as normal.
 
-### Feature is not ready
+![Image showing a title with a button that allows a user to create a new service, with a table below it.](/assets/patterns/disabled-patterns/create-new-limitation-example.png)
 
-Task user preference to see upcoming features.
-(We want to avoid inundating the user with up sells that feel disingenuous.)
+Once the user has hit the max limitation of creating a new service, the button is hidden, and a message is placed below indicating why they are no longer able to create a new service. 
+
+![Image showing a title with an alert message below and a table below that.](/assets/patterns/disabled-patterns/create-new-limitation-reached-example.png)
