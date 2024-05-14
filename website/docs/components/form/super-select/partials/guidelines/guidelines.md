@@ -7,8 +7,8 @@
 
 ### When not to use
 
-- To display a list of links (or buttons) in a menu, consider the [HDS Dropdown](/components/dropdown) component instead.
-- When a simple select is needed for a form, consider the [HDS Select](/components/form/select) form component.
+- To display a list of links (or buttons) in a menu, consider the [Dropdown](/components/dropdown) component instead.
+- When a simple select is needed for a form, consider the [Select](/components/form/select) form component.
 - As a means to filter an array of objects within a data set; e.g., when presented in a tabular format or list. Instead, consider other [filtering patterns](/patterns/filter-patterns).
 
 ## Components
@@ -81,7 +81,7 @@ We recommend against placing heavy UI elements in custom content as it can draw 
 
 ### AfterOptions
 
-AfterOptions allows for either an HDS standardized footer or custom content to be displayed after the options list. The footer has additional functionality in the Multiple component compared to the Single.
+AfterOptions allows for either a standardized footer or custom content to be displayed after the options list. The footer has additional functionality in the Multiple component compared to the Single.
 
 #### Footer
 

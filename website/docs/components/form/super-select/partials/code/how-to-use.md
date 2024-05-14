@@ -4,7 +4,7 @@ Super Select is a custom select-like component aiming to overcome some limitatio
 
 It’s primarily a wrapper for [ember-power-select](https://ember-power-select.com) and uses the 8.1.0 version with specific accessibility and styling choices that best fit our design system.
 
-We provide two main components with similar APIs: `SuperSelect::Single` and `SuperSelect::Multiple`.
+We provide two main components with similar APIs: `Form::SuperSelect::Single` and `Form::SuperSelect::Multiple`.
 
 **There are two ways to use each of the Super Select component types:**
 
@@ -13,9 +13,9 @@ We provide two main components with similar APIs: `SuperSelect::Single` and `Sup
 
 We recommend using the Field variation as it provides built-in accessibility functionality. Use the Base variation for custom layouts or special use cases not otherwise covered.
 
-### Field::SuperSelect::Single
+### Form::SuperSelect::Single
 
-In cases where the HDS Dropdown or HDS Form Select components are not suitable, use `SuperSelect::Single`.
+In cases where the [Dropdown](/components/dropdown) or [Form Select](/components/form/select) components are not suitable, use `SuperSelect::Single`.
 
 ```handlebars
 <Hds::Form::SuperSelect::Single::Field
@@ -30,7 +30,7 @@ In cases where the HDS Dropdown or HDS Form Select components are not suitable, 
 </Hds::Form::SuperSelect::Single::Field>
 ```
 
-### Field::SuperSelect::Multiple
+### Form::SuperSelect::Multiple
 
 Use `SuperSelect::Multiple` to allow users to select multiple options.
 
@@ -117,7 +117,7 @@ If options have the same name, even if under different groups, they will be trea
 
 ### Rich-content options
 
-`SuperSelect` allows you to add HTML tags within options to lay out and structure content vs. `Hds::FormSelect` which only allows plain text strings as option content.
+Super Select allows you to add HTML tags within options to lay out and structure content vs. `Hds::FormSelect` which only allows plain text strings as option content.
 
 #### Rich content with default display in SuperSelect::Single
 
