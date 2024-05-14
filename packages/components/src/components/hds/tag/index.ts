@@ -5,10 +5,10 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
-import type { HdsInteractiveSignature } from '../interactive/';
-import { HdsTagColorValues } from './types.ts';
 
+import { HdsTagColorValues } from './types.ts';
 import type { HdsTagColors } from './types.ts';
+import type { HdsInteractiveSignature } from '../interactive/';
 
 export const COLORS: string[] = Object.values(HdsTagColorValues);
 export const DEFAULT_COLOR = HdsTagColorValues.Primary;
@@ -21,7 +21,7 @@ interface HdsTagIndexSignature {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onDismiss?: (event: MouseEvent, ...args: any[]) => void;
   };
-  Element: HTMLElement;
+  Element: HTMLSpanElement;
 }
 
 export default class HdsTagIndexComponent extends Component<HdsTagIndexSignature> {
