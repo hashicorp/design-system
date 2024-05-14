@@ -172,7 +172,7 @@ module(
       );
       assert
         .dom('.hds-form-super-select')
-        .doesNotHaveClass('hds-form-super-select--match-trigger-width-false');
+        .doesNotHaveClass('hds-form-super-select--dropdown-content-auto-width');
     });
 
     test('it should render the correct CSS class when `@matchTriggerWidth` is false', async function (assert) {
@@ -182,7 +182,7 @@ module(
       );
       assert
         .dom('.hds-form-super-select')
-        .hasClass('hds-form-super-select--match-trigger-width-false');
+        .hasClass('hds-form-super-select--dropdown-content-auto-width');
     });
 
     // DROPDOWN MAX WIDTH
@@ -195,7 +195,7 @@ module(
 
       assert
         .dom('.hds-form-super-select')
-        .hasClass('hds-form-super-select--match-trigger-width-false')
+        .hasClass('hds-form-super-select--dropdown-content-auto-width')
         .hasAttribute(
           'style',
           '--hds-form-super-select-dropdown-max-width: 40em;'

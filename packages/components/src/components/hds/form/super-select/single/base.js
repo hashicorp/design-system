@@ -73,7 +73,7 @@ export default class HdsSuperSelectSingleBaseComponent extends PowerSelectCompon
 
     // add a class based on the @matchTriggerWidth argument or whether dropdownMaxWidth is set
     if (this.args.matchTriggerWidth === false || this.args.dropdownMaxWidth) {
-      classes.push('hds-form-super-select--match-trigger-width-false');
+      classes.push('hds-form-super-select--dropdown-content-auto-width');
     }
 
     // add a class based on the @isInvalid argument
