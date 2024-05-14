@@ -351,14 +351,16 @@ $hds-super-select-item-height: 36px;
 
   // Options Item
   .ember-power-select-option:not(.ember-power-select-option--no-matches-message) {
-    &[aria-selected="true"] {
+    background-repeat: no-repeat;
+    background-position: 15px 10px;
+    background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
+
+    // checked
+    &[aria-selected="true"]:not([aria-disabled="true"]) {
       color: var(--token-color-foreground-action);
 
       // checkmark icon:
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' fill='%231060ff'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: 15px 10px;
-      background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
     }
 
     &[aria-current="true"],
@@ -368,6 +370,11 @@ $hds-super-select-item-height: 36px;
 
     &:active {
       color: var(--token-color-foreground-action-active);
+    }
+
+    // checked, disabled:
+    &[aria-selected="true"][aria-disabled="true"] {
+      background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.7803 4.28033C15.0732 3.98744 15.0732 3.51256 14.7803 3.21967C14.4874 2.92678 14.0126 2.92678 13.7197 3.21967L5.75 11.1893L2.28033 7.71967C1.98744 7.42678 1.51256 7.42678 1.21967 7.71967C0.926777 8.01256 0.926777 8.48744 1.21967 8.78033L5.21967 12.7803C5.51256 13.0732 5.98744 13.0732 6.28033 12.7803L14.7803 4.28033Z' fill='%238C909C'/%3E%3C/svg%3E");
     }
   }
 }
@@ -426,10 +433,12 @@ $hds-super-select-item-height: 36px;
 
     // checked checkbox:
     &[aria-selected="true"] {
-      &::before {
-        background-color: var(--token-form-control-checked-surface-color-default);
-        background-image: var(--token-form-checkbox-background-image-data-url);
-        border-color: var(--token-form-control-checked-border-color-default);
+      &:not([aria-disabled="true"]) {
+        &::before {
+          background-color: var(--token-form-control-checked-surface-color-default);
+          background-image: var(--token-form-checkbox-background-image-data-url);
+          border-color: var(--token-form-control-checked-border-color-default);
+        }
       }
 
       // checked checkbox, hovered:

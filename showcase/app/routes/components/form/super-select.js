@@ -62,7 +62,12 @@ export default class ComponentsSuperSelectRoute extends Route {
         description: '2 vCPU | 1 GiB RAM',
         price: '$0.02',
       },
-      { size: 'Small', description: '2 vCPU | 2 GiB RAM', price: '$0.04' },
+      {
+        size: 'Small',
+        description: '2 vCPU | 2 GiB RAM',
+        price: '$0.04',
+        disabled: true,
+      },
       {
         size: 'Medium',
         description: '4 vCPU | 4 GiB RAM',
@@ -79,7 +84,7 @@ export default class ComponentsSuperSelectRoute extends Route {
     const SELECTED_CLUSTER_SIZE_OPTION = CLUSTER_SIZE_OPTIONS[1];
     const SELECTED_CLUSTER_SIZE_OPTIONS = [
       CLUSTER_SIZE_OPTIONS[1],
-      CLUSTER_SIZE_OPTIONS[2],
+      CLUSTER_SIZE_OPTIONS[3],
     ];
 
     return {
