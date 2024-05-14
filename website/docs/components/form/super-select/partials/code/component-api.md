@@ -22,7 +22,7 @@ The default values of some [ember-power-select](https://ember-power-select.com) 
 #### Common options from ember-power-select
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="options">
+  <C.Property @name="options" @type="collection">
     An array of objects to be displayed as options in the dropdown.
   </C.Property>
   <C.Property @name="placeholder" @type="string">
@@ -31,10 +31,10 @@ The default values of some [ember-power-select](https://ember-power-select.com) 
   <C.Property @name="searchEnabled" @type="boolean" @default="false">
     Enables a search input field to filter options.
   </C.Property>
-  <C.Property @name="selected">
+  <C.Property @name="selected" @type="any or array">
     The selected option object. Can be used to set a pre-selected option.
   </C.Property>
-  <C.Property @name="onChange">
+  <C.Property @name="onChange" @type="function">
     The function to be invoked when the user selects or unselects an option.
   </C.Property>
 </Doc::ComponentApi>
@@ -62,7 +62,7 @@ The default values of some [ember-power-select](https://ember-power-select.com) 
   <C.Property @name="closeOnSelect" @type="boolean" @default="true">
     Defaults to false instead for `SuperSelect::Multiple`.
   </C.Property>
-  <C.Property @name="placeholderComponent" @type="component" @default="component">
+  <C.Property @name="placeholderComponent" @type="string or component" @default="component">
     Set to use a custom HDS `optionGroup` component to provide visual consistency.
   </C.Property>
   <C.Property @name="dropdownMaxWidth" @type="string">
@@ -152,7 +152,7 @@ The default values of some [ember-power-select](https://ember-power-select.com) 
 #### Common options from ember-power-select
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="options">
+  <C.Property @name="options" @type="collection">
     An array of objects to be displayed as options in the dropdown.
   </C.Property>
   <C.Property @name="placeholder" @type="string">
@@ -161,10 +161,10 @@ The default values of some [ember-power-select](https://ember-power-select.com) 
   <C.Property @name="searchEnabled" @type="boolean" @default="false">
     Enables a search input field to filter options.
   </C.Property>
-  <C.Property @name="selected">
+  <C.Property @name="selected" @type="any or array">
     The selected option object. Can be used to set a pre-selected option.
   </C.Property>
-  <C.Property @name="onChange">
+  <C.Property @name="onChange" @type="function">
     A closure action that is called when the selected option changes.
   </C.Property>
 </Doc::ComponentApi>
@@ -192,7 +192,7 @@ The default values of some [ember-power-select](https://ember-power-select.com) 
   <C.Property @name="closeOnSelect" @type="boolean" @default="false">
     Defaults to true instead for `SuperSelect::Single`.
   </C.Property>
-  <C.Property @name="placeholderComponent" @type="component" @default="component">
+  <C.Property @name="placeholderComponent" @type="string or component" @default="component">
     Set to use a custom HDS `optionGroup` component to provide visual consistency.
   </C.Property>
   <C.Property @name="dropdownMaxWidth" @type="string">
