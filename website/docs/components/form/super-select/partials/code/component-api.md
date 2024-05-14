@@ -75,7 +75,9 @@ The default values of some [ember-power-select](https://ember-power-select.com) 
   <C.Property @name="renderInPlace" @type="boolean">
     Determines whether the dropdown options are rendered in place within the DOM vs. being attached to the root of the HTML `<body>` and positioned with JavaScript.
     <br><br>
-    Set as `true` in `SuperSelect` components to fix a `PowerSelect` accessibility issue. (The opener element or “trigger” should be next to dropdown content it hides & reveals.) It cannot be overridden.
+    Set as `true` in `SuperSelect` components to fix a `PowerSelect` accessibility issue. (The opener element or “trigger” should be next to dropdown content it hides & reveals.)
+    <br><br>
+    Note: It cannot be overridden.
   </C.Property>
   <C.Property @name="searchPlaceholder" @type="string" @default="Search">
     Displays placeholder text in the search input when `@searchEnabled` is set to `true`.
@@ -202,7 +204,9 @@ The default values of some [ember-power-select](https://ember-power-select.com) 
   <C.Property @name="renderInPlace" @type="boolean">
     Determines whether the dropdown options are rendered in place within the DOM vs. being attached to the root of the HTML `<body>` and positioned with JavaScript.
     <br><br>
-    Set as `true` in `SuperSelect` components to fix a `PowerSelect` accessibility issue. (The opener element or “trigger” should be next to dropdown content it hides & reveals.) It cannot be overridden.
+    Set as `true` in `SuperSelect` components to fix a `PowerSelect` accessibility issue. (The opener element or “trigger” should be next to dropdown content it hides & reveals.)
+    <br><br>
+    Note: It cannot be overridden.
   </C.Property>
   <C.Property @name="searchPlaceholder" @type="string" @default="Search">
     Displays placeholder text in the search input when `@searchEnabled` is set to `true`.
