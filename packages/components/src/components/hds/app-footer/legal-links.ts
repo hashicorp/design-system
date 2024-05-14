@@ -16,15 +16,6 @@ export default class HdsAppFooterLegalLinksComponent extends Component {
   }
 
   /**
-   * @param hrefForSupport
-   * @type {string}
-   * @description The href value of the "Support" link
-   */
-  get hrefForSupport() {
-    return this.args.hrefForSupport ?? 'https://www.hashicorp.com/support';
-  }
-
-  /**
    * @param hrefForTerms
    * @type {string}
    * @description The href value of the "Terms" link
