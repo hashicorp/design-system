@@ -7,14 +7,14 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
 import {
+  HdsBadgeCountColorValues,
   HdsBadgeCountSizeValues,
   HdsBadgeCountTypeValues,
-  HdsBadgeCountColorValues,
 } from './types.ts';
 import type {
+  HdsBadgeCountColors,
   HdsBadgeSizes,
   HdsBadgeTypes,
-  HdsBadgeCountColors,
 } from './types.ts';
 
 export const SIZES: string[] = Object.values(HdsBadgeCountSizeValues);
