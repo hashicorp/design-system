@@ -31,7 +31,7 @@ The default values of some [ember-power-select](https://ember-power-select.com) 
   <C.Property @name="searchEnabled" @type="boolean" @default="false">
     Enables a search input field to filter options.
   </C.Property>
-  <C.Property @name="selected" @type="any or array">
+  <C.Property @name="selected" @type="any | array">
     The selected option object. Can be used to set a pre-selected option.
   </C.Property>
   <C.Property @name="onChange" @type="function">
