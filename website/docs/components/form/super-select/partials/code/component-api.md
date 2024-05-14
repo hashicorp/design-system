@@ -7,13 +7,13 @@ Each of these main components have two different variants with their own APIs:
 - `Form::SuperSelect::Single::Base` or `Form::SuperSelect::Multiple::Base`—the base component with just the Super Select control.
 - `Form::SuperSelect::Single::Field` or `Form::SuperSelect::Multiple::Field`—the field parent component with the Super Select control, label, helper text, and error messaging (in a wrapping container).
 
-The Single and Multiple base components have nearly identical APIs to the 8.1.0 version of the [ember-power-select](https://ember-power-select.com/) addon.
+The Single and Multiple base components have nearly identical APIs to the 8.1.0 version of the [ember-power-select](https://ember-power-select.com) addon.
 
-While the [ember-power-select documentation](https://ember-power-select.com/docs) has the full list of supported options for the base components, we’ve included the most common ones here for your convenience as well as the options for which default values have been overridden.
+While the [ember-power-select documentation](https://ember-power-select.com) has the full list of supported options for the base components, we’ve included the most common ones here for your convenience as well as the options for which default values have been overridden.
 
 !!! Info
 
-The default values of some [ember-power-select](https://ember-power-select.com/) options have been overridden in some cases to either resolve accessibility issues or to customize according to our needs. These options are documented below.
+The default values of some [ember-power-select](https://ember-power-select.com) options have been overridden in some cases to either resolve accessibility issues or to customize according to our needs. These options are documented below.
 
 !!!
 
@@ -35,7 +35,7 @@ The default values of some [ember-power-select](https://ember-power-select.com/)
     The selected option object. Can be used to set a pre-selected option.
   </C.Property>
   <C.Property @name="onChange">
-    A closure action that is called when the selected option changes.
+    The function to be invoked when the user selects or unselects an option.
   </C.Property>
 </Doc::ComponentApi>
 
@@ -56,13 +56,13 @@ The default values of some [ember-power-select](https://ember-power-select.com/)
   <C.Property @name="afterOptionsContent" @type="string" @default="resultCountMessage">
     Sets the content of the default `afterOptions` component overriding the default content.
   </C.Property>
-  <C.Property @name="calculatePosition" @type="function" @default="if @verticalPosition undefined this.calculatePosition">
+  <C.Property @name="calculatePosition" @type="function">
     Calculates the position automatically if the vertical position is undefined.
   </C.Property>
   <C.Property @name="closeOnSelect" @type="boolean" @default="true">
     Defaults to false instead for `SuperSelect::Multiple`.
   </C.Property>
-  <C.Property @name="placeholderComponent" @type="string or component" @default="component hds/form/super-select/option-group">
+  <C.Property @name="placeholderComponent" @type="component" @default="component">
     Set to use a custom HDS `optionGroup` component to provide visual consistency.
   </C.Property>
   <C.Property @name="dropdownMaxWidth" @type="string">
@@ -113,7 +113,7 @@ The default values of some [ember-power-select](https://ember-power-select.com/)
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
     <br/><br/>
-    The attributes will be applied to the [ember-power-select](https://ember-power-select.com/) addon component which `SuperSelect` is built on.
+    The attributes will be applied to the [ember-power-select](https://ember-power-select.com) addon component which `SuperSelect` is built on.
   </C.Property>
 </Doc::ComponentApi>
 
@@ -186,13 +186,13 @@ The default values of some [ember-power-select](https://ember-power-select.com/)
   <C.Property @name="afterOptionsContent" @type="string" @default="resultCountMessage">
     Sets the content of the default `afterOptions` component overriding the default content.
   </C.Property>
-  <C.Property @name="calculatePosition" @type="function" @default="if @verticalPosition undefined this.calculatePosition">
+  <C.Property @name="calculatePosition" @type="function">
     Calculates the position automatically if the vertical position is undefined.
   </C.Property>
   <C.Property @name="closeOnSelect" @type="boolean" @default="false">
     Defaults to true instead for `SuperSelect::Single`.
   </C.Property>
-  <C.Property @name="placeholderComponent" @type="string or component" @default="component hds/form/super-select/option-group">
+  <C.Property @name="placeholderComponent" @type="component" @default="component">
     Set to use a custom HDS `optionGroup` component to provide visual consistency.
   </C.Property>
   <C.Property @name="dropdownMaxWidth" @type="string">
@@ -245,7 +245,7 @@ The default values of some [ember-power-select](https://ember-power-select.com/)
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
     <br/><br/>
-    The attributes will be applied to the [ember-power-select](https://ember-power-select.com/) addon component which `SuperSelect` is built on.
+    The attributes will be applied to the [ember-power-select](https://ember-power-select.com) addon component which `SuperSelect` is built on.
   </C.Property>
 </Doc::ComponentApi>
 
