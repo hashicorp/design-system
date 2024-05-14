@@ -169,9 +169,11 @@ By default, all content of selected options displays in the “trigger”. Visua
 </Hds::Form::SuperSelect::Multiple::Field>
 ```
 
+### Selected item component
+
 To simplify the content displayed in the selected options, use `@selectedItemComponent` to specify a custom component with only the content you wish to display.
 
-**Custom `selectedItemComponent` example:**
+An example of a custom `selectedItemComponent` example:
 
 ```markup
 <span>
@@ -179,7 +181,7 @@ To simplify the content displayed in the selected options, use `@selectedItemCom
 </span>
 ```
 
-**SuperSelect::Multiple invocation specifying a `selectedItemComponent`:**
+`SuperSelect::Multiple` invocation with `selectedItemComponent` specified:
 
 ```handlebars
 <Hds::Form::SuperSelect::Multiple::Field
@@ -204,7 +206,7 @@ To simplify the content displayed in the selected options, use `@selectedItemCom
 </Hds::Form::SuperSelect::Multiple::Field>
 ```
 
-**SuperSelect::Single invocation specifying a `selectedItemComponent`:**
+`SuperSelect::Single` invocation with `selectedItemComponent` specified:
 
 ```handlebars
 <Hds::Form::SuperSelect::Single::Field
