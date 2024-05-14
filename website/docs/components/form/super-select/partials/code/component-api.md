@@ -1,6 +1,6 @@
 ## Component API
 
-Super Select consists of two main components, `SuperSelect::Single` and `SuperSelect::Multiple`.
+Super Select consists of two main components, `Form::SuperSelect::Single` and `Form::SuperSelect::Multiple`.
 
 Each of these main components have two different variants with their own APIs:
 
