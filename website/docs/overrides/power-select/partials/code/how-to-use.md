@@ -38,6 +38,7 @@ Invocation of the component with overrides would look like this:
     @selected={{this.SELECTED}}
     @onChange={{this.noop}}
     @renderInPlace={{true}}
+    @ariaLabel="Server location"
     as |option|
   >
     {{option}}
@@ -57,6 +58,7 @@ When used with the `@searchEnabled` argument, the input is automatically styled 
     @onChange={{this.noop}}
     @renderInPlace={{true}}
     @searchEnabled={{true}}
+    @ariaLabel="Server location"
     as |option|
   >
     {{option}}
@@ -76,6 +78,7 @@ Use the `hds-power-select__after-options` class on the outermost element of the 
     @afterOptionsComponent={{"power-select/after-options"}}
     @onChange={{this.noop}}
     @renderInPlace={{true}}
+    @ariaLabel="Server location"
     as |option|
   >
     {{option}}
@@ -102,6 +105,7 @@ The selected items are automatically styled to resemble the [Tag](/components/ta
     @selected={{this.SELECTEDMULTIPLE}}
     @onChange={{this.noop}}
     @renderInPlace={{true}}
+    @ariaLabel="Server location"
     as |option|
   >
     {{option}}
