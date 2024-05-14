@@ -154,7 +154,8 @@ $hds-super-select-item-height: 36px;
     }
 
     &[aria-current="true"],
-    &:hover {
+    &:hover,
+    &.mock-hover {
       border: none; // guard against border in default theme
 
       // left border
@@ -170,7 +171,8 @@ $hds-super-select-item-height: 36px;
       }
     }
 
-    &:active {
+    &:active,
+    &.mock-active {
       // left border
       &::after{
         background-color: var(--token-color-foreground-action-active);
@@ -364,11 +366,13 @@ $hds-super-select-item-height: 36px;
     }
 
     &[aria-current="true"],
-    &:hover {
+    &:hover,
+    &.mock-hover {
       color: var(--token-color-foreground-action-hover);
     }
 
-    &:active {
+    &:active,
+    &.mock-active {
       color: var(--token-color-foreground-action-active);
     }
 
@@ -414,7 +418,8 @@ $hds-super-select-item-height: 36px;
 
     // unchecked checkbox, hovered:
     &[aria-current="true"],
-    &:hover:not([aria-selected="true"]) {
+    &:hover:not([aria-selected="true"]),
+    &.mock-hover:not([aria-selected="true"]) {
       &::before {
         background-color: var(--token-form-control-base-surface-color-hover);
         border-color: var(--token-form-control-base-border-color-hover);
@@ -443,7 +448,8 @@ $hds-super-select-item-height: 36px;
 
       // checked checkbox, hovered:
       &[aria-current="true"],
-      &:hover[aria-selected="true"] {
+      &:hover[aria-selected="true"],
+      &.mock-hover[aria-selected="true"] {
         &::before {
           background-color: var(--token-form-control-checked-border-color-default);
           border-color: var(--token-form-control-checked-border-color-hover);

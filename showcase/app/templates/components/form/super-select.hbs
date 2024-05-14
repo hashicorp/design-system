@@ -1017,4 +1017,396 @@
       </Hds::Form::SuperSelect::Multiple::Field>
     </SF.Item>
   </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Base elements</Shw::Text::H2>
+
+  <Shw::Text::H3>Trigger</Shw::Text::H3>
+
+  <Shw::Flex as |SF|>
+    {{#each @model.STATES as |state|}}
+      <SF.Item @label={{(capitalize state)}}>
+        <div class="hds-form-super-select">
+          <div class="ember-basic-dropdown">
+            <div class="ember-power-select-trigger" mock-state-value={{state}}>
+              <span class="ember-power-select-selected-item">
+                <span class="hds-text hds-typography-body-200 hds-font-weight-regular">Option</span>
+              </span>
+              <span class="ember-power-select-status-icon"></span>
+            </div>
+          </div>
+        </div>
+      </SF.Item>
+    {{/each}}
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Dropdown</Shw::Text::H3>
+
+  <Shw::Text::H4>Search input</Shw::Text::H4>
+
+  <Shw::Flex as |SF|>
+    {{#each @model.STATES as |state|}}
+      <SF.Item @label={{(capitalize state)}}>
+        <div class="hds-form-super-select">
+          <div class="ember-basic-dropdown">
+            <Shw::Outliner>
+              <div class="ember-power-select-search">
+                <input
+                  class="ember-power-select-search-input"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search input"
+                  mock-state-value={{state}}
+                />
+              </div>
+            </Shw::Outliner>
+          </div>
+        </div>
+      </SF.Item>
+    {{/each}}
+  </Shw::Flex>
+
+  <Shw::Text::H4>Options (single selection)</Shw::Text::H4>
+
+  <Shw::Flex as |SG|>
+    <SG.Item @label="Default">
+      <div class="hds-form-super-select hds-form-super-select-single">
+        <div class="ember-basic-dropdown">
+          <div class="ember-basic-dropdown-content" {{style position="static"}}>
+            <ul class="ember-power-select-options" role="listbox" aria-label="Label">
+              {{! there is no focused state for the `select-option` }}
+              {{#let (array "default" "hover" "active") as |states|}}
+                {{#each states as |state|}}
+                  <li class="ember-power-select-option" role="option" mock-state-value={{state}}>
+                    {{state}}
+                  </li>
+                {{/each}}
+              {{/let}}
+              <li class="ember-power-select-option" role="option" aria-disabled="true">
+                disabled
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </SG.Item>
+    <SG.Item @label="Selected">
+      <div class="hds-form-super-select hds-form-super-select-single">
+        <div class="ember-basic-dropdown">
+          <div class="ember-basic-dropdown-content" {{style position="static"}}>
+            <ul class="ember-power-select-options" role="listbox" aria-label="Label">
+              {{! there is no focused state for the `select-option` }}
+              {{#let (array "default" "hover" "active") as |states|}}
+                {{#each states as |state|}}
+                  <li class="ember-power-select-option" aria-selected="true" role="option" mock-state-value={{state}}>
+                    {{state}}
+                  </li>
+                {{/each}}
+              {{/let}}
+              <li class="ember-power-select-option" role="option" aria-selected="true" aria-disabled="true">
+                disabled
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </SG.Item>
+    <SG.Item @label="With very long text" {{style width="200px"}}>
+      <div class="hds-form-super-select hds-form-super-select-single">
+        <div class="ember-basic-dropdown">
+          <div class="ember-basic-dropdown-content" {{style position="static"}}>
+            <ul class="ember-power-select-options" role="listbox" aria-label="Label" {{style max-height="none"}}>
+              {{! there is no focused state for the `select-option` }}
+              {{#let (array "default" "hover" "active") as |states|}}
+                {{#each states as |state|}}
+                  <li class="ember-power-select-option" aria-selected="true" role="option" mock-state-value={{state}}>
+                    {{state}}
+                    - this is a long text that should wrap on multiple lines
+                  </li>
+                {{/each}}
+              {{/let}}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </SG.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H4>Options (multiple selection)</Shw::Text::H4>
+
+  <Shw::Flex as |SG|>
+    <SG.Item @label="Default">
+      <div class="hds-form-super-select hds-form-super-select-multiple">
+        <div class="ember-basic-dropdown">
+          <div class="ember-basic-dropdown-content" {{style position="static"}}>
+            <ul class="ember-power-select-options" role="listbox" aria-label="Label">
+              {{! there is no focused state for the `select-option` }}
+              {{#let (array "default" "hover" "active") as |states|}}
+                {{#each states as |state|}}
+                  <li class="ember-power-select-option" role="option" mock-state-value={{state}}>
+                    {{state}}
+                  </li>
+                {{/each}}
+              {{/let}}
+              <li class="ember-power-select-option" role="option" aria-disabled="true">
+                disabled
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </SG.Item>
+    <SG.Item @label="Selected">
+      <div class="hds-form-super-select hds-form-super-select-multiple">
+        <div class="ember-basic-dropdown">
+          <div class="ember-basic-dropdown-content" {{style position="static"}}>
+            <ul class="ember-power-select-options" role="listbox" aria-label="Label">
+              {{! there is no focused state for the `select-option` }}
+              {{#let (array "default" "hover" "active") as |states|}}
+                {{#each states as |state|}}
+                  <li class="ember-power-select-option" role="option" aria-selected="true" mock-state-value={{state}}>
+                    {{state}}
+                  </li>
+                {{/each}}
+              {{/let}}
+              <li class="ember-power-select-option" role="option" aria-selected="true" aria-disabled="true">
+                disabled
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </SG.Item>
+    <SG.Item @label="With very long text" {{style width="200px"}}>
+      <div class="hds-form-super-select hds-form-super-select-multiple">
+        <div class="ember-basic-dropdown">
+          <div class="ember-basic-dropdown-content" {{style position="static"}}>
+            <ul class="ember-power-select-options" role="listbox" aria-label="Label" {{style max-height="none"}}>
+              {{! there is no focused state for the `select-option` }}
+              {{#let (array "default" "hover" "active") as |states|}}
+                {{#each states as |state|}}
+                  <li class="ember-power-select-option" aria-selected="true" role="option" mock-state-value={{state}}>
+                    {{state}}
+                    - this is a long text that should wrap on multiple lines
+                  </li>
+                {{/each}}
+              {{/let}}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </SG.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Form::SuperSelect::OptionGroup</Shw::Text::H3>
+
+  {{#let (array "single" "multiple") as |variants|}}
+    {{#each variants as |variant|}}
+      <Shw::Flex as |SG|>
+        <SG.Item @label="{{(capitalize variant)}} / Flat">
+          <div class="hds-form-super-select hds-form-super-select-{{variant}}">
+            <div class="ember-basic-dropdown">
+              <div class="ember-basic-dropdown-content" {{style position="static"}}>
+                <ul class="ember-power-select-options" role="listbox" aria-label="Label" {{style max-height="none"}}>
+                  <Hds::Form::SuperSelect::OptionGroup
+                    @group={{(hash groupName="Title for first group (with no content)")}}
+                  />
+                  <Hds::Form::SuperSelect::OptionGroup
+                    @group={{(hash groupName="Title for second group (with generic content)")}}
+                  >
+                    <Shw::Placeholder @text="Second group - Generic content" @height="40px" />
+                  </Hds::Form::SuperSelect::OptionGroup>
+                  <Hds::Form::SuperSelect::OptionGroup
+                    @group={{(hash groupName="Title for third group (with options)")}}
+                  >
+                    {{! template-lint-disable require-context-role }}
+                    <li class="ember-power-select-option" role="option" mock-state-value="hover">
+                      Option 1
+                    </li>
+                    <li class="ember-power-select-option" role="option">
+                      Option 2
+                    </li>
+                  </Hds::Form::SuperSelect::OptionGroup>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </SG.Item>
+        <SG.Item @label="{{(capitalize variant)}} / Nested">
+          <div class="hds-form-super-select hds-form-super-select-{{variant}}">
+            <div class="ember-basic-dropdown">
+              <div class="ember-basic-dropdown-content" {{style position="static"}}>
+                <ul class="ember-power-select-options" role="listbox" aria-label="Label" {{style max-height="none"}}>
+                  <Hds::Form::SuperSelect::OptionGroup @group={{(hash groupName="Title for first level")}}>
+                    {{! template-lint-disable require-context-role }}
+                    <li class="ember-power-select-option" role="option" mock-state-value="hover">
+                      Level 1 - Option 1A
+                    </li>
+                    <Hds::Form::SuperSelect::OptionGroup @group={{(hash groupName="Title for second level")}}>
+                      {{! template-lint-disable require-context-role }}
+                      <li class="ember-power-select-option" role="option" mock-state-value="hover">
+                        Level 2 - Option 2A
+                      </li>
+                      <li class="ember-power-select-option" role="option">
+                        Level 2 - Option 2B
+                      </li>
+                      <Hds::Form::SuperSelect::OptionGroup @group={{(hash groupName="Title for third level")}}>
+                        {{! template-lint-disable require-context-role }}
+                        <li class="ember-power-select-option" role="option" mock-state-value="hover">
+                          Level 3 - Option 3A
+                        </li>
+                        <li class="ember-power-select-option" role="option">
+                          Level 3 - Option 3B
+                        </li>
+                      </Hds::Form::SuperSelect::OptionGroup>
+                    </Hds::Form::SuperSelect::OptionGroup>
+                    <Hds::Form::SuperSelect::OptionGroup
+                      @group={{(hash groupName="Title for second level (with generic content)")}}
+                    >
+                      <Shw::Placeholder @text="Second group - Generic content" @height="40px" />
+                    </Hds::Form::SuperSelect::OptionGroup>
+                    <li class="ember-power-select-option" role="option">
+                      Level 1 - Option 1B
+                    </li>
+                  </Hds::Form::SuperSelect::OptionGroup>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </SG.Item>
+      </Shw::Flex>
+    {{/each}}
+  {{/let}}
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Form::SuperSelect::AfterOptions</Shw::Text::H3>
+
+  <Shw::Text::H3>Content</Shw::Text::H3>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="No arguments">
+      <Shw::Outliner>
+        <Hds::Form::SuperSelect::AfterOptions />
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="with @showNoSelectedMessage=true">
+      <Shw::Outliner>
+        <Hds::Form::SuperSelect::AfterOptions @showNoSelectedMessage={{true}} />
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="with @content (text)" {{style max-width="500px"}}>
+      <Shw::Outliner>
+        <Hds::Form::SuperSelect::AfterOptions @content="Lorem ipsum dolor" />
+      </Shw::Outliner>
+    </SF.Item>
+    <SF.Item @label="with @content (generic)" {{style max-width="500px"}}>
+      <Shw::Outliner>
+        <Hds::Form::SuperSelect::AfterOptions
+          @content={{component "form/super-select/mock-components/generic-content"}}
+        />
+      </Shw::Outliner>
+    </SF.Item>
+    <SF.Item @label="with @content with long test" {{style max-width="500px"}}>
+      <Shw::Outliner>
+        <Hds::Form::SuperSelect::AfterOptions
+          @content="This is the a very very very very very very long text that should wrap on multiple lines"
+        />
+      </Shw::Outliner>
+    </SF.Item>
+    <SF.Item @label="with @showAll & @selectedCount=0" {{style max-width="500px"}}>
+      <Shw::Outliner>
+        <Hds::Form::SuperSelect::AfterOptions
+          @showAll={{this.noop}}
+          @showOnlySelected={{true}}
+          @selectedCount="0"
+          @resultCountMessage="This is the resultCountMessage"
+        />
+      </Shw::Outliner>
+    </SF.Item>
+    <SF.Item @label="with @showAll & @selectedCount>0" {{style max-width="500px"}}>
+      <Shw::Outliner>
+        <Hds::Form::SuperSelect::AfterOptions
+          @showAll={{this.noop}}
+          @showOnlySelected={{true}}
+          @selectedCount="123"
+          @clearSelected={{this.noop}}
+          @resultCountMessage="This is the resultCountMessage"
+        />
+      </Shw::Outliner>
+    </SF.Item>
+    <SF.Item @label="with @showSelected & @selectedCount=0" {{style max-width="500px"}}>
+      <Shw::Outliner>
+        <Hds::Form::SuperSelect::AfterOptions
+          @showSelected={{this.noop}}
+          @selectedCount="0"
+          @resultCountMessage="This is the resultCountMessage"
+        />
+      </Shw::Outliner>
+    </SF.Item>
+    <SF.Item @label="with @showSelected & @selectedCount>0" {{style max-width="500px"}}>
+      <Shw::Outliner>
+        <Hds::Form::SuperSelect::AfterOptions
+          @showSelected={{this.noop}}
+          @selectedCount="123"
+          @clearSelected={{this.noop}}
+          @resultCountMessage="This is the resultCountMessage"
+        />
+      </Shw::Outliner>
+    </SF.Item>
+    <SF.Item @label="with @resultCountMessage with long text" {{style max-width="500px"}}>
+      <Shw::Outliner>
+        <Hds::Form::SuperSelect::AfterOptions
+          @showNoSelectedMessage={{true}}
+          @showAll={{this.noop}}
+          @showSelected={{this.noop}}
+          @clearSelected={{this.noop}}
+          @selectedCount={{123}}
+          @resultCountMessage="This is the a very very very long text that should wrap on multiple lines"
+        />
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H4>Within a dropdown with options</Shw::Text::H4>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Single level">
+      <div class="hds-form-super-select hds-form-super-select-multiple">
+        <div class="ember-basic-dropdown">
+          <div class="ember-basic-dropdown-content ember-power-select-dropdown" {{style position="static"}}>
+            <ul class="ember-power-select-options" role="listbox" aria-label="Label" {{style max-height="none"}}>
+              <Hds::Form::SuperSelect::OptionGroup @group={{(hash groupName="Lorem ipsum dolor")}}>
+                {{! template-lint-disable require-context-role }}
+                <li class="ember-power-select-option" role="option" aria-selected="true">
+                  Option 1
+                </li>
+                <li class="ember-power-select-option" role="option">
+                  Option 2
+                </li>
+              </Hds::Form::SuperSelect::OptionGroup>
+            </ul>
+            <Hds::Form::SuperSelect::AfterOptions
+              @showAll={{this.noop}}
+              @showSelected={{this.noop}}
+              @clearSelected={{this.noop}}
+              @selectedCount={{123}}
+              @resultCountMessage="1 selected of 2 total"
+            />
+          </div>
+        </div>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
 </section>
