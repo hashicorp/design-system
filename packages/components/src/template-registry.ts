@@ -16,6 +16,9 @@ import type HdsIconTileIndexComponent from './components/hds/icon-tile';
 import type HdsInteractiveIndexComponent from './components/hds/interactive';
 import type HdsLinkInlineComponent from './components/hds/link/inline';
 import type HdsPopoverPrimitiveComponent from './components/hds/popover-primitive';
+import type HdsRichTooltipIndexComponent from './components/hds/rich-tooltip/index.ts';
+import type HdsRichTooltipBubbleComponent from './components/hds/rich-tooltip/bubble.ts';
+import type HdsRichTooltipToggleComponent from './components/hds/rich-tooltip/toggle.ts';
 import type HdsLinkStandaloneComponent from './components/hds/link/standalone';
 import type HdsTextIndexComponent from './components/hds/text';
 import type HdsTextBodyComponent from './components/hds/text/body';
@@ -95,6 +98,19 @@ export default interface HdsComponentsRegistry {
   'Hds::PopoverPrimitive': typeof HdsPopoverPrimitiveComponent;
   'hds/popover-primitive': typeof HdsPopoverPrimitiveComponent;
   HdsPopoverPrimitive: typeof HdsPopoverPrimitiveComponent;
+
+  // RichTooltip
+  'Hds::RichTooltip': typeof HdsRichTooltipIndexComponent;
+  'hds/rich-tooltip': typeof HdsRichTooltipIndexComponent;
+  HdsRichTooltip: typeof HdsRichTooltipIndexComponent;
+
+  'Hds::RichTooltip::Bubble': typeof HdsRichTooltipBubbleComponent;
+  'hds/rich-tooltip/bubble': typeof HdsRichTooltipBubbleComponent;
+  HdsRichTooltipBubble: typeof HdsRichTooltipBubbleComponent;
+
+  'Hds::RichTooltip::Toggle': typeof HdsRichTooltipToggleComponent;
+  'hds/rich-tooltip/toggle': typeof HdsRichTooltipToggleComponent;
+  HdsRichTooltipToggle: typeof HdsRichTooltipToggleComponent;
 
   // Text
   'Hds::Text': typeof HdsTextIndexComponent;

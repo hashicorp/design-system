@@ -7,21 +7,25 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
 import { PLACEMENTS as PRIMITIVE_PLACEMENTS } from '../popover-primitive/index';
+import type { Placement } from '@floating-ui/dom';
+
+import type { ModifierXxxx } from '../popover-primitive/types';
 
 export const DEFAULT_PLACEMENT = 'bottom';
 export const PLACEMENTS = [...PRIMITIVE_PLACEMENTS];
 
-interface BubbleSignature {
+interface HdsRichTooltipBubbleSignature {
   Args: {
-    arrowId: unknown;
-    enableCollisionDetection: unknown;
-    height: unknown;
-    isOpen: unknown;
-    offset: unknown;
-    placement: unknown;
-    popoverId: unknown;
-    setupPrimitivePopover: unknown;
-    width: unknown;
+    // TODO!
+    placement?: Placement;
+    offset?: number | string;
+    enableCollisionDetection?: boolean;
+    width?: string;
+    height?: string;
+    isOpen?: boolean;
+    popoverId: string;
+    arrowId: string;
+    setupPrimitivePopover: ModifierXxxx;
   };
   Blocks: {
     default: [];
@@ -29,7 +33,7 @@ interface BubbleSignature {
   Element: HTMLDivElement;
 }
 
-export default class BubbleComponent extends Component<BubbleSignature> {
+export default class HdsRichTooltipBubbleComponent extends Component<HdsRichTooltipBubbleSignature> {
   /**
    * @param placement
    * @type {string}
@@ -53,7 +57,12 @@ export default class BubbleComponent extends Component<BubbleSignature> {
   }
 
   get sizingStyles() {
-    const sizingStyles = {};
+    const sizingStyles: {
+      width?: string;
+      'max-width'?: string;
+      height?: string;
+      'max-height'?: string;
+    } = {};
 
     if (this.args.width) {
       sizingStyles['width'] = this.args.width;
@@ -78,12 +87,5 @@ export default class BubbleComponent extends Component<BubbleSignature> {
       arrowSelector: `#${this.args.arrowId}`,
       arrowPadding: 12,
     };
-  }
-}
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Bubble': typeof BubbleComponent;
-    'bubble': typeof BubbleComponent;
   }
 }

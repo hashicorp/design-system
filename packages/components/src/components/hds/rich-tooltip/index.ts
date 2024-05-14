@@ -5,21 +5,17 @@
 
 import Component from '@glimmer/component';
 import { getElementId } from '../../../utils/hds-get-element-id';
+import type { HdsPopoverPrimitiveSignature } from '../popover-primitive';
 
-interface IndexSignature {
-  Args: {
-    enableClickEvents: unknown;
-    isOpen: unknown;
-    onClose: unknown;
-    onOpen: unknown;
-  };
+interface HdsRichTooltipSignature {
+  Args: Omit<HdsPopoverPrimitiveSignature['Args'], 'enableSoftEvents'>;
   Blocks: {
-    default: [unknown];
+    default: [];
   };
   Element: HTMLDivElement;
 }
 
-export default class IndexComponent extends Component<IndexSignature> {
+export default class HdsRichTooltipComponent extends Component<HdsRichTooltipSignature> {
   elementId = getElementId(this);
   arrowId = `arrow-${this.elementId}`;
   popoverId = `popover-${this.elementId}`;
@@ -30,12 +26,5 @@ export default class IndexComponent extends Component<IndexSignature> {
 
   get enableClickEvents() {
     return this.args.enableClickEvents ?? false;
-  }
-}
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Index': typeof IndexComponent;
-    'index': typeof IndexComponent;
   }
 }
