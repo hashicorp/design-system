@@ -8,13 +8,18 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
+// we're using this data for multiple tests so we'll define it here
+const setOptionsData = (context) => {
+  context.set('NOOP', () => {});
+};
+
 module(
   'Integration | Component | hds/form/super-select/multiple/field',
   function (hooks) {
     setupRenderingTest(hooks);
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
-      this.set('NOOP', () => {});
+      setOptionsData(this);
       await render(
         hbs`<Hds::Form::SuperSelect::Multiple::Field @onChange={{this.NOOP}} />`
       );
@@ -24,7 +29,7 @@ module(
     // INVALID
 
     test('it should render the correct CSS class if @isInvalid is true', async function (assert) {
-      this.set('NOOP', () => {});
+      setOptionsData(this);
       await render(
         hbs`<Hds::Form::SuperSelect::Multiple::Field @onChange={{this.NOOP}} @isInvalid={{true}} />`
       );
@@ -36,7 +41,7 @@ module(
     // ID
 
     test('it should render the trigger with a custom id', async function (assert) {
-      this.set('NOOP', () => {});
+      setOptionsData(this);
       await render(
         hbs`<Hds::Form::SuperSelect::Multiple::Field @id="my-super-select" @onChange={{this.NOOP}} />`
       );
@@ -48,7 +53,7 @@ module(
     // YIELDED (CONTEXTUAL) COMPONENTS
 
     test('it renders the yielded contextual components', async function (assert) {
-      this.set('NOOP', () => {});
+      setOptionsData(this);
       await render(
         hbs`<Hds::Form::SuperSelect::Multiple::Field @onChange={{this.NOOP}} as |F|>
           <F.Label>This is the label</F.Label>
@@ -62,7 +67,7 @@ module(
       assert.dom('.hds-form-field__error').exists();
     });
     test('it does not render the yielded contextual components if not provided', async function (assert) {
-      this.set('NOOP', () => {});
+      setOptionsData(this);
       await render(
         hbs`<Hds::Form::SuperSelect::Multiple::Field @onChange={{this.NOOP}} />`
       );
@@ -71,7 +76,7 @@ module(
       assert.dom('.hds-form-field__error').doesNotExist();
     });
     test('it automatically provides all the ID relations between the elements', async function (assert) {
-      this.set('NOOP', () => {});
+      setOptionsData(this);
       await render(
         hbs`<Hds::Form::SuperSelect::Multiple::Field @extraAriaDescribedBy="extra" @onChange={{this.NOOP}} as |F|>
           <F.Label>This is the label</F.Label>
@@ -104,7 +109,7 @@ module(
     // REQUIRED AND OPTIONAL
 
     test('it should append an indicator to the label text when user input is required', async function (assert) {
-      this.set('NOOP', () => {});
+      setOptionsData(this);
       await render(
         hbs`<Hds::Form::SuperSelect::Multiple::Field @isRequired={{true}} @onChange={{this.NOOP}} as |F|>
             <F.Label>This is the label</F.Label>
@@ -114,7 +119,7 @@ module(
       assert.dom('label .hds-form-indicator').hasText('Required');
     });
     test('it should append an indicator to the label text when user input is optional', async function (assert) {
-      this.set('NOOP', () => {});
+      setOptionsData(this);
       await render(
         hbs`<Hds::Form::SuperSelect::Multiple::Field @isOptional={{true}} @onChange={{this.NOOP}} as |F|>
             <F.Label>This is the label</F.Label>
