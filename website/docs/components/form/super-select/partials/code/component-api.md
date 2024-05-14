@@ -190,7 +190,7 @@ The default values of some [ember-power-select](https://ember-power-select.com) 
     Set to use a custom HDS `optionGroup` component to provide visual consistency.
   </C.Property>
   <C.Property @name="dropdownMaxWidth" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
-    Sets a maxWidth for the dropdown containing the options list.
+    Sets a `max-width` for the dropdown containing the options list.
     <br><br>
     If a value for `dropdownMaxWidth` is set, `matchTriggerWidth` is automatically set to false.
   </C.Property>
