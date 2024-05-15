@@ -7,26 +7,25 @@ import Component from '@glimmer/component';
 import type { ComponentLike } from '@glint/template';
 import type { HdsAppFrameFooterSignature } from './parts/footer.ts';
 import type { HdsAppFrameHeaderSignature } from './parts/header.ts';
+import type { HdsAppFrameMainSignature } from './parts/main.ts';
 import type { HdsAppFrameModalsSignature } from './parts/modals.ts';
 import type { HdsAppFrameSidebarSignature } from './parts/sidebar.ts';
-import type { HdsAppFrameMainSignature } from './parts/main.ts';
-
 export interface HdsAppFrameIndexSignature {
   Args: {
-    hasHeader?: boolean;
-    hasSidebar?: boolean;
     hasFooter?: boolean;
-    hasModals?: boolean;
+    hasHeader?: boolean;
     hasMain?: boolean;
+    hasModals?: boolean;
+    hasSidebar?: boolean;
   };
   Blocks: {
     default: [
       {
-        Header?: ComponentLike<HdsAppFrameHeaderSignature>;
-        Sidebar?: ComponentLike<HdsAppFrameSidebarSignature>;
         Footer?: ComponentLike<HdsAppFrameFooterSignature>;
-        Modals?: ComponentLike<HdsAppFrameModalsSignature>;
+        Header?: ComponentLike<HdsAppFrameHeaderSignature>;
         Main?: ComponentLike<HdsAppFrameMainSignature>;
+        Modals?: ComponentLike<HdsAppFrameModalsSignature>;
+        Sidebar?: ComponentLike<HdsAppFrameSidebarSignature>;
       }
     ];
   };
