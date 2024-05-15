@@ -11,6 +11,7 @@
   @isIconOnly={{@isIconOnly}}
   @color="secondary"
   @iconPosition="trailing"
+  {{! TODO: Convert to TS }}
   {{hds-clipboard text=@textToCopy target=@targetToCopy onSuccess=this.onSuccess onError=this.onError}}
   ...attributes
 />
