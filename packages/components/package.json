@@ -50,7 +50,7 @@
     "ember-keyboard": "^8.2.1",
     "ember-modifier": "^4.1.0",
     "ember-power-select": "^8.2.0",
-    "ember-stargate": "^0.4.3",
+    "ember-stargate": "^0.5.0",
     "ember-style-modifier": "^3.0.1",
     "ember-truth-helpers": "^4.0.3",
     "prismjs": "^1.29.0",
