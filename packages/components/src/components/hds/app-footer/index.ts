@@ -5,7 +5,35 @@
 
 import Component from '@glimmer/component';
 
-export default class HdsAppFooterIndexComponent extends Component {
+import type { ComponentLike } from '@glint/template';
+import type { HdsYieldSignature } from '../yield';
+import type HdsAppFooterItemSignature from './legal-links';
+import type HdsAppFooterLegalLinksSignature from './legal-links';
+import type HdsAppFooterLinkSignature from './link';
+import type HdsAppFooterStatusLinkSignature from './status-link';
+
+export interface HdsAppFooterSignature {
+  Args: {
+    ariaLabel?: string;
+    copyrightYear?: string;
+    theme?: string;
+  };
+  Blocks: {
+    default: [
+      {
+        ExtraBefore?: ComponentLike<HdsYieldSignature>;
+        Item?: ComponentLike<HdsAppFooterItemSignature>;
+        LegalLinks?: ComponentLike<HdsAppFooterLegalLinksSignature>;
+        Link?: ComponentLike<HdsAppFooterLinkSignature>;
+        StatusLink?: ComponentLike<HdsAppFooterStatusLinkSignature>;
+        ExtraAfter?: ComponentLike<HdsYieldSignature>;
+      }
+    ];
+  };
+  Element: HTMLDivElement;
+}
+
+export default class HdsAppFooterIndexComponent extends Component<HdsAppFooterSignature> {
   /**
    * @param ariaLabel
    * @type {string}
@@ -31,7 +59,7 @@ export default class HdsAppFooterIndexComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-app-footer'];
+    const classes = ['hds-app-footer'];
 
     // add a class based on the @theme argument
     classes.push(`hds-app-footer--theme-${this.theme}`);
