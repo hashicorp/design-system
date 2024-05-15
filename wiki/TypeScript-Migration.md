@@ -8,7 +8,7 @@ The following steps are recommended for migrating components to TypeScript.
 
 2. Rename the backing class from `.js` to `.ts`; commit after this step to make it easier to review the changes
 
-3. Opening the files (`.js` and `.hbs`) in VS Code should show you the linting errors (if you have the [Glint extension](https://marketplace.visualstudio.com/items?itemName=typed-ember.glint-vscode)); similarly, if you are running `yarn lint` in `packages/components`
+3. Opening the files (`.ts` and `.hbs`) in VS Code should show you the linting errors (if you have the [Glint extension](https://marketplace.visualstudio.com/items?itemName=typed-ember.glint-vscode)); similarly, if you are running `yarn lint` in `packages/components`
 
 4. Define component signature
 
