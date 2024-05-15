@@ -16,3 +16,7 @@ navigation:
 <section data-tab="Accessibility">
   @include "partials/accessibility.md"
 </section>
+
+<section data-tab="Related articles">
+  @include "partials/relatedarticles.md"
+</section>
