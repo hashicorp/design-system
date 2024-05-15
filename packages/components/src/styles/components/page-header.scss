@@ -9,6 +9,7 @@
 
 .hds-page-header {
   // `container-type: inline-size` creates a new stacking context; to control the position of Page Header content on the z-axis
+  // see: https://www.oddbird.net/2023/07/05/contain-root/#:~:text=Layout%20containment%20creates%20a%20new%20(z%2Dindex)%20stacking%20context%2C%20as%20well%20as%20containing%20floated%20and%20fixed%2Dposition%20elements.
   // we set this element to `relative` to allow consumers to define the `z-index` value that works in their context
   position: relative;
   display: flex;
