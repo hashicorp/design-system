@@ -5,7 +5,20 @@
 
 import Component from '@glimmer/component';
 
-export default class HdsAppFooterLegalLinksComponent extends Component {
+export interface HdsAppFooterLegalLinksSignature {
+  Args: {
+    ariaLabel?: string;
+    hrefForTerms?: string;
+    hrefForPrivacy?: string;
+    hrefForSecurity?: string;
+    hrefForSupport?: string;
+    hrefForAccessibility?: string;
+    year?: string;
+  };
+  Element: HTMLUListElement;
+}
+
+export default class HdsAppFooterLegalLinksComponent extends Component<HdsAppFooterLegalLinksSignature> {
   /**
    * @param ariaLabel
    * @type {string}
@@ -42,6 +55,15 @@ export default class HdsAppFooterLegalLinksComponent extends Component {
    */
   get hrefForSecurity() {
     return this.args.hrefForSecurity ?? 'https://www.hashicorp.com/security';
+  }
+
+  /**
+   * @param hrefForSupport
+   * @type {string}
+   * @description The href value of the "Support" link
+   */
+  get hrefForSupport() {
+    return this.args.hrefForSupport ?? 'https://www.hashicorp.com/support';
   }
 
   /**
