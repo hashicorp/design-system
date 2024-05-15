@@ -13,6 +13,7 @@ import type HdsAppFooterCopyrightComponent from './components/hds/app-footer/cop
 import type HdsAppFooterItemComponent from './components/hds/app-footer/item';
 import type HdsAppFooterLegalLinksComponent from './components/hds/app-footer/legal-links';
 import type HdsAppFooterLinkComponent from './components/hds/app-footer/link';
+import type HdsAppFooterStatusLinkComponent from './components/hds/app-footer/status-link';
 import type HdsBadgeComponent from './components/hds/badge';
 import type HdsBadgeCountComponent from './components/hds/badge-count';
 import type HdsButtonComponent from './components/hds/button';
@@ -79,6 +80,10 @@ export default interface HdsComponentsRegistry {
   'Hds::AppFooter::Link': typeof HdsAppFooterLinkComponent;
   'hds/app-footer/link': typeof HdsAppFooterLinkComponent;
   HdsAppFooterLink: typeof HdsAppFooterLinkComponent;
+
+  'Hds::AppFooter::Statuslink': typeof HdsAppFooterStatusLinkComponent;
+  'hds/app-footer/status-link': typeof HdsAppFooterStatusLinkComponent;
+  HdsAppFooterStatusLink: typeof HdsAppFooterStatusLinkComponent;
 
   // Badge
   'Hds::Badge': typeof HdsBadgeComponent;

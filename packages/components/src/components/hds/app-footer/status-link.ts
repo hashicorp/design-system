@@ -7,28 +7,37 @@ import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
 import { assert } from '@ember/debug';
 
-export const STATUSES = {
-  operational: {
-    text: 'System operational',
-    iconName: 'check-circle',
-  },
-  degraded: {
-    text: 'System degraded',
-    iconName: 'alert-triangle',
-  },
-  maintenance: {
-    text: 'System maintenance',
-    iconName: 'alert-triangle',
-  },
-  outage: {
-    text: 'System outage',
-    iconName: 'x-circle',
-  },
-};
+import type { HdsInteractiveSignature } from '../interactive/';
+import { HdsAppFooterStatusLinkStatusValues } from './types.ts';
+import type { HdsAppFooterStatusTypes } from './types.ts';
 
-export default class HdsAppFooterStatusLinkComponent extends Component {
-  constructor() {
-    super(...arguments);
+export const STATUSES: { text: string; iconName: string }[] = Object.values(
+  HdsAppFooterStatusLinkStatusValues
+);
+
+export interface HdsAppFooterStatusLinkSignature {
+  Args: HdsInteractiveSignature['Args'] & {
+    itemStyle?: string;
+    status: HdsAppFooterStatusTypes;
+    statusIcon?: string;
+    statusIconColor?: string;
+    text?: string;
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HdsInteractiveSignature['Element'];
+}
+
+export default class HdsAppFooterStatusLinkComponent extends Component<HdsAppFooterStatusLinkSignature> {
+  constructor(
+    owner: unknown,
+    args: HdsInteractiveSignature['Args'] & { status?: string }
+  ) {
+    super(owner, {
+      ...args,
+      status: args.status as HdsAppFooterStatusTypes,
+    });
 
     assert(
       'Either @status or @text for "Hds::AppFooter::StatusLink" must have a valid value',
@@ -62,7 +71,7 @@ export default class HdsAppFooterStatusLinkComponent extends Component {
    */
   get statusIcon() {
     if (this.status && !this.args.statusIcon) {
-      return STATUSES[this.status].iconName;
+      return STATUSES[index].iconName;
     }
     return this.args.statusIcon;
   }
@@ -109,7 +118,7 @@ export default class HdsAppFooterStatusLinkComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-app-footer__status-link'];
+    const classes = ['hds-app-footer__status-link'];
 
     // add a class based on status if no statusIconColor is explicitly specified
     if (this.status && !this.args.statusIconColor) {
