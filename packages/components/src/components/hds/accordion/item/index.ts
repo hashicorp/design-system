@@ -6,7 +6,20 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 
-export default class HdsAccordionItemIndexComponent extends Component {
+export interface HdsAccordionItemIndexSignature {
+  Args: {
+    ariaLabel?: string;
+    containsInteractive?: boolean;
+    isOpen?: boolean;
+  };
+  Blocks: {
+    content?: [];
+    toggle?: [];
+  };
+  Element: HTMLElement;
+}
+
+export default class HdsAccordionItemIndexComponent extends Component<HdsAccordionItemIndexSignature> {
   /**
    * Generates a unique ID for the Content
    *
@@ -38,7 +51,7 @@ export default class HdsAccordionItemIndexComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-accordion-item'];
+    const classes = ['hds-accordion-item'];
 
     // add a class based on the @isOpen argument
     if (this.args.isOpen) {
