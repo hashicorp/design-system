@@ -5,7 +5,15 @@
 
 import Component from '@glimmer/component';
 
-export default class HdsDropdownToggleButtonComponent extends Component {
+interface ToggleButtonSignature {
+  Args: {
+    isOpen: unknown;
+    text: unknown;
+  };
+  Element: HTMLElement;
+}
+
+export default class ToggleButtonComponent extends Component<ToggleButtonSignature> {
   /**
    * Get the class names to apply to the component.
    * @method ToggleButton#classNames
@@ -20,5 +28,12 @@ export default class HdsDropdownToggleButtonComponent extends Component {
     }
 
     return classes.join(' ');
+  }
+}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'Toggle::Button': typeof ToggleButtonComponent;
+    'toggle/button': typeof ToggleButtonComponent;
   }
 }

@@ -7,7 +7,19 @@ import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { assert } from '@ember/debug';
 
-export default class HdsRevealIndexComponent extends Component {
+interface IndexSignature {
+ Args: {
+  isOpen: unknown;
+  text: unknown;
+  textWhenOpen: unknown;
+ };
+ Blocks: {
+  default: [];
+ };
+ Element: HTMLElement;
+}
+
+export default class IndexComponent extends Component<IndexSignature> {
   /**
    * Generates a unique ID for the Content
    *
@@ -30,4 +42,11 @@ export default class HdsRevealIndexComponent extends Component {
 
     return text;
   }
+}
+
+declare module '@glint/environment-ember-loose/registry' {
+ export default interface Registry {
+  'Index': typeof IndexComponent;
+  'index': typeof IndexComponent;
+ }
 }
