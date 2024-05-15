@@ -23,6 +23,7 @@ import type HdsAppFrameHeaderComponent from './components/hds/app-frame/parts/he
 import type HdsAppFrameFooterComponent from './components/hds/app-frame/parts/footer';
 import type HdsAppFrameSidebarComponent from './components/hds/app-frame/parts/sidebar';
 import type HdsAppFrameModalsComponent from './components/hds/app-frame/parts/modals';
+import type HdsAppFrameMainComponent from './components/hds/app-frame/parts/main';
 import type HdsCardContainerComponent from './components/hds/card/container.ts';
 import type HdsDisclosurePrimitiveComponent from './components/hds/disclosure-primitive';
 import type HdsDismissButtonComponent from './components/hds/dismiss-button';
@@ -116,6 +117,10 @@ export default interface HdsComponentsRegistry {
   'Hds::AppFrame::Modals': typeof HdsAppFrameModalsComponent;
   'hds/app-frame/modals': typeof HdsAppFrameModalsComponent;
   HdsAppFrameModals: typeof HdsAppFrameModalsComponent;
+
+  'Hds::AppFrame::Main': typeof HdsAppFrameMainComponent;
+  'hds/app-frame/main': typeof HdsAppFrameMainComponent;
+  HdsAppFrameMain: typeof HdsAppFrameMainComponent;
 
   // Badge
   'Hds::Badge': typeof HdsBadgeComponent;

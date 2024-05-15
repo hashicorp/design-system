@@ -4,10 +4,10 @@
 }}
 <div class="hds-app-frame" ...attributes>
   {{#if this.hasHeader}}
-    {{yield (hash Header=(component "hds/app-frame/parts/header"))}}
+    {{yield (hash Header=(component "hds/app-frame/header"))}}
   {{/if}}
   {{#if this.hasSidebar}}
-    {{yield (hash Sidebar=(component "hds/app-frame/parts/sidebar"))}}
+    {{yield (hash Sidebar=(component "hds/app-frame/sidebar"))}}
   {{/if}}
   {{!
     IMPORTANT: since the modals may be injected via portal or `in-element` with code that lives in the "main" container,
@@ -15,10 +15,10 @@
     where the target DOM element is not found (for example in tests where the modal may be immediately opened on first render).
   }}
   {{#if this.hasModals}}
-    {{yield (hash Modals=(component "hds/app-frame/parts/modals"))}}
+    {{yield (hash Modals=(component "hds/app-frame/modals"))}}
   {{/if}}
-  {{yield (hash Main=(component "hds/app-frame/parts/main"))}}
+  {{yield (hash Main=(component "hds/app-frame/main"))}}
   {{#if this.hasFooter}}
-    {{yield (hash Footer=(component "hds/app-frame/parts/footer"))}}
+    {{yield (hash Footer=(component "hds/app-frame/footer"))}}
   {{/if}}
 </div>
