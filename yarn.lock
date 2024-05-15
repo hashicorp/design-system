@@ -23441,6 +23441,7 @@ __metadata:
     ember-deep-tracked: "npm:^2.0.0"
     ember-load-initializers: "npm:^2.1.2"
     ember-page-title: "npm:^8.0.0"
+    ember-power-select: "npm:^8.2.0"
     ember-qunit: "npm:^8.0.1"
     ember-resolver: "npm:^11.0.1"
     ember-source: "npm:~5.3.0"
