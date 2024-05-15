@@ -8,22 +8,22 @@
   width: 44px;
   height: 44px;
   padding: 8px 8px 4px 8px;
-  background-color: rgba(52, 53, 54, 0.8);
-  box-shadow: 0px 8px 12px 0px rgba(37, 38, 45, 0.08);
+  background-color: rgba(52, 53, 54, 80%);
   border: 2px solid transparent;
   border-radius: 50%;
+  box-shadow: 0 8px 12px 0 rgba(37, 38, 45, 8%);
   cursor: pointer;
   transition: bottom 150ms linear;
 
   &:hover {
-    background-color: rgba(29, 30, 31, 0.8);
-    box-shadow: 0px 16px 28px 0px rgba(37, 38, 45, 0.12);
     bottom: 43px;
+    background-color: rgba(29, 30, 31, 80%);
+    box-shadow: 0 16px 28px 0 rgba(37, 38, 45, 12%);
   }
 
   &:focus {
     border-color: white;
     outline: none;
-    box-shadow: 0px 0px 0px 3px var(--doc-focus-ring-color);
+    box-shadow: 0 0 0 3px var(--doc-focus-ring-color);
   }
 }
