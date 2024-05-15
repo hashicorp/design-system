@@ -18,6 +18,7 @@ import type HdsLinkInlineComponent from './components/hds/link/inline';
 import type HdsLinkStandaloneComponent from './components/hds/link/standalone';
 import type HdsRevealComponent from './components/hds/reveal';
 import type HdsRevealToggleButtonComponent from './components/hds/reveal/toggle/button';
+import type HdsSegmentedGroupComponent from './components/hds/segmented-group';
 import type HdsTextComponent from './components/hds/text';
 import type HdsTextBodyComponent from './components/hds/text/body';
 import type HdsTextDisplayComponent from './components/hds/text/display';
@@ -100,6 +101,11 @@ export default interface HdsComponentsRegistry {
   'Hds::Reveal::Toggle::Button': typeof HdsRevealToggleButtonComponent;
   'hds/reveal/toggle/button': typeof HdsRevealToggleButtonComponent;
   HdsRevealToggleButtonComponent: typeof HdsRevealToggleButtonComponent;
+
+  // Segmented Group
+  'Hds::SegmentedGroup': typeof HdsSegmentedGroupComponent;
+  'hds/segmented-group': typeof HdsSegmentedGroupComponent;
+  HdsSegmentedGroup: typeof HdsSegmentedGroupComponent;
 
   // Text
   'Hds::Text': typeof HdsTextComponent;
