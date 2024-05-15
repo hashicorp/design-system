@@ -4,12 +4,14 @@
  */
 
 import Component from '@glimmer/component';
+import { action } from '@ember/object';
 
 interface HdsAccordionItemButtonSignature {
   Args: {
     ariaLabel?: string;
     contentId?: string;
     isOpen?: boolean;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onClickToggle?: (event: MouseEvent, ...args: any[]) => void;
     parentContainsInteractive?: boolean;
   };
@@ -17,6 +19,13 @@ interface HdsAccordionItemButtonSignature {
 }
 
 export default class HdsAccordionItemButtonComponent extends Component<HdsAccordionItemButtonSignature> {
+  @action
+  onClick(event: MouseEvent) {
+    if (this.args.onClickToggle) {
+      this.args.onClickToggle(event);
+    }
+  }
+
   /**
    * Get the class names to apply to the component.
    * @method ItemButton#classNames
