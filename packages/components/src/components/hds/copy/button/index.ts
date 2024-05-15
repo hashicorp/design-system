@@ -35,7 +35,7 @@ export interface HdsCopyButtonSignature {
 
 export default class HdsCopyButtonComponent extends Component<HdsCopyButtonSignature> {
   @tracked status = DEFAULT_STATUS;
-  @tracked timer = 0; // TODO: what value shoulf this be initialized to?
+  @tracked timer = 0; // TODO: what value should this be initialized to?
 
   /**
    * @param icon
