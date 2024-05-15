@@ -6,7 +6,25 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-export default class HdsSideNavHeaderHomeLinkComponent extends Component {
+interface HeaderHomeLinkSignature {
+  Args: {
+    ariaLabel: unknown;
+    color: unknown;
+    'current-when': unknown;
+    href: unknown;
+    icon: unknown;
+    isHrefExternal: unknown;
+    isRouteExternal: unknown;
+    model: unknown;
+    models: unknown;
+    query: unknown;
+    replace: unknown;
+    route: unknown;
+  };
+  Element: HTMLElement;
+}
+
+export default class HeaderHomeLinkComponent extends Component<HeaderHomeLinkSignature> {
   /**
    * @param ariaLabel
    * @type {string}
@@ -21,5 +39,12 @@ export default class HdsSideNavHeaderHomeLinkComponent extends Component {
     );
 
     return ariaLabel;
+  }
+}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'Header::HomeLink': typeof HeaderHomeLinkComponent;
+    'header/home-link': typeof HeaderHomeLinkComponent;
   }
 }

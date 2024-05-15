@@ -10,7 +10,14 @@ import { action } from '@ember/object';
 import { DEBUG } from '@glimmer/env';
 import Ember from 'ember';
 
-export default class SidenavPortalTarget extends Component {
+interface PortalTargetSignature {
+  Args: {
+    targetName: unknown;
+  };
+  Element: HTMLDivElement;
+}
+
+export default class PortalTargetComponent extends Component<PortalTargetSignature> {
   @service router;
 
   @tracked numSubnavs = 0;
@@ -158,5 +165,12 @@ export default class SidenavPortalTarget extends Component {
         fill: 'forwards',
       });
     }
+  }
+}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'Portal::Target': typeof PortalTargetComponent;
+    'portal/target': typeof PortalTargetComponent;
   }
 }

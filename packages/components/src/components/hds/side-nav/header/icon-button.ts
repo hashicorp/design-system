@@ -6,7 +6,24 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-export default class HdsSideNavHeaderIconButtonComponent extends Component {
+interface HeaderIconButtonSignature {
+  Args: {
+    ariaLabel: unknown;
+    'current-when': unknown;
+    href: unknown;
+    icon: unknown;
+    isHrefExternal: unknown;
+    isRouteExternal: unknown;
+    model: unknown;
+    models: unknown;
+    query: unknown;
+    replace: unknown;
+    route: unknown;
+  };
+  Element: HTMLElement;
+}
+
+export default class HeaderIconButtonComponent extends Component<HeaderIconButtonSignature> {
   /**
    * @param ariaLabel
    * @type {string}
@@ -21,5 +38,12 @@ export default class HdsSideNavHeaderIconButtonComponent extends Component {
     );
 
     return ariaLabel;
+  }
+}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'Header::IconButton': typeof HeaderIconButtonComponent;
+    'header/icon-button': typeof HeaderIconButtonComponent;
   }
 }

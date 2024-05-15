@@ -9,7 +9,29 @@ import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { registerDestructor } from '@ember/destroyable';
 
-export default class HdsSideNavComponent extends Component {
+interface IndexSignature {
+  Args: {
+    a11yRefocusNavigationText: unknown;
+    a11yRefocusRouteChangeValidator: unknown;
+    a11yRefocusSkipText: unknown;
+    a11yRefocusSkipTo: unknown;
+    ariaLabel: unknown;
+    hasA11yRefocus: unknown;
+    isCollapsible: unknown;
+    isMinimized: unknown;
+    isResponsive: unknown;
+    onDesktopViewportChange: unknown;
+    onToggleMinimizedStatus: unknown;
+  };
+  Blocks: {
+    body: [unknown];
+    footer: [unknown];
+    header: [unknown];
+  };
+  Element: HTMLElement;
+}
+
+export default class IndexComponent extends Component<IndexSignature> {
   @tracked isResponsive = this.args.isResponsive ?? true; // controls if the component reacts to viewport changes
   @tracked isMinimized = this.args.isMinimized ?? false; // sets the default state on 'desktop' viewports
   @tracked isCollapsible = this.args.isCollapsible ?? false; // controls if users can collapse the sidenav on 'desktop' viewports
@@ -158,5 +180,12 @@ export default class HdsSideNavComponent extends Component {
     if (typeof onDesktopViewportChange === 'function') {
       onDesktopViewportChange(this.isDesktop);
     }
+  }
+}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'Index': typeof IndexComponent;
+    'index': typeof IndexComponent;
   }
 }
