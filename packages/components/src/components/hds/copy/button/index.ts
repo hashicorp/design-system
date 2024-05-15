@@ -15,9 +15,27 @@ export const SUCCESS_ICON = 'clipboard-checked';
 export const ERROR_ICON = 'clipboard-x';
 export const DEFAULT_STATUS = 'idle';
 
-export default class HdsCopyButtonComponent extends Component {
+export interface HdsCopyButtonSignature {
+  Args: {
+    isFullWidth?: boolean;
+    isIconOnly?: boolean;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onError?: (...args: any[]) => void;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onSuccess?: (...args: any[]) => void;
+    size?: 'small' | 'medium'; // TODO: create new type?
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    targetToCopy?: string | ((...args: any[]) => void); // TODO: create new type?
+    text: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    textToCopy?: string | ((...args: any[]) => void); // TODO: create new type?
+  };
+  Element: HTMLElement;
+}
+
+export default class HdsCopyButtonComponent extends Component<HdsCopyButtonSignature> {
   @tracked status = DEFAULT_STATUS;
-  @tracked timer;
+  @tracked timer = 0; // TODO: what value shoulf this be initialized to?
 
   /**
    * @param icon
@@ -41,7 +59,7 @@ export default class HdsCopyButtonComponent extends Component {
    * @description The size of the copy/button; acceptable values are `small` and `medium`
    */
   get size() {
-    let { size = DEFAULT_SIZE } = this.args;
+    const { size = DEFAULT_SIZE } = this.args;
 
     assert(
       `@size for "Hds::Copy::Button" must be one of the following: ${SIZES.join(
@@ -59,7 +77,7 @@ export default class HdsCopyButtonComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-copy-button'];
+    const classes = ['hds-copy-button'];
 
     // add a class based on the @size argument
     classes.push(`hds-button--size-${this.size}`);
@@ -70,11 +88,12 @@ export default class HdsCopyButtonComponent extends Component {
   }
 
   @action
-  onSuccess(args) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onSuccess(args: any) {
     this.status = 'success';
     this.resetStatusDelayed();
 
-    let { onSuccess } = this.args;
+    const { onSuccess } = this.args;
 
     if (typeof onSuccess === 'function') {
       onSuccess(args);
@@ -82,11 +101,12 @@ export default class HdsCopyButtonComponent extends Component {
   }
 
   @action
-  onError(args) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onError(args: any) {
     this.status = 'error';
     this.resetStatusDelayed();
 
-    let { onError } = this.args;
+    const { onError } = this.args;
 
     if (typeof onError === 'function') {
       onError(args);
@@ -99,5 +119,12 @@ export default class HdsCopyButtonComponent extends Component {
     this.timer = setTimeout(() => {
       this.status = DEFAULT_STATUS;
     }, 1500);
+  }
+}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    HdsCopyButton: typeof HdsCopyButtonComponent;
+    index: typeof HdsCopyButtonComponent;
   }
 }
