@@ -7,19 +7,22 @@ import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { assert } from '@ember/debug';
 
-interface IndexSignature {
- Args: {
-  isOpen: unknown;
-  text: unknown;
-  textWhenOpen: unknown;
- };
- Blocks: {
-  default: [];
- };
- Element: HTMLElement;
+import type { HdsDisclosurePrimitiveSignature } from '../disclosure-primitive';
+import type { HdsRevealToggleButtonSignature } from './toggle/button';
+
+interface HdsRevealSignature {
+  Args: {
+    text: HdsRevealToggleButtonSignature['Args']['text'];
+    textWhenOpen?: HdsRevealToggleButtonSignature['Args']['text'];
+    isOpen?: HdsRevealToggleButtonSignature['Args']['isOpen'];
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HdsDisclosurePrimitiveSignature['Element'];
 }
 
-export default class IndexComponent extends Component<IndexSignature> {
+export default class HdsRevealComponent extends Component<HdsRevealSignature> {
   /**
    * Generates a unique ID for the Content
    *
@@ -33,7 +36,7 @@ export default class IndexComponent extends Component<IndexSignature> {
    * @description The text of the button.
    */
   get text() {
-    let { text } = this.args;
+    const { text } = this.args;
 
     assert(
       '@text for "Hds::Reveal" must have a valid value',
@@ -42,11 +45,4 @@ export default class IndexComponent extends Component<IndexSignature> {
 
     return text;
   }
-}
-
-declare module '@glint/environment-ember-loose/registry' {
- export default interface Registry {
-  'Index': typeof IndexComponent;
-  'index': typeof IndexComponent;
- }
 }
