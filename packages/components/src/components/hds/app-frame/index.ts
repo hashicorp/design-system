@@ -5,7 +5,17 @@
 
 import Component from '@glimmer/component';
 
-export default class HdsAppFrameIndexComponent extends Component {
+export interface HdsAppFrameIndexSignature {
+  Args: {
+    hasHeader?: boolean;
+    hasSidebar?: boolean;
+    hasFooter?: boolean;
+    hasModals?: boolean;
+  };
+  Element: HTMLDivElement;
+}
+
+export default class HdsAppFrameIndexComponent extends Component<HdsAppFrameIndexSignature> {
   /**
    * Indicates if the "header" container should be displayed
    *
