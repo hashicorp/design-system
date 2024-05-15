@@ -70,7 +70,7 @@
                     @disabled={{if (eq variant "disabled") true}}
                     @isInvalid={{if (eq variant "invalid") true}}
                     @ariaLabel="Label"
-                    mock-state-value={{state}}
+                    class="mock-{{state}}"
                     as |option|
                   >
                     {{option}}
