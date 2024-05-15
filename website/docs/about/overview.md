@@ -49,7 +49,7 @@ While increasing visual and functional consistency across products is the most v
 - Increased velocity in the design and development of new products and features
 - Dismantling silos between teams that adopt and use the system
 - More time spent on solving complex problems, less time spent on duplicative work rebuilding small atoms and molecules
-- Components, foundations, and usage guidelines published by the the Helios Design System meet or exceed WCAG 2.1 AA conformance out of the box in accordance with our [accessibility statement](/about/accessibility-statement)
+- Components, foundations, and usage guidelines published by the the Helios Design System meet or exceed WCAG 2.2 AA conformance out of the box in accordance with our [accessibility statement](/about/accessibility-statement)
 
 ## Helios architecture
 
