@@ -18,11 +18,8 @@ export const COLORS: string[] = Object.values(HdsLinkColorValues);
 export interface HdsLinkInlineSignature {
   Args: HdsInteractiveSignature['Args'] & {
     color?: HdsLinkColors;
-    href?: string;
     icon?: string;
     iconPosition?: HdsLinkIconPositions;
-    isHrefExternal?: boolean;
-    isRouteExternal?: boolean;
   };
   Blocks: {
     default: [];
