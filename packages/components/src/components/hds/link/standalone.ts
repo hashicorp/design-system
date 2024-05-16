@@ -20,14 +20,11 @@ import type {
 
 export interface HdsLinkStandaloneSignature {
   Args: HdsInteractiveSignature['Args'] & {
-    icon: string;
-    text: string;
-    color?: HdsLinkColors;
-    href?: string;
-    iconPosition?: HdsLinkIconPositions;
-    isHrefExternal?: boolean;
-    isRouteExternal?: boolean;
     size?: HdsLinkStandaloneSizes;
+    color?: HdsLinkColors;
+    text: string;
+    icon: string;
+    iconPosition?: HdsLinkIconPositions;
   };
   Element: HdsInteractiveSignature['Element'];
 }

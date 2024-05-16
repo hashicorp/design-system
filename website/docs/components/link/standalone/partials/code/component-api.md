@@ -1,16 +1,16 @@
 ## Component API
 
 <Doc::ComponentApi as |C|>
+  <C.Property @name="size" @type="enum" @values={{array "small" "medium" "large" }} @default="medium"/>
+  <C.Property @name="color" @type="enum" @values={{array "primary" "secondary" }} @default="primary"/>
+  <C.Property @name="text" @required="true" @type="string">
+    The text of the link. If no text value is defined an error will be thrown.
+  </C.Property>
   <C.Property @name="icon" @required="true" @type="string">
     Use this parameter to show an icon. Any [icon](/icons/library) name is acceptable. `icon` is required to ensure the component conforms to accessibility best practices.
   </C.Property>
   <C.Property @name="iconPosition" @type="enum" @values={{array "leading" "trailing" }} @default="leading">
     Positions the icon before or after the text.
-  </C.Property>
-  <C.Property @name="color" @type="enum" @values={{array "primary" "secondary" }} @default="primary"/>
-  <C.Property @name="size" @type="enum" @values={{array "small" "medium" "large" }} @default="medium"/>
-  <C.Property @name="text" @required="true" @type="string">
-    The text of the link. If no text value is defined an error will be thrown.
   </C.Property>
   <C.Property @name="href">
     URL parameter that’s passed down to the `<a>` element.
