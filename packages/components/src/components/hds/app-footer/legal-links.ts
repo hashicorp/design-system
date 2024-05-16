@@ -29,6 +29,15 @@ export default class HdsAppFooterLegalLinksComponent extends Component<HdsAppFoo
   }
 
   /**
+   * @param hrefForSupport
+   * @type {string}
+   * @description The href value of the "Support" link
+   */
+  get hrefForSupport() {
+    return this.args.hrefForSupport ?? 'https://www.hashicorp.com/support';
+  }
+
+  /**
    * @param hrefForTerms
    * @type {string}
    * @description The href value of the "Terms" link
@@ -55,15 +64,6 @@ export default class HdsAppFooterLegalLinksComponent extends Component<HdsAppFoo
    */
   get hrefForSecurity() {
     return this.args.hrefForSecurity ?? 'https://www.hashicorp.com/security';
-  }
-
-  /**
-   * @param hrefForSupport
-   * @type {string}
-   * @description The href value of the "Support" link
-   */
-  get hrefForSupport() {
-    return this.args.hrefForSupport ?? 'https://www.hashicorp.com/support';
   }
 
   /**
