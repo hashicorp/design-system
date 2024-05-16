@@ -79,6 +79,7 @@ import type HdsLinkToModelsHelper from './helpers/hds-link-to-models.ts';
 import type HdsLinkToQueryHelper from './helpers/hds-link-to-query.ts';
 
 // modifiers
+import type HdsAnchoredPositionModifier from './modifiers/hds-anchored-position.ts';
 import type HdsClipboardModifier from './modifiers/hds-clipboard.ts';
 import type HdsRegisterEventModifier from './modifiers/hds-register-event.ts';
 
@@ -340,6 +341,9 @@ export default interface HdsComponentsRegistry {
   'hds-link-to-query': typeof HdsLinkToQueryHelper;
 
   // ----- MODIFIERS ----------------------------------------------------
+
+  // hds-anchored-position
+  'hds-anchored-position': typeof HdsAnchoredPositionModifier;
 
   // hds-clipboard
   'hds-clipboard': typeof HdsClipboardModifier;
