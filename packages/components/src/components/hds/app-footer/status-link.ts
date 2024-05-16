@@ -5,6 +5,7 @@
 
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
+import type { SafeString } from '@ember/template';
 import { assert } from '@ember/debug';
 
 import type { HdsInteractiveSignature } from '../interactive/';
@@ -17,7 +18,7 @@ export const STATUSES: { text: string; iconName: string }[] = Object.values(
 
 export interface HdsAppFooterStatusLinkSignature {
   Args: HdsInteractiveSignature['Args'] & {
-    itemStyle?: string;
+    itemStyle?: SafeString;
     status: HdsAppFooterStatusTypes;
     statusIcon?: string;
     statusIconColor?: string;
