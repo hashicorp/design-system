@@ -12,14 +12,12 @@ import type { HdsInteractiveSignature } from '../interactive/';
 import { HdsAppFooterStatusLinkStatusValues } from './types.ts';
 import type { HdsAppFooterStatusTypes } from './types.ts';
 
-export const STATUSES: { text: string; iconName: string }[] = Object.values(
-  HdsAppFooterStatusLinkStatusValues
-);
+export const STATUSES = HdsAppFooterStatusLinkStatusValues;
 
 export interface HdsAppFooterStatusLinkSignature {
   Args: HdsInteractiveSignature['Args'] & {
     itemStyle?: SafeString;
-    status: HdsAppFooterStatusTypes;
+    status?: HdsAppFooterStatusTypes;
     statusIcon?: string;
     statusIconColor?: string;
     text?: string;
@@ -59,8 +57,10 @@ export default class HdsAppFooterStatusLinkComponent extends Component<HdsAppFoo
         `@status for "Hds::AppFooter" must be one of the following: ${Object.keys(
           STATUSES
         ).join(', ')} received: ${this.args.status}`,
-        Object.keys(STATUSES).includes(status)
+
+        status in STATUSES
       );
+      return status as HdsAppFooterStatusTypes;
     }
     return status;
   }
@@ -72,8 +72,7 @@ export default class HdsAppFooterStatusLinkComponent extends Component<HdsAppFoo
    */
   get statusIcon() {
     if (this.status && !this.args.statusIcon) {
-      const index = Object.keys(STATUSES).indexOf(this.status);
-      return STATUSES[index]?.iconName;
+      return STATUSES[this.status]?.iconName;
     }
     return this.args.statusIcon;
   }
@@ -100,8 +99,7 @@ export default class HdsAppFooterStatusLinkComponent extends Component<HdsAppFoo
    */
   get text() {
     if (!this.args.text && this.status) {
-      const index = Object.keys(STATUSES).indexOf(this.status);
-      return STATUSES[index]?.text;
+      return STATUSES[this.status]?.text;
     }
     return this.args.text;
   }
