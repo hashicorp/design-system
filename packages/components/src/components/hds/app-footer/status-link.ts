@@ -29,14 +29,8 @@ export interface HdsAppFooterStatusLinkSignature {
 }
 
 export default class HdsAppFooterStatusLinkComponent extends Component<HdsAppFooterStatusLinkSignature> {
-  constructor(
-    owner: unknown,
-    args: HdsInteractiveSignature['Args'] & { status?: string }
-  ) {
-    super(owner, {
-      ...args,
-      status: args.status as HdsAppFooterStatusTypes,
-    });
+  constructor(owner: unknown, args: HdsInteractiveSignature['Args']) {
+    super(owner, args);
 
     assert(
       'Either @status or @text for "Hds::AppFooter::StatusLink" must have a valid value',
