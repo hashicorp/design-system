@@ -1,0 +1,247 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// RICH-TOOLTIP
+//
+
+@use "../mixins/focus-ring" as *;
+
+.hds-rich-tooltip {
+  display: contents;
+}
+
+// TOGGLE
+
+// The special declarations below are used to allow the button to inherit styles from the parent element
+// without preventing the consumers from applying these styles via HDS or custom classes if they want
+//
+// Since the `:where()` selector has a specificity of `0` (see https://developer.mozilla.org/en-US/docs/Web/CSS/:where)
+// the styles declared below are applied to the `<button>` element, but are overwritten by any other style applied via classname
+
+:where(.hds-rich-tooltip__toggle) {
+  width: fit-content;
+  height: fit-content;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+.hds-rich-tooltip__toggle {
+  // we don't want to apply styles to the yielded content
+  // so we use these variables that allow us to target only
+  // the (decorated) text and the icon
+  --text-color: var(--token-color-foreground-strong);
+  --icon-color: var(--token-color-foreground-strong);
+
+  &:hover,
+  &.mock-hover {
+    --text-color: var(--token-color-foreground-primary);
+    --icon-color: var(--token-color-foreground-primary);
+  }
+
+  &:active,
+  &.mock-active {
+    --text-color: var(--token-color-foreground-faint);
+    --icon-color: var(--token-color-foreground-faint);
+  }
+
+  @include hds-focus-ring-with-pseudo-element(
+    $top: -2px,
+    $right: -2px,
+    $bottom: -2px,
+    $left: -2px
+  );
+}
+
+// decorated text
+
+.hds-rich-tooltip__toggle-text {
+  color: var(--text-color);
+  text-decoration: underline dotted;
+}
+
+// icon
+
+.hds-rich-tooltip__toggle-icon {
+  flex: none;
+  width: 1em;
+  height: 1em;
+  color: var(--icon-color);
+
+  &:first-child:not(:only-child) {
+    margin-right: 0.25rem;
+  }
+
+  &:last-child:not(:only-child) {
+    margin-left: 0.25rem;
+  }
+}
+
+// DISPLAY
+
+:where(.hds-rich-tooltip__toggle--is-inline) {
+  // it's a button, can't be `inline`
+  display: inline-flex;
+  align-items: center;
+  // this is needed to make sure the inline text is aligned with the other text before/after
+  vertical-align: bottom;
+
+  // when it's inline and it contains only an icon we need to align it at the middle of the text otherwise it "falls" down
+  &:has(.hds-rich-tooltip__toggle-icon:only-child) {
+    vertical-align: middle;
+  }
+}
+
+:where(.hds-rich-tooltip__toggle--is-block) {
+  display: flex;
+  align-items: center;
+}
+
+// SIZES
+
+.hds-rich-tooltip__toggle--size-small {
+  font-weight: var(--token-typography-font-weight-regular);
+  font-size: var(--token-typography-body-100-font-size);
+  font-family: var(--token-typography-body-100-font-family);
+  line-height: var(--token-typography-body-100-line-height);
+}
+
+.hds-rich-tooltip__toggle--size-medium {
+  font-weight: var(--token-typography-font-weight-regular);
+  font-size: var(--token-typography-body-200-font-size);
+  font-family: var(--token-typography-body-200-font-family);
+  line-height: var(--token-typography-body-200-line-height);
+}
+
+.hds-rich-tooltip__toggle--size-large {
+  font-weight: var(--token-typography-font-weight-regular);
+  font-size: var(--token-typography-body-300-font-size);
+  font-family: var(--token-typography-body-300-font-family);
+  line-height: var(--token-typography-body-300-line-height);
+}
+
+// BUBBLE
+
+.hds-rich-tooltip__bubble {
+  position: relative;
+  width: fit-content;
+  max-width: var(--token-tooltip-max-width);
+  height: fit-content;
+  max-height: none;
+  padding: 16px;
+  background: var(--token-color-surface-primary);
+  border-radius: 5px;
+  box-shadow: var(--token-surface-higher-box-shadow);
+
+  // fade-in animation (we can't do fade-out because `isOpen` removes the content of the bubble immediately from the DOM)
+  // see: https://developer.mozilla.org/en-US/docs/Web/API/Popover_API/Using#animating_popovers
+  opacity: 0;
+  transition: opacity 0.3s;
+  will-change: opacity;
+
+  // the "popover" attributes comes with pre-defined styling so we need to override it
+  :where(&[popover]) {
+    width: fit-content;
+    height: fit-content;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    color: inherit;
+    background: none;
+    border: none;
+    inset: 0;
+  }
+}
+
+// arrow
+
+.hds-rich-tooltip__bubble-arrow {
+  // notice: floating-ui assumes the "arrow" container is square
+  $arrow-size: 20px;
+  position: absolute;
+  z-index: 1;
+  display: block;
+  width: $arrow-size;
+  height: $arrow-size;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"><path fill="%23fff" d="M9.056 11.607.398 20h19.091l-8.37-8.393S10.69 11 10.089 11c-.602 0-1.032.608-1.032.608Z"/><path fill="%23656A76" fill-opacity=".2" fill-rule="evenodd" d="M9.359 11.308 1.423 19H0l8.674-8.417.342.362-.342-.362v-.001l.002-.001.003-.003.007-.007a1.622 1.622 0 0 1 .103-.087c.066-.053.16-.122.277-.191.224-.134.571-.293.977-.293a2.158 2.158 0 0 1 1.374.492 1.658 1.658 0 0 1 .107.098l.004.004L20 19h-1.518l-7.665-7.707-.004-.003-.002-.002a1.069 1.069 0 0 0-.18-.131 1.167 1.167 0 0 0-.588-.157.958.958 0 0 0-.47.153 1.527 1.527 0 0 0-.208.15l-.006.005Z" clip-rule="evenodd"/></svg>')
+    no-repeat 0 0 / #{$arrow-size} #{$arrow-size};
+  pointer-events: none;
+
+  &[data-hds-anchored-arrow-placement^="top"] {
+    bottom: (-1 * $arrow-size);
+    transform: rotate(180deg);
+  }
+
+  &[data-hds-anchored-arrow-placement^="right"] {
+    left: (-1 * $arrow-size);
+    transform: rotate(-90deg);
+  }
+
+  &[data-hds-anchored-arrow-placement^="bottom"] {
+    top: (-1 * $arrow-size);
+    transform: rotate(0deg); // this fixes a rendering issue in Safari
+  }
+
+  &[data-hds-anchored-arrow-placement^="left"] {
+    right: (-1 * $arrow-size);
+    transform: rotate(90deg);
+  }
+}
+
+// inner content
+
+.hds-rich-tooltip__bubble-inner-content {
+  // we need to reset the content to avoid it inheriting the styles from the parents of the component or the component's wrapping element
+  all: initial;
+  // IMPORTANT: we don't want the element to have a `layout`, to create a "box", to avoid issues with Safari
+  // see: https://hashicorp.slack.com/archives/C025N5V4PFZ/p1715247858351399
+  display: contents;
+  box-sizing: border-box;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+}
+
+// ANIMATION
+
+// these start/end comments are needed to avoid that clean-css mangles the generated code (it happens in "production" build/code)
+// (probably it doesn't understand the @starting-style directive or thinks the `.\:popover-open` is not valid)
+
+/* clean-css ignore:start */
+
+.hds-rich-tooltip__bubble {
+  &[popover]:popover-open {
+    opacity: 1;
+  }
+
+  @starting-style {
+    &[popover]:popover-open {
+      opacity: 0;
+    }
+  }
+
+  // polyfilled `:popover-open` selector
+  // see: https://github.com/oddbird/popover-polyfill?tab=readme-ov-file#caveats
+  &[popover].\:popover-open {
+    opacity: 1;
+  }
+
+  @starting-style {
+    &[popover].\:popover-open {
+      opacity: 0;
+    }
+  }
+}
+
+/* clean-css ignore:end */

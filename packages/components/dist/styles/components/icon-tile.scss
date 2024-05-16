@@ -1,0 +1,145 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// ICON-TILE COMPONENT
+//
+
+$hds-icon-tile-sizes: ( "small", "medium", "large" );
+$hds-icon-tile-types: ( "object","resource","logo" );
+$hds-icon-tile-colors-products: ( "boundary", "consul", "hcp", "nomad", "packer", "terraform", "vagrant", "vault", "vault-secrets", "vault-radar", "waypoint" );
+$hds-icon-tile-border-width: 1px;
+$hds-icon-tile-box-shadow: 0 1px 1px rgba(#656a76, 0.05);
+
+
+.hds-icon-tile {
+  position: relative;
+  display: flex;
+  border: $hds-icon-tile-border-width solid transparent;
+  border-radius: 4px;
+  box-shadow: $hds-icon-tile-box-shadow;
+}
+
+.hds-icon-tile__icon,
+.hds-icon-tile__logo {
+  display: flex;
+  margin: auto;
+}
+
+.hds-icon-tile__extra {
+  position: absolute;
+  right: -6px;
+  bottom: -6px;
+  display: flex;
+  box-sizing: content-box; // the border is outside
+  background-color: var(--token-color-surface-primary);
+  border: 1px solid var(--token-color-border-primary);
+  box-shadow: $hds-icon-tile-box-shadow;
+}
+
+.hds-icon-tile__extra-icon {
+  display: flex;
+  margin: auto;
+  color: var(--token-color-foreground-strong);
+}
+
+// SIZE
+
+// these values later may come from the design tokens
+$hds-icon-tile-size-props: (
+  "small": (
+    "size": 1.75rem, // 28px
+    "border-radius": 5px,
+    "icon-size": 1rem, // 16px
+    "logo-size": 1.125rem, // 18px
+    "extra-size": 1.125rem, // 18px
+    "extra-border-radius": 4px,
+    "extra-icon-size": 0.75rem,
+  ),
+  "medium": (
+    "size": 2.5rem, // 40px
+    "border-radius": 6px,
+    "icon-size": 1.5rem, // 24px
+    "logo-size": 1.75rem, // 28px
+    "extra-size": 1.5rem, // 24px
+    "extra-border-radius": 5px,
+    "extra-icon-size": 1rem,
+  ),
+  "large": (
+    "size": 3rem, // 48px
+    "border-radius": 6px,
+    "icon-size": 1.5rem, // 24px
+    "logo-size": 2rem, // 32px
+    "extra-size": 1.5rem, // 24px
+    "extra-border-radius": 5px,
+    "extra-icon-size": 1rem,
+  )
+);
+
+@each $size in $hds-icon-tile-sizes {
+  .hds-icon-tile--size-#{$size} {
+    width: map-get($hds-icon-tile-size-props, $size, "size");
+    height: map-get($hds-icon-tile-size-props, $size, "size");
+    border-radius: map-get($hds-icon-tile-size-props, $size, "border-radius");
+
+    .hds-icon-tile__icon {
+      width: map-get($hds-icon-tile-size-props, $size, "icon-size");
+      height: map-get($hds-icon-tile-size-props, $size, "icon-size");
+    }
+
+    .hds-icon-tile__logo {
+      width: map-get($hds-icon-tile-size-props, $size, "logo-size");
+      height: map-get($hds-icon-tile-size-props, $size, "logo-size");
+    }
+
+    .hds-icon-tile__extra {
+      width: map-get($hds-icon-tile-size-props, $size, "extra-size");
+      height: map-get($hds-icon-tile-size-props, $size, "extra-size");
+      border-radius: map-get($hds-icon-tile-size-props, $size, "extra-border-radius");
+    }
+
+    .hds-icon-tile__extra-icon {
+      width: map-get($hds-icon-tile-size-props, $size, "extra-icon-size");
+      height: map-get($hds-icon-tile-size-props, $size, "extra-icon-size");
+    }
+  }
+}
+
+
+// LOGO - COLOR
+
+.hds-icon-tile--logo {
+  // notice: we are using colored icons so we don't need to set the "color" property here
+  background-color: var(--token-color-surface-primary);
+  border-color: var(--token-color-border-primary);
+}
+
+// ICON - COLOR
+
+.hds-icon-tile--icon {
+  &.hds-icon-tile--color-neutral {
+    color: var(--token-color-foreground-faint);
+    background-color: var(--token-color-surface-faint);
+    border-color: var(--token-color-border-primary);
+  }
+
+  @each $product in $hds-icon-tile-colors-products {
+    @if ($product == "hcp") {
+      // exception for HCP (we use neutral colors, we don't have specific product colors for foreground/background)
+      &.hds-icon-tile--color-hcp {
+        color: var(--token-color-palette-#{$product}-brand);
+        background-color: var(--token-color-surface-faint);
+        border-color: var(--token-color-border-primary);
+      }
+    } @else {
+      &.hds-icon-tile--color-#{$product} {
+        color: var(--token-color-#{$product}-foreground);
+        background: linear-gradient(135deg, var(--token-color-#{$product}-gradient-faint-start) 0%, var(--token-color-#{$product}-gradient-faint-stop) 100%);
+        border-color: var(--token-color-#{$product}-border);
+      }
+    }
+  }
+}
+

@@ -1,0 +1,95 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// PAGEHEADER
+//
+
+.hds-page-header {
+  // `container-type: inline-size` creates a new stacking context; to control the position of Page Header content on the z-axis
+  // we set this element to `relative` to allow consumers to define the `z-index` value that works in their context
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  container-type: inline-size;
+}
+
+.hds-page-header__body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px 16px;
+
+  .hds-icon-tile {
+    flex-shrink: 0;
+  }
+
+  @container (min-width: 400px) {
+    flex-direction: row;
+  }
+}
+
+.hds-page-header__main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 16px;
+  align-items: start;
+  justify-content: start;
+
+  @container (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    min-width: 0; // this is important or it will blow beyond the parent flexbox width with long non-breaking names
+  }
+}
+
+.hds-page-header__content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 8px;
+  min-width: 0; // this is important or it will blow beyond the parent flexbox width with long non-breaking names
+  max-width: 100%;
+}
+
+.hds-page-header__title-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  align-items: center;
+}
+
+.hds-page-header__title {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.hds-page-header__badges-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hds-page-header__metadata {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hds-page-header__subtitle,
+.hds-page-header__description {
+  overflow-wrap: break-word;
+}
+
+.hds-page-header__actions {
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
