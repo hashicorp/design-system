@@ -1,3 +1,4 @@
+import 'ember-source/types';
 import Ember from 'ember';
 
 declare global {

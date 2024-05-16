@@ -707,7 +707,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-proposal-decorators@npm:^7.13.5, @babel/plugin-proposal-decorators@npm:^7.16.7, @babel/plugin-proposal-decorators@npm:^7.20.13, @babel/plugin-proposal-decorators@npm:^7.23.2, @babel/plugin-proposal-decorators@npm:^7.23.7":
+"@babel/plugin-proposal-decorators@npm:^7.13.5, @babel/plugin-proposal-decorators@npm:^7.16.7, @babel/plugin-proposal-decorators@npm:^7.20.13, @babel/plugin-proposal-decorators@npm:^7.23.7":
   version: 7.23.7
   resolution: "@babel/plugin-proposal-decorators@npm:7.23.7"
   dependencies:
@@ -2853,6 +2853,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@embroider/addon-shim@npm:^1.8.3":
+  version: 1.8.8
+  resolution: "@embroider/addon-shim@npm:1.8.8"
+  dependencies:
+    "@embroider/shared-internals": "npm:^2.6.0"
+    broccoli-funnel: "npm:^3.0.8"
+    common-ancestor-path: "npm:^1.0.1"
+    semver: "npm:^7.3.8"
+  checksum: 8710977a7c66f76c8680268265c25dfca22ed1feef826ddb126681fd384ad9e38a83c4782893e4b2e6f415f351e6903e3b4278918283813be2c682f62a6fda47
+  languageName: node
+  linkType: hard
+
 "@embroider/core@npm:^3.4.7":
   version: 3.4.9
   resolution: "@embroider/core@npm:3.4.9"
@@ -2906,7 +2918,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/shared-internals@npm:2.6.0, @embroider/shared-internals@npm:^2.0.0, @embroider/shared-internals@npm:^2.5.1":
+"@embroider/shared-internals@npm:2.6.0, @embroider/shared-internals@npm:^2.0.0, @embroider/shared-internals@npm:^2.5.1, @embroider/shared-internals@npm:^2.6.0":
   version: 2.6.0
   resolution: "@embroider/shared-internals@npm:2.6.0"
   dependencies:
@@ -2981,7 +2993,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint-community/eslint-utils@npm:^4.2.0, @eslint-community/eslint-utils@npm:^4.4.0":
+"@eslint-community/eslint-utils@npm:^4.1.2, @eslint-community/eslint-utils@npm:^4.2.0, @eslint-community/eslint-utils@npm:^4.4.0":
   version: 4.4.0
   resolution: "@eslint-community/eslint-utils@npm:4.4.0"
   dependencies:
@@ -2992,7 +3004,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint-community/regexpp@npm:^4.5.1, @eslint-community/regexpp@npm:^4.6.1":
+"@eslint-community/regexpp@npm:^4.5.1, @eslint-community/regexpp@npm:^4.6.0, @eslint-community/regexpp@npm:^4.6.1":
   version: 4.10.0
   resolution: "@eslint-community/regexpp@npm:4.10.0"
   checksum: 8c36169c815fc5d726078e8c71a5b592957ee60d08c6470f9ce0187c8046af1a00afbda0a065cc40ff18d5d83f82aed9793c6818f7304a74a7488dc9f3ecbd42
@@ -5888,7 +5900,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^6.14.0":
+"@typescript-eslint/eslint-plugin@npm:^6.14.0, @typescript-eslint/eslint-plugin@npm:^6.21.0":
   version: 6.21.0
   resolution: "@typescript-eslint/eslint-plugin@npm:6.21.0"
   dependencies:
@@ -5946,7 +5958,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^6.14.0":
+"@typescript-eslint/parser@npm:^6.14.0, @typescript-eslint/parser@npm:^6.21.0":
   version: 6.21.0
   resolution: "@typescript-eslint/parser@npm:6.21.0"
   dependencies:
@@ -9140,12 +9152,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"builtin-modules@npm:^3.3.0":
+  version: 3.3.0
+  resolution: "builtin-modules@npm:3.3.0"
+  checksum: 62e063ab40c0c1efccbfa9ffa31873e4f9d57408cb396a2649981a0ecbce56aabc93c28feaccbc5658c95aab2703ad1d11980e62ec2e5e72637404e1eb60f39e
+  languageName: node
+  linkType: hard
+
 "builtins@npm:^5.0.0":
   version: 5.0.1
   resolution: "builtins@npm:5.0.1"
   dependencies:
     semver: "npm:^7.0.0"
   checksum: 90136fa0ba98b7a3aea33190b1262a5297164731efb6a323b0231acf60cc2ea0b2b1075dbf107038266b8b77d6045fa9631d1c3f90efc1c594ba61218fbfbb4c
+  languageName: node
+  linkType: hard
+
+"builtins@npm:^5.0.1":
+  version: 5.1.0
+  resolution: "builtins@npm:5.1.0"
+  dependencies:
+    semver: "npm:^7.0.0"
+  checksum: 60aa9969f69656bf6eab82cd74b23ab805f112ae46a54b912bccc1533875760f2d2ce95e0a7d13144e35ada9f0386f17ed4961908bc9434b5a5e21375b1902b2
   languageName: node
   linkType: hard
 
@@ -10096,6 +10124,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"common-ancestor-path@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "common-ancestor-path@npm:1.0.1"
+  checksum: 1d2e4186067083d8cc413f00fc2908225f04ae4e19417ded67faa6494fb313c4fcd5b28a52326d1a62b466e2b3a4325e92c31133c5fee628cdf8856b3a57c3d7
+  languageName: node
+  linkType: hard
+
 "common-tags@npm:^1.8.0":
   version: 1.8.2
   resolution: "common-tags@npm:1.8.2"
@@ -10171,7 +10206,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"concurrently@npm:^8.2.2":
+"concurrently@npm:^8.2.1, concurrently@npm:^8.2.2":
   version: 8.2.2
   resolution: "concurrently@npm:8.2.2"
   dependencies:
@@ -13383,6 +13418,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-compat-utils@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "eslint-compat-utils@npm:0.5.0"
+  dependencies:
+    semver: "npm:^7.5.4"
+  peerDependencies:
+    eslint: ">=6.0.0"
+  checksum: 3f305ca4d9af42ff536cb9abedd4fddecb36809ee04772d5f16c5e4437b169fcfa02c5e6a1554df092dceb67864d0d4516d2db4b3a91131bb8dbbafe00d7b209
+  languageName: node
+  linkType: hard
+
 "eslint-config-prettier@npm:^8.10.0":
   version: 8.10.0
   resolution: "eslint-config-prettier@npm:8.10.0"
@@ -13428,6 +13474,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-plugin-es-x@npm:^7.5.0":
+  version: 7.6.0
+  resolution: "eslint-plugin-es-x@npm:7.6.0"
+  dependencies:
+    "@eslint-community/eslint-utils": "npm:^4.1.2"
+    "@eslint-community/regexpp": "npm:^4.6.0"
+    eslint-compat-utils: "npm:^0.5.0"
+  peerDependencies:
+    eslint: ">=8"
+  checksum: f1a0ea3da3a68263dd2ec8cf01c9e27583650c6acce62934a3a4f10d192f5b60773671f1f42de4bbe8b28443333074836a7e2426249d5adbfc3fc0d68c49d990
+  languageName: node
+  linkType: hard
+
 "eslint-plugin-es@npm:^3.0.0":
   version: 3.0.1
   resolution: "eslint-plugin-es@npm:3.0.1"
@@ -13437,6 +13496,27 @@ __metadata:
   peerDependencies:
     eslint: ">=4.19.1"
   checksum: 9814e6305183edfdff7d99cbc0f95f0aed1446045cbd1d4f28e7be0903d0013880f0aaf04486a27de96bfb2f5a746bea97cbb238f9b0035cb378d48d179a0a1b
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-n@npm:^16.1.0":
+  version: 16.6.2
+  resolution: "eslint-plugin-n@npm:16.6.2"
+  dependencies:
+    "@eslint-community/eslint-utils": "npm:^4.4.0"
+    builtins: "npm:^5.0.1"
+    eslint-plugin-es-x: "npm:^7.5.0"
+    get-tsconfig: "npm:^4.7.0"
+    globals: "npm:^13.24.0"
+    ignore: "npm:^5.2.4"
+    is-builtin-module: "npm:^3.2.1"
+    is-core-module: "npm:^2.12.1"
+    minimatch: "npm:^3.1.2"
+    resolve: "npm:^1.22.2"
+    semver: "npm:^7.5.3"
+  peerDependencies:
+    eslint: ">=7.0.0"
+  checksum: e0f600d03d3a3df57e9a811648b1b534a6d67c90ea9406340ddf3763c2b87cf5ef910b390f787ca5cb27c8d8ff36aad42d70209b54e2a1cb4cc2507ca417229a
   languageName: node
   linkType: hard
 
@@ -15142,6 +15222,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"get-tsconfig@npm:^4.7.0":
+  version: 4.7.5
+  resolution: "get-tsconfig@npm:4.7.5"
+  dependencies:
+    resolve-pkg-maps: "npm:^1.0.0"
+  checksum: de7de5e4978354e8e6d9985baf40ea32f908a13560f793bc989930c229cc8d5c3f7b6b2896d8e43eb1a9b4e9e30018ef4b506752fd2a4b4d0dfee4af6841b119
+  languageName: node
+  linkType: hard
+
 "get-value@npm:^2.0.3, get-value@npm:^2.0.6":
   version: 2.0.6
   resolution: "get-value@npm:2.0.6"
@@ -15329,7 +15418,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:^13.19.0, globals@npm:^13.6.0, globals@npm:^13.9.0":
+"globals@npm:^13.19.0, globals@npm:^13.24.0, globals@npm:^13.6.0, globals@npm:^13.9.0":
   version: 13.24.0
   resolution: "globals@npm:13.24.0"
   dependencies:
@@ -16590,6 +16679,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-builtin-module@npm:^3.2.1":
+  version: 3.2.1
+  resolution: "is-builtin-module@npm:3.2.1"
+  dependencies:
+    builtin-modules: "npm:^3.3.0"
+  checksum: e8f0ffc19a98240bda9c7ada84d846486365af88d14616e737d280d378695c8c448a621dcafc8332dbf0fcd0a17b0763b845400709963fa9151ddffece90ae88
+  languageName: node
+  linkType: hard
+
 "is-callable@npm:^1.1.3, is-callable@npm:^1.1.4, is-callable@npm:^1.2.7":
   version: 1.2.7
   resolution: "is-callable@npm:1.2.7"
@@ -16597,7 +16695,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-core-module@npm:^2.13.0":
+"is-core-module@npm:^2.12.1, is-core-module@npm:^2.13.0":
   version: 2.13.1
   resolution: "is-core-module@npm:2.13.1"
   dependencies:
@@ -22755,6 +22853,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"resolve-pkg-maps@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "resolve-pkg-maps@npm:1.0.0"
+  checksum: 0763150adf303040c304009231314d1e84c6e5ebfa2d82b7d94e96a6e82bacd1dcc0b58ae257315f3c8adb89a91d8d0f12928241cba2df1680fbe6f60bf99b0e
+  languageName: node
+  linkType: hard
+
 "resolve-url@npm:^0.2.1":
   version: 0.2.1
   resolution: "resolve-url@npm:0.2.1"
@@ -23552,8 +23657,6 @@ __metadata:
   resolution: "showcase@workspace:showcase"
   dependencies:
     "@babel/core": "npm:^7.24.5"
-    "@babel/eslint-parser": "npm:^7.22.15"
-    "@babel/plugin-proposal-decorators": "npm:^7.23.2"
     "@ember/optional-features": "npm:^2.0.0"
     "@ember/string": "npm:^3.1.1"
     "@ember/test-helpers": "npm:^3.2.0"
@@ -23572,7 +23675,10 @@ __metadata:
     "@tsconfig/ember": "npm:^3.0.6"
     "@types/qunit": "npm:^2.19.10"
     "@types/rsvp": "npm:^4.0.9"
+    "@typescript-eslint/eslint-plugin": "npm:^6.21.0"
+    "@typescript-eslint/parser": "npm:^6.21.0"
     broccoli-asset-rev: "npm:^3.0.0"
+    concurrently: "npm:^8.2.1"
     ember-a11y-testing: "npm:^6.1.1"
     ember-auto-import: "npm:^2.6.3"
     ember-body-class: "npm:^3.0.0"
@@ -23590,6 +23696,7 @@ __metadata:
     ember-concurrency: "npm:^3.1.1"
     ember-deep-tracked: "npm:^2.0.0"
     ember-load-initializers: "npm:^2.1.2"
+    ember-modifier: "npm:^4.1.0"
     ember-page-title: "npm:^8.0.0"
     ember-power-select: "npm:^7.1.2"
     ember-qunit: "npm:^8.0.1"
@@ -23605,11 +23712,10 @@ __metadata:
     eslint: "npm:^8.52.0"
     eslint-config-prettier: "npm:^8.10.0"
     eslint-plugin-ember: "npm:^11.11.1"
-    eslint-plugin-node: "npm:^11.1.0"
+    eslint-plugin-n: "npm:^16.1.0"
     eslint-plugin-prettier: "npm:^4.2.1"
     eslint-plugin-qunit: "npm:^8.0.1"
     loader.js: "npm:^4.7.0"
-    npm-run-all: "npm:^4.1.5"
     prettier: "npm:^2.8.8"
     qunit: "npm:^2.20.0"
     qunit-dom: "npm:^3.0.0"
@@ -23618,6 +23724,7 @@ __metadata:
     stylelint: "npm:^16.3.1"
     stylelint-config-rational-order: "npm:^0.1.2"
     stylelint-config-standard-scss: "npm:^13.1.0"
+    tracked-built-ins: "npm:^3.2.0"
     typescript: "npm:^5.4.2"
     webpack: "npm:^5.89.0"
   languageName: unknown
@@ -25376,6 +25483,16 @@ __metadata:
   version: 0.0.3
   resolution: "tr46@npm:0.0.3"
   checksum: 8f1f5aa6cb232f9e1bdc86f485f916b7aa38caee8a778b378ffec0b70d9307873f253f5cbadbe2955ece2ac5c83d0dc14a77513166ccd0a0c7fe197e21396695
+  languageName: node
+  linkType: hard
+
+"tracked-built-ins@npm:^3.2.0":
+  version: 3.3.0
+  resolution: "tracked-built-ins@npm:3.3.0"
+  dependencies:
+    "@embroider/addon-shim": "npm:^1.8.3"
+    ember-tracked-storage-polyfill: "npm:^1.0.0"
+  checksum: e3c9b838e95b04c4bfab705ba95b08763e783a89cd4652f6c06a6843081367aa7562a293e74c3ca1281c1b46851b412d62936d8efae33585bc20eea9387bf0bb
   languageName: node
   linkType: hard
 

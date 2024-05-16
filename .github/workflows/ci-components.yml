@@ -42,17 +42,17 @@ jobs:
           cache-dependency-path: yarn.lock
       - name: Install Dependencies
         run: yarn install --immutable
-      - name: Lint Showcase
-        run: yarn run lint
-        working-directory: showcase
-      - name: Lint Components
-        run: yarn run lint
-        working-directory: packages/components
       - name: Build Icons
         run: yarn build
         working-directory: packages/ember-flight-icons
       - name: Build Components
         run: yarn build
+        working-directory: packages/components
+      - name: Lint Showcase
+        run: yarn run lint
+        working-directory: showcase
+      - name: Lint Components
+        run: yarn run lint
         working-directory: packages/components
       - name: Run Tests
         run: yarn run test:ember:percy
