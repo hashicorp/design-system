@@ -10,7 +10,7 @@ import type { HdsAppFrameHeaderSignature } from './parts/header.ts';
 import type { HdsAppFrameMainSignature } from './parts/main.ts';
 import type { HdsAppFrameModalsSignature } from './parts/modals.ts';
 import type { HdsAppFrameSidebarSignature } from './parts/sidebar.ts';
-export interface HdsAppFrameIndexSignature {
+export interface HdsAppFrameSignature {
   Args: {
     hasFooter?: boolean;
     hasHeader?: boolean;
@@ -32,7 +32,7 @@ export interface HdsAppFrameIndexSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsAppFrameIndexComponent extends Component<HdsAppFrameIndexSignature> {
+export default class HdsAppFrameComponent extends Component<HdsAppFrameSignature> {
   /**
    * Indicates if the "header" container should be displayed
    *

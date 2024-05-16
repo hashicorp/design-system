@@ -18,7 +18,7 @@ import type HdsAppFooterStatusLinkComponent from './components/hds/app-footer/st
 import type HdsBadgeComponent from './components/hds/badge';
 import type HdsBadgeCountComponent from './components/hds/badge-count';
 import type HdsButtonComponent from './components/hds/button';
-import type HdsAppFrameIndexComponent from './components/hds/app-frame';
+import type HdsAppFrameComponent from './components/hds/app-frame';
 import type HdsAppFrameFooterComponent from './components/hds/app-frame/parts/footer';
 import type HdsAppFrameHeaderComponent from './components/hds/app-frame/parts/header';
 import type HdsAppFrameMainComponent from './components/hds/app-frame/parts/main';
@@ -98,29 +98,29 @@ export default interface HdsComponentsRegistry {
   'hds/app-footer/status-link': typeof HdsAppFooterStatusLinkComponent;
   HdsAppFooterStatusLink: typeof HdsAppFooterStatusLinkComponent;
   // App Frame
-  'Hds::AppFrame': typeof HdsAppFrameIndexComponent;
-  'hds/app-frame': typeof HdsAppFrameIndexComponent;
-  HdsAppFrame: typeof HdsAppFrameIndexComponent;
-
-  'Hds::AppFrame::Header': typeof HdsAppFrameHeaderComponent;
-  'hds/app-frame/header': typeof HdsAppFrameHeaderComponent;
-  HdsAppFrameHeader: typeof HdsAppFrameHeaderComponent;
+  'Hds::AppFrame': typeof HdsAppFrameComponent;
+  'hds/app-frame': typeof HdsAppFrameComponent;
+  HdsAppFrame: typeof HdsAppFrameComponent;
 
   'Hds::AppFrame::Footer': typeof HdsAppFrameFooterComponent;
-  'hds/app-frame/footer': typeof HdsAppFrameFooterComponent;
+  'hds/app-frame/parts/footer': typeof HdsAppFrameFooterComponent;
   HdsAppFrameFooter: typeof HdsAppFrameFooterComponent;
 
-  'Hds::AppFrame::Sidebar': typeof HdsAppFrameSidebarComponent;
-  'hds/app-frame/sidebar': typeof HdsAppFrameSidebarComponent;
-  HdsAppFrameSidebar: typeof HdsAppFrameSidebarComponent;
-
-  'Hds::AppFrame::Modals': typeof HdsAppFrameModalsComponent;
-  'hds/app-frame/modals': typeof HdsAppFrameModalsComponent;
-  HdsAppFrameModals: typeof HdsAppFrameModalsComponent;
+  'Hds::AppFrame::Header': typeof HdsAppFrameHeaderComponent;
+  'hds/app-frame/parts/header': typeof HdsAppFrameHeaderComponent;
+  HdsAppFrameHeader: typeof HdsAppFrameHeaderComponent;
 
   'Hds::AppFrame::Main': typeof HdsAppFrameMainComponent;
-  'hds/app-frame/main': typeof HdsAppFrameMainComponent;
+  'hds/app-frame/parts/main': typeof HdsAppFrameMainComponent;
   HdsAppFrameMain: typeof HdsAppFrameMainComponent;
+
+  'Hds::AppFrame::Modals': typeof HdsAppFrameModalsComponent;
+  'hds/app-frame/parts/modals': typeof HdsAppFrameModalsComponent;
+  HdsAppFrameModals: typeof HdsAppFrameModalsComponent;
+
+  'Hds::AppFrame::Sidebar': typeof HdsAppFrameSidebarComponent;
+  'hds/app-frame/parts/sidebar': typeof HdsAppFrameSidebarComponent;
+  HdsAppFrameSidebar: typeof HdsAppFrameSidebarComponent;
 
   // Badge
   'Hds::Badge': typeof HdsBadgeComponent;
