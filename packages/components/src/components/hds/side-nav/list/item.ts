@@ -1,21 +1,10 @@
-import templateOnlyComponent from '@ember/component/template-only';
+import Component from '@glimmer/component';
 
-interface ListItemSignature {
-  Args: {};
+export interface HdsSideNavListItemSignature {
   Blocks: {
     default: [];
   };
   Element: HTMLLIElement;
 }
 
-const ListItemComponent =
-  templateOnlyComponent<ListItemSignature>();
-
-export default ListItemComponent;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'List::Item': typeof ListItemComponent;
-    'list/item': typeof ListItemComponent;
-  }
-}
+export default class HdsSideNavListItemComponent extends Component<HdsSideNavListItemSignature> {}
