@@ -37,6 +37,7 @@ import type HdsLinkStandaloneComponent from './components/hds/link/standalone';
 import type HdsRevealComponent from './components/hds/reveal';
 import type HdsRevealToggleButtonComponent from './components/hds/reveal/toggle/button';
 import type HdsSeparatorComponent from './components/hds/separator';
+import type HdsSideNavBaseComponent from './components/hds/side-nav/base';
 import type HdsSideNavToggleButtonComponent from './components/hds/side-nav/toggle-button';
 import type HdsSideNavPortalComponent from './components/hds/side-nav/portal';
 import type HdsSideNavPortalTargetComponent from './components/hds/side-nav/portal/target';
@@ -186,6 +187,10 @@ export default interface HdsComponentsRegistry {
   'hds/separator': typeof HdsSeparatorComponent;
 
   // Side Nav
+  'Hds::SideNav::Base': typeof HdsSideNavBaseComponent;
+  'hds/side-nav/base': typeof HdsSideNavBaseComponent;
+  HdsSideNavBase: typeof HdsSideNavBaseComponent;
+
   'Hds::SideNav::ToggleButton': typeof HdsSideNavToggleButtonComponent;
   'hds/side-nav/toggle-button': typeof HdsSideNavToggleButtonComponent;
   HdsSideNavToggleButton: typeof HdsSideNavToggleButtonComponent;

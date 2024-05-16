@@ -1,24 +1,13 @@
-import templateOnlyComponent from '@ember/component/template-only';
+import Component from '@glimmer/component';
 
-interface BaseSignature {
-  Args: {};
+export interface HdsSideNavBaseSignature {
   Blocks: {
-    body: [];
-    footer: [];
-    header: [];
-    root: [];
+    root?: [];
+    header?: [];
+    body?: [];
+    footer?: [];
   };
   Element: HTMLDivElement;
 }
 
-const BaseComponent =
-  templateOnlyComponent<BaseSignature>();
-
-export default BaseComponent;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Base': typeof BaseComponent;
-    'base': typeof BaseComponent;
-  }
-}
+export default class HdsSideNavBaseComponent extends Component<HdsSideNavBaseSignature> {}
