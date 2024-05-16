@@ -13,7 +13,7 @@ import type HdsCardContainerComponent from './components/hds/card/container.ts';
 import type HdsDisclosurePrimitiveComponent from './components/hds/disclosure-primitive';
 import type HdsDismissButtonIndexComponent from './components/hds/dismiss-button';
 import type HdsIconTileIndexComponent from './components/hds/icon-tile';
-import type HdsInteractiveIndexComponent from './components/hds/interactive';
+import type HdsInteractiveComponent from './components/hds/interactive';
 import type HdsLinkInlineComponent from './components/hds/link/inline';
 import type HdsLinkStandaloneComponent from './components/hds/link/standalone';
 import type HdsRevealComponent from './components/hds/reveal';
@@ -78,9 +78,9 @@ export default interface HdsComponentsRegistry {
   HdsIconTile: typeof HdsIconTileIndexComponent;
 
   // Interactive
-  'Hds::Interactive': typeof HdsInteractiveIndexComponent;
-  'hds/interactive': typeof HdsInteractiveIndexComponent;
-  HdsInteractive: typeof HdsInteractiveIndexComponent;
+  'Hds::Interactive': typeof HdsInteractiveComponent;
+  'hds/interactive': typeof HdsInteractiveComponent;
+  HdsInteractive: typeof HdsInteractiveComponent;
 
   // Link Inline
   'Hds::Link::Inline': typeof HdsLinkInlineComponent;
