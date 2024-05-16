@@ -60,7 +60,7 @@ export interface HdsAlertSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsAlertIndexComponent extends Component<HdsAlertSignature> {
+export default class HdsAlertComponent extends Component<HdsAlertSignature> {
   @tracked role = 'alert';
   @tracked ariaLabelledBy?: string;
 

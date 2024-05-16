@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import type HdsAlertIndexComponent from './components/hds/alert';
+import type HdsAlertComponent from './components/hds/alert';
 import type HdsAlertDescriptionComponent from './components/hds/alert/description';
 import type HdsAlertTitleComponent from './components/hds/alert/title';
 import type HdsBadgeIndexComponent from './components/hds/badge';
@@ -30,9 +30,9 @@ import type HdsLinkToQueryHelper from './helpers/hds-link-to-query';
 
 export default interface HdsComponentsRegistry {
   // Alert
-  'Hds::Alert': typeof HdsAlertIndexComponent;
-  'hds/alert': typeof HdsAlertIndexComponent;
-  HdsAlert: typeof HdsAlertIndexComponent;
+  'Hds::Alert': typeof HdsAlertComponent;
+  'hds/alert': typeof HdsAlertComponent;
+  HdsAlert: typeof HdsAlertComponent;
 
   'Hds::Alert::Description': typeof HdsAlertDescriptionComponent;
   'hds/alert/description': typeof HdsAlertDescriptionComponent;
