@@ -65,7 +65,6 @@ export default interface HdsComponentsRegistry {
   HdsAlertTitle: typeof HdsAlertTitleComponent;
 
   // AppFooter
-
   'Hds::AppFooter': typeof HdsAppFooterIndexComponent;
   'hds/app-footer': typeof HdsAppFooterIndexComponent;
   HdsAppFooter: typeof HdsAppFooterIndexComponent;
