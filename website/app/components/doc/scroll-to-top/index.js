@@ -14,45 +14,39 @@ export default class DocScrollToTopComponent extends Component {
 
   constructor() {
     super(...arguments);
-    this.addScrollListener();
+    if (!this.fastboot.isFastBoot) {
+      this.addScrollListener();
+    }
   }
 
   willDestroy() {
     super.willDestroy(...arguments);
-    this.removeScrollListener();
+    if (!this.fastboot.isFastBoot) {
+      this.removeScrollListener();
+    }
   }
 
   @action
   scrollToTop() {
-    if (!this.fastboot.isFastBoot) {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      });
-    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   @action
   checkScroll() {
-    if (window.scrollY > 200) {
-      this.isButtonVisible = true;
-    } else {
-      this.isButtonVisible = false;
-    }
+    this.isButtonVisible = window.scrollY > 200;
   }
 
   @action
   addScrollListener() {
     if (!this.fastboot.isFastBoot) {
-      this.scrollFunction = () => this.checkScroll();
-      window.addEventListener('scroll', this.scrollFunction);
+      window.addEventListener('scroll', this.checkScroll);
     }
   }
 
   @action
   removeScrollListener() {
     if (!this.fastboot.isFastBoot) {
-      window.removeEventListener('scroll', this.scrollFunction);
+      window.removeEventListener('scroll', this.checkScroll);
     }
   }
 }
