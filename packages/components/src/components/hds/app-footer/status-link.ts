@@ -99,8 +99,9 @@ export default class HdsAppFooterStatusLinkComponent extends Component<HdsAppFoo
    * @description The text content of the StatusLink
    */
   get text() {
-    if (!this.args.text) {
-      return STATUSES[this.status].text;
+    if (!this.args.text && this.status) {
+      const index = Object.keys(STATUSES).indexOf(this.status);
+      return STATUSES[index]?.text;
     }
     return this.args.text;
   }
