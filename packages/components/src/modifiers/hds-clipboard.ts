@@ -6,8 +6,8 @@
 import { modifier } from 'ember-modifier';
 import { assert, warn } from '@ember/debug';
 
-export const getTextToCopy = (text) => {
-  let textToCopy;
+export const getTextToCopy = (text: { toString: () => string }) => {
+  let textToCopy: string = '';
 
   if (text) {
     if (typeof text === 'string') {
@@ -27,8 +27,9 @@ export const getTextToCopy = (text) => {
   return textToCopy;
 };
 
-export const getTargetElement = (target) => {
-  let targetElement;
+export const getTargetElement = (target: string | Node) => {
+  let targetElement: Node | null;
+
   if (typeof target === 'string') {
     targetElement = document.querySelector(target);
 
@@ -40,7 +41,7 @@ export const getTargetElement = (target) => {
       return;
     }
   } else if (target instanceof Node && target.nodeType === Node.ELEMENT_NODE) {
-    targetElement = target;
+    targetElement = target as Node;
   } else {
     if (target instanceof NodeList) {
       assert(
@@ -55,8 +56,9 @@ export const getTargetElement = (target) => {
   return targetElement;
 };
 
-export const getTextToCopyFromTargetElement = (targetElement) => {
-  let textToCopy;
+export const getTextToCopyFromTargetElement = (targetElement: Node) => {
+  let textToCopy: string = '';
+
   if (
     targetElement instanceof Node &&
     targetElement.nodeType === Node.ELEMENT_NODE
@@ -69,7 +71,7 @@ export const getTextToCopyFromTargetElement = (targetElement) => {
       textToCopy = targetElement.value;
     } else {
       // simplest approach
-      textToCopy = targetElement.innerText;
+      textToCopy = (targetElement as HTMLElement).innerText;
 
       // approach based on text selection (left for backup just in case)
       // var selection = window.getSelection();
@@ -84,7 +86,7 @@ export const getTextToCopyFromTargetElement = (targetElement) => {
   return textToCopy;
 };
 
-export const writeTextToClipboard = async (textToCopy) => {
+export const writeTextToClipboard = async (textToCopy: string) => {
   // finally copy the text to the clipboard using the Clipboard API
   // https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API
   if (textToCopy) {
@@ -108,14 +110,19 @@ export const writeTextToClipboard = async (textToCopy) => {
   }
 };
 
-export const copyToClipboard = async (text, target) => {
-  let textToCopy;
+export const copyToClipboard = async (
+  text: string,
+  target: Node | undefined
+) => {
+  let textToCopy: string = '';
 
   if (text) {
     textToCopy = getTextToCopy(text);
   } else if (target) {
     const targetElement = getTargetElement(target);
-    textToCopy = getTextToCopyFromTargetElement(targetElement);
+    if (targetElement) {
+      textToCopy = getTextToCopyFromTargetElement(targetElement);
+    }
   } else {
     assert(
       '`hds-clipboard` modifier - either a `text` or a `target` argument is required'
@@ -129,15 +136,35 @@ export const copyToClipboard = async (text, target) => {
 // because it's quite simple in its logic, and doesn't require injecting services
 // see: https://github.com/ember-modifier/ember-modifier#function-based-modifiers
 
-export default modifier((element, positional, named) => {
+export default modifier((element, _positional, named) => {
   assert(
     '`hds-clipboard` modifier - the modifier must be applied to an element',
     element
   );
 
-  const { text, target, onSuccess, onError } = named;
+  const {
+    text,
+    target,
+    onSuccess,
+    onError,
+  }: {
+    text: string;
+    target: Node;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onSuccess: (...args: any[]) => void;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onError: (...args: any[]) => void;
+  } = named as {
+    text: string;
+    target: Node;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onSuccess: (...args: any[]) => void;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onError: (...args: any[]) => void;
+  };
 
-  const onClick = async (event) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const onClick = async (event: { currentTarget: any }) => {
     const trigger = event.currentTarget;
     const success = await copyToClipboard(text, target);
 
