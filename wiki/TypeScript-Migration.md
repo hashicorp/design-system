@@ -13,11 +13,11 @@ The following steps are recommended for migrating components to TypeScript.
 4. Define component signature
 
     - You can either do it manually [following the documentation](https://typed-ember.gitbook.io/glint/environments/ember/component-signatures#glimmer-components)
-    - Or, you can generate it using `npx ember-codemod-args-to-signature --src /path/to/component`. This codemod renames the component class name to `IndexComponent` by default, so make sure to revert it (e.g. `HdsBadgeIndexComponent`)
+    - Or, you can generate it using `npx ember-codemod-args-to-signature --src /path/to/component`. This codemod renames the component class name to `IndexComponent` by default, so make sure to revert it (e.g. `HdsBadgeComponent`)
 
 5. Add types and use them in the signature
 
-    - The signature should follow the naming convention (e.g. `HdsBadgeIndexSignature`) and should be placed right before the backing class declaration, so it’s consistent across components
+    - The signature should follow the naming convention (e.g. `HdsBadgeSignature`) and should be placed right before the backing class declaration, so it’s consistent across components
 
     - Compare the signature generated, with the expected arguments using the website documentation (Component API section), and start defining the [basic types](https://www.typescriptlang.org/docs/handbook/basic-types.html) (e.g. `boolean`, `number`, `string`) and mark them as optional using the `argument?: type` syntax.
 
