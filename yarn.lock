@@ -3691,6 +3691,7 @@ __metadata:
     "@tsconfig/ember": "npm:^3.0.6"
     "@types/ember-qunit": "npm:^6.1.1"
     "@types/ember-resolver": "npm:^9.0.0"
+    "@types/ember__destroyable": "npm:^4.0.5"
     "@types/qunit": "npm:^2.19.7"
     "@types/rsvp": "npm:^4.0.6"
     "@typescript-eslint/eslint-plugin": "npm:^6.14.0"
@@ -5256,6 +5257,13 @@ __metadata:
     "@types/ember__engine": "npm:^3"
     "@types/ember__object": "npm:^3"
   checksum: b716d33efcd54969fcd046cf1b63e12bdff859c29284736d745e278fd7025ba0984c5f1a58051bc0fe5c360a20fddb50d4904320fd265280fd232ee12e574aab
+  languageName: node
+  linkType: hard
+
+"@types/ember__destroyable@npm:^4.0.5":
+  version: 4.0.5
+  resolution: "@types/ember__destroyable@npm:4.0.5"
+  checksum: 65fe01e00148427b0d716b18e33b1e36ec32c93176c1fcbeba38338a20d6437d2e31a4ce62ae720714b07f6619cf30c8529f8cdbcd169cc8222516bff14ae8e5
   languageName: node
   linkType: hard
 
