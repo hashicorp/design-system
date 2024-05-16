@@ -26,6 +26,7 @@ import type HdsAppFrameMainComponent from './components/hds/app-frame/parts/main
 import type HdsAppFrameModalsComponent from './components/hds/app-frame/parts/modals';
 import type HdsAppFrameSidebarComponent from './components/hds/app-frame/parts/sidebar';
 import type HdsCardContainerComponent from './components/hds/card/container.ts';
+import type HdsCopyButtonComponent from './components/hds/copy/button/index';
 import type HdsDisclosurePrimitiveComponent from './components/hds/disclosure-primitive';
 import type HdsDismissButtonComponent from './components/hds/dismiss-button';
 import type HdsIconTileComponent from './components/hds/icon-tile';
@@ -128,6 +129,11 @@ export default interface HdsComponentsRegistry {
   // Card
   'Hds::Card': typeof HdsCardContainerComponent;
   'hds/card': typeof HdsCardContainerComponent;
+
+  // Copy Button
+  'Hds::Copy::Button': typeof HdsCopyButtonComponent;
+  'hds/copy/button': typeof HdsCopyButtonComponent;
+  HdsCopyButton: typeof HdsCopyButtonComponent;
 
   // Disclosure Primitive
   'Hds::DisclosurePrimitive': typeof HdsDisclosurePrimitiveComponent;

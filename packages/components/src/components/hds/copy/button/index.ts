@@ -120,10 +120,3 @@ export default class HdsCopyButtonComponent extends Component<HdsCopyButtonSigna
     }, 1500);
   }
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    HdsCopyButton: typeof HdsCopyButtonComponent;
-    index: typeof HdsCopyButtonComponent;
-  }
-}
