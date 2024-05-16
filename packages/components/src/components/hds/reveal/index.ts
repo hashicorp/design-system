@@ -31,18 +31,23 @@ export default class HdsRevealComponent extends Component<HdsRevealSignature> {
   contentId = 'content-' + guidFor(this);
 
   /**
-   * @param text
+   * @param getText
    * @type {string}
-   * @description The text of the button.
+   * @description A local function that emulates a getter to compute the value of the `@text` argument for the button (mainly to make TypeScript happy)
    */
-  get text() {
-    const { text } = this.args;
-
-    assert(
-      '@text for "Hds::Reveal" must have a valid value',
-      text !== undefined
-    );
-
-    return text;
-  }
+  getText = (
+    isOpen: boolean,
+    text: string,
+    textWhenOpen: string | undefined
+  ): string => {
+    if (isOpen && textWhenOpen !== undefined) {
+      return textWhenOpen;
+    } else {
+      if (text !== undefined) {
+        return text;
+      } else {
+        assert('@text for "Hds::Reveal" must have a valid value');
+      }
+    }
+  };
 }
