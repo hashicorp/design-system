@@ -31,14 +31,14 @@ export interface HdsIconTileSignature {
   Args: {
     size?: HdsIconTileSizes;
     color?: HdsIconTileColors;
-    icon?: string | null;
     logo?: HdsIconTileProducts;
+    icon?: string | null;
     iconSecondary?: string;
   };
   Element: HTMLDivElement;
 }
 
-export default class HdsIconTileIndexComponent extends Component<HdsIconTileSignature> {
+export default class HdsIconTileComponent extends Component<HdsIconTileSignature> {
   /**
    * Sets the size for the component
    * Accepted values: small, medium, large
