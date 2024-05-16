@@ -77,7 +77,7 @@ The default values of some [ember-power-select](https://ember-power-select.com) 
     <br><br>
     Set as `true` in `SuperSelect` components to fix a `PowerSelect` accessibility issue. (The opener element or “trigger” should be next to dropdown content it hides & reveals.)
     <br><br>
-    Note: It cannot be overridden.
+    <strong>Note</strong>: It cannot be overridden.
   </C.Property>
   <C.Property @name="searchPlaceholder" @type="string" @default="Search">
     Displays placeholder text in the search input when `@searchEnabled` is set to `true`.
