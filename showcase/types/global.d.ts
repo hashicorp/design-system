@@ -2,6 +2,8 @@ import '@glint/environment-ember-loose';
 import 'ember-source/types';
 import Component from '@ember/component';
 
+import type PageTitle from 'ember-page-title/template-registry';
+
 export interface ShwTxtSignature {
   Args: {
     tag?: string;
@@ -117,7 +119,10 @@ export default interface EmberStyleModifierRegistry {
 }
 
 declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry extends EmberStyleModifierRegistry, HdsComponentsRegistry {
+  export default interface Registry
+    extends EmberStyleModifierRegistry,
+      HdsComponentsRegistry,
+      PageTitle {
     'Shw::Text': typeof ShwTxt;
     'Shw::Text::H1': typeof ShwTxt;
     'Shw::Text::H2': typeof ShwTxt;

@@ -12523,6 +12523,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ember-page-title@npm:^8.2.3":
+  version: 8.2.3
+  resolution: "ember-page-title@npm:8.2.3"
+  dependencies:
+    "@embroider/addon-shim": "npm:^1.8.7"
+    "@simple-dom/document": "npm:^1.4.0"
+  peerDependencies:
+    ember-source: ">= 3.28.0"
+  checksum: 2cceab289fce8ff4d6424ece57d2635edf98ecda6575311e325ef4669b83a76e4e39affe4d3b1e9512f39000aa3133383656b8a740b1532ec57e23e8102849b4
+  languageName: node
+  linkType: hard
+
 "ember-power-select@npm:^7.1.2":
   version: 7.2.0
   resolution: "ember-power-select@npm:7.2.0"
@@ -23491,7 +23503,7 @@ __metadata:
     ember-concurrency: "npm:^3.1.1"
     ember-deep-tracked: "npm:^2.0.0"
     ember-load-initializers: "npm:^2.1.2"
-    ember-page-title: "npm:^8.0.0"
+    ember-page-title: "npm:^8.2.3"
     ember-power-select: "npm:^7.1.2"
     ember-qunit: "npm:^8.0.1"
     ember-resolver: "npm:^11.0.1"
