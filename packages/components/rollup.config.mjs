@@ -19,6 +19,7 @@ const plugins = [
   // addon. Anything not listed here may get optimized away.
   addon.publicEntrypoints([
     '**/*.js',
+    '**/*.ts',
     'index.js',
     'template-registry.js',
     'styles/@hashicorp/design-system-components.scss',
