@@ -38,15 +38,11 @@ export default class DocScrollToTopComponent extends Component {
 
   @action
   addScrollListener() {
-    if (!this.fastboot.isFastBoot) {
-      window.addEventListener('scroll', this.checkScroll);
-    }
+    window.addEventListener('scroll', this.checkScroll);
   }
 
   @action
   removeScrollListener() {
-    if (!this.fastboot.isFastBoot) {
-      window.removeEventListener('scroll', this.checkScroll);
-    }
+    window.removeEventListener('scroll', this.checkScroll);
   }
 }
