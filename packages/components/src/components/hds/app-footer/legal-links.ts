@@ -15,6 +15,9 @@ export interface HdsAppFooterLegalLinksSignature {
     hrefForAccessibility?: string;
     year?: string;
   };
+  Blocks: {
+    default: [];
+  };
   Element: HTMLUListElement;
 }
 
