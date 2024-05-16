@@ -75,8 +75,8 @@ import type HdsTextCodeComponent from './components/hds/text/code';
 import type HdsYieldComponent from './components/hds/yield';
 
 // helpers
-import type HdsLinkToModelsHelper from './helpers/hds-link-to-models';
-import type HdsLinkToQueryHelper from './helpers/hds-link-to-query';
+import type HdsLinkToModelsHelper from './helpers/hds-link-to-models.ts';
+import type HdsLinkToQueryHelper from './helpers/hds-link-to-query.ts';
 
 // modifiers
 import type HdsAnchoredPositionModifier from './modifiers/hds-anchored-position.ts';
