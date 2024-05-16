@@ -6,18 +6,23 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 import { scheduleOnce } from '@ember/runloop';
+import RouterService from '@ember/routing/router-service';
+import type Owner from '@ember/owner';
 
 function replaceMockStates() {
   document.querySelectorAll('[mock-state-value]').forEach((element) => {
     let targets;
-    if (element.attributes['mock-state-selector']) {
-      targets = element.querySelectorAll(
-        element.attributes['mock-state-selector'].value
-      );
+    let mockStateSelector = element.attributes.getNamedItem(
+      'mock-state-selector'
+    );
+    if (mockStateSelector) {
+      targets = element.querySelectorAll(mockStateSelector.value);
     } else {
       targets = [element];
     }
-    const states = element.attributes['mock-state-value'].value.split('+');
+    const states =
+      element.attributes.getNamedItem('mock-state-value')?.value.split('+') ||
+      [];
     const classes = states.map((state) => `mock-${state.trim()}`);
     targets.forEach((target) => {
       target.classList.add(...classes);
@@ -25,18 +30,18 @@ function replaceMockStates() {
   });
 }
 export default class ComponentsController extends Controller {
-  @service router;
+  @service declare readonly router: RouterService;
 
-  constructor() {
-    super(...arguments);
-    this.router.on('routeDidChange', this, 'routeDidChange');
+  constructor(owner: Owner | undefined) {
+    super(owner);
+    this.router.on('routeDidChange', this.routeDidChange);
   }
 
   routeDidChange() {
-    scheduleOnce('afterRender', this, replaceMockStates);
+    scheduleOnce('afterRender', replaceMockStates);
   }
 
   willDestroy() {
-    this.router.off('routeDidChange', this, 'routeDidChange');
+    this.router.off('routeDidChange', this.routeDidChange);
   }
 }
