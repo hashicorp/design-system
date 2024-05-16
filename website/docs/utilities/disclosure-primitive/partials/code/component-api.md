@@ -16,6 +16,9 @@
   <C.Property @name="[:content].close" @type="function">
     A function to programmatically close the DisclosurePrimitive.
   </C.Property>
+  <C.Property @name="isOpen" @default="false" @type="boolean">
+    Toggles the visibility of the content when the toggle button is interacted with. To display content on page load, set the value to true.
+  </C.Property>
   <C.Property @name="onClose" @type="function">
     A callback function invoked when the DisclosurePrimitive is closed (if provided).
   </C.Property>
