@@ -7,6 +7,7 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import type { HdsCopySnippetColors } from './types';
 
 export const DEFAULT_COLOR = 'primary';
 export const COLORS = ['primary', 'secondary'];
@@ -15,9 +16,23 @@ export const SUCCESS_ICON = 'clipboard-checked';
 export const ERROR_ICON = 'clipboard-x';
 export const DEFAULT_STATUS = 'idle';
 
-export default class HdsCopySnippetIndexComponent extends Component {
+interface HdsCopySnippetSignature {
+  Args: {
+    color?: HdsCopySnippetColors;
+    isFullWidth?: boolean;
+    isTruncated?: boolean;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onError?: (...args: any[]) => void;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onSuccess?: (...args: any[]) => void;
+    textToCopy: string;
+  };
+  Element: HTMLButtonElement;
+}
+
+export default class HdsCopySnippetComponent extends Component<HdsCopySnippetSignature> {
   @tracked status = DEFAULT_STATUS;
-  @tracked timer;
+  @tracked timer: ReturnType<typeof setTimeout> | undefined;
 
   /**
    * @param icon
@@ -42,7 +57,7 @@ export default class HdsCopySnippetIndexComponent extends Component {
    * @description Determines the color of button to be used; acceptable values are `primary` and `secondary`
    */
   get color() {
-    let { color = DEFAULT_COLOR } = this.args;
+    const { color = DEFAULT_COLOR } = this.args;
 
     assert(
       `@color for "Hds::Copy::Snippet" must be one of the following: ${COLORS.join(
@@ -80,7 +95,7 @@ export default class HdsCopySnippetIndexComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-copy-snippet'];
+    const classes = ['hds-copy-snippet'];
 
     // add a class based on the @color argument
     classes.push(`hds-copy-snippet--color-${this.color}`);
@@ -102,11 +117,12 @@ export default class HdsCopySnippetIndexComponent extends Component {
   }
 
   @action
-  onSuccess(args) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onSuccess(args: any) {
     this.status = 'success';
     this.resetStatusDelayed();
 
-    let { onSuccess } = this.args;
+    const { onSuccess } = this.args;
 
     if (typeof onSuccess === 'function') {
       onSuccess(args);
@@ -114,11 +130,12 @@ export default class HdsCopySnippetIndexComponent extends Component {
   }
 
   @action
-  onError(args) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onError(args: any) {
     this.status = 'error';
     this.resetStatusDelayed();
 
-    let { onError } = this.args;
+    const { onError } = this.args;
 
     if (typeof onError === 'function') {
       onError(args);
