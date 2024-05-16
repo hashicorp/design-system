@@ -7,7 +7,7 @@
   <:toggle as |t|>
     <Hds::Reveal::Toggle::Button
       aria-controls={{this.contentId}}
-      @text={{this.getText t.isOpen @text @textWhenOpen}}
+      @text={{this.getText t.isOpen}}
       @isOpen={{t.isOpen}}
       {{on "click" t.onClickToggle}}
     />
