@@ -12,7 +12,7 @@ import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
 
 import registerEvent from '../../../modifiers/hds-register-event.ts';
-import anchoredPositionModifier from '../../../modifiers/hds-anchored-position.js';
+import anchoredPositionModifier from '../../../modifiers/hds-anchored-position.ts';
 
 // https://github.com/oddbird/popover-polyfill?tab=readme-ov-file#with-npm
 // this is needed until Firefox releases the version 126 (up to 125 didn't support the Popover API)
