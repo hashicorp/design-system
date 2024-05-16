@@ -33,7 +33,7 @@ export interface HdsAppFooterSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsAppFooterIndexComponent extends Component<HdsAppFooterSignature> {
+export default class HdsAppFooterComponent extends Component<HdsAppFooterSignature> {
   /**
    * @param ariaLabel
    * @type {string}
