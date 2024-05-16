@@ -26,13 +26,13 @@ export interface HdsButtonSignature {
     icon?: string;
     iconPosition?: HdsButtonIconPosition;
     isIconOnly?: boolean;
-    isInline?: boolean;
     isFullWidth?: boolean;
+    isInline?: boolean;
   };
   Element: HdsInteractiveSignature['Element'];
 }
 
-export default class HdsButtonIndexComponent extends Component<HdsButtonSignature> {
+export default class HdsButtonComponent extends Component<HdsButtonSignature> {
   /**
    * @param text
    * @type {string}

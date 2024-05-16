@@ -20,14 +20,14 @@
   <C.Property @name="isFullWidth" @type="boolean" @default="false">
     Indicates that a button should take up the full width of the parent container.
   </C.Property>
+  <C.Property @name="isInline" @type="boolean" @default="false">
+    If an `@isInline` parameter is provided, then the element will be displayed as `inline-block` (useful to achieve specific layouts). Otherwise, it will have a `block` layout.
+  </C.Property>
   <C.Property @name="href">
     URL parameter that is passed down to the `<a>` element.
   </C.Property>
   <C.Property @name="isHrefExternal" @type="boolean" @default="false">
     Controls if the `<a>` link is external and so for security reasons we need to add the `target="_blank"` and `rel="noopener noreferrer"` attributes to it.
-  </C.Property>
-  <C.Property @name="isInline" @type="boolean" @default="false">
-    If an `@isInline` parameter is provided, then the element will be displayed as `inline-block` (useful to achieve specific layouts). Otherwise, it will have a `block` layout.
   </C.Property>
   <C.Property @name="route/models/model/query/current-when/replace">
     Parameters that are passed down as arguments to the `<LinkTo/LinkToExternal>` component.
