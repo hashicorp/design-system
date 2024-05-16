@@ -37,6 +37,14 @@ import type HdsRevealToggleButtonComponent from './components/hds/reveal/toggle/
 import type HdsSeparatorComponent from './components/hds/separator';
 import type HdsStepperStepIndicatorComponent from './components/hds/stepper/step/indicator';
 import type HdsStepperTaskIndicatorComponent from './components/hds/stepper/task/indicator';
+import type HdsTableComponent from './components/hds/table';
+import type HdsTableTdComponent from './components/hds/table/td';
+import type HdsTableThButtonSortComponent from './components/hds/table/th-button-sort';
+import type HdsTableThButtonTooltipComponent from './components/hds/table/th-button-tooltip';
+import type HdsTableThSelectableComponent from './components/hds/table/th-selectable';
+import type HdsTableThSortComponent from './components/hds/table/th-sort';
+import type HdsTableThComponent from './components/hds/table/th';
+import type HdsTableTrComponent from './components/hds/table/tr';
 import type HdsTextComponent from './components/hds/text';
 import type HdsTextBodyComponent from './components/hds/text/body';
 import type HdsTextDisplayComponent from './components/hds/text/display';
@@ -214,6 +222,39 @@ export default interface HdsComponentsRegistry {
   'Hds::Text::Code': typeof HdsTextCodeComponent;
   'hds/text/code': typeof HdsTextCodeComponent;
   HdsTextCode: typeof HdsTextCodeComponent;
+
+  // Table
+  'Hds::Table': typeof HdsTableComponent;
+  'hds/table': typeof HdsTableComponent;
+  HdsTable: typeof HdsTableComponent;
+
+  'Hds::Table::Td': typeof HdsTableTdComponent;
+  'hds/table/td': typeof HdsTableTdComponent;
+  HdsTableTd: typeof HdsTableTdComponent;
+
+  'Hds::Table::Th': typeof HdsTableThComponent;
+  'hds/table/th': typeof HdsTableThComponent;
+  HdsTableTh: typeof HdsTableThComponent;
+
+  'Hds::Table::ThButtonSort': typeof HdsTableThButtonSortComponent;
+  'hds/table/th-button-sort': typeof HdsTableThButtonSortComponent;
+  HdsTableThButtonSort: typeof HdsTableThButtonSortComponent;
+
+  'Hds::Table::ThButtonTooltip': typeof HdsTableThButtonTooltipComponent;
+  'hds/table/th-button-tooltip': typeof HdsTableThButtonTooltipComponent;
+  HdsTableThButtonTooltip: typeof HdsTableThButtonTooltipComponent;
+
+  'Hds::Table::ThSelectable': typeof HdsTableThSelectableComponent;
+  'hds/table/th-selectable': typeof HdsTableThSelectableComponent;
+  HdsTableThSelectable: typeof HdsTableThSelectableComponent;
+
+  'Hds::Table::ThSort': typeof HdsTableThSortComponent;
+  'hds/table/th-sort': typeof HdsTableThSortComponent;
+  HdsTableThSort: typeof HdsTableThSortComponent;
+
+  'Hds::Table::Tr': typeof HdsTableTrComponent;
+  'hds/table/tr': typeof HdsTableTrComponent;
+  HdsTableTr: typeof HdsTableTrComponent;
 
   // Tag
   'Hds::Tag': typeof HdsTagComponent;

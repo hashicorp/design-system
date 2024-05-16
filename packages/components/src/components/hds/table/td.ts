@@ -5,11 +5,22 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import { HdsTableCellTextAlignValues } from './types.ts';
 
-const ALIGNMENTS = ['left', 'center', 'right'];
-const DEFAULT_ALIGN = 'left';
+const ALIGNMENTS = string[] = Object.values(HdsTableCellTextAlignValues);
+const DEFAULT_ALIGN = HdsTableCellTextAlignValues.Left;
 
-export default class HdsTableTdComponent extends Component {
+interface TdSignature {
+  Args: {
+    align?: HdsTableCellTextAlignValues;
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLTableCellElement;
+}
+
+export default class TdComponent extends Component<TdSignature> {
   /**
    * @param align
    * @type {string}

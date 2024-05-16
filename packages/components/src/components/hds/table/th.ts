@@ -7,10 +7,26 @@ import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { assert } from '@ember/debug';
 
-const ALIGNMENTS = ['left', 'center', 'right'];
+import { HdsTableCellTextAlignValues } from './types.ts';
+
+const ALIGNMENTS = string[] = Object.values(HdsTableCellTextAlignValues);
 const DEFAULT_ALIGN = 'left';
 
-export default class HdsTableThComponent extends Component {
+export interface ThSignature {
+  Args: {
+    align: HdsTableCellTextAlignValues;
+    isVisuallyHidden: unknown;
+    scope: unknown;
+    tooltip: unknown;
+    width: unknown;
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLTableCellElement;
+}
+
+export default class ThComponent extends Component<ThSignature> {
   /**
    * Generates a unique ID for the <span> element ("label")
    *

@@ -8,7 +8,20 @@ import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
 
-export default class HdsTableThSelectableComponent extends Component {
+export interface ThSelectableSignature {
+  Args: {
+    didInsert: unknown;
+    isSelected: unknown;
+    onSelectionChange: unknown;
+    selectionAriaLabelSuffix: unknown;
+    selectionKey: unknown;
+    selectionScope: unknown;
+    willDestroy: unknown;
+  };
+  Element: HTMLElement;
+}
+
+export default class ThSelectableComponent extends Component<ThSelectableSignature> {
   @tracked isSelected = this.args.isSelected;
 
   /**
@@ -18,7 +31,7 @@ export default class HdsTableThSelectableComponent extends Component {
   checkboxId = 'checkbox-' + guidFor(this);
 
   get ariaLabel() {
-    let { selectionAriaLabelSuffix } = this.args;
+    const { selectionAriaLabelSuffix } = this.args;
     const prefix = this.isSelected ? 'Deselect' : 'Select';
     if (selectionAriaLabelSuffix) {
       return `${prefix} ${selectionAriaLabelSuffix}`;
@@ -29,7 +42,7 @@ export default class HdsTableThSelectableComponent extends Component {
 
   @action
   didInsert(checkbox) {
-    let { didInsert } = this.args;
+    const { didInsert } = this.args;
     if (typeof didInsert === 'function') {
       didInsert(checkbox, this.args.selectionKey);
       // we need to use a custom event listener here because changing the `checked` value via JS
@@ -46,7 +59,7 @@ export default class HdsTableThSelectableComponent extends Component {
   @action
   willDestroy(checkbox) {
     super.willDestroy(...arguments);
-    let { willDestroy } = this.args;
+    const { willDestroy } = this.args;
     if (typeof willDestroy === 'function') {
       willDestroy(this.args.selectionKey);
       if (checkbox) {
@@ -62,7 +75,7 @@ export default class HdsTableThSelectableComponent extends Component {
   @action
   onSelectionChange(event) {
     this.isSelected = event.target.checked;
-    let { onSelectionChange } = this.args;
+    const { onSelectionChange } = this.args;
     if (typeof onSelectionChange === 'function') {
       onSelectionChange(event.target, this.args.selectionKey);
     }
@@ -71,5 +84,12 @@ export default class HdsTableThSelectableComponent extends Component {
   updateAriaLabel(event) {
     // updating the `isSelected` value will trigger the update of the `aria-label` value via the `ariaLabel` getter
     this.isSelected = event.target.checked;
+  }
+}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    ThSelectable: typeof ThSelectableComponent;
+    'th-selectable': typeof ThSelectableComponent;
   }
 }

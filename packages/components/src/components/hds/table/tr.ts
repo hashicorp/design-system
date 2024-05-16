@@ -6,7 +6,24 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-export default class HdsTableTrComponent extends Component {
+export interface TrSignature {
+  Args: {
+    didInsert: unknown;
+    isSelectable: unknown;
+    isSelected: unknown;
+    onSelectionChange: unknown;
+    selectionAriaLabelSuffix: unknown;
+    selectionKey: unknown;
+    selectionScope: unknown;
+    willDestroy: unknown;
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLTableRowElement;
+}
+
+export default class TrComponent extends Component<TrSignature> {
   /**
    * @param selectionKey
    * @type {string}

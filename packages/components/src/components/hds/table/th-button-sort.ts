@@ -8,7 +8,16 @@ import { guidFor } from '@ember/object/internals';
 
 const NOOP = () => {};
 
-export default class HdsTableThButtonSortComponent extends Component {
+export interface ThButtonSortSignature {
+  Args: {
+    labelId: unknown;
+    onClick: unknown;
+    sortOrder: unknown;
+  };
+  Element: HTMLButtonElement;
+}
+
+export default class ThButtonSortComponent extends Component<ThButtonSortSignature> {
   /**
    * Generates a unique ID for the (hidden) "label prefix/suffix" <span> elements
    *
@@ -50,7 +59,7 @@ export default class HdsTableThButtonSortComponent extends Component {
    * @default () => {}
    */
   get onClick() {
-    let { onClick } = this.args;
+    const { onClick } = this.args;
 
     if (typeof onClick === 'function') {
       return onClick;
@@ -65,7 +74,7 @@ export default class HdsTableThButtonSortComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-table__th-button', 'hds-table__th-button--sort'];
+    const classes = ['hds-table__th-button', 'hds-table__th-button--sort'];
 
     // add a class based on the @sortOrder argument
     if (this.args.sortOrder === 'asc' || this.args.sortOrder === 'desc') {
@@ -73,5 +82,12 @@ export default class HdsTableThButtonSortComponent extends Component {
     }
 
     return classes.join(' ');
+  }
+}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    ThButtonSort: typeof ThButtonSortComponent;
+    'th-button-sort': typeof ThButtonSortComponent;
   }
 }

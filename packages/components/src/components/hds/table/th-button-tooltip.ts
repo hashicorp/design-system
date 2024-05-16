@@ -6,7 +6,15 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 
-export default class HdsTableThButtonTooltipComponent extends Component {
+export interface ThButtonTooltipSignature {
+  Args: {
+    labelId: unknown;
+    tooltip: unknown;
+  };
+  Element: HTMLButtonElement;
+}
+
+export default class ThButtonTooltipComponent extends Component<ThButtonTooltipSignature> {
   /**
    * Generates a unique ID for the (hidden) "label prefix" <span> element
    *
@@ -20,8 +28,15 @@ export default class HdsTableThButtonTooltipComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-table__th-button', 'hds-table__th-button--tooltip'];
+    const classes = ['hds-table__th-button', 'hds-table__th-button--tooltip'];
 
     return classes.join(' ');
+  }
+}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    ThButtonTooltip: typeof ThButtonTooltipComponent;
+    'th-button-tooltip': typeof ThButtonTooltipComponent;
   }
 }

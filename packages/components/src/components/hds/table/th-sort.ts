@@ -10,7 +10,21 @@ import { assert } from '@ember/debug';
 const ALIGNMENTS = ['left', 'center', 'right'];
 const DEFAULT_ALIGN = 'left';
 
-export default class HdsTableThSortComponent extends Component {
+export interface ThSortSignature {
+  Args: {
+    align: unknown;
+    onClickSort: unknown;
+    sortOrder: unknown;
+    tooltip: unknown;
+    width: unknown;
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLTableCellElement;
+}
+
+export default class ThSortComponent extends Component<ThSortSignature> {
   /**
    * Generates a unique ID for the <span> element ("label")
    *
@@ -44,7 +58,7 @@ export default class HdsTableThSortComponent extends Component {
    * @description Determines the text alignment of the header or cell content. Options are: "left", "center", "right". If no align is defined, "left" is used.
    */
   get align() {
-    let { align = DEFAULT_ALIGN } = this.args;
+    const { align = DEFAULT_ALIGN } = this.args;
 
     assert(
       `@align for "Hds::Table" must be one of the following: ${ALIGNMENTS.join(
@@ -61,7 +75,7 @@ export default class HdsTableThSortComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-table__th', 'hds-table__th--sort'];
+    const classes = ['hds-table__th', 'hds-table__th--sort'];
 
     // add a class based on the @align argument
     if (this.align) {
@@ -69,5 +83,12 @@ export default class HdsTableThSortComponent extends Component {
     }
 
     return classes.join(' ');
+  }
+}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    ThSort: typeof ThSortComponent;
+    'th-sort': typeof ThSortComponent;
   }
 }

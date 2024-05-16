@@ -18,3 +18,11 @@ export enum HdsTableDensityValues {
 }
 
 export type HdsTableDensity = `${HdsTableDensityValues}`;
+
+export enum HdsTableCellTextAlignValues {
+  Left = 'left',
+  Center = 'center',
+  Right = 'right',
+}
+
+export type HdsTableCellTextAlign = `${HdsTableCellTextAlignValues}`;
