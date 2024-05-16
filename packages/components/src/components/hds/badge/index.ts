@@ -5,6 +5,7 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+
 import {
   HdsBadgeColorValues,
   HdsBadgeSizeValues,
@@ -22,17 +23,17 @@ export const DEFAULT_COLOR = HdsBadgeColorValues.Neutral;
 
 export interface HdsBadgeSignature {
   Args: {
-    text: string;
-    color?: HdsBadgeColors;
-    icon?: string | null;
-    isIconOnly?: boolean;
     size?: HdsBadgeSizes;
     type?: HdsBadgeTypes;
+    color?: HdsBadgeColors;
+    text: string;
+    icon?: string | null;
+    isIconOnly?: boolean;
   };
   Element: HTMLDivElement;
 }
 
-export default class HdsBadgeIndexComponent extends Component<HdsBadgeSignature> {
+export default class HdsBadgeComponent extends Component<HdsBadgeSignature> {
   /**
    * Sets the size for the component
    * Accepted values: small, medium, large
