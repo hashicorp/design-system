@@ -7,6 +7,11 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import type {
+  HdsCopyButtonSizes,
+  HdsCopyButtonTargetToCopy,
+  HdsCopyButtonTextToCopy,
+} from './types';
 
 export const DEFAULT_SIZE = 'medium';
 export const SIZES = ['small', 'medium'];
@@ -23,12 +28,10 @@ export interface HdsCopyButtonSignature {
     onError?: (...args: any[]) => void;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onSuccess?: (...args: any[]) => void;
-    size?: 'small' | 'medium'; // TODO: create new type?
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    targetToCopy?: string | ((...args: any[]) => void); // TODO: create new type?
+    size?: HdsCopyButtonSizes;
+    targetToCopy?: HdsCopyButtonTargetToCopy;
     text: string;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    textToCopy?: string | ((...args: any[]) => void); // TODO: create new type?
+    textToCopy?: HdsCopyButtonTextToCopy;
   };
   Element: HTMLElement;
 }
