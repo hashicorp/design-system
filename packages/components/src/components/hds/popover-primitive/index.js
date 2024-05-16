@@ -11,7 +11,7 @@ import { next } from '@ember/runloop';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
 
-import registerEvent from '../../../modifiers/hds-register-event.js';
+import registerEvent from '../../../modifiers/hds-register-event.ts';
 import anchoredPositionModifier from '../../../modifiers/hds-anchored-position.js';
 
 // https://github.com/oddbird/popover-polyfill?tab=readme-ov-file#with-npm
