@@ -30,7 +30,7 @@ import {
 export {
   PLACEMENTS,
   DEFAULT_PLACEMENT,
-} from '../../../modifiers/hds-anchored-position.js';
+} from '../../../modifiers/hds-anchored-position.ts';
 
 export default class HdsPopoverPrimitiveComponent extends Component {
   @tracked isOpen = this.args.isOpen ?? false;
