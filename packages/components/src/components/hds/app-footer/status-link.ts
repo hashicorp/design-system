@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
-import type { SafeString } from '@ember/template';
+import type { SafeString } from '@ember/template/-private/handlebars';
 import { assert } from '@ember/debug';
 
 import type { HdsInteractiveSignature } from '../interactive/';
