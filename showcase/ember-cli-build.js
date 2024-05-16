@@ -9,6 +9,10 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
+    'ember-cli-babel': {
+      enableTypeScriptTransform: true,
+    },
+
     // See https://github.com/adopted-ember-addons/ember-cli-sass
     sassOptions: {
       precision: 4,
