@@ -61,10 +61,10 @@ export const AVAILABLE_WEIGHTS_PER_SIZE: Record<
 export interface HdsTextBodySignature {
   Args: {
     size?: HdsTextBodySizes;
-    color?: string | HdsTextColors;
     tag?: HdsTextTags;
-    align?: HdsTextAligns;
     weight?: HdsTextBodyWeight;
+    align?: HdsTextAligns;
+    color?: string | HdsTextColors;
   };
   Element:
     | HTMLSpanElement
