@@ -16,6 +16,8 @@ import type HdsIconTileIndexComponent from './components/hds/icon-tile';
 import type HdsInteractiveIndexComponent from './components/hds/interactive';
 import type HdsLinkInlineComponent from './components/hds/link/inline';
 import type HdsLinkStandaloneComponent from './components/hds/link/standalone';
+import type HdsRevealComponent from './components/hds/reveal';
+import type HdsRevealToggleButtonComponent from './components/hds/reveal/toggle/button';
 import type HdsTextIndexComponent from './components/hds/text';
 import type HdsTextBodyComponent from './components/hds/text/body';
 import type HdsTextDisplayComponent from './components/hds/text/display';
@@ -89,6 +91,15 @@ export default interface HdsComponentsRegistry {
   'Hds::Link::Standalone': typeof HdsLinkStandaloneComponent;
   'hds/link/standalone': typeof HdsLinkStandaloneComponent;
   HdsLinkStandalone: typeof HdsLinkStandaloneComponent;
+
+  // Reveal
+  'Hds::Reveal': typeof HdsRevealComponent;
+  'hds/reveal': typeof HdsRevealComponent;
+  HdsReveal: typeof HdsRevealComponent;
+
+  'Hds::Reveal::Toggle::Button': typeof HdsRevealToggleButtonComponent;
+  'hds/reveal/toggle/button': typeof HdsRevealToggleButtonComponent;
+  HdsRevealToggleButtonComponent: typeof HdsRevealToggleButtonComponent;
 
   // Text
   'Hds::Text': typeof HdsTextIndexComponent;

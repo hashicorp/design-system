@@ -5,14 +5,24 @@
 
 import Component from '@glimmer/component';
 
-export default class HdsDropdownToggleButtonComponent extends Component {
+import type { HdsButtonSignature } from '../../button/';
+
+export interface HdsRevealToggleButtonSignature {
+  Args: {
+    text: string;
+    isOpen?: boolean;
+  };
+  Element: HdsButtonSignature['Element'];
+}
+
+export default class HdsRevealToggleButtonComponent extends Component<HdsRevealToggleButtonSignature> {
   /**
    * Get the class names to apply to the component.
    * @method ToggleButton#classNames
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-reveal__toggle-button'];
+    const classes = ['hds-reveal__toggle-button'];
 
     // add a class based on the @isOpen argument
     if (this.args.isOpen) {

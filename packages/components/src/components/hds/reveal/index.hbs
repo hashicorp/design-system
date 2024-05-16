@@ -1,4 +1,3 @@
-{{! @glint-nocheck: not typesafe yet }}
 {{!
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
@@ -8,7 +7,7 @@
   <:toggle as |t|>
     <Hds::Reveal::Toggle::Button
       aria-controls={{this.contentId}}
-      @text={{if (and t.isOpen @textWhenOpen) @textWhenOpen this.text}}
+      @text={{this.getText t.isOpen}}
       @isOpen={{t.isOpen}}
       {{on "click" t.onClickToggle}}
     />
