@@ -6,32 +6,25 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-interface HeaderHomeLinkSignature {
-  Args: {
-    ariaLabel: unknown;
-    color: unknown;
-    'current-when': unknown;
-    href: unknown;
-    icon: unknown;
-    isHrefExternal: unknown;
-    isRouteExternal: unknown;
-    model: unknown;
-    models: unknown;
-    query: unknown;
-    replace: unknown;
-    route: unknown;
+import type { HdsInteractiveSignature } from '../../interactive/';
+
+interface HdsSideNavHeaderHomeLinkSignature {
+  Args: HdsInteractiveSignature['Args'] & {
+    icon: string;
+    color?: string;
+    ariaLabel: string;
   };
-  Element: HTMLElement;
+  Element: HdsInteractiveSignature['Element'];
 }
 
-export default class HeaderHomeLinkComponent extends Component<HeaderHomeLinkSignature> {
+export default class HdsSideNavHeaderHomeLinkComponent extends Component<HdsSideNavHeaderHomeLinkSignature> {
   /**
    * @param ariaLabel
    * @type {string}
    * @description The value of `aria-label`
    */
   get ariaLabel() {
-    let { ariaLabel } = this.args;
+    const { ariaLabel } = this.args;
 
     assert(
       '@ariaLabel for "Hds::SideNav::Header::HomeLink" ("Logo") must have a valid value',
@@ -39,12 +32,5 @@ export default class HeaderHomeLinkComponent extends Component<HeaderHomeLinkSig
     );
 
     return ariaLabel;
-  }
-}
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Header::HomeLink': typeof HeaderHomeLinkComponent;
-    'header/home-link': typeof HeaderHomeLinkComponent;
   }
 }
