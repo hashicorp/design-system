@@ -12,7 +12,7 @@ export interface HdsDismissButtonSignature {
   Element: HTMLButtonElement;
 }
 
-export default class HdsDismissButtonIndexComponent extends Component<HdsDismissButtonSignature> {
+export default class HdsDismissButtonComponent extends Component<HdsDismissButtonSignature> {
   /**
    * @param ariaLabel
    * @type {string}
