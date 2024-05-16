@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 
-export interface HdsAccordionItemIndexSignature {
+export interface HdsAccordionItemSignature {
   Args: {
     ariaLabel?: string;
     containsInteractive?: boolean;
@@ -19,7 +19,7 @@ export interface HdsAccordionItemIndexSignature {
   Element: HTMLElement;
 }
 
-export default class HdsAccordionItemIndexComponent extends Component<HdsAccordionItemIndexSignature> {
+export default class HdsAccordionItemComponent extends Component<HdsAccordionItemSignature> {
   /**
    * Generates a unique ID for the Content
    *

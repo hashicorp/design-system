@@ -1,16 +1,16 @@
 import Component from '@glimmer/component';
 import type { ComponentLike } from '@glint/template';
-import type { HdsAccordionItemIndexSignature } from './item/index.ts';
+import type { HdsAccordionItemSignature } from './item/index.ts';
 
-interface HdsAccordionIndexSignature {
+interface HdsAccordionSignature {
   Blocks: {
     default: [
       {
-        Item?: ComponentLike<HdsAccordionItemIndexSignature>;
+        Item?: ComponentLike<HdsAccordionItemSignature>;
       }
     ];
   };
   Element: HTMLDivElement;
 }
 
-export default class HdsAccordionIndexComponent extends Component<HdsAccordionIndexSignature> {}
+export default class HdsAccordionIndexComponent extends Component<HdsAccordionSignature> {}

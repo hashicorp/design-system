@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import type HdsAccordionIndexComponent from './components/hds/accordion';
-import type HdsAccordionItemIndexComponent from './components/hds/accordion/item';
+import type HdsAccordionComponent from './components/hds/accordion';
+import type HdsAccordionItemComponent from './components/hds/accordion/item';
 import type HdsAccordionItemButtonComponent from './components/hds/accordion/item/button';
 import type HdsAlertComponent from './components/hds/alert';
 import type HdsAlertDescriptionComponent from './components/hds/alert/description';
@@ -33,13 +33,13 @@ import type HdsLinkToQueryHelper from './helpers/hds-link-to-query';
 
 export default interface HdsComponentsRegistry {
   // Accordion
-  'Hds::Accordion': typeof HdsAccordionIndexComponent;
-  'hds/accordion': typeof HdsAccordionIndexComponent;
-  HdsAccordion: typeof HdsAccordionIndexComponent;
+  'Hds::Accordion': typeof HdsAccordionComponent;
+  'hds/accordion': typeof HdsAccordionComponent;
+  HdsAccordion: typeof HdsAccordionComponent;
 
-  'Hds::Accordion::Item': typeof HdsAccordionItemButtonComponent;
-  'hds/accordion/item': typeof HdsAccordionItemButtonComponent;
-  HdsAccordionItem: typeof HdsAccordionItemIndexComponent;
+  'Hds::Accordion::Item': typeof HdsAccordionItemComponent;
+  'hds/accordion/item': typeof HdsAccordionItemComponent;
+  HdsAccordionItem: typeof HdsAccordionItemComponent;
 
   'Hds::Accordion::Item::Button': typeof HdsAccordionItemButtonComponent;
   'hds/accordion/item/button': typeof HdsAccordionItemButtonComponent;
