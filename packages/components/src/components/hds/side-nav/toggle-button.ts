@@ -1,20 +1,10 @@
-import templateOnlyComponent from '@ember/component/template-only';
+import Component from '@glimmer/component';
 
-interface ToggleButtonSignature {
+interface HdsSideNavToggleButtonSignature {
   Args: {
-    icon: unknown;
+    icon: string;
   };
   Element: HTMLButtonElement;
 }
 
-const ToggleButtonComponent =
-  templateOnlyComponent<ToggleButtonSignature>();
-
-export default ToggleButtonComponent;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'ToggleButton': typeof ToggleButtonComponent;
-    'toggle-button': typeof ToggleButtonComponent;
-  }
-}
+export default class HdsSideNavToggleButtonComponent extends Component<HdsSideNavToggleButtonSignature> {}
