@@ -85,7 +85,7 @@ export default interface HdsComponentsRegistry {
   'hds/app-footer/link': typeof HdsAppFooterLinkComponent;
   HdsAppFooterLink: typeof HdsAppFooterLinkComponent;
 
-  'Hds::AppFooter::Statuslink': typeof HdsAppFooterStatusLinkComponent;
+  'Hds::AppFooter::StatusLink': typeof HdsAppFooterStatusLinkComponent;
   'hds/app-footer/status-link': typeof HdsAppFooterStatusLinkComponent;
   HdsAppFooterStatusLink: typeof HdsAppFooterStatusLinkComponent;
 

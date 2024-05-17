@@ -9,10 +9,6 @@ export interface HdsAppFooterCopyrightSignature {
   Args: {
     year?: string;
   };
-
-  Blocks: {
-    default: [];
-  };
   Element: HTMLDivElement;
 }
 

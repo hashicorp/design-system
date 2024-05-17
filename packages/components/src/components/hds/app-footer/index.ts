@@ -22,10 +22,10 @@ export interface HdsAppFooterSignature {
     default: [
       {
         ExtraBefore?: ComponentLike<HdsYieldSignature>;
-        Item?: ComponentLike<HdsAppFooterItemSignature>;
+        StatusLink?: ComponentLike<HdsAppFooterStatusLinkSignature>;
         LegalLinks?: ComponentLike<HdsAppFooterLegalLinksSignature>;
         Link?: ComponentLike<HdsAppFooterLinkSignature>;
-        StatusLink?: ComponentLike<HdsAppFooterStatusLinkSignature>;
+        Item?: ComponentLike<HdsAppFooterItemSignature>;
         ExtraAfter?: ComponentLike<HdsYieldSignature>;
       }
     ];

@@ -7,20 +7,18 @@ import Component from '@glimmer/component';
 
 import type { HdsInteractiveSignature } from '../interactive/';
 import type { HdsLinkColors, HdsLinkIconPositions } from '../link/types.ts';
+import type { HdsAppFooterItemSignature } from './item.ts';
 
 export interface HdsAppFooterLinkSignature {
   Args: HdsInteractiveSignature['Args'] & {
     color?: HdsLinkColors;
-    href?: string;
     icon?: string;
     iconPosition?: HdsLinkIconPositions;
-    isHrefExternal?: boolean;
-    isRouteExternal?: boolean;
   };
   Blocks: {
     default: [];
   };
-  Element: HdsInteractiveSignature['Element'];
+  Element: HdsAppFooterItemSignature['Element'];
 }
 
-export default class HdsAlertDescriptionComponent extends Component<HdsAppFooterLinkSignature> {}
+export default class HdsAppFooterLinkComponent extends Component<HdsAppFooterLinkSignature> {}

@@ -11,6 +11,7 @@ import { assert } from '@ember/debug';
 import type { HdsInteractiveSignature } from '../interactive/';
 import { HdsAppFooterStatusLinkStatusValues } from './types.ts';
 import type { HdsAppFooterStatusTypes } from './types.ts';
+import type { HdsAppFooterLinkSignature } from './link.ts';
 
 export const STATUSES = HdsAppFooterStatusLinkStatusValues;
 
@@ -22,10 +23,7 @@ export interface HdsAppFooterStatusLinkSignature {
     statusIconColor?: string;
     text?: string;
   };
-  Blocks: {
-    default: [];
-  };
-  Element: HdsInteractiveSignature['Element'];
+  Element: HdsAppFooterLinkSignature['Element'];
 }
 
 export default class HdsAppFooterStatusLinkComponent extends Component<HdsAppFooterStatusLinkSignature> {

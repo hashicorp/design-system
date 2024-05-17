@@ -13,10 +13,6 @@ export interface HdsAppFooterLegalLinksSignature {
     hrefForSecurity?: string;
     hrefForSupport?: string;
     hrefForAccessibility?: string;
-    year?: string;
-  };
-  Blocks: {
-    default: [];
   };
   Element: HTMLUListElement;
 }
