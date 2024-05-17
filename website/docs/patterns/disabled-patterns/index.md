@@ -2,8 +2,8 @@
 title: Disabled patterns
 description: Guidelines for content display based on user permissions and actions.
 caption: Guidelines for content display based on user permissions and actions.
-related: 
-previewImage: 
+related: ['components/button', 'components/form/text-input']
+previewImage: assets/illustrations/patterns/disabled-state-patterns.jpg
 navigation:
   keywords: ['disabled', 'hide']
 ---
