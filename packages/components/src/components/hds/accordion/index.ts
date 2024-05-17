@@ -1,4 +1,4 @@
-import Component from '@glimmer/component';
+import TemplateOnlyComponent from '@ember/component/template-only';
 import type { ComponentLike } from '@glint/template';
 import type { HdsAccordionItemSignature } from './item/index.ts';
 
@@ -13,4 +13,6 @@ interface HdsAccordionSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsAccordionIndexComponent extends Component<HdsAccordionSignature> {}
+const HdsAccordionComponent = TemplateOnlyComponent<HdsAccordionSignature>();
+
+export default HdsAccordionComponent;
