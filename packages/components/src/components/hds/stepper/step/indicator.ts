@@ -6,10 +6,22 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-export const DEFAULT_STATUS = 'incomplete';
-export const STATUSES = ['incomplete', 'progress', 'processing', 'complete'];
+import { HdsStepperStatusesValues } from '../types.ts';
+import type { HdsStepperStatuses } from '../types.ts';
 
-export default class HdsStepperIndicatorStepIndexComponent extends Component {
+export const DEFAULT_STATUS = HdsStepperStatusesValues.Incomplete;
+export const STATUSES: string[] = Object.values(HdsStepperStatusesValues);
+
+interface HdsStepperIndicatorStepSignature {
+  Args: {
+    isInteractive?: boolean;
+    status: HdsStepperStatuses;
+    text: string;
+  };
+  Element: HTMLDivElement;
+}
+
+export default class HdsStepperIndicatorStepComponent extends Component<HdsStepperIndicatorStepSignature> {
   /**
    * @param status
    * @type {string}
@@ -17,7 +29,7 @@ export default class HdsStepperIndicatorStepIndexComponent extends Component {
    */
 
   get status() {
-    let { status = DEFAULT_STATUS } = this.args;
+    const { status = DEFAULT_STATUS } = this.args;
 
     assert(
       `@status for "Hds::Stepper::Step::Indicator" must be one of the following: ${STATUSES.join(
@@ -45,7 +57,7 @@ export default class HdsStepperIndicatorStepIndexComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-stepper-indicator-step'];
+    const classes = ['hds-stepper-indicator-step'];
 
     // Based on the @status arg
     classes.push(`hds-stepper-indicator-step--status-${this.status}`);

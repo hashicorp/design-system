@@ -22,6 +22,8 @@ import type HdsLinkStandaloneComponent from './components/hds/link/standalone';
 import type HdsRevealComponent from './components/hds/reveal';
 import type HdsRevealToggleButtonComponent from './components/hds/reveal/toggle/button';
 import type HdsSeparatorComponent from './components/hds/separator';
+import type HdsStepperIndicatorStepComponent from './components/hds/stepper/step/indicator';
+import type HdsStepperIndicatorTaskComponent from './components/hds/stepper/task/indicator';
 import type HdsTextComponent from './components/hds/text';
 import type HdsTextBodyComponent from './components/hds/text/body';
 import type HdsTextDisplayComponent from './components/hds/text/display';
@@ -118,9 +120,19 @@ export default interface HdsComponentsRegistry {
   'hds/reveal/toggle/button': typeof HdsRevealToggleButtonComponent;
   HdsRevealToggleButtonComponent: typeof HdsRevealToggleButtonComponent;
 
+  // Separator
   'Hds::Separator': typeof HdsSeparatorComponent;
   'hds/separator': typeof HdsSeparatorComponent;
   HdsSeparator: typeof HdsSeparatorComponent;
+
+  // Stepper
+  'Hds::Stepper::Step::Indicator': typeof HdsStepperIndicatorStepComponent;
+  'hds/stepper/step/indicator': typeof HdsStepperIndicatorStepComponent;
+  HdsStepperStepIndicator: typeof HdsStepperIndicatorStepComponent;
+
+  'Hds::Stepper::Task::Indicator': typeof HdsStepperIndicatorTaskComponent;
+  'hds/stepper/task/indicator': typeof HdsStepperIndicatorTaskComponent;
+  HdsStepperTaskIndicator: typeof HdsStepperIndicatorTaskComponent;
 
   // Text
   'Hds::Text': typeof HdsTextComponent;
