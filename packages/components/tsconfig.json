@@ -18,7 +18,13 @@
     "emitDeclarationOnly": true,
     "noEmit": false,
     "skipLibCheck": true,
-    "rootDir": "./src"
+    "rootDir": "./src",
+    // Resolve template-only from ember-source instead of @types/ember__component@v3
+    "paths": {
+      "@ember/component/template-only": [
+        "../../node_modules/ember-source/types/stable/@ember/component/template-only.d.ts"
+      ],
+    }
   },
   "include": ["src/**/*", "unpublished-development-types/**/*"],
   "glint": {
