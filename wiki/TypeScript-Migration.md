@@ -21,6 +21,8 @@ The following steps are recommended for migrating components to TypeScript.
 
     - Compare the signature generated, with the expected arguments using the website documentation (Component API section), and start defining the [basic types](https://www.typescriptlang.org/docs/handbook/basic-types.html) (e.g. `boolean`, `number`, `string`) and mark them as optional using the `argument?: type` syntax.
 
+    - Try to keep the order of the arguments consistent between the `Args` in the signature and the "Component API" documentation, so it's easier to reference and compare one to another; there are no specific rules about the order, so look at other similar components as reference (for example, `Button`, `Badge/BadgeCount`, `IconTile`, `LinkInline/Standalone`, `Tag` they all share some common props, like `type`, `size`, `color`, `text`, `textSomething`, `icon`, `iconSomething` so try to keep this order; for component that get their arguments from the `Interactive` component, keep all the `Interactive`-related arguments in the same block and order; etc.)
+
     - For more involved types, such as `enum`s, conditional, and mapped types, create a `types.ts` file colocated with the component (a single file in the “root” of the component, containing types for components and sub-components).
       - By separating types into their own files, we can keep your codebase more organized and easier to navigate. It also makes it easier to find and update type definitions. Keeping types separate from component logic helps maintain a clear separation of concerns making the component code easier to understand and maintain.
       - These types need to be exported, as they will be “consumed” in the backing class for the component/sub-components
