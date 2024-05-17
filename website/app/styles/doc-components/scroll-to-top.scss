@@ -11,7 +11,9 @@
   border-radius: 50%;
   box-shadow: 0 8px 12px 0 rgba(37, 38, 45, 8%);
   cursor: pointer;
+  opacity: 0;
   transition: bottom 150ms linear;
+  transition: opacity .5s ease-in-out;
 
   &:hover {
     background-color: rgba(29, 30, 31, 80%);
@@ -23,4 +25,8 @@
     border-color: #fff;
     outline: 3px solid var(--doc-focus-ring-color);
   }
+}
+
+.doc-scroll-to-top--is-visible {
+  opacity: 1;
 }
