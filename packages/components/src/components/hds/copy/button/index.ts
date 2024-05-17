@@ -7,10 +7,11 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { HdsCopyButtonSizeValues } from './types';
 import type { HdsCopyButtonSizes, HdsCopyButtonItemToCopy } from './types';
 
-export const DEFAULT_SIZE = 'medium';
-export const SIZES = ['small', 'medium'];
+export const DEFAULT_SIZE = HdsCopyButtonSizeValues.Medium;
+export const SIZES: string[] = Object.values(HdsCopyButtonSizeValues);
 export const DEFAULT_ICON = 'clipboard-copy';
 export const SUCCESS_ICON = 'clipboard-checked';
 export const ERROR_ICON = 'clipboard-x';
@@ -18,16 +19,16 @@ export const DEFAULT_STATUS = 'idle';
 
 export interface HdsCopyButtonSignature {
   Args: {
-    isFullWidth?: boolean;
-    isIconOnly?: boolean;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onError?: (...args: any[]) => void;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onSuccess?: (...args: any[]) => void;
     size?: HdsCopyButtonSizes;
-    targetToCopy?: HdsCopyButtonItemToCopy;
+    isIconOnly?: boolean;
+    isFullWidth?: boolean;
     text: string;
     textToCopy?: HdsCopyButtonItemToCopy;
+    targetToCopy?: HdsCopyButtonItemToCopy;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onSuccess?: (...args: any[]) => void;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onError?: (...args: any[]) => void;
   };
   Element: HTMLElement;
 }
