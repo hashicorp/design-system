@@ -7,8 +7,9 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import { HdsCopyButtonSizeValues } from './types';
-import type { HdsCopyButtonSizes, HdsCopyButtonItemToCopy } from './types';
+import { HdsCopyButtonSizeValues } from './types.ts';
+import type { HdsCopyButtonSizes, HdsCopyButtonItemToCopy } from './types.ts';
+import type { HdsButtonSignature } from '../../button/';
 
 export const DEFAULT_SIZE = HdsCopyButtonSizeValues.Medium;
 export const SIZES: string[] = Object.values(HdsCopyButtonSizeValues);
@@ -18,11 +19,8 @@ export const ERROR_ICON = 'clipboard-x';
 export const DEFAULT_STATUS = 'idle';
 
 export interface HdsCopyButtonSignature {
-  Args: {
+  Args: HdsButtonSignature['Args'] & {
     size?: HdsCopyButtonSizes;
-    isIconOnly?: boolean;
-    isFullWidth?: boolean;
-    text: string;
     textToCopy?: HdsCopyButtonItemToCopy;
     targetToCopy?: HdsCopyButtonItemToCopy;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -30,7 +28,7 @@ export interface HdsCopyButtonSignature {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onError?: (...args: any[]) => void;
   };
-  Element: HTMLElement;
+  Element: HdsButtonSignature['Element'];
 }
 
 export default class HdsCopyButtonComponent extends Component<HdsCopyButtonSignature> {
