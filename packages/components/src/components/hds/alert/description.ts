@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
+import TemplateOnlyComponent from '@ember/component/template-only';
 
 export interface HdsAlertDescriptionSignature {
   Blocks: {
@@ -12,4 +12,7 @@ export interface HdsAlertDescriptionSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsAlertDescriptionComponent extends Component<HdsAlertDescriptionSignature> {}
+const HdsAlertDescriptionComponent =
+  TemplateOnlyComponent<HdsAlertDescriptionSignature>();
+
+export default HdsAlertDescriptionComponent;
