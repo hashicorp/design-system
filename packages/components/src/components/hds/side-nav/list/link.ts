@@ -1,37 +1,20 @@
-import templateOnlyComponent from '@ember/component/template-only';
+import Component from '@glimmer/component';
 
-interface ListLinkSignature {
-  Args: {
-    badge: unknown;
-    count: unknown;
-    'current-when': unknown;
-    hasSubItems: unknown;
-    href: unknown;
-    icon: unknown;
-    isActive: unknown;
-    isHrefExternal: unknown;
-    isRouteExternal: unknown;
-    model: unknown;
-    models: unknown;
-    query: unknown;
-    replace: unknown;
-    route: unknown;
-    text: unknown;
+import type { HdsInteractiveSignature } from '../../interactive';
+
+export interface HdsSideNavListLinkSignature {
+  Args: HdsInteractiveSignature['Args'] & {
+    icon?: string;
+    text?: string;
+    badge?: string;
+    count?: string;
+    hasSubItems?: boolean;
+    isActive?: boolean;
   };
   Blocks: {
     default: [];
   };
-  Element: HTMLElement;
+  Element: HdsInteractiveSignature['Element'];
 }
 
-const ListLinkComponent =
-  templateOnlyComponent<ListLinkSignature>();
-
-export default ListLinkComponent;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'List::Link': typeof ListLinkComponent;
-    'list/link': typeof ListLinkComponent;
-  }
-}
+export default class HdsSideNavListLinkComponent extends Component<HdsSideNavListLinkSignature> {}
