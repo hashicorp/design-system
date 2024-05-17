@@ -36,7 +36,7 @@ module('Integration | Component | hds/separator/index', function (hooks) {
 
   test('it should throw an assertion if an incorrect value for @spacing is provided', async function (assert) {
     const errorMessage =
-      '@spacing for "Hds::Separator" must be one of the following: 24, 0; received: foo';
+      '@spacing for "Hds::Separator" must be one of the following: 0, 24; received: foo';
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
