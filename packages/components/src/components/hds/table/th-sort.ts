@@ -7,16 +7,20 @@ import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { assert } from '@ember/debug';
 
-const ALIGNMENTS = ['left', 'center', 'right'];
-const DEFAULT_ALIGN = 'left';
+import { 
+  HdsTableCellTextAlignValues,
+} from './types.ts';
+
+const ALIGNMENTS = string[] = Object.values(HdsTableCellTextAlignValues);
+const DEFAULT_ALIGN = HdsTableCellTextAlignValues.Left;
 
 export interface ThSortSignature {
   Args: {
-    align: unknown;
-    onClickSort: unknown;
-    sortOrder: unknown;
-    tooltip: unknown;
-    width: unknown;
+    align?: HdsTableCellTextAlignValues;
+    onClickSort?: unknown;
+    sortOrder?: unknown;
+    tooltip?: unknown;
+    width?: unknown;
   };
   Blocks: {
     default: [];
@@ -83,12 +87,5 @@ export default class ThSortComponent extends Component<ThSortSignature> {
     }
 
     return classes.join(' ');
-  }
-}
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    ThSort: typeof ThSortComponent;
-    'th-sort': typeof ThSortComponent;
   }
 }

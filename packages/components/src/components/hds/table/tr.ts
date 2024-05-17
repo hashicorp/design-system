@@ -9,11 +9,11 @@ import { assert } from '@ember/debug';
 export interface TrSignature {
   Args: {
     didInsert: unknown;
-    isSelectable: unknown;
-    isSelected: unknown;
+    isSelectable: boolean;
+    isSelected: boolean;
     onSelectionChange: unknown;
     selectionAriaLabelSuffix: unknown;
-    selectionKey: unknown;
+    selectionKey: string;
     selectionScope: unknown;
     willDestroy: unknown;
   };

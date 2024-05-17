@@ -8,17 +8,25 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 
-import { HdsTableVerticalAlignValues, HdsTableDensityValues, HdsTableCellTextAlign } from './types.ts';
+import { 
+  HdsTableVerticalAlignValues,
+  HdsTableDensityValues,
+  HdsTableCellTextAlignValues,
+  HdsTableSortOrderValues,
+  SelectableRow,
+  SelectionChangeInfo,
+  SelectableRowState,
+} from './types.ts';
 // import type { ComponentLike, WithBoundArgs } from '@glint/template';
 
 export const DENSITIES = string[] = Object.values(HdsTableDensityValues);
-const DEFAULT_DENSITY = 'medium';
-const VALIGNMENTS = string[] = Object.values(HdsTableVerticalAlignValues);
-const DEFAULT_VALIGN = 'top';
+export const DEFAULT_DENSITY = HdsTableDensityValues.Medium;
+export const VALIGNMENTS = string[] = Object.values(HdsTableVerticalAlignValues);
+export const DEFAULT_VALIGN = HdsTableVerticalAlignValues.Top;
 
 export interface HdsTableSignature {
   Args: {
-    align?: HdsTableCellTextAlign;
+    align?: HdsTableCellTextAlignValues;
     caption?: string;
     // columns?: ;
     density?: HdsTableDensityValues;
@@ -31,7 +39,7 @@ export interface HdsTableSignature {
     // onSort?: ;
     // selectionAriaLabelSuffix?: ;
     // sortBy?: ;
-    // sortOrder?: ;
+    sortOrder?: HdsTableSortOrderValues;
     selectableRows?: string[];
     selectionKey?: string;
     sortedMessageText?: string;
@@ -43,22 +51,8 @@ export interface HdsTableSignature {
   Element: HTMLTableElement;
 }
 
-type SelectableRow = {
-  selectionKey: string;
-  checkbox: HTMLInputElement;
-}
 
-type SelectionChangeInfo = {
-  selectionKey: string;
-  selectionCheckboxElement: HTMLInputElement;
-  selectedRowsKeys: string[];
-  selectableRowsStates: SelectableRowState[]
-}
 
-type SelectableRowState ={
-  selectionKey: string;
-  isSelected: boolean;
-}
 
 export default class HdsTableComponent extends Component<HdsTableSignature> {
   @tracked sortBy = this.args.sortBy;

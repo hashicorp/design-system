@@ -33,10 +33,3 @@ export default class ThButtonTooltipComponent extends Component<ThButtonTooltipS
     return classes.join(' ');
   }
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    ThButtonTooltip: typeof ThButtonTooltipComponent;
-    'th-button-tooltip': typeof ThButtonTooltipComponent;
-  }
-}
