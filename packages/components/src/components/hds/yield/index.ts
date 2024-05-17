@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
+import TemplateOnlyComponent from '@ember/component/template-only';
 
 export interface HdsYieldSignature {
   Blocks: {
@@ -11,4 +11,6 @@ export interface HdsYieldSignature {
   };
 }
 
-export default class HdsYieldComponent extends Component<HdsYieldSignature> {}
+const HdsYieldComponent = TemplateOnlyComponent<HdsYieldSignature>();
+
+export default HdsYieldComponent;
