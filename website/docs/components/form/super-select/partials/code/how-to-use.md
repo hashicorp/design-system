@@ -2,7 +2,7 @@
 
 Super Select is a custom select-like component aiming to overcome some limitations of the HTML `<select>` element.
 
-It’s primarily a wrapper for [ember-power-select](https://ember-power-select.com) and uses the 8.1.0 version with specific accessibility and styling choices that best fit our design system.
+It’s primarily a wrapper for [ember-power-select](https://ember-power-select.com) and uses the 8.2.0 version with specific accessibility and styling choices that best fit our design system.
 
 We provide two main components with similar APIs: `Form::SuperSelect::Single` and `Form::SuperSelect::Multiple`.
 

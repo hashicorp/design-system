@@ -7,13 +7,13 @@ Each of these main components have two different variants with their own APIs:
 - `Form::SuperSelect::Single::Base` or `Form::SuperSelect::Multiple::Base`—the base component with just the Super Select control.
 - `Form::SuperSelect::Single::Field` or `Form::SuperSelect::Multiple::Field`—the field parent component with the Super Select control, label, helper text, and error messaging (in a wrapping container).
 
-The Single and Multiple base components have nearly identical APIs to the 8.1.0 version of the [ember-power-select](https://ember-power-select.com) addon.
+The Single and Multiple base components have nearly identical APIs to the 8.2.0 version of the [ember-power-select](https://ember-power-select.com) addon.
 
-While the [ember-power-select documentation](https://ember-power-select.com) has the full list of supported options for the base components, we’ve included the most common ones here for your convenience as well as the options for which default values have been overridden.
+While the [ember-power-select documentation](https://ember-power-select.com/docs) has the full list of supported options for the base components, we’ve included the most common ones here for your convenience as well as the options for which default values have been overridden.
 
 !!! Info
 
-The default values of some [ember-power-select](https://ember-power-select.com) options have been overridden in some cases to either resolve accessibility issues or to customize according to our needs. These options are documented below.
+The default values of some [ember-power-select](https://ember-power-select.com/docs/api-reference) options have been overridden in some cases to either resolve accessibility issues or to customize according to our needs. These options are documented below.
 
 !!!
 
