@@ -58,6 +58,11 @@
   .doc-markdown-li {
     @include doc-font-style-body-small();
   }
+
+  .doc-code-block__code-snippet,
+  .doc-code-block {
+    margin: 0 !important;
+  }
 }
 
 
