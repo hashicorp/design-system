@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 
 import type { HdsInteractiveSignature } from '../interactive/';
 import type { HdsLinkColors, HdsLinkIconPositions } from '../link/types.ts';
-import type { HdsAppFooterItemSignature } from './item.ts';
+import type { HdsLinkInlineSignature } from '../link/inline.ts';
 
 export interface HdsAppFooterLinkSignature {
   Args: HdsInteractiveSignature['Args'] & {
@@ -18,7 +18,7 @@ export interface HdsAppFooterLinkSignature {
   Blocks: {
     default: [];
   };
-  Element: HdsAppFooterItemSignature['Element'];
+  Element: HdsLinkInlineSignature['Element'];
 }
 
 export default class HdsAppFooterLinkComponent extends Component<HdsAppFooterLinkSignature> {}
