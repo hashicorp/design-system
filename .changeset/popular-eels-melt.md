@@ -3,3 +3,5 @@
 ---
 
 `CopyButton` - Converted component to TypeScript
+
+`hds-clipboard` - Converted modifier to TypeScript
