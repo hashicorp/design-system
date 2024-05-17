@@ -20,33 +20,51 @@ export interface HdsTableSignature {
   Args: {
     align?: HdsTableCellTextAlign;
     caption?: string;
-    columns?: ;
+    // columns?: ;
     density?: HdsTableDensityValues;
     identityKey?: string;
     isFixedLayout?: boolean;
     isSelectable?: boolean;
     isStriped?: boolean;
-    model?: ;
-    onSelectionChange?: ;
-    onSort?: ;
-    selectionAriaLabelSuffix?: ;
-    sortBy?: ;
-    sortOrder?: ;
+    // model?: ;
+    onSelectionChange?: (info: SelectionChangeInfo) => void;
+    // onSort?: ;
+    // selectionAriaLabelSuffix?: ;
+    // sortBy?: ;
+    // sortOrder?: ;
+    selectableRows?: string[];
+    selectionKey?: string;
     sortedMessageText?: string;
     valign?: HdsTableVerticalAlignValues;
   };
   Blocks: {
-    body: [unknown];
-    head: [unknown];
+    default: [];
   };
   Element: HTMLTableElement;
+}
+
+type SelectableRow = {
+  selectionKey: string;
+  checkbox: HTMLInputElement;
+}
+
+type SelectionChangeInfo = {
+  selectionKey: string;
+  selectionCheckboxElement: HTMLInputElement;
+  selectedRowsKeys: string[];
+  selectableRowsStates: SelectableRowState[]
+}
+
+type SelectableRowState ={
+  selectionKey: string;
+  isSelected: boolean;
 }
 
 export default class HdsTableComponent extends Component<HdsTableSignature> {
   @tracked sortBy = this.args.sortBy;
   @tracked sortOrder = this.args.sortOrder || 'asc';
   @tracked selectAllCheckbox = undefined;
-  selectableRows = [];
+  selectableRows: SelectableRow[] = [];
   @tracked isSelectAllCheckboxSelected = undefined;
 
   /**
@@ -212,19 +230,19 @@ export default class HdsTableComponent extends Component<HdsTableSignature> {
     }
   }
 
-  onSelectionChangeCallback(checkbox: undefined, selectionKey: string) {
+  onSelectionChangeCallback(checkbox: HTMLInputElement, selectionKey: string) {
     let { onSelectionChange } = this.args;
     if (typeof onSelectionChange === 'function') {
       onSelectionChange({
         selectionKey: selectionKey,
         selectionCheckboxElement: checkbox,
-        selectedRowsKeys: this.selectableRows.reduce((acc, row) => {
+        selectedRowsKeys: this.selectableRows.reduce((acc: string[], row) => {
           if (row.checkbox.checked) {
             acc.push(row.selectionKey);
           }
           return acc;
         }, []),
-        selectableRowsStates: this.selectableRows.reduce((acc, row) => {
+        selectableRowsStates: this.selectableRows.reduce((acc: SelectableRowState[], row) => {
           acc.push({
             selectionKey: row.selectionKey,
             isSelected: row.checkbox.checked,
