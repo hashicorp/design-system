@@ -24,17 +24,17 @@ export const DEFAULT_SIZE = HdsBadgeCountSizeValues.Medium;
 export const DEFAULT_TYPE = HdsBadgeCountTypeValues.Filled;
 export const DEFAULT_COLOR = HdsBadgeCountColorValues.Neutral;
 
-interface HdsBadgeCountIndexSignature {
+interface HdsBadgeCountSignature {
   Args: {
-    text: string;
     size?: HdsBadgeSizes;
     type?: HdsBadgeTypes;
     color?: HdsBadgeCountColors;
+    text: string;
   };
   Element: HTMLDivElement;
 }
 
-export default class HdsBadgeCountIndexComponent extends Component<HdsBadgeCountIndexSignature> {
+export default class HdsBadgeCountComponent extends Component<HdsBadgeCountSignature> {
   /**
    * Sets the size for the component
    * Accepted sizes: small, medium, large

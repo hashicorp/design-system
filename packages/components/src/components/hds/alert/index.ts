@@ -12,7 +12,7 @@ import { tracked } from '@glimmer/tracking';
 import { HdsAlertColorValues, HdsAlertTypeValues } from './types.ts';
 
 import type { ComponentLike, WithBoundArgs } from '@glint/template';
-import type HdsButtonIndexComponent from '../button';
+import type HdsButtonComponent from '../button';
 import type HdsLinkStandaloneComponent from '../link/standalone';
 import type { HdsYieldSignature } from '../yield';
 import type { HdsAlertColors, HdsAlertTypes } from './types.ts';
@@ -53,14 +53,14 @@ export interface HdsAlertSignature {
           typeof HdsLinkStandaloneComponent,
           'size'
         >;
-        Button?: WithBoundArgs<typeof HdsButtonIndexComponent, 'size'>;
+        Button?: WithBoundArgs<typeof HdsButtonComponent, 'size'>;
       }
     ];
   };
   Element: HTMLDivElement;
 }
 
-export default class HdsAlertIndexComponent extends Component<HdsAlertSignature> {
+export default class HdsAlertComponent extends Component<HdsAlertSignature> {
   @tracked role = 'alert';
   @tracked ariaLabelledBy?: string;
 

@@ -33,13 +33,13 @@ export interface HdsCardContainerSignature {
     levelActive?: HdsCardLevel;
     levelHover?: HdsCardLevel;
     background?: HdsCardBackground;
-    overflow?: HdsCardOverflow;
     hasBorder?: boolean;
+    overflow?: HdsCardOverflow;
   };
-  Element: HTMLDivElement;
   Blocks: {
     default: [];
   };
+  Element: HTMLDivElement;
 }
 
 export default class HdsCardContainerComponent extends Component<HdsCardContainerSignature> {

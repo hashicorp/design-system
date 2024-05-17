@@ -21,14 +21,14 @@ export const AVAILABLE_ALIGNS: string[] = Object.values(HdsTextAlignValues);
 // A union of all types in the HTMLElementTagNameMap interface
 type AvailableElements = HTMLElementTagNameMap[keyof HTMLElementTagNameMap];
 
-export interface HdsTextIndexSignature {
+export interface HdsTextSignature {
   Args: {
     size: HdsTextSizes;
-    group: HdsTextGroups;
-    color?: string | HdsTextColors;
     tag?: HdsTextTags;
-    align?: HdsTextAligns;
     weight?: HdsTextWeights;
+    align?: HdsTextAligns;
+    color?: string | HdsTextColors;
+    group: HdsTextGroups;
   };
   Element: AvailableElements;
   Blocks: {
@@ -36,7 +36,7 @@ export interface HdsTextIndexSignature {
   };
 }
 
-export default class HdsTextIndexComponent extends Component<HdsTextIndexSignature> {
+export default class HdsTextComponent extends Component<HdsTextSignature> {
   /**
    * Get a tag to render based on the `@tag` argument passed or the value of `this.size` (via mapping)
    *

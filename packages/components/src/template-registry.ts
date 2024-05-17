@@ -3,22 +3,22 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import type HdsAlertIndexComponent from './components/hds/alert';
+import type HdsAlertComponent from './components/hds/alert';
 import type HdsAlertDescriptionComponent from './components/hds/alert/description';
 import type HdsAlertTitleComponent from './components/hds/alert/title';
-import type HdsBadgeIndexComponent from './components/hds/badge';
-import type HdsBadgeCountIndexComponent from './components/hds/badge-count';
-import type HdsButtonIndexComponent from './components/hds/button';
+import type HdsBadgeComponent from './components/hds/badge';
+import type HdsBadgeCountComponent from './components/hds/badge-count';
+import type HdsButtonComponent from './components/hds/button';
 import type HdsCardContainerComponent from './components/hds/card/container.ts';
 import type HdsDisclosurePrimitiveComponent from './components/hds/disclosure-primitive';
-import type HdsDismissButtonIndexComponent from './components/hds/dismiss-button';
-import type HdsIconTileIndexComponent from './components/hds/icon-tile';
-import type HdsInteractiveIndexComponent from './components/hds/interactive';
+import type HdsDismissButtonComponent from './components/hds/dismiss-button';
+import type HdsIconTileComponent from './components/hds/icon-tile';
+import type HdsInteractiveComponent from './components/hds/interactive';
 import type HdsLinkInlineComponent from './components/hds/link/inline';
 import type HdsLinkStandaloneComponent from './components/hds/link/standalone';
 import type HdsRevealComponent from './components/hds/reveal';
 import type HdsRevealToggleButtonComponent from './components/hds/reveal/toggle/button';
-import type HdsTextIndexComponent from './components/hds/text';
+import type HdsTextComponent from './components/hds/text';
 import type HdsTextBodyComponent from './components/hds/text/body';
 import type HdsTextDisplayComponent from './components/hds/text/display';
 import type HdsTagComponent from './components/hds/tag';
@@ -30,9 +30,9 @@ import type HdsLinkToQueryHelper from './helpers/hds-link-to-query';
 
 export default interface HdsComponentsRegistry {
   // Alert
-  'Hds::Alert': typeof HdsAlertIndexComponent;
-  'hds/alert': typeof HdsAlertIndexComponent;
-  HdsAlert: typeof HdsAlertIndexComponent;
+  'Hds::Alert': typeof HdsAlertComponent;
+  'hds/alert': typeof HdsAlertComponent;
+  HdsAlert: typeof HdsAlertComponent;
 
   'Hds::Alert::Description': typeof HdsAlertDescriptionComponent;
   'hds/alert/description': typeof HdsAlertDescriptionComponent;
@@ -43,19 +43,19 @@ export default interface HdsComponentsRegistry {
   HdsAlertTitle: typeof HdsAlertTitleComponent;
 
   // Badge
-  'Hds::Badge': typeof HdsBadgeIndexComponent;
-  'hds/badge': typeof HdsBadgeIndexComponent;
-  HdsBadge: typeof HdsBadgeIndexComponent;
+  'Hds::Badge': typeof HdsBadgeComponent;
+  'hds/badge': typeof HdsBadgeComponent;
+  HdsBadge: typeof HdsBadgeComponent;
 
   // BadgeCount
-  'Hds::Badge::Count': typeof HdsBadgeCountIndexComponent;
-  'hds/badge-count': typeof HdsBadgeCountIndexComponent;
-  HdsBadgeCount: typeof HdsBadgeCountIndexComponent;
+  'Hds::Badge::Count': typeof HdsBadgeCountComponent;
+  'hds/badge-count': typeof HdsBadgeCountComponent;
+  HdsBadgeCount: typeof HdsBadgeCountComponent;
 
   // Button
-  'Hds::Button': typeof HdsButtonIndexComponent;
-  'hds/button': typeof HdsButtonIndexComponent;
-  HdsButton: typeof HdsButtonIndexComponent;
+  'Hds::Button': typeof HdsButtonComponent;
+  'hds/button': typeof HdsButtonComponent;
+  HdsButton: typeof HdsButtonComponent;
 
   // Card
   'Hds::Card': typeof HdsCardContainerComponent;
@@ -68,19 +68,19 @@ export default interface HdsComponentsRegistry {
   HdsDisclosurePrimitive: typeof HdsDisclosurePrimitiveComponent;
 
   // Dismiss button
-  'Hds::DismissButton': typeof HdsDismissButtonIndexComponent;
-  'hds/dismiss-button': typeof HdsDismissButtonIndexComponent;
-  HdsDismissButton: typeof HdsDismissButtonIndexComponent;
+  'Hds::DismissButton': typeof HdsDismissButtonComponent;
+  'hds/dismiss-button': typeof HdsDismissButtonComponent;
+  HdsDismissButton: typeof HdsDismissButtonComponent;
 
   // IconTile
-  'Hds::IconTile': typeof HdsIconTileIndexComponent;
-  'hds/icon-tile': typeof HdsIconTileIndexComponent;
-  HdsIconTile: typeof HdsIconTileIndexComponent;
+  'Hds::IconTile': typeof HdsIconTileComponent;
+  'hds/icon-tile': typeof HdsIconTileComponent;
+  HdsIconTile: typeof HdsIconTileComponent;
 
   // Interactive
-  'Hds::Interactive': typeof HdsInteractiveIndexComponent;
-  'hds/interactive': typeof HdsInteractiveIndexComponent;
-  HdsInteractive: typeof HdsInteractiveIndexComponent;
+  'Hds::Interactive': typeof HdsInteractiveComponent;
+  'hds/interactive': typeof HdsInteractiveComponent;
+  HdsInteractive: typeof HdsInteractiveComponent;
 
   // Link Inline
   'Hds::Link::Inline': typeof HdsLinkInlineComponent;
@@ -102,9 +102,9 @@ export default interface HdsComponentsRegistry {
   HdsRevealToggleButtonComponent: typeof HdsRevealToggleButtonComponent;
 
   // Text
-  'Hds::Text': typeof HdsTextIndexComponent;
-  'hds/text': typeof HdsTextIndexComponent;
-  HdsText: typeof HdsTextIndexComponent;
+  'Hds::Text': typeof HdsTextComponent;
+  'hds/text': typeof HdsTextComponent;
+  HdsText: typeof HdsTextComponent;
   'Hds::Text::Body': typeof HdsTextBodyComponent;
   'hds/text/body': typeof HdsTextBodyComponent;
   HdsTextBody: typeof HdsTextBodyComponent;

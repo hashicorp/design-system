@@ -13,18 +13,18 @@ import type { HdsInteractiveSignature } from '../interactive/';
 export const COLORS: string[] = Object.values(HdsTagColorValues);
 export const DEFAULT_COLOR = HdsTagColorValues.Primary;
 
-interface HdsTagIndexSignature {
+interface HdsTagSignature {
   Args: HdsInteractiveSignature['Args'] & {
+    color?: HdsTagColors;
     text: string;
     ariaLabel?: string;
-    color?: HdsTagColors;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onDismiss?: (event: MouseEvent, ...args: any[]) => void;
   };
   Element: HTMLSpanElement;
 }
 
-export default class HdsTagIndexComponent extends Component<HdsTagIndexSignature> {
+export default class HdsTagComponent extends Component<HdsTagSignature> {
   /**
    * @param onDismiss
    * @type {function}
