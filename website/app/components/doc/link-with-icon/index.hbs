@@ -4,13 +4,26 @@
 }}
 
 {{#if @route}}
-  <LinkTo class={{this.classNames}} @route={{@route}} @models={{this.models}} ...attributes>
+  <LinkTo
+    class={{this.classNames}}
+    @route={{@route}}
+    @models={{this.models}}
+    ...attributes
+    {{on "click" (fn this.eventTracking.trackEvent @eventName)}}
+  >
     {{@label}}
     <FlightIcon class="doc-link-with-icon__icon" @name={{@icon}} />
   </LinkTo>
 {{/if}}
 {{#if @href}}
-  <a class={{this.classNames}} href={{@href}} target="_blank" rel="noopener noreferrer" ...attributes>
+  <a
+    class={{this.classNames}}
+    href={{@href}}
+    target="_blank"
+    rel="noopener noreferrer"
+    {{on "click" (fn this.eventTracking.trackEvent @eventName)}}
+    ...attributes
+  >
     {{@label}}
     <FlightIcon class="doc-link-with-icon__icon" @name={{@icon}} />
   </a>
