@@ -1,8 +1,15 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 /* eslint-disable ember/require-tagless-components */
 /* eslint-disable @typescript-eslint/ban-types */
 
 import '@glint/environment-ember-loose';
 import Component from '@glimmer/component';
+
+import type PageTitle from 'ember-page-title/template-registry';
 
 export interface ShwTxtSignature {
   Args: {
@@ -111,14 +118,6 @@ export interface ShwOutlinerSignature {
 }
 export class ShwOutliner extends Component<ShwOutlinerSignature> {}
 
-// Types for compiled templates
-declare module 'showcase/templates/*' {
-  import { TemplateFactory } from 'ember-cli-htmlbars';
-
-  const tmpl: TemplateFactory;
-  export default tmpl;
-}
-
 import type HdsComponentsRegistry from '@hashicorp/design-system-components/template-registry';
 import type EmberStyleModifier from 'ember-style-modifier';
 
@@ -129,7 +128,8 @@ export default interface EmberStyleModifierRegistry {
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry
     extends EmberStyleModifierRegistry,
-      HdsComponentsRegistry {
+      HdsComponentsRegistry,
+      PageTitle {
     'Shw::Text': typeof ShwTxt;
     'Shw::Text::H1': typeof ShwTxt;
     'Shw::Text::H2': typeof ShwTxt;
