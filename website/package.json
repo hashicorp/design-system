@@ -82,7 +82,7 @@
     "ember-math-helpers": "^3.0.0",
     "ember-meta": "^2.0.0",
     "ember-modifier": "^4.1.0",
-    "ember-page-title": "^8.0.0",
+    "ember-page-title": "^8.2.3",
     "ember-power-select": "^8.2.0",
     "ember-prism": "^0.13.0",
     "ember-qunit": "^8.0.1",
