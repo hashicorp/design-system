@@ -12,8 +12,7 @@
   box-shadow: 0 8px 12px 0 rgba(37, 38, 45, 8%);
   cursor: pointer;
   opacity: 0;
-  transition: bottom 150ms linear;
-  transition: opacity .5s ease-in-out;
+  transition: bottom 150ms ease-in-out, opacity .5s ease-in-out;
 
   &:hover {
     background-color: rgba(29, 30, 31, 80%);
