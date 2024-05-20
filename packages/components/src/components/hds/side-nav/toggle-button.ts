@@ -1,4 +1,4 @@
-import Component from '@glimmer/component';
+import TemplateOnlyComponent from '@ember/component/template-only';
 
 interface HdsSideNavToggleButtonSignature {
   Args: {
@@ -7,4 +7,7 @@ interface HdsSideNavToggleButtonSignature {
   Element: HTMLButtonElement;
 }
 
-export default class HdsSideNavToggleButtonComponent extends Component<HdsSideNavToggleButtonSignature> {}
+const HdsSideNavToggleButtonComponent =
+  TemplateOnlyComponent<HdsSideNavToggleButtonSignature>();
+
+export default HdsSideNavToggleButtonComponent;

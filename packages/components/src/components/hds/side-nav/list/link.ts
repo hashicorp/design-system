@@ -1,4 +1,4 @@
-import Component from '@glimmer/component';
+import TemplateOnlyComponent from '@ember/component/template-only';
 
 import type { HdsInteractiveSignature } from '../../interactive';
 
@@ -17,4 +17,7 @@ export interface HdsSideNavListLinkSignature {
   Element: HdsInteractiveSignature['Element'];
 }
 
-export default class HdsSideNavListLinkComponent extends Component<HdsSideNavListLinkSignature> {}
+const HdsSideNavListLinkComponent =
+  TemplateOnlyComponent<HdsSideNavListLinkSignature>();
+
+export default HdsSideNavListLinkComponent;

@@ -1,4 +1,4 @@
-import Component from '@glimmer/component';
+import TemplateOnlyComponent from '@ember/component/template-only';
 
 import type { ComponentLike } from '@glint/template';
 import type { HdsYieldSignature } from '../../yield';
@@ -23,4 +23,7 @@ export interface HdsSideNavListSignature {
   Element: HTMLElement;
 }
 
-export default class HdsSideNavListComponent extends Component<HdsSideNavListSignature> {}
+const HdsSideNavListComponent =
+  TemplateOnlyComponent<HdsSideNavListSignature>();
+
+export default HdsSideNavListComponent;

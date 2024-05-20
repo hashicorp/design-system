@@ -1,4 +1,4 @@
-import Component from '@glimmer/component';
+import TemplateOnlyComponent from '@ember/component/template-only';
 
 export interface HdsSideNavListItemSignature {
   Blocks: {
@@ -7,4 +7,7 @@ export interface HdsSideNavListItemSignature {
   Element: HTMLLIElement;
 }
 
-export default class HdsSideNavListItemComponent extends Component<HdsSideNavListItemSignature> {}
+const HdsSideNavListItemComponent =
+  TemplateOnlyComponent<HdsSideNavListItemSignature>();
+
+export default HdsSideNavListItemComponent;

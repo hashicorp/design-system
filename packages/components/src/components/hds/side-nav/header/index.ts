@@ -1,4 +1,5 @@
-import Component from '@glimmer/component';
+import TemplateOnlyComponent from '@ember/component/template-only';
+
 interface HdsSideNavHeaderSignature {
   Blocks: {
     logo?: [];
@@ -7,4 +8,7 @@ interface HdsSideNavHeaderSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsSideNavHeaderComponent extends Component<HdsSideNavHeaderSignature> {}
+const HdsSideNavHeaderComponent =
+  TemplateOnlyComponent<HdsSideNavHeaderSignature>();
+
+export default HdsSideNavHeaderComponent;
