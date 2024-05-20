@@ -21,6 +21,7 @@ import type HdsLinkInlineComponent from './components/hds/link/inline';
 import type HdsLinkStandaloneComponent from './components/hds/link/standalone';
 import type HdsRevealComponent from './components/hds/reveal';
 import type HdsRevealToggleButtonComponent from './components/hds/reveal/toggle/button';
+import type HdsSeparatorComponent from './components/hds/separator';
 import type HdsTextComponent from './components/hds/text';
 import type HdsTextBodyComponent from './components/hds/text/body';
 import type HdsTextDisplayComponent from './components/hds/text/display';
@@ -116,6 +117,10 @@ export default interface HdsComponentsRegistry {
   'Hds::Reveal::Toggle::Button': typeof HdsRevealToggleButtonComponent;
   'hds/reveal/toggle/button': typeof HdsRevealToggleButtonComponent;
   HdsRevealToggleButtonComponent: typeof HdsRevealToggleButtonComponent;
+
+  'Hds::Separator': typeof HdsSeparatorComponent;
+  'hds/separator': typeof HdsSeparatorComponent;
+  HdsSeparator: typeof HdsSeparatorComponent;
 
   // Text
   'Hds::Text': typeof HdsTextComponent;

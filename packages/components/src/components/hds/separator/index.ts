@@ -6,10 +6,20 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-export const DEFAULT_SPACING = '24';
-export const SPACING = ['24', '0'];
+import { HdsSeparatorSpacingValues } from './types.ts';
+import type { HdsSeparatorSpacing } from './types.ts';
 
-export default class HdsSeparatorIndexComponent extends Component {
+export const DEFAULT_SPACING = HdsSeparatorSpacingValues.TwentyFour;
+export const SPACING: string[] = Object.values(HdsSeparatorSpacingValues);
+
+interface HdsSeparatorSignature {
+  Args: {
+    spacing?: HdsSeparatorSpacing;
+  };
+  Element: HTMLElement;
+}
+
+export default class HdsSeparatorComponent extends Component<HdsSeparatorSignature> {
   /**
    * Sets the margin for the separator
    * Accepted values: 24, 0
@@ -19,7 +29,7 @@ export default class HdsSeparatorIndexComponent extends Component {
    * @default 'default'
    */
   get spacing() {
-    let { spacing = DEFAULT_SPACING } = this.args;
+    const { spacing = DEFAULT_SPACING } = this.args;
 
     assert(
       `@spacing for "Hds::Separator" must be one of the following: ${SPACING.join(
@@ -37,7 +47,7 @@ export default class HdsSeparatorIndexComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-separator'];
+    const classes = ['hds-separator'];
 
     // add a class based on the @spacing argument
     classes.push(`hds-separator--spacing-${this.spacing}`);
