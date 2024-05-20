@@ -12,7 +12,10 @@
   box-shadow: 0 8px 12px 0 rgba(37, 38, 45, 8%);
   cursor: pointer;
   opacity: 0;
-  transition: bottom 150ms ease-in-out, opacity .5s ease-in-out;
+  transition-timing-function: ease-in-out;
+  transition-duration: 150ms;
+  transition-property: transform, opacity;
+  pointer-events: none;
 
   &:hover {
     background-color: rgba(29, 30, 31, 80%);
@@ -28,4 +31,5 @@
 
 .doc-scroll-to-top--is-visible {
   opacity: 1;
+  pointer-events: initial;
 }
