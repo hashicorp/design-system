@@ -1,24 +1,27 @@
-import templateOnlyComponent from '@ember/component/template-only';
+import Component from '@glimmer/component';
 
-interface PortalIndexSignature {
+import type { HdsSideNavListSignature } from '../list/index';
+
+// TODO! understand how this should be done "correctly"
+// import type { PortalSignature } from 'ember-stargate/components/portal';
+interface PortalSignature {
   Args: {
-    ariaLabel: unknown;
-    targetName: unknown;
+    target: string;
+    renderInPlace?: boolean;
+    fallback?: 'inplace';
   };
   Blocks: {
-    default: [unknown];
+    default: [];
   };
+}
+
+export interface HdsSideNavPortalSignature {
+  Args: PortalSignature['Args'] & {
+    ariaLabel?: string;
+    targetName?: string;
+  };
+  Blocks: HdsSideNavListSignature['Blocks'];
   Element: HTMLDivElement;
 }
 
-const PortalIndexComponent =
-  templateOnlyComponent<PortalIndexSignature>();
-
-export default PortalIndexComponent;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Portal::Index': typeof PortalIndexComponent;
-    'portal/index': typeof PortalIndexComponent;
-  }
-}
+export default class HdsSideNavPortalComponent extends Component<HdsSideNavPortalSignature> {}
