@@ -61,7 +61,7 @@ export const PLACEMENTS: Placement[] = [
 // before the floating element changes its position (flips, shifts, or autoplace itself)
 const DEFAULT_EDGE_DISTANCE = 8;
 
-type FloatingUIOptions = {
+export type FloatingUIOptions = {
   placement?: Placement;
   strategy?: Strategy;
   offsetOptions?: OffsetOptions;
