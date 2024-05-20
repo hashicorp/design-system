@@ -8,8 +8,9 @@ import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { HdsCopyButtonSizeValues } from './types.ts';
-import type { HdsCopyButtonSizes, HdsCopyButtonItemToCopy } from './types.ts';
+import type { HdsCopyButtonSizes } from './types.ts';
 import type { HdsButtonSignature } from '../../button/';
+import type { ModifierSignature } from '../../../../modifiers/hds-clipboard.ts';
 
 export const DEFAULT_SIZE = HdsCopyButtonSizeValues.Medium;
 export const SIZES: string[] = Object.values(HdsCopyButtonSizeValues);
@@ -21,12 +22,10 @@ export const DEFAULT_STATUS = 'idle';
 export interface HdsCopyButtonSignature {
   Args: HdsButtonSignature['Args'] & {
     size?: HdsCopyButtonSizes;
-    textToCopy?: HdsCopyButtonItemToCopy;
-    targetToCopy?: HdsCopyButtonItemToCopy;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onSuccess?: (...args: any[]) => void;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onError?: (...args: any[]) => void;
+    textToCopy?: ModifierSignature['Args']['Named']['text'];
+    targetToCopy?: ModifierSignature['Args']['Named']['target'];
+    onSuccess?: ModifierSignature['Args']['Named']['onSuccess'];
+    onError?: ModifierSignature['Args']['Named']['onError'];
   };
   Element: HdsButtonSignature['Element'];
 }
