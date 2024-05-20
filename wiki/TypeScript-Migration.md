@@ -45,6 +45,31 @@ The following steps are recommended for migrating components to TypeScript.
 
     - Enable glint checking by removing the top comment in the template file and run `yarn lint` to check for any type-related errors
     - If there are errors, fix them by adjusting the signature and/or updating logic
+    - If the component contains named blocks, or contextual components make sure to define them under the `Blocks` section
+
+      ```js
+        // toggle and content as named blocks
+        Blocks: {
+          toggle: [];
+          content: [];
+        };
+      ```
+
+      ```js
+        // toggle and content as contextual components
+        Blocks: {
+          default: [
+            {
+              // Toggle subcomponent
+              Toggle: ComponentLike<ToggleSignature>;
+              // Content subcomponent, with `size` already bound
+              Content: WithBoundArgs<typeof ContentSignature, 'size'>;
+            }
+          ]
+        };
+      ```
+
+    - Try to be as specific as possible with the `Element` type used by the component; if splattributes (`...attributes`) are used within the component template, the element with splattributes is considered the main element
 
 6. Update the template registry
 
