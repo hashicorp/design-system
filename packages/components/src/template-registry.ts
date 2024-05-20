@@ -9,6 +9,12 @@ import type HdsAccordionItemButtonComponent from './components/hds/accordion/ite
 import type HdsAlertComponent from './components/hds/alert';
 import type HdsAlertDescriptionComponent from './components/hds/alert/description';
 import type HdsAlertTitleComponent from './components/hds/alert/title';
+import type HdsAppFooterComponent from './components/hds/app-footer';
+import type HdsAppFooterCopyrightComponent from './components/hds/app-footer/copyright';
+import type HdsAppFooterItemComponent from './components/hds/app-footer/item';
+import type HdsAppFooterLegalLinksComponent from './components/hds/app-footer/legal-links';
+import type HdsAppFooterLinkComponent from './components/hds/app-footer/link';
+import type HdsAppFooterStatusLinkComponent from './components/hds/app-footer/status-link';
 import type HdsBadgeComponent from './components/hds/badge';
 import type HdsBadgeCountComponent from './components/hds/badge-count';
 import type HdsButtonComponent from './components/hds/button';
@@ -58,6 +64,31 @@ export default interface HdsComponentsRegistry {
   'Hds::Alert::Title': typeof HdsAlertTitleComponent;
   'hds/alert/title': typeof HdsAlertTitleComponent;
   HdsAlertTitle: typeof HdsAlertTitleComponent;
+
+  // AppFooter
+  'Hds::AppFooter': typeof HdsAppFooterComponent;
+  'hds/app-footer': typeof HdsAppFooterComponent;
+  HdsAppFooter: typeof HdsAppFooterComponent;
+
+  'Hds::AppFooter::Copyright': typeof HdsAppFooterCopyrightComponent;
+  'hds/app-footer/copyright': typeof HdsAppFooterCopyrightComponent;
+  HdsAppFooterCopyright: typeof HdsAppFooterCopyrightComponent;
+
+  'Hds::AppFooter::Item': typeof HdsAppFooterItemComponent;
+  'hds/app-footer/item': typeof HdsAppFooterItemComponent;
+  HdsAppFooterItem: typeof HdsAppFooterItemComponent;
+
+  'Hds::AppFooter::LegalLinks': typeof HdsAppFooterLegalLinksComponent;
+  'hds/app-footer/legal-links': typeof HdsAppFooterLegalLinksComponent;
+  HdsAppFooterLegalLinks: typeof HdsAppFooterLegalLinksComponent;
+
+  'Hds::AppFooter::Link': typeof HdsAppFooterLinkComponent;
+  'hds/app-footer/link': typeof HdsAppFooterLinkComponent;
+  HdsAppFooterLink: typeof HdsAppFooterLinkComponent;
+
+  'Hds::AppFooter::StatusLink': typeof HdsAppFooterStatusLinkComponent;
+  'hds/app-footer/status-link': typeof HdsAppFooterStatusLinkComponent;
+  HdsAppFooterStatusLink: typeof HdsAppFooterStatusLinkComponent;
 
   // Badge
   'Hds::Badge': typeof HdsBadgeComponent;

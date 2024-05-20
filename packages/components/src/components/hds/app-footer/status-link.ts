@@ -5,30 +5,30 @@
 
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
+import type { SafeString } from '@ember/template/-private/handlebars';
 import { assert } from '@ember/debug';
 
-export const STATUSES = {
-  operational: {
-    text: 'System operational',
-    iconName: 'check-circle',
-  },
-  degraded: {
-    text: 'System degraded',
-    iconName: 'alert-triangle',
-  },
-  maintenance: {
-    text: 'System maintenance',
-    iconName: 'alert-triangle',
-  },
-  outage: {
-    text: 'System outage',
-    iconName: 'x-circle',
-  },
-};
+import type { HdsInteractiveSignature } from '../interactive/';
+import { HdsAppFooterStatusLinkStatusValues } from './types.ts';
+import type { HdsAppFooterStatusTypes } from './types.ts';
+import type { HdsAppFooterLinkSignature } from './link.ts';
 
-export default class HdsAppFooterStatusLinkComponent extends Component {
-  constructor() {
-    super(...arguments);
+export const STATUSES = HdsAppFooterStatusLinkStatusValues;
+
+export interface HdsAppFooterStatusLinkSignature {
+  Args: HdsInteractiveSignature['Args'] & {
+    itemStyle?: SafeString;
+    status?: HdsAppFooterStatusTypes;
+    statusIcon?: string;
+    statusIconColor?: string;
+    text?: string;
+  };
+  Element: HdsAppFooterLinkSignature['Element'];
+}
+
+export default class HdsAppFooterStatusLinkComponent extends Component<HdsAppFooterStatusLinkSignature> {
+  constructor(owner: unknown, args: HdsInteractiveSignature['Args']) {
+    super(owner, args);
 
     assert(
       'Either @status or @text for "Hds::AppFooter::StatusLink" must have a valid value',
@@ -38,7 +38,7 @@ export default class HdsAppFooterStatusLinkComponent extends Component {
 
   /**
    * @param status
-   * @type {string}
+   * @type {HdsAppFooterStatusTypes}
    * @description The name of the status which the StatusLink is being set to
    */
   get status() {
@@ -49,8 +49,10 @@ export default class HdsAppFooterStatusLinkComponent extends Component {
         `@status for "Hds::AppFooter" must be one of the following: ${Object.keys(
           STATUSES
         ).join(', ')} received: ${this.args.status}`,
-        Object.keys(STATUSES).includes(status)
+
+        status in STATUSES
       );
+      return status as HdsAppFooterStatusTypes;
     }
     return status;
   }
@@ -62,7 +64,7 @@ export default class HdsAppFooterStatusLinkComponent extends Component {
    */
   get statusIcon() {
     if (this.status && !this.args.statusIcon) {
-      return STATUSES[this.status].iconName;
+      return STATUSES[this.status]?.iconName;
     }
     return this.args.statusIcon;
   }
@@ -88,8 +90,8 @@ export default class HdsAppFooterStatusLinkComponent extends Component {
    * @description The text content of the StatusLink
    */
   get text() {
-    if (!this.args.text) {
-      return STATUSES[this.status].text;
+    if (!this.args.text && this.status) {
+      return STATUSES[this.status]?.text;
     }
     return this.args.text;
   }
@@ -109,7 +111,7 @@ export default class HdsAppFooterStatusLinkComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-app-footer__status-link'];
+    const classes = ['hds-app-footer__status-link'];
 
     // add a class based on status if no statusIconColor is explicitly specified
     if (this.status && !this.args.statusIconColor) {

@@ -5,7 +5,14 @@
 
 import Component from '@glimmer/component';
 
-export default class HdsAppFooterCopyrightComponent extends Component {
+export interface HdsAppFooterCopyrightSignature {
+  Args: {
+    year?: string;
+  };
+  Element: HTMLDivElement;
+}
+
+export default class HdsAppFooterCopyrightComponent extends Component<HdsAppFooterCopyrightSignature> {
   /**
    * @param year
    * @type {string}

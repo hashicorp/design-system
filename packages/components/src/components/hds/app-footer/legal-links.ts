@@ -5,7 +5,19 @@
 
 import Component from '@glimmer/component';
 
-export default class HdsAppFooterLegalLinksComponent extends Component {
+export interface HdsAppFooterLegalLinksSignature {
+  Args: {
+    ariaLabel?: string;
+    hrefForTerms?: string;
+    hrefForPrivacy?: string;
+    hrefForSecurity?: string;
+    hrefForSupport?: string;
+    hrefForAccessibility?: string;
+  };
+  Element: HTMLUListElement;
+}
+
+export default class HdsAppFooterLegalLinksComponent extends Component<HdsAppFooterLegalLinksSignature> {
   /**
    * @param ariaLabel
    * @type {string}
