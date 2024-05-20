@@ -38,7 +38,7 @@ export default class HdsAppFooterStatusLinkComponent extends Component<HdsAppFoo
 
   /**
    * @param status
-   * @type {string}
+   * @type {HdsAppFooterStatusTypes}
    * @description The name of the status which the StatusLink is being set to
    */
   get status() {
