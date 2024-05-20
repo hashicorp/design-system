@@ -11,12 +11,13 @@ import type HdsAppFooterItemSignature from './legal-links';
 import type HdsAppFooterLegalLinksSignature from './legal-links';
 import type HdsAppFooterLinkSignature from './link';
 import type HdsAppFooterStatusLinkSignature from './status-link';
+import type { HdsAppFooterThemeTypes } from './types.ts';
 
 export interface HdsAppFooterSignature {
   Args: {
     ariaLabel?: string;
     copyrightYear?: string;
-    theme?: string;
+    theme?: HdsAppFooterThemeTypes;
   };
   Blocks: {
     default: [
@@ -45,7 +46,7 @@ export default class HdsAppFooterComponent extends Component<HdsAppFooterSignatu
 
   /**
    * @param theme
-   * @type {string}
+   * @type {HdsAppFooterThemeTypes}
    * @description The component theme
    * @default 'light'
    */

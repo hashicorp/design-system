@@ -36,3 +36,10 @@ export const HdsAppFooterStatusLinkStatusValues: Record<
     iconName: 'x-circle',
   },
 };
+
+export enum HdsAppFooterThemeValues {
+  Light = 'light',
+  Dark = 'dark',
+}
+
+export type HdsAppFooterThemeTypes = `${HdsAppFooterThemeValues}`;
