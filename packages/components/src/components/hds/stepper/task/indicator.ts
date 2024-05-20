@@ -17,7 +17,7 @@ export const STATUSES: string[] = Object.values(HdsStepperStatusesValues);
 
 export const MAPPING_STATUS_TO_ICONS = HdsStepperStatusToIconsValues;
 
-interface HdsStepperIndicatorTaskSignature {
+interface HdsStepperTaskIndicatorSignature {
   Args: {
     isInteractive?: boolean;
     status: HdsStepperStatuses;
@@ -25,7 +25,7 @@ interface HdsStepperIndicatorTaskSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsStepperIndicatorTaskComponent extends Component<HdsStepperIndicatorTaskSignature> {
+export default class HdsStepperTaskIndicatorComponent extends Component<HdsStepperTaskIndicatorSignature> {
   /**
    * @param status
    * @type {string}

@@ -12,7 +12,7 @@ import type { HdsStepperStatuses } from '../types.ts';
 export const DEFAULT_STATUS = HdsStepperStatusesValues.Incomplete;
 export const STATUSES: string[] = Object.values(HdsStepperStatusesValues);
 
-interface HdsStepperIndicatorStepSignature {
+interface HdsStepperStepIndicatorSignature {
   Args: {
     isInteractive?: boolean;
     status: HdsStepperStatuses;
@@ -21,7 +21,7 @@ interface HdsStepperIndicatorStepSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsStepperIndicatorStepComponent extends Component<HdsStepperIndicatorStepSignature> {
+export default class HdsStepperStepIndicatorComponent extends Component<HdsStepperStepIndicatorSignature> {
   /**
    * @param status
    * @type {string}
