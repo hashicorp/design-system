@@ -3,11 +3,11 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
-
+import TemplateOnlyComponent from '@ember/component/template-only';
 interface HdsButtonSetSignature {
   Blocks: { default: [] };
   Element: HTMLDivElement;
 }
+const HdsButtonSetComponent = TemplateOnlyComponent<HdsButtonSetSignature>();
 
-export default class HdsButtonSetComponent extends Component<HdsButtonSetSignature> {}
+export default HdsButtonSetComponent;
