@@ -9,42 +9,49 @@ import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { registerDestructor } from '@ember/destroyable';
 
-interface IndexSignature {
+import type { HdsSideNavBaseSignature } from './base';
+
+interface HdsSideNavSignature {
   Args: {
-    a11yRefocusNavigationText: unknown;
-    a11yRefocusRouteChangeValidator: unknown;
-    a11yRefocusSkipText: unknown;
-    a11yRefocusSkipTo: unknown;
-    ariaLabel: unknown;
-    hasA11yRefocus: unknown;
-    isCollapsible: unknown;
-    isMinimized: unknown;
-    isResponsive: unknown;
-    onDesktopViewportChange: unknown;
-    onToggleMinimizedStatus: unknown;
+    isResponsive?: boolean;
+    isCollapsible?: boolean;
+    isMinimized?: boolean;
+    hasA11yRefocus?: boolean;
+    a11yRefocusSkipTo?: string;
+    a11yRefocusSkipText?: string;
+    a11yRefocusNavigationText?: string;
+    a11yRefocusRouteChangeValidator?: string;
+    ariaLabel?: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onToggleMinimizedStatus?: (arg: boolean) => void;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onDesktopViewportChange?: (arg: boolean) => void;
   };
   Blocks: {
-    body: [unknown];
-    footer: [unknown];
-    header: [unknown];
+    // TODO! what should we do here? consider that we're forwarding the `Base` yielded blocks
+    header: [];
+    body: [];
+    footer: [];
   };
-  Element: HTMLElement;
+  Element: HdsSideNavBaseSignature['Element'];
 }
 
-export default class IndexComponent extends Component<IndexSignature> {
+export default class HdsSideNavComponent extends Component<HdsSideNavSignature> {
   @tracked isResponsive = this.args.isResponsive ?? true; // controls if the component reacts to viewport changes
   @tracked isMinimized = this.args.isMinimized ?? false; // sets the default state on 'desktop' viewports
   @tracked isCollapsible = this.args.isCollapsible ?? false; // controls if users can collapse the sidenav on 'desktop' viewports
   @tracked isAnimating = false;
   @tracked isDesktop = true;
+  desktopMQ: MediaQueryList;
+  containersToHide!: NodeListOf<Element>;
   hasA11yRefocus = this.args.hasA11yRefocus ?? true;
 
   desktopMQVal = getComputedStyle(document.documentElement).getPropertyValue(
     '--hds-app-desktop-breakpoint'
   );
 
-  constructor() {
-    super(...arguments);
+  constructor(owner: unknown, args: HdsSideNavSignature['Args']) {
+    super(owner, args);
     this.desktopMQ = window.matchMedia(`(min-width:${this.desktopMQVal})`);
     this.addEventListeners();
     registerDestructor(this, () => {
@@ -64,8 +71,12 @@ export default class IndexComponent extends Component<IndexSignature> {
     this.desktopMQ.addEventListener('change', this.updateDesktopVariable, true);
     // if not instantiated as minimized via arguments
     if (!this.args.isMinimized) {
-      // set initial state based on viewport
-      this.updateDesktopVariable({ matches: this.desktopMQ.matches });
+      // set initial state based on viewport using a "synthetic" event
+      const syntheticEvent = new MediaQueryListEvent('change', {
+        matches: this.desktopMQ.matches,
+        media: this.desktopMQ.media,
+      });
+      this.updateDesktopVariable(syntheticEvent);
     }
   }
 
@@ -99,7 +110,7 @@ export default class IndexComponent extends Component<IndexSignature> {
   }
 
   get classNames() {
-    let classes = []; // `hds-side-nav` is already set by the "Hds::SideNav::Base" component
+    const classes = []; // `hds-side-nav` is already set by the "Hds::SideNav::Base" component
 
     // add specific class names for the different possible states
     if (this.isResponsive) {
@@ -123,7 +134,7 @@ export default class IndexComponent extends Component<IndexSignature> {
   }
 
   @action
-  escapePress(event) {
+  escapePress(event: KeyboardEvent) {
     if (event.key === 'Escape' && !this.isMinimized && !this.isDesktop) {
       this.isMinimized = true;
     }
@@ -141,7 +152,7 @@ export default class IndexComponent extends Component<IndexSignature> {
       }
     });
 
-    let { onToggleMinimizedStatus } = this.args;
+    const { onToggleMinimizedStatus } = this.args;
 
     if (typeof onToggleMinimizedStatus === 'function') {
       onToggleMinimizedStatus(this.isMinimized);
@@ -149,14 +160,14 @@ export default class IndexComponent extends Component<IndexSignature> {
   }
 
   @action
-  didInsert(element) {
+  didInsert(element: HTMLElement) {
     this.containersToHide = element.querySelectorAll(
       '.hds-side-nav-hide-when-minimized'
     );
   }
 
   @action
-  setTransition(phase, event) {
+  setTransition(phase: string, event: TransitionEvent) {
     // we only want to respond to `width` animation/transitions
     if (event.propertyName !== 'width') {
       return;
@@ -169,23 +180,16 @@ export default class IndexComponent extends Component<IndexSignature> {
   }
 
   @action
-  updateDesktopVariable(event) {
+  updateDesktopVariable(event: MediaQueryListEvent) {
     this.isDesktop = event.matches;
 
     // automatically minimize on narrow viewports (when not in desktop mode)
     this.isMinimized = !this.isDesktop;
 
-    let { onDesktopViewportChange } = this.args;
+    const { onDesktopViewportChange } = this.args;
 
     if (typeof onDesktopViewportChange === 'function') {
       onDesktopViewportChange(this.isDesktop);
     }
-  }
-}
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Index': typeof IndexComponent;
-    'index': typeof IndexComponent;
   }
 }
