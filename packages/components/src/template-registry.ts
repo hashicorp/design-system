@@ -40,6 +40,7 @@ import type HdsSeparatorComponent from './components/hds/separator';
 import type HdsSideNavHeaderComponent from './components/hds/side-nav/header';
 import type HdsSideNavHeaderHomeLinkComponent from './components/hds/side-nav/header/home-link';
 import type HdsSideNavHeaderIconButtonComponent from './components/hds/side-nav/header/icon-button';
+import type HdsSideNavListBackLinkComponent from './components/hds/side-nav/list/back-link';
 import type HdsStepperStepIndicatorComponent from './components/hds/stepper/step/indicator';
 import type HdsStepperTaskIndicatorComponent from './components/hds/stepper/task/indicator';
 import type HdsTextComponent from './components/hds/text';
@@ -189,6 +190,10 @@ export default interface HdsComponentsRegistry {
   'Hds::SideNav::Header::IconButton': typeof HdsSideNavHeaderIconButtonComponent;
   'hds/side-nav/header/icon-button': typeof HdsSideNavHeaderIconButtonComponent;
   HdsSideNavHeaderIconButton: typeof HdsSideNavHeaderIconButtonComponent;
+
+  'Hds::SideNav::List::BackLink': typeof HdsSideNavListBackLinkComponent;
+  'hds/side-nav/list/back-link': typeof HdsSideNavListBackLinkComponent;
+  HdsSideNavListBackLink: typeof HdsSideNavListBackLinkComponent;
 
   // Stepper
   'Hds::Stepper::Step::Indicator': typeof HdsStepperStepIndicatorComponent;

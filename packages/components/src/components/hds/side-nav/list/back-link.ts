@@ -1,29 +1,12 @@
-import templateOnlyComponent from '@ember/component/template-only';
+import Component from '@glimmer/component';
 
-interface ListBackLinkSignature {
-  Args: {
-    'current-when': unknown;
-    href: unknown;
-    isHrefExternal: unknown;
-    isRouteExternal: unknown;
-    model: unknown;
-    models: unknown;
-    query: unknown;
-    replace: unknown;
-    route: unknown;
-    text: unknown;
+import type { HdsInteractiveSignature } from '../../interactive/';
+
+export interface HdsSideNavListBackLinkSignature {
+  Args: HdsInteractiveSignature['Args'] & {
+    text: string;
   };
-  Element: HTMLElement;
+  Element: HdsInteractiveSignature['Element'];
 }
 
-const ListBackLinkComponent =
-  templateOnlyComponent<ListBackLinkSignature>();
-
-export default ListBackLinkComponent;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'List::BackLink': typeof ListBackLinkComponent;
-    'list/back-link': typeof ListBackLinkComponent;
-  }
-}
+export default class HdsSideNavListBackLinkComponent extends Component<HdsSideNavListBackLinkSignature> {}
