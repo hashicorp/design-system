@@ -100,6 +100,9 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
     let controlId = 'my-custom-id';
     assert.dom('.hds-form-field__label').hasAttribute('for', controlId);
     assert
+      .dom('.hds-form-field__label')
+      .hasAttribute('id', `label-${controlId}`);
+    assert
       .dom('.hds-form-field__helper-text')
       .hasAttribute('id', `helper-text-${controlId}`);
     assert

@@ -1,0 +1,78 @@
+{{! @glint-nocheck: not typesafe yet }}
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<Hds::Form::Field
+  @layout="vertical"
+  @extraAriaDescribedBy={{@extraAriaDescribedBy}}
+  @isRequired={{@isRequired}}
+  @isOptional={{@isOptional}}
+  @id={{@id}}
+  as |F|
+>
+  {{! Notice: the order of the elements is not relevant here, because is controlled at "Hds::Form::Field" component level }}
+  {{yield (hash Label=F.Label isRequired=F.isRequired isOptional=F.isOptional)}}
+  {{yield (hash HelperText=F.HelperText Error=F.Error)}}
+  <F.Control>
+    {{! Important: if an argument is added in base.hbs, it must also be added/processed here }}
+    <Hds::Form::SuperSelect::Single::Base
+      @afterOptionsComponent={{@afterOptionsComponent}}
+      @afterOptionsContent={{@afterOptionsContent}}
+      @ariaDescribedBy={{F.ariaDescribedBy}}
+      @ariaInvalid={{@ariaInvalid}}
+      @ariaLabel={{@ariaLabel}}
+      @ariaLabelledBy={{(concat this.idPrefix F.id)}}
+      @beforeOptionsComponent={{@beforeOptionsComponent}}
+      @closeOnSelect={{@closeOnSelect}}
+      @disabled={{@disabled}}
+      @dropdownClass={{@dropdownClass}}
+      @dropdownMaxWidth={{@dropdownMaxWidth}}
+      @extra={{@extra}}
+      @groupComponent={{@groupComponent}}
+      @horizontalPosition={{@horizontalPosition}}
+      @initiallyOpened={{@initiallyOpened}}
+      @labelText={{@labelText}}
+      @loadingMessage={{@loadingMessage}}
+      @matcher={{@matcher}}
+      @matchTriggerWidth={{@matchTriggerWidth}}
+      @noMatchesMessage={{@noMatchesMessage}}
+      @onBlur={{@onBlur}}
+      @onChange={{@onChange}}
+      @onClose={{@onClose}}
+      @onFocus={{@onFocus}}
+      @onInput={{@onInput}}
+      @onKeydown={{@onKeydown}}
+      @onOpen={{@onOpen}}
+      @options={{@options}}
+      @optionsComponent={{@optionsComponent}}
+      @placeholder={{@placeholder}}
+      @placeholderComponent={{@placeholderComponent}}
+      @preventScroll={{@preventScroll}}
+      @registerAPI={{@registerAPI}}
+      @renderInPlace={{true}}
+      @resultCountMessage={{@resultCountMessage}}
+      @scrollTo={{@scrollTo}}
+      @search={{@search}}
+      @searchEnabled={{@searchEnabled}}
+      @searchField={{@searchField}}
+      @searchMessage={{@searchMessage}}
+      @searchPlaceholder={{@searchPlaceholder}}
+      @selected={{@selected}}
+      @selectedItemComponent={{@selectedItemComponent}}
+      @showAfterOptions={{@showAfterOptions}}
+      @tabindex={{@tabindex}}
+      @triggerClass={{@triggerClass}}
+      @triggerComponent={{@triggerComponent}}
+      @triggerId={{F.id}}
+      @triggerRole={{@triggerRole}}
+      @typeAheadMatcher={{@typeAheadMatcher}}
+      @verticalPosition={{@verticalPosition}}
+      @isInvalid={{@isInvalid}}
+      ...attributes
+      as |options select|
+    >
+      {{yield (hash options=options select=select Options=(component "hds/yield" options=options select=select))}}
+    </Hds::Form::SuperSelect::Single::Base>
+  </F.Control>
+</Hds::Form::Field>

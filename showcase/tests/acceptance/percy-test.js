@@ -98,6 +98,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/form/select');
     await percySnapshot('Form - Select');
 
+    await visit('/components/form/super-select');
+    await percySnapshot('Form - SuperSelect');
+
     await visit('/components/form/text-input');
     await percySnapshot('Form - TextInput');
 

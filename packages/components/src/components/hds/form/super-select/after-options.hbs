@@ -1,0 +1,31 @@
+{{! @glint-nocheck: not typesafe yet }}
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+{{#if @showNoSelectedMessage}}
+  <Hds::Text::Body @tag="div" @size="200" class="hds-form-super-select__no-options-selected hds-foreground-strong">
+    No options selected
+  </Hds::Text::Body>
+{{/if}}
+<div class="hds-form-super-select__after-options">
+  {{#if @content}}
+    <Hds::Text::Body @tag="div" @size="100" class="hds-foreground-strong">
+      {{@content}}
+    </Hds::Text::Body>
+  {{else}}
+    {{#if (or @showAll @showSelected @clearSelected)}}
+      {{#if @showOnlySelected}}
+        <Hds::Button @text="Show all" @size="small" @color="secondary" {{on "click" @showAll}} />
+      {{else}}
+        <Hds::Button @text="Show selected" @size="small" @color="secondary" {{on "click" @showSelected}} />
+      {{/if}}
+      {{#if (not-eq @selectedCount "0")}}
+        <Hds::Button @text="Clear selected" @size="small" @color="secondary" {{on "click" @clearSelected}} />
+      {{/if}}
+    {{/if}}
+    <Hds::Text::Body @tag="div" @size="100" class="hds-form-super-select__result-count hds-foreground-strong">
+      {{@resultCountMessage}}
+    </Hds::Text::Body>
+  {{/if}}
+</div>

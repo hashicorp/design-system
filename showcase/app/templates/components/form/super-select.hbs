@@ -1,0 +1,1412 @@
+{{! @glint-nocheck: not typesafe yet }}
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "Form::SuperSelect Components"}}
+
+<BasicDropdownWormhole />
+
+<Shw::Text::H1>Form::SuperSelect</Shw::Text::H1>
+
+<section data-test-percy>
+  <Shw::Text::H2>Form::SuperSelect::Single::Base</Shw::Text::H2>
+
+  <Shw::Text::H3>Interaction status</Shw::Text::H3>
+
+  <Shw::Grid @columns={{3}} as |SG|>
+    <SG.Item @label="Default">
+      <Hds::Form::SuperSelect::Single::Base
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @ariaLabel="Label"
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Single::Base>
+    </SG.Item>
+    <SG.Item @label="With placeholder">
+      <Hds::Form::SuperSelect::Single::Base
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @placeholder="Placeholder text"
+        @ariaLabel="Label"
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Single::Base>
+    </SG.Item>
+    <SG.Item @label="Selected">
+      <Hds::Form::SuperSelect::Single::Base
+        @onChange={{fn (mut @model.SELECTED_OPTION)}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED_OPTION}}
+        @ariaLabel="Label"
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Single::Base>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>States</Shw::Text::H3>
+
+  <Shw::Grid @columns={{3}} as |SG|>
+    {{#let (array "base" "invalid" "disabled") as |variants|}}
+      {{#each @model.STATES as |state|}}
+        <SG.Item>
+          <Shw::Flex @direction="column" as |SF|>
+            {{#each variants as |variant|}}
+              {{! template-lint-disable simple-unless }}
+              {{#unless (and (eq variant "disabled") (eq state "focus"))}}
+                <SF.Item @label="{{capitalize variant}} / {{capitalize state}}">
+                  <Hds::Form::SuperSelect::Single::Base
+                    @onChange={{fn (mut @model.SELECTED_OPTION)}}
+                    @options={{@model.OPTIONS}}
+                    @selected={{@model.SELECTED_OPTION}}
+                    @disabled={{if (eq variant "disabled") true}}
+                    @isInvalid={{if (eq variant "invalid") true}}
+                    @ariaLabel="Label"
+                    class="mock-{{state}}"
+                    as |option|
+                  >
+                    {{option}}
+                  </Hds::Form::SuperSelect::Single::Base>
+                </SF.Item>
+              {{/unless}}
+            {{/each}}
+          </Shw::Flex>
+        </SG.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Grid>
+
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>List</Shw::Text::H3>
+
+  <Shw::Flex {{style padding-bottom="11em"}} @direction="row" as |SF|>
+    <SF.Item {{style flex="1"}} @label="Default">
+      <Hds::Form::SuperSelect::Single::Base
+        @onChange={{fn (mut @model.SELECTED_OPTION)}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED_OPTION}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        @ariaLabel="Label"
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Single::Base>
+    </SF.Item>
+    <SF.Item {{style flex="1"}} @label="Search enabled">
+      <Hds::Form::SuperSelect::Single::Base
+        @onChange={{fn (mut @model.SELECTED_OPTION)}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED_OPTION}}
+        @searchEnabled={{true}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        @ariaLabel="Label"
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Single::Base>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H4>List position</Shw::Text::H4>
+
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item>
+      <Shw::Flex as |SF|>
+        <SF.Item {{style flex="1"}} @label="Auto (default)">
+          <Hds::Form::SuperSelect::Single::Base
+            @onChange={{fn (mut @model.SELECTED_OPTION)}}
+            @options={{@model.OPTIONS}}
+            @selected={{@model.SELECTED_OPTION}}
+            @ariaLabel="Label"
+            as |option|
+          >
+            {{option}}
+          </Hds::Form::SuperSelect::Single::Base>
+        </SF.Item>
+        <SF.Item {{style flex="1"}} @label="Below">
+          <Hds::Form::SuperSelect::Single::Base
+            @onChange={{fn (mut @model.SELECTED_OPTION)}}
+            @options={{@model.OPTIONS}}
+            @selected={{@model.SELECTED_OPTION}}
+            @verticalPosition="below"
+            @ariaLabel="Label"
+            as |option|
+          >
+            {{option}}
+          </Hds::Form::SuperSelect::Single::Base>
+        </SF.Item>
+        <SF.Item {{style flex="1"}} @label="Above">
+          <Hds::Form::SuperSelect::Single::Base
+            @onChange={{fn (mut @model.SELECTED_OPTION)}}
+            @options={{@model.OPTIONS}}
+            @selected={{@model.SELECTED_OPTION}}
+            @verticalPosition="above"
+            @ariaLabel="Label"
+            as |option|
+          >
+            {{option}}
+          </Hds::Form::SuperSelect::Single::Base>
+        </SF.Item>
+      </Shw::Flex>
+    </SF.Item>
+    <SF.Item>
+      <Shw::Flex as |SF|>
+        <SF.Item {{style flex="1"}} @label="Left (+ matchTriggerWidth=False)">
+          <Hds::Form::SuperSelect::Single::Base
+            @onChange={{fn (mut @model.SELECTED_PLACES_OPTION)}}
+            @options={{@model.PLACES_OPTIONS}}
+            @selected={{@model.SELECTED_PLACES_OPTION}}
+            @matchTriggerWidth={{false}}
+            @horizontalPosition="left"
+            @ariaLabel="Label"
+            as |option|
+          >
+            {{option}}
+          </Hds::Form::SuperSelect::Single::Base>
+        </SF.Item>
+        <SF.Item {{style flex="1"}} @label="Center (+ matchTriggerWidth=False)">
+          <Hds::Form::SuperSelect::Single::Base
+            @onChange={{fn (mut @model.SELECTED_PLACES_OPTION)}}
+            @options={{@model.PLACES_OPTIONS}}
+            @selected={{@model.SELECTED_PLACES_OPTION}}
+            @matchTriggerWidth={{false}}
+            @horizontalPosition="center"
+            @ariaLabel="Label"
+            as |option|
+          >
+            {{option}}
+          </Hds::Form::SuperSelect::Single::Base>
+        </SF.Item>
+        <SF.Item {{style flex="1"}} @label="Right (+ matchTriggerWidth=False)">
+          <Hds::Form::SuperSelect::Single::Base
+            @onChange={{fn (mut @model.SELECTED_PLACES_OPTION)}}
+            @options={{@model.PLACES_OPTIONS}}
+            @selected={{@model.SELECTED_PLACES_OPTION}}
+            @matchTriggerWidth={{false}}
+            @horizontalPosition="right"
+            @ariaLabel="Label"
+            as |option|
+          >
+            {{option}}
+          </Hds::Form::SuperSelect::Single::Base>
+        </SF.Item>
+      </Shw::Flex>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H4>List width</Shw::Text::H4>
+
+  <Shw::Flex {{style padding-bottom="11em"}} as |SF|>
+    <SF.Item {{style min-width="10em"}} @label="matchTriggerWidth = true (default)">
+      <Hds::Form::SuperSelect::Single::Base
+        @onChange={{fn (mut @model.SELECTED_OPTION)}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED_OPTION}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        @ariaLabel="Label"
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Single::Base>
+    </SF.Item>
+    <SF.Item {{style min-width="10em"}} @label="matchTriggerWidth = false">
+      <Hds::Form::SuperSelect::Single::Base
+        @onChange={{fn (mut @model.SELECTED_OPTION)}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED_OPTION}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        @ariaLabel="Label"
+        @matchTriggerWidth={{false}}
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Single::Base>
+    </SF.Item>
+    <SF.Item @label="dropdownMaxWidth = 30em">
+      <Hds::Form::SuperSelect::Single::Base
+        @onChange={{fn (mut @model.SELECTED_PLACES_OPTION)}}
+        @options={{@model.PLACES_OPTIONS}}
+        @selected={{@model.SELECTED_PLACES_OPTION}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        @dropdownMaxWidth="30em"
+        @ariaLabel="Label"
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Single::Base>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>Before &amp; after options</Shw::Text::H3>
+
+  <Shw::Flex {{style padding-bottom="15.5em" max-width="50%"}} @direction="row" as |SF|>
+    <SF.Item {{style flex="1"}} @label="Before options generic content">
+      <Hds::Form::SuperSelect::Single::Base
+        @beforeOptionsComponent={{component "form/super-select/mock-components/generic-content"}}
+        @onChange={{fn (mut @model.SELECTED_PLACES_OPTION)}}
+        @options={{@model.PLACES_OPTIONS}}
+        @selected={{@model.SELECTED_PLACES_OPTION}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        @ariaLabel="Label"
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Single::Base>
+    </SF.Item>
+    {{! left empty on purpose }}
+    <SF.Item />
+  </Shw::Flex>
+
+  <Shw::Flex {{style padding-bottom="15em"}} @direction="row" as |SF|>
+    <SF.Item {{style flex="1"}} @label="After options default content">
+      <Hds::Form::SuperSelect::Single::Base
+        @onChange={{fn (mut @model.SELECTED_PLACES_OPTION)}}
+        @options={{@model.PLACES_OPTIONS}}
+        @selected={{@model.SELECTED_PLACES_OPTION}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        @ariaLabel="Label"
+        @showAfterOptions={{true}}
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Single::Base>
+    </SF.Item>
+    <SF.Item {{style flex="1"}} @label="After options no content">
+      <Hds::Form::SuperSelect::Single::Base
+        @onChange={{fn (mut @model.SELECTED_PLACES_OPTION)}}
+        @options={{@model.PLACES_OPTIONS}}
+        @selected={{@model.SELECTED_PLACES_OPTION}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        @ariaLabel="Label"
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Single::Base>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex {{style padding-bottom="15em"}} @direction="row" as |SF|>
+    <SF.Item {{style flex="1"}} @label="After options text content in footer">
+      <Hds::Form::SuperSelect::Single::Base
+        @onChange={{fn (mut @model.SELECTED_PLACES_OPTION)}}
+        @options={{@model.PLACES_OPTIONS}}
+        @selected={{@model.SELECTED_PLACES_OPTION}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        @afterOptionsContent="After options content"
+        @ariaLabel="Label"
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Single::Base>
+    </SF.Item>
+    <SF.Item {{style flex="1"}} @label="After options generic content in footer">
+      <Hds::Form::SuperSelect::Single::Base
+        @onChange={{fn (mut @model.SELECTED_PLACES_OPTION)}}
+        @options={{@model.PLACES_OPTIONS}}
+        @selected={{@model.SELECTED_PLACES_OPTION}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        @afterOptionsContent={{component "form/super-select/mock-components/generic-content"}}
+        @ariaLabel="Label"
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Single::Base>
+    </SF.Item>
+    <SF.Item {{style flex="1"}} @label="After options generic content">
+      <Hds::Form::SuperSelect::Single::Base
+        @afterOptionsComponent={{component "form/super-select/mock-components/generic-content"}}
+        @onChange={{fn (mut @model.SELECTED_PLACES_OPTION)}}
+        @options={{@model.PLACES_OPTIONS}}
+        @selected={{@model.SELECTED_PLACES_OPTION}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        @ariaLabel="Label"
+        @showAfterOptions={{true}}
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Single::Base>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Form::SuperSelect::Single::Field</Shw::Text::H2>
+
+  <Shw::Grid @columns={{3}} as |SG|>
+    <SG.Item @label="Only label">
+      <Hds::Form::SuperSelect::Single::Field
+        @onChange={{fn (mut @model.SELECTED_OPTION)}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED_OPTION}}
+        as |F|
+      >
+        <F.Label>Lorem ipsum dolor</F.Label>
+        {{F.options}}
+      </Hds::Form::SuperSelect::Single::Field>
+    </SG.Item>
+    <SG.Item @label="Label + Helper text">
+      <Hds::Form::SuperSelect::Single::Field
+        @onChange={{fn (mut @model.SELECTED_OPTION)}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED_OPTION}}
+        as |F|
+      >
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        {{F.options}}
+      </Hds::Form::SuperSelect::Single::Field>
+    </SG.Item>
+    {{! left empty on purpose }}
+    <SG.Item />
+    <SG.Item @label="Label + Error">
+      <Hds::Form::SuperSelect::Single::Field
+        @onChange={{fn (mut @model.SELECTED_OPTION)}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED_OPTION}}
+        @isInvalid={{true}}
+        as |F|
+      >
+        <F.Label>This is the label</F.Label>
+        {{F.options}}
+        <F.Error>This is the error</F.Error>
+      </Hds::Form::SuperSelect::Single::Field>
+    </SG.Item>
+    <SG.Item @label="Label + Helper text + Error">
+      <Hds::Form::SuperSelect::Single::Field
+        @onChange={{fn (mut @model.SELECTED_OPTION)}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED_OPTION}}
+        @isInvalid={{true}}
+        as |F|
+      >
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        {{F.options}}
+        <F.Error>This is the error</F.Error>
+      </Hds::Form::SuperSelect::Single::Field>
+    </SG.Item>
+    <SG.Item @label="Label + Helper text + Errors">
+      <Hds::Form::SuperSelect::Single::Field
+        @onChange={{fn (mut @model.SELECTED_OPTION)}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED_OPTION}}
+        @isInvalid={{true}}
+        as |F|
+      >
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        {{F.options}}
+        <F.Error as |E|>
+          <E.Message>First error message</E.Message>
+          <E.Message>Second error message</E.Message>
+        </F.Error>
+      </Hds::Form::SuperSelect::Single::Field>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Text::H3>Required and optional</Shw::Text::H3>
+
+  <Shw::Grid @columns={{3}} as |SG|>
+    <SG.Item @label="With legend + Required">
+      <Hds::Form::SuperSelect::Single::Field
+        @onChange={{fn (mut @model.SELECTED_OPTION)}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED_OPTION}}
+        @isRequired={{true}}
+        as |F|
+      >
+        <F.Label>Lorem ipsum dolor</F.Label>
+        {{F.options}}
+      </Hds::Form::SuperSelect::Single::Field>
+    </SG.Item>
+    <SG.Item @label="With legend + Optional">
+      <Hds::Form::SuperSelect::Single::Field
+        @onChange={{fn (mut @model.SELECTED_OPTION)}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED_OPTION}}
+        @isOptional={{true}}
+        as |F|
+      >
+        <F.Label>Lorem ipsum dolor</F.Label>
+        {{F.options}}
+      </Hds::Form::SuperSelect::Single::Field>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Text::H3>Complex content</Shw::Text::H3>
+
+  <Shw::Flex {{style padding-bottom="12em"}} @direction="row" as |SF|>
+    <SF.Item {{style flex="1"}} @label="Rich content w/o custom selectedItem">
+      <Hds::Form::SuperSelect::Single::Field
+        @selected={{@model.SELECTED_CLUSTER_SIZE_OPTION}}
+        @onChange={{fn (mut @model.SELECTED_CLUSTER_SIZE_OPTIONS)}}
+        @options={{@model.CLUSTER_SIZE_OPTIONS}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        as |F|
+      >
+        <F.Label>Label</F.Label>
+        <F.Options>
+          {{#let F.options as |option|}}
+            <div class="shw-component-form-super-select-option-rich-header">
+              <strong>{{option.size}}</strong>
+              <strong>{{option.price}}/hr</strong>
+            </div>
+            <div>{{option.description}}</div>
+          {{/let}}
+        </F.Options>
+      </Hds::Form::SuperSelect::Single::Field>
+    </SF.Item>
+    <SF.Item {{style flex="1"}} @label="Rich content with custom selectedItemComponent">
+      <Hds::Form::SuperSelect::Single::Field
+        @selected={{@model.SELECTED_CLUSTER_SIZE_OPTION}}
+        @selectedItemComponent={{component "form/super-select/mock-components/selected-component-single"}}
+        @onChange={{fn (mut @model.SELECTED_CLUSTER_SIZE_OPTIONS)}}
+        @options={{@model.CLUSTER_SIZE_OPTIONS}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        as |F|
+      >
+        <F.Label>Label</F.Label>
+        <F.Options>
+          {{#let F.options as |option|}}
+            <div class="shw-component-form-super-select-option-rich-header">
+              <strong>{{option.size}}</strong>
+              <strong>{{option.price}}/hr</strong>
+            </div>
+            <div>{{option.description}}</div>
+          {{/let}}
+        </F.Options>
+      </Hds::Form::SuperSelect::Single::Field>
+    </SF.Item>
+    <SF.Item {{style flex="1"}} @label="Label and grouped options">
+      <Hds::Form::SuperSelect::Single::Field
+        @onChange={{fn (mut @model.SELECTED_GROUPED_OPTION)}}
+        @options={{@model.GROUPED_OPTIONS}}
+        @selected={{@model.SELECTED_GROUPED_OPTION}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        as |F|
+      >
+        <F.Label>Label</F.Label>
+        <F.Options>
+          {{F.options}}
+        </F.Options>
+      </Hds::Form::SuperSelect::Single::Field>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Form::SuperSelect::Multiple::Base</Shw::Text::H2>
+
+  <Shw::Text::H3>Interaction</Shw::Text::H3>
+
+  <Shw::Flex @direction="row" as |SF|>
+    <SF.Item {{style flex="1"}} @label="Default">
+      <Hds::Form::SuperSelect::Multiple::Base
+        @onChange={{this.noop}}
+        @options={{@model.OPTIONS}}
+        @ariaLabel="Label"
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Multiple::Base>
+    </SF.Item>
+
+    <SF.Item {{style flex="1"}} @label="Selected">
+      <Hds::Form::SuperSelect::Multiple::Base
+        @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED_OPTIONS}}
+        @ariaLabel="Label"
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Multiple::Base>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>States</Shw::Text::H3>
+
+  <Shw::Grid @columns={{3}} as |SG|>
+    {{#let (array "base" "invalid" "disabled") as |variants|}}
+      {{#each @model.STATES as |state|}}
+        <SG.Item>
+          <Shw::Flex @direction="column" as |SF|>
+            {{#each variants as |variant|}}
+              {{! template-lint-disable simple-unless }}
+              {{#unless (and (eq variant "disabled") (eq state "focus"))}}
+                <SF.Item @label="{{capitalize variant}} / {{capitalize state}}">
+                  <Hds::Form::SuperSelect::Multiple::Base
+                    @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
+                    @options={{@model.PLACES_OPTIONS}}
+                    @selected={{@model.SELECTED_PLACES_OPTIONS}}
+                    @disabled={{if (eq variant "disabled") "disabled"}}
+                    @isInvalid={{if (eq variant "invalid") true}}
+                    @ariaLabel="Label"
+                    class="mock-{{state}}"
+                    as |option|
+                  >
+                    {{option}}
+                  </Hds::Form::SuperSelect::Multiple::Base>
+                </SF.Item>
+              {{/unless}}
+            {{/each}}
+          </Shw::Flex>
+        </SG.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Grid>
+
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>List</Shw::Text::H3>
+
+  <Shw::Flex {{style flex="1" padding-bottom="12em"}} @direction="row" as |SF|>
+    <SF.Item {{style flex="1"}} @label="Default">
+      <Hds::Form::SuperSelect::Multiple::Base
+        @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED_OPTIONS}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        @ariaLabel="Label"
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Multiple::Base>
+    </SF.Item>
+
+    <SF.Item {{style flex="1"}} @label="Search enabled">
+      <Hds::Form::SuperSelect::Multiple::Base
+        @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED_OPTIONS}}
+        @searchEnabled={{true}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        @ariaLabel="Label"
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Multiple::Base>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H4>List position</Shw::Text::H4>
+
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item>
+      <Shw::Flex as |SF|>
+        <SF.Item {{style flex="1"}} @label="Auto (default)">
+          <Hds::Form::SuperSelect::Multiple::Base
+            @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
+            @options={{@model.OPTIONS}}
+            @selected={{@model.SELECTED_OPTIONS}}
+            @ariaLabel="Label"
+            as |option|
+          >
+            {{option}}
+          </Hds::Form::SuperSelect::Multiple::Base>
+        </SF.Item>
+        <SF.Item {{style flex="1"}} @label="Below">
+          <Hds::Form::SuperSelect::Multiple::Base
+            @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
+            @options={{@model.OPTIONS}}
+            @selected={{@model.SELECTED_OPTIONS}}
+            @verticalPosition="below"
+            @ariaLabel="Label"
+            as |option|
+          >
+            {{option}}
+          </Hds::Form::SuperSelect::Multiple::Base>
+        </SF.Item>
+        <SF.Item {{style flex="1"}} @label="Above">
+          <Hds::Form::SuperSelect::Multiple::Base
+            @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
+            @options={{@model.OPTIONS}}
+            @selected={{@model.SELECTED_OPTIONS}}
+            @verticalPosition="above"
+            @ariaLabel="Label"
+            as |option|
+          >
+            {{option}}
+          </Hds::Form::SuperSelect::Multiple::Base>
+        </SF.Item>
+      </Shw::Flex>
+    </SF.Item>
+
+    <SF.Item>
+      <Shw::Flex as |SF|>
+        <SF.Item {{style flex="1"}} @label="Left (+ matchTriggerWidth=False)">
+          <Hds::Form::SuperSelect::Multiple::Base
+            @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
+            @options={{@model.PLACES_OPTIONS}}
+            @selected={{@model.SELECTED_PLACES_OPTIONS}}
+            @matchTriggerWidth={{false}}
+            @horizontalPosition="left"
+            @ariaLabel="Label"
+            as |option|
+          >
+            {{option}}
+          </Hds::Form::SuperSelect::Multiple::Base>
+        </SF.Item>
+        <SF.Item {{style flex="1"}} @label="Center (+ matchTriggerWidth=False)">
+          <Hds::Form::SuperSelect::Multiple::Base
+            @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
+            @options={{@model.PLACES_OPTIONS}}
+            @selected={{@model.SELECTED_PLACES_OPTIONS}}
+            @matchTriggerWidth={{false}}
+            @horizontalPosition="center"
+            @ariaLabel="Label"
+            as |option|
+          >
+            {{option}}
+          </Hds::Form::SuperSelect::Multiple::Base>
+        </SF.Item>
+        <SF.Item {{style flex="1"}} @label="Right (+ matchTriggerWidth=False)">
+          <Hds::Form::SuperSelect::Multiple::Base
+            @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
+            @options={{@model.PLACES_OPTIONS}}
+            @selected={{@model.SELECTED_PLACES_OPTIONS}}
+            @matchTriggerWidth={{false}}
+            @horizontalPosition="right"
+            @ariaLabel="Label"
+            as |option|
+          >
+            {{option}}
+          </Hds::Form::SuperSelect::Multiple::Base>
+        </SF.Item>
+      </Shw::Flex>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H4>List width</Shw::Text::H4>
+
+  <Shw::Flex {{style padding-bottom="16em"}} as |SF|>
+    <SF.Item {{style min-width="10em"}} @label="matchTriggerWidth = true (default)">
+      <Hds::Form::SuperSelect::Multiple::Base
+        @onChange={{fn (mut @model.SELECTED_OPTIONS_SINGLE)}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED_OPTIONS_SINGLE}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        @ariaLabel="Label"
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Multiple::Base>
+    </SF.Item>
+    <SF.Item {{style min-width="26em"}} @label="matchTriggerWidth = false">
+      <Hds::Form::SuperSelect::Multiple::Base
+        @onChange={{fn (mut @model.SELECTED_OPTIONS_SINGLE)}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED_OPTIONS_SINGLE}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        @matchTriggerWidth={{false}}
+        @ariaLabel="Label"
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Multiple::Base>
+    </SF.Item>
+    <SF.Item @label="dropdownMaxWidth = 25em">
+      <Hds::Form::SuperSelect::Multiple::Base
+        @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS_SINGLE)}}
+        @options={{@model.PLACES_OPTIONS}}
+        @selected={{@model.SELECTED_PLACES_OPTIONS_SINGLE}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        @dropdownMaxWidth="25em"
+        @ariaLabel="Label"
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Multiple::Base>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>Before &amp; after options</Shw::Text::H3>
+
+  <Shw::Flex {{style padding-bottom="18em"}} @direction="row" as |SF|>
+    <SF.Item @label="Before options generic content">
+      <Hds::Form::SuperSelect::Multiple::Base
+        @beforeOptionsComponent={{component "form/super-select/mock-components/generic-content"}}
+        @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
+        @options={{@model.PLACES_OPTIONS}}
+        @selected={{@model.SELECTED_PLACES_OPTIONS}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        @ariaLabel="Label"
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Multiple::Base>
+    </SF.Item>
+    {{! left empty on purpose }}
+    <SF.Item />
+  </Shw::Flex>
+
+  <Shw::Flex {{style padding-bottom="15.5em"}} @direction="row" as |SF|>
+    <SF.Item {{style flex="1"}} @label="After options default content">
+      <Hds::Form::SuperSelect::Multiple::Base
+        @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
+        @options={{@model.PLACES_OPTIONS}}
+        @selected={{@model.SELECTED_PLACES_OPTIONS}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        @ariaLabel="Label"
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Multiple::Base>
+    </SF.Item>
+    <SF.Item {{style flex="1"}} @label="After options no content">
+      <Hds::Form::SuperSelect::Multiple::Base
+        @showAfterOptions={{false}}
+        @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
+        @options={{@model.PLACES_OPTIONS}}
+        @selected={{@model.SELECTED_PLACES_OPTIONS}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        @ariaLabel="Label"
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Multiple::Base>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex {{style padding-bottom="15em"}} @direction="row" as |SF|>
+    <SF.Item {{style flex="1"}} @label="After options text content in footer">
+      <Hds::Form::SuperSelect::Multiple::Base
+        @afterOptionsContent="After options content"
+        @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
+        @options={{@model.PLACES_OPTIONS}}
+        @selected={{@model.SELECTED_PLACES_OPTIONS}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        @ariaLabel="Label"
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Multiple::Base>
+    </SF.Item>
+    <SF.Item {{style flex="1"}} @label="After options generic content in footer">
+      <Hds::Form::SuperSelect::Multiple::Base
+        @afterOptionsContent={{component "form/super-select/mock-components/generic-content"}}
+        @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
+        @options={{@model.PLACES_OPTIONS}}
+        @selected={{@model.SELECTED_PLACES_OPTIONS}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        @ariaLabel="Label"
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Multiple::Base>
+    </SF.Item>
+    <SF.Item {{style flex="1"}} @label="After options generic content">
+      <Hds::Form::SuperSelect::Multiple::Base
+        @afterOptionsComponent={{component "form/super-select/mock-components/generic-content"}}
+        @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
+        @options={{@model.PLACES_OPTIONS}}
+        @selected={{@model.SELECTED_PLACES_OPTIONS}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        @ariaLabel="Label"
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Multiple::Base>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Form::SuperSelect::Multiple::Field</Shw::Text::H2>
+
+  <Shw::Grid @columns={{3}} as |SG|>
+    <SG.Item @label="Only label">
+      <Hds::Form::SuperSelect::Multiple::Field
+        @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED_OPTIONS}}
+        as |F|
+      >
+        <F.Label>Lorem ipsum dolor</F.Label>
+        {{F.options}}
+      </Hds::Form::SuperSelect::Multiple::Field>
+    </SG.Item>
+    <SG.Item @label="Label + Helper text">
+      <Hds::Form::SuperSelect::Multiple::Field
+        @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED_OPTIONS}}
+        as |F|
+      >
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        {{F.options}}
+      </Hds::Form::SuperSelect::Multiple::Field>
+    </SG.Item>
+    {{! left empty on purpose }}
+    <SG.Item />
+    <SG.Item @label="Label + Error">
+      <Hds::Form::SuperSelect::Multiple::Field
+        @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED_OPTIONS}}
+        @isInvalid={{true}}
+        as |F|
+      >
+        <F.Label>This is the label</F.Label>
+        {{F.options}}
+        <F.Error>This is the error</F.Error>
+      </Hds::Form::SuperSelect::Multiple::Field>
+    </SG.Item>
+    <SG.Item @label="Label + Helper text + Error">
+      <Hds::Form::SuperSelect::Multiple::Field
+        @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED_OPTIONS}}
+        @isInvalid={{true}}
+        as |F|
+      >
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        {{F.options}}
+        <F.Error>This is the error</F.Error>
+      </Hds::Form::SuperSelect::Multiple::Field>
+    </SG.Item>
+    <SG.Item @label="Label + Helper text + Errors">
+      <Hds::Form::SuperSelect::Multiple::Field
+        @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED_OPTIONS}}
+        @isInvalid={{true}}
+        as |F|
+      >
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        {{F.options}}
+        <F.Error as |E|>
+          <E.Message>First error message</E.Message>
+          <E.Message>Second error message</E.Message>
+        </F.Error>
+      </Hds::Form::SuperSelect::Multiple::Field>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Text::H3>Required and optional</Shw::Text::H3>
+
+  <Shw::Grid @columns={{3}} as |SG|>
+    <SG.Item @label="With legend + Required">
+      <Hds::Form::SuperSelect::Multiple::Field
+        @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED_OPTIONS}}
+        @isRequired={{true}}
+        as |F|
+      >
+        <F.Label>Lorem ipsum dolor</F.Label>
+        {{F.options}}
+      </Hds::Form::SuperSelect::Multiple::Field>
+    </SG.Item>
+    <SG.Item @label="With legend + Optional">
+      <Hds::Form::SuperSelect::Multiple::Field
+        @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED_OPTIONS}}
+        @isOptional={{true}}
+        as |F|
+      >
+        <F.Label>Lorem ipsum dolor</F.Label>
+        {{F.options}}
+      </Hds::Form::SuperSelect::Multiple::Field>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Text::H3>Complex content</Shw::Text::H3>
+
+  <Shw::Flex {{style padding-bottom="15em"}} @direction="row" as |SF|>
+    <SF.Item {{style flex="1"}} @label="Rich content w/o custom selectedItems">
+      <Hds::Form::SuperSelect::Multiple::Field
+        @selected={{@model.SELECTED_CLUSTER_SIZE_OPTIONS}}
+        @onChange={{fn (mut @model.SELECTED_CLUSTER_SIZE_OPTIONS)}}
+        @options={{@model.CLUSTER_SIZE_OPTIONS}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        as |F|
+      >
+        <F.Label>Label</F.Label>
+        <F.Options>
+          {{#let F.options as |option|}}
+            <div class="shw-component-form-super-select-option-rich-header">
+              <strong>{{option.size}}</strong>
+              <strong>{{option.price}}/hr</strong>
+            </div>
+            <div>{{option.description}}</div>
+          {{/let}}
+        </F.Options>
+      </Hds::Form::SuperSelect::Multiple::Field>
+    </SF.Item>
+    <SF.Item {{style flex="1"}} @label="Rich content with custom selectedItems">
+      <Hds::Form::SuperSelect::Multiple::Field
+        @selected={{@model.SELECTED_CLUSTER_SIZE_OPTIONS}}
+        @selectedItemComponent={{component "form/super-select/mock-components/selected-component-multiple"}}
+        @onChange={{fn (mut @model.SELECTED_CLUSTER_SIZE_OPTIONS)}}
+        @options={{@model.CLUSTER_SIZE_OPTIONS}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        as |F|
+      >
+        <F.Label>Label</F.Label>
+        <F.Options>
+          {{#let F.options as |option|}}
+            <div class="shw-component-form-super-select-option-rich-header">
+              <strong>{{option.size}}</strong>
+              <strong>{{option.price}}/hr</strong>
+            </div>
+            <div>{{option.description}}</div>
+          {{/let}}
+        </F.Options>
+      </Hds::Form::SuperSelect::Multiple::Field>
+    </SF.Item>
+    <SF.Item {{style flex="1"}} @label="Grouped options">
+      <Hds::Form::SuperSelect::Multiple::Field
+        @onChange={{fn (mut @model.SELECTED_GROUPED_OPTIONS)}}
+        @options={{@model.GROUPED_OPTIONS}}
+        @selected={{@model.SELECTED_GROUPED_OPTIONS}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        as |F|
+      >
+        <F.Label>Label</F.Label>
+        <F.Options>
+          {{F.options}}
+        </F.Options>
+      </Hds::Form::SuperSelect::Multiple::Field>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Base elements</Shw::Text::H2>
+
+  <Shw::Text::H3>Trigger</Shw::Text::H3>
+
+  <Shw::Flex as |SF|>
+    {{#each @model.STATES as |state|}}
+      <SF.Item @label={{(capitalize state)}}>
+        <div class="hds-form-super-select">
+          <div class="ember-basic-dropdown">
+            <div class="ember-power-select-trigger" mock-state-value={{state}}>
+              <span class="ember-power-select-selected-item">
+                <span class="hds-text hds-typography-body-200 hds-font-weight-regular">Option</span>
+              </span>
+              <span class="ember-power-select-status-icon"></span>
+            </div>
+          </div>
+        </div>
+      </SF.Item>
+    {{/each}}
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Dropdown</Shw::Text::H3>
+
+  <Shw::Text::H4>Search input</Shw::Text::H4>
+
+  <Shw::Flex as |SF|>
+    {{#each @model.STATES as |state|}}
+      <SF.Item @label={{(capitalize state)}}>
+        <div class="hds-form-super-select">
+          <div class="ember-basic-dropdown">
+            <Shw::Outliner>
+              <div class="ember-power-select-search">
+                <input
+                  class="ember-power-select-search-input"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search input"
+                  mock-state-value={{state}}
+                />
+              </div>
+            </Shw::Outliner>
+          </div>
+        </div>
+      </SF.Item>
+    {{/each}}
+  </Shw::Flex>
+
+  <Shw::Text::H4>Options (single selection)</Shw::Text::H4>
+
+  <Shw::Flex as |SG|>
+    <SG.Item @label="Default">
+      <div class="hds-form-super-select hds-form-super-select-single">
+        <div class="ember-basic-dropdown">
+          <div class="ember-basic-dropdown-content" {{style position="static"}}>
+            <ul class="ember-power-select-options" role="listbox" aria-label="Label">
+              {{! there is no focused state for the `select-option` }}
+              {{#let (array "default" "hover" "active") as |states|}}
+                {{#each states as |state|}}
+                  <li class="ember-power-select-option" role="option" mock-state-value={{state}}>
+                    {{state}}
+                  </li>
+                {{/each}}
+              {{/let}}
+              <li class="ember-power-select-option" role="option" aria-disabled="true">
+                disabled
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </SG.Item>
+    <SG.Item @label="Selected">
+      <div class="hds-form-super-select hds-form-super-select-single">
+        <div class="ember-basic-dropdown">
+          <div class="ember-basic-dropdown-content" {{style position="static"}}>
+            <ul class="ember-power-select-options" role="listbox" aria-label="Label">
+              {{! there is no focused state for the `select-option` }}
+              {{#let (array "default" "hover" "active") as |states|}}
+                {{#each states as |state|}}
+                  <li class="ember-power-select-option" aria-selected="true" role="option" mock-state-value={{state}}>
+                    {{state}}
+                  </li>
+                {{/each}}
+              {{/let}}
+              <li class="ember-power-select-option" role="option" aria-selected="true" aria-disabled="true">
+                disabled
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </SG.Item>
+    <SG.Item @label="With very long text" {{style width="200px"}}>
+      <div class="hds-form-super-select hds-form-super-select-single">
+        <div class="ember-basic-dropdown">
+          <div class="ember-basic-dropdown-content" {{style position="static"}}>
+            <ul class="ember-power-select-options" role="listbox" aria-label="Label" {{style max-height="none"}}>
+              {{! there is no focused state for the `select-option` }}
+              {{#let (array "default" "hover" "active") as |states|}}
+                {{#each states as |state|}}
+                  <li class="ember-power-select-option" aria-selected="true" role="option" mock-state-value={{state}}>
+                    {{state}}
+                    - this is a long text that should wrap on multiple lines
+                  </li>
+                {{/each}}
+              {{/let}}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </SG.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H4>Options (multiple selection)</Shw::Text::H4>
+
+  <Shw::Flex as |SG|>
+    <SG.Item @label="Default">
+      <div class="hds-form-super-select hds-form-super-select-multiple">
+        <div class="ember-basic-dropdown">
+          <div class="ember-basic-dropdown-content" {{style position="static"}}>
+            <ul class="ember-power-select-options" role="listbox" aria-label="Label">
+              {{! there is no focused state for the `select-option` }}
+              {{#let (array "default" "hover" "active") as |states|}}
+                {{#each states as |state|}}
+                  <li class="ember-power-select-option" role="option" mock-state-value={{state}}>
+                    {{state}}
+                  </li>
+                {{/each}}
+              {{/let}}
+              <li class="ember-power-select-option" role="option" aria-disabled="true">
+                disabled
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </SG.Item>
+    <SG.Item @label="Selected">
+      <div class="hds-form-super-select hds-form-super-select-multiple">
+        <div class="ember-basic-dropdown">
+          <div class="ember-basic-dropdown-content" {{style position="static"}}>
+            <ul class="ember-power-select-options" role="listbox" aria-label="Label">
+              {{! there is no focused state for the `select-option` }}
+              {{#let (array "default" "hover" "active") as |states|}}
+                {{#each states as |state|}}
+                  <li class="ember-power-select-option" role="option" aria-selected="true" mock-state-value={{state}}>
+                    {{state}}
+                  </li>
+                {{/each}}
+              {{/let}}
+              <li class="ember-power-select-option" role="option" aria-selected="true" aria-disabled="true">
+                disabled
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </SG.Item>
+    <SG.Item @label="With very long text" {{style width="200px"}}>
+      <div class="hds-form-super-select hds-form-super-select-multiple">
+        <div class="ember-basic-dropdown">
+          <div class="ember-basic-dropdown-content" {{style position="static"}}>
+            <ul class="ember-power-select-options" role="listbox" aria-label="Label" {{style max-height="none"}}>
+              {{! there is no focused state for the `select-option` }}
+              {{#let (array "default" "hover" "active") as |states|}}
+                {{#each states as |state|}}
+                  <li class="ember-power-select-option" aria-selected="true" role="option" mock-state-value={{state}}>
+                    {{state}}
+                    - this is a long text that should wrap on multiple lines
+                  </li>
+                {{/each}}
+              {{/let}}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </SG.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Form::SuperSelect::OptionGroup</Shw::Text::H3>
+
+  {{#let (array "single" "multiple") as |variants|}}
+    {{#each variants as |variant|}}
+      <Shw::Flex as |SG|>
+        <SG.Item @label="{{(capitalize variant)}} / Flat">
+          <div class="hds-form-super-select hds-form-super-select-{{variant}}">
+            <div class="ember-basic-dropdown">
+              <div class="ember-basic-dropdown-content" {{style position="static"}}>
+                <ul class="ember-power-select-options" role="listbox" aria-label="Label" {{style max-height="none"}}>
+                  <Hds::Form::SuperSelect::OptionGroup
+                    @group={{(hash groupName="Title for first group (with no content)")}}
+                  />
+                  <Hds::Form::SuperSelect::OptionGroup
+                    @group={{(hash groupName="Title for second group (with generic content)")}}
+                  >
+                    <Shw::Placeholder @text="Second group - Generic content" @height="40px" />
+                  </Hds::Form::SuperSelect::OptionGroup>
+                  <Hds::Form::SuperSelect::OptionGroup
+                    @group={{(hash groupName="Title for third group (with options)")}}
+                  >
+                    {{! template-lint-disable require-context-role }}
+                    <li class="ember-power-select-option" role="option" mock-state-value="hover">
+                      Option 1
+                    </li>
+                    <li class="ember-power-select-option" role="option">
+                      Option 2
+                    </li>
+                  </Hds::Form::SuperSelect::OptionGroup>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </SG.Item>
+        <SG.Item @label="{{(capitalize variant)}} / Nested">
+          <div class="hds-form-super-select hds-form-super-select-{{variant}}">
+            <div class="ember-basic-dropdown">
+              <div class="ember-basic-dropdown-content" {{style position="static"}}>
+                <ul class="ember-power-select-options" role="listbox" aria-label="Label" {{style max-height="none"}}>
+                  <Hds::Form::SuperSelect::OptionGroup @group={{(hash groupName="Title for first level")}}>
+                    {{! template-lint-disable require-context-role }}
+                    <li class="ember-power-select-option" role="option" mock-state-value="hover">
+                      Level 1 - Option 1A
+                    </li>
+                    <Hds::Form::SuperSelect::OptionGroup @group={{(hash groupName="Title for second level")}}>
+                      {{! template-lint-disable require-context-role }}
+                      <li class="ember-power-select-option" role="option" mock-state-value="hover">
+                        Level 2 - Option 2A
+                      </li>
+                      <li class="ember-power-select-option" role="option">
+                        Level 2 - Option 2B
+                      </li>
+                      <Hds::Form::SuperSelect::OptionGroup @group={{(hash groupName="Title for third level")}}>
+                        {{! template-lint-disable require-context-role }}
+                        <li class="ember-power-select-option" role="option" mock-state-value="hover">
+                          Level 3 - Option 3A
+                        </li>
+                        <li class="ember-power-select-option" role="option">
+                          Level 3 - Option 3B
+                        </li>
+                      </Hds::Form::SuperSelect::OptionGroup>
+                    </Hds::Form::SuperSelect::OptionGroup>
+                    <Hds::Form::SuperSelect::OptionGroup
+                      @group={{(hash groupName="Title for second level (with generic content)")}}
+                    >
+                      <Shw::Placeholder @text="Second group - Generic content" @height="40px" />
+                    </Hds::Form::SuperSelect::OptionGroup>
+                    <li class="ember-power-select-option" role="option">
+                      Level 1 - Option 1B
+                    </li>
+                  </Hds::Form::SuperSelect::OptionGroup>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </SG.Item>
+      </Shw::Flex>
+    {{/each}}
+  {{/let}}
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Form::SuperSelect::AfterOptions</Shw::Text::H3>
+
+  <Shw::Text::H3>Content</Shw::Text::H3>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="No arguments">
+      <Shw::Outliner>
+        <Hds::Form::SuperSelect::AfterOptions />
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="with @showNoSelectedMessage=true">
+      <Shw::Outliner>
+        <Hds::Form::SuperSelect::AfterOptions @showNoSelectedMessage={{true}} />
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="with @content (text)" {{style max-width="500px"}}>
+      <Shw::Outliner>
+        <Hds::Form::SuperSelect::AfterOptions @content="Lorem ipsum dolor" />
+      </Shw::Outliner>
+    </SF.Item>
+    <SF.Item @label="with @content (generic)" {{style max-width="500px"}}>
+      <Shw::Outliner>
+        <Hds::Form::SuperSelect::AfterOptions
+          @content={{component "form/super-select/mock-components/generic-content"}}
+        />
+      </Shw::Outliner>
+    </SF.Item>
+    <SF.Item @label="with @content with long test" {{style max-width="500px"}}>
+      <Shw::Outliner>
+        <Hds::Form::SuperSelect::AfterOptions
+          @content="This is the a very very very very very very long text that should wrap on multiple lines"
+        />
+      </Shw::Outliner>
+    </SF.Item>
+    <SF.Item @label="with @showAll & @selectedCount=0" {{style max-width="500px"}}>
+      <Shw::Outliner>
+        <Hds::Form::SuperSelect::AfterOptions
+          @showAll={{this.noop}}
+          @showOnlySelected={{true}}
+          @selectedCount="0"
+          @resultCountMessage="This is the resultCountMessage"
+        />
+      </Shw::Outliner>
+    </SF.Item>
+    <SF.Item @label="with @showAll & @selectedCount>0" {{style max-width="500px"}}>
+      <Shw::Outliner>
+        <Hds::Form::SuperSelect::AfterOptions
+          @showAll={{this.noop}}
+          @showOnlySelected={{true}}
+          @selectedCount="123"
+          @clearSelected={{this.noop}}
+          @resultCountMessage="This is the resultCountMessage"
+        />
+      </Shw::Outliner>
+    </SF.Item>
+    <SF.Item @label="with @showSelected & @selectedCount=0" {{style max-width="500px"}}>
+      <Shw::Outliner>
+        <Hds::Form::SuperSelect::AfterOptions
+          @showSelected={{this.noop}}
+          @selectedCount="0"
+          @resultCountMessage="This is the resultCountMessage"
+        />
+      </Shw::Outliner>
+    </SF.Item>
+    <SF.Item @label="with @showSelected & @selectedCount>0" {{style max-width="500px"}}>
+      <Shw::Outliner>
+        <Hds::Form::SuperSelect::AfterOptions
+          @showSelected={{this.noop}}
+          @selectedCount="123"
+          @clearSelected={{this.noop}}
+          @resultCountMessage="This is the resultCountMessage"
+        />
+      </Shw::Outliner>
+    </SF.Item>
+    <SF.Item @label="with @resultCountMessage with long text" {{style max-width="500px"}}>
+      <Shw::Outliner>
+        <Hds::Form::SuperSelect::AfterOptions
+          @showNoSelectedMessage={{true}}
+          @showAll={{this.noop}}
+          @showSelected={{this.noop}}
+          @clearSelected={{this.noop}}
+          @selectedCount={{123}}
+          @resultCountMessage="This is the a very very very long text that should wrap on multiple lines"
+        />
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H4>Within a dropdown with options</Shw::Text::H4>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Single level">
+      <div class="hds-form-super-select hds-form-super-select-multiple">
+        <div class="ember-basic-dropdown">
+          <div class="ember-basic-dropdown-content ember-power-select-dropdown" {{style position="static"}}>
+            <ul class="ember-power-select-options" role="listbox" aria-label="Label" {{style max-height="none"}}>
+              <Hds::Form::SuperSelect::OptionGroup @group={{(hash groupName="Lorem ipsum dolor")}}>
+                {{! template-lint-disable require-context-role }}
+                <li class="ember-power-select-option" role="option" aria-selected="true">
+                  Option 1
+                </li>
+                <li class="ember-power-select-option" role="option">
+                  Option 2
+                </li>
+              </Hds::Form::SuperSelect::OptionGroup>
+            </ul>
+            <Hds::Form::SuperSelect::AfterOptions
+              @showAll={{this.noop}}
+              @showSelected={{this.noop}}
+              @clearSelected={{this.noop}}
+              @selectedCount={{123}}
+              @resultCountMessage="1 selected of 2 total"
+            />
+          </div>
+        </div>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+</section>

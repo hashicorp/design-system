@@ -4,8 +4,22 @@
  */
 
 import Component from '@glimmer/component';
+export const ID_PREFIX = 'label-';
 
 export default class HdsFormLabelIndexComponent extends Component {
+  /**
+   * Determines the unique ID to assign to the element
+   * @method id
+   * @return {(string|null)} The "id" attribute to apply to the element or null, if no controlId is provided
+   */
+  get id() {
+    let { controlId } = this.args;
+    if (controlId) {
+      return `${ID_PREFIX}${controlId}`;
+    }
+    return null;
+  }
+
   /**
    * Get the class names to apply to the component.
    * @method classNames

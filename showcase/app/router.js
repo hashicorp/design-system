@@ -39,6 +39,7 @@ Router.map(function () {
       this.route('masked-input');
       this.route('radio');
       this.route('select');
+      this.route('super-select');
       this.route('text-input');
       this.route('textarea');
       this.route('toggle');

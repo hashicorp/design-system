@@ -1,0 +1,70 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+{{! Important: if an argument is added in base.hbs, it must also be added/processed in the Base component used in field.hbs }}
+<div class={{this.classNames}} {{style this.dropdownMaxWidthStyle}}>
+  <PowerSelect
+    @afterOptionsComponent={{if
+      this.showAfterOptions
+      (or
+        @afterOptionsComponent
+        (component
+          "hds/form/super-select/after-options" content=@afterOptionsContent resultCountMessage=this.resultCountMessage
+        )
+      )
+    }}
+    @ariaDescribedBy={{@ariaDescribedBy}}
+    @ariaInvalid={{@ariaInvalid}}
+    @ariaLabel={{@ariaLabel}}
+    @ariaLabelledBy={{@ariaLabelledBy}}
+    @beforeOptionsComponent={{@beforeOptionsComponent}}
+    @calculatePosition={{if @verticalPosition undefined this.calculatePosition}}
+    @closeOnSelect={{@closeOnSelect}}
+    @disabled={{@disabled}}
+    @dropdownClass={{@dropdownClass}}
+    @extra={{@extra}}
+    @groupComponent={{component "hds/form/super-select/option-group"}}
+    @horizontalPosition={{@horizontalPosition}}
+    @initiallyOpened={{@initiallyOpened}}
+    @labelText={{@labelText}}
+    @loadingMessage={{@loadingMessage}}
+    @matcher={{@matcher}}
+    @matchTriggerWidth={{if @dropdownMaxWidth false @matchTriggerWidth}}
+    @noMatchesMessage={{@noMatchesMessage}}
+    @onBlur={{@onBlur}}
+    @onChange={{@onChange}}
+    @onClose={{@onClose}}
+    @onFocus={{@onFocus}}
+    @onInput={{@onInput}}
+    @onKeydown={{@onKeydown}}
+    @onOpen={{@onOpen}}
+    @options={{@options}}
+    @optionsComponent={{@optionsComponent}}
+    @placeholder={{@placeholder}}
+    @placeholderComponent={{component "hds/form/super-select/placeholder"}}
+    @preventScroll={{@preventScroll}}
+    @registerAPI={{@registerAPI}}
+    @renderInPlace={{true}}
+    @resultCountMessage={{@resultCountMessage}}
+    @scrollTo={{@scrollTo}}
+    @search={{@search}}
+    @searchEnabled={{@searchEnabled}}
+    @searchField={{@searchField}}
+    @searchMessage={{@searchMessage}}
+    @searchPlaceholder={{this.searchPlaceholder}}
+    @selected={{@selected}}
+    @selectedItemComponent={{@selectedItemComponent}}
+    @tabindex={{@tabindex}}
+    @triggerClass={{@triggerClass}}
+    @triggerComponent={{@triggerComponent}}
+    @triggerId={{@triggerId}}
+    @triggerRole={{@triggerRole}}
+    @typeAheadMatcher={{@typeAheadMatcher}}
+    @verticalPosition={{@verticalPosition}}
+    ...attributes
+    as |option select|
+  >
+    <Hds::Text::Body>{{yield option select}}</Hds::Text::Body>
+  </PowerSelect>
+</div>

@@ -1,0 +1,79 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+{{! Important: if an argument is added in base.hbs, it must also be added/processed in the Base component used in field.hbs }}
+<div class={{this.classNames}} {{style this.dropdownMaxWidthStyle}}>
+  <PowerSelectMultiple
+    @afterOptionsComponent={{if
+      this.showAfterOptions
+      (or
+        @afterOptionsComponent
+        (component
+          "hds/form/super-select/after-options"
+          content=@afterOptionsContent
+          resultCountMessage=this.resultCountMessage
+          showNoSelectedMessage=this.showNoSelectedMessage
+          showOnlySelected=this.showOnlySelected
+          showSelected=this.showSelected
+          showAll=this.showAll
+          clearSelected=this.clearSelected
+          selectedCount=this.selectedCount
+        )
+      )
+    }}
+    @ariaDescribedBy={{@ariaDescribedBy}}
+    @ariaInvalid={{@ariaInvalid}}
+    @ariaLabel={{@ariaLabel}}
+    @ariaLabelledBy={{@ariaLabelledBy}}
+    @beforeOptionsComponent={{@beforeOptionsComponent}}
+    @calculatePosition={{if @verticalPosition undefined this.calculatePosition}}
+    @closeOnSelect={{false}}
+    @disabled={{@disabled}}
+    @dropdownClass={{@dropdownClass}}
+    @extra={{@extra}}
+    @groupComponent={{component "hds/form/super-select/option-group"}}
+    @horizontalPosition={{@horizontalPosition}}
+    @initiallyOpened={{@initiallyOpened}}
+    @labelText={{@labelText}}
+    @loadingMessage={{@loadingMessage}}
+    @matcher={{@matcher}}
+    @matchTriggerWidth={{if @dropdownMaxWidth false @matchTriggerWidth}}
+    @noMatchesMessage={{@noMatchesMessage}}
+    @onBlur={{@onBlur}}
+    @onChange={{@onChange}}
+    @onClose={{@onClose}}
+    @onFocus={{@onFocus}}
+    @onInput={{@onInput}}
+    @onKeydown={{@onKeydown}}
+    @onOpen={{@onOpen}}
+    @options={{@options}}
+    @optionsComponent={{@optionsComponent}}
+    @placeholder={{@placeholder}}
+    @placeholderComponent={{@placeholderComponent}}
+    @preventScroll={{@preventScroll}}
+    @registerAPI={{this.setPowerSelectAPI}}
+    @renderInPlace={{true}}
+    @resultCountMessage={{@resultCountMessage}}
+    @scrollTo={{@scrollTo}}
+    @search={{@search}}
+    @searchEnabled={{@searchEnabled}}
+    @searchField={{@searchField}}
+    @searchMessage={{@searchMessage}}
+    @searchPlaceholder={{this.searchPlaceholder}}
+    @selected={{@selected}}
+    @selectedItemComponent={{@selectedItemComponent}}
+    @tabindex={{@tabindex}}
+    @triggerClass={{@triggerClass}}
+    @triggerComponent={{@triggerComponent}}
+    @triggerId={{@triggerId}}
+    @triggerRole={{@triggerRole}}
+    @typeAheadMatcher={{@typeAheadMatcher}}
+    @verticalPosition={{@verticalPosition}}
+    ...attributes
+    as |option select|
+  >
+    {{! even if technically what is yielded here are _a list_ of options, we've decided to keep the `option` name for consistency with the existing `PowerSelect` API }}
+    {{yield option select}}
+  </PowerSelectMultiple>
+</div>
