@@ -6,7 +6,7 @@
   width: 44px;
   height: 44px;
   padding: 8px;
-  background-color: rgba(52, 53, 54, 80%);
+  background-color: var(--doc-color-gray-100);
   border: 2px solid transparent;
   border-radius: 50%;
   box-shadow: 0 8px 12px 0 rgba(37, 38, 45, 8%);
@@ -18,7 +18,7 @@
   pointer-events: none;
 
   &:hover {
-    background-color: rgba(29, 30, 31, 80%);
+    background-color: var(--doc-color-gray-200);
     box-shadow: 0 16px 28px 0 rgba(37, 38, 45, 12%);
     transform: translate3d(0, -3px, 0);
   }
@@ -30,6 +30,6 @@
 }
 
 .doc-scroll-to-top--is-visible {
-  opacity: 1;
+  opacity: 0.9; // we want to peek the content below the button
   pointer-events: initial;
 }
