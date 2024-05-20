@@ -111,7 +111,7 @@ export const writeTextToClipboard = async (textToCopy: string) => {
 };
 
 export const copyToClipboard = async (
-  text: string,
+  text: string | undefined,
   target: Node | undefined
 ) => {
   let textToCopy: string = '';
@@ -132,36 +132,31 @@ export const copyToClipboard = async (
   return success;
 };
 
+export interface ModifierSignature {
+  Element: HTMLElement;
+  Args: {
+    Named: {
+      text?: string;
+      target?: Node;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      onSuccess?: (...args: any[]) => void;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      onError?: (...args: any[]) => void;
+    };
+  };
+}
+
 // Notice: we use a function-based modifier here instead of a class-based one
 // because it's quite simple in its logic, and doesn't require injecting services
 // see: https://github.com/ember-modifier/ember-modifier#function-based-modifiers
 
-export default modifier((element, _positional, named) => {
+export default modifier<ModifierSignature>((element, _positional, named) => {
   assert(
     '`hds-clipboard` modifier - the modifier must be applied to an element',
     element
   );
 
-  const {
-    text,
-    target,
-    onSuccess,
-    onError,
-  }: {
-    text: string;
-    target: Node;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onSuccess: (...args: any[]) => void;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onError: (...args: any[]) => void;
-  } = named as {
-    text: string;
-    target: Node;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onSuccess: (...args: any[]) => void;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onError: (...args: any[]) => void;
-  };
+  const { text, target, onSuccess, onError } = named;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onClick = async (event: { currentTarget: any }) => {
