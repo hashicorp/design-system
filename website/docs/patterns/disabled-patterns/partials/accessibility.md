@@ -1,12 +1,12 @@
 The `disabled` attribute in HTML is only valid for these form controls:
 
-- <button>
-- <fieldset>
-- <optgroup>
-- <option>
-- <select>
-- <textarea>
-- <input>
+- `<button>`
+- `<fieldset>`
+- `<optgroup>`
+- `<option>`
+- `<select>`
+- `<textarea>`
+- `<input>`
 
 In terms of accessibility, however, a form control with the `disabled` attribute is problematic. If a form control has the `disabled` attribute, it's not available to users with assistive technology. It's as though the element does not exist in the DOM at all.
 
