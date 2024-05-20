@@ -1,0 +1,9 @@
+<button
+  aria-label="Scroll back to top"
+  class="doc-scroll-to-top {{if this.isButtonVisible 'doc-scroll-to-top--is-visible'}}"
+  type="button"
+  tabindex={{if this.isButtonVisible 0 -1}}
+  {{on "click" this.scrollToTop}}
+>
+  <FlightIcon @name="arrow-up" @color="white" @size="24" @isInlineBlock={{false}} />
+</button>
