@@ -6,7 +6,7 @@
 import { modifier } from 'ember-modifier';
 import { assert, warn } from '@ember/debug';
 
-export const getTextToCopy = (text: { toString: () => string }) => {
+export const getTextToCopy = (text: TextToCopy) => {
   let textToCopy: string = '';
 
   if (text) {
@@ -56,7 +56,7 @@ export const getTargetElement = (target: string | Node) => {
   return targetElement;
 };
 
-export const getTextToCopyFromTargetElement = (targetElement: Node) => {
+export const getTextToCopyFromTargetElement = (targetElement: TargetToCopy) => {
   let textToCopy: string = '';
 
   if (
@@ -111,8 +111,8 @@ export const writeTextToClipboard = async (textToCopy: string) => {
 };
 
 export const copyToClipboard = async (
-  text: string | undefined,
-  target: Node | undefined
+  text: TextToCopy,
+  target: TargetToCopy
 ) => {
   let textToCopy: string = '';
 
@@ -132,12 +132,15 @@ export const copyToClipboard = async (
   return success;
 };
 
+type TextToCopy = string | number | bigint | undefined;
+type TargetToCopy = Node | undefined;
+
 export interface ModifierSignature {
   Element: HTMLElement;
   Args: {
     Named: {
-      text?: string;
-      target?: Node;
+      text?: TextToCopy;
+      target?: TargetToCopy;
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       onSuccess?: (...args: any[]) => void;
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
