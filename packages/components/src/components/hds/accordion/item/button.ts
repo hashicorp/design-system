@@ -4,15 +4,35 @@
  */
 
 import Component from '@glimmer/component';
+import { action } from '@ember/object';
 
-export default class HdsAccordionItemButtonComponent extends Component {
+interface HdsAccordionItemButtonSignature {
+  Args: {
+    ariaLabel?: string;
+    contentId?: string;
+    isOpen?: boolean;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onClickToggle?: (event: MouseEvent, ...args: any[]) => void;
+    parentContainsInteractive?: boolean;
+  };
+  Element: HTMLButtonElement;
+}
+
+export default class HdsAccordionItemButtonComponent extends Component<HdsAccordionItemButtonSignature> {
+  @action
+  onClick(event: MouseEvent) {
+    if (this.args.onClickToggle) {
+      this.args.onClickToggle(event);
+    }
+  }
+
   /**
    * Get the class names to apply to the component.
    * @method ItemButton#classNames
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-accordion-item__button'];
+    const classes = ['hds-accordion-item__button'];
 
     // add a class based on the @isOpen argument
     if (this.args.isOpen) {
