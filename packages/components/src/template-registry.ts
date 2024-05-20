@@ -37,6 +37,7 @@ import type HdsLinkStandaloneComponent from './components/hds/link/standalone';
 import type HdsRevealComponent from './components/hds/reveal';
 import type HdsRevealToggleButtonComponent from './components/hds/reveal/toggle/button';
 import type HdsSeparatorComponent from './components/hds/separator';
+import type HdsSideNavHeaderComponent from './components/hds/side-nav/header';
 import type HdsSideNavHeaderHomeLinkComponent from './components/hds/side-nav/header/home-link';
 import type HdsSideNavHeaderIconButtonComponent from './components/hds/side-nav/header/icon-button';
 import type HdsStepperStepIndicatorComponent from './components/hds/stepper/step/indicator';
@@ -177,6 +178,10 @@ export default interface HdsComponentsRegistry {
   'hds/separator': typeof HdsSeparatorComponent;
 
   // Side Nav
+  'Hds::SideNav::Header': typeof HdsSideNavHeaderComponent;
+  'hds/side-nav/header': typeof HdsSideNavHeaderComponent;
+  HdsSideNavHeader: typeof HdsSideNavHeaderComponent;
+
   'Hds::SideNav::Header::HomeLink': typeof HdsSideNavHeaderHomeLinkComponent;
   'hds/side-nav/header/home-link': typeof HdsSideNavHeaderHomeLinkComponent;
   HdsSideNavHeaderHomeLink: typeof HdsSideNavHeaderHomeLinkComponent;

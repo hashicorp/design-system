@@ -1,22 +1,10 @@
-import templateOnlyComponent from '@ember/component/template-only';
-
-interface HeaderIndexSignature {
-  Args: {};
+import Component from '@glimmer/component';
+interface HdsSideNavHeaderSignature {
   Blocks: {
-    actions: [];
-    logo: [];
+    logo?: [];
+    actions?: [];
   };
   Element: HTMLDivElement;
 }
 
-const HeaderIndexComponent =
-  templateOnlyComponent<HeaderIndexSignature>();
-
-export default HeaderIndexComponent;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Header::Index': typeof HeaderIndexComponent;
-    'header/index': typeof HeaderIndexComponent;
-  }
-}
+export default class HdsSideNavHeaderComponent extends Component<HdsSideNavHeaderSignature> {}
