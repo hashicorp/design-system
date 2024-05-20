@@ -1,21 +1,26 @@
-import templateOnlyComponent from '@ember/component/template-only';
+import Component from '@glimmer/component';
 
-interface ListIndexSignature {
-  Args: {};
+import type { ComponentLike } from '@glint/template';
+import type { HdsYieldSignature } from '../../yield';
+import type { HdsSideNavListItemSignature } from './item';
+import type { HdsSideNavListBackLinkSignature } from './back-link';
+import type { HdsSideNavListTitleSignature } from './title';
+import type { HdsSideNavListLinkSignature } from './link';
+
+export interface HdsSideNavListSignature {
   Blocks: {
-    default: [unknown];
+    default: [
+      {
+        ExtraBefore?: ComponentLike<HdsYieldSignature>;
+        Item?: ComponentLike<HdsSideNavListItemSignature>;
+        BackLink?: ComponentLike<HdsSideNavListBackLinkSignature>;
+        Title?: ComponentLike<HdsSideNavListTitleSignature>;
+        Link?: ComponentLike<HdsSideNavListLinkSignature>;
+        ExtraAfter?: ComponentLike<HdsYieldSignature>;
+      }
+    ];
   };
   Element: HTMLElement;
 }
 
-const ListIndexComponent =
-  templateOnlyComponent<ListIndexSignature>();
-
-export default ListIndexComponent;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'List::Index': typeof ListIndexComponent;
-    'list/index': typeof ListIndexComponent;
-  }
-}
+export default class HdsSideNavListComponent extends Component<HdsSideNavListSignature> {}

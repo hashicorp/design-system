@@ -40,6 +40,7 @@ import type HdsSeparatorComponent from './components/hds/separator';
 import type HdsSideNavHeaderComponent from './components/hds/side-nav/header';
 import type HdsSideNavHeaderHomeLinkComponent from './components/hds/side-nav/header/home-link';
 import type HdsSideNavHeaderIconButtonComponent from './components/hds/side-nav/header/icon-button';
+import type HdsSideNavListComponent from './components/hds/side-nav/list';
 import type HdsSideNavListBackLinkComponent from './components/hds/side-nav/list/back-link';
 import type HdsSideNavListItemComponent from './components/hds/side-nav/list/item';
 import type HdsSideNavListLinkComponent from './components/hds/side-nav/list/link';
@@ -193,6 +194,10 @@ export default interface HdsComponentsRegistry {
   'Hds::SideNav::Header::IconButton': typeof HdsSideNavHeaderIconButtonComponent;
   'hds/side-nav/header/icon-button': typeof HdsSideNavHeaderIconButtonComponent;
   HdsSideNavHeaderIconButton: typeof HdsSideNavHeaderIconButtonComponent;
+
+  'Hds::SideNav::List': typeof HdsSideNavListComponent;
+  'hds/side-nav/list': typeof HdsSideNavListComponent;
+  HdsSideNavList: typeof HdsSideNavListComponent;
 
   'Hds::SideNav::List::BackLink': typeof HdsSideNavListBackLinkComponent;
   'hds/side-nav/list/back-link': typeof HdsSideNavListBackLinkComponent;
