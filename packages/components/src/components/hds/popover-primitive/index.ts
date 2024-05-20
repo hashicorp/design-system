@@ -32,6 +32,8 @@ export {
   DEFAULT_PLACEMENT,
 } from '../../../modifiers/hds-anchored-position.ts';
 
+import type { FloatingUIOptions } from '../../../modifiers/hds-anchored-position.ts';
+
 export interface HdsPopoverPrimitiveSignature {
   Args: {
     enableClickEvents: boolean;
@@ -107,7 +109,11 @@ export default class HdsPopoverPrimitiveComponent extends Component<HdsPopoverPr
   );
 
   setupPrimitivePopover = modifier(
-    (element: HTMLElement, _positional, named = {}) => {
+    (
+      element: HTMLElement,
+      _positional,
+      named: { anchoredPositionOptions: FloatingUIOptions }
+    ) => {
       this.popoverElement = element;
 
       // for the click events we don't use `onclick` event listeners, but we rely on the `popovertarget` attribute
@@ -145,7 +151,9 @@ export default class HdsPopoverPrimitiveComponent extends Component<HdsPopoverPr
       registerEvent(this.popoverElement, ['toggle', this.onTogglePopover]);
 
       // we need to spread the argument because if it's set via `{{ hash … }}` Ember complains when we overwrite one of its values
-      const anchoredPositionOptions = { ...named.anchoredPositionOptions };
+      const anchoredPositionOptions: FloatingUIOptions = {
+        ...named.anchoredPositionOptions,
+      };
 
       // we overwrite the "strategy" if the Popover API is not supported (polyfill applied for the first time) of it's already been polyfilled (see above)
       // this is specifically done for Firefox: currently it doesn't support it, but will soon (we need Firefox 127 to support the last 2 versions)
