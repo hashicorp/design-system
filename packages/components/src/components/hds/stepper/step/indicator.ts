@@ -14,8 +14,8 @@ export const STATUSES: string[] = Object.values(HdsStepperStatusesValues);
 
 interface HdsStepperStepIndicatorSignature {
   Args: {
-    isInteractive?: boolean;
     status: HdsStepperStatuses;
+    isInteractive?: boolean;
     text: string;
   };
   Element: HTMLDivElement;

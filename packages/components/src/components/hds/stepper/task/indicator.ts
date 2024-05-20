@@ -19,8 +19,8 @@ export const MAPPING_STATUS_TO_ICONS = HdsStepperStatusToIconsValues;
 
 interface HdsStepperTaskIndicatorSignature {
   Args: {
-    isInteractive?: boolean;
     status: HdsStepperStatuses;
+    isInteractive?: boolean;
   };
   Element: HTMLDivElement;
 }
