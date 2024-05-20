@@ -9,7 +9,7 @@
   <C.Property @name="icon" @type="string">
     Used to show an icon. Any [icon](/icons/library) name is accepted.
     <br/><br/>
-    Tertiary buttons have transparent backgrounds, and interactive elements must communicate interactivity with more than just color. Therefore, a leading or trailing icon is required when using the `tertiary` color. [WCAG 2.1 Criterion 1.4.1: Use of Color (Level A)](https://www.w3.org/WAI/WCAG21/quickref/?showtechniques=141#use-of-color)
+    Tertiary buttons have transparent backgrounds, and interactive elements must communicate interactivity with more than just color. Therefore, a leading or trailing icon is required when using the `tertiary` color. [WCAG 2.2 Criterion 1.4.1: Use of Color (Level A)](https://www.w3.org/WAI/WCAG22/quickref/?showtechniques=141#use-of-color)
   </C.Property>
   <C.Property @name="iconPosition" @type="enum" @values={{array "leading" "trailing" }} @default="leading">
     Positions the icon before or after the text.

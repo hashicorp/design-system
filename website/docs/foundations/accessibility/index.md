@@ -45,7 +45,7 @@ Adding support for accessible routing ensures that route transitions are appropr
 
 1. It adds a message to the page to let the screen reader user know that the route has changed and regular page navigation can resume (it’s similar to [a11y-announcer](https://github.com/ember-a11y/a11y-announcer) but doesn’t use `aria-live`).
 2. It moves the focus to that message for the screen reader user, effectively resetting focus in Ember apps (similar to how a native web page works).
-3. It provides an optional bypass mechanism so the user can skip to the page’s primary content (see [Technique G1](https://www.w3.org/WAI/WCAG21/Techniques/general/G1)). See the `Options` section in the documentation for available options.
+3. It provides an optional bypass mechanism so the user can skip to the page’s primary content (see [Technique G1](https://www.w3.org/WAI/WCAG22/Techniques/general/G1)). See the `Options` section in the documentation for available options.
 
 ## Automated testing
 

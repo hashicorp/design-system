@@ -12,7 +12,7 @@ Because we build the Helios Design System with accessibility as a core requireme
 
 ## Ensuring accessible outcomes
 
-Because we’re firm in our commitment to accessibility, we take practical steps to ensure our outcomes are accessible. This means that we integrate accessibility at every step of our creation cycle. In addition to formalizing our commitment to WCAG 2.1 AA conformance with an internal policy, we take the following actionable steps:
+Because we’re firm in our commitment to accessibility, we take practical steps to ensure our outcomes are accessible. This means that we integrate accessibility at every step of our creation cycle. In addition to formalizing our commitment to WCAG 2.2 AA conformance with an internal policy, we take the following actionable steps:
 
 - Provide education and training for our team.
 - Design with accessibility as a core requirement.
@@ -31,7 +31,7 @@ We intend to be compatible with the following assistive technologies:
 
 ## Conformance status
 
-The Web Content Accessibility Guidelines (WCAG) define requirements for designers and engineers to improve accessibility for people with disabilities. It defines three levels of conformance: Level A, Level AA, and Level AAA. Helios intends to be fully conformant with WCAG 2.1 Level AA.
+The Web Content Accessibility Guidelines (WCAG) define requirements for designers and engineers to improve accessibility for people with disabilities. It defines three levels of conformance: Level A, Level AA, and Level AAA. Helios intends to be fully conformant with WCAG 2.2 Level AA requirements.
 
 For clarity, fully conformant means that the content fully conforms to the accessibility standard.
 
