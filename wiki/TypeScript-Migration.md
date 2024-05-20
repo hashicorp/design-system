@@ -14,14 +14,23 @@ The following steps are recommended for migrating components to TypeScript.
 
     - You can either do it manually [following the documentation](https://typed-ember.gitbook.io/glint/environments/ember/component-signatures#glimmer-components)
     - Or, you can generate it using `npx ember-codemod-args-to-signature --src /path/to/component`. This codemod renames the component class name to `IndexComponent` by default, so make sure to revert it (e.g. `HdsBadgeComponent`)
+    - For [template-only components](https://typed-ember.gitbook.io/glint/environments/ember/template-only-components) use the following pattern:
+
+      ```js
+      import TemplateOnlyComponent from '@ember/component/template-only';
+      interface HdsBadgeSignature {
+        // signature
+      }
+      const HdsBadgeComponent = TemplateOnlyComponent<HdsBadgeSignature>();
+      export default HdsBadgeComponent;
 
 5. Add types and use them in the signature
 
     - The signature should follow the naming convention (e.g. `HdsBadgeSignature`) and should be placed right before the backing class declaration, so it’s consistent across components
 
-    - Compare the signature generated, with the expected arguments using the website documentation (Component API section), and start defining the [basic types](https://www.typescriptlang.org/docs/handbook/basic-types.html) (e.g. `boolean`, `number`, `string`) and mark them as optional using the `argument?: type` syntax.
+    - Compare the signature generated, with the expected arguments using the website documentation (Component API section); start defining the [basic types](https://www.typescriptlang.org/docs/handbook/basic-types.html) (e.g. `boolean`, `number`, `string`) and mark them as optional, when not required, using the `argument?: type` syntax.
 
-    - Try to keep the order of the arguments consistent between the `Args` in the signature and the "Component API" documentation, so it's easier to reference and compare one to another; there are no specific rules about the order, so look at other similar components as reference (for example, `Button`, `Badge/BadgeCount`, `IconTile`, `LinkInline/Standalone`, `Tag` they all share some common props, like `type`, `size`, `color`, `text`, `textSomething`, `icon`, `iconSomething` so try to keep this order; for component that get their arguments from the `Interactive` component, keep all the `Interactive`-related arguments in the same block and order; etc.)
+    - Try to keep the order of the arguments consistent between the `Args` in the signature and the "Component API" documentation, so it’s easier to reference and compare one to another; there are no specific rules about the order, so look at other similar components as reference (for example, `Button`, `Badge/BadgeCount`, `IconTile`, `LinkInline/Standalone`, `Tag` they all share some common props, like `type`, `size`, `color`, `text`, `textSomething`, `icon`, `iconSomething` so try to keep this order; for component that get their arguments from the `Interactive` component, keep all the `Interactive`-related arguments in the same block and order; etc.)
 
     - For more involved types, such as `enum`s, conditional, and mapped types, create a `types.ts` file colocated with the component (a single file in the “root” of the component, containing types for components and sub-components).
       - By separating types into their own files, we can keep your codebase more organized and easier to navigate. It also makes it easier to find and update type definitions. Keeping types separate from component logic helps maintain a clear separation of concerns making the component code easier to understand and maintain.
