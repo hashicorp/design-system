@@ -10,7 +10,7 @@ import { action } from '@ember/object';
 import { HdsCopyButtonSizeValues } from './types.ts';
 import type { HdsCopyButtonSizes } from './types.ts';
 import type { HdsButtonSignature } from '../../button/';
-import type { ModifierSignature } from '../../../../modifiers/hds-clipboard.ts';
+import type { HdsClipboardModifierSignature } from '../../../../modifiers/hds-clipboard.ts';
 
 export const DEFAULT_SIZE = HdsCopyButtonSizeValues.Medium;
 export const SIZES: string[] = Object.values(HdsCopyButtonSizeValues);
@@ -22,10 +22,10 @@ export const DEFAULT_STATUS = 'idle';
 export interface HdsCopyButtonSignature {
   Args: HdsButtonSignature['Args'] & {
     size?: HdsCopyButtonSizes;
-    textToCopy?: ModifierSignature['Args']['Named']['text'];
-    targetToCopy?: ModifierSignature['Args']['Named']['target'];
-    onSuccess?: ModifierSignature['Args']['Named']['onSuccess'];
-    onError?: ModifierSignature['Args']['Named']['onError'];
+    textToCopy?: HdsClipboardModifierSignature['Args']['Named']['text'];
+    targetToCopy?: HdsClipboardModifierSignature['Args']['Named']['target'];
+    onSuccess?: HdsClipboardModifierSignature['Args']['Named']['onSuccess'];
+    onError?: HdsClipboardModifierSignature['Args']['Named']['onError'];
   };
   Element: HdsButtonSignature['Element'];
 }
