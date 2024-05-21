@@ -1,8 +1,8 @@
 ### Permissions 
 
-When a user does not have CRUD permissions, hide those related actions.
+When a user does not have CRUD (Create, Read, Update and Delete) permissions, hide the related actions.
 
-In this example, our user's role is **viewer** and they cannot **deploy** or **destroy** a cluster. An explanation is not needed as users understand that their account has limited permissions and that they require an additional user's help to gain these permissions (often someone with admin or similar roles).
+In this example, the user's role is **viewer** and they cannot **deploy** or **destroy** a cluster. An explanation is not needed as users understand that their account has limited permissions and that they require an additional user's help to gain these permissions (often someone with admin or similar roles).
 
 ![Image showing two dropdown with lists open, one with only one menu item that is reader specific, while the other has more options that allow for further capabilities.](/assets/patterns/disabled-patterns/permissions-example.png)
 
@@ -55,20 +55,20 @@ An example of this is Instagram's login page. When a user has no connection to t
 
 ### Incomplete flow
 
-Regardless of the progress of a form, always enable submission, even if there appear to be obvious steps missing. This allows a user to proceed in their workflow, even if it results in an error. When we disable the only way to move forward, users are often left confused and frustrated. Instead, allow users to understand what erorrs took place so that they can fix them and proceed in the form's completion.
+In a form, regardless of whether all of the fields have been filled out, always enable the submit button. When we disable the only way to move forward, users are often left confused and frustrated. Instead, allow users to understand what erorrs took place so that they can fix them and proceed in the form's completion.
 
-In this example, creating a cluster has requried inputs. Clicking "create cluster" will yield errors where applicable, allowing the user to understand where the problems are to remediate them.
+In this example, creating a cluster has required inputs. Clicking "create cluster" will display errors where applicable, allowing the user to understand where the problems are to remediate them.
 
 ![Image showing an input field with an error explaining what was missed.](/assets/patterns/disabled-patterns/incomplete-flow-example.png)
 
 ### Quota limitation
 
-When a quota limitation has been hit, hide the action and replace it with contextual guidance with a call to action to increase the quota (when possible). If the user does not have permissions to upgrade, instead guide them to communicate with the persons responsible with increasing the limitation.
+When a quota limit has been hit, hide the action and replace it with guidance and a call to action to increase the quota (if possible). If the user does not have permissions to upgrade, direct them to an admin instead.
 
-In this example, there is a limit in creating a new "service." When the limit isn't reached yet, the button is present and functions as normal.
+In this example, there is a limit in creating a new "service." When the limit hasn’t been exceeded, the button is present and functions as normal.
 
 ![Image showing a title with a button that allows a user to create a new service, with a table below it.](/assets/patterns/disabled-patterns/create-new-limitation-example.png)
 
-Once the user has hit the max limitation of creating a new "service," the button is hidden, and a message is placed below indicating why they are no longer able to create a new service. 
+Once the user has reached the maximum number of services, the button is hidden, and a message is placed below indicating why they are no longer able to create a new service.
 
 ![Image showing a title with an alert message below and a table below that.](/assets/patterns/disabled-patterns/create-new-limitation-reached-example.png)
