@@ -41,7 +41,7 @@ export const getTargetElement = (target: string | Node) => {
       return;
     }
   } else if (target instanceof Node && target.nodeType === Node.ELEMENT_NODE) {
-    targetElement = target as Node;
+    targetElement = target;
   } else {
     if (target instanceof NodeList) {
       assert(
@@ -132,10 +132,10 @@ export const copyToClipboard = async (
   return success;
 };
 
-type TextToCopy = string | number | bigint | undefined;
-type TargetToCopy = Node | undefined;
+type TextToCopy = string | undefined;
+type TargetToCopy = HTMLElement | undefined;
 
-export interface ModifierSignature {
+export interface HdsClipboardModifierSignature {
   Element: HTMLElement;
   Args: {
     Named: {
@@ -153,7 +153,7 @@ export interface ModifierSignature {
 // because it's quite simple in its logic, and doesn't require injecting services
 // see: https://github.com/ember-modifier/ember-modifier#function-based-modifiers
 
-export default modifier<ModifierSignature>((element, _positional, named) => {
+export default modifier<HdsClipboardModifierSignature>((element, _positional, named) => {
   assert(
     '`hds-clipboard` modifier - the modifier must be applied to an element',
     element
@@ -161,8 +161,7 @@ export default modifier<ModifierSignature>((element, _positional, named) => {
 
   const { text, target, onSuccess, onError } = named;
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const onClick = async (event: { currentTarget: any }) => {
+  const onClick = async (event: MouseEvent) => {
     const trigger = event.currentTarget;
     const success = await copyToClipboard(text, target);
 

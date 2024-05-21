@@ -48,7 +48,7 @@ import type HdsYieldComponent from './components/hds/yield';
 import type HdsLinkToModelsHelper from './helpers/hds-link-to-models';
 import type HdsLinkToQueryHelper from './helpers/hds-link-to-query';
 
-import type HdsClipboardModifier from './modifiers/hds-clipboard';
+import type HdsClipboardModifier from './modifiers/hds-clipboard.ts';
 
 export default interface HdsComponentsRegistry {
   // Accordion
