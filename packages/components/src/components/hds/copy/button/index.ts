@@ -85,7 +85,7 @@ export default class HdsCopyButtonComponent extends Component<HdsCopyButtonSigna
   }
 
   @action
-  onSuccess(args: ModifierSignature['Args']['Named']['onSuccess']) {
+  onSuccess(args: HdsClipboardModifierSignature['Args']['Named']['onSuccess']) {
     this.status = 'success';
     this.resetStatusDelayed();
 
@@ -97,7 +97,7 @@ export default class HdsCopyButtonComponent extends Component<HdsCopyButtonSigna
   }
 
   @action
-  onError(args: ModifierSignature['Args']['Named']['onError']) {
+  onError(args: HdsClipboardModifierSignature['Args']['Named']['onError']) {
     this.status = 'error';
     this.resetStatusDelayed();
 
