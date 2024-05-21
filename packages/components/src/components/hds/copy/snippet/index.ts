@@ -7,8 +7,8 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import { HdsCopySnippetColorValues } from './types';
-import type { HdsCopySnippetColors } from './types';
+import { HdsCopySnippetColorValues } from './types.ts';
+import type { HdsCopySnippetColors } from './types.ts';
 import type { HdsClipboardModifierSignature } from '../../../../modifiers/hds-clipboard.ts';
 
 export const DEFAULT_COLOR = HdsCopySnippetColorValues.Primary;
@@ -34,6 +34,20 @@ interface HdsCopySnippetSignature {
 export default class HdsCopySnippetComponent extends Component<HdsCopySnippetSignature> {
   @tracked status = DEFAULT_STATUS;
   @tracked timer: ReturnType<typeof setTimeout> | undefined;
+
+  /**
+   * @param textToCopy
+   * @type {string | number | bigint | undefined} ???
+   */
+  get textToCopy() {
+    const { textToCopy = '' } = this.args;
+
+    if (typeof textToCopy === 'string') {
+      return textToCopy;
+    } else {
+      return textToCopy.toString();
+    }
+  }
 
   /**
    * @param icon
