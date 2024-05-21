@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
-import { getElementId } from '../../../utils/hds-get-element-id';
+import { getElementId } from '../../../utils/hds-get-element-id.js';
 import { buildWaiter } from '@ember/test-waiters';
 
 let waiter = buildWaiter('@hashicorp/design-system-components:modal');
