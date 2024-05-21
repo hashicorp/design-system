@@ -6,9 +6,9 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import {
-  HdsThButtonSortIconMapValues,
-  HdsTableSortOrderValues,
   HdsTableSortOrderLongValues,
+  HdsTableSortOrderValues,
+  HdsThButtonSortIconMapValues,
 } from './types';
 
 const NOOP = () => {};

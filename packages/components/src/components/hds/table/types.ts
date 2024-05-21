@@ -39,6 +39,7 @@ export enum HdsTableSortOrderValues {
   Asc = 'asc',
   Desc = 'desc',
   None = 'none',
+  Other = 'other',
 }
 
 export type HdsTableSortOrder = `${HdsTableSortOrderValues}`;
@@ -47,6 +48,7 @@ export enum HdsTableSortOrderLongValues {
   Ascending = 'ascending',
   Descending = 'descending',
   None = 'none',
+  Other = 'other',
 }
 
 export type HdsTableSortOrderLong = `${HdsTableSortOrderLongValues}`;
@@ -55,6 +57,7 @@ export const HdsTableSortOrderMapValues = {
   [HdsTableSortOrderValues.Asc]: HdsTableSortOrderLongValues.Ascending,
   [HdsTableSortOrderValues.Desc]: HdsTableSortOrderLongValues.Descending,
   [HdsTableSortOrderValues.None]: HdsTableSortOrderLongValues.None,
+  [HdsTableSortOrderValues.Other]: HdsTableSortOrderLongValues.Other,
 };
 
 // th-button-sort types
