@@ -13,11 +13,11 @@ This component uses the [Clipboard API](https://developer.mozilla.org/en-US/docs
   <C.Property @name="text" @required="true" @type="string">
     The text of the button or value of `aria-label` if `isIconOnly` is set to `true`. If no text value is defined, an error will be thrown.
   </C.Property>
-  <C.Property @name="textToCopy" @type="string | function">
-    String value or action that returns a string to be copied.
+  <C.Property @name="textToCopy" @type="string | number">
+    The value to be copied.
   </C.Property>
-  <C.Property @name="targetToCopy" @type="string | function">
-     Selector string of element or action that returns an element from which to copy text.
+  <C.Property @name="targetToCopy" @type="string | DOM element">
+     Selector string of element or DOM element from which to copy text.
   </C.Property>
   <C.Property @name="onSuccess" @type="function">
     Callback function invoked (if provided) when the "copy" action succeeds.
