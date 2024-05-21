@@ -85,8 +85,7 @@ export default class HdsCopyButtonComponent extends Component<HdsCopyButtonSigna
   }
 
   @action
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onSuccess(args: any) {
+  onSuccess(args: ModifierSignature['Args']['Named']['onSuccess']) {
     this.status = 'success';
     this.resetStatusDelayed();
 
@@ -98,8 +97,7 @@ export default class HdsCopyButtonComponent extends Component<HdsCopyButtonSigna
   }
 
   @action
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onError(args: any) {
+  onError(args: ModifierSignature['Args']['Named']['onError']) {
     this.status = 'error';
     this.resetStatusDelayed();
 
