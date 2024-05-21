@@ -5,14 +5,19 @@
 
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
+import {
+  HdsThButtonSortIconMapValues,
+  HdsTableSortOrderValues,
+  HdsTableSortOrderLongValues,
+} from './types';
 
 const NOOP = () => {};
 
 export interface ThButtonSortSignature {
   Args: {
     labelId: unknown;
-    onClick: unknown;
-    sortOrder: unknown;
+    onClick?: () => void;
+    sortOrder: HdsTableSortOrderValues;
   };
   Element: HTMLButtonElement;
 }
@@ -30,27 +35,28 @@ export default class ThButtonSortComponent extends Component<ThButtonSortSignatu
    * @param icon
    * @type {string}
    * @private
-   * @default swap-vertical
+   * @default HdsThButtonSortIconValues.SwapVertical
    * @description Determines which icon to use based on the sort order defined
    */
   get icon() {
-    switch (this.args.sortOrder) {
-      case 'asc':
-        return 'arrow-up';
-      case 'desc':
-        return 'arrow-down';
-      default:
-        return 'swap-vertical';
-    }
+    return this.args.sortOrder
+      ? HdsThButtonSortIconMapValues[this.args.sortOrder]
+      : HdsThButtonSortIconMapValues[HdsTableSortOrderValues.None];
   }
 
   /**
    * @param sortOrderLabel
-   * @default 'ascending'
+   * @default HdsTableSortOrderLongValues.Ascending
    * @description Determines the label (suffix) to use in the `aria-labelledby` attribute of the button, used to indicate what will happen if the user clicks on the button
    */
-  get sortOrderLabel() {
-    return this.args.sortOrder === 'asc' ? 'descending' : 'ascending';
+  get sortOrderLabel(): Extract<
+    HdsTableSortOrderLongValues,
+    | HdsTableSortOrderLongValues.Ascending
+    | HdsTableSortOrderLongValues.Descending
+  > {
+    return this.args.sortOrder === HdsTableSortOrderValues.Asc
+      ? HdsTableSortOrderLongValues.Descending
+      : HdsTableSortOrderLongValues.Ascending;
   }
 
   /**
@@ -59,13 +65,7 @@ export default class ThButtonSortComponent extends Component<ThButtonSortSignatu
    * @default () => {}
    */
   get onClick() {
-    const { onClick } = this.args;
-
-    if (typeof onClick === 'function') {
-      return onClick;
-    } else {
-      return NOOP;
-    }
+    return this.args.onClick ?? NOOP;
   }
 
   /**
@@ -82,12 +82,5 @@ export default class ThButtonSortComponent extends Component<ThButtonSortSignatu
     }
 
     return classes.join(' ');
-  }
-}
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    ThButtonSort: typeof ThButtonSortComponent;
-    'th-button-sort': typeof ThButtonSortComponent;
   }
 }

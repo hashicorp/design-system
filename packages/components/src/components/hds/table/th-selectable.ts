@@ -86,10 +86,3 @@ export default class ThSelectableComponent extends Component<ThSelectableSignatu
     this.isSelected = event.target.checked;
   }
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    ThSelectable: typeof ThSelectableComponent;
-    'th-selectable': typeof ThSelectableComponent;
-  }
-}

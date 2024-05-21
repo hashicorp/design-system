@@ -5,20 +5,21 @@
 
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
-import { assert } from '@ember/debug';
 
-import { 
+import {
   HdsTableCellTextAlignValues,
+  HdsTableSortOrderValues,
+  HdsTableSortOrderMapValues,
 } from './types.ts';
 
-const ALIGNMENTS = string[] = Object.values(HdsTableCellTextAlignValues);
+// const ALIGNMENTS = Object.values(HdsTableCellTextAlignValues);
 const DEFAULT_ALIGN = HdsTableCellTextAlignValues.Left;
 
 export interface ThSortSignature {
   Args: {
     align?: HdsTableCellTextAlignValues;
     onClickSort?: unknown;
-    sortOrder?: unknown;
+    sortOrder?: HdsTableSortOrderValues;
     tooltip?: unknown;
     width?: unknown;
   };
@@ -44,15 +45,9 @@ export default class ThSortComponent extends Component<ThSortSignature> {
    * @description Sets the aria-sort attribute based on the sort order defined; acceptable values are ascending, descending, none(default) and other. Authors SHOULD only apply this property to table headers or grid headers. If the property is not provided, there is no defined sort order. For each table or grid, authors SHOULD apply aria-sort to only one header at a time.
    */
   get ariaSort() {
-    switch (this.args.sortOrder) {
-      case 'asc':
-        return 'ascending';
-      case 'desc':
-        return 'descending';
-      default:
-        // none is the default per the spec.
-        return 'none';
-    }
+    return this.args.sortOrder
+      ? HdsTableSortOrderMapValues[this.args.sortOrder]
+      : HdsTableSortOrderMapValues[HdsTableSortOrderValues.None];
   }
 
   /**
@@ -62,15 +57,7 @@ export default class ThSortComponent extends Component<ThSortSignature> {
    * @description Determines the text alignment of the header or cell content. Options are: "left", "center", "right". If no align is defined, "left" is used.
    */
   get align() {
-    const { align = DEFAULT_ALIGN } = this.args;
-
-    assert(
-      `@align for "Hds::Table" must be one of the following: ${ALIGNMENTS.join(
-        ', '
-      )}; received: ${align}`,
-      ALIGNMENTS.includes(align)
-    );
-    return align;
+    return this.args.align ?? DEFAULT_ALIGN;
   }
 
   /**

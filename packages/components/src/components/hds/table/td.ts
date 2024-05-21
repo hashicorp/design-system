@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { HdsTableCellTextAlignValues } from './types.ts';
 
-const ALIGNMENTS = string[] = Object.values(HdsTableCellTextAlignValues);
+const ALIGNMENTS = Object.values(HdsTableCellTextAlignValues);
 const DEFAULT_ALIGN = HdsTableCellTextAlignValues.Left;
 
 interface TdSignature {
@@ -28,15 +28,7 @@ export default class TdComponent extends Component<TdSignature> {
    * @description Determines the text alignment of the header or cell content. Options are: "left", "center", "right". If no align is defined, "left" is used.
    */
   get align() {
-    let { align = DEFAULT_ALIGN } = this.args;
-
-    assert(
-      `@align for "Hds::Table::Td" must be one of the following: ${ALIGNMENTS.join(
-        ', '
-      )}; received: ${align}`,
-      ALIGNMENTS.includes(align)
-    );
-    return align;
+    return this.args.align ?? DEFAULT_ALIGN;
   }
 
   /**
@@ -45,7 +37,7 @@ export default class TdComponent extends Component<TdSignature> {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = [
+    const classes = [
       'hds-table__td',
       'hds-typography-body-200',
       'hds-font-weight-regular',
