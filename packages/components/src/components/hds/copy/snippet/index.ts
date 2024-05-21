@@ -7,10 +7,14 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { HdsCopySnippetColorValues } from './types';
 import type { HdsCopySnippetColors } from './types';
+import type { ModifierSignature } from '../../../../modifiers/hds-clipboard.ts';
 
-export const DEFAULT_COLOR = 'primary';
-export const COLORS = ['primary', 'secondary'];
+// export const DEFAULT_COLOR = 'primary';
+export const DEFAULT_COLOR = HdsCopySnippetColorValues.Primary;
+export const COLORS: string[] = Object.values(HdsCopySnippetColorValues);
+
 export const DEFAULT_ICON = 'clipboard-copy';
 export const SUCCESS_ICON = 'clipboard-checked';
 export const ERROR_ICON = 'clipboard-x';
@@ -21,11 +25,9 @@ interface HdsCopySnippetSignature {
     color?: HdsCopySnippetColors;
     isFullWidth?: boolean;
     isTruncated?: boolean;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onError?: (...args: any[]) => void;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onSuccess?: (...args: any[]) => void;
-    textToCopy: string;
+    onError?: ModifierSignature['Args']['Named']['onError'];
+    onSuccess?: ModifierSignature['Args']['Named']['onSuccess'];
+    textToCopy: ModifierSignature['Args']['Named']['text'];
   };
   Element: HTMLButtonElement;
 }
