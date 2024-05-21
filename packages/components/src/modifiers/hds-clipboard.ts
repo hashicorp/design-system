@@ -45,7 +45,7 @@ export const getTextToCopy = (text: TextToCopy) => {
 };
 
 export const getTargetElement = (target: string | Node) => {
-  let targetElement: Node | null;
+  let targetElement: HTMLElement | null;
 
   if (typeof target === 'string') {
     targetElement = document.querySelector(target);
@@ -58,7 +58,7 @@ export const getTargetElement = (target: string | Node) => {
       return;
     }
   } else if (target instanceof Node && target.nodeType === Node.ELEMENT_NODE) {
-    targetElement = target;
+    targetElement = target as HTMLElement;
   } else {
     if (target instanceof NodeList) {
       assert(
