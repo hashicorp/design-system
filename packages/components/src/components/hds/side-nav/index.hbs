@@ -8,11 +8,13 @@
   ...attributes
   {{on "transitionstart" (fn this.setTransition "start")}}
   {{on "transitionend" (fn this.setTransition "end")}}
+  {{! @glint-expect-error - https://github.com/josemarluedke/ember-focus-trap/issues/86 }}
   {{focus-trap isActive=this.shouldTrapFocus}}
   {{did-insert this.didInsert}}
 >
   <:root>
     {{#if this.hasA11yRefocus}}
+      {{! @glint-expect-error - `ember-a11y-refocus` doesn't expose types yet }}
       <NavigationNarrator
         @routeChangeValidator={{@a11yRefocusRouteChangeValidator}}
         @skipTo="#{{@a11yRefocusSkipTo}}"
