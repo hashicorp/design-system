@@ -50,7 +50,7 @@ export default class HdsSideNavPortalTargetComponent extends Component<HdsSideNa
 
   get prefersReducedMotion() {
     return (
-      this.constructor.prefersReducedMotionOverride ||
+      HdsSideNavPortalTargetComponent.prefersReducedMotionOverride ||
       (this.prefersReducedMotionMQ && this.prefersReducedMotionMQ.matches)
     );
   }
