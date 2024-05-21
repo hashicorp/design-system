@@ -6,6 +6,23 @@
 import { modifier } from 'ember-modifier';
 import { assert, warn } from '@ember/debug';
 
+type TextToCopy = string | undefined;
+type TargetToCopy = HTMLElement | undefined;
+
+export interface HdsClipboardModifierSignature {
+  Element: HTMLElement;
+  Args: {
+    Named: {
+      text?: TextToCopy;
+      target?: TargetToCopy;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      onSuccess?: (...args: any[]) => void;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      onError?: (...args: any[]) => void;
+    };
+  };
+}
+
 export const getTextToCopy = (text: TextToCopy) => {
   let textToCopy: string = '';
 
@@ -131,23 +148,6 @@ export const copyToClipboard = async (
   const success = await writeTextToClipboard(textToCopy);
   return success;
 };
-
-type TextToCopy = string | undefined;
-type TargetToCopy = HTMLElement | undefined;
-
-export interface HdsClipboardModifierSignature {
-  Element: HTMLElement;
-  Args: {
-    Named: {
-      text?: TextToCopy;
-      target?: TargetToCopy;
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      onSuccess?: (...args: any[]) => void;
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      onError?: (...args: any[]) => void;
-    };
-  };
-}
 
 // Notice: we use a function-based modifier here instead of a class-based one
 // because it's quite simple in its logic, and doesn't require injecting services
