@@ -9,9 +9,8 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { HdsCopySnippetColorValues } from './types';
 import type { HdsCopySnippetColors } from './types';
-import type { ModifierSignature } from '../../../../modifiers/hds-clipboard.ts';
+import type { HdsClipboardModifierSignature } from '../../../../modifiers/hds-clipboard.ts';
 
-// export const DEFAULT_COLOR = 'primary';
 export const DEFAULT_COLOR = HdsCopySnippetColorValues.Primary;
 export const COLORS: string[] = Object.values(HdsCopySnippetColorValues);
 
@@ -25,9 +24,9 @@ interface HdsCopySnippetSignature {
     color?: HdsCopySnippetColors;
     isFullWidth?: boolean;
     isTruncated?: boolean;
-    onError?: ModifierSignature['Args']['Named']['onError'];
-    onSuccess?: ModifierSignature['Args']['Named']['onSuccess'];
-    textToCopy: ModifierSignature['Args']['Named']['text'];
+    onError?: HdsClipboardModifierSignature['Args']['Named']['onError'];
+    onSuccess?: HdsClipboardModifierSignature['Args']['Named']['onSuccess'];
+    textToCopy: HdsClipboardModifierSignature['Args']['Named']['text'];
   };
   Element: HTMLButtonElement;
 }
