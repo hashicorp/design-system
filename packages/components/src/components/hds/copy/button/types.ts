@@ -8,6 +8,3 @@ export enum HdsCopyButtonSizeValues {
   Medium = 'medium',
 }
 export type HdsCopyButtonSizes = `${HdsCopyButtonSizeValues}`;
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type HdsCopyButtonItemToCopy = string | ((...args: any[]) => void);
