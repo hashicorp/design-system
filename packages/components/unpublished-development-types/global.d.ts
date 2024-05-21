@@ -2,14 +2,12 @@ import '@glint/environment-ember-loose';
 
 import { LinkTo } from '@ember/routing';
 
-import DidInsertModifier from '@ember/render-modifiers/modifiers/did-insert';
+import type RenderModifiersRegistry from '@ember/render-modifiers/template-registry';
 import type EmberTruthRegistry from 'ember-truth-helpers/template-registry';
 import type EmberElementHelperRegistry from 'ember-element-helper/template-registry';
-import type EmberStyleModifier from 'ember-style-modifier';
+import type EmberStyleModifierRegistry from 'ember-style-modifier/template-registry';
+import type EmberStargate from 'ember-stargate/template-registry';
 
-export default interface EmberStyleModifierRegistry {
-  style: typeof EmberStyleModifier;
-}
 import type HdsComponentsRegistry from '../src/template-registry';
 
 declare module '@glint/environment-ember-loose/registry' {
@@ -17,9 +15,10 @@ declare module '@glint/environment-ember-loose/registry' {
     extends EmberTruthRegistry,
       HdsComponentsRegistry,
       EmberElementHelperRegistry,
-      EmberStyleModifierRegistry /*, other addon registries */ {
+      EmberStyleModifierRegistry,
+      RenderModifiersRegistry,
+      EmberStargate /*, other addon registries */ {
     // local entries
-    'did-insert': typeof DidInsertModifier;
     LinkToExternal: typeof LinkTo;
   }
 }
