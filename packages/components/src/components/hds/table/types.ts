@@ -39,11 +39,11 @@ export enum HdsTableSortOrderValues {
   Asc = 'asc',
   Desc = 'desc',
   None = 'none',
-  Other = 'other',
 }
 
 export type HdsTableSortOrder = `${HdsTableSortOrderValues}`;
 
+// this is just for aria-sort
 export enum HdsTableSortOrderLongValues {
   Ascending = 'ascending',
   Descending = 'descending',
@@ -57,7 +57,6 @@ export const HdsTableSortOrderMapValues = {
   [HdsTableSortOrderValues.Asc]: HdsTableSortOrderLongValues.Ascending,
   [HdsTableSortOrderValues.Desc]: HdsTableSortOrderLongValues.Descending,
   [HdsTableSortOrderValues.None]: HdsTableSortOrderLongValues.None,
-  [HdsTableSortOrderValues.Other]: HdsTableSortOrderLongValues.Other,
 };
 
 // th-button-sort types
