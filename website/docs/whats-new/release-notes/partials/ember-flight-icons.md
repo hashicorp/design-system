@@ -12,6 +12,20 @@
   </a>
 </p>
 
+## 5.0.2
+
+**Patch changes**
+
+`FlightIcon` component - Removed initial whitespace (newline) from template
+
+<small class="doc-whats-new-changelog-metadata">[#2049](https://github.com/hashicorp/design-system/pull/2049)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@3.2.0
+
 ## 5.0.1
 
 **Patch changes**
@@ -242,14 +256,6 @@ Shifted our supported version of Node.js from `12.* || 14.* || >= 16` to `14.* |
 **🔄 Updated dependencies:**
 
 - @hashicorp/flight-icons@2.13.1
-
-## 3.0.4
-
-**Patch changes**
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/flight-icons@2.13.0
 
 
 ---
