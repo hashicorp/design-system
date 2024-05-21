@@ -153,35 +153,37 @@ export interface HdsClipboardModifierSignature {
 // because it's quite simple in its logic, and doesn't require injecting services
 // see: https://github.com/ember-modifier/ember-modifier#function-based-modifiers
 
-export default modifier<HdsClipboardModifierSignature>((element, _positional, named) => {
-  assert(
-    '`hds-clipboard` modifier - the modifier must be applied to an element',
-    element
-  );
+export default modifier<HdsClipboardModifierSignature>(
+  (element, _positional, named) => {
+    assert(
+      '`hds-clipboard` modifier - the modifier must be applied to an element',
+      element
+    );
 
-  const { text, target, onSuccess, onError } = named;
+    const { text, target, onSuccess, onError } = named;
 
-  const onClick = async (event: MouseEvent) => {
-    const trigger = event.currentTarget;
-    const success = await copyToClipboard(text, target);
+    const onClick = async (event: MouseEvent) => {
+      const trigger = event.currentTarget;
+      const success = await copyToClipboard(text, target);
 
-    // fire the `onSuccess/onError` callbacks (if provided)
-    if (success) {
-      if (typeof onSuccess === 'function') {
-        onSuccess({ trigger, text, target });
+      // fire the `onSuccess/onError` callbacks (if provided)
+      if (success) {
+        if (typeof onSuccess === 'function') {
+          onSuccess({ trigger, text, target });
+        }
+      } else {
+        if (typeof onError === 'function') {
+          onError({ trigger, text, target });
+        }
       }
-    } else {
-      if (typeof onError === 'function') {
-        onError({ trigger, text, target });
-      }
-    }
-  };
+    };
 
-  // add the "onClick" event listener to the element
-  element.addEventListener('click', onClick);
+    // add the "onClick" event listener to the element
+    element.addEventListener('click', onClick);
 
-  // this (teardown) function is run when the element is removed
-  return () => {
-    element.removeEventListener('click', onClick);
-  };
-});
+    // this (teardown) function is run when the element is removed
+    return () => {
+      element.removeEventListener('click', onClick);
+    };
+  }
+);
