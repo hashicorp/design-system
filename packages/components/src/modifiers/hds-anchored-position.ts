@@ -204,8 +204,8 @@ export default modifier<HdsAnchoredPositionSignature>(
       );
 
       const selectedArrowElement = document.querySelector(named.arrowSelector);
-      if (selectedArrowElement) {
-        arrowElement = selectedArrowElement as HTMLElement;
+      if (selectedArrowElement instanceof HTMLElement) {
+        arrowElement = selectedArrowElement;
       } else {
         assert(
           '`hds-anchored-position` modifier - the `selector` provided for the "arrow" element is not a valid DOM selector'
