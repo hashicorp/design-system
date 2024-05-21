@@ -18,6 +18,7 @@ import type HdsAppFooterStatusLinkComponent from './components/hds/app-footer/st
 import type HdsBadgeComponent from './components/hds/badge';
 import type HdsBadgeCountComponent from './components/hds/badge-count';
 import type HdsButtonComponent from './components/hds/button';
+import type HdsButtonSetComponent from './components/hds/button-set';
 import type HdsAppFrameComponent from './components/hds/app-frame';
 import type HdsAppFrameFooterComponent from './components/hds/app-frame/parts/footer';
 import type HdsAppFrameHeaderComponent from './components/hds/app-frame/parts/header';
@@ -136,6 +137,11 @@ export default interface HdsComponentsRegistry {
   'Hds::Button': typeof HdsButtonComponent;
   'hds/button': typeof HdsButtonComponent;
   HdsButton: typeof HdsButtonComponent;
+
+  // ButtonSet
+  'Hds::ButtonSet': typeof HdsButtonSetComponent;
+  'hds/button-set': typeof HdsButtonSetComponent;
+  HdsButtonSet: typeof HdsButtonSetComponent;
 
   // Card
   'Hds::Card': typeof HdsCardContainerComponent;
