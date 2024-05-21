@@ -1,5 +1,21 @@
 # @hashicorp/flight-icons
 
+## 3.2.0
+
+### Minor Changes
+
+Added two icon logos: `minio` and `git`.
+
+<small class="doc-whats-new-changelog-metadata">[#2058](https://github.com/hashicorp/design-system/pull/2058)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`sparkle` icon added
+
+<small class="doc-whats-new-changelog-metadata">[#2081](https://github.com/hashicorp/design-system/pull/2081)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.1.0
 
 ### Minor Changes

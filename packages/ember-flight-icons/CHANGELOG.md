@@ -1,5 +1,19 @@
 # @hashicorp/ember-flight-icons
 
+## 5.0.2
+
+### Patch Changes
+
+`FlightIcon` component - Removed initial whitespace (newline) from template
+
+<small class="doc-whats-new-changelog-metadata">[#2049](https://github.com/hashicorp/design-system/pull/2049)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@3.2.0
+
 ## 5.0.1
 
 ### Patch Changes
