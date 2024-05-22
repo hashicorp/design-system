@@ -707,7 +707,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-proposal-decorators@npm:^7.13.5, @babel/plugin-proposal-decorators@npm:^7.16.7, @babel/plugin-proposal-decorators@npm:^7.20.13, @babel/plugin-proposal-decorators@npm:^7.23.2, @babel/plugin-proposal-decorators@npm:^7.23.7":
+"@babel/plugin-proposal-decorators@npm:^7.13.5, @babel/plugin-proposal-decorators@npm:^7.16.7, @babel/plugin-proposal-decorators@npm:^7.20.13, @babel/plugin-proposal-decorators@npm:^7.23.7":
   version: 7.23.7
   resolution: "@babel/plugin-proposal-decorators@npm:7.23.7"
   dependencies:
@@ -3549,7 +3549,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glint/environment-ember-loose@npm:^1.4.0":
+"@glint/environment-ember-loose@npm:1.4.0":
   version: 1.4.0
   resolution: "@glint/environment-ember-loose@npm:1.4.0"
   peerDependencies:
@@ -3578,6 +3578,38 @@ __metadata:
     ember-modifier:
       optional: true
   checksum: 9db14b8b2e948c121782bd3a3d52b2c4dc97be603efcd93bd65e5d16ee5aacdf5959a8f0fb505e5949fef7649c3e94d6782fc3d97e18a737fdba37d7e971419a
+  languageName: node
+  linkType: hard
+
+"@glint/environment-ember-loose@patch:@glint/environment-ember-loose@npm%3A1.4.0#~/.yarn/patches/@glint-environment-ember-loose-npm-1.4.0-31c2f31bcb.patch":
+  version: 1.4.0
+  resolution: "@glint/environment-ember-loose@patch:@glint/environment-ember-loose@npm%3A1.4.0#~/.yarn/patches/@glint-environment-ember-loose-npm-1.4.0-31c2f31bcb.patch::version=1.4.0&hash=023960"
+  peerDependencies:
+    "@glimmer/component": ^1.1.2
+    "@glint/template": ^1.4.0
+    "@types/ember__array": ^4.0.2
+    "@types/ember__component": ^4.0.10
+    "@types/ember__controller": ^4.0.2
+    "@types/ember__object": ^4.0.4
+    "@types/ember__routing": ^4.0.11
+    ember-cli-htmlbars: ^6.0.1
+    ember-modifier: ^3.2.7 || ^4.0.0
+  peerDependenciesMeta:
+    "@types/ember__array":
+      optional: true
+    "@types/ember__component":
+      optional: true
+    "@types/ember__controller":
+      optional: true
+    "@types/ember__object":
+      optional: true
+    "@types/ember__routing":
+      optional: true
+    ember-cli-htmlbars:
+      optional: true
+    ember-modifier:
+      optional: true
+  checksum: 025b200db337ee0353f70e7561a792250ccd530ace9916336faaaafa10670cb05828e613d94b6c5015276bf135148a730bf9d2e416bcd5380804f0ae22d55325
   languageName: node
   linkType: hard
 
@@ -5895,7 +5927,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^6.14.0":
+"@typescript-eslint/eslint-plugin@npm:^6.14.0, @typescript-eslint/eslint-plugin@npm:^6.21.0":
   version: 6.21.0
   resolution: "@typescript-eslint/eslint-plugin@npm:6.21.0"
   dependencies:
@@ -5953,7 +5985,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^6.14.0":
+"@typescript-eslint/parser@npm:^6.14.0, @typescript-eslint/parser@npm:^6.21.0":
   version: 6.21.0
   resolution: "@typescript-eslint/parser@npm:6.21.0"
   dependencies:
@@ -9184,12 +9216,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"builtin-modules@npm:^3.3.0":
+  version: 3.3.0
+  resolution: "builtin-modules@npm:3.3.0"
+  checksum: 62e063ab40c0c1efccbfa9ffa31873e4f9d57408cb396a2649981a0ecbce56aabc93c28feaccbc5658c95aab2703ad1d11980e62ec2e5e72637404e1eb60f39e
+  languageName: node
+  linkType: hard
+
 "builtins@npm:^5.0.0":
   version: 5.0.1
   resolution: "builtins@npm:5.0.1"
   dependencies:
     semver: "npm:^7.0.0"
   checksum: 90136fa0ba98b7a3aea33190b1262a5297164731efb6a323b0231acf60cc2ea0b2b1075dbf107038266b8b77d6045fa9631d1c3f90efc1c594ba61218fbfbb4c
+  languageName: node
+  linkType: hard
+
+"builtins@npm:^5.0.1":
+  version: 5.1.0
+  resolution: "builtins@npm:5.1.0"
+  dependencies:
+    semver: "npm:^7.0.0"
+  checksum: 60aa9969f69656bf6eab82cd74b23ab805f112ae46a54b912bccc1533875760f2d2ce95e0a7d13144e35ada9f0386f17ed4961908bc9434b5a5e21375b1902b2
   languageName: node
   linkType: hard
 
@@ -10235,7 +10283,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"concurrently@npm:^8.2.2":
+"concurrently@npm:^8.2.1, concurrently@npm:^8.2.2":
   version: 8.2.2
   resolution: "concurrently@npm:8.2.2"
   dependencies:
@@ -12718,14 +12766,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-page-title@npm:^8.0.0":
-  version: 8.1.0
-  resolution: "ember-page-title@npm:8.1.0"
+"ember-page-title@npm:^8.2.3":
+  version: 8.2.3
+  resolution: "ember-page-title@npm:8.2.3"
   dependencies:
-    "@embroider/addon-shim": "npm:^1.8.6"
+    "@embroider/addon-shim": "npm:^1.8.7"
+    "@simple-dom/document": "npm:^1.4.0"
   peerDependencies:
     ember-source: ">= 3.28.0"
-  checksum: d86ceaf06ae7e3787d39a6efcf326459fe8c565daf282ae630598bd8295acf937563180d72450472f3e5ced8e8d739f8cd9bd41651a1bb155c22bc9ee7a16c91
+  checksum: 2cceab289fce8ff4d6424ece57d2635edf98ecda6575311e325ef4669b83a76e4e39affe4d3b1e9512f39000aa3133383656b8a740b1532ec57e23e8102849b4
   languageName: node
   linkType: hard
 
@@ -13698,6 +13747,27 @@ __metadata:
   peerDependencies:
     eslint: ^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0 || ^8
   checksum: 5865f05c38552145423c535326ec9a7113ab2305c7614c8b896ff905cfabc859c8805cac21e979c9f6f742afa333e6f62f812eabf891a7e8f5f0b853a32593c1
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-n@npm:^16.1.0":
+  version: 16.6.2
+  resolution: "eslint-plugin-n@npm:16.6.2"
+  dependencies:
+    "@eslint-community/eslint-utils": "npm:^4.4.0"
+    builtins: "npm:^5.0.1"
+    eslint-plugin-es-x: "npm:^7.5.0"
+    get-tsconfig: "npm:^4.7.0"
+    globals: "npm:^13.24.0"
+    ignore: "npm:^5.2.4"
+    is-builtin-module: "npm:^3.2.1"
+    is-core-module: "npm:^2.12.1"
+    minimatch: "npm:^3.1.2"
+    resolve: "npm:^1.22.2"
+    semver: "npm:^7.5.3"
+  peerDependencies:
+    eslint: ">=7.0.0"
+  checksum: e0f600d03d3a3df57e9a811648b1b534a6d67c90ea9406340ddf3763c2b87cf5ef910b390f787ca5cb27c8d8ff36aad42d70209b54e2a1cb4cc2507ca417229a
   languageName: node
   linkType: hard
 
@@ -15641,7 +15711,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:^13.19.0, globals@npm:^13.6.0, globals@npm:^13.9.0":
+"globals@npm:^13.19.0, globals@npm:^13.24.0, globals@npm:^13.6.0, globals@npm:^13.9.0":
   version: 13.24.0
   resolution: "globals@npm:13.24.0"
   dependencies:
@@ -16964,6 +17034,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-builtin-module@npm:^3.2.1":
+  version: 3.2.1
+  resolution: "is-builtin-module@npm:3.2.1"
+  dependencies:
+    builtin-modules: "npm:^3.3.0"
+  checksum: e8f0ffc19a98240bda9c7ada84d846486365af88d14616e737d280d378695c8c448a621dcafc8332dbf0fcd0a17b0763b845400709963fa9151ddffece90ae88
+  languageName: node
+  linkType: hard
+
 "is-callable@npm:^1.1.3, is-callable@npm:^1.1.4, is-callable@npm:^1.2.7":
   version: 1.2.7
   resolution: "is-callable@npm:1.2.7"
@@ -16971,7 +17050,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-core-module@npm:^2.13.0, is-core-module@npm:^2.13.1":
+"is-core-module@npm:^2.12.1, is-core-module@npm:^2.13.0, is-core-module@npm:^2.13.1":
   version: 2.13.1
   resolution: "is-core-module@npm:2.13.1"
   dependencies:
@@ -24089,8 +24168,6 @@ __metadata:
   resolution: "showcase@workspace:showcase"
   dependencies:
     "@babel/core": "npm:^7.24.5"
-    "@babel/eslint-parser": "npm:^7.22.15"
-    "@babel/plugin-proposal-decorators": "npm:^7.23.2"
     "@ember/optional-features": "npm:^2.0.0"
     "@ember/string": "npm:^3.1.1"
     "@ember/test-helpers": "npm:^3.2.0"
@@ -24109,7 +24186,10 @@ __metadata:
     "@tsconfig/ember": "npm:^3.0.6"
     "@types/qunit": "npm:^2.19.10"
     "@types/rsvp": "npm:^4.0.9"
+    "@typescript-eslint/eslint-plugin": "npm:^6.21.0"
+    "@typescript-eslint/parser": "npm:^6.21.0"
     broccoli-asset-rev: "npm:^3.0.0"
+    concurrently: "npm:^8.2.1"
     ember-a11y-testing: "npm:^6.1.1"
     ember-auto-import: "npm:^2.6.3"
     ember-basic-dropdown: "npm:^8.1.0"
@@ -24128,7 +24208,8 @@ __metadata:
     ember-concurrency: "npm:^4.0.2"
     ember-deep-tracked: "npm:^2.0.0"
     ember-load-initializers: "npm:^2.1.2"
-    ember-page-title: "npm:^8.0.0"
+    ember-modifier: "npm:^4.1.0"
+    ember-page-title: "npm:^8.2.3"
     ember-power-select: "npm:^8.2.0"
     ember-qunit: "npm:^8.0.1"
     ember-resolver: "npm:^11.0.1"
@@ -24143,11 +24224,10 @@ __metadata:
     eslint: "npm:^8.52.0"
     eslint-config-prettier: "npm:^8.10.0"
     eslint-plugin-ember: "npm:^11.11.1"
-    eslint-plugin-node: "npm:^11.1.0"
+    eslint-plugin-n: "npm:^16.1.0"
     eslint-plugin-prettier: "npm:^4.2.1"
     eslint-plugin-qunit: "npm:^8.0.1"
     loader.js: "npm:^4.7.0"
-    npm-run-all: "npm:^4.1.5"
     prettier: "npm:^2.8.8"
     qunit: "npm:^2.20.0"
     qunit-dom: "npm:^3.0.0"
@@ -24156,6 +24236,7 @@ __metadata:
     stylelint: "npm:^16.3.1"
     stylelint-config-rational-order: "npm:^0.1.2"
     stylelint-config-standard-scss: "npm:^13.1.0"
+    tracked-built-ins: "npm:^3.2.0"
     typescript: "npm:^5.4.2"
     webpack: "npm:^5.89.0"
   languageName: unknown
@@ -25951,6 +26032,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tracked-built-ins@npm:^3.2.0":
+  version: 3.3.0
+  resolution: "tracked-built-ins@npm:3.3.0"
+  dependencies:
+    "@embroider/addon-shim": "npm:^1.8.3"
+    ember-tracked-storage-polyfill: "npm:^1.0.0"
+  checksum: e3c9b838e95b04c4bfab705ba95b08763e783a89cd4652f6c06a6843081367aa7562a293e74c3ca1281c1b46851b412d62936d8efae33585bc20eea9387bf0bb
+  languageName: node
+  linkType: hard
+
 "tracked-maps-and-sets@npm:^3.0.1":
   version: 3.0.2
   resolution: "tracked-maps-and-sets@npm:3.0.2"
@@ -27352,7 +27443,7 @@ __metadata:
     ember-math-helpers: "npm:^3.0.0"
     ember-meta: "npm:^2.0.0"
     ember-modifier: "npm:^4.1.0"
-    ember-page-title: "npm:^8.0.0"
+    ember-page-title: "npm:^8.2.3"
     ember-power-select: "npm:^8.2.0"
     ember-prism: "npm:^0.13.0"
     ember-qunit: "npm:^8.0.1"
