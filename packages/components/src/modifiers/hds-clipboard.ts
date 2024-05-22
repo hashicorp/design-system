@@ -57,8 +57,8 @@ export const getTargetElement = (target: string | Node) => {
       );
       return;
     }
-  } else if (target instanceof Node && target.nodeType === Node.ELEMENT_NODE) {
-    targetElement = target as HTMLElement;
+  } else if (target instanceof HTMLElement && target.nodeType === Node.ELEMENT_NODE) {
+    targetElement = target;
   } else {
     if (target instanceof NodeList) {
       assert(
@@ -76,10 +76,7 @@ export const getTargetElement = (target: string | Node) => {
 export const getTextToCopyFromTargetElement = (targetElement: TargetToCopy) => {
   let textToCopy: string = '';
 
-  if (
-    targetElement instanceof Node &&
-    targetElement.nodeType === Node.ELEMENT_NODE
-  ) {
+  if (targetElement instanceof HTMLElement) {
     if (
       targetElement instanceof HTMLInputElement || // targetElement.nodeName === 'INPUT' ||
       targetElement instanceof HTMLTextAreaElement || // targetElement.nodeName === 'TEXTAREA' ||
@@ -88,7 +85,7 @@ export const getTextToCopyFromTargetElement = (targetElement: TargetToCopy) => {
       textToCopy = targetElement.value;
     } else {
       // simplest approach
-      textToCopy = (targetElement as HTMLElement).innerText;
+      textToCopy = targetElement.innerText;
 
       // approach based on text selection (left for backup just in case)
       // var selection = window.getSelection();
