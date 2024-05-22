@@ -1,0 +1,17 @@
+diff --git a/-private/environment/index.js b/-private/environment/index.js
+index 217583f4bae53f6f72db8d3debd0f31b3dac2b8e..8caf5463cf2be2248952c2347c738b98d2b7e22b 100644
+--- a/-private/environment/index.js
++++ b/-private/environment/index.js
+@@ -46,10 +46,8 @@ function emberLooseEnvironment(options) {
+                     // Pod component/controller/route
+                     candidates.push(templatePath.replace(REGEXES.POD_TEMPLATE, '/component.ts'), templatePath.replace(REGEXES.POD_TEMPLATE, '/controller.ts'), templatePath.replace(REGEXES.POD_TEMPLATE, '/route.ts'));
+                 }
+-                else if (templatePath.includes('/templates/components/')) {
+-                    // Classic component
+-                    candidates.push(colocatedTsScriptPath.replace('/templates/components/', '/components/'));
+-                }
++                // we no longer need this as it remnant of classic components and it interferes with our route stricture in showcase up
++                // upstream PR: https://github.com/typed-ember/glint/pull/721
+                 else if (templatePath.includes('/templates/')) {
+                     // Classic controller/route
+                     candidates.push(colocatedTsScriptPath.replace('/templates/', '/controllers/'), colocatedTsScriptPath.replace('/templates/', '/routes/'));

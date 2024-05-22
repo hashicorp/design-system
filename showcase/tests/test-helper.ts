@@ -43,6 +43,7 @@ setRunOptions({
       'best-practice',
     ],
   },
+  // @ts-expect-error: This is a valid option
   include: [['#ember-testing-container']],
   exclude: [['.flight-sprite-container'], ['.shw-page-main']],
 });
