@@ -7,14 +7,19 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
-
+import {
+  HdsThSelectableRow,
+  HdsThSelectableRowState,
+  HdsThSelectionChangeInfo,
+  HdsThSelectableRowAriaLabelSuffixValues,
+} from './types';
 export interface ThSelectableSignature {
   Args: {
     didInsert: unknown;
-    isSelected: unknown;
+    isSelected: boolean;
     onSelectionChange: unknown;
-    selectionAriaLabelSuffix: unknown;
-    selectionKey: unknown;
+    selectionAriaLabelSuffix: HdsThSelectableRowAriaLabelSuffixValues;
+    selectionKey: string;
     selectionScope: unknown;
     willDestroy: unknown;
   };
@@ -32,7 +37,9 @@ export default class ThSelectableComponent extends Component<ThSelectableSignatu
 
   get ariaLabel() {
     const { selectionAriaLabelSuffix } = this.args;
-    const prefix = this.isSelected ? 'Deselect' : 'Select';
+    const prefix = this.isSelected
+      ? HdsThSelectableRowAriaLabelSuffixValues.Deselect
+      : HdsThSelectableRowAriaLabelSuffixValues.Select;
     if (selectionAriaLabelSuffix) {
       return `${prefix} ${selectionAriaLabelSuffix}`;
     } else {

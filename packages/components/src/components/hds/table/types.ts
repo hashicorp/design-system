@@ -32,7 +32,8 @@ export enum HdsTableCellTextAlignValues {
 
 export type HdsTableCellTextAlign = `${HdsTableCellTextAlignValues}`;
 
-// td types (I don't think there are any that aren't already declared)
+// td types
+// I don't think there are any that aren't already declared
 
 // th-sort types (has to come before th-button-sort types)
 export enum HdsTableSortOrderValues {
@@ -78,22 +79,30 @@ export const HdsThButtonSortIconMapValues = {
 // th-button-tooltip types
 
 // th-selectable types
-export type SelectableRow = {
+export type HdsThSelectableRow = {
   selectionKey: string;
   checkbox: HTMLInputElement;
 };
 
-export type SelectionChangeInfo = {
-  selectionKey: string;
-  selectionCheckboxElement: HTMLInputElement;
-  selectedRowsKeys: string[];
-  selectableRowsStates: SelectableRowState[];
-};
-
-export type SelectableRowState = {
+export type HdsThSelectableRowState = {
   selectionKey: string;
   isSelected: boolean;
 };
+
+export type HdsThSelectionChangeInfo = {
+  selectionKey: string;
+  selectionCheckboxElement: HTMLInputElement;
+  selectedRowsKeys: string[];
+  selectableRowsStates: HdsThSelectableRowState[];
+};
+
+export enum HdsThSelectableRowAriaLabelSuffixValues {
+  Select = 'select',
+  Deselect = 'deselect',
+}
+
+export type HdsThSelectableRowAriaLabelSuffix =
+  `${HdsThSelectableRowAriaLabelSuffixValues}`;
 
 // th types
 // I don't think there are any that aren't already declared
