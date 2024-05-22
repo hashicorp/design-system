@@ -5,17 +5,14 @@
 
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
-import { assert } from '@ember/debug';
-
 import { HdsTableCellTextAlignValues } from './types.ts';
 
-const ALIGNMENTS = string[] = Object.values(HdsTableCellTextAlignValues);
-const DEFAULT_ALIGN = 'left';
+const DEFAULT_ALIGN = HdsTableCellTextAlignValues.Left;
 
 export interface ThSignature {
   Args: {
     align: HdsTableCellTextAlignValues;
-    isVisuallyHidden: unknown;
+    isVisuallyHidden: boolean;
     scope: unknown;
     tooltip: unknown;
     width: unknown;
@@ -41,15 +38,7 @@ export default class ThComponent extends Component<ThSignature> {
    * @description Determines the text alignment of the header or cell content. Options are: "left", "center", "right". If no align is defined, "left" is used.
    */
   get align() {
-    let { align = DEFAULT_ALIGN } = this.args;
-
-    assert(
-      `@align for "Hds::Table::Th" must be one of the following: ${ALIGNMENTS.join(
-        ', '
-      )}; received: ${align}`,
-      ALIGNMENTS.includes(align)
-    );
-    return align;
+    return this.args.align ?? DEFAULT_ALIGN;
   }
 
   /**
@@ -58,6 +47,7 @@ export default class ThComponent extends Component<ThSignature> {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
+    // eslint-disable-next-line prefer-const
     let classes = ['hds-table__th'];
 
     // add a class based on the @align argument

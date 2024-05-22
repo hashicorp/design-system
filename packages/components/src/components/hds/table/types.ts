@@ -96,5 +96,6 @@ export type SelectableRowState = {
 };
 
 // th types
+// I don't think there are any that aren't already declared
 
 // tr types
