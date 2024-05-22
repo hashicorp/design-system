@@ -6,8 +6,8 @@
 import { modifier } from 'ember-modifier';
 import { assert, warn } from '@ember/debug';
 
-type TextToCopy = string | number | bigint | undefined;
-type TargetToCopy = HTMLElement | undefined;
+type TextToCopy = string | number | bigint;
+type TargetToCopy = HTMLElement;
 
 export interface HdsClipboardModifierSignature {
   Element: HTMLElement;
@@ -128,8 +128,8 @@ export const writeTextToClipboard = async (textToCopy: string) => {
 };
 
 export const copyToClipboard = async (
-  text: TextToCopy,
-  target: TargetToCopy
+  text?: TextToCopy,
+  target?: TargetToCopy
 ) => {
   let textToCopy: string = '';
 
