@@ -57,7 +57,7 @@ export const getTargetElement = (target: string | Node) => {
       );
       return;
     }
-  } else if (target instanceof HTMLElement && target.nodeType === Node.ELEMENT_NODE) {
+  } else if (target instanceof HTMLElement) {
     targetElement = target;
   } else {
     if (target instanceof NodeList) {
