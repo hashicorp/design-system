@@ -4,10 +4,10 @@
  */
 
 import Component from '@glimmer/component';
-import { assert } from '@ember/debug';
 import { HdsTableCellTextAlignValues } from './types.ts';
 
-const ALIGNMENTS = Object.values(HdsTableCellTextAlignValues);
+// Do we need it?
+// const ALIGNMENTS = Object.values(HdsTableCellTextAlignValues);
 const DEFAULT_ALIGN = HdsTableCellTextAlignValues.Left;
 
 interface TdSignature {
@@ -23,7 +23,7 @@ interface TdSignature {
 export default class TdComponent extends Component<TdSignature> {
   /**
    * @param align
-   * @type {string}
+   * @typedef {HdsTableCellTextAlignValues}
    * @default left
    * @description Determines the text alignment of the header or cell content. Options are: "left", "center", "right". If no align is defined, "left" is used.
    */
