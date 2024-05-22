@@ -11,8 +11,8 @@ import { next } from '@ember/runloop';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
 
-import registerEvent from '../../../modifiers/hds-register-event';
-import anchoredPositionModifier from '../../../modifiers/hds-anchored-position';
+import registerEvent from '../../../modifiers/hds-register-event.js';
+import anchoredPositionModifier from '../../../modifiers/hds-anchored-position.js';
 
 // https://github.com/oddbird/popover-polyfill?tab=readme-ov-file#with-npm
 // this is needed until Firefox releases the version 126 (up to 125 didn't support the Popover API)
@@ -30,7 +30,7 @@ import {
 export {
   PLACEMENTS,
   DEFAULT_PLACEMENT,
-} from '../../../modifiers/hds-anchored-position';
+} from '../../../modifiers/hds-anchored-position.js';
 
 export default class HdsPopoverPrimitiveComponent extends Component {
   @tracked isOpen = this.args.isOpen ?? false;

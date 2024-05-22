@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-import { PLACEMENTS as PRIMITIVE_PLACEMENTS } from '../popover-primitive/index';
+import { PLACEMENTS as PRIMITIVE_PLACEMENTS } from '../popover-primitive/index.js';
 
 export const DEFAULT_PLACEMENT = 'bottom';
 export const PLACEMENTS = [...PRIMITIVE_PLACEMENTS];
