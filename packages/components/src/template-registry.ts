@@ -98,6 +98,7 @@ export default interface HdsComponentsRegistry {
   'Hds::AppFooter::StatusLink': typeof HdsAppFooterStatusLinkComponent;
   'hds/app-footer/status-link': typeof HdsAppFooterStatusLinkComponent;
   HdsAppFooterStatusLink: typeof HdsAppFooterStatusLinkComponent;
+
   // App Frame
   'Hds::AppFrame': typeof HdsAppFrameComponent;
   'hds/app-frame': typeof HdsAppFrameComponent;
@@ -129,7 +130,7 @@ export default interface HdsComponentsRegistry {
   HdsBadge: typeof HdsBadgeComponent;
 
   // BadgeCount
-  'Hds::Badge::Count': typeof HdsBadgeCountComponent;
+  'Hds::BadgeCount': typeof HdsBadgeCountComponent;
   'hds/badge-count': typeof HdsBadgeCountComponent;
   HdsBadgeCount: typeof HdsBadgeCountComponent;
 
