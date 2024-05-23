@@ -44,8 +44,11 @@ import type HdsTagComponent from './components/hds/tag';
 import type HdsToastComponent from './components/hds/toast';
 import type HdsTextCodeComponent from './components/hds/text/code';
 import type HdsYieldComponent from './components/hds/yield';
+
 import type HdsLinkToModelsHelper from './helpers/hds-link-to-models';
 import type HdsLinkToQueryHelper from './helpers/hds-link-to-query';
+
+import type HdsClipboardModifier from './modifiers/hds-clipboard.ts';
 
 export default interface HdsComponentsRegistry {
   // Accordion
@@ -193,4 +196,7 @@ export default interface HdsComponentsRegistry {
   // Helpers
   'hds-link-to-models': typeof HdsLinkToModelsHelper;
   'hds-link-to-query': typeof HdsLinkToQueryHelper;
+
+  // Modifiers
+  'hds-clipboard': typeof HdsClipboardModifier;
 }

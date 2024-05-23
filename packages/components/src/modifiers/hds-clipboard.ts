@@ -6,8 +6,25 @@
 import { modifier } from 'ember-modifier';
 import { assert, warn } from '@ember/debug';
 
-export const getTextToCopy = (text) => {
-  let textToCopy;
+type TextToCopy = string | number | bigint;
+type TargetToCopy = HTMLElement;
+
+export interface HdsClipboardModifierSignature {
+  Element: HTMLElement;
+  Args: {
+    Named: {
+      text?: TextToCopy;
+      target?: TargetToCopy;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      onSuccess?: (...args: any[]) => void;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      onError?: (...args: any[]) => void;
+    };
+  };
+}
+
+export const getTextToCopy = (text: TextToCopy) => {
+  let textToCopy: string = '';
 
   if (text) {
     if (typeof text === 'string') {
@@ -27,8 +44,9 @@ export const getTextToCopy = (text) => {
   return textToCopy;
 };
 
-export const getTargetElement = (target) => {
-  let targetElement;
+export const getTargetElement = (target: string | Node) => {
+  let targetElement: HTMLElement | null;
+
   if (typeof target === 'string') {
     targetElement = document.querySelector(target);
 
@@ -39,7 +57,7 @@ export const getTargetElement = (target) => {
       );
       return;
     }
-  } else if (target instanceof Node && target.nodeType === Node.ELEMENT_NODE) {
+  } else if (target instanceof HTMLElement) {
     targetElement = target;
   } else {
     if (target instanceof NodeList) {
@@ -55,12 +73,10 @@ export const getTargetElement = (target) => {
   return targetElement;
 };
 
-export const getTextToCopyFromTargetElement = (targetElement) => {
-  let textToCopy;
-  if (
-    targetElement instanceof Node &&
-    targetElement.nodeType === Node.ELEMENT_NODE
-  ) {
+export const getTextToCopyFromTargetElement = (targetElement: TargetToCopy) => {
+  let textToCopy: string = '';
+
+  if (targetElement instanceof HTMLElement) {
     if (
       targetElement instanceof HTMLInputElement || // targetElement.nodeName === 'INPUT' ||
       targetElement instanceof HTMLTextAreaElement || // targetElement.nodeName === 'TEXTAREA' ||
@@ -84,7 +100,7 @@ export const getTextToCopyFromTargetElement = (targetElement) => {
   return textToCopy;
 };
 
-export const writeTextToClipboard = async (textToCopy) => {
+export const writeTextToClipboard = async (textToCopy: string) => {
   // finally copy the text to the clipboard using the Clipboard API
   // https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API
   if (textToCopy) {
@@ -108,14 +124,19 @@ export const writeTextToClipboard = async (textToCopy) => {
   }
 };
 
-export const copyToClipboard = async (text, target) => {
-  let textToCopy;
+export const copyToClipboard = async (
+  text?: TextToCopy,
+  target?: TargetToCopy
+) => {
+  let textToCopy: string = '';
 
   if (text) {
     textToCopy = getTextToCopy(text);
   } else if (target) {
     const targetElement = getTargetElement(target);
-    textToCopy = getTextToCopyFromTargetElement(targetElement);
+    if (targetElement) {
+      textToCopy = getTextToCopyFromTargetElement(targetElement);
+    }
   } else {
     assert(
       '`hds-clipboard` modifier - either a `text` or a `target` argument is required'
@@ -129,35 +150,37 @@ export const copyToClipboard = async (text, target) => {
 // because it's quite simple in its logic, and doesn't require injecting services
 // see: https://github.com/ember-modifier/ember-modifier#function-based-modifiers
 
-export default modifier((element, positional, named) => {
-  assert(
-    '`hds-clipboard` modifier - the modifier must be applied to an element',
-    element
-  );
+export default modifier<HdsClipboardModifierSignature>(
+  (element, _positional, named) => {
+    assert(
+      '`hds-clipboard` modifier - the modifier must be applied to an element',
+      element
+    );
 
-  const { text, target, onSuccess, onError } = named;
+    const { text, target, onSuccess, onError } = named;
 
-  const onClick = async (event) => {
-    const trigger = event.currentTarget;
-    const success = await copyToClipboard(text, target);
+    const onClick = async (event: MouseEvent) => {
+      const trigger = event.currentTarget;
+      const success = await copyToClipboard(text, target);
 
-    // fire the `onSuccess/onError` callbacks (if provided)
-    if (success) {
-      if (typeof onSuccess === 'function') {
-        onSuccess({ trigger, text, target });
+      // fire the `onSuccess/onError` callbacks (if provided)
+      if (success) {
+        if (typeof onSuccess === 'function') {
+          onSuccess({ trigger, text, target });
+        }
+      } else {
+        if (typeof onError === 'function') {
+          onError({ trigger, text, target });
+        }
       }
-    } else {
-      if (typeof onError === 'function') {
-        onError({ trigger, text, target });
-      }
-    }
-  };
+    };
 
-  // add the "onClick" event listener to the element
-  element.addEventListener('click', onClick);
+    // add the "onClick" event listener to the element
+    element.addEventListener('click', onClick);
 
-  // this (teardown) function is run when the element is removed
-  return () => {
-    element.removeEventListener('click', onClick);
-  };
-});
+    // this (teardown) function is run when the element is removed
+    return () => {
+      element.removeEventListener('click', onClick);
+    };
+  }
+);
