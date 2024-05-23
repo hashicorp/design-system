@@ -23,10 +23,10 @@ interface HdsCopySnippetSignature {
   Args: {
     color?: HdsCopySnippetColors;
     isFullWidth?: boolean;
-    isTruncated?: boolean;
-    onError?: HdsClipboardModifierSignature['Args']['Named']['onError'];
-    onSuccess?: HdsClipboardModifierSignature['Args']['Named']['onSuccess'];
     textToCopy: HdsClipboardModifierSignature['Args']['Named']['text'];
+    isTruncated?: boolean;
+    onSuccess?: HdsClipboardModifierSignature['Args']['Named']['onSuccess'];
+    onError?: HdsClipboardModifierSignature['Args']['Named']['onError'];
   };
   Element: HTMLButtonElement;
 }
@@ -39,7 +39,7 @@ export default class HdsCopySnippetComponent extends Component<HdsCopySnippetSig
    * @param textToCopy
    * @type {string | number | bigint | undefined} ???
    */
-  get textToCopy() {
+  get textToShow() {
     const { textToCopy = '' } = this.args;
 
     if (typeof textToCopy === 'string') {
@@ -132,8 +132,7 @@ export default class HdsCopySnippetComponent extends Component<HdsCopySnippetSig
   }
 
   @action
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onSuccess(args: any) {
+  onSuccess(args: HdsClipboardModifierSignature['Args']['Named']['onSuccess']) {
     this.status = 'success';
     this.resetStatusDelayed();
 
@@ -145,8 +144,7 @@ export default class HdsCopySnippetComponent extends Component<HdsCopySnippetSig
   }
 
   @action
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onError(args: any) {
+  onError(args: HdsClipboardModifierSignature['Args']['Named']['onError']) {
     this.status = 'error';
     this.resetStatusDelayed();
 
