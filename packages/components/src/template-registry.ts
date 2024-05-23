@@ -133,7 +133,6 @@ export default interface HdsComponentsRegistry {
   // Copy Button
   'Hds::Copy::Button': typeof HdsCopyButtonComponent;
   'hds/copy/button': typeof HdsCopyButtonComponent;
-  HdsCopyButton: typeof HdsCopyButtonComponent;
 
   // Disclosure Primitive
   'Hds::DisclosurePrimitive': typeof HdsDisclosurePrimitiveComponent;
