@@ -85,7 +85,6 @@ export default class Index extends Component {
       filteredIcons.sort((a, b) => {
         return a.iconName.localeCompare(b.iconName);
       });
-      console.log('filteredIcons: ', filteredIcons);
 
       filteredIcons.forEach((icon) => {
         const category = '';
