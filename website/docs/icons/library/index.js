@@ -46,9 +46,10 @@ export default class Index extends Component {
   }
 
   get filteredGroupedIcons() {
-    let filteredIcons = [];
-    const filteredGroupedIcons = {};
+    let filteredIcons = []; // icons filtered in the search
+    const filteredGroupedIcons = {}; // icons grouped by category (after being filtered in the search)
 
+    // 1) Filter icons by search &/or size:
     // Filters all icons based on the search query
     if (this.searchQuery) {
       // check if the query is for an exact match (prefixed with `icon:`)
@@ -78,28 +79,45 @@ export default class Index extends Component {
       );
     }
 
-    // alphabetize the filtered icons by category and then by name
-    filteredIcons
-      .sort((a, b) => {
-        return a.category.localeCompare(b.category);
-      })
-      .sort((a, b) => {
-        if (a.category === b.category) {
-          a.iconName.localeCompare(b.iconName);
-        }
+    // 2) Sort icons by Group Type:
+    // Sort alphabetically by iconName:
+    if (this.selectedGroupType === 'alphabetical') {
+      filteredIcons.sort((a, b) => {
+        return a.iconName.localeCompare(b.iconName);
+      });
+      console.log('filteredIcons: ', filteredIcons);
 
-        return 0;
+      filteredIcons.forEach((icon) => {
+        const category = '';
+        if (!filteredGroupedIcons[category]) {
+          filteredGroupedIcons[category] = [];
+        }
+        filteredGroupedIcons[category].push(icon);
       });
 
-    // Group all filtered icons by category
-    filteredIcons.forEach((icon) => {
-      const category = icon.category;
-      if (!filteredGroupedIcons[category]) {
-        filteredGroupedIcons[category] = [];
-      }
-      filteredGroupedIcons[category].push(icon);
-    });
+      // Sort icons by category then iconName:
+    } else if (this.selectedGroupType === 'category') {
+      filteredIcons
+        .sort((a, b) => {
+          return a.category.localeCompare(b.category);
+        })
+        .sort((a, b) => {
+          if (a.category === b.category) {
+            a.iconName.localeCompare(b.iconName);
+          }
+          return 0;
+        });
+      // Group all filtered icons by category
+      filteredIcons.forEach((icon) => {
+        const category = icon.category;
+        if (!filteredGroupedIcons[category]) {
+          filteredGroupedIcons[category] = [];
+        }
+        filteredGroupedIcons[category].push(icon);
+      });
+    }
 
+    // 3) Return icons filtered by search, size &, group type
     return filteredGroupedIcons;
   }
 

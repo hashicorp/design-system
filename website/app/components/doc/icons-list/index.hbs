@@ -19,9 +19,6 @@
   <Doc::Form::Select @label="Size" @onSelect={{@onSelectIconSize}} @selectedValue={{@selectedIconSize}} />
 </div>
 
-{{! temporary for testing: }}
-<h2>{{@selectedGroupType}}</h2>
-
 {{#each-in @groupedIcons as |categoryName categoryIcons|}}
   <Doc::IconsList::Grid @categoryName={{categoryName}} @categoryIcons={{categoryIcons}} />
 {{else}}
