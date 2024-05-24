@@ -12,7 +12,9 @@ previewImage: assets/illustrations/icons/library.jpg
 <!-- algolia-ignore-start -->
 <Doc::IconsList
   @groupedIcons={{this.filteredGroupedIcons}}
-  @onSelect={{this.selectIconSize}}
+  @onSelectGroupType={{this.selectGroupType}}
+  @selectedGroupType={{this.selectedGroupType}}
+  @onSelectIconSize={{this.selectIconSize}}
   @selectedIconSize={{this.selectedIconSize}}
   @searchQuery={{this.searchQuery}}
   @searchIcons={{this.searchIcons}}
