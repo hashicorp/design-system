@@ -1,6 +1,6 @@
 ## Related articles
 
-Here are some articles that help articulate further why disabled elements is the least preferrable interaction option.
+Further reading to help articulate why disabled elements are the least preferable interaction option.
 
 * [The problem with disabled buttons and what to do instead](https://adamsilver.io/blog/the-problem-with-disabled-buttons-and-what-to-do-instead/)
 * [Date-Input Form Fields: UX Design Guidelines](https://www.nngroup.com/articles/date-input/)

@@ -10,9 +10,9 @@ The `disabled` attribute in HTML is only valid for these form controls:
 
 In terms of accessibility, however, a form control with the `disabled` attribute is problematic. If a form control has the `disabled` attribute, it's not available to users with assistive technology. It's as though the element does not exist in the DOM at all.
 
-If you wish to present the user with the form they have just filled out, use the `readonly` attribute instead. This will allow the user to receive the correct information about the form they have just filled out, but they won't be able to interact with it.
+When presenting a non-editable field, consider using the `readonly` attribute instead of the `disabled` attribute. This will provide the correct information to all users, but they won't be able to interact with it. 
 
-The following Web Content Accessibility Guidelines (WCAG) may be relevant when considering the use of the `disabled` attribute:
+## Applicable WCAG Success Criteria
 
 - Principle 1: Perceivable. Information and user interface components must be presentable to users in ways the can perceive.
 - Success Criterion 1.3.1: Info and Relationships. Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text.

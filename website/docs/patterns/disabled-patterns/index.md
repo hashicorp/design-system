@@ -1,11 +1,11 @@
 ---
-title: Disabled patterns
-description: Guidelines for content display based on user permissions and actions.
+title: Show, hide, and disable
+description: Guidelines for displaying UI elements depending on user permissions and actions.
 caption: Guidelines for displaying UI elements depending on user permissions and actions.
 related: ['components/button', 'components/form/text-input']
 previewImage: assets/illustrations/patterns/disabled-state-patterns.jpg
 navigation:
-  keywords: ['disabled', 'hide']
+  keywords: ['disabled', 'hide', 'hidden', 'display', 'disable', 'permissions']
 ---
 
 <section data-tab="Guidelines">
@@ -17,6 +17,6 @@ navigation:
   @include "partials/accessibility.md"
 </section>
 
-<section data-tab="Related articles">
-  @include "partials/relatedarticles.md"
+<section data-tab="Research">
+  @include "partials/research.md"
 </section>
