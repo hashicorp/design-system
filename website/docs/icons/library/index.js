@@ -35,7 +35,10 @@ export default class Index extends Component {
   }
 
   get selectedGroupType() {
-    return this.router.currentRoute.queryParams['selectedGroupType'] || 'alphabetical';
+    return (
+      this.router.currentRoute.queryParams['selectedGroupType'] ||
+      'alphabetical'
+    );
   }
 
   get selectedIconSize() {
@@ -105,6 +108,7 @@ export default class Index extends Component {
     this.router.transitionTo({
       queryParams: {
         searchQuery: this.searchQuery,
+        selectedIconSize: this.selectedIconSize,
         selectedGroupType: event.target.value,
       },
     });
@@ -115,6 +119,7 @@ export default class Index extends Component {
     this.router.transitionTo({
       queryParams: {
         searchQuery: this.searchQuery,
+        selectedGroupType: this.selectedGroupType,
         selectedIconSize: event.target.value,
       },
     });
