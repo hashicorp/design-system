@@ -59,13 +59,15 @@ An example of this is Instagram's login page. When a user has no connection to t
 
 In a form, always enable the submit button. When buttons are disabled, users are often left confused and frustrated because they can't move forward. Instead, show users what errors occurred so they can fix them and proceed. 
 
+!!! Do
+
 When a user clicks "Create cluster" but has failed to enter a value into a `required` input, an error will display, informing the user how to fix the issue.
 
 ![Image showing an input field with an error explaining what was missed.](/assets/patterns/disabled-patterns/incomplete-flow-example.png)
 
-## Quota limitation
+!!!
 
-When a quota limit has been hit, hide the action and replace it with guidance and a call to action to increase the quota (if possible). If the user does not have permissions to upgrade, direct them to an admin instead.
+## Quota limitation
 
 When a quota has been reached, hide the action allowing them to create more objects. If a user can increase the quota, replace the original action with an action that allows them to do so. If the user cannot increase the quota, e.g., they don't have permission, direct them to a form.
 
