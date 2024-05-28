@@ -19,7 +19,7 @@ When a user lands on a page they can't access, indicate why it's unavailable and
 
 ## Conditional availability
 
-When other steps must be taken to enable a feature or function, provide context in place of that feature so users can enable this feature.
+When other steps must be taken to enable a feature or function, provide context in place of that feature so users can enable it.
 
 !!! Dont
 
@@ -45,7 +45,7 @@ If possible, provide CTAs directly to the place where users can take immediate a
 
 ## Upgrading
 
-When upgradable features are available and a user has the necessary permissions, highlighting a path to upgrade provides a graceful marketing opportunity. Be mindful however to not overdue it and make the user feel overly advertised to.
+When upgradable features are available and a user has the necessary permissions, highlighting a path to upgrade provides a graceful marketing opportunity. However, be mindful to not overdue it and make the user feel overly advertised to.
 
 There are two ways to showcase an upgradable feature:
 
@@ -68,7 +68,7 @@ Enticed, they click it to use this feature, however, they are not enrolled in th
 
 ![A modal explaining beta to the user, with a CTA to learn more, or close the modal.](/assets/patterns/disabled-patterns/upgrade-modal-example-2.png)
 
-Since the action is the only explanation a user has at the moment, providing a modal as an interruption to the action allows a user to understand more without fully committing. Only when a user wants to "learn more," they can then be lead to a page with more details.
+Interrupting the action with a modal helps a user understand more without fully committing, and if more details are necessary they can be directed to an informational page.
 
 
 ## Service outage
