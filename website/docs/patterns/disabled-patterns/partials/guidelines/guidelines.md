@@ -2,9 +2,16 @@
 
 When a user does not have permissions, hide the related actions, navigation items and views.
 
+### Hide/show relevant UI
+
 In this example, the user's role is **viewer**, and they cannot deploy or destroy a cluster. An explanation is unnecessary as users do not require additional functionality for their day-to-day tasks.
 
 ![Image showing two dropdown with lists open, one with only one menu item that is reader specific, while the other has more options that allow for further capabilities.](/assets/patterns/disabled-patterns/permissions-example.png)
+
+Similarly, if a user has the permissions to update their software, show the relevant UI for them to do just that.
+
+
+### Provide guidance
 
 When a user lands on a page they can't access, indicate why it's unavailable and provide guidance so the user can fix the error. Consider displaying a call to action so the user doesn't feel stuck.
 
@@ -27,7 +34,7 @@ Disabled elements lack interactive states, preventing users from hovering, focus
 
 !!! Do
 
-Instead, we recommended replacing the disabled element with contextual guidance to help users to understand why this feature isn't available, and providing them with clear steps to enable it.
+Instead, we recommended replacing the disabled element with contextual guidance to help users understand why this feature isn't available, and providing them with clear steps to enable it.
 
 ![Showing an interface with a compact alert explaining why the expected behavior isn't there with guidance.](/assets/patterns/disabled-patterns/conditional-availability-example-explanation.png)
 
@@ -38,20 +45,37 @@ If possible, provide CTAs directly to the place where users can take immediate a
 
 ## Upgrading
 
-When premium features are available and a user has the necessary permissions, highlighting a path to upgrade provides a graceful marketing opportunity.
+When upgradable features are available and a user has the necessary permissions, highlighting a path to upgrade provides a graceful marketing opportunity. Be mindful however to not overdue it and make the user feel overly advertised to.
 
-An example of this is Figma's "create branch" function that is only available at the enterprise tier. Clicking "create a branch" in Figma opens a marketing modal that entices users to upgrade to gain access to this feature.
+There are two ways to showcase an upgradable feature:
 
-![Screen shot of figma's modal showing information about how to upgrade to enterprise to gain access to creating branches.](/assets/patterns/disabled-patterns/upgrade-modal-example.png)
+- Space to explain
+- Interrupting an action
 
-A note: when space is limited, and the action itself is the only means of communicating a feature
+### Space to explain
+
+In this example, "Terraform Health" is a an upgradable feature and is contextually relevant in the workspace. The UI has space to entice the user by explaining a bit of what this service can do for them.
+
+![Screen shot of Terraform workspace highlighting Terraform Health on the side bar below information.](/assets/patterns/disabled-patterns/upgrade-inline-example.png)
+
+### Interrupting an action
+
+In this example, a user is about to perform an action and notices something new within the list of options, one with a "Beta" badge. 
+
+![Showing a dropdown opened, with two list items. One for creating a static secret, while another using an auto-rotating secret with a beta badge next to it.](/assets/patterns/disabled-patterns/upgrade-modal-example-1.png)
+
+Enticed, they click it to use this feature, however, they are not enrolled in this tier and are interrupted by a modal explaining this feature a little more.
+
+![A modal explaining beta to the user, with a CTA to learn more, or close the modal.](/assets/patterns/disabled-patterns/upgrade-modal-example-2.png)
+
+Since the action is the only explanation a user has at the moment, providing a modal as an interruption to the action allows a user to understand more without fully committing. Only when a user wants to "learn more," they can then be lead to a page with more details.
 
 
 ## Service outage
 
 In instances where outages may occur, provide a clear message to users on what they can do and add a link to [our status page](https://status.hashicorp.com/).
 
-![Displaying Instagram's login page with an error below notifying the user they have no connection to instagram.](/assets/patterns/disabled-patterns/service-outage-example.png)
+![Displaying Hashicorp's 500 internal error, providing a retry button and a link to the the status page.](/assets/patterns/disabled-patterns/service-outage-example.png)
 
 ## Incomplete flow
 
@@ -64,6 +88,8 @@ When a user clicks "Create cluster" but has failed to enter a value into a `requ
 ![Image showing an input field with an error explaining what was missed in a form context.](/assets/patterns/disabled-patterns/incomplete-flow-example.png)
 
 !!!
+
+Learn more about [form validation patterns](/patterns/form-patterns).
 
 ## Quota limitation
 
