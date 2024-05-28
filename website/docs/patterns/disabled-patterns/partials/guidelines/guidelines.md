@@ -61,7 +61,7 @@ In a form, always enable the submit button. When buttons are disabled, users are
 
 When a user clicks "Create cluster" but has failed to enter a value into a `required` input, an error will display, informing the user how to fix the issue.
 
-![Image showing an input field with an error explaining what was missed.](/assets/patterns/disabled-patterns/incomplete-flow-example.png)
+![Image showing an input field with an error explaining what was missed in a form context.](/assets/patterns/disabled-patterns/incomplete-flow-example.png)
 
 !!!
 
