@@ -89,7 +89,7 @@ When a user clicks "Create cluster" but has failed to enter a value into a `requ
 
 !!!
 
-Learn more about [form validation patterns](/patterns/form-patterns).
+Learn more about [form validation patterns](/patterns/form-patterns?tab=validation).
 
 ## Quota limitation
 
