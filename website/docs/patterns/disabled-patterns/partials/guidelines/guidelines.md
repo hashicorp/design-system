@@ -51,8 +51,6 @@ A note: when space is limited, and the action itself is the only means of commun
 
 In instances where outages may occur, provide a clear message to users on what they can do and add a link to [our status page](https://status.hashicorp.com/).
 
-In this example, a user lands on a 500 error. We provide a way for them to refresh, or check the status page.
-
 ![Displaying Instagram's login page with an error below notifying the user they have no connection to instagram.](/assets/patterns/disabled-patterns/service-outage-example.png)
 
 ## Incomplete flow
