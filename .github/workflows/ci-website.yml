@@ -72,3 +72,41 @@ jobs:
       - name: Run Tests
         run: yarn run test:ember
         working-directory: website
+
+  create-vercel-alias:
+    name: 'Create Vercel Alias'
+    runs-on: ubuntu-latest
+    needs: [conditional-skip]
+    if: needs.conditional-skip.outputs.trigger-ci == 'true'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4.1.4
+
+      - name: Install Node
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
+        with:
+          node-version:  ${{ env.NODE_VERSION }}
+
+      - name: Install Vercel CLI
+        run: npm install -g vercel
+
+      - name: Get current git tag
+        id: get-tag
+        run: echo "::set-output name=tag::$(git describe --tags --abbrev=0)"
+
+      - name: Split tag into package and version
+        id: get-version
+        run: |
+          PACKAGE=$(echo "${{ steps.get-tag.outputs.tag }}" | rev | cut -d'@' -f2- | rev)
+          VERSION=$(echo "${{ steps.get-tag.outputs.tag }}" | rev | cut -d'@' -f1 | rev | tr '.' '-')
+          echo "::set-output name=package::$PACKAGE"
+          echo "::set-output name=version::$VERSION"
+
+      - name: Check tag and create Vercel alias
+        run: |
+          if [ "${{ steps.get-version.outputs.package }}" = "@hashicorp/design-system-components" ]; then
+            vercel alias hds-website-d8inv101q-hashicorp.vercel.app hds-website-${{ steps.get-version.outputs.version }}.vercel.app --scope=hashicorp --token $VERCEL_TOKEN
+          fi
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
