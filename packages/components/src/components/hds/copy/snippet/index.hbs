@@ -1,4 +1,3 @@
-{{! @glint-nocheck: not typesafe yet }}
 {{!
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
@@ -11,7 +10,7 @@
   ...attributes
 >
   <Hds::Text::Code class="hds-copy-snippet__text" @tag="span" @size="100">
-    {{@textToCopy}}
+    {{this.textToShow}}
   </Hds::Text::Code>
   <FlightIcon @name={{this.icon}} class="hds-copy-snippet__icon" />
 </button>

@@ -7,17 +7,32 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { HdsCopyButtonSizeValues } from './types.ts';
+import type { HdsCopyButtonSizes } from './types.ts';
+import type { HdsButtonSignature } from '../../button/';
+import type { HdsClipboardModifierSignature } from '../../../../modifiers/hds-clipboard.ts';
 
-export const DEFAULT_SIZE = 'medium';
-export const SIZES = ['small', 'medium'];
+export const DEFAULT_SIZE = HdsCopyButtonSizeValues.Medium;
+export const SIZES: string[] = Object.values(HdsCopyButtonSizeValues);
 export const DEFAULT_ICON = 'clipboard-copy';
 export const SUCCESS_ICON = 'clipboard-checked';
 export const ERROR_ICON = 'clipboard-x';
 export const DEFAULT_STATUS = 'idle';
 
-export default class HdsCopyButtonComponent extends Component {
+export interface HdsCopyButtonSignature {
+  Args: HdsButtonSignature['Args'] & {
+    size?: HdsCopyButtonSizes;
+    textToCopy?: HdsClipboardModifierSignature['Args']['Named']['text'];
+    targetToCopy?: HdsClipboardModifierSignature['Args']['Named']['target'];
+    onSuccess?: HdsClipboardModifierSignature['Args']['Named']['onSuccess'];
+    onError?: HdsClipboardModifierSignature['Args']['Named']['onError'];
+  };
+  Element: HdsButtonSignature['Element'];
+}
+
+export default class HdsCopyButtonComponent extends Component<HdsCopyButtonSignature> {
   @tracked status = DEFAULT_STATUS;
-  @tracked timer;
+  @tracked timer: ReturnType<typeof setTimeout> | undefined;
 
   /**
    * @param icon
@@ -41,7 +56,7 @@ export default class HdsCopyButtonComponent extends Component {
    * @description The size of the copy/button; acceptable values are `small` and `medium`
    */
   get size() {
-    let { size = DEFAULT_SIZE } = this.args;
+    const { size = DEFAULT_SIZE } = this.args;
 
     assert(
       `@size for "Hds::Copy::Button" must be one of the following: ${SIZES.join(
@@ -59,7 +74,7 @@ export default class HdsCopyButtonComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-copy-button'];
+    const classes = ['hds-copy-button'];
 
     // add a class based on the @size argument
     classes.push(`hds-button--size-${this.size}`);
@@ -70,11 +85,11 @@ export default class HdsCopyButtonComponent extends Component {
   }
 
   @action
-  onSuccess(args) {
+  onSuccess(args: HdsClipboardModifierSignature['Args']['Named']['onSuccess']) {
     this.status = 'success';
     this.resetStatusDelayed();
 
-    let { onSuccess } = this.args;
+    const { onSuccess } = this.args;
 
     if (typeof onSuccess === 'function') {
       onSuccess(args);
@@ -82,11 +97,11 @@ export default class HdsCopyButtonComponent extends Component {
   }
 
   @action
-  onError(args) {
+  onError(args: HdsClipboardModifierSignature['Args']['Named']['onError']) {
     this.status = 'error';
     this.resetStatusDelayed();
 
-    let { onError } = this.args;
+    const { onError } = this.args;
 
     if (typeof onError === 'function') {
       onError(args);
