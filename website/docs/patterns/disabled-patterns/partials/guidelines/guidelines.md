@@ -8,7 +8,7 @@ In this example, the user's role is **viewer**, and they cannot deploy or destro
 
 ![Image showing two dropdown with lists open, one with only one menu item that is reader specific, while the other has more options that allow for further capabilities.](/assets/patterns/disabled-patterns/permissions-example.png)
 
-Similarly, if a user has the permissions to update their software, show the relevant UI for them to do just that.
+Similarly, if a user has the permissions to update, show the relevant UI allowing them to do just that.
 
 
 ### Provide guidance
