@@ -86,15 +86,7 @@ export default class Index extends Component {
         return a.iconName.localeCompare(b.iconName);
       });
 
-      filteredIcons.forEach((icon) => {
-        const category = '';
-        if (!filteredGroupedIcons[category]) {
-          filteredGroupedIcons[category] = [];
-        }
-        filteredGroupedIcons[category].push(icon);
-      });
-
-      // Sort icons by category then iconName:
+      // Sort icons by category, then iconName:
     } else if (this.selectedGroupType === 'category') {
       filteredIcons
         .sort((a, b) => {
@@ -106,15 +98,17 @@ export default class Index extends Component {
           }
           return 0;
         });
-      // Group all filtered icons by category
-      filteredIcons.forEach((icon) => {
-        const category = icon.category;
-        if (!filteredGroupedIcons[category]) {
-          filteredGroupedIcons[category] = [];
-        }
-        filteredGroupedIcons[category].push(icon);
-      });
     }
+
+    // Group icons by category if category type is selected, otherwise group all icons under same "category"
+    filteredIcons.forEach((icon) => {
+      const category =
+        this.selectedGroupType === 'category' ? icon.category : '';
+      if (!filteredGroupedIcons[category]) {
+        filteredGroupedIcons[category] = [];
+      }
+      filteredGroupedIcons[category].push(icon);
+    });
 
     // 3) Return icons filtered by search, size &, group type
     return filteredGroupedIcons;
