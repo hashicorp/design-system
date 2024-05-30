@@ -34,14 +34,22 @@ export default class Index extends Component {
     return this.router.currentRoute.queryParams['searchQuery'];
   }
 
+  get selectedGroupType() {
+    return (
+      this.router.currentRoute.queryParams['selectedGroupType'] ||
+      'alphabetical'
+    );
+  }
+
   get selectedIconSize() {
     return this.router.currentRoute.queryParams['selectedIconSize'] || '24';
   }
 
   get filteredGroupedIcons() {
-    let filteredIcons = [];
-    const filteredGroupedIcons = {};
+    let filteredIcons = []; // icons filtered in the search
+    const filteredGroupedIcons = {}; // icons grouped by category (after being filtered in the search)
 
+    // 1) Filter icons by search &/or size:
     // Filters all icons based on the search query
     if (this.searchQuery) {
       // check if the query is for an exact match (prefixed with `icon:`)
@@ -71,29 +79,50 @@ export default class Index extends Component {
       );
     }
 
-    // alphabetize the filtered icons by category and then by name
-    filteredIcons
-      .sort((a, b) => {
-        return a.category.localeCompare(b.category);
-      })
-      .sort((a, b) => {
-        if (a.category === b.category) {
-          a.iconName.localeCompare(b.iconName);
-        }
-
-        return 0;
+    // 2) Sort icons by Group Type:
+    // Sort alphabetically by iconName:
+    if (this.selectedGroupType === 'alphabetical') {
+      filteredIcons.sort((a, b) => {
+        return a.iconName.localeCompare(b.iconName);
       });
 
-    // Group all filtered icons by category
+      // Sort icons by category, then iconName:
+    } else if (this.selectedGroupType === 'category') {
+      filteredIcons
+        .sort((a, b) => {
+          return a.category.localeCompare(b.category);
+        })
+        .sort((a, b) => {
+          if (a.category === b.category) {
+            a.iconName.localeCompare(b.iconName);
+          }
+          return 0;
+        });
+    }
+
+    // Group icons by category if category type is selected, otherwise group all icons under same "category"
     filteredIcons.forEach((icon) => {
-      const category = icon.category;
+      const category =
+        this.selectedGroupType === 'category' ? icon.category : '';
       if (!filteredGroupedIcons[category]) {
         filteredGroupedIcons[category] = [];
       }
       filteredGroupedIcons[category].push(icon);
     });
 
+    // 3) Return icons filtered by search, size &, group type
     return filteredGroupedIcons;
+  }
+
+  @action
+  selectGroupType(event) {
+    this.router.transitionTo({
+      queryParams: {
+        searchQuery: this.searchQuery,
+        selectedIconSize: this.selectedIconSize,
+        selectedGroupType: event.target.value,
+      },
+    });
   }
 
   @action
@@ -101,6 +130,7 @@ export default class Index extends Component {
     this.router.transitionTo({
       queryParams: {
         searchQuery: this.searchQuery,
+        selectedGroupType: this.selectedGroupType,
         selectedIconSize: event.target.value,
       },
     });
@@ -112,6 +142,7 @@ export default class Index extends Component {
     this.router.transitionTo({
       queryParams: {
         searchQuery: searchQuery !== '' ? searchQuery : null,
+        selectedGroupType: this.selectedGroupType,
         selectedIconSize: this.selectedIconSize,
       },
     });

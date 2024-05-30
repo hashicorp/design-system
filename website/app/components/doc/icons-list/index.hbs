@@ -11,7 +11,12 @@
     @onInput={{@searchIcons}}
     data-test="icons-filter"
   />
-  <Doc::Form::Select @label="Size" @onSelect={{@onSelect}} @selectedValue={{@selectedIconSize}} />
+  <Doc::Form::SelectGroupType
+    @label="Group by"
+    @onSelect={{@onSelectGroupType}}
+    @selectedValue={{@selectedGroupType}}
+  />
+  <Doc::Form::Select @label="Size" @onSelect={{@onSelectIconSize}} @selectedValue={{@selectedIconSize}} />
 </div>
 
 {{#each-in @groupedIcons as |categoryName categoryIcons|}}

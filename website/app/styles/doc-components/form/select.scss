@@ -10,7 +10,6 @@
 
 .doc-form-select__control {
   @include doc-font-style-body();
-  width: 120px;
   height: 44px;
   padding: 2px 48px 2px 12px; // optically tweaked to match designs
   color: var(--doc-color-gray-200);

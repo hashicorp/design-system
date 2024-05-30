@@ -1,0 +1,15 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{! TODO: Make a generic select then re-use for "GroupType" & "Size" selects }}
+<div class="doc-form-select">
+  {{#let (unique-id) as |selectId|}}
+    <Doc::Form::Label @for={{selectId}} @label={{@label}} />
+    <select class="doc-form-select__control" id={{selectId}} {{on "change" @onSelect}}>
+      <option value="alphabetical" selected={{eq @selectedValue "alphabetical"}}>Alphabetical</option>
+      <option value="category" selected={{eq @selectedValue "category"}}>Category</option>
+    </select>
+  {{/let}}
+</div>

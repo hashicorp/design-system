@@ -16,7 +16,7 @@ module('Acceptance | Icon Search', function (hooks) {
 
     assert.strictEqual(
       currentURL(),
-      '/icons/library?searchQuery=loading&selectedIconSize=24'
+      '/icons/library?searchQuery=loading&selectedGroupType=alphabetical&selectedIconSize=24'
     );
 
     assert.dom('.doc-icons-list-grid-item').exists({ count: 2 });
@@ -36,11 +36,13 @@ module('Acceptance | Icon Search', function (hooks) {
   });
 
   test('should load content based on category in query param, with case-insensitive results', async function (assert) {
-    await visit('/icons/library?searchQuery=AniMaTed&selectedIconSize=24');
+    await visit(
+      '/icons/library?searchQuery=AniMaTed&selectedGroupType=category&selectedIconSize=24'
+    );
 
     assert.strictEqual(
       currentURL(),
-      '/icons/library?searchQuery=AniMaTed&selectedIconSize=24'
+      '/icons/library?searchQuery=AniMaTed&selectedGroupType=category&selectedIconSize=24'
     );
 
     assert.dom('.doc-icons-list-grid-item').exists({ count: 4 });
@@ -63,13 +65,18 @@ module('Acceptance | Icon Search', function (hooks) {
   });
 
   test('should clear search results if input is cleared', async function (assert) {
-    await visit('/icons/library?searchQuery=loading&selectedIconSize=16');
+    await visit(
+      '/icons/library?searchQuery=loading&selectedGroupType=alphabetical&selectedIconSize=16'
+    );
 
     await fillIn('.doc-icons-list-filter input[type="search"]', '');
 
     // naive way of seeing if all the results come back
     assert.dom('[data-test-icon="activity"]').exists();
-    assert.strictEqual(currentURL(), '/icons/library?selectedIconSize=16');
+    assert.strictEqual(
+      currentURL(),
+      '/icons/library?selectedGroupType=alphabetical&selectedIconSize=16'
+    );
   });
 
   test('should show message when no results are found', async function (assert) {

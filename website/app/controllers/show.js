@@ -47,6 +47,7 @@ export default class ShowController extends Controller {
     'preserveScrollPosition',
     // these are used for the searches/filters in the website
     'searchQuery',
+    'selectedGroupType',
     'selectedIconSize',
     // these are used in the "pagination > how to use" demos
     'demoCurrentPage',
