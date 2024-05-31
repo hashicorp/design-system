@@ -1,12 +1,12 @@
 ## Permissions 
 
-When a user does not have permissions, hide the related actions, navigation items and views.
+When a user does not have permissions, hide the related actions, navigation items, and views.
 
 ### Hide/show relevant UI
 
 In this example, the user's role is **viewer**, and they cannot deploy or destroy a cluster. An explanation is unnecessary as users do not require additional functionality for their day-to-day tasks.
 
-![Image showing two dropdown with lists open, one with only one menu item that is reader specific, while the other has more options that allow for further capabilities.](/assets/patterns/disabled-patterns/permissions-example.png)
+![Image showing two open dropdown lists with number of items shown based on user permissions, one with only one menu item, while the other has more options that allow for further capabilities.](/assets/patterns/disabled-patterns/permissions-example.png)
 
 Similarly, if a user has the permissions to update, show the relevant UI allowing them to do just that.
 
@@ -45,7 +45,7 @@ If possible, provide CTAs directly to the place where users can take immediate a
 
 ## Upgrading
 
-When upgradable features are available and a user has the necessary permissions, highlighting a path to upgrade provides a graceful marketing opportunity. However, be mindful to not overdue it and make the user feel overly advertised to.
+When upgradable features are available and a user has the necessary permissions, highlighting a path to upgrade provides a graceful marketing opportunity. However, be mindful not to overdo it and make the user feel overly advertised to.
 
 There are two ways to showcase an upgradable feature:
 
@@ -62,7 +62,7 @@ In this example, "Terraform Health" is a an upgradable feature and is contextual
 
 In this example, a user is about to perform an action and notices something new within the list of options, one with a "Beta" badge. 
 
-![Showing a dropdown opened, with two list items. One for creating a static secret, while another using an auto-rotating secret with a beta badge next to it.](/assets/patterns/disabled-patterns/upgrade-modal-example-1.png)
+![Showing an open dropdown list, with two list items. One for creating a static secret, and another using an auto-rotating secret with a beta badge next to it.](/assets/patterns/disabled-patterns/upgrade-modal-example-1.png)
 
 Enticed, they click it to use this feature, however, they are not enrolled in this tier and are interrupted by a modal explaining this feature a little more.
 
@@ -93,10 +93,10 @@ Learn more about [form validation patterns](/patterns/form-patterns?tab=validati
 
 ## Quota limitation
 
-When a quota has been reached, hide the action allowing them to create more objects. If a user can increase the quota, replace the original action with an action that allows them to do so. If the user cannot increase the quota, e.g., they don't have permission, direct them to a form.
+When the quota has been reached, hide the action allowing the user to create more objects. If they can opt to increase the quota, replace the original action with an action permitting them to do so. If the user cannot increase the quota, e.g., they don't have permission, direct them to a form.
 
-![Image showing a title with a button that allows a user to create a new service, with a table below it.](/assets/patterns/disabled-patterns/create-new-limitation-example.png)
+![Image showing a table of services with a button allowing the user to create a new service.](/assets/patterns/disabled-patterns/create-new-limitation-example.png)
 
 Once the quota has been reached, the "Create" action is hidden, and an [`Alert`](https://helios.hashicorp.design/components/alert) is displayed, indicating why new objects can no longer be created.
 
-![Image showing a title with an alert message below and a table below that.](/assets/patterns/disabled-patterns/create-new-limitation-reached-example.png)
+![Image showing a table of services with an alert message explaining that the services limitation has been reached and providing them with an upgrade link.](/assets/patterns/disabled-patterns/create-new-limitation-reached-example.png)

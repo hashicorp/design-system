@@ -2,5 +2,5 @@ We recommend avoiding the use of disabled elements. These elements cannot be nav
 
 Instead, we recommend:
 - Showing the content/element as enabled and interactive.
-- Hiding the content/element but showing information about their limited access.
-- Hiding the content/element but with no provided context.
+- Hiding the content/element but including information explaining their limited access.
+- Hiding the content/element entirely with no extra explanation.
