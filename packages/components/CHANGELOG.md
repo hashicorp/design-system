@@ -1,5 +1,53 @@
 # @hashicorp/design-system-components
 
+## 4.4.0
+
+### Minor Changes
+
+Added re-export entries for TypeScript components
+
+<small class="doc-whats-new-changelog-metadata">[#2129](https://github.com/hashicorp/design-system/pull/2129) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`CopyButton` - Converted component to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2100](https://github.com/hashicorp/design-system/pull/2100)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`CopySnippet` - Converted component to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2100](https://github.com/hashicorp/design-system/pull/2100)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`hds-clipboard` - Converted modifier to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2120](https://github.com/hashicorp/design-system/pull/2120)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+Template Registry - Removed redundant entries
+
+<small class="doc-whats-new-changelog-metadata">[#2127](https://github.com/hashicorp/design-system/pull/2127)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Fix missing TypeScript `declaration`
+
+<small class="doc-whats-new-changelog-metadata">[#2122](https://github.com/hashicorp/design-system/pull/2122) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Hds::BadgeCount` - Fixed typo in template registry declaration
+
+<small class="doc-whats-new-changelog-metadata">[#2124](https://github.com/hashicorp/design-system/pull/2124)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.3.0
 
 ### Minor Changes
