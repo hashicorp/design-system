@@ -1,8 +1,10 @@
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/1672302/213473448-ac8cd0f7-cde2-49ef-b8ef-4067677569f2.jpg" role="presentation" alt="">
-</p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/hashicorp/design-system/assets/788096/5d6969b7-f8b4-4ad3-9ece-b16b4527522e" width="300">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/hashicorp/design-system/assets/788096/8e278094-427f-40cc-912f-9ccd3a0ff879" width="300">
+  <img alt="Helios Design System" src="https://github.com/hashicorp/design-system/assets/788096/8e278094-427f-40cc-912f-9ccd3a0ff879.png" width="300">
+</picture>
 
-<p align="center">The Helios Design System provides the building blocks to design and implement consistent, accessible, and delightful product experiences across HashiCorp.</p>
+The Helios Design System provides the building blocks to design and implement consistent, accessible, and delightful product experiences across HashiCorp.
 
 ## Usage
 
