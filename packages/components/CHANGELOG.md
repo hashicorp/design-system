@@ -2,6 +2,8 @@
 
 ## 4.4.0
 
+[4.4.0 documentation](https://hds-website-4-4-0.vercel.app/)
+
 ### Minor Changes
 
 Added re-export entries for TypeScript components
@@ -49,6 +51,8 @@ Fix missing TypeScript `declaration`
 <div class="doc-whats-new-changelog-separator"></div>
 
 ## 4.3.0
+
+[4.3.0 documentation](https://hds-website-4-3-0.vercel.app/)
 
 ### Minor Changes
 
@@ -219,6 +223,8 @@ Fixed default export warnings by preventing `types.js` files from being reexport
 
 ## 4.2.0
 
+[4.2.0 documentation](https://hds-website-4-2-0.vercel.app/)
+
 ### Minor Changes
 
 `Link::Inline` - Converted component to TypeScript
@@ -283,6 +289,8 @@ You can still use this version if you import styles as Sass and don't require `d
 
 ## 4.1.0
 
+[4.1.0 documentation](https://hds-website-4-1-0.vercel.app/)
+
 ### Minor Changes
 
 `DismissButton` - Converted component to TypeScript
@@ -329,6 +337,8 @@ Removed `dialog-polyfill` dependency
 - @hashicorp/ember-flight-icons@5.0.1
 
 ## 4.0.0
+
+[4.0.0 documentation](https://hds-website-4-0-0.vercel.app/)
 
 ### Major Changes
 
@@ -470,6 +480,8 @@ Removed `ember-deep-tracked` dependency that was not used
 
 ## 3.6.0
 
+[3.6.0 documentation](https://hds-website-3-6-0.vercel.app/)
+
 ### Minor Changes
 
 _Since this is an update brand colors and product icons, we consider this a `minor` version release_
@@ -480,6 +492,8 @@ _Since this is an update brand colors and product icons, we consider this a `min
 - @hashicorp/ember-flight-icons@4.1.0
 
 ## 3.5.0
+
+[3.5.0 documentation](https://hds-website-3-5-0.vercel.app/)
 
 ### Minor Changes
 
