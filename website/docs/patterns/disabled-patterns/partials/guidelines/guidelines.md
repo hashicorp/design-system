@@ -54,13 +54,15 @@ There are two ways to showcase an upgradable feature:
 
 ### Space to explain
 
+When the page has space to showcase an upgradable feature, use it to explain how that feature can be a net positive to the user upon upgrading, and provide a CTA as a path forward.
+
 In this example, "Terraform Health" is a an upgradable feature and is contextually relevant in the workspace. The UI has space to entice the user by explaining a bit of what this service can do for them.
 
 ![Screen shot of Terraform workspace highlighting Terraform Health on the side bar below information.](/assets/patterns/disabled-patterns/upgrade-inline-example.png)
 
 ### Interrupting an action
 
-In this example, a user is about to perform an action and notices something new within the list of options, one with a "Beta" badge. 
+In this example, a user is about to perform an action and notices something new within the list of options. 
 
 ![Showing an open dropdown list, with two list items. One for creating a static secret, and another using an auto-rotating secret with a beta badge next to it.](/assets/patterns/disabled-patterns/upgrade-modal-example-1.png)
 
