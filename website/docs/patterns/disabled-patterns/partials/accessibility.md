@@ -16,6 +16,6 @@ If it's text that will eventually be a link (think, download link), then it shou
 
 ## Applicable WCAG Success Criteria
 
-The following Web Content Accessibility Guidelines (WCAG) may be relevant when considering the use of the `disabled` attribute:
+Consult the following Web Content Accessibility Guidelines (WCAG) when considering using the `disabled` attribute:
 
 <Doc::WcagList @criteriaList={{array "1.3.1" "1.3.2" "2.1.1" "2.4.3" "2.4.7" "2.5.8" "3.2.1" "3.2.2" "3.3.1" "3.3.2" "3.3.3" "3.3.4" "4.1.2" }} />
