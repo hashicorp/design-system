@@ -56,7 +56,7 @@ There are two ways to showcase an upgradable feature:
 
 When the page has space to showcase an upgradable feature, use it to explain how that feature can be a net positive to the user upon upgrading, and provide a CTA as a path forward.
 
-In this example, "Terraform Health" is a an upgradable feature and is contextually relevant in the workspace. The UI has space to entice the user by explaining a bit of what this service can do for them.
+In this example, "Terraform Health" is an upgradable feature and is contextually relevant in the workspace. The UI has space to entice the user by explaining a bit of what this service can do for them.
 
 ![Screen shot of Terraform workspace highlighting Terraform Health on the side bar below information.](/assets/patterns/disabled-patterns/upgrade-inline-example.png)
 
