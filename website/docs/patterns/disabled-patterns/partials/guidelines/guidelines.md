@@ -49,10 +49,10 @@ When upgradable features are available and a user has the necessary permissions,
 
 There are two ways to showcase an upgradable feature:
 
-- Space to explain
+- Feature spotlight
 - Interrupting an action
 
-### Space to explain
+### Feature spotlight
 
 When the page has space to showcase an upgradable feature, use it to explain how that feature can be a net positive to the user upon upgrading, and provide a CTA as a path forward.
 
