@@ -8,11 +8,11 @@ The `disabled` attribute is only valid for these HTML elements, referred to as f
 - `<textarea>`
 - `<input>`
 
-In terms of accessibility, however, a form control with the `disabled` attribute is problematic. If a form control has the `disabled` attribute, it's not available to users with assistive technology. It's as though the element does not exist in the DOM at all.
+From an accessibility perspective, however, using the `disabled` attribute on a form control can cause issues. This attribute makes the control inaccessible to assistive technology users, essentially making it seem like the element doesn't exist on the webpage.
 
-When presenting a non-editable field, consider using the `readonly` attribute instead of the `disabled` attribute. This will provide the correct information to all users, but they won't be able to interact with it.
+To make a field non-editable, consider making it `readonly` vs. setting it as `disabled`. This will allow all users to access the information while preventing them from interacting with it.
 
-If it's text that will eventually be a link (think, download link), then it should be text until it is valid to become a link (that's why the `disabled` attribute is not valid for `<a>` elements!). This can be accomplished with use of [conditionals](https://guides.emberjs.com/release/components/conditional-content/) in Ember.
+Disabling a link isn't actually possible as a link is not a form control. To simulate a disabled link though, you can use [conditionals](https://guides.emberjs.com/release/components/conditional-content/) in Ember to display it as plain text until it is "enabled".
 
 ## Applicable WCAG Success Criteria
 
