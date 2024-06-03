@@ -292,7 +292,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:>=7.2.2, @babel/core@npm:^7.0.0, @babel/core@npm:^7.1.6, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.0, @babel/core@npm:^7.12.3, @babel/core@npm:^7.13.10, @babel/core@npm:^7.14.5, @babel/core@npm:^7.16.10, @babel/core@npm:^7.16.7, @babel/core@npm:^7.22.10, @babel/core@npm:^7.23.2, @babel/core@npm:^7.24.5, @babel/core@npm:^7.3.4":
+"@babel/core@npm:>=7.2.2, @babel/core@npm:^7.0.0, @babel/core@npm:^7.1.6, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.0, @babel/core@npm:^7.12.3, @babel/core@npm:^7.13.10, @babel/core@npm:^7.14.5, @babel/core@npm:^7.16.10, @babel/core@npm:^7.16.7, @babel/core@npm:^7.22.10, @babel/core@npm:^7.23.2, @babel/core@npm:^7.23.6, @babel/core@npm:^7.24.5, @babel/core@npm:^7.3.4":
   version: 7.24.5
   resolution: "@babel/core@npm:7.24.5"
   dependencies:
@@ -707,7 +707,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-proposal-decorators@npm:^7.13.5, @babel/plugin-proposal-decorators@npm:^7.16.7, @babel/plugin-proposal-decorators@npm:^7.20.13, @babel/plugin-proposal-decorators@npm:^7.23.7":
+"@babel/plugin-proposal-decorators@npm:^7.13.5, @babel/plugin-proposal-decorators@npm:^7.16.7, @babel/plugin-proposal-decorators@npm:^7.20.13":
   version: 7.23.7
   resolution: "@babel/plugin-proposal-decorators@npm:7.23.7"
   dependencies:
@@ -1902,7 +1902,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.14.0, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.20.1, @babel/runtime@npm:^7.21.0, @babel/runtime@npm:^7.24.5, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.4":
+"@babel/runtime@npm:^7.14.0, @babel/runtime@npm:^7.17.0, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.20.1, @babel/runtime@npm:^7.21.0, @babel/runtime@npm:^7.24.5, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.4":
   version: 7.24.5
   resolution: "@babel/runtime@npm:7.24.5"
   dependencies:
@@ -2832,7 +2832,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/addon-dev@npm:^4.3.1":
+"@embroider/addon-dev@npm:^4.1.0, @embroider/addon-dev@npm:^4.3.1":
   version: 4.3.1
   resolution: "@embroider/addon-dev@npm:4.3.1"
   dependencies:
@@ -2851,7 +2851,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/addon-shim@npm:^1.0.0, @embroider/addon-shim@npm:^1.2.0, @embroider/addon-shim@npm:^1.6.0, @embroider/addon-shim@npm:^1.8.3, @embroider/addon-shim@npm:^1.8.4, @embroider/addon-shim@npm:^1.8.6, @embroider/addon-shim@npm:^1.8.7":
+"@embroider/addon-shim@npm:^1.0.0, @embroider/addon-shim@npm:^1.2.0, @embroider/addon-shim@npm:^1.8.4, @embroider/addon-shim@npm:^1.8.6, @embroider/addon-shim@npm:^1.8.7":
+  version: 1.8.7
+  resolution: "@embroider/addon-shim@npm:1.8.7"
+  dependencies:
+    "@embroider/shared-internals": "npm:^2.5.1"
+    broccoli-funnel: "npm:^3.0.8"
+    semver: "npm:^7.3.8"
+  checksum: 68f378ce9f6a9d4ae7e79fb0f2ea71d493cb6a4326d6ed986ab6ab6315cf1c825ed2299c3d4efc0cb6497533916bf82a2916348fd5df9176a265a9699667a679
+  languageName: node
+  linkType: hard
+
+"@embroider/addon-shim@npm:^1.6.0, @embroider/addon-shim@npm:^1.8.3":
   version: 1.8.8
   resolution: "@embroider/addon-shim@npm:1.8.8"
   dependencies:
@@ -2916,7 +2927,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/shared-internals@npm:2.6.0, @embroider/shared-internals@npm:^2.0.0, @embroider/shared-internals@npm:^2.6.0":
+"@embroider/shared-internals@npm:2.6.0, @embroider/shared-internals@npm:^2.0.0, @embroider/shared-internals@npm:^2.5.1, @embroider/shared-internals@npm:^2.6.0":
   version: 2.6.0
   resolution: "@embroider/shared-internals@npm:2.6.0"
   dependencies:
@@ -2934,7 +2945,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/test-setup@npm:^3.0.2, @embroider/test-setup@npm:^3.0.3":
+"@embroider/test-setup@npm:^3.0.3":
   version: 3.0.3
   resolution: "@embroider/test-setup@npm:3.0.3"
   dependencies:
@@ -3527,7 +3538,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glint/core@npm:^1.4.0":
+"@glint/core@npm:^1.2.1, @glint/core@npm:^1.4.0":
   version: 1.4.0
   resolution: "@glint/core@npm:1.4.0"
   dependencies:
@@ -3613,7 +3624,32 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glint/template@npm:^1.4.0":
+"@glint/environment-ember-template-imports@npm:^1.2.1":
+  version: 1.4.0
+  resolution: "@glint/environment-ember-template-imports@npm:1.4.0"
+  dependencies:
+    content-tag: "npm:^2.0.1"
+  peerDependencies:
+    "@glint/environment-ember-loose": ^1.4.0
+    "@glint/template": ^1.4.0
+    "@types/ember__component": ^4.0.10
+    "@types/ember__helper": ^4.0.1
+    "@types/ember__modifier": ^4.0.3
+    "@types/ember__routing": ^4.0.12
+  peerDependenciesMeta:
+    "@types/ember__component":
+      optional: true
+    "@types/ember__helper":
+      optional: true
+    "@types/ember__modifier":
+      optional: true
+    "@types/ember__routing":
+      optional: true
+  checksum: f3e384396086eb428bed27061828cd2f9555d7fcd3d5aedb9ce2c18a869a0517c35757b732e9ab2f7755e22e2d78021a884f3c1105d6301c562bb9cd6bf2b246
+  languageName: node
+  linkType: hard
+
+"@glint/template@npm:^1.2.1, @glint/template@npm:^1.4.0":
   version: 1.4.0
   resolution: "@glint/template@npm:1.4.0"
   checksum: 10/bbbb8fe7da25627d2957d3afe15bd65cfcb12d1b82ce29a9f2ab55f63e19d5d67f35add51d6e60530262616478718a56fa9fc67543b4aa0f0ed1176d1810ed01
@@ -3762,31 +3798,42 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons"
   dependencies:
-    "@babel/core": "npm:^7.24.5"
-    "@babel/eslint-parser": "npm:^7.22.15"
-    "@babel/plugin-proposal-decorators": "npm:^7.23.7"
-    "@babel/plugin-transform-class-properties": "npm:^7.23.3"
-    "@ember/optional-features": "npm:^2.0.0"
-    "@embroider/addon-dev": "npm:^4.3.1"
+    "@babel/core": "npm:^7.23.6"
+    "@babel/plugin-proposal-decorators": "npm:^7.24.1"
+    "@babel/plugin-transform-class-properties": "npm:^7.24.1"
+    "@babel/plugin-transform-private-methods": "npm:^7.24.1"
+    "@babel/plugin-transform-typescript": "npm:^7.23.6"
+    "@babel/runtime": "npm:^7.17.0"
+    "@embroider/addon-dev": "npm:^4.1.0"
     "@embroider/addon-shim": "npm:^1.8.7"
-    "@embroider/test-setup": "npm:^3.0.2"
     "@glimmer/component": "npm:^1.1.2"
     "@glimmer/tracking": "npm:^1.1.2"
+    "@glint/core": "npm:^1.2.1"
+    "@glint/environment-ember-loose": "npm:^1.2.1"
+    "@glint/environment-ember-template-imports": "npm:^1.2.1"
+    "@glint/template": "npm:^1.2.1"
     "@hashicorp/flight-icons": "npm:^3.3.0"
     "@rollup/plugin-babel": "npm:^6.0.4"
+    "@tsconfig/ember": "npm:^3.0.6"
+    "@typescript-eslint/eslint-plugin": "npm:^6.14.0"
+    "@typescript-eslint/parser": "npm:^6.14.0"
+    babel-plugin-ember-template-compilation: "npm:^2.2.1"
+    concurrently: "npm:^8.2.2"
+    decorator-transforms: "npm:^1.1.0"
     ember-get-config: "npm:^2.1.1"
-    ember-template-lint: "npm:^4.18.2"
+    ember-template-lint: "npm:^5.13.0"
     ember-template-lint-plugin-prettier: "npm:^4.2.0"
     eslint: "npm:^8.52.0"
     eslint-config-prettier: "npm:^8.10.0"
     eslint-plugin-ember: "npm:^11.11.1"
-    eslint-plugin-node: "npm:^11.1.0"
+    eslint-plugin-import: "npm:^2.29.1"
+    eslint-plugin-n: "npm:^17.7.0"
     eslint-plugin-prettier: "npm:^4.2.1"
     eslint-plugin-qunit: "npm:^8.0.1"
-    npm-run-all: "npm:^4.1.5"
     prettier: "npm:^2.8.8"
     rollup: "npm:^4.17.2"
     rollup-plugin-copy: "npm:^3.5.0"
+    typescript: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
 
@@ -4197,7 +4244,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lint-todo/utils@npm:^13.0.3":
+"@lint-todo/utils@npm:^13.0.3, @lint-todo/utils@npm:^13.1.1":
   version: 13.1.1
   resolution: "@lint-todo/utils@npm:13.1.1"
   dependencies:
@@ -6504,7 +6551,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ajv@npm:^8.0.0, ajv@npm:^8.0.1, ajv@npm:^8.6.2, ajv@npm:^8.9.0":
+"ajv@npm:^8.0.0, ajv@npm:^8.0.1, ajv@npm:^8.9.0":
   version: 8.12.0
   resolution: "ajv@npm:8.12.0"
   dependencies:
@@ -6513,6 +6560,18 @@ __metadata:
     require-from-string: "npm:^2.0.2"
     uri-js: "npm:^4.2.2"
   checksum: 10/b406f3b79b5756ac53bfe2c20852471b08e122bc1ee4cde08ae4d6a800574d9cd78d60c81c69c63ff81e4da7cd0b638fafbb2303ae580d49cf1600b9059efb85
+  languageName: node
+  linkType: hard
+
+"ajv@npm:^8.6.2":
+  version: 8.13.0
+  resolution: "ajv@npm:8.13.0"
+  dependencies:
+    fast-deep-equal: "npm:^3.1.3"
+    json-schema-traverse: "npm:^1.0.0"
+    require-from-string: "npm:^2.0.2"
+    uri-js: "npm:^4.4.1"
+  checksum: 4ada268c9a6e44be87fd295df0f0a91267a7bae8dbc8a67a2d5799c3cb459232839c99d18b035597bb6e3ffe88af6979f7daece854f590a81ebbbc2dfa80002c
   languageName: node
   linkType: hard
 
@@ -6777,7 +6836,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aria-query@npm:^5.0.2":
+"aria-query@npm:^5.0.2, aria-query@npm:^5.3.0":
   version: 5.3.0
   resolution: "aria-query@npm:5.3.0"
   dependencies:
@@ -7557,6 +7616,16 @@ __metadata:
     "@glimmer/syntax": "npm:^0.84.3"
     babel-import-util: "npm:^3.0.0"
   checksum: 10/e5050bdfbd9327c7124ec18097815ced4b55d5690ffba411347608604b9d38959e3de1aafdc0bdda08b8389e65a036aeb6b7047f23697ae2b3720ae1b34b0a00
+  languageName: node
+  linkType: hard
+
+"babel-plugin-ember-template-compilation@npm:^2.2.1":
+  version: 2.2.5
+  resolution: "babel-plugin-ember-template-compilation@npm:2.2.5"
+  dependencies:
+    "@glimmer/syntax": "npm:^0.84.3"
+    babel-import-util: "npm:^3.0.0"
+  checksum: 24bd9a032c0ed7b4d4456f3e42bcd46ff771cb084aad9868cb5cfe9b4df8304724d6cfe68df0b9fd6b28c6bdea04d96533ef961935e946cb3ec30606fe8ac197
   languageName: node
   linkType: hard
 
@@ -13061,6 +13130,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ember-template-lint@npm:^5.13.0":
+  version: 5.13.0
+  resolution: "ember-template-lint@npm:5.13.0"
+  dependencies:
+    "@lint-todo/utils": "npm:^13.1.1"
+    aria-query: "npm:^5.3.0"
+    chalk: "npm:^5.3.0"
+    ci-info: "npm:^3.8.0"
+    date-fns: "npm:^2.30.0"
+    ember-template-imports: "npm:^3.4.2"
+    ember-template-recast: "npm:^6.1.4"
+    eslint-formatter-kakoune: "npm:^1.0.0"
+    find-up: "npm:^6.3.0"
+    fuse.js: "npm:^6.5.3"
+    get-stdin: "npm:^9.0.0"
+    globby: "npm:^13.2.2"
+    is-glob: "npm:^4.0.3"
+    language-tags: "npm:^1.0.8"
+    micromatch: "npm:^4.0.5"
+    resolve: "npm:^1.22.3"
+    v8-compile-cache: "npm:^2.3.0"
+    yargs: "npm:^17.7.2"
+  bin:
+    ember-template-lint: bin/ember-template-lint.js
+  checksum: 5d360f94009af4eaa99e565de3f69b4dafd1076283e7d511e9e19afe70fa2b0a8e71d3683982e8792b5c538ae524b0449ed86811a17aacec57caf5032d259dea
+  languageName: node
+  linkType: hard
+
 "ember-template-recast@npm:^4.1.4":
   version: 4.3.0
   resolution: "ember-template-recast@npm:4.3.0"
@@ -13649,6 +13746,13 @@ __metadata:
   bin:
     eslint-config-prettier: bin/cli.js
   checksum: 10/411e3b3b1c7aa04e3e0f20d561271b3b909014956c4dba51c878bf1a23dbb8c800a3be235c46c4732c70827276e540b6eed4636d9b09b444fd0a8e07f0fcd830
+  languageName: node
+  linkType: hard
+
+"eslint-formatter-kakoune@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "eslint-formatter-kakoune@npm:1.0.0"
+  checksum: 78518afbdf0be285338874044051503af2a8e0b7b6a4f8c3355743d26a848cdc1d2e06ff0953ff1ccf147e67968809a2a7e694eddf121eb94465b8c8a98dfc9f
   languageName: node
   linkType: hard
 
@@ -15812,7 +15916,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globby@npm:^13.1.2":
+"globby@npm:^13.1.2, globby@npm:^13.2.2":
   version: 13.2.2
   resolution: "globby@npm:13.2.2"
   dependencies:
@@ -18677,7 +18781,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"language-tags@npm:^1.0.5":
+"language-tags@npm:^1.0.5, language-tags@npm:^1.0.8":
   version: 1.0.9
   resolution: "language-tags@npm:1.0.9"
   dependencies:
@@ -23336,7 +23440,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@npm:^1.1.7, resolve@npm:^1.10.0, resolve@npm:^1.10.1, resolve@npm:^1.11.1, resolve@npm:^1.13.1, resolve@npm:^1.14.2, resolve@npm:^1.17.0, resolve@npm:^1.20.0, resolve@npm:^1.22.0, resolve@npm:^1.22.1, resolve@npm:^1.22.2, resolve@npm:^1.22.4, resolve@npm:^1.22.8, resolve@npm:^1.3.3, resolve@npm:^1.4.0, resolve@npm:^1.5.0, resolve@npm:^1.8.1":
+"resolve@npm:^1.1.7, resolve@npm:^1.10.0, resolve@npm:^1.10.1, resolve@npm:^1.11.1, resolve@npm:^1.13.1, resolve@npm:^1.14.2, resolve@npm:^1.17.0, resolve@npm:^1.20.0, resolve@npm:^1.22.0, resolve@npm:^1.22.1, resolve@npm:^1.22.2, resolve@npm:^1.22.3, resolve@npm:^1.22.4, resolve@npm:^1.22.8, resolve@npm:^1.3.3, resolve@npm:^1.4.0, resolve@npm:^1.5.0, resolve@npm:^1.8.1":
   version: 1.22.8
   resolution: "resolve@npm:1.22.8"
   dependencies:
@@ -23349,7 +23453,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-? "resolve@patch:resolve@npm%3A^1.1.7#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.10.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.10.1#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.11.1#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.13.1#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.14.2#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.17.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.20.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.1#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.2#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.4#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.8#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.3.3#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.4.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.5.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.8.1#optional!builtin<compat/resolve>"
+? "resolve@patch:resolve@npm%3A^1.1.7#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.10.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.10.1#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.11.1#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.13.1#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.14.2#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.17.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.20.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.1#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.2#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.3#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.4#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.8#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.3.3#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.4.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.5.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.8.1#optional!builtin<compat/resolve>"
 :
   version: 1.22.8
   resolution: "resolve@patch:resolve@npm%3A1.22.8#optional!builtin<compat/resolve>::version=1.22.8&hash=c3c19d"
@@ -26463,7 +26567,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.3.3, typescript@npm:^5.4.2":
+"typescript@npm:^5.3.3":
   version: 5.4.2
   resolution: "typescript@npm:5.4.2"
   bin:
@@ -26473,13 +26577,33 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.3.3#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.4.2#optional!builtin<compat/typescript>":
+"typescript@npm:^5.4.2":
+  version: 5.4.5
+  resolution: "typescript@npm:5.4.5"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: d04a9e27e6d83861f2126665aa8d84847e8ebabcea9125b9ebc30370b98cb38b5dff2508d74e2326a744938191a83a69aa9fddab41f193ffa43eabfdf3f190a5
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@npm%3A^5.3.3#optional!builtin<compat/typescript>":
   version: 5.4.2
   resolution: "typescript@patch:typescript@npm%3A5.4.2#optional!builtin<compat/typescript>::version=5.4.2&hash=5adc0c"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 10/f5f9a4133c2670761f0166eae5b3bafbc4a3fc24f0f42a93c9c893d9e9d6e66ea066969c5e7483fa66b4ae0e99125592553f3b92fd3599484de8be13b0615176
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@npm%3A^5.4.2#optional!builtin<compat/typescript>":
+  version: 5.4.5
+  resolution: "typescript@patch:typescript@npm%3A5.4.5#optional!builtin<compat/typescript>::version=5.4.5&hash=e012d7"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 584be8bac7112ad49a9eb9992f71d542b1ff2fafb5bb315e1c196145e8feab589f1d7223cfb2d5df6770789582e6918f8287d1f2f89911b38eb80e29c560ad00
   languageName: node
   linkType: hard
 
@@ -26882,7 +27006,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uri-js@npm:^4.2.2":
+"uri-js@npm:^4.2.2, uri-js@npm:^4.4.1":
   version: 4.4.1
   resolution: "uri-js@npm:4.4.1"
   dependencies:
