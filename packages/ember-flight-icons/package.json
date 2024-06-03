@@ -82,7 +82,8 @@
     "main": "addon-main.cjs",
     "app-js": {
       "./components/flight-icon.js": "./dist/_app_/components/flight-icon.js",
-      "./instance-initializers/load-sprite.js": "./dist/_app_/instance-initializers/load-sprite.js"
+      "./instance-initializers/load-sprite.js": "./dist/_app_/instance-initializers/load-sprite.js",
+      "./template-registry.js": "./dist/_app_/template-registry.js"
     }
   },
   "exports": {
