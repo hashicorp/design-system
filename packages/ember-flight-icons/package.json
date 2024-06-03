@@ -17,65 +17,97 @@
   "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "scripts": {
-    "build": "rollup --config",
-    "prepublishOnly": "rollup --config",
-    "start": "rollup --config --watch --environment development",
-    "lint": "concurrently \"yarn:lint:*(!fix)\" --names \"lint:\"",
-    "lint:fix": "concurrently \"yarn:lint:*:fix\" --names \"fix:\"",
-    "lint:hbs": "ember-template-lint .",
-    "lint:hbs:fix": "ember-template-lint . --fix",
+    "build": "concurrently 'yarn:build:*'",
+    "build:js": "rollup --config",
+    "build:types": "glint --declaration",
+    "lint": "concurrently 'yarn:lint:*(!fix)' --names 'lint:'",
+    "lint:fix": "concurrently 'yarn:lint:*:fix' --names 'fix:'",
+    "lint:hbs": "ember-template-lint . --no-error-on-unmatched-pattern",
+    "lint:hbs:fix": "ember-template-lint . --fix --no-error-on-unmatched-pattern",
     "lint:js": "eslint . --cache",
-    "lint:js:fix": "eslint . --fix"
+    "lint:js:fix": "eslint . --fix",
+    "lint:types": "glint",
+    "prepack": "concurrently 'yarn:build:*'",
+    "start": "concurrently 'yarn:start:*'",
+    "start:js": "rollup --config --watch --no-watch.clearScreen",
+    "start:types": "glint --declaration --watch",
+    "test": "echo 'A v2 addon does not have tests, run tests in test-app'"
   },
   "dependencies": {
     "@embroider/addon-shim": "^1.8.7",
     "@hashicorp/flight-icons": "^3.3.0",
+    "decorator-transforms": "^1.1.0",
     "ember-get-config": "^2.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.24.7",
-    "@babel/eslint-parser": "^7.22.15",
-    "@babel/plugin-proposal-decorators": "^7.23.7",
-    "@babel/plugin-transform-class-properties": "^7.23.3",
+    "@babel/plugin-proposal-decorators": "^7.24.1",
+    "@babel/plugin-transform-class-properties": "^7.24.1",
+    "@babel/plugin-transform-private-methods": "^7.24.1",
+    "@babel/plugin-transform-typescript": "^7.23.6",
     "@babel/preset-typescript": "^7.24.7",
-    "@ember/optional-features": "^2.1.0",
+    "@babel/runtime": "^7.17.0",
     "@embroider/addon-dev": "^4.3.1",
-    "@embroider/test-setup": "^3.0.2",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
+    "@glint/core": "^1.2.1",
+    "@glint/environment-ember-loose": "^1.2.1",
+    "@glint/environment-ember-template-imports": "^1.2.1",
+    "@glint/template": "^1.2.1",
     "@rollup/plugin-babel": "^6.0.4",
+    "@tsconfig/ember": "^3.0.6",
+    "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "@typescript-eslint/parser": "^6.14.0",
+    "babel-plugin-ember-template-compilation": "^2.2.1",
     "concurrently": "^8.2.2",
-    "ember-template-lint": "^4.18.2",
+    "ember-template-lint": "^5.13.0",
     "ember-template-lint-plugin-prettier": "^4.2.0",
-    "eslint": "^8.57.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-ember": "^11.12.0",
-    "eslint-plugin-node": "^11.1.0",
+    "eslint": "^8.52.0",
+    "eslint-config-prettier": "^8.10.0",
+    "eslint-plugin-ember": "^11.11.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^17.7.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-qunit": "^8.1.1",
+    "eslint-plugin-qunit": "^8.0.1",
     "prettier": "^2.8.8",
     "rollup": "^4.17.2",
-    "rollup-plugin-copy": "^3.5.0"
+    "rollup-plugin-copy": "^3.5.0",
+    "typescript": "^5.3.3"
   },
   "ember": {
     "edition": "octane"
   },
   "ember-addon": {
-    "main": "addon-main.cjs",
-    "type": "addon",
     "version": 2,
+    "type": "addon",
+    "main": "addon-main.cjs",
     "app-js": {
       "./components/flight-icon.js": "./dist/_app_/components/flight-icon.js",
-      "./instance-initializers/load-sprite.js": "./dist/_app_/instance-initializers/load-sprite.js"
+      "./instance-initializers/load-sprite.js": "./dist/_app_/instance-initializers/load-sprite.js",
+      "./template-registry.js": "./dist/_app_/template-registry.js"
     }
   },
   "exports": {
-    ".": "./dist/index.js",
-    "./*": "./dist/*",
+    ".": {
+      "types": "./declarations/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./declarations/*.d.ts",
+      "default": "./dist/*.js"
+    },
     "./addon-main.js": "./addon-main.cjs"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "declarations/*"
+      ]
+    }
   },
   "files": [
     "addon-main.cjs",
+    "declarations",
     "dist"
   ],
   "engines": {
