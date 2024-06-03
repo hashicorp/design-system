@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 // This file is use to expose public components
 import HdsAccordion from './components/hds/accordion/index.ts';
 import HdsAlert from './components/hds/alert/index.ts';
