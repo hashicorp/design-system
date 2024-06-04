@@ -1,5 +1,15 @@
 # @hashicorp/flight-icons
 
+## 3.3.0
+
+### Minor Changes
+
+`vagrant`, `vagrant-color`, `vagrant-fill`, `vagrant-fill-color`, `vagrant-square`, `vagrant-square-color` icons were updated per brand changes.
+
+<small class="doc-whats-new-changelog-metadata">[#2144](https://github.com/hashicorp/design-system/pull/2144)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.2.0
 
 ### Minor Changes

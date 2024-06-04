@@ -12,6 +12,14 @@
   </a>
 </p>
 
+## 4.4.1
+
+**Patch changes**
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/ember-flight-icons@5.0.3
+
 ## 4.4.0
 
 [4.4.0 documentation](https://hds-website-4-4-0.vercel.app/)
@@ -942,24 +950,6 @@ _No impact is expected on the consumers' applications._
 **🔄 Updated dependencies:**
 
 - @hashicorp/ember-flight-icons@4.0.0
-
-## 2.15.0
-
-**Minor changes**
-
-`Button` - updated horizontal padding of icon-only variant
-
-`Dropdown::ToggleIcon` - updated sizing of the "small" variant to match the height of the "small" variant `Button`
-
-<small class="doc-whats-new-changelog-metadata">[#1690](https://github.com/hashicorp/design-system/pull/1690)</small>
-
-**Patch changes**
-
-`Pagination` - Removed handling of query parameters from `onPageSizeChange` function.
-
-<small class="doc-whats-new-changelog-metadata">[#1736](https://github.com/hashicorp/design-system/pull/1736)</small>
-
-_Notice: while technically this is a breaking change, we consider this a fast-follow fix for the previous release._
 
 
 ---

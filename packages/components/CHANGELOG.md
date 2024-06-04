@@ -1,5 +1,13 @@
 # @hashicorp/design-system-components
 
+## 4.4.1
+
+### Patch Changes
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/ember-flight-icons@5.0.3
+
 ## 4.4.0
 
 [4.4.0 documentation](https://hds-website-4-4-0.vercel.app/)
