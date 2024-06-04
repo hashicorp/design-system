@@ -28,10 +28,25 @@ interface HdsSideNavSignature {
     onDesktopViewportChange?: (arg: boolean) => void;
   };
   Blocks: {
-    // TODO! what should we do here? consider that we're forwarding the `Base` yielded blocks
-    header: [];
-    body: [];
-    footer: [];
+    root?: [];
+    header?: [
+      {
+        Header?: [];
+        isMinimized?: boolean;
+      }
+    ];
+    body?: [
+      {
+        Body?: [];
+        isMinimized?: boolean;
+      }
+    ];
+    footer?: [
+      {
+        Footer?: [];
+        isMinimized?: boolean;
+      }
+    ];
   };
   Element: HdsSideNavBaseSignature['Element'];
 }
