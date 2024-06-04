@@ -23,16 +23,12 @@ export const IconVagrantFill16 = forwardRef<SVGSVGElement, IconProps>(
                 {...props}
             >
                 {title ? <title id={titleId}>{title}</title> : null}
-                <g fill={color}>
-                    <path
-                        fillRule="evenodd"
-                        d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm7.202 4.612l1.973-1.143 1.2.696v.809l-2.672 6.57L8 12.532l-1.703-.987-2.672-6.57v-.81l1.2-.695 1.973 1.143v.702L8 8.153l1.202-2.839v-.702z"
-                        clipRule="evenodd"
-                    />
-                    <g opacity={0.3}>
-                        <path d="M10.402 5.309l1.973-1.143v.808l-2.672 6.571L8 12.532V10.07l.8-.464 1.602-3.594v-.703zM6.798 4.612v.703L8 8.153v.989l-.8.464L5.597 6.01v-.703l1.2-.696z" />
-                    </g>
-                </g>
+                <path
+                    fill={color}
+                    fillRule="evenodd"
+                    d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm4.542 3.974H3.625V6.1l2.917 5.926h2.916L6.542 6.1V3.974zm2.916 0V6.1l-1.21 2.457 1.459 2.962 2.668-5.42V3.975H9.458z"
+                    clipRule="evenodd"
+                />
             </svg>
         );
     }
