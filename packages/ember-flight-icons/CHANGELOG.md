@@ -1,5 +1,13 @@
 # @hashicorp/ember-flight-icons
 
+## 5.0.3
+
+### Patch Changes
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@3.3.0
+
 ## 5.0.2
 
 ### Patch Changes

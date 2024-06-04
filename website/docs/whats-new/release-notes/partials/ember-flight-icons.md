@@ -12,6 +12,14 @@
   </a>
 </p>
 
+## 5.0.3
+
+**Patch changes**
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@3.3.0
+
 ## 5.0.2
 
 **Patch changes**
@@ -248,14 +256,6 @@ Shifted our supported version of Node.js from `12.* || 14.* || >= 16` to `14.* |
 - @hashicorp/flight-icons@2.14.0
 
 <small class="doc-whats-new-changelog-metadata">[#1395](https://github.com/hashicorp/design-system/pull/1395)</small>
-
-## 3.0.5
-
-**Patch changes**
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/flight-icons@2.13.1
 
 
 ---
