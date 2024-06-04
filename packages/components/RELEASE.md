@@ -20,6 +20,8 @@ Switch your local branch to `changeset-release/main`, open `packages/components/
 
 Approve the 'Version Packages' PR (or request a review from [hashicorp/hds-engineering](https://github.com/orgs/hashicorp/teams/hds-engineering)) then merge it to `main`; this will publish the new package to npm automatically.
 
+After the new version is published, don't forget to communicate the release and a summary of changes to the product teams.
+
 ## Local testing of versioning
 
 You can simulate the versioning experience locally with this command:
