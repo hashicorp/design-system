@@ -17,13 +17,14 @@ import type {
   HdsLinkIconPositions,
   HdsLinkStandaloneSizes,
 } from './types.ts';
+import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
 
 export interface HdsLinkStandaloneSignature {
   Args: HdsInteractiveSignature['Args'] & {
     size?: HdsLinkStandaloneSizes;
     color?: HdsLinkColors;
     text: string;
-    icon: string;
+    icon: FlightIconSignature['Args']['name'];
     iconPosition?: HdsLinkIconPositions;
   };
   Element: HdsInteractiveSignature['Element'];

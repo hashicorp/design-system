@@ -13,6 +13,7 @@ import {
 } from './types.ts';
 
 import type { HdsBadgeColors, HdsBadgeSizes, HdsBadgeTypes } from './types.ts';
+import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
 
 export const SIZES: string[] = Object.values(HdsBadgeSizeValues);
 export const TYPES: string[] = Object.values(HdsBadgeTypeValues);
@@ -27,7 +28,7 @@ export interface HdsBadgeSignature {
     type?: HdsBadgeTypes;
     color?: HdsBadgeColors;
     text: string;
-    icon?: string | null;
+    icon?: FlightIconSignature['Args']['name'];
     isIconOnly?: boolean;
   };
   Element: HTMLDivElement;
