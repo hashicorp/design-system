@@ -10,6 +10,7 @@ import { action } from '@ember/object';
 import { HdsCopySnippetColorValues } from './types.ts';
 import type { HdsCopySnippetColors } from './types.ts';
 import type { HdsClipboardModifierSignature } from '../../../../modifiers/hds-clipboard.ts';
+import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
 
 export const DEFAULT_COLOR = HdsCopySnippetColorValues.Primary;
 export const COLORS: string[] = Object.values(HdsCopySnippetColorValues);
@@ -56,7 +57,7 @@ export default class HdsCopySnippetComponent extends Component<HdsCopySnippetSig
    * @description Determines the icon to be used, based on the success state. Note that this is auto-tracked because it depends on a tracked property (status).
    */
   get icon() {
-    let icon = DEFAULT_ICON;
+    let icon: FlightIconSignature['Args']['name'] = DEFAULT_ICON;
     if (this.status === 'success') {
       icon = SUCCESS_ICON;
     } else if (this.status === 'error') {

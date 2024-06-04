@@ -6,17 +6,31 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { assert } from '@ember/debug';
-
 import { iconNames } from '@hashicorp/flight-icons/svg';
 
-export default class FlightIconComponent extends Component {
-  constructor() {
-    super(...arguments);
+import type { IconName } from '@hashicorp/flight-icons/svg';
+
+export interface FlightIconSignature {
+  Args: {
+    name?: IconName;
+    color?: string;
+    size?: '16' | '24';
+    stretched?: boolean;
+    isInlineBlock?: boolean;
+    title?: string;
+  };
+  Element: SVGElement;
+}
+
+export default class FlightIcon extends Component<FlightIconSignature> {
+  constructor(owner: unknown, args: FlightIconSignature['Args']) {
+    super(owner, args);
+
     if (!this.args.name) {
       assert('Please provide to <FlightIcon> a value for @name');
     } else if (!iconNames.includes(this.args.name)) {
       assert(
-        `The icon @name "${this.args.name}" provided to <FlightIcon> is not correct. Please verify it exists on https://helios.hashicorp.design/icons/library`,
+        `The icon @name "${this.args.name}" provided to <FlightIcon> is not correct. Please verify it exists on https://helios.hashicorp.design/icons/library`
       );
     }
   }
@@ -125,7 +139,7 @@ export default class FlightIconComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['flight-icon'];
+    const classes = ['flight-icon'];
 
     // add a class based on the @name argument
     classes.push(`flight-icon-${this.name}`);

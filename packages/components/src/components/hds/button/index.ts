@@ -6,6 +6,7 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import type { HdsInteractiveSignature } from '../interactive/';
+import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
 
 export const DEFAULT_SIZE = 'medium';
 export const DEFAULT_COLOR = 'primary';
@@ -23,7 +24,7 @@ export interface HdsButtonSignature {
     size?: HdsButtonSize;
     color?: HdsButtonColor;
     text: string;
-    icon?: string;
+    icon?: FlightIconSignature['Args']['name'];
     iconPosition?: HdsButtonIconPosition;
     isIconOnly?: boolean;
     isFullWidth?: boolean;
