@@ -2906,7 +2906,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/macros@npm:1.16.1, @embroider/macros@npm:^0.50.0 || ^1.0.0, @embroider/macros@npm:^1.0.0, @embroider/macros@npm:^1.10.0, @embroider/macros@npm:^1.12.3, @embroider/macros@npm:^1.13.1, @embroider/macros@npm:^1.16.1, @embroider/macros@npm:^1.8.1, @embroider/macros@npm:^1.8.3":
+"@embroider/macros@npm:1.16.1, @embroider/macros@npm:^0.50.0 || ^1.0.0, @embroider/macros@npm:^1.0.0, @embroider/macros@npm:^1.10.0, @embroider/macros@npm:^1.13.1, @embroider/macros@npm:^1.16.1, @embroider/macros@npm:^1.8.1, @embroider/macros@npm:^1.8.3":
   version: 1.16.1
   resolution: "@embroider/macros@npm:1.16.1"
   dependencies:
@@ -2927,6 +2927,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@embroider/macros@npm:^1.2.0":
+  version: 1.16.2
+  resolution: "@embroider/macros@npm:1.16.2"
+  dependencies:
+    "@embroider/shared-internals": "npm:2.6.1"
+    assert-never: "npm:^1.2.1"
+    babel-import-util: "npm:^2.0.0"
+    ember-cli-babel: "npm:^7.26.6"
+    find-up: "npm:^5.0.0"
+    lodash: "npm:^4.17.21"
+    resolve: "npm:^1.20.0"
+    semver: "npm:^7.3.2"
+  peerDependencies:
+    "@glint/template": ^1.0.0
+  peerDependenciesMeta:
+    "@glint/template":
+      optional: true
+  checksum: 8f3d47cdb9fab6ed41d20002b43328d7772a80bf9e65ec33c1e04aa0eec8e1f475f853f6c4d0aba768c55aa97db25c67242e35ab07f208148ac26ac591c4d10f
+  languageName: node
+  linkType: hard
+
 "@embroider/shared-internals@npm:2.6.0, @embroider/shared-internals@npm:^2.0.0, @embroider/shared-internals@npm:^2.5.1, @embroider/shared-internals@npm:^2.6.0":
   version: 2.6.0
   resolution: "@embroider/shared-internals@npm:2.6.0"
@@ -2942,6 +2963,24 @@ __metadata:
     semver: "npm:^7.3.5"
     typescript-memoize: "npm:^1.0.1"
   checksum: 74f98b679422fc92ecbd61f221e6affec69071b188f34a394df46b6415e912f5deae09e619d3aae96f1a75ea5a640d5af6436f73693ad7038880cae17f56516f
+  languageName: node
+  linkType: hard
+
+"@embroider/shared-internals@npm:2.6.1":
+  version: 2.6.1
+  resolution: "@embroider/shared-internals@npm:2.6.1"
+  dependencies:
+    babel-import-util: "npm:^2.0.0"
+    debug: "npm:^4.3.2"
+    ember-rfc176-data: "npm:^0.3.17"
+    fs-extra: "npm:^9.1.0"
+    js-string-escape: "npm:^1.0.1"
+    lodash: "npm:^4.17.21"
+    minimatch: "npm:^3.0.4"
+    resolve-package-path: "npm:^4.0.1"
+    semver: "npm:^7.3.5"
+    typescript-memoize: "npm:^1.0.1"
+  checksum: b40621b4dd98aed7f9422cf996de40da2abb6aa15e494070579431b55d1786d824c041a683899b397e3a89e65abe2600f64ed0bce09e0b6781b1a3abe0bdeafd
   languageName: node
   linkType: hard
 
@@ -3709,7 +3748,7 @@ __metadata:
     ember-keyboard: "npm:^8.2.1"
     ember-modifier: "npm:^4.1.0"
     ember-power-select: "npm:^8.2.0"
-    ember-stargate: "npm:^0.5.0"
+    ember-stargate: "npm:^0.4.3"
     ember-style-modifier: "npm:^3.0.1"
     ember-template-lint: "npm:^4.18.2"
     ember-template-lint-plugin-prettier: "npm:^4.2.0"
@@ -11844,18 +11883,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-async-data@npm:^1.0.1":
-  version: 1.0.3
-  resolution: "ember-async-data@npm:1.0.3"
-  dependencies:
-    "@ember/test-waiters": "npm:^3.0.0"
-    "@embroider/addon-shim": "npm:^1.8.6"
-  peerDependencies:
-    ember-source: ">=4.8.4"
-  checksum: 68cd6519b6b52367ad33751e7710a24f00428d07645a863d177951d82898d69ee69a9c1a01817b572cfaf3ce6072ebef80ff9c50a0a71f4272d79ec6bc2dcf26
-  languageName: node
-  linkType: hard
-
 "ember-auto-import@npm:^2.2.4, ember-auto-import@npm:^2.4.2, ember-auto-import@npm:^2.5.0, ember-auto-import@npm:^2.6.0, ember-auto-import@npm:^2.6.3":
   version: 2.7.0
   resolution: "ember-auto-import@npm:2.7.0"
@@ -12875,21 +12902,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-resources@npm:^6.0.0":
-  version: 6.5.1
-  resolution: "ember-resources@npm:6.5.1"
+"ember-resources@npm:^5.0.1":
+  version: 5.6.4
+  resolution: "ember-resources@npm:5.6.4"
   dependencies:
     "@babel/runtime": "npm:^7.17.8"
     "@embroider/addon-shim": "npm:^1.2.0"
-    "@embroider/macros": "npm:^1.12.3"
-    ember-async-data: "npm:^1.0.1"
+    "@embroider/macros": "npm:^1.2.0"
   peerDependencies:
     "@ember/test-waiters": ^3.0.0
     "@glimmer/component": ^1.1.2
     "@glimmer/tracking": ^1.1.2
-    "@glint/template": ^1.0.0-beta.3 || ^1.0.0
-    ember-concurrency: ^2.0.0 || ^3.0.0
-    ember-source: ^3.28.0 || ^4.0.0 || ^5.0.0
+    "@glint/template": ">= 0.8.3"
+    ember-concurrency: ^2.0.0
+    ember-source: ">= 3.28.0"
   peerDependenciesMeta:
     "@ember/test-waiters":
       optional: true
@@ -12897,7 +12923,7 @@ __metadata:
       optional: true
     ember-concurrency:
       optional: true
-  checksum: b51e75346a79eaea47177a2c3236b1e8b1762762ed452f9eca584d721bc696d004e9414347f5df16d858760730624cf8097cfef47246839c7fc6c316423c8e50
+  checksum: 6cc0b1f3571ea999c9e9020ae035fbef63f92e3ce025e604e89537f38d15491a01d0de8eef10d16d678023db6ab9d382ba5b552a5556571b0fdf41095746cc14
   languageName: node
   linkType: hard
 
@@ -12996,16 +13022,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-stargate@npm:^0.5.0":
-  version: 0.5.0
-  resolution: "ember-stargate@npm:0.5.0"
+"ember-stargate@npm:^0.4.3":
+  version: 0.4.3
+  resolution: "ember-stargate@npm:0.4.3"
   dependencies:
     "@ember/render-modifiers": "npm:^2.0.0"
     "@embroider/addon-shim": "npm:^1.0.0"
     "@glimmer/component": "npm:^1.1.2"
-    ember-resources: "npm:^6.0.0"
+    ember-resources: "npm:^5.0.1"
     tracked-maps-and-sets: "npm:^3.0.1"
-  checksum: 6fc0fa1dc7fda40aeee96eacb1cb3713c5f6b624863b0d917fe541b27c4b37ebfe5398821ddba5b0ac29c24ccc347ad71c637efbe3cd27796307e4ebdc633bed
+  checksum: 7300c80755f64b492745784baf53a3a92fd7a010a156feb42dee49ac9588cc70beb79a20b51fd4c2e24a959681c6bc6647bcaad55f4842f20f8bf77e8bc7e3db
   languageName: node
   linkType: hard
 
