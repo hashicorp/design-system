@@ -4,13 +4,38 @@ Whenever there is an update to the components, and these changes have been appro
 
 Please see the instructions in the [CONTRIBUTING](CONTRIBUTING.md) file for more details about how to setup the project and make changes to the code for these packages.
 
-## Bump and release
+## The release process
 
-Follow the instructions for Changesets in the root [README](../../README.md).
+Release PRs, titled 'Version Packages', are created and/or automatically updated on every PR merge by the [changeset GitHub action](https://github.com/changesets/action).
 
-🚨 **DON'T FORGET**:
+In preparation for a release, login to Vercel CLI and create a canonical URL for the upcoming version:
 
-You need to communicate to the product teams that are consuming the components!
+1. Type `vercel login` in your terminal and select 'Continue with SAML Single Sign-On'
+2. Enter your team slug: `hashicorp` and press enter; you should be redirected to vercel.com with a 'CLI Login Success' message
+3. Go to the 'Version Packages' PR and identify the URL of the latest deployment (e.g. `hds-website-jeq5lwde8-hashicorp.vercel.app`)
+4. Determine the canonical URL for the version you're preparing to release (for version 4.3.0 it will be `hds-website-4-3-0.vercel.app`)
+5. Return to your terminal and create an alias using the vercel CLI `vercel alias hds-website-<deployment-id>-hashicorp.vercel.app hds-website-<version-number>.vercel.app` (e.g. `vercel alias hds-website-jeq5lwde8-hashicorp.vercel.app hds-website-4-3-0.vercel.app`)
+
+Switch your local branch to `changeset-release/main`, open `packages/components/CHANGELOG.md` and add a link to the upcoming release, right after the heading with the version number, following previous examples (e.g. `[4.3.0 documentation](https://hds-website-4-3-0.vercel.app/)`). Push a commit with this change.
+
+Approve the 'Version Packages' PR (or request a review from [hashicorp/hds-engineering](https://github.com/orgs/hashicorp/teams/hds-engineering)) then merge it to `main`; this will publish the new package to npm automatically.
+
+## Local testing of versioning
+
+You can simulate the versioning experience locally with this command:
+
+```bash
+yarn changeset version
+```
+
+For this step to complete successfully you'll need to keep in mind the following:
+
+First, create a personal access token [in GitHub](https://github.com/settings/tokens). The name could be anything e.g. `design-system`, with `read:user` and `repo:status` scopes, and then add the token to a `.env` file in the project's root.
+
+```bash
+GITHUB_TOKEN=YOUR-TOKEN-HERE
+```
+Second, because this command relies on reading information about the change from GitHub, it only works if the changeset files already exist in PRs there. The best option for this is to target an existing PR branch (with a changeset) and run the command against that branch locally.
 
 ## Using a local NPM registry for testing
 
