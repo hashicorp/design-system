@@ -28,22 +28,21 @@ interface HdsSideNavSignature {
     onDesktopViewportChange?: (arg: boolean) => void;
   };
   Blocks: {
-    root?: [];
     header?: [
       {
-        Header?: [];
+        Header?: HdsSideNavBaseSignature['Blocks']['header'];
         isMinimized?: boolean;
       }
     ];
     body?: [
       {
-        Body?: [];
+        Body?: HdsSideNavBaseSignature['Blocks']['body'];
         isMinimized?: boolean;
       }
     ];
     footer?: [
       {
-        Footer?: [];
+        Footer?: HdsSideNavBaseSignature['Blocks']['footer'];
         isMinimized?: boolean;
       }
     ];
