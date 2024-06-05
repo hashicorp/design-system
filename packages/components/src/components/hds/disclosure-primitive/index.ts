@@ -33,11 +33,37 @@ export interface HdsDisclosurePrimitiveSignature {
 }
 
 export default class HdsDisclosurePrimitiveComponent extends Component<HdsDisclosurePrimitiveSignature> {
-  @tracked isOpen = this.args.isOpen ?? false;
+  @tracked _isOpen = false;
+  @tracked _isControlled = this.args.isOpen != undefined;
+
+  get isOpen() {
+    if (this._isControlled) {
+      // if the state is controlled from outside, the argument overrides the internal state
+      return this.args.isOpen ?? this._isOpen;
+    } else {
+      // if the state is changes internally, the internal state overrides the argument
+      return this._isOpen !== undefined
+        ? this._isOpen
+        : Boolean(this.args.isOpen);
+    }
+  }
+
+  set isOpen(value) {
+    this._isOpen = value || false;
+  }
 
   @action
   onClickToggle(): void {
     this.isOpen = !this.isOpen;
+    this._isControlled = false;
+  }
+
+  @action
+  onStateChange() {
+    if (this.args.isOpen !== undefined) {
+      this.isOpen = this.args.isOpen;
+    }
+    this._isControlled = true;
   }
 
   @action
