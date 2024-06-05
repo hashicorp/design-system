@@ -88,26 +88,9 @@ See the [changeset docs](https://github.com/changesets/changesets/blob/main/docs
 
 Note: If you want to ignore a changeset bump in terminal (e.g. major bump for selected "package x" is N/A, want a patch release), press return on the command line to skip that step. Press the spacebar to select that step.
 
-### Releasing
+## Releasing
 
-Release PRs are created and automatically updated on every PR merge by the [changeset GitHub action](https://github.com/changesets/action). Once we are ready to do a release, the PR – titled `Version Packages` – can be approved and merged to `main`, and the changes will be released to npm automatically.
-
-#### Local testing of versioning
-
-You can simulate the versioning experience locally with this command:
-
-```bash
-yarn changeset version
-```
-
-For this step to complete successfully you'll need to keep in mind the following:
-
-First, create a personal access token [in GitHub](https://github.com/settings/tokens). The name could be anything e.g. `design-system`, with `read:user` and `repo:status` scopes, and then add the token to a `.env` file in the project's root.
-
-```bash
-GITHUB_TOKEN=YOUR-TOKEN-HERE
-```
-Second, because this command relies on reading information about the change from GitHub, it only works if the changeset files already exist in PRs there. The best option for this is to target an existing PR branch (with a changeset) and run the command against that branch locally.
+See the [release docs](packages/components/RELEASE.md) for the process we follow to publish a new package version.
 
 ## License
 
