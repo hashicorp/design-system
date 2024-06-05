@@ -8,13 +8,14 @@ Please see the instructions in the [CONTRIBUTING](CONTRIBUTING.md) file for more
 
 Release PRs, titled 'Version Packages', are created and/or automatically updated on every PR merge by the [changeset GitHub action](https://github.com/changesets/action).
 
-In preparation for a release, login to Vercel CLI and create a canonical URL for the upcoming version:
+In preparation for a minor or major release, login to Vercel CLI and create a canonical URL for the upcoming version:
 
-1. Type `vercel login` in your terminal and select 'Continue with SAML Single Sign-On'
-2. Enter your team slug: `hashicorp` and press enter; you should be redirected to vercel.com with a 'CLI Login Success' message
-3. Go to the 'Version Packages' PR and identify the URL of the latest deployment (e.g. `hds-website-jeq5lwde8-hashicorp.vercel.app`)
-4. Determine the canonical URL for the version you're preparing to release (for version 4.3.0 it will be `hds-website-4-3-0.vercel.app`)
-5. Return to your terminal and create an alias using the vercel CLI `vercel alias hds-website-<deployment-id>-hashicorp.vercel.app hds-website-<version-number>.vercel.app` (e.g. `vercel alias hds-website-jeq5lwde8-hashicorp.vercel.app hds-website-4-3-0.vercel.app`)
+1. [Install Vercel CLI](https://vercel.com/docs/cli#installing-vercel-cli)
+2. Type `vercel login` in your terminal and select 'Continue with SAML Single Sign-On'
+3. Enter your team slug: `hashicorp` and press enter; you should be redirected to vercel.com with a 'CLI Login Success' message
+4. Go to the 'Version Packages' PR and identify the URL of the latest deployment (e.g. `hds-website-jeq5lwde8-hashicorp.vercel.app`)
+5. Determine the canonical URL for the version you're preparing to release (for version 4.3.0 it will be `hds-website-4-3-0.vercel.app`)
+6. Return to your terminal and create an alias using the vercel CLI `vercel alias hds-website-<deployment-id>-hashicorp.vercel.app hds-website-<version-number>.vercel.app` (e.g. `vercel alias hds-website-jeq5lwde8-hashicorp.vercel.app hds-website-4-3-0.vercel.app`)
 
 Switch your local branch to `changeset-release/main`, open `packages/components/CHANGELOG.md` and add a link to the upcoming release, right after the heading with the version number, following previous examples (e.g. `[4.3.0 documentation](https://hds-website-4-3-0.vercel.app/)`). Push a commit with this change.
 
