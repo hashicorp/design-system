@@ -10,6 +10,19 @@
 <section data-test-percy>
   <Shw::Text::H2>Content</Shw::Text::H2>
 
+  <Shw::Text::H3>(WIP) With only body content (for pairing with AppHeader)</Shw::Text::H3>
+  {{! TODO: Move }}
+
+  <div class="shw-component-sim-side-nav-root-container">
+    <Hds::SideNav @isResponsive={{true}} @hasA11yRefocus={{false}} @isCollapsible={{true}}>
+      <:body>
+        <Hds::SideNav::Portal::Target @targetName="sidenav-portal-demo-2" />
+      </:body>
+    </Hds::SideNav>
+  </div>
+
+  <Shw::Divider />
+
   <Shw::Text::H3>With generic content</Shw::Text::H3>
 
   <Shw::Flex as |SF|>
@@ -148,7 +161,7 @@
                 <Hds::SideNav::Portal::Target @targetName="sidenav-portal-demo-2" />
               </:body>
               <:footer>
-                OrgSelect / ContextSwitcher
+                <span>OrgSelect / ContextSwitcher</span>
               </:footer>
             </Hds::SideNav>
           </div>
@@ -237,7 +250,7 @@
               </:body>
 
               <:footer>
-                OrgSelect / ContextSwitcher
+                <span>OrgSelect / ContextSwitcher</span>
               </:footer>
             </Hds::SideNav>
           </div>
