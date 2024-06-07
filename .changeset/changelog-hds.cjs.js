@@ -26,6 +26,7 @@ const SKIP_USERS = [
   'heatherlarsen',
   'andgen404',
   'majedelass',
+  'zamoore',
   // bots
   'apps/dependabot',
   'apps/hashicorp-copywrite',
