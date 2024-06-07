@@ -40,7 +40,7 @@ The associated test application is located at the root of the monorepo, in `show
 ## Running the `showcase` application
 
 * `cd showcase`
-* `ember s`
+* `yarn run start`
 * Visit the application at [http://localhost:4200](http://localhost:4200).
 
 For more information on using ember-cli, visit [https://cli.emberjs.com/release/](https://cli.emberjs.com/release/).
