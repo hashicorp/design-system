@@ -26,7 +26,7 @@
     </div>
   </:toggle>
 
-  <:content>
+  <:content as |c|>
     <Hds::Text::Body
       class="hds-accordion-item__content"
       @tag="div"
@@ -35,7 +35,7 @@
       @color="primary"
       id={{this.contentId}}
     >
-      {{yield to="content"}}
+      {{yield (hash close=c.close) to="content"}}
     </Hds::Text::Body>
   </:content>
 </Hds::DisclosurePrimitive>

@@ -14,8 +14,13 @@ export interface HdsAccordionItemSignature {
     forceState?: 'open' | 'close';
   };
   Blocks: {
-    content?: [];
     toggle?: [];
+    content: [
+      {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        close: (...args: any[]) => void;
+      }
+    ];
   };
   Element: HTMLElement;
 }
