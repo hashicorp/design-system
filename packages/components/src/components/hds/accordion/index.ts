@@ -8,6 +8,9 @@ import type { ComponentLike } from '@glint/template';
 import type { HdsAccordionItemSignature } from './item/index.ts';
 
 interface HdsAccordionSignature {
+  Args: {
+    forceState?: 'open' | 'close';
+  };
   Blocks: {
     default: [
       {

@@ -11,6 +11,7 @@ export interface HdsAccordionItemSignature {
     ariaLabel?: string;
     containsInteractive?: boolean;
     isOpen?: boolean;
+    forceState?: 'open' | 'close';
   };
   Blocks: {
     content?: [];

@@ -4,5 +4,5 @@
 }}
 
 <div class="hds-accordion" ...attributes>
-  {{yield (hash Item=(component "hds/accordion/item"))}}
+  {{yield (hash Item=(component "hds/accordion/item" forceState=@forceState))}}
 </div>
