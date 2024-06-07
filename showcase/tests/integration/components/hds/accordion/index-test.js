@@ -291,4 +291,23 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     await click('.hds-accordion-item__button');
     assert.dom('.hds-accordion-item__content').exists({ count: 1 });
   });
+
+  // close
+
+  test('it should hide the content when an accordion item triggers `close`', async function (assert) {
+    await render(hbs`
+      <Hds::Accordion::Item>
+        <:toggle>Item one</:toggle>
+        <:content as |c|>
+          <button type="button" {{on "click" c.close}}>Close</button>
+        </:content>
+      </Hds::Accordion::Item>
+    `);
+    await click('.hds-accordion-item__button');
+    assert.dom('.hds-accordion-item__content').exists();
+
+    await click('.hds-accordion-item__content button');
+    assert.dom('.hds-accordion-item__content').doesNotExist();
+    assert.dom('.hds-accordion-item__content button').doesNotExist();
+  });
 });

@@ -356,7 +356,7 @@
 
   <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
     <SG.Item @label="Forced state">
-      <button {{style padding=".25rem" marginBottom="1rem"}} type="button" {{on "click" this.toggleState}}>
+      <button type="button" {{style padding=".25rem" marginBottom="1rem"}} {{on "click" this.toggleState}}>
         {{if (eq this.state "open") "Collapse all" "Expand all"}}
       </button>
       <Hds::Accordion @forceState={{this.state}} as |A|>
@@ -437,6 +437,19 @@
       </SG.Item>
     {{/each}}
   </Shw::Grid>
+
+  <Shw::Text::Body><strong>close</strong></Shw::Text::Body>
+
+  <Shw::Flex {{style gap="2rem" marginBottom="2rem"}} @direction="column" as |SF|>
+    <SF.Item @label="Close action within content">
+      <Hds::Accordion::Item>
+        <:toggle>Item one</:toggle>
+        <:content as |c|>
+          <button type="button" {{style padding=".25rem" marginBottom="1rem"}} {{on "click" c.close}}>Close</button>
+        </:content>
+      </Hds::Accordion::Item>
+    </SF.Item>
+  </Shw::Flex>
 
   <Shw::Divider @level={{2}} />
 
