@@ -16,6 +16,7 @@ interface HdsAccordionSignature {
   Args: {
     size?: HdsAccordionSizes;
     type?: HdsAccordionTypes;
+    forceState?: 'open' | 'close';
   };
   Blocks: {
     default: [

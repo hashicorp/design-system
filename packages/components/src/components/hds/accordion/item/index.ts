@@ -30,6 +30,7 @@ export interface HdsAccordionItemSignature {
     containsInteractive?: boolean;
     size?: HdsAccordionSizes;
     type?: HdsAccordionTypes;
+    forceState?: 'open' | 'close';
   };
   Blocks: {
     content?: [];

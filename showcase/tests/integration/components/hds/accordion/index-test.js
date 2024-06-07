@@ -192,7 +192,8 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
   // OPTIONS
 
   // isOpen
-  test('it displays content initially when @isOpen is set to true, ', async function (assert) {
+
+  test('it displays content initially when @isOpen is set to true', async function (assert) {
     await render(
       hbs`
         <Hds::Accordion as |A|>
@@ -253,5 +254,41 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     assert
       .dom('.hds-accordion-item__button')
       .hasStyle({ visibility: 'hidden' });
+  });
+
+  // forceState
+  test('it displays the correct content based on @forceState', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Accordion @forceState={{this.forceState}} as |A|>
+          <A.Item @isOpen={{true}}>
+            <:toggle>Item one</:toggle>
+            <:content>Content one</:content>
+          </A.Item>
+          <A.Item @isOpen={{false}}>
+            <:toggle>Item one</:toggle>
+            <:content>Content two</:content>
+          </A.Item>
+        </Hds::Accordion>
+      `
+    );
+    // first item open at rendering
+    assert.dom('.hds-accordion-item__content').exists({ count: 1 });
+
+    // all items open via forceState (external override to open)
+    this.set('forceState', 'open');
+    assert.dom('.hds-accordion-item__content').exists({ count: 2 });
+
+    // first item closed via toggle (internal override to close)
+    await click('.hds-accordion-item__button');
+    assert.dom('.hds-accordion-item__content').exists({ count: 1 });
+
+    // all items closed via forceState (external override to close)
+    this.set('forceState', 'close');
+    assert.dom('.hds-accordion-item__content').doesNotExist();
+
+    // first item open via toggle  (internal override to open)
+    await click('.hds-accordion-item__button');
+    assert.dom('.hds-accordion-item__content').exists({ count: 1 });
   });
 });

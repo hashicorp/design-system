@@ -352,6 +352,40 @@
 
   <Shw::Divider @level={{2}} />
 
+  <Shw::Text::H3>Externally controlled</Shw::Text::H3>
+
+  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+    <SG.Item @label="Forced state">
+      <button {{style padding=".25rem" marginBottom="1rem"}} type="button" {{on "click" this.toggleState}}>
+        {{if (eq this.state "open") "Collapse all" "Expand all"}}
+      </button>
+      <Hds::Accordion @forceState={{this.state}} as |A|>
+        <A.Item>
+          <:toggle>Item one</:toggle>
+          <:content>
+            <Shw::Placeholder @text="generic content" @height="40" />
+          </:content>
+        </A.Item>
+
+        <A.Item>
+          <:toggle>Item two</:toggle>
+          <:content>
+            <Shw::Placeholder @text="generic content" @height="40" />
+          </:content>
+        </A.Item>
+
+        <A.Item>
+          <:toggle>Item Three</:toggle>
+          <:content>
+            <Shw::Placeholder @text="generic content" @height="40" />
+          </:content>
+        </A.Item>
+      </Hds::Accordion>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>Edge cases</Shw::Text::H3>
 
   <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
