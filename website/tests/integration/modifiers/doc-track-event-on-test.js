@@ -2,7 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
-import { click } from '@ember/test-helpers';
+import { click, focus } from '@ember/test-helpers';
 import sinon from 'sinon';
 
 module('Integration | Modifier | doc-track-event-on', function (hooks) {
@@ -23,9 +23,18 @@ module('Integration | Modifier | doc-track-event-on', function (hooks) {
     window.fathom = originalFathom;
   });
 
-  test('it adds click event listener and calls handleClick', async function (assert) {
+  test('it adds click event listener and tracks an event', async function (assert) {
     await render(hbs`<div {{doc-track-event-on 'click' 'testEvent'}}></div>`);
     await click('div');
+
+    assert.ok(trackEventSpy.calledOnceWith('testEvent'));
+  });
+
+  test('it adds a focus event listener and tracks an event', async function (assert) {
+    await render(
+      hbs`<input type="text" {{doc-track-event-on 'focus' 'testEvent'}} />`
+    );
+    await focus('input');
 
     assert.ok(trackEventSpy.calledOnceWith('testEvent'));
   });
