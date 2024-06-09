@@ -4,11 +4,8 @@
  */
 
 import Component from '@glimmer/component';
-import { inject as service } from '@ember/service';
 
 export default class DocLinkWithIconComponent extends Component {
-  @service eventTracking;
-
   get models() {
     // we need to use this trick to overcome the problem of `<LinkTo>` going beserk if we pass
     // a `@model` argument which is undefined (while an empty `@models` array is OK)

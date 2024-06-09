@@ -1,8 +1,14 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import Modifier from 'ember-modifier';
 import { registerDestructor } from '@ember/destroyable';
 import { inject as service } from '@ember/service';
 
 function handleTriggerEvent(eventName) {
+  // https://usefathom.com/docs/features/events
   window.fathom?.trackEvent(eventName);
 }
 
@@ -26,6 +32,7 @@ export default class DocTrackEventOn extends Modifier {
 
   modify(element, [triggerEvent, eventName]) {
     if (
+      // Only attempt to do something if we are in the right environment
       !this.fastboot.isFastBoot &&
       window.fathom != null &&
       eventName != null &&
