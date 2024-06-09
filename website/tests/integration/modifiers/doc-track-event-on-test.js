@@ -5,7 +5,7 @@ import { hbs } from 'ember-cli-htmlbars';
 import { click } from '@ember/test-helpers';
 import sinon from 'sinon';
 
-module('Integration | Modifier | doc-track-event', function (hooks) {
+module('Integration | Modifier | doc-track-event-on', function (hooks) {
   setupRenderingTest(hooks);
 
   let originalFathom;
@@ -24,7 +24,7 @@ module('Integration | Modifier | doc-track-event', function (hooks) {
   });
 
   test('it adds click event listener and calls handleClick', async function (assert) {
-    await render(hbs`<div {{doc-track-event 'testEvent'}}></div>`);
+    await render(hbs`<div {{doc-track-event-on 'click' 'testEvent'}}></div>`);
     await click('div');
 
     assert.ok(trackEventSpy.calledOnceWith('testEvent'));
