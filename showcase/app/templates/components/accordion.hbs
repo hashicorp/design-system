@@ -369,6 +369,47 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Text::Body><strong>isStatic</strong></Shw::Text::Body>
+
+  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+    <SG.Item @label="isStatic=true">
+      <Hds::Accordion::Item @isStatic={{true}}>
+        <:toggle>Item one</:toggle>
+        <:content>
+          <Shw::Placeholder @text="generic content" @height="40" />
+        </:content>
+      </Hds::Accordion::Item>
+    </SG.Item>
+
+    <SG.Item @label="isStatic=true, containsInteractive=true">
+      <Hds::Accordion::Item @isStatic={{true}} @containsInteractive={{true}}>
+        <:toggle>Item one</:toggle>
+        <:content>
+          <Shw::Placeholder @text="generic content" @height="40" />
+        </:content>
+      </Hds::Accordion::Item>
+    </SG.Item>
+
+    <SG.Item @label="isStatic=true, isOpen=true">
+      <Hds::Accordion::Item @isStatic={{true}} @isOpen={{true}}>
+        <:toggle>Item one</:toggle>
+        <:content>
+          <Shw::Placeholder @text="generic content" @height="40" />
+        </:content>
+      </Hds::Accordion::Item>
+    </SG.Item>
+
+    <SG.Item @label="isStatic=true, containsInteractive=true, isOpen=true">
+      <Hds::Accordion::Item @isStatic={{true}} @containsInteractive={{true}} @isOpen={{true}}>
+        <:toggle>Item one</:toggle>
+        <:content>
+          <Shw::Placeholder @text="generic content" @height="40" />
+        </:content>
+      </Hds::Accordion::Item>
+    </SG.Item>
+
+  </Shw::Grid>
+
   <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Accordion::Item::Button</Shw::Text::H3>

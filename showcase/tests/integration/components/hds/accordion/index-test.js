@@ -98,7 +98,6 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
   // OPTIONS
 
   // isOpen
-
   test('it displays content initially when @isOpen is set to true, ', async function (assert) {
     await render(
       hbs`
@@ -142,5 +141,21 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     assert
       .dom('#test-contains-interactive--true')
       .hasClass('hds-accordion-item--contains-interactive');
+  });
+
+  // isStatic
+  test('it does not show the toggle button when @isStatic is set to true, ', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Accordion as |A|>
+          <A.Item @isStatic={{true}}>
+            <:toggle>Item one</:toggle>
+            <:content>Additional content</:content>
+          </A.Item>
+        </Hds::Accordion>
+      `
+    );
+    assert.dom('.hds-accordion-item--is-static').exists();
+    assert.dom('.hds-accordion-item__button').doesNotExist();
   });
 });
