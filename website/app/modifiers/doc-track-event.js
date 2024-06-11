@@ -40,7 +40,7 @@ export default class DocTrackEvent extends Modifier {
       return;
     }
 
-    const { on = 'click', eventName } = named;
+    const { triggerEvent = 'click', eventName } = named;
 
     const hasValidEventName = typeof eventName === 'string';
 
@@ -51,7 +51,7 @@ export default class DocTrackEvent extends Modifier {
 
     this.element = element;
     this.eventName = eventName;
-    this.triggerEvent = on;
+    this.triggerEvent = triggerEvent;
 
     element.addEventListener(this.triggerEvent, handleTriggerEvent(eventName));
 
