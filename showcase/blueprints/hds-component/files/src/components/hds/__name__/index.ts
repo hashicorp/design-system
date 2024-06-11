@@ -16,7 +16,7 @@ export interface Hds<%= classifiedModuleName %>Signature {
   Element: HTMLDivElement;
 }
 
-export default class Hds<%= classifiedModuleName %>IndexComponent extends Component<Hds<%= classifiedModuleName %>Signature> {
+export default class Hds<%= classifiedModuleName %>Component extends Component<Hds<%= classifiedModuleName %>Signature> {
   // UNCOMMENT THIS IF YOU NEED A CONSTRUCTOR
   // constructor() {
   //   super(...arguments);
