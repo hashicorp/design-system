@@ -30,14 +30,24 @@ $hds-accordion-item-border-radius: 6px;
   &.hds-accordion-item--does-not-contain-interactive {
     box-shadow: var(--token-surface-mid-box-shadow);
 
-    &:hover,
-    &.mock-hover {
+    &:hover:not(.hds-accordion-item--is-static),
+    &.mock-hover:not(.hds-accordion-item--is-static) {
       box-shadow: var(--token-surface-high-box-shadow);
     }
   }
 
   &.hds-accordion-item--contains-interactive {
     box-shadow: var(--token-surface-base-box-shadow);
+  }
+
+  &.hds-accordion-item--is-static {
+    .hds-accordion-item__button {
+      display: none;
+    }
+  
+    .hds-accordion-item__toggle-content {
+      margin-left: 36px; // 24+12
+    }
   }
 }
 

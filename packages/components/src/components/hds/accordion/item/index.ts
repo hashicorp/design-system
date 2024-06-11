@@ -11,6 +11,7 @@ export interface HdsAccordionItemSignature {
     ariaLabel?: string;
     containsInteractive?: boolean;
     isOpen?: boolean;
+    isStatic?: boolean;
   };
   Blocks: {
     content?: [];
@@ -56,6 +57,11 @@ export default class HdsAccordionItemComponent extends Component<HdsAccordionIte
     // add a class based on the @isOpen argument
     if (this.args.isOpen) {
       classes.push('hds-accordion-item--is-open');
+    }
+
+    // add a class based on the @isStatic argument
+    if (this.args.isStatic) {
+      classes.push('hds-accordion-item--is-static');
     }
 
     if (this.containsInteractive) {
