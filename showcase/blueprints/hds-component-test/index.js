@@ -41,7 +41,7 @@ module.exports = {
 
 const updateDummyAppRouter = (options) => {
   const newRouteToAdd = `components/${options.entity.name}`; // we prefix all the component routes with "components"
-  const routerFilePath = `${options.project.root}/app/router.js`;
+  const routerFilePath = `${options.project.root}/app/router.ts`;
   const source = fs.readFileSync(routerFilePath, 'utf-8');
   let oldRoutes = new EmberRouterGenerator(source);
   let newRoutes = oldRoutes['add'](newRouteToAdd, options);
