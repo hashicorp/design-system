@@ -6,6 +6,7 @@
 import Modifier from 'ember-modifier';
 import { registerDestructor } from '@ember/destroyable';
 import { inject as service } from '@ember/service';
+import { assert } from '@ember/debug';
 
 function handleTriggerEvent(eventName) {
   // https://usefathom.com/docs/features/events
@@ -23,32 +24,37 @@ function cleanup(instance) {
   instance.triggerEvent = null;
 }
 
-export default class DocTrackEventOn extends Modifier {
+export default class DocTrackEvent extends Modifier {
   @service fastboot;
 
   element = null;
   eventName = null;
   triggerEvent = null;
 
-  modify(element, [triggerEvent, eventName]) {
+  modify(element, _positional, named) {
     if (
       // Only attempt to do something if we are in the right environment
-      !this.fastboot.isFastBoot &&
-      window.fathom != null &&
-      eventName != null &&
-      triggerEvent != null
+      this.fastboot.isFastBoot ||
+      window.fathom == null
     ) {
-      this.addEventListener(element, triggerEvent, eventName);
-
-      registerDestructor(this, cleanup);
+      return;
     }
-  }
 
-  addEventListener(element, triggerEvent, eventName) {
+    const { on = 'click', eventName } = named;
+
+    const hasValidEventName = typeof eventName === 'string';
+
+    assert(
+      `@eventName for "doc-track-event" must be a string; received: ${eventName}`,
+      hasValidEventName
+    );
+
     this.element = element;
     this.eventName = eventName;
-    this.triggerEvent = triggerEvent;
+    this.triggerEvent = on;
 
-    element.addEventListener(triggerEvent, handleTriggerEvent(eventName));
+    element.addEventListener(this.triggerEvent, handleTriggerEvent(eventName));
+
+    registerDestructor(this, cleanup);
   }
 }
