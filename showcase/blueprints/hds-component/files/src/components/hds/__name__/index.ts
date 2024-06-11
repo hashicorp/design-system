@@ -5,7 +5,18 @@
 
 import Component from '@glimmer/component';
 
-export default class Hds<%= classifiedModuleName %>IndexComponent extends Component {
+export interface Hds<%= classifiedModuleName %>Signature {
+  // The arguments accepted by the component
+  Args: {};
+  // Any blocks yielded by the component  
+  Blocks: {
+    default: [];
+  };
+  // The element to which `...attributes` is applied in the component template  
+  Element: HTMLDivElement;
+}
+
+export default class Hds<%= classifiedModuleName %>IndexComponent extends Component<Hds<%= classifiedModuleName %>Signature> {
   // UNCOMMENT THIS IF YOU NEED A CONSTRUCTOR
   // constructor() {
   //   super(...arguments);
