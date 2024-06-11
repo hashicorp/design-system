@@ -15,6 +15,7 @@ export interface Hds<%= classifiedModuleName %>Signature {
   // The element to which `...attributes` is applied in the component template  
   Element: HTMLDivElement;
 }
+// More info on types and signatures: https://github.com/hashicorp/design-system/blob/main/wiki/TypeScript-Migration.md 
 
 export default class Hds<%= classifiedModuleName %>Component extends Component<Hds<%= classifiedModuleName %>Signature> {
   // UNCOMMENT THIS IF YOU NEED A CONSTRUCTOR
