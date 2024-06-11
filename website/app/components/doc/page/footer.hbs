@@ -10,7 +10,7 @@
         <LinkTo
           @route="show"
           @model="about/accessibility-statement"
-          {{doc-track-event-on "click" "Footer - Accessibility"}}
+          {{doc-track-event eventName="Footer - Accessibility"}}
         >
           Accessibility
         </LinkTo>
@@ -20,7 +20,7 @@
           href="https://hashicorp.com/careers"
           target="_blank"
           rel="noopener noreferrer"
-          {{doc-track-event-on "click" "Footer - Careers"}}
+          {{doc-track-event eventName="Footer - Careers"}}
         >
           Careers
         </a>
@@ -39,7 +39,7 @@
           href="https://go.hashi.co/hds-feedback"
           target="_blank"
           rel="noopener noreferrer"
-          {{doc-track-event-on "click" "Footer - Feedback"}}
+          {{doc-track-event eventName="Footer - Feedback"}}
         >
           Share Feedback
         </a>
