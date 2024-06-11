@@ -8,35 +8,30 @@ import { registerDestructor } from '@ember/destroyable';
 import { inject as service } from '@ember/service';
 import { assert } from '@ember/debug';
 
-function handleTriggerEvent(eventName) {
-  // https://usefathom.com/docs/features/events
-  window.fathom?.trackEvent(eventName);
-}
-
-function cleanup(instance) {
-  instance.element.removeEventListener(
-    instance.triggerEvent,
-    handleTriggerEvent
-  );
-
-  instance.element = null;
-  instance.eventName = null;
-  instance.triggerEvent = null;
-}
-
 export default class DocTrackEvent extends Modifier {
-  @service fastboot;
+  @service eventTracking;
 
   element = null;
   eventName = null;
   triggerEvent = null;
 
+  handleTriggerEvent() {
+    this.eventTracking.trackEvent(this.eventName);
+  }
+
+  cleanup() {
+    this.element.removeEventListener(
+      this.triggerEvent,
+      this.handleTriggerEvent
+    );
+
+    this.element = null;
+    this.eventName = null;
+    this.triggerEvent = null;
+  }
+
   modify(element, _positional, named) {
-    if (
-      // Only attempt to do something if we are in the right environment
-      this.fastboot.isFastBoot ||
-      window.fathom == null
-    ) {
+    if (!this.eventTracking.isEnabled) {
       return;
     }
 
@@ -53,8 +48,11 @@ export default class DocTrackEvent extends Modifier {
     this.eventName = eventName;
     this.triggerEvent = triggerEvent;
 
-    element.addEventListener(this.triggerEvent, handleTriggerEvent(eventName));
+    element.addEventListener(
+      this.triggerEvent,
+      this.handleTriggerEvent(eventName)
+    );
 
-    registerDestructor(this, cleanup);
+    registerDestructor(this, this.cleanup);
   }
 }

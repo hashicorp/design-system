@@ -14,6 +14,7 @@ const DEBOUNCE_MS = 250;
 
 export default class Index extends Component {
   @service router;
+  @service eventTracking;
 
   allIcons = catalog.assets.map(
     ({ iconName, fileName, size, description, category }) => {
@@ -134,6 +135,8 @@ export default class Index extends Component {
         selectedIconSize: event.target.value,
       },
     });
+
+    this.eventTracking.trackEvent('Icon Library - Size Selector');
   }
 
   @restartableTask *searchIcons(searchQuery) {
@@ -146,5 +149,7 @@ export default class Index extends Component {
         selectedIconSize: this.selectedIconSize,
       },
     });
+
+    this.eventTracking.trackEvent('Icon Library - Search');
   }
 }
