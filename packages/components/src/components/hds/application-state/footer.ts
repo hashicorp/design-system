@@ -4,8 +4,24 @@
  */
 
 import Component from '@glimmer/component';
+import type { ComponentLike } from '@glint/template';
+import type { HdsLinkStandaloneSignature } from '../link/standalone';
 
-export default class HdsApplicationStateFooterComponent extends Component {
+export interface HdsApplicationStateFooterSignature {
+  Args: {
+    hasDivider?: boolean;
+  };
+  Blocks: {
+    default?: [
+      {
+        LinkStandalone?: ComponentLike<HdsLinkStandaloneSignature>;
+      }
+    ];
+  };
+  Element: HTMLDivElement;
+}
+
+export default class HdsApplicationStateFooterComponent extends Component<HdsApplicationStateFooterSignature> {
   /**
    * Indicate if the footer should have a top border or not.
    *
@@ -14,7 +30,7 @@ export default class HdsApplicationStateFooterComponent extends Component {
    * @default false
    */
   get hasDivider() {
-    return this.args.hasDivider || false;
+    return this.args.hasDivider ?? false;
   }
 
   /**
@@ -23,7 +39,7 @@ export default class HdsApplicationStateFooterComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-application-state__footer'];
+    const classes = ['hds-application-state__footer'];
 
     // add a class based on the existence of @hasDivider argument
     if (this.hasDivider) {
