@@ -5,7 +5,7 @@ import { hbs } from 'ember-cli-htmlbars';
 import { click, focus } from '@ember/test-helpers';
 import sinon from 'sinon';
 
-module('Integration | Modifier | doc-track-event-on', function (hooks) {
+module('Integration | Modifier | doc-track-event', function (hooks) {
   setupRenderingTest(hooks);
 
   let originalFathom;
@@ -23,8 +23,8 @@ module('Integration | Modifier | doc-track-event-on', function (hooks) {
     window.fathom = originalFathom;
   });
 
-  test('it adds click event listener and tracks an event', async function (assert) {
-    await render(hbs`<div {{doc-track-event-on 'click' 'testEvent'}}></div>`);
+  test('it adds click event listener by default and tracks an event', async function (assert) {
+    await render(hbs`<div {{doc-track-event eventName='testEvent'}}></div>`);
     await click('div');
 
     assert.ok(trackEventSpy.calledOnceWith('testEvent'));
@@ -32,7 +32,7 @@ module('Integration | Modifier | doc-track-event-on', function (hooks) {
 
   test('it adds a focus event listener and tracks an event', async function (assert) {
     await render(
-      hbs`<input type="text" {{doc-track-event-on 'focus' 'testEvent'}} />`
+      hbs`<input type="text" {{doc-track-event on='focus' eventName='testEvent'}} />`
     );
     await focus('input');
 
