@@ -9,7 +9,6 @@ import {
   render,
   click,
   resetOnerror,
-  setupOnerror,
   triggerKeyEvent,
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
@@ -249,20 +248,5 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
     );
     await click('.hds-side-nav__toggle-button');
     assert.ok(toggled);
-  });
-
-  // ASSERTIONS
-
-  test('it should throw an assertion if an incorrect value for @type is provided', async function (assert) {
-    const errorMessage =
-      '@a11yRefocusSkipTo for NavigatorNarrator (a11y-refocus) in "Hds::SideNav" must have a valid value';
-    assert.expect(2);
-    setupOnerror(function (error) {
-      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
-    });
-    await render(hbs`<Hds::SideNav @hasA11yRefocus={{true}} />`);
-    assert.throws(function () {
-      throw new Error(errorMessage);
-    });
   });
 });

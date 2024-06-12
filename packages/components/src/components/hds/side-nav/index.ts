@@ -6,7 +6,6 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import { assert } from '@ember/debug';
 import { registerDestructor } from '@ember/destroyable';
 
 import type { HdsSideNavBaseSignature } from './base';
@@ -72,13 +71,6 @@ export default class HdsSideNavComponent extends Component<HdsSideNavSignature> 
     registerDestructor(this, () => {
       this.removeEventListeners();
     });
-
-    if (this.args.hasA11yRefocus) {
-      assert(
-        '@a11yRefocusSkipTo for NavigatorNarrator (a11y-refocus) in "Hds::SideNav" must have a valid value',
-        this.args.a11yRefocusSkipTo !== undefined
-      );
-    }
   }
 
   addEventListeners() {
