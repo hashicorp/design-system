@@ -49,10 +49,3 @@ export default class HdsApplicationStateFooterComponent extends Component<HdsApp
     return classes.join(' ');
   }
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Hds::ApplicationState::Footer': typeof HdsApplicationStateFooterComponent;
-    'hds/application-state/footer': typeof HdsApplicationStateFooterComponent;
-  }
-}

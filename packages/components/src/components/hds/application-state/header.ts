@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
+import TemplateOnlyComponent from '@ember/component/template-only';
 
 export interface HdsApplicationStateHeaderSignature {
   Args: {
@@ -14,11 +14,7 @@ export interface HdsApplicationStateHeaderSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsApplicationStateHeaderComponent extends Component<HdsApplicationStateHeaderSignature> {}
+const HdsApplicationStateHeaderComponent =
+  TemplateOnlyComponent<HdsApplicationStateHeaderSignature>();
 
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Hds::ApplicationState::Header': typeof HdsApplicationStateHeaderComponent;
-    'hds/application-state/header': typeof HdsApplicationStateHeaderComponent;
-  }
-}
+export default HdsApplicationStateHeaderComponent;
