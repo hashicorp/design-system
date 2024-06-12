@@ -3,6 +3,6 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<div class="hds-accordion" ...attributes>
-  {{yield (hash Item=(component "hds/accordion/item"))}}
+<div class={{this.classNames}} ...attributes>
+  {{yield (hash Item=(component "hds/accordion/item" type=this.type))}}
 </div>
