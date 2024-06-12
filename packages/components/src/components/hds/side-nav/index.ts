@@ -21,6 +21,7 @@ interface HdsSideNavSignature {
     a11yRefocusSkipText?: string;
     a11yRefocusNavigationText?: string;
     a11yRefocusRouteChangeValidator?: string;
+    a11yRefocusExcludeAllQueryParams?: boolean;
     ariaLabel?: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onToggleMinimizedStatus?: (arg: boolean) => void;

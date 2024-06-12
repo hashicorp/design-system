@@ -42,7 +42,7 @@
     "@hashicorp/ember-flight-icons": "^5.0.3",
     "@oddbird/popover-polyfill": "^0.4.3",
     "decorator-transforms": "^1.1.0",
-    "ember-a11y-refocus": "^3.0.2",
+    "ember-a11y-refocus": "^4.1.0",
     "ember-cli-sass": "^11.0.1",
     "ember-composable-helpers": "^5.0.0",
     "ember-element-helper": "^0.8.5",

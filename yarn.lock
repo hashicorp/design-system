@@ -3738,7 +3738,7 @@ __metadata:
     babel-plugin-ember-template-compilation: "npm:^2.2.4"
     concurrently: "npm:^8.2.2"
     decorator-transforms: "npm:^1.1.0"
-    ember-a11y-refocus: "npm:^3.0.2"
+    ember-a11y-refocus: "npm:^4.1.0"
     ember-basic-dropdown: "npm:^8.1.0"
     ember-cli-sass: "npm:^11.0.1"
     ember-composable-helpers: "npm:^5.0.0"
@@ -11823,13 +11823,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-a11y-refocus@npm:^3.0.2":
-  version: 3.0.2
-  resolution: "ember-a11y-refocus@npm:3.0.2"
+"ember-a11y-refocus@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "ember-a11y-refocus@npm:4.1.0"
   dependencies:
     ember-cli-babel: "npm:^7.26.11"
     ember-cli-htmlbars: "npm:^6.0.1"
-  checksum: 10/c47f03e47f007145870ace66dc4d2b4d714aeda89a9e9fdfed570af23759b41d5b84c5b6265781c9a55e4ee85a48942c8b5c17d822d717d2b0b2b2d3ca6f94de
+  checksum: 10/16c8df41f42e58ec3fcd5166f3641c4a8cd076c0858b74bf6ce226a44e4a39f275fbdff4ad28dae1978e7a995f4ac4603576dc2940b9cdd18d42153a6c070235
   languageName: node
   linkType: hard
 
@@ -27533,7 +27533,7 @@ __metadata:
     broccoli-multifilter: "https://github.com/broccolijs/broccoli-multifilter.git#commit=3ae609df0cfb1dae0da04ae041eb75c7115c9838"
     cspell: "npm:^7.3.8"
     dotenv: "npm:^16.3.1"
-    ember-a11y-refocus: "npm:^3.0.2"
+    ember-a11y-refocus: "npm:^4.1.0"
     ember-a11y-testing: "npm:^6.1.1"
     ember-auto-import: "npm:^2.6.3"
     ember-basic-dropdown: "npm:^8.1.0"
