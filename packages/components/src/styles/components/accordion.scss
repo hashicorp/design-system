@@ -50,6 +50,11 @@ $hds-accordion-item-border-radius: 6px;
   &:first-child {
     box-shadow: 0 1px 0 0 var(--token-color-border-primary), 0 -1px 0 0 var(--token-color-border-primary), ;
   }
+
+  // we need this specificity to override the focus-ring mixin
+  .hds-accordion-item__button.hds-accordion-item__button--parent-does-not-contain-interactive::before {
+    border-radius: 0;
+  }
 }
 
 .hds-accordion-item--is-static {
