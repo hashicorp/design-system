@@ -18,12 +18,15 @@ $hds-accordion-item-border-radius: 6px;
 .hds-accordion {
   display: flex;
   flex-direction: column;
+}
+
+.hds-accordion--type-card {
   gap: 12px;
 }
 
 // ACCORDION ITEM COMPONENT (nested child)
 
-.hds-accordion-item {
+.hds-accordion-item--type-card {
   background: var(--token-color-surface-primary);
   border-radius: $hds-accordion-item-border-radius;
 
@@ -38,16 +41,24 @@ $hds-accordion-item-border-radius: 6px;
 
   &.hds-accordion-item--contains-interactive {
     box-shadow: var(--token-surface-base-box-shadow);
+  }  
+}
+
+.hds-accordion-item--type-flush {
+  box-shadow: 0 1px 0 0 var(--token-color-border-primary);
+
+  &:first-child {
+    box-shadow: 0 1px 0 0 var(--token-color-border-primary), 0 -1px 0 0 var(--token-color-border-primary), ;
+  }
+}
+
+.hds-accordion-item--is-static {
+  .hds-accordion-item__button {
+    display: none;
   }
 
-  &.hds-accordion-item--is-static {
-    .hds-accordion-item__button {
-      display: none;
-    }
-  
-    .hds-accordion-item__toggle-content {
-      margin-left: 36px; // 24+12
-    }
+  .hds-accordion-item__toggle-content {
+    margin-left: 36px; // 24+12
   }
 }
 

@@ -48,6 +48,36 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     assert.dom('#test-em').exists().hasText('Content one');
   });
 
+  // TYPE
+
+  test('it should render the card type as the default if no @type is declared', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Accordion id="test-accordion" as |A|>
+          <A.Item>Item</A.Item>
+        </Hds::Accordion>
+      `
+    );
+    assert.dom('#test-accordion').hasClass('hds-accordion--type-card');
+    assert
+      .dom('#test-accordion .hds-accordion-item')
+      .hasClass('hds-accordion-item--type-card');
+  });
+
+  test('it should render the correct CSS type class depending on the @type', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Accordion id="test-accordion" @type="flush" as |A|>
+          <A.Item>Item</A.Item>
+        </Hds::Accordion>
+      `
+    );
+    assert.dom('#test-accordion').hasClass('hds-accordion--type-flush');
+    assert
+      .dom('#test-accordion .hds-accordion-item')
+      .hasClass('hds-accordion-item--type-flush');
+  });
+
   // A11Y
 
   test('it displays the correct value for aria-expanded on the AccordionItem when closed vs open', async function (assert) {

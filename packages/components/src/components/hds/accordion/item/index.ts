@@ -4,7 +4,14 @@
  */
 
 import Component from '@glimmer/component';
+import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
+
+import { HdsAccordionTypeValues } from '../types.ts';
+import type { HdsAccordionTypes } from '../types.ts';
+
+export const TYPES: string[] = Object.values(HdsAccordionTypeValues);
+export const DEFAULT_TYPE = HdsAccordionTypeValues.Card;
 
 export interface HdsAccordionItemSignature {
   Args: {
@@ -12,6 +19,7 @@ export interface HdsAccordionItemSignature {
     containsInteractive?: boolean;
     isOpen?: boolean;
     isStatic?: boolean;
+    type: HdsAccordionTypes;
   };
   Blocks: {
     content?: [];
@@ -47,6 +55,26 @@ export default class HdsAccordionItemComponent extends Component<HdsAccordionIte
   }
 
   /**
+   * Sets the type of the component
+   *
+   * @param type
+   * @type {HdsAccordionTypes}
+   * @default 'card'
+   */
+  get type() {
+    const { type = DEFAULT_TYPE } = this.args;
+
+    assert(
+      `@type for "Hds::Accordion::Item" must be one of the following: ${TYPES.join(
+        ', '
+      )}; received: ${type}`,
+      TYPES.includes(type)
+    );
+
+    return type;
+  }
+
+  /**
    * Get the class names to apply to the component.
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
@@ -63,6 +91,9 @@ export default class HdsAccordionItemComponent extends Component<HdsAccordionIte
     if (this.args.isStatic) {
       classes.push('hds-accordion-item--is-static');
     }
+
+    // add a class based on the @type argument
+    classes.push(`hds-accordion-item--type-${this.type}`);
 
     if (this.containsInteractive) {
       // Entire accordion item including the chevron is interactive:
