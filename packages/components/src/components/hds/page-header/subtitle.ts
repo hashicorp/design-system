@@ -1,7 +1,7 @@
 import TemplateOnlyComponent from '@ember/component/template-only';
 import type { HdsTextBodySignature } from '../text/body';
 
-export interface PageHeaderSubtitleSignature {
+export interface HdsPageHeaderSubtitleSignature {
   Args: HdsTextBodySignature['Args'];
   Blocks: {
     default: [];
@@ -9,7 +9,7 @@ export interface PageHeaderSubtitleSignature {
   Element: HdsTextBodySignature['Element'];
 }
 
-const PageHeaderSubtitleComponent =
-  TemplateOnlyComponent<PageHeaderSubtitleSignature>();
+const HdsPageHeaderSubtitleComponent =
+  TemplateOnlyComponent<HdsPageHeaderSubtitleSignature>();
 
-export default PageHeaderSubtitleComponent;
+export default HdsPageHeaderSubtitleComponent;

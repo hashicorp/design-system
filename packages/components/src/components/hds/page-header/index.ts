@@ -2,30 +2,30 @@ import TemplateOnlyComponent from '@ember/component/template-only';
 import type { ComponentLike } from '@glint/template';
 import type { HdsIconTileSignature } from '../icon-tile';
 import type { HdsYieldSignature } from '../yield';
-import type { PageHeaderActionsSignature } from './actions';
-import type { PageHeaderBadgesSignature } from './badges';
-import type { PageHeaderDescriptionSignature } from './description';
-import type { PageHeaderTitleSignature } from './title';
-import type { PageHeaderSubtitleSignature } from './subtitle';
+import type { HdsPageHeaderActionsSignature } from './actions';
+import type { HdsPageHeaderBadgesSignature } from './badges';
+import type { HdsPageHeaderDescriptionSignature } from './description';
+import type { HdsPageHeaderTitleSignature } from './title';
+import type { HdsPageHeaderSubtitleSignature } from './subtitle';
 
-interface PageHeaderSignature {
+interface HdsPageHeaderSignature {
   Blocks: {
     default: [
       {
-        Actions?: ComponentLike<PageHeaderActionsSignature>;
-        Badges?: ComponentLike<PageHeaderBadgesSignature>;
+        Actions?: ComponentLike<HdsPageHeaderActionsSignature>;
+        Badges?: ComponentLike<HdsPageHeaderBadgesSignature>;
         Breadcrumb?: ComponentLike<HdsYieldSignature>;
-        Description?: ComponentLike<PageHeaderDescriptionSignature>;
+        Description?: ComponentLike<HdsPageHeaderDescriptionSignature>;
         Generic?: ComponentLike<HdsYieldSignature>;
         IconTile?: ComponentLike<HdsIconTileSignature>;
-        Subtitle?: ComponentLike<PageHeaderSubtitleSignature>;
-        Title?: ComponentLike<PageHeaderTitleSignature>;
+        Subtitle?: ComponentLike<HdsPageHeaderSubtitleSignature>;
+        Title?: ComponentLike<HdsPageHeaderTitleSignature>;
       }
     ];
   };
   Element: HTMLElement;
 }
 
-const PageHeaderComponent = TemplateOnlyComponent<PageHeaderSignature>();
+const HdsPageHeaderComponent = TemplateOnlyComponent<HdsPageHeaderSignature>();
 
-export default PageHeaderComponent;
+export default HdsPageHeaderComponent;

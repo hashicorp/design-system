@@ -1,13 +1,13 @@
 import TemplateOnlyComponent from '@ember/component/template-only';
 
-export interface PageHeaderBadgesSignature {
+export interface HdsPageHeaderBadgesSignature {
   Blocks: {
     default: [];
   };
   Element: HTMLDivElement;
 }
 
-const PageHeaderBadgesComponent =
-  TemplateOnlyComponent<PageHeaderBadgesSignature>();
+const HdsPageHeaderBadgesComponent =
+  TemplateOnlyComponent<HdsPageHeaderBadgesSignature>();
 
-export default PageHeaderBadgesComponent;
+export default HdsPageHeaderBadgesComponent;
