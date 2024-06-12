@@ -56,7 +56,7 @@ $hds-accordion-item-border-radius: 6px;
     border-radius: 0;
   }
 
-  &.hds-accordion-item--does-not-contain-interactive {
+  &.hds-accordion-item--does-not-contain-interactive>.hds-disclosure-primitive__toggle {
     &:hover:not(.hds-accordion-item--is-static),
     &.mock-hover:not(.hds-accordion-item--is-static) {
       .hds-accordion-item__toggle {
