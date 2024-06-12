@@ -57,7 +57,7 @@
     "broccoli-multifilter": "https://github.com/broccolijs/broccoli-multifilter.git#commit=3ae609df0cfb1dae0da04ae041eb75c7115c9838",
     "cspell": "^7.3.8",
     "dotenv": "^16.3.1",
-    "ember-a11y-refocus": "^3.0.2",
+    "ember-a11y-refocus": "^4.1.0",
     "ember-a11y-testing": "^6.1.1",
     "ember-auto-import": "^2.6.3",
     "ember-basic-dropdown": "^8.1.0",
