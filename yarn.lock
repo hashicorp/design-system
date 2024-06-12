@@ -2858,7 +2858,7 @@ __metadata:
     "@embroider/shared-internals": "npm:^2.5.1"
     broccoli-funnel: "npm:^3.0.8"
     semver: "npm:^7.3.8"
-  checksum: 68f378ce9f6a9d4ae7e79fb0f2ea71d493cb6a4326d6ed986ab6ab6315cf1c825ed2299c3d4efc0cb6497533916bf82a2916348fd5df9176a265a9699667a679
+  checksum: 10/68f378ce9f6a9d4ae7e79fb0f2ea71d493cb6a4326d6ed986ab6ab6315cf1c825ed2299c3d4efc0cb6497533916bf82a2916348fd5df9176a265a9699667a679
   languageName: node
   linkType: hard
 
@@ -2944,7 +2944,7 @@ __metadata:
   peerDependenciesMeta:
     "@glint/template":
       optional: true
-  checksum: 8f3d47cdb9fab6ed41d20002b43328d7772a80bf9e65ec33c1e04aa0eec8e1f475f853f6c4d0aba768c55aa97db25c67242e35ab07f208148ac26ac591c4d10f
+  checksum: 10/8f3d47cdb9fab6ed41d20002b43328d7772a80bf9e65ec33c1e04aa0eec8e1f475f853f6c4d0aba768c55aa97db25c67242e35ab07f208148ac26ac591c4d10f
   languageName: node
   linkType: hard
 
@@ -2980,7 +2980,7 @@ __metadata:
     resolve-package-path: "npm:^4.0.1"
     semver: "npm:^7.3.5"
     typescript-memoize: "npm:^1.0.1"
-  checksum: b40621b4dd98aed7f9422cf996de40da2abb6aa15e494070579431b55d1786d824c041a683899b397e3a89e65abe2600f64ed0bce09e0b6781b1a3abe0bdeafd
+  checksum: 10/b40621b4dd98aed7f9422cf996de40da2abb6aa15e494070579431b55d1786d824c041a683899b397e3a89e65abe2600f64ed0bce09e0b6781b1a3abe0bdeafd
   languageName: node
   linkType: hard
 
@@ -4876,6 +4876,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sinonjs/commons@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "@sinonjs/commons@npm:3.0.1"
+  dependencies:
+    type-detect: "npm:4.0.8"
+  checksum: 10/a0af217ba7044426c78df52c23cedede6daf377586f3ac58857c565769358ab1f44ebf95ba04bbe38814fba6e316ca6f02870a009328294fc2c555d0f85a7117
+  languageName: node
+  linkType: hard
+
 "@sinonjs/fake-timers@npm:^10.0.2":
   version: 10.3.0
   resolution: "@sinonjs/fake-timers@npm:10.3.0"
@@ -4905,7 +4914,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sinonjs/text-encoding@npm:^0.7.1":
+"@sinonjs/text-encoding@npm:^0.7.1, @sinonjs/text-encoding@npm:^0.7.2":
   version: 0.7.2
   resolution: "@sinonjs/text-encoding@npm:0.7.2"
   checksum: 10/ec713fb44888c852d84ca54f6abf9c14d036c11a5d5bfab7825b8b9d2b22127dbe53412c68f4dbb0c05ea5ed61c64679bd2845c177d81462db41e0d3d7eca499
@@ -5302,7 +5311,7 @@ __metadata:
 "@types/ember__destroyable@npm:^4.0.5":
   version: 4.0.5
   resolution: "@types/ember__destroyable@npm:4.0.5"
-  checksum: 65fe01e00148427b0d716b18e33b1e36ec32c93176c1fcbeba38338a20d6437d2e31a4ce62ae720714b07f6619cf30c8529f8cdbcd169cc8222516bff14ae8e5
+  checksum: 10/65fe01e00148427b0d716b18e33b1e36ec32c93176c1fcbeba38338a20d6437d2e31a4ce62ae720714b07f6619cf30c8529f8cdbcd169cc8222516bff14ae8e5
   languageName: node
   linkType: hard
 
@@ -11572,6 +11581,13 @@ __metadata:
   version: 5.1.0
   resolution: "diff@npm:5.1.0"
   checksum: 10/f4557032a98b2967fe27b1a91dfcf8ebb6b9a24b1afe616b5c2312465100b861e9b8d4da374be535f2d6b967ce2f53826d7f6edc2a0d32b2ab55abc96acc2f9d
+  languageName: node
+  linkType: hard
+
+"diff@npm:^5.2.0":
+  version: 5.2.0
+  resolution: "diff@npm:5.2.0"
+  checksum: 10/01b7b440f83a997350a988e9d2f558366c0f90f15be19f4aa7f1bb3109a4e153dfc3b9fbf78e14ea725717017407eeaa2271e3896374a0181e8f52445740846d
   languageName: node
   linkType: hard
 
@@ -18650,6 +18666,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"just-extend@npm:^6.2.0":
+  version: 6.2.0
+  resolution: "just-extend@npm:6.2.0"
+  checksum: 10/1f487b074b9e5773befdd44dc5d1b446f01f24f7d4f1f255d51c0ef7f686e8eb5f95d983b792b9ca5c8b10cd7e60a924d64103725759eddbd7f18bcb22743f92
+  languageName: node
+  linkType: hard
+
 "keyv@npm:^3.0.0":
   version: 3.1.0
   resolution: "keyv@npm:3.1.0"
@@ -20723,6 +20746,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nise@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "nise@npm:6.0.0"
+  dependencies:
+    "@sinonjs/commons": "npm:^3.0.0"
+    "@sinonjs/fake-timers": "npm:^11.2.2"
+    "@sinonjs/text-encoding": "npm:^0.7.2"
+    just-extend: "npm:^6.2.0"
+    path-to-regexp: "npm:^6.2.1"
+  checksum: 10/a11be5fd21ece95c80fda14a2cf80350404acc895467fc5104dc9ea9c0630614fcc83e10591ead96796b31aa2f3ccb7dc9198ed940d0f3e91e760bf5104d41a8
+  languageName: node
+  linkType: hard
+
 "no-case@npm:^3.0.4":
   version: 3.0.4
   resolution: "no-case@npm:3.0.4"
@@ -21753,6 +21789,13 @@ __metadata:
   version: 6.2.1
   resolution: "path-to-regexp@npm:6.2.1"
   checksum: 10/1e266be712d1a08086ee77beab12a1804842ec635dfed44f9ee1ba960a0e01cec8063fb8c92561115cdc0ce73158cdc7766e353ffa039340b4a85b370084c4d4
+  languageName: node
+  linkType: hard
+
+"path-to-regexp@npm:^6.2.1":
+  version: 6.2.2
+  resolution: "path-to-regexp@npm:6.2.2"
+  checksum: 10/f7d11c1a9e02576ce0294f4efdc523c11b73894947afdf7b23a0d0f7c6465d7a7772166e770ddf1495a8017cc0ee99e3e8a15ed7302b6b948b89a6dd4eea895e
   languageName: node
   linkType: hard
 
@@ -24379,6 +24422,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"sinon@npm:^18.0.0":
+  version: 18.0.0
+  resolution: "sinon@npm:18.0.0"
+  dependencies:
+    "@sinonjs/commons": "npm:^3.0.1"
+    "@sinonjs/fake-timers": "npm:^11.2.2"
+    "@sinonjs/samsam": "npm:^8.0.0"
+    diff: "npm:^5.2.0"
+    nise: "npm:^6.0.0"
+    supports-color: "npm:^7"
+  checksum: 10/4c491798e2b7bb0e60357eb19820956229fb4356af7b00498f7a30dcbfe186597c816c331d8acd1771cb32510adde7657eeee0172fbd0baecdbb00e1d8c6806f
+  languageName: node
+  linkType: hard
+
 "sisteransi@npm:^1.0.5":
   version: 1.0.5
   resolution: "sisteransi@npm:1.0.5"
@@ -25494,7 +25551,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"supports-color@npm:^7.0.0, supports-color@npm:^7.1.0, supports-color@npm:^7.2.0":
+"supports-color@npm:^7, supports-color@npm:^7.0.0, supports-color@npm:^7.1.0, supports-color@npm:^7.2.0":
   version: 7.2.0
   resolution: "supports-color@npm:7.2.0"
   dependencies:
@@ -27541,6 +27598,7 @@ __metadata:
     remark-rehype: "npm:^11.0.0"
     resolve: "npm:^1.22.8"
     showdown: "npm:^2.1.0"
+    sinon: "npm:^18.0.0"
     stylelint: "npm:^16.3.1"
     stylelint-config-rational-order: "npm:^0.1.2"
     stylelint-config-standard-scss: "npm:^13.1.0"

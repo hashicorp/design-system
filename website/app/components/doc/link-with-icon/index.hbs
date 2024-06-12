@@ -9,7 +9,7 @@
     @route={{@route}}
     @models={{this.models}}
     ...attributes
-    {{on "click" (fn this.eventTracking.trackEvent @eventName)}}
+    {{doc-track-event eventName=@eventName}}
   >
     {{@label}}
     <FlightIcon class="doc-link-with-icon__icon" @name={{@icon}} />
@@ -21,7 +21,7 @@
     href={{@href}}
     target="_blank"
     rel="noopener noreferrer"
-    {{on "click" (fn this.eventTracking.trackEvent @eventName)}}
+    {{doc-track-event eventName=@eventName}}
     ...attributes
   >
     {{@label}}
