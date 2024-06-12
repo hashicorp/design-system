@@ -55,6 +55,22 @@ $hds-accordion-item-border-radius: 6px;
   .hds-accordion-item__button.hds-accordion-item__button--parent-does-not-contain-interactive::before {
     border-radius: 0;
   }
+
+  &.hds-accordion-item--does-not-contain-interactive {
+    &:hover:not(.hds-accordion-item--is-static),
+    &.mock-hover:not(.hds-accordion-item--is-static) {
+      .hds-accordion-item__toggle {
+        background: var(--token-color-surface-interactive-hover);
+      }
+    }
+
+    &:active:not(.hds-accordion-item--is-static),
+    &.mock-active:not(.hds-accordion-item--is-static) {
+      .hds-accordion-item__toggle {
+        background: var(--token-color-surface-interactive-active);
+      }
+    }
+  }
 }
 
 .hds-accordion-item--is-static {

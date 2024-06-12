@@ -277,17 +277,46 @@
 
   <Shw::Text::H4>States</Shw::Text::H4>
 
-  {{#let (array false true) as |booleans|}}
-    <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
-      {{#each booleans as |bool|}}
-        <SG.Item @label="containsInteractive={{bool}}">
-          <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
-            {{#each @model.STATES as |state|}}
-              <SF.Item @label={{state}} {{style flex="1"}}>
+  {{#each @model.TYPES as |type|}}
+    {{#let (array false true) as |booleans|}}
+      <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+        {{#each booleans as |bool|}}
+          <SG.Item @label="type={{type}}, containsInteractive={{bool}}">
+            <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
+              {{#each @model.STATES as |state|}}
+                <SF.Item @label={{state}} {{style flex="1"}}>
+                  <Hds::Accordion::Item
+                    @containsInteractive={{bool}}
+                    @type={{type}}
+                    mock-state-value={{state}}
+                    mock-state-selector="{{if
+                      (and (not-eq state 'hover') (or (not-eq state 'active') bool))
+                      '.hds-accordion-item__button'
+                    }}"
+                  >
+                    <:toggle>Item one</:toggle>
+                    <:content>
+                      <Shw::Placeholder @text="generic content" @height="40" />
+                    </:content>
+                  </Hds::Accordion::Item>
+                </SF.Item>
+              {{/each}}
+
+              <SF.Item @label="isOpen=true" {{style flex="1"}}>
+                <Hds::Accordion::Item @containsInteractive={{bool}} @isOpen={{true}} @type={{type}}>
+                  <:toggle>Item one</:toggle>
+                  <:content>
+                    <Shw::Placeholder @text="generic content" @height="40" />
+                  </:content>
+                </Hds::Accordion::Item>
+              </SF.Item>
+              <SF.Item @label="focus & isOpen=true" {{style flex="1"}}>
                 <Hds::Accordion::Item
                   @containsInteractive={{bool}}
-                  mock-state-value={{state}}
-                  mock-state-selector="{{if (not-eq state 'hover') '.hds-accordion-item__button'}}"
+                  @type={{type}}
+                  mock-state-value="focus"
+                  mock-state-selector=".hds-accordion-item__button"
+                  @isOpen={{true}}
                 >
                   <:toggle>Item one</:toggle>
                   <:content>
@@ -295,34 +324,13 @@
                   </:content>
                 </Hds::Accordion::Item>
               </SF.Item>
-            {{/each}}
-
-            <SF.Item @label="isOpen=true" {{style flex="1"}}>
-              <Hds::Accordion::Item @containsInteractive={{bool}} @isOpen={{true}}>
-                <:toggle>Item one</:toggle>
-                <:content>
-                  <Shw::Placeholder @text="generic content" @height="40" />
-                </:content>
-              </Hds::Accordion::Item>
-            </SF.Item>
-            <SF.Item @label="focus & isOpen=true" {{style flex="1"}}>
-              <Hds::Accordion::Item
-                @containsInteractive={{bool}}
-                mock-state-value="focus"
-                mock-state-selector=".hds-accordion-item__button"
-                @isOpen={{true}}
-              >
-                <:toggle>Item one</:toggle>
-                <:content>
-                  <Shw::Placeholder @text="generic content" @height="40" />
-                </:content>
-              </Hds::Accordion::Item>
-            </SF.Item>
-          </Shw::Flex>
-        </SG.Item>
-      {{/each}}
-    </Shw::Grid>
-  {{/let}}
+            </Shw::Flex>
+          </SG.Item>
+        {{/each}}
+      </Shw::Grid>
+    {{/let}}
+    <Shw::Divider @level={{2}} />
+  {{/each}}
 
   <Shw::Divider @level={{2}} />
 
