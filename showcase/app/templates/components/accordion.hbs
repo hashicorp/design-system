@@ -166,87 +166,91 @@
 
   <Shw::Text::H3>Nested Accordions</Shw::Text::H3>
 
-  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
-    <SG.Item {{style flex="1"}}>
-      <Hds::Accordion as |A|>
-        <A.Item @isOpen={{true}}>
-          <:toggle>Item one</:toggle>
-          <:content>
-            <Hds::Accordion>
-              <Hds::Accordion::Item>
-                <:toggle>Nested item one</:toggle>
-                <:content>
-                  <Shw::Placeholder @text="generic content" @height="40" />
-                </:content>
-              </Hds::Accordion::Item>
-            </Hds::Accordion>
-          </:content>
-        </A.Item>
-      </Hds::Accordion>
-    </SG.Item>
+  {{#each @model.TYPES as |type|}}
+    <Shw::Text::H4>{{capitalize type}}</Shw::Text::H4>
 
-    <SG.Item {{style flex="1"}}>
-      <Hds::Accordion as |A|>
-        <A.Item @isOpen={{true}}>
-          <:toggle>Item one</:toggle>
-          <:content>
-            <Hds::Accordion>
-              <Hds::Accordion::Item>
-                <:toggle>Nested item one</:toggle>
-                <:content>
-                  <Shw::Placeholder @text="generic content" @height="40" />
-                </:content>
-              </Hds::Accordion::Item>
-              <Hds::Accordion::Item>
-                <:toggle>Nested item two</:toggle>
-                <:content>
-                  <Shw::Placeholder @text="generic content" @height="40" />
-                </:content>
-              </Hds::Accordion::Item>
-            </Hds::Accordion>
-          </:content>
-        </A.Item>
-      </Hds::Accordion>
-    </SG.Item>
-  </Shw::Grid>
+    <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+      <SG.Item {{style flex="1"}}>
+        <Hds::Accordion @type={{type}} as |A|>
+          <A.Item @isOpen={{true}}>
+            <:toggle>Item one</:toggle>
+            <:content>
+              <Hds::Accordion @type={{type}} as |AA|>
+                <AA.Item>
+                  <:toggle>Nested item one</:toggle>
+                  <:content>
+                    <Shw::Placeholder @text="generic content" @height="40" />
+                  </:content>
+                </AA.Item>
+              </Hds::Accordion>
+            </:content>
+          </A.Item>
+        </Hds::Accordion>
+      </SG.Item>
 
-  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
-    <SG.Item @label="Nested Accordion with containsInteractive=true nested in containsInteractive=false">
-      <Hds::Accordion as |A|>
-        <A.Item @isOpen={{true}}>
-          <:toggle>Item with containsInteractive=false (the default)</:toggle>
-          <:content>
-            <Hds::Accordion>
-              <Hds::Accordion::Item @containsInteractive={{true}}>
-                <:toggle>Nested item with containsInteractive=true</:toggle>
-                <:content>
-                  <Shw::Placeholder @text="generic content" @height="40" />
-                </:content>
-              </Hds::Accordion::Item>
-            </Hds::Accordion>
-          </:content>
-        </A.Item>
-      </Hds::Accordion>
-    </SG.Item>
+      <SG.Item {{style flex="1"}}>
+        <Hds::Accordion @type={{type}} as |A|>
+          <A.Item @isOpen={{true}}>
+            <:toggle>Item one</:toggle>
+            <:content>
+              <Hds::Accordion @type={{type}} as |AA|>
+                <AA.Item>
+                  <:toggle>Nested item one</:toggle>
+                  <:content>
+                    <Shw::Placeholder @text="generic content" @height="40" />
+                  </:content>
+                </AA.Item>
+                <AA.Item>
+                  <:toggle>Nested item two</:toggle>
+                  <:content>
+                    <Shw::Placeholder @text="generic content" @height="40" />
+                  </:content>
+                </AA.Item>
+              </Hds::Accordion>
+            </:content>
+          </A.Item>
+        </Hds::Accordion>
+      </SG.Item>
+    </Shw::Grid>
 
-    <SG.Item @label="Nested Accordion with containsInteractive=false nested in containsInteractive=true">
-      <Hds::Accordion as |A|>
-        <A.Item @isOpen={{true}} @containsInteractive={{true}}>
-          <:toggle>Item with containsInteractive=true</:toggle>
-          <:content>
-            <Hds::Accordion>
-              <Hds::Accordion::Item>
-                <:toggle>Nested item with containsInteractive=false (the default)</:toggle>
-                <:content>
-                  <Shw::Placeholder @text="generic content" @height="40" />
-                </:content>
-              </Hds::Accordion::Item>
-            </Hds::Accordion>
-          </:content>
-        </A.Item>
-      </Hds::Accordion>
-    </SG.Item>
-  </Shw::Grid>
+    <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+      <SG.Item @label="Nested Accordion with containsInteractive=true nested in containsInteractive=false">
+        <Hds::Accordion @type={{type}} as |A|>
+          <A.Item @isOpen={{true}}>
+            <:toggle>Item with containsInteractive=false (the default)</:toggle>
+            <:content>
+              <Hds::Accordion @type={{type}} as |AA|>
+                <AA.Item @containsInteractive={{true}}>
+                  <:toggle>Nested item with containsInteractive=true</:toggle>
+                  <:content>
+                    <Shw::Placeholder @text="generic content" @height="40" />
+                  </:content>
+                </AA.Item>
+              </Hds::Accordion>
+            </:content>
+          </A.Item>
+        </Hds::Accordion>
+      </SG.Item>
+
+      <SG.Item @label="Nested Accordion with containsInteractive=false nested in containsInteractive=true">
+        <Hds::Accordion @type={{type}} as |A|>
+          <A.Item @isOpen={{true}} @containsInteractive={{true}}>
+            <:toggle>Item with containsInteractive=true</:toggle>
+            <:content>
+              <Hds::Accordion @type={{type}} as |AA|>
+                <AA.Item>
+                  <:toggle>Nested item with containsInteractive=false (the default)</:toggle>
+                  <:content>
+                    <Shw::Placeholder @text="generic content" @height="40" />
+                  </:content>
+                </AA.Item>
+              </Hds::Accordion>
+            </:content>
+          </A.Item>
+        </Hds::Accordion>
+      </SG.Item>
+    </Shw::Grid>
+  {{/each}}
 
   <Shw::Divider @level={{2}} />
 
@@ -290,8 +294,9 @@
                     @type={{type}}
                     mock-state-value={{state}}
                     mock-state-selector="{{if
-                      (and (not-eq state 'hover') (or (not-eq state 'active') bool))
-                      '.hds-accordion-item__button'
+                      (and (or (eq state 'active') (eq state 'hover')) (not bool))
+                      '.hds-disclosure-primitive__toggle'
+                      (if (not-eq state 'hover') '.hds-accordion-item__button')
                     }}"
                   >
                     <:toggle>Item one</:toggle>
