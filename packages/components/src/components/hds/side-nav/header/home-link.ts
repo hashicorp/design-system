@@ -6,14 +6,25 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-export default class HdsSideNavHeaderHomeLinkComponent extends Component {
+import type { HdsInteractiveSignature } from '../../interactive/';
+
+interface HdsSideNavHeaderHomeLinkSignature {
+  Args: HdsInteractiveSignature['Args'] & {
+    icon: string;
+    color?: string;
+    ariaLabel: string;
+  };
+  Element: HdsInteractiveSignature['Element'];
+}
+
+export default class HdsSideNavHeaderHomeLinkComponent extends Component<HdsSideNavHeaderHomeLinkSignature> {
   /**
    * @param ariaLabel
    * @type {string}
    * @description The value of `aria-label`
    */
   get ariaLabel() {
-    let { ariaLabel } = this.args;
+    const { ariaLabel } = this.args;
 
     assert(
       '@ariaLabel for "Hds::SideNav::Header::HomeLink" ("Logo") must have a valid value',

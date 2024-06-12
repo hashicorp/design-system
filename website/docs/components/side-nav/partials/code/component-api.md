@@ -129,7 +129,7 @@ The `SideNav::Header::HomeLink` component uses the generic `Hds::Interactive` co
 The `SideNav::Header::IconButton` component uses the generic `Hds::Interactive` component. For more details about this utility component please refer to [its documentation page](/utilities/interactive).
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="icon" @type="string">
+  <C.Property @name="icon" @type="string" @required="true">
     Used to show an icon. Any [icon](/icons/library) name is accepted.
   </C.Property>
   <C.Property @name="href">

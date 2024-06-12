@@ -2851,7 +2851,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/addon-shim@npm:^1.0.0, @embroider/addon-shim@npm:^1.2.0, @embroider/addon-shim@npm:^1.6.0, @embroider/addon-shim@npm:^1.8.3, @embroider/addon-shim@npm:^1.8.4, @embroider/addon-shim@npm:^1.8.6, @embroider/addon-shim@npm:^1.8.7":
+"@embroider/addon-shim@npm:^1.0.0, @embroider/addon-shim@npm:^1.2.0, @embroider/addon-shim@npm:^1.8.4, @embroider/addon-shim@npm:^1.8.6, @embroider/addon-shim@npm:^1.8.7":
+  version: 1.8.7
+  resolution: "@embroider/addon-shim@npm:1.8.7"
+  dependencies:
+    "@embroider/shared-internals": "npm:^2.5.1"
+    broccoli-funnel: "npm:^3.0.8"
+    semver: "npm:^7.3.8"
+  checksum: 68f378ce9f6a9d4ae7e79fb0f2ea71d493cb6a4326d6ed986ab6ab6315cf1c825ed2299c3d4efc0cb6497533916bf82a2916348fd5df9176a265a9699667a679
+  languageName: node
+  linkType: hard
+
+"@embroider/addon-shim@npm:^1.6.0, @embroider/addon-shim@npm:^1.8.3":
   version: 1.8.8
   resolution: "@embroider/addon-shim@npm:1.8.8"
   dependencies:
@@ -2895,7 +2906,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/macros@npm:1.16.1, @embroider/macros@npm:^0.50.0 || ^1.0.0, @embroider/macros@npm:^1.0.0, @embroider/macros@npm:^1.10.0, @embroider/macros@npm:^1.13.1, @embroider/macros@npm:^1.16.1, @embroider/macros@npm:^1.2.0, @embroider/macros@npm:^1.8.1, @embroider/macros@npm:^1.8.3":
+"@embroider/macros@npm:1.16.1, @embroider/macros@npm:^0.50.0 || ^1.0.0, @embroider/macros@npm:^1.0.0, @embroider/macros@npm:^1.10.0, @embroider/macros@npm:^1.13.1, @embroider/macros@npm:^1.16.1, @embroider/macros@npm:^1.8.1, @embroider/macros@npm:^1.8.3":
   version: 1.16.1
   resolution: "@embroider/macros@npm:1.16.1"
   dependencies:
@@ -2916,7 +2927,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/shared-internals@npm:2.6.0, @embroider/shared-internals@npm:^2.0.0, @embroider/shared-internals@npm:^2.6.0":
+"@embroider/macros@npm:^1.2.0":
+  version: 1.16.2
+  resolution: "@embroider/macros@npm:1.16.2"
+  dependencies:
+    "@embroider/shared-internals": "npm:2.6.1"
+    assert-never: "npm:^1.2.1"
+    babel-import-util: "npm:^2.0.0"
+    ember-cli-babel: "npm:^7.26.6"
+    find-up: "npm:^5.0.0"
+    lodash: "npm:^4.17.21"
+    resolve: "npm:^1.20.0"
+    semver: "npm:^7.3.2"
+  peerDependencies:
+    "@glint/template": ^1.0.0
+  peerDependenciesMeta:
+    "@glint/template":
+      optional: true
+  checksum: 8f3d47cdb9fab6ed41d20002b43328d7772a80bf9e65ec33c1e04aa0eec8e1f475f853f6c4d0aba768c55aa97db25c67242e35ab07f208148ac26ac591c4d10f
+  languageName: node
+  linkType: hard
+
+"@embroider/shared-internals@npm:2.6.0, @embroider/shared-internals@npm:^2.0.0, @embroider/shared-internals@npm:^2.5.1, @embroider/shared-internals@npm:^2.6.0":
   version: 2.6.0
   resolution: "@embroider/shared-internals@npm:2.6.0"
   dependencies:
@@ -2931,6 +2963,24 @@ __metadata:
     semver: "npm:^7.3.5"
     typescript-memoize: "npm:^1.0.1"
   checksum: 10/74f98b679422fc92ecbd61f221e6affec69071b188f34a394df46b6415e912f5deae09e619d3aae96f1a75ea5a640d5af6436f73693ad7038880cae17f56516f
+  languageName: node
+  linkType: hard
+
+"@embroider/shared-internals@npm:2.6.1":
+  version: 2.6.1
+  resolution: "@embroider/shared-internals@npm:2.6.1"
+  dependencies:
+    babel-import-util: "npm:^2.0.0"
+    debug: "npm:^4.3.2"
+    ember-rfc176-data: "npm:^0.3.17"
+    fs-extra: "npm:^9.1.0"
+    js-string-escape: "npm:^1.0.1"
+    lodash: "npm:^4.17.21"
+    minimatch: "npm:^3.0.4"
+    resolve-package-path: "npm:^4.0.1"
+    semver: "npm:^7.3.5"
+    typescript-memoize: "npm:^1.0.1"
+  checksum: b40621b4dd98aed7f9422cf996de40da2abb6aa15e494070579431b55d1786d824c041a683899b397e3a89e65abe2600f64ed0bce09e0b6781b1a3abe0bdeafd
   languageName: node
   linkType: hard
 
@@ -3680,6 +3730,7 @@ __metadata:
     "@tsconfig/ember": "npm:^3.0.6"
     "@types/ember-qunit": "npm:^6.1.1"
     "@types/ember-resolver": "npm:^9.0.0"
+    "@types/ember__destroyable": "npm:^4.0.5"
     "@types/qunit": "npm:^2.19.7"
     "@types/rsvp": "npm:^4.0.6"
     "@typescript-eslint/eslint-plugin": "npm:^6.14.0"
@@ -5245,6 +5296,13 @@ __metadata:
     "@types/ember__engine": "npm:^3"
     "@types/ember__object": "npm:^3"
   checksum: 10/b716d33efcd54969fcd046cf1b63e12bdff859c29284736d745e278fd7025ba0984c5f1a58051bc0fe5c360a20fddb50d4904320fd265280fd232ee12e574aab
+  languageName: node
+  linkType: hard
+
+"@types/ember__destroyable@npm:^4.0.5":
+  version: 4.0.5
+  resolution: "@types/ember__destroyable@npm:4.0.5"
+  checksum: 65fe01e00148427b0d716b18e33b1e36ec32c93176c1fcbeba38338a20d6437d2e31a4ce62ae720714b07f6619cf30c8529f8cdbcd169cc8222516bff14ae8e5
   languageName: node
   linkType: hard
 
