@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 
 export interface HdsApplicationStateHeaderSignature {
   Args: {
-    title: string;
+    title?: string;
     errorCode?: string;
     icon?: string;
   };
