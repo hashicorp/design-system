@@ -5,7 +5,7 @@
 
 export enum HdsAlertTypeValues {
   Page = 'page',
-  Inlne = 'inline',
+  Inline = 'inline',
   Compact = 'compact',
 }
 export type HdsAlertTypes = `${HdsAlertTypeValues}`;
