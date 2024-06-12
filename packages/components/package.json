@@ -75,6 +75,7 @@
     "@tsconfig/ember": "^3.0.6",
     "@types/ember-qunit": "^6.1.1",
     "@types/ember-resolver": "^9.0.0",
+    "@types/ember__destroyable": "^4.0.5",
     "@types/qunit": "^2.19.7",
     "@types/rsvp": "^4.0.6",
     "@typescript-eslint/eslint-plugin": "^6.14.0",

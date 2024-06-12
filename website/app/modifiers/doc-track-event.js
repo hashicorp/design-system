@@ -8,28 +8,8 @@ import { registerDestructor } from '@ember/destroyable';
 import { inject as service } from '@ember/service';
 import { assert } from '@ember/debug';
 
-function handleTriggerEvent(eventName) {
-  // https://usefathom.com/docs/features/events
-  window.fathom?.trackEvent(eventName);
-}
-
-function cleanup(instance) {
-  instance.element.removeEventListener(
-    instance.triggerEvent,
-    handleTriggerEvent
-  );
-
-  instance.element = null;
-  instance.eventName = null;
-  instance.triggerEvent = null;
-}
-
 export default class DocTrackEvent extends Modifier {
   @service fastboot;
-
-  element = null;
-  eventName = null;
-  triggerEvent = null;
 
   modify(element, _positional, named) {
     if (
@@ -37,24 +17,26 @@ export default class DocTrackEvent extends Modifier {
       this.fastboot.isFastBoot ||
       window.fathom == null
     ) {
+      // comment this line if you want to test in your local environment
       return;
     }
 
-    const { on = 'click', eventName } = named;
-
-    const hasValidEventName = typeof eventName === 'string';
+    const { triggerEvent = 'click', eventName } = named;
 
     assert(
       `@eventName for "doc-track-event" must be a string; received: ${eventName}`,
-      hasValidEventName
+      typeof eventName === 'string'
     );
 
-    this.element = element;
-    this.eventName = eventName;
-    this.triggerEvent = on;
+    const handleTriggerEvent = () => {
+      // https://usefathom.com/docs/features/events
+      window.fathom?.trackEvent(eventName);
+    };
 
-    element.addEventListener(this.triggerEvent, handleTriggerEvent(eventName));
+    element.addEventListener(triggerEvent, handleTriggerEvent);
 
-    registerDestructor(this, cleanup);
+    registerDestructor(this, () => {
+      element.removeEventListener(triggerEvent, handleTriggerEvent);
+    });
   }
 }

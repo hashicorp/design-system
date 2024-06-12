@@ -32,7 +32,7 @@ module('Integration | Modifier | doc-track-event', function (hooks) {
 
   test('it adds a focus event listener and tracks an event', async function (assert) {
     await render(
-      hbs`<input type="text" {{doc-track-event on='focus' eventName='testEvent'}} />`
+      hbs`<input type="text" {{doc-track-event triggerEvent='focus' eventName='testEvent'}} />`
     );
     await focus('input');
 
