@@ -15,3 +15,10 @@ export interface HdsApplicationStateHeaderSignature {
 }
 
 export default class HdsApplicationStateHeaderComponent extends Component<HdsApplicationStateHeaderSignature> {}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'Hds::ApplicationState::Header': typeof HdsApplicationStateHeaderComponent;
+    'hds/application-state/header': typeof HdsApplicationStateHeaderComponent;
+  }
+}

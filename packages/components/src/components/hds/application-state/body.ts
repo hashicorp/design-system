@@ -16,3 +16,10 @@ export interface HdsApplicationStateBodySignature {
 }
 
 export default class HdsApplicationStateBodyComponent extends Component<HdsApplicationStateBodySignature> {}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'Hds::ApplicationState::Body': typeof HdsApplicationStateBodyComponent;
+    'hds/application-state/body': typeof HdsApplicationStateBodyComponent;
+  }
+}
