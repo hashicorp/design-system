@@ -8,28 +8,8 @@ import { registerDestructor } from '@ember/destroyable';
 import { inject as service } from '@ember/service';
 import { assert } from '@ember/debug';
 
-function handleTriggerEvent(eventName) {
-  // https://usefathom.com/docs/features/events
-  window.fathom?.trackEvent(eventName);
-}
-
-function cleanup(instance) {
-  instance.element.removeEventListener(
-    instance.triggerEvent,
-    handleTriggerEvent
-  );
-
-  instance.element = null;
-  instance.eventName = null;
-  instance.triggerEvent = null;
-}
-
 export default class DocTrackEvent extends Modifier {
   @service fastboot;
-
-  element = null;
-  eventName = null;
-  triggerEvent = null;
 
   modify(element, _positional, named) {
     if (
@@ -49,12 +29,15 @@ export default class DocTrackEvent extends Modifier {
       hasValidEventName
     );
 
-    this.element = element;
-    this.eventName = eventName;
-    this.triggerEvent = triggerEvent;
+    const handleTriggerEvent = () => {
+      // https://usefathom.com/docs/features/events
+      window.fathom?.trackEvent(eventName);
+    };
 
-    element.addEventListener(this.triggerEvent, handleTriggerEvent(eventName));
+    element.addEventListener(triggerEvent, handleTriggerEvent);
 
-    registerDestructor(this, cleanup);
+    registerDestructor(this, () => {
+      element.removeEventListener(triggerEvent, handleTriggerEvent);
+    });
   }
 }
