@@ -17,6 +17,7 @@ export default class DocTrackEvent extends Modifier {
       this.fastboot.isFastBoot ||
       window.fathom == null
     ) {
+      // comment this line if you want to test in your local environment
       return;
     }
 
