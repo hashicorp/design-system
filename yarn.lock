@@ -2858,7 +2858,7 @@ __metadata:
     "@embroider/shared-internals": "npm:^2.5.1"
     broccoli-funnel: "npm:^3.0.8"
     semver: "npm:^7.3.8"
-  checksum: 68f378ce9f6a9d4ae7e79fb0f2ea71d493cb6a4326d6ed986ab6ab6315cf1c825ed2299c3d4efc0cb6497533916bf82a2916348fd5df9176a265a9699667a679
+  checksum: 10/68f378ce9f6a9d4ae7e79fb0f2ea71d493cb6a4326d6ed986ab6ab6315cf1c825ed2299c3d4efc0cb6497533916bf82a2916348fd5df9176a265a9699667a679
   languageName: node
   linkType: hard
 
@@ -2944,7 +2944,7 @@ __metadata:
   peerDependenciesMeta:
     "@glint/template":
       optional: true
-  checksum: 8f3d47cdb9fab6ed41d20002b43328d7772a80bf9e65ec33c1e04aa0eec8e1f475f853f6c4d0aba768c55aa97db25c67242e35ab07f208148ac26ac591c4d10f
+  checksum: 10/8f3d47cdb9fab6ed41d20002b43328d7772a80bf9e65ec33c1e04aa0eec8e1f475f853f6c4d0aba768c55aa97db25c67242e35ab07f208148ac26ac591c4d10f
   languageName: node
   linkType: hard
 
@@ -2980,7 +2980,7 @@ __metadata:
     resolve-package-path: "npm:^4.0.1"
     semver: "npm:^7.3.5"
     typescript-memoize: "npm:^1.0.1"
-  checksum: b40621b4dd98aed7f9422cf996de40da2abb6aa15e494070579431b55d1786d824c041a683899b397e3a89e65abe2600f64ed0bce09e0b6781b1a3abe0bdeafd
+  checksum: 10/b40621b4dd98aed7f9422cf996de40da2abb6aa15e494070579431b55d1786d824c041a683899b397e3a89e65abe2600f64ed0bce09e0b6781b1a3abe0bdeafd
   languageName: node
   linkType: hard
 
@@ -5311,7 +5311,7 @@ __metadata:
 "@types/ember__destroyable@npm:^4.0.5":
   version: 4.0.5
   resolution: "@types/ember__destroyable@npm:4.0.5"
-  checksum: 65fe01e00148427b0d716b18e33b1e36ec32c93176c1fcbeba38338a20d6437d2e31a4ce62ae720714b07f6619cf30c8529f8cdbcd169cc8222516bff14ae8e5
+  checksum: 10/65fe01e00148427b0d716b18e33b1e36ec32c93176c1fcbeba38338a20d6437d2e31a4ce62ae720714b07f6619cf30c8529f8cdbcd169cc8222516bff14ae8e5
   languageName: node
   linkType: hard
 
