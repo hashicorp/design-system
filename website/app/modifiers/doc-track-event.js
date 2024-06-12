@@ -22,11 +22,9 @@ export default class DocTrackEvent extends Modifier {
 
     const { triggerEvent = 'click', eventName } = named;
 
-    const hasValidEventName = typeof eventName === 'string';
-
     assert(
       `@eventName for "doc-track-event" must be a string; received: ${eventName}`,
-      hasValidEventName
+      typeof eventName === 'string'
     );
 
     const handleTriggerEvent = () => {
