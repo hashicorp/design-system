@@ -48,6 +48,36 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     assert.dom('#test-em').exists().hasText('Content one');
   });
 
+  // SIZE
+
+  test('it should render the medium size as the default if no @size is declared', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Accordion id="test-accordion" as |A|>
+          <A.Item>Item</A.Item>
+        </Hds::Accordion>
+      `
+    );
+    assert.dom('#test-accordion').hasClass('hds-accordion--size-medium');
+    assert
+      .dom('#test-accordion .hds-accordion-item')
+      .hasClass('hds-accordion-item--size-medium');
+  });
+
+  test('it should render the correct CSS size class depending on the @size', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Accordion id="test-accordion" @size="large" as |A|>
+          <A.Item>Item</A.Item>
+        </Hds::Accordion>
+      `
+    );
+    assert.dom('#test-accordion').hasClass('hds-accordion--size-large');
+    assert
+      .dom('#test-accordion .hds-accordion-item')
+      .hasClass('hds-accordion-item--size-large');
+  });
+
   // TYPE
 
   test('it should render the card type as the default if no @type is declared', async function (assert) {
