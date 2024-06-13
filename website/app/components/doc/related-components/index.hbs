@@ -17,7 +17,7 @@
       @model={{card.model}}
       @href={{card.href}}
       @layout="horizontal"
-      {{doc-track-event eventName="Related - {{@componentTitle}} - {{card.title}}"}}
+      {{doc-track-event eventName=(concat "Related - " @componentTitle " - " card.title)}}
     />
   {{/each}}
 </Doc::Cards::Deck>
