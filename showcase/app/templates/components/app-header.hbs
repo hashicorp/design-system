@@ -96,7 +96,7 @@
         </:globalAfter>
 
         <:utility>
-          <Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" />
+          <Hds::Button class="hds-side-nav__icon-button" @icon="search" @isIconOnly={{true}} @text="Search" />
 
           <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="bottom-right" as |dd|>
             <dd.ToggleIcon @icon="help" @text="help menu" />
@@ -123,7 +123,8 @@
     <SG.Item @label="With max recommended future content">
       <Hds::AppHeader>
         <:globalBefore>
-          <FlightIcon @name="grid-alt" />
+          {{! TODO: Rethink / Refactor buttons (Hds::SideNav::Header::IconButton) for use in AppHeader (& SideNav ) }}
+          <Hds::Button class="hds-side-nav__icon-button" @icon="grid-alt" @isIconOnly={{true}} @text="Product menu" />
         </:globalBefore>
 
         <:logo>
@@ -140,7 +141,7 @@
         </:globalAfter>
 
         <:utility>
-          <Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" />
+          <Hds::Button class="hds-side-nav__icon-button" @icon="search" @isIconOnly={{true}} @text="Search" />
 
           <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
             <dd.ToggleButton @text="Europe" @icon="globe" />
