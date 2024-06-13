@@ -1,0 +1,71 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// APP-HEADER
+//
+
+@use "../mixins/focus-ring" as *;
+
+// TODO: Copy & pasted, clean up
+@mixin hds-side-nav-icon-button($add-visible-border: false) {
+  color: var(--token-side-nav-color-foreground-strong);
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--token-side-nav-body-list-item-border-radius);
+  cursor: pointer;
+
+  @if ($add-visible-border) {
+    border-color: var(--token-color-palette-neutral-500);
+  }
+
+  &:focus,
+  &.mock-focus {
+    @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px);
+  }
+
+  &:hover,
+  &.mock-hover {
+    color: var(--token-side-nav-color-foreground-strong); // to avoid overrides by specificity (eg. `a:hover`)
+    background: var(--token-side-nav-color-surface-interactive-hover);
+  }
+
+  &:active,
+  &.mock-active {
+    color: var(--token-side-nav-color-foreground-strong); // to avoid overrides by specificity (eg. `a:hover`)
+    background: var(--token-side-nav-color-surface-interactive-active);
+
+    @if ($add-visible-border) {
+      border-color: var(--token-color-palette-neutral-400);
+    }
+  }
+}
+
+.hds-app-header {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 56px; 
+  padding: 8px 16px;
+  color: #FFF;
+  background: var(--token-color-foreground-strong);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 25%);
+}
+
+.hds-app-header__sub-section {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hds-app-header__home-link {
+  @include hds-side-nav-icon-button();
+  display: block;
+  width: 40px;
+  height: 40px;
+  padding: calc(var(--token-side-nav-header-home-link-padding) - 1px); // by design -  we take in account the transparent border
+}

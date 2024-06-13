@@ -10,19 +10,6 @@
 <section data-test-percy>
   <Shw::Text::H2>Content</Shw::Text::H2>
 
-  <Shw::Text::H3>(WIP) With only body content (for pairing with AppHeader)</Shw::Text::H3>
-  {{! TODO: Move }}
-
-  <div class="shw-component-sim-side-nav-root-container">
-    <Hds::SideNav @isResponsive={{true}} @hasA11yRefocus={{false}} @isCollapsible={{true}}>
-      <:body>
-        <Hds::SideNav::Portal::Target @targetName="sidenav-portal-demo-2" />
-      </:body>
-    </Hds::SideNav>
-  </div>
-
-  <Shw::Divider />
-
   <Shw::Text::H3>With generic content</Shw::Text::H3>
 
   <Shw::Flex as |SF|>
@@ -259,6 +246,39 @@
     </SG.Item>
   </Shw::Grid>
 
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>Only body content (used with AppHeader)</Shw::Text::H3>
+
+  <div class="shw-component-sim-side-nav-root-container">
+    <Hds::SideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
+      <:body>
+        <Hds::SideNav::List aria-label="Dashboard" as |SNL|>
+          <SNL.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
+        </Hds::SideNav::List>
+
+        <Hds::SideNav::List aria-label="Services" as |SNL|>
+          <SNL.Title>Services</SNL.Title>
+          <SNL.Link @text="Boundary" @icon="boundary" @href="#" />
+          <SNL.Link @text="Consul" @icon="consul" @href="#" />
+          <SNL.Link @text="Packer" @icon="packer" @href="#" />
+          <SNL.Link @text="Vault" @icon="vault" @href="#" />
+          <SNL.Link @text="Vault Secrets" @icon="vault-secrets-square" @href="#" />
+          <SNL.Link @text="Terraform" @icon="terraform" @href="#" />
+          <SNL.Link @text="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
+          <SNL.Link @text="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} />
+        </Hds::SideNav::List>
+        <Hds::SideNav::List aria-label="Organization" as |SNL|>
+          <SNL.Title>Default Org</SNL.Title>
+          <SNL.Link @text="HashiCorp Virtual Networks" @icon="network" @href="#" />
+          <SNL.Link @text="Access control (IAM)" @icon="users" @href="#" @hasSubItems={{true}} />
+          <SNL.Link @text="Billing" @icon="credit-card" @href="#" @hasSubItems={{true}} />
+          <SNL.Link @text="Settings" @icon="settings" @href="#" @hasSubItems={{true}} />
+          <SNL.Link @href="#" @isHrefExternal="true" @icon="guide" @text="Documentation" />
+        </Hds::SideNav::List>
+      </:body>
+    </Hds::SideNav>
+  </div>
 </section>
 
 <Shw::Divider />

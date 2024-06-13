@@ -1,0 +1,174 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "AppHeader Component"}}
+
+<Shw::Text::H1>AppHeader</Shw::Text::H1>
+
+<section data-test-percy>
+  <Shw::Text::H2>Content</Shw::Text::H2>
+
+  <Shw::Text::H3>With generic content</Shw::Text::H3>
+
+  <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
+    <SG.Item>
+      <Hds::AppHeader>
+        <:globalBefore>
+          <Shw::Placeholder @height="2em" @width="auto" @text="ProductMenu" />
+        </:globalBefore>
+
+        <:logo>
+          <Shw::Placeholder @height="2em" @width="auto" @text="LOGO" />
+        </:logo>
+
+        <:globalAfter>
+          <Shw::Placeholder @height="2em" @width="auto" @text="OrgPicker" />
+        </:globalAfter>
+
+        <:utility>
+          <Shw::Placeholder @height="2em" @width="auto" @text="Search" />
+          <Shw::Placeholder @height="2em" @width="auto" @text="HelpMenu" />
+          <Shw::Placeholder @height="2em" @width="auto" @text="GeoPicker" />
+          <Shw::Placeholder @height="2em" @width="auto" @text="UserMenu" />
+        </:utility>
+      </Hds::AppHeader>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>With child component content</Shw::Text::H3>
+
+  <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
+    <SG.Item @label="With minimum recommended phase 1 content">
+      <Hds::AppHeader>
+        <:logo>
+          <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
+        </:logo>
+
+        <:globalAfter>
+          <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
+            <dd.ToggleButton @text="Choose an organization" @icon="org" />
+            <dd.Checkmark>
+              organizationName
+            </dd.Checkmark>
+          </Hds::Dropdown>
+        </:globalAfter>
+
+        <:utility>
+          <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="bottom-right" as |dd|>
+            <dd.ToggleIcon @icon="help" @text="help menu" />
+            <dd.Title @text="Help & Support" />
+            <dd.Interactive @text="Documentation" @href="#" />
+            <dd.Interactive @text="Tutorials" @href="#" />
+            <dd.Interactive @text="Terraform Provider" @href="#" />
+            <dd.Interactive @text="Changelog" @href="#" />
+            <dd.Separator />
+            <dd.Interactive @text="Create support ticket" @href="#" />
+            <dd.Interactive @text="Give feedback" @href="#" />
+          </Hds::Dropdown>
+
+          <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="bottom-right" as |dd|>
+            <dd.ToggleIcon @icon="user" @text="user menu" />
+            <dd.Title @text="Signed In" />
+            <dd.Description @text="email@domain.com" />
+            <dd.Interactive @href="#" @text="Account Settings" />
+          </Hds::Dropdown>
+        </:utility>
+      </Hds::AppHeader>
+    </SG.Item>
+
+    <SG.Item @label="With max recommended phase 1 content">
+      <Hds::AppHeader>
+        <:logo>
+          <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
+        </:logo>
+
+        <:globalAfter>
+          <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
+            <dd.ToggleButton @text="Choose an organization" @icon="org" />
+            <dd.Checkmark>
+              organizationName
+            </dd.Checkmark>
+          </Hds::Dropdown>
+        </:globalAfter>
+
+        <:utility>
+          <Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" />
+
+          <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="bottom-right" as |dd|>
+            <dd.ToggleIcon @icon="help" @text="help menu" />
+            <dd.Title @text="Help & Support" />
+            <dd.Interactive @text="Documentation" @href="#" />
+            <dd.Interactive @text="Tutorials" @href="#" />
+            <dd.Interactive @text="Terraform Provider" @href="#" />
+            <dd.Interactive @text="Changelog" @href="#" />
+            <dd.Separator />
+            <dd.Interactive @text="Create support ticket" @href="#" />
+            <dd.Interactive @text="Give feedback" @href="#" />
+          </Hds::Dropdown>
+
+          <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="bottom-right" as |dd|>
+            <dd.ToggleIcon @icon="user" @text="user menu" />
+            <dd.Title @text="Signed In" />
+            <dd.Description @text="email@domain.com" />
+            <dd.Interactive @href="#" @text="Account Settings" />
+          </Hds::Dropdown>
+        </:utility>
+      </Hds::AppHeader>
+    </SG.Item>
+
+    <SG.Item @label="With max recommended future content">
+      <Hds::AppHeader>
+        <:globalBefore>
+          <FlightIcon @name="grid-alt" />
+        </:globalBefore>
+
+        <:logo>
+          <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
+        </:logo>
+
+        <:globalAfter>
+          <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
+            <dd.ToggleButton @text="Choose an organization" @icon="org" />
+            <dd.Checkmark>
+              organizationName
+            </dd.Checkmark>
+          </Hds::Dropdown>
+        </:globalAfter>
+
+        <:utility>
+          <Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" />
+
+          <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
+            <dd.ToggleButton @text="Europe" @icon="globe" />
+            <dd.Checkmark>
+              Americas
+            </dd.Checkmark>
+          </Hds::Dropdown>
+
+          <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="bottom-right" as |dd|>
+            <dd.ToggleIcon @icon="help" @text="help menu" />
+            <dd.Title @text="Help & Support" />
+            <dd.Interactive @text="Documentation" @href="#" />
+            <dd.Interactive @text="Tutorials" @href="#" />
+            <dd.Interactive @text="Terraform Provider" @href="#" />
+            <dd.Interactive @text="Changelog" @href="#" />
+            <dd.Separator />
+            <dd.Interactive @text="Create support ticket" @href="#" />
+            <dd.Interactive @text="Give feedback" @href="#" />
+          </Hds::Dropdown>
+
+          <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="bottom-right" as |dd|>
+            <dd.ToggleIcon @icon="user" @text="user menu" />
+            <dd.Title @text="Signed In" />
+            <dd.Description @text="email@domain.com" />
+            <dd.Interactive @href="#" @text="Account Settings" />
+          </Hds::Dropdown>
+        </:utility>
+      </Hds::AppHeader>
+    </SG.Item>
+  </Shw::Grid>
+</section>
