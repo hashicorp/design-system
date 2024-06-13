@@ -14,9 +14,7 @@ export interface HdsTabsTabSignature {
     icon?: string;
     isSelected?: boolean;
     tabIds?: string[];
-    // TODO: how does isSelected work?
     didInsertNode: (element: HTMLButtonElement, isSelected?: boolean) => void;
-    // TODO: verify that isSelected is optional
     didUpdateNode: (nodeIndex: number, isSelected?: boolean) => void;
     willDestroyNode: (element: HTMLButtonElement) => void;
     onClick: (event: MouseEvent, tabIndex: number) => void;
