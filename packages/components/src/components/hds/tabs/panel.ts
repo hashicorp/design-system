@@ -7,7 +7,25 @@ import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
 
-export default class HdsTabsPanelComponent extends Component {
+export interface HdsTabsPanelSignature {
+  Args: {
+    tabIds: string[];
+    panelIds?: string[];
+    selectedTabIndex: number;
+    didInsertNode: (element: HTMLElement, isSelected?: boolean) => void;
+    willDestroyNode: (element: HTMLElement) => void;
+  };
+  Blocks: {
+    default: [
+      {
+        isVisible: boolean;
+      }
+    ];
+  };
+  Element: HTMLElement;
+}
+
+export default class HdsTabsPanelComponent extends Component<HdsTabsPanelSignature> {
   /**
    * Generate a unique ID for the Panel
    * @return {string}
@@ -40,7 +58,7 @@ export default class HdsTabsPanelComponent extends Component {
 
   @action
   didInsertNode(element) {
-    let { didInsertNode } = this.args;
+    const { didInsertNode } = this.args;
 
     if (typeof didInsertNode === 'function') {
       this.elementId = element.id;
@@ -49,8 +67,8 @@ export default class HdsTabsPanelComponent extends Component {
   }
 
   @action
-  willDestroyNode(element) {
-    let { willDestroyNode } = this.args;
+  willDestroyNode(element: HTMLElement) {
+    const { willDestroyNode } = this.args;
 
     if (typeof willDestroyNode === 'function') {
       willDestroyNode(element);

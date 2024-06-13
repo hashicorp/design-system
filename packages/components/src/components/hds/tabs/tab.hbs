@@ -13,8 +13,8 @@
     tabindex={{unless this.isSelected "-1"}}
     {{did-insert this.didInsertNode @isSelected}}
     {{did-update this.didUpdateNode @count @isSelected}}
-    {{will-destroy this.willDestroyNode}}
-    {{on "click" this.onClick}}
+    {{will-destroy @willDestroyNode}}
+    {{on "click" @onClick}}
     {{on "keyup" this.onKeyUp}}
   >
     {{#if @icon}}

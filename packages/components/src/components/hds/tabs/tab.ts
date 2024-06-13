@@ -10,10 +10,10 @@ import { action } from '@ember/object';
 export interface HdsTabsTabSignature {
   Args: {
     selectedTabIndex: number;
+    tabIds: string[];
     count?: string;
     icon?: string;
     isSelected?: boolean;
-    tabIds?: string[];
     didInsertNode: (element: HTMLButtonElement, isSelected?: boolean) => void;
     didUpdateNode: (nodeIndex: number, isSelected?: boolean) => void;
     willDestroyNode: (element: HTMLButtonElement) => void;
@@ -34,7 +34,7 @@ export default class HdsTabsTabComponent extends Component<HdsTabsTabSignature> 
   tabId = 'tab-' + guidFor(this);
 
   get nodeIndex() {
-    return this.args.tabIds?.indexOf(this.tabId);
+    return this.args.tabIds.indexOf(this.tabId);
   }
 
   /**
@@ -43,66 +43,23 @@ export default class HdsTabsTabComponent extends Component<HdsTabsTabSignature> 
    * @default false (1st tab is selected by default)
    */
   get isSelected() {
-    return (
-      this.nodeIndex !== undefined &&
-      this.nodeIndex === this.args.selectedTabIndex
-    );
+    return this.nodeIndex === this.args.selectedTabIndex;
   }
 
   @action
   didInsertNode(element: HTMLButtonElement, positional: [boolean?]) {
-    const { didInsertNode } = this.args;
-
     const isSelected = positional[0];
-
-    // TODO: This check doesn't appear necessary? Unless we also use tab outside of tabs?
-    if (typeof didInsertNode === 'function') {
-      didInsertNode(element, isSelected);
-    }
+    this.args.didInsertNode(element, isSelected);
   }
 
   @action
   didUpdateNode() {
-    const { didUpdateNode } = this.args;
-
-    // TODO: This check doesn't appear necessary? Unless we also use tab outside of tabs?
-    if (typeof didUpdateNode === 'function' && this.nodeIndex !== undefined) {
-      didUpdateNode(this.nodeIndex, this.args.isSelected);
-    }
-  }
-
-  @action
-  willDestroyNode(element: HTMLButtonElement) {
-    const { willDestroyNode } = this.args;
-
-    // TODO: This check doesn't appear necessary? Unless we also use tab outside of tabs?
-    if (typeof willDestroyNode === 'function') {
-      willDestroyNode(element);
-    }
-  }
-
-  @action
-  onClick(event: MouseEvent) {
-    const { onClick } = this.args;
-
-    // TODO: This check doesn't appear necessary? Unless we also use tab outside of tabs?
-    if (typeof onClick === 'function') {
-      onClick(event, this.nodeIndex!);
-    } else {
-      return false;
-    }
+    this.args.didUpdateNode(this.nodeIndex, this.args.isSelected);
   }
 
   @action
   onKeyUp(event: KeyboardEvent) {
-    const { onKeyUp } = this.args;
-
-    // TODO: This check doesn't appear necessary? Unless we also use tab outside of tabs?
-    if (typeof onKeyUp === 'function' && this.nodeIndex !== undefined) {
-      onKeyUp(this.nodeIndex, event);
-    } else {
-      return false;
-    }
+    this.args.onKeyUp(this.nodeIndex, event);
   }
 
   /**
