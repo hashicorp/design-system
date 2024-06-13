@@ -14,7 +14,11 @@
     {{did-insert this.didInsertNode @isSelected}}
     {{did-update this.didUpdateNode @count @isSelected}}
     {{will-destroy @willDestroyNode}}
+<<<<<<< HEAD
     {{on "click" this.onClick}}
+=======
+    {{on "click" @onClick}}
+>>>>>>> b9f03f2db (making changes to the tab component based on the assumption that  will always be an array)
     {{on "keyup" this.onKeyUp}}
   >
     {{#if @icon}}
