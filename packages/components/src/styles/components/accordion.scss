@@ -10,7 +10,9 @@
 @use "../mixins/button" as *;
 @use "../mixins/focus-ring" as *;
 
-$hds-accordion-item-padding: 16px;
+$hds-accordion-item-padding-large: 16px;
+$hds-accordion-item-padding-medium: 12px;
+$hds-accordion-item-padding-small: 8px;
 $hds-accordion-item-border-radius: 6px;
 
 // ACCORDION COMPONENT (wrapper)
@@ -21,8 +23,19 @@ $hds-accordion-item-border-radius: 6px;
 }
 
 .hds-accordion--type-card {
-  gap: 12px;
-}
+  &.hds-accordion--size-large {
+    gap: 12px;
+  }
+
+  &.hds-accordion--size-medium {
+    gap: 8px;
+  }
+
+  &.hds-accordion--size-small {
+    gap: 4px;
+  }
+}  
+
 
 // ACCORDION ITEM COMPONENT (nested child)
 
@@ -91,10 +104,34 @@ $hds-accordion-item-border-radius: 6px;
   gap: 12px;
   align-items: center;
   padding:
-    $hds-accordion-item-padding
-    $hds-accordion-item-padding
-    $hds-accordion-item-padding
+  $hds-accordion-item-padding-large
+  $hds-accordion-item-padding-large
+  $hds-accordion-item-padding-large
+  12px; // by design
+
+  .hds-accordion-item--size-large & {
+    padding:
+    $hds-accordion-item-padding-large
+    $hds-accordion-item-padding-large
+    $hds-accordion-item-padding-large
     12px; // by design
+  }
+
+  .hds-accordion-item--size-medium & {
+    padding:
+    $hds-accordion-item-padding-medium
+    $hds-accordion-item-padding-medium
+    $hds-accordion-item-padding-medium
+    12px; // by design
+  }
+
+  .hds-accordion-item--size-small & {
+    padding:
+    $hds-accordion-item-padding-small
+    $hds-accordion-item-padding-small
+    $hds-accordion-item-padding-small
+    12px; // by design
+  }
 }
 
 .hds-accordion-item__button {
@@ -148,6 +185,27 @@ $hds-accordion-item-border-radius: 6px;
       transition: transform 0.3s;
     }
   }
+
+  .hds-accordion-item--size-large & {
+    .flight-icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .hds-accordion-item--size-medium & {
+    .flight-icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .hds-accordion-item--size-small & {
+    .flight-icon {
+      width: 16px;
+      height: 16px;
+    }
+  }
 }
 
 // Consumer added content that appears next to the chevron button:
@@ -158,5 +216,15 @@ $hds-accordion-item-border-radius: 6px;
 // CONTENT BLOCK
 
 .hds-accordion-item__content {
-  padding: 4px $hds-accordion-item-padding $hds-accordion-item-padding $hds-accordion-item-padding;
+  .hds-accordion-item--size-large & {
+    padding: 4px $hds-accordion-item-padding-large $hds-accordion-item-padding-large $hds-accordion-item-padding-large;
+  }
+
+  .hds-accordion-item--size-medium & {
+    padding: 4px $hds-accordion-item-padding-medium $hds-accordion-item-padding-medium $hds-accordion-item-padding-medium;
+  }
+
+  .hds-accordion-item--size-small & {
+    padding: 4px $hds-accordion-item-padding-small $hds-accordion-item-padding-small $hds-accordion-item-padding-small;
+  }
 }

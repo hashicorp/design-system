@@ -6,15 +6,16 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-import { TYPES, DEFAULT_TYPE } from './item/index.ts';
+import { SIZES, DEFAULT_SIZE, TYPES, DEFAULT_TYPE } from './item/index.ts';
 
 import type { ComponentLike } from '@glint/template';
 import type { HdsAccordionItemSignature } from './item/index.ts';
-import type { HdsAccordionTypes } from './types.ts';
+import type { HdsAccordionSizes, HdsAccordionTypes } from './types.ts';
 
 interface HdsAccordionSignature {
   Args: {
-    type: HdsAccordionTypes;
+    size?: HdsAccordionSizes;
+    type?: HdsAccordionTypes;
   };
   Blocks: {
     default: [
@@ -27,6 +28,26 @@ interface HdsAccordionSignature {
 }
 
 export default class HdsAlertComponent extends Component<HdsAccordionSignature> {
+  /**
+   * Sets the type of the component
+   *
+   * @param size
+   * @type {HdsAccordionSizes}
+   * @default 'large'
+   */
+  get size() {
+    const { size = DEFAULT_SIZE } = this.args;
+
+    assert(
+      `@size for "Hds::Accordion" must be one of the following: ${SIZES.join(
+        ', '
+      )}; received: ${size}`,
+      SIZES.includes(size)
+    );
+
+    return size;
+  }
+
   /**
    * Sets the type of the component
    *
@@ -54,6 +75,9 @@ export default class HdsAlertComponent extends Component<HdsAccordionSignature> 
    */
   get classNames() {
     const classes = ['hds-accordion'];
+
+    // add a class based on the @type argument
+    classes.push(`hds-accordion--size-${this.size}`);
 
     // add a class based on the @type argument
     classes.push(`hds-accordion--type-${this.type}`);

@@ -7,8 +7,11 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 
-import { HdsAccordionTypeValues } from '../types.ts';
-import type { HdsAccordionTypes } from '../types.ts';
+import { HdsAccordionSizeValues, HdsAccordionTypeValues } from '../types.ts';
+import type { HdsAccordionSizes, HdsAccordionTypes } from '../types.ts';
+
+export const SIZES: string[] = Object.values(HdsAccordionSizeValues);
+export const DEFAULT_SIZE = HdsAccordionSizeValues.Medium;
 
 export const TYPES: string[] = Object.values(HdsAccordionTypeValues);
 export const DEFAULT_TYPE = HdsAccordionTypeValues.Card;
@@ -19,7 +22,8 @@ export interface HdsAccordionItemSignature {
     containsInteractive?: boolean;
     isOpen?: boolean;
     isStatic?: boolean;
-    type: HdsAccordionTypes;
+    size?: HdsAccordionSizes;
+    type?: HdsAccordionTypes;
   };
   Blocks: {
     content?: [];
@@ -52,6 +56,42 @@ export default class HdsAccordionItemComponent extends Component<HdsAccordionIte
    */
   get containsInteractive(): boolean {
     return this.args.containsInteractive ?? false;
+  }
+
+  /**
+   * @param toggleTextSize
+   * @type {HdsTextSizes}
+   * @default false
+   */
+  get toggleTextSize() {
+    const size = this.args.size ?? 'large';
+    const sizeMap = {
+      large: 300,
+      medium: 200,
+      small: 100,
+    };
+
+    return sizeMap[size];
+  }
+
+  /**
+   * Sets the type of the component
+   *
+   * @param size
+   * @type {HdsAccordionSizes}
+   * @default 'large'
+   */
+  get size() {
+    const { size = DEFAULT_SIZE } = this.args;
+
+    assert(
+      `@size for "Hds::Accordion" must be one of the following: ${SIZES.join(
+        ', '
+      )}; received: ${size}`,
+      SIZES.includes(size)
+    );
+
+    return size;
   }
 
   /**
@@ -91,6 +131,9 @@ export default class HdsAccordionItemComponent extends Component<HdsAccordionIte
     if (this.args.isStatic) {
       classes.push('hds-accordion-item--is-static');
     }
+
+    // add a class based on the @type argument
+    classes.push(`hds-accordion-item--size-${this.size}`);
 
     // add a class based on the @type argument
     classes.push(`hds-accordion-item--type-${this.type}`);

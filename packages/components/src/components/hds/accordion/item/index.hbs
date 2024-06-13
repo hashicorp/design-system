@@ -12,19 +12,20 @@
           @onClickToggle={{t.onClickToggle}}
           @contentId={{this.contentId}}
           @ariaLabel={{this.ariaLabel}}
+          @size={{this.size}}
           @parentContainsInteractive={{this.containsInteractive}}
         />
       {{/if}}
 
-      <Hds::Text::Display
+      <Hds::Text::Body
         @tag="div"
-        @size="200"
+        @size={{this.toggleTextSize}}
         @weight="semibold"
         @color="strong"
         class="hds-accordion-item__toggle-content"
       >
         {{yield to="toggle"}}
-      </Hds::Text::Display>
+      </Hds::Text::Body>
     </div>
   </:toggle>
 
