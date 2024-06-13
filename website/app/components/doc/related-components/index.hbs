@@ -9,15 +9,17 @@
 
 <Doc::Cards::Deck @cols="2">
   {{#each @cards as |card|}}
-    <Doc::Cards::Card
-      @image={{card.image}}
-      @title={{card.title}}
-      @caption={{card.caption}}
-      @route={{card.route}}
-      @model={{card.model}}
-      @href={{card.href}}
-      @layout="horizontal"
-      {{doc-track-event eventName="Related - {{@componentTitle}} - {{card.title}}"}}
-    />
+    {{#let (concat "Related - " @componentTitle " - " card.title) as |eventName|}}
+      <Doc::Cards::Card
+        @image={{card.image}}
+        @title={{card.title}}
+        @caption={{card.caption}}
+        @route={{card.route}}
+        @model={{card.model}}
+        @href={{card.href}}
+        @layout="horizontal"
+        {{doc-track-event eventName=eventName}}
+      />
+    {{/let}}
   {{/each}}
 </Doc::Cards::Deck>
