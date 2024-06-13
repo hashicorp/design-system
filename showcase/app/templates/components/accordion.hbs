@@ -59,19 +59,20 @@
   <Shw::Text::H3>Generic content</Shw::Text::H3>
 
   <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
-    <SG.Item @label="With generic content in toggle">
-      <Hds::Accordion as |A|>
-        <A.Item>
-          <:toggle>
-            <Shw::Placeholder @text="generic content" @height="24" />
-          </:toggle>
-          <:content>
-            <Shw::Placeholder @text="generic content" @height="40" />
-          </:content>
-        </A.Item>
-      </Hds::Accordion>
-    </SG.Item>
-    <SG.Item />
+    {{#each @model.TYPES as |type|}}
+      <SG.Item @label="{{capitalize type}} with generic content in toggle">
+        <Hds::Accordion @type={{type}} as |A|>
+          <A.Item>
+            <:toggle>
+              <Shw::Placeholder @text="generic content" @height="24" />
+            </:toggle>
+            <:content>
+              <Shw::Placeholder @text="generic content" @height="40" />
+            </:content>
+          </A.Item>
+        </Hds::Accordion>
+      </SG.Item>
+    {{/each}}
   </Shw::Grid>
 
   <Shw::Divider @level={{2}} />
