@@ -22,6 +22,7 @@ export default class EventService extends Service {
   @action
   trackEvent(eventName) {
     if (!this.isEnabled) {
+      // comment this line if you want to test in your local environment
       return;
     }
 
