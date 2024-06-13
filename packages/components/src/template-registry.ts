@@ -25,6 +25,10 @@ import type HdsAppFrameHeaderComponent from './components/hds/app-frame/parts/he
 import type HdsAppFrameMainComponent from './components/hds/app-frame/parts/main';
 import type HdsAppFrameModalsComponent from './components/hds/app-frame/parts/modals';
 import type HdsAppFrameSidebarComponent from './components/hds/app-frame/parts/sidebar';
+import type HdsApplicationStateComponent from './components/hds/application-state';
+import type HdsApplicationStateBodyComponent from './components/hds/application-state/body';
+import type HdsApplicationStateFooterComponent from './components/hds/application-state/footer';
+import type HdsApplicationStateHeaderComponent from './components/hds/application-state/header';
 import type HdsCardContainerComponent from './components/hds/card/container.ts';
 import type HdsCopyButtonComponent from './components/hds/copy/button/index';
 import type HdsCopySnippetComponent from './components/hds/copy/snippet';
@@ -123,6 +127,19 @@ export default interface HdsComponentsRegistry {
 
   'Hds::AppFrame::Sidebar': typeof HdsAppFrameSidebarComponent;
   'hds/app-frame/parts/sidebar': typeof HdsAppFrameSidebarComponent;
+
+  // Application State
+  'Hds::ApplicationState': typeof HdsApplicationStateComponent;
+  'hds/application-state': typeof HdsApplicationStateComponent;
+
+  'Hds::ApplicationState::Header': typeof HdsApplicationStateHeaderComponent;
+  'hds/application-state/header': typeof HdsApplicationStateHeaderComponent;
+
+  'Hds::ApplicationState::Body': typeof HdsApplicationStateBodyComponent;
+  'hds/application-state/body': typeof HdsApplicationStateBodyComponent;
+
+  'Hds::ApplicationState::Footer': typeof HdsApplicationStateFooterComponent;
+  'hds/application-state/footer': typeof HdsApplicationStateFooterComponent;
 
   // Badge
   'Hds::Badge': typeof HdsBadgeComponent;
