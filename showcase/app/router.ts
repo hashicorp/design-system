@@ -22,6 +22,7 @@ Router.map(function () {
     this.route('accordion');
     this.route('alert');
     this.route('app-footer');
+    this.route('app-header');
     this.route('application-state');
     this.route('badge');
     this.route('badge-count');
