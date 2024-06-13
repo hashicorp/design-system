@@ -52,7 +52,12 @@
   padding: 8px 16px;
   color: #FFF;
   background: var(--token-color-foreground-strong);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 25%);
+  // create more generalized nav border color token? Or just use --token-color-palette-neutral-500)?
+  border-bottom: 1px solid var(--token-side-nav-wrapper-border-color);
+  box-shadow: 
+    0 4px 4px -2px hsla(222deg, 8%, 43%, 35%),
+    0 2px 3px 0 hsla(222deg, 8%, 43%, 15%);
+
 }
 
 .hds-app-header__sub-section {
