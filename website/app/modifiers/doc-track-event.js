@@ -11,48 +11,28 @@ import { assert } from '@ember/debug';
 export default class DocTrackEvent extends Modifier {
   @service eventTracking;
 
-  element = null;
-  eventName = null;
-  triggerEvent = null;
-
-  handleTriggerEvent() {
-    this.eventTracking.trackEvent(this.eventName);
-  }
-
-  cleanup() {
-    this.element.removeEventListener(
-      this.triggerEvent,
-      this.handleTriggerEvent
-    );
-
-    this.element = null;
-    this.eventName = null;
-    this.triggerEvent = null;
-  }
-
   modify(element, _positional, named) {
     if (!this.eventTracking.isEnabled) {
+      // comment this line if you want to test in your local environment
       return;
     }
 
     const { triggerEvent = 'click', eventName } = named;
 
-    const hasValidEventName = typeof eventName === 'string';
-
     assert(
       `@eventName for "doc-track-event" must be a string; received: ${eventName}`,
-      hasValidEventName
+      typeof eventName === 'string'
     );
 
-    this.element = element;
-    this.eventName = eventName;
-    this.triggerEvent = triggerEvent;
+    const handleTriggerEvent = () => {
+      // https://usefathom.com/docs/features/events
+      this.eventTracking.trackEvent(eventName);
+    };
 
-    element.addEventListener(
-      this.triggerEvent,
-      this.handleTriggerEvent(eventName)
-    );
+    element.addEventListener(triggerEvent, handleTriggerEvent);
 
-    registerDestructor(this, this.cleanup);
+    registerDestructor(this, () => {
+      element.removeEventListener(triggerEvent, handleTriggerEvent);
+    });
   }
 }

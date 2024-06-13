@@ -14,7 +14,7 @@
     <DynamicTemplate @templateString={{this.renderedContent}} @componentId={{this.model.id}} />
 
     {{#if this.relatedComponents}}
-      <Doc::RelatedComponents @cards={{this.relatedComponents}} />
+      <Doc::RelatedComponents @cards={{this.relatedComponents}} @componentTitle={{this.title}} />
     {{/if}}
   </Doc::Page::Content>
 

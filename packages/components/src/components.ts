@@ -8,6 +8,7 @@ import HdsAccordion from './components/hds/accordion/index.ts';
 import HdsAlert from './components/hds/alert/index.ts';
 import HdsAppFooter from './components/hds/app-footer/index.ts';
 import HdsAppFrame from './components/hds/app-frame/index.ts';
+import HdsApplicationState from './components/hds/application-state/index.ts';
 import HdsBadge from './components/hds/badge/index.ts';
 import HdsBadgeCount from './components/hds/badge-count/index.ts';
 import HdsButton from './components/hds/button/index.ts';
@@ -37,6 +38,7 @@ export {
   HdsAlert,
   HdsAppFooter,
   HdsAppFrame,
+  HdsApplicationState,
   HdsBadge,
   HdsBadgeCount,
   HdsButton,

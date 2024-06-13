@@ -6,4 +6,18 @@
 <hr class="doc-markdown-hr" />
 
 <h2 class="doc-text-h2">Related</h2>
-<Doc::Cards::Deck @cols="2" @layout="horizontal" @cards={{@cards}} />
+
+<Doc::Cards::Deck @cols="2">
+  {{#each @cards as |card|}}
+    <Doc::Cards::Card
+      @image={{card.image}}
+      @title={{card.title}}
+      @caption={{card.caption}}
+      @route={{card.route}}
+      @model={{card.model}}
+      @href={{card.href}}
+      @layout="horizontal"
+      {{doc-track-event eventName="Related - {{@componentTitle}} - {{card.title}}"}}
+    />
+  {{/each}}
+</Doc::Cards::Deck>

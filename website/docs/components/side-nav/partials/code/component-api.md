@@ -44,6 +44,9 @@ This is the full-fledged component (responsive and animated).
       <C.Property @name="a11yRefocusRouteChangeValidator" @type="string">
         Pass-through property for the `routeChangeValidator` argument - Custom function used to define which route changes should trigger the refocusing behavior for the navigator narrator. - For details see [Customizing the definition of a route change](https://github.com/ember-a11y/ember-a11y-refocus#customizing-the-definition-of-a-route-change).
       </C.Property>
+      <C.Property @name="a11yRefocusExcludeAllQueryParams" @type="boolean">
+        Pass-through property for the `excludeAllQueryParams` argument - Can be used when you need to completely opt out of all transition focus management for all query params. Use with caution; you'll typically want to reach for a custom route change validator function instead.
+      </C.Property>
     </Doc::ComponentApi>
   </C.Property>
   <C.Property @name="ariaLabel" @type="string">
@@ -129,7 +132,7 @@ The `SideNav::Header::HomeLink` component uses the generic `Hds::Interactive` co
 The `SideNav::Header::IconButton` component uses the generic `Hds::Interactive` component. For more details about this utility component please refer to [its documentation page](/utilities/interactive).
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="icon" @type="string">
+  <C.Property @name="icon" @type="string" @required="true">
     Used to show an icon. Any [icon](/icons/library) name is accepted.
   </C.Property>
   <C.Property @name="href">

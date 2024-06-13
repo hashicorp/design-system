@@ -9,6 +9,7 @@
   type="button"
   tabindex={{if this.isButtonVisible 0 -1}}
   {{on "click" this.scrollToTop}}
+  {{doc-track-event eventName="Navigation - Scroll to Top"}}
 >
   <FlightIcon @name="arrow-up" @color="white" @size="24" @isInlineBlock={{false}} />
 </button>

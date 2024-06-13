@@ -10,11 +10,35 @@ import { action } from '@ember/object';
 import { DEBUG } from '@glimmer/env';
 import Ember from 'ember';
 
-export default class SidenavPortalTarget extends Component {
-  @service router;
+import type { HdsSideNavPortalSignature } from './index';
+
+// import { PortalTargetSignature } from 'ember-stargate/components/portal-target';
+interface PortalTargetSignature {
+  Element: HTMLDivElement;
+  Args: {
+    name: string;
+    multiple?: boolean;
+    onChange?: (count: number) => void;
+  };
+  Blocks: {
+    default: [number];
+  };
+}
+
+import type { Registry as Services } from '@ember/service';
+
+interface HdsSideNavPortalTargetSignature {
+  Args: PortalTargetSignature['Args'] & {
+    targetName?: HdsSideNavPortalSignature['Args']['targetName'];
+  };
+  Element: HTMLDivElement;
+}
+
+export default class HdsSideNavPortalTargetComponent extends Component<HdsSideNavPortalTargetSignature> {
+  @service router!: Services['router'];
 
   @tracked numSubnavs = 0;
-  @tracked lastPanelEl = null;
+  @tracked lastPanelEl: Element | undefined;
 
   static get prefersReducedMotionOverride() {
     return Ember.testing;
@@ -26,23 +50,23 @@ export default class SidenavPortalTarget extends Component {
 
   get prefersReducedMotion() {
     return (
-      this.constructor.prefersReducedMotionOverride ||
+      HdsSideNavPortalTargetComponent.prefersReducedMotionOverride ||
       (this.prefersReducedMotionMQ && this.prefersReducedMotionMQ.matches)
     );
   }
 
   @action
-  panelsChanged(portalCount) {
+  panelsChanged(portalCount: number) {
     this.numSubnavs = portalCount;
   }
 
   @action
-  didUpdateSubnav(element, [count]) {
+  didUpdateSubnav(element: HTMLElement, [count]: [number]) {
     this.animateSubnav(element, [count]);
   }
 
   @action
-  animateSubnav(element, [count]) {
+  animateSubnav(element: HTMLElement, [count]: [number]) {
     /*
      * Here is what the layout looks like for this setup
      *
@@ -89,22 +113,22 @@ export default class SidenavPortalTarget extends Component {
      *
      * */
 
-    let activeIndex = count - 1;
-    let targetElement = element;
-    let { prefersReducedMotion } = this;
+    const activeIndex = count - 1;
+    const targetElement = element;
+    const { prefersReducedMotion } = this;
 
-    let styles = getComputedStyle(targetElement);
-    let columnWidth = styles.getPropertyValue(
+    const styles = getComputedStyle(targetElement);
+    const columnWidth = styles.getPropertyValue(
       '--hds-app-sidenav-width-expanded'
     );
-    let slideDuration = prefersReducedMotion ? 0 : 150;
+    const slideDuration = prefersReducedMotion ? 0 : 150;
     let fadeDuration = prefersReducedMotion ? 0 : 175;
     let fadeDelay = prefersReducedMotion ? 0 : 50;
 
     // slide entire parent panel
-    let start = styles.transform;
-    let end = `translateX(-${activeIndex * parseInt(columnWidth, 10)}px)`;
-    let anim = targetElement.animate(
+    const start = styles.transform;
+    const end = `translateX(-${activeIndex * parseInt(columnWidth, 10)}px)`;
+    const anim = targetElement.animate(
       [{ transform: start }, { transform: end }],
       {
         duration: slideDuration,
@@ -117,8 +141,11 @@ export default class SidenavPortalTarget extends Component {
       // uncomment this if we need/want to scroll the element to the top
       // targetElement.scrollIntoView(true);
       if (activeIndex > 0) {
-        let allPrev = Array.from(targetElement.children).slice(0, activeIndex);
-        for (let ele of allPrev) {
+        const allPrev = Array.from(targetElement.children).slice(
+          0,
+          activeIndex
+        ) as HTMLElement[];
+        for (const ele of allPrev) {
           ele.ariaHidden = 'true';
           ele.style.setProperty('visibility', 'hidden');
           ele.style.setProperty('opacity', '0');
@@ -134,19 +161,23 @@ export default class SidenavPortalTarget extends Component {
     });
 
     // fade in next panel
-    let nextPanelEl = targetElement.children[activeIndex];
+    const nextPanelEl = targetElement.children[activeIndex] as HTMLElement;
 
     // get reference to last child panel
-    let lastPanelEl = targetElement.children[targetElement.children.length - 1];
+    const lastPanelEl = targetElement.children[
+      targetElement.children.length - 1
+    ] as HTMLElement;
 
     if (nextPanelEl) {
       nextPanelEl.ariaHidden = 'false';
       nextPanelEl.style.setProperty('visibility', 'visible');
       // this eliminates a flicker if there's only one subnav rendering or if we
       // already just rendered this panel.
-      if (activeIndex === 0 || nextPanelEl.isSameNode(this.lastPanelEl)) {
-        fadeDelay = 0;
-        fadeDuration = 0;
+      if (this.lastPanelEl) {
+        if (activeIndex === 0 || nextPanelEl.isSameNode(this.lastPanelEl)) {
+          fadeDelay = 0;
+          fadeDuration = 0;
+        }
       }
 
       // remember the last panel

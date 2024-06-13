@@ -25,6 +25,10 @@ import type HdsAppFrameHeaderComponent from './components/hds/app-frame/parts/he
 import type HdsAppFrameMainComponent from './components/hds/app-frame/parts/main';
 import type HdsAppFrameModalsComponent from './components/hds/app-frame/parts/modals';
 import type HdsAppFrameSidebarComponent from './components/hds/app-frame/parts/sidebar';
+import type HdsApplicationStateComponent from './components/hds/application-state';
+import type HdsApplicationStateBodyComponent from './components/hds/application-state/body';
+import type HdsApplicationStateFooterComponent from './components/hds/application-state/footer';
+import type HdsApplicationStateHeaderComponent from './components/hds/application-state/header';
 import type HdsCardContainerComponent from './components/hds/card/container.ts';
 import type HdsCopyButtonComponent from './components/hds/copy/button/index';
 import type HdsCopySnippetComponent from './components/hds/copy/snippet';
@@ -37,6 +41,19 @@ import type HdsLinkStandaloneComponent from './components/hds/link/standalone';
 import type HdsRevealComponent from './components/hds/reveal';
 import type HdsRevealToggleButtonComponent from './components/hds/reveal/toggle/button';
 import type HdsSeparatorComponent from './components/hds/separator';
+import type HdsSideNavComponent from './components/hds/side-nav';
+import type HdsSideNavBaseComponent from './components/hds/side-nav/base';
+import type HdsSideNavToggleButtonComponent from './components/hds/side-nav/toggle-button';
+import type HdsSideNavPortalComponent from './components/hds/side-nav/portal';
+import type HdsSideNavPortalTargetComponent from './components/hds/side-nav/portal/target';
+import type HdsSideNavHeaderComponent from './components/hds/side-nav/header';
+import type HdsSideNavHeaderHomeLinkComponent from './components/hds/side-nav/header/home-link';
+import type HdsSideNavHeaderIconButtonComponent from './components/hds/side-nav/header/icon-button';
+import type HdsSideNavListComponent from './components/hds/side-nav/list';
+import type HdsSideNavListBackLinkComponent from './components/hds/side-nav/list/back-link';
+import type HdsSideNavListItemComponent from './components/hds/side-nav/list/item';
+import type HdsSideNavListLinkComponent from './components/hds/side-nav/list/link';
+import type HdsSideNavListTitleComponent from './components/hds/side-nav/list/title';
 import type HdsStepperStepIndicatorComponent from './components/hds/stepper/step/indicator';
 import type HdsStepperTaskIndicatorComponent from './components/hds/stepper/task/indicator';
 import type HdsTextComponent from './components/hds/text';
@@ -111,6 +128,19 @@ export default interface HdsComponentsRegistry {
   'Hds::AppFrame::Sidebar': typeof HdsAppFrameSidebarComponent;
   'hds/app-frame/parts/sidebar': typeof HdsAppFrameSidebarComponent;
 
+  // Application State
+  'Hds::ApplicationState': typeof HdsApplicationStateComponent;
+  'hds/application-state': typeof HdsApplicationStateComponent;
+
+  'Hds::ApplicationState::Header': typeof HdsApplicationStateHeaderComponent;
+  'hds/application-state/header': typeof HdsApplicationStateHeaderComponent;
+
+  'Hds::ApplicationState::Body': typeof HdsApplicationStateBodyComponent;
+  'hds/application-state/body': typeof HdsApplicationStateBodyComponent;
+
+  'Hds::ApplicationState::Footer': typeof HdsApplicationStateFooterComponent;
+  'hds/application-state/footer': typeof HdsApplicationStateFooterComponent;
+
   // Badge
   'Hds::Badge': typeof HdsBadgeComponent;
   'hds/badge': typeof HdsBadgeComponent;
@@ -173,6 +203,59 @@ export default interface HdsComponentsRegistry {
   // Separator
   'Hds::Separator': typeof HdsSeparatorComponent;
   'hds/separator': typeof HdsSeparatorComponent;
+
+  // Side Nav
+  'Hds::SideNav': typeof HdsSideNavComponent;
+  'hds/side-nav': typeof HdsSideNavComponent;
+  HdsSideNav: typeof HdsSideNavComponent;
+
+  'Hds::SideNav::Base': typeof HdsSideNavBaseComponent;
+  'hds/side-nav/base': typeof HdsSideNavBaseComponent;
+  HdsSideNavBase: typeof HdsSideNavBaseComponent;
+
+  'Hds::SideNav::ToggleButton': typeof HdsSideNavToggleButtonComponent;
+  'hds/side-nav/toggle-button': typeof HdsSideNavToggleButtonComponent;
+  HdsSideNavToggleButton: typeof HdsSideNavToggleButtonComponent;
+
+  'Hds::SideNav::Portal': typeof HdsSideNavPortalComponent;
+  'hds/side-nav/portal': typeof HdsSideNavPortalComponent;
+  HdsSideNavPortal: typeof HdsSideNavPortalComponent;
+
+  'Hds::SideNav::Portal::Target': typeof HdsSideNavPortalTargetComponent;
+  'hds/side-nav/portal/target': typeof HdsSideNavPortalTargetComponent;
+  HdsSideNavPortalTarget: typeof HdsSideNavPortalTargetComponent;
+
+  'Hds::SideNav::Header': typeof HdsSideNavHeaderComponent;
+  'hds/side-nav/header': typeof HdsSideNavHeaderComponent;
+  HdsSideNavHeader: typeof HdsSideNavHeaderComponent;
+
+  'Hds::SideNav::Header::HomeLink': typeof HdsSideNavHeaderHomeLinkComponent;
+  'hds/side-nav/header/home-link': typeof HdsSideNavHeaderHomeLinkComponent;
+  HdsSideNavHeaderHomeLink: typeof HdsSideNavHeaderHomeLinkComponent;
+
+  'Hds::SideNav::Header::IconButton': typeof HdsSideNavHeaderIconButtonComponent;
+  'hds/side-nav/header/icon-button': typeof HdsSideNavHeaderIconButtonComponent;
+  HdsSideNavHeaderIconButton: typeof HdsSideNavHeaderIconButtonComponent;
+
+  'Hds::SideNav::List': typeof HdsSideNavListComponent;
+  'hds/side-nav/list': typeof HdsSideNavListComponent;
+  HdsSideNavList: typeof HdsSideNavListComponent;
+
+  'Hds::SideNav::List::BackLink': typeof HdsSideNavListBackLinkComponent;
+  'hds/side-nav/list/back-link': typeof HdsSideNavListBackLinkComponent;
+  HdsSideNavListBackLink: typeof HdsSideNavListBackLinkComponent;
+
+  'Hds::SideNav::List::Item': typeof HdsSideNavListItemComponent;
+  'hds/side-nav/list/item': typeof HdsSideNavListItemComponent;
+  HdsSideNavListItem: typeof HdsSideNavListItemComponent;
+
+  'Hds::SideNav::List::Link': typeof HdsSideNavListLinkComponent;
+  'hds/side-nav/list/link': typeof HdsSideNavListLinkComponent;
+  HdsSideNavListLink: typeof HdsSideNavListLinkComponent;
+
+  'Hds::SideNav::List::Title': typeof HdsSideNavListTitleComponent;
+  'hds/side-nav/list/title': typeof HdsSideNavListTitleComponent;
+  HdsSideNavListTitle: typeof HdsSideNavListTitleComponent;
 
   // Stepper
   'Hds::Stepper::Step::Indicator': typeof HdsStepperStepIndicatorComponent;
