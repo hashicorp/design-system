@@ -7,7 +7,28 @@ import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
 
-export default class HdsTabsTabComponent extends Component {
+export interface HdsTabsTabSignature {
+  Args: {
+    selectedTabIndex: number;
+    count?: string;
+    icon?: string;
+    isSelected?: boolean;
+    tabIds?: string[];
+    // TODO: how does isSelected work?
+    didInsertNode: (element: HTMLButtonElement, isSelected?: boolean) => void;
+    // TODO: verify that isSelected is optional
+    didUpdateNode: (nodeIndex: number, isSelected?: boolean) => void;
+    willDestroyNode: (element: HTMLButtonElement) => void;
+    onClick: (event: MouseEvent, tabIndex: number) => void;
+    onKeyUp: (nodeIndex: number, event: KeyboardEvent) => void;
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLLIElement;
+}
+
+export default class HdsTabsTabComponent extends Component<HdsTabsTabSignature> {
   /**
    * Generate a unique ID for the Tab
    * @return {string}
@@ -15,7 +36,7 @@ export default class HdsTabsTabComponent extends Component {
   tabId = 'tab-' + guidFor(this);
 
   get nodeIndex() {
-    return this.args.tabIds ? this.args.tabIds.indexOf(this.tabId) : undefined;
+    return this.args.tabIds?.indexOf(this.tabId);
   }
 
   /**
@@ -31,11 +52,12 @@ export default class HdsTabsTabComponent extends Component {
   }
 
   @action
-  didInsertNode(element, positional) {
-    let { didInsertNode } = this.args;
+  didInsertNode(element: HTMLButtonElement, positional: [boolean?]) {
+    const { didInsertNode } = this.args;
 
     const isSelected = positional[0];
 
+    // TODO: This check doesn't appear necessary? Unless we also use tab outside of tabs?
     if (typeof didInsertNode === 'function') {
       didInsertNode(element, isSelected);
     }
@@ -43,38 +65,42 @@ export default class HdsTabsTabComponent extends Component {
 
   @action
   didUpdateNode() {
-    let { didUpdateNode } = this.args;
+    const { didUpdateNode } = this.args;
 
-    if (typeof didUpdateNode === 'function') {
+    // TODO: This check doesn't appear necessary? Unless we also use tab outside of tabs?
+    if (typeof didUpdateNode === 'function' && this.nodeIndex !== undefined) {
       didUpdateNode(this.nodeIndex, this.args.isSelected);
     }
   }
 
   @action
-  willDestroyNode(element) {
-    let { willDestroyNode } = this.args;
+  willDestroyNode(element: HTMLButtonElement) {
+    const { willDestroyNode } = this.args;
 
+    // TODO: This check doesn't appear necessary? Unless we also use tab outside of tabs?
     if (typeof willDestroyNode === 'function') {
       willDestroyNode(element);
     }
   }
 
   @action
-  onClick(event) {
-    let { onClick } = this.args;
+  onClick(event: MouseEvent) {
+    const { onClick } = this.args;
 
+    // TODO: This check doesn't appear necessary? Unless we also use tab outside of tabs?
     if (typeof onClick === 'function') {
-      onClick(event, this.nodeIndex);
+      onClick(event, this.nodeIndex!);
     } else {
       return false;
     }
   }
 
   @action
-  onKeyUp(event) {
-    let { onKeyUp } = this.args;
+  onKeyUp(event: KeyboardEvent) {
+    const { onKeyUp } = this.args;
 
-    if (typeof onKeyUp === 'function') {
+    // TODO: This check doesn't appear necessary? Unless we also use tab outside of tabs?
+    if (typeof onKeyUp === 'function' && this.nodeIndex !== undefined) {
       onKeyUp(this.nodeIndex, event);
     } else {
       return false;
@@ -87,7 +113,7 @@ export default class HdsTabsTabComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-tabs__tab'];
+    const classes = ['hds-tabs__tab'];
 
     if (this.isSelected) {
       classes.push(`hds-tabs__tab--is-selected`);
