@@ -2,8 +2,9 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-
-<h2 class="doc-text-h4">{{capitalize @categoryName}}</h2>
+{{#if @categoryName}}
+  <h2 class="doc-text-h4">{{capitalize @categoryName}}</h2>
+{{/if}}
 <ul class="doc-icons-list-grid" role="list">
   {{#each @categoryIcons as |meta|}}
     <Doc::IconsList::Item @meta={{meta}} />
