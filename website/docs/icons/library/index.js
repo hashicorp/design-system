@@ -128,28 +128,36 @@ export default class Index extends Component {
 
   @action
   selectIconSize(event) {
+    const { value: selectedIconSize } = event.target;
+
     this.router.transitionTo({
       queryParams: {
+        selectedIconSize,
         searchQuery: this.searchQuery,
         selectedGroupType: this.selectedGroupType,
-        selectedIconSize: event.target.value,
       },
     });
 
-    this.eventTracking.trackEvent('Icon Library - Size Selector');
+    this.eventTracking.trackEvent(
+      `Icon Library - Size Selector - ${selectedIconSize}`
+    );
   }
 
   @restartableTask *searchIcons(searchQuery) {
     yield timeout(DEBOUNCE_MS);
 
+    searchQuery = searchQuery !== '' ? searchQuery : null;
+
     this.router.transitionTo({
       queryParams: {
-        searchQuery: searchQuery !== '' ? searchQuery : null,
+        searchQuery,
         selectedGroupType: this.selectedGroupType,
         selectedIconSize: this.selectedIconSize,
       },
     });
 
-    this.eventTracking.trackEvent('Icon Library - Search');
+    if (searchQuery !== null) {
+      this.eventTracking.trackEvent(`Icon Library - Search - ${searchQuery}`);
+    }
   }
 }
