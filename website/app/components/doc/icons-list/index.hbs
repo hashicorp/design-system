@@ -10,7 +10,9 @@
     @filterQuery={{@searchQuery}}
     @onInput={{@searchIcons}}
     data-test="icons-filter"
+    aria-describedby="icons-filter-description"
   />
+  <span id="icons-filter-description" class="sr-only">Note: Icon list will automatically update as you type.</span>
   <Doc::Form::SelectGroupType
     @label="Group by"
     @onSelect={{@onSelectGroupType}}
