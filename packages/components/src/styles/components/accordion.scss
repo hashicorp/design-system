@@ -47,16 +47,17 @@ $hds-accordion-item-gap: 12px;
   background: var(--token-color-surface-primary);
   border-radius: $hds-accordion-item-border-radius;
 
-  &.hds-accordion-item--does-not-contain-interactive {
+  &.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) {
     box-shadow: var(--token-surface-mid-box-shadow);
 
-    &:hover:not(.hds-accordion-item--is-static),
-    &.mock-hover:not(.hds-accordion-item--is-static) {
+    &:hover,
+    &.mock-hover {
       box-shadow: var(--token-surface-high-box-shadow);
     }
   }
 
-  &.hds-accordion-item--contains-interactive {
+  &.hds-accordion-item--contains-interactive,
+  &.hds-accordion-item--is-static {
     box-shadow: var(--token-surface-base-box-shadow);
   }  
 }
