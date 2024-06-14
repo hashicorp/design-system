@@ -20,8 +20,8 @@
     "build": "rollup --config",
     "prepublishOnly": "rollup --config",
     "start": "rollup --config --watch --environment development",
-    "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
-    "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",
+    "lint": "concurrently \"yarn:lint:*(!fix)\" --names \"lint:\"",
+    "lint:fix": "concurrently \"yarn:lint:*:fix\" --names \"fix:\"",
     "lint:hbs": "ember-template-lint .",
     "lint:hbs:fix": "ember-template-lint . --fix",
     "lint:js": "eslint . --cache",
@@ -33,25 +33,26 @@
     "ember-get-config": "^2.1.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.5",
+    "@babel/core": "^7.24.7",
     "@babel/eslint-parser": "^7.22.15",
     "@babel/plugin-proposal-decorators": "^7.23.7",
     "@babel/plugin-transform-class-properties": "^7.23.3",
-    "@ember/optional-features": "^2.0.0",
+    "@babel/preset-typescript": "^7.24.7",
+    "@ember/optional-features": "^2.1.0",
     "@embroider/addon-dev": "^4.3.1",
     "@embroider/test-setup": "^3.0.2",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
     "@rollup/plugin-babel": "^6.0.4",
+    "concurrently": "^8.2.2",
     "ember-template-lint": "^4.18.2",
     "ember-template-lint-plugin-prettier": "^4.2.0",
-    "eslint": "^8.52.0",
-    "eslint-config-prettier": "^8.10.0",
-    "eslint-plugin-ember": "^11.11.1",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-ember": "^11.12.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-qunit": "^8.0.1",
-    "npm-run-all": "^4.1.5",
+    "eslint-plugin-qunit": "^8.1.1",
     "prettier": "^2.8.8",
     "rollup": "^4.17.2",
     "rollup-plugin-copy": "^3.5.0"
@@ -60,7 +61,7 @@
     "edition": "octane"
   },
   "ember-addon": {
-    "main": "addon-main.js",
+    "main": "addon-main.cjs",
     "type": "addon",
     "version": 2,
     "app-js": {
@@ -71,10 +72,10 @@
   "exports": {
     ".": "./dist/index.js",
     "./*": "./dist/*",
-    "./addon-main.js": "./addon-main.js"
+    "./addon-main.js": "./addon-main.cjs"
   },
   "files": [
-    "addon-main.js",
+    "addon-main.cjs",
     "dist"
   ],
   "engines": {
