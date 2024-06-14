@@ -24,15 +24,15 @@
               </:content>
             </A.Item>
 
-            <A.Item>
+            <A.Item @isStatic={{true}}>
               <:toggle>Item two</:toggle>
               <:content>
                 <Shw::Placeholder @text="generic content" @height="40" />
               </:content>
             </A.Item>
 
-            <A.Item>
-              <:toggle>Item Three</:toggle>
+            <A.Item @containsInteractive={{true}}>
+              <:toggle>Item three</:toggle>
               <:content>
                 <Shw::Placeholder @text="generic content" @height="40" />
               </:content>
@@ -75,15 +75,15 @@
             </:content>
           </A.Item>
 
-          <A.Item>
+          <A.Item @isStatic={{true}}>
             <:toggle>Item two</:toggle>
             <:content>
               <Shw::Placeholder @text="generic content" @height="40" />
             </:content>
           </A.Item>
 
-          <A.Item>
-            <:toggle>Item Three</:toggle>
+          <A.Item @containsInteractive={{true}}>
+            <:toggle>Item three</:toggle>
             <:content>
               <Shw::Placeholder @text="generic content" @height="40" />
             </:content>
@@ -513,49 +513,54 @@
 
   <Shw::Text::H4>States</Shw::Text::H4>
 
-  {{#let (array false true) as |booleans|}}
-    {{#each booleans as |bool|}}
-      <Shw::Flex
-        {{style gap="2rem" justifyContent="space-between"}}
-        @label="parentContainsInteractive={{bool}}"
-        as |SF|
-      >
-        {{#each @model.STATES as |state|}}
-          <SF.Item @label={{state}}>
+  {{#each @model.SIZES as |size|}}
+    {{#let (array false true) as |booleans|}}
+      {{#each booleans as |bool|}}
+        <Shw::Flex
+          {{style gap="2rem" justifyContent="space-between"}}
+          @label="size={{size}}, parentContainsInteractive={{bool}}"
+          as |SF|
+        >
+          {{#each @model.STATES as |state|}}
+            <SF.Item @label={{state}}>
+              <div class="shw-component-accordion-standalone-button">
+                <Hds::Accordion::Item::Button
+                  @parentContainsInteractive={{bool}}
+                  @onClickToggle={{this.noop}}
+                  @size={{size}}
+                  mock-state-value={{state}}
+                  aria-label={{state}}
+                />
+              </div>
+            </SF.Item>
+          {{/each}}
+
+          <SF.Item @label="isOpen=true">
             <div class="shw-component-accordion-standalone-button">
               <Hds::Accordion::Item::Button
                 @parentContainsInteractive={{bool}}
-                mock-state-value={{state}}
+                @isOpen={{true}}
                 @onClickToggle={{this.noop}}
-                aria-label={{state}}
+                @size={{size}}
+                aria-label="open is true"
               />
             </div>
           </SF.Item>
-        {{/each}}
 
-        <SF.Item @label="isOpen=true">
-          <div class="shw-component-accordion-standalone-button">
-            <Hds::Accordion::Item::Button
-              @parentContainsInteractive={{bool}}
-              @isOpen={{true}}
-              @onClickToggle={{this.noop}}
-              aria-label="open is true"
-            />
-          </div>
-        </SF.Item>
-
-        <SF.Item @label="focus & isOpen=true" {{style width="calc(20% - 2rem)" position="relative"}}>
-          <div class="shw-component-accordion-standalone-button">
-            <Hds::Accordion::Item::Button
-              @parentContainsInteractive={{bool}}
-              @isOpen={{true}}
-              @onClickToggle={{this.noop}}
-              mock-state-value="focus"
-              aria-label="focused and is open"
-            />
-          </div>
-        </SF.Item>
-      </Shw::Flex>
-    {{/each}}
-  {{/let}}
+          <SF.Item @label="focus & isOpen=true" {{style width="calc(20% - 2rem)" position="relative"}}>
+            <div class="shw-component-accordion-standalone-button">
+              <Hds::Accordion::Item::Button
+                @parentContainsInteractive={{bool}}
+                @isOpen={{true}}
+                @onClickToggle={{this.noop}}
+                @size={{size}}
+                mock-state-value="focus"
+                aria-label="focused and is open"
+              />
+            </div>
+          </SF.Item>
+        </Shw::Flex>
+      {{/each}}
+    {{/let}}
+  {{/each}}
 </section>

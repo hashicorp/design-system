@@ -42,6 +42,11 @@ export default class HdsAccordionItemButtonComponent extends Component<HdsAccord
       classes.push('hds-accordion-item__button--is-open');
     }
 
+    // add a class based on the @size argument
+    if (this.args.size) {
+      classes.push(`hds-accordion-item__button--size-${this.args.size}`);
+    }
+
     if (this.args.parentContainsInteractive === false) {
       classes.push(
         'hds-accordion-item__button--parent-does-not-contain-interactive'
