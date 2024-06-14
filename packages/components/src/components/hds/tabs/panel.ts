@@ -12,6 +12,7 @@ export interface HdsTabsPanelSignature {
   Args: {
     tabIds: string[];
 <<<<<<< HEAD
+<<<<<<< HEAD
     panelIds: string[];
     selectedTabIndex: number;
     didInsertNode: (element: HTMLElement, elementId: string) => void;
@@ -20,6 +21,11 @@ export interface HdsTabsPanelSignature {
     selectedTabIndex: number;
     didInsertNode: (element: HTMLElement, isSelected?: boolean) => void;
 >>>>>>> b9f03f2db (making changes to the tab component based on the assumption that  will always be an array)
+=======
+    panelIds: string[];
+    selectedTabIndex: number;
+    didInsertNode: (element: HTMLElement, elementId: string) => void;
+>>>>>>> f5e2ed987 (finished converting the panel component)
     willDestroyNode: (element: HTMLElement) => void;
   };
   Blocks: {
@@ -63,6 +69,7 @@ export default class HdsTabsPanelComponent extends Component<HdsTabsPanelSignatu
 
   @action
 <<<<<<< HEAD
+<<<<<<< HEAD
   didInsertNode(element: HTMLElement) {
     this.elementId = element.id;
     this.args.didInsertNode(element, this.elementId);
@@ -84,5 +91,10 @@ export default class HdsTabsPanelComponent extends Component<HdsTabsPanelSignatu
       willDestroyNode(element);
     }
 >>>>>>> b9f03f2db (making changes to the tab component based on the assumption that  will always be an array)
+=======
+  didInsertNode(element: HTMLElement) {
+    this.elementId = element.id;
+    this.args.didInsertNode(element, this.elementId);
+>>>>>>> f5e2ed987 (finished converting the panel component)
   }
 }
