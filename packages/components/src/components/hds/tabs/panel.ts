@@ -6,13 +6,14 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 export interface HdsTabsPanelSignature {
   Args: {
     tabIds: string[];
-    panelIds?: string[];
+    panelIds: string[];
     selectedTabIndex: number;
-    didInsertNode: (element: HTMLElement, isSelected?: boolean) => void;
+    didInsertNode: (element: HTMLElement, elementId: string) => void;
     willDestroyNode: (element: HTMLElement) => void;
   };
   Blocks: {
@@ -32,10 +33,10 @@ export default class HdsTabsPanelComponent extends Component<HdsTabsPanelSignatu
    */
   panelId = 'panel-' + guidFor(this);
 
+  @tracked elementId: string | null = null;
+
   get nodeIndex() {
-    return this.args.panelIds
-      ? this.args.panelIds.indexOf(this.panelId)
-      : undefined;
+    return this.args.panelIds.indexOf(this.panelId);
   }
 
   /**
@@ -51,27 +52,12 @@ export default class HdsTabsPanelComponent extends Component<HdsTabsPanelSignatu
    * @returns string}
    */
   get coupledTabId() {
-    return this.nodeIndex !== undefined
-      ? this.args.tabIds[this.nodeIndex]
-      : undefined;
+    return this.args.tabIds[this.nodeIndex];
   }
 
   @action
-  didInsertNode(element) {
-    const { didInsertNode } = this.args;
-
-    if (typeof didInsertNode === 'function') {
-      this.elementId = element.id;
-      didInsertNode(element, this.elementId);
-    }
-  }
-
-  @action
-  willDestroyNode(element: HTMLElement) {
-    const { willDestroyNode } = this.args;
-
-    if (typeof willDestroyNode === 'function') {
-      willDestroyNode(element);
-    }
+  didInsertNode(element: HTMLElement) {
+    this.elementId = element.id;
+    this.args.didInsertNode(element, this.elementId);
   }
 }
