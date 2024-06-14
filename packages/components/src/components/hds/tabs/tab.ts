@@ -58,6 +58,11 @@ export default class HdsTabsTabComponent extends Component<HdsTabsTabSignature> 
   }
 
   @action
+  onClick(event: MouseEvent) {
+    this.args.onClick(event, this.nodeIndex);
+  }
+
+  @action
   onKeyUp(event: KeyboardEvent) {
     this.args.onKeyUp(this.nodeIndex, event);
   }

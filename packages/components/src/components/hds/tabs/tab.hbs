@@ -14,7 +14,7 @@
     {{did-insert this.didInsertNode @isSelected}}
     {{did-update this.didUpdateNode @count @isSelected}}
     {{will-destroy @willDestroyNode}}
-    {{on "click" @onClick}}
+    {{on "click" this.onClick}}
     {{on "keyup" this.onKeyUp}}
   >
     {{#if @icon}}

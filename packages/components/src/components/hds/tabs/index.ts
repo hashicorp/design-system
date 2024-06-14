@@ -8,18 +8,40 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert, warn } from '@ember/debug';
 import { next, schedule } from '@ember/runloop';
+import type { ComponentLike } from '@glint/template';
+import type { HdsTabsPanelSignature } from './panel';
+import type { HdsTabsTabSignature } from './tab';
+import type { HdsTabsSizeValues } from './types';
 
 export const DEFAULT_SIZE = 'medium';
 export const SIZES = ['medium', 'large'];
 
-export default class HdsTabsIndexComponent extends Component {
-  @tracked tabNodes = [];
-  @tracked tabIds = [];
-  @tracked panelNodes = [];
-  @tracked panelIds = [];
+interface HdsTabsIndexSignature {
+  Args: {
+    isParentVisible?: boolean;
+    selectedTabIndex?: number;
+    size?: HdsTabsSizeValues;
+    onClickTab?: (event: MouseEvent, tabIndex: number) => void;
+  };
+  Blocks: {
+    default: [
+      {
+        Panel: ComponentLike<HdsTabsPanelSignature>;
+        Tab: ComponentLike<HdsTabsTabSignature>;
+      }
+    ];
+  };
+  Element: HTMLDivElement;
+}
+
+export default class HdsTabsIndexComponent extends Component<HdsTabsIndexSignature> {
+  @tracked tabNodes: HTMLButtonElement[] = [];
+  @tracked tabIds: string[] = [];
+  @tracked panelNodes: HTMLElement[] = [];
+  @tracked panelIds: string[] = [];
   @tracked _selectedTabIndex = this.args.selectedTabIndex ?? 0;
-  @tracked selectedTabId;
-  @tracked isControlled;
+  @tracked selectedTabId?: string;
+  @tracked isControlled = false;
 
   /**
    * Sets the size of Tabs
@@ -30,7 +52,7 @@ export default class HdsTabsIndexComponent extends Component {
    * @default 'medium'
    */
   get size() {
-    let { size = DEFAULT_SIZE } = this.args;
+    const { size = DEFAULT_SIZE } = this.args;
 
     assert(
       `@size for "Hds::Tabs" must be one of the following: ${SIZES.join(
@@ -42,8 +64,11 @@ export default class HdsTabsIndexComponent extends Component {
     return size;
   }
 
-  constructor() {
-    super(...arguments);
+  constructor(
+    owner: HdsTabsIndexComponent,
+    args: HdsTabsIndexSignature['Args']
+  ) {
+    super(owner, args);
 
     // this is to determine if the "selected" tab logic is controlled in the consumers' code or is maintained as an internal state
     this.isControlled = this.args.selectedTabIndex !== undefined;
@@ -51,6 +76,13 @@ export default class HdsTabsIndexComponent extends Component {
 
   get selectedTabIndex() {
     if (this.isControlled) {
+      assert(
+        `@selectedTabIndex for "Hds::Tabs" must be provided is @isControlled is true: ${SIZES.join(
+          ', '
+        )}; received: ${this.args.selectedTabIndex}`,
+        this.args.selectedTabIndex !== undefined
+      );
+
       return this.args.selectedTabIndex;
     } else {
       return this._selectedTabIndex;
@@ -61,7 +93,7 @@ export default class HdsTabsIndexComponent extends Component {
     if (this.isControlled) {
       // noop
     } else {
-      this._selectedTabIndex = value;
+      this._selectedTabIndex = value ?? 0;
     }
   }
 
@@ -71,7 +103,7 @@ export default class HdsTabsIndexComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-tabs'];
+    const classes = ['hds-tabs'];
 
     // add a class based on the @size argument
     classes.push(`hds-tabs--size-${this.size}`);
@@ -122,7 +154,7 @@ export default class HdsTabsIndexComponent extends Component {
   }
 
   @action
-  didInsertTab(element, isSelected) {
+  didInsertTab(element: HTMLButtonElement, isSelected?: boolean) {
     this.tabNodes = [...this.tabNodes, element];
     this.tabIds = [...this.tabIds, element.id];
     if (isSelected) {
@@ -131,7 +163,7 @@ export default class HdsTabsIndexComponent extends Component {
   }
 
   @action
-  didUpdateTab(tabIndex, isSelected) {
+  didUpdateTab(tabIndex: number, isSelected?: boolean) {
     if (isSelected) {
       this.selectedTabIndex = tabIndex;
     }
@@ -139,25 +171,25 @@ export default class HdsTabsIndexComponent extends Component {
   }
 
   @action
-  willDestroyTab(element) {
+  willDestroyTab(element: HTMLButtonElement) {
     this.tabNodes = this.tabNodes.filter((node) => node.id !== element.id);
     this.tabIds = this.tabIds.filter((tabId) => tabId !== element.id);
   }
 
   @action
-  didInsertPanel(element, panelId) {
+  didInsertPanel(element: HTMLElement, panelId: string) {
     this.panelNodes = [...this.panelNodes, element];
     this.panelIds = [...this.panelIds, panelId];
   }
 
   @action
-  willDestroyPanel(element) {
+  willDestroyPanel(element: HTMLElement) {
     this.panelNodes = this.panelNodes.filter((node) => node.id !== element.id);
     this.panelIds = this.panelIds.filter((panelId) => panelId !== element.id);
   }
 
   @action
-  onClick(event, tabIndex) {
+  onClick(event: MouseEvent, tabIndex: number) {
     this.selectedTabIndex = tabIndex;
     this.setTabIndicator();
 
@@ -168,24 +200,26 @@ export default class HdsTabsIndexComponent extends Component {
   }
 
   @action
-  onKeyUp(tabIndex, event) {
-    const leftArrow = 37;
-    const rightArrow = 39;
-    const enterKey = 13;
-    const spaceKey = 32;
+  onKeyUp(tabIndex: number, event: KeyboardEvent) {
+    const leftArrow = 'ArrowLeft';
+    const rightArrow = 'ArrowRight';
+    const enterKey = 'Enter';
+    const spaceKey = ' ';
 
-    if (event.keyCode === rightArrow) {
+    if (event.key === rightArrow) {
       const nextTabIndex = (tabIndex + 1) % this.tabIds.length;
       this.focusTab(nextTabIndex, event);
-    } else if (event.keyCode === leftArrow) {
+    } else if (event.key === leftArrow) {
       const prevTabIndex =
         (tabIndex + this.tabIds.length - 1) % this.tabIds.length;
       this.focusTab(prevTabIndex, event);
-    } else if (event.keyCode === enterKey || event.keyCode === spaceKey) {
+    } else if (event.key === enterKey || event.key === spaceKey) {
       this.selectedTabIndex = tabIndex;
     }
     // scroll selected tab into view (it may be out of view when activated using a keyboard with `prev/next`)
-    this.tabNodes[this.selectedTabIndex].parentNode.scrollIntoView({
+    (
+      this.tabNodes[this.selectedTabIndex]?.parentNode as HTMLElement
+    ).scrollIntoView({
       behavior: 'smooth',
       block: 'nearest',
       inline: 'nearest',
@@ -193,27 +227,25 @@ export default class HdsTabsIndexComponent extends Component {
   }
 
   // Focus tab for keyboard & mouse navigation:
-  focusTab(tabIndex, e) {
-    e.preventDefault();
-    this.tabNodes[tabIndex].focus();
-  }
-
-  setSelectedPanelFocus(tabIndex, e) {
-    e.preventDefault();
-    this.panelNodes[tabIndex].focus();
+  focusTab(tabIndex: number, event: KeyboardEvent) {
+    event.preventDefault();
+    this.tabNodes[tabIndex]?.focus();
   }
 
   setTabIndicator() {
     next(() => {
       const tabElem = this.tabNodes[this.selectedTabIndex];
 
-      if (tabElem) {
-        const tabsParentElem = tabElem.closest('.hds-tabs__tablist');
+      if (tabElem != null) {
+        const tabsParentElem = tabElem.closest(
+          '.hds-tabs__tablist'
+        ) as HTMLElement;
+        const tabElemParentNode = tabElem.parentNode as HTMLElement;
 
         // this condition is `null` if any of the parents has `display: none`
-        if (tabElem.parentNode.offsetParent) {
-          const tabLeftPos = tabElem.parentNode.offsetLeft;
-          const tabWidth = tabElem.parentNode.offsetWidth;
+        if (tabElemParentNode.offsetParent) {
+          const tabLeftPos = tabElemParentNode.offsetLeft;
+          const tabWidth = tabElemParentNode.offsetWidth;
 
           // Set CSS custom properties for indicator
           tabsParentElem.style.setProperty(
@@ -226,7 +258,7 @@ export default class HdsTabsIndexComponent extends Component {
           );
         }
       } else {
-        let message;
+        let message = '';
         message +=
           '"Hds::Tabs" has tried to set the indicator for an element that doesn\'t exist';
         if (this.tabNodes.length === 0) {
