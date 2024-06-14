@@ -28,9 +28,9 @@
         </:globalAfter>
 
         <:utility>
+          <Shw::Placeholder @height="2em" @width="auto" @text="GeoPicker" />
           <Shw::Placeholder @height="2em" @width="auto" @text="Search" />
           <Shw::Placeholder @height="2em" @width="auto" @text="HelpMenu" />
-          <Shw::Placeholder @height="2em" @width="auto" @text="GeoPicker" />
           <Shw::Placeholder @height="2em" @width="auto" @text="UserMenu" />
         </:utility>
       </Hds::AppHeader>
@@ -80,10 +80,10 @@
       </Hds::AppHeader>
     </SG.Item>
 
-    <SG.Item @label="With max recommended phase 1 content">
+    <SG.Item @label="With max recommended phase 1 content & Terraform logo">
       <Hds::AppHeader>
         <:logo>
-          <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
+          <Hds::AppHeader::HomeLink @icon="terraform" @ariaLabel="Terraform home menu" @href="#" />
         </:logo>
 
         <:globalAfter>
@@ -141,14 +141,14 @@
         </:globalAfter>
 
         <:utility>
-          <Hds::Button class="hds-side-nav__icon-button" @icon="search" @isIconOnly={{true}} @text="Search" />
-
           <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
             <dd.ToggleButton @text="Europe" @icon="globe" />
             <dd.Checkmark>
               Americas
             </dd.Checkmark>
           </Hds::Dropdown>
+
+          <Hds::Button class="hds-side-nav__icon-button" @icon="search" @isIconOnly={{true}} @text="Search" />
 
           <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="bottom-right" as |dd|>
             <dd.ToggleIcon @icon="help" @text="help menu" />
