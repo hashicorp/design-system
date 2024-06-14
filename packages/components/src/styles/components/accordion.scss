@@ -13,7 +13,11 @@
 $hds-accordion-item-padding-large: 16px;
 $hds-accordion-item-padding-medium: 12px;
 $hds-accordion-item-padding-small: 8px;
+$hds-accordion-item-icon-large: 24px;
+$hds-accordion-item-icon-medium: 20px;
+$hds-accordion-item-icon-small: 16px;
 $hds-accordion-item-border-radius: 6px;
+$hds-accordion-item-gap: 12px;
 
 // ACCORDION COMPONENT (wrapper)
 
@@ -69,16 +73,16 @@ $hds-accordion-item-border-radius: 6px;
     border-radius: 0;
   }
 
-  &.hds-accordion-item--does-not-contain-interactive>.hds-disclosure-primitive__toggle {
-    &:hover:not(.hds-accordion-item--is-static),
-    &.mock-hover:not(.hds-accordion-item--is-static) {
+  &.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static)>.hds-disclosure-primitive__toggle {
+    &:hover,
+    &.mock-hover {
       .hds-accordion-item__toggle {
         background: var(--token-color-surface-interactive-hover);
       }
     }
 
-    &:active:not(.hds-accordion-item--is-static),
-    &.mock-active:not(.hds-accordion-item--is-static) {
+    &:active,
+    &.mock-active {
       .hds-accordion-item__toggle {
         background: var(--token-color-surface-interactive-active);
       }
@@ -86,13 +90,17 @@ $hds-accordion-item-border-radius: 6px;
   }
 }
 
-.hds-accordion-item--is-static {
-  .hds-accordion-item__button {
-    display: none;
+.hds-accordion-item__toggle-content {
+  .hds-accordion-item--is-static.hds-accordion-item--size-large & {
+    margin-left: $hds-accordion-item-icon-large+$hds-accordion-item-gap;
   }
 
-  .hds-accordion-item__toggle-content {
-    margin-left: 36px; // 24+12
+  .hds-accordion-item--is-static.hds-accordion-item--size-medium & {
+    margin-left: $hds-accordion-item-icon-medium+$hds-accordion-item-gap;
+  }
+
+  .hds-accordion-item--is-static.hds-accordion-item--size-small & {
+    margin-left: $hds-accordion-item-icon-small+$hds-accordion-item-gap;
   }
 }
 
@@ -101,13 +109,8 @@ $hds-accordion-item-border-radius: 6px;
 .hds-accordion-item__toggle {
   position: relative;
   display: flex;
-  gap: 12px;
+  gap: $hds-accordion-item-gap;
   align-items: center;
-  padding:
-  $hds-accordion-item-padding-large
-  $hds-accordion-item-padding-large
-  $hds-accordion-item-padding-large
-  12px; // by design
 
   .hds-accordion-item--size-large & {
     padding:
@@ -139,73 +142,68 @@ $hds-accordion-item-border-radius: 6px;
 
   &:hover { cursor: pointer; }
 
-  // entire toggle area is interactive
-  &.hds-accordion-item__button--parent-does-not-contain-interactive {
-    @include hds-focus-ring-with-pseudo-element();
-    position: static;
-    margin: -1px 0;
-    color: var(--token-color-foreground-primary);
-    background: transparent;
-    border: 1px solid transparent;
-
-    // expand button target to cover entire AccordionItem Toggle block (depending on the `@containsInteractive/@parentContainsInteractive` argument)
-    &::after {
-      position: absolute;
-      display: block;
-      border-radius: $hds-accordion-item-border-radius;
-      content: "";
-      inset: 0;
-    }
-  }
-
-  // only chevron button area is interactive
-  &.hds-accordion-item__button--parent-contains-interactive {
-    @include hds-button();
-    width: 24px;
-    height: 24px;
-
-    &:focus,
-    &.mock-focus {
-      @include hds-button-state-focus();
-    }
-
-    // `hds-button-color-secondary` determines the focus color and needs to be placed after `hds-button-state-focus`
-    @include hds-button-color-secondary();
-  }
-
-  // animate chevron icon
-  &.hds-accordion-item__button--is-open {
-    .flight-icon-chevron-down {
-      transform: rotate(-180deg);
-    }
-  }
-
   .flight-icon-chevron-down {
     @media (prefers-reduced-motion: no-preference) {
       transition: transform 0.3s;
     }
   }
+}
 
-  .hds-accordion-item--size-large & {
-    .flight-icon {
-      width: 24px;
-      height: 24px;
-    }
+// entire toggle area is interactive
+.hds-accordion-item__button--parent-does-not-contain-interactive {
+  @include hds-focus-ring-with-pseudo-element();
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -1px 0;
+  color: var(--token-color-foreground-primary);
+  background: transparent;
+  border: 0;
+
+  // expand button target to cover entire AccordionItem Toggle block (depending on the `@containsInteractive/@parentContainsInteractive` argument)
+  &::after {
+    position: absolute;
+    display: block;
+    border-radius: $hds-accordion-item-border-radius;
+    content: "";
+    inset: 0;
+  }
+}
+
+// only chevron button area is interactive
+.hds-accordion-item__button--parent-contains-interactive {
+  @include hds-button();
+
+  &:focus,
+  &.mock-focus {
+    @include hds-button-state-focus();
   }
 
-  .hds-accordion-item--size-medium & {
-    .flight-icon {
-      width: 20px;
-      height: 20px;
-    }
-  }
+  // `hds-button-color-secondary` determines the focus color and needs to be placed after `hds-button-state-focus`
+  @include hds-button-color-secondary();
+}
 
-  .hds-accordion-item--size-small & {
-    .flight-icon {
-      width: 16px;
-      height: 16px;
-    }
+// animate chevron icon
+.hds-accordion-item__button--is-open {
+  .flight-icon-chevron-down {
+    transform: rotate(-180deg);
   }
+}
+
+.hds-accordion-item__button--size-large {
+  width: $hds-accordion-item-icon-large;
+  height: $hds-accordion-item-icon-large;
+}
+
+.hds-accordion-item__button--size-medium {
+  width: $hds-accordion-item-icon-medium;
+  height: $hds-accordion-item-icon-medium;
+}
+
+.hds-accordion-item__button--size-small {
+  width: $hds-accordion-item-icon-small;
+  height: $hds-accordion-item-icon-small;
 }
 
 // Consumer added content that appears next to the chevron button:
