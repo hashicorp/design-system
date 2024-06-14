@@ -9,7 +9,7 @@
 
 @use "../mixins/focus-ring" as *;
 
-// TODO: Copy & pasted, clean up
+// TODO: Copy & pasted from SideNav, clean up
 @mixin hds-side-nav-icon-button($add-visible-border: false) {
   color: var(--token-side-nav-color-foreground-strong);
   background-color: transparent;
@@ -70,7 +70,7 @@
 .hds-app-header__home-link {
   @include hds-side-nav-icon-button();
   display: block;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   padding: calc(var(--token-side-nav-header-home-link-padding) - 1px); // by design -  we take in account the transparent border
 }
