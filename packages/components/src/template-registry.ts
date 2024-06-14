@@ -38,6 +38,12 @@ import type HdsIconTileComponent from './components/hds/icon-tile';
 import type HdsInteractiveComponent from './components/hds/interactive';
 import type HdsLinkInlineComponent from './components/hds/link/inline';
 import type HdsLinkStandaloneComponent from './components/hds/link/standalone';
+import type HdsPageHeaderComponent from './components/hds/page-header';
+import type HdsPageHeaderActionsComponent from './components/hds/page-header/actions';
+import type HdsPageHeaderBadgesComponent from './components/hds/page-header/badges';
+import type HdsPageHeaderDescriptionComponent from './components/hds/page-header/description';
+import type HdsPageHeaderSubtitleComponent from './components/hds/page-header/subtitle';
+import type HdsPageHeaderTitleComponent from './components/hds/page-header/title';
 import type HdsRevealComponent from './components/hds/reveal';
 import type HdsRevealToggleButtonComponent from './components/hds/reveal/toggle/button';
 import type HdsSeparatorComponent from './components/hds/separator';
@@ -192,6 +198,25 @@ export default interface HdsComponentsRegistry {
   // Link Standalone
   'Hds::Link::Standalone': typeof HdsLinkStandaloneComponent;
   'hds/link/standalone': typeof HdsLinkStandaloneComponent;
+
+  // Page Header
+  'Hds::PageHeader': typeof HdsPageHeaderComponent;
+  'hds/page-header': typeof HdsPageHeaderComponent;
+
+  'Hds::PageHeader::Actions': typeof HdsPageHeaderActionsComponent;
+  'hds/page-header/actions': typeof HdsPageHeaderActionsComponent;
+
+  'Hds::PageHeader::Badges': typeof HdsPageHeaderBadgesComponent;
+  'hds/page-header/badges': typeof HdsPageHeaderBadgesComponent;
+
+  'Hds::PageHeader::Description': typeof HdsPageHeaderDescriptionComponent;
+  'hds/page-header/description': typeof HdsPageHeaderDescriptionComponent;
+
+  'Hds::PageHeader::Subtitle': typeof HdsPageHeaderSubtitleComponent;
+  'hds/page-header/subtitle': typeof HdsPageHeaderSubtitleComponent;
+
+  'Hds::PageHeader::Title': typeof HdsPageHeaderTitleComponent;
+  'hds/page-header/title': typeof HdsPageHeaderTitleComponent;
 
   // Reveal
   'Hds::Reveal': typeof HdsRevealComponent;

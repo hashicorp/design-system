@@ -22,6 +22,7 @@ import HdsIconTile from './components/hds/icon-tile/index.ts';
 import HdsInteractive from './components/hds/interactive/index.ts';
 import HdsLinkInline from './components/hds/link/inline.ts';
 import HdsLinkStandalone from './components/hds/link/standalone.ts';
+import HdsPageHeader from './components/hds/page-header/index.ts';
 import HdsReveal from './components/hds/reveal/index.ts';
 import HdsSeparator from './components/hds/separator/index.ts';
 import HdsStepperStepIndicator from './components/hds/stepper/step/indicator.ts';
@@ -52,6 +53,7 @@ export {
   HdsInteractive,
   HdsLinkInline,
   HdsLinkStandalone,
+  HdsPageHeader,
   HdsReveal,
   HdsSeparator,
   HdsStepperStepIndicator,
