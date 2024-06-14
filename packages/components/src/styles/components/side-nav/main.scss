@@ -112,9 +112,8 @@
     padding-left: var(--token-side-nav-wrapper-padding-horizontal-minimized);
   }
 
-  // Remove padding when it contains no child elements
-  // Note: styles will also apply if it contains only text nodes
-  &:not(:has(*)) {
+  // Remove padding when it contains no child nodes
+  &:empty {
     padding: 0;
   }
 }
@@ -136,9 +135,8 @@
     var(--token-side-nav-wrapper-padding-vertical)
     var(--token-side-nav-wrapper-padding-horizontal);
   
-  // Remove padding when it contains no child elements and set height
-  // Note: styles will also apply if it contains only text nodes
-  &:not(:has(*)) {
+  // Remove padding when it contains no child nodes
+  &:empty {
     min-height: var(--token-side-nav-wrapper-padding-horizontal); // acts as spacer
     padding: 0;
   }

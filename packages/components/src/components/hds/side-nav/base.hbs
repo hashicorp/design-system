@@ -2,18 +2,18 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-
+{{! IMPORTANT: we need to add "squishies" here (~) because otherwise the whitespace added by Ember causes the empty element to still have visible padding - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
 <div class="hds-side-nav" ...attributes>
   <div class="hds-side-nav__wrapper">
     {{yield to="root"}}
     <div class="hds-side-nav__wrapper-header">
-      {{yield to="header"}}
+      {{~yield to="header"~}}
     </div>
     <div class="hds-side-nav__wrapper-body">
-      {{yield to="body"}}
+      {{~yield to="body"~}}
     </div>
     <div class="hds-side-nav__wrapper-footer">
-      {{yield to="footer"}}
+      {{~yield to="footer"~}}
     </div>
   </div>
 </div>
