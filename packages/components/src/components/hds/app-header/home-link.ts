@@ -8,7 +8,7 @@ import { assert } from '@ember/debug';
 
 import type { HdsInteractiveSignature } from '../interactive/';
 
-export interface HdsAppHeaderSignature {
+export interface HdsAppHeaderHomeLinkSignature {
   Args: HdsInteractiveSignature['Args'] & {
     ariaLabel: string;
     color?: string;
@@ -17,7 +17,7 @@ export interface HdsAppHeaderSignature {
   Element: HdsInteractiveSignature['Element'];
 }
 
-export default class HdsAppHeaderHomeLinkComponent extends Component<HdsAppHeaderSignature> {
+export default class HdsAppHeaderHomeLinkComponent extends Component<HdsAppHeaderHomeLinkSignature> {
   /**
    * @param ariaLabel
    * @type {string}
