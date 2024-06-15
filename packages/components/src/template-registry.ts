@@ -10,6 +10,8 @@ import type HdsAccordionItemButtonComponent from './components/hds/accordion/ite
 import type HdsAlertComponent from './components/hds/alert';
 import type HdsAlertDescriptionComponent from './components/hds/alert/description';
 import type HdsAlertTitleComponent from './components/hds/alert/title';
+import type HdsAppHeaderComponent from './components/hds/app-header';
+import type HdsAppHeaderHomeLinkComponent from './components/hds/app-header/home-link';
 import type HdsAppFooterComponent from './components/hds/app-footer';
 import type HdsAppFooterCopyrightComponent from './components/hds/app-footer/copyright';
 import type HdsAppFooterItemComponent from './components/hds/app-footer/item';
@@ -118,6 +120,13 @@ export default interface HdsComponentsRegistry {
 
   'Hds::Alert::Title': typeof HdsAlertTitleComponent;
   'hds/alert/title': typeof HdsAlertTitleComponent;
+
+  // AppHeader
+  'Hds::AppHeader': typeof HdsAppHeaderComponent;
+  'hds/app-header': typeof HdsAppHeaderComponent;
+
+  'Hds::AppHeader::HomeLink': typeof HdsAppHeaderHomeLinkComponent;
+  'hds/app-header/home-link': typeof HdsAppHeaderHomeLinkComponent;
 
   // AppFooter
   'Hds::AppFooter': typeof HdsAppFooterComponent;
