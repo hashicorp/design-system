@@ -26,8 +26,8 @@ interface HdsTabsIndexSignature {
   Blocks: {
     default: [
       {
-        Panel: ComponentLike<HdsTabsPanelSignature>;
-        Tab: ComponentLike<HdsTabsTabSignature>;
+        Panel?: ComponentLike<HdsTabsPanelSignature>;
+        Tab?: ComponentLike<HdsTabsTabSignature>;
       }
     ];
   };
