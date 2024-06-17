@@ -4,8 +4,19 @@
  */
 
 import Component from '@glimmer/component';
+import type { HdsTextBodySignature } from '../../text/body';
 
-export default class HdsPaginationInfoComponent extends Component {
+interface HdsPaginationInfoSignature {
+  Args: {
+    itemsRangeStart: number;
+    itemsRangeEnd: number;
+    totalItems: number;
+    showTotalItems?: boolean;
+  };
+  Element: HdsTextBodySignature['Element'];
+}
+
+export default class HdsPaginationInfoComponent extends Component<HdsPaginationInfoSignature> {
   /**
    * @param showTotalItems
    * @type {boolean}
