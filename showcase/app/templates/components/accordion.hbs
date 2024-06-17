@@ -8,46 +8,6 @@
 <Shw::Text::H1>Accordion</Shw::Text::H1>
 
 <section data-test-percy>
-  <Shw::Text::H2>Size</Shw::Text::H2>
-
-  {{#each @model.SIZES as |size index|}}
-    <Shw::Text::H3>{{capitalize size}}</Shw::Text::H3>
-
-    <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
-      {{#each @model.TYPES as |type|}}
-        <SG.Item @label={{type}}>
-          <Hds::Accordion @size={{size}} @type={{type}} as |A|>
-            <A.Item>
-              <:toggle>Item one</:toggle>
-              <:content>
-                <Shw::Placeholder @text="generic content" @height="40" />
-              </:content>
-            </A.Item>
-
-            <A.Item @isStatic={{true}}>
-              <:toggle>Item two</:toggle>
-              <:content>
-                <Shw::Placeholder @text="generic content" @height="40" />
-              </:content>
-            </A.Item>
-
-            <A.Item @containsInteractive={{true}}>
-              <:toggle>Item three</:toggle>
-              <:content>
-                <Shw::Placeholder @text="generic content" @height="40" />
-              </:content>
-            </A.Item>
-          </Hds::Accordion>
-        </SG.Item>
-      {{/each}}
-    </Shw::Grid>
-
-    {{#if (lt index 2)}}
-      <Shw::Divider @level={{2}} />
-    {{/if}}
-  {{/each}}
-
-  <Shw::Divider />
 
   <Shw::Text::H2>Type</Shw::Text::H2>
 
@@ -93,6 +53,47 @@
     </Shw::Grid>
 
     {{#if (lt index 1)}}
+      <Shw::Divider @level={{2}} />
+    {{/if}}
+  {{/each}}
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Size</Shw::Text::H2>
+
+  {{#each @model.SIZES as |size index|}}
+    <Shw::Text::H3>{{capitalize size}}</Shw::Text::H3>
+
+    <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+      {{#each @model.TYPES as |type|}}
+        <SG.Item @label={{type}}>
+          <Hds::Accordion @size={{size}} @type={{type}} as |A|>
+            <A.Item>
+              <:toggle>Item one</:toggle>
+              <:content>
+                <Shw::Placeholder @text="generic content" @height="40" />
+              </:content>
+            </A.Item>
+
+            <A.Item @isStatic={{true}}>
+              <:toggle>Item two</:toggle>
+              <:content>
+                <Shw::Placeholder @text="generic content" @height="40" />
+              </:content>
+            </A.Item>
+
+            <A.Item @containsInteractive={{true}}>
+              <:toggle>Item three</:toggle>
+              <:content>
+                <Shw::Placeholder @text="generic content" @height="40" />
+              </:content>
+            </A.Item>
+          </Hds::Accordion>
+        </SG.Item>
+      {{/each}}
+    </Shw::Grid>
+
+    {{#if (lt index 2)}}
       <Shw::Divider @level={{2}} />
     {{/if}}
   {{/each}}
