@@ -1,3 +1,5 @@
+export type PaginationDirection = 'prev' | 'next';
+
 export interface PaginationRouting {
   route?: string;
   model?: unknown;
