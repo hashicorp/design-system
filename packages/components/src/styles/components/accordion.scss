@@ -74,7 +74,7 @@ $hds-accordion-item-gap: 12px;
     border-radius: 0;
   }
 
-  &.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static)>.hds-disclosure-primitive__toggle {
+  &.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) > .hds-disclosure-primitive__toggle {
     &:hover,
     &.mock-hover {
       .hds-accordion-item__toggle {
@@ -93,15 +93,15 @@ $hds-accordion-item-gap: 12px;
 
 .hds-accordion-item__toggle-content {
   .hds-accordion-item--is-static.hds-accordion-item--size-large & {
-    margin-left: $hds-accordion-item-icon-large+$hds-accordion-item-gap;
+    margin-left: $hds-accordion-item-icon-large + $hds-accordion-item-gap;
   }
 
   .hds-accordion-item--is-static.hds-accordion-item--size-medium & {
-    margin-left: $hds-accordion-item-icon-medium+$hds-accordion-item-gap;
+    margin-left: $hds-accordion-item-icon-medium + $hds-accordion-item-gap;
   }
 
   .hds-accordion-item--is-static.hds-accordion-item--size-small & {
-    margin-left: $hds-accordion-item-icon-small+$hds-accordion-item-gap;
+    margin-left: $hds-accordion-item-icon-small + $hds-accordion-item-gap;
   }
 }
 
@@ -143,7 +143,7 @@ $hds-accordion-item-gap: 12px;
 
   &:hover { cursor: pointer; }
 
-  .flight-icon-chevron-down {
+  .flight-icon {
     @media (prefers-reduced-motion: no-preference) {
       transition: transform 0.3s;
     }
