@@ -12,8 +12,9 @@ export default class DocTrackEvent extends Modifier {
   @service eventTracking;
 
   modify(element, _positional, named) {
+    // if the tracking is disabled, do not add the event listener
     if (!this.eventTracking.isEnabled) {
-      // comment this line if you want to test in your local environment
+      // comment this line if you want the tracking function in the `eventTracking` service to be called even if the tracking is disabled
       return;
     }
 
