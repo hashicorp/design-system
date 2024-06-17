@@ -33,7 +33,7 @@ export default class HdsAlertComponent extends Component<HdsAccordionSignature> 
    *
    * @param size
    * @type {HdsAccordionSizes}
-   * @default 'large'
+   * @default 'medium'
    */
   get size() {
     const { size = DEFAULT_SIZE } = this.args;
@@ -76,7 +76,7 @@ export default class HdsAlertComponent extends Component<HdsAccordionSignature> 
   get classNames() {
     const classes = ['hds-accordion'];
 
-    // add a class based on the @type argument
+    // add a class based on the @size argument
     classes.push(`hds-accordion--size-${this.size}`);
 
     // add a class based on the @type argument
