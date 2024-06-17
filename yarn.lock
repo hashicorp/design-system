@@ -28044,6 +28044,7 @@ __metadata:
     ember-cli-terser: "npm:^4.0.2"
     ember-concurrency: "npm:^4.0.2"
     ember-fetch: "npm:^8.1.2"
+    ember-get-config: "npm:^2.1.1"
     ember-load-initializers: "npm:^2.1.2"
     ember-math-helpers: "npm:^3.0.0"
     ember-meta: "npm:^2.0.0"

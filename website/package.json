@@ -78,6 +78,7 @@
     "ember-cli-terser": "^4.0.2",
     "ember-concurrency": "^4.0.2",
     "ember-fetch": "^8.1.2",
+    "ember-get-config": "^2.1.1",
     "ember-load-initializers": "^2.1.2",
     "ember-math-helpers": "^3.0.0",
     "ember-meta": "^2.0.0",
