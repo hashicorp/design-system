@@ -9,15 +9,12 @@ import { inject as service } from '@ember/service';
 import { assert } from '@ember/debug';
 
 export default class DocTrackEvent extends Modifier {
-  @service fastboot;
+  @service eventTracking;
 
   modify(element, _positional, named) {
-    if (
-      // Only attempt to do something if we are in the right environment
-      this.fastboot.isFastBoot ||
-      window.fathom == null
-    ) {
-      // comment this line if you want to test in your local environment
+    // if the tracking is disabled, do not add the event listener
+    if (!this.eventTracking.isEnabled) {
+      // comment this line if you want the tracking function in the `eventTracking` service to be called even if the tracking is disabled
       return;
     }
 
@@ -29,8 +26,7 @@ export default class DocTrackEvent extends Modifier {
     );
 
     const handleTriggerEvent = () => {
-      // https://usefathom.com/docs/features/events
-      window.fathom?.trackEvent(eventName);
+      this.eventTracking.trackEvent(eventName);
     };
 
     element.addEventListener(triggerEvent, handleTriggerEvent);

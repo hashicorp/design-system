@@ -11,8 +11,10 @@ import { inject as service } from '@ember/service';
 import catalog from '@hashicorp/flight-icons/catalog.json';
 
 const DEBOUNCE_MS = 250;
+const TRACKING_DEBOUNCE_MS = 1000;
 
 export default class Index extends Component {
+  @service eventTracking;
   @service router;
 
   allIcons = catalog.assets.map(
@@ -116,27 +118,47 @@ export default class Index extends Component {
 
   @action
   selectGroupType(event) {
+    const { value: selectedGroupType } = event.target;
+
     this.router.transitionTo({
       queryParams: {
+        selectedGroupType,
         searchQuery: this.searchQuery,
         selectedIconSize: this.selectedIconSize,
-        selectedGroupType: event.target.value,
       },
     });
+
+    this.eventTracking.trackEvent(
+      `Icon Library - Group by Selector - ${selectedGroupType}`
+    );
   }
 
   @action
   selectIconSize(event) {
+    const { value: selectedIconSize } = event.target;
+
     this.router.transitionTo({
       queryParams: {
+        selectedIconSize,
         searchQuery: this.searchQuery,
         selectedGroupType: this.selectedGroupType,
-        selectedIconSize: event.target.value,
       },
     });
+
+    this.eventTracking.trackEvent(
+      `Icon Library - Size Selector - ${selectedIconSize}`
+    );
+  }
+
+  @restartableTask *trackSearchIcons(searchQuery) {
+    yield timeout(TRACKING_DEBOUNCE_MS);
+
+    this.eventTracking.trackEvent(`Icon Library - Search - ${searchQuery}`);
   }
 
   @restartableTask *searchIcons(searchQuery) {
+    this.trackSearchIcons.perform(searchQuery);
+
     yield timeout(DEBOUNCE_MS);
 
     this.router.transitionTo({
