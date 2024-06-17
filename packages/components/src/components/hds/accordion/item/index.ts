@@ -19,9 +19,9 @@ export const DEFAULT_TYPE = HdsAccordionTypeValues.Card;
 export interface HdsAccordionItemSignature {
   Args: {
     ariaLabel?: string;
-    containsInteractive?: boolean;
     isOpen?: boolean;
     isStatic?: boolean;
+    containsInteractive?: boolean;
     size?: HdsAccordionSizes;
     type?: HdsAccordionTypes;
   };
@@ -61,10 +61,10 @@ export default class HdsAccordionItemComponent extends Component<HdsAccordionIte
   /**
    * @param toggleTextSize
    * @type {HdsTextSizes}
-   * @default false
+   * @default 'medium'
    */
   get toggleTextSize() {
-    const size = this.args.size ?? 'large';
+    const size = this.args.size ?? DEFAULT_SIZE;
     const sizeMap = {
       large: 300,
       medium: 200,
@@ -79,13 +79,13 @@ export default class HdsAccordionItemComponent extends Component<HdsAccordionIte
    *
    * @param size
    * @type {HdsAccordionSizes}
-   * @default 'large'
+   * @default 'medium'
    */
   get size() {
     const { size = DEFAULT_SIZE } = this.args;
 
     assert(
-      `@size for "Hds::Accordion" must be one of the following: ${SIZES.join(
+      `@size for "Hds::Accordion::Item" must be one of the following: ${SIZES.join(
         ', '
       )}; received: ${size}`,
       SIZES.includes(size)
@@ -132,7 +132,7 @@ export default class HdsAccordionItemComponent extends Component<HdsAccordionIte
       classes.push('hds-accordion-item--is-static');
     }
 
-    // add a class based on the @type argument
+    // add a class based on the @size argument
     classes.push(`hds-accordion-item--size-${this.size}`);
 
     // add a class based on the @type argument

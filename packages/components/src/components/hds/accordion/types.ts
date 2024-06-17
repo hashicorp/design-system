@@ -10,8 +10,8 @@ export enum HdsAccordionTypeValues {
 export type HdsAccordionTypes = `${HdsAccordionTypeValues}`;
 
 export enum HdsAccordionSizeValues {
-  Large = 'large',
-  Medium = 'medium',
   Small = 'small',
+  Medium = 'medium',
+  Large = 'large',
 }
 export type HdsAccordionSizes = `${HdsAccordionSizeValues}`;
