@@ -15,4 +15,17 @@ module('Integration | Component | hds/app-header/index', function (hooks) {
     await render(hbs`<Hds::AppHeader id="test-app-header" />`);
     assert.dom('#test-app-header').hasClass('hds-app-header');
   });
+
+  // CONTENT
+
+  test('it renders content passed into the globalItems and utilityItems named blocks', async function (assert) {
+    await render(hbs`
+      <Hds::AppHeader>
+        <:globalItems><span id="test-global-item">Global Item</span></:globalItems>
+        <:utilityItems><span id="test-utility-item">Utility Item</span></:utilityItems>
+      </Hds::AppHeader>
+    `);
+    assert.dom('#test-global-item').hasText('Global Item');
+    assert.dom('#test-utility-item').hasText('Utility Item');
+  });
 });
