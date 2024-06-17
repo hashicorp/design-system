@@ -15,3 +15,9 @@ export enum HdsAccordionSizeValues {
   Large = 'large',
 }
 export type HdsAccordionSizes = `${HdsAccordionSizeValues}`;
+
+export enum HdsAccordionForceStateValues {
+  Open = 'open',
+  Close = 'close',
+}
+export type HdsAccordionForceStates = `${HdsAccordionForceStateValues}`;

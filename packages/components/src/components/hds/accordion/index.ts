@@ -10,13 +10,13 @@ import { SIZES, DEFAULT_SIZE, TYPES, DEFAULT_TYPE } from './item/index.ts';
 
 import type { ComponentLike } from '@glint/template';
 import type { HdsAccordionItemSignature } from './item/index.ts';
-import type { HdsAccordionSizes, HdsAccordionTypes } from './types.ts';
+import type { HdsAccordionForceStates, HdsAccordionSizes, HdsAccordionTypes } from './types.ts';
 
 interface HdsAccordionSignature {
   Args: {
     size?: HdsAccordionSizes;
     type?: HdsAccordionTypes;
-    forceState?: 'open' | 'close';
+    forceState?: HdsAccordionForceStates;
   };
   Blocks: {
     default: [
