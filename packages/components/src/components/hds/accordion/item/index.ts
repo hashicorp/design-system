@@ -5,13 +5,14 @@
 
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
+import type { HdsAccordionForceStates } from '../types.ts';
 
 export interface HdsAccordionItemSignature {
   Args: {
     ariaLabel?: string;
     containsInteractive?: boolean;
     isOpen?: boolean;
-    forceState?: 'open' | 'close';
+    forceState?: HdsAccordionForceStates;
   };
   Blocks: {
     toggle?: [];
