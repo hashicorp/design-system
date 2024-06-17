@@ -8,13 +8,9 @@ import Component from '@glimmer/component';
 export interface HdsAppHeaderSignature {
   Blocks: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    globalBefore?: any;
+    globalItems?: any;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    logo: any;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    globalAfter?: any;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    utility?: any;
+    utilityItems?: any;
   };
   Element: HTMLDivElement;
 }

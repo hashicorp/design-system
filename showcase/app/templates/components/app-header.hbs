@@ -15,24 +15,18 @@
   <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
     <SG.Item>
       <Hds::AppHeader>
-        <:globalBefore>
+        <:globalItems>
           <Shw::Placeholder @height="2em" @width="auto" @text="ProductMenu" />
-        </:globalBefore>
-
-        <:logo>
           <Shw::Placeholder @height="2em" @width="auto" @text="LOGO" />
-        </:logo>
-
-        <:globalAfter>
           <Shw::Placeholder @height="2em" @width="auto" @text="OrgPicker" />
-        </:globalAfter>
+        </:globalItems>
 
-        <:utility>
+        <:utilityItems>
           <Shw::Placeholder @height="2em" @width="auto" @text="GeoPicker" />
           <Shw::Placeholder @height="2em" @width="auto" @text="Search" />
           <Shw::Placeholder @height="2em" @width="auto" @text="HelpMenu" />
           <Shw::Placeholder @height="2em" @width="auto" @text="UserMenu" />
-        </:utility>
+        </:utilityItems>
       </Hds::AppHeader>
     </SG.Item>
   </Shw::Grid>
@@ -44,20 +38,18 @@
   <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
     <SG.Item @label="With minimum recommended phase 1 content">
       <Hds::AppHeader>
-        <:logo>
+        <:globalItems>
           <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
-        </:logo>
 
-        <:globalAfter>
           <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
             <dd.ToggleButton @text="Choose an organization" @icon="org" />
             <dd.Checkmark>
               organizationName
             </dd.Checkmark>
           </Hds::Dropdown>
-        </:globalAfter>
+        </:globalItems>
 
-        <:utility>
+        <:utilityItems>
           <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="bottom-right" as |dd|>
             <dd.ToggleIcon @icon="help" @text="help menu" />
             <dd.Title @text="Help & Support" />
@@ -76,26 +68,24 @@
             <dd.Description @text="email@domain.com" />
             <dd.Interactive @href="#" @text="Account Settings" />
           </Hds::Dropdown>
-        </:utility>
+        </:utilityItems>
       </Hds::AppHeader>
     </SG.Item>
 
     <SG.Item @label="With max recommended phase 1 content & Terraform logo">
       <Hds::AppHeader>
-        <:logo>
+        <:globalItems>
           <Hds::AppHeader::HomeLink @icon="terraform" @ariaLabel="Terraform home menu" @href="#" />
-        </:logo>
 
-        <:globalAfter>
           <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
             <dd.ToggleButton @text="Choose an organization" @icon="org" />
             <dd.Checkmark>
               organizationName
             </dd.Checkmark>
           </Hds::Dropdown>
-        </:globalAfter>
+        </:globalItems>
 
-        <:utility>
+        <:utilityItems>
           <Hds::Button class="hds-side-nav__icon-button" @icon="search" @isIconOnly={{true}} @text="Search" />
 
           <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="bottom-right" as |dd|>
@@ -116,31 +106,27 @@
             <dd.Description @text="email@domain.com" />
             <dd.Interactive @href="#" @text="Account Settings" />
           </Hds::Dropdown>
-        </:utility>
+        </:utilityItems>
       </Hds::AppHeader>
     </SG.Item>
 
     <SG.Item @label="With max recommended future content">
       <Hds::AppHeader>
-        <:globalBefore>
+        <:globalItems>
           {{! TODO: Rethink / Refactor buttons (Hds::SideNav::Header::IconButton) for use in AppHeader (& SideNav ) }}
           <Hds::Button class="hds-side-nav__icon-button" @icon="grid-alt" @isIconOnly={{true}} @text="Product menu" />
-        </:globalBefore>
 
-        <:logo>
           <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
-        </:logo>
 
-        <:globalAfter>
           <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
             <dd.ToggleButton @text="Choose an organization" @icon="org" />
             <dd.Checkmark>
               organizationName
             </dd.Checkmark>
           </Hds::Dropdown>
-        </:globalAfter>
+        </:globalItems>
 
-        <:utility>
+        <:utilityItems>
           <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
             <dd.ToggleButton @text="Europe" @icon="globe" />
             <dd.Checkmark>
@@ -168,7 +154,7 @@
             <dd.Description @text="email@domain.com" />
             <dd.Interactive @href="#" @text="Account Settings" />
           </Hds::Dropdown>
-        </:utility>
+        </:utilityItems>
       </Hds::AppHeader>
     </SG.Item>
   </Shw::Grid>
