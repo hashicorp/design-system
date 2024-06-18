@@ -11,15 +11,9 @@ import { tracked } from '@glimmer/tracking';
 export interface HdsTabsPanelSignature {
   Args: {
     tabIds: string[];
-<<<<<<< HEAD
     panelIds: string[];
     selectedTabIndex: number;
     didInsertNode: (element: HTMLElement, elementId: string) => void;
-=======
-    panelIds?: string[];
-    selectedTabIndex: number;
-    didInsertNode: (element: HTMLElement, isSelected?: boolean) => void;
->>>>>>> b9f03f2db (making changes to the tab component based on the assumption that  will always be an array)
     willDestroyNode: (element: HTMLElement) => void;
   };
   Blocks: {
@@ -62,27 +56,8 @@ export default class HdsTabsPanelComponent extends Component<HdsTabsPanelSignatu
   }
 
   @action
-<<<<<<< HEAD
   didInsertNode(element: HTMLElement) {
     this.elementId = element.id;
     this.args.didInsertNode(element, this.elementId);
-=======
-  didInsertNode(element) {
-    const { didInsertNode } = this.args;
-
-    if (typeof didInsertNode === 'function') {
-      this.elementId = element.id;
-      didInsertNode(element, this.elementId);
-    }
-  }
-
-  @action
-  willDestroyNode(element: HTMLElement) {
-    const { willDestroyNode } = this.args;
-
-    if (typeof willDestroyNode === 'function') {
-      willDestroyNode(element);
-    }
->>>>>>> b9f03f2db (making changes to the tab component based on the assumption that  will always be an array)
   }
 }
