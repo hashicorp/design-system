@@ -10,39 +10,48 @@
 @use "../mixins/button" as *;
 @use "../mixins/focus-ring" as *;
 
-.hds-accordion {
-  --hds-accordion-item-padding-large: 16px;
-  --hds-accordion-item-padding-medium: 12px;
-  --hds-accordion-item-padding-small: 8px;
-  --hds-accordion-item-icon-large: 24px;
-  --hds-accordion-item-icon-medium: 20px;
-  --hds-accordion-item-icon-small: 16px;
-  --hds-accordion-item-border-radius: 6px;
-  --hds-accordion-item-gap: 12px;
+$hds-accordion-item-border-radius: 6px;
+$hds-accordion-item-gap: 12px;
 
+.hds-accordion {
   display: flex;
   flex-direction: column;
 }
 
 .hds-accordion--type-card {
-  &.hds-accordion--size-large {
-    gap: 12px;
+  &.hds-accordion--size-small {
+    gap: 4px;
   }
 
   &.hds-accordion--size-medium {
     gap: 8px;
   }
 
-  &.hds-accordion--size-small {
-    gap: 4px;
+  &.hds-accordion--size-large {
+    gap: 12px;
   }
 }
 
 // ACCORDION ITEM COMPONENT (nested child)
 
+.hds-accordion-item--size-small {
+  --hds-accordion-item-padding: 8px;
+  --hds-accordion-item-icon: 16px;
+}
+
+.hds-accordion-item--size-medium {
+  --hds-accordion-item-padding: 12px;
+  --hds-accordion-item-icon: 20px;
+}
+
+.hds-accordion-item--size-large {
+  --hds-accordion-item-padding: 16px;
+  --hds-accordion-item-icon: 24px;
+}
+
 .hds-accordion-item--type-card {
   background: var(--token-color-surface-primary);
-  border-radius: var(--hds-accordion-item-border-radius);
+  border-radius: $hds-accordion-item-border-radius;
 
   &.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) {
     box-shadow: var(--token-surface-mid-box-shadow);
@@ -89,16 +98,8 @@
 }
 
 .hds-accordion-item__toggle-content {
-  .hds-accordion-item--is-static.hds-accordion-item--size-large & {
-    margin-left: calc(var(--hds-accordion-item-icon-large) + var(--hds-accordion-item-gap));
-  }
-
-  .hds-accordion-item--is-static.hds-accordion-item--size-medium & {
-    margin-left: calc(var(--hds-accordion-item-icon-medium) + var(--hds-accordion-item-gap));
-  }
-
-  .hds-accordion-item--is-static.hds-accordion-item--size-small & {
-    margin-left: calc(var(--hds-accordion-item-icon-small) + var(--hds-accordion-item-gap));
+  .hds-accordion-item--is-static.hds-accordion-item & {
+    margin-left: calc(var(--hds-accordion-item-icon) + $hds-accordion-item-gap);
   }
 }
 
@@ -107,20 +108,10 @@
 .hds-accordion-item__toggle {
   position: relative;
   display: flex;
-  gap: var(--hds-accordion-item-gap);
+  gap: $hds-accordion-item-gap;
   align-items: center;
 
-  .hds-accordion-item--size-large & {
-    padding: var(--hds-accordion-item-padding-large) var(--hds-accordion-item-padding-large) var(--hds-accordion-item-padding-large) 12px;
-  }
-
-  .hds-accordion-item--size-medium & {
-    padding: var(--hds-accordion-item-padding-medium) var(--hds-accordion-item-padding-medium) var(--hds-accordion-item-padding-medium) 12px;
-  }
-
-  .hds-accordion-item--size-small & {
-    padding: var(--hds-accordion-item-padding-small) var(--hds-accordion-item-padding-small) var(--hds-accordion-item-padding-small) 12px;
-  }
+  padding: var(--hds-accordion-item-padding) var(--hds-accordion-item-padding) var(--hds-accordion-item-padding) 12px;
 }
 
 .hds-accordion-item__button {
@@ -151,7 +142,7 @@
   &::after {
     position: absolute;
     display: block;
-    border-radius: var(--hds-accordion-item-border-radius);
+    border-radius: $hds-accordion-item-border-radius;
     content: "";
     inset: 0;
   }
@@ -177,19 +168,9 @@
   }
 }
 
-.hds-accordion-item__button--size-large {
-  width: var(--hds-accordion-item-icon-large);
-  height: var(--hds-accordion-item-icon-large);
-}
-
-.hds-accordion-item__button--size-medium {
-  width: var(--hds-accordion-item-icon-medium);
-  height: var(--hds-accordion-item-icon-medium);
-}
-
-.hds-accordion-item__button--size-small {
-  width: var(--hds-accordion-item-icon-small);
-  height: var(--hds-accordion-item-icon-small);
+.hds-accordion-item__button {
+  width: var(--hds-accordion-item-icon);
+  height: var(--hds-accordion-item-icon);
 }
 
 // Consumer added content that appears next to the chevron button:
@@ -200,15 +181,7 @@
 // CONTENT BLOCK
 
 .hds-accordion-item__content {
-  .hds-accordion-item--size-large & {
-    padding: 4px var(--hds-accordion-item-padding-large) var(--hds-accordion-item-padding-large) var(--hds-accordion-item-padding-large);
-  }
-
-  .hds-accordion-item--size-medium & {
-    padding: 4px var(--hds-accordion-item-padding-medium) var(--hds-accordion-item-padding-medium) var(--hds-accordion-item-padding-medium);
-  }
-
-  .hds-accordion-item--size-small & {
-    padding: 4px var(--hds-accordion-item-padding-small) var(--hds-accordion-item-padding-small) var(--hds-accordion-item-padding-small);
+  .hds-accordion-item & {
+    padding: 4px var(--hds-accordion-item-padding) var(--hds-accordion-item-padding) var(--hds-accordion-item-padding);
   }
 }
