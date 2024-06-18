@@ -66,9 +66,9 @@ export default class HdsAccordionItemComponent extends Component<HdsAccordionIte
   get toggleTextSize() {
     const size = this.args.size ?? DEFAULT_SIZE;
     const sizeMap = {
-      large: 300,
-      medium: 200,
       small: 100,
+      medium: 200,
+      large: 300,
     };
 
     return sizeMap[size];
