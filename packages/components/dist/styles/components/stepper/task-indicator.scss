@@ -1,0 +1,73 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// STEPPER > INDICATOR > TASK
+//
+
+$hds-stepper-indicator-task-statuses: ( "incomplete", "progress", "processing", "complete" );
+$hds-stepper-indicator-task-size: 16px;
+
+// Determine states and corresponding styles
+$hds-stepper-indicator-task-status-props: (
+  "incomplete": (
+    "color-default": var(--token-color-palette-neutral-300),
+    "color-hover": var(--token-color-palette-blue-300),
+    "color-active": var(--token-color-palette-blue-400),
+  ),
+  "progress": (
+    "color-default": var(--token-color-palette-blue-200),
+    "color-hover": var(--token-color-palette-blue-300),
+    "color-active": var(--token-color-palette-blue-400),
+  ),
+  "processing": (
+    "color-default": var(--token-color-palette-blue-200),
+    "color-hover": var(--token-color-palette-blue-300),
+    "color-active": var(--token-color-palette-blue-400),
+  ),
+  "complete": (
+    "color-default": var(--token-color-palette-green-200),
+    "color-hover": var(--token-color-palette-green-300),
+    "color-active": var(--token-color-palette-green-400),
+  )
+);
+
+// Base styling for indicator::task
+.hds-stepper-indicator-task {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $hds-stepper-indicator-task-size;
+  height: $hds-stepper-indicator-task-size;
+  color: var(--token-color-foreground-strong);
+}
+
+.hds-stepper-indicator-task__icon {
+  width: 12px;
+  height: 12px;
+}
+
+.hds-stepper-indicator-task--is-interactive {
+  cursor: pointer;
+
+  @each $status in $hds-stepper-indicator-task-statuses {
+    // For each status set the icon color based on the $hds-stepper-indicator-task-status-props
+    &.hds-stepper-indicator-task--status-#{$status} {
+      color: map-get($hds-stepper-indicator-task-status-props, $status, "color-default");
+
+      &:hover,
+      &.mock-hover {
+        color: map-get($hds-stepper-indicator-task-status-props, $status, "color-hover");
+      }
+
+      &:active,
+      &.mock-active {
+        color: map-get($hds-stepper-indicator-task-status-props, $status, "color-active");
+      }
+    }
+  }
+}
+

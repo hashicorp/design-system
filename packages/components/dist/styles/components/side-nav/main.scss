@@ -1,0 +1,173 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// SIDE-NAV
+//
+
+.hds-side-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20; // needs to stay above the main content
+  width: var(--hds-app-sidenav-width-fixed); // "default" width used by the `SideNav::Base` subcomponent (that is not responsive)
+  height: 100vh;
+  min-height: 100vh;
+  isolation: isolate; // used to create a new stacking context (so we can set the overlay's z-index to -1)
+
+  // RESPONSIVENESS - This controls the width of the top-level container ("sidebar") in the grid, and impacts the available space for the "main" grid area
+
+  &.hds-side-nav--is-responsive {
+    transition:
+      width var(--hds-app-sidenav-animation-duration)
+      var(--hds-app-sidenav-animation-easing);
+  }
+
+  // mobile
+  &.hds-side-nav--is-mobile {
+    width: var(--hds-app-sidenav-width-minimized);
+  }
+
+  // desktop
+  &.hds-side-nav--is-desktop {
+    &.hds-side-nav--is-not-minimized {
+      width: var(--hds-app-sidenav-width-expanded);
+    }
+
+    &.hds-side-nav--is-minimized {
+      width: var(--hds-app-sidenav-width-minimized);
+    }
+  }
+}
+
+
+// OVERLAY
+
+.hds-side-nav__overlay {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  background-color: var(--token-color-palette-neutral-700);
+  opacity: 0.2;
+  transition:
+    opacity var(--hds-app-sidenav-animation-duration)
+    var(--hds-app-sidenav-animation-easing)
+    var(--hds-app-sidenav-animation-delay);
+
+  // when we're minimized (mobile) we don't want the overlay to be visible/interactive
+  .hds-side-nav--is-minimized & {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  // when it's desktop we _never_ want the overlay to be visible
+  .hds-side-nav--is-desktop & {
+    display: none;
+  }
+}
+
+// RESPONSIVE WRAPPER
+// this container element is used to control the width of the sidebar at different viewports (desktop/mobile) and states (minimized/expanded)
+
+.hds-side-nav__wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: var(--token-side-nav-color-foreground-primary); // we set a default color (in case generic content is added to the header/body/footer of the sidenav)
+  background: var(--token-side-nav-color-surface-primary);
+  border-right: var(--token-side-nav-wrapper-border-width) solid var(--token-side-nav-wrapper-border-color);
+
+  // RESPONSIVENESS - This controls the width of the "sidenav" container, and is independent (bur related) from the parent "sidebar" grid area
+
+  .hds-side-nav--is-responsive & {
+    transition:
+      width var(--hds-app-sidenav-animation-duration)
+      var(--hds-app-sidenav-animation-easing);
+  }
+
+  .hds-side-nav--is-minimized & {
+    width: var(--hds-app-sidenav-width-minimized);
+  }
+
+  .hds-side-nav--is-not-minimized & {
+    width: var(--hds-app-sidenav-width-expanded);
+  }
+}
+
+// wrapper's child "containers"
+
+.hds-side-nav__wrapper-header {
+  padding-top: var(--token-side-nav-wrapper-padding-vertical);
+  padding-right: var(--token-side-nav-wrapper-padding-horizontal);
+  padding-bottom: 8px; // by design
+  padding-left: var(--token-side-nav-wrapper-padding-horizontal);
+  transition:
+    padding var(--hds-app-sidenav-animation-duration)
+    var(--hds-app-sidenav-animation-easing);
+
+  .hds-side-nav--is-minimized & {
+    padding-top: var(--token-side-nav-wrapper-padding-vertical-minimized);
+    padding-right: var(--token-side-nav-wrapper-padding-horizontal-minimized);
+    padding-left: var(--token-side-nav-wrapper-padding-horizontal-minimized);
+  }
+}
+
+.hds-side-nav__wrapper-body {
+  flex: 1;
+  padding:
+    var(--token-side-nav-wrapper-padding-vertical)
+    var(--token-side-nav-wrapper-padding-horizontal);
+  // this is necessary, otherwise when the sidenav is minimized an horizontal scrollbar may appear
+  // (if there are words longer than the width of the available space for the list "item" content)
+  overflow-x: hidden;
+  // we want the content to vertically scroll if needed
+  overflow-y: auto;
+}
+
+.hds-side-nav__wrapper-footer {
+  padding:
+    var(--token-side-nav-wrapper-padding-vertical)
+    var(--token-side-nav-wrapper-padding-horizontal);
+}
+
+
+// "HIDE-WHEN-MINIMIZED" SPECIAL CLASS
+// this is a special class that is used to control which elements of the sidenav need to be:
+// - hidden (immediately) when the sidenav is "minimized"
+// - shown (transitioning their opacity) when the sidenav is "expanded"
+
+.hds-side-nav-hide-when-minimized {
+  .hds-side-nav--is-minimized & {
+    visibility: hidden !important; // we need `!important` here to override the inline style applied to the single panels
+    opacity: 0;
+    // this is needed because, despite the element having `visibility: hidden`,
+    // the child elements ("panels") have their visibility dynamically managed via JS
+    // and when they have "visibility: visible" applied, they are not visually visible
+    // (because of the `opacity: 0` of the parent) but the user can still interact with them
+    // and click on the links inside the sidenav even if they're not visible at all,
+    // so we have to block the interactivity of the whole container
+    // for reference see these PRs:
+    // - https://github.com/hashicorp/design-system/pull/1338
+    // - https://github.com/hashicorp/design-system/pull/1388
+    // - https://github.com/hashicorp/design-system/pull/1516
+    // and this codepen with a redux of the problem:
+    // - https://codepen.io/didoo/pen/mdQKMJW?editors=1100
+    pointer-events: none;
+  }
+
+  .hds-side-nav--is-not-minimized & {
+    visibility: visible;
+    opacity: 1;
+    transition:
+      opacity var(--hds-app-sidenav-animation-duration)
+      var(--hds-app-sidenav-animation-easing)
+      var(--hds-app-sidenav-animation-delay);
+  }
+
+  // we want to avoid accidental interactions with the navigation elements while the sidenav is animating its width
+  // (elements with `visibility: visible` can already be interacted with, while their opacity is transitioning)
+  .hds-side-nav--is-animating & {
+    pointer-events: none;
+  }
+}

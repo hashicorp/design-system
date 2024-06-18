@@ -1,0 +1,145 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// BADGE COMPONENT
+//
+
+$hds-badge-types: ( "flat","inverted","outlined" );
+$hds-badge-colors-accents: ( "highlight", "success", "warning", "critical" );
+$hds-badge-sizes: ( "small", "medium", "large" );
+$hds-badge-border-width: 1px;
+
+
+.hds-badge {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  vertical-align: middle;
+  border: $hds-badge-border-width solid transparent;
+  border-radius: 5px;
+}
+
+.hds-badge__icon {
+  display: block;
+  flex: 0 0 auto;
+}
+
+.hds-badge__text {
+  flex: 1 0 0;
+  font-weight: var(--token-typography-font-weight-medium);
+  font-family: var(--token-typography-font-stack-text);
+}
+
+
+// SIZE
+
+// these values later may come from the design tokens
+$hds-badge-size-props: (
+  "small": (
+    "font-size": 0.8125rem, // 13px
+    "gap": 0.25rem,
+    "height": 1.25rem,
+    "icon-size": 0.75rem,
+    "line-height": 1.2308, // 16px
+    "padding-vertical": 0.125rem,
+    "padding-horizontal": 0.375rem,
+  ),
+  "medium": (
+    "font-size": 0.8125rem, // 13px
+    "gap": 0.25rem,
+    "height": 1.5rem,
+    "icon-size": 1rem,
+    "line-height": 1.2308, // 16px
+    "padding-vertical": 0.25rem,
+    "padding-horizontal": 0.5rem,
+  ),
+  "large": (
+    "font-size": 1rem, // 16px
+    "gap": 0.375rem,
+    "height": 2rem,
+    "icon-size": 1rem,
+    "line-height": 1.5, // 24px
+    "padding-vertical": 0.25rem,
+    "padding-horizontal": 0.5rem,
+  )
+);
+
+@each $size in $hds-badge-sizes {
+  .hds-badge--size-#{$size} {
+    gap: map-get($hds-badge-size-props, $size, "gap");
+    min-height: map-get($hds-badge-size-props, $size, "height");
+    padding: calc(#{map-get($hds-badge-size-props, $size, "padding-vertical")} - #{$hds-badge-border-width}) calc(#{map-get($hds-badge-size-props, $size, "padding-horizontal")} - #{$hds-badge-border-width});
+
+    .hds-badge__icon {
+      width: map-get($hds-badge-size-props, $size, "icon-size");
+      height: map-get($hds-badge-size-props, $size, "icon-size");
+    }
+
+    .hds-badge__text {
+      font-size: map-get($hds-badge-size-props, $size, "font-size");
+      line-height: map-get($hds-badge-size-props, $size, "line-height");
+    }
+  }
+}
+
+
+// COLOR + TYPE COMBINATIONS
+
+.hds-badge--color-neutral {
+  &.hds-badge--type-filled {
+    color: var(--token-color-foreground-primary);
+    background-color: var(--token-color-surface-strong);
+  }
+
+  &.hds-badge--type-inverted {
+    color: var(--token-color-foreground-high-contrast);
+    background-color: var(--token-color-foreground-faint);
+  }
+
+  &.hds-badge--type-outlined {
+    color: var(--token-color-foreground-primary);
+    background-color: transparent;
+    border-color: var(--token-color-foreground-faint);
+  }
+}
+
+.hds-badge--color-neutral-dark-mode {
+  &.hds-badge--type-filled {
+    color: var(--token-color-foreground-high-contrast);
+    background-color: var(--token-color-foreground-faint);
+  }
+
+  &.hds-badge--type-inverted {
+    color: var(--token-color-foreground-primary);
+    background-color: var(--token-color-surface-faint);
+  }
+
+  &.hds-badge--type-outlined {
+    color: var(--token-color-foreground-high-contrast);
+    background-color: transparent;
+    border-color: var(--token-color-palette-neutral-100);
+  }
+}
+
+@each $color in $hds-badge-colors-accents {
+  .hds-badge--color-#{$color} {
+    &.hds-badge--type-filled {
+      color: var(--token-color-foreground-#{$color}-on-surface);
+      background-color: var(--token-color-surface-#{$color});
+    }
+
+    &.hds-badge--type-inverted {
+      color: var(--token-color-foreground-high-contrast);
+      background-color: var(--token-color-foreground-#{$color});
+    }
+
+    &.hds-badge--type-outlined {
+      color: var(--token-color-foreground-#{$color});
+      background-color: transparent;
+      border-color: currentColor;
+    }
+  }
+}
