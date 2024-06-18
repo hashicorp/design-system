@@ -299,6 +299,57 @@
     </Shw::Grid>
   {{/each}}
 
+  <Shw::Text::H4>Mixed</Shw::Text::H4>
+
+  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+    <SG.Item @label="type=flush nested in type=card" {{style flex="1"}}>
+      <Hds::Accordion as |A|>
+        <A.Item @isOpen={{true}}>
+          <:toggle>Item one</:toggle>
+          <:content>
+            <Hds::Accordion @type="flush" as |AA|>
+              <AA.Item>
+                <:toggle>Nested item one</:toggle>
+                <:content>
+                  <Shw::Placeholder @text="generic content" @height="40" />
+                </:content>
+              </AA.Item>
+              <AA.Item @containsInteractive={{true}}>
+                <:toggle>Nested item two</:toggle>
+                <:content>
+                  <Shw::Placeholder @text="generic content" @height="40" />
+                </:content>
+              </AA.Item>
+            </Hds::Accordion>
+          </:content>
+        </A.Item>
+      </Hds::Accordion>
+    </SG.Item>
+    <SG.Item @label="type=card nested in type=flush" {{style flex="1"}}>
+      <Hds::Accordion @type="flush" as |A|>
+        <A.Item @isOpen={{true}}>
+          <:toggle>Item one</:toggle>
+          <:content>
+            <Hds::Accordion as |AA|>
+              <AA.Item>
+                <:toggle>Nested item one</:toggle>
+                <:content>
+                  <Shw::Placeholder @text="generic content" @height="40" />
+                </:content>
+              </AA.Item>
+              <AA.Item @containsInteractive={{true}}>
+                <:toggle>Nested item two</:toggle>
+                <:content>
+                  <Shw::Placeholder @text="generic content" @height="40" />
+                </:content>
+              </AA.Item>
+            </Hds::Accordion>
+          </:content>
+        </A.Item>
+      </Hds::Accordion>
+    </SG.Item>
+  </Shw::Grid>
+
   <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Edge cases</Shw::Text::H3>
