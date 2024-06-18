@@ -10,18 +10,16 @@
 @use "../mixins/button" as *;
 @use "../mixins/focus-ring" as *;
 
-$hds-accordion-item-padding-large: 16px;
-$hds-accordion-item-padding-medium: 12px;
-$hds-accordion-item-padding-small: 8px;
-$hds-accordion-item-icon-large: 24px;
-$hds-accordion-item-icon-medium: 20px;
-$hds-accordion-item-icon-small: 16px;
-$hds-accordion-item-border-radius: 6px;
-$hds-accordion-item-gap: 12px;
-
-// ACCORDION COMPONENT (wrapper)
-
 .hds-accordion {
+  --hds-accordion-item-padding-large: 16px;
+  --hds-accordion-item-padding-medium: 12px;
+  --hds-accordion-item-padding-small: 8px;
+  --hds-accordion-item-icon-large: 24px;
+  --hds-accordion-item-icon-medium: 20px;
+  --hds-accordion-item-icon-small: 16px;
+  --hds-accordion-item-border-radius: 6px;
+  --hds-accordion-item-gap: 12px;
+
   display: flex;
   flex-direction: column;
 }
@@ -38,14 +36,13 @@ $hds-accordion-item-gap: 12px;
   &.hds-accordion--size-small {
     gap: 4px;
   }
-}  
-
+}
 
 // ACCORDION ITEM COMPONENT (nested child)
 
 .hds-accordion-item--type-card {
   background: var(--token-color-surface-primary);
-  border-radius: $hds-accordion-item-border-radius;
+  border-radius: var(--hds-accordion-item-border-radius);
 
   &.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) {
     box-shadow: var(--token-surface-mid-box-shadow);
@@ -59,14 +56,14 @@ $hds-accordion-item-gap: 12px;
   &.hds-accordion-item--contains-interactive,
   &.hds-accordion-item--is-static {
     box-shadow: var(--token-surface-base-box-shadow);
-  }  
+  }
 }
 
 .hds-accordion-item--type-flush {
   box-shadow: 0 1px 0 0 var(--token-color-border-primary);
 
   &:first-child {
-    box-shadow: 0 1px 0 0 var(--token-color-border-primary), 0 -1px 0 0 var(--token-color-border-primary), ;
+    box-shadow: 0 1px 0 0 var(--token-color-border-primary), 0 -1px 0 0 var(--token-color-border-primary);
   }
 
   // we need this specificity to override the focus-ring mixin
@@ -93,15 +90,15 @@ $hds-accordion-item-gap: 12px;
 
 .hds-accordion-item__toggle-content {
   .hds-accordion-item--is-static.hds-accordion-item--size-large & {
-    margin-left: $hds-accordion-item-icon-large + $hds-accordion-item-gap;
+    margin-left: calc(var(--hds-accordion-item-icon-large) + var(--hds-accordion-item-gap));
   }
 
   .hds-accordion-item--is-static.hds-accordion-item--size-medium & {
-    margin-left: $hds-accordion-item-icon-medium + $hds-accordion-item-gap;
+    margin-left: calc(var(--hds-accordion-item-icon-medium) + var(--hds-accordion-item-gap));
   }
 
   .hds-accordion-item--is-static.hds-accordion-item--size-small & {
-    margin-left: $hds-accordion-item-icon-small + $hds-accordion-item-gap;
+    margin-left: calc(var(--hds-accordion-item-icon-small) + var(--hds-accordion-item-gap));
   }
 }
 
@@ -110,31 +107,19 @@ $hds-accordion-item-gap: 12px;
 .hds-accordion-item__toggle {
   position: relative;
   display: flex;
-  gap: $hds-accordion-item-gap;
+  gap: var(--hds-accordion-item-gap);
   align-items: center;
 
   .hds-accordion-item--size-large & {
-    padding:
-    $hds-accordion-item-padding-large
-    $hds-accordion-item-padding-large
-    $hds-accordion-item-padding-large
-    12px; // by design
+    padding: var(--hds-accordion-item-padding-large) var(--hds-accordion-item-padding-large) var(--hds-accordion-item-padding-large) 12px;
   }
 
   .hds-accordion-item--size-medium & {
-    padding:
-    $hds-accordion-item-padding-medium
-    $hds-accordion-item-padding-medium
-    $hds-accordion-item-padding-medium
-    12px; // by design
+    padding: var(--hds-accordion-item-padding-medium) var(--hds-accordion-item-padding-medium) var(--hds-accordion-item-padding-medium) 12px;
   }
 
   .hds-accordion-item--size-small & {
-    padding:
-    $hds-accordion-item-padding-small
-    $hds-accordion-item-padding-small
-    $hds-accordion-item-padding-small
-    12px; // by design
+    padding: var(--hds-accordion-item-padding-small) var(--hds-accordion-item-padding-small) var(--hds-accordion-item-padding-small) 12px;
   }
 }
 
@@ -166,7 +151,7 @@ $hds-accordion-item-gap: 12px;
   &::after {
     position: absolute;
     display: block;
-    border-radius: $hds-accordion-item-border-radius;
+    border-radius: var(--hds-accordion-item-border-radius);
     content: "";
     inset: 0;
   }
@@ -193,18 +178,18 @@ $hds-accordion-item-gap: 12px;
 }
 
 .hds-accordion-item__button--size-large {
-  width: $hds-accordion-item-icon-large;
-  height: $hds-accordion-item-icon-large;
+  width: var(--hds-accordion-item-icon-large);
+  height: var(--hds-accordion-item-icon-large);
 }
 
 .hds-accordion-item__button--size-medium {
-  width: $hds-accordion-item-icon-medium;
-  height: $hds-accordion-item-icon-medium;
+  width: var(--hds-accordion-item-icon-medium);
+  height: var(--hds-accordion-item-icon-medium);
 }
 
 .hds-accordion-item__button--size-small {
-  width: $hds-accordion-item-icon-small;
-  height: $hds-accordion-item-icon-small;
+  width: var(--hds-accordion-item-icon-small);
+  height: var(--hds-accordion-item-icon-small);
 }
 
 // Consumer added content that appears next to the chevron button:
@@ -216,14 +201,14 @@ $hds-accordion-item-gap: 12px;
 
 .hds-accordion-item__content {
   .hds-accordion-item--size-large & {
-    padding: 4px $hds-accordion-item-padding-large $hds-accordion-item-padding-large $hds-accordion-item-padding-large;
+    padding: 4px var(--hds-accordion-item-padding-large) var(--hds-accordion-item-padding-large) var(--hds-accordion-item-padding-large);
   }
 
   .hds-accordion-item--size-medium & {
-    padding: 4px $hds-accordion-item-padding-medium $hds-accordion-item-padding-medium $hds-accordion-item-padding-medium;
+    padding: 4px var(--hds-accordion-item-padding-medium) var(--hds-accordion-item-padding-medium) var(--hds-accordion-item-padding-medium);
   }
 
   .hds-accordion-item--size-small & {
-    padding: 4px $hds-accordion-item-padding-small $hds-accordion-item-padding-small $hds-accordion-item-padding-small;
+    padding: 4px var(--hds-accordion-item-padding-small) var(--hds-accordion-item-padding-small) var(--hds-accordion-item-padding-small);
   }
 }
