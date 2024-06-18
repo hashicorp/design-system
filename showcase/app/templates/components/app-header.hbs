@@ -158,4 +158,63 @@
       </Hds::AppHeader>
     </SG.Item>
   </Shw::Grid>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Child components</Shw::Text::H2>
+
+  <Shw::Text::H3>SideNav::Header::HomeLink</Shw::Text::H3>
+
+  <Shw::Text::H4>Content</Shw::Text::H4>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Icon">
+      <div class="shw-component-app-header-home-link-wrapper">
+        <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
+      </div>
+    </SF.Item>
+
+    <SF.Item @label="Custom color">
+      <div class="shw-component-app-header-home-link-wrapper">
+        <Hds::AppHeader::HomeLink
+          @icon="boundary"
+          @ariaLabel="Boundary"
+          @color="var(--token-color-boundary-brand)"
+          @href="#"
+        />
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H4>States</Shw::Text::H4>
+
+  <Shw::Flex as |SF|>
+    {{#let (array "default" "hover" "active" "focus") as |states|}}
+      {{#each states as |state|}}
+        <SF.Item @label={{state}}>
+          <div class="shw-component-app-header-home-link-wrapper">
+            <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" mock-state-value={{state}} />
+          </div>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Flex>
+
+  <Shw::Flex as |SF|>
+    {{#let (array "default" "hover" "active" "focus") as |states|}}
+      {{#each states as |state|}}
+        <SF.Item>
+          <div class="shw-component-app-header-home-link-wrapper">
+            <Hds::AppHeader::HomeLink
+              @icon="boundary"
+              @ariaLabel="Boundary"
+              @color="var(--token-color-boundary-brand)"
+              @href="#"
+              mock-state-value={{state}}
+            />
+          </div>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Flex>
 </section>

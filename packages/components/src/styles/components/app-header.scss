@@ -42,6 +42,9 @@
     }
   }
 }
+// ----------------
+// Q: Create tokens?
+$app-header-home-link-padding: 4px;
 
 .hds-app-header {
   display: flex;
@@ -51,13 +54,11 @@
   min-height: 52px; 
   padding: 8px 16px;
   color: #FFF;
-  background: var(--token-color-foreground-strong);
-  // create more generalized nav border color token? Or just use --token-color-palette-neutral-500)?
-  border-bottom: 1px solid var(--token-side-nav-wrapper-border-color);
+  background: var(--token-color-palette-neutral-700);
+  border-bottom: 1px solid var(--token-color-palette-neutral-500);
   box-shadow: 
     0 4px 4px -2px hsla(222deg, 8%, 43%, 35%),
     0 2px 3px 0 hsla(222deg, 8%, 43%, 15%);
-
 }
 
 .hds-app-header__sub-section {
@@ -72,5 +73,5 @@
   display: block;
   width: 36px;
   height: 36px;
-  padding: calc(var(--token-side-nav-header-home-link-padding) - 1px); // by design -  we take in account the transparent border
+  padding: calc(#{$app-header-home-link-padding} - 1px); // by design - we take in account the transparent border
 }
