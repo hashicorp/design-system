@@ -65,8 +65,7 @@ export default class HdsAppFooterStatusLinkComponent extends Component<HdsAppFoo
    */
   get statusIcon() {
     if (this.status && !this.args.statusIcon) {
-      return STATUSES[this.status]
-        ?.iconName as FlightIconSignature['Args']['name'];
+      return STATUSES[this.status]?.iconName;
     }
     return this.args.statusIcon;
   }
