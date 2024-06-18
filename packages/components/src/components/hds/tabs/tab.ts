@@ -6,13 +6,14 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
+import type { IconName } from '@hashicorp/flight-icons/svg';
 
 export interface HdsTabsTabSignature {
   Args: {
     selectedTabIndex: number;
     tabIds: string[];
     count?: string;
-    icon?: string;
+    icon?: IconName;
     isSelected?: boolean;
     didInsertNode: (element: HTMLButtonElement, isSelected?: boolean) => void;
     didUpdateNode: (nodeIndex: number, isSelected?: boolean) => void;
