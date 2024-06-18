@@ -575,7 +575,7 @@
         >
           {{#each @model.STATES as |state|}}
             <SF.Item @label={{state}}>
-              <div class="shw-component-accordion-standalone-button">
+              <div class="shw-component-accordion-standalone-button hds-accordion-item--size-{{size}}">
                 <Hds::Accordion::Item::Button
                   @parentContainsInteractive={{bool}}
                   @onClickToggle={{this.noop}}
@@ -588,7 +588,7 @@
           {{/each}}
 
           <SF.Item @label="isOpen=true">
-            <div class="shw-component-accordion-standalone-button">
+            <div class="shw-component-accordion-standalone-button hds-accordion-item--size-{{size}}">
               <Hds::Accordion::Item::Button
                 @parentContainsInteractive={{bool}}
                 @isOpen={{true}}
@@ -600,7 +600,7 @@
           </SF.Item>
 
           <SF.Item @label="focus & isOpen=true" {{style width="calc(20% - 2rem)" position="relative"}}>
-            <div class="shw-component-accordion-standalone-button">
+            <div class="shw-component-accordion-standalone-button hds-accordion-item--size-{{size}}">
               <Hds::Accordion::Item::Button
                 @parentContainsInteractive={{bool}}
                 @isOpen={{true}}
