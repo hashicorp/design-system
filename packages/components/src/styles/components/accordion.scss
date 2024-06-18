@@ -109,8 +109,6 @@ $hds-accordion-item-gap: 12px;
 }
 
 .hds-accordion-item__button {
-  width: var(--hds-accordion-item-icon);
-  height: var(--hds-accordion-item-icon);
   padding: 0;
 
   &:hover { cursor: pointer; }
@@ -159,6 +157,11 @@ $hds-accordion-item-gap: 12px;
 
   // `hds-button-color-secondary` determines the focus color and needs to be placed after `hds-button-state-focus`
   @include hds-button-color-secondary();
+}
+
+.hds-accordion-item__button {
+  width: var(--hds-accordion-item-icon);
+  height: var(--hds-accordion-item-icon);
 }
 
 // animate chevron icon
