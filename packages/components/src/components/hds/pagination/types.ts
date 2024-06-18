@@ -5,6 +5,7 @@ export interface PaginationRouting {
   model?: unknown;
   models?: unknown[];
   replace?: boolean;
+  queryPages?: Record<string | number, unknown>;
   queryPrev?: Record<string, unknown>;
   queryNext?: Record<string, unknown>;
 }

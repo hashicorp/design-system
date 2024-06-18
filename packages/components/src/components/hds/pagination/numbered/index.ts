@@ -22,14 +22,14 @@ export interface HdsPaginationNumberedIndexSignature {
     showPageNumbers?: boolean;
     isTruncated?: boolean;
     pageSizes?: number[];
-    queryFunction?: Function;
     route?: string;
-    model?: string;
-    models?: string;
+    model?: unknown;
+    models?: unknown[];
     replace?: boolean;
     ariaLabel?: string;
-    onPageChange?: Function;
-    onPageSizeChange?: Function;
+    onPageChange?: (page: number, pageSize: number) => void;
+    onPageSizeChange?: (pageSize: number) => void;
+    queryFunction?: (page: number, pageSize: number) => Record<string, unknown>;
   };
   Element: HTMLDivElement;
 }
@@ -141,15 +141,8 @@ export default class HdsPaginationNumberedIndexComponent extends Component<HdsPa
     // If instead the component needs to update the routing (and we infer this via the "query" arguments)
     // then the component behaves as "controlled", where the state is
     // initialized and updated using the arguments passed to it.
-
     if (queryFunction === undefined) {
       this.isControlled = false;
-    } else {
-      assert(
-        '@queryFunction for "Hds::Pagination::Numbered" must be a function',
-        typeof queryFunction === 'function'
-      );
-      this.isControlled = true;
     }
 
     assert(
@@ -282,9 +275,17 @@ export default class HdsPaginationNumberedIndexComponent extends Component<HdsPa
     return Math.max(Math.ceil(this.args.totalItems / this.currentPageSize), 1);
   }
 
-  buildQueryParamsObject(page, pageSize) {
+  buildQueryParamsObject(page: number, pageSize: number) {
+    const { queryFunction } = this.args;
+
     if (this.isControlled) {
-      return this.args.queryFunction(page, pageSize);
+      assert(
+        '@queryFunction for "Hds::Pagination::Numbered" must be a function',
+        typeof queryFunction === 'function'
+      );
+      this.isControlled = true;
+
+      return queryFunction(page, pageSize);
     } else {
       return {};
     }
@@ -314,8 +315,8 @@ export default class HdsPaginationNumberedIndexComponent extends Component<HdsPa
       routing.queryPages = {};
       this.pages.forEach(
         (page) =>
-          (routing.queryPages[page] = this.buildQueryParamsObject(
-            page,
+          (routing.queryPages![page] = this.buildQueryParamsObject(
+            page as number,
             this.currentPageSize
           ))
       );
