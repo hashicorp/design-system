@@ -216,6 +216,8 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
       `
     );
     assert.dom('.hds-accordion-item--is-static').exists();
-    assert.dom('.hds-accordion-item__button').doesNotExist();
+    assert
+      .dom('.hds-accordion-item__button')
+      .hasStyle({ visibility: 'hidden' });
   });
 });

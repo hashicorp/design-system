@@ -6,16 +6,14 @@
 <Hds::DisclosurePrimitive class={{this.classNames}} @isOpen={{@isOpen}} ...attributes>
   <:toggle as |t|>
     <div class="hds-accordion-item__toggle">
-      {{#if (not @isStatic)}}
-        <Hds::Accordion::Item::Button
-          @isOpen={{t.isOpen}}
-          @onClickToggle={{t.onClickToggle}}
-          @contentId={{this.contentId}}
-          @ariaLabel={{this.ariaLabel}}
-          @size={{this.size}}
-          @parentContainsInteractive={{this.containsInteractive}}
-        />
-      {{/if}}
+      <Hds::Accordion::Item::Button
+        @isOpen={{t.isOpen}}
+        @onClickToggle={{t.onClickToggle}}
+        @contentId={{this.contentId}}
+        @ariaLabel={{this.ariaLabel}}
+        @size={{this.size}}
+        @parentContainsInteractive={{this.containsInteractive}}
+      />
 
       <Hds::Text::Body
         @tag="div"
