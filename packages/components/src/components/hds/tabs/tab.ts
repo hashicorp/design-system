@@ -34,7 +34,7 @@ export default class HdsTabsTabComponent extends Component<HdsTabsTabSignature> 
   tabId = 'tab-' + guidFor(this);
 
   get nodeIndex() {
-    return this.args.tabIds.indexOf(this.tabId);
+    return this.args.tabIds?.indexOf(this.tabId);
   }
 
   /**
@@ -43,28 +43,61 @@ export default class HdsTabsTabComponent extends Component<HdsTabsTabSignature> 
    * @default false (1st tab is selected by default)
    */
   get isSelected() {
-    return this.nodeIndex === this.args.selectedTabIndex;
+    return (
+      this.nodeIndex !== undefined &&
+      this.nodeIndex === this.args.selectedTabIndex
+    );
   }
 
   @action
   didInsertNode(element: HTMLButtonElement, positional: [boolean?]) {
+    const { didInsertNode } = this.args;
+
     const isSelected = positional[0];
-    this.args.didInsertNode(element, isSelected);
+
+    if (typeof didInsertNode === 'function') {
+      didInsertNode(element, isSelected);
+    }
   }
 
   @action
   didUpdateNode() {
-    this.args.didUpdateNode(this.nodeIndex, this.args.isSelected);
+    const { didUpdateNode } = this.args;
+
+    if (typeof didUpdateNode === 'function') {
+      didUpdateNode(this.nodeIndex, this.args.isSelected);
+    }
+  }
+
+  @action
+  willDestroyNode(element: HTMLButtonElement) {
+    const { willDestroyNode } = this.args;
+
+    if (typeof willDestroyNode === 'function') {
+      willDestroyNode(element);
+    }
   }
 
   @action
   onClick(event: MouseEvent) {
-    this.args.onClick(event, this.nodeIndex);
+    const { onClick } = this.args;
+
+    if (typeof onClick === 'function') {
+      onClick(event, this.nodeIndex);
+    } else {
+      return false;
+    }
   }
 
   @action
   onKeyUp(event: KeyboardEvent) {
-    this.args.onKeyUp(this.nodeIndex, event);
+    const { onKeyUp } = this.args;
+
+    if (typeof onKeyUp === 'function') {
+      onKeyUp(this.nodeIndex, event);
+    } else {
+      return false;
+    }
   }
 
   /**
