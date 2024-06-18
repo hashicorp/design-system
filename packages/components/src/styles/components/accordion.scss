@@ -97,12 +97,6 @@ $hds-accordion-item-gap: 12px;
   }
 }
 
-.hds-accordion-item__toggle-content {
-  .hds-accordion-item--is-static.hds-accordion-item & {
-    margin-left: calc(var(--hds-accordion-item-icon) + $hds-accordion-item-gap);
-  }
-}
-
 // TOGGLE BLOCK
 
 .hds-accordion-item__toggle {
@@ -115,6 +109,8 @@ $hds-accordion-item-gap: 12px;
 }
 
 .hds-accordion-item__button {
+  width: var(--hds-accordion-item-icon);
+  height: var(--hds-accordion-item-icon);
   padding: 0;
 
   &:hover { cursor: pointer; }
@@ -123,6 +119,10 @@ $hds-accordion-item-gap: 12px;
     @media (prefers-reduced-motion: no-preference) {
       transition: transform 0.3s;
     }
+  }
+
+  .hds-accordion-item--is-static.hds-accordion-item & {
+    visibility: hidden;
   }
 }
 
@@ -166,11 +166,6 @@ $hds-accordion-item-gap: 12px;
   .flight-icon-chevron-down {
     transform: rotate(-180deg);
   }
-}
-
-.hds-accordion-item__button {
-  width: var(--hds-accordion-item-icon);
-  height: var(--hds-accordion-item-icon);
 }
 
 // Consumer added content that appears next to the chevron button:
