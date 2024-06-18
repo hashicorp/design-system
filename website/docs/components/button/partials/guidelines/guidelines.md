@@ -25,7 +25,7 @@ Full-width buttons fill 100% of the parent container. Use full-width Buttons spa
 
 <Hds::Button @size="large" @isFullWidth={{true}} @text="Full-width button" />
 
-## Types
+## Colors
 
 ### Primary
 
