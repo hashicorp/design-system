@@ -36,7 +36,9 @@ export default class HdsTabsPanelComponent extends Component<HdsTabsPanelSignatu
   @tracked elementId: string | null = null;
 
   get nodeIndex() {
-    return this.args.panelIds.indexOf(this.panelId);
+    return this.args.panelIds
+      ? this.args.panelIds.indexOf(this.panelId)
+      : undefined;
   }
 
   /**
@@ -52,12 +54,27 @@ export default class HdsTabsPanelComponent extends Component<HdsTabsPanelSignatu
    * @returns string}
    */
   get coupledTabId() {
-    return this.args.tabIds[this.nodeIndex];
+    return this.nodeIndex !== undefined
+      ? this.args.tabIds[this.nodeIndex]
+      : undefined;
   }
 
   @action
   didInsertNode(element: HTMLElement) {
-    this.elementId = element.id;
-    this.args.didInsertNode(element, this.elementId);
+    const { didInsertNode } = this.args;
+
+    if (typeof didInsertNode === 'function') {
+      this.elementId = element.id;
+      didInsertNode(element, this.elementId);
+    }
+  }
+
+  @action
+  willDestroyNode(element: HTMLElement) {
+    const { willDestroyNode } = this.args;
+
+    if (typeof willDestroyNode === 'function') {
+      willDestroyNode(element);
+    }
   }
 }
