@@ -119,6 +119,7 @@ export interface ShwOutlinerSignature {
 export class ShwOutliner extends Component<ShwOutlinerSignature> {}
 
 import type HdsComponentsRegistry from '@hashicorp/design-system-components/template-registry';
+import type FlightIconsRegistry from '@hashicorp/ember-flight-icons/template-registry';
 import type EmberStyleModifier from 'ember-style-modifier';
 
 export default interface EmberStyleModifierRegistry {
@@ -129,6 +130,7 @@ declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry
     extends EmberStyleModifierRegistry,
       HdsComponentsRegistry,
+      FlightIconsRegistry,
       PageTitle {
     'Shw::Text': typeof ShwTxt;
     'Shw::Text::H1': typeof ShwTxt;

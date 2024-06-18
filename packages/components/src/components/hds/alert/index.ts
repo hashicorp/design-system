@@ -18,6 +18,7 @@ import type { HdsYieldSignature } from '../yield';
 import type { HdsAlertColors, HdsAlertTypes } from './types.ts';
 import type { HdsAlertTitleSignature } from './title.ts';
 import type { HdsAlertDescriptionSignature } from './description.ts';
+import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
 
 export const TYPES: string[] = Object.values(HdsAlertTypeValues);
 export const DEFAULT_COLOR = HdsAlertColorValues.Neutral;
@@ -39,7 +40,7 @@ export interface HdsAlertSignature {
   Args: {
     type: HdsAlertTypes;
     color?: HdsAlertColors;
-    icon?: string | false;
+    icon?: FlightIconSignature['Args']['name'] | false;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onDismiss?: (event: MouseEvent, ...args: any[]) => void;
   };
@@ -100,7 +101,7 @@ export default class HdsAlertComponent extends Component<HdsAlertSignature> {
    * @default null
    * @description The name of the icon to be used.
    */
-  get icon() {
+  get icon(): FlightIconSignature['Args']['name'] | false {
     const { icon } = this.args;
 
     // If `icon` isn't passed, use the pre-defined one from `color`

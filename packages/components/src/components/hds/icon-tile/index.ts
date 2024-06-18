@@ -18,6 +18,8 @@ import type {
   HdsIconTileSizes,
 } from './types.ts';
 
+import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
+
 export const DEFAULT_SIZE = 'medium';
 export const DEFAULT_COLOR = 'neutral';
 export const SIZES: string[] = Object.values(HdsIconTileSizeValues);
@@ -32,8 +34,8 @@ export interface HdsIconTileSignature {
     size?: HdsIconTileSizes;
     color?: HdsIconTileColors;
     logo?: HdsIconTileProducts;
-    icon?: string | null;
-    iconSecondary?: string;
+    icon?: FlightIconSignature['Args']['name'];
+    iconSecondary?: FlightIconSignature['Args']['name'];
   };
   Element: HTMLDivElement;
 }
@@ -94,7 +96,7 @@ export default class HdsIconTileComponent extends Component<HdsIconTileSignature
    * @type {string|null}
    * @default null
    */
-  get icon() {
+  get icon(): FlightIconSignature['Args']['name'] | undefined {
     if (this.args.logo) {
       // for the logo version we use the colored versions directly
       return `${this.args.logo}-color`;
