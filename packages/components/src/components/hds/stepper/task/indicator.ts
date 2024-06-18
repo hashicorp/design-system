@@ -11,7 +11,6 @@ import {
   HdsStepperStatusToIconsValues,
 } from '../types.ts';
 import type { HdsStepperStatuses } from '../types.ts';
-import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
 
 export const DEFAULT_STATUS = HdsStepperStatusesValues.Incomplete;
 export const STATUSES: string[] = Object.values(HdsStepperStatusesValues);
@@ -62,9 +61,7 @@ export default class HdsStepperTaskIndicatorComponent extends Component<HdsStepp
    */
 
   get iconName() {
-    return MAPPING_STATUS_TO_ICONS[
-      this.status
-    ] as FlightIconSignature['Args']['name'];
+    return MAPPING_STATUS_TO_ICONS[this.status];
   }
 
   /**
