@@ -75,7 +75,7 @@ export default class HdsAccordionItemComponent extends Component<HdsAccordionIte
   }
 
   /**
-   * Sets the type of the component
+   * Sets the size for the component
    *
    * @param size
    * @type {HdsAccordionSizes}

@@ -12,7 +12,7 @@ module('Acceptance | Component | hds/accordion', function (hooks) {
   setupApplicationTest(hooks);
 
   test('Components/hds/accordion page passes automated a11y checks', async function (assert) {
-    let axeOptions = {
+    const axeOptions = {
       rules: {
         'target-size': {
           enabled: false,

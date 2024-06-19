@@ -104,7 +104,6 @@ $hds-accordion-item-gap: 12px;
   display: flex;
   gap: $hds-accordion-item-gap;
   align-items: center;
-
   padding: var(--hds-accordion-item-padding) var(--hds-accordion-item-padding) var(--hds-accordion-item-padding) 12px;
 }
 
@@ -119,6 +118,7 @@ $hds-accordion-item-gap: 12px;
     }
   }
 
+  // we hide it instead of not rendering it at all, to preserve the visual layout of the item, without requiring special CSS workarounds to compensate for the missing element
   .hds-accordion-item--is-static.hds-accordion-item & {
     visibility: hidden;
   }
