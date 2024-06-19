@@ -27,9 +27,9 @@ interface HdsAccordionSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsAlertComponent extends Component<HdsAccordionSignature> {
+export default class HdsAccordionComponent extends Component<HdsAccordionSignature> {
   /**
-   * Sets the type of the component
+   * Sets the size for the component
    *
    * @param size
    * @type {HdsAccordionSizes}
