@@ -18,11 +18,18 @@ import HdsCopyButton from './components/hds/copy/button/index.ts';
 import HdsCopySnippet from './components/hds/copy/snippet/index.ts';
 import HdsDisclosurePrimitive from './components/hds/disclosure-primitive/index.ts';
 import HdsDismissButton from './components/hds/dismiss-button/index.ts';
+import HdsDropdown from './components/hds/dropdown/index.ts';
+import HdsFlyout from './components/hds/flyout/index.ts';
+import HdsFormCharacterCount from './components/hds/form/character-count/index.js';
 import HdsIconTile from './components/hds/icon-tile/index.ts';
 import HdsInteractive from './components/hds/interactive/index.ts';
 import HdsLinkInline from './components/hds/link/inline.ts';
 import HdsLinkStandalone from './components/hds/link/standalone.ts';
+import HdsMenuPrimitive from './components/hds/menu-primitive/index.ts';
+import HdsModal from './components/hds/modal/index.ts';
 import HdsPageHeader from './components/hds/page-header/index.ts';
+import HdsPaginationCompact from './components/hds/pagination/compact/index.js';
+import HdsPaginationNumbered from './components/hds/pagination/numbered/index.js';
 import HdsReveal from './components/hds/reveal/index.ts';
 import HdsSeparator from './components/hds/separator/index.ts';
 import HdsStepperStepIndicator from './components/hds/stepper/step/indicator.ts';
@@ -49,11 +56,18 @@ export {
   HdsCopySnippet,
   HdsDisclosurePrimitive,
   HdsDismissButton,
+  HdsDropdown,
+  HdsFlyout,
+  HdsFormCharacterCount,
   HdsIconTile,
   HdsInteractive,
   HdsLinkInline,
   HdsLinkStandalone,
+  HdsMenuPrimitive,
+  HdsModal,
   HdsPageHeader,
+  HdsPaginationCompact,
+  HdsPaginationNumbered,
   HdsReveal,
   HdsSeparator,
   HdsStepperStepIndicator,
