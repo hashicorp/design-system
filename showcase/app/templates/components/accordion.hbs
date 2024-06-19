@@ -354,88 +354,30 @@
 
   <Shw::Text::H3>Edge cases</Shw::Text::H3>
 
-  <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
-    <SF.Item @label="With long content in toggle which wraps">
-      <Hds::Accordion as |A|>
-        <A.Item>
-          <:toggle>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero culpa expedita assumenda at nisi minus unde
-            fuga iure suscipit aut qui, odit natus eum voluptates ut molestiae! Perferendis, impedit qui? Lorem ipsum
-            dolor sit amet?
-          </:toggle>
-          <:content>
-            <Shw::Placeholder @text="generic content" @height="40" />
-          </:content>
-        </A.Item>
-      </Hds::Accordion>
-    </SF.Item>
-  </Shw::Flex>
+  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+    {{#each @model.TYPES as |type|}}
+      <SG.Item @label="With long content in toggle which wraps">
+        <Hds::Accordion @type={{type}} as |A|>
+          <A.Item>
+            <:toggle>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero culpa expedita assumenda at nisi minus
+              unde fuga iure suscipit aut qui, odit natus eum voluptates ut molestiae! Perferendis, impedit qui? Lorem
+              ipsum dolor sit amet?
+            </:toggle>
+            <:content>
+              <Shw::Placeholder @text="generic content" @height="40" />
+            </:content>
+          </A.Item>
+        </Hds::Accordion>
+      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
 
   <Shw::Divider />
 
   <Shw::Text::H2>Base elements</Shw::Text::H2>
 
   <Shw::Text::H3>Accordion::Item</Shw::Text::H3>
-
-  <Shw::Text::H4>States</Shw::Text::H4>
-
-  {{#each @model.TYPES as |type|}}
-    {{#let (array false true) as |booleans|}}
-      <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
-        {{#each booleans as |bool|}}
-          <SG.Item @label="type={{type}}, containsInteractive={{bool}}">
-            <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
-              {{#each @model.STATES as |state|}}
-                <SF.Item @label={{state}} {{style flex="1"}}>
-                  <Hds::Accordion::Item
-                    @containsInteractive={{bool}}
-                    @type={{type}}
-                    mock-state-value={{state}}
-                    mock-state-selector="{{if
-                      (and (or (eq state 'active') (eq state 'hover')) (not bool))
-                      '.hds-disclosure-primitive__toggle'
-                      (if (not-eq state 'hover') '.hds-accordion-item__button')
-                    }}"
-                  >
-                    <:toggle>Item one</:toggle>
-                    <:content>
-                      <Shw::Placeholder @text="generic content" @height="40" />
-                    </:content>
-                  </Hds::Accordion::Item>
-                </SF.Item>
-              {{/each}}
-
-              <SF.Item @label="isOpen=true" {{style flex="1"}}>
-                <Hds::Accordion::Item @containsInteractive={{bool}} @isOpen={{true}} @type={{type}}>
-                  <:toggle>Item one</:toggle>
-                  <:content>
-                    <Shw::Placeholder @text="generic content" @height="40" />
-                  </:content>
-                </Hds::Accordion::Item>
-              </SF.Item>
-              <SF.Item @label="focus & isOpen=true" {{style flex="1"}}>
-                <Hds::Accordion::Item
-                  @containsInteractive={{bool}}
-                  @type={{type}}
-                  mock-state-value="focus"
-                  mock-state-selector=".hds-accordion-item__button"
-                  @isOpen={{true}}
-                >
-                  <:toggle>Item one</:toggle>
-                  <:content>
-                    <Shw::Placeholder @text="generic content" @height="40" />
-                  </:content>
-                </Hds::Accordion::Item>
-              </SF.Item>
-            </Shw::Flex>
-          </SG.Item>
-        {{/each}}
-      </Shw::Grid>
-    {{/let}}
-    <Shw::Divider @level={{2}} />
-  {{/each}}
-
-  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H4>Type</Shw::Text::H4>
 
@@ -466,100 +408,140 @@
 
   <Shw::Text::H4>isOpen</Shw::Text::H4>
 
-  <Shw::Flex {{style gap="2rem" marginBottom="2rem"}} @direction="column" as |SF|>
-    <SF.Item @label="Default, isOpen=false">
-      <Hds::Accordion::Item>
-        <:toggle>Item one</:toggle>
-        <:content>
-          <Shw::Placeholder @text="generic content" @height="40" />
-        </:content>
-      </Hds::Accordion::Item>
-    </SF.Item>
-
-    <SF.Item @label="isOpen=true">
-      <Hds::Accordion as |A|>
-        <A.Item @isOpen={{true}}>
+  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+    {{#each @model.TYPES as |type|}}
+      <SG.Item @label="isOpen=false (default)">
+        <Hds::Accordion::Item @type={{type}}>
           <:toggle>Item one</:toggle>
           <:content>
             <Shw::Placeholder @text="generic content" @height="40" />
           </:content>
-        </A.Item>
-      </Hds::Accordion>
-    </SF.Item>
-  </Shw::Flex>
+        </Hds::Accordion::Item>
+      </SG.Item>
+    {{/each}}
+    {{#each @model.TYPES as |type|}}
+      <SG.Item @label="isOpen=true">
+        <Hds::Accordion::Item @type={{type}} @isOpen={{true}}>
+          <:toggle>Item one</:toggle>
+          <:content>
+            <Shw::Placeholder @text="generic content" @height="40" />
+          </:content>
+        </Hds::Accordion::Item>
+      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
 
   <Shw::Divider @level={{2}} />
 
   <Shw::Text::H4>containsInteractive</Shw::Text::H4>
 
-  <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
-    <SF.Item @label="containsInteractive=false (See “States”)">
-      <Hds::Accordion as |A|>
-        <A.Item>
+  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+    {{#each @model.TYPES as |type|}}
+      <SG.Item @label="containsInteractive=false (default)">
+        <Hds::Accordion::Item @type={{type}}>
           <:toggle>Item one</:toggle>
           <:content>
             <Shw::Placeholder @text="generic content" @height="40" />
           </:content>
-        </A.Item>
-      </Hds::Accordion>
-    </SF.Item>
-
-    <SF.Item @label="Default, containsInteractive=true">
-      <Hds::Accordion as |A|>
-        <A.Item @containsInteractive={{true}}>
+        </Hds::Accordion::Item>
+      </SG.Item>
+    {{/each}}
+    {{#each @model.TYPES as |type|}}
+      <SG.Item @label="containsInteractive=true">
+        <Hds::Accordion::Item @type={{type}} @containsInteractive={{true}}>
           <:toggle>Item one</:toggle>
           <:content>
             <Shw::Placeholder @text="generic content" @height="40" />
           </:content>
-        </A.Item>
-      </Hds::Accordion>
-    </SF.Item>
-  </Shw::Flex>
+        </Hds::Accordion::Item>
+      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
 
   <Shw::Divider @level={{2}} />
 
   <Shw::Text::H4>isStatic</Shw::Text::H4>
 
   <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
-    <SG.Item @label="isStatic=true">
-      <Hds::Accordion::Item @isStatic={{true}}>
-        <:toggle>Item one</:toggle>
-        <:content>
-          <Shw::Placeholder @text="generic content" @height="40" />
-        </:content>
-      </Hds::Accordion::Item>
-    </SG.Item>
+    {{#each @model.TYPES as |type|}}
+      <SG.Item @label="isStatic=true">
+        <Hds::Accordion::Item @type={{type}} @isStatic={{true}}>
+          <:toggle>Item one</:toggle>
+          <:content>
+            <Shw::Placeholder @text="generic content" @height="40" />
+          </:content>
+        </Hds::Accordion::Item>
+      </SG.Item>
 
-    <SG.Item @label="isStatic=true, containsInteractive=true">
-      <Hds::Accordion::Item @isStatic={{true}} @containsInteractive={{true}}>
-        <:toggle>Item one</:toggle>
-        <:content>
-          <Shw::Placeholder @text="generic content" @height="40" />
-        </:content>
-      </Hds::Accordion::Item>
-    </SG.Item>
+      <SG.Item @label="isStatic=true, containsInteractive=true">
+        <Hds::Accordion::Item @type={{type}} @isStatic={{true}} @containsInteractive={{true}}>
+          <:toggle>Item one</:toggle>
+          <:content>
+            <Shw::Placeholder @text="generic content" @height="40" />
+          </:content>
+        </Hds::Accordion::Item>
+      </SG.Item>
 
-    <SG.Item @label="isStatic=true, isOpen=true">
-      <Hds::Accordion::Item @isStatic={{true}} @isOpen={{true}}>
-        <:toggle>Item one</:toggle>
-        <:content>
-          <Shw::Placeholder @text="generic content" @height="40" />
-        </:content>
-      </Hds::Accordion::Item>
-    </SG.Item>
+      <SG.Item @label="isStatic=true, isOpen=true">
+        <Hds::Accordion::Item @type={{type}} @isStatic={{true}} @isOpen={{true}}>
+          <:toggle>Item one</:toggle>
+          <:content>
+            <Shw::Placeholder @text="generic content" @height="40" />
+          </:content>
+        </Hds::Accordion::Item>
+      </SG.Item>
 
-    <SG.Item @label="isStatic=true, containsInteractive=true, isOpen=true">
-      <Hds::Accordion::Item @isStatic={{true}} @containsInteractive={{true}} @isOpen={{true}}>
-        <:toggle>Item one</:toggle>
-        <:content>
-          <Shw::Placeholder @text="generic content" @height="40" />
-        </:content>
-      </Hds::Accordion::Item>
-    </SG.Item>
-
+      <SG.Item @label="isStatic=true, containsInteractive=true, isOpen=true">
+        <Hds::Accordion::Item @type={{type}} @isStatic={{true}} @containsInteractive={{true}} @isOpen={{true}}>
+          <:toggle>Item one</:toggle>
+          <:content>
+            <Shw::Placeholder @text="generic content" @height="40" />
+          </:content>
+        </Hds::Accordion::Item>
+      </SG.Item>
+    {{/each}}
   </Shw::Grid>
 
   <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H4>States</Shw::Text::H4>
+
+  {{#each @model.TYPES as |type|}}
+    {{#let (array false true) as |booleans|}}
+      <Shw::Text::Body>{{capitalize type}}</Shw::Text::Body>
+      <Shw::Grid {{style gap="2rem"}} @columns={{4}} as |SG|>
+        {{#each @model.STATES as |state|}}
+          <SG.Item @label={{state}}>
+            <Shw::Flex @direction="column" {{style gap="2rem"}} as |SF|>
+              {{#each booleans as |containsInteractive|}}
+                {{#each booleans as |isOpen|}}
+                  <SF.Item>
+                    <Hds::Accordion::Item
+                      @containsInteractive={{containsInteractive}}
+                      @isOpen={{isOpen}}
+                      @type={{type}}
+                      mock-state-value={{state}}
+                      mock-state-selector="{{if
+                        (and (or (eq state 'active') (eq state 'hover')) (not containsInteractive))
+                        '.hds-disclosure-primitive__toggle'
+                        (if (not-eq state 'hover') '.hds-accordion-item__button')
+                      }}"
+                    >
+                      <:toggle>Item</:toggle>
+                      <:content>
+                        <Shw::Placeholder @text="generic content" @height="40" />
+                      </:content>
+                    </Hds::Accordion::Item>
+                  </SF.Item>
+                {{/each}}
+              {{/each}}
+            </Shw::Flex>
+          </SG.Item>
+        {{/each}}
+      </Shw::Grid>
+      <Shw::Divider @level={{2}} />
+    {{/let}}
+  {{/each}}
 
   <Shw::Text::H3>Accordion::Item::Button</Shw::Text::H3>
 
