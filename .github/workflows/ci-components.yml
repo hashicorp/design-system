@@ -59,6 +59,7 @@ jobs:
         working-directory: showcase
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS }}
+          PERCY_PARALLEL_TOTAL: 8
 
   try-scenarios:
     name: ${{ matrix.try-scenario }}
