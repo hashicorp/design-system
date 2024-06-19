@@ -33,17 +33,17 @@
 
 .hds-accordion-item--size-small {
   --hds-accordion-item-padding: 8px;
-  --hds-accordion-item-icon: 16px;
+  --hds-accordion-item-icon-size: 16px;
 }
 
 .hds-accordion-item--size-medium {
   --hds-accordion-item-padding: 12px;
-  --hds-accordion-item-icon: 20px;
+  --hds-accordion-item-icon-size: 20px;
 }
 
 .hds-accordion-item--size-large {
   --hds-accordion-item-padding: 16px;
-  --hds-accordion-item-icon: 24px;
+  --hds-accordion-item-icon-size: 24px;
 }
 
 .hds-accordion-item--type-card {
@@ -149,8 +149,8 @@
 }
 
 .hds-accordion-item__button {
-  width: var(--hds-accordion-item-icon);
-  height: var(--hds-accordion-item-icon);
+  width: var(--hds-accordion-item-icon-size);
+  height: var(--hds-accordion-item-icon-size);
 }
 
 // animate chevron icon
