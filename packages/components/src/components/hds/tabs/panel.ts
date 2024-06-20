@@ -6,13 +6,14 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
+import type { HdsTabsTabSignature } from './tab';
+import type { HdsTabsPanelIds, HdsTabsTabIds } from './types';
 
 export interface HdsTabsPanelSignature {
   Args: {
-    tabIds: string[];
-    panelIds: string[];
-    selectedTabIndex: number;
+    tabIds: HdsTabsTabIds;
+    panelIds: HdsTabsPanelIds;
+    selectedTabIndex: HdsTabsTabSignature['Args']['selectedTabIndex'];
     didInsertNode: (element: HTMLElement, elementId: string) => void;
     willDestroyNode: (element: HTMLElement) => void;
   };
@@ -33,7 +34,7 @@ export default class HdsTabsPanelComponent extends Component<HdsTabsPanelSignatu
    */
   panelId = 'panel-' + guidFor(this);
 
-  @tracked elementId: string | null = null;
+  elementId?: string;
 
   get nodeIndex() {
     return this.args.panelIds

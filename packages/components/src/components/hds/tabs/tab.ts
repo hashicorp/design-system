@@ -7,11 +7,12 @@ import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
 import type { IconName } from '@hashicorp/flight-icons/svg';
+import type { HdsTabsTabIds } from './types';
 
 export interface HdsTabsTabSignature {
   Args: {
     selectedTabIndex: number;
-    tabIds: string[];
+    tabIds: HdsTabsTabIds;
     count?: string;
     icon?: IconName;
     isSelected?: boolean;

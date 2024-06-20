@@ -8,37 +8,41 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert, warn } from '@ember/debug';
 import { next, schedule } from '@ember/runloop';
+import { HdsTabsSizeValues } from './types.ts';
 import type { ComponentLike } from '@glint/template';
-import type { HdsTabsPanelSignature } from './panel';
 import type { HdsTabsTabSignature } from './tab';
-import type { HdsTabsSizeValues } from './types';
+import type { HdsTabsPanelSignature } from './panel';
+import type { HdsTabsPanelIds, HdsTabsTabIds } from './types.ts';
 
-export const DEFAULT_SIZE = 'medium';
-export const SIZES = ['medium', 'large'];
+export const DEFAULT_SIZE = HdsTabsSizeValues.Medium;
+export const SIZES: HdsTabsSizeValues[] = [
+  HdsTabsSizeValues.Medium,
+  HdsTabsSizeValues.Large,
+];
 
-interface HdsTabsIndexSignature {
+interface HdsTabsSignature {
   Args: {
-    isParentVisible?: boolean;
-    selectedTabIndex?: number;
     size?: HdsTabsSizeValues;
     onClickTab?: (event: MouseEvent, tabIndex: number) => void;
+    selectedTabIndex?: number;
+    isParentVisible?: boolean;
   };
   Blocks: {
     default: [
       {
-        Panel?: ComponentLike<HdsTabsPanelSignature>;
         Tab?: ComponentLike<HdsTabsTabSignature>;
+        Panel?: ComponentLike<HdsTabsPanelSignature>;
       }
     ];
   };
   Element: HTMLDivElement;
 }
 
-export default class HdsTabsIndexComponent extends Component<HdsTabsIndexSignature> {
+export default class HdsTabsIndexComponent extends Component<HdsTabsSignature> {
   @tracked tabNodes: HTMLButtonElement[] = [];
-  @tracked tabIds: string[] = [];
+  @tracked tabIds: HdsTabsTabIds = [];
   @tracked panelNodes: HTMLElement[] = [];
-  @tracked panelIds: string[] = [];
+  @tracked panelIds: HdsTabsPanelIds = [];
   @tracked _selectedTabIndex = this.args.selectedTabIndex ?? 0;
   @tracked selectedTabId?: string;
   @tracked isControlled = false;
@@ -64,10 +68,7 @@ export default class HdsTabsIndexComponent extends Component<HdsTabsIndexSignatu
     return size;
   }
 
-  constructor(
-    owner: HdsTabsIndexComponent,
-    args: HdsTabsIndexSignature['Args']
-  ) {
+  constructor(owner: unknown, args: HdsTabsSignature['Args']) {
     super(owner, args);
 
     // this is to determine if the "selected" tab logic is controlled in the consumers' code or is maintained as an internal state
@@ -93,7 +94,7 @@ export default class HdsTabsIndexComponent extends Component<HdsTabsIndexSignatu
     if (this.isControlled) {
       // noop
     } else {
-      this._selectedTabIndex = value ?? 0;
+      this._selectedTabIndex = value;
     }
   }
 
