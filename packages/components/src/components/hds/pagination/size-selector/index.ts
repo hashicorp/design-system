@@ -8,7 +8,17 @@ import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
 
-export default class HdsPaginationSizeSelectorComponent extends Component {
+interface HdsPaginationSizeSelectorSignature {
+  Args: {
+    label?: string;
+    pageSizes?: number[];
+    selectedSize?: number;
+    onChange?: (pageSize: number) => void;
+  };
+  Element: HTMLDivElement;
+}
+
+export default class HdsPaginationSizeSelectorComponent extends Component<HdsPaginationSizeSelectorSignature> {
   /**
    * Generates a unique ID for the pageSize select
    *
@@ -22,7 +32,7 @@ export default class HdsPaginationSizeSelectorComponent extends Component {
    * @description Set the page sizes users can select from.
    */
   get pageSizes() {
-    let { pageSizes } = this.args;
+    const { pageSizes } = this.args;
 
     assert(
       '@pageSizes for "Pagination::SizeSelector" must be defined',
@@ -38,7 +48,7 @@ export default class HdsPaginationSizeSelectorComponent extends Component {
    * @description The selected ("current") page size
    */
   get selectedSize() {
-    let { selectedSize } = this.args;
+    const { selectedSize } = this.args;
 
     assert(
       `@selectedSize for "Pagination::SizeSelector" must one of the @pageSizes provided (${this.pageSizes.join(
@@ -57,17 +67,20 @@ export default class HdsPaginationSizeSelectorComponent extends Component {
    * @description The label text for the select
    */
   get label() {
-    let { label = 'Items per page' } = this.args;
+    const { label = 'Items per page' } = this.args;
 
     return label;
   }
 
   @action
-  onChange(e) {
-    let { onChange } = this.args;
+  // TODO, this needs to be typec correctly
+  onChange(event: Event) {
+    const { onChange } = this.args;
 
     if (typeof onChange === 'function') {
-      onChange(parseInt(e.target.value));
+      onChange(
+        parseInt((event.target! as HTMLInputElement).value as string, 10)
+      );
     }
   }
 }
