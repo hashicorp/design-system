@@ -9,10 +9,10 @@
 
 @use "../mixins/focus-ring" as *;
 
-// TODO: Copy & pasted from SideNav, clean up
-@mixin hds-side-nav-icon-button($add-visible-border: false) {
-  color: var(--token-side-nav-color-foreground-strong);
-  background-color: transparent;
+// TODO: Move into shared location, consider updating color tokens used
+@mixin hds-dark-interactive-theme($add-visible-border: false) {
+  color: var(--token-color-palette-neutral-0);
+  background-color: var(--token-color-palette-neutral-700);
   border: 1px solid transparent;
   border-radius: var(--token-side-nav-body-list-item-border-radius);
   cursor: pointer;
@@ -21,27 +21,51 @@
     border-color: var(--token-color-palette-neutral-500);
   }
 
-  &:focus,
+  &:focus-visible,
   &.mock-focus {
     @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px);
+
+    // focus ring:
+    &::before {
+      color: var(--token-color-palette-neutral-0);
+      border: none;
+    }
+
+    color: var(--token-color-palette-neutral-0);
+    background-color: var(--token-color-palette-neutral-700);
+
+    @if ($add-visible-border) {
+      border-color: transparent;
+    }
   }
 
   &:hover,
   &.mock-hover {
-    color: var(--token-side-nav-color-foreground-strong); // to avoid overrides by specificity (eg. `a:hover`)
-    background: var(--token-side-nav-color-surface-interactive-hover);
+    color: var(--token-color-palette-neutral-0); // to avoid overrides by specificity (eg. `a:hover`)
+    background-color: var(--token-color-palette-neutral-600);
+
+    @if ($add-visible-border) {
+      border-color: var(--token-color-palette-neutral-500);
+    }
   }
 
   &:active,
   &.mock-active {
-    color: var(--token-side-nav-color-foreground-strong); // to avoid overrides by specificity (eg. `a:hover`)
-    background: var(--token-side-nav-color-surface-interactive-active);
+    color: var(--token-color-palette-neutral-0); // to avoid overrides by specificity (eg. `a:hover`)
+    background-color: var(--token-color-palette-neutral-500);
 
     @if ($add-visible-border) {
       border-color: var(--token-color-palette-neutral-400);
     }
   }
+
+  &:disabled,
+  &.mock-disabled {
+    color: var(--token-color-foreground-disabled);
+    background-color: var(--token-color-palette-neutral-600);
+  }
 }
+
 // ----------------
 // Q: Create tokens?
 $app-header-home-link-padding: 4px;
@@ -59,6 +83,13 @@ $app-header-home-link-padding: 4px;
   box-shadow: 
     0 4px 4px -2px hsla(222deg, 8%, 43%, 35%),
     0 2px 3px 0 hsla(222deg, 8%, 43%, 15%);
+
+  // Apply dark theme to child interactive components
+  .hds-button,
+  .hds-dropdown-toggle-button,
+  .hds-dropdown-toggle-icon {
+    @include hds-dark-interactive-theme(true);
+  }
 }
 
 .hds-app-header__sub-section {
@@ -69,7 +100,7 @@ $app-header-home-link-padding: 4px;
 }
 
 .hds-app-header__home-link {
-  @include hds-side-nav-icon-button();
+  @include hds-dark-interactive-theme();
   display: block;
   width: 36px;
   height: 36px;

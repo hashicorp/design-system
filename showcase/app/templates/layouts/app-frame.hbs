@@ -168,7 +168,7 @@
           <Hds::AppHeader>
             <:globalItems>
               <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
-              <Hds::Dropdown class="hds-side-nav__dropdown" as |dd|>
+              <Hds::Dropdown as |dd|>
                 <dd.ToggleButton @text="Choose an organization" @icon="org" />
                 <dd.Checkmark>
                   organizationName
@@ -176,7 +176,7 @@
               </Hds::Dropdown>
             </:globalItems>
             <:utilityItems>
-              <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="bottom-right" as |dd|>
+              <Hds::Dropdown @listPosition="bottom-right" as |dd|>
                 <dd.ToggleIcon @icon="help" @text="help menu" />
                 <dd.Title @text="Help & Support" />
                 <dd.Interactive @text="Documentation" @href="#" />
@@ -187,7 +187,7 @@
                 <dd.Interactive @text="Create support ticket" @href="#" />
                 <dd.Interactive @text="Give feedback" @href="#" />
               </Hds::Dropdown>
-              <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="bottom-right" as |dd|>
+              <Hds::Dropdown @listPosition="bottom-right" as |dd|>
                 <dd.ToggleIcon @icon="user" @text="user menu" />
                 <dd.Title @text="Signed In" />
                 <dd.Description @text="email@domain.com" />

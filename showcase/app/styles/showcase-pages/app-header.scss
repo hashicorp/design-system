@@ -6,9 +6,9 @@
 // APP-HEADER
 
 body.components-app-header {
-  .shw-component-app-header-home-link-wrapper {
-    width: min-content;
-    padding: 8px 16px;
-    background: var(--token-color-palette-neutral-700);
+  // Applies to the containers of child component examples
+  .hds-app-header:has(> :only-child) {
+    width: max-content;
+    box-shadow: none; // remove shadow as it may be confusing in the context of child component examples
   }
 }
