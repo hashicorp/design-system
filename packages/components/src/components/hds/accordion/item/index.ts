@@ -16,6 +16,12 @@ export const DEFAULT_SIZE = HdsAccordionSizeValues.Medium;
 export const TYPES: string[] = Object.values(HdsAccordionTypeValues);
 export const DEFAULT_TYPE = HdsAccordionTypeValues.Card;
 
+const TEXT_SIZE_MAP = {
+  small: 100,
+  medium: 200,
+  large: 300,
+};
+
 export interface HdsAccordionItemSignature {
   Args: {
     ariaLabel?: string;
@@ -65,13 +71,7 @@ export default class HdsAccordionItemComponent extends Component<HdsAccordionIte
    */
   get toggleTextSize() {
     const size = this.args.size ?? DEFAULT_SIZE;
-    const sizeMap = {
-      small: 100,
-      medium: 200,
-      large: 300,
-    };
-
-    return sizeMap[size];
+    return TEXT_SIZE_MAP[size];
   }
 
   /**
