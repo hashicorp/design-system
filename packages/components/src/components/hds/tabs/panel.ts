@@ -46,7 +46,7 @@ export default class HdsTabsPanelComponent extends Component<HdsTabsPanelSignatu
    * Check the condition if the panel is visible (because the coupled/associated tab is selected) or not
    * @returns {boolean}
    */
-  get isVisible() {
+  get isVisible(): boolean {
     return this.nodeIndex === this.args.selectedTabIndex;
   }
 
@@ -54,7 +54,7 @@ export default class HdsTabsPanelComponent extends Component<HdsTabsPanelSignatu
    * Get the ID of the tab coupled/associated with the panel (it's used by the `aria-labelledby` attribute)
    * @returns string}
    */
-  get coupledTabId() {
+  get coupledTabId(): string | undefined {
     return this.nodeIndex !== undefined
       ? this.args.tabIds[this.nodeIndex]
       : undefined;

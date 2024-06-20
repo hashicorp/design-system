@@ -35,7 +35,7 @@ export default class HdsTabsTabComponent extends Component<HdsTabsTabSignature> 
    */
   tabId = 'tab-' + guidFor(this);
 
-  get nodeIndex() {
+  get nodeIndex(): number | undefined {
     return this.args.tabIds?.indexOf(this.tabId);
   }
 
@@ -44,7 +44,7 @@ export default class HdsTabsTabComponent extends Component<HdsTabsTabSignature> 
    * @return {boolean}
    * @default false (1st tab is selected by default)
    */
-  get isSelected() {
+  get isSelected(): boolean {
     return (
       this.nodeIndex !== undefined &&
       this.nodeIndex === this.args.selectedTabIndex

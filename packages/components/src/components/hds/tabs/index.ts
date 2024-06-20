@@ -55,7 +55,7 @@ export default class HdsTabsIndexComponent extends Component<HdsTabsSignature> {
    * @type {string}
    * @default 'medium'
    */
-  get size() {
+  get size(): HdsTabsSizeValues {
     const { size = DEFAULT_SIZE } = this.args;
 
     assert(
@@ -75,7 +75,7 @@ export default class HdsTabsIndexComponent extends Component<HdsTabsSignature> {
     this.isControlled = this.args.selectedTabIndex !== undefined;
   }
 
-  get selectedTabIndex() {
+  get selectedTabIndex(): number {
     if (this.isControlled) {
       assert(
         `@selectedTabIndex for "Hds::Tabs" must be provided is @isControlled is true: ${SIZES.join(
@@ -103,7 +103,7 @@ export default class HdsTabsIndexComponent extends Component<HdsTabsSignature> {
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
+  get classNames(): string {
     const classes = ['hds-tabs'];
 
     // add a class based on the @size argument
