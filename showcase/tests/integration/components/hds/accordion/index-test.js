@@ -78,6 +78,23 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
       .hasClass('hds-accordion-item--size-large');
   });
 
+  test('it should render different CSS size classes when different @size arguments are provided', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Accordion id="test-accordion" @size="large" as |A|>
+          <A.Item id="test-accordion-item1">Item 1</A.Item>
+          <A.Item id="test-accordion-item2" @size="small">Item 2</A.Item>
+        </Hds::Accordion>
+      `
+    );
+    assert
+      .dom('#test-accordion-item1')
+      .hasClass('hds-accordion-item--size-large');
+    assert
+      .dom('#test-accordion-item2')
+      .hasClass('hds-accordion-item--size-small');
+  });
+
   // TYPE
 
   test('it should render the card type as the default if no @type is declared', async function (assert) {
@@ -106,6 +123,23 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     assert
       .dom('#test-accordion .hds-accordion-item')
       .hasClass('hds-accordion-item--type-flush');
+  });
+
+  test('it should render different CSS type class when different @type arguments are provided', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Accordion id="test-accordion" @type="flush" as |A|>
+          <A.Item id="test-accordion-item1">Item 1</A.Item>
+          <A.Item id="test-accordion-item2" @type="card">Item 2</A.Item>
+        </Hds::Accordion>
+      `
+    );
+    assert
+      .dom('#test-accordion-item1')
+      .hasClass('hds-accordion-item--type-flush');
+    assert
+      .dom('#test-accordion-item2')
+      .hasClass('hds-accordion-item--type-card');
   });
 
   // A11Y
