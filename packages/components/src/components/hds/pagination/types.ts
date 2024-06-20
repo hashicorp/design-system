@@ -1,4 +1,7 @@
-export type PaginationDirection = 'prev' | 'next';
+export enum PaginationDirection {
+  Prev = 'prev',
+  Next = 'next',
+}
 
 export interface PaginationRouting {
   route?: string;

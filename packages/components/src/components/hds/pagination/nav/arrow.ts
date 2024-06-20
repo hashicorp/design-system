@@ -6,12 +6,32 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
+import { PaginationDirection } from '../types.ts';
+import type { HdsInteractiveSignature } from '../../interactive/index.ts';
 
-export const DIRECTIONS = ['prev', 'next'];
+export const DIRECTIONS: PaginationDirection[] = [
+  PaginationDirection.Prev,
+  PaginationDirection.Next,
+];
 
-export default class HdsPaginationControlArrowComponent extends Component {
+interface HdsPaginationControlArrowSignature {
+  Args: {
+    direction: PaginationDirection;
+    disabled?: boolean;
+    model?: string | number;
+    models?: Array<string | number>;
+    replace?: boolean;
+    route?: string;
+    query?: Record<string, string>;
+    onClick?: (direction: PaginationDirection) => void;
+    showLabel?: boolean;
+  };
+  Element: HdsInteractiveSignature['Element'];
+}
+
+export default class HdsPaginationControlArrowComponent extends Component<HdsPaginationControlArrowSignature> {
   get content() {
-    let { direction } = this.args;
+    const { direction } = this.args;
 
     assert(
       `@direction for "Pagination::Nav::Arrow" must be one of the following: ${DIRECTIONS.join(
@@ -45,8 +65,8 @@ export default class HdsPaginationControlArrowComponent extends Component {
    * @default true
    * @description Show the labels for the control
    */
-  get showLabel() {
-    let { showLabel = true } = this.args;
+  get showLabel(): boolean {
+    const { showLabel = true } = this.args;
 
     return showLabel;
   }
@@ -57,7 +77,7 @@ export default class HdsPaginationControlArrowComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = [
+    const classes = [
       'hds-pagination-nav__control',
       'hds-pagination-nav__arrow',
       `hds-pagination-nav__arrow--direction-${this.args.direction}`,
@@ -68,7 +88,7 @@ export default class HdsPaginationControlArrowComponent extends Component {
 
   @action
   onClick() {
-    let { onClick } = this.args;
+    const { onClick } = this.args;
 
     if (typeof onClick === 'function') {
       onClick(this.args.direction);
