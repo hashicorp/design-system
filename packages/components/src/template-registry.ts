@@ -34,6 +34,7 @@ import type HdsCopyButtonComponent from './components/hds/copy/button/index';
 import type HdsCopySnippetComponent from './components/hds/copy/snippet';
 import type HdsDisclosurePrimitiveComponent from './components/hds/disclosure-primitive';
 import type HdsDismissButtonComponent from './components/hds/dismiss-button';
+import type HdsFormSelectBaseComponent from './components/hds/form/select/base.js';
 import type HdsIconTileComponent from './components/hds/icon-tile';
 import type HdsInteractiveComponent from './components/hds/interactive';
 import type HdsLinkInlineComponent from './components/hds/link/inline';
@@ -182,6 +183,10 @@ export default interface HdsComponentsRegistry {
   // Dismiss button
   'Hds::DismissButton': typeof HdsDismissButtonComponent;
   'hds/dismiss-button': typeof HdsDismissButtonComponent;
+
+  // Form Select Base
+  'Hds::Form::Select::Base': typeof HdsFormSelectBaseComponent;
+  'hds/form/select/base': typeof HdsFormSelectBaseComponent;
 
   // IconTile
   'Hds::IconTile': typeof HdsIconTileComponent;
