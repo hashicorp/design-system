@@ -73,14 +73,11 @@ export default class HdsPaginationSizeSelectorComponent extends Component<HdsPag
   }
 
   @action
-  // TODO, this needs to be typec correctly
   onChange(event: Event) {
     const { onChange } = this.args;
 
     if (typeof onChange === 'function') {
-      onChange(
-        parseInt((event.target! as HTMLInputElement).value as string, 10)
-      );
+      onChange(parseInt((event.target as HTMLSelectElement).value, 10));
     }
   }
 }
