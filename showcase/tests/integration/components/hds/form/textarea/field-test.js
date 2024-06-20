@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, resetOnerror } from '@ember/test-helpers';
+import { render, resetOnerror, settled } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/form/textarea/field', function (hooks) {
@@ -89,6 +89,44 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
           <F.Error>This is the error</F.Error>
         </Hds::Form::Textarea::Field>`
     );
+    // the control ID is dynamically generated
+    let control = this.element.querySelector(
+      '.hds-form-field__control textarea'
+    );
+    let controlId = control.id;
+    assert.dom('.hds-form-field__label').hasAttribute('for', controlId);
+    assert
+      .dom('.hds-form-field__helper-text')
+      .hasAttribute('id', `helper-text-${controlId}`);
+    assert
+      .dom('.hds-form-field__control textarea')
+      .hasAttribute(
+        'aria-describedby',
+        `helper-text-${controlId} character-count-${controlId} error-${controlId} extra`
+      );
+    assert
+      .dom('.hds-form-field__character-count')
+      .hasAttribute('id', `character-count-${controlId}`);
+    assert
+      .dom('.hds-form-field__error')
+      .hasAttribute('id', `error-${controlId}`);
+  });
+
+  test('it automatically provides all the ID relations between the elements when dynamically rendered', async function (assert) {
+    await render(
+      hbs`<Hds::Form::Textarea::Field @value="abc123" @extraAriaDescribedBy="extra" as |F|>
+          <F.Label>This is the label</F.Label>
+          <F.HelperText>This is the helper text</F.HelperText>
+          <F.CharacterCount @maxLength={{10}}/>
+          {{#if this.showErrors}}
+            <F.Error>This is the error</F.Error>
+          {{/if}}
+        </Hds::Form::Textarea::Field>`
+    );
+
+    this.set('showErrors', true);
+    await settled();
+
     // the control ID is dynamically generated
     let control = this.element.querySelector(
       '.hds-form-field__control textarea'

@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { click, render, resetOnerror } from '@ember/test-helpers';
+import { click, render, resetOnerror, settled } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/form/text-input/field', function (hooks) {
@@ -124,6 +124,45 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
           <F.Error>This is the error</F.Error>
         </Hds::Form::TextInput::Field>`
     );
+    // the control ID is dynamically generated
+    let control = this.element.querySelector('.hds-form-field__control input');
+    let controlId = control.id;
+    assert.dom('.hds-form-field__label').hasAttribute('for', controlId);
+    assert
+      .dom('.hds-form-field__helper-text')
+      .hasAttribute('id', `helper-text-${controlId}`);
+    assert
+      .dom('.hds-form-field__control input')
+      .hasAttribute(
+        'aria-describedby',
+        `helper-text-${controlId} character-count-${controlId} error-${controlId} extra`
+      );
+    assert
+      .dom('.hds-form-field__character-count')
+      .hasAttribute('id', `character-count-${controlId}`);
+    assert
+      .dom('.hds-form-field__character-count')
+      .hasText('4 characters remaining');
+    assert
+      .dom('.hds-form-field__error')
+      .hasAttribute('id', `error-${controlId}`);
+  });
+
+  test('it automatically provides all the ID relations between the elements even when dynamically rendered', async function (assert) {
+    await render(
+      hbs`<Hds::Form::TextInput::Field @value="abc123" @extraAriaDescribedBy="extra" as |F|>
+          <F.Label>This is the label</F.Label>
+          <F.HelperText>This is the helper text</F.HelperText>
+          <F.CharacterCount @maxLength={{10}}/>
+          {{#if this.showErrors}}
+            <F.Error>This is the error</F.Error>
+          {{/if}}
+        </Hds::Form::TextInput::Field>`
+    );
+
+    this.set('showErrors', true);
+    await settled();
+
     // the control ID is dynamically generated
     let control = this.element.querySelector('.hds-form-field__control input');
     let controlId = control.id;

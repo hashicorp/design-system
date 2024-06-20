@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, settled } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 // we're using this data for multiple tests so we'll define it here
@@ -84,6 +84,41 @@ module(
           <F.Error>This is the error</F.Error>
         </Hds::Form::SuperSelect::Multiple::Field>`
       );
+      let control = this.element.querySelector('.ember-basic-dropdown-trigger');
+      let controlId = control.id;
+      assert
+        .dom('.hds-form-field__label')
+        .hasAttribute('id', `label-${controlId}`);
+      assert
+        .dom('.hds-form-field__helper-text')
+        .hasAttribute('id', `helper-text-${controlId}`);
+      assert
+        .dom('.ember-basic-dropdown-trigger')
+        .hasAttribute('aria-labelledby', `label-${controlId}`);
+      assert
+        .dom('.ember-basic-dropdown-trigger')
+        .hasAttribute(
+          'aria-describedby',
+          `helper-text-${controlId} error-${controlId} extra`
+        );
+      assert
+        .dom('.hds-form-field__error')
+        .hasAttribute('id', `error-${controlId}`);
+    });
+    test('it automatically provides all the ID relations between the elements when dynamically rendered', async function (assert) {
+      setOptionsData(this);
+      await render(
+        hbs`<Hds::Form::SuperSelect::Multiple::Field @extraAriaDescribedBy="extra" @onChange={{this.NOOP}} as |F|>
+          <F.Label>This is the label</F.Label>
+          <F.HelperText>This is the helper text</F.HelperText>
+          {{#if this.showErrors}}
+            <F.Error>This is the error</F.Error>
+          {{/if}}
+        </Hds::Form::SuperSelect::Multiple::Field>`
+      );
+
+      this.set('showErrors', true);
+      await settled();
       let control = this.element.querySelector('.ember-basic-dropdown-trigger');
       let controlId = control.id;
       assert
