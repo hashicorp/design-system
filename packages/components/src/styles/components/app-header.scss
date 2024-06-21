@@ -81,8 +81,8 @@ $app-header-home-link-padding: 4px;
   background: var(--token-color-palette-neutral-700);
   border-bottom: 1px solid var(--token-color-palette-neutral-500);
   box-shadow: 
-    0 4px 4px -2px hsla(222deg, 8%, 43%, 35%),
-    0 2px 3px 0 hsla(222deg, 8%, 43%, 15%);
+    0 4px 4px -2px hsla(0deg, 0%, 0%, 20%),
+    0 2px 3px 0 hsla(0deg, 0%, 0%, 10%);
 
   // Apply dark theme to child interactive components
   .hds-button,
