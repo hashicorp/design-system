@@ -33,6 +33,7 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   align-items: center;
   justify-content: center;
   padding: 1px;
+  color: var(--token-color-foreground-primary); // does not have secondary & primary variants so we use the primary color
   background-color: var(--token-color-surface-faint);
   border: 1px solid var(--token-color-border-strong);
   border-radius: $hds-dropdown-toggle-border-radius;
