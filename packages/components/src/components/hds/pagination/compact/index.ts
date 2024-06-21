@@ -9,27 +9,26 @@ import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import type { HdsPaginationDirections, HdsPaginationRouting } from '../types';
 
-interface HdsPaginationCompactIndexSignature {
+interface HdsPaginationCompactSignature {
   Args: {
     ariaLabel?: string;
-    currentPageSize?: number;
+    showLabels?: boolean;
     isDisabledPrev?: boolean;
     isDisabledNext?: boolean;
-    model?: unknown;
-    models?: unknown[];
-    pageSizes?: number[];
-    replace?: boolean;
-    route?: string;
-    showLabels?: boolean;
     showSizeSelector?: boolean;
     sizeSelectorLabel?: string;
-    onPageChange?: (page: HdsPaginationDirections) => void;
-    onPageSizeChange?: (pageSize: number) => void;
-    // TODO: define the type of the function
+    pageSizes?: number[];
+    currentPageSize?: number;
+    route?: string;
+    model?: unknown;
+    models?: unknown[];
+    replace?: boolean;
     queryFunction?: (
       page: HdsPaginationDirections,
       pageSize?: number
     ) => Record<string, unknown>;
+    onPageChange?: (page: HdsPaginationDirections) => void;
+    onPageSizeChange?: (pageSize: number) => void;
   };
   Element: HTMLDivElement;
 }
@@ -38,7 +37,7 @@ interface HdsPaginationCompactIndexSignature {
 // https://hashicorp.slack.com/archives/C03A0N1QK8S/p1673546329082759
 export const DEFAULT_PAGE_SIZES = [10, 30, 50];
 
-export default class HdsPaginationCompactIndexComponent extends Component<HdsPaginationCompactIndexSignature> {
+export default class HdsPaginationCompactComponent extends Component<HdsPaginationCompactSignature> {
   // This private variable is used to differentiate between
   // "uncontrolled" component (where the state is handled internally) and
   // "controlled" component (where the state is handled externally, by the consumer's code).
@@ -53,10 +52,7 @@ export default class HdsPaginationCompactIndexComponent extends Component<HdsPag
   showLabels = this.args.showLabels ?? true; // if the labels for the "prev/next" controls are visible
   showSizeSelector = this.args.showSizeSelector ?? false; // if the "size selector" block is visible
 
-  constructor(
-    owner: HdsPaginationCompactIndexComponent,
-    args: HdsPaginationCompactIndexSignature['Args']
-  ) {
+  constructor(owner: unknown, args: HdsPaginationCompactSignature['Args']) {
     super(owner, args);
 
     const { queryFunction } = this.args;
@@ -135,7 +131,7 @@ export default class HdsPaginationCompactIndexComponent extends Component<HdsPag
     return pageSizes;
   }
 
-  buildQueryParamsObject(page: 'prev' | 'next', pageSize?: number) {
+  buildQueryParamsObject(page: HdsPaginationDirections, pageSize?: number) {
     if (this.isControlled) {
       return this.args.queryFunction?.(page, pageSize);
     } else {
@@ -171,7 +167,6 @@ export default class HdsPaginationCompactIndexComponent extends Component<HdsPag
 
   @action
   onPageChange(newPage: HdsPaginationDirections) {
-    // TODO: I dont think this is actually used anywhere
     // this.currentPage = newPage;
 
     const { onPageChange } = this.args;

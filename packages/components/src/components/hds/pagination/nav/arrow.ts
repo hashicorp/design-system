@@ -14,14 +14,14 @@ export const DIRECTIONS: HdsPaginationDirections[] = ['prev', 'next'];
 interface HdsPaginationControlArrowSignature {
   Args: {
     direction: HdsPaginationDirections;
-    disabled?: boolean;
-    model?: string | number;
-    models?: Array<string | number>;
-    replace?: boolean;
     route?: string;
+    models?: Array<string | number>;
+    model?: string | number;
     query?: Record<string, string>;
-    onClick?: (direction: HdsPaginationDirections) => void;
+    replace?: boolean;
+    disabled?: boolean;
     showLabel?: boolean;
+    onClick?: (direction: HdsPaginationDirections) => void;
   };
   Element: HdsInteractiveSignature['Element'];
 }

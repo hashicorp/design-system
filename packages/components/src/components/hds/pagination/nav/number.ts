@@ -11,12 +11,12 @@ import type { HdsInteractiveSignature } from '../../interactive';
 interface HdsPaginationNavNumberSignature {
   Args: {
     page: number;
-    model?: string | number;
-    models?: Array<string | number>;
-    replace?: boolean;
+    isSelected?: boolean;
     route?: string;
+    models?: Array<string | number>;
+    model?: string | number;
     query?: Record<string, string>;
-    isSelected: boolean;
+    replace?: boolean;
     onClick?: (page: number) => void;
   };
   Element: HdsInteractiveSignature['Element'];
