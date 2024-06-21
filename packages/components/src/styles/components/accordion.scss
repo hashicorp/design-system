@@ -190,3 +190,20 @@
     padding: var(--hds-accordion-item-content-padding-top) var(--hds-accordion-item-content-padding-right) var(--hds-accordion-item-content-padding-bottom) var(--hds-accordion-item-content-padding-left);
   }
 }
+
+// Adjust content padding and border for nested flush accordions
+
+.hds-accordion-item--type-flush .hds-accordion-item__content:has(> .hds-accordion--type-flush) {
+  padding: 0 var(--hds-accordion-item-content-padding-right) 0 var(--hds-accordion-item-content-padding-left);
+  box-shadow: 0 -1px 0 0 var(--token-color-border-primary);
+
+  .hds-accordion-item--type-flush {
+    &:first-child {
+      box-shadow: 0 1px 0 0 var(--token-color-border-primary);
+    }
+
+    &:last-child {
+      box-shadow: none;
+    }
+  }
+}
