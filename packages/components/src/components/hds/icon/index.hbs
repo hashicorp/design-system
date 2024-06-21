@@ -1,0 +1,27 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<svg
+  class={{this.classNames}}
+  ...attributes
+  aria-hidden="{{if @title 'false' 'true'}}"
+  aria-labelledby={{this.ariaLabelledby}}
+  data-test-icon={{@name}}
+  fill="{{this.color}}"
+  id={{this.iconId}}
+  role={{this.role}}
+  width="{{this.svgSize.width}}"
+  height="{{this.svgSize.height}}"
+  viewBox="0 0 {{this.size}} {{this.size}}"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  {{#if @title}}
+    <title id={{this.titleId}}>{{@title}}</title>
+    <g role="presentation">
+      <use href="#flight-{{@name}}-{{this.size}}"></use>
+    </g>
+  {{else}}
+    <use href="#flight-{{@name}}-{{this.size}}"></use>
+  {{/if}}
+</svg>
