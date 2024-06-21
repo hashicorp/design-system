@@ -1,0 +1,70 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+ @use "../mixins/focus-ring" as *;
+
+// Used to apply dark theme to interactive elements such as Button & Dropdown
+@mixin hds-interactive-dark-theme($add-visible-border: true) {
+  color: var(--token-color-palette-neutral-0);
+  background-color: var(--token-color-palette-neutral-700);
+  border: 1px solid transparent;
+  border-radius: var(--token-side-nav-body-list-item-border-radius);
+  cursor: pointer;
+
+  @if ($add-visible-border) {
+    border-color: var(--token-color-palette-neutral-500);
+  }
+
+  &:focus-visible,
+  &.mock-focus {
+    @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px);
+
+    // focus ring:
+    &::before {
+      color: var(--token-color-palette-neutral-0);
+      border: none;
+    }
+
+    color: var(--token-color-palette-neutral-0);
+    background-color: var(--token-color-palette-neutral-700);
+
+    @if ($add-visible-border) {
+      border-color: transparent;
+    }
+  }
+
+  &:hover,
+  &.mock-hover {
+    color: var(--token-color-palette-neutral-0); // to avoid overrides by specificity (eg. `a:hover`)
+    background-color: var(--token-color-palette-neutral-600);
+
+    @if ($add-visible-border) {
+      border-color: var(--token-color-palette-neutral-500);
+    }
+  }
+
+  &:active,
+  &.mock-active {
+    color: var(--token-color-palette-neutral-0); // to avoid overrides by specificity (eg. `a:hover`)
+    background-color: var(--token-color-palette-neutral-500);
+
+    @if ($add-visible-border) {
+      border-color: var(--token-color-palette-neutral-400);
+    }
+  }
+
+  &:disabled,
+  &[disabled],
+  &.mock-disabled,
+  &:disabled:focus,
+  &[disabled]:focus,
+  &.mock-disabled:focus,
+  &:disabled:hover,
+  &[disabled]:hover,
+  &.mock-disabled:hover {
+    color: var(--token-color-foreground-disabled);
+    background-color: var(--token-color-palette-neutral-600);
+  }
+}
