@@ -8,8 +8,15 @@ import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import type { HdsPaginationDirections } from '../types.ts';
 import type { HdsInteractiveSignature } from '../../interactive/index.ts';
+import type { IconName } from '@hashicorp/flight-icons/svg';
 
 export const DIRECTIONS: HdsPaginationDirections[] = ['prev', 'next'];
+
+interface HdsPaginationControlArrowContent {
+  label?: 'Previous' | 'Next';
+  icon?: IconName;
+  ariaLabel?: 'Previous page' | 'Next page';
+}
 
 interface HdsPaginationControlArrowSignature {
   Args: {
@@ -37,7 +44,7 @@ export default class HdsPaginationControlArrowComponent extends Component<HdsPag
       DIRECTIONS.includes(direction)
     );
 
-    let content;
+    let content: HdsPaginationControlArrowContent = {};
     if (direction === 'prev') {
       content = {
         label: 'Previous',
