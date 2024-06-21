@@ -64,10 +64,11 @@ export default class HdsTabsTabComponent extends Component<HdsTabsTabSignature> 
 
   @action
   didUpdateNode() {
+    const { nodeIndex } = this;
     const { didUpdateNode } = this.args;
 
-    if (typeof didUpdateNode === 'function') {
-      didUpdateNode(this.nodeIndex, this.args.isSelected);
+    if (typeof didUpdateNode === 'function' && nodeIndex !== undefined) {
+      didUpdateNode(nodeIndex, this.args.isSelected);
     }
   }
 
@@ -82,10 +83,11 @@ export default class HdsTabsTabComponent extends Component<HdsTabsTabSignature> 
 
   @action
   onClick(event: MouseEvent) {
+    const { nodeIndex } = this;
     const { onClick } = this.args;
 
-    if (typeof onClick === 'function') {
-      onClick(event, this.nodeIndex);
+    if (typeof onClick === 'function' && nodeIndex !== undefined) {
+      onClick(event, nodeIndex);
     } else {
       return false;
     }
@@ -93,10 +95,11 @@ export default class HdsTabsTabComponent extends Component<HdsTabsTabSignature> 
 
   @action
   onKeyUp(event: KeyboardEvent) {
+    const { nodeIndex } = this;
     const { onKeyUp } = this.args;
 
-    if (typeof onKeyUp === 'function') {
-      onKeyUp(this.nodeIndex, event);
+    if (typeof onKeyUp === 'function' && nodeIndex !== undefined) {
+      onKeyUp(nodeIndex, event);
     } else {
       return false;
     }
