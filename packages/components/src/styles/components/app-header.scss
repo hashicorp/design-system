@@ -7,64 +7,7 @@
 // APP-HEADER
 //
 
-@use "../mixins/focus-ring" as *;
-
-// TODO: Move into shared location, consider updating color tokens used
-@mixin hds-dark-interactive-theme($add-visible-border: false) {
-  color: var(--token-color-palette-neutral-0);
-  background-color: var(--token-color-palette-neutral-700);
-  border: 1px solid transparent;
-  border-radius: var(--token-side-nav-body-list-item-border-radius);
-  cursor: pointer;
-
-  @if ($add-visible-border) {
-    border-color: var(--token-color-palette-neutral-500);
-  }
-
-  &:focus-visible,
-  &.mock-focus {
-    @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px);
-
-    // focus ring:
-    &::before {
-      color: var(--token-color-palette-neutral-0);
-      border: none;
-    }
-
-    color: var(--token-color-palette-neutral-0);
-    background-color: var(--token-color-palette-neutral-700);
-
-    @if ($add-visible-border) {
-      border-color: transparent;
-    }
-  }
-
-  &:hover,
-  &.mock-hover {
-    color: var(--token-color-palette-neutral-0); // to avoid overrides by specificity (eg. `a:hover`)
-    background-color: var(--token-color-palette-neutral-600);
-
-    @if ($add-visible-border) {
-      border-color: var(--token-color-palette-neutral-500);
-    }
-  }
-
-  &:active,
-  &.mock-active {
-    color: var(--token-color-palette-neutral-0); // to avoid overrides by specificity (eg. `a:hover`)
-    background-color: var(--token-color-palette-neutral-500);
-
-    @if ($add-visible-border) {
-      border-color: var(--token-color-palette-neutral-400);
-    }
-  }
-
-  &:disabled,
-  &.mock-disabled {
-    color: var(--token-color-foreground-disabled);
-    background-color: var(--token-color-palette-neutral-600);
-  }
-}
+@use "../mixins/interactive-dark-theme" as *;
 
 // ----------------
 // Q: Create tokens?
@@ -88,7 +31,7 @@ $app-header-home-link-padding: 4px;
   .hds-button,
   .hds-dropdown-toggle-button,
   .hds-dropdown-toggle-icon {
-    @include hds-dark-interactive-theme(true);
+    @include hds-interactive-dark-theme();
   }
 }
 
@@ -100,7 +43,7 @@ $app-header-home-link-padding: 4px;
 }
 
 .hds-app-header__home-link {
-  @include hds-dark-interactive-theme();
+  @include hds-interactive-dark-theme($add-visible-border: false);
   display: block;
   width: 36px;
   height: 36px;
