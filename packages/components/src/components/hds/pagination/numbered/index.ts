@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
-import type { PaginationDirection, PaginationRouting } from '../types';
+import type { HdsPaginationDirections, HdsPaginationRouting } from '../types';
 
 type ElliptizeResultItem = string | number;
 
@@ -292,7 +292,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component<HdsPa
   }
 
   get routing() {
-    const routing: PaginationRouting = {
+    const routing: HdsPaginationRouting = {
       route: this.args.route ?? undefined,
       model: this.args.model ?? undefined,
       models: this.args.models ?? undefined,
@@ -339,7 +339,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component<HdsPa
   }
 
   @action
-  onPageChange(page: PaginationDirection | number) {
+  onPageChange(page: HdsPaginationDirections | number) {
     let gotoPageNumber;
     if (page === 'prev' && this.currentPage > 1) {
       gotoPageNumber = this.currentPage - 1;

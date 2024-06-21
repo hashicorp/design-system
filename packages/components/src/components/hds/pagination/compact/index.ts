@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
-import type { PaginationDirection, PaginationRouting } from '../types';
+import type { HdsPaginationDirections, HdsPaginationRouting } from '../types';
 
 interface HdsPaginationCompactIndexSignature {
   Args: {
@@ -23,11 +23,11 @@ interface HdsPaginationCompactIndexSignature {
     showLabels?: boolean;
     showSizeSelector?: boolean;
     sizeSelectorLabel?: string;
-    onPageChange?: (page: PaginationDirection) => void;
+    onPageChange?: (page: HdsPaginationDirections) => void;
     onPageSizeChange?: (pageSize: number) => void;
     // TODO: define the type of the function
     queryFunction?: (
-      page: PaginationDirection,
+      page: HdsPaginationDirections,
       pageSize?: number
     ) => Record<string, unknown>;
   };
@@ -144,7 +144,7 @@ export default class HdsPaginationCompactIndexComponent extends Component<HdsPag
   }
 
   get routing() {
-    const routing: PaginationRouting = {
+    const routing: HdsPaginationRouting = {
       route: this.args.route ?? undefined,
       model: this.args.model ?? undefined,
       models: this.args.models ?? undefined,
@@ -170,7 +170,7 @@ export default class HdsPaginationCompactIndexComponent extends Component<HdsPag
   }
 
   @action
-  onPageChange(newPage: PaginationDirection) {
+  onPageChange(newPage: HdsPaginationDirections) {
     // TODO: I dont think this is actually used anywhere
     // this.currentPage = newPage;
 

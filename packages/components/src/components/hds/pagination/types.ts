@@ -1,9 +1,10 @@
-export enum PaginationDirection {
+export enum HdsPaginationDirectionValues {
   Prev = 'prev',
   Next = 'next',
 }
 
-export interface PaginationRouting {
+export type HdsPaginationDirections = `${HdsPaginationDirectionValues}`;
+export interface HdsPaginationRouting {
   route?: string;
   model?: unknown;
   models?: unknown[];
