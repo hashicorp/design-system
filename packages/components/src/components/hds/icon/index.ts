@@ -16,7 +16,7 @@ export interface FlightIconSignature {
     color?: string;
     size?: '16' | '24';
     stretched?: boolean;
-    isInlineBlock?: boolean;
+    isInline?: boolean;
     title?: string;
   };
   Element: SVGElement;
@@ -145,9 +145,15 @@ export default class FlightIcon extends Component<FlightIconSignature> {
     classes.push(`flight-icon-${this.name}`);
 
     // add a class based on the @isInlineBlock argument
-    const isInlineBlock = this.args.isInlineBlock ?? true;
-    if (isInlineBlock && !this.args.stretched) {
-      classes.push('flight-icon-display-inline');
+    const { isInline = false } = this.args;
+    
+    // old
+    // if (isInlineBlock && !this.args.stretched) {
+    //   classes.push('flight-icon-display-inline');
+    // }
+
+    if (isInline) {
+      //TODO: figure out what to do if isInline is true
     }
 
     // add an extra class to control the animation (depends on the icon)
