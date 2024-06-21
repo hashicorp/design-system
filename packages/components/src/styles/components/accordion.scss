@@ -32,17 +32,35 @@
 // ACCORDION ITEM COMPONENT (nested child)
 
 .hds-accordion-item--size-small {
-  --hds-accordion-item-padding: 8px;
+  --hds-accordion-item-toggle-padding: 8px;
+  --hds-accordion-item-toggle-padding-left: 8px;
+  --hds-accordion-item-content-padding-top: 4px;
+  --hds-accordion-item-content-padding-right: 8px;
+  --hds-accordion-item-content-padding-bottom: 8px;
+  --hds-accordion-item-content-padding-left: 12px;
+  --hds-accordion-item-gap: 8px;
   --hds-accordion-item-icon-size: 16px;
 }
 
 .hds-accordion-item--size-medium {
-  --hds-accordion-item-padding: 12px;
+  --hds-accordion-item-toggle-padding: 12px;
+  --hds-accordion-item-toggle-padding-left: 8px;
+  --hds-accordion-item-content-padding-top: 4px;
+  --hds-accordion-item-content-padding-right: 12px;
+  --hds-accordion-item-content-padding-bottom: 12px;
+  --hds-accordion-item-content-padding-left: 12px;
+  --hds-accordion-item-gap: 12px;
   --hds-accordion-item-icon-size: 20px;
 }
 
 .hds-accordion-item--size-large {
-  --hds-accordion-item-padding: 16px;
+  --hds-accordion-item-toggle-padding: 16px;
+  --hds-accordion-item-toggle-padding-left: 12px;
+  --hds-accordion-item-content-padding-top: 4px;
+  --hds-accordion-item-content-padding-right: 16px;
+  --hds-accordion-item-content-padding-bottom: 16px;
+  --hds-accordion-item-content-padding-left: 16px;
+  --hds-accordion-item-gap: 12px;
   --hds-accordion-item-icon-size: 24px;
 }
 
@@ -99,9 +117,9 @@
 .hds-accordion-item__toggle {
   position: relative;
   display: flex;
-  gap: 12px;
+  gap: var(--hds-accordion-item-gap);
   align-items: center;
-  padding: var(--hds-accordion-item-padding) var(--hds-accordion-item-padding) var(--hds-accordion-item-padding) 12px;
+  padding: var(--hds-accordion-item-toggle-padding) var(--hds-accordion-item-toggle-padding) var(--hds-accordion-item-toggle-padding) var(--hds-accordion-item-toggle-padding-left);
 }
 
 .hds-accordion-item__button {
@@ -169,6 +187,6 @@
 
 .hds-accordion-item__content {
   .hds-accordion-item & {
-    padding: 4px var(--hds-accordion-item-padding) var(--hds-accordion-item-padding) var(--hds-accordion-item-padding);
+    padding: var(--hds-accordion-item-content-padding-top) var(--hds-accordion-item-content-padding-right) var(--hds-accordion-item-content-padding-bottom) var(--hds-accordion-item-content-padding-left);
   }
 }
