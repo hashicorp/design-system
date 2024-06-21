@@ -11,28 +11,31 @@ import type { HdsPaginationDirections, HdsPaginationRouting } from '../types';
 
 type ElliptizeResultItem = string | number;
 
-export interface HdsPaginationNumberedIndexSignature {
+export interface HdsPaginationNumberedSignature {
   Args: {
-    currentPage?: number;
-    currentPageSize?: number;
+    ariaLabel?: string;
     totalItems: number;
-    showInfo?: boolean;
     showLabels?: boolean;
-    showSizeSelector?: boolean;
-    showPageNumbers?: boolean;
     isTruncated?: boolean;
+    currentPage?: number;
+    showInfo?: boolean;
+    showPageNumbers?: boolean;
+    showSizeSelector?: boolean;
+    sizeSelectorLabel?: string;
     pageSizes?: number[];
+    currentPageSize?: number;
     route?: string;
     model?: unknown;
     models?: unknown[];
     replace?: boolean;
-    ariaLabel?: string;
+    queryFunction?: (page: number, pageSize: number) => Record<string, unknown>;
     onPageChange?: (page: number, pageSize: number) => void;
     onPageSizeChange?: (pageSize: number) => void;
-    queryFunction?: (page: number, pageSize: number) => Record<string, unknown>;
   };
   Element: HTMLDivElement;
 }
+
+const DEFAULT_ELLIPTIZE_LIMIT = 7;
 
 // for context about the decision to use these values, see:
 // https://hashicorp.slack.com/archives/C03A0N1QK8S/p1673546329082759
@@ -50,7 +53,7 @@ export const DEFAULT_PAGE_SIZES = [10, 30, 50];
 export const elliptize = ({
   pages,
   current,
-  limit = 7,
+  limit = DEFAULT_ELLIPTIZE_LIMIT,
 }: {
   pages: number[];
   current: number;
@@ -105,7 +108,7 @@ export const elliptize = ({
   return result;
 };
 
-export default class HdsPaginationNumberedIndexComponent extends Component<HdsPaginationNumberedIndexSignature> {
+export default class HdsPaginationNumberedComponent extends Component<HdsPaginationNumberedSignature> {
   // These two private variables are used to differentiate between
   // "uncontrolled" component (where the state is handled internally) and
   // "controlled" component (where the state is handled externally, by the consumer's code).
@@ -125,10 +128,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component<HdsPa
   showPageNumbers = this.args.showPageNumbers ?? true; // if the "page numbers" block is visible
   isTruncated = this.args.isTruncated ?? true; // if the list of "page numbers" is truncated
 
-  constructor(
-    owner: HdsPaginationNumberedIndexComponent,
-    args: HdsPaginationNumberedIndexSignature['Args']
-  ) {
+  constructor(owner: unknown, args: HdsPaginationNumberedSignature['Args']) {
     super(owner, args);
 
     const { queryFunction } = this.args;
