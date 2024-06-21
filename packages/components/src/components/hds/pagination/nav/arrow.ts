@@ -6,24 +6,21 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
-import { PaginationDirection } from '../types.ts';
+import type { HdsPaginationDirections } from '../types.ts';
 import type { HdsInteractiveSignature } from '../../interactive/index.ts';
 
-export const DIRECTIONS: PaginationDirection[] = [
-  PaginationDirection.Prev,
-  PaginationDirection.Next,
-];
+export const DIRECTIONS: HdsPaginationDirections[] = ['prev', 'next'];
 
 interface HdsPaginationControlArrowSignature {
   Args: {
-    direction: PaginationDirection;
+    direction: HdsPaginationDirections;
     disabled?: boolean;
     model?: string | number;
     models?: Array<string | number>;
     replace?: boolean;
     route?: string;
     query?: Record<string, string>;
-    onClick?: (direction: PaginationDirection) => void;
+    onClick?: (direction: HdsPaginationDirections) => void;
     showLabel?: boolean;
   };
   Element: HdsInteractiveSignature['Element'];
