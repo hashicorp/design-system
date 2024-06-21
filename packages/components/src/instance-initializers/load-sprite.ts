@@ -5,8 +5,10 @@
 
 import config from 'ember-get-config';
 
+type ModifiedWindow = Window & typeof globalThis & { iconsLoaded: boolean };
+
 export async function initialize() {
-  if (config?.emberFlightIcons?.lazyEmbed) {
+  if (config?.emberFlightIcons?.lazyEmbed && !(window as ModifiedWindow).iconsLoaded) {
     const { default: svgSprite } = await import(
       '@hashicorp/flight-icons/svg-sprite/svg-sprite-module'
     );
@@ -20,6 +22,8 @@ export async function initialize() {
     } else {
       window.document?.body?.insertAdjacentHTML('beforeend', svgSprite);
     }
+
+    (window as ModifiedWindow).iconsLoaded = true;
   }
 }
 
