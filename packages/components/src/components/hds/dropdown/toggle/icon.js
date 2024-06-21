@@ -71,20 +71,6 @@ export default class HdsDropdownToggleIconComponent extends Component {
   }
 
   /**
-   * @param iconSize
-   * @type {string}
-   * @default 24
-   * @description ensures that the correct icon size is used
-   */
-  get iconSize() {
-    if (this.args.size === 'small') {
-      return '16';
-    } else {
-      return '24';
-    }
-  }
-
-  /**
    * Indicates if a dropdown chevron icon should be displayed; should be displayed unless the "more-horizontal" icon is used.
    *
    * @param hasChevron

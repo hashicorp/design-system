@@ -74,16 +74,32 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   }
 }
 
+.hds-dropdown-toggle-icon {
+  // set default icon size:
+  .flight-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+// Icon sizes
+
 .hds-dropdown-toggle-icon--size-small {
   .hds-dropdown-toggle-icon__wrapper {
-    width: 24px; // same as the `button[small]` minus 2*2px becaus there are a 1px padding and 1px border to take into account
+    width: 24px; // same as the `button[small]` minus 2*2px because there are a 1px padding and 1px border to take into account
     height: 24px;
+  }
+
+  // For small variant, override default icon size except for "more-horizontal" icon
+  .flight-icon:not(.flight-icon-more-horizontal) {
+    width: 12px;
+    height: 12px;
   }
 }
 
 .hds-dropdown-toggle-icon--size-medium {
   .hds-dropdown-toggle-icon__wrapper {
-    width: 32px; // same as the `button[medium]` minus 2*2px becaus there are a 1px padding and 1px border to take into account
+    width: 32px; // same as the `button[medium]` minus 2*2px because there are a 1px padding and 1px border to take into account
     height: 32px;
   }
 }

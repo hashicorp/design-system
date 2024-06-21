@@ -17,10 +17,10 @@
       {{#if this.hasImage}}
         <img src={{@imageSrc}} alt="" role="presentation" {{on "error" this.onImageLoadError}} />
       {{else}}
-        <FlightIcon @name="user" @size={{this.iconSize}} />
+        <FlightIcon @name="user" @size="16" @stretched={{true}} />
       {{/if}}
     {{else if @icon}}
-      <FlightIcon @name={{@icon}} @size={{this.iconSize}} />
+      <FlightIcon @name={{@icon}} @size="16" @stretched={{true}} />
     {{/if}}
   </div>
   {{#if this.hasChevron}}
