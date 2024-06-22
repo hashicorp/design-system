@@ -37,7 +37,7 @@ $app-header-home-link-padding: 4px;
 
 .hds-app-header__sub-section {
   display: flex;
-  gap: 16px;
+  gap: inherit; // inherits from hds-app-header parent
   align-items: center;
   justify-content: space-between;
 }
