@@ -71,6 +71,22 @@ export default class HdsDropdownToggleIconComponent extends Component {
   }
 
   /**
+   * @param iconSize
+   * @type {string}
+   * @default 24
+   * @description ensures that the correct icon size is used
+   */
+  get iconSize() {
+    if (this.args.size === 'small') {
+      // if hasChevron is true, we resize the icon to 12px in CSS
+      return '16';
+    } else {
+      // if hasChevron is true, we use 16px icon
+      return this.hasChevron ? '16' : '24';
+    }
+  }
+
+  /**
    * Indicates if a dropdown chevron icon should be displayed; should be displayed unless the "more-horizontal" icon is used.
    *
    * @param hasChevron
@@ -112,6 +128,11 @@ export default class HdsDropdownToggleIconComponent extends Component {
     // add a class based on the @isOpen argument
     if (this.args.isOpen) {
       classes.push('hds-dropdown-toggle-icon--is-open');
+    }
+
+    // add a class based on the @hasChevron argument
+    if (this.hasChevron) {
+      classes.push('hds-dropdown-toggle-icon--has-chevron');
     }
 
     return classes.join(' ');
