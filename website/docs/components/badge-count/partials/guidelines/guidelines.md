@@ -10,7 +10,7 @@ To display version numbers (e.g., “v1.2.0”), collection counts in tabs, or s
 
 To display non-numeric information, consider [Badge](/components/badge).
 
-### Type
+## Type
 
 There are three types of BadgeCounts: filled, inverted, and outlined.
 
@@ -18,14 +18,14 @@ There are three types of BadgeCounts: filled, inverted, and outlined.
 <Hds::BadgeCount @text="3" @type="inverted" />
 <Hds::BadgeCount @text="3" @type="outlined" />
 
-### Color
+## Color
 
 There are two color options for each type: neutral and neutral-dark-mode.
 
 <Hds::BadgeCount @text="3" @color="neutral" />
 <Hds::BadgeCount @text="3" @color="neutral-dark-mode" />
 
-### Size
+## Size
 
 There are three sizes: small, medium, and large.
 
