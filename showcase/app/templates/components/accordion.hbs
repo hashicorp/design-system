@@ -375,7 +375,12 @@
 
   {{#let (array false true) as |booleans|}}
     {{#each booleans as |bool|}}
-      <Shw::Flex @label="parentContainsInteractive={{bool}}" @gap="2rem" {{style justifyContent="space-between"}} as |SF|>
+      <Shw::Flex
+        @label="parentContainsInteractive={{bool}}"
+        @gap="2rem"
+        {{style justifyContent="space-between"}}
+        as |SF|
+      >
         {{#each @model.STATES as |state|}}
           <SF.Item @label={{state}}>
             <div class="shw-component-accordion-standalone-button">
