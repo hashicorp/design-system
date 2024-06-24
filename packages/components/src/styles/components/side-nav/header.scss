@@ -42,7 +42,7 @@
 // "home-link"
 
 .hds-side-nav__home-link {
-  @include hds-interactive-dark-theme($add-visible-border: false);
+  @include hds-interactive-dark-theme($add-visible-border: false, $is-within-side-nav: true);
   display: block;
   width: 100%;
   height: 100%;
@@ -62,7 +62,7 @@
 .hds-side-nav__dropdown { // ⬅︎ add this class name to the `Hds::Dropdown` component to apply the style overrides
   .hds-dropdown-toggle-icon,
   .hds-dropdown-toggle-button {
-    @include hds-interactive-dark-theme();
+    @include hds-interactive-dark-theme($add-visible-border: true, $is-within-side-nav: true);
   }
 }
 
