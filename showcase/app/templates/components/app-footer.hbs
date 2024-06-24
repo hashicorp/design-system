@@ -207,7 +207,7 @@
       {{#each themes as |theme|}}
         <Shw::Text::Body><strong>{{theme}} theme</strong></Shw::Text::Body>
 
-        <Shw::Flex {{style gap="2rem" justifyContent="space-between"}} as |SF|>
+        <Shw::Flex @gap="2rem" {{style justifyContent="space-between"}} as |SF|>
           {{#each @model.LINK_STATES as |state|}}
             <SF.Item @label={{state}}>
               <ul class={{concat "hds-app-footer__list hds-app-footer--theme-" theme}}>
@@ -229,7 +229,7 @@
       {{#each themes as |theme|}}
         <Shw::Text::Body><strong>{{theme}} theme</strong></Shw::Text::Body>
 
-        <Shw::Flex {{style gap="2rem" justifyContent="space-between"}} as |SF|>
+        <Shw::Flex @gap="2rem" {{style justifyContent="space-between"}} as |SF|>
           {{#each-in @model.STATUS_LINK_STATUSES as |status|}}
             <SF.Item @label={{status}}>
               <ul class={{concat "hds-app-footer__list hds-app-footer--theme-" theme}}>
@@ -245,7 +245,7 @@
 
     <Shw::Text::Body><strong>Custom values combined with a standard status</strong></Shw::Text::Body>
 
-    <Shw::Flex {{style gap="2rem"}} as |SF|>
+    <Shw::Flex @gap="2rem" as |SF|>
       <SF.Item @label="with custom text">
         <ul class="hds-app-footer__list hds-app-footer--theme-light">
           <Hds::AppFooter::StatusLink @status="operational" @text="Operativo" />
@@ -266,7 +266,7 @@
     </Shw::Flex>
 
     <Shw::Text::Body><strong>Custom values with no status</strong></Shw::Text::Body>
-    <Shw::Flex {{style gap="2rem"}} as |SF|>
+    <Shw::Flex @gap="2rem" as |SF|>
       <SF.Item @label="with custom icon and text">
         <ul class="hds-app-footer__list hds-app-footer--theme-light">
           <Hds::AppFooter::StatusLink @statusIcon="hexagon-fill" @text="Lorem ipsum" />
@@ -289,7 +289,7 @@
 
     <Shw::Text::H3>AppFooter::LegalLinks</Shw::Text::H3>
 
-    <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
+    <Shw::Flex @direction="column" @gap="2rem" as |SF|>
       <SF.Item @label="with default url for “Terms” link">
         <ul class="hds-app-footer__list hds-app-footer--theme-light">
           <Hds::AppFooter::LegalLinks />
@@ -301,7 +301,7 @@
 
     <Shw::Text::H3>AppFooter::Copyright</Shw::Text::H3>
 
-    <Shw::Flex {{style gap="2rem"}} as |SF|>
+    <Shw::Flex @gap="2rem" as |SF|>
       <SF.Item @label="with default (current) year">
         <Hds::AppFooter::Copyright />
       </SF.Item>

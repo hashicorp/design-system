@@ -11,7 +11,7 @@
 
   <Shw::Text::H2>Containers</Shw::Text::H2>
 
-  <Shw::Grid @columns={{2}} {{style gap="2rem"}} as |SG|>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="With header/sidebar/main/footer">
       <div class="shw-layout-app-frame-wrapper">
         <Hds::AppFrame as |Frame|>
@@ -128,7 +128,7 @@
     {{if this.show3DVisualization "Hide" "Show"}}
   </button>
 
-  <Shw::Grid @columns={{2}} {{style gap="2rem"}} as |SG|>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item>
       <div
         class="shw-layout-app-frame-wrapper shw-layout-app-frame-wrapper--with-3d

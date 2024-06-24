@@ -38,11 +38,7 @@
 
   <Shw::Text::H2>Content</Shw::Text::H2>
 
-  <Shw::Grid
-    @columns={{3}}
-    {{style width="fit-content" grid-template-columns="repeat(3, auto)" gap="1rem 2rem"}}
-    as |SG|
-  >
+  <Shw::Grid @columns={{3}} @gap="1rem 2rem" {{style width="fit-content" grid-template-columns="repeat(3, auto)"}} as |SG|>
     <SG.Item @label="Only text">
       <div class="hds-typography-body-300">
         <Hds::Link::Inline @color="primary" @href="#">Lorem ipsum dolor</Hds::Link::Inline>

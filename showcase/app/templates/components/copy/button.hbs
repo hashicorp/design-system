@@ -148,7 +148,7 @@
 
   <Shw::Text::H4>Target types</Shw::Text::H4>
 
-  <Shw::Flex {{style gap="2rem"}} @columns={{3}} as |SF|>
+  <Shw::Flex @columns={{3}} @gap="2rem" as |SF|>
     <SF.Item>
       <Shw::Label>Target as a CSS selector (`string`)</Shw::Label>
       <div class="shw-component-copy-button-flex-container">
@@ -175,7 +175,7 @@
 
   <Shw::Text::H4>HDS components</Shw::Text::H4>
 
-  <Shw::Grid {{style gap="2rem"}} @columns={{3}} as |SG|>
+  <Shw::Grid @columns={{3}} @gap="2rem" as |SG|>
     <SG.Item class="shw-component-copy-button-input-component">
       <Shw::Label>Input component</Shw::Label>
       <Hds::Form::TextInput::Field @value="036140285924" @name="test-input" @id="test-input" as |F|>
@@ -286,7 +286,7 @@ that should be copied"
     </SG.Item>
   </Shw::Grid>
 
-  <Shw::Grid {{style gap="2rem"}} @columns={{3}} as |SG|>
+  <Shw::Grid @columns={{3}} @gap="2rem" as |SG|>
     <SG.Item>
       <Shw::Label>Within a Dropdown</Shw::Label>
       <Hds::Dropdown @listPosition="bottom-left" as |dd|>
@@ -414,7 +414,7 @@ that should be copied"
 
   <Shw::Text::H4>HTML blocks</Shw::Text::H4>
 
-  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item>
       <Shw::Label>Structured content</Shw::Label>
       <Hds::Copy::Button @text="Copy the content below" @targetToCopy="#test-structured-content" />
@@ -446,7 +446,7 @@ that should be copied"
     </SG.Item>
   </Shw::Grid>
 
-  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item>
       <Shw::Label>Code block</Shw::Label>
       <Hds::Copy::Button @text="Copy the code block" @targetToCopy="#test-code-block" />
@@ -465,7 +465,7 @@ that should be copied"
 
   <Shw::Text::H4>HTML input elements</Shw::Text::H4>
 
-  <Shw::Flex {{style gap="2rem"}} as |SF|>
+  <Shw::Flex @gap="2rem" as |SF|>
     <SF.Item>
       <Shw::Label>Text input</Shw::Label>
       <div class="shw-component-copy-button-flex-container">
@@ -571,7 +571,7 @@ that should be copied"
       </div>
     </SF.Item>
   </Shw::Flex>
-  <Shw::Flex {{style gap="2rem"}} as |SF|>
+  <Shw::Flex @gap="2rem" as |SF|>
     <SF.Item>
       <Shw::Label>Textarea</Shw::Label>
       <div class="shw-component-copy-button-flex-container">

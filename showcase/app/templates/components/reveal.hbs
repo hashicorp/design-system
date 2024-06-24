@@ -12,7 +12,7 @@
 
   <Shw::Text::H3>On its own</Shw::Text::H3>
 
-  <Shw::Flex {{style gap="1.5rem"}} @direction="column" as |SF|>
+  <Shw::Flex @direction="column" @gap="1.5rem" as |SF|>
     <SF.Item @label="With plain text content">
       <Hds::Reveal @text="Developer instructions">
         Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to
@@ -68,7 +68,7 @@
 
   <Shw::Text::H3>Used next to other content</Shw::Text::H3>
 
-  <Shw::Flex @direction="column" {{style gap="1rem"}} as |SF|>
+  <Shw::Flex @direction="column" @gap="1rem" as |SF|>
     <SF.Item @label="Used beneath a form input">
       <Hds::Form::TextInput::Field as |F|>
         <F.Label>Private subnet 1</F.Label>
@@ -108,7 +108,7 @@
   <Shw::Text::H2>States</Shw::Text::H2>
   <Shw::Text::Body>(<strong>Note:</strong> buttons below are inactive)</Shw::Text::Body>
 
-  <Shw::Flex {{style gap="5rem"}} as |SF|>
+  <Shw::Flex @gap="5rem" as |SF|>
     {{#each @model.STATES as |state|}}
       <SF.Item @label={{state}}>
         <Hds::Reveal::Toggle::Button @text="More options" mock-state-value={{state}} />
@@ -122,7 +122,7 @@
 
   <Shw::Text::H3>textWhenOpen</Shw::Text::H3>
 
-  <Shw::Flex {{style gap="5rem"}} as |SF|>
+  <Shw::Flex @gap="5rem" as |SF|>
     <SF.Item @label="Only using required @text">
       <Hds::Reveal @text="Same text label for open and closed">
         <Shw::Placeholder @text="generic content" @height="40" @width="200" />
@@ -138,7 +138,7 @@
 
   <Shw::Text::H3>isOpen</Shw::Text::H3>
 
-  <Shw::Flex {{style gap="5rem"}} as |SF|>
+  <Shw::Flex @gap="5rem" as |SF|>
     <SF.Item @label="Default, isOpen=false">
       <Hds::Reveal @text="More options">
         <Shw::Placeholder @text="generic content" @height="40" @width="200" />

@@ -122,7 +122,7 @@
 
   <Shw::Text::H2>Interactions</Shw::Text::H2>
 
-  <Shw::Flex {{style gap="8rem"}} as |SF|>
+  <Shw::Flex @gap="8rem" as |SF|>
     <SF.Item as |SFI|>
       <SFI.Label>"Soft" (hover/focus)</SFI.Label>
       <Hds::RichTooltip as |RT|>
@@ -167,7 +167,7 @@
 
   <Shw::Text::H3>Offset</Shw::Text::H3>
 
-  <Shw::Flex {{style gap="5rem" margin-bottom="10rem"}} as |SF|>
+  <Shw::Flex @gap="5rem" {{style margin-bottom="10rem"}} as |SF|>
     <SF.Item @label="Offset: 12 (default)">
       <Hds::RichTooltip @isOpen={{true}} @enableClickEvents={{true}} as |RT|>
         <RT.Toggle @text="Lorem ipsum" @icon="info" @size="medium" />
@@ -288,7 +288,7 @@
 
   <Shw::Text::Body>Scroll within the boxes to see the collision detection in action</Shw::Text::Body>
 
-  <Shw::Grid @columns={{4}} {{style gap="2rem" margin-bottom="6rem"}} as |SF|>
+  <Shw::Grid @columns={{4}} @gap="2rem" {{style margin-bottom="6rem"}} as |SF|>
     {{#let (array false true) as |detections|}}
       {{#each detections as |detection|}}
         <SF.Item @forceMinWidth={{true}} @label={{concat "enableCollisionDetection=" detection}}>
@@ -332,7 +332,7 @@
 
   <Shw::Text::Body>HDS classes</Shw::Text::Body>
 
-  <Shw::Grid @columns={{3}} {{style gap="2rem" margin-bottom="6rem"}} as |SG|>
+  <Shw::Grid @columns={{3}} @gap="2rem" {{style margin-bottom="6rem"}} as |SG|>
     <SG.Item @label="Applied to the parent (text+icon with size)">
       <div
         class="hds-typography-display-400 hds-foreground-warning-on-surface hds-surface-warning"
@@ -376,7 +376,7 @@
     </SG.Item>
   </Shw::Grid>
 
-  <Shw::Grid @columns={{3}} {{style gap="2rem" margin-bottom="6rem"}} as |SG|>
+  <Shw::Grid @columns={{3}} @gap="2rem" {{style margin-bottom="6rem"}} as |SG|>
     <SG.Item @label="Applied to the parent (generic)">
       <div
         class="hds-typography-display-400 hds-foreground-warning-on-surface hds-surface-warning"
@@ -419,7 +419,7 @@
 
   <Shw::Text::Body>Using a custom class</Shw::Text::Body>
 
-  <Shw::Grid @columns={{3}} {{style gap="2rem" margin-bottom="6rem"}} as |SG|>
+  <Shw::Grid @columns={{3}} @gap="2rem" {{style margin-bottom="6rem"}} as |SG|>
     <SG.Item @label="Applied to the parent (text+icon with size)">
       <div class="shw-component-rich-tooltip-font-style" {{style width="fit-content"}}>
         Lorem
@@ -463,7 +463,7 @@
 
   <Shw::Text::Body>Style interference</Shw::Text::Body>
 
-  <Shw::Flex {{style gap="2rem" margin-bottom="9rem"}} as |SF|>
+  <Shw::Flex @gap="2rem" {{style margin-bottom="9rem"}} as |SF|>
     <SF.Item @label="Parent has `white-space: nowrap`">
       <div {{style whiteSpace="nowrap"}}>
         <Hds::RichTooltip @isOpen={{true}} as |RT|>
@@ -776,7 +776,7 @@
 
   <Shw::Divider @level={{2}} />
 
-  <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
+  <Shw::Flex @direction="column" @gap="2rem" as |SF|>
     <SF.Item @label="Within an Alert">
       <Hds::Alert @type="inline" @color="warning" {{style width="600px"}} as |A|>
         <A.Title>Altering admin permissions</A.Title>
@@ -980,7 +980,7 @@
 
   <Shw::Divider @level={{2}} />
 
-  <Shw::Grid @columns={{2}} {{style width="fit-content" gap="2rem"}} as |SG|>
+  <Shw::Grid @columns={{2}} @gap="2rem" {{style width="fit-content"}} as |SG|>
     <SG.Item @label="Button + InfoText">
       <div class="shw-component-rich-tooltip-demo-action-plus-info">
         <Hds::Button @text="Lorem ipsum" @icon="wand" {{on "click" this.onClickButton}} />
@@ -1049,7 +1049,7 @@
 
   <Shw::Text::H4>Content</Shw::Text::H4>
 
-  <Shw::Flex {{style gap="2rem"}} as |SF|>
+  <Shw::Flex @gap="2rem" as |SF|>
     <SF.Item @label="Only text">
       <Hds::RichTooltip::Toggle @text="Lorem ipsum dolor" />
     </SF.Item>
@@ -1107,7 +1107,7 @@
 
   <Shw::Text::H3>Bubble</Shw::Text::H3>
 
-  <Shw::Flex {{style gap="2rem"}} as |SF|>
+  <Shw::Flex @gap="2rem" as |SF|>
     <SF.Item @label="Arrow" class="shw-component-rich-tooltip-arrow-standalone">
       <Shw::Outliner {{style width="fit-content"}}>
         <div class="hds-rich-tooltip">

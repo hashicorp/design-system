@@ -12,7 +12,7 @@
 
   <Shw::Text::H3>Basic</Shw::Text::H3>
 
-  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="One item">
       <Hds::Accordion as |A|>
         <A.Item>
@@ -56,7 +56,7 @@
 
   <Shw::Text::H4>With nested Accordions</Shw::Text::H4>
 
-  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item {{style flex="1"}}>
       <Hds::Accordion as |A|>
         <A.Item @isOpen={{true}}>
@@ -102,7 +102,7 @@
 
   <Shw::Text::H4>With different Accordion variants nested</Shw::Text::H4>
 
-  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="Nested Accordion with containsInteractive=true nested in containsInteractive=false">
       <Hds::Accordion as |A|>
         <A.Item @isOpen={{true}}>
@@ -142,7 +142,7 @@
 
   <Shw::Text::H4>With generic content</Shw::Text::H4>
 
-  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="With generic content in toggle">
       <Hds::Accordion as |A|>
         <A.Item>
@@ -160,7 +160,7 @@
 
   <Shw::Text::H4>With rich content</Shw::Text::H4>
 
-  <Shw::Flex {{style gap="2rem" marginBottom="2rem"}} @direction="column" as |SF|>
+  <Shw::Flex @direction="column" @gap="2rem" {{style marginBottom="2rem"}} as |SF|>
     <SF.Item @label="With rich content in toggle (HTML header tag)">
       <Hds::Accordion as |A|>
         <A.Item>
@@ -175,7 +175,7 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="With interactive content in toggle and in toggled content">
       <Hds::Accordion as |A|>
         <A.Item @containsInteractive={{true}} @isOpen={{true}}>
@@ -246,7 +246,7 @@
 
   <Shw::Text::H3>Edge cases</Shw::Text::H3>
 
-  <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
+  <Shw::Flex @direction="column" @gap="2rem" as |SF|>
     <SF.Item @label="With long content in toggle which wraps">
       <Hds::Accordion as |A|>
         <A.Item>
@@ -270,11 +270,11 @@
   <Shw::Text::H3>Accordion::Item</Shw::Text::H3>
 
   {{#let (array false true) as |booleans|}}
-    <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+    <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
       {{#each booleans as |bool|}}
         <SG.Item>
           <Shw::Text::H4>containsInteractive={{bool}}</Shw::Text::H4>
-          <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
+          <Shw::Flex @direction="column" @gap="2rem" as |SF|>
             {{#each @model.STATES as |state|}}
               <SF.Item @label={{state}} {{style flex="1"}}>
                 <Hds::Accordion::Item
@@ -321,7 +321,7 @@
 
   <Shw::Text::Body><strong>isOpen</strong></Shw::Text::Body>
 
-  <Shw::Flex {{style gap="2rem" marginBottom="2rem"}} @direction="column" as |SF|>
+  <Shw::Flex @direction="column" @gap="2rem" {{style marginBottom="2rem"}} as |SF|>
     <SF.Item @label="Default, isOpen=false">
       <Hds::Accordion::Item>
         <:toggle>Item one</:toggle>
@@ -345,7 +345,7 @@
 
   <Shw::Text::Body><strong>containsInteractive</strong></Shw::Text::Body>
 
-  <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
+  <Shw::Flex @direction="column" @gap="2rem" as |SF|>
     <SF.Item @label="containsInteractive=false (See “States”)">
       <Hds::Accordion as |A|>
         <A.Item>
@@ -375,11 +375,7 @@
 
   {{#let (array false true) as |booleans|}}
     {{#each booleans as |bool|}}
-      <Shw::Flex
-        {{style gap="2rem" justifyContent="space-between"}}
-        @label="parentContainsInteractive={{bool}}"
-        as |SF|
-      >
+      <Shw::Flex @label="parentContainsInteractive={{bool}}" @gap="2rem" {{style justifyContent="space-between"}} as |SF|>
         {{#each @model.STATES as |state|}}
           <SF.Item @label={{state}}>
             <div class="shw-component-accordion-standalone-button">

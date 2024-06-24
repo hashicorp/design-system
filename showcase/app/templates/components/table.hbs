@@ -533,7 +533,7 @@
     </div>
   </div>
 
-  <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
+  <Shw::Flex @direction="column" @gap="2rem" as |SF|>
     <SF.Item @label="With data model">
       <Hds::Table
         @isSelectable={{true}}
@@ -787,11 +787,11 @@
 
   <Shw::Text::H4 @tag="h3">Density</Shw::Text::H4>
 
-  <Shw::Flex @direction="column" {{style gap="2rem"}} as |SF|>
+  <Shw::Flex @direction="column" @gap="2rem" as |SF|>
     {{#let (array "default" "short" "tall") as |densities|}}
       {{#each densities as |density|}}
         <SF.Item @label={{capitalize density}}>
-          <Shw::Grid @columns={{2}} {{style gap="2rem"}} as |SG|>
+          <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
             {{#let (array false true) as |booleans|}}
               {{#each booleans as |bool|}}
                 <SG.Item>
@@ -839,7 +839,7 @@
 
   <Shw::Text::H4 @tag="h3">Striping</Shw::Text::H4>
 
-  <Shw::Grid @columns={{2}} {{style gap="2rem"}} as |SG|>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     {{#let (array false true) as |booleans|}}
       {{#each booleans as |bool|}}
         <SG.Item>
@@ -1420,7 +1420,7 @@
 
   <Shw::Text::H3>ThSelectable</Shw::Text::H3>
 
-  <Shw::Flex @direction="row" {{style gap="2rem"}} as |SF|>
+  <Shw::Flex @direction="row" @gap="2rem" as |SF|>
     {{#let (array false true) as |booleans|}}
       {{#each booleans as |bool|}}
         <SF.Item @label={{if bool "Selected" "Deselected"}}>
