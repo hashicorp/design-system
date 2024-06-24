@@ -24,16 +24,16 @@ body.layouts-app-frame {
       height: auto;
       min-height: 0;
 
-      // For testing, may remove later...
+      // For simulating minimize behavior
       &.hds-side-nav--is-minimized {
         .hds-side-nav__wrapper { overflow: hidden; }
-
-        .hds-side-nav__wrapper-header { padding: 0; }
 
         .hds-side-nav__wrapper-body {
           width: var(--hds-app-sidenav-width-expanded);
           opacity: 0;
         }
+
+        .hds-side-nav__wrapper-footer { opacity: 0; }
       }
     }
   }
@@ -110,5 +110,11 @@ body.layouts-app-frame {
     height: 160px;
     margin: auto;
     inset: 0;
+  }
+
+  .shw-layout-app-frame-full-width-elem {
+    width: 100%;
+
+    .hds-dropdown-toggle-button {width: 100%;}
   }
 }
