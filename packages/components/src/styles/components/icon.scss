@@ -7,8 +7,8 @@
   display: block;
 }
 
-.flight-icon-display-inline {
-  display: inline-block;
+.flight-icon--is-inline {
+  display: inline;
 }
 
 @keyframes hds-flight-icon-animation-rotation {

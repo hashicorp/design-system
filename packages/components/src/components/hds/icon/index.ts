@@ -35,6 +35,10 @@ export default class FlightIcon extends Component<FlightIconSignature> {
     }
   }
 
+  get isInline() {
+    return this.args.isInline ?? false;
+  }
+
   /**
    * Sets the color for the SVG
    *
@@ -146,14 +150,9 @@ export default class FlightIcon extends Component<FlightIconSignature> {
 
     // add a class based on the @isInlineBlock argument
     const { isInline = false } = this.args;
-    
-    // old
-    // if (isInlineBlock && !this.args.stretched) {
-    //   classes.push('flight-icon-display-inline');
-    // }
 
     if (isInline) {
-      //TODO: figure out what to do if isInline is true
+      classes.push('flight-icon--is-inline');
     }
 
     // add an extra class to control the animation (depends on the icon)
