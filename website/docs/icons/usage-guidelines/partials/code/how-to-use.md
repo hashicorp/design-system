@@ -1,6 +1,6 @@
 ## Installation
 
-Icons can be used in many ways. The package can be installed as an [Ember addon](#using-icons-in-ember-apps) for the convenience of using a component with strong defaults. It can also be [consumed in React applications](#using-icons-in-react-apps) via direct import of the SVG file or as a standalone React/SVG icon component.
+Icons can be used in many ways. The package can be installed as an [Ember addon](#adding-icons-to-ember-apps) for the convenience of using a component with strong defaults. It can also be [consumed in React applications](#adding-icons-to-react-apps) via direct import of the SVG file or as a standalone React/SVG icon component.
 
 ### Adding icons to Ember apps
 
