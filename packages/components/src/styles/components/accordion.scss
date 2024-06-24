@@ -65,6 +65,7 @@
 }
 
 .hds-accordion-item--type-card {
+  --hds-accordion-item-focus-ring-offset: 0;
   background: var(--token-color-surface-primary);
   border-radius: 6px;
 
@@ -84,15 +85,11 @@
 }
 
 .hds-accordion-item--type-flush {
+  --hds-accordion-item-focus-ring-offset: 3px;
   box-shadow: 0 1px 0 0 var(--token-color-border-primary);
 
   &:first-child {
     box-shadow: 0 1px 0 0 var(--token-color-border-primary), 0 -1px 0 0 var(--token-color-border-primary);
-  }
-
-  // we need this specificity to override the focus-ring mixin
-  .hds-accordion-item__button.hds-accordion-item__button--parent-does-not-contain-interactive::before {
-    border-radius: 0;
   }
 
   &.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) > .hds-disclosure-primitive__toggle {
@@ -141,7 +138,7 @@
 
 // entire toggle area is interactive
 .hds-accordion-item__button--parent-does-not-contain-interactive {
-  @include hds-focus-ring-with-pseudo-element();
+  @include hds-focus-ring-with-pseudo-element($top: var(--hds-accordion-item-focus-ring-offset), $right: var(--hds-accordion-item-focus-ring-offset), $bottom: var(--hds-accordion-item-focus-ring-offset), $left: var(--hds-accordion-item-focus-ring-offset));
 
   position: static;
   display: flex;
