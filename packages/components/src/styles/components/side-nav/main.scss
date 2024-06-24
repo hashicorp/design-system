@@ -7,7 +7,17 @@
 // SIDE-NAV
 //
 
+// TODO: Move to tokens if kept
+:root {
+  --hds-app-sidenav-headerless-width-minimized: 16px;
+}
+
 .hds-side-nav {
+  // set narrower collapsed width when the header is empty
+  &:has(.hds-side-nav__wrapper-header:empty) {
+    --hds-app-sidenav-width-minimized: var(--hds-app-sidenav-headerless-width-minimized);
+  }
+
   position: sticky;
   top: 0;
   z-index: 20; // needs to stay above the main content
@@ -40,7 +50,6 @@
     }
   }
 }
-
 
 // OVERLAY
 
