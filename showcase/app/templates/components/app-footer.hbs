@@ -142,7 +142,7 @@
       {{#let (array "desktop" "tablet" "mobile-large" "mobile-small") as |layouts|}}
         {{#each layouts as |layout|}}
           <SF.Item @label={{layout}}>
-            <div class={{(concat (concat "shw-component-app-footer-" layout) "-view")}}>
+            <div class={{concat "shw-component-app-footer-" layout "-view"}}>
               <Hds::AppFooter as |AF|>
                 <AF.ExtraBefore>
                   <Shw::Placeholder
@@ -210,7 +210,7 @@
         <Shw::Flex {{style gap="2rem" justifyContent="space-between"}} as |SF|>
           {{#each @model.LINK_STATES as |state|}}
             <SF.Item @label={{state}}>
-              <ul class={{(concat "hds-app-footer__list hds-app-footer--theme-" theme)}}>
+              <ul class={{concat "hds-app-footer__list hds-app-footer--theme-" theme}}>
                 <Hds::AppFooter::Link @href="#" mock-state-value={{state}}>Link</Hds::AppFooter::Link>
               </ul>
             </SF.Item>
@@ -232,7 +232,7 @@
         <Shw::Flex {{style gap="2rem" justifyContent="space-between"}} as |SF|>
           {{#each-in @model.STATUS_LINK_STATUSES as |status|}}
             <SF.Item @label={{status}}>
-              <ul class={{(concat "hds-app-footer__list hds-app-footer--theme-" theme)}}>
+              <ul class={{concat "hds-app-footer__list hds-app-footer--theme-" theme}}>
                 <Hds::AppFooter::StatusLink @status={{status}} />
               </ul>
             </SF.Item>

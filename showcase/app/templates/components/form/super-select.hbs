@@ -1026,7 +1026,7 @@
 
   <Shw::Flex as |SF|>
     {{#each @model.STATES as |state|}}
-      <SF.Item @label={{(capitalize state)}}>
+      <SF.Item @label={{capitalize state}}>
         <div class="hds-form-super-select">
           <div class="ember-basic-dropdown">
             <div class="ember-power-select-trigger" mock-state-value={{state}}>
@@ -1049,7 +1049,7 @@
 
   <Shw::Flex as |SF|>
     {{#each @model.STATES as |state|}}
-      <SF.Item @label={{(capitalize state)}}>
+      <SF.Item @label={{capitalize state}}>
         <div class="hds-form-super-select">
           <div class="ember-basic-dropdown">
             <Shw::Outliner>
@@ -1208,21 +1208,21 @@
   {{#let (array "single" "multiple") as |variants|}}
     {{#each variants as |variant|}}
       <Shw::Flex as |SG|>
-        <SG.Item @label="{{(capitalize variant)}} / Flat">
+        <SG.Item @label="{{capitalize variant}} / Flat">
           <div class="hds-form-super-select hds-form-super-select-{{variant}}">
             <div class="ember-basic-dropdown">
               <div class="ember-basic-dropdown-content" {{style position="static"}}>
                 <ul class="ember-power-select-options" role="listbox" aria-label="Label" {{style max-height="none"}}>
                   <Hds::Form::SuperSelect::OptionGroup
-                    @group={{(hash groupName="Title for first group (with no content)")}}
+                    @group={{hash groupName="Title for first group (with no content)"}}
                   />
                   <Hds::Form::SuperSelect::OptionGroup
-                    @group={{(hash groupName="Title for second group (with generic content)")}}
+                    @group={{hash groupName="Title for second group (with generic content)"}}
                   >
                     <Shw::Placeholder @text="Second group - Generic content" @height="40px" />
                   </Hds::Form::SuperSelect::OptionGroup>
                   <Hds::Form::SuperSelect::OptionGroup
-                    @group={{(hash groupName="Title for third group (with options)")}}
+                    @group={{hash groupName="Title for third group (with options)"}}
                   >
                     {{! template-lint-disable require-context-role }}
                     <li class="ember-power-select-option" role="option" mock-state-value="hover">
@@ -1237,17 +1237,17 @@
             </div>
           </div>
         </SG.Item>
-        <SG.Item @label="{{(capitalize variant)}} / Nested">
+        <SG.Item @label="{{capitalize variant}} / Nested">
           <div class="hds-form-super-select hds-form-super-select-{{variant}}">
             <div class="ember-basic-dropdown">
               <div class="ember-basic-dropdown-content" {{style position="static"}}>
                 <ul class="ember-power-select-options" role="listbox" aria-label="Label" {{style max-height="none"}}>
-                  <Hds::Form::SuperSelect::OptionGroup @group={{(hash groupName="Title for first level")}}>
+                  <Hds::Form::SuperSelect::OptionGroup @group={{hash groupName="Title for first level"}}>
                     {{! template-lint-disable require-context-role }}
                     <li class="ember-power-select-option" role="option" mock-state-value="hover">
                       Level 1 - Option 1A
                     </li>
-                    <Hds::Form::SuperSelect::OptionGroup @group={{(hash groupName="Title for second level")}}>
+                    <Hds::Form::SuperSelect::OptionGroup @group={{hash groupName="Title for second level"}}>
                       {{! template-lint-disable require-context-role }}
                       <li class="ember-power-select-option" role="option" mock-state-value="hover">
                         Level 2 - Option 2A
@@ -1255,7 +1255,7 @@
                       <li class="ember-power-select-option" role="option">
                         Level 2 - Option 2B
                       </li>
-                      <Hds::Form::SuperSelect::OptionGroup @group={{(hash groupName="Title for third level")}}>
+                      <Hds::Form::SuperSelect::OptionGroup @group={{hash groupName="Title for third level"}}>
                         {{! template-lint-disable require-context-role }}
                         <li class="ember-power-select-option" role="option" mock-state-value="hover">
                           Level 3 - Option 3A
@@ -1266,7 +1266,7 @@
                       </Hds::Form::SuperSelect::OptionGroup>
                     </Hds::Form::SuperSelect::OptionGroup>
                     <Hds::Form::SuperSelect::OptionGroup
-                      @group={{(hash groupName="Title for second level (with generic content)")}}
+                      @group={{hash groupName="Title for second level (with generic content)"}}
                     >
                       <Shw::Placeholder @text="Second group - Generic content" @height="40px" />
                     </Hds::Form::SuperSelect::OptionGroup>
@@ -1387,7 +1387,7 @@
         <div class="ember-basic-dropdown">
           <div class="ember-basic-dropdown-content ember-power-select-dropdown" {{style position="static"}}>
             <ul class="ember-power-select-options" role="listbox" aria-label="Label" {{style max-height="none"}}>
-              <Hds::Form::SuperSelect::OptionGroup @group={{(hash groupName="Lorem ipsum dolor")}}>
+              <Hds::Form::SuperSelect::OptionGroup @group={{hash groupName="Lorem ipsum dolor"}}>
                 {{! template-lint-disable require-context-role }}
                 <li class="ember-power-select-option" role="option" aria-selected="true">
                   Option 1

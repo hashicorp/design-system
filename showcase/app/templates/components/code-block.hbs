@@ -509,7 +509,7 @@ end'
 
   <Shw::Grid @columns={{6}} as |SG|>
     {{#each @model.STATES as |state|}}
-      <SG.Item @label={{(capitalize state)}} class="shw-component-code-block-copy-button">
+      <SG.Item @label={{capitalize state}} class="shw-component-code-block-copy-button">
         <Hds::CodeBlock::CopyButton
           mock-state-value={{state}}
           @textToCopy="copy me"
@@ -519,7 +519,7 @@ end'
     {{/each}}
     {{#let (array "success" "error") as |statuses|}}
       {{#each statuses as |status|}}
-        <SG.Item @label={{(capitalize status)}} class="shw-component-code-block-copy-button">
+        <SG.Item @label={{capitalize status}} class="shw-component-code-block-copy-button">
           <Hds::CodeBlock::CopyButton
             @status={{status}}
             mock-copy-status={{status}}

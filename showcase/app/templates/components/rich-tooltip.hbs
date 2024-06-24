@@ -179,7 +179,7 @@
     <SF.Item @label="Offset: { mainAxis: 30, crossAxis: 0 }">
       <Hds::RichTooltip @isOpen={{true}} @enableClickEvents={{true}} as |RT|>
         <RT.Toggle @text="Lorem ipsum" @icon="info" @size="medium" />
-        <RT.Bubble @offset={{(hash mainAxis=30 crossAxis=0)}} @enableCollisionDetection={{false}}>
+        <RT.Bubble @offset={{hash mainAxis=30 crossAxis=0}} @enableCollisionDetection={{false}}>
           <Shw::Placeholder @text="generic content" @height="30" />
         </RT.Bubble>
       </Hds::RichTooltip>
@@ -187,7 +187,7 @@
     <SF.Item @label="Offset: { mainAxis: 12, crossAxis: 80 }">
       <Hds::RichTooltip @isOpen={{true}} @enableClickEvents={{true}} as |RT|>
         <RT.Toggle @text="Lorem ipsum" @icon="info" @size="medium" />
-        <RT.Bubble @offset={{(hash mainAxis=12 crossAxis=80)}} @enableCollisionDetection={{false}}>
+        <RT.Bubble @offset={{hash mainAxis=12 crossAxis=80}} @enableCollisionDetection={{false}}>
           <Shw::Placeholder @text="generic content" @height="30" />
         </RT.Bubble>
       </Hds::RichTooltip>
