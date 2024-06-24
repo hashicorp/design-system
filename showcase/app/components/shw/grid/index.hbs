@@ -8,7 +8,7 @@
     <Shw::Label>{{@label}}</Shw::Label>
   {{/if}}
   {{yield (hash Label=(component "shw/label"))}}
-  <div class="shw-grid__items" ...attributes>
+  <div class="shw-grid__items" style={{this.itemsStyle}} ...attributes>
     {{yield (hash Item=(component "shw/grid/item"))}}
   </div>
 </div>
