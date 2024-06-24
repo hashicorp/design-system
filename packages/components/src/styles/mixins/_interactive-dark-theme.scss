@@ -5,12 +5,23 @@
 
  @use "../mixins/focus-ring" as *;
 
+ // TODO: Deprecate SideNav specific dark theme tokens in favor of general dark theme tokens
+
 // Used to apply dark theme to interactive elements such as Button & Dropdown
-@mixin hds-interactive-dark-theme($add-visible-border: true) {
-  color: var(--token-color-palette-neutral-0);
-  background-color: var(--token-color-palette-neutral-700);
+@mixin hds-interactive-dark-theme($add-visible-border: true, $is-within-side-nav: false) {
+  @if $is-within-side-nav {
+    // sidenav specific dark theme tokens
+    color: var(--token-side-nav-color-foreground-strong);
+    background-color: transparent; // test
+    border-radius: var(--token-side-nav-body-list-item-border-radius);
+  } @else {
+    // general dark theme tokens
+    color: var(--token-color-palette-neutral-0);
+    background-color: var(--token-color-palette-neutral-700);
+    border-radius: var(--token-form-control-border-radius);
+  }
+  
   border: 1px solid transparent;
-  border-radius: var(--token-side-nav-body-list-item-border-radius);
   cursor: pointer;
 
   @if ($add-visible-border) {
@@ -37,9 +48,16 @@
 
   &:hover,
   &.mock-hover {
-    color: var(--token-color-palette-neutral-0); // to avoid overrides by specificity (eg. `a:hover`)
-    background-color: var(--token-color-palette-neutral-600);
-
+    @if $is-within-side-nav {
+      // sidenav specific dark theme tokens
+      color: var(--token-side-nav-color-foreground-strong); // to avoid overrides by specificity (eg. `a:hover`)
+      background-color: var(--token-side-nav-color-surface-interactive-hover);
+    } @else {
+      // general dark theme tokens
+      color: var(--token-color-palette-neutral-0); // to avoid overrides by specificity (eg. `a:hover`)
+      background-color: var(--token-color-palette-neutral-600);
+    }
+    
     @if ($add-visible-border) {
       border-color: var(--token-color-palette-neutral-500);
     }
@@ -47,9 +65,16 @@
 
   &:active,
   &.mock-active {
-    color: var(--token-color-palette-neutral-0); // to avoid overrides by specificity (eg. `a:hover`)
+    @if $is-within-side-nav {
+      // sidenav specific dark theme tokens
+      color: var(--token-side-nav-color-foreground-strong); // to avoid overrides by specificity (eg. `a:hover`)
+      background-color: var(--token-side-nav-color-surface-interactive-active);
+    } @else {
+      // general dark theme tokens
+      color: var(--token-color-palette-neutral-0); // to avoid overrides by specificity (eg. `a:hover`)
     background-color: var(--token-color-palette-neutral-500);
-
+    }
+    
     @if ($add-visible-border) {
       border-color: var(--token-color-palette-neutral-400);
     }
