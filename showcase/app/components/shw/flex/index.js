@@ -14,11 +14,6 @@ export default class FlexIndexComponent extends Component {
     // add a class based on the @direction argument
     classes.push(`shw-flex--direction-${this.direction}`);
 
-    // add a class based on the @wrap argument
-    if (this.args.wrap) {
-      classes.push('shw-flex--wrap');
-    }
-
     return classes.join(' ');
   }
 }
