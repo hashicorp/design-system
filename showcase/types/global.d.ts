@@ -55,6 +55,7 @@ export interface ShwFlexSignature {
     direction?: string;
     wrap?: boolean;
     label?: string;
+    gap?: string;
   };
   Element: HTMLDivElement;
   Blocks: {
@@ -89,6 +90,7 @@ export interface ShwGridSignature {
   Args: {
     columns: number;
     label?: string;
+    gap?: string;
   };
   Element: HTMLDivElement;
   Blocks: {
