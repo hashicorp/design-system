@@ -12,17 +12,13 @@ import { HdsTabsSizeValues } from './types.ts';
 import type { ComponentLike } from '@glint/template';
 import type { HdsTabsTabSignature } from './tab';
 import type { HdsTabsPanelSignature } from './panel';
-import type { HdsTabsPanelIds, HdsTabsTabIds } from './types.ts';
+import type { HdsTabsTabIds, HdsTabsPanelIds, HdsTabsSizes } from './types.ts';
 
-export const DEFAULT_SIZE = HdsTabsSizeValues.Medium;
-export const SIZES: HdsTabsSizeValues[] = [
-  HdsTabsSizeValues.Medium,
-  HdsTabsSizeValues.Large,
-];
-
+export const DEFAULT_SIZE: HdsTabsSizes = 'medium' as const;
+export const SIZES: HdsTabsSizes[] = Object.values(HdsTabsSizeValues);
 interface HdsTabsSignature {
   Args: {
-    size?: HdsTabsSizeValues;
+    size?: HdsTabsSizes;
     onClickTab?: (event: MouseEvent, tabIndex: number) => void;
     selectedTabIndex?: number;
     isParentVisible?: boolean;
@@ -38,14 +34,14 @@ interface HdsTabsSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsTabsIndexComponent extends Component<HdsTabsSignature> {
+export default class HdsTabsComponent extends Component<HdsTabsSignature> {
   @tracked tabNodes: HTMLButtonElement[] = [];
   @tracked tabIds: HdsTabsTabIds = [];
   @tracked panelNodes: HTMLElement[] = [];
   @tracked panelIds: HdsTabsPanelIds = [];
   @tracked _selectedTabIndex = this.args.selectedTabIndex ?? 0;
   @tracked selectedTabId?: string;
-  @tracked isControlled = false;
+  @tracked isControlled: boolean;
 
   /**
    * Sets the size of Tabs
@@ -55,7 +51,7 @@ export default class HdsTabsIndexComponent extends Component<HdsTabsSignature> {
    * @type {string}
    * @default 'medium'
    */
-  get size(): HdsTabsSizeValues {
+  get size(): HdsTabsSizes {
     const { size = DEFAULT_SIZE } = this.args;
 
     assert(
@@ -77,14 +73,7 @@ export default class HdsTabsIndexComponent extends Component<HdsTabsSignature> {
 
   get selectedTabIndex(): number {
     if (this.isControlled) {
-      assert(
-        `@selectedTabIndex for "Hds::Tabs" must be provided is @isControlled is true: ${SIZES.join(
-          ', '
-        )}; received: ${this.args.selectedTabIndex}`,
-        this.args.selectedTabIndex !== undefined
-      );
-
-      return this.args.selectedTabIndex;
+      return this.args.selectedTabIndex!;
     } else {
       return this._selectedTabIndex;
     }

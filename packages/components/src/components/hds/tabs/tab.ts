@@ -13,8 +13,8 @@ export interface HdsTabsTabSignature {
   Args: {
     selectedTabIndex: number;
     tabIds: HdsTabsTabIds;
-    count?: string;
     icon?: IconName;
+    count?: string;
     isSelected?: boolean;
     didInsertNode: (element: HTMLButtonElement, isSelected?: boolean) => void;
     didUpdateNode: (nodeIndex: number, isSelected?: boolean) => void;
