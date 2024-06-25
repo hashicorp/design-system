@@ -177,5 +177,30 @@ module(
       assert.dom('.hds-disclosure-primitive__content').doesNotExist();
       assert.dom('button#test-content-button').doesNotExist();
     });
+
+    // CALLBACK
+
+    test('it should invoke the `onClickToggle` callback', async function (assert) {
+      let opened = false;
+      this.set('onClickToggle', () => (opened = !opened));
+      await render(hbs`
+        <Hds::DisclosurePrimitive @onClickToggle={{this.onClickToggle}} id="test-disclosure-primitive">
+          <:toggle as |t|>
+            <button type="button" id="test-toggle-button" {{on "click" t.onClickToggle}} />
+          </:toggle>
+          <:content>
+            <a id="test-disclosure-primitive-link" href="#">test</a>
+          </:content>
+        </Hds::DisclosurePrimitive>
+      `);
+      // toggle to open
+      await click('button#test-toggle-button');
+      assert.true(opened);
+      assert.dom('.hds-disclosure-primitive__content').exists();
+      // toggle to close
+      await click('button#test-toggle-button');
+      assert.false(opened);
+      assert.dom('.hds-disclosure-primitive__content').doesNotExist();
+    });
   }
 );
