@@ -84,12 +84,6 @@ export default class HdsDropdownToggleIconComponent extends Component {
       // this is the default size (notice: for the "small" variant with chevron, we set the actual size to `12px` via CSS)
       return '16';
     }
-      // if hasChevron is true, we resize the icon to 12px in CSS
-      return '16';
-    } else {
-      // if hasChevron is true, we use 16px icon
-      return this.hasChevron ? '16' : '24';
-    }
   }
 
   /**
