@@ -50,7 +50,7 @@ Our collaborative process is intended to be a guideline, not a playbook. Each co
 
 ### Submit a new request
 
-Before submitting a new request, check that the issue doesn’t already exist in our [backlog](https://hashicorp.atlassian.net/jira/polaris/projects/HDSP/ideas/view/3955253). If no request exists, create a new issue using our [intake form](https://go.hashi.co/hds-support). Creating an issue allows us to track and prioritize all requests in one central location easily.
+Before submitting a new request, check that the issue doesn’t already exist in our [backlog](https://go.hashi.co/hds-rollout). If no request exists, create a new issue using our [intake form](https://go.hashi.co/hds-support). Creating an issue allows us to track and prioritize all requests in one central location easily.
 
 Alternatively, if you just have a question or you’re not sure your project is right for collaboration, reach out to the Design Systems Team in [#team-design-systems](https://hashicorp.slack.com/archives/C7KTUHNUS).
 
