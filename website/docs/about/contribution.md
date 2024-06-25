@@ -31,10 +31,7 @@ If you’d like to add a new icon to the [icon library](/icons/library), follow 
 
 ### Contribute in code
 
-To work in one of the Helios code packages, consult the corresponding `CONTRIBUTING.md` file for:
-- [Tokens](https://github.com/hashicorp/design-system/blob/main/packages/tokens/CONTRIBUTING.md)
-- [Ember Flight Icons](https://github.com/hashicorp/design-system/blob/main/packages/ember-flight-icons/CONTRIBUTING.md)
-- [Components](https://github.com/hashicorp/design-system/blob/main/packages/components/CONTRIBUTING.md)
+To work in one of the Helios code packages, consult the corresponding `CONTRIBUTING.md` file for [Tokens](https://github.com/hashicorp/design-system/blob/main/packages/tokens/CONTRIBUTING.md), [Ember Flight Icons](https://github.com/hashicorp/design-system/blob/main/packages/ember-flight-icons/CONTRIBUTING.md), and [Components](https://github.com/hashicorp/design-system/blob/main/packages/components/CONTRIBUTING.md)
 
 Review the [Engineering Checklist for new components](https://github.com/hashicorp/design-system/blob/main/packages/components/NEW-COMPONENT-CHECKLIST.md#engineering-checklist) if you’re working on a new component.
 
