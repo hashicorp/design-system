@@ -14,7 +14,7 @@
   {{#each @model.TYPES as |type index|}}
     <Shw::Text::H3>{{capitalize type}}</Shw::Text::H3>
 
-    <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+    <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
       <SG.Item @label="One item">
         <Hds::Accordion @type={{type}} as |A|>
           <A.Item>
@@ -64,7 +64,7 @@
   {{#each @model.SIZES as |size index|}}
     <Shw::Text::H3>{{capitalize size}}</Shw::Text::H3>
 
-    <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+    <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
       {{#each @model.TYPES as |type|}}
         <SG.Item @label={{type}}>
           <Hds::Accordion @size={{size}} @type={{type}} as |A|>
@@ -104,7 +104,7 @@
 
   <Shw::Text::H3>Generic content</Shw::Text::H3>
 
-  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     {{#each @model.TYPES as |type|}}
       <SG.Item @label="{{capitalize type}} with generic content in toggle">
         <Hds::Accordion @type={{type}} as |A|>
@@ -125,7 +125,7 @@
 
   <Shw::Text::H3>Rich content</Shw::Text::H3>
 
-  <Shw::Flex {{style gap="2rem" marginBottom="2rem"}} @direction="column" as |SF|>
+  <Shw::Flex @direction="column" @gap="2rem" {{style marginBottom="2rem"}} as |SF|>
     <SF.Item @label="With rich content in toggle (HTML header tag)">
       <Hds::Accordion as |A|>
         <A.Item>
@@ -140,7 +140,7 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="With interactive content in toggle and in toggled content">
       <Hds::Accordion as |A|>
         <A.Item @containsInteractive={{true}} @isOpen={{true}}>
@@ -216,7 +216,7 @@
   {{#each @model.TYPES as |type|}}
     <Shw::Text::H4>{{capitalize type}}</Shw::Text::H4>
 
-    <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+    <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
       <SG.Item {{style flex="1"}}>
         <Hds::Accordion @type={{type}} as |A|>
           <A.Item @isOpen={{true}}>
@@ -260,7 +260,7 @@
       </SG.Item>
     </Shw::Grid>
 
-    <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+    <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
       <SG.Item @label="Nested Accordion with containsInteractive=true nested in containsInteractive=false">
         <Hds::Accordion @type={{type}} as |A|>
           <A.Item @isOpen={{true}}>
@@ -301,7 +301,7 @@
 
   <Shw::Text::H4>Mixed</Shw::Text::H4>
 
-  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="type=flush nested in type=card" {{style flex="1"}}>
       <Hds::Accordion as |A|>
         <A.Item @isOpen={{true}}>
@@ -354,7 +354,7 @@
 
   <Shw::Text::H3>Edge cases</Shw::Text::H3>
 
-  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     {{#each @model.TYPES as |type|}}
       <SG.Item @label="With long content in toggle which wraps">
         <Hds::Accordion @type={{type}} as |A|>
@@ -381,7 +381,7 @@
 
   <Shw::Text::H4>Type</Shw::Text::H4>
 
-  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     {{#each @model.TYPES as |type|}}
       <SG.Item @label="type={{type}}">
         <Hds::Accordion::Item @type={{type}}>
@@ -408,7 +408,7 @@
 
   <Shw::Text::H4>isOpen</Shw::Text::H4>
 
-  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     {{#each @model.TYPES as |type|}}
       <SG.Item @label="isOpen=false (default)">
         <Hds::Accordion::Item @type={{type}}>
@@ -435,7 +435,7 @@
 
   <Shw::Text::H4>containsInteractive</Shw::Text::H4>
 
-  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     {{#each @model.TYPES as |type|}}
       <SG.Item @label="containsInteractive=false (default)">
         <Hds::Accordion::Item @type={{type}}>
@@ -462,7 +462,7 @@
 
   <Shw::Text::H4>isStatic</Shw::Text::H4>
 
-  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     {{#each @model.TYPES as |type|}}
       <SG.Item @label="isStatic=true">
         <Hds::Accordion::Item @type={{type}} @isStatic={{true}}>
@@ -509,10 +509,10 @@
   {{#each @model.TYPES as |type|}}
     {{#let (array false true) as |booleans|}}
       <Shw::Text::Body>{{capitalize type}}</Shw::Text::Body>
-      <Shw::Grid {{style gap="2rem"}} @columns={{4}} as |SG|>
+      <Shw::Grid @columns={{4}} @gap="2rem" as |SG|>
         {{#each @model.STATES as |state|}}
           <SG.Item @label={{state}}>
-            <Shw::Flex @direction="column" {{style gap="2rem"}} as |SF|>
+            <Shw::Flex @direction="column" @gap="2rem" as |SF|>
               {{#each booleans as |containsInteractive|}}
                 {{#each booleans as |isOpen|}}
                   <SF.Item>
@@ -551,8 +551,9 @@
     {{#let (array false true) as |booleans|}}
       {{#each booleans as |bool|}}
         <Shw::Flex
-          {{style gap="2rem" justifyContent="space-between"}}
           @label="size={{size}}, parentContainsInteractive={{bool}}"
+          @gap="2rem"
+          {{style justifyContent="space-between"}}
           as |SF|
         >
           {{#each @model.STATES as |state|}}
