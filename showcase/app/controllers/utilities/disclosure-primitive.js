@@ -16,6 +16,13 @@ export default class DisclosurePrimitiveController extends Controller {
       this.isOpen = true;
     } else if (state === 'close') {
       this.isOpen = false;
+    } else {
+      this.isOpen = !this.isOpen;
     }
+  }
+
+  @action
+  onClickToggle(isOpenInternalState) {
+    this.isOpen = isOpenInternalState;
   }
 }
