@@ -33,7 +33,9 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   align-items: center;
   justify-content: center;
   padding: 1px;
-  color: var(--token-color-foreground-primary); // does not have secondary & primary variants so we use the primary color
+  // this variant mimics the secondary button, but not entirely (eg. it doesn't have an elevation shadow)
+  // so we need to provide the same color values but without using the `hds-button-color-secondary()` mixin
+  color: var(--token-color-foreground-primary);
   background-color: var(--token-color-surface-faint);
   border: 1px solid var(--token-color-border-strong);
   border-radius: $hds-dropdown-toggle-border-radius;
@@ -78,12 +80,12 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
 
 .hds-dropdown-toggle-icon--size-small {
   .hds-dropdown-toggle-icon__wrapper {
-    width: 24px; // same as the `button[small]` minus 2*2px because there are a 1px padding and 1px border to take into account
+    width: 24px; // we use this element to provide the right size for the parent "button" so it matches the `button[small]`
     height: 24px;
   }
 
   &.hds-dropdown-toggle-icon--has-chevron {
-    // For small variant with chevron, reduce the icon size (medium size icon is set in JS)
+    // For small variant with chevron, force the icon size to custom (even if the SGV size is `16px`)
     .flight-icon {
       width: 12px;
       height: 12px;
@@ -93,7 +95,7 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
 
 .hds-dropdown-toggle-icon--size-medium {
   .hds-dropdown-toggle-icon__wrapper {
-    width: 32px; // same as the `button[medium]` minus 2*2px because there are a 1px padding and 1px border to take into account
+    width: 32px; // we use this element to provide the right size for the parent "button" so it matches the `button[small]`
     height: 32px;
   }
 }
