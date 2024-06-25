@@ -31,6 +31,8 @@ export interface HdsAccordionItemSignature {
     size?: HdsAccordionSizes;
     type?: HdsAccordionTypes;
     forceState?: HdsAccordionForceStates;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onClickToggle?: (event: MouseEvent, ...args: any[]) => void;
   };
   Blocks: {
     toggle?: [];

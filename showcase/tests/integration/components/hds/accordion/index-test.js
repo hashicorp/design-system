@@ -310,4 +310,30 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     assert.dom('.hds-accordion-item__content').doesNotExist();
     assert.dom('.hds-accordion-item__content button').doesNotExist();
   });
+
+  // onClickToggle
+
+  test('it should call onClickToggle function', async function (assert) {
+    let state = 'close';
+    this.set(
+      'onClickToggle',
+      () => (state = state === 'open' ? (state = 'close') : (state = 'open'))
+    );
+    await render(hbs`
+      <Hds::Accordion::Item @forceState={{this.state}} @onClickToggle={{this.onClickToggle}}>
+        <:toggle>Item one</:toggle>
+        <:content>Content one</:content>
+      </Hds::Accordion::Item>
+    `);
+    // closed by default
+    assert.dom('.hds-accordion-item__content').doesNotExist();
+    // toggle to open
+    await click('.hds-accordion-item__button');
+    assert.strictEqual(state, 'open');
+    assert.dom('.hds-accordion-item__content').exists();
+    // toggle to close
+    await click('.hds-accordion-item__button');
+    assert.strictEqual(state, 'close');
+    assert.dom('.hds-accordion-item__content').doesNotExist();
+  });
 });
