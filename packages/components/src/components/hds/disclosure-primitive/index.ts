@@ -13,6 +13,8 @@ export interface HdsDisclosurePrimitiveSignature {
     isOpen?: boolean;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onClose?: (...args: any[]) => void;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onClickToggle?: (...args: any[]) => void;
   };
   Blocks: {
     toggle: [
@@ -56,6 +58,13 @@ export default class HdsDisclosurePrimitiveComponent extends Component<HdsDisclo
   onClickToggle(): void {
     this.isOpen = !this.isOpen;
     this._isControlled = false;
+    // we call the "onClickToggle" callback if it exists and it's a function
+    if (
+      this.args.onClickToggle &&
+      typeof this.args.onClickToggle === 'function'
+    ) {
+      this.args.onClickToggle(this.isOpen);
+    }
   }
 
   @action
