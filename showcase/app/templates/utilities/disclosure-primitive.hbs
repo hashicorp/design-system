@@ -144,8 +144,9 @@
     <SF.Item @grow={{true}}>
       <button type="button" {{on "click" (fn this.toggleState "open")}}>Open</button>
       <button type="button" {{on "click" (fn this.toggleState "close")}}>Close</button>
+      <button type="button" {{on "click" this.toggleState}}>Toggle</button>
       <div class="shw-utility-disclosure-primitive-container">
-        <Hds::DisclosurePrimitive @isOpen={{this.isOpen}}>
+        <Hds::DisclosurePrimitive @isOpen={{this.isOpen}} @onClickToggle={{this.onClickToggle}}>
           <:toggle as |t|>
             <button type="button" {{on "click" t.onClickToggle}}>
               Click me
