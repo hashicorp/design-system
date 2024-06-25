@@ -4,6 +4,7 @@
  */
 
 import Component from '@glimmer/component';
+import { htmlSafe } from '@ember/template';
 import { assert } from '@ember/debug';
 
 export default class GridIndexComponent extends Component {
@@ -13,6 +14,15 @@ export default class GridIndexComponent extends Component {
     assert('@columns for "Shw::Grid" must be defined', columns !== undefined);
 
     return columns;
+  }
+
+  get itemsStyle() {
+    let styles = [];
+    if (this.args.gap) {
+      styles.push(`gap: ${this.args.gap}`);
+    }
+
+    return styles.length > 0 ? htmlSafe(styles.join('; ')) : undefined;
   }
 
   get classNames() {

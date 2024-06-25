@@ -703,7 +703,7 @@
   <div class="{{if this.showHighlight 'shw-component-form-base-elements-layout-highlight'}}">
 
     <Shw::Text::H3>Layout</Shw::Text::H3>
-    <Shw::Flex {{style gap="48px"}} as |SF|>
+    <Shw::Flex @gap="3rem" as |SF|>
       {{#let (array "vertical" "horizontal") as |layouts|}}
         {{#each layouts as |layout|}}
           <SF.Item @label={{capitalize layout}}>

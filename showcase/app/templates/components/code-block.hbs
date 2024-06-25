@@ -10,7 +10,7 @@
 <section data-test-percy>
   <Shw::Text::H2>Content</Shw::Text::H2>
 
-  <Shw::Grid @columns={{2}} {{style gap="2rem"}} as |SG|>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="one line">
       <Hds::CodeBlock @language="javascript" @value="console.log('I am JavaScript code');" />
     </SG.Item>
@@ -25,7 +25,7 @@ console.log(`I am ${codeLang} code`);"
 
   <Shw::Text::Body>New lines handling</Shw::Text::Body>
 
-  <Shw::Grid @columns={{2}} {{style gap="2rem"}} as |SG|>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @forceMinWidth={{true}} as |SGI|>
       <SGI.Label>new lines in Handlebars</SGI.Label>
       <Hds::CodeBlock
@@ -56,7 +56,7 @@ console.log(`I am ${codeLang} code`);"
 
   <Shw::Text::H3>Title and description</Shw::Text::H3>
 
-  <Shw::Grid @columns={{2}} {{style gap="2rem"}} as |SG|>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="title">
       <Hds::CodeBlock @value="console.log('I am JavaScript code');" @language="javascript" as |CB|>
         <CB.Title>Title</CB.Title>
@@ -118,7 +118,7 @@ console.log(`I am ${codeLang} code`);"
 
   <Shw::Text::H3>Standalone</Shw::Text::H3>
 
-  <Shw::Grid @columns={{2}} {{style gap="2rem"}} as |SG|>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="isStandalone=false">
       <Hds::CodeBlock
         @isStandalone={{false}}
@@ -144,7 +144,7 @@ console.log(`I am ${codeLang} code`);"
 
   <Shw::Text::H3>Line wrapping</Shw::Text::H3>
 
-  <Shw::Grid @columns={{2}} {{style gap="2rem"}} as |SG|>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="hasLineWrapping=false (default)" @forceMinWidth={{true}}>
       <Hds::CodeBlock
         @language="javascript"
@@ -171,7 +171,7 @@ console.log(codeLand);"
 
   <Shw::Text::H3>Line numbers</Shw::Text::H3>
 
-  <Shw::Grid @columns={{2}} {{style gap="2rem"}} as |SG|>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="hasLineNumbers=false">
       <Hds::CodeBlock
         @language="javascript"
@@ -198,7 +198,7 @@ console.log(`I am ${codeLang} code`);"
 
   <Shw::Text::H3>Height limit</Shw::Text::H3>
 
-  <Shw::Grid @columns={{2}} {{style gap="2rem"}} as |SG|>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="maxHeight='105px'" @forceMinWidth={{true}}>
       {{! template-lint-disable no-whitespace-for-layout }}
       <Hds::CodeBlock
@@ -264,7 +264,7 @@ function assertObjectsEqual (actual, expected, testName) {
 
   <Shw::Text::H3>Copy button</Shw::Text::H3>
 
-  <Shw::Grid @columns={{2}} {{style gap="2rem"}} as |SG|>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="hasCopyButton=true" @forceMinWidth={{true}}>
       <Hds::CodeBlock @language="shell-session" @hasCopyButton={{true}} @value="$ brew tap hashicorp/tap" />
     </SG.Item>
@@ -307,7 +307,7 @@ function assertObjectsEqual (actual, expected, testName) {
 
   <Shw::Text::H3>Highlight lines</Shw::Text::H3>
 
-  <Shw::Grid @columns={{2}} {{style gap="2rem"}} as |SG|>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="Highlight lines 2 & 4" @forceMinWidth={{true}}>
       <Hds::CodeBlock
         @language="javascript"
@@ -351,7 +351,7 @@ loadInitializers(App, config.modulePrefix);"
 
   <Shw::Text::H3>Language</Shw::Text::H3>
 
-  <Shw::Grid @columns={{2}} {{style gap="2rem"}} as |SG|>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="no language (default)" @forceMinWidth={{true}}>
       <Hds::CodeBlock
         @value="ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom/BWDSU
@@ -509,7 +509,7 @@ end'
 
   <Shw::Grid @columns={{6}} as |SG|>
     {{#each @model.STATES as |state|}}
-      <SG.Item @label={{(capitalize state)}} class="shw-component-code-block-copy-button">
+      <SG.Item @label={{capitalize state}} class="shw-component-code-block-copy-button">
         <Hds::CodeBlock::CopyButton
           mock-state-value={{state}}
           @textToCopy="copy me"
@@ -519,7 +519,7 @@ end'
     {{/each}}
     {{#let (array "success" "error") as |statuses|}}
       {{#each statuses as |status|}}
-        <SG.Item @label={{(capitalize status)}} class="shw-component-code-block-copy-button">
+        <SG.Item @label={{capitalize status}} class="shw-component-code-block-copy-button">
           <Hds::CodeBlock::CopyButton
             @status={{status}}
             mock-copy-status={{status}}
@@ -535,7 +535,7 @@ end'
 
   <Shw::Text::H2>Demo</Shw::Text::H2>
 
-  <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
+  <Shw::Flex @direction="column" @gap="2rem" as |SF|>
     <SF.Item>
       <Shw::Label>Within Tabs</Shw::Label>
       <Hds::Tabs {{style width="400px"}} as |T|>

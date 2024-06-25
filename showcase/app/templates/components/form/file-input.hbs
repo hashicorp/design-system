@@ -16,7 +16,7 @@
   <Shw::Text::H2>“Base” control</Shw::Text::H2>
 
   <div class="{{if this.showHighlight 'shw-component-form-file-input-layout-highlight'}}">
-    <Shw::Flex {{style gap="2rem"}} as |SF|>
+    <Shw::Flex @gap="2rem" as |SF|>
       <SF.Item>
         <Hds::Form::FileInput::Base />
       </SF.Item>
@@ -24,7 +24,7 @@
 
     <Shw::Text::H2>States</Shw::Text::H2>
 
-    <Shw::Flex {{style gap="2rem"}} as |SF|>
+    <Shw::Flex @gap="2rem" as |SF|>
       {{#each @model.STATES as |state|}}
         <SF.Item @label={{state}}>
           <Hds::Form::FileInput::Base mock-state-value={{state}} />
@@ -44,7 +44,7 @@
   <div class="{{if this.showHighlight 'shw-component-form-file-input-layout-highlight'}}">
     <Shw::Text::H3>Content</Shw::Text::H3>
 
-    <Shw::Grid @columns="3" {{style gap="2rem"}} as |SG|>
+    <Shw::Grid @columns="3" @gap="2rem" as |SG|>
       <SG.Item @label="Only label">
         <Hds::Form::FileInput::Field @value="Lorem ipsum dolor" as |F|>
           <F.Label>This is the label text</F.Label>

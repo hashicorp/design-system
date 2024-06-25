@@ -40,7 +40,8 @@
 
   <Shw::Grid
     @columns={{3}}
-    {{style width="fit-content" grid-template-columns="repeat(3, auto)" gap="1rem 2rem"}}
+    @gap="1rem 2rem"
+    {{style width="fit-content" grid-template-columns="repeat(3, auto)"}}
     as |SG|
   >
     <SG.Item @label="Only text">

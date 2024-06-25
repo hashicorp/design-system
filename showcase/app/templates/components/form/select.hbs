@@ -13,7 +13,7 @@
 
   <Shw::Text::H3>Interaction status</Shw::Text::H3>
 
-  <Shw::Flex {{style gap="2rem"}} as |SF|>
+  <Shw::Flex @gap="2rem" as |SF|>
     <SF.Item @label="Default">
       <Hds::Form::Select::Base aria-label="default select" as |C|>
         <C.Options>
@@ -26,7 +26,7 @@
 
   <Shw::Text::H3>States</Shw::Text::H3>
 
-  <Shw::Flex {{style gap="2rem"}} as |SF|>
+  <Shw::Flex @gap="2rem" as |SF|>
     {{#let (array "base" "invalid" "disabled") as |variants|}}
       {{#each @model.STATES as |state|}}
         <SF.Item>

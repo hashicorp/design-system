@@ -11,7 +11,7 @@
 
   <Shw::Text::H2>Base elements</Shw::Text::H2>
 
-  <Shw::Grid @columns={{4}} {{style gap="2rem" margin-bottom="6rem"}} as |SG|>
+  <Shw::Grid @columns={{4}} @gap="2rem" {{style margin-bottom="6rem"}} as |SG|>
     <SG.Item @label="Base">
       <Hds::PopoverPrimitive @isOpen={{true}} as |PP|>
         <div class="shw-utilities-popover-primitive-fake-container" {{PP.setupPrimitiveContainer}}>
@@ -129,7 +129,7 @@
   {{#let (array false true) as |booleans|}}
     {{#each booleans as |popoverHasArrow|}}
 
-      <Shw::Grid @columns={{4}} {{style gap="2rem" margin-bottom="8rem"}} as |SF|>
+      <Shw::Grid @columns={{4}} @gap="2rem" {{style margin-bottom="8rem"}} as |SF|>
         {{#let
           (array
             (hash label="not set" offset=0)
@@ -140,7 +140,7 @@
           as |offsetOptionsVariants|
         }}
           {{#each offsetOptionsVariants as |offsetOptionsVariant count|}}
-            <SF.Item @label={{(if (eq popoverHasArrow false) (get offsetOptionsVariant "label"))}}>
+            <SF.Item @label={{if (eq popoverHasArrow false) (get offsetOptionsVariant "label")}}>
               <Hds::PopoverPrimitive @isOpen={{true}} as |PP|>
                 <div class="shw-utilities-popover-primitive-fake-container" {{PP.setupPrimitiveContainer}}>
                   <button
@@ -175,10 +175,10 @@
 
   <Shw::Text::H4>arrowPadding</Shw::Text::H4>
 
-  <Shw::Grid @columns={{4}} {{style gap="2rem" margin-bottom="8rem"}} as |SF|>
+  <Shw::Grid @columns={{4}} @gap="2rem" {{style margin-bottom="8rem"}} as |SF|>
     {{#let (array (hash label="not set") (hash label="32" arrowPadding=32)) as |arrowPaddingVariants|}}
       {{#each arrowPaddingVariants as |arrowPaddingVariant count|}}
-        <SF.Item @label={{(get arrowPaddingVariant "label")}}>
+        <SF.Item @label={{get arrowPaddingVariant "label"}}>
           <Hds::PopoverPrimitive @isOpen={{true}} as |PP|>
             <div class="shw-utilities-popover-primitive-fake-container" {{PP.setupPrimitiveContainer}}>
               <button
@@ -212,7 +212,7 @@
 
   <Shw::Text::H3>Strategy</Shw::Text::H3>
 
-  <Shw::Grid @columns={{4}} {{style gap="2rem" margin-bottom="8rem"}} as |SF|>
+  <Shw::Grid @columns={{4}} @gap="2rem" {{style margin-bottom="8rem"}} as |SF|>
     {{#let (array "absolute" "fixed") as |strategies|}}
       {{#each strategies as |strategy|}}
         <SF.Item @label={{strategy}}>
@@ -247,7 +247,7 @@
 
   <Shw::Text::Body>Scroll within the boxes to see the collision detection in action</Shw::Text::Body>
 
-  <Shw::Grid @columns={{4}} {{style gap="2rem" margin-bottom="6rem"}} as |SF|>
+  <Shw::Grid @columns={{4}} @gap="2rem" {{style margin-bottom="6rem"}} as |SF|>
     {{#let (array false true null null "flip" "shift" "auto" null) as |detections|}}
       {{#each detections as |detection|}}
         {{#if (eq detection null)}}
@@ -293,13 +293,13 @@
 
   <Shw::Text::H2>Interaction</Shw::Text::H2>
 
-  <Shw::Grid @columns={{4}} {{style gap="2rem" align-items="center"}} as |SG|>
+  <Shw::Grid @columns={{4}} @gap="2rem" {{style align-items="center"}} as |SG|>
     {{#let (array "soft" "click") as |interactionVariants|}}
       {{#each interactionVariants as |interaction|}}
         <SG.Item @label={{if (eq interaction "soft") 'Hover/Focus ("Soft")' "Click"}}>
           <Hds::PopoverPrimitive
-            @enableSoftEvents={{(eq interaction "soft")}}
-            @enableClickEvents={{(eq interaction "click")}}
+            @enableSoftEvents={{eq interaction "soft"}}
+            @enableClickEvents={{eq interaction "click"}}
             @enableCollisionDetection={{true}}
             as |PP|
           >
@@ -350,13 +350,13 @@
 
   {{#let (array false true) as |booleans|}}
     {{#each booleans as |isOpen|}}
-      <Shw::Grid @columns={{3}} {{style gap="2rem" margin-bottom="4rem"}} as |SG|>
+      <Shw::Grid @columns={{3}} @gap="2rem" {{style margin-bottom="4rem"}} as |SG|>
         {{#let (array "none" "soft" "click") as |interactionVariants|}}
           {{#each interactionVariants as |interaction|}}
             <SG.Item @label={{concat interaction " / isOpen={{" isOpen "}}"}}>
               <Hds::PopoverPrimitive
-                @enableSoftEvents={{(eq interaction "soft")}}
-                @enableClickEvents={{(eq interaction "click")}}
+                @enableSoftEvents={{eq interaction "soft"}}
+                @enableClickEvents={{eq interaction "click"}}
                 @enableCollisionDetection={{true}}
                 @isOpen={{isOpen}}
                 as |PP|

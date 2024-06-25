@@ -127,7 +127,7 @@
 
   <Shw::Text::Body>HDS classes</Shw::Text::Body>
 
-  <Shw::Flex {{style gap="2rem"}} as |SF|>
+  <Shw::Flex @gap="2rem" as |SF|>
     <SF.Item @label="Applied to parent">
       <div class="hds-typography-display-400 hds-foreground-warning-on-surface hds-surface-warning">
         <Hds::TooltipButton @text="Here is more info" @isInline={{false}} aria-label="Information">
@@ -154,7 +154,7 @@
 
   <Shw::Text::Body>Using a custom class</Shw::Text::Body>
 
-  <Shw::Flex {{style gap="2rem"}} as |SF|>
+  <Shw::Flex @gap="2rem" as |SF|>
     <SF.Item @label="Applied to parent">
       <div class="shw-component-tooltip-font-style">
         <Hds::TooltipButton @text="Here is more info" @isInline={{false}} aria-label="Information">
@@ -178,7 +178,7 @@
 
   <Shw::Text::Body>Style interference</Shw::Text::Body>
 
-  <Shw::Flex {{style gap="2rem"}} as |SF|>
+  <Shw::Flex @gap="2rem" as |SF|>
     <SF.Item @label="Parent has `white-space: nowrap`">
       <div {{style whiteSpace="nowrap"}}>
         <Hds::TooltipButton
@@ -253,7 +253,7 @@
 
   <Shw::Text::H4>With icon as opener content</Shw::Text::H4>
 
-  <Shw::Flex {{style gap="5rem"}} as |SF|>
+  <Shw::Flex @gap="5rem" as |SF|>
     {{#each @model.STATES as |state|}}
       <SF.Item @label={{state}}>
         {{#if (or (eq state "hover") (eq state "focus"))}}
@@ -274,7 +274,7 @@
 
   <Shw::Text::H4>With text as opener content</Shw::Text::H4>
 
-  <Shw::Flex {{style gap="5rem"}} as |SF|>
+  <Shw::Flex @gap="5rem" as |SF|>
     {{#each @model.STATES as |state|}}
       <SF.Item @label={{state}}>
         {{#if (or (eq state "hover") (eq state "focus"))}}
@@ -307,7 +307,7 @@
 
   <Shw::Text::H4>Offset</Shw::Text::H4>
 
-  <Shw::Flex {{style gap="5rem" margin-top="4rem"}} as |SF|>
+  <Shw::Flex @gap="5rem" {{style margin-top="4rem"}} as |SF|>
     <SF.Item>
       <Hds::TooltipButton
         @text="More info"

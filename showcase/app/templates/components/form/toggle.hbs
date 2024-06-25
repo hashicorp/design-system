@@ -13,7 +13,7 @@
 
   <Shw::Text::H3>Interaction status</Shw::Text::H3>
 
-  <Shw::Flex {{style gap="2rem"}} as |SF|>
+  <Shw::Flex @gap="2rem" as |SF|>
     <SF.Item @label="Unchecked">
       <Hds::Form::Toggle::Base aria-label="Unchecked toggle" />
     </SF.Item>
@@ -24,7 +24,7 @@
 
   <Shw::Text::H3>States (Base / Disabled)</Shw::Text::H3>
 
-  <Shw::Flex {{style gap="2rem"}} as |SF|>
+  <Shw::Flex @gap="2rem" as |SF|>
     {{#each @model.STATES as |state|}}
       <SF.Item @label={{capitalize state}}>
         <Shw::Grid @columns={{2}} mock-state-value={{state}} mock-state-selector="input" as |SG|>

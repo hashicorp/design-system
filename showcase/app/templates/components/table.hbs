@@ -533,7 +533,7 @@
     </div>
   </div>
 
-  <Shw::Flex {{style gap="2rem"}} @direction="column" as |SF|>
+  <Shw::Flex @direction="column" @gap="2rem" as |SF|>
     <SF.Item @label="With data model">
       <Hds::Table
         @isSelectable={{true}}
@@ -559,7 +559,7 @@
       </Hds::Table>
       {{#if this.multiSelectToggleDebug__demo1}}
         {{#each this.multiSelectModelData__demo1 as |row|}}
-          <pre>row{{row.id}} = {{(if row.isSelected "✅")}}</pre>
+          <pre>row{{row.id}} = {{if row.isSelected "✅"}}</pre>
         {{/each}}
       {{/if}}
     </SF.Item>
@@ -605,10 +605,10 @@
         </:body>
       </Hds::Table>
       {{#if this.multiSelectToggleDebug__demo1}}
-        <pre>row1 = {{(if (get this.multiSelectNoModelState__demo1 "row1") "✅")}}</pre>
-        <pre>row2 = {{(if (get this.multiSelectNoModelState__demo1 "row2") "✅")}}</pre>
-        <pre>row3 = {{(if (get this.multiSelectNoModelState__demo1 "row3") "✅")}}</pre>
-        <pre>row4 = {{(if (get this.multiSelectNoModelState__demo1 "row4") "✅")}}</pre>
+        <pre>row1 = {{if (get this.multiSelectNoModelState__demo1 "row1") "✅"}}</pre>
+        <pre>row2 = {{if (get this.multiSelectNoModelState__demo1 "row2") "✅"}}</pre>
+        <pre>row3 = {{if (get this.multiSelectNoModelState__demo1 "row3") "✅"}}</pre>
+        <pre>row4 = {{if (get this.multiSelectNoModelState__demo1 "row4") "✅"}}</pre>
       {{/if}}
     </SF.Item>
   </Shw::Flex>
@@ -670,7 +670,7 @@
     />
     {{#if this.multiSelectToggleDebug__demo2}}
       {{#each this.multiSelectModelData__demo2 as |row|}}
-        <pre>row{{row.id}} = {{(if row.isSelected "✅")}}</pre>
+        <pre>row{{row.id}} = {{if row.isSelected "✅"}}</pre>
       {{/each}}
     {{/if}}
   </div>
@@ -739,7 +739,7 @@
     />
     {{#if this.multiSelectToggleDebug__demo3}}
       {{#each this.multiSelectModelData__demo3 as |row|}}
-        <pre>row{{row.id}} = {{(if row.isSelected "✅")}}</pre>
+        <pre>row{{row.id}} = {{if row.isSelected "✅"}}</pre>
       {{/each}}
     {{/if}}
   </div>
@@ -787,15 +787,15 @@
 
   <Shw::Text::H4 @tag="h3">Density</Shw::Text::H4>
 
-  <Shw::Flex @direction="column" {{style gap="2rem"}} as |SF|>
+  <Shw::Flex @direction="column" @gap="2rem" as |SF|>
     {{#let (array "default" "short" "tall") as |densities|}}
       {{#each densities as |density|}}
         <SF.Item @label={{capitalize density}}>
-          <Shw::Grid @columns={{2}} {{style gap="2rem"}} as |SG|>
+          <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
             {{#let (array false true) as |booleans|}}
               {{#each booleans as |bool|}}
                 <SG.Item>
-                  <Hds::Table @isSelectable={{bool}} @density={{(if (not (eq density "default")) density)}}>
+                  <Hds::Table @isSelectable={{bool}} @density={{if (not (eq density "default")) density}}>
                     <:head as |H|>
                       <H.Tr>
                         <H.Th>Lorem</H.Th>
@@ -839,7 +839,7 @@
 
   <Shw::Text::H4 @tag="h3">Striping</Shw::Text::H4>
 
-  <Shw::Grid @columns={{2}} {{style gap="2rem"}} as |SG|>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     {{#let (array false true) as |booleans|}}
       {{#each booleans as |bool|}}
         <SG.Item>
@@ -1420,10 +1420,10 @@
 
   <Shw::Text::H3>ThSelectable</Shw::Text::H3>
 
-  <Shw::Flex @direction="row" {{style gap="2rem"}} as |SF|>
+  <Shw::Flex @direction="row" @gap="2rem" as |SF|>
     {{#let (array false true) as |booleans|}}
       {{#each booleans as |bool|}}
-        <SF.Item @label={{(if bool "Selected" "Deselected")}}>
+        <SF.Item @label={{if bool "Selected" "Deselected"}}>
           <Hds::Table>
             <:head as |H|>
               <H.Tr>
@@ -1756,7 +1756,7 @@
 
   <Shw::Grid @label="Interactive states" @columns={{4}} as |SG|>
     {{#each @model.STATES as |state|}}
-      <SG.Item @label={{(capitalize state)}}>
+      <SG.Item @label={{capitalize state}}>
         <Hds::Table::ThButtonTooltip @tooltip="Here is more information" mock-state-value={{state}} />
       </SG.Item>
     {{/each}}
@@ -1768,7 +1768,7 @@
 
   <Shw::Grid @label="Interactive states + Sorting order" @columns={{4}} as |SG|>
     {{#each @model.STATES as |state|}}
-      <SG.Item @label={{(capitalize state)}}>
+      <SG.Item @label={{capitalize state}}>
         <Shw::Flex @direction="row" as |SF|>
           <SF.Item>
             <Hds::Table::ThButtonSort mock-state-value={{state}} />

@@ -302,7 +302,7 @@ SPDX-License-Identifier: MPL-2.0
     which stack the content in a single column.
   </Shw::Text::Body>
 
-  <Shw::Flex {{style gap="2.5rem"}} @direction="column" as |SF|>
+  <Shw::Flex @direction="column" @gap="2.5rem" as |SF|>
     {{#let (array "399px" "767px" "100%") as |widths|}}
       {{#each widths as |width|}}
         <SF.Item @label="Container width = {{width}}">
