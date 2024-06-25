@@ -11,14 +11,29 @@ export default class AccordionController extends Controller {
   @action
   noop() {}
 
-  @tracked state = 'close';
+  @tracked stateAll = 'close';
+  @tracked stateSingle = 'close';
 
   @action
-  toggleState() {
-    if (this.state === 'open') {
-      this.state = 'close';
+  toggleStateAll() {
+    if (this.stateAll === 'open') {
+      this.stateAll = 'close';
     } else {
-      this.state = 'open';
+      this.stateAll = 'open';
     }
+  }
+
+  @action
+  toggleStateSingle() {
+    if (this.stateSingle === 'open') {
+      this.stateSingle = 'close';
+    } else {
+      this.stateSingle = 'open';
+    }
+  }
+
+  @action
+  onClickToggleSingle(isOpen) {
+    this.stateSingle = isOpen ? 'open' : 'close';
   }
 }
