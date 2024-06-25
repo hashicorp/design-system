@@ -25,6 +25,18 @@ Possible forms of collaboration include, but are not limited to:
 
 We support a small number of autonomous but coordinated direct contributions. These include bug fixes in the code, new icons, documentation improvements, and small enhancements to existing components.
 
+### Contribute a new icon in Figma
+
+If you’d like to add a new icon to the [icon library](/icons/library), follow the steps in the [Figma library README](https://www.figma.com/file/MYiw4kiVpunIMMw0sBkE1t/%E2%9C%8F%EF%B8%8F-Flight-Development?node-id=566%3A1129&t=Bbflj3UUaWVyhamn-4).
+
+### Contribute in code
+
+To work in one of the Helios code packages, consult the corresponding `CONTRIBUTING.md` file for [Tokens](https://github.com/hashicorp/design-system/blob/main/packages/tokens/CONTRIBUTING.md), [Ember Flight Icons](https://github.com/hashicorp/design-system/blob/main/packages/ember-flight-icons/CONTRIBUTING.md), and [Components](https://github.com/hashicorp/design-system/blob/main/packages/components/CONTRIBUTING.md).
+
+Review the [Engineering Checklist for new components](https://github.com/hashicorp/design-system/blob/main/packages/components/NEW-COMPONENT-CHECKLIST.md#engineering-checklist) if you’re working on a new component.
+
+If you need to test the component in one of our consumers’ codebases, review the [instructions for testing a component in Cloud UI](https://github.com/hashicorp/design-system/blob/main/packages/components/HOW-TO-TEST-A-COMPONENT-IN-CLOUD-UI.md).
+
 ### Why large direct contributions are not currently accepted
 
 Adding new components or patterns to Helios takes significant time and consideration of use cases across all our products. As a team, we also strive to maintain a high bar for consistency in implementation and delivery across both design and code to ensure a systematic and high-quality experience for our consumers when using Helios in their work. This combination of factors means that large direct contributions are not pragmatic for us to support at this time, however, we've developed the collaboration process outlined here to help enable teams to work directly with us to support their needs.  
@@ -35,7 +47,7 @@ Our collaborative process is intended to be a guideline, not a playbook. Each co
 
 ### Submit a new request
 
-Before submitting a new request, check that the issue doesn’t already exist in our [backlog](https://hashicorp.atlassian.net/jira/software/c/projects/HDS/boards/1082). If no request exists, create a new issue using our [intake form](https://go.hashi.co/hds-support). Creating an issue allows us to track and prioritize all requests in one central location easily.
+Before submitting a new request, check that the issue doesn’t already exist in our [backlog](https://go.hashi.co/hds-rollout). If no request exists, create a new issue using our [intake form](https://go.hashi.co/hds-support). Creating an issue allows us to track and prioritize all requests in one central location easily.
 
 Alternatively, if you just have a question or you’re not sure your project is right for collaboration, reach out to the Design Systems Team in [#team-design-systems](https://hashicorp.slack.com/archives/C7KTUHNUS).
 
@@ -92,22 +104,6 @@ Once reviewed and approved, the feature can be implemented and released in Helio
 - The product team will:
     - Follow the guidance provided by the Design Systems Team in the follow-up work related to the collaboration effort
     - Have a clear plan to adopt the artifacts produced during the collaboration
-
-### Contribute a new icon in Figma
-
-If you’d like to add a new icon to the [icon library](/icons/library), follow the steps in the [Figma library README](https://www.figma.com/file/MYiw4kiVpunIMMw0sBkE1t/%E2%9C%8F%EF%B8%8F-Flight-Development?node-id=566%3A1129&t=Bbflj3UUaWVyhamn-4).
-
-### Contribute in code
-
-To work in one of the Helios code packages, consult the corresponding `CONTRIBUTING.md` file for:
-- [Tokens](https://github.com/hashicorp/design-system/blob/main/packages/tokens/CONTRIBUTING.md)
-- [Ember Flight Icons](https://github.com/hashicorp/design-system/blob/main/packages/ember-flight-icons/CONTRIBUTING.md)
-- [Components](https://github.com/hashicorp/design-system/blob/main/packages/components/CONTRIBUTING.md)
-
-Review the [Engineering Checklist for new components](https://github.com/hashicorp/design-system/blob/main/packages/components/NEW-COMPONENT-CHECKLIST.md#engineering-checklist) if you’re working on a new component.
-
-If you need to test the component in one of our consumers’ codebases, review the [instructions for testing a component in Cloud UI](https://github.com/hashicorp/design-system/blob/main/packages/components/HOW-TO-TEST-A-COMPONENT-IN-CLOUD-UI.md).
-
 
 ## Resources
 
