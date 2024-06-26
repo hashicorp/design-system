@@ -456,7 +456,7 @@ To create a column that has right-aligned content, set `@align` to `right` on bo
 
 ### Tooltip
 
-[Table headers](/table#headers) should be clear, concise, and straightforward whenever possible. However, there could be cases where the label is insufficient by itself and extra information is required. In this case, it’s possible to show a tooltip next to the label in the header:
+[Table headers](/components/table#headers) should be clear, concise, and straightforward whenever possible. However, there could be cases where the label is insufficient by itself and extra information is required. In this case, it’s possible to show a tooltip next to the label in the header:
 
 ```handlebars
 <Hds::Table
