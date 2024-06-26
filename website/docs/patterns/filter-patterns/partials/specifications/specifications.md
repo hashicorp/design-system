@@ -21,7 +21,7 @@ Orient filter patterns in either a horizontal filter bar, or a vertical filter s
 
 ![Filter bar orientation](/assets/patterns/filter-patterns/layout-filter-bar.png =559x*)
 
-The most common method of organizing filters is in a filter bar which orients the filters horizontally on top of the data set. This orientation is flexible and is commonly used in tandem when a data set is presented in a [Table](/componets/table).
+The most common method of organizing filters is in a filter bar which orients the filters horizontally on top of the data set. This orientation is flexible and is commonly used in tandem when a data set is presented in a [Table](/components/table).
 
 ### Filter sidebar orientation
 
@@ -118,7 +118,7 @@ Positioning a filter sidebar in-line with the data set should only be done in ca
 |---------|-------|
 | Container | Required; wraps the label and applied filters to enforce consistent spacing. |
 | Label | Required; communicates whether filters have been applied or not. |
-| Tag list | Required; consists of one or more dismissible [Tags](/component/tag) that communicate the specific filter value. |
+| Tag list | Required; consists of one or more dismissible [Tags](/components/tag) that communicate the specific filter value. |
 | Bulk clear | Required; clear all applied filters with a single bulk action. Use a small [tertiary Button](/components/button) with an icon. |
 
 ### Applied filters Spacing
