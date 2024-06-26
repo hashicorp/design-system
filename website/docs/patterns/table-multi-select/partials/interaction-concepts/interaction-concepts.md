@@ -39,7 +39,7 @@ If not handled in a clear and logical manner, how the selection is persisted acr
 
 ### Within a paginated Table
 
-If a user makes a selection on one page of a paginated Table and progresses to the next page, persisting this selection can be communicated by the [selected count](/patterns/table-multi-select?tab=guidelines#selected-count) and can be helpful in scenarios where much of the data is similar or overlaps.
+If a user makes a selection on one page of a paginated Table and progresses to the next page, persisting this selection can be communicated by the [selected count](/patterns/table-multi-select#selected-count) and can be helpful in scenarios where much of the data is similar or overlaps.
 
 <video loop controls width="100%">
     <source
@@ -57,7 +57,7 @@ Filtering a data set is a reductive action that removes results from being displ
 Consider these topics as conversation starters to help make an informed decision about the user experience. The answers may vary depending on product architecture and broader application strategy.
 !!!
 
-- In a Multi-select pattern, should the [total count](/patterns/table-multi-select?tab=guidlines#total-count) change to reflect a reduction in the number of visible results?
+- In a Multi-select pattern, should the [total count](/patterns/table-multi-select#total-count) change to reflect a reduction in the number of visible results?
 - In Pagination, is the number of results reduced to reflect those excluded by the filter?
 - If a selection has been made prior to filtering, is the selected state persisted even if the filtered results are excluded from the data set?
 - Are there any parameters in the data set that are variable in nature? E.g., status that is prone to changing if a cluster is starting up or spinning down.
