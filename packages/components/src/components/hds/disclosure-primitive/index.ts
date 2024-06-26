@@ -36,7 +36,7 @@ export interface HdsDisclosurePrimitiveSignature {
 
 export default class HdsDisclosurePrimitiveComponent extends Component<HdsDisclosurePrimitiveSignature> {
   @tracked _isOpen = false;
-  @tracked _isControlled = this.args.isOpen != undefined;
+  @tracked _isControlled = this.args.isOpen !== undefined;
 
   get isOpen() {
     if (this._isControlled) {
