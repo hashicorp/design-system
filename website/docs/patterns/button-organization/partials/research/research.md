@@ -1,6 +1,6 @@
 !!! Info
 
-This content is largely focused around the research and decision-making process for button alignment. For detailed specifications regarding implementation, visit the [guidelines](/patterns/button-alignment?tab=guidelines).
+This content is largely focused around the research and decision-making process for button alignment. For detailed specifications regarding implementation, visit the [guidelines](/patterns/button-organization?tab=guidelines).
 !!!
 
 ## Constrained vs. unconstrained

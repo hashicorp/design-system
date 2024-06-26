@@ -109,7 +109,7 @@ End alignment can also be used in the last column of a table to:
 
 !!! Dont
 
-Don’t end align content that is variable in length. This can make the content more difficult to read by forcing an unnatural [reading pattern](patterns/button-organization?tab=research#layout-and-reading-patterns).
+Don’t end align content that is variable in length. This can make the content more difficult to read by forcing an unnatural [reading pattern](/patterns/button-organization?tab=research#layout-and-reading-patterns).
 
 ![End alignment with content that is variable in length](/assets/components/table/end-alignment-variable-length.png)
 

@@ -91,7 +91,7 @@ Use the Alert to communicate validation errors. For more details, refer to the [
   <A.Description>Correct the formatting of the following fields to update your user profile:
   </A.Description>
   <A.Description>
-  <Hds::Link::Inline @href="..." @color="secondary">Email address</Hds::Link::Inline>
+  <Hds::Link::Inline @href="#" @color="secondary">Email address</Hds::Link::Inline>
   </A.Description>
 </Hds::Alert>
 !!!
