@@ -273,7 +273,10 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
       `
     );
     // first item open at rendering
-    assert.dom('.hds-accordion-item__content').exists({ count: 1 });
+    assert
+      .dom('.hds-accordion-item__content')
+      .exists({ count: 1 })
+      .containsText('Content one');
 
     // all items open via forceState (external override to open)
     this.set('forceState', 'open');
@@ -281,7 +284,10 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
 
     // first item closed via toggle (internal override to close)
     await click('.hds-accordion-item__button');
-    assert.dom('.hds-accordion-item__content').exists({ count: 1 });
+    assert
+      .dom('.hds-accordion-item__content')
+      .exists({ count: 1 })
+      .containsText('Content two');
 
     // all items closed via forceState (external override to close)
     this.set('forceState', 'close');
@@ -289,7 +295,10 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
 
     // first item open via toggle  (internal override to open)
     await click('.hds-accordion-item__button');
-    assert.dom('.hds-accordion-item__content').exists({ count: 1 });
+    assert
+      .dom('.hds-accordion-item__content')
+      .exists({ count: 1 })
+      .containsText('Content one');
   });
 
   // close
