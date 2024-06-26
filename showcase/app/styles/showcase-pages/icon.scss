@@ -1,0 +1,27 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// ICON
+
+body.foundations-icon {
+  .shw-foundation-outline-icons {
+    .flight-icon {
+      outline: 1px dotted #CCC;
+    }
+  }
+
+  .shw-foundation-icon-container-flex {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+
+  .shw-foundation-icon-container-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 4px;
+    align-items: center;
+  }
+}
