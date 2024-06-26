@@ -43,7 +43,7 @@ export default class HdsDisclosurePrimitiveComponent extends Component<HdsDisclo
       // if the state is controlled from outside, the argument overrides the internal state
       return this.args.isOpen ?? this._isOpen;
     } else {
-      // if the state is changes internally, the internal state overrides the argument
+      // if the state changes internally, the internal state overrides the argument
       return this._isOpen !== undefined
         ? this._isOpen
         : Boolean(this.args.isOpen);
