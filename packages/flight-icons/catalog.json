@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2024-06-27T03:57:45.265Z",
+  "lastRunTimeISO": "2024-06-27T04:17:16.173Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -2588,8 +2588,8 @@
     },
     {
       "id": "6411:77",
-      "fileName": "service-now-24",
-      "iconName": "service-now",
+      "fileName": "service-now-color-24",
+      "iconName": "service-now-color",
       "description": "servicenow",
       "category": "Services",
       "size": "24",
@@ -2598,8 +2598,8 @@
     },
     {
       "id": "6411:81",
-      "fileName": "service-now-16",
-      "iconName": "service-now",
+      "fileName": "service-now-color-16",
+      "iconName": "service-now-color",
       "description": "servicenow",
       "category": "Services",
       "size": "16",

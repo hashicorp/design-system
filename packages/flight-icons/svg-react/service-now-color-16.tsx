@@ -1,7 +1,7 @@
 import { forwardRef, useMemo } from 'react';
 import { IconProps } from './types';
 
-export const IconServiceNow24 = forwardRef<SVGSVGElement, IconProps>(
+export const IconServiceNowColor16 = forwardRef<SVGSVGElement, IconProps>(
     ({ color = 'currentColor', title, ...props }, svgRef) => {
         const titleId = useMemo(
             () =>
@@ -13,10 +13,10 @@ export const IconServiceNow24 = forwardRef<SVGSVGElement, IconProps>(
         return (
             <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
+                width={16}
+                height={16}
                 fill="none"
-                viewBox="0 0 24 24"
+                viewBox="0 0 16 16"
                 aria-hidden={!title}
                 ref={svgRef}
                 aria-labelledby={titleId}
@@ -24,9 +24,9 @@ export const IconServiceNow24 = forwardRef<SVGSVGElement, IconProps>(
             >
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
-                    fill={color}
+                    fill="#62D84E"
                     fillRule="evenodd"
-                    d="M12.067 2C6.038 1.964 1.054 6.918 1 13.002a11.09 11.09 0 003.457 8.167 2.176 2.176 0 002.84.152c1.251-.978 2.859-1.57 4.708-1.57 1.849 0 3.456.583 4.707 1.57.857.673 2.063.583 2.85-.17A11.102 11.102 0 0023 13.092C23 6.99 18.105 2.036 12.067 2zm-.071 16.638c-3.27 0-5.502-2.468-5.502-5.528 0-3.06 2.233-5.564 5.502-5.564 3.269 0 5.502 2.513 5.502 5.564s-2.233 5.528-5.502 5.528z"
+                    d="M8.043 1.708C4.206 1.685 1.034 4.838 1 8.709a7.058 7.058 0 002.2 5.197c.494.474 1.268.52 1.807.097.796-.623 1.82-1 2.996-1 1.177 0 2.2.372 2.995 1a1.38 1.38 0 001.814-.109A7.065 7.065 0 0015 8.766c0-3.883-3.115-7.036-6.957-7.058zm-.046 10.587c-2.08 0-3.501-1.57-3.501-3.518 0-1.947 1.42-3.54 3.501-3.54 2.08 0 3.502 1.599 3.502 3.54 0 1.942-1.421 3.518-3.502 3.518z"
                     clipRule="evenodd"
                 />
             </svg>
