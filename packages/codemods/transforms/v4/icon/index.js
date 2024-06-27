@@ -7,11 +7,25 @@ module.exports = function ({ source /*, path*/ }, { parse, visit }) {
   const ast = parse(source);
 
   const updateIsInlineBlockAttribute = (attributes) => {
-    const isInlineBlockAttr = attributes.find((a) => a.name === '@isInlineBlock');
+    const indexOfIsInlineBlockAttr = attributes.findIndex((a) => a.name === '@isInlineBlock');
+    const hasIsInlineBlockAttr = indexOfIsInlineBlockAttr !== -1;
 
-    if (isInlineBlockAttr) {
-      isInlineBlockAttr.name = '@isInline';
-      isInlineBlockAttr.value = { true: 'false', false: 'true' }[isInlineBlockAttr.value];
+    // @isInlineBlock attr has been set on the element
+    if (hasIsInlineBlockAttr) {
+      const isInlineBlockAttr = attributes[indexOfIsInlineBlockAttr];
+      const isInlineBlockAttrIsTrue = isInlineBlockAttr.value === 'true';
+
+      // @isInlineBlock is set to "true"
+      if (isInlineBlockAttrIsTrue) {
+        // the default for isInline is false, so we need to set it to true
+        isInlineBlockAttr.name = '@isInline';
+        isInlineBlockAttr.value = 'true';
+      }
+      // @isInlineBlock is set to "false"
+      else {
+        // this is the default, so we can remove the attribute
+        attributes.splice(indexOfIsInlineBlockAttr, 1);
+      }
     }
 
     return attributes;
