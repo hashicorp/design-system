@@ -9,12 +9,127 @@
 
 <section data-test-percy>
 
-  <Shw::Text::H2>Icons</Shw::Text::H2>
+  <Shw::Text::H2>Size</Shw::Text::H2>
+
+  <Shw::Text::Body>Base sizes</Shw::Text::Body>
 
   <Shw::Flex as |SF|>
-    <SF.Item>
-      <Hds::Icon @name="user" @size="24" />
+    <SF.Item @label="16px (default)">
+      <FlightIcon @name="bug" />
+    </SF.Item>
+    <SF.Item @label="24px">
+      <FlightIcon @name="bug" @size="24" />
     </SF.Item>
   </Shw::Flex>
+
+  <Shw::Text::Body>Custom sizes</Shw::Text::Body>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="12px (stretched)">
+      <div {{style width="12px" height="12px"}}>
+        <FlightIcon @name="bug" @size="16" @stretched={{true}} />
+      </div>
+    </SF.Item>
+    <SF.Item @label="32px (stretched)">
+      <div {{style width="32px" height="32px"}}>
+        <FlightIcon @name="bug" @size="24" @stretched={{true}} />
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H2>Color</Shw::Text::H2>
+
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item as |SFI|>
+      <SFI.Label>Unspecified color (<code>currentColor</code>)</SFI.Label>
+      <FlightIcon @name="bookmark" />
+    </SF.Item>
+    <SF.Item as |SFI|>
+      <SFI.Label>Custom red color, specified via <code>@color</code> argument</SFI.Label>
+      <FlightIcon @name="folder-fill" @color="red" />
+    </SF.Item>
+    <SF.Item as |SFI|>
+      <SFI.Label>Unspecified color (<code>currentColor</code>) + parent with custom blue color (to check inheritance)</SFI.Label>
+      <a {{style color="blue"}} href="#">
+        <FlightIcon @name="external-link" />
+      </a>
+    </SF.Item>
+    <SF.Item as |SFI|>
+      <SFI.Label>Custom orange color, specified via
+        <code>@color</code>
+        argument + parent with
+        <code>!important</code>
+        green color declared (to check overrides not working)</SFI.Label>
+      {{! template-lint-disable no-inline-styles }}
+      <div style="color:green !important">
+        <FlightIcon @name="heart-fill" @color="orange" />
+      </div>
+      {{! template-lint-enable no-inline-styles }}
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H2>Display</Shw::Text::H2>
+
+  {{#let (array true false) as |booleans|}}
+    {{#each booleans as |isInline|}}
+      <Shw::Text::Body>{{if isInline "Inline (default)" "Block"}}</Shw::Text::Body>
+
+      <Shw::Flex class="shw-foundation-outline-icons" as |SF|>
+        <SF.Item @label="single icon">
+          <FlightIcon @name="bookmark" @isInlineBlock={{isInline}} />
+        </SF.Item>
+        <SF.Item @label="multiple icons">
+          <FlightIcon @name="alert-circle-fill" @isInlineBlock={{isInline}} />
+          <FlightIcon @name="alert-diamond-fill" @isInlineBlock={{isInline}} />
+          <FlightIcon @name="alert-triangle-fill" @isInlineBlock={{isInline}} />
+        </SF.Item>
+      </Shw::Flex>
+
+      <Shw::Flex class="shw-foundation-outline-icons" @gap="4rem" as |SG|>
+        <SG.Item @label="icon + inline text">
+          <FlightIcon @name="bookmark" @isInlineBlock={{isInline}} />
+          <span class="hds-typography-body-200">Lorem ipsum dolor</span>
+        </SG.Item>
+        <SG.Item @label="icon + inline text (inside flexbox)">
+          <div class="shw-foundation-icon-container-flex">
+            <FlightIcon @name="bookmark" @isInlineBlock={{isInline}} />
+            <span class="hds-typography-body-200">Lorem ipsum dolor</span>
+          </div>
+        </SG.Item>
+        <SG.Item @label="icon + inline text (inside grid)">
+          <div class="shw-foundation-icon-container-grid">
+            <FlightIcon @name="bookmark" @isInlineBlock={{isInline}} />
+            <span class="hds-typography-body-200">Lorem ipsum dolor</span>
+          </div>
+        </SG.Item>
+      </Shw::Flex>
+
+      <Shw::Flex class="shw-foundation-outline-icons" @gap="4rem" as |SF|>
+        <SF.Item @label="icons interleaved with inline text">
+          <span class="hds-typography-body-200">Lorem ipsum dolor</span>
+          <FlightIcon @name="bookmark" @isInlineBlock={{isInline}} />
+          <span class="hds-typography-body-200">Sit amet consectetur</span>
+          <FlightIcon @name="alert-circle-fill" @isInlineBlock={{isInline}} />
+          <FlightIcon @name="alert-diamond-fill" @isInlineBlock={{isInline}} />
+          <FlightIcon @name="alert-triangle-fill" @isInlineBlock={{isInline}} />
+          <span class="hds-typography-body-200">Adipisicing elit</span>
+        </SF.Item>
+        <SF.Item @label="icons interleaved with block text">
+          <p class="hds-typography-body-200">Lorem ipsum dolor</p>
+          <FlightIcon @name="bookmark" @isInlineBlock={{isInline}} />
+          <p class="hds-typography-body-200">Sit amet consectetur</p>
+          <FlightIcon @name="alert-circle-fill" @isInlineBlock={{isInline}} />
+          <FlightIcon @name="alert-diamond-fill" @isInlineBlock={{isInline}} />
+          <FlightIcon @name="alert-triangle-fill" @isInlineBlock={{isInline}} />
+          <p class="hds-typography-body-200">Adipisicing elit</p>
+        </SF.Item>
+      </Shw::Flex>
+
+    {{/each}}
+  {{/let}}
 
 </section>
