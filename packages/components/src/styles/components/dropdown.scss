@@ -86,7 +86,7 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
 
   &.hds-dropdown-toggle-icon--has-chevron {
     // For small variant with chevron, force the icon size to custom (even if the SGV size is `16px`)
-    .flight-icon {
+    .hds-icon {
       width: 12px;
       height: 12px;
     }
@@ -169,7 +169,7 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   margin-left: auto;
   padding-left: 2px;
 
-  .flight-icon-chevron-down {
+  .hds-icon-chevron-down {
     @media (prefers-reduced-motion: no-preference) {
       transition: transform 0.3s;
     }
@@ -177,7 +177,7 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
 
   .hds-dropdown-toggle-icon--is-open &,
   .hds-dropdown-toggle-button--is-open & {
-    .flight-icon-chevron-down {
+    .hds-icon-chevron-down {
       transform: rotate(-180deg);
     }
   }
