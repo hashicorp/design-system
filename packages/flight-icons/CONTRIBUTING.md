@@ -31,7 +31,7 @@ Run the [Sync & Build Icons action](https://github.com/hashicorp/design-system/a
 
 <img width="1164" alt="flight-icons-auto-action" src="https://github.com/hashicorp/design-system/assets/8553306/2bb88829-cdc3-40f2-aef8-80624b3c13a6">
 
-Once the PR has been created, don't forget to provide a meaningful description (you can use [this PR](https://github.com/hashicorp/design-system/pull/2055) as reference for new icons, and [this PR](https://github.com/hashicorp/design-system/pull/2144) as reference for updated icons).
+Once the PR has been created, don’t forget to provide a meaningful description ([reference PR for new icons](https://github.com/hashicorp/design-system/pull/2055), [reference PR for updated icons](https://github.com/hashicorp/design-system/pull/2144)).
 
 At that point, you can request approval to `hds-design` and `hds-engineering` and once approved by both feel free to merge the PR.
 
