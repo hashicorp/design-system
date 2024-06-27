@@ -85,6 +85,10 @@ module('Integration | Component | hds/form/file-input/field', function (hooks) {
           {{/if}}
         </Hds::Form::FileInput::Field>`
     );
+
+    this.set('showErrors', true);
+    await settled();
+
     // the control ID is dynamically generated
     let control = this.element.querySelector('.hds-form-field__control input');
     let controlId = control.id;
