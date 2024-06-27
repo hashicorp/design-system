@@ -62,6 +62,9 @@ import type HdsSideNavListLinkComponent from './components/hds/side-nav/list/lin
 import type HdsSideNavListTitleComponent from './components/hds/side-nav/list/title';
 import type HdsStepperStepIndicatorComponent from './components/hds/stepper/step/indicator';
 import type HdsStepperTaskIndicatorComponent from './components/hds/stepper/task/indicator';
+import type HdsTabsComponent from './components/hds/tabs';
+import type HdsTabsPanelComponent from './components/hds/tabs/panel';
+import type HdsTabsTabComponent from './components/hds/tabs/tab';
 import type HdsTextComponent from './components/hds/text';
 import type HdsTextBodyComponent from './components/hds/text/body';
 import type HdsTextDisplayComponent from './components/hds/text/display';
@@ -288,6 +291,16 @@ export default interface HdsComponentsRegistry {
 
   'Hds::Stepper::Task::Indicator': typeof HdsStepperTaskIndicatorComponent;
   'hds/stepper/task/indicator': typeof HdsStepperTaskIndicatorComponent;
+
+  // Tabs
+  'Hds::Tabs': typeof HdsTabsComponent;
+  'hds/tabs': typeof HdsTabsComponent;
+
+  'Hds::Tabs::Panel': typeof HdsTabsPanelComponent;
+  'hds/tabs/panel': typeof HdsTabsPanelComponent;
+
+  'Hds::Tabs::Tab': typeof HdsTabsTabComponent;
+  'hds/tabs/tab': typeof HdsTabsTabComponent;
 
   // Text
   'Hds::Text': typeof HdsTextComponent;

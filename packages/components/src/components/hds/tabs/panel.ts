@@ -6,13 +6,35 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
+import type { HdsTabsTabSignature } from './tab';
+import type { HdsTabsPanelIds, HdsTabsTabIds } from './types';
 
-export default class HdsTabsPanelComponent extends Component {
+export interface HdsTabsPanelSignature {
+  Args: {
+    tabIds: HdsTabsTabIds;
+    panelIds: HdsTabsPanelIds;
+    selectedTabIndex: HdsTabsTabSignature['Args']['selectedTabIndex'];
+    didInsertNode: (element: HTMLElement, elementId: string) => void;
+    willDestroyNode: (element: HTMLElement) => void;
+  };
+  Blocks: {
+    default: [
+      {
+        isVisible: boolean;
+      }
+    ];
+  };
+  Element: HTMLElement;
+}
+
+export default class HdsTabsPanelComponent extends Component<HdsTabsPanelSignature> {
   /**
    * Generate a unique ID for the Panel
    * @return {string}
    */
   panelId = 'panel-' + guidFor(this);
+
+  elementId?: string;
 
   get nodeIndex() {
     return this.args.panelIds
@@ -24,7 +46,7 @@ export default class HdsTabsPanelComponent extends Component {
    * Check the condition if the panel is visible (because the coupled/associated tab is selected) or not
    * @returns {boolean}
    */
-  get isVisible() {
+  get isVisible(): boolean {
     return this.nodeIndex === this.args.selectedTabIndex;
   }
 
@@ -32,15 +54,15 @@ export default class HdsTabsPanelComponent extends Component {
    * Get the ID of the tab coupled/associated with the panel (it's used by the `aria-labelledby` attribute)
    * @returns string}
    */
-  get coupledTabId() {
+  get coupledTabId(): string | undefined {
     return this.nodeIndex !== undefined
       ? this.args.tabIds[this.nodeIndex]
       : undefined;
   }
 
   @action
-  didInsertNode(element) {
-    let { didInsertNode } = this.args;
+  didInsertNode(element: HTMLElement) {
+    const { didInsertNode } = this.args;
 
     if (typeof didInsertNode === 'function') {
       this.elementId = element.id;
@@ -49,8 +71,8 @@ export default class HdsTabsPanelComponent extends Component {
   }
 
   @action
-  willDestroyNode(element) {
-    let { willDestroyNode } = this.args;
+  willDestroyNode(element: HTMLElement) {
+    const { willDestroyNode } = this.args;
 
     if (typeof willDestroyNode === 'function') {
       willDestroyNode(element);
