@@ -69,7 +69,7 @@ module(
       await render(
         hbs`<Hds::Dropdown::ListItem::Radio @icon="hexagon">Radio item</Hds::Dropdown::ListItem::Radio>`
       );
-      assert.dom('.flight-icon.flight-icon-hexagon').exists();
+      assert.dom('.hds-icon.hds-icon-hexagon').exists();
     });
 
     // CONTENT
