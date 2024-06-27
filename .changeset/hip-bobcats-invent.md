@@ -3,4 +3,4 @@
 "showcase": patch
 ---
 
-fix syncing of `<F.Error />` ids to the `aria-describedby` attribute
+Fixed syncing of `<F.Error />` ids to the `aria-describedby` attribute
