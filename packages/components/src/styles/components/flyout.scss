@@ -20,6 +20,7 @@ $hds-flyout-max-width: calc(100vw - var(--hds-app-sidenav-width-minimized) / 2 )
 
 .hds-flyout {
   z-index: 49; // modal component is 50; we want to make sure the flyout always stays below the modal, regardless the DOM order
+  inset: 0;
   flex-direction: column;
   height: 100vh;
   max-height: 100vh;
