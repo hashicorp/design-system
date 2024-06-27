@@ -55,9 +55,9 @@ interface AriaDescribedByComponent extends Component<AriaDescribedByArgs> {
 type ClassOf<T> = new () => T;
 
 export function ariaDescribedBy(
-  klass: ClassOf<AriaDescribedByComponent>
+  BaseComponent: ClassOf<AriaDescribedByComponent>
 ): ClassOf<AriaDescribedByComponent> {
-  class X extends klass {
+  class EnhancedComponent extends BaseComponent {
     @tracked __ARIA_DESCRIPTION_IDS__: string[] = [];
 
     get ariaDescribedBy() {
