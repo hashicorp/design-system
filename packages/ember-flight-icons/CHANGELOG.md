@@ -1,5 +1,21 @@
 # @hashicorp/ember-flight-icons
 
+## 5.1.0
+
+### Minor Changes
+
+`FlightIcon` - converted component to TypeScript and published types
+
+<small class="doc-whats-new-changelog-metadata">[#2142](https://github.com/hashicorp/design-system/pull/2142) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@3.4.0
+
 ## 5.0.3
 
 ### Patch Changes

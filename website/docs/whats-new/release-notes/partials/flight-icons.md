@@ -12,6 +12,24 @@
   </a>
 </p>
 
+## 3.4.0
+
+**Minor changes**
+
+`service-now` and `pager-duty` icons added.
+
+<small class="doc-whats-new-changelog-metadata">[#2191](https://github.com/hashicorp/design-system/pull/2191)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**Patch changes**
+
+`search` icon (16px only) has been increased in size to better fit within the bounding box and more closely align with other icons of the same size
+
+<small class="doc-whats-new-changelog-metadata">[#2175](https://github.com/hashicorp/design-system/pull/2175)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.3.0
 
 **Minor changes**
@@ -221,12 +239,6 @@ _Notice: as an exception, we are releasing this change as minor instead of major
 Added `figma` and `loom` icons
 
 <small class="doc-whats-new-changelog-metadata">[#689](https://github.com/hashicorp/design-system/pull/689)</small>
-
-## 2.11.1
-
-**Patch changes**
-
-- [#636](https://github.com/hashicorp/design-system/pull/636) [`27a283a5`](https://github.com/hashicorp/design-system/commit/27a283a52c2828b32c282401f91df9bd929f9dda) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Add copyright notice to license file
 
 
 ---

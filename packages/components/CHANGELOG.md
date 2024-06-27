@@ -1,5 +1,60 @@
 # @hashicorp/design-system-components
 
+## 4.5.0
+
+### Minor Changes
+
+`SideNav` - Adds option to exclude query params from route transition/focus management
+
+<small class="doc-whats-new-changelog-metadata">[#2158](https://github.com/hashicorp/design-system/pull/2158)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Tabs` - Converted component to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2168](https://github.com/hashicorp/design-system/pull/2168)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`ApplicationState` - Converted component to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2155](https://github.com/hashicorp/design-system/pull/2155)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`PageHeader` - Converted component to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2160](https://github.com/hashicorp/design-system/pull/2160)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`SideNav` - Converted component to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2102](https://github.com/hashicorp/design-system/pull/2102)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+`Alert` - Fixed typo in `HdsAlertTypes`
+
+<small class="doc-whats-new-changelog-metadata">[#2154](https://github.com/hashicorp/design-system/pull/2154)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Dropdown::Toggle::Icon` - Fixed inconsistencies with `Button` including:
+
+- Added missing text color
+- Reduced icon sizes
+
+<small class="doc-whats-new-changelog-metadata">[#2178](https://github.com/hashicorp/design-system/pull/2178)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/ember-flight-icons@5.1.0
+
 ## 4.4.1
 
 ### Patch Changes

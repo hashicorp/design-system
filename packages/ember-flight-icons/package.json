@@ -1,6 +1,6 @@
 {
   "name": "@hashicorp/ember-flight-icons",
-  "version": "5.0.3",
+  "version": "5.1.0",
   "description": "The Ember addon for the HashiCorp Flight SVG icon set",
   "keywords": [
     "ember-addon",
@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@embroider/addon-shim": "^1.8.7",
-    "@hashicorp/flight-icons": "^3.3.0",
+    "@hashicorp/flight-icons": "^3.4.0",
     "decorator-transforms": "^1.1.0",
     "ember-get-config": "^2.1.1"
   },

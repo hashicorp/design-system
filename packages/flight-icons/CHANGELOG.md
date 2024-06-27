@@ -1,5 +1,23 @@
 # @hashicorp/flight-icons
 
+## 3.4.0
+
+### Minor Changes
+
+`service-now` and `pager-duty` icons added.
+
+<small class="doc-whats-new-changelog-metadata">[#2191](https://github.com/hashicorp/design-system/pull/2191)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+`search` icon (16px only) has been increased in size to better fit within the bounding box and more closely align with other icons of the same size
+
+<small class="doc-whats-new-changelog-metadata">[#2175](https://github.com/hashicorp/design-system/pull/2175)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.3.0
 
 ### Minor Changes
