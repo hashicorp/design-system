@@ -12,6 +12,22 @@
   </a>
 </p>
 
+## 5.1.0
+
+**Minor changes**
+
+`FlightIcon` - converted component to TypeScript and published types
+
+<small class="doc-whats-new-changelog-metadata">[#2142](https://github.com/hashicorp/design-system/pull/2142) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**Patch changes**
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@3.4.0
+
 ## 5.0.3
 
 **Patch changes**
@@ -232,30 +248,6 @@ Added opt in flag to allow consumers to move sprite loading out of index.html
 **🔄 Updated dependencies:**
 
 - @hashicorp/flight-icons@2.15.0
-
-## 3.0.6
-
-**Patch changes**
-
-Upgraded Ember.js to latest stable release 4.12, including upgrades to:
-
-- `ember-auto-import` from `2.6.0` to `2.6.3`
-- `ember-cli-htmlbars` from `6.1.0` to `6.2.0`
-
-Upgraded the following dependencies:
-
-- `ember-focus-trap` from `1.0.1` to `1.0.2`
-- `ember-keyboard"` from `8.1.0` to `8.2.0`
-- `ember-truth-helpers` from `3.0.0` to `3.1.1`
-- `sass` from `1.58.3` to `1.62.1`
-
-Shifted our supported version of Node.js from `12.* || 14.* || >= 16` to `14.* || 16.* || >= 18`
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/flight-icons@2.14.0
-
-<small class="doc-whats-new-changelog-metadata">[#1395](https://github.com/hashicorp/design-system/pull/1395)</small>
 
 
 ---
