@@ -143,23 +143,23 @@ export default class FlightIcon extends Component<FlightIconSignature> {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    const classes = ['flight-icon'];
+    const classes = ['hds-icon'];
 
     // add a class based on the @name argument
-    classes.push(`flight-icon-${this.name}`);
+    classes.push(`hds-icon-${this.name}`);
 
     // add a class based on the @isInlineBlock argument
     const { isInline = false } = this.args;
 
     if (isInline) {
-      classes.push('flight-icon--is-inline');
+      classes.push('hds-icon--is-inline');
     }
 
     // add an extra class to control the animation (depends on the icon)
     if (this.name === 'loading') {
-      classes.push('flight-icon--animation-loading');
+      classes.push('hds-icon--animation-loading');
     } else if (this.name === 'running') {
-      classes.push('flight-icon--animation-running');
+      classes.push('hds-icon--animation-running');
     }
 
     return classes.join(' ');

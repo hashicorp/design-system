@@ -3,37 +3,37 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-.flight-icon {
+.hds-icon {
   display: block;
 }
 
-.flight-icon--is-inline {
+.hds-icon--is-inline {
   display: inline;
 }
 
-@keyframes hds-flight-icon-animation-rotation {
+@keyframes hds-icon-animation-rotation {
   to {transform: rotate(360deg);}
 }
 
-.flight-icon--animation-loading {
-  animation: hds-flight-icon-animation-rotation 9s linear infinite;
+.hds-icon--animation-loading {
+  animation: hds-icon-animation-rotation 9s linear infinite;
 }
 
-.flight-icon--animation-running {
-  animation: hds-flight-icon-animation-rotation 9s linear infinite;
+.hds-icon--animation-running {
+  animation: hds-icon-animation-rotation 9s linear infinite;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .flight-icon--animation-loading {
+  .hds-icon--animation-loading {
     animation-duration: .7s;
   }
 
-  .flight-icon--animation-running {
+  .hds-icon--animation-running {
     animation-duration: 1s;
   }
 }
 
-.flight-sprite-container {
+.hds-sprite-container {
   position: absolute;
   width: 0;
   height: 0;
