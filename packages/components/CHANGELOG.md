@@ -12,6 +12,8 @@ Fixed syncing of `<F.Error />` ids to the `aria-describedby` attribute
 
 ## 4.5.0
 
+[4.5.0 documentation](https://hds-website-4-5-0.vercel.app/)
+
 ### Minor Changes
 
 `SideNav` - Adds option to exclude query params from route transition/focus management
