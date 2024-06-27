@@ -27,7 +27,7 @@
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "lint:types": "glint",
-    "prepack": "concurrently 'yarn:build:*'",
+    "prepublishOnly": "concurrently 'yarn:build:*'",
     "start": "concurrently 'yarn:start:*'",
     "start:js": "rollup --config --watch --no-watch.clearScreen",
     "start:types": "glint --declaration --watch",
