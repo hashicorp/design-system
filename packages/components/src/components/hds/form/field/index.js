@@ -11,7 +11,7 @@ import {
   ariaDescribedBy,
   registerAriaDescriptionElement,
   unregisterAriaDescriptionElement,
-} from '../../../../utils/hds-set-aria-described-by.js';
+} from '../../../../utils/hds-aria-described-by.ts';
 
 export const LAYOUT_TYPES = ['vertical', 'flag'];
 

@@ -10,7 +10,7 @@ import {
   ariaDescribedBy,
   registerAriaDescriptionElement,
   unregisterAriaDescriptionElement,
-} from '../../../../utils/hds-set-aria-described-by.js';
+} from '../../../../utils/hds-aria-described-by.ts';
 
 @ariaDescribedBy
 class HdsFormFieldsetIndexComponent extends Component {
