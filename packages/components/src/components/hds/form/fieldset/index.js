@@ -4,23 +4,23 @@
  */
 
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { getElementId } from '../../../../utils/hds-get-element-id.js';
-import { setAriaDescribedBy } from '../../../../utils/hds-set-aria-described-by.js';
+import {
+  ariaDescribedBy,
+  registerAriaDescriptionElement,
+  unregisterAriaDescriptionElement,
+} from '../../../../utils/hds-aria-described-by.ts';
 
-export default class HdsFormFieldsetIndexComponent extends Component {
-  @tracked ariaDescribedBy = this.args.extraAriaDescribedBy;
-  @tracked descriptors = [];
-
+@ariaDescribedBy
+class HdsFormFieldsetIndexComponent extends Component {
   @action
   appendDescriptor(element) {
-    this.descriptors.push(element.id);
+    registerAriaDescriptionElement(this, element);
   }
 
-  @action
-  setAriaDescribedBy() {
-    setAriaDescribedBy(this);
+  @action removeDescriptor(element) {
+    unregisterAriaDescriptionElement(this, element);
   }
 
   /**
@@ -74,3 +74,5 @@ export default class HdsFormFieldsetIndexComponent extends Component {
     return this.args.isOptional || false;
   }
 }
+
+export default HdsFormFieldsetIndexComponent;

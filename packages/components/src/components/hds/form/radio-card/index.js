@@ -4,11 +4,7 @@
  */
 
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 import { assert } from '@ember/debug';
-import { schedule } from '@ember/runloop';
-import { setAriaDescribedBy } from '../../../../utils/hds-set-aria-described-by.js';
 
 export const DEFAULT_CONTROL_POSITION = 'bottom';
 export const DEFAULT_ALIGNMENT = 'left';
@@ -16,17 +12,6 @@ export const CONTROL_POSITIONS = ['bottom', 'left'];
 export const ALIGNMENTS = ['left', 'center'];
 
 export default class HdsFormRadioCardIndexComponent extends Component {
-  @tracked ariaDescribedBy = this.args.extraAriaDescribedBy;
-  @tracked descriptors = [];
-
-  @action
-  setAriaDescribedBy() {
-    // we schedule this afterRender to capture all descriptors registered onInsert
-    schedule('afterRender', () => {
-      setAriaDescribedBy(this);
-    });
-  }
-
   /**
    * Sets the position of the control
    * Accepted values: buttom, left

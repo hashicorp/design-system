@@ -3,7 +3,7 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<div class={{this.classNames}} id={{this.id}} {{did-insert this.onInsert}} ...attributes>
+<div class={{this.classNames}} id={{this.id}} {{did-insert this.onInsert}} {{will-destroy this.onRemove}} ...attributes>
   <FlightIcon class="hds-form-error__icon" @name="alert-diamond-fill" />
   <Hds::Text::Body class="hds-form-error__content" @tag="div" @size="100" @weight="medium">
     {{yield (hash Message=(component "hds/form/error/message"))}}

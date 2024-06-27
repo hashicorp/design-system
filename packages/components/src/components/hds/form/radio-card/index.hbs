@@ -3,7 +3,7 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<label class={{this.classNames}} {{did-insert this.setAriaDescribedBy}} {{style maxWidth=@maxWidth}}>
+<label class={{this.classNames}} {{style maxWidth=@maxWidth}}>
   <span class="hds-form-radio-card__content">
     {{yield (hash Icon=(component "flight-icon" size="24" isInlineBlock=false))}}
     {{yield (hash Label=(component "hds/form/radio-card/label"))}}
@@ -18,7 +18,7 @@
       name={{@name}}
       checked={{@checked}}
       disabled={{@disabled}}
-      aria-describedby={{this.ariaDescribedBy}}
+      aria-describedby={{@extraAriaDescribedBy}}
       ...attributes
     />
   </span>

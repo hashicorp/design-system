@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, resetOnerror } from '@ember/test-helpers';
+import { render, resetOnerror, settled } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/form/radio-card/group', function (hooks) {
@@ -77,6 +77,34 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
             <G.Error>This is the group error</G.Error>
           </Hds::Form::RadioCard::Group>`
     );
+    // the IDs are dynamically generated
+    let groupHelperText = this.element.querySelector(
+      '.hds-form-group__helper-text'
+    );
+    let groupHelperTextId = groupHelperText.id;
+    let groupError = this.element.querySelector('.hds-form-group__error');
+    let groupErrorId = groupError.id;
+    assert
+      .dom('input')
+      .hasAttribute('aria-describedby', `${groupHelperTextId} ${groupErrorId}`);
+  });
+
+  test('it automatically provides all the ID relations between the elements when dynamically rendered', async function (assert) {
+    await render(
+      hbs`<Hds::Form::RadioCard::Group as |G|>
+            <G.Legend>This is the legend</G.Legend>
+            <G.HelperText>This is the group helper text</G.HelperText>
+            <G.RadioCard/>
+            <G.RadioCard/>
+            {{#if this.showErrors}}
+              <G.Error>This is the group error</G.Error>
+            {{/if}}
+          </Hds::Form::RadioCard::Group>`
+    );
+
+    this.set('showErrors', true);
+    await settled();
+
     // the IDs are dynamically generated
     let groupHelperText = this.element.querySelector(
       '.hds-form-group__helper-text'

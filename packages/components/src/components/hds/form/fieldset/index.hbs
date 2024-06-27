@@ -3,7 +3,7 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<fieldset class={{this.classNames}} id={{this.id}} {{did-insert this.setAriaDescribedBy}} ...attributes>
+<fieldset class={{this.classNames}} id={{this.id}} ...attributes>
   {{yield
     (hash
       Legend=(component
@@ -27,7 +27,7 @@
   {{yield
     (hash
       Error=(component
-        "hds/form/error" controlId=this.id onInsert=this.appendDescriptor contextualClass="hds-form-group__error"
+        "hds/form/error" controlId=this.id onInsert=this.appendDescriptor onRemove=this.removeDescriptor contextualClass="hds-form-group__error"
       )
     )
   }}

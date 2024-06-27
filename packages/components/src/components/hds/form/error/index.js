@@ -39,6 +39,21 @@ export default class HdsFormErrorIndexComponent extends Component {
   }
 
   /**
+   * @param onRemove
+   * @type {function}
+   * @default () => {}
+   */
+  get onRemove() {
+    let { onRemove } = this.args;
+
+    // notice: this is a guard used to prevent triggering an error when the component is used as standalone element
+    if (typeof onRemove === 'function') {
+      return onRemove;
+    } else {
+      return NOOP;
+    }
+  }
+  /**
    * Get the class names to apply to the component.
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.

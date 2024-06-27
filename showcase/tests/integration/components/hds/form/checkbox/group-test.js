@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, resetOnerror } from '@ember/test-helpers';
+import { render, resetOnerror, settled } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/form/checkbox/group', function (hooks) {
@@ -81,6 +81,46 @@ module('Integration | Component | hds/form/checkbox/group', function (hooks) {
             <G.Error>This is the group error</G.Error>
           </Hds::Form::Checkbox::Group>`
     );
+    // the IDs are dynamically generated
+    let groupHelperText = this.element.querySelector(
+      '.hds-form-group__helper-text'
+    );
+    let groupHelperTextId = groupHelperText.id;
+    let groupError = this.element.querySelector('.hds-form-group__error');
+    let groupErrorId = groupError.id;
+    let fieldHelperText = this.element.querySelector(
+      '.hds-form-field__helper-text'
+    );
+    let fieldHelperTextId = fieldHelperText.id;
+    let fieldError = this.element.querySelector('.hds-form-field__error');
+    let fieldErrorId = fieldError.id;
+    assert
+      .dom('input')
+      .hasAttribute(
+        'aria-describedby',
+        `${fieldHelperTextId} ${fieldErrorId} ${groupHelperTextId} ${groupErrorId}`
+      );
+  });
+
+  test('it automatically provides all the ID relations between the elements even when Error is conditionally rendered', async function (assert) {
+    await render(
+      hbs`<Hds::Form::Checkbox::Group as |G|>
+            <G.Legend>This is the legend</G.Legend>
+            <G.HelperText>This is the group helper text</G.HelperText>
+            <G.CheckboxField checked="checked" @value="abc123" as |F|>
+              <F.Label>This is the control label</F.Label>
+              <F.HelperText>This is the control helper text</F.HelperText>
+              <F.Error>This is the control error</F.Error>
+            </G.CheckboxField>
+            {{#if this.showErrors}}
+              <G.Error>This is the group error</G.Error>
+            {{/if}}
+          </Hds::Form::Checkbox::Group>`
+    );
+
+    this.set('showErrors', true);
+    await settled();
+
     // the IDs are dynamically generated
     let groupHelperText = this.element.querySelector(
       '.hds-form-group__helper-text'
