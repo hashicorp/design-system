@@ -70,7 +70,7 @@ export function ariaDescribedBy(
       return descriptors.join(' ');
     }
   }
-  return X;
+  return EnhancedComponent;
 }
 
 function synchronizeDescriptors(component: AriaDescribedByComponent) {
