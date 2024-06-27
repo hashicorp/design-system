@@ -76,9 +76,3 @@ These design systems inspire us and have paved the way for the greater design sy
 - [Pajamas Design System (GitLab)](https://design.gitlab.com/)
 - [Primer Design System (GitHub)](https://primer.style/)
 - [Atlassian Design System](https://atlassian.design/)
-
-### Learn more about design systems
-
-- [Design Systems 101 (NNGroup)](https://www.nngroup.com/articles/design-systems-101/)
-- [Designing with a system (Shopify)](https://polaris.shopify.com/getting-started/designing-with-a-system)
-- [How Carbon works (IBM)](https://carbondesignsystem.com/all-about-carbon/what-is-carbon/#how-carbon-works)
