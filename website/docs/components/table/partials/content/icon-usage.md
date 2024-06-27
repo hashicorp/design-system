@@ -36,7 +36,7 @@ Use icons to communicate that a specific item is a HashiCorp product or resource
 
 !!! Dont
 
-Don’t use an [Icon Tile](/assets/components/icon-tile) in place of an icon within a table cell.
+Don’t use an [Icon Tile](/components/icon-tile) in place of an icon within a table cell.
 
 ![Icon Tile within a table cell](/assets/components/table/icon-tile-product-branding.png)
 !!!

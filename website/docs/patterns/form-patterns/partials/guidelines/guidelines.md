@@ -226,7 +226,7 @@ Instead, use the section spacing value of 32px.
 
 #### Multiple steps or pages
 
-Consider breaking the form into multiple steps or pages for exceedingly long and complex forms (e.g., creating a cluster). For multi-step forms, use a [Stepper](/components/stepper-indicator) to indicate status and the user’s location within the form.
+Consider breaking the form into multiple steps or pages for exceedingly long and complex forms (e.g., creating a cluster). For multi-step forms, use a [Stepper](/components/stepper) to indicate status and the user’s location within the form.
 
 ### Width
 

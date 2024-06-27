@@ -18,7 +18,7 @@ A data set is a broad term for an array of items, objects, or related informatio
 
 Filters are responsible for the functional aspect of limiting a data set and for displaying the [parameters](/patterns/filter-patterns?tab=core%20concepts#parameter) which a user can filter upon. Filter positioning is largely dependent on the complexity of the data set and the scope to which the filters are being applied. For example, are the filters applied at the page level or only to the data set they are paired with?
 
-Filters often consist of numerous parameters that mirror the columns of a table or parameters contained within the data set. For more details on mirroring filters and parameters within a data set, refer to the filtering [core concepts](/patterns/filter-patterns/tab=core%20concepts#mirror-of-parameters).
+Filters often consist of numerous parameters that mirror the columns of a table or parameters contained within the data set. For more details on mirroring filters and parameters within a data set, refer to the filtering [core concepts](/patterns/filter-patterns?tab=core%20concepts#mirror-of-parameters).
 
 #### Filter bar
 
