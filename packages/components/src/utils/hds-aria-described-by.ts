@@ -7,38 +7,38 @@ import { tracked } from '@glimmer/tracking';
 import { scheduleOnce } from '@ember/runloop';
 import type Component from '@glimmer/component';
 
-type ElementIDMap = Map<HTMLElement, string>;
+type ElementSet = Set<HTMLElement>;
 
-class AriaDescribedByAttributes {
-  private _attributes = new WeakMap<AriaDescribedByComponent, ElementIDMap>();
-
-  findOrCreateAttributes(obj: AriaDescribedByComponent): ElementIDMap {
-    if (this._attributes.has(obj)) {
-      return this._attributes.get(obj) as ElementIDMap;
-    }
-
-    const attributes: ElementIDMap = new Map();
-    this._attributes.set(obj, attributes);
-    return attributes;
-  }
+class AriaDescriptorMap {
+  private _elements = new WeakMap<AriaDescribedByComponent, ElementSet>();
 
   register(obj: AriaDescribedByComponent, element: HTMLElement) {
-    const attrs = this.findOrCreateAttributes(obj);
-    attrs.set(element, element.id);
+    const elements = this.findOrCreateElementSet(obj);
+    elements.add(element);
   }
 
   unregister(obj: AriaDescribedByComponent, element: HTMLElement) {
-    const attrs = this.findOrCreateAttributes(obj);
-    attrs.delete(element);
+    const elements = this.findOrCreateElementSet(obj);
+    elements.delete(element);
   }
 
   entries(obj: AriaDescribedByComponent) {
-    const attrs = this.findOrCreateAttributes(obj);
-    return Array.from(attrs.values());
+    const elements = this.findOrCreateElementSet(obj);
+    return Array.from(elements.values());
+  }
+
+  private findOrCreateElementSet(obj: AriaDescribedByComponent): ElementSet {
+    if (this._elements.has(obj)) {
+      return this._elements.get(obj) as ElementSet;
+    }
+
+    const elements: ElementSet = new Set();
+    this._elements.set(obj, elements);
+    return elements;
   }
 }
 
-const ariaDescribedByAttributes = new AriaDescribedByAttributes();
+const ariaDescriptorMap = new AriaDescriptorMap();
 
 interface AriaDescribedByArgs {
   Args: {
@@ -75,15 +75,15 @@ export function ariaDescribedBy(
 
 function synchronizeDescriptors(component: AriaDescribedByComponent) {
   if (component.isDestroying || component.isDestroyed) return;
-  const descriptors = ariaDescribedByAttributes.entries(component);
-  component.__ARIA_DESCRIPTION_IDS__ = descriptors;
+  const descriptors = ariaDescriptorMap.entries(component);
+  component.__ARIA_DESCRIPTION_IDS__ = descriptors.map((element) => element.id);
 }
 
 export function registerAriaDescriptionElement(
   component: AriaDescribedByComponent,
   element: HTMLElement
 ) {
-  ariaDescribedByAttributes.register(component, element);
+  ariaDescriptorMap.register(component, element);
   scheduleOnce('afterRender', component, synchronizeDescriptors, component);
 }
 
@@ -91,6 +91,6 @@ export function unregisterAriaDescriptionElement(
   component: AriaDescribedByComponent,
   element: HTMLElement
 ) {
-  ariaDescribedByAttributes.unregister(component, element);
+  ariaDescriptorMap.unregister(component, element);
   scheduleOnce('afterRender', component, synchronizeDescriptors, component);
 }
