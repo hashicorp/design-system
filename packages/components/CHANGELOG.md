@@ -1,5 +1,15 @@
 # @hashicorp/design-system-components
 
+## 4.5.1
+
+### Patch Changes
+
+Fixed syncing of `<F.Error />` ids to the `aria-describedby` attribute
+
+<small class="doc-whats-new-changelog-metadata">[#2177](https://github.com/hashicorp/design-system/pull/2177) - Thanks [@fivetanley](https://github.com/fivetanley) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.5.0
 
 ### Minor Changes
