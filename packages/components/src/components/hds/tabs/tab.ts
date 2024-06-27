@@ -11,8 +11,8 @@ import type { HdsTabsTabIds } from './types';
 
 export interface HdsTabsTabSignature {
   Args: {
-    selectedTabIndex: number;
     tabIds: HdsTabsTabIds;
+    selectedTabIndex: number;
     icon?: IconName;
     count?: string;
     isSelected?: boolean;

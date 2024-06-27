@@ -20,7 +20,7 @@ interface HdsTabsSignature {
   Args: {
     size?: HdsTabsSizes;
     onClickTab?: (event: MouseEvent, tabIndex: number) => void;
-    selectedTabIndex?: number;
+    selectedTabIndex?: HdsTabsTabSignature['Args']['selectedTabIndex'];
     isParentVisible?: boolean;
   };
   Blocks: {
@@ -207,13 +207,14 @@ export default class HdsTabsComponent extends Component<HdsTabsSignature> {
       this.selectedTabIndex = tabIndex;
     }
     // scroll selected tab into view (it may be out of view when activated using a keyboard with `prev/next`)
-    (
-      this.tabNodes[this.selectedTabIndex]?.parentNode as HTMLElement
-    ).scrollIntoView({
-      behavior: 'smooth',
-      block: 'nearest',
-      inline: 'nearest',
-    });
+    const parentNode = this.tabNodes[this.selectedTabIndex]?.parentNode;
+    if (parentNode instanceof HTMLElement) {
+      parentNode.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'nearest',
+      });
+    }
   }
 
   // Focus tab for keyboard & mouse navigation:
@@ -227,10 +228,10 @@ export default class HdsTabsComponent extends Component<HdsTabsSignature> {
       const tabElem = this.tabNodes[this.selectedTabIndex];
 
       if (tabElem != null) {
-        const tabsParentElem = tabElem.closest(
+        const tabElemParentNode = tabElem.parentNode as HTMLElement;
+        const tabsElemClosestList = tabElem.closest(
           '.hds-tabs__tablist'
         ) as HTMLElement;
-        const tabElemParentNode = tabElem.parentNode as HTMLElement;
 
         // this condition is `null` if any of the parents has `display: none`
         if (tabElemParentNode.offsetParent) {
@@ -238,11 +239,11 @@ export default class HdsTabsComponent extends Component<HdsTabsSignature> {
           const tabWidth = tabElemParentNode.offsetWidth;
 
           // Set CSS custom properties for indicator
-          tabsParentElem.style.setProperty(
+          tabsElemClosestList.style.setProperty(
             '--indicator-left-pos',
             tabLeftPos + 'px'
           );
-          tabsParentElem.style.setProperty(
+          tabsElemClosestList.style.setProperty(
             '--indicator-width',
             tabWidth + 'px'
           );
