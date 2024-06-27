@@ -48,7 +48,7 @@
     "@hashicorp/design-system-components": "workspace:^",
     "@hashicorp/design-system-tokens": "workspace:^",
     "@hashicorp/ember-flight-icons": "workspace:^",
-    "@percy/cli": "^1.27.3",
+    "@percy/cli": "^1.28.8",
     "@percy/ember": "^4.2.0",
     "@tsconfig/ember": "^3.0.8",
     "@types/qunit": "^2.19.10",
