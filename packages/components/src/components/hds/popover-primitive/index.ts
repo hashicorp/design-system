@@ -31,11 +31,11 @@ import type { ModifierLike } from '@glint/template';
 
 export interface HdsPopoverPrimitiveSignature {
   Args: {
-    isOpen: boolean;
-    enableSoftEvents: boolean;
-    enableClickEvents: boolean;
-    onOpen: () => void;
-    onClose: () => void;
+    isOpen?: boolean;
+    enableSoftEvents?: boolean;
+    enableClickEvents?: boolean;
+    onOpen?: () => void;
+    onClose?: () => void;
   };
   Blocks: {
     default: [
