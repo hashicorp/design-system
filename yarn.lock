@@ -4117,6 +4117,7 @@ __metadata:
     "@glint/template": "npm:^1.4.0"
     "@hashicorp/design-system-tokens": "npm:^2.1.0"
     "@hashicorp/ember-flight-icons": "npm:^5.1.2"
+    "@hashicorp/flight-icons": "npm:^3.3.0"
     "@oddbird/popover-polyfill": "npm:^0.4.3"
     "@rollup/plugin-babel": "npm:^6.0.4"
     "@tsconfig/ember": "npm:^3.0.8"
@@ -4244,7 +4245,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/flight-icons@npm:^3.4.0, @hashicorp/flight-icons@workspace:^, @hashicorp/flight-icons@workspace:packages/flight-icons":
+"@hashicorp/flight-icons@npm:^3.3.0, @hashicorp/flight-icons@npm:^3.4.0, @hashicorp/flight-icons@workspace:^, @hashicorp/flight-icons@workspace:packages/flight-icons":
   version: 0.0.0-use.local
   resolution: "@hashicorp/flight-icons@workspace:packages/flight-icons"
   dependencies:
