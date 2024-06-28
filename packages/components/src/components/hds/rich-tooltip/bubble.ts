@@ -6,22 +6,24 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
+import type { HdsPopoverPrimitiveSignature } from '../popover-primitive';
+import type { FloatingUIOptions } from '../../../modifiers/hds-anchored-position.ts';
 import {
   DEFAULT_PLACEMENT,
   PLACEMENTS,
 } from '../../../modifiers/hds-anchored-position.ts';
 
-interface BubbleSignature {
+export interface HdsRichTooltipBubbleSignature {
   Args: {
-    arrowId: unknown;
-    enableCollisionDetection: unknown;
-    height: unknown;
-    isOpen: unknown;
-    offset: unknown;
-    placement: unknown;
-    popoverId: unknown;
-    setupPrimitivePopover: unknown;
-    width: unknown;
+    placement?: FloatingUIOptions['placement'];
+    offset?: FloatingUIOptions['offsetOptions'];
+    enableCollisionDetection?: FloatingUIOptions['enableCollisionDetection'];
+    width?: string;
+    height?: string;
+    isOpen?: boolean;
+    popoverId: string;
+    arrowId: string;
+    setupPrimitivePopover: HdsPopoverPrimitiveSignature['Blocks']['default'][0]['setupPrimitivePopover'];
   };
   Blocks: {
     default: [];
@@ -29,7 +31,7 @@ interface BubbleSignature {
   Element: HTMLDivElement;
 }
 
-export default class BubbleComponent extends Component<BubbleSignature> {
+export default class HdsRichTooltipBubbleComponent extends Component<HdsRichTooltipBubbleSignature> {
   /**
    * @param placement
    * @type {string}
@@ -53,7 +55,12 @@ export default class BubbleComponent extends Component<BubbleSignature> {
   }
 
   get sizingStyles() {
-    const sizingStyles = {};
+    const sizingStyles: {
+      width?: string;
+      'max-width'?: string;
+      height?: string;
+      'max-height'?: string;
+    } = {};
 
     if (this.args.width) {
       sizingStyles['width'] = this.args.width;
@@ -78,12 +85,5 @@ export default class BubbleComponent extends Component<BubbleSignature> {
       arrowSelector: `#${this.args.arrowId}`,
       arrowPadding: 12,
     };
-  }
-}
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Bubble': typeof BubbleComponent;
-    'bubble': typeof BubbleComponent;
   }
 }
