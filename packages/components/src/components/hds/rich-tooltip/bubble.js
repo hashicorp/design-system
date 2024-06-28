@@ -6,10 +6,10 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-import { PLACEMENTS as PRIMITIVE_PLACEMENTS } from '../popover-primitive/index.ts';
-
-export const DEFAULT_PLACEMENT = 'bottom';
-export const PLACEMENTS = [...PRIMITIVE_PLACEMENTS];
+import {
+  DEFAULT_PLACEMENT,
+  PLACEMENTS,
+} from '../../../modifiers/hds-anchored-position.ts';
 
 export default class HdsRichTooltipBubbleComponent extends Component {
   /**

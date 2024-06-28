@@ -26,12 +26,6 @@ import {
   isPolyfilled as isPopoverApiPolyfilled,
 } from '@oddbird/popover-polyfill/fn';
 
-// we use this to re-export the values
-export {
-  PLACEMENTS,
-  DEFAULT_PLACEMENT,
-} from '../../../modifiers/hds-anchored-position.ts';
-
 import type { FloatingUIOptions } from '../../../modifiers/hds-anchored-position.ts';
 import type { ModifierLike } from '@glint/template';
 
