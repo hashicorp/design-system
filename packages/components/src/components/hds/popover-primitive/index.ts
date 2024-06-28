@@ -33,17 +33,46 @@ export {
 } from '../../../modifiers/hds-anchored-position.ts';
 
 import type { FloatingUIOptions } from '../../../modifiers/hds-anchored-position.ts';
+import type { ModifierLike } from '@glint/template';
 
 export interface HdsPopoverPrimitiveSignature {
   Args: {
-    enableClickEvents: boolean;
-    enableSoftEvents: boolean;
     isOpen: boolean;
-    onClose: () => void;
+    enableSoftEvents: boolean;
+    enableClickEvents: boolean;
     onOpen: () => void;
+    onClose: () => void;
   };
   Blocks: {
-    default: [];
+    default: [
+      {
+        setupPrimitiveContainer: ModifierLike<SetupPrimitiveContainerModifier>;
+        setupPrimitiveToggle: ModifierLike<SetupPrimitiveToggleModifier>;
+        setupPrimitivePopover: ModifierLike<SetupPrimitivePopoverModifier>;
+        toggleElement?: HTMLButtonElement;
+        popoverElement?: HTMLElement;
+        isOpen: boolean;
+        showPopover: () => void;
+        hidePopover: () => void;
+        togglePopover: () => void;
+      }
+    ];
+  };
+}
+
+interface SetupPrimitiveContainerModifier {
+  Element: HTMLElement;
+}
+
+interface SetupPrimitiveToggleModifier {
+  Element: HTMLButtonElement;
+}
+
+interface SetupPrimitivePopoverModifier {
+  Element: HTMLElement;
+  Args: {
+    Positional: [];
+    Named: { anchoredPositionOptions: FloatingUIOptions };
   };
 }
 
@@ -76,25 +105,27 @@ export default class HdsPopoverPrimitiveComponent extends Component<HdsPopoverPr
     }
   }
 
-  setupPrimitiveContainer = modifier(
+  setupPrimitiveContainer = modifier<SetupPrimitiveContainerModifier>(
     (element: HTMLElement) => {
       this.containerElement = element;
 
       // we register the "soft" events
       if (this.enableSoftEvents) {
+        // @ts-expect-error: known issue with type of invocation
         registerEvent(this.containerElement, ['mouseenter', this.onMouseEnter]);
+        // @ts-expect-error: known issue with type of invocation
         registerEvent(this.containerElement, ['mouseleave', this.onMouseLeave]);
+        // @ts-expect-error: known issue with type of invocation
         registerEvent(this.containerElement, ['focusin', this.onFocusIn]);
       }
       // we always want the focusOut event
+      // @ts-expect-error: known issue with type of invocation
       registerEvent(this.containerElement, ['focusout', this.onFocusOut]);
     },
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     { eager: true }
   );
 
-  setupPrimitiveToggle = modifier(
+  setupPrimitiveToggle = modifier<SetupPrimitiveToggleModifier>(
     (element: HTMLButtonElement) => {
       this.toggleElement = element;
 
@@ -103,8 +134,6 @@ export default class HdsPopoverPrimitiveComponent extends Component<HdsPopoverPr
         element instanceof HTMLButtonElement
       );
     },
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     { eager: true }
   );
 
@@ -144,10 +173,12 @@ export default class HdsPopoverPrimitiveComponent extends Component<HdsPopoverPr
       }
 
       // Register "onBeforeToggle" + "onToggle" callback functions to be called when a native 'toggle' event is dispatched
+      // @ts-expect-error: known issue with type of invocation
       registerEvent(this.popoverElement, [
         'beforetoggle',
         this.onBeforeTogglePopover,
       ]);
+      // @ts-expect-error: known issue with type of invocation
       registerEvent(this.popoverElement, ['toggle', this.onTogglePopover]);
 
       // we need to spread the argument because if it's set via `{{ hash … }}` Ember complains when we overwrite one of its values
@@ -171,6 +202,7 @@ export default class HdsPopoverPrimitiveComponent extends Component<HdsPopoverPr
       // - positioning of the "popover" in relation to the "toggle"
       // - collision detection (optional)
       next(() => {
+        // @ts-expect-error: known issue with type of invocation
         anchoredPositionModifier(
           this.popoverElement, // element the modifier is attached to
           [this.toggleElement], // positional arguments
@@ -178,8 +210,6 @@ export default class HdsPopoverPrimitiveComponent extends Component<HdsPopoverPr
         );
       });
     },
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     { eager: true }
   );
 
