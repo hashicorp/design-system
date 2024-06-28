@@ -12,6 +12,14 @@
   </a>
 </p>
 
+## 4.5.2
+
+**Patch changes**
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/ember-flight-icons@5.1.1
+
 ## 4.5.1
 
 **Patch changes**
@@ -23,6 +31,8 @@ Fixed syncing of `<F.Error />` ids to the `aria-describedby` attribute
 <div class="doc-whats-new-changelog-separator"></div>
 
 ## 4.5.0
+
+[4.5.0 documentation](https://hds-website-4-5-0.vercel.app/)
 
 **Minor changes**
 
@@ -836,16 +846,6 @@ Upgraded the following dependencies:
 **🔄 Updated dependencies:**
 
 - @hashicorp/ember-flight-icons@4.0.2
-
-## 3.0.2
-
-**Patch changes**
-
-Explicitly added `ember-element-helper` as dependency for the `components` package
-
-<small class="doc-whats-new-changelog-metadata">[#1751](https://github.com/hashicorp/design-system/pull/1751)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
 
 
 ---

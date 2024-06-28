@@ -1,5 +1,15 @@
 # @hashicorp/ember-flight-icons
 
+## 5.1.1
+
+### Patch Changes
+
+This version is a re-release of `@hashicorp/ember-flight-icons@5.1.0` containing the missing `dist`
+
+<small class="doc-whats-new-changelog-metadata">[#2199](https://github.com/hashicorp/design-system/pull/2199)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 5.1.0
 
 ### Minor Changes
