@@ -233,7 +233,6 @@ export default interface HdsComponentsRegistry {
   // Popover Primitive
   'Hds::PopoverPrimitive': typeof HdsPopoverPrimitiveComponent;
   'hds/popover-primitive': typeof HdsPopoverPrimitiveComponent;
-  HdsPopoverPrimitive: typeof HdsPopoverPrimitiveComponent;
 
   // Reveal
   'Hds::Reveal': typeof HdsRevealComponent;
