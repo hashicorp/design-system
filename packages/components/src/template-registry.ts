@@ -45,6 +45,7 @@ import type HdsPageHeaderBadgesComponent from './components/hds/page-header/badg
 import type HdsPageHeaderDescriptionComponent from './components/hds/page-header/description';
 import type HdsPageHeaderSubtitleComponent from './components/hds/page-header/subtitle';
 import type HdsPageHeaderTitleComponent from './components/hds/page-header/title';
+import type HdsPopoverPrimitiveComponent from './components/hds/popover-primitive';
 import type HdsRevealComponent from './components/hds/reveal';
 import type HdsRevealToggleButtonComponent from './components/hds/reveal/toggle/button';
 import type HdsSeparatorComponent from './components/hds/separator';
@@ -228,6 +229,11 @@ export default interface HdsComponentsRegistry {
 
   'Hds::PageHeader::Title': typeof HdsPageHeaderTitleComponent;
   'hds/page-header/title': typeof HdsPageHeaderTitleComponent;
+
+  // Popover Primitive
+  'Hds::PopoverPrimitive': typeof HdsPopoverPrimitiveComponent;
+  'hds/popover-primitive': typeof HdsPopoverPrimitiveComponent;
+  HdsPopoverPrimitive: typeof HdsPopoverPrimitiveComponent;
 
   // Reveal
   'Hds::Reveal': typeof HdsRevealComponent;
