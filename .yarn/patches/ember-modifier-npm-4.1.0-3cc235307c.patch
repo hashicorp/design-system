@@ -1,0 +1,40 @@
+diff --git a/dist/index.d.ts b/dist/index.d.ts
+index 78350074cd112caebb0f2f48708ab999341bd68e..ac8625bc258407dbbc3c4711dc06154790e517f7 100644
+--- a/dist/index.d.ts
++++ b/dist/index.d.ts
+@@ -140,12 +140,16 @@ type Teardown = () => unknown;
+  */
+ // This overload allows users to write types directly on the callback passed to
+ // the `modifier` function and infer the resulting type correctly.
+-declare function modifier<E extends Element, P extends unknown[], N = EmptyObject>(fn: (element: E, positional: P, named: N) => void | Teardown): FunctionBasedModifier<{
+-    Args: {
+-        Positional: P;
+-        Named: N;
+-    };
+-    Element: E;
++// this patch can be removed when upstream PR is merged: https://github.com/ember-modifier/ember-modifier/pull/855
++declare function modifier<E extends Element, P extends unknown[], N = EmptyObject>(
++  fn: (element: E, positional: P, named: N) => void | Teardown,
++  options?: { eager: boolean }
++): FunctionBasedModifier<{
++  Args: {
++    Positional: P;
++    Named: N;
++  };
++  Element: E;
+ }>;
+ /**
+  * An API for writing simple modifiers.
+@@ -171,7 +175,11 @@ declare function modifier<E extends Element, P extends unknown[], N = EmptyObjec
+ // **Note:** this overload must appear second, since TS' inference engine will
+ // not correctly infer the type of `S` here from the types on the supplied
+ // callback.
+-declare function modifier<S>(fn: (element: ElementFor<S>, positional: PositionalArgs<S>, named: NamedArgs<S>) => void | Teardown): FunctionBasedModifier<{
++// this patch can be removed when upstream PR is merged: https://github.com/ember-modifier/ember-modifier/pull/855
++declare function modifier<S>(
++  fn: (element: ElementFor<S>, positional: PositionalArgs<S>, named: NamedArgs<S>) => void | Teardown,
++  options?: { eager: boolean }
++): FunctionBasedModifier<{
+     Element: ElementFor<S>;
+     Args: {
+         Named: NamedArgs<S>;
