@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+//components
 import type HdsAccordionComponent from './components/hds/accordion';
 import type HdsAccordionItemComponent from './components/hds/accordion/item';
 import type HdsAccordionItemButtonComponent from './components/hds/accordion/item/button';
@@ -73,12 +74,18 @@ import type HdsToastComponent from './components/hds/toast';
 import type HdsTextCodeComponent from './components/hds/text/code';
 import type HdsYieldComponent from './components/hds/yield';
 
+// helpers
 import type HdsLinkToModelsHelper from './helpers/hds-link-to-models.ts';
 import type HdsLinkToQueryHelper from './helpers/hds-link-to-query.ts';
 
+// modifiers
 import type HdsClipboardModifier from './modifiers/hds-clipboard.ts';
+import type HdsRegisterEventModifier from './modifiers/hds-register-event.ts';
 
 export default interface HdsComponentsRegistry {
+  //
+  // ----- COMPONENTS ----------------------------------------------------
+
   // Accordion
   'Hds::Accordion': typeof HdsAccordionComponent;
   'hds/accordion': typeof HdsAccordionComponent;
@@ -324,10 +331,19 @@ export default interface HdsComponentsRegistry {
   'Hds::Yield': typeof HdsYieldComponent;
   'hds/yield': typeof HdsYieldComponent;
 
-  // Helpers
+  // ----- HELPERS ----------------------------------------------------
+
+  // hds-link-to-models
   'hds-link-to-models': typeof HdsLinkToModelsHelper;
+
+  // hds-link-to-query
   'hds-link-to-query': typeof HdsLinkToQueryHelper;
 
-  // Modifiers
+  // ----- MODIFIERS ----------------------------------------------------
+
+  // hds-clipboard
   'hds-clipboard': typeof HdsClipboardModifier;
+
+  // hds-register-event
+  'hds-register-event': typeof HdsRegisterEventModifier;
 }
