@@ -32,29 +32,33 @@ export {
   DEFAULT_PLACEMENT,
 } from '../../../modifiers/hds-anchored-position.ts';
 
-interface IndexSignature {
+export interface HdsPopoverPrimitiveSignature {
   Args: {
-    enableClickEvents: unknown;
-    enableSoftEvents: unknown;
-    isOpen: unknown;
-    onClose: unknown;
-    onOpen: unknown;
+    enableClickEvents: boolean;
+    enableSoftEvents: boolean;
+    isOpen: boolean;
+    onClose: () => void;
+    onOpen: () => void;
   };
   Blocks: {
-    default: [unknown];
+    default: [];
   };
 }
 
-export default class IndexComponent extends Component<IndexSignature> {
+export default class HdsPopoverPrimitiveComponent extends Component<HdsPopoverPrimitiveSignature> {
   @tracked isOpen = this.args.isOpen ?? false;
   @tracked isClosing = false;
+  containerElement?: HTMLElement;
+  toggleElement?: HTMLButtonElement;
+  popoverElement?: HTMLElement;
   // this will enable "soft" events for the toggle ("hover" and "focus")
   enableSoftEvents = this.args.enableSoftEvents ?? false;
   // this will enable "click" events for the toggle
   enableClickEvents = this.args.enableClickEvents ?? false;
+  timer?: ReturnType<typeof setTimeout> | null;
 
-  constructor() {
-    super(...arguments);
+  constructor(owner: unknown, args: HdsPopoverPrimitiveSignature['Args']) {
+    super(owner, args);
 
     // if the Popover API is not supported we need to polyfill it
     if (!isPopoverApiSupported()) {
@@ -71,7 +75,7 @@ export default class IndexComponent extends Component<IndexSignature> {
   }
 
   setupPrimitiveContainer = modifier(
-    (element) => {
+    (element: HTMLElement) => {
       this.containerElement = element;
 
       // we register the "soft" events
@@ -83,11 +87,13 @@ export default class IndexComponent extends Component<IndexSignature> {
       // we always want the focusOut event
       registerEvent(this.containerElement, ['focusout', this.onFocusOut]);
     },
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     { eager: true }
   );
 
   setupPrimitiveToggle = modifier(
-    (element) => {
+    (element: HTMLButtonElement) => {
       this.toggleElement = element;
 
       assert(
@@ -95,11 +101,13 @@ export default class IndexComponent extends Component<IndexSignature> {
         element instanceof HTMLButtonElement
       );
     },
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     { eager: true }
   );
 
   setupPrimitivePopover = modifier(
-    (element, _positional, named = {}) => {
+    (element: HTMLElement, _positional, named = {}) => {
       this.popoverElement = element;
 
       // for the click events we don't use `onclick` event listeners, but we rely on the `popovertarget` attribute
@@ -114,7 +122,9 @@ export default class IndexComponent extends Component<IndexSignature> {
           popoverId = guidFor(this);
           this.popoverElement.id = popoverId;
         }
-        this.toggleElement.setAttribute('popovertarget', popoverId);
+        if (this.toggleElement) {
+          this.toggleElement.setAttribute('popovertarget', popoverId);
+        }
       }
 
       // this should be an extremely edge case, but in the case the popover needs to be initially forced to be open
@@ -160,19 +170,24 @@ export default class IndexComponent extends Component<IndexSignature> {
         );
       });
     },
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     { eager: true }
   );
 
   @action
   showPopover() {
     try {
-      this.popoverElement.showPopover();
+      if (this.popoverElement) {
+        this.popoverElement.showPopover();
+      }
     } catch (error) {
       warn(
-        'The invocation of `showPopover` for the popover element caused an unexpected error.',
+        `The invocation of \`showPopover\` for the popover element caused an unexpected error: ${JSON.stringify(
+          error
+        )}`,
         {
           id: 'hds-popover.show-popover-action.invocation-failed',
-          error: error,
         }
       );
     }
@@ -181,13 +196,16 @@ export default class IndexComponent extends Component<IndexSignature> {
   @action
   hidePopover() {
     try {
-      this.popoverElement.hidePopover();
+      if (this.popoverElement) {
+        this.popoverElement.hidePopover();
+      }
     } catch (error) {
       warn(
-        'The invocation of `hidePopover` for the popover element caused an unexpected error.',
+        `The invocation of \`hidePopover\` for the popover element caused an unexpected error: ${JSON.stringify(
+          error
+        )}`,
         {
           id: 'hds-popover.hide-popover-action.invocation-failed',
-          error: error,
         }
       );
     }
@@ -196,13 +214,16 @@ export default class IndexComponent extends Component<IndexSignature> {
   @action
   togglePopover() {
     try {
-      this.popoverElement.togglePopover();
+      if (this.popoverElement) {
+        this.popoverElement.togglePopover();
+      }
     } catch (error) {
       warn(
-        'The invocation of `togglePopover` for the popover element caused an unexpected error.',
+        `The invocation of \`togglePopover\` for the popover element caused an unexpected error: ${JSON.stringify(
+          error
+        )}`,
         {
           id: 'hds-popover.toggle-popover-action.invocation-failed',
-          error: error,
         }
       );
     }
@@ -210,7 +231,7 @@ export default class IndexComponent extends Component<IndexSignature> {
 
   // fired just _before_ the "popover" is shown or hidden
   @action
-  onBeforeTogglePopover(event) {
+  onBeforeTogglePopover(event: ToggleEvent) {
     if (event.newState === 'closed') {
       // we need this flag to check if it's in the "closing" process,
       // because the browser automatically returns the focus to the "trigger" button
@@ -221,12 +242,12 @@ export default class IndexComponent extends Component<IndexSignature> {
 
   // fired just _after_ the "popover" is shown or hidden
   @action
-  onTogglePopover(event) {
+  onTogglePopover(event: ToggleEvent) {
     if (event.newState === 'open') {
       this.isOpen = true;
 
       // we call the "onOpen" callback if it exists (and is a function)
-      let { onOpen } = this.args;
+      const { onOpen } = this.args;
       if (typeof onOpen === 'function') {
         onOpen();
       }
@@ -238,11 +259,13 @@ export default class IndexComponent extends Component<IndexSignature> {
 
       // if the popover was initially forced to be open (using the "manual" state) then revert its status to `auto` once the user interacts with it
       if (this.args.isOpen) {
-        this.popoverElement.popover = 'auto';
+        if (this.popoverElement) {
+          this.popoverElement.popover = 'auto';
+        }
       }
 
       // we call the "onClose" callback if it exists (and is a function)
-      let { onClose } = this.args;
+      const { onClose } = this.args;
       if (typeof onClose === 'function') {
         onClose();
       }
@@ -274,22 +297,26 @@ export default class IndexComponent extends Component<IndexSignature> {
   }
 
   @action
-  onFocusOut(event) {
-    // due to inconsistent implementation of relatedTarget across browsers we use the activeElement as a fallback
-    // if the related target is not part of the disclosed content we close the disclosed container
-    if (
-      !this.containerElement.contains(
-        event.relatedTarget || document.activeElement
-      )
-    ) {
-      this.hidePopover();
+  onFocusOut(event: FocusEvent) {
+    if (this.containerElement) {
+      let isFocusStillInside = false;
+      if (
+        event.relatedTarget &&
+        // if the related target is not part of the disclosed content we close the disclosed container
+        this.containerElement.contains(event.relatedTarget as Node)
+      ) {
+        isFocusStillInside = true;
+      } else if (
+        document.activeElement &&
+        // due to inconsistent implementation of relatedTarget across browsers we use the activeElement as a fallback
+        this.containerElement.contains(document.activeElement)
+      ) {
+        isFocusStillInside = true;
+      }
+      // if the target receiving the focus is _not_ part of the disclosed content we close the disclosed container
+      if (!isFocusStillInside) {
+        this.hidePopover();
+      }
     }
-  }
-}
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Index': typeof IndexComponent;
-    'index': typeof IndexComponent;
   }
 }
