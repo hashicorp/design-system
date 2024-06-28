@@ -6,20 +6,34 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-export const DEFAULT_ICONPOSITION = 'trailing';
-export const ICONPOSITIONS = ['leading', 'trailing'];
-export const SIZES = ['small', 'medium', 'large'];
+import {
+  HdsRichTooltipToggleIconPositionValues,
+  HdsRichTooltipToggleSizeValues,
+} from './types.ts';
+import type {
+  HdsRichTooltipToggleIconPositions,
+  HdsRichTooltipToggleSizes,
+} from './types.ts';
+import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
+import type { HdsPopoverPrimitiveSignature } from '../popover-primitive';
 
-interface ToggleSignature {
+export const ICONPOSITIONS: string[] = Object.values(
+  HdsRichTooltipToggleIconPositionValues
+);
+export const DEFAULT_ICONPOSITION =
+  HdsRichTooltipToggleIconPositionValues.Trailing;
+export const SIZES: string[] = Object.values(HdsRichTooltipToggleSizeValues);
+
+export interface HdsRichTooltipToggleSignature {
   Args: {
-    icon: unknown;
-    iconPosition: unknown;
-    isInline: unknown;
-    isOpen: unknown;
-    popoverId: unknown;
-    setupPrimitiveToggle: unknown;
-    size: unknown;
-    text: unknown;
+    text?: string;
+    icon?: FlightIconSignature['Args']['name'];
+    iconPosition?: HdsRichTooltipToggleIconPositions;
+    size?: undefined | HdsRichTooltipToggleSizes;
+    isInline?: boolean;
+    isOpen?: boolean;
+    popoverId: string;
+    setupPrimitiveToggle: HdsPopoverPrimitiveSignature['Blocks']['default'][0]['setupPrimitiveToggle'];
   };
   Blocks: {
     default: [];
@@ -27,7 +41,7 @@ interface ToggleSignature {
   Element: HTMLButtonElement;
 }
 
-export default class ToggleComponent extends Component<ToggleSignature> {
+export default class HdsRichTooltipToggleComponent extends Component<HdsRichTooltipToggleSignature> {
   /**
    * @param isInline
    * @type {boolean}
@@ -67,7 +81,7 @@ export default class ToggleComponent extends Component<ToggleSignature> {
   get size() {
     let size;
 
-    // we assing a "size" only if `@text` is provided
+    // we assign a "size" only if `@text` is provided
     if (this.args.text) {
       size = this.args.size;
 
@@ -86,8 +100,8 @@ export default class ToggleComponent extends Component<ToggleSignature> {
    * Get the class names to apply to the component.
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
-    let classes = ['hds-rich-tooltip__toggle'];
+  get classNames(): string {
+    const classes = ['hds-rich-tooltip__toggle'];
 
     // add a class based on the @isInline argument
     if (this.isInline) {
@@ -102,12 +116,5 @@ export default class ToggleComponent extends Component<ToggleSignature> {
     }
 
     return classes.join(' ');
-  }
-}
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Toggle': typeof ToggleComponent;
-    'toggle': typeof ToggleComponent;
   }
 }
