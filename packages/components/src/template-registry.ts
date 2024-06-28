@@ -73,8 +73,8 @@ import type HdsToastComponent from './components/hds/toast';
 import type HdsTextCodeComponent from './components/hds/text/code';
 import type HdsYieldComponent from './components/hds/yield';
 
-import type HdsLinkToModelsHelper from './helpers/hds-link-to-models';
-import type HdsLinkToQueryHelper from './helpers/hds-link-to-query';
+import type HdsLinkToModelsHelper from './helpers/hds-link-to-models.ts';
+import type HdsLinkToQueryHelper from './helpers/hds-link-to-query.ts';
 
 import type HdsClipboardModifier from './modifiers/hds-clipboard.ts';
 
