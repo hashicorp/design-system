@@ -15,5 +15,5 @@ export default Route.extend({
       // we group the TOC under a specific "key", instead of spreading the content all over the model
       return { toc: res }
     });
-  }
+  },
 })

@@ -57,5 +57,5 @@ export default Component.extend({
     }
 
     return componentName;
-  })
+  }),
 });
