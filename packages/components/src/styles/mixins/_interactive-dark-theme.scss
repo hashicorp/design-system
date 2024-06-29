@@ -28,21 +28,22 @@
     border-color: var(--token-color-palette-neutral-500);
   }
 
+  &:focus,
   &:focus-visible,
   &.mock-focus {
     @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px);
-
-    // focus ring:
-    &::before {
-      color: var(--token-color-palette-neutral-0);
-      border: none;
-    }
 
     color: var(--token-color-palette-neutral-0);
     background-color: var(--token-color-palette-neutral-700);
 
     @if ($add-visible-border) {
       border-color: transparent;
+    }
+
+    // focus ring:
+    &::before {
+      color: var(--token-color-palette-neutral-0);
+      border: none;
     }
   }
 

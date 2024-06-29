@@ -13,7 +13,58 @@
 // Q: Create tokens?
 $app-header-home-link-padding: 4px;
 
+// Breakpoints WIP: START ----------------------------
+
+// Break points
+$tablet-min-width: 768px;
+$desktop-min-width: 1024px;
+
+// base styles
+.hds-app-header__menu {
+  display: inherit; // may be over-riddden by queries
+  gap: inherit;
+}
+
+// Media queries
+// -------------
 .hds-app-header {
+  // compound view: mobile/small and tablet/medium
+  @media (max-width: #{$desktop-min-width - 1}) {
+    &:not(.hds-app-header__menu-is-open) {
+      .hds-app-header__menu {
+        // dropdown menu is hidden whhen isOpen = false
+        display: none;
+      }
+    }
+
+    // Display as content as dropdown in mobile/tablet view
+    .hds-app-header__menu {
+      position: absolute;
+      top: calc(100% + 1px); // We add 1px to account for the bottom border
+      right: 0;
+      left: 0;
+      z-index: 5; // TODO: determine correct z-index to use
+      display: flex;
+      flex-wrap: wrap;
+      // height: calc(100vh - 52px); // it should take the full height of the viewport minus the header height
+      padding: 16px;
+      background: var(--token-color-palette-neutral-700);
+    }
+  }
+
+  // desktop/large view: applies at desktop min-width and above
+  @media (min-width: #{$desktop-min-width}) {
+    // Hide Menu button in desktop view
+    .hds-app-header__menu-button {
+      display: none;
+    }
+  }
+}
+
+// Breakpoints WIP: END ------------------------------
+
+.hds-app-header {
+  position: relative;
   display: flex;
   gap: 16px;
   align-items: center;
@@ -23,9 +74,6 @@ $app-header-home-link-padding: 4px;
   color: #FFF;
   background: var(--token-color-palette-neutral-700);
   border-bottom: 1px solid var(--token-color-palette-neutral-500);
-  box-shadow: 
-    0 4px 4px -2px hsla(0deg, 0%, 0%, 20%),
-    0 2px 3px 0 hsla(0deg, 0%, 0%, 10%);
 
   // Apply dark theme to child interactive components
   .hds-button,

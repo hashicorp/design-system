@@ -35,13 +35,13 @@
 
   <Shw::Text::H3>With child component content</Shw::Text::H3>
 
-  <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
+  <Shw::Grid @columns={{1}} {{style gap="3rem"}} as |SG|>
     <SG.Item @label="With minimum recommended phase 1 content">
       <Hds::AppHeader>
         <:globalItems>
           <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
 
-          <Hds::Dropdown class="DISABLEhds-side-nav__dropdown" as |dd|>
+          <Hds::Dropdown as |dd|>
             <dd.ToggleButton @text="Choose an organization" @icon="org" />
             <dd.Checkmark>
               organizationName
@@ -50,7 +50,7 @@
         </:globalItems>
 
         <:utilityItems>
-          <Hds::Dropdown class="DISABLEhds-side-nav__dropdown" @listPosition="bottom-right" as |dd|>
+          <Hds::Dropdown @listPosition="bottom-right" as |dd|>
             <dd.ToggleIcon @icon="help" @text="help menu" />
             <dd.Title @text="Help & Support" />
             <dd.Interactive @text="Documentation" @href="#" />
@@ -62,7 +62,7 @@
             <dd.Interactive @text="Give feedback" @href="#" />
           </Hds::Dropdown>
 
-          <Hds::Dropdown class="DISABLEhds-side-nav__dropdown" @listPosition="bottom-right" as |dd|>
+          <Hds::Dropdown @listPosition="bottom-right" as |dd|>
             <dd.ToggleIcon @icon="user" @text="user menu" />
             <dd.Title @text="Signed In" />
             <dd.Description @text="email@domain.com" />
@@ -77,7 +77,7 @@
         <:globalItems>
           <Hds::AppHeader::HomeLink @icon="terraform" @ariaLabel="Terraform home menu" @href="#" />
 
-          <Hds::Dropdown class="DISABLEhds-side-nav__dropdown" as |dd|>
+          <Hds::Dropdown as |dd|>
             <dd.ToggleButton @text="Choose an organization" @icon="org" />
             <dd.Checkmark>
               organizationName
@@ -86,15 +86,9 @@
         </:globalItems>
 
         <:utilityItems>
-          <Hds::Button
-            class="DISABLEhds-side-nav__icon-button"
-            @color="secondary"
-            @icon="search"
-            @isIconOnly={{true}}
-            @text="Search"
-          />
+          <Hds::Button @color="secondary" @icon="search" @isIconOnly={{true}} @text="Search" />
 
-          <Hds::Dropdown class="DISABLEhds-side-nav__dropdown" @listPosition="bottom-right" as |dd|>
+          <Hds::Dropdown @listPosition="bottom-right" as |dd|>
             <dd.ToggleIcon @icon="help" @text="help menu" />
             <dd.Title @text="Help & Support" />
             <dd.Interactive @text="Documentation" @href="#" />
@@ -106,7 +100,7 @@
             <dd.Interactive @text="Give feedback" @href="#" />
           </Hds::Dropdown>
 
-          <Hds::Dropdown class="DISABLEhds-side-nav__dropdown" @listPosition="bottom-right" as |dd|>
+          <Hds::Dropdown @listPosition="bottom-right" as |dd|>
             <dd.ToggleIcon @icon="user" @text="user menu" />
             <dd.Title @text="Signed In" />
             <dd.Description @text="email@domain.com" />
@@ -124,7 +118,7 @@
 
           <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
 
-          <Hds::Dropdown class="DISABLEhds-side-nav__dropdown" as |dd|>
+          <Hds::Dropdown as |dd|>
             <dd.ToggleButton @text="Choose an organization" @icon="org" />
             <dd.Checkmark>
               organizationName
@@ -133,7 +127,7 @@
         </:globalItems>
 
         <:utilityItems>
-          <Hds::Dropdown class="DISABLEhds-side-nav__dropdown" as |dd|>
+          <Hds::Dropdown as |dd|>
             <dd.ToggleButton @text="Europe" @icon="globe" />
             <dd.Checkmark>
               Americas
@@ -142,7 +136,7 @@
 
           <Hds::Button @icon="search" @isIconOnly={{true}} @text="Search" />
 
-          <Hds::Dropdown class="DISABLEhds-side-nav__dropdown" @listPosition="bottom-right" as |dd|>
+          <Hds::Dropdown @listPosition="bottom-right" as |dd|>
             <dd.ToggleIcon @icon="help" @text="help menu" />
             <dd.Title @text="Help & Support" />
             <dd.Interactive @text="Documentation" @href="#" />
@@ -154,7 +148,7 @@
             <dd.Interactive @text="Give feedback" @href="#" />
           </Hds::Dropdown>
 
-          <Hds::Dropdown class="DISABLEhds-side-nav__dropdown" @listPosition="bottom-right" as |dd|>
+          <Hds::Dropdown @listPosition="bottom-right" as |dd|>
             <dd.ToggleIcon @icon="user" @text="user menu" />
             <dd.Title @text="Signed In" />
             <dd.Description @text="email@domain.com" />
