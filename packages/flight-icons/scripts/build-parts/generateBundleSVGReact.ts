@@ -14,7 +14,7 @@ import { ConfigData } from '../@types/ConfigData';
 import { AssetsCatalog } from '../@types/AssetsCatalog';
 import { getCssForIconAnimation } from './getCssForIconAnimation';
 
-const prettierConfig = { parser: 'typescript' as const, tabWidth: 4, singleQuote: true };
+const prettierConfig = { parser: 'typescript' as const, tabWidth: 4, singleQuote: true, trailingComma: 'none' as const };
 
 const getComponentName = (fileName: string) => {
     return upperFirst(camelCase(`Icon ${fileName}`));
