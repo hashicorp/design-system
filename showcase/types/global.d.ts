@@ -44,7 +44,7 @@ export interface ShwFlexItemSignature {
     default: [
       {
         Label: typeof ShwLabel;
-      }
+      },
     ];
   };
 }
@@ -63,7 +63,7 @@ export interface ShwFlexSignature {
       {
         Label: typeof ShwLabel;
         Item: typeof ShwFlexItem;
-      }
+      },
     ];
   };
 }
@@ -80,7 +80,7 @@ export interface ShwGridItemSignature {
     default: [
       {
         Label: typeof ShwLabel;
-      }
+      },
     ];
   };
 }
@@ -98,7 +98,7 @@ export interface ShwGridSignature {
       {
         Label: typeof ShwLabel;
         Item: typeof ShwGridItem;
-      }
+      },
     ];
   };
 }
