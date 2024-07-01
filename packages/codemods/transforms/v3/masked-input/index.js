@@ -13,12 +13,15 @@ module.exports = function ({ source /*, path*/ }, { parse, visit }) {
 
     return {
       ElementNode(node) {
-        if (node.tag === 'Hds::Form::MaskedInput::Base' || node.tag === 'Hds::Form::MaskedInput::Field') {
+        if (
+          node.tag === 'Hds::Form::MaskedInput::Base' ||
+          node.tag === 'Hds::Form::MaskedInput::Field'
+        ) {
           // filter out the `@isMasked` attribute
-          const outputAttrs = node.attributes.filter(a => a.name !== '@isMasked');
+          const outputAttrs = node.attributes.filter((a) => a.name !== '@isMasked');
 
           // look up for `@isMasked`
-          const attr = node.attributes.find(a => a.name === '@isMasked');
+          const attr = node.attributes.find((a) => a.name === '@isMasked');
 
           // update the argument name
           if (attr && attr.value) {
@@ -34,12 +37,12 @@ module.exports = function ({ source /*, path*/ }, { parse, visit }) {
                     modifiers: node.modifiers,
                     blockParams: node.blockParams,
                   }
-                )
+                ),
               ];
             }
           }
         }
-      }
+      },
     };
   });
 };
