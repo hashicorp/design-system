@@ -1,6 +1,16 @@
 # @hashicorp/design-system-components
 
+## 4.5.3
+
+### Patch Changes
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/ember-flight-icons@5.1.2
+
 ## 4.5.2
+
+**🚨 Caution: This version has been deprecated 🚨**
 
 ### Patch Changes
 
@@ -9,6 +19,8 @@
 - @hashicorp/ember-flight-icons@5.1.1
 
 ## 4.5.1
+
+**🚨 Caution: This version has been deprecated 🚨**
 
 ### Patch Changes
 
@@ -19,6 +31,8 @@ Fixed syncing of `<F.Error />` ids to the `aria-describedby` attribute
 <div class="doc-whats-new-changelog-separator"></div>
 
 ## 4.5.0
+
+**🚨 Caution: This version has been deprecated 🚨**
 
 [4.5.0 documentation](https://hds-website-4-5-0.vercel.app/)
 
