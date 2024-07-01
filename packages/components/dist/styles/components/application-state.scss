@@ -1,0 +1,49 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// APPLICATION-STATE COMPONENT
+//
+
+$hds-application-state-padding: 12px 0;
+
+.hds-application-state {
+  width: 19.5rem;
+  max-width: 100%;
+  margin: 0 auto; // this will center the component in the parent container
+}
+
+.hds-application-state__header {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  align-items: start;
+  color: var(--token-color-foreground-faint);
+}
+
+.hds-application-state__icon {
+  margin-right: 8px; // instead of column gap
+  padding-top: 4px; // this seems to align the icon along with line 21
+}
+
+.hds-application-state__title,
+.hds-application-state__error-code {
+  grid-column-start: 2;
+}
+
+.hds-application-state__body {
+  padding: $hds-application-state-padding;
+  color: var(--token-color-foreground-faint);
+}
+
+.hds-application-state__footer {
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+
+  &.hds-application-state__footer--has-divider {
+    padding: $hds-application-state-padding;
+    border-top: 1px solid var(--token-color-border-strong);
+  }
+}

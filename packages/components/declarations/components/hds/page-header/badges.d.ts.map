@@ -1,0 +1,1 @@
+{"version":3,"file":"badges.d.ts","sourceRoot":"","sources":["../../../../src/components/hds/page-header/badges.ts"],"names":[],"mappings":"AAAA;;;GAGG;;AAIH,MAAM,WAAW,4BAA4B;IAC3C,MAAM,EAAE;QACN,OAAO,EAAE,EAAE,CAAC;KACb,CAAC;IACF,OAAO,EAAE,cAAc,CAAC;CACzB;AAED,QAAA,MAAM,4BAA4B,8FACqB,CAAC;AAExD,eAAe,4BAA4B,CAAC"}

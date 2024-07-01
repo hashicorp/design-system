@@ -1,0 +1,515 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// SUPER-SELECT
+
+// Copied from components/src/styles/components/tag.scss styles
+// we set a higher value than the line-height (~13px) to accommodate cases where the text wraps
+$hds-tag-border-radius: 50px; // This variable is repeated from tag.scss
+$hds-super-select-item-height: 36px;
+
+// Style overrides:
+
+.hds-form-super-select {
+  width: 100%;
+}
+
+.hds-form-super-select .ember-basic-dropdown {
+
+  // TRIGGER
+  .ember-basic-dropdown-trigger,
+  .ember-power-select-trigger {
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    min-height: $hds-super-select-item-height;
+    padding-top: 4px;
+    padding-right: calc(var(--token-form-control-padding) + 24px); // extra space for the icon
+    padding-bottom: 4px;
+    padding-left: 11px;
+    color: var(--token-form-control-base-foreground-value-color);
+    line-height: var(--token-typography-body-200-line-height);
+    background-color: var(--token-form-control-base-surface-color-default);
+    background-image: var(--token-form-select-background-image-data-url);
+    background-repeat: no-repeat;
+    // placing the selection indicator to middle-right, in contrast with the Select component where it's top-right
+    background-position: right var(--token-form-select-background-image-position-right-x) center, top var(--token-form-select-background-image-position-top-y) left 20px;
+    background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
+    border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
+    border-radius: var(--token-form-control-border-radius);
+    box-shadow: var(--token-elevation-low-box-shadow);
+
+    &:hover,
+    &.mock-hover {
+      border-color: var(--token-form-control-base-border-color-hover);
+    }
+
+    &:focus,
+    &.mock-focus {
+      border-color: var(--token-color-focus-action-internal);
+      outline: 3px solid var(--token-color-focus-action-external);
+      outline-offset: 0;
+    }
+
+    &[aria-expanded="true"] {
+      // override the `BasicDropdown` border radius when opened (it's square at the bottom)
+      &.ember-basic-dropdown-trigger--in-place {
+        border-radius: var(--token-form-control-border-radius);
+      }
+    }
+
+    // Hide the `BasicDropdown` default trigger arrow
+    .ember-power-select-status-icon {
+      display: none;
+    }
+
+    // Trigger content (Single Select):
+    .ember-power-select-placeholder,
+    .ember-power-select-selected-item {
+      flex: 1;
+      margin-left: 0;
+    }
+
+    .ember-power-select-placeholder {
+      color: var(--token-form-control-base-foreground-placeholder-color);
+    }
+
+    // `BasicDropdown` uses `aria-disabled` on the trigger, see: https://ember-basic-dropdown.com/docs/disabled
+    &[aria-disabled="true"] {
+      color: var(--token-form-control-disabled-foreground-color);
+      background-color: var(--token-form-control-disabled-surface-color);
+      background-image: var(--token-form-select-background-image-data-url-disabled);
+      border-color: var(--token-form-control-disabled-border-color);
+      box-shadow: none;
+      cursor: not-allowed;
+      opacity: 1;
+
+      .ember-power-select-selected-item {
+        opacity: inherit;
+      }
+    }
+  }
+
+  // DROPDOWN
+  .ember-basic-dropdown-content {
+    max-width: var(--hds-form-super-select-dropdown-max-width, none);
+    margin: 0;
+    border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
+    border-radius: var(--token-form-control-border-radius);
+
+    &.ember-basic-dropdown-content--in-place {
+      box-shadow: var(--token-elevation-high-box-shadow), var(--token-elevation-high-box-shadow);
+    }
+
+    &.ember-basic-dropdown-content--below {
+      margin-top: 4px;
+    }
+
+    &.ember-basic-dropdown-content--above {
+      top: unset !important; // override inline style
+      bottom: 100%;
+      margin-bottom: 4px;
+    }
+
+    // hide first group separator line
+    > .ember-power-select-options > .hds-form-super-select__option-group:first-child::before {
+      display: none;
+    }
+  }
+
+  // Options List
+  .ember-power-select-options {
+    padding: 3px 0;
+
+    .ember-power-select-options {
+      padding: 0;
+    }
+  }
+
+  // Options Item
+  .ember-power-select-option {
+    position: relative;
+    min-height: $hds-super-select-item-height;
+    padding: 7px 7px 7px 39px;
+    font-size: var(--token-typography-body-200-font-size);
+    font-family: var(--token-typography-body-200-font-family);
+    line-height: var(--token-typography-body-200-line-height);
+    overflow-wrap: break-word; // when used with flex parent, content may overflow (therefore not using flex layout on parent)
+    border: none; // guard against border in default theme
+
+    + .ember-power-select-option {
+      margin-top: 8px;
+    }
+
+    // states
+    &[aria-current="true"] {
+      color: var(--token-form-control-base-foreground-value-color);
+      background-color: var(--token-form-control-base-surface-color-default);
+    }
+
+    &[aria-selected="true"] {
+      background-color: var(--token-form-control-base-surface-color-default);
+    }
+
+    &[aria-current="true"],
+    &:hover,
+    &.mock-hover {
+      border: none; // guard against border in default theme
+
+      // left border
+      &::after {
+        position: absolute;
+        top: 6px;
+        bottom: 6px;
+        left: 3px;
+        width: 2px;
+        background-color: var(--token-color-foreground-action-hover);
+        border-radius: 500px; // Makes it look slightly rounded on the ends (doesn't match Figma exactly)
+        content: "";
+      }
+    }
+
+    &:active,
+    &.mock-active {
+      // left border
+      &::after{
+        background-color: var(--token-color-foreground-action-active);
+      }
+    }
+  }
+
+  // Option Groups (similar to HTML optgroup)
+
+  .hds-form-super-select__option-group {
+    &:first-child .hds-form-super-select__option-group-title {
+      margin-top: 0;
+    }
+
+    // group separator line
+    &::before {
+      display: block;
+      height: 5px;
+      margin: 7px 5px 9px 5px;
+      border-bottom: 1px solid var(--token-color-border-primary);
+      content: "";
+    }
+
+    .hds-form-super-select__option-group {
+      padding-left: 16px;
+
+      &:first-child::before {
+        display: none;
+      }
+    }
+  }
+
+  .hds-form-super-select__option-group-title {
+    margin: 8px 0;
+    padding: 6px 7px 2px 15px;
+  }
+
+  // SEARCH
+  // (Single select, to be added to Multiple | in @beforeOptionsComponent area)
+  .ember-power-select-search {
+    margin-bottom: 3px;
+    padding: 11px 11px 0 11px;
+    border-radius: var(--token-form-control-border-radius);
+  }
+
+  .ember-power-select-search-input {
+    width: 100%;
+    min-height: $hds-super-select-item-height;
+    padding: var(--token-form-control-padding);
+    color: var(--token-form-control-base-foreground-value-color);
+    font-size: var(--token-typography-body-200-font-size);
+    font-family: var(--token-typography-body-200-font-family);
+    line-height: 1rem;
+    background-color: var(--token-form-control-base-surface-color-default);
+    border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
+    border-radius: var(--token-form-control-border-radius);
+    box-shadow: var(--token-elevation-inset-box-shadow);
+
+    // placeholder
+    &::placeholder {
+      color: var(--token-form-control-base-foreground-placeholder-color);
+    }
+
+    // status
+    &:hover,
+    &.mock-hover {
+      border-color: var(--token-form-control-base-border-color-hover);
+    }
+
+    // focus (same for all the states)
+    &:focus,
+    &.mock-focus {
+      border-color: var(--token-color-focus-action-internal);
+      outline: 3px solid var(--token-color-focus-action-external);
+      outline-offset: 0;
+    }
+
+    &[type="search"] {
+      padding-left: calc(var(--token-form-control-padding) + 24px); // extra space for the icon
+      background-image: var(--token-form-text-input-background-image-data-url-search);
+      background-repeat: no-repeat;
+      background-position: var(--token-form-text-input-background-image-position-x) 50%;
+      background-size: var(--token-form-text-input-background-image-size);
+
+      &::-webkit-search-cancel-button {
+        width: var(--token-form-text-input-background-image-size);
+        height: var(--token-form-text-input-background-image-size);
+        background-image: var(--token-form-text-input-background-image-data-url-search-cancel);
+        background-position: center center;
+        background-size: var(--token-form-text-input-background-image-size);
+        appearance: none;
+      }
+    }
+  }
+
+  // MULTIPLE
+  // Tag List
+  .ember-power-select-multiple-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    min-width: 0;
+    list-style: none;
+  }
+
+  // Tag item
+  .ember-power-select-multiple-option {
+    float: none;
+    min-width: 0;
+    margin: 0;
+    padding: 3px 10px 5px 10px;
+    font-size: var(--token-typography-body-100-font-size);
+    font-family: var(--token-typography-body-100-font-family);
+    line-height: 1rem; // 16px - override line height in `.ember-power-select-multiple-option`
+    vertical-align: middle;
+    overflow-wrap: break-word;
+    background-color: var(--token-color-surface-interactive);
+    border: 1px solid var(--token-color-border-strong);
+    border-radius: $hds-tag-border-radius;
+  }
+
+  // Tag close button ("X")
+  .ember-power-select-multiple-remove-btn {
+    display: none;
+  }
+
+  // Cancel button
+  .ember-power-select-trigger-multiple-input {
+    color: var(--token-form-control-base-foreground-value-color);
+    font-size: var(--token-typography-body-200-font-size);
+    font-family: var(--token-typography-body-200-font-family);
+
+    &::-webkit-search-cancel-button {
+      width: var(--token-form-text-input-background-image-size);
+      height: var(--token-form-text-input-background-image-size);
+      background-image: var(--token-form-text-input-background-image-data-url-search-cancel);
+      background-position: center center;
+      background-size: var(--token-form-text-input-background-image-size);
+      cursor: pointer;
+      // stylelint-disable-next-line property-no-vendor-prefix
+      -webkit-appearance: none;
+    }
+  }
+}
+
+// INVALID
+.hds-form-super-select.hds-form-super-select--is-invalid .ember-basic-dropdown {
+  .ember-basic-dropdown-trigger,
+  .ember-power-select-trigger {
+    border-color: var(--token-form-control-invalid-border-color-default);
+
+    &:hover,
+    &.mock-hover {
+      border-color: var(--token-form-control-invalid-border-color-hover);
+    }
+
+    &:focus,
+    &.mock-focus {
+      border-color: var(--token-color-focus-critical-internal);
+      outline-color: var(--token-color-focus-critical-external);
+    }
+  }
+}
+
+// ONLY SELECTED
+.hds-form-super-select.hds-form-super-select--show-only-selected .ember-basic-dropdown {
+  .ember-power-select-option {
+    &:not([aria-selected="true"]) {
+      display: none;
+    }
+  }
+}
+
+// VARIANT COMPONENTS
+
+// SINGLE
+.hds-form-super-select-single .ember-basic-dropdown {
+
+  // Options Item
+  .ember-power-select-option:not(.ember-power-select-option--no-matches-message) {
+    background-repeat: no-repeat;
+    background-position: 15px 10px;
+    background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
+
+    // checked
+    &[aria-selected="true"]:not([aria-disabled="true"]) {
+      color: var(--token-color-foreground-action);
+
+      // checkmark icon:
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' fill='%231060ff'/%3E%3C/svg%3E");
+    }
+
+    &[aria-current="true"],
+    &:hover,
+    &.mock-hover {
+      color: var(--token-color-foreground-action-hover);
+    }
+
+    &:active,
+    &.mock-active {
+      color: var(--token-color-foreground-action-active);
+    }
+
+    // checked, disabled:
+    &[aria-selected="true"][aria-disabled="true"] {
+      background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.7803 4.28033C15.0732 3.98744 15.0732 3.51256 14.7803 3.21967C14.4874 2.92678 14.0126 2.92678 13.7197 3.21967L5.75 11.1893L2.28033 7.71967C1.98744 7.42678 1.51256 7.42678 1.21967 7.71967C0.926777 8.01256 0.926777 8.48744 1.21967 8.78033L5.21967 12.7803C5.51256 13.0732 5.98744 13.0732 6.28033 12.7803L14.7803 4.28033Z' fill='%238C909C'/%3E%3C/svg%3E");
+    }
+  }
+}
+
+// MULTIPLE SELECT
+.hds-form-super-select-multiple .ember-basic-dropdown {
+
+  // Options Item
+  .ember-power-select-option:not(.ember-power-select-option--no-matches-message) {
+    position: relative;
+
+    // pseudo checkbox
+    &::before {
+      position: absolute;
+      top: 9px;
+      left: 15px;
+      display: block;
+      width: var(--token-form-checkbox-size);
+      height: var(--token-form-checkbox-size);
+      background-position: center center;
+      background-size: var(--token-form-checkbox-background-image-size) var(--token-form-checkbox-background-image-size);
+      border-style: solid;
+      border-width: var(--token-form-checkbox-border-width);
+      border-radius: var(--token-form-checkbox-border-radius);
+      cursor: pointer;
+      content: "";
+    }
+
+    // unchecked checkbox:
+    &:not([aria-selected="true"]) {
+      &::before {
+        background-color: var(--token-form-control-base-surface-color-default);
+        border-color: var(--token-form-control-base-border-color-default);
+        box-shadow: var(--token-elevation-inset-box-shadow);
+      }
+    }
+
+    // unchecked checkbox, hovered:
+    &[aria-current="true"],
+    &:hover:not([aria-selected="true"]),
+    &.mock-hover:not([aria-selected="true"]) {
+      &::before {
+        background-color: var(--token-form-control-base-surface-color-hover);
+        border-color: var(--token-form-control-base-border-color-hover);
+      }
+    }
+
+    // unchecked checkbox, disabled:
+    &[aria-disabled="true"]:not([aria-selected="true"]) {
+      &::before {
+        background-color: var(--token-form-control-disabled-surface-color);
+        border-color: var(--token-form-control-disabled-border-color);
+        box-shadow: none;
+        cursor: not-allowed;
+      }
+    }
+
+    // checked checkbox:
+    &[aria-selected="true"] {
+      &:not([aria-disabled="true"]) {
+        &::before {
+          background-color: var(--token-form-control-checked-surface-color-default);
+          background-image: var(--token-form-checkbox-background-image-data-url);
+          border-color: var(--token-form-control-checked-border-color-default);
+        }
+      }
+
+      // checked checkbox, hovered:
+      &[aria-current="true"],
+      &:hover[aria-selected="true"],
+      &.mock-hover[aria-selected="true"] {
+        &::before {
+          background-color: var(--token-form-control-checked-border-color-default);
+          border-color: var(--token-form-control-checked-border-color-hover);
+        }
+      }
+
+      // checked checkbox, disabled:
+      &[aria-disabled="true"] {
+        &::before {
+          background-color: var(--token-form-control-disabled-surface-color);
+          background-image: var(--token-form-checkbox-background-image-data-url-disabled);
+          border-color: var(--token-form-control-disabled-border-color);
+          box-shadow: none;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
+
+// NO MATCHES MESSAGE
+
+.hds-form-super-select .ember-basic-dropdown {
+  .ember-power-select-option--no-matches-message {
+    padding-left: 12px;
+    cursor: inherit;
+    // hide the hover indicator on messages
+    &::after {
+      display: none;
+    }
+  }
+}
+
+// AFTER OPTIONS
+
+.hds-form-super-select__after-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: var(--token-color-surface-strong);
+  border-top: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
+}
+
+.hds-form-super-select__result-count {
+  margin-left: auto;
+}
+
+.hds-form-super-select__no-options-selected {
+  min-height: $hds-super-select-item-height;
+  padding: 4px 15px 10px;
+}
+
+// VARIANTS
+
+// When renderInPlace=true, matchTriggerWidth=false has no effect unless we override the width of the dropdown content
+// (fixes bug with ember-power-select)
+.hds-form-super-select--dropdown-content-auto-width {
+  .ember-power-select-dropdown.ember-basic-dropdown-content {
+      width: auto;
+  }
+}
