@@ -10,19 +10,19 @@ This is the case when the component has not yet been released as an npm package,
 ## Using a remote branch (via GitHub)
 
 > [!IMPORTANT]
-> While this approach is more suitable for one-off testing before releasing a package, less so for ongoing development, this remains the only option available for pre-testing our code in Cloud UI until we find an way to have the local environment approach work again.
+> While this approach is more suitable for one-off testing before releasing a package, less so for ongoing development, this remains the only option available for pre-testing our code in Cloud UI until we find a way to have the local environment approach work again.
 
 ### 1 - Override the package resolution in the `package.json` file in the root
 
 You can override every dependency declared in the engines' `package.json` files with a single entry in the `package.json` file in the root of the project folder, by adding this line to the `"resolutions"` block:
 
-```
+```json
 "@hashicorp/design-system-components": "https://github.com/hashicorp/design-system#head=BRANCH-NAME&workspace=@hashicorp/design-system-components"
 ```
 
 ### 2 - Temporary commit the compiled folders
 
-Because the NPM package is released with the `dist` folder, but the monorepo ignores this folder via `.gitignore`, in your testing branch you will **temporarely** have to:
+Because the npm package is released with the `dist` folder, but the monorepo ignores this folder via `.gitignore`, in your testing branch you will **temporarily** have to:
 - comment the entries `/dist/` and `/declarations/` in the `.gitignore` files under the `components` and `ember-flight-icons` packages folders
 - run the `yarn build` command under the `components` and `ember-flight-icons` folders (both are required)
 - commit and push the `dist` folders to the branch you're using for testing (notice: it needs to be associated with a PR or GitHub will not generate a URL)
@@ -39,7 +39,7 @@ You can now test your code in Cloud UI, starting the HCP application in your loc
 
 ### 5 - Cleanup
 
-Once done the testing, remember to remove the `dist` and `/declarations/` folders by deleting the commit, so the Git history remains clean.
+Once done with the testing, remember to remove the `/dist/` and `/declarations/` folders by deleting the commit, so the git history remains clean.
 
 ---
 
