@@ -19,8 +19,8 @@ import { assert } from '@ember/debug';
 
 export function hdsLinkToModels<T>([model, models]: [
   T | undefined,
-  T[] | undefined
-]): T[] {
+  T[] | undefined,
+]) {
   assert(
     'You cannot provide both the `@model` and `@models` arguments to the component.',
     !model || !models

@@ -4134,17 +4134,17 @@ __metadata:
     ember-power-select: "npm:^8.2.0"
     ember-stargate: "npm:^0.4.3"
     ember-style-modifier: "npm:^3.0.1"
-    ember-template-lint: "npm:^4.18.2"
-    ember-template-lint-plugin-prettier: "npm:^4.2.0"
+    ember-template-lint: "npm:^6.0.0"
+    ember-template-lint-plugin-prettier: "npm:^5.0.0"
     ember-truth-helpers: "npm:^4.0.3"
     eslint: "npm:^8.57.0"
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-ember: "npm:^11.12.0"
     eslint-plugin-import: "npm:^2.29.1"
     eslint-plugin-n: "npm:^17.7.0"
-    eslint-plugin-prettier: "npm:^4.2.1"
+    eslint-plugin-prettier: "npm:^5.1.3"
     eslint-plugin-qunit: "npm:^8.1.1"
-    prettier: "npm:^2.8.8"
+    prettier: "npm:^3.3.2"
     prismjs: "npm:^1.29.0"
     rollup: "npm:^4.17.2"
     rollup-plugin-copy: "npm:^3.5.0"
@@ -13552,18 +13552,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-template-lint-plugin-prettier@npm:^4.2.0":
-  version: 4.2.0
-  resolution: "ember-template-lint-plugin-prettier@npm:4.2.0"
-  dependencies:
-    prettier-linter-helpers: "npm:^1.0.0"
-  peerDependencies:
-    ember-template-lint: ">= 4.0.0"
-    prettier: ">= 1.18.1"
-  checksum: 10/5b9047bd10ba96a9c5d0e1e0e30d02b55011e00c01a4daa4a093c2388e1941b43d6140e9de6dc4a9acdd3ba91a61ea3d2e7ca6d3f451df8c67122c374420c687
-  languageName: node
-  linkType: hard
-
 "ember-template-lint-plugin-prettier@npm:^5.0.0":
   version: 5.0.0
   resolution: "ember-template-lint-plugin-prettier@npm:5.0.0"
@@ -14379,21 +14367,6 @@ __metadata:
   peerDependencies:
     eslint: ">=5.16.0"
   checksum: 10/bda540f390a84d835989f21f56743f3aa8f41fd9b53359d635c116632c86af92d70d8e6449ddd18860e6241f9cef04fc90c37eb192a9047c3c3a46de6145c30c
-  languageName: node
-  linkType: hard
-
-"eslint-plugin-prettier@npm:^4.2.1":
-  version: 4.2.1
-  resolution: "eslint-plugin-prettier@npm:4.2.1"
-  dependencies:
-    prettier-linter-helpers: "npm:^1.0.0"
-  peerDependencies:
-    eslint: ">=7.28.0"
-    prettier: ">=2.0.0"
-  peerDependenciesMeta:
-    eslint-config-prettier:
-      optional: true
-  checksum: 10/d387f85dd1bfcb6bc6b794845fee6afb9ebb2375653de6bcde6e615892fb97f85121a7c012a4651b181fc09953bdf54c9bc70cab7ad297019d89ae87dd007e28
   languageName: node
   linkType: hard
 
@@ -22683,7 +22656,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.5.1, prettier@npm:^2.7.1, prettier@npm:^2.8.8":
+"prettier@npm:^2.5.1, prettier@npm:^2.7.1":
   version: 2.8.8
   resolution: "prettier@npm:2.8.8"
   bin:
