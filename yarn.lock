@@ -3429,13 +3429,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:8.55.0":
-  version: 8.55.0
-  resolution: "@eslint/js@npm:8.55.0"
-  checksum: 10/34b001a95b16501fd64f525b1de3ab0e4c252e5820b74069004934cb13977fc04ba4522a3e8f8074bd6af49da10d3444cd49fa711819f425ad73d6bf46eea82d
-  languageName: node
-  linkType: hard
-
 "@eslint/js@npm:8.57.0":
   version: 8.57.0
   resolution: "@eslint/js@npm:8.57.0"
@@ -4221,22 +4214,22 @@ __metadata:
     "@hashicorp/flight-icons": "npm:^3.4.0"
     "@rollup/plugin-babel": "npm:^6.0.4"
     "@tsconfig/ember": "npm:^3.0.6"
-    "@typescript-eslint/eslint-plugin": "npm:^6.14.0"
-    "@typescript-eslint/parser": "npm:^6.14.0"
+    "@typescript-eslint/eslint-plugin": "npm:^6.21.0"
+    "@typescript-eslint/parser": "npm:^6.21.0"
     babel-plugin-ember-template-compilation: "npm:^2.2.1"
     concurrently: "npm:^8.2.2"
     decorator-transforms: "npm:^1.1.0"
     ember-get-config: "npm:^2.1.1"
-    ember-template-lint: "npm:^5.13.0"
-    ember-template-lint-plugin-prettier: "npm:^4.2.0"
-    eslint: "npm:^8.52.0"
-    eslint-config-prettier: "npm:^8.10.0"
-    eslint-plugin-ember: "npm:^11.11.1"
+    ember-template-lint: "npm:^6.0.0"
+    ember-template-lint-plugin-prettier: "npm:^5.0.0"
+    eslint: "npm:^8.57.0"
+    eslint-config-prettier: "npm:^9.1.0"
+    eslint-plugin-ember: "npm:^11.12.0"
     eslint-plugin-import: "npm:^2.29.1"
     eslint-plugin-n: "npm:^17.7.0"
-    eslint-plugin-prettier: "npm:^4.2.1"
-    eslint-plugin-qunit: "npm:^8.0.1"
-    prettier: "npm:^2.8.8"
+    eslint-plugin-prettier: "npm:^5.1.3"
+    eslint-plugin-qunit: "npm:^8.1.1"
+    prettier: "npm:^3.3.2"
     rollup: "npm:^4.17.2"
     rollup-plugin-copy: "npm:^3.5.0"
     typescript: "npm:^5.3.3"
@@ -4280,17 +4273,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@humanwhocodes/config-array@npm:^0.11.13":
-  version: 0.11.13
-  resolution: "@humanwhocodes/config-array@npm:0.11.13"
-  dependencies:
-    "@humanwhocodes/object-schema": "npm:^2.0.1"
-    debug: "npm:^4.1.1"
-    minimatch: "npm:^3.0.5"
-  checksum: 10/9f655e1df7efa5a86822cd149ca5cef57240bb8ffd728f0c07cc682cc0a15c6bdce68425fbfd58f9b3e8b16f79b3fd8cb1e96b10c434c9a76f20b2a89f213272
-  languageName: node
-  linkType: hard
-
 "@humanwhocodes/config-array@npm:^0.11.14":
   version: 0.11.14
   resolution: "@humanwhocodes/config-array@npm:0.11.14"
@@ -4324,13 +4306,6 @@ __metadata:
   version: 1.2.1
   resolution: "@humanwhocodes/object-schema@npm:1.2.1"
   checksum: 10/b48a8f87fcd5fdc4ac60a31a8bf710d19cc64556050575e6a35a4a48a8543cf8cde1598a65640ff2cdfbfd165b38f9db4fa3782bea7848eb585cc3db824002e6
-  languageName: node
-  linkType: hard
-
-"@humanwhocodes/object-schema@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "@humanwhocodes/object-schema@npm:2.0.1"
-  checksum: 10/dbddfd0465aecf92ed845ec30d06dba3f7bb2496d544b33b53dac7abc40370c0e46b8787b268d24a366730d5eeb5336ac88967232072a183905ee4abf7df4dab
   languageName: node
   linkType: hard
 
@@ -6419,7 +6394,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^6.14.0, @typescript-eslint/eslint-plugin@npm:^6.21.0":
+"@typescript-eslint/eslint-plugin@npm:^6.21.0":
   version: 6.21.0
   resolution: "@typescript-eslint/eslint-plugin@npm:6.21.0"
   dependencies:
@@ -6477,7 +6452,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^6.14.0, @typescript-eslint/parser@npm:^6.21.0":
+"@typescript-eslint/parser@npm:^6.21.0":
   version: 6.21.0
   resolution: "@typescript-eslint/parser@npm:6.21.0"
   dependencies:
@@ -13629,34 +13604,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-template-lint@npm:^5.13.0":
-  version: 5.13.0
-  resolution: "ember-template-lint@npm:5.13.0"
-  dependencies:
-    "@lint-todo/utils": "npm:^13.1.1"
-    aria-query: "npm:^5.3.0"
-    chalk: "npm:^5.3.0"
-    ci-info: "npm:^3.8.0"
-    date-fns: "npm:^2.30.0"
-    ember-template-imports: "npm:^3.4.2"
-    ember-template-recast: "npm:^6.1.4"
-    eslint-formatter-kakoune: "npm:^1.0.0"
-    find-up: "npm:^6.3.0"
-    fuse.js: "npm:^6.5.3"
-    get-stdin: "npm:^9.0.0"
-    globby: "npm:^13.2.2"
-    is-glob: "npm:^4.0.3"
-    language-tags: "npm:^1.0.8"
-    micromatch: "npm:^4.0.5"
-    resolve: "npm:^1.22.3"
-    v8-compile-cache: "npm:^2.3.0"
-    yargs: "npm:^17.7.2"
-  bin:
-    ember-template-lint: bin/ember-template-lint.js
-  checksum: 10/5d360f94009af4eaa99e565de3f69b4dafd1076283e7d511e9e19afe70fa2b0a8e71d3683982e8792b5c538ae524b0449ed86811a17aacec57caf5032d259dea
-  languageName: node
-  linkType: hard
-
 "ember-template-lint@npm:^6.0.0":
   version: 6.0.0
   resolution: "ember-template-lint@npm:6.0.0"
@@ -14264,17 +14211,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:^8.10.0":
-  version: 8.10.0
-  resolution: "eslint-config-prettier@npm:8.10.0"
-  peerDependencies:
-    eslint: ">=7.0.0"
-  bin:
-    eslint-config-prettier: bin/cli.js
-  checksum: 10/0a51ab1417cbf80fabcf7a406960a142663539c8140fdb0a187b78f3d708b9d137a62a4bc4e689150e290b667750ddabd1740a516623b0cb4adb6cc1962cfe2c
-  languageName: node
-  linkType: hard
-
 "eslint-config-prettier@npm:^9.1.0":
   version: 9.1.0
   resolution: "eslint-config-prettier@npm:9.1.0"
@@ -14313,29 +14249,6 @@ __metadata:
     eslint:
       optional: true
   checksum: 10/3e7892c0a984c963632da56b30ccf8254c29b535467138f91086c2ecdb2ebd10e2be61b54e553f30e5abf1d14d47a7baa0dac890e3a658fd3cd07dca63afbe6d
-  languageName: node
-  linkType: hard
-
-"eslint-plugin-ember@npm:^11.11.1":
-  version: 11.11.1
-  resolution: "eslint-plugin-ember@npm:11.11.1"
-  dependencies:
-    "@ember-data/rfc395-data": "npm:^0.0.4"
-    "@glimmer/syntax": "npm:^0.84.2"
-    css-tree: "npm:^2.0.4"
-    ember-rfc176-data: "npm:^0.3.15"
-    ember-template-imports: "npm:^3.4.2"
-    ember-template-recast: "npm:^6.1.4"
-    eslint-utils: "npm:^3.0.0"
-    estraverse: "npm:^5.2.0"
-    lodash.camelcase: "npm:^4.1.1"
-    lodash.kebabcase: "npm:^4.1.1"
-    magic-string: "npm:^0.30.0"
-    requireindex: "npm:^1.2.0"
-    snake-case: "npm:^3.0.3"
-  peerDependencies:
-    eslint: ">= 7"
-  checksum: 10/ee945a4544da2e68594c33c58efbdfba473c3ffbaf4f4018c9074260bcd9073e3d4850cdc0189bd2b0d366d84f36ff287100438c63b2ade23f890d63e199ce39
   languageName: node
   linkType: hard
 
@@ -14504,16 +14417,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-qunit@npm:^8.0.1":
-  version: 8.0.1
-  resolution: "eslint-plugin-qunit@npm:8.0.1"
-  dependencies:
-    eslint-utils: "npm:^3.0.0"
-    requireindex: "npm:^1.2.0"
-  checksum: 10/4670d2a492011d22b2ed10ac8b8c7cbbd2f779918177d6559654563cdfcfaaa38d6dc5291e1d5b336b4bb75cf49e7190d1b049a9ff8e5573044ed37317ed5a36
-  languageName: node
-  linkType: hard
-
 "eslint-plugin-qunit@npm:^8.1.1":
   version: 8.1.1
   resolution: "eslint-plugin-qunit@npm:8.1.1"
@@ -14632,54 +14535,6 @@ __metadata:
   bin:
     eslint: bin/eslint.js
   checksum: 10/2015a72bc4c49a933fc7bd707bdb61b0386542c9e23d28be79434b5fd914f14355a4565a29fdcd1c69a8a3682cf20b4f2aed6b60e294b0b0d98ace69138c3a02
-  languageName: node
-  linkType: hard
-
-"eslint@npm:^8.52.0":
-  version: 8.55.0
-  resolution: "eslint@npm:8.55.0"
-  dependencies:
-    "@eslint-community/eslint-utils": "npm:^4.2.0"
-    "@eslint-community/regexpp": "npm:^4.6.1"
-    "@eslint/eslintrc": "npm:^2.1.4"
-    "@eslint/js": "npm:8.55.0"
-    "@humanwhocodes/config-array": "npm:^0.11.13"
-    "@humanwhocodes/module-importer": "npm:^1.0.1"
-    "@nodelib/fs.walk": "npm:^1.2.8"
-    "@ungap/structured-clone": "npm:^1.2.0"
-    ajv: "npm:^6.12.4"
-    chalk: "npm:^4.0.0"
-    cross-spawn: "npm:^7.0.2"
-    debug: "npm:^4.3.2"
-    doctrine: "npm:^3.0.0"
-    escape-string-regexp: "npm:^4.0.0"
-    eslint-scope: "npm:^7.2.2"
-    eslint-visitor-keys: "npm:^3.4.3"
-    espree: "npm:^9.6.1"
-    esquery: "npm:^1.4.2"
-    esutils: "npm:^2.0.2"
-    fast-deep-equal: "npm:^3.1.3"
-    file-entry-cache: "npm:^6.0.1"
-    find-up: "npm:^5.0.0"
-    glob-parent: "npm:^6.0.2"
-    globals: "npm:^13.19.0"
-    graphemer: "npm:^1.4.0"
-    ignore: "npm:^5.2.0"
-    imurmurhash: "npm:^0.1.4"
-    is-glob: "npm:^4.0.0"
-    is-path-inside: "npm:^3.0.3"
-    js-yaml: "npm:^4.1.0"
-    json-stable-stringify-without-jsonify: "npm:^1.0.1"
-    levn: "npm:^0.4.1"
-    lodash.merge: "npm:^4.6.2"
-    minimatch: "npm:^3.1.2"
-    natural-compare: "npm:^1.4.0"
-    optionator: "npm:^0.9.3"
-    strip-ansi: "npm:^6.0.1"
-    text-table: "npm:^0.2.0"
-  bin:
-    eslint: bin/eslint.js
-  checksum: 10/afd016cfbe9e9d667b3f98c14c681a7e518808f6c30856e56cbb02248900eac5bf6dc5e577a7eaec259539486db48ef7d16ef58fb14b1585ba7c84b35490c53c
   languageName: node
   linkType: hard
 
@@ -16545,7 +16400,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globby@npm:^13.1.2, globby@npm:^13.2.2":
+"globby@npm:^13.1.2":
   version: 13.2.2
   resolution: "globby@npm:13.2.2"
   dependencies:
