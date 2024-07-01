@@ -115,8 +115,7 @@ export default class HdsPopoverPrimitiveComponent extends Component<HdsPopoverPr
       // we always want the focusOut event
       // @ts-expect-error: known issue with type of invocation
       registerEvent(this.containerElement, ['focusout', this.onFocusOut]);
-    },
-    { eager: true }
+    }
   );
 
   setupPrimitiveToggle = modifier<SetupPrimitiveToggleModifier>(
@@ -127,8 +126,7 @@ export default class HdsPopoverPrimitiveComponent extends Component<HdsPopoverPr
         `The toggle element of "Hds::PopoverPrimitive" must be a <button>; element received: <${element.tagName.toLowerCase()}>`,
         element instanceof HTMLButtonElement
       );
-    },
-    { eager: true }
+    }
   );
 
   setupPrimitivePopover = modifier(
@@ -203,8 +201,7 @@ export default class HdsPopoverPrimitiveComponent extends Component<HdsPopoverPr
           anchoredPositionOptions // named arguments
         );
       });
-    },
-    { eager: true }
+    }
   );
 
   @action
