@@ -15,14 +15,17 @@ module.exports = function ({ source /*, path*/ }, { parse, visit }) {
       ElementNode(node) {
         if (node.tag === 'Hds::Dropdown') {
           // filter out the `@listPosition` attribute
-          const outputAttrs = node.attributes.filter(a => a.name !== '@listPosition');
+          const outputAttrs = node.attributes.filter((a) => a.name !== '@listPosition');
 
           // look up for `@listPosition`
-          const attr = node.attributes.find(a => a.name === '@listPosition')
+          const attr = node.attributes.find((a) => a.name === '@listPosition');
 
           // if `@listPosition` is `left` or `right` update the argument value
-          if (attr && attr.value && (attr.value.chars === "left" || attr.value.chars === "right")) {
-            const updatedListPositionAttr = b.attr('@listPosition', b.text(`bottom-${attr.value.chars}`));
+          if (attr && attr.value && (attr.value.chars === 'left' || attr.value.chars === 'right')) {
+            const updatedListPositionAttr = b.attr(
+              '@listPosition',
+              b.text(`bottom-${attr.value.chars}`)
+            );
             outputAttrs.push(updatedListPositionAttr);
             if (!CODEMOD_ANALYSIS) {
               return [
@@ -34,12 +37,12 @@ module.exports = function ({ source /*, path*/ }, { parse, visit }) {
                     modifiers: node.modifiers,
                     blockParams: node.blockParams,
                   }
-                )
+                ),
               ];
             }
           }
         }
-      }
+      },
     };
   });
 };
