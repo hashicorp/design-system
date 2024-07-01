@@ -25,7 +25,7 @@ interface HdsPageHeaderSignature {
         IconTile?: ComponentLike<HdsIconTileSignature>;
         Subtitle?: ComponentLike<HdsPageHeaderSubtitleSignature>;
         Title?: ComponentLike<HdsPageHeaderTitleSignature>;
-      }
+      },
     ];
   };
   Element: HTMLElement;

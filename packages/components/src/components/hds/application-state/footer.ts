@@ -15,7 +15,7 @@ export interface HdsApplicationStateFooterSignature {
     default?: [
       {
         LinkStandalone?: ComponentLike<HdsLinkStandaloneSignature>;
-      }
+      },
     ];
   };
   Element: HTMLDivElement;

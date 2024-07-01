@@ -16,7 +16,7 @@ export interface HdsApplicationStateSignature {
         Header?: ComponentLike<HdsApplicationStateHeaderSignature>;
         Body?: ComponentLike<HdsApplicationStateBodySignature>;
         Footer?: ComponentLike<HdsApplicationStateFooterSignature>;
-      }
+      },
     ];
   };
   Element: HTMLDivElement;

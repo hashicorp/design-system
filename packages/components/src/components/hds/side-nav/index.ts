@@ -33,19 +33,19 @@ interface HdsSideNavSignature {
       {
         Header?: HdsSideNavBaseSignature['Blocks']['header'];
         isMinimized?: boolean;
-      }
+      },
     ];
     body?: [
       {
         Body?: HdsSideNavBaseSignature['Blocks']['body'];
         isMinimized?: boolean;
-      }
+      },
     ];
     footer?: [
       {
         Footer?: HdsSideNavBaseSignature['Blocks']['footer'];
         isMinimized?: boolean;
-      }
+      },
     ];
   };
   Element: HdsSideNavBaseSignature['Element'];
