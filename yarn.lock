@@ -13334,7 +13334,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-modifier@npm:4.1.0":
+"ember-modifier@npm:^2.1.2 || ^3.1.0 || ^4.0.0, ember-modifier@npm:^3.2.7 || ^4.0.0, ember-modifier@npm:^3.2.7 || ^4.1.0, ember-modifier@npm:^4.1.0":
   version: 4.1.0
   resolution: "ember-modifier@npm:4.1.0"
   dependencies:
@@ -13347,22 +13347,6 @@ __metadata:
     ember-source:
       optional: true
   checksum: 10/3c9e571a4bdb62a4fa783bb0f36f97f1804336610a24e2ab4dd8485894178166c1223cb5ab46df2e96771bf286726cdcc9679f2a644a998679ec3e83deab35d0
-  languageName: node
-  linkType: hard
-
-"ember-modifier@patch:ember-modifier@npm%3A4.1.0#~/.yarn/patches/ember-modifier-npm-4.1.0-3cc235307c.patch":
-  version: 4.1.0
-  resolution: "ember-modifier@patch:ember-modifier@npm%3A4.1.0#~/.yarn/patches/ember-modifier-npm-4.1.0-3cc235307c.patch::version=4.1.0&hash=45398c"
-  dependencies:
-    "@embroider/addon-shim": "npm:^1.8.4"
-    ember-cli-normalize-entity-name: "npm:^1.0.0"
-    ember-cli-string-utils: "npm:^1.1.0"
-  peerDependencies:
-    ember-source: "*"
-  peerDependenciesMeta:
-    ember-source:
-      optional: true
-  checksum: 10/aee7e67e3d5b9153edb3bd852925d11d083e4f22b25b6a02beeeb525bab9483a2f2f8bdcd29d930c7f8fd6f2c6b2b0bd3c933aac938ecc8cfa3fd343a7b3dd1d
   languageName: node
   linkType: hard
 
