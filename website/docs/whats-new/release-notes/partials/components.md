@@ -12,7 +12,17 @@
   </a>
 </p>
 
+## 4.5.3
+
+**Patch changes**
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/ember-flight-icons@5.1.2
+
 ## 4.5.2
+
+**🚨 Caution: This version has been deprecated 🚨**
 
 **Patch changes**
 
@@ -21,6 +31,8 @@
 - @hashicorp/ember-flight-icons@5.1.1
 
 ## 4.5.1
+
+**🚨 Caution: This version has been deprecated 🚨**
 
 **Patch changes**
 
@@ -31,6 +43,8 @@ Fixed syncing of `<F.Error />` ids to the `aria-describedby` attribute
 <div class="doc-whats-new-changelog-separator"></div>
 
 ## 4.5.0
+
+**🚨 Caution: This version has been deprecated 🚨**
 
 [4.5.0 documentation](https://hds-website-4-5-0.vercel.app/)
 
@@ -795,57 +809,6 @@ Added `@ember/string` as a direct dependency
 **🔄 Updated dependencies:**
 
 - @hashicorp/ember-flight-icons@4.0.3
-
-## 3.1.0
-
-**Minor changes**
-
-`CodeBlock` - Added new component
-
-<small class="doc-whats-new-changelog-metadata">[#1687](https://github.com/hashicorp/design-system/pull/1687)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**Patch changes**
-
-Upgraded the following dependencies:
-
-- `@ember/test-waiters` from `3.0.2` to `3.1.0`
-- `ember-cli-htmlbars` from `6.2.0` to `6.3.0`
-- `ember-focus-trap` from `1.0.2` to `1.1.0`
-- `ember-keyboard` from `8.2.0` to `8.2.1`
-- `sass` from `1.62.1` to `1.69.5`
-
-<small class="doc-whats-new-changelog-metadata">[#1756](https://github.com/hashicorp/design-system/pull/1756)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Breadcrumb` - Added support for external links
-
-<small class="doc-whats-new-changelog-metadata">[#1774](https://github.com/hashicorp/design-system/pull/1774)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Upgraded the following dependencies:
-
-- `ember-cached-decorator-polyfill` from `0.1.4` to `1.0.2`
-- `ember-cli-babel` from `7.26.11` to `8.2.0`
-- `ember-cli-sass` from `10.0.1` to `11.0.1`
-- `ember-composable-helpers` from `4.5.0` to `5.0.0`
-
-<small class="doc-whats-new-changelog-metadata">[#1761](https://github.com/hashicorp/design-system/pull/1761)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Button` - Fixed `HdsInteractiveSignature` type import
-
-<small class="doc-whats-new-changelog-metadata">[#1769](https://github.com/hashicorp/design-system/pull/1769)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/ember-flight-icons@4.0.2
 
 
 ---

@@ -12,17 +12,21 @@
   </a>
 </p>
 
-## 5.1.1
+## 5.1.2
 
 **Patch changes**
 
 This version is a re-release of `@hashicorp/ember-flight-icons@5.1.0` containing the missing `dist`
 
-<small class="doc-whats-new-changelog-metadata">[#2199](https://github.com/hashicorp/design-system/pull/2199)</small>
-
 <div class="doc-whats-new-changelog-separator"></div>
 
+## 5.1.1
+
+**🚨 Caution: This version has been deprecated 🚨**
+
 ## 5.1.0
+
+**🚨 Caution: This version has been deprecated 🚨**
 
 **Minor changes**
 
@@ -242,14 +246,6 @@ Added opt in flag to allow consumers to move sprite loading out of index.html
 **🔄 Updated dependencies:**
 
 - @hashicorp/flight-icons@2.17.0
-
-## 3.0.8
-
-**Patch changes**
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/flight-icons@2.16.0
 
 
 ---
