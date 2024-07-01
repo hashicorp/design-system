@@ -98,7 +98,7 @@ export async function generateBundleSVGReact({ config, catalog } : { config: Con
         svgReact = svgReact.replace(/;$/,'');
 
         const componentSource = getComponentSource({ componentName, svgReact});
-        const fileContent = prettier.format(componentSource, prettierConfig);
+        const fileContent = await prettier.format(componentSource, prettierConfig);
 
         await fs.writeFile(`${config.mainFolder}/svg-react/${fileName}.tsx`, fileContent);
     }
@@ -112,7 +112,7 @@ export async function generateBundleSVGReact({ config, catalog } : { config: Con
     await fs.writeFile(`${config.mainFolder}/svg-react/index.ts`, indexContent);
 
     // generate a "types.ts" file
-    const typesContent = prettier.format(`
+    const typesContent = await prettier.format(`
         import { SVGAttributes } from 'react';
         export interface IconProps extends SVGAttributes<SVGElement> {
             children?: never,
@@ -124,5 +124,6 @@ export async function generateBundleSVGReact({ config, catalog } : { config: Con
     await fs.writeFile(`${config.mainFolder}/svg-react/types.ts`, typesContent);
 
     // add CSS used to animate "loading" and "running" icons
-    await fs.writeFile(`${config.mainFolder}/svg-react/animation.css`, getCssForIconAnimation());
+    const animationIconCss:string = await getCssForIconAnimation();
+    await fs.writeFile(`${config.mainFolder}/svg-react/animation.css`, animationIconCss);
 }

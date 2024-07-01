@@ -47,9 +47,11 @@ export async function generateBundleSVG({ config, catalog } : { config: ConfigDa
         allIcons.push(`'${iconName}'`);
     }
 
-    // add CSS used to animate "loading" and "running" icons
-    await fs.writeFile(`${config.mainFolder}/svg/animation.css`, getCssForIconAnimation());
+    const animationIconCss:string = await getCssForIconAnimation();
 
+    // add CSS used to animate "loading" and "running" icons
+    await fs.writeFile(`${config.mainFolder}/svg/animation.css`, animationIconCss);
+   
     // generate an "index.js" file
     let svgModuleContent = '/**\n * Copyright (c) HashiCorp, Inc.\n * SPDX-License-Identifier: MPL-2.0\n */\n\n';
     svgModuleContent += `export const iconNames = [ ${uniq(allIcons).join(', ')} ];`;
