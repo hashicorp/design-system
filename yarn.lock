@@ -5058,6 +5058,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@prettier/sync@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "@prettier/sync@npm:0.2.1"
+  peerDependencies:
+    prettier: ^3.0.0
+  checksum: 10/9a4f882d0467d1f981dc28185684b83b713b4fb6c5f1847df2e85846b7cd2e932dbdb9d7ea3ceff684b159fb073f897ca7a6378b345a43f1e526dd6d6ddfa1c8
+  languageName: node
+  linkType: hard
+
 "@rollup/plugin-babel@npm:^6.0.4":
   version: 6.0.4
   resolution: "@rollup/plugin-babel@npm:6.0.4"
@@ -5279,6 +5288,13 @@ __metadata:
   version: 0.14.0
   resolution: "@sindresorhus/is@npm:0.14.0"
   checksum: 10/789cd128f0b43e158e657c4505539c8997905fcb5c06d750b7df778cab2b6887bc1eb8878026a20d84524528786ef69fc3d12a964ae56a478a87bcfc7f8272f3
+  languageName: node
+  linkType: hard
+
+"@sindresorhus/merge-streams@npm:^2.1.0":
+  version: 2.3.0
+  resolution: "@sindresorhus/merge-streams@npm:2.3.0"
+  checksum: 10/798bcb53cd1ace9df84fcdd1ba86afdc9e0cd84f5758d26ae9b1eefd8e8887e5fc30051132b9e74daf01bb41fa5a2faf1369361f83d76a3b3d7ee938058fd71c
   languageName: node
   linkType: hard
 
@@ -10270,6 +10286,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ci-info@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "ci-info@npm:4.0.0"
+  checksum: 10/c983bb7ff1b06648f4a47432201abbd58291147d8ab5043dbb5c03e1a0e3fb2347f40d29b66a3044f28ffeb5dade01ac35aa6bd4e7464a44d9a49a3d7532415a
+  languageName: node
+  linkType: hard
+
 "cjs-module-lexer@npm:^1.0.0":
   version: 1.2.3
   resolution: "cjs-module-lexer@npm:1.2.3"
@@ -11672,6 +11695,13 @@ __metadata:
   dependencies:
     "@babel/runtime": "npm:^7.21.0"
   checksum: 10/70b3e8ea7aaaaeaa2cd80bd889622a4bcb5d8028b4de9162cbcda359db06e16ff6e9309e54eead5341e71031818497f19aaf9839c87d1aba1e27bb4796e758a9
+  languageName: node
+  linkType: hard
+
+"date-fns@npm:^3.6.0":
+  version: 3.6.0
+  resolution: "date-fns@npm:3.6.0"
+  checksum: 10/cac35c58926a3b5d577082ff2b253612ec1c79eb6754fddef46b6a8e826501ea2cb346ecbd211205f1ba382ddd1f9d8c3f00bf433ad63cc3063454d294e3a6b8
   languageName: node
   linkType: hard
 
@@ -13635,6 +13665,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ember-template-lint-plugin-prettier@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "ember-template-lint-plugin-prettier@npm:5.0.0"
+  dependencies:
+    "@prettier/sync": "npm:^0.2.1"
+    prettier-linter-helpers: "npm:^1.0.0"
+  peerDependencies:
+    ember-template-lint: ">= 4.0.0"
+    prettier: ">= 3.0.0"
+  checksum: 10/65ba6454833e46eea25f17303175158af079b6c6b6a1d0360943c1031df62bcb45362b994e9afbee3ac89dfbc730225e67b82dba62b0db60fa32f509431d4162
+  languageName: node
+  linkType: hard
+
 "ember-template-lint@npm:^4.18.2":
   version: 4.18.2
   resolution: "ember-template-lint@npm:4.18.2"
@@ -13687,6 +13730,34 @@ __metadata:
   bin:
     ember-template-lint: bin/ember-template-lint.js
   checksum: 10/5d360f94009af4eaa99e565de3f69b4dafd1076283e7d511e9e19afe70fa2b0a8e71d3683982e8792b5c538ae524b0449ed86811a17aacec57caf5032d259dea
+  languageName: node
+  linkType: hard
+
+"ember-template-lint@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "ember-template-lint@npm:6.0.0"
+  dependencies:
+    "@lint-todo/utils": "npm:^13.1.1"
+    aria-query: "npm:^5.3.0"
+    chalk: "npm:^5.3.0"
+    ci-info: "npm:^4.0.0"
+    date-fns: "npm:^3.6.0"
+    ember-template-imports: "npm:^3.4.2"
+    ember-template-recast: "npm:^6.1.4"
+    eslint-formatter-kakoune: "npm:^1.0.0"
+    find-up: "npm:^7.0.0"
+    fuse.js: "npm:^7.0.0"
+    get-stdin: "npm:^9.0.0"
+    globby: "npm:^14.0.1"
+    is-glob: "npm:^4.0.3"
+    language-tags: "npm:^1.0.8"
+    micromatch: "npm:^4.0.5"
+    resolve: "npm:^1.22.3"
+    v8-compile-cache: "npm:^2.3.0"
+    yargs: "npm:^17.7.2"
+  bin:
+    ember-template-lint: bin/ember-template-lint.js
+  checksum: 10/d30e9c459698b152e614e53504dba03af8abfae42030787e1fce62b2fe1e4b531223cb944538a5c1e96b694bc59b5c66838e89fcdd3563a254a688182908022c
   languageName: node
   linkType: hard
 
@@ -15629,6 +15700,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"find-up@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "find-up@npm:7.0.0"
+  dependencies:
+    locate-path: "npm:^7.2.0"
+    path-exists: "npm:^5.0.0"
+    unicorn-magic: "npm:^0.1.0"
+  checksum: 10/7e6b08fbc05a10677e25e74bb0a020054a86b31d1806c5e6a9e32e75472bbf177210bc16e5f97453be8bda7ae2e3d97669dbb2901f8c30b39ce53929cbea6746
+  languageName: node
+  linkType: hard
+
 "find-yarn-workspace-root2@npm:1.2.16":
   version: 1.2.16
   resolution: "find-yarn-workspace-root2@npm:1.2.16"
@@ -16135,6 +16217,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fuse.js@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "fuse.js@npm:7.0.0"
+  checksum: 10/d75d35f2d61afa85b8248f9cbfc7d4df29ae47ea574a15ad5c3c2a41930c5ed78668346295508b59ec4929fcb1a5cd6d9a8c649b5a3bc8b18e515f4e4cb9809d
+  languageName: node
+  linkType: hard
+
 "gauge@npm:^4.0.3":
   version: 4.0.4
   resolution: "gauge@npm:4.0.4"
@@ -16578,6 +16667,20 @@ __metadata:
     merge2: "npm:^1.4.1"
     slash: "npm:^4.0.0"
   checksum: 10/4494a9d2162a7e4d327988b26be66d8eab87d7f59a83219e74b065e2c3ced23698f68fb10482bf9337133819281803fb886d6ae06afbb2affa743623eb0b1949
+  languageName: node
+  linkType: hard
+
+"globby@npm:^14.0.1":
+  version: 14.0.2
+  resolution: "globby@npm:14.0.2"
+  dependencies:
+    "@sindresorhus/merge-streams": "npm:^2.1.0"
+    fast-glob: "npm:^3.3.2"
+    ignore: "npm:^5.2.4"
+    path-type: "npm:^5.0.0"
+    slash: "npm:^5.1.0"
+    unicorn-magic: "npm:^0.1.0"
+  checksum: 10/67660da70fc1223f7170c1a62ba6c373385e9e39765d952b6518606dec15ed8c7958e9dae6ba5752a31dbc1e9126f146938b830ad680fe794141734ffc3fbb75
   languageName: node
   linkType: hard
 
@@ -19636,7 +19739,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"locate-path@npm:^7.1.0":
+"locate-path@npm:^7.1.0, locate-path@npm:^7.2.0":
   version: 7.2.0
   resolution: "locate-path@npm:7.2.0"
   dependencies:
@@ -22439,6 +22542,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"path-type@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "path-type@npm:5.0.0"
+  checksum: 10/15ec24050e8932c2c98d085b72cfa0d6b4eeb4cbde151a0a05726d8afae85784fc5544f733d8dfc68536587d5143d29c0bd793623fad03d7e61cc00067291cd5
+  languageName: node
+  linkType: hard
+
 "path@npm:^0.12.7":
   version: 0.12.7
   resolution: "path@npm:0.12.7"
@@ -24957,8 +25067,8 @@ __metadata:
     ember-source: "npm:~5.9.0"
     ember-source-channel-url: "npm:^3.0.0"
     ember-style-modifier: "npm:^4.3.1"
-    ember-template-lint: "npm:^4.18.2"
-    ember-template-lint-plugin-prettier: "npm:^4.2.0"
+    ember-template-lint: "npm:^6.0.0"
+    ember-template-lint-plugin-prettier: "npm:^5.0.0"
     ember-truth-helpers: "npm:^3.1.1"
     ember-try: "npm:^3.0.0"
     ember-unique-id-helper-polyfill: "npm:^1.2.2"
@@ -24966,10 +25076,10 @@ __metadata:
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-ember: "npm:^11.12.0"
     eslint-plugin-n: "npm:^16.6.2"
-    eslint-plugin-prettier: "npm:^4.2.1"
+    eslint-plugin-prettier: "npm:^5.1.3"
     eslint-plugin-qunit: "npm:^8.1.1"
     loader.js: "npm:^4.7.0"
-    prettier: "npm:^2.8.8"
+    prettier: "npm:^3.3.2"
     qunit: "npm:^2.21.0"
     qunit-dom: "npm:^3.0.0"
     sass: "npm:^1.69.5"
@@ -25108,6 +25218,13 @@ __metadata:
   version: 4.0.0
   resolution: "slash@npm:4.0.0"
   checksum: 10/da8e4af73712253acd21b7853b7e0dbba776b786e82b010a5bfc8b5051a1db38ed8aba8e1e8f400dd2c9f373be91eb1c42b66e91abb407ff42b10feece5e1d2d
+  languageName: node
+  linkType: hard
+
+"slash@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "slash@npm:5.1.0"
+  checksum: 10/2c41ec6fb1414cd9bba0fa6b1dd00e8be739e3fe85d079c69d4b09ca5f2f86eafd18d9ce611c0c0f686428638a36c272a6ac14799146a8295f259c10cc45cde4
   languageName: node
   linkType: hard
 
@@ -27379,6 +27496,13 @@ __metadata:
   version: 2.1.0
   resolution: "unicode-property-aliases-ecmascript@npm:2.1.0"
   checksum: 10/243524431893649b62cc674d877bd64ef292d6071dd2fd01ab4d5ad26efbc104ffcd064f93f8a06b7e4ec54c172bf03f6417921a0d8c3a9994161fe1f88f815b
+  languageName: node
+  linkType: hard
+
+"unicorn-magic@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "unicorn-magic@npm:0.1.0"
+  checksum: 10/9b4d0e9809807823dc91d0920a4a4c0cff2de3ebc54ee87ac1ee9bc75eafd609b09d1f14495e0173aef26e01118706196b6ab06a75fe0841028b3983a8af313f
   languageName: node
   linkType: hard
 

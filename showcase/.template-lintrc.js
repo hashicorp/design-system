@@ -6,6 +6,9 @@ module.exports = {
   rules: {
     'no-html-comments': false,
     'no-trailing-spaces': true,
+    'no-negated-condition': false,
+    'require-mandatory-role-attributes': false,
+    'no-at-ember-render-modifiers': false,
   },
-  ignore: ['blueprints/**'],
+  ignore: ['blueprints/**', 'tests/**'],
 };
