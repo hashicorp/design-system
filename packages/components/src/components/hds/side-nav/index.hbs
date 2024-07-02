@@ -2,7 +2,7 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-
+{{! IMPORTANT: we need to add "squishies" here (~) because otherwise the whitespace added by Ember causes the empty element to still have visible padding - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
 <Hds::SideNav::Base
   class={{this.classNames}}
   ...attributes
@@ -35,12 +35,12 @@
     {{/if}}
   </:root>
   <:header as |Header|>
-    {{yield (hash Header=Header isMinimized=this.isMinimized) to="header"}}
+    {{~yield (hash Header=Header isMinimized=this.isMinimized) to="header"~}}
   </:header>
   <:body as |Body|>
-    {{yield (hash Body=Body isMinimized=this.isMinimized) to="body"}}
+    {{~yield (hash Body=Body isMinimized=this.isMinimized) to="body"~}}
   </:body>
   <:footer as |Footer|>
-    {{yield (hash Footer=Footer isMinimized=this.isMinimized) to="footer"}}
+    {{~yield (hash Footer=Footer isMinimized=this.isMinimized) to="footer"~}}
   </:footer>
 </Hds::SideNav::Base>

@@ -1,0 +1,25 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+<div class={{this.classNames}} ...attributes>
+  <div class="hds-app-header__sub-section">
+    {{! Intended for: ProductMenu, HomeLink/Logo, OrgPicker }}
+    {{yield to="globalItems"}}
+  </div>
+
+  <div class="hds-app-header__sub-section">
+    {{!-- Button appears in mobile/tablet view (hidden in desktop view) --}}
+    <Hds::AppHeader::MenuButton 
+      @onClickToggle={{this.onClickToggle}} 
+      @isOpen={{this.isOpen}} 
+      @menuContentId={{this.menuContentId}} 
+    />
+
+    {{! Intended for: Search, HelpMenu, GeoPicker, UserMenu }}
+    <div class="hds-app-header__menu" id={{this.menuContentId}}>
+      {{yield to="utilityItems"}}
+    </div>
+  </div>
+</div>

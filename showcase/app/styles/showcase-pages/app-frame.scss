@@ -15,6 +15,29 @@
 }
 
 body.layouts-app-frame {
+  .shw-component-app-frame-container {
+    min-height: 0;
+    border: 1px solid;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 30%);
+
+    .hds-side-nav {
+      height: auto;
+      min-height: 0;
+
+      // For simulating minimize behavior
+      &.hds-side-nav--is-minimized {
+        .hds-side-nav__wrapper { overflow: hidden; }
+
+        .hds-side-nav__wrapper-body {
+          width: var(--hds-app-sidenav-width-expanded);
+          opacity: 0;
+        }
+
+        .hds-side-nav__wrapper-footer { opacity: 0; }
+      }
+    }
+  }
+
   .shw-layout-app-frame-wrapper {
     width: 100%;
     aspect-ratio: 4 / 3;
@@ -87,5 +110,11 @@ body.layouts-app-frame {
     height: 160px;
     margin: auto;
     inset: 0;
+  }
+
+  .shw-layout-app-frame-full-width-elem {
+    width: 100%;
+
+    .hds-dropdown-toggle-button {width: 100%;}
   }
 }

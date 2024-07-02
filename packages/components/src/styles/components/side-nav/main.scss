@@ -7,7 +7,17 @@
 // SIDE-NAV
 //
 
+// TODO: Move to tokens if kept
+:root {
+  --hds-app-sidenav-headerless-width-minimized: 16px;
+}
+
 .hds-side-nav {
+  // set narrower collapsed width when the header is empty
+  &:has(.hds-side-nav__wrapper-header:empty) {
+    --hds-app-sidenav-width-minimized: var(--hds-app-sidenav-headerless-width-minimized);
+  }
+
   position: sticky;
   top: 0;
   z-index: 20; // needs to stay above the main content
@@ -40,7 +50,6 @@
     }
   }
 }
-
 
 // OVERLAY
 
@@ -111,6 +120,11 @@
     padding-right: var(--token-side-nav-wrapper-padding-horizontal-minimized);
     padding-left: var(--token-side-nav-wrapper-padding-horizontal-minimized);
   }
+
+  // Remove padding when it contains no child nodes
+  &:empty {
+    padding: 0;
+  }
 }
 
 .hds-side-nav__wrapper-body {
@@ -129,6 +143,12 @@
   padding:
     var(--token-side-nav-wrapper-padding-vertical)
     var(--token-side-nav-wrapper-padding-horizontal);
+  
+  // Remove padding when it contains no child nodes
+  &:empty {
+    min-height: var(--token-side-nav-wrapper-padding-horizontal); // acts as spacer
+    padding: 0;
+  }
 }
 
 
