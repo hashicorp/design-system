@@ -15,7 +15,8 @@ import type {
   HdsRichTooltipToggleSizes,
 } from './types.ts';
 import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
-import type { HdsPopoverPrimitiveSignature } from '../popover-primitive';
+import type { ModifierLike } from '@glint/template';
+import type { SetupPrimitiveToggleModifier } from '../popover-primitive';
 
 export const ICONPOSITIONS: string[] = Object.values(
   HdsRichTooltipToggleIconPositionValues
@@ -33,7 +34,7 @@ export interface HdsRichTooltipToggleSignature {
     isInline?: boolean;
     isOpen?: boolean;
     popoverId: string;
-    setupPrimitiveToggle: HdsPopoverPrimitiveSignature['Blocks']['default'][0]['setupPrimitiveToggle'];
+    setupPrimitiveToggle: ModifierLike<SetupPrimitiveToggleModifier>;
   };
   Blocks: {
     default: [];

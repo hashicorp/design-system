@@ -23,8 +23,8 @@ interface HdsRichTooltipSignature {
           typeof HdsRichTooltipBubble,
           'arrowId' | 'popoverId' | 'setupPrimitivePopover' | 'isOpen'
         >;
-        isOpen?: HdsPopoverPrimitiveSignature['Blocks']['default'][0]['isOpen'];
-        close?: HdsPopoverPrimitiveSignature['Blocks']['default'][0]['hidePopover'];
+        isOpen?: boolean;
+        close?: () => void;
       }
     ];
   };
@@ -32,9 +32,9 @@ interface HdsRichTooltipSignature {
 }
 
 export default class HdsRichTooltipComponent extends Component<HdsRichTooltipSignature> {
-  elementId = getElementId(this);
-  arrowId = `arrow-${this.elementId}`;
-  popoverId = `popover-${this.elementId}`;
+  elementId: string = getElementId(this);
+  arrowId: string = `arrow-${this.elementId}`;
+  popoverId: string = `popover-${this.elementId}`;
 
   get enableSoftEvents() {
     return this.args.enableClickEvents !== true;

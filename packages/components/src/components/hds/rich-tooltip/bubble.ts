@@ -6,7 +6,8 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-import type { HdsPopoverPrimitiveSignature } from '../popover-primitive';
+import type { ModifierLike } from '@glint/template';
+import type { SetupPrimitivePopoverModifier } from '../popover-primitive';
 import type { FloatingUIOptions } from '../../../modifiers/hds-anchored-position.ts';
 import {
   DEFAULT_PLACEMENT,
@@ -23,7 +24,7 @@ export interface HdsRichTooltipBubbleSignature {
     isOpen?: boolean;
     popoverId: string;
     arrowId: string;
-    setupPrimitivePopover: HdsPopoverPrimitiveSignature['Blocks']['default'][0]['setupPrimitivePopover'];
+    setupPrimitivePopover: ModifierLike<SetupPrimitivePopoverModifier>;
   };
   Blocks: {
     default: [];
