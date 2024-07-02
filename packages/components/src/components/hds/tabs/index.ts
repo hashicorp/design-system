@@ -28,7 +28,7 @@ interface HdsTabsSignature {
       {
         Tab?: ComponentLike<HdsTabsTabSignature>;
         Panel?: ComponentLike<HdsTabsPanelSignature>;
-      }
+      },
     ];
   };
   Element: HTMLDivElement;

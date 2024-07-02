@@ -21,7 +21,7 @@ export interface HdsTabsPanelSignature {
     default: [
       {
         isVisible: boolean;
-      }
+      },
     ];
   };
   Element: HTMLElement;

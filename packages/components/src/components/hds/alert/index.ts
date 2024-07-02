@@ -55,7 +55,7 @@ export interface HdsAlertSignature {
           'size'
         >;
         Button?: WithBoundArgs<typeof HdsButtonComponent, 'size'>;
-      }
+      },
     ];
   };
   Element: HTMLDivElement;

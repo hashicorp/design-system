@@ -2,12 +2,11 @@
  * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
  */
-
 import prettier from 'prettier';
 
 const prettierConfig = { parser: 'css' as const, tabWidth: 4 };
 
-export const getCssForIconAnimation = (): string => {
+export const getCssForIconAnimation = async(): Promise<string> => {
     let cssSource = '/**\n * Copyright (c) HashiCorp, Inc.\n * SPDX-License-Identifier: MPL-2.0\n */\n\n';
     cssSource += `
         @keyframes hds-flight-icon-animation-rotation {
@@ -33,6 +32,7 @@ export const getCssForIconAnimation = (): string => {
             }
         }
     `;
+    const formattedCss = await prettier.format(cssSource, prettierConfig);
 
-    return prettier.format(cssSource, prettierConfig);
+    return formattedCss;
 };

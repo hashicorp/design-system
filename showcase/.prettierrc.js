@@ -1,6 +1,7 @@
 'use strict';
 
 module.exports = {
+  trailingComma: 'es5',
   overrides: [
     {
       files: '*.{js,ts}',
@@ -11,6 +12,7 @@ module.exports = {
     {
       files: '*.hbs',
       options: {
+        singleQuote: false,
         printWidth: 120,
       },
     },
