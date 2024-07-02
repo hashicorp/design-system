@@ -6,8 +6,12 @@
 import TemplateOnlyComponent from '@ember/component/template-only';
 import type { ComponentLike } from '@glint/template';
 import type { HdsAccordionItemSignature } from './item/index.ts';
+import type { HdsAccordionForceStates } from './types.ts';
 
 interface HdsAccordionSignature {
+  Args: {
+    forceState?: HdsAccordionForceStates;
+  };
   Blocks: {
     default: [
       {

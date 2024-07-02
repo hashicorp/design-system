@@ -5,16 +5,25 @@
 
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
+import type { HdsAccordionForceStates } from '../types.ts';
 
 export interface HdsAccordionItemSignature {
   Args: {
     ariaLabel?: string;
     containsInteractive?: boolean;
     isOpen?: boolean;
+    forceState?: HdsAccordionForceStates;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onClickToggle?: (event: MouseEvent, ...args: any[]) => void;
   };
   Blocks: {
-    content?: [];
     toggle?: [];
+    content: [
+      {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        close: (...args: any[]) => void;
+      }
+    ];
   };
   Element: HTMLElement;
 }
