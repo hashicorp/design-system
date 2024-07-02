@@ -81,11 +81,11 @@ export default class HdsTextBodyComponent extends Component<HdsTextBodySignature
    * Sets the "size" for the text
    * Accepted values: see AVAILABLE_SIZES
    *
-   * @type {string}
-   *
    * @param size
+   * @type {HdsTextBodySizes}
+   *
    */
-  get size() {
+  get size(): HdsTextBodySizes {
     let { size = DEFAULT_SIZE } = this.args;
 
     // let's be a bit forgiving with the consumers
@@ -107,11 +107,11 @@ export default class HdsTextBodyComponent extends Component<HdsTextBodySignature
    * Sets the "weight" for the text
    * Accepted values: see AVAILABLE_WEIGHTS_PER_SIZE
    *
-   * @type {string}
+   * @param weight
+   * @type {HdsTextWeights}
    *
-   * @param variant
    */
-  get weight() {
+  get weight(): HdsTextWeights {
     const { weight = DEFAULT_WEIGHT } = this.args;
 
     const availableWeights = AVAILABLE_WEIGHTS_PER_SIZE[this.size];

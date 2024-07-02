@@ -10,6 +10,7 @@ import {
   HdsStepperStatusesValues,
   HdsStepperStatusToIconsValues,
 } from '../types.ts';
+import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
 import type { HdsStepperStatuses } from '../types.ts';
 
 export const DEFAULT_STATUS = HdsStepperStatusesValues.Incomplete;
@@ -32,7 +33,7 @@ export default class HdsStepperTaskIndicatorComponent extends Component<HdsStepp
    * @default "incomplete"
    */
 
-  get status() {
+  get status(): HdsStepperStatuses {
     const { status = DEFAULT_STATUS } = this.args;
 
     assert(
@@ -51,7 +52,7 @@ export default class HdsStepperTaskIndicatorComponent extends Component<HdsStepp
    * @default false
    */
 
-  get isInteractive() {
+  get isInteractive(): boolean {
     return this.args.isInteractive || false;
   }
 
@@ -60,7 +61,7 @@ export default class HdsStepperTaskIndicatorComponent extends Component<HdsStepp
    * @type {string}
    */
 
-  get iconName() {
+  get iconName(): FlightIconSignature['Args']['name'] {
     return MAPPING_STATUS_TO_ICONS[this.status];
   }
 
@@ -69,7 +70,7 @@ export default class HdsStepperTaskIndicatorComponent extends Component<HdsStepp
    * @method IndicatorTask#classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
+  get classNames(): string {
     const classes = ['hds-stepper-indicator-task'];
 
     // Based on the @status arg

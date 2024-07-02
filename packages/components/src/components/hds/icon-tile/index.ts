@@ -49,7 +49,7 @@ export default class HdsIconTileComponent extends Component<HdsIconTileSignature
    * @type {string}
    * @default 'medium'
    */
-  get size() {
+  get size(): HdsIconTileSizes {
     const { size = DEFAULT_SIZE } = this.args;
 
     assert(
@@ -70,7 +70,7 @@ export default class HdsIconTileComponent extends Component<HdsIconTileSignature
    * @type {string}
    * @default 'neutral'
    */
-  get color() {
+  get color(): string {
     let { color = DEFAULT_COLOR } = this.args;
 
     // if it's a "logo" then we overwrite any @color parameter passed
@@ -113,7 +113,7 @@ export default class HdsIconTileComponent extends Component<HdsIconTileSignature
    * @default 16
    * @description ensures that the correct icon size is used. Automatically calculated.
    */
-  get iconSize() {
+  get iconSize(): '16' | '24' {
     if (this.args.size === 'small') {
       return '16';
     } else {
@@ -128,7 +128,7 @@ export default class HdsIconTileComponent extends Component<HdsIconTileSignature
    * @type {string|null}
    * @default null
    */
-  get logo() {
+  get logo(): HdsIconTileProducts | null {
     const { logo } = this.args;
 
     if (logo) {
@@ -148,7 +148,7 @@ export default class HdsIconTileComponent extends Component<HdsIconTileSignature
    * @method IconTile#entity
    * @return {string} The kind of entity we're dealing with ("logo" or "icon")
    */
-  get entity() {
+  get entity(): string | undefined {
     let entity;
 
     assert(
@@ -178,7 +178,7 @@ export default class HdsIconTileComponent extends Component<HdsIconTileSignature
    * @type {string|null}
    * @default null
    */
-  get iconSecondary() {
+  get iconSecondary(): FlightIconSignature['Args']['name'] | null {
     return this.args.iconSecondary ?? null;
   }
 
@@ -188,7 +188,7 @@ export default class HdsIconTileComponent extends Component<HdsIconTileSignature
    * @return {string} The "class" attribute to apply to the component.
    */
   // hds-icon-tile {{this.entityClass}} {{this.sizeClass}} {{this.colorClass}}"
-  get classNames() {
+  get classNames(): string {
     const classes = ['hds-icon-tile'];
 
     // add a class based on its entity argument

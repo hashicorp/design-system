@@ -70,6 +70,7 @@ The following steps are recommended for migrating components to TypeScript.
       ```
 
     - Try to be as specific as possible with the `Element` type used by the component; if splattributes (`...attributes`) are used within the component template, the element with splattributes is considered the main element
+    - Functions should have explicitly declared return types to enhances code readability and maintainability
 
 6. Update the template registry
 

@@ -23,7 +23,7 @@ export default class HdsAppFooterLegalLinksComponent extends Component<HdsAppFoo
    * @type {string}
    * @default 'Legal links'
    */
-  get ariaLabel() {
+  get ariaLabel(): string {
     return this.args.ariaLabel ?? 'Legal links';
   }
 
@@ -32,7 +32,7 @@ export default class HdsAppFooterLegalLinksComponent extends Component<HdsAppFoo
    * @type {string}
    * @description The href value of the "Support" link
    */
-  get hrefForSupport() {
+  get hrefForSupport(): string {
     return this.args.hrefForSupport ?? 'https://www.hashicorp.com/support';
   }
 
@@ -41,7 +41,7 @@ export default class HdsAppFooterLegalLinksComponent extends Component<HdsAppFoo
    * @type {string}
    * @description The href value of the "Terms" link
    */
-  get hrefForTerms() {
+  get hrefForTerms(): string {
     return (
       this.args.hrefForTerms ?? 'https://www.hashicorp.com/terms-of-service'
     );
@@ -52,7 +52,7 @@ export default class HdsAppFooterLegalLinksComponent extends Component<HdsAppFoo
    * @type {string}
    * @description The href value of the "Privacy" link
    */
-  get hrefForPrivacy() {
+  get hrefForPrivacy(): string {
     return this.args.hrefForPrivacy ?? 'https://www.hashicorp.com/privacy';
   }
 
@@ -61,7 +61,7 @@ export default class HdsAppFooterLegalLinksComponent extends Component<HdsAppFoo
    * @type {string}
    * @description The href value of the "Security" link
    */
-  get hrefForSecurity() {
+  get hrefForSecurity(): string {
     return this.args.hrefForSecurity ?? 'https://www.hashicorp.com/security';
   }
 
@@ -70,7 +70,7 @@ export default class HdsAppFooterLegalLinksComponent extends Component<HdsAppFoo
    * @type {string}
    * @description The href value of the "Accessibility" link
    */
-  get hrefForAccessibility() {
+  get hrefForAccessibility(): string {
     return (
       this.args.hrefForAccessibility ??
       'https://www.hashicorp.com/accessibility'

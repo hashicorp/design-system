@@ -75,11 +75,11 @@ export default class HdsTextCodeComponent extends Component<HdsTextCodeSignature
    * Sets the "size" for the text
    * Accepted values: see AVAILABLE_SIZES
    *
-   * @type {string}
+   * @type {HdsTextCodeSizes}
    *
    * @param size
    */
-  get size() {
+  get size(): HdsTextCodeSizes {
     let { size = DEFAULT_SIZE } = this.args;
 
     // let's be a bit forgiving with the consumers
@@ -105,7 +105,7 @@ export default class HdsTextCodeComponent extends Component<HdsTextCodeSignature
    *
    * @param variant
    */
-  get weight() {
+  get weight(): HdsTextCodeWeight {
     const { weight = DEFAULT_WEIGHT } = this.args;
 
     const availableWeights = AVAILABLE_WEIGHTS_PER_SIZE[this.size];

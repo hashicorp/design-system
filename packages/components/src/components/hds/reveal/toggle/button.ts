@@ -21,7 +21,7 @@ export default class HdsRevealToggleButtonComponent extends Component<HdsRevealT
    * @method ToggleButton#classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
+  get classNames(): string {
     const classes = ['hds-reveal__toggle-button'];
 
     // add a class based on the @isOpen argument

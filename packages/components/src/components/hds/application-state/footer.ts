@@ -29,7 +29,7 @@ export default class HdsApplicationStateFooterComponent extends Component<HdsApp
    * @type {boolean}
    * @default false
    */
-  get hasDivider() {
+  get hasDivider(): boolean {
     return this.args.hasDivider ?? false;
   }
 
@@ -38,7 +38,7 @@ export default class HdsApplicationStateFooterComponent extends Component<HdsApp
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
+  get classNames(): string {
     const classes = ['hds-application-state__footer'];
 
     // add a class based on the existence of @hasDivider argument

@@ -37,10 +37,10 @@ export default class HdsCopySnippetComponent extends Component<HdsCopySnippetSig
   @tracked timer: ReturnType<typeof setTimeout> | undefined;
 
   /**
-   * @param textToCopy
-   * @type {string | number | bigint | undefined} ???
+   * @method textToShow
+   * @return {string}
    */
-  get textToShow() {
+  get textToShow(): string {
     const { textToCopy = '' } = this.args;
 
     if (typeof textToCopy === 'string') {
@@ -53,10 +53,10 @@ export default class HdsCopySnippetComponent extends Component<HdsCopySnippetSig
   /**
    * @param icon
    * @type {string}
-   * @default DEFAULT_ICON
+   * @default clipboard-copy
    * @description Determines the icon to be used, based on the success state. Note that this is auto-tracked because it depends on a tracked property (status).
    */
-  get icon() {
+  get icon(): FlightIconSignature['Args']['name'] {
     let icon: FlightIconSignature['Args']['name'] = DEFAULT_ICON;
     if (this.status === 'success') {
       icon = SUCCESS_ICON;
@@ -72,7 +72,7 @@ export default class HdsCopySnippetComponent extends Component<HdsCopySnippetSig
    * @default primary
    * @description Determines the color of button to be used; acceptable values are `primary` and `secondary`
    */
-  get color() {
+  get color(): HdsCopySnippetColors {
     const { color = DEFAULT_COLOR } = this.args;
 
     assert(
@@ -91,7 +91,7 @@ export default class HdsCopySnippetComponent extends Component<HdsCopySnippetSig
    * @default false
    * @description Indicates that the component should take up the full width of the parent container.
    */
-  get isFullWidth() {
+  get isFullWidth(): boolean {
     return this.args.isFullWidth ?? false;
   }
 
@@ -101,7 +101,7 @@ export default class HdsCopySnippetComponent extends Component<HdsCopySnippetSig
    * @default false
    * @description Indicates that the component should be truncated instead of wrapping text and using multiple lines.
    */
-  get isTruncated() {
+  get isTruncated(): boolean {
     return this.args.isTruncated ?? false;
   }
 
@@ -110,7 +110,7 @@ export default class HdsCopySnippetComponent extends Component<HdsCopySnippetSig
    * @method CopySnippet#classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
+  get classNames(): string {
     const classes = ['hds-copy-snippet'];
 
     // add a class based on the @color argument
@@ -133,7 +133,9 @@ export default class HdsCopySnippetComponent extends Component<HdsCopySnippetSig
   }
 
   @action
-  onSuccess(args: HdsClipboardModifierSignature['Args']['Named']['onSuccess']) {
+  onSuccess(
+    args: HdsClipboardModifierSignature['Args']['Named']['onSuccess']
+  ): void {
     this.status = 'success';
     this.resetStatusDelayed();
 
@@ -145,7 +147,9 @@ export default class HdsCopySnippetComponent extends Component<HdsCopySnippetSig
   }
 
   @action
-  onError(args: HdsClipboardModifierSignature['Args']['Named']['onError']) {
+  onError(
+    args: HdsClipboardModifierSignature['Args']['Named']['onError']
+  ): void {
     this.status = 'error';
     this.resetStatusDelayed();
 
@@ -156,10 +160,10 @@ export default class HdsCopySnippetComponent extends Component<HdsCopySnippetSig
     }
   }
 
-  resetStatusDelayed() {
+  resetStatusDelayed(): void {
     clearTimeout(this.timer);
     // make it fade back to the default state
-    this.timer = setTimeout(() => {
+    this.timer = setTimeout((): void => {
       this.status = DEFAULT_STATUS;
     }, 1500);
   }

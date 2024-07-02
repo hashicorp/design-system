@@ -32,7 +32,7 @@ export default class HdsAccordionItemComponent extends Component<HdsAccordionIte
    * @type {string}
    * @default 'Toggle display'
    */
-  get ariaLabel() {
+  get ariaLabel(): string {
     return this.args.ariaLabel ?? 'Toggle display';
   }
 
@@ -41,7 +41,7 @@ export default class HdsAccordionItemComponent extends Component<HdsAccordionIte
    * @type {boolean}
    * @default false
    */
-  get containsInteractive() {
+  get containsInteractive(): boolean {
     return this.args.containsInteractive ?? false;
   }
 
@@ -50,7 +50,7 @@ export default class HdsAccordionItemComponent extends Component<HdsAccordionIte
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
+  get classNames(): string {
     const classes = ['hds-accordion-item'];
 
     // add a class based on the @isOpen argument

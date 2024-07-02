@@ -19,7 +19,7 @@ export default class HdsAppFooterCopyrightComponent extends Component<HdsAppFoot
    * @description The copyright year
    * @default The current year (calculated via `Date()`)
    */
-  get year() {
+  get year(): string | number {
     return this.args.year ?? new Date().getFullYear();
   }
 }

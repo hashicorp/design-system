@@ -42,7 +42,7 @@ export default class HdsAppFooterStatusLinkComponent extends Component<HdsAppFoo
    * @type {HdsAppFooterStatusTypes}
    * @description The name of the status which the StatusLink is being set to
    */
-  get status() {
+  get status(): HdsAppFooterStatusTypes | undefined {
     let status;
     if (this.args.status) {
       status = this.args.status.toLowerCase();
@@ -63,7 +63,7 @@ export default class HdsAppFooterStatusLinkComponent extends Component<HdsAppFoo
    * @type {string}
    * @description The name for the StatusLink icon
    */
-  get statusIcon() {
+  get statusIcon(): FlightIconSignature['Args']['name'] {
     if (this.status && !this.args.statusIcon) {
       return STATUSES[this.status]?.iconName;
     }
@@ -75,7 +75,7 @@ export default class HdsAppFooterStatusLinkComponent extends Component<HdsAppFoo
    * @method StatusLink#itemStyle
    * @return {string} The "style" attribute to apply to the item.
    */
-  get itemStyle() {
+  get itemStyle(): SafeString | undefined {
     if (this.args.statusIconColor) {
       return htmlSafe(
         `--hds-app-footer-status-icon-color: ${this.args.statusIconColor}`
@@ -90,7 +90,7 @@ export default class HdsAppFooterStatusLinkComponent extends Component<HdsAppFoo
    * @type {string}
    * @description The text content of the StatusLink
    */
-  get text() {
+  get text(): string | undefined {
     if (!this.args.text && this.status) {
       return STATUSES[this.status]?.text;
     }
@@ -102,7 +102,7 @@ export default class HdsAppFooterStatusLinkComponent extends Component<HdsAppFoo
    * @type {string}
    * @description The href value of the StatusLink
    */
-  get href() {
+  get href(): string {
     return this.args.href ?? 'https://status.hashicorp.com';
   }
 
@@ -111,7 +111,7 @@ export default class HdsAppFooterStatusLinkComponent extends Component<HdsAppFoo
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
+  get classNames(): string {
     const classes = ['hds-app-footer__status-link'];
 
     // add a class based on status if no statusIconColor is explicitly specified

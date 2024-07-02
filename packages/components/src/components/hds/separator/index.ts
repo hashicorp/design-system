@@ -25,10 +25,10 @@ export default class HdsSeparatorComponent extends Component<HdsSeparatorSignatu
    * Accepted values: 24, 0
    *
    * @param spacing
-   * @type {string}
-   * @default 'default'
+   * @type {HdsSeparatorSpacing}
+   * @default 24
    */
-  get spacing() {
+  get spacing(): HdsSeparatorSpacing {
     const { spacing = DEFAULT_SPACING } = this.args;
 
     assert(
@@ -46,7 +46,7 @@ export default class HdsSeparatorComponent extends Component<HdsSeparatorSignatu
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
+  get classNames(): string {
     const classes = ['hds-separator'];
 
     // add a class based on the @spacing argument

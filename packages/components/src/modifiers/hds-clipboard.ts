@@ -23,7 +23,7 @@ export interface HdsClipboardModifierSignature {
   };
 }
 
-export const getTextToCopy = (text: TextToCopy) => {
+export const getTextToCopy = (text: TextToCopy): string => {
   let textToCopy: string = '';
 
   if (text) {
@@ -44,7 +44,9 @@ export const getTextToCopy = (text: TextToCopy) => {
   return textToCopy;
 };
 
-export const getTargetElement = (target: string | Node) => {
+export const getTargetElement = (
+  target: string | Node
+): HTMLElement | undefined => {
   let targetElement: HTMLElement | null;
 
   if (typeof target === 'string') {
@@ -73,7 +75,9 @@ export const getTargetElement = (target: string | Node) => {
   return targetElement;
 };
 
-export const getTextToCopyFromTargetElement = (targetElement: TargetToCopy) => {
+export const getTextToCopyFromTargetElement = (
+  targetElement: TargetToCopy
+): string => {
   let textToCopy: string = '';
 
   if (targetElement instanceof HTMLElement) {
@@ -100,7 +104,9 @@ export const getTextToCopyFromTargetElement = (targetElement: TargetToCopy) => {
   return textToCopy;
 };
 
-export const writeTextToClipboard = async (textToCopy: string) => {
+export const writeTextToClipboard = async (
+  textToCopy: string
+): Promise<boolean> => {
   // finally copy the text to the clipboard using the Clipboard API
   // https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API
   if (textToCopy) {
@@ -127,7 +133,7 @@ export const writeTextToClipboard = async (textToCopy: string) => {
 export const copyToClipboard = async (
   text?: TextToCopy,
   target?: TargetToCopy
-) => {
+): Promise<boolean> => {
   let textToCopy: string = '';
 
   if (text) {
@@ -151,7 +157,7 @@ export const copyToClipboard = async (
 // see: https://github.com/ember-modifier/ember-modifier#function-based-modifiers
 
 export default modifier<HdsClipboardModifierSignature>(
-  (element, _positional, named) => {
+  (element, _positional, named): (() => void) => {
     assert(
       '`hds-clipboard` modifier - the modifier must be applied to an element',
       element
@@ -159,7 +165,7 @@ export default modifier<HdsClipboardModifierSignature>(
 
     const { text, target, onSuccess, onError } = named;
 
-    const onClick = async (event: MouseEvent) => {
+    const onClick = async (event: MouseEvent): Promise<void> => {
       const trigger = event.currentTarget;
       const success = await copyToClipboard(text, target);
 
@@ -179,7 +185,7 @@ export default modifier<HdsClipboardModifierSignature>(
     element.addEventListener('click', onClick);
 
     // this (teardown) function is run when the element is removed
-    return () => {
+    return (): void => {
       element.removeEventListener('click', onClick);
     };
   }

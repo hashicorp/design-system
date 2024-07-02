@@ -43,7 +43,7 @@ export default class HdsBadgeComponent extends Component<HdsBadgeSignature> {
    * @type {HdsBadgeSizes}
    * @default 'medium'
    */
-  get size() {
+  get size(): HdsBadgeSizes {
     const { size = DEFAULT_SIZE } = this.args;
 
     assert(
@@ -64,7 +64,7 @@ export default class HdsBadgeComponent extends Component<HdsBadgeSignature> {
    * @type {HdsBadgeTypes}
    * @default 'filled'
    */
-  get type() {
+  get type(): HdsBadgeTypes {
     const { type = DEFAULT_TYPE } = this.args;
 
     assert(
@@ -85,7 +85,7 @@ export default class HdsBadgeComponent extends Component<HdsBadgeSignature> {
    * @type {HdsBadgeColors}
    * @default 'neutral'
    */
-  get color() {
+  get color(): HdsBadgeColors {
     const { color = DEFAULT_COLOR } = this.args;
 
     assert(
@@ -103,7 +103,7 @@ export default class HdsBadgeComponent extends Component<HdsBadgeSignature> {
    * @type {string}
    * @description The text of the badge. If `isIconOnly` is set to `true`, the text will be visually hidden but still available to assistive technology. If no text value is defined, an error will be thrown.
    */
-  get text() {
+  get text(): string {
     const { text } = this.args;
 
     assert(
@@ -121,7 +121,7 @@ export default class HdsBadgeComponent extends Component<HdsBadgeSignature> {
    * @type {string|null}
    * @default null
    */
-  get icon() {
+  get icon(): FlightIconSignature['Args']['name'] | null {
     return this.args.icon ?? null;
   }
 
@@ -131,7 +131,7 @@ export default class HdsBadgeComponent extends Component<HdsBadgeSignature> {
    * @default false
    * @description Indicates if the badge will only contain an icon; component will also ensure that accessible text is still applied to the component.
    */
-  get isIconOnly() {
+  get isIconOnly(): boolean {
     if (this.icon) {
       return this.args.isIconOnly ?? false;
     }
@@ -143,7 +143,7 @@ export default class HdsBadgeComponent extends Component<HdsBadgeSignature> {
    * @method Badge#classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
+  get classNames(): string {
     const classes = ['hds-badge'];
 
     // add a class based on the @size argument

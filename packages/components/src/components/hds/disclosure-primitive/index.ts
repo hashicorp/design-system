@@ -36,14 +36,14 @@ export default class HdsDisclosurePrimitiveComponent extends Component<HdsDisclo
   @tracked isOpen = this.args.isOpen ?? false;
 
   @action
-  onClickToggle() {
+  onClickToggle(): void {
     this.isOpen = !this.isOpen;
   }
 
   @action
-  close() {
+  close(): void {
     // we schedule this afterRender to avoid an error in tests caused by updating `isOpen` multiple times in the same computation
-    schedule('afterRender', () => {
+    schedule('afterRender', (): void => {
       this.isOpen = false;
       // we call the "onClose" callback if it exists (and is a function)
       if (this.args.onClose && typeof this.args.onClose === 'function') {

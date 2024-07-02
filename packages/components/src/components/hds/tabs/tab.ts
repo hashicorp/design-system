@@ -52,7 +52,7 @@ export default class HdsTabsTabComponent extends Component<HdsTabsTabSignature> 
   }
 
   @action
-  didInsertNode(element: HTMLButtonElement, positional: [boolean?]) {
+  didInsertNode(element: HTMLButtonElement, positional: [boolean?]): void {
     const { didInsertNode } = this.args;
 
     const isSelected = positional[0];
@@ -63,7 +63,7 @@ export default class HdsTabsTabComponent extends Component<HdsTabsTabSignature> 
   }
 
   @action
-  didUpdateNode() {
+  didUpdateNode(): void {
     const { didUpdateNode } = this.args;
 
     if (typeof didUpdateNode === 'function' && this.nodeIndex !== undefined) {
@@ -72,7 +72,7 @@ export default class HdsTabsTabComponent extends Component<HdsTabsTabSignature> 
   }
 
   @action
-  willDestroyNode(element: HTMLButtonElement) {
+  willDestroyNode(element: HTMLButtonElement): void {
     const { willDestroyNode } = this.args;
 
     if (typeof willDestroyNode === 'function') {
@@ -81,7 +81,7 @@ export default class HdsTabsTabComponent extends Component<HdsTabsTabSignature> 
   }
 
   @action
-  onClick(event: MouseEvent) {
+  onClick(event: MouseEvent): false | undefined {
     const { onClick } = this.args;
 
     if (typeof onClick === 'function' && this.nodeIndex !== undefined) {
@@ -92,13 +92,11 @@ export default class HdsTabsTabComponent extends Component<HdsTabsTabSignature> 
   }
 
   @action
-  onKeyUp(event: KeyboardEvent) {
+  onKeyUp(event: KeyboardEvent): void {
     const { onKeyUp } = this.args;
 
     if (typeof onKeyUp === 'function' && this.nodeIndex !== undefined) {
       onKeyUp(this.nodeIndex, event);
-    } else {
-      return false;
     }
   }
 
@@ -107,7 +105,7 @@ export default class HdsTabsTabComponent extends Component<HdsTabsTabSignature> 
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
+  get classNames(): string {
     const classes = ['hds-tabs__tab'];
 
     if (this.isSelected) {
