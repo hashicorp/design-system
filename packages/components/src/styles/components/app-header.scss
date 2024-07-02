@@ -28,7 +28,7 @@ $desktop-min-width: 1024px;
 // Media queries
 // -------------
 .hds-app-header {
-  // compound view: mobile/small and tablet/medium
+  // Mobile/small and tablet/medium compound view: applies at tablet min-width and below
   @media (max-width: #{$desktop-min-width - 1}) {
     &:not(.hds-app-header__menu-is-open) {
       .hds-app-header__menu {
@@ -37,7 +37,7 @@ $desktop-min-width: 1024px;
       }
     }
 
-    // Display as content as dropdown in mobile/tablet view
+    // Display content as dropdown menu in mobile/tablet view
     .hds-app-header__menu {
       position: absolute;
       top: calc(100% + 1px); // We add 1px to account for the bottom border
@@ -49,6 +49,11 @@ $desktop-min-width: 1024px;
       // height: calc(100vh - 52px); // it should take the full height of the viewport minus the header height
       padding: 16px;
       background: var(--token-color-palette-neutral-700);
+    }
+
+    // Force nested dropdown content to align left in mobile/tablet view
+    .hds-dropdown__content {
+      left: 0;
     }
 
     // Hide :globalAfter content in mobile/tablet view
@@ -66,7 +71,7 @@ $desktop-min-width: 1024px;
     }
   }
 
-  // desktop/large view: applies at desktop min-width and above
+  // Desktop/large view: applies at desktop min-width and above
   @media (min-width: #{$desktop-min-width}) {
     // Hide Menu button & Global Items after content in desktop view
     .hds-app-header__menu-button,
