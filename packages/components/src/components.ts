@@ -18,6 +18,7 @@ import HdsCopyButton from './components/hds/copy/button/index.ts';
 import HdsCopySnippet from './components/hds/copy/snippet/index.ts';
 import HdsDisclosurePrimitive from './components/hds/disclosure-primitive/index.ts';
 import HdsDismissButton from './components/hds/dismiss-button/index.ts';
+import HdsIcon from './components/hds/icon/index.ts';
 import HdsIconTile from './components/hds/icon-tile/index.ts';
 import HdsInteractive from './components/hds/interactive/index.ts';
 import HdsLinkInline from './components/hds/link/inline.ts';
@@ -49,6 +50,7 @@ export {
   HdsCopySnippet,
   HdsDisclosurePrimitive,
   HdsDismissButton,
+  HdsIcon,
   HdsIconTile,
   HdsInteractive,
   HdsLinkInline,
