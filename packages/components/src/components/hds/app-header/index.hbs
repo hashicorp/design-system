@@ -4,11 +4,17 @@
 }}
 
 <div class={{this.classNames}} ...attributes>
+  {{!-- GlobalItems --}}
   <div class="hds-app-header__sub-section">
-    {{! Intended for: ProductMenu, HomeLink/Logo, OrgPicker }}
-    {{yield to="globalItems"}}
+    {{! Intended for: ProductMenu, HomeLink/Logo }}
+    {{yield to="globalItemsBefore"}}
+    {{! Intended for: OrgPicker }}
+    <div class="hds-app-header__global-items-mobile-view">
+      {{yield to="globalItemsAfter"}}
+    </div>
   </div>
 
+  {{!-- UtilityItems --}}
   <div class="hds-app-header__sub-section">
     {{!-- Button appears in mobile/tablet view (hidden in desktop view) --}}
     <Hds::AppHeader::MenuButton 
@@ -19,6 +25,9 @@
 
     {{! Intended for: Search, HelpMenu, GeoPicker, UserMenu }}
     <div class="hds-app-header__menu" id={{this.menuContentId}}>
+      <div class="hds-app-header__global-items-desktop-view">
+        {{yield to="globalItemsAfter"}}
+      </div>
       {{yield to="utilityItems"}}
     </div>
   </div>
