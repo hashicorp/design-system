@@ -49,7 +49,7 @@ export default class HdsRichTooltipToggleComponent extends Component<HdsRichTool
    * @default true
    * @description sets display inline for the element
    */
-  get isInline() {
+  get isInline(): boolean {
     const { isInline = false } = this.args;
     return isInline;
   }
@@ -60,7 +60,7 @@ export default class HdsRichTooltipToggleComponent extends Component<HdsRichTool
    * @default leading
    * @description Positions the icon before or after the text; allowed values are `leading` or `trailing`
    */
-  get iconPosition() {
+  get iconPosition(): HdsRichTooltipToggleIconPositions {
     const { iconPosition = DEFAULT_ICONPOSITION } = this.args;
 
     assert(
@@ -79,7 +79,7 @@ export default class HdsRichTooltipToggleComponent extends Component<HdsRichTool
    * @default medium
    * @description The size of the "info" text; acceptable values are `small`, `medium`, `large`
    */
-  get size() {
+  get size(): HdsRichTooltipToggleSizes | undefined {
     let size;
 
     // we assign a "size" only if `@text` is provided

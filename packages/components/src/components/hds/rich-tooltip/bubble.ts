@@ -38,7 +38,7 @@ export default class HdsRichTooltipBubbleComponent extends Component<HdsRichTool
    * @type {string}
    * @description Determines the position of the "popover"
    */
-  get placement() {
+  get placement(): FloatingUIOptions['placement'] {
     const { placement = DEFAULT_PLACEMENT } = this.args;
 
     assert(
@@ -51,11 +51,11 @@ export default class HdsRichTooltipBubbleComponent extends Component<HdsRichTool
     return placement;
   }
 
-  get enableCollisionDetection() {
+  get enableCollisionDetection(): FloatingUIOptions['enableCollisionDetection'] {
     return this.args.enableCollisionDetection ?? true;
   }
 
-  get sizingStyles() {
+  get sizingStyles(): Record<string, string> {
     const sizingStyles: {
       width?: string;
       'max-width'?: string;
@@ -76,7 +76,13 @@ export default class HdsRichTooltipBubbleComponent extends Component<HdsRichTool
     return sizingStyles;
   }
 
-  get anchoredPositionOptions() {
+  get anchoredPositionOptions(): {
+    placement: FloatingUIOptions['placement'];
+    offsetOptions: FloatingUIOptions['offsetOptions'];
+    enableCollisionDetection: FloatingUIOptions['enableCollisionDetection'];
+    arrowSelector: string;
+    arrowPadding: FloatingUIOptions['arrowPadding'];
+  } {
     // custom options specific for the `RichTooltip` component
     // for details see the `hds-anchored-position` modifier
     return {
