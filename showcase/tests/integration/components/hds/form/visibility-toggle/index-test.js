@@ -27,7 +27,7 @@ module(
         hbs`<Hds::Form::VisibilityToggle id="test-visibility-toggle" />`
       );
       assert
-        .dom('#test-visibility-toggle .flight-icon')
+        .dom('#test-visibility-toggle .hds-icon')
         .hasClass('flight-icon-eye-off');
     });
 
@@ -36,7 +36,7 @@ module(
         hbs`<Hds::Form::VisibilityToggle @isVisible={{true}} id="test-visibility-toggle" />`
       );
       assert
-        .dom('#test-visibility-toggle .flight-icon')
+        .dom('#test-visibility-toggle .hds-icon')
         .hasClass('flight-icon-eye');
     });
 

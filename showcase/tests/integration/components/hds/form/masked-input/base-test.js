@@ -31,7 +31,7 @@ module(
       assert
         .dom('.hds-form-masked-input__control')
         .hasStyle({ '-webkit-text-security': 'disc' });
-      assert.dom('.hds-form-visibility-toggle .flight-icon-eye').exists();
+      assert.dom('.hds-form-visibility-toggle .hds-icon-eye').exists();
     });
 
     test('it should render readable text when `isContentMasked` is false', async function (assert) {
@@ -41,7 +41,7 @@ module(
       assert
         .dom('.hds-form-masked-input__control')
         .hasStyle({ '-webkit-text-security': 'none' });
-      assert.dom('.hds-form-visibility-toggle .flight-icon-eye-off').exists();
+      assert.dom('.hds-form-visibility-toggle .hds-icon-eye-off').exists();
     });
 
     test('it should toggle the masking when button is pressed', async function (assert) {
@@ -52,7 +52,7 @@ module(
       assert
         .dom('.hds-form-masked-input__control')
         .hasStyle({ '-webkit-text-security': 'none' });
-      assert.dom('.hds-form-visibility-toggle .flight-icon-eye-off').exists();
+      assert.dom('.hds-form-visibility-toggle .hds-icon-eye-off').exists();
     });
 
     // ACCESSIBILITY

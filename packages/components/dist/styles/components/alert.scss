@@ -1,0 +1,228 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// ALERT COMPONENT
+//
+
+.hds-alert {
+  display: flex;
+  align-items: flex-start;
+}
+
+// ICON
+
+.hds-alert__icon {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+
+  .hds-alert--type-compact & {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+// CONTENT (TEXT + ACTIONS + GENERIC)
+
+.hds-alert__content {
+  flex: 1 1 auto;
+}
+
+// TEXT (TITLE & DESCRIPTION)
+
+.hds-alert__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: center;
+  color: var(--token-color-foreground-warning-on-surface);
+}
+
+.hds-alert__description {
+  word-break: break-word;
+
+  // we add very basic styling for elements that may be injected via the "description" string
+
+  strong {
+    font-weight: var(--token-typography-font-weight-semibold);
+  }
+
+  code,
+  pre {
+    display: inline;
+    padding: 1px 5px;
+    font-size: 0.9em; // as discussed with designers, we reduce the size for optical/visual balance
+    font-family: var(--token-typography-code-100-font-family);
+    line-height: 1em;
+    background-color: var(--token-color-surface-primary);
+    border: 1px solid var(--token-color-palette-neutral-200);
+    border-radius: 5px;
+  }
+
+  // Default styling for bare HTML links not using HDS::Link components
+  a:not([class*="hds-"]) {
+    color: var(--token-color-foreground-strong);
+
+    &:focus,
+    &:focus-visible {
+      text-decoration: none;
+      outline: 2px solid var(--token-color-focus-action-internal);
+      outline-offset: 1px;
+    }
+
+    &:hover {
+      color: var(--token-color-foreground-primary);
+    }
+
+    &:active {
+      color: var(--token-color-foreground-faint);
+    }
+  }
+}
+
+// ACTIONS
+
+.hds-alert__actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+
+  > * {
+    margin-top: 16px;
+  }
+}
+
+// DISMISS
+
+.hds-alert__dismiss {
+  margin-top: 2px; // for alignment with the main icon and text
+  margin-left: 16px;
+
+  .hds-alert--type-compact & {
+    margin-top: 1px;
+  }
+}
+
+// TYPES
+
+.hds-alert--type-page {
+  padding: 16px 48px; // by design
+}
+
+.hds-alert--type-inline {
+  padding: 16px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 6px;
+}
+
+.hds-alert--type-compact {
+  .hds-alert__icon {
+    margin-top: 2px; // notice: the icon size for the "compact" type is 14px, not 20px, so this 2px extra are needed to reach the exact same height as the "description" text line-height
+    margin-right: 8px;
+  }
+
+  // extra safety
+  .hds-alert__title {
+    display: none;
+
+    & + .hds-alert__description {
+      margin-top: 0;
+    }
+  }
+}
+
+// COLORS (& TYPES)
+
+.hds-alert--color-neutral {
+  &.hds-alert--type-page {
+    background-color: var(--token-color-surface-faint);
+    box-shadow: 0 1px 0 0 var(--token-color-palette-alpha-300);
+  }
+
+  &.hds-alert--type-inline {
+    background-color: var(--token-color-surface-faint);
+    border-color: var(--token-color-border-strong); // notice: in the "neutral" color the "inline" has a slightly darker border color compared to the others to increase contrast (eg. could be used on a light gray background)
+  }
+
+  // different color by design
+  .hds-alert__icon {
+    color: var(--token-color-foreground-faint);
+  }
+
+  .hds-alert__title {
+    color: var(--token-color-foreground-primary);
+  }
+}
+
+.hds-alert--color-highlight {
+  &.hds-alert--type-page {
+    background-color: var(--token-color-surface-highlight);
+    box-shadow: 0 1px 0 0 var(--token-color-border-highlight);
+  }
+
+  &.hds-alert--type-inline {
+    background-color: var(--token-color-surface-highlight);
+    border-color: var(--token-color-border-highlight);
+  }
+
+  .hds-alert__icon,
+  .hds-alert__title {
+    color: var(--token-color-foreground-highlight-on-surface);
+  }
+}
+
+.hds-alert--color-success {
+  &.hds-alert--type-page {
+    background-color: var(--token-color-surface-success);
+    box-shadow: 0 1px 0 0 var(--token-color-border-success);
+  }
+
+  &.hds-alert--type-inline {
+    background-color: var(--token-color-surface-success);
+    border-color: var(--token-color-border-success);
+  }
+
+  .hds-alert__icon,
+  .hds-alert__title {
+    color: var(--token-color-foreground-success-on-surface);
+  }
+}
+
+.hds-alert--color-warning {
+  &.hds-alert--type-page {
+    background-color: var(--token-color-surface-warning);
+    box-shadow: 0 1px 0 0 var(--token-color-border-warning);
+  }
+
+  &.hds-alert--type-inline {
+    background-color: var(--token-color-surface-warning);
+    border-color: var(--token-color-border-warning);
+  }
+
+  .hds-alert__icon,
+  .hds-alert__title {
+    color: var(--token-color-foreground-warning-on-surface);
+  }
+}
+
+.hds-alert--color-critical {
+  &.hds-alert--type-page {
+    background-color: var(--token-color-surface-critical);
+    box-shadow: 0 1px 0 0 var(--token-color-border-critical);
+  }
+
+  &.hds-alert--type-inline {
+    background-color: var(--token-color-surface-critical);
+    border-color: var(--token-color-border-critical);
+  }
+
+  .hds-alert__icon,
+  .hds-alert__title {
+    color: var(--token-color-foreground-critical-on-surface);
+  }
+}

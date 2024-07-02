@@ -1,0 +1,128 @@
+import Component from '@glimmer/component';
+import { assert } from '@ember/debug';
+import { HdsBadgeSizeValues, HdsBadgeTypeValues, HdsBadgeColorValues } from './types.js';
+import { precompileTemplate } from '@ember/template-compilation';
+import { setComponentTemplate } from '@ember/component';
+
+var TEMPLATE = precompileTemplate("{{!\n  Copyright (c) HashiCorp, Inc.\n  SPDX-License-Identifier: MPL-2.0\n}}\n<div class={{this.classNames}} ...attributes>\n  {{#if this.icon}}\n    <div class=\"hds-badge__icon\">\n      <FlightIcon @name={{this.icon}} @size=\"16\" @stretched={{true}} />\n    </div>\n  {{/if}}\n  {{#if this.isIconOnly}}\n    <span class=\"sr-only\">{{this.text}}</span>\n  {{else}}\n    <div class=\"hds-badge__text\">\n      {{this.text}}\n    </div>\n  {{/if}}\n</div>");
+
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+const SIZES = Object.values(HdsBadgeSizeValues);
+const TYPES = Object.values(HdsBadgeTypeValues);
+const COLORS = Object.values(HdsBadgeColorValues);
+const DEFAULT_SIZE = HdsBadgeSizeValues.Medium;
+const DEFAULT_TYPE = HdsBadgeTypeValues.Filled;
+const DEFAULT_COLOR = HdsBadgeColorValues.Neutral;
+class HdsBadgeComponent extends Component {
+  /**
+   * Sets the size for the component
+   * Accepted values: small, medium, large
+   *
+   * @param size
+   * @type {HdsBadgeSizes}
+   * @default 'medium'
+   */
+  get size() {
+    const {
+      size = DEFAULT_SIZE
+    } = this.args;
+    assert(`@size for "Hds::Badge" must be one of the following: ${SIZES.join(', ')}; received: ${size}`, SIZES.includes(size));
+    return size;
+  }
+
+  /**
+   * Sets the type of the component
+   * Accepted values: filled, inverted, outlined
+   *
+   * @param type
+   * @type {HdsBadgeTypes}
+   * @default 'filled'
+   */
+  get type() {
+    const {
+      type = DEFAULT_TYPE
+    } = this.args;
+    assert(`@type for "Hds::Badge" must be one of the following: ${TYPES.join(', ')}; received: ${type}`, TYPES.includes(type));
+    return type;
+  }
+
+  /**
+   * Sets the color scheme for the component
+   * Accepted values: neutral, neutral-dark-mode, highlight, success, warning, critical
+   *
+   * @param color
+   * @type {HdsBadgeColors}
+   * @default 'neutral'
+   */
+  get color() {
+    const {
+      color = DEFAULT_COLOR
+    } = this.args;
+    assert(`@color for "Hds::Badge" must be one of the following: ${COLORS.join(', ')}; received: ${color}`, COLORS.includes(color));
+    return color;
+  }
+
+  /**
+   * @param text
+   * @type {string}
+   * @description The text of the badge. If `isIconOnly` is set to `true`, the text will be visually hidden but still available to assistive technology. If no text value is defined, an error will be thrown.
+   */
+  get text() {
+    const {
+      text
+    } = this.args;
+    assert('@text for "Hds::Badge" must have a valid value', text !== undefined);
+    return text;
+  }
+
+  /**
+   * Sets the icon name if there is one
+   *
+   * @param icon
+   * @type {string|null}
+   * @default null
+   */
+  get icon() {
+    return this.args.icon ?? null;
+  }
+
+  /**
+   * @param isIconOnly
+   * @type {boolean}
+   * @default false
+   * @description Indicates if the badge will only contain an icon; component will also ensure that accessible text is still applied to the component.
+   */
+  get isIconOnly() {
+    if (this.icon) {
+      return this.args.isIconOnly ?? false;
+    }
+    return false;
+  }
+
+  /**
+   * Get the class names to apply to the component.
+   * @method Badge#classNames
+   * @return {string} The "class" attribute to apply to the component.
+   */
+  get classNames() {
+    const classes = ['hds-badge'];
+
+    // add a class based on the @size argument
+    classes.push(`hds-badge--size-${this.size}`);
+
+    // add a class based on the @type argument
+    classes.push(`hds-badge--type-${this.type}`);
+
+    // add a class based on the @color argument
+    classes.push(`hds-badge--color-${this.color}`);
+    return classes.join(' ');
+  }
+}
+setComponentTemplate(TEMPLATE, HdsBadgeComponent);
+
+export { COLORS, DEFAULT_COLOR, DEFAULT_SIZE, DEFAULT_TYPE, SIZES, TYPES, HdsBadgeComponent as default };
+//# sourceMappingURL=index.js.map

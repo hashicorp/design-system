@@ -11,13 +11,13 @@
         {{#each-in this.links as |service url|}}
           {{#if (eq service "figma")}}
             <a class="doc-page-cover__link doc-link-generic" href={{url}} target="_blank" rel="noopener noreferrer">
-              <FlightIcon @name="figma-color" />
+              <Hds::Icon @name="figma-color" />
               Figma
             </a>
           {{/if}}
           {{#if (eq service "github")}}
             <a class="doc-page-cover__link doc-link-generic" href={{url}} target="_blank" rel="noopener noreferrer">
-              <FlightIcon @name="github-color" />
+              <Hds::Icon @name="github-color" />
               GitHub
             </a>
           {{/if}}

@@ -95,7 +95,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     );
     assert.dom('.hds-modal__title').exists();
     assert.dom('.hds-modal__title').hasText('Tagline Title');
-    assert.dom('.hds-modal__icon.flight-icon-info').exists();
+    assert.dom('.hds-modal__icon.hds-icon-info').exists();
     assert.dom('.hds-modal__tagline').exists();
     assert.dom('.hds-modal__tagline').hasText('Tagline');
   });

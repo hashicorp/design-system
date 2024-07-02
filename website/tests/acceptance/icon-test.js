@@ -31,7 +31,7 @@ module('Acceptance | Icon Search', function (hooks) {
     );
 
     assert.dom('.doc-icons-list-grid-item').exists({ count: 1 });
-    assert.dom('.flight-icon-cpu').exists({ count: 1 });
+    assert.dom('.hds-icon-cpu').exists({ count: 1 });
     assert.dom('.doc-copy-button__visible-value').hasText('cpu');
   });
 
@@ -60,7 +60,7 @@ module('Acceptance | Icon Search', function (hooks) {
     );
 
     assert.dom('.doc-icons-list-grid-item').exists({ count: 1 });
-    assert.dom('.flight-icon-youtube').exists({ count: 1 });
+    assert.dom('.hds-icon-youtube').exists({ count: 1 });
     assert.dom('.doc-copy-button__visible-value ').hasText('youtube');
   });
 
@@ -105,7 +105,7 @@ module('Acceptance | Icon Search', function (hooks) {
       .dom('.doc-icons-list-filter input[type="search"]')
       .hasValue('icon:loading');
     assert.dom('.doc-icons-list-grid-item').exists({ count: 1 });
-    assert.dom('.flight-icon-loading').exists({ count: 1 });
+    assert.dom('.hds-icon-loading').exists({ count: 1 });
     assert.dom('.doc-copy-button__visible-value ').hasText('loading');
   });
 });

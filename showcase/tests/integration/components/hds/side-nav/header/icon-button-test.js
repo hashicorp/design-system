@@ -30,7 +30,7 @@ module('Integration | Component | hds/side-nav/icon-button', function (hooks) {
     await render(
       hbs`<Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" id="test-side-nav-button" />`
     );
-    assert.dom('.flight-icon-search').exists();
+    assert.dom('.hds-icon-search').exists();
   });
 
   // GENERATED ELEMENTS

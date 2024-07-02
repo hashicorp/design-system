@@ -42,7 +42,7 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
     await render(
       hbs`<Hds::Breadcrumb::Item id="test-breadcrumb-item" @text="text renders" @icon="activity" />`
     );
-    assert.dom('.flight-icon.flight-icon-activity').exists();
+    assert.dom('.hds-icon.hds-icon-activity').exists();
     assert.dom('.hds-breadcrumb__text').hasText('text renders');
   });
 

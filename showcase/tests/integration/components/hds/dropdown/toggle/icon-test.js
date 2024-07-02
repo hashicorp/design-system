@@ -35,7 +35,7 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
     await render(
       hbs`<Hds::Dropdown::Toggle::Icon @icon="settings" @text="settings menu" id="test-toggle-icon" />`
     );
-    assert.dom('.flight-icon.flight-icon-settings').exists();
+    assert.dom('.hds-icon.hds-icon-settings').exists();
   });
 
   // IMAGE (AVATAR)
@@ -56,7 +56,7 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
     this.set('imageSrc', '/assets/images/avatar-broken.png');
     await settled();
     assert.dom('img').doesNotExist();
-    assert.dom('#test-toggle-icon .flight-icon.flight-icon-user').exists();
+    assert.dom('#test-toggle-icon .hds-icon.hds-icon-user').exists();
   });
 
   // CHEVRON
@@ -65,13 +65,13 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
     await render(
       hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" id="test-toggle-icon" />`
     );
-    assert.dom('.flight-icon.flight-icon-chevron-down').exists();
+    assert.dom('.hds-icon.hds-icon-chevron-down').exists();
   });
   test('toggle-icon renders no chevron when hasChevron is set to false', async function (assert) {
     await render(
       hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" id="test-toggle-icon" @hasChevron={{false}} />`
     );
-    assert.dom('.flight-icon.flight-icon-chevron-down').doesNotExist();
+    assert.dom('.hds-icon.hds-icon-chevron-down').doesNotExist();
   });
 
   // SIZE

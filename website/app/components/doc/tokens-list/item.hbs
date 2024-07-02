@@ -14,7 +14,7 @@
       {{on "click" this.toggle}}
       aria-label={{(concat this.token.name " information list")}}
       aria-expanded={{if this.isExpanded "true" "false"}}
-    ><FlightIcon @name={{if this.isExpanded "chevron-up" "chevron-down"}} /></button>
+    ><Hds::Icon @name={{if this.isExpanded "chevron-up" "chevron-down"}} /></button>
     {{#if this.token.deprecated}}
       <Doc::MetaRow @label="Don't use" @valueToShow="This token is now deprecated" />
       <Doc::MetaRow class="doc-tokens-list__item--is-deprecated" @label="CSS var" @valueToShow={{this.token.name}} />
