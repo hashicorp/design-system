@@ -7,6 +7,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
+import { registerDestructor } from '@ember/destroyable';
 
 export interface HdsAppHeaderSignature {
   Blocks: {
@@ -23,10 +24,32 @@ export interface HdsAppHeaderSignature {
 
 export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignature> {
   @tracked isOpen = false;
+  @tracked isDesktop = true;
+  desktopMQ: MediaQueryList;
 
-  @action
-  onClickToggle() {
-    this.isOpen = !this.isOpen;
+  desktopMQVal = getComputedStyle(document.documentElement).getPropertyValue(
+    '--hds-app-desktop-breakpoint'
+  );
+
+  constructor(owner: unknown, args: Record<string, never>) {
+    super(owner, args);
+    this.desktopMQ = window.matchMedia(`(min-width:${this.desktopMQVal})`);
+    this.addEventListeners();
+    registerDestructor(this, () => {
+      this.removeEventListeners();
+    });
+  }
+
+  addEventListeners() {
+    this.desktopMQ.addEventListener('change', this.updateDesktopVariable, true);
+  }
+
+  removeEventListeners() {
+    this.desktopMQ.removeEventListener(
+      'change',
+      this.updateDesktopVariable,
+      true
+    );
   }
 
   /**
@@ -46,9 +69,25 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
 
     // add a class based on the @isOpen argument
     if (this.isOpen) {
-      classes.push('hds-app-header__menu-is-open');
+      classes.push('hds-app-header--menu-is-open');
+    }
+
+    if (!this.isDesktop) {
+      classes.push('hds-app-header--is-mobile');
+    } else {
+      classes.push('hds-app-header--is-desktop');
     }
 
     return classes.join(' ');
+  }
+
+  @action
+  onClickToggle() {
+    this.isOpen = !this.isOpen;
+  }
+
+  @action
+  updateDesktopVariable(event: MediaQueryListEvent) {
+    this.isDesktop = event.matches;
   }
 }

@@ -10,78 +10,8 @@
 @use "../mixins/interactive-dark-theme" as *;
 
 // ----------------
-// Q: Create tokens?
+// Q: Create token?
 $app-header-home-link-padding: 4px;
-
-// Breakpoints WIP: START ----------------------------
-
-// Break points
-$tablet-min-width: 768px;
-$desktop-min-width: 1024px;
-
-// base styles
-.hds-app-header__menu {
-  display: inherit; // may be over-riddden by queries
-  gap: inherit;
-}
-
-// Media queries
-// -------------
-.hds-app-header {
-  // Mobile/small and tablet/medium compound view: applies at tablet min-width and below
-  @media (max-width: #{$desktop-min-width - 1}) {
-    &:not(.hds-app-header__menu-is-open) {
-      .hds-app-header__menu {
-        // dropdown menu is hidden when isOpen = false
-        display: none;
-      }
-    }
-
-    // Display content as dropdown menu in mobile/tablet view
-    .hds-app-header__menu {
-      position: absolute;
-      top: calc(100% + 1px); // We add 1px to account for the bottom border
-      right: 0;
-      left: 0;
-      z-index: 5; // TODO: determine correct z-index to use
-      display: flex;
-      flex-wrap: wrap;
-      // height: calc(100vh - 52px); // it should take the full height of the viewport minus the header height
-      padding: 16px;
-      background: var(--token-color-palette-neutral-700);
-    }
-
-    // Force nested dropdown content to align left in mobile/tablet view
-    .hds-dropdown__content {
-      left: 0;
-    }
-
-    // Hide :globalAfter content in mobile/tablet view
-    .hds-app-header__global-items-mobile-view {
-      display: none;
-    }
-
-    // Since the same component is used for both mobile/tablet and desktop views, we need to force the width to 100% in mobile view
-    .hds-app-header__global-items-desktop-view {
-      &,
-      .hds-dropdown,
-      .hds-dropdown-toggle-button {
-        width: 100%;
-      }
-    }
-  }
-
-  // Desktop/large view: applies at desktop min-width and above
-  @media (min-width: #{$desktop-min-width}) {
-    // Hide Menu button & Global Items after content in desktop view
-    .hds-app-header__menu-button,
-    .hds-app-header__global-items-desktop-view {
-      display: none;
-    }
-  }
-}
-
-// Breakpoints WIP: END ------------------------------
 
 .hds-app-header {
   position: relative;
@@ -94,6 +24,60 @@ $desktop-min-width: 1024px;
   color: #FFF;
   background: var(--token-color-palette-neutral-700);
   border-bottom: 1px solid var(--token-color-palette-neutral-500);
+
+  // RESPONSIVE VIEWS
+
+  // Mobile/small and tablet/medium compound view: applies at tablet min-width and below
+  &.hds-app-header--is-mobile {
+    &:not(.hds-app-header--menu-is-open) {
+      .hds-app-header__menu {
+        display: none; // dropdown menu is hidden when isOpen = false
+      }
+    }
+
+    // Style content as dropdown menu in mobile/tablet view
+    .hds-app-header__menu {
+      position: absolute;
+      top: calc(100% + 1px); // We add 1px to account for the bottom border
+      right: 0;
+      left: 0;
+      z-index: 5; // TODO: determine correct z-index to use
+      flex-wrap: wrap;
+      // height: calc(100vh - 52px); // it should take the full height of the viewport minus the header height
+      padding: 16px;
+      background: var(--token-color-palette-neutral-700);
+    }
+
+    // Force nested dropdown content to align left in mobile/tablet view
+    .hds-dropdown__content {
+      left: 0;
+    }
+
+    // Hide :globalAfter content in mobile/tablet view
+    .hds-app-header__global-items-after {
+      display: none;
+    }
+
+    // Since the same component is used for both mobile/tablet and desktop views, we need to force the width to 100% in mobile view
+    .hds-app-header__global-items-in-menu{
+      &,
+      .hds-dropdown,
+      .hds-dropdown-toggle-button {
+        width: 100%;
+      }
+    }
+  }
+
+  // Desktop/large view: applies at desktop min-width and above
+  &.hds-app-header--is-desktop {
+    // Hide Menu button & Global Items after content in desktop view
+    .hds-app-header__menu-button,
+    .hds-app-header__global-items-in-menu {
+      display: none;
+    }
+  }
+
+  // CHILD CONTENT
 
   // Apply dark theme to child interactive components
   .hds-button,
@@ -116,4 +100,9 @@ $desktop-min-width: 1024px;
   width: 36px;
   height: 36px;
   padding: calc(#{$app-header-home-link-padding} - 1px); // by design - we take in account the transparent border
+}
+
+.hds-app-header__menu {
+  display: flex; // may be over-riddden by queries
+  gap: inherit;
 }
