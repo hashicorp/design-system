@@ -27,7 +27,7 @@ export interface HdsTextSignature {
     tag?: HdsTextTags;
     weight?: HdsTextWeights;
     align?: HdsTextAligns;
-    color?: string | HdsTextColors;
+    color?: HdsTextColors | string | undefined;
     group: HdsTextGroups;
   };
   Element: AvailableElements;
@@ -41,7 +41,7 @@ export default class HdsTextComponent extends Component<HdsTextSignature> {
    * Get a tag to render based on the `@tag` argument passed or the value of `this.size` (via mapping)
    *
    * @method #componentTag
-   * @return {string} The html tag to use in the dynamic render of the component
+   * @return {HdsTextTags} The html tag to use in the dynamic render of the component
    */
   get componentTag(): HdsTextTags {
     const { tag = 'span' } = this.args;
@@ -53,11 +53,10 @@ export default class HdsTextComponent extends Component<HdsTextSignature> {
    * Sets the "variant" (style) for the text
    * Accepted values: see AVAILABLE_VARIANTS
    *
-   * @type {string}
-   *
    * @param variant
+   * @type {string}
    */
-  get variant() {
+  get variant(): string {
     const { group, size } = this.args;
 
     // notice: for performance reasons we don't do any other extra check on these values
@@ -70,9 +69,9 @@ export default class HdsTextComponent extends Component<HdsTextSignature> {
    * Accepted values: see AVAILABLE_ALIGNS
    *
    * @param align
-   * @type {string}
+   * @type {HdsTextAligns}
    */
-  get align() {
+  get align(): HdsTextAligns | undefined {
     const { align } = this.args;
 
     if (align) {
@@ -92,13 +91,13 @@ export default class HdsTextComponent extends Component<HdsTextSignature> {
    * Accepted values: see AVAILABLE_COLORS
    *
    * @param color
-   * @type {string}
+   * @type {HdsTextColors}
    */
-  get predefinedColor() {
+  get predefinedColor(): HdsTextColors | undefined {
     const { color } = this.args;
 
     if (color && AVAILABLE_COLORS.includes(color)) {
-      return color;
+      return color as HdsTextColors;
     } else {
       return undefined;
     }
@@ -108,13 +107,13 @@ export default class HdsTextComponent extends Component<HdsTextSignature> {
    * Sets the color of the text as custom value (via inline style)
    *
    * @param color
-   * @type {string}
+   * @type {HdsTextColors}
    */
-  get customColor() {
+  get customColor(): HdsTextColors | undefined {
     const { color } = this.args;
 
     if (color && !AVAILABLE_COLORS.includes(color)) {
-      return color;
+      return color as HdsTextColors;
     } else {
       return undefined;
     }
@@ -125,7 +124,7 @@ export default class HdsTextComponent extends Component<HdsTextSignature> {
    * @method #classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
+  get classNames(): string {
     const classes = ['hds-text'];
 
     // add a (helper) class based on the "group + size" variant

@@ -42,7 +42,7 @@ export default class HdsLinkInlineComponent extends Component<HdsLinkInlineSigna
    * @default primary
    * @description Determines the color of link to be used; acceptable values are `primary` and `secondary`
    */
-  get color() {
+  get color(): HdsLinkColors {
     const { color = DEFAULT_COLOR } = this.args;
 
     assert(
@@ -57,11 +57,11 @@ export default class HdsLinkInlineComponent extends Component<HdsLinkInlineSigna
 
   /**
    * @param iconPosition
-   * @type {string}
+   * @type {HdsLinkIconPositions}
    * @default leading
    * @description Positions the icon before or after the text; allowed values are `leading` or `trailing`
    */
-  get iconPosition() {
+  get iconPosition(): HdsLinkIconPositions {
     const { iconPosition = DEFAULT_ICONPOSITION } = this.args;
 
     assert(
@@ -79,7 +79,7 @@ export default class HdsLinkInlineComponent extends Component<HdsLinkInlineSigna
    * @method LinkInline#classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
+  get classNames(): string {
     const classes = ['hds-link-inline'];
 
     // add a class based on the @color argument

@@ -18,7 +18,7 @@ export default class HdsDismissButtonComponent extends Component<HdsDismissButto
    * @type {string}
    * @default 'Dismiss'
    */
-  get ariaLabel() {
+  get ariaLabel(): string {
     return this.args.ariaLabel ?? 'Dismiss';
   }
 }

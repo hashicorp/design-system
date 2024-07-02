@@ -28,7 +28,7 @@ export default class HdsStepperStepIndicatorComponent extends Component<HdsStepp
    * @default "incomplete"
    */
 
-  get status() {
+  get status(): HdsStepperStatuses {
     const { status = DEFAULT_STATUS } = this.args;
 
     assert(
@@ -47,7 +47,7 @@ export default class HdsStepperStepIndicatorComponent extends Component<HdsStepp
    * @default false
    */
 
-  get isInteractive() {
+  get isInteractive(): boolean {
     return this.args.isInteractive || false;
   }
 
@@ -56,7 +56,7 @@ export default class HdsStepperStepIndicatorComponent extends Component<HdsStepp
    * @method IndicatorStep#classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
+  get classNames(): string {
     const classes = ['hds-stepper-indicator-step'];
 
     // Based on the @status arg

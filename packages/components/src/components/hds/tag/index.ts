@@ -45,7 +45,7 @@ export default class HdsTagComponent extends Component<HdsTagSignature> {
    * @type {string}
    * @description The text of the tag. If no text value is defined, an error will be thrown.
    */
-  get text() {
+  get text(): string {
     const { text } = this.args;
 
     assert('@text for "Hds::Tag" must have a valid value', text !== undefined);
@@ -58,7 +58,7 @@ export default class HdsTagComponent extends Component<HdsTagSignature> {
    * @type {string}
    * @default 'Dismiss'
    */
-  get ariaLabel() {
+  get ariaLabel(): string {
     const tagAriaLabel = this.args.ariaLabel ?? 'Dismiss';
     return tagAriaLabel + ' ' + this.args.text;
   }
@@ -69,7 +69,7 @@ export default class HdsTagComponent extends Component<HdsTagSignature> {
    * @default primary
    * @description Determines the color of link to be used; acceptable values are `primary` and `secondary`
    */
-  get color() {
+  get color(): HdsTagColors | false {
     if (this.args.href || this.args.route) {
       const { color = DEFAULT_COLOR } = this.args;
       assert(
@@ -93,7 +93,7 @@ export default class HdsTagComponent extends Component<HdsTagSignature> {
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
+  get classNames(): string {
     const classes = ['hds-tag'];
 
     // add a class based on the @color argument

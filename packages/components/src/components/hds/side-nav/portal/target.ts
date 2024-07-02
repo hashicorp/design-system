@@ -40,7 +40,7 @@ export default class HdsSideNavPortalTargetComponent extends Component<HdsSideNa
   @tracked numSubnavs = 0;
   @tracked lastPanelEl: Element | undefined;
 
-  static get prefersReducedMotionOverride() {
+  static get prefersReducedMotionOverride(): boolean {
     return Ember.testing;
   }
 
@@ -48,7 +48,7 @@ export default class HdsSideNavPortalTargetComponent extends Component<HdsSideNa
     '(prefers-reduced-motion: reduce)'
   );
 
-  get prefersReducedMotion() {
+  get prefersReducedMotion(): boolean {
     return (
       HdsSideNavPortalTargetComponent.prefersReducedMotionOverride ||
       (this.prefersReducedMotionMQ && this.prefersReducedMotionMQ.matches)
@@ -56,17 +56,17 @@ export default class HdsSideNavPortalTargetComponent extends Component<HdsSideNa
   }
 
   @action
-  panelsChanged(portalCount: number) {
+  panelsChanged(portalCount: number): void {
     this.numSubnavs = portalCount;
   }
 
   @action
-  didUpdateSubnav(element: HTMLElement, [count]: [number]) {
+  didUpdateSubnav(element: HTMLElement, [count]: [number]): void {
     this.animateSubnav(element, [count]);
   }
 
   @action
-  animateSubnav(element: HTMLElement, [count]: [number]) {
+  animateSubnav(element: HTMLElement, [count]: [number]): void {
     /*
      * Here is what the layout looks like for this setup
      *
@@ -137,7 +137,7 @@ export default class HdsSideNavPortalTargetComponent extends Component<HdsSideNa
       }
     );
 
-    anim.finished.then(() => {
+    anim.finished.then((): void => {
       // uncomment this if we need/want to scroll the element to the top
       // targetElement.scrollIntoView(true);
       if (activeIndex > 0) {

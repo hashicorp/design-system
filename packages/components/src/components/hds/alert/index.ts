@@ -82,7 +82,7 @@ export default class HdsAlertComponent extends Component<HdsAlertSignature> {
    * @default neutral
    * @description Determines the color scheme for the alert.
    */
-  get color() {
+  get color(): HdsAlertColors {
     const { color = DEFAULT_COLOR } = this.args;
 
     assert(
@@ -98,7 +98,7 @@ export default class HdsAlertComponent extends Component<HdsAlertSignature> {
   /**
    * @param icon
    * @type {string}
-   * @default null
+   * @default false
    * @description The name of the icon to be used.
    */
   get icon(): FlightIconSignature['Args']['name'] | false {
@@ -147,7 +147,7 @@ export default class HdsAlertComponent extends Component<HdsAlertSignature> {
    * @type {string}
    * @description ensures that the correct icon size is used. Automatically calculated.
    */
-  get iconSize() {
+  get iconSize(): '16' | '24' {
     if (this.args.type === 'compact') {
       return '16';
     } else {
@@ -160,7 +160,7 @@ export default class HdsAlertComponent extends Component<HdsAlertSignature> {
    * @method Alert#classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
+  get classNames(): string {
     const classes = ['hds-alert'];
 
     // Add a class based on the @type argument
@@ -173,7 +173,7 @@ export default class HdsAlertComponent extends Component<HdsAlertSignature> {
   }
 
   @action
-  didInsert(element: HTMLDivElement) {
+  didInsert(element: HTMLDivElement): void {
     const actions = element.querySelectorAll(
       `${CONTENT_ELEMENT_SELECTOR} button, ${CONTENT_ELEMENT_SELECTOR} a`
     );
