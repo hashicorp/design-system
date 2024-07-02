@@ -12,6 +12,7 @@ module.exports = {
     'no-unnecessary-curly-parens': false,
     'no-unnecessary-curly-strings': false,
     'no-redundant-role': false,
+    'no-builtin-form-components': false,
   },
   ignore: ['tests/**'],
 };

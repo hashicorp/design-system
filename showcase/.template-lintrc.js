@@ -9,6 +9,10 @@ module.exports = {
     'no-negated-condition': false,
     'require-mandatory-role-attributes': false,
     'no-at-ember-render-modifiers': false,
+    'no-unnecessary-curly-parens': false,
+    'no-unnecessary-curly-strings': false,
+    'no-redundant-role': false,
+    'no-builtin-form-components': false,
   },
   ignore: ['blueprints/**', 'tests/**'],
 };
