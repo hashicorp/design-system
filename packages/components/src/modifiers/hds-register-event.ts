@@ -37,7 +37,7 @@ export default modifier<HdsRegisterEventSignature>(
     targetElement.addEventListener(event, eventHandler, useCapture);
 
     // this (teardown) function is run when the element is removed from the DOM
-    return () => {
+    return (): void => {
       targetElement.removeEventListener(event, eventHandler, useCapture);
     };
   }
