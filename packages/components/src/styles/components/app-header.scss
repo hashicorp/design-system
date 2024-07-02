@@ -32,7 +32,7 @@ $desktop-min-width: 1024px;
   @media (max-width: #{$desktop-min-width - 1}) {
     &:not(.hds-app-header__menu-is-open) {
       .hds-app-header__menu {
-        // dropdown menu is hidden whhen isOpen = false
+        // dropdown menu is hidden when isOpen = false
         display: none;
       }
     }
@@ -50,12 +50,27 @@ $desktop-min-width: 1024px;
       padding: 16px;
       background: var(--token-color-palette-neutral-700);
     }
+
+    // Hide Global After content in mobile/tablet view
+    .hds-app-header__global-items-mobile-view {
+      display: none;
+    }
+
+    // Since the same component is used for both mobile/tablet and desktop views, we need to force the width to 100% in mobile view
+    .hds-app-header__global-items-desktop-view {
+      &,
+      .hds-dropdown,
+      .hds-dropdown-toggle-button {
+        width: 100%;
+      }
+    }
   }
 
   // desktop/large view: applies at desktop min-width and above
   @media (min-width: #{$desktop-min-width}) {
-    // Hide Menu button in desktop view
-    .hds-app-header__menu-button {
+    // Hide Menu button & Global Items after content in desktop view
+    .hds-app-header__menu-button,
+    .hds-app-header__global-items-desktop-view {
       display: none;
     }
   }

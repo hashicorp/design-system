@@ -15,11 +15,13 @@
   <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
     <SG.Item>
       <Hds::AppHeader>
-        <:globalItems>
+        <:globalItemsBefore>
           <Shw::Placeholder @height="2em" @width="auto" @text="ProductMenu" />
           <Shw::Placeholder @height="2em" @width="auto" @text="Logo" />
+        </:globalItemsBefore>
+        <:globalItemsAfter>
           <Shw::Placeholder @height="2em" @width="auto" @text="OrgPicker" />
-        </:globalItems>
+        </:globalItemsAfter>
 
         <:utilityItems>
           <Shw::Placeholder @height="2em" @width="auto" @text="GeoPicker" />
@@ -38,16 +40,17 @@
   <Shw::Grid @columns={{1}} {{style gap="3rem"}} as |SG|>
     <SG.Item @label="With minimum recommended phase 1 content">
       <Hds::AppHeader>
-        <:globalItems>
+        <:globalItemsBefore>
           <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
-
+        </:globalItemsBefore>
+        <:globalItemsAfter>
           <Hds::Dropdown as |dd|>
             <dd.ToggleButton @text="Choose an organization" @icon="org" />
             <dd.Checkmark>
               organizationName
             </dd.Checkmark>
           </Hds::Dropdown>
-        </:globalItems>
+        </:globalItemsAfter>
 
         <:utilityItems>
           <Hds::Dropdown @listPosition="bottom-right" as |dd|>
@@ -74,16 +77,17 @@
 
     <SG.Item @label="With max recommended phase 1 content & Terraform logo">
       <Hds::AppHeader>
-        <:globalItems>
+        <:globalItemsBefore>
           <Hds::AppHeader::HomeLink @icon="terraform" @ariaLabel="Terraform home menu" @href="#" />
-
+        </:globalItemsBefore>
+        <:globalItemsAfter>
           <Hds::Dropdown as |dd|>
             <dd.ToggleButton @text="Choose an organization" @icon="org" />
             <dd.Checkmark>
               organizationName
             </dd.Checkmark>
           </Hds::Dropdown>
-        </:globalItems>
+        </:globalItemsAfter>
 
         <:utilityItems>
           <Hds::Button @color="secondary" @icon="search" @isIconOnly={{true}} @text="Search" />
@@ -112,19 +116,18 @@
 
     <SG.Item @label="With max recommended future content">
       <Hds::AppHeader>
-        <:globalItems>
-          {{! TODO: Rethink / Refactor buttons (Hds::SideNav::Header::IconButton) for use in AppHeader (& SideNav ) }}
+        <:globalItemsBefore>
           <Hds::Button @icon="grid-alt" @isIconOnly={{true}} @text="Product menu" />
-
           <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
-
+        </:globalItemsBefore>
+        <:globalItemsAfter>
           <Hds::Dropdown as |dd|>
             <dd.ToggleButton @text="Choose an organization" @icon="org" />
             <dd.Checkmark>
               organizationName
             </dd.Checkmark>
           </Hds::Dropdown>
-        </:globalItems>
+        </:globalItemsAfter>
 
         <:utilityItems>
           <Hds::Dropdown as |dd|>

@@ -11,7 +11,9 @@ import { tracked } from '@glimmer/tracking';
 export interface HdsAppHeaderSignature {
   Blocks: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    globalItems?: any;
+    globalItemsBefore?: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    globalItemsAfter?: any;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     utilityItems?: any;
   };
