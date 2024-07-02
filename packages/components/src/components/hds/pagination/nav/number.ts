@@ -6,10 +6,25 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
+import type { HdsInteractiveSignature } from '../../interactive';
 
-export default class HdsPaginationControlNumberComponent extends Component {
-  get page() {
-    let { page } = this.args;
+interface HdsPaginationNavNumberSignature {
+  Args: {
+    page: number;
+    isSelected?: boolean;
+    route?: string;
+    models?: Array<string | number>;
+    model?: string | number;
+    query?: Record<string, string>;
+    replace?: boolean;
+    onClick?: (page: number) => void;
+  };
+  Element: HdsInteractiveSignature['Element'];
+}
+
+export default class HdsPaginationControlNumberComponent extends Component<HdsPaginationNavNumberSignature> {
+  get page(): number {
+    const { page } = this.args;
 
     assert(
       '@page for "Pagination::Nav::Number" must have a valid value',
@@ -24,8 +39,11 @@ export default class HdsPaginationControlNumberComponent extends Component {
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
-    let classes = ['hds-pagination-nav__control', 'hds-pagination-nav__number'];
+  get classNames(): string {
+    const classes = [
+      'hds-pagination-nav__control',
+      'hds-pagination-nav__number',
+    ];
 
     if (this.args.isSelected) {
       classes.push(`hds-pagination-nav__number--is-selected`);
@@ -36,7 +54,7 @@ export default class HdsPaginationControlNumberComponent extends Component {
 
   @action
   onClick() {
-    let { onClick } = this.args;
+    const { onClick } = this.args;
 
     if (typeof onClick === 'function') {
       onClick(this.args.page);

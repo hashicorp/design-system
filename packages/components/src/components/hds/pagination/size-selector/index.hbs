@@ -1,4 +1,3 @@
-{{! @glint-nocheck: not typesafe yet }}
 {{!
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
@@ -9,7 +8,7 @@
   </label>
   <Hds::Form::Select::Base id={{this.SizeSelectorId}} {{on "change" this.onChange}} as |S|>
     <S.Options>
-      {{#each this.pageSizes as |size|}}
+      {{#each @pageSizes as |size|}}
         <option value={{size}} selected={{if (eq size this.selectedSize) true null}}>{{size}}</option>
       {{/each}}
     </S.Options>
