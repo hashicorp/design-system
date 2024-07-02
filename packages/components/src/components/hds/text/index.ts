@@ -107,9 +107,9 @@ export default class HdsTextComponent extends Component<HdsTextSignature> {
    * Sets the color of the text as custom value (via inline style)
    *
    * @param color
-   * @type {HdsTextColors}
+   * @type {string}
    */
-  get customColor(): HdsTextColors | undefined {
+  get customColor(): string | undefined {
     const { color } = this.args;
 
     if (color && !AVAILABLE_COLORS.includes(color)) {
