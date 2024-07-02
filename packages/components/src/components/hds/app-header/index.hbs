@@ -9,7 +9,7 @@
     {{! Intended for: ProductMenu, HomeLink/Logo }}
     {{yield to="globalItemsBefore"}}
     {{! Intended for: OrgPicker }}
-    <div class="hds-app-header__global-items-mobile-view">
+    <div class="hds-app-header__global-items-after">
       {{yield to="globalItemsAfter"}}
     </div>
   </div>
@@ -25,7 +25,7 @@
 
     {{! Intended for: Search, HelpMenu, GeoPicker, UserMenu }}
     <div class="hds-app-header__menu" id={{this.menuContentId}}>
-      <div class="hds-app-header__global-items-desktop-view">
+      <div class="hds-app-header__global-items-in-menu">
         {{yield to="globalItemsAfter"}}
       </div>
       {{yield to="utilityItems"}}
