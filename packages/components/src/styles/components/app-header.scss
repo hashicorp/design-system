@@ -51,7 +51,7 @@ $desktop-min-width: 1024px;
       background: var(--token-color-palette-neutral-700);
     }
 
-    // Hide Global After content in mobile/tablet view
+    // Hide :globalAfter content in mobile/tablet view
     .hds-app-header__global-items-mobile-view {
       display: none;
     }
@@ -81,11 +81,11 @@ $desktop-min-width: 1024px;
 .hds-app-header {
   position: relative;
   display: flex;
-  gap: 16px;
+  gap: 12px;
   align-items: center;
   justify-content: space-between;
-  min-height: 52px; 
-  padding: 8px 16px;
+  min-height: 60px; 
+  padding: 12px 16px;
   color: #FFF;
   background: var(--token-color-palette-neutral-700);
   border-bottom: 1px solid var(--token-color-palette-neutral-500);
