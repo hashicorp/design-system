@@ -9,6 +9,5 @@ body.components-app-header {
   // Applies to the containers of child component examples (the actual AppHeader component always has 2 children)
   .hds-app-header:has(> :only-child) {
     width: max-content;
-    box-shadow: none; // remove shadow as it may be confusing in the context of child component examples
   }
 }
