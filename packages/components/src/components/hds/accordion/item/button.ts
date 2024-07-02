@@ -6,6 +6,8 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
+import type { HdsAccordionSizes } from '../types.ts';
+
 interface HdsAccordionItemButtonSignature {
   Args: {
     ariaLabel?: string;
@@ -14,6 +16,7 @@ interface HdsAccordionItemButtonSignature {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onClickToggle?: (event: MouseEvent, ...args: any[]) => void;
     parentContainsInteractive?: boolean;
+    size?: HdsAccordionSizes;
   };
   Element: HTMLButtonElement;
 }
@@ -37,6 +40,11 @@ export default class HdsAccordionItemButtonComponent extends Component<HdsAccord
     // add a class based on the @isOpen argument
     if (this.args.isOpen) {
       classes.push('hds-accordion-item__button--is-open');
+    }
+
+    // add a class based on the @size argument
+    if (this.args.size) {
+      classes.push(`hds-accordion-item__button--size-${this.args.size}`);
     }
 
     if (this.args.parentContainsInteractive === false) {

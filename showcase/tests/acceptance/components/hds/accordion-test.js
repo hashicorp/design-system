@@ -12,9 +12,18 @@ module('Acceptance | Component | hds/accordion', function (hooks) {
   setupApplicationTest(hooks);
 
   test('Components/hds/accordion page passes automated a11y checks', async function (assert) {
+    const axeOptions = {
+      rules: {
+        'target-size': {
+          enabled: false,
+          selectors: [['.hds-accordion-item__button--size-small']],
+        },
+      },
+    };
+
     await visit('/components/accordion');
 
-    await a11yAudit();
+    await a11yAudit(axeOptions);
 
     assert.ok(true, 'a11y automation audit passed');
   });

@@ -48,6 +48,100 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     assert.dom('#test-em').exists().hasText('Content one');
   });
 
+  // SIZE
+
+  test('it should render the medium size as the default if no @size is declared', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Accordion id="test-accordion" as |A|>
+          <A.Item>Item</A.Item>
+        </Hds::Accordion>
+      `
+    );
+    assert.dom('#test-accordion').hasClass('hds-accordion--size-medium');
+    assert
+      .dom('#test-accordion .hds-accordion-item')
+      .hasClass('hds-accordion-item--size-medium');
+  });
+
+  test('it should render the correct CSS size class depending on the @size', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Accordion id="test-accordion" @size="large" as |A|>
+          <A.Item>Item</A.Item>
+        </Hds::Accordion>
+      `
+    );
+    assert.dom('#test-accordion').hasClass('hds-accordion--size-large');
+    assert
+      .dom('#test-accordion .hds-accordion-item')
+      .hasClass('hds-accordion-item--size-large');
+  });
+
+  test('it should render different CSS size classes when different @size arguments are provided', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Accordion id="test-accordion" @size="large" as |A|>
+          <A.Item id="test-accordion-item1">Item 1</A.Item>
+          <A.Item id="test-accordion-item2" @size="small">Item 2</A.Item>
+        </Hds::Accordion>
+      `
+    );
+    assert
+      .dom('#test-accordion-item1')
+      .hasClass('hds-accordion-item--size-large');
+    assert
+      .dom('#test-accordion-item2')
+      .hasClass('hds-accordion-item--size-small');
+  });
+
+  // TYPE
+
+  test('it should render the card type as the default if no @type is declared', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Accordion id="test-accordion" as |A|>
+          <A.Item>Item</A.Item>
+        </Hds::Accordion>
+      `
+    );
+    assert.dom('#test-accordion').hasClass('hds-accordion--type-card');
+    assert
+      .dom('#test-accordion .hds-accordion-item')
+      .hasClass('hds-accordion-item--type-card');
+  });
+
+  test('it should render the correct CSS type class depending on the @type', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Accordion id="test-accordion" @type="flush" as |A|>
+          <A.Item>Item</A.Item>
+        </Hds::Accordion>
+      `
+    );
+    assert.dom('#test-accordion').hasClass('hds-accordion--type-flush');
+    assert
+      .dom('#test-accordion .hds-accordion-item')
+      .hasClass('hds-accordion-item--type-flush');
+  });
+
+  test('it should render different CSS type class when different @type arguments are provided', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Accordion id="test-accordion" @type="flush" as |A|>
+          <A.Item id="test-accordion-item1">Item 1</A.Item>
+          <A.Item id="test-accordion-item2" @type="card">Item 2</A.Item>
+        </Hds::Accordion>
+      `
+    );
+    assert
+      .dom('#test-accordion-item1')
+      .hasClass('hds-accordion-item--type-flush');
+    assert
+      .dom('#test-accordion-item2')
+      .hasClass('hds-accordion-item--type-card');
+  });
+
   // A11Y
 
   test('it displays the correct value for aria-expanded on the AccordionItem when closed vs open', async function (assert) {
@@ -98,7 +192,6 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
   // OPTIONS
 
   // isOpen
-
   test('it displays content initially when @isOpen is set to true, ', async function (assert) {
     await render(
       hbs`
@@ -142,5 +235,23 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     assert
       .dom('#test-contains-interactive--true')
       .hasClass('hds-accordion-item--contains-interactive');
+  });
+
+  // isStatic
+  test('it does not show the toggle button when @isStatic is set to true, ', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Accordion as |A|>
+          <A.Item @isStatic={{true}}>
+            <:toggle>Item one</:toggle>
+            <:content>Additional content</:content>
+          </A.Item>
+        </Hds::Accordion>
+      `
+    );
+    assert.dom('.hds-accordion-item--is-static').exists();
+    assert
+      .dom('.hds-accordion-item__button')
+      .hasStyle({ visibility: 'hidden' });
   });
 });
