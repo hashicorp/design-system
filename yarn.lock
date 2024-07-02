@@ -4260,7 +4260,7 @@ __metadata:
     chalk: "npm:^4.1.2"
     del: "npm:^6.1.1"
     dotenv: "npm:^10.0.0"
-    eslint: "npm:^7.32.0"
+    eslint: "npm:^8.57.0"
     figma-api: "npm:^1.11.0"
     fs-extra: "npm:^11.1.1"
     lodash: "npm:^4.17.21"
@@ -13342,7 +13342,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-qunit@npm:^8.0.2":
+"ember-qunit@npm:^8.1.0":
   version: 8.1.0
   resolution: "ember-qunit@npm:8.1.0"
   dependencies:
@@ -24635,7 +24635,7 @@ __metadata:
     ember-modifier: "npm:^4.1.0"
     ember-page-title: "npm:^8.2.3"
     ember-power-select: "npm:^8.2.0"
-    ember-qunit: "npm:^8.0.2"
+    ember-qunit: "npm:^8.1.0"
     ember-resolver: "npm:^11.0.1"
     ember-source: "npm:~5.9.0"
     ember-source-channel-url: "npm:^3.0.0"
@@ -27896,7 +27896,7 @@ __metadata:
     ember-page-title: "npm:^8.2.3"
     ember-power-select: "npm:^8.2.0"
     ember-prism: "npm:^0.13.0"
-    ember-qunit: "npm:^8.0.2"
+    ember-qunit: "npm:^8.1.0"
     ember-resolver: "npm:^11.0.1"
     ember-router-scroll: "npm:^4.1.2"
     ember-source: "npm:~5.9.0"
