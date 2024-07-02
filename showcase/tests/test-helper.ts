@@ -8,7 +8,8 @@ import config from 'showcase/config/environment';
 import * as QUnit from 'qunit';
 import { setApplication } from '@ember/test-helpers';
 import { setup } from 'qunit-dom';
-import { start } from 'ember-qunit';
+// @ts-expect-error: there no types for this package
+import start from 'ember-exam/test-support/start';
 import {
   DEFAULT_A11Y_TEST_HELPER_NAMES,
   setRunOptions,

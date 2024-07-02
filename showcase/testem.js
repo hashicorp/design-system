@@ -6,6 +6,9 @@
 'use strict';
 
 module.exports = {
+  // setting parallel execution to -1 means auto-detect and use the maximum number of parallel processes possible
+  // while setting it to 1 means executing tests serially, one after the other
+  parallel: process.env.CI ? -1 : 1,
   test_page: 'tests/index.html?hidepassed',
   disable_watching: true,
   launch_in_ci: ['Chrome'],
