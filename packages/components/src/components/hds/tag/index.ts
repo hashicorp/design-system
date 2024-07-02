@@ -30,7 +30,8 @@ export default class HdsTagComponent extends Component<HdsTagSignature> {
    * @type {function}
    * @default () => {}
    */
-  get onDismiss() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  get onDismiss(): ((event: MouseEvent, ...args: any[]) => void) | false {
     const { onDismiss } = this.args;
 
     if (typeof onDismiss === 'function') {
