@@ -6,18 +6,50 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-export const DEFAULT_ICONPOSITION = 'trailing';
-export const ICONPOSITIONS = ['leading', 'trailing'];
-export const SIZES = ['small', 'medium', 'large'];
+import {
+  HdsRichTooltipToggleIconPositionValues,
+  HdsRichTooltipToggleSizeValues,
+} from './types.ts';
+import type {
+  HdsRichTooltipToggleIconPositions,
+  HdsRichTooltipToggleSizes,
+} from './types.ts';
+import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
+import type { ModifierLike } from '@glint/template';
+import type { SetupPrimitiveToggleModifier } from '../popover-primitive';
 
-export default class HdsRichTooltipToggleComponent extends Component {
+export const ICONPOSITIONS: string[] = Object.values(
+  HdsRichTooltipToggleIconPositionValues
+);
+export const DEFAULT_ICONPOSITION =
+  HdsRichTooltipToggleIconPositionValues.Trailing;
+export const SIZES: string[] = Object.values(HdsRichTooltipToggleSizeValues);
+
+export interface HdsRichTooltipToggleSignature {
+  Args: {
+    text?: string;
+    icon?: FlightIconSignature['Args']['name'];
+    iconPosition?: HdsRichTooltipToggleIconPositions;
+    size?: undefined | HdsRichTooltipToggleSizes;
+    isInline?: boolean;
+    isOpen?: boolean;
+    popoverId: string;
+    setupPrimitiveToggle: ModifierLike<SetupPrimitiveToggleModifier>;
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLButtonElement;
+}
+
+export default class HdsRichTooltipToggleComponent extends Component<HdsRichTooltipToggleSignature> {
   /**
    * @param isInline
    * @type {boolean}
    * @default true
    * @description sets display inline for the element
    */
-  get isInline() {
+  get isInline(): boolean {
     const { isInline = false } = this.args;
     return isInline;
   }
@@ -28,7 +60,7 @@ export default class HdsRichTooltipToggleComponent extends Component {
    * @default leading
    * @description Positions the icon before or after the text; allowed values are `leading` or `trailing`
    */
-  get iconPosition() {
+  get iconPosition(): HdsRichTooltipToggleIconPositions {
     const { iconPosition = DEFAULT_ICONPOSITION } = this.args;
 
     assert(
@@ -47,10 +79,10 @@ export default class HdsRichTooltipToggleComponent extends Component {
    * @default medium
    * @description The size of the "info" text; acceptable values are `small`, `medium`, `large`
    */
-  get size() {
+  get size(): HdsRichTooltipToggleSizes | undefined {
     let size;
 
-    // we assing a "size" only if `@text` is provided
+    // we assign a "size" only if `@text` is provided
     if (this.args.text) {
       size = this.args.size;
 
@@ -69,8 +101,8 @@ export default class HdsRichTooltipToggleComponent extends Component {
    * Get the class names to apply to the component.
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
-    let classes = ['hds-rich-tooltip__toggle'];
+  get classNames(): string {
+    const classes = ['hds-rich-tooltip__toggle'];
 
     // add a class based on the @isInline argument
     if (this.isInline) {

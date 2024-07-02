@@ -48,6 +48,9 @@ import type HdsPageHeaderTitleComponent from './components/hds/page-header/title
 import type HdsPopoverPrimitiveComponent from './components/hds/popover-primitive';
 import type HdsRevealComponent from './components/hds/reveal';
 import type HdsRevealToggleButtonComponent from './components/hds/reveal/toggle/button';
+import type HdsRichTooltipComponent from './components/hds/rich-tooltip/index.ts';
+import type HdsRichTooltipBubbleComponent from './components/hds/rich-tooltip/bubble.ts';
+import type HdsRichTooltipToggleComponent from './components/hds/rich-tooltip/toggle.ts';
 import type HdsSeparatorComponent from './components/hds/separator';
 import type HdsSideNavComponent from './components/hds/side-nav';
 import type HdsSideNavBaseComponent from './components/hds/side-nav/base';
@@ -314,6 +317,19 @@ export default interface HdsComponentsRegistry {
 
   'Hds::Tabs::Tab': typeof HdsTabsTabComponent;
   'hds/tabs/tab': typeof HdsTabsTabComponent;
+
+  // RichTooltip
+  'Hds::RichTooltip': typeof HdsRichTooltipComponent;
+  'hds/rich-tooltip': typeof HdsRichTooltipComponent;
+  HdsRichTooltip: typeof HdsRichTooltipComponent;
+
+  'Hds::RichTooltip::Bubble': typeof HdsRichTooltipBubbleComponent;
+  'hds/rich-tooltip/bubble': typeof HdsRichTooltipBubbleComponent;
+  HdsRichTooltipBubble: typeof HdsRichTooltipBubbleComponent;
+
+  'Hds::RichTooltip::Toggle': typeof HdsRichTooltipToggleComponent;
+  'hds/rich-tooltip/toggle': typeof HdsRichTooltipToggleComponent;
+  HdsRichTooltipToggle: typeof HdsRichTooltipToggleComponent;
 
   // Text
   'Hds::Text': typeof HdsTextComponent;
