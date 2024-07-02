@@ -21,7 +21,20 @@ Switch your local branch to `changeset-release/main`, open `packages/components/
 
 Approve the 'Version Packages' PR (or request a review from [hashicorp/hds-engineering](https://github.com/orgs/hashicorp/teams/hds-engineering)) then merge it to `main`; this will publish the new package to npm automatically.
 
-After the new version is published, don't forget to communicate the release and a summary of changes to the product teams.
+After the new version is published, don't forget to communicate the release and a summary of changes to the product teams in the #team-design-systems and #tech-frontend channels.
+
+### If you did not `alias` first
+
+If you didn't alias the website URL before merging the Version Packages PR, here's what you do. 
+
+1. Follow steps 1-5 in the release process.
+2. From your terminal, type `vercel redeploy hds-website-<deployment-id>-hashicorp.vercel.app`. This will re-deploy that preview, but with a new deployment id assigned.
+3. Once that finishes, get the _new_ deployment id and run the `vercel alias` command as described in step 6.
+
+Screenshot:
+
+![Terminal view of steps described previously in this document](https://github.com/hashicorp/design-system/assets/4587451/d69abce7-2741-4e1a-834d-f5367436c6da)
+
 
 ## Local testing of versioning
 
