@@ -170,7 +170,6 @@
     <SG.Item @label="40 characters long organization name with dashes">
       <Hds::AppHeader>
         <:globalItemsBefore>
-          <Hds::Button @icon="grid-alt" @isIconOnly={{true}} @text="Product menu" />
           <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
         </:globalItemsBefore>
         <:globalItemsAfter>
@@ -182,12 +181,6 @@
           </Hds::Dropdown>
         </:globalItemsAfter>
         <:utilityItems>
-          <Hds::Dropdown as |dd|>
-            <dd.ToggleButton @text="Europe" @icon="globe" />
-            <dd.Checkmark>
-              Americas
-            </dd.Checkmark>
-          </Hds::Dropdown>
           <Hds::Button @color="secondary" @icon="search" @isIconOnly={{true}} @text="Search" />
           <Hds::Dropdown @listPosition="bottom-right" as |dd|>
             <dd.ToggleIcon @icon="help" @text="help menu" />
@@ -213,7 +206,6 @@
     <SG.Item @label="40 characters long organization name with no dashes">
       <Hds::AppHeader>
         <:globalItemsBefore>
-          <Hds::Button @icon="grid-alt" @isIconOnly={{true}} @text="Product menu" />
           <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
         </:globalItemsBefore>
         <:globalItemsAfter>
@@ -225,12 +217,6 @@
           </Hds::Dropdown>
         </:globalItemsAfter>
         <:utilityItems>
-          <Hds::Dropdown as |dd|>
-            <dd.ToggleButton @text="Europe" @icon="globe" />
-            <dd.Checkmark>
-              Americas
-            </dd.Checkmark>
-          </Hds::Dropdown>
           <Hds::Button @color="secondary" @icon="search" @isIconOnly={{true}} @text="Search" />
           <Hds::Dropdown @listPosition="bottom-right" as |dd|>
             <dd.ToggleIcon @icon="help" @text="help menu" />
