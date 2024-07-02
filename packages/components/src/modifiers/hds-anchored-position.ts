@@ -76,7 +76,13 @@ type FloatingUIOptions = {
 
 // we use this function to process all the options provided to the modifier in a single place,
 // in relation to the Floating UI APIs, and keep the modifier code more clean/simple
-export const getFloatingUIOptions = (options: FloatingUIOptions) => {
+export const getFloatingUIOptions = (
+  options: FloatingUIOptions
+): {
+  placement: Placement;
+  strategy: Strategy;
+  middleware: Middleware[];
+} => {
   const {
     placement = DEFAULT_PLACEMENT,
     strategy = 'absolute', // we don't need to use `fixed` if we use the Popover API for the "floating" element (it puts the element in the `top-layer`)
@@ -267,7 +273,7 @@ export default modifier<HdsAnchoredPositionSignature>(
     );
 
     // this (teardown) function is run when the element is removed from the DOM
-    return () => {
+    return (): void => {
       cleanupFloatingUI();
     };
   }
