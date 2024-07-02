@@ -13,8 +13,8 @@ import {
 } from './types.ts';
 import type {
   HdsBadgeCountColors,
-  HdsBadgeSizes,
-  HdsBadgeTypes,
+  HdsBadgeCountSizes,
+  HdsBadgeCountTypes,
 } from './types.ts';
 
 export const SIZES: string[] = Object.values(HdsBadgeCountSizeValues);
@@ -26,8 +26,8 @@ export const DEFAULT_COLOR = HdsBadgeCountColorValues.Neutral;
 
 interface HdsBadgeCountSignature {
   Args: {
-    size?: HdsBadgeSizes;
-    type?: HdsBadgeTypes;
+    size?: HdsBadgeCountSizes;
+    type?: HdsBadgeCountTypes;
     color?: HdsBadgeCountColors;
     text: string;
   };
@@ -43,7 +43,7 @@ export default class HdsBadgeCountComponent extends Component<HdsBadgeCountSigna
    * @type {string}
    * @default 'medium'
    */
-  get size(): HdsBadgeSizes {
+  get size(): HdsBadgeCountSizes {
     const { size = DEFAULT_SIZE } = this.args;
 
     assert(
@@ -64,7 +64,7 @@ export default class HdsBadgeCountComponent extends Component<HdsBadgeCountSigna
    * @type {string}
    * @default 'filled'
    */
-  get type(): HdsBadgeTypes {
+  get type(): HdsBadgeCountTypes {
     const { type = DEFAULT_TYPE } = this.args;
 
     assert(
