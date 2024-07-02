@@ -36,11 +36,11 @@ export default class HdsRichTooltipComponent extends Component<HdsRichTooltipSig
   arrowId: string = `arrow-${this.elementId}`;
   popoverId: string = `popover-${this.elementId}`;
 
-  get enableSoftEvents() {
+  get enableSoftEvents(): boolean {
     return this.args.enableClickEvents !== true;
   }
 
-  get enableClickEvents() {
+  get enableClickEvents(): boolean {
     return this.args.enableClickEvents ?? false;
   }
 }
