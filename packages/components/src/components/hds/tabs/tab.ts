@@ -92,13 +92,11 @@ export default class HdsTabsTabComponent extends Component<HdsTabsTabSignature> 
   }
 
   @action
-  onKeyUp(event: KeyboardEvent): false | undefined {
+  onKeyUp(event: KeyboardEvent): void {
     const { onKeyUp } = this.args;
 
     if (typeof onKeyUp === 'function' && this.nodeIndex !== undefined) {
       onKeyUp(this.nodeIndex, event);
-    } else {
-      return false;
     }
   }
 
