@@ -42,6 +42,13 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
 
   addEventListeners() {
     this.desktopMQ.addEventListener('change', this.updateDesktopVariable, true);
+
+    // set initial state based on viewport using a "synthetic" event
+    const syntheticEvent = new MediaQueryListEvent('change', {
+      matches: this.desktopMQ.matches,
+      media: this.desktopMQ.media,
+    });
+    this.updateDesktopVariable(syntheticEvent);
   }
 
   removeEventListeners() {
