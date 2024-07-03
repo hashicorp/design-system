@@ -32,8 +32,6 @@ export async function initialize(
     }
 
     appInstance.__flightIconsSpriteLoaded = true;
-
-    console.log(appInstance.__flightIconsSpriteLoaded);
   }
 }
 

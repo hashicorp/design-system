@@ -6,8 +6,6 @@
 import config from 'ember-get-config';
 
 export async function initialize(appInstance) {
-  console.log(appInstance, appInstance.__flightIconsSpriteLoaded);
-
   if (
     config?.emberFlightIcons?.lazyEmbed &&
     appInstance.__flightIconsSpriteLoaded !== true
@@ -26,7 +24,7 @@ export async function initialize(appInstance) {
       window.document?.body?.insertAdjacentHTML('beforeend', svgSprite);
     }
 
-    console.log(appInstance.__flightIconsSpriteLoaded);
+    appInstance.__flightIconsSpriteLoaded = true;
   }
 }
 

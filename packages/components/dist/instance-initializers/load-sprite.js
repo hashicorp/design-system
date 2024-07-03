@@ -20,7 +20,6 @@ async function initialize(appInstance) {
       window.document?.body?.insertAdjacentHTML('beforeend', svgSprite);
     }
     appInstance.__flightIconsSpriteLoaded = true;
-    console.log(appInstance.__flightIconsSpriteLoaded);
   }
 }
 var loadSprite = {

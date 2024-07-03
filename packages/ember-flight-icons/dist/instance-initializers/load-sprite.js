@@ -5,8 +5,8 @@ import config from 'ember-get-config';
  * SPDX-License-Identifier: MPL-2.0
  */
 
-async function initialize() {
-  if (config?.emberFlightIcons?.lazyEmbed) {
+async function initialize(appInstance) {
+  if (config?.emberFlightIcons?.lazyEmbed && appInstance.__flightIconsSpriteLoaded !== true) {
     const {
       default: svgSprite
     } = await import('@hashicorp/flight-icons/svg-sprite/svg-sprite-module');
@@ -18,6 +18,7 @@ async function initialize() {
     } else {
       window.document?.body?.insertAdjacentHTML('beforeend', svgSprite);
     }
+    appInstance.__flightIconsSpriteLoaded = true;
   }
 }
 var loadSprite = {

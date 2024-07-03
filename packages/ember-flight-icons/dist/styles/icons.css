@@ -3,11 +3,11 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-.flight-icon {
+.hds-icon {
   display: block;
 }
 
-.flight-icon-display-inline {
+.hds-icon-display-inline {
   display: inline-block;
 }
 
@@ -15,21 +15,21 @@
   to {transform: rotate(360deg);}
 }
 
-.flight-icon--animation-loading {
+.hds-icon--animation-loading {
   animation: hds-flight-icon-animation-rotation 9s linear infinite;
 }
 
-.flight-icon--animation-running {
+.hds-icon--animation-running {
   animation: hds-flight-icon-animation-rotation 9s linear infinite;
 }
 
 @media (prefers-reduced-motion: no-preference) {
 
-  .flight-icon--animation-loading {
+  .hds-icon--animation-loading {
     animation-duration: .7s;
   }
 
-  .flight-icon--animation-running {
+  .hds-icon--animation-running {
     animation-duration: 1s;
   }
 }
