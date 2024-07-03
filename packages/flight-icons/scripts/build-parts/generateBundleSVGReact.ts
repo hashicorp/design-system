@@ -124,6 +124,6 @@ export async function generateBundleSVGReact({ config, catalog } : { config: Con
     await fs.writeFile(`${config.mainFolder}/svg-react/types.ts`, typesContent);
 
     // add CSS used to animate "loading" and "running" icons
-    const animationIconCss:string = await getCssForIconAnimation();
+    const animationIconCss : string = await getCssForIconAnimation();
     await fs.writeFile(`${config.mainFolder}/svg-react/animation.css`, animationIconCss);
 }
