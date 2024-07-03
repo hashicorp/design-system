@@ -72,7 +72,7 @@ The size is set at the Accordion (group) level, don't mix different sizes of the
 
 ## Types
 
-The Accordion has two container types: `card` and `flush`.
+The Accordion has two container types: `card` and `flush`, and the `static` property, which applies only to the AccordionItem.```
 
 ### Card
 
@@ -137,36 +137,6 @@ The size is set at the Accordion (group) level, don't mix different sizes of the
 
 ![Image here of DONT change sizes - only card variant](/assets/components/accordion/accordion-size-Dont.png)
 !!!
-
-## Types
-
-The Accordion has two container types: `card` and `flush`, and the `static` property, which applies only to the AccordionItem.```
-
-### Card
-
-Use the `card` variant by default to create visual separation between Accordion Sections and other UI elements, organize blocks of content, and distinguish between sections with Tabs. Unlike `Cards`/`Tiles` or `Tables`, the `card` variant groups multiple expandable sections for flexible content management.
-
-!!! Do
-
-![image of DO example for the card variant](/assets/components/accordion/accordion-card-type-example.png)
-!!!
-
-### Flush
-
-Use the `flush` variant for tight spaces like within a Card, Flyout, sidebar, or other containers where space is limited.
-
-!!! Do
-
-![image of DO example for the Flush variant](/assets/components/accordion/accordion-flush-example.png)
-!!!
-
-### Static AccordionItems
-
-The `isStatic` property allows an AccordionItem to be opened or closed by default, but not toggleable between its set `isOpen` property. This is useful when needing to represent a piece of information that is relevant to your Accordion content, but highlighting the `isStatic` version as the exception within the group.
-
-An example of this would be the following:
-
-![terraform example of a run being triggered with a step that is skipped - use UI helper to show the skipped step as “skipped.”](/assets/components/accordion/accordion-isStatic-example.png)
 
 ## AccordionItem
 
