@@ -11,6 +11,8 @@ export async function initialize(
     __flightIconsSpriteLoaded?: boolean;
   }
 ) {
+  console.log(appInstance, appInstance.__flightIconsSpriteLoaded);
+
   if (
     config?.emberFlightIcons?.lazyEmbed &&
     appInstance.__flightIconsSpriteLoaded !== true
@@ -30,6 +32,8 @@ export async function initialize(
     }
 
     appInstance.__flightIconsSpriteLoaded = true;
+
+    console.log(appInstance.__flightIconsSpriteLoaded);
   }
 }
 

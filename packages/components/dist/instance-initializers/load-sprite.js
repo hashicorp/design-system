@@ -6,6 +6,7 @@ import config from 'ember-get-config';
  */
 
 async function initialize(appInstance) {
+  console.log(appInstance, appInstance.__flightIconsSpriteLoaded);
   if (config?.emberFlightIcons?.lazyEmbed && appInstance.__flightIconsSpriteLoaded !== true) {
     const {
       default: svgSprite
@@ -19,6 +20,7 @@ async function initialize(appInstance) {
       window.document?.body?.insertAdjacentHTML('beforeend', svgSprite);
     }
     appInstance.__flightIconsSpriteLoaded = true;
+    console.log(appInstance.__flightIconsSpriteLoaded);
   }
 }
 var loadSprite = {
