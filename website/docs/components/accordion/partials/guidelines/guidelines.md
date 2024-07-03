@@ -76,7 +76,7 @@ The Accordion has two container types: `card` and `flush`, and the `static` prop
 
 ### Card
 
-Use the `card` variant by default to create visual separation between Accordion Sections and other UI elements, organize blocks of content, and distinguish between sections with `Tabs`. Unlike `Cards`/`Tiles` or `Tables`, the `card` variant groups multiple expandable sections for flexible content management.
+Use the `card` variant by default to create visual separation between Accordion Sections and other UI elements, organize blocks of content, and distinguish between sections with [Tab](/components/tab). Unlike [Card](/components/card)/Tiles or [Tables](/components/table), the `card` variant groups multiple expandable sections for flexible content management.
 
 !!! Do
 
@@ -85,7 +85,7 @@ Use the `card` variant by default to create visual separation between Accordion 
 
 ### Flush
 
-Use the `flush` variant for tight spaces like within a `Card`, `Flyout`, `Sidebar`, or other containers where space is limited.
+Use the `flush` variant for tight spaces like within a [Card](/components/card), [Flyout](/components/flyout), `Sidebar`, or other containers where space is limited.
 
 !!! Do
 
@@ -186,7 +186,7 @@ Avoid nesting `card` Accordions within each other to prevent excessive visual no
 
 By using composition with other HDS components, you can provide users with a way to expand and collapse all AccordionItems at once. Expanding all AccordionItems allows users to view and compare content easily, while collapsing provides a summary and reduces cognitive load.
 
-We recommend using a secondary `Button` above the `Accordion`, aligned to the right. A tertiary `Button` can be used if less prominence is needed.
+We recommend using a secondary [Button](/components/button#secondary) above the `Accordion`, aligned to the right. A tertiary [Button](/components/button#tertiary) can be used if less prominence is needed.
 
 To ensure consistency across all products, use “Expand all” / “Collapse all” as the `Button` label and the `unfold-open` and `unfold-close` icons in the leading position.
 
