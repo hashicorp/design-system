@@ -82,24 +82,24 @@ Use this variant only when you need to put interactive elements such as a button
 
 ## Sizes
 
-Our accordion comes in three sizes: `small`, `medium`, and `large`. We recommend using `medium`, but use whichever size best fits your UI’s needs.
+Our Accordion comes in three sizes: `small`, `medium`, and `large`. We recommend using `medium`, but use whichever size best fits your UI’s needs.
 
 ![Image here of different sizes - only card variant](/assets/components/accordion/accordion-size-range.png)
 
 !!! Dont
 
-The size is set at the Accordion (group) level, so accordionItem sizes are not interchangeable.
+The size is set at the Accordion (group) level, so AccordionItem sizes are not interchangeable.
 
 ![Image here of DONT change sizes - only card variant](/assets/components/accordion/accordion-size-Dont.png)
 !!!
 
 ## Types
 
-Our accordion has two container types: `card` and `flush`.
+Our Accordion has two container types: `card` and `flush`.
 
 ### Card
 
-The `card` variant is the default and recommended type, creating visual separation between accordion sections and other UI elements. It helps organize content blocks and distinguish between sections within tabs. Unlike `Cards`/`Tiles` or `Tables`, the `card` variant groups multiple expandable sections for flexible content management.
+The `card` variant is the default and recommended type, creating visual separation between Accordion sections and other UI elements. It helps organize content blocks and distinguish between sections within Tabs. Unlike `Cards`/`Tiles` or `Tables`, the `card` variant groups multiple expandable sections for flexible content management.
 
 !!! Do
 
@@ -108,7 +108,7 @@ The `card` variant is the default and recommended type, creating visual separati
 
 ### Flush
 
-Use the flush variant for tight spaces. For example, use it within other containers like cards and flyouts, or in sidebars where space is limited.
+Use the `flush` variant for tight spaces. For example, use it within other containers like Cards and Flyouts, or in sidebars where space is limited.
 
 !!! Do
 
@@ -117,7 +117,7 @@ Use the flush variant for tight spaces. For example, use it within other contain
 
 ### Static AccordionItems
 
-The `isStatic` property allows an accordion item to be opened or closed by default, but not toggleable between its set `isOpen` property. This is useful when needing to represent a piece of information that is relevant to your accordion content, but highlighting the `isStatic` version as the exception within the group.
+The `isStatic` property allows an AccordionItem to be opened or closed by default, but not toggleable between its set `isOpen` property. This is useful when needing to represent a piece of information that is relevant to your Accordion content, but highlighting the `isStatic` version as the exception within the group.
 
 An example of this would be the following:
 
@@ -149,18 +149,18 @@ The `content` supports any custom content, local components, or Helios component
 Nesting is only available in code. Figma does not support nesting an instance inside itself. You can detach the HDS component and turn it into a local component, then insert the local component within the HDS component. We strongly advise against this as it means your local Accordion component will not receive future component updates. [Link to Code example]
 !!!
 
-Nesting accordions can help organize complex content but should be used in moderation. This feature is only recommended for the `flush` variant.
+Nesting Accordions can help organize complex content but should be used in moderation. This feature is only recommended for the `flush` variant.
 
 !!! Do
 
-Use nested accordions for up to two layers of related content. You can nest flush accordions within each other or inside card accordions. 
+Use nested Accordions for up to two layers of related content. You can nest `flush` Accordions within each other or inside `card` type Accordions. 
 
 ![Image example, card and flush and flush and flush](/assets/components/accordion/accordion-nesting-example.png)
 !!!
 
 !!! Dont
 
-Avoid nesting card accordions within each other to prevent excessive visual noise.
+Avoid nesting `card` Accordions within each other to prevent excessive visual noise.
 
 ![Show images of two card variants nested in each other](/assets/components/accordion/accordion-nesting-example-dont.png)
 !!!
@@ -171,17 +171,17 @@ Avoid nesting card accordions within each other to prevent excessive visual nois
 
 By using composition with other HDS components, you can provide users with a way to expand and collapse all AccordionItems at once. Expanding all AccordionItems allows users to view and compare content easily, while collapsing provides a summary and reduces cognitive load.
 
-We recommend using a secondary Button above the Accordion, aligned to the right. A tertiary button can be used if less prominence is needed.
+We recommend using a secondary `Button` above the `Accordion`, aligned to the right. A tertiary `Button` can be used if less prominence is needed.
 
-To ensure consistency across all products, use “Expand all” / “Collapse all” as the Button label and the unfold-open and unfold-close icons in the leading position.
+To ensure consistency across all products, use “Expand all” / “Collapse all” as the `Button` label and the `unfold-open` and `unfold-close` icons in the leading position.
 
 ![show image of the secondary & tertiary buttons each with expand all and collapse all](/assets/components/accordion/accordion-patterns-expand-collapse-all-labels.png)
 
-Note that if an AccordionItem is static, the expand/collapse all feature will not affect its behavior.
+Note that if an `AccordionItem` is static, the expand/collapse all feature will not affect its behavior.
 
 !!! Dont 
 
-Avoid using this feature if only one AccordionItem is visible.
+Avoid using this feature if only one `AccordionItem` is visible.
 
 ![show example of terraform roles flyout design](/assets/components/accordion/accordion-patterns-collapse-all-dont.png)
 !!!
