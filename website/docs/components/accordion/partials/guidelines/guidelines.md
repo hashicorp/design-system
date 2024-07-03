@@ -82,24 +82,24 @@ Use this variant only when you need to put interactive elements such as a button
 
 ## Sizes
 
-Our Accordion comes in three sizes: `small`, `medium`, and `large`. We recommend using `medium`, but use whichever size best fits your UI’s needs.
+The Accordion comes in three sizes: `small`, `medium`, and `large`. We recommend using `medium` for most use cases, but use whichever size best fits your UI’s needs.
 
 ![Image here of different sizes - only card variant](/assets/components/accordion/accordion-size-range.png)
 
 !!! Dont
 
-The size is set at the Accordion (group) level, so AccordionItem sizes are not interchangeable.
+The size is set at the Accordion (group) level, don't mix different sizes of the AccordionItem.
 
 ![Image here of DONT change sizes - only card variant](/assets/components/accordion/accordion-size-Dont.png)
 !!!
 
 ## Types
 
-Our Accordion has two container types: `card` and `flush`.
+The Accordion has two container types: `card` and `flush`.
 
 ### Card
 
-The `card` variant is the default and recommended type, creating visual separation between Accordion sections and other UI elements. It helps organize content blocks and distinguish between sections within Tabs. Unlike `Cards`/`Tiles` or `Tables`, the `card` variant groups multiple expandable sections for flexible content management.
+Use the `card` variant by default to create visual separation between Accordion Sections and other UI elements, organize blocks of content, and distinguish between sections with Tabs. Unlike `Cards`/`Tiles` or `Tables`, the `card` variant groups multiple expandable sections for flexible content management.
 
 !!! Do
 
@@ -108,7 +108,7 @@ The `card` variant is the default and recommended type, creating visual separati
 
 ### Flush
 
-Use the `flush` variant for tight spaces. For example, use it within other containers like Cards and Flyouts, or in sidebars where space is limited.
+Use the `flush` variant for tight spaces like within a Card, Flyout, sidebar, or other containers where space is limited.
 
 !!! Do
 
@@ -125,7 +125,7 @@ An example of this would be the following:
 
 ## AccordionItem
 
-## Content type
+### Content type
 
 !!! Info
 
@@ -138,7 +138,7 @@ The `content` supports any custom content, local components, or Helios component
 
 ![Example of content in accordion item](/assets/components/accordion/content-text.png =690x*)
 
-### Custom
+#### Custom
 
 ![Example of content in accordion item](/assets/components/accordion/content-custom.png =690x*)
 
