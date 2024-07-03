@@ -95,7 +95,7 @@ The size is set at the Accordion (group) level, don't mix different sizes of the
 
 ## Types
 
-The Accordion has two container types: `card` and `flush`.
+The Accordion has two container types: `card` and `flush`, and the `static` property, which applies only to the AccordionItem.```
 
 ### Card
 
@@ -146,7 +146,7 @@ The `content` supports any custom content, local components, or Helios component
 
 !!! Info
 
-Nesting is only available in code. Figma does not support nesting an instance inside itself. You can detach the HDS component and turn it into a local component, then insert the local component within the HDS component. We strongly advise against this as it means your local Accordion component will not receive future component updates. [Link to Code example]
+Nesting Accordions is only supported in code, as Figma does not support nesting an instance inside itself. While you can work around this by detaching the HDS component and turning it into a local component, then inserting the local component within the HDS component, we do not recommend this approach. Doing so means your local Accordion component will not receive future updates. It's best to handle nested Accordions in code to maintain update compatibility. [Link to Code example]
 !!!
 
 Nesting Accordions can help organize complex content but should be used in moderation. This feature is only recommended for the `flush` variant.
