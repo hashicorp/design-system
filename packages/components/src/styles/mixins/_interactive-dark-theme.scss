@@ -38,7 +38,7 @@
     background-color: var(--token-color-palette-neutral-700);
 
     @if ($add-visible-border) {
-      border-color: transparent;
+      border-color: var(--token-color-palette-neutral-500); // TODO: confirm if this is the correct token
     }
 
     // focus ring:

@@ -57,17 +57,22 @@
   gap: var(--token-side-nav-header-actions-spacing);
 }
 
-// dropdown overrides
+// Dropdown & Button color theming overrides
 
-.hds-side-nav__dropdown { // ⬅︎ add this class name to the `Hds::Dropdown` component to apply the style overrides
-  .hds-dropdown-toggle-icon,
-  .hds-dropdown-toggle-button {
-    @include hds-interactive-dark-theme($add-visible-border: true, $is-within-side-nav: true);
+.hds-side-nav-header,
+.hds-side-nav__wrapper-body,
+.hds-side-nav__wrapper-footer {
+  // Apply dark theme to child interactive components
+  .hds-button,
+  .hds-dropdown-toggle-button,
+  .hds-dropdown-toggle-icon {
+    @include hds-interactive-dark-theme();
   }
 }
 
 // generic "icon-button"
 
+// TODO: Replace this component with Hds::Button
 .hds-side-nav__icon-button {
   @include hds-interactive-dark-theme();
   display: flex;
