@@ -25,7 +25,7 @@ $app-header-home-link-padding: 4px;
   justify-content: space-between;
   min-height: 59px;
   padding: 12px 16px 11px 16px; // bottom padding of 11px is to account for the bottom border
-  color: #FFF;
+  color: var(--token-color-foreground-high-contrast);
   background: var(--token-color-palette-neutral-700);
   border-bottom: 1px solid var(--token-color-palette-neutral-500);
 
