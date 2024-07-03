@@ -6,8 +6,18 @@
 // APP-HEADER
 
 body.components-app-header {
-  // Applies to the containers of child component examples (the actual AppHeader component always has 2 children)
-  .hds-app-header:has(> :only-child) {
-    width: max-content;
+  .hds-app-header {
+    position: relative; // position is fixed when used within a screen layout
+
+    &.hds-app-header--is-mobile {
+      .hds-app-header__menu {
+        height: auto; // height fills screen minus app header height when used within a screen layout
+      }
+    }
+
+    // Applies to the containers of child component examples (the actual AppHeader component always has 2 children)
+    &:has(> :only-child) {
+      width: max-content;
+    }
   }
 }

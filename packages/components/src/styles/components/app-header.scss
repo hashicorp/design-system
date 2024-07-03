@@ -14,7 +14,11 @@
 $app-header-home-link-padding: 4px;
 
 .hds-app-header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20; // needs to stay above the main content, TODO: determine correct z-index to use
   display: flex;
   gap: 12px;
   align-items: center;
@@ -41,10 +45,11 @@ $app-header-home-link-padding: 4px;
       top: calc(100% + 1px); // We add 1px to account for the bottom border
       right: 0;
       left: 0;
-      z-index: 5; // TODO: determine correct z-index to use
       flex-wrap: wrap;
-      // height: calc(100vh - 52px); // it should take the full height of the viewport minus the header height
+      align-content: flex-start;
+      height: calc(100vh - 52px); // it should take the full height of the viewport minus the header height
       padding: 16px;
+      overflow: auto; // allow users to scroll within the menu if the content is too long
       background: var(--token-color-palette-neutral-700);
     }
 

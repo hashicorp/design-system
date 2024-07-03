@@ -4,6 +4,7 @@
  */
 
  @use "../mixins/focus-ring" as *;
+ @use "../mixins/button" as *;
 
  // TODO: Deprecate SideNav specific dark theme tokens in favor of general dark theme tokens
 
@@ -18,7 +19,7 @@
     // general dark theme tokens
     color: var(--token-color-palette-neutral-0);
     background-color: var(--token-color-palette-neutral-700);
-    border-radius: var(--token-form-control-border-radius);
+    border-radius: $hds-button-border-radius; // We don't have a button border-radius token so we use the button mixin sass variable
   }
   
   border: 1px solid transparent;
