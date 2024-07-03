@@ -57,6 +57,51 @@ Use the Accordion when the toggle or the content is relatively complex.
 ![Accordion with complex content](/assets/components/accordion/usage-do-complex.png =770x*)
 !!!
 
+## Sizes
+
+The Accordion comes in three sizes: `small`, `medium`, and `large`. We recommend using `medium` for most use cases, but use whichever size best fits your UI’s needs.
+
+![Image here of different sizes - only card variant](/assets/components/accordion/accordion-size-range.png)
+
+!!! Dont
+
+The size is set at the Accordion (group) level, don't mix different sizes of the AccordionItem.
+
+![Image here of DONT change sizes - only card variant](/assets/components/accordion/accordion-size-Dont.png)
+!!!
+
+## Types
+
+The Accordion has two container types: `card` and `flush`.
+
+### Card
+
+Use the `card` variant by default to create visual separation between Accordion Sections and other UI elements, organize blocks of content, and distinguish between sections with `Tabs`. Unlike `Cards`/`Tiles` or `Tables`, the `card` variant groups multiple expandable sections for flexible content management.
+
+!!! Do
+
+![image of DO example for the card variant](/assets/components/accordion/accordion-card-type-example.png)
+!!!
+
+### Flush
+
+Use the `flush` variant for tight spaces like within a `Card`, `Flyout`, `Sidebar`, or other containers where space is limited.
+
+!!! Do
+
+![image of DO example for the Flush variant](/assets/components/accordion/accordion-flush-example.png)
+!!!
+
+### Static AccordionItems
+
+The `isStatic` property in an AccordionItem keeps it fixed in either an open or closed state based on the `isOpen` property. This means users can't toggle it open or closed. It's useful when you want to show important information in your Accordion that should always stay open or closed, making it stand out as different from the other items.
+
+An example of this would be the following:
+
+![terraform example of a run being triggered with a step that is skipped](/assets/components/accordion/accordion-isStatic-example.png)
+
+![terraform example of a run being triggered with a step that is skipped](/assets/components/accordion/accordion-isStatic-open-example.png)
+
 ## Toggle content
 
 The toggle accepts many different types of content, from text-based content to nested HDS components or custom content.
@@ -134,7 +179,7 @@ The content type property is only relevant within Figma and doesn’t exist as a
 
 The `content` supports any custom content, local components, or Helios components via an `instance swap` property (customInstance) in Figma. In code, `yield` is supported.
 
-### Default
+#### Default
 
 ![Example of content in accordion item](/assets/components/accordion/content-text.png =690x*)
 
@@ -177,7 +222,10 @@ To ensure consistency across all products, use “Expand all” / “Collapse al
 
 ![show image of the secondary & tertiary buttons each with expand all and collapse all](/assets/components/accordion/accordion-patterns-expand-collapse-all-labels.png)
 
+!!! Warning
+
 Note that if an `AccordionItem` is static, the expand/collapse all feature will not affect its behavior.
+!!!
 
 !!! Dont 
 
