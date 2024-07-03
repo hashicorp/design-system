@@ -13,6 +13,7 @@ export async function initialize(
 ) {
   if (
     config?.emberFlightIcons?.lazyEmbed &&
+    // we use this flag to avoid loading the sprite multiple times
     appInstance.__flightIconsSpriteLoaded !== true
   ) {
     const { default: svgSprite } = await import(
@@ -29,6 +30,7 @@ export async function initialize(
       window.document?.body?.insertAdjacentHTML('beforeend', svgSprite);
     }
 
+    // set the flag to avoid loading the sprite multiple times
     appInstance.__flightIconsSpriteLoaded = true;
   }
 }
