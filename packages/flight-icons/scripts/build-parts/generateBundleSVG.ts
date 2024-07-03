@@ -47,7 +47,7 @@ export async function generateBundleSVG({ config, catalog } : { config: ConfigDa
         allIcons.push(`'${iconName}'`);
     }
 
-    const animationIconCss:string = await getCssForIconAnimation();
+    const animationIconCss : string = await getCssForIconAnimation();
 
     // add CSS used to animate "loading" and "running" icons
     await fs.writeFile(`${config.mainFolder}/svg/animation.css`, animationIconCss);
