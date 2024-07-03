@@ -72,7 +72,7 @@ The size is set at the Accordion (group) level, don't mix different sizes of the
 
 ## Types
 
-The Accordion has two container types: `card` and `flush`, and the `static` property, which applies only to the AccordionItem.```
+The Accordion has two container types: `card` and `flush`, and the `static` property, which applies only to the AccordionItem.
 
 ### Card
 
@@ -138,7 +138,7 @@ The size is set at the Accordion (group) level, don't mix different sizes of the
 ![Image here of DONT change sizes - only card variant](/assets/components/accordion/accordion-size-Dont.png)
 !!!
 
-## AccordionItem
+## Item content
 
 ### Content type
 
