@@ -172,11 +172,11 @@ The purpose and function of the Modal should not rely solely on an icon, instead
 
 An icon paired with the title can help reinforce the purpose and function of the Modal while also drawing the eye to the header and title area. Icons can be used to communicate the severity and importance of interacting with a Modal and are especially useful in a **warning** or **critical** color Modal.
 
-<Hds::Modal::Header @icon="info" @onDismiss={{this.noop}}>Title</Hds::Modal::Header>
+![Modal header title with icon and dismiss button](/assets/components/dialog-primitives/dialog-primitives-header-icon-and-title.jpg)
 
 #### Without title icon
 
-<Hds::Modal::Header @onDismiss={{this.noop}}>Title</Hds::Modal::Header>
+![Modal header title only and dismiss button](/assets/components/dialog-primitives/dialog-primitives-header-title-only.jpg)
 
 ### Tagline
 
@@ -184,11 +184,11 @@ A tagline helps the user maintain the context of the feature, function, or flow 
 
 #### With tagline
 
-<Hds::Modal::Header @tagline="Tagline" @onDismiss={{this.noop}}>Title</Hds::Modal::Header>
+![Modal header tagline, title and dismiss button](/assets/components/dialog-primitives/dialog-primitives-header-tagline-and-title.jpg)
 
 #### With tagline and icon
 
-<Hds::Modal::Header @tagline="Tagline" @icon="info" @onDismiss={{this.noop}}>Title</Hds::Modal::Header>
+![Modal header title icon, tagline, title and dismiss button](/assets/components/dialog-primitives/dialog-primitives-header-tagline-and-icon-and-title.jpg)
 
 ## Modal body
 
@@ -219,22 +219,13 @@ Most Modals should have a low to medium level of complexity and promote interact
 
 We recommend using the Primary Button when only one action is present in the Modal.
 
-<Hds::Modal::Footer>
-  <Hds::ButtonSet>
-    <Hds::Button @text="Confirm" />
-  </Hds::ButtonSet>
-</Hds::Modal::Footer>
+![Modal footer with one action](/assets/components/dialog-primitives/dialog-primitives-footer-actions-one.png)
 
 #### Two actions
 
 We recommend using a [ButtonSet](/components/button-set) (Primary Button followed by a Secondary Button) when two actions are present in the Modal.
 
-<Hds::Modal::Footer>
-  <Hds::ButtonSet>
-    <Hds::Button @text="Confirm" />
-    <Hds::Button @text="Cancel" @color="secondary" />
-  </Hds::ButtonSet>
-</Hds::Modal::Footer>
+![Modal footer with two actions](/assets/components/dialog-primitives/dialog-primitives-footer-actions-two.png)
 
 #### Three actions
 
@@ -245,13 +236,7 @@ Common examples of tertiary actions include:
 - Linking to external documentation.
 - Linking to another related area or function within the application; best used to help the user better understand or collect the information needed to interact with the Modal.
 
-<Hds::Modal::Footer>
-  <Hds::ButtonSet>
-    <Hds::Button @text="Confirm" />
-    <Hds::Button @text="Cancel" @color="secondary" />
-    <Hds::Button @text="Learn more about billing" @icon="external-link" @iconPosition="trailing" @color="tertiary" />
-  </Hds::ButtonSet>
-</Hds::Modal::Footer>
+![Modal footer with three actions](/assets/components/dialog-primitives/dialog-primitives-footer-actions-three.png)
 
 ### Action content guidelines
 
@@ -261,22 +246,12 @@ Common examples of tertiary actions include:
 
 !!! Do
 
-<Hds::Modal::Footer>
-  <Hds::ButtonSet>
-    <Hds::Button @text="Rename cluster" />
-    <Hds::Button @text="Cancel" @color="secondary" />
-  </Hds::ButtonSet>
-</Hds::Modal::Footer>
+![Modal footer example with two buttons, primary saying 'Rename cluster' and the secondary saying 'Cancel'](/assets/components/modal/modal-action-content-do.png)
 !!!
 
 !!! Dont
 
-<Hds::Modal::Footer>
-  <Hds::ButtonSet>
-    <Hds::Button @text="Rename this cluster" />
-    <Hds::Button @text="Don’t rename this cluster" @color="secondary" />
-  </Hds::ButtonSet>
-</Hds::Modal::Footer>
+![Modal footer example with two buttons, primary saying 'Rename this cluster' and the secondary saying 'Dont rename this cluster'](/assets/components/modal/modal-action-content-dont.png)
 !!!
 
 ## Dismissal
