@@ -231,11 +231,6 @@
     }
   }
 
-  // polyfilled `:popover-open` selector
-  // see: https://github.com/oddbird/popover-polyfill?tab=readme-ov-file#caveats
-  &[popover].\:popover-open {
-    opacity: 1;
-  }
 
   @starting-style {
     &[popover].\:popover-open {
