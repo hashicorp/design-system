@@ -7,7 +7,7 @@
 // FLYOUT
 //
 
-$hds-flyout-max-width: calc(100vw - var(--hds-app-sidenav-width-minimized) / 2 );
+$hds-flyout-max-width: calc(100vw - var(--hds-app-sidenav-width-minimized) / 2);
 
 @mixin hds-flyout-position($size) {
   width: min(#{$size}, #{$hds-flyout-max-width});
@@ -19,91 +19,28 @@ $hds-flyout-max-width: calc(100vw - var(--hds-app-sidenav-width-minimized) / 2 )
 }
 
 .hds-flyout {
+  position: fixed;
   z-index: 49; // modal component is 50; we want to make sure the flyout always stays below the modal, regardless the DOM order
   inset: 0;
-  flex-direction: column;
   height: 100vh;
   max-height: 100vh;
-  margin: 0;
-  padding: 0;
   background: var(--token-color-surface-primary);
   border: none;
   box-shadow: 0 2px 3px 0 #3b3d4540, 0 12px 24px 0 #3b3d4559; // TODO: convert to token
 
-  &[open] {
-    position: fixed;
-    display: flex;
+  // the `<dialog>` element uses a special "open" attribute to determine its visibility status
+  &:not([open]) {
+    display: none;
   }
 
   // we hide the native `::backdrop` pseudo-element in favor of using
-  // an `hds-flyout__overlay` element to detect click events with more ease
+  // a custom `overlay` element to detect click events with more ease
   &::backdrop {
     display: none;
   }
 }
 
-.hds-flyout__overlay {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 49;
-  background: var(--token-color-palette-neutral-700);
-  opacity: 0.5;
-}
-
-.hds-flyout__header {
-  display: flex;
-  flex: none;
-  gap: 16px;
-  align-items: flex-start;
-  padding: 16px 24px;
-  color: var(--token-color-foreground-strong);
-}
-
-.hds-flyout__icon {
-  flex: none;
-  align-self: center;
-}
-
-.hds-flyout__title {
-  flex-grow: 1;
-}
-
-.hds-flyout__tagline {
-  margin-bottom: 4px;
-}
-
-.hds-flyout__dismiss {
-  align-self: center;
-}
-
-.hds-flyout__description {
-  padding: 0 24px 16px;
-}
-
-.hds-flyout__body {
-  flex: 1 1 auto;
-  padding: 24px;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  border-top: 1px solid var(--token-color-border-primary);
-}
-
-.hds-flyout__footer {
-  flex: none;
-  padding: 16px 24px;
-  background: var(--token-color-surface-faint);
-  border-top: 1px solid var(--token-color-border-primary);
-
-  // Tertiary buttons must always be placed/aligned at the end of the row
-  .hds-button-set {
-    .hds-button--color-tertiary {
-      margin-left: auto;
-    }
-  }
-}
+// sizes
 
 .hds-flyout--size-medium {
   @include hds-flyout-position(480px);
