@@ -4,7 +4,8 @@
  */
 
 import PowerSelectComponent from 'ember-power-select/components/power-select';
-import anchoredPositionModifier from '../../../../../modifiers/hds-anchored-position.js';
+import anchoredPositionModifier from '../../../../../modifiers/hds-anchored-position.ts';
+
 import { action } from '@ember/object';
 
 const DEFAULT_HORIZONTAL_POSITION = 'bottom-start';
