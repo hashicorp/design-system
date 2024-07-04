@@ -2,7 +2,7 @@
 
 ### Accordion
 
-The base `Accordion` component serves only as a wrapper to group together one or more `AccordionItem` child components.
+The base `Accordion` component serves only as a wrapper to group together one or more `Accordion::Item` child components.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="size" @type="enum" @values={{array "small" "medium" "large" }} @default="medium" />
@@ -18,7 +18,7 @@ The base `Accordion` component serves only as a wrapper to group together one or
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<:toggle>" @type="named block">
-    A named block that works as “toggle” for the `AccordionItem`.
+    A named block that works as “toggle” for the `Accordion::Item`.
   </C.Property>
   <C.Property @name="<:content>" @type="named block">
     A named block for the content that is shown/hidden upon toggling.

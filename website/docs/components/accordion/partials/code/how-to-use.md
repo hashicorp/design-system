@@ -1,11 +1,34 @@
 ## How to use this component
 
-The `Accordion` component is used to wrap and group together one or more `AccordionItem` child components. The Accordion items consist of “toggle” and “content” named blocks which can contain either plain text or HTML content.
+The `Accordion` component is used to wrap and group together one or more `Accordion::Item` child components. The Accordion items consist of “toggle” and “content” named blocks which can contain either plain text or HTML content.
 
-### Plain text content
+### Size
+
+A different size of Accordion can be invoked using the `@size` argument.
 
 ```handlebars
-  <Hds::Accordion as |A|>
+  <Hds::Accordion @size="large" as |A|>
+    <A.Item>
+      <:toggle>Item one</:toggle>
+      <:content>
+        Additional content for item one
+      </:content>
+    </A.Item>
+    <A.Item>
+      <:toggle>Item two</:toggle>
+      <:content>
+        Additional content for item two
+      </:content>
+    </A.Item>
+  </Hds::Accordion>
+```
+
+### Type
+
+Use the `@type` argument to render a `flush` Accordion.
+
+```handlebars
+  <Hds::Accordion @type="flush" as |A|>
     <A.Item>
       <:toggle>Item one</:toggle>
       <:content>
@@ -89,6 +112,28 @@ With a link in the toggle block and a form in the content.
   </Hds::Accordion>
 ```
 
+With an Accordion in the content block.
+
+```handlebars
+  <Hds::Accordion @type="flush" as |A|>
+    <A.Item @isOpen={{true}}>
+      <:toggle>Item one</:toggle>
+      <:content>
+        <Hds::Accordion @type="flush" as |AA|>
+          <AA.Item>
+            <:toggle>Nested item one</:toggle>
+            <:content>Neste content one</:content>
+          </AA.Item>
+          <AA.Item>
+            <:toggle>Nested item two</:toggle>
+            <:content>Neste content two</:content>
+          </AA.Item>
+        </Hds::Accordion>
+      </:content>
+    </A.Item>
+  </Hds::Accordion>
+```
+
 ### ariaLabel
 
 The `ariaLabel` value is applied to the HTML button which controls visibility of the content block. The text does not display in the UI. The default value is "Toggle display" but you can set a custom value which is useful for translated text for example.
@@ -106,7 +151,7 @@ The `ariaLabel` value is applied to the HTML button which controls visibility of
 
 ### isOpen
 
-Set `isOpen` to `true` on an `AccordionItem` to display its associated content on page load instead of initially hiding it.
+Set `isOpen` to `true` on an `Accordion::Item` to display its associated content on page load instead of initially hiding it.
 
 ```handlebars
   <Hds::Accordion as |A|>
@@ -125,9 +170,30 @@ Set `isOpen` to `true` on an `AccordionItem` to display its associated content o
   </Hds::Accordion>
 ```
 
+### isStatic
+
+Set `isStatic` to `true` on an `Accordion::Item` to removes the ability to interact with the toggle.
+
+```handlebars
+  <Hds::Accordion as |A|>
+    <A.Item>
+      <:toggle>Item one</:toggle>
+      <:content>
+        Additional content for item one
+      </:content>
+    </A.Item>
+    <A.Item @isStatic={{true}}>
+      <:toggle>Item two</:toggle>
+      <:content>
+        Additional content for item two
+      </:content>
+    </A.Item>
+  </Hds::Accordion>
+```
+
 ### containsInteractive
 
-By default, the `containsInteractive` property of the `AccordionItem` is set to `false`, meaning that the entire `AccordionItem` toggle block can be clicked to hide and show the associated content. If set to `true` only the chevron button of the `AccordionItem` is clickable vs. the entire block. This allows you to add other interactive content inside the toggle block if desired.
+By default, the `containsInteractive` property of the `Accordion::Item` is set to `false`, meaning that the entire `Accordion::Item` toggle block can be clicked to hide and show the associated content. If set to `true` only the chevron button of the `Accordion::Item` is clickable vs. the entire block. This allows you to add other interactive content inside the toggle block if desired.
 
 ```handlebars
 <Hds::Accordion as |A|>
