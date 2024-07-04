@@ -1,6 +1,6 @@
 ## Browser support
 
-The Flyout component leverages the `<dialog>` element which is [currently supported by all major browser vendors](https://caniuse.com/dialog). To ensure support on older browser versions (for example, Safari 14 or Internet Explorer 11) we rely on [a polyfill](https://github.com/GoogleChrome/dialog-polyfill) that is automatically loaded when needed.
+The Flyout component leverages the `<dialog>` element which is [currently supported by all major browser vendors](https://caniuse.com/dialog).
 
 ## Page scroll
 
