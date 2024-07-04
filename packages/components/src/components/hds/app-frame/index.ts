@@ -40,7 +40,7 @@ export default class HdsAppFrameComponent extends Component<HdsAppFrameSignature
    * @type {boolean}
    * @default true
    */
-  get hasHeader() {
+  get hasHeader(): boolean {
     return this.args.hasHeader ?? true;
   }
 
@@ -51,7 +51,7 @@ export default class HdsAppFrameComponent extends Component<HdsAppFrameSignature
    * @type {boolean}
    * @default true
    */
-  get hasSidebar() {
+  get hasSidebar(): boolean {
     return this.args.hasSidebar ?? true;
   }
 
@@ -62,7 +62,7 @@ export default class HdsAppFrameComponent extends Component<HdsAppFrameSignature
    * @type {boolean}
    * @default true
    */
-  get hasFooter() {
+  get hasFooter(): boolean {
     return this.args.hasFooter ?? true;
   }
 
@@ -73,7 +73,7 @@ export default class HdsAppFrameComponent extends Component<HdsAppFrameSignature
    * @type {boolean}
    * @default true
    */
-  get hasModals() {
+  get hasModals(): boolean {
     return this.args.hasModals ?? true;
   }
 }

@@ -32,7 +32,7 @@ export default class HdsInteractiveComponent extends Component<HdsInteractiveSig
    * @type boolean
    * @default true
    */
-  get isHrefExternal() {
+  get isHrefExternal(): boolean {
     return this.args.isHrefExternal ?? true;
   }
 
@@ -43,12 +43,12 @@ export default class HdsInteractiveComponent extends Component<HdsInteractiveSig
    * @type boolean
    * @default false
    */
-  get isRouteExternal() {
+  get isRouteExternal(): boolean {
     return this.args.isRouteExternal ?? false;
   }
 
   @action
-  onKeyUp(event: KeyboardEvent) {
+  onKeyUp(event: KeyboardEvent): void {
     if (event.key === ' ' || event.code === 'Space') {
       (event.target as HTMLElement).click();
     }

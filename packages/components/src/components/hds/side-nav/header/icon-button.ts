@@ -23,7 +23,7 @@ export default class HdsSideNavHeaderIconButtonComponent extends Component<HdsSi
    * @type {string}
    * @description The value of `aria-label`
    */
-  get ariaLabel() {
+  get ariaLabel(): string {
     const { ariaLabel } = this.args;
 
     assert(

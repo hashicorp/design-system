@@ -40,7 +40,7 @@ export default class HdsCopyButtonComponent extends Component<HdsCopyButtonSigna
    * @type {string}
    * @description The icon to be displayed for each status; automatically calculated based on the tracked property `status`.
    */
-  get icon() {
+  get icon(): FlightIconSignature['Args']['name'] {
     let icon: FlightIconSignature['Args']['name'] = DEFAULT_ICON;
     if (this.status === 'success') {
       icon = SUCCESS_ICON;
@@ -56,7 +56,7 @@ export default class HdsCopyButtonComponent extends Component<HdsCopyButtonSigna
    * @default medium
    * @description The size of the copy/button; acceptable values are `small` and `medium`
    */
-  get size() {
+  get size(): HdsCopyButtonSizes {
     const { size = DEFAULT_SIZE } = this.args;
 
     assert(
@@ -74,7 +74,7 @@ export default class HdsCopyButtonComponent extends Component<HdsCopyButtonSigna
    * @method CopyButton#classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
+  get classNames(): string {
     const classes = ['hds-copy-button'];
 
     // add a class based on the @size argument
@@ -86,7 +86,9 @@ export default class HdsCopyButtonComponent extends Component<HdsCopyButtonSigna
   }
 
   @action
-  onSuccess(args: HdsClipboardModifierSignature['Args']['Named']['onSuccess']) {
+  onSuccess(
+    args: HdsClipboardModifierSignature['Args']['Named']['onSuccess']
+  ): void {
     this.status = 'success';
     this.resetStatusDelayed();
 
@@ -98,7 +100,9 @@ export default class HdsCopyButtonComponent extends Component<HdsCopyButtonSigna
   }
 
   @action
-  onError(args: HdsClipboardModifierSignature['Args']['Named']['onError']) {
+  onError(
+    args: HdsClipboardModifierSignature['Args']['Named']['onError']
+  ): void {
     this.status = 'error';
     this.resetStatusDelayed();
 
@@ -109,10 +113,10 @@ export default class HdsCopyButtonComponent extends Component<HdsCopyButtonSigna
     }
   }
 
-  resetStatusDelayed() {
+  resetStatusDelayed(): void {
     clearTimeout(this.timer);
     // make it fade back to the default state
-    this.timer = setTimeout(() => {
+    this.timer = setTimeout((): void => {
       this.status = DEFAULT_STATUS;
     }, 1500);
   }

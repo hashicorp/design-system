@@ -24,7 +24,7 @@ export default class HdsSideNavHeaderHomeLinkComponent extends Component<HdsSide
    * @type {string}
    * @description The value of `aria-label`
    */
-  get ariaLabel() {
+  get ariaLabel(): string {
     const { ariaLabel } = this.args;
 
     assert(

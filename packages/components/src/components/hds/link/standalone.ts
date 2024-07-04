@@ -50,7 +50,7 @@ export default class HdsLinkStandaloneComponent extends Component<HdsLinkStandal
    * @type {string}
    * @description The text of the link. If no text value is defined an error will be thrown.
    */
-  get text() {
+  get text(): string {
     const { text } = this.args;
 
     assert(
@@ -67,7 +67,7 @@ export default class HdsLinkStandaloneComponent extends Component<HdsLinkStandal
    * @default primary
    * @description Determines the color of link to be used; acceptable values are `primary` and `secondary`
    */
-  get color() {
+  get color(): HdsLinkColors {
     const { color = DEFAULT_COLOR } = this.args;
 
     assert(
@@ -86,7 +86,7 @@ export default class HdsLinkStandaloneComponent extends Component<HdsLinkStandal
    * @default null
    * @description The name of the icon to be used. An icon name must be defined.
    */
-  get icon() {
+  get icon(): FlightIconSignature['Args']['name'] {
     const { icon } = this.args;
 
     assert(
@@ -99,11 +99,11 @@ export default class HdsLinkStandaloneComponent extends Component<HdsLinkStandal
 
   /**
    * @param iconPosition
-   * @type {string}
+   * @type {HdsLinkIconPositions}
    * @default leading
    * @description Positions the icon before or after the text; allowed values are `leading` or `trailing`
    */
-  get iconPosition() {
+  get iconPosition(): HdsLinkIconPositions {
     const { iconPosition = DEFAULT_ICONPOSITION } = this.args;
 
     assert(
@@ -118,11 +118,11 @@ export default class HdsLinkStandaloneComponent extends Component<HdsLinkStandal
 
   /**
    * @param size
-   * @type {string}
+   * @type {HdsLinkStandaloneSizes}
    * @default medium
    * @description The size of the standalone link; acceptable values are `small`, `medium`, and `large`
    */
-  get size() {
+  get size(): HdsLinkStandaloneSizes {
     const { size = DEFAULT_SIZE } = this.args;
 
     assert(
@@ -141,7 +141,7 @@ export default class HdsLinkStandaloneComponent extends Component<HdsLinkStandal
    * @default 16
    * @description ensures that the correct icon size is used. Automatically calculated.
    */
-  get iconSize() {
+  get iconSize(): '24' | '16' {
     if (this.args.size === 'large') {
       return '24';
     } else {
@@ -154,7 +154,7 @@ export default class HdsLinkStandaloneComponent extends Component<HdsLinkStandal
    * @method LinkStandalone#classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
+  get classNames(): string {
     const classes = ['hds-link-standalone'];
 
     // add a class based on the @size argument

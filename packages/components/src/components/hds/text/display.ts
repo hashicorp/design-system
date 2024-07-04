@@ -22,7 +22,7 @@ export const DEFAULT_SIZE = HdsTextSizeValues.TwoHundred;
 // Filter out reverse mappings from enum
 // https://www.typescriptlang.org/docs/handbook/enums.html#reverse-mappings
 export const AVAILABLE_SIZES = Object.values(HdsTextSizeValues).filter(
-  (v) => typeof v === 'number'
+  (v): boolean => typeof v === 'number'
 );
 
 export type HdsTextDisplayWeight = Extract<
@@ -81,11 +81,11 @@ export default class HdsTextDisplayComponent extends Component<HdsTextDisplaySig
    * Sets the "size" for the text
    * Accepted values: see AVAILABLE_SIZES
    *
-   * @type {string}
+   * @type {HdsTextSizes}
    *
    * @param size
    */
-  get size() {
+  get size(): HdsTextSizes {
     let { size = DEFAULT_SIZE } = this.args;
 
     // let's be a bit forgiving with the consumers
@@ -107,11 +107,11 @@ export default class HdsTextDisplayComponent extends Component<HdsTextDisplaySig
    * Sets the "weight" for the text
    * Accepted values: see AVAILABLE_WEIGHTS_PER_SIZE
    *
-   * @type {string}
+   * @type {HdsTextDisplayWeight}
    *
    * @param variant
    */
-  get weight() {
+  get weight(): HdsTextDisplayWeight {
     let { weight } = this.args;
 
     if (weight) {

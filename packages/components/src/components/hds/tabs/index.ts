@@ -102,7 +102,7 @@ export default class HdsTabsComponent extends Component<HdsTabsSignature> {
   }
 
   @action
-  didInsert() {
+  didInsert(): void {
     assert(
       'The number of Tabs must be equal to the number of Panels',
       this.tabNodes.length === this.panelNodes.length
@@ -112,20 +112,20 @@ export default class HdsTabsComponent extends Component<HdsTabsSignature> {
       this.selectedTabIndex = this.tabIds.indexOf(this.selectedTabId);
     }
 
-    schedule('afterRender', () => {
+    schedule('afterRender', (): void => {
       this.setTabIndicator();
     });
   }
 
   @action
-  didUpdateSelectedTabIndex() {
-    schedule('afterRender', () => {
+  didUpdateSelectedTabIndex(): void {
+    schedule('afterRender', (): void => {
       this.setTabIndicator();
     });
   }
 
   @action
-  didUpdateSelectedTabId() {
+  didUpdateSelectedTabId(): void {
     // if the selected tab is set dynamically (eg. in a `each` loop)
     // the `Tab` nodes will be re-inserted/rendered, which means the `this.selectedTabId` variable changes
     // but the parent `Tabs` component has already been rendered/inserted but doesn't re-render
@@ -137,14 +137,14 @@ export default class HdsTabsComponent extends Component<HdsTabsSignature> {
   }
 
   @action
-  didUpdateParentVisibility() {
-    schedule('afterRender', () => {
+  didUpdateParentVisibility(): void {
+    schedule('afterRender', (): void => {
       this.setTabIndicator();
     });
   }
 
   @action
-  didInsertTab(element: HTMLButtonElement, isSelected?: boolean) {
+  didInsertTab(element: HTMLButtonElement, isSelected?: boolean): void {
     this.tabNodes = [...this.tabNodes, element];
     this.tabIds = [...this.tabIds, element.id];
     if (isSelected) {
@@ -153,7 +153,7 @@ export default class HdsTabsComponent extends Component<HdsTabsSignature> {
   }
 
   @action
-  didUpdateTab(tabIndex: number, isSelected?: boolean) {
+  didUpdateTab(tabIndex: number, isSelected?: boolean): void {
     if (isSelected) {
       this.selectedTabIndex = tabIndex;
     }
@@ -161,25 +161,31 @@ export default class HdsTabsComponent extends Component<HdsTabsSignature> {
   }
 
   @action
-  willDestroyTab(element: HTMLButtonElement) {
-    this.tabNodes = this.tabNodes.filter((node) => node.id !== element.id);
-    this.tabIds = this.tabIds.filter((tabId) => tabId !== element.id);
+  willDestroyTab(element: HTMLButtonElement): void {
+    this.tabNodes = this.tabNodes.filter(
+      (node): boolean => node.id !== element.id
+    );
+    this.tabIds = this.tabIds.filter((tabId): boolean => tabId !== element.id);
   }
 
   @action
-  didInsertPanel(element: HTMLElement, panelId: string) {
+  didInsertPanel(element: HTMLElement, panelId: string): void {
     this.panelNodes = [...this.panelNodes, element];
     this.panelIds = [...this.panelIds, panelId];
   }
 
   @action
-  willDestroyPanel(element: HTMLElement) {
-    this.panelNodes = this.panelNodes.filter((node) => node.id !== element.id);
-    this.panelIds = this.panelIds.filter((panelId) => panelId !== element.id);
+  willDestroyPanel(element: HTMLElement): void {
+    this.panelNodes = this.panelNodes.filter(
+      (node): boolean => node.id !== element.id
+    );
+    this.panelIds = this.panelIds.filter(
+      (panelId): boolean => panelId !== element.id
+    );
   }
 
   @action
-  onClick(event: MouseEvent, tabIndex: number) {
+  onClick(event: MouseEvent, tabIndex: number): void {
     this.selectedTabIndex = tabIndex;
     this.setTabIndicator();
 
@@ -190,7 +196,7 @@ export default class HdsTabsComponent extends Component<HdsTabsSignature> {
   }
 
   @action
-  onKeyUp(tabIndex: number, event: KeyboardEvent) {
+  onKeyUp(tabIndex: number, event: KeyboardEvent): void {
     const leftArrow = 'ArrowLeft';
     const rightArrow = 'ArrowRight';
     const enterKey = 'Enter';
@@ -218,13 +224,13 @@ export default class HdsTabsComponent extends Component<HdsTabsSignature> {
   }
 
   // Focus tab for keyboard & mouse navigation:
-  focusTab(tabIndex: number, event: KeyboardEvent) {
+  focusTab(tabIndex: number, event: KeyboardEvent): void {
     event.preventDefault();
     this.tabNodes[tabIndex]?.focus();
   }
 
-  setTabIndicator() {
-    next(() => {
+  setTabIndicator(): void {
+    next((): void => {
       const tabElem = this.tabNodes[this.selectedTabIndex];
 
       if (tabElem != null) {

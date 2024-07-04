@@ -69,7 +69,7 @@ export default class HdsSideNavComponent extends Component<HdsSideNavSignature> 
     super(owner, args);
     this.desktopMQ = window.matchMedia(`(min-width:${this.desktopMQVal})`);
     this.addEventListeners();
-    registerDestructor(this, () => {
+    registerDestructor(this, (): void => {
       this.removeEventListeners();
     });
 
@@ -81,7 +81,7 @@ export default class HdsSideNavComponent extends Component<HdsSideNavSignature> 
     }
   }
 
-  addEventListeners() {
+  addEventListeners(): void {
     document.addEventListener('keydown', this.escapePress, true);
     this.desktopMQ.addEventListener('change', this.updateDesktopVariable, true);
     // if not instantiated as minimized via arguments
@@ -95,7 +95,7 @@ export default class HdsSideNavComponent extends Component<HdsSideNavSignature> 
     }
   }
 
-  removeEventListeners() {
+  removeEventListeners(): void {
     document.removeEventListener('keydown', this.escapePress, true);
     this.desktopMQ.removeEventListener(
       'change',
@@ -104,11 +104,11 @@ export default class HdsSideNavComponent extends Component<HdsSideNavSignature> 
     );
   }
 
-  get shouldTrapFocus() {
+  get shouldTrapFocus(): boolean {
     return this.isResponsive && !this.isDesktop && !this.isMinimized;
   }
 
-  get showToggleButton() {
+  get showToggleButton(): boolean {
     return (this.isResponsive && !this.isDesktop) || this.isCollapsible;
   }
 
@@ -117,14 +117,14 @@ export default class HdsSideNavComponent extends Component<HdsSideNavSignature> 
    * @type {string}
    * @default 'close menu'
    */
-  get ariaLabel() {
+  get ariaLabel(): string {
     if (this.isMinimized) {
       return this.args.ariaLabel ?? 'Open menu';
     }
     return this.args.ariaLabel ?? 'Close menu';
   }
 
-  get classNames() {
+  get classNames(): string {
     const classes = []; // `hds-side-nav` is already set by the "Hds::SideNav::Base" component
 
     // add specific class names for the different possible states
@@ -149,17 +149,17 @@ export default class HdsSideNavComponent extends Component<HdsSideNavSignature> 
   }
 
   @action
-  escapePress(event: KeyboardEvent) {
+  escapePress(event: KeyboardEvent): void {
     if (event.key === 'Escape' && !this.isMinimized && !this.isDesktop) {
       this.isMinimized = true;
     }
   }
 
   @action
-  toggleMinimizedStatus() {
+  toggleMinimizedStatus(): void {
     this.isMinimized = !this.isMinimized;
 
-    this.containersToHide.forEach((element) => {
+    this.containersToHide.forEach((element): void => {
       if (this.isMinimized) {
         element.setAttribute('inert', '');
       } else {
@@ -175,14 +175,14 @@ export default class HdsSideNavComponent extends Component<HdsSideNavSignature> 
   }
 
   @action
-  didInsert(element: HTMLElement) {
+  didInsert(element: HTMLElement): void {
     this.containersToHide = element.querySelectorAll(
       '.hds-side-nav-hide-when-minimized'
     );
   }
 
   @action
-  setTransition(phase: string, event: TransitionEvent) {
+  setTransition(phase: string, event: TransitionEvent): void {
     // we only want to respond to `width` animation/transitions
     if (event.propertyName !== 'width') {
       return;
@@ -195,7 +195,7 @@ export default class HdsSideNavComponent extends Component<HdsSideNavSignature> 
   }
 
   @action
-  updateDesktopVariable(event: MediaQueryListEvent) {
+  updateDesktopVariable(event: MediaQueryListEvent): void {
     this.isDesktop = event.matches;
 
     // automatically minimize on narrow viewports (when not in desktop mode)

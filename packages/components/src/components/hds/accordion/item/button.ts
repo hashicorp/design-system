@@ -20,7 +20,7 @@ interface HdsAccordionItemButtonSignature {
 
 export default class HdsAccordionItemButtonComponent extends Component<HdsAccordionItemButtonSignature> {
   @action
-  onClick(event: MouseEvent) {
+  onClick(event: MouseEvent): void {
     if (this.args.onClickToggle) {
       this.args.onClickToggle(event);
     }
@@ -31,7 +31,7 @@ export default class HdsAccordionItemButtonComponent extends Component<HdsAccord
    * @method ItemButton#classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
+  get classNames(): string {
     const classes = ['hds-accordion-item__button'];
 
     // add a class based on the @isOpen argument

@@ -8,14 +8,14 @@ export enum HdsBadgeCountSizeValues {
   Medium = 'medium',
   Large = 'large',
 }
-export type HdsBadgeSizes = `${HdsBadgeCountSizeValues}`;
+export type HdsBadgeCountSizes = `${HdsBadgeCountSizeValues}`;
 
 export enum HdsBadgeCountTypeValues {
   Filled = 'filled',
   Inverted = 'inverted',
   Outlined = 'outlined',
 }
-export type HdsBadgeTypes = `${HdsBadgeCountTypeValues}`;
+export type HdsBadgeCountTypes = `${HdsBadgeCountTypeValues}`;
 
 export enum HdsBadgeCountColorValues {
   Neutral = 'neutral',

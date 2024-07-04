@@ -40,7 +40,7 @@ export default class HdsAppFooterComponent extends Component<HdsAppFooterSignatu
    * @type {string}
    * @default 'Footer items'
    */
-  get ariaLabel() {
+  get ariaLabel(): string {
     return this.args.ariaLabel ?? 'Footer items';
   }
 
@@ -50,7 +50,7 @@ export default class HdsAppFooterComponent extends Component<HdsAppFooterSignatu
    * @description The component theme
    * @default 'light'
    */
-  get theme() {
+  get theme(): HdsAppFooterThemeTypes {
     return this.args.theme ?? 'light';
   }
 
@@ -59,7 +59,7 @@ export default class HdsAppFooterComponent extends Component<HdsAppFooterSignatu
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
+  get classNames(): string {
     const classes = ['hds-app-footer'];
 
     // add a class based on the @theme argument

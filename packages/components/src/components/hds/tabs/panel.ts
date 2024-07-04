@@ -36,7 +36,7 @@ export default class HdsTabsPanelComponent extends Component<HdsTabsPanelSignatu
 
   elementId?: string;
 
-  get nodeIndex() {
+  get nodeIndex(): number | undefined {
     return this.args.panelIds
       ? this.args.panelIds.indexOf(this.panelId)
       : undefined;
@@ -61,7 +61,7 @@ export default class HdsTabsPanelComponent extends Component<HdsTabsPanelSignatu
   }
 
   @action
-  didInsertNode(element: HTMLElement) {
+  didInsertNode(element: HTMLElement): void {
     const { didInsertNode } = this.args;
 
     if (typeof didInsertNode === 'function') {
@@ -71,7 +71,7 @@ export default class HdsTabsPanelComponent extends Component<HdsTabsPanelSignatu
   }
 
   @action
-  willDestroyNode(element: HTMLElement) {
+  willDestroyNode(element: HTMLElement): void {
     const { willDestroyNode } = this.args;
 
     if (typeof willDestroyNode === 'function') {
