@@ -5,7 +5,7 @@
 
 import Route from '@ember/routing/route';
 
-import { PLACEMENTS } from '@hashicorp/design-system-components/components/hds/popover-primitive';
+import { PLACEMENTS } from '@hashicorp/design-system-components/modifiers/hds-anchored-position';
 
 export default class ComponentsPopoverRoute extends Route {
   model() {

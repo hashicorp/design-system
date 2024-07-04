@@ -102,9 +102,6 @@
   <C.Property @name="[PP].toggleElement" @type="DOM element">
     Provides a reference to the toggle DOM element element (container).
   </C.Property>
-  <C.Property @name="[PP].arrowElement" @type="DOM element">
-    Provides a reference to the arrow DOM element (if provided to the `setupPrimitivePopover` modifier through the `anchoredPositionOptions` object).
-  </C.Property>
   <C.Property @name="[PP].popoverElement" @type="DOM element">
     A reference to the popover DOM element (container).
   </C.Property>
