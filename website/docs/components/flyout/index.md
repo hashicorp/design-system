@@ -5,7 +5,7 @@ caption: Displays additional details and information about an item or object, ov
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=23645%3A53756
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/flyout
-related: ['components/reveal','components/modal','components/accordion']
+related: ['components/reveal','components/modal','components/accordion', 'utilities/dialog-primitive']
 previewImage: assets/illustrations/components/flyout.jpg
 navigation:
   keywords: ['drawer', 'panel', 'side', 'modal']
