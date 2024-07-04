@@ -58,11 +58,11 @@ interface SetupPrimitiveContainerModifier {
   Element: HTMLElement;
 }
 
-interface SetupPrimitiveToggleModifier {
+export interface SetupPrimitiveToggleModifier {
   Element: HTMLButtonElement;
 }
 
-interface SetupPrimitivePopoverModifier {
+export interface SetupPrimitivePopoverModifier {
   Element: HTMLElement;
   Args: {
     Positional: [];
