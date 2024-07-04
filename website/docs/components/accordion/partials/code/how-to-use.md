@@ -3,6 +3,7 @@
 The `Accordion` component is used to wrap and group together one or more `AccordionItem` child components. The Accordion items consist of “toggle” and “content” named blocks which can contain either plain text or HTML content.
 
 ### Plain text content
+
 ```handlebars
   <Hds::Accordion as |A|>
     <A.Item>
@@ -102,6 +103,7 @@ The `ariaLabel` value is applied to the HTML button which controls visibility of
     </A.Item>
   </Hds::Accordion>
 ```
+
 ### isOpen
 
 Set `isOpen` to `true` on an `AccordionItem` to display its associated content on page load instead of initially hiding it.
