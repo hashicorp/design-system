@@ -6,14 +6,27 @@
 import Component from '@glimmer/component';
 export const ID_PREFIX = 'label-';
 
-export default class HdsFormLabelIndexComponent extends Component {
+interface HdsFormLabelSignature {
+  Args: {
+    contextualClass?: string;
+    controlId?: string;
+    isOptional?: boolean;
+    isRequired?: boolean;
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLLabelElement;
+}
+
+export default class HdsFormLabelComponent extends Component<HdsFormLabelSignature> {
   /**
    * Determines the unique ID to assign to the element
    * @method id
    * @return {(string|null)} The "id" attribute to apply to the element or null, if no controlId is provided
    */
-  get id() {
-    let { controlId } = this.args;
+  get id(): string | null {
+    const { controlId } = this.args;
     if (controlId) {
       return `${ID_PREFIX}${controlId}`;
     }
@@ -25,8 +38,8 @@ export default class HdsFormLabelIndexComponent extends Component {
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
-    let classes = ['hds-form-label'];
+  get classNames(): string {
+    const classes = ['hds-form-label'];
 
     // add typographic classes
     classes.push('hds-typography-body-200', 'hds-font-weight-semibold');
