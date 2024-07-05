@@ -5,7 +5,8 @@
 
 import { guidFor } from '@ember/object/internals';
 
-export function getElementId(element) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function getElementId(element: any): string {
   // use @id arg, if provided
   if (element.args.id) {
     return element.args.id;
