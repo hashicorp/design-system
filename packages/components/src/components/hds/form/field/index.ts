@@ -12,17 +12,62 @@ import {
   registerAriaDescriptionElement,
   unregisterAriaDescriptionElement,
 } from '../../../../utils/hds-aria-described-by.ts';
+import { HdsFormLayoutValues } from '../types.ts';
+import HdsFormLabelComponent from '../label/index.ts';
+import HdsFormHelperTextComponent from '../helper-text/index.ts';
+import HdsFormCharacterCountComponent from '../character-count/index.ts';
+import HdsFormErrorComponent from '../error/index.ts';
 
-export const LAYOUT_TYPES = ['vertical', 'flag'];
+import type { HdsFormLayouts } from '../types.ts';
+import type { ComponentLike, WithBoundArgs } from '@glint/template';
+import type { HdsYieldSignature } from '../../yield/index.ts';
+
+export const LAYOUT_TYPES = Object.values(HdsFormLayoutValues);
+
+export interface HdsFormFieldSignature {
+  Args: {
+    extraAriaDescribedBy?: string;
+    contextualClass?: string;
+    isOptional?: boolean;
+    isRequired?: boolean;
+    layout?: HdsFormLayouts;
+  };
+  Blocks: {
+    default: [
+      {
+        Label?: WithBoundArgs<
+          typeof HdsFormLabelComponent,
+          'contextualClass' | 'controlId' | 'isRequired' | 'isOptional'
+        >;
+        HelperText?: WithBoundArgs<
+          typeof HdsFormHelperTextComponent,
+          'contextualClass' | 'controlId' | 'onInsert'
+        >;
+        Control?: ComponentLike<HdsYieldSignature>;
+        CharacterCount?: WithBoundArgs<
+          typeof HdsFormCharacterCountComponent,
+          'contextualClass' | 'controlId' | 'onInsert'
+        >;
+        Error?: WithBoundArgs<
+          typeof HdsFormErrorComponent,
+          'contextualClass' | 'controlId' | 'onInsert' | 'onRemove'
+        >;
+        id?: string;
+        ariaDescribedBy?: string;
+      }
+    ];
+  };
+  Element: HTMLDivElement;
+}
 
 @ariaDescribedBy
-class HdsFormFieldIndexComponent extends Component {
+class HdsFormFieldComponent extends Component<HdsFormFieldSignature> {
   @action
-  appendDescriptor(element) {
+  appendDescriptor(element: HTMLElement): void {
     registerAriaDescriptionElement(this, element);
   }
 
-  @action removeDescriptor(element) {
+  @action removeDescriptor(element: HTMLElement): void {
     unregisterAriaDescriptionElement(this, element);
   }
 
@@ -32,14 +77,14 @@ class HdsFormFieldIndexComponent extends Component {
    * @param layout
    * @type {string}
    */
-  get layout() {
-    let { layout } = this.args;
+  get layout(): HdsFormLayouts | undefined {
+    const { layout } = this.args;
 
     assert(
       `@layout for "Hds::Form::Field" must be one of the following: ${LAYOUT_TYPES.join(
         ', '
       )}; received: ${layout}`,
-      LAYOUT_TYPES.includes(layout)
+      LAYOUT_TYPES.includes(layout as HdsFormLayoutValues)
     );
 
     return layout;
@@ -48,7 +93,7 @@ class HdsFormFieldIndexComponent extends Component {
   /**
    * Calculates the unique ID to assign to the form control
    */
-  get id() {
+  get id(): string {
     return getElementId(this);
   }
 
@@ -57,8 +102,8 @@ class HdsFormFieldIndexComponent extends Component {
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
-    let classes = [];
+  get classNames(): string {
+    const classes: string[] = [];
 
     if (this.args.layout) {
       classes.push(`hds-form-field--layout-${this.layout}`);
@@ -78,7 +123,7 @@ class HdsFormFieldIndexComponent extends Component {
    * @type {boolean}
    * @default false
    */
-  get isRequired() {
+  get isRequired(): boolean {
     return this.args.isRequired || false;
   }
 
@@ -87,9 +132,9 @@ class HdsFormFieldIndexComponent extends Component {
    * @type {boolean}
    * @default false
    */
-  get isOptional() {
+  get isOptional(): boolean {
     return this.args.isOptional || false;
   }
 }
 
-export default HdsFormFieldIndexComponent;
+export default HdsFormFieldComponent;
