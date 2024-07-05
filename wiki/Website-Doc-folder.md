@@ -112,6 +112,8 @@ navigation:
   label: Alert
   hidden: false
 previewImage: assets/illustrations/components/alert.jpg
+status:
+  deprecated: 2.3.0
 ---
 ```
 
@@ -148,7 +150,10 @@ The "frontmatter" attributes that we support are the following:
       Used to hide the page from the sidebar navigation and the lists on the landing pages - default is `false`
 *   `previewImage`
     An optional full path to an image used when listing the page as "card" (eg. in landing pages). The path refers to the `dist` folder generated at build time, so is relative to the content of the `/website/public` folder.
-
+*   `status`
+    An optional status of the component (that will be reflected in the pages with specific badges next to the component card or name)
+        * `deprecated` - the version number in which the component has been deprecated (in the format `x.y.z`)
+        * `updated` - the version number in which the component has been updated (in the format `x.y.z`) - notice: this can be removed after some time, when the changes are not anymore recent enough to justify the extra information
 
 Only the `title` attribute is technically required, all the others are optional (even though some of them like `description` and `caption` are necessary for component pages).
 
@@ -178,6 +183,10 @@ title: Alert
 
 <section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
+</section>
+
+<section data-tab="Version history">
+  @include "partials/version-history/2.3.0.md"
 </section>
 ```
 
