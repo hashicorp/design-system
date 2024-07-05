@@ -113,7 +113,8 @@ If you want to see these elements in action, have a look at the website itself h
 The `Doc::Badge` component is used to show a textual "badge" with different visual "states".
 
 It provides the following API:
-- `@type` - the type of banner - possible values: `neutral` (default), `information`, `success`, `warning`, `critical`, `outlined`
+- `@type` - the type of banner - possible values: `neutral` (default), `information`, `success`, `warning`, `critical` + all the `-inverted` equivalents (eg. `warning-inverted`)
+- `@size` - the size of banner - possible values: `large` (default), `medium`
 - `yield` - the content passed to the component is yielded
 
 An invocation of the badge looks like this:
