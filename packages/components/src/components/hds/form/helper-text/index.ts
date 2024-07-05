@@ -4,18 +4,33 @@
  */
 
 import Component from '@glimmer/component';
+import type { HdsTextBodySignature } from '../../text/body';
+
 export const ID_PREFIX = 'helper-text-';
 
-const NOOP = () => {};
+const NOOP = (): void => {};
 
-export default class HdsFormHelperTextIndexComponent extends Component {
+interface HdsFormHelperTextSignature {
+  Args: {
+    contextualClass?: string;
+    controlId?: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onInsert?: (element: HTMLElement, ...args: any[]) => void;
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HdsTextBodySignature['Element'];
+}
+
+export default class HdsFormHelperTextComponent extends Component<HdsFormHelperTextSignature> {
   /**
    * Determines the unique ID to assign to the element
    * @method id
    * @return {(string|null)} The "id" attribute to apply to the element or null, if no controlId is provided
    */
-  get id() {
-    let { controlId } = this.args;
+  get id(): string | null {
+    const { controlId } = this.args;
     if (controlId) {
       return `${ID_PREFIX}${controlId}`;
     }
@@ -27,8 +42,9 @@ export default class HdsFormHelperTextIndexComponent extends Component {
    * @type {function}
    * @default () => {}
    */
-  get onInsert() {
-    let { onInsert } = this.args;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  get onInsert(): (element: HTMLElement, ...args: any[]) => void {
+    const { onInsert } = this.args;
 
     // notice: this is a guard used to prevent triggering an error when the component is used as standalone element
     if (typeof onInsert === 'function') {
@@ -43,8 +59,8 @@ export default class HdsFormHelperTextIndexComponent extends Component {
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
-    let classes = ['hds-form-helper-text'];
+  get classNames(): string {
+    const classes = ['hds-form-helper-text'];
 
     // add a class based on the @contextualClass argument
     // notice: this will *not* be documented for public use
