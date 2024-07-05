@@ -25,6 +25,7 @@ export default class PatternsController extends Controller {
               page.pageAttributes?.navigation?.label ||
               page.pageAttributes.title,
             caption: page.pageAttributes.caption,
+            status: page.pageAttributes.status,
             route: 'show',
             model: page.pageURL,
           };
