@@ -5,7 +5,7 @@ caption: The foundational blocks of dialog components.
 related: ['components/modal', 'components/flyout']
 previewImage: assets/illustrations/utilities/dialog-primitive.jpg
 links:
-  figma: 
+  figma:
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/dialog-primitive
 navigation:
   keywords: ['modal', 'flyout']
@@ -27,4 +27,8 @@ navigation:
 
 <section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
+</section>
+
+<section data-tab="Version history">
+  @include "partials/version-history/4.6.0.md"
 </section>
