@@ -35,7 +35,15 @@ import type HdsCopyButtonComponent from './components/hds/copy/button/index';
 import type HdsCopySnippetComponent from './components/hds/copy/snippet';
 import type HdsDisclosurePrimitiveComponent from './components/hds/disclosure-primitive';
 import type HdsDismissButtonComponent from './components/hds/dismiss-button';
+import type HdsFormCharacterCountComponent from './components/hds/form/character-count';
+import type HdsFormErrorComponent from './components/hds/form/error';
+import type HdsFormErrorMessageComponent from './components/hds/form/error/message';
+import type HdsFormFieldComponent from './components/hds/form/field';
+import type HdsFormHelperTextComponent from './components/hds/form/helper-text';
 import type HdsFormIndicatorComponent from './components/hds/form/indicator';
+import type HdsFormLabelComponent from './components/hds/form/label';
+import type HdsFormLegendComponent from './components/hds/form/legend';
+import type HdsFormVisibilityToggleComponent from './components/hds/form/visibility-toggle';
 import type HdsIconTileComponent from './components/hds/icon-tile';
 import type HdsInteractiveComponent from './components/hds/interactive';
 import type HdsLinkInlineComponent from './components/hds/link/inline';
@@ -89,7 +97,6 @@ import type HdsClipboardModifier from './modifiers/hds-clipboard.ts';
 import type HdsRegisterEventModifier from './modifiers/hds-register-event.ts';
 
 export default interface HdsComponentsRegistry {
-
   // ----- COMPONENTS ---------------------------------------------------
 
   // Accordion
@@ -201,9 +208,41 @@ export default interface HdsComponentsRegistry {
 
   // FORM
 
+  // Form CharacterCount
+  'Hds::Form::CharacterCount': typeof HdsFormCharacterCountComponent;
+  'hds/form/character-count': typeof HdsFormCharacterCountComponent;
+
+  // Form Error
+  'Hds::Form::Error': typeof HdsFormErrorComponent;
+  'hds/form/error': typeof HdsFormErrorComponent;
+
+  // Form Error Message
+  'Hds::Form::Error::Message': typeof HdsFormErrorMessageComponent;
+  'hds/form/error/message': typeof HdsFormErrorMessageComponent;
+
+  // Form Field
+  'Hds::Form::Field': typeof HdsFormFieldComponent;
+  'hds/form/field': typeof HdsFormFieldComponent;
+
+  // Form HelperText
+  'Hds::Form::HelperText': typeof HdsFormHelperTextComponent;
+  'hds/form/helper-text': typeof HdsFormHelperTextComponent;
+
   // Form Indicator
   'Hds::Form::Indicator': typeof HdsFormIndicatorComponent;
   'hds/form/indicator': typeof HdsFormIndicatorComponent;
+
+  // Form Label
+  'Hds::Form::Label': typeof HdsFormLabelComponent;
+  'hds/form/label': typeof HdsFormLabelComponent;
+
+  // Form Legend
+  'Hds::Form::Legend': typeof HdsFormLegendComponent;
+  'hds/form/legend': typeof HdsFormLegendComponent;
+
+  // Form VisibilityToggle
+  'Hds::Form::VisibilityToggle': typeof HdsFormVisibilityToggleComponent;
+  'hds/form/visibility-toggle': typeof HdsFormVisibilityToggleComponent;
 
   // IconTile
   'Hds::IconTile': typeof HdsIconTileComponent;
