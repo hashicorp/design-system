@@ -35,6 +35,7 @@ import type HdsCopyButtonComponent from './components/hds/copy/button/index';
 import type HdsCopySnippetComponent from './components/hds/copy/snippet';
 import type HdsDisclosurePrimitiveComponent from './components/hds/disclosure-primitive';
 import type HdsDismissButtonComponent from './components/hds/dismiss-button';
+import type HdsFormIndicatorComponent from './components/hds/form/indicator';
 import type HdsIconTileComponent from './components/hds/icon-tile';
 import type HdsInteractiveComponent from './components/hds/interactive';
 import type HdsLinkInlineComponent from './components/hds/link/inline';
@@ -88,8 +89,8 @@ import type HdsClipboardModifier from './modifiers/hds-clipboard.ts';
 import type HdsRegisterEventModifier from './modifiers/hds-register-event.ts';
 
 export default interface HdsComponentsRegistry {
-  //
-  // ----- COMPONENTS ----------------------------------------------------
+
+  // ----- COMPONENTS ---------------------------------------------------
 
   // Accordion
   'Hds::Accordion': typeof HdsAccordionComponent;
@@ -130,7 +131,7 @@ export default interface HdsComponentsRegistry {
   'Hds::AppFooter::StatusLink': typeof HdsAppFooterStatusLinkComponent;
   'hds/app-footer/status-link': typeof HdsAppFooterStatusLinkComponent;
 
-  // App Frame
+  // AppFrame
   'Hds::AppFrame': typeof HdsAppFrameComponent;
   'hds/app-frame': typeof HdsAppFrameComponent;
 
@@ -149,7 +150,7 @@ export default interface HdsComponentsRegistry {
   'Hds::AppFrame::Sidebar': typeof HdsAppFrameSidebarComponent;
   'hds/app-frame/parts/sidebar': typeof HdsAppFrameSidebarComponent;
 
-  // Application State
+  // ApplicationState
   'Hds::ApplicationState': typeof HdsApplicationStateComponent;
   'hds/application-state': typeof HdsApplicationStateComponent;
 
@@ -190,13 +191,19 @@ export default interface HdsComponentsRegistry {
   'Hds::Copy::Snippet': typeof HdsCopySnippetComponent;
   'hds/copy/snippet': typeof HdsCopySnippetComponent;
 
-  // Disclosure Primitive
+  // DisclosurePrimitive
   'Hds::DisclosurePrimitive': typeof HdsDisclosurePrimitiveComponent;
   'hds/disclosure-primitive': typeof HdsDisclosurePrimitiveComponent;
 
-  // Dismiss button
+  // DismissButton
   'Hds::DismissButton': typeof HdsDismissButtonComponent;
   'hds/dismiss-button': typeof HdsDismissButtonComponent;
+
+  // FORM
+
+  // Form Indicator
+  'Hds::Form::Indicator': typeof HdsFormIndicatorComponent;
+  'hds/form/indicator': typeof HdsFormIndicatorComponent;
 
   // IconTile
   'Hds::IconTile': typeof HdsIconTileComponent;
@@ -214,7 +221,7 @@ export default interface HdsComponentsRegistry {
   'Hds::Link::Standalone': typeof HdsLinkStandaloneComponent;
   'hds/link/standalone': typeof HdsLinkStandaloneComponent;
 
-  // Page Header
+  // PageHeader
   'Hds::PageHeader': typeof HdsPageHeaderComponent;
   'hds/page-header': typeof HdsPageHeaderComponent;
 
@@ -233,7 +240,7 @@ export default interface HdsComponentsRegistry {
   'Hds::PageHeader::Title': typeof HdsPageHeaderTitleComponent;
   'hds/page-header/title': typeof HdsPageHeaderTitleComponent;
 
-  // Popover Primitive
+  // PopoverPrimitive
   'Hds::PopoverPrimitive': typeof HdsPopoverPrimitiveComponent;
   'hds/popover-primitive': typeof HdsPopoverPrimitiveComponent;
 
@@ -248,7 +255,7 @@ export default interface HdsComponentsRegistry {
   'Hds::Separator': typeof HdsSeparatorComponent;
   'hds/separator': typeof HdsSeparatorComponent;
 
-  // Side Nav
+  // SideNav
   'Hds::SideNav': typeof HdsSideNavComponent;
   'hds/side-nav': typeof HdsSideNavComponent;
   HdsSideNav: typeof HdsSideNavComponent;
@@ -353,7 +360,7 @@ export default interface HdsComponentsRegistry {
   'Hds::Yield': typeof HdsYieldComponent;
   'hds/yield': typeof HdsYieldComponent;
 
-  // ----- HELPERS ----------------------------------------------------
+  // ----- HELPERS ------------------------------------------------------
 
   // hds-link-to-models
   'hds-link-to-models': typeof HdsLinkToModelsHelper;
