@@ -43,7 +43,7 @@
   {{/if}}
   {{#if (has-block)}}
     <div class="doc-component-api__property-description">
-      {{yield}}
+      {{yield (hash Banner=(component "doc/banner" type="warning"))}}
     </div>
   {{/if}}
 </div>
