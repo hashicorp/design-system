@@ -11,15 +11,52 @@ import {
   registerAriaDescriptionElement,
   unregisterAriaDescriptionElement,
 } from '../../../../utils/hds-aria-described-by.ts';
+import HdsFormLegendComponent from '../legend/index.ts';
+import HdsFormHelperTextComponent from '../helper-text/index.ts';
+import HdsFormErrorComponent from '../error/index.ts';
+
+import type { HdsFormLayouts } from '../types.ts';
+import type { ComponentLike, WithBoundArgs } from '@glint/template';
+import type { HdsYieldSignature } from '../../yield/index.ts';
+
+interface HdsFormFieldsetSignature {
+  Args: {
+    isOptional?: boolean;
+    isRequired?: boolean;
+    layout?: HdsFormLayouts;
+  };
+  Blocks: {
+    default: [
+      {
+        Legend?: WithBoundArgs<
+          typeof HdsFormLegendComponent,
+          'contextualClass' | 'isRequired' | 'isOptional'
+        >;
+        HelperText?: WithBoundArgs<
+          typeof HdsFormHelperTextComponent,
+          'contextualClass' | 'controlId' | 'onInsert'
+        >;
+        Control?: ComponentLike<HdsYieldSignature>;
+        Error?: WithBoundArgs<
+          typeof HdsFormErrorComponent,
+          'contextualClass' | 'controlId' | 'onInsert' | 'onRemove'
+        >;
+        id?: string;
+        ariaDescribedBy?: string;
+      }
+    ];
+  };
+  Element: HTMLFieldSetElement;
+}
 
 @ariaDescribedBy
-class HdsFormFieldsetIndexComponent extends Component {
+class HdsFormFieldsetComponent extends Component<HdsFormFieldsetSignature> {
   @action
-  appendDescriptor(element) {
+  appendDescriptor(element: HTMLElement): void {
     registerAriaDescriptionElement(this, element);
   }
 
-  @action removeDescriptor(element) {
+  @action removeDescriptor(element: HTMLElement): void {
     unregisterAriaDescriptionElement(this, element);
   }
 
@@ -30,14 +67,14 @@ class HdsFormFieldsetIndexComponent extends Component {
    * @type {enum}
    * @default 'vertical'
    */
-  get layout() {
+  get layout(): HdsFormLayouts {
     return this.args.layout ?? 'vertical';
   }
 
   /**
    * Calculates the unique ID to assign to the fieldset
    */
-  get id() {
+  get id(): string {
     return getElementId(this);
   }
 
@@ -46,9 +83,9 @@ class HdsFormFieldsetIndexComponent extends Component {
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
+  get classNames(): string {
     // we just need a class for the layout
-    let classes = ['hds-form-group'];
+    const classes = ['hds-form-group'];
 
     // add a class based on the @layout argument
     classes.push(`hds-form-group--layout-${this.layout}`);
@@ -61,7 +98,7 @@ class HdsFormFieldsetIndexComponent extends Component {
    * @type {boolean}
    * @default false
    */
-  get isRequired() {
+  get isRequired(): boolean {
     return this.args.isRequired || false;
   }
 
@@ -70,9 +107,9 @@ class HdsFormFieldsetIndexComponent extends Component {
    * @type {boolean}
    * @default false
    */
-  get isOptional() {
+  get isOptional(): boolean {
     return this.args.isOptional || false;
   }
 }
 
-export default HdsFormFieldsetIndexComponent;
+export default HdsFormFieldsetComponent;
