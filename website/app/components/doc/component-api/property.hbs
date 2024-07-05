@@ -12,6 +12,9 @@
     {{#if @required}}
       <code class="doc-component-api__property-required">required</code>
     {{/if}}
+    {{#if @deprecated}}
+      <Doc::Badge class="doc-component-api__property-deprecated" @type="warning" @size="medium">Deprecated</Doc::Badge>
+    {{/if}}
   </div>
   {{#if (or @values @valueNote)}}
     {{#if @values}}
