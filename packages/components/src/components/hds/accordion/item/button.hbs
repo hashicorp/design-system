@@ -12,5 +12,5 @@
   aria-label={{@ariaLabel}}
   ...attributes
 >
-  <FlightIcon @name="chevron-down" @size="24" @isInlineBlock={{false}} />
+  <FlightIcon @name="chevron-down" @size={{if (eq @size "large") "24" "16"}} @isInlineBlock={{false}} />
 </button>

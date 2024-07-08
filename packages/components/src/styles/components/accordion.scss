@@ -10,24 +10,66 @@
 @use "../mixins/button" as *;
 @use "../mixins/focus-ring" as *;
 
-$hds-accordion-item-padding: 16px;
-$hds-accordion-item-border-radius: 6px;
-
-// ACCORDION COMPONENT (wrapper)
-
 .hds-accordion {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+}
+
+.hds-accordion--type-card {
+  &.hds-accordion--size-small {
+    gap: 4px;
+  }
+
+  &.hds-accordion--size-medium {
+    gap: 8px;
+  }
+
+  &.hds-accordion--size-large {
+    gap: 12px;
+  }
 }
 
 // ACCORDION ITEM COMPONENT (nested child)
 
-.hds-accordion-item {
-  background: var(--token-color-surface-primary);
-  border-radius: $hds-accordion-item-border-radius;
+.hds-accordion-item--size-small {
+  --hds-accordion-item-toggle-padding: 8px;
+  --hds-accordion-item-toggle-padding-left: 8px;
+  --hds-accordion-item-content-padding-top: 4px;
+  --hds-accordion-item-content-padding-right: 8px;
+  --hds-accordion-item-content-padding-bottom: 8px;
+  --hds-accordion-item-content-padding-left: 12px;
+  --hds-accordion-item-gap: 8px;
+  --hds-accordion-item-icon-size: 16px;
+}
 
-  &.hds-accordion-item--does-not-contain-interactive {
+.hds-accordion-item--size-medium {
+  --hds-accordion-item-toggle-padding: 12px;
+  --hds-accordion-item-toggle-padding-left: 8px;
+  --hds-accordion-item-content-padding-top: 4px;
+  --hds-accordion-item-content-padding-right: 12px;
+  --hds-accordion-item-content-padding-bottom: 12px;
+  --hds-accordion-item-content-padding-left: 12px;
+  --hds-accordion-item-gap: 12px;
+  --hds-accordion-item-icon-size: 20px;
+}
+
+.hds-accordion-item--size-large {
+  --hds-accordion-item-toggle-padding: 16px;
+  --hds-accordion-item-toggle-padding-left: 12px;
+  --hds-accordion-item-content-padding-top: 4px;
+  --hds-accordion-item-content-padding-right: 16px;
+  --hds-accordion-item-content-padding-bottom: 16px;
+  --hds-accordion-item-content-padding-left: 16px;
+  --hds-accordion-item-gap: 12px;
+  --hds-accordion-item-icon-size: 24px;
+}
+
+.hds-accordion-item--type-card {
+  --hds-accordion-item-focus-ring-offset: 0;
+  background: var(--token-color-surface-primary);
+  border-radius: 6px;
+
+  &.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) {
     box-shadow: var(--token-surface-mid-box-shadow);
 
     &:hover,
@@ -36,8 +78,30 @@ $hds-accordion-item-border-radius: 6px;
     }
   }
 
-  &.hds-accordion-item--contains-interactive {
+  &.hds-accordion-item--contains-interactive,
+  &.hds-accordion-item--is-static {
     box-shadow: var(--token-surface-base-box-shadow);
+  }
+}
+
+.hds-accordion-item--type-flush {
+  --hds-accordion-item-focus-ring-offset: 3px;
+  border-bottom: 1px solid var(--token-color-border-primary);
+
+  &.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) > .hds-disclosure-primitive__toggle {
+    &:hover,
+    &.mock-hover {
+      .hds-accordion-item__toggle {
+        background: var(--token-color-surface-interactive-hover);
+      }
+    }
+
+    &:active,
+    &.mock-active {
+      .hds-accordion-item__toggle {
+        background: var(--token-color-surface-interactive-active);
+      }
+    }
   }
 }
 
@@ -46,13 +110,9 @@ $hds-accordion-item-border-radius: 6px;
 .hds-accordion-item__toggle {
   position: relative;
   display: flex;
-  gap: 12px;
+  gap: var(--hds-accordion-item-gap);
   align-items: center;
-  padding:
-    $hds-accordion-item-padding
-    $hds-accordion-item-padding
-    $hds-accordion-item-padding
-    12px; // by design
+  padding: var(--hds-accordion-item-toggle-padding) var(--hds-accordion-item-toggle-padding) var(--hds-accordion-item-toggle-padding) var(--hds-accordion-item-toggle-padding-left);
 }
 
 .hds-accordion-item__button {
@@ -60,51 +120,54 @@ $hds-accordion-item-border-radius: 6px;
 
   &:hover { cursor: pointer; }
 
-  // entire toggle area is interactive
-  &.hds-accordion-item__button--parent-does-not-contain-interactive {
-    @include hds-focus-ring-with-pseudo-element();
-    position: static;
-    margin: -1px 0;
-    color: var(--token-color-foreground-primary);
-    background: transparent;
-    border: 1px solid transparent;
-
-    // expand button target to cover entire AccordionItem Toggle block (depending on the `@containsInteractive/@parentContainsInteractive` argument)
-    &::after {
-      position: absolute;
-      display: block;
-      border-radius: $hds-accordion-item-border-radius;
-      content: "";
-      inset: 0;
-    }
-  }
-
-  // only chevron button area is interactive
-  &.hds-accordion-item__button--parent-contains-interactive {
-    @include hds-button();
-    width: 24px;
-    height: 24px;
-
-    &:focus,
-    &.mock-focus {
-      @include hds-button-state-focus();
-    }
-
-    // `hds-button-color-secondary` determines the focus color and needs to be placed after `hds-button-state-focus`
-    @include hds-button-color-secondary();
-  }
-
-  // animate chevron icon
-  &.hds-accordion-item__button--is-open {
-    .flight-icon-chevron-down {
-      transform: rotate(-180deg);
-    }
-  }
-
-  .flight-icon-chevron-down {
+  .flight-icon {
     @media (prefers-reduced-motion: no-preference) {
       transition: transform 0.3s;
     }
+  }
+
+  // we hide it instead of not rendering it at all, to preserve the visual layout of the item, without requiring special CSS workarounds to compensate for the missing element
+  .hds-accordion-item--is-static.hds-accordion-item & {
+    visibility: hidden;
+  }
+}
+
+// entire toggle area is interactive
+.hds-accordion-item__button--parent-does-not-contain-interactive {
+  @include hds-focus-ring-with-pseudo-element($top: var(--hds-accordion-item-focus-ring-offset), $right: var(--hds-accordion-item-focus-ring-offset), $bottom: var(--hds-accordion-item-focus-ring-offset), $left: var(--hds-accordion-item-focus-ring-offset));
+
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -1px 0;
+  color: var(--token-color-foreground-primary);
+  background: transparent;
+  border: 0;
+}
+
+// only chevron button area is interactive
+.hds-accordion-item__button--parent-contains-interactive {
+  @include hds-button();
+
+  &:focus,
+  &.mock-focus {
+    @include hds-button-state-focus();
+  }
+
+  // `hds-button-color-secondary` determines the focus color and needs to be placed after `hds-button-state-focus`
+  @include hds-button-color-secondary();
+}
+
+.hds-accordion-item__button {
+  width: var(--hds-accordion-item-icon-size);
+  height: var(--hds-accordion-item-icon-size);
+}
+
+// animate chevron icon
+.hds-accordion-item__button--is-open {
+  .flight-icon-chevron-down {
+    transform: rotate(-180deg);
   }
 }
 
@@ -116,5 +179,20 @@ $hds-accordion-item-border-radius: 6px;
 // CONTENT BLOCK
 
 .hds-accordion-item__content {
-  padding: 4px $hds-accordion-item-padding $hds-accordion-item-padding $hds-accordion-item-padding;
+  .hds-accordion-item & {
+    padding: var(--hds-accordion-item-content-padding-top) var(--hds-accordion-item-content-padding-right) var(--hds-accordion-item-content-padding-bottom) var(--hds-accordion-item-content-padding-left);
+  }
+}
+
+// Adjust content padding and border for nested flush accordions
+
+.hds-accordion-item--type-flush .hds-accordion-item__content:has(> .hds-accordion--type-flush) {
+  padding: 0 var(--hds-accordion-item-content-padding-right) 0 var(--hds-accordion-item-content-padding-left);
+  border-top: 1px solid var(--token-color-border-primary);
+
+  .hds-accordion-item--type-flush {
+    &:last-child {
+      border-bottom: none;
+    }
+  }
 }
