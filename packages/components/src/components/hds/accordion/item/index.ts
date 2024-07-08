@@ -81,7 +81,7 @@ export default class HdsAccordionItemComponent extends Component<HdsAccordionIte
    * @type {HdsTextSizes}
    * @default 'medium'
    */
-  get toggleTextSize() {
+  get toggleTextSize(): number {
     const size = this.args.size ?? DEFAULT_SIZE;
     return TEXT_SIZE_MAP[size];
   }
@@ -93,7 +93,7 @@ export default class HdsAccordionItemComponent extends Component<HdsAccordionIte
    * @type {HdsAccordionSizes}
    * @default 'medium'
    */
-  get size() {
+  get size(): HdsAccordionSizes {
     const { size = DEFAULT_SIZE } = this.args;
 
     assert(
@@ -113,7 +113,7 @@ export default class HdsAccordionItemComponent extends Component<HdsAccordionIte
    * @type {HdsAccordionTypes}
    * @default 'card'
    */
-  get type() {
+  get type(): HdsAccordionTypes {
     const { type = DEFAULT_TYPE } = this.args;
 
     assert(
