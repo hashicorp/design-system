@@ -8,12 +8,12 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | flight-icon', function (hooks) {
+module('Integration | Component | hds-icon', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(hbs`<Hds::Icon @name="activity" />`);
-    assert.dom('svg.hds-icon').hasClass('flight-icon');
+    assert.dom('svg.hds-icon').hasClass('hds-icon');
   });
 
   test('it has aria-hidden set to true', async function (assert) {
@@ -45,17 +45,17 @@ module('Integration | Component | flight-icon', function (hooks) {
       .hasAttribute('width', '100%')
       .hasAttribute('height', '100%');
   });
-  test('it does not have the "flight-icon-display-inline" class if the option is set to false', async function (assert) {
+  test('it does not have the "hds-icon-display-inline" class if the option is set to false', async function (assert) {
     await render(hbs`<Hds::Icon @name="activity" @isInlineBlock={{false}} />`);
-    assert.dom('svg.hds-icon').doesNotHaveClass('flight-icon-display-inline');
+    assert.dom('svg.hds-icon').doesNotHaveClass('hds-icon-display-inline');
   });
-  test('it does have the "flight-icon-display-inline" class if the option is not set', async function (assert) {
+  test('it does have the "hds-icon-display-inline" class if the option is not set', async function (assert) {
     await render(hbs`<Hds::Icon @name="activity" />`);
-    assert.dom('svg.hds-icon').hasClass('flight-icon-display-inline');
+    assert.dom('svg.hds-icon').hasClass('hds-icon-display-inline');
   });
-  test('it does not have the "flight-icon-display-inline" class if the "stretched" option is set to true', async function (assert) {
+  test('it does not have the "hds-icon-display-inline" class if the "stretched" option is set to true', async function (assert) {
     await render(hbs`<Hds::Icon @name="activity" @stretched={{true}} />`);
-    assert.dom('svg.hds-icon').doesNotHaveClass('flight-icon-display-inline');
+    assert.dom('svg.hds-icon').doesNotHaveClass('hds-icon-display-inline');
   });
   test('additional classes can be added when component is invoked', async function (assert) {
     await render(hbs`<Hds::Icon @name="meh" class="demo" />`);
