@@ -8,17 +8,6 @@ title: DOC Components
 ## Doc::Banner
 <Doc::Banner @type="info"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultrices, sapien vel rutrum tristique, dolor quam convallis sapien, dignissim tincidunt libero turpis sit amet urna.</p></Doc::Banner>
 
-## Doc::Content
-<Doc::Content::HdsPrinciples />
-
-## Doc::CopyButton
-For components that are inline elements we can add to an exclusion array in 'website/app/shared/showdown-extensions/remove-auto-p-tags.js' so that the default showdown wrapping  p is not omitted.
-
-<Doc::CopyButton @textToCopy="Yay!" @type="solid" />
-
-If we omit a line return after our markdowon paragraph text the inline element will roll-up into our paragraph like so.
-<Doc::CopyButton @textToCopy="Yay!" @type="solid" />
-
 ## Doc::ColorSwatch
 <!-- algolia-ignore-start -->
 <div>
@@ -29,23 +18,6 @@ If we omit a line return after our markdowon paragraph text the inline element w
   {{/each}}
 </div>
 <!-- algolia-ignore-end -->
-
-## Doc::WcagList
-<Doc::WcagList @criteriaList={{array "1.1.1" "1.2.3"}} />
-
-## Doc::A11ySupport
-<Doc::A11ySupport />
-
-## Doc::VarsList
-
-<!-- algolia-ignore-start -->
-<Doc::VarsList @items={{this.cssHelpers.elevations}} />
-<!-- algolia-ignore-end -->
-
-## Doc::TokensList
-  <!-- algolia-ignore-start -->
-  <Doc::TokensList @groupedTokens={{this.tokens}} />
-  <!-- algolia-ignore-end -->
 
 ## Doc::ComponentApi
 <Doc::ComponentApi as |C|>
@@ -72,3 +44,37 @@ If we omit a line return after our markdowon paragraph text the inline element w
     </Doc::ComponentApi>
   </C.Property>
 </Doc::ComponentApi>
+
+## Doc::Content
+<Doc::Content::HdsPrinciples />
+
+## Doc::CopyButton
+For components that are inline elements we can add to an exclusion array in 'website/app/shared/showdown-extensions/remove-auto-p-tags.js' so that the default showdown wrapping  p is not omitted.
+
+<Doc::CopyButton @textToCopy="Yay!" @type="solid" />
+
+If we omit a line return after our markdowon paragraph text the inline element will roll-up into our paragraph like so.
+<Doc::CopyButton @textToCopy="Yay!" @type="solid" />
+
+
+
+## Doc::WcagList
+<Doc::WcagList @criteriaList={{array "1.1.1" "1.2.3"}} />
+
+## Doc::A11ySupport
+<Doc::A11ySupport />
+
+## Doc::RelatedComponents
+<Doc::RelatedComponents @cards={{this.relatedComponents}} @componentTitle={{this.title}} />
+
+## Doc::VarsList
+
+<!-- algolia-ignore-start -->
+<Doc::VarsList @items={{this.cssHelpers.elevations}} />
+<!-- algolia-ignore-end -->
+
+## Doc::TokensList
+  <!-- algolia-ignore-start -->
+  <Doc::TokensList @groupedTokens={{this.tokens}} />
+  <!-- algolia-ignore-end -->
+
