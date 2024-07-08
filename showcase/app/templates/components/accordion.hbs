@@ -461,19 +461,6 @@
     {{/each}}
   </Shw::Grid>
 
-  <Shw::Text::Body><strong>close</strong></Shw::Text::Body>
-
-  <Shw::Flex {{style gap="2rem" marginBottom="2rem"}} @direction="column" as |SF|>
-    <SF.Item @label="Close action within content">
-      <Hds::Accordion::Item>
-        <:toggle>Item one</:toggle>
-        <:content as |c|>
-          <button type="button" {{style padding=".25rem" marginBottom="1rem"}} {{on "click" c.close}}>Close</button>
-        </:content>
-      </Hds::Accordion::Item>
-    </SF.Item>
-  </Shw::Flex>
-
   <Shw::Divider @level={{2}} />
 
   <Shw::Text::H4>isOpen</Shw::Text::H4>
@@ -571,6 +558,21 @@
       </SG.Item>
     {{/each}}
   </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H4>Close</Shw::Text::H4>
+
+  <Shw::Flex {{style gap="2rem" marginBottom="2rem"}} @direction="column" as |SF|>
+    <SF.Item @label="Close action within content">
+      <Hds::Accordion::Item>
+        <:toggle>Item one</:toggle>
+        <:content as |c|>
+          <button type="button" {{style padding=".25rem" marginBottom="1rem"}} {{on "click" c.close}}>Close</button>
+        </:content>
+      </Hds::Accordion::Item>
+    </SF.Item>
+  </Shw::Flex>
 
   <Shw::Divider @level={{2}} />
 
