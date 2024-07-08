@@ -31,5 +31,5 @@ export const showdownConfig = {
   ghCompatibleHeaderId: true,
   // add default class for each HTML element generated
   // see: https://github.com/showdownjs/showdown/wiki/Extensions + https://showdownjs.com/docs/tutorials/add-default-class-to-html/
-  extensions: [pageSections, ...elementsToClassNames, contentBlocks, removeAutoPTags],
+  extensions: [pageSections, ...elementsToClassNames, contentBlocks, removeAutoPTags,],
 };

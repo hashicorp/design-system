@@ -2,14 +2,30 @@ export const removeAutoPTags = () => {
     const outputExtension = {
       type: 'output',
       filter: (text) => {
-        // Define a regex pattern for matching a block of Doc::Anything or HDS:: elements wrapped in <p class="doc-markdown-p">
-        // This pattern attempts to match more complex nested structures by looking for the opening and closing tags of custom elements.
-        const blockCustomElementRegex = /<p class="doc-markdown-p">\s*(<((Doc::|Hds::)[^>\/]+)(?:\/>|>[\s\S]*?<\/\3[^>]*>))\s*<\/p>/g;
-        // Replace the <p class="doc-markdown-p"> tag around the block of Doc:: or HDS:: elements, preserving the block structure
-        text = text.replace(blockCustomElementRegex, '$1');
+        // Define an array of excluded inline elements
+        const excludedInlineElements = ['Doc::CopyButton'];
+  
+        // Define a regex pattern to match custom elements, capturing the entire element for further checking
+        // This pattern matches both self-closing and non-self-closing tags, including those with attributes
+        const blockCustomElementRegex = /<p class="doc-markdown-p">\s*(<((Doc::|Hds::)[^>\s]+)[^>]*?(?:\/>|>[\s\S]*?<\/\2>))\s*<\/p>/g;
+  
+        // Replace the <p class="doc-markdown-p"> tag around the custom elements, unless the element is in the excluded list
+        text = text.replace(blockCustomElementRegex, (match, p1, tagNameWithNamespace) => {
+          // Extract the tag name without attributes for checking against the excluded list
+          const tagName = tagNameWithNamespace.split(' ')[0];
+  
+          // Check if the extracted tagName is in the excludedInlineElements array
+          if (excludedInlineElements.includes(tagName)) {
+            // If the element is excluded, return the original match, preserving the wrapping <p> tag
+            return match;
+          } else {
+            // If the element is not excluded, return only the custom element, removing the wrapping <p> tag
+            return p1;
+          }
+        });
   
         return text;
       },
     };
     return [outputExtension];
-};
+  };
