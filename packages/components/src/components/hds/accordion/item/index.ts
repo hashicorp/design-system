@@ -8,7 +8,11 @@ import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 
 import { HdsAccordionSizeValues, HdsAccordionTypeValues } from '../types.ts';
-import type { HdsAccordionForceStates, HdsAccordionSizes, HdsAccordionTypes } from '../types.ts';
+import type {
+  HdsAccordionForceStates,
+  HdsAccordionSizes,
+  HdsAccordionTypes,
+} from '../types.ts';
 
 export const SIZES: string[] = Object.values(HdsAccordionSizeValues);
 export const DEFAULT_SIZE = HdsAccordionSizeValues.Medium;
@@ -40,7 +44,7 @@ export interface HdsAccordionItemSignature {
       {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         close: (...args: any[]) => void;
-      }
+      },
     ];
   };
   Element: HTMLElement;
