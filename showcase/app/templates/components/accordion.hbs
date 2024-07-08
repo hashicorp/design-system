@@ -355,7 +355,7 @@
   <Shw::Text::H3>Externally controlled</Shw::Text::H3>
 
   <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
-    <SG.Item @label="Forced state">
+    <SG.Item @label="All items">
       <button type="button" {{style padding=".25rem" marginBottom="1rem"}} {{on "click" this.toggleStateAll}}>
         {{if (eq this.stateAll "open") "Collapse all" "Expand all"}}
       </button>
@@ -380,7 +380,7 @@
         </A.Item>
       </Hds::Accordion>
     </SG.Item>
-    <SG.Item @label="Forced state">
+    <SG.Item @label="Single item">
       <button type="button" {{style padding=".25rem" marginBottom="1rem"}} {{on "click" this.toggleStateSingle}}>
         {{if (eq this.stateSingle "open") "Collapse item 2" "Expand item 2"}}
       </button>
