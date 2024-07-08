@@ -5,7 +5,12 @@
 }}
 <div class="hds-dialog-primitive__header {{@contextualClassPrefix}}__header" ...attributes>
   {{#if @icon}}
-    <FlightIcon class="hds-dialog-primitive__icon {{@contextualClassPrefix}}__icon" @name={{@icon}} @size="24" @isInlineBlock={{false}} />
+    <FlightIcon
+      class="hds-dialog-primitive__icon {{@contextualClassPrefix}}__icon"
+      @name={{@icon}}
+      @size="24"
+      @isInlineBlock={{false}}
+    />
   {{/if}}
 
   <div class="hds-dialog-primitive__title {{@contextualClassPrefix}}__title" id={{@id}}>
@@ -20,5 +25,8 @@
     </Hds::Text::Display>
   </div>
 
-  <Hds::DismissButton class="hds-dialog-primitive__dismiss {{@contextualClassPrefix}}__dismiss" {{on "click" this.onDismiss}} />
+  <Hds::DismissButton
+    class="hds-dialog-primitive__dismiss {{@contextualClassPrefix}}__dismiss"
+    {{on "click" this.onDismiss}}
+  />
 </div>
