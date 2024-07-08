@@ -6,9 +6,19 @@
 
 // COMPONENTS > ACCORDION
 
-.doc-accordion-item-toggle-content-flex-layout {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  justify-content: space-between;
+#show-content-components-accordion {
+  .doc-accordion-item-toggle-content-flex-layout {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .doc-accordion-flex-layout {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
 }
