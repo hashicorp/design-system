@@ -22,8 +22,7 @@
             {{item.pageAttributes.title}}
             {{#if item.pageAttributes.status.deprecated}}
               <Doc::Badge @type="warning-inverted" @size="medium">Deprecated</Doc::Badge>
-            {{/if}}
-            {{#if item.pageAttributes.status.updated}}
+            {{else if item.pageAttributes.status.updated}}
               <Doc::Badge @type="neutral-inverted" @size="medium">Updated</Doc::Badge>
             {{/if}}
           {{/if}}

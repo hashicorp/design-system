@@ -104,7 +104,7 @@ export default class ShowController extends Controller {
       }
       return { type, label };
     } else {
-      return false;
+      return null;
     }
   }
 

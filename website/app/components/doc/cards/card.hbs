@@ -8,8 +8,7 @@
     <LinkTo class="doc-cards-card__link" @route={{@route}} @model={{@model}}>
       {{#if @status.deprecated}}
         <Doc::Badge class="doc-cards-card__badge" @type="warning-inverted" @size="medium">Deprecated</Doc::Badge>
-      {{/if}}
-      {{#if @status.updated}}
+      {{else if @status.updated}}
         <Doc::Badge class="doc-cards-card__badge" @type="neutral-inverted" @size="medium">Updated</Doc::Badge>
       {{/if}}
       <img class="doc-cards-card__image" src={{@image}} alt="" role="presentation" />
