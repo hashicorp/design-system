@@ -148,10 +148,7 @@ export default class FlightIcon extends Component<FlightIconSignature> {
     // add a class based on the @name argument
     classes.push(`hds-icon-${this.name}`);
 
-    // add a class based on the @isInlineBlock argument
-    const { isInline = false } = this.args;
-
-    if (isInline) {
+    if (this.isInline && !this.args.stretched) {
       classes.push('hds-icon--is-inline');
     }
 

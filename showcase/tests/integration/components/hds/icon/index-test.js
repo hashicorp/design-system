@@ -45,17 +45,19 @@ module('Integration | Component | hds-icon', function (hooks) {
       .hasAttribute('width', '100%')
       .hasAttribute('height', '100%');
   });
-  test('it does not have the "hds-icon-display-inline" class if the option is set to false', async function (assert) {
-    await render(hbs`<Hds::Icon @name="activity" @isInlineBlock={{false}} />`);
-    assert.dom('svg.hds-icon').doesNotHaveClass('hds-icon-display-inline');
-  });
-  test('it does have the "hds-icon-display-inline" class if the option is not set', async function (assert) {
+  test('it does not have the "hds-icon--is-inline" class if the option is not set', async function (assert) {
     await render(hbs`<Hds::Icon @name="activity" />`);
-    assert.dom('svg.hds-icon').hasClass('hds-icon-display-inline');
+    assert.dom('svg.hds-icon').doesNotHaveClass('hds-icon--is-inline');
   });
-  test('it does not have the "hds-icon-display-inline" class if the "stretched" option is set to true', async function (assert) {
-    await render(hbs`<Hds::Icon @name="activity" @stretched={{true}} />`);
-    assert.dom('svg.hds-icon').doesNotHaveClass('hds-icon-display-inline');
+  test('it does have the "hds-icon--is-inline" class if the @isInline option is set to true', async function (assert) {
+    await render(hbs`<Hds::Icon @name="activity" @isInline={{true}} />`);
+    assert.dom('svg.hds-icon').hasClass('hds-icon--is-inline');
+  });
+  test('it does not have the "hds-icon--is-inline" class if the "stretched" option is set to true', async function (assert) {
+    await render(
+      hbs`<Hds::Icon @name="activity" @isInline={{true}} @stretched={{true}} />`
+    );
+    assert.dom('svg.hds-icon').doesNotHaveClass('hds-icon--is-inline');
   });
   test('additional classes can be added when component is invoked', async function (assert) {
     await render(hbs`<Hds::Icon @name="meh" class="demo" />`);
