@@ -28,7 +28,7 @@ export interface HdsAppFooterSignature {
         Link?: ComponentLike<HdsAppFooterLinkSignature>;
         Item?: ComponentLike<HdsAppFooterItemSignature>;
         ExtraAfter?: ComponentLike<HdsYieldSignature>;
-      }
+      },
     ];
   };
   Element: HTMLDivElement;

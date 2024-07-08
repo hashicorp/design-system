@@ -10,11 +10,9 @@ module.exports = function ({ source /*, path*/ }, { parse, visit }) {
 
   return visit(ast, (env) => {
     let { builders: b } = env.syntax;
-
     return {
       ElementNode(node) {
         if (node.tag === 'Hds::SideNav::List' || node.tag === 'Hds::SideNav::Portal') {
-
           // we need this check to avoid infinite looping
           let hasUpdatedChildren = false;
 
@@ -40,7 +38,6 @@ module.exports = function ({ source /*, path*/ }, { parse, visit }) {
                   child.tag = child.tag.replace('.extraBefore', '.ExtraBefore');
                   child.tag = child.tag.replace('.extraAfter', '.ExtraAfter');
                   isProcessed = true;
-                } else {
                 }
                 processedChildren.push(child);
                 hasUpdatedChildren = hasUpdatedChildren || isProcessed;

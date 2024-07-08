@@ -25,7 +25,7 @@ interface HdsRichTooltipSignature {
         >;
         isOpen?: boolean;
         close?: () => void;
-      }
+      },
     ];
   };
   Element: HTMLDivElement;

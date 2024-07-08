@@ -20,13 +20,13 @@ export interface HdsDisclosurePrimitiveSignature {
         isOpen: boolean;
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         onClickToggle: (...args: any[]) => void;
-      }
+      },
     ];
     content: [
       {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         close: (...args: any[]) => void;
-      }
+      },
     ];
   };
   Element: HTMLDivElement;
