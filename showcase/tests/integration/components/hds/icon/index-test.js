@@ -122,7 +122,7 @@ module('Integration | Component | hds-icon', function (hooks) {
     });
   });
   test('it should throw an assertion if the icon @name does not exist', async function (assert) {
-    const errorMessage = `The icon @name "abc" provided to <FlightIcon> is not correct. Please verify it exists on https://helios.hashicorp.design/icons/library`;
+    const errorMessage = `The icon @name "abc" provided to <Hds::Icon> is not correct. Please verify it exists on https://helios.hashicorp.design/icons/library`;
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
