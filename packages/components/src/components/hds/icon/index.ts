@@ -10,7 +10,7 @@ import { iconNames } from '@hashicorp/flight-icons/svg';
 
 import type { IconName } from '@hashicorp/flight-icons/svg';
 
-export interface FlightIconSignature {
+export interface IconSignature {
   Args: {
     name?: IconName;
     color?: string;
@@ -22,15 +22,15 @@ export interface FlightIconSignature {
   Element: SVGElement;
 }
 
-export default class FlightIcon extends Component<FlightIconSignature> {
-  constructor(owner: unknown, args: FlightIconSignature['Args']) {
+export default class Icon extends Component<IconSignature> {
+  constructor(owner: unknown, args: IconSignature['Args']) {
     super(owner, args);
 
     if (!this.args.name) {
-      assert('Please provide to <FlightIcon> a value for @name');
+      assert('Please provide to <Hds::Icon> a value for @name');
     } else if (!iconNames.includes(this.args.name)) {
       assert(
-        `The icon @name "${this.args.name}" provided to <FlightIcon> is not correct. Please verify it exists on https://helios.hashicorp.design/icons/library`
+        `The icon @name "${this.args.name}" provided to <Hds::Icon> is not correct. Please verify it exists on https://helios.hashicorp.design/icons/library`
       );
     }
   }
