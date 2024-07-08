@@ -2,11 +2,18 @@
 title: DOC Components
 ---
 
+## Doc::A11ySupport
+<Doc::A11ySupport />
+
 ## Doc::Badge
 <Doc::Badge @type="neutral">Spacebar</Doc::Badge>
 
 ## Doc::Banner
 <Doc::Banner @type="info"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultrices, sapien vel rutrum tristique, dolor quam convallis sapien, dignissim tincidunt libero turpis sit amet urna.</p></Doc::Banner>
+
+## Doc::Card
+
+- <Doc::Cards::Card @image={{this.card.image}} @title={{this.card.title}} @caption={{this.card.caption}} @route={{this.card.route}} @model={{this.card.model}} @href={{this.card.href}} @layout="horizontal" {{doc-track-event eventName=(concat "Related - " @componentTitle " - " this.card.title)}} />
 
 ## Doc::ColorSwatch
 <!-- algolia-ignore-start -->
@@ -57,24 +64,18 @@ If we omit a line return after our markdowon paragraph text the inline element w
 <Doc::CopyButton @textToCopy="Yay!" @type="solid" />
 
 
-
-## Doc::WcagList
-<Doc::WcagList @criteriaList={{array "1.1.1" "1.2.3"}} />
-
-## Doc::A11ySupport
-<Doc::A11ySupport />
-
 ## Doc::RelatedComponents
 <Doc::RelatedComponents @cards={{this.relatedComponents}} @componentTitle={{this.title}} />
 
-## Doc::VarsList
+## Doc::TokensList
+<!-- algolia-ignore-start -->
+<Doc::TokensList @groupedTokens={{this.tokens}} />
+<!-- algolia-ignore-end -->
 
+## Doc::VarsList
 <!-- algolia-ignore-start -->
 <Doc::VarsList @items={{this.cssHelpers.elevations}} />
 <!-- algolia-ignore-end -->
 
-## Doc::TokensList
-  <!-- algolia-ignore-start -->
-  <Doc::TokensList @groupedTokens={{this.tokens}} />
-  <!-- algolia-ignore-end -->
-
+## Doc::WcagList
+<Doc::WcagList @criteriaList={{array "1.1.1" "1.2.3"}} />

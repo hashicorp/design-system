@@ -149,4 +149,8 @@ export default class Index extends Component {
     ]
   }
 
+  get card() {
+    return this.relatedComponents[0];
+  }
+
 }
