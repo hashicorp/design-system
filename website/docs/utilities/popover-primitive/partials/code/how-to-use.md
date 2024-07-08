@@ -13,8 +13,6 @@ Under the hood, the component uses the [native web Popover API](https://develope
 
 The primitive also uses the [Floating UI](https://floating-ui.com/) third-party library to provide anchoring as well as automatic positioning and collision detection functionality.
 
-For older browsers (in particular Firefox 124 and older) that don't support the Popover API, it uses a [Popover Polyfill](https://github.com/oddbird/popover-polyfill) library to emulate the native behaviour.
-
 !!! Insight
 
 **Learn more**

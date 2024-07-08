@@ -14,18 +14,6 @@ import { modifier } from 'ember-modifier';
 import registerEvent from '../../../modifiers/hds-register-event.ts';
 import anchoredPositionModifier from '../../../modifiers/hds-anchored-position.ts';
 
-// https://github.com/oddbird/popover-polyfill?tab=readme-ov-file#with-npm
-// this is needed until Firefox releases the version 126 (up to 125 didn't support the Popover API)
-import {
-  // this call polyfills some of the browser methods to emulate the Popover API
-  apply as applyPopoverApiPolyfill,
-  // we'll use these two flags to overwrite the popover positioning strategy
-  // this is specifically done for Firefox (we need Firefox 126 to be released, to support the last 2 versions)
-  // see: https://whattrainisitnow.com/release/?version=126
-  isSupported as isPopoverApiSupported,
-  isPolyfilled as isPopoverApiPolyfilled,
-} from '@oddbird/popover-polyfill/fn';
-
 import type { FloatingUIOptions } from '../../../modifiers/hds-anchored-position.ts';
 import type { ModifierLike } from '@glint/template';
 
@@ -81,23 +69,6 @@ export default class HdsPopoverPrimitiveComponent extends Component<HdsPopoverPr
   // this will enable "click" events for the toggle
   enableClickEvents = this.args.enableClickEvents ?? false;
   timer?: ReturnType<typeof setTimeout> | null;
-
-  constructor(owner: unknown, args: HdsPopoverPrimitiveSignature['Args']) {
-    super(owner, args);
-
-    // if the Popover API is not supported we need to polyfill it
-    if (!isPopoverApiSupported()) {
-      warn(
-        "The browser used does not support the Popover API so it's been emulated and some functionalities may not work as expected.",
-        {
-          id: 'hds-popover.no-popover-api-support.polyfill-applied',
-        }
-      );
-      // this function polyfills quite a few DOM methods and adds emulation for the Popover API
-      // see: https://github.com/oddbird/popover-polyfill/blob/main/src/popover.ts#L123
-      applyPopoverApiPolyfill();
-    }
-  }
 
   setupPrimitiveContainer = modifier<SetupPrimitiveContainerModifier>(
     (element: HTMLElement) => {
@@ -177,15 +148,6 @@ export default class HdsPopoverPrimitiveComponent extends Component<HdsPopoverPr
       const anchoredPositionOptions: FloatingUIOptions = {
         ...named.anchoredPositionOptions,
       };
-
-      // we overwrite the "strategy" if the Popover API is not supported (polyfill applied for the first time) of it's already been polyfilled (see above)
-      // this is specifically done for Firefox: currently it doesn't support it, but will soon (we need Firefox 127 to support the last 2 versions)
-      // see: https://wiki.mozilla.org/Release_Management/Release_owners
-      if (!isPopoverApiSupported() || isPopoverApiPolyfilled()) {
-        // when using the "absolute" strategy, the presence of a parent with "relative" position leads to wrong layout rendering (known issue in the polyfill library)
-        // see: https://github.com/oddbird/popover-polyfill/tree/main?tab=readme-ov-file#caveats
-        anchoredPositionOptions.strategy = 'fixed';
-      }
 
       // Apply the `hds-anchored-position` modifier to the "popover" element
       // (notice: this function runs the first time when the element the modifier was applied to is inserted into the DOM, and it autotracks while running.
