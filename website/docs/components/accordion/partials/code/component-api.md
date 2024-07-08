@@ -8,7 +8,7 @@ The base `Accordion` component serves only as a wrapper to group together one or
   <C.Property @name="size" @type="enum" @values={{array "small" "medium" "large" }} @default="medium" />
   <C.Property @name="type" @type="enum" @values={{array "card" "flush" }} @default="card" />
   <C.Property @name="forceState" @type="enum" @values={{array "open" "close" }}>
-    Controls the state of all Accordion Items in the group. Can be used for to expand or collapse all items at once.
+    Controls the state of all Accordion Items in the group. Can be used to expand or collapse all items at once.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
@@ -21,7 +21,7 @@ The base `Accordion` component serves only as a wrapper to group together one or
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<:toggle>" @type="named block">
-    A named block that works as “toggle” for the `Accordion::Item`.
+    A named block that works as a “toggle” for the `Accordion::Item`.
   </C.Property>
   <C.Property @name="<:content>" @type="named block">
     A named block for the content that is shown/hidden upon toggling.
