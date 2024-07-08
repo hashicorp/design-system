@@ -144,7 +144,7 @@ The `@forceState` argument enables you to implement an expand/collapse all funct
     <Hds::Button
       @text={{if (eq this.state "open") "Collapse all" "Expand all"}}
       @icon={{if (eq this.state "open") "unfold-close" "unfold-open"}}
-      @color="tertiary"  {{on "click" this.toggleState}}
+      @color="tertiary" @size="small" {{on "click" this.toggleState}}
     />
   </div>
   <Hds::Accordion @forceState={{this.state}} as |A|>
