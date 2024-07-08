@@ -22,6 +22,9 @@
   <C.Property @name="onClose" @type="function">
     A callback function invoked when the DisclosurePrimitive is closed (if provided).
   </C.Property>
+  <C.Property @name="onClickToggle" @type="function">
+    A callback function invoked when the toggle is clicked.
+  </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
