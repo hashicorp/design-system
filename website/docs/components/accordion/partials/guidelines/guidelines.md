@@ -65,7 +65,7 @@ The Accordion comes in three sizes: `small`, `medium`, and `large`. We recommend
 
 !!! Dont
 
-The size is set at the Accordion (group) level; don’t mix different sizes of Accordion items.
+The size is set at the Accordion (group) level; don’t mix different sizes of Accordion items. This is a Figma-only issue.
 
 ![Example of incorrectly combined Accordion sizes](/assets/components/accordion/accordion-size-Dont.png)
 !!!
@@ -76,45 +76,33 @@ The Accordion offers two container types: `card` and `flush` to fit different us
 
 ### Card
 
-Use the `card` variant to create visual separation between Accordion groups and other UI elements.
+The `card` variant is the default and recommended type. It creates a visual separation between accordion sections and other UI elements, organizes blocks of content, and distinguishes between sections within `tabs`.
 
 !!! Do
 
 ![Example of appropriate usage of the Accordion card variant](/assets/components/accordion/accordion-card-type-example.png)
-
-Remember not to include phrase like "image of" in alt text. It's already apparent to users that it's an image.
 !!!
 
 ### Flush
 
-Use the `flush` variant where space is limited such as within a [Card](/components/card), [Flyout](/components/flyout), or `Sidebar`.
+Use the `flush` variant where space is limited such as within a [Card](/components/card), [Flyout](/components/flyout), or Sidebar.
 
 !!! Do
 
 ![Example of recommended usage of the Flush variant](/assets/components/accordion/accordion-flush-example.png)
 !!!
 
-## Static AccordionItems
-
-The `isStatic` property removes the the ability to interact with the AccordionItem toggle, keeping it fixed in either an open or closed state based on the `isOpen` property. This is useful when you want to show important information in the Accordion that should always stay open or closed, making it stand out as different from the other items.
-
-This example depicts the `isStatic` property being used to prevent interaction with a skipped step in a triggered Terraform run.
-
-![Example of a Terraform run with a closed static AccordionItem](/assets/components/accordion/accordion-isStatic-example.png)
-
-![Example of a Terraform run with an open static AccordionItem](/assets/components/accordion/accordion-isStatic-open-example.png)
-
-## Toggle content
+## Toggle type
 
 The toggle accepts many different types of content, from text-based content to nested HDS components or custom content.
 
 ![Example of toggle content](/assets/components/accordion/toggle-content-text.png =690x*)
 
-### Generic content
+### Generic 
 
 ![Example of toggle content](/assets/components/accordion/toggle-content-custom.png =690x*)
 
-### Interactive content
+### Interactive 
 
 Use `containsInteractive` when nesting interactive content in the toggle. This lets users using assistive technology, access and interact with the nested element.
 
@@ -127,7 +115,15 @@ Use this variant only when you need to put interactive elements such as a button
 
 ![Example of toggle content](/assets/components/accordion/toggle-content-interactive.png =800x*)
 
+## Static AccordionItems
 
+The `isStatic` property removes the the ability to interact with the AccordionItem toggle, keeping it fixed in either an open or closed state based on the `isOpen` property. This is useful when you want to show important information in the Accordion that should always stay open or closed, making it stand out as different from the other items.
+
+This example depicts the `isStatic` property being used to prevent interaction with a skipped step in a triggered Terraform run.
+
+![Example of a Terraform run with a closed static AccordionItem](/assets/components/accordion/accordion-isStatic-example.png)
+
+![Example of a Terraform run with an open static AccordionItem](/assets/components/accordion/accordion-isStatic-open-example.png)
 
 ## Content type
 
@@ -146,11 +142,11 @@ The `content` supports any custom content, local components, or Helios component
 
 ![Example of custom content in accordion item](/assets/components/accordion/content-custom.png =690x*)
 
-### Nesting Accordions
+## Nesting Accordions
 
 !!! Info
 
-Nesting Accordions is only supported [in code](URL-HERE), as Figma does not support nesting an instance inside itself. 
+Nesting Accordions is only supported [in code](/components/accordion?tab=code#complex-html-content), as Figma does not support nesting an instance inside itself. 
 
 While you can work around this by detaching the HDS component and turning it into a local component, then inserting the local component within the linked HDS component, we do not recommend this approach. Doing so means your local Accordion component will not receive future updates.
 !!!
@@ -161,7 +157,7 @@ Nesting Accordions can help organize complex content, but should be used in mode
 
 Use nested Accordions for up to two layers of related content. You can nest `flush` Accordions within each other or inside `card` type Accordions. 
 
-![Example of a flush Accordion nested inside of a card within another flush Accordion](/assets/components/accordion/accordion-nesting-example.png)
+![Example of a flush Accordion nested inside of a card within another flush Accordion](/assets/components/accordion/accordion-nesting-do.png)
 !!!
 
 !!! Dont
@@ -177,16 +173,13 @@ Avoid nesting `card` Accordions within each other to prevent excessive visual no
 
 By composing the Accordion with other HDS components, you can provide users with a way to expand and collapse all AccordionItems at once. Expanding all AccordionItems allows users to view and compare content easily, while collapsing provides a summary and reduces cognitive load.
 
-We recommend using a `secondary` [Button](/components/button#secondary) above the Accordion, aligned to the right. A `tertiary` [Button](/components/button#tertiary) can be used if less prominence is needed.
+We recommend using a `secondary` [Button](/components/button#secondary) above the Accordion, aligned to the right. A `tertiary` [Button](/components/button#tertiary) can be used if less prominence is needed. Use the small variant of the [Button](/components/button) for any size variant of the Accordion.
 
 To ensure consistency across all products, use “Expand all” / “Collapse all” as the Button label and the `unfold-open` and `unfold-close` icons in the leading position.
 
 ![Secondary & tertiary button examples used for “Expand all” and “Collapse all” functionality](/assets/components/accordion/accordion-patterns-expand-collapse-all-labels.png)
 
-!!! Warning
-
 Note that if an AccordionItem is static, the expand/collapse all feature will not affect its behavior.
-!!!
 
 !!! Dont 
 
