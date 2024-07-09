@@ -72,7 +72,7 @@ It can also be used with generic content, in which case consumers will need to e
   <C.Property @name="isInline" @type="boolean" @default="false" @values={{array "true" "false"}}>
     Sets the display for the HTML `<button>` element which is used in the "toggle". If `true`, it sets the element’s display to `inline-flex`. (Note: a `<button>` can’t have an `inline` layout.)
   </C.Property>
-  <C.Property @name="yield" @type="yield">
+  <C.Property @name="yield">
     It’s possible to yield generic content to the "toggle" element, instead of using the `@text` argument. This should be used only in special edge cases where including text or an icon in the toggle doesn’t work for the specific context or design.
     <br />
     <br />

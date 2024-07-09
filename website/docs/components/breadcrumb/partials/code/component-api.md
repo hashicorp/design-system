@@ -53,7 +53,7 @@ The Breadcrumb component is composed of three different parts, each with their o
     Set on the truncation toggle button. Accepts a localized string.
   </C.Property>
   <C.Property @name="yield">
-    Elements passed as children of this child component are yielded to the content of the [MenuPrimitive](/utilities/menu-primitive) component (used to show/hide the yielded Breadcrumb Items via a "toggle" button).
+    Elements passed as children are yielded to the content of the [MenuPrimitive](/utilities/menu-primitive) component (used to show/hide the yielded Breadcrumb Items via a "toggle" button).
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).

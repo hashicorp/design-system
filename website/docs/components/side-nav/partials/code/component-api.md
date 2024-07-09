@@ -230,7 +230,7 @@ The `SideNav::List::Item` component can be used to contain generic content.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">
-    Elements passed as children of this component are yielded inside the `<li>` element.
+    Elements passed as children are yielded as inner content of the `<li>` HTML element.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
@@ -268,7 +268,7 @@ The `SideNav::List::Title` component is used to display a title for related `Sid
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">
-    Elements passed as children of this component are yielded inside the element.
+    Elements passed as children are yielded as inner content of the element.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
@@ -311,7 +311,7 @@ The `SideNav::List::Link` component uses the generic `Hds::Interactive` componen
     This controls if the “LinkTo” is external to the Ember engine, in which case it will use a `<LinkToExternal>` for the `@route`.
   </C.Property>
   <C.Property @name="yield">
-    Elements passed as children of this component are yielded inside the element (after the leading icon/text/badge/count block, before the trailing icon).
+    Elements passed as children are yielded as inner content of the link (after the leading icon/text/badge/count block, before the trailing icon).
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).

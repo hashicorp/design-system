@@ -46,7 +46,7 @@ If the Dropdown content exceeds the height of the container, the header and foot
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">
-    Elements nested in this child component are yielded inside the Dropdown header/footer.
+    Elements passed as children are yielded as inner content of the Dropdown header/footer.
   </C.Property>
   <C.Property @name="hasDivider" @type="boolean" @default="false" />
   <C.Property @name="...attributes">
@@ -188,7 +188,7 @@ If the Dropdown content exceeds the height of the container, the header and foot
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">
-    Content to be used in the item.
+    Elements passed as children are yielded as inner content of the element.
   </C.Property>
   <C.Property @name="selected" @type="boolean" @default="false">
     Displays a checkmark symbol indicating the current selection.
@@ -222,7 +222,7 @@ If the Dropdown content exceeds the height of the container, the header and foot
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">
-    Content to be used in the item as label for the input control.
+    Elements passed as children are yielded as inner content of the element, to be used in the item as label for the input control.
   </C.Property>
   <C.Property @name="id" @type="string">
     Input control’s `id` attribute.
@@ -251,7 +251,7 @@ If the Dropdown content exceeds the height of the container, the header and foot
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">
-    Content to be used in the item as label for the input control.
+    Elements passed as children are yielded as inner content of the element, to be used in the item as label for the input control.
   </C.Property>
   <C.Property @name="id" @type="string">
     Input control’s `id` attribute.
@@ -280,7 +280,7 @@ If the Dropdown content exceeds the height of the container, the header and foot
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">
-    Elements nested in this child component are yielded inside the ListItem. When using the “generic” ListItem, the product team is responsible for implementing the layout and accessibility.
+    Elements passed as children are yielded as inner content of the ListItem. When using the “generic” ListItem, the product team is responsible for implementing the layout and accessibility.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).

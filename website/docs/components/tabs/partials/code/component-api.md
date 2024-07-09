@@ -41,7 +41,7 @@ The Tabs component is composed of different parts, with their own APIs:
     Customizes the initial tab to display when the page is loaded. The first tab is selected on page load by default.
   </C.Property>
   <C.Property @name="yield">
-    Elements passed as children of this component are yielded inside a `button` element.
+    Elements passed as children are yielded as inner content of a `<button>` HTML element.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
@@ -52,7 +52,7 @@ The Tabs component is composed of different parts, with their own APIs:
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">
-    Elements passed as children of this component are yielded inside a `section` element.
+    Elements passed as children are yielded as inner content of a `<section>` HTML element.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).

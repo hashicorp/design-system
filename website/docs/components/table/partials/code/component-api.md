@@ -122,7 +122,7 @@ This component can contain `Hds::Table::Th`, `Hds::Table::ThSort`, or `Hds::Tabl
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">
-    Elements passed as children of this component are yielded inside the `<tr>` element.
+    Elements passed as children are yielded as inner content of the `<tr>` HTML element.
   </C.Property>
   <C.Property @name="isSelected" @type="boolean" @default="false">
     Sets the initial selection state for the row (used in conjunction with setting `isSelectable` on the `Table`).
@@ -161,7 +161,7 @@ If the `Th` component is passed as the first cell of a table body row, `scope="r
     If set to `true`, it visually hides the column’s text content (it will still be available to screen readers for accessibility).
   </C.Property>
   <C.Property @name="yield">
-    Elements passed as children of this component are yielded inside the `<th>` element.
+    Elements passed as children are yielded as inner content of the `<th>` HTML element.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
@@ -189,7 +189,7 @@ This is the component that supports column sorting; use instead of `Hds::Table::
     Callback function invoked when the sort button is clicked. By default, the sort is set by the column’s key.
   </C.Property>
   <C.Property @name="yield">
-    Elements passed as children of this component are yielded inside a `<button>` nested in a `<th>` element. For this reason, you should avoid providing interactive elements as children (interactive controls should never be nested for accessibility reasons).
+    Elements passed as children are yielded as inner content of a `<button>` nested in a `<th>` HTML element. For this reason, you should avoid providing interactive elements as children (interactive controls should never be nested for accessibility reasons).
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
@@ -205,7 +205,7 @@ Note: This component is not eligible to receive interactions (e.g., it cannot ha
     Determines the horizontal content alignment (sometimes referred to as text alignment) for the cell (make sure it is also set for the column header).
   </C.Property>
   <C.Property @name="yield">
-    Elements passed as children of this component are yielded inside the `<td>` element.
+    Elements passed as children are yielded as inner content of the `<td>` HTML element.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
