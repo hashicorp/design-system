@@ -10,7 +10,7 @@ import { iconNames } from '@hashicorp/flight-icons/svg';
 
 import type { IconName } from '@hashicorp/flight-icons/svg';
 
-export interface IconSignature {
+export interface HdsIconSignature {
   Args: {
     name?: IconName;
     color?: string;
@@ -22,8 +22,8 @@ export interface IconSignature {
   Element: SVGElement;
 }
 
-export default class Icon extends Component<IconSignature> {
-  constructor(owner: unknown, args: IconSignature['Args']) {
+export default class HdsIcon extends Component<HdsIconSignature> {
+  constructor(owner: unknown, args: HdsIconSignature['Args']) {
     super(owner, args);
 
     if (!this.args.name) {
