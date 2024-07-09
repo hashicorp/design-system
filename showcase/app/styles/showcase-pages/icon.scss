@@ -4,8 +4,10 @@
  */
 
 // ICON
-
-body.foundations-icon {
+// The icon page is currently displayed in 2 places,
+// foundations for FlightIcon and components for Hds::icon
+body.foundations-icon,
+body.components-icon {
   .shw-foundation-outline-icons {
     .flight-icon {
       outline: 1px dotted #CCC;
