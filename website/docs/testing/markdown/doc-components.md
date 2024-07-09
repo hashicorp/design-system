@@ -80,6 +80,9 @@ If we omit a line return after our markdowon paragraph text the inline element w
 
 ## Doc::DoDont
 
+<Doc::DoDont @type="do">Do this</Doc::DoDont>
+<Doc::DoDont @type="dont">Do NOT do this</Doc::DoDont>
+
 ## Doc::FontHelpersList
 
 ## Doc::Form
