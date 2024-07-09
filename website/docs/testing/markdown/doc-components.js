@@ -54,6 +54,34 @@ export default class Index extends Component {
     };
   }
 
+  get fontHelpers() {
+    const fontHelpers = {
+      styles: [
+        {
+          previewText: 'Aa',
+          previewClass: 'hds-font-weight-regular',
+          copyText: 'hds-font-weight-regular',
+        },
+        {
+          previewText: 'Aa',
+          previewClass: 'hds-font-weight-medium',
+          copyText: 'hds-font-weight-medium',
+        },
+        {
+          previewText: 'Aa',
+          previewClass: 'hds-font-weight-semibold',
+          copyText: 'hds-font-weight-semibold',
+        },
+        {
+          previewText: 'Aa',
+          previewClass: 'hds-font-weight-bold',
+          copyText: 'hds-font-weight-bold',
+        },
+      ],
+    };
+    return fontHelpers;
+  }
+
   get cssHelpers() {
     const cssHelpers = { elevations: [] };
     ELEVATIONS.forEach((elevation) => {

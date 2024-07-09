@@ -85,6 +85,8 @@ If we omit a line return after our markdowon paragraph text the inline element w
 
 ## Doc::FontHelpersList
 
+<Doc::FontHelpersList @items={{this.fontHelpers.styles}} />
+
 ## Doc::Form
 
 ## Doc::IconsList
