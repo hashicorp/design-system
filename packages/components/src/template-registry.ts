@@ -504,6 +504,10 @@ export default interface HdsComponentsRegistry {
   'hds/icon': typeof HdsIconComponent;
 
   // IconTile
+  'Hds::Icon': typeof HdsIconComponent;
+  'hds/icon': typeof HdsIconComponent;
+
+  // IconTile
   'Hds::IconTile': typeof HdsIconTileComponent;
   'hds/icon-tile': typeof HdsIconTileComponent;
 
