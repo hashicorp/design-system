@@ -26,7 +26,7 @@ The `Accordion` component serves as a wrapper to group one or more `Accordion::I
   <C.Property @name="<:content>" @type="named block">
     A named block for the content that is shown/hidden upon toggling.
     <Doc::ComponentApi as |CC|>
-      <CC.Property @name="[:content].close" @type="function">
+      <CC.Property @name="[C].close" @type="function">
         A function to programmatically close the `Accordion::Item`.
       </CC.Property>
     </Doc::ComponentApi>

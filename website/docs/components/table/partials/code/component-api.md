@@ -6,28 +6,28 @@ The Table component itself is where most of the options will be applied. However
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<:head>" @type="named block">
-    This is a named block where the content for the table head (`<thead>`) is rendered. Note: most consumers are unlikely to need to use this named block directly.<br />
-    It yields these internal properties:
+    A named block where the content for the table head (`<thead>`) is rendered.
+    <br/>
+    Note: most consumers are unlikely to need to use this named block directly.
     <Doc::ComponentApi as |C|>
-      <C.Property @name="H.setSortBy" @type="yielded function">
+      <C.Property @name="[H].setSortBy" @type="function">
       The function used internally by the table to set the `sortBy` and `sortOrder` tracked values.
       </C.Property>
-      <C.Property @name="H.sortBy" @type="yielded value">
-        The value of the internal `sortBy` tracked variable.
+      <C.Property @name="[H].sortBy" @type="string">
+        Hook into this property to access the state of the internal `sortBy` tracked variable.
       </C.Property>
-      <C.Property @name="H.sortOrder" @type="yielded value">
-        The value of the internal `sortOrder` tracked variable.
+      <C.Property @name="[H].sortOrder" @type="string">
+        Hook into this property to access the state of the internal `sortOrder` tracked variable.
       </C.Property>
     </Doc::ComponentApi>
   </C.Property>
   <C.Property @name="<:body>" @type="named block">
-    This is a named block where the content for the table body (`<tbody>`) is rendered.<br />
-    It yields these internal properties:
+    This is a named block where the content for the table body (`<tbody>`) is rendered.
     <Doc::ComponentApi as |C|>
-      <C.Property @name="B.sortBy" @type="yielded value">
+      <C.Property @name="[B].sortBy" @type="string">
         The value of the internal `sortBy` tracked variable.
       </C.Property>
-      <C.Property @name="B.sortOrder" @type="yielded value">
+      <C.Property @name="[B].sortOrder" @type="string">
         The value of the internal `sortOrder` tracked variable.
       </C.Property>
     </Doc::ComponentApi>
