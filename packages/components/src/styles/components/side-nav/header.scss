@@ -59,15 +59,12 @@
 
 // Dropdown & Button color theming overrides
 
-.hds-side-nav-header,
-.hds-side-nav__wrapper-body,
-.hds-side-nav__wrapper-footer {
-  // Apply dark theme to child interactive components
-  .hds-button,
-  .hds-dropdown-toggle-button,
-  .hds-dropdown-toggle-icon {
-    @include hds-interactive-dark-theme();
-  }
+// Apply dark theme to child interactive components
+.hds-side-nav__dropdown, // deprecated classname
+.hds-side-nav .hds-button,
+.hds-side-nav .hds-dropdown-toggle-button,
+.hds-side-nav .hds-dropdown-toggle-icon {
+  @include hds-interactive-dark-theme();
 }
 
 // generic "icon-button"
