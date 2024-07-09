@@ -4,7 +4,7 @@
  */
 
 import Component from '@glimmer/component';
-import { getElementId } from '../../../utils/hds-get-element-id.js';
+import { getElementId } from '../../../utils/hds-get-element-id.ts';
 import type { WithBoundArgs } from '@glint/template';
 import type { HdsPopoverPrimitiveSignature } from '../popover-primitive';
 import HdsRichTooltipToggle from './toggle.ts';

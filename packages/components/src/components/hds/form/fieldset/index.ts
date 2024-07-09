@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import { getElementId } from '../../../../utils/hds-get-element-id.js';
+import { getElementId } from '../../../../utils/hds-get-element-id.ts';
 import {
   ariaDescribedBy,
   registerAriaDescriptionElement,

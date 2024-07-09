@@ -4,7 +4,7 @@
  */
 
 import PowerSelectComponent from 'ember-power-select/components/power-select';
-import { ID_PREFIX } from '../../label/index.js';
+import { ID_PREFIX } from '../../label/index.ts';
 
 export default class HdsSuperSelectMultipleFieldComponent extends PowerSelectComponent {
   get idPrefix() {
