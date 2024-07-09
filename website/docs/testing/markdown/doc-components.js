@@ -10,7 +10,6 @@ import TOKENS_RAW from '@hashicorp/design-system-tokens/dist/docs/products/token
 const ELEVATIONS = ['inset', 'low', 'mid', 'high', 'higher', 'overlay'];
 
 export default class Index extends Component {
-
   get colors() {
     const colors = {
       semantic: {},
@@ -45,9 +44,9 @@ export default class Index extends Component {
 
     return colors;
   }
-  
+
   get cssHelpers() {
-    const cssHelpers = { elevations: [], };
+    const cssHelpers = { elevations: [] };
     ELEVATIONS.forEach((elevation) => {
       cssHelpers.elevations.push(`.hds-elevation-${elevation}`);
     });
@@ -55,61 +54,51 @@ export default class Index extends Component {
   }
 
   get tokens() {
-    return { elevations: [
+    return {
+      elevations: [
         {
-            "value": "0px 2px 3px 0px #656a7626, 0px 16px 16px -10px #656a7633",
-            "original": {
-                "value": "{elevation.high.box-shadow-01.value}, {elevation.high.box-shadow-02.value}"
-            },
-            "name": "token-elevation-high-box-shadow",
-            "attributes": {
-                "category": "elevation",
-                "type": "high",
-                "item": "box-shadow"
-            },
-            "path": [
-                "elevation",
-                "high",
-                "box-shadow"
-            ]
+          value: '0px 2px 3px 0px #656a7626, 0px 16px 16px -10px #656a7633',
+          original: {
+            value:
+              '{elevation.high.box-shadow-01.value}, {elevation.high.box-shadow-02.value}',
+          },
+          name: 'token-elevation-high-box-shadow',
+          attributes: {
+            category: 'elevation',
+            type: 'high',
+            item: 'box-shadow',
+          },
+          path: ['elevation', 'high', 'box-shadow'],
         },
         {
-            "value": "0px 2px 3px 0px #656a761a, 0px 12px 28px 0px #656a7640",
-            "original": {
-                "value": "{elevation.higher.box-shadow-01.value}, {elevation.higher.box-shadow-02.value}"
-            },
-            "name": "token-elevation-higher-box-shadow",
-            "attributes": {
-                "category": "elevation",
-                "type": "higher",
-                "item": "box-shadow"
-            },
-            "path": [
-                "elevation",
-                "higher",
-                "box-shadow"
-            ]
+          value: '0px 2px 3px 0px #656a761a, 0px 12px 28px 0px #656a7640',
+          original: {
+            value:
+              '{elevation.higher.box-shadow-01.value}, {elevation.higher.box-shadow-02.value}',
+          },
+          name: 'token-elevation-higher-box-shadow',
+          attributes: {
+            category: 'elevation',
+            type: 'higher',
+            item: 'box-shadow',
+          },
+          path: ['elevation', 'higher', 'box-shadow'],
         },
         {
-            "value": "inset 0px 1px 2px 1px #656a761a",
-            "original": {
-                "value": "{elevation.inset.box-shadow-01.value}"
-            },
-            "name": "token-elevation-inset-box-shadow",
-            "attributes": {
-                "category": "elevation",
-                "type": "inset",
-                "item": "box-shadow"
-            },
-            "path": [
-                "elevation",
-                "inset",
-                "box-shadow"
-            ]
+          value: 'inset 0px 1px 2px 1px #656a761a',
+          original: {
+            value: '{elevation.inset.box-shadow-01.value}',
+          },
+          name: 'token-elevation-inset-box-shadow',
+          attributes: {
+            category: 'elevation',
+            type: 'inset',
+            item: 'box-shadow',
+          },
+          path: ['elevation', 'inset', 'box-shadow'],
         },
-      ]
-    }
-    
+      ],
+    };
   }
 
   get title() {
@@ -119,38 +108,41 @@ export default class Index extends Component {
   get relatedComponents() {
     return [
       {
-          "image": "/assets/illustrations/components/reveal.jpg",
-          "title": "Reveal",
-          "caption": "A toggle that reveals additional content to the user when triggered.",
-          "route": "show",
-          "model": "components/reveal"
+        image: '/assets/illustrations/components/reveal.jpg',
+        title: 'Reveal',
+        caption:
+          'A toggle that reveals additional content to the user when triggered.',
+        route: 'show',
+        model: 'components/reveal',
       },
       {
-          "image": "/assets/illustrations/components/flyout.jpg",
-          "title": "Flyout",
-          "caption": "Displays additional details and information about an item or object, overlaid on the main page content.",
-          "route": "show",
-          "model": "components/flyout"
+        image: '/assets/illustrations/components/flyout.jpg',
+        title: 'Flyout',
+        caption:
+          'Displays additional details and information about an item or object, overlaid on the main page content.',
+        route: 'show',
+        model: 'components/flyout',
       },
       {
-          "image": "/assets/illustrations/components/modal.jpg",
-          "title": "Modal",
-          "caption": "A pop-up window used to request information, confirm a decision, or provide additional context.",
-          "route": "show",
-          "model": "components/modal"
+        image: '/assets/illustrations/components/modal.jpg',
+        title: 'Modal',
+        caption:
+          'A pop-up window used to request information, confirm a decision, or provide additional context.',
+        route: 'show',
+        model: 'components/modal',
       },
       {
-          "image": "/assets/illustrations/components/tabs.jpg",
-          "title": "Tabs",
-          "caption": "Allows users to move among different views within the same context.",
-          "route": "show",
-          "model": "components/tabs"
-      }
-    ]
+        image: '/assets/illustrations/components/tabs.jpg',
+        title: 'Tabs',
+        caption:
+          'Allows users to move among different views within the same context.',
+        route: 'show',
+        model: 'components/tabs',
+      },
+    ];
   }
 
   get card() {
     return this.relatedComponents[0];
   }
-
 }
