@@ -2,13 +2,13 @@
 
 ### Accordion
 
-The base `Accordion` component serves only as a wrapper to group together one or more `Accordion::Item` child components.
+The `Accordion` component serves as a wrapper to group one or more `Accordion::Item` components.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="size" @type="enum" @values={{array "small" "medium" "large" }} @default="medium" />
   <C.Property @name="type" @type="enum" @values={{array "card" "flush" }} @default="card" />
   <C.Property @name="forceState" @type="enum" @values={{array "open" "close" }}>
-    Controls the state of all Accordion Items in the group. Can be used to expand or collapse all items at once.
+    Controls the state of all items within a group. Can be used to expand or collapse all items at once.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
@@ -32,7 +32,7 @@ The base `Accordion` component serves only as a wrapper to group together one or
     </Doc::ComponentApi>
   </C.Property>
   <C.Property @name="ariaLabel" @type="string" @default="&quot;Toggle display&quot;">
-    Accepts a localized string. The `ariaLabel` value is applied to the HTML button which actually controls visibility of the content block content.
+    Accepts a localized string. The `ariaLabel` value is applied to the HTML button which controls visibility of the content block content.
   </C.Property>
   <C.Property @name="isOpen" @default="false" @type="boolean">
     Toggles the visibility of the content. To display content on page load, set the value to `true`.

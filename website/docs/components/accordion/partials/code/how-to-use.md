@@ -1,6 +1,6 @@
 ## How to use this component
 
-The `Accordion` component is used to wrap and group together one or more `Accordion::Item` child components. The Accordion items consist of “toggle” and “content” named blocks which can contain either plain text or HTML content.
+The `Accordion` component is used to wrap and group one or more `Accordion::Item` child components. The Accordion items consist of “toggle” and “content” named blocks containing plain text or HTML content.
 
 ### Size
 
@@ -183,7 +183,7 @@ The `@forceState` argument enables you to implement expand/collapse all function
 
 ### ariaLabel
 
-The `ariaLabel` value is applied to the HTML button which controls visibility of the content block. The text does not display in the UI. The default value is "Toggle display" but you can set a custom value which is useful for translated text for example.
+The `ariaLabel` value is applied to the HTML button which controls visibility of the content block. The text does not display in the UI. The default value is "Toggle display" but you can set a custom value useful for translated text for example.
 
 ```handlebars
   <Hds::Accordion as |A|>
