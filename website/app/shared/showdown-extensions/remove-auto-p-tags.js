@@ -3,7 +3,7 @@ export const removeAutoPTags = () => {
     type: 'output',
     filter: (text) => {
       // Define an array of excluded inline elements
-      const excludedInlineElements = ['Doc::CopyButton'];
+      const excludedInlineElements = ['Doc::CopyButton', 'Doc::LinkWithIcon'];
 
       // Define a regex pattern to match custom elements, capturing the entire element for further checking
       // This pattern matches both self-closing and non-self-closing tags, including those with attributes

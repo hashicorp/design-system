@@ -114,7 +114,29 @@ spellcheck="false"
 
 ## Doc::Layout
 
+<Doc::Layout @spacing="16px"><div>block 1</div><div>block 2</div><div>block 3</div></Doc::Layout>
+
 ## Doc::LinkWithIcon
+
+Link with Icon component has been added to the excludedInlineElements array inside the remove-auto-p-tags showdown extension as it renders an inline link or button
+
+<Doc::LinkWithIcon
+@route="show"
+@model="whats-new/release-notes"
+@label="Link with Icon"
+@icon="arrow-right"
+@isAnimated={{true}}
+@eventName="Link - With Icon"
+/>
+
+If you omit a line return the Link with Icon button or link will be rolled up into your paragraph text like this <Doc::LinkWithIcon
+@route="show"
+@model="whats-new/release-notes"
+@label="Link with Icon"
+@icon="arrow-right"
+@isAnimated={{true}}
+@eventName="Link - With Icon"
+/>
 
 ## Doc::Logo
 
