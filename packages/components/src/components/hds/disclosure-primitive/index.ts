@@ -38,7 +38,7 @@ export default class HdsDisclosurePrimitiveComponent extends Component<HdsDisclo
   @tracked _isOpen = false;
   @tracked _isControlled = this.args.isOpen !== undefined;
 
-  get isOpen() {
+  get isOpen(): boolean {
     if (this._isControlled) {
       // if the state is controlled from outside, the argument overrides the internal state
       return this.args.isOpen ?? this._isOpen;
@@ -66,7 +66,7 @@ export default class HdsDisclosurePrimitiveComponent extends Component<HdsDisclo
   }
 
   @action
-  onStateChange() {
+  onStateChange(): void {
     if (this.args.isOpen !== undefined) {
       this.isOpen = this.args.isOpen;
     }
