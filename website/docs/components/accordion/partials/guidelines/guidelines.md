@@ -85,20 +85,22 @@ The `card` variant is the default and recommended type. It creates a visual sepa
 
 ### Flush
 
-Use the `flush` variant where space is limited such as within a [Card](/components/card), [Flyout](/components/flyout), or Sidebar.
+Use the `flush` variant where space is limited such as within a [Card](/components/card), [Flyout](/components/flyout), or sidebar.
 
 !!! Do
 
 ![Example of recommended usage of the Flush variant](/assets/components/accordion/accordion-flush-example.png)
 !!!
 
-## Toggle type
+## Toggle
+
+### Toggle type
 
 The toggle accepts many different types of content, from text-based content to nested HDS components or custom content.
 
 ![Example of toggle content](/assets/components/accordion/toggle-content-text.png =690x*)
 
-### Generic 
+#### Custom 
 
 ![Example of toggle content](/assets/components/accordion/toggle-content-custom.png =690x*)
 
@@ -115,7 +117,7 @@ Use this variant only when you need to put interactive elements such as a button
 
 ![Example of toggle content](/assets/components/accordion/toggle-content-interactive.png =800x*)
 
-## Static AccordionItems
+### Static
 
 The `isStatic` property removes the the ability to interact with the AccordionItem toggle, keeping it fixed in either an open or closed state based on the `isOpen` property. This is useful when you want to show important information in the Accordion that should always stay open or closed, making it stand out as different from the other items.
 
