@@ -45,6 +45,15 @@ export default class Index extends Component {
     return colors;
   }
 
+  get colorCard() {
+    return {
+      colorName: 'primary',
+      cssVariable: '--color-primary',
+      value: '#0069ce',
+      cssHelper: 'hds-semantic-primary',
+    };
+  }
+
   get cssHelpers() {
     const cssHelpers = { elevations: [] };
     ELEVATIONS.forEach((elevation) => {
