@@ -124,6 +124,14 @@ export default class Index extends Component {
     return cssHelpers;
   }
 
+  get token() {
+    return {
+      name: 'token-color-palette-blue-500',
+      type: 'color',
+      value: '#1c345f',
+    };
+  }
+
   get tokens() {
     return {
       elevations: [
