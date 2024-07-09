@@ -138,13 +138,9 @@ If you omit a line return the Link with Icon button or link will be rolled up in
 @eventName="Link - With Icon"
 />
 
-## Doc::Logo
-
-## Doc::Page
-
 ## Doc::Placeholder
 
-## Doc::ScrollToTop
+<Doc::Placeholder @text="some generic content" @height="50" @background="#eee" />
 
 ## Doc::TableOfContents
 
