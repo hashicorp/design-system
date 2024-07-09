@@ -4,6 +4,7 @@
  */
 
 import Component from '@glimmer/component';
+import { action } from '@ember/object';
 
 import TOKENS_RAW from '@hashicorp/design-system-tokens/dist/docs/products/tokens.json';
 
@@ -80,6 +81,39 @@ export default class Index extends Component {
       ],
     };
     return fontHelpers;
+  }
+
+  get icons() {
+    return {
+      '': [
+        {
+          category: 'communication',
+          description: 'accessibility',
+          iconName: 'accessibility',
+          name: 'accessibility-24',
+          searchable: 'a11y, inclusive, universal access',
+          size: '24',
+        },
+        {
+          category: 'communication',
+          description: 'activity, pulse, health',
+          iconName: 'activity',
+          name: 'activity-24',
+          searchable: 'activity, pulse, health, communication',
+          size: '24',
+        },
+      ],
+    };
+  }
+
+  @action
+  selectGroupType(event) {
+    console.log('selectGroupType', event.target.value);
+  }
+
+  @action
+  selectIconSize(event) {
+    console.log('selectIconSize', event.target.value);
   }
 
   get cssHelpers() {

@@ -100,11 +100,17 @@ spellcheck="false"
 @onInput={{this.filterPageTree}}
 />
 
-## Doc::Form:Select
-
-## Doc::Form:SelectGroupType
-
 ## Doc::IconsList
+
+<Doc::IconsList
+@groupedIcons={{this.icons}}
+@onSelectGroupType={{this.selectGroupType}}
+@selectedGroupType={{this.selectedGroupType}}
+@onSelectIconSize={{this.selectIconSize}}
+@selectedIconSize={{this.selectedIconSize}}
+@searchQuery={{this.searchQuery}}
+@searchIcons={{this.icons}}
+/>
 
 ## Doc::Layout
 
