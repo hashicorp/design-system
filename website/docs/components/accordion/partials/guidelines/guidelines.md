@@ -61,7 +61,7 @@ Use the Accordion when the toggle or the content is relatively complex.
 
 The Accordion comes in three sizes: `small`, `medium`, and `large`. We recommend `medium` for most use cases, but use whichever size best fits your UI’s needs.
 
-![Image here of different sizes - only card variant](/assets/components/accordion/accordion-size-range.png)
+![Example of various Accordion sizes](/assets/components/accordion/accordion-size-range.png)
 
 !!! Dont
 
@@ -72,7 +72,7 @@ The size is set at the Accordion (group) level; don’t mix different sizes of A
 
 ## Types
 
-The Accordion has two container types: `card` and `flush`, and the `static` property, which applies only to the AccordionItem.
+The Accordion offers two container types: `card` and `flush` to fit different use cases.
 
 ### Card
 
@@ -80,12 +80,14 @@ Use the `card` variant to create visual separation between Accordion groups and 
 
 !!! Do
 
-![image of DO example for the card variant](/assets/components/accordion/accordion-card-type-example.png)
+![Example of appropriate usage of the Accordion card variant](/assets/components/accordion/accordion-card-type-example.png)
+
+Remember not to include phrase like "image of" in alt text. It's already apparent to users that it's an image.
 !!!
 
 ### Flush
 
-Use the `flush` variant for tight spaces like within a [Card](/components/card), [Flyout](/components/flyout), `Sidebar`, or other containers where space is limited.
+Use the `flush` variant where space is limited such as within a [Card](/components/card), [Flyout](/components/flyout), or `Sidebar`.
 
 !!! Do
 
@@ -149,11 +151,11 @@ The content type property is only relevant within Figma and doesn’t exist as a
 
 The `content` supports any custom content, local components, or Helios components via an `instance swap` property (customInstance) in Figma. In code, `yield` is supported.
 
-#### Default
+### Default
 
-![Example of content in accordion item](/assets/components/accordion/content-text.png =690x*)
+![Example of default content in accordion item](/assets/components/accordion/content-text.png =690x*)
 
-#### Custom
+### Custom
 
 ![Example of custom content in accordion item](/assets/components/accordion/content-custom.png =690x*)
 
@@ -170,14 +172,14 @@ Nesting Accordions can help organize complex content, but should be used in mode
 
 Use nested Accordions for up to two layers of related content. You can nest `flush` Accordions within each other or inside `card` type Accordions. 
 
-![Image example of a flush accordion nested inside of a card, and within another flush accordion](/assets/components/accordion/accordion-nesting-example.png)
+![Example of a flush Accordion nested inside of a card within another flush Accordion](/assets/components/accordion/accordion-nesting-example.png)
 !!!
 
 !!! Dont
 
 Avoid nesting `card` Accordions within each other to prevent excessive visual noise.
 
-![Image of two card variants nested in each other](/assets/components/accordion/accordion-nesting-example-dont.png)
+![Incorrect example of two card variants nested within each other](/assets/components/accordion/accordion-nesting-example-dont.png)
 !!!
 
 ## Composition with other components
@@ -190,7 +192,7 @@ We recommend using a `secondary` [Button](/components/button#secondary) above th
 
 To ensure consistency across all products, use “Expand all” / “Collapse all” as the Button label and the `unfold-open` and `unfold-close` icons in the leading position.
 
-![Image of the secondary & tertiary buttons each with expand all and collapse all](/assets/components/accordion/accordion-patterns-expand-collapse-all-labels.png)
+![Secondary & tertiary button examples used for “Expand all” and “Collapse all” functionality](/assets/components/accordion/accordion-patterns-expand-collapse-all-labels.png)
 
 !!! Warning
 
