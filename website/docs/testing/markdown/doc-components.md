@@ -87,7 +87,22 @@ If we omit a line return after our markdowon paragraph text the inline element w
 
 <Doc::FontHelpersList @items={{this.fontHelpers.styles}} />
 
-## Doc::Form
+## Doc::Form::Filter
+
+<Doc::Form::Filter
+@isCompact={{true}}
+@filterQuery={{this.filterQuery}}
+@placeholder="Filter sidebar"
+autocomplete="off"
+autocorrect="off"
+autocapitalize="none"
+spellcheck="false"
+@onInput={{this.filterPageTree}}
+/>
+
+## Doc::Form:Select
+
+## Doc::Form:SelectGroupType
 
 ## Doc::IconsList
 
