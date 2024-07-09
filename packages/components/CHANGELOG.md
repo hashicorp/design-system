@@ -1,5 +1,54 @@
 # @hashicorp/design-system-components
 
+## 4.6.0
+
+### Minor Changes
+
+`PopoverPrimitive` - Converted to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2105](https://github.com/hashicorp/design-system/pull/2105)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`hds-register-event` (internal modifier) - Converted to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2103](https://github.com/hashicorp/design-system/pull/2103)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`hds-anchored-position` (internal modifier) - Converted to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2104](https://github.com/hashicorp/design-system/pull/2104)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`RichTooltip` - Converted to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2106](https://github.com/hashicorp/design-system/pull/2106)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Accordion` - added `@forceState`, `@onClickToggle` arguments
+`Accordion` - added `close` function to `<:content>`
+
+<small class="doc-whats-new-changelog-metadata">[#2147](https://github.com/hashicorp/design-system/pull/2147)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Accordion` - added `@size`, `@type`, and `@isStatic` arguments
+
+<small class="doc-whats-new-changelog-metadata">[#2156](https://github.com/hashicorp/design-system/pull/2156)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+Removed `popover-polyfill` dependency and instantiating code
+
+<small class="doc-whats-new-changelog-metadata">[#2214](https://github.com/hashicorp/design-system/pull/2214)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.5.3
 
 ### Patch Changes
@@ -458,7 +507,7 @@ Alternatively, you can import the CSS by adding this configuration in `ember-cli
 
 ```js
 app.import(
-  "node_modules/@hashicorp/design-system-components/dist/styles/@hashicorp/design-system-components.css"
+  "node_modules/@hashicorp/design-system-components/dist/styles/@hashicorp/design-system-components.css",
 );
 ```
 
