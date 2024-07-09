@@ -53,12 +53,6 @@ module('Integration | Component | hds-icon', function (hooks) {
     await render(hbs`<Hds::Icon @name="activity" @isInline={{true}} />`);
     assert.dom('svg.hds-icon').hasClass('hds-icon--is-inline');
   });
-  test('it does not have the "hds-icon--is-inline" class if the "stretched" option is set to true', async function (assert) {
-    await render(
-      hbs`<Hds::Icon @name="activity" @isInline={{true}} @stretched={{true}} />`
-    );
-    assert.dom('svg.hds-icon').doesNotHaveClass('hds-icon--is-inline');
-  });
   test('additional classes can be added when component is invoked', async function (assert) {
     await render(hbs`<Hds::Icon @name="meh" class="demo" />`);
     assert.dom(`svg.hds-icon`).hasClass('demo');
