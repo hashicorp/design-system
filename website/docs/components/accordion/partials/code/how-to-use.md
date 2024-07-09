@@ -1,10 +1,34 @@
 ## How to use this component
 
-The `Accordion` component is used to wrap and group together one or more `AccordionItem` child components. The Accordion items consist of “toggle” and “content” named blocks which can contain either plain text or HTML content.
+The `Accordion` component is used to wrap and group one or more `Accordion::Item` child components. The Accordion items consist of “toggle” and “content” named blocks containing plain text or HTML content.
 
-### Plain text content
+### Size
+
+A different size of Accordion can be invoked using the `@size` argument.
+
 ```handlebars
-  <Hds::Accordion as |A|>
+  <Hds::Accordion @size="large" as |A|>
+    <A.Item>
+      <:toggle>Item one</:toggle>
+      <:content>
+        Additional content for item one
+      </:content>
+    </A.Item>
+    <A.Item>
+      <:toggle>Item two</:toggle>
+      <:content>
+        Additional content for item two
+      </:content>
+    </A.Item>
+  </Hds::Accordion>
+```
+
+### Type
+
+Use the `@type` argument to render a `flush` Accordion.
+
+```handlebars
+  <Hds::Accordion @type="flush" as |A|>
     <A.Item>
       <:toggle>Item one</:toggle>
       <:content>
@@ -88,9 +112,78 @@ With a link in the toggle block and a form in the content.
   </Hds::Accordion>
 ```
 
+With an Accordion in the content block.
+
+```handlebars
+  <Hds::Accordion @type="flush" as |A|>
+    <A.Item @isOpen={{true}}>
+      <:toggle>Item one</:toggle>
+      <:content>
+        <Hds::Accordion @type="flush" as |AA|>
+          <AA.Item>
+            <:toggle>Nested item one</:toggle>
+            <:content>Nested content one</:content>
+          </AA.Item>
+          <AA.Item>
+            <:toggle>Nested item two</:toggle>
+            <:content>Nested content two</:content>
+          </AA.Item>
+        </Hds::Accordion>
+      </:content>
+    </A.Item>
+  </Hds::Accordion>
+```
+
+### Expand and collapse all
+
+The `@forceState` argument enables you to implement expand/collapse all functionality by programmatically controlling the states of all items within a group. The `@forceState` argument may also be used at item level if further granularity is required.
+
+```handlebars
+  <div class="doc-accordion-flex-layout">
+    <Hds::Text::Display @size="300">Examination period</Hds::Text::Display>
+    <Hds::Button
+      @text={{if (eq this.state "open") "Collapse all" "Expand all"}}
+      @icon={{if (eq this.state "open") "unfold-close" "unfold-open"}}
+      @color="tertiary" @size="small" {{on "click" this.toggleState}}
+    />
+  </div>
+  <Hds::Accordion @forceState={{this.state}} as |A|>
+    <A.Item>
+      <:toggle>Exam experience</:toggle>
+      <:content>
+        All certification exams are taken online with a live proctor, accommodating all locations and time zones. Online proctoring provides the same benefits of a physical test center while being more accessible to exam-takers. The live proctor verifies your identity, walks you through rules and procedures, and watches you take the exam. Learn more ways to prepare for an online proctored exam in our Knowledgebase.
+      </:content>
+    </A.Item>
+    <A.Item>
+      <:toggle>Requirements for attending an exam</:toggle>
+      <:content>
+        Before you register for an exam, review the Exam-taker Handbook to learn the requirements and policies for taking exams. It is your responsibility to know and abide by our program rules to successfully enter your exam appointment, failure to do so may result in forfeiture of appointment fees.        
+      </:content>
+    </A.Item>
+    <A.Item>
+      <:toggle>Your badge and certificate</:toggle>
+      <:content>
+        HashiCorp has partnered with Credly to offer you a digital badge and downloadable certificate upon passing a certification exam. There is no fee for this service and acceptance is up to you. Digital badges can be used in email signatures or digital resumes, and on social media sites such as LinkedIn, Facebook, and Twitter. Badges link back to a real-time verification feature that describes your qualifications.
+      </:content>
+    </A.Item>
+    <A.Item>
+      <:toggle>Renewing your certification</:toggle>
+      <:content>
+        All HashiCorp Certifications are valid for two years, and you will be eligible to renew your certification starting 18 months after you earned your certification. To recertify, you will need to pass an exam at the same level or higher for the certification you are looking to renew. There are several pathways to recertification available, and you can learn more on our Knowledge Base or by heading to each exam’s homepage.        
+      </:content>
+    </A.Item>
+    <A.Item>
+      <:toggle>Finding certified practitioners</:toggle>
+      <:content>
+        HashiCorp publishes all earned badges to a publicly searchable directory on Credly. Here, you can filter and find people who hold HashiCorp Cloud Engineer certifications. Learn how to opt-out of this service in our Knowledgebase.
+      </:content>
+    </A.Item>
+  </Hds::Accordion>
+```
+
 ### ariaLabel
 
-The `ariaLabel` value is applied to the HTML button which controls visibility of the content block. The text does not display in the UI. The default value is "Toggle display" but you can set a custom value which is useful for translated text for example.
+The `ariaLabel` value is applied to the HTML button which controls visibility of the content block. The text does not display in the UI. The default value is "Toggle display" but you can set a custom value useful for translated text for example.
 
 ```handlebars
   <Hds::Accordion as |A|>
@@ -102,9 +195,10 @@ The `ariaLabel` value is applied to the HTML button which controls visibility of
     </A.Item>
   </Hds::Accordion>
 ```
+
 ### isOpen
 
-Set `isOpen` to `true` on an `AccordionItem` to display its associated content on page load instead of initially hiding it.
+Set `isOpen` to `true` on an `Accordion::Item` to display its associated content on page load instead of initially hiding it.
 
 ```handlebars
   <Hds::Accordion as |A|>
@@ -123,9 +217,30 @@ Set `isOpen` to `true` on an `AccordionItem` to display its associated content o
   </Hds::Accordion>
 ```
 
+### isStatic
+
+Set `isStatic` to `true` on an `Accordion::Item` to remove the ability to interact with the toggle.
+
+```handlebars
+  <Hds::Accordion as |A|>
+    <A.Item>
+      <:toggle>Item one</:toggle>
+      <:content>
+        Additional content for item one
+      </:content>
+    </A.Item>
+    <A.Item @isStatic={{true}}>
+      <:toggle>Item two</:toggle>
+      <:content>
+        Additional content for item two
+      </:content>
+    </A.Item>
+  </Hds::Accordion>
+```
+
 ### containsInteractive
 
-By default, the `containsInteractive` property of the `AccordionItem` is set to `false`, meaning that the entire `AccordionItem` toggle block can be clicked to hide and show the associated content. If set to `true` only the chevron button of the `AccordionItem` is clickable vs. the entire block. This allows you to add other interactive content inside the toggle block if desired.
+By default, the `containsInteractive` property of the `Accordion::Item` is set to `false`, meaning that the entire `Accordion::Item` toggle block can be clicked to hide and show the associated content. If set to `true`, only the chevron button of the `Accordion::Item` is clickable vs. the entire block. This allows you to add other interactive content inside the toggle block if desired.
 
 ```handlebars
 <Hds::Accordion as |A|>
