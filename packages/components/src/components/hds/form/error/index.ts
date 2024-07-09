@@ -24,7 +24,7 @@ interface HdsFormErrorSignature {
     default: [
       {
         Message?: ComponentLike<HdsFormErrorMessageSignature>;
-      }
+      },
     ];
   };
   Element: HTMLDivElement;

@@ -27,7 +27,7 @@ interface HdsFormCharacterCountSignature {
         currentLength?: number;
         remaining?: number;
         shortfall?: number;
-      }
+      },
     ];
   };
   Element: HdsTextBodySignature['Element'];

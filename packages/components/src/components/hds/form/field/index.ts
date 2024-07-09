@@ -54,7 +54,7 @@ export interface HdsFormFieldSignature {
         >;
         id?: string;
         ariaDescribedBy?: string;
-      }
+      },
     ];
   };
   Element: HTMLElement;

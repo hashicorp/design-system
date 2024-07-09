@@ -43,7 +43,7 @@ export interface HdsFormFieldsetSignature {
         >;
         id?: string;
         ariaDescribedBy?: string;
-      }
+      },
     ];
   };
   Element: HTMLElement;
