@@ -98,6 +98,8 @@ Use the `flush` variant where space is limited such as within a [Card](/componen
 
 The toggle accepts many different types of content, from text-based content to nested HDS components or custom content.
 
+#### Text
+
 ![Example of toggle content](/assets/components/accordion/toggle-content-text.png =690x*)
 
 #### Custom 
