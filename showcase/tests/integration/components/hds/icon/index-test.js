@@ -28,7 +28,7 @@ module('Integration | Component | hds-icon', function (hooks) {
       .hasAttribute('width', '16')
       .hasAttribute('height', '16');
   });
-  test('it renders the 24x24 icon when option is set', async function (assert) {
+  test('it renders the 24x24 icon when the "size" option is set', async function (assert) {
     await render(hbs`<Hds::Icon @name="activity" @size="24" />`);
     assert
       .dom('svg.hds-icon.hds-icon-activity')
@@ -45,7 +45,7 @@ module('Integration | Component | hds-icon', function (hooks) {
       .hasAttribute('width', '100%')
       .hasAttribute('height', '100%');
   });
-  test('it does not have the "hds-icon--is-inline" class if the option is not set', async function (assert) {
+  test('it does not have the "hds-icon--is-inline" class by default', async function (assert) {
     await render(hbs`<Hds::Icon @name="activity" />`);
     assert.dom('svg.hds-icon').doesNotHaveClass('hds-icon--is-inline');
   });
