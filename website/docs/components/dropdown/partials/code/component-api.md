@@ -57,7 +57,7 @@ If the Dropdown content exceeds the height of the container, the header and foot
 ### Toggle::Button
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="text" @required="true" @type="string">
+  <C.Property @name="text" @required={{true}} @type="string">
     Text of the ToggleButton. If no text value is defined, an error will be thrown.
   </C.Property>
   <C.Property @name="color" @type="enum" @values={{array "primary" "secondary" }} @default="primary"/>
@@ -82,7 +82,7 @@ If the Dropdown content exceeds the height of the container, the header and foot
 ### Toggle::Icon
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="text" @required="true" @type="string">
+  <C.Property @name="text" @required={{true}} @type="string">
     Value of `aria-label` for the ToggleIcon. If no text value is defined, an error will be thrown.
   </C.Property>
   <C.Property @name="icon" @type="string">
@@ -100,7 +100,7 @@ If the Dropdown content exceeds the height of the container, the header and foot
 ### ListItem::Interactive
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="text" @required="true" @type="string">
+  <C.Property @name="text" @required={{true}} @type="string">
     Text to be used in the item. If no text value is defined, an error will be thrown.
   </C.Property>
   <C.Property @name="color" @type="enum" @values={{array "action" "critical" }} @default="action">
@@ -137,7 +137,7 @@ If the Dropdown content exceeds the height of the container, the header and foot
 ### ListItem::Title
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="text" @required="true" @type="string">
+  <C.Property @name="text" @required={{true}} @type="string">
     Text to be used for the title. If no text value is defined, an error will be thrown.
   </C.Property>
   <C.Property @name="...attributes">
@@ -148,7 +148,7 @@ If the Dropdown content exceeds the height of the container, the header and foot
 ### ListItem::Description
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="text" @required="true" @type="string">
+  <C.Property @name="text" @required={{true}} @type="string">
     Text to be used for the description. If no text value is defined, an error will be thrown.
   </C.Property>
   <C.Property @name="...attributes">
@@ -170,7 +170,7 @@ If the Dropdown content exceeds the height of the container, the header and foot
   <C.Property @name="copyItemTitle" @type="string">
     Displays a title above the text to be copied.
   </C.Property>
-  <C.Property @name="text" @required="true" @type="string">
+  <C.Property @name="text" @required={{true}} @type="string">
     Text to be copied. If no text value is defined, an error will be thrown.
     <br><br>
     _Notice: this argument is forwarded (as `textToCopy`) to the [`Copy::Snippet` component](/components/copy/snippet?tab=code#component-api)._

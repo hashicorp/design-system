@@ -1,7 +1,7 @@
 ## Component API
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="name" @type="string" @required="true">
+  <C.Property @name="name" @type="string" @required={{true}}>
     The name of the icon you wish to use. If the value does not match an existing icon name, an error will be thrown. Search for existing icon names in [the Icon library](icons/library).
   </C.Property>
   <C.Property @name="color" @type="string" @default="currentColor">

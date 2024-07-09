@@ -1,7 +1,7 @@
 ## Component API
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="type" @required="true" @type="enum" @values={{array "page" "inline" "compact"}}>
+  <C.Property @name="type" @required={{true}} @type="enum" @values={{array "page" "inline" "compact"}}>
     Sets the type of alert.
   </C.Property>
   <C.Property @name="color" @type="enum" @values={{array "neutral" "highlight" "success" "warning" "critical"}} @default="neutral">
