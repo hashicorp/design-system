@@ -148,7 +148,7 @@ export default class HdsIcon extends Component<HdsIconSignature> {
     // add a class based on the @name argument
     classes.push(`hds-icon-${this.name}`);
 
-    if (this.isInline && !this.args.stretched) {
+    if (this.isInline) {
       classes.push('hds-icon--is-inline');
     }
 
