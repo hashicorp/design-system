@@ -94,7 +94,7 @@ Use the `flush` variant where space is limited such as within a [Card](/componen
 ![Example of recommended usage of the Flush variant](/assets/components/accordion/accordion-flush-example.png)
 !!!
 
-### Static AccordionItems
+## Static AccordionItems
 
 The `isStatic` property removes the the ability to interact with the AccordionItem toggle, keeping it fixed in either an open or closed state based on the `isOpen` property. This is useful when you want to show important information in the Accordion that should always stay open or closed, making it stand out as different from the other items.
 
@@ -127,18 +127,6 @@ Use this variant only when you need to put interactive elements such as a button
 
 ![Example of toggle content](/assets/components/accordion/toggle-content-interactive.png =800x*)
 
-## Sizes
-
-The Accordion comes in three sizes: `small`, `medium`, and `large`. We recommend using `medium` for most use cases, but use whichever size best fits your UI’s needs.
-
-![Image here of different sizes - only card variant](/assets/components/accordion/accordion-size-range.png)
-
-!!! Dont
-
-The size is set at the Accordion (group) level, don't mix different sizes of the AccordionItem.
-
-![Image here of DONT change sizes - only card variant](/assets/components/accordion/accordion-size-Dont.png)
-!!!
 
 
 ## Content type
