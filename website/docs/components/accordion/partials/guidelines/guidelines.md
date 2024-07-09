@@ -91,14 +91,14 @@ Use the `flush` variant where space is limited such as within a [Card](/componen
 
 !!! Do
 
-![image of DO example for the Flush variant](/assets/components/accordion/accordion-flush-example.png)
+![Example of recommended usage of the Flush variant](/assets/components/accordion/accordion-flush-example.png)
 !!!
 
 ### Static AccordionItems
 
 The `isStatic` property removes the the ability to interact with the AccordionItem toggle, keeping it fixed in either an open or closed state based on the `isOpen` property. This is useful when you want to show important information in the Accordion that should always stay open or closed, making it stand out as different from the other items.
 
-This example showcases a Terraform run being triggered with a step that is skipped, using the `isStatic` property to prevent interaction with the toggle of the skipped step.
+This example depicts the `isStatic` property being used to prevent interaction with a skipped step in a triggered Terraform run.
 
 ![Example of a Terraform run with a closed static AccordionItem](/assets/components/accordion/accordion-isStatic-example.png)
 
@@ -140,9 +140,8 @@ The size is set at the Accordion (group) level, don't mix different sizes of the
 ![Image here of DONT change sizes - only card variant](/assets/components/accordion/accordion-size-Dont.png)
 !!!
 
-## Item content
 
-### Content type
+## Content type
 
 !!! Info
 
@@ -163,7 +162,9 @@ The `content` supports any custom content, local components, or Helios component
 
 !!! Info
 
-Nesting Accordions is only supported in code, as Figma does not support nesting an instance inside itself. While you can work around this by detaching the HDS component and turning it into a local component, then inserting the local component within the HDS component, we do not recommend this approach. Doing so means your local Accordion component will not receive future updates. It's best to handle nested Accordions in code to maintain update compatibility. [Link to Code example]
+Nesting Accordions is only supported [in code](URL-HERE), as Figma does not support nesting an instance inside itself. 
+
+While you can work around this by detaching the HDS component and turning it into a local component, then inserting the local component within the linked HDS component, we do not recommend this approach. Doing so means your local Accordion component will not receive future updates.
 !!!
 
 Nesting Accordions can help organize complex content, but should be used in moderation, and is only recommended for the `flush` variant.
