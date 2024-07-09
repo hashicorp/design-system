@@ -139,4 +139,25 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Flex as |SF|>
+    <SF.Label>Controlled externally</SF.Label>
+    <SF.Item @grow={{true}}>
+      <button type="button" {{on "click" (fn this.toggleState "open")}}>Open</button>
+      <button type="button" {{on "click" (fn this.toggleState "close")}}>Close</button>
+      <button type="button" {{on "click" this.toggleState}}>Toggle</button>
+      <div class="shw-utility-disclosure-primitive-container">
+        <Hds::DisclosurePrimitive @isOpen={{this.isOpen}} @onClickToggle={{this.onClickToggle}}>
+          <:toggle as |t|>
+            <button type="button" {{on "click" t.onClickToggle}}>
+              Click me
+              <FlightIcon @name={{if t.isOpen "chevron-up" "chevron-down"}} />
+            </button>
+          </:toggle>
+          <:content>
+            <Shw::Placeholder @text="some generic content here" @width="200" @height="90" @background="#e1f5fe" />
+          </:content>
+        </Hds::DisclosurePrimitive>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
 </section>

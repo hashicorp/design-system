@@ -352,6 +352,63 @@
 
   <Shw::Divider @level={{2}} />
 
+  <Shw::Text::H3>Externally controlled</Shw::Text::H3>
+
+  <Shw::Grid {{style gap="2rem"}} @columns={{2}} as |SG|>
+    <SG.Item @label="All items">
+      <button type="button" {{style padding=".25rem" marginBottom="1rem"}} {{on "click" this.toggleStateAll}}>
+        {{if (eq this.stateAll "open") "Collapse all" "Expand all"}}
+      </button>
+      <Hds::Accordion @forceState={{this.stateAll}} as |A|>
+        <A.Item>
+          <:toggle>Item one</:toggle>
+          <:content>
+            <Shw::Placeholder @text="generic content" @height="40" />
+          </:content>
+        </A.Item>
+        <A.Item>
+          <:toggle>Item two</:toggle>
+          <:content>
+            <Shw::Placeholder @text="generic content" @height="40" />
+          </:content>
+        </A.Item>
+        <A.Item>
+          <:toggle>Item Three</:toggle>
+          <:content>
+            <Shw::Placeholder @text="generic content" @height="40" />
+          </:content>
+        </A.Item>
+      </Hds::Accordion>
+    </SG.Item>
+    <SG.Item @label="Single item">
+      <button type="button" {{style padding=".25rem" marginBottom="1rem"}} {{on "click" this.toggleStateSingle}}>
+        {{if (eq this.stateSingle "open") "Collapse item 2" "Expand item 2"}}
+      </button>
+      <Hds::Accordion as |A|>
+        <A.Item>
+          <:toggle>Item one</:toggle>
+          <:content>
+            <Shw::Placeholder @text="generic content" @height="40" />
+          </:content>
+        </A.Item>
+        <A.Item @forceState={{this.stateSingle}} @onClickToggle={{this.onClickToggleSingle}}>
+          <:toggle>Item two</:toggle>
+          <:content>
+            <Shw::Placeholder @text="generic content" @height="40" />
+          </:content>
+        </A.Item>
+        <A.Item>
+          <:toggle>Item Three</:toggle>
+          <:content>
+            <Shw::Placeholder @text="generic content" @height="40" />
+          </:content>
+        </A.Item>
+      </Hds::Accordion>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>Edge cases</Shw::Text::H3>
 
   <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
@@ -501,6 +558,21 @@
       </SG.Item>
     {{/each}}
   </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H4>Close</Shw::Text::H4>
+
+  <Shw::Flex {{style gap="2rem" marginBottom="2rem"}} @direction="column" as |SF|>
+    <SF.Item @label="Close action within content">
+      <Hds::Accordion::Item>
+        <:toggle>Item one</:toggle>
+        <:content as |c|>
+          <button type="button" {{style padding=".25rem" marginBottom="1rem"}} {{on "click" c.close}}>Close</button>
+        </:content>
+      </Hds::Accordion::Item>
+    </SF.Item>
+  </Shw::Flex>
 
   <Shw::Divider @level={{2}} />
 

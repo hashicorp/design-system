@@ -3,7 +3,12 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<Hds::DisclosurePrimitive class={{this.classNames}} @isOpen={{@isOpen}} ...attributes>
+<Hds::DisclosurePrimitive
+  class={{this.classNames}}
+  @isOpen={{(or @isOpen (eq @forceState "open"))}}
+  @onClickToggle={{@onClickToggle}}
+  ...attributes
+>
   <:toggle as |t|>
     <div class="hds-accordion-item__toggle">
       <Hds::Accordion::Item::Button
@@ -27,7 +32,7 @@
     </div>
   </:toggle>
 
-  <:content>
+  <:content as |c|>
     <Hds::Text::Body
       class="hds-accordion-item__content"
       @tag="div"
@@ -36,7 +41,7 @@
       @color="primary"
       id={{this.contentId}}
     >
-      {{yield to="content"}}
+      {{yield (hash close=c.close) to="content"}}
     </Hds::Text::Body>
   </:content>
 </Hds::DisclosurePrimitive>

@@ -8,7 +8,11 @@ import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 
 import { HdsAccordionSizeValues, HdsAccordionTypeValues } from '../types.ts';
-import type { HdsAccordionSizes, HdsAccordionTypes } from '../types.ts';
+import type {
+  HdsAccordionForceStates,
+  HdsAccordionSizes,
+  HdsAccordionTypes,
+} from '../types.ts';
 
 export const SIZES: string[] = Object.values(HdsAccordionSizeValues);
 export const DEFAULT_SIZE = HdsAccordionSizeValues.Medium;
@@ -30,10 +34,18 @@ export interface HdsAccordionItemSignature {
     containsInteractive?: boolean;
     size?: HdsAccordionSizes;
     type?: HdsAccordionTypes;
+    forceState?: HdsAccordionForceStates;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onClickToggle?: (event: MouseEvent, ...args: any[]) => void;
   };
   Blocks: {
-    content?: [];
     toggle?: [];
+    content: [
+      {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        close: (...args: any[]) => void;
+      },
+    ];
   };
   Element: HTMLElement;
 }
@@ -69,7 +81,7 @@ export default class HdsAccordionItemComponent extends Component<HdsAccordionIte
    * @type {HdsTextSizes}
    * @default 'medium'
    */
-  get toggleTextSize() {
+  get toggleTextSize(): number {
     const size = this.args.size ?? DEFAULT_SIZE;
     return TEXT_SIZE_MAP[size];
   }
@@ -81,7 +93,7 @@ export default class HdsAccordionItemComponent extends Component<HdsAccordionIte
    * @type {HdsAccordionSizes}
    * @default 'medium'
    */
-  get size() {
+  get size(): HdsAccordionSizes {
     const { size = DEFAULT_SIZE } = this.args;
 
     assert(
@@ -101,7 +113,7 @@ export default class HdsAccordionItemComponent extends Component<HdsAccordionIte
    * @type {HdsAccordionTypes}
    * @default 'card'
    */
-  get type() {
+  get type(): HdsAccordionTypes {
     const { type = DEFAULT_TYPE } = this.args;
 
     assert(

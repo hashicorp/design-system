@@ -13,6 +13,8 @@ export interface HdsDisclosurePrimitiveSignature {
     isOpen?: boolean;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onClose?: (...args: any[]) => void;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onClickToggle?: (...args: any[]) => void;
   };
   Blocks: {
     toggle: [
@@ -33,11 +35,42 @@ export interface HdsDisclosurePrimitiveSignature {
 }
 
 export default class HdsDisclosurePrimitiveComponent extends Component<HdsDisclosurePrimitiveSignature> {
-  @tracked isOpen = this.args.isOpen ?? false;
+  @tracked _isOpen = false;
+  @tracked _isControlled = this.args.isOpen !== undefined;
+
+  get isOpen(): boolean {
+    if (this._isControlled) {
+      // if the state is controlled from outside, the argument overrides the internal state
+      return this.args.isOpen ?? this._isOpen;
+    } else {
+      // if the state changes internally, the internal state overrides the argument
+      return this._isOpen;
+    }
+  }
+
+  set isOpen(value) {
+    this._isOpen = value || false;
+  }
 
   @action
   onClickToggle(): void {
     this.isOpen = !this.isOpen;
+    this._isControlled = false;
+    // we call the "onClickToggle" callback if it exists and it's a function
+    if (
+      this.args.onClickToggle &&
+      typeof this.args.onClickToggle === 'function'
+    ) {
+      this.args.onClickToggle(this.isOpen);
+    }
+  }
+
+  @action
+  onStateChange(): void {
+    if (this.args.isOpen !== undefined) {
+      this.isOpen = this.args.isOpen;
+    }
+    this._isControlled = true;
   }
 
   @action

@@ -56,6 +56,107 @@ module(
       assert.dom('a#test-disclosure-primitive-link').exists();
     });
 
+    // isOpen
+
+    test('it should toggle the "content" when @isOpen is set', async function (assert) {
+      this.set('isOpen', true);
+      await render(hbs`
+      <Hds::DisclosurePrimitive @isOpen={{this.isOpen}} id="test-disclosure-primitive">
+        <:toggle as |t|>
+          <button type="button" id="test-toggle-button" {{on "click" t.onClickToggle}} />
+        </:toggle>
+        <:content>
+          <a id="test-disclosure-primitive-link" href="#">test</a>
+        </:content>
+      </Hds::DisclosurePrimitive>
+    `);
+      assert.dom('.hds-disclosure-primitive__content').exists();
+      assert.dom('a#test-disclosure-primitive-link').exists();
+
+      this.set('isOpen', false);
+      assert.dom('.hds-disclosure-primitive__content').doesNotExist();
+      assert.dom('a#test-disclosure-primitive-link').doesNotExist();
+    });
+
+    test('it should allow @isOpen to override an internal _isOpen=true', async function (assert) {
+      await render(hbs`
+      <Hds::DisclosurePrimitive @isOpen={{this.isOpen}} id="test-disclosure-primitive">
+        <:toggle as |t|>
+          <button type="button" id="test-toggle-button" {{on "click" t.onClickToggle}} />
+        </:toggle>
+        <:content>
+          <a id="test-disclosure-primitive-link" href="#">test</a>
+        </:content>
+      </Hds::DisclosurePrimitive>
+    `);
+      await click('button#test-toggle-button');
+      assert.dom('.hds-disclosure-primitive__content').exists();
+      assert.dom('a#test-disclosure-primitive-link').exists();
+
+      this.set('isOpen', false);
+      assert.dom('.hds-disclosure-primitive__content').doesNotExist();
+      assert.dom('a#test-disclosure-primitive-link').doesNotExist();
+    });
+
+    test('it should allow @isOpen to override an internal _isOpen=false', async function (assert) {
+      await render(hbs`
+      <Hds::DisclosurePrimitive @isOpen={{this.isOpen}} id="test-disclosure-primitive">
+        <:toggle as |t|>
+          <button type="button" id="test-toggle-button" {{on "click" t.onClickToggle}} />
+        </:toggle>
+        <:content>
+          <a id="test-disclosure-primitive-link" href="#">test</a>
+        </:content>
+      </Hds::DisclosurePrimitive>
+    `);
+      assert.dom('.hds-disclosure-primitive__content').doesNotExist();
+      assert.dom('a#test-disclosure-primitive-link').doesNotExist();
+
+      this.set('isOpen', true);
+      assert.dom('.hds-disclosure-primitive__content').exists();
+      assert.dom('a#test-disclosure-primitive-link').exists();
+    });
+
+    test('it should allow the internal _isOpen to override @isOpen=true', async function (assert) {
+      this.set('isOpen', true);
+      await render(hbs`
+      <Hds::DisclosurePrimitive @isOpen={{this.isOpen}} id="test-disclosure-primitive">
+        <:toggle as |t|>
+          <button type="button" id="test-toggle-button" {{on "click" t.onClickToggle}} />
+        </:toggle>
+        <:content>
+          <a id="test-disclosure-primitive-link" href="#">test</a>
+        </:content>
+      </Hds::DisclosurePrimitive>
+    `);
+      assert.dom('.hds-disclosure-primitive__content').exists();
+      assert.dom('a#test-disclosure-primitive-link').exists();
+
+      await click('button#test-toggle-button');
+      assert.dom('.hds-disclosure-primitive__content').doesNotExist();
+      assert.dom('a#test-disclosure-primitive-link').doesNotExist();
+    });
+
+    test('it should allow the internal _isOpen to override @isOpen=false', async function (assert) {
+      this.set('isOpen', false);
+      await render(hbs`
+      <Hds::DisclosurePrimitive @isOpen={{this.isOpen}} id="test-disclosure-primitive">
+        <:toggle as |t|>
+          <button type="button" id="test-toggle-button" {{on "click" t.onClickToggle}} />
+        </:toggle>
+        <:content>
+          <a id="test-disclosure-primitive-link" href="#">test</a>
+        </:content>
+      </Hds::DisclosurePrimitive>
+    `);
+      assert.dom('.hds-disclosure-primitive__content').doesNotExist();
+      assert.dom('a#test-disclosure-primitive-link').doesNotExist();
+
+      await click('button#test-toggle-button');
+      assert.dom('.hds-disclosure-primitive__content').exists();
+      assert.dom('a#test-disclosure-primitive-link').exists();
+    });
+
     // CLOSE DISCLOSED CONTENT ON CLICK
 
     test('it should hide the "content" when an interactive element triggers `close`', async function (assert) {
@@ -75,6 +176,31 @@ module(
       await click('button#test-content-button');
       assert.dom('.hds-disclosure-primitive__content').doesNotExist();
       assert.dom('button#test-content-button').doesNotExist();
+    });
+
+    // CALLBACK
+
+    test('it should invoke the `onClickToggle` callback', async function (assert) {
+      let opened = false;
+      this.set('onClickToggle', () => (opened = !opened));
+      await render(hbs`
+        <Hds::DisclosurePrimitive @onClickToggle={{this.onClickToggle}} id="test-disclosure-primitive">
+          <:toggle as |t|>
+            <button type="button" id="test-toggle-button" {{on "click" t.onClickToggle}} />
+          </:toggle>
+          <:content>
+            <a id="test-disclosure-primitive-link" href="#">test</a>
+          </:content>
+        </Hds::DisclosurePrimitive>
+      `);
+      // toggle to open
+      await click('button#test-toggle-button');
+      assert.true(opened);
+      assert.dom('.hds-disclosure-primitive__content').exists();
+      // toggle to close
+      await click('button#test-toggle-button');
+      assert.false(opened);
+      assert.dom('.hds-disclosure-primitive__content').doesNotExist();
     });
   }
 );

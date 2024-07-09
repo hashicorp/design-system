@@ -10,12 +10,17 @@ import { SIZES, DEFAULT_SIZE, TYPES, DEFAULT_TYPE } from './item/index.ts';
 
 import type { ComponentLike } from '@glint/template';
 import type { HdsAccordionItemSignature } from './item/index.ts';
-import type { HdsAccordionSizes, HdsAccordionTypes } from './types.ts';
+import type {
+  HdsAccordionForceStates,
+  HdsAccordionSizes,
+  HdsAccordionTypes,
+} from './types.ts';
 
 interface HdsAccordionSignature {
   Args: {
     size?: HdsAccordionSizes;
     type?: HdsAccordionTypes;
+    forceState?: HdsAccordionForceStates;
   };
   Blocks: {
     default: [
@@ -35,7 +40,7 @@ export default class HdsAccordionComponent extends Component<HdsAccordionSignatu
    * @type {HdsAccordionSizes}
    * @default 'medium'
    */
-  get size() {
+  get size(): HdsAccordionSizes {
     const { size = DEFAULT_SIZE } = this.args;
 
     assert(
@@ -55,7 +60,7 @@ export default class HdsAccordionComponent extends Component<HdsAccordionSignatu
    * @type {HdsAccordionTypes}
    * @default 'card'
    */
-  get type() {
+  get type(): HdsAccordionTypes {
     const { type = DEFAULT_TYPE } = this.args;
 
     assert(
@@ -73,7 +78,7 @@ export default class HdsAccordionComponent extends Component<HdsAccordionSignatu
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
+  get classNames(): string {
     const classes = ['hds-accordion'];
 
     // add a class based on the @size argument
