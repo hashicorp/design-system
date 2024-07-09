@@ -44,7 +44,7 @@ The base `Accordion` component serves only as a wrapper to group together one or
     Controls whether the entire toggle block is interactive for toggling the content display or whether only the chevron button itself is interactive which allows for adding other interactive content in the toggle area.
   </C.Property>
   <C.Property @name="forceState" @type="enum" @values={{array "open" "close" }}>
-    Controls the state of an accordion item after the initial render by overriding its current state.
+    Controls the state of an `Accordion::Item` after the initial render by overriding its current state.
   </C.Property>
   <C.Property @name="onClickToggle" @type="function">
      Callback function invoked when the toggle is clicked.

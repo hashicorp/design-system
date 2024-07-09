@@ -122,11 +122,11 @@ With an Accordion in the content block.
         <Hds::Accordion @type="flush" as |AA|>
           <AA.Item>
             <:toggle>Nested item one</:toggle>
-            <:content>Neste content one</:content>
+            <:content>Nested content one</:content>
           </AA.Item>
           <AA.Item>
             <:toggle>Nested item two</:toggle>
-            <:content>Neste content two</:content>
+            <:content>Nested content two</:content>
           </AA.Item>
         </Hds::Accordion>
       </:content>
@@ -136,11 +136,11 @@ With an Accordion in the content block.
 
 ### Expand and collapse all
 
-The `@forceState` argument enables you to implement an expand/collapse all functionality by programmatically controlling the states of all items within a group. The `@forceState` argument may also be used at item level if further granularity is required.
+The `@forceState` argument enables you to implement expand/collapse all functionality by programmatically controlling the states of all items within a group. The `@forceState` argument may also be used at item level if further granularity is required.
 
 ```handlebars
   <div class="doc-accordion-flex-layout">
-    <Hds::Text::Display @size="300">Examination Period</Hds::Text::Display>
+    <Hds::Text::Display @size="300">Examination period</Hds::Text::Display>
     <Hds::Button
       @text={{if (eq this.state "open") "Collapse all" "Expand all"}}
       @icon={{if (eq this.state "open") "unfold-close" "unfold-open"}}
@@ -240,7 +240,7 @@ Set `isStatic` to `true` on an `Accordion::Item` to remove the ability to intera
 
 ### containsInteractive
 
-By default, the `containsInteractive` property of the `Accordion::Item` is set to `false`, meaning that the entire `Accordion::Item` toggle block can be clicked to hide and show the associated content. If set to `true` only the chevron button of the `Accordion::Item` is clickable vs. the entire block. This allows you to add other interactive content inside the toggle block if desired.
+By default, the `containsInteractive` property of the `Accordion::Item` is set to `false`, meaning that the entire `Accordion::Item` toggle block can be clicked to hide and show the associated content. If set to `true`, only the chevron button of the `Accordion::Item` is clickable vs. the entire block. This allows you to add other interactive content inside the toggle block if desired.
 
 ```handlebars
 <Hds::Accordion as |A|>
