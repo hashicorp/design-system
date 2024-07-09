@@ -119,7 +119,7 @@ The `SideNav::Header::HomeLink` component uses the generic `Hds::Interactive` co
   <C.Property @name="isRouteExternal" @type="boolean" @default="false">
     This controls if the “LinkTo” is external to the Ember engine, in which case it will use a `<LinkToExternal>` for the `@route`.
   </C.Property>
-  <C.Property @name="ariaLabel" @type="string" @required="true">
+  <C.Property @name="ariaLabel" @type="string" @required={{true}}>
     The value of the aria-label. If no text value is defined an error will be thrown.
   </C.Property>
   <C.Property @name="...attributes">
@@ -132,7 +132,7 @@ The `SideNav::Header::HomeLink` component uses the generic `Hds::Interactive` co
 The `SideNav::Header::IconButton` component uses the generic `Hds::Interactive` component. For more details about this utility component please refer to [its documentation page](/utilities/interactive).
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="icon" @type="string" @required="true">
+  <C.Property @name="icon" @type="string" @required={{true}}>
     Used to show an icon. Any [icon](/icons/library) name is accepted.
   </C.Property>
   <C.Property @name="href">
@@ -147,7 +147,7 @@ The `SideNav::Header::IconButton` component uses the generic `Hds::Interactive` 
   <C.Property @name="isRouteExternal" @type="boolean" @default="false">
     This controls if the “LinkTo” is external to the Ember engine, in which case it will use a `<LinkToExternal>` for the `@route`.
   </C.Property>
-  <C.Property @name="ariaLabel" @type="string" @required="true">
+  <C.Property @name="ariaLabel" @type="string" @required={{true}}>
     The value of the `aria-label`. If no text value is defined an error will be thrown.
   </C.Property>
   <C.Property @name="...attributes">

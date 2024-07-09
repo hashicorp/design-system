@@ -38,7 +38,7 @@ The Table component itself is where most of the options will be applied. However
   <C.Property @name="columns" @type="array">
     Array `hash` that defines each column with key-value properties that describe each column. Options:
     <Doc::ComponentApi as |C|>
-      <C.Property @name="label" @type="string" @required="true">
+      <C.Property @name="label" @type="string" @required={{true}}>
       The column’s label.
       </C.Property>
       <C.Property @name="key" @type="string">

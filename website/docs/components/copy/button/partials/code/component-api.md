@@ -10,7 +10,7 @@ This component uses the [Clipboard API](https://developer.mozilla.org/en-US/docs
   <C.Property @name="isFullWidth" @type="boolean" @default="false">
     Indicates that a button should take up the full width of the parent container.
   </C.Property>
-  <C.Property @name="text" @required="true" @type="string">
+  <C.Property @name="text" @required={{true}} @type="string">
     The text of the button or value of `aria-label` if `isIconOnly` is set to `true`. If no text value is defined, an error will be thrown.
   </C.Property>
   <C.Property @name="textToCopy" @type="string | number">

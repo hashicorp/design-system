@@ -7,7 +7,7 @@ This component uses the [Clipboard API](https://developer.mozilla.org/en-US/docs
   <C.Property @name="isFullWidth" @type="boolean" @default="false">
     Indicates that the component should take up the full width of the parent container.
   </C.Property>
-  <C.Property @name="textToCopy" @type="string | number" @required="true">
+  <C.Property @name="textToCopy" @type="string | number" @required={{true}}>
     The value to be copied.
   </C.Property>
   <C.Property @name="isTruncated" @type="boolean" @default="false">

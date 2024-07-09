@@ -25,7 +25,7 @@ These Pagination sub-elements may be used directly if you need to cover a very s
 <C.Property @name="ariaLabel" @type="string" @default="Pagination">
     Accepts a localized string.
 </C.Property>
-<C.Property @name="totalItems" @required="true" @type="number">
+<C.Property @name="totalItems" @required={{true}} @type="number">
 Pass the total number of items to be paginated. If no value is defined an error will be thrown.
 </C.Property>
 <C.Property @name="showLabels" @type="boolean" @default="false">
@@ -114,13 +114,13 @@ This component supports use of [`...attributes`](https://guides.emberjs.com/rele
 #### Pagination::Info
 
 <Doc::ComponentApi as |C|>
-<C.Property @name="itemsRangeStart" @required="true" @type="string|number">
+<C.Property @name="itemsRangeStart" @required={{true}} @type="string|number">
 The "start" value of the range in the informational text.
 </C.Property>
-<C.Property @name="itemsRangeEnd" @required="true" @type="string|number">
+<C.Property @name="itemsRangeEnd" @required={{true}} @type="string|number">
 The "end" value of the range in the informational text.
 </C.Property>
-<C.Property @name="totalItems" @required="true" @type="string|number">
+<C.Property @name="totalItems" @required={{true}} @type="string|number">
 The "out of" total items in the informational text. Not required if `showTotalItems` is set to `false`.
 </C.Property>
 <C.Property @name="showTotalItems" @type="boolean" @default="true">
@@ -131,7 +131,7 @@ Controls the visibility of the total items in the informational text.
 #### Pagination::Nav::Arrow
 
 <Doc::ComponentApi as |C|>
-<C.Property @name="direction" @required="true" @type="enum" @values={{array "prev" "next"}}>
+<C.Property @name="direction" @required={{true}} @type="enum" @values={{array "prev" "next"}}>
 Sets the "direction" of the icon and label in the control.
 </C.Property>
 <C.Property @name="route/models/model/query/replace">
@@ -153,7 +153,7 @@ This component supports use of [`...attributes`](https://guides.emberjs.com/rele
 #### Pagination::Nav::Number
 
 <Doc::ComponentApi as |C|>
-<C.Property @name="page" @required="true" @type="number">
+<C.Property @name="page" @required={{true}} @type="number">
 The value that should go in the control as page number.
 </C.Property>
 <C.Property @name="isSelected" @type="boolean" @default="false">
@@ -181,7 +181,7 @@ This component supports use of [`...attributes`](https://guides.emberjs.com/rele
 #### Pagination::SizeSelector
 
 <Doc::ComponentApi as |C|>
-<C.Property @name="pageSizes" @required="true" @type="array of integers">
+<C.Property @name="pageSizes" @required={{true}} @type="array of integers">
 Set the page sizes users can select from. If no value is defined an error will be thrown. Example: `@pageSizes=\{{array 5 20 30}}`
 </C.Property>
 <C.Property @name="selectedSize" @type="integer">
