@@ -25,6 +25,7 @@
     )
   }}
   <div class="hds-form-field__control">
+    {{! @glint-expect-error }}
     {{yield (hash Control=(component "hds/yield") id=this.id ariaDescribedBy=this.ariaDescribedBy)}}
   </div>
   {{yield

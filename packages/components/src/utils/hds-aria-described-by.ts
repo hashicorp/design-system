@@ -6,6 +6,8 @@
 import { tracked } from '@glimmer/tracking';
 import { scheduleOnce } from '@ember/runloop';
 import type Component from '@glimmer/component';
+import type { HdsFormFieldSignature } from '../components/hds/form/field/';
+import type { HdsFormFieldsetSignature } from '../components/hds/form/fieldset/';
 
 type ElementSet = Set<HTMLElement>;
 
@@ -40,19 +42,16 @@ class AriaDescriptorMap {
 
 const ariaDescriptorMap = new AriaDescriptorMap();
 
-interface AriaDescribedByArgs {
-  Args: {
-    extraAriaDescribedBy: string;
-  };
-}
+type AriaDescribedByArgs = HdsFormFieldSignature & HdsFormFieldsetSignature;
 
 interface AriaDescribedByComponent extends Component<AriaDescribedByArgs> {
-  __ARIA_DESCRIPTION_IDS__: string[];
-  ariaDescribedBy: string;
+  __ARIA_DESCRIPTION_IDS__?: string[];
+  ariaDescribedBy?: string;
 }
 
 // essentially a type that says we return a subclass of the given type T
-type ClassOf<T> = new () => T;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type ClassOf<T> = new (owner: unknown, ...args: any[]) => T;
 
 export function ariaDescribedBy(
   BaseComponent: ClassOf<AriaDescribedByComponent>

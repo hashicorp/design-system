@@ -19,7 +19,7 @@ import type { HdsFormLayouts } from '../types.ts';
 import type { ComponentLike, WithBoundArgs } from '@glint/template';
 import type { HdsYieldSignature } from '../../yield/index.ts';
 
-interface HdsFormFieldsetSignature {
+export interface HdsFormFieldsetSignature {
   Args: {
     isOptional?: boolean;
     isRequired?: boolean;
@@ -46,9 +46,10 @@ interface HdsFormFieldsetSignature {
       }
     ];
   };
-  Element: HTMLFieldSetElement;
+  Element: HTMLElement;
 }
 
+// @ts-expect-error: decorator function return type 'ClassOf<AriaDescribedByComponent>' is not assignable to 'typeof HdsFormFieldComponent'
 @ariaDescribedBy
 class HdsFormFieldsetComponent extends Component<HdsFormFieldsetSignature> {
   @action
