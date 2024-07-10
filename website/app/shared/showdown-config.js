@@ -6,6 +6,7 @@
 import { elementsToClassNames } from './showdown-extensions/elements-to-classnames';
 import { pageSections } from './showdown-extensions/page-sections';
 import { contentBlocks } from './showdown-extensions/content-blocks';
+import { removeAutoPTags } from './showdown-extensions/remove-auto-p-tags';
 
 // SET SHOWDOWN SETTINGS HERE:
 // https://showdownjs.com/docs/available-options/
@@ -30,5 +31,10 @@ export const showdownConfig = {
   ghCompatibleHeaderId: true,
   // add default class for each HTML element generated
   // see: https://github.com/showdownjs/showdown/wiki/Extensions + https://showdownjs.com/docs/tutorials/add-default-class-to-html/
-  extensions: [pageSections, ...elementsToClassNames, contentBlocks],
+  extensions: [
+    pageSections,
+    ...elementsToClassNames,
+    contentBlocks,
+    removeAutoPTags,
+  ],
 };
