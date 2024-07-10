@@ -239,6 +239,17 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
     assert.dom('#test-side-nav-body').doesNotHaveAttribute('inert');
   });
 
+  // HAS_HEADER
+  test('it should not include the `hds-side-nav--has-header` class by default', async function (assert) {
+    await render(hbs`<Hds::SideNav id="test-side-nav" />`);
+    assert.dom('#test-side-nav').doesNotHaveClass('hds-side-nav--has-header');
+  });
+
+  test('it should add the `hds-side-nav--has-header` class if `hasHeader` is true', async function (assert) {
+    await render(hbs`<Hds::SideNav @hasHeader={{true}} id="test-side-nav" />`);
+    assert.dom('#test-side-nav').hasClass('hds-side-nav--has-header');
+  });
+
   // CALLBACKS
 
   test('it should call `onToggleMinimizedStatus` function if provided', async function (assert) {

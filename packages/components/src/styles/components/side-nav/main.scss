@@ -7,9 +7,12 @@
 // SIDE-NAV
 //
 
-// TODO: Move to tokens if kept
 :root {
+  // TODO: Move to sidenav tokens
   --hds-app-sidenav-headerless-width-minimized: 16px;
+
+  // TODO: Create app-header token:
+  --hds-app-header-height: 59px;
 }
 
 .hds-side-nav {
@@ -48,6 +51,21 @@
     &.hds-side-nav--is-minimized {
       width: var(--hds-app-sidenav-width-minimized);
     }
+  }
+}
+
+// HAS_HEADER
+// Modify sidenav layout when used together with app-header
+
+.hds-side-nav--has-header {
+  .hds-side-nav__wrapper-body {
+    // increase top-padding to account for header
+    padding-top: calc(var(--token-side-nav-wrapper-padding-vertical) + var(--hds-app-header-height));
+  }
+
+  .hds-side-nav__toggle-button {
+    // move toggle button down to account for header
+    top: calc(22px + var(--hds-app-header-height));
   }
 }
 
