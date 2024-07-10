@@ -67,19 +67,11 @@ export default class HdsIcon extends Component<HdsIconSignature> {
   }
 
   get role() {
-    if (this.args.title) {
-      return 'img';
-    } else {
-      return null;
-    }
+    return this.args.title ? 'img' : null;
   }
 
   get ariaLabelledby() {
-    if (this.args.title) {
-      return this.titleId;
-    } else {
-      return null;
-    }
+    return this.args.title ? this.titleId : null;
   }
 
   get classNames() {
