@@ -46,15 +46,6 @@ export default class Index extends Component {
     return colors;
   }
 
-  get colorCard() {
-    return {
-      colorName: 'primary',
-      cssVariable: '--color-primary',
-      value: '#0069ce',
-      cssHelper: 'hds-semantic-primary',
-    };
-  }
-
   get fontHelpers() {
     const fontHelpers = {
       styles: [
@@ -182,46 +173,5 @@ export default class Index extends Component {
 
   get title() {
     return 'Related Components';
-  }
-
-  get relatedComponents() {
-    return [
-      {
-        image: '/assets/illustrations/components/reveal.jpg',
-        title: 'Reveal',
-        caption:
-          'A toggle that reveals additional content to the user when triggered.',
-        route: 'show',
-        model: 'components/reveal',
-      },
-      {
-        image: '/assets/illustrations/components/flyout.jpg',
-        title: 'Flyout',
-        caption:
-          'Displays additional details and information about an item or object, overlaid on the main page content.',
-        route: 'show',
-        model: 'components/flyout',
-      },
-      {
-        image: '/assets/illustrations/components/modal.jpg',
-        title: 'Modal',
-        caption:
-          'A pop-up window used to request information, confirm a decision, or provide additional context.',
-        route: 'show',
-        model: 'components/modal',
-      },
-      {
-        image: '/assets/illustrations/components/tabs.jpg',
-        title: 'Tabs',
-        caption:
-          'Allows users to move among different views within the same context.',
-        route: 'show',
-        model: 'components/tabs',
-      },
-    ];
-  }
-
-  get card() {
-    return this.relatedComponents[0];
   }
 }

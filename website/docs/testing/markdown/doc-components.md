@@ -10,14 +10,6 @@ title: DOC Components
 
 <Doc::Banner @type="info"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultrices, sapien vel rutrum tristique, dolor quam convallis sapien, dignissim tincidunt libero turpis sit amet urna.</p></Doc::Banner>
 
-## Doc::Card
-
-- <Doc::Cards::Card @image={{this.card.image}} @title={{this.card.title}} @caption={{this.card.caption}} @route={{this.card.route}} @model={{this.card.model}} @href={{this.card.href}} @layout="horizontal" {{doc-track-event eventName=(concat "Related - " @componentTitle " - " this.card.title)}} />
-
-## Doc::ColorCard
-
-<Doc::ColorCard @color={{this.colorCard}}></Doc::ColorCard>
-
 ## Doc::ColorSwatch
 
 <!-- algolia-ignore-start -->
@@ -69,10 +61,6 @@ For components that are inline elements we can add to an exclusion array in 'web
 
 If we omit a line return after our markdowon paragraph text the inline element will roll-up into our paragraph like so.
 <Doc::CopyButton @textToCopy="Yay!" @type="solid" />
-
-<!-- Header included in component, so omit here so  that it is not indexed twice -->
-
-<Doc::RelatedComponents @cards={{this.relatedComponents}} @componentTitle={{this.title}} />
 
 <!-- Header included in component, so omit here so  that it is not indexed twice -->
 
