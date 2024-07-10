@@ -2,7 +2,6 @@
 title: Icon
 description: Used to display an icon.
 caption: Used to display an icon.
-previewImage: assets/illustrations/icons/usage-guidelines.jpg
 navigation:
   keywords: ['icon']
 ---

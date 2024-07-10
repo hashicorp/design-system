@@ -111,11 +111,9 @@ Some icons represent common actions within our products.
 
 ![Examples of common edit icons](/assets/foundations/flight-icons/editing-actions.png =660x*)
 
-
 ### Navigation actions
 
 ![Examples of common navigation icons](/assets/foundations/flight-icons/navigation-actions.png =660x*)
-
 
 ### Help actions
 
@@ -129,6 +127,7 @@ Some icons represent common actions within our products.
 
 ## Resources
 
+- [Icon library](/icons/library)
 - [Figma library](https://www.figma.com/file/TLnoT5AYQfy3tZ0H68BgOr/Flight-Icons?node-id=164%3A0&t=bWFdjHgfV6aLQjep-1) (Internal only)
 - [SVG assets (ZIP file)](/assets/zip/flight-icons-svg.zip)
 - [Request an icon or report an issue](https://go.hashi.co/hds-support)
