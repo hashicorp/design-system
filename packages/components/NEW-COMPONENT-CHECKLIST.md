@@ -126,6 +126,7 @@ The engineering checklist has six parts: creating the feature branch, component 
   - [ ] try not to repeat tests (i.e., don't have to test all sizes, all colors, etc.)
   - [ ] test all accessibility attributes
   - [ ] test assertions
+  - [ ] add an entry to the file `/showcase/tests/acceptance/percy-test.js` and make sure the visual regression tests are passing
   - [ ] run the accessibility automation tests (`yarn test:a11y --filter="COMPONENT-NAME"`)
 - [ ] **documentation**
   - create component page `ember generate route components/COMPONENT_NAME --dummy`
@@ -146,6 +147,7 @@ Pre-review request checks:
 
 - [ ] run `yarn lint` and fix any issues (`yarn lint:hbs --fix` will resolve most issues)
 - [ ] make sure all tests pass (`ember s` then visit /tests; or `ember t -s`)
+- [ ] make sure the visual regression test pass
 - [ ] check for basic a11y on docs page:
   - keyboard navigation
   - logical DOM order
