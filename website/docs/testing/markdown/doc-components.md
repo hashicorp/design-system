@@ -103,10 +103,6 @@ If you omit a line return the Link with Icon button or link will be rolled up in
 
 <Doc::Placeholder @text="some generic content" @height="50" @background="#eee" />
 
-## Doc::TokenPreview
-
-<Doc::TokenPreview @token={{this.token}} />
-
 ## Doc::TokensList
 
 <!-- algolia-ignore-start -->
