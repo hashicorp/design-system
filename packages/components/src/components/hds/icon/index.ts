@@ -12,7 +12,7 @@ import type { IconName } from '@hashicorp/flight-icons/svg';
 
 export interface HdsIconSignature {
   Args: {
-    name?: IconName;
+    name: IconName;
     color?: string;
     size?: '16' | '24';
     stretched?: boolean;
@@ -35,25 +35,21 @@ export default class HdsIcon extends Component<HdsIconSignature> {
     }
   }
 
-  get isInline() {
+  get isInline(): boolean {
     return this.args.isInline ?? false;
   }
 
-  get color() {
+  get color(): string {
     return this.args.color ?? 'currentColor';
   }
 
   iconId = 'icon-' + guidFor(this);
 
-  get name() {
-    return this.args.name;
-  }
-
-  get size() {
+  get size(): string {
     return this.args.size ?? '16';
   }
 
-  get svgSize() {
+  get svgSize(): { width: string; height: string } {
     return {
       width: this.args.stretched ? '100%' : this.size,
       height: this.args.stretched ? '100%' : this.size,
@@ -62,33 +58,32 @@ export default class HdsIcon extends Component<HdsIconSignature> {
 
   titleId = 'title-' + guidFor(this);
 
-  get title() {
+  get title(): string | null {
     return this.args.title ?? null;
   }
 
-  get role() {
+  get role(): string | null {
     return this.args.title ? 'img' : null;
   }
 
-  get ariaLabelledby() {
+  get ariaLabelledby(): string | null {
     return this.args.title ? this.titleId : null;
   }
 
   get classNames() {
+    const { name } = this.args;
     const classes = ['hds-icon'];
 
     // add a class based on the @name argument
-    classes.push(`hds-icon-${this.name}`);
+    classes.push(`hds-icon-${name}`);
 
     if (this.isInline) {
       classes.push('hds-icon--is-inline');
     }
 
     // add an extra class to control the animation (depends on the icon)
-    if (this.name === 'loading') {
-      classes.push('hds-icon--animation-loading');
-    } else if (this.name === 'running') {
-      classes.push('hds-icon--animation-running');
+    if (['loading', 'running'].includes(name)) {
+      classes.push(`hds-icon--animation-${name}`);
     }
 
     return classes.join(' ');
