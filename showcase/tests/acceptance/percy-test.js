@@ -113,6 +113,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/form/toggle');
     await percySnapshot('Form - Toggle');
 
+    await visit('/components/icon');
+    await percySnapshot('Icon');
+
     await visit('/components/icon-tile');
     await percySnapshot('IconTile');
 
