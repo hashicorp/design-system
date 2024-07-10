@@ -187,7 +187,7 @@ export default interface HdsComponentsRegistry {
   'Hds::DismissButton': typeof HdsDismissButtonComponent;
   'hds/dismiss-button': typeof HdsDismissButtonComponent;
 
-  // IconTile
+  // Icon
   'Hds::Icon': typeof HdsIconComponent;
   'hds/icon': typeof HdsIconComponent;
 
