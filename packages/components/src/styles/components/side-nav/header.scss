@@ -61,10 +61,12 @@
 
 // Apply dark theme to child interactive components
 .hds-side-nav__dropdown, // deprecated classname
-.hds-side-nav .hds-button,
-.hds-side-nav .hds-dropdown-toggle-button,
-.hds-side-nav .hds-dropdown-toggle-icon {
-  @include hds-interactive-dark-theme();
+.hds-side-nav {
+  .hds-button,
+  .hds-dropdown-toggle-button, 
+  .hds-dropdown-toggle-icon {
+    @include hds-interactive-dark-theme();
+  }
 }
 
 // generic "icon-button"

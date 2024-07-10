@@ -7,8 +7,14 @@
 // SIDE-NAV
 //
 
+// TODO: Create app-header tokens:
 :root {
-  // TODO: Move to sidenav tokens
+  --token-hds-app-header-height: 60px;
+  --token-hds-app-header-home-link-padding: 4px;
+}
+
+:root {
+  // TODO: Create sidenav token
   --hds-app-sidenav-headerless-width-minimized: 16px;
 
   // TODO: Create app-header token:
@@ -58,15 +64,9 @@
 // Modify sidenav layout when used together with app-header
 
 .hds-side-nav--has-header {
-  .hds-side-nav__wrapper-body {
-    // increase top-padding to account for header
-    padding-top: calc(var(--token-side-nav-wrapper-padding-vertical) + var(--hds-app-header-height));
-  }
-
-  .hds-side-nav__toggle-button {
-    // move toggle button down to account for header
-    top: calc(22px + var(--hds-app-header-height));
-  }
+  top: var(--token-hds-app-header-height);
+  height: calc(100vh - var(--token-hds-app-header-height));
+  min-height: calc(100vh - var(--token-hds-app-header-height));
 }
 
 // OVERLAY
