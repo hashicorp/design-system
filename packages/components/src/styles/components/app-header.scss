@@ -13,6 +13,11 @@
 // Q: Create token?
 $app-header-home-link-padding: 4px;
 
+:root {
+  // TODO: Create app-header token:
+  --hds-app-header-height: 59px;
+}
+
 .hds-app-header {
   position: fixed;
   top: 0;
@@ -23,7 +28,7 @@ $app-header-home-link-padding: 4px;
   gap: 12px;
   align-items: center;
   justify-content: space-between;
-  min-height: 59px;
+  min-height: var(--hds-app-header-height);
   padding: 12px 16px 11px 16px; // bottom padding of 11px is to account for the bottom border
   color: var(--token-color-foreground-high-contrast);
   background: var(--token-color-palette-neutral-700);

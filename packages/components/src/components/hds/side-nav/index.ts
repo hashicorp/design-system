@@ -27,25 +27,26 @@ interface HdsSideNavSignature {
     onToggleMinimizedStatus?: (arg: boolean) => void;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onDesktopViewportChange?: (arg: boolean) => void;
+    hasHeader?: boolean;
   };
   Blocks: {
     header?: [
       {
         Header?: HdsSideNavBaseSignature['Blocks']['header'];
         isMinimized?: boolean;
-      }
+      },
     ];
     body?: [
       {
         Body?: HdsSideNavBaseSignature['Blocks']['body'];
         isMinimized?: boolean;
-      }
+      },
     ];
     footer?: [
       {
         Footer?: HdsSideNavBaseSignature['Blocks']['footer'];
         isMinimized?: boolean;
-      }
+      },
     ];
   };
   Element: HdsSideNavBaseSignature['Element'];
@@ -143,6 +144,11 @@ export default class HdsSideNavComponent extends Component<HdsSideNavSignature> 
     }
     if (this.isAnimating) {
       classes.push('hds-side-nav--is-animating');
+    }
+
+    // Add class based on the presence of app-header
+    if (this.args.hasHeader) {
+      classes.push('hds-side-nav--has-header');
     }
 
     return classes.join(' ');

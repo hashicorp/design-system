@@ -16,6 +16,7 @@
 
 body.layouts-app-frame {
   .shw-component-app-frame-container {
+    position: relative;
     min-height: 0;
     border: 1px solid;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 30%);
@@ -38,7 +39,7 @@ body.layouts-app-frame {
     }
 
     .hds-app-header {
-      position: relative; // position is fixed when used within a screen layout
+      position: absolute; // position is fixed when used within a screen layout
   
       &.hds-app-header--is-mobile {
         .hds-app-header__menu {
