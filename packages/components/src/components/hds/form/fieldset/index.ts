@@ -11,19 +11,20 @@ import {
   registerAriaDescriptionElement,
   unregisterAriaDescriptionElement,
 } from '../../../../utils/hds-aria-described-by.ts';
+import { HdsFormFieldsetLayoutValues } from './types.ts';
 import HdsFormLegendComponent from '../legend/index.ts';
 import HdsFormHelperTextComponent from '../helper-text/index.ts';
 import HdsFormErrorComponent from '../error/index.ts';
 
-import type { HdsFormLayouts } from '../types.ts';
 import type { ComponentLike, WithBoundArgs } from '@glint/template';
+import type { HdsFormFieldsetLayouts } from './types.ts';
 import type { HdsYieldSignature } from '../../yield/index.ts';
 
 export interface HdsFormFieldsetSignature {
   Args: {
     isOptional?: boolean;
     isRequired?: boolean;
-    layout?: HdsFormLayouts;
+    layout?: HdsFormFieldsetLayouts;
   };
   Blocks: {
     default: [
@@ -68,8 +69,8 @@ class HdsFormFieldsetComponent extends Component<HdsFormFieldsetSignature> {
    * @type {enum}
    * @default 'vertical'
    */
-  get layout(): HdsFormLayouts {
-    return this.args.layout ?? 'vertical';
+  get layout(): HdsFormFieldsetLayouts {
+    return this.args.layout ?? HdsFormFieldsetLayoutValues.Vertical;
   }
 
   /**

@@ -12,17 +12,17 @@ import {
   registerAriaDescriptionElement,
   unregisterAriaDescriptionElement,
 } from '../../../../utils/hds-aria-described-by.ts';
-import { HdsFormLayoutValues } from '../types.ts';
+import { HdsFormFieldLayoutValues } from './types.ts';
 import HdsFormLabelComponent from '../label/index.ts';
 import HdsFormHelperTextComponent from '../helper-text/index.ts';
 import HdsFormCharacterCountComponent from '../character-count/index.ts';
 import HdsFormErrorComponent from '../error/index.ts';
 
-import type { HdsFormLayouts } from '../types.ts';
+import type { HdsFormFieldLayouts } from './types.ts';
 import type { ComponentLike, WithBoundArgs } from '@glint/template';
 import type { HdsYieldSignature } from '../../yield/index.ts';
 
-export const LAYOUT_TYPES = Object.values(HdsFormLayoutValues);
+export const LAYOUT_TYPES = Object.values(HdsFormFieldLayoutValues);
 
 export interface HdsFormFieldSignature {
   Args: {
@@ -30,7 +30,7 @@ export interface HdsFormFieldSignature {
     contextualClass?: string;
     isOptional?: boolean;
     isRequired?: boolean;
-    layout?: HdsFormLayouts;
+    layout?: HdsFormFieldLayouts;
   };
   Blocks: {
     default: [
@@ -78,14 +78,14 @@ class HdsFormFieldComponent extends Component<HdsFormFieldSignature> {
    * @param layout
    * @type {string}
    */
-  get layout(): HdsFormLayouts | undefined {
+  get layout(): HdsFormFieldLayouts | undefined {
     const { layout } = this.args;
 
     assert(
       `@layout for "Hds::Form::Field" must be one of the following: ${LAYOUT_TYPES.join(
         ', '
       )}; received: ${layout}`,
-      LAYOUT_TYPES.includes(layout as HdsFormLayoutValues)
+      LAYOUT_TYPES.includes(layout as HdsFormFieldLayoutValues)
     );
 
     return layout;
