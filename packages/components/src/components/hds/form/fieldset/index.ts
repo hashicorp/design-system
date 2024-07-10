@@ -53,15 +53,6 @@ export interface HdsFormFieldsetSignature {
 // @ts-expect-error: decorator function return type 'ClassOf<AriaDescribedByComponent>' is not assignable to 'typeof HdsFormFieldComponent'
 @ariaDescribedBy
 class HdsFormFieldsetComponent extends Component<HdsFormFieldsetSignature> {
-  @action
-  appendDescriptor(element: HTMLElement): void {
-    registerAriaDescriptionElement(this, element);
-  }
-
-  @action removeDescriptor(element: HTMLElement): void {
-    unregisterAriaDescriptionElement(this, element);
-  }
-
   /**
    * Sets the layout of the group
    *
@@ -81,21 +72,6 @@ class HdsFormFieldsetComponent extends Component<HdsFormFieldsetSignature> {
   }
 
   /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
-  get classNames(): string {
-    // we just need a class for the layout
-    const classes = ['hds-form-group'];
-
-    // add a class based on the @layout argument
-    classes.push(`hds-form-group--layout-${this.layout}`);
-
-    return classes.join(' ');
-  }
-
-  /**
    * @param isRequired
    * @type {boolean}
    * @default false
@@ -111,6 +87,30 @@ class HdsFormFieldsetComponent extends Component<HdsFormFieldsetSignature> {
    */
   get isOptional(): boolean {
     return this.args.isOptional || false;
+  }
+
+  /**
+   * Get the class names to apply to the component.
+   * @method classNames
+   * @return {string} The "class" attribute to apply to the component.
+   */
+  get classNames(): string {
+    // we just need a class for the layout
+    const classes = ['hds-form-group'];
+
+    // add a class based on the @layout argument
+    classes.push(`hds-form-group--layout-${this.layout}`);
+
+    return classes.join(' ');
+  }
+
+  @action
+  appendDescriptor(element: HTMLElement): void {
+    registerAriaDescriptionElement(this, element);
+  }
+
+  @action removeDescriptor(element: HTMLElement): void {
+    unregisterAriaDescriptionElement(this, element);
   }
 }
 

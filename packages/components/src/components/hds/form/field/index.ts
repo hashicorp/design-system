@@ -63,15 +63,6 @@ export interface HdsFormFieldSignature {
 // @ts-expect-error: decorator function return type 'ClassOf<AriaDescribedByComponent>' is not assignable to 'typeof HdsFormFieldComponent'
 @ariaDescribedBy
 class HdsFormFieldComponent extends Component<HdsFormFieldSignature> {
-  @action
-  appendDescriptor(element: HTMLElement): void {
-    registerAriaDescriptionElement(this, element);
-  }
-
-  @action removeDescriptor(element: HTMLElement): void {
-    unregisterAriaDescriptionElement(this, element);
-  }
-
   /**
    * Sets the layout of the field
    *
@@ -99,6 +90,24 @@ class HdsFormFieldComponent extends Component<HdsFormFieldSignature> {
   }
 
   /**
+   * @param isRequired
+   * @type {boolean}
+   * @default false
+   */
+  get isRequired(): boolean {
+    return this.args.isRequired || false;
+  }
+
+  /**
+   * @param isOptional
+   * @type {boolean}
+   * @default false
+   */
+  get isOptional(): boolean {
+    return this.args.isOptional || false;
+  }
+
+  /**
    * Get the class names to apply to the component.
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
@@ -119,22 +128,13 @@ class HdsFormFieldComponent extends Component<HdsFormFieldSignature> {
     return classes.join(' ');
   }
 
-  /**
-   * @param isRequired
-   * @type {boolean}
-   * @default false
-   */
-  get isRequired(): boolean {
-    return this.args.isRequired || false;
+  @action
+  appendDescriptor(element: HTMLElement): void {
+    registerAriaDescriptionElement(this, element);
   }
 
-  /**
-   * @param isOptional
-   * @type {boolean}
-   * @default false
-   */
-  get isOptional(): boolean {
-    return this.args.isOptional || false;
+  @action removeDescriptor(element: HTMLElement): void {
+    unregisterAriaDescriptionElement(this, element);
   }
 }
 
