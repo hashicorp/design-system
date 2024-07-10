@@ -7,6 +7,11 @@
 // APP-FRAME
 //
 
+// TODO: Create app-header tokens:
+:root {
+  --token-app-header-height: 60px;
+}
+
 .hds-app-frame {
   display: grid;
   grid-template-areas:
@@ -24,6 +29,10 @@
 .hds-app-frame__header {
   z-index: 7;
   grid-area: header;
+
+  &:has(.hds-app-header) {
+    min-height: var(--token-app-header-height); // reserve space for fixed header
+  }
 }
 
 .hds-app-frame__sidebar {

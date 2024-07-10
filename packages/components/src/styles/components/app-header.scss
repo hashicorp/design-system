@@ -10,12 +10,11 @@
 @use "../mixins/interactive-dark-theme" as *;
 
 // ----------------
-// Q: Create token?
-$app-header-home-link-padding: 4px;
 
+// TODO: Create app-header tokens:
 :root {
-  // TODO: Create app-header token:
-  --hds-app-header-height: 59px;
+  --token-app-header-height: 60px;
+  --token-app-header-home-link-padding: 4px;
 }
 
 .hds-app-header {
@@ -28,7 +27,7 @@ $app-header-home-link-padding: 4px;
   gap: 12px;
   align-items: center;
   justify-content: space-between;
-  min-height: var(--hds-app-header-height);
+  min-height: var(--token-app-header-height);
   padding: 12px 16px 11px 16px; // bottom padding of 11px is to account for the bottom border
   color: var(--token-color-foreground-high-contrast);
   background: var(--token-color-palette-neutral-700);
@@ -69,7 +68,7 @@ $app-header-home-link-padding: 4px;
     }
 
     // Since the same component is used for both mobile/tablet and desktop views, we need to force the width to 100% in mobile view
-    .hds-app-header__global-items-in-menu{
+    .hds-app-header__global-items-in-menu {
       &,
       .hds-dropdown,
       .hds-dropdown-toggle-button {
@@ -109,7 +108,7 @@ $app-header-home-link-padding: 4px;
   display: block;
   width: 36px;
   height: 36px;
-  padding: calc(#{$app-header-home-link-padding} - 1px); // by design - we take in account the transparent border
+  padding: calc(var(--token-app-header-home-link-padding) - 1px); // by design - we take in account the transparent border
 }
 
 .hds-app-header__menu {
