@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import type { HdsTextBodySignature } from '../../text/body';
 import type { HdsBadgeSignature } from '../../badge';
 
-interface HdsFormIndicatorSignature {
+export interface HdsFormIndicatorSignature {
   Args: {
     isOptional?: boolean;
     isRequired?: boolean;

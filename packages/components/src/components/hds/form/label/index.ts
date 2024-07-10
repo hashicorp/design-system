@@ -6,12 +6,14 @@
 import Component from '@glimmer/component';
 export const ID_PREFIX = 'label-';
 
+import type { HdsFormIndicatorSignature } from '../indicator';
+
 interface HdsFormLabelSignature {
   Args: {
     contextualClass?: string;
     controlId?: string;
-    isOptional?: boolean;
-    isRequired?: boolean;
+    isOptional?: HdsFormIndicatorSignature['Args']['isOptional'];
+    isRequired?: HdsFormIndicatorSignature['Args']['isRequired'];
   };
   Blocks: {
     default: [];
