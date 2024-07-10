@@ -22,7 +22,7 @@ export interface HdsSideNavListSignature {
         Title?: ComponentLike<HdsSideNavListTitleSignature>;
         Link?: ComponentLike<HdsSideNavListLinkSignature>;
         ExtraAfter?: ComponentLike<HdsYieldSignature>;
-      }
+      },
     ];
   };
   Element: HTMLElement;
