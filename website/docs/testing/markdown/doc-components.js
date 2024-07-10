@@ -4,7 +4,6 @@
  */
 
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
 
 import TOKENS_RAW from '@hashicorp/design-system-tokens/dist/docs/products/tokens.json';
 
@@ -95,16 +94,6 @@ export default class Index extends Component {
         },
       ],
     };
-  }
-
-  @action
-  selectGroupType(event) {
-    console.log('selectGroupType', event.target.value);
-  }
-
-  @action
-  selectIconSize(event) {
-    console.log('selectIconSize', event.target.value);
   }
 
   get cssHelpers() {

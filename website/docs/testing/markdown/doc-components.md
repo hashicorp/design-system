@@ -55,10 +55,6 @@ If the error is made of multiple messages, you can iterate over a collection of 
 
 ## Doc::CopyButton
 
-For components that are inline elements we can add to an exclusion array in 'website/app/shared/showdown-extensions/remove-auto-p-tags.js' so that the default showdown wrapping p is not omitted.
-
-<Doc::CopyButton @textToCopy="Yay!" @type="solid" />
-
 If we omit a line return after our markdowon paragraph text the inline element will roll-up into our paragraph like so.
 <Doc::CopyButton @textToCopy="Yay!" @type="solid" />
 
@@ -88,34 +84,11 @@ spellcheck="false"
 @onInput={{this.filterPageTree}}
 />
 
-## Doc::IconsList
-
-<Doc::IconsList
-@groupedIcons={{this.icons}}
-@onSelectGroupType={{this.selectGroupType}}
-@selectedGroupType={{this.selectedGroupType}}
-@onSelectIconSize={{this.selectIconSize}}
-@selectedIconSize={{this.selectedIconSize}}
-@searchQuery={{this.searchQuery}}
-@searchIcons={{this.icons}}
-/>
-
 ## Doc::Layout
 
 <Doc::Layout @spacing="16px"><div>block 1</div><div>block 2</div><div>block 3</div></Doc::Layout>
 
 ## Doc::LinkWithIcon
-
-Link with Icon component has been added to the excludedInlineElements array inside the remove-auto-p-tags showdown extension as it renders an inline link or button
-
-<Doc::LinkWithIcon
-@route="show"
-@model="whats-new/release-notes"
-@label="Link with Icon"
-@icon="arrow-right"
-@isAnimated={{true}}
-@eventName="Link - With Icon"
-/>
 
 If you omit a line return the Link with Icon button or link will be rolled up into your paragraph text like this <Doc::LinkWithIcon
 @route="show"
