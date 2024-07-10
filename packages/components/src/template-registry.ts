@@ -499,7 +499,7 @@ export default interface HdsComponentsRegistry {
   'Hds::Form::VisibilityToggle': typeof HdsFormVisibilityToggleComponent;
   'hds/form/visibility-toggle': typeof HdsFormVisibilityToggleComponent;
 
-  // IconTile
+  // Icon
   'Hds::Icon': typeof HdsIconComponent;
   'hds/icon': typeof HdsIconComponent;
 
