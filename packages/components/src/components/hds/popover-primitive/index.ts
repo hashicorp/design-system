@@ -37,7 +37,7 @@ export interface HdsPopoverPrimitiveSignature {
         showPopover: () => void;
         hidePopover: () => void;
         togglePopover: () => void;
-      }
+      },
     ];
   };
 }

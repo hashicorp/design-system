@@ -26,7 +26,7 @@ export interface HdsAppFrameSignature {
         Main?: ComponentLike<HdsAppFrameMainSignature>;
         Modals?: ComponentLike<HdsAppFrameModalsSignature>;
         Sidebar?: ComponentLike<HdsAppFrameSidebarSignature>;
-      }
+      },
     ];
   };
   Element: HTMLDivElement;

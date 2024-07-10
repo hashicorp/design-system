@@ -20,7 +20,7 @@ import { helper } from '@ember/component/helper';
 // don't remove until we drop support for ember 3.27 and 3.28
 
 export function hdsLinkToQuery([query]: [
-  Record<string, string> | undefined
+  Record<string, string> | undefined,
 ]): Record<string, string> {
   return query ?? {};
 }

@@ -26,7 +26,7 @@ interface HdsAccordionSignature {
     default: [
       {
         Item?: ComponentLike<HdsAccordionItemSignature>;
-      }
+      },
     ];
   };
   Element: HTMLDivElement;
