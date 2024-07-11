@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 
 import type { HdsFormIndicatorSignature } from '../indicator';
 
-interface HdsFormLegendSignature {
+export interface HdsFormLegendSignature {
   Args: {
     contextualClass?: string;
     isOptional?: HdsFormIndicatorSignature['Args']['isOptional'];

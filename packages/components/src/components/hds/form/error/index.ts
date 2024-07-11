@@ -11,7 +11,7 @@ export const ID_PREFIX = 'error-';
 
 const NOOP = (): void => {};
 
-interface HdsFormErrorSignature {
+export interface HdsFormErrorSignature {
   Args: {
     contextualClass?: string;
     controlId?: string;

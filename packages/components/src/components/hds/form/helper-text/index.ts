@@ -10,7 +10,7 @@ export const ID_PREFIX = 'helper-text-';
 
 const NOOP = (): void => {};
 
-interface HdsFormHelperTextSignature {
+export interface HdsFormHelperTextSignature {
   Args: {
     contextualClass?: string;
     controlId?: string;
