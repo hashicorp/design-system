@@ -22,7 +22,7 @@
   top: 0;
   right: 0;
   left: 0;
-  z-index: 20; // needs to stay above the main content, TODO: determine correct z-index to use
+  z-index: 20; // needs to stay above the main content
   display: flex;
   gap: 12px;
   align-items: center;
@@ -46,12 +46,12 @@
     // Style content as dropdown menu in mobile/tablet view
     .hds-app-header__menu {
       position: absolute;
-      top: calc(100% + 1px); // We add 1px to account for the bottom border
+      top: calc(100% + 1px); // We add 1px to account for the AppHeader bottom border
       right: 0;
       left: 0;
       flex-wrap: wrap;
       align-content: flex-start;
-      height: calc(100vh - 52px); // it should take the full height of the viewport minus the header height
+      height: calc(100vh - var(--token-app-header-height));
       padding: 16px;
       overflow: auto; // allow users to scroll within the menu if the content is too long
       background: var(--token-color-palette-neutral-700);
