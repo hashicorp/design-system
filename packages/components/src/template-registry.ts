@@ -47,6 +47,9 @@ import type HdsFormHelperTextComponent from './components/hds/form/helper-text';
 import type HdsFormIndicatorComponent from './components/hds/form/indicator';
 import type HdsFormLabelComponent from './components/hds/form/label';
 import type HdsFormLegendComponent from './components/hds/form/legend';
+import type HdsFormRadioBaseComponent from './components/hds/form/radio/base';
+import type HdsFormRadioFieldComponent from './components/hds/form/radio/field';
+import type HdsFormRadioGroupComponent from './components/hds/form/radio/group';
 import type HdsFormVisibilityToggleComponent from './components/hds/form/visibility-toggle';
 import type HdsIconTileComponent from './components/hds/icon-tile';
 import type HdsInteractiveComponent from './components/hds/interactive';
@@ -257,6 +260,16 @@ export default interface HdsComponentsRegistry {
   // Form Legend
   'Hds::Form::Legend': typeof HdsFormLegendComponent;
   'hds/form/legend': typeof HdsFormLegendComponent;
+
+  // Form Radio
+  'Hds::Form::Radio::Base': typeof HdsFormRadioBaseComponent;
+  'hds/form/radio/base': typeof HdsFormRadioBaseComponent;
+
+  'Hds::Form::Radio::Field': typeof HdsFormRadioFieldComponent;
+  'hds/form/radio/field': typeof HdsFormRadioFieldComponent;
+
+  'Hds::Form::Radio::Group': typeof HdsFormRadioGroupComponent;
+  'hds/form/radio/group': typeof HdsFormRadioGroupComponent;
 
   // Form VisibilityToggle
   'Hds::Form::VisibilityToggle': typeof HdsFormVisibilityToggleComponent;
