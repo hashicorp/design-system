@@ -123,20 +123,20 @@ Lists can be positioned to the left or right of the Toggle, and above or below t
 By default, Lists have a minimum width of 200px and a maximum width of 400px. This means if there’s a long string in a ListItem, the List will automatically expand up to 400px to accommodate the content before it wraps.
 
 <div class="hds-dropdown__content">
-  <Doc::ListContainer class="hds-dropdown__list">
+  <ul class="hds-dropdown__list">
     <Hds::Dropdown::ListItem::Title @text="Signed in as" />
     <Hds::Dropdown::ListItem::Description @text="name@email.com" />
     <Hds::Dropdown::ListItem::Separator />
     <Hds::Dropdown::ListItem::Interactive @text="User settings" />
     <Hds::Dropdown::ListItem::Interactive @text="Admin" />
     <Hds::Dropdown::ListItem::Interactive @text="Sign out" />
-  </Doc::ListContainer>
+  </ul>
 </div>
 
 If you do not want the width of the List to expand automatically to accommodate the widest ListItem, you can indicate a specific width between 200px–400px.
 
 <div class="hds-dropdown__content" style="width: 320px">
-  <Doc::ListContainer class="hds-dropdown__list">
+  <ul class="hds-dropdown__list">
     <Hds::Dropdown::ListItem::Title @text="Consul version v1.10.6" />
     <Hds::Dropdown::ListItem::Interactive @text="Update Consul version" @icon="sync" />
     <Hds::Dropdown::ListItem::Interactive @text="Edit cluster" @icon="edit" />
@@ -149,7 +149,7 @@ If you do not want the width of the List to expand automatically to accommodate 
     <Hds::Dropdown::ListItem::CopyItem @text="terraform import hcp_connect" />
     <Hds::Dropdown::ListItem::Separator />
     <Hds::Dropdown::ListItem::Interactive @text="Delete cluster" @color="critical" @icon="trash" />
-  </Doc::ListContainer>
+  </ul>
 </div>
 
 #### Height
@@ -157,7 +157,7 @@ If you do not want the width of the List to expand automatically to accommodate 
 The height of the ListContainer is automatically determined based on the contents, but the height can also be set manually. We recommend setting the height manually if you know the list will be long. In code, the `@height` property actually acts as a `max-height`.
 
 <div class="hds-dropdown__content" style="height: 275px">
-  <Doc::ListContainer class="hds-dropdown__list">
+  <ul class="hds-dropdown__list">
     <Hds::Dropdown::ListItem::Checkbox @value="Planned">Planned</Hds::Dropdown::ListItem::Checkbox>
     <Hds::Dropdown::ListItem::Checkbox @value="Policy override">Policy override</Hds::Dropdown::ListItem::Checkbox>
     <Hds::Dropdown::ListItem::Checkbox @value="Policy checked">Policy checked</Hds::Dropdown::ListItem::Checkbox>
@@ -172,7 +172,7 @@ The height of the ListContainer is automatically determined based on the content
     <Hds::Dropdown::ListItem::Checkbox @value="Errored">Errored</Hds::Dropdown::ListItem::Checkbox>
     <Hds::Dropdown::ListItem::Checkbox @value="Fetched">Fetched</Hds::Dropdown::ListItem::Checkbox>
     <Hds::Dropdown::ListItem::Checkbox @value="Planning">Planning</Hds::Dropdown::ListItem::Checkbox>
-  </Doc::ListContainer>
+  </ul>
 </div>
 
 
@@ -184,14 +184,14 @@ A Header provides a fixed space at the top of the List. Typically, Headers house
   <Hds::Dropdown::Header @hasDivider={{true}}>
     <Hds::Form::TextInput::Base @type="search" placeholder="Search" />
   </Hds::Dropdown::Header>
-  <Doc::ListContainer class="hds-dropdown__list">
+  <ul class="hds-dropdown__list">
     <Hds::Dropdown::ListItem::Checkbox @value="Planned">Planned</Hds::Dropdown::ListItem::Checkbox>
     <Hds::Dropdown::ListItem::Checkbox @value="Policy override">Policy override</Hds::Dropdown::ListItem::Checkbox>
     <Hds::Dropdown::ListItem::Checkbox @value="Policy checked">Policy checked</Hds::Dropdown::ListItem::Checkbox>
     <Hds::Dropdown::ListItem::Checkbox @value="Cost estimated">Cost estimated</Hds::Dropdown::ListItem::Checkbox>
     <Hds::Dropdown::ListItem::Checkbox @value="Errored">Errored</Hds::Dropdown::ListItem::Checkbox>
     <Hds::Dropdown::ListItem::Checkbox @value="Fetched">Fetched</Hds::Dropdown::ListItem::Checkbox>
-  </Doc::ListContainer>
+  </ul>
 </div>
 
 ### Footer
@@ -199,14 +199,14 @@ A Header provides a fixed space at the top of the List. Typically, Headers house
 A Footer provides a fixed space at the bottom of the List. Typically, Footers house actions related to the ListItems, e.g., when found in a filtering pattern an "Apply" Button can be used to submit the selections.
 
 <div class="hds-dropdown__content">
-  <Doc::ListContainer class="hds-dropdown__list">
+  <ul class="hds-dropdown__list">
     <Hds::Dropdown::ListItem::Checkbox @value="Planned">Planned</Hds::Dropdown::ListItem::Checkbox>
     <Hds::Dropdown::ListItem::Checkbox @value="Policy override">Policy override</Hds::Dropdown::ListItem::Checkbox>
     <Hds::Dropdown::ListItem::Checkbox @value="Policy checked">Policy checked</Hds::Dropdown::ListItem::Checkbox>
     <Hds::Dropdown::ListItem::Checkbox @value="Cost estimated">Cost estimated</Hds::Dropdown::ListItem::Checkbox>
     <Hds::Dropdown::ListItem::Checkbox @value="Errored">Errored</Hds::Dropdown::ListItem::Checkbox>
     <Hds::Dropdown::ListItem::Checkbox @value="Fetched">Fetched</Hds::Dropdown::ListItem::Checkbox>
-  </Doc::ListContainer>
+  </ul>
   <Hds::Dropdown::Footer @hasDivider={{true}}>
     <Hds::ButtonSet>
       <Hds::Button @text="Apply" type="submit" @size="small" @isFullWidth={{true}} />
@@ -292,13 +292,13 @@ Icons in ListItems are optional. Generally, we recommend letting the text speak 
 Use icons consistently and when they reinforce the content.
 
 <div class="hds-dropdown__content">
-  <Doc::ListContainer class="hds-dropdown__list">
+  <ul class="hds-dropdown__list">
     <Hds::Dropdown::ListItem::Interactive @text="Rename cluster" @color="action" @icon="edit" />
     <Hds::Dropdown::ListItem::Interactive @text="Restore cluster" @color="action" @icon="reload" />
     <Hds::Dropdown::ListItem::Interactive @text="Reference cluster" @color="action" @icon="github" @trailingIcon="external-link" />
     <Hds::Dropdown::ListItem::Separator />
     <Hds::Dropdown::ListItem::Interactive @text="Delete cluster" @color="critical" @icon="trash" />
-  </Doc::ListContainer>
+  </ul>
 </div>
 !!!
 
@@ -307,12 +307,12 @@ Use icons consistently and when they reinforce the content.
 Avoid inconsistent icon use.
 
 <div class="hds-dropdown__content">
-  <Doc::ListContainer class="hds-dropdown__list">
+  <ul class="hds-dropdown__list">
     <Hds::Dropdown::ListItem::Interactive @text="Rename cluster" @color="action" />
     <Hds::Dropdown::ListItem::Interactive @text="Restore cluster" @color="action" @icon="reload" />
     <Hds::Dropdown::ListItem::Separator />
     <Hds::Dropdown::ListItem::Interactive @text="Delete cluster" @color="critical" @icon="trash" />
-  </Doc::ListContainer>
+  </ul>
 </div>
 !!!
 

@@ -181,19 +181,17 @@ It is possible that you may want to add a list footer for things like a set of b
 If you add an event handler (no `@href` or `@route`), a `<button>` element will be rendered:
 
 ```handlebars
-{{!-- The Doc::ListContainer component is just to help the component render properly --}}
-<Doc::ListContainer class="hds-dropdown__list">
+<ul class="hds-dropdown__list">
   <Hds::Dropdown::ListItem::Interactive {{on "click" this.myAction}} @text="Run command" />
-</Doc::ListContainer>
+</ul>
 ```
 
 You can pass an `@icon` argument to add a leading icon:
 
 ```handlebars
-{{!-- The Doc::ListContainer component is just to help the component render properly --}}
-<Doc::ListContainer class="hds-dropdown__list">
+<ul class="hds-dropdown__list">
   <Hds::Dropdown::ListItem::Interactive {{on "click" this.myAction}} @text="Run command" @icon="build" />
-</Doc::ListContainer>
+</ul>
 ```
 
 #### Rendering a link with `@href`
@@ -208,19 +206,17 @@ When using the `@href` argument, you’re indicating an external link (instead o
 If you pass an `@href` argument, a link (`<a>` element) will be generated:
 
 ```handlebars
-{{!-- The Doc::ListContainer component is just to help the component render properly --}}
-<Doc::ListContainer class="hds-dropdown__list">
+<ul class="hds-dropdown__list">
   <Hds::Dropdown::ListItem::Interactive @href="https://www.hashicorp.com/request-demo/terraform" @text="Request a demo" />
-</Doc::ListContainer>
+</ul>
 ```
 
 To indicate that the link points to an external resource, you can use `@trailingIcon` and assign it an icon name like `external-link`, `docs-link`, `guide-link`, or `learn-link`.
 
 ```handlebars
-{{!-- The Doc::ListContainer component is just to help the component render properly --}}
-<Doc::ListContainer class="hds-dropdown__list">
+<ul class="hds-dropdown__list">
   <Hds::Dropdown::ListItem::Interactive @href="https://www.hashicorp.com/request-demo/terraform" @text="Request a demo" @trailingIcon="external-link" />
-</Doc::ListContainer>
+</ul>
 ```
 
 #### Rendering a LinkTo (with `@route`)
@@ -228,10 +224,9 @@ To indicate that the link points to an external resource, you can use `@trailing
 Pass a `@route` to render Ember `<LinkTo>`. If the route is external to your current engine, pass `@isRouteExternal={{true}}` to use `<LinkToExternal>` instead of `<LinkTo>`. For more details see the [Hds::Interactive component](/utilities/interactive/) documentation. All the standard arguments for the `<LinkTo/LinkToExternal>` components are supported (e.g., `models/model/query/current-when/replace`).
 
 ```handlebars
-{{!-- The Doc::ListContainer component is just to help the component render properly --}}
-<Doc::ListContainer class="hds-dropdown__list">
+<ul class="hds-dropdown__list">
   <Hds::Dropdown::ListItem::Interactive @route="my.page.route" @model="my.page.model" @text="Activate cluster" />
-</Doc::ListContainer>
+</ul>
 ```
 
 #### With a loading “interactive” item
