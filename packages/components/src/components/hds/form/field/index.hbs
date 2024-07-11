@@ -1,4 +1,3 @@
-{{! @glint-nocheck: not typesafe yet }}
 {{!
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
@@ -26,6 +25,7 @@
     )
   }}
   <div class="hds-form-field__control">
+    {{! @glint-expect-error }}
     {{yield (hash Control=(component "hds/yield") id=this.id ariaDescribedBy=this.ariaDescribedBy)}}
   </div>
   {{yield

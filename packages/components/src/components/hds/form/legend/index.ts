@@ -5,14 +5,28 @@
 
 import Component from '@glimmer/component';
 
-export default class HdsFormLegendIndexComponent extends Component {
+import type { HdsFormIndicatorSignature } from '../indicator';
+
+interface HdsFormLegendSignature {
+  Args: {
+    contextualClass?: string;
+    isOptional?: HdsFormIndicatorSignature['Args']['isOptional'];
+    isRequired?: HdsFormIndicatorSignature['Args']['isRequired'];
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLLegendElement;
+}
+
+export default class HdsFormLegendComponent extends Component<HdsFormLegendSignature> {
   /**
    * Get the class names to apply to the component.
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
-    let classes = ['hds-form-legend'];
+  get classNames(): string {
+    const classes = ['hds-form-legend'];
 
     // add typographic classes
     classes.push('hds-typography-body-200', 'hds-font-weight-semibold');

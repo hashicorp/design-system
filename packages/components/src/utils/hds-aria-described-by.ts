@@ -6,23 +6,25 @@
 import { tracked } from '@glimmer/tracking';
 import { scheduleOnce } from '@ember/runloop';
 import type Component from '@glimmer/component';
+import type { HdsFormFieldSignature } from '../components/hds/form/field/';
+import type { HdsFormFieldsetSignature } from '../components/hds/form/fieldset/';
 
 type ElementSet = Set<HTMLElement>;
 
 class AriaDescriptorMap {
   private _elements = new WeakMap<AriaDescribedByComponent, ElementSet>();
 
-  register(obj: AriaDescribedByComponent, element: HTMLElement) {
+  register(obj: AriaDescribedByComponent, element: HTMLElement): void {
     const elements = this.findOrCreateElementSet(obj);
     elements.add(element);
   }
 
-  unregister(obj: AriaDescribedByComponent, element: HTMLElement) {
+  unregister(obj: AriaDescribedByComponent, element: HTMLElement): void {
     const elements = this.findOrCreateElementSet(obj);
     elements.delete(element);
   }
 
-  entries(obj: AriaDescribedByComponent) {
+  entries(obj: AriaDescribedByComponent): HTMLElement[] {
     const elements = this.findOrCreateElementSet(obj);
     return Array.from(elements.values());
   }
@@ -40,19 +42,16 @@ class AriaDescriptorMap {
 
 const ariaDescriptorMap = new AriaDescriptorMap();
 
-interface AriaDescribedByArgs {
-  Args: {
-    extraAriaDescribedBy: string;
-  };
-}
+type AriaDescribedByArgs = HdsFormFieldSignature & HdsFormFieldsetSignature;
 
 interface AriaDescribedByComponent extends Component<AriaDescribedByArgs> {
-  __ARIA_DESCRIPTION_IDS__: string[];
-  ariaDescribedBy: string;
+  __ARIA_DESCRIPTION_IDS__?: string[];
+  ariaDescribedBy?: string;
 }
 
 // essentially a type that says we return a subclass of the given type T
-type ClassOf<T> = new () => T;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type ClassOf<T> = new (owner: unknown, ...args: any[]) => T;
 
 export function ariaDescribedBy(
   BaseComponent: ClassOf<AriaDescribedByComponent>
@@ -60,7 +59,7 @@ export function ariaDescribedBy(
   class EnhancedComponent extends BaseComponent {
     @tracked __ARIA_DESCRIPTION_IDS__: string[] = [];
 
-    get ariaDescribedBy() {
+    get ariaDescribedBy(): string {
       let descriptors = this.__ARIA_DESCRIPTION_IDS__;
 
       if (this.args.extraAriaDescribedBy) {
@@ -73,16 +72,18 @@ export function ariaDescribedBy(
   return EnhancedComponent;
 }
 
-function synchronizeDescriptors(component: AriaDescribedByComponent) {
+function synchronizeDescriptors(component: AriaDescribedByComponent): void {
   if (component.isDestroying || component.isDestroyed) return;
   const descriptors = ariaDescriptorMap.entries(component);
-  component.__ARIA_DESCRIPTION_IDS__ = descriptors.map((element) => element.id);
+  component.__ARIA_DESCRIPTION_IDS__ = descriptors.map(
+    (element): string => element.id
+  );
 }
 
 export function registerAriaDescriptionElement(
   component: AriaDescribedByComponent,
   element: HTMLElement
-) {
+): void {
   ariaDescriptorMap.register(component, element);
   scheduleOnce('afterRender', component, synchronizeDescriptors, component);
 }
@@ -90,7 +91,7 @@ export function registerAriaDescriptionElement(
 export function unregisterAriaDescriptionElement(
   component: AriaDescribedByComponent,
   element: HTMLElement
-) {
+): void {
   ariaDescriptorMap.unregister(component, element);
   scheduleOnce('afterRender', component, synchronizeDescriptors, component);
 }
