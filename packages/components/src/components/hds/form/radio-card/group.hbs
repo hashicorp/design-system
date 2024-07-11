@@ -6,15 +6,13 @@
 <Hds::Form::Fieldset
   class="hds-form-group--radio-cards"
   @layout={{if (eq @layout "vertical") "vertical" "horizontal"}}
-  @name={{@name}}
   @isRequired={{@isRequired}}
   @isOptional={{@isOptional}}
   ...attributes
   as |F|
 >
   {{! Notice: the order of the elements is not relevant here, because it's controlled at "Hds::Form::Fieldset" component level }}
-  {{yield (hash Legend=F.Legend isRequired=F.isRequired isOptional=F.isOptional)}}
-  {{yield (hash HelperText=F.HelperText Error=F.Error)}}
+  {{yield (hash Legend=F.Legend HelperText=F.HelperText Error=F.Error)}}
   <F.Control>
     {{yield
       (hash

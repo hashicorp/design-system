@@ -32,7 +32,7 @@ export const ALIGNMENTS: string[] = Object.values(
   HdsFormRadioCardAlignmentValues
 );
 
-interface HdsFormRadioCardSignature {
+export interface HdsFormRadioCardSignature {
   Args: {
     name: string;
     value: string;
