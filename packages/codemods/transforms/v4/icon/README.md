@@ -19,6 +19,7 @@ node ./packages/codemods/bin/cli.js v4/icon path/to/some/glob/**/*.hbs
 ## Input
 
 ```hbs
+<FlightIcon @name="test" />
 <FlightIcon @name="test" @isInlineBlock={{false}} />
 <FlightIcon @name="test" @isInlineBlock={{true}} />
 ```
@@ -26,6 +27,7 @@ node ./packages/codemods/bin/cli.js v4/icon path/to/some/glob/**/*.hbs
 ## Output
 
 ```hbs
+<Hds::Icon @name="test" />
 <Hds::Icon @name="test" />
 <Hds::Icon @name="test" @isInline={{true}} />
 ```
