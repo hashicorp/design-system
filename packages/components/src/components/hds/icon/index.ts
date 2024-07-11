@@ -7,14 +7,15 @@ import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { assert } from '@ember/debug';
 import { iconNames } from '@hashicorp/flight-icons/svg';
-
+import { HdsIconSizeValues } from './types.ts';
+import type { HdsIconSizes } from './types';
 import type { IconName } from '@hashicorp/flight-icons/svg';
 
 export interface HdsIconSignature {
   Args: {
     name: IconName;
     color?: string;
-    size?: '16' | '24';
+    size?: HdsIconSizes;
     stretched?: boolean;
     isInline?: boolean;
     title?: string;
@@ -46,7 +47,7 @@ export default class HdsIcon extends Component<HdsIconSignature> {
   iconId = 'icon-' + guidFor(this);
 
   get size(): string {
-    return this.args.size ?? '16';
+    return this.args.size ?? HdsIconSizeValues.Sixteen;
   }
 
   get svgSize(): { width: string; height: string } {
