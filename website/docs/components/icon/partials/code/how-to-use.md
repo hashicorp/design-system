@@ -124,7 +124,7 @@ The [Hds::Button](/components/button?tab=code#icon-only-button) component automa
 The default value is `currentColor` which uses the inherited text color as the icon color. When setting a custom value, we recommend using one of the pre-defined variables to ensure consistency with our design language:
 
 ```handlebars
-<Hds::Icon @name="zap" @color="var(--brand)" />
+<Hds::Icon @name="zap" @color="var(--token-color-foreground-success)" />
 ```
 
 Other accepted values include named colors and color values themselves (e.g., hex, rgb, etc).
@@ -147,7 +147,7 @@ The default size is 16px. To use the alternative 24px icon size, set the `@size`
 
 ### Stretched
 
-To have the icon fill the parent container (width: 100%, height: 100%, display: block), set the `@stretched` attribute to true:
+To have the icon fill the parent container (width: 100%, height: 100%), set the `@stretched` attribute to true:
 
 ```handlebars
 <div class="doc-icon-demo--constrain-max-width">
