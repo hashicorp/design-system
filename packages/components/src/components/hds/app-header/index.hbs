@@ -22,9 +22,8 @@
       @isOpen={{this.isOpen}}
       @menuContentId={{this.menuContentId}}
     />
-
-    {{! Intended for: Search, HelpMenu, GeoPicker, UserMenu }}
     <div class="hds-app-header__menu" id={{this.menuContentId}}>
+      {{! GlobalItemsAfter content appears within menu in mobile/tablet view (hidden in desktop view) }}
       <div class="hds-app-header__global-items-in-menu">
         {{yield to="globalItemsAfter"}}
       </div>
