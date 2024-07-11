@@ -36,6 +36,9 @@ import type HdsCopySnippetComponent from './components/hds/copy/snippet';
 import type HdsDisclosurePrimitiveComponent from './components/hds/disclosure-primitive';
 import type HdsDismissButtonComponent from './components/hds/dismiss-button';
 import type HdsFormCharacterCountComponent from './components/hds/form/character-count';
+import type HdsFormCheckboxBaseComponent from './components/hds/form/checkbox/base';
+import type HdsFormCheckboxFieldComponent from './components/hds/form/checkbox/field';
+import type HdsFormCheckboxGroupComponent from './components/hds/form/checkbox/group';
 import type HdsFormErrorComponent from './components/hds/form/error';
 import type HdsFormErrorMessageComponent from './components/hds/form/error/message';
 import type HdsFormFieldComponent from './components/hds/form/field';
@@ -212,6 +215,16 @@ export default interface HdsComponentsRegistry {
   // Form CharacterCount
   'Hds::Form::CharacterCount': typeof HdsFormCharacterCountComponent;
   'hds/form/character-count': typeof HdsFormCharacterCountComponent;
+
+  // Form Checkbox
+  'Hds::Form::Checkbox::Base': typeof HdsFormCheckboxBaseComponent;
+  'hds/form/checkbox/base': typeof HdsFormCheckboxBaseComponent;
+
+  'Hds::Form::Checkbox::Field': typeof HdsFormCheckboxFieldComponent;
+  'hds/form/checkbox/field': typeof HdsFormCheckboxFieldComponent;
+
+  'Hds::Form::Checkbox::Group': typeof HdsFormCheckboxGroupComponent;
+  'hds/form/checkbox/group': typeof HdsFormCheckboxGroupComponent;
 
   // Form Error
   'Hds::Form::Error': typeof HdsFormErrorComponent;
