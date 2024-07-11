@@ -10,10 +10,10 @@
       <code class="doc-component-api__property-type">{{@type}}</code>
     {{/if}}
     {{#if @required}}
-      <code class="doc-component-api__property-required">required</code>
+      <Doc::Badge @type="critical-inverted">Required</Doc::Badge>
     {{/if}}
     {{#if @deprecated}}
-      <Doc::Badge class="doc-component-api__property-deprecated" @type="warning" @size="medium">Deprecated</Doc::Badge>
+      <Doc::Badge @type="warning" @size="medium">Deprecated</Doc::Badge>
     {{/if}}
   </div>
   {{#if (or @values @valueNote)}}

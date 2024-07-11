@@ -59,12 +59,6 @@
   color: var(--doc-color-gray-100);
 }
 
-.doc-component-api__property-required {
-  @include doc-font-style-code ();
-  display: inline-block;
-  color: #ba2226; // it's an HDS color, so we use its corresponding hex value
-}
-
 // second row - values
 
 .doc-component-api__property-values {
