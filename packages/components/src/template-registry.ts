@@ -43,6 +43,8 @@ import type HdsFormErrorComponent from './components/hds/form/error';
 import type HdsFormErrorMessageComponent from './components/hds/form/error/message';
 import type HdsFormFieldComponent from './components/hds/form/field';
 import type HdsFormFieldsetComponent from './components/hds/form/fieldset';
+import type HdsFormFileInputBaseComponent from './components/hds/form/file-input/base';
+import type HdsFormFileInputFieldComponent from './components/hds/form/file-input/field';
 import type HdsFormHelperTextComponent from './components/hds/form/helper-text';
 import type HdsFormIndicatorComponent from './components/hds/form/indicator';
 import type HdsFormLabelComponent from './components/hds/form/label';
@@ -251,6 +253,13 @@ export default interface HdsComponentsRegistry {
   // Form Fieldset
   'Hds::Form::Fieldset': typeof HdsFormFieldsetComponent;
   'hds/form/fieldset': typeof HdsFormFieldsetComponent;
+
+  // Form FileInput
+  'Hds::Form::FileInput::Base': typeof HdsFormFileInputBaseComponent;
+  'hds/form/file-input/base': typeof HdsFormFileInputBaseComponent;
+
+  'Hds::Form::FileInput::Field': typeof HdsFormFileInputFieldComponent;
+  'hds/form/file-input/field': typeof HdsFormFileInputFieldComponent;
 
   // Form HelperText
   'Hds::Form::HelperText': typeof HdsFormHelperTextComponent;
