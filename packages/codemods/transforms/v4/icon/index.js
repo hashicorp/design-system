@@ -8,10 +8,9 @@ module.exports = function ({ source /*, path*/ }, { parse, visit }) {
 
   const updateIsInlineBlockAttribute = (attributes) => {
     const indexOfIsInlineBlockAttr = attributes.findIndex((a) => a.name === '@isInlineBlock');
-    const hasIsInlineBlockAttr = indexOfIsInlineBlockAttr !== -1;
 
     // @isInlineBlock attr has been set on the element
-    if (hasIsInlineBlockAttr) {
+    if (indexOfIsInlineBlockAttr !== -1) {
       const isInlineBlockAttr = attributes[indexOfIsInlineBlockAttr];
       const isInlineBlockAttrIsTrue = isInlineBlockAttr.value === 'true';
 
