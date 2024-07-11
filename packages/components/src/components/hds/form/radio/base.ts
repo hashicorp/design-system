@@ -1,6 +1,6 @@
 import templateOnlyComponent from '@ember/component/template-only';
 
-interface HdsFormRadioBaseSignature {
+export interface HdsFormRadioBaseSignature {
   Args: {
     value?: string;
   };
