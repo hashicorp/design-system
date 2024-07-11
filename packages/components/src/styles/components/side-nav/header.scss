@@ -61,7 +61,8 @@
 
 // Apply dark theme to child interactive components
 .hds-side-nav__dropdown, // deprecated classname
-.hds-side-nav {
+.hds-side-nav,
+.hds-side-nav-header {
   .hds-button,
   .hds-dropdown-toggle-button, 
   .hds-dropdown-toggle-icon {
