@@ -6,14 +6,14 @@
 <li class={{this.classNames}} ...attributes>
   {{#if @route}}
     <LinkTo class="doc-cards-card__link" @route={{@route}} @model={{@model}}>
-      {{#if @status.deprecated}}
-        <Doc::Badge class="doc-cards-card__badge" @type="warning-inverted" @size="medium">Deprecated</Doc::Badge>
-      {{else if @status.updated}}
-        <Doc::Badge class="doc-cards-card__badge" @type="neutral-inverted" @size="medium">Updated</Doc::Badge>
-      {{/if}}
       <img class="doc-cards-card__image" src={{@image}} alt="" role="presentation" />
       <div class="doc-cards-card__details">
         <p class="doc-cards-card__title">{{@title}}</p>
+        {{#if @status.deprecated}}
+          <Doc::Badge class="doc-cards-card__badge" @type="warning-inverted" @size="medium">Deprecated</Doc::Badge>
+        {{else if @status.updated}}
+          <Doc::Badge class="doc-cards-card__badge" @type="neutral-inverted" @size="medium">Updated</Doc::Badge>
+        {{/if}}
         <p class="doc-cards-card_description">{{@caption}}</p>
       </div>
     </LinkTo>
@@ -23,6 +23,11 @@
       <img class="doc-cards-card__image" src={{@image}} alt="" role="presentation" />
       <div class="doc-cards-card__details">
         <p class="doc-cards-card__title">{{@title}}</p>
+        {{#if @status.deprecated}}
+          <Doc::Badge class="doc-cards-card__badge" @type="warning-inverted" @size="medium">Deprecated</Doc::Badge>
+        {{else if @status.updated}}
+          <Doc::Badge class="doc-cards-card__badge" @type="neutral-inverted" @size="medium">Updated</Doc::Badge>
+        {{/if}}
         <p class="doc-cards-card_description">{{@caption}}</p>
       </div>
     </a>
