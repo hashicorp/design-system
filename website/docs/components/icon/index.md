@@ -2,8 +2,7 @@
 title: Icon
 description: Used to display an icon.
 caption: Used to display an icon.
-navigation:
-  keywords: ['icon']
+previewImage: assets/illustrations/icons/usage-guidelines.jpg
 ---
 
 <section data-tab="Guidelines">
