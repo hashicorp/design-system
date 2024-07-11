@@ -120,3 +120,10 @@ pre[class*="language-"].doc-markdown-pre.doc-code-block__code-snippet + pre[clas
     margin-top: 32px;
   }
 }
+
+.doc-badge,
+.doc-layout {
+  + .doc-markdown-p {
+    margin-top: 16px;
+  }
+}
