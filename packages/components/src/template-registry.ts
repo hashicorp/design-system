@@ -39,6 +39,7 @@ import type HdsFormCharacterCountComponent from './components/hds/form/character
 import type HdsFormErrorComponent from './components/hds/form/error';
 import type HdsFormErrorMessageComponent from './components/hds/form/error/message';
 import type HdsFormFieldComponent from './components/hds/form/field';
+import type HdsFormFieldsetComponent from './components/hds/form/fieldset';
 import type HdsFormHelperTextComponent from './components/hds/form/helper-text';
 import type HdsFormIndicatorComponent from './components/hds/form/indicator';
 import type HdsFormLabelComponent from './components/hds/form/label';
@@ -223,6 +224,10 @@ export default interface HdsComponentsRegistry {
   // Form Field
   'Hds::Form::Field': typeof HdsFormFieldComponent;
   'hds/form/field': typeof HdsFormFieldComponent;
+
+  // Form Fieldset
+  'Hds::Form::Fieldset': typeof HdsFormFieldsetComponent;
+  'hds/form/fieldset': typeof HdsFormFieldsetComponent;
 
   // Form HelperText
   'Hds::Form::HelperText': typeof HdsFormHelperTextComponent;
