@@ -65,7 +65,10 @@ $doc-toc-item-inset: 8px;
 
 .doc-table-of-contents__link {
   @include doc-font-style-navigation();
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
   padding-top: $doc-toc-item-inset;
   padding-right: $doc-toc-item-inset;
   padding-bottom: $doc-toc-item-inset;

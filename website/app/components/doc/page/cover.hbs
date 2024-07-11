@@ -6,6 +6,9 @@
 <div class="doc-page-cover" ...attributes>
   <div class="doc-page-cover__title-extra-wrapper">
     <h1 class="doc-page-cover__title">{{@title}}</h1>
+    {{#if @status}}
+      <Doc::Badge @type={{@status.type}}>{{@status.label}}</Doc::Badge>
+    {{/if}}
     <div class="doc-page-cover__extra">
       {{#if this.links}}
         {{#each-in this.links as |service url|}}

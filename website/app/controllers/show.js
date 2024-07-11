@@ -85,6 +85,29 @@ export default class ShowController extends Controller {
     return this.model.frontmatter?.description ?? false;
   }
 
+  get status() {
+    if (this.model.frontmatter?.status) {
+      let type;
+      let version;
+      let label;
+      if (this.model.frontmatter?.status?.deprecated) {
+        type = 'warning';
+        label = 'Deprecated';
+        version = this.model.frontmatter?.status?.deprecated;
+      } else if (this.model.frontmatter?.status?.updated) {
+        type = 'neutral';
+        label = 'Updated';
+        version = this.model.frontmatter?.status?.updated;
+      }
+      if (version.match(/^\d+\.\d+\.\d+$/)) {
+        label += ` in v${version}`;
+      }
+      return { type, label };
+    } else {
+      return null;
+    }
+  }
+
   get extra() {
     let { links } = this.model.frontmatter;
     return { links };

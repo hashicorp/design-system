@@ -20,6 +20,11 @@
             {{item.pageAttributes.navigation.label}}
           {{else}}
             {{item.pageAttributes.title}}
+            {{#if item.pageAttributes.status.deprecated}}
+              <Doc::Badge @type="warning-inverted" @size="medium">Deprecated</Doc::Badge>
+            {{else if item.pageAttributes.status.updated}}
+              <Doc::Badge @type="neutral-inverted" @size="medium">Updated</Doc::Badge>
+            {{/if}}
           {{/if}}
         </LinkTo>
       {{else}}
