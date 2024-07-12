@@ -599,7 +599,7 @@
                   Lorem ipsum dolor
                 {{/if}}
                 {{#if (eq toggle "icon")}}
-                  <FlightIcon @name="org" @isInlineBlock={{false}} />
+                  <Hds::Icon @name="org" />
                 {{/if}}
                 {{#if (eq toggle "badge")}}
                   <Hds::Badge @text="Lorem ipsum" @color="neutral" @icon="hexagon" type="outlined" />
@@ -866,7 +866,7 @@
             </B.Td>
             <B.Td>
               <div class="shw-component-rich-tooltip-demo-table-cell-content-flex">
-                <FlightIcon @name={{B.data.cluster-icon}} />
+                <Hds::Icon @name={{B.data.cluster-icon}} />
                 <div>
                   <Hds::RichTooltip as |RT|>
                     <RT.Toggle @text={{B.data.cluster-partition}} />
