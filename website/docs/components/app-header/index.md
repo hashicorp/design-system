@@ -1,14 +1,14 @@
 ---
-title: AppHeader
+title: App Header
 description: {Optional long description that appears in the cover}
 caption: {Short description that appears in the cards}
 links:
   figma: {link to the "AppHeader" page in the components Figma library}
   github: {link to the "AppHeader" component's folder in the GitHub repo}
-related: ['path/to/component', 'path/to/pattern']
+related: ['components/side-nav', 'components/app-footer']
 previewImage: assets/illustrations/components/app-header.jpg
 navigation:
-  keywords: ['add', 'alternate', 'keywords', 'here']
+  keywords: ['navigation', 'navbar']
 ---
 
 <section data-tab="Guidelines">
@@ -23,7 +23,6 @@ navigation:
 
 <section data-tab="Specifications">
   @include "partials/specifications/anatomy.md"
-  @include "partials/specifications/states.md"
 </section>
 
 <section data-tab="Accessibility">
