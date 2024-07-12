@@ -9,7 +9,7 @@
     <Hds::Form::Radio::Base class="hds-dropdown-list-item__control" id={{this.id}} @value={{@value}} ...attributes />
     {{#if @icon}}
       <div class="hds-dropdown-list-item__icon">
-        <FlightIcon @name={{@icon}} @isInlineBlock={{false}} />
+        <Hds::Icon @name={{@icon}} />
       </div>
     {{/if}}
     <span class="hds-dropdown-list-item__text-content">{{yield}}</span>
