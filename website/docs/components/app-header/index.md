@@ -1,7 +1,7 @@
 ---
 title: App Header
-description: {Optional long description that appears in the cover}
-caption: {Short description that appears in the cards}
+description: A header navigation that provides access to global elements and application utilities.
+caption: Used as a global and utility navigation within an application.
 links:
   figma: {link to the "AppHeader" page in the components Figma library}
   github: {link to the "AppHeader" component's folder in the GitHub repo}
