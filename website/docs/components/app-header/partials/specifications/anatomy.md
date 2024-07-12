@@ -1,15 +1,29 @@
 ## Anatomy
 
-<!-- image then table -->
-![Anatomy of appHeader](/assets/components/alert/app-header-anatomy-inline.png)
+### Large
 
-<!-- this is just an example, refer to other components to see how to fill this table -->
-| Element          | Usage                                           |
-|------------------|-------------------------------------------------|
-| Icon             | Optional, but recommended                       |
-| Title            | Required, if no description Optional, otherwise |
-| Description      | Required, if no title Optional, otherwise       |
-| Actions          | Optional                                        |
-| Dismiss button   | Optional                                        |
-| Content          | Required                                        |
-| Container        | Required                                        |
+![Anatomy of the large App Header](/assets/components/app-header/app-header-anatomy-large.png)
+
+| Element          | Usage                                     |
+|------------------|-------------------------------------------|
+| **Global**       |                                           |
+| Home link        | Required; supports multiple product logos |
+| Context switcher | Optional                                  |
+| **Utilies**      |                                           |
+| Help dropdown    | Optional, but highly recommend ([WCAG guidelines](https://www.w3.org/WAI/WCAG22/Understanding/consistent-help.html))     |
+| User dropdown    | Required                                  |
+| Search           | Optional                                  |
+
+### Small
+
+![Anatomy of the small App Header](/assets/components/app-header/app-header-anatomy-small.png)
+
+| Element          | Usage                                     |
+|------------------|-------------------------------------------|
+| Home link        | Required; supports multiple product logos |
+| Menu button      | Required                                  |
+| Context switcher | Optional                                  |
+| **Menu**         |                                           |
+| Help dropdown    | Optional, but highly recommend ([WCAG guidelines](https://www.w3.org/WAI/WCAG22/Understanding/consistent-help.html))     |
+| User dropdown    | Required                                  |
+| Search           | Optional                                  |
