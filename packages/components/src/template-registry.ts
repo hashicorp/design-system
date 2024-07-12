@@ -49,6 +49,8 @@ import type HdsFormHelperTextComponent from './components/hds/form/helper-text';
 import type HdsFormIndicatorComponent from './components/hds/form/indicator';
 import type HdsFormLabelComponent from './components/hds/form/label';
 import type HdsFormLegendComponent from './components/hds/form/legend';
+import type HdsFormMaskedInputBaseComponent from './components/hds/form/masked-input/base';
+import type HdsFormMaskedInputFieldComponent from './components/hds/form/masked-input/field';
 import type HdsFormRadioBaseComponent from './components/hds/form/radio/base';
 import type HdsFormRadioFieldComponent from './components/hds/form/radio/field';
 import type HdsFormRadioGroupComponent from './components/hds/form/radio/group';
@@ -282,6 +284,13 @@ export default interface HdsComponentsRegistry {
   // Form Legend
   'Hds::Form::Legend': typeof HdsFormLegendComponent;
   'hds/form/legend': typeof HdsFormLegendComponent;
+
+  // Form MaskedInput
+  'Hds::Form::MaskedInput::Base': typeof HdsFormMaskedInputBaseComponent;
+  'hds/form/masked-input/base': typeof HdsFormMaskedInputBaseComponent;
+
+  'Hds::Form::MaskedInput::Field': typeof HdsFormMaskedInputFieldComponent;
+  'hds/form/masked-input/field': typeof HdsFormMaskedInputFieldComponent;
 
   // Form Radio
   'Hds::Form::Radio::Base': typeof HdsFormRadioBaseComponent;
