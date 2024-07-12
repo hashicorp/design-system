@@ -4,15 +4,32 @@
  */
 
 import Component from '@glimmer/component';
+import type { ComponentLike } from '@glint/template';
+import type { HdsYieldSignature } from '../../yield';
 
-export default class HdsFormSelectBaseComponent extends Component {
+interface HdsFormSelectBaseSignature {
+  Args: {
+    isInvalid?: boolean;
+    width?: string;
+  };
+  Blocks: {
+    default: [
+      {
+        Options?: ComponentLike<HdsYieldSignature>;
+      },
+    ];
+  };
+  Element: HTMLSelectElement;
+}
+
+export default class HdsFormSelectBaseComponent extends Component<HdsFormSelectBaseSignature> {
   /**
    * Get the class names to apply to the component.
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
-    let classes = ['hds-form-select'];
+  get classNames(): string {
+    const classes = ['hds-form-select'];
 
     // add typographic classes
     classes.push('hds-typography-body-200', 'hds-font-weight-regular');
