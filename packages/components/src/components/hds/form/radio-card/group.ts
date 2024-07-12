@@ -11,13 +11,10 @@ import type {
 } from './types';
 
 interface HdsFormRadioCardGroupSignature {
-  Args: {
+  Args: HdsFormFieldsetSignature['Args'] & {
     controlPosition: HdsFormRadioCardControlPositions;
     alignment: HdsFormRadioCardAlignments;
     name?: string;
-    isOptional: boolean;
-    isRequired: boolean;
-    layout?: HdsFormFieldsetSignature['Args']['layout'];
   };
   Blocks: {
     default: [

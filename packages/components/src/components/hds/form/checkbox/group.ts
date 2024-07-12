@@ -7,11 +7,8 @@ import type { HdsFormCheckboxFieldSignature } from './field';
 import type { HdsFormErrorSignature } from '../error';
 
 interface HdsFormCheckboxGroupSignature {
-  Args: {
-    layout?: HdsFormFieldsetSignature['Args']['layout'];
+  Args: HdsFormFieldsetSignature['Args'] & {
     name?: string;
-    isRequired?: boolean;
-    isOptional?: boolean;
   };
   Blocks: {
     default: [

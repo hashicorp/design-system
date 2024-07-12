@@ -7,10 +7,8 @@ import type { HdsFormToggleFieldSignature } from './field';
 import type { HdsFormErrorSignature } from '../error';
 
 interface HdsFormToggleGroupSignature {
-  Args: {
-    layout?: HdsFormFieldsetSignature['Args']['layout'];
-    isRequired?: boolean;
-    isOptional?: boolean;
+  Args: HdsFormFieldsetSignature['Args'] & {
+    name?: string;
   };
   Blocks: {
     default: [

@@ -7,11 +7,8 @@ import type { HdsFormRadioFieldSignature } from './field';
 import type { HdsFormErrorSignature } from '../error';
 
 interface HdsFormRadioGroupSignature {
-  Args: {
-    layout?: HdsFormFieldsetSignature['Args']['layout'];
+  Args: HdsFormFieldsetSignature['Args'] & {
     name?: string;
-    isRequired?: boolean;
-    isOptional?: boolean;
   };
   Blocks: {
     default: [
