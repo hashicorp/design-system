@@ -4,18 +4,17 @@
 }}
 
 <div class="doc-component-api__property">
-  <div class="doc-component-api__property-info">
-    <code class="doc-component-api__property-name">{{@name}}</code>
-    {{#if @type}}
-      <code class="doc-component-api__property-type">{{@type}}</code>
-    {{/if}}
-    {{#if @required}}
-      <Doc::Badge @type="critical-inverted">Required</Doc::Badge>
-    {{/if}}
-    {{#if @deprecated}}
-      <Doc::Badge @type="warning" @size="medium">Deprecated</Doc::Badge>
-    {{/if}}
-  </div>
+  {{#if @name}}
+    <div class="doc-component-api__property-info">
+      <code class="doc-component-api__property-name">{{@name}}</code>
+      {{#if @type}}
+        <code class="doc-component-api__property-type">{{@type}}</code>
+      {{/if}}
+      {{#if @required}}
+        <Doc::Badge @type="critical-inverted">Required</Doc::Badge>
+      {{/if}}
+    </div>
+  {{/if}}
   {{#if (or @values @valueNote)}}
     {{#if @values}}
       <ul class="doc-component-api__property-values" role="list">
