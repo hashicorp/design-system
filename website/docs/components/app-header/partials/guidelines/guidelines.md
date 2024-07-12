@@ -3,12 +3,12 @@
 ### When to use
 
 - Provide consistent global navigation across an application.
-- Offer quick access to important utilities such as search, help, and user settings.
+- Offer quick access to important utilities such as user settings, help, and search.
 - Establish a clear visual hierarchy and brand presence at the top of the application.
 
 ### When not to use
 
-- Navigate within subpages of an organization or project; instead, use the [Side Nav](/components/side-nav).
+- To navigate within subpages of an organization or project; instead, use the [Side Nav](/components/side-nav).
 
 ### Navigation hierarchy
 
@@ -25,9 +25,9 @@ In the hierarchy of navigational elements, the App Header sits at the top and is
 
 ### Home link
 
-The Home Link gives users quick, consistent access to the application's home page or dashboard.
+The home Link gives users quick, consistent access to the application's home page or dashboard.
 
-For cloud products, the icon should always be the `hcp`. For standalone or open-source products, it should be the product’s service icon (e.g. `terraform`).
+For cloud products, the icon should always be `hcp`. For standalone or open-source products, it should be the product’s service icon (e.g. `terraform`).
 
 ![Examples of the Home link using different logos](/assets/components/app-header/app-header-home-link.png)
 
@@ -82,7 +82,7 @@ In Figma, we publish a separate Menu component for UI’s and prototypes for sma
 
 ### Responsive characteristics
 
-By default (and if used within the App Frame), the App Header will occupy 100% of the viewport width. As the viewport width condenses, the components' controls will collapse into a menu that can be toggled open/closed with a menu button (shown conditionally based on the viewport width).
+By default (and if used within the App Frame), the App Header will occupy 100% of the viewport width. As the viewport width condenses, the components' controls will collapse into a menu that can be toggled open/closed with the menu button (shown conditionally based on the viewport width).
 
 At smaller viewports, the menu containing the App Header controls will occupy 100% of the viewport height and prevent scrolling content on the main page.
 
