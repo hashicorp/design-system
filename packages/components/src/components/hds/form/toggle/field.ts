@@ -6,12 +6,8 @@ import type { HdsFormHelperTextSignature } from '../helper-text';
 import type { HdsFormErrorSignature } from '../error';
 
 export interface HdsFormToggleFieldSignature {
-  Args: {
-    id?: string;
+  Args: Omit<HdsFormFieldSignature['Args'], 'isOptional'> & {
     value?: string;
-    isRequired?: boolean;
-    contextualClass?: string;
-    extraAriaDescribedBy?: string;
   };
   Blocks: {
     default: [
