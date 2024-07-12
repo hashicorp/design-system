@@ -2,45 +2,12 @@
 
 ### When to use
 
-- To display the primary navigation of the application on a page.
+- When navigating between subpages and nested pages within the application.
 
 ### When not to use
 
-- To move between views within the same context or page, consider [Tabs](#).
-
-## Header
-
-The navigation header displays persistent UI elements that give users quick access to important sections and resources within the application or platform.
-
-### Home link
-
-The home link gives users consistent and quick access to the application's main page or section. Generally, the home or dashboard.
-
-For cloud products, the icon set should always be the HCP service icon. For standalone or open-source products, it should be the product’s service icon (e.g. Terraform).
-
-![Home link in side-nav's header](/assets/components/side-nav/header-logo.png)
-
-### Help dropdown
-
-Use the help dropdown to provide users with access to support and helpful resources that can be easily accessible from anywhere within the application—for example, links to the help center, documentation, or tutorials.
-
-Avoid placing non-help related links or actions, such as user settings or navigation links within the menu.
-
-![Help dropdown menu in side-nav's header](/assets/components/side-nav/help-dropdown.png)
-
-### User dropdown
-
-The user dropdown gives users quick and easy access to their settings and preferences. The menu should contain links or actions related to the user's profile, settings, and/or preferences.
-
-Avoid placing links to unrelated pages or actions, such as support or navigation items within the menu.
-
-![User dropdown menu in side-nav's header](/assets/components/side-nav/user-dropdown.png)
-
-### Custom content
-
-The `custom` type supports any custom content, local components, or Helios components within the header via an instance swap property (customInstance) in Figma.
-
-![Generic container within the side-nav header](/assets/components/side-nav/custom-header.png)
+- For global navigation across an application, use the [App Header](/components/app-header) instead.
+- To move between views within the same context or page, consider [Tabs](/components/tabs).
 
 ## Body
 
@@ -113,14 +80,6 @@ Use external links sparingly. Avoid using this property to link pages that are u
 Toggle `hasCustomContent` on to support any additional custom content, local components, or Helios components within the body container via an instance swap property (customInstance) in Figma.
 
 ![Generic container within the side-nav body](/assets/components/side-nav/custom-content-body.png)
-
-## Footer
-
-### Context switcher
-
-The context switcher allows users to switch between different contexts within your product or application. For example, the navigation or application can change based on a particular organization or workspace the user selects.
-
-![Context switcher](/assets/components/side-nav/footer-context-switcher.png)
 
 ## Positioning, and responsive behaviour
 
