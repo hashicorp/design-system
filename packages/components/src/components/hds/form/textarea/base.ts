@@ -5,14 +5,24 @@
 
 import Component from '@glimmer/component';
 
-export default class HdsFormTextareaBaseComponent extends Component {
+export interface HdsFormTextareaBaseSignature {
+  Args: {
+    isInvalid?: boolean;
+    value?: string;
+    width?: string;
+    height?: string;
+  };
+  Element: HTMLElement;
+}
+
+export default class HdsFormTextareaBaseComponent extends Component<HdsFormTextareaBaseSignature> {
   /**
    * Get the class names to apply to the component.
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
-    let classes = ['hds-form-textarea'];
+  get classNames(): string {
+    const classes = ['hds-form-textarea'];
 
     // add typographic classes
     classes.push('hds-typography-body-200', 'hds-font-weight-regular');
