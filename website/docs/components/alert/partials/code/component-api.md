@@ -1,6 +1,23 @@
 ## Component API
 
+### Alert
+
 <Doc::ComponentApi as |C|>
+  <C.Property @name="<[A].Title>" @type="yielded component">
+    `Alert::Title` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[A].Description>" @type="yielded component">
+    `Alert::Description` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[A].Button>" @type="yielded component">
+    `Button` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[A].LinkStandalone>" @type="yielded component">
+    `Link::Standalone` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[A].Generic>" @type="yielded component">
+    A generic container yielded as contextual component (see below).
+  </C.Property>
   <C.Property @name="type" @required={{true}} @type="enum" @values={{array "page" "inline" "compact"}}>
     Sets the type of alert.
   </C.Property>
@@ -20,22 +37,61 @@
 
 ### Contextual components
 
-Title, description, actions, and generic content are passed into the alert as yielded components, using the `Title`, `Description`, `Button`, `LinkStandalone`, `Generic` keys.
+#### [A].Title
+
+The `Alert::Title` component, yielded as contextual component.
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="<[A].Title>" @type="yielded component">
-    A container that yields its content inside the `"title"` block. Content inherits its style.<br/><br/>This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  <C.Property @name="yield">
+    Elements passed as children are yielded as inner content of the "title" block.
   </C.Property>
-  <C.Property @name="<[A].Description>" @type="yielded component">
-    A container that yields its content inside the `"description"` block. Content inherits its style.<br/><br/>Accepts complex content, such as logic/conditionals, HTML elements, other Ember components, etc. Styling is applied for simple HTML elements, such as `strong`, `em`, `a`, `code/pre`. Application teams will need to style the rest of the content.<br/><br/>This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
-  <C.Property @name="<[A].Button>" @type="yielded component">
-    A yielded `Hds::Button` component. It exposes the same API of the [`Button` component](/components/button), apart from the `@size` argument, which is pre-defined to be `small`, and the `@color` argument that accepts only `secondary` or `tertiary`.
+</Doc::ComponentApi>
+
+#### [A].Description
+
+The `Alert::Description` component, yielded as contextual component.
+
+<Doc::ComponentApi as |C|>
+  <C.Property @name="yield">
+    Elements passed as children are yielded as inner content of the "description" block.
+    <br/>Accepts complex content, such as logic/conditionals, HTML elements, other Ember components, etc.
+    <br/>Text content inherits its style. Predefined styling is applied for simple HTML elements, such as `strong`, `em`, `a`, `code/pre`, while consumers will need to style other HTML tags if used as children.
   </C.Property>
-  <C.Property @name="<[A].LinkStandalone>" @type="yielded component">
-    A yielded `Hds::Link::Standalone` component. It exposes the same API of the [`Link::Standalone` component](/components/link/standalone), apart from the `@size` argument, which is pre-defined to be `small`.
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
-  <C.Property @name="<[A].Generic>" @type="yielded component">
-    A component that yields its content.
+</Doc::ComponentApi>
+
+#### [A].Button
+
+The `Button` component, yielded as contextual component inside the `"actions"` block of the Alert.
+
+<Doc::ComponentApi as |C|>
+  <C.Property>
+    It exposes the same API of the [`Button`](/components/button) component, apart from the `@size` argument, which is pre-defined to be `small`, and the `@color` argument that accepts only `secondary` or `tertiary`.
+  </C.Property>
+</Doc::ComponentApi>
+
+#### [A].LinkStandalone
+
+The `Link::Standalone` component, yielded as contextual component inside the `"actions"` block of the Alert.
+
+<Doc::ComponentApi as |C|>
+  <C.Property>
+    It exposes the same API of the [`Link::Standalone`](/components/link/standalone) component, apart from the `@size` argument, which is pre-defined to be
+  </C.Property>
+</Doc::ComponentApi>
+
+#### [A].Generic
+
+A generic container, yielded as contextual component.
+
+<Doc::ComponentApi as |C|>
+  <C.Property @name="yield">
+    Elements passed as children are yielded after all the other elements.
+    <br/>The content is unstyled by default, so consumers will need to take care of layout and style of the content.
   </C.Property>
 </Doc::ComponentApi>

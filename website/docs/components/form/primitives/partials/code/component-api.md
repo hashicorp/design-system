@@ -13,7 +13,7 @@
     Appends an `Optional` indicator next to the label text when user input is optional.
   </C.Property>
   <C.Property @name="yield">
-    Elements passed as children are yielded as inner content of the `<label>` HTML element.
+    Elements passed as children are yielded as inner content of a `<label>` HTML element.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
@@ -92,7 +92,7 @@
     Appends an `Optional` indicator next to the label text when user input is optional.
   </C.Property>
   <C.Property @name="yield">
-    Elements passed as children are yielded as inner content of the `<legend>` HTML element.
+    Elements passed as children are yielded as inner content of a `<legend>` HTML element.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).

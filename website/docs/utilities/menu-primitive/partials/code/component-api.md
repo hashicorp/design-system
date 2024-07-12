@@ -1,5 +1,7 @@
 ## Component API
 
+### MenuPrimitive
+
 <Doc::ComponentApi as |C|>
   <C.Property @name="<:toggle>" @type="named block">
     A named block that works as "toggle" for the MenuPrimitive.

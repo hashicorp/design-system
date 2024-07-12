@@ -17,6 +17,9 @@ We provide two separate but related Stepper Indicator components that serve diff
   <C.Property @name="text" @type="string">
     Corresponds with the numerical value of the item’s index in an array of multiple steps.
   </C.Property>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
 </Doc::ComponentApi>
 
 ### Stepper::Task::Indicator
@@ -27,5 +30,8 @@ We provide two separate but related Stepper Indicator components that serve diff
   </C.Property>
   <C.Property @name="isInteractive" @type="boolean" @default="false">
     Sets interactivity of `Task::Indicator`.
+  </C.Property>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>

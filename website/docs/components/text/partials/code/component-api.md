@@ -27,7 +27,7 @@ The `Text` component is used through these specialized variants: `Hds::Text::Dis
     The color of the text expressed as one of the possible [foreground color](/foundations/colors?tab=palette#foreground-1) names. As a fallback solution to handle special cases, a valid CSS color string (hex, rgb, rgba, etc.) is also accepted (in this case the color will be applied via an inline style). If no `@color` argument is provided, the component will inherit its color from the parent container/context.
   </C.Property>
   <C.Property @name="yield">
-    Elements passed as children are yielded as inner content of the `<[@tag]>` HTML element.
+    Elements passed as children are yielded as inner content of a `<[@tag]>` HTML element.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
@@ -53,7 +53,7 @@ The `Text` component is used through these specialized variants: `Hds::Text::Dis
     The color of the text expressed as one of the possible [foreground color](/foundations/colors?tab=palette#foreground-1) names. As a fallback solution to handle special cases, a valid CSS color string (hex, rgb, rgba, etc.) is also accepted (in this case the color will be applied via an inline style). If no `@color` argument is provided, the component will inherit its color from the parent container/context.
   </C.Property>
   <C.Property @name="yield">
-    Elements passed as children are yielded as inner content of the `<[@tag]>` HTML element.
+    Elements passed as children are yielded as inner content of a `<[@tag]>` HTML element.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
@@ -79,7 +79,7 @@ The `Text` component is used through these specialized variants: `Hds::Text::Dis
     The color of the text expressed as one of the possible [foreground color](/foundations/colors?tab=palette#foreground-1) names. As a fallback solution to handle special cases, a valid CSS color string (hex, rgb, rgba, etc.) is also accepted (in this case the color will be applied via an inline style). If no `@color` argument is provided, the component will inherit its color from the parent container/context.
   </C.Property>
   <C.Property @name="yield">
-    Elements passed as children are yielded as inner content of the `<[@tag]>` HTML element.
+    Elements passed as children are yielded as inner content of a `<[@tag]>` HTML element.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).

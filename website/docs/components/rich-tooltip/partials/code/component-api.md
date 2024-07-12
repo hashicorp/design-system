@@ -1,5 +1,7 @@
 ## Component API
 
+### RichTooltip
+
 <Doc::ComponentApi as |C|>
   <C.Property @name="[RT].Toggle" @type="yielded component">
     The `RichTooltip::Toggle` component (see below).
@@ -41,11 +43,11 @@
 
 ### Contextual components
 
-The Toggle and Bubble elements are passed into the Rich Tooltip as yielded components, using the `Toggle` and `Bubble` keys.
+#### [RT].Toggle
 
-#### RichTooltip::Toggle
+The `RichTooltip::Toggle` component, yielded as contextual component.
 
-Standard toggle element to use, consisting of a text string and an optional icon, to ensure that the toggle is perceivable, visually consistent, and can be used inline with other content or standalone as part of the layout flow.
+The standard toggle element to use consists of a text string and an optional icon, to ensure that the toggle is perceivable, visually consistent, and can be used inline with other content or standalone as part of the layout flow.
 
 It can also be used with generic content, in which case consumers will need to ensure the component is used in a [conformant accessible way](/components/rich-tooltip?tab=accessibility).
 
@@ -83,9 +85,11 @@ It can also be used with generic content, in which case consumers will need to e
   </C.Property>
 </Doc::ComponentApi>
 
-#### RichTooltip::Bubble
+#### [RT].Bubble
 
-Generic container that yields its content inside the "tooltip" popover element.
+The `RichTooltip::Bubble` component, yielded as contextual component.
+
+Most of the arguments are forwarded as `anchoredPositionOptions` to the underlying [`PopoverPrimitive`](/utilities/popover-primitive#popoverprimitive) utility.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">

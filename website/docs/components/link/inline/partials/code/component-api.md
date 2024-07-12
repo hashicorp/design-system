@@ -1,5 +1,7 @@
 ## Component API
 
+### Link::Inline
+
 <Doc::ComponentApi as |C|>
   <C.Property @name="color" @type="enum" @values={{array "primary" "secondary" }} @default="primary"/>
   <C.Property @name="icon" @type="string">
@@ -21,7 +23,7 @@
     Controls if the “LinkTo” is external to the Ember engine, in which case it will use a `<LinkToExternal>` for the `@route`.
   </C.Property>
   <C.Property @name="yield">
-    Elements passed as children are yielded as inner content of the `<a>` HTML element.
+    Elements passed as children are yielded as inner content of an `<a>` HTML element.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).

@@ -1,5 +1,7 @@
 ## Component API
 
+### Link::Standalone
+
 <Doc::ComponentApi as |C|>
   <C.Property @name="size" @type="enum" @values={{array "small" "medium" "large" }} @default="medium"/>
   <C.Property @name="color" @type="enum" @values={{array "primary" "secondary" }} @default="primary"/>

@@ -1,5 +1,7 @@
 ## Component API
 
+### Card
+
 <Doc::ComponentApi as |C|>
   <C.Property @name="level" @type="enum" @values={{array "base" "mid" "high" }} @default="base">
     Controls the level of elevation (amount of "shadow" effect).

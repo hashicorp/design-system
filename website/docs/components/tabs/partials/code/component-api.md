@@ -1,14 +1,14 @@
 ## Component API
 
-The Tabs component is composed of different parts, with their own APIs:
-
-- `Tabs` container
-- `Tab` child components
-- `Panel` child components corresponding to each Tab
-
-### Tabs API
+### Tabs
 
 <Doc::ComponentApi as |C|>
+  <C.Property @name="<[T].Tab>" @type="yielded component">
+    `Tabs::Tab` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[T].Panel>" @type="yielded component">
+    `Tabs::Panel` yielded as contextual component (see below).
+  </C.Property>
   <C.Property @name="size" @type="enum" @values={{array "medium" "large" }} @default="medium">
     Sets the size of the `Tabs`.
   </C.Property>
@@ -28,7 +28,11 @@ The Tabs component is composed of different parts, with their own APIs:
   </C.Property>
 </Doc::ComponentApi>
 
-### Tabs::Tab API
+### Contextual components
+
+#### [T].Tab
+
+The `Tabs::Tab` component, yielded as contextual component.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="icon">
@@ -48,7 +52,9 @@ The Tabs component is composed of different parts, with their own APIs:
   </C.Property>
 </Doc::ComponentApi>
 
-### Tabs::Panel API
+#### [T].Panel
+
+The `Tabs::Panel` component, yielded as contextual component.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">

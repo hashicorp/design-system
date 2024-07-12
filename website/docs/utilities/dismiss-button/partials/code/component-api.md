@@ -1,5 +1,7 @@
 ## Component API
 
+### DismissButton
+
 <Doc::ComponentApi as |C|>
   <C.Property @name="ariaLabel" @type="string" @default="dismiss">
     Accepts a localized string.
