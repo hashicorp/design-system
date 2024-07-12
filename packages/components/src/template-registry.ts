@@ -60,6 +60,8 @@ import type HdsFormSelectBaseComponent from './components/hds/form/select/base';
 import type HdsFormSelectFieldComponent from './components/hds/form/select/field';
 import type HdsFormTextInputBaseComponent from './components/hds/form/text-input/base';
 import type HdsFormTextInputFieldComponent from './components/hds/form/text-input/field';
+import type HdsFormTextareaBaseComponent from './components/hds/form/textarea/base';
+import type HdsFormTextareaFieldComponent from './components/hds/form/textarea/field';
 import type HdsFormToggleBaseComponent from './components/hds/form/toggle/base';
 import type HdsFormToggleFieldComponent from './components/hds/form/toggle/field';
 import type HdsFormToggleGroupComponent from './components/hds/form/toggle/group';
@@ -317,6 +319,13 @@ export default interface HdsComponentsRegistry {
 
   'Hds::Form::TextInput::Field': typeof HdsFormTextInputFieldComponent;
   'hds/form/text-input/field': typeof HdsFormTextInputFieldComponent;
+
+  // Form Textarea
+  'Hds::Form::Textarea::Base': typeof HdsFormTextareaBaseComponent;
+  'hds/form/textarea/base': typeof HdsFormTextareaBaseComponent;
+
+  'Hds::Form::Textarea::Field': typeof HdsFormTextareaFieldComponent;
+  'hds/form/textarea/field': typeof HdsFormTextareaFieldComponent;
 
   // Form Toggle
   'Hds::Form::Toggle::Base': typeof HdsFormToggleBaseComponent;
