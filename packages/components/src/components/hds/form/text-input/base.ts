@@ -6,21 +6,27 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
+import { HdsFormTextInputTypeValues } from './types.ts';
+import type { HdsFormTextInputTypes } from './types.ts';
+
 // notice: we don't support all the possible HTML types, only a subset
 // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
-export const DEFAULT_TYPE = 'text';
-export const TYPES = [
-  'text',
-  'email',
-  'password',
-  'url',
-  'date',
-  'time',
-  'datetime-local',
-  'search',
-];
+export const DEFAULT_TYPE = HdsFormTextInputTypeValues.Text;
+export const TYPES: string[] = Object.values(HdsFormTextInputTypeValues);
 
-export default class HdsFormTextInputBaseComponent extends Component {
+export interface HdsFormTextInputBaseSignature {
+  Args: {
+    hasVisibilityToggle?: boolean;
+    isInvalid?: boolean;
+    isLoading?: boolean;
+    type?: HdsFormTextInputTypes;
+    value?: string;
+    width?: string;
+  };
+  Element: HTMLInputElement;
+}
+
+export default class HdsFormTextInputBaseComponent extends Component<HdsFormTextInputBaseSignature> {
   /**
    * Sets the type of input
    *
@@ -28,8 +34,8 @@ export default class HdsFormTextInputBaseComponent extends Component {
    * @type {string}
    * @default 'text'
    */
-  get type() {
-    let { type = DEFAULT_TYPE } = this.args;
+  get type(): HdsFormTextInputTypes {
+    const { type = DEFAULT_TYPE } = this.args;
 
     assert(
       `@type for "Hds::Form::TextInput" must be one of the following: ${TYPES.join(
@@ -46,8 +52,8 @@ export default class HdsFormTextInputBaseComponent extends Component {
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
-    let classes = ['hds-form-text-input'];
+  get classNames(): string {
+    const classes = ['hds-form-text-input'];
 
     // add typographic classes
     classes.push('hds-typography-body-200', 'hds-font-weight-regular');
