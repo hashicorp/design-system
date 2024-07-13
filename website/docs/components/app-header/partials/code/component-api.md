@@ -7,7 +7,7 @@
     A named block where the content for the left-most area of the AppHeader is rendered. The `AppHeader::HomeLink` component should be added here.
   </C.Property>
   <C.Property @name="<:globalItemsAfter>" @type="named block">
-    A named block where the content appearing on the left side of the AppHeader next to the `AppHeader::HomeLink` is rendered. Consumer-provided global controls such as an org switcher or project switcher should be added here.
+    A named block where the content appearing on the left side of the AppHeader next to the `AppHeader::HomeLink` is rendered. Consumer-provided global controls such as a “context switcher” (eg. organization or project selector) should be added here.
   </C.Property>
   <C.Property @name="<:utilityItems>" @type="named block">
     A named block where the content appearing on the right side of the AppHeader is rendered. Consumer-provided utility controls such as a help menu, user menu, or search button should be added here.
