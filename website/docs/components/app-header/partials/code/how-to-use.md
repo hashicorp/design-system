@@ -12,9 +12,9 @@ The `AppHeader` is intended to be used in combination with the [`Hds::AppFrame`]
 
 The AppHeader exposes three “slots” (named blocks) where consumers can yield the navigation content and add business logic to control the content.
 
-The `:globalItemsBefore` block should contain the `HomeLink` which is provided as a child component.
+The `<:globalItemsBefore>` block should contain the `AppHeader::HomeLink` which is provided as a child component.
 
-The other two slots are used for consumer provided controls. The `:globalItemsAfter` block typically should provide an “OrgSwitcher” or “ProjectSwitcher“ control while the `:utilityItems` block should contain utilities such “Help” and “User” menus and optionally “Search”.
+The other two slots are used for consumer provided controls. The `<:globalItemsAfter>` block typically should provide an “OrgSwitcher” or “ProjectSwitcher“ control while the `<:>utilityItems>` block should contain utilities such “Help” and “User” menus and optionally “Search”.
 
 
 ```handlebars
@@ -38,7 +38,7 @@ The other two slots are used for consumer provided controls. The `:globalItemsAf
 
 #### HomeLink
 
-The `Hds::AppHeader::HomeLink` child component should be yielded within the `:globalItemsBefore` block. It provides consistent branding and navigates the user to the “home“ or main dashboard page.
+The `Hds::AppHeader::HomeLink` child component should be yielded within the `<:globalItemsBefore>` block. It provides consistent branding and navigates the user to the “home“ or main dashboard page.
 
 It requires a value for the `@icon` and `@ariaLabel` arguments.
 
@@ -90,9 +90,9 @@ It also accepts optional arguments; for example, it’s possible to provide a cu
 </Hds::AppHeader>
 ```
 
-#### Org Switcher / Project Switcher
+#### “Context switcher” (eg. organization or project selector)
 
-Consumers should provide their own Org Switcher type control yielded within the `:globalItemsAfter` block. HDS does not currently provide this component.
+Consumers should provide their own “context switcher” (eg. organization or project selector) control yielded within the `<:globalItemsAfter>` block. HDS does not currently provide this component.
 
 ```handlebars
 <Hds::AppHeader>
@@ -122,7 +122,7 @@ Consumers should provide their own Org Switcher type control yielded within the 
 
 #### Utility controls
 
-Consumers should provide their own utilty controls yielded within the `:utilityItems` block. Recommended controls are a user menu and help menu. Other controls such as a search button can optionally be included.
+Consumers should provide their own utilty controls yielded within the `<:utilityItems>` block. Recommended controls are a user menu and help menu. Other controls such as a search button can optionally be included.
 
 ```handlebars
 <Hds::AppHeader>

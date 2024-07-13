@@ -50,6 +50,8 @@ Typically the `Hds::SideNav::Header` sub-component should be added here. It prov
 - the `<:logo>` block should contain the `<Hds::SideNav::Header::HomeLink>` (but it could contain also custom content, if necessary)
 - the `<:actions>` block should contain optional top-level actions (eg. global search, user menu, help menu, etc.)
 
+Note: When the SideNav is paired with the [`Hds::AppHeader`](/components/app-header) component, the `<:header>` slot is not used.
+
 ```handlebars
 <div class="doc-sidenav-demo--short">
   <Hds::SideNav>
@@ -358,6 +360,8 @@ This area usually contains the "context switchers" (eg. organization or project 
 
 If you want (and you probably do) the content automatically fades in/out when the SideNav changes its "minimization" state, you have to apply the specific class `hds-side-nav-hide-when-minimized` to the top-level elements of your content.
 
+Note: When the SideNav is paired with the [`Hds::AppHeader`](/components/app-header) component, the `<:footer>` slot is not used.
+
 ```handlebars{data-execute=false}
 <Hds::SideNav>
   ...
@@ -390,6 +394,20 @@ Alternatively, if you want to create a custom transition (or respond in a differ
     <div>
   </:footer>
 </Hds::SideNav>
+```
+
+### SideNav with AppHeader
+
+When the SideNav is paired with the [`Hds::AppHeader`](/components/app-header) component, only the `<:body>` slot is used. The `@hasHeader` argument should also be included and set to `false` to control the height and position of the SideNav in relation to the fixed position AppHeader.
+
+```handlebars
+<div class="doc-sidenav-demo">
+  <Hds::SideNav @hasHeader={{true}}>
+    <:body>
+      <Doc::Placeholder @height="500px" @text="&lt;:body /&gt;" @background="#e4e4e4" />
+    </:body>
+  </Hds::SideNav>
+</div>
 ```
 
 ### Responsiveness
