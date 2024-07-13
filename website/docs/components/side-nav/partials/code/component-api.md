@@ -7,12 +7,16 @@ This is the full-fledged component (responsive and animated).
 <Doc::ComponentApi as |C|>
   <C.Property @name="<:header>" @type="named block">
     A named block where the content for the “header” area of the SideNav is rendered. The `SideNav::Header` component should be added here. It yields the value of `isMinimized` too.
+    <br><br>
+    Do not include the `<:header>` block or related content when the SideNav is paired with the [`Hds::AppHeader`](/components/app-header) component.
   </C.Property>
   <C.Property @name="<:body>" @type="named block">
     A named block where the content for the “body” or main content of the SideNav is rendered. The `SideNav::List` and `SideNav::PortalTarget` components should be added here when used. It yields the value of `isMinimized` too.
   </C.Property>
   <C.Property @name="<:footer>" @type="named block">
     A named block where the content for the “footer” section of the SideNav is rendered. It yields the value of `isMinimized` too.
+    <br><br>
+    Do not include the `<:footer>` block or related content when the SideNav is paired with the [`Hds::AppHeader`](/components/app-header) component.
   </C.Property>
   <C.Property @name="isResponsive" @type="boolean" @default="true">
     Controls whether the SideNav is responsive to viewport changes. It can be programmatically turned off by passing `false`.
@@ -26,6 +30,9 @@ This is the full-fledged component (responsive and animated).
   </C.Property>
   <C.Property @name="isMinimized" @type="boolean" @default="false">
     Controls if the SideNav is rendered collapsed or expanded when initialized. This allows an application to preserve the collapsed/expanded state across sessions. After the initial render, this argument is altered based on user interactions (collapse/expand the SideNav or resize the window) and it is not a suitable way of controlling the SideNav state from outside after render (it’s an internal state).
+  </C.Property>
+  <C.Property @name="hasHeader" @type="boolean" @default="false">
+    Set to `true` when the SideNav is paired with the [`Hds::AppHeader`](/components/app-header) component. Controls the height and position of the SideNav in relation to the fixed position AppHeader.
   </C.Property>
   <C.Property @name="hasA11yRefocus" @type="boolean" @default="true">
     Controls whether a "navigator narrator" and a "skip link" are added to the navigation (provided by the [`ember-a11y-refocus` Ember addon](https://github.com/ember-a11y/ember-a11y-refocus)). It can be programmatically turned off by passing `false`. Warning: if it is set to false, then it will fail Bypass Blocks, [Success Criteria 2.4.1](https://www.w3.org/WAI/WCAG22/Understanding/bypass-blocks.html). Since this component appears on every page, the application will not be considered conformant.
