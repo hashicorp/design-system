@@ -3,19 +3,19 @@
 ### SegmentedGroup
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="<[S].Button>" @type="yielded component">
+  <C.Property @name="<[SD].Button>" @type="yielded component">
     `Button` yielded as contextual component (see below).
   </C.Property>
-  <C.Property @name="<[S].Dropdown>" @type="yielded component">
+  <C.Property @name="<[SD].Dropdown>" @type="yielded component">
     `Dropdown` yielded as contextual component (see below).
   </C.Property>
-  <C.Property @name="<[S].Select>" @type="yielded component">
+  <C.Property @name="<[SD].Select>" @type="yielded component">
     `Form::Select::Base` yielded as contextual component (see below).
   </C.Property>
-  <C.Property @name="<[S].TextInput>" @type="yielded component">
+  <C.Property @name="<[SD].TextInput>" @type="yielded component">
     `Form::TextInput::Base` yielded as contextual component (see below).
   </C.Property>
-  <C.Property @name="<[S].Generic>" @type="yielded component">
+  <C.Property @name="<[SD].Generic>" @type="yielded component">
     A generic container yielded as contextual component (see below).
   </C.Property>
   <C.Property @name="...attributes">
@@ -27,7 +27,7 @@
 
 The following predefined segments can be passed into the Segmented Group as yielded contextual components: `Button`, `Dropdown`, `Select`, `TextInput`. For bespoke Segments use the `Generic` contextual component and style it accordingly.
 
-#### [S].Button
+#### [SD].Button
 
 The [`Button`](/components/button) component, yielded as contextual component.
 
@@ -37,7 +37,7 @@ The [`Button`](/components/button) component, yielded as contextual component.
   </C.Property>
 </Doc::ComponentApi>
 
-#### [S].Dropdown
+#### [SD].Dropdown
 
 The [`Dropdown`](/components/dropdown) component, yielded as contextual component.
 
@@ -47,7 +47,7 @@ The [`Dropdown`](/components/dropdown) component, yielded as contextual componen
   </C.Property>
 </Doc::ComponentApi>
 
-#### [S].Select
+#### [SD].Select
 
 The [`Form::Select::Base`](/components/form/select) component, yielded as contextual component.
 
@@ -57,7 +57,7 @@ The [`Form::Select::Base`](/components/form/select) component, yielded as contex
   </C.Property>
 </Doc::ComponentApi>
 
-#### [S].TextInput
+#### [SD].TextInput
 
 The [`Form::TextInput::Base`](/components/form/text-input) component, yielded as contextual component.
 

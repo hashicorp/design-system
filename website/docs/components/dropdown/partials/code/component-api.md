@@ -17,43 +17,43 @@ The Dropdown component is composed of different child components each with their
 ### Dropdown
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="<[DD].ToggleButton>" @type="yielded component">
+  <C.Property @name="<[D].ToggleButton>" @type="yielded component">
     `Dropdown::Toggle::Button` yielded as contextual component (see below).
   </C.Property>
-  <C.Property @name="<[DD].ToggleIcon>" @type="yielded component">
+  <C.Property @name="<[D].ToggleIcon>" @type="yielded component">
     `Dropdown::Toggle::Icon` yielded as contextual component (see below).
   </C.Property>
-  <C.Property @name="<[DD].Header>" @type="yielded component">
+  <C.Property @name="<[D].Header>" @type="yielded component">
     `Dropdown::Header` yielded as contextual component (see below).
   </C.Property>
-  <C.Property @name="<[DD].Title>" @type="yielded component">
+  <C.Property @name="<[D].Title>" @type="yielded component">
     `Dropdown::ListItem::Title` yielded as contextual component (see below).
   </C.Property>
-  <C.Property @name="<[DD].Description>" @type="yielded component">
+  <C.Property @name="<[D].Description>" @type="yielded component">
     `Dropdown::ListItem::Description` yielded as contextual component (see below).
   </C.Property>
-  <C.Property @name="<[DD].Separator>" @type="yielded component">
+  <C.Property @name="<[D].Separator>" @type="yielded component">
     `Dropdown::ListItem::Separator` yielded as contextual component (see below).
   </C.Property>
-  <C.Property @name="<[DD].Interactive>" @type="yielded component">
+  <C.Property @name="<[D].Interactive>" @type="yielded component">
     `Dropdown::ListItem::Interactive` yielded as contextual component (see below).
   </C.Property>
-  <C.Property @name="<[DD].CopyItem>" @type="yielded component">
+  <C.Property @name="<[D].CopyItem>" @type="yielded component">
     `Dropdown::ListItem::CopyItem` yielded as contextual component (see below).
   </C.Property>
-  <C.Property @name="<[DD].Checkmark>" @type="yielded component">
+  <C.Property @name="<[D].Checkmark>" @type="yielded component">
     `Dropdown::ListItem::Checkmark` yielded as contextual component (see below).
   </C.Property>
-  <C.Property @name="<[DD].Checkbox>" @type="yielded component">
+  <C.Property @name="<[D].Checkbox>" @type="yielded component">
     `Dropdown::ListItem::Checkbox` yielded as contextual component (see below).
   </C.Property>
-  <C.Property @name="<[DD].Radio>" @type="yielded component">
+  <C.Property @name="<[D].Radio>" @type="yielded component">
     `Dropdown::ListItem::Radio` yielded as contextual component (see below).
   </C.Property>
-  <C.Property @name="<[DD].Generic>" @type="yielded component">
+  <C.Property @name="<[D].Generic>" @type="yielded component">
     `Dropdown::ListItem::Generic` yielded as contextual component (see below).
   </C.Property>
-  <C.Property @name="<[DD].Footer>" @type="yielded component">
+  <C.Property @name="<[D].Footer>" @type="yielded component">
     `Dropdown::Footer` yielded as contextual component (see below).
   </C.Property>
   <C.Property @name="listPosition" @type="string" @values={{array "bottom-left" "bottom-right" "top-left" "top-right" }} @default="bottom-right"/>
@@ -81,7 +81,7 @@ The Dropdown component is composed of different child components each with their
 
 ### Contextual components
 
-#### [DD].ToggleButton
+#### [D].ToggleButton
 
 The `Dropdown::Toggle::Button` component, yielded as contextual component.
 
@@ -108,7 +108,7 @@ The `Dropdown::Toggle::Button` component, yielded as contextual component.
   </C.Property>
 </Doc::ComponentApi>
 
-#### [DD].ToggleIcon
+#### [D].ToggleIcon
 
 The `Dropdown::Toggle::Icon` component, yielded as contextual component.
 
@@ -128,7 +128,7 @@ The `Dropdown::Toggle::Icon` component, yielded as contextual component.
   </C.Property>
 </Doc::ComponentApi>
 
-#### [DD].Header / [DD].Footer
+#### [D].Header / [D].Footer
 
 The `Dropdown::Header` / `Dropdown::Footer` components, yielded as contextual components.
 
@@ -144,7 +144,7 @@ Note: if the Dropdown content exceeds the height of the container, the header an
   </C.Property>
 </Doc::ComponentApi>
 
-#### [DD].Title
+#### [D].Title
 
 The `Dropdown::ListItem::Title` component, yielded as contextual component.
 
@@ -157,7 +157,7 @@ The `Dropdown::ListItem::Title` component, yielded as contextual component.
   </C.Property>
 </Doc::ComponentApi>
 
-#### [DD].Description
+#### [D].Description
 
 The `Dropdown::ListItem::Description` component, yielded as contextual component.
 
@@ -170,7 +170,7 @@ The `Dropdown::ListItem::Description` component, yielded as contextual component
   </C.Property>
 </Doc::ComponentApi>
 
-#### [DD].Separator
+#### [D].Separator
 
 The `Dropdown::ListItem::Separator` component, yielded as contextual component.
 
@@ -180,7 +180,7 @@ The `Dropdown::ListItem::Separator` component, yielded as contextual component.
   </C.Property>
 </Doc::ComponentApi>
 
-#### [DD].Interactive
+#### [D].Interactive
 
 The `Dropdown::ListItem::Interactive` component, yielded as contextual component.
 
@@ -221,7 +221,7 @@ It internally uses the [`Hds::Interactive`](/utilities/interactive) utility comp
   </C.Property>
 </Doc::ComponentApi>
 
-#### [DD].CopyItem
+#### [D].CopyItem
 
 The `Dropdown::ListItem::CopyItem` component, yielded as contextual component.
 
@@ -245,7 +245,7 @@ It internally uses the [`Copy::Snippet`](/components/copy/snippet) component. Fo
   </C.Property>
 </Doc::ComponentApi>
 
-#### [DD].Checkmark
+#### [D].Checkmark
 
 The `Dropdown::ListItem::Checkmark` component, yielded as contextual component.
 
@@ -281,7 +281,7 @@ The `Dropdown::ListItem::Checkmark` component, yielded as contextual component.
   </C.Property>
 </Doc::ComponentApi>
 
-#### [DD].Checkbox
+#### [D].Checkbox
 
 The `Dropdown::ListItem::Checkbox` component, yielded as contextual component.
 
@@ -312,7 +312,7 @@ The `Dropdown::ListItem::Checkbox` component, yielded as contextual component.
   </C.Property>
 </Doc::ComponentApi>
 
-#### [DD].Radio
+#### [D].Radio
 
 The `Dropdown::ListItem::Radio` component, yielded as contextual component.
 
@@ -343,7 +343,7 @@ The `Dropdown::ListItem::Radio` component, yielded as contextual component.
   </C.Property>
 </Doc::ComponentApi>
 
-#### [DD].Generic
+#### [D].Generic
 
 The `Dropdown::ListItem::Generic` component, yielded as contextual component.
 
