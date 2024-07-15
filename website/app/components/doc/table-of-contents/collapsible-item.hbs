@@ -1,15 +1,12 @@
-<Hds::DisclosurePrimitive class="doc-table-of-contents__folder" @isOpen={{@item.isOpen}}>
-  <:toggle as |t|>
-    <button
-      type="button"
-      aria-controls={{this.contentId}}
-      aria-expanded={{if t.isOpen "true" "false"}}
-      class="doc-table-of-contents__button {{if t.isOpen 'open'}}"
-      {{on "click" t.onClickToggle}}
-    >{{@name}}</button>
-  </:toggle>
-
-  <:content>
-    <Doc::TableOfContents id={{this.contentId}} @structuredPageTree={{@item.children}} @depth={{add @depth 1}} />
-  </:content>
-</Hds::DisclosurePrimitive>
+<div class="doc-table-of-contents__folder">
+  <button
+    type="button"
+    aria-controls={{this.contentId}}
+    aria-expanded={{this.isOpen}}
+    class="doc-table-of-contents__button {{if this.isOpen 'open'}}"
+    {{on "click" this.toggleIsOpen}}
+  >{{@name}}</button>
+  {{#if this.isOpen}}
+    <Doc::TableOfContents @structuredPageTree={{@item.children}} @depth={{add @depth 1}} id={{this.contentId}} />
+  {{/if}}
+</div>
