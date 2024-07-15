@@ -19,7 +19,7 @@ The `PageHeader::Title` component, yielded as contextual component.
     Elements passed as children are yielded as inner content of an `<h1>` HTML element.
   </C.Property>
   <C.Property @name="close" @type="function">
-    Function to programmatically close the Modal. If an `onClose` callback function is provided it will be invoked when the Modal is closed.
+    Function to programmatically close the Modal. If an `onClose` callback function is provided, it will be invoked when the Modal is closed.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).

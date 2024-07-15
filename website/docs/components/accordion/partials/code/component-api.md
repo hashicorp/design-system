@@ -18,7 +18,7 @@ The `Accordion` component serves as a wrapper to group one or more `Accordion::I
   </C.Property>
 </Doc::ComponentApi>
 
-### Contextual Components
+### Contextual components
 
 #### [A].Item
 

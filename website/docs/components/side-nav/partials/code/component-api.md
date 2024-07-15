@@ -100,7 +100,7 @@ This is the basic component (layout only).
 
 The `SideNav::Header::HomeLink` component.
 
-It internally uses the [`Hds::Interactive`](/utilities/interactive) utility component. For more details about this component API please refer to [its documentation page](/utilities/interactive?tab=code#component-api).
+It internally uses the [`Hds::Interactive`](/utilities/interactive) utility component. For more details about this component API, please refer to [its documentation page](/utilities/interactive?tab=code#component-api).
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="icon" @type="string">
@@ -133,7 +133,7 @@ It internally uses the [`Hds::Interactive`](/utilities/interactive) utility comp
 
 The `SideNav::Header::IconButton` component.
 
-It internally uses the [`Hds::Interactive`](/utilities/interactive) utility component. For more details about this component API please refer to [its documentation page](/utilities/interactive?tab=code#component-api).
+It internally uses the [`Hds::Interactive`](/utilities/interactive) utility component. For more details about this component API, please refer to [its documentation page](/utilities/interactive?tab=code#component-api).
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="icon" @type="string" @required={{true}}>
@@ -201,7 +201,7 @@ The content yielded in the component is injected inside a `Hds::SideNav::List` e
 
 ### SideNav::List
 
-The `SideNav::List` component is used to wrap and contain the `SideNav::List::Title`, `SideNav::List::Link`, `SideNav::List::BackLink` and `SideNav::List::Item` components, exposed as yielde contextual components.
+The `SideNav::List` component is used to wrap and contain the `SideNav::List::Title`, `SideNav::List::Link`, `SideNav::List::BackLink` and `SideNav::List::Item` components, exposed as yielded contextual components.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<[L].ExtraBefore>" @type="yielded component">
@@ -248,7 +248,7 @@ It can be used to contain generic content.
 
 The `SideNav::List::BackLink` component, yielded as contextual component.
 
-It internally uses the [`Hds::Interactive`](/utilities/interactive) utility component. For more details about this component API please refer to [its documentation page](/utilities/interactive?tab=code#component-api).
+It internally uses the [`Hds::Interactive`](/utilities/interactive) utility component. For more details about this component API, please refer to [its documentation page](/utilities/interactive?tab=code#component-api).
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="text" @type="string">
@@ -290,7 +290,7 @@ Used to display a title for related `SideNav::List::Link` components.
 
 The `SideNav::List::Link` component, yielded as contextual component.
 
-It internally uses the [`Hds::Interactive`](/utilities/interactive) utility component. For more details about this component API please refer to [its documentation page](/utilities/interactive?tab=code#component-api).
+It internally uses the [`Hds::Interactive`](/utilities/interactive) utility component. For more details about this component API, please refer to [its documentation page](/utilities/interactive?tab=code#component-api).
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="icon" @type="string">

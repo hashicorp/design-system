@@ -17,7 +17,7 @@
   </C.Property>
 </Doc::ComponentApi>
 
-### Contextual Components
+### Contextual components
 
 #### [A].Header
 

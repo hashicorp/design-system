@@ -184,7 +184,7 @@ The `Dropdown::ListItem::Separator` component, yielded as contextual component.
 
 The `Dropdown::ListItem::Interactive` component, yielded as contextual component.
 
-It internally uses the [`Hds::Interactive`](/utilities/interactive) utility component. For more details about this component API please refer to [its documentation page](/utilities/interactive?tab=code#component-api).
+It internally uses the [`Hds::Interactive`](/utilities/interactive) utility component. For more details about this component API, please refer to [its documentation page](/utilities/interactive?tab=code#component-api).
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="text" @required={{true}} @type="string">
@@ -225,7 +225,7 @@ It internally uses the [`Hds::Interactive`](/utilities/interactive) utility comp
 
 The `Dropdown::ListItem::CopyItem` component, yielded as contextual component.
 
-It internally uses the [`Copy::Snippet`](/components/copy/snippet) component. For more details about this component API please refer to [its documentation page](/components/copy/snippet?tab=code#component-api).
+It internally uses the [`Copy::Snippet`](/components/copy/snippet) component. For more details about this component API, please refer to [its documentation page](/components/copy/snippet?tab=code#component-api).
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="copyItemTitle" @type="string">

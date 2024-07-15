@@ -9,16 +9,16 @@ The base `AppFooter` component includes a copyright notice. It also wraps and co
     A generic container yielded as contextual component. Its content is injected before the `<ul>` list of links and items.
   </C.Property>
   <C.Property @name="<[AF].StatusLink>" @type="yielded component">
-    The yielded `AppFooter::StatusLink` contextual component ([see below](#appfooterstatuslink)).
+    The yielded `AppFooter::StatusLink` contextual component (see below).
   </C.Property>
   <C.Property @name="<[AF].LegalLinks>" @type="yielded component">
-    The yielded  `AppFooter::LegalLinks` contextual component ([see below]((#appfooterlegallinks)).
+    The yielded  `AppFooter::LegalLinks` contextual component (see below).
   </C.Property>
   <C.Property @name="<[AF].Link>" @type="yielded component">
-    The yielded `AppFooter::Link` contextual component ([see below](#appfooterlink)).
+    The yielded `AppFooter::Link` contextual component (see below).
   </C.Property>
   <C.Property @name="<[AF].Item>" @type="yielded component">
-    The yielded  `AppFooter::Item` contextual component ([see below](#appfooteritem)). Used for custom non-link content.
+    The yielded  `AppFooter::Item` contextual component (see below). Used for custom non-link content.
   </C.Property>
   <C.Property @name="<[AF].ExtraAfter>" @type="yielded component">
     A generic container yielded as contextual component. Its content is injected after the `<ul>` list of links and items.
