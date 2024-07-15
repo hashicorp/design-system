@@ -56,13 +56,13 @@ Pass custom metadata to the component with a `generic` contextual component that
   <PH.Title>Page title</PH.Title>
   <PH.IconTile @icon="folder" />
   <PH.Actions>
-    <Hds::Dropdown as |DD|>
-      <DD.ToggleButton @text="Manage" @color="secondary" />
-      <DD.Interactive @route="components" @text="Item One" />
-      <DD.Interactive @route="components" @text="Item Two" />
-      <DD.Interactive @route="components" @text="Item Three" />
-      <DD.Separator />
-      <DD.Interactive
+    <Hds::Dropdown as |D|>
+      <D.ToggleButton @text="Manage" @color="secondary" />
+      <D.Interactive @route="components" @text="Item One" />
+      <D.Interactive @route="components" @text="Item Two" />
+      <D.Interactive @route="components" @text="Item Three" />
+      <D.Separator />
+      <D.Interactive
         @route="components"
         @text="Delete"
         @color="critical"
