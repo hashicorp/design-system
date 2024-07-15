@@ -77,20 +77,20 @@ module(
       await render(
         hbs`<Hds::Dropdown::ListItem::Interactive @icon="clipboard-copy" @text="interactive" />`
       );
-      assert.dom('.flight-icon.flight-icon-clipboard-copy').exists();
+      assert.dom('.hds-icon.hds-icon-clipboard-copy').exists();
     });
     test('if an `@trailingIcon` is declared a trailing icon should be rendered', async function (assert) {
       await render(
         hbs`<Hds::Dropdown::ListItem::Interactive @trailingIcon="external-link" @text="interactive" />`
       );
-      assert.dom('.flight-icon.flight-icon-external-link').exists();
+      assert.dom('.hds-icon.hds-icon-external-link').exists();
     });
     test('if both an `@icon` and an `@trailingIcon` are declared both the leading and trailing icons should be rendered', async function (assert) {
       await render(
         hbs`<Hds::Dropdown::ListItem::Interactive @icon="clipboard-copy" @trailingIcon="external-link" @text="interactive" />`
       );
-      assert.dom('.flight-icon.flight-icon-clipboard-copy').exists();
-      assert.dom('.flight-icon.flight-icon-external-link').exists();
+      assert.dom('.hds-icon.hds-icon-clipboard-copy').exists();
+      assert.dom('.hds-icon.hds-icon-external-link').exists();
     });
 
     // CONTENT

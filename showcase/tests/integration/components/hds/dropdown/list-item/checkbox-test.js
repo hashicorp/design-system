@@ -69,7 +69,7 @@ module(
       await render(
         hbs`<Hds::Dropdown::ListItem::Checkbox @icon="hexagon">Checkbox item</Hds::Dropdown::ListItem::Checkbox>`
       );
-      assert.dom('.flight-icon.flight-icon-hexagon').exists();
+      assert.dom('.hds-icon.hds-icon-hexagon').exists();
     });
 
     // CONTENT
