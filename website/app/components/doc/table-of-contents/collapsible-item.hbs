@@ -2,7 +2,7 @@
   <button
     type="button"
     aria-controls={{if this.isOpen this.contentId: ""}}
-    aria-expanded={{this.isOpen}}
+    aria-expanded={{if this.isOpen "true" "false"}}
     class={{this.classNames}}
     {{on "click" this.toggleIsOpen}}
   >{{@name}}</button>
