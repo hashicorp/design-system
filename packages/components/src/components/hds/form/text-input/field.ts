@@ -17,16 +17,11 @@ import type { HdsFormVisibilityToggleSignature } from '../visibility-toggle';
 import HdsFormCharacterCountComponent from '../character-count/index.ts';
 
 interface HdsFormTextInputFieldSignature {
-  Args: Omit<HdsFormFieldSignature['Args'], 'contextualClass' | 'layout'> & {
-    hasVisibilityToggle?: HdsFormTextInputBaseSignature['Args']['hasVisibilityToggle'];
-    isInvalid?: HdsFormTextInputBaseSignature['Args']['isInvalid'];
-    isLoading?: HdsFormTextInputBaseSignature['Args']['isLoading'];
-    type?: HdsFormTextInputBaseSignature['Args']['type'];
-    value?: HdsFormTextInputBaseSignature['Args']['value'];
-    visibilityToggleAriaLabel?: HdsFormVisibilityToggleSignature['Args']['ariaLabel'];
-    visibilityToggleAriaMessageText?: HdsFormVisibilityToggleSignature['Args']['ariaMessageText'];
-    width?: string;
-  };
+  Args: Omit<HdsFormFieldSignature['Args'], 'contextualClass' | 'layout'> &
+    HdsFormTextInputBaseSignature['Args'] & {
+      visibilityToggleAriaLabel?: HdsFormVisibilityToggleSignature['Args']['ariaLabel'];
+      visibilityToggleAriaMessageText?: HdsFormVisibilityToggleSignature['Args']['ariaMessageText'];
+    };
   Blocks: {
     default: [
       {
