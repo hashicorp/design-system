@@ -9,12 +9,8 @@ import type { HdsFormLabelSignature } from '../label';
 import type HdsFormCharacterCountComponent from '../character-count';
 
 interface HdsFormTextareaFieldSignature {
-  Args: Omit<HdsFormFieldSignature['Args'], 'contextualClass' | 'layout'> & {
-    isInvalid?: HdsFormTextareaBaseSignature['Args']['isInvalid'];
-    value?: HdsFormTextareaBaseSignature['Args']['value'];
-    width?: string;
-    height?: string;
-  };
+  Args: Omit<HdsFormFieldSignature['Args'], 'contextualClass' | 'layout'> &
+    HdsFormTextareaBaseSignature['Args'];
   Blocks: {
     default: [
       {
