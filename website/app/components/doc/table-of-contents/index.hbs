@@ -5,7 +5,7 @@
 
 {{! template-lint-configure no-inline-styles {"allowDynamicStyles": true} }}
 
-<ul class="doc-table-of-contents" role="list">
+<ul class="doc-table-of-contents" role="list" ...attributes>
   {{#each-in @structuredPageTree as |key item|}}
     <li class="doc-table-of-contents__item doc-table-of-contents__item--depth-{{@depth}}">
       {{#if item.pageURL}}
@@ -32,10 +32,7 @@
           <div class="doc-table-of-contents__heading">{{humanize key}}</div>
           <Doc::TableOfContents @structuredPageTree={{item}} @depth={{add @depth 1}} />
         {{else}}
-          <details class="doc-table-of-contents__folder" open={{item.isOpen}}>
-            <summary class="doc-table-of-contents__summary">{{humanize key}}</summary>
-            <Doc::TableOfContents @structuredPageTree={{item.children}} @depth={{add @depth 1}} />
-          </details>
+          <Doc::TableOfContents::CollapsibleItem @item={{item}} @depth={{add @depth 1}} @name={{humanize key}} />
         {{/if}}
       {{/if}}
     </li>
