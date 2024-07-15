@@ -2,7 +2,7 @@
   <button
     type="button"
     aria-expanded={{this.isOpen}}
-    class="doc-table-of-contents__summary {{if this.isOpen 'open'}}"
+    class="doc-table-of-contents__button {{if this.isOpen 'open'}}"
     {{on "click" this.toggleIsOpen}}
   >{{@name}}</button>
   {{#if this.isOpen}}

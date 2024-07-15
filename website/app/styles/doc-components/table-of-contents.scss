@@ -38,7 +38,7 @@ $doc-toc-item-inset: 8px;
   padding: 0 $doc-toc-item-inset 12px $doc-toc-item-inset;
 }
 
-.doc-table-of-contents__summary {
+.doc-table-of-contents__button {
   @include doc-font-style-navigation();
   display: block;
   width: 100%;
