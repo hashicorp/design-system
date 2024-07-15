@@ -78,11 +78,11 @@
       <SF.Item @label="With theme selector as Extra Content Before">
         <Hds::AppFooter as |AF|>
           <AF.ExtraBefore>
-            <Hds::Dropdown as |dd|>
-              <dd.ToggleButton @text="Theme" @color="secondary" @size="small" />
-              <dd.Interactive @icon="monitor" {{on "click" dd.close}} @text="System" />
-              <dd.Interactive @icon="moon" {{on "click" dd.close}} @text="Dark" />
-              <dd.Interactive @icon="sun" {{on "click" dd.close}} @text="Light" />
+            <Hds::Dropdown as |D|>
+              <D.ToggleButton @text="Theme" @color="secondary" @size="small" />
+              <D.Interactive @icon="monitor" {{on "click" D.close}} @text="System" />
+              <D.Interactive @icon="moon" {{on "click" D.close}} @text="Dark" />
+              <D.Interactive @icon="sun" {{on "click" D.close}} @text="Light" />
             </Hds::Dropdown>
           </AF.ExtraBefore>
           <AF.StatusLink @status="operational" />

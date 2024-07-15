@@ -4,7 +4,7 @@
 
 - To display a list of actions or links under a single button toggle.
 - To allow singular or multiple selection outside of a form, such as within filtering.
-- To provide the user with a way to easily switch context within the application. 
+- To provide the user with a way to easily switch context within the application.
 
 ### When not to use
 
@@ -17,19 +17,19 @@
 Toggles come in two variant types: **button** and **icon**.
 
 <Doc::Layout @spacing="24px">
-  <Hds::Dropdown as |dd|>
-    <dd.ToggleButton @text="Primary" />
-    <dd.Interactive @text="Item One" />
-    <dd.Interactive @text="Item Two" />
-    <dd.Interactive @text="Item Three" />
-    <dd.Interactive @text="Item Four" />
+  <Hds::Dropdown as |D|>
+    <D.ToggleButton @text="Primary" />
+    <D.Interactive @text="Item One" />
+    <D.Interactive @text="Item Two" />
+    <D.Interactive @text="Item Three" />
+    <D.Interactive @text="Item Four" />
   </Hds::Dropdown>
-  <Hds::Dropdown as |dd|>
-    <dd.ToggleIcon @icon="user" @text="user menu" />
-    <dd.Interactive @text="Item One" />
-    <dd.Interactive @text="Item Two" />
-    <dd.Interactive @text="Item Three" />
-    <dd.Interactive @text="Item Four" />
+  <Hds::Dropdown as |D|>
+    <D.ToggleIcon @icon="user" @text="user menu" />
+    <D.Interactive @text="Item One" />
+    <D.Interactive @text="Item Two" />
+    <D.Interactive @text="Item Three" />
+    <D.Interactive @text="Item Four" />
   </Hds::Dropdown>
 </Doc::Layout>
 
@@ -39,40 +39,40 @@ ToggleButtons come in two sizes: **small** and **medium**. This allows for place
 
 <Doc::Layout @spacing="24px" @direction="vertical">
   <Hds::ButtonSet>
-    <Hds::Dropdown as |dd|>
-      <dd.ToggleButton @text="Primary" @size="small"/>
-      <dd.Interactive @text="Item One" />
-      <dd.Interactive @text="Item Two" />
-      <dd.Interactive @text="Item Three" />
-      <dd.Interactive @text="Item Four" />
+    <Hds::Dropdown as |D|>
+      <D.ToggleButton @text="Primary" @size="small"/>
+      <D.Interactive @text="Item One" />
+      <D.Interactive @text="Item Two" />
+      <D.Interactive @text="Item Three" />
+      <D.Interactive @text="Item Four" />
     </Hds::Dropdown>
-    <Hds::Dropdown as |dd|>
-      <dd.ToggleButton @text="Secondary" @color="secondary" @size="small" />
-      <dd.Interactive @text="Item One" />
-      <dd.Interactive @text="Item Two" />
-      <dd.Interactive @text="Item Three" />
-      <dd.Interactive @text="Item Four" />
+    <Hds::Dropdown as |D|>
+      <D.ToggleButton @text="Secondary" @color="secondary" @size="small" />
+      <D.Interactive @text="Item One" />
+      <D.Interactive @text="Item Two" />
+      <D.Interactive @text="Item Three" />
+      <D.Interactive @text="Item Four" />
     </Hds::Dropdown>
   </Hds::ButtonSet>
   <Hds::ButtonSet>
-    <Hds::Dropdown as |dd|>
-      <dd.ToggleButton @text="Primary" />
-      <dd.Interactive @text="Item One" />
-      <dd.Interactive @text="Item Two" />
-      <dd.Interactive @text="Item Three" />
-      <dd.Interactive @text="Item Four" />
+    <Hds::Dropdown as |D|>
+      <D.ToggleButton @text="Primary" />
+      <D.Interactive @text="Item One" />
+      <D.Interactive @text="Item Two" />
+      <D.Interactive @text="Item Three" />
+      <D.Interactive @text="Item Four" />
     </Hds::Dropdown>
-    <Hds::Dropdown as |dd|>
-      <dd.ToggleButton @text="Secondary" @color="secondary" />
-      <dd.Interactive @text="Item One" />
-      <dd.Interactive @text="Item Two" />
-      <dd.Interactive @text="Item Three" />
-      <dd.Interactive @text="Item Four" />
+    <Hds::Dropdown as |D|>
+      <D.ToggleButton @text="Secondary" @color="secondary" />
+      <D.Interactive @text="Item One" />
+      <D.Interactive @text="Item Two" />
+      <D.Interactive @text="Item Three" />
+      <D.Interactive @text="Item Four" />
     </Hds::Dropdown>
   </Hds::ButtonSet>
 </Doc::Layout>
 
-ToggleIcons come in two sizes: **small** and **medium**. 
+ToggleIcons come in two sizes: **small** and **medium**.
 
 !!! Info
 
@@ -80,19 +80,19 @@ While we provide a small size variant, we recommend only using this for the Over
 !!!
 
 <Doc::Layout @spacing="24px">
-  <Hds::Dropdown as |dd|>
-    <dd.ToggleIcon @icon="more-horizontal" @size="small" @text="Overflow Options" @hasChevron={{false}} />
-    <dd.Interactive @text="Item One" />
-    <dd.Interactive @text="Item Two" />
-    <dd.Interactive @text="Item Three" />
-    <dd.Interactive @text="Item Four" />
-  </Hds::Dropdown>  
-  <Hds::Dropdown as |dd|>
-    <dd.ToggleIcon @icon="user" @text="user menu" />
-    <dd.Interactive @text="Item One" />
-    <dd.Interactive @text="Item Two" />
-    <dd.Interactive @text="Item Three" />
-    <dd.Interactive @text="Item Four" />
+  <Hds::Dropdown as |D|>
+    <D.ToggleIcon @icon="more-horizontal" @size="small" @text="Overflow Options" @hasChevron={{false}} />
+    <D.Interactive @text="Item One" />
+    <D.Interactive @text="Item Two" />
+    <D.Interactive @text="Item Three" />
+    <D.Interactive @text="Item Four" />
+  </Hds::Dropdown>
+  <Hds::Dropdown as |D|>
+    <D.ToggleIcon @icon="user" @text="user menu" />
+    <D.Interactive @text="Item One" />
+    <D.Interactive @text="Item Two" />
+    <D.Interactive @text="Item Three" />
+    <D.Interactive @text="Item Four" />
   </Hds::Dropdown>
 </Doc::Layout>
 
@@ -112,7 +112,7 @@ We strongly recommend providing visible chevrons on most instances of ToggleIcon
 
 ### Placement
 
-Lists can be positioned to the left or right of the Toggle, and above or below the Toggle to fit more appropriately within the UI. Lists do not currently have collision detection. 
+Lists can be positioned to the left or right of the Toggle, and above or below the Toggle to fit more appropriately within the UI. Lists do not currently have collision detection.
 
 ![Dropdown list placement examples](/assets/components/dropdown/dropdown-placement.png =963x*)
 
@@ -178,7 +178,7 @@ The height of the ListContainer is automatically determined based on the content
 
 ### Header
 
-A Header provides a fixed space at the top of the List. Typically, Headers house a search feature that allows the user to search/filter through the available options in the list. This is great for really long lists when filtering on complex datasets. 
+A Header provides a fixed space at the top of the List. Typically, Headers house a search feature that allows the user to search/filter through the available options in the list. This is great for really long lists when filtering on complex datasets.
 
 <div class="hds-dropdown__content">
   <Hds::Dropdown::Header @hasDivider={{true}}>
@@ -219,13 +219,13 @@ A Footer provides a fixed space at the bottom of the List. Typically, Footers ho
 
 ### Types
 
-For maximum flexibility, we offer a variety of ListItems options. 
+For maximum flexibility, we offer a variety of ListItems options.
 
 #### Interactive ListItems
 
 Use Interactive ListItems for actions (buttons) or links.
 
-- Use `Interactive - Critical` for destructive actions. 
+- Use `Interactive - Critical` for destructive actions.
 - Use `Interactive - Action` for everything else.
 
 ![Interactive ListItem types](/assets/components/dropdown/dropdown-listitem-types-interactive.png =449x*)
@@ -234,7 +234,7 @@ Use Interactive ListItems for actions (buttons) or links.
 
 Selection ListItems allow the user to select one or more options within a Dropdown.
 
-- Use `Checkmark` for switching context, e.g., organization switchers, project switchers, etc. Use for single selection only, as it doesn't provide enough indication that multi-selection is possible. For multi-selection, use `Checkbox`. 
+- Use `Checkmark` for switching context, e.g., organization switchers, project switchers, etc. Use for single selection only, as it doesn't provide enough indication that multi-selection is possible. For multi-selection, use `Checkbox`.
 - Use `Checkbox` for multi-selection within a form or larger filter pattern.
 - Use `Radio` for single selection within a form or larger filter pattern.
 
@@ -242,14 +242,14 @@ Selection ListItems allow the user to select one or more options within a Dropdo
 
 !!! Do
 
-Use `Checkmark` for context switching. 
+Use `Checkmark` for context switching.
 
 ![Example of proper checkmark list items](/assets/components/dropdown/dropdown-interactive-contextswitcher-do.png =280x*)
 !!!
 
 !!! Dont
 
-Don't use `Checkmark` instead of `Radio` in larger filter patterns.  
+Don't use `Checkmark` instead of `Radio` in larger filter patterns.
 
 ![Example of incorrect checkmark list items](/assets/components/dropdown/dropdown-interactive-filter-dont.png =768x*)
 !!!
@@ -269,7 +269,7 @@ Users may not understand why something is taking additional time to load. If pos
 
 #### Generic
 
-The Generic ListItem allows you to add custom content in place of a ListItem. It includes predefined left and right padding to ensure proper alignment with other ListItems in the List. 
+The Generic ListItem allows you to add custom content in place of a ListItem. It includes predefined left and right padding to ensure proper alignment with other ListItems in the List.
 
 !!! Warning
 
@@ -282,7 +282,7 @@ Be careful not to misuse or overuse the Generic ListItem. Relying on this escape
 
 Icons in ListItems are optional. Generally, we recommend letting the text speak for itself, but icons can add value in the following situations:
 
-- When they reinforce the content, e.g., `edit` for an edit or rename action. 
+- When they reinforce the content, e.g., `edit` for an edit or rename action.
 - When using Interactive ListItems, a `trailingIcon` can indicate that a link is external.
 - When using Critical ListItems; read more about [how color blind users see critical actions](/components/dropdown?tab=accessibility) in our UIs.
 - To avoid inconsistent icon use within the same List. Instead use icons in all ListItems. Doing so keeps the text aligned so the eye can scan the list of options more easily.

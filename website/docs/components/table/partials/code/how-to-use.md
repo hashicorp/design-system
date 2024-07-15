@@ -745,14 +745,14 @@ In this example we’re visually hiding the label in the last column by passing 
       <B.Td>{{B.data.album}}</B.Td>
       <B.Td>{{B.data.year}}</B.Td>
       <B.Td>
-          <Hds::Dropdown as |dd|>
-            <dd.ToggleIcon
+          <Hds::Dropdown as |D|>
+            <D.ToggleIcon
               @icon="more-horizontal"
               @text="Overflow Options"
               @hasChevron={{false}}
               @size="small"
             />
-            <dd.Interactive
+            <D.Interactive
               @href="#"
               @text="Delete"
               @color="critical"
@@ -787,18 +787,18 @@ Here’s a Table implementation that uses an array hash with localized strings f
       <B.Td>{{B.data.album}}</B.Td>
       <B.Td>{{B.data.year}}</B.Td>
       <B.Td>
-          <Hds::Dropdown as |dd|>
-            <dd.ToggleIcon
+          <Hds::Dropdown as |D|>
+            <D.ToggleIcon
               @icon="more-horizontal"
               @text="Overflow Options"
               @hasChevron={{false}}
               @size="small"
             />
-            <dd.Interactive @href="#" @text="Create" />
-            <dd.Interactive @href="#" @text="Read" />
-            <dd.Interactive @href="#" @text="Update" />
-            <dd.Separator />
-            <dd.Interactive
+            <D.Interactive @href="#" @text="Create" />
+            <D.Interactive @href="#" @text="Read" />
+            <D.Interactive @href="#" @text="Update" />
+            <D.Separator />
+            <D.Interactive
               @href="#"
               @text='Delete'
               @color='critical'

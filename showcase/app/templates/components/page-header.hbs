@@ -74,11 +74,11 @@ SPDX-License-Identifier: MPL-2.0
       <Hds::PageHeader as |PH|>
         <PH.Title>Page title</PH.Title>
         <PH.Actions>
-          <Hds::Dropdown as |DD|>
-            <DD.ToggleButton @text="Manage" @color="secondary" />
-            <DD.Interactive @text="Manage cluster externally" />
-            <DD.Interactive @text="Launch desktop" />
-            <DD.Interactive @text="Delete" @color="critical" @icon="trash" />
+          <Hds::Dropdown as |D|>
+            <D.ToggleButton @text="Manage" @color="secondary" />
+            <D.Interactive @text="Manage cluster externally" />
+            <D.Interactive @text="Launch desktop" />
+            <D.Interactive @text="Delete" @color="critical" @icon="trash" />
           </Hds::Dropdown>
           <Hds::Button @text="Create" @icon="plus" @iconPosition="leading" @color="primary" />
         </PH.Actions>
@@ -184,11 +184,11 @@ SPDX-License-Identifier: MPL-2.0
         </PH.Breadcrumb>
         <PH.IconTile @icon="users" @color="terraform" />
         <PH.Actions>
-          <Hds::Dropdown as |DD|>
-            <DD.ToggleButton @text="Manage users" @color="secondary" />
-            <DD.Interactive @text="Assign roles" @icon="user" />
-            <DD.Interactive @text="Batch edit" @icon="edit" />
-            <DD.Interactive @text="Delete user" @icon="trash" />
+          <Hds::Dropdown as |D|>
+            <D.ToggleButton @text="Manage users" @color="secondary" />
+            <D.Interactive @text="Assign roles" @icon="user" />
+            <D.Interactive @text="Batch edit" @icon="edit" />
+            <D.Interactive @text="Delete user" @icon="trash" />
           </Hds::Dropdown>
           <Hds::Button @text="Add user" @icon="plus" @iconPosition="leading" />
         </PH.Actions>
@@ -235,11 +235,11 @@ SPDX-License-Identifier: MPL-2.0
         <PH.Title>Boundary cluster access control and clusters</PH.Title>
         <PH.IconTile @icon="boundary-color" @color="boundary" />
         <PH.Actions>
-          <Hds::Dropdown as |DD|>
-            <DD.ToggleButton @text="Manage users" @color="secondary" />
-            <DD.Interactive @text="Assign roles" @icon="user" />
-            <DD.Interactive @text="Batch edit" @icon="edit" />
-            <DD.Interactive @text="Delete user" @icon="trash" />
+          <Hds::Dropdown as |D|>
+            <D.ToggleButton @text="Manage users" @color="secondary" />
+            <D.Interactive @text="Assign roles" @icon="user" />
+            <D.Interactive @text="Batch edit" @icon="edit" />
+            <D.Interactive @text="Delete user" @icon="trash" />
           </Hds::Dropdown>
           <Hds::Button @text="Add user" @icon="plus" @iconPosition="leading" />
         </PH.Actions>
