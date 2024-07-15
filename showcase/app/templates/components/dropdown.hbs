@@ -13,31 +13,31 @@
 
   <Shw::Flex as |SF|>
     <SF.Item @label="Bottom left">
-      <Hds::Dropdown @listPosition="bottom-left" as |dd|>
-        <dd.ToggleButton @color="secondary" @text="Menu" />
-        <dd.Interactive @href="#" @text="Create" />
-        <dd.Interactive @href="#" @text="Edit" />
+      <Hds::Dropdown @listPosition="bottom-left" as |D|>
+        <D.ToggleButton @color="secondary" @text="Menu" />
+        <D.Interactive @href="#" @text="Create" />
+        <D.Interactive @href="#" @text="Edit" />
       </Hds::Dropdown>
     </SF.Item>
     <SF.Item @label="Bottom right (default)">
-      <Hds::Dropdown as |dd|>
-        <dd.ToggleButton @color="secondary" @text="Menu" />
-        <dd.Interactive @href="#" @text="Create" />
-        <dd.Interactive @href="#" @text="Edit" />
+      <Hds::Dropdown as |D|>
+        <D.ToggleButton @color="secondary" @text="Menu" />
+        <D.Interactive @href="#" @text="Create" />
+        <D.Interactive @href="#" @text="Edit" />
       </Hds::Dropdown>
     </SF.Item>
     <SF.Item @label="Top left">
-      <Hds::Dropdown @listPosition="top-left" as |dd|>
-        <dd.ToggleButton @color="secondary" @text="Menu" />
-        <dd.Interactive @href="#" @text="Create" />
-        <dd.Interactive @href="#" @text="Edit" />
+      <Hds::Dropdown @listPosition="top-left" as |D|>
+        <D.ToggleButton @color="secondary" @text="Menu" />
+        <D.Interactive @href="#" @text="Create" />
+        <D.Interactive @href="#" @text="Edit" />
       </Hds::Dropdown>
     </SF.Item>
     <SF.Item @label="Top right">
-      <Hds::Dropdown @listPosition="top-right" as |dd|>
-        <dd.ToggleButton @color="secondary" @text="Menu" />
-        <dd.Interactive @href="#" @text="Create" />
-        <dd.Interactive @href="#" @text="Edit" />
+      <Hds::Dropdown @listPosition="top-right" as |D|>
+        <D.ToggleButton @color="secondary" @text="Menu" />
+        <D.Interactive @href="#" @text="Create" />
+        <D.Interactive @href="#" @text="Edit" />
       </Hds::Dropdown>
     </SF.Item>
   </Shw::Flex>
@@ -47,19 +47,19 @@
   <Shw::Flex as |SF|>
     <SF.Item @label="Block">
       <div class="shw-component-dropdown-display-sample">
-        <Hds::Dropdown @listPosition="bottom-left" as |dd|>
-          <dd.ToggleButton @color="secondary" @text="Menu" />
-          <dd.Interactive @href="#" @text="Create" />
-          <dd.Interactive @href="#" @text="Edit" />
+        <Hds::Dropdown @listPosition="bottom-left" as |D|>
+          <D.ToggleButton @color="secondary" @text="Menu" />
+          <D.Interactive @href="#" @text="Create" />
+          <D.Interactive @href="#" @text="Edit" />
         </Hds::Dropdown>
       </div>
     </SF.Item>
     <SF.Item @label="Inline">
       <div class="shw-component-dropdown-display-sample">
-        <Hds::Dropdown @listPosition="bottom-left" @isInline={{true}} as |dd|>
-          <dd.ToggleButton @color="secondary" @text="Menu" />
-          <dd.Interactive @href="#" @text="Create" />
-          <dd.Interactive @href="#" @text="Edit" />
+        <Hds::Dropdown @listPosition="bottom-left" @isInline={{true}} as |D|>
+          <D.ToggleButton @color="secondary" @text="Menu" />
+          <D.Interactive @href="#" @text="Create" />
+          <D.Interactive @href="#" @text="Edit" />
         </Hds::Dropdown>
       </div>
     </SF.Item>
@@ -858,12 +858,12 @@
   </Shw::Flex>
   <Shw::Flex as |SF|>
     <SF.Item @label="Interactive">
-      <Hds::Dropdown @listPosition="bottom-left" as |dd|>
-        <dd.ToggleButton @text="Checkmark" @color="secondary" />
-        <dd.Checkmark @count="11">virtualbox</dd.Checkmark>
-        <dd.Checkmark @count="1" @selected={{true}}>vmware</dd.Checkmark>
-        <dd.Checkmark @count="10">docker</dd.Checkmark>
-        <dd.Checkmark @count="0">hyperv</dd.Checkmark>
+      <Hds::Dropdown @listPosition="bottom-left" as |D|>
+        <D.ToggleButton @text="Checkmark" @color="secondary" />
+        <D.Checkmark @count="11">virtualbox</D.Checkmark>
+        <D.Checkmark @count="1" @selected={{true}}>vmware</D.Checkmark>
+        <D.Checkmark @count="10">docker</D.Checkmark>
+        <D.Checkmark @count="0">hyperv</D.Checkmark>
       </Hds::Dropdown>
     </SF.Item>
   </Shw::Flex>
@@ -1016,12 +1016,12 @@
   </Shw::Flex>
   <Shw::Flex as |SF|>
     <SF.Item @label="Interactive">
-      <Hds::Dropdown @listPosition="bottom-left" as |dd|>
-        <dd.ToggleButton @text="Checkbox" @color="secondary" />
-        <dd.Checkbox name="checkbox-item-dropdown" @count="11">virtualbox</dd.Checkbox>
-        <dd.Checkbox name="checkbox-item-dropdown" @count="1" checked>vmware</dd.Checkbox>
-        <dd.Checkbox name="checkbox-item-dropdown" @count="10">docker</dd.Checkbox>
-        <dd.Checkbox name="checkbox-item-dropdown" @count="0">hyperv</dd.Checkbox>
+      <Hds::Dropdown @listPosition="bottom-left" as |D|>
+        <D.ToggleButton @text="Checkbox" @color="secondary" />
+        <D.Checkbox name="checkbox-item-dropdown" @count="11">virtualbox</D.Checkbox>
+        <D.Checkbox name="checkbox-item-dropdown" @count="1" checked>vmware</D.Checkbox>
+        <D.Checkbox name="checkbox-item-dropdown" @count="10">docker</D.Checkbox>
+        <D.Checkbox name="checkbox-item-dropdown" @count="0">hyperv</D.Checkbox>
       </Hds::Dropdown>
     </SF.Item>
   </Shw::Flex>
@@ -1174,12 +1174,12 @@
   </Shw::Flex>
   <Shw::Flex as |SF|>
     <SF.Item @label="Interactive">
-      <Hds::Dropdown @listPosition="bottom-left" as |dd|>
-        <dd.ToggleButton @text="Radio" @color="secondary" />
-        <dd.Radio name="radio-item-dropdown" @count="11">virtualbox</dd.Radio>
-        <dd.Radio name="radio-item-dropdown" @count="1" checked>vmware</dd.Radio>
-        <dd.Radio name="radio-item-dropdown" @count="10">docker</dd.Radio>
-        <dd.Radio name="radio-item-dropdown" @count="0">hyperv</dd.Radio>
+      <Hds::Dropdown @listPosition="bottom-left" as |D|>
+        <D.ToggleButton @text="Radio" @color="secondary" />
+        <D.Radio name="radio-item-dropdown" @count="11">virtualbox</D.Radio>
+        <D.Radio name="radio-item-dropdown" @count="1" checked>vmware</D.Radio>
+        <D.Radio name="radio-item-dropdown" @count="10">docker</D.Radio>
+        <D.Radio name="radio-item-dropdown" @count="0">hyperv</D.Radio>
       </Hds::Dropdown>
     </SF.Item>
   </Shw::Flex>
@@ -1418,10 +1418,10 @@
   <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="With fixed width">
       <div class="shw-component-dropdown-fixed-height-container">
-        <Hds::Dropdown @listPosition="bottom-left" @width="200px" as |dd|>
-          <dd.ToggleButton @color="secondary" @text="Menu" />
-          <dd.Interactive @href="#" @text="Lorem ipsum dolor sit amet" />
-          <dd.Interactive @href="#" @text="Consectetur adipisicing elit" />
+        <Hds::Dropdown @listPosition="bottom-left" @width="200px" as |D|>
+          <D.ToggleButton @color="secondary" @text="Menu" />
+          <D.Interactive @href="#" @text="Lorem ipsum dolor sit amet" />
+          <D.Interactive @href="#" @text="Consectetur adipisicing elit" />
         </Hds::Dropdown>
       </div>
     </SG.Item>

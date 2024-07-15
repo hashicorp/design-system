@@ -15,13 +15,13 @@
 
   <Shw::Grid @columns={{4}} as |SG|>
     <SG.Item @label="Button only">
-      <Hds::SegmentedGroup as |S|>
-        <S.Button @color="secondary" @text="Button" />
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.Button @color="secondary" @text="Button" />
       </Hds::SegmentedGroup>
     </SG.Item>
     <SG.Item @label="Input only">
-      <Hds::SegmentedGroup as |S|>
-        <S.TextInput aria-label="segmented-text-input-lone-item" />
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.TextInput aria-label="segmented-text-input-lone-item" />
       </Hds::SegmentedGroup>
     </SG.Item>
   </Shw::Grid>
@@ -32,33 +32,33 @@
 
   <Shw::Grid @columns={{4}} as |SG|>
     <SG.Item @label="Button trailing">
-      <Hds::SegmentedGroup as |S|>
-        <S.TextInput aria-label="segmented-text-input-button-trailing" />
-        <S.Button @color="secondary" @text="Button" />
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.TextInput aria-label="segmented-text-input-button-trailing" />
+        <SGR.Button @color="secondary" @text="Button" />
       </Hds::SegmentedGroup>
     </SG.Item>
     <SG.Item @label="Button leading">
-      <Hds::SegmentedGroup as |S|>
-        <S.Button @color="secondary" @text="Button" />
-        <S.TextInput aria-label="segmented-text-input-button-leading" />
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.Button @color="secondary" @text="Button" />
+        <SGR.TextInput aria-label="segmented-text-input-button-leading" />
       </Hds::SegmentedGroup>
     </SG.Item>
     <SG.Item @label="Dropdown trailing">
-      <Hds::SegmentedGroup as |S|>
-        <S.TextInput aria-label="segmented-text-input-dropdown-trailing" />
-        <S.Dropdown as |DD|>
-          <DD.ToggleButton @color="secondary" @text="Dropdown" />
-          <DD.Interactive @href="#" @text="Dropdown Item" />
-        </S.Dropdown>
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.TextInput aria-label="segmented-text-input-dropdown-trailing" />
+        <SGR.Dropdown as |D|>
+          <D.ToggleButton @color="secondary" @text="Dropdown" />
+          <D.Interactive @href="#" @text="Dropdown Item" />
+        </SGR.Dropdown>
       </Hds::SegmentedGroup>
     </SG.Item>
     <SG.Item @label="Dropdown leading">
-      <Hds::SegmentedGroup as |S|>
-        <S.Dropdown as |DD|>
-          <DD.ToggleButton @color="secondary" @text="Dropdown" />
-          <DD.Interactive @href="#" @text="Dropdown Item" />
-        </S.Dropdown>
-        <S.TextInput aria-label="segmented-text-input-dropdown-leading" />
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.Dropdown as |D|>
+          <D.ToggleButton @color="secondary" @text="Dropdown" />
+          <D.Interactive @href="#" @text="Dropdown Item" />
+        </SGR.Dropdown>
+        <SGR.TextInput aria-label="segmented-text-input-dropdown-leading" />
       </Hds::SegmentedGroup>
     </SG.Item>
   </Shw::Grid>
@@ -67,45 +67,45 @@
 
   <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Text">
-      <Hds::SegmentedGroup as |S|>
-        <S.TextInput aria-label="segmented-text-input" />
-        <S.Button @color="secondary" @text="Button" />
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.TextInput aria-label="segmented-text-input" />
+        <SGR.Button @color="secondary" @text="Button" />
       </Hds::SegmentedGroup>
     </SG.Item>
     <SG.Item @label="Search">
-      <Hds::SegmentedGroup as |S|>
-        <S.TextInput @type="search" aria-label="segmented-search-input" />
-        <S.Button @color="secondary" @text="Button" />
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.TextInput @type="search" aria-label="segmented-search-input" />
+        <SGR.Button @color="secondary" @text="Button" />
       </Hds::SegmentedGroup>
     </SG.Item>
     <SG.Item @label="Date">
-      <Hds::SegmentedGroup as |S|>
-        <S.TextInput @type="date" aria-label="segmented-date-input" />
-        <S.Button @color="secondary" @text="Button" />
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.TextInput @type="date" aria-label="segmented-date-input" />
+        <SGR.Button @color="secondary" @text="Button" />
       </Hds::SegmentedGroup>
     </SG.Item>
     <SG.Item @label="Time">
-      <Hds::SegmentedGroup as |S|>
-        <S.TextInput @type="time" aria-label="segmented-time-input" />
-        <S.Button @color="secondary" @text="Button" />
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.TextInput @type="time" aria-label="segmented-time-input" />
+        <SGR.Button @color="secondary" @text="Button" />
       </Hds::SegmentedGroup>
     </SG.Item>
     <SG.Item @label="Password">
-      <Hds::SegmentedGroup as |S|>
-        <S.TextInput @type="password" aria-label="segmented-password-input" />
-        <S.Button @color="secondary" @text="Button" />
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.TextInput @type="password" aria-label="segmented-password-input" />
+        <SGR.Button @color="secondary" @text="Button" />
       </Hds::SegmentedGroup>
     </SG.Item>
     <SG.Item @label="Select">
-      <Hds::SegmentedGroup as |S|>
-        <S.Select aria-label="segmented-select" as |FS|>
-          <FS.Options>
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.Select aria-label="segmented-select" as |SEL|>
+          <SEL.Options>
             <option>Select</option>
             <option>Another option</option>
             <option>Yet another one</option>
-          </FS.Options>
-        </S.Select>
-        <S.Button @color="secondary" @text="Button" />
+          </SEL.Options>
+        </SGR.Select>
+        <SGR.Button @color="secondary" @text="Button" />
       </Hds::SegmentedGroup>
     </SG.Item>
   </Shw::Grid>
@@ -116,102 +116,102 @@
 
   <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Input, Button, Button">
-      <Hds::SegmentedGroup as |S|>
-        <S.TextInput aria-label="segmented-input-button-button" />
-        <S.Button @color="secondary" @text="Button" />
-        <S.Button @color="secondary" @text="Button" />
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.TextInput aria-label="segmented-input-button-button" />
+        <SGR.Button @color="secondary" @text="Button" />
+        <SGR.Button @color="secondary" @text="Button" />
       </Hds::SegmentedGroup>
     </SG.Item>
     <SG.Item @label="Input, Button, Dropdown">
-      <Hds::SegmentedGroup as |S|>
-        <S.TextInput aria-label="segmented-input-button-dropdown" />
-        <S.Button @color="secondary" @text="Button" />
-        <S.Dropdown as |DD|>
-          <DD.ToggleButton @color="secondary" @text="Dropdown" />
-          <DD.Header @hasDivider={{true}}>
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.TextInput aria-label="segmented-input-button-dropdown" />
+        <SGR.Button @color="secondary" @text="Button" />
+        <SGR.Dropdown as |D|>
+          <D.ToggleButton @color="secondary" @text="Dropdown" />
+          <D.Header @hasDivider={{true}}>
             <Hds::Form::TextInput::Base @type="search" placeholder="Narrow results" />
-          </DD.Header>
-          <DD.Checkbox name="checkbox-item-dropdown" @count="11">virtualbox</DD.Checkbox>
-          <DD.Checkbox name="checkbox-item-dropdown" @count="1" checked>vmware</DD.Checkbox>
-          <DD.Checkbox name="checkbox-item-dropdown" @count="10">docker</DD.Checkbox>
-          <DD.Checkbox name="checkbox-item-dropdown" @count="0">hyperv</DD.Checkbox>
-          <DD.Footer @hasDivider={{true}}>
+          </D.Header>
+          <D.Checkbox name="checkbox-item-dropdown" @count="11">virtualbox</D.Checkbox>
+          <D.Checkbox name="checkbox-item-dropdown" @count="1" checked>vmware</D.Checkbox>
+          <D.Checkbox name="checkbox-item-dropdown" @count="10">docker</D.Checkbox>
+          <D.Checkbox name="checkbox-item-dropdown" @count="0">hyperv</D.Checkbox>
+          <D.Footer @hasDivider={{true}}>
             <Hds::ButtonSet>
               <Hds::Button @text="Apply" @isFullWidth={{true}} @size="small" />
               <Hds::Button @text="Cancel" @color="secondary" @isFullWidth={{true}} @size="small" />
             </Hds::ButtonSet>
-          </DD.Footer>
-        </S.Dropdown>
+          </D.Footer>
+        </SGR.Dropdown>
       </Hds::SegmentedGroup>
     </SG.Item>
     <SG.Item @label="Input, Dropdown, Button">
-      <Hds::SegmentedGroup as |S|>
-        <S.TextInput aria-label="segmented-input-dropdown-button" />
-        <S.Dropdown as |DD|>
-          <DD.ToggleButton @color="secondary" @text="Dropdown" />
-          <DD.Header @hasDivider={{true}}>
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.TextInput aria-label="segmented-input-dropdown-button" />
+        <SGR.Dropdown as |D|>
+          <D.ToggleButton @color="secondary" @text="Dropdown" />
+          <D.Header @hasDivider={{true}}>
             <Hds::Form::TextInput::Base @type="search" placeholder="Narrow results" />
-          </DD.Header>
-          <DD.Checkbox name="checkbox-item-dropdown" @count="11">virtualbox</DD.Checkbox>
-          <DD.Checkbox name="checkbox-item-dropdown" @count="1" checked>vmware</DD.Checkbox>
-          <DD.Checkbox name="checkbox-item-dropdown" @count="10">docker</DD.Checkbox>
-          <DD.Checkbox name="checkbox-item-dropdown" @count="0">hyperv</DD.Checkbox>
-          <DD.Footer @hasDivider={{true}}>
+          </D.Header>
+          <D.Checkbox name="checkbox-item-dropdown" @count="11">virtualbox</D.Checkbox>
+          <D.Checkbox name="checkbox-item-dropdown" @count="1" checked>vmware</D.Checkbox>
+          <D.Checkbox name="checkbox-item-dropdown" @count="10">docker</D.Checkbox>
+          <D.Checkbox name="checkbox-item-dropdown" @count="0">hyperv</D.Checkbox>
+          <D.Footer @hasDivider={{true}}>
             <Hds::ButtonSet>
               <Hds::Button @text="Apply" @isFullWidth={{true}} @size="small" />
               <Hds::Button @text="Cancel" @color="secondary" @isFullWidth={{true}} @size="small" />
             </Hds::ButtonSet>
-          </DD.Footer>
-        </S.Dropdown>
-        <S.Button @color="secondary" @text="Button" />
+          </D.Footer>
+        </SGR.Dropdown>
+        <SGR.Button @color="secondary" @text="Button" />
       </Hds::SegmentedGroup>
     </SG.Item>
     <SG.Item @label="Input, Input, Button">
-      <Hds::SegmentedGroup as |S|>
-        <S.TextInput aria-label="segmented-input-input-button-1" />
-        <S.TextInput aria-label="segmented-input-input-button-2" />
-        <S.Button @color="secondary" @text="Button" />
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.TextInput aria-label="segmented-input-input-button-1" />
+        <SGR.TextInput aria-label="segmented-input-input-button-2" />
+        <SGR.Button @color="secondary" @text="Button" />
       </Hds::SegmentedGroup>
     </SG.Item>
     <SG.Item @label="Input, Select, Button">
-      <Hds::SegmentedGroup as |S|>
-        <S.TextInput aria-label="segmented-input-select-button-1" />
-        <S.Select aria-label="segmented-input-select-button-2" as |FS|>
-          <FS.Options>
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.TextInput aria-label="segmented-input-select-button-1" />
+        <SGR.Select aria-label="segmented-input-select-button-2" as |SEL|>
+          <SEL.Options>
             <option>Select</option>
             <option>Another option</option>
             <option>Yet another one</option>
-          </FS.Options>
-        </S.Select>
-        <S.Button @color="secondary" @text="Button" />
+          </SEL.Options>
+        </SGR.Select>
+        <SGR.Button @color="secondary" @text="Button" />
       </Hds::SegmentedGroup>
     </SG.Item>
     <SG.Item @label="Input, Select, Dropdown">
-      <Hds::SegmentedGroup as |S|>
-        <S.TextInput aria-label="segmented-input-select-dropdown-1" />
-        <S.Select aria-label="segmented-input-select-dropdown-2" as |FS|>
-          <FS.Options>
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.TextInput aria-label="segmented-input-select-dropdown-1" />
+        <SGR.Select aria-label="segmented-input-select-dropdown-2" as |SEL|>
+          <SEL.Options>
             <option>Select</option>
             <option>Another option</option>
             <option>Yet another one</option>
-          </FS.Options>
-        </S.Select>
-        <S.Dropdown as |DD|>
-          <DD.ToggleButton @color="secondary" @text="Dropdown" />
-          <DD.Header @hasDivider={{true}}>
+          </SEL.Options>
+        </SGR.Select>
+        <SGR.Dropdown as |D|>
+          <D.ToggleButton @color="secondary" @text="Dropdown" />
+          <D.Header @hasDivider={{true}}>
             <Hds::Form::TextInput::Base @type="search" placeholder="Narrow results" />
-          </DD.Header>
-          <DD.Checkbox name="checkbox-item-dropdown" @count="11">virtualbox</DD.Checkbox>
-          <DD.Checkbox name="checkbox-item-dropdown" @count="1" checked>vmware</DD.Checkbox>
-          <DD.Checkbox name="checkbox-item-dropdown" @count="10">docker</DD.Checkbox>
-          <DD.Checkbox name="checkbox-item-dropdown" @count="0">hyperv</DD.Checkbox>
-          <DD.Footer @hasDivider={{true}}>
+          </D.Header>
+          <D.Checkbox name="checkbox-item-dropdown" @count="11">virtualbox</D.Checkbox>
+          <D.Checkbox name="checkbox-item-dropdown" @count="1" checked>vmware</D.Checkbox>
+          <D.Checkbox name="checkbox-item-dropdown" @count="10">docker</D.Checkbox>
+          <D.Checkbox name="checkbox-item-dropdown" @count="0">hyperv</D.Checkbox>
+          <D.Footer @hasDivider={{true}}>
             <Hds::ButtonSet>
               <Hds::Button @text="Apply" @isFullWidth={{true}} @size="small" />
               <Hds::Button @text="Cancel" @color="secondary" @isFullWidth={{true}} @size="small" />
             </Hds::ButtonSet>
-          </DD.Footer>
-        </S.Dropdown>
+          </D.Footer>
+        </SGR.Dropdown>
       </Hds::SegmentedGroup>
     </SG.Item>
   </Shw::Grid>
@@ -222,30 +222,30 @@
 
   <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Trailing">
-      <Hds::SegmentedGroup as |S|>
-        <S.TextInput aria-label="segmented-text-input-generic-trailing" />
-        <S.Generic>
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.TextInput aria-label="segmented-text-input-generic-trailing" />
+        <SGR.Generic>
           <Shw::Placeholder @text="generic content" @width="160" @height="36" @background="#e1f5fe" />
-        </S.Generic>
+        </SGR.Generic>
       </Hds::SegmentedGroup>
     </SG.Item>
     <SG.Item @label="Leading">
-      <Hds::SegmentedGroup as |S|>
-        <S.Generic>
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.Generic>
           <Shw::Placeholder @text="generic content" @width="250" @height="36" @background="#e1f5fe" />
-        </S.Generic>
-        <S.Button @color="secondary" @text="Button" />
+        </SGR.Generic>
+        <SGR.Button @color="secondary" @text="Button" />
       </Hds::SegmentedGroup>
     </SG.Item>
     <SG.Item @label="Trailing & leading">
-      <Hds::SegmentedGroup as |S|>
-        <S.Generic>
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.Generic>
           <Shw::Placeholder @text="generic content" @width="125" @height="36" @background="#e1f5fe" />
-        </S.Generic>
-        <S.Button @color="secondary" @text="Button" />
-        <S.Generic>
+        </SGR.Generic>
+        <SGR.Button @color="secondary" @text="Button" />
+        <SGR.Generic>
           <Shw::Placeholder @text="generic content" @width="125" @height="36" @background="#e1f5fe" />
-        </S.Generic>
+        </SGR.Generic>
       </Hds::SegmentedGroup>
     </SG.Item>
   </Shw::Grid>
@@ -258,9 +258,9 @@
     <F.Label>This is the label</F.Label>
     <F.HelperText>This is the helper text</F.HelperText>
     <F.Control>
-      <Hds::SegmentedGroup as |S|>
-        <S.TextInput id={{F.id}} aria-describedby={{F.ariaDescribedBy}} />
-        <S.Button @color="secondary" @text="Button" />
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.TextInput id={{F.id}} aria-describedby={{F.ariaDescribedBy}} />
+        <SGR.Button @color="secondary" @text="Button" />
       </Hds::SegmentedGroup>
     </F.Control>
     <F.Error>This is the error</F.Error>
@@ -274,87 +274,87 @@
 
   <Shw::Grid @columns={{4}} as |SG|>
     <SG.Item @label="Button focused">
-      <Hds::SegmentedGroup as |S|>
-        <S.TextInput aria-label="segmented-text-input-trailing-button-focused" />
-        <S.Button @color="secondary" @text="Button" mock-state-value="focus" />
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.TextInput aria-label="segmented-text-input-trailing-button-focused" />
+        <SGR.Button @color="secondary" @text="Button" mock-state-value="focus" />
       </Hds::SegmentedGroup>
     </SG.Item>
     <SG.Item @label="Dropdown focused">
-      <Hds::SegmentedGroup as |S|>
-        <S.Select aria-label="segmented-select-trailing-dropdown-focused" as |FS|>
-          <FS.Options>
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.Select aria-label="segmented-select-trailing-dropdown-focused" as |SEL|>
+          <SEL.Options>
             <option>Select</option>
             <option>Another option</option>
             <option>Yet another one</option>
-          </FS.Options>
-        </S.Select>
-        <S.Dropdown as |DD|>
-          <DD.ToggleButton @color="secondary" @text="Dropdown" mock-state-value="focus" />
-          <DD.Interactive @href="#" @text="Dropdown Item" />
-        </S.Dropdown>
+          </SEL.Options>
+        </SGR.Select>
+        <SGR.Dropdown as |D|>
+          <D.ToggleButton @color="secondary" @text="Dropdown" mock-state-value="focus" />
+          <D.Interactive @href="#" @text="Dropdown Item" />
+        </SGR.Dropdown>
       </Hds::SegmentedGroup>
     </SG.Item>
     <SG.Item @label="Button disabled">
-      <Hds::SegmentedGroup as |S|>
-        <S.TextInput aria-label="segmented-text-input-trailing-button-disabled" />
-        <S.Button @color="secondary" @text="Button" disabled />
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.TextInput aria-label="segmented-text-input-trailing-button-disabled" />
+        <SGR.Button @color="secondary" @text="Button" disabled />
       </Hds::SegmentedGroup>
     </SG.Item>
     <SG.Item @label="Dropdown disabled">
-      <Hds::SegmentedGroup as |S|>
-        <S.Select aria-label="segmented-text-input-trailing-dropdown-disabled" as |FS|>
-          <FS.Options>
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.Select aria-label="segmented-text-input-trailing-dropdown-disabled" as |SEL|>
+          <SEL.Options>
             <option>Select</option>
             <option>Another option</option>
             <option>Yet another one</option>
-          </FS.Options>
-        </S.Select>
-        <S.Dropdown as |DD|>
-          <DD.ToggleButton @color="secondary" @text="Dropdown" disabled />
-          <DD.Interactive @href="#" @text="Dropdown Item" />
-        </S.Dropdown>
+          </SEL.Options>
+        </SGR.Select>
+        <SGR.Dropdown as |D|>
+          <D.ToggleButton @color="secondary" @text="Dropdown" disabled />
+          <D.Interactive @href="#" @text="Dropdown Item" />
+        </SGR.Dropdown>
       </Hds::SegmentedGroup>
     </SG.Item>
     <SG.Item @label="Input focused">
-      <Hds::SegmentedGroup as |S|>
-        <S.TextInput aria-label="segmented-leading-text-input-focused" mock-state-value="focus" />
-        <S.Button @color="secondary" @text="Button" />
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.TextInput aria-label="segmented-leading-text-input-focused" mock-state-value="focus" />
+        <SGR.Button @color="secondary" @text="Button" />
       </Hds::SegmentedGroup>
     </SG.Item>
     <SG.Item @label="Select focused">
-      <Hds::SegmentedGroup as |S|>
-        <S.Select aria-label="segmented-leading-select-focused" mock-state-value="focus" as |FS|>
-          <FS.Options>
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.Select aria-label="segmented-leading-select-focused" mock-state-value="focus" as |SEL|>
+          <SEL.Options>
             <option>Select</option>
             <option>Another option</option>
             <option>Yet another one</option>
-          </FS.Options>
-        </S.Select>
-        <S.Dropdown as |DD|>
-          <DD.ToggleButton @color="secondary" @text="Dropdown" />
-          <DD.Interactive @href="#" @text="Dropdown Item" />
-        </S.Dropdown>
+          </SEL.Options>
+        </SGR.Select>
+        <SGR.Dropdown as |D|>
+          <D.ToggleButton @color="secondary" @text="Dropdown" />
+          <D.Interactive @href="#" @text="Dropdown Item" />
+        </SGR.Dropdown>
       </Hds::SegmentedGroup>
     </SG.Item>
     <SG.Item @label="Input disabled">
-      <Hds::SegmentedGroup as |S|>
-        <S.TextInput aria-label="segmented-leading-text-input-disabled" disabled />
-        <S.Button @color="secondary" @text="Button" />
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.TextInput aria-label="segmented-leading-text-input-disabled" disabled />
+        <SGR.Button @color="secondary" @text="Button" />
       </Hds::SegmentedGroup>
     </SG.Item>
     <SG.Item @label="Select disabled">
-      <Hds::SegmentedGroup as |S|>
-        <S.Select aria-label="segmented-leading-select-disabled" disabled as |FS|>
-          <FS.Options>
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.Select aria-label="segmented-leading-select-disabled" disabled as |SEL|>
+          <SEL.Options>
             <option>Select</option>
             <option>Another option</option>
             <option>Yet another one</option>
-          </FS.Options>
-        </S.Select>
-        <S.Dropdown as |DD|>
-          <DD.ToggleButton @color="secondary" @text="Dropdown" />
-          <DD.Interactive @href="#" @text="Dropdown Item" />
-        </S.Dropdown>
+          </SEL.Options>
+        </SGR.Select>
+        <SGR.Dropdown as |D|>
+          <D.ToggleButton @color="secondary" @text="Dropdown" />
+          <D.Interactive @href="#" @text="Dropdown Item" />
+        </SGR.Dropdown>
       </Hds::SegmentedGroup>
     </SG.Item>
   </Shw::Grid>
@@ -365,87 +365,87 @@
 
   <Shw::Grid @columns={{4}} as |SG|>
     <SG.Item @label="Button focused">
-      <Hds::SegmentedGroup as |S|>
-        <S.Button @color="secondary" @text="Button" mock-state-value="focus" />
-        <S.TextInput aria-label="segmented-text-input-leading-button-focused" />
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.Button @color="secondary" @text="Button" mock-state-value="focus" />
+        <SGR.TextInput aria-label="segmented-text-input-leading-button-focused" />
       </Hds::SegmentedGroup>
     </SG.Item>
     <SG.Item @label="Dropdown focused">
-      <Hds::SegmentedGroup as |S|>
-        <S.Dropdown as |DD|>
-          <DD.ToggleButton @color="secondary" @text="Dropdown" mock-state-value="focus" />
-          <DD.Interactive @href="#" @text="Dropdown Item" />
-        </S.Dropdown>
-        <S.Select aria-label="segmented-select-leading-dropdown-focused" as |FS|>
-          <FS.Options>
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.Dropdown as |D|>
+          <D.ToggleButton @color="secondary" @text="Dropdown" mock-state-value="focus" />
+          <D.Interactive @href="#" @text="Dropdown Item" />
+        </SGR.Dropdown>
+        <SGR.Select aria-label="segmented-select-leading-dropdown-focused" as |SEL|>
+          <SEL.Options>
             <option>Select</option>
             <option>Another option</option>
             <option>Yet another one</option>
-          </FS.Options>
-        </S.Select>
+          </SEL.Options>
+        </SGR.Select>
       </Hds::SegmentedGroup>
     </SG.Item>
     <SG.Item @label="Button disabled">
-      <Hds::SegmentedGroup as |S|>
-        <S.Button @color="secondary" @text="Button" disabled />
-        <S.TextInput aria-label="segmented-text-input-leading-button-disabled" />
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.Button @color="secondary" @text="Button" disabled />
+        <SGR.TextInput aria-label="segmented-text-input-leading-button-disabled" />
       </Hds::SegmentedGroup>
     </SG.Item>
     <SG.Item @label="Dropdown disabled">
-      <Hds::SegmentedGroup as |S|>
-        <S.Dropdown as |DD|>
-          <DD.ToggleButton @color="secondary" @text="Dropdown" disabled />
-          <DD.Interactive @href="#" @text="Dropdown Item" />
-        </S.Dropdown>
-        <S.Select aria-label="segmented-select-leading-dropdown-disabled" as |FS|>
-          <FS.Options>
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.Dropdown as |D|>
+          <D.ToggleButton @color="secondary" @text="Dropdown" disabled />
+          <D.Interactive @href="#" @text="Dropdown Item" />
+        </SGR.Dropdown>
+        <SGR.Select aria-label="segmented-select-leading-dropdown-disabled" as |SEL|>
+          <SEL.Options>
             <option>Select</option>
             <option>Another option</option>
             <option>Yet another one</option>
-          </FS.Options>
-        </S.Select>
+          </SEL.Options>
+        </SGR.Select>
       </Hds::SegmentedGroup>
     </SG.Item>
     <SG.Item @label="Input focused">
-      <Hds::SegmentedGroup as |S|>
-        <S.Button @color="secondary" @text="Button" />
-        <S.TextInput aria-label="segmented-trailing-text-input-focused" mock-state-value="focus" />
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.Button @color="secondary" @text="Button" />
+        <SGR.TextInput aria-label="segmented-trailing-text-input-focused" mock-state-value="focus" />
       </Hds::SegmentedGroup>
     </SG.Item>
     <SG.Item @label="Select focused">
-      <Hds::SegmentedGroup as |S|>
-        <S.Dropdown as |DD|>
-          <DD.ToggleButton @color="secondary" @text="Dropdown" />
-          <DD.Interactive @href="#" @text="Dropdown Item" />
-        </S.Dropdown>
-        <S.Select aria-label="segmented-trailing-select-focused" mock-state-value="focus" as |FS|>
-          <FS.Options>
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.Dropdown as |D|>
+          <D.ToggleButton @color="secondary" @text="Dropdown" />
+          <D.Interactive @href="#" @text="Dropdown Item" />
+        </SGR.Dropdown>
+        <SGR.Select aria-label="segmented-trailing-select-focused" mock-state-value="focus" as |SEL|>
+          <SEL.Options>
             <option>Select</option>
             <option>Another option</option>
             <option>Yet another one</option>
-          </FS.Options>
-        </S.Select>
+          </SEL.Options>
+        </SGR.Select>
       </Hds::SegmentedGroup>
     </SG.Item>
     <SG.Item @label="Input disabled">
-      <Hds::SegmentedGroup as |S|>
-        <S.Button @color="secondary" @text="Button" />
-        <S.TextInput aria-label="segmented-trailing-text-input-disabled" disabled />
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.Button @color="secondary" @text="Button" />
+        <SGR.TextInput aria-label="segmented-trailing-text-input-disabled" disabled />
       </Hds::SegmentedGroup>
     </SG.Item>
     <SG.Item @label="Select disabled">
-      <Hds::SegmentedGroup as |S|>
-        <S.Dropdown as |DD|>
-          <DD.ToggleButton @color="secondary" @text="Dropdown" />
-          <DD.Interactive @href="#" @text="Dropdown Item" />
-        </S.Dropdown>
-        <S.Select aria-label="segmented-trailing-select-disabled" disabled as |FS|>
-          <FS.Options>
+      <Hds::SegmentedGroup as |SGR|>
+        <SGR.Dropdown as |D|>
+          <D.ToggleButton @color="secondary" @text="Dropdown" />
+          <D.Interactive @href="#" @text="Dropdown Item" />
+        </SGR.Dropdown>
+        <SGR.Select aria-label="segmented-trailing-select-disabled" disabled as |SEL|>
+          <SEL.Options>
             <option>Select</option>
             <option>Another option</option>
             <option>Yet another one</option>
-          </FS.Options>
-        </S.Select>
+          </SEL.Options>
+        </SGR.Select>
       </Hds::SegmentedGroup>
     </SG.Item>
   </Shw::Grid>
