@@ -2,6 +2,8 @@
 
 This component uses the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API) under the hood.
 
+### Copy::Snippet
+
 <Doc::ComponentApi as |C|>
   <C.Property @name="color" @type="enum" @values={{array "primary" "secondary" }} @default="primary"/>
   <C.Property @name="isFullWidth" @type="boolean" @default="false">

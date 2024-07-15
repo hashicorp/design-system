@@ -5,6 +5,9 @@
 The `Accordion` component serves as a wrapper to group one or more `Accordion::Item` components.
 
 <Doc::ComponentApi as |C|>
+  <C.Property @name="<[A].Item>" @type="yielded component">
+    `Accordion::Item` yielded as contextual component (see below).
+  </C.Property>
   <C.Property @name="size" @type="enum" @values={{array "small" "medium" "large" }} @default="medium" />
   <C.Property @name="type" @type="enum" @values={{array "card" "flush" }} @default="card" />
   <C.Property @name="forceState" @type="enum" @values={{array "open" "close" }}>
@@ -15,20 +18,30 @@ The `Accordion` component serves as a wrapper to group one or more `Accordion::I
   </C.Property>
 </Doc::ComponentApi>
 
-### Contextual Components
+### Contextual components
 
-#### Accordion::Item
+#### [A].Item
+
+The `Accordion::Item` component, yielded as contextual component.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<:toggle>" @type="named block">
     A named block that works as a “toggle” for the `Accordion::Item`.
+    <Doc::ComponentApi as |C|>
+      <C.Property @name="yield">
+        Elements passed as children are yielded as inner content of the "toggle" block.
+      </C.Property>
+    </Doc::ComponentApi>
   </C.Property>
   <C.Property @name="<:content>" @type="named block">
     A named block for the content that is shown/hidden upon toggling.
-    <Doc::ComponentApi as |CC|>
-      <CC.Property @name="[:content].close" @type="function">
+    <Doc::ComponentApi as |C|>
+      <C.Property @name="yield">
+        Elements passed as children are yielded as inner content of the "content" block.
+      </C.Property>
+      <C.Property @name="[C].close" @type="function">
         A function to programmatically close the `Accordion::Item`.
-      </CC.Property>
+      </C.Property>
     </Doc::ComponentApi>
   </C.Property>
   <C.Property @name="ariaLabel" @type="string" @default="&quot;Toggle display&quot;">
@@ -47,7 +60,7 @@ The `Accordion` component serves as a wrapper to group one or more `Accordion::I
     Controls the state of an `Accordion::Item` after the initial render by overriding its current state.
   </C.Property>
   <C.Property @name="onClickToggle" @type="function">
-     Callback function invoked when the toggle is clicked.
+    Callback function invoked when the toggle is clicked.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).

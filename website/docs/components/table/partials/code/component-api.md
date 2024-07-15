@@ -6,28 +6,28 @@ The Table component itself is where most of the options will be applied. However
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<:head>" @type="named block">
-    This is a named block where the content for the table head (`<thead>`) is rendered. Note: most consumers are unlikely to need to use this named block directly.<br />
-    It yields these internal properties:
+    A named block where the content for the table head (`<thead>`) is rendered.
+    <br/>
+    Note: most consumers are unlikely to need to use this named block directly.
     <Doc::ComponentApi as |C|>
-      <C.Property @name="H.setSortBy" @type="yielded function">
+      <C.Property @name="[H].setSortBy" @type="function">
       The function used internally by the table to set the `sortBy` and `sortOrder` tracked values.
       </C.Property>
-      <C.Property @name="H.sortBy" @type="yielded value">
-        The value of the internal `sortBy` tracked variable.
+      <C.Property @name="[H].sortBy" @type="string">
+        Hook into this property to access the state of the internal `sortBy` tracked variable.
       </C.Property>
-      <C.Property @name="H.sortOrder" @type="yielded value">
-        The value of the internal `sortOrder` tracked variable.
+      <C.Property @name="[H].sortOrder" @type="string">
+        Hook into this property to access the state of the internal `sortOrder` tracked variable.
       </C.Property>
     </Doc::ComponentApi>
   </C.Property>
   <C.Property @name="<:body>" @type="named block">
-    This is a named block where the content for the table body (`<tbody>`) is rendered.<br />
-    It yields these internal properties:
+    This is a named block where the content for the table body (`<tbody>`) is rendered.
     <Doc::ComponentApi as |C|>
-      <C.Property @name="B.sortBy" @type="yielded value">
+      <C.Property @name="[B].sortBy" @type="string">
         The value of the internal `sortBy` tracked variable.
       </C.Property>
-      <C.Property @name="B.sortOrder" @type="yielded value">
+      <C.Property @name="[B].sortOrder" @type="string">
         The value of the internal `sortOrder` tracked variable.
       </C.Property>
     </Doc::ComponentApi>
@@ -122,7 +122,7 @@ This component can contain `Hds::Table::Th`, `Hds::Table::ThSort`, or `Hds::Tabl
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">
-    Elements passed as children of this component are yielded inside the `<tr>` element.
+    Elements passed as children are yielded as inner content of a `<tr>` HTML element.
   </C.Property>
   <C.Property @name="isSelected" @type="boolean" @default="false">
     Sets the initial selection state for the row (used in conjunction with setting `isSelectable` on the `Table`).
@@ -161,7 +161,7 @@ If the `Th` component is passed as the first cell of a table body row, `scope="r
     If set to `true`, it visually hides the column’s text content (it will still be available to screen readers for accessibility).
   </C.Property>
   <C.Property @name="yield">
-    Elements passed as children of this component are yielded inside the `<th>` element.
+    Elements passed as children are yielded as inner content of a `<th>` HTML element.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
@@ -189,7 +189,7 @@ This is the component that supports column sorting; use instead of `Hds::Table::
     Callback function invoked when the sort button is clicked. By default, the sort is set by the column’s key.
   </C.Property>
   <C.Property @name="yield">
-    Elements passed as children of this component are yielded inside a `<button>` nested in a `<th>` element. For this reason, you should avoid providing interactive elements as children (interactive controls should never be nested for accessibility reasons).
+    Elements passed as children are yielded as inner content of a `<button>` nested in a `<th>` HTML element. For this reason, you should avoid providing interactive elements as children (interactive controls should never be nested for accessibility reasons).
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
@@ -205,7 +205,7 @@ Note: This component is not eligible to receive interactions (e.g., it cannot ha
     Determines the horizontal content alignment (sometimes referred to as text alignment) for the cell (make sure it is also set for the column header).
   </C.Property>
   <C.Property @name="yield">
-    Elements passed as children of this component are yielded inside the `<td>` element.
+    Elements passed as children are yielded as inner content of a `<td>` HTML element.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).

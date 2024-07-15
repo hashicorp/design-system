@@ -1,5 +1,7 @@
 ## Component API
 
+### Tag
+
 <Doc::ComponentApi as |C|>
   <C.Property @name="color" @type="enum" @values={{array "primary" "secondary" }} @default="primary">
     Sets the color of a link when `@route` or `@href` are set.

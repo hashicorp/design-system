@@ -1,5 +1,7 @@
 ## Component API
 
+### PopoverPrimitive
+
 <Doc::ComponentApi as |C|>
   <C.Property @name="isOpen" @type="boolean" @default="false" @values={{array "true" "false"}}>
     Controls if the popover should be rendered initially opened.

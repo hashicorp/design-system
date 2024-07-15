@@ -1,5 +1,7 @@
 ## Component API
 
+### Interactive
+
 <Doc::ComponentApi as |C|>
   <C.Property @name="href">
     URL parameter that’s passed down to the `<a>` element.

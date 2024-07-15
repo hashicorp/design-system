@@ -98,7 +98,9 @@ This is the basic component (layout only).
 
 ### SideNav::Header::HomeLink
 
-The `SideNav::Header::HomeLink` component uses the generic `Hds::Interactive` component. For more details about this utility component please refer to [its documentation page](/utilities/interactive).
+The `SideNav::Header::HomeLink` component.
+
+It internally uses the [`Hds::Interactive`](/utilities/interactive) utility component. For more details about this component API, please refer to [its documentation page](/utilities/interactive?tab=code#component-api).
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="icon" @type="string">
@@ -129,7 +131,9 @@ The `SideNav::Header::HomeLink` component uses the generic `Hds::Interactive` co
 
 ### SideNav::Header::IconButton
 
-The `SideNav::Header::IconButton` component uses the generic `Hds::Interactive` component. For more details about this utility component please refer to [its documentation page](/utilities/interactive).
+The `SideNav::Header::IconButton` component.
+
+It internally uses the [`Hds::Interactive`](/utilities/interactive) utility component. For more details about this component API, please refer to [its documentation page](/utilities/interactive?tab=code#component-api).
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="icon" @type="string" @required={{true}}>
@@ -195,14 +199,13 @@ The content yielded in the component is injected inside a `Hds::SideNav::List` e
   </C.Property>
 </Doc::ComponentApi>
 
-
 ### SideNav::List
 
-The `SideNav::List` component is used to wrap and contain the `SideNav::List::Title`, `SideNav::List::Link`, `SideNav::List::BackLink` and `SideNav::List::Item` components.
+The `SideNav::List` component is used to wrap and contain the `SideNav::List::Title`, `SideNav::List::Link`, `SideNav::List::BackLink` and `SideNav::List::Item` components, exposed as yielded contextual components.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<[L].ExtraBefore>" @type="yielded component">
-    Container that yields its content before the `<ul>` list of items (but inside the `<nav>` wrapper)
+    A generic container yielded as contextual component. Its content is injected before the `<ul>` list of items (but inside the `<nav>` wrapper)
   </C.Property>
   <C.Property @name="<[L].Item>" @type="yielded component">
     The generic `SideNav::List::Item` component (see below).
@@ -217,29 +220,35 @@ The `SideNav::List` component is used to wrap and contain the `SideNav::List::Ti
     The `SideNav::List::Link` component (see below).
   </C.Property>
   <C.Property @name="<[L].ExtraAfter>" @type="yielded component">
-    Container that yields its content after the `<ul>` list of items (but inside the `<nav>` wrapper)
+    A generic container yielded as contextual component. Its content is injected after the `<ul>` list of items (but inside the `<nav>` wrapper)
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
 
-### SideNav::List::Item
+#### Contextual components
 
-The `SideNav::List::Item` component can be used to contain generic content.
+##### [L].Item
+
+The `SideNav::List::Item` component, yielded as contextual component.
+
+It can be used to contain generic content.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">
-    Elements passed as children of this component are yielded inside the `<li>` element.
+    Elements passed as children are yielded as inner content of an `<li>` HTML element.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
 
-### SideNav::List::BackLink
+##### [L].BackLink
 
-The `SideNav::List::BackLink` component uses the generic `Hds::Interactive` component. For more details about this utility component please refer to [its documentation page](/utilities/interactive).
+The `SideNav::List::BackLink` component, yielded as contextual component.
+
+It internally uses the [`Hds::Interactive`](/utilities/interactive) utility component. For more details about this component API, please refer to [its documentation page](/utilities/interactive?tab=code#component-api).
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="text" @type="string">
@@ -262,22 +271,26 @@ The `SideNav::List::BackLink` component uses the generic `Hds::Interactive` comp
   </C.Property>
 </Doc::ComponentApi>
 
-### SideNav::List::Title
+##### [L].Title
 
-The `SideNav::List::Title` component is used to display a title for related `SideNav::List::Link` components.
+The `SideNav::List::Title` component, yielded as contextual component.
+
+Used to display a title for related `SideNav::List::Link` components.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">
-    Elements passed as children of this component are yielded inside the element.
+    Elements passed as children are yielded as inner content of the element.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
 
-### SideNav::List::Link
+##### [L].Link
 
-The `SideNav::List::Link` component uses the generic `Hds::Interactive` component. For more details about this utility component please refer to [its documentation page](/utilities/interactive).
+The `SideNav::List::Link` component, yielded as contextual component.
+
+It internally uses the [`Hds::Interactive`](/utilities/interactive) utility component. For more details about this component API, please refer to [its documentation page](/utilities/interactive?tab=code#component-api).
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="icon" @type="string">
@@ -311,7 +324,7 @@ The `SideNav::List::Link` component uses the generic `Hds::Interactive` componen
     This controls if the “LinkTo” is external to the Ember engine, in which case it will use a `<LinkToExternal>` for the `@route`.
   </C.Property>
   <C.Property @name="yield">
-    Elements passed as children of this component are yielded inside the element (after the leading icon/text/badge/count block, before the trailing icon).
+    Elements passed as children are yielded as inner content of the link (after the leading icon/text/badge/count block, before the trailing icon).
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).

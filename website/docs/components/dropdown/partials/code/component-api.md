@@ -17,6 +17,45 @@ The Dropdown component is composed of different child components each with their
 ### Dropdown
 
 <Doc::ComponentApi as |C|>
+  <C.Property @name="<[D].ToggleButton>" @type="yielded component">
+    `Dropdown::Toggle::Button` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[D].ToggleIcon>" @type="yielded component">
+    `Dropdown::Toggle::Icon` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[D].Header>" @type="yielded component">
+    `Dropdown::Header` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[D].Title>" @type="yielded component">
+    `Dropdown::ListItem::Title` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[D].Description>" @type="yielded component">
+    `Dropdown::ListItem::Description` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[D].Separator>" @type="yielded component">
+    `Dropdown::ListItem::Separator` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[D].Interactive>" @type="yielded component">
+    `Dropdown::ListItem::Interactive` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[D].CopyItem>" @type="yielded component">
+    `Dropdown::ListItem::CopyItem` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[D].Checkmark>" @type="yielded component">
+    `Dropdown::ListItem::Checkmark` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[D].Checkbox>" @type="yielded component">
+    `Dropdown::ListItem::Checkbox` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[D].Radio>" @type="yielded component">
+    `Dropdown::ListItem::Radio` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[D].Generic>" @type="yielded component">
+    `Dropdown::ListItem::Generic` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[D].Footer>" @type="yielded component">
+    `Dropdown::Footer` yielded as contextual component (see below).
+  </C.Property>
   <C.Property @name="listPosition" @type="string" @values={{array "bottom-left" "bottom-right" "top-left" "top-right" }} @default="bottom-right"/>
   <C.Property @name="width" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
     By default, the Dropdown List has a `min-width` of `200px` and a `max-width` of `400px`, so it adapts to the content size. If a `@width` parameter is provided then the list will have a fixed width.
@@ -40,21 +79,11 @@ The Dropdown component is composed of different child components each with their
   </C.Property>
 </Doc::ComponentApi>
 
-#### Dropdown::Header and Dropdown::Footer
+### Contextual components
 
-If the Dropdown content exceeds the height of the container, the header and footer remain fixed while the list of items adjusts its height.
+#### [D].ToggleButton
 
-<Doc::ComponentApi as |C|>
-  <C.Property @name="yield">
-    Elements nested in this child component are yielded inside the Dropdown header/footer.
-  </C.Property>
-  <C.Property @name="hasDivider" @type="boolean" @default="false" />
-  <C.Property @name="...attributes">
-    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
-  </C.Property>
-</Doc::ComponentApi>
-
-### Toggle::Button
+The `Dropdown::Toggle::Button` component, yielded as contextual component.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="text" @required={{true}} @type="string">
@@ -79,7 +108,9 @@ If the Dropdown content exceeds the height of the container, the header and foot
   </C.Property>
 </Doc::ComponentApi>
 
-### Toggle::Icon
+#### [D].ToggleIcon
+
+The `Dropdown::Toggle::Icon` component, yielded as contextual component.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="text" @required={{true}} @type="string">
@@ -97,7 +128,63 @@ If the Dropdown content exceeds the height of the container, the header and foot
   </C.Property>
 </Doc::ComponentApi>
 
-### ListItem::Interactive
+#### [D].Header / [D].Footer
+
+The `Dropdown::Header` / `Dropdown::Footer` components, yielded as contextual components.
+
+Note: if the Dropdown content exceeds the height of the container, the header and footer remain fixed while the list of items adjusts its height.
+
+<Doc::ComponentApi as |C|>
+  <C.Property @name="yield">
+    Elements passed as children are yielded as inner content of the Dropdown header/footer.
+  </C.Property>
+  <C.Property @name="hasDivider" @type="boolean" @default="false" />
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
+</Doc::ComponentApi>
+
+#### [D].Title
+
+The `Dropdown::ListItem::Title` component, yielded as contextual component.
+
+<Doc::ComponentApi as |C|>
+  <C.Property @name="text" @required={{true}} @type="string">
+    Text to be used for the title. If no text value is defined, an error will be thrown.
+  </C.Property>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
+</Doc::ComponentApi>
+
+#### [D].Description
+
+The `Dropdown::ListItem::Description` component, yielded as contextual component.
+
+<Doc::ComponentApi as |C|>
+  <C.Property @name="text" @required={{true}} @type="string">
+    Text to be used for the description. If no text value is defined, an error will be thrown.
+  </C.Property>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
+</Doc::ComponentApi>
+
+#### [D].Separator
+
+The `Dropdown::ListItem::Separator` component, yielded as contextual component.
+
+<Doc::ComponentApi as |C|>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
+</Doc::ComponentApi>
+
+#### [D].Interactive
+
+The `Dropdown::ListItem::Interactive` component, yielded as contextual component.
+
+It internally uses the [`Hds::Interactive`](/utilities/interactive) utility component. For more details about this component API, please refer to [its documentation page](/utilities/interactive?tab=code#component-api).
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="text" @required={{true}} @type="string">
@@ -134,37 +221,11 @@ If the Dropdown content exceeds the height of the container, the header and foot
   </C.Property>
 </Doc::ComponentApi>
 
-### ListItem::Title
+#### [D].CopyItem
 
-<Doc::ComponentApi as |C|>
-  <C.Property @name="text" @required={{true}} @type="string">
-    Text to be used for the title. If no text value is defined, an error will be thrown.
-  </C.Property>
-  <C.Property @name="...attributes">
-    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
-  </C.Property>
-</Doc::ComponentApi>
+The `Dropdown::ListItem::CopyItem` component, yielded as contextual component.
 
-### ListItem::Description
-
-<Doc::ComponentApi as |C|>
-  <C.Property @name="text" @required={{true}} @type="string">
-    Text to be used for the description. If no text value is defined, an error will be thrown.
-  </C.Property>
-  <C.Property @name="...attributes">
-    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
-  </C.Property>
-</Doc::ComponentApi>
-
-### ListItem::Separator
-
-<Doc::ComponentApi as |C|>
-  <C.Property @name="...attributes">
-    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
-  </C.Property>
-</Doc::ComponentApi>
-
-### ListItem::CopyItem
+It internally uses the [`Copy::Snippet`](/components/copy/snippet) component. For more details about this component API, please refer to [its documentation page](/components/copy/snippet?tab=code#component-api).
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="copyItemTitle" @type="string">
@@ -184,11 +245,13 @@ If the Dropdown content exceeds the height of the container, the header and foot
   </C.Property>
 </Doc::ComponentApi>
 
-### ListItem::Checkmark
+#### [D].Checkmark
+
+The `Dropdown::ListItem::Checkmark` component, yielded as contextual component.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">
-    Content to be used in the item.
+    Elements passed as children are yielded as inner content of the element.
   </C.Property>
   <C.Property @name="selected" @type="boolean" @default="false">
     Displays a checkmark symbol indicating the current selection.
@@ -218,11 +281,13 @@ If the Dropdown content exceeds the height of the container, the header and foot
   </C.Property>
 </Doc::ComponentApi>
 
-### ListItem::Checkbox
+#### [D].Checkbox
+
+The `Dropdown::ListItem::Checkbox` component, yielded as contextual component.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">
-    Content to be used in the item as label for the input control.
+    Elements passed as children are yielded as inner content of the element, to be used in the item as label for the input control.
   </C.Property>
   <C.Property @name="id" @type="string">
     Input control’s `id` attribute.
@@ -247,11 +312,13 @@ If the Dropdown content exceeds the height of the container, the header and foot
   </C.Property>
 </Doc::ComponentApi>
 
-### ListItem::Radio
+#### [D].Radio
+
+The `Dropdown::ListItem::Radio` component, yielded as contextual component.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">
-    Content to be used in the item as label for the input control.
+    Elements passed as children are yielded as inner content of the element, to be used in the item as label for the input control.
   </C.Property>
   <C.Property @name="id" @type="string">
     Input control’s `id` attribute.
@@ -276,11 +343,13 @@ If the Dropdown content exceeds the height of the container, the header and foot
   </C.Property>
 </Doc::ComponentApi>
 
-### ListItem::Generic
+#### [D].Generic
+
+The `Dropdown::ListItem::Generic` component, yielded as contextual component.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">
-    Elements nested in this child component are yielded inside the ListItem. When using the “generic” ListItem, the product team is responsible for implementing the layout and accessibility.
+    Elements passed as children are yielded as inner content of the ListItem. When using the “generic” ListItem, the product team is responsible for implementing the layout and accessibility.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).

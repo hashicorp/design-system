@@ -1,14 +1,14 @@
 ## Component API
 
-The Tabs component is composed of different parts, with their own APIs:
-
-- `Tabs` container
-- `Tab` child components
-- `Panel` child components corresponding to each Tab
-
-### Tabs API
+### Tabs
 
 <Doc::ComponentApi as |C|>
+  <C.Property @name="<[T].Tab>" @type="yielded component">
+    `Tabs::Tab` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[T].Panel>" @type="yielded component">
+    `Tabs::Panel` yielded as contextual component (see below).
+  </C.Property>
   <C.Property @name="size" @type="enum" @values={{array "medium" "large" }} @default="medium">
     Sets the size of the `Tabs`.
   </C.Property>
@@ -28,7 +28,11 @@ The Tabs component is composed of different parts, with their own APIs:
   </C.Property>
 </Doc::ComponentApi>
 
-### Tabs::Tab API
+### Contextual components
+
+#### [T].Tab
+
+The `Tabs::Tab` component, yielded as contextual component.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="icon">
@@ -41,18 +45,20 @@ The Tabs component is composed of different parts, with their own APIs:
     Customizes the initial tab to display when the page is loaded. The first tab is selected on page load by default.
   </C.Property>
   <C.Property @name="yield">
-    Elements passed as children of this component are yielded inside a `button` element.
+    Elements passed as children are yielded as inner content of a `<button>` HTML element.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
 
-### Tabs::Panel API
+#### [T].Panel
+
+The `Tabs::Panel` component, yielded as contextual component.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">
-    Elements passed as children of this component are yielded inside a `section` element.
+    Elements passed as children are yielded as inner content of a `<section>` HTML element.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).

@@ -6,22 +6,22 @@ The base `AppFooter` component includes a copyright notice. It also wraps and co
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<[AF].ExtraBefore>" @type="yielded component">
-    Container that yields its content before the `<ul>` list of links and items.
+    A generic container yielded as contextual component. Its content is injected before the `<ul>` list of links and items.
   </C.Property>
   <C.Property @name="<[AF].StatusLink>" @type="yielded component">
-    The `AppFooter::StatusLink` component (see below).
+    The yielded `AppFooter::StatusLink` contextual component (see below).
   </C.Property>
   <C.Property @name="<[AF].LegalLinks>" @type="yielded component">
-    The `AppFooter::LegalLinks` component (see below).
+    The yielded  `AppFooter::LegalLinks` contextual component (see below).
   </C.Property>
   <C.Property @name="<[AF].Link>" @type="yielded component">
-    The `AppFooter::Link` component (see below).
+    The yielded `AppFooter::Link` contextual component (see below).
   </C.Property>
   <C.Property @name="<[AF].Item>" @type="yielded component">
-    The `AppFooter::Item` component which is used for custom non-link content (see below).
+    The yielded  `AppFooter::Item` contextual component (see below). Used for custom non-link content.
   </C.Property>
   <C.Property @name="<[AF].ExtraAfter>" @type="yielded component">
-    Container that yields its content after the `<ul>` list of links and items.
+    A generic container yielded as contextual component. Its content is injected after the `<ul>` list of links and items.
   </C.Property>
   <C.Property @name="theme" @type="string"  @values={{array "light" "dark" }} @default="light">
     Set the overall theme used by the component and its children.
@@ -37,7 +37,11 @@ The base `AppFooter` component includes a copyright notice. It also wraps and co
   </C.Property>
 </Doc::ComponentApi>
 
-### AppFooter::StatusLink
+### Contextual components
+
+#### [AF].StatusLink
+
+The `AppFooter::StatusLink` component, yielded as contextual component.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="status" @type="string" @values={{array "operational" "degraded" "maintenance" "outage" }}>
@@ -69,7 +73,9 @@ The base `AppFooter` component includes a copyright notice. It also wraps and co
   </C.Property>
 </Doc::ComponentApi>
 
-### AppFooter::LegalLinks
+#### [AF].LegalLinks
+
+The `AppFooter::LegalLinks` component, yielded as contextual component.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="hrefForSupport" @type="string" @default="&quot;https://www.hashicorp.com/support&quot;">
@@ -98,9 +104,14 @@ The base `AppFooter` component includes a copyright notice. It also wraps and co
   </C.Property>
 </Doc::ComponentApi>
 
-### AppFooter::Link
+#### [AF].Link
+
+The `AppFooter::Link` component, yielded as contextual component.
 
 <Doc::ComponentApi as |C|>
+  <C.Property @name="yield">
+    Elements passed as children are yielded as inner content of an `<a>` HTML element.
+  </C.Property>
   <C.Property @name="href">
     URL parameter that’s passed down to the `<a>` element.
   </C.Property>
@@ -113,10 +124,7 @@ The base `AppFooter` component includes a copyright notice. It also wraps and co
   <C.Property @name="isRouteExternal" @type="boolean" @default="false">
     Controls if the “LinkTo” is external to the Ember engine, in which case it will use a `<LinkToExternal>` for the `@route`.
   </C.Property>
-  <C.Property @name="yield">
-    Elements passed as children are yielded to the content of the `<a>` HTML element.
-  </C.Property>
-   <C.Property @name="icon" @type="string">
+  <C.Property @name="icon" @type="string">
     Use this parameter to show an icon. Any [icon](/icons/library) name is acceptable.
   </C.Property>
   <C.Property @name="iconPosition" @type="enum" @values={{array "leading" "trailing" }} @default="trailing">
@@ -127,11 +135,13 @@ The base `AppFooter` component includes a copyright notice. It also wraps and co
   </C.Property>
 </Doc::ComponentApi>
 
-### AppFooter::Item
+#### [AF].Item
+
+The `AppFooter::Item` component, yielded as contextual component. Used for custom non-link content.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">
-    Elements passed as children are yielded to the content of the `<li>` HTML element.
+    Elements passed as children are yielded as inner content of an `<li>` HTML element.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
