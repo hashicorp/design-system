@@ -86,8 +86,40 @@ module('Acceptance | Sidebar filter', function (hooks) {
     await visit('/components');
 
     assert.dom('.doc-table-of-contents__folder').exists({ count: 3 });
+    assert.dom('.doc-table-of-contents__button').exists({ count: 3 });
+    assert
+      .dom('.doc-table-of-contents__button')
+      .hasAttribute('aria-expanded', 'false');
 
-    await click('.doc-table-of-contents__folder');
+    assert
+      .dom('.doc-table-of-contents__button.doc-table-of-contents__button--open')
+      .exists({ count: 0 });
+
+    assert
+      .dom(
+        '.doc-page-sidebar__table-of-contents a[href="/components/copy/button"]'
+      )
+      .exists({ count: 0 });
+
+    await click('.doc-table-of-contents__button');
+    assert
+      .dom('.doc-table-of-contents__button')
+      .hasAttribute('aria-expanded', 'true');
+    assert
+      .dom(
+        '.doc-page-sidebar__table-of-contents a[href="/components/copy/button"]'
+      )
+      .exists();
+
+    await click('.doc-table-of-contents__button');
+    assert
+      .dom('.doc-table-of-contents__button')
+      .hasAttribute('aria-expanded', 'false');
+    assert
+      .dom(
+        '.doc-page-sidebar__table-of-contents a[href="/components/copy/button"]'
+      )
+      .exists({ count: 0 });
   });
 
   // QUERY PARAMS
@@ -102,7 +134,12 @@ module('Acceptance | Sidebar filter', function (hooks) {
   test('the "folder" container of the "current route" link should be opened by default', async function (assert) {
     await visit('/components/form/radio-card');
     assert
-      .dom('.doc-table-of-content__button.doc-table-of-contents__button--open')
+      .dom('.doc-table-of-contents__button.doc-table-of-contents__button--open')
       .exists({ count: 1 });
+    assert
+      .dom(
+        '.doc-page-sidebar__table-of-contents a[href="/components/form/radio-card"]'
+      )
+      .exists();
   });
 });
