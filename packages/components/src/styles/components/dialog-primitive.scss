@@ -41,6 +41,11 @@ $hds-dialog-primitive-vertical-padding: 16px;
   border-bottom: 1px solid var(--token-color-border-primary);
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
+
+  // because of the way in which Ember generates whitespace, we need to use this complicated selector to hide the container when it's "empty" (no children)
+  &:not(:has( > *)) {
+    display: none;
+  }
 }
 
 .hds-dialog-primitive__wrapper-body {
