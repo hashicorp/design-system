@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-export default class HdsRevealComponent extends Component {
+export default class DocTocCollapsibleItemComponent extends Component {
   @tracked isOpen = this.args.item.isOpen;
   @action toggleIsOpen() {
     this.isOpen = !this.isOpen;
@@ -18,7 +18,7 @@ export default class HdsRevealComponent extends Component {
   get classNames() {
     const classes = ['doc-table-of-contents__button'];
     if (this.isOpen) {
-      classes.push('open');
+      classes.push('doc-table-of-contents__button--open');
     }
     return classes.join(' ');
   }

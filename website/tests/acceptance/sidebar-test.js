@@ -34,14 +34,18 @@ module('Acceptance | Sidebar filter', function (hooks) {
         '.doc-page-sidebar__table-of-contents a[href="/components/form/checkbox"]'
       )
       .exists({ count: 0 });
-    assert.dom('.doc-table-of-contents__summary.open').exists({ count: 0 });
+    assert
+      .dom('.doc-table-of-contents__button.doc-table-of-contents__button--open')
+      .exists({ count: 0 });
     await fillIn('.doc-page-sidebar__filter input[type="search"]', 'ChEcKbOx');
     assert
       .dom(
         '.doc-page-sidebar__table-of-contents a[href="/components/form/checkbox"]'
       )
       .exists();
-    assert.dom('.doc-table-of-contents__summary.open').exists({ count: 1 });
+    assert
+      .dom('.doc-table-of-contents__button.doc-table-of-contents__button--open')
+      .exists({ count: 1 });
   });
 
   test('should still show the filter input after filtering', async function (assert) {
@@ -90,11 +94,15 @@ module('Acceptance | Sidebar filter', function (hooks) {
 
   test('all "folder" containers should be closed by default if the "current route" link is not inside any of them', async function (assert) {
     await visit('/components/alert');
-    assert.dom('.doc-table-of-contents__summary.open').exists({ count: 0 });
+    assert
+      .dom('.doc-table-of-contents__button.doc-table-of-contents__button--open')
+      .exists({ count: 0 });
   });
 
   test('the "folder" container of the "current route" link should be opened by default', async function (assert) {
     await visit('/components/form/radio-card');
-    assert.dom('.doc-table-of-contents__summary.open').exists({ count: 1 });
+    assert
+      .dom('.doc-table-of-content__button.doc-table-of-contents__button--open')
+      .exists({ count: 1 });
   });
 });

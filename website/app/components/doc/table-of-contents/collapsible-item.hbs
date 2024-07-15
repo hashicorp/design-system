@@ -1,12 +1,12 @@
 <div class="doc-table-of-contents__folder">
   <button
     type="button"
-    aria-controls={{this.contentId}}
+    aria-controls={{if this.isOpen this.contentId: ""}}
     aria-expanded={{this.isOpen}}
-    class="doc-table-of-contents__button {{if this.isOpen 'open'}}"
+    class={{this.classNames}}
     {{on "click" this.toggleIsOpen}}
   >{{@name}}</button>
   {{#if this.isOpen}}
-    <Doc::TableOfContents @structuredPageTree={{@item.children}} @depth={{add @depth 1}} id={{this.contentId}} />
+    <Doc::TableOfContents @structuredPageTree={{@item.children}} @depth={{@depth}} id={{this.contentId}} />
   {{/if}}
 </div>
