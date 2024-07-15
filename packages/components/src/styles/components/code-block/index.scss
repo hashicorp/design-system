@@ -168,18 +168,18 @@ $hds-code-block-code-padding: 16px;
   }
 
   &.hds-copy-button--status-success {
-    .flight-icon {
+    .hds-icon {
       color: var(--hds-code-block-color-foreground-success);
     }
   }
 
   &.hds-copy-button--status-error {
-    .flight-icon {
+    .hds-icon {
       color: var(--hds-code-block-color-foreground-critical);
     }
   }
 
-  .flight-icon { color: var(--hds-code-block-color-foreground-primary); }
+  .hds-icon { color: var(--hds-code-block-color-foreground-primary); }
 }
 
 .hds-code-block {

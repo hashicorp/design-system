@@ -16,7 +16,7 @@
   <Shw::Flex as |SF|>
     <SF.Item @label="With a FlightIcon as content">
       <Hds::TooltipButton @text="Here is more information" aria-label="Information">
-        <FlightIcon @name="info" />
+        <Hds::Icon @name="info" />
       </Hds::TooltipButton>
     </SF.Item>
 
@@ -48,16 +48,12 @@
   <Shw::Text::H4>Used next to text</Shw::Text::H4>
   <p>
     <span class="hds-typography-display-300">Lorem ipsum dolor sit amet consectetur</span>
-    <Hds::TooltipButton @text="Here is more info" aria-label="Information"><FlightIcon
-        @name="info"
-      /></Hds::TooltipButton>
+    <Hds::TooltipButton @text="Here is more info" aria-label="Information"><Hds::Icon @name="info" /></Hds::TooltipButton>
   </p>
 
   <p class="hds-typography-body-300">
     Lorem ipsum dolor sit amet consectetur
-    <Hds::TooltipButton aria-label="more information" @text="Here is more info"><FlightIcon
-        @name="info"
-      /></Hds::TooltipButton>
+    <Hds::TooltipButton aria-label="more information" @text="Here is more info"><Hds::Icon @name="info" /></Hds::TooltipButton>
     adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
   </p>
 
@@ -73,22 +69,16 @@
         <T.Panel>
           <p class="hds-typography-body-300">
             Content 1
-            <Hds::TooltipButton @text="Here is more info" aria-label="Information"><FlightIcon
-                @name="info"
-              /></Hds::TooltipButton>
+            <Hds::TooltipButton @text="Here is more info" aria-label="Information"><Hds::Icon @name="info" /></Hds::TooltipButton>
           </p>
         </T.Panel>
         <T.Panel><p class="hds-typography-body-300">
             Content 2
-            <Hds::TooltipButton @text="Here is more info" aria-label="Information"><FlightIcon
-                @name="info"
-              /></Hds::TooltipButton>
+            <Hds::TooltipButton @text="Here is more info" aria-label="Information"><Hds::Icon @name="info" /></Hds::TooltipButton>
           </p></T.Panel>
         <T.Panel><p class="hds-typography-body-300">
             Content 3
-            <Hds::TooltipButton @text="Here is more info" aria-label="Information"><FlightIcon
-                @name="info"
-              /></Hds::TooltipButton>
+            <Hds::TooltipButton @text="Here is more info" aria-label="Information"><Hds::Icon @name="info" /></Hds::TooltipButton>
           </p></T.Panel>
       </Hds::Tabs>
     </SF.Item>
@@ -97,9 +87,7 @@
         <A.Title>Warning</A.Title>
         <A.Description>
           Caution is advised.
-          <Hds::TooltipButton @text="Be careful with this" aria-label="Information"><FlightIcon
-              @name="info"
-            /></Hds::TooltipButton>
+          <Hds::TooltipButton @text="Be careful with this" aria-label="Information"><Hds::Icon @name="info" /></Hds::TooltipButton>
         </A.Description>
       </Hds::Alert>
     </SF.Item>
@@ -114,7 +102,7 @@
       <p class="hds-typography-body-300">
         Lorem ipsum dolor sit amet consectetur
         <Hds::TooltipButton @text="Here is more info" @isInline={{false}} aria-label="Information">
-          <FlightIcon @name="info" />
+          <Hds::Icon @name="info" />
         </Hds::TooltipButton>
         adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
       </p>
@@ -185,7 +173,7 @@
           aria-label="tooltip button example"
           @text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         >
-          <FlightIcon @name="info" />
+          <Hds::Icon @name="info" />
         </Hds::TooltipButton>
       </div>
     </SF.Item>
@@ -262,11 +250,9 @@
             mock-state-value={{state}}
             @extraTippyOptions={{hash showOnCreate=true}}
             aria-label="Information"
-          ><FlightIcon @name="info" /></Hds::TooltipButton>
+          ><Hds::Icon @name="info" /></Hds::TooltipButton>
         {{else}}
-          <Hds::TooltipButton @text="More info" aria-label="Information" mock-state-value={{state}}><FlightIcon
-              @name="info"
-            /></Hds::TooltipButton>
+          <Hds::TooltipButton @text="More info" aria-label="Information" mock-state-value={{state}}><Hds::Icon @name="info" /></Hds::TooltipButton>
         {{/if}}
       </SF.Item>
     {{/each}}
@@ -343,7 +329,7 @@
   @text="<b>Hello</b> <em>there</em>!"
   aria-label="Information"
 >
-  <FlightIcon @name="info" />
+  <Hds::Icon @name="info" />
 </Hds::TooltipButton>
 
 <Shw::Divider />

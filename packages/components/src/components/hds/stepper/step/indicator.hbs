@@ -13,9 +13,9 @@
   </div>
   <div class="hds-stepper-indicator-step__status">
     {{#if (eq @status "processing")}}
-      <FlightIcon class="hds-stepper-indicator-step__icon" @name="loading" @size="16" />
+      <Hds::Icon class="hds-stepper-indicator-step__icon" @name="loading" @size="16" />
     {{else if (eq @status "complete")}}
-      <FlightIcon class="hds-stepper-indicator-step__icon" @name="check" @size="16" />
+      <Hds::Icon class="hds-stepper-indicator-step__icon" @name="check" @size="16" />
     {{else}}
       <Hds::Text::Body
         class="hds-stepper-indicator-step__text"

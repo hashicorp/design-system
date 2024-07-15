@@ -7,7 +7,7 @@
   {{#if @isLoading}}
     <div class="hds-dropdown-list-item__interactive-loading-wrapper" ...attributes>
       <div class="hds-dropdown-list-item__interactive-icon hds-dropdown-list-item__interactive-icon--leading">
-        <FlightIcon @name="loading" @isInlineBlock={{false}} />
+        <Hds::Icon @name="loading" />
       </div>
       <Hds::Text::Body @tag="div" @size="100" @weight="regular" class="hds-dropdown-list-item__interactive-text">
         {{this.text}}
@@ -27,7 +27,7 @@
     >
       {{#if @icon}}
         <span class="hds-dropdown-list-item__interactive-icon hds-dropdown-list-item__interactive-icon--leading">
-          <FlightIcon @name={{@icon}} @isInlineBlock={{false}} />
+          <Hds::Icon @name={{@icon}} />
         </span>
       {{/if}}
       <Hds::Text::Body class="hds-dropdown-list-item__interactive-text" @tag="span" @size="200" @weight="medium">
@@ -35,7 +35,7 @@
       </Hds::Text::Body>
       {{#if @trailingIcon}}
         <span class="hds-dropdown-list-item__interactive-icon hds-dropdown-list-item__interactive-icon--trailing">
-          <FlightIcon @name={{@trailingIcon}} @isInlineBlock={{false}} />
+          <Hds::Icon @name={{@trailingIcon}} />
         </span>
       {{/if}}
     </Hds::Interactive>

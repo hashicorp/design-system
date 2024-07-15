@@ -17,7 +17,7 @@
     ...attributes
   >
     {{#if @icon}}
-      <FlightIcon class="hds-side-nav__list-item-icon-leading" @name={{@icon}} />
+      <Hds::Icon class="hds-side-nav__list-item-icon-leading" @name={{@icon}} />
     {{/if}}
 
     {{#if @text}}
@@ -38,12 +38,12 @@
 
     {{#if @hasSubItems}}
       <span class="hds-side-nav__list-item-icon-trailing">
-        <FlightIcon @name="chevron-right" @isInlineBlock={{false}} />
+        <Hds::Icon @name="chevron-right" />
       </span>
     {{/if}}
     {{#if @isHrefExternal}}
       <span class="hds-side-nav__list-item-icon-trailing">
-        <FlightIcon @name="external-link" @isInlineBlock={{false}} />
+        <Hds::Icon @name="external-link" />
       </span>
     {{/if}}
   </Hds::Interactive>

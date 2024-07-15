@@ -30,7 +30,7 @@ module(
       await render(
         hbs`<Hds::SideNav::List::BackLink @text="Back to parent page" @href="#" />`
       );
-      assert.dom('.flight-icon-chevron-left').exists();
+      assert.dom('.hds-icon-chevron-left').exists();
       assert
         .dom('.hds-side-nav__list-item-text')
         .hasText('Back to parent page');

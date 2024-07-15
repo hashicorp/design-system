@@ -28,7 +28,7 @@ module(
         hbs`<Hds::ApplicationState::Header @title="An error has occurred" id="test-application-state-header" @icon="help" @errorCode="404" />`
       );
 
-      assert.dom('.flight-icon').exists();
+      assert.dom('.hds-icon').exists();
     });
 
     test('it should render an error code if @errorCode is defined', async function (assert) {

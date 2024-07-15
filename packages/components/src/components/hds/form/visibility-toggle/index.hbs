@@ -3,6 +3,6 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <button class="hds-form-visibility-toggle" type="button" aria-label={{@ariaLabel}} ...attributes>
-  <FlightIcon @name={{if @isVisible "eye" "eye-off"}} @size="16" @isInlineBlock={{false}} />
+  <Hds::Icon @name={{if @isVisible "eye" "eye-off"}} @size="16" />
   <span class="sr-only" aria-live="polite">{{@ariaMessageText}}</span>
 </button>

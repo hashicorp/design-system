@@ -28,12 +28,12 @@ module('Integration | Component | hds/side-nav/list/link', function (hooks) {
     await render(
       hbs`<Hds::SideNav::List::Link @icon="boundary" @text="Boundary" @count="3" @badge="Alpha" @hasSubItems={{true}} @isHrefExternal={{true}} />`
     );
-    assert.dom('.flight-icon-boundary').exists();
+    assert.dom('.hds-icon-boundary').exists();
     assert.dom('.hds-side-nav__list-item-text').hasText('Boundary');
     assert.dom('.hds-badge-count').hasText('3');
     assert.dom('.hds-badge').hasText('Alpha');
-    assert.dom('.flight-icon-chevron-right').exists();
-    assert.dom('.flight-icon-external-link').exists();
+    assert.dom('.hds-icon-chevron-right').exists();
+    assert.dom('.hds-icon-external-link').exists();
   });
 
   test('it renders the link as "active" if @isActive is true', async function (assert) {

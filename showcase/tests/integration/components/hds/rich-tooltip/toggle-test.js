@@ -29,7 +29,7 @@ module('Integration | Component | hds/rich-tooltip/toggle', function (hooks) {
   test('it should render the text and icon provided', async function (assert) {
     await render(hbs`<Hds::RichTooltip::Toggle @text="test" @icon="info" />`);
     assert.dom('.hds-rich-tooltip__toggle-text').hasText('test');
-    assert.dom('.hds-rich-tooltip__toggle-icon.flight-icon-info').exists();
+    assert.dom('.hds-rich-tooltip__toggle-icon.hds-icon-info').exists();
   });
   test('it should render only the text provided', async function (assert) {
     await render(hbs`

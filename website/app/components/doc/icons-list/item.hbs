@@ -6,12 +6,7 @@
 <li class="doc-icons-list-grid-item {{if @meta.isHidden 'doc-icons-list-grid-item--is-hidden'}}">
   <div class="doc-icons-list-grid-item__frame">
     <div class="doc-icons-list-grid-item__outline">
-      <FlightIcon
-        class="doc-icons-list-grid-item__icon"
-        @name={{@meta.iconName}}
-        @size="{{@meta.size}}"
-        @isInlineBlock={{false}}
-      />
+      <Hds::Icon class="doc-icons-list-grid-item__icon" @name={{@meta.iconName}} @size="{{@meta.size}}" />
     </div>
   </div>
   <div class="doc-icons-list-grid-item__meta">
@@ -27,7 +22,7 @@
         aria-label="Permalink for the {{@meta.iconName}} icon"
         data-test="icon-permalink-{{@meta.iconName}}"
       >
-        <FlightIcon class="doc-icons-list-grid-item__permalink-icon" @name="link" />
+        <Hds::Icon class="doc-icons-list-grid-item__permalink-icon" @name="link" />
       </LinkTo>
     {{/let}}
   </div>

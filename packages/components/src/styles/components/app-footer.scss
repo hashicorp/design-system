@@ -44,26 +44,26 @@ $hds-app-footer-icon-text-gap: 6px;
   // Note: we increase specificity because otherwise is overwritten by the order of imports of components scss files
   &.hds-link-inline--icon-leading > .hds-link-inline__icon { margin-right: $hds-app-footer-icon-text-gap; }
 
-  .flight-icon {
+  .hds-icon {
     fill: var(--hds-app-footer-status-icon-color, currentColor);
   }
 }
 
 // preset status types
 .hds-app-footer__status-link--operational {
-  .flight-icon { fill: var(--app-footer-status-link-icon-operational-color); }
+  .hds-icon { fill: var(--app-footer-status-link-icon-operational-color); }
 }
 
 .hds-app-footer__status-link--degraded {
-  .flight-icon { fill: var(--app-footer-status-link-icon-degraded-color); }
+  .hds-icon { fill: var(--app-footer-status-link-icon-degraded-color); }
 }
 
 .hds-app-footer__status-link--maintenance {
-  .flight-icon { fill: var(--app-footer-status-link-icon-maintenance-color); }
+  .hds-icon { fill: var(--app-footer-status-link-icon-maintenance-color); }
 }
 
 .hds-app-footer__status-link--outage {
-  .flight-icon { fill: var(--app-footer-status-link-icon-outage-color); }
+  .hds-icon { fill: var(--app-footer-status-link-icon-outage-color); }
 }
 
 
@@ -102,7 +102,7 @@ $hds-app-footer-icon-text-gap: 6px;
   align-items: center;
   color: var(--app-footer-copyright-text-color);
 
-  .flight-icon { fill: var(--app-footer-copyright-icon-color); }
+  .hds-icon { fill: var(--app-footer-copyright-icon-color); }
 }
 
 // THEMING

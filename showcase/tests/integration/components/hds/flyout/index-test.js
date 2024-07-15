@@ -94,7 +94,7 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
     );
     assert.dom('.hds-flyout__title').exists();
     assert.dom('.hds-flyout__title').hasText('Tagline Title');
-    assert.dom('.hds-flyout__icon.flight-icon-info').exists();
+    assert.dom('.hds-flyout__icon.hds-icon-info').exists();
     assert.dom('.hds-flyout__tagline').exists();
     assert.dom('.hds-flyout__tagline').hasText('Tagline');
   });

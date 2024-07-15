@@ -12,7 +12,7 @@
 >
   {{#if (eq this.iconPosition "leading")}}
     <span class="hds-link-standalone__icon">
-      <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
+      <Hds::Icon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
     </span>
     <span class="hds-link-standalone__text">
       {{this.text}}
@@ -22,7 +22,7 @@
       {{this.text}}
     </span>
     <span class="hds-link-standalone__icon">
-      <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
+      <Hds::Icon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
     </span>
   {{/if}}
 </Hds::Interactive>

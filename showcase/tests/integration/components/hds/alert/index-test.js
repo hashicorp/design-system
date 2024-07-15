@@ -32,29 +32,29 @@ module('Integration | Component | hds/alert/index', function (hooks) {
   test('it should render an icon by default depending on the type and color', async function (assert) {
     // here we don't test all the possible combinations, only some of them as precaution
     await render(hbs`<Hds::Alert @type="inline" />`);
-    assert.dom('.flight-icon-info').exists();
+    assert.dom('.hds-icon-info').exists();
     await render(hbs`<Hds::Alert @type="compact" />`);
-    assert.dom('.flight-icon-info-fill').exists();
+    assert.dom('.hds-icon-info-fill').exists();
     await render(hbs`<Hds::Alert @type="inline" @color="highlight" />`);
-    assert.dom('.flight-icon-info').exists();
+    assert.dom('.hds-icon-info').exists();
     await render(hbs`<Hds::Alert @type="inline" @color="success" />`);
-    assert.dom('.flight-icon-check-circle').exists();
+    assert.dom('.hds-icon-check-circle').exists();
     await render(hbs`<Hds::Alert @type="inline" @color="warning" />`);
-    assert.dom('.flight-icon-alert-triangle').exists();
+    assert.dom('.hds-icon-alert-triangle').exists();
     await render(hbs`<Hds::Alert @type="inline" @color="critical" />`);
-    assert.dom('.flight-icon-alert-diamond').exists();
+    assert.dom('.hds-icon-alert-diamond').exists();
   });
 
   test('if an icon is declared, the icon should render in the component and override the default one', async function (assert) {
     await render(hbs`<Hds::Alert @type="inline" @icon="clipboard-copy" />`);
-    assert.dom('.flight-icon-clipboard-copy').exists();
+    assert.dom('.hds-icon-clipboard-copy').exists();
     await render(hbs`<Hds::Alert @type="compact" @icon="clipboard-copy" />`);
-    assert.dom('.flight-icon-clipboard-copy').exists();
+    assert.dom('.hds-icon-clipboard-copy').exists();
   });
 
   test('it should display no icon when @icon is set to false', async function (assert) {
     await render(hbs`<Hds::Alert @type="inline" @icon={{false}} />`);
-    assert.dom('.flight-icon').doesNotExist();
+    assert.dom('.hds-icon').doesNotExist();
   });
 
   // TEXT (TITLE + DESCRIPTION)

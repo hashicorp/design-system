@@ -22,7 +22,7 @@
   >
     {{#if @icon}}
       <span class="hds-dropdown-list-item__interactive-icon hds-dropdown-list-item__interactive-icon--leading">
-        <FlightIcon @name={{@icon}} @isInlineBlock={{false}} />
+        <Hds::Icon @name={{@icon}} />
       </span>
     {{/if}}
     <Hds::Text::Body @tag="span" @size="200" @weight="medium" class="hds-dropdown-list-item__interactive-text">
@@ -39,7 +39,7 @@
     {{/if}}
     <span class="hds-dropdown-list-item__checkmark">
       {{#if @selected}}
-        <FlightIcon class="hds-dropdown-list-item__checkmark-icon" @name="check" @isInlineBlock={{false}} />
+        <Hds::Icon class="hds-dropdown-list-item__checkmark-icon" @name="check" />
       {{/if}}
     </span>
   </Hds::Interactive>
