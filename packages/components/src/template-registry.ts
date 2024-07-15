@@ -43,10 +43,14 @@ import type HdsFormErrorComponent from './components/hds/form/error';
 import type HdsFormErrorMessageComponent from './components/hds/form/error/message';
 import type HdsFormFieldComponent from './components/hds/form/field';
 import type HdsFormFieldsetComponent from './components/hds/form/fieldset';
+import type HdsFormFileInputBaseComponent from './components/hds/form/file-input/base';
+import type HdsFormFileInputFieldComponent from './components/hds/form/file-input/field';
 import type HdsFormHelperTextComponent from './components/hds/form/helper-text';
 import type HdsFormIndicatorComponent from './components/hds/form/indicator';
 import type HdsFormLabelComponent from './components/hds/form/label';
 import type HdsFormLegendComponent from './components/hds/form/legend';
+import type HdsFormMaskedInputBaseComponent from './components/hds/form/masked-input/base';
+import type HdsFormMaskedInputFieldComponent from './components/hds/form/masked-input/field';
 import type HdsFormRadioBaseComponent from './components/hds/form/radio/base';
 import type HdsFormRadioFieldComponent from './components/hds/form/radio/field';
 import type HdsFormRadioGroupComponent from './components/hds/form/radio/group';
@@ -54,6 +58,12 @@ import type HdsFormRadioCardComponent from './components/hds/form/radio-card';
 import type HdsFormRadioCardDescriptionComponent from './components/hds/form/radio-card/description';
 import type HdsFormRadioCardGroupComponent from './components/hds/form/radio-card/group';
 import type HdsFormRadioCardLabelComponent from './components/hds/form/radio-card/label';
+import type HdsFormSelectBaseComponent from './components/hds/form/select/base';
+import type HdsFormSelectFieldComponent from './components/hds/form/select/field';
+import type HdsFormTextInputBaseComponent from './components/hds/form/text-input/base';
+import type HdsFormTextInputFieldComponent from './components/hds/form/text-input/field';
+import type HdsFormTextareaBaseComponent from './components/hds/form/textarea/base';
+import type HdsFormTextareaFieldComponent from './components/hds/form/textarea/field';
 import type HdsFormToggleBaseComponent from './components/hds/form/toggle/base';
 import type HdsFormToggleFieldComponent from './components/hds/form/toggle/field';
 import type HdsFormToggleGroupComponent from './components/hds/form/toggle/group';
@@ -252,6 +262,13 @@ export default interface HdsComponentsRegistry {
   'Hds::Form::Fieldset': typeof HdsFormFieldsetComponent;
   'hds/form/fieldset': typeof HdsFormFieldsetComponent;
 
+  // Form FileInput
+  'Hds::Form::FileInput::Base': typeof HdsFormFileInputBaseComponent;
+  'hds/form/file-input/base': typeof HdsFormFileInputBaseComponent;
+
+  'Hds::Form::FileInput::Field': typeof HdsFormFileInputFieldComponent;
+  'hds/form/file-input/field': typeof HdsFormFileInputFieldComponent;
+
   // Form HelperText
   'Hds::Form::HelperText': typeof HdsFormHelperTextComponent;
   'hds/form/helper-text': typeof HdsFormHelperTextComponent;
@@ -267,6 +284,13 @@ export default interface HdsComponentsRegistry {
   // Form Legend
   'Hds::Form::Legend': typeof HdsFormLegendComponent;
   'hds/form/legend': typeof HdsFormLegendComponent;
+
+  // Form MaskedInput
+  'Hds::Form::MaskedInput::Base': typeof HdsFormMaskedInputBaseComponent;
+  'hds/form/masked-input/base': typeof HdsFormMaskedInputBaseComponent;
+
+  'Hds::Form::MaskedInput::Field': typeof HdsFormMaskedInputFieldComponent;
+  'hds/form/masked-input/field': typeof HdsFormMaskedInputFieldComponent;
 
   // Form Radio
   'Hds::Form::Radio::Base': typeof HdsFormRadioBaseComponent;
@@ -290,6 +314,27 @@ export default interface HdsComponentsRegistry {
 
   'Hds::Form::RadioCard::Label': typeof HdsFormRadioCardLabelComponent;
   'hds/form/radio-card/label': typeof HdsFormRadioCardLabelComponent;
+
+  // Form Select
+  'Hds::Form::Select::Base': typeof HdsFormSelectBaseComponent;
+  'hds/form/select/base': typeof HdsFormSelectBaseComponent;
+
+  'Hds::Form::Select::Field': typeof HdsFormSelectFieldComponent;
+  'hds/form/select/field': typeof HdsFormSelectFieldComponent;
+
+  // Form TextInput
+  'Hds::Form::TextInput::Base': typeof HdsFormTextInputBaseComponent;
+  'hds/form/text-input/base': typeof HdsFormTextInputBaseComponent;
+
+  'Hds::Form::TextInput::Field': typeof HdsFormTextInputFieldComponent;
+  'hds/form/text-input/field': typeof HdsFormTextInputFieldComponent;
+
+  // Form Textarea
+  'Hds::Form::Textarea::Base': typeof HdsFormTextareaBaseComponent;
+  'hds/form/textarea/base': typeof HdsFormTextareaBaseComponent;
+
+  'Hds::Form::Textarea::Field': typeof HdsFormTextareaFieldComponent;
+  'hds/form/textarea/field': typeof HdsFormTextareaFieldComponent;
 
   // Form Toggle
   'Hds::Form::Toggle::Base': typeof HdsFormToggleBaseComponent;

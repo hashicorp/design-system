@@ -1,6 +1,6 @@
 import templateOnlyComponent from '@ember/component/template-only';
 
-interface HdsFormVisibilityToggleSignature {
+export interface HdsFormVisibilityToggleSignature {
   Args: {
     ariaLabel?: string;
     ariaMessageText?: string;

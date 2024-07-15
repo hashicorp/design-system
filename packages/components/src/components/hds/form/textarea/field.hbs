@@ -1,4 +1,3 @@
-{{! @glint-nocheck: not typesafe yet }}
 {{!
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
@@ -12,16 +11,10 @@
   as |F|
 >
   {{! Notice: the order of the elements is not relevant here, because is controlled at "Hds::Form::Field" component level }}
-  {{yield
-    (hash
-      Label=F.Label
-      isRequired=F.isRequired
-      isOptional=F.isOptional
-      HelperText=F.HelperText
-      Error=F.Error
-      CharacterCount=(component F.CharacterCount value=@value)
-    )
-  }}
+  {{yield (hash Label=F.Label HelperText=F.HelperText Error=F.Error)}}
+  {{#if F.CharacterCount}}
+    {{yield (hash CharacterCount=(component F.CharacterCount value=@value))}}
+  {{/if}}
   <F.Control>
     <Hds::Form::Textarea::Base
       @value={{@value}}

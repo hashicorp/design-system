@@ -7,19 +7,38 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { getElementId } from '../../../../utils/hds-get-element-id.ts';
+import type { HdsCopyButtonSignature } from '../../copy/button/index.ts';
+import type { HdsFormVisibilityToggleSignature } from '../visibility-toggle/index.ts';
 
-export default class HdsFormMaskedInputBaseComponent extends Component {
+export interface HdsMaskedInputBaseSignature {
+  Args: {
+    copyButtonText?: HdsCopyButtonSignature['Args']['text'];
+    hasCopyButton?: boolean;
+    isContentMasked?: boolean;
+    isInvalid?: boolean;
+    isMultiline?: boolean;
+    id?: string;
+    value?: string;
+    visibilityToggleAriaLabel?: HdsFormVisibilityToggleSignature['Args']['ariaLabel'];
+    visibilityToggleAriaMessageText?: HdsFormVisibilityToggleSignature['Args']['ariaMessageText'];
+    width?: string;
+    height?: string;
+  };
+  Element: HTMLElement;
+}
+
+export default class HdsMaskedInputBaseComponent extends Component<HdsMaskedInputBaseSignature> {
   @tracked isContentMasked = this.args.isContentMasked ?? true;
 
   @action
-  onClickToggleMasking() {
+  onClickToggleMasking(): void {
     this.isContentMasked = !this.isContentMasked;
   }
 
   /**
    * Calculates the unique ID to assign to the form control
    */
-  get id() {
+  get id(): string {
     return getElementId(this);
   }
 
@@ -28,7 +47,7 @@ export default class HdsFormMaskedInputBaseComponent extends Component {
    * @type {string}
    * @default 'Show masked content'
    */
-  get visibilityToggleAriaLabel() {
+  get visibilityToggleAriaLabel(): string {
     if (this.args.visibilityToggleAriaLabel) {
       return this.args.visibilityToggleAriaLabel;
     } else if (this.isContentMasked) {
@@ -43,7 +62,7 @@ export default class HdsFormMaskedInputBaseComponent extends Component {
    * @type {string}
    * @default 'Input content is now hidden'
    */
-  get visibilityToggleAriaMessageText() {
+  get visibilityToggleAriaMessageText(): string {
     if (this.args.visibilityToggleAriaMessageText) {
       return this.args.visibilityToggleAriaMessageText;
     } else if (this.isContentMasked) {
@@ -58,7 +77,7 @@ export default class HdsFormMaskedInputBaseComponent extends Component {
    * @type {string}
    * @default 'Copy masked content'
    */
-  get copyButtonText() {
+  get copyButtonText(): string {
     if (this.args.copyButtonText) {
       return this.args.copyButtonText;
     } else {
@@ -71,8 +90,8 @@ export default class HdsFormMaskedInputBaseComponent extends Component {
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
-    let classes = ['hds-form-masked-input'];
+  get classNames(): string {
+    const classes = ['hds-form-masked-input'];
 
     if (this.isContentMasked) {
       classes.push(`hds-form-masked-input--is-masked`);
