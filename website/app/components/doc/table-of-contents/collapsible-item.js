@@ -4,12 +4,7 @@
  */
 
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
-
-export default class DocTableOfContentsCollapsibleItemComponent extends Component {
-  @tracked isOpen = this.args.item.isOpen;
-  @action toggleIsOpen() {
-    this.isOpen = !this.isOpen;
-  }
+import { guidFor } from '@ember/object/internals';
+export default class HdsRevealComponent extends Component {
+  contentId = 'content-' + guidFor(this);
 }

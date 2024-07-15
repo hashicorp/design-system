@@ -5,7 +5,7 @@
 
 {{! template-lint-configure no-inline-styles {"allowDynamicStyles": true} }}
 
-<ul class="doc-table-of-contents" role="list">
+<ul class="doc-table-of-contents" role="list" ...attributes>
   {{#each-in @structuredPageTree as |key item|}}
     <li class="doc-table-of-contents__item doc-table-of-contents__item--depth-{{@depth}}">
       {{#if item.pageURL}}
