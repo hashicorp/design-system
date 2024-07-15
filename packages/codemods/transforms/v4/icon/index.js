@@ -12,17 +12,24 @@ module.exports = function ({ source /*, path*/ }, { parse, visit }) {
     // @isInlineBlock attr has been set on the element
     if (indexOfIsInlineBlockAttr !== -1) {
       const isInlineBlockAttr = attributes[indexOfIsInlineBlockAttr];
-      const isInlineBlockAttrIsTrue = isInlineBlockAttr.value === 'true';
 
-      // @isInlineBlock is set to "true"
-      if (isInlineBlockAttrIsTrue) {
-        // the default for isInline is false, so we need to set it to true
-        isInlineBlockAttr.name = '@isInline';
-        isInlineBlockAttr.value = 'true';
+      // value is a mustache statement, such as {{this.isInlineBlock}}
+      if (isInlineBlockAttr.value.type === 'MustacheStatement') {
+        const isInlineBlockAttrValue = isInlineBlockAttr.value.path.original;
+
+        // @isInlineBlock is set to {{false}}
+        if (isInlineBlockAttrValue === false) {
+          // {{false}} is the default value for @isInline, so we can remove the attribute
+          attributes.splice(indexOfIsInlineBlockAttr, 1);
+        }
+        // @isInlineBlock is {{true}}, or any other mustache statement
+        else {
+          // rename attribute as @isInline, keep value
+          isInlineBlockAttr.name = '@isInline';
+        }
       }
-      // @isInlineBlock is set to "false"
+      // @isInlineBlock is a non-mustache value
       else {
-        // this is the default, so we can remove the attribute
         attributes.splice(indexOfIsInlineBlockAttr, 1);
       }
     }
