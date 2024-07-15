@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import type { ComponentLike } from '@glint/template';
 import type { HdsYieldSignature } from '../../yield';
 
-interface HdsFormSelectBaseSignature {
+export interface HdsFormSelectBaseSignature {
   Args: {
     isInvalid?: boolean;
     width?: string;

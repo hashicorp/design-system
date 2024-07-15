@@ -4,13 +4,12 @@ import type { HdsFormErrorSignature } from '../error';
 import type { HdsFormFieldSignature } from '../field';
 import type { HdsFormHelperTextSignature } from '../helper-text';
 import type { HdsFormLabelSignature } from '../label';
+import type { HdsFormSelectBaseSignature } from './base';
 import type { HdsYieldSignature } from '../../yield';
 
 interface HdsFormSelectFieldSignature {
-  Args: Omit<HdsFormFieldSignature['Args'], 'contextualClass' | 'layout'> & {
-    isInvalid?: boolean;
-    width?: string;
-  };
+  Args: Omit<HdsFormFieldSignature['Args'], 'contextualClass' | 'layout'> &
+    HdsFormSelectBaseSignature['Args'];
   Blocks: {
     default: [
       {
