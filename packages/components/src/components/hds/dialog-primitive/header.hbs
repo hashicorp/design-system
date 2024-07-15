@@ -3,19 +3,29 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<div class="hds-dialog-primitive__header {{@contextualClassPrefix}}__header" ...attributes>
+<div
+  class="hds-dialog-primitive__header {{if @contextualClassPrefix (concat @contextualClassPrefix '__header')}}"
+  ...attributes
+>
   {{#if @icon}}
     <FlightIcon
-      class="hds-dialog-primitive__icon {{@contextualClassPrefix}}__icon"
+      class="hds-dialog-primitive__icon {{if @contextualClassPrefix (concat @contextualClassPrefix '__icon')}}"
       @name={{@icon}}
       @size="24"
       @isInlineBlock={{false}}
     />
   {{/if}}
 
-  <div class="hds-dialog-primitive__title {{@contextualClassPrefix}}__title" id={{@id}}>
+  <div
+    class="hds-dialog-primitive__title {{if @contextualClassPrefix (concat @contextualClassPrefix '__title')}}"
+    id={{@id}}
+  >
     {{#if @tagline}}
-      <Hds::Text::Body class="hds-dialog-primitive__tagline {{@contextualClassPrefix}}__tagline" @tag="div" @size="100">
+      <Hds::Text::Body
+        class="hds-dialog-primitive__tagline {{if @contextualClassPrefix (concat @contextualClassPrefix '__tagline')}}"
+        @tag="div"
+        @size="100"
+      >
         {{@tagline}}
       </Hds::Text::Body>
     {{/if}}
@@ -26,7 +36,7 @@
   </div>
 
   <Hds::DismissButton
-    class="hds-dialog-primitive__dismiss {{@contextualClassPrefix}}__dismiss"
+    class="hds-dialog-primitive__dismiss {{if @contextualClassPrefix (concat @contextualClassPrefix '__dismiss')}}"
     {{on "click" this.onDismiss}}
   />
 </div>

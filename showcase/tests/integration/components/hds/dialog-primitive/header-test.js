@@ -57,6 +57,23 @@ module(
       assert.dom('.hds-dialog-primitive__tagline').hasText('Tagline');
     });
 
+    // CONTEXTUAL CLASSES
+
+    test('it adds contextual classes to different DOM nodes using the `@contextualClassPrefix`', async function (assert) {
+      await render(
+        hbs`
+        <Hds::DialogPrimitive::Header @icon="info" @tagline="Tagline" @contextualClassPrefix="abc">
+          Title
+        </Hds::DialogPrimitive::Header>
+      `
+      );
+      assert.dom('.hds-dialog-primitive__header.abc__header').exists();
+      assert.dom('.hds-dialog-primitive__icon.abc__icon').exists();
+      assert.dom('.hds-dialog-primitive__title.abc__title').exists();
+      assert.dom('.hds-dialog-primitive__tagline.abc__tagline').exists();
+      assert.dom('.hds-dialog-primitive__dismiss.abc__dismiss').exists();
+    });
+
     // DISMISS
 
     test('it should always render the "dismiss" button', async function (assert) {
