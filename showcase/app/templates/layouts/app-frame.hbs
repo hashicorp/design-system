@@ -166,17 +166,17 @@
       <Hds::AppFrame class="shw-component-app-frame-container" as |Frame|>
         <Frame.Header>
           <Hds::AppHeader>
-            <:globalItemsBefore>
+            <:logo>
               <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
-            </:globalItemsBefore>
-            <:globalItemsAfter>
+            </:logo>
+            <:globalItems>
               <Hds::Dropdown as |dd|>
                 <dd.ToggleButton @text="Choose an organization" @icon="org" />
                 <dd.Checkmark>
                   organizationName
                 </dd.Checkmark>
               </Hds::Dropdown>
-            </:globalItemsAfter>
+            </:globalItems>
             <:utilityItems>
               <Hds::Dropdown @listPosition="bottom-right" as |dd|>
                 <dd.ToggleIcon @icon="help" @text="help menu" />

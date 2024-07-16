@@ -21,12 +21,12 @@ module('Integration | Component | hds/app-header/index', function (hooks) {
   test('it renders content passed into the globalItems and utilityItems named blocks', async function (assert) {
     await render(hbs`
       <Hds::AppHeader>
-        <:globalItemsBefore>
+        <:logo>
           <span id="test-global-item-before">Global Item Before</span>
-        </:globalItemsBefore>
-        <:globalItemsAfter>
+        </:logo>
+        <:globalItems>
           <span id="test-global-item-after">Global Item After</span>
-        </:globalItemsAfter>
+        </:globalItems>
         <:utilityItems>
           <span id="test-utility-item">Utility Item</span>
         </:utilityItems>
