@@ -5,6 +5,7 @@
 
 import TemplateOnlyComponent from '@ember/component/template-only';
 import type { ComponentLike } from '@glint/template';
+import type { HdsApplicationStateMediaSignature } from './media';
 import type { HdsApplicationStateHeaderSignature } from './header';
 import type { HdsApplicationStateBodySignature } from './body';
 import type { HdsApplicationStateFooterSignature } from './footer';
@@ -13,10 +14,11 @@ export interface HdsApplicationStateSignature {
   Blocks: {
     default: [
       {
+        Media?: ComponentLike<HdsApplicationStateMediaSignature>;
         Header?: ComponentLike<HdsApplicationStateHeaderSignature>;
         Body?: ComponentLike<HdsApplicationStateBodySignature>;
         Footer?: ComponentLike<HdsApplicationStateFooterSignature>;
-      },
+      }
     ];
   };
   Element: HTMLDivElement;
