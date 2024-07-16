@@ -37,12 +37,6 @@
 
   // Mobile/small and tablet/medium compound view: applies at tablet min-width and below
   &.hds-app-header--is-mobile {
-    &:not(.hds-app-header--menu-is-open) {
-      .hds-app-header__menu {
-        display: none; // dropdown menu is hidden when isOpen = false
-      }
-    }
-
     // Style content as dropdown menu in mobile/tablet view
     .hds-app-header__menu {
       position: absolute;
@@ -53,7 +47,7 @@
       align-content: flex-start;
       height: calc(100vh - var(--token-app-header-height));
       padding: 16px;
-      overflow: auto; // allow users to scroll within the menu if the content is too long
+      overflow: auto; // allow users to scroll if the content is too long
       background: var(--token-color-palette-neutral-700);
     }
 
@@ -62,27 +56,13 @@
       left: 0;
     }
 
-    // Hide :globalAfter content in mobile/tablet view
-    .hds-app-header__global-items {
-      display: none;
-    }
-
     // Since the same component is used for both mobile/tablet and desktop views, we need to force the width to 100% in mobile view
-    .hds-app-header__global-items-in-menu {
+    .hds-app-header__global-items {
       &,
       .hds-dropdown,
       .hds-dropdown-toggle-button {
         width: 100%;
       }
-    }
-  }
-
-  // Desktop/large view: applies at desktop min-width and above
-  &.hds-app-header--is-desktop {
-    // Hide Menu button & Global Items after content in desktop view
-    .hds-app-header__menu-button,
-    .hds-app-header__global-items-in-menu {
-      display: none;
     }
   }
 

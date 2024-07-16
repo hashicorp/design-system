@@ -6,25 +6,29 @@
 <div class={{this.classNames}} ...attributes>
   <div class="hds-app-header__sub-section">
     {{yield to="logo"}}
-    <div class="hds-app-header__global-items">
+
+    {{#if this.isDesktop}}
       {{yield to="globalItems"}}
-    </div>
+    {{/if}}
   </div>
 
-  {{! UtilityItems }}
   <div class="hds-app-header__sub-section">
-    {{! Button appears in mobile/tablet view (hidden in desktop view) }}
-    <Hds::AppHeader::MenuButton
-      @onClickToggle={{this.onClickToggle}}
-      @isOpen={{this.isOpen}}
-      @menuContentId={{this.menuContentId}}
-    />
-    <div class="hds-app-header__menu" id={{this.menuContentId}}>
-      {{! globalItems content appears within menu in mobile/tablet view (hidden in desktop view) }}
-      <div class="hds-app-header__global-items-in-menu">
-        {{yield to="globalItems"}}
+    {{#if (not this.isDesktop)}}
+      <Hds::AppHeader::MenuButton
+        @onClickToggle={{this.onClickToggle}}
+        @isOpen={{this.isOpen}}
+        @menuContentId={{this.menuContentId}}
+      />
+    {{/if}}
+    {{#if this.showItems}}
+      <div class="hds-app-header__menu" id={{this.menuContentId}}>
+        {{#if (not this.isDesktop)}}
+          <div class="hds-app-header__global-items">
+            {{yield to="globalItems"}}
+          </div>
+        {{/if}}
+        {{yield to="utilityItems"}}
       </div>
-      {{yield to="utilityItems"}}
-    </div>
+    {{/if}}
   </div>
 </div>
