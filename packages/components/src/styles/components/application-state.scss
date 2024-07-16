@@ -22,6 +22,8 @@ $hds-application-state-padding: 12px 0;
   color: var(--token-color-foreground-faint);
 }
 
+.hds-application-state__media {}
+
 .hds-application-state__icon {
   margin-right: 8px; // instead of column gap
   padding-top: 4px; // this seems to align the icon along with line 21

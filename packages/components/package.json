@@ -140,6 +140,7 @@
       "./components/hds/application-state/footer.js": "./dist/_app_/components/hds/application-state/footer.js",
       "./components/hds/application-state/header.js": "./dist/_app_/components/hds/application-state/header.js",
       "./components/hds/application-state/index.js": "./dist/_app_/components/hds/application-state/index.js",
+      "./components/hds/application-state/media.js": "./dist/_app_/components/hds/application-state/media.js",
       "./components/hds/badge-count/index.js": "./dist/_app_/components/hds/badge-count/index.js",
       "./components/hds/badge/index.js": "./dist/_app_/components/hds/badge/index.js",
       "./components/hds/breadcrumb/index.js": "./dist/_app_/components/hds/breadcrumb/index.js",
