@@ -40,7 +40,7 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
     });
   }
 
-  addEventListeners() {
+  addEventListeners(): void {
     this.desktopMQ.addEventListener('change', this.updateDesktopVariable, true);
 
     // set initial state based on viewport using a "synthetic" event
@@ -60,14 +60,10 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
   }
 
   // Generates a unique ID for the Menu Content
-  menuContentId = 'menu-content-' + guidFor(this);
+  menuContentId = 'hds-menu-content-' + guidFor(this);
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
-  get classNames() {
+  // Get the class names to apply to the component.
+  get classNames(): string {
     const classes = ['hds-app-header'];
 
     // add a class based on the @isOpen argument
@@ -85,7 +81,7 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
   }
 
   @action
-  onClickToggle() {
+  onClickToggle(): void {
     this.isOpen = !this.isOpen;
   }
 

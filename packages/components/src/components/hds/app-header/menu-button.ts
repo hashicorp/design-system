@@ -20,18 +20,18 @@ export interface HdsAppHeaderMenuButtonSignature {
 
 export default class HdsAppHeaderMenuButtonComponent extends Component<HdsAppHeaderMenuButtonSignature> {
   @action
-  onClick(event: MouseEvent) {
+  onClick(event: MouseEvent): void {
     if (this.args.onClickToggle) {
       this.args.onClickToggle(event);
     }
   }
 
-  get icon() {
+  get icon(): 'x' | 'menu' {
     return this.args.isOpen ? 'x' : 'menu';
   }
 
   // Get the class names to apply to the component.
-  get classNames() {
+  get classNames(): string {
     const classes = ['hds-app-header__menu-button'];
 
     return classes.join(' ');
