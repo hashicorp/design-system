@@ -59,11 +59,7 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
     );
   }
 
-  /**
-   * Generates a unique ID for the Menu Content
-   *
-   * @param menuContentId
-   */
+  // Generates a unique ID for the Menu Content
   menuContentId = 'menu-content-' + guidFor(this);
 
   /**

@@ -30,11 +30,7 @@ export default class HdsAppHeaderMenuButtonComponent extends Component<HdsAppHea
     return this.args.isOpen ? 'x' : 'menu';
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method MenuButton#classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
+  // Get the class names to apply to the component.
   get classNames() {
     const classes = ['hds-app-header__menu-button'];
 
