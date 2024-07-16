@@ -8,7 +8,7 @@ The Text Input component has two different variants with their own APIs:
 ### Form::TextInput::Base
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="type" @type="enum" @values={{array "text" "email" "password" "url" "search" "date" "time" "datetime-local" }} @default="text">
+  <C.Property @name="type" @type="enum" @values={{array "text" "email" "password" "url" "search" "date" "time" "datetime-local" "month" "week" "tel" }} @default="text">
     Sets the native HTML `type` of the `<input>`.
   </C.Property>
   <C.Property @name="value" @type="string|number|date">
@@ -35,7 +35,7 @@ The Text Input component has two different variants with their own APIs:
 ### Form::TextInput::Field
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="type" @type="enum" @values={{array "text" "email" "password" "url" "search" "date" "time" "datetime-local" }} @default="text">
+  <C.Property @name="type" @type="enum" @values={{array "text" "email" "password" "url" "search" "date" "time" "datetime-local" "month" "week" "tel" }} @default="text">
     Sets the native HTML `type` of the `<input>`.
   </C.Property>
   <C.Property @name="id" @type="string">
