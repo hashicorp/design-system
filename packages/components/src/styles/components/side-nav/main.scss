@@ -9,8 +9,8 @@
 
 // TODO: Create app-header tokens:
 :root {
-  --token-hds-app-header-height: 60px;
-  --token-hds-app-header-home-link-padding: 4px;
+  --token-app-header-height: 60px;
+  --token-app-header-home-link-padding: 4px;
 }
 
 :root {
@@ -61,9 +61,9 @@
 // Modify sidenav layout when used together with app-header
 
 .hds-side-nav--has-header {
-  top: var(--token-hds-app-header-height);
-  height: calc(100vh - var(--token-hds-app-header-height));
-  min-height: calc(100vh - var(--token-hds-app-header-height));
+  top: var(--token-app-header-height);
+  height: calc(100vh - var(--token-app-header-height));
+  min-height: calc(100vh - var(--token-app-header-height));
 }
 
 // OVERLAY
