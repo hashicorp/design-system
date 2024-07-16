@@ -30,6 +30,7 @@ import type HdsApplicationStateComponent from './components/hds/application-stat
 import type HdsApplicationStateBodyComponent from './components/hds/application-state/body';
 import type HdsApplicationStateFooterComponent from './components/hds/application-state/footer';
 import type HdsApplicationStateHeaderComponent from './components/hds/application-state/header';
+import type HdsApplicationStateMediaComponent from './components/hds/application-state/media';
 import type HdsCardContainerComponent from './components/hds/card/container.ts';
 import type HdsCopyButtonComponent from './components/hds/copy/button/index';
 import type HdsCopySnippetComponent from './components/hds/copy/snippet';
@@ -208,6 +209,9 @@ export default interface HdsComponentsRegistry {
 
   'Hds::ApplicationState::Footer': typeof HdsApplicationStateFooterComponent;
   'hds/application-state/footer': typeof HdsApplicationStateFooterComponent;
+
+  'Hds::ApplicationState::Media': typeof HdsApplicationStateMediaComponent;
+  'hds/application-state/media': typeof HdsApplicationStateMediaComponent;
 
   // Badge
   'Hds::Badge': typeof HdsBadgeComponent;
