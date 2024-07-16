@@ -10,7 +10,7 @@
 
 - To navigate within subpages of an organization or project; instead, use the [Side Nav](/components/side-nav).
 
-### Navigation hierarchy
+## Navigation hierarchy
 
 The App Header provides consistent navigation between global application areas, such as organizations and projects, while facilitating easy access to utilities like support and user settings.
 
@@ -27,15 +27,20 @@ In the hierarchy of navigational elements, the App Header sits at the top and is
 
 The home Link gives users quick, consistent access to the application's home page or dashboard.
 
-For cloud products, the icon should always be `hcp`. For standalone or open-source products, it should be the product’s service icon (e.g. `terraform`).
+For cloud products, the icon should always be `hcp`. For standalone or open-source products, it should be the product’s service icon; e.g., `terraform`.
 
 ![Examples of the Home link using different logos](/assets/components/app-header/app-header-home-link.png)
 
 ### Context switcher
 
-The context switcher allows users to switch between different global contexts within the product or application, such as navigating between different organizations or projects. This element only exists in Figma. For implementation in code, use the HDS [Dropdown](/components/dropdown) or, if necessary, create your own custom component styled after the Dropdown.
+The context switcher allows users to switch between different global contexts within the product or application, such as navigating between different organizations or projects. 
 
 ![Context switcher within the App Header](/assets/components/app-header/app-header-context-switcher.png)
+
+!!! Info
+
+This element only exists in Figma. For implementation in code, use the HDS [Dropdown](/components/dropdown) or, if necessary, create your own custom component styled after the Dropdown.
+!!!
 
 ## Utility navigation
 
