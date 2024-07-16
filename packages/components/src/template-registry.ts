@@ -34,6 +34,12 @@ import type HdsCardContainerComponent from './components/hds/card/container.ts';
 import type HdsCopyButtonComponent from './components/hds/copy/button/index';
 import type HdsCopySnippetComponent from './components/hds/copy/snippet';
 import type HdsDisclosurePrimitiveComponent from './components/hds/disclosure-primitive';
+import type HdsDialogPrimitiveBodyComponent from './components/hds/dialog-primitive/body';
+import type HdsDialogPrimitiveDescriptionComponent from './components/hds/dialog-primitive/description';
+import type HdsDialogPrimitiveFooterComponent from './components/hds/dialog-primitive/footer';
+import type HdsDialogPrimitiveHeaderComponent from './components/hds/dialog-primitive/header';
+import type HdsDialogPrimitiveOverlayComponent from './components/hds/dialog-primitive/overlay';
+import type HdsDialogPrimitiveWrapperComponent from './components/hds/dialog-primitive/wrapper';
 import type HdsDismissButtonComponent from './components/hds/dismiss-button';
 import type HdsFormCharacterCountComponent from './components/hds/form/character-count';
 import type HdsFormCheckboxBaseComponent from './components/hds/form/checkbox/base';
@@ -221,6 +227,32 @@ export default interface HdsComponentsRegistry {
   // Copy Snippet
   'Hds::Copy::Snippet': typeof HdsCopySnippetComponent;
   'hds/copy/snippet': typeof HdsCopySnippetComponent;
+
+  // DIALOG
+
+  // DialogPrimitiveBody
+  'Hds::DialogPrimitive::Body': typeof HdsDialogPrimitiveBodyComponent;
+  'hds/dialog-primitive/body': typeof HdsDialogPrimitiveBodyComponent;
+
+  // DialogPrimitiveDescription
+  'Hds::DialogPrimitive::Description': typeof HdsDialogPrimitiveDescriptionComponent;
+  'hds/dialog-primitive/description': typeof HdsDialogPrimitiveDescriptionComponent;
+
+  // DialogPrimitiveFooter
+  'Hds::DialogPrimitive::Footer': typeof HdsDialogPrimitiveFooterComponent;
+  'hds/dialog-primitive/footer': typeof HdsDialogPrimitiveFooterComponent;
+
+  // DialogPrimitiveHeader
+  'Hds::DialogPrimitive::Header': typeof HdsDialogPrimitiveHeaderComponent;
+  'hds/dialog-primitive/header': typeof HdsDialogPrimitiveHeaderComponent;
+
+  // DialogPrimitiveOverlay
+  'Hds::DialogPrimitive::Overlay': typeof HdsDialogPrimitiveOverlayComponent;
+  'hds/dialog-primitive/overlay': typeof HdsDialogPrimitiveOverlayComponent;
+
+  // DialogPrimitiveWrapper
+  'Hds::DialogPrimitive::Wrapper': typeof HdsDialogPrimitiveWrapperComponent;
+  'hds/dialog-primitive/wrapper': typeof HdsDialogPrimitiveWrapperComponent;
 
   // DisclosurePrimitive
   'Hds::DisclosurePrimitive': typeof HdsDisclosurePrimitiveComponent;
