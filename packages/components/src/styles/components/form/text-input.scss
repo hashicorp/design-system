@@ -105,7 +105,9 @@
 
   &[type="date"],
   &[type="time"],
-  &[type="datetime-local"] {
+  &[type="datetime-local"],
+  &[type="month"],
+  &[type="week"] {
 
     // browsers set a specific width for these controls, we want to keep it
     width: initial;
