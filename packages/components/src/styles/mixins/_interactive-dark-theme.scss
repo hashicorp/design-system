@@ -48,7 +48,6 @@
   
   // Focus:
   &:focus,
-  &:focus-visible,
   &.mock-focus {
     @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px);
 
@@ -56,15 +55,20 @@
     background-color: var(--token-color-palette-neutral-700);
 
     @if ($add-visible-border) {
-      // border-color: var(--token-color-palette-neutral-500); // TODO: confirm if this is the correct token
-      border-color: var()--token-color-focus-action-internal;
+      border-color: var(--token-color-focus-action-internal);
     }
 
     // focus ring:
     &::before {
       color: var(--token-color-foreground-high-contrast);
       border: none;
+      box-shadow: var(--token-focus-ring-action-box-shadow);
     }
+  }
+
+  // override style removing the focus style
+  &:focus:focus:not(:focus-visible)::before {
+    box-shadow: var(--token-focus-ring-action-box-shadow);
   }
 
   // Active:
