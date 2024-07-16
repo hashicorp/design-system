@@ -20,7 +20,6 @@ export interface HdsAppHeaderSignature {
   };
   Element: HTMLDivElement;
 }
-// More info on types and signatures: https://github.com/hashicorp/design-system/blob/main/wiki/TypeScript-Migration.md
 
 export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignature> {
   @tracked isOpen = false;

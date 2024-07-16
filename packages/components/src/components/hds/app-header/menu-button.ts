@@ -21,8 +21,10 @@ export interface HdsAppHeaderMenuButtonSignature {
 export default class HdsAppHeaderMenuButtonComponent extends Component<HdsAppHeaderMenuButtonSignature> {
   @action
   onClick(event: MouseEvent): void {
-    if (this.args.onClickToggle) {
-      this.args.onClickToggle(event);
+    const { onClickToggle } = this.args;
+
+    if (typeof onClickToggle === 'function') {
+      onClickToggle(event);
     }
   }
 
