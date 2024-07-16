@@ -130,11 +130,11 @@ The purpose and function of the Flyout should not rely solely on an icon, instea
 
 **With tagline**
 
-![Flyout header tagline, title and dismiss button](/assets/components/dialog-primitives/dialog-primitives-header-tagline-and-title.jpg)
+![Flyout header tagline, title, and dismiss button](/assets/components/dialog-primitives/dialog-primitives-header-tagline-and-title.jpg)
 
 **With tagline and icon**
 
-![Flyout header title icon, tagline, title and dismiss button](/assets/components/dialog-primitives/dialog-primitives-header-tagline-and-icon-and-title.jpg)
+![Flyout header title icon, tagline, title, and dismiss button](/assets/components/dialog-primitives/dialog-primitives-header-tagline-and-icon-and-title.jpg)
 
 A **tagline** helps the user maintain the context of the main page the Flyout was triggered from. Since a Flyout disables and obscures the main page content, adding a tagline can help the user understand the relationship between the Flyout and the main page.
 

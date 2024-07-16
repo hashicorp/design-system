@@ -33,7 +33,7 @@ The [`Button`](/components/button) component, yielded as contextual component.
 
 <Doc::ComponentApi as |C|>
   <C.Property>
-    It exposes the same API of the [`Button`](/components/button?tab=code#component-api) component.
+    It exposes the same API as the [`Button`](/components/button?tab=code#component-api) component.
   </C.Property>
 </Doc::ComponentApi>
 
@@ -43,7 +43,7 @@ The [`Dropdown`](/components/dropdown) component, yielded as contextual componen
 
 <Doc::ComponentApi as |C|>
   <C.Property>
-    It exposes the same API of the [`Dropdown`](/components/dropdown?tab=code#component-api) component.
+    It exposes the same API as the [`Dropdown`](/components/dropdown?tab=code#component-api) component.
   </C.Property>
 </Doc::ComponentApi>
 
@@ -53,7 +53,7 @@ The [`Form::Select::Base`](/components/form/select) component, yielded as contex
 
 <Doc::ComponentApi as |C|>
   <C.Property>
-    It exposes the same API of the [`Form::Select::Base`](/components/form/select?tab=code#formselectbase-1) component.
+    It exposes the same API as the [`Form::Select::Base`](/components/form/select?tab=code#formselectbase-1) component.
   </C.Property>
 </Doc::ComponentApi>
 
@@ -63,7 +63,7 @@ The [`Form::TextInput::Base`](/components/form/text-input) component, yielded as
 
 <Doc::ComponentApi as |C|>
   <C.Property>
-      It exposes the same API of the [`Form::TextInput::Base`](/components/form/text-input?tab=code#formtextinputbase-1) component.
+      It exposes the same API as the [`Form::TextInput::Base`](/components/form/text-input?tab=code#formtextinputbase-1) component.
   </C.Property>
 </Doc::ComponentApi>
 

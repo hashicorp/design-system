@@ -246,12 +246,12 @@ Common examples of tertiary actions include:
 
 !!! Do
 
-![Modal footer example with two buttons, primary saying 'Rename cluster' and the secondary saying 'Cancel'](/assets/components/modal/modal-action-content-do.png)
+![Modal footer example with two buttons: a primary 'Rename cluster' button and a secondary 'Cancel' button](/assets/components/modal/modal-action-content-do.png)
 !!!
 
 !!! Dont
 
-![Modal footer example with two buttons, primary saying 'Rename this cluster' and the secondary saying 'Dont rename this cluster'](/assets/components/modal/modal-action-content-dont.png)
+![Modal footer example with two buttons: a primary 'Rename this cluster' button and a secondary 'Dont rename this cluster' button](/assets/components/modal/modal-action-content-dont.png)
 !!!
 
 ## Dismissal

@@ -44,7 +44,7 @@ A yielded `HDS::IconTile` component.
 
 <Doc::ComponentApi as |C|>
   <C.Property>
-    It exposes the same API of the [`IconTile`](/components/icon-tile?tab=code#component-api) component, apart from the `@size` argument, which is pre-defined to be `medium`.
+    It exposes the same API as the [`IconTile`](/components/icon-tile?tab=code#component-api) component, apart from the `@size` argument, which is pre-defined to be `medium`.
   </C.Property>
 </Doc::ComponentApi>
 

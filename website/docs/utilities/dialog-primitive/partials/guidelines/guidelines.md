@@ -2,7 +2,7 @@
 
 The DialogPrimitive sub-components are not intended to be used independently of each other or in isolation. If you are looking to create your own dialog-based component, use the `DialogPrimitive::Wrapper` as your foundation.
 
-A common example of this is a non-modal dialog such as a SplitWindow or Panel which allows the user to interact with both the main page content and the content within the dialog.
+A common example of this is a non-modal dialog such as a SplitWindow or Panel, which allows the user to interact with both the main page content and the content within the dialog.
 
 !!! Info
 

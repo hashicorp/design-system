@@ -71,7 +71,7 @@ A sub-component used to contain the main content of the dialog. When the yielded
 
 ### DialogPrimitive::Footer
 
-A sub-component used to provide the footer’s content. We recommend using it exclusively for actions using the [ButtonSet](/components/button-set) component. If a tertiary action is presented, it will always be aligned at the end of the row.
+A sub-component used to provide the footer’s content. We recommend using it exclusively for actions using the [ButtonSet](/components/button-set) component. If a tertiary action is included, it will always be aligned at the end of the row.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">
