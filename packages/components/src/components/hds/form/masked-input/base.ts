@@ -10,7 +10,7 @@ import { getElementId } from '../../../../utils/hds-get-element-id.ts';
 import type { HdsCopyButtonSignature } from '../../copy/button/index.ts';
 import type { HdsFormVisibilityToggleSignature } from '../visibility-toggle/index.ts';
 
-export interface HdsMaskedInputBaseSignature {
+export interface HdsFormMaskedInputBaseSignature {
   Args: {
     copyButtonText?: HdsCopyButtonSignature['Args']['text'];
     hasCopyButton?: boolean;
@@ -27,7 +27,7 @@ export interface HdsMaskedInputBaseSignature {
   Element: HTMLElement;
 }
 
-export default class HdsMaskedInputBaseComponent extends Component<HdsMaskedInputBaseSignature> {
+export default class HdsFormMaskedInputBaseComponent extends Component<HdsFormMaskedInputBaseSignature> {
   @tracked isContentMasked = this.args.isContentMasked ?? true;
 
   @action

@@ -10,11 +10,11 @@ import type { HdsFormErrorSignature } from '../error';
 import type { HdsFormFieldSignature } from '../field';
 import type { HdsFormHelperTextSignature } from '../helper-text';
 import type { HdsFormLabelSignature } from '../label';
-import type { HdsMaskedInputBaseSignature } from './base';
+import type { HdsFormMaskedInputBaseSignature } from './base';
 
-interface HdsMaskedInputFieldSignature {
+interface HdsFormMaskedInputFieldSignature {
   Args: Omit<HdsFormFieldSignature['Args'], 'contextualClass' | 'layout'> &
-    HdsMaskedInputBaseSignature['Args'];
+    HdsFormMaskedInputBaseSignature['Args'];
   Blocks: {
     default: [
       {
@@ -31,7 +31,7 @@ interface HdsMaskedInputFieldSignature {
   Element: HdsFormFieldSignature['Element'];
 }
 
-const HdsMaskedInputFieldComponent =
-  templateOnlyComponent<HdsMaskedInputFieldSignature>();
+const HdsFormMaskedInputFieldComponent =
+  templateOnlyComponent<HdsFormMaskedInputFieldSignature>();
 
-export default HdsMaskedInputFieldComponent;
+export default HdsFormMaskedInputFieldComponent;
