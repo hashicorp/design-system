@@ -14,9 +14,9 @@ export interface HdsAppHeaderSignature {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     logo?: any;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    globalItems?: any;
+    globalActions?: any;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    utilityItems?: any;
+    utilityActions?: any;
   };
   Element: HTMLDivElement;
 }

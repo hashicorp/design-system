@@ -18,16 +18,16 @@
         <:logo>
           <Shw::Placeholder @height="2em" @width="auto" @text="Logo" />
         </:logo>
-        <:globalItems>
+        <:globalActions>
           <Shw::Placeholder @height="2em" @width="auto" @text="OrgPicker" />
-        </:globalItems>
+        </:globalActions>
 
-        <:utilityItems>
+        <:utilityActions>
           <Shw::Placeholder @height="2em" @width="auto" @text="GeoPicker" />
           <Shw::Placeholder @height="2em" @width="auto" @text="Search" />
           <Shw::Placeholder @height="2em" @width="auto" @text="HelpMenu" />
           <Shw::Placeholder @height="2em" @width="auto" @text="UserMenu" />
-        </:utilityItems>
+        </:utilityActions>
       </Hds::AppHeader>
     </SG.Item>
   </Shw::Grid>
@@ -42,16 +42,16 @@
         <:logo>
           <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
         </:logo>
-        <:globalItems>
+        <:globalActions>
           <Hds::Dropdown as |dd|>
             <dd.ToggleButton @text="Choose an organization" @icon="org" />
             <dd.Checkmark>
               organizationName
             </dd.Checkmark>
           </Hds::Dropdown>
-        </:globalItems>
+        </:globalActions>
 
-        <:utilityItems>
+        <:utilityActions>
           <Hds::Dropdown @listPosition="bottom-right" as |dd|>
             <dd.ToggleIcon @icon="help" @text="help menu" />
             <dd.Title @text="Help & Support" />
@@ -70,7 +70,7 @@
             <dd.Description @text="email@domain.com" />
             <dd.Interactive @href="#" @text="Account Settings" />
           </Hds::Dropdown>
-        </:utilityItems>
+        </:utilityActions>
       </Hds::AppHeader>
     </SG.Item>
 
@@ -79,16 +79,16 @@
         <:logo>
           <Hds::AppHeader::HomeLink @icon="terraform" @ariaLabel="Terraform home menu" @href="#" />
         </:logo>
-        <:globalItems>
+        <:globalActions>
           <Hds::Dropdown as |dd|>
             <dd.ToggleButton @text="Choose an organization" @icon="org" />
             <dd.Checkmark>
               organizationName
             </dd.Checkmark>
           </Hds::Dropdown>
-        </:globalItems>
+        </:globalActions>
 
-        <:utilityItems>
+        <:utilityActions>
           <Hds::Button @color="secondary" @icon="search" @isIconOnly={{true}} @text="Search" />
 
           <Hds::Dropdown @listPosition="bottom-right" as |dd|>
@@ -109,7 +109,7 @@
             <dd.Description @text="email@domain.com" />
             <dd.Interactive @href="#" @text="Account Settings" />
           </Hds::Dropdown>
-        </:utilityItems>
+        </:utilityActions>
       </Hds::AppHeader>
     </SG.Item>
 
@@ -118,16 +118,16 @@
         <:logo>
           <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
         </:logo>
-        <:globalItems>
+        <:globalActions>
           <Hds::Dropdown as |dd|>
             <dd.ToggleButton @text="Choose an organization" @icon="org" />
             <dd.Checkmark>
               organizationName
             </dd.Checkmark>
           </Hds::Dropdown>
-        </:globalItems>
+        </:globalActions>
 
-        <:utilityItems>
+        <:utilityActions>
           <Hds::Dropdown as |dd|>
             <dd.ToggleButton @text="Europe" @icon="globe" />
             <dd.Checkmark>
@@ -155,7 +155,7 @@
             <dd.Description @text="email@domain.com" />
             <dd.Interactive @href="#" @text="Account Settings" />
           </Hds::Dropdown>
-        </:utilityItems>
+        </:utilityActions>
       </Hds::AppHeader>
     </SG.Item>
   </Shw::Grid>
@@ -170,15 +170,15 @@
         <:logo>
           <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
         </:logo>
-        <:globalItems>
+        <:globalActions>
           <Hds::Dropdown as |dd|>
             <dd.ToggleButton @text="Long-Organization-Name-Long-Organization" @icon="org" />
             <dd.Checkmark>
               organizationName
             </dd.Checkmark>
           </Hds::Dropdown>
-        </:globalItems>
-        <:utilityItems>
+        </:globalActions>
+        <:utilityActions>
           <Hds::Button @color="secondary" @icon="search" @isIconOnly={{true}} @text="Search" />
           <Hds::Dropdown @listPosition="bottom-right" as |dd|>
             <dd.ToggleIcon @icon="help" @text="help menu" />
@@ -197,7 +197,7 @@
             <dd.Description @text="email@domain.com" />
             <dd.Interactive @href="#" @text="Account Settings" />
           </Hds::Dropdown>
-        </:utilityItems>
+        </:utilityActions>
       </Hds::AppHeader>
     </SG.Item>
 
@@ -206,15 +206,15 @@
         <:logo>
           <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
         </:logo>
-        <:globalItems>
+        <:globalActions>
           <Hds::Dropdown as |dd|>
             <dd.ToggleButton @text="WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW" @icon="org" />
             <dd.Checkmark>
               organizationName
             </dd.Checkmark>
           </Hds::Dropdown>
-        </:globalItems>
-        <:utilityItems>
+        </:globalActions>
+        <:utilityActions>
           <Hds::Button @color="secondary" @icon="search" @isIconOnly={{true}} @text="Search" />
           <Hds::Dropdown @listPosition="bottom-right" as |dd|>
             <dd.ToggleIcon @icon="help" @text="help menu" />
@@ -233,7 +233,7 @@
             <dd.Description @text="email@domain.com" />
             <dd.Interactive @href="#" @text="Account Settings" />
           </Hds::Dropdown>
-        </:utilityItems>
+        </:utilityActions>
       </Hds::AppHeader>
     </SG.Item>
   </Shw::Grid>
