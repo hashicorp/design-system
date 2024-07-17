@@ -40,6 +40,7 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
   }
 
   addEventListeners(): void {
+    document.addEventListener('keydown', this.escapePress, true);
     this.desktopMQ.addEventListener('change', this.updateDesktopVariable, true);
 
     // set initial state based on viewport using a "synthetic" event
@@ -50,7 +51,8 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
     this.updateDesktopVariable(syntheticEvent);
   }
 
-  removeEventListeners() {
+  removeEventListeners(): void {
+    document.removeEventListener('keydown', this.escapePress, true);
     this.desktopMQ.removeEventListener(
       'change',
       this.updateDesktopVariable,
@@ -77,6 +79,13 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
     }
 
     return classes.join(' ');
+  }
+
+  @action
+  escapePress(event: KeyboardEvent): void {
+    if (event.key === 'Escape' && this.isOpen && !this.isDesktop) {
+      this.isOpen = false;
+    }
   }
 
   @action
