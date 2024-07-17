@@ -4,30 +4,31 @@
 }}
 
 <div class={{this.classNames}} ...attributes>
-  {{! GlobalItems }}
   <div class="hds-app-header__sub-section">
-    {{! Intended for: ProductMenu, HomeLink/Logo }}
-    {{yield to="globalItemsBefore"}}
-    {{! Intended for: OrgPicker }}
-    <div class="hds-app-header__global-items-after">
-      {{yield to="globalItemsAfter"}}
-    </div>
+    {{yield to="logo"}}
+
+    {{#if this.isDesktop}}
+      {{yield to="globalActions"}}
+    {{/if}}
   </div>
 
-  {{! UtilityItems }}
   <div class="hds-app-header__sub-section">
-    {{! Button appears in mobile/tablet view (hidden in desktop view) }}
-    <Hds::AppHeader::MenuButton
-      @onClickToggle={{this.onClickToggle}}
-      @isOpen={{this.isOpen}}
-      @menuContentId={{this.menuContentId}}
-    />
-    <div class="hds-app-header__menu" id={{this.menuContentId}}>
-      {{! GlobalItemsAfter content appears within menu in mobile/tablet view (hidden in desktop view) }}
-      <div class="hds-app-header__global-items-in-menu">
-        {{yield to="globalItemsAfter"}}
+    {{#if (not this.isDesktop)}}
+      <Hds::AppHeader::MenuButton
+        @onClickToggle={{this.onClickToggle}}
+        @isOpen={{this.isOpen}}
+        @menuContentId={{this.menuContentId}}
+      />
+    {{/if}}
+    {{#if this.showItems}}
+      <div class="hds-app-header__menu" id={{this.menuContentId}}>
+        {{#if (not this.isDesktop)}}
+          <div class="hds-app-header__global-items">
+            {{yield to="globalActions"}}
+          </div>
+        {{/if}}
+        {{yield to="utilityActions"}}
       </div>
-      {{yield to="utilityItems"}}
-    </div>
+    {{/if}}
   </div>
 </div>

@@ -12,15 +12,14 @@ import { registerDestructor } from '@ember/destroyable';
 export interface HdsAppHeaderSignature {
   Blocks: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    globalItemsBefore?: any;
+    logo?: any;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    globalItemsAfter?: any;
+    globalActions?: any;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    utilityItems?: any;
+    utilityActions?: any;
   };
   Element: HTMLDivElement;
 }
-// More info on types and signatures: https://github.com/hashicorp/design-system/blob/main/wiki/TypeScript-Migration.md
 
 export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignature> {
   @tracked isOpen = false;
@@ -40,7 +39,8 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
     });
   }
 
-  addEventListeners() {
+  addEventListeners(): void {
+    document.addEventListener('keydown', this.escapePress, true);
     this.desktopMQ.addEventListener('change', this.updateDesktopVariable, true);
 
     // set initial state based on viewport using a "synthetic" event
@@ -51,7 +51,8 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
     this.updateDesktopVariable(syntheticEvent);
   }
 
-  removeEventListeners() {
+  removeEventListeners(): void {
+    document.removeEventListener('keydown', this.escapePress, true);
     this.desktopMQ.removeEventListener(
       'change',
       this.updateDesktopVariable,
@@ -59,25 +60,17 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
     );
   }
 
-  /**
-   * Generates a unique ID for the Menu Content
-   *
-   * @param menuContentId
-   */
-  menuContentId = 'menu-content-' + guidFor(this);
+  // Menu items display if is desktop, or if is mobile and the menu is open
+  get showItems(): boolean {
+    return this.isDesktop || this.isOpen;
+  }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
-  get classNames() {
+  // Generates a unique ID for the Menu Content
+  menuContentId = 'hds-menu-content-' + guidFor(this);
+
+  // Get the class names to apply to the component.
+  get classNames(): string {
     const classes = ['hds-app-header'];
-
-    // add a class based on the @isOpen argument
-    if (this.isOpen) {
-      classes.push('hds-app-header--menu-is-open');
-    }
 
     if (!this.isDesktop) {
       classes.push('hds-app-header--is-mobile');
@@ -89,7 +82,14 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
   }
 
   @action
-  onClickToggle() {
+  escapePress(event: KeyboardEvent): void {
+    if (event.key === 'Escape' && this.isOpen && !this.isDesktop) {
+      this.isOpen = false;
+    }
+  }
+
+  @action
+  onClickToggle(): void {
     this.isOpen = !this.isOpen;
   }
 

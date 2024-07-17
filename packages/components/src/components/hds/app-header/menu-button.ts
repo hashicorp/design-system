@@ -13,31 +13,22 @@ export interface HdsAppHeaderMenuButtonSignature {
     isOpen?: boolean;
     menuContentId: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onClickToggle?: (event: MouseEvent, ...args: any[]) => void;
+    onClickToggle?: () => void;
   };
   Element: HdsButtonSignature['Element'];
 }
 
 export default class HdsAppHeaderMenuButtonComponent extends Component<HdsAppHeaderMenuButtonSignature> {
-  @action
-  onClick(event: MouseEvent) {
-    if (this.args.onClickToggle) {
-      this.args.onClickToggle(event);
-    }
-  }
-
-  get icon() {
+  get icon(): 'x' | 'menu' {
     return this.args.isOpen ? 'x' : 'menu';
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method MenuButton#classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
-  get classNames() {
-    const classes = ['hds-app-header__menu-button'];
+  @action
+  onClick(): void {
+    const { onClickToggle } = this.args;
 
-    return classes.join(' ');
+    if (typeof onClickToggle === 'function') {
+      onClickToggle();
+    }
   }
 }

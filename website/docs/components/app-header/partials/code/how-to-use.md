@@ -12,25 +12,25 @@ The `AppHeader` is intended to be used in combination with the [`Hds::AppFrame`]
 
 The AppHeader exposes three “slots” (named blocks) where consumers can yield the navigation content and add business logic to control the content.
 
-The `<:globalItemsBefore>` block should contain the `AppHeader::HomeLink` which is provided as a child component.
+The `<:logo>` block should contain the `AppHeader::HomeLink` which is provided as a child component.
 
-The other two slots are used for consumer provided controls. The `<:globalItemsAfter>` block typically should provide an “OrgSwitcher” or “ProjectSwitcher“ control while the `<:>utilityItems>` block should contain utilities such “Help” and “User” menus and optionally “Search”.
+The other two slots are used for consumer provided controls. The `<:globalActions>` block typically should provide an “OrgSwitcher” or “ProjectSwitcher“ control while the `<:utilityActions>` block should contain utilities such “Help” and “User” menus and optionally “Search”.
 
 
 ```handlebars
 <Hds::AppHeader>
-  <:globalItemsBefore>
+  <:logo>
     <Doc::Placeholder @height="2em" @width="auto" @text="HomeLink" @background="#e4e4e4" />
-  </:globalItemsBefore>
+  </:logo>
 
-  <:globalItemsAfter>
+  <:globalActions>
     <Doc::Placeholder @height="2em" @width="auto" @text="OrgSwitcher" @background="#e4e4e4" />
-  </:globalItemsAfter>
+  </:globalActions>
 
-  <:utilityItems>
+  <:utilityActions>
     <Doc::Placeholder @height="2em" @width="auto" @text="HelpMenu" @background="#e4e4e4" />
     <Doc::Placeholder @height="2em" @width="auto" @text="UserMenu" @background="#e4e4e4" />
-  </:utilityItems>
+  </:utilityActions>
 </Hds::AppHeader>
 ```
 
@@ -38,7 +38,7 @@ The other two slots are used for consumer provided controls. The `<:globalItemsA
 
 #### HomeLink
 
-The `Hds::AppHeader::HomeLink` child component should be yielded within the `<:globalItemsBefore>` block. It provides consistent branding and navigates the user to the “home“ or main dashboard page.
+The `Hds::AppHeader::HomeLink` child component should be yielded within the `<:logo>` block. It provides consistent branding and navigates the user to the “home“ or main dashboard page.
 
 It requires a value for the `@icon` and `@ariaLabel` arguments.
 
@@ -48,21 +48,22 @@ Refer to the [Component API section](/components/app-header?tab=code#appheaderho
 
 ```handlebars
 <Hds::AppHeader>
-  <:globalItemsBefore>
+  <:logo>
     <Hds::AppHeader::HomeLink 
       @icon="hashicorp" 
       @ariaLabel="HashiCorp home menu"
       @href="/"
     />
-  </:globalItemsBefore>
+  </:logo>
   
-  <:globalItemsAfter>
+  <:globalActions>
     <Doc::Placeholder @height="2em" @width="auto" @text="OrgSwitcher" @background="#e4e4e4" />
-  </:globalItemsAfter>
-  <:utilityItems>
+  </:globalActions>
+  
+  <:utilityActions>
     <Doc::Placeholder @height="2em" @width="auto" @text="HelpMenu" @background="#e4e4e4" />
     <Doc::Placeholder @height="2em" @width="auto" @text="UserMenu" @background="#e4e4e4" />
-  </:utilityItems>
+  </:utilityActions>
 </Hds::AppHeader>
 ```
 
@@ -70,80 +71,81 @@ It also accepts optional arguments; for example, it’s possible to provide a cu
 
 ```handlebars
 <Hds::AppHeader>
-  <:globalItemsBefore>
+  <:logo>
     <Hds::AppHeader::HomeLink 
       @icon="terraform" 
       @ariaLabel="Terraform home menu"
       @color="var(--token-color-terraform-brand)"
       @href="/"
     />
-  </:globalItemsBefore>
+  </:logo>
   
-  <:globalItemsAfter>
+  <:globalActions>
     <Doc::Placeholder @height="2em" @width="auto" @text="OrgSwitcher" @background="#e4e4e4" />
-  </:globalItemsAfter>
+  </:globalActions>
 
-  <:utilityItems>
+  <:utilityActions>
     <Doc::Placeholder @height="2em" @width="auto" @text="HelpMenu" @background="#e4e4e4" />
     <Doc::Placeholder @height="2em" @width="auto" @text="UserMenu" @background="#e4e4e4" />
-  </:utilityItems>
+  </:utilityActions>
 </Hds::AppHeader>
 ```
 
-#### “Context switcher” (eg. organization or project selector)
+#### Global actions
 
-Consumers should provide their own “context switcher” (eg. organization or project selector) control yielded within the `<:globalItemsAfter>` block. HDS does not currently provide this component.
+Consumers should provide their own “context switcher” (eg. organization or project selector) control yielded within the 
+`<:globalActions>`. HDS does not currently provide this component.
 
 ```handlebars
 <Hds::AppHeader>
-  <:globalItemsBefore>
+  <:logo>
     <Hds::AppHeader::HomeLink 
       @icon="hashicorp" 
       @ariaLabel="HashiCorp home menu"
       @href="/"
     />
-  </:globalItemsBefore>
+  </:logo>
   
-  <:globalItemsAfter>
+  <:globalActions>
     <Hds::Dropdown as |dd|>
       <dd.ToggleButton @text="Choose an organization" @icon="org" />
       <dd.Checkmark>
         organizationName
       </dd.Checkmark>
     </Hds::Dropdown>
-  </:globalItemsAfter>
+  </:globalActions>
 
-  <:utilityItems>
+  <:utilityActions>
     <Doc::Placeholder @height="2em" @width="auto" @text="HelpMenu" @background="#e4e4e4" />
     <Doc::Placeholder @height="2em" @width="auto" @text="UserMenu" @background="#e4e4e4" />
-  </:utilityItems>
+  </:utilityActions>
 </Hds::AppHeader>
 ```
 
-#### Utility controls
+#### Utility actions
 
-Consumers should provide their own utilty controls yielded within the `<:utilityItems>` block. Recommended controls are a user menu and help menu. Other controls such as a search button can optionally be included.
+Consumers should provide their own utilty action controls yielded within the `<:utilityActions>` block. Recommended controls are a user menu and help menu. Other controls such as a search button can optionally be included.
 
 ```handlebars
 <Hds::AppHeader>
-  <:globalItemsBefore>
+  <:logo>
     <Hds::AppHeader::HomeLink 
       @icon="hashicorp" 
       @ariaLabel="HashiCorp home menu"
       @href="/"
     />
-  </:globalItemsBefore>
+  </:logo>
   
-  <:globalItemsAfter>
+  <:globalActions>
     <Hds::Dropdown as |dd|>
       <dd.ToggleButton @text="Choose an organization" @icon="org" />
       <dd.Checkmark>
         organizationName
       </dd.Checkmark>
     </Hds::Dropdown>
-  </:globalItemsAfter>
+  </:globalActions>
 
-  <:utilityItems>
+  <:utilityActions>
     <Hds::Dropdown @listPosition="bottom-right" as |dd|>
       <dd.ToggleIcon @icon="help" @text="help menu" />
       <dd.Title @text="Help & Support" />
@@ -162,6 +164,6 @@ Consumers should provide their own utilty controls yielded within the `<:utility
       <dd.Description @text="email@domain.com" />
       <dd.Interactive @href="#" @text="Account Settings" />
     </Hds::Dropdown>
-  </:utilityItems>
+  </:utilityActions>
 </Hds::AppHeader>
 ```
