@@ -128,7 +128,9 @@
   // we override the default icon with the Flight corresponding one
   // notice: the original in Chrome has two assets, one for light and one for dark mode, and uses a special syntax, but apparently it doesn't work if used in a stylesheet
   &[type="date"],
-  &[type="datetime-local"] {
+  &[type="datetime-local"],
+  &[type="month"],
+  &[type="week"] {
     &::-webkit-calendar-picker-indicator {
       background-image: var(--token-form-text-input-background-image-data-url-date);
       background-position: center center;
