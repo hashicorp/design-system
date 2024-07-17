@@ -137,6 +137,34 @@
                     @isInvalid={{if (eq variant "invalid") true}}
                   />
                 </SF.Item>
+                <SF.Item>
+                  <Hds::Form::TextInput::Base
+                    aria-label="text input example as {{state}}"
+                    @type="month"
+                    disabled={{if (eq variant "disabled") "disabled"}}
+                    readonly={{if (eq variant "readonly") "readonly"}}
+                    @isInvalid={{if (eq variant "invalid") true}}
+                  />
+                </SF.Item>
+                <SF.Item>
+                  <Hds::Form::TextInput::Base
+                    aria-label="text input example as {{state}}"
+                    @type="week"
+                    disabled={{if (eq variant "disabled") "disabled"}}
+                    readonly={{if (eq variant "readonly") "readonly"}}
+                    @isInvalid={{if (eq variant "invalid") true}}
+                  />
+                </SF.Item>
+                <SF.Item>
+                  <Hds::Form::TextInput::Base
+                    aria-label="text input example as {{state}}"
+                    @type="tel"
+                    @value="1234567890"
+                    disabled={{if (eq variant "disabled") "disabled"}}
+                    readonly={{if (eq variant "readonly") "readonly"}}
+                    @isInvalid={{if (eq variant "invalid") true}}
+                  />
+                </SF.Item>
               </Shw::Flex>
             </SG.Item>
           {{/unless}}

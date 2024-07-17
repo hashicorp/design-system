@@ -12,6 +12,9 @@ export enum HdsFormTextInputTypeValues {
   Time = 'time',
   DateTimeLocal = 'datetime-local',
   Search = 'search',
+  Month = 'month',
+  Week = 'week',
+  Tel = 'tel',
 }
 
 export type HdsFormTextInputTypes = `${HdsFormTextInputTypeValues}`;
