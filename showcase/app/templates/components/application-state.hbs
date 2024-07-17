@@ -10,7 +10,9 @@
 <section data-test-percy>
   <Shw::Text::Body>Error state (with media)</Shw::Text::Body>
   <Hds::ApplicationState as |A|>
-    <A.Media>Media!</A.Media>
+    <A.Media>
+      <img src="/assets/images/avatar.png" alt="portrait of a cat wearing regency era coat and tie" />
+    </A.Media>
     <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
     <A.Body
       @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
