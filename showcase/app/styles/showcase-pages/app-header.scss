@@ -10,7 +10,7 @@ body.components-app-header {
     position: relative; // position is fixed when used within a screen layout
 
     &.hds-app-header--is-mobile {
-      .hds-app-header__menu {
+      .hds-app-header__actions {
         height: auto; // height fills screen minus app header height when used within a screen layout
       }
     }
