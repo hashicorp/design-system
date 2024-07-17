@@ -19,7 +19,7 @@ $hds-application-state-max-content-width: 480px;
   grid-template-columns: min-content 1fr;
   grid-template-rows: auto auto;
   align-items: start;
-  color: var(--token-color-foreground-faint);
+  color: var(--token-color-foreground-strong);
   max-width: $hds-application-state-max-content-width;
 }
 
@@ -39,6 +39,7 @@ $hds-application-state-max-content-width: 480px;
 
 .hds-application-state__title {
   grid-row: 2;
+  font-weight: var(--token-typography-font-weight-semibold);
 
   &:not(.hds-application-state__icon + &) {
     grid-column: 1 / -1;
@@ -48,7 +49,7 @@ $hds-application-state-max-content-width: 480px;
 .hds-application-state__body {
   max-width: $hds-application-state-max-content-width;
   padding: 12px 0 24px 0;
-  color: var(--token-color-foreground-faint);
+  color: var(--token-color-foreground-primary);
 }
 
 .hds-application-state__footer {
