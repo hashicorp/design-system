@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import TemplateOnlyComponent from '@ember/component/template-only';
+import Component from '@glimmer/component';
 import type { ComponentLike } from '@glint/template';
 import type { HdsApplicationStateMediaSignature } from './media';
 import type { HdsApplicationStateHeaderSignature } from './header';
@@ -24,7 +24,4 @@ export interface HdsApplicationStateSignature {
   Element: HTMLDivElement;
 }
 
-const HdsApplicationStateComponent =
-  TemplateOnlyComponent<HdsApplicationStateSignature>();
-
-export default HdsApplicationStateComponent;
+export default class HdsApplicationStateComponent extends Component<HdsApplicationStateSignature> {}
