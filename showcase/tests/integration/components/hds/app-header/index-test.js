@@ -18,18 +18,18 @@ module('Integration | Component | hds/app-header/index', function (hooks) {
 
   // CONTENT
 
-  test('it renders content passed into the globalItems and utilityItems named blocks', async function (assert) {
+  test('it renders content passed into the globalActions and utilityActions named blocks', async function (assert) {
     await render(hbs`
       <Hds::AppHeader>
         <:logo>
           <span id="test-global-item-before">Global Item Before</span>
         </:logo>
-        <:globalItems>
+        <:globalActions>
           <span id="test-global-item-after">Global Item After</span>
-        </:globalItems>
-        <:utilityItems>
+        </:globalActions>
+        <:utilityActions>
           <span id="test-utility-item">Utility Item</span>
-        </:utilityItems>
+        </:utilityActions>
       </Hds::AppHeader>
     `);
     assert.dom('#test-global-item-before').hasText('Global Item Before');
