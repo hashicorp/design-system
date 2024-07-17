@@ -4,13 +4,19 @@
  */
 
 import Component from '@glimmer/component';
+import { HdsApplicationStateAlignValues } from './types.ts';
+
 import type { ComponentLike } from '@glint/template';
+import type { HdsApplicationStateAligns } from './types';
 import type { HdsApplicationStateMediaSignature } from './media';
 import type { HdsApplicationStateHeaderSignature } from './header';
 import type { HdsApplicationStateBodySignature } from './body';
 import type { HdsApplicationStateFooterSignature } from './footer';
 
 export interface HdsApplicationStateSignature {
+  Args: {
+    align?: HdsApplicationStateAligns;
+  };
   Blocks: {
     default: [
       {
@@ -24,4 +30,8 @@ export interface HdsApplicationStateSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsApplicationStateComponent extends Component<HdsApplicationStateSignature> {}
+export default class HdsApplicationStateComponent extends Component<HdsApplicationStateSignature> {
+  get align() {
+    return this.args.align ?? HdsApplicationStateAlignValues.Center;
+  }
+}
