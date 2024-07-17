@@ -18,10 +18,7 @@
 }
 
 .hds-app-header {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
+  position: relative;
   z-index: 20; // needs to stay above the main content
   display: flex;
   gap: 12px;
@@ -35,10 +32,34 @@
 
   // RESPONSIVE VIEWS
 
-  // Mobile/small and tablet/medium compound view: applies at tablet min-width and below
+  // Desktop view:
+  &.hds-app-header--is-desktop {
+    // Global actions are aligned next to the logo in desktop view
+    .hds-app-header__global-actions {
+      margin-right: auto;
+
+      // TODO: Delete once collision detection is implemented for Dropdown
+      // Force align dropdown content
+      .hds-dropdown__content {
+        top: calc(100% + 4px);
+        left: 0;
+      }
+    }
+
+    .hds-app-header__utility-actions {
+      // TODO: Delete once collision detection is implemented for Dropdown
+      // Force align dropdown content
+      .hds-dropdown__content {
+        top: calc(100% + 4px);
+        right: 0;
+      }
+    }
+  }
+
+  // Mobile/small and tablet/medium compound view:
   &.hds-app-header--is-mobile {
-    // Style content as dropdown menu in mobile/tablet view
-    .hds-app-header__menu {
+    // Actions content appears as a dropdown menu in mobile/tablet view
+    .hds-app-header__actions {
       position: absolute;
       top: calc(100% + 1px); // We add 1px to account for the AppHeader bottom border
       right: 0;
@@ -51,13 +72,15 @@
       background: var(--token-color-palette-neutral-700);
     }
 
-    // Force nested dropdown content to align left in mobile/tablet view
+    // TODO: Delete once collision detection is implemented for Dropdown
+    // Force align dropdown content
     .hds-dropdown__content {
+      top: calc(100% + 4px);
       left: 0;
     }
 
-    // Since the same component is used for both mobile/tablet and desktop views, we need to force the width to 100% in mobile view
-    .hds-app-header__global-items {
+    // Force the width of global actions to 100% in mobile/tablet view
+    .hds-app-header__global-actions {
       &,
       .hds-dropdown,
       .hds-dropdown-toggle-button {
@@ -66,7 +89,13 @@
     }
   }
 
-  // CHILD CONTENT
+  // CONTENT
+
+  .hds-app-header__global-actions, 
+  .hds-app-header__utility-actions {
+    display: flex;
+    gap: inherit;
+  }
 
   // Apply dark theme to child interactive components
   .hds-button,
@@ -74,13 +103,6 @@
   .hds-dropdown-toggle-icon {
     @include hds-interactive-dark-theme();
   }
-}
-
-.hds-app-header__sub-section {
-  display: flex;
-  gap: inherit; // inherits from hds-app-header parent
-  align-items: center;
-  justify-content: space-between;
 }
 
 .hds-app-header__home-link {
@@ -91,7 +113,8 @@
   padding: calc(var(--token-app-header-home-link-padding) - 1px); // by design - we take in account the transparent border
 }
 
-.hds-app-header__menu {
+.hds-app-header__actions {
   display: flex; // may be over-riddden by queries
+  flex: 1;
   gap: inherit;
 }
