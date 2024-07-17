@@ -8,27 +8,27 @@
 <Shw::Text::H1>Application State</Shw::Text::H1>
 
 <section data-test-percy>
+  <Shw::Text::Body>Error state (with media)</Shw::Text::Body>
+  <Hds::ApplicationState as |A|>
+    <A.Media>Media!</A.Media>
+    <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
+    <A.Body
+      @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+    />
+    <A.Footer as |F|>
+      <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
+      <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
+    </A.Footer>
+  </Hds::ApplicationState>
+
   <Shw::Flex @direction="column" as |SF|>
-    <SF.Item @label="Error state (with media)">
-      <Hds::ApplicationState as |A|>
-        <A.Media>Media!</A.Media>
-        <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
-        <A.Body
-          @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
-        />
-        <A.Footer @hasDivider={{true}} as |F|>
-          <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
-          <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
-        </A.Footer>
-      </Hds::ApplicationState>
-    </SF.Item>
     <SF.Item @label="Error state (ideal)">
       <Hds::ApplicationState as |A|>
         <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
         <A.Body
           @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
         />
-        <A.Footer @hasDivider={{true}} as |F|>
+        <A.Footer as |F|>
           <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
           <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
         </A.Footer>
@@ -40,7 +40,7 @@
         <A.Body
           @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
         />
-        <A.Footer @hasDivider={{true}} as |F|>
+        <A.Footer as |F|>
           <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
           <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
         </A.Footer>
@@ -52,7 +52,7 @@
         <A.Body
           @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
         />
-        <A.Footer @hasDivider={{true}} as |F|>
+        <A.Footer as |F|>
           <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
           <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
         </A.Footer>
@@ -64,7 +64,7 @@
         <A.Body>
           <Shw::Placeholder @text="block yield" @height="150px" @background="#e1f5fe" />
         </A.Body>
-        <A.Footer @hasDivider={{true}} as |F|>
+        <A.Footer as |F|>
           <F.LinkStandalone @icon="arrow-left" @text="Go to previous page" @href="/" />
           <F.LinkStandalone
             @icon="help"
@@ -75,13 +75,13 @@
         </A.Footer>
       </Hds::ApplicationState>
     </SF.Item>
-    <SF.Item @label="Error state with no footer divider">
+    <SF.Item @label="Error state with footer divider">
       <Hds::ApplicationState as |A|>
         <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
         <A.Body
           @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
         />
-        <A.Footer as |F|>
+        <A.Footer @hasDivider={{true}} as |F|>
           <F.LinkStandalone @icon="arrow-left" @text="Go to previous page" @href="/" />
           <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
         </A.Footer>
