@@ -3,14 +3,14 @@
 ### AppHeader
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="<:globalItemsBefore>" @type="named block">
-    A named block where the content for the left-most area of the AppHeader is rendered. The `AppHeader::HomeLink` component should be added here.
+  <C.Property @name="<:logo>" @type="named block">
+    A named block where the main product logo linked to your app’s home page is rendered. The `AppHeader::HomeLink` component should be added here.
   </C.Property>
-  <C.Property @name="<:globalItemsAfter>" @type="named block">
-    A named block where the content appearing on the left side of the AppHeader next to the `AppHeader::HomeLink` is rendered. Consumer-provided global controls such as a “context switcher” (eg. organization or project selector) should be added here.
+  <C.Property @name="<:globalActions>" @type="named block">
+    A named block where the global actions will be rendered. Typically, a “context switcher” (eg. organization or project selector) should be added here.
   </C.Property>
-  <C.Property @name="<:utilityItems>" @type="named block">
-    A named block where the content appearing on the right side of the AppHeader is rendered. Consumer-provided utility controls such as a help menu, user menu, or search button should be added here.
+  <C.Property @name="<:utilityActions>" @type="named block">
+    A named block where the utility actions will be rendered. Typically, `Dropdown` or `Button` components should be added here, such as a help menu, user menu, or search button.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
