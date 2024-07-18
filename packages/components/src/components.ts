@@ -58,6 +58,10 @@ import HdsIconTile from './components/hds/icon-tile/index.ts';
 import HdsInteractive from './components/hds/interactive/index.ts';
 import HdsLinkInline from './components/hds/link/inline.ts';
 import HdsLinkStandalone from './components/hds/link/standalone.ts';
+import HdsModal from './components/hds/modal/index.ts';
+import HdsModalBodyComponent from './components/hds/modal/body.ts';
+import HdsModalFooter from './components/hds/modal/footer.ts';
+import HdsModalHeader from './components/hds/modal/header.ts';
 import HdsPageHeader from './components/hds/page-header/index.ts';
 import HdsPopoverPrimitive from './components/hds/popover-primitive/index.ts';
 import HdsReveal from './components/hds/reveal/index.ts';
@@ -136,6 +140,10 @@ export {
   HdsInteractive,
   HdsLinkInline,
   HdsLinkStandalone,
+  HdsModal,
+  HdsModalBodyComponent,
+  HdsModalFooter,
+  HdsModalHeader,
   HdsPageHeader,
   HdsPopoverPrimitive,
   HdsReveal,
