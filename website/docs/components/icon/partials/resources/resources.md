@@ -2,7 +2,7 @@
 Here is a list of resources that are associated with our HDS icon component.
 
 ### Icon Library
-A list of all icons in our component supports.
+A list of all icons our component supports.
 
 [Go to library](/icons/library)
 
