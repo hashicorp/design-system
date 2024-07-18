@@ -20,7 +20,7 @@ Use for presenting categorical data that has no intrinsic order, such as a pie o
 (**Important:** For accessibility, use patterns, symbols, or text in addition to or instead of color.)
 * Avoid problematic color pairs (e.g., red-green, blue-purple).
 
-IMAGES
+![Color usage for categorical data visualization](/assets/patterns/data-visualization/color-usage/data-visualization-categorical.png)
 
 ### Sequential palettes
 
@@ -31,7 +31,7 @@ Use for presenting quantitative or inherently ordered values in a continuum. Use
 * Vary lightness or hue to create a graduated color sequence (e.g., light blue to dark blue, blue to yellow)
 * Ensure enough contrast between the lightest and darkest colors to make differences easily perceivable.
 
-IMAGES
+![Color usage for sequential data visualization](/assets/patterns/data-visualization/color-usage/data-visualization-sequential.png)
 
 ### Diverging palettes
 
@@ -43,4 +43,4 @@ Use for presenting two sequences of ordered values with a shared central value. 
 * Contrast the two color sequences by using different hues.
 * Use lighter values for colors converging towards the center.
 
-IMAGE
+![Color usage for diverging data visualization](/assets/patterns/data-visualization/color-usage/data-visualization-diverging.png)
