@@ -2,4 +2,4 @@
 "@hashicorp/design-system-components": minor
 ---
 
-Add new Hds::Icon component which will eventually replace usage of FlightIcon
+Loads the `hds-icon` sprite in the `components` package, and ensures it is only loaded once.
