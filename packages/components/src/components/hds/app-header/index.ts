@@ -94,7 +94,7 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
   }
 
   @action
-  updateDesktopVariable(event: MediaQueryListEvent) {
+  updateDesktopVariable(event: MediaQueryListEvent): void {
     this.isDesktop = event.matches;
   }
 }
