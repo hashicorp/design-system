@@ -1,0 +1,32 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// REVEAL COMPONENT
+//
+
+.hds-reveal { width: fit-content; }
+
+.hds-reveal__toggle-button {
+  // overriding some styles of the tertiary button, per design specs
+  min-height: 1.75rem; // 28px, Override default so padding difference will be visible
+  padding: 0.313rem 0.313rem 0.313rem 0.188rem; // 6px 6px 6px 4px, taking into account the 1px border & icon spacing
+
+  .flight-icon-chevron-down {
+    @media (prefers-reduced-motion: no-preference) {
+      transition: transform 0.3s;
+    }
+  }
+}
+
+.hds-reveal__toggle-button--is-open {
+  .flight-icon-chevron-down {
+    transform: rotate(-180deg);
+  }
+}
+
+.hds-reveal__content {
+  margin-top: 4px;
+}

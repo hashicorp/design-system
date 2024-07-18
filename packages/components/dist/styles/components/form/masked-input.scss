@@ -1,0 +1,48 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// MASKED-INPUT
+//
+
+$hds-form-masked-input-button-size: 24px;
+
+.hds-form-masked-input {
+  position: relative;
+  display: grid;
+  grid-template-areas: "input copy-button";
+  grid-template-columns: 1fr auto;
+  width: 100%;
+
+  .hds-form-masked-input__control {
+    grid-area: input;
+    padding-right: calc(var(--token-form-control-padding) + $hds-form-masked-input-button-size);
+  }
+}
+
+.hds-form-masked-input--is-masked {
+  .hds-form-masked-input__control {
+    -webkit-text-security: disc;
+  }
+}
+
+.hds-form-masked-input--is-not-masked {
+  .hds-form-masked-input__control {
+    -webkit-text-security: none;
+  }
+}
+
+.hds-form-masked-input__toggle-button {
+  position: absolute;
+  top: calc(var(--token-form-control-padding) - var(--token-form-control-border-width));
+  right: calc(var(--token-form-control-padding) - var(--token-form-control-border-width));
+  grid-area: input;
+}
+
+.hds-form-masked-input__copy-button {
+  grid-area: copy-button;
+  align-self: flex-start;
+  margin-left: 8px;
+}

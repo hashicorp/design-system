@@ -1,0 +1,75 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// APPLICATION-STATE COMPONENT
+//
+
+$hds-application-state-max-content-width: 480px;
+
+.hds-application-state {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  margin: 0 auto; // this will center the component in the parent container
+
+  &.hds-application-state--align-center {
+    align-items: center;
+    
+    .hds-application-state__body {
+      text-align: center;
+    }
+  }
+}
+
+.hds-application-state__header {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: auto auto;
+  align-items: start;
+  color: var(--token-color-foreground-strong);
+  max-width: $hds-application-state-max-content-width;
+}
+
+.hds-application-state__media {
+  padding-bottom: 32px;
+}
+
+.hds-application-state__error-code {
+  grid-column: 1 / -1;
+}
+
+.hds-application-state__icon {
+  grid-row: 2;
+  margin-right: 8px; // instead of column gap
+  padding-top: 4px; // this seems to align the icon along with line 21
+}
+
+.hds-application-state__title {
+  grid-row: 2;
+  font-weight: var(--token-typography-font-weight-semibold);
+
+  &:not(.hds-application-state__icon + &) {
+    grid-column: 1 / -1;
+  }
+}
+
+.hds-application-state__body {
+  max-width: $hds-application-state-max-content-width;
+  padding: 12px 0 24px 0;
+  color: var(--token-color-foreground-primary);
+}
+
+.hds-application-state__footer {
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  max-width: $hds-application-state-max-content-width;
+
+  &.hds-application-state__footer--has-divider {
+    padding: 12px 0;
+    border-top: 1px solid var(--token-color-border-strong);
+  }
+}

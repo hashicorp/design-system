@@ -1,0 +1,195 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// BREADCRUMB COMPONENT
+//
+// notice: pseudo-classes for the states *must* follow the order link > visited > hover > focus > active
+//
+
+@use "../mixins/focus-ring" as *;
+
+$hds-breadcrumb-item-height: 28px;
+$hds-breadcrumb-item-border-radius: 5px;
+$hds-breadcrumb-item-visual-horizontal-padding: 4px;
+
+// MAIN CONTAINER (NAV)
+.hds-breadcrumb {
+  position: relative;
+}
+
+// LIST (OL)
+
+.hds-breadcrumb__list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  .hds-breadcrumb--items-can-wrap & {
+    flex-wrap: wrap;
+  }
+}
+
+.hds-breadcrumb__sublist {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+// ITEM (LI)
+
+.hds-breadcrumb__item {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-width: 0;
+
+  .hds-breadcrumb__list > & {
+    &:not(:last-child)::after {
+      padding: 0 8px;
+      color: var(--token-color-palette-neutral-300);
+      content: "/";
+    }
+  }
+
+  .hds-breadcrumb__sublist > & + & {
+    margin-top: 4px;
+  }
+}
+
+.hds-breadcrumb__item--is-truncation {
+  flex: none; // needed to avoid that the "flex" parent collapses the truncation element (it happens with very long strings and no-wrapping)
+}
+
+// LINK (A)
+
+.hds-breadcrumb__link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-width: 0;
+  margin: 0 (-$hds-breadcrumb-item-visual-horizontal-padding); // we use a negative horizontal margin to counter-balance the horizonal padding (used to shift the focus from the content)
+  padding: 0 $hds-breadcrumb-item-visual-horizontal-padding;
+  color: var(--token-color-foreground-faint);
+  border-radius: $hds-breadcrumb-item-border-radius;
+  // notice: the text decoration is applied directly to the "text" container because of a bug in Safari (see https://github.com/hashicorp/design-system-components/issues/159)
+  text-decoration-color: transparent;
+
+  &:hover,
+  &.mock-hover {
+    color: var(--token-color-palette-neutral-600);
+
+    > .hds-breadcrumb__text {
+      text-decoration-color: currentColor;
+    }
+  }
+
+  // we apply the focus directly to the element, without using a pseudo-element
+  @include hds-focus-ring-basic();
+
+  &:active,
+  &.mock-active {
+    color: var(--token-color-foreground-secondary);
+
+    > .hds-breadcrumb__text {
+      text-decoration-color: currentColor;
+    }
+  }
+}
+
+// CURRENT
+
+.hds-breadcrumb__current {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-width: 0;
+  margin: 0 (-$hds-breadcrumb-item-visual-horizontal-padding); // we use a negative horizontal margin to counter-balance the horizonal padding (used to shift the focus from the content)
+  padding: 0 $hds-breadcrumb-item-visual-horizontal-padding;
+  color: var(--token-color-foreground-strong);
+}
+
+// SUB-ELEMENTS
+
+.hds-breadcrumb__icon {
+  flex: none;
+  width: 13px;
+  height: 13px;
+  margin-right: 6px;
+}
+
+.hds-breadcrumb__text {
+  // we use the extra vertical padding to force the height of the parent item to be exactly $hds-breadcrumb-item-height
+  padding: calc((#{$hds-breadcrumb-item-height} - 1rem) / 2) 0;
+  overflow: hidden;
+  font-size: 0.8125rem; // 13px
+  font-family: var(--token-typography-font-stack-text);
+  line-height: 1rem; // 16px
+  white-space: nowrap;
+  text-decoration: underline;
+  text-overflow: ellipsis;
+  text-decoration-color: transparent;
+
+  .hds-breadcrumb__sublist & {
+    white-space: normal;
+  }
+}
+
+// TRUNCATION
+
+.hds-breadcrumb__truncation-toggle {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: $hds-breadcrumb-item-height;
+  height: $hds-breadcrumb-item-height;
+  margin: 0 (-$hds-breadcrumb-item-visual-horizontal-padding); // the horizontal negative margin applied here is for visual balance of the spacing between items
+  padding: 0;
+  color: var(--token-color-foreground-faint);
+  background-color: transparent;
+  border: 1px solid transparent; // We need this to be transparent for a11y
+  border-radius: $hds-breadcrumb-item-border-radius;
+  outline: none; // TODO check with @melanie
+  cursor: pointer;
+
+  &:hover,
+  &.mock-hover {
+    color: var(--token-color-foreground-faint);
+    border-color: var(--token-color-border-strong);
+  }
+
+  // we apply the focus directly to the element, without using a pseudo-element
+  @include hds-focus-ring-basic();
+
+  &:focus,
+  &.mock-focus {
+    background-color: transparent;
+    border: none; // important: we need to completely remove the border, of the inner box-shadow of the focus ring will be drawn inside the border
+  }
+
+  &:active,
+  &.mock-active {
+    color: var(--token-color-foreground-primary);
+    background-color: var(--token-color-surface-interactive-active);
+    border-color: var(--token-color-border-strong);
+  }
+}
+
+.hds-breadcrumb__truncation-content {
+  position: absolute;
+  top: 100%;
+  left: -$hds-breadcrumb-item-visual-horizontal-padding;
+  z-index: 300; // this is the z-index used in Structure for this kind of things, I am reusing the same value
+  width: max-content;
+  max-width: 200px; // by design
+  margin-top: 4px;
+  padding: 6px 12px;
+  background-color: var(--token-color-surface-primary);
+  border-radius: 6px;
+  box-shadow: var(--token-surface-high-box-shadow);
+}

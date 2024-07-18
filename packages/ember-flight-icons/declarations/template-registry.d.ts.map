@@ -1,0 +1,1 @@
+{"version":3,"file":"template-registry.d.ts","sourceRoot":"","sources":["../src/template-registry.ts"],"names":[],"mappings":"AAAA;;;GAGG;AAEH,OAAO,KAAK,UAAU,MAAM,0BAA0B,CAAC;AAEvD,MAAM,CAAC,OAAO,WAAW,mBAAmB;IAE1C,UAAU,EAAE,OAAO,UAAU,CAAC;IAC9B,aAAa,EAAE,OAAO,UAAU,CAAC;CAClC"}

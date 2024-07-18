@@ -1,0 +1,69 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// LINK > INLINE COMPONENT
+//
+// notice: pseudo-classes for the states *must* follow the order link > visited > focus > hover > active
+// see https://github.com/hashicorp/design-system-components/issues/132
+//
+
+.hds-link-inline {
+  border-radius: 2px; // this is used by the outline too
+
+  &:focus,
+  &.mock-focus,
+  &:focus-visible {
+    text-decoration: none;
+    outline: 2px solid var(--token-color-focus-action-internal);
+    outline-offset: 1px;
+  }
+}
+
+.hds-link-inline__icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: text-bottom; // don't use "middle" here or it will extend beyond the focus ring
+
+  .hds-link-inline--icon-leading > & {
+    margin-right: 0.25em;
+  }
+
+  .hds-link-inline--icon-trailing > & {
+    margin-left: 0.25em;
+  }
+}
+
+
+// COLORS & STATES
+
+.hds-link-inline--color-primary {
+  color: var(--token-color-foreground-action);
+
+  &:hover,
+  &.mock-hover {
+    color: var(--token-color-foreground-action-hover);
+  }
+
+  &:active,
+  &.mock-active {
+    color: var(--token-color-foreground-action-active);
+  }
+}
+
+.hds-link-inline--color-secondary {
+  color: var(--token-color-foreground-strong);
+
+  &:hover,
+  &.mock-hover {
+    color: var(--token-color-foreground-primary);
+  }
+
+  &:active,
+  &.mock-active {
+    color: var(--token-color-foreground-faint);
+  }
+}

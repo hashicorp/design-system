@@ -1,0 +1,154 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// app-footer
+//
+
+$hds-app-footer-gap: 24px;
+$hds-app-footer-icon-text-gap: 6px;
+
+.hds-app-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $hds-app-footer-gap;
+  justify-content: center;
+  padding: 24px;
+  color: var(--app-footer-foreground-color);
+  border-top: 1px solid var(--app-footer-border-top-color);
+}
+
+// SUB-ELEMENTS
+
+// hide list if no children
+.hds-app-footer__list:not(:has(li)) { display: none; }
+
+.hds-app-footer__list,
+.hds-app-footer__legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $hds-app-footer-gap;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.hds-app-footer__status-link {
+  // custom spacing for the status link (internally is using the "AppFooter::Link")
+  // Note: we increase specificity because otherwise is overwritten by the order of imports of components scss files
+  &.hds-link-inline--icon-leading > .hds-link-inline__icon { margin-right: $hds-app-footer-icon-text-gap; }
+
+  .flight-icon {
+    fill: var(--hds-app-footer-status-icon-color, currentColor);
+  }
+}
+
+// preset status types
+.hds-app-footer__status-link--operational {
+  .flight-icon { fill: var(--app-footer-status-link-icon-operational-color); }
+}
+
+.hds-app-footer__status-link--degraded {
+  .flight-icon { fill: var(--app-footer-status-link-icon-degraded-color); }
+}
+
+.hds-app-footer__status-link--maintenance {
+  .flight-icon { fill: var(--app-footer-status-link-icon-maintenance-color); }
+}
+
+.hds-app-footer__status-link--outage {
+  .flight-icon { fill: var(--app-footer-status-link-icon-outage-color); }
+}
+
+
+.hds-app-footer__link.hds-link-inline--color-secondary,
+.hds-app-footer__status-link {
+  // Overriding default colors
+  color: var(--app-footer-link-default-color);
+  text-align: right;
+
+  &:hover,
+  &.mock-hover {
+    color: var(--app-footer-link-hover-color);
+  }
+
+  &:active,
+  &.mock-active {
+    color: var(--app-footer-link-active-color);
+  }
+
+  &:focus,
+  &.mock-focus,
+  &:focus-visible {
+    color: var(--app-footer-link-focus-color);
+    outline-color: var(--app-footer-link-focus-outline-color);
+  }
+}
+
+.hds-app-footer__list-item {
+  display: flex;
+  align-items: center;
+}
+
+.hds-app-footer__copyright {
+  display: flex;
+  gap: $hds-app-footer-icon-text-gap;
+  align-items: center;
+  color: var(--app-footer-copyright-text-color);
+
+  .flight-icon { fill: var(--app-footer-copyright-icon-color); }
+}
+
+// THEMING
+
+// Light
+.hds-app-footer--theme-light {
+  --app-footer-foreground-color: var(--token-color-foreground-primary);
+  --app-footer-border-top-color: var(--token-color-border-primary);
+
+  // Overriding default Secondary Link colors
+  --app-footer-link-default-color: var(--token-color-foreground-faint);
+  --app-footer-link-hover-color: var(--token-color-palette-neutral-600);
+  --app-footer-link-active-color: var(--token-color-palette-neutral-700);
+  --app-footer-link-focus-color: var(--token-color-foreground-faint);
+  --app-footer-link-focus-outline-color: var(--token-color-focus-action-internal);
+
+  // Copyright
+  --app-footer-copyright-text-color: var(--token-color-foreground-primary);
+  --app-footer-copyright-icon-color: var(--token-color-hashicorp-brand);
+
+  // StatusLink icon colors
+  --app-footer-status-link-icon-operational-color: var(--token-color-foreground-success);
+  --app-footer-status-link-icon-degraded-color: var(--token-color-foreground-warning);
+  --app-footer-status-link-icon-maintenance-color: var(--token-color-foreground-warning);
+  --app-footer-status-link-icon-outage-color: var(--token-color-foreground-critical);
+}
+
+// Dark
+.hds-app-footer--theme-dark {
+  --app-footer-foreground-color: #b2b6bd;
+  --app-footer-border-top-color: #b2b6bd66; // rgba(#b2b6bd, 0.4) - Sass color functions don't work with CSS variables
+
+  // Overriding default Secondary Link colors
+  --app-footer-link-default-color: #b2b6bd;
+  --app-footer-link-hover-color: #d5d7db;
+  --app-footer-link-active-color: #efeff1;
+  --app-footer-link-focus-color: #b2b6bd;
+  --app-footer-link-focus-outline-color: #389aff;
+
+  // Copyright
+  --app-footer-copyright-text-color: #b2b6bd;
+  --app-footer-copyright-icon-color: #fff;
+
+  // StatusLink Icon colors
+  --app-footer-status-link-icon-operational-color: #009241;
+  --app-footer-status-link-icon-degraded-color: #e88c03;
+  --app-footer-status-link-icon-maintenance-color: #e88c03;
+  --app-footer-status-link-icon-outage-color: #ef3016;
+}
