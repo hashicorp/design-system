@@ -11,11 +11,7 @@
   <Shw::Text::Body>With Media, Left Aligned (default)</Shw::Text::Body>
   <Hds::ApplicationState as |A|>
     <A.Media>
-      <img
-        width="800px"
-        src="/assets/images/application-state-banner.png"
-        alt="portrait of a cat wearing regency era coat and tie"
-      />
+      <img src="/assets/images/avatar.png" alt="portrait of a cat wearing regency era coat and tie" />
     </A.Media>
     <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
     <A.Body
@@ -23,6 +19,7 @@
     />
     <A.Footer as |F|>
       <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
+      <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
       <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
     </A.Footer>
   </Hds::ApplicationState>
@@ -32,11 +29,7 @@
   <Shw::Text::Body>With Media, Center Aligned</Shw::Text::Body>
   <Hds::ApplicationState @align="center" as |A|>
     <A.Media>
-      <img
-        width="800px"
-        src="/assets/images/application-state-banner.png"
-        alt="portrait of a cat wearing regency era coat and tie"
-      />
+      <img src="/assets/images/avatar.png" alt="portrait of a cat wearing regency era coat and tie" />
     </A.Media>
     <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
     <A.Body
