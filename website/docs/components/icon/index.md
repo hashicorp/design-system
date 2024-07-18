@@ -7,6 +7,7 @@ previewImage: assets/illustrations/icons/usage-guidelines.jpg
 
 <section data-tab="Guidelines">
   @include "partials/guidelines/overview.md"
+  @include "partials/guidelines/guidelines.md"
 </section>
 
 <section data-tab="Code">
@@ -16,4 +17,8 @@ previewImage: assets/illustrations/icons/usage-guidelines.jpg
 
 <section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
+</section>
+
+<section data-tab="Resources">
+  @include "partials/resources/resources.md"
 </section>
