@@ -29,10 +29,8 @@ export interface HdsModalIndexSignature {
     isDismissDisabled?: boolean;
     size?: HdsModalSizes;
     color?: HdsModalColors;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onOpen?: (event: MouseEvent, ...args: any) => void;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onClose?: (event: MouseEvent, ...args: any) => void;
+    onOpen?: () => void;
+    onClose?: (event: Event) => void;
   };
   Blocks: {
     default: [
@@ -128,13 +126,13 @@ export default class HdsModalIndexComponent extends Component<HdsModalIndexSigna
     return classes.join(' ');
   }
 
-  @action registerOnCloseCallback() {
+  @action registerOnCloseCallback(event: Event) {
     if (
       !this.isDismissDisabled &&
       this.args.onClose &&
       typeof this.args.onClose === 'function'
     ) {
-      this.args.onClose();
+      this.args.onClose(event);
     }
 
     // If the dismissal of the modal is disabled, we keep the modal open/visible otherwise we mark it as closed

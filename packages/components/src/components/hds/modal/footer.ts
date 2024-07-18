@@ -8,12 +8,10 @@ import { deprecate } from '@ember/debug';
 
 export interface HdsModalFooterSignature {
   Args: {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onDismiss: (event: MouseEvent, ...args: any) => void;
+    onDismiss: (event: MouseEvent) => void;
   };
   Blocks: {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    default: [{ close: (event: MouseEvent, ...args: any) => void }];
+    default: [{ close: (event: MouseEvent) => void }];
   };
   Element: HTMLDivElement;
 }

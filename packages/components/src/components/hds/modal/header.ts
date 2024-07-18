@@ -11,8 +11,7 @@ export interface HdsModalHeaderSignature {
   Args: {
     id?: string;
     tagline?: string;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onDismiss: (event: MouseEvent, ...args: any) => void;
+    onDismiss: (event: MouseEvent) => void;
     icon?: FlightIconSignature['Args']['name'] | false;
   };
   Blocks: {
