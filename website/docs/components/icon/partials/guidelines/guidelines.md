@@ -124,10 +124,3 @@ Some icons represent common actions within our products.
 - Use `support` when referencing HashiCorp support.
 
 ![Examples of common help icons](/assets/foundations/flight-icons/help-actions.png =660x*)
-
-## Resources
-
-- [Icon library](/icons/library)
-- [Figma library](https://www.figma.com/file/TLnoT5AYQfy3tZ0H68BgOr/Flight-Icons?node-id=164%3A0&t=bWFdjHgfV6aLQjep-1) (Internal only)
-- [SVG assets (ZIP file)](/assets/zip/flight-icons-svg.zip)
-- [Request an icon or report an issue](https://go.hashi.co/hds-support)
