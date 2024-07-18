@@ -84,16 +84,11 @@ $hds-application-state-footer-child-gap: 8px;
   grid-column: 1;
   grid-row: 4;
 
-  padding-top: 12px;
+  display: flex;
+  gap: 8px;
 
-  & > * {
-    float: left;
-    margin-right: $hds-application-state-footer-child-gap;
-  }
-
-  & > :nth-child(n + 3) {
-    float: right;
-    margin-left: $hds-application-state-footer-child-gap;
+  > :nth-child(n + 3) {
+    margin-left: auto;
   }
 
   &.hds-application-state__footer--has-divider {
