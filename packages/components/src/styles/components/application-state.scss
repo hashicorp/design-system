@@ -11,44 +11,29 @@ $hds-application-state-content-max-width: 480px;
 $hds-application-state-footer-child-gap: 8px;
 
 .hds-application-state {
-  display: grid;
-  grid-template-columns: minmax(0, $hds-application-state-content-max-width) 1fr 1fr;
-  grid-template-rows: auto auto auto auto;
-  
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
   max-width: 100%;
   margin: 0 auto; // this will center the component in the parent container
 
   &.hds-application-state--align-center {
-    grid-template-columns: 1fr minmax(0, $hds-application-state-content-max-width) 1fr;
-
-    .hds-application-state__media {
-      text-align: center;
-    }
-
-    .hds-application-state__header,
-    .hds-application-state__body,
-    .hds-application-state__footer {
-      grid-column: 2;
-    }
+    align-items: center;
+    text-align: center;
   }
 }
 
 .hds-application-state__media {
-  grid-column: 1 / -1;
-  grid-row: 1;
-  
-  padding-bottom: 32px;
+  margin-bottom: 32px;
 }
 
 .hds-application-state__header {
-  grid-column: 1;
-  grid-row: 2;
-  
   display: grid;
   grid-template-columns: min-content 1fr;
   grid-template-rows: auto auto;
   align-items: start;
   color: var(--token-color-foreground-strong);
+  max-width: $hds-application-state-content-max-width;
 }
 
 .hds-application-state__error-code {
@@ -57,15 +42,13 @@ $hds-application-state-footer-child-gap: 8px;
 
 .hds-application-state__icon {
   grid-row: 2;
-  
   margin-right: 8px; // instead of column gap
   padding-top: 4px; // this seems to align the icon along with line 21
 }
 
 .hds-application-state__title {
-  grid-row: 2;
-  
   font-weight: var(--token-typography-font-weight-semibold);
+  grid-row: 2;
 
   &:not(.hds-application-state__icon + &) {
     grid-column: 1 / -1;
@@ -73,25 +56,20 @@ $hds-application-state-footer-child-gap: 8px;
 }
 
 .hds-application-state__body {
-  grid-column: 1;
-  grid-row: 3;
-  
-  padding: 12px 0 24px 0;
+  margin: 12px 0;
   color: var(--token-color-foreground-primary);
+  max-width: $hds-application-state-content-max-width;
 }
 
 .hds-application-state__footer {
-  grid-column: 1;
-  grid-row: 4;
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  max-width: $hds-application-state-content-max-width;
 
-  & > * {
-    float: left;
-    margin-right: $hds-application-state-footer-child-gap;
-  }
-
-  & > :nth-child(n + 3) {
-    float: right;
-    margin-left: $hds-application-state-footer-child-gap;
+  // forces the third child and on to be on the right side
+  > :nth-child(3) {
+    margin-left: auto;
   }
 
   &.hds-application-state__footer--has-divider {
