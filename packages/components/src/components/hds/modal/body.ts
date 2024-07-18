@@ -6,9 +6,16 @@
 import Component from '@glimmer/component';
 import { deprecate } from '@ember/debug';
 
-export default class HdsModalBodyComponent extends Component {
-  constructor() {
-    super(...arguments);
+export interface HdsModalBodySignature {
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLDivElement;
+}
+
+export default class HdsModalBodyComponent extends Component<HdsModalBodySignature> {
+  constructor(owner: unknown) {
+    super(owner, {});
 
     deprecate(
       'The `Hds::Modal::Body` sub-component is now deprecated and will be removed in the next major version of `@hashicorp/design-system-components`. Use `Hds::DialogPrimitive::Body` as one-to-one replacement.',
