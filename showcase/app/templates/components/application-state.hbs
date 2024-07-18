@@ -8,40 +8,45 @@
 <Shw::Text::H1>Application State</Shw::Text::H1>
 
 <section data-test-percy>
-  <Shw::Text::Body>With Media, Left Aligned (default)</Shw::Text::Body>
-  <Hds::ApplicationState as |A|>
-    <A.Media>
-      <img src="/assets/images/avatar.png" alt="portrait of a cat wearing regency era coat and tie" />
-    </A.Media>
-    <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
-    <A.Body
-      @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
-    />
-    <A.Footer as |F|>
-      <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
-      <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
-      <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
-    </A.Footer>
-  </Hds::ApplicationState>
-
-  <hr style="margin: 100px auto;" />
-
-  <Shw::Text::Body>With Media, Center Aligned</Shw::Text::Body>
-  <Hds::ApplicationState @align="center" as |A|>
-    <A.Media>
-      <img src="/assets/images/avatar.png" alt="portrait of a cat wearing regency era coat and tie" />
-    </A.Media>
-    <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
-    <A.Body
-      @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
-    />
-    <A.Footer as |F|>
-      <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
-      <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
-    </A.Footer>
-  </Hds::ApplicationState>
-
-  {{!-- <Shw::Flex @direction="column" as |SF|>
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="With Media, Left Aligned (default)">
+      <Hds::ApplicationState as |A|>
+        <A.Media>
+          <img
+            src="/assets/images/avatar.png"
+            alt="portrait of a cat wearing regency era coat and tie"
+            class="shw-avatar"
+          />
+        </A.Media>
+        <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
+        <A.Body
+          @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+        />
+        <A.Footer as |F|>
+          <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
+          <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
+        </A.Footer>
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="With Media, Center Aligned">
+      <Hds::ApplicationState @align="center" as |A|>
+        <A.Media>
+          <img
+            src="/assets/images/avatar.png"
+            alt="portrait of a cat wearing regency era coat and tie"
+            class="shw-avatar"
+          />
+        </A.Media>
+        <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
+        <A.Body
+          @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+        />
+        <A.Footer as |F|>
+          <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
+          <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
+        </A.Footer>
+      </Hds::ApplicationState>
+    </SF.Item>
     <SF.Item @label="Error state (ideal)">
       <Hds::ApplicationState as |A|>
         <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
@@ -159,5 +164,5 @@
         </A.Footer>
       </Hds::ApplicationState>
     </SF.Item>
-  </Shw::Flex> --}}
+  </Shw::Flex>
 </section>

@@ -76,13 +76,15 @@ $hds-application-state-footer-child-gap: 8px;
   grid-column: 1;
   grid-row: 3;
   
-  padding: 12px 0 24px 0;
+  padding: 12px 0;
   color: var(--token-color-foreground-primary);
 }
 
 .hds-application-state__footer {
   grid-column: 1;
   grid-row: 4;
+
+  padding-top: 12px;
 
   & > * {
     float: left;

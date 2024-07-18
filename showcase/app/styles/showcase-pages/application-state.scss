@@ -1,0 +1,15 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// APPLICATION-STATE
+
+body.application-state {
+  .shw-avatar {
+    height: 125px;
+    width: 125px;
+    border-radius: 100%;
+    overflow: hidden;
+  }
+}
