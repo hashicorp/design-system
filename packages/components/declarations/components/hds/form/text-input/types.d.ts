@@ -10,7 +10,10 @@ export declare enum HdsFormTextInputTypeValues {
     Date = "date",
     Time = "time",
     DateTimeLocal = "datetime-local",
-    Search = "search"
+    Search = "search",
+    Month = "month",
+    Week = "week",
+    Tel = "tel"
 }
 export type HdsFormTextInputTypes = `${HdsFormTextInputTypeValues}`;
 //# sourceMappingURL=types.d.ts.map

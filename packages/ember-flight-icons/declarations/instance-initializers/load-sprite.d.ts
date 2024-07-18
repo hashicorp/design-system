@@ -1,4 +1,4 @@
-export function initialize(): Promise<void>;
+export function initialize(appInstance: any): Promise<void>;
 declare namespace _default {
     export { initialize };
 }

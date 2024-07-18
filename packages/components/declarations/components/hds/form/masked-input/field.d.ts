@@ -9,9 +9,9 @@ import type { HdsFormErrorSignature } from '../error';
 import type { HdsFormFieldSignature } from '../field';
 import type { HdsFormHelperTextSignature } from '../helper-text';
 import type { HdsFormLabelSignature } from '../label';
-import type { HdsMaskedInputBaseSignature } from './base';
-interface HdsMaskedInputFieldSignature {
-    Args: Omit<HdsFormFieldSignature['Args'], 'contextualClass' | 'layout'> & HdsMaskedInputBaseSignature['Args'];
+import type { HdsFormMaskedInputBaseSignature } from './base';
+interface HdsFormMaskedInputFieldSignature {
+    Args: Omit<HdsFormFieldSignature['Args'], 'contextualClass' | 'layout'> & HdsFormMaskedInputBaseSignature['Args'];
     Blocks: {
         default: [
             {
@@ -24,6 +24,6 @@ interface HdsMaskedInputFieldSignature {
     };
     Element: HdsFormFieldSignature['Element'];
 }
-declare const HdsMaskedInputFieldComponent: import("@ember/component/template-only").TemplateOnlyComponent<HdsMaskedInputFieldSignature>;
-export default HdsMaskedInputFieldComponent;
+declare const HdsFormMaskedInputFieldComponent: import("@ember/component/template-only").TemplateOnlyComponent<HdsFormMaskedInputFieldSignature>;
+export default HdsFormMaskedInputFieldComponent;
 //# sourceMappingURL=field.d.ts.map

@@ -28,7 +28,6 @@ import type HdsApplicationStateComponent from './components/hds/application-stat
 import type HdsApplicationStateBodyComponent from './components/hds/application-state/body';
 import type HdsApplicationStateFooterComponent from './components/hds/application-state/footer';
 import type HdsApplicationStateHeaderComponent from './components/hds/application-state/header';
-import type HdsApplicationStateMediaComponent from './components/hds/application-state/media';
 import type HdsCardContainerComponent from './components/hds/card/container.ts';
 import type HdsCopyButtonComponent from './components/hds/copy/button/index';
 import type HdsCopySnippetComponent from './components/hds/copy/snippet';
@@ -67,6 +66,7 @@ import type HdsFormToggleBaseComponent from './components/hds/form/toggle/base';
 import type HdsFormToggleFieldComponent from './components/hds/form/toggle/field';
 import type HdsFormToggleGroupComponent from './components/hds/form/toggle/group';
 import type HdsFormVisibilityToggleComponent from './components/hds/form/visibility-toggle';
+import type HdsIconComponent from './components/hds/icon';
 import type HdsIconTileComponent from './components/hds/icon-tile';
 import type HdsInteractiveComponent from './components/hds/interactive';
 import type HdsLinkInlineComponent from './components/hds/link/inline';
@@ -159,8 +159,6 @@ export default interface HdsComponentsRegistry {
     'hds/application-state/body': typeof HdsApplicationStateBodyComponent;
     'Hds::ApplicationState::Footer': typeof HdsApplicationStateFooterComponent;
     'hds/application-state/footer': typeof HdsApplicationStateFooterComponent;
-    'Hds::ApplicationState::Media': typeof HdsApplicationStateMediaComponent;
-    'hds/application-state/media': typeof HdsApplicationStateMediaComponent;
     'Hds::Badge': typeof HdsBadgeComponent;
     'hds/badge': typeof HdsBadgeComponent;
     'Hds::BadgeCount': typeof HdsBadgeCountComponent;
@@ -245,6 +243,8 @@ export default interface HdsComponentsRegistry {
     'hds/form/toggle/group': typeof HdsFormToggleGroupComponent;
     'Hds::Form::VisibilityToggle': typeof HdsFormVisibilityToggleComponent;
     'hds/form/visibility-toggle': typeof HdsFormVisibilityToggleComponent;
+    'Hds::Icon': typeof HdsIconComponent;
+    'hds/icon': typeof HdsIconComponent;
     'Hds::IconTile': typeof HdsIconTileComponent;
     'hds/icon-tile': typeof HdsIconTileComponent;
     'Hds::Interactive': typeof HdsInteractiveComponent;

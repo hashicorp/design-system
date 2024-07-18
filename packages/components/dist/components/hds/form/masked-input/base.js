@@ -9,7 +9,7 @@ import { setComponentTemplate } from '@ember/component';
 var TEMPLATE = precompileTemplate("{{!\n  Copyright (c) HashiCorp, Inc.\n  SPDX-License-Identifier: MPL-2.0\n}}\n<div class={{this.classNames}} {{style width=@width}}>\n  {{#if @isMultiline}}\n    <Hds::Form::Textarea::Base\n      class=\"hds-form-masked-input__control\"\n      @value={{@value}}\n      @isInvalid={{@isInvalid}}\n      @height={{@height}}\n      id={{this.id}}\n      ...attributes\n    />\n  {{else}}\n    <Hds::Form::TextInput::Base\n      class=\"hds-form-masked-input__control\"\n      @value={{@value}}\n      @isInvalid={{@isInvalid}}\n      id={{this.id}}\n      ...attributes\n    />\n  {{/if}}\n  <Hds::Form::VisibilityToggle\n    @isVisible={{this.isContentMasked}}\n    @ariaLabel={{this.visibilityToggleAriaLabel}}\n    @ariaMessageText={{this.visibilityToggleAriaMessageText}}\n    aria-controls={{this.id}}\n    class=\"hds-form-masked-input__toggle-button\"\n    {{on \"click\" this.onClickToggleMasking}}\n  />\n  {{#if @hasCopyButton}}\n    <Hds::Copy::Button\n      class=\"hds-form-masked-input__copy-button\"\n      @text={{this.copyButtonText}}\n      @isIconOnly={{true}}\n      @targetToCopy=\"#{{this.id}}\"\n    />\n  {{/if}}\n</div>");
 
 var _class, _descriptor;
-let HdsMaskedInputBaseComponent = (_class = class HdsMaskedInputBaseComponent extends Component {
+let HdsFormMaskedInputBaseComponent = (_class = class HdsFormMaskedInputBaseComponent extends Component {
   constructor(...args) {
     super(...args);
     _initializerDefineProperty(this, "isContentMasked", _descriptor, this);
@@ -90,7 +90,7 @@ let HdsMaskedInputBaseComponent = (_class = class HdsMaskedInputBaseComponent ex
     return this.args.isContentMasked ?? true;
   }
 }), _applyDecoratedDescriptor(_class.prototype, "onClickToggleMasking", [action], Object.getOwnPropertyDescriptor(_class.prototype, "onClickToggleMasking"), _class.prototype)), _class);
-setComponentTemplate(TEMPLATE, HdsMaskedInputBaseComponent);
+setComponentTemplate(TEMPLATE, HdsFormMaskedInputBaseComponent);
 
-export { HdsMaskedInputBaseComponent as default };
+export { HdsFormMaskedInputBaseComponent as default };
 //# sourceMappingURL=base.js.map

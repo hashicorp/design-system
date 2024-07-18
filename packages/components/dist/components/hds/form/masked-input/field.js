@@ -9,8 +9,8 @@ var TEMPLATE = precompileTemplate("{{!\n  Copyright (c) HashiCorp, Inc.\n  SPDX-
  * SPDX-License-Identifier: MPL-2.0
  */
 
-const HdsMaskedInputFieldComponent = TemplateOnlyComponent();
-var field = setComponentTemplate(TEMPLATE, HdsMaskedInputFieldComponent);
+const HdsFormMaskedInputFieldComponent = TemplateOnlyComponent();
+var field = setComponentTemplate(TEMPLATE, HdsFormMaskedInputFieldComponent);
 
 export { field as default };
 //# sourceMappingURL=field.js.map

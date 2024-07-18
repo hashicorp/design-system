@@ -31,7 +31,7 @@ interface HdsFormTextInputFieldSignature {
 export default class HdsFormTextInputFieldComponent extends Component<HdsFormTextInputFieldSignature> {
     isPasswordMasked: boolean;
     hasVisibilityToggle: boolean;
-    type: "search" | "time" | "text" | "email" | "password" | "url" | "date" | "datetime-local";
+    type: "search" | "time" | "text" | "email" | "tel" | "password" | "url" | "date" | "datetime-local" | "month" | "week";
     /**
      * @param showVisibilityToggle
      * @type {boolean}
