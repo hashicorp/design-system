@@ -10,8 +10,18 @@
 $hds-application-state-max-content-width: 480px;
 
 .hds-application-state {
+  display: flex;
+  flex-direction: column;
   max-width: 100%;
   margin: 0 auto; // this will center the component in the parent container
+
+  &.hds-application-state--align-center {
+    align-items: center;
+    
+    .hds-application-state__body {
+      text-align: center;
+    }
+  }
 }
 
 .hds-application-state__header {
