@@ -30,8 +30,12 @@
   z-index: 7;
   grid-area: header;
 
+  // NOTE: May not need to qualify this with .hds-app-header as it may not matter if AppHeader is not present
   &:has(.hds-app-header) {
-    min-height: var(--token-app-header-height); // reserve space for fixed header
+    position: sticky;
+    top: 0;
+    right: 0;
+    left: 0;
   }
 }
 

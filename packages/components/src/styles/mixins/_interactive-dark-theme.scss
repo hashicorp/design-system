@@ -101,5 +101,6 @@
   &.mock-disabled:hover {
     color: var(--token-color-foreground-disabled);
     background-color: var(--token-color-palette-neutral-600);
+    border-color: var(--token-color-palette-neutral-500);
   }
 }
