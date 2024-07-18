@@ -7,7 +7,7 @@ A list of all icons our component supports.
 [Go to library](/icons/library)
 
 ### Figma library
-For internal use only, the Figma library that designers are able to leverage in their designs.
+For internal use only, the Figma library of icons that designers can leverage in their designs.
 
 [Go to Figma library](https://www.figma.com/file/TLnoT5AYQfy3tZ0H68BgOr/Flight-Icons?node-id=164%3A0&t=bWFdjHgfV6aLQjep-1)
 
