@@ -11,8 +11,9 @@ export interface HdsDialogPrimitiveHeaderSignature {
     contextualClassPrefix?: string;
     id?: string;
     tagline?: string;
-    icon?: FlightIconSignature['Args']['name'] | false;
-    onDismiss?: () => void;
+    icon?: FlightIconSignature['Args']['name'];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onDismiss?: (event: MouseEvent, ...args: any[]) => void;
   };
   Blocks: {
     default: [];
@@ -28,7 +29,8 @@ export default class HdsDialogPrimitiveHeaderComponent extends Component<HdsDial
    * @type {function}
    * @default () => {}
    */
-  get onDismiss() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  get onDismiss(): (event: MouseEvent, ...args: any[]) => void {
     const { onDismiss } = this.args;
 
     // notice: this is a guard used in case the button is used as standalone element (eg. in the showcase)
