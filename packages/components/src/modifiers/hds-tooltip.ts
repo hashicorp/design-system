@@ -7,14 +7,31 @@
 // (which was initially implemented in Structure)
 
 import Modifier from 'ember-modifier';
+import type { ArgsFor } from 'ember-modifier';
+
 import { assert } from '@ember/debug';
 import { registerDestructor } from '@ember/destroyable';
 
 import tippy, { followCursor } from 'tippy.js';
+import type {
+  HideAll as TippyHideAll,
+  Instance as TippyInstance,
+  Props as TippyProps,
+} from 'tippy.js';
 // used by custom SVG arrow:
 import 'tippy.js/dist/svg-arrow.css';
 
-function cleanup(instance) {
+export interface HdsTooltipModifierSignature {
+  Args: {
+    Positional: [string];
+    Named: {
+      options?: TippyProps;
+    };
+  };
+  Element: HTMLElement;
+}
+
+function cleanup(instance: HdsTooltipModifier): void {
   const { interval, needsTabIndex, tooltip } = instance;
   if (needsTabIndex) {
     tooltip?.reference?.removeAttribute('tabindex');
@@ -36,14 +53,13 @@ function cleanup(instance) {
  * @class TooltipModifier
  *
  */
-export default class HdsTooltipModifier extends Modifier {
+export default class HdsTooltipModifier extends Modifier<HdsTooltipModifierSignature> {
   didSetup = false;
-
-  interval = null;
+  interval: number | undefined = undefined;
   needsTabIndex = false;
-  tooltip = null;
+  tooltip: TippyInstance | undefined = undefined;
 
-  constructor(owner, args) {
+  constructor(owner: unknown, args: ArgsFor<HdsTooltipModifierSignature>) {
     super(owner, args);
     registerDestructor(this, cleanup);
   }
@@ -51,9 +67,9 @@ export default class HdsTooltipModifier extends Modifier {
   hideOnEsc = {
     name: 'hideOnEsc',
     defaultValue: true,
-    fn({ hide }) {
-      function onKeyDown(event) {
-        if (event.keyCode === 27) {
+    fn({ hide }: { hide: TippyHideAll }) {
+      function onKeyDown(event: KeyboardEvent): void {
+        if (event.key === 'Escape') {
           hide();
         }
       }
@@ -69,7 +85,11 @@ export default class HdsTooltipModifier extends Modifier {
     },
   };
 
-  modify(element, positional, named) {
+  modify(
+    element: HdsTooltipModifierSignature['Element'],
+    positional: HdsTooltipModifierSignature['Args']['Positional'],
+    named: HdsTooltipModifierSignature['Args']['Named']
+  ): void {
     assert('Tooltip must have an element', element);
 
     if (!this.didSetup) {
@@ -80,55 +100,79 @@ export default class HdsTooltipModifier extends Modifier {
     this.#update(element, positional, named);
   }
 
-  #setup(element, positional, named) {
+  #setup(
+    element: HdsTooltipModifierSignature['Element'],
+    positional: HdsTooltipModifierSignature['Args']['Positional'],
+    named: HdsTooltipModifierSignature['Args']['Named']
+  ): void {
     const tooltipProps = this.#getTooltipProps(element, positional, named);
     this.tooltip = tippy(element, tooltipProps);
   }
 
-  #update(element, positional, named) {
+  #update(
+    element: HdsTooltipModifierSignature['Element'],
+    positional: HdsTooltipModifierSignature['Args']['Positional'],
+    named: HdsTooltipModifierSignature['Args']['Named']
+  ): void {
     const tooltipProps = this.#getTooltipProps(element, positional, named);
-    this.tooltip.setProps(tooltipProps);
+    this.tooltip?.setProps(tooltipProps);
   }
 
-  #getTooltipProps(element, positional, named) {
-    const { options = {} } = named;
+  #getTooltipProps(
+    element: HdsTooltipModifierSignature['Element'],
+    positional: HdsTooltipModifierSignature['Args']['Positional'],
+    named: HdsTooltipModifierSignature['Args']['Named']
+  ): Partial<TippyProps> {
+    const { options } = named;
     let [content] = positional;
 
-    let $anchor = element;
+    let $anchor: HTMLElement | null = element; // Ensure $anchor can be null
 
-    // Make it easy to specify the modified element as the actual tooltip.
-    if (typeof options.triggerTarget === 'string') {
+    if (typeof options?.triggerTarget === 'string') {
       const $el = $anchor;
-      switch (options.triggerTarget) {
-        case 'parentNode':
+      if (options.triggerTarget === 'parentNode') {
+        if ($anchor.parentNode instanceof HTMLElement) {
+          // Type guard
           $anchor = $anchor.parentNode;
-          break;
-        default:
-          $anchor = $anchor.querySelectorAll(options.triggerTarget);
+        }
+      } else {
+        const queryResult: HTMLElement | null = $anchor.querySelector(
+          options.triggerTarget
+        );
+        if (queryResult) {
+          $anchor = queryResult;
+        }
       }
-      content = $anchor.cloneNode(true);
-      $el.remove();
-      options.triggerTarget = undefined;
+      if ($anchor instanceof HTMLElement) {
+        // Ensure $anchor is an HTMLElement before cloning
+        const clonedElement = $anchor.cloneNode(true) as HTMLElement; // Explicitly cast cloned node to HTMLElement
+        content = clonedElement.outerHTML; // Now safely access outerHTML
+      }
+      $el?.remove(); // Use optional chaining in case $el is null
+      options.triggerTarget = null;
     }
 
     // The {{hds-tooltip}} will just use the HTML content.
-    if (typeof content === 'undefined') {
+    if (typeof content === 'undefined' && $anchor instanceof HTMLElement) {
+      // Ensure $anchor is an HTMLElement before accessing innerHTML
       content = $anchor.innerHTML;
       $anchor.innerHTML = '';
     }
 
-    if (options.trigger === 'manual') {
+    if (options?.trigger === 'manual') {
       // If we are manually triggering, a out delay means only show for the
       // amount of time specified by the delay.
       const delay = options.delay || [];
 
-      if (typeof delay[1] !== 'undefined') {
-        options.onShown = (tooltip) => {
-          clearInterval(this.interval);
-          this.interval = setTimeout(() => {
-            tooltip.hide();
-          }, delay[1]);
-        };
+      if (Array.isArray(delay) && delay.length) {
+        if (typeof delay[1] !== 'undefined') {
+          options.onShown = (tooltip) => {
+            clearInterval(this.interval);
+            this.interval = setTimeout(() => {
+              tooltip.hide();
+            }, delay[1] ?? 0);
+          };
+        }
       }
     }
 
@@ -138,6 +182,14 @@ export default class HdsTooltipModifier extends Modifier {
       this.needsTabIndex = true;
       $trigger.setAttribute('tabindex', '0');
     }
+
+    /*  Typescript does not like the previous approach of adding an undefined value
+     **  to the array and then filtering it out.
+     */
+    const plugins =
+      options?.followCursor !== undefined
+        ? [this.hideOnEsc, followCursor]
+        : [this.hideOnEsc];
 
     return {
       theme: 'hds',
@@ -151,13 +203,10 @@ export default class HdsTooltipModifier extends Modifier {
       // fix accessibility features that get messed up with setting interactive: true
       aria: {
         content: 'describedby',
-        expanded: null,
+        expanded: false,
       },
       content: () => content,
-      plugins: [
-        typeof options.followCursor !== 'undefined' ? followCursor : undefined,
-        this.hideOnEsc,
-      ].filter((item) => Boolean(item)),
+      plugins,
       ...options,
     };
   }
