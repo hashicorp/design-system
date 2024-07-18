@@ -4,8 +4,13 @@
  */
 
 import config from 'ember-get-config';
+import type ApplicationInstance from '@ember/application/instance';
 
-export async function initialize(appInstance) {
+export async function initialize(
+  appInstance: ApplicationInstance & {
+    __flightIconsSpriteLoaded?: boolean;
+  }
+) {
   if (
     config?.emberFlightIcons?.lazyEmbed &&
     // we use this flag to avoid loading the sprite multiple times
