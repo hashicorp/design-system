@@ -75,7 +75,7 @@ $hds-application-state-content-max-width: 480px;
   grid-column: 1;
   grid-row: 3;
   
-  padding: 12px 0 24px 0;
+  padding: 12px 0;
   color: var(--token-color-foreground-primary);
 }
 
@@ -86,9 +86,9 @@ $hds-application-state-content-max-width: 480px;
   display: flex;
   gap: 8px;
   justify-content: space-between;
+  padding-top: 12px;
 
   &.hds-application-state__footer--has-divider {
-    padding: 12px 0;
     border-top: 1px solid var(--token-color-border-strong);
   }
 }
