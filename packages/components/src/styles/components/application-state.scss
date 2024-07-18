@@ -7,8 +7,6 @@
 // APPLICATION-STATE COMPONENT
 //
 
-$hds-application-state-max-content-width: 480px;
-
 .hds-application-state {
   display: flex;
   flex-direction: column;
@@ -17,11 +15,11 @@ $hds-application-state-max-content-width: 480px;
 
   &.hds-application-state--align-center {
     align-items: center;
-    
-    .hds-application-state__body {
-      text-align: center;
-    }
   }
+}
+
+.hds-application-state__content {
+  max-width: 480px
 }
 
 .hds-application-state__header {
@@ -30,7 +28,6 @@ $hds-application-state-max-content-width: 480px;
   grid-template-rows: auto auto;
   align-items: start;
   color: var(--token-color-foreground-strong);
-  max-width: $hds-application-state-max-content-width;
 }
 
 .hds-application-state__media {
@@ -57,7 +54,6 @@ $hds-application-state-max-content-width: 480px;
 }
 
 .hds-application-state__body {
-  max-width: $hds-application-state-max-content-width;
   padding: 12px 0 24px 0;
   color: var(--token-color-foreground-primary);
 }
@@ -66,7 +62,6 @@ $hds-application-state-max-content-width: 480px;
   display: flex;
   gap: 8px;
   justify-content: space-between;
-  max-width: $hds-application-state-max-content-width;
 
   &.hds-application-state__footer--has-divider {
     padding: 12px 0;
