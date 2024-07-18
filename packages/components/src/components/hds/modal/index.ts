@@ -29,8 +29,10 @@ export interface HdsModalIndexSignature {
     isDismissDisabled?: boolean;
     size?: HdsModalSizes;
     color?: HdsModalColors;
-    onOpen?: () => void;
-    onClose?: () => void;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onOpen?: (event: MouseEvent, ...args: any) => void;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onClose?: (event: MouseEvent, ...args: any) => void;
   };
   Blocks: {
     default: [
