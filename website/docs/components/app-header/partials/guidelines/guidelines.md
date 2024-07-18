@@ -8,7 +8,7 @@
 
 ### When not to use
 
-- To navigate within subpages of an organization or project; instead, use the [Side Nav](/components/side-nav).
+- To navigate within subpages of an organization or project, use the [Side Nav](/components/side-nav) instead.
 
 ## Navigation hierarchy
 
@@ -25,7 +25,7 @@ In the hierarchy of navigational elements, the App Header sits at the top and is
 
 ### Home link
 
-The home Link gives users quick, consistent access to the application's home page or dashboard.
+The home link gives users quick, consistent access to the application's home page or dashboard.
 
 For cloud products, the icon should always be `hcp`. For standalone or open-source products, it should be the product’s service icon; e.g., `terraform`.
 
@@ -81,7 +81,7 @@ The App Header supports basic responsive behavior out of the box with a single b
 
 In the Ember component, the controls (context switcher, help/user dropdown, etc) contained within the App Header will collapse automatically into a vertical menu that can be toggled open and closed with the Menu button.
 
-In Figma, we publish a separate Menu component for UI’s and prototypes for smaller viewports.
+In Figma, we publish a separate Menu component for UIs and prototypes for smaller viewports.
 
 ![Example of the App Header menu at smaller viewports](/assets/components/app-header/app-header-menu.png)
 

@@ -124,7 +124,7 @@ Consumers should provide their own “context switcher” (eg. organization or p
 
 #### Utility actions
 
-Consumers should provide their own utilty action controls yielded within the `<:utilityActions>` block. Recommended controls are a user menu and help menu. Other controls such as a search button can optionally be included.
+Consumers should provide their own utility action controls yielded within the `<:utilityActions>` block. Recommended controls are a user menu and help menu. Other controls such as a search button can optionally be included.
 
 ```handlebars
 <Hds::AppHeader>
