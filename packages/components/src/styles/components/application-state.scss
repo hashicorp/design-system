@@ -7,16 +7,18 @@
 // APPLICATION-STATE COMPONENT
 //
 
+$hds-application-state-content-max-width: 480px;
+
 .hds-application-state {
   display: grid;
-  grid-template-columns: minmax(0, 400px) 1fr 1fr;
+  grid-template-columns: minmax(0, $hds-application-state-content-max-width) 1fr 1fr;
   grid-template-rows: auto auto auto auto;
   
   max-width: 100%;
   margin: 0 auto; // this will center the component in the parent container
 
   &.hds-application-state--align-center {
-    grid-template-columns: 1fr minmax(0, 400px) 1fr;
+    grid-template-columns: 1fr minmax(0, $hds-application-state-content-max-width) 1fr;
 
     .hds-application-state__media {
       text-align: center;
