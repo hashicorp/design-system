@@ -31,7 +31,17 @@ export interface HdsApplicationStateSignature {
 }
 
 export default class HdsApplicationStateComponent extends Component<HdsApplicationStateSignature> {
-  get align() {
-    return this.args.align ?? HdsApplicationStateAlignValues.Center;
+  get align(): HdsApplicationStateAligns {
+    return this.args.align ?? HdsApplicationStateAlignValues.Left;
+  }
+
+  get classNames(): string {
+    const classes = ['hds-application-state'];
+
+    if (this.align === HdsApplicationStateAlignValues.Center) {
+      classes.push('hds-application-state--align-center');
+    }
+
+    return classes.join(' ');
   }
 }
