@@ -9,13 +9,13 @@ export interface HdsDialogPrimitiveFooterSignature {
   Args: {
     contextualClass?: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onDismiss: (event: MouseEvent, ...args: any[]) => void;
+    onDismiss?: (event: MouseEvent, ...args: any[]) => void;
   };
   Blocks: {
     default: [
       {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        close: (event: MouseEvent, ...args: any[]) => void;
+        close?: (event: MouseEvent, ...args: any[]) => void;
       },
     ];
   };
