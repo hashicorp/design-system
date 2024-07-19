@@ -148,6 +148,7 @@ import type HdsTableTdComponent from './components/hds/table/td';
 import type HdsTableThButtonSortComponent from './components/hds/table/th-button-sort';
 import type HdsTableThComponent from './components/hds/table/th';
 import type HdsTableThButtonTooltipComponent from './components/hds/table/th-button-tooltip';
+import type HdsTableThSortComponent from './components/hds/table/th-sort';
 import type HdsTabsComponent from './components/hds/tabs';
 import type HdsTabsPanelComponent from './components/hds/tabs/panel';
 import type HdsTabsTabComponent from './components/hds/tabs/tab';
@@ -695,6 +696,8 @@ export default interface HdsComponentsRegistry {
   'hds/table/th': typeof HdsTableThComponent;
   'Hds::Table::ThButtonTooltip': typeof HdsTableThButtonTooltipComponent;
   'hds/table/th-button-tooltip': typeof HdsTableThButtonTooltipComponent;
+  'Hds::Table::ThSort': typeof HdsTableThSortComponent;
+  'hds/table/th-sort': typeof HdsTableThSortComponent;
 
   // Tabs
   'Hds::Tabs': typeof HdsTabsComponent;
