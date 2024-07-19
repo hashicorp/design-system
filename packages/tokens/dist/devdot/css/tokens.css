@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 08 Feb 2024 22:22:41 GMT
+ * Generated on Fri, 19 Jul 2024 21:41:14 GMT
  */
 
 :root {
@@ -266,6 +266,9 @@
   --token-form-toggle-transition-duration: 0.2s;
   --token-form-toggle-transition-timing-function: cubic-bezier(0.68, -0.2, 0.265, 1.15);
   --token-form-toggle-thumb-size: 16px;
+  --token-app-header-height: 60px;
+  --token-app-header-home-link-padding: 4px;
+  --token-app-header-home-link-logo-size: 36px;
   --token-pagination-nav-control-height: 36px;
   --token-pagination-nav-control-padding-horizontal: 12px;
   --token-pagination-nav-control-focus-inset: 4px;
