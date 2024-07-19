@@ -14,7 +14,7 @@ $hds-application-state-footer-child-gap: 8px;
   display: flex;
   flex-direction: column;
   width: fit-content;
-  max-width: 100%;
+  max-width: 480px;
   margin: 0 auto; // this will center the component in the parent container
 
   &.hds-application-state--align-center {
@@ -31,10 +31,11 @@ $hds-application-state-footer-child-gap: 8px;
 
 .hds-application-state__media {
   margin-bottom: 32px;
+  overflow: visible;
 
-  > * {
-    max-width: 100%;
-  }
+  // > * {
+  //   max-width: 100%;
+  // }
 }
 
 .hds-application-state__header {
