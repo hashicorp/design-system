@@ -11,12 +11,9 @@ import { registerDestructor } from '@ember/destroyable';
 
 export interface HdsAppHeaderSignature {
   Blocks: {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    logo?: any;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    globalActions?: any;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    utilityActions?: any;
+    logo?: [];
+    globalActions?: [];
+    utilityActions?: [];
   };
   Element: HTMLDivElement;
 }
