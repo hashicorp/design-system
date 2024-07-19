@@ -11,17 +11,19 @@
 
 .showcase-app {
   @media screen and (width >= 1000px) {
-    display: grid;
-    grid-template-areas:
-      "header header header header"
-      ". aside main ."
-      "footer footer footer footer";
-    grid-template-rows: auto 1fr auto;
-    grid-template-columns:
-      1fr
-      minmax(12em, var(--aside-width))
-      minmax(30em, var(--main-width))
-      1fr;
+    &:not([class~="frameless"]) {
+      display: grid;
+      grid-template-areas:
+        "header header header header"
+        ". aside main ."
+        "footer footer footer footer";
+      grid-template-rows: auto 1fr auto;
+      grid-template-columns:
+        1fr
+        minmax(12em, var(--aside-width))
+        minmax(30em, var(--main-width))
+        1fr;
+    }
   }
 }
 
