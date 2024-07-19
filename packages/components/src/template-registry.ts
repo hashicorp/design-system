@@ -132,6 +132,7 @@ import type HdsSideNavListLinkComponent from './components/hds/side-nav/list/lin
 import type HdsSideNavListTitleComponent from './components/hds/side-nav/list/title';
 import type HdsStepperStepIndicatorComponent from './components/hds/stepper/step/indicator';
 import type HdsStepperTaskIndicatorComponent from './components/hds/stepper/task/indicator';
+import type HdsTableThButtonTooltipComponent from './components/hds/table/th-button-tooltip';
 import type HdsTabsComponent from './components/hds/tabs';
 import type HdsTabsPanelComponent from './components/hds/tabs/panel';
 import type HdsTabsTabComponent from './components/hds/tabs/tab';
@@ -548,6 +549,19 @@ export default interface HdsComponentsRegistry {
   'Hds::Reveal::Toggle::Button': typeof HdsRevealToggleButtonComponent;
   'hds/reveal/toggle/button': typeof HdsRevealToggleButtonComponent;
 
+  // RichTooltip
+  'Hds::RichTooltip': typeof HdsRichTooltipComponent;
+  'hds/rich-tooltip': typeof HdsRichTooltipComponent;
+  HdsRichTooltip: typeof HdsRichTooltipComponent;
+
+  'Hds::RichTooltip::Bubble': typeof HdsRichTooltipBubbleComponent;
+  'hds/rich-tooltip/bubble': typeof HdsRichTooltipBubbleComponent;
+  HdsRichTooltipBubble: typeof HdsRichTooltipBubbleComponent;
+
+  'Hds::RichTooltip::Toggle': typeof HdsRichTooltipToggleComponent;
+  'hds/rich-tooltip/toggle': typeof HdsRichTooltipToggleComponent;
+  HdsRichTooltipToggle: typeof HdsRichTooltipToggleComponent;
+
   // Segmented Group
   'Hds::SegmentedGroup': typeof HdsSegmentedGroupComponent;
   'hds/segmented-group': typeof HdsSegmentedGroupComponent;
@@ -616,6 +630,9 @@ export default interface HdsComponentsRegistry {
   'Hds::Stepper::Task::Indicator': typeof HdsStepperTaskIndicatorComponent;
   'hds/stepper/task/indicator': typeof HdsStepperTaskIndicatorComponent;
 
+  // Table
+  'Hds::Table::ThButtonTooltip': typeof HdsTableThButtonTooltipComponent;
+
   // Tabs
   'Hds::Tabs': typeof HdsTabsComponent;
   'hds/tabs': typeof HdsTabsComponent;
@@ -625,19 +642,6 @@ export default interface HdsComponentsRegistry {
 
   'Hds::Tabs::Tab': typeof HdsTabsTabComponent;
   'hds/tabs/tab': typeof HdsTabsTabComponent;
-
-  // RichTooltip
-  'Hds::RichTooltip': typeof HdsRichTooltipComponent;
-  'hds/rich-tooltip': typeof HdsRichTooltipComponent;
-  HdsRichTooltip: typeof HdsRichTooltipComponent;
-
-  'Hds::RichTooltip::Bubble': typeof HdsRichTooltipBubbleComponent;
-  'hds/rich-tooltip/bubble': typeof HdsRichTooltipBubbleComponent;
-  HdsRichTooltipBubble: typeof HdsRichTooltipBubbleComponent;
-
-  'Hds::RichTooltip::Toggle': typeof HdsRichTooltipToggleComponent;
-  'hds/rich-tooltip/toggle': typeof HdsRichTooltipToggleComponent;
-  HdsRichTooltipToggle: typeof HdsRichTooltipToggleComponent;
 
   // Text
   'Hds::Text': typeof HdsTextComponent;

@@ -7,3 +7,5 @@
 `MenuPrimitive` - Converted component to TypeScript
 
 `TooltipModifier` - Converted modifier to TypeScript
+
+`ThButtonTooltip` - Converted component to TypeScript
