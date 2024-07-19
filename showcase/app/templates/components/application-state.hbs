@@ -14,7 +14,7 @@
         <A.Media>
           <img
             src="/assets/images/avatar.png"
-            alt="portrait of a cat wearing regency era coat and tie"
+            alt="portrait of a cat wearing old-fashioned formal wear"
             class="shw-avatar"
           />
         </A.Media>
@@ -34,9 +34,41 @@
         <A.Media>
           <img
             src="/assets/images/avatar.png"
-            alt="portrait of a cat wearing regency era coat and tie"
+            alt="portrait of a cat wearing old-fashioned formal wear"
             class="shw-avatar"
           />
+        </A.Media>
+        <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
+        <A.Body
+          @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+        />
+        <A.Footer as |F|>
+          <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
+          <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
+          <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
+        </A.Footer>
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="With Media, Wide Image, Left Aligned">
+      <Hds::ApplicationState as |A|>
+        <A.Media>
+          <img src="/assets/images/cat-banner.png" alt="3 cats wearing old-fashioned formal wear" />
+        </A.Media>
+        <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
+        <A.Body
+          @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+        />
+        <A.Footer as |F|>
+          <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
+          <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
+          <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
+        </A.Footer>
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="With Media, Wide Image, Center Aligned">
+      <Hds::ApplicationState @align="center" as |A|>
+        <A.Media>
+          <img src="/assets/images/cat-banner.png" alt="3 cats wearing old-fashioned formal wear" />
         </A.Media>
         <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
         <A.Body

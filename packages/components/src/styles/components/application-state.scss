@@ -20,11 +20,21 @@ $hds-application-state-footer-child-gap: 8px;
   &.hds-application-state--align-center {
     align-items: center;
     text-align: center;
+
+    .hds-application-state__header,
+    .hds-application-state__body,
+    .hds-application-state__footer {
+      width: auto;
+    }
   }
 }
 
 .hds-application-state__media {
   margin-bottom: 32px;
+
+  > * {
+    max-width: 100%;
+  }
 }
 
 .hds-application-state__header {
@@ -33,7 +43,9 @@ $hds-application-state-footer-child-gap: 8px;
   grid-template-rows: auto auto;
   align-items: start;
   color: var(--token-color-foreground-strong);
+  margin: 0 auto;
   max-width: $hds-application-state-content-max-width;
+  width: 100%;
 }
 
 .hds-application-state__error-code {
@@ -56,15 +68,17 @@ $hds-application-state-footer-child-gap: 8px;
 }
 
 .hds-application-state__body {
-  margin: 12px 0;
+  margin: 12px auto;
   color: var(--token-color-foreground-primary);
+  width: 100%;
   max-width: $hds-application-state-content-max-width;
 }
 
 .hds-application-state__footer {
   display: flex;
   gap: 8px;
-  margin-top: 12px;
+  margin: 12px auto 0;
+  width: 100%;
   max-width: $hds-application-state-content-max-width;
 
   // forces the third child and on to be on the right side
