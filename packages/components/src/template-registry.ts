@@ -654,6 +654,8 @@ export default interface HdsComponentsRegistry {
   'hds/table/th-button-sort': typeof HdsTableThButtonSortComponent;
   'Hds::Table::Th': typeof HdsTableThComponent;
   'hds/table/th': typeof HdsTableThComponent;
+  'Hds::Table::ThButtonSort': typeof HdsTableThButtonSortComponent;
+  'hds/table/th-button-sort': typeof HdsTableThButtonSortComponent;
   'Hds::Table::ThButtonTooltip': typeof HdsTableThButtonTooltipComponent;
   'hds/table/th-button-tooltip': typeof HdsTableThButtonTooltipComponent;
   'Hds::Table::ThSort': typeof HdsTableThSortComponent;
