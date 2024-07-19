@@ -1,0 +1,23 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+import Controller from '@ember/controller';
+import { inject as service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
+
+export default class ApplicationController extends Controller {
+  @service router;
+
+  @tracked isFrameless = false;
+
+  constructor() {
+    super(...arguments);
+    this.router.on('routeDidChange', this, 'routeDidChange');
+  }
+
+  routeDidChange() {
+    this.isFrameless = this.router?.currentURL?.includes('frameless');
+  }
+}
