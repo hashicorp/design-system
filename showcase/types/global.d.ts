@@ -120,6 +120,21 @@ export interface ShwOutlinerSignature {
 }
 export class ShwOutliner extends Component<ShwOutlinerSignature> {}
 
+export interface ShwPlaceholderSignature {
+  Args: {
+    text?: string;
+    width?: string;
+    height?: string;
+    background?: string;
+    flex?: string;
+  };
+  Element: HTMLDivElement;
+  Blocks: {
+    default: [];
+  };
+}
+export class ShwPlaceholder extends Component<ShwPlaceholderSignature> {}
+
 import type HdsComponentsRegistry from '@hashicorp/design-system-components/template-registry';
 import type FlightIconsRegistry from '@hashicorp/ember-flight-icons/template-registry';
 import type EmberStyleModifier from 'ember-style-modifier';
@@ -149,5 +164,6 @@ declare module '@glint/environment-ember-loose/registry' {
     'Shw::Label': typeof ShwLabel;
     'Shw::Divider': typeof ShwDivider;
     'Shw::Outliner': typeof ShwOutliner;
+    'Shw::Placeholder': typeof ShwPlaceholder;
   }
 }
