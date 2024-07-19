@@ -13,15 +13,10 @@
   --token-app-header-home-link-padding: 4px;
 }
 
-:root {
-  // TODO: Create sidenav token
-  --hds-app-sidenav-headerless-width-minimized: 16px;
-}
-
 .hds-side-nav {
   // set narrower collapsed width when the header is empty
   &:has(.hds-side-nav__wrapper-header:empty) {
-    --hds-app-sidenav-width-minimized: var(--hds-app-sidenav-headerless-width-minimized);
+    --hds-app-sidenav-width-minimized: 16px;
   }
 
   position: sticky;
