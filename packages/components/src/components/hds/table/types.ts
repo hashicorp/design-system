@@ -19,3 +19,10 @@ export enum HdsTableThSortOrderIcons {
   ArrowDown = 'arrow-down',
   SwapVertical = 'swap-vertical',
 }
+
+export enum HdsTableScopeValues {
+  Row = 'row',
+  Col = 'col',
+}
+
+export type HdsTableScope = `${HdsTableScopeValues}`;
