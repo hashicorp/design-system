@@ -3,5 +3,3 @@
 ---
 
 `Table` - Converted component and sub-components to TypeScript
-
-`TableThButtonSort` - Converted component to TypeScript
