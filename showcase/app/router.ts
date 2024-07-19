@@ -71,7 +71,7 @@ Router.map(function () {
     });
   });
   this.route('layouts', function () {
-    this.route('app-frame');
+    this.route('app-frame', function () {});
   });
   this.route('utilities', function () {
     this.route('disclosure-primitive');
