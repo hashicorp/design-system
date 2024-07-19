@@ -1,0 +1,18 @@
+{
+  "app-header": {
+    "height": {
+      "value": "60",
+      "type": "size"
+    },
+    "home-link": {
+      "padding": {
+        "value": "4",
+        "type": "size"
+      },
+      "logo-size": {
+        "value": "36",
+        "type": "size"
+      }
+    }
+  }
+}
