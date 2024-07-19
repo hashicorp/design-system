@@ -71,7 +71,12 @@ Router.map(function () {
     });
   });
   this.route('layouts', function () {
-    this.route('app-frame', function () {});
+    this.route('app-frame', function () {
+      this.route('frameless', function () {
+        this.route('demo-full-app-frame');
+        this.route('demo-full-app-frame-with-modal');
+      });
+    });
   });
   this.route('utilities', function () {
     this.route('disclosure-primitive');

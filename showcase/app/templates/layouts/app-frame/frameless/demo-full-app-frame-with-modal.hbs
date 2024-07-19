@@ -1,0 +1,27 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "AppFrame Component - Frameless"}}
+
+<Hds::AppFrame as |Frame|>
+  <Frame.Header>
+    <Shw::Placeholder @height="60px" @text="header" @background="#e5ffd2" />
+  </Frame.Header>
+  <Frame.Sidebar>
+    <Shw::Placeholder @width="120px" @height="100%" @text="sidebar" @background="#e4c5f3" />
+  </Frame.Sidebar>
+  <Frame.Main>
+    <Shw::Placeholder @height="100%" @text="main" @background="#d2f4ff" />
+  </Frame.Main>
+  <Frame.Footer>
+    <Shw::Placeholder @height="60px" @text="footer" @background="#fff8d2" />
+  </Frame.Footer>
+  <Frame.Modals>
+    <div class="shw-layout-app-frame-fake-overlay" />
+    <div class="shw-layout-app-frame-fake-modal">
+      <Shw::Placeholder @width="100%" @height="100%" @text="modal" @background="#ffffffb5" />
+    </div>
+  </Frame.Modals>
+</Hds::AppFrame>
