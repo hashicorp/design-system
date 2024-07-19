@@ -5,3 +5,5 @@
 `Table` - Converted component and sub-components to TypeScript
 
 `TableThButtonSort` - Converted component to TypeScript
+
+`TableThButtonTooltip` - Converted component to TypeScript
