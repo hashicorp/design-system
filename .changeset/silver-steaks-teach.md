@@ -9,3 +9,5 @@
 `TableThButtonTooltip` - Converted component to TypeScript
 
 `TableTh` - Converted component to TypeScript
+
+`TableThSort` - Converted component to TypeScript
