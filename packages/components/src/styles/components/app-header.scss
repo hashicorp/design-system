@@ -11,12 +11,6 @@
 
 // ----------------
 
-// TODO: Create app-header tokens:
-:root {
-  --token-app-header-height: 60px;
-  --token-app-header-home-link-padding: 4px;
-}
-
 .hds-app-header {
   position: relative;
   z-index: 20; // needs to stay above the main content
