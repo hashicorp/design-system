@@ -36,6 +36,8 @@
       // Force align dropdown content
       .hds-dropdown__content {
         top: calc(100% + 4px);
+        right: auto;
+        bottom: auto;
         left: 0;
       }
     }
@@ -46,6 +48,8 @@
       .hds-dropdown__content {
         top: calc(100% + 4px);
         right: 0;
+        bottom: auto;
+        left: auto;
       }
     }
   }
@@ -70,6 +74,8 @@
     // Force align dropdown content
     .hds-dropdown__content {
       top: calc(100% + 4px);
+      right: auto;
+      bottom: auto;
       left: 0;
     }
 
