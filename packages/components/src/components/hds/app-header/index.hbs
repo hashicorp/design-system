@@ -6,6 +6,14 @@
 <div class={{this.classNames}} ...attributes>
   {{yield to="logo"}}
 
+  {{#if (not this.isDesktop)}}
+    <Hds::AppHeader::MenuButton
+      @onClickToggle={{this.onClickToggle}}
+      @isOpen={{this.isOpen}}
+      @menuContentId={{this.menuContentId}}
+    />
+  {{/if}}
+
   {{#if this.showItems}}
     <div class="hds-app-header__actions" id={{this.menuContentId}}>
       <div class="hds-app-header__global-actions">
@@ -16,13 +24,5 @@
         {{yield to="utilityActions"}}
       </div>
     </div>
-  {{/if}}
-
-  {{#if (not this.isDesktop)}}
-    <Hds::AppHeader::MenuButton
-      @onClickToggle={{this.onClickToggle}}
-      @isOpen={{this.isOpen}}
-      @menuContentId={{this.menuContentId}}
-    />
   {{/if}}
 </div>
