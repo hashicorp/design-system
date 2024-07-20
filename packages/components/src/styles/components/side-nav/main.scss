@@ -8,11 +8,6 @@
 //
 
 .hds-side-nav {
-  // set narrower collapsed width when the header is empty
-  &:has(.hds-side-nav__wrapper-header:empty) {
-    --hds-app-sidenav-width-minimized: 16px;
-  }
-
   position: sticky;
   top: 0;
   z-index: 20; // needs to stay above the main content
@@ -20,6 +15,24 @@
   height: 100vh;
   min-height: 100vh;
   isolation: isolate; // used to create a new stacking context (so we can set the overlay's z-index to -1)
+
+  // VARIATIONS
+
+  // with-app-header
+  // Modify sidenav layout when used together with app-header
+
+  &.hds-side-nav--with-app-header {
+    top: var(--token-app-header-height);
+    height: calc(100vh - var(--token-app-header-height));
+    min-height: calc(100vh - var(--token-app-header-height));
+  }
+
+  // headerless
+  // SideNav without a :header block
+  &.hds-side-nav--is-headerless {
+    // set narrower collapsed width when the header is empty
+    --hds-app-sidenav-width-minimized: 16px;
+  }
 
   // RESPONSIVENESS - This controls the width of the top-level container ("sidebar") in the grid, and impacts the available space for the "main" grid area
 
@@ -44,15 +57,6 @@
       width: var(--hds-app-sidenav-width-minimized);
     }
   }
-}
-
-// HAS_HEADER
-// Modify sidenav layout when used together with app-header
-
-.hds-side-nav--has-header {
-  top: var(--token-app-header-height);
-  height: calc(100vh - var(--token-app-header-height));
-  min-height: calc(100vh - var(--token-app-header-height));
 }
 
 // OVERLAY
