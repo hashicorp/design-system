@@ -66,9 +66,9 @@ module('Integration | Component | hds/app-frame/index', function (hooks) {
 
   // OPTIONS
 
-  test('it should hide the header when @withAppHeader is false', async function (assert) {
+  test('it should hide the header when @hasHeader is false', async function (assert) {
     await render(hbs`
-        <Hds::AppFrame @withAppHeader={{false}} as |Frame|>
+        <Hds::AppFrame @hasHeader={{false}} as |Frame|>
           <Frame.Header id="test-app-frame-header" />
         </Hds::AppFrame>
     `);
