@@ -158,3 +158,24 @@
     </SG.Item>
   </Shw::Grid>
 </section>
+
+{{! For some reasons Ember tests don't play well with iframes (URL not found) so we don't snapshots them in Percy }}
+<section>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Framed</Shw::Text::H3>
+
+  <Shw::Frame
+    @id="demo-full-app-frame"
+    @src="/layouts/app-frame/frameless/demo-full-app-frame"
+    @label="Full app-frame"
+  />
+
+  <Shw::Frame
+    @id="demo-full-app-frame-with-modal"
+    @src="/layouts/app-frame/frameless/demo-full-app-frame-with-modal"
+    @label="Full app-frame with modal"
+  />
+
+</section>
