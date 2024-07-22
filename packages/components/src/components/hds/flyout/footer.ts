@@ -6,9 +6,19 @@
 import Component from '@glimmer/component';
 import { deprecate } from '@ember/debug';
 
-export default class HdsFlyoutFooterComponent extends Component {
-  constructor() {
-    super(...arguments);
+interface HdsFlyoutFooterSignature {
+  Args: {
+    onDismiss?: (event: MouseEvent) => void;
+  };
+  Blocks: {
+    default: [{ close?: (event: MouseEvent) => void }];
+  };
+  Element: HTMLDivElement;
+}
+
+export default class HdsFlyoutFooterComponent extends Component<HdsFlyoutFooterSignature> {
+  constructor(owner: unknown, args: HdsFlyoutFooterSignature['Args']) {
+    super(owner, args);
 
     deprecate(
       'The `Hds::Flyout::Footer` sub-component is now deprecated and will be removed in the next major version of `@hashicorp/design-system-components`. Use `Hds::DialogPrimitive::Footer` as one-to-one replacement.',

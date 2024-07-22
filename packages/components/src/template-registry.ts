@@ -41,6 +41,11 @@ import type HdsDialogPrimitiveHeaderComponent from './components/hds/dialog-prim
 import type HdsDialogPrimitiveOverlayComponent from './components/hds/dialog-primitive/overlay';
 import type HdsDialogPrimitiveWrapperComponent from './components/hds/dialog-primitive/wrapper';
 import type HdsDismissButtonComponent from './components/hds/dismiss-button';
+import type HdsFlyoutBodyComponent from './components/hds/flyout/body';
+import type HdsFlyoutDescriptionComponent from './components/hds/flyout/description';
+import type HdsFlyoutFooterComponent from './components/hds/flyout/footer';
+import type HdsFlyoutHeaderComponent from './components/hds/flyout/header';
+import type HdsFlyoutComponent from './components/hds/flyout';
 import type HdsFormCharacterCountComponent from './components/hds/form/character-count';
 import type HdsFormCheckboxBaseComponent from './components/hds/form/checkbox/base';
 import type HdsFormCheckboxFieldComponent from './components/hds/form/checkbox/field';
@@ -265,6 +270,22 @@ export default interface HdsComponentsRegistry {
   // DismissButton
   'Hds::DismissButton': typeof HdsDismissButtonComponent;
   'hds/dismiss-button': typeof HdsDismissButtonComponent;
+
+  // Flyout
+  'Hds::Flyout': typeof HdsFlyoutComponent;
+  'hds/flyout': typeof HdsFlyoutComponent;
+
+  'Hds::Flyout::Body': typeof HdsFlyoutBodyComponent;
+  'hds/flyout/body': typeof HdsFlyoutBodyComponent;
+
+  'Hds::Flyout::Description': typeof HdsFlyoutDescriptionComponent;
+  'hds/flyout/description': typeof HdsFlyoutDescriptionComponent;
+
+  'Hds::Flyout::Footer': typeof HdsFlyoutFooterComponent;
+  'hds/flyout/footer': typeof HdsFlyoutFooterComponent;
+
+  'Hds::Flyout::Header': typeof HdsFlyoutHeaderComponent;
+  'hds/flyout/header': typeof HdsFlyoutHeaderComponent;
 
   // FORM
 

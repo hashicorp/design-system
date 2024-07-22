@@ -6,9 +6,16 @@
 import Component from '@glimmer/component';
 import { deprecate } from '@ember/debug';
 
-export default class HdsFlyoutDescriptionComponent extends Component {
-  constructor() {
-    super(...arguments);
+interface HdsFlyoutDescriptionSignature {
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLElement;
+}
+
+export default class HdsFlyoutDescriptionComponent extends Component<HdsFlyoutDescriptionSignature> {
+  constructor(owner: unknown) {
+    super(owner, {});
 
     deprecate(
       'The `Hds::Flyout::Description` sub-component is now deprecated and will be removed in the next major version of `@hashicorp/design-system-components`. Use `Hds::DialogPrimitive::Description` as one-to-one replacement.',

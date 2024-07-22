@@ -9,15 +9,59 @@ import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { getElementId } from '../../../utils/hds-get-element-id.ts';
 import { buildWaiter } from '@ember/test-waiters';
+import type { WithBoundArgs } from '@glint/template';
 
-let waiter = buildWaiter('@hashicorp/design-system-components:flyout');
+import type { HdsFlyoutSizes } from './types.ts';
 
-export const DEFAULT_SIZE = 'medium';
+import { HdsFlyoutSizesValues } from './types.ts';
+import HdsDialogPrimitiveBodyComponent from '../dialog-primitive/body.ts';
+import HdsDialogPrimitiveDescriptionComponent from '../dialog-primitive/description.ts';
+import HdsDialogPrimitiveFooterComponent from '../dialog-primitive/footer.ts';
+import HdsDialogPrimitiveHeaderComponent from '../dialog-primitive/header.ts';
+
+const waiter = buildWaiter('@hashicorp/design-system-components:flyout');
+
+export const DEFAULT_SIZE = HdsFlyoutSizesValues.Medium;
 export const DEFAULT_HAS_OVERLAY = true;
-export const SIZES = ['medium', 'large'];
+export const SIZES: string[] = Object.values(HdsFlyoutSizesValues);
 
-export default class HdsFlyoutIndexComponent extends Component {
+export interface HdsFlyoutIndexSignature {
+  Args: {
+    isDismissDisabled?: boolean;
+    size?: HdsFlyoutSizes;
+    onOpen?: () => void;
+    onClose?: (event: Event) => void;
+  };
+  Blocks: {
+    default: [
+      {
+        Header?: WithBoundArgs<
+          typeof HdsDialogPrimitiveHeaderComponent,
+          'id' | 'onDismiss' | 'contextualClassPrefix'
+        >;
+        Description?: WithBoundArgs<
+          typeof HdsDialogPrimitiveDescriptionComponent,
+          'contextualClass'
+        >;
+        Body?: WithBoundArgs<
+          typeof HdsDialogPrimitiveBodyComponent,
+          'contextualClass'
+        >;
+        Footer?: WithBoundArgs<
+          typeof HdsDialogPrimitiveFooterComponent,
+          'onDismiss' | 'contextualClass'
+        >;
+      },
+    ];
+  };
+  Element: HTMLDialogElement;
+}
+
+export default class HdsFlyoutIndexComponent extends Component<HdsFlyoutIndexSignature> {
   @tracked isOpen = false;
+  element!: HTMLDialogElement;
+  body!: HTMLElement;
+  bodyInitialOverflowValue = '';
 
   /**
    * Sets the size of the flyout
@@ -27,8 +71,8 @@ export default class HdsFlyoutIndexComponent extends Component {
    * @type {string}
    * @default 'medium'
    */
-  get size() {
-    let { size = DEFAULT_SIZE } = this.args;
+  get size(): HdsFlyoutSizes {
+    const { size = DEFAULT_SIZE } = this.args;
 
     assert(
       `@size for "Hds::Flyout" must be one of the following: ${SIZES.join(
@@ -53,7 +97,7 @@ export default class HdsFlyoutIndexComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-flyout'];
+    const classes = ['hds-flyout'];
 
     // add a class based on the @size argument
     classes.push(`hds-flyout--size-${this.size}`);
@@ -61,16 +105,16 @@ export default class HdsFlyoutIndexComponent extends Component {
     return classes.join(' ');
   }
 
-  @action registerOnCloseCallback() {
+  @action registerOnCloseCallback(event: Event) {
     if (this.args.onClose && typeof this.args.onClose === 'function') {
-      this.args.onClose();
+      this.args.onClose(event);
     }
 
     this.isOpen = false;
   }
 
   @action
-  didInsert(element) {
+  didInsert(element: HTMLDialogElement) {
     // Store references of `<dialog>` and `<body>` elements
     this.element = element;
     this.body = document.body;
@@ -122,8 +166,8 @@ export default class HdsFlyoutIndexComponent extends Component {
     // when using `click` or other helpers from '@ember/test-helpers'
     // Notice: this code will get stripped out in production builds (DEBUG evaluates to `true` in dev/test builds, but `false` in prod builds)
     if (this.element.open) {
-      let token = waiter.beginAsync();
-      let listener = () => {
+      const token = waiter.beginAsync();
+      const listener = () => {
         waiter.endAsync(token);
         this.element.removeEventListener('close', listener);
       };

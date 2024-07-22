@@ -5,10 +5,24 @@
 
 import Component from '@glimmer/component';
 import { deprecate } from '@ember/debug';
+import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
 
-export default class HdsFlyoutHeaderComponent extends Component {
-  constructor() {
-    super(...arguments);
+export interface HdsFlyoutHeaderSignature {
+  Args: {
+    id?: string;
+    tagline?: string;
+    onDismiss: (event: MouseEvent) => void;
+    icon?: FlightIconSignature['Args']['name'] | false;
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLDivElement;
+}
+
+export default class HdsFlyoutHeaderComponent extends Component<HdsFlyoutHeaderSignature> {
+  constructor(owner: unknown, args: HdsFlyoutHeaderSignature['Args']) {
+    super(owner, args);
 
     deprecate(
       'The `Hds::Flyout::Header` sub-component is now deprecated and will be removed in the next major version of `@hashicorp/design-system-components`. Use `Hds::DialogPrimitive::Header` as one-to-one replacement.',
