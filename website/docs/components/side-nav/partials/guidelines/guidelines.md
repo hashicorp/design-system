@@ -36,15 +36,15 @@ Avoid placing links to unrelated pages or actions, such as support or navigation
 
 ![User dropdown menu in side-nav's header](/assets/components/side-nav/user-dropdown.png)
 
-### Custom content
+### Generic content
 
-The `custom` type supports any custom content, local components, or Helios components within the header via an instance swap property (customInstance) in Figma.
+The `generic` type supports any generic content, local components, or Helios components within the header via an instance swap property (customInstance) in Figma.
 
 ![Generic container within the side-nav header](/assets/components/side-nav/custom-header.png)
 
 ## Body
 
-The body consists of a group of sections with vertical lists of links, typically to the most important parts of the application. Any custom content or component is also supported by an additional generic container.
+The body consists of a group of sections with vertical lists of links, typically to the most important parts of the application. Any generic content or component is also supported by an additional generic container.
 
 ### List
 
@@ -108,9 +108,9 @@ Use `isLinkExternal` to show that the list item is a hyperlink pointing to a pag
 Use external links sparingly. Avoid using this property to link pages that are unrelated to the product's navigation.
 !!!
 
-### Custom content
+### Generic content
 
-Toggle `hasCustomContent` on to support any additional custom content, local components, or Helios components within the body container via an instance swap property (customInstance) in Figma.
+Toggle `hasGenericContent` on to support any additional generic content, local components, or Helios components within the body container via an instance swap property (genericInstance) in Figma.
 
 ![Generic container within the side-nav body](/assets/components/side-nav/custom-content-body.png)
 

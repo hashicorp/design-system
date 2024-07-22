@@ -161,16 +161,16 @@ A **description** provides additional information about the Flyout.
 
 ## Flyout body
 
-The body of the Flyout supports any custom content, local components, or Helios components via an **instance swap property** (customInstance) in Figma. In code, `yield` is supported.
+The body of the Flyout supports any generic content, local components, or Helios components via an **instance swap property** (customInstance) in Figma. In code, `yield` is supported.
 
 ## Flyout footer
 
-The Flyout footer is a persistent content area at the bottom of the Flyout, and supports additional descriptive content, links, actions, and any other custom content or Helios components. 
+The Flyout footer is a persistent content area at the bottom of the Flyout, and supports additional descriptive content, links, actions, and any other generic content or Helios components. 
 
 The Ember and Figma components account for the footer in slightly different ways, though both can achieve the same results:
 
 - The Ember component is a generic container that yields elements passed to it.
-- The Figma component consists of a variant for the number of actions, as well as support for custom content with `instance swap`.
+- The Figma component consists of a variant for the number of actions, as well as support for generic content with `instance swap`.
 
 !!! Info
 
