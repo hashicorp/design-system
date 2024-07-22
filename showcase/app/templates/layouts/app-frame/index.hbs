@@ -156,7 +156,28 @@
       </div>
     </SG.Item>
   </Shw::Grid>
+</section>
 
+{{! For some reason, Ember tests don't play well with iframes (URL not found) so we don't snapshots them in Percy }}
+<section>
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Framed</Shw::Text::H3>
+
+  <Shw::Frame
+    @id="demo-full-app-frame"
+    @src="/layouts/app-frame/frameless/demo-full-app-frame"
+    @label="Full app-frame"
+  />
+
+  <Shw::Frame
+    @id="demo-full-app-frame-with-modal"
+    @src="/layouts/app-frame/frameless/demo-full-app-frame-with-modal"
+    @label="Full app-frame with modal"
+  />
+</section>
+
+<section data-test-percy>
   <Shw::Divider />
 
   <Shw::Text::H2>Content</Shw::Text::H2>
@@ -245,7 +266,7 @@
     <SG.Item @label="SideNav without AppHeader" {{style width="100%"}}>
       <Hds::AppFrame class="shw-component-app-frame-container" as |Frame|>
         <Frame.Sidebar>
-          <Hds::SideNav @isResponsive={{true}} @hasA11yRefocus={{false}} @isCollapsible={{true}}>
+          <Hds::SideNav @isResponsive={{true}} @hasA11yRefocus={{false}} @isCollapsible={{true}} @hasHeader={{false}}>
             <:header>
               <Hds::SideNav::Header>
                 <:logo>
@@ -327,14 +348,14 @@
   <Shw::Text::H3>Framed</Shw::Text::H3>
 
   <Shw::Frame
-    @id="demo-full-app-frame"
-    @src="/layouts/app-frame/frameless/demo-full-app-frame"
-    @label="Full app-frame"
+    @id="demo-full-app-frame-with-app-heade"
+    @src="/layouts/app-frame/frameless/demo-full-app-frame-with-app-header"
+    @label="Full AppFrame with AppHeader"
   />
 
   <Shw::Frame
-    @id="demo-full-app-frame-with-modal"
-    @src="/layouts/app-frame/frameless/demo-full-app-frame-with-modal"
-    @label="Full app-frame with modal"
+    @id="demo-full-app-frame-with-side-nav"
+    @src="/layouts/app-frame/frameless/demo-full-app-frame-with-side-nav"
+    @label="Full AppFrame with SideNav but without AppHeader"
   />
 </section>

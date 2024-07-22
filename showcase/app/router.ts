@@ -76,6 +76,8 @@ Router.map(function () {
       this.route('frameless', function () {
         this.route('demo-full-app-frame');
         this.route('demo-full-app-frame-with-modal');
+        this.route('demo-full-app-frame-with-app-header');
+        this.route('demo-full-app-frame-with-side-nav');
       });
     });
   });
