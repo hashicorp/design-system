@@ -6,6 +6,7 @@
 import Component from '@glimmer/component';
 import type { ComponentLike } from '@glint/template';
 import type { HdsLinkStandaloneSignature } from '../link/standalone';
+import type { HdsButtonSignature } from '../button';
 
 export interface HdsApplicationStateFooterSignature {
   Args: {
@@ -14,6 +15,7 @@ export interface HdsApplicationStateFooterSignature {
   Blocks: {
     default?: [
       {
+        Button?: ComponentLike<HdsButtonSignature>;
         LinkStandalone?: ComponentLike<HdsLinkStandaloneSignature>;
       },
     ];
