@@ -1,15 +1,3 @@
-## Installation
-
-Icons can be used in many ways. The package can be installed as an [Ember addon](#adding-icons-to-ember-apps) for the convenience of using a component with strong defaults. It can also be [consumed in React applications](#adding-icons-to-react-apps) via direct import of the SVG file or as a standalone React/SVG icon component.
-
-### Adding icons to Ember apps
-
-Install the `ember-flight-icons` addon.
-
-```bash
-yarn add @hashicorp/ember-flight-icons
-```
-
 !!! Information
 
 Because this addon exposes a `data-test-icon` helper, we recommend installing [`ember-test-selectors`](https://github.com/simplabs/ember-test-selectors) which strips out all `data-test-*` attributes for production builds.
@@ -33,7 +21,7 @@ module.exports = function(environment) {
 
 For more information on why this may be helpful in certain scenarios, see [DS-049 - Improve Ember Flight Icons Loading Performance](https://go.hashi.co/rfc/ds-049).
 
-### Adding icons to React apps
+<!-- ### Adding icons to React apps
 
 To add icons to a React application, install the `@hashicorp/flight-icons` package and import the icons as either inline SVGs or as a standalone React/SVG component.
 
@@ -81,7 +69,7 @@ import { IconArrowRight24 } from '@hashicorp/flight-icons/svg-react/arrow-right-
 
 // elsewhere in the file
 <IconArrowRight24 />
-```
+``` -->
 
 ## How to use icons
 
@@ -96,7 +84,7 @@ It renders to this (where the `id` will be unique each time):
 ```markup
 <svg
     id="icon-ember115"
-    class="flight-icon icon-alert-circle display-inline"
+    class="hds-icon icon-alert-circle"
     width="16"
     height="16"
     viewBox="0 0 16 16"
