@@ -9,6 +9,7 @@
 
 $hds-application-state-content-max-width: 480px;
 $hds-application-state-footer-child-gap: 8px;
+$hds-application-state-padding: 12px 0;
 
 .hds-application-state {
   display: flex;
@@ -42,7 +43,7 @@ $hds-application-state-footer-child-gap: 8px;
   display: grid;
   grid-template-columns: min-content 1fr;
   grid-template-rows: auto auto;
-  align-items: start;
+  align-items: center;
   color: var(--token-color-foreground-strong);
   margin: 0 auto;
   max-width: $hds-application-state-content-max-width;
@@ -78,7 +79,8 @@ $hds-application-state-footer-child-gap: 8px;
 .hds-application-state__footer {
   display: flex;
   gap: 8px;
-  margin: 12px auto 0;
+  margin: 0 auto;
+  padding: 12px 0;
   width: 100%;
   max-width: $hds-application-state-content-max-width;
 

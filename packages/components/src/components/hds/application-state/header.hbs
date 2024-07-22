@@ -11,10 +11,10 @@
   {{/if}}
   {{#if @icon}}
     <div class="hds-application-state__icon">
-      <FlightIcon @name={{@icon}} @size="24" />
+      <FlightIcon @color="foreground/faint" @name={{@icon}} @size="24" />
     </div>
   {{/if}}
-  <Hds::Text::Display class="hds-application-state__title" @tag="div" @size="400" @weight="semibold">
+  <Hds::Text::Display class="hds-application-state__title" @tag="div" @size="300" @weight="semibold">
     {{@title}}
   </Hds::Text::Display>
 </div>
