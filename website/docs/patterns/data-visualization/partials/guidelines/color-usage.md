@@ -14,11 +14,10 @@ Use for presenting categorical data that has no intrinsic order, such as a pie o
 
 **Categorical palettes should:**
 
-- Use distinct colors.
-- Be limited to a max of 10 colors.
-- Be distinguished primarily by hue.  
-  (**Important:** For accessibility, use patterns, symbols, or text in addition to or instead of color.)
-- Avoid problematic color pairs (e.g., red-green, blue-purple).
+* Use distinct colors.
+* Be limited to a max of 10 colors.
+* Be distinguished primarily by hue. (For accessibility, also use patterns, symbols, or text.)
+* Avoid problematic color pairs (e.g., red-green, an issue for those with color blindness).
 
 ![Color usage for categorical data visualization](/assets/patterns/data-visualization/color-usage/data-visualization-categorical.png)
 
@@ -33,7 +32,7 @@ Use for presenting quantitative or inherently ordered values in a continuum. Use
 
 ![Color usage for sequential data visualization](/assets/patterns/data-visualization/color-usage/data-visualization-sequential.png)
 
-A graduated color sequence can distinguish elements in visualizations without inherent axes or directions, like maps or geographic representations.
+A graduated color sequence can distinguish elements in visualizations without inherent axes or directions, such as maps or geographic representations.
 
 ![Color usage using a graduated color sequence](/assets/patterns/data-visualization/color-usage/data-visualization-graduated-sequence.png)
 
