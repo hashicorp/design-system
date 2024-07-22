@@ -93,6 +93,7 @@ import HdsTableTh from './components/hds/table/th.ts';
 import HdsTableThButtonSort from './components/hds/table/th-button-sort.ts';
 import HdsTableThButtonTooltip from './components/hds/table/th-button-tooltip.ts';
 import HdsTableThSort from './components/hds/table/th-sort.ts';
+import HdsTableThSelectable from './components/hds/table/th-selectable.ts';
 import HdsTabs from './components/hds/tabs/index.ts';
 import HdsTag from './components/hds/tag/index.ts';
 import HdsText from './components/hds/text/index.ts';
@@ -191,6 +192,7 @@ export {
   HdsTableTh,
   HdsTableThButtonTooltip,
   HdsTableThSort,
+  HdsTableThSelectable,
   HdsTabs,
   HdsTag,
   HdsText,
