@@ -47,7 +47,7 @@
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`Accordion` - added `@size`, `@type`, and `@isStatic` arguments
+`Accordion` - added `@size`, `@type`, and `@isStatic` arguments. While previously equivalent to `large` the default `Accordion` size is now `medium`; use `@size="large"` to maintain the original appearance.
 
 <small class="doc-whats-new-changelog-metadata">[#2156](https://github.com/hashicorp/design-system/pull/2156)</small>
 
