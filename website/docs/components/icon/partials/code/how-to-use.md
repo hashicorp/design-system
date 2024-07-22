@@ -93,7 +93,7 @@ It renders to this (where the `id` will be unique each time):
     aria-hidden="true"
     data-test-icon="alert-circle"
 >
-    <use href="/@hashicorp/ember-flight-icons/icons/sprite.svg#alert-circle-16"></use>
+    <use href="/@hashicorp/flight-icons/icons/sprite.svg#alert-circle-16"></use>
 </svg>
 ```
 
@@ -185,7 +185,7 @@ Animated icons (e.g., "loading" and "running") are animated by default, meaning 
 <Hds::Icon @name="loading" @size="24" />
 ```
 
-#### In React apps
+<!-- #### In React apps
 
 To use the icons which are meant to be animated (e.g., “loading” and “running”), import the CSS that controls the icons’ animation:
 
@@ -204,4 +204,4 @@ import { IconLoading16 } from '@hashicorp/flight-icons/svg-react/loading-16'
 // if you’re using the 'svg' icons
 import svgLoading16 from '@hashicorp/flight-icons/svg/loading-16.svg?include'
 <InlineSvg src={svgLoading16} />
-```
+``` -->
