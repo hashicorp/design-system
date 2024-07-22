@@ -70,7 +70,7 @@ app.import('node_modules/@hashicorp/design-system-components/dist/styles/@hashic
 
 !!! Warning
 
-**Ensure a box-sizing reset is present**
+##### Ensure a box-sizing reset is present
 
 Our component library assumes that a box-sizing reset is applied globally in your application. To ensure components render properly, include the following reset:
 
@@ -78,10 +78,9 @@ Our component library assumes that a box-sizing reset is applied globally in you
 
 !!!
 
-
 ## Icons
 
-There are multiple ways to use icons in your codebase. We provide icons as an Ember addon and as a generic package that can also be consumed in React applications.
+There are multiple ways to use icons in your codebase. For usage in Ember applications, we provide an Ember `Icon` component as part of the design-system-components package. For other usages, such as in a React application, we also provide the framework-agnostic flight-icons package.
 
 ### Install icons package
 
@@ -100,7 +99,6 @@ yarn add @hashicorp/flight-icons
 This package can be consumed in React applications via direct import of the SVG file or as a standalone React/SVG icon component.
 
 For more details, examples, and guidelines read [the complete icons documentation](/icons/library).
-
 
 ## Tokens
 
