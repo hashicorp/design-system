@@ -41,13 +41,13 @@ $hds-application-state-padding: 12px 0;
 
 .hds-application-state__header {
   display: grid;
-  grid-template-columns: min-content 1fr;
   grid-template-rows: auto auto;
+  grid-template-columns: min-content 1fr;
   align-items: center;
-  color: var(--token-color-foreground-strong);
-  margin: 0 auto;
-  max-width: $hds-application-state-content-max-width;
   width: 100%;
+  max-width: $hds-application-state-content-max-width;
+  margin: 0 auto;
+  color: var(--token-color-foreground-strong);
 }
 
 .hds-application-state__error-code {
@@ -61,8 +61,8 @@ $hds-application-state-padding: 12px 0;
 }
 
 .hds-application-state__title {
-  font-weight: var(--token-typography-font-weight-semibold);
   grid-row: 2;
+  font-weight: var(--token-typography-font-weight-semibold);
 
   &:not(.hds-application-state__icon + &) {
     grid-column: 1 / -1;
@@ -70,19 +70,19 @@ $hds-application-state-padding: 12px 0;
 }
 
 .hds-application-state__body {
-  margin: 12px auto;
-  color: var(--token-color-foreground-primary);
   width: 100%;
   max-width: $hds-application-state-content-max-width;
+  margin: 12px auto;
+  color: var(--token-color-foreground-primary);
 }
 
 .hds-application-state__footer {
   display: flex;
   gap: 8px;
-  margin: 0 auto;
-  padding: 12px 0;
   width: 100%;
   max-width: $hds-application-state-content-max-width;
+  margin: 0 auto;
+  padding: 12px 0;
 
   // forces the third child and on to be on the right side
   > :nth-child(3) {
