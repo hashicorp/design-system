@@ -43,7 +43,7 @@ $hds-application-state-padding: 12px 0;
   display: grid;
   grid-template-columns: min-content 1fr;
   grid-template-rows: auto auto;
-  align-items: start;
+  align-items: center;
   color: var(--token-color-foreground-strong);
   margin: 0 auto;
   max-width: $hds-application-state-content-max-width;
