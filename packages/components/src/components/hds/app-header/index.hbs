@@ -1,0 +1,16 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+<div class={{this.classNames}} ...attributes>
+  <div class="hds-app-header__sub-section">
+    {{yield to="globalBefore"}} {{! Intended for: ProductMenu }}
+    {{yield to="logo"}}
+    {{yield to="globalAfter"}} {{! Intended for: OrgPicker }}
+  </div>
+
+  <div class="hds-app-header__sub-section">
+    {{yield to="utility"}} {{! Intended for: Search, HelpMenu, GeoPicker, UserMenu }}
+  </div>
+</div>

@@ -15,6 +15,29 @@
 }
 
 body.layouts-app-frame {
+  .shw-component-app-frame-container {
+    min-height: 0;
+    border: 1px solid;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 30%);
+
+    .hds-side-nav {
+      height: auto;
+      min-height: 0;
+
+      // For testing, may remove later...
+      &.hds-side-nav--is-minimized {
+        .hds-side-nav__wrapper { overflow: hidden; }
+
+        .hds-side-nav__wrapper-header { padding: 0; }
+
+        .hds-side-nav__wrapper-body {
+          width: var(--hds-app-sidenav-width-expanded);
+          opacity: 0;
+        }
+      }
+    }
+  }
+
   .shw-layout-app-frame-wrapper {
     width: 100%;
     aspect-ratio: 4 / 3;
