@@ -16,12 +16,12 @@ import HdsButtonSet from './components/hds/button-set/index.ts';
 import HdsCard from './components/hds/card/container.ts';
 import HdsCopyButton from './components/hds/copy/button/index.ts';
 import HdsCopySnippet from './components/hds/copy/snippet/index.ts';
-import HdsDialogPrimitiveBodyComponent from './components/hds/dialog-primitive/body.ts';
-import HdsDialogPrimitiveDescriptionComponent from './components/hds/dialog-primitive/description.ts';
-import HdsDialogPrimitiveFooterComponent from './components/hds/dialog-primitive/footer.ts';
-import HdsDialogPrimitiveHeaderComponent from './components/hds/dialog-primitive/header.ts';
-import HdsDialogPrimitiveOverlayComponent from './components/hds/dialog-primitive/overlay.ts';
-import HdsDialogPrimitiveWrapperComponent from './components/hds/dialog-primitive/wrapper.ts';
+import HdsDialogPrimitiveBody from './components/hds/dialog-primitive/body.ts';
+import HdsDialogPrimitiveDescription from './components/hds/dialog-primitive/description.ts';
+import HdsDialogPrimitiveFooter from './components/hds/dialog-primitive/footer.ts';
+import HdsDialogPrimitiveHeader from './components/hds/dialog-primitive/header.ts';
+import HdsDialogPrimitiveOverlay from './components/hds/dialog-primitive/overlay.ts';
+import HdsDialogPrimitiveWrapper from './components/hds/dialog-primitive/wrapper.ts';
 import HdsDisclosurePrimitive from './components/hds/disclosure-primitive/index.ts';
 import HdsDismissButton from './components/hds/dismiss-button/index.ts';
 import HdsFormCharacterCount from './components/hds/form/character-count/index.ts';
@@ -94,12 +94,12 @@ export {
   HdsCard,
   HdsCopyButton,
   HdsCopySnippet,
-  HdsDialogPrimitiveBodyComponent,
-  HdsDialogPrimitiveDescriptionComponent,
-  HdsDialogPrimitiveFooterComponent,
-  HdsDialogPrimitiveHeaderComponent,
-  HdsDialogPrimitiveOverlayComponent,
-  HdsDialogPrimitiveWrapperComponent,
+  HdsDialogPrimitiveBody,
+  HdsDialogPrimitiveDescription,
+  HdsDialogPrimitiveFooter,
+  HdsDialogPrimitiveHeader,
+  HdsDialogPrimitiveOverlay,
+  HdsDialogPrimitiveWrapper,
   HdsDisclosurePrimitive,
   HdsDismissButton,
   HdsFormCharacterCount,
