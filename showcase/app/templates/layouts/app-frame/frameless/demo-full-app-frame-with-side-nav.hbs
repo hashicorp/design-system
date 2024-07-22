@@ -3,6 +3,7 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
+{{! @glint-nocheck: not typesafe yet }}
 {{page-title "AppFrame Component - Frameless"}}
 
 <Hds::AppFrame @hasHeader={{false}} as |Frame|>
@@ -71,7 +72,30 @@
   </Frame.Sidebar>
 
   <Frame.Main>
-    <Shw::Placeholder @height="100%" @text="main" @background="#d2f4ff" />
+    <div class="shw-layout-app-frame__main-content-padding">
+      <Hds::PageHeader as |PH|>
+        <PH.Title>Page title</PH.Title>
+        <PH.Breadcrumb>
+          <Hds::Breadcrumb>
+            <Hds::Breadcrumb::Item @text="Organization" @icon="dashboard" />
+            <Hds::Breadcrumb::Item @text="Project" @icon="file-text" />
+            <Hds::Breadcrumb::Item @text="Clusters" @icon="server-cluster" />
+          </Hds::Breadcrumb>
+        </PH.Breadcrumb>
+        <PH.IconTile @icon="server-cluster" />
+        <PH.Badges>
+          <Hds::Badge @text="Status badge" @icon="award" @color="highlight" />
+        </PH.Badges>
+        <PH.Subtitle>Project dashboard</PH.Subtitle>
+        <PH.Description>
+          An overview of all resources in the project.
+          <Hds::Link::Inline @color="secondary" @href="#">Learn more</Hds::Link::Inline>.
+        </PH.Description>
+        <PH.Actions>
+          <Hds::Button @text="Create" @icon="plus" @iconPosition="leading" @color="primary" />
+        </PH.Actions>
+      </Hds::PageHeader>
+    </div>
   </Frame.Main>
 
   <Frame.Footer>

@@ -131,3 +131,12 @@ body.layouts-app-frame {
     .hds-dropdown-toggle-button {width: 100%;}
   }
 }
+
+
+// Frameles demo pages
+.layouts-app-frame-frameless-demo-full-app-frame-with-app-header,
+.layouts-app-frame-frameless-demo-full-app-frame-with-side-nav {
+  .shw-layout-app-frame__main-content-padding {
+    padding: 1.5rem 4rem 2.25rem 4rem;
+  }
+}
