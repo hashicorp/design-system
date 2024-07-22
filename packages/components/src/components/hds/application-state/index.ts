@@ -13,6 +13,7 @@ import type { HdsApplicationStateHeaderSignature } from './header';
 import type { HdsApplicationStateBodySignature } from './body';
 import type { HdsApplicationStateFooterSignature } from './footer';
 
+export const ALIGNS: string[] = Object.values(HdsApplicationStateAlignValues);
 export interface HdsApplicationStateSignature {
   Args: {
     align?: HdsApplicationStateAligns;
@@ -24,7 +25,7 @@ export interface HdsApplicationStateSignature {
         Header?: ComponentLike<HdsApplicationStateHeaderSignature>;
         Body?: ComponentLike<HdsApplicationStateBodySignature>;
         Footer?: ComponentLike<HdsApplicationStateFooterSignature>;
-      }
+      },
     ];
   };
   Element: HTMLDivElement;
