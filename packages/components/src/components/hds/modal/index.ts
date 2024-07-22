@@ -9,12 +9,13 @@ import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { getElementId } from '../../../utils/hds-get-element-id.ts';
 import { buildWaiter } from '@ember/test-waiters';
+
 import type { WithBoundArgs } from '@glint/template';
+import type { HdsModalSizes, HdsModalColors } from './types.ts';
 
 import HdsDialogPrimitiveHeaderComponent from '../dialog-primitive/header.ts';
 import HdsDialogPrimitiveBodyComponent from '../dialog-primitive/body.ts';
 import HdsDialogPrimitiveFooterComponent from '../dialog-primitive/footer.ts';
-import type { HdsModalSizes, HdsModalColors } from './types.ts';
 import { HdsModalSizeValues, HdsModalColorValues } from './types.ts';
 
 const waiter = buildWaiter('@hashicorp/design-system-components:modal');
@@ -69,7 +70,7 @@ export default class HdsModalIndexComponent extends Component<HdsModalIndexSigna
    * @type {string}
    * @default 'medium'
    */
-  get size() {
+  get size(): HdsModalSizes {
     const { size = DEFAULT_SIZE } = this.args;
 
     assert(
@@ -90,7 +91,7 @@ export default class HdsModalIndexComponent extends Component<HdsModalIndexSigna
    * @type {string}
    * @default 'neutral'
    */
-  get color() {
+  get color(): HdsModalColors {
     const { color = DEFAULT_COLOR } = this.args;
 
     assert(
