@@ -14,8 +14,8 @@ $hds-application-state-padding: 12px 0;
 .hds-application-state {
   display: flex;
   flex-direction: column;
+  align-items: start;
   width: fit-content;
-  max-width: 480px;
   margin: 0 auto; // this will center the component in the parent container
 
   &.hds-application-state--align-center {
@@ -32,11 +32,11 @@ $hds-application-state-padding: 12px 0;
 
 .hds-application-state__media {
   margin-bottom: 32px;
-  overflow: visible;
 
-  // > * {
-  //   max-width: 100%;
-  // }
+  > * {
+    display: block;
+    max-width: 100%;
+  }
 }
 
 .hds-application-state__header {
@@ -46,7 +46,6 @@ $hds-application-state-padding: 12px 0;
   align-items: center;
   width: 100%;
   max-width: $hds-application-state-content-max-width;
-  margin: 0 auto;
   color: var(--token-color-foreground-strong);
 }
 
@@ -72,7 +71,7 @@ $hds-application-state-padding: 12px 0;
 .hds-application-state__body {
   width: 100%;
   max-width: $hds-application-state-content-max-width;
-  margin: 12px auto;
+  margin: 12px 0;
   color: var(--token-color-foreground-primary);
 }
 
@@ -81,7 +80,6 @@ $hds-application-state-padding: 12px 0;
   gap: 8px;
   width: 100%;
   max-width: $hds-application-state-content-max-width;
-  margin: 0 auto;
   padding: 12px 0;
 
   // forces the third child and on to be on the right side
