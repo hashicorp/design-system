@@ -10,16 +10,57 @@ import { assert } from '@ember/debug';
 import { getElementId } from '../../../utils/hds-get-element-id.ts';
 import { buildWaiter } from '@ember/test-waiters';
 
-let waiter = buildWaiter('@hashicorp/design-system-components:modal');
+import type { WithBoundArgs } from '@glint/template';
+import type { HdsModalSizes, HdsModalColors } from './types.ts';
 
-export const DEFAULT_SIZE = 'medium';
-export const DEFAULT_COLOR = 'neutral';
-export const SIZES = ['small', 'medium', 'large'];
-export const COLORS = ['neutral', 'warning', 'critical'];
+import HdsDialogPrimitiveHeaderComponent from '../dialog-primitive/header.ts';
+import HdsDialogPrimitiveBodyComponent from '../dialog-primitive/body.ts';
+import HdsDialogPrimitiveFooterComponent from '../dialog-primitive/footer.ts';
+import { HdsModalSizeValues, HdsModalColorValues } from './types.ts';
 
-export default class HdsModalIndexComponent extends Component {
+const waiter = buildWaiter('@hashicorp/design-system-components:modal');
+
+export const DEFAULT_SIZE = HdsModalSizeValues.Medium;
+export const DEFAULT_COLOR = HdsModalColorValues.Neutral;
+
+export const SIZES: string[] = Object.values(HdsModalSizeValues);
+export const COLORS: string[] = Object.values(HdsModalColorValues);
+
+export interface HdsModalIndexSignature {
+  Args: {
+    isDismissDisabled?: boolean;
+    size?: HdsModalSizes;
+    color?: HdsModalColors;
+    onOpen?: () => void;
+    onClose?: (event: Event) => void;
+  };
+  Blocks: {
+    default: [
+      {
+        Header?: WithBoundArgs<
+          typeof HdsDialogPrimitiveHeaderComponent,
+          'id' | 'onDismiss' | 'contextualClassPrefix'
+        >;
+        Body?: WithBoundArgs<
+          typeof HdsDialogPrimitiveBodyComponent,
+          'contextualClass'
+        >;
+        Footer?: WithBoundArgs<
+          typeof HdsDialogPrimitiveFooterComponent,
+          'onDismiss' | 'contextualClass'
+        >;
+      },
+    ];
+  };
+  Element: HTMLDialogElement;
+}
+
+export default class HdsModalIndexComponent extends Component<HdsModalIndexSignature> {
   @tracked isOpen = false;
   @tracked isDismissDisabled = this.args.isDismissDisabled ?? false;
+  element!: HTMLDialogElement;
+  body!: HTMLElement;
+  bodyInitialOverflowValue = '';
 
   /**
    * Sets the size of the modal dialog
@@ -29,8 +70,8 @@ export default class HdsModalIndexComponent extends Component {
    * @type {string}
    * @default 'medium'
    */
-  get size() {
-    let { size = DEFAULT_SIZE } = this.args;
+  get size(): HdsModalSizes {
+    const { size = DEFAULT_SIZE } = this.args;
 
     assert(
       `@size for "Hds::Modal" must be one of the following: ${SIZES.join(
@@ -50,8 +91,8 @@ export default class HdsModalIndexComponent extends Component {
    * @type {string}
    * @default 'neutral'
    */
-  get color() {
-    let { color = DEFAULT_COLOR } = this.args;
+  get color(): HdsModalColors {
+    const { color = DEFAULT_COLOR } = this.args;
 
     assert(
       `@color for "Hds::Modal" must be one of the following: ${COLORS.join(
@@ -76,7 +117,7 @@ export default class HdsModalIndexComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-modal'];
+    const classes = ['hds-modal'];
 
     // add a class based on the @size argument
     classes.push(`hds-modal--size-${this.size}`);
@@ -87,13 +128,13 @@ export default class HdsModalIndexComponent extends Component {
     return classes.join(' ');
   }
 
-  @action registerOnCloseCallback() {
+  @action registerOnCloseCallback(event: Event) {
     if (
       !this.isDismissDisabled &&
       this.args.onClose &&
       typeof this.args.onClose === 'function'
     ) {
-      this.args.onClose();
+      this.args.onClose(event);
     }
 
     // If the dismissal of the modal is disabled, we keep the modal open/visible otherwise we mark it as closed
@@ -111,7 +152,7 @@ export default class HdsModalIndexComponent extends Component {
   }
 
   @action
-  didInsert(element) {
+  didInsert(element: HTMLDialogElement) {
     // Store references of `<dialog>` and `<body>` elements
     this.element = element;
     this.body = document.body;
@@ -163,8 +204,8 @@ export default class HdsModalIndexComponent extends Component {
     // when using `click` or other helpers from '@ember/test-helpers'
     // Notice: this code will get stripped out in production builds (DEBUG evaluates to `true` in dev/test builds, but `false` in prod builds)
     if (this.element.open) {
-      let token = waiter.beginAsync();
-      let listener = () => {
+      const token = waiter.beginAsync();
+      const listener = () => {
         waiter.endAsync(token);
         this.element.removeEventListener('close', listener);
       };

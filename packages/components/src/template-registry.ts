@@ -78,6 +78,10 @@ import type HdsIconTileComponent from './components/hds/icon-tile';
 import type HdsInteractiveComponent from './components/hds/interactive';
 import type HdsLinkInlineComponent from './components/hds/link/inline';
 import type HdsLinkStandaloneComponent from './components/hds/link/standalone';
+import type HdsModalBodyComponent from './components/hds/modal/body';
+import type HdsModalFooterComponent from './components/hds/modal/footer';
+import type HdsModalHeaderComponent from './components/hds/modal/header';
+import type HdsModalComponent from './components/hds/modal/';
 import type HdsPageHeaderComponent from './components/hds/page-header';
 import type HdsPageHeaderActionsComponent from './components/hds/page-header/actions';
 import type HdsPageHeaderBadgesComponent from './components/hds/page-header/badges';
@@ -397,6 +401,19 @@ export default interface HdsComponentsRegistry {
   // Link Standalone
   'Hds::Link::Standalone': typeof HdsLinkStandaloneComponent;
   'hds/link/standalone': typeof HdsLinkStandaloneComponent;
+
+  // Modal
+  'Hds::Modal': typeof HdsModalComponent;
+  'hds/modal': typeof HdsModalComponent;
+
+  'Hds::ModalBoty': typeof HdsModalBodyComponent;
+  'hds/modal/body': typeof HdsModalBodyComponent;
+
+  'Hds::ModalFooter': typeof HdsModalFooterComponent;
+  'hds/modal/footer': typeof HdsModalFooterComponent;
+
+  'Hds::ModalHeader': typeof HdsModalHeaderComponent;
+  'hds/modal/header': typeof HdsModalHeaderComponent;
 
   // PageHeader
   'Hds::PageHeader': typeof HdsPageHeaderComponent;
