@@ -5,12 +5,13 @@
 
 import Component from '@glimmer/component';
 import { deprecate } from '@ember/debug';
+import type { HdsTextBodySignature } from '../text/body';
 
 interface HdsFlyoutDescriptionSignature {
   Blocks: {
     default: [];
   };
-  Element: HTMLElement;
+  Element: HdsTextBodySignature['Element'];
 }
 
 export default class HdsFlyoutDescriptionComponent extends Component<HdsFlyoutDescriptionSignature> {
