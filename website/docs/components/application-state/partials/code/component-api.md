@@ -55,6 +55,6 @@ The `ApplicationState::Footer` component, yielded as contextual component.
     Indicates if there should be a visible divider above the footer.
   </C.Property>
   <C.Property @name="<[F].LinkStandalone>" @type="yielded component">
-    The `Link::Standalone` component, yielded as contextual component inside the `"footer"` block of the ApplicationState. It exposes the same API of the [`Link::Standalone` component](/components/link/standalone).
+    The `Link::Standalone` component, yielded as contextual component inside the `"footer"` block of the ApplicationState. It exposes the same API as the [`Link::Standalone` component](/components/link/standalone).
   </C.Property>
 </Doc::ComponentApi>
