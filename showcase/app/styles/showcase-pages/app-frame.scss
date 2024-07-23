@@ -139,4 +139,18 @@ body.layouts-app-frame {
   .shw-layout-app-frame__main-content-padding {
     padding: 1.5rem 4rem 2.25rem 4rem;
   }
+
+  .hds-side-nav {
+    // For simulating minimize behavior
+    &.hds-side-nav--is-minimized {
+      .hds-side-nav__wrapper { overflow: hidden; }
+
+      .hds-side-nav__wrapper-body {
+        width: var(--hds-app-sidenav-width-expanded);
+        opacity: 0;
+      }
+
+      .hds-side-nav__wrapper-footer { opacity: 0; }
+    }
+  }
 }
