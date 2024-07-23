@@ -17,6 +17,12 @@
 .doc-markdown-img {
   max-width: 100%;
   background-color: var(--doc-color-white);
+
+  .doc-page-content > section > .doc-markdown-p > & {
+    padding: 16px;
+    border: 1px solid var(--doc-color-gray-500);
+    border-radius: 3px;
+  }
 }
 
 // CODE SNIPPETS
