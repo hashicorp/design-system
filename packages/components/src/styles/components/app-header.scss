@@ -111,8 +111,8 @@
 .hds-app-header__home-link {
   @include hds-interactive-dark-theme($add-visible-border: false);
   display: block;
-  width: 36px;
-  height: 36px;
+  width: var(--token-app-header-home-link-logo-size);
+  height: var(--token-app-header-home-link-logo-size);
   padding: calc(var(--token-app-header-home-link-padding) - 1px); // by design - we take in account the transparent border
 }
 
