@@ -24,6 +24,11 @@ import HdsDialogPrimitiveOverlay from './components/hds/dialog-primitive/overlay
 import HdsDialogPrimitiveWrapper from './components/hds/dialog-primitive/wrapper.ts';
 import HdsDisclosurePrimitive from './components/hds/disclosure-primitive/index.ts';
 import HdsDismissButton from './components/hds/dismiss-button/index.ts';
+import HdsFlyout from './components/hds/flyout/index.ts';
+import HdsFlyoutBody from './components/hds/flyout/body.ts';
+import HdsFlyoutDescription from './components/hds/flyout/description.ts';
+import HdsFlyoutFooter from './components/hds/flyout/footer.ts';
+import HdsFlyoutHeader from './components/hds/flyout/header.ts';
 import HdsFormCharacterCount from './components/hds/form/character-count/index.ts';
 import HdsFormCheckboxBase from './components/hds/form/checkbox/base.ts';
 import HdsFormCheckboxField from './components/hds/form/checkbox/field.ts';
@@ -40,16 +45,16 @@ import HdsFormLegend from './components/hds/form/legend/index.ts';
 import HdsFormMaskedInputBase from './components/hds/form/masked-input/base.ts';
 import HdsFormMaskedInputField from './components/hds/form/masked-input/field.ts';
 import HdsFormRadioBase from './components/hds/form/radio/base.ts';
-import HdsFormRadioField from './components/hds/form/radio/field.ts';
-import HdsFormRadioGroup from './components/hds/form/radio/group.ts';
 import HdsFormRadioCard from './components/hds/form/radio-card/index.ts';
 import HdsFormRadioCardGroup from './components/hds/form/radio-card/group.ts';
+import HdsFormRadioField from './components/hds/form/radio/field.ts';
+import HdsFormRadioGroup from './components/hds/form/radio/group.ts';
 import HdsFormSelectBase from './components/hds/form/select/base.ts';
 import HdsFormSelectField from './components/hds/form/select/field.ts';
-import HdsFormTextInputBase from './components/hds/form/text-input/base.ts';
-import HdsFormTextInputField from './components/hds/form/text-input/field.ts';
 import HdsFormTextareaBase from './components/hds/form/textarea/base.ts';
 import HdsFormTextareaField from './components/hds/form/textarea/field.ts';
+import HdsFormTextInputBase from './components/hds/form/text-input/base.ts';
+import HdsFormTextInputField from './components/hds/form/text-input/field.ts';
 import HdsFormToggleBase from './components/hds/form/toggle/base.ts';
 import HdsFormToggleField from './components/hds/form/toggle/field.ts';
 import HdsFormToggleGroup from './components/hds/form/toggle/group.ts';
@@ -106,6 +111,11 @@ export {
   HdsDialogPrimitiveWrapper,
   HdsDisclosurePrimitive,
   HdsDismissButton,
+  HdsFlyout,
+  HdsFlyoutBody,
+  HdsFlyoutDescription,
+  HdsFlyoutFooter,
+  HdsFlyoutHeader,
   HdsFormCharacterCount,
   HdsFormCheckboxBase,
   HdsFormCheckboxField,
@@ -122,16 +132,16 @@ export {
   HdsFormMaskedInputBase,
   HdsFormMaskedInputField,
   HdsFormRadioBase,
-  HdsFormRadioField,
-  HdsFormRadioGroup,
   HdsFormRadioCard,
   HdsFormRadioCardGroup,
+  HdsFormRadioField,
+  HdsFormRadioGroup,
   HdsFormSelectBase,
   HdsFormSelectField,
-  HdsFormTextInputBase,
-  HdsFormTextInputField,
   HdsFormTextareaBase,
   HdsFormTextareaField,
+  HdsFormTextInputBase,
+  HdsFormTextInputField,
   HdsFormToggleBase,
   HdsFormToggleField,
   HdsFormToggleGroup,

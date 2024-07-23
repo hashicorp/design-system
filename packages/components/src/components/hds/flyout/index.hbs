@@ -1,4 +1,3 @@
-{{! @glint-nocheck: not typesafe yet }}
 {{!
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
@@ -9,6 +8,7 @@
   aria-labelledby={{this.id}}
   {{did-insert this.didInsert}}
   {{will-destroy this.willDestroyNode}}
+  {{! @glint-expect-error - https://github.com/josemarluedke/ember-focus-trap/issues/86 }}
   {{focus-trap isActive=this.isOpen focusTrapOptions=(hash onDeactivate=this.onDismiss clickOutsideDeactivates=true)}}
 >
   <:header>
