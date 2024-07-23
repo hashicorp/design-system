@@ -241,6 +241,49 @@
 
   <Shw::Divider />
 
+  <Shw::Text::H2>Options</Shw::Text::H2>
+
+  <Shw::Grid @columns={{1}} {{style gap="3rem"}} as |SG|>
+    <SG.Item @label="With custom breakpoint (menu button is visible at wide screen width)">
+      <Hds::AppHeader @breakpoint="20000px">
+        <:logo>
+          <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
+        </:logo>
+        <:globalActions>
+          <Hds::Dropdown as |dd|>
+            <dd.ToggleButton @text="Choose an organization" @icon="org" />
+            <dd.Checkmark>
+              organizationName
+            </dd.Checkmark>
+          </Hds::Dropdown>
+        </:globalActions>
+
+        <:utilityActions>
+          <Hds::Dropdown @listPosition="bottom-right" as |dd|>
+            <dd.ToggleIcon @icon="help" @text="help menu" />
+            <dd.Title @text="Help & Support" />
+            <dd.Interactive @text="Documentation" @href="#" />
+            <dd.Interactive @text="Tutorials" @href="#" />
+            <dd.Interactive @text="Terraform Provider" @href="#" />
+            <dd.Interactive @text="Changelog" @href="#" />
+            <dd.Separator />
+            <dd.Interactive @text="Create support ticket" @href="#" />
+            <dd.Interactive @text="Give feedback" @href="#" />
+          </Hds::Dropdown>
+
+          <Hds::Dropdown @listPosition="bottom-right" as |dd|>
+            <dd.ToggleIcon @icon="user" @text="user menu" />
+            <dd.Title @text="Signed In" />
+            <dd.Description @text="email@domain.com" />
+            <dd.Interactive @href="#" @text="Account Settings" />
+          </Hds::Dropdown>
+        </:utilityActions>
+      </Hds::AppHeader>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider />
+
   <Shw::Text::H2>Child components</Shw::Text::H2>
 
   <Shw::Text::H3>SideNav::Header::HomeLink</Shw::Text::H3>

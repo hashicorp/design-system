@@ -26,6 +26,9 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
   @tracked isDesktop = true;
   desktopMQ: MediaQueryList;
 
+  // Generates a unique ID for the Menu Content
+  menuContentId = 'hds-menu-content-' + guidFor(this);
+
   desktopMQVal =
     this.args.breakpoint ??
     getComputedStyle(document.documentElement).getPropertyValue(
@@ -34,9 +37,9 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
 
   constructor(owner: unknown, args: Record<string, never>) {
     super(owner, args);
-    this.desktopMQ = window.matchMedia(`(min-width:${this.desktopMQVal})`);
+    this.desktopMQ = window.matchMedia(`(min-width: ${this.desktopMQVal})`);
     this.addEventListeners();
-    registerDestructor(this, () => {
+    registerDestructor(this, (): void => {
       this.removeEventListeners();
     });
   }
@@ -66,9 +69,6 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
   get showItems(): boolean {
     return this.isDesktop || this.isOpen;
   }
-
-  // Generates a unique ID for the Menu Content
-  menuContentId = 'hds-menu-content-' + guidFor(this);
 
   // Get the class names to apply to the component.
   get classNames(): string {

@@ -94,6 +94,18 @@ module('Integration | Component | hds/app-header/index', function (hooks) {
     assert.dom('.hds-app-header__actions-content').doesNotExist();
   });
 
+  // OPTIONS
+
+  // Breakpoint
+  // Note: We pass in a high custom breakpoint to force the component to render as "mobile"
+
+  test('it uses the custom passed in breakpoint to control menu display', async function (assert) {
+    await render(hbs`
+      <Hds::AppHeader @breakpoint="20000px" />
+    `);
+    assert.dom('.hds-app-header__menu-button').exists();
+  });
+
   // A11Y
 
   test(`it displays the correct value for aria-expanded when actions are disp vs open`, async function (assert) {
