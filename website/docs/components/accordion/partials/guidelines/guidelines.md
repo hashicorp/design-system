@@ -102,7 +102,7 @@ The toggle accepts many different types of content, from text-based content to n
 
 ![Example of toggle content](/assets/components/accordion/toggle-content-text.png =690x*)
 
-#### Custom 
+#### Generic 
 
 ![Example of toggle content](/assets/components/accordion/toggle-content-custom.png =690x*)
 
