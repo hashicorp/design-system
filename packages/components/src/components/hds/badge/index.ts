@@ -27,7 +27,7 @@ export interface HdsBadgeSignature {
     size?: HdsBadgeSizes;
     type?: HdsBadgeTypes;
     color?: HdsBadgeColors;
-    text: string;
+    text: string | number;
     icon?: FlightIconSignature['Args']['name'];
     isIconOnly?: boolean;
   };
@@ -103,7 +103,7 @@ export default class HdsBadgeComponent extends Component<HdsBadgeSignature> {
    * @type {string}
    * @description The text of the badge. If `isIconOnly` is set to `true`, the text will be visually hidden but still available to assistive technology. If no text value is defined, an error will be thrown.
    */
-  get text(): string {
+  get text(): string | number {
     const { text } = this.args;
 
     assert(
