@@ -13,16 +13,17 @@
       @menuContentId={{this.menuContentId}}
     />
   {{/if}}
+  <div class="hds-app-header__actions" id={{this.menuContentId}}>
+    {{#if this.showItems}}
+      <div class="hds-app-header__actions-content">
+        <div class="hds-app-header__global-actions">
+          {{yield to="globalActions"}}
+        </div>
 
-  {{#if this.showItems}}
-    <div class="hds-app-header__actions" id={{this.menuContentId}}>
-      <div class="hds-app-header__global-actions">
-        {{yield to="globalActions"}}
+        <div class="hds-app-header__utility-actions">
+          {{yield to="utilityActions"}}
+        </div>
       </div>
-
-      <div class="hds-app-header__utility-actions">
-        {{yield to="utilityActions"}}
-      </div>
-    </div>
-  {{/if}}
+    {{/if}}
+  </div>
 </div>
