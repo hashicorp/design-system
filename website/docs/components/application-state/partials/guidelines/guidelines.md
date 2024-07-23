@@ -2,28 +2,106 @@
 
 ### When to use
 
-- When a user’s action does not yield any results due to incorrect or incomplete input.
 - When an application encounters an issue or error during its operation.
+- When an application needs emphasis on the creation of a new object within a null state.
 
 ### When not to use
 
 - When the absence of content is expected and does not require an explanation to the user.
 - When there is a clear and intuitive way to add or populate content.
 
-## Icon
+## Alignment
 
-- The icon should align with the purpose of the content and effectively communicate the same message.
+The Application State supports two alignment options: `left` and `center`. The alignment affects text alignment, action placement/alignment in the footer, and media placement; however, it does not affect page placement.
 
-## Actions
+**Center alignment**
 
-- In the footer, you can include up to two stand-alone links. 
-- We don’t recommend using buttons, as most actions will navigate the user away from this page. Learn more about [when to use a link vs. a button](https://helios.hashicorp.design/components/link/standalone#usage).
-- For the standalone link, we recommend using the medium size.
-- Use footer actions to redirect or guide users in solving errors/access issues with actionable steps.
+![Center aligned application state](/assets/components/application-state/application-state-alignment-center.png)
 
-## Content
+**Left alignment**
 
-- The title should be short and provide a clear and concise message.
-- Focus on relevant information and avoid unnecessary details.
-- Provide a straightforward explanation of the problem or error.
-- Include suggestions or guidance for how the user can resolve the issue, if possible.
+![Left aligned application state](/assets/components/application-state/application-state-alignment-left.png)
+
+## Media
+
+The media slot is used to add illustrations to increase the visual impact of the Application State.
+This provides additional visual prominence while also elevating the brand experience. If the illustration has a circular container, we recommend setting the `alignment` to `center`.
+
+![Empty state for vault secrets, guiding user to create new secrets or importing them](/assets/components/application-state/application-state-media-slot-spot-illustration-center-alignment.png)
+
+
+## Header
+
+### Icon
+
+When set to true, the icon is displayed side by side with the title.
+
+![Empty state for vault secrets, guiding user to create new secrets or importing them](/assets/components/application-state/application-state-media-slot-spot-illustration-center-alignment.png)
+
+This is commonly used when displaying an error state for application failures. The icon must always be accompanied by a title.
+
+### Title
+
+The title should be short and provide a clear and concise message.
+
+### Error code
+
+If enabled and available, an error code will be shown, providing additional information associated with the title.
+
+## Body
+
+Focus on relevant information and avoid unnecessary details. If there is an error, include suggestions or guidance for how the user can resolve the issue, if possible. If no objects are found (zero/empty state), provide a brief explanation on how creating this new objective will benefit the user. 
+
+The body allows for two types of content: `text` and `generic`.
+
+![Showing two different kind of body content types, one as text and another as generic yielded content](/assets/components/application-state/application-state-body-content-types.png)
+
+
+## Footer
+The Application State supports up to three actions, including [Standalone Link](/components/link/standalone), [Button](/components/button), and [Dropdown](/components/dropdown). Use footer actions to redirect or guide users in solving errors/access issues with actionable steps.
+
+### Using buttons or links
+
+Buttons, along with links, are used to emphasize the importance of the action in the Application State with visual hierarchy, and are the most common actions used in the footer.
+
+!!! Don't
+
+When there is an empty state that occupies the majority of the page, do not display two exact actions at the same time in different areas of the UI. In this example, there is a primary button in the Page Header and in the Application State. 
+
+![Showing an empty state with a primary button and a page header with a primary button](/assets/components/application-state/application-state-empty-state-dont-duplicate-buttons.png)
+
+!!!
+
+!!! Do
+
+Instead, use the Application State as the only means of drawing attention to the primary action.
+
+![Showing an empty state with a primary button with a page header with out a primay button](/assets/components/application-state/application-state-empty-state-do-keep-one-primary-cta.png)
+
+!!!
+
+### Using dropdowns
+
+Dropdowns can be used as actions in the footer in rare cases. Limit dropdowns to one per Application State.
+
+![Showing an empty state with a primary button with a page header with out one](/assets/components/application-state/application-state-dropdown-actions.png)
+
+## Width constraints
+
+The Application State’s content has a max width of 480 pixels. This is done for better readability, ensuring that the max character count is close to 70 characters per line.
+
+## Examples
+
+Here are some common use cases for the Application State, however, it is not limited to just these two examples.
+
+### Error state
+
+Error states are used when the application encounters an issue or error during its operation. It shows the associated error code, icon, messages and actions to help users find a solution.
+
+![Showing an example of an error state with a 404 error code and two links](/assets/components/application-state/application-state-error-state.png)
+
+### Empty state
+
+Empty states are used when a user has yet to create an object. Illustrations are placed using the `media` slot to further elevate the experience and express the purpose of the object.
+
+![Showing an empty state with a primary and secondary button along with a stand alone link](/assets/components/application-state/application-state-empty-state.png)
