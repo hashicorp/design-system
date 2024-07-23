@@ -10,6 +10,9 @@ import { tracked } from '@glimmer/tracking';
 import { registerDestructor } from '@ember/destroyable';
 
 export interface HdsAppHeaderSignature {
+  Args: {
+    breakpoint?: string;
+  };
   Blocks: {
     logo?: [];
     globalActions?: [];
@@ -23,9 +26,11 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
   @tracked isDesktop = true;
   desktopMQ: MediaQueryList;
 
-  desktopMQVal = getComputedStyle(document.documentElement).getPropertyValue(
-    '--hds-app-desktop-breakpoint'
-  );
+  desktopMQVal =
+    this.args.breakpoint ||
+    getComputedStyle(document.documentElement).getPropertyValue(
+      '--hds-app-desktop-breakpoint'
+    );
 
   constructor(owner: unknown, args: Record<string, never>) {
     super(owner, args);
