@@ -152,8 +152,8 @@ The "frontmatter" attributes that we support are the following:
     An optional full path to an image used when listing the page as "card" (eg. in landing pages). The path refers to the `dist` folder generated at build time, so is relative to the content of the `/website/public` folder.
 *   `status`
     An optional status of the component (that will be reflected in the pages with specific badges next to the component card or name)
-        * `deprecated` - the version number in which the component has been deprecated (in the format `x.y.z`)
-        * `updated` - the version number in which the component has been updated (in the format `x.y.z`) - notice: this can be removed after some time, when the changes are not anymore recent enough to justify the extra information
+    * `added` | `updated` | `deprecated` - the version number in which the component has been added, updated or deprecated (in the format `x.y.z`)
+    Notice: it should be removed after some time, when the changes are not anymore recent enough to justify the extra information
 
 Only the `title` attribute is technically required, all the others are optional (even though some of them like `description` and `caption` are necessary for component pages).
 
