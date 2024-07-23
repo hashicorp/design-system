@@ -4110,6 +4110,7 @@ __metadata:
     "@glint/template": "npm:^1.4.0"
     "@hashicorp/design-system-tokens": "npm:^2.1.0"
     "@hashicorp/ember-flight-icons": "npm:^5.1.2"
+    "@hashicorp/flight-icons": "npm:^3.4.0"
     "@rollup/plugin-babel": "npm:^6.0.4"
     "@tsconfig/ember": "npm:^3.0.8"
     "@types/ember-qunit": "npm:^6.1.1"
