@@ -27,7 +27,7 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
   desktopMQ: MediaQueryList;
 
   desktopMQVal =
-    this.args.breakpoint ||
+    this.args.breakpoint ??
     getComputedStyle(document.documentElement).getPropertyValue(
       '--hds-app-desktop-breakpoint'
     );
