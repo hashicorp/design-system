@@ -3,9 +3,6 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-{{!
-  THIS SUBCOMPONENT IS NOW DEPRECATED
-}}
-<div class="hds-flyout__body" ...attributes>
-  {{yield}}
+<div class="hds-dialog-primitive__footer {{@contextualClass}}" ...attributes>
+  {{yield (hash close=@onDismiss)}}
 </div>

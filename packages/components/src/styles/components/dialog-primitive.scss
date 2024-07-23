@@ -1,0 +1,143 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// DIALOG PRIMITIVE
+//
+
+$hds-dialog-primitive-horizontal-padding: 24px;
+$hds-dialog-primitive-vertical-padding: 16px;
+
+
+// WRAPPER CONTAINER (<dialog>)
+
+// The special declaration below is used to allow the `<dialog>` to unset
+// all its predefined styles and set them at `Modal/Flyout` level
+//
+// Since the `:where()` selector has a specificity of `0` (see https://developer.mozilla.org/en-US/docs/Web/CSS/:where)
+// the styles declared below are applied to the `<dialog>` element, but are overwritten by any other style applied via classname
+//
+
+:where(.hds-dialog-primitive__wrapper) {
+  // -----------
+  all: unset; // removes default dialog & inherited styles. Must be the first style to be applied
+  // -----------
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: var(--token-color-surface-primary);
+}
+
+
+// Note: this wraps both .hds-dialog-primitive__header & .hds-dialog-primitive__description
+.hds-dialog-primitive__wrapper-header {
+  flex: none;
+  background: var(--token-color-surface-faint);
+  border-bottom: 1px solid var(--token-color-border-primary);
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+
+  // because of the way in which Ember generates whitespace, we need to use this complicated selector to hide the container when it's "empty" (no children)
+  &:not(:has( > *)) {
+    display: none;
+  }
+}
+
+.hds-dialog-primitive__wrapper-body {
+  flex: 1 1 auto;
+  // this is necessary, otherwise if there are words longer than the width of the available space for container it will scroll horizontally (consumers will need to handle breaking words for this content, if they want)
+  overflow-x: hidden;
+  // we want the content to vertically scroll if needed
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.hds-dialog-primitive__wrapper-footer {
+  flex: none;
+  border-top: 1px solid var(--token-color-border-primary);
+  border-bottom-right-radius: inherit;
+  border-bottom-left-radius: inherit;
+
+  // because of the way in which Ember generates whitespace, we need to use this complicated selector to hide the container when it's "empty" (no children)
+  &:not(:has( > *)) {
+    display: none;
+  }
+}
+
+
+// HEADER
+
+.hds-dialog-primitive__header {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: $hds-dialog-primitive-vertical-padding $hds-dialog-primitive-horizontal-padding;
+  color: var(--token-color-foreground-strong); // default color (applied to both the title and the icon)
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+.hds-dialog-primitive__icon {
+  flex: none;
+  align-self: center;
+}
+
+.hds-dialog-primitive__title {
+  flex-grow: 1;
+}
+
+.hds-dialog-primitive__tagline {
+  margin-bottom: 4px;
+  color: var(--token-color-foreground-faint); // default color
+}
+
+.hds-dialog-primitive__dismiss {
+  align-self: flex-start;
+}
+
+
+// DESCRIPTION
+// (currently used only in Flyout, not in Modal)
+
+.hds-dialog-primitive__description {
+  padding: 0 $hds-dialog-primitive-horizontal-padding $hds-dialog-primitive-vertical-padding;
+}
+
+
+// BODY
+
+.hds-dialog-primitive__body {
+  padding: $hds-dialog-primitive-horizontal-padding;
+}
+
+
+// FOOTER
+
+.hds-dialog-primitive__footer {
+  padding: $hds-dialog-primitive-vertical-padding $hds-dialog-primitive-horizontal-padding;
+  background: var(--token-color-surface-faint);
+  border-bottom-right-radius: inherit;
+  border-bottom-left-radius: inherit;
+
+  // Tertiary buttons must always be placed/aligned at the end of the row
+  .hds-button-set {
+    .hds-button--color-tertiary {
+      margin-left: auto;
+    }
+  }
+}
+
+// OVERLAY
+
+.hds-dialog-primitive__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 49;
+  background: var(--token-color-palette-neutral-700);
+  opacity: 0.5;
+}

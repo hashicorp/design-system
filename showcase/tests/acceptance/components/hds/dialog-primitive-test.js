@@ -8,11 +8,12 @@ import { visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'showcase/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 
-module('Acceptance | Utility | hds/disclosure-primitive', function (hooks) {
+module('Acceptance | Utility | hds/dialog-primitive', function (hooks) {
   setupApplicationTest(hooks);
 
-  test('Utilities/disclosure-primitive passes a11y automated checks', async function (assert) {
-    await visit('/utilities/disclosure-primitive');
+  test('Utilities/hds/dialog-primitive page passes automated a11y checks', async function (assert) {
+    await visit('/utilities/dialog-primitive');
+
     await a11yAudit();
 
     assert.ok(true, 'a11y automation audit passed');
