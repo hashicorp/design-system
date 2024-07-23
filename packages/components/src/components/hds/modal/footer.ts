@@ -8,10 +8,10 @@ import { deprecate } from '@ember/debug';
 
 export interface HdsModalFooterSignature {
   Args: {
-    onDismiss: (event: MouseEvent) => void;
+    onDismiss?: (event: MouseEvent) => void;
   };
   Blocks: {
-    default: [{ close: (event: MouseEvent) => void }];
+    default: [{ close?: (event: MouseEvent) => void }];
   };
   Element: HTMLDivElement;
 }
