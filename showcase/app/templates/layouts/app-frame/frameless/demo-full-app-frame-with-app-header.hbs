@@ -14,13 +14,21 @@
       </:logo>
       <:globalActions>
         <Hds::Dropdown as |dd|>
-          <dd.ToggleButton @text="Choose an organization" @icon="org" />
+          <dd.ToggleButton @text="WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW" @icon="org" />
           <dd.Checkmark>
             organizationName
           </dd.Checkmark>
         </Hds::Dropdown>
       </:globalActions>
       <:utilityActions>
+        <Hds::Dropdown as |dd|>
+          <dd.ToggleButton @text="Europe" @icon="globe" />
+          <dd.Checkmark>
+            Americas
+          </dd.Checkmark>
+        </Hds::Dropdown>
+
+        <Hds::Button @icon="search" @isIconOnly={{true}} @text="Search" />
         <Hds::Dropdown @listPosition="bottom-right" as |dd|>
           <dd.ToggleIcon @icon="help" @text="help menu" />
           <dd.Title @text="Help & Support" />
