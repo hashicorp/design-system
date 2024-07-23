@@ -27,7 +27,7 @@ export interface HdsBadgeSignature {
     size?: HdsBadgeSizes;
     type?: HdsBadgeTypes;
     color?: HdsBadgeColors;
-    text: string;
+    text: string | number;
     icon?: FlightIconSignature['Args']['name'];
     isIconOnly?: boolean;
   };
