@@ -9,6 +9,8 @@ links:
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/dialog-primitive
 navigation:
   keywords: ['modal', 'flyout']
+status:
+  added: 4.7.0
 ---
 
 <section data-tab="Guidelines">
@@ -30,5 +32,5 @@ navigation:
 </section>
 
 <section data-tab="Version history">
-  @include "partials/version-history/4.6.0.md"
+  @include "partials/version-history/4.7.0.md"
 </section>

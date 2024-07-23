@@ -9,6 +9,8 @@ related: ['components/alert','components/flyout','components/accordion','compone
 previewImage: assets/illustrations/components/modal.jpg
 navigation:
   keywords: ['flyout', 'popover', 'popup', 'dialog']
+status:
+  updated: 4.7.0
 ---
 
 <section data-tab="Guidelines">
@@ -30,5 +32,5 @@ navigation:
 </section>
 
 <section data-tab="Version history">
-  @include "partials/version-history/4.6.0.md"
+  @include "partials/version-history/4.7.0.md"
 </section>
