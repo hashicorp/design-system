@@ -24,7 +24,7 @@ export const DEFAULT_SIZE = HdsBadgeCountSizeValues.Medium;
 export const DEFAULT_TYPE = HdsBadgeCountTypeValues.Filled;
 export const DEFAULT_COLOR = HdsBadgeCountColorValues.Neutral;
 
-interface HdsBadgeCountSignature {
+export interface HdsBadgeCountSignature {
   Args: {
     size?: HdsBadgeCountSizes;
     type?: HdsBadgeCountTypes;

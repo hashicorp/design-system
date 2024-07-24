@@ -6,15 +6,45 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
+import {
+  HdsDropdownToggleButtonSizeValues,
+  HdsDropdownToggleButtonColorValues,
+} from './types.ts';
 
-export const DEFAULT_SIZE = 'medium';
-export const DEFAULT_COLOR = 'primary';
-export const SIZES = ['small', 'medium'];
-export const COLORS = ['primary', 'secondary'];
+import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
+import type { HdsBadgeSignature } from '../../badge';
+import type { HdsBadgeCountSignature } from '../../badge-count';
+import type {
+  HdsDropdownToggleButtonSizes,
+  HdsDropdownToggleButtonColors,
+} from './types';
 
-const NOOP = () => {};
+export const DEFAULT_SIZE = HdsDropdownToggleButtonSizeValues.Medium;
+export const DEFAULT_COLOR = HdsDropdownToggleButtonColorValues.Primary;
+export const SIZES: string[] = Object.values(HdsDropdownToggleButtonSizeValues);
+export const COLORS: string[] = Object.values(
+  HdsDropdownToggleButtonColorValues
+);
 
-export default class HdsDropdownToggleButtonComponent extends Component {
+const NOOP = (): void => {};
+
+interface HdsDropdownToggleButtonSignature {
+  Args: {
+    badge?: HdsBadgeSignature['Args']['text'];
+    badgeIcon?: HdsBadgeSignature['Args']['icon'];
+    color: HdsDropdownToggleButtonColors;
+    count?: HdsBadgeCountSignature['Args']['text'];
+    icon?: FlightIconSignature['Args']['name'];
+    isFullWidth?: boolean;
+    isOpen?: boolean;
+    onClick?: (event: MouseEvent) => void;
+    size: HdsDropdownToggleButtonSizes;
+    text: string;
+  };
+  Element: HTMLButtonElement;
+}
+
+export default class HdsDropdownToggleButtonComponent extends Component<HdsDropdownToggleButtonSignature> {
   /**
    * Generates a unique ID for the button
    *
@@ -27,8 +57,8 @@ export default class HdsDropdownToggleButtonComponent extends Component {
    * @type {string}
    * @description The text of the button. If no text value is defined an error will be thrown.
    */
-  get text() {
-    let { text } = this.args;
+  get text(): string {
+    const { text } = this.args;
 
     assert(
       '@text for "Hds::Dropdown::Toggle::Button" must have a valid value',
@@ -44,8 +74,8 @@ export default class HdsDropdownToggleButtonComponent extends Component {
    * @default medium
    * @description The size of the button; acceptable values are `small` and `medium`
    */
-  get size() {
-    let { size = DEFAULT_SIZE } = this.args;
+  get size(): HdsDropdownToggleButtonSizes {
+    const { size = DEFAULT_SIZE } = this.args;
 
     assert(
       `@size for "Hds::Dropdown::Toggle::Button" must be one of the following: ${SIZES.join(
@@ -63,8 +93,8 @@ export default class HdsDropdownToggleButtonComponent extends Component {
    * @default primary
    * @description Determines the color of button to be used; acceptable values are `primary` and  `secondary`
    */
-  get color() {
-    let { color = DEFAULT_COLOR } = this.args;
+  get color(): HdsDropdownToggleButtonColors {
+    const { color = DEFAULT_COLOR } = this.args;
 
     assert(
       `@color for "Hds::Dropdown::Toggle::Button" must be one of the following: ${COLORS.join(
@@ -82,7 +112,7 @@ export default class HdsDropdownToggleButtonComponent extends Component {
    * @default false
    * @description Indicates that a button should take up the full width of the parent container. The default is false.
    */
-  get isFullWidth() {
+  get isFullWidth(): boolean {
     return this.args.isFullWidth ?? false;
   }
 
@@ -91,8 +121,8 @@ export default class HdsDropdownToggleButtonComponent extends Component {
    * @type {function}
    * @default () => {}
    */
-  get onClick() {
-    let { onClick } = this.args;
+  get onClick(): (event: MouseEvent) => void {
+    const { onClick } = this.args;
 
     // notice: this is a guard used in case the toggle is used as standalone element (eg. in the showcase)
     // in reality it's always used inside the Dropdown main component as yielded component, so the onClick handler is always defined
@@ -109,7 +139,7 @@ export default class HdsDropdownToggleButtonComponent extends Component {
    * @default 'filled'
    * @description ensures that the correct Badge/BadgeCount type is used to meet contrast requirements
    */
-  get badgeType() {
+  get badgeType(): HdsBadgeCountSignature['Args']['type'] {
     return this.color !== 'primary' ? 'inverted' : 'filled';
   }
 
@@ -118,8 +148,8 @@ export default class HdsDropdownToggleButtonComponent extends Component {
    * @method ToggleButton#classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
-    let classes = ['hds-dropdown-toggle-button'];
+  get classNames(): string {
+    const classes = ['hds-dropdown-toggle-button'];
 
     // add a class based on the @size argument
     classes.push(`hds-dropdown-toggle-button--size-${this.size}`);

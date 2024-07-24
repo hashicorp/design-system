@@ -8,3 +8,17 @@ export enum HdsDropdownToggleIconSizeValues {
   Medium = 'medium',
 }
 export type HdsDropdownToggleIconSizes = `${HdsDropdownToggleIconSizeValues}`;
+
+export enum HdsDropdownToggleButtonSizeValues {
+  Small = 'small',
+  Medium = 'medium',
+}
+export type HdsDropdownToggleButtonSizes =
+  `${HdsDropdownToggleButtonSizeValues}`;
+
+export enum HdsDropdownToggleButtonColorValues {
+  Primary = 'primary',
+  Secondary = 'secondary',
+}
+export type HdsDropdownToggleButtonColors =
+  `${HdsDropdownToggleButtonColorValues}`;
