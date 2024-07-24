@@ -4,11 +4,11 @@
 
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|
-| Media            | Optinoal.                                       |
+| Media            | Optional.                                       |
 | Title            | Required.                                       |
 | Icon             | Optional, but recommended with errorCode.        |
 | errorCode        | Optional, but recommended when in errorState.        |
 | Body             | Required.        |
 | Separator        | Optional, but recommended when separating actions from content.        |
 | Footer           | Optional.        |
-| Action           | Required, if no footer; optional.        |
+| Actions          | Required, if no footer; optional.        |
