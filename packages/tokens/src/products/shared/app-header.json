@@ -5,11 +5,13 @@
       "type": "size"
     },
     "home-link": {
-      "padding": {
-        "value": "4",
+      "size": {
+        "value": "36",
         "type": "size"
-      },
-      "logo-size": {
+      }
+    },
+    "logo": {
+      "size": {
         "value": "36",
         "type": "size"
       }
