@@ -1,12 +1,5 @@
 ## How to use this component
 
-!!! Info
-
-**Examples have been simplified**
-
-We omit the `name` and `ID` attributes in the examples since processing of the data is the responsibility of the product teams.
-!!!
-
 There are two ways to use the Masked Input component:
 
 - `Form::MaskedInput::Base` - the base component: the input control with a toggle button.
@@ -24,7 +17,7 @@ The basic invocation requires a `Label`. This creates:
 - a `<input type="text">` or a `<textarea>` control with an automatically generated `ID` attribute.
 
 ```handlebars
-<Hds::Form::MaskedInput::Field as |F|>
+<Hds::Form::MaskedInput::Field name="team-token" as |F|>
   <F.Label>Terraform Cloud team token</F.Label>
 </Hds::Form::MaskedInput::Field>
 ```
@@ -34,7 +27,11 @@ The basic invocation requires a `Label`. This creates:
 Pass a `@value` argument to pre-populate the input. By default, the content is visually obfuscated ("masked") and users can make it visible using the associated toggle button.
 
 ```handlebars
-<Hds::Form::MaskedInput::Field @value="036215df4996ca649928d8864b4df9e42cba0d6d" as |F|>
+<Hds::Form::MaskedInput::Field 
+  @value="036215df4996ca649928d8864b4df9e42cba0d6d" 
+  name="team-token"
+  as |F|
+>
   <F.Label>Terraform Cloud team token</F.Label>
 </Hds::Form::MaskedInput::Field>
 ```
@@ -42,7 +39,12 @@ Pass a `@value` argument to pre-populate the input. By default, the content is v
 If you need to make the content visible by default or control the masking from outside the component, use the `@isContentMasked` argument.
 
 ```handlebars
-<Hds::Form::MaskedInput::Field @isContentMasked={{false}} @value="036215df4996ca649928d8864b4df9e42cba0d6d" as |F|>
+<Hds::Form::MaskedInput::Field
+  @isContentMasked={{false}}
+  @value="036215df4996ca649928d8864b4df9e42cba0d6d"
+  name="team-token"
+  as |F|
+>
   <F.Label>Terraform Cloud team token</F.Label>
 </Hds::Form::MaskedInput::Field>
 ```
@@ -52,7 +54,9 @@ If you need to make the content visible by default or control the masking from o
 Set `@isMultiline` argument to `true` to render a `<textarea>`
 
 ```handlebars
-<Hds::Form::MaskedInput::Field @isMultiline={{true}} @value="-----BEGIN RSA PRIVATE KEY-----
+<Hds::Form::MaskedInput::Field
+  @isMultiline={{true}}
+  @value="-----BEGIN RSA PRIVATE KEY-----
 MIIBOgIBAAJBAKj34GkxFhD90vcNLYLInFEX6Ppy1tPf9Cnzj4p4WGeKLs1Pt8Qu
 KUpRKfFLfRYC9AIKjbJTWit+CqvjWYzvQwECAwEAAQJAIJLixBy2qpFoS4DSmoEm
 o3qGy0t6z09AIJtH+5OeRV1be+N4cDYJKffGzDa88vQENZiRm0GRq6a+HPGQMd2k
@@ -60,7 +64,10 @@ TQIhAKMSvzIBnni7ot/OSie2TmJLY4SwTQAevXysE2RbFDYdAiEBCUEaRQnMnbp7
 9mxDXDf6AU0cN/RPBjb9qSHDcWZHGzUCIG2Es59z8ugGrDY+pxLQnwfotadxd+Uy
 v/Ow5T0q5gIJAiEAyS4RaI9YG8EWx/2w0T67ZUVAw8eOMB6BIUg0Xcu+3okCIBOs
 /5OiPgoTdSy7bcF9IGpSE8ZgGKzgYQVZeN97YE00
------END RSA PRIVATE KEY-----" as |F|>
+-----END RSA PRIVATE KEY-----"
+  name="private-key"
+  as |F|
+>
   <F.Label>Private key</F.Label>
 </Hds::Form::MaskedInput::Field>
 ```
@@ -82,7 +89,12 @@ Something to keep in mind when designing and implementing functionality that mak
 To allow users to copy the input value to their clipboard, set the `@hasCopyButton` argument to `true`.
 
 ```handlebars
-<Hds::Form::MaskedInput::Field @hasCopyButton={{true}} @value="036215df4996ca649928d8864b4df9e42cba0d6d" as |F|>
+<Hds::Form::MaskedInput::Field
+  @hasCopyButton={{true}}
+  @value="036215df4996ca649928d8864b4df9e42cba0d6d"
+  name="team-token"
+  as |F|
+>
   <F.Label>Terraform Cloud team token</F.Label>
 </Hds::Form::MaskedInput::Field>
 ```
@@ -92,7 +104,11 @@ To allow users to copy the input value to their clipboard, set the `@hasCopyButt
 You can add extra information to the field using helper text. When helper text is added, the component automatically adds an `aria-describedby` attribute to the input control, associating it with the automatically generated `ID` of the helper text element.
 
 ```handlebars
-<Hds::Form::MaskedInput::Field @value="036215df4996ca649928d8864b4df9e42cba0d6d" as |F|>
+<Hds::Form::MaskedInput::Field
+  @value="036215df4996ca649928d8864b4df9e42cba0d6d"
+  name="team-token"
+  as |F|
+>
   <F.Label>Terraform Cloud team token</F.Label>
   <F.HelperText>The token must include permissions to manage workspaces and projects.</F.HelperText>
 </Hds::Form::MaskedInput::Field>
@@ -108,7 +124,7 @@ If a link is used within a label, helper text, or error text, it will not be pre
 The `Label` and `HelperText` contextual components used in the Field component yield their content. This means you can also pass structured content.
 
 ```handlebars
-<Hds::Form::MaskedInput::Field as |F|>
+<Hds::Form::MaskedInput::Field name="team-token" as |F|>
   <F.Label>Terraform Cloud team token <Hds::Badge @size="small" @text="Beta" /></F.Label>
   <F.HelperText>The token must include <Hds::Link::Inline @href="#">permissions to manage workspaces and projects</Hds::Link::Inline>.</F.HelperText>
 </Hds::Form::MaskedInput::Field>
@@ -119,12 +135,12 @@ The `Label` and `HelperText` contextual components used in the Field component y
 Use the `@isRequired` and `@isOptional` arguments to add a visual indication that the field is "required" or "optional".
 
 ```handlebars
-<Hds::Form::MaskedInput::Field @isRequired={{true}} as |F|>
+<Hds::Form::MaskedInput::Field @isRequired={{true}} name="team-token" as |F|>
   <F.Label>Terraform Cloud team token</F.Label>
   <F.HelperText>The token must include permissions to manage workspaces and projects.</F.HelperText>
 </Hds::Form::MaskedInput::Field>
 <br />
-<Hds::Form::MaskedInput::Field @isOptional={{true}} as |F|>
+<Hds::Form::MaskedInput::Field @isOptional={{true}} name="team-token" as |F|>
   <F.Label>Terraform Cloud team token</F.Label>
   <F.HelperText>The token must include permissions to manage workspaces and projects.</F.HelperText>
 </Hds::Form::MaskedInput::Field>
@@ -135,7 +151,12 @@ Use the `@isRequired` and `@isOptional` arguments to add a visual indication tha
 If the user input needs to be limited to a certain number of characters, use `@maxLength` on a `CharacterCount` contextual component to guide the user in meeting the length requirements. This property does not restrict the users from entering characters over the limit. To define the maximum string length that the user can enter, set `maxlength` attribute on the associated input field.
 
 ```handlebars
-<Hds::Form::MaskedInput::Field @value={{this.value1}} {{on "input" (fn this.updateValue "value1")}} as |F|>
+<Hds::Form::MaskedInput::Field
+  @value={{this.value1}}
+  name="team-token"
+  {{on "input" (fn this.updateValue "value1")}} 
+  as |F|
+>
   <F.Label>Terraform Cloud team token</F.Label>
   <F.CharacterCount @maxLength={{40}}/>
 </Hds::Form::MaskedInput::Field>
@@ -144,7 +165,12 @@ If the user input needs to be limited to a certain number of characters, use `@m
 If the user input is required to have a certain number of characters, use `@minLength` on a `CharacterCount` contextual component to guide the user in meeting the length requirements.
 
 ```handlebars
-<Hds::Form::MaskedInput::Field @value={{this.value2}} {{on "input" (fn this.updateValue "value2")}} as |F|>
+<Hds::Form::MaskedInput::Field
+  @value={{this.value2}}
+  name="team-token" 
+  {{on "input" (fn this.updateValue "value2")}} 
+  as |F|
+>
   <F.Label>Terraform Cloud team token</F.Label>
   <F.CharacterCount @minLength={{30}}/>
 </Hds::Form::MaskedInput::Field>
@@ -153,7 +179,12 @@ If the user input is required to have a certain number of characters, use `@minL
 When the user input needs to be in a certain range, use both `@minLength` and `@maxLength` on a `CharacterCount` contextual component to guide the user in meeting the length requirements.
 
 ```handlebars
-<Hds::Form::MaskedInput::Field @value={{this.value3}} {{on "input" (fn this.updateValue "value3")}} as |F|>
+<Hds::Form::MaskedInput::Field
+  @value={{this.value3}}
+  name="team-token"
+  {{on "input" (fn this.updateValue "value3")}}
+  as |F|
+>
   <F.Label>Terraform Cloud team token</F.Label>
   <F.CharacterCount @minLength={{30}} @maxLength={{40}}/>
 </Hds::Form::MaskedInput::Field>
@@ -164,7 +195,12 @@ When the user input needs to be in a certain range, use both `@minLength` and `@
 For custom messages, you can use the following arguments to build a relevant message: `currentLength` (the current number of characters in the associated form control), `maxLength` (the maximum number of characters allowed in the associated form control), `minLength` (the minimum number of characters required in the associated form control), `remaining` (the difference between `maxLength` and `currentLength`), and `shortfall` (the difference between `currentLength` and `minLength`).
 
 ```handlebars
-<Hds::Form::MaskedInput::Field @value={{this.value4}} {{on "input" (fn this.updateValue "value4")}} as |F|>
+<Hds::Form::MaskedInput::Field
+  @value={{this.value4}}
+  name="team-token"
+  {{on "input" (fn this.updateValue "value4")}} 
+  as |F|
+>
   <F.Label>Terraform Cloud team token</F.Label>
   <F.CharacterCount @maxLength={{40}} as |CC|>
     {{CC.remaining}} characters remaining
@@ -180,6 +216,7 @@ You can raise an error based on the number of characters entered into a field us
   <Hds::Form::MaskedInput::Field
     @value={{this.value5}}
     @isInvalid={{this.fieldIsInvalid}}
+    name="team-token"
     {{on "input" (fn this.updateValue "value5")}}
     as |F|
   >
@@ -196,7 +233,12 @@ You can raise an error based on the number of characters entered into a field us
 To indicate a field is invalid, use the `@isInvalid` argument and provide an error message using the `Error` contextual component.
 
 ```handlebars
-<Hds::Form::MaskedInput::Field @isInvalid={{true}} @value="036215df4996ca649928d8864b4df9e42cba0d6d" as |F|>
+<Hds::Form::MaskedInput::Field
+  @isInvalid={{true}}
+  name="team-token"
+  @value="036215df4996ca649928d8864b4df9e42cba0d6d"
+  as |F|
+>
   <F.Label>Terraform Cloud team token</F.Label>
   <F.Error>The provided token is not valid</F.Error>
 </Hds::Form::MaskedInput::Field>
@@ -205,7 +247,12 @@ To indicate a field is invalid, use the `@isInvalid` argument and provide an err
 Add more than one error message using the more specific `Message` contextual component.
 
 ```handlebars
-<Hds::Form::MaskedInput::Field @isInvalid={{true}} @value="036215df4996c649928d8864b4" as |F|>
+<Hds::Form::MaskedInput::Field
+  @isInvalid={{true}}
+  name="team-token"
+  @value="036215df4996c649928d8864b4"
+  as |F|
+>
   <F.Label>Terraform Cloud team token</F.Label>
   <F.Error as |E|>
     <E.Message>Length should be at least 40 characters</E.Message>
@@ -224,7 +271,7 @@ In this case, all the internal references (`id/for/aria-describedby`) between th
 !!!
 
 ```handlebars
-<Hds::Form::MaskedInput::Field @id="tfc-token" as |F|>
+<Hds::Form::MaskedInput::Field @id="tfc-token" name="team-token" as |F|>
   <F.Label>Terraform Cloud team token</F.Label>
 </Hds::Form::MaskedInput::Field>
 ```
@@ -234,7 +281,7 @@ In this case, all the internal references (`id/for/aria-describedby`) between th
 Pass an `@extraAriaDescribedBy` argument to the field to connect one or more extra elements describing the field to the control. This provides extra ID values to the `aria-describedby` attribute of the control, in addition to those automatically generated by the component.
 
 ```handlebars
-<Hds::Form::MaskedInput::Field @extraAriaDescribedBy="my-extra-element-ID" as |F|>
+<Hds::Form::MaskedInput::Field @extraAriaDescribedBy="my-extra-element-ID" name="team-token" as |F|>
   <F.Label>Terraform Cloud team token</F.Label>
 </Hds::Form::MaskedInput::Field>
 ```
@@ -244,7 +291,7 @@ Pass an `@extraAriaDescribedBy` argument to the field to connect one or more ext
 This component supports use of `...attributes`. This means you can use all the standard HTML attributes of the input control element. This can be useful in case you want to add specific native behaviors to the field, that are not exposed directly by the component (e.g., providing a `name` for the control, or adding `min`, `max`, `minlength`, `maxlength`, or `pattern` attributes to it).
 
 ```handlebars
-<Hds::Form::MaskedInput::Field name="tfc-token" minlength="40" maxlength="40" as |F|>
+<Hds::Form::MaskedInput::Field name="tfc-token" minlength="40" maxlength="40" name="team-token" as |F|>
   <F.Label>Terraform Cloud team token</F.Label>
 </Hds::Form::MaskedInput::Field>
 ```
@@ -254,7 +301,7 @@ This component supports use of `...attributes`. This means you can use all the s
 This component supports the use of `...attributes`, which allows you to use all the usual Ember techniques for event handling (e.g., `input`, `blur`, `change`), validation, etc.
 
 ```handlebars
-<Hds::Form::MaskedInput::Field {{on "blur" this.yourOnBlurFunction}} as |F|>
+<Hds::Form::MaskedInput::Field name="team-token" {{on "blur" this.yourOnBlurFunction}} as |F|>
   <F.Label>Terraform Cloud team token</F.Label>
 </Hds::Form::MaskedInput::Field>
 ```
@@ -266,7 +313,7 @@ By default, the input control width is set to fill the parent container.
 Pass a custom width for the control using the `@width` argument.
 
 ```handlebars
-<Hds::Form::MaskedInput::Field @width="250px" as |F|>
+<Hds::Form::MaskedInput::Field @width="250px" name="team-token" as |F|>
   <F.Label>Terraform Cloud team token</F.Label>
 </Hds::Form::MaskedInput::Field>
 ```
@@ -288,6 +335,7 @@ The default invocation creates a `<input type="text">` or a `<textarea>` control
 <Hds::Form::MaskedInput::Base
   @value="036215df4996ca649928d8864b4df9e42cba0d6d"
   aria-label="Terraform Cloud team token"
+  name="team-token"
 />
 ```
 
@@ -307,6 +355,7 @@ v/Ow5T0q5gIJAiEAyS4RaI9YG8EWx/2w0T67ZUVAw8eOMB6BIUg0Xcu+3okCIBOs
   @isMultiline={{true}}
   rows="5"
   aria-label="Private key"
+  name="team-token"
 />
 ```
 

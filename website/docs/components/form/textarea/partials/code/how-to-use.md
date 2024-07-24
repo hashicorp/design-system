@@ -1,12 +1,5 @@
 ## How to use this component
 
-!!! Info
-
-**Examples have been simplified**
-
-We omit the `name` and `ID` attributes in the examples since processing of the data is the responsibility of the product teams.
-!!!
-
 There are two ways to use the Textarea component:
 
 - `Form::Textarea::Base` - the base component: the `<Textarea>` Ember component.
@@ -25,7 +18,7 @@ The basic invocation requires a `Label`. This creates:
 - a `<textarea>` control with an automatically generated `ID` attribute.
 
 ```handlebars
-<Hds::Form::Textarea::Field as |F|>
+<Hds::Form::Textarea::Field name="description" as |F|>
   <F.Label>Short description</F.Label>
 </Hds::Form::Textarea::Field>
 ```
@@ -35,7 +28,7 @@ The basic invocation requires a `Label`. This creates:
 Pass a `@value` argument to pre-populate the textarea.
 
 ```handlebars
-<Hds::Form::Textarea::Field @value="This is my description" as |F|>
+<Hds::Form::Textarea::Field @value="This is my description" name="description" as |F|>
   <F.Label>Short description</F.Label>
 </Hds::Form::Textarea::Field>
 ```
@@ -45,7 +38,7 @@ Pass a `@value` argument to pre-populate the textarea.
 You can add extra information to the field using helper text. When helper text is added, the component automatically adds an `aria-describedby` attribute to the textarea control, associating it with the automatically generated `ID` of the helper text element.
 
 ```handlebars
-<Hds::Form::Textarea::Field @value="This is my description" as |F|>
+<Hds::Form::Textarea::Field @value="This is my description" name="description" as |F|>
   <F.Label>Short description</F.Label>
   <F.HelperText>Add a short description about the workspace you are creating.</F.HelperText>
 </Hds::Form::Textarea::Field>
@@ -61,7 +54,7 @@ If a link is used within a label, helper text, or error text, it will not be pre
 The `Label` and `HelperText` contextual components used in the Field component yield their content. This means you can also pass structured content.
 
 ```handlebars
-<Hds::Form::Textarea::Field as |F|>
+<Hds::Form::Textarea::Field name="description" as |F|>
   <F.Label>Short description <Hds::Badge @size="small" @text="Beta" /></F.Label>
   <F.HelperText>This is an experimental feature (<Hds::Link::Inline @href="#">read more</Hds::Link::Inline>).</F.HelperText>
 </Hds::Form::Textarea::Field>
@@ -72,12 +65,12 @@ The `Label` and `HelperText` contextual components used in the Field component y
 Use the `@isRequired` and `@isOptional` arguments to add a visual indication that the field is "required" or "optional".
 
 ```handlebars
-<Hds::Form::Textarea::Field @isRequired={{true}} as |F|>
+<Hds::Form::Textarea::Field @isRequired={{true}} name="description" as |F|>
   <F.Label>Short description</F.Label>
   <F.HelperText>Add a short description about the workspace you are creating.</F.HelperText>
 </Hds::Form::Textarea::Field>
 <br />
-<Hds::Form::Textarea::Field @isOptional={{true}} as |F|>
+<Hds::Form::Textarea::Field @isOptional={{true}} name="description" as |F|>
   <F.Label>Short description</F.Label>
   <F.HelperText>Add a short description about the workspace you are creating.</F.HelperText>
 </Hds::Form::Textarea::Field>
@@ -88,7 +81,7 @@ Use the `@isRequired` and `@isOptional` arguments to add a visual indication tha
 If the user input needs to be limited to a certain number of characters, use `@maxLength` on a `CharacterCount` contextual component to guide the user in meeting the length requirements. This property does not restrict the users from entering characters over the limit. To define the maximum string length that the user can enter, set `maxlength` attribute on the associated input field.
 
 ```handlebars
-<Hds::Form::Textarea::Field @value={{this.value1}} {{on "input" (fn this.updateValue "value1")}} as |F|>
+<Hds::Form::Textarea::Field @value={{this.value1}} name="description" {{on "input" (fn this.updateValue "value1")}} as |F|>
   <F.Label>Short description</F.Label>
   <F.CharacterCount @maxLength={{200}}/>
 </Hds::Form::Textarea::Field>
@@ -97,7 +90,7 @@ If the user input needs to be limited to a certain number of characters, use `@m
 If the user input is required to have a certain number of characters, use `@minLength` on a `CharacterCount` contextual component to guide the user in meeting the length requirements.
 
 ```handlebars
-<Hds::Form::Textarea::Field @value={{this.value2}} {{on "input" (fn this.updateValue "value2")}} as |F|>
+<Hds::Form::Textarea::Field @value={{this.value2}} name="description" {{on "input" (fn this.updateValue "value2")}} as |F|>
   <F.Label>Short description</F.Label>
   <F.CharacterCount @minLength={{100}}/>
 </Hds::Form::Textarea::Field>
@@ -106,7 +99,7 @@ If the user input is required to have a certain number of characters, use `@minL
 When the user input needs to be in a certain range, use both `@minLength` and `@maxLength` on a `CharacterCount` contextual component to guide the user in meeting the length requirements.
 
 ```handlebars
-<Hds::Form::Textarea::Field @value={{this.value3}} {{on "input" (fn this.updateValue "value3")}} as |F|>
+<Hds::Form::Textarea::Field @value={{this.value3}} name="description" {{on "input" (fn this.updateValue "value3")}} as |F|>
   <F.Label>Short description</F.Label>
   <F.CharacterCount @minLength={{100}} @minLength={{200}}/>
 </Hds::Form::Textarea::Field>
@@ -117,7 +110,7 @@ When the user input needs to be in a certain range, use both `@minLength` and `@
 For custom messages, you can use the following arguments to build a relevant message: `currentLength` (the current number of characters in the associated form control), `maxLength` (the maximum number of characters allowed in the associated form control), `minLength` (the minimum number of characters required in the associated form control), `remaining` (the difference between `maxLength` and `currentLength`), and `shortfall` (the difference between `currentLength` and `minLength`).
 
 ```handlebars
-<Hds::Form::Textarea::Field @value={{this.value4}} {{on "input" (fn this.updateValue "value4")}} as |F|>
+<Hds::Form::Textarea::Field @value={{this.value4}} name="description" {{on "input" (fn this.updateValue "value4")}} as |F|>
   <F.Label>Short description</F.Label>
   <F.CharacterCount @maxLength={{200}} as |CC|>
     {{CC.remaining}} characters remaining
@@ -133,6 +126,7 @@ You can raise an error based on the number of characters entered into a field us
   <Hds::Form::Textarea::Field
     @value={{this.value5}}
     @isInvalid={{this.fieldIsInvalid}}
+    name="description"
     {{on "input" (fn this.updateValue "value5")}}
     as |F|
   >
@@ -149,7 +143,7 @@ You can raise an error based on the number of characters entered into a field us
 To indicate a field is invalid, use the `@isInvalid` argument and provide an error message using the `Error` contextual component.
 
 ```handlebars
-<Hds::Form::Textarea::Field @value="A" @isInvalid={{true}} as |F|>
+<Hds::Form::Textarea::Field @value="A" @isInvalid={{true}} name="description" as |F|>
   <F.Label>Short description</F.Label>
   <F.Error>Error: the description text is too short.</F.Error>
 </Hds::Form::Textarea::Field>
@@ -158,7 +152,7 @@ To indicate a field is invalid, use the `@isInvalid` argument and provide an err
 Add more than one error message using the more specific `Message` contextual component.
 
 ```handlebars
-<Hds::Form::Textarea::Field @value="&lt;a&gt;" @isInvalid={{true}} as |F|>
+<Hds::Form::Textarea::Field @value="&lt;a&gt;" @isInvalid={{true}} name="description" as |F|>
   <F.Label>Short description</F.Label>
   <F.Error as |E|>
     <E.Message>Length should be at least 12 characters</E.Message>
@@ -178,7 +172,7 @@ In this case all the internal references (`id/for/aria-describedby`) between the
 !!!
 
 ```handlebars
-<Hds::Form::Textarea::Field @id="my-control" as |F|>
+<Hds::Form::Textarea::Field @id="my-control" name="description" as |F|>
   <F.Label>Short description</F.Label>
   <F.HelperText>Add a short description about the workspace you are creating.</F.HelperText>
 </Hds::Form::Textarea::Field>
@@ -189,7 +183,7 @@ In this case all the internal references (`id/for/aria-describedby`) between the
 Pass an `@extraAriaDescribedBy` argument to the field to connect one or more extra elements describing the field to the control. This provides extra ID values to the `aria-describedby` attribute of the control, in addition to those automatically generated by the component.
 
 ```handlebars
-<Hds::Form::Textarea::Field @extraAriaDescribedBy="my-extra-element-ID" as |F|>
+<Hds::Form::Textarea::Field @extraAriaDescribedBy="my-extra-element-ID" name="description" as |F|>
   <F.Label>Short description</F.Label>
   <F.HelperText>Add a short description about the workspace you are creating.</F.HelperText>
 </Hds::Form::Textarea::Field>
@@ -210,8 +204,8 @@ This component supports use of `...attributes`. This means you can use all the s
 Because this component supports use of `...attributes`, you can use all the usual Ember techniques for event handling (e.g., `input`, `blur`, `change`), validation, etc.
 
 ```handlebars
-<Hds::Form::Textarea::Field placeholder="Workspace description" {{on "blur" this.yourOnBlurFunction}} as |F|>
-  <F.Label>Email</F.Label>
+<Hds::Form::Textarea::Field placeholder="Workspace description" name="description" {{on "blur" this.yourOnBlurFunction}} as |F|>
+  <F.Label>Workspace description</F.Label>
 </Hds::Form::Textarea::Field>
 ```
 
@@ -222,7 +216,7 @@ By default, the textarea control width is set to fill the parent container.
 Pass a custom width for the control using the `@width` argument.
 
 ```handlebars
-<Hds::Form::Textarea::Field @width="200px" as |F|>
+<Hds::Form::Textarea::Field @width="200px" name="description" as |F|>
   <F.Label>Short description</F.Label>
 </Hds::Form::Textarea::Field>
 ```
@@ -246,6 +240,7 @@ The Base component creates a `<textarea>` control with an automatically generate
   aria-label="Short description"
   placeholder="Workspace description"
   @isRequired={{true}}
+  name="description"
   {{on "blur" this.yourOnBlurFunction}}
 />
 ```

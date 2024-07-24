@@ -1,12 +1,5 @@
 ## How to use this component
 
-!!! Info
-
-**Examples have been simplified**
-
-We omit the `name` and `ID` attributes in the examples since processing of the data is the responsibility of the product teams.
-!!!
-
 There are three ways to use the Radio component:
 
 - `Form::Radio::Base` - the base component: the `<input>` control
@@ -66,7 +59,7 @@ To better fit your spacing requirements, choose between two different layout ori
 ```
 
 ```handlebars
-<Hds::Form::Radio::Group @layout="horizontal" @name="datacenter-demo2" as |G|>
+<Hds::Form::Radio::Group @layout="horizontal" @name="datacenter-demo3" as |G|>
   <G.Legend>Choose datacenter</G.Legend>
   <G.RadioField as |F|>
     <F.Label>NYC1</F.Label>
@@ -198,7 +191,7 @@ The basic invocation for a Field component creates:
 - a `<input type="radio">` control with an automatically generated `ID` attribute.
 
 ```handlebars
-<Hds::Form::Radio::Field name="data-center" @value="SF1" {{on "change" this.yourOnChangeFunction}} as |F|>
+<Hds::Form::Radio::Field name="data-center-radio" @value="SF1" {{on "change" this.yourOnChangeFunction}} as |F|>
   <F.Label>SF1</F.Label>
 </Hds::Form::Radio::Field>
 ```
@@ -207,7 +200,7 @@ The basic invocation for a Base component creates an `<input type="radio">` cont
 
 ```handlebars
 <Hds::Form::Radio::Base
-  name="data-center"
+  name="data-center-radio2"
   aria-label="San Francisco datacenter number 1"
   @value="SF1"
   {{on "change" this.yourOnChangeFunction}}
