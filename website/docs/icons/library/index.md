@@ -9,14 +9,10 @@ links:
 previewImage: assets/illustrations/icons/library.jpg
 ---
 
-<!-- algolia-ignore-start -->
-<Doc::IconsList
-  @groupedIcons={{this.filteredGroupedIcons}}
-  @onSelectGroupType={{this.selectGroupType}}
-  @selectedGroupType={{this.selectedGroupType}}
-  @onSelectIconSize={{this.selectIconSize}}
-  @selectedIconSize={{this.selectedIconSize}}
-  @searchQuery={{this.searchQuery}}
-  @searchIcons={{this.searchIcons}}
-/>
-<!-- algolia-ignore-end -->
+<section data-tab="Library">
+  @include "partials/library.md"
+</section>
+
+<section data-tab="Code">
+  @include "partials/code.md"
+</section>
