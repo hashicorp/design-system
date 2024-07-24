@@ -6,12 +6,25 @@
 // APP-HEADER
 
 body.components-app-header {
+  // so the open menu in mobile view doesn't get overlapped in the examples
+  .shw-grid__item {
+    @for $i from 1 through 20 {
+      &:nth-of-type(#{$i}) {
+        .hds-app-header {
+          z-index: #{20 - $i};
+        }
+      }
+  }
+  }
+
   .hds-app-header {
     position: relative; // position is fixed when used within a screen layout
 
     &.hds-app-header--is-mobile {
       .hds-app-header__actions-content {
-        height: auto; // height fills screen minus app header height when used within a screen layout
+        // height fills screen minus app header height when used within a screen layout
+        height: auto;
+        min-height: 160px;
       }
     }
 

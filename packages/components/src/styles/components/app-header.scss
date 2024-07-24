@@ -31,26 +31,6 @@
     // Global actions are aligned next to the logo in desktop view
     .hds-app-header__global-actions {
       margin-right: auto;
-
-      // TODO: Delete once collision detection is implemented for Dropdown
-      // Force align dropdown content
-      .hds-dropdown__content {
-        top: calc(100% + 4px);
-        right: auto;
-        bottom: auto;
-        left: 0;
-      }
-    }
-
-    // TODO: Delete once collision detection is implemented for Dropdown
-    .hds-app-header__utility-actions {
-      // Force align dropdown content
-      .hds-dropdown__content {
-        top: calc(100% + 4px);
-        right: 0;
-        bottom: auto;
-        left: auto;
-      }
     }
   }
 
@@ -71,15 +51,6 @@
       padding: 16px;
       overflow: auto; // allow users to scroll if the content is too long
       background: var(--token-color-palette-neutral-700);
-    }
-
-    // TODO: Delete once collision detection is implemented for Dropdown
-    // Force align dropdown content
-    .hds-dropdown__content {
-      top: calc(100% + 4px);
-      right: auto;
-      bottom: auto;
-      left: 0;
     }
 
     // Force the width of global actions to 100% in mobile/tablet view

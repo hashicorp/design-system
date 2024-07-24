@@ -18,7 +18,7 @@
   min-height: 100vh;
 
   // prevent interaction with AppHeader when SideNav is open/expanded
-  &:has(.hds-side-nav--is-not-minimized) .hds-app-header {
+  &:has(.hds-side-nav--is-not-minimized) .hds-app-header--is-mobile {
     pointer-events: none;
   }
 }
