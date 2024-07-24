@@ -1,7 +1,7 @@
 ---
 title: Icon
-description: Used to display an icon.
-caption: Displays an icon from the Helios icon library to enhance the communication of text and UI elements.
+description: Displays an icon from the Helios icon library to enhance the communication of text and UI elements.
+caption: Used to display an icon.
 previewImage: assets/illustrations/icons/usage-guidelines.jpg
 ---
 

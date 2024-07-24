@@ -1,81 +1,13 @@
 !!! Information
 
-Because this addon exposes a `data-test-icon` helper, we recommend installing [`ember-test-selectors`](https://github.com/simplabs/ember-test-selectors) which strips out all `data-test-*` attributes for production builds.
+Because this component exposes a `data-test-icon` helper, we recommend installing [`ember-test-selectors`](https://github.com/simplabs/ember-test-selectors) which strips out all `data-test-*` attributes for production builds.
 !!!
 
-#### Deferred loading
+## How to use this component
 
-By default, the SVG sprite will be injected into your application's `index.html` file. If you would like this to happen later as part of your app bundle you can set the `lazyEmbed` flag to `true` in the `emberFlightIcons` object in your app's `config/environment.js` file:
+The most basic invocation of the Icon component requires only the `@name` property to be passed with a value matching an existing name in [the Icon library](/icons/library):
 
-```js
-module.exports = function(environment) {
-  const ENV = {
-    // your other config
-    ...
-    emberFlightIcons: {
-      lazyEmbed: true,
-    },
-  };
-}
-```
-
-For more information on why this may be helpful in certain scenarios, see [DS-049 - Improve Ember Flight Icons Loading Performance](https://go.hashi.co/rfc/ds-049).
-
-<!-- ### Adding icons to React apps
-
-To add icons to a React application, install the `@hashicorp/flight-icons` package and import the icons as either inline SVGs or as a standalone React/SVG component.
-
-!!! Info
-
-For more details about the decision to add this functionality, visit this [pull-request](https://github.com/hashicorp/flight/pull/325).
-!!!
-
-#### Installing the `flight-icons` package
-
-To install, run:
-
-```bash
-yarn install @hashicorp/flight-icons
-```
-
-#### Importing icons as inline SVGs
-
-Single icons can be imported and used directly as SVG files using [&lt;InlineSvg&gt;](https://react-components.vercel.app/components/inlinesvg) provided by [@hashicorp/react-components](https://github.com/hashicorp/react-components).
-
-Since this is just an SVG asset, no _props_ can be passed. You should refer to the [&lt;InlineSvg&gt;](https://react-components.vercel.app/components/inlinesvg) documentation to know how to apply color and size to the SVG icon.
-
-```javascript
-// import the SVG file (using 'require')
-const iconArrowRight = require('@hashicorp/flight-icons/svg/arrow-right-24.svg?include');
-// or import the SVG file (using 'import')
-import iconArrowRight from '@hashicorp/flight-icons/svg/arrow-right-24.svg?include';
-
-// elsewhere in the file
-<InlineSvg src={iconArrowRight} />
-
-// alternatively you can also use a similar approach
-<InlineSvg src={require('@hashicorp/flight-icons/svg/arrow-right-24.svg?include')} />
-```
-
-#### Importing icons as React/SVG components
-
-Single icons can be imported and used directly as standalone React/SVG components:
-
-```javascript
-// import the React/TypeScript file (using 'require')
-const { IconArrowRight24 } = require('@hashicorp/flight-icons/svg-react/arrow-right-24');
-// or import the React/TypeScript file (using 'import')
-import { IconArrowRight24 } from '@hashicorp/flight-icons/svg-react/arrow-right-24';
-
-// elsewhere in the file
-<IconArrowRight24 />
-``` -->
-
-## How to use icons
-
-The most basic invocation requires only the `@name` property to be passed with a value matching an existing name in [the Icon library](/icons/library).
-
-```markup
+```handlebars
 <Hds::Icon @name="alert-circle" />
 ```
 
@@ -97,14 +29,14 @@ It renders to this (where the `id` will be unique each time):
 </svg>
 ```
 
-Because the icons are hidden to assistive technology, they cannot be used on their own and must be used inside of an element with an accessible name.
+Because the icons are hidden to assistive technology, they cannot be used on their own and must be used inside of an element with an accessible name. See the [Accessibility](/components/icon?tab=accessibility) section for more details on how to best use this component in different contexts.
 
-The [Hds::Button](/components/button?tab=code#icon-only-button) component automatically provides this support, but if you make a custom element, or want to use a `Hds::Icon` inside of a native HTML element like your own button element, ensure that an `aria-label` attribute is added, like this:
+### Size
+
+The default size is 16px. To use the alternative 24px icon size, set the `@size` value:
 
 ```handlebars
-<button type="button" aria-label="add a new thing">
-  <Hds::Icon @name="plus" />
-</button>
+<Hds::Icon @name="zap" @size="24" />
 ```
 
 ### Color
@@ -123,14 +55,6 @@ Other accepted values include named colors and color values themselves (e.g., he
 
 ```handlebars
 <Hds::Icon @name="zap" @color="rgb(46, 113, 229)" />
-```
-
-### Size
-
-The default size is 16px. To use the alternative 24px icon size, set the `@size` value:
-
-```handlebars
-<Hds::Icon @name="zap" @size="24" />
 ```
 
 ### Stretched
@@ -169,6 +93,18 @@ This is because the [`middle` alignment](https://developer.mozilla.org/en-US/doc
 
 ### Animated icons
 
+The [loading](/icons/library?searchQuery=icon%3Aloading) and [running](/icons/library?searchQuery=icon%3Arunning) icons are animated by default, meaning no additional properties are needed:
+
+```handlebars
+<Hds::Icon @name="loading" @size="24" />
+```
+
+If you need the non-animated version of these icons use the corresponding [loading-static](/icons/library?searchQuery=icon%3Aloading-static) and [running-static](/icons/library?searchQuery=icon%3Arunning-static):
+
+```handlebars
+<Hds::Icon @name="loading-static" @size="24" />
+```
+
 !!! Information
 
 **Note on accessibility**
@@ -176,32 +112,3 @@ This is because the [`middle` alignment](https://developer.mozilla.org/en-US/doc
 A `prefers-reduced-motion` media query will automatically disable the animation if users set this preference in their environment.
 
 !!!
-
-#### In Ember apps
-
-Animated icons (e.g., "loading" and "running") are animated by default, meaning no additional properties are needed.
-
-```handlebars
-<Hds::Icon @name="loading" @size="24" />
-```
-
-<!-- #### In React apps
-
-To use the icons which are meant to be animated (e.g., “loading” and “running”), import the CSS that controls the icons’ animation:
-
-```scss
-// the path here depends if you’re using 'svg-react' or 'svg' icons 
-@import ~@hashicorp/flight-icons/svg-react/animation.css';
-```
-
-Then declare them the same way you would with any other icon.
-
-```javascript
-// if you’re using the 'svg-react' icons
-import { IconLoading16 } from '@hashicorp/flight-icons/svg-react/loading-16'
-<IconLoading16 />
-
-// if you’re using the 'svg' icons
-import svgLoading16 from '@hashicorp/flight-icons/svg/loading-16.svg?include'
-<InlineSvg src={svgLoading16} />
-``` -->

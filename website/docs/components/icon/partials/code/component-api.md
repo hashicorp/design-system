@@ -2,7 +2,7 @@
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="name" @type="string" @required="true">
-    The name of the icon you wish to use. If the value does not match an existing icon name, an error will be thrown. Search for existing icon names in [the Icon library](icons/library).
+    The name of the icon you wish to use. If the value does not match an existing icon name, an error will be thrown. Search for existing icon names in [the Icon library](/icons/library).
   </C.Property>
   <C.Property @name="color" @type="string" @default="currentColor">
     The `@color` argument can be used to change the color. It works by setting the value of the icon SVG’s `fill` property.
