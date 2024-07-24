@@ -4,15 +4,29 @@
  */
 
 import Component from '@glimmer/component';
+import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
+import type { HdsInteractiveSignature } from '../../interactive';
 
-export default class HdsDropdownListItemCheckmarkComponent extends Component {
+interface HdsDropdownListItemCheckmarkSignature {
+  Args: HdsInteractiveSignature['Args'] & {
+    count?: string | number;
+    icon?: FlightIconSignature['Args']['name'];
+    selected?: boolean;
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HdsInteractiveSignature['Element'];
+}
+
+export default class HdsDropdownListItemCheckmarkComponent extends Component<HdsDropdownListItemCheckmarkSignature> {
   /**
    * Get the class names to apply to the component.
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
-    let classes = [
+  get classNames(): string {
+    const classes = [
       'hds-dropdown-list-item',
       'hds-dropdown-list-item--color-action',
       'hds-dropdown-list-item--variant-checkmark',
