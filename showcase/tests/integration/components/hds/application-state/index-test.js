@@ -5,13 +5,17 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { render } from '@ember/test-helpers';
+import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module(
   'Integration | Component | hds/application-state/index',
   function (hooks) {
     setupRenderingTest(hooks);
+
+    hooks.afterEach(() => {
+      resetOnerror();
+    });
 
     test('it should render with a CSS class that matches the component name', async function (assert) {
       await render(hbs`
@@ -57,6 +61,24 @@ module(
       assert
         .dom('#test-application-state')
         .hasClass('hds-application-state--align-center');
+    });
+
+    test('it should throw an error when alignment is set to an invalid value', async function (assert) {
+      const errorMessage = 'Invalid align value: test';
+
+      setupOnerror(function (error) {
+        assert.strictEqual(error.message, errorMessage);
+      });
+
+      await render(hbs`
+      <Hds::ApplicationState id="test-application-state" @align="test">
+        template block text
+      </Hds::ApplicationState>
+    `);
+
+      assert.throws(function () {
+        throw new Error(errorMessage);
+      });
     });
   }
 );
