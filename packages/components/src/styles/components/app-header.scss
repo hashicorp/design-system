@@ -11,6 +11,11 @@
 
 // ----------------
 
+:root {
+  --token-app-header-home-link-size: 36px;
+  --token-app-header-logo-size: 28px;
+}
+
 .hds-app-header {
   position: relative;
   z-index: 20; // needs to stay above the main content
@@ -108,12 +113,23 @@
   }
 }
 
+// Logo
+
 .hds-app-header__home-link {
   @include hds-interactive-dark-theme($add-visible-border: false);
-  display: block;
-  width: var(--token-app-header-home-link-logo-size);
-  height: var(--token-app-header-home-link-logo-size);
-  padding: calc(var(--token-app-header-home-link-padding) - 1px); // by design - we take in account the transparent border
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // Set home link container size:
+  width: var(--token-app-header-home-link-size);
+  height: var(--token-app-header-home-link-size);
+  
+  // Set SVG logo size:
+  svg {
+    width: var(--token-app-header-logo-size);
+    height: var(--token-app-header-logo-size);
+  }
 }
 
 .hds-app-header__actions-content,
