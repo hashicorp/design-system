@@ -33,14 +33,16 @@ export interface HdsApplicationStateSignature {
 
 export default class HdsApplicationStateComponent extends Component<HdsApplicationStateSignature> {
   get align(): HdsApplicationStateAligns {
-    const validAlignValues: HdsApplicationStateAligns[] = Object.values(
-      HdsApplicationStateAlignValues
-    );
-
     if (this.args.align == null) {
       return HdsApplicationStateAlignValues.Left;
     } else {
-      if (!validAlignValues.includes(this.args.align)) {
+      if (
+        !(
+          Object.values(
+            HdsApplicationStateAlignValues
+          ) as HdsApplicationStateAligns[]
+        ).includes(this.args.align)
+      ) {
         throw new Error(`Invalid align value: ${this.align}`);
       }
 
