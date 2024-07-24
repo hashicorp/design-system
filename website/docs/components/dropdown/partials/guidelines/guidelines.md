@@ -269,7 +269,7 @@ Users may not understand why something is taking additional time to load. If pos
 
 #### Generic
 
-The Generic ListItem allows you to add custom content in place of a ListItem. It includes predefined left and right padding to ensure proper alignment with other ListItems in the List.
+The Generic ListItem allows you to add generic content in place of a ListItem. It includes predefined left and right padding to ensure proper alignment with other ListItems in the List.
 
 !!! Warning
 
