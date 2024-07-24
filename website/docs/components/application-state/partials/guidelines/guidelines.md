@@ -64,7 +64,7 @@ The Application State supports up to three actions, including [Standalone Link](
 
 Buttons, along with links, are used to emphasize the importance of the action in the Application State with visual hierarchy, and are the most common actions used in the footer.
 
-!!! Don't
+!!! Dont
 
 When there is an empty state that occupies the majority of the page, do not display two exact actions at the same time in different areas of the UI. In this example, there is a primary button in the Page Header and in the Application State. 
 
