@@ -4,6 +4,7 @@
 
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|
+| Media            | Optinoal.                                       |
 | Title            | Required.                                       |
 | Icon             | Optional, but recommended with errorCode.        |
 | errorCode        | Optional, but recommended when in errorState.        |
