@@ -40,7 +40,7 @@ This provides additional visual prominence while also elevating the brand experi
 
 ### Icon
 
-When set to true, the icon is displayed side by side with the title.
+When set, the icon is displayed side by side with the title.
 
 ![Showing an icon left of the title, with some body text below it.](/assets/components/application-state/application-state-icon-usage.png)
 
