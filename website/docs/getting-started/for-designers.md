@@ -138,7 +138,7 @@ Our Figma components are tightly coupled with their code counterparts to maintai
 
 When you detach a component, it no longer receives updates from the library, which can cause designs and production applications to drift out of sync quickly.
 
-Contact us for [support or to request a new component](https://go.hashi.co/hds-support) if a component doesn’t meet your needs.
+Contact the Helios Design System team for [support or to request a new component](https://go.hashi.co/hds-support) if a component doesn’t meet your needs."
 
 #### Overriding component styles
 
@@ -208,4 +208,4 @@ Explore more content about libraries, components, and styles directly from Figma
 
 ## Support
 
-If you have questions or need assistance using Helios libraries, <LinkTo class="doc-link-generic" @route="show" @model="about/support">reach out for support</LinkTo>.
+Contact the Helios Design System team for <LinkTo class="doc-link-generic" @route="show" @model="about/support">support</LinkTo> if you have questions or need assistance using Helios libraries.
