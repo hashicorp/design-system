@@ -64,7 +64,7 @@ The body allows for two types of content: `text` and `generic`.
 
 
 ## Footer
-The Application State supports up to three actions, including [Standalone Link](/components/link/standalone), [Button](/components/button), and [Dropdown](/components/dropdown). Use footer actions to redirect or guide users in solving errors/access issues with actionable steps.
+The Application State supports up to three actions, including [Dropdown](/components/dropdown), [Standalone Link](/components/link/standalone) and [Button](/components/button). Use footer actions to redirect or guide users in solving errors/access issues with actionable steps.
 
 ![A button set showing a dropdown, secondary button and stand alone link](/assets/components/application-state/application-state-footer-action-types.png)
 
