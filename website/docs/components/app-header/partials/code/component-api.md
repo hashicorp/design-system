@@ -7,7 +7,7 @@
     A named block where the main product logo linked to your app’s home page is rendered. The `AppHeader::HomeLink` component should be added here.
   </C.Property>
   <C.Property @name="<:globalActions>" @type="named block">
-    A named block where the global actions will be rendered. Typically, a “context switcher” (eg. organization or project selector) should be added here.
+    A named block where the global actions will be rendered. Typically, a “context switcher” (e.g., “org switcher” or “project switcher”) control should be added here.
   </C.Property>
   <C.Property @name="<:utilityActions>" @type="named block">
     A named block where the utility actions will be rendered. Typically, `Dropdown` or `Button` components should be added here, such as a help menu, user menu, or search button.

@@ -356,7 +356,7 @@ When the SideNav is used in conjunction with portals, the nesting of navigation/
 
 #### Footer (`<:footer>`)
 
-This area usually contains the "context switchers" (eg. organization or project selectors), but technically it can contain anything (it depends on the context/application where the SideNav is used).
+This area usually contains a “context switcher” (e.g., “org switcher” or “project switcher”) control, but technically it can contain anything (it depends on the context/application where the SideNav is used).
 
 If you want (and you probably do) the content automatically fades in/out when the SideNav changes its "minimization" state, you have to apply the specific class `hds-side-nav-hide-when-minimized` to the top-level elements of your content.
 

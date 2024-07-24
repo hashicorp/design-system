@@ -1,3 +1,11 @@
+!!! Warning
+
+The `AppHeader` is being rolled out in a phased approach. In the phase one release, we will assist consumers in adoption spikes to optimize it to their needs. This unique approach is due to how the `AppHeader` tightly integrates into the release plan for the “Enterprise navigation” which includes the `SideNav` and `AppFrame` components.
+
+At this time, we do not recommend adoption on your own without the assistance of HDS team members.
+
+!!!
+
 ## How to use this component
 
 The `AppHeader` provides persistent global navigation controls and utility links such as to help and user menus. It is meant to be paired with the `SideNav` which provides local or page-level navigation.
@@ -10,11 +18,11 @@ The `AppHeader` is intended to be used in combination with the [`Hds::AppFrame`]
 
 ### Layout
 
-The AppHeader exposes three “slots” (named blocks) where consumers can yield the navigation content and add business logic to control the content.
+The AppHeader exposes three “slots” (named blocks) where consumers can yield the navigation content and also add business logic to control the content.
 
 The `<:logo>` block should contain the `AppHeader::HomeLink` which is provided as a child component.
 
-The other two slots are used for consumer provided controls. The `<:globalActions>` block typically should provide an “OrgSwitcher” or “ProjectSwitcher“ control while the `<:utilityActions>` block should contain utilities such “Help” and “User” menus and optionally “Search”.
+The other two slots are intended for consumer-provided controls. The `<:globalActions>` block should typically contain a “context switcher” (sometimes called an “org switcher” or “project switcher”). The `<:utilityActions>` block is used to provide utilities including “Help” and “User” menus and, optionally, “Search”.
 
 
 ```handlebars
@@ -38,7 +46,7 @@ The other two slots are used for consumer provided controls. The `<:globalAction
 
 #### HomeLink
 
-The `Hds::AppHeader::HomeLink` child component should be yielded within the `<:logo>` block. It provides consistent branding and navigates the user to the “home“ or main dashboard page.
+The `Hds::AppHeader::HomeLink` child component should be yielded within the `<:logo>` block. It provides consistent branding and navigates the user to the “home” or main dashboard page.
 
 It requires a value for the `@icon` and `@ariaLabel` arguments.
 
@@ -67,7 +75,7 @@ Refer to the [Component API section](/components/app-header?tab=code#appheaderho
 </Hds::AppHeader>
 ```
 
-It also accepts optional arguments; for example, it’s possible to provide a custom color for the icon if needed:
+The `HomeLink` also accepts optional arguments; for example, it’s possible to provide a custom color for the icon if needed:
 
 ```handlebars
 <Hds::AppHeader>
@@ -93,8 +101,8 @@ It also accepts optional arguments; for example, it’s possible to provide a cu
 
 #### Global actions
 
-Consumers should provide their own “context switcher” (eg. organization or project selector) control yielded within the 
-`<:globalActions>`. HDS does not currently provide this component.
+Consumers should provide their own “context switcher” (e.g., “org switcher” or “project switcher”) control yielded within the 
+`<:globalActions>` block. HDS does not currently provide this component.
 
 ```handlebars
 <Hds::AppHeader>
