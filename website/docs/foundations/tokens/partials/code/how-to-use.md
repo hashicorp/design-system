@@ -29,7 +29,7 @@ Use the design tokens in your style declarations as CSS custom properties.
 2. If a component accepts a color parameter you can use a design token too.
 
 ```handlebars
-<FlightIcon @name="alert-circle" @color="var(--token-color-foreground-success)" />
+<Hds::Icon @name="alert-circle" @color="var(--token-color-foreground-success)" />
 ```
 
 For more details on how the design tokens pipeline is implemented, and how the design tokens are generated and distributed, see the repository [@hashicorp/design-system-tokens](https://github.com/hashicorp/design-system/tree/main/packages/tokens).

@@ -16,7 +16,7 @@
 
 **Links within labels, helper text, or error text**
 
-If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. We understand avoiding links within help/error text or labels may be impossible, but we recommend using this method sparingly. 
+If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. We understand avoiding links within help/error text or labels may be impossible, but we recommend using this method sparingly.
 !!!
 
 ## Keyboard navigation
@@ -27,10 +27,10 @@ Move focus to the selected card. If nothing is selected, focus will move to the 
 
 ![Keyboard tab focus in a RadioCard group](/assets/components/form/radio-card/radio-card-accessibility-tab.png =980x*)
 
-<Doc::Badge @type="neutral"><FlightIcon @name="arrow-left" /></Doc::Badge>
-<Doc::Badge @type="neutral"><FlightIcon @name="arrow-right" /></Doc::Badge>
-<Doc::Badge @type="neutral"><FlightIcon @name="arrow-up" /></Doc::Badge>
-<Doc::Badge @type="neutral"><FlightIcon @name="arrow-down" /></Doc::Badge>
+<Doc::Badge @type="neutral"><Hds::Icon @name="arrow-left" /></Doc::Badge>
+<Doc::Badge @type="neutral"><Hds::Icon @name="arrow-right" /></Doc::Badge>
+<Doc::Badge @type="neutral"><Hds::Icon @name="arrow-up" /></Doc::Badge>
+<Doc::Badge @type="neutral"><Hds::Icon @name="arrow-down" /></Doc::Badge>
 
 Navigate between Radio Cards. As the card is focused it also becomes selected.
 
