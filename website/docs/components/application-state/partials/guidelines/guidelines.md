@@ -36,7 +36,7 @@ This provides additional visual prominence while also elevating the brand experi
 
 When set to true, the icon is displayed side by side with the title.
 
-![Showing an icon right next to the application state title, with some body text below it with two kinds of external links.](/assets/components/application-state/application-state-icon-usage.png)
+![Showing an icon left of the title, with some body text below it.](/assets/components/application-state/application-state-icon-usage.png)
 
 This is commonly used when displaying an error state for application failures. The icon must always be accompanied by a title.
 
