@@ -11,11 +11,6 @@
 
 // ----------------
 
-:root {
-  --token-app-header-home-link-size: 36px;
-  --token-app-header-logo-size: 28px;
-}
-
 .hds-app-header {
   position: relative;
   z-index: 20; // needs to stay above the main content
