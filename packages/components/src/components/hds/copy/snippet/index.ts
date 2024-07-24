@@ -20,7 +20,7 @@ export const SUCCESS_ICON = 'clipboard-checked';
 export const ERROR_ICON = 'clipboard-x';
 export const DEFAULT_STATUS = 'idle';
 
-interface HdsCopySnippetSignature {
+export interface HdsCopySnippetSignature {
   Args: {
     color?: HdsCopySnippetColors;
     isFullWidth?: boolean;

@@ -5,15 +5,25 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import type { HdsCopySnippetSignature } from '../../copy/snippet';
 
-export default class HdsDropdownListItemCopyItemComponent extends Component {
+interface HdsDropdownListItemCopyItemSignature {
+  Args: {
+    copyItemTitle?: string;
+    isTruncated?: HdsCopySnippetSignature['Args']['isTruncated'];
+    text: HdsCopySnippetSignature['Args']['textToCopy'];
+  };
+  Element: HTMLLIElement;
+}
+
+export default class HdsDropdownListItemCopyItemComponent extends Component<HdsDropdownListItemCopyItemSignature> {
   /**
    * @param text
    * @type {string}
    * @description The text of the item. If no text value is defined an error will be thrown
    */
-  get text() {
-    let { text } = this.args;
+  get text(): HdsCopySnippetSignature['Args']['textToCopy'] {
+    const { text } = this.args;
 
     assert(
       '@text for "Hds::Dropdown::ListItem::CopyItem" must have a valid value',
@@ -29,8 +39,8 @@ export default class HdsDropdownListItemCopyItemComponent extends Component {
    * @default true
    * @description Indicates that the text should be truncated instead of wrapping and using multiple lines.
    */
-  get isTruncated() {
-    let { isTruncated = true } = this.args;
+  get isTruncated(): HdsCopySnippetSignature['Args']['isTruncated'] {
+    const { isTruncated = true } = this.args;
 
     return isTruncated;
   }
@@ -40,8 +50,8 @@ export default class HdsDropdownListItemCopyItemComponent extends Component {
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
-    let classes = [
+  get classNames(): string {
+    const classes = [
       'hds-dropdown-list-item',
       'hds-dropdown-list-item--variant-copy-item',
     ];
