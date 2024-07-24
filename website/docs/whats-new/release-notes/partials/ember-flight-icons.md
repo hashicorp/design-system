@@ -12,6 +12,14 @@
   </a>
 </p>
 
+## 5.1.3
+
+**Patch changes**
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@3.5.0
+
 ## 5.1.2
 
 **Patch changes**
@@ -95,7 +103,7 @@ Alternatively, you can import the CSS by adding this configuration in `ember-cli
 
 ```js
 app.import(
-  "node_modules/@hashicorp/design-system-components/dist/styles/@hashicorp/design-system-components.css"
+  "node_modules/@hashicorp/design-system-components/dist/styles/@hashicorp/design-system-components.css",
 );
 ```
 
@@ -238,14 +246,6 @@ Drop support for Node 14
 Added opt in flag to allow consumers to move sprite loading out of index.html
 
 <small class="doc-whats-new-changelog-metadata">[#1543](https://github.com/hashicorp/design-system/pull/1543)</small>
-
-## 3.0.9
-
-**Patch changes**
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/flight-icons@2.17.0
 
 
 ---
