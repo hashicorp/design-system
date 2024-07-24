@@ -17,7 +17,7 @@ export const COLORS: string[] = Object.values(
   HdsDropdownListItemInteractiveColorValues
 );
 
-interface HdsDropdownListItemInteractiveSignature {
+export interface HdsDropdownListItemInteractiveSignature {
   Args: HdsInteractiveSignature['Args'] & {
     color: HdsDropdownListItemInteractiveColors;
     icon?: FlightIconSignature['Args']['name'];

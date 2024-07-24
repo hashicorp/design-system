@@ -1,6 +1,6 @@
 import templateOnlyComponent from '@ember/component/template-only';
 
-interface HdsDropdownListItemSeparatorSignature {
+export interface HdsDropdownListItemSeparatorSignature {
   Element: HTMLLIElement;
 }
 

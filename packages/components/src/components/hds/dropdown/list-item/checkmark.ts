@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
 import type { HdsInteractiveSignature } from '../../interactive';
 
-interface HdsDropdownListItemCheckmarkSignature {
+export interface HdsDropdownListItemCheckmarkSignature {
   Args: HdsInteractiveSignature['Args'] & {
     count?: string | number;
     icon?: FlightIconSignature['Args']['name'];

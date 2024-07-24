@@ -28,7 +28,7 @@ export const COLORS: string[] = Object.values(
 
 const NOOP = (): void => {};
 
-interface HdsDropdownToggleButtonSignature {
+export interface HdsDropdownToggleButtonSignature {
   Args: {
     badge?: HdsBadgeSignature['Args']['text'];
     badgeIcon?: HdsBadgeSignature['Args']['icon'];

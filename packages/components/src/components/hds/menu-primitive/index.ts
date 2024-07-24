@@ -8,7 +8,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { schedule } from '@ember/runloop';
 
-interface MenuPrimitiveSignature {
+export interface MenuPrimitiveSignature {
   Args: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onClose?: (...args: any[]) => void;

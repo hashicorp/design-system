@@ -1,6 +1,6 @@
 import templateOnlyComponent from '@ember/component/template-only';
 
-interface HdsDropdownListItemGenericSignature {
+export interface HdsDropdownListItemGenericSignature {
   Blocks: {
     default: [];
   };

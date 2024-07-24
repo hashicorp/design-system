@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import type { HdsTextBodySignature } from '../../text/body';
 
-interface HdsDropdownListItemTitleSignature {
+export interface HdsDropdownListItemTitleSignature {
   Args: {
     text: string;
   };

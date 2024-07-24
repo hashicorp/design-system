@@ -16,7 +16,7 @@ export const SIZES: string[] = Object.values(HdsDropdownToggleIconSizeValues);
 
 const NOOP = (): void => {};
 
-interface HdsDropdownToggleIconSignature {
+export interface HdsDropdownToggleIconSignature {
   Args: {
     hasChevron?: boolean;
     icon: FlightIconSignature['Args']['name'];

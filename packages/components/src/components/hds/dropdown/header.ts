@@ -1,6 +1,6 @@
 import templateOnlyComponent from '@ember/component/template-only';
 
-interface HdsDropdownHeaderSignature {
+export interface HdsDropdownHeaderSignature {
   Args: {
     hasDivider: boolean;
   };
@@ -10,6 +10,7 @@ interface HdsDropdownHeaderSignature {
   Element: HTMLDivElement;
 }
 
-const HdsDropdownHeaderComponent = templateOnlyComponent<HdsDropdownHeaderSignature>();
+const HdsDropdownHeaderComponent =
+  templateOnlyComponent<HdsDropdownHeaderSignature>();
 
 export default HdsDropdownHeaderComponent;

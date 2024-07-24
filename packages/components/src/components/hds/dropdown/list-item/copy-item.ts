@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import type { HdsCopySnippetSignature } from '../../copy/snippet';
 
-interface HdsDropdownListItemCopyItemSignature {
+export interface HdsDropdownListItemCopyItemSignature {
   Args: {
     copyItemTitle?: string;
     isTruncated?: HdsCopySnippetSignature['Args']['isTruncated'];
