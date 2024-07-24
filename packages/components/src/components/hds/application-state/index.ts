@@ -37,11 +37,15 @@ export default class HdsApplicationStateComponent extends Component<HdsApplicati
       HdsApplicationStateAlignValues
     );
 
-    if (!validAlignValues.includes(this.align)) {
-      throw new Error(`Invalid align value: ${this.align}`);
-    }
+    if (this.args.align == null) {
+      return HdsApplicationStateAlignValues.Left;
+    } else {
+      if (!validAlignValues.includes(this.args.align)) {
+        throw new Error(`Invalid align value: ${this.align}`);
+      }
 
-    return this.args.align ?? HdsApplicationStateAlignValues.Left;
+      return this.args.align;
+    }
   }
 
   get classNames(): string {

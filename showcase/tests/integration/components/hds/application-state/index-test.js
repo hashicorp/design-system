@@ -37,7 +37,7 @@ module(
 
     test('it should have the correct alignment class when alignment is set to "left"', async function (assert) {
       await render(hbs`
-      <Hds::ApplicationState id="test-application-state">
+      <Hds::ApplicationState id="test-application-state" @align="left">
         template block text
       </Hds::ApplicationState>
     `);
@@ -49,7 +49,7 @@ module(
 
     test('it should have the correct alignment class when alignment is set to "center"', async function (assert) {
       await render(hbs`
-      <Hds::ApplicationState id="test-application-state">
+      <Hds::ApplicationState id="test-application-state" @align="center">
         template block text
       </Hds::ApplicationState>
     `);
