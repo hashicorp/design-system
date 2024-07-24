@@ -3,6 +3,8 @@ title: Icon
 description: Displays an icon from the Helios icon library to enhance the communication of text and UI elements.
 caption: Used to display an icon.
 previewImage: assets/illustrations/icons/usage-guidelines.jpg
+status:
+  added: 4.8.0
 ---
 
 <section data-tab="Guidelines">
@@ -21,4 +23,8 @@ previewImage: assets/illustrations/icons/usage-guidelines.jpg
 
 <section data-tab="Resources">
   @include "partials/resources/resources.md"
+</section>
+
+<section data-tab="Version history">
+  @include "partials/version-history/4.8.0.md"
 </section>
