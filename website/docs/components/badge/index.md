@@ -9,6 +9,8 @@ related: ['components/badge-count','components/tag']
 previewImage: assets/illustrations/components/badge.jpg
 navigation:
   keywords: ['chip', 'pill', 'tag', 'label']
+status:
+  updated: 4.7.0
 ---
 
 <section data-tab="Guidelines">
@@ -27,4 +29,8 @@ navigation:
 
 <section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
+</section>
+
+<section data-tab="Version history">
+  @include "partials/version-history/4.7.0.md"
 </section>
